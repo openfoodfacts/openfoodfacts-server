@@ -99,9 +99,9 @@ server {
 	location ~ ^/(images|fonts|css|js|rss|foundation|bower_components)/ {
 		include snippets/off.cors-headers.include;
 		include snippets/exiry-headers.include;
-		# First attempt to serve as file,
+		# First attempt to serve request as file, off_web_html acting as an override,
 		# then as directory, then fall back to displaying a 404.
-		try_files $uri $uri/ =404;
+		try_files /off_web_html$uri $uri $uri/ =404;
 		gzip_static always;
 		gunzip on;
 	}
