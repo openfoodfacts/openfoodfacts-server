@@ -23,10 +23,16 @@ package ProductOpener::Config;
 use utf8;
 use Modern::Perl '2017';
 
+# Config.pm will dynamically load Config_off.pm or Config_obf.pm etc.
+# based on the value of the PRODUCT_OPENER_FLAVOR_SHORT environment variable
+
 my $flavor = $ENV{PRODUCT_OPENER_FLAVOR_SHORT};
-eval("require ProductOpener::Config_$flavor;");
-die $@ if $@;
-eval("ProductOpener::Config_$flavor->import;");
-die $@ if $@;
+
+if (not defined $flavor) {
+	die("The PRODUCT_OPENER_FLAVOR_SHORT environment variable must be set.");
+}
+
+use Module::Load;
+autoload("ProductOpener::Config_$flavor");
 
 1;
