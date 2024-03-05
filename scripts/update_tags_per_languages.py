@@ -327,7 +327,7 @@ def main():
         if tag in map_tags_field_url_dic:
             map_tags_field_url_parameter[tag] = map_tags_field_url_dic[tag]
         else:
-            print("This tag is not known:", tag)
+            print("This tag is not known:", tag, file=sys.stderr)
             sys.exit()
 
     if env == "prod":
@@ -339,7 +339,7 @@ def main():
         env = "net"
         user = "off:off@"
     else:
-        print("Environment should be 'prod' or 'dev', unexpected value:", env)
+        print("Environment should be 'prod' or 'dev', unexpected value:", env, file=sys.stderr)
         sys.exit()
 
     for plural, singular in map_tags_field_url_parameter.items():
@@ -384,9 +384,9 @@ def main():
         with open(log_file_name_1.format(plural=plural), 'r') as log_file_1:
             # skip header
             log_file_1.readline()
-            for line in log_file_1:
-                key, value = line.strip().split(',')
-                possible_wrong_language_tags[key] = value
+            possible_wrong_language_tags = dict(
+                line.strip().split(',', 1) for line in log_file_1
+            )
 
         resume = False
         if os.path.getsize(log_file_name_2.format(plural=plural)) != 0:
