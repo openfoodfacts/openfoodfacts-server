@@ -128,6 +128,7 @@ services:
       - ./conf/nginx.conf:/etc/nginx/templates/default.conf.template
       # cors headers definition as an include
       - ./conf/nginx/snippets/off.cors-headers.include:/etc/nginx/snippets/off.cors-headers.include
+      - ./conf/nginx/snippets/expiry-headers.include:/etc/nginx/snippets/expiry-headers.include
       # some expires rules
       - ./conf/nginx/snippets/expires-no-json-xml.conf:/etc/nginx/snippets/expires-no-json-xml.conf
       # some redirects
