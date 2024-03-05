@@ -207,6 +207,8 @@ $events_password = $ProductOpener::Config2::events_password;
 
 %server_options = %ProductOpener::Config2::server_options;
 
+$build_cache_repo = $ProductOpener::Config2::build_cache_repo;
+
 $reference_timezone = 'Europe/Paris';
 
 $contact_email = 'contact@openbeautyfacts.org';
