@@ -1,4 +1,4 @@
-# defines expiry healers for static resources
+# defines expiry headers for static resources
 
 # variables defined in /etc/nginx/snippets/expires-no-json-xml.conf;
 expires $productopener_expires_time;

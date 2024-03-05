@@ -69,7 +69,7 @@ server {
 
 	location /data/ {
 		include snippets/off.cors-headers.include;
-		include snippets/exiry-headers.include;
+		include snippets/expiry-headers.include;
 		include snippets/ssl-headers.conf;
 		# First attempt to serve request as file, then
 		# as directory, then fall back to displaying a 404.
@@ -81,7 +81,7 @@ server {
 
 	location ~* \.(eot|ttf|woff|woff2)$ {
 		include snippets/off.cors-headers.include;
-		include snippets/exiry-headers.include;
+		include snippets/expiry-headers.include;
 	}
 
 	location ~ ^/images/products/ {
@@ -101,7 +101,7 @@ server {
 
 	location ~ ^/(.well-known|images|fonts|css|js|rss|files|resources|foundation|bower_components)/ {
 		include snippets/off.cors-headers.include;
-		include snippets/exiry-headers.include;
+		include snippets/expiry-headers.include;
 		# First attempt to serve request as file, then
 		# as directory, then fall back to displaying a 404.
 		try_files $uri $uri/ =404;
@@ -111,7 +111,7 @@ server {
         # and much less when caching headers are sent
         location = /.well-known/assetlinks.json {
                 include snippets/off.cors-headers.include;
-			include snippets/exiry-headers.include;
+			include snippets/expiry-headers.include;
                 expires 1d;
                 try_files $uri $uri/ =404;
         }
