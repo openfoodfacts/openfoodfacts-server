@@ -53,7 +53,7 @@ store("$data_root/data/Lang_tags.${server_domain}.sto", $tags_ref);
 # Generate JSON files for JavaScript I18N
 ProductOpener::Lang::build_json();
 
-# Nutrients level taxonomy file is build using languages
+# Nutrients level taxonomy file is built using languages
 create_nutrients_level_taxonomy();
 
 exit(0);

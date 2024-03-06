@@ -49,7 +49,7 @@
 						<input type="hidden" name="type" value="user_delete" />
 						<input type="hidden" name="org_id" value="[% orgid %]">
 						<input type="hidden" name="user_id" value="[% users.userid %]">
-						<input type="submit" name="remove_user" class="button small" value="[% lang("remove_user") %]"/>
+						<input type="submit" name="remove_user" class="button small" value= "[% edq(lang('remove_user')) %]"/>
 					</form>
 				</td>
 			</tr>
@@ -62,7 +62,7 @@
 				<!-- admin_status_xxxx elements above are also part of it, thanks to form attribute -->
 				<input type="hidden" name="action" value="process" />
 				<input type="hidden" name="type" value="admin_status" />
-				<input type="submit" name="grant_remove_admin_status" class="button" style="margin-bottom: 10px;" value="[% lang("grant_remove_admin_status") %]"/>
+				<input type="submit" name="grant_remove_admin_status" class="button" style="margin-bottom: 10px;" value= "[% edq(lang('grant_remove_admin_status')) %]"/>
 			</form>
 		</div>
 	</div>
@@ -74,7 +74,7 @@
 		<input type="hidden" name="action" value="process" />
 		<input type="hidden" name="type" value="add_users" />
 		<input type="hidden" name="orgid" value="[% orgid %]" />
-		<input type="submit" name=".submit" class="button" value="[% lang("invite_user") %]"/>
+		<input type="submit" name=".submit" class="button" value= "[% edq(lang('invite_user')) %]"/>
 	</form>
 
     <!-- Start form -->
@@ -148,7 +148,7 @@
 		<input type="hidden" name="action" value="process" />
 		<input type="hidden" name="type" value="[% type %]" />
 		<input type="hidden" name="orgid" value="[% orgid %]" />
-		<input type="submit" name=".submit" class="button" value="[% lang("save") %]"/>
+		<input type="submit" name=".submit" class="button" value= "[% edq(lang('save')) %]"/>
     </form>
 
     <!-- End form -->

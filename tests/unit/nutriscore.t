@@ -859,6 +859,23 @@ my @tests = (
 			},
 		},
 	],
+	# Flavored syrup: beverage preparations should use the beverage formula
+	[
+		"en-beverage-preparation-flavored-syrup",
+		{
+			lc => "en",
+			categories => "flavored syrup",
+			ingredients_text => "apple juice, water, sugar, aspartame",
+			nutriments => {
+				energy_prepared_100g => 82,
+				fat_prepared_100g => 0,
+				"saturated-fat_prepared_100g" => 0,
+				sugars_prepared_100g => 4.5,
+				sodium_prepared_100g => 0.01,
+				proteins_prepared_100g => 0,
+			},
+		}
+	],
 );
 
 my $json = JSON->new->allow_nonref->canonical;
