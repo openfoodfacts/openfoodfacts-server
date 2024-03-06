@@ -2472,7 +2472,7 @@ sub create_nutrients_level_taxonomy() {
 
 	open(my $OUT, ">:encoding(UTF-8)", "$data_root/taxonomies/nutrient_levels.txt");
 	print $OUT <<TXT
-# nutrient levels taxonomy generated automatically by Food.pm
+# nutrient levels taxonomy generated automatically by Food.pm from nutrients taxonomy + language translations (.po files)
 
 TXT
 		;

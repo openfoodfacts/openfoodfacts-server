@@ -33,7 +33,9 @@ x-backend-conf: &backend-conf
     - memcached
   volumes:
     # pointer to openfoodfacts-web/lang
-    - ${WEB_LANG_PATH}:/mnt/podata/lang
+    - ${WEB_RESOURCES_PATH}/lang:/mnt/podata/lang
+    # pointer to openfoodfacts-web/html
+    - ${WEB_RESOURCES_PATH}/html:/opt/product-opener/html/off_web_html
     # Static data (e.g dumps)
     - html_data:/opt/product-opener/html/data
     # other servers dirs (this is temporary to be able to develop for now)
@@ -123,6 +125,10 @@ services:
       - css_dist:/opt/product-opener/html/css/dist
       - node_modules:/opt/product-opener/node_modules
 
+      # openfoodfacts-web static files
+      - ${WEB_RESOURCES_PATH}/html:/opt/product-opener/html/off_web_html
+
+
       # Logs
       - ./logs/nginx/:/var/log/nginx/
 
@@ -130,6 +136,7 @@ services:
       - ./conf/nginx-docker/nginx.conf:/etc/nginx/templates/default.conf.template
       # cors headers definition as an include
       - ./conf/nginx/snippets/off.cors-headers.include:/etc/nginx/snippets/off.cors-headers.include
+      - ./conf/nginx/snippets/expiry-headers.include:/etc/nginx/snippets/expiry-headers.include
       # some expires rules
       - ./conf/nginx/snippets/expires-no-json-xml.conf:/etc/nginx/snippets/expires-no-json-xml.conf
       # some redirects
