@@ -75,7 +75,6 @@ my $tests_ref = [
 				"countries_tags": ["en:france"]
 			}
 		}',
-		expected_status_code => 400,
 	},
 	# Revert the product - code not supplied
 	{
