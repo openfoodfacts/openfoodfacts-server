@@ -830,7 +830,7 @@ msgstr "/legal"
 
 msgctxt "footer_privacy"
 msgid "Privacy"
-msgstr ""
+msgstr "Personvern"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_privacy_link"
@@ -888,7 +888,7 @@ msgstr "https://world.openbeautyfacts.org"
 
 msgctxt "footer_pro"
 msgid "Open Food Facts for Producers"
-msgstr ""
+msgstr "Open Food Facts for produsenter"
 
 msgctxt "for"
 msgid "for"
@@ -4012,7 +4012,7 @@ msgstr "Nutri-Score"
 # This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not Nutri-Score.
 msgctxt "nutriscore_score_producer"
 msgid "Nutri-Score score"
-msgstr "Nutri-Score-skår"
+msgstr "Nutri-Score-verdi"
 
 # Do not translate
 msgctxt "nutriscore_grade_producer"
@@ -4192,19 +4192,19 @@ msgstr "Importer kategoriene"
 
 msgctxt "nutri_score_score_from_producer"
 msgid "Nutri-Score score from producer"
-msgstr "Nutri-Score fra produsent"
+msgstr "Nutri-Score-verdi fra produsent"
 
 msgctxt "nutri_score_score_calculated"
 msgid "Calculated Nutri-Score score"
-msgstr "Beregnet Nutri-Score verdi"
+msgstr "Beregnet Nutri-Score-verdi"
 
 msgctxt "nutri_score_grade_from_producer"
 msgid "Nutri-Score grade from producer"
-msgstr "Nutri-Score-grad fra produsent"
+msgstr "Nutri-Score-verdi fra produsent"
 
 msgctxt "nutri_score_grade_calculated"
 msgid "Calculated Nutri-Score grade"
-msgstr "Beregnet Nutri-Score-grad"
+msgstr "Beregnet Nutri-Score-verdi"
 
 msgctxt "scanned_code"
 msgid "Scanned code"
@@ -4449,15 +4449,15 @@ msgstr "Nutri-Score fra A til E vist på produktetiketten"
 
 msgctxt "nutriscore_grade_producer_import_note"
 msgid "Open Food Facts computes the Nutri-Score grade based on the information provided (nutrition facts and category). If the grade we compute is different from the grade you provide, you will get a private notification on the producers platform so that the difference can be resolved."
-msgstr "Open Food Facts beregner Nutri-Score-graden basert på den framlagte informasjonen (næringsfakta og kategori). Hvis graden vi beregner er forskjellig fra graden som du gir, vil du få en privat notifikasjon på produsentplattformen slik at forskjellen kan løses."
+msgstr "Open Food Facts beregner Nutri-Score-verdien basert på den framlagte informasjonen (næringsfakta og kategori). Hvis verdien vi beregner er forskjellig fra verdien du oppgir, vil du få en privat henvendelse på produsentplattformen slik at forskjellen kan løses."
 
 msgctxt "nutriscore_score_producer_note"
 msgid "Nutri-Score score (numeric value from which the A to E grade is derived)"
-msgstr "Nutri-Score-poengsum (numerisk verdi som A til E er avledet fra)"
+msgstr "Nutri-Score-verdi (numerisk verdi som A til E er avledet fra)"
 
 msgctxt "nutriscore_score_producer_import_note"
 msgid "Open Food Facts computes the Nutri-Score score based on the information provided (nutrition facts and category). If the score we compute is different from the score you provide, you will get a private notification on the producers platform so that the difference can be resolved."
-msgstr "Open Food Facts beregner Nutri-Score-poengsummen basert på den framlagte informasjonen (næringsfakta og kategori). Hvis poengsummen vi beregner er forskjellig fra den som du gir, vil du få en privat notifikasjon på produsentplattformen slik at forskjellen kan løses."
+msgstr "Open Food Facts beregner Nutri-Score-verdien basert på den framlagte informasjonen (næringsfakta og kategori). Hvis verdien vi beregner er forskjellig fra den du oppgir, vil du få en privat henvendelse på produsentplattformen slik at forskjellen kan løses."
 
 msgctxt "mandatory_field"
 msgid "Mandatory field"
@@ -5197,7 +5197,7 @@ msgstr "Plattformen gir også detaljert analyse av produktene."
 # It = the platform
 msgctxt "product_edits_by_producers_indicators"
 msgid "It computes indicators such as the Nutri-Score, NOVA, and the Eco-score, and automatically identifies suggestions to improve them (for instance all products that would get a better Nutri-Score grade with a slight composition change)."
-msgstr "Den beregner indikatorer som Nutri-Score, NOVA, og Eco-score, og identifiserer forslag til å forbedre dem automatisk (for eksempel alle produkter som ville fått en bedre Nutri-Score-grad med små endringer i sammensetningen)."
+msgstr "Den beregner indikatorer som Nutri-Score, NOVA, og Eco-score, og identifiserer forslag til å forbedre dem automatisk (for eksempel alle produkter som ville fått en bedre Nutri-Score-verdi med små endringer i sammensetningen)."
 
 msgctxt "attribute_forest_footprint_name"
 msgid "Forest footprint"
@@ -6231,7 +6231,7 @@ msgstr "Legg til emballasjedeler"
 
 msgctxt "action_add_quantity"
 msgid "Add quantity of the product"
-msgstr ""
+msgstr "Legg til mengde av produktet"
 
 # this is not used yet
 msgctxt "action_add_basic_details"
@@ -6688,7 +6688,7 @@ msgstr "Energi"
 
 msgctxt "nutriscore_component_energy_from_saturated_fat"
 msgid "Energy from saturated fat"
-msgstr ""
+msgstr "Energi fra mettet fett"
 
 msgctxt "nutriscore_component_sugars"
 msgid "Sugars"
@@ -6700,7 +6700,7 @@ msgstr "Mettet fett"
 
 msgctxt "nutriscore_component_saturated_fat_ratio"
 msgid "Saturated fat / fat"
-msgstr ""
+msgstr "Mettet fett/fett"
 
 msgctxt "nutriscore_component_salt"
 msgid "Salt"
@@ -6712,7 +6712,7 @@ msgstr ""
 
 msgctxt "nutriscore_component_fruits_vegetables_legumes"
 msgid "Fruits, vegetables and legumes"
-msgstr ""
+msgstr "Frukt, grønnsaker og belgfrukter"
 
 msgctxt "nutriscore_component_fiber"
 msgid "Fiber"
@@ -6724,63 +6724,63 @@ msgstr "Protein"
 
 msgctxt "presence"
 msgid "Presence"
-msgstr ""
+msgstr "Tilstedeværelse"
 
 msgctxt "absence"
 msgid "Absence"
-msgstr ""
+msgstr "Fravær"
 
 msgctxt "nutriscore_is_water"
 msgid "This product is considered to be water for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "Dette produktet anses for å være vann ved beregningen av Nutri-score."
 
 msgctxt "nutriscore_is_fat_oil_nuts_seeds"
 msgid "This product is considered to be fat, oil, nuts or seeds for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "Dette produktet anses for å være fett, olje, nøtter eller frø ved beregningen av Nutri-Score."
 
 msgctxt "nutriscore_is_cheese"
 msgid "This product is considered to be cheese for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "Dette produktet anses for å være ost ved beregningen av Nutri-Score."
 
 msgctxt "nutriscore_is_red_meat_product"
 msgid "This product is considered to be a red meat product for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "Dette produktet anses for å være et rødt kjøttprodukt ved beregningen av Nutri-Score."
 
 msgctxt "nutriscore_count_proteins_reason_beverage"
 msgid "Points for proteins are counted because the product is considered to be a beverage."
-msgstr ""
+msgstr "Poeng for proteiner telles fordi produktet anses å være en drikk."
 
 msgctxt "nutriscore_count_proteins_reason_cheese"
 msgid "Points for proteins are counted because the product is considered to be cheese."
-msgstr ""
+msgstr "Poeng for proteiner telles fordi produktet anses å være ost."
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_less_than_7"
 msgid "Points for proteins are counted because the negative points are less than 7."
-msgstr ""
+msgstr "Poeng for proteiner telles fordi de negative poengene er mindre enn 7."
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_less_than_11"
 msgid "Points for proteins are counted because the negative points are less than 11."
-msgstr ""
+msgstr "Poeng for proteiner telles fordi de negative poengene er mindre enn 11."
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_to_7"
 msgid "Points for proteins are not counted because the negative points greater than or equal to 7."
-msgstr ""
+msgstr "Poeng for proteiner telles ikke fordi de negative poengene er større enn eller lik 7."
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_to_11"
 msgid "Points for proteins are not counted because the negative points greater than or equal to 11."
-msgstr ""
+msgstr "Poeng for proteiner telles ikke fordi de negative poengene er større enn eller lik 11."
 
 msgctxt "nutriscore_explanation_what_it_is"
 msgid "The Nutri-Score is a logo on the overall nutritional quality of products."
-msgstr ""
+msgstr "Nutri-Score er en merkeordning som angir sunnhetsgraden til ulike matvarer."
 
 msgctxt "nutriscore_explanation_what_it_takes_into_account"
 msgid "The score from A to E is calculated based on nutrients and foods to favor (proteins, fiber, fruits, vegetables and legumes ...) and nutrients to limit (calories, saturated fat, sugars, salt)."
-msgstr ""
+msgstr "Skåren fra A til E beregnes utfra næringsstoffer og matvarer som er anbefalt (proteiner, fiber, frukt, grønnsaker og belgfrukter ...) og næringsstoffer som bør begrenses (kalorier, mettet fett, sukker, salt)."
 
 msgctxt "nutriscore_explanation_where_the_data_comes_from"
 msgid "The score is calculated from the data of the nutrition facts table and the composition data (fruits, vegetables and legumes)."
-msgstr ""
+msgstr "Skåren beregnes fra dataene i ernæringsfaktatabellen og sammensetningsdataene (frukt, grønnsaker og belgfrukter)."
 
 msgctxt "nutriscore_explanation_recommended_by_public_health_authorities"
 msgid "The display of this logo is recommended by public health authorities without obligation for companies."
@@ -6788,7 +6788,7 @@ msgstr ""
 
 msgctxt "nutriscore_explanation_title"
 msgid "What is the Nutri-Score?"
-msgstr ""
+msgstr "Hva er Nutri-Score?"
 
 msgctxt "nutrient_info_energy_risk"
 msgid "Energy intakes above energy requirements are associated with increased risks of weight gain, overweight, obesity, and consequently risk of diet-related chronic diseases."
@@ -6825,7 +6825,7 @@ msgstr ""
 # sweeteners (additives), plural
 msgctxt "sweeteners"
 msgid "sweeteners"
-msgstr ""
+msgstr "søtningsmidler"
 
 # sweetener (additive), singular
 msgctxt "sweetener"
