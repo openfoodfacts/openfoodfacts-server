@@ -454,23 +454,18 @@ sub analyze_request ($request_ref) {
 		$request_ref->{canon_rel_url} = '';
 		my $canon_rel_url_suffix = '';
 
-		#check if last field is number
-		if (($#components >= 1) and ($components[-1] =~ /^\d+$/)) {
-			#if first field or third field is tags (plural) then last field is page number
-			if (   defined $tag_type_from_plural{$lc}{$components[0]}
-				or defined $tag_type_from_plural{"en"}{$components[0]}
-				or defined $tag_type_from_plural{$lc}{$components[2]}
-				or defined $tag_type_from_plural{"en"}{$components[2]})
-			{
+		# We may have a page number
+		if ($#components >= 0) {
+			# The last component can be a page number
+			if (($components[-1] =~ /^\d+$/) and ($components[-1] <= 1000)) {
 				$request_ref->{page} = pop @components;
-				$log->debug("get page number", {$request_ref->{page}}) if $log->is_debug();
+				$log->debug("got a page number", {$request_ref->{page}}) if $log->is_debug();
 			}
 		}
-		# list of tags? (plural of tagtype must be the last field)
 
-		$log->debug("checking last component",
-			{last_component => $components[-1], is_plural => $tag_type_from_plural{$lc}{$components[-1]}})
-			if $log->is_debug();
+		# Extract tag type / tag value pairs and store them in an array $request_ref->{tags}
+		# e.g. /category/breakfast-cereals/label/organic/brand/monoprix
+		extract_tagtype_and_tag_value_pairs_from_components($request_ref, \@components);
 
 		# list of (categories) tags with stats for a nutriment
 		if (    ($#components == 1)
@@ -490,6 +485,7 @@ sub analyze_request ($request_ref) {
 				if $log->is_debug();
 		}
 
+		# list of tags? (plural of tagtype must be the last field)
 		if (defined $tag_type_from_plural{$lc}{$components[-1]}) {
 
 			$request_ref->{groupby_tagtype} = $tag_type_from_plural{$lc}{pop @components};
@@ -507,22 +503,10 @@ sub analyze_request ($request_ref) {
 				if $log->is_debug();
 		}
 
-		# Extract tag type / tag value pairs and store them in an array $request_ref->{tags}
-		# e.g. /category/breakfast-cereals/label/organic/brand/monoprix
-		extract_tagtype_and_tag_value_pairs_from_components($request_ref, \@components);
-
 		# Old Open Food Hunt points
 		if ((defined $components[0]) and ($components[0] eq 'points')) {
 			$request_ref->{points} = 1;
 			$request_ref->{canon_rel_url} .= "/points";
-		}
-
-		# We may have a page number
-		if ($#components >= 0) {
-			# The last component can be a page number
-			if (($components[-1] =~ /^\d+$/) and ($components[-1] <= 1000)) {
-				$request_ref->{page} = pop @components;
-			}
 		}
 
 		if ($#components >= 0) {

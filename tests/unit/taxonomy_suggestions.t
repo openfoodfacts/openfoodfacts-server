@@ -94,4 +94,54 @@ foreach my $test_ref (@suggest_tests) {
 	}
 }
 
+# Complete suggestion generation (with synnyms)
+
+my @suggest_tests = (
+	{
+		desc => 'Match at start',
+		tagtype => "test",
+		lc => "en",
+		string => "ba",
+		expected => [
+			{
+				'matched_synonym' => 'banana yogurts',
+				'tag' => 'Banana yogurts'
+			}
+		],
+	},
+	{
+		desc => 'Match at start and inside, return start first',
+		tagtype => "test",
+		lc => "en",
+		string => "yog",
+		expected => [
+			{
+				'matched_synonym' => 'yogurts',
+				'tag' => 'Yogurts'
+			},
+			{
+				'matched_synonym' => 'banana yogurts',
+				'tag' => 'Banana yogurts'
+			},
+			{
+				'matched_synonym' => 'lemon yogurts',
+				'tag' => 'Lemon yogurts'
+			},
+			{
+				'matched_synonym' => 'Passion fruit yogurts',
+				'tag' => 'Passion fruit yogurts'
+			}
+		],
+	},
+
+);
+
+foreach my $test_ref (@suggest_tests) {
+	my @results = ProductOpener::TaxonomySuggestions::get_taxonomy_suggestions_with_synonyms($test_ref->{tagtype},
+		$test_ref->{lc}, $test_ref->{string}, {}, {});
+	if (not is_deeply(\@results, $test_ref->{expected})) {
+		diag explain($test_ref, \@results);
+	}
+}
+
 done_testing();

@@ -1689,7 +1689,7 @@ $font-green: #008c8c;
 .if-empty-dnone:empty { display: none !important; }
 
 // underline links
-#main_container a {
+#main_container a:not(.leaflet-control-zoom-in):not(.leaflet-control-zoom-out) {
   text-decoration:underline;
 }
 // except buttons

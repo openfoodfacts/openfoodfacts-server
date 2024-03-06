@@ -6922,6 +6922,7 @@ description:en:Type of semi-hard cheese.
 
 <en:cheese
 en:Comté, Comté cheese, Comté cheese from cow's milk
+bg:Комте
 eo:Komte
 fr:comte
 he:קונטה
@@ -8457,6 +8458,7 @@ en:Raclette
 xx:raclette
 ar:راكليتي
 be:Раклет
+bg:Раклет
 ca:formatge de raclet
 eo:Rakledo
 he:רקלט
@@ -17746,7 +17748,7 @@ bs:Eterično ulje
 ca:Oli essencial
 cs:Czech
 da:Æterisk olie
-de:Ätherische Öle
+de:Ätherisches Öl, Ätherische Öle
 el:Αιθέριο έλαιο
 eo:volatila oleo
 es:aceite esencial
@@ -17811,6 +17813,11 @@ hu:narancs illóolaj, narancsos illóolaj
 it:olio essenziale di arancio
 nl:sinaasappelolie
 pl:olejek pomarańczowy
+
+<en:orange essential oil
+en:blood orange essential oil
+de:Blutorangenöl
+fr:huile essentielle d'orange sanguine
 
 # see also en:peppermint oil
 
@@ -22791,7 +22798,7 @@ nl:geëxtrudeerde granen
 
 <en:cereal
 en:cereal flakes
-de:Getreideflocken
+de:Getreideflocken, Kornflockenmischung
 fi:viljahiutaleet
 fr:flocons de céréales
 hr:pahuljice od žitarica
@@ -26074,7 +26081,10 @@ de:Dinkelmehl Type 630
 de:Dinkelmehl Type 812
 
 <en:spelt flour
-fr:Farine de blé d'épeautre T110
+fr:farine de blé semi-complète type 80, farine de blé semi-complète t80
+
+<en:spelt flour
+fr:farine d'épeautre type 110, Farine de blé d'épeautre T110
 
 # Question
 
@@ -26395,6 +26405,10 @@ ro:Făină din cereale
 sv:spannmålsmjöl
 
 <en:cereal flour
+en:mixed cereal flour, mixed cereal flours
+fr:farine multicéréales, farines multicéréales
+
+<en:cereal flour
 en:malt flour
 bg:брашно от малц, малцово брашно
 de:Malzmehl
@@ -26544,6 +26558,9 @@ pl:mąka pszenna typ 750, mąka pszenna 750, mąka pszenna chlebowa
 <en:wheat flour
 bg:пшенично брашно тип 800
 fr:farine de blé t80
+
+<en:wheat flour
+fr:farine de blé complète type 110, farine de blé complète t110
 
 <en:wheat flour
 bg:био пшенично брашно
@@ -26876,11 +26893,14 @@ ciqual_food_name:en:Rye flour, type 85
 ciqual_food_name:fr:Farine de seigle T85
 
 <en:rye flour
-en:Rye flour type 130, Rye flour T130
-fr:Farine de seigle T130
+en:rye flour type 130, Rye flour T130
+fr:farine de seigle type 130, Farine de seigle T130
 ciqual_food_code:en:9533
 ciqual_food_name:en:Rye flour, type 130
 ciqual_food_name:fr:Farine de seigle T130
+
+<en:rye flour type 130
+fr:farine de seigle complète type 130
 
 <en:rye flour
 en:Rye flour type type 1250
@@ -29795,7 +29815,7 @@ en:unrefined cane sugar, raw cane sugar, unrefined raw cane sugar
 bg:нерафинирана тръстикова захар
 cs:nerafinovaný třtinový cukr
 da:rå rørsukker
-de:Rohrohrzucker, Roh-Rohrzucker, roher Rohrzucker, Rohrrohzucker
+de:Rohrohrzucker, Roh-Rohrzucker, Rohr-rohzucker, roher Rohrzucker, Rohrrohzucker
 el:ακατέργαστη ζάχαρη ζαχαροκάλαμου
 es:Azucar de caña sin refinar, azucar de caña no refinada,azucar de caña en bruto
 fi:raakaruokosokeri
@@ -31715,7 +31735,7 @@ hr:suncokretovih bjelančevina i riže
 <en:plant protein
 en:potato protein
 bg:картофен протеин
-de:kartoffelprotein
+de:kartoffeleiweiß, kartoffelprotein
 fi:perunaproteiini
 fr:protéine de pomme de terre, protéines de pomme de terre
 nl:aardappeleiwit
@@ -40954,7 +40974,7 @@ ca:polpa de taronja
 de:Orangenfruchtfleisch
 es:pulpa de naranja
 fi:appelsiinihedelmäliha, appelsiinin hedelmäliha
-fr:pulpe d'orange, cellules d'oranges
+fr:pulpe d'orange
 hr:pulpa naranče
 hu:narancs gyümölcshős, narancs püré
 it:polpe d'arancia
@@ -40965,6 +40985,11 @@ ciqual_food_code:en:13034
 ciqual_food_name:en:Orange, pulp, raw
 ciqual_food_name:fr:Orange, pulpe, crue
 # 571 in 13 @2021-10-01
+
+<en:orange
+en:orange cells
+de:Orangenzellen
+fr:cellules d'oranges
 
 <en:orange
 en:orange zest, orange peel
@@ -60212,6 +60237,7 @@ it:crema di arachidi
 
 <en:peanut
 en:roasted peanuts
+bg:печени фъстъци
 da:ristede peanuts
 de:geröstete Erdnüsse
 es:cacahuetes tostados, maní tostado
@@ -69330,7 +69356,7 @@ sv:vaniljpulver
 <en:Bourbon vanilla
 <en:vanilla powder
 en:Bourbon vanilla powder
-de:Bourbon Vanille gemahlen, Bourbon-Vanillepulver
+de:Bourbon Vanille gemahlen, Bourbon-Vanillepulver, Bourbonvanilleschotenpulver
 fr:poudre de vanille Bourbon
 
 <en:vanilla
