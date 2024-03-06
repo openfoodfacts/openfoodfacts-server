@@ -232,6 +232,8 @@ You can also check the reference cheatsheet to know how to add/edit other types 
 
 Using the Open Food Facts API, you can filter products based on different criteria.  To search for products in the Orange Juice category with a nutrition_grade of `c`, query the [Search for Products endpoint](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#get-/api/v2/search).
 
+**Note:** we describe here the v2 search API, but beware that only [v1 search API](https://wiki.openfoodfacts.org/API/Read/Search) supports full text search.
+
 ### Describing the Search Request
 
 Make a `GET` request to the `Search for Products` endpoint.
