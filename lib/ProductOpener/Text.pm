@@ -168,7 +168,7 @@ sub get_decimal_formatter ($locale) {
 Escape character $char in string $s
 
 This is use in templates to say escape single quote or double quote
-for expressions displayed with single/double quotes (in json or html for example)
+for expressions displayed with single/double quotes (in json or HTML for example)
 =cut
 
 sub escape_char($s, $char) {
