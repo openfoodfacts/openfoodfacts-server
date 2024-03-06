@@ -1,4 +1,4 @@
-﻿version: "3.7"
+version: "3.7"
 
 x-backend-conf: &backend-conf
   image: ghcr.io/openfoodfacts/openfoodfacts-server/backend:${TAG}
@@ -121,9 +121,6 @@ services:
       - css_dist:/opt/product-opener/html/css/dist
       - node_modules:/opt/product-opener/node_modules
 
-      # Logs
-      - ./logs/nginx/:/var/log/nginx/
-
       # Nginx, we use templates dir to be able to use environment vars
       - ./conf/nginx.conf:/etc/nginx/templates/default.conf.template
       # cors headers definition as an include
@@ -144,4 +141,6 @@ volumes:
   # build_cache does not needs not be external, for wiping it will avoid keeping too much cached data
   build_cache:
   other_servers:
+networks:
+  webnet:
   redisdata:

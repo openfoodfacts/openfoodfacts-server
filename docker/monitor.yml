@@ -28,3 +28,12 @@ services:
       - webnet
     depends_on:
       - postgres
+  filebeat:
+    image: elastic/filebeat:7.2.0
+    user: root
+    environment:
+      - ELASTICSEARCH_HOSTS
+    volumes:
+      - ./conf/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro
+      - /var/lib/docker/containers:/var/lib/docker/containers:ro
+      - /var/run/docker.sock:/var/run/docker.sock

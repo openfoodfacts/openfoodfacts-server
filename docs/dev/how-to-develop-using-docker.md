@@ -16,10 +16,7 @@ You will get logs from nginx, mongodb, postgres, etc.
 
 ### Tail other logs
 
-Most logs from perl are not (yet ?) displayed on the docker logs,
-but are instead available in specific directories.
-
-To see them use:
+Other logs are automatically mounted from the containers to your `logs/` directory.
 
 ```
 make tail
@@ -31,8 +28,6 @@ It will `tail -f` all the files present in the `logs/` directory:
 * `apache2/log4perl.log`
 * `apache2/modperl_error.log`
 * `apache2/other_vhosts_access.log`
-* `nginx/access.log`
-* `nginx/error.log`
 
 You can also simply run:
 ```
