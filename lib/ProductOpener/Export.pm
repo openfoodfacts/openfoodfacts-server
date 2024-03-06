@@ -275,7 +275,13 @@ sub export_csv ($args_ref) {
 						next if not defined $product_ref->{nutriments};
 
 						# Go through the nutriment table
-						foreach my $nutriment (@{$nutriments_tables{europe}}) {
+						# and add fruits/vegetables/nuts estimates
+						foreach my $nutriment (
+							@{$nutriments_tables{europe}},
+							"fruits-vegetables-legumes-estimate-from-ingredients",
+							"fruits-vegetables-nuts-estimate-from-ingredient"
+							)
+						{
 
 							next if $nutriment =~ /^\#/;
 							my $nid = $nutriment;

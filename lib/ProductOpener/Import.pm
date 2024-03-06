@@ -797,6 +797,9 @@ sub import_nutrients (
 		my $nid = $nutrient_tagid;
 		$nid =~ s/^zz://g;
 
+		# don't import nutrients estimated from ingredients: they will be recomputed
+		next if $nid =~ /from-ingredients/;
+
 		# don't set sodium if we have salt
 		next if (($nid eq 'sodium') and ($seen_salt));
 
