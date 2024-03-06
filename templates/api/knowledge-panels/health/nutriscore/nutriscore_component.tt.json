@@ -6,7 +6,7 @@
     "size": "small",
     "title_element": {
         "icon_url": "[% static_subdomain %]/images/attributes/dist/points-[% panel.type %]-[% panel.points %]-[% panel.points_max %].svg",
-        "title": "[% lang("nutriscore_component_" _ panel.id) %]",
+        "title": "[% edq(lang('nutriscore_component_' _ panel.id)) %]",
         "subtitle": "[% panel.points %]/[% panel.points_max %] points ([% panel.value %][% panel.space_before_unit %][% panel.unit %])",
     },
     "elements": [
