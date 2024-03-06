@@ -616,6 +616,7 @@ sub check_request_response ($test_ref, $response, $test_id, $test_dir, $expected
 		diag("Must not match: " . $must_not_match . "\n" . "Response content: " . $response_content);
 	}
 
+	return;
 }
 
 sub execute_api_tests ($file, $tests_ref, $ua = undef) {
