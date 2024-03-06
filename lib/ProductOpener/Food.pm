@@ -914,7 +914,9 @@ sub is_beverage_for_nutrition_score_2021 ($product_ref) {
 
 	my $is_beverage = 0;
 
-	if (has_tag($product_ref, "categories", "en:beverages")) {
+	if (   has_tag($product_ref, "categories", "en:beverages")
+		or has_tag($product_ref, "categories", "en:beverage-preparations"))
+	{
 
 		$is_beverage = 1;
 
@@ -965,7 +967,9 @@ sub is_beverage_for_nutrition_score_2023 ($product_ref) {
 
 	my $is_beverage = 0;
 
-	if (has_tag($product_ref, "categories", "en:beverages")) {
+	if (   has_tag($product_ref, "categories", "en:beverages")
+		or has_tag($product_ref, "categories", "en:beverage-preparations"))
+	{
 
 		$is_beverage = 1;
 
@@ -1802,7 +1806,7 @@ sub check_availability_of_nutrients_needed_for_nutriscore ($product_ref) {
 	foreach my $category_tag (
 		"en:dried-products-to-be-rehydrated", "en:cocoa-and-chocolate-powders",
 		"en:dessert-mixes", "en:flavoured-syrups",
-		"en:instant-beverages"
+		"en:instant-beverages", "en:beverage-preparations"
 		)
 	{
 
@@ -2468,7 +2472,7 @@ sub create_nutrients_level_taxonomy() {
 
 	open(my $OUT, ">:encoding(UTF-8)", "$data_root/taxonomies/nutrient_levels.txt");
 	print $OUT <<TXT
-# nutrient levels taxonomy generated automatically by Food.pm
+# nutrient levels taxonomy generated automatically by Food.pm from nutrients taxonomy + language translations (.po files)
 
 TXT
 		;
