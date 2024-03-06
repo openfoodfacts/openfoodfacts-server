@@ -1525,6 +1525,7 @@ Let's look at the <a href="https://world.openfoodfacts.net/api/v2/product/018041
 
 <h2 id="search-for-a-product-by-nutri-score">Search for a Product by Nutri-score<a class="headerlink" href="#search-for-a-product-by-nutri-score" title="Permanent link">#</a></h2>
 <p>Using the Open Food Facts API, you can filter products based on different criteria.  To search for products in the Orange Juice category with a nutrition_grade of <code>c</code>, query the <a href="https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#get-/api/v2/search">Search for Products endpoint</a>.</p>
+<p><strong>Note:</strong> we describe here the v2 search API, but beware that only <a href="https://wiki.openfoodfacts.org/API/Read/Search">v1 search API</a> supports full text search.</p>
 <h3 id="describing-the-search-request">Describing the Search Request<a class="headerlink" href="#describing-the-search-request" title="Permanent link">#</a></h3>
 <p>Make a <code>GET</code> request to the <code>Search for Products</code> endpoint.</p>
 <div class="highlight"><pre><span></span><code>https://world.openfoodfacts.org/api/v2/search
