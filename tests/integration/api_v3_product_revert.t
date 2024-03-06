@@ -48,6 +48,7 @@ my $tests_ref = [
 	# Test setup - Create a product
 	{
 		setup => 1,
+		test_case => 'setup-create-product',
 		method => 'PATCH',
 		path => '/api/v3/product/1234567890100',
 		body => '{
@@ -63,6 +64,7 @@ my $tests_ref = [
 	# Test setup - Update the product
 	{
 		setup => 1,
+		test_case => 'setup-update-product',
 		method => 'PATCH',
 		path => '/api/v3/product/1234567890100',
 		body => '{
@@ -73,6 +75,7 @@ my $tests_ref = [
 				"countries_tags": ["en:france"]
 			}
 		}',
+		expected_status_code => 400,
 	},
 	# Revert the product - code not supplied
 	{

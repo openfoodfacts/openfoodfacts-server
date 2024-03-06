@@ -373,8 +373,8 @@ my $tests_ref = (
     [
 		{
 			# request description
-			# each test must have either the setup option set to 1, or a unique test_case
-			setup => 1,	# if set to 1, the request will be executed (e.g. to create a product to test on) but the result will not be checked
+			setup => 1,	# optional, if set to 1, the request will be executed (e.g. to create a product to test on) but the result content will not be checked
+						# expected status code (defaulting to 200) will still be checked to report setup issues
 			test_case => 'no-body',  # test case id, must be unique as it is used to name the expected results file
 			method => 'POST',		# defaults to GET
 			subdomain => 'world',	# defaults to "world"
@@ -570,27 +570,33 @@ sub check_request_response ($test_ref, $response, $test_id, $test_dir, $expected
 			next;
 		};
 
-		# normalize for comparison
-		if (ref($decoded_json) eq 'HASH') {
-			if (defined $decoded_json->{'products'}) {
-				normalize_products_for_test_comparison($decoded_json->{'products'});
-				if (defined $test_ref->{sort_products_by}) {
-					sort_products_for_test_comparison($decoded_json->{'products'}, $test_ref->{sort_products_by});
+		# If the request was a setup request, we don't need to save or check the response
+		# otherwise, save or check the response
+		if (not $test_ref->{setup}) {
+
+			# normalize for comparison
+			if (ref($decoded_json) eq 'HASH') {
+				if (defined $decoded_json->{'products'}) {
+					normalize_products_for_test_comparison($decoded_json->{'products'});
+					if (defined $test_ref->{sort_products_by}) {
+						sort_products_for_test_comparison($decoded_json->{'products'}, $test_ref->{sort_products_by});
+					}
+				}
+				if (defined $decoded_json->{'product'}) {
+					normalize_product_for_test_comparison($decoded_json->{'product'});
 				}
 			}
-			if (defined $decoded_json->{'product'}) {
-				normalize_product_for_test_comparison($decoded_json->{'product'});
-			}
-		}
 
-		is(
-			compare_to_expected_results(
-				$decoded_json, "$expected_result_dir/$test_case.json",
-				$update_expected_results, $test_ref
-			),
-			1,
-			"$test_case - result"
-		);
+			is(
+				compare_to_expected_results(
+					$decoded_json, "$expected_result_dir/$test_case.json",
+					$update_expected_results, $test_ref
+				),
+				1,
+				"$test_case - result"
+			);
+
+		}
 	}
 
 	# Check if the response content matches what we expect
@@ -622,12 +628,8 @@ sub execute_api_tests ($file, $tests_ref, $ua = undef) {
 
 		my $response = execute_request($test_ref, $ua);
 
-		# If the request was a setup request, we don't need to save or check the response
-		# otherwise, save or check the response
-		if (not $test_ref->{setup}) {
-			check_request_response($test_ref, $response, $test_id, $test_dir, $expected_result_dir,
-				$update_expected_results);
-		}
+		check_request_response($test_ref, $response, $test_id, $test_dir, $expected_result_dir,
+			$update_expected_results);
 	}
 	return;
 }
