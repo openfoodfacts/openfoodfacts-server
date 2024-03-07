@@ -106,6 +106,8 @@ jobs:
       uses: ishworkh/docker-image-artifact-download@v1
       with:
         image: "openfoodfacts-server/backend:dev"
+    - name: build taxonomies (should use cache)
+        run: make build_taxonomies        
     - name: tests
       run: |
         make codecov_prepare
