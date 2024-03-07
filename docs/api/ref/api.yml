@@ -414,7 +414,7 @@ components:
       name: page
       description: |
         The page number you request to view (eg. in search results spanning multiple pages)
-    page size:
+    page_size:
       schema:
         type: int
         example: 24
