@@ -1370,20 +1370,19 @@ function show_warning(should_show, nutrient_id, warning_message){
         $('#nutriment_'+nutrient_id).css("background-color", "rgb(255 237 235)");
         $('#nutriment_question_mark_'+nutrient_id).css("display", "inline-table");
         $('#nutriment_sugars_warning_'+nutrient_id).text(warning_message);
-    } else {
-        // clear the warning only if the warning message we don't show is the same as the existing warning
-        // so that we don't remove a warning on sugars > 100g if we change carbohydrates
-        if (warning_message == $('#nutriment_sugars_warning_'+nutrient_id).text()) {
-            $('#nutriment_'+nutrient_id).css("background-color", "white");
-            $('#nutriment_question_mark_'+nutrient_id).css("display", "none");
-        }
+    }
+    // clear the warning only if the warning message we don't show is the same as the existing warning
+    // so that we don't remove a warning on sugars > 100g if we change carbohydrates
+    else if (warning_message == $('#nutriment_sugars_warning_'+nutrient_id).text()) {
+        $('#nutriment_'+nutrient_id).css("background-color", "white");
+        $('#nutriment_question_mark_'+nutrient_id).css("display", "none");
     }
 }
 
 function check_nutrient(nutrient_id) {
     // check the changed nutrient value
     var nutrient_value = $('#nutriment_' + nutrient_id).val().replace(',','.').replace(/^<|>|~/, '');
-    var nutrient_unit = $('#nutriment_' + nutrient_id + '_unit').val()
+    var nutrient_unit = $('#nutriment_' + nutrient_id + '_unit').val();
 
     // define the max valid value
     var max;
