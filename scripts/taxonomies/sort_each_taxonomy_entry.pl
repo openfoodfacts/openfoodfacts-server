@@ -59,8 +59,8 @@ sub cmp_on_language ($$) {
 	# en and xx takes precedence over all others
 	return -1 if ($a eq "xx");
 	return 1 if ($b eq "xx");
-	return -1 if ($a eq "en");  # because of lines above, $b ne xx
-	return 1 if ($b eq "en");  # because of lines above, $a ne xx
+	return -1 if ($a eq "en");    # because of lines above, $b ne xx
+	return 1 if ($b eq "en");    # because of lines above, $a ne xx
 	return $a cmp $b;
 }
 
@@ -71,15 +71,15 @@ my @lines = (<STDIN>);
 push @lines, "\n" unless $lines[-1] =~ /^\s*$/;
 
 # structures for one entry
-my @parents = (); # lines defining parents
-my $entry_id_line = undef; # line defining entry id, we don't want to change it's position
-my %entries = (); # lines defining synonyms
-my %props = (); # lines defining properties
+my @parents = ();    # lines defining parents
+my $entry_id_line = undef;    # line defining entry id, we don't want to change it's position
+my %entries = ();    # lines defining synonyms
+my %props = ();    # lines defining properties
 my @original_lines = ();
 # non meaningful lines above a meaningful line (entry, parent or porperty)
 my @previous_lines = ();
 my $line_num = 0;
-my $entry_start_line = 1;  # tracking line number of the first line of an entry
+my $entry_start_line = 1;    # tracking line number of the first line of an entry
 foreach my $line (@lines) {
 	$line_num += 1;
 	push @original_lines, $line;    # collect lines for comparison
@@ -146,9 +146,10 @@ foreach my $line (@lines) {
 	}
 	# synonym
 	elsif ($line =~ /^(\w+):[^:]*(,.*)*$/) {
-		if (! defined $entry_id_line) {
+		if (!defined $entry_id_line) {
 			$entry_id_line = {line => $line, previous => [@previous_lines]};
-		} else {
+		}
+		else {
 			my $lc = $1;
 			$entries{$lc} = {line => $line, previous => [@previous_lines]};
 		}
