@@ -108,6 +108,9 @@ requires 'Imager::File::WEBP';
 requires 'OIDC::Lite';
 requires 'Crypt::JWT';
 
+# To dynamically load Config_*.pm modules
+requires 'Module::Load';
+
 on 'test' => sub {
   requires 'Test::More', '>= 1.302186, < 2.0';
   requires 'Test::MockModule';

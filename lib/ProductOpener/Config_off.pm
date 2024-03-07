@@ -178,7 +178,6 @@ use ProductOpener::Config2;
 	hangy
 	manoncorneille
 	raphael0202
-	sarazine-ouattara
 	stephane
 	tacinte
 	teolemon

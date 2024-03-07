@@ -15,7 +15,7 @@
     <!-- Anonymous users will only be able to vote see AnnotationVote in robotoff,
         the voter uniqueness is based on a hash of its ip address
     -->
-	<robotoff-asker url='[% robotoff_url %]' code='[% code %]' lang='[% lc %]' style='display: none;' caption-yes='[% lang("button_caption_yes") %]' caption-no='[% lang("button_caption_no") %]' caption-skip='[% lang("button_caption_skip") %]'></robotoff-asker>
+	<robotoff-asker url='[% robotoff_url %]' code='[% code %]' lang='[% lc %]' style='display: none;' caption-yes='[% esq(lang("button_caption_yes")) %]' caption-no='[% esq(lang("button_caption_no")) %]' caption-skip='[% esq(lang("button_caption_skip")) %]'></robotoff-asker>
 [% END %]
 
 <a href="#upNav" class="back-to-top scrollto button">
@@ -31,7 +31,7 @@
                 <div class="buttons_prod">
                     <!-- Edit product page -->
                     <div class="edit_button">
-                        <a href="/cgi/product.pl?type=edit&code=[% code %]" class="button small white-button round" title="[% lang('edit_product_page') %]">
+                        <a href="/cgi/product.pl?type=edit&code=[% code %]" class="button small white-button round" title="[% edq(lang('edit_product_page')) %]">
                             <span class="material-icons size-20 ">
                             edit
                             </span>
@@ -54,7 +54,7 @@
                     [% IF user_moderator %]
                     <!-- Delete product page -->
                         <div class="delete_button">
-                            <a href="/cgi/product.pl?type=delete&code=[% code %]" class="button small alert" title="[% lang('delete_product_page') %]">
+                            <a href="/cgi/product.pl?type=delete&code=[% code %]" class="button small alert" title="[% edq(lang('delete_product_page')) %]">
                                 <span class="material-icons size-20 ">
                                 delete
                                 </span>
@@ -65,7 +65,7 @@
 
                     [% IF server_options_producers_platform %]
                         <div class="delete_button">
-                            <a href="/cgi/export_products.pl?query_code=[% code %]" class="button small" title="[% lang('export_product_page') %]">
+                            <a href="/cgi/export_products.pl?query_code=[% code %]" class="button small" title="[% edq(lang('export_product_page')) %]">
                                 <span class="material-icons size-20 ">
                                 publish
                                 </span>
