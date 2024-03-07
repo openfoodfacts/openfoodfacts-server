@@ -53,6 +53,8 @@ BEGIN {
 
 		&get_decimal_formatter
 		&get_percent_formatter
+		&escape_char
+		&escape_single_quote_and_newlines
 
 		&remove_tags
 		&remove_tags_and_quote
@@ -159,6 +161,41 @@ sub get_decimal_formatter ($locale) {
 	$ProductOpener::Text::decimal_formatters{$locale} = $decf;
 	return $decf;
 
+}
+
+=head2 escape_char( $s, $char )
+
+Escape character $char in string $s
+
+This is use in templates to say escape single quote or double quote
+for expressions displayed with single/double quotes (in json or HTML for example)
+=cut
+
+sub escape_char($s, $char) {
+	if ($s && $char) {
+		# normalize already escaped chars to avoid double escaping
+		$s =~ s/\\$char/$char/g;
+		$s =~ s/$char/\\$char/g;
+	}
+	return $s;
+}
+
+=head2 escape_single_quote_and_newlines( $s )
+
+Escape single quotes in $s but also transform newlines to spaces
+
+=cut
+
+sub escape_single_quote_and_newlines ($s) {
+
+	if (not defined $s) {
+		return '';
+	}
+	# some app escape single quotes already, so we have \' already
+	$s =~ s/\\'/'/g;
+	$s =~ s/'/\\'/g;
+	$s =~ s/\n/ /g;
+	return $s;
 }
 
 =head2 get_percent_formatter( LOCALE, MAXIMUM_FRACTION_DIGITS )

@@ -24,7 +24,7 @@ use Modern::Perl '2017';
 use utf8;
 
 my $usage = <<TXT
-list_tags_with_property.pl - list all entries in a taxonomy that have a specific property
+list_taxonomy_entries.pl - list all entries in a taxonomy that have a specific property
 
 Usage:
 
