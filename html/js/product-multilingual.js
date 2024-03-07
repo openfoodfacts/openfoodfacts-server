@@ -1404,8 +1404,9 @@ function check_nutrient(nutrient_id) {
         max = 100 * 1000 * 1000;
     }	
 
+    let is_above_or_below_max;
     if (max) {
-        let is_above_or_below_max = (isNaN(nutrient_value) && nutrient_value != '-') || nutrient_value < 0 || nutrient_value > max;
+        is_above_or_below_max = (isNaN(nutrient_value) && nutrient_value != '-') || nutrient_value < 0 || nutrient_value > max;
         // if the nutrition facts are indicated per serving, the value can be above 100
         if ((nutrient_value > max) && ($('#nutrition_data_per_serving').is(':checked')) && !percent) {
             is_above_or_below_max = false;
