@@ -56,9 +56,11 @@ sub cmp_on_language ($$) {
 		return $a_prefix cmp $b_prefix if ($a_prefix ne $b_prefix);
 	}
 	return 0 if ($a eq $b);
-	# en takes precedence over all others
-	return -1 if ($a eq "en");
-	return 1 if ($b eq "en");
+	# en and xx takes precedence over all others
+	return -1 if ($a eq "xx");
+	return 1 if ($b eq "xx");
+	return -1 if ($a eq "en");  # because of lines above, $b ne xx
+	return 1 if ($b eq "en");  # because of lines above, $a ne xx
 	return $a cmp $b;
 }
 
@@ -68,13 +70,16 @@ my @lines = (<STDIN>);
 # be sure to end with a blank line
 push @lines, "\n" unless $lines[-1] =~ /^\s*$/;
 
-my @parents = ();
-my %entries = ();
-my %props = ();
-my @previous_lines = ();
+# structures for one entry
+my @parents = (); # lines defining parents
+my $entry_id_line = undef; # line defining entry id, we don't want to change it's position
+my %entries = (); # lines defining synonyms
+my %props = (); # lines defining properties
 my @original_lines = ();
+# non meaningful lines above a meaningful line (entry, parent or porperty)
+my @previous_lines = ();
 my $line_num = 0;
-my $entry_start_line = 1;
+my $entry_start_line = 1;  # tracking line number of the first line of an entry
 foreach my $line (@lines) {
 	$line_num += 1;
 	push @original_lines, $line;    # collect lines for comparison
@@ -86,10 +91,14 @@ foreach my $line (@lines) {
 		@parents = sort {$a->{line} cmp $b->{line}} @parents;
 		my @sorted_entries = sort cmp_on_language (keys %entries);
 		my @sorted_props = sort cmp_on_language (keys %props);
-		# print parents, entrie, sorted props
+		# print parents, line id, synonyms, sorted props
 		for my $parent (@parents) {
 			push @output_lines, @{$parent->{previous}};
 			push @output_lines, $parent->{line};
+		}
+		if (defined $entry_id_line) {
+			push @output_lines, @{$entry_id_line->{previous}};
+			push @output_lines, $entry_id_line->{line};
 		}
 		for my $key (@sorted_entries) {
 			push @output_lines, @{$entries{$key}->{previous}};
@@ -122,6 +131,7 @@ foreach my $line (@lines) {
 			print "$output";
 		}
 		# re-init
+		$entry_id_line = undef;
 		@parents = ();
 		%entries = ();
 		%props = ();
@@ -136,8 +146,12 @@ foreach my $line (@lines) {
 	}
 	# synonym
 	elsif ($line =~ /^(\w+):[^:]*(,.*)*$/) {
-		my $lc = $1;
-		$entries{$lc} = {line => $line, previous => [@previous_lines]};
+		if (! defined $entry_id_line) {
+			$entry_id_line = {line => $line, previous => [@previous_lines]};
+		} else {
+			my $lc = $1;
+			$entries{$lc} = {line => $line, previous => [@previous_lines]};
+		}
 		@previous_lines = ();
 	}
 	# property
