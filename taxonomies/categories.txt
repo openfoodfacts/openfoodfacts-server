@@ -75402,12 +75402,6 @@ gpc_category_name:en:Soups - Prepared (Shelf Stable)
 gpc_category_description:en:Definition: Includes any products that can be described/observed as food made from the stock of meat, fish and/or vegetables, which may also contain some small solid pieces of meat, fish and/or vegetables. These products have been treated or packaged in such a way as to extend their consumable life. Includes also instant soups. Definition Excludes: Excludes products such as Perishable and Frozen Prepared Soups.
 
 <en:Soups
-en:Refrigerated soups
-gpc_category_code:en:10000261
-gpc_category_name:en:Soups - Prepared (Perishable)
-gpc_category_description:en:Definition: Includes any products that can be described/observed as liquid food made from the stock of meat, fish and/or vegetables, which may also contain some small solid pieces of meat, fish and/or vegetables. These products must be refrigerated to extend their consumable life. Includes only Prepared Soups. Definition Excludes: Excludes products such as Shelf Stable and Frozen Prepared Soups.
-
-<en:Soups
 en:Shelf-stable soup additions
 gpc_category_code:en:10006316
 gpc_category_name:en:Soup Additions (Shelf Stable)
@@ -75475,6 +75469,9 @@ fr:Soupes réfrigérées
 it:Zuppe refrigerate
 lt:Šaltai laikomos sriubos
 nl:Gekoelde soepen
+gpc_category_code:en:10000261
+gpc_category_name:en:Soups - Prepared (Perishable)
+gpc_category_description:en:Definition: Includes any products that can be described/observed as liquid food made from the stock of meat, fish and/or vegetables, which may also contain some small solid pieces of meat, fish and/or vegetables. These products must be refrigerated to extend their consumable life. Includes only Prepared Soups. Definition Excludes: Excludes products such as Shelf Stable and Frozen Prepared Soups.
 
 <en:Soups
 en:Miso soup
