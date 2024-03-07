@@ -1437,12 +1437,12 @@ function check_nutrient(nutrient_id) {
 }
 
 $(function () {
-$('.nutriment_value_as_sold').each(function () {
-    var nutrient_id = this.id.replace('nutriment_', '');
-    this.oninput = function() {
+    $('.nutriment_value_as_sold').each(function () {
+        var nutrient_id = this.id.replace('nutriment_', '');
+        this.oninput = function() {
+            check_nutrient(nutrient_id);
+        };
         check_nutrient(nutrient_id);
-    };
-    check_nutrient(nutrient_id);
-});
-}
+    });
+    }
 );
