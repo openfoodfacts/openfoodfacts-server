@@ -1326,8 +1326,6 @@ $(function () {
         $(document).foundation('equalizer', 'reflow');
     });
 
-
-
     $('#nutrition_data_prepared').change(function() {
         if ($(this).prop('checked')) {
             $('#nutrition_data_prepared_instructions').show();
@@ -1352,8 +1350,6 @@ $(function () {
         update_nutrition_image_copy();
         $(document).foundation('equalizer', 'reflow');
     });
-
-
 
     $('#no_nutrition_data').change(function() {
         if ($(this).prop('checked')) {
@@ -1381,12 +1377,12 @@ function show_warning(should_show, nutrient_id, warning_message){
 
 function check_nutrient(nutrient_id) {
     // check the changed nutrient value
-    var nutrient_value = $('#nutriment_' + nutrient_id).val().replace(',','.').replace(/^<|>|~/, '');
-    var nutrient_unit = $('#nutriment_' + nutrient_id + '_unit').val();
+    const nutrient_value = $('#nutriment_' + nutrient_id).val().replace(',','.').replace(/^(<|>|~)/, '');
+    const nutrient_unit = $('#nutriment_' + nutrient_id + '_unit').val();
 
     // define the max valid value
-    var max;
-    var percent;
+    let max;
+    let percent;
 
     if (nutrient_id == 'energy-kj') {
         max = 3800;
@@ -1408,9 +1404,8 @@ function check_nutrient(nutrient_id) {
         max = 100 * 1000 * 1000;
     }	
 
-    var is_above_or_below_max;
     if (max) {
-        is_above_or_below_max = (isNaN(nutrient_value) && nutrient_value != '-') || nutrient_value < 0 || nutrient_value > max;
+        let is_above_or_below_max = (isNaN(nutrient_value) && nutrient_value != '-') || nutrient_value < 0 || nutrient_value > max;
         // if the nutrition facts are indicated per serving, the value can be above 100
         if ((nutrient_value > max) && ($('#nutrition_data_per_serving').is(':checked')) && !percent) {
             is_above_or_below_max = false;
@@ -1422,22 +1417,22 @@ function check_nutrient(nutrient_id) {
     // but only if the changed nutrient does not have a warning
     // otherwise we may clear the sugars or saturated-fat warning
     if (! is_above_or_below_max) {
-        var fat_value = $('#nutriment_fat').val().replace(',','.');
-        var carbohydrates_value = $('#nutriment_carbohydrates').val().replace(',','.');
-        var sugars_value = $('#nutriment_sugars').val().replace(',','.');
-        var saturated_fats_value = $('#nutriment_saturated-fat').val().replace(',','.');
+        const fat_value = $('#nutriment_fat').val().replace(',','.');
+        const carbohydrates_value = $('#nutriment_carbohydrates').val().replace(',','.');
+        const sugars_value = $('#nutriment_sugars').val().replace(',','.');
+        const saturated_fats_value = $('#nutriment_saturated-fat').val().replace(',','.');
 
-        var is_sugars_above_carbohydrates = parseFloat(carbohydrates_value) < parseFloat(sugars_value);
+        const is_sugars_above_carbohydrates = parseFloat(carbohydrates_value) < parseFloat(sugars_value);
         show_warning(is_sugars_above_carbohydrates, 'sugars', lang().product_js_sugars_warning);
         
-        var is_fat_above_saturated_fats = parseFloat(fat_value) < parseFloat(saturated_fats_value);
+        const is_fat_above_saturated_fats = parseFloat(fat_value) < parseFloat(saturated_fats_value);
         show_warning(is_fat_above_saturated_fats, 'saturated-fat', lang().product_js_saturated_fat_warning);
     }
 }
 
 $(function () {
     $('.nutriment_value_as_sold').each(function () {
-        var nutrient_id = this.id.replace('nutriment_', '');
+        const nutrient_id = this.id.replace('nutriment_', '');
         this.oninput = function() {
             check_nutrient(nutrient_id);
         };
