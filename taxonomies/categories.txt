@@ -39646,12 +39646,14 @@ fr:Omelettes espagnoles sans oeuf
 nl:Spaanse tortillas zonder ei
 
 <en:Meals
+en:Omelettes
 fr:Omelettes, Omelettes aux oeufs
 ja:オムレツ
 nl:Omeletten
+intake24_category_code:en:OMLT
 #wikidata:en:
 
-<fr:Omelettes
+<en:Omelettes
 fr:Omelette avec garniture
 ciqual_food_code:en:22511
 ciqual_food_name:en:Omelette, with vegetables, cheese, meat
@@ -40753,7 +40755,7 @@ wikidata:en:Q161426
 agribalyse_proxy_food_code:en:9101
 agribalyse_proxy_food_name:en:Rice, parboiled, raw
 agribalyse_proxy_food_name:fr:Riz blanc étuvé, cru
-intake24_category_code:en:URICE
+intake24_category_code:en:RICE
 
 <en:Rices
 en:Semi-milled rices, half-milled rices
@@ -49731,7 +49733,7 @@ he:חלב שיבולת, חלב שיבולת שועל, משקאות שיבולת 
 it:Bevanda di avena
 ja:オートミルク
 lt:Avižų pienas
-nl:Havermoutmelken
+nl:Haverdranken, Havermoutmelken
 pl:Mleka owsiane
 pt:Bebidas de aveia
 sv:Havredrycker, havredryck
@@ -60609,6 +60611,7 @@ es:Sémolas de trigo duro para couscous
 fr:Semoules de blé dur pour couscous
 it:Semolino di grano duro per couscous
 nl:Couscous griesmelen van harde tarwe, Harde tarwe griesmelen voor couscous
+intake24_category_code:en:UCCGR
 
 <en:Durum wheat semolinas
 en:Pre-cooked durum wheat whole grain to pan-fry
@@ -74407,6 +74410,7 @@ nl:Vismaaltijden
 pl:Dania z rybami, Dania z rybą
 pt:Refeições com peixe, pratos com peixe
 ru:Блюда с рыбой
+intake24_category_code:en:FDSH
 #wikidata:en:
 
 <en:Meals with fish
@@ -74594,6 +74598,7 @@ pt:Refeições com carne
 ru:Блюда с мясом
 sv:Rätter med kött
 zh:肉餐
+intake24_category_code:en:MDSH
 
 <en:Meals with meat
 en:Frozen meals with meat
@@ -74713,6 +74718,7 @@ lt:Jautienos patiekalai
 nl:Rundvleesmaaltijden
 pl:Dania z wołowiną, Danie z wołowiną
 ru:Блюда из говядины
+intake24_category_code:en:BDSH
 
 <en:Meals with meat
 en:Sheep dishes, sheep meat dishes, sheepmeat meals
@@ -74997,6 +75003,7 @@ nl:Kippevleesmaaltijden
 pl:Dania z kurczakiem
 pt:Refeições com frango
 ru:Блюда из курицы
+intake24_category_code:en:CDSH
 
 <en:Meals with chicken
 en:Sweet and sour chicken
@@ -78084,6 +78091,7 @@ wikidata:en:Q722595
 ciqual_food_code:en:25573
 ciqual_food_name:en:Savoury tart (average food)
 ciqual_food_name:fr:Tarte ou quiche salée (aliment moyen)
+intake24_category_code:en:QCHE
 
 <en:Quiches
 en:Lorraine quiche, Quiche Lorraine, Eggs and lardoons quiche
@@ -82971,6 +82979,7 @@ th:แฮม
 tr:Jambon
 zh:火腿
 wikidata:en:Q170486
+intake24_category_code:en:HAMS
 
 <en:Pork
 en:Pork ham escalope
@@ -85357,7 +85366,6 @@ ciqual_food_code:en:21500
 ciqual_food_name:en:Lamb, cutlet, raw
 ciqual_food_name:fr:Agneau, côtelette, crue
 
-
 <en:Lamb meat
 en:Lamb sweetbread
 fr:Ris d'agneau
@@ -85769,7 +85777,11 @@ wikidata:en:Q2826919
 
 # Lamb dishes
 
-<en:Lamb meat
+<en:Meals with meat
+en:Meals with lamb
+intake24_category_code:en:LDSH
+
+<en:Meals with lamb
 en:Stewed lamb garnished with potatoes and other vegetables
 fr:Navarin d'agneau aux légumes
 agribalyse_food_code:en:25124
@@ -88230,7 +88242,7 @@ agribalyse_food_code:en:9810
 ciqual_food_code:en:9810
 ciqual_food_name:en:Dried pasta, raw
 ciqual_food_name:fr:Pâtes sèches standard, crues
-intake24_category_code:en:PTNS
+intake24_category_code:en:UPSTA
 
 # <en:compound
 <en:Stuffed Pastas
@@ -90816,6 +90828,7 @@ zh:海鲜
 food_groups:en: en:Fish and seafood
 pnns_group_2:en:Fish and seafood
 wikidata:en:Q192935
+intake24_category_code:en:C002 
 
 <en:Seafood
 en:Shelf-stable prepared aquatic invertebrates
@@ -91661,6 +91674,7 @@ nl:Krab
 ciqual_food_code:en:10039
 ciqual_food_name:en:Crab, raw
 ciqual_food_name:fr:Crabe, cru
+intake24_category_code:en:CRAB 
 
 <en:Crab
 en:Frozen crab
@@ -92236,6 +92250,7 @@ ru:Рыбные консервы
 th:ปลากระป๋อง
 tr:Konserve balık
 zh:罐头鱼
+intake24_category_code:en:OILY
 
 <en:Sardines
 en:Grilled European pilchard, Grilled sardine
@@ -92413,6 +92428,7 @@ nl:Visfilets
 pl:Filety rybne, filet rybny
 pt:Filetes de peixe
 ru:Рыбные филе
+intake24_category_code:en:FFLT
 
 <en:Fish fillets
 en:Freshwater fish fillets
@@ -92448,6 +92464,7 @@ fr:Batonnets de poisson
 nl:Visvingers
 pl:Paluszki rybne
 wikidata:en:Q1420441
+intake24_category_code:en:FPCS
 
 <en:Pollocks
 en:Alaska pollock
