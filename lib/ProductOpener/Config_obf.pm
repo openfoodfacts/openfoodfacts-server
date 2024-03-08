@@ -166,7 +166,16 @@ use ProductOpener::Config2;
 	teolemon
 );
 
-$options{product_type} = "beauty";
+my %options = (
+    site_name => "Open Beauty Facts",
+    product_type => "beauty",
+	og_image_url => "https://world.openbeautyfacts.org/images/misc/openbeautyfacts-logo-en.png",
+    android_apk_app_link => "https://world.openbeautyfacts.org/images/apps/obf.apk",
+    android_app_link => "https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner",
+    ios_app_link => "https://apps.apple.com/app/open-beauty-facts/id1122926380",
+	facebook_page_url => "https://www.facebook.com/openbeautyfacts",
+	twitter_account => "OpenBeautyFacts",
+);
 
 @edit_rules = ();
 

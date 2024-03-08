@@ -424,29 +424,6 @@ sub build_lang ($Languages_ref) {
 	# print $fh "Lang.pm - %Lang\n\n" . eDumper(\%Lang) . "\n";
 	# close $fh;
 
-	# Load site specific overrides
-	# the site-specific directory can be a symlink to openfoodfacts or openbeautyfacts
-	my $overrides_path = "$data_root/po/site-specific/";
-	if (-e $overrides_path) {
-
-		# Load overrides from %SiteLang
-		# %SiteLang overrides the general %Lang in Lang.pm
-
-		$log->info("Loading site-specific overrides", {path => $overrides_path});
-
-		my %SiteLang = %{ProductOpener::I18N::read_po_files("$data_root/po/site-specific/")};
-
-		foreach my $key (keys %SiteLang) {
-			next if $key =~ /^:/;    # :langname, :langtag
-			$log->debug("Using site specific string", {key => $key}) if $log->is_debug();
-
-			$Lang{$key} = {};
-			foreach my $l (keys %{$SiteLang{$key}}) {
-				$Lang{$key}{$l} = $SiteLang{$key}{$l};
-			}
-		}
-	}
-
 	foreach my $key (keys %Lang) {
 		if ((defined $Lang{$key}{fr}) or (defined $Lang{$key}{en})) {
 			foreach my $l (@Langs) {

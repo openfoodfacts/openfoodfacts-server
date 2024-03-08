@@ -182,6 +182,17 @@ use ProductOpener::Config2;
 	teolemon
 );
 
+my %options = (
+    site_name => "Open Food Facts",
+    product_type => "food",
+	og_image_url => "https://world.openbeautyfacts.org/images/misc/openbeautyfacts-logo-en.png",
+    android_apk_app_link => "https://world.openfoodfacts.org/files/off.apk",
+    android_app_link => "https://world.openfoodfacts.org/files/off.apk",
+    ios_app_link => "https://apps.apple.com/app/open-food-facts/id588797948",
+	facebook_page_url => "https://www.facebook.com/OpenFoodFacts",
+	twitter_account => "OpenFoodFacts",
+);
+
 $options{export_limit} = 10000;
 
 $options{users_who_can_upload_small_images} = {
@@ -194,7 +205,6 @@ $options{users_who_can_upload_small_images} = {
 		)
 };
 
-$options{product_type} = "food";
 
 # edit rules
 # see ProductOpener::Products::process_product_edit_rules for documentation
