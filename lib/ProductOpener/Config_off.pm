@@ -27,6 +27,8 @@ use Exporter qw< import >;
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
+		$flavor
+
 		%string_normalization_for_lang
 		%admins
 
@@ -99,6 +101,8 @@ BEGIN {
 use vars @EXPORT_OK;    # no 'my' keyword for these
 
 use ProductOpener::Config2;
+
+$flavor = 'off';
 
 # define the normalization applied to change a string to a tag id (in particular for taxonomies)
 # tag ids are also used in URLs.
@@ -183,12 +187,12 @@ use ProductOpener::Config2;
 );
 
 my %options = (
-    site_name => "Open Food Facts",
-    product_type => "food",
+	site_name => "Open Food Facts",
+	product_type => "food",
 	og_image_url => "https://world.openbeautyfacts.org/images/misc/openbeautyfacts-logo-en.png",
-    android_apk_app_link => "https://world.openfoodfacts.org/files/off.apk",
-    android_app_link => "https://world.openfoodfacts.org/files/off.apk",
-    ios_app_link => "https://apps.apple.com/app/open-food-facts/id588797948",
+	android_apk_app_link => "https://world.openfoodfacts.org/files/off.apk",
+	android_app_link => "https://world.openfoodfacts.org/files/off.apk",
+	ios_app_link => "https://apps.apple.com/app/open-food-facts/id588797948",
 	facebook_page_url => "https://www.facebook.com/OpenFoodFacts",
 	twitter_account => "OpenFoodFacts",
 );
@@ -204,7 +208,6 @@ $options{users_who_can_upload_small_images} = {
 		teolemon
 		)
 };
-
 
 # edit rules
 # see ProductOpener::Products::process_product_edit_rules for documentation

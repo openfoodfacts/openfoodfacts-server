@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="[% static_subdomain %]/css/dist/app-[% edq(lang('text_direction')) %].css?v=[% css_timestamp %]" data-base-layout="true">
     <link rel="stylesheet" href="[% static_subdomain %]/css/dist/jqueryui/themes/base/jquery-ui.css" data-base-layout="true">
     <link rel="stylesheet" href="[% static_subdomain %]/css/dist/select2.min.css">
-    <link rel="search" href="[% formatted_subdomain %]/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="[% edq(lang('site_name')) %]">
+    <link rel="search" href="[% formatted_subdomain %]/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="[% options.site_name %]">
 	[% header %]
     <style media="all">
         [% lang("css") %]
@@ -160,7 +160,7 @@
 						<li class="name">
 							<div style="position:relative;max-width:292px;">
 								<a href="/">
-								<img id="logo" src="[% static_subdomain %]/images/logos/off-logo-horizontal-light.svg" alt="[% edq(lang('logo_site_name')) %]" style="margin:8px;height:48px;width:auto;">
+								<img id="logo" src="[% static_subdomain %]/images/logos/[% flavor %]-logo-horizontal-light.svg" alt="[% options.site_name %]" style="margin:8px;height:48px;width:auto;">
 								[% IF server_options_producers_platform %]
 								<span id="professionals" style="position:absolute;bottom:2px;right:8px;line-height:1rem;font-size:1.2rem;">professionals</span>
 								[% END %]
@@ -381,8 +381,7 @@
 						<div class="row">
 
 							<div class="small-12 text-center v-space-short h-space-large">
-
-								<a href="/" style="font-size:1rem;"><img id="logo" src="[% static_subdomain %]/images/logos/off-logo-horizontal-mono-white.svg" alt="[% edq(lang('logo_site_name')) %]" style="margin:8px;height:48px;width:auto;"></a>
+								<a href="/" style="font-size:1rem;"><img id="logo" src="[% static_subdomain %]/images/logos/[% flavor %]-logo-horizontal-mono-white.svg" alt="[% options.site_name %]" style="margin:8px;height:48px;width:auto;"></a>
 
 								<p>[% lang('footer_tagline') %]</p>
 								
@@ -453,7 +452,7 @@
 {
 	"@context" : "https://schema.org",
 	"@type" : "WebSite",
-	"name" : "[% edq(lang('site_name')) %]",
+	"name" : "[% options.site_name %]",
 	"url" : "[% formatted_subdomain %]",
 	"potentialAction": {
 		"@type": "SearchAction",
@@ -467,8 +466,8 @@
 	"@context": "https://schema.org/",
 	"@type": "Organization",
 	"url": "[% formatted_subdomain %]",
-	"logo": "[% static_subdomain %]/images/logos/off-logo-vertical-light.svg",
-	"name": "[% edq(lang('site_name')) %]",
+	"logo": "[% static_subdomain %]/images/logos/[% flavor %]-logo-vertical-light.svg",
+	"name": "[% options.site_name %]",
 	"sameAs" : [  "[% edq(lang('facebook_page')) %]", "https://twitter.com/[% twitter_account %]"]
 }
 </script>
