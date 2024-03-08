@@ -74558,24 +74558,6 @@ fr:Plats préparés surgelés à la viande
 en:Canned meals with meat
 fr:Plats préparés en conserve à la viande
 
-<en:Sandwiches
-en:Doner kebab
-de:Döner kebab
-fr:Döner kebab
-ja:ドネルケバブ
-lt:Doner kebabas
-agribalyse_food_code:en:25428
-ciqual_food_code:en:25428
-ciqual_food_name:en:Sandwich made with pita bread, kebab and raw vegetables
-wikidata:en:Q20734
-
-<en:Sandwiches
-en:Baguette kebab with vegetables
-fr:Sandwich grec baguette, Kebab baguette
-agribalyse_food_code:en:25429
-ciqual_food_code:en:25429
-ciqual_food_name:en:Sandwich made with French bread, kebab and raw vegetables
-
 <en:Meals with meat
 <en:Lentil dishes
 en:Sausages with lentils, Sausage with lentils
@@ -78563,12 +78545,6 @@ lt:Augaliniai patiekalai
 nl:Plantaardige kant-en-klaarmaaltijden
 pt:Refeições à base de plantas
 
-<en:Sandwiches
-en:Falafel sandwiches
-es:Sándwiches de falafel
-fr:Sandwichs aux falafels, Sandwiches de falafel
-lt:Falafel sumuštiniai
-nl:Falafelsandwiches
 
 <en:Dried products to be rehydrated
 en:Falafel mixes
@@ -89964,6 +89940,80 @@ fr:Sandwich baguette
 ciqual_food_code:en:25543
 ciqual_food_name:en:Sandwich on french bread (average)
 ciqual_food_name:fr:Sandwich baguette (aliment moyen)
+
+<en:Sandwiches
+en:Falafel sandwiches
+es:Sándwiches de falafel
+fr:Sandwichs aux falafels, Sandwiches de falafel
+lt:Falafel sumuštiniai
+nl:Falafelsandwiches
+
+<en:Sandwiches
+en:Doner kebab
+de:Döner kebab
+fr:Döner kebab
+ja:ドネルケバブ
+lt:Doner kebabas
+agribalyse_food_code:en:25428
+ciqual_food_code:en:25428
+ciqual_food_name:en:Sandwich made with pita bread, kebab and raw vegetables
+wikidata:en:Q20734
+
+<en:Sandwiches
+en:Baguette kebab with vegetables
+fr:Sandwich grec baguette, Kebab baguette
+agribalyse_food_code:en:25429
+ciqual_food_code:en:25429
+ciqual_food_name:en:Sandwich made with French bread, kebab and raw vegetables
+
+<en:Sandwiches
+en:Surprise breads
+fr:Pains surprise
+nl:Pain surprise
+wikidata:en:Q3360605
+
+<en:Sandwiches
+en:Monte Cristo sandwich
+wikidata:en:Q6904753
+
+<en:Sandwiches
+en:Dagwood sandwich
+wikidata:en:Q5208692
+
+<en:Sandwiches
+en:Paninis, Panninis
+de:Panini
+fr:Paninis
+it:Panini tostati
+ja:パニーニ
+nl:Panini
+wikidata:en:Q1366456
+
+<en:Paninis
+en:Panini with cured ham mozzarella cheese and tomato
+fr:Panini au jambon cru, Panini jambon cru mozzarella tomates
+agribalyse_food_code:en:25434
+ciqual_food_code:en:25434
+ciqual_food_name:en:Sandwich made with panini bread, raw cured ham, mozzarella cheese and tomato
+
+<en:Paninis
+fr:Panini au poulet
+nl:Kippaninis
+#wikidata:en:
+
+<en:Sandwiches
+en:Sandwich made with panini bread raw cured ham mozzarella cheese and tomato
+fr:Sandwich panini jambon cru mozzarella tomates
+ciqual_food_code:en:25434
+ciqual_food_name:en:Sandwich made with panini bread, raw cured ham, mozzarella cheese and tomato
+
+<en:Sandwiches
+en:Raw vegetable sandwiches, vegetable sandwiches
+de:Sandwiches mit rohem Gemüse
+fi:Raakakasvisvoileivät
+fr:Sandwichs aux crudités
+nl:Rauwkostsandwiches
+wikidata:en:Q7918342
 
 #fr:Tartines fraîches
 #wikidata:en:Q6559431
@@ -110680,55 +110730,6 @@ fr:Oignons surgelés crus
 ciqual_food_code:en:20235
 ciqual_food_name:en:Onion, frozen, raw
 ciqual_food_name:fr:Oignon, surgelé, cru
-
-<en:Sandwiches
-en:Surprise breads
-fr:Pains surprise
-nl:Pain surprise
-wikidata:en:Q3360605
-
-<en:Sandwiches
-en:Monte Cristo sandwich
-wikidata:en:Q6904753
-
-<en:Sandwiches
-en:Dagwood sandwich
-wikidata:en:Q5208692
-
-<en:Sandwiches
-en:Paninis, Panninis
-de:Panini
-fr:Paninis
-it:Panini tostati
-ja:パニーニ
-nl:Panini
-wikidata:en:Q1366456
-
-<en:Paninis
-en:Panini with cured ham mozzarella cheese and tomato
-fr:Panini au jambon cru, Panini jambon cru mozzarella tomates
-agribalyse_food_code:en:25434
-ciqual_food_code:en:25434
-ciqual_food_name:en:Sandwich made with panini bread, raw cured ham, mozzarella cheese and tomato
-
-<en:Paninis
-fr:Panini au poulet
-nl:Kippaninis
-#wikidata:en:
-
-<en:Sandwiches
-en:Sandwich made with panini bread raw cured ham mozzarella cheese and tomato
-fr:Sandwich panini jambon cru mozzarella tomates
-ciqual_food_code:en:25434
-ciqual_food_name:en:Sandwich made with panini bread, raw cured ham, mozzarella cheese and tomato
-
-<en:Sandwiches
-en:Raw vegetable sandwiches, vegetable sandwiches
-de:Sandwiches mit rohem Gemüse
-fi:Raakakasvisvoileivät
-fr:Sandwichs aux crudités
-nl:Rauwkostsandwiches
-wikidata:en:Q7918342
 
 <en:Yogurts
 en:Yogurts with cereals
