@@ -759,7 +759,6 @@ if (($action eq 'display') and (($type eq 'add') or ($type eq 'edit'))) {
 	compute_serving_size_data($product_ref);
 
 	my $template_data_ref_display = {};
-	my $js;
 
 	$log->debug("displaying product", {code => $code}) if $log->is_debug();
 
@@ -1045,7 +1044,9 @@ CSS
 
 	my %column_display_style = ();
 	my %nutrition_data_per_display_style = ();
-	my @nutrition_products;
+
+	# We can display 2 nutrition facts columns, one for the product as sold, and one for the prepared product
+	my @nutrition_product_types = ();
 
 	# keep existing field ids for the product as sold, and append _prepared_product for the product after it has been prepared
 	foreach my $product_type ("", "_prepared") {
@@ -1092,7 +1093,7 @@ CSS
 		}
 
 		push(
-			@nutrition_products,
+			@nutrition_product_types,
 			{
 				checked => $checked,
 				nutrition_data => $nutrition_data,
@@ -1112,7 +1113,7 @@ CSS
 
 	}
 
-	$template_data_ref_display->{nutrition_products} = \@nutrition_products;
+	$template_data_ref_display->{nutrition_product_types} = \@nutrition_product_types;
 
 	$template_data_ref_display->{column_display_style_nutrition_data} = $column_display_style{"nutrition_data"};
 	$template_data_ref_display->{column_display_style_nutrition_data_prepared}
@@ -1484,8 +1485,7 @@ HTML
 
 	process_template('web/pages/product_edit/product_edit_form_display.tt.html', $template_data_ref_display, \$html)
 		or $html = "<p>" . $tt->error() . "</p>";
-	process_template('web/pages/product_edit/product_edit_form_display.tt.js', $template_data_ref_display, \$js);
-	$initjs .= $js;
+
 	$request_ref->{page_type} = "product_edit";
 	$request_ref->{page_format} = "banner";
 
