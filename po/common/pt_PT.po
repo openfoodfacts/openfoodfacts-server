@@ -1163,7 +1163,7 @@ msgstr "Produtos com a etiqueta %s"
 
 msgctxt "labels_s"
 msgid "label"
-msgstr "etiqueta"
+msgstr "rótulo"
 
 msgctxt "labels_tagsinput"
 msgid "add a label"
@@ -6822,6 +6822,30 @@ msgstr "O consumo de alimentos ricos em frutas, vegetais e leguminosas reduz os 
 msgctxt "nutrient_info_proteins_benefit"
 msgid "Foods that are rich in proteins are usually rich in calcium or iron which are essential minerals with numerous health benefits."
 msgstr "Os alimentos ricos em proteínas são geralmente ricos em cálcio ou ferro, que são minerais essenciais com inúmeros benefícios para a saúde."
+
+msgctxt "revert"
+msgid "Revert to this revision"
+msgstr ""
+
+msgctxt "product_js_product_revert_confirm"
+msgid "Revert to this product revision?"
+msgstr ""
+
+msgctxt "api_status_success"
+msgid "Success"
+msgstr ""
+
+msgctxt "api_status_failure"
+msgid "Failure"
+msgstr "Falha"
+
+msgctxt "api_result_product_reverted"
+msgid "Product reverted to the specified revision"
+msgstr ""
+
+msgctxt "api_result_product_not_reverted"
+msgid "Product not reverted to the specified revision"
+msgstr ""
 
 # sweeteners (additives), plural
 msgctxt "sweeteners"
