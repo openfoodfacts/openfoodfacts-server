@@ -1,4 +1,4 @@
-<html><head><title>ProductOpener::APIProductRead</title>
+<html><head><title>ProductOpener::Permissions</title>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" >
 <link rel="stylesheet" title="simple.min" type="text/css" href="../simple.min.css" media="all" >
 
@@ -26,12 +26,15 @@
   <li class='indexItem indexItem1'><a href='#NAME'>NAME</a>
   <li class='indexItem indexItem1'><a href='#DESCRIPTION'>DESCRIPTION</a>
   <ul   class='indexList indexList2'>
-    <li class='indexItem indexItem2'><a href='#read_tag_api_(_%24request_ref_)'>read_tag_api ( $request_ref )</a>
+    <li class='indexItem indexItem2'><a href='#has_permission_product_revert_(%24request_ref)'>has_permission_product_revert ($request_ref)</a>
+    <li class='indexItem indexItem2'><a href='#has_permission_(%24request_ref%2C_%24permission)'>has_permission ($request_ref, $permission)</a>
     <ul   class='indexList indexList3'>
       <li class='indexItem indexItem3'><a href='#Parameters'>Parameters</a>
       <ul   class='indexList indexList4'>
         <li class='indexItem indexItem4'><a href='#%24request_ref_(input)'>$request_ref (input)</a>
+        <li class='indexItem indexItem4'><a href='#%24permission_(input)'>$permission (input)</a>
       </ul>
+      <li class='indexItem indexItem3'><a href='#Return_value'>Return value</a>
     </ul>
   </ul>
 </ul>
@@ -41,20 +44,24 @@
 name="NAME"
 >NAME</a></h1>
 
-<p>ProductOpener::APIProductRead - implementation of READ API for accessing product data</p>
+<p>ProductOpener::Permissions - defines user permissions and provide a has_permission function to check them</p>
 
 <h1><a class='u' href='#___top' title='click to go to top of document'
 name="DESCRIPTION"
 >DESCRIPTION</a></h1>
 
 <h2><a class='u' href='#___top' title='click to go to top of document'
-name="read_tag_api_(_$request_ref_)"
->read_tag_api ( $request_ref )</a></h2>
+name="has_permission_product_revert_($request_ref)"
+>has_permission_product_revert ($request_ref)</a></h2>
 
-<p>Process API V3 READ tag requests.</p>
+<p>Check if the user has permission to revert a product.</p>
 
-<p>Currently only return the knowledge_panels field for the tag,
-if any.</p>
+<h2><a class='u' href='#___top' title='click to go to top of document'
+name="has_permission_($request_ref,_$permission)"
+>has_permission ($request_ref,
+$permission)</a></h2>
+
+<p>Check if the user has a specific permission.</p>
 
 <h3><a class='u' href='#___top' title='click to go to top of document'
 name="Parameters"
@@ -65,6 +72,19 @@ name="$request_ref_(input)"
 >$request_ref (input)</a></h4>
 
 <p>Reference to the request object.</p>
+
+<h4><a class='u' href='#___top' title='click to go to top of document'
+name="$permission_(input)"
+>$permission (input)</a></h4>
+
+<p>Permission to check.</p>
+
+<h3><a class='u' href='#___top' title='click to go to top of document'
+name="Return_value"
+>Return value</a></h3>
+
+<p>1 if the user has the permission,
+0 otherwise.</p>
 <p class="backlinkbottom"><b><a name="___bottom" href="../index.html" title="All Documents">&lt;&lt;</a></b></p>
 
 <!-- end doc -->
