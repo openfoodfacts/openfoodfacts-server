@@ -110136,49 +110136,6 @@ ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aux céré
 <fr:Fromages blancs
 fr:Fromages blancs aromatisés
 
-<en:Pastries
-<en:Desserts
-en:Charlottes
-fr:Charlottes
-nl:Charlotte
-wikidata:en:Q12502
-
-<en:Charlottes
-en:Chocolate Charlottes
-fr:Charlottes au chocolat
-nl:Chocola Charlottes
-#wikidata:en:
-
-<en:Charlottes
-en:Fruit Charlottes
-fr:Charlottes aux fruits
-nl:Vruchtencharlotte
-agribalyse_food_code:en:23531
-ciqual_food_code:en:23531
-ciqual_food_name:en:Fruit charlotte
-ciqual_food_name:fr:Charlotte aux fruits
-#wikidata:en:
-
-<en:Pastries
-<en:Desserts
-en:Crumbles
-fr:Crumbles
-it:Briciole
-nl:Kruimelschotels, Kruimelschotel
-wikidata:en:Q2006073
-intake24_category_code:en:FRTC
-
-<en:Crumbles
-en:Apple crumbles
-fr:Crumbles aux pommes
-it:Briciole di mela
-nl:Appelkruimeltaart, Appelkruimeltaarten
-agribalyse_food_code:en:23493
-ciqual_food_code:en:23493
-ciqual_food_name:en:Apple crumble
-ciqual_food_name:fr:Crumble aux pommes
-#wikidata:en:
-
 <en:Terrines
 en:Fish terrines
 fi:kalaterriinit
@@ -110735,6 +110692,7 @@ ciqual_food_name:fr:Oignon, surgelé, cru
 en:Charlottes
 fr:Charlottes
 nl:Charlotte
+wikidata:en:Q12502
 
 <en:Charlottes
 en:Chocolate Charlottes
@@ -110745,6 +110703,7 @@ nl:Chocola Charlottes
 en:Fruit Charlottes
 fr:Charlottes aux fruits
 nl:Vruchtencharlotte
+agribalyse_food_code:en:23531
 ciqual_food_code:en:23531
 ciqual_food_name:en:Fruit charlotte
 ciqual_food_name:fr:Charlotte aux fruits
@@ -110753,15 +110712,21 @@ ciqual_food_name:fr:Charlotte aux fruits
 <en:Desserts
 en:Crumbles
 fr:Crumbles
+it:Briciole
 nl:Kruimelschotels, Kruimelschotel
 wikidata:en:Q2006073
+intake24_category_code:en:FRTC
 
 <en:Crumbles
 en:Apple crumbles
 fr:Crumbles aux pommes
+it:Briciole di mela
+nl:Appelkruimeltaart, Appelkruimeltaarten
+agribalyse_food_code:en:23493
 ciqual_food_code:en:23493
 ciqual_food_name:en:Apple crumble
 ciqual_food_name:fr:Crumble aux pommes
+#wikidata:en:
 
 <en:Terrines
 en:Fish terrines
