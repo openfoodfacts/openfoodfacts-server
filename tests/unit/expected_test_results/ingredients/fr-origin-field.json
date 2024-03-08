@@ -102,6 +102,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_proxy_food_code" : "11015",
          "id" : "en:pepper",
          "origins" : "en:nepal",
          "percent_estimate" : 0.0887784090909065,
@@ -200,11 +201,10 @@
    "ingredients_with_unspecified_percent_n" : 11,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
-      "en:pepper",
       "fr:coquillettes",
       "fr:jambon-superieur"
    ],
-   "ingredients_without_ciqual_codes_n" : 3,
+   "ingredients_without_ciqual_codes_n" : 2,
    "known_ingredients_n" : 15,
    "lc" : "fr",
    "nutriments" : {
