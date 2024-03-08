@@ -344,6 +344,7 @@ Reference to the customized product object.
 sub send_api_response ($request_ref) {
 
 	my $status_code = $request_ref->{api_response}{status_code} || $request_ref->{status_code} || "200";
+	delete $request_ref->{api_response}{status_code};
 
 	my $json = JSON::PP->new->allow_nonref->canonical->utf8->encode($request_ref->{api_response});
 
