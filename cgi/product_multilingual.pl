@@ -25,6 +25,7 @@ use ProductOpener::PerlStandards;
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
@@ -534,12 +535,12 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 							foreach my $max ($thumb_size, $small_size, $display_size, "full") {
 								my $from_file
-									= "$www_root/images/products/$path/"
+									= "$BASE_DIRS{PRODUCTS_IMAGES}/$path/"
 									. $from_imageid . "."
 									. $rev . "."
 									. $max . ".jpg";
 								my $to_file
-									= "$www_root/images/products/$path/"
+									= "$BASE_DIRS{PRODUCTS_IMAGES}/$path/"
 									. $to_imageid . "."
 									. $rev . "."
 									. $max . ".jpg";
@@ -1183,7 +1184,9 @@ CSS
 			$shown = 1;
 		}
 
-		if (($shown) and ($nutriment =~ /^-/)) {
+		# Nutrients starting with a - are sub-nutrients
+		# They may be prefixed with a ! to indicate that the nutrient is always shown when displaying the nutrition facts table
+		if (($shown) and ($nutriment =~ /^!?-/)) {
 			$class = 'sub';
 			$prefix = $Lang{nutrition_data_table_sub}{$lang} . " ";
 			if ($nutriment =~ /^--/) {

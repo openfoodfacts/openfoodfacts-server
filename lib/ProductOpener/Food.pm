@@ -97,6 +97,7 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Images qw/:all/;
@@ -156,12 +157,13 @@ foreach my $categories_list_id (
 # the stats are displayed on category pages and used in product pages,
 # as well as in data quality checks and improvement opportunity detection
 
-if (opendir(my $dh, "$data_root/data/categories_stats")) {
+if (opendir(my $dh, "$BASE_DIRS{PRIVATE_DATA}/categories_stats")) {
 	foreach my $file (readdir($dh)) {
 		if ($file =~ /categories_nutriments_per_country.(\w+).sto$/) {
 			my $country_cc = $1;
 			$categories_nutriments_per_country{$country_cc}
-				= retrieve("$data_root/data/categories_stats/categories_nutriments_per_country.$country_cc.sto");
+				= retrieve(
+				"$BASE_DIRS{PRIVATE_DATA}/categories_stats/categories_nutriments_per_country.$country_cc.sto");
 		}
 	}
 	closedir $dh;
@@ -217,23 +219,26 @@ sub normalize_nutriment_value_and_modifier ($value_ref, $modifier_ref) {
 		${$value_ref} =~ s/(\&lt;=|<=|\N{U+2264})( )?//;
 		${$modifier_ref} = "\N{U+2264}";
 	}
-	elsif (${$value_ref} =~ /(\&lt;|<|max|maxi|maximum|inf|inférieur|inferieur|less|less than)( )?/i) {
-		${$value_ref} =~ s/(\&lt;|<|max|maxi|maximum|inf|inférieur|inferieur|less|less than)( )?//i;
+	elsif (
+		${$value_ref} =~ /(\&lt;|<|max|maxi|maximum|inf|inférieur|inferieur|less|less than|menos|menor|inferior)( )?/i)
+	{
+		${$value_ref}
+			=~ s/(\&lt;|<|max|maxi|maximum|inf|inférieur|inferieur|less|less than|menos|menor|inferior)( )?//i;
 		${$modifier_ref} = '<';
 	}
 	elsif (${$value_ref} =~ /(\&gt;=|>=|\N{U+2265})/) {
 		${$value_ref} =~ s/(\&gt;=|>=|\N{U+2265})( )?//;
 		${$modifier_ref} = "\N{U+2265}";
 	}
-	elsif (${$value_ref} =~ /(\&gt;|>|min|mini|minimum|greater|more|more than)/i) {
-		${$value_ref} =~ s/(\&gt;|>|min|mini|minimum|greater|more|more than)( )?//i;
+	elsif (${$value_ref} =~ /(\&gt;|>|min|mini|minimum|greater|more|more than|más|mayor|superior)/i) {
+		${$value_ref} =~ s/(\&gt;|>|min|mini|minimum|greater|more|more than|más|mayor|superior)( )?//i;
 		${$modifier_ref} = '>';
 	}
-	elsif (${$value_ref} =~ /(env|environ|about|~|≈)/i) {
-		${$value_ref} =~ s/(env|environ|about|~|≈)( )?//i;
+	elsif (${$value_ref} =~ /(env|environ|about|~|≈|aprox|alrededor)/i) {
+		${$value_ref} =~ s/(env|environ|about|~|≈|aprox|alrededor)( )?//i;
 		${$modifier_ref} = '~';
 	}
-	elsif (${$value_ref} =~ /trace|traces/i) {
+	elsif (${$value_ref} =~ /(trace|traces|traza|trazas)/i) {
 		${$value_ref} = 0;
 		${$modifier_ref} = '~';
 	}
@@ -374,7 +379,7 @@ sub assign_nid_modifier_value_and_unit ($product_ref, $nid, $modifier, $value, $
 	return;
 }
 
-# For fat, saturated fat, sugars, salt: http://www.diw.de/sixcms/media.php/73/diw_wr_2010-19.pdf
+# For fat, saturated fat, sugars, salt: https://www.diw.de/sixcms/media.php/73/diw_wr_2010-19.pdf
 @nutrient_levels = (['fat', 3, 20], ['saturated-fat', 1.5, 5], ['sugars', 5, 12.5], ['salt', 0.3, 1.5],);
 
 #
@@ -389,6 +394,7 @@ sub assign_nid_modifier_value_and_unit ($product_ref, $nid, $modifier, $value, $
 	ru => "ru",
 	us => "us",
 	hk => "hk",
+	jp => "jp",
 );
 
 =head2 %nutriments_tables
@@ -432,12 +438,12 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'--lignoceric-acid-', '--cerotic-acid-',
 			'--montanic-acid-', '--melissic-acid-',
 			'-unsaturated-fat-', '--monounsaturated-fat-',
-			'--polyunsaturated-fat-', '-omega-3-fat-',
+			'---omega-9-fat-', '--polyunsaturated-fat-',
+			'---omega-3-fat-', '---omega-6-fat-',
 			'--alpha-linolenic-acid-', '--eicosapentaenoic-acid-',
-			'--docosahexaenoic-acid-', '-omega-6-fat-',
-			'--linoleic-acid-', '--arachidonic-acid-',
-			'--gamma-linolenic-acid-', '--dihomo-gamma-linolenic-acid-',
-			'-omega-9-fat-', '--oleic-acid-',
+			'--docosahexaenoic-acid-', '--linoleic-acid-',
+			'--arachidonic-acid-', '--gamma-linolenic-acid-',
+			'--dihomo-gamma-linolenic-acid-', '--oleic-acid-',
 			'--elaidic-acid-', '--gondoic-acid-',
 			'--mead-acid-', '--erucic-acid-',
 			'--nervonic-acid-', '-trans-fat-',
@@ -480,7 +486,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'choline-', 'phylloquinone-',
 			'beta-glucan-', 'inositol-',
 			'carnitine-', 'sulphate-',
-			'nitrate-',
+			'nitrate-', 'acidity-',
 		)
 	],
 	ca => [
@@ -494,162 +500,38 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'--arachidic-acid-', '--behenic-acid-',
 			'--lignoceric-acid-', '--cerotic-acid-',
 			'--montanic-acid-', '--melissic-acid-',
-			'-monounsaturated-fat-', '-polyunsaturated-fat-',
-			'-omega-3-fat-', '--alpha-linolenic-acid-',
-			'--eicosapentaenoic-acid-', '--docosahexaenoic-acid-',
-			'-omega-6-fat-', '--linoleic-acid-',
+			'-unsaturated-fat-', '--monounsaturated-fat-',
+			'---omega-9-fat-', '--polyunsaturated-fat-',
+			'---omega-3-fat-', '---omega-6-fat-',
+			'--alpha-linolenic-acid-', '--eicosapentaenoic-acid-',
+			'--docosahexaenoic-acid-', '--linoleic-acid-',
 			'--arachidonic-acid-', '--gamma-linolenic-acid-',
-			'--dihomo-gamma-linolenic-acid-', '-omega-9-fat-',
-			'--oleic-acid-', '--elaidic-acid-',
-			'--gondoic-acid-', '--mead-acid-',
-			'--erucic-acid-', '--nervonic-acid-',
-			'-trans-fat', 'cholesterol',
-			'!carbohydrates', '-fiber',
-			'--soluble-fiber-', '--insoluble-fiber-',
-			'-sugars', '--added-sugars-',
-			'--sucrose-', '--glucose-',
-			'--fructose-', '--lactose-',
-			'--maltose-', '--maltodextrins-',
-			'-starch-', '-polyols-',
-			'-erythritol-', '!proteins',
-			'-casein-', '-serum-proteins-',
-			'-nucleotides-', 'salt',
-			'-added-salt-', 'sodium',
-			'alcohol', '#vitamins',
-			'vitamin-a', 'beta-carotene-',
-			'vitamin-d-', 'vitamin-e-',
-			'vitamin-k-', 'vitamin-c',
-			'vitamin-b1-', 'vitamin-b2-',
-			'vitamin-pp-', 'vitamin-b6-',
-			'vitamin-b9-', 'folates-',
-			'vitamin-b12-', 'biotin-',
-			'pantothenic-acid-', '#minerals',
-			'silica-', 'bicarbonate-',
-			'potassium-', 'chloride-',
-			'calcium', 'phosphorus-',
-			'iron', 'magnesium-',
-			'zinc-', 'copper-',
-			'manganese-', 'fluoride-',
-			'selenium-', 'chromium-',
-			'molybdenum-', 'iodine-',
-			'caffeine-', 'taurine-',
-			'ph-', 'fruits-vegetables-nuts-',
-			'fruits-vegetables-nuts-dried-', 'fruits-vegetables-nuts-estimate-',
-			'collagen-meat-protein-ratio-', 'cocoa-',
-			'chlorophyl-', 'carbon-footprint-',
-			'carbon-footprint-from-meat-or-fish-', 'nutrition-score-fr-',
-			'nutrition-score-uk-', 'glycemic-index-',
-			'water-hardness-', 'choline-',
-			'phylloquinone-', 'beta-glucan-',
-			'inositol-', 'carnitine-',
-			'sulphate-', 'nitrate-',
-		)
-	],
-	ru => [
-		(
-			'!proteins', '-casein-',
-			'-serum-proteins-', '-nucleotides-',
-			'!fat', '-saturated-fat',
-			'--butyric-acid-', '--caproic-acid-',
-			'--caprylic-acid-', '--capric-acid-',
-			'--lauric-acid-', '--myristic-acid-',
-			'--palmitic-acid-', '--stearic-acid-',
-			'--arachidic-acid-', '--behenic-acid-',
-			'--lignoceric-acid-', '--cerotic-acid-',
-			'--montanic-acid-', '--melissic-acid-',
-			'-monounsaturated-fat-', '-polyunsaturated-fat-',
-			'-omega-3-fat-', '--alpha-linolenic-acid-',
-			'--eicosapentaenoic-acid-', '--docosahexaenoic-acid-',
-			'-omega-6-fat-', '--linoleic-acid-',
-			'--arachidonic-acid-', '--gamma-linolenic-acid-',
-			'--dihomo-gamma-linolenic-acid-', '-omega-9-fat-',
-			'--oleic-acid-', '--elaidic-acid-',
-			'--gondoic-acid-', '--mead-acid-',
-			'--erucic-acid-', '--nervonic-acid-',
-			'-trans-fat-', '-cholesterol-',
-			'!carbohydrates', '-sugars',
+			'--dihomo-gamma-linolenic-acid-', '--oleic-acid-',
+			'--elaidic-acid-', '--gondoic-acid-',
+			'--mead-acid-', '--erucic-acid-',
+			'--nervonic-acid-', '-trans-fat',
+			'cholesterol', '!carbohydrates',
+			'-fiber', '--soluble-fiber-',
+			'--insoluble-fiber-', '-sugars',
 			'--added-sugars-', '--sucrose-',
 			'--glucose-', '--fructose-',
 			'--lactose-', '--maltose-',
 			'--maltodextrins-', '-starch-',
-			'-polyols-', '--erythritol-',
-			'!energy-kj', '!energy-kcal',
-			'energy-', '-energy-from-fat-',
-			'fiber', 'salt',
-			'-added-salt-', 'sodium',
-			'alcohol', '#vitamins',
-			'vitamin-a-', 'beta-carotene-',
-			'vitamin-d-', 'vitamin-e-',
-			'vitamin-k-', 'vitamin-c-',
-			'vitamin-b1-', 'vitamin-b2-',
-			'vitamin-pp-', 'vitamin-b6-',
-			'vitamin-b9-', 'folates-',
-			'vitamin-b12-', 'biotin-',
-			'pantothenic-acid-', '#minerals',
-			'silica-', 'bicarbonate-',
-			'potassium-', 'chloride-',
-			'calcium-', 'phosphorus-',
-			'iron-', 'magnesium-',
-			'zinc-', 'copper-',
-			'manganese-', 'fluoride-',
-			'selenium-', 'chromium-',
-			'molybdenum-', 'iodine-',
-			'caffeine-', 'taurine-',
-			'ph-', 'fruits-vegetables-nuts-',
-			'fruits-vegetables-nuts-dried-', 'fruits-vegetables-nuts-estimate-',
-			'collagen-meat-protein-ratio-', 'cocoa-',
-			'chlorophyl-', 'carbon-footprint-',
-			'carbon-footprint-from-meat-or-fish-', 'nutrition-score-fr-',
-			'nutrition-score-uk-', 'glycemic-index-',
-			'water-hardness-', 'choline-',
-			'phylloquinone-', 'beta-glucan-',
-			'inositol-', 'carnitine-',
-			'sulphate-', 'nitrate-',
-		)
-	],
-	us => [
-		(
-			'!energy-kcal', 'energy-',
-			'-energy-from-fat-', '!fat',
-			'-saturated-fat', '--butyric-acid-',
-			'--caproic-acid-', '--caprylic-acid-',
-			'--capric-acid-', '--lauric-acid-',
-			'--myristic-acid-', '--palmitic-acid-',
-			'--stearic-acid-', '--arachidic-acid-',
-			'--behenic-acid-', '--lignoceric-acid-',
-			'--cerotic-acid-', '--montanic-acid-',
-			'--melissic-acid-', '-monounsaturated-fat-',
-			'-polyunsaturated-fat-', '-omega-3-fat-',
-			'--alpha-linolenic-acid-', '--eicosapentaenoic-acid-',
-			'--docosahexaenoic-acid-', '-omega-6-fat-',
-			'--linoleic-acid-', '--arachidonic-acid-',
-			'--gamma-linolenic-acid-', '--dihomo-gamma-linolenic-acid-',
-			'-omega-9-fat-', '--oleic-acid-',
-			'--elaidic-acid-', '--gondoic-acid-',
-			'--mead-acid-', '--erucic-acid-',
-			'--nervonic-acid-', '-trans-fat',
-			'cholesterol', 'salt-',
-			'-added-salt-', 'sodium',
-			'!carbohydrates', '-fiber',
-			'--soluble-fiber-', '--insoluble-fiber-',
-			'-sugars', '--added-sugars',
-			'--sucrose-', '--glucose-',
-			'--fructose-', '--lactose-',
-			'--maltose-', '--maltodextrins-',
-			'-starch-', '-polyols-',
-			'-erythritol-', '!proteins',
-			'-casein-', '-serum-proteins-',
-			'-nucleotides-', 'alcohol',
-			'#vitamins', 'vitamin-a-',
-			'beta-carotene-', 'vitamin-d',
+			'-polyols-', '-erythritol-',
+			'!proteins', '-casein-',
+			'-serum-proteins-', '-nucleotides-',
+			'salt', '-added-salt-',
+			'sodium', 'alcohol',
+			'#vitamins', 'vitamin-a',
+			'beta-carotene-', 'vitamin-d-',
 			'vitamin-e-', 'vitamin-k-',
-			'vitamin-c-', 'vitamin-b1-',
+			'vitamin-c', 'vitamin-b1-',
 			'vitamin-b2-', 'vitamin-pp-',
 			'vitamin-b6-', 'vitamin-b9-',
 			'folates-', 'vitamin-b12-',
 			'biotin-', 'pantothenic-acid-',
 			'#minerals', 'silica-',
-			'bicarbonate-', 'potassium',
+			'bicarbonate-', 'potassium-',
 			'chloride-', 'calcium',
 			'phosphorus-', 'iron',
 			'magnesium-', 'zinc-',
@@ -664,12 +546,16 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'carbon-footprint-', 'carbon-footprint-from-meat-or-fish-',
 			'nutrition-score-fr-', 'nutrition-score-uk-',
 			'glycemic-index-', 'water-hardness-',
-			'sulfate-', 'nitrate-',
+			'choline-', 'phylloquinone-',
+			'beta-glucan-', 'inositol-',
+			'carnitine-', 'sulphate-',
+			'nitrate-', 'acidity-',
 		)
 	],
-	us_before_2017 => [
+	ru => [
 		(
-			'!energy', '-energy-from-fat',
+			'!proteins', '-casein-',
+			'-serum-proteins-', '-nucleotides-',
 			'!fat', '-saturated-fat',
 			'--butyric-acid-', '--caproic-acid-',
 			'--caprylic-acid-', '--capric-acid-',
@@ -678,37 +564,101 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'--arachidic-acid-', '--behenic-acid-',
 			'--lignoceric-acid-', '--cerotic-acid-',
 			'--montanic-acid-', '--melissic-acid-',
-			'-monounsaturated-fat-', '-polyunsaturated-fat-',
-			'-omega-3-fat-', '--alpha-linolenic-acid-',
-			'--eicosapentaenoic-acid-', '--docosahexaenoic-acid-',
-			'-omega-6-fat-', '--linoleic-acid-',
+			'-unsaturated-fat-', '--monounsaturated-fat-',
+			'---omega-9-fat-', '--polyunsaturated-fat-',
+			'---omega-3-fat-', '---omega-6-fat-',
+			'--alpha-linolenic-acid-', '--eicosapentaenoic-acid-',
+			'--docosahexaenoic-acid-', '--linoleic-acid-',
 			'--arachidonic-acid-', '--gamma-linolenic-acid-',
-			'--dihomo-gamma-linolenic-acid-', '-omega-9-fat-',
+			'--dihomo-gamma-linolenic-acid-', '--oleic-acid-',
+			'--elaidic-acid-', '--gondoic-acid-',
+			'--mead-acid-', '--erucic-acid-',
+			'--nervonic-acid-', '-trans-fat-',
+			'-cholesterol-', '!carbohydrates',
+			'-sugars', '--added-sugars-',
+			'--sucrose-', '--glucose-',
+			'--fructose-', '--lactose-',
+			'--maltose-', '--maltodextrins-',
+			'-starch-', '-polyols-',
+			'--erythritol-', '!energy-kj',
+			'!energy-kcal', 'energy-',
+			'-energy-from-fat-', 'fiber',
+			'salt', '-added-salt-',
+			'sodium', 'alcohol',
+			'#vitamins', 'vitamin-a-',
+			'beta-carotene-', 'vitamin-d-',
+			'vitamin-e-', 'vitamin-k-',
+			'vitamin-c-', 'vitamin-b1-',
+			'vitamin-b2-', 'vitamin-pp-',
+			'vitamin-b6-', 'vitamin-b9-',
+			'folates-', 'vitamin-b12-',
+			'biotin-', 'pantothenic-acid-',
+			'#minerals', 'silica-',
+			'bicarbonate-', 'potassium-',
+			'chloride-', 'calcium-',
+			'phosphorus-', 'iron-',
+			'magnesium-', 'zinc-',
+			'copper-', 'manganese-',
+			'fluoride-', 'selenium-',
+			'chromium-', 'molybdenum-',
+			'iodine-', 'caffeine-',
+			'taurine-', 'ph-',
+			'fruits-vegetables-nuts-', 'fruits-vegetables-nuts-dried-',
+			'fruits-vegetables-nuts-estimate-', 'collagen-meat-protein-ratio-',
+			'cocoa-', 'chlorophyl-',
+			'carbon-footprint-', 'carbon-footprint-from-meat-or-fish-',
+			'nutrition-score-fr-', 'nutrition-score-uk-',
+			'glycemic-index-', 'water-hardness-',
+			'choline-', 'phylloquinone-',
+			'beta-glucan-', 'inositol-',
+			'carnitine-', 'sulphate-',
+			'nitrate-', 'acidity-',
+		)
+	],
+	us => [
+		(
+			'!energy-kcal', 'energy-',
+			'-energy-from-fat-', '!fat',
+			'-saturated-fat', '--butyric-acid-',
+			'--caproic-acid-', '--caprylic-acid-',
+			'--capric-acid-', '--lauric-acid-',
+			'--myristic-acid-', '--palmitic-acid-',
+			'--stearic-acid-', '--arachidic-acid-',
+			'--behenic-acid-', '--lignoceric-acid-',
+			'--cerotic-acid-', '--montanic-acid-',
+			'--melissic-acid-', '-unsaturated-fat-',
+			'--monounsaturated-fat-', '---omega-9-fat-',
+			'--polyunsaturated-fat-', '---omega-3-fat-',
+			'---omega-6-fat-', '--alpha-linolenic-acid-',
+			'--eicosapentaenoic-acid-', '--docosahexaenoic-acid-',
+			'--linoleic-acid-', '--arachidonic-acid-',
+			'--gamma-linolenic-acid-', '--dihomo-gamma-linolenic-acid-',
 			'--oleic-acid-', '--elaidic-acid-',
 			'--gondoic-acid-', '--mead-acid-',
 			'--erucic-acid-', '--nervonic-acid-',
 			'-trans-fat', 'cholesterol',
-			'salt-', 'sodium',
-			'!carbohydrates', '-fiber',
-			'--soluble-fiber-', '--insoluble-fiber-',
-			'-sugars', '--sucrose-',
+			'salt-', '-added-salt-',
+			'sodium', '!carbohydrates',
+			'-fiber', '--soluble-fiber-',
+			'--insoluble-fiber-', '-sugars',
+			'--added-sugars', '--sucrose-',
 			'--glucose-', '--fructose-',
 			'--lactose-', '--maltose-',
 			'--maltodextrins-', '-starch-',
-			'-polyols-', '--erythritol-',
+			'-polyols-', '-erythritol-',
 			'!proteins', '-casein-',
 			'-serum-proteins-', '-nucleotides-',
 			'alcohol', '#vitamins',
-			'vitamin-a', 'beta-carotene-',
-			'vitamin-d-', 'vitamin-e-',
-			'vitamin-k-', 'vitamin-c',
+			'vitamin-a-', 'beta-carotene-',
+			'vitamin-d', 'vitamin-e-',
+			'vitamin-k-', 'vitamin-c-',
 			'vitamin-b1-', 'vitamin-b2-',
 			'vitamin-pp-', 'vitamin-b6-',
 			'vitamin-b9-', 'folates-',
 			'vitamin-b12-', 'biotin-',
 			'pantothenic-acid-', '#minerals',
 			'silica-', 'bicarbonate-',
-			'potassium-', 'chloride-',
+			'potassium', 'chloride-',
 			'calcium', 'phosphorus-',
 			'iron', 'magnesium-',
 			'zinc-', 'copper-',
@@ -722,23 +672,142 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'chlorophyl-', 'carbon-footprint-',
 			'carbon-footprint-from-meat-or-fish-', 'nutrition-score-fr-',
 			'nutrition-score-uk-', 'glycemic-index-',
-			'water-hardness-', 'choline-',
-			'phylloquinone-', 'beta-glucan-',
-			'inositol-', 'carnitine-',
-			'sulfate-', 'nitrate-',
+			'water-hardness-', 'sulfate-',
+			'nitrate-', 'acidity-',
+		)
+	],
+	us_before_2017 => [
+		(
+			'!energy', '-energy-from-fat',
+			'!fat', '-saturated-fat',
+			'--butyric-acid-', '--caproic-acid-',
+			'--caprylic-acid-', '--capric-acid-',
+			'--lauric-acid-', '--myristic-acid-',
+			'--palmitic-acid-', '--stearic-acid-',
+			'--arachidic-acid-', '--behenic-acid-',
+			'--lignoceric-acid-', '--cerotic-acid-',
+			'--montanic-acid-', '--melissic-acid-',
+			'-unsaturated-fat-', '--monounsaturated-fat-',
+			'---omega-9-fat-', '--polyunsaturated-fat-',
+			'---omega-3-fat-', '---omega-6-fat-',
+			'--alpha-linolenic-acid-', '--eicosapentaenoic-acid-',
+			'--docosahexaenoic-acid-', \'--linoleic-acid-',
+			'--arachidonic-acid-', '--gamma-linolenic-acid-',
+			'--dihomo-gamma-linolenic-acid-', '--oleic-acid-',
+			'--elaidic-acid-', '--gondoic-acid-',
+			'--mead-acid-', '--erucic-acid-',
+			'--nervonic-acid-', '-trans-fat',
+			'cholesterol', 'salt-',
+			'sodium', '!carbohydrates',
+			'-fiber', '--soluble-fiber-',
+			'--insoluble-fiber-', '-sugars',
+			'--sucrose-', '--glucose-',
+			'--fructose-', '--lactose-',
+			'--maltose-', '--maltodextrins-',
+			'-starch-', '-polyols-',
+			'--erythritol-', '!proteins',
+			'-casein-', '-serum-proteins-',
+			'-nucleotides-', 'alcohol',
+			'#vitamins', 'vitamin-a',
+			'beta-carotene-', 'vitamin-d-',
+			'vitamin-e-', 'vitamin-k-',
+			'vitamin-c', 'vitamin-b1-',
+			'vitamin-b2-', 'vitamin-pp-',
+			'vitamin-b6-', 'vitamin-b9-',
+			'folates-', 'vitamin-b12-',
+			'biotin-', 'pantothenic-acid-',
+			'#minerals', 'silica-',
+			'bicarbonate-', 'potassium-',
+			'chloride-', 'calcium',
+			'phosphorus-', 'iron',
+			'magnesium-', 'zinc-',
+			'copper-', 'manganese-',
+			'fluoride-', 'selenium-',
+			'chromium-', 'molybdenum-',
+			'iodine-', 'caffeine-',
+			'taurine-', 'ph-',
+			'fruits-vegetables-nuts-', 'fruits-vegetables-nuts-dried-',
+			'fruits-vegetables-nuts-estimate-', 'collagen-meat-protein-ratio-',
+			'cocoa-', 'chlorophyl-',
+			'carbon-footprint-', 'carbon-footprint-from-meat-or-fish-',
+			'nutrition-score-fr-', 'nutrition-score-uk-',
+			'glycemic-index-', 'water-hardness-',
+			'choline-', 'phylloquinone-',
+			'beta-glucan-', 'inositol-',
+			'carnitine-', 'sulfate-',
+			'nitrate-', 'acidity-',
 		)
 	],
 	hk => [
 		(
 			'!energy-kj', '!energy-kcal', '!proteins', '!fat',
-			'-saturated-fat', '-polyunsaturated-fat-', '-monounsaturated-fat-', '-trans-fat',
-			'cholesterol', '!carbohydrates', '-sugars', '-fiber',
-			'salt-', 'sodium', '#vitamins', 'vitamin-a',
-			'vitamin-d-', 'vitamin-c', 'vitamin-b1-', 'vitamin-b2-',
-			'vitamin-pp-', 'vitamin-b6-', 'vitamin-b9-', 'folates-',
-			'vitamin-b12-', '#minerals', 'calcium', 'potassium-',
-			'phosphorus-', 'iron', 'alcohol', 'nutrition-score-fr-',
-			'sulphate-', 'nitrate-',
+			'-saturated-fat', '-unsaturated-fat-', '--monounsaturated-fat-', '--monounsaturated-fat-',
+			'-trans-fat', 'cholesterol', '!carbohydrates', '-sugars',
+			'-fiber', 'salt-', 'sodium', '#vitamins',
+			'vitamin-a', 'vitamin-d-', 'vitamin-c', 'vitamin-b1-',
+			'vitamin-b2-', 'vitamin-pp-', 'vitamin-b6-', 'vitamin-b9-',
+			'folates-', 'vitamin-b12-', '#minerals', 'calcium',
+			'potassium-', 'phosphorus-', 'iron', 'alcohol',
+			'nutrition-score-fr-', 'sulphate-', 'nitrate-', 'acidity-',
+		)
+	],
+	jp => [
+		(
+			'!energy-kj-', '!energy-kcal',
+			'!energy-', '-energy-from-fat-',
+			'!proteins', '-casein-',
+			'-serum-proteins-', '-nucleotides-',
+			'!fat', '-saturated-fat-',
+			'--butyric-acid-', '--caproic-acid-',
+			'--caprylic-acid-', '--capric-acid-',
+			'--lauric-acid-', '--myristic-acid-',
+			'--palmitic-acid-', '--stearic-acid-',
+			'--arachidic-acid-', '--behenic-acid-',
+			'--lignoceric-acid-', '--cerotic-acid-',
+			'--montanic-acid-', '--melissic-acid-',
+			'-unsaturated-fat-', '--monounsaturated-fat-',
+			'---omega-9-fat-', '--polyunsaturated-fat-',
+			'---omega-3-fat-', '---omega-6-fat-',
+			'--alpha-linolenic-acid-', '--eicosapentaenoic-acid-',
+			'--docosahexaenoic-acid-', '--linoleic-acid-',
+			'--arachidonic-acid-', '--gamma-linolenic-acid-',
+			'--dihomo-gamma-linolenic-acid-', '--oleic-acid-',
+			'--elaidic-acid-', '--gondoic-acid-',
+			'--mead-acid-', '--erucic-acid-',
+			'--nervonic-acid-', '-trans-fat-',
+			'cholesterol-', '!carbohydrates',
+			'-sugars-', '-fiber-',
+			'-soluble-fiber-', '-insoluble-fiber-',
+			'!salt', '-added-salt-',
+			'#sodium-', 'alcohol',
+			'#vitamins', 'vitamin-a-',
+			'beta-carotene-', 'vitamin-d-',
+			'vitamin-e-', 'vitamin-k-',
+			'vitamin-c-', 'vitamin-b1-',
+			'vitamin-b2-', 'vitamin-pp-',
+			'vitamin-b6-', 'vitamin-b9-',
+			'folates-', 'vitamin-b12-',
+			'biotin-', 'pantothenic-acid-',
+			'#minerals', 'silica-',
+			'bicarbonate-', 'potassium-',
+			'chloride-', 'calcium-',
+			'phosphorus-', 'iron-',
+			'magnesium-', 'zinc-',
+			'copper-', 'manganese-',
+			'fluoride-', 'selenium-',
+			'chromium-', 'molybdenum-',
+			'iodine-', 'caffeine-',
+			'taurine-', 'ph-',
+			'fruits-vegetables-nuts-', 'fruits-vegetables-nuts-dried-',
+			'fruits-vegetables-nuts-estimate-', 'collagen-meat-protein-ratio-',
+			'cocoa-', 'chlorophyl-',
+			'carbon-footprint-', 'carbon-footprint-from-meat-or-fish-',
+			'nutrition-score-fr-', 'nutrition-score-uk-',
+			'glycemic-index-', 'water-hardness-',
+			'choline-', 'phylloquinone-',
+			'beta-glucan-', 'inositol-',
+			'carnitine-', 'sulphate-',
+			'nitrate-', 'acidity-',
 		)
 	],
 );
@@ -845,7 +914,9 @@ sub is_beverage_for_nutrition_score_2021 ($product_ref) {
 
 	my $is_beverage = 0;
 
-	if (has_tag($product_ref, "categories", "en:beverages")) {
+	if (   has_tag($product_ref, "categories", "en:beverages")
+		or has_tag($product_ref, "categories", "en:beverage-preparations"))
+	{
 
 		$is_beverage = 1;
 
@@ -896,7 +967,9 @@ sub is_beverage_for_nutrition_score_2023 ($product_ref) {
 
 	my $is_beverage = 0;
 
-	if (has_tag($product_ref, "categories", "en:beverages")) {
+	if (   has_tag($product_ref, "categories", "en:beverages")
+		or has_tag($product_ref, "categories", "en:beverage-preparations"))
+	{
 
 		$is_beverage = 1;
 
@@ -1141,43 +1214,47 @@ sub fix_salt_equivalent ($product_ref) {
 }
 
 # estimates by category of products. not exact values. For the Nutri-Score, it's important to distinguish only between the thresholds: 40, 60 and 80
-my %fruits_vegetables_nuts_by_category = (
-	"en:fruit-juices" => 100,
-	"en:vegetable-juices" => 100,
-	"en:fruit-sauces" => 90,
-	"en:vegetables" => 90,
-	"en:fruits" => 90,
-	"en:mushrooms" => 90,
-	"en:canned-fruits" => 90,
-	"en:frozen-fruits" => 90,
-	"en:jams" => 50,
-	"en:fruits-based-foods" => 85,
-	"en:vegetables-based-foods" => 85,
+# first entries match first, so we put potatoes before vegetables
+my @fruits_vegetables_nuts_by_category_sorted_2021 = (
+	["en:potatoes", 0],
+	["en:sweet-potatoes", 0],
+	["en:fruit-juices", 100],
+	["en:vegetable-juices", 100],
+	["en:mushrooms", 90],
 	# 2019/08/31: olive oil, walnut oil and colza oil are now considered in the same fruits, vegetables and nuts category
-	"en:olive-oils" => 100,
-	"en:walnut-oils" => 100,
+	["en:olive-oils", 100],
+	["en:walnut-oils", 100],
 	# adding multiple wordings for colza/rapeseed oil in case we change it at some point
-	"en:colza-oils" => 100,
-	"en:rapeseed-oils" => 100,
-	"en:rapeseeds-oils" => 100,
+	["en:colza-oils", 100],
+	["en:rapeseed-oils", 100],
+	["en:rapeseeds-oils", 100],
 	# nuts,
 	# "Les fruits à coque comprennent :
 	# Noix, noisettes, pistaches, noix de cajou, noix de pécan, noix de coco (cf. précisions ci-dessus),
 	# arachides, amandes, châtaigne
-	"en:walnuts" => 100,
-	"en:hazelnuts" => 100,
-	"en:pistachios" => 100,
-	"en:cashew-nuts" => 100,
-	"en:pecan-nuts" => 100,
-	"en:peanuts" => 100,
-	"en:almonds" => 100,
-	"en:chestnuts" => 100,
-	"en:coconuts" => 100,
+	["en:walnuts", 100],
+	["en:hazelnuts", 100],
+	["en:pistachios", 100],
+	["en:cashew-nuts", 100],
+	["en:pecan-nuts", 100],
+	["en:peanuts", 100],
+	["en:almonds", 100],
+	["en:chestnuts", 100],
+	["en:coconuts", 100],
+	["en:jams", 50],
+	["en:fruit-sauces", 90],
+	["en:fruits", 90],
+	["en:vegetables", 90],
+	["en:canned-fruits", 90],
+	["en:frozen-fruits", 90],
+	["en:fruits-based-foods", 85],
+	["en:vegetables-based-foods", 85],
 );
 
-my @fruits_vegetables_nuts_by_category_sorted
-	= sort {$fruits_vegetables_nuts_by_category{$b} <=> $fruits_vegetables_nuts_by_category{$a}}
-	keys %fruits_vegetables_nuts_by_category;
+# Canonicalize the entries, in case the canonical entry changed
+foreach my $category_ref (@fruits_vegetables_nuts_by_category_sorted_2021) {
+	$category_ref->[0] = canonicalize_taxonomy_tag("en", "categories", $category_ref->[0]);
+}
 
 =head2 compute_nutriscore_2021_fruits_vegetables_nuts_colza_walnut_olive_oil($product_ref, $prepared)
 
@@ -1247,13 +1324,13 @@ sub compute_nutriscore_2021_fruits_vegetables_nuts_colza_walnut_olive_oil ($prod
 	}
 	else {
 		# estimates by category of products. not exact values. it's important to distinguish only between the thresholds: 40, 60 and 80
-		foreach my $category_id (@fruits_vegetables_nuts_by_category_sorted) {
+		foreach my $category_ref (@fruits_vegetables_nuts_by_category_sorted_2021) {
 
+			my $category_id = $category_ref->[0];
 			if (has_tag($product_ref, "categories", $category_id)) {
-				$fruits = $fruits_vegetables_nuts_by_category{$category_id};
+				$fruits = $category_ref->[1];
 				$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category} = $category_id;
-				$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category_value}
-					= $fruits_vegetables_nuts_by_category{$category_id};
+				$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category_value} = $fruits;
 				add_tag($product_ref, "misc", "en:nutrition-fruits-vegetables-nuts-from-category");
 				my $category = $category_id;
 				$category =~ s/:/-/;
@@ -1298,6 +1375,11 @@ my @fruits_vegetables_legumes_by_category_if_no_ingredients_specified_sorted = (
 	["en:jams", 50],
 );
 
+# Canonicalize the entries, in case the canonical entry changed
+foreach my $category_ref (@fruits_vegetables_legumes_by_category_if_no_ingredients_specified_sorted) {
+	$category_ref->[0] = canonicalize_taxonomy_tag("en", "categories", $category_ref->[0]);
+}
+
 =head2 compute_nutriscore_2023_fruits_vegetables_legumes($product_ref, $prepared)
 
 Compute the % of fruits, vegetables and legumes for the Nutri-Score 2023 algorithm.
@@ -1311,6 +1393,10 @@ Differences with the 2021 version:
 =head4 $product_ref - ref to the product
 
 =head4 $prepared - string contains either "" or "-prepared"
+
+=head3 Return values
+
+Return undef if no value could be computed or estimated.
 
 =cut
 
@@ -1503,7 +1589,9 @@ sub compute_nutriscore_data ($product_ref, $prepared, $nutriments_field, $versio
 	}
 	else {
 		# fruits, vegetables, legumes - 2023
-		my $fruits_vegetables_legumes = compute_nutriscore_2023_fruits_vegetables_legumes($product_ref, $prepared);
+		my $fruits_vegetables_legumes
+			= round_to_max_decimal_places(compute_nutriscore_2023_fruits_vegetables_legumes($product_ref, $prepared),
+			1);
 
 		my $is_fat_oil_nuts_seeds = is_fat_oil_nuts_seeds_for_nutrition_score($product_ref);
 		my $is_beverage = is_beverage_for_nutrition_score_2023($product_ref);
@@ -1521,18 +1609,15 @@ sub compute_nutriscore_data ($product_ref, $prepared, $nutriments_field, $versio
 			salt => $nutriments_ref->{"salt" . $prepared . "_100g"},
 
 			fruits_vegetables_legumes => $fruits_vegetables_legumes,
-			fiber => (
-				(defined $nutriments_ref->{"fiber" . $prepared . "_100g"})
-				? $nutriments_ref->{"fiber" . $prepared . "_100g"}
-				: 0
-			),
+			fiber => $nutriments_ref->{"fiber" . $prepared . "_100g"},
 			proteins => $nutriments_ref->{"proteins" . $prepared . "_100g"},
 		};
 
 		if ($is_fat_oil_nuts_seeds) {
 			# Add the fat and saturated fat / fat ratio
 			$nutriscore_data_ref->{fat} = $nutriments_ref->{"fat" . $prepared . "_100g"};
-			$nutriscore_data_ref->{saturated_fat_ratio} = saturated_fat_ratio($nutriments_ref, $prepared);
+			$nutriscore_data_ref->{saturated_fat_ratio}
+				= round_to_max_decimal_places(saturated_fat_ratio($nutriments_ref, $prepared), 1);
 			# Compute the energy from saturates
 			if (defined $nutriscore_data_ref->{saturated_fat}) {
 				$nutriscore_data_ref->{energy_from_saturated_fat} = $nutriscore_data_ref->{saturated_fat} * 37;
@@ -1540,9 +1625,7 @@ sub compute_nutriscore_data ($product_ref, $prepared, $nutriments_field, $versio
 		}
 
 		if ($is_beverage) {
-			if (defined $product_ref->{with_non_nutritive_sweeteners}) {
-				$nutriscore_data_ref->{with_non_nutritive_sweeteners} = $product_ref->{with_non_nutritive_sweeteners};
-			}
+			$nutriscore_data_ref->{non_nutritive_sweeteners} = $product_ref->{ingredients_non_nutritive_sweeteners_n};
 		}
 	}
 
@@ -1611,6 +1694,11 @@ sub remove_nutriscore_fields ($product_ref) {
 			"nutrition-score-uk_serving"
 		]
 	);
+
+	# remove misc_tags fields related to Nutri-Score
+	if (defined $product_ref->{misc_tags}) {
+		$product_ref->{misc_tags} = [grep {$_ !~ /^en:(nutriscore|nutrition)-/} @{$product_ref->{misc_tags}}];
+	}
 
 	return;
 }
@@ -1718,7 +1806,7 @@ sub check_availability_of_nutrients_needed_for_nutriscore ($product_ref) {
 	foreach my $category_tag (
 		"en:dried-products-to-be-rehydrated", "en:cocoa-and-chocolate-powders",
 		"en:dessert-mixes", "en:flavoured-syrups",
-		"en:instant-beverages"
+		"en:instant-beverages", "en:beverage-preparations"
 		)
 	{
 
@@ -2035,15 +2123,25 @@ sub compute_serving_size_data ($product_ref) {
 	(defined $product_ref->{multiple_nutrition_data}) and delete $product_ref->{multiple_nutrition_data};
 
 	(defined $product_ref->{product_quantity}) and delete $product_ref->{product_quantity};
+	(defined $product_ref->{product_quantity_unit}) and delete $product_ref->{product_quantity_unit};
 	if ((defined $product_ref->{quantity}) and ($product_ref->{quantity} ne "")) {
 		my $product_quantity = normalize_quantity($product_ref->{quantity});
 		if (defined $product_quantity) {
 			$product_ref->{product_quantity} = $product_quantity;
 		}
+		my $product_quantity_unit = extract_standard_unit($product_ref->{quantity});
+		if (defined $product_quantity_unit) {
+			$product_ref->{product_quantity_unit} = $product_quantity_unit;
+		}
 	}
 
 	if ((defined $product_ref->{serving_size}) and ($product_ref->{serving_size} ne "")) {
 		$product_ref->{serving_quantity} = normalize_serving_size($product_ref->{serving_size});
+
+		my $serving_quantity_unit = extract_standard_unit($product_ref->{serving_size});
+		if (defined $serving_quantity_unit) {
+			$product_ref->{serving_quantity_unit} = $serving_quantity_unit;
+		}
 	}
 	else {
 		(defined $product_ref->{serving_quantity}) and delete $product_ref->{serving_quantity};
@@ -2131,7 +2229,6 @@ sub compute_serving_size_data ($product_ref) {
 
 				my $unit = get_property("nutrients", "zz:$nid", "unit:en")
 					;    # $unit will be undef if the nutrient is not in the taxonomy
-				print STDERR "nid: $nid - unit: $unit\n";
 
 				# If the nutrient has no unit (e.g. pH), or is a % (e.g. "% vol" for alcohol), it is the same regardless of quantity
 				# otherwise we adjust the value for 100g
@@ -2373,9 +2470,12 @@ sub create_nutrients_level_taxonomy() {
 		}
 	}
 
-	open(my $OUT, ">:encoding(UTF-8)", "$data_root/taxonomies/nutrient_levels.txt");
+	print STDERR "generate $data_root/taxonomies/nutrient_levels.txt \n";
+
+	open(my $OUT, ">:encoding(UTF-8)", "$data_root/taxonomies/nutrient_levels.txt")
+		or die("Can't write $data_root/taxonomies/nutrient_levels.txt: $!");
 	print $OUT <<TXT
-# nutrient levels taxonomy generated automatically by Food.pm
+# nutrient levels taxonomy generated automatically by Food.pm from nutrients taxonomy + language translations (.po files)
 
 TXT
 		;
@@ -2437,7 +2537,7 @@ sub compare_nutriments ($a_ref, $b_ref) {
 sub compute_nova_group ($product_ref) {
 
 	# compute Nova group
-	# http://archive.wphna.org/wp-content/uploads/2016/01/WN-2016-7-1-3-28-38-Monteiro-Cannon-Levy-et-al-NOVA.pdf
+	# https://archive.wphna.org/wp-content/uploads/2016/01/WN-2016-7-1-3-28-38-Monteiro-Cannon-Levy-et-al-NOVA.pdf
 
 	# remove nova keys.
 	remove_fields(

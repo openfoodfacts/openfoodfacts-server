@@ -70,6 +70,7 @@ use vars @EXPORT_OK;
 use ProductOpener::I18N;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 
 use DateTime;
 use DateTime::Locale;
@@ -118,26 +119,7 @@ In the .po translation files, we use the msgctxt field for the string id.
 =cut
 
 sub lang ($stringid) {
-
-	my $short_l = undef;
-	if ($lang =~ /_/) {
-		$short_l = $`;    # pt_pt
-	}
-
-	# English values have been copied to languages that do not have defined values
-
-	if (not defined $Lang{$stringid}) {
-		return '';
-	}
-	elsif (defined $Lang{$stringid}{$lang}) {
-		return $Lang{$stringid}{$lang};
-	}
-	elsif ((defined $short_l) and (defined $Lang{$stringid}{$short_l}) and ($Lang{$stringid}{$short_l} ne '')) {
-		return $Lang{$stringid}{$short_l};
-	}
-	else {
-		return '';
-	}
+	return lang_in_other_lc($lang, $stringid);
 }
 
 =head2 f_lang( $stringid, $variables_ref )
@@ -256,7 +238,7 @@ $log->info("initialize", {data_root => $data_root}) if $log->is_info();
 
 # Load stored %Lang from Lang.sto and Lang_tags.sto
 
-my $path = "$data_root/data/Lang.${server_domain}.sto";
+my $path = "$BASE_DIRS{PRIVATE_DATA}/Lang.${server_domain}.sto";
 if (-e $path) {
 
 	$log->info("Loading \%Lang", {path => $path}) if $log->is_info();
@@ -545,16 +527,14 @@ sub build_lang ($Languages_ref) {
 sub build_json {
 	$log->info("Building I18N JSON") if $log->is_info();
 
-	my $i18n_root = "$www_root/data/i18n";
+	my $i18n_root = "$BASE_DIRS{PUBLIC_DATA}/i18n";
 	if (!-e $i18n_root) {
 		mkdir($i18n_root, 0755) or die("Could not create target directory $i18n_root : $!\n");
 	}
 
 	foreach my $l (@Langs) {
 		my $target_dir = "$i18n_root/$l";
-		if (!-e $target_dir) {
-			mkdir($target_dir, 0755) or die("Could not create target directory $target_dir : $!\n");
-		}
+		ensure_dir_created_or_die($target_dir);
 
 		my $short_l = undef;
 		if ($l =~ /_/) {

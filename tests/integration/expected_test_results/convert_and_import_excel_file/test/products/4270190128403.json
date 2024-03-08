@@ -117,6 +117,9 @@
             ],
             "epi_score" : 0,
             "epi_value" : -5,
+            "origins_from_categories" : [
+               "en:unknown"
+            ],
             "origins_from_origins_field" : [
                "en:unknown"
             ],
@@ -403,11 +406,13 @@
       "2",
       "1-10"
    ],
+   "ingredients_non_nutritive_sweeteners_n" : 0,
    "ingredients_original_tags" : [
       "fr:white-peaches",
       "fr:high-fructose-corn-syrup"
    ],
    "ingredients_percent_analysis" : 1,
+   "ingredients_sweeteners_n" : 0,
    "ingredients_tags" : [
       "fr:white-peaches",
       "fr:high-fructose-corn-syrup"
@@ -449,6 +454,7 @@
    "last_editor" : "test-user",
    "last_modified_by" : "test-user",
    "last_modified_t" : "--ignore--",
+   "last_updated_t" : "--ignore--",
    "lc" : "en",
    "lc_imported" : "en",
    "main_countries_tags" : [],
@@ -520,7 +526,7 @@
          "category_available" : 1,
          "data" : {
             "energy" : 500,
-            "fiber" : 0,
+            "fiber" : null,
             "fruits_vegetables_legumes" : 0,
             "is_beverage" : 0,
             "is_cheese" : 0,

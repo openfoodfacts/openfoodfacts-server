@@ -37,7 +37,7 @@ export function icons() {
 export function attributesIcons() {
   return src("*.svg", { cwd: "./html/images/attributes/src" }).
     pipe(svgmin()).
-    pipe(dest("./html/images/attributes"));
+    pipe(dest("./html/images/attributes/dist"));
 }
 
 export function css() {

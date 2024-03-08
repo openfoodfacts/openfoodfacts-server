@@ -26,7 +26,7 @@ jobs:
       if: matrix.env == 'off-net'
       run: |
         # direct container access
-        echo "REDIS_URL=searchredis:6379" >> $GITHUB_ENV
+        echo "REDIS_URL=redis:6379" >> $GITHUB_ENV
         echo "MONGODB_HOST=10.1.0.200" >> $GITHUB_ENV
         echo "ROBOTOFF_URL=https://robotoff.openfoodfacts.net" >> $GITHUB_ENV
         echo "QUERY_URL=http://10.1.0.200:5511" >> $GITHUB_ENV
@@ -133,7 +133,7 @@ jobs:
 
           # Set App variables
           echo "TAG=sha-${{ github.sha }}" >> .env
-          echo "WEB_LANG_PATH=../off-web-net/lang" >> .env
+          echo "WEB_RESOURCES_PATH=../off-web-net/" >> .env
           echo "PRODUCERS_PLATFORM=0" >> .env
           echo "PRODUCT_OPENER_PORT=80" >> .env
           echo "PRODUCT_OPENER_DOMAIN=${{ env.PRODUCT_OPENER_DOMAIN }}" >> .env
@@ -269,7 +269,7 @@ jobs:
           cd ${{ matrix.env }} && \
           make prune
 
-    - uses: frankie567/grafana-annotation-action@v1.0.3
+    - uses: basos9/grafana-annotation-action@v1.0.3
       if: ${{ always() }}
       with:
         apiHost: https://grafana.openfoodfacts.org

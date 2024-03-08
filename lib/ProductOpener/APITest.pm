@@ -45,6 +45,7 @@ BEGIN {
 		&mail_to_text
 		&new_client
 		&normalize_mail_for_comparison
+		&origin_from_url
 		&post_form
 		&tail_log_start
 		&tail_log_read
@@ -60,6 +61,7 @@ BEGIN {
 
 use vars @EXPORT_OK;
 
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::TestDefaults qw/:all/;
 use ProductOpener::Test qw/:all/;
 use ProductOpener::Mail qw/$LOG_EMAIL_START $LOG_EMAIL_END/;
@@ -385,6 +387,7 @@ my $tests_ref = (
 			headers => {header1 => value1, }  # optional. You may add an undef value to test for the inexistance of a header
 			response_content_must_match => "regexp"	# optional. You may add a case insensitive regexp (e.g. "Product saved") that must be matched
 			response_content_must_not_match => "regexp"	# optional. You may add a case insensitive regexp (e.g. "error") that must not be matched
+			sort_products_by => "product_name" # optional. You may provide a field to sort the returned products by so that they are in an expected order
 		}
     ],
 );
@@ -565,6 +568,9 @@ sub execute_api_tests ($file, $tests_ref, $ua = undef) {
 			if (ref($decoded_json) eq 'HASH') {
 				if (defined $decoded_json->{'products'}) {
 					normalize_products_for_test_comparison($decoded_json->{'products'});
+					if (defined $test_ref->{sort_products_by}) {
+						sort_products_for_test_comparison($decoded_json->{'products'}, $test_ref->{sort_products_by});
+					}
 				}
 				if (defined $decoded_json->{'product'}) {
 					normalize_product_for_test_comparison($decoded_json->{'product'});
@@ -700,7 +706,6 @@ ref to an array of lines of the email
 
 sub normalize_mail_for_comparison ($mail) {
 	# remove boundaries
-	$DB::single = 1;
 	my $text = mail_to_text($mail);
 	my @boundaries = $text =~ m/boundary=([^ ,\n\t]+)/g;
 	foreach my $boundary (@boundaries) {

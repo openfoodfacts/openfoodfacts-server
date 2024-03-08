@@ -103,6 +103,7 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Products qw/:all/;
@@ -1233,7 +1234,7 @@ sub load_xml_file ($file, $xml_rules_ref, $xml_fields_mapping_ref, $code) {
 
 	if ($log->is_trace()) {
 		binmode STDOUT, ":encoding(UTF-8)";
-		open(my $OUT_JSON, ">", "$www_root/data/import_debug_xml.json");
+		open(my $OUT_JSON, ">", "$BASE_DIRS{PUBLIC_DATA}/import_debug_xml.json");
 		print $OUT_JSON encode_json($xml_ref);
 		close($OUT_JSON);
 	}

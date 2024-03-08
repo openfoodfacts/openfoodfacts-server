@@ -25,17 +25,18 @@ use Modern::Perl '2017';
 use Exporter qw< import >;
 
 BEGIN {
+
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		%string_normalization_for_lang
 		%admins
-		%moderators
 
 		$server_domain
 		@ssl_subdomains
 		$conf_root
 		$data_root
 		$www_root
+		$sftp_root
 		$geolite2_path
 		$reference_timezone
 		$contact_email
@@ -48,11 +49,15 @@ BEGIN {
 		$crowdin_project_identifier
 		$crowdin_project_key
 
+		$log_emails
 		$robotoff_url
 		$query_url
 		$events_url
 		$events_username
 		$events_password
+
+		$facets_kp_url
+		$redis_url
 
 		$mongodb
 		$mongodb_host
@@ -88,6 +93,7 @@ BEGIN {
 
 		@edit_rules
 
+		$build_cache_repo
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -148,35 +154,16 @@ use ProductOpener::Config2;
 );
 
 %admins = map {$_ => 1} qw(
-	agamitsudo
-	aleene
-	bcatelin
-	bojackhorseman
+	alex-off
+	cha-delh
 	charlesnepote
+	gala-nafikova
 	hangy
-	javichu
-	kyzh
-	lafel
-	lucaa
-	mbe
-	moon-rabbit
+	manoncorneille
 	raphael0202
-	sebleouf
-	segundo
 	stephane
 	tacinte
-	tacite
 	teolemon
-	twoflower
-
-	jniderkorn
-	desan
-	cedagaesse
-	m-etchebarne
-);
-
-%moderators = map {$_ => 1} qw(
-
 );
 
 $options{product_type} = "beauty";
@@ -218,6 +205,8 @@ $events_password = $ProductOpener::Config2::events_password;
 # server options
 
 %server_options = %ProductOpener::Config2::server_options;
+
+$build_cache_repo = $ProductOpener::Config2::build_cache_repo;
 
 $reference_timezone = 'Europe/Paris';
 
@@ -380,6 +369,9 @@ $options{display_tag_ingredients} = [
 
 # allow moving products to other instances of Product Opener on the same server
 # e.g. OFF -> OBF
+
+$options{current_server} = "obf";
+
 $options{other_servers} = {
 	obf => {
 		name => "Open Beauty Facts",
@@ -414,5 +406,8 @@ $options{other_servers} = {
 };
 
 $options{no_nutrition_table} = 1;
+
+# Name of the Redis stream to which product updates are published
+$options{redis_stream_name} = "product_updates_obf";
 
 1;
