@@ -35506,6 +35506,46 @@ gpc_category_code:en:10000171
 gpc_category_name:en:Cakes - Sweet (Perishable)
 gpc_category_description:en:Definition: Includes any products that can be described/observed as a sweet prepared food, usually made from flour, sugar, shortening/fat and eggs mixed with other ingredients and baked or fried. These products can be/must be refrigerated to extend their consumable life. Definition Excludes: Excludes products such as Frozen and Shelf Stable Cakes, Cake Mixes, all Bread Products.
 
+<en:Cakes
+en:Almond cakes
+de:Mandelkuchen
+es:Tartas de almendra
+fi:Mantelikakut
+fr:Gâteaux aux amandes
+nl:Amandelcake
+ciqual_food_code:en:24665
+ciqual_food_name:en:Almond cake
+#wikidata:en:
+
+<en:Almond cakes
+it:tortionata
+wikidata:en:Q3995832
+
+<en:Cakes
+en:Walnut and almond cake
+wikidata:en:Q2005477
+
+<en:Almond cakes
+fr:Misérable
+wikidata:en:Q25060346
+
+<en:Cakes
+en:Soft cake with nuts
+fr:Gâteau moelleux aux fruits à coque
+it:Torta morbida con noci
+agribalyse_food_code:en:23938
+ciqual_food_code:en:23938
+ciqual_food_name:en:Soft cake with nuts
+ciqual_food_name:fr:Gâteau moelleux aux fruits à coque
+
+<en:Cakes
+en:Soft cake filled with fruits, Mini sponge roll filled with fruits
+fr:Gâteau moelleux fourré aux fruits, Mini-roulé fourré aux fruits, Mini-cake fourré aux fruits
+agribalyse_food_code:en:23941
+ciqual_food_code:en:23941
+ciqual_food_name:en:Soft cake filled with fruits, mini sponge roll type
+ciqual_food_name:fr:Gâteau moelleux fourré aux fruits type mini-roulé ou mini-cake fourré
+#wikidata:en:
 # Note: en:dessert-mixes is a category that changes the computation of the Nutri-Score, the canonical name should not be changed without corresponding code changes
 <en:Cooking helpers
 en:Dessert mixes, Dessert mix
@@ -110077,47 +110117,6 @@ ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aux céré
 <en:Flavoured fermented dairy desserts
 <fr:Fromages blancs
 fr:Fromages blancs aromatisés
-
-<en:Cakes
-en:Almond cakes
-de:Mandelkuchen
-es:Tartas de almendra
-fi:Mantelikakut
-fr:Gâteaux aux amandes
-nl:Amandelcake
-ciqual_food_code:en:24665
-ciqual_food_name:en:Almond cake
-#wikidata:en:
-
-<en:Almond cakes
-it:tortionata
-wikidata:en:Q3995832
-
-<en:Cakes
-en:Walnut and almond cake
-wikidata:en:Q2005477
-
-<en:Almond cakes
-fr:Misérable
-wikidata:en:Q25060346
-
-<en:Cakes
-en:Soft cake with nuts
-fr:Gâteau moelleux aux fruits à coque
-it:Torta morbida con noci
-agribalyse_food_code:en:23938
-ciqual_food_code:en:23938
-ciqual_food_name:en:Soft cake with nuts
-ciqual_food_name:fr:Gâteau moelleux aux fruits à coque
-
-<en:Cakes
-en:Soft cake filled with fruits, Mini sponge roll filled with fruits
-fr:Gâteau moelleux fourré aux fruits, Mini-roulé fourré aux fruits, Mini-cake fourré aux fruits
-agribalyse_food_code:en:23941
-ciqual_food_code:en:23941
-ciqual_food_name:en:Soft cake filled with fruits, mini sponge roll type
-ciqual_food_name:fr:Gâteau moelleux fourré aux fruits type mini-roulé ou mini-cake fourré
-#wikidata:en:
 
 <en:Sweet mousses
 en:Fruit mousses, Refrigerated fruit mousse
