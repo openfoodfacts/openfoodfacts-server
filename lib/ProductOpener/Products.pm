@@ -65,6 +65,7 @@ use Exporter qw< import >;
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
+		&is_valid_code
 		&normalize_code
 		&normalize_code_with_gs1_ai
 		&assign_new_code
@@ -398,6 +399,24 @@ sub _try_normalize_code_gs1 ($code) {
 # - When products are private, the _id is [owner]/[code] (e.g. user-abc/1234567890123 or org-xyz/1234567890123
 # FIXME: bug #677
 
+=head2 is_valid_code($code)
+
+C<is_valid_code()> checks if the given code is a valid product code.
+
+=head3 Arguments
+
+Product Code: $code
+
+=head3 Return Values
+
+Boolean value indicating if the code is valid or not.
+
+=cut
+
+sub is_valid_code ($code) {
+	return $code =~ /^\d{4,24}$/;
+}
+
 =head2 split_code()
 
 C<split_code()> this function splits the product code for determining the product path and the _id.
@@ -417,7 +436,7 @@ Example: 1234567890123  :-  123/456/789/0123
 sub split_code ($code) {
 
 	# Require at least 4 digits (some stores use very short internal barcodes, they are likely to be conflicting)
-	if ($code !~ /^\d{4,24}$/) {
+	if (not is_valid_code($code)) {
 
 		$log->info("invalid code", {code => $code}) if $log->is_info();
 		return "invalid";
@@ -1033,7 +1052,7 @@ sub change_product_server_or_code ($product_ref, $new_code, $errors_ref) {
 	}
 
 	$new_code = normalize_code($new_code);
-	if ($new_code !~ /^\d{4,24}$/) {
+	if (not is_valid_code($new_code)) {
 		push @$errors_ref, lang("invalid_barcode");
 	}
 	else {

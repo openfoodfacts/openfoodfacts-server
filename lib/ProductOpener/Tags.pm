@@ -247,6 +247,7 @@ To this initial list, taxonomized fields will be added by retrieve_tags_taxonomy
 
 # Writable tags fields that can be written directly (e.g. categories, labels) and that are not derived from other fields (e.g. states)
 %writable_tags_fields = (
+	brands => 1,
 	categories => 1,
 	labels => 1,
 	origins => 1,
