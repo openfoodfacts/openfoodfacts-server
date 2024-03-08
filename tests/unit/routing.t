@@ -63,6 +63,14 @@ my @tests = (
 			'tag_prefix' => '',
 			'tagid' => 'en:breads',
 			'tagtype' => 'categories',
+			'tags' => [
+				{
+					'tag' => 'en:breads',
+					'tag_prefix' => '',
+					'tagid' => 'en:breads',
+					'tagtype' => 'categories'
+				},
+			],
 			'no_index' => '0',
 			'is_crawl_bot' => '0'
 		},
@@ -89,6 +97,14 @@ my @tests = (
 			'tag_prefix' => '',
 			'tagid' => 'en:breads',
 			'tagtype' => 'categories',
+			'tags' => [
+				{
+					'tag' => 'en:breads',
+					'tag_prefix' => '',
+					'tagid' => 'en:breads',
+					'tagtype' => 'categories'
+				},
+			],
 			'no_index' => '0',
 			'is_crawl_bot' => '1'
 		},
@@ -115,6 +131,14 @@ my @tests = (
 			'tag_prefix' => '',
 			'tagid' => 'en:breads',
 			'tagtype' => 'categories',
+			'tags' => [
+				{
+					'tag' => 'en:breads',
+					'tag_prefix' => '',
+					'tagid' => 'en:breads',
+					'tagtype' => 'categories'
+				},
+			],
 			'no_index' => '1',
 			'is_crawl_bot' => '1'
 		},
@@ -141,6 +165,14 @@ my @tests = (
 			'tag_prefix' => '',
 			'tagid' => 'en:bread',
 			'tagtype' => 'categories',
+			'tags' => [
+				{
+					'tag' => 'en:bread',
+					'tag_prefix' => '',
+					'tagid' => 'en:bread',
+					'tagtype' => 'categories'
+				},
+			],
 			'no_index' => '0',
 			'is_crawl_bot' => '0'
 		},

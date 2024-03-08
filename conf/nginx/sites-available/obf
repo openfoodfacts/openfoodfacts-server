@@ -11,6 +11,9 @@
 # Please see /usr/share/doc/nginx-doc/examples/ for more detailed examples.
 ##
 
+
+include /etc/nginx/snippets/expires-no-json-xml.conf;
+
 # Default server configuration
 #
 server {
@@ -66,17 +69,19 @@ server {
 
 	location /data/ {
 		include snippets/off.cors-headers.include;
+		include snippets/expiry-headers.include;
 		include snippets/ssl-headers.conf;
 		# First attempt to serve request as file, then
 		# as directory, then fall back to displaying a 404.
 		try_files $uri $uri/ =404;
-}
+	}
 
 	# Add index.php to the list if you are using PHP
 	index index.html index.htm index.nginx-debian.html;
 
 	location ~* \.(eot|ttf|woff|woff2)$ {
 		include snippets/off.cors-headers.include;
+		include snippets/expiry-headers.include;
 	}
 
 	location ~ ^/images/products/ {
@@ -96,6 +101,7 @@ server {
 
 	location ~ ^/(.well-known|images|fonts|css|js|rss|files|resources|foundation|bower_components)/ {
 		include snippets/off.cors-headers.include;
+		include snippets/expiry-headers.include;
 		# First attempt to serve request as file, then
 		# as directory, then fall back to displaying a 404.
 		try_files $uri $uri/ =404;
@@ -105,6 +111,7 @@ server {
         # and much less when caching headers are sent
         location = /.well-known/assetlinks.json {
                 include snippets/off.cors-headers.include;
+			include snippets/expiry-headers.include;
                 expires 1d;
                 try_files $uri $uri/ =404;
         }
@@ -130,5 +137,4 @@ server {
 	#       deny all;
 	#}
 
-	include /etc/nginx/expires-no-json-xml.conf;
 }

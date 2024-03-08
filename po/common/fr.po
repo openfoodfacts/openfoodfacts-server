@@ -83,6 +83,18 @@ msgctxt "add_user_existing_org_pending"
 msgid "Your request to join the organization is pending approval of the organization administrator."
 msgstr "Votre demande pour rejoindre l'organisation est en attente d'approbation de l'administrateur de l'organisation."
 
+msgctxt "admin_status_updated"
+msgid "Admin Status Updated"
+msgstr "Statut d'administrateur mis à jour"
+
+msgctxt "admin_status"
+msgid "Admin Status"
+msgstr "Statut d'administrateur"
+
+msgctxt "grant_remove_admin_status"
+msgid "Grant/Remove Admin status"
+msgstr "Accorder/Supprimer le statut d'administrateur"
+
 msgctxt "please_email_producers"
 msgid "Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> if you have any question."
 msgstr "Merci d'envoyer un e-mail à <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> si vous avez des questions."
@@ -159,6 +171,10 @@ msgstr "Recherche avancée et graphiques"
 msgctxt "alcohol_warning"
 msgid "Excess drinking is harmful for health."
 msgstr "L'abus d'alcool est dangereux pour la santé. A consommer avec modération."
+
+msgctxt "email_warning"
+msgid "Please note that your Pro account will only be valid if you use your professional e-mail address. Our moderation team checks that the domain name is consistent with the organisation you wish to join."
+msgstr "Attention, votre compte Pro ne sera valide que si vous utilisez votre adresse e-mail professionnelle. Notre équipe de modération vérifie que le nom de domaine est cohérent avec l'organisation que vous souhaitez rejoindre."
 
 msgctxt "all_missions"
 msgid "All missions"
@@ -656,8 +672,8 @@ msgid "The user name must contain only unaccented letters, digits and dashes."
 msgstr "Le nom d'utilisateur doit être composé de lettres minuscules sans accents, de tirets et/ou de chiffres."
 
 msgctxt "error_username_too_long"
-msgid "The user name is too long (maximum 20 characters)."
-msgstr "Le nom d'utilisateur est trop long (20 caractères maximum)."
+msgid "The user name is too long (maximum 40 characters)."
+msgstr "Le nom d'utilisateur est trop long (40 caractères maximum)."
 
 msgctxt "error_name_too_long"
 msgid "The name is too long (maximum 60 characters)."
@@ -861,6 +877,10 @@ msgstr "Open Beauty Facts - Cosmétiques"
 msgctxt "footer_obf_link"
 msgid "https://world.openbeautyfacts.org"
 msgstr "https://world-fr.openbeautyfacts.org"
+
+msgctxt "footer_pro"
+msgid "Open Food Facts for Producers"
+msgstr "Open Food Facts pour les producteurs"
 
 msgctxt "for"
 msgid "for"
@@ -2364,7 +2384,7 @@ msgstr "Se déconnecter"
 
 msgctxt "site_description"
 msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
-msgstr "Ingrédients, composition nutritionnelle et information sur les produits alimentaires du monde entier dans une base de données libre et ouverte"
+msgstr "Une base de données collaborative, gratuite et ouverte d'ingrédients, de valeurs nutritionnelles et d'informations sur les produits alimentaires du monde entier."
 
 msgctxt "site_name"
 msgid "Open Food Facts"
@@ -4207,6 +4227,10 @@ msgctxt "remove_products"
 msgid "Remove all the products"
 msgstr "Supprimer l'intégralité des produits"
 
+msgctxt "remove_user"
+msgid "Remove user"
+msgstr "Supprimer l'utilisateur"
+
 msgctxt "remove_products_from_producers_platform"
 msgid "Remove all your products from the platform for producers"
 msgstr "Retirez tous vos produits de la plateforme pour les producteurs"
@@ -5758,9 +5782,17 @@ msgctxt "donation_title"
 msgid "Important: we need your support!"
 msgstr "Important : nous avons besoin de votre soutien !"
 
-msgctxt "donation_text_2023"
-msgid "Help us make food transparency the norm! As an independent non-profit organization, we depend on your donations to continue informing consumers around the world about what they eat. Join the food revolution with a donation to the movement."
-msgstr "Aidez-nous à faire de la transparence alimentaire la norme ! En tant qu'association à but non lucratif indépendante, nous dépendons de vos dons pour continuer à informer les consommateurs du monde entier sur ce qu'ils mangent. Rejoignez la révolution alimentaire avec un don défiscalisable."
+msgctxt "donation_text_2023_main"
+msgid "Help us make food transparency the norm!"
+msgstr "Aidez-nous à faire de la transparence alimentaire la norme !"
+
+msgctxt "donation_text_2023_secondary"
+msgid "As a non-profit organization, we depend on your donations to continue informing consumers around the world about what they eat."
+msgstr "En tant qu'organisation à but non lucratif, nous dépendons de vos dons pour continuer à informer les consommateurs du monde entier sur ce qu'ils mangent."
+
+msgctxt "donation_text_2023_tertiary"
+msgid "The food revolution starts with you!"
+msgstr "La révolution alimentaire commence avec vous !"
 
 msgctxt "donation_cta"
 msgid "Donate"
@@ -6646,4 +6678,159 @@ msgstr "Poids par 100g de produit"
 msgctxt "weight_percent"
 msgid "Weight percent"
 msgstr "Pourcentage du poids"
+
+msgctxt "nutriscore_component_energy"
+msgid "Energy"
+msgstr "Énergie"
+
+msgctxt "nutriscore_component_energy_from_saturated_fat"
+msgid "Energy from saturated fat"
+msgstr "Energie provenant des graisses saturées"
+
+msgctxt "nutriscore_component_sugars"
+msgid "Sugars"
+msgstr "Sucres"
+
+msgctxt "nutriscore_component_saturated_fat"
+msgid "Saturated fat"
+msgstr "Graisses saturées"
+
+msgctxt "nutriscore_component_saturated_fat_ratio"
+msgid "Saturated fat / fat"
+msgstr "Matières grasses saturées / matières grasses"
+
+msgctxt "nutriscore_component_salt"
+msgid "Salt"
+msgstr "Sel"
+
+msgctxt "nutriscore_component_non_nutritive_sweeteners"
+msgid "Non-nutritive sweeteners"
+msgstr "Edulcorants non-nutritifs"
+
+msgctxt "nutriscore_component_fruits_vegetables_legumes"
+msgid "Fruits, vegetables and legumes"
+msgstr "Fruits, légumes et légumineuses"
+
+msgctxt "nutriscore_component_fiber"
+msgid "Fiber"
+msgstr "Fibre"
+
+msgctxt "nutriscore_component_proteins"
+msgid "Proteins"
+msgstr "Protéines"
+
+msgctxt "presence"
+msgid "Presence"
+msgstr "Présence"
+
+msgctxt "absence"
+msgid "Absence"
+msgstr "Absence"
+
+msgctxt "nutriscore_is_water"
+msgid "This product is considered to be water for the calculation of the Nutri-Score."
+msgstr "Ce produit est considéré comme étant de l'eau pour le calcul du Nutri-Score."
+
+msgctxt "nutriscore_is_fat_oil_nuts_seeds"
+msgid "This product is considered to be fat, oil, nuts or seeds for the calculation of the Nutri-Score."
+msgstr "Ce produit est considéré comme étant une matière grasse, de l'huile, des noix ou des graines pour le calcul du Nutri-Score."
+
+msgctxt "nutriscore_is_cheese"
+msgid "This product is considered to be cheese for the calculation of the Nutri-Score."
+msgstr "Ce produit est considéré comme étant du fromage pour le calcul du Nutri-Score."
+
+msgctxt "nutriscore_is_red_meat_product"
+msgid "This product is considered to be a red meat product for the calculation of the Nutri-Score."
+msgstr "Ce produit est considéré comme étant un produit à base de viande rouge pour le calcul du Nutri-Score."
+
+msgctxt "nutriscore_count_proteins_reason_beverage"
+msgid "Points for proteins are counted because the product is considered to be a beverage."
+msgstr "Les points pour les protéines sont comptés car le produit est considéré comme étant une boisson."
+
+msgctxt "nutriscore_count_proteins_reason_cheese"
+msgid "Points for proteins are counted because the product is considered to be cheese."
+msgstr "Les points pour les protéines sont comptés car le produit est considéré comme étant du fromage."
+
+msgctxt "nutriscore_count_proteins_reason_negative_points_less_than_7"
+msgid "Points for proteins are counted because the negative points are less than 7."
+msgstr "Les points pour les protéines sont comptés car les points négatifs sont inférieurs à 7."
+
+msgctxt "nutriscore_count_proteins_reason_negative_points_less_than_11"
+msgid "Points for proteins are counted because the negative points are less than 11."
+msgstr "Les points pour les protéines sont comptés car les points négatifs sont inférieurs à 11."
+
+msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_to_7"
+msgid "Points for proteins are not counted because the negative points greater than or equal to 7."
+msgstr "Les points pour les protéines ne sont pas comptés car les points négatifs sont supérieurs ou égaux à 7."
+
+msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_to_11"
+msgid "Points for proteins are not counted because the negative points greater than or equal to 11."
+msgstr "Les points pour les protéines ne sont pas comptés car les points négatifs sont supérieurs ou égaux à 11."
+
+msgctxt "nutriscore_explanation_what_it_is"
+msgid "The Nutri-Score is a logo on the overall nutritional quality of products."
+msgstr "Le Nutri-Score est un logo sur la qualité nutritionnelle globale des produits."
+
+msgctxt "nutriscore_explanation_what_it_takes_into_account"
+msgid "The score from A to E is calculated based on nutrients and foods to favor (proteins, fiber, fruits, vegetables and legumes ...) and nutrients to limit (calories, saturated fat, sugars, salt)."
+msgstr "Le score de A à E est calculé en fonction des nutriments et aliments à favoriser (protéines, fibres, fruits et légumes, légumes secs…) et des nutriments à limiter (calories, matières grasses saturées, sucres, sel)."
+
+msgctxt "nutriscore_explanation_where_the_data_comes_from"
+msgid "The score is calculated from the data of the nutrition facts table and the composition data (fruits, vegetables and legumes)."
+msgstr "Le score est calculé à partir des données du tableau de la déclaration nutritionnelle et des données de composition (fruits, légumes et légumes secs)."
+
+msgctxt "nutriscore_explanation_recommended_by_public_health_authorities"
+msgid "The display of this logo is recommended by public health authorities without obligation for companies."
+msgstr "L'affichage de ce logo est recommandé par les pouvoirs publics sans obligation pour les entreprises."
+
+msgctxt "nutriscore_explanation_title"
+msgid "What is the Nutri-Score?"
+msgstr "Qu'est ce que le Nutri-Score ?"
+
+msgctxt "nutrient_info_energy_risk"
+msgid "Energy intakes above energy requirements are associated with increased risks of weight gain, overweight, obesity, and consequently risk of diet-related chronic diseases."
+msgstr "Les apports énergétiques supérieurs aux besoins énergétiques sont associés à des risques accrus de prise de poids, de surpoids, d'obésité et, par conséquent, à un risque de maladies chroniques liées à l'alimentation."
+
+msgctxt "nutrient_info_saturated_fat_risk"
+msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
+msgstr "Une consommation élevée de graisses, en particulier de graisses saturées, peut augmenter le cholestérol, ce qui augmente le risque de maladies cardiaques."
+
+msgctxt "nutrient_info_saturated_fat_ratio_risk"
+msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
+msgstr "Une consommation élevée de graisses, en particulier de graisses saturées, peut augmenter le cholestérol, ce qui augmente le risque de maladies cardiaques."
+
+msgctxt "nutrient_info_energy_from_saturated_fat_risk"
+msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
+msgstr "Une consommation élevée de graisses, en particulier de graisses saturées, peut augmenter le cholestérol, ce qui augmente le risque de maladies cardiaques."
+
+msgctxt "nutrient_info_non_nutritive_sweeteners_risk"
+msgid "Non-nutritive sweeteners may not confer any long-term benefit in reducing body fat in adults or children. There may be potential undesirable effects from long-term use of non-nutritive sweeteners, such as an increased risk of type 2 diabetes and cardiovascular diseases in adults."
+msgstr "Les édulcorants non nutritifs peuvent ne conférer aucun avantage à long terme en matière de réduction de la graisse corporelle chez les adultes ou les enfants. L'utilisation à long terme d'édulcorants non nutritifs peut entraîner des effets indésirables potentiels, tels qu'un risque accru de diabète de type 2 et de maladies cardiovasculaires chez les adultes."
+
+msgctxt "nutrient_info_fiber_benefit"
+msgid "Consuming foods rich in fiber (especially whole grain foods) reduces the risks of aerodigestive cancers, cardiovascular diseases, obesity and diabetes."
+msgstr "Consommer des aliments riches en fibres (notamment les aliments à grains entiers) réduit les risques de cancers aérodigestifs, de maladies cardiovasculaires, d’obésité et de diabète."
+
+msgctxt "nutrient_info_fruits_vegetables_legumes_benefit"
+msgid "Consuming foods rich in fruits, vegetables and legumes reduces the risks of aerodigestive cancers, cardiovascular diseases, obesity and diabetes."
+msgstr "Consommer des aliments riches en fruits, légumes et légumineuses réduit les risques de cancers aérodigestifs, de maladies cardiovasculaires, d’obésité et de diabète."
+
+msgctxt "nutrient_info_proteins_benefit"
+msgid "Foods that are rich in proteins are usually rich in calcium or iron which are essential minerals with numerous health benefits."
+msgstr "Les aliments riches en protéines sont généralement riches en calcium ou en fer, des minéraux essentiels aux nombreux bienfaits pour la santé."
+
+# sweeteners (additives), plural
+msgctxt "sweeteners"
+msgid "sweeteners"
+msgstr "édulcorants"
+
+# sweetener (additive), singular
+msgctxt "sweetener"
+msgid "sweetener"
+msgstr "édulcorant"
+
+msgctxt "api_result_product_reverted"
+msgid "Product reverted to the specified revision"
+msgstr "Produit rétabli à la version spécifiée"
+
 

@@ -9,14 +9,27 @@
 # The 3 following entries are to be able to easily find products that don't have a food group entry at a given level
 
 en:Unknown food group 1
+fr:Groupe alimentaire de niveau 1 inconnu
+es:Grupo de alimentos desconocido 1
+nl:Onbekende voedselgroep 1
 
 en:Unknown food group 2
+fr:Groupe alimentaire de niveau 2 inconnu
+es:Grupo de alimentos desconocido 2
+nl:Onbekende voedselgroep 2
 
 en:Unknown food group 3
+fr:Groupe alimentaire de niveau 3 inconnu
+es:Grupo de alimentos desconocido 3
+nl:Onbekende voedselgroep 3
 
 # Food groups:
 
 en:Fruits and vegetables
+ja:果物と野菜
+nl:Groenten en fruit
+fr:Fruits et légumes
+es:Frutas y verduras
 
 <en:Fruits and vegetables
 en:Fruits
@@ -26,6 +39,8 @@ nl:Fruit
 <en:Fruits and vegetables
 en:Dried fruits
 nl:Gedroogde vruchten, gedroogd fruit
+fr:Fruits secs
+es:Frutas secas
 
 <en:Fruits and vegetables
 en:Vegetables
@@ -36,15 +51,22 @@ nl:Groenten
 en:Soups
 ja:スープ
 nl:Soepen
+fr:Soupes
+es:Sopas
 
 <en:Fruits and vegetables
 en:Dehydrated Soups
+nl:Gedroogde soepen
+fr:Soupes déshydratées
+es:Sopas deshidratadas
 
 <en:Fruits and vegetables
 en:Fresh soups
 nl:Verse soepen
 
 en:Cereals and potatoes
+ja:穀物とじゃがいも
+nl:Granen en aardappelen
 
 <en:Cereals and potatoes
 en:Cereals
@@ -203,6 +225,9 @@ nl:Pure chocolade
 en:Milk chocolate
 ja:ミルクチョコレート
 nl:Melkchocolade
+fr:Chocolat au lait
+de:Vollmilchschokolade
+es:Chocolate con leche
 
 <en:Chocolate products
 en:White chocolate
@@ -223,6 +248,9 @@ en:Pastries
 
 en:Salty snacks
 nl:Zoute snacks
+fr:Snacks salés
+de:Salzige Snacks
+es:Snacks salados
 
 <en:Salty snacks
 en:Nuts
@@ -301,6 +329,8 @@ en:Unsweetened beverages
 
 <en:Beverages
 en:Sweetened beverages
+ja:甘味料入り飲料
+nl:Gezoete dranken
 
 <en:Beverages
 en:Fruit juices
@@ -310,6 +340,8 @@ en:Fruit nectars
 
 <en:Beverages
 en:Waters and flavored waters
+ja:水とフレーバードウォーター
+nl:Water en gearomatiseerd water
 
 <en:Beverages
 en:Teas and herbal teas and coffees

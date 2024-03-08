@@ -22,6 +22,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_proxy_food_code" : "31016",
          "id" : "en:cane-sugar",
          "percent" : 10,
          "percent_estimate" : 10,
@@ -107,14 +108,16 @@
    "ingredients_with_unspecified_percent_n" : 1,
    "ingredients_with_unspecified_percent_sum" : 62,
    "ingredients_without_ciqual_codes" : [
-      "en:cane-sugar",
       "en:e330",
       "en:guava",
       "en:some-unknown-ingredient"
    ],
-   "ingredients_without_ciqual_codes_n" : 4,
+   "ingredients_without_ciqual_codes_n" : 3,
    "known_ingredients_n" : 8,
    "lc" : "en",
+   "misc_tags" : [
+      "en:some-ingredients-with-specified-percent"
+   ],
    "nutriments" : {
       "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 25,
       "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 25,

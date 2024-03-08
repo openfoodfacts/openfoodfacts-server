@@ -4,7 +4,7 @@
         "health"
     ],
     "title_element": {
-        "icon_url": "[% static_subdomain %]/images/attributes/nutriscore-[% panel.nutriscore_grade %].svg",
+        "icon_url": "[% static_subdomain %]/images/attributes/dist/nutriscore-[% panel.nutriscore_grade %].svg",
         [% IF panel.nutriscore_unknown_reason_short %]
             "subtitle": "[% panel.nutriscore_unknown_reason_short %]",
         [% END %]

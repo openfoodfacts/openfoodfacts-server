@@ -5,11 +5,34 @@ stopwords:fr:ou,de,d'
 # Containers
 
 en:Unknown
+de:Unbekannt
 bg:Неизвестно
+es:Desconocido
 fr:Inconnu, inconnue, inconnus, inconnues
 hu:Ismeretlen
 nl:Onbekend
-pt:Desconhecido
+es:Desconocido, desconocida, desconocidos, desconocidas
+it:Sconosciuto, sconosciuta, sconosciuti, sconosciute
+pt:Desconhecido, desconhecida, desconhecidos, desconhecidas
+ro:Necunoscut, necunoscută, necunoscuți, necunoscute
+pl:Nieznany, nieznana, nieznani, nieznane
+sv:Okänd, okända
+fi:Tuntematon
+da:Ukendt
+cs:Neznámý, neznámá, neznámí, neznámé
+sk:Neznámy, neznáma, neznámi, neznáme
+sl:Neznano
+et:Tundmatu
+lt:Nežinomas, nežinoma, nežinomi, nežinomos
+lv:Nezināms, nezināma, nezināmi, nezināmas
+el:Άγνωστο, άγνωστη, άγνωστοι, άγνωστες
+tr:Bilinmeyen
+uk:Невідомо
+ru:Неизвестно
+ar:غير معروف
+zh:未知
+ja:不明
+ko:알 수 없음
 description:en:Unidentified packaging
 description:nl:Niet herkende verpakking
 
@@ -127,6 +150,7 @@ es:Tarro
 fr:Bocal, bocaux
 hu:Befőttes üveg, befőttes üvegek
 it:Vasetto, Barattolo
+nb:Glass
 nl:Pot, Potten, Bokaal, Bokaalen
 pl:Słoik
 pt:Jarro, jarros, jarra, jarras
@@ -192,6 +216,10 @@ description:nl:platte, vierkante, kartonnen doos waarin men een pizza kan stoppe
 <en:box
 en:pill box
 fr:pilulier
+nl:pillendoos
+de:Pillendose
+it:scatola per pillole
+pt:caixa de comprimidos
 
 en:Case, cases
 fr:Caisse, caisses, caissette, caissettes
@@ -204,6 +232,7 @@ fr:Bidon ou bonbonne, bonbonne ou bidon
 
 <en:Jug or canister
 en:Jug, jugs
+de:Kanne
 fr:Bidon, bidons
 nl:Kruik, kruiken
 pt:garrafão
@@ -371,7 +400,7 @@ description:nl:Een cilindervormig afgesloten blikken vaatje voor groenten, e.d.
 # fr:Coupe / Coupelle in data from Les Mousquetaires
 en:pot, cup, pots, cups
 bg:кофичка
-de:Kanne, Becher
+de:Becher
 es:Bote, botes, vaso, vasos
 fr:Pot, pots, coupelle, coupelles, verrine, verrines, ravier, raviers, coupe, coupes, coupe / coupelle
 hu:Pohár, fazék, lábas, edény, csésze, kanna
@@ -558,6 +587,7 @@ de:Deckel
 el:Καπάκι
 fr:Couvercle, couvercles
 hu:Fedél, tető, fedő
+nb:Lokk
 nl:Deksel, deksels
 pl:Nakrętka, Zakrętka, Pokrywka, Wieczko, Wieko
 pt:Tampa, tampas
@@ -668,10 +698,17 @@ nl:Dolce Gusto-compatibele Capsules, Dolce Gusto
 # related_categories:en: fr:Dosettes Dolce Gusto
 
 en:Tea capsules
+fr:Capsules de thé
+de:Tee-Kapseln
+es:Cápsulas de té
+it:Capsule di tè
+nl:Theecapsules
+bg:Чайни капсули
 
 en:coffee pad, coffee pads
 fr:dosette de café, dosettes de café
 nl:Koffiepad
+de:Kaffeepad, Kaffeepads
 
 #As are used in Senseo
 <en:coffee pad
@@ -1355,7 +1392,7 @@ tr:kamış
 uk:соломинка
 vi:ống hút
 wa:paye
-y:שטרוי
+yi:שטרוי
 zh:吸管
 description:en:A long tube (usually made out of plastic or paper) through which a beverage is drunk via suction
 description:de:Hilfsmittel, mit welchem sich Flüssigkeiten aufsaugen lassen, um sie zu trinken
@@ -1426,6 +1463,14 @@ wikidata:en:Q2893427
 #wikidata:en:Q54803638
 
 fr:Bouchon verseur
+en:Pouring cap
+es:Tapa vertedora
+de:Ausgießkappe
+nl:Schroefdop met schenktuit
+it:Tappo versatore
+pt:Tampa de despejo
+ru:Носик для наливания
+zh:倒口盖
 wikidata:en:Q2921384
 
 # fr:Pistolet / Pompe / Diffuseur / Robinet / Bouchon Technique in data from Les Mousquetaires

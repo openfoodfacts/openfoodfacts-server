@@ -57,7 +57,7 @@ msgstr ""
 
 msgctxt "join_us_on_slack"
 msgid "Join us on Slack"
-msgstr ""
+msgstr "Samahan kami sa Slack"
 
 msgctxt "add_user_join_the_project"
 msgid "%s is a collaborative project to which you can bring much more than new products: your energy, enthusiasm and ideas!"
@@ -83,6 +83,18 @@ msgctxt "add_user_existing_org_pending"
 msgid "Your request to join the organization is pending approval of the organization administrator."
 msgstr ""
 
+msgctxt "admin_status_updated"
+msgid "Admin Status Updated"
+msgstr ""
+
+msgctxt "admin_status"
+msgid "Admin Status"
+msgstr ""
+
+msgctxt "grant_remove_admin_status"
+msgid "Grant/Remove Admin status"
+msgstr ""
+
 msgctxt "please_email_producers"
 msgid "Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> if you have any question."
 msgstr ""
@@ -105,7 +117,7 @@ msgstr ""
 
 msgctxt "producer_or_brand"
 msgid "Name of producer or name of brand"
-msgstr ""
+msgstr "Pangaln ng manggagawa o pangalan ng tatak"
 
 msgctxt "error_missing_org"
 msgid "Professional accounts must have an associated organization (company name or brand)."
@@ -126,7 +138,7 @@ msgstr ""
 # please check that site_name and the brackets stays intact
 msgctxt "add_user_email_subject"
 msgid "Thanks for joining <<site_name>>"
-msgstr "Salamat sa pagsali <<site_name>>"
+msgstr "Salamat sa pagsasali sa <<site_name>>"
 
 msgctxt "additives_1"
 msgid "Potentially hazardous food additive. Limit usage."
@@ -160,6 +172,10 @@ msgctxt "alcohol_warning"
 msgid "Excess drinking is harmful for health."
 msgstr "Sobrang paginom ay nakakasama sa ating kalusugan."
 
+msgctxt "email_warning"
+msgid "Please note that your Pro account will only be valid if you use your professional e-mail address. Our moderation team checks that the domain name is consistent with the organisation you wish to join."
+msgstr ""
+
 msgctxt "all_missions"
 msgid "All missions"
 msgstr "Lahat na tungkulin"
@@ -182,7 +198,7 @@ msgstr "Pahina ng produkto ay na-edit din ni"
 
 msgctxt "android_apk_app_icon_url"
 msgid "/images/misc/android-apk.svg"
-msgstr ""
+msgstr "/images/misc/android-apk.svg"
 
 msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
@@ -286,11 +302,11 @@ msgstr "Mga produkto hindi mula sa %s na tatak"
 
 msgctxt "brand_owner"
 msgid "Brand owner"
-msgstr ""
+msgstr "May-ari ng tatak"
 
 msgctxt "brand_owner_example"
 msgid "The Coca Cola Company"
-msgstr ""
+msgstr "The Coca Cola Company"
 
 msgctxt "by"
 msgid "by"
@@ -603,7 +619,7 @@ msgstr "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
 
 msgctxt "emb_codes_note"
 msgid "In Europe, the code is in an ellipse with the 2 country initials followed by a number and CE."
-msgstr ""
+msgstr "Sa Europa, nasa isang habilog ang kodigo na may 2 inisyal ng bansa na sinusundan ng isang numero at CE."
 
 msgctxt "entry_dates_p"
 msgid "Entry dates"
@@ -654,12 +670,12 @@ msgid "The user name must contain only unaccented letters, digits and dashes."
 msgstr "Ang pangalan ng user ay dapat maglalaman ng hindi maayos na mga titik, mga numero at gitling."
 
 msgctxt "error_username_too_long"
-msgid "The user name is too long (maximum 20 characters)."
+msgid "The user name is too long (maximum 40 characters)."
 msgstr ""
 
 msgctxt "error_name_too_long"
 msgid "The name is too long (maximum 60 characters)."
-msgstr ""
+msgstr "Napakahaba ang pangalan (hindi hihigit sa 60 titik)."
 
 msgctxt "error_new_code_already_exists"
 msgid "A product already exists with the new code"
@@ -715,7 +731,7 @@ msgstr "Ang petsa ng pagkawalang bisa ay isang paraan upang subaybayan ang mga b
 
 msgctxt "explore_products_by"
 msgid "Explore products by..."
-msgstr ""
+msgstr "Maghanap ng produkto ayon sa..."
 
 msgctxt "facebook_locale"
 msgid "en_US"
@@ -740,7 +756,7 @@ msgstr "<<site_name>> blog"
 # Do not translate
 msgctxt "footer_blog_link"
 msgid "https://blog.openfoodfacts.org/en/"
-msgstr ""
+msgstr "https://blog.openfoodfacts.org/en/"
 
 msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
@@ -753,7 +769,7 @@ msgstr "/code-of-conduct"
 
 msgctxt "footer_data"
 msgid "Data, API and SDKs"
-msgstr ""
+msgstr "Datos, API at mga SDK"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_data_link"
@@ -847,7 +863,7 @@ msgstr "<<site_name>> wiki (en)"
 # Do not translate
 msgctxt "footer_wiki_link"
 msgid "https://wiki.openfoodfacts.org"
-msgstr ""
+msgstr "https://wiki.openfoodfacts.org"
 
 # Do not translate Open Beauty Facts but do translate Cosmetics
 msgctxt "footer_obf"
@@ -856,6 +872,10 @@ msgstr ""
 
 msgctxt "footer_obf_link"
 msgid "https://world.openbeautyfacts.org"
+msgstr "https://world.openbeautyfacts.org"
+
+msgctxt "footer_pro"
+msgid "Open Food Facts for Producers"
 msgstr ""
 
 msgctxt "for"
@@ -945,7 +965,7 @@ msgstr ""
 
 msgctxt "image_upload_error_could_not_read_image"
 msgid "The image could not be read."
-msgstr ""
+msgstr "Hindi mababasa ang larawan."
 
 msgctxt "image_upload_error_no_barcode_found_in_text"
 msgid "You must enter the characters of the barcode or send a product image when the barcode is visible."
@@ -953,11 +973,11 @@ msgstr "Dapat mong lagyan ng mga titik ang barcode o magpadala ng imahe ng produ
 
 msgctxt "image_full_size"
 msgid "Full size"
-msgstr ""
+msgstr "Buong laki"
 
 msgctxt "image_attribution_creativecommons"
 msgid "This file was uploaded to product %s and is licensed under the %s license."
-msgstr ""
+msgstr "Naka-upload ang file na ito sa produktong %s and lisensyado sa lisensyang %s."
 
 msgctxt "image_attribution_photographer"
 msgid "Attribution: Photo by %s per %s"
@@ -969,7 +989,7 @@ msgstr ""
 
 msgctxt "image_original_link_text"
 msgid "(Original Image)"
-msgstr ""
+msgstr "(Larawang Orihinal)"
 
 msgctxt "image_attribution_link_title"
 msgid "Photo detail and attribution information"
@@ -997,15 +1017,15 @@ msgstr "Mga sangkap"
 
 msgctxt "no_ingredient"
 msgid "Ingredients are missing"
-msgstr ""
+msgstr "Kulang ang mga sangkap"
 
 msgctxt "one_ingredient"
 msgid "1 ingredient"
-msgstr ""
+msgstr "1 sangkap"
 
 msgctxt "f_ingredients_with_number"
 msgid "{number} ingredients"
-msgstr ""
+msgstr "{number} (na) sangkap"
 
 msgctxt "ingredients_alt"
 msgid "Ingredients"
@@ -1090,11 +1110,11 @@ msgstr "Mga produkto na hindi naglalaman ng sangkap %s"
 # Please change appstore_US.svg to appstore_XX.svg. check the url https://static.openfoodfacts.org/images/misc/appstore/black/appstore_XX.svg
 msgctxt "ios_app_icon_url"
 msgid "/images/misc/appstore/black/appstore_US.svg"
-msgstr ""
+msgstr "/images/misc/appstore/black/appstore_PH.svg"
 
 msgctxt "ios_app_icon_alt_text"
 msgid "Download on the App Store"
-msgstr ""
+msgstr "I-download sa App Store"
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-food-facts/id588797948"
@@ -2084,7 +2104,7 @@ msgstr ""
 
 msgctxt "search_download_xlsx_description"
 msgid "Excel or LibreOffice"
-msgstr ""
+msgstr "Excel o LibreOffice"
 
 msgctxt "search_download_csv"
 msgid "CSV format"
@@ -2619,6 +2639,10 @@ msgctxt "product_js_use_low_res_images"
 msgid "Load lower resolution images (for slow connections)"
 msgstr ""
 
+msgctxt "protected_image_message"
+msgid "An image has been sent by the manufacturer. If you think it is incorrect or not up-to-date, please contact us."
+msgstr ""
+
 msgctxt "nutrition_grade_fr_nutriments_estimated_warning"
 msgid "Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients."
 msgstr ""
@@ -2967,7 +2991,7 @@ msgstr ""
 
 msgctxt "wikipedia"
 msgid "Wikipedia"
-msgstr ""
+msgstr "Wikipedia"
 
 msgctxt "additives_classes"
 msgid "Functions"
@@ -3051,7 +3075,7 @@ msgstr ""
 
 msgctxt "origin"
 msgid "Origin of the product and/or its ingredients"
-msgstr ""
+msgstr "Pinagmulan ng produkto at/o mga sangkap nito"
 
 msgctxt "origin_note"
 msgid "Packaging mentions that indicate the manufacturing place and/or the origins of the ingredients"
@@ -3059,7 +3083,7 @@ msgstr ""
 
 msgctxt "origin_example"
 msgid "Made in France. Tomatoes from Italy. Origin of the rice: India, Thailand."
-msgstr ""
+msgstr "Ginawa sa Pransiya. Mga kamatis mula sa Italiya. Pinagmulan ng bigas: India, Thailand."
 
 msgctxt "customer_service"
 msgid "Customer service"
@@ -3079,11 +3103,11 @@ msgstr ""
 
 msgctxt "checkers_products"
 msgid "Products checked by %s"
-msgstr ""
+msgstr "Mga produktong sinuri ni %s"
 
 msgctxt "checkers_without_products"
 msgid "Products not checked by %s"
-msgstr ""
+msgstr "Mga produktong hindi sinuri ni %s"
 
 msgctxt "correctors_products"
 msgid "Products corrected by %s"
@@ -3123,7 +3147,7 @@ msgstr ""
 
 msgctxt "user_s_page"
 msgid "%s's page"
-msgstr ""
+msgstr "Pahina ni %s"
 
 msgctxt "obsolete"
 msgid "Product taken off the market"
@@ -3135,11 +3159,11 @@ msgstr ""
 
 msgctxt "obsolete_since_date_note"
 msgid "Format: YYYY-MM-DD or YYYY-MM or YYYY"
-msgstr ""
+msgstr "Format: TTTT-BB-AA o TTTT-BB o TTTT"
 
 msgctxt "obsolete_since_date_example"
 msgid "2019-09-30 or 2019-09 or 2019"
-msgstr ""
+msgstr "2019-09-30 o 2019-09 o 2019"
 
 msgctxt "obsolete_warning"
 msgid "Important note: this product is no longer sold. The data is kept for reference only. This product does not appear in regular searches and is not taken into account for statistics."
@@ -3151,19 +3175,19 @@ msgstr ""
 # Use infinitive instead of imperative
 msgctxt "get_the_app"
 msgid "Get the app"
-msgstr ""
+msgstr "Kunin ang app"
 
 msgctxt "get_the_app_android"
 msgid "Get the Android app"
-msgstr ""
+msgstr "Kunin ang app para sa Android"
 
 msgctxt "get_the_app_iphone"
 msgid "Get the iPhone app"
-msgstr ""
+msgstr "Kunin ang app para sa iPhone"
 
 msgctxt "get_the_app_ipad"
 msgid "Get the iPad app"
-msgstr ""
+msgstr "Kunin ang app para sa iPad"
 
 msgctxt "warning_gs1_company_prefix"
 msgid "<em>Ambiguous barcode</em>: This product has a Restricted Circulation Number barcode for products within a company. This means that different producers and stores can use the same barcode for different products."
@@ -3207,7 +3231,7 @@ msgstr ""
 
 msgctxt "methodology"
 msgid "Methodology"
-msgstr ""
+msgstr "Pamamaraan"
 
 msgctxt "carbon_footprint_note_foodges_ademe"
 msgid "Carbon emissions computations rely on the CO<sub>2</sub> per kg values from the FoodGES program by <a href=\"https://www.ademe.fr\">ADEME</a>."
@@ -3263,7 +3287,7 @@ msgstr "Hindi"
 
 msgctxt "button_caption_skip"
 msgid "Skip"
-msgstr ""
+msgstr "Laktawan"
 
 msgctxt "popularity_s"
 msgid "popularity"
@@ -3287,7 +3311,7 @@ msgstr "Pagsusuri ng sangkap"
 
 msgctxt "ingredients_analysis_disclaimer"
 msgid "The analysis is based solely on the ingredients listed and does not take into account processing methods."
-msgstr ""
+msgstr "Ang pagsusuri ay batay lamang sa mga nakalistang sangkap at hindi isinasaalang-alang ang mga pamamaraan ng pagproseso."
 
 msgctxt "rev_warning"
 msgid "You are viewing an old version of this product page!"
@@ -3299,19 +3323,19 @@ msgstr ""
 
 msgctxt "rev_contributor"
 msgid "Edited by: "
-msgstr ""
+msgstr "Binago ni: "
 
 msgctxt "rev_previous"
 msgid "Previous version"
-msgstr ""
+msgstr "Nakaraang bersyon"
 
 msgctxt "rev_next"
 msgid "Next version"
-msgstr ""
+msgstr "Susunod na bersyon"
 
 msgctxt "rev_latest"
 msgid "Latest version"
-msgstr ""
+msgstr "Pinakabagong bersyon"
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_title"
@@ -3387,7 +3411,7 @@ msgstr ""
 
 msgctxt "fields_group_images"
 msgid "Product photos"
-msgstr ""
+msgstr "Mga larawan ng produkto"
 
 msgctxt "fields_group_packaging"
 msgid "Packaging"
@@ -3486,51 +3510,51 @@ msgstr ""
 
 msgctxt "value_in_l"
 msgid "Value in L"
-msgstr ""
+msgstr "Halaga sa L"
 
 msgctxt "value_in_dl"
 msgid "Value in dl"
-msgstr ""
+msgstr "Halaga sa dl"
 
 msgctxt "value_in_cl"
 msgid "Value in cl"
-msgstr ""
+msgstr "Halaga sa cl"
 
 msgctxt "value_in_ml"
 msgid "Value in ml"
-msgstr ""
+msgstr "Halaga sa ml"
 
 msgctxt "value_in_kg"
 msgid "Value in kg"
-msgstr ""
+msgstr "Halaga sa kg"
 
 msgctxt "value_in_g"
 msgid "Value in g"
-msgstr ""
+msgstr "Halaga sa g"
 
 msgctxt "value_in_mg"
 msgid "Value in mg"
-msgstr ""
+msgstr "Halaga sa mg"
 
 msgctxt "value_in_mcg"
 msgid "Value in μg"
-msgstr ""
+msgstr "Halaga sa μg"
 
 msgctxt "value_in_iu"
 msgid "Value in IU"
-msgstr ""
+msgstr "Halaga sa IU"
 
 msgctxt "value_in_kcal"
 msgid "Value in kcal"
-msgstr ""
+msgstr "Halaga sa kcal"
 
 msgctxt "value_in_kj"
 msgid "Value in kJ"
-msgstr ""
+msgstr "Halaga sa kJ"
 
 msgctxt "value_in_percent"
 msgid "Value in %"
-msgstr ""
+msgstr "Halaga sa %"
 
 msgctxt "no_owner_defined"
 msgid "Please log-in to use this feature."
@@ -3596,7 +3620,7 @@ msgstr ""
 
 msgctxt "cancel"
 msgid "Cancel"
-msgstr ""
+msgstr "Kanselahin"
 
 msgctxt "collapsed_changes"
 msgid "Collapsed changes"
@@ -3983,15 +4007,19 @@ msgstr ""
 # free as in not costing something
 msgctxt "donate_free_and_independent"
 msgid "Open Food Facts is 100% free and independent."
-msgstr ""
+msgstr "Ang Open Food Facts ay 100% libre at malaya."
 
 # leave empty link
 msgctxt "donate_help_and_donations"
 msgid "<a href=\"\">We need your help and donations</a> to continue and to grow the project."
-msgstr ""
+msgstr "<a href=\"\">Kailangan namin ang iyong tulong at mga donasyon</a> upang magpatuloy at mapalago ang proyekto."
 
 msgctxt "thank_you"
 msgid "Thank you!"
+msgstr ""
+
+msgctxt "thank_you_very_much"
+msgid "Thank you very much!"
 msgstr ""
 
 msgctxt "value_for_the_product"
@@ -4124,12 +4152,12 @@ msgstr ""
 
 msgctxt "pro_moderator_edit_owner_placeholder"
 msgid "user-abc or org-xyz"
-msgstr ""
+msgstr "user-abc o org-xyz"
 
 # keep %s, it is a variable for the name of the user
 msgctxt "error_user_does_not_exist"
 msgid "User %s does not exist"
-msgstr ""
+msgstr "Hindi umiiral ang gumagamit na %s"
 
 msgctxt "error_malformed_owner"
 msgid "The id must be of the form user-abc or org-xyz"
@@ -4185,6 +4213,10 @@ msgstr ""
 
 msgctxt "remove_products"
 msgid "Remove all the products"
+msgstr ""
+
+msgctxt "remove_user"
+msgid "Remove user"
 msgstr ""
 
 msgctxt "remove_products_from_producers_platform"
@@ -4342,7 +4374,7 @@ msgstr ""
 # Either 'ltr' for left to right languages like English or 'rtl' for right to left languages like Arabic
 msgctxt "text_direction"
 msgid "ltr"
-msgstr ""
+msgstr "ltr"
 
 msgctxt "separate_values_with_commas"
 msgid "Separate multiple values with commas."
@@ -4591,7 +4623,7 @@ msgstr ""
 
 msgctxt "attribute_nova_1_description_short"
 msgid "Unprocessed or minimally processed foods"
-msgstr ""
+msgstr "Mga pagkaing hindi naproseso o bahagyang naproseso"
 
 msgctxt "attribute_nova_2_description_short"
 msgid "Processed culinary ingredients"
@@ -4797,7 +4829,7 @@ msgstr ""
 # keep the %s, it will be replaced by an allergen
 msgctxt "without_s"
 msgid "Without %s"
-msgstr ""
+msgstr "Walang %s"
 
 msgctxt "owners_p"
 msgid "owners"
@@ -5732,20 +5764,22 @@ msgstr ""
 
 msgctxt "g_per_100g"
 msgid "%s g / 100 g"
-msgstr ""
+msgstr "%s g / 100 g"
 
 msgctxt "donation_title"
 msgid "Important: we need your support!"
 msgstr ""
 
-# variable names between { } must not be translated, {number_of_employees} will be a number
-msgctxt "donation_body_employees"
-msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with {number_of_employees} employees."
+msgctxt "donation_text_2023_main"
+msgid "Help us make food transparency the norm!"
 msgstr ""
 
-# variable names between { } must not be translated, {year} will be the upcoming year
-msgctxt "donation_why_year"
-msgid "We need your donations to fund the Open Food Facts {year} budget and to continue to develop the project."
+msgctxt "donation_text_2023_secondary"
+msgid "As a non-profit organization, we depend on your donations to continue informing consumers around the world about what they eat."
+msgstr ""
+
+msgctxt "donation_text_2023_tertiary"
+msgid "The food revolution starts with you!"
 msgstr ""
 
 msgctxt "donation_cta"
@@ -6605,6 +6639,10 @@ msgctxt "relative_to_all_products"
 msgid "relative to all products"
 msgstr ""
 
+msgctxt "preferred_language"
+msgid "Preferred Language"
+msgstr ""
+
 msgctxt "packagings_n_p"
 msgid "Numbers of packaging components"
 msgstr ""
@@ -6627,5 +6665,145 @@ msgstr ""
 
 msgctxt "weight_percent"
 msgid "Weight percent"
+msgstr ""
+
+msgctxt "nutriscore_component_energy"
+msgid "Energy"
+msgstr "Enerhiya"
+
+msgctxt "nutriscore_component_energy_from_saturated_fat"
+msgid "Energy from saturated fat"
+msgstr ""
+
+msgctxt "nutriscore_component_sugars"
+msgid "Sugars"
+msgstr "Mga asukal"
+
+msgctxt "nutriscore_component_saturated_fat"
+msgid "Saturated fat"
+msgstr "Saturated na taba"
+
+msgctxt "nutriscore_component_saturated_fat_ratio"
+msgid "Saturated fat / fat"
+msgstr ""
+
+msgctxt "nutriscore_component_salt"
+msgid "Salt"
+msgstr "Asin"
+
+msgctxt "nutriscore_component_non_nutritive_sweeteners"
+msgid "Non-nutritive sweeteners"
+msgstr ""
+
+msgctxt "nutriscore_component_fruits_vegetables_legumes"
+msgid "Fruits, vegetables and legumes"
+msgstr ""
+
+msgctxt "nutriscore_component_fiber"
+msgid "Fiber"
+msgstr ""
+
+msgctxt "nutriscore_component_proteins"
+msgid "Proteins"
+msgstr "Mga protina"
+
+msgctxt "presence"
+msgid "Presence"
+msgstr ""
+
+msgctxt "absence"
+msgid "Absence"
+msgstr ""
+
+msgctxt "nutriscore_is_water"
+msgid "This product is considered to be water for the calculation of the Nutri-Score."
+msgstr ""
+
+msgctxt "nutriscore_is_fat_oil_nuts_seeds"
+msgid "This product is considered to be fat, oil, nuts or seeds for the calculation of the Nutri-Score."
+msgstr ""
+
+msgctxt "nutriscore_is_cheese"
+msgid "This product is considered to be cheese for the calculation of the Nutri-Score."
+msgstr ""
+
+msgctxt "nutriscore_is_red_meat_product"
+msgid "This product is considered to be a red meat product for the calculation of the Nutri-Score."
+msgstr ""
+
+msgctxt "nutriscore_count_proteins_reason_beverage"
+msgid "Points for proteins are counted because the product is considered to be a beverage."
+msgstr ""
+
+msgctxt "nutriscore_count_proteins_reason_cheese"
+msgid "Points for proteins are counted because the product is considered to be cheese."
+msgstr ""
+
+msgctxt "nutriscore_count_proteins_reason_negative_points_less_than_7"
+msgid "Points for proteins are counted because the negative points are less than 7."
+msgstr ""
+
+msgctxt "nutriscore_count_proteins_reason_negative_points_less_than_11"
+msgid "Points for proteins are counted because the negative points are less than 11."
+msgstr ""
+
+msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_to_7"
+msgid "Points for proteins are not counted because the negative points greater than or equal to 7."
+msgstr ""
+
+msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_to_11"
+msgid "Points for proteins are not counted because the negative points greater than or equal to 11."
+msgstr ""
+
+msgctxt "nutriscore_explanation_what_it_is"
+msgid "The Nutri-Score is a logo on the overall nutritional quality of products."
+msgstr ""
+
+msgctxt "nutriscore_explanation_what_it_takes_into_account"
+msgid "The score from A to E is calculated based on nutrients and foods to favor (proteins, fiber, fruits, vegetables and legumes ...) and nutrients to limit (calories, saturated fat, sugars, salt)."
+msgstr ""
+
+msgctxt "nutriscore_explanation_where_the_data_comes_from"
+msgid "The score is calculated from the data of the nutrition facts table and the composition data (fruits, vegetables and legumes)."
+msgstr ""
+
+msgctxt "nutriscore_explanation_recommended_by_public_health_authorities"
+msgid "The display of this logo is recommended by public health authorities without obligation for companies."
+msgstr ""
+
+msgctxt "nutriscore_explanation_title"
+msgid "What is the Nutri-Score?"
+msgstr ""
+
+msgctxt "nutrient_info_energy_risk"
+msgid "Energy intakes above energy requirements are associated with increased risks of weight gain, overweight, obesity, and consequently risk of diet-related chronic diseases."
+msgstr ""
+
+msgctxt "nutrient_info_saturated_fat_risk"
+msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
+msgstr ""
+
+msgctxt "nutrient_info_saturated_fat_ratio_risk"
+msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
+msgstr ""
+
+msgctxt "nutrient_info_energy_from_saturated_fat_risk"
+msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
+msgstr ""
+
+msgctxt "nutrient_info_non_nutritive_sweeteners_risk"
+msgid "Non-nutritive sweeteners may not confer any long-term benefit in reducing body fat in adults or children. There may be potential undesirable effects from long-term use of non-nutritive sweeteners, such as an increased risk of type 2 diabetes and cardiovascular diseases in adults."
+msgstr ""
+
+msgctxt "nutrient_info_fiber_benefit"
+msgid "Consuming foods rich in fiber (especially whole grain foods) reduces the risks of aerodigestive cancers, cardiovascular diseases, obesity and diabetes."
+msgstr ""
+
+msgctxt "nutrient_info_fruits_vegetables_legumes_benefit"
+msgid "Consuming foods rich in fruits, vegetables and legumes reduces the risks of aerodigestive cancers, cardiovascular diseases, obesity and diabetes."
+msgstr ""
+
+msgctxt "nutrient_info_proteins_benefit"
+msgid "Foods that are rich in proteins are usually rich in calcium or iron which are essential minerals with numerous health benefits."
 msgstr ""
 

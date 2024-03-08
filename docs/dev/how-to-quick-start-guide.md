@@ -83,7 +83,7 @@ cd openfoodfacts-server/
 
 > _Note: you can skip this step for the first setup since the default `.env` in the repo contains all the default values required to get started._
 
-Before running the `docker-compose` deployment, you can review and configure
+Before running the `docker compose` deployment, you can review and configure
 Product Opener's environment (`.env` file).
 
 The `.env` file contains ProductOpener default settings:
@@ -175,7 +175,7 @@ Specific notes are provide on [applying AGRIBALYSE updates to support the Ecosco
 
 ## Visual Studio Code
 
-**WARNING**: for now this is deprecated, some work needs to be done.
+**WARNING**: Devcontainer support is currently experimental. It's recommended to run the normal docker commands before, and stop the containers: `make dev down`. Note that `make dev`, `make test`, and so on may currently conflict with the devcontainer.
 
 This repository comes with a configuration for Visual Studio Code (VS Code) [development containers (devcontainer)](https://code.visualstudio.com/docs/remote/containers). This enables some Perl support in VS Code without the need to install the correct Perl version and modules on your local machine.
 
@@ -297,10 +297,10 @@ systemctl status mongod | grep Active
 
 Then, executed this:
 ```console
-docker-compose up 
+docker compose up 
 ```
 > **Note:**
-> To know more about docker-compose commands do read [this guide](how-to-develop-using-docker.md)
+> To know more about docker compose commands do read [this guide](how-to-develop-using-docker.md)
 
 ### make dev error: [build_lang] Error 13 - can't write into /mnt/podata/data/Lang.openfoodfacts.localhost.sto
 

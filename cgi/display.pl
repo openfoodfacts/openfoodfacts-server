@@ -185,7 +185,13 @@ elsif (defined $request_ref->{properties}) {
 	display_properties($request_ref);
 }
 elsif (defined $request_ref->{text}) {
-	display_text($request_ref);
+	if ($request_ref->{text} =~ /^products_stats/) {
+		display_stats($request_ref);
+	}
+	else {
+		# note: this also displays the index or index-pro pages
+		display_text($request_ref);
+	}
 }
 elsif (defined $request_ref->{mission}) {
 	display_mission($request_ref);

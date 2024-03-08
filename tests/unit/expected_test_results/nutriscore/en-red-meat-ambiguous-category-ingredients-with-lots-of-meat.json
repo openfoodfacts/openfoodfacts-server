@@ -36,6 +36,7 @@
    ],
    "ingredients" : [
       {
+         "ciqual_proxy_food_code" : "28205",
          "id" : "en:pork-meat",
          "percent_estimate" : 61,
          "percent_max" : 97,
@@ -114,6 +115,7 @@
       "4",
       "1-10"
    ],
+   "ingredients_non_nutritive_sweeteners_n" : 0,
    "ingredients_original_tags" : [
       "en:pork-meat",
       "en:lamb-meat",
@@ -121,6 +123,7 @@
       "en:salt"
    ],
    "ingredients_percent_analysis" : 1,
+   "ingredients_sweeteners_n" : 0,
    "ingredients_tags" : [
       "en:pork-meat",
       "en:animal",
@@ -141,14 +144,13 @@
    "ingredients_with_specified_percent_sum" : 1,
    "ingredients_with_unspecified_percent_n" : 3,
    "ingredients_with_unspecified_percent_sum" : 91,
-   "ingredients_without_ciqual_codes" : [
-      "en:pork-meat"
-   ],
-   "ingredients_without_ciqual_codes_n" : 1,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
    "known_ingredients_n" : 11,
    "lc" : "en",
    "minerals_tags" : [],
    "misc_tags" : [
+      "en:some-ingredients-with-specified-percent",
       "en:nutrition-no-fiber",
       "en:nutriscore-computed",
       "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
@@ -176,6 +178,53 @@
       "sodium_100g" : 0,
       "sodium_value" : "0",
       "sugars_100g" : 0
+   },
+   "nutriments_estimated" : {
+      "alcohol_100g" : 0,
+      "beta-carotene_100g" : 0,
+      "calcium_100g" : 0.011978,
+      "carbohydrates_100g" : 0.3586,
+      "cholesterol_100g" : 0.07784,
+      "copper_100g" : 8.398e-05,
+      "energy-kcal_100g" : 187.95,
+      "energy-kj_100g" : 787.4,
+      "energy_100g" : 787.4,
+      "fat_100g" : 9.0738,
+      "fiber_100g" : 0,
+      "fructose_100g" : 0,
+      "galactose_100g" : 0,
+      "glucose_100g" : 0,
+      "iodine_100g" : 0.0001725248,
+      "iron_100g" : 0.0009728,
+      "lactose_100g" : 0,
+      "magnesium_100g" : 0.0264885,
+      "maltose_100g" : 0,
+      "manganese_100g" : 2.503e-05,
+      "pantothenic-acid_100g" : 0.0006217,
+      "phosphorus_100g" : 0.19856,
+      "phylloquinone_100g" : 7.973e-07,
+      "polyols_100g" : 0,
+      "potassium_100g" : 0.337301,
+      "proteins_100g" : 26.261,
+      "salt_100g" : 8.9512,
+      "saturated-fat_100g" : 3.1572,
+      "selenium_100g" : 1.1821e-05,
+      "sodium_100g" : 3.577751,
+      "starch_100g" : 0,
+      "sucrose_100g" : 0,
+      "sugars_100g" : 0,
+      "vitamin-a_100g" : 8.1397e-06,
+      "vitamin-b12_100g" : 8.659e-07,
+      "vitamin-b1_100g" : 0.0005167,
+      "vitamin-b2_100g" : 0.0001596,
+      "vitamin-b6_100g" : 0.0002916,
+      "vitamin-b9_100g" : 8.2215e-06,
+      "vitamin-c_100g" : 0.0004707,
+      "vitamin-d_100g" : 5.011e-07,
+      "vitamin-e_100g" : 0.0001462,
+      "vitamin-pp_100g" : 0.0062099,
+      "water_100g" : 54.24543,
+      "zinc_100g" : 0.00257472
    },
    "nutriscore" : {
       "2021" : {
@@ -218,42 +267,78 @@
       "2023" : {
          "category_available" : 1,
          "data" : {
+            "components" : {
+               "negative" : [
+                  {
+                     "id" : "energy",
+                     "points" : 0,
+                     "points_max" : 10,
+                     "unit" : "kJ",
+                     "value" : 82
+                  },
+                  {
+                     "id" : "sugars",
+                     "points" : 0,
+                     "points_max" : 15,
+                     "unit" : "g",
+                     "value" : 0
+                  },
+                  {
+                     "id" : "saturated_fat",
+                     "points" : 9,
+                     "points_max" : 10,
+                     "unit" : "g",
+                     "value" : 10
+                  },
+                  {
+                     "id" : "salt",
+                     "points" : 0,
+                     "points_max" : 20,
+                     "unit" : "g",
+                     "value" : 0
+                  }
+               ],
+               "positive" : [
+                  {
+                     "id" : "proteins",
+                     "points" : 2,
+                     "points_max" : 7,
+                     "unit" : "g",
+                     "value" : 50
+                  },
+                  {
+                     "id" : "fiber",
+                     "points" : 0,
+                     "points_max" : 5,
+                     "unit" : "g",
+                     "value" : null
+                  },
+                  {
+                     "id" : "fruits_vegetables_legumes",
+                     "points" : 0,
+                     "points_max" : 5,
+                     "unit" : "%",
+                     "value" : 0
+                  }
+               ]
+            },
             "count_proteins" : 1,
             "count_proteins_reason" : "negative_points_less_than_11",
-            "energy" : 82,
-            "energy_points" : 0,
-            "fiber" : 0,
-            "fiber_points" : 0,
-            "fruits_vegetables_legumes" : 0,
-            "fruits_vegetables_legumes_points" : 0,
             "is_beverage" : 0,
             "is_cheese" : 0,
             "is_fat_oil_nuts_seeds" : 0,
             "is_red_meat_product" : 1,
             "is_water" : 0,
-            "negative_nutrients" : [
-               "energy",
-               "sugars",
-               "saturated_fat",
-               "salt",
-               "non_nutritive_sweeteners"
-            ],
             "negative_points" : 9,
+            "negative_points_max" : 55,
             "positive_nutrients" : [
-               "fruits_vegetables_legumes",
+               "proteins",
                "fiber",
-               "proteins"
+               "fruits_vegetables_legumes"
             ],
             "positive_points" : 2,
-            "proteins" : 50,
-            "proteins_points" : 2,
-            "proteins_points_limited_reason" : "red_meat_product",
-            "salt" : 0,
-            "salt_points" : 0,
-            "saturated_fat" : 10,
-            "saturated_fat_points" : 9,
-            "sugars" : 0,
-            "sugars_points" : 0
+            "positive_points_max" : 17,
+            "proteins_points_limited_reason" : "red_meat_product"
          },
          "grade" : "c",
          "nutrients_available" : 1,

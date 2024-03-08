@@ -70,6 +70,7 @@ jobs:
           id=$(docker create $image_name)
           docker cp -a $id:/opt/product-opener/html/css/dist/ /tmp/frontend-dist/css/
           docker cp -a $id:/opt/product-opener/html/images/icons/dist/ /tmp/frontend-dist/icons/
+          docker cp -a $id:/opt/product-opener/html/images/attributes/dist/ /tmp/frontend-dist/attributes/
           docker cp -a $id:/opt/product-opener/html/js/dist/ /tmp/frontend-dist/js/
           docker rm -v $id
           # make a tar
@@ -78,7 +79,7 @@ jobs:
         # only if a new release was created
         if: ${{ steps.release.outputs.release_created }}
         id: add-frontend-dist-to-release
-        uses: svenstaro/upload-release-action@2.7.0
+        uses: svenstaro/upload-release-action@2.9.0
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: /tmp/frontend-dist.tgz

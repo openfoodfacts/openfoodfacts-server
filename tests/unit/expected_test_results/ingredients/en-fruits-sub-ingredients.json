@@ -35,6 +35,7 @@
                "vegetarian" : "yes"
             },
             {
+               "ciqual_proxy_food_code" : "13009",
                "id" : "en:lemon",
                "percent_estimate" : 3.75,
                "percent_max" : 7.5,
@@ -53,6 +54,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_proxy_food_code" : "31016",
          "id" : "en:sugar",
          "percent_estimate" : 50,
          "percent_max" : 50,
@@ -112,13 +114,15 @@
    "ingredients_with_unspecified_percent_n" : 3,
    "ingredients_with_unspecified_percent_sum" : 65,
    "ingredients_without_ciqual_codes" : [
-      "en:lemon",
-      "en:pear",
-      "en:sugar"
+      "en:fruit",
+      "en:pear"
    ],
-   "ingredients_without_ciqual_codes_n" : 3,
+   "ingredients_without_ciqual_codes_n" : 2,
    "known_ingredients_n" : 10,
    "lc" : "en",
+   "misc_tags" : [
+      "en:some-ingredients-with-specified-percent"
+   ],
    "nutriments" : {
       "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 50,
       "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 50,

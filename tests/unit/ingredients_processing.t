@@ -516,7 +516,7 @@ my @tests = (
 				'text' => 'raakamaito'
 			},
 			{
-				'id' => 'en:bilberry',
+				'id' => 'en:blueberry',
 				'processing' => 'en:powder',
 				'text' => 'mustikka'
 			},
@@ -1626,6 +1626,17 @@ my @tests = (
 			},
 		]
 	],
+	# inspired by 3870199003345
+	[
+		{lc => "hr", ingredients_text => "Pasterizirano mlijeko (s 1.0% mliječne masti)"},
+		[
+			{
+				'id' => 'en:milk-with-1-0-milk-fat',
+				'processing' => 'en:pasteurised',
+				'text' => 'mlijeko s 1.0% mliječne masti'
+			}
+		]
+	],
 
 ##################################################################
 	#
@@ -2343,6 +2354,31 @@ my @tests = (
 			}
 		]
 
+	],
+
+	# processing inside an ingredient: "caldo deshidratado de vegetales"
+	# https://github.com/openfoodfacts/openfoodfacts-server/issues/3625
+	[
+		{lc => "es", ingredients_text => "caldo deshidratado de vegetales"},
+		[
+			{
+				'id' => 'en:vegetable-broth',
+				'processing' => 'en:dehydrated',
+				'text' => 'caldo de vegetales'
+			}
+		]
+	],
+	# processing inside an ingredient: should be removed last, if we have not found an existing ingredient
+	# e.g. "pur jus de fruit" -> "jus de fruit" and not just "fruit"
+	[
+		{lc => "fr", ingredients_text => "pur jus de fruit"},
+		[
+			{
+				'id' => 'en:fruit-juice',
+				'processing' => 'en:pure',
+				'text' => 'jus de fruit'
+			}
+		]
 	],
 );
 

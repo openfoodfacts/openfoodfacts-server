@@ -221,8 +221,10 @@ $expected_product_ref = {
 	'nutrition_data_per' => 'serving',
 	'nutrition_data_prepared_per' => '100g',
 	'product_quantity' => 100,
+	'product_quantity_unit' => "g",
 	'quantity' => '100 g',
 	'serving_quantity' => 25,
+	'serving_quantity_unit' => "g",
 	'serving_size' => '25 g'
 };
 
@@ -250,8 +252,10 @@ $expected_product_ref = {
 	'nutrition_data_per' => 'serving',
 	'nutrition_data_prepared_per' => '100g',
 	'product_quantity' => 100,
+	'product_quantity_unit' => "g",
 	'quantity' => '100 g',
 	'serving_quantity' => 25,
+	'serving_quantity_unit' => "g",
 	'serving_size' => '25 g'
 };
 
@@ -318,8 +322,10 @@ $expected_product_ref = {
 	'nutrition_data_per' => '100g',
 	'nutrition_data_prepared_per' => '100g',
 	'product_quantity' => 100,
+	'product_quantity_unit' => "g",
 	'quantity' => '100 g',
 	'serving_quantity' => 25,
+	'serving_quantity_unit' => "g",
 	'serving_size' => '25 g'
 };
 
@@ -505,7 +511,7 @@ is_deeply(
 	$product_ref,
 	{
 		nutriments => {
-			'calcium' => '0.2',
+			'calcium' => '0.26',
 			'calcium_unit' => '% DV',
 			'calcium_value' => 20,
 			'vitamin-a' => '1.2e-05',
@@ -514,7 +520,7 @@ is_deeply(
 			'vitamin-b1' => '0.0012',
 			'vitamin-b1_unit' => '% DV',
 			'vitamin-b1_value' => 100,
-			'vitamin-d' => '8e-06',
+			'vitamin-d' => '4e-06',
 			'vitamin-d_unit' => '% DV',
 			'vitamin-d_value' => 20,
 			'vitamin-e' => '0.0266666666666667',
@@ -546,6 +552,7 @@ is_deeply(
 		'nutrition_data_per' => 'serving',
 		'nutrition_data_prepared_per' => '100g',
 		'serving_quantity' => 5,
+		'serving_quantity_unit' => "g",
 		'serving_size' => '5 g'
 	}
 ) or diag explain $product_ref;
