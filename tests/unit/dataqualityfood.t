@@ -1562,7 +1562,7 @@ ok(
 ## extra jams
 $product_ref = {
 	categories_tags => ["en:extra-jams"],
-	countries_tags => ["en:slovenia",],
+	countries_tags => ["en:slovenia"],
 	data_quality_bugs_tags => [
 		"en:main-language-code-missing",
 		"en:main-language-missing",
