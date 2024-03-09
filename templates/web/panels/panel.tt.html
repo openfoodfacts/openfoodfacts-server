@@ -1,13 +1,9 @@
 [% panel = panels.$panel_id %]
 <!-- start templates/[% template.name %] - panel_id: [% panel_id %] -->
 [% IF (panel.type == "card") OR (panel.type == "inline") %]
-<div class="panel_[% panel.type %] radius" id="panel_[% panel_id | replace(':','-') %]"
-    [% IF panel.size == "small" %]
-        style="margin-top:0.2rem;margin-bottom:0.2rem;"
-    [% ELSE %]
-        style="margin-top:0.5rem;margin-bottom:1.5rem;"
-    [% END %]
->
+<div class="panel_[% panel.type %] radius [% IF panel.size == 'small' %]panel_small[% ELSE %]panel_large[% END %]"
+    id="panel_[% panel_id | replace(':','-') %]">
+  
     [% IF panel.title_element.defined %]
         [% IF (panel.type == "card") %]
             <h2 class="panel_title_[% panel.type %] text-medium">[% panel.title_element.title %]</h2>
@@ -16,24 +12,17 @@
         [% END %]
     [% END %]
 [% ELSE %]
-<ul data-accordion class="panel_accordion accordion" id="panel_[% panel_id | replace(':','-') %]"
-    [% IF panel.size == "small" %]
-        style="margin-top:0.2rem;margin-bottom:0.2rem;"
-    [% ELSE %]
-        style="margin-top:0.5rem;margin-bottom:1.5rem;"
-    [% END %]
->
+<ul data-accordion class="panel_accordion accordion" panel_margin_[% IF panel.size == 'small' %]small[% ELSE %]large[% END %]"
+        id="panel_[% panel_id | replace(':','-') %]">
+
 <li class="accordion-navigation">
 
     [% IF panel.title_element.defined %]
-        <a href="#panel_[% panel_id | replace(':','-') %]_content" class="panel_title[% IF panel.title_element.type == "grade" %] grade_[% panel.title_element.grade %][% END %]"
-            [% IF panel.size == "small" %]
-                style="padding:0.1rem;padding-left:1rem;"
-            [% END %]
-        >
+        <a href="#panel_[% panel_id | replace(':','-') %]_content" class="panel_title[% IF panel.title_element.type == "grade" %] grade_[% panel.title_element.grade %][% END %][% IF panel.size == 'small' %]panel_title_small[% END %]">
+
             [% IF panel.title_element.icon_url.defined %]
             <img src="[% panel.title_element.icon_url %]"
-                style="[% IF panel.title_element.icon_size == 'very_small' %]height: 24px;[% ELSIF panel.title_element.icon_size == 'small' %]height:36px;[% ELSE %]height:72px;[% END %]float:left;margin-right:1rem;"
+                class="panel_icon[% IF panel.title_element.icon_size == 'very_small' %] very_small[% ELSIF panel.title_element.icon_size == 'small' %] small[% ELSE %] large[% END %]">
                 alt="[% IF panel.title_element.icon_alt.defined %][% panel.title_element.icon_alt %][% ELSE %]icon[% END %]"
                 [% IF panel.title_element.icon_color_from_evaluation %]
                     [% IF panel.evaluation == "good" %]
@@ -54,7 +43,7 @@
             [% END %]
             <h4 [% IF panel.title_element.type == "grade" %]class="grade_[% panel.title_element.grade %]_title"[% END %]
                 [% IF panel.evaluation.defined %]class="evaluation_[%panel.evaluation %]_title"[% END %]
-                [% IF panel.size == "small" %]style="font-size:1.1rem;"[% END %]
+                <div class="panel[% IF panel.size == 'small' %] small-panel[% END %]">
             >
                 [% IF panel.evaluation AND NOT panel.title_element.icon_url.defined %]
                     <span class="evaluation_[%panel.evaluation %]_title">
@@ -74,7 +63,7 @@
                 [% panel.title_element.title %]
             </h4>
             [% IF panel.title_element.subtitle.defined %]
-                <span [% IF panel.size == "small" %]style="font-size:0.9rem;"[% END %]>[% panel.title_element.subtitle %]</span>
+                <span class="panel-subtitle[% IF panel.size == 'small' %] small-subtitle[% END %]">[% panel.title_element.subtitle %]</span>
             [% END %]
             <hr class="floatclear">
         </a>
@@ -108,7 +97,7 @@
 
                 [% IF panel_group_element.icon_url.defined %]
                 <img src="[% panel_group_element.icon_url %]"
-                    style="[% IF panel_group_element.icon_size == 'very_small' %]height: 24px;[% ELSIF panel_group_element.icon_size == 'small' %]height:36px;[% ELSE %]height:72px;[% END %]float:left;margin-right:1rem;"
+                    class="panel_icon[% IF panel.title_element.icon_size == 'very_small' %] very_small[% ELSIF panel.title_element.icon_size == 'small' %] small[% ELSE %] large[% END %]">
                     alt="[% IF panel_group_element.icon_alt.defined %][% panel_group_element.icon_alt %][% ELSE %]icon[% END %]"
                     [% IF panel_group_element.icon_color_from_evaluation %]
                         [% IF panel_group_element.evaluation == "good" %]
@@ -146,14 +135,14 @@
             </div>
         [% ELSE %]
 
-            <div style="margin-bottom:0.5rem">
+            <div class="mg-class">
 
             [% IF element_type == "text" %]
                 [% text_element = element_ref.text_element %]
 
                 [% IF text_element.icon_url.defined %]
                 <img src="[% text_element.icon_url %]"
-                    style="height:72px;float:left;margin-right:1rem;"
+                    class="text-icon"
                     alt="[% IF text_element.icon_alt.defined %][% text_element.icon_alt %][% ELSE %]icon[% END %]"
                     [% IF text_element.icon_color_from_evaluation %]
                         [% IF text_element.evaluation == "good" %]
@@ -169,7 +158,7 @@
                         [% END %]
                     [% END %]
                 >
-                <div style="float:left;[% IF text_element.valign == 'middle' %]line-height:72px;[% END %]">
+                <div class="text-container[% IF text_element.valign == 'middle' %]valign-middle[% END %]">
                 [% ELSE %]
                 <div>
                 [% END %]
@@ -240,7 +229,7 @@
                 [% IF image_element.link_url.defined %]</a>[% END %]
 
                 [% IF image_element.source_url.defined %]
-                <div class="image_source" style="font-style:italic">[% lang("source") %][% sep %]:
+                <div class="image_source">[% lang("source") %][% sep %]:
                     <a href="[% image_element.source_url %]">[% image_element.source_text %]
                         [% IF image_element.source_lc.defined && image_element.source_lc != lc %]
                         <!-- source is in a different language than the interface -->
@@ -271,7 +260,7 @@
                                         <span class="icon"><img src="[% value.icon_url %]" alt="icon"></span>
                                     [% END %]
                                     [% IF value.percent.defined %]
-                                        <div style="width:200px;float:left;margin-right:1rem;" class="show-for-large-up">
+                                        <div class="custom-class show-for-large-up">
                                             <div class="agribalyse_impact_bar_full">
                                                 <div class="percent_bar
                                                     [% IF value.evaluation == 'good' %] green
@@ -311,8 +300,8 @@
                 [% map_element = element_ref.map_element %]
                 <!-- start templates/[% template.name %] -->
 
-                <div id="tag_map" class="large-9 columns" style="display: none;">
-                    <div id="container" style="height: 300px; z-index: 1;"></div>
+                <div id="tag_map" class="large-9 columns hidden">
+                    <div id="container" class="custom-container"></div>
                 </div>
 
                 <link rel="stylesheet" href="[% static_subdomain %]/css/dist/leaflet.css" />
