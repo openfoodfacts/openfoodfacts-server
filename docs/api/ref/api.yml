@@ -280,6 +280,8 @@ paths:
         - $ref: './schemas/tags_parameters.yaml#/properties/tag_name_with_language_code'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/sort_by'
+        - $ref: '#/components/parameters/page'
+        - $ref: '#/components/parameters/page_size'
     parameters: []
   /cgi/suggest.pl:
     get:
@@ -404,6 +406,22 @@ components:
       in: query
       name: angle
       required: true
+    page:
+      schema:
+        type: int
+        example: 24
+      in: query
+      name: page
+      description: |
+        The page number you request to view (eg. in search results spanning multiple pages)
+    page_size:
+      schema:
+        type: int
+        example: 24
+      in: query
+      name: page_size
+      description: |
+        The number of elements should be sent per page
     sort_by:
       schema:
         type: string

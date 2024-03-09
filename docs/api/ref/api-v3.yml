@@ -362,6 +362,39 @@ paths:
 
         Categories:
         - Packaging stats for a category
+  /api/v3/product_revert:
+    parameters: []
+    post:
+      summary: Revert a product to a previous revision
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: ./responses/response-status/response_status.yaml
+      operationId: post-api-v3-product_revert
+      description: |-
+        For moderators only, revert a product to a previous revision.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: ./requestBodies/fields_tags_lc.yaml
+                - type: object
+                  properties:
+                    code:
+                      type: string
+                      description: Barcode of the product
+                    rev:
+                      type: integer
+                      description: Revision number to revert to
+        description: |
+          The code and rev fields are mandatory.
+      parameters: []
 components:
   parameters:
     cc:

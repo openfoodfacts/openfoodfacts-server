@@ -35,30 +35,33 @@ my $tests_ref = [
 		test_case => 'patch-no-body',
 		method => 'PATCH',
 		path => '/api/v3/product/1234567890002',
+		expected_status_code => 400,
 	},
 	{
 		test_case => 'patch-broken-json-body',
 		method => 'PATCH',
 		path => '/api/v3/product/1234567890003',
-		body => 'not json'
+		body => 'not json',
+		expected_status_code => 400,
 	},
 	{
 		test_case => 'patch-no-product',
 		method => 'PATCH',
 		path => '/api/v3/product/1234567890004',
-		body => '{}'
+		body => '{}',
+		expected_status_code => 400,
 	},
 	{
 		test_case => 'patch-empty-product',
 		method => 'PATCH',
 		path => '/api/v3/product/1234567890005',
-		body => '{"product":{}}'
+		body => '{"product":{}}',
 	},
 	{
 		test_case => 'patch-packagings-add-not-array',
 		method => 'PATCH',
 		path => '/api/v3/product/1234567890006',
-		body => '{"product": {"packagings_add": {"shape": {"lc_name": "bottle"}}}}'
+		body => '{"product": {"packagings_add": {"shape": {"lc_name": "bottle"}}}}',
 	},
 	{
 		test_case => 'patch-packagings-add-one-component',
@@ -71,19 +74,22 @@ my $tests_ref = [
 		test_case => 'post-packagings',
 		method => 'POST',
 		path => '/api/v3/product/1234567890007',
-		body => '{"product": { "packagings": [{"shape": {"lc_name": "bottle"}}]}}'
+		body => '{"product": { "packagings": [{"shape": {"lc_name": "bottle"}}]}}',
+		expected_status_code => 405,
 	},
 	{
 		test_case => 'put-packagings',
 		method => 'PUT',
 		path => '/api/v3/product/1234567890007',
-		body => '{"product": { "packagings": [{"shape": {"lc_name": "bottle"}}]}}'
+		body => '{"product": { "packagings": [{"shape": {"lc_name": "bottle"}}]}}',
+		expected_status_code => 405,
 	},
 	{
 		test_case => 'delete-packagings',
 		method => 'DELETE',
 		path => '/api/v3/product/1234567890007',
-		body => '{"product": { "packagings": [{"shape": {"lc_name": "bottle"}}]}}'
+		body => '{"product": { "packagings": [{"shape": {"lc_name": "bottle"}}]}}',
+		expected_status_code => 405,
 	},
 	{
 		test_case => 'patch-packagings-add-components-to-existing-product',
@@ -451,7 +457,7 @@ my $tests_ref = [
 				]
 			}
 		}',
-		expected_status_code => 200,
+		expected_status_code => 403,
 	},
 	# Test authentication - OAuth token
 	{
@@ -637,6 +643,7 @@ my $tests_ref = [
 		method => 'PATCH',
 		path => '/api/v3/product/123',
 		body => '{"product": { "ingredients_text_en": "milk 80%, sugar, cocoa powder"}}',
+		expected_status_code => 400,
 	},
 	# code "test" to get results for an empty product without saving anything
 	{

@@ -23,11 +23,13 @@ my $tests_ref = [
 		test_case => 'no-tagtype',
 		method => 'GET',
 		path => '/api/v3/taxonomy_suggestions',
+		expected_status_code => 400,
 	},
 	{
 		test_case => 'incorrect-tagtype',
 		method => 'GET',
 		path => '/api/v3/taxonomy_suggestions?tagtype=not_a_taxonomy',
+		expected_status_code => 400,
 	},
 	{
 		test_case => 'categories-no-string',
