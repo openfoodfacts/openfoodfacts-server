@@ -159,6 +159,7 @@ $decalTop:48px;
 .accordion dd.active>a {
     background: #ffffff;
     border-radius: 8px 8px 0 0 ;
+    border-left: 6px solid #ccc;
 }
 
 .accordion .accordion-navigation>a:hover,
@@ -255,4 +256,87 @@ html[dir="rtl"] .image_box figure figcaption {
 
 .allergen {
 	font-weight:bold;
+}
+
+//knowledge panel template
+
+.panel_small,
+.panel_margin_small {
+    margin-top: 0.2rem !important;
+    margin-bottom: 0.2rem !important;
+}
+
+.panel_large,
+.panel_margin_large {
+    margin-top: 0.5rem !important;
+    margin-bottom: 1.5rem !important;
+}
+
+.panel_title_small {
+    padding: 0.1rem;
+    padding-left: 1rem;
+}
+
+.panel_icon {
+    float: left;
+    margin-right: 1rem;
+}
+
+.panel_icon.very_small {
+    height: 24px;
+}
+
+.panel_icon.small {
+    height: 36px;
+}
+
+.panel_icon.large {
+    height: 72px;
+}
+
+
+.small-panel {
+    font-size: 1.1rem;
+}
+
+.small-subtitle {
+    font-size: 0.9rem;
+}
+
+.mg-class {
+    margin-bottom:0.5rem;
+}
+
+.text-icon {
+    height: 72px;
+    float: left;
+    margin-right: 1rem;
+}
+
+
+.text-container {
+    float: left;
+}
+
+.valign-middle {
+    line-height: 72px;
+}
+
+.custom-class {
+    width: 200px;
+    float: left;
+    margin-right: 1rem;
+}
+
+.custom-container {
+    height: 300px;
+    z-index: 1;
+}
+
+.image_source {
+    font-style: italic;
+}
+
+.hidden {
+    display: none;
 }
