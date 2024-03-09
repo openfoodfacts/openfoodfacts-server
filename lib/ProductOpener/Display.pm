@@ -179,6 +179,7 @@ use ProductOpener::Export qw(:all);
 use ProductOpener::API qw(:all);
 use ProductOpener::Units qw/:all/;
 use ProductOpener::Cache qw/:all/;
+use ProductOpener::Permissions qw/:all/;
 
 use Encode;
 use URI::Escape::XS;
@@ -412,6 +413,12 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	$template_data_ref->{product_url} = \&product_url;
 	$template_data_ref->{product_action_url} = \&product_action_url;
 	$template_data_ref->{product_name_brand_quantity} = \&product_name_brand_quantity;
+	$template_data_ref->{has_permission} = sub ($permission) {
+		# Note: we pass a fake $request_ref object with only the fields admin, moderator and pro_moderator
+		# an alternative would be to pass the $request_ref object to process_template() calls
+		return has_permission({admin => $admin, moderator => $User{moderator}, pro_moderator => $User{pro_moderator}},
+			$permission);
+	};
 
 	# select2 options generator for all entries in a taxonomy
 	$template_data_ref->{generate_select2_options_for_taxonomy_to_json} = sub ($tagtype) {
@@ -829,7 +836,8 @@ sub init_request ($request_ref = {}) {
 				{
 					message => {id => "invalid_user_id_and_password"},
 					impact => {id => "failure"},
-				}
+				},
+				403
 			);
 		}
 		# /cgi/auth.pl returns a JSON body
@@ -857,6 +865,9 @@ sub init_request ($request_ref = {}) {
 	}
 	$request_ref->{admin} = $admin;
 	# TODO: remove the $admin global variable, and use $request_ref->{admin} instead.
+
+	$request_ref->{moderator} = $User{moderator};
+	$request_ref->{pro_moderator} = $User{pro_moderator};
 
 	# Producers platform: not logged in users, or users with no permission to add products
 
@@ -7545,7 +7556,7 @@ sub display_product ($request_ref) {
 	my $code = normalize_code($request_code);
 	local $log->context->{code} = $code;
 
-	if ($code !~ /^\d{4,24}$/) {
+	if (not is_valid_code($code)) {
 		display_error_and_exit($Lang{invalid_barcode}{$lang}, 403);
 	}
 
@@ -7558,8 +7569,9 @@ sub display_product ($request_ref) {
 	my $template_data_ref = {request_ref => $request_ref,};
 
 	$scripts .= <<SCRIPTS
-<script src="/js/dist/webcomponentsjs/webcomponents-loader.js"></script>
+<script src="$static_subdomain/js/dist/webcomponentsjs/webcomponents-loader.js"></script>
 <script src="$static_subdomain/js/dist/display-product.js"></script>
+<script src="$static_subdomain/js/dist/product-history.js"></script>
 SCRIPTS
 		;
 
@@ -8331,7 +8343,8 @@ HTML
 		$template_data_ref->{display_field_states} = display_field($product_ref, 'states');
 	}
 
-	$template_data_ref->{display_product_history} = display_product_history($code, $product_ref) if $User{moderator};
+	$template_data_ref->{display_product_history} = display_product_history($request_ref, $code, $product_ref)
+		if $User{moderator};
 
 	# Twitter card
 
@@ -10321,7 +10334,7 @@ sub display_product_api ($request_ref) {
 		$product_ref = retrieve_product($product_id);
 	}
 
-	if ($code !~ /^\d{4,24}$/) {
+	if (not is_valid_code($code)) {
 
 		$log->info("invalid code", {code => $code, original_code => $request_ref->{code}}) if $log->is_info();
 		$response{status} = 0;
@@ -10511,7 +10524,7 @@ sub display_rev_info ($product_ref, $rev) {
 
 }
 
-sub display_product_history ($code, $product_ref) {
+sub display_product_history ($request_ref, $code, $product_ref) {
 
 	if ($product_ref->{rev} <= 0) {
 		return;
@@ -10556,7 +10569,8 @@ sub display_product_history ($code, $product_ref) {
 			return display_tag_link('editors', $uid);
 		},
 		this_product_url => product_url($product_ref),
-		revisions => \@revisions
+		revisions => \@revisions,
+		product => $product_ref,
 	};
 
 	my $html;

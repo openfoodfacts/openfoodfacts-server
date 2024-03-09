@@ -657,10 +657,10 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'vitamin-b9-', 'folates-',
 			'vitamin-b12-', 'biotin-',
 			'pantothenic-acid-', '#minerals',
-			'silica-', 'bicarbonate-',
-			'potassium', 'chloride-',
-			'calcium', 'phosphorus-',
-			'iron', 'magnesium-',
+			'calcium', 'iron',
+			'potassium', 'silica-',
+			'bicarbonate-', 'chloride-',
+			'phosphorus-', 'magnesium-',
 			'zinc-', 'copper-',
 			'manganese-', 'fluoride-',
 			'selenium-', 'chromium-',
@@ -2470,7 +2470,10 @@ sub create_nutrients_level_taxonomy() {
 		}
 	}
 
-	open(my $OUT, ">:encoding(UTF-8)", "$data_root/taxonomies/nutrient_levels.txt");
+	print STDERR "generate $data_root/taxonomies/nutrient_levels.txt \n";
+
+	open(my $OUT, ">:encoding(UTF-8)", "$data_root/taxonomies/nutrient_levels.txt")
+		or die("Can't write $data_root/taxonomies/nutrient_levels.txt: $!");
 	print $OUT <<TXT
 # nutrient levels taxonomy generated automatically by Food.pm from nutrients taxonomy + language translations (.po files)
 
