@@ -1563,6 +1563,33 @@ ok(
 $product_ref = {
 	categories_tags => ["en:extra-jams"],
 	countries_tags => ["en:slovenia",],
+	data_quality_bugs_tags => [
+		"en:main-language-code-missing",
+		"en:main-language-missing",
+		"en:code-missing",
+		"en:created-missing"
+		],
+	data_quality_errors_tags => [],
+	data_quality_info_tags => [
+		"en:no-packaging-data",
+		"en:ecoscore-extended-data-not-computed",
+		"en:food-groups-1-unknown",
+		"en:food-groups-2-unknown",
+		"en:food-groups-3-unknown"
+		],
+	data_quality_tags => [
+		"en:main-language-code-missing",
+		"en:main-language-missing",
+		"en:code-missing",
+		"en:created-missing",
+		"en:no-packaging-data",
+		"en:ecoscore-extended-data-not-computed",
+		"en:food-groups-1-unknown",
+		"en:food-groups-2-unknown",
+		"en:food-groups-3-unknown"
+		],
+	data_quality_warnings_tags => [],
+	nutriments => {},
 	specific_ingredients => [
 		{
 			id => "en:fruit",
