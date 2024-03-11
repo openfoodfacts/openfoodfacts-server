@@ -6772,6 +6772,30 @@ msgctxt "nutrient_info_proteins_benefit"
 msgid "Foods that are rich in proteins are usually rich in calcium or iron which are essential minerals with numerous health benefits."
 msgstr "Foods that are rich in proteins are usually rich in calcium or iron which are essential minerals with numerous health benefits."
 
+msgctxt "revert"
+msgid "Revert to this revision"
+msgstr "Revert to this revision"
+
+msgctxt "product_js_product_revert_confirm"
+msgid "Revert to this product revision?"
+msgstr "Revert to this product revision?"
+
+msgctxt "api_status_success"
+msgid "Success"
+msgstr "Success"
+
+msgctxt "api_status_failure"
+msgid "Failure"
+msgstr "Failure"
+
+msgctxt "api_result_product_reverted"
+msgid "Product reverted to the specified revision"
+msgstr "Product reverted to the specified revision"
+
+msgctxt "api_result_product_not_reverted"
+msgid "Product not reverted to the specified revision"
+msgstr "Product not reverted to the specified revision"
+
 # sweeteners (additives), plural
 msgctxt "sweeteners"
 msgid "sweeteners"
@@ -6793,8 +6817,8 @@ msgid "A collaborative, free and open database of ingredients, and information o
 msgstr ""
 
 msgctxt "tagline_obf"
-msgid   "Open Beauty Facts gathers information and data on cosmetic products from around the world."
-msgstr  ""
+msgid "Open Beauty Facts gathers information and data on cosmetic products from around the world."
+msgstr ""
 
 msgctxt "footer_and_the_facebook_group_obf"
 msgid "and the <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">Facebook group for contributors</a>"

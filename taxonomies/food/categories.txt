@@ -1157,36 +1157,26 @@ tl:Pagkaing Fermented
 uk:Ферментовані продукти
 vi:Thực phẩm lên men
 
-<en:fermented foods
-en:kimchi
-af:Kimchi
+
+<en:Fermented vegetables
+en:Kimchi
+xx:Kimchi
 ar:كمتشي
 as:কিমচি
 az:Kimçi
 bg:Кимчи
 bn:কিমচি
-ca:Kimchi
 cs:Kimčchi
-cy:Kimchi
-da:Kimchi
-de:Kimchi
 el:Κίμτσι
 eo:Kimĉio
 es:Kimchi
 fa:کیمچی
-fi:Kimchi
-fr:Kimchi
-ga:Kimchi
 he:קימצ'י
 hi:किमची
-hr:Kimchi
 hu:Kimcshi
 hy:Կիմչի
 id:Kimci
-io:Kimchi
-it:Kimchi
 ja:キムチ
-jv:Kimchi
 ka:კიმჩი
 kk:Кимчи
 km:គីមឈី
@@ -1196,20 +1186,14 @@ lv:Kimči
 mn:Кимчи
 ms:Kimchi
 my:ကင်ချီ
-nl:Kimchi
-no:Kimchi
-pl:Kimchi
-pt:Kimchi
 ru:Кимчхи
 sk:Kimčchi
 sl:Kimči
-sv:Kimchi
 ta:கிம்ச்சி
 th:กิมจิ
 tl:Kimtsi
 tr:Kimçi
 uk:Кімчі
-uz:Kimchi
 vi:Kim chi
 zh:韓式泡菜
 wikidata:en:Q141898
@@ -1395,13 +1379,27 @@ nl:Bier gebaseerde alcoholische dranken
 
 <en:Beer-based alcoholic beverages
 en:Shandy, Beer with lemonade
+cy:Siandi
+de:Biermischgetränk, Biermixgetränk
+eo:Limonadbiero
+es:Refajo:(bebida)
+fi:Shandy
 fr:Panaché, Limonade et bière, Bières à la limonade
-it:Birra al limone
+he:שנדי
+hr:pivo s okusom
+hy:Շենդի
+it:Birra al limone, Panaché
+ja:シャンディ・ガフ
+mk:Радлер
+nl:Shandy
 pl:Shandy, Piwo z lemoniadą
+pt:Panaché
+sv:Shandy
 agribalyse_food_code:en:5004
 ciqual_food_code:en:5004
 ciqual_food_name:en:Shandy (beer + lemonade)
 ciqual_food_name:fr:Panaché (limonade et bière)
+wikidata:en:Q13527031
 
 <en:Shandy
 en:Shandy with less than 1° of alcohol
@@ -4740,13 +4738,19 @@ es:Vodka con sabor, vodka aromatizada
 #wikidata:en:
 
 <en:Vodka
-en:Lithuanian vodka
-fr:Vodkas lithuaniennes
+en:Vodkas from Lithania, Lithuanian vodka
+de:Litauischer Wodka
+fr:Vodkas lithuaniennes, Vodka lituanienne
+es:Vodka lituano
+it:Vodka lituana
 lt:Lietuviška degtinė
-nl:Litouwse wodkas
+nl:Wodkas uit Litouwen, Litouwse wodkas
 de:Litauische Wodkas
 es:Vodkas lituanas
 it:Vodka lituane
+pl:Litewska wódka
+ru:Литовская водка
+# disabled for safety: origins:en: en:Lithuania
 #wikidata:en:
 
 <en:Lithuanian vodka
@@ -4842,18 +4846,6 @@ ru:Латвийская водка
 # disabled for safety: origins:en: en:Latvia
 #wikidata:en:
 
-<en:Vodka
-en:Lithuanian vodka
-de:Litauischer Wodka
-fr:Vodka lituanienne
-nl:Litouwse wodkas
-es:Vodka lituano
-it:Vodka lituana
-lt:Lietuviška degtinė
-pl:Litewska wódka
-ru:Литовская водка
-# disabled for safety: origins:en: en:Lithuania
-#wikidata:en:
 
 <en:Vodka
 no:Norsk Vodka, Norwegian Vodka
@@ -5109,27 +5101,6 @@ protected_name_file_number:en: PDO-FR-02206
 protected_name_type:en: pdo
 origins:en: en:France
 #wikidata:en:
-
-<en:Alcoholic beverages
-<en:Mixed drinks
-en:Shandy
-cy:Siandi
-de:Biermischgetränk, Biermixgetränk
-eo:Limonadbiero
-es:Refajo:(bebida)
-fi:Shandy
-fr:Panaché
-he:שנדי
-hr:pivo s okusom
-hy:Շենդի
-it:Panaché
-ja:シャンディ・ガフ
-mk:Радлер
-nl:Shandy
-pl:Shandy
-pt:Panaché
-sv:Shandy
-wikidata:en:Q13527031
 
 <en:Ciders
 en:Sparkling ciders, sparkling cider
@@ -7116,13 +7087,21 @@ ciqual_food_name:fr:Jus multifruit, à base de concentré, standard
 
 <en:Multifruit juices
 <en:Squeezed juices
-en:Squeezed multifruit juices, Mixed fruits pure juices
+en:Squeezed multifruit juices, Mixed fruits pure juices, Non-refrigerated squeezed multifruit juices
+de:Multifruchtdirektsäfte
+es:Zumos multifruta exprimidos no refrigerados, Zumos multifruta exprimidos, Zumos multifruta exprimidos ambiente
 fi:puristetut monihedelmämehut
 fr:Jus multifruits pur jus
+nl:Verse Multivruchtensappen, Verse Multivruchtensap
 agribalyse_food_code:en:2035
 ciqual_food_code:en:2035
 ciqual_food_name:en:Mixed fruits juice, pure juice
 ciqual_food_name:fr:Jus multifruit, pur jus, standard
+
+
+<en:Multifruit juices
+en:Multifruit juices with coconut water
+fr:Jus multifruits à l'eau de coco
 
 <en:Multifruit juices
 <en:Refrigerated squeezed juices
@@ -7133,17 +7112,6 @@ fr:Jus multifruits frais, jus multifruit frais
 lt:Šaltai laikomos spaustų įvairių vaisių sultys
 nl:Gekoelde Verse Multivruchtensappen, Gekoelde Verse Multivruchtensap
 
-<en:Multifruit juices
-<en:Squeezed juices
-en:Squeezed multifruit juices, Non-refrigerated squeezed multifruit juices
-de:Multifruchtdirektsäfte
-es:Zumos multifruta exprimidos no refrigerados, Zumos multifruta exprimidos, Zumos multifruta exprimidos ambiente
-fi:puristetut monihedelmämehut
-nl:Verse Multivruchtensappen, Verse Multivruchtensap
-
-<en:Multifruit juices
-en:Multifruit juices with coconut water
-fr:Jus multifruits à l'eau de coco
 
 <en:Fruit juices
 en:Orange juices
@@ -9976,9 +9944,6 @@ ciqual_food_code:en:18151
 ciqual_food_name:en:Coffee with milk or white coffee or cappuccino, instant coffee or not, without sugar, ready-to-drink
 ciqual_food_name:fr:Café au lait, café crème ou cappuccino, instantané ou non, non sucré, prêt à boire
 
-<en:Coffee drinks
-en:Coffee with milk with sugar
-fr:Café au lait sucré
 
 <en:Coffees
 en:Instant coffee with milk without sugar
@@ -33294,22 +33259,6 @@ ciqual_food_name:fr:Pain d'épices
 intake24_category_code:en:GING
 
 
-<en:Gingerbreads
-en:Pryaniki
-de:Prjaniki
-es:Pryaniki
-fr:Prianiki
-nl:Pryaniki
-ru:Пряники
-wikidata:en:Q2572122
-
-<en:Pryaniki
-en:Tula gingerbread
-de:Tula-Lebkuchen
-es:Pan de jengibre de Tula
-nl:Tula-ontbijtkoeken, Tula-ontbijtkoek
-ru:Пряники тульские, Тульские пряники, Тульский пряник, Пряник тульский
-wikidata:en:Q2511331
 
 <en:Gingerbreads
 fr:Pains d'épices au miel
@@ -33765,9 +33714,6 @@ origins:en: en:Czech Republic
 wikidata:en:Q3561928
 
 <en:Bakery products
-en:Dutch bakery products
-
-<en:Bakery products
 en:Finnish bakery products
 
 <en:Finnish bakery products
@@ -33792,8 +33738,8 @@ origins:en: en:Finland
 wikidata:en:Q612661
 
 <en:Bakery products
-en:Dutch bakery products
-de:Nederlandse bakkersproducten
+en:Bakery products from the Netherlands, Dutch bakery products
+de:Bakkerijproducten uit Nederland, Nederlandse bakkersproducten
 fr:Produits de boulangerie néerlandais
 
 <en:Dutch bakery products
@@ -35844,8 +35790,6 @@ ciqual_food_code:en:23939
 ciqual_food_name:en:Soft cake filled with chocolate or chocolate drops or milk
 ciqual_food_name:fr:Gâteau moelleux fourré au chocolat ou aux pépites de chocolat ou au lait
 
-<en:Christmas foods and drinks
-en:Christmas sweets
 
 # Panforte is a traditional chewy Italian dessert containing fruits and nuts.
 <en:Desserts
@@ -51260,7 +51204,7 @@ gpc_category_name:en:Desserts (Perishable)
 gpc_category_description:en:Definition: Includes any products that can be described/observed as a prepared food normally consumed as the last course of a meal. These products must be refrigerated to extend their consumable life. Products include desserts that are biscuit based, bread based, cake/sponge based, dairy based, pastry based and rice based. Definition Excludes: Excludes products such as Frozen and Shelf Stable Desserts, Ice Cream Pastries, Cakes and Yogurt.
 
 <en:Desserts
-en:Frozen desserts
+en:Shelf stable desserts
 gpc_category_code:en:10000312
 gpc_category_name:en:Desserts (Shelf Stable)
 gpc_category_description:en:Definition: Includes any products that can be described/observed as a prepared food normally consumed as the last course of a meal. These products have been packaged in such a way as to extend their consumable life. Products include desserts that are biscuit based, bread based, cake/sponge based, dairy based, pastry based and rice based. Definition Excludes: Excludes products such as Perishable and Frozen Desserts, Ice Cream, Pastries and Cakes, Yogurt.
@@ -51573,7 +51517,12 @@ ciqual_food_name:fr:Compote, tout type de fruits
 
 <en:Compotes
 fr:Compotes de framboise
-#wikidata:en:
+nl:Frambozencompotes
+
+<en:Compotes
+en:Plum compotes
+fr:Compotes de prunes
+nl:Pruimencompotes
 
 <en:Desserts
 <en:Fruits based foods
@@ -55790,6 +55739,10 @@ ja:シアバター
 lt:Taukmedžio sviestas
 nl:Kariteboters
 wikidata:en:Q495857
+agribalyse_food_code:en:16110
+ciqual_food_code:en:16110
+ciqual_food_name:en:Shea butter
+ciqual_food_name:fr:Huile ou beurre de karité
 
 <en:Vegetable fats
 en:Vegetable oils, Plant-based oils
@@ -66696,6 +66649,7 @@ lt:Maistinės mielės
 pl:Płatki drożdżowe nieaktywne
 agribalyse_food_code:en:11009
 ciqual_food_code:en:11009
+ciqual_food_name:fr:Levure alimentaire
 ciqual_food_name:en:Nutritional yeast
 
 <en:Condiments
@@ -75427,12 +75381,6 @@ gpc_category_name:en:Soups - Prepared (Shelf Stable)
 gpc_category_description:en:Definition: Includes any products that can be described/observed as food made from the stock of meat, fish and/or vegetables, which may also contain some small solid pieces of meat, fish and/or vegetables. These products have been treated or packaged in such a way as to extend their consumable life. Includes also instant soups. Definition Excludes: Excludes products such as Perishable and Frozen Prepared Soups.
 
 <en:Soups
-en:Refrigerated soups
-gpc_category_code:en:10000261
-gpc_category_name:en:Soups - Prepared (Perishable)
-gpc_category_description:en:Definition: Includes any products that can be described/observed as liquid food made from the stock of meat, fish and/or vegetables, which may also contain some small solid pieces of meat, fish and/or vegetables. These products must be refrigerated to extend their consumable life. Includes only Prepared Soups. Definition Excludes: Excludes products such as Shelf Stable and Frozen Prepared Soups.
-
-<en:Soups
 en:Shelf-stable soup additions
 gpc_category_code:en:10006316
 gpc_category_name:en:Soup Additions (Shelf Stable)
@@ -75500,6 +75448,9 @@ fr:Soupes réfrigérées
 it:Zuppe refrigerate
 lt:Šaltai laikomos sriubos
 nl:Gekoelde soepen
+gpc_category_code:en:10000261
+gpc_category_name:en:Soups - Prepared (Perishable)
+gpc_category_description:en:Definition: Includes any products that can be described/observed as liquid food made from the stock of meat, fish and/or vegetables, which may also contain some small solid pieces of meat, fish and/or vegetables. These products must be refrigerated to extend their consumable life. Includes only Prepared Soups. Definition Excludes: Excludes products such as Shelf Stable and Frozen Prepared Soups.
 
 <en:Soups
 en:Miso soup
@@ -76809,9 +76760,6 @@ en:Fermented vegetables
 fr:Légumes fermentés
 nl:Gefermenteerde groenten
 
-<en:Fermented vegetables
-en:Kimchi
-xx:Kimchi
 
 <en:Appetizers
 en:Cold starters
@@ -83169,11 +83117,6 @@ agribalyse_food_code:en:28912
 ciqual_food_code:en:28912
 ciqual_food_name:en:Cooked ham, choice, w rind
 
-<en:Hams
-en:Cooked ham choice
-fr:Jambon de choix cuit
-ciqual_food_code:en:28910
-ciqual_food_name:en:Cooked ham, choice
 
 <en:Hams
 en:French hams
@@ -83909,7 +83852,7 @@ ciqual_food_name:fr:Merguez, crue
 wikidata:en:Q1754504
 
 <fr:Merguez
-fr:Merguez surgelées
+fr:Merguez surgelées, merguez surgelée
 
 <fr:Merguez
 en:Poultry merguez
@@ -83968,9 +83911,6 @@ agribalyse_food_code:en:30153
 ciqual_food_code:en:30153
 ciqual_food_name:en:Merguez sausage, pork and beef, raw
 ciqual_food_name:fr:Merguez, porc et bœuf, crue
-
-<fr:Merguez
-fr:Merguez surgelées, merguez surgelée
 
 <en:Sausages
 en:Cervelat, Saveloy
@@ -85468,10 +85408,6 @@ agribalyse_food_code:en:21518
 ciqual_food_code:en:21518
 ciqual_food_name:en:Lamb, leg, grilled/pan-fried
 ciqual_food_name:fr:Agneau, gigot, grillé/poêlé
-
-<en:Lamb leg
-en:Frozen lamb leg
-fr:Gigot d'agneau surgelé
 
 <en:Lamb meat
 en:Lamb saddle
@@ -88405,10 +88341,6 @@ en:Fresh ravioli
 de:Frische Ravioli
 fr:Ravioli frais
 nl:Verse raviolis
-
-<en:Ravioli
-en:Frozen ravioli
-fr:Ravioli surgelé
 
 <en:Fresh ravioli
 <en:Meat ravioli
@@ -97009,9 +96941,14 @@ de:Zuckerwattezucker
 nl:Suikers voor suikerspin
 
 <en:Sugars
-en:Beet sugars
+en:Beet sugars, beetroot sugars
+fr:Sucres de betterave, sucre de betterave
 ja:てんさい糖
-nl:Bietsuikers
+nl:Bietsuikers, Bietsuiker
+agribalyse_proxy_food_code:en:31016
+ciqual_proxy_food_code:en:31016
+ciqual_proxy_food_name:en:Sugar, white
+ciqual_proxy_food_name:fr:Sucre blanc
 
 <en:Sugars
 en:Maple sugars
@@ -97086,13 +97023,6 @@ ciqual_proxy_food_code:en:31017
 ciqual_proxy_food_name:en:Sugar, brown
 ciqual_proxy_food_name:fr:Sucre roux
 
-<en:sugars
-en:Beet sugars, beetroot sugars
-fr:Sucres de betterave, sucre de betterave
-agribalyse_proxy_food_code:en:31016
-ciqual_proxy_food_code:en:31016
-ciqual_proxy_food_name:en:Sugar, white
-ciqual_proxy_food_name:fr:Sucre blanc
 
 <en:Sugars
 en:Coconut sugar
@@ -99626,8 +99556,6 @@ fr:Concombre frais
 pl:Ogórki świeże
 season_in_country_fr:en: 5,6,7,8,9,10
 
-
-# <en:Vegetables
 <en:Vegetables
 en:Endives, Endive, Escaroles
 ca:endívia
@@ -102293,7 +102221,7 @@ ciqual_food_name:fr:Mélange de céréales et légumineuses, cru
 
 <en:Legumes
 <en:Vegetables
-en:flat beans
+en:Flat beans
 fr:Haricots plats
 agribalyse_food_code:en:20269
 ciqual_food_code:en:20269
@@ -108556,6 +108484,20 @@ ciqual_food_name:en:Pizza pastry base
 ciqual_food_name:fr:Préparation pour pâte à pizza
 
 <en:Pizza dough
+en:Raw thin-crust pizza shell, Raw thin-crust pizza dough
+fr:Pâte à pizza fine crue
+ciqual_food_code:en:23402
+ciqual_food_name:en:Thin-crust pizza shell, raw
+ciqual_food_name:fr:Pâte à pizza fine, crue
+
+<en:Pizza dough
+en:Raw pizza base
+fr:Pâte à pizza crue
+ciqual_food_code:en:37001
+ciqual_food_name:en:Pizza base, raw
+ciqual_food_name:fr:Pâte à pizza crue
+
+<en:Pizza dough
 en:thin-crust pizza shell, thin-crust pizza dough
 fr:Pâte à pizza fine
 agribalyse_food_code:en:23402
@@ -108583,14 +108525,13 @@ fr:Pousses, Graines germées
 it:Germogli
 ja:スプラウト
 nl:Kiemen
-nl_be:Kiemen
 pl:Kiełki
 wikidata:en:Q1057052
 
 <en:Sprouts
 <en:Wheats
-en:sprouted wheat
-fr:Blé germé
+en:Raw sprouted wheat
+fr:Blé germé cru
 ciqual_food_code:en:9011
 ciqual_food_name:en:Wheat sprouted, raw
 ciqual_food_name:fr:Blé germé, cru
@@ -108602,11 +108543,66 @@ fr:Pousses d'alfalfa
 ja:糸もやし, アルファルファもやし
 
 <en:Sprouts
+<en:Fresh plant-based foods
+en:Fresh sprouts, Fresh germinated seeds
+de:Rohsprossen
+es:Germinados frescos, Semillas germinadas frescas, Brotes frescos
+fr:Pousses fraîches, Graines germées fraîches
+nl:Verse kiemen
+pl:Świeże kiełki
+
+<en:Sprouts
+en:Dried sprouts
+fr:Pousses séchées
+nl:Kiemen (gedroogd), Gedroogde kiemen
+
+<en:Sprouts
+en:Bamboo shoots, Bamboo sprouts
+de:Bambuskeime
+es:Brotes de bambú
+fi:bambunversot
+fr:Pousses de bambou, Pousse de bambou
+ja:タケノコ, たけのこ, 筍
+nl:Bamboekiemen
+pl:Pędy bambusa
+wikidata:en:Q2157176
+agribalyse_food_code:en:20198
+ciqual_food_code:en:20198
+ciqual_food_name:en:Bamboo shoots, raw
+ciqual_food_name:fr:Bambou, pousse, crue
+
+
+<en:Bamboo shoots
+en:Canned drained bamboo shoots
+fr:Pousses de bambou appertisées égouttées
+nl:Bamboekiemen in blik
+ciqual_food_code:en:20188
+ciqual_food_name:en:Bamboo shoots, canned, drained
+ciqual_food_name:fr:Bambou, pousses, appertisées, égouttées
+
+<en:Bamboo shoots
+en:Raw bamboo shoots
+fr:Pousses de bambou crues
+nl:Bamboekiemen (rauw)
+ciqual_food_code:en:20198
+ciqual_food_name:en:Bamboo shoots, raw
+ciqual_food_name:fr:Bambou, pousse, crue
+
+<en:Sprouts
+<en:Wheats
+en:sprouted wheat
+fr:Blé germé
+ciqual_food_code:en:9011
+ciqual_food_name:en:Wheat sprouted, raw
+ciqual_food_name:fr:Blé germé, cru
+
+<en:Sprouts
 <en:Lentils
-en:lentil sprouts, Sprouted lentils
+en:Lentil sprouts, Sprouted lentils
 es:Germinados de lentejas
 fr:Lentilles germées
 nl:Linzenkiemen
+pl:Kiełki soczewicy
 agribalyse_food_code:en:20521
 ciqual_food_code:en:20521
 ciqual_food_name:en:Lentils, sprouted
@@ -108619,14 +108615,6 @@ es:Germinados de lentejas frescos, Brotes de lentejas frescos
 fr:Lentilles germées fraîches, pousses de lentilles fraîches
 
 <en:Sprouts
-<en:Fresh plant-based foods
-en:Fresh sprouts, Fresh germinated seeds
-de:Rohsprossen
-es:Germinados frescos, Semillas germinadas frescas, Brotes frescos
-fr:Pousses fraîches, Graines germées fraîches
-nl:Verse kiemen
-
-<en:Sprouts
 <en:Canned plant-based foods
 en:Canned sprouts, Canned germinated seeds
 de:Keime in Dosen
@@ -108635,34 +108623,6 @@ fi:purkitettuja ituja
 fr:Pousses en conserve, Graines germées en conserve
 it:Germogli in scatola
 nl:Kiemen in pot
-
-<en:Sprouts
-en:Dried sprouts
-fr:Pousses séchées
-
-<en:Sprouts
-en:Bamboo shoots, Bamboo sprouts
-de:Bambuskeime
-es:Brotes de bambú
-fi:bambunversot
-fr:Pousses de bambou, Pousse de bambou
-ja:タケノコ, たけのこ, 筍
-nl:Bamboekiemen
-nl_be:Bamboekiemen
-pl:Pędy bambusa
-wikidata:en:Q2157176
-agribalyse_food_code:en:20198
-ciqual_food_code:en:20198
-ciqual_food_name:en:Bamboo shoots, raw
-ciqual_food_name:fr:Bambou, pousse, crue
-
-<en:Bamboo shoots
-en:Canned bamboo shoots
-fr:Pousses de bambou en conserve, Pousses de bambou appertisées
-agribalyse_food_code:en:20188
-ciqual_food_code:en:20188
-ciqual_food_name:en:Bamboo shoots, canned, drained
-ciqual_food_name:fr:Bambou, pousses, appertisées, égouttées
 
 en:Purées, Mashes, Mash
 bg:Пюре
@@ -108977,14 +108937,6 @@ agribalyse_food_code:en:25608
 ciqual_food_code:en:25608
 ciqual_food_name:en:Tabbouleh, prepacked
 ciqual_food_name:fr:Taboulé ou Salade de couscous, préemballé
-
-<en:Meals
-en:Vegetable fritters
-fr:Beignets de légumes
-agribalyse_food_code:en:25556
-ciqual_food_code:en:25556
-ciqual_food_name:en:Vegetable fritters
-ciqual_food_name:fr:Beignet de légumes
 
 <en:Meals
 en:Filled fritters
@@ -109692,32 +109644,6 @@ fr:Aliments et boissons d'Halloween
 it:Alimenti e bevande per Halloween
 nl:Halloween-levensmiddelen, Halloween-levensmiddel
 
-<en:Meals
-en:Tajine
-fr:Tajine, tagine
-nl:Tajine
-ro:Tajine
-wikidata:en:Q865004
-
-<en:Tajine
-en:Mutton tagine
-fr:Tajine de mouton
-agribalyse_food_code:en:25159
-ciqual_food_code:en:25159
-ciqual_food_name:en:Mutton tagine
-ciqual_food_name:fr:Tajine de mouton
-
-<en:Meals
-en:Endives with ham, Endive with ham, Chicory with ham
-fr:Endives au jambon, Endive au jambon
-nl:Witloof met hesp, Witloof met ham
-ro:Andive cu șuncă
-agribalyse_food_code:en:25073
-ciqual_food_code:en:25073
-ciqual_food_name:en:Chicory w ham
-ciqual_food_name:fr:Endive au jambon
-wikidata:en:Q2963406
-
 <en:Puff pastry meals
 en:Puff pastries with ham and cheese, puff pastry with ham and cheese
 fr:Feuilletés jambon fromage
@@ -109734,11 +109660,6 @@ ciqual_food_code:en:25020
 ciqual_food_name:en:Cheese soufflé
 ciqual_food_name:fr:Soufflé au fromage
 wikidata:en:Q47527989
-
-<en:Puff pastry meals
-en:Vegetable puff pastries, Vegetable puff pastry
-fr:Feuilletés aux légumes
-nl:Soesjes met groente
 
 <en:Puff pastry meals
 en:Friands
@@ -109819,31 +109740,6 @@ ciqual_food_code:en:25217
 ciqual_food_name:en:Vine leaf stuffed with rice or dolmas, drained
 ciqual_food_name:fr:Feuille de vigne farcie au riz ou dolmas, égouttée
 
-en:Brick sheets, Baked filo pastry sheets without fat, Baked phyllo pastry sheets without fat
-fr:Feuilles de brick, Feuilles de brick cuite à sec sans matière grasse
-nl:Brick vellen
-ciqual_food_code:en:23430
-ciqual_food_name:en:Filo or phyllo pastry sheets, baked, without fat
-ciqual_food_name:fr:Feuille de brick, cuite à sec sans matière grasse
-wikidata:en:Q916971
-
-<en:Meals
-en:Khatfa, Phyllo pastry, Filo pastry
-fr:Khatfa
-agribalyse_food_code:en:51550
-ciqual_food_code:en:51550
-ciqual_food_name:en:Khatfa (phyllo or filo pastry), prepacked
-ciqual_food_name:fr:Khatfa feuille de brick, préemballée
-#wikidata:en:
-
-<en:Meals
-en:Banh Bao
-fr:Banh Bao
-ja:バインバオ
-nl:Banh Bao
-wikidata:en:Q564271
-
-
 <en:Sweet snacks
 en:Chaat
 ar:جات
@@ -109862,29 +109758,6 @@ pa:ਚਾਟ
 uk:Чаат
 wikidata:en:Q153584
 description:en:Chaat is a type of Indian street food that typically includes savory snacks served with tangy chutneys and spices. It is a popular and flavorful food that can be found in various forms across India.
-
-<en:Sweet snacks
-en:Sweet Fritters
-de:Süße Krapfen
-fi:Makeat uppopaistokset
-fr:Beignets sucrés
-hu:Édes Fánkok
-it:Frittelle dolci
-nl:Zoete gefrituurde producten
-#wikidata:en:
-
-<en:Cereal grains
-en:Corn on the cob
-fr:Maïs en épi
-it:Pannocchie
-nl:Maïskolven
-wikidata:en:Q5171058
-
-<en:Compotes
-en:Plum compotes
-fr:Compotes de prunes
-nl:Pruimencompote
-#wikidata:en:
 
 <en:Frozen vegetables
 <en:Salsifis
@@ -110628,12 +110501,6 @@ ciqual_food_code:en:23415
 ciqual_food_name:en:Short crust pastry, pure butter, frozen, raw
 ciqual_food_name:fr:Pâte brisée, pur beurre, surgelée, crue
 
-<en:Pie dough
-en:Cooked pure butter puff pastry
-fr:Pâte feuilletée pur beurre cuite
-ciqual_food_code:en:23426
-ciqual_food_name:en:Puff pastry, pure butter, cooked
-ciqual_food_name:fr:Pâte feuilletée pur beurre, cuite
 
 <en:Pie dough
 en:Raw puff pastry with pure butter
@@ -110672,120 +110539,6 @@ ciqual_food_code:en:23445
 ciqual_food_name:en:Phyllo or filo dough, raw
 ciqual_food_name:fr:Pâte phyllo ou Pâte filo, crue
 
-en:Dishes that may contain horse meat
-de:Gerichte die Pferdefleisch beinhalten könnten
-fr:Plats susceptibles de contenir de la viande de cheval
-nl:Gerechten die paardenvlees kunnen bevatten
-
-<en:Pizza dough
-en:Cooked pizza base
-fr:Pâte à pizza cuite
-ciqual_food_code:en:96778
-ciqual_food_name:en:Pizza base, cooked
-ciqual_food_name:fr:Pâte à pizza cuite
-
-<en:Pizza dough
-en:Pizza pastry base
-fr:Préparation pour pâte à pizza
-ciqual_food_code:en:23403
-ciqual_food_name:en:Pizza pastry base
-ciqual_food_name:fr:Préparation pour pâte à pizza
-
-<en:Pizza dough
-en:Raw thin-crust pizza shell, Raw thin-crust pizza dough
-fr:Pâte à pizza fine crue
-ciqual_food_code:en:23402
-ciqual_food_name:en:Thin-crust pizza shell, raw
-ciqual_food_name:fr:Pâte à pizza fine, crue
-
-<en:Pizza dough
-en:Raw pizza base
-fr:Pâte à pizza crue
-ciqual_food_code:en:37001
-ciqual_food_name:en:Pizza base, raw
-ciqual_food_name:fr:Pâte à pizza crue
-
-<en:Plant-based foods
-en:Sprouts, Germinated seeds
-de:Keime, Sprossen
-es:Germinados, Semillas germinadas, Brotes
-fi:idut
-fr:Pousses, Graines germées
-nl:Kiemen
-nl_be:Kiemen
-wikidata:en:Q1057052
-
-<en:Sprouts
-<en:Wheats
-en:Raw sprouted wheat
-fr:Blé germé cru
-ciqual_food_code:en:9011
-ciqual_food_name:en:Wheat sprouted, raw
-ciqual_food_name:fr:Blé germé, cru
-
-<en:Sprouts
-en:Alfalfa sprouts
-fr:Pousses d'alfalfa
-en:Germinados de alfalfa
-
-<en:Sprouts
-en:lentil sprouts
-es:Germinados de lentejas
-fr:Lentilles germées
-pl:Kiełki soczewicy
-
-<en:Sprouts
-<en:Fresh plant-based foods
-en:Fresh sprouts, Fresh germinated seeds
-de:Rohsprossen
-es:Germinados frescos, Semillas germinadas frescas, Brotes frescos
-fr:Pousses fraîches, Graines germées fraîches
-nl:Verse kiemen
-pl:Świeże kiełki
-
-<en:Sprouts
-<en:Canned plant-based foods
-en:Canned sprouts, Canned germinated seeds
-de:Keime in Dosen
-es:Germinados en conserva, Semillas germinadas en conserva, Brotes en conserva
-fi:purkitettuja ituja
-fr:Pousses en conserve, Graines germées en conserve
-nl:Kiemen in blik
-
-<en:Sprouts
-en:Dried sprouts
-fr:Pousses séchées
-
-<en:Sprouts
-en:Bamboo shoots, Bamboo sprouts
-de:Bambuskeime
-es:Brotes de bambú
-fi:bambunversot
-fr:Pousses de bambou, Pousse de bambou
-nl:Bamboekiemen
-nl_be:Bamboekiemen
-wikidata:en:Q2157176
-
-<en:Bamboo shoots
-en:Canned drained bamboo shoots
-fr:Pousses de bambou appertisées égouttées
-ciqual_food_code:en:20188
-ciqual_food_name:en:Bamboo shoots, canned, drained
-ciqual_food_name:fr:Bambou, pousses, appertisées, égouttées
-
-<en:Bamboo shoots
-en:Raw bamboo shoots
-fr:Pousses de bambou crues
-ciqual_food_code:en:20198
-ciqual_food_name:en:Bamboo shoots, raw
-ciqual_food_name:fr:Bambou, pousse, crue
-
-<en:Food decorations
-<en:Pastry helpers
-en:Sprinkles, Chocolat or sugar sprinkles
-fr:Vermicelles en chocolat ou en sucre
-nl:Chocolade of suiker hagel
-
 <en:Food decorations
 <en:Pastry helpers
 en:Chocolate drops
@@ -110793,13 +110546,6 @@ fr:Pépites de chocolat
 agribalyse_proxy_food_code:en:31005
 agribalyse_proxy_food_name:en:Dark chocolate bar, less than 70% cocoa
 agribalyse_proxy_food_name:fr:Chocolat noir à moins de 70% de cacao, à croquer, tablette
-
-en:Halloween foods and drinks
-de:Halloweenspeisen und -getränke
-es:Bebidas y alimentos de Halloween
-fi:Halloween -ruuat ja juomat
-fr:Aliments et boissons d'Halloween
-nl:Halloween-levensmiddelen, Halloween-levensmiddel
 
 <en:Meals
 en:Tajine
@@ -110810,6 +110556,7 @@ ro:Tajine
 <en:Tajine
 en:Mutton tagine
 fr:Tajine de mouton
+nl:Tajine met schapenvlees
 ciqual_food_code:en:25159
 ciqual_food_name:en:Mutton tagine
 ciqual_food_name:fr:Tajine de mouton
@@ -110819,55 +110566,16 @@ en:Endives with ham, Endive with ham, Chicory with ham
 fr:Endives au jambon, Endive au jambon
 nl:Witloof met hesp, Witloof met ham
 ro:Andive cu șuncă
+agribalyse_food_code:en:25073
 ciqual_food_code:en:25073
 ciqual_food_name:en:Chicory w ham
 ciqual_food_name:fr:Endive au jambon
-
-<en:Puff pastry meals
-en:Puff pastries with ham and cheese, puff pastry with ham and cheese
-fr:Feuilletés jambon fromage
-nl:Ham-kaas-soesjes
-ciqual_food_code:en:8395
-ciqual_food_name:en:Ham, in a pastry crusty
-
-<en:Puff pastry meals
-en:Cheese soufflé
-fr:Soufflé au fromage
-ciqual_food_code:en:25020
-ciqual_food_name:en:Cheese soufflé
-ciqual_food_name:fr:Soufflé au fromage
+wikidata:en:Q2963406
 
 <en:Puff pastry meals
 en:Vegetable puff pastries, Vegetable puff pastry
 fr:Feuilletés aux légumes
 nl:Soesjes met groente
-
-<en:Puff pastry meals
-en:Friands
-fr:Friands
-nl:Friand
-
-<en:Puff pastry meals
-<en:Friands
-en:Sausage friands, Puff pastries with sausage, puff pastry with sausage
-fr:Friands à la saucisse
-nl:Worst friands
-
-<en:Puff pastry meals
-<en:Friands
-en:Meat in puff pastry
-fr:Feuilleté à la viande, Friand à la viande
-ciqual_food_code:en:25402
-ciqual_food_name:en:Meat in puff pastry
-ciqual_food_name:fr:Feuilleté ou Friand à la viande
-
-<en:Puff pastry meals
-<en:Friands
-en:Cheese in puff pastry, Puff pastry cheese pocket
-fr:Feuilleté au fromage, Friand au fromage
-ciqual_food_code:en:25401
-ciqual_food_name:en:Cheese in puff pastry
-ciqual_food_name:fr:Feuilleté ou Friand au fromage
 
 <en:Puff pastry meals
 <en:Friands
@@ -110882,12 +110590,6 @@ en:Fish or seafood in puff pastry
 fr:Feuilleté au poisson et/ou fruits de mer
 ciqual_food_code:en:25151
 ciqual_food_name:en:Fish or seafood in puff pastry
-
-<en:Meals
-en:Stuffed vine leaves
-de:Gefüllte Weinblätter
-fr:Feuilles de vigne farcies
-nl:Gevulde wijnbladeren
 
 en:Brick sheets, Baked filo pastry sheets without fat, Baked phyllo pastry sheets without fat
 fr:Feuilles de brick, Feuilles de brick cuite à sec sans matière grasse
@@ -110906,7 +110608,8 @@ ciqual_food_name:fr:Khatfa feuille de brick, préemballée
 <en:Meals
 en:Banh Bao
 fr:Banh Bao (Pain brioché farci)
-nl:Banh Bao
+ja:バインバオ
+wikidata:en:Q564271
 
 <en:Salty snacks
 en:Salty Fritters
@@ -110928,20 +110631,18 @@ intake24_category_code:en:19VFRIT
 <en:Sweet snacks
 en:Sweet Fritters
 de:Süße Krapfen
-fi:makeat fritit
+fi:makeat fritit, Makeat uppopaistokset
 fr:Beignets sucrés
 hu:Édes Fánkok
+it:Frittelle dolci
 nl:Zoete gefrituurde producten
 
 <en:Cereal grains
 en:Corn on the cob
 fr:Maïs en épi
+it:Pannocchie
 nl:Maïskolven
-
-<en:Compotes
-en:Plum compotes
-fr:Compotes de prunes
-nl:Pruimencompote
+wikidata:en:Q5171058
 
 <en:Frozen vegetables
 <en:Salsifis
