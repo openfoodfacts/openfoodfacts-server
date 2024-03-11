@@ -16510,6 +16510,8 @@ wikipedia:en:Q1922338
 description:de:Rapsöl oder Rüböl (auch Rübsenöl, Kolzaöl und Kohlsaatöl genannt) ist ein pflanzliches Öl, welches aus den Samen vom Raps (Brassica napus), gewonnen wird.
 description:en:Rapeseed (Brassica napus), also known as rape, or oilseed rape, is a bright-yellow flowering member of the family Brassicaceae, cultivated mainly for its oil-rich seed, which naturally contains appreciable amounts of erucic acid. Rapeseed is the third-largest source of vegetable oil and the second-largest source of protein meal in the world.
 # 62.151 in 35 @2021-08-23
+ciqual_food_code:en:17130
+ciqual_food_name:fr:Huile de colza
 
 <en:rapeseed oil
 en:refined rapeseed oil
@@ -17256,6 +17258,9 @@ wikidata:en:Q495857
 wikipedia:en:https://en.wikipedia.org/wiki/Shea_butter
 # ingredient/fr:beurre-de-karité has 93 products in 6 languages @2019-04-16
 from_palm_oil:en:no
+ciqual_food_code:en:16110
+ciqual_food_name:en:Shea butter
+ciqual_food_name:fr:Huile ou beurre de karité
 
 <en:vegetable oil
 <en:shea
@@ -31069,6 +31074,10 @@ sv:sockersirap
 tr:şeker şurubu
 vegan:en:yes
 vegetarian:en:yes
+# probably not a very good CIQUAL proxy
+ciqual_proxy_food_code:en:31016
+ciqual_proxy_food_name:en:Sugar, white
+ciqual_proxy_food_name:fr:Sucre blanc
 
 <en:sugar syrup
 fr:sirop de sucres issus de fruits
@@ -32420,7 +32429,7 @@ es:Cacao en polvo procesado con álcali
 fr:Cacao en poudre alcalinisé
 
 <en:cocoa
-en:fat reduced cocoa, reduced fat cocoa, low fat cacao
+en:fat reduced cocoa, reduced fat cocoa, low fat cocoa, lean cocoa
 bg:какао с намалено съдържание на мазнини
 ca:cacau desgreixat
 da:fedtfattig kakao
@@ -34671,6 +34680,9 @@ vegan:en:yes
 vegetarian:en:yes
 wikidata:en:Q45422
 wikipedia:en:https://en.wikipedia.org/wiki/Yeast
+ciqual_proxy_food_code:en:11009
+ciqual_proxy_food_name:fr:Levure alimentaire
+ciqual_proxy_food_name:en:Nutritional yeast
 
 <en:Baker's yeast
 en:fresh yeast
@@ -56721,7 +56733,7 @@ fi:kurpitsamehutiiviste
 fr:jus de potiron concentré, jus concentré de potiron
 
 <en:fruit vegetable
-en:butternut squash
+en:butternut squash, butternut
 ar:قرع مسكي
 az:ətirli balqabaq
 bg:мускатна тиква
@@ -56730,7 +56742,7 @@ de:Butternusskürbis, Butternutkürbis, Moschuskürbis
 eo:moska kukurbo
 es:calabaza moscada
 fi:myskikurpitsa
-fr:courge butternut, courge musquée
+fr:courge butternut, courge musquée, butternut, courges butternut, courges musquées
 gn:andai
 he:דלורית
 ht:jomou
@@ -56825,6 +56837,9 @@ zh:笋瓜
 #pcd:paturon
 wikidata:en:Q161180
 eurocode_2_group_3:en: 8.40.45
+ciqual_food_code:en:20166
+ciqual_food_name:en:Pumpkin, pulp, raw
+ciqual_food_name:fr:Citrouille, pulpe, crue
 
 <en:fruit vegetable
 <en:pumpkin
@@ -61545,6 +61560,9 @@ uz:galampiri
 # pt-br:pimenta
 # sgs:Pėpėrā
 wikidata:en:Q3143131
+ciqual_proxy_food_code:en:11015
+ciqual_proxy_food_name:en:Black pepper, powder
+ciqual_proxy_food_name:fr:Poivre noir, poudre
 
 <en:pepper
 en:peppercorns
@@ -81897,6 +81915,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Chicken_as_food
 # category/chickens has 3369 products in 18 languages @2019-05-18
 carbon_footprint_fr_foodges_ingredient:fr:Cuisse de poulet
 carbon_footprint_fr_foodges_value:fr:4.9
+ciqual_proxy_food_code:en:36005
+ciqual_proxy_food_name:fr:Poulet, viande et peau, rôti/cuit au four
 
 <en:chicken
 en:free range chicken
