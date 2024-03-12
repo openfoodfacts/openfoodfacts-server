@@ -147,7 +147,7 @@ foreach my $line (@lines) {
 	# synonym
 	elsif ($line =~ /^(\w+):[^:]*(,.*)*$/) {
 		if (!defined $entry_id_line) {
-			$entry_id_line = {line => $line, previous => [@previous_lines], lc=>$1};
+			$entry_id_line = {line => $line, previous => [@previous_lines], lc => $1};
 		}
 		else {
 			my $lc = $1;
