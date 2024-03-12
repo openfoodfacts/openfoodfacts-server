@@ -1181,6 +1181,13 @@ sub process_image_move ($user_id, $code, $imgids, $move_to, $ownerid) {
 						result => $ok
 					}
 				);
+
+            # Unselect images with matching imgid
+        	foreach my $selected_imgid (keys %{$product_ref->{images}}) {
+          		if ($selected_imgid eq $imgid) {
+            			process_image_unselect($user_id, $code, $selected_imgid);
+          			}
+        		}
 			}
 
 			# Don't delete images to be moved if they weren't moved correctly
