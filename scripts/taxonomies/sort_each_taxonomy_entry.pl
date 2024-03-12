@@ -147,11 +147,24 @@ foreach my $line (@lines) {
 	# synonym
 	elsif ($line =~ /^(\w+):[^:]*(,.*)*$/) {
 		if (!defined $entry_id_line) {
-			$entry_id_line = {line => $line, previous => [@previous_lines]};
+			$entry_id_line = {line => $line, previous => [@previous_lines], lc=>$1};
 		}
 		else {
 			my $lc = $1;
-			$entries{$lc} = {line => $line, previous => [@previous_lines]};
+			if ((defined $entries{$lc}) || ($entry_id_line->{lc} eq $lc)) {
+				# emit a warning as this seems like a strange case
+				print STDERR "Warning: duplicate synonym for $lc, on entry line $line_num\n";
+				print STDERR "- " . ($entries{$lc}{line} // $entry_id_line->{line});
+				print STDERR "- " . $line;
+			}
+			# but try to do our best and continue
+			if (defined $entries{$lc}) {
+				$entries{$lc}{line} = $entries{$lc}{line} . $line;
+				push @{$entries{$lc}{previous}}, @previous_lines;
+			}
+			else {
+				$entries{$lc} = {line => $line, previous => [@previous_lines]};
+			}
 		}
 		@previous_lines = ();
 	}
