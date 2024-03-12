@@ -722,13 +722,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-clone-the-repository-from-github" class="md-nav__link">
+  <a href="#2-fork-and-clone-the-repository-from-github" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Clone the repository from GitHub
+      2. Fork and clone the repository from GitHub
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2. Clone the repository from GitHub">
+    <nav class="md-nav" aria-label="2. Fork and clone the repository from GitHub">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fork-the-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fork the repository
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clone" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clone
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Clone">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -746,6 +765,11 @@
       On other systems:
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1226,13 +1250,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-clone-the-repository-from-github" class="md-nav__link">
+  <a href="#2-fork-and-clone-the-repository-from-github" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Clone the repository from GitHub
+      2. Fork and clone the repository from GitHub
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2. Clone the repository from GitHub">
+    <nav class="md-nav" aria-label="2. Fork and clone the repository from GitHub">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fork-the-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fork the repository
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clone" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clone
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Clone">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1250,6 +1293,11 @@
       On other systems:
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1426,24 +1474,40 @@ to instantly provision a ready-to-code development environment in the cloud.</p>
 <li>Specifically grant the <a href="https://learn.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/create-symbolic-links">Create symbolic links</a> permission to your user</li>
 </ul>
 <p>Make sure you also activated the <a href="https://learn.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development">Developper mode</a> on your device.</p>
-<h2 id="2-clone-the-repository-from-github">2. Clone the repository from GitHub<a class="headerlink" href="#2-clone-the-repository-from-github" title="Permanent link">#</a></h2>
+<h2 id="2-fork-and-clone-the-repository-from-github">2. Fork and clone the repository from GitHub<a class="headerlink" href="#2-fork-and-clone-the-repository-from-github" title="Permanent link">#</a></h2>
 <blockquote>
-<p><em>You must have a GitHub account if you want to contribute to Open Food Facts development, but it’s not required if you just want to see how it works.</em></p>
+<p><em>You must have a GitHub account and fork the project if you want to contribute to Open Food Facts development, but it’s not required if you just want to see how it works.</em></p>
 <p><em>Be aware Open Food Facts server takes more than 1.3 GB (2019/11).</em></p>
 </blockquote>
-<p>Choose your prefered way to clone, either:</p>
-<h3 id="on-windows">On Windows:<a class="headerlink" href="#on-windows" title="Permanent link">#</a></h3>
+<h3 id="fork-the-repository">Fork the repository<a class="headerlink" href="#fork-the-repository" title="Permanent link">#</a></h3>
+<p>If you want to collaborate you will need to fork the repository.
+(see <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork"><em>Creating a pull request from a fork</em> in Github documentation</a> for an explanation)</p>
+<p>Go to https://github.com/openfoodfacts/openfoodfacts-server and click the "Fork" button.</p>
+<p>This will create a new repository in your GitHub account.
+eg. (for an hypothetical my-user-id user): https://github.com/my-user-id/openfoodfacts-server.</p>
+<p>This is the url you have to use in the following instructions.</p>
+<p>Very important: always work in new branches, never in "main", otherwise it will be difficult
+to sync your project with upstream repository (the openfoodfacts original repository).</p>
+<p>From time to time (before starting a new branch), it's a good idea to sync your fork,
+either using the github interface and then pulling "main" locally, either from the command line.</p>
+<h3 id="clone">Clone<a class="headerlink" href="#clone" title="Permanent link">#</a></h3>
+<p>Choose your preferred way to clone, either:</p>
+<h4 id="on-windows">On Windows:<a class="headerlink" href="#on-windows" title="Permanent link">#</a></h4>
 <p>If you are running Docker on Windows, please use the following git clone command:</p>
-<p><div class="highlight"><pre><span></span><code><span class="go">git clone -c core.symlinks=true https://github.com/openfoodfacts/openfoodfacts-server.git</span>
+<p><div class="highlight"><pre><span></span><code><span class="gp"># </span>replace<span class="w"> </span>my-user-id<span class="w"> </span>with<span class="w"> </span>your<span class="w"> </span>user<span class="w"> </span>id<span class="w"> </span><span class="k">if</span><span class="w"> </span>you<span class="w"> </span>forked<span class="w"> </span>the<span class="w"> </span>repository,<span class="w"> </span>otherwise<span class="w"> </span>use<span class="w"> </span>openfoodfacts
+<span class="go">git clone -c core.symlinks=true https://github.com/my-user-id/openfoodfacts-server.git</span>
 </code></pre></div>
-or
-<div class="highlight"><pre><span></span><code><span class="go">git clone -c core.symlinks=true git@github.com:openfoodfacts/openfoodfacts-server.git</span>
+or (if you want to use ssh)
+<div class="highlight"><pre><span></span><code><span class="gp"># </span>replace<span class="w"> </span>my-user-id<span class="w"> </span>with<span class="w"> </span>your<span class="w"> </span>user<span class="w"> </span>id<span class="w"> </span><span class="k">if</span><span class="w"> </span>you<span class="w"> </span>forked<span class="w"> </span>the<span class="w"> </span>repository,<span class="w"> </span>otherwise<span class="w"> </span>use<span class="w"> </span>openfoodfacts
+<span class="go">git clone -c core.symlinks=true git@github.com:my-user-id/openfoodfacts-server.git</span>
 </code></pre></div></p>
-<h3 id="on-other-systems">On other systems:<a class="headerlink" href="#on-other-systems" title="Permanent link">#</a></h3>
-<div class="highlight"><pre><span></span><code><span class="go">git clone git@github.com:openfoodfacts/openfoodfacts-server.git</span>
+<h4 id="on-other-systems">On other systems:<a class="headerlink" href="#on-other-systems" title="Permanent link">#</a></h4>
+<div class="highlight"><pre><span></span><code><span class="gp"># </span>replace<span class="w"> </span>my-user-id<span class="w"> </span>with<span class="w"> </span>your<span class="w"> </span>user<span class="w"> </span>id<span class="w"> </span><span class="k">if</span><span class="w"> </span>you<span class="w"> </span>forked<span class="w"> </span>the<span class="w"> </span>repository,<span class="w"> </span>otherwise<span class="w"> </span>use<span class="w"> </span>openfoodfacts
+<span class="go">git clone git@github.com:my-user-id/openfoodfacts-server.git</span>
 </code></pre></div>
 <p>or</p>
-<div class="highlight"><pre><span></span><code><span class="go">git clone https://github.com/openfoodfacts/openfoodfacts-server.git</span>
+<div class="highlight"><pre><span></span><code><span class="gp"># </span>replace<span class="w"> </span>my-user-id<span class="w"> </span>with<span class="w"> </span>your<span class="w"> </span>user<span class="w"> </span>id<span class="w"> </span><span class="k">if</span><span class="w"> </span>you<span class="w"> </span>forked<span class="w"> </span>the<span class="w"> </span>repository,<span class="w"> </span>otherwise<span class="w"> </span>use<span class="w"> </span>openfoodfacts
+<span class="go">git clone https://github.com/my-user-id/openfoodfacts-server.git</span>
 </code></pre></div>
 <p>Go to the cloned directory:</p>
 <div class="highlight"><pre><span></span><code><span class="go">cd openfoodfacts-server/</span>
@@ -1613,7 +1677,8 @@ To enable Developer Mode:</p>
 <p>and turn on the toggle for <em>Developer Mode</em>.</p>
 <p>On Windows systems, the git repository needs to be cloned with symlinks enabled.</p>
 <p>You need to remove current directory where you clone the project, and clone the project again, using right options:</p>
-<div class="highlight"><pre><span></span><code><span class="go">git clone -c core.symlinks=true git@github.com:openfoodfacts/openfoodfacts-server.git</span>
+<div class="highlight"><pre><span></span><code><span class="gp"># </span>replace<span class="w"> </span>my-user-id<span class="w"> </span>with<span class="w"> </span>your<span class="w"> </span>user<span class="w"> </span>id<span class="w"> </span><span class="k">if</span><span class="w"> </span>you<span class="w"> </span>forked<span class="w"> </span>the<span class="w"> </span>repository,<span class="w"> </span>otherwise<span class="w"> </span>use<span class="w"> </span>openfoodfacts
+<span class="go">git clone -c core.symlinks=true git@github.com:my-user-id/openfoodfacts-server.git</span>
 </code></pre></div>
 <h3 id="rm-is-not-recognized-as-an-internal-or-external-command">'rm' is not recognized as an internal or external command<a class="headerlink" href="#rm-is-not-recognized-as-an-internal-or-external-command" title="Permanent link">#</a></h3>
 <p>When running <code>make import_prod_data</code> or some other commands.</p>
