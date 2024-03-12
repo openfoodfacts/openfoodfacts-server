@@ -1422,6 +1422,16 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 					$translations_from{$tagtype}{"$lc:$lc_tagid"} = $canon_tagid;
 					# print STDERR "taxonomy - translation_from{$tagtype}{$lc:$lc_tagid} = $canon_tagid \n";
 				}
+				elsif ($tagtype ne "ingredients") {
+					# issue an error message and continue
+					my $msg
+						= "ERROR - $lc:$lc_tagid has already been defined and associated to "
+						. $translations_from{$tagtype}{"$lc:$lc_tagid"} . " ("
+						. $tagtype . ")"
+						. " - there should not be a second $lc:$lc_tagid entry (associated to $canon_tagid)\n";
+					$errors .= $msg;
+					next;
+				}
 				# check that we have same canon_tagid as before
 				elsif ($translations_from{$tagtype}{"$lc:$lc_tagid"} ne $canon_tagid) {
 					# issue an error message and continue
