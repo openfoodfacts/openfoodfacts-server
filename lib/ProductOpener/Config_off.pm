@@ -329,6 +329,46 @@ $options{product_type} = "food";
 			)
 		],
 	},
+	{
+		name => "Vegan App Chakib",
+		conditions => [["user_id", "vegan-app-chakib"],],
+		actions => [["ignore"],],
+		notifications => [
+			qw (
+				slack_channel_edit-alert
+			)
+		],
+	},
+	{
+		name => "Vegetarian App Chakib",
+		conditions => [["user_id", "vegetarian-app-chakib"],],
+		actions => [["ignore"],],
+		notifications => [
+			qw (
+				slack_channel_edit-alert
+			)
+		],
+	},
+	{
+		name => "Allergies App Chakib",
+		conditions => [["user_id", "allergies-app-chakib"],],
+		actions => [["ignore"],],
+		notifications => [
+			qw (
+				slack_channel_edit-alert
+			)
+		],
+	},
+	{
+		name => "Additives App Chakib",
+		conditions => [["user_id", "additives-app-chakib"],],
+		actions => [["ignore"],],
+		notifications => [
+			qw (
+				slack_channel_edit-alert
+			)
+		],
+	},
 
 );
 

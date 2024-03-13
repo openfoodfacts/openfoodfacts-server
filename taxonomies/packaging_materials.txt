@@ -29,7 +29,6 @@ stopwords:xx:100%, RC, Recycling Code
 en:Unknown
 de:Unbekannt
 bg:Неизвестно
-es:Desconocido
 fr:Inconnu, inconnue, inconnus, inconnues
 hu:Ismeretlen
 nl:Onbekend
@@ -1241,7 +1240,6 @@ ca:Cartó armat
 cs:Ozbrojený karton
 da:Armeret pap
 de:Bewehrter Karton
-es:Cartón armado
 et:Reljeefne kartong
 fi:Vahvistettu pahvi
 ga:Cairtchlár armtha
@@ -1291,7 +1289,6 @@ es:Cartón FSC
 fr:Carton FSC
 nl:FSC karton
 pt:Cartão FSC
-es:Cartón FSC
 it:Cartone FSC
 sv:FSC kartong
 ru:Картон FSC
@@ -1359,11 +1356,9 @@ fr:Cellulose, Cellulose moulée, Cellulosique / Cellulose moulée, Cellulosique 
 es:Celulosa
 
 en:Rubber
-es:Goma
+es:Goma, Caucho, Celulósico / Caucho
 fr:Caoutchouc, Cellulosique / Caoutchouc
-en:Rubber
 de:Gummi, Cellulosique / Gummi
-es:Caucho, Celulósico / Caucho
 it:Gomma, Cellulosico / Gomma
 pt:Borracha, Celulósico / Borracha
 nl:Rubber, Cellulosique / Rubber
@@ -1934,7 +1929,6 @@ hu:Fehér üveg
 nl:transparant glas, transparant glazen
 pl:Przezroczyste szkło, Przeźroczyste szkło
 pt:Vidro transparente
-es:Vidrio transparente
 it:Vetro trasparente
 sv:Klart glas
 tr:Net cam
@@ -1955,7 +1949,6 @@ nl:Groen glas, groene glazen
 pl:Zielone szkło
 pt:Vidro verde
 cs:Zelené sklo
-es:Vidrio verde
 et:roheline klaas
 fi:vihreä lasi
 ga:glais glas
@@ -2750,6 +2743,7 @@ description:nl:Uit metaal en PETmet (gemetalliseerd Polyethylene terephthalate) 
 
 <xx:92 C/X
 xx:92 C/PEmet
+
 <xx:92 C/X
 xx:92 C/MDPE, 92 C/PEMD
 description:en:Composite material with MDPE (Medium-density polyethylene) and metal

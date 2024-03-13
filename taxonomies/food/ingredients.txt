@@ -913,6 +913,8 @@ ru:белок яичный сухой, белок яичный, яичный б�
 sl:lizocim iz JAJC
 sv:lysozym från ägg, lysozym av ägg
 allergens:en: en:eggs
+vegetarian:en:yes
+vegan:en:no
 # ingredient/fr:lysozyme-d’oeuf has 289 products in 10 languages @2018-12-18
 
 
@@ -1112,7 +1114,7 @@ el:γαλακτικά ένζυμα
 es:fermentos lácticos, fermentos lácteos, cultivos lácticos, ferments del yogur, cultivos de bacterias lácticas especificas, cultivos lácticos específicos
 et:juuretis
 fi:maitohappokäyte, maitohappokannat, maitohappoviljelmä, elävä jogurttiviljelmä, elävä jogurttibakteeriviljelmä, elävät jogurttibakteeriviljelmät, maitohappobakteeriviljelmä, maitohappobakteeriviljelmät, maitohappobakteerit, maitohappobakteerikanta, maitohappobakteerikannat, juustoviljelmä, juustoviljelmät, hapankulttuuri, jogurttihapate, maitohappobakteeri, käynnistin kulttuuri
-fr:ferment lactique, ferments lactique, ferments lactiques, ferment lactiques, culture de bactéries lactiques, cultures lactiques, ferment lactique du yaourt, ferments lactiques du yaourt, ferments vivants du yaourt, bactéries lactiques, ferments lactiques naturels
+fr:ferment lactique, ferments lactique, ferments lactiques, ferment lactiques, culture de bactéries lactiques, cultures lactiques, ferment lactique du yaourt, ferments lactiques du yaourt, ferments vivants du yaourt, bactéries lactiques, ferments lactiques naturels, levain lactique
 hr:jogurtna kultura, jogurtne kulture, mljekarska kultura, mljekarske kulture, mlijekarske kulture, sirna kultura, starter kultura, baktrije mliječnog vrenja, bakterije mliječne kiseline, kultura plemenitih plijesni, sirište mljekarske kulture, mezofilna starter kultura, starter kulture, mliječnokiselinske kulture, kultura mliječnih bakterija
 hu:tejsavbaktériumok, tejsavbaktérium, starterkultúra, starter kultúra, tejsavbaktérium-tenyészet, tejsavbaktérium kultúra, joghurtkultúra, joghurtkultúrák, sajtkultúra, sajtkultúrák, tejoltó enzim
 it:fermenti lattici, coltura di batteri acidolattici, fermenti lattici vivi, fermenti latici vivi, fermenti lattici dello yogurt
@@ -3668,10 +3670,9 @@ nl:schapen- of geitenmelk
 <en:sheeps milk
 en:whole sheep milk
 bg:пълномаслено овче мляко
-fr:lait entier de brebis
+fr:lait entier de brebis, Lait de brebis entier
 ca:llet sencera d'ovella, llet d'ovella sencera
 es:leche entera de oveja, leche de oveja entera
-fr:Lait de brebis entier
 nl:volle schapenmelk
 ciqual_food_code:en:19250
 ciqual_food_name:en:Sheep milk, whole
@@ -15602,7 +15603,6 @@ nl:Niet gehydrogeneerd palmvet
 <en:vegetable oil and fat
 en:palm kernel oil and fat
 cs:Palmový olej a tuk
-de:Palmkernöl und Fett
 es:aceite y grasa de palmiste
 de:Palmkernöl und Fett
 fi:palmuydinöljy ja -rasva
@@ -16858,9 +16858,8 @@ pl:Olej kukurydziany, olej z kukurydzy
 pt:Óleo de milho
 ro:ulei de porumb
 ru:Кукурузное масло
-tr:mısır yağı
+tr:mısır yağı, mısırözü yağı
 uk:Кукурудзяна олія
-tr:mısırözü yağı
 zh:粟米油
 # yue:粟米油
 wikipedia:en:https://en.wikipedia.org/wiki/Corn_oil
@@ -22025,7 +22024,6 @@ en:raspberry flavouring
 bg:аромат малина
 de:Himbeeraroma, Himbeer-Aroma
 es:sabor a frambuesa
-de:Himbeeraroma, Himbeer-Aroma
 fi:vadelma-aromi, vadelman aromi
 fr:arôme framboise
 hu:málna aroma
@@ -25861,9 +25859,8 @@ sv:fullkornsrågkross
 
 <en:rye
 <en:malt
-en:rye malt
+en:rye malt, malta de centeno
 de:Roggenmalz
-en:malta de centeno
 fi:ruismallas
 fr:malt de seigle
 hu:rozsmaláta
@@ -26923,7 +26920,6 @@ fr:farine de seigle complète, farine complète de seigle, farine de seigle comp
 hr:integralno raženo brašno, brašno od cjelovitog zrna raži, brašno od integralni raži, raženo brašno iz cijelog zrna, brašno iz cijelog zrna raži
 hu:teljes kiőrlésű rozsliszt
 it:farina di segale integrale
-hu:teljes kiőrlésű rozsliszt
 nb:fullkornsrugmel
 nl:volkoren roggemeel
 pl:mąka żytnia pełnoziarnista, mąka żytnia razowa, pełnoziarnista mąka żytnia
@@ -27304,7 +27300,6 @@ de:​Quinoavollkornmehl, Quinoa-Vollkornmehl
 en:pea flour
 bg:грахово брашно
 ca:farina de pèsol, farina de pèsols
-de:Erbsenmehl
 es:harina de guisantes
 de:Erbsenmehl
 fi:hernejauho
@@ -27317,6 +27312,15 @@ pl:mąka grochowa, mąka z grochu
 ro:făină de mazăre
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:farine-de-pois
 # 36 products in 4 languages @2018-09-22
+
+<en:green split pea
+<en:pea flour
+fr:Farine de pois cassés
+es:Harina de guisantes partidos
+en:Split pea flour
+it:Farina di piselli spezzati
+nl:Split erwtenmeel
+# 9@2019-06-05
 
 <en:flour
 <en:green peas
@@ -28737,8 +28741,7 @@ fr:Riz thaï complet, riz complet thaï
 <en:Thaï brown rice
 <en:parboiled rice
 <en:Thaï rice
-fr:Riz Thaï complet étuvé
-fr:riz thaï noir complet de Thailande
+fr:Riz Thaï complet étuvé, riz thaï noir complet de Thailande
 
 <en:Thai long grain rice
 fr:Riz thaï long grain de qualité supérieure
@@ -29844,7 +29847,6 @@ de:Vollrohrzucker
 es:azucar de caña integral, azucar integral de caña
 fr:sucre de canne complet, suc de canne intégral, sucre de canne intégral, sucre complet de canne
 nl:ruwe rietsuiker
-es:azucar de caña integral,azucar integral de caña
 
 <en:whole cane sugar
 en:whole brown cane sugar
@@ -31100,7 +31102,6 @@ allergens:en: en:gluten
 
 <en:disaccharide
 en:cane sugar syrup, cane syrup
-fr:sirop de sucre de canne
 de:rohrzuckersirup
 es:Jarabe de azúcar de caña
 fi:ruokosokerisiirappi
@@ -31200,7 +31201,6 @@ de:brauner zuckersirup
 fi:ruskea sokerisiirappi
 fr:Sirop de sucre brun, sirop de sucre mélassé
 nb:mørk sirup
-nl:Bruine suiker siroop
 nl:bruine suikerstroop, bruine suiker siroop
 sv:mörk sirap
 # ingredient/en:brown-sugar-syrup has 386 products in 3 languages @2020-06-08
@@ -31394,7 +31394,6 @@ nl:biologische agave
 <en:agave syrup
 en:concentrated agave syrup
 es:concentrado de agave
-de:Agavendicksaft
 fr:jus d'agave concentré
 de:Agavendicksaft
 it:succo di agave concentrato
@@ -31780,7 +31779,6 @@ de:hydrolysiertes Erbsenprotein, hydrolisiertes Erbsenprotein
 es:proteína de guisante hidrolizada,proteínas de guisante hidrolizadas
 fi:hydrolysoitu herneproteiini, herneproteiinihydrosylaatti
 fr:protéines de pois hydrolysées
-fi:hydrolysoitu herneproteiini, herneproteiinihydrosylaatti
 pl:hydrolizowane białko grochu, hydrolizat białka grochu
 sv:hydrolyserat ärtprotein
 
@@ -34523,7 +34521,6 @@ en:potato maltodextrin
 bg:картофен малтодекстрин
 de:Kartoffel-Maltodextrin
 es:maltodextrina de patata
-de:Kartoffel-Maltodextrin
 fi:perunamaltodekstriini
 fr:maltodextrine de pomme de terre, malto-dextrine de pomme de terre
 hr:krumpirov maltodekstrin
@@ -34995,9 +34992,6 @@ zh:老麵
 wikidata:en:Q904889
 wikipedia:en:https://en.wikipedia.org/wiki/Sourdough
 likely_allergens:en: en:gluten
-
-<en:sourdough
-fr:levain lactique
 
 <en:sourdough
 en:natural sourdough
@@ -37380,7 +37374,7 @@ et:jõhvikas, harilik jõhvikas
 fa:کرنبری
 fi:karpalo, karpalot
 fo:tranuber
-fr:airelles, cranberries, cranberry, cranberrys, canneberge
+fr:airelles, cranberries, cranberry, cranberrys, canneberge, Canneberge crue, Cranberry crue
 ga:mónóg
 gl:arandeira vermella
 gv:smeyr churree
@@ -37429,7 +37423,6 @@ zh:小紅莓
 # yue:金啤梨
 wikipedia:en:https://en.wikipedia.org/wiki/Cranberry
 wikidata:en:Q13181
-fr:Canneberge crue, Cranberry crue
 ciqual_food_code:en:13113
 ciqual_food_name:en:Cranberry, raw
 ciqual_food_name:fr:Canneberge ou cranberry, crue
@@ -38792,7 +38785,6 @@ de:Zimtapfel
 es:manzana canela
 fr:pomme cannelle
 it:cannella di mele
-es:manzana canela
 
 <en:apple
 en:green apple
@@ -38808,7 +38800,6 @@ de:roter Apfel, rote Äpfel
 es:manzana roja,manzanas rojas
 fi:punakuorinen omena
 fr:Pomme rouge, pommes rouges
-es:manzana roja,manzanas rojas
 
 <en:apple
 nl:appels van biologisch-dynamische teelt
@@ -39546,7 +39537,6 @@ sw:mbalungi
 te:పంపరపనస
 tg:грейпфрут
 th:เกรปฟรูต
-tr:greyfurt
 uk:грейпфрут
 uz:greypfrut
 vi:bưởi chùm
@@ -41358,7 +41348,6 @@ mt:tuta tal-għollieq
 nl:braam, bramen
 oc:amora
 os:дзедыр
-pl:jeżyna
 ps:تورتوت
 pl:jeżyna, jeżyny, jeżynowy, jeżynowa, jeżynowe, jeżyn
 pt:amora
@@ -43079,10 +43068,9 @@ ar:تين مجف ف
 bg:сушени смокини, смокини сушени
 co:fichi secchi
 cs:sušené fiky
-es:higos secos
 fr:figues séchées, figues sèches
 de:Feigen getrocknet
-es:higo seco
+es:higo seco, higos secos
 it:fichi essiccati
 nl:gedroogde vijgen
 pl:suszone figi, suszona figa
@@ -51710,7 +51698,6 @@ cy:Garlleg
 da:hvidløg, hvidløgs
 de:Knoblauch
 dv:ލޮނުމެދު
-el:Σκόρδο
 eo:ajlo
 el:σκόρδο
 es:ajo, diente de ajo, dientes de ajo
@@ -56415,7 +56402,6 @@ da:kålroe
 de:Kohlrübe
 es:colinabo,nabicol
 et:kaalikas
-da:kålroe
 fi:lanttu
 fr:rutabaga
 nb:kålrot
@@ -58105,7 +58091,6 @@ fr:haricot viande, haricots viande
 
 <en:pulse
 en:Adzuki bean, azuki bean
-en:Adzuki bean, azuki bean
 ar:لوبياء مقرنة
 ca:mongeta azuki
 cs:vigna hranatá
@@ -58747,14 +58732,6 @@ it:piselli verdi spezzati
 nl:groene spliterwten
 # ingredient/fr:pois-casses-verts has 13 products in 4 languages
 
-<en:green split pea
-fr:Farine de pois cassés
-es:Harina de guisantes partidos
-en:Split pea flour
-de:Erbsenmehl
-it:Farina di piselli spezzati
-nl:Split erwtenmeel
-# 9@2019-06-05
 
 # popular in Latvia
 <en:pea
@@ -59291,7 +59268,6 @@ en:raw almonds
 bg:сурови бадеми
 de:rohe Mandeln
 es:almendras crudas
-de:rohe Mandeln
 fr:amandes crues
 pt:amêndoa crua, amêndoas cruas
 
@@ -60847,7 +60823,6 @@ ru:семена аниса
 sv:anis, anisfrö
 te:సోపు
 tt:әнис орлыгы
-sv:anis, anisfrö
 wikidata:en:Q33873455
 wikipedia:en:https://en.wikipedia.org/wiki/Anise
 # ingredient/fr:graine-d'anis-vert has 25 products in 1 language @2018-10-07
@@ -63073,7 +63048,7 @@ hy:մշկընկույզ
 id:pala
 io:muskado
 is:múskat
-is:noce moscata
+it:noce moscata
 ja:ニクズク属
 jv:pala
 ka:ჯავზის ხე
@@ -64436,7 +64411,6 @@ da:sar
 de:Bohnenkraut
 es:ajedrea
 fr:sariette, sarriette
-de:Bohnenkraut
 it:santoreggia
 nl:bonenkruid
 pl:cząber, cząbru
@@ -65294,7 +65268,6 @@ la:artemisia dracunculus
 lt:estragonas
 mk:естрагон
 ms:taragon
-nb:estragon
 nl:dragon
 nb:estragon, estragonblader
 nn:estragon, estragonblader
@@ -75182,9 +75155,8 @@ ms:Ikan sebelah
 zh:龍脷
 
 <en:fish
-en:Tonguesole
+en:Tonguesole, tropical sole, tongue sole
 fr:sole tropicale, sole langue
-en:tropical sole, tongue sole
 es:lenguado tropical, lenguado lengua
 de:tropische Seezunge, Zungenzunge
 it:sole tropicale, sogliola lingua
@@ -81410,7 +81382,6 @@ nv:Taʼneeskʼání áłtsʼóózígíí
 pl:Ogórek, ogórki, ogórka, ogórkowy, ogórkowa, ogórkowe
 pt:pepino
 ro:Castravete, castraveți
-ro:Castravete
 ru:огурец, огурцы
 sd:کيرو
 sk:uhorka
@@ -82768,7 +82739,6 @@ ciqual_food_name:fr:Oie, viande et peau, crue
 en:goose liver
 de:Gänseleber
 bg:гъши дроб
-de:Gänseleber
 es:hígado de ganso
 fr:foie d'oie
 it:fegato d'oca
@@ -83503,7 +83473,7 @@ nl:gedroogd ei-eiwit
 nl:scharrelkipeiwit, vrije uitloop kippenei-eiwit, kippenei-eiwit van scharreleieren
 
 <en:powdered egg white
-nl:vrije-uitloopei-eiwitpoeder, vrije uitloopeiwitpoeder, scharrelkipeiwitpoeder
+nl:vrije-uitloopei-eiwitpoeder, vrije uitloopeiwitpoeder
 
 <en:powdered egg white
 de:Hühnerei-Trockeneiweiß, Hühnereiklarpulver, Hühnereieiweißpulver, Hühnereiweißpulver, Hühnereiweisspulver, Hühnereiweiss-pulver, Hühnertrockeneieiweiß, Hühnertrockeneieiweiss, Hühnerei-Eiweisspulver, Hühnerei-Eiweißpulver, Hühnertrockeneiweiß, Hühnertrockeneiweiss, Hühnereitrockeneiweiß
@@ -83816,7 +83786,6 @@ bg:пастьоризиран яйчен жълтък
 de:Pasteurisierter Eigelb Eier, pasteurisiertes Eigelb, pasteurisierter Eidotter
 es:yema de huevo pasteurizada, yemas de huevo pasteurizadas
 fr:jaune d'œuf pasteurisé, jaune d'oeuf pasteurisé
-de:Pasteurisierter Eigelb Eier, pasteurisiertes Eigelb, pasteurisierter Eidotter
 it:tuorlo d'uovo pastorizzato
 pl:pasteryzowane żółtko jaja kurzego
 pt:gema de ovo pasteurizado
@@ -84281,7 +84250,6 @@ fi:kasvikuitu, kasvikuidut
 fr:fibre végétale, fibres végétales, fibres alimentaires végétales
 hr:biljna vlakna
 he:סיבי ירקות, סיבי ירק, סיבים מן הצומח, סיבים צמחוניים, סיבים צמחיים
-hr:biljna vlakna
 hu:növényi rostok, növényi rost
 it:fibre vegetali, fibra vegetale
 ja:植物繊維
@@ -87397,7 +87365,6 @@ ciqual_food_name:fr:Pâte d'amande, préemballée
 en:persipan
 de:Persipan
 es:persipan
-de:Persipan
 fr:persipan
 pl:percepan
 wikidata:en:Q1929741
@@ -87851,7 +87818,6 @@ fr:fond de volaille aromatisé
 <en:poultry broth
 en:dehydrated poultry stock, dehydrated poultry bouillon
 fr:bouillon de volaille déshydraté
-fr:Bouillon de volaille déshydraté
 ciqual_food_code:en:11174
 ciqual_food_name:en:Broth, stock or bouillon, poultry, dehydrated
 ciqual_food_name:fr:Bouillon de volaille, déshydraté
@@ -89351,7 +89317,6 @@ ms:kicap
 mt:zalza tas-soja
 nb:soyasaus
 nl:Sojasaus, soja saus, ketjap
-nl:Sojasaus
 pa:ਸੋਇਆ ਸੌਸ
 pl:sos sojowy, sosu sojowego, sosem sojowym, shoyu
 pt:molho de soja
@@ -90393,7 +90358,6 @@ en:poblano chili
 es:chile poblano
 fr:piment poblano
 it:pepe Poblano
-es:chile poblano
 
 en:xylose
 xx:xylose
