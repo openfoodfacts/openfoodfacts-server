@@ -105,6 +105,9 @@ requires 'Imager::File::JPEG';
 requires 'Imager::File::PNG';
 requires 'Imager::File::WEBP';
 
+# To dynamically load Config_*.pm modules
+requires 'Module::Load';
+
 on 'test' => sub {
   requires 'Test::More', '>= 1.302186, < 2.0';
   requires 'Test::MockModule';

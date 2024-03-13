@@ -32,6 +32,8 @@ use File::Basename;
 my $tagtype = $ARGV[0] // '*';
 my $publish = $ARGV[1] // 1;
 
+print STDERR "tagtype: $tagtype\n";
+
 if ($tagtype eq '*') {
 	build_all_taxonomies($publish);
 }
