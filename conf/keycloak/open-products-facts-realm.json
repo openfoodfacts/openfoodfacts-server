@@ -1552,7 +1552,8 @@
   "smtpServer": {},
   "eventsEnabled": false,
   "eventsListeners": [
-    "jboss-logging"
+    "jboss-logging",
+    "redis-event-listener"
   ],
   "enabledEventTypes": [],
   "adminEventsEnabled": false,

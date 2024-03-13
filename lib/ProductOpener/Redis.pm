@@ -1,12 +1,13 @@
 
 =head1 NAME
 
-ProductOpener::Redis - functions to push information to redis
+ProductOpener::Redis - functions to integrate with redis
 
 =head1 DESCRIPTION
 
 C<ProductOpener::Redis> is handling pushing info to Redis
-to communicate updates to all services, including search-a-licious.
+to communicate updates to all services, including search-a-licious,
+as well as receiving updates from other services like Keycloak.
 
 =cut
 
@@ -21,6 +22,7 @@ use JSON::PP;
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
+		&subscribe_to_redis_streams
 		&push_to_redis_stream
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -30,7 +32,8 @@ use vars @EXPORT_OK;
 
 use Log::Any qw/$log/;
 use ProductOpener::Config qw/$redis_url/;
-use Redis;
+use AnyEvent;
+use AnyEvent::RipeRedis;
 
 =head2 $redis_client
 The connection to redis
@@ -53,7 +56,7 @@ sub init_redis() {
 	$log->debug("init_redis", {redis_url => $redis_url})
 		if $log->is_debug();
 	eval {
-		$redis_client = Redis->new(
+		$redis_client = AnyEvent::RipeRedis->new(
 			server => $redis_url,
 			# we don't want to sacrifice too much performance for redis problems
 			cnx_timeout => 1,
@@ -64,6 +67,11 @@ sub init_redis() {
 		$log->warn("Error connecting to Redis", {error => $@}) if $log->is_warn();
 		$redis_client = undef;    # this ask for eventual reconnection
 	}
+	return;
+}
+
+sub subscribe_to_redis_streams () 
+{
 	return;
 }
 

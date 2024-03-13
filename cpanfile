@@ -37,6 +37,7 @@ requires 'Excel::Writer::XLSX', '>= 1.09'; # libexcel-writer-xlsx-perl
 requires 'Pod::Simple::HTMLBatch'; # libpod-simple-perl
 requires 'GeoIP2', '>= 2.006002, < 3.0'; # libgeoip2-perl, deps: libdata-validate-ip-perl libio-compress-perl libjson-maybexs-perl liblist-someutils-perl, libdata-dumper-concise-perl, libdata-printer-perl
 requires 'Path::Tiny', '>= 0.118'; # libpath-tiny-perl
+requires 'AnyEvent::RipeRedis'; # libanyevent-redis-perl
 
 # Probably not available as Debian/Ubuntu packages
 requires 'MongoDB', '>= 2.2.2, < 2.3'; # libmongodb-perl has 1.8.1/2.0.3 vs 2.2.2. deps: libauthen-sasl-saslprep-perl, libbson-perl, libauthen-scram-perl, libclass-xsaccessor-perl, libdigest-hmac-perl, libsafe-isa-perl, libconfig-autoconf-perl, libpath-tiny-perl
@@ -66,7 +67,6 @@ requires 'JSON::Create';
 requires 'JSON::Parse';
 requires 'Data::DeepAccess';
 requires 'XML::XML2JSON';
-requires 'Redis';
 requires 'Digest::SHA1';
 requires 'Data::Difference';
 requires 'Data::Compare';
