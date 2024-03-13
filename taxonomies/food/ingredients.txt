@@ -913,6 +913,8 @@ ru:белок яичный сухой, белок яичный, яичный б�
 sl:lizocim iz JAJC
 sv:lysozym från ägg, lysozym av ägg
 allergens:en: en:eggs
+vegetarian:en:yes
+vegan:en:no
 # ingredient/fr:lysozyme-d’oeuf has 289 products in 10 languages @2018-12-18
 
 
@@ -1112,7 +1114,7 @@ el:γαλακτικά ένζυμα
 es:fermentos lácticos, fermentos lácteos, cultivos lácticos, ferments del yogur, cultivos de bacterias lácticas especificas, cultivos lácticos específicos
 et:juuretis
 fi:maitohappokäyte, maitohappokannat, maitohappoviljelmä, elävä jogurttiviljelmä, elävä jogurttibakteeriviljelmä, elävät jogurttibakteeriviljelmät, maitohappobakteeriviljelmä, maitohappobakteeriviljelmät, maitohappobakteerit, maitohappobakteerikanta, maitohappobakteerikannat, juustoviljelmä, juustoviljelmät, hapankulttuuri, jogurttihapate, maitohappobakteeri, käynnistin kulttuuri
-fr:ferment lactique, ferments lactique, ferments lactiques, ferment lactiques, culture de bactéries lactiques, cultures lactiques, ferment lactique du yaourt, ferments lactiques du yaourt, ferments vivants du yaourt, bactéries lactiques, ferments lactiques naturels
+fr:ferment lactique, ferments lactique, ferments lactiques, ferment lactiques, culture de bactéries lactiques, cultures lactiques, ferment lactique du yaourt, ferments lactiques du yaourt, ferments vivants du yaourt, bactéries lactiques, ferments lactiques naturels, levain lactique
 hr:jogurtna kultura, jogurtne kulture, mljekarska kultura, mljekarske kulture, mlijekarske kulture, sirna kultura, starter kultura, baktrije mliječnog vrenja, bakterije mliječne kiseline, kultura plemenitih plijesni, sirište mljekarske kulture, mezofilna starter kultura, starter kulture, mliječnokiselinske kulture, kultura mliječnih bakterija
 hu:tejsavbaktériumok, tejsavbaktérium, starterkultúra, starter kultúra, tejsavbaktérium-tenyészet, tejsavbaktérium kultúra, joghurtkultúra, joghurtkultúrák, sajtkultúra, sajtkultúrák, tejoltó enzim
 it:fermenti lattici, coltura di batteri acidolattici, fermenti lattici vivi, fermenti latici vivi, fermenti lattici dello yogurt
@@ -34990,9 +34992,6 @@ zh:老麵
 wikidata:en:Q904889
 wikipedia:en:https://en.wikipedia.org/wiki/Sourdough
 likely_allergens:en: en:gluten
-
-<en:sourdough
-fr:levain lactique
 
 <en:sourdough
 en:natural sourdough
