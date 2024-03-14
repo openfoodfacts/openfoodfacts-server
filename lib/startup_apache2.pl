@@ -165,13 +165,13 @@ if (scalar @missing_dirs) {
 load_data();
 
 $ProductOpener::Redis::cv = AE::cv;
+
 sub cleanup_handler {
-    $ProductOpener::Redis::cv->send;
+	$ProductOpener::Redis::cv->send;
+	return;
 }
 
-Apache2::ServerUtil->server->push_handlers(
-    PerlCleanupHandler => \&cleanup_handler
-);
+Apache2::ServerUtil->server->push_handlers(PerlCleanupHandler => \&cleanup_handler);
 
 subscribe_to_redis_streams();
 

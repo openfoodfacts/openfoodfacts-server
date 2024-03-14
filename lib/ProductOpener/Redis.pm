@@ -89,8 +89,36 @@ sub init_redis() {
 	return;
 }
 
-sub subscribe_to_redis_streams ()
-{
+sub subscribe_to_redis_streams () {
+	if (!$redis_url) {
+		# No Redis URL provided, we can't push to Redis
+		if (!$sent_warning_about_missing_redis_url) {
+			$log->warn("Redis URL not provided for streaming") if $log->is_warn();
+			$sent_warning_about_missing_redis_url = 1;
+		}
+		return;
+	}
+
+	my $error = "";
+	if (!defined $redis_client) {
+		# we where deconnected, try again
+		$log->info("Trying to reconnect to Redis");
+		init_redis();
+	}
+
+	if (defined $redis_client) {
+
+		$redis_client->subscribe(
+			'user-deleted',
+			sub {
+				my $msg = shift;
+				my $channel = shift;
+
+				$log->info("Received message from Redis", {channel => $channel, message => $msg}) if $log->is_info();
+			}
+		);
+	}
+
 	return;
 }
 
@@ -146,16 +174,25 @@ sub push_to_redis_stream ($user_id, $product_ref, $action, $comment, $diffs) {
 				# We let Redis generate the id
 				'*',
 				# fields
-				'code', Encode::encode_utf8($product_ref->{code}),
-				'flavor', Encode::encode_utf8($options{current_server}),
-				'user_id', Encode::encode_utf8($user_id), 'action', Encode::encode_utf8($action),
-				'comment', Encode::encode_utf8($comment), 'diffs', encode_json($diffs),
+				'code',
+				Encode::encode_utf8($product_ref->{code}),
+				'flavor',
+				Encode::encode_utf8($options{current_server}),
+				'user_id',
+				Encode::encode_utf8($user_id),
+				'action',
+				Encode::encode_utf8($action),
+				'comment',
+				Encode::encode_utf8($comment),
+				'diffs',
+				encode_json($diffs),
 				sub {
 					my ($reply, $err) = @_;
 					if (defined $err) {
-						$log->warn("Error adding data to stream", {error=> $err}) if $log->is_warn();
-					} else {
-						$log->info("Data added to stream with ID", {reply=>$reply}) if $log->is_info();
+						$log->warn("Error adding data to stream", {error => $err}) if $log->is_warn();
+					}
+					else {
+						$log->info("Data added to stream with ID", {reply => $reply}) if $log->is_info();
 					}
 
 					$cv->send;
