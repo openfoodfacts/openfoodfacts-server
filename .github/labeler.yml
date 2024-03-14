@@ -69,7 +69,8 @@ WikiData:
 - taxonomies/allergens.txt
 
 🐾 Open Pet Food Facts:
-- taxonomies.opff/**/*
+- taxonomies/petfood/**/*
+- taxonomies/petfood/categories.txt
 - po/openpetfoodfacts/**/*
 - scripts/gen_opff_leaderboard.pl
 - scripts/gen_opff_leaderboard.sh
@@ -87,10 +88,9 @@ WikiData:
 - scripts/gen_feeds_daily_opff.sh
 - lib/ProductOpener/Config_opff.pm
 - conf/nginx/snippets/ssl-params-opff.conf
-- taxonomies.opff/categories.txt
 
 🧴 Open Beauty Facts:
-- taxonomies.obf/**/*
+- taxonomies/beauty/**/*
 - po/openbeautyfacts/**/*
 - scripts/gen_obf_inci_functions_taxonomy_from_cosing.pl
 - scripts/gen_obf_ingredients_taxonomy_from_cosing.pl
@@ -103,33 +103,33 @@ WikiData:
 - html/files/tagline-obf.json
 - scripts/gen_feeds_daily_obf.sh
 - lib/ProductOpener/Config_obf.pm
-- taxonomies.obf/ingredients-old-obf.txt
-- taxonomies.obf/ingredients-cosing-obf.txt
-- taxonomies.obf/ingredients-cosing-obf.result.sto
+- taxonomies/beauty/ingredients-old-obf.txt
+- taxonomies/beauty/ingredients-cosing-obf.txt
+- taxonomies/beauty/ingredients-cosing-obf.result.sto
 - scripts/gen_obf_ingredients_taxonomy_from_cosing.pl
 - scripts/gen_obf_inci_functions_taxonomy_from_cosing.pl
 - html/images/svg/crowdsourcing-obf-round-smartphones.svg
-- taxonomies.obf/brands.txt
-- taxonomies.obf/labels.txt
-- taxonomies.obf/safety.txt
-- taxonomies.obf/allergens.txt
-- taxonomies.obf/body_parts.txt
-- taxonomies.obf/categories.txt
-- taxonomies.obf/abbreviations.txt
-- taxonomies.obf/labels.result.sto
-- taxonomies.obf/labels.result.txt
-- taxonomies.obf/inci_functions.txt
-- taxonomies.obf/allergens.result.sto
-- taxonomies.obf/allergens.result.txt
-- taxonomies.obf/categories.result.sto
-- taxonomies.obf/categories.result.txt
-- tests/unit/expected_test_results/import_gs1/equadis_unilever_obf_signal.json
-- taxonomies.obf/special_ingredients.txt
-- taxonomies.obf/inci_functions.result.sto
+- taxonomies/beauty/brands.txt
+- taxonomies/beauty/labels.txt
+- taxonomies/beauty/safety.txt
+- taxonomies/beauty/allergens.txt
+- taxonomies/beauty/body_parts.txt
+- taxonomies/beauty/categories.txt
+- taxonomies/beauty/abbreviations.txt
+- taxonomies/beauty/labels.result.sto
+- taxonomies/beauty/labels.result.txt
+- taxonomies/beauty/inci_functions.txt
+- taxonomies/beauty/allergens.result.sto
+- taxonomies/beauty/allergens.result.txt
+- taxonomies/beauty/categories.result.sto
+- taxonomies/beauty/categories.result.txt
+- taxonomies/beauty/special_ingredients.txt
+- taxonomies/beauty/inci_functions.result.sto
 - tests/unit/expected_test_results/import_gs1/equadis_unilever_obf_signal.off.json
+- tests/unit/expected_test_results/import_gs1/equadis_unilever_obf_signal.json
 
 📸 Open Products Facts:
-- taxonomies.opf/**/*
+- taxonomies/products/**/*
 - po/openproductsfacts/**/*
 - lib/ProductOpener/Config_opf.pm
 - conf/nginx/sites-available/opf
@@ -138,7 +138,7 @@ WikiData:
 - html/files/tagline-opf.json
 - scripts/gen_feeds_daily_opf.sh
 - lib/ProductOpener/Config_opf.pm
-- taxonomies.opf/unspsc.txt
+- taxonomies/products/unspsc.txt
 
 Icons:
 - icons/**/*
@@ -258,7 +258,7 @@ Food groups:
 - taxonomies/food_groups.txt
 
 🧪 Additives:
-- taxonomies/additives.txt
+- taxonomies/food/additives.txt
 - scripts/merge_additives_lists.pl
 - scripts/extract_additives.pl
 - scripts/add_efsa_evaluations_to_additives_taxonomy.pl
@@ -290,7 +290,7 @@ Data import:
 
 🥗 Ingredients:
 - lib/ProductOpener/Ingredients.pm
-- taxonomies/ingredients.txt
+- taxonomies/food/ingredients.txt
 - tests/unit/ingredients.t
 - tests/unit/ingredients_analysis.t
 - tests/unit/ingredients_clean.t
