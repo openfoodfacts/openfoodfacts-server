@@ -160,7 +160,7 @@ jobs:
           echo "BUILD_CACHE_REPO=openfoodfacts/openfoodfacts-build-cache" >> .env
 
           # Override domain name in nginx.conf
-          sed -i.bak "s/productopener.localhost/${{ env.PRODUCT_OPENER_DOMAIN }}/g" ./conf/nginx.conf
+          sed -i.bak "s/productopener.localhost/${{ env.PRODUCT_OPENER_DOMAIN }}/g" ./conf/nginx-docker/nginx.conf
 
     - name: Create Docker volumes and network
       uses: appleboy/ssh-action@master
