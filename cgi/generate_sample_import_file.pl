@@ -59,7 +59,7 @@ my %formats = (
 	mandatory => $workbook->add_format(border => 1, bold => 1, bg_color => '#aaffcc'),
 	recommended => $workbook->add_format(border => 1, bold => 1, bg_color => '#ccffdd'),
 	optional => $workbook->add_format(border => 1, bold => 1, bg_color => '#eeffee'),
-	description => workbook->add_format(italic => 1, text_wrap => 1, align => 'left', align => 'vcenter'),
+	description => $workbook->add_format(italic => 1, text_wrap => 1, align => 'left', align => 'vcenter'),
 );
 
 # Re-use the structure used to output select2 options in import_file_select_format.pl
@@ -67,8 +67,10 @@ my $select2_options_ref = generate_import_export_columns_groups_for_select2([$lc
 
 my $headers_row = 0;
 my $description_row = 1;
-my $col = 0;
+my $col = 1;
 
+my $field_id;
+my $comment;
 
 $worksheet->set_column('A:A', 30);
 $worksheet->write( $description_row, 0, "Description", $formats{'description'});
@@ -190,7 +192,7 @@ foreach my $group_ref (@$select2_options_ref) {
 		$worksheet->set_column($col, $col, $width);
 
 		if ($comment ne "") {
-			$worksheet->write_comment($description_row, $col, $comment, $formats{'description'});
+			$worksheet->write($description_row, $col, $comment, $formats{'description'});
 		}
 
 		$col++;
