@@ -9,6 +9,7 @@ GitHub Actions:
 NGINX:
 - conf/nginx/**/*
 - conf/nginx.conf
+- conf/nginx-docker/nginx.conf
 
 MongoDB:
 - conf/mongodb/create_indexes.js
@@ -193,6 +194,7 @@ Footer:
 🐋 Docker:
 - docker/**/*
 - .dockerignore
+- conf/nginx-docker/nginx.conf
 
 🏷️ Folksonomy Project:
 - html/js/folksonomy.js
