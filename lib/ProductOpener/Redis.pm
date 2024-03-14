@@ -24,6 +24,8 @@ BEGIN {
 	@EXPORT_OK = qw(
 		&subscribe_to_redis_streams
 		&push_to_redis_stream
+
+		$cv
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -34,6 +36,8 @@ use Log::Any qw/$log/;
 use ProductOpener::Config qw/$redis_url/;
 use AnyEvent;
 use AnyEvent::RipeRedis;
+
+our $cv;
 
 =head2 $redis_client
 The connection to redis
@@ -56,11 +60,26 @@ sub init_redis() {
 	$log->debug("init_redis", {redis_url => $redis_url})
 		if $log->is_debug();
 	eval {
+		my ($host, $port) = split /:/, $redis_url;
 		$redis_client = AnyEvent::RipeRedis->new(
-			server => $redis_url,
+			host => $host,
+			port => $port,
 			# we don't want to sacrifice too much performance for redis problems
 			cnx_timeout => 1,
 			write_timeout => 1,
+			on_connect => sub {
+				$log->info("Connected to Redis") if $log->is_info();
+			},
+
+			on_disconnect => sub {
+				$log->info("Disconnected from Redis") if $log->is_info();
+			},
+
+			on_error => sub {
+				my $err = shift;
+
+				$log->warn("Error from Redis", {error => $err}) if $log->is_warn();
+			},
 		);
 	};
 	if ($@) {
@@ -70,7 +89,7 @@ sub init_redis() {
 	return;
 }
 
-sub subscribe_to_redis_streams () 
+sub subscribe_to_redis_streams ()
 {
 	return;
 }
@@ -130,7 +149,18 @@ sub push_to_redis_stream ($user_id, $product_ref, $action, $comment, $diffs) {
 				'code', Encode::encode_utf8($product_ref->{code}),
 				'flavor', Encode::encode_utf8($options{current_server}),
 				'user_id', Encode::encode_utf8($user_id), 'action', Encode::encode_utf8($action),
-				'comment', Encode::encode_utf8($comment), 'diffs', encode_json($diffs)
+				'comment', Encode::encode_utf8($comment), 'diffs', encode_json($diffs),
+				sub {
+					my ($reply, $err) = @_;
+					if (defined $err) {
+						$log->warn("Error adding data to stream", {error=> $err}) if $log->is_warn();
+					} else {
+						$log->info("Data added to stream with ID", {reply=>$reply}) if $log->is_info();
+					}
+
+					$cv->send;
+					return;
+				}
 			);
 		};
 		$error = $@;
