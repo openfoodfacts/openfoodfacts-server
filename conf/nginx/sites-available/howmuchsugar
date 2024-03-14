@@ -36,19 +36,19 @@ server {
 	index index.html index.htm index.nginx-debian.html;
 
 	location ~* \.(eot|ttf|woff|woff2)$ {
-		include /etc/nginx/snippets/expiry-headers.conf;
+		include snippets/expiry-headers.include;
 		add_header Access-Control-Allow-Origin *;
 	}
 
 	location ~ ^/(favicon.ico) {
-		include /etc/nginx/snippets/expiry-headers.conf;
+		include snippets/expiry-headers.include;
 		# First attempt to serve request as file, then
 		# as directory, then fall back to displaying a 404.
 		try_files $howmuchsugar_name-favicon.ico =404;
 	}
 
 	location ~ ^/(.well-known|images|js|rss|data|files|resources|foundation)/ {
-		include /etc/nginx/snippets/expiry-headers.conf;
+		include snippets/expiry-headers.include;
 		# First attempt to serve request as file, then
 		# as directory, then fall back to displaying a 404.
 		try_files $uri $uri/ =404;
@@ -59,13 +59,13 @@ server {
 	}
 
 	location ~ ^/$ {
-		include /etc/nginx/snippets/expires-no-json-xml.conf;
+		include snippets/expiry-headers.include;
 		try_files $uri /$howmuchsugar_name.html;
 	}
 
 	# redirect to .html files
 	location / {
-		include /etc/nginx/snippets/expires-no-json-xml.conf;
+		include snippets/expiry-headers.include;
 		try_files $uri $uri.html =404;
 	}
 

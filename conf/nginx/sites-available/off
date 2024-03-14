@@ -33,7 +33,7 @@ server {
 	client_header_timeout 120s;
 
 	# logs location
-	access_log /var/log/nginx/${productopener_access_file_prefix}off-access.log proxied_requests buffer=256K flush=1s;
+	access_log /var/log/nginx/off-access.log proxied_requests buffer=256K flush=1s;
 	error_log /var/log/nginx/off-error.log;
 
 	# some redirection for specific subdomains
@@ -116,7 +116,6 @@ server {
 	location = /.well-known/assetlinks.json {
 		include snippets/off.cors-headers.include;
 		include snippets/expiry-headers.include;
-		expires 1d;
 		try_files $uri =404;
 	}
 
