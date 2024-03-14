@@ -1309,10 +1309,10 @@ if (
     and (
         (
             (
-                (defined $product_ref->{nutriments}{soluble_fiber_100g}) ? $product_ref->{nutriments}{soluble_fiber_100g}
+                (defined $product_ref->{nutriments}{'soluble-fiber_100g'}) ? $product_ref->{nutriments}{'soluble-fiber_100g'}
                 : 0
             ) + (
-                (defined $product_ref->{nutriments}{insoluble_fiber_100g}) ? $product_ref->{nutriments}{insoluble_fiber_100g}
+                (defined $product_ref->{nutriments}{'insoluble-fiber_100g'}) ? $product_ref->{nutriments}{'insoluble-fiber_100g'}
                 : 0
             )
         ) > ($product_ref->{nutriments}{fiber_100g}) + 0.001
