@@ -69,8 +69,6 @@ my $headers_row = 0;
 my $description_row = 1;
 my $col = 0;
 
-my $comment;
-my $field_id;
 
 $worksheet->set_column('A:A', 30);
 $worksheet->write( $description_row, 0, "Description", $formats{'description'});
