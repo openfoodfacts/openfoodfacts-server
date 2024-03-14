@@ -55,6 +55,11 @@ if (defined $User_id) {
 		user => {
 			email => $User{email},
 			name => $User{name},
+			initial_lc => $User{initial_lc},
+			preferred_language => $User{preferred_language},
+			country => $User{country},
+			moderator => $User{moderator} ? 1 : 0,
+			admin => is_admin_user($User_id) ? 1 : 0,
 		},
 	};
 
