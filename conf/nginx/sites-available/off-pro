@@ -47,14 +47,6 @@ server {
 
 	index index.html index.htm index.nginx-debian.html;
 
-	location /data/ {
-        include snippets/off.cors-headers.include;
-		include snippets/expiry-headers.include;
-		# First attempt to serve request as file, then
-		# as directory, then fall back to displaying a 404.
-		try_files $uri $uri/ =404;
-	}
-
 	location ~ ^/images/products/ {
 		include snippets/off.cors-headers.include;
 		include snippets/expiry-headers.include;
@@ -71,7 +63,7 @@ server {
 	}
 
 	# Static files are served directly by NGINX
-	location ~ ^/(.well-known|files)/ {
+	location ~ ^/(.well-known|files|data|exports|dump)/ {
 		include snippets/off.cors-headers.include;
 		include snippets/expiry-headers.include;
 		# First attempt to serve request from resource, then as file,
@@ -80,7 +72,7 @@ server {
 		gzip_static always;
 		gunzip on;
 	}
-	location ~ ^/(images|fonts|css|js|rss|foundation|bower_components)/ {
+	location ~ ^/(images|fonts|css|js|donate|resources)/ {
 		include snippets/off.cors-headers.include;
 		include snippets/expiry-headers.include;
 		# First attempt to serve request as file, off_web_html acting as an override,
