@@ -22,7 +22,7 @@
 
             [% IF panel.title_element.icon_url.defined %]
             <img src="[% panel.title_element.icon_url %]"
-                class="panel_icon[% IF panel.title_element.icon_size == 'very_small' %] very_small[% ELSIF panel.title_element.icon_size == 'small' %] small[% ELSE %] large[% END %]">
+                class="panel_icon[% IF panel.title_element.icon_size == 'very_small' %] very_small[% ELSIF panel.title_element.icon_size == 'small' %] small[% ELSE %] large[% END %]"
                 alt="[% IF panel.title_element.icon_alt.defined %][% panel.title_element.icon_alt %][% ELSE %]icon[% END %]"
                 [% IF panel.title_element.icon_color_from_evaluation %]
                     [% IF panel.evaluation == "good" %]
@@ -97,7 +97,7 @@
 
                 [% IF panel_group_element.icon_url.defined %]
                 <img src="[% panel_group_element.icon_url %]"
-                    class="panel_icon[% IF panel.title_element.icon_size == 'very_small' %] very_small[% ELSIF panel.title_element.icon_size == 'small' %] small[% ELSE %] large[% END %]">
+                    class="panel_icon[% IF panel.title_element.icon_size == 'very_small' %] very_small[% ELSIF panel.title_element.icon_size == 'small' %] small[% ELSE %] large[% END %]"
                     alt="[% IF panel_group_element.icon_alt.defined %][% panel_group_element.icon_alt %][% ELSE %]icon[% END %]"
                     [% IF panel_group_element.icon_color_from_evaluation %]
                         [% IF panel_group_element.evaluation == "good" %]
