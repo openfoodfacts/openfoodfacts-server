@@ -57,9 +57,9 @@ my $worksheet = $workbook->add_worksheet();
 my %formats = (
 	normal => $workbook->add_format(border => 1, bold => 1),
 	mandatory => $workbook->add_format(border => 1, bold => 1, bg_color => '#0f55cc', color => 'white', valign => 'vcenter', align=>'center'),
-	recommended => $workbook->add_format(border => 1, bold => 1, bg_color => '#ccffdd', valign => 'vcenter', align=>'center'),
-	optional => $workbook->add_format(border => 1, bold => 1, bg_color => '#eeffee',  valign => 'vcenter', align=>'center'),
-	description => $workbook->add_format(italic => 1, text_wrap => 1, align => 'left', valign => 'vcenter'),
+	recommended => $workbook->add_format(border => 1, bold => 1, bg_color => '#1f6ced',color => 'white', valign => 'vcenter', align=>'center'),
+	optional => $workbook->add_format(border => 1, bold => 1, bg_color => '#4d89f1', color => 'white', valign => 'vcenter', align=>'center'),
+	description => $workbook->add_format(italic => 1, text_wrap => 1, valign => 'vcenter'),
 );
 
 # Re-use the structure used to output select2 options in import_file_select_format.pl
