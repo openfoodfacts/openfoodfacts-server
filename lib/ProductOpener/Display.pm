@@ -398,6 +398,14 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	$template_data_ref->{pro_moderator} = $User{pro_moderator};
 	$template_data_ref->{sep} = separator_before_colon($lc);
 	$template_data_ref->{lang} = \&lang;
+	# also provide lang_flavor() and lang_product_type() to provide translations specific
+	# to a flavor (e.g. off, obf) or product type (e.g. food, beauty)
+	$template_data_ref->{lang_flavor} = sub  ($stringid)  {
+		return lang($stringid . "_" . $flavor);
+	}
+	$template_data_ref->{lang_product_type} = sub  ($stringid)  {
+		return lang($stringid . "_" . $options{product_type});
+	}
 	$template_data_ref->{f_lang} = \&f_lang;
 	# escaping quotes for use in javascript or json
 	# using short names to favour readability
