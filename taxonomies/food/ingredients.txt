@@ -1002,7 +1002,7 @@ en:ferment
 az:fermentlər
 ba:Ферменттар
 be:Ферменты
-bg:закваска, закваски, българска закваска, млечнокисели култури, симбиотична закваска, стартерни млечнокисели култури, стартерна култура, стартерни култури, млечно кисели култури, млечно-киселинна култура
+bg:закваска, закваски, българска закваска, млечнокисели култури, симбиотична закваска, стартерни млечнокисели култури, стартерна култура, стартерни култури, млечно кисели култури, млечно-киселинна култура, млечнокисела закваска
 ca:ferment, ferments
 cs:Kvasnice
 da:gæret
@@ -1529,7 +1529,7 @@ af:ensiem
 an:enzima
 ar:ئەنزیم
 as:উৎসেচক
-bg:Ензим, ензими
+bg:Ензим, ензими, комплекс ензими
 bn:উৎসেচক
 br:enzim
 bs:enzim
@@ -2097,7 +2097,7 @@ ar:زبدة
 az:kərə yağı
 ba:aҡ май
 be:cметанковае масла
-bg:kраве масло, масло
+bg:краве масло, масло
 bn:মাখন
 br:amanenn
 bs:maslac
@@ -4862,7 +4862,7 @@ vegetarian:en:yes
 
 <en:whey
 en:whey powder, powdered whey,milk whey powder
-bg:суроватка на прах, млечна суроватка на прах
+bg:суроватка на прах, млечна суроватка на прах, млечна суха суроватка
 ca:Xerigot en pols, sèrum en pols, sèrum làctic en pols
 cs:sušená syrovátka
 da:Vallepulver, vallepulver af mælk
@@ -15751,7 +15751,7 @@ es:aceite de palma interestificado y fraccionado
 
 <en:palm oil
 en:palm
-bg:палмова, палмово
+bg:палмова, палмово, палма
 cs:Palmový
 da:palme
 de:Palm, Palme
@@ -16831,7 +16831,7 @@ from_palm_oil:en:no
 en:corn oil, maize oil
 ar:زيت الذرة
 be:Кукурузны алей
-bg:Царевично олио, царевично
+bg:Царевично олио, царевично, царевично масло
 ca:Oli de blat de moro
 da:Majsolie
 de:Maiskeimöl, Maisöl
@@ -21369,6 +21369,7 @@ it:Aroma naturale all'albicocca
 <en:flavouring
 # derivedFrom:en:strawberry
 en:strawberry flavouring
+bg:ароматизант ягода
 de:Erdbeergeschmack
 es:Saborizante de fresa
 fi:mansikka-aromi
@@ -27262,6 +27263,7 @@ it:Farina di riso bianco
 <en:rice flour
 <en:wholemeal flour
 en:brown rice flour, full rice flour, whole rice flour, whole grain rice flour
+bg:брашно от пълнозърнест ориз
 de:Reisvollkornmehl, braunes Reismehl, volles Reismehl, Vollkornreismehl
 es:harina de arroz integral, harina integral de arroz
 fi:tumma riisijauho, täysjyväriisijauho
@@ -40183,7 +40185,7 @@ fr:extrait naturel de citron, extraits naturels de citron
 
 <en:lemon juice
 en:concentrated lemon juice, Lemon juice concentrate
-bg:концентрат от лимонов сок, концентриран сок от лимони
+bg:концентрат от лимонов сок, концентриран сок от лимони, концентриран лимонов сок
 ca:Suc de llimona concentrat, Concentrat de suc de llimona
 cs:Citronová šťáva z koncentrátu
 da:citronsaftkonsentrat, citronjuicekoncentrat
@@ -45031,7 +45033,7 @@ af:Roosbottel
 ar:وردة المسك
 az:İtburnu
 be:Шыпшына
-bg:Шипка, шипки
+bg:Шипка, шипки, плод шипка
 br:Hogan
 bs:Šipurak
 ca:gavarró
@@ -65516,6 +65518,7 @@ nl:aromatisch blad
 
 <en:aromatic leaf
 en:blackberry leaf, blackberry leaves
+bg:лист къпина
 fr:feuilles de mûre
 nl:braamblad, braambladeren
 
@@ -68240,7 +68243,7 @@ en:roselle flower, hibiscus flower, hibiscus flowers, hibiscus
 ar:كركديه
 as:টেঙামৰা
 az:Məkkə çayı
-bg:চুকাই
+bg:цвят хибискус
 ca:rosa de Jamaica
 cs:ibišek súdánský
 da:hibiskusblomst
@@ -79430,7 +79433,7 @@ ay:Misk'i
 az:Bal
 ba:Бал
 be:мёд
-bg:Пчелен мед
+bg:мед
 bn:মধু
 br:Mel
 bs:Med
@@ -79638,6 +79641,7 @@ description:pt:O mel é um alimento, geralmente encontrado em estado líquido vi
 
 <en:honey
 en:bee honey
+bg:пчелен мед
 de:Bienenhonig
 pl:miód pszczeli
 
@@ -79658,6 +79662,7 @@ pl:miód pszczeli
 
 <en:honey
 en:organic honey
+bg:био мед
 de:Bio-Honig
 es:miel orgánica
 fi:luomuhunaja, luomu hunaja
@@ -82670,6 +82675,7 @@ carbon_footprint_fr_foodges_value:fr:6.6
 <en:turkey thigh
 <en:turkey meat
 en:turkey thigh meat
+bg:пуешко месо от бут
 de:putenoberkeulenfleisch
 fr:viande de cuisse de dinde
 hr:meso purećeg zabatka
@@ -83738,6 +83744,7 @@ pl:żółtko jaj kurzych w proszku
 
 <en:free range egg yolk
 en:free range chicken egg yolk
+bg:жълтък от пресни яйца от свободно отглеждани кокошки
 de:Hühnereigelb aus Freilandhaltung
 es:yema de huevo de gallinas camperas
 fi:ulkokanan munankeltuainen
