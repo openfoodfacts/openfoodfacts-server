@@ -53,9 +53,7 @@ if (defined $User_id) {
 		status_verbose => 'user signed-in',
 		user_id => $User_id,
 		user => {
-			email => $User{email},
 			name => $User{name},
-			initial_lc => $User{initial_lc},
 			preferred_language => $User{preferred_language},
 			country => $User{country},
 			moderator => $User{moderator} ? 1 : 0,
