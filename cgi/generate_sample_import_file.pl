@@ -35,6 +35,7 @@ use ProductOpener::Mail qw/:all/;
 use ProductOpener::Producers qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Food qw/:all/;
+use ProductOpener::TaxonomySuggestions qw/:all/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -54,6 +55,8 @@ print "Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml
 
 my $workbook = Excel::Writer::XLSX->new(\*STDOUT);
 my $worksheet = $workbook->add_worksheet();
+my $worksheet_categories = $workbook->add_worksheet('Categories');
+
 my %formats = (
 	normal => $workbook->add_format(border => 1, bold => 1),
 	mandatory => $workbook->add_format(border => 1, bold => 1, bg_color => '#aaffcc'),
@@ -192,6 +195,12 @@ foreach my $group_ref (@$select2_options_ref) {
 		$log->debug("field - comment", {group_id => $group_id, field_id => $field_id, comment => $comment})
 			if $log->is_debug();
 	}
+}
+
+my $tagtype = 'categories';
+my @category_entries = generate_sorted_list_of_taxonomy_entries($tagtype, [$lc], {});
+foreach my $i (0 .. $#category_entries) {
+	$worksheet_categories->write($i, 0, $category_entries[$i]);
 }
 
 exit(0);
