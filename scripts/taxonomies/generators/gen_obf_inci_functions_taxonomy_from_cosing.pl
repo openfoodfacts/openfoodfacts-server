@@ -26,6 +26,7 @@ use utf8;
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 
 use URI::Escape::XS;
@@ -133,7 +134,7 @@ my %functions = (
 my %translations = ();
 my %english = ();
 
-if (open(my $IN, "<:encoding(UTF-16)", "$data_root/taxonomies-obf/32006D0257.tmx.txt")) {
+if (open(my $IN, "<:encoding(UTF-16)", "$BASE_DIRS{TAXONOMIES_SRC}/old/obf/32006D0257.tmx.txt")) {
 
 	my $english;
 
@@ -174,7 +175,7 @@ if (open(my $IN, "<:encoding(UTF-16)", "$data_root/taxonomies-obf/32006D0257.tmx
 	close $IN;
 }
 else {
-	print STDERR "Could not open $data_root/taxonomies-obf/32006D0257.tmx.txt\n";
+	print STDERR "Could not open $BASE_DIRS{TAXONOMIES_SRC}/old/obf/32006D0257.tmx.txt\n";
 	exit;
 }
 

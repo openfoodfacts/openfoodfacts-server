@@ -26,6 +26,7 @@ use utf8;
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 
 use URI::Escape::XS;
@@ -42,7 +43,7 @@ binmode(STDOUT, ":encoding(UTF-8)");
 
 my %translations = ();
 
-if (open(my $IN, "<:encoding(UTF-16)", "$data_root/taxonomies-obf/32006D0257.tmx.txt")) {
+if (open(my $IN, "<:encoding(UTF-16)", "$BASE_DIRS{TAXONOMIES_SRC}/old/obf/32006D0257.tmx.txt")) {
 
 	my $english;
 
@@ -78,11 +79,11 @@ if (open(my $IN, "<:encoding(UTF-16)", "$data_root/taxonomies-obf/32006D0257.tmx
 	close $IN;
 }
 else {
-	print STDERR "Could not open $data_root/taxonomies-obf/32006D0257.tmx.txt\n";
+	print STDERR "Could not open $BASE_DIRS{TAXONOMIES_SRC}/old/obf/32006D0257.tmx.txt\n";
 	exit;
 }
 
-my $csv_file = "$data_root/taxonomies-obf/COSING_Ingredients-Fragrance-Inventory_v2.wikidata.tsv";
+my $csv_file = "$BASE_DIRS{TAXONOMIES_SRC}/old/obf/COSING_Ingredients-Fragrance-Inventory_v2.wikidata.tsv";
 
 my $csv = Text::CSV->new({binary => 1, sep_char => "\t"})    # should set binary attribute.
 	or die "Cannot use CSV: " . Text::CSV->error_diag();

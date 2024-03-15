@@ -35,6 +35,7 @@ BEGIN {
 		$conf_root
 		$data_root
 		$www_root
+		$src_root
 		$sftp_root
 		$geolite2_path
 		$reference_timezone
@@ -97,6 +98,9 @@ BEGIN {
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 use vars @EXPORT_OK;    # no 'my' keyword for these
+
+use Cwd qw/abs_path cwd/;
+use File::Basename qw/dirname/;
 
 use ProductOpener::Config2;
 
@@ -383,6 +387,8 @@ $memd_servers = $ProductOpener::Config2::memd_servers;
 # server paths
 $www_root = $ProductOpener::Config2::www_root;
 $data_root = $ProductOpener::Config2::data_root;
+$src_root = $ProductOpener::Config2::src_root // abs_path(dirname(__FILE__) . '../..');
+$src_root = cwd() . $src_root unless $src_root =~ m|^/|;
 $conf_root = $ProductOpener::Config2::conf_root;
 $sftp_root = $ProductOpener::Config2::sftp_root;    # might be undef
 

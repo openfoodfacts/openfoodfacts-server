@@ -40,6 +40,8 @@ BEGIN {
 	@EXPORT_OK = qw(
 		%BASE_DIRS
 
+		&get_path_for_taxonomy
+		&get_file_for_taxonomy
 		&base_paths
 		&base_paths_loading_script
 		&check_missing_dirs
@@ -86,6 +88,12 @@ Directory containing sto of products
 =cut
 
 $BASE_DIRS{PRODUCTS} = "$data_root/products";
+
+=head2 $BASE_DIRS{TAXONOMIES_SRC}
+Directory containing txt taxonomies
+=cut
+
+$BASE_DIRS{TAXONOMIES_SRC} = "$src_root/taxonomies";
 
 =head2 $BASE_DIRS{PRIVATE_DATA}
 Directory for private data
@@ -240,6 +248,49 @@ String of path to base directory containing products images
 sub products_images_dir ($server_name) {
 	my $server_www_root = $options{other_servers}{$server_name}{www_root};
 	return "$server_www_root/images/products";
+}
+
+=head2 get_file_for_taxonomy( $tagtype )
+
+Taxonomy .txt source files are stored in the /taxonomies directory.
+
+Some Product Opener flavors (Open Food Facts, Open Beauty Facts etc.) can have different taxonomies for the same tag type.
+e.g. OFF and OBF can have different taxonomies for categories and ingredients.
+
+Other categories like countries and languages are common to all flavors.
+
+Taxonomies specific to a flavor are stored in /taxonomies/[product type]
+
+e.g. OFF ingredients are in /taxonomies/food/ingredients.txt and OBF ingredients are in /taxonomies/beauty/ingredients.txt
+
+=cut
+
+sub get_file_for_taxonomy ($tagtype, $product_type) {
+
+	my $file = $tagtype . '.txt';
+	# If the flavor has a specific product type, first check if we have a source file for this product type
+	if ((defined $product_type) and (-e "$BASE_DIRS{TAXONOMIES_SRC}/$product_type/$tagtype.txt")) {
+		$file = "$product_type/$tagtype.txt";
+	}
+
+	return $file;
+}
+
+=head2 get_path_for_taxonomy( $tagtype, $product_type )
+full path for taxonomy file
+=cut
+
+sub get_path_for_taxonomy($tagtype, $product_type) {
+	# The source file can be prefixed by the product type
+	my $source_file = get_file_for_taxonomy($tagtype, $product_type);
+	# handle special cases
+	if ($tagtype eq "nutrient_levels") {
+		# this is a built taxonomy
+		return "$BASE_DIRS{CACHE_BUILD}/taxonomies-result/$source_file";
+	}
+	else {
+		return "$BASE_DIRS{TAXONOMIES_SRC}/$source_file";
+	}
 }
 
 =head2 base_paths()
