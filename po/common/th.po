@@ -33,7 +33,7 @@ msgstr "เพิ่มภาษา"
 
 msgctxt "add_product"
 msgid "Add a product"
-msgstr "เพิ่มสินค้า"
+msgstr "เพิ่มผลิตภัณฑ์ใหม่"
 
 msgctxt "add_user"
 msgid "Register"
@@ -61,7 +61,7 @@ msgstr "เข้าร่วมกับเราที่ Slack"
 
 msgctxt "add_user_join_the_project"
 msgid "%s is a collaborative project to which you can bring much more than new products: your energy, enthusiasm and ideas!"
-msgstr ""
+msgstr "คุณสามารถมีส่วนร่วมกับโครงการ %s  ได้อีกมาก เราต้องการทั้งข้อมูลผลิตภัณฑ์ใหม่ ความทุ่มเท และความคิดของคุณในการพัฒนาโครงการ"
 
 msgctxt "add_user_join_us_on_slack"
 msgid "We use a discussion system called Slack where all project participants can exchange and collaborate. Please join! We would be happy to know you!"
@@ -97,7 +97,7 @@ msgstr ""
 
 msgctxt "please_email_producers"
 msgid "Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> if you have any question."
-msgstr "โปรดส่งอีเมลไปที่ <a href=\"mailto:producers@openfoodfacts.org\">Producers@openfoodfacts.org</a> หากคุณมีคำถามใดๆ"
+msgstr "หากคุณมีคำถามใดๆ โปรดอีเมลไปที่ <a href=\"mailto:producers@openfoodfacts.org\">Producers@openfoodfacts.org</a> "
 
 msgctxt "if_you_work_for_a_producer"
 msgid "If you work for a producer or brand and will add or complete data for your own products only, you can get access to our completely free Platform for Producers."
@@ -142,23 +142,23 @@ msgstr "ขอบคุณที่เป็นส่วนหนึ่งขอ
 
 msgctxt "additives_1"
 msgid "Potentially hazardous food additive. Limit usage."
-msgstr "สารปรุงแต่งอาหารนี้อาจเป็นอันตราย ใช้งานในปริมารจำกัด"
+msgstr "วัตถุเจือปนอาหารนี้อาจเป็นอันตราย ควรใช้งานในปริมารจำกัด"
 
 msgctxt "additives_2"
 msgid "Hazardous food additive. Avoid."
-msgstr "สารปรุงแต่งอาหารนี้เป็นอันตราย เลี่ยงการใช้"
+msgstr "วัตถุเจือปนอาหารนี้เป็นอันตราย ควรเลี่ยงการใช้"
 
 msgctxt "additives_3"
 msgid "Food additive banned in Europe. Avoid at all cost."
-msgstr "สารปรุงแต่งอาหารนี้ห้ามใช้ในยุโรป เลี่ยงการใช้"
+msgstr "วัตถุเจือปนอาหารนี้ห้ามใช้ในยุโรป ควรเลี่ยงการใช้"
 
 msgctxt "additives_p"
 msgid "additives"
-msgstr "สารปรุงแต่งอาหาร"
+msgstr "วัตถุเจือปนอาหาร"
 
 msgctxt "additives_s"
 msgid "additive"
-msgstr "สารปรุงแต่งอาหาร"
+msgstr "วัตถุเจือปนอาหาร"
 
 msgctxt "advanced_search"
 msgid "Advanced search"
@@ -170,7 +170,7 @@ msgstr "การค้นหาขั้นสูงและกราฟ"
 
 msgctxt "alcohol_warning"
 msgid "Excess drinking is harmful for health."
-msgstr "การดื่มมากเกินไปเป็นอันตรายต่อสุขภาพ"
+msgstr "การดื่มผลิตภัณฑ์นี้มากเกินไปอาจเป็นอันตรายต่อสุขภาพ"
 
 msgctxt "email_warning"
 msgid "Please note that your Pro account will only be valid if you use your professional e-mail address. Our moderation team checks that the domain name is consistent with the organisation you wish to join."
@@ -182,7 +182,7 @@ msgstr "ภารกิจทั้งหมด"
 
 msgctxt "allergens"
 msgid "Substances or products causing allergies or intolerances"
-msgstr "สารหรือผลิตภัณฑ์ที่ก่อให้เกิดอาการแพ้หรือแพ้"
+msgstr "สารก่อภูมิแพ้"
 
 msgctxt "allergens_p"
 msgid "allergens"
@@ -194,7 +194,7 @@ msgstr "สารก่อภูมิแพ้"
 
 msgctxt "also_edited_by"
 msgid "Product page also edited by"
-msgstr "หน้าผลิตภัณฑ์แก้ไขโดย"
+msgstr "หน้าผลิตภัณฑ์นี้แก้ไขโดย"
 
 msgctxt "android_apk_app_icon_url"
 msgid "/images/misc/android-apk.svg"
@@ -226,16 +226,16 @@ msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
 "<p>Thanks in advance!</p>\n"
-msgstr "<p>ผลิตภัณฑ์นี้ยังไม่ได้อยู่ในฐานข้อมูล <<site_name>> คุณช่วยกรุณาถ่ายรูปสินค้า บาร์โค้ด ส่วนผสม และข้อมูลโภชนาการเพื่อเพิ่มลงใน <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>ไหม</p>\n"
-"<p>ขอบคุณล่วงหน้า!</p>\n"
+msgstr "<p>ผลิตภัณฑ์นี้ยังไม่มีในฐานข้อมูล <<site_name>> กรุณาถ่ายรูปสินค้า บาร์โค้ด ส่วนประกอบ และฉลากโภชนาการ  <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a> เพื่อเพิ่มผลิตภัณฑ์ </p> ในระบบ\n"
+"<p>ขอบคุณ</p>\n"
 
 msgctxt "app_take_a_picture"
 msgid "Take a picture"
-msgstr "การถ่ายภาพ"
+msgstr "ถ่ายภาพ"
 
 msgctxt "app_take_a_picture_note"
 msgid "Note: the pictures you send are published under the free licence Creative Commons Attribution and ShareAlike."
-msgstr "หมายเหตุ: รูปภาพที่คุณส่งจะได้รับการเผยแพร่ภายใต้สัญญาอนุญาต Creative Commons Attribution และ ShareAlike ที่ให้สิทธิ์ใช้งานฟรี"
+msgstr "หมายเหตุ: รูปภาพที่คุณส่งเข้าระบบจะได้รับการเผยแพร่ภายใต้สัญญาอนุญาต Creative Commons Attribution และ ShareAlike ที่ให้สิทธิ์ใช้งานฟรี"
 
 msgctxt "app_you_can_add_pictures"
 msgid "You can add pictures:"
@@ -255,7 +255,7 @@ msgstr "บาร์โค้ด"
 
 msgctxt "barcode_number"
 msgid "Barcode number:"
-msgstr "หมายเลขบาร์โค้ด:"
+msgstr "รหัสบาร์โค้ด"
 
 msgctxt "you_can_also_help_us"
 msgid "You can also help to fund the Open Food Facts project"
@@ -287,7 +287,7 @@ msgstr "แบรนด์"
 
 msgctxt "brands_products"
 msgid "Products from the %s brand"
-msgstr "ผลิตภัณฑ์จาก %s แบรนด์"
+msgstr "ผลิตภัณฑ์จาก %s "
 
 msgctxt "brands_s"
 msgid "brand"
@@ -295,11 +295,11 @@ msgstr "ยี่ห้อสินค้า"
 
 msgctxt "brands_tagsinput"
 msgid "add a brand"
-msgstr "เพิ่มแบรนด์"
+msgstr "เพิ่มยี่ห้อ"
 
 msgctxt "brands_without_products"
 msgid "Products not from the %s brand"
-msgstr "ผลิตภัณฑ์จาก %s แบรนด์"
+msgstr "ไม่ใช่ผลิตภัณฑ์จาก %s"
 
 msgctxt "brand_owner"
 msgid "Brand owner"
@@ -319,11 +319,11 @@ msgstr "หมวดหมู่"
 
 msgctxt "categories_example"
 msgid "Sardines in olive oil, Orange juice from concentrate"
-msgstr "ปลาซาร์ดีนในน้ำมันมะกอก, น้ำส้มเข้มข้น"
+msgstr "ปลาซาร์ดีนในน้ำมันมะกอก, น้ำส้มผลิตจากหัวน้ำส้มเข้มข้น"
 
 msgctxt "categories_note"
 msgid "Indicate only the most specific category. \"Parents\" categories will be automatically added."
-msgstr "ระบุเฉพาะหมวดหมู่ที่เฉพาะเจาะจงที่สุดเท่านั้น หมวดหมู่ \"ผู้ปกครอง\" จะถูกเพิ่มโดยอัตโนมัติ"
+msgstr "ระบุเฉพาะหมวดหมู่ย่อยที่เฉพาะเจาะจงที่สุดเท่านั้น หมวดหมู่ใหญ่อื่นๆ จะถูกเพิ่มโดยอัตโนมัติ"
 
 msgctxt "categories_p"
 msgid "categories"
@@ -331,7 +331,7 @@ msgstr "หมวดหมู่"
 
 msgctxt "categories_products"
 msgid "Products from the %s category"
-msgstr "ผลิตภัณฑ์จากหมวด %s"
+msgstr "ผลิตภัณฑ์จากหมวดหมู่ %s"
 
 msgctxt "categories_s"
 msgid "category"
@@ -343,7 +343,7 @@ msgstr "เพิ่ม​หมวดหมู่"
 
 msgctxt "categories_without_products"
 msgid "Products not from the %s category"
-msgstr "ผลิตภัณฑ์จากหมวด %s"
+msgstr "ผลิตภัณฑ์จากหมวดหมู่ %s"
 
 msgctxt "change_fields"
 msgid "Data"
@@ -363,15 +363,15 @@ msgstr "รูปภาพที่อัพโหลด"
 
 msgctxt "checkers_p"
 msgid "checkers"
-msgstr "หมากฮอส"
+msgstr "ผู้ตรวจสอบ"
 
 msgctxt "checkers_s"
 msgid "checker"
-msgstr "ตาหมากรุก"
+msgstr "ผู้ตรวจสอบ"
 
 msgctxt "cities_p"
 msgid "packaging cities"
-msgstr "บรรจุภัณฑ์เมือง"
+msgstr "สถานที่แบ่งบรรจุ"
 
 msgctxt "cities_products"
 msgid "Products packaged in the city of %s"
@@ -379,7 +379,7 @@ msgstr "ผลิตภัณฑ์ที่บรรจุในเมือง
 
 msgctxt "cities_s"
 msgid "packaging city"
-msgstr "บรรจุภัณฑ์เมือง"
+msgstr "สถานที่แบ่งบรรจุ"
 
 msgctxt "cities_without_products"
 msgid "Products not packaged in the city of %s"
@@ -399,27 +399,27 @@ msgstr ""
 
 msgctxt "connected_with_facebook"
 msgid "You are connected with your Facebook account."
-msgstr "ขณะนี้คุณกำลังเชื่อมต่อกับบัญชี Facebook ของคุณ"
+msgstr "คุณกำลังเชื่อมต่อกับบัญชี Facebook ของคุณ"
 
 msgctxt "contributor_since"
 msgid "Contributor since"
-msgstr ""
+msgstr "คุณเข้าร่วมตั้งแต่"
 
 msgctxt "copy_data"
 msgid "Copy data from current product to new product"
-msgstr ""
+msgstr "คัดลอกข้อมูลจากผลิตภัณฑ์ปัจจุบันไปยังผลิตภัณฑ์ใหม่"
 
 msgctxt "correct_the_following_errors"
 msgid "Please correct the following errors:"
-msgstr "กรุณาแก้ไขข้อผิดพลาดดังต่อไปนี้"
+msgstr "กรุณาแก้ไขข้อผิดพลาดดังนี้"
 
 msgctxt "correctors_p"
 msgid "correctors"
-msgstr ""
+msgstr "ผู้ตรวจแก้"
 
 msgctxt "correctors_s"
 msgid "corrector"
-msgstr ""
+msgstr "ผู้ตรวจแก้"
 
 msgctxt "countries"
 msgid "Countries where sold"
@@ -427,7 +427,7 @@ msgstr "ประเทศที่ขาย"
 
 msgctxt "countries_note"
 msgid "Countries where the product is widely available (not including stores specialising in foreign products)"
-msgstr ""
+msgstr "ประเทศที่มีผลิตภัณฑ์นี้จำหน่ายอย่างแพร่หลาย (ไม่รวมร้านค้าที่จำหน่ายสินค้าจากต่างประเทศ)"
 
 msgctxt "countries_p"
 msgid "countries"
@@ -447,15 +447,15 @@ msgstr "ผลิตภัณฑ์ที่ไม่ได้ขายใน %s
 
 msgctxt "data_source"
 msgid "Data source"
-msgstr "แหล่งที่มาข้อมูล"
+msgstr "แหล่งที่มาของข้อมูล"
 
 msgctxt "data_sources_p"
 msgid "data sources"
-msgstr "แหล่งที่มาข้อมูล"
+msgstr "แหล่งที่มาของข้อมูล"
 
 msgctxt "data_sources_s"
 msgid "data source"
-msgstr "แหล่งที่มาข้อมูล"
+msgstr "แหล่งที่มาของข้อมูล"
 
 msgctxt "debug_p"
 msgid "debug"
@@ -535,7 +535,7 @@ msgstr "แก้ไขสินค้า"
 
 msgctxt "edit_product_page"
 msgid "Edit the page"
-msgstr "แก้ไขหน้า"
+msgstr "แก้ไขข้อมูลผลิตภัณฑ์"
 
 msgctxt "edit_profile"
 msgid "Edit your public profile"
@@ -636,7 +636,7 @@ msgstr ""
 
 msgctxt "error_bad_login_password"
 msgid "Incorrect user name or password. <a href=\"/cgi/reset_password.pl\">Forgotten password?</a>"
-msgstr "ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง. <a href=\"/cgi/reset_password.pl\">ลืมรหัสผ่าน?</a>"
+msgstr "ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง. <a href=\"/cgi/reset_password.pl\"> คลิกที่นี่ถ้าลืมรหัสผ่าน</a>"
 
 msgctxt "error_database"
 msgid "An error occurred while reading the data, try to refresh the page."
@@ -648,7 +648,7 @@ msgstr "รหัสผ่านไม่ตรงกัน"
 
 msgctxt "error_email_already_in_use"
 msgid "The e-mail address is already used by another user. Maybe you already have an account? You can <a href=\"/cgi/reset_password.pl\">reset the password</a> of your other account."
-msgstr "ที่อยู่อีเมลนี้ถูกใช้โดยผู้ใช้รายอื่นแล้ว คุณอาจมีบัญชีอยู่แล้วหรือไม่? คุณสามารถ <a href=\"/cgi/reset_password.pl\">รีเซ็ตรหัสผ่าน</a> ของบัญชีอื่นของคุณได้"
+msgstr "เนื่องจากมีอีเมลนี้อยู่ในระบบ คุณอาจมีบัญชีอยู่แล้ว คุณสามารถลอง <a href=\"/cgi/reset_password.pl\">รีเซ็ตรหัสผ่าน</a> เพื่อใช้บัญชีที่ลงทะเบียนไว้แล้วได้"
 
 msgctxt "error_invalid_address"
 msgid "Invalid address."
@@ -664,7 +664,7 @@ msgstr "รหัสผ่านของคุณ จะต้องมีค�
 
 msgctxt "error_invalid_user"
 msgid "Invalid user."
-msgstr "ผู้ใช้งานไม่ถูกต้อง"
+msgstr "ชื่อผู้ใช้งานไม่ถูกต้อง"
 
 msgctxt "error_invalid_username"
 msgid "The user name must contain only unaccented letters, digits and dashes."
@@ -676,7 +676,7 @@ msgstr ""
 
 msgctxt "error_name_too_long"
 msgid "The name is too long (maximum 60 characters)."
-msgstr "ชื่อยาวเกินไป (สูงสุดได้ถึง 60 อักขระ)"
+msgstr "ชื่อผู้ใช้งาน ยาวเกินไป (สูงสุดได้ถึง 60 ตัวอักษร)"
 
 msgctxt "error_new_code_already_exists"
 msgid "A product already exists with the new code"
@@ -684,7 +684,7 @@ msgstr ""
 
 msgctxt "error_no_name"
 msgid "You need to enter a name or nickname."
-msgstr "คุณต้องป้อนชื่อหรือชื่อเล่น"
+msgstr "กรุณาใส่ ชื่อ หรือ ชื่อเล่น"
 
 msgctxt "error_no_permission"
 msgid "Permission denied."
@@ -744,7 +744,7 @@ msgstr ""
 
 msgctxt "fixme_product"
 msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
-msgstr "หากข้อมูลที่ไม่สมบูรณ์หรือไม่ถูกต้องคุณสามารถดำเนินการหรือแก้ไขได้โดยการแก้ไขหน้านี้"
+msgstr "หากพบว่าข้อมูล ไม่สมบูรณ์ หรือ ไม่ถูกต้อง คุณสามารถแก้ไขได้โดยการ แก้ไขข้อมูลผลิตภัณฑ์"
 
 msgctxt "footer_and_the_facebook_group"
 msgid "and the <a href=\"https://www.facebook.com/groups/openfoodfacts/\">Facebook group for contributors</a>"
@@ -819,12 +819,12 @@ msgstr "ร่วมกับเราใน %s:"
 
 msgctxt "footer_legal"
 msgid "Legal"
-msgstr "กฎหมายระบุว่า"
+msgstr "กฎหมายที่เกี่ยวข้อง"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_legal_link"
 msgid "/legal"
-msgstr "/legal"
+msgstr "/กฎหมายที่เกี่ยวข้อง"
 
 msgctxt "footer_privacy"
 msgid "Privacy"
@@ -1315,7 +1315,7 @@ msgstr "เมนู"
 
 msgctxt "menu_add_a_product"
 msgid "Add a product"
-msgstr "เพิ่มสินค้า"
+msgstr "เพิ่มผลิตภัณฑ์ใหม่"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_add_a_product_link"
