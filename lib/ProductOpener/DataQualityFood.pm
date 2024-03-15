@@ -1305,8 +1305,8 @@ sub check_nutrition_data ($product_ref) {
 
 	# sum of nutriments that compose fiber can not be greater than fiber value
 		if ((defined $product_ref->{nutriments}{fiber_100g})
-    and (
-        (
+    		and (
+        		(
             (
                 (defined $product_ref->{nutriments}{'soluble-fiber_100g'}) ? $product_ref->{nutriments}{'soluble-fiber_100g'}
                 : 0
@@ -1315,12 +1315,12 @@ sub check_nutrition_data ($product_ref) {
                 : 0
             )
         ) > ($product_ref->{nutriments}{fiber_100g}) + 0.001
-    )
-)
-{
-    push @{$product_ref->{data_quality_errors_tags}},
-        "en:nutrition-soluble-fiber-plus-insoluble-fiber-greater-than-fiber";
-}
+    			)
+			)
+	{
+    	push @{$product_ref->{data_quality_errors_tags}},
+        	"en:nutrition-soluble-fiber-plus-insoluble-fiber-greater-than-fiber";
+	}
 
 		# Too small salt value? (e.g. g entered in mg)
 		# warning for salt < 0.1 was removed because it was leading to too much false positives (see #9346)
