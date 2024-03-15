@@ -22,7 +22,7 @@ properties:
         - salt_100g_lt_2:
           summary: salt per 100g is lower than 2g (in product as sold)
           value:
-            "salt_100g<10": 1
+            "salt_100g<2": 1
   nutrient_greater_than:
     in: query
     name: '<nutrient>_gt_<value>'
