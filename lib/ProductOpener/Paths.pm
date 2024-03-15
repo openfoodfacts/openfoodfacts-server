@@ -55,6 +55,7 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
 
+
 =head1 VARIABLES
 
 =cut
@@ -93,7 +94,7 @@ $BASE_DIRS{PRODUCTS} = "$data_root/products";
 Directory containing txt taxonomies
 =cut
 
-$BASE_DIRS{TAXONOMIES_SRC} = "$src_root/taxonomies";
+$BASE_DIRS{TAXONOMIES_SRC} = _source_dir() . "/taxonomies";
 
 =head2 $BASE_DIRS{PRIVATE_DATA}
 Directory for private data
@@ -248,6 +249,15 @@ String of path to base directory containing products images
 sub products_images_dir ($server_name) {
 	my $server_www_root = $options{other_servers}{$server_name}{www_root};
 	return "$server_www_root/images/products";
+}
+
+sub _source_dir() {
+	# comput src_root
+	my $src_root = abs_path(dirname(__FILE__) . '../..');
+	unless ($src_root =~ m|^/|) {
+		$src_root = cwd() . $src_root;
+	}
+	return $src_root;
 }
 
 =head2 get_file_for_taxonomy( $tagtype )
