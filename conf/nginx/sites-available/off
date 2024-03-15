@@ -25,8 +25,8 @@ server {
 
 	root /srv/off/html;
 
-    # enable large uploads
-    client_max_body_size 20M;
+	# enable large uploads
+	client_max_body_size 20M;
 	client_body_timeout 120s;
 	client_header_timeout 120s;
 
@@ -115,8 +115,8 @@ server {
 		# recursive hosts as we are proxying behind a proxy
 		set_real_ip_from 10.0.0.0/8;
 		real_ip_recursive on;
-	        access_log /var/log/nginx/proxy-off-access.log proxied_requests buffer=256K flush=1s;
-	        error_log /var/log/nginx/proxy-off-error.log;
+		access_log /var/log/nginx/proxy-off-access.log proxied_requests buffer=256K flush=1s;
+		error_log /var/log/nginx/proxy-off-error.log;
 
 		proxy_pass http://127.0.0.1:8004/cgi/display.pl?;
 	}
@@ -126,8 +126,8 @@ server {
 		# recursive hosts as we are proxying behind a proxy
 		set_real_ip_from 10.0.0.0/8;
 		real_ip_recursive on;
-	        access_log /var/log/nginx/proxy-off-access.log proxied_requests buffer=256K flush=1s;
-	        error_log /var/log/nginx/proxy-off-error.log;
+		access_log /var/log/nginx/proxy-off-access.log proxied_requests buffer=256K flush=1s;
+		error_log /var/log/nginx/proxy-off-error.log;
 
 		proxy_pass http://127.0.0.1:8004;
 	}
