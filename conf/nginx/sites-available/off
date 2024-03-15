@@ -13,9 +13,7 @@ server {
 	}
 }
 
-# variables definitions for expiry headers
-include /etc/nginx/snippets/expires-no-json-xml.conf;
-
+# variables definitions for expiry headers are loaded from /etc/nginx/conf.d/expires-no-json-xml.conf
 
 server {
 
@@ -32,9 +30,10 @@ server {
 	client_body_timeout 120s;
 	client_header_timeout 120s;
 
-	# logs location
-	access_log /var/log/nginx/${productopener_access_file_prefix}off-access.log proxied_requests buffer=256K flush=1s;
-	error_log /var/log/nginx/off-error.log;
+	# logs location: default is static-off, will be changed to proxy-off
+	# for requests passed to Apache
+	access_log /var/log/nginx/static-off-access.log proxied_requests buffer=256K flush=1s;
+	error_log /var/log/nginx/static-off-error.log;
 
 	# some redirection for specific subdomains
 	include snippets/off.domain-redirects.include;
@@ -44,14 +43,6 @@ server {
 	gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript text/csv;
 
 	index index.html index.htm index.nginx-debian.html;
-
-	location /data/ {
-        include snippets/off.cors-headers.include;
-		include snippets/expiry-headers.include;
-		# First attempt to serve request as file, then
-		# as directory, then fall back to displaying a 404.
-		try_files $uri $uri/ =404;
-	}
 
 	location ~ ^/images/products/ {
 		include snippets/off.cors-headers.include;
@@ -72,12 +63,6 @@ server {
 	try_files /1.json = 404;
 	}
 
-	location ~ ^/(favicon.ico) {
-		# First attempt to serve request as file, then
-		# as directory, then fall back to displaying a 404.
-		try_files $uri $uri/ =404;
-	}
-
 	# Static files are served directly by NGINX
 
 	location ~ ^/(favicon.ico) {
@@ -87,7 +72,7 @@ server {
 	}
 
 	# Static files are served directly by NGINX
-	location ~ ^/(.well-known|files)/ {
+	location ~ ^/(.well-known|files|data|exports|dump)/ {
 		include snippets/off.cors-headers.include;
 		include snippets/expiry-headers.include;
 		# First attempt to serve request from resource, then as file,
@@ -96,7 +81,7 @@ server {
 		gzip_static always;
 		gunzip on;
 	}
-	location ~ ^/(images|fonts|css|js|rss|foundation|bower_components)/ {
+	location ~ ^/(images|fonts|css|js|donate|resources)/ {
 		include snippets/off.cors-headers.include;
 		include snippets/expiry-headers.include;
 		# First attempt to serve request as file, off_web_html acting as an override,
@@ -116,7 +101,6 @@ server {
 	location = /.well-known/assetlinks.json {
 		include snippets/off.cors-headers.include;
 		include snippets/expiry-headers.include;
-		expires 1d;
 		try_files $uri =404;
 	}
 
@@ -131,6 +115,8 @@ server {
 		# recursive hosts as we are proxying behind a proxy
 		set_real_ip_from 10.0.0.0/8;
 		real_ip_recursive on;
+	        access_log /var/log/nginx/proxy-off-access.log proxied_requests buffer=256K flush=1s;
+	        error_log /var/log/nginx/proxy-off-error.log;
 
 		proxy_pass http://127.0.0.1:8004/cgi/display.pl?;
 	}
@@ -140,6 +126,8 @@ server {
 		# recursive hosts as we are proxying behind a proxy
 		set_real_ip_from 10.0.0.0/8;
 		real_ip_recursive on;
+	        access_log /var/log/nginx/proxy-off-access.log proxied_requests buffer=256K flush=1s;
+	        error_log /var/log/nginx/proxy-off-error.log;
 
 		proxy_pass http://127.0.0.1:8004;
 	}
