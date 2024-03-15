@@ -16,7 +16,7 @@ OS := $(shell uname)
 
 # mount point for shared data (default to the one on staging)
 NFS_VOLUMES_ADDRESS ?= 10.0.0.3
-NFS_VOLUMES_BASE_PATH ?= /rpool/off/clones
+NFS_VOLUMES_BASE_PATH ?= /rpool/staging-clones
 
 export DOCKER_BUILDKIT=1
 export COMPOSE_DOCKER_CLI_BUILD=1
@@ -396,15 +396,23 @@ build_taxonomies: build_lang # build_lang generates the nutrient_level taxonomy 
 
 rebuild_taxonomies: build_taxonomies
 
+_clean_old_external_volumes:
+# THIS IS A MIGRATION STEP, TO BE REMOVED IN THE FUTURE
+	docker volume inspect ${COMPOSE_PROJECT_NAME}_users|grep /rpool/off/clones && docker volume rm ${COMPOSE_PROJECT_NAME}_users
+	docker volume inspect ${COMPOSE_PROJECT_NAME}_orgs|grep /rpool/off/clones && docker volume rm ${COMPOSE_PROJECT_NAME}_orgs
+	docker volume inspect ${COMPOSE_PROJECT_NAME}_products|grep /rpool/off/clones && docker volume rm ${COMPOSE_PROJECT_NAME}_products
+	docker volume inspect ${COMPOSE_PROJECT_NAME}_product_images|grep /rpool/off/clones && docker volume rm ${COMPOSE_PROJECT_NAME}_product_images
+
 #------------#
 # Production #
 #------------#
-create_external_volumes:
+create_external_volumes: _clean_old_external_volumes
 	@echo "🥫 Creating external volumes (production only) …"
 # zfs clones hosted on Ovh3 as NFS
+	[[ -n "${PRODUCT_OPENER_FLAVOR_SHORT}" ]] || (echo "🥫 PRODUCT_OPENER_FLAVOR_SHORT is not set, can't create external volumes" && exit 1)
 	docker volume create --driver=local --opt type=nfs --opt o=addr=${NFS_VOLUMES_ADDRESS},rw,nolock --opt device=:${NFS_VOLUMES_BASE_PATH}/users ${COMPOSE_PROJECT_NAME}_users
-	docker volume create --driver=local --opt type=nfs --opt o=addr=${NFS_VOLUMES_ADDRESS},rw,nolock --opt device=:${NFS_VOLUMES_BASE_PATH}/products ${COMPOSE_PROJECT_NAME}_products
-	docker volume create --driver=local --opt type=nfs --opt o=addr=${NFS_VOLUMES_ADDRESS},rw,nolock --opt device=:${NFS_VOLUMES_BASE_PATH}/images/products ${COMPOSE_PROJECT_NAME}_product_images
+	docker volume create --driver=local --opt type=nfs --opt o=addr=${NFS_VOLUMES_ADDRESS},rw,nolock --opt device=:${NFS_VOLUMES_BASE_PATH}/${PRODUCT_OPENER_FLAVOR_SHORT}-products ${COMPOSE_PROJECT_NAME}_products
+	docker volume create --driver=local --opt type=nfs --opt o=addr=${NFS_VOLUMES_ADDRESS},rw,nolock --opt device=:${NFS_VOLUMES_BASE_PATH}/${PRODUCT_OPENER_FLAVOR_SHORT}-images/products ${COMPOSE_PROJECT_NAME}_product_images
 	docker volume create --driver=local --opt type=nfs --opt o=addr=${NFS_VOLUMES_ADDRESS},rw,nolock --opt device=:${NFS_VOLUMES_BASE_PATH}/orgs ${COMPOSE_PROJECT_NAME}_orgs
 # local data
 	docker volume create --driver=local -o type=none -o o=bind -o device=${DOCKER_LOCAL_DATA}/data ${COMPOSE_PROJECT_NAME}_html_data
