@@ -7,7 +7,6 @@ stopwords:fr:ou,de,d'
 en:Unknown
 de:Unbekannt
 bg:Неизвестно
-es:Desconocido
 fr:Inconnu, inconnue, inconnus, inconnues
 hu:Ismeretlen
 nl:Onbekend
@@ -1066,8 +1065,8 @@ fr:Rouleau, Bobine, Mandrin, Mandrin / Rouleau
 # image:xx:bobine-rouleau-2.svg 
 # suggest:packaging_materials:en: en:cardboard, en:paper
 
-en:Jug or canister
-en:Canister
+<en:Jug or canister
+en: Canister
 fr:Bombonne, bombonnes, bonbonne, bonbonnes
 nl:Spuitbus, spuitbussen
 # related_categories:en: en:Waters
