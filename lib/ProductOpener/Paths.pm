@@ -53,8 +53,10 @@ BEGIN {
 
 use vars @EXPORT_OK;
 
-use ProductOpener::Config qw/:all/;
+use Cwd qw/abs_path cwd/;
+use File::Basename qw/dirname/;
 
+use ProductOpener::Config qw/:all/;
 
 =head1 VARIABLES
 
