@@ -56,10 +56,10 @@ my $workbook = Excel::Writer::XLSX->new(\*STDOUT);
 my $worksheet = $workbook->add_worksheet();
 my %formats = (
 	normal => $workbook->add_format(border => 1, bold => 1),
-	mandatory => $workbook->add_format(border => 1, bold => 1, bg_color => '#aaffcc'),
-	recommended => $workbook->add_format(border => 1, bold => 1, bg_color => '#ccffdd'),
-	optional => $workbook->add_format(border => 1, bold => 1, bg_color => '#eeffee'),
-	description => $workbook->add_format(italic => 1, text_wrap => 1, align => 'left', align => 'vcenter'),
+	mandatory => $workbook->add_format(border => 1, bold => 1, bg_color => '#0f55cc', color => 'white', valign => 'vcenter', align=>'center'),
+	recommended => $workbook->add_format(border => 1, bold => 1, bg_color => '#1f6ced',color => 'white', valign => 'vcenter', align=>'center'),
+	optional => $workbook->add_format(border => 1, bold => 1, bg_color => '#4d89f1', color => 'white', valign => 'vcenter', align=>'center'),
+	description => $workbook->add_format(italic => 1, text_wrap => 1, valign => 'vcenter'),
 );
 
 # Re-use the structure used to output select2 options in import_file_select_format.pl
@@ -69,11 +69,14 @@ my $headers_row = 0;
 my $description_row = 1;
 my $col = 1;
 
+my $description = lang("description");
 my $field_id;
 my $comment;
 
+$worksheet->set_row(0, 70);
+$worksheet->set_column('A:ZZ', 30);
 $worksheet->set_column('A:A', 30);
-$worksheet->write( $description_row, 0, "Description", $formats{'description'});
+$worksheet->write( $description_row, 0,  $description , $formats{'description'});
 
 foreach my $group_ref (@$select2_options_ref) {
 	my $group_start_col = $col;
