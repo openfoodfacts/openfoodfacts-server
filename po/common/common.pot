@@ -825,10 +825,6 @@ msgctxt "footer_press_link"
 msgid "/press"
 msgstr ""
 
-msgctxt "footer_tagline"
-msgid "A collaborative, free and open database of food products from around the world."
-msgstr ""
-
 msgctxt "footer_terms"
 msgid "Terms of use"
 msgstr ""
@@ -2056,7 +2052,7 @@ msgid "Select products with specific brands, categories, labels, origins of ingr
 msgstr ""
 
 msgctxt "search_description_opensearch"
-msgid "Open Food Facts product search"
+msgid "Product search"
 msgstr ""
 
 msgctxt "search_does_not_contain"
@@ -2347,14 +2343,6 @@ msgstr ""
 msgctxt "signout"
 msgid "Sign-out"
 msgstr ""
-
-msgctxt "site_description"
-msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
-msgstr ""
-
-msgctxt "site_name"
-msgid "Open Food Facts"
-msgstr "Open Food Facts"
 
 msgctxt "sort_by"
 msgid "Sort by"
@@ -6808,9 +6796,26 @@ msgstr ""
 
 # Overrides by flavor (e.g. obf) or product type (e.g. beauty)
 
-msgctxt "footer_tagline_obf"
-msgid "A collaborative, free and open database of cosmetic products from around the world."
-msgstr ""
+# OFF
+
+msgctxt "site_description_off"
+msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
+msgstr "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
+
+msgctxt "tagline_off"
+msgid   "Open Food Facts gathers information and data on food products from around the world."
+msgstr  "Open Food Facts gathers information and data on food products from around the world."
+
+msgctxt "footer_tagline_off"
+msgid "A collaborative, free and open database of food products from around the world."
+msgstr "A collaborative, free and open database of food products from around the world."
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_off"
+msgid "/open-food-facts-mobile-app"
+msgstr "/open-food-facts-mobile-app"
+
+# OBF
 
 msgctxt "site_description_obf"
 msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
@@ -6818,6 +6823,15 @@ msgstr ""
 
 msgctxt "tagline_obf"
 msgid "Open Beauty Facts gathers information and data on cosmetic products from around the world."
+msgstr ""
+
+msgctxt "footer_tagline_obf"
+msgid "A collaborative, free and open database of cosmetic products from around the world."
+msgstr ""
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_obf"
+msgid "/open-beauty-facts-mobile-app"
 msgstr ""
 
 msgctxt "footer_and_the_facebook_group_obf"
@@ -6856,7 +6870,3 @@ msgctxt "ingredients_text_example_beauty"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
 msgstr ""
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
-msgctxt "get_the_app_link_obf"
-msgid "/open-beauty-facts-mobile-app"
-msgstr ""

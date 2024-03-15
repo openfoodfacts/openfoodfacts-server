@@ -400,12 +400,12 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	$template_data_ref->{lang} = \&lang;
 	# also provide lang_flavor() and lang_product_type() to provide translations specific
 	# to a flavor (e.g. off, obf) or product type (e.g. food, beauty)
-	$template_data_ref->{lang_flavor} = sub  ($stringid)  {
+	$template_data_ref->{lang_flavor} = sub ($stringid) {
 		return lang($stringid . "_" . $flavor);
-	}
-	$template_data_ref->{lang_product_type} = sub  ($stringid)  {
+	};
+	$template_data_ref->{lang_product_type} = sub ($stringid) {
 		return lang($stringid . "_" . $options{product_type});
-	}
+	};
 	$template_data_ref->{f_lang} = \&f_lang;
 	# escaping quotes for use in javascript or json
 	# using short names to favour readability
@@ -7093,7 +7093,7 @@ sub display_page ($request_ref) {
 	my $type;
 	my $id;
 
-	my $site = "<a href=\"/\">" . lang("site_name") . "</a>";
+	my $site = "<a href=\"/\">" . $options{site_name} . "</a>";
 
 	${$content_ref} =~ s/<SITE>/$site/g;
 
@@ -7125,7 +7125,7 @@ sub display_page ($request_ref) {
 		$description = remove_tags_and_quote($description);
 	}
 	if ($canon_description eq '') {
-		$canon_description = lang("site_description");
+		$canon_description = lang("site_description_$flavor");
 	}
 	my $canon_image_url = "";
 	my $canon_url = $formatted_subdomain;
@@ -7151,7 +7151,7 @@ sub display_page ($request_ref) {
 	# More images?
 
 	my $og_images = '';
-	my $og_images2 = '<meta property="og:image" content="' . lang("og_image_url") . '">';
+	my $og_images2 = '<meta property="og:image" content="' . $options{og_image_url} . '">';
 	my $more_images = 0;
 
 	# <img id="og_image" src="https://recettes.de/images/misc/recettes-de-cuisine-logo.gif" width="150" height="200">
@@ -7195,9 +7195,9 @@ sub display_page ($request_ref) {
 		$template_data_ref->{schema_org_itemtype} = $request_ref->{schema_org_itemtype};
 	}
 
-	my $site_name = $Lang{site_name}{$lang};
+	my $site_name = $options{site_name};
 	if ($server_options{producers_platform}) {
-		$site_name = $Lang{producers_platform}{$lc};
+		$site_name .= " - " . $Lang{producers_platform}{$lc};
 	}
 
 	# Override Google Analytics from Config.pm with server_options
@@ -7277,7 +7277,7 @@ sub display_page ($request_ref) {
 	$template_data_ref->{link} = $link;
 	$template_data_ref->{lc} = $lc;
 
-	my $tagline = lang("tagline");
+	my $tagline = lang("tagline_$flavor");
 
 	if ($server_options{producers_platform}) {
 		$tagline = "";
@@ -7321,7 +7321,7 @@ sub display_page ($request_ref) {
 		$template_data_ref->{mobile} = {
 			device => $device,
 			system => $system,
-			link => lang($system . "_app_link"),
+			link => $options{$system . "_app_link"},
 			text => lang("app_banner_text"),
 		};
 	}
@@ -10697,7 +10697,7 @@ sub display_structured_response_opensearch_rss ($request_ref) {
 
 	my $xs = XML::Simple->new(NumericEscape => 2);
 
-	my $short_name = lang("site_name");
+	my $short_name = $options{site_name};
 	my $long_name = $short_name;
 	if ($cc eq 'world') {
 		$long_name .= " " . uc($lc);
@@ -10709,7 +10709,8 @@ sub display_structured_response_opensearch_rss ($request_ref) {
 	$long_name = $xs->escape_value(encode_utf8($long_name));
 	$short_name = $xs->escape_value(encode_utf8($short_name));
 	my $query_link = $xs->escape_value(encode_utf8($formatted_subdomain . $request_ref->{current_link} . "&rss=1"));
-	my $description = $xs->escape_value(encode_utf8(lang("search_description_opensearch")));
+	my $description
+		= $xs->escape_value(encode_utf8($options{site_name} . " - " . lang("search_description_opensearch")));
 
 	my $search_terms = $xs->escape_value(encode_utf8(decode utf8 => single_param('search_terms')));
 	my $count = $xs->escape_value($request_ref->{structured_response}{count});
