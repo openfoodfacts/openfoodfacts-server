@@ -1303,9 +1303,8 @@ sub check_nutrition_data ($product_ref) {
 		}
 
 
-# sum of nutriments that compose fiber can not be greater than fiber value
-if (
-    (defined $product_ref->{nutriments}{fiber_100g})
+	# sum of nutriments that compose fiber can not be greater than fiber value
+		if ((defined $product_ref->{nutriments}{fiber_100g})
     and (
         (
             (

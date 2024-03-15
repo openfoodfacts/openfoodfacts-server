@@ -1869,11 +1869,11 @@ ok(
 ) or diag explain $product_ref;
 
 # Test case for fiber content
-    $product_ref = {
-        nutriments => {
-            fiber_100g  => 5,
-            'soluble-fiber_100g'     => 3,
-            'insoluble-fiber_100g'   => 3,
+$product_ref = {
+    nutriments => {
+    fiber_100g  => 5,
+        'soluble-fiber_100g'     => 3,
+        'insoluble-fiber_100g'   => 3,
         },
         data_quality_errors_tags => [],
     };
