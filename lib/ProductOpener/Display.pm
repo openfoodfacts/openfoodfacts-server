@@ -10542,7 +10542,7 @@ sub display_product_history ($request_ref, $code, $product_ref) {
 	foreach my $change_ref (reverse @{$changes_ref}) {
 
 		my $userid = get_change_userid_or_uuid($change_ref);
-        my $uuid = $change_ref->{uuid};
+        my $uuid = $change_ref->{app_uuid};
 		my $comment = _format_comment($change_ref->{comment});
 
 		my $change_rev = $change_ref->{rev};
