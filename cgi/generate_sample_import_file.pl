@@ -90,13 +90,16 @@ my $headers_row = 0;
 my $description_row = 1;
 my $col = 1;
 
+my $description = lang("description");
 my $field_id;
 my $comment;
 
 $worksheet->set_row(0, 70);
 $worksheet->set_column('A:ZZ', 30);
 $worksheet->set_column('A:A', 30);
-$worksheet->write($description_row, 0, "Description", $formats{'description'});
+
+$worksheet->write($description_row, 0, $description, $formats{'description'});
+
 
 foreach my $group_ref (@$select2_options_ref) {
 	my $group_start_col = $col;
