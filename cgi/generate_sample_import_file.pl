@@ -100,7 +100,6 @@ $worksheet->set_column('A:A', 30);
 
 $worksheet->write($description_row, 0, $description, $formats{'description'});
 
-
 foreach my $group_ref (@$select2_options_ref) {
 	my $group_start_col = $col;
 
