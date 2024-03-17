@@ -181,6 +181,7 @@ use ProductOpener::Config2;
 	stephane
 	tacinte
 	teolemon
+	himanshisrestha
 );
 
 $options{export_limit} = 10000;
