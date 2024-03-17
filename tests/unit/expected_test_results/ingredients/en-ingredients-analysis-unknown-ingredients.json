@@ -45,6 +45,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_proxy_food_code" : "11015",
          "id" : "en:pepper",
          "percent_estimate" : 1.3671875,
          "percent_max" : 16.6666666666667,
@@ -148,11 +149,10 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
       "en:another-unknown-ingredient",
-      "en:pepper",
       "en:some-unknown-ingredient",
       "en:spice"
    ],
-   "ingredients_without_ciqual_codes_n" : 4,
+   "ingredients_without_ciqual_codes_n" : 3,
    "known_ingredients_n" : 11,
    "lc" : "en",
    "nutriments" : {

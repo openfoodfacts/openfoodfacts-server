@@ -1,0 +1,6 @@
+# defines expiry headers for static resources
+
+# variables defined in /etc/nginx/snippets/expires-no-json-xml.conf;
+expires $productopener_expires_time;
+# it's allowed to repeat Cache-Control to add informations
+add_header Cache-Control $productopener_is_public_cache;
