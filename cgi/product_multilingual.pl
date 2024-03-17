@@ -789,7 +789,7 @@ HTML
 var admin = $moderator;
 </script>
 <script type="text/javascript" src="$static_subdomain/js/dist/product-multilingual.js?v=$file_timestamps{'js/dist/product-multilingual.js'}"></script>
-<script type="text/javascript" src="$static_subdomain/js/dist/product-history.js"></script>
+<script type="text/javascript" src="/js/dist/product-history.js"></script>
 
 HTML
 		;
