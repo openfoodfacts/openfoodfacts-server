@@ -77,6 +77,8 @@ $worksheet->set_column('A:ZZ', 30);
 
 $worksheet->write( $description_row, 0, "Description", $formats{'description'});
 
+my $fields_param = param('fields');
+
 foreach my $group_ref (@$select2_options_ref) {
 	my $group_start_col = $col;
 
@@ -187,8 +189,16 @@ foreach my $group_ref (@$select2_options_ref) {
 		}
 
 		# Write cell and comment
+		if($fields_param && $fields_param eq 'mandatory'){
+			if($importance eq 'mandatory'){
+				$worksheet->write($headers_row, $col, $field_ref->{text}, $formats{$importance});
+			}else{
+				next;
+			}
+		}else{
+			$worksheet->write($headers_row, $col, $field_ref->{text}, $formats{$importance});
+		}
 
-		$worksheet->write($headers_row, $col, $field_ref->{text}, $formats{$importance});
 		my $width = length($field_ref->{text});
 		($width < 20) and $width = 20;
 		$worksheet->set_column($col, $col, $width);
