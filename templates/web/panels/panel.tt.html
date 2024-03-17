@@ -12,13 +12,13 @@
         [% END %]
     [% END %]
 [% ELSE %]
-<ul data-accordion class="panel_accordion accordion" panel_margin_[% IF panel.size == 'small' %]small[% ELSE %]large[% END %]"
+<ul data-accordion class="panel_accordion accordion panel_margin_[% IF panel.size == 'small' %]small[% ELSE %]large[% END %]"
         id="panel_[% panel_id | replace(':','-') %]">
 
 <li class="accordion-navigation">
 
     [% IF panel.title_element.defined %]
-        <a href="#panel_[% panel_id | replace(':','-') %]_content" class="panel_title[% IF panel.title_element.type == "grade" %] grade_[% panel.title_element.grade %][% END %][% IF panel.size == 'small' %]panel_title_small[% END %]">
+        <a href="#panel_[% panel_id | replace(':','-') %]_content" class="panel_title[% IF panel.title_element.type == "grade" %] grade_[% panel.title_element.grade %][% END %][% IF panel.size == 'small' %] panel_title_small[% END %]">
 
             [% IF panel.title_element.icon_url.defined %]
             <img src="[% panel.title_element.icon_url %]"
@@ -43,7 +43,7 @@
             [% END %]
             <h4 [% IF panel.title_element.type == "grade" %]class="grade_[% panel.title_element.grade %]_title"[% END %]
                 [% IF panel.evaluation.defined %]class="evaluation_[%panel.evaluation %]_title"[% END %]
-                <div class="panel[% IF panel.size == 'small' %] small-panel[% END %]">
+                [% IF panel.size == 'small' %] small-panel[% END %]"
             >
                 [% IF panel.evaluation AND NOT panel.title_element.icon_url.defined %]
                     <span class="evaluation_[%panel.evaluation %]_title">
@@ -158,7 +158,7 @@
                         [% END %]
                     [% END %]
                 >
-                <div class="text-container[% IF text_element.valign == 'middle' %]valign-middle[% END %]">
+                <div class="text-container[% IF text_element.valign == 'middle' %] valign-middle[% END %]">
                 [% ELSE %]
                 <div>
                 [% END %]
