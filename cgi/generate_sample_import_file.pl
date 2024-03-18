@@ -67,6 +67,8 @@ my $select2_options_ref = generate_import_export_columns_groups_for_select2([$lc
 my $headers_row = 0;
 my $col = 0;
 
+my $fields_param = param('fields');
+
 foreach my $group_ref (@$select2_options_ref) {
 	my $group_start_col = $col;
 
@@ -177,6 +179,9 @@ foreach my $group_ref (@$select2_options_ref) {
 		}
 
 		# Write cell and comment
+		if ($fields_param && $fields_param eq 'mandatory' && $importance ne 'mandatory') {
+			next;
+		}
 
 		$worksheet->write($headers_row, $col, $field_ref->{text}, $formats{$importance});
 		my $width = length($field_ref->{text});
@@ -195,4 +200,3 @@ foreach my $group_ref (@$select2_options_ref) {
 }
 
 exit(0);
-
