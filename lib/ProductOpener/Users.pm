@@ -64,6 +64,10 @@ BEGIN {
 		&create_password_hash
 		&check_password_hash
 		&retrieve_user
+		&user_exists
+		&retrieve_user_by_email
+		&store_user
+		&delete_user
 		&remove_user_by_org_admin
 		&add_users_to_org_by_admin
 		&is_suspicious_name
@@ -238,20 +242,8 @@ sub delete_user_task ($job, $args_ref) {
 
 	$log->info("delete_user", {userid => $userid, new_userid => $new_userid}) if $log->is_info();
 
-	# Remove the user file
-	unlink("$BASE_DIRS{USERS}/$userid.sto");
-
-	# Remove the e-mail
-	my $emails_ref = retrieve("$BASE_DIRS{USERS}/users_emails.sto");
-	my $email = $args_ref->{email};
-
-	if ((defined $email) and ($email =~ /\@/)) {
-
-		if (defined $emails_ref->{$email}) {
-			delete $emails_ref->{$email};
-			store("$BASE_DIRS{USERS}/users_emails.sto", $emails_ref);
-		}
-	}
+	# Remove the user
+	delete_user($args_ref);
 
 	#  re-assign product edits to anonymous-[random number]
 	find_and_replace_user_id_in_products($userid, $new_userid);
@@ -392,10 +384,10 @@ sub check_user_form ($type, $user_ref, $errors_ref) {
 	if ((defined $email) and ($email ne '') and ($user_ref->{email} ne $email)) {
 
 		# check that the email is not already used
-		my $emails_ref = retrieve("$BASE_DIRS{USERS}/users_emails.sto");
-		if ((defined $emails_ref->{$email}) and ($emails_ref->{$email}[0] ne $user_ref->{userid})) {
+		my $existing_user = retrieve_user_by_email($email);
+		if (defined $existing_user and $existing_user->{userid} ne $user_ref->{userid})
 			$log->debug("check_user_form - email already in use",
-				{type => $type, email => $email, existing_userid => $emails_ref->{$email}})
+				{type => $type, email => $email, existing_userid => $existing_user->{userid}})
 				if $log->is_debug();
 			push @{$errors_ref}, $Lang{error_email_already_in_use}{$lang};
 		}
@@ -494,13 +486,10 @@ sub check_user_form ($type, $user_ref, $errors_ref) {
 	}
 
 	if ($type eq 'add') {
-
-		my $userid = get_string_id_for_lang("no_language", $user_ref->{userid});
-
 		if (length($user_ref->{userid}) < 2) {
 			push @{$errors_ref}, $Lang{error_no_username}{$lang};
 		}
-		elsif (-e "$BASE_DIRS{USERS}/$userid.sto") {
+		elsif (user_exists($user_ref->{userid})) {
 			push @{$errors_ref}, $Lang{error_username_not_available}{$lang};
 		}
 		elsif ($user_ref->{userid} !~ /^[a-z0-9]+[a-z0-9\-]*[a-z0-9]+$/) {
@@ -665,20 +654,7 @@ sub process_user_form ($type, $user_ref, $request_ref) {
 	process_user_requested_org($user_ref);
 
 	# save user
-	store("$BASE_DIRS{USERS}/$userid.sto", $user_ref);
-
-	# Update email
-	my $emails_ref = retrieve("$BASE_DIRS{USERS}/users_emails.sto");
-	my $email = $user_ref->{email};
-
-	if ((defined $email) and ($email =~ /\@/)) {
-		$emails_ref->{$email} = [$userid];
-	}
-	if (defined $user_ref->{old_email}) {
-		delete $emails_ref->{$user_ref->{old_email}};
-		delete $user_ref->{old_email};
-	}
-	store("$BASE_DIRS{USERS}/users_emails.sto", $emails_ref);
+	store_user($user_ref);
 
 	if ($type eq 'add') {
 
@@ -768,7 +744,7 @@ sub check_edit_owner ($user_ref, $errors_ref) {
 		my $userid = $';
 		# Add check that organization exists when we add org profiles
 
-		if (!-e "$BASE_DIRS{USERS}/$userid.sto") {
+		if (!user_exists($userid)) {
 			push @{$errors_ref}, sprintf($Lang{error_user_does_not_exist}{$lang}, $userid);
 		}
 		else {
@@ -945,8 +921,7 @@ sub open_user_session ($user_ref, $request_ref) {
 	};
 
 	# Store user data
-	my $user_file = "$BASE_DIRS{USERS}/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
-	store($user_file, $user_ref);
+	store_user_session($user_ref);
 
 	$log->debug("session initialized and user info stored") if $log->is_debug();
 
@@ -960,25 +935,79 @@ sub retrieve_user ($user_id) {
 	my $user_ref;
 	if (-e $user_file) {
 		$user_ref = retrieve($user_file);
+		if (not defined $user_ref) {
+			$log->info("could not load user", {user_id => $user_id}) if $log->is_info();
+		}
 	}
 	return $user_ref;
 }
 
-sub is_email_has_off_account ($email) {
+sub user_exists ($user_id) {
+	my $user_file = "$BASE_DIRS{USERS}/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
+	return (-e $user_file);
+}
 
-	# First, check if the email exists in the users_emails.sto file
-	my $emails_ref = retrieve("$data_root/users/users_emails.sto");
-
+sub retrieve_user_by_email($email) {
+	my $user_ref;
+	my $emails_ref = retrieve("$BASE_DIRS{USERS}/users_emails.sto");
+	if (not defined $emails_ref->{$email}) {
+		# not found, try with lower case email
+		$email = lc $email;
+	}
 	if (defined $emails_ref->{$email}) {
-		my $user_id = $emails_ref->{$email}[0];
+		$user_ref = retrieve_user($emails_ref->{$email}[0]);
+	}
+	return $user_ref;
+}
 
-		# Next, check if the user file exists and has the 'userid' field
-		my $user_file = "$data_root/users/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
-		if (-e $user_file) {
-			my $user_ref = retrieve($user_file);
-			return $user_ref->{userid} if defined $user_ref->{userid};
+# store user information that is not reflected in Keycloak
+sub store_user_session ($user_ref) {
+	my $user_file = "$BASE_DIRS{USERS}/" . get_string_id_for_lang("no_language", $user_ref->{userid}) . ".sto";
+	store($user_file, $user_ref);
+}
+
+sub store_user ($user_ref) {
+	my $userid = $user_ref->{userid};
+
+	# Update email
+	my $emails_ref = retrieve("$BASE_DIRS{USERS}/users_emails.sto");
+	my $email = $user_ref->{email};
+
+	if ((defined $email) and ($email =~ /\@/)) {
+		$emails_ref->{$email} = [$userid];
+	}
+	if (defined $user_ref->{old_email}) {
+		delete $emails_ref->{$user_ref->{old_email}};
+		delete $user_ref->{old_email};
+	}
+	store("$BASE_DIRS{USERS}/users_emails.sto", $emails_ref);
+
+	# save user
+	store_user_session($user_ref);
+}
+
+sub delete_user ($user_ref) {
+	my $userid = $user_ref->{userid};
+	my $user_file = "$BASE_DIRS{USERS}/" . get_string_id_for_lang("no_language", $userid) . ".sto";
+
+	# Remove the user file
+	unlink($user_file);
+
+	# Remove the e-mail
+	my $emails_ref = retrieve("$BASE_DIRS{USERS}/users_emails.sto");
+	my $email = $user_ref->{email};
+
+	if ((defined $email) and ($email =~ /\@/)) {
+		if (defined $emails_ref->{$email}) {
+			delete $emails_ref->{$email};
+			store("$BASE_DIRS{USERS}/users_emails.sto", $emails_ref);
 		}
 	}
+}
+
+sub is_email_has_off_account ($email) {
+	my $user_ref = retrieve_user_by_email($email);
+	return $user_ref->{userid} if defined $user_ref;
 
 	return;    # Email is not associated with an OFF account
 }
@@ -991,8 +1020,7 @@ sub remove_user_by_org_admin ($orgid, $user_id) {
 	my $user_ref = retrieve_user($user_id);
 	delete $user_ref->{org};
 	delete $user_ref->{org_id};
-	my $user_file = "$BASE_DIRS{USERS}/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
-	store($user_file, $user_ref);
+	store_user($user_ref);
 	return;
 }
 
@@ -1062,12 +1090,9 @@ sub init_user ($request_ref) {
 
 		if ($user_id =~ /\@/) {
 			$log->info("got email while initializing user", {email => $user_id}) if $log->is_info();
-			my $emails_ref = retrieve("$BASE_DIRS{USERS}/users_emails.sto");
-			if (not defined $emails_ref->{$user_id}) {
-				# not found, try with lower case email
-				$user_id = lc $user_id;
-			}
-			if (not defined $emails_ref->{$user_id}) {
+			$user_ref = retrieve_user_by_email($user_id);
+
+			if (not defined $user_ref) {
 				$user_id = undef;
 				$log->info("Unknown user e-mail", {email => $user_id}) if $log->is_info();
 				# Trigger an error
@@ -1087,11 +1112,11 @@ sub init_user ($request_ref) {
 
 		# If the user exists
 		if (defined $user_id) {
+			if (not defined $user_ref) {
+				$user_ref = retrieve_user($user_id);
+			}
 
-			my $user_file = "$BASE_DIRS{USERS}/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
-
-			if (-e $user_file) {
-				$user_ref = retrieve($user_file);
+			if (defined $user_ref) {
 				$user_id = $user_ref->{'userid'};
 				$log->context->{user_id} = $user_id;
 
@@ -1147,10 +1172,9 @@ sub init_user ($request_ref) {
 		}
 
 		if (defined $user_id) {
-			my $user_file = "$BASE_DIRS{USERS}/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
+			$user_ref = retrieve_user($user_id);
 
-			if (-e $user_file) {
-				$user_ref = retrieve($user_file);
+			if (defined $user_ref) {
 				$log->debug(
 					"initializing user",
 					{
@@ -1322,52 +1346,43 @@ sub check_session ($user_id, $user_session) {
 
 	$log->debug("checking session", {user_id => $user_id, users_session => $user_session}) if $log->is_debug();
 
-	my $user_file = "$BASE_DIRS{USERS}/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
-
 	my $results_ref = {};
 
-	if (-e $user_file) {
-		my $user_ref = retrieve($user_file);
-
-		if (defined $user_ref) {
-			$log->debug(
-				"comparing session with stored user",
-				{
-					user_id => $user_id,
-					user_session => $user_session,
-					stock_session => $user_ref->{'user_sessions'},
-					stock_ip => $user_ref->{'user_last_ip'},
-					current_ip => remote_addr()
-				}
-			) if $log->is_debug();
-
-			if (
-				   (not defined $user_ref->{'user_sessions'})
-				or (not defined $user_session)
-				or (not defined $user_ref->{'user_sessions'}{$user_session})
-				# or (not defined $user_ref->{'user_sessions'}{$user_session}{'ip'})
-				# or (($short_ip->($user_ref->{'user_sessions'}{$user_session}{'ip'}) ne ($short_ip->(remote_addr())))
-
-				)
+	my $user_ref = retrieve_user($user_id);
+	if (defined $user_ref) {
+		$log->debug(
+			"comparing session with stored user",
 			{
-				$log->debug("no matching session for user") if $log->is_debug();
-				$user_id = undef;
-
+				user_id => $user_id,
+				user_session => $user_session,
+				stock_session => $user_ref->{'user_sessions'},
+				stock_ip => $user_ref->{'user_last_ip'},
+				current_ip => remote_addr()
 			}
-			else {
-				# Get actual user_id (i.e. BIZ or biz -> Biz)
-				$log->debug("user identified", {user_id => $user_id, stocked_user_id => $user_ref->{'userid'}})
-					if $log->is_debug();
+		) if $log->is_debug();
 
-				$user_id = $user_ref->{'userid'};
-				$results_ref->{name} = $user_ref->{name};
-				$results_ref->{email} = $user_ref->{email};
-			}
+		if (
+				(not defined $user_ref->{'user_sessions'})
+			or (not defined $user_session)
+			or (not defined $user_ref->{'user_sessions'}{$user_session})
+			# or (not defined $user_ref->{'user_sessions'}{$user_session}{'ip'})
+			# or (($short_ip->($user_ref->{'user_sessions'}{$user_session}{'ip'}) ne ($short_ip->(remote_addr())))
+
+			)
+		{
+			$log->debug("no matching session for user") if $log->is_debug();
+			$user_id = undef;
+
 		}
 		else {
-			$log->info("could not load user", {user_id => $user_id}) if $log->is_info();
-		}
+			# Get actual user_id (i.e. BIZ or biz -> Biz)
+			$log->debug("user identified", {user_id => $user_id, stocked_user_id => $user_ref->{'userid'}})
+				if $log->is_debug();
 
+			$user_id = $user_ref->{'userid'};
+			$results_ref->{name} = $user_ref->{name};
+			$results_ref->{email} = $user_ref->{email};
+		}
 	}
 	else {
 		$log->info("user does not exist", {user_id => $user_id}) if $log->is_info();
