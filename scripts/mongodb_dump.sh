@@ -35,8 +35,8 @@ else
   LASTTS=$(($(date +%s)-24*60*60))
 fi
 NEWTS=$(date +%s)
-mongoexport --collection products --host $HOST --db $DB --query "{ \"last_modified_t\": { \"\$gt\": $LASTTS, \"\$lte\": $NEWTS } }" | gzip -9 > new.${PREFIX}_products_${LASTTS}_${NEWTS}.jsonl.gz_${NEWTS}.json.gz && \
-mv new.${PREFIX}_products_${LASTTS}_${NEWTS}.jsonl.gz_${NEWTS}.json.gz ${PREFIX}_products_${LASTTS}_${NEWTS}.jsonl.gz_${NEWTS}.json.gz
+mongoexport --collection products --host $HOST --db $DB --query "{ \"last_modified_t\": { \"\$gt\": $LASTTS, \"\$lte\": $NEWTS } }" | gzip -9 > new.${PREFIX}_products_${LASTTS}_${NEWTS}.json.gz && \
+mv new.${PREFIX}_products_${LASTTS}_${NEWTS}.json.gz ${PREFIX}_products_${LASTTS}_${NEWTS}.json.gz
 
 # Delete all but the last 14 delta files - https://stackoverflow.com/a/34862475/11963
 ls -tp ${PREFIX}-products_*.json.gz | grep -v '/$' | tail -n +14 | xargs -I {} rm -- {}
