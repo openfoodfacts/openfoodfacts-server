@@ -16,11 +16,10 @@ export PERL5LIB="../lib:${PERL5LIB}"
 ./export_database.pl
 
 cd $OFF_PUBLIC_DATA_DIR
-gzip < en.openfoodfacts.org.products.rdf > en.openfoodfacts.org.products.rdf.gz
-gzip < fr.openfoodfacts.org.products.rdf > fr.openfoodfacts.org.products.rdf.gz
-
 gzip < en.openfoodfacts.org.products.csv > en.openfoodfacts.org.products.csv.gz
 gzip < fr.openfoodfacts.org.products.csv > fr.openfoodfacts.org.products.csv.gz
+gzip < en.openfoodfacts.org.products.rdf > en.openfoodfacts.org.products.rdf.gz
+gzip < fr.openfoodfacts.org.products.rdf > fr.openfoodfacts.org.products.rdf.gz
 
 cd /srv/off/scripts
 
