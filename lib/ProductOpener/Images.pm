@@ -1213,6 +1213,12 @@ sub process_image_move ($user_id, $code, $imgids, $move_to, $ownerid) {
 
 				delete $product_ref->{images}{$imgid};
 
+				# Check if any selected image's imgid equals the deleted imgid
+				foreach my $selected_imgid (keys %{$product_ref->{images}}) {
+   					process_image_unselect($user_id, $code, $imgid) if $selected_imgid eq $imgid;
+				}
+
+
 			}
 
 		}
