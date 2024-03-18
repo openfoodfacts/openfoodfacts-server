@@ -272,7 +272,7 @@ Use the Git Bash shell to run the make commands in windows so that programs like
 When running `make import_prod_data`.
 
 ```console
-process_begin: CreateProcess(NULL, wget --no-verbose https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.tar.gz, ...) failed.
+process_begin: CreateProcess(NULL, wget --no-verbose https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.gz, ...) failed.
 make (e=2): The system cannot find the file specified.
 ```
 
