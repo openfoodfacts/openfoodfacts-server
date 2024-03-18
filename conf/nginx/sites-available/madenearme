@@ -7,7 +7,7 @@ map $host $madenearme_name {
 
 }
 
-# variables definitions for expiry headers are loaded from /etc/nginx/conf.d/expires-no-json-xml.conf
+include /etc/nginx/snippets/expires-no-json-xml.conf;
 
 server {
 	listen 80;
@@ -28,19 +28,19 @@ server {
 
 	location ~* \.(eot|ttf|woff|woff2)$ {
 		add_header Access-Control-Allow-Origin *;
-		include snippets/expiry-headers.include;
+		include /etc/nginx/snippets/expires-no-json-xml.conf;
 	}
 
 	location ~ ^/images/products/ {
 		add_header Link "<http://creativecommons.org/licenses/by-sa/3.0/>; rel='license'; title='CC-BY-SA 3.0'";
-		include snippets/expiry-headers.include;
+		include /etc/nginx/snippets/expires-no-json-xml.conf;
 	}
 
 	location ~ ^/(favicon.ico) {
 		# First attempt to serve request as file, then
 		# as directory, then fall back to displaying a 404.
 		try_files $uri /images/misc/$madenearme_name.16x16.png;
-		include snippets/expiry-headers.include;
+		include /etc/nginx/snippets/expires-no-json-xml.conf;
 	}
 
 
@@ -48,7 +48,7 @@ server {
 		# First attempt to serve request as file, then
 		# as directory, then fall back to displaying a 404.
 		try_files $uri $uri/ =404;
-		include snippets/expiry-headers.include;
+		include /etc/nginx/snippets/expires-no-json-xml.conf;
 	}
 
 	location = /robots.txt {
@@ -57,7 +57,7 @@ server {
 
 	location / {
 		try_files $uri /data/$madenearme_name.html;
-		include snippets/expiry-headers.include;
+		include /etc/nginx/snippets/expires-no-json-xml.conf;
 	}
 
 }
