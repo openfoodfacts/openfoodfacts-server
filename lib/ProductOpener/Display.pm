@@ -107,6 +107,8 @@ BEGIN {
 		&url_for_text
 		&process_template
 
+		&_format_comment
+
 		@search_series
 
 		%index_tag_types_set
@@ -8343,6 +8345,8 @@ HTML
 		$template_data_ref->{display_field_states} = display_field($product_ref, 'states');
 	}
 
+	# create_edit_history_panel($product_ref, $lc, $cc, $knowledge_panels_options_ref);
+	
 	$template_data_ref->{display_product_history} = display_product_history($request_ref, $code, $product_ref)
 		if $User{moderator};
 

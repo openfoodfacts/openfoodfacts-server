@@ -285,6 +285,9 @@
                                             </div>
                                         </div>
                                         [% value.text %]
+                                    [% END %]
+                                    [% IF value.html_element.defined %]
+                                        <div>[% value.html_element %]</div>
                                     [% ELSE %]
                                         <span
                                         [% IF value.level.defined %]
