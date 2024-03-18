@@ -165,18 +165,18 @@
                     [% display_tab_nutrition_image %]
                     [% display_field_serving_size %]
 
-                    [% FOREACH nutrient IN nutrition_products %]
+                    [% FOREACH product_type IN nutrition_product_types %]
                         <!-- extra field suffixed with _displayed to allow detecting when a box is unchecked -->
-                        <input type="hidden" name="[% nutrient.nutrition_data %]_displayed" value="1" />
-                        <input type="checkbox" id="[% nutrient.nutrition_data %]" name="[% nutrient.nutrition_data %]" [% nutrient.checked %] />
-                        <label for="[% nutrient.nutrition_data %]" class="checkbox_label">[% nutrient.nutrition_data_exists %]</label> &nbsp;
-                        <input type="radio" id="[% nutrient.nutrition_data_per %]_100g" value="100g" name="[% nutrient.nutrition_data_per %]" [% nutrient.checked_per_100g %] />
-                        <label for="[% nutrient.nutrition_data_per %]_100g">[% lang('nutrition_data_per_100g') %]</label>
-                        <input type="radio" id="[% nutrient.nutrition_data_per %]_serving" value="serving" name="[% nutrient.nutrition_data_per %]" [% nutrient.checked_per_serving %] />
-                        <label for="[%nutrient. nutrition_data_per %]_serving">[% lang('nutrition_data_per_serving') %]</label><br/>
+                        <input type="hidden" name="[% product_type.nutrition_data %]_displayed" value="1" />
+                        <input type="checkbox" id="[% product_type.nutrition_data %]" name="[% product_type.nutrition_data %]" [% product_type.checked %] />
+                        <label for="[% product_type.nutrition_data %]" class="checkbox_label">[% product_type.nutrition_data_exists %]</label> &nbsp;
+                        <input type="radio" id="[% product_type.nutrition_data_per %]_100g" value="100g" name="[% product_type.nutrition_data_per %]" [% product_type.checked_per_100g %] />
+                        <label for="[% product_type.nutrition_data_per %]_100g">[% edq(lang('nutrition_data_per_100g')) %]</label>
+                        <input type="radio" id="[% product_type.nutrition_data_per %]_serving" value="serving" name="[% product_type.nutrition_data_per %]" [% product_type.checked_per_serving %] />
+                        <label for="[%product_type. nutrition_data_per %]_serving">[% edq(lang('nutrition_data_per_serving')) %]</label><br/>
 
                         [% IF nutrition_data_instructions_check && nutrition_data_instructions_check != '' %]
-                            <p id="[% nutrient.nutrition_data_instructions %]" [% nutrient.hidden %]>[% lang(nutrient.nutrition_data_instructions) %]</p>
+                            <p id="[% product_type.nutrition_data_instructions %]" [% product_type.hidden %]>[% lang(product_type.nutrition_data_instructions) %]</p>
                         [% END %]
                     [% END %]
 
@@ -311,7 +311,7 @@
 
                 <div class="row">
                     <div class="small-12 medium-12 large-8 xlarge-8 columns" style="margin-bottom:0.5rem;">
-                        <input id="comment" name="comment" placeholder="[% lang('edit_comment') %]" value="" type="text" class="text" style="margin:0" />
+                        <input id="comment" name="comment" placeholder="[% edq(lang('edit_comment')) %]" value="" type="text" class="text" style="margin:0" />
                     </div>
                     <div class="small-6 medium-6 large-2 xlarge-2 columns">
                         <button type="submit" id="save" name=".submit" class="button postfix success small">
@@ -329,7 +329,7 @@
 
                 <div class="row">
                     <div class="small-12 medium-12 large-12 xlarge-12 columns bg-primary h-space-normal v-space-normal text-center">
-                        <input type="submit" name=".submit" value="[% lang('save') %]" class="button success">
+                        <input type="submit" name=".submit" value="[% edq(lang('save')) %]" class="button success">
                     </div>
                 </div>
 
@@ -346,9 +346,6 @@
 
     </form>
 
-
-
-</body>
 
 <style>
 .question_mark {
@@ -390,4 +387,5 @@
     opacity: 0.7;
 }
 </style>
+
 <!-- end templates/[% template.name %] -->

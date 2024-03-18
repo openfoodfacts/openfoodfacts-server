@@ -44,7 +44,7 @@
         {
             "element_type": "panel_group",
             "panel_group_element": {
-                "title": "[% lang('nutriscore_negative_points') %][% sep %]: [% product.nutriscore.2023.data.negative_points %]/[% product.nutriscore.2023.data.negative_points_max %]",
+                "title": "[% edq(lang('nutriscore_negative_points')) %][% sep %]: [% product.nutriscore.2023.data.negative_points %]/[% product.nutriscore.2023.data.negative_points_max %]",
                 "evaluation": "bad",
                 "icon_url": "[% static_subdomain %]/images/icons/dist/circle-minus.svg",
                 "icon_size": "small",
@@ -62,7 +62,7 @@
         {
             "element_type": "panel_group",
             "panel_group_element": {
-                "title": "[% lang('nutriscore_positive_points') %][% sep %]: [% product.nutriscore.2023.data.positive_points %]/[% product.nutriscore.2023.data.positive_points_max %]",
+                "title": "[% edq(lang('nutriscore_positive_points')) %][% sep %]: [% product.nutriscore.2023.data.positive_points %]/[% product.nutriscore.2023.data.positive_points_max %]",
                 "evaluation": "good",
                 "icon_url": "[% static_subdomain %]/images/icons/dist/circle-plus.svg",
                 "icon_size": "small",
