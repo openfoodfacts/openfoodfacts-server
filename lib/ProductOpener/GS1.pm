@@ -342,6 +342,7 @@ foreach my $tag (sort keys %{$gs1_maps{allergenTypeCode}}) {
 		$log->error("gs1_maps - entry not in taxonomy",
 			{tagtype => "allergens", tag => $gs1_maps{allergenTypeCode}{$tag}})
 			if $log->is_error();
+		print STDERR "tag: $tag - canon_tag: $canon_tag\n";
 		die;
 	}
 }

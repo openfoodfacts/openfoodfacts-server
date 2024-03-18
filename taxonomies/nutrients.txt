@@ -8,6 +8,7 @@
 # - The "automatically_computed:en: yes" property is used for nutrients (or scores) that are not entered by users, but computed by Product Opener
 # (e.g. the NOVA group, Nutrition score, % of fruits/vegetables estimated by ingredients analysis etc.)
 # See also: https://wiki.openfoodfacts.org/Nutrients_handling_in_Open_Food_Facts
+# DV (Daily Value) for minerals and vitamins in the US: https://www.fda.gov/food/nutrition-facts-label/daily-value-nutrition-and-supplement-facts-labels
 
 stopwords:en: including, of, which
 stopwords:fr: dont
@@ -3685,7 +3686,7 @@ vi:vitamin D
 yi:וויטאמין D
 zh:维生素D
 dv_2016_value:en: 20
-dv_value:en: 40
+dv_value:en: 20
 iu_value:en: 0.025
 unit:en: µg
 wikidata:en: Q175621
@@ -4651,6 +4652,7 @@ zh:钾
 unit:en: mg
 wikidata:en: Q703
 wikipedia:en: https://en.wikipedia.org/wiki/Potassium
+dv_value:en: 4700
 
 zz:chloride
 en:Chloride
@@ -4826,7 +4828,7 @@ yi:קאלציום
 yo:Calcium
 zh:鈣, 钙
 dv_2016_value:en: 1300
-dv_value:en: 1000
+dv_value:en: 1300
 unit:en: mg
 unit_ca:en: % DV
 unit:pt:mg

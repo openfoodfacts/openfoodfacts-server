@@ -133,7 +133,7 @@ jobs:
 
           # Set App variables
           echo "TAG=sha-${{ github.sha }}" >> .env
-          echo "WEB_LANG_PATH=../off-web-net/lang" >> .env
+          echo "WEB_RESOURCES_PATH=../off-web-net/" >> .env
           echo "PRODUCERS_PLATFORM=0" >> .env
           echo "PRODUCT_OPENER_PORT=80" >> .env
           echo "PRODUCT_OPENER_DOMAIN=${{ env.PRODUCT_OPENER_DOMAIN }}" >> .env
@@ -160,7 +160,7 @@ jobs:
           echo "BUILD_CACHE_REPO=openfoodfacts/openfoodfacts-build-cache" >> .env
 
           # Override domain name in nginx.conf
-          sed -i.bak "s/productopener.localhost/${{ env.PRODUCT_OPENER_DOMAIN }}/g" ./conf/nginx.conf
+          sed -i.bak "s/productopener.localhost/${{ env.PRODUCT_OPENER_DOMAIN }}/g" ./conf/nginx-docker/nginx.conf
 
     - name: Create Docker volumes and network
       uses: appleboy/ssh-action@master

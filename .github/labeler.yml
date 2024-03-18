@@ -8,7 +8,7 @@ GitHub Actions:
 
 NGINX:
 - conf/nginx/**/*
-- conf/nginx.conf
+- conf/nginx-docker/**
 
 MongoDB:
 - conf/mongodb/create_indexes.js
@@ -34,13 +34,7 @@ Stores:
 
 🧬 Taxonomies:
 - taxonomies/**/*
-- scripts/build_tags_taxonomy.pl
-- scripts/test_taxonomies.pl
-- scripts/translate_taxonomy_with_eu_translations.pl
-- scripts/list_taxonomy_entries.pl
-- scripts/sort_languages_in_taxonomy.pl
-- scripts/add_users_translations_to_taxonomy.pl
-- scripts/add_descriptions_to_taxonomy_from_eu_translations.pl
+- scripts/taxonomies/**/*
 - cgi/translate_taxonomy.pl
 
 🧬 Taxonomies - Rebuild:
@@ -162,7 +156,7 @@ CSS:
 - scripts/check_po_file.pl
 - scripts/print_all_translations.pl
 - scripts/add_users_translations_to_taxonomy.pl
-- scripts/add_descriptions_to_taxonomy_from_eu_translations.pl
+- scripts/taxonomies/add_descriptions_to_taxonomy_from_eu_translations.pl
 - cgi/top_translators.pl
 - cgi/translate_taxonomy.pl
 

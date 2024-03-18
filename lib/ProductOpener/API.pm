@@ -52,6 +52,7 @@ BEGIN {
 		&decode_json_request_body
 		&normalize_requested_code
 		&customize_response_for_product
+		&check_user_permission
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -71,9 +72,11 @@ use ProductOpener::Attributes qw/:all/;
 use ProductOpener::KnowledgePanels qw/:all/;
 use ProductOpener::Ecoscore qw/localize_ecoscore/;
 use ProductOpener::Packaging qw/:all/;
+use ProductOpener::Permissions qw/:all/;
 
 use ProductOpener::APIProductRead qw/:all/;
 use ProductOpener::APIProductWrite qw/:all/;
+use ProductOpener::APIProductRevert qw/:all/;
 use ProductOpener::APIProductServices qw/:all/;
 use ProductOpener::APITagRead qw/:all/;
 use ProductOpener::APITaxonomySuggestions qw/:all/;
@@ -106,8 +109,29 @@ sub add_warning ($response_ref, $warning_ref) {
 	return;
 }
 
-sub add_error ($response_ref, $error_ref) {
+=head2 add_error ($response_ref, $error_ref, $status_code = 400)
+
+Add an error to the response object.
+
+=head3 Parameters
+
+=head4 $response_ref (input)
+
+Reference to the response object.
+
+=head4 $error_ref (input)
+
+Reference to the error object.
+
+=head4 $status_code (input)
+
+HTTP status code to return in the response, defaults to 400 bad request.
+
+=cut
+
+sub add_error ($response_ref, $error_ref, $status_code = 400) {
 	push @{$response_ref->{errors}}, $error_ref;
+	$response_ref->{status_code} = $status_code;
 	return;
 }
 
@@ -124,7 +148,8 @@ sub add_invalid_method_error ($response_ref, $request_ref) {
 				api_action => $request_ref->{api_action},
 			},
 			impact => {id => "failure"},
-		}
+		},
+		405
 	);
 	return;
 }
@@ -318,7 +343,8 @@ Reference to the customized product object.
 
 sub send_api_response ($request_ref) {
 
-	my $status_code = $request_ref->{status_code} || "200";
+	my $status_code = $request_ref->{api_response}{status_code} || $request_ref->{status_code} || "200";
+	delete $request_ref->{api_response}{status_code};
 
 	my $json = JSON::PP->new->allow_nonref->canonical->utf8->encode($request_ref->{api_response});
 
@@ -384,6 +410,17 @@ sub process_api_request ($request_ref) {
 			}
 			elsif ($request_ref->{api_method} =~ /^(GET|HEAD)$/) {
 				read_product_api($request_ref);
+			}
+			else {
+				add_invalid_method_error($response_ref, $request_ref);
+			}
+		}
+		# Product revert
+		elsif ($request_ref->{api_action} eq "product_revert") {
+
+			# Check that the method is POST (GET may be dangerous: it would allow to revert a product by just clicking or loading a link)
+			if ($request_ref->{api_method} eq "POST") {
+				revert_product_api($request_ref);
 			}
 			else {
 				add_invalid_method_error($response_ref, $request_ref);
@@ -831,6 +868,55 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 	}
 
 	return $customized_product_ref;
+}
+
+=head2 check_user_permission ($request_ref, $response_ref, $permission)
+
+Check the user has a specific permission, before processing an API request.
+If the user does not have the permission, an error is added to the response.
+
+=head3 Parameters
+
+=head4 $request_ref (input)
+
+Reference to the request object.
+
+=head4 $response_ref (output)
+
+Reference to the response object.
+
+=head4 $permission (input)
+
+Permission to check.
+
+=head3 Return value
+
+1 if the user does not have the permission, 0 otherwise.
+
+=cut
+
+sub check_user_permission ($request_ref, $response_ref, $permission) {
+
+	# We will return an error equal to 1 if the user does not have the permission
+	my $error = 0;
+
+	# Check if the user has permission
+	if (not has_permission($request_ref, $permission)) {
+		$error = 1;
+		$log->error("check_user_permission - user does not have permission", {permission => $permission})
+			if $log->is_error();
+		add_error(
+			$response_ref,
+			{
+				message => {id => "no_permission"},
+				field => {id => "permission", value => $permission},
+				impact => {id => "failure"},
+			},
+			403
+		);
+	}
+
+	return $error;
 }
 
 1;
