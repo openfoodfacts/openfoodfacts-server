@@ -24,8 +24,6 @@ BEGIN {
 	@EXPORT_OK = qw(
 		&subscribe_to_redis_streams
 		&push_to_redis_stream
-
-		$cv
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -36,8 +34,6 @@ use Log::Any qw/$log/;
 use ProductOpener::Config qw/$redis_url/;
 use AnyEvent;
 use AnyEvent::RipeRedis;
-
-our $cv;
 
 =head2 $redis_client
 The connection to redis
@@ -89,7 +85,18 @@ sub init_redis() {
 	return;
 }
 
-sub subscribe_to_redis_streams () {
+=head2 subscribe_to_redis_streams ($cv)
+
+Subcribe to redis stream to be informed about user deletions.
+
+=head3 Arguments
+
+=head4 $cv
+AnyEvents's current AE::cv object.
+
+=cut
+
+sub subscribe_to_redis_streams ($cv) {
 	if (!$redis_url) {
 		# No Redis URL provided, we can't push to Redis
 		if (!$sent_warning_about_missing_redis_url) {
@@ -166,6 +173,7 @@ sub push_to_redis_stream ($user_id, $product_ref, $action, $comment, $diffs) {
 	if (defined $redis_client) {
 		$log->debug("Pushing product update to Redis", {product_code => $product_ref->{code}}) if $log->is_debug();
 		eval {
+			my $cv = AE::cv;
 			$redis_client->xadd(
 				# name of the Redis stream
 				$options{redis_stream_name},
@@ -199,6 +207,7 @@ sub push_to_redis_stream ($user_id, $product_ref, $action, $comment, $diffs) {
 					return;
 				}
 			);
+			$cv->recv;
 		};
 		$error = $@;
 	}

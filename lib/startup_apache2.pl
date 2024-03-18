@@ -122,7 +122,6 @@ use ProductOpener::Auth qw/:all/;
 use Apache2::Const -compile => qw(OK);
 use Apache2::Connection ();
 use Apache2::RequestRec ();
-use Apache2::ServerUtil;
 use APR::Table ();
 
 sub get_remote_proxy_address {
@@ -163,17 +162,6 @@ if (scalar @missing_dirs) {
 
 # load large data files into mod_perl memory
 load_data();
-
-$ProductOpener::Redis::cv = AE::cv;
-
-sub cleanup_handler {
-	$ProductOpener::Redis::cv->send;
-	return;
-}
-
-Apache2::ServerUtil->server->push_handlers(PerlCleanupHandler => \&cleanup_handler);
-
-subscribe_to_redis_streams();
 
 # This startup script is run as root, it will create the $BASE_DIRS{CACHE_TMP} directory
 # if it does not exist, as well as sub-directories for the Template module

@@ -108,8 +108,12 @@ services:
       - "$MINION_QUEUE"
   incron:
     <<: *backend-conf
-    # This service watch for new images to trigger ocr and robotoff processing
+    # This service watches for new images to trigger ocr and robotoff processing
     command: ["perl", "scripts/run_cloud_vision_ocr.pl", "/mnt/podata/new_images"]
+  redis-listener:
+    <<: *backend-conf
+    # This service watches for new events on a redis stream to delete users
+    command: ["perl", "scripts/listen_to_redis_stream.pl"]
   frontend:
     image: ghcr.io/openfoodfacts/openfoodfacts-server/frontend:${TAG}
     depends_on:

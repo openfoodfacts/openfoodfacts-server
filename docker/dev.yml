@@ -45,6 +45,7 @@ services:
   backend:
     <<: [*backend-conf, *minion-db-network] 
   incron: *backend-conf
+  redis-listener: *backend-conf
   minion:
     <<: [*backend-conf, *minion-db-network]
   # in dev we want to use watch assets and recompile on the fly
