@@ -11,8 +11,9 @@ export PERL5LIB="../lib:${PERL5LIB}"
 ./remove_empty_products.pl
 ./gen_top_tags_per_country.pl
 #./compute_missions.pl
+
+# Generate CSV exports
 ./export_database.pl
-./mongodb_dump.sh /srv/off/html openfoodfacts 10.1.0.102 off
 
 cd $OFF_PUBLIC_DATA_DIR
 gzip < en.openfoodfacts.org.products.rdf > en.openfoodfacts.org.products.rdf.gz
@@ -22,6 +23,9 @@ gzip < en.openfoodfacts.org.products.csv > en.openfoodfacts.org.products.csv.gz
 gzip < fr.openfoodfacts.org.products.csv > fr.openfoodfacts.org.products.csv.gz
 
 cd /srv/off/scripts
+
+# MongoDB exports and dump
+./mongodb_dump.sh /srv/off/html openfoodfacts 10.1.0.102 off
 
 # Small products data and images export for Docker dev environments
 # for about 1/10000th of the products contained in production.
