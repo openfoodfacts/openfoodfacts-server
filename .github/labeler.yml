@@ -286,6 +286,7 @@ Data import:
 - lib/ProductOpener/Import.pm
 - lib/ProductOpener/ImportConvert.pm
 - scripts/convert_csv_file.pl
+- cgi/generate_sample_import_file.pl
 
 🥗 Ingredients:
 - lib/ProductOpener/Ingredients.pm
@@ -485,6 +486,7 @@ Numbers:
 - scripts/codeonline-import/split_gs1_codeonline_json.pl
 - scripts/codeonline-import/stats_gs1_codeonline_json.pl
 - scripts/equadis-import/run_equadis_import.sh
+- cgi/generate_sample_import_file.pl
 
 🏭 AGENA3000:
 - scripts/imports/agena3000/run_agena3000_import.sh
