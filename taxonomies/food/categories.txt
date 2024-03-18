@@ -1484,7 +1484,6 @@ cs:Mirin
 da:Mirin
 de:Mirin, Reiswein
 el:Μιρίν
-en:Mirin
 eo:Mirino
 es:Mirin
 fa:میرین, چاشنی
@@ -3758,20 +3757,19 @@ origins:en: en:Slovenia
 #wikidata:en:
 
 <en:Fruit brandy
-pl:Palinca
+en:Pálinka
+pl:Palinca, Pálinka
 be:Палінка
 bg:Палинка
 ca:Aiguardent de fruita
 cv:Палинка
 de:Pálinka
-en:Pálinka
 fi:Pálinka
 fr:Pálinka
 hu:Pálinka
 it:Pálinka
 lt:Palinka
 nl:Palinka
-pl:Pálinka
 pt:Palinca
 ro:Palincă
 ru:Палинка
@@ -9556,10 +9554,6 @@ es:Café de Laos
 it:Caffè del Laos
 nl:Koffie uit Laos
 pt:Café do Laos
-es:Café de Laos
-it:Caffè del Laos
-nl:Koffie uit Laos
-pt:Café do Laos
 origins:en: en:Laos
 
 <en:Coffees
@@ -9568,11 +9562,6 @@ fr:Café du Nicaragua
 es:Café de Nicaragua
 it:Caffè del Nicaragua
 nl:Koffie uit Nicaragua
-pt:Café da Nicarágua
-es:Café de Nicaragua
-it:Caffè del Nicaragua
-nl:Koffie uit Nicaragua
-pt:Café da Nicarágua
 origins:en: en:Nicaragua
 
 <en:Coffees
@@ -10756,10 +10745,6 @@ nl:Kookwijnen
 es:Vinos de cocina
 de:Kochweine
 it:Vini da cucina
-fr:Vins de cuisine
-nl:Kookwijnen
-es:Vinos de cocina
-de:Kochweine
 gpc_category_code:en:10000052
 gpc_category_name:en:Cooking Wines
 gpc_category_description:en:Definition: Includes any products that can be described/observed as a typically inferior variety of wine to Drinking Wine, sometimes adulterated with salt, which is used in cooking to enhance the flavour or colour of a prepared recipe. These products are specifically labelled and marketed as cooking wine, and their alcohol content ensures that they do not need to be refrigerated.Definition Excludes: Excludes products such as Wine or Sherry Alcoholic Beverages, and any alcohol not specifically used for cooking.
@@ -10815,7 +10800,7 @@ da:Franske mousserende vine
 de:Französische Schaumweine
 es:Vinos espumosos franceses
 fi:ranskalaiset kuohuviinit
-fr:Vins effervescents français
+fr:Vins pétillants français, Vins effervescents français
 he:יינות קידוח צרפתיים
 hr:Francuska pjenušava vina
 hu:Francia pezsgők
@@ -10830,14 +10815,7 @@ sv:Franska mousserande viner
 th:ไวน์อัดแก๊สฝรั่งเศส
 tr:Fransız şampanyaları
 zh:法国起泡酒
-fr:Vins pétillants français
-es:Vinos espumosos franceses
-de:Französische Schaumweine
-it:Spumanti francesi
 ja:フランス産スパークリングワイン
-nl:Franse mousserende wijnen
-ru:Французские игристые вина
-zh:法国起泡酒
 
 <en:Wines
 en:Red wines, red wine
@@ -10883,8 +10861,6 @@ de:10% Rotwein
 nl:10% rode wijn
 ru:10% красное вино
 zh:10% 红葡萄酒
-es:Vino tinto al 10%
-de:10% Rotwein
 agribalyse_food_code:en:5203
 ciqual_food_code:en:5203
 ciqual_food_name:en:Wine, red, 10°
@@ -10896,9 +10872,9 @@ fr:Vin rouge à 11°, Vin rouge à 11 degrés
 bg:11% червено вино
 ca:Vi negre 11%
 de:11% Rotwein
-es:Vino tinto 11%
+es:Vino tinto 11%, Vino tinto al 11%
 fi:11% punaviini
-it:Vino rosso 11%
+it:Vino rosso 11%, Vino rosso al 11%
 ja:11% 赤ワイン
 lt:11% raudonas vynas
 nl:11% rode wijn
@@ -10907,9 +10883,6 @@ pt:Vinho tinto 11%
 ru:11% красное вино
 tr:11% kırmızı şarap
 zh:11% 红葡萄酒
-es:Vino tinto al 11%
-de:11% Rotwein
-it:Vino rosso al 11%
 ciqual_food_code:en:5204
 ciqual_food_name:en:Wine, red, 11°
 ciqual_food_name:fr:Vin rouge 11°
@@ -14070,9 +14043,11 @@ fr:Chassagne-Montrachet premier cru Bois de Chassagne, Chassagne-Montrachet Bois
 origins:en: en:France, fr:Bourgogne
 protected_name_type:en: pdo
 #wikidata:en:
+
 <fr:Chassagne-Montrachet
 fr:Chassagne-Montrachet premier cru Bois de Chassagne rouge
 wikidata:en:Q42866482
+
 <fr:Chassagne-Montrachet
 fr:Chassagne-Montrachet premier cru Bois de Chassagne blanc
 wikidata:en:Q42866481
@@ -36516,10 +36491,9 @@ ciqual_food_name:fr:Cigarette
 #ciqual_food_name:fr:Biscuit sec type langue de chat ou cigarette russe
 
 <en:Cakes
-en:Madeleines, Madeleines cakes
+en:Madeleines, Madeleines cakes, Madeleine biscuit
 ca:Magdalenes
 de:Madeleine
-en:Madeleine biscuit
 es:Magdalenas
 fi:Madeleine-leivokset
 fr:Madeleines, Madeleine ordinaire
@@ -39925,7 +39899,6 @@ de:Kaviar vom Acipenser gueldenstaedtii
 <en:Caviars
 en:Wild caviars
 de:Wildkaviar
-en:Wild caviars
 it:Caviali selvatici
 nl:Wilde kaviaar
 
@@ -41452,7 +41425,7 @@ es:Espeltas, Escaña mayor, Escanda mayor
 et:speltanisu, spelta
 eu:espelta
 fa:اسپلت
-fi:Speltit, Spelttijauho
+fi:Speltit, Spelttijauho, spelttivehnä, speltti, spelttiä
 fr:Épeautres, Épeautre, Grands épeautres, Grand épeautre
 ga:speilt
 gl:espelta
@@ -41503,7 +41476,6 @@ agribalyse_food_code:en:9001
 ciqual_food_code:en:9001
 ciqual_food_name:en:Spelt, raw
 ciqual_food_name:fr:Épeautre, cru
-fi:spelttivehnä, speltti, spelttiä
 
 
 <en:Cereal grains
@@ -43324,6 +43296,7 @@ hu:Pasztőrözött camembert
 it:Camembert pastorizzato
 nl:Gepasteuriseerde camemberts
 wikidata:en:Q47472053
+
 <en:Camemberts
 en:Camembert with Calvados
 de:Camembert mit Calvados
@@ -51259,8 +51232,7 @@ ciqual_food_name:fr:Gâteau mousse de fruits sur génoise, type miroir, bavarois
 
 
 <en:Desserts
-en:Liégeois
-en:chocolate custard topped with whipped cream refrigerated, coffee custard topped with whipped cream refrigerated, caramel custard topped with whipped cream refrigerated, vanilla custard topped with whipped cream refrigerated
+en:Liégeois, chocolate custard topped with whipped cream refrigerated, coffee custard topped with whipped cream refrigerated, caramel custard topped with whipped cream refrigerated, vanilla custard topped with whipped cream refrigerated
 fr:Liégeois
 nl:Toetjes met roomlaag
 agribalyse_food_code:en:19681
@@ -55259,7 +55231,7 @@ ciqual_food_name:en:Pork fat, raw
 ciqual_food_name:fr:Lard gras, cru
 
 <en:Animal fats
-nl:Goose fats
+en:Goose fats
 de:Gänsefette
 fr:Graisse d'oie, gras d'oie, graisse d'oies, gras d'oies
 hu:Liba zsírok
@@ -61203,7 +61175,7 @@ ciqual_food_name:en:Gelatine, dried
 ciqual_food_name:fr:Gélatine, sèche
 
 <en:Thickeners
-nl:Plantbased gelatin
+en:Plantbased gelatin
 fr:Gélifiants végétaux, gélifiant végétal
 lt:Augalinė želatina
 nl:Plantaardige gelatines
@@ -63874,6 +63846,7 @@ nl:Blauwe bessen
 
 <en:Berries
 en:Cranberries
+bg:Червени боровинки
 de:Cranberry, Moosbeeren, Kranbeeren
 es:Arándanos agrios
 fi:Karpalot
@@ -63898,6 +63871,7 @@ lt:Šviežios spanguolės
 <en:Cranberries
 <en:Frozen fruits
 en:Frozen cranberries
+bg:Замразени червени боровинки
 fr:Canneberges surgelées
 
 <en:Berries
@@ -64163,6 +64137,11 @@ tr:Limon
 agribalyse_proxy_food_code:en:13009
 agribalyse_proxy_food_name:en:Lemon, pulp, raw
 agribalyse_proxy_food_name:fr:Citron, pulpe, cru
+
+<en:Lemons
+en:Lemons Primofiori, Lemons Mesero, Lemons Blanco
+fr:Citrons primofiori
+origins:en: en:Spain
 
 <en:Lemons
 <en:Fresh fruits
@@ -65038,6 +65017,10 @@ es:Peras frescas
 fr:Poires fraîches
 lt:Šviežios kriaušės
 season_in_country_fr:en: 1,2,3,8,9,10,11,12
+
+<en:Apples
+en:Apples Chantecler
+fr:Pommes Chantecler, Pommes Chantecler Belchard
 
 <en:Apples
 fr:Pommes de Savoie
@@ -66210,6 +66193,11 @@ en:Dried golden berries
 fr:Physalis séchées, baies de physalis séchées
 
 <en:Dried fruits
+en:Dried lingonberries
+de:Getrocknete Preiselbeeren
+fr:Airelles séchées
+
+<en:Dried fruits
 en:Dried mangoes
 de:getrocknete Mangos, gedörrte Mangos, getrocknete Mangonen, gedörrte Mangonen
 es:Mangos deshidratados, Mango deshidratado
@@ -66294,6 +66282,7 @@ tr:Kuru ananas, Kurutulmuş ananas
 
 <en:Dried fruits
 en:Dried prunes, Dried plums, Prunes
+bg:Сушени сливи
 de:getrocknete Pflaumen, gedörrte Pflaumen
 es:Ciruelas pasas, Ciruelas deshidratadas
 fi:kuivatut luumut
@@ -66463,6 +66452,11 @@ fr:Cerises au sirop
 it:Ciliegie sciroppate
 lt:Vyšnios sirupe
 nl:Kersen op siroop
+
+<en:Fruits in syrup
+en:Lingonberries in syrup
+de:Preiselbeeren in Sirup
+fr:Airelles au sirop
 
 <en:Fruits in syrup
 en:Lychees in syrup
@@ -70362,6 +70356,7 @@ wikidata:en:Q1363716
 
 <en:Sauces
 en:Salad dressings, dressings, Salad sauce
+bg:Салатен сос
 ca:Amaniments, Salses per amanides
 de:Salatsoßen, Salatsoße, Salatsaucen, Salatsauce
 es:Aderezos para ensaladas
@@ -70548,7 +70543,7 @@ ciqual_food_name:fr:Harissa (sauce condimentaire)
 #wikidata:en:
 
 <en:Sauces
-en:Algerian sauces
+en:Algerian-style sauces, Algerian sauces
 de:Algerische Saucen
 fr:Sauces algériennes
 lt:Alžyro padažai
@@ -70598,7 +70593,7 @@ agribalyse_proxy_food_name:fr:Sauce burger, préemballée
 #wikidata:en:
 
 <en:Sauces
-en:Indian sauces
+en:Indian-style sauces, Indian sauces
 de:Indische Saucen
 fr:Sauces indiennes, Sauce indienne
 hu:Indiai mártások
@@ -72778,6 +72773,7 @@ wikidata:en:Q6023589
 <en:Spanish meat products
 <en:Dried hams
 en:Serrano ham, Dry-cured Serrano ham, Jamón serrano
+bg:Шунка Серрано
 ca:Pernil salat, Pernil serrà
 es:Jamón Serrano
 fi:Vuoristokinkku, Serranokinkku, Serranon kinkku, Jamón serrano
@@ -80521,7 +80517,7 @@ ciqual_food_name:en:Veal escalope cordon bleu (topped with a ham slice and Gruye
 
 <en:Cordons bleus
 <en:Chicken preparations
-fr:Chicken cordons bleus
+en:Chicken cordons bleus
 bg:Пилешки кордон бльо
 fr:Cordons bleus de poulet
 nl:Kip cordon bleus
@@ -83348,6 +83344,7 @@ ciqual_food_name:fr:Jambon cru, fumé, allégé en matière grasse
 
 <en:Smoked cured hams
 de:Schwarzwälder Schinken
+bg:Шварцвалдска шунка
 fr:Jambons de la Forêt Noire, jambon de la Forêt Noire, jambons forêt noire
 protected_name_file_number:en: PGI-DE-0686
 protected_name_type:en: pgi
@@ -87315,11 +87312,13 @@ wikidata:en:Q19962
 
 <en:Pastas
 en:Penne
+bg:Пене
 ja:ペンネ
 xx:Penne
 
 <en:Penne
 en:Penne rigate
+bg:Пене Ригате
 xx:Penne Rigate
 
 <en:Penne
@@ -88086,6 +88085,7 @@ nl:Lasagne vellen
 
 <en:Durum wheat pasta
 en:Durum wheat plates for lasagna
+bg:Кори за лазаня от твърда пшеница
 es:Placas de trigo duro para lasaña
 fr:Plaques de blé dur pour lasagne
 nl:Durum tarwe lasagnabladen
@@ -90391,14 +90391,13 @@ ciqual_food_name:fr:Sandwich baguette, crudités diverses, mayonnaise
 
 <en:Sandwiches
 en:Poultry sandwiches
+bg:Сандвичи с птици
 de:Geflügelsandwiches
 fi:siipikarjavoileivät
 fr:Sandwichs à la volaille
 nl:Gevogelte sandwiches, pluimvee sandwiches
 es:Bocadillos de aves, Sándwiches de aves
 it:Panini di carne avicola, Panini al pollame
-pt:Sanduíches de aves
-bg:Сандвичи с птици
 pt:Sanduíches de aves
 
 <en:Poultry sandwiches
@@ -91975,6 +91974,7 @@ ciqual_food_name:fr:Langoustine, panée, frite
 <en:Seafood
 en:Fishes and their products
 fr:Poissons et dérivés
+nl:Vis- en afgeleide producten
 
 <en:Fishes and their products
 en:Fishes, fish
@@ -95296,7 +95296,7 @@ gpc_category_name:en:Jams/Marmalades/Fruit Spreads (Perishable)
 gpc_category_description:en:Definition: Includes any products that can be described/observed as a sweet semi-firm liquid, usually used as a spread, made by cooking and blending crushed fruit in sugar, and allowing the mixture to set, often with the addition of setting agents. Includes jams, jellies, and marmalades. These products must be refrigerated to extend their consumable life. Definition Excludes: Excludes products such as Confectionery Based Spreads and Honey, and Jams/Marmalades (Shelf Stable).
 
 <en:Fruit and vegetable preserves
-fr:Fruit preserves with chocolate
+en:Fruit preserves with chocolate
 fr:Confitures au chocolat
 
 #uncooked fruit preserve
@@ -95517,6 +95517,7 @@ ciqual_proxy_food_name:fr:Confiture de fraise (extra ou classique)
 
 <en:Berry jams
 en:Bilberries jams
+bg:Конфитюр от черни боровинки
 de:Heidelbeer-Konfitüren, Heidelbeermarmeladen
 es:Mermeladas y confituras de arándanos, Mermeladas de arándanos, Mermeladas de arándano, Confituras de arándanos
 fi:mustikkahillot
@@ -96000,15 +96001,12 @@ hr:Marmelada
 hu:Marmelád
 it:Marmellate, marmellata
 ja:マーマレード
-it:Marmellate
-nl:Marmelades
 pt:Marmeladas
 lv:Marmelāde
 lt:Marmeladas
 mt:marmellata
 nl:Marmelades, Marmelade
 pl:Marmolada
-pt:Marmeladas
 ro:Marmelada
 sk:Marmeláda
 sl:Marmelada
@@ -96023,7 +96021,6 @@ de:Zitronenmarmeladen
 el:μαρμελάδα εσπεριδοειδών
 es:Mermeladas y confituras de cítricos
 et:Tsitrusmarmelaad
-fi:sitrushillot
 fi:sitrushillot
 fr:Confitures d’agrumes, Confiture d’agrumes
 hu:Citrus lekvárok
@@ -97449,7 +97446,6 @@ ciqual_food_name:fr:Fructose
 en:Glucose
 es:Glucosa
 bg:Глюкоза
-es:Glucosa
 fr:Glucose
 ja:グルコース
 nl:Glucose
@@ -98372,7 +98368,7 @@ en:Gherkins with onions
 fr:Cornichons aux oignons
 
 <en:Vegetable pickles
-en:Pickled eggplants, eggplants in oil
+en:Pickled eggplants
 es:Berenjenas encurtidas
 ja:ナスのピクルス
 nl:Ingemaakte aubergines
@@ -99233,7 +99229,6 @@ ciqual_food_name:fr:Chou vert, cuit
 
 <en:Cabbages
 en:Red cabbage
-bg:Червено зеле
 bg:Червено зеле
 de:Rotkraut
 es:Lombardas, Lombarda, Col lombarda
@@ -100611,7 +100606,6 @@ en:Canned sweet red peppers
 bg:Червени чушки от консерва
 fr:Poivrons rouges en conserve, Poivrons rouges appertisés
 es:Pimientos rojos en conserva
-fr:Poivrons rouges en conserve
 nl:Rode paprikas in blik/pot
 agribalyse_food_code:en:20275
 ciqual_food_code:en:20275
@@ -102196,6 +102190,7 @@ pl:Naturalne pomidory suszone
 
 <en:Dried tomatoes
 en:Dried tomato in oil, Dried tomatoes in oil, Sun-Dried tomato in oil, Sun-Dried tomatoes in oil, Rehydrated dried tomatoes in oil
+bg:Сушени домати в олио
 de:getrocknete Tomaten in Öl
 es:Tomates secos en aceite, Tomates secos rehidratados en aceite
 fi:kuivattuja tomaatteja öljyssä
@@ -108394,10 +108389,9 @@ nl:Taartdegen, taartdeeg
 intake24_category_code:en:PSDO 
 
 <en:Pie dough
-en:Shortcrust pastry
+en:Shortcrust pastry, Baked shortcrust pastry
 fr:Pâtes brisées, Pâte brisée, Pâtes à tarte brisées
 ja:パート・ブリゼ
-en:Baked shortcrust pastry
 nl:Zanddegen
 nl_be:Zanddeeg
 agribalyse_food_code:en:23410
@@ -111064,7 +111058,7 @@ ciqual_food_name:fr:Poulet, poitrine, viande et peau, cru
 
 en:Variety packs
 cs:Potraviny smíšená balení
-de:Levensmittel Mischpackungen
+de:Lebensmittel Mischpackungen
 el:Τρόφιμα mικτή συσκευασία
 es:Paquetes variados de alimentos
 fi:Ruoka lajitelmapakkaukset

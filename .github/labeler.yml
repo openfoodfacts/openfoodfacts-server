@@ -8,7 +8,7 @@ GitHub Actions:
 
 NGINX:
 - conf/nginx/**/*
-- conf/nginx.conf
+- conf/nginx-docker/**
 
 MongoDB:
 - conf/mongodb/create_indexes.js
