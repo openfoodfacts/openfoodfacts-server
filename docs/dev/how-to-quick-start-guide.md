@@ -40,37 +40,60 @@ The process of cloning the repository will create a number of symbolic links whi
 
 Make sure you also activated the [Developper mode](https://learn.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development) on your device.
 
-## 2. Clone the repository from GitHub
+## 2. Fork and clone the repository from GitHub
 
-> _You must have a GitHub account if you want to contribute to Open Food Facts development, but it’s not required if you just want to see how it works._
-
+> _You must have a GitHub account and fork the project if you want to contribute to Open Food Facts development, but it’s not required if you just want to see how it works._
 
 > _Be aware Open Food Facts server takes more than 1.3 GB (2019/11)._
 
-Choose your prefered way to clone, either:
+### Fork the repository
 
-### On Windows:
+If you want to collaborate you will need to fork the repository.
+(see [*Creating a pull request from a fork* in Github documentation](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork) for an explanation)
+
+Go to https://github.com/openfoodfacts/openfoodfacts-server and click the "Fork" button.
+
+This will create a new repository in your GitHub account.
+eg. (for an hypothetical my-user-id user): https://github.com/my-user-id/openfoodfacts-server.
+
+This is the url you have to use in the following instructions.
+
+Very important: always work in new branches, never in "main", otherwise it will be difficult
+to sync your project with upstream repository (the openfoodfacts original repository).
+
+From time to time (before starting a new branch), it's a good idea to sync your fork,
+either using the github interface and then pulling "main" locally, either from the command line.
+
+### Clone
+
+Choose your preferred way to clone, either:
+
+#### On Windows:
 
 If you are running Docker on Windows, please use the following git clone command:
 
 ```console
-git clone -c core.symlinks=true https://github.com/openfoodfacts/openfoodfacts-server.git
+# replace my-user-id with your user id if you forked the repository, otherwise use openfoodfacts
+git clone -c core.symlinks=true https://github.com/my-user-id/openfoodfacts-server.git
 ```
+or (if you want to use ssh)
+```console
+# replace my-user-id with your user id if you forked the repository, otherwise use openfoodfacts
+git clone -c core.symlinks=true git@github.com:my-user-id/openfoodfacts-server.git
+```
+
+#### On other systems:
+
+```console
+# replace my-user-id with your user id if you forked the repository, otherwise use openfoodfacts
+git clone git@github.com:my-user-id/openfoodfacts-server.git
+```
+
 or
-```console
-git clone -c core.symlinks=true git@github.com:openfoodfacts/openfoodfacts-server.git
-```
-
-### On other systems:
 
 ```console
-git clone git@github.com:openfoodfacts/openfoodfacts-server.git
-```
-
-or
-
-```console
-git clone https://github.com/openfoodfacts/openfoodfacts-server.git
+# replace my-user-id with your user id if you forked the repository, otherwise use openfoodfacts
+git clone https://github.com/my-user-id/openfoodfacts-server.git
 ```
 
 Go to the cloned directory:
@@ -232,7 +255,8 @@ On Windows systems, the git repository needs to be cloned with symlinks enabled.
 You need to remove current directory where you clone the project, and clone the project again, using right options:
 
 ```console
-git clone -c core.symlinks=true git@github.com:openfoodfacts/openfoodfacts-server.git
+# replace my-user-id with your user id if you forked the repository, otherwise use openfoodfacts
+git clone -c core.symlinks=true git@github.com:my-user-id/openfoodfacts-server.git
 ```
 
 ### 'rm' is not recognized as an internal or external command

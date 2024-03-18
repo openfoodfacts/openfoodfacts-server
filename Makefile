@@ -16,7 +16,7 @@ OS := $(shell uname)
 
 # mount point for shared data (default to the one on staging)
 NFS_VOLUMES_ADDRESS ?= 10.0.0.3
-NFS_VOLUMES_BASE_PATH ?= /rpool/off/clones
+NFS_VOLUMES_BASE_PATH ?= /rpool/staging-clones
 
 export DOCKER_BUILDKIT=1
 export COMPOSE_DOCKER_CLI_BUILD=1
@@ -49,9 +49,10 @@ HOSTS=127.0.0.1 world.productopener.localhost fr.productopener.localhost static.
 # commands aliases
 DOCKER_COMPOSE=docker compose --env-file=${ENV_FILE} ${LOAD_EXTRA_ENV_FILE}
 # we run tests in a specific project name to be separated from dev instances
+# keep web-default for web contents
 # we also publish mongodb on a separate port to avoid conflicts
 # we also enable the possibility to fake services in po_test_runner
-DOCKER_COMPOSE_TEST=ROBOTOFF_URL="http://backend:8881/" GOOGLE_CLOUD_VISION_API_URL="http://backend:8881/" COMPOSE_PROJECT_NAME=${COMPOSE_PROJECT_NAME}_test PO_COMMON_PREFIX=test_ MONGO_EXPOSE_PORT=27027 docker compose --env-file=${ENV_FILE}
+DOCKER_COMPOSE_TEST=WEB_RESOURCES_PATH=./web-default ROBOTOFF_URL="http://backend:8881/" GOOGLE_CLOUD_VISION_API_URL="http://backend:8881/" COMPOSE_PROJECT_NAME=${COMPOSE_PROJECT_NAME}_test PO_COMMON_PREFIX=test_ MONGO_EXPOSE_PORT=27027 docker compose --env-file=${ENV_FILE}
 # Enable Redis only for integration tests
 DOCKER_COMPOSE_INT_TEST=REDIS_URL="redis:6379" ${DOCKER_COMPOSE_TEST}
 
@@ -240,8 +241,10 @@ front_build:
 
 
 checks: front_build front_lint check_perltidy check_perl_fast check_critic
+# TODO: add check_taxonomies when taxonomies ready
 
 lint: lint_perltidy
+# TODO: add lint_taxonomies when taxonomies ready
 
 tests: build_lang_test unit_test integration_test
 
@@ -297,7 +300,7 @@ clean_tests:
 update_tests_results: build_lang_test
 	@echo "🥫 Updated expected test results with actuals for easy Git diff"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb backend dynamicfront incron
-	${DOCKER_COMPOSE_TEST} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend /opt/product-opener/scripts/build_tags_taxonomy.pl ${name}
+	${DOCKER_COMPOSE_TEST} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl ${name}
 	${DOCKER_COMPOSE_TEST} run --rm backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
 	${DOCKER_COMPOSE_TEST} exec -T -w /opt/product-opener/tests backend bash update_tests_results.sh
 	${DOCKER_COMPOSE_TEST} stop
@@ -320,7 +323,7 @@ bash_test:
 # the ls at the end is to avoid removed files.
 # the first commad is to check we have git (to avoid trying to run this line inside the container on check_perl*)
 # We have to finally filter out "." as this will the output if we have no file
-TO_CHECK=$(shell [ -x "`which git 2>/dev/null`" ] && git diff origin/main --name-only | grep  '.*\.\(pl\|pm\|t\)$$' | grep -v "scripts/obsolete" | xargs ls -d 2>/dev/null | grep -v "^.$$" )
+TO_CHECK := $(shell [ -x "`which git 2>/dev/null`" ] && git diff origin/main --name-only | grep  '.*\.\(pl\|pm\|t\)$$' | grep -v "scripts/obsolete" | xargs ls -d 2>/dev/null | grep -v "^.$$" )
 
 check_perl_fast:
 	@echo "🥫 Checking ${TO_CHECK}"
@@ -340,7 +343,7 @@ check_perl:
 
 # check with perltidy
 # we exclude files that are in .perltidy_excludes
-TO_TIDY_CHECK = $(shell echo ${TO_CHECK}| tr " " "\n" | grep -vFf .perltidy_excludes)
+TO_TIDY_CHECK := $(shell echo ${TO_CHECK}| tr " " "\n" | grep -vFf .perltidy_excludes)
 check_perltidy:
 	@echo "🥫 Checking with perltidy ${TO_TIDY_CHECK}"
 	test -z "${TO_TIDY_CHECK}" || ${DOCKER_COMPOSE} run --rm --no-deps backend perltidy --assert-tidy -opath=/tmp/ --standard-error-output ${TO_TIDY_CHECK}
@@ -356,6 +359,18 @@ lint_perltidy:
 check_critic:
 	@echo "🥫 Checking with perlcritic"
 	test -z "${TO_CHECK}" || ${DOCKER_COMPOSE} run --rm --no-deps backend perlcritic ${TO_CHECK}
+
+TAXONOMIES_TO_CHECK := $(shell [ -x "`which git 2>/dev/null`" ] && git diff origin/main --name-only | grep  'taxonomies*/*\.txt$$' | grep -v '\.result.txt' | xargs ls -d 2>/dev/null | grep -v "^.$$")
+
+check_taxonomies:
+	@echo "🥫 Checking taxonomies"
+	test -z "${TAXONOMIES_TO_CHECK}" || \
+	${DOCKER_COMPOSE} run --rm --no-deps backend scripts/taxonomies/sort_each_taxonomy_entry.sh --check ${TAXONOMIES_TO_CHECK}
+
+lint_taxonomies:
+	@echo "🥫 Linting taxonomies"
+	test -z "${TAXONOMIES_TO_CHECK}" || \
+	${DOCKER_COMPOSE} run --rm --no-deps backend scripts/taxonomies/sort_each_taxonomy_entry.sh ${TAXONOMIES_TO_CHECK}
 
 
 check_openapi_v2:
@@ -377,19 +392,29 @@ check_openapi: check_openapi_v2 check_openapi_v3
 build_taxonomies: build_lang # build_lang generates the nutrient_level taxonomy source file
 	@echo "🥫 build taxonomies"
     # GITHUB_TOKEN might be empty, but if it's a valid token it enables pushing taxonomies to build cache repository
-	${DOCKER_COMPOSE} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend /opt/product-opener/scripts/build_tags_taxonomy.pl ${name}
+	${DOCKER_COMPOSE} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl ${name}
 
 rebuild_taxonomies: build_taxonomies
+
+_clean_old_external_volumes:
+# THIS IS A MIGRATION STEP, TO BE REMOVED IN THE FUTURE
+# we need to stop dockers to remove old volumes
+	( docker volume inspect ${COMPOSE_PROJECT_NAME}_{users,orgs,products,product_images} | grep /rpool/off/clones && docker compose down ) || true
+	( docker volume inspect ${COMPOSE_PROJECT_NAME}_users|grep /rpool/off/clones && docker volume rm ${COMPOSE_PROJECT_NAME}_users ) || true
+	( docker volume inspect ${COMPOSE_PROJECT_NAME}_orgs|grep /rpool/off/clones && docker volume rm ${COMPOSE_PROJECT_NAME}_orgs ) || true
+	( docker volume inspect ${COMPOSE_PROJECT_NAME}_products|grep /rpool/off/clones && docker volume rm ${COMPOSE_PROJECT_NAME}_products ) || true
+	( docker volume inspect ${COMPOSE_PROJECT_NAME}_product_images|grep /rpool/off/clones && docker volume rm ${COMPOSE_PROJECT_NAME}_product_images ) || true
 
 #------------#
 # Production #
 #------------#
-create_external_volumes:
+create_external_volumes: _clean_old_external_volumes
 	@echo "🥫 Creating external volumes (production only) …"
 # zfs clones hosted on Ovh3 as NFS
+	[[ -n "${PRODUCT_OPENER_FLAVOR_SHORT}" ]] || (echo "🥫 PRODUCT_OPENER_FLAVOR_SHORT is not set, can't create external volumes" && exit 1)
 	docker volume create --driver=local --opt type=nfs --opt o=addr=${NFS_VOLUMES_ADDRESS},rw,nolock --opt device=:${NFS_VOLUMES_BASE_PATH}/users ${COMPOSE_PROJECT_NAME}_users
-	docker volume create --driver=local --opt type=nfs --opt o=addr=${NFS_VOLUMES_ADDRESS},rw,nolock --opt device=:${NFS_VOLUMES_BASE_PATH}/products ${COMPOSE_PROJECT_NAME}_products
-	docker volume create --driver=local --opt type=nfs --opt o=addr=${NFS_VOLUMES_ADDRESS},rw,nolock --opt device=:${NFS_VOLUMES_BASE_PATH}/images/products ${COMPOSE_PROJECT_NAME}_product_images
+	docker volume create --driver=local --opt type=nfs --opt o=addr=${NFS_VOLUMES_ADDRESS},rw,nolock --opt device=:${NFS_VOLUMES_BASE_PATH}/${PRODUCT_OPENER_FLAVOR_SHORT}-products ${COMPOSE_PROJECT_NAME}_products
+	docker volume create --driver=local --opt type=nfs --opt o=addr=${NFS_VOLUMES_ADDRESS},rw,nolock --opt device=:${NFS_VOLUMES_BASE_PATH}/${PRODUCT_OPENER_FLAVOR_SHORT}-images/products ${COMPOSE_PROJECT_NAME}_product_images
 	docker volume create --driver=local --opt type=nfs --opt o=addr=${NFS_VOLUMES_ADDRESS},rw,nolock --opt device=:${NFS_VOLUMES_BASE_PATH}/orgs ${COMPOSE_PROJECT_NAME}_orgs
 # local data
 	docker volume create --driver=local -o type=none -o o=bind -o device=${DOCKER_LOCAL_DATA}/data ${COMPOSE_PROJECT_NAME}_html_data
