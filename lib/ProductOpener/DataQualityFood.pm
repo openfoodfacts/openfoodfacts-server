@@ -1394,6 +1394,17 @@ sub check_nutrition_data ($product_ref) {
 	return;
 }
 
+# Check for Mozzarella category and minimum number of ingredients
+if ($product_ref->{category_id2} eq 'mozzarella') {
+	my $ingredient_count = (defined $product_ref->{ingredients}) ? scalar(@{$product_ref->{ingredients}}) : 0;
+	my $minimum_ingredients
+		= get_inherited_property_from_categories_tags($product_ref, "minimum_number_of_ingredients:en");
+
+	if ($ingredient_count < $minimum_ingredients) {
+		push @{$product_ref->{data_quality_warnings_tags}}, "en:ingredients-single-ingredient-from-category-missing";
+	}
+}
+
 =head2 compare_nutrition_facts_with_products_from_the_same_category( PRODUCT_REF )
 
 Check that the product nutrition facts are comparable to other products from the same category.
