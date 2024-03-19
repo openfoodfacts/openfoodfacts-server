@@ -150,7 +150,7 @@ sub gen_missions_html() {
 
 sub compute_missions() {
 
-	my @userids = retreive_userids();
+	my @userids = retrieve_userids();
 
 	my $missions_ref = {};
 

@@ -1008,7 +1008,7 @@ sub remove_user ($user_ref) {
 	}
 }
 
-sub retreive_userids() {
+sub retrieve_userids() {
 	my @userids = ();
 	opendir DH, $BASE_DIRS{USERS} or die "Couldn't open the users directory: $!";
 	my @files = sort(readdir(DH));
