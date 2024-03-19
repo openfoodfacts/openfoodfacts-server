@@ -47,11 +47,18 @@ my $r = shift;
 my $redirect = single_param('redirect');
 $template_data_ref->{redirect} = $redirect;
 if (defined $User_id) {
-	my $loc = $redirect || $formatted_subdomain . "/cgi/session.pl";
-	$r->headers_out->set(Location => $loc);
-	$r->err_headers_out->add('Set-Cookie' => $request_ref->{cookie});
-	$r->status(302);
-	return Apache2::Const::OK;
+	my $url_suffix;
+	if (defined $Org_id) {
+		$url_suffix = "/cgi/session.pl/owner/org-$Org_id";
+	} else {
+		$url_suffix = "/cgi/session.pl/";
+	}
+
+	my $loc = $redirect || $formatted_subdomain . $url_suffix;
+    $r->headers_out->set(Location => $loc);
+    $r->err_headers_out->add('Set-Cookie' => $request_ref->{cookie});
+    $r->status(302);
+    return Apache2::Const::OK;
 }
 
 my @errors = ();
