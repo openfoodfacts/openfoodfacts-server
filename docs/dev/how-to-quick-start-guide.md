@@ -44,7 +44,7 @@ Make sure you also activated the [Developper mode](https://learn.microsoft.com/e
 
 > _You must have a GitHub account and fork the project if you want to contribute to Open Food Facts development, but it’s not required if you just want to see how it works._
 
-> _Be aware Open Food Facts server takes more than 1.3 GB (2019/11)._
+> _Cloning Open Food Facts server with the default options downloads 2.23 GiB (as of 2024-03). See [Shallow Clone](#shallow-clone) if this might be a problem for you._ 
 
 ### Fork the repository
 
@@ -102,7 +102,23 @@ Go to the cloned directory:
 cd openfoodfacts-server/
 ```
 
-## 3. [Optional] Review Product Opener's environment
+### Shallow Clone
+
+A full clone of the `openfoodfacts-server` repository can consume a significant amount of your PC's resources. It will download over 2 GiB of data and take up over 3 GiB of drive space.
+
+```console
+git clone --single-branch --depth=1 https://github.com/openfoodfacts/openfoodfacts-server.git
+```
+
+To save your PC's resources, consider using a shallow clone by only cloning the `main` branch combined with a shallow fetch. This reduces the downloaded data to approximately 333 MiB and the repo will only use around 350 MiB of drive space.
+
+You will still be able to contribute PRs based on the `main`. However, you will not be able to view the full Git version history of any files, and you need to use an additional from GitHub, e.g., `gh-pages`, you can do it like this:
+
+```console
+git remote set-branches --add origin gh-pages
+git fetch --depth=1 origin gh-pages:gh-pages
+git checkout gh-pages
+```
 
 > _Note: you can skip this step for the first setup since the default `.env` in the repo contains all the default values required to get started._
 
