@@ -82,10 +82,6 @@ use Data::DeepAccess qw(deep_get deep_exists);
 
 %agribalyse = ();
 
-
-print STDERR "EcoScore.pm - 1\n";
-
-
 =head1 VARIABLES
 
 =head2 %ecoscore_countries_enabled
@@ -374,10 +370,6 @@ sub load_ecoscore_data_origins_of_ingredients() {
 	return;
 }
 
-
-print STDERR "EcoScore.pm - y\n";
-
-
 =head2 load_ecoscore_data_packaging( $product_ref )
 
 Loads packaging data needed to compute the Eco-Score.
@@ -662,9 +654,6 @@ sub load_ecoscore_data_packaging() {
 		if $log->is_debug();
 	return;
 }
-
-
-print STDERR "EcoScore.pm - y2\n";
 
 =head2 load_ecoscore_data( $product_ref )
 
@@ -969,8 +958,6 @@ sub compute_ecoscore ($product_ref) {
 	return;
 }
 
-print STDERR "EcoScore.pm - y3\n";
-
 =head2 compute_ecoscore_agribalyse ( $product_ref )
 
 C<compute_ecoscore()> computes the Life Cycle Analysis (LCA) part of the Eco-Score,
@@ -1091,8 +1078,6 @@ sub compute_ecoscore_agribalyse ($product_ref) {
 	return;
 }
 
-print STDERR "EcoScore.pm - y4\n";
-
 =head2 compute_ecoscore_production_system_adjustment ( $product_ref )
 
 Computes an adjustment (bonus or malus) based on production system of the product (e.g. organic).
@@ -1146,12 +1131,12 @@ my $production_system_labels_initialized = 0;
 
 sub init_production_system_labels () {
 	# Canonicalize the labels
-foreach my $label_ref (@production_system_labels) {
+	foreach my $label_ref (@production_system_labels) {
 
-	# Canonicalize the label ids in case the normalized id changed
-	$label_ref->[0] = canonicalize_taxonomy_tag("en", "labels", $label_ref->[0]);
-}
-$production_system_labels_initialized = 1;
+		# Canonicalize the label ids in case the normalized id changed
+		$label_ref->[0] = canonicalize_taxonomy_tag("en", "labels", $label_ref->[0]);
+	}
+	$production_system_labels_initialized = 1;
 }
 
 sub compute_ecoscore_production_system_adjustment ($product_ref) {
@@ -1208,8 +1193,6 @@ sub compute_ecoscore_production_system_adjustment ($product_ref) {
 	}
 	return;
 }
-
-print STDERR "EcoScore.pm - y5\n";
 
 =head2 compute_ecoscore_threatened_species_adjustment ( $product_ref )
 
@@ -1280,8 +1263,6 @@ The percentages are stored in $aggregated_origins_ref
 
 =cut
 
-print STDERR "EcoScore.pm - y6\n";
-
 sub aggregate_origins_of_ingredients ($default_origins_ref, $aggregated_origins_ref, $ingredients_ref) {
 
 	# The ingredients array contains sub-ingredients in nested ingredients
@@ -1350,9 +1331,6 @@ sub aggregate_origins_of_ingredients ($default_origins_ref, $aggregated_origins_
 Given a list of origins, return the country for the first origin that is a country or a child of a country.
 
 =cut
-
-print STDERR "EcoScore.pm - z\n";
-
 
 sub get_country_origin_from_origins ($origins_ref) {
 
@@ -1873,9 +1851,6 @@ sub is_ecoscore_extended_data_more_precise_than_agribalyse ($product_ref) {
 		return 0;
 	}
 }
-
-print STDERR "EcoScore.pm - end\n";
-
 
 1;
 

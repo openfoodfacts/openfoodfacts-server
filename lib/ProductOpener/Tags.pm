@@ -207,8 +207,6 @@ binmode STDERR, ":encoding(UTF-8)";
 =head1 GLOBAL VARIABLES
 =cut
 
-print STDERR "Tags.pm - 1\n";
-
 =head2 %tags_fields
 
 This defines which are the fields that are list of values.
@@ -456,7 +454,6 @@ sub get_inherited_property_from_tags ($tagtype, $tags_ref, $property) {
 	}
 	return ($value, $matching_tagid);
 }
-print STDERR "Tags.pm - 2\n";
 
 =head2 get_matching_regexp_property_from_tags ($tagtype, $tags_ref, $property, $regexp)
 
@@ -978,7 +975,6 @@ sub sanitize_taxonomy_line ($line) {
 
 	return $line;
 }
-print STDERR "Tags.pm - 3\n";
 
 =head2 get_lc_tagid( $synonyms_ref, $lc, $tagtype, $tag, $warning )
 
@@ -1158,15 +1154,13 @@ Like "categories", "ingredients"
 
 =cut
 
-print STDERR "Tags.pm - 4\n";
-
-
 sub build_tags_taxonomy ($tagtype, $publish) {
 	binmode STDERR, ":encoding(UTF-8)";
 	binmode STDIN, ":encoding(UTF-8)";
 	binmode STDOUT, ":encoding(UTF-8)";
 
 	my $result_dir = "$BASE_DIRS{CACHE_BUILD}/taxonomies-result/";
+	ensure_dir_created_or_die("$result_dir");
 
 	my @files = ($tagtype);
 
@@ -1229,7 +1223,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 		close($OUT);
 	}
 
-	# we ofen use the term *tag* in the code to indicate a single entry between commas
+	# we often use the term *tag* in the code to indicate a single entry between commas
 	# that is most lines, are tags separated by commas.
 
 	# when we speak about normalized entry, or tagid,
@@ -2204,10 +2198,6 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 	return;
 }
 
-
-print STDERR "Tags.pm - 5\n";
-
-
 =head2 build_all_taxonomies ( $pubish)
 
 Build all taxonomies, including the test taxonomy
@@ -2544,9 +2534,6 @@ sub retrieve_tags_taxonomy ($tagtype) {
 	return;
 }
 
-print STDERR "Tags.pm - 6\n";
-
-
 sub country_to_cc ($country) {
 
 	if ($country eq 'en:world') {
@@ -2560,8 +2547,6 @@ sub country_to_cc ($country) {
 }
 
 sub init_taxonomies() {
-
-	print STDERR "Tags.pm - init_taxonomies - 1\n";
 
 	# load all tags images
 
@@ -2590,12 +2575,6 @@ sub init_taxonomies() {
 		$log->warn("Tags images could not be loaded.") if $log->is_warn();
 	}
 
-
-	print STDERR "Tags.pm - init_taxonomies - 2\n";
-
-
-	# It would be nice to move this from BEGIN to INIT, as it's slow, but other BEGIN code depends on it.
-	ensure_dir_created_or_die("$BASE_DIRS{CACHE_BUILD}/taxonomies-result");
 	foreach my $taxonomyid (@ProductOpener::Config::taxonomy_fields) {
 		$log->info("loading taxonomy $taxonomyid");
 		retrieve_tags_taxonomy($taxonomyid);
@@ -2621,10 +2600,6 @@ sub init_taxonomies() {
 		# to initialize to the English value all missing values for all the languages
 		$Languages{$lc} = $translations_to{languages}{$language};
 	}
-
-
-	print STDERR "Tags.pm - init_taxonomies - 3\n";
-
 
 	# Build map of local country names in official languages to (country, language)
 
@@ -2661,12 +2636,7 @@ sub init_taxonomies() {
 			}
 		}
 	}
-	print STDERR "Tags.pm - init_taxonomies - end\n";
-
 }
-
-print STDERR "Tags.pm - 7\n";
-
 
 my %and = (
 	en => " and ",
@@ -2971,10 +2941,6 @@ sub display_taxonomy_tag_link ($target_lc, $tagtype, $tag) {
 # - display_lc : language code of the language returned in display
 # - known : 0 or 1, indicates if the input tagid exists in the taxonomy
 # - tagurl : escaped link to the tag, without the tag type path component
-
-
-
-print STDERR "Tags.pm - 8\n";
 
 sub get_taxonomy_tag_and_link_for_lang ($target_lc, $tagtype, $tagid) {
 
@@ -3455,10 +3421,6 @@ sub get_taxonomyurl ($tag_lc, $tagid) {
 	}
 }
 
-
-print STDERR "Tags.pm - 9\n";
-
-
 =head2 canonicalize_taxonomy_tag_or_die ($tag_lc, $tagtype, $tag)
 
 Canonicalize a string to check if matches an entry in a taxonomy, and die otherwise.
@@ -3876,10 +3838,6 @@ sub generate_spellcheck_candidates ($tagid, $candidates_ref) {
 
 	return;
 }
-
-
-print STDERR "Tags.pm - 10\n";
-
 
 sub spellcheck_taxonomy_tag ($tag_lc, $tagtype, $tag) {
 	#$tag = lc($tag);
@@ -4512,10 +4470,6 @@ sub init_emb_codes {
 	return;
 }
 
-
-print STDERR "Tags.pm - 11\n";
-
-
 # load all tags texts
 sub init_tags_texts {
 	return if (%tags_texts);
@@ -4955,9 +4909,6 @@ A reference to a hash to enable options to indicate how to match:
 
 =cut
 
-print STDERR "Tags.pm - 12\n";
-
-
 sub generate_regexps_matching_taxonomy_entries ($taxonomy, $return_type, $options_ref) {
 
 	# We will return for each language an unique regexp or a list of regexps
@@ -5121,8 +5072,5 @@ sub get_knowledge_content ($tagtype, $tagid, $target_lc, $target_cc) {
 }
 
 $log->info("Tags.pm loaded") if $log->is_info();
-
-print STDERR "Tags.pm - end\n";
-
 
 1;
