@@ -336,10 +336,7 @@ check_translations:
 # check all perl files compile (takes time, but needed to check a function rename did not break another module !)
 check_perl:
 	@echo "🥫 Checking all perl files"
-	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
-	${DOCKER_COMPOSE_TEST} run --rm --no-deps backend make -j ${CPU_COUNT} cgi/*.pl scripts/*.pl lib/*.pl lib/ProductOpener/*.pm
-	${DOCKER_COMPOSE_TEST} stop
-
+	${DOCKER_COMPOSE} run --rm --no-deps backend make -j ${CPU_COUNT} cgi/*.pl scripts/*.pl lib/*.pl lib/ProductOpener/*.pm
 
 # check with perltidy
 # we exclude files that are in .perltidy_excludes
