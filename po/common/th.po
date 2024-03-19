@@ -243,11 +243,11 @@ msgstr "คุณสามารถเพิ่มรูปภาพ:"
 
 msgctxt "axis_x"
 msgid "Horizontal axis"
-msgstr "แกนแนวนอน"
+msgstr "แกน X"
 
 msgctxt "axis_y"
 msgid "Vertical axis"
-msgstr "แกนตั้ง"
+msgstr "แกน Y"
 
 msgctxt "barcode"
 msgid "Barcode"
@@ -323,7 +323,7 @@ msgstr "ปลาซาร์ดีนในน้ำมันมะกอก, �
 
 msgctxt "categories_note"
 msgid "Indicate only the most specific category. \"Parents\" categories will be automatically added."
-msgstr "ระบุเฉพาะหมวดหมู่ย่อยที่เฉพาะเจาะจงที่สุดเท่านั้น หมวดหมู่ใหญ่อื่นๆ จะถูกเพิ่มโดยอัตโนมัติ"
+msgstr "ระบุเฉพาะหมวดหมู่ย่อยที่เฉพาะเจาะจงที่สุดเพียงอย่างเดียว หมวดหมู่ใหญ่อื่นๆ จะถูกเพิ่มโดยอัตโนมัติ"
 
 msgctxt "categories_p"
 msgid "categories"
@@ -527,7 +527,7 @@ msgstr ""
 
 msgctxt "edit_comment"
 msgid "Changes summary"
-msgstr ""
+msgstr "บันทึกสาเหตุการแก้ไขข้อมูล"
 
 msgctxt "edit_product"
 msgid "Edit a product"
@@ -571,15 +571,15 @@ msgstr ""
 
 msgctxt "editors_p"
 msgid "editors"
-msgstr ""
+msgstr "ผู้แก้ไข"
 
 msgctxt "editors_s"
 msgid "editor"
-msgstr ""
+msgstr "ผู้แก้ไข"
 
 msgctxt "email"
 msgid "E-mail address"
-msgstr ""
+msgstr "อีเมล"
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with traceability code %s"
@@ -624,11 +624,11 @@ msgstr ""
 
 msgctxt "entry_dates_p"
 msgid "Entry dates"
-msgstr ""
+msgstr "วันที่เพิ่มผลิตภัณฑ์"
 
 msgctxt "entry_dates_s"
 msgid "Entry date"
-msgstr ""
+msgstr "วันที่เพิ่มผลิตภัณฑ์"
 
 msgctxt "error"
 msgid "Error"
@@ -640,7 +640,7 @@ msgstr "ชื่อผู้ใช้หรือรหัสผ่านไม
 
 msgctxt "error_database"
 msgid "An error occurred while reading the data, try to refresh the page."
-msgstr ""
+msgstr "เกิดข้อผิดพลาดขณะอ่านข้อมูล โปรดลองรีเฟรชหน้าเว็บ"
 
 msgctxt "error_different_passwords"
 msgid "The password and confirmation password are different."
@@ -656,7 +656,7 @@ msgstr ""
 
 msgctxt "error_invalid_email"
 msgid "Invalid e-mail address"
-msgstr ""
+msgstr "อีเมลไม่ถูกต้อง"
 
 msgctxt "error_invalid_password"
 msgid "The password needs to be at least 6 characters long."
@@ -668,19 +668,19 @@ msgstr "ชื่อผู้ใช้งานไม่ถูกต้อง"
 
 msgctxt "error_invalid_username"
 msgid "The user name must contain only unaccented letters, digits and dashes."
-msgstr ""
+msgstr "ชื่อผู้ใช้งาน จะต้องมีเฉพาะ ตัวอักษร ตัวเลข และขีดกลางเท่านั้น"
 
 msgctxt "error_username_too_long"
 msgid "The user name is too long (maximum 40 characters)."
-msgstr ""
+msgstr "ชื่อผู้ใช้งาน ยาวเกินไป (สูงสุดได้ถึง 60 ตัวอักษร)"
 
 msgctxt "error_name_too_long"
 msgid "The name is too long (maximum 60 characters)."
-msgstr "ชื่อผู้ใช้งาน ยาวเกินไป (สูงสุดได้ถึง 60 ตัวอักษร)"
+msgstr "ชื่อของคุณยาวเกินไป (สูงสุดได้ถึง 60 ตัวอักษร)"
 
 msgctxt "error_new_code_already_exists"
 msgid "A product already exists with the new code"
-msgstr ""
+msgstr "รหัสบาร์โค้ดนี้มีผลิตภัณฑ์อยู่แล้ว"
 
 msgctxt "error_no_name"
 msgid "You need to enter a name or nickname."
@@ -692,11 +692,11 @@ msgstr "สิทธิ์ในการเข้าถึงถูกปฏิ
 
 msgctxt "error_no_username"
 msgid "You need to enter a user name"
-msgstr ""
+msgstr "กรุณาใส่ ชื่อผู้ใช้งาน"
 
 msgctxt "error_reset_already_connected"
 msgid "You are already signed in."
-msgstr ""
+msgstr "คุณเข้าสู่ระบบแล้ว"
 
 msgctxt "error_reset_invalid_token"
 msgid "The reset password link is invalid or has expired."
@@ -728,11 +728,11 @@ msgstr "ที่ดีที่สุดก่อนวันที่"
 
 msgctxt "expiration_date_note"
 msgid "The expiration date is a way to track product changes over time and to identify the most recent version."
-msgstr ""
+msgstr "วันหมดอายุสามารถใช้ในการตรวจสอบการเปลี่ยนแปลงข้อมูลผลิตภัณฑ์ และใช้ตรวจสอบเวอร์ชั่นล่าสุดได้"
 
 msgctxt "explore_products_by"
 msgid "Explore products by..."
-msgstr ""
+msgstr "แสดงเฉพาะผลิตภัณฑ์ตามเงื่อนไข โดย..."
 
 msgctxt "facebook_locale"
 msgid "en_US"
@@ -766,7 +766,7 @@ msgstr ""
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_code_of_conduct_link"
 msgid "/code-of-conduct"
-msgstr ""
+msgstr "/จรรยาบรรณของโครงการ"
 
 msgctxt "footer_data"
 msgid "Data, API and SDKs"
@@ -828,12 +828,12 @@ msgstr "/กฎหมายที่เกี่ยวข้อง"
 
 msgctxt "footer_privacy"
 msgid "Privacy"
-msgstr ""
+msgstr "นโยบายความเป็นส่วนตัว"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_privacy_link"
 msgid "/privacy"
-msgstr ""
+msgstr "นโยบายความเป็นส่วนตัว"
 
 msgctxt "footer_press"
 msgid "Press"
@@ -938,15 +938,15 @@ msgstr ""
 
 msgctxt "image_front"
 msgid "Front picture"
-msgstr ""
+msgstr "ภาพถ่ายด้านหน้าของผลิตภัณฑ์"
 
 msgctxt "image_ingredients"
 msgid "Ingredients picture"
-msgstr "รูปภาพของรายชื่อของส่วนผสม"
+msgstr "ภาพถ่ายส่วนประกอบของผลิตภัณฑ์"
 
 msgctxt "image_ingredients_note"
 msgid "If the picture is neat enough, the ingredients can be extracted automatically"
-msgstr ""
+msgstr "ระบบสามารถอ่าน ส่วนประกอบอาหาร ได้โดยอัตโนมัติ เมื่อภาพถ่ายส่วนประกอบอาหารมีความชัดเจนเพียงพอ"
 
 msgctxt "image_nutrition"
 msgid "Nutrition facts picture"
@@ -1027,7 +1027,7 @@ msgstr "ส่วนผสม"
 
 msgctxt "no_ingredient"
 msgid "Ingredients are missing"
-msgstr ""
+msgstr "ส่วนประกอบอาหารไม่ครบถ้วน"
 
 msgctxt "one_ingredient"
 msgid "1 ingredient"
@@ -1035,7 +1035,7 @@ msgstr ""
 
 msgctxt "f_ingredients_with_number"
 msgid "{number} ingredients"
-msgstr ""
+msgstr "มีส่วนประกอบ {number} อย่าง"
 
 msgctxt "ingredients_alt"
 msgid "Ingredients"
@@ -1043,23 +1043,23 @@ msgstr "ส่วนผสม"
 
 msgctxt "ingredients_analysis_note"
 msgid "Note: ingredients can be listed with many different names, please let us know if you think the analysis above is incorrect."
-msgstr ""
+msgstr "หมายเหตุ: การระบุส่วนประกอบอาหารนั้นสามารถทำได้หลายแบบ เมื่อพบว่าข้อมูลไม่ถูกต้อง กรุณาแจ้งให้เราทราบ"
 
 msgctxt "ingredients_from_or_that_may_be_from_palm_oil_p"
 msgid "ingredients from or that may be from palm oil"
-msgstr ""
+msgstr "มีส่วนประกอบที่มาจากผลผลิตจากปาล์ม"
 
 msgctxt "ingredients_from_or_that_may_be_from_palm_oil_s"
 msgid "ingredient from or that may be from palm oil"
-msgstr ""
+msgstr "มีส่วนประกอบที่มาจากผลผลิตจากปาล์ม"
 
 msgctxt "ingredients_from_palm_oil_p"
 msgid "ingredients from palm oil"
-msgstr ""
+msgstr "มีน้ำมันปาล์มเป็นส่วนประกอบ"
 
 msgctxt "ingredients_from_palm_oil_s"
 msgid "ingredient from palm oil"
-msgstr ""
+msgstr "มีน้ำมันปาล์มเป็นส่วนประกอบ"
 
 msgctxt "ingredients_n_p"
 msgid "Numbers of ingredients"
