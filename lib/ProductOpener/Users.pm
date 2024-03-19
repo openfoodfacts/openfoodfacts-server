@@ -64,9 +64,11 @@ BEGIN {
 		&create_password_hash
 		&check_password_hash
 		&retrieve_user
+		&retrieve_userids
 		&user_exists
 		&retrieve_user_by_email
 		&store_user
+		&store_user_session
 		&delete_user
 		&remove_user_by_org_admin
 		&add_users_to_org_by_admin
@@ -1003,6 +1005,24 @@ sub delete_user ($user_ref) {
 			store("$BASE_DIRS{USERS}/users_emails.sto", $emails_ref);
 		}
 	}
+}
+
+sub retreive_userids() {
+	my @userids = ();
+	opendir DH, $BASE_DIRS{USERS} or die "Couldn't open the users directory: $!";
+	my @files = sort(readdir(DH));
+	closedir(DH);
+
+	foreach my $userid (@files) {
+		next if $userid eq "." or $userid eq "..";
+		next if $userid eq 'all';
+		next if $userid eq 'users_emails.sto';
+
+		$userid =~ s/\.sto$//;
+		push @userids, $userid;
+	}
+
+	return @userids;
 }
 
 sub is_email_has_off_account ($email) {
