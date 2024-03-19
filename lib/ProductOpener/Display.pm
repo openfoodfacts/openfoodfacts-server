@@ -4057,7 +4057,7 @@ HTML
 			else {
 
 				# User
-				
+
 				$user_or_org_ref = retrieve_user($tagid);
 
 				if (not defined $user_or_org_ref) {

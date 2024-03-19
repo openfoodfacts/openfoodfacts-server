@@ -387,7 +387,7 @@ sub check_user_form ($type, $user_ref, $errors_ref) {
 
 		# check that the email is not already used
 		my $existing_user = retrieve_user_by_email($email);
-		if (defined $existing_user and $existing_user->{userid} ne $user_ref->{userid})
+		if (defined $existing_user and $existing_user->{userid} ne $user_ref->{userid}) {
 			$log->debug("check_user_form - email already in use",
 				{type => $type, email => $email, existing_userid => $existing_user->{userid}})
 				if $log->is_debug();
@@ -1382,7 +1382,7 @@ sub check_session ($user_id, $user_session) {
 		) if $log->is_debug();
 
 		if (
-				(not defined $user_ref->{'user_sessions'})
+			   (not defined $user_ref->{'user_sessions'})
 			or (not defined $user_session)
 			or (not defined $user_ref->{'user_sessions'}{$user_session})
 			# or (not defined $user_ref->{'user_sessions'}{$user_session}{'ip'})
