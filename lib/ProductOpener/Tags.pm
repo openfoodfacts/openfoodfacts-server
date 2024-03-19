@@ -4613,7 +4613,7 @@ sub add_tags_to_field ($product_ref, $tag_lc, $field, $additional_fields) {
 	return;
 }
 
-sub remove_tag_from_field($product_ref, $tag_lc, $field, $tags_to_remove){
+sub remove_tag_from_field($product_ref, $tag_lc, $field, $tags_to_remove) {
 
 	my %existing = ();
 	if (defined $product_ref->{$field . "_tags"}) {
@@ -4645,14 +4645,13 @@ sub remove_tag_from_field($product_ref, $tag_lc, $field, $tags_to_remove){
 
 	if (scalar @removed_tags > 0) {
 
-     my $current_value = $product_ref->{$field};
-        $product_ref->{$field} = join(", ", values %existing_tags);
-        compute_field_tags($product_ref, $tag_lc, $field);
+		my $current_value = $product_ref->{$field};
+		$product_ref->{$field} = join(", ", values %existing_tags);
+		compute_field_tags($product_ref, $tag_lc, $field);
 
 	}
 
-
-	return;			
+	return;
 
 }
 

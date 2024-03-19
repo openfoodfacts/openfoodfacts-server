@@ -216,12 +216,11 @@ sub update_tags_fields ($request_ref, $product_ref, $field, $add_to_existing_tag
 		# Generate a comma separated list of tags, so that we can use existing functions to add tags or remove tags
 		my $tags_list = join(',', @$value);
 
-
- 		if ($remove_tags && ref($remove_tags) eq 'ARRAY') {
-            foreach my $tag (@$remove_tags) {
-                remove_tags_from_field($product_ref, $tags_lc, $field, $tag);
-            }
-        }
+		if ($remove_tags && ref($remove_tags) eq 'ARRAY') {
+			foreach my $tag (@$remove_tags) {
+				remove_tags_from_field($product_ref, $tags_lc, $field, $tag);
+			}
+		}
 
 		if ($add_to_existing_tags) {
 			add_tags_to_field($product_ref, $tags_lc, $field, $tags_list);
