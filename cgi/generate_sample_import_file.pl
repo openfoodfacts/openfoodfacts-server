@@ -48,7 +48,7 @@ my $request_ref = ProductOpener::Display::init_request();
 my $r = Apache2::RequestUtil->request();
 
 $r->headers_out->set("Content-type" => "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
-$r->headers_out->set("Content-disposition" => "attachment;filename=openfoodfacts_import.xlsx");
+$r->headers_out->set("Content-disposition" => "attachment;filename=openfoodfacts_import_template_$lc.xlsx");
 
 print "Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\r\n\r\n";
 
