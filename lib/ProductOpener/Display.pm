@@ -10542,6 +10542,7 @@ sub display_product_history ($request_ref, $code, $product_ref) {
 	foreach my $change_ref (reverse @{$changes_ref}) {
 
 		my $userid = get_change_userid_or_uuid($change_ref);
+		my $uuid = $change_ref->{app_uuid};  
 		my $comment = _format_comment($change_ref->{comment});
 
 		my $change_rev = $change_ref->{rev};
@@ -10557,6 +10558,7 @@ sub display_product_history ($request_ref, $code, $product_ref) {
 			number => $change_rev,
 			date => display_date_tag($change_ref->{t}),
 			userid => $userid,
+			uuid => $uuid,   
 			diffs => compute_changes_diff_text($change_ref),
 			comment => $comment
 			};
