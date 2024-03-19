@@ -4622,6 +4622,7 @@ sub remove_tag_from_field($product_ref, $tag_lc, $field, $tags_to_remove) {
 		}
 	}
 
+	my @removed_tags = ();
 	my @tags_to_remove = split(/,/, $tags_to_remove);
 
 	foreach my $tag (@tags_to_remove) {
@@ -4638,15 +4639,15 @@ sub remove_tag_from_field($product_ref, $tag_lc, $field, $tags_to_remove) {
 			$tagid = get_string_id_for_lang($tag_lc, $tag);
 		}
 		if (exists $existing{$tagid}) {
-			delete $existing_tags{$tag_id};
-			push @added_tags, $tag;
+			delete $existing{$tagid};
+			push @removed_tags, $tag;
 		}
 	}
 
 	if (scalar @removed_tags > 0) {
 
 		my $current_value = $product_ref->{$field};
-		$product_ref->{$field} = join(", ", values %existing_tags);
+		$product_ref->{$field} = join(", ", values %existing);
 		compute_field_tags($product_ref, $tag_lc, $field);
 
 	}

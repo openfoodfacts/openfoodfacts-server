@@ -196,7 +196,7 @@ Update packagings.
 
 =cut
 
-sub update_tags_fields ($request_ref, $product_ref, $field, $add_to_existing_tags, $tags_lc, $value) {
+sub update_tags_fields ($request_ref, $product_ref, $field, $add_to_existing_tags, $remove_tags, $tags_lc, $value) {
 
 	my $request_body_ref = $request_ref->{body_json};
 	my $response_ref = $request_ref->{api_response};
