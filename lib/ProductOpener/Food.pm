@@ -423,6 +423,9 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 
 =cut
 
+print STDERR "Food.pm - 1\n";
+
+
 # http://healthycanadians.gc.ca/eating-nutrition/label-etiquetage/tips-conseils/nutrition-fact-valeur-nutritive-eng.php
 %nutriments_tables = (
 	europe => [
@@ -999,6 +1002,9 @@ sub is_beverage_for_nutrition_score_2023 ($product_ref) {
 	return $is_beverage;
 }
 
+print STDERR "Food.pm - 2\n";
+
+
 =head2 is_water_for_nutrition_score( $product_ref )
 
 Determines if a product should be considered as water for Nutri-Score computations,
@@ -1478,6 +1484,9 @@ sub saturated_fat_ratio ($nutriments_ref, $prepared) {
 	}
 	return $saturated_fat_ratio;
 }
+
+print STDERR "Food.pm - 3\n";
+
 
 =head2 saturated_fat_0_because_of_fat_0($nutriments_ref, $prepared)
 
@@ -2016,6 +2025,9 @@ sub set_fields_comparing_nutriscore_versions ($product_ref, $version1, $version2
 	return;
 }
 
+print STDERR "Food.pm - 4\n";
+
+
 =head2 compute_nutriscore( $product_ref )
 
 Determines if we have enough data to compute the Nutri-Score (category + nutrition facts),
@@ -2492,6 +2504,9 @@ calculate the number of units of alcohol in one serving of an alcoholic beverage
 
 =cut
 
+print STDERR "Food.pm - 5\n";
+
+
 sub compute_units_of_alcohol ($product_ref, $serving_size_in_ml) {
 
 	if (    (defined $product_ref)
@@ -2868,6 +2883,10 @@ agribalyse_proxy_food_code:en:43244
 
 =cut
 
+
+print STDERR "Food.pm - 6\n";
+
+
 sub assign_categories_properties_to_product ($product_ref) {
 
 	$product_ref->{categories_properties} = {};
@@ -3161,5 +3180,7 @@ sub compute_estimated_nutrients ($product_ref) {
 
 	return $results_ref;
 }
+
+print STDERR "Food.pm - end\n";
 
 1;
