@@ -198,9 +198,15 @@ foreach my $group_ref (@$select2_options_ref) {
 }
 
 my $tagtype = 'categories';
-my @category_entries = generate_sorted_list_of_taxonomy_entries($tagtype, [$lc], {});
+my @category_entries = ProductOpener::TaxonomySuggestions::generate_sorted_list_of_taxonomy_entries($tagtype, $lc, {});
 foreach my $i (0 .. $#category_entries) {
-	$worksheet_categories->write($i, 0, $category_entries[$i]);
+    my $category_entry = $category_entries[$i];
+    
+    $category_entry =~ s/^[a-z]{2}://;
+    $category_entry =~ s/^(\d+)(-\d+)?/$1$2%/;
+    $category_entry =~ s/%-/% /;
+    
+    $worksheet_categories->write($i, 0, ucfirst($category_entry));
 }
 
 exit(0);
