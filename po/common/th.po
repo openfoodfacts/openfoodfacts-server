@@ -1063,19 +1063,19 @@ msgstr "มีน้ำมันปาล์มเป็นส่วนประ
 
 msgctxt "ingredients_n_p"
 msgid "Numbers of ingredients"
-msgstr ""
+msgstr "จำนวนส่วนประกอบอาหาร"
 
 msgctxt "ingredients_n_s"
 msgid "Number of ingredients"
-msgstr ""
+msgstr "จำนวนส่วนประกอบอาหาร"
 
 msgctxt "known_ingredients_n_s"
 msgid "Number of recognized ingredients"
-msgstr ""
+msgstr "จำนวนส่วนประกอบอาหารที่ระบบรู้จัก"
 
 msgctxt "unknown_ingredients_n_s"
 msgid "Number of unrecognized ingredients"
-msgstr ""
+msgstr "จำนวนส่วนประกอบอาหารที่ระบบไม่รู้จัก"
 
 msgctxt "ingredients_p"
 msgid "ingredients"
@@ -1083,19 +1083,19 @@ msgstr "ส่วนผสม"
 
 msgctxt "ingredients_products"
 msgid "Products that contain the ingredient %s"
-msgstr ""
+msgstr "ผลิตภัณฑ์ที่มีส่วนประกอบของ %s"
 
 msgctxt "ingredients_s"
 msgid "ingredient"
-msgstr ""
+msgstr "ส่วนประกอบ"
 
 msgctxt "ingredients_text"
 msgid "Ingredients list"
-msgstr "ส่วนผสมรายการ"
+msgstr "ส่วนประกอบอาหาร"
 
 msgctxt "ingredients_text_display_note"
 msgid "Ingredients are listed in order of importance (quantity)."
-msgstr "ส่วนผสมมีการระบุไว้ในลำดับความสำคัญ (ปริมาณ)"
+msgstr "ส่วนประกอบอาหารเรียงลำดับตามปริมาณ"
 
 msgctxt "ingredients_text_example"
 msgid "Cereals 85.5% (_wheat_ flour, whole-_wheat_ flour 11%), malt extract, cocoa 4,8%, ascorbic acid"
@@ -1103,7 +1103,10 @@ msgstr ""
 
 msgctxt "ingredients_text_note"
 msgid "Keep the order, indicate the % when specified, separate with a comma or - , use ( ) for ingredients of an ingredient, surround allergens with _ e.g. _milk_"
-msgstr ""
+msgstr "1). เรียงส่วนประกอบอาหารตามลำดับเดิมบนฉลากผลิตภัณฑ์\n"
+"2). ใส่ % เมื่อมีการระบุในฉลาก\n"
+"3). ใส่ คอมมา (,) คั่นส่วนประกอบอาหารแต่ละชนิด และใช้ ( ) ในกรณีที่ ส่วนประกอบที่เป็นส่วนผสมหลายอย่าง เช่น \"น้ำจับเลี้ยง (เฉาก๊วย, เก๊กฮวย, หล่อฮังก๊วย) 55%\"\n"
+"4). ใส่ _ ไว้ทั้งข้างหน้า และหลังส่วนประกอบที่เป็น สารก่อภูมิแพ้ เช่น _นม_"
 
 msgctxt "ingredients_that_may_be_from_palm_oil_p"
 msgid "ingredients that may be from palm oil"
@@ -1816,15 +1819,15 @@ msgstr ""
 
 msgctxt "product_js_extract_ingredients"
 msgid "Extract the ingredients from the picture"
-msgstr "สารสกัดจากส่วนผสมจากภาพ"
+msgstr "อ่านส่วนประกอบอาหารจากภาพ"
 
 msgctxt "product_js_extracted_ingredients_nok"
 msgid "Ingredients text could not be extracted. Try with a sharper image, with higher resolution or a better framing of the text."
-msgstr ""
+msgstr "ไม่สามารถอ่านส่วนประกอบอาหารจากภาพ กรุณาใช้ภาพที่ชัดเจนมากขึ้น"
 
 msgctxt "product_js_extracted_ingredients_ok"
 msgid "Ingredients text has been extracted. Text recognition is not perfect, so please check the text below and correct errors if needed."
-msgstr ""
+msgstr "ส่วนประกอบอาหารที่อ่านจากภาพอาจมีข้อผิดพลาด กรุณาตรวจสอบและแก้ไขให้ถูกต้อง"
 
 msgctxt "product_js_extracting_ingredients"
 msgid "Extracting ingredients"
@@ -2669,7 +2672,7 @@ msgstr ""
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_from_ingredients_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d"
-msgstr ""
+msgstr "ข้อควรระวัง: เนื่องจากไม่ได้ระบุปริมาณของ ผลไม้ ผัก และถั่ว บนฉลากอาหารไว้อย่างชัดเจน ค่าที่แสดงเป็นค่าที่ระบบคำนวณจากรายการส่วนประกอบ: %d"
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
@@ -3299,11 +3302,11 @@ msgstr ""
 
 msgctxt "ingredients_analysis_p"
 msgid "ingredients analysis"
-msgstr ""
+msgstr "ผลวิเคราะห์ส่วนประกอบอาหาร"
 
 msgctxt "ingredients_analysis_s"
 msgid "ingredients analysis"
-msgstr ""
+msgstr "ผลวิเคราะห์ส่วนประกอบอาหาร"
 
 msgctxt "ingredients_analysis"
 msgid "Ingredients analysis"
@@ -5586,7 +5589,7 @@ msgstr ""
 
 msgctxt "ecoscore_origins_of_ingredients"
 msgid "Origins of ingredients"
-msgstr "แหล่งที่มาของส่วนผสม"
+msgstr "แหล่งที่มาของส่วนประกอบอาหาร"
 
 msgctxt "ecoscore_ingredients_not_indicated"
 msgid "The origins of the ingredients of this product are not indicated."
