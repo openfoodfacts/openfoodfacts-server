@@ -4613,6 +4613,49 @@ sub add_tags_to_field ($product_ref, $tag_lc, $field, $additional_fields) {
 	return;
 }
 
+sub remove_tag_from_field($product_ref, $tag_lc, $field, $tags_to_remove){
+
+	my %existing = ();
+	if (defined $product_ref->{$field . "_tags"}) {
+		foreach my $tagid (@{$product_ref->{$field . "_tags"}}) {
+			$existing{$tagid} = 1;
+		}
+	}
+
+	my @tags_to_remove = split(/,/, $tags_to_remove);
+
+	foreach my $tag (@tags_to_remove) {
+
+		$tag =~ s/^\s+//;
+		$tag =~ s/\s+$//;
+
+		my $tagid;
+
+		if (defined $taxonomy_fields{$field}) {
+			$tagid = get_taxonomyid($tag_lc, canonicalize_taxonomy_tag($tag_lc, $field, $tag));
+		}
+		else {
+			$tagid = get_string_id_for_lang($tag_lc, $tag);
+		}
+		if (exists $existing{$tagid}) {
+			delete $existing_tags{$tag_id};
+			push @added_tags, $tag;
+		}
+	}
+
+	if (scalar @removed_tags > 0) {
+
+     my $current_value = $product_ref->{$field};
+        $product_ref->{$field} = join(", ", values %existing_tags);
+        compute_field_tags($product_ref, $tag_lc, $field);
+
+	}
+
+
+	return;			
+
+}
+
 sub compute_field_tags ($product_ref, $tag_lc, $field) {
 	# generate the tags hierarchy from the comma separated list of $field with default language $tag_lc
 
