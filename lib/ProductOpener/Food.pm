@@ -89,6 +89,8 @@ BEGIN {
 
 		&assign_nutriments_values_from_request_parameters
 
+		&check_nutriscore_categories_exist_in_taxonomy
+
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
