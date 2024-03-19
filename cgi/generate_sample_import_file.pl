@@ -200,7 +200,7 @@ foreach my $group_ref (@$select2_options_ref) {
 my $tagtype = 'categories';
 my @category_entries = ProductOpener::TaxonomySuggestions::generate_sorted_list_of_taxonomy_entries($tagtype, $lc, {});
 foreach my $i (0 .. $#category_entries) {
-	my $category_entry = display_taxonomy_tag($lc, $tagtype, $category_entries[$i]);
+    my $category_entry = display_taxonomy_tag($lc, $tagtype, $category_entries[$i]);
     $worksheet_categories->write($i, 0, $category_entry);
 }
 
