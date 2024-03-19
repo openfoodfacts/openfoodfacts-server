@@ -69,7 +69,7 @@ BEGIN {
 		&retrieve_user_by_email
 		&store_user
 		&store_user_session
-		&delete_user
+		&remove_user
 		&remove_user_by_org_admin
 		&add_users_to_org_by_admin
 		&is_suspicious_name
@@ -245,7 +245,7 @@ sub delete_user_task ($job, $args_ref) {
 	$log->info("delete_user", {userid => $userid, new_userid => $new_userid}) if $log->is_info();
 
 	# Remove the user
-	delete_user($args_ref);
+	remove_user($args_ref);
 
 	#  re-assign product edits to anonymous-[random number]
 	find_and_replace_user_id_in_products($userid, $new_userid);
@@ -988,7 +988,8 @@ sub store_user ($user_ref) {
 	store_user_session($user_ref);
 }
 
-sub delete_user ($user_ref) {
+# This does the actual user deletion
+sub remove_user ($user_ref) {
 	my $userid = $user_ref->{userid};
 	my $user_file = "$BASE_DIRS{USERS}/" . get_string_id_for_lang("no_language", $userid) . ".sto";
 
@@ -1119,8 +1120,7 @@ sub init_user ($request_ref) {
 				return ($Lang{error_bad_login_password}{$lang});
 			}
 			else {
-				my @userids = @{$emails_ref->{$user_id}};
-				$user_id = $userids[0];
+				$user_id = $user_ref->{userid};
 			}
 
 			$log->info("corresponding user_id", {userid => $user_id}) if $log->is_info();
