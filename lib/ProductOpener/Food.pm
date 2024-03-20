@@ -2470,10 +2470,10 @@ sub create_nutrients_level_taxonomy() {
 		}
 	}
 
-	print STDERR "generate $data_root/taxonomies/nutrient_levels.txt \n";
+	print STDERR "generate $BASE_DIRS{CACHE_BUILD}/taxonomies-result/nutrient_levels.txt \n";
 
-	open(my $OUT, ">:encoding(UTF-8)", "$data_root/taxonomies/nutrient_levels.txt")
-		or die("Can't write $data_root/taxonomies/nutrient_levels.txt: $!");
+	open(my $OUT, ">:encoding(UTF-8)", "$BASE_DIRS{CACHE_BUILD}/taxonomies-result/nutrient_levels.txt")
+		or die("Can't write $BASE_DIRS{CACHE_BUILD}/taxonomies-result/nutrient_levels.txt: $!");
 	print $OUT <<TXT
 # nutrient levels taxonomy generated automatically by Food.pm from nutrients taxonomy + language translations (.po files)
 
