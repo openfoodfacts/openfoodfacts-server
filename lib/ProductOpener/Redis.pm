@@ -85,18 +85,13 @@ sub init_redis() {
 	return;
 }
 
-=head2 subscribe_to_redis_streams ($cv)
+=head2 subscribe_to_redis_streams ()
 
-Subcribe to redis stream to be informed about user deletions.
-
-=head3 Arguments
-
-=head4 $cv
-AnyEvents's current AE::cv object.
+Subscribe to redis stream to be informed about user deletions.
 
 =cut
 
-sub subscribe_to_redis_streams ($cv) {
+sub subscribe_to_redis_streams () {
 	if (!$redis_url) {
 		# No Redis URL provided, we can't push to Redis
 		if (!$sent_warning_about_missing_redis_url) {
@@ -106,25 +101,44 @@ sub subscribe_to_redis_streams ($cv) {
 		return;
 	}
 
-	my $error = "";
 	if (!defined $redis_client) {
 		# we where deconnected, try again
-		$log->info("Trying to reconnect to Redis");
+		$log->info("Trying to reconnect to Redis") if $log->is_info();
 		init_redis();
 	}
 
-	if (defined $redis_client) {
-
-		$redis_client->subscribe(
-			'user-deleted',
-			sub {
-				my $msg = shift;
-				my $channel = shift;
-
-				$log->info("Received message from Redis", {channel => $channel, message => $msg}) if $log->is_info();
-			}
-		);
+	if (!defined $redis_client) {
+		$log->warn("Can't connect to Redis") if $log->is_warn();
+		return;
 	}
+
+	_read_user_deleted_stream('$');
+
+	return;
+}
+
+sub _read_user_deleted_stream($search_from) {
+	$log->info("Reading from Redis", {stream => 'user-deleted', search_from => $search_from}) if $log->is_info();
+	$redis_client->xread(
+		'BLOCK' => 0,
+		'STREAMS' => 'user-deleted',
+		$search_from,
+		sub {
+			my ($reply, $err) = @_;
+			if ($err) {
+				$log->warn("Error reading from Redis", {error => $err}) if $log->is_warn();
+				return;
+			}
+
+			if ($reply) {
+				# TODO: The message should be updated to be real JSON string in openfoodfacts-auth. Then, modify this to parse the JSON.
+				# $search_from = $message_id;
+			}
+
+			_read_user_deleted_stream($search_from);
+			return;
+		}
+	);
 
 	return;
 }

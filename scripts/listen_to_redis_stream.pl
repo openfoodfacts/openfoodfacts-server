@@ -22,46 +22,41 @@
 
 # This script is meant to be called through process_new_image_off.sh, itself run through an icrontab
 
-use ProductOpener::PerlStandards
-
-binmode(STDOUT, ":encoding(UTF-8)");
+use ProductOpener::PerlStandards;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Redis qw/:all/;
 
 use Log::Any qw($log);
-use Log::Log4perl;
-Log::Log4perl->init("$conf_root/log.conf");    # Init log4perl from a config file.
-use Log::Any::Adapter;
-Log::Any::Adapter->set('Log4perl');    # Send all logs to Log::Log4perl
+use Log::Any::Adapter ('Stderr', log_level => 'debug');
 
 use AnyEvent;
 use EV;
 
 sub run ($cv) {
-	subscribe_to_redis_streams($cv);
+	subscribe_to_redis_streams();
 
 	# call event loop
+	$cv->recv;    # Wait for the event loop to finish
 	EV::run();
 	return;
 }
 
 sub main() {
-	print STDOUT "Starting listen_to_redis_stream.pl\n";
+	$log->info("Starting listen_to_redis_stream.pl") if $log->is_info();
 
 	my $cv = AE::cv;
 
 	# signal handler for TERM, KILL, QUIT
 	foreach my $sig (qw/TERM KILL QUIT/) {
 		EV::signal $sig, sub {
-			print "Exiting after receiving $sig\n";
+			$log->info("Exiting after receiving", {signal => $sig}) if $log->is_info();
 			$cv->send;
 			exit(0);
 		};
 	}
 
 	run($cv);
-	$cv->recv; # Wait for the event loop to finish
 	return;
 }
 
