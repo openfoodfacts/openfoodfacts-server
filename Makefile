@@ -246,7 +246,7 @@ checks: front_build front_lint check_perltidy check_perl_fast check_critic
 lint: lint_perltidy
 # TODO: add lint_taxonomies when taxonomies ready
 
-tests: build_lang_test unit_test integration_test
+tests: build_lang_test build_taxonomies_test unit_test integration_test
 
 # add COVER_OPTS='-e HARNESS_PERL_SWITCHES="-MDevel::Cover"' if you want to trigger code coverage report generation
 unit_test: create_folders
@@ -386,12 +386,18 @@ check_openapi: check_openapi_v2 check_openapi_v3
 # Compilation #
 #-------------#
 
-build_taxonomies: build_lang # build_lang generates the nutrient_level taxonomy source file
+build_taxonomies:
 	@echo "🥫 build taxonomies"
     # GITHUB_TOKEN might be empty, but if it's a valid token it enables pushing taxonomies to build cache repository
 	${DOCKER_COMPOSE} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl ${name}
 
 rebuild_taxonomies: build_taxonomies
+
+build_taxonomies_test:
+	@echo "🥫 build taxonomies"
+    # GITHUB_TOKEN might be empty, but if it's a valid token it enables pushing taxonomies to build cache repository
+	${DOCKER_COMPOSE_TEST} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl ${name}
+
 
 _clean_old_external_volumes:
 # THIS IS A MIGRATION STEP, TO BE REMOVED IN THE FUTURE
