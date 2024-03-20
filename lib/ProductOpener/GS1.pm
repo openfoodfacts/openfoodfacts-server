@@ -337,6 +337,8 @@ my $gs1_maps_entries_normalized = 0;
 
 sub normalize_gs1_maps_entries() {
 
+	return if $gs1_maps_entries_normalized;
+
 	foreach my $tag (sort keys %{$gs1_maps{allergenTypeCode}}) {
 		my $canon_tag = canonicalize_taxonomy_tag("en", "allergens", $gs1_maps{allergenTypeCode}{$tag});
 		if (exists_taxonomy_tag("allergens", $canon_tag)) {
@@ -1762,9 +1764,7 @@ sub read_gs1_json_file ($json_file, $products_ref, $messages_ref) {
 
 	$log->debug("read_gs1_json_file", {json_file => $json_file}) if $log->is_debug();
 
-	if (not $gs1_maps_entries_normalized) {
-		normalize_gs1_maps_entries();
-	}
+	normalize_gs1_maps_entries();
 
 	open(my $in, "<", $json_file) or die("Cannot open json file $json_file : $!\n");
 	my $json = join(q{}, (<$in>));

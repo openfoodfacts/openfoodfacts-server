@@ -1263,12 +1263,16 @@ my $nutriscore_fruits_vegetables_nuts_by_category_sorted_2021_initialized = 0;
 
 sub init_nutriscore_fruits_vegetables_nuts_by_category_sorted_2021() {
 
+	return if $nutriscore_fruits_vegetables_nuts_by_category_sorted_2021_initialized;
+
 	# Canonicalize the entries, in case the canonical entry changed
 	foreach my $category_ref (@fruits_vegetables_nuts_by_category_sorted_2021) {
 		$category_ref->[0] = canonicalize_taxonomy_tag("en", "categories", $category_ref->[0]);
 	}
 
 	$nutriscore_fruits_vegetables_nuts_by_category_sorted_2021_initialized = 1;
+
+	return;
 }
 
 =head2 compute_nutriscore_2021_fruits_vegetables_nuts_colza_walnut_olive_oil($product_ref, $prepared)
@@ -1285,9 +1289,7 @@ The fruit ratio
 
 sub compute_nutriscore_2021_fruits_vegetables_nuts_colza_walnut_olive_oil ($product_ref, $prepared) {
 
-	if (not $nutriscore_fruits_vegetables_nuts_by_category_sorted_2021_initialized) {
-		init_nutriscore_fruits_vegetables_nuts_by_category_sorted_2021();
-	}
+	init_nutriscore_fruits_vegetables_nuts_by_category_sorted_2021();
 
 	my $fruits = undef;
 
@@ -1398,11 +1400,15 @@ my $nutriscore_fruits_vegetables_nuts_by_category_sorted_2023_initialized = 0;
 
 sub init_nutriscore_fruits_vegetables_legumes_by_category_sorted_2023() {
 
+	return if $nutriscore_fruits_vegetables_nuts_by_category_sorted_2023_initialized;
+
 	# Canonicalize the entries, in case the canonical entry changed
 	foreach my $category_ref (@fruits_vegetables_legumes_by_category_if_no_ingredients_specified_sorted) {
 		$category_ref->[0] = canonicalize_taxonomy_tag("en", "categories", $category_ref->[0]);
 	}
 	$nutriscore_fruits_vegetables_nuts_by_category_sorted_2023_initialized = 1;
+
+	return;
 }
 
 =head2 compute_nutriscore_2023_fruits_vegetables_legumes($product_ref, $prepared)
@@ -1427,9 +1433,7 @@ Return undef if no value could be computed or estimated.
 
 sub compute_nutriscore_2023_fruits_vegetables_legumes ($product_ref, $prepared) {
 
-	if (not $nutriscore_fruits_vegetables_nuts_by_category_sorted_2023_initialized) {
-		init_nutriscore_fruits_vegetables_legumes_by_category_sorted_2023();
-	}
+	init_nutriscore_fruits_vegetables_legumes_by_category_sorted_2023();
 
 	# Check if we have a category override:
 	# - if the product is in a category that has no unprocessed fruits/vegetables/nuts (e.g. crisps), return 0

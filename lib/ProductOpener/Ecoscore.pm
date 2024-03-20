@@ -1130,6 +1130,9 @@ my @production_system_labels = (
 my $production_system_labels_initialized = 0;
 
 sub init_production_system_labels () {
+
+	return if $production_system_labels_initialized;
+
 	# Canonicalize the labels
 	foreach my $label_ref (@production_system_labels) {
 
@@ -1137,6 +1140,8 @@ sub init_production_system_labels () {
 		$label_ref->[0] = canonicalize_taxonomy_tag("en", "labels", $label_ref->[0]);
 	}
 	$production_system_labels_initialized = 1;
+
+	return;
 }
 
 sub compute_ecoscore_production_system_adjustment ($product_ref) {
