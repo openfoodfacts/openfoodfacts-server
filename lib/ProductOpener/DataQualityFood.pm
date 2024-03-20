@@ -1366,7 +1366,7 @@ sub check_nutrition_data ($product_ref) {
 
 			if ($ingredient_count < $minimum_ingredients) {
 				push @{$product_ref->{data_quality_warnings_tags}},
-					"en:ingredients-single-ingredient-from-category-missing";
+					"en:ingredients-less-than-minimum-ingredients-for-category";
 			}
 		}
 
