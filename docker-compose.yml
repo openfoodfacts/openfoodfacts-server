@@ -36,6 +36,7 @@ x-backend-conf: &backend-conf
     - PRODUCT_OPENER_OIDC_DISCOVERY_ENDPOINT
   depends_on:
     - memcached
+    - redis
   volumes:
     # pointer to openfoodfacts-web/lang
     - ${WEB_RESOURCES_PATH}/lang:/mnt/podata/lang

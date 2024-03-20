@@ -135,6 +135,8 @@ services:
             # trick: make it possible for product opener to reach it internally,
             # using localhost domain
             - auth.${PRODUCT_OPENER_DOMAIN}
+    depends_on:
+      - redis
 
 volumes:
   product_images:
