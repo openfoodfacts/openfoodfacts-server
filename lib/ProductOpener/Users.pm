@@ -966,6 +966,8 @@ sub retrieve_user_by_email($email) {
 sub store_user_session ($user_ref) {
 	my $user_file = "$BASE_DIRS{USERS}/" . get_string_id_for_lang("no_language", $user_ref->{userid}) . ".sto";
 	store($user_file, $user_ref);
+
+	return;
 }
 
 sub store_user ($user_ref) {
@@ -986,6 +988,8 @@ sub store_user ($user_ref) {
 
 	# save user
 	store_user_session($user_ref);
+
+	return;
 }
 
 # This does the actual user deletion
@@ -1006,6 +1010,8 @@ sub remove_user ($user_ref) {
 			store("$BASE_DIRS{USERS}/users_emails.sto", $emails_ref);
 		}
 	}
+
+	return;
 }
 
 sub retrieve_userids() {
