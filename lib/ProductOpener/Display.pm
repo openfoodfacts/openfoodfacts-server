@@ -4419,8 +4419,8 @@ JS
 			;
 
 		$scripts .= <<JS
-<script src="/js/product-preferences.js"></script>
-<script src="/js/product-search.js"></script>
+<script src="$static_subdomain/js/product-preferences.js"></script>
+<script src="$static_subdomain/js/product-search.js"></script>
 JS
 			;
 
@@ -5453,8 +5453,8 @@ JS
 			;
 
 		$scripts .= <<JS
-<script src="/js/product-preferences.js"></script>
-<script src="/js/product-search.js"></script>
+<script src="$static_subdomain/js/product-preferences.js"></script>
+<script src="$static_subdomain/js/product-search.js"></script>
 JS
 			;
 
@@ -8424,8 +8424,8 @@ var preferences_text = "$preferences_text";
 var product = $product_attribute_groups_json;
 </script>
 
-<script src="/js/product-preferences.js"></script>
-<script src="/js/product-search.js"></script>
+<script src="$static_subdomain/js/product-preferences.js"></script>
+<script src="$static_subdomain/js/product-search.js"></script>
 JS
 			;
 
