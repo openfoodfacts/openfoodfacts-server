@@ -2,16 +2,16 @@
 
 Javascript:
 - changed-files:
-  - '**/*.js''
+  - '**/*.js'
 
 GitHub Actions:
 - changed-files:
-  - '.github/**/*''
+  - '.github/**/*'
 
 NGINX:
 - changed-files:
   - 'conf/nginx/**/*'
-  - 'conf/nginx-docker/**''
+  - 'conf/nginx-docker/**'
 
 MongoDB:
 - changed-files:
@@ -20,12 +20,12 @@ MongoDB:
   - 'scripts/checkmongodb.pl'
   - 'scripts/update_all_products_from_dir_in_mongodb.pl'
   - 'scripts/update_all_products_revisions_from_dir_in_mongodb.pl'
-  - 'scripts/mongodb_dump.sh''
+  - 'scripts/mongodb_dump.sh'
 
 Stores:
 - changed-files:
   - 'taxonomies/unused/stores.txt'
-  - 'scripts/tag_stores_magasins_u.pl''
+  - 'scripts/tag_stores_magasins_u.pl'
 
 🤳🥫 tagline:
 - changed-files:
