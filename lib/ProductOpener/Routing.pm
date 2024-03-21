@@ -477,23 +477,26 @@ sub analyze_request ($request_ref) {
 				if $log->is_debug();
 		}
 
-		# list of tags? (plural of tagtype must be the last field)
-		if (defined $tag_type_from_plural{$target_lc}{$components[-1]}) {
+		# if we have at least one component, check if the last component is a plural of a tagtype -> list of tags
+		if (defined $components[-1]) {
+			if (defined $tag_type_from_plural{$target_lc}{$components[-1]}) {
 
-			$request_ref->{groupby_tagtype} = $tag_type_from_plural{$target_lc}{pop @components};
-			$canon_rel_url_suffix .= "/" . $tag_type_plural{$request_ref->{groupby_tagtype}}{$target_lc};
-			$log->debug("request looks like a list of tags",
-				{groupby => $request_ref->{groupby_tagtype}, lc => $target_lc})
-				if $log->is_debug();
-		}
-		# also try English tagtype
-		elsif (defined $tag_type_from_plural{"en"}{$components[-1]}) {
+				$request_ref->{groupby_tagtype} = $tag_type_from_plural{$target_lc}{pop @components};
+				$canon_rel_url_suffix .= "/" . $tag_type_plural{$request_ref->{groupby_tagtype}}{$target_lc};
+				$log->debug("request looks like a list of tags",
+					{groupby => $request_ref->{groupby_tagtype}, lc => $target_lc})
+					if $log->is_debug();
+			}
+			# also try English tagtype
+			elsif (defined $tag_type_from_plural{"en"}{$components[-1]}) {
 
-			$request_ref->{groupby_tagtype} = $tag_type_from_plural{"en"}{pop @components};
-			# use $target_lc for canon url
-			$canon_rel_url_suffix .= "/" . $tag_type_plural{$request_ref->{groupby_tagtype}}{$target_lc};
-			$log->debug("request looks like a list of tags", {groupby => $request_ref->{groupby_tagtype}, lc => "en"})
-				if $log->is_debug();
+				$request_ref->{groupby_tagtype} = $tag_type_from_plural{"en"}{pop @components};
+				# use $target_lc for canon url
+				$canon_rel_url_suffix .= "/" . $tag_type_plural{$request_ref->{groupby_tagtype}}{$target_lc};
+				$log->debug("request looks like a list of tags",
+					{groupby => $request_ref->{groupby_tagtype}, lc => "en"})
+					if $log->is_debug();
+			}
 		}
 
 		# Old Open Food Hunt points
