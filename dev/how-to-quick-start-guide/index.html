@@ -1695,7 +1695,7 @@ To enable Developer Mode:</p>
 <p>Use the Git Bash shell to run the make commands in windows so that programs like nproc and rm are found.</p>
 <h3 id="system-cannot-find-wget">System cannot find wget<a class="headerlink" href="#system-cannot-find-wget" title="Permanent link">#</a></h3>
 <p>When running <code>make import_prod_data</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="go">process_begin: CreateProcess(NULL, wget --no-verbose https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.tar.gz, ...) failed.</span>
+<div class="highlight"><pre><span></span><code><span class="go">process_begin: CreateProcess(NULL, wget --no-verbose https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.gz, ...) failed.</span>
 <span class="go">make (e=2): The system cannot find the file specified.</span>
 </code></pre></div>
 <p>You need to install <a href="https://eternallybored.org/misc/wget/">wget for windows</a>. The referenced version is able to use the Windows Certificate Store, whereas the standard <a href="https://gnuwin32.sourceforge.net/packages/wget.htm">gnuwin32 version</a> will give errors about not being able to verify the server certificate.</p>
