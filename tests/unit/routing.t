@@ -8,6 +8,8 @@ use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Routing qw/:all/;
 use ProductOpener::Lang qw/:all/;
+use ProductOpener::Tags qw/init_taxonomies/;
+init_taxonomies();
 
 # TODO: create a test case array and use the update_test_results system to
 # store and compare the returned $request object
@@ -236,6 +238,7 @@ foreach my $test_ref (@tests) {
 
 	# Set $lc global because currently analyze_request uses the global $lc
 	$lc = $test_ref->{input_request}{lc};
+	$lang = $test_ref->{input_request}{lc};
 	analyze_request($test_ref->{input_request});
 
 	is_deeply($test_ref->{input_request}, $test_ref->{expected_output_request}) or diag explain $test_ref;

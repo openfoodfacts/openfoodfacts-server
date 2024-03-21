@@ -847,35 +847,6 @@ foreach my $region (keys %nutriments_tables) {
 	}
 }
 
-# nutrient levels
-
-$log->info("Initializing nutrient levels") if $log->is_info();
-foreach my $l (@Langs) {
-
-	$lc = $l;
-	$lang = $l;
-
-	foreach my $nutrient_level_ref (@nutrient_levels) {
-		my ($nid, $low, $high) = @{$nutrient_level_ref};
-
-		foreach my $level ('low', 'moderate', 'high') {
-			my $fmt = lang("nutrient_in_quantity");
-			my $nutrient_name = display_taxonomy_tag($lc, "nutrients", "zz:$nid");
-			my $level_quantity = lang($level . "_quantity");
-			if ((not defined $fmt) or (not defined $nutrient_name) or (not defined $level_quantity)) {
-				next;
-			}
-
-			my $tag = sprintf($fmt, $nutrient_name, $level_quantity);
-			my $tagid = get_string_id_for_lang($lc, $tag);
-			$canon_tags{$lc}{nutrient_levels}{$tagid} = $tag;
-			# print "nutrient_levels : lc: $lc - tagid: $tagid - tag: $tag\n";
-		}
-	}
-}
-
-$log->debug("Nutrient levels initialized") if $log->is_debug();
-
 =head2 canonicalize_nutriment ( $product_ref )
 
 Canonicalizes the nutrients input by the user in the nutrition table product edit. 
@@ -2524,6 +2495,8 @@ TXT
 
 	return;
 }
+
+$log->debug("Nutrient levels initialized") if $log->is_debug();
 
 =head2 compute_units_of_alcohol ($product_ref, $serving_size_in_ml)
 

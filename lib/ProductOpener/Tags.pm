@@ -48,6 +48,7 @@ BEGIN {
 	@EXPORT_OK = qw(
 		&init_taxonomies
 		&retrieve_tags_taxonomy
+		&init_languages
 
 		&canonicalize_tag2
 		&canonicalize_tag_link
@@ -2456,7 +2457,7 @@ sub retrieve_tags_taxonomy ($tagtype) {
 	$taxonomy_fields{$tagtype} = $tagtype;
 	$tags_fields{$tagtype} = 1;
 
-	my $result_dir = "$BASE_DIRS{CACHE_BUILD}/taxonomies-result/";
+	my $result_dir = "$BASE_DIRS{CACHE_BUILD}/taxonomies-result";
 
 	my $file = $tagtype;
 	if ($tagtype eq "traces") {
@@ -2547,6 +2548,68 @@ sub country_to_cc ($country) {
 	return;
 }
 
+sub init_languages() {
+	# Build map of language codes and names
+
+	%language_codes = ();
+	%language_codes_reverse = ();
+
+	%Languages = ();    # Hash of language codes, will be used to initialize %Lang::Langs
+
+	foreach my $language (keys %{$properties{languages}}) {
+
+		my $lc = lc($properties{languages}{$language}{"language_code_2:en"});
+
+		$language_codes{$lc} = $language;
+		$language_codes_reverse{$language} = $lc;
+
+		# %Languages will be passed to Lang::build_lang() to populate language names and
+		# to initialize to the English value all missing values for all the languages
+		$Languages{$lc} = $translations_to{languages}{$language};
+	}
+
+	return;
+}
+
+sub init_countries() {
+	# Build map of local country names in official languages to (country, language)
+
+	$log->info("Building a map of local country names in official languages to (country, language)") if $log->is_info();
+
+	%country_names = ();
+	%country_codes = ();
+	%country_codes_reverse = ();
+	%country_languages = ();
+
+	foreach my $country (keys %{$properties{countries}}) {
+
+		my $cc = country_to_cc($country);
+		if (not(defined $cc)) {
+			next;
+		}
+
+		$country_codes{$cc} = $country;
+		$country_codes_reverse{$country} = $cc;
+
+		$country_languages{$cc} = ['en'];
+		if (defined $properties{countries}{$country}{"language_codes:en"}) {
+			$country_languages{$cc} = [];
+			foreach my $language (split(",", $properties{countries}{$country}{"language_codes:en"})) {
+				$language = get_string_id_for_lang("no_language", $language);
+				$language =~ s/-/_/;
+				push @{$country_languages{$cc}}, $language;
+				my $name = $translations_to{countries}{$country}{$language};
+				my $nameid = get_string_id_for_lang("no_language", $name);
+				if (not defined $country_names{$nameid}) {
+					$country_names{$nameid} = [$cc, $country, $language];
+					# print STDERR "country_names{$nameid} = [$cc, $country, $language]\n";
+				}
+			}
+		}
+	}
+	return;
+}
+
 sub init_taxonomies() {
 
 	# load all tags images
@@ -2583,60 +2646,8 @@ sub init_taxonomies() {
 	# ingredients_original uses the ingredients taxonomy
 	$taxonomy_fields{"ingredients_original"} = "ingredients";
 
-	# Build map of language codes and names
-
-	%language_codes = ();
-	%language_codes_reverse = ();
-
-	%Languages = ();    # Hash of language codes, will be used to initialize %Lang::Langs
-
-	foreach my $language (keys %{$properties{languages}}) {
-
-		my $lc = lc($properties{languages}{$language}{"language_code_2:en"});
-
-		$language_codes{$lc} = $language;
-		$language_codes_reverse{$language} = $lc;
-
-		# %Languages will be passed to Lang::build_lang() to populate language names and
-		# to initialize to the English value all missing values for all the languages
-		$Languages{$lc} = $translations_to{languages}{$language};
-	}
-
-	# Build map of local country names in official languages to (country, language)
-
-	$log->info("Building a map of local country names in official languages to (country, language)") if $log->is_info();
-
-	%country_names = ();
-	%country_codes = ();
-	%country_codes_reverse = ();
-	%country_languages = ();
-
-	foreach my $country (keys %{$properties{countries}}) {
-
-		my $cc = country_to_cc($country);
-		if (not(defined $cc)) {
-			next;
-		}
-
-		$country_codes{$cc} = $country;
-		$country_codes_reverse{$country} = $cc;
-
-		$country_languages{$cc} = ['en'];
-		if (defined $properties{countries}{$country}{"language_codes:en"}) {
-			$country_languages{$cc} = [];
-			foreach my $language (split(",", $properties{countries}{$country}{"language_codes:en"})) {
-				$language = get_string_id_for_lang("no_language", $language);
-				$language =~ s/-/_/;
-				push @{$country_languages{$cc}}, $language;
-				my $name = $translations_to{countries}{$country}{$language};
-				my $nameid = get_string_id_for_lang("no_language", $name);
-				if (not defined $country_names{$nameid}) {
-					$country_names{$nameid} = [$cc, $country, $language];
-					# print STDERR "country_names{$nameid} = [$cc, $country, $language]\n";
-				}
-			}
-		}
-	}
+	init_languages();
+	init_countries();
 
 	return;
 }
@@ -5075,6 +5086,9 @@ sub get_knowledge_content ($tagtype, $tagid, $target_lc, $target_cc) {
 	}
 	return;
 }
+
+# We do not call init_taxonomies() when the module is loaded, as taxonomies may not be built yet by build_taxonomies.pl (which itself loads Tags.pm)
+# init_taxonomies();
 
 $log->info("Tags.pm loaded") if $log->is_info();
 

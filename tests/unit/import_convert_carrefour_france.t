@@ -21,6 +21,7 @@ use ProductOpener::Ecoscore qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::Test qw/:all/;
 use ProductOpener::ImportConvertCarrefourFrance qw/:all/;
+use ProductOpener::LoadData qw/:all/;
 
 use JSON;
 
