@@ -1,0 +1,32 @@
+
+[% IF single_param("jqm") %]
+    [%- INCLUDE 'path/to/lang_file.tt.html' -%]
+    <button onclick="captureImage();" data-icon="off-camera">[% Lang.app_take_a_picture.$lang %]</button>
+    <div id="upload_image_result"></div>
+    <p>[% Lang.app_take_a_picture_note.$lang %]</p>
+[% END %]
+
+[% IF request_ref.api_version >= 0.1 %]
+    <form id="product_fields" action="javascript:void(0);">
+        <div data-role="fieldcontain" class="ui-hide-label" style="border-bottom-width: 0;">
+            [% FOREACH field IN app_fields %]
+                [% value = Lang.$field.$lang %]
+                <label for="[% field %]">[% Lang.$field.$lang %]</label>
+                <input type="text" name="[% field %]" id="[% field %]" value="" placeholder="[% value %]">
+            [% END %]
+        </div>
+
+        <div id="save_button">
+            <input type="submit" id="save" name="save" value="[% Lang.save.$lang %]">
+        </div>
+        <div id="saving" style="display:none">
+            <img src="loading2.gif" style="margin-right:10px"> [% Lang.saving.$lang %]
+        </div>
+        <div id="saved" style="display:none">
+            [% Lang.saved.$lang %]
+        </div>
+        <div id="not_saved" style="display:none">
+            [% Lang.not_saved.$lang %]
+        </div>
+    </form>
+[% END %]
