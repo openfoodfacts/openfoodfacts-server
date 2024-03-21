@@ -1,5 +1,4 @@
-# For reference, please look at https://github.com/actions/labeler
-
+# Add labels to any any pull request with changes to the specified paths
 JavaScript:
 - changed-files:
   - any-glob-to-any-file: '**/*.js'
