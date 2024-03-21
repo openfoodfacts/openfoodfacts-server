@@ -1385,7 +1385,10 @@ sub compute_ecoscore_origins_of_ingredients_adjustment ($product_ref) {
 		foreach my $category (@{$product_ref->{categories_tags}}) {
 			my $origin_id = get_property("categories", $category, "origins:en");
 			if (defined $origin_id) {
-				push @origins_from_categories, split(',', $origin_id);
+				# There may be multiple comma separated origins, and they might not be canonical
+				# so we split them and canonicalize them
+				push @origins_from_categories,
+					map ({canonicalize_taxonomy_tag("en", "origins", $_)} split(',', $origin_id));
 			}
 		}
 	}
