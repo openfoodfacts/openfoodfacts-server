@@ -31277,6 +31277,11 @@ fr:sirop de sucres issus de fruits
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sirop-de-sucres-issus-de-fruits
 # 22 products @2019-05-30
 
+<en:sugar syrup
+en:coconut blossom syrup
+de:Kokosblütensirup
+fr:sirop de sucre de fleur de coco
+
 <en:disaccharide
 en:wheat syrup
 bg:пшеничен сироп
@@ -40489,26 +40494,15 @@ de:konzentrierter Zitronenextrakt
 fi:tiivistetty sitruunauute
 fr:Extrait de citron concentré
 
-<en:lemon
-en:lemon marmalade
-ca:melmelada de llimona
-de:Zitronenmarmelade, Zitronen-Marmelade
-es:mermelada de limón
-
 <en:preparation
-<en:lemon
 en:lemon preparation
 hr:pripravak od limuna
 
 <en:preparation
-<en:lemon
-<en:cake
-<en:honey
 en:lemon cake honey preparation
 hr:pripravak limun kolač med
 
 <en:filling
-<en:lemon
 en:lemon filling
 hr:punjenje s okusom limuna
 
@@ -88823,11 +88817,19 @@ hr:pripavak jagoda
 pl:dżem truskawkowy
 
 # <en:compound
-<en:jamen:raspberry jam
+<en:jam
+en:raspberry jam
 bg:конфитюр от малини
 de:Himbeermarmelade
 fr:confiture de framboise
 wikidata:en:Q11962286
+
+# <en:compound
+<en:jam
+en:lemon marmalade
+ca:melmelada de llimona
+de:Zitronenmarmelade, Zitronen-Marmelade
+es:mermelada de limón
 
 #<en:compound
 en:cocoa spread, cocoa cream
