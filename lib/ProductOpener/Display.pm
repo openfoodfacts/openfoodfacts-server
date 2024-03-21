@@ -10346,55 +10346,9 @@ sub display_product_api ($request_ref) {
 		}
 		$response{status} = 0;
 		$response{status_verbose} = 'product not found';
-		if (single_param("jqm")) {
-			$response{jqm} = <<HTML
-$Lang{app_please_take_pictures}{$lang}
-<button onclick="captureImage();" data-icon="off-camera">$Lang{app_take_a_picture}{$lang}</button>
-<div id="upload_image_result"></div>
-<p>$Lang{app_take_a_picture_note}{$lang}</p>
-HTML
-				;
-			if ($request_ref->{api_version} >= 0.1) {
-
-				my @app_fields = qw(product_name brands quantity);
-
-				my $html = <<HTML
-<form id="product_fields" action="javascript:void(0);">
-<div data-role="fieldcontain" class="ui-hide-label" style="border-bottom-width: 0;">
-HTML
-					;
-				foreach my $field (@app_fields) {
-
-					# placeholder in value
-					my $value = $Lang{$field}{$lang};
-
-					$html .= <<HTML
-<label for="$field">$Lang{$field}{$lang}</label>
-<input type="text" name="$field" id="$field" value="" placeholder="$value">
-HTML
-						;
-				}
-
-				$html .= <<HTML
-</div>
-<div id="save_button">
-<input type="submit" id="save" name="save" value="$Lang{save}{$lang}">
-</div>
-<div id="saving" style="display:none">
-<img src="loading2.gif" style="margin-right:10px"> $Lang{saving}{$lang}
-</div>
-<div id="saved" style="display:none">
-$Lang{saved}{$lang}
-</div>
-<div id="not_saved" style="display:none">
-$Lang{not_saved}{$lang}
-</div>
-</form>
-HTML
-					;
+#template
 				$response{jqm} .= $html;
 
-			}
 		}
 	}
 	else {
