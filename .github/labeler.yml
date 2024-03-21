@@ -808,6 +808,12 @@ Static content:
 matomo:
 - scripts/utils/logs/download_matomo_logs.pl
 
+Data exports:
+- scripts/gen_feeds_daily_obf.sh
+- scripts/gen_feeds_daily_off.sh
+- scripts/gen_feeds_daily_opf.sh
+- scripts/gen_feeds_daily_opff.sh
+
 # TODO: find or create proper labels for those
 #- scripts/extract_images.pl
 #- scripts/test_text_fuzzy.pl
