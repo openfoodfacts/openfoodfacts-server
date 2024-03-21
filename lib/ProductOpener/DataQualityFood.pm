@@ -1359,14 +1359,19 @@ sub check_nutrition_data ($product_ref) {
 		}
 
 		# Check for Mozzarella category and minimum number of ingredients
-		if (defined $product_ref->{category_id2} && $product_ref->{category_id2} eq 'mozzarella') {
-			my $ingredient_count = (defined $product_ref->{ingredients}) ? scalar(@{$product_ref->{ingredients}}) : 0;
-			my $minimum_ingredients
-				= get_inherited_property_from_categories_tags($product_ref, "minimum_number_of_ingredients:en");
+		sub check_mozzarella_ingredients {
+			my ($product_ref) = @_;
 
-			if ($ingredient_count < $minimum_ingredients) {
-				push @{$product_ref->{data_quality_warnings_tags}},
-					"en:ingredients-less-than-minimum-ingredients-for-category";
+			if (defined $product_ref->{category_id2} && $product_ref->{category_id2} eq 'mozzarella') {
+				my $ingredient_count
+					= (defined $product_ref->{ingredients}) ? scalar(@{$product_ref->{ingredients}}) : 0;
+				my $minimum_ingredients
+					= get_inherited_property_from_categories_tags($product_ref, "minimum_number_of_ingredients:en");
+
+				if ($ingredient_count < $minimum_ingredients) {
+					push @{$product_ref->{data_quality_warnings_tags}},
+						"en:ingredients-less-than-minimum-ingredients-for-category";
+				}
 			}
 		}
 

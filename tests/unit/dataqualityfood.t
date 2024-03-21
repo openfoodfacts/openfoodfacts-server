@@ -1885,4 +1885,16 @@ ok(
 	'Soluble fiber + Insoluble fiber exceeds total fiber'
 ) or diag explain $product_ref;
 
+my $product_ref = {
+	category_id2 => 'mozzarella',
+	ingredients => ['cheese', 'salt'],
+	data_quality_warnings_tags => [],
+};
+
+check_mozzarella_ingredients($product_ref);
+
+ok(scalar @{$product_ref->{data_quality_warnings_tags}} > 0,
+	'Product with Mozzarella category and insufficient ingredients should raise a warning')
+	or diag explain $product_ref;
+
 done_testing();
