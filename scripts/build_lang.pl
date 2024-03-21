@@ -39,6 +39,8 @@ print STDERR "Build \%Lang - data_root: $data_root - server_domain: $server_doma
 # - English values for all missing values for all languages (done by Lang::build_lang() )
 
 # Tags.pm builds the %Languages hash of languages from the languages taxonomy
+retrieve_tags_taxonomy("languages");
+init_languages();
 
 ProductOpener::Lang::build_lang(\%Languages);
 my $tags_ref = ProductOpener::Lang::build_lang_tags();
