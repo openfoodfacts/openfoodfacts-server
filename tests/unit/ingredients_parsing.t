@@ -13,6 +13,8 @@ use ProductOpener::Tags qw/:all/;
 use ProductOpener::TagsEntries qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 
+init_taxonomies();
+
 #use Log::Any::Adapter 'TAP', filter => "none";
 
 is(normalize_a_of_b("en", "oil", "olive", 1), "olive oil");

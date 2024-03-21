@@ -159,6 +159,8 @@ sub check_nutriscore_categories_exist_in_taxonomy() {
 			}
 		}
 	}
+
+	return;
 }
 
 # Load nutrient stats for all categories and countries

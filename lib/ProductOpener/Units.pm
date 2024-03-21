@@ -89,7 +89,14 @@ my %units = ();
 my %units_names = ();
 my $units_regexp;
 
+my $init_units_names_done = 0;
+
 sub init_units_names() {
+
+	return if $init_units_names_done;
+
+	# Load the units taxonomy
+	retrieve_tags_taxonomy("units");
 
 	foreach my $tagid (get_all_taxonomy_entries("units")) {
 
@@ -127,6 +134,8 @@ sub init_units_names() {
 			sort {(length $b <=> length $a) || ($a cmp $b)}
 			keys %units_names
 	);
+
+	$init_units_names_done = 1;
 
 	return;
 }

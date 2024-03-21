@@ -10,6 +10,8 @@ use ProductOpener::DataQualityFood qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 
+init_taxonomies();
+
 sub check_quality_and_test_product_has_quality_tag($$$$) {
 	my $product_ref = shift;
 	my $tag = shift;

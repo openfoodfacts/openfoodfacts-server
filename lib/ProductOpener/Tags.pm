@@ -47,6 +47,7 @@ BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		&init_taxonomies
+		&retrieve_tags_taxonomy
 
 		&canonicalize_tag2
 		&canonicalize_tag_link
@@ -2636,6 +2637,8 @@ sub init_taxonomies() {
 			}
 		}
 	}
+
+	return;
 }
 
 my %and = (
@@ -3496,7 +3499,9 @@ Otherwise, we return the string prefixed with the language code (e.g. en:An unkn
 sub canonicalize_taxonomy_tag ($tag_lc, $tagtype, $tag, $exists_in_taxonomy_ref = undef) {
 
 	my $taxonomy = $taxonomy_fields{$tagtype};
-	not defined $taxonomy and die;
+	if (not defined $taxonomy) {
+		die("canonicalize_taxonomy_tag: unknown tag type $tagtype, cannot canonicalize tag $tag");
+	}
 
 	if (not defined $tag) {
 		if (defined $exists_in_taxonomy_ref) {

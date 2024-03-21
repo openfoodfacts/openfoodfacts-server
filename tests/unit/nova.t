@@ -11,6 +11,8 @@ use ProductOpener::TagsEntries qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Food qw/:all/;
 
+init_taxonomies();
+
 # dummy product for testing
 
 my @tests = (

@@ -9,6 +9,8 @@ use Log::Any::Adapter 'TAP';
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Food qw/:all/;
 
+init_taxonomies();
+
 my $product_ref = {
 	lc => "en",
 	categories_tags => ["en:beverages"],

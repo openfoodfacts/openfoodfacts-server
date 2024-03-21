@@ -11,6 +11,7 @@ use ProductOpener::Tags qw/:all/;
 use ProductOpener::TagsEntries qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 
+init_taxonomies();
 init_emb_codes();
 
 # dummy product for testing

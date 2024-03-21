@@ -13,6 +13,8 @@ use ProductOpener::Tags qw/:all/;
 use ProductOpener::TagsEntries qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 
+init_taxonomies();
+
 my @lists = (
 	# en phrases_after_ingredients_list
 	[

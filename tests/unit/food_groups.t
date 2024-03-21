@@ -10,6 +10,8 @@ use ProductOpener::FoodGroups qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Tags qw/:all/;
 
+init_taxonomies();
+
 my @tests = (
 
 	# Product without a category: no food groups

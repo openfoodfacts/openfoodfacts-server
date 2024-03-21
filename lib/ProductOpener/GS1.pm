@@ -368,6 +368,8 @@ sub normalize_gs1_maps_entries() {
 	}
 
 	$gs1_maps_entries_normalized = 1;
+
+	return;
 }
 
 =head2 %gs1_message_to_off

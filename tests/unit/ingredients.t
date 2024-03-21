@@ -14,6 +14,8 @@ use ProductOpener::TagsEntries qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Test qw/:all/;
 
+init_taxonomies();
+
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
 my @tests = (
