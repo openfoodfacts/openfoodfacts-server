@@ -255,11 +255,64 @@ paths:
 
         If the search query parameter has 2 possible values, they are seperated by a comma(,).
         When filtering via a parameter that has different language codes like `fr`, `de` or `en`, specify the language code in the parameter name e.g `categories_tags_en`
-      
+
         **Important:** search API v2 does not support full text request (search_term),
         you have to use [search API v1](https://wiki.openfoodfacts.org/API/Read/Search) for that.
         Upcoming [search-a-licious project](https://github.com/openfoodfacts/search-a-licious) will fix that.
-      
+
+        ### Limiting results
+
+        You can limit the size of returned objects thanks to the `fields` object (see below).
+
+        eg: `fields=code,product_name,brands,attribute_groups``
+
+        Please use it as much as possible to avoid overloading the servers.
+
+        The search use pagination, see `page` and `page_size` parameters.
+        
+        **Beware:** the `page_count` data in item is a bit counter intuitive…, read the description.
+
+        ### Conditions on tags
+
+        All `_tags`` parameters accepts either:
+
+        * a single value
+        * or a comma-separated list of values (doing a AND)
+        * or a pipe separated list of values (doing a OR)
+
+        You can exclude terms by using a "-" prefix.
+
+        For taxonomized entries, you might either use the tag id (recommended),
+        or a known synonym (without language prefix)
+
+        * `labels_tags=en:organic,en:fair-trade` find items that are fair-trade AND organic
+        * `labels_tags=en:organic|en:fair-trade` find items that are fair-trade OR organic
+        * `labels_tags=en:organic,en:-fair-trade` find items that are organic BUT NOT fair-trade
+
+
+        ### Conditions on nutriments
+
+        To get a list of nutrients
+
+        You can either query on nutrient per 100g (`_100g` suffix)
+        or per serving (`serving` suffix).
+
+        You can also add `_prepared_`
+        to get the nutrients in the prepared product instead of as sold.
+
+        You can add a comparison operator and value to the parameter name
+        to get products with nutrient above or bellow a value.
+        If you use a parameter value it exactly match it.
+
+        * `energy-kj_100g<200` products where energy in kj for 100g is less than 200kj
+        * `sugars_serving>10` products where sugar per serving is greater than 10g
+        * `saturated-fat_100g=1` products where saturated fat per 100g is exactly 10g
+        * `salt_prepared_serving<0.1` products where salt per serving for prepared product is less than 0.1g
+
+        ### More references
+
+        See also [wiki page](https://wiki.openfoodfacts.org/Open_Food_Facts_Search_API_Version_2)
+
       parameters:
         # all tags parameters
         - $ref: './schemas/tags_parameters.yaml#/properties/additives_tags'
@@ -278,6 +331,9 @@ paths:
         - $ref: './schemas/tags_parameters.yaml#/properties/stores_tags'
         - $ref: './schemas/tags_parameters.yaml#/properties/traces_tags'
         - $ref: './schemas/tags_parameters.yaml#/properties/tag_name_with_language_code'
+        - $ref: './schemas/nutrition_search.yaml#/properties/nutrient_lower_than'
+        - $ref: './schemas/nutrition_search.yaml#/properties/nutrient_greater_than'
+        - $ref: './schemas/nutrition_search.yaml#/properties/nutrient_equal'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/sort_by'
         - $ref: '#/components/parameters/page'
