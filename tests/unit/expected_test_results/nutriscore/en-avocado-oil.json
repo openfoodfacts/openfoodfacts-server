@@ -40,7 +40,7 @@
       "en:fruit-and-fruit-seed-oils",
       "en:avocado-oils"
    ],
-   "food_groups" : "en:fats",
+   "food_groups" : "en:Fats",
    "food_groups_tags" : [
       "en:fats-and-sauces",
       "en:fats"
@@ -48,6 +48,7 @@
    "ingredients" : [
       {
          "id" : "en:avocado",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 100,
          "percent_max" : 100,
          "percent_min" : 100,

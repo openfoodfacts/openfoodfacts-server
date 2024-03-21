@@ -566,7 +566,7 @@
       "emb-43062a"
    ],
    "entry_dates_tags" : "--ignore--",
-   "food_groups" : "en:vegetables",
+   "food_groups" : "en:Vegetables",
    "food_groups_tags" : [
       "en:fruits-and-vegetables",
       "en:vegetables"
@@ -633,6 +633,7 @@
       {
          "ciqual_food_code" : "20505",
          "id" : "en:green-lentils",
+         "is_in_taxonomy" : 1,
          "labels" : "en:organic",
          "percent_estimate" : 100,
          "percent_max" : 100,

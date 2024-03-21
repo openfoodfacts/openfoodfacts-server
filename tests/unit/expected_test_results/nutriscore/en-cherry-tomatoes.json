@@ -42,7 +42,7 @@
       "en:tomatoes",
       "en:cherry-tomatoes"
    ],
-   "food_groups" : "en:vegetables",
+   "food_groups" : "en:Vegetables",
    "food_groups_tags" : [
       "en:fruits-and-vegetables",
       "en:vegetables"
@@ -51,6 +51,7 @@
       {
          "ciqual_food_code" : "20172",
          "id" : "en:cherry-tomato",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 100,
          "percent_max" : 100,
          "percent_min" : 100,

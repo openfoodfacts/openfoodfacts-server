@@ -36,7 +36,7 @@
       "en:fruits",
       "en:apples"
    ],
-   "food_groups" : "en:fruits",
+   "food_groups" : "en:Fruits",
    "food_groups_tags" : [
       "en:fruits-and-vegetables",
       "en:fruits"
@@ -45,6 +45,7 @@
       {
          "ciqual_food_code" : "13050",
          "id" : "en:apple",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 100,
          "percent_max" : 100,
          "percent_min" : 100,

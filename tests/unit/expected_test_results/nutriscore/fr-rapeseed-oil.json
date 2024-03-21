@@ -38,7 +38,7 @@
       "en:vegetable-oils",
       "en:rapeseed-oils"
    ],
-   "food_groups" : "en:fats",
+   "food_groups" : "en:Fats",
    "food_groups_tags" : [
       "en:fats-and-sauces",
       "en:fats"
@@ -48,6 +48,7 @@
          "ciqual_food_code" : "17130",
          "from_palm_oil" : "no",
          "id" : "en:colza-oil",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 100,
          "percent_max" : 100,
          "percent_min" : 100,

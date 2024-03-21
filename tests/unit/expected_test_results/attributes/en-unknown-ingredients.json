@@ -783,7 +783,7 @@
    "ecoscore_tags" : [
       "d"
    ],
-   "food_groups" : "en:cheese",
+   "food_groups" : "en:Cheese",
    "food_groups_tags" : [
       "en:milk-and-dairy-products",
       "en:cheese"
@@ -791,6 +791,7 @@
    "ingredients" : [
       {
          "id" : "en:some-ingredient-that-we-do-not-recognize",
+         "is_in_taxonomy" : 0,
          "percent_estimate" : 100,
          "percent_max" : 100,
          "percent_min" : 100,

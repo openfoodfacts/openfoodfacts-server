@@ -790,7 +790,7 @@
    "ecoscore_tags" : [
       "d"
    ],
-   "food_groups" : "en:cheese",
+   "food_groups" : "en:Cheese",
    "food_groups_tags" : [
       "en:milk-and-dairy-products",
       "en:cheese"
@@ -799,6 +799,7 @@
       {
          "ciqual_proxy_food_code" : "19051",
          "id" : "en:cow-s-milk",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 57.1428571428571,
          "percent_max" : 100,
          "percent_min" : 14.2857142857143,
@@ -809,6 +810,7 @@
       {
          "ciqual_food_code" : "11058",
          "id" : "en:salt",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 21.4285714285714,
          "percent_max" : 50,
          "percent_min" : 0,
@@ -818,6 +820,7 @@
       },
       {
          "id" : "en:microbial-culture",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 10.7142857142857,
          "percent_max" : 33.3333333333333,
          "percent_min" : 0,
@@ -827,6 +830,7 @@
       },
       {
          "id" : "en:garlic-flavouring",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 2.5,
          "percent_max" : "5",
          "percent_min" : 0,
@@ -836,6 +840,7 @@
       },
       {
          "id" : "en:e412",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 2.5,
          "percent_max" : "5",
          "percent_min" : 0,
@@ -846,6 +851,7 @@
       {
          "ciqual_proxy_food_code" : "31016",
          "id" : "en:sugar",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 2.5,
          "percent_max" : "5",
          "percent_min" : 0,
@@ -856,6 +862,7 @@
       {
          "ciqual_food_code" : "31077",
          "id" : "en:high-fructose-corn-syrup",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 3.21428571428572,
          "percent_max" : "5",
          "percent_min" : 0,

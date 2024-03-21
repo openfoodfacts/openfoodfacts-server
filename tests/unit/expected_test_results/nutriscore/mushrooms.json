@@ -22,7 +22,7 @@
    "categories_tags" : [
       "en:meals"
    ],
-   "food_groups" : "en:one-dish-meals",
+   "food_groups" : "en:One-dish meals",
    "food_groups_tags" : [
       "en:composite-foods",
       "en:one-dish-meals"
@@ -31,6 +31,7 @@
       {
          "ciqual_food_code" : "20114",
          "id" : "en:oyster-mushroom",
+         "is_in_taxonomy" : 1,
          "origins" : "en:european-union",
          "percent" : 69,
          "percent_estimate" : 69,
@@ -42,6 +43,7 @@
       },
       {
          "id" : "fr:chapelure-de-mais",
+         "is_in_taxonomy" : 0,
          "percent_estimate" : 31,
          "percent_max" : 31,
          "percent_min" : 31,

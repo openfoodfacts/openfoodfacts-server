@@ -29,7 +29,7 @@
       "en:prepared-meats",
       "en:sausages"
    ],
-   "food_groups" : "en:processed-meat",
+   "food_groups" : "en:Processed meat",
    "food_groups_tags" : [
       "en:fish-meat-eggs",
       "en:processed-meat"
@@ -38,6 +38,7 @@
       {
          "ciqual_food_code" : "26036",
          "id" : "en:salmon",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 73.75,
          "percent_max" : 98,
          "percent_min" : 49.5,
@@ -48,6 +49,7 @@
       {
          "ciqual_proxy_food_code" : "9410",
          "id" : "en:wheat-flour",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 13.625,
          "percent_max" : 49.5,
          "percent_min" : 1,
@@ -58,6 +60,7 @@
       {
          "ciqual_food_code" : "11058",
          "id" : "en:salt",
+         "is_in_taxonomy" : 1,
          "percent" : 1,
          "percent_estimate" : 12.625,
          "percent_max" : 1,
