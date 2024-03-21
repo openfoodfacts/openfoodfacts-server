@@ -903,7 +903,7 @@ API WRITE:
   - any-glob-to-any-file: 'tests/integration/api_v3_product_write.t'
   - any-glob-to-any-file: 'docs/api/ref/requestBodies/add_or_edit_a_product.yaml'
   - any-glob-to-any-file: 'docs/api/ref/requestBodies/crop_a_photo.yaml'
-  - any-glob-to-any-file: 'docs/api/ref/requestBodies/add_photo_to_existing_product.yaml
+  - any-glob-to-any-file: 'docs/api/ref/requestBodies/add_photo_to_existing_product.yaml'
   
 monitoring:
 - changed-files:
