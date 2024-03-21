@@ -36,6 +36,7 @@ use Log::Any qw($log);
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
+		&init_units_names
 
 		&unit_to_g
 		&g_to_unit
@@ -140,8 +141,6 @@ sub init_units_names() {
 	return;
 }
 
-init_units_names();
-
 =head2 unit_to_g($value, $unit)
 
 Converts <xx><unit> into <xx>grams. Eg.:
@@ -151,6 +150,8 @@ unit_to_g(520,mg) => returns 0.52
 =cut
 
 sub unit_to_g ($value, $unit) {
+
+	init_units_names();
 
 	# Return undef if not passed a defined value
 	not defined $value and return;
@@ -192,6 +193,8 @@ g_to_unit(0.52,mg) => returns 520
 =cut
 
 sub g_to_unit ($value, $unit) {
+
+	init_units_names();
 
 	# Return undef if not passed a defined value
 	not defined $value and return;
@@ -248,6 +251,8 @@ Returns (undef, undef, undef) if no quantity was detected.
 
 sub parse_quantity_unit ($quantity, $standard_unit_bool = undef) {
 
+	init_units_names();
+
 	my $q = undef;
 	my $m = undef;
 	my $u = undef;
@@ -288,6 +293,9 @@ Returns undef if no quantity was detected.
 =cut
 
 sub normalize_quantity ($quantity_field) {
+
+	init_units_names();
+
 	my ($quantity, $multiplier, $unit) = parse_quantity_unit($quantity_field);
 
 	$quantity = convert_string_to_number($quantity);
@@ -314,6 +322,8 @@ Returns undef if no unit was detected.
 =cut
 
 sub extract_standard_unit ($quantity_field) {
+
+	init_units_names();
 
 	my $standard_unit = undef;
 
@@ -342,6 +352,8 @@ normalize_serving_size(2.5kg)->returns 2500
 =cut
 
 sub normalize_serving_size ($serving) {
+
+	init_units_names();
 
 	# Regex captures any <number>( )?<unit-identifier> group, but leaves allowances for a preceding
 	# token to allow for patterns like "One bag (32g)", "1 small bottle (180ml)" etc
