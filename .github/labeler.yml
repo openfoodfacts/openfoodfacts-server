@@ -499,7 +499,7 @@ Numbers:
   - any-glob-to-any-file: 'templates/api/knowledge-panels/environment/ecoscore/packaging.tt.json'
   - any-glob-to-any-file: 'tests/unit/packaging.t'
   - any-glob-to-any-file: 'docs/api/ref/schemas/packagings/**'
-  - any-glob-to-any-file: 'scripts/gen_packaging_stats.pl
+  - any-glob-to-any-file: 'scripts/gen_packaging_stats.pl'
   
 🏭 Producers Platform:
 - changed-files:
@@ -559,8 +559,8 @@ Numbers:
 
 Store:
 - changed-files:
-  - any-glob-to-any-file: 'lib/ProductOpener/Store.pm
-- tests/unit/store.t'
+  - any-glob-to-any-file: 'lib/ProductOpener/Store.pm'
+  - any-glob-to-any-file: 'tests/unit/store.t'
 
 🖼️ Images:
 - changed-files:
@@ -950,3 +950,7 @@ Data exports:
 #- scripts/check_lang_pm.pl
 #- scripts/check_photos.pl
 #- cgi/import_photos_upload.pl
+
+JavaScript:
+- changed-files:
+  - any-glob-to-any-file: '**/*.js'
