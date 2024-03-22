@@ -72,7 +72,7 @@ my $example_row = 2;
 my $example = lang("example");
 
 my $example_tsv_file = 'conf/pro-platform/Import template - Example translations - Import sheet.tsv';
-my %example_values_by_header;
+my %example_values_by_language_and_header;
 
 open(my $example_fh, '<', $example_tsv_file) or die "Cannot open $example_tsv_file: $!";
 my $header_line = <$example_fh>;
@@ -81,11 +81,11 @@ my @headers = split("\t", $header_line);
 while (my $line = <$example_fh>) {
     chomp($line);
     my @values = split("\t", $line);
+    my $line_lc = lc($values[0] || 'en');
     for my $i (0 .. $#headers) {
         next if $headers[$i] eq 'lc';
-        $example_values_by_header{$headers[$i]} = $values[$i] if defined $values[$i];
+        $example_values_by_language_and_header{$line_lc}{$headers[$i]} = $values[$i] if defined $values[$i];
     }
-    last;
 }
 close($example_fh);
 
@@ -157,8 +157,8 @@ foreach my $group_ref (@$select2_options_ref) {
 			}
 		}
 
-		# Find the example value based on the header text, which should match an example file header
-    	my $example_value = $example_values_by_header{$field_ref->{text}} // '';
+		my $line_lc = lc($request_ref->{lc} || 'en');
+        my $example_value = $example_values_by_language_and_header{$line_lc}{$field_ref->{text}} // '';
 
 		# Set a different format for mandatory / recommended / optional fields
 
@@ -200,9 +200,9 @@ foreach my $group_ref (@$select2_options_ref) {
 		}
 
 		if ($example_value) {
-			$worksheet->write($example_row, 0, $example, $formats{'example'});
-        	$worksheet->write($example_row, $col, $example_value, $formats{'example'});
-    	}
+            $worksheet->write($example_row, 0, $example, $formats{'example'});
+            $worksheet->write($example_row, $col, $example_value, $formats{'example'});
+        }
 
 		$col++;
 
