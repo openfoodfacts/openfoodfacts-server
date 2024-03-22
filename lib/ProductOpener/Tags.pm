@@ -2624,7 +2624,7 @@ Initialize all taxonomies. This function is called when the Tags.pm module is lo
 in order to load all available taxonomies, as most scripts / modules that load Tags.pm
 expect taxonomies to be loaded.
 
-It is also called by lib/startup_apache.pl startup scriopt with the $die_if_some_taxonomies_cannot_be_loaded set to 1.
+It is also called by lib/startup_apache.pl startup script with the $die_if_some_taxonomies_cannot_be_loaded set to 1.
 
 =head3 Parameters
 
