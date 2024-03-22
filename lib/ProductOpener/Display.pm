@@ -3017,7 +3017,7 @@ sub display_points ($request_ref) {
 	my $description = '';
 
 	if ($tagtype eq 'users') {
-		my $user_ref = retrieve("$BASE_DIRS{USERS}/$tagid.sto");
+		my $user_ref = retrieve_user($tagid);
 		if (defined $user_ref) {
 			if ((defined $user_ref->{name}) and ($user_ref->{name} ne '')) {
 				$title = $user_ref->{name} . " ($tagid)";
@@ -4058,7 +4058,7 @@ HTML
 
 				# User
 
-				$user_or_org_ref = retrieve("$BASE_DIRS{USERS}/$tagid.sto");
+				$user_or_org_ref = retrieve_user($tagid);
 
 				if (not defined $user_or_org_ref) {
 					display_error_and_exit(lang("error_unknown_user"), 404);
