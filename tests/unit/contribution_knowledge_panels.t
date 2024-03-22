@@ -9,8 +9,6 @@ use JSON;
 use ProductOpener::Test qw/:all/;
 use ProductOpener::Display;
 use ProductOpener::KnowledgePanelsContribution qw/:all/;
-use ProductOpener::Tags qw/init_taxonomies/;
-init_taxonomies();
 
 # results of tests are json files
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));

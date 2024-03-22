@@ -10,8 +10,6 @@ use Log::Any::Adapter 'TAP';
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Web qw/:all/;
 use ProductOpener::Lang qw/:all/;
-use ProductOpener::Tags qw/init_taxonomies/;
-init_taxonomies();
 
 # date tests
 my $t = 1472292529;

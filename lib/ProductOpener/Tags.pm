@@ -2452,7 +2452,7 @@ sub generate_tags_taxonomy_extract ($tagtype, $tags_ref, $options_ref, $lcs_ref)
 	return $taxonomy_ref;
 }
 
-sub retrieve_tags_taxonomy ($tagtype) {
+sub retrieve_tags_taxonomy ($tagtype, $die_if_taxonomy_cannot_be_loaded = 0) {
 
 	$taxonomy_fields{$tagtype} = $tagtype;
 	$tags_fields{$tagtype} = 1;
@@ -2477,29 +2477,37 @@ sub retrieve_tags_taxonomy ($tagtype) {
 		}
 	}
 
-	my $taxonomy_ref = retrieve("$result_dir/$file.result.sto")
-		or die("Could not load taxonomy: $result_dir/$file.result.sto");
-	if (defined $taxonomy_ref) {
+	my $taxonomy_ref = retrieve("$result_dir/$file.result.sto");
 
-		$loaded_taxonomies{$tagtype} = 1;
-		$stopwords{$tagtype} = $taxonomy_ref->{stopwords};
-		$synonyms{$tagtype} = $taxonomy_ref->{synonyms};
-		$synonyms_for{$tagtype} = $taxonomy_ref->{synonyms_for};
-		$synonyms_for_extended{$tagtype} = $taxonomy_ref->{synonyms_for_extended};
-		$just_synonyms{$tagtype} = $taxonomy_ref->{just_synonyms};
-		# %just_synonyms was not included in taxonomies previously
-		if (not exists $just_synonyms{$tagtype}) {
-			$just_synonyms{$tagtype} = {};
+	if (not defined $taxonomy_ref) {
+		if ($die_if_taxonomy_cannot_be_loaded) {
+			$log->error("Could not load taxonomy $tagtype - dying") if $log->is_error();
+			die("Could not load taxonomy: $result_dir/$file.result.sto");
 		}
-		$translations_from{$tagtype} = $taxonomy_ref->{translations_from};
-		$translations_to{$tagtype} = $taxonomy_ref->{translations_to};
-		$level{$tagtype} = $taxonomy_ref->{level};
-		$direct_parents{$tagtype} = $taxonomy_ref->{direct_parents};
-		$direct_children{$tagtype} = $taxonomy_ref->{direct_children};
-		$all_parents{$tagtype} = $taxonomy_ref->{all_parents};
-		$root_entries{$tagtype} = $taxonomy_ref->{root_entries};
-		$properties{$tagtype} = $taxonomy_ref->{properties};
+		else {
+			$log->info("Could not load taxonomy $tagtype - skipping") if $log->is_info();
+			return;
+		}
 	}
+
+	$loaded_taxonomies{$tagtype} = 1;
+	$stopwords{$tagtype} = $taxonomy_ref->{stopwords};
+	$synonyms{$tagtype} = $taxonomy_ref->{synonyms};
+	$synonyms_for{$tagtype} = $taxonomy_ref->{synonyms_for};
+	$synonyms_for_extended{$tagtype} = $taxonomy_ref->{synonyms_for_extended};
+	$just_synonyms{$tagtype} = $taxonomy_ref->{just_synonyms};
+	# %just_synonyms was not included in taxonomies previously
+	if (not exists $just_synonyms{$tagtype}) {
+		$just_synonyms{$tagtype} = {};
+	}
+	$translations_from{$tagtype} = $taxonomy_ref->{translations_from};
+	$translations_to{$tagtype} = $taxonomy_ref->{translations_to};
+	$level{$tagtype} = $taxonomy_ref->{level};
+	$direct_parents{$tagtype} = $taxonomy_ref->{direct_parents};
+	$direct_children{$tagtype} = $taxonomy_ref->{direct_children};
+	$all_parents{$tagtype} = $taxonomy_ref->{all_parents};
+	$root_entries{$tagtype} = $taxonomy_ref->{root_entries};
+	$properties{$tagtype} = $taxonomy_ref->{properties};
 
 	$special_tags{$tagtype} = [];
 	if (open(my $IN, "<:encoding(UTF-8)", "$BASE_DIRS{TAXONOMIES_SRC}/special_$file.txt")) {
@@ -2610,7 +2618,27 @@ sub init_countries() {
 	return;
 }
 
-sub init_taxonomies() {
+=head2 init_taxonomies($die_if_some_taxonomies_cannot_be_loaded = 0)
+
+Initialize all taxonomies. This function is called when the Tags.pm module is loaded,
+in order to load all available taxonomies, as most scripts / modules that load Tags.pm
+expect taxonomies to be loaded.
+
+It is also called by lib/startup_apache.pl startup scriopt with the $die_if_some_taxonomies_cannot_be_loaded set to 1.
+
+=head3 Parameters
+
+=head4 die if some taxonomies cannot be loaded $die_if_some_taxonomies_cannot_be_loaded
+
+If set to 1, the function will die if some taxonomies cannot be loaded.
+
+=cut
+
+my $init_taxonomies_done = 0;
+
+sub init_taxonomies($die_if_some_taxonomies_cannot_be_loaded = 0) {
+
+	return if $init_taxonomies_done;
 
 	# load all tags images
 
@@ -2641,7 +2669,7 @@ sub init_taxonomies() {
 
 	foreach my $taxonomyid (@ProductOpener::Config::taxonomy_fields) {
 		$log->info("loading taxonomy $taxonomyid");
-		retrieve_tags_taxonomy($taxonomyid);
+		retrieve_tags_taxonomy($taxonomyid, $die_if_some_taxonomies_cannot_be_loaded);
 	}
 	# ingredients_original uses the ingredients taxonomy
 	$taxonomy_fields{"ingredients_original"} = "ingredients";
@@ -5087,8 +5115,11 @@ sub get_knowledge_content ($tagtype, $tagid, $target_lc, $target_cc) {
 	return;
 }
 
-# We do not call init_taxonomies() when the module is loaded, as taxonomies may not be built yet by build_taxonomies.pl (which itself loads Tags.pm)
-# init_taxonomies();
+# Init the taxonomies, as most modules / scripts that load Tags.pm expect the taxonomies to be loaded
+# only available taxonomies will be loaded, and missing taxonomies will not trigger an error.
+# In almost all cases, all taxonomies should be available, with the exception of the build_tags_taxonomy.pl script
+
+init_taxonomies(0);
 
 $log->info("Tags.pm loaded") if $log->is_info();
 

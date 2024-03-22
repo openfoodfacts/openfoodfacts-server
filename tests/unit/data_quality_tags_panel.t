@@ -11,8 +11,6 @@ use ProductOpener::Test qw/:all/;
 use ProductOpener::TestDefaults qw/:all/;
 
 use ProductOpener::KnowledgePanelsContribution qw/:all/;
-use ProductOpener::Tags qw/init_taxonomies/;
-init_taxonomies();
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 

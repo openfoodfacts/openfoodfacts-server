@@ -11,8 +11,6 @@ use ProductOpener::Tags qw/:all/;
 use ProductOpener::TagsEntries qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 
-init_taxonomies();
-
 my @ingredients = (
 
 	["en", "bananas", "yes"],

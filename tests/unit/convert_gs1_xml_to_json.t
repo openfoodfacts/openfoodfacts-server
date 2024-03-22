@@ -11,8 +11,6 @@ use Log::Any::Adapter 'TAP';
 
 use ProductOpener::GS1 qw/:all/;
 use ProductOpener::Test qw/:all/;
-use ProductOpener::Tags qw/init_taxonomies/;
-init_taxonomies();
 
 use JSON "decode_json";
 

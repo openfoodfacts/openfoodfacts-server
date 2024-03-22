@@ -10,8 +10,6 @@ use ProductOpener::Tags qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Products qw/:all/;
 
-init_taxonomies();
-
 # dummy product for testing
 
 my @tests = (

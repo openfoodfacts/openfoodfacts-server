@@ -11,8 +11,6 @@ use Log::Any::Adapter 'TAP';
 use ProductOpener::Producers qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Test qw/:all/;
-use ProductOpener::Tags qw/init_taxonomies/;
-init_taxonomies();
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 my $inputs_dir = "$test_dir/inputs/$test_id/";

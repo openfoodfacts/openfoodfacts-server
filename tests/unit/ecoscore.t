@@ -19,8 +19,6 @@ use ProductOpener::API qw/:all/;
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
-init_taxonomies();
-
 load_agribalyse_data();
 load_ecoscore_data();
 

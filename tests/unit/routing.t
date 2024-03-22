@@ -8,8 +8,6 @@ use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Routing qw/:all/;
 use ProductOpener::Lang qw/:all/;
-use ProductOpener::Tags qw/init_taxonomies/;
-init_taxonomies();
 
 # TODO: create a test case array and use the update_test_results system to
 # store and compare the returned $request object

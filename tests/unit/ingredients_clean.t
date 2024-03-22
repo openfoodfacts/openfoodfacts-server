@@ -16,8 +16,6 @@ use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::ImportConvert qw/:all/;
 use ProductOpener::Config qw/:all/;
 
-init_taxonomies();
-
 ProductOpener::Ingredients::validate_regular_expressions();
 
 my @tests = (

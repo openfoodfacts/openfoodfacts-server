@@ -22,8 +22,6 @@ use Data::DeepAccess qw(deep_exists);
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
-init_taxonomies();
-
 # Needed to compute estimated nutrients
 load_ciqual_data();
 

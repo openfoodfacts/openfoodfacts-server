@@ -2451,7 +2451,6 @@ It creates entries such as "High in saturated fat" in all languages.
 sub create_nutrients_level_taxonomy() {
 
 	# We need the nutrients taxonomy to be loaded before generating the nutrient_levels taxonomy
-	init_taxonomies();
 
 	my $nutrient_levels_taxonomy = '';
 

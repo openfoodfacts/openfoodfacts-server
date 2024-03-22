@@ -5,9 +5,6 @@ use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Ingredients qw/match_ingredient_origin init_origins_regexps/;
 
-use ProductOpener::Tags qw/init_taxonomies/;
-init_taxonomies();
-
 my @tests = (
 
 	{

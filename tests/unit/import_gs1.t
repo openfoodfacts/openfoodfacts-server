@@ -19,8 +19,6 @@ use ProductOpener::Food qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Test qw/:all/;
 
-init_taxonomies();
-
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
 # Check that the GS1 nutrient codes are associated with existing OFF nutrient ids.
