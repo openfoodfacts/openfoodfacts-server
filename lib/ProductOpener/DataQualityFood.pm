@@ -1391,6 +1391,9 @@ sub check_nutrition_data ($product_ref) {
 			"en:missing-nutrition-data-prepared-with-category-dried-products-to-be-rehydrated";
 	}
 
+	return;
+}
+
 	# Check for Mozzarella category and minimum number of ingredients
 	sub check_mozzarella_ingredients {
 		my ($product_ref) = @_;
@@ -1405,9 +1408,6 @@ sub check_nutrition_data ($product_ref) {
 			}
 		}
 	}
-
-	return;
-}
 
 =head2 compare_nutrition_facts_with_products_from_the_same_category( PRODUCT_REF )
 
