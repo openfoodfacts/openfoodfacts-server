@@ -2634,11 +2634,7 @@ If set to 1, the function will die if some taxonomies cannot be loaded.
 
 =cut
 
-my $init_taxonomies_done = 0;
-
 sub init_taxonomies($die_if_some_taxonomies_cannot_be_loaded = 0) {
-
-	return if $init_taxonomies_done;
 
 	# load all tags images
 
