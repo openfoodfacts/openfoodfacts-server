@@ -59,13 +59,35 @@ my %formats = (
 	mandatory => $workbook->add_format(border => 1, bold => 1, bg_color => '#aaffcc'),
 	recommended => $workbook->add_format(border => 1, bold => 1, bg_color => '#ccffdd'),
 	optional => $workbook->add_format(border => 1, bold => 1, bg_color => '#eeffee'),
+	example => $workbook->add_format(italic => 1, valign => 'vcenter', text_wrap => 1,),
 );
 
 # Re-use the structure used to output select2 options in import_file_select_format.pl
 my $select2_options_ref = generate_import_export_columns_groups_for_select2([$lc]);
 
 my $headers_row = 0;
-my $col = 0;
+my $col = 1;
+my $example_row = 2;
+
+my $example = lang("example");
+
+my $example_tsv_file = 'conf/pro-platform/Import template - Example translations - Import sheet.tsv';
+my %example_values_by_header;
+
+open(my $example_fh, '<', $example_tsv_file) or die "Cannot open $example_tsv_file: $!";
+my $header_line = <$example_fh>;
+chomp($header_line);
+my @headers = split("\t", $header_line);
+while (my $line = <$example_fh>) {
+    chomp($line);
+    my @values = split("\t", $line);
+    for my $i (0 .. $#headers) {
+        next if $headers[$i] eq 'lc';
+        $example_values_by_header{$headers[$i]} = $values[$i] if defined $values[$i];
+    }
+    last;
+}
+close($example_fh);
 
 foreach my $group_ref (@$select2_options_ref) {
 	my $group_start_col = $col;
@@ -135,18 +157,8 @@ foreach my $group_ref (@$select2_options_ref) {
 			}
 		}
 
-		my $example = lang($field_id . "_example");
-
-		if ($example ne "") {
-
-			my $example_title = lang("example");
-
-			# Several examples?
-			if ($example =~ /,/) {
-				$example_title = lang("examples");
-			}
-			$comment .= $example_title . " " . $example . "\n\n";
-		}
+		# Find the example value based on the header text, which should match an example file header
+    	my $example_value = $example_values_by_header{$field_ref->{text}} // '';
 
 		# Set a different format for mandatory / recommended / optional fields
 
@@ -186,6 +198,11 @@ foreach my $group_ref (@$select2_options_ref) {
 		if ($comment ne "") {
 			$worksheet->write_comment($headers_row, $col, $comment);
 		}
+
+		if ($example_value) {
+			$worksheet->write($example_row, 0, $example, $formats{'example'});
+        	$worksheet->write($example_row, $col, $example_value, $formats{'example'});
+    	}
 
 		$col++;
 
