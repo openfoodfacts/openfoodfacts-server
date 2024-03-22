@@ -622,10 +622,7 @@ is_deeply(
 	}
 ) or diag explain $tag_ref;
 
-
-
-# test remove_tags_from_fields 
-
+# test remove_tags_from_fields
 
 # removing 2 tags in a list of 4
 $product_ref = {
@@ -638,24 +635,24 @@ is_deeply($product_ref->{categories}, "pommes, oranges");
 
 # removing values that are not in the list
 $product_ref = {
-    lc => "fr",
-    categories => "pommes, bananes",
+	lc => "fr",
+	categories => "pommes, bananes",
 };
 remove_tag_from_field($product_ref, "fr", "categories", "fraises, oranges");
 is($product_ref->{categories}, "pommes, bananes");
 
 # empty list of tags to remove
 $product_ref = {
-    lc => "fr",
-    categories => "pommes, bananes",
+	lc => "fr",
+	categories => "pommes, bananes",
 };
 remove_tag_from_field($product_ref, "fr", "categories", "");
 is($product_ref->{categories}, "pommes, bananes");
 
 # removing all tags
 $product_ref = {
-    lc => "fr",
-    categories => "pommes, bananes",
+	lc => "fr",
+	categories => "pommes, bananes",
 };
 remove_tag_from_field($product_ref, "fr", "categories", "pommes, bananes");
 is($product_ref->{categories}, "");
