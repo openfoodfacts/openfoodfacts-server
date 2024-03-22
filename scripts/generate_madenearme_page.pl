@@ -47,6 +47,8 @@ use Log::Any qw($log);
 
 use ProductOpener::Lang qw/:all/;
 
+init_taxonomies();
+
 # initialize html
 sub get_initial_html ($cc) {
 	my $html;

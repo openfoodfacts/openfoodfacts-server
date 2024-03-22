@@ -58,6 +58,7 @@ use Encode;
 #use DateTime qw/:all/;
 use POSIX qw(strftime);
 
+init_taxonomies();
 init_emb_codes();
 
 sub xml_escape_NFC($) {
