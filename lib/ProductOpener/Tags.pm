@@ -4613,7 +4613,7 @@ sub add_tags_to_field ($product_ref, $tag_lc, $field, $additional_fields) {
 	return;
 }
 
-sub remove_tag_from_field($product_ref, $tag_lc, $field, $tags_to_remove) {
+sub remove_tags_from_field($product_ref, $tag_lc, $field, $tags_to_remove) {
 
 	my %existing = ();
 	if (defined $product_ref->{$field . "_tags"}) {
