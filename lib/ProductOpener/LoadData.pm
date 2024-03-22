@@ -55,7 +55,6 @@ use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::Ecoscore qw(:all);
 use ProductOpener::MainCountries qw(:all);
 use ProductOpener::NutritionCiqual qw(:all);
-use ProductOpener::Units qw(:all);
 
 =head1 FUNCTIONS
 
@@ -74,7 +73,6 @@ sub load_data() {
 	$log->debug("loading data - start") if $log->is_debug();
 
 	init_taxonomies(1);    # Die if some taxonomies cannot be loaded
-	init_units_names();
 	init_emb_codes();
 	init_packager_codes();
 	init_geocode_addresses();
