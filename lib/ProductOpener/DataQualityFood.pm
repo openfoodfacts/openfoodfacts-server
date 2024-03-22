@@ -1358,23 +1358,6 @@ sub check_nutrition_data ($product_ref) {
 				"en:nutri-score-grade-from-category-does-not-match-calculated-grade";
 		}
 
-		# Check for Mozzarella category and minimum number of ingredients
-		sub check_mozzarella_ingredients {
-			my ($product_ref) = @_;
-
-			if (defined $product_ref->{category_id2} && $product_ref->{category_id2} eq 'mozzarella') {
-				my $ingredient_count
-					= (defined $product_ref->{ingredients}) ? scalar(@{$product_ref->{ingredients}}) : 0;
-				my $minimum_ingredients
-					= get_inherited_property_from_categories_tags($product_ref, "minimum_number_of_ingredients:en");
-
-				if ($ingredient_count < $minimum_ingredients) {
-					push @{$product_ref->{data_quality_warnings_tags}},
-						"en:ingredients-less-than-minimum-ingredients-for-category";
-				}
-			}
-		}
-
 		# some categories have an expected ingredient - push data quality error if ingredient differs from expected ingredient
 		# note: we currently support only 1 expected ingredient
 		my ($expected_ingredients, $category_id2)
@@ -1406,6 +1389,21 @@ sub check_nutrition_data ($product_ref) {
 	if ($is_dried_product && ($no_nutrition_data || !($nutrition_data_prepared && $has_prepared_data))) {
 		push @{$product_ref->{data_quality_warnings_tags}},
 			"en:missing-nutrition-data-prepared-with-category-dried-products-to-be-rehydrated";
+	}
+
+	# Check for Mozzarella category and minimum number of ingredients
+	sub check_mozzarella_ingredients {
+		my ($product_ref) = @_;
+
+		if (defined $product_ref->{category_id2} && $product_ref->{category_id2} eq 'mozzarella') {
+			my $ingredient_count = (defined $product_ref->{ingredients}) ? scalar(@{$product_ref->{ingredients}}) : 0;
+			my $minimum_ingredients = 3;    # Example minimum number of required ingredients for Mozzarella category
+
+			if ($ingredient_count < $minimum_ingredients) {
+				push @{$product_ref->{data_quality_warnings_tags}},
+					"en:ingredients-less-than-minimum-ingredients-for-category";
+			}
+		}
 	}
 
 	return;
