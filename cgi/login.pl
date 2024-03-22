@@ -57,8 +57,7 @@ if (defined $User_id) {
 my @errors = ();
 
 if ($ENV{'REQUEST_METHOD'} eq 'POST') {
-	my $user_file = "$BASE_DIRS{USERS}/" . get_string_id_for_lang('no_language', $User_id) . '.sto';
-	my $user_ref = retrieve($user_file);
+	my $user_ref = retrieve_user($User_id);
 	if (not(defined $user_ref)) {
 		push @errors, 'undefined user';
 		$template_data_ref->{success} = 0;
