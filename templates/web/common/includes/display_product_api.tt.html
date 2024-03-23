@@ -1,6 +1,6 @@
 
 [% IF single_param("jqm") %]
-    [%- INCLUDE 'path/to/lang_file.tt.html' -%]
+    [% Lang.app_please_take_pictures.$lang %]
     <button onclick="captureImage();" data-icon="off-camera">[% Lang.app_take_a_picture.$lang %]</button>
     <div id="upload_image_result"></div>
     <p>[% Lang.app_take_a_picture_note.$lang %]</p>
