@@ -313,21 +313,24 @@ bash_test:
 	@echo "🥫 Open a bash shell in the test container"
 	${DOCKER_COMPOSE_TEST} run --rm -w /opt/product-opener backend bash
 
-# check perl compiles, (pattern rule) / but only for newer files
-%.pm %.pl: _FORCE
+# check perl compiles, (pattern rule) / but only for newer files and for .pl and .t
+# (we use scripts/utils/check_perl.pl for .pm)
+%.pl %.t: _FORCE
 	@if [[ -f $@ ]]; then perl -c -CS -Ilib $@; else true; fi
 
 
-# TO_CHECK look at changed files (compared to main) with extensions .pl, .pm, .t
+# TO_CHECK_PL look at changed files (compared to main) with extensions .pl, .pm, .t
 # filter out obsolete scripts
 # the ls at the end is to avoid removed files.
 # the first commad is to check we have git (to avoid trying to run this line inside the container on check_perl*)
 # We have to finally filter out "." as this will the output if we have no file
-TO_CHECK := $(shell [ -x "`which git 2>/dev/null`" ] && git diff origin/main --name-only | grep  '.*\.\(pl\|pm\|t\)$$' | grep -v "scripts/obsolete" | xargs ls -d 2>/dev/null | grep -v "^.$$" )
+TO_CHECK_PL := $(shell [ -x "`which git 2>/dev/null`" ] && git diff origin/main --name-only | grep  '.*\.\(pl\|t\)$$' | grep -v "scripts/obsolete" | xargs ls -d 2>/dev/null | grep -v "^.$$" )
+TO_CHECK_PM := $(shell [ -x "`which git 2>/dev/null`" ] && git diff origin/main --name-only | grep  '.*\.pm$$' | xargs ls -d 2>/dev/null | grep -v "^.$$" )
 
 check_perl_fast:
-	@echo "🥫 Checking ${TO_CHECK}"
-	test -z "${TO_CHECK}" || ${DOCKER_COMPOSE} run --rm backend make -j ${CPU_COUNT} ${TO_CHECK}
+	@echo "🥫 Checking ${TO_CHECK_PM} ${TO_CHECK_PL}"
+	test -z "${TO_CHECK_PM}" || ${DOCKER_COMPOSE} run --rm backend scripts/utils/check_perl.pl ${TO_CHECK_PM}
+	test -z "${TO_CHECK_PL}" || ${DOCKER_COMPOSE} run --rm backend make -j ${CPU_COUNT} ${TO_CHECK_PL}
 
 check_translations:
 	@echo "🥫 Checking translations"
@@ -336,7 +339,9 @@ check_translations:
 # check all perl files compile (takes time, but needed to check a function rename did not break another module !)
 check_perl:
 	@echo "🥫 Checking all perl files"
-	${DOCKER_COMPOSE} run --rm --no-deps backend make -j ${CPU_COUNT} cgi/*.pl scripts/*.pl lib/*.pl lib/ProductOpener/*.pm
+# first check modules, then scripts
+	${DOCKER_COMPOSE} run --rm --no-deps backend perl scripts/utils/check_perl.pl lib/ProductOpener/*.pm
+	${DOCKER_COMPOSE} run --rm --no-deps backend make -j ${CPU_COUNT} cgi/*.pl scripts/*.pl lib/*.pl
 
 # check with perltidy
 # we exclude files that are in .perltidy_excludes

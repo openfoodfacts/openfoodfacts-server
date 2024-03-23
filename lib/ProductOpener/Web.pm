@@ -38,19 +38,6 @@ package ProductOpener::Web;
 use ProductOpener::PerlStandards;
 use Exporter qw(import);
 
-use ProductOpener::Store qw(:all);
-use ProductOpener::Display qw(:all);
-use ProductOpener::Config qw(:all);
-use ProductOpener::Tags qw(:all);
-use ProductOpener::Users qw(:all);
-use ProductOpener::Orgs qw(:all);
-use ProductOpener::Lang qw(:all);
-use ProductOpener::Images qw(:all);
-
-use Template;
-use Log::Log4perl;
-use Unicode::Collate;
-
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
@@ -65,6 +52,20 @@ BEGIN {
 }
 
 use vars @EXPORT_OK;
+
+use ProductOpener::Store qw(:all);
+use ProductOpener::Display qw(:all);
+use ProductOpener::Config qw(:all);
+use ProductOpener::Tags qw(:all);
+use ProductOpener::Users qw(:all);
+use ProductOpener::Orgs qw(:all);
+use ProductOpener::Lang qw(:all);
+use ProductOpener::Images qw(:all);
+
+use Template;
+use Log::Log4perl;
+use Unicode::Collate;
+
 
 my $unicode_collate = Unicode::Collate->new();
 
