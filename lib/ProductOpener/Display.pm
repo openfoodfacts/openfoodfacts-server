@@ -10324,6 +10324,14 @@ sub display_product_api ($request_ref) {
 
 	my $product_ref;
 
+	my $html;
+
+	my $template_data_ref = {
+			lang => $lang,
+			Lang => \%Lang,
+			request_ref => $request_ref,
+	};
+
 	my $rev = single_param("rev");
 	local $log->context->{rev} = $rev;
 	if (defined $rev) {
@@ -10346,8 +10354,9 @@ sub display_product_api ($request_ref) {
 		}
 		$response{status} = 0;
 		$response{status_verbose} = 'product not found';
-#template
-				$response{jqm} .= $html;
+
+	process_template('web/common/includes/display_product_api.tt.html',
+	$template_data_ref, \$html) || return "template error: " . $tt->error();
 
 		}
 	}
