@@ -10558,7 +10558,7 @@ sub display_product_history ($request_ref, $code, $product_ref) {
 			number => $change_rev,
 			date => display_date_tag($change_ref->{t}),
 			userid => $userid,
-			uuid => $uuid,   
+			uuid => $uuid,
 			diffs => compute_changes_diff_text($change_ref),
 			comment => $comment
 			};
