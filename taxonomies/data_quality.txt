@@ -474,6 +474,8 @@ description:en:Eicosapentaenoic acid epa 20 5 n 3 value is over 105g per 100g, w
 <en:Nutrition errors
 en:Nutrition value over 105 - Fat
 description:en:Fat value is over 105g per 100g, which is impossible.
+description:fr:La valeur en matières grasses dépasse 105g pour 100g, ce qui est impossible.
+description:es:El valor de grasa es superior a 105g por 100g, lo cual es imposible.
 
 <en:Nutrition errors
 en:Nutrition value over 105 - Fat prepared
@@ -482,6 +484,8 @@ description:en:Fat prepared value is over 105g per 100g, which is impossible.
 <en:Nutrition errors
 en:Nutrition value over 105 - Fiber
 description:en:Fiber value is over 105g per 100g, which is impossible.
+description:fr:La valeur en fibres dépasse 105g pour 100g, ce qui est impossible.
+description:es:El valor de fibra es superior a 105g por 100g, lo cual es imposible.
 
 <en:Nutrition errors
 en:Nutrition value over 105 - Fiber prepared
@@ -831,10 +835,14 @@ description:en:Vitamin d prepared value is over 105g per 100g, which is impossib
 <en:Nutrition errors
 en:Nutrition value over 105 - Vitamin e
 description:en:Vitamin e value is over 105g per 100g, which is impossible.
+description:fr:La valeur de la vitamine E dépasse 105g pour 100g, ce qui est impossible.
+description:es:El valor de la vitamina E supera los 105g por 100g, lo cual es imposible.
 
 <en:Nutrition errors
 en:Nutrition value over 105 - Vitamin k
 description:en:Vitamin k value is over 105g per 100g, which is impossible.
+description:fr:La valeur de la vitamine K dépasse 105g pour 100g, ce qui est impossible.
+description:es:El valor de la vitamina K supera los 105g por 100g, lo cual es imposible.
 
 <en:Nutrition errors
 en:Nutrition value over 105 - Water hardness
@@ -3377,7 +3385,7 @@ en:energy free label claim but energy above limitation
 description:en:In EU, a claim that a food is energy free may only be made where the product does not contain more than 4 kcal or 17 kJ /100 ml. See: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
 
 <en:Data quality warnings
-en:low fat label claim but fat above limitation
+en:low-fat label claim but fat above limitation
 description:en:In EU, a claim that a food is low fat may only be made where the product contains no more than 3 g of fat per 100 g for solids or 1,5 g of fat per 100 ml for liquids. 1,8 g of fat per 100 ml for semi-skimmed milk. See: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
 
 <en:Data quality warnings
@@ -3385,23 +3393,23 @@ en:en:no fat label claim but fat above 0.5
 description:en:In EU, a claim that a food is fat free may only be made where the product contains no more than 0,5 g of fat per 100 g or 100 ml. See: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
 
 <en:Data quality warnings
-en:low saturated fat label claim but fat above limitation
+en:low saturated-fat label claim but fat above limitation
 description:en:In EU, a claim that a food is fat free may only be made if the sum of saturated fatty acids and trans-fatty acids in the product does not exceed 1,5 g per 100 g for solids or 0,75 g/100 ml for liquids and in either case the sum of saturated fatty acids and trans-fatty acids must not provide more than 10 % of energy. See: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
 
 <en:Data quality warnings
-en:saturated fat free label claim but fat above 0.1
+en:Saturated fat free label claim but fat above 0.1
 description:en:In EU, a claim that a food does not contain sturated fat may only be made where the sum of saturated fat and trans-fatty acids does not exceed 0,1 g of saturated fat per 100 g or 100 ml. See: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
 
 <en:Data quality warnings
-en:low sugar label claim but sugar above limitation
+en:Low sugar label claim but sugar above limitation
 description:en:In EU, a claim that a food is low sugar may only be made where the product contains no more than 5 g of sugars per 100 g for solids or 2,5 g of sugars per 100 ml for liquids. See: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
 
 <en:Data quality warnings
-en:sugar free label claim but sugar above limitation
+en:Sugar free label claim but sugar above limitation
 description:en:In EU, a claim that a food is sugar-free may only be made where the product contains no more than 0,5 g of sugars per 100 g or 100 ml. See: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
 
 <en:Data quality warnings
-en:no added sugar label claim but contains added sugar
+en:No added sugar label claim but contains added sugar
 description:en:In EU, a claim that a food is with no added sugars may only be made where the product does not contain any added mono- or disaccharides or any other food used for its sweetening properties. If sugars are naturally present in the food, the following indication should also appear on the label: ‘CONTAINS NATURALLY OCCURRING SUGARS’. See: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
 
 <en:Data quality warnings
@@ -3441,11 +3449,11 @@ en:rich in vitamin a label claim but vitamin a below 0.0016
 description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
 
 <en:Data quality warnings
-en:vitamin d source label claim but vitamin d below 5e-06
+en:Vitamin D source label claim but Vitamin D below 5e-06
 description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
 
 <en:Data quality warnings
-en:rich in vitamin d label claim but vitamin d below 1e-05
+en:Rich in Vitamin D label claim but Vitamin D below 1e-05
 description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
 
 <en:Data quality warnings
@@ -3587,6 +3595,8 @@ description:en:In EU, a claim that a food is high in omega-3 may only be made wh
 <en:Data quality warnings
 en:high monounsaturated fat label claim but monounsaturated fat under limitation
 description:en:In EU, a claim that a food is high in monounsaturated fat may only be made where at least 45 % of the fatty acids present in the product derive from monounsaturated fat under the condition that monounsaturated fat provides more than 20 % of energy of the product. See: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
+description:fr:Dans l'UE, une allégation selon laquelle un aliment est riche en acides gras monoinsaturés ne peut être faite que si au moins 45 % des acides gras présents dans le produit proviennent d'acides gras monoinsaturés, à condition que les acides gras monoinsaturés fournissent plus de 20 % de l'énergie du produit. Voir: https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX%3A02006R1924-20141213
+description:es:En la UE, solo se puede afirmar que un alimento es rico en grasas monoinsaturadas si al menos el 45 % de los ácidos grasos presentes en el producto provienen de grasas monoinsaturadas, siempre y cuando las grasas monoinsaturadas aporten más del 20 % de la energía del producto. Ver: https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX%3A02006R1924-20141213
 
 <en:Data quality warnings
 en:rich in polyunsaturated fatty acids label claim but polyunsaturated fat under limitation
