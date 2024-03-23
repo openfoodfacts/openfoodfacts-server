@@ -804,6 +804,8 @@ Checkbot:
   - any-glob-to-any-file: 'cgi/remove_products.pl'
   - any-glob-to-any-file: 'templates/web/pages/remove_products/remove_products.tt.html'
   - any-glob-to-any-file: 'lib/ProductOpener/APIProductRevert.pm'
+  - any-glob-to-any-file: 'scripts/make_user_moderator.pl'
+  - any-glob-to-any-file: 'tests/integration/delete_user.t'
   
 sto:
 - changed-files:
