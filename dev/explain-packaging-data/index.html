@@ -1014,13 +1014,13 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#how-the-the-resulting-packagings-data-structure-is-created" class="md-nav__link">
+  <a href="#how-the-resulting-packagings-data-structure-is-created" class="md-nav__link">
     <span class="md-ellipsis">
-      How the the resulting packagings data structure is created
+      How the resulting packagings data structure is created
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="How the the resulting packagings data structure is created">
+    <nav class="md-nav" aria-label="How the resulting packagings data structure is created">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1467,13 +1467,13 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#how-the-the-resulting-packagings-data-structure-is-created" class="md-nav__link">
+  <a href="#how-the-resulting-packagings-data-structure-is-created" class="md-nav__link">
     <span class="md-ellipsis">
-      How the the resulting packagings data structure is created
+      How the resulting packagings data structure is created
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="How the the resulting packagings data structure is created">
+    <nav class="md-nav" aria-label="How the resulting packagings data structure is created">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1670,7 +1670,7 @@
 <p>Food products typically have 1 or more packaging components (e.g. milk may have a bottle and a cap).</p>
 <p>For each product, we aim to have a comprehensive list of all its packaging components, with detailed information about each packaging component.</p>
 <h3 id="data-about-packaging-components">Data about packaging components<a class="headerlink" href="#data-about-packaging-components" title="Permanent link">#</a></h3>
-<p>For each packaging component, we want data for different attributes, like its shape (e.g. a bottle) and its size (e.g. plastic).</p>
+<p>For each packaging component, we want data for different attributes, like its shape (e.g. a bottle) and its material (e.g. plastic).</p>
 <p>There are many different attributes that can be interesting for specific uses. For instance, researchers in epidemiology are interested in knowing which packaging component is in contact with the food itself, and which one can be put in the microwave oven, so that they can study the long term effects of some plastics on health.</p>
 <h2 id="sources-of-packaging-data">Sources of packaging data<a class="headerlink" href="#sources-of-packaging-data" title="Permanent link">#</a></h2>
 <p>We can get packaging data from different sources:</p>
@@ -1701,9 +1701,9 @@
 <li>recycling: whether the packaging component should be recycled, discarded or reused</li>
 </ul>
 <p>The "shape" and "material" fields are taxonomized using the packaging_shapes and packaging_materials taxonomies.</p>
-<h3 id="how-the-the-resulting-packagings-data-structure-is-created">How the the resulting packagings data structure is created<a class="headerlink" href="#how-the-the-resulting-packagings-data-structure-is-created" title="Permanent link">#</a></h3>
+<h3 id="how-the-resulting-packagings-data-structure-is-created">How the resulting packagings data structure is created<a class="headerlink" href="#how-the-resulting-packagings-data-structure-is-created" title="Permanent link">#</a></h3>
 <h4 id="extract-attributes-that-relate-to-different-packaging-components">Extract attributes that relate to different packaging components<a class="headerlink" href="#extract-attributes-that-relate-to-different-packaging-components" title="Permanent link">#</a></h4>
-<p>The values for each input field ("packaging" tag field and "packaging_text_[language code]" packaging information text field) are analyzed<sup id="fnref:parse_packaging_from_text_phrase"><a class="footnote-ref" href="#fn:parse_packaging_from_text_phrase">1</a></sup> to recognize packaging components and their attributes. One product may have multiple "packaging_text_[language code]" values in different languages. Only the value for the main product of the language is currently analyzed.</p>
+<p>The values for each input field ("packaging" tag field and "packaging_text_[language code]" packaging information text field) are analyzed<sup id="fnref:parse_packaging_from_text_phrase"><a class="footnote-ref" href="#fn:parse_packaging_from_text_phrase">1</a></sup> to recognize packaging components and their attributes. One product may have multiple "packaging_text_[language code]" values in different languages. Only the value for the main language ("lang" field) of the product is currently analyzed.</p>
 <p>For instance, if the "packaging" field contains "Plastic bottle, box, cardboard", we will use the packaging shapes, materials and recycling taxonomies to create a list of 3 packaging components: {shape:"en:bottle", material:"en:plastic"}, {shape:"en:box"}, {material:"en:cardboard"}.</p>
 <p>And if the "packaging_text_en" field contains "PET bottle to recycle, box to reuse", we will create 2 more packaging components: {shape:"en:bottle", material:"en:pet-polyethylene-terephthalate", recycling:"en:recycle"}, {shape:"box", recycling:"reuse"}.</p>
 <h4 id="merge-packaging-components">Merge packaging components<a class="headerlink" href="#merge-packaging-components" title="Permanent link">#</a></h4>
@@ -1747,7 +1747,7 @@
 <p>We could have a way (e.g. a checkbox) that users could use to indicate all components are accounted for. And we could also do the reverse, and indicate that it is very likely that we are missing some packaging components (e.g. if we have a "cap" but no other component to put the cap on).</p>
 <h3 id="deprecate-the-packaging-tags-field">Deprecate the "packaging" tags field<a class="headerlink" href="#deprecate-the-packaging-tags-field" title="Permanent link">#</a></h3>
 <p>We could discard the existing "packaging" tags field, and replace it with an API to allow clients to add partial information about packaging components.</p>
-<p>For instance, if Robotoff detects that the product is in plastic bottle by analyzing a product photo, it could send {shape:"bottle", material:"en:plastic"} and it would be added / combined with the existing "packagings" data.</p>
+<p>For instance, if Robotoff detects that the product is in a plastic bottle by analyzing a product photo, it could send {shape:"bottle", material:"en:plastic"} and it would be added / combined with the existing "packagings" data.</p>
 <h3 id="keep-the-packaging_text_language-code-field">Keep the "packaging_text_[language code]" field<a class="headerlink" href="#keep-the-packaging_text_language-code-field" title="Permanent link">#</a></h3>
 <p>It is important to keep this field, as we can display it as-is, use it as input data, and it may contain interesting data that we do not analyze yet.</p>
 <p>When filled, the values for this field can be analyzed and added to / combined with the "packagings" data structure. Similarly to ingredient text analysis, we could keep information about which parts of the text were recognized as attributes of a packaging component, and which parts were not recognized and were therefore ignored.</p>
