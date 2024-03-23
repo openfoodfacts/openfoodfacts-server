@@ -44,15 +44,15 @@ BEGIN {
 
 use vars @EXPORT_OK;
 
-use ProductOpener::Config qw/:all/;
-use ProductOpener::Display qw/:all/;
-use ProductOpener::Users qw/:all/;
-use ProductOpener::Lang qw/:all/;
-use ProductOpener::Products qw/:all/;
-use ProductOpener::API qw/:all/;
+use ProductOpener::Config    qw/:all/;
+use ProductOpener::Display   qw/:all/;
+use ProductOpener::Users     qw/:all/;
+use ProductOpener::Lang      qw/:all/;
+use ProductOpener::Products  qw/:all/;
+use ProductOpener::API       qw/add_error add_warning customize_response_for_product normalize_requested_code/;
 use ProductOpener::Packaging qw/:all/;
-use ProductOpener::Text qw/:all/;
-use ProductOpener::Tags qw/:all/;
+use ProductOpener::Text      qw/:all/;
+use ProductOpener::Tags      qw/:all/;
 
 use Encode;
 

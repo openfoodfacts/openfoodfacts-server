@@ -176,7 +176,7 @@ use ProductOpener::Web qw(:all);
 use ProductOpener::Recipes qw(:all);
 use ProductOpener::PackagerCodes qw(:all);
 use ProductOpener::Export qw(:all);
-use ProductOpener::API qw(:all);
+use ProductOpener::API qw(add_error customize_response_for_product process_api_request);
 use ProductOpener::Units qw/:all/;
 use ProductOpener::Cache qw/:all/;
 use ProductOpener::Permissions qw/:all/;

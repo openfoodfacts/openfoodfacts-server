@@ -43,12 +43,12 @@ BEGIN {
 
 use vars @EXPORT_OK;
 
-use ProductOpener::Config qw/:all/;
-use ProductOpener::Display qw/:all/;
-use ProductOpener::Tags qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Config              qw/:all/;
+use ProductOpener::Display             qw/:all/;
+use ProductOpener::Tags                qw/:all/;
+use ProductOpener::Lang                qw/:all/;
 use ProductOpener::TaxonomySuggestions qw/:all/;
-use ProductOpener::API qw/:all/;
+use ProductOpener::API                 qw/add_error/;
 
 use Encode;
 

@@ -43,14 +43,14 @@ BEGIN {
 
 use vars @EXPORT_OK;
 
-use ProductOpener::Config qw/:all/;
-use ProductOpener::Display qw/:all/;
-use ProductOpener::Users qw/:all/;
-use ProductOpener::Lang qw/:all/;
-use ProductOpener::API qw/:all/;
-use ProductOpener::KnowledgePanels qw/:all/;
+use ProductOpener::Config              qw/:all/;
+use ProductOpener::Display             qw/:all/;
+use ProductOpener::Users               qw/:all/;
+use ProductOpener::Lang                qw/:all/;
+use ProductOpener::API                 qw/add_error/;
+use ProductOpener::KnowledgePanels     qw/:all/;
 use ProductOpener::KnowledgePanelsTags qw/:all/;
-use ProductOpener::Tags qw/:all/;
+use ProductOpener::Tags                qw/:all/;
 
 =head2 read_tag_api ( $request_ref )
 
