@@ -779,9 +779,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#accessing-your-development-instance-of-openfoodfacts-web" class="md-nav__link">
+  <a href="#accessing-your-development-instance-of-openfoodfacts-server" class="md-nav__link">
     <span class="md-ellipsis">
-      Accessing your development instance of OpenFoodFacts Web
+      Accessing your development instance of openfoodfacts-server
     </span>
   </a>
   
@@ -1088,9 +1088,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#accessing-your-development-instance-of-openfoodfacts-web" class="md-nav__link">
+  <a href="#accessing-your-development-instance-of-openfoodfacts-server" class="md-nav__link">
     <span class="md-ellipsis">
-      Accessing your development instance of OpenFoodFacts Web
+      Accessing your development instance of openfoodfacts-server
     </span>
   </a>
   
@@ -1149,19 +1149,21 @@ to spin up an environment for <code>openfoodfacts-server</code>.</p>
 </blockquote>
 <p>Once the repository is open in Gitpod, other instructions in the
 <a href="../how-to-quick-start-guide/">quick-start guide</a> can be generally followed.</p>
-<h2 id="accessing-your-development-instance-of-openfoodfacts-web">Accessing your development instance of OpenFoodFacts Web<a class="headerlink" href="#accessing-your-development-instance-of-openfoodfacts-web" title="Permanent link">#</a></h2>
+<h2 id="accessing-your-development-instance-of-openfoodfacts-server">Accessing your development instance of openfoodfacts-server<a class="headerlink" href="#accessing-your-development-instance-of-openfoodfacts-server" title="Permanent link">#</a></h2>
 <p>Since Gitpod runs your code in a remote machine, your dev-deployment spun up with <code>make dev</code> or <code>make up</code> will not
 accessible when you open the default http://openfoodfacts.localhost in your browser. This occurs because the server
 running on the remote machine is not accessible on your local network interface.</p>
 <p>To overcome this, we can make use of SSH tunnel that listens to your local port 80 and forwards traffic to the port 80
 of the remote machine. Gitpod makes it really simple to SSH into your dev environment by letting you copy the <code>ssh</code>
 command required to reach your remote environment. To start, follow the ssh instructions on Gitpod's official
-guide: <a href="https://www.gitpod.io/blog/copy-paste-ssh-workspace-access">SSH for workspaces as easy as copy/paste</a>. Once you have copied the ssh command and ensure it
-works as-is, add a <code>-L 80:localhost:80</code> to the command to make it look like:
+guide: <a href="https://www.gitpod.io/blog/copy-paste-ssh-workspace-access">SSH for workspaces as easy as copy/paste</a>. 
+Once you have copied the ssh command and ensure it works as-is, add a <code>-L 80:localhost:80</code> to the command to make it look like:
 <code>ssh -L 80:localhost:80 'openfoodfac-openfoodfac-tok-openfoodfac-r9f61214h9vt.ssh.ws-c.gitpod.io'</code>.</p>
-<p>Once you execute the altered command in your terminal, you should be able to access OpenFoodFacts
+<p>Once you execute the altered command in your terminal, you should be able to access Open Food Facts
 on http://openfoodfacts.localhost just as documented in the quickstart guide!</p>
 <p><strong>Remark:</strong> for some Linux distributions, the port 80 is reserved. A workaround is to switch to port 8080: in gitpod, open the .env file and replace the line PRODUCT_OPENER_PORT=80 by PRODUCT_OPENER_PORT=8080, then replace -L 80:localhost:80 by -L 8080:localhost:8080. <strong>Rollback the changes on .env before to make a pull request!</strong>*  </p>
+<p><strong>Remark:</strong> you will need to trust the fingerprint at first connection. </p>
+<p><strong>Remark:</strong> on MacOS or Linux, when trying to bind, you might see a bind fail. Remember that any port below 1024 is reserved for the root user. You might want to add <code>sudo</code> just before the ssh command.</p>
 <p><strong>Remark:</strong> the address to connect with ssh can change after few days. If you get a <code>Connection closed by ... port 22</code> simply go back to https://gitpod.io/workspaces and copy the new address.  </p>
 <p><strong>Remark:</strong> if you load the page after some changes but get a <code>502 Bad Gateway</code> check again your code. Something may be wrong with it. Eventually, try to comment the part you just coded to see if it works. </p>
 <p>Create an account to be able to edit products.</p>
