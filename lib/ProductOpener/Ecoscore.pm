@@ -1124,13 +1124,26 @@ my @production_system_labels = (
 	["en:responsible-aquaculture-asc", 10],
 );
 
-foreach my $label_ref (@production_system_labels) {
+my $production_system_labels_initialized = 0;
 
-	# Canonicalize the label ids in case the normalized id changed
-	$label_ref->[0] = canonicalize_taxonomy_tag("en", "labels", $label_ref->[0]);
+sub init_production_system_labels () {
+
+	return if $production_system_labels_initialized;
+
+	# Canonicalize the labels
+	foreach my $label_ref (@production_system_labels) {
+
+		# Canonicalize the label ids in case the normalized id changed
+		$label_ref->[0] = canonicalize_taxonomy_tag("en", "labels", $label_ref->[0]);
+	}
+	$production_system_labels_initialized = 1;
+
+	return;
 }
 
 sub compute_ecoscore_production_system_adjustment ($product_ref) {
+
+	init_production_system_labels();
 
 	$product_ref->{ecoscore_data}{adjustments}{production_system} = {value => 0, labels => []};
 
