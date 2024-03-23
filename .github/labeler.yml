@@ -664,6 +664,7 @@ Nutrient levels:
 Product history:
 - changed-files:
   - any-glob-to-any-file: 'templates/web/pages/product/includes/display_rev_info.tt.html'
+  - any-glob-to-any-file: 'templates/web/pages/product/includes/edit_history.tt.html'
   - any-glob-to-any-file: 'lib/ProductOpener/Version.pm'
 
 Tags:
