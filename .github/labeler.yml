@@ -293,11 +293,14 @@ Food groups:
   - any-glob-to-any-file: 'taxonomies/additives.result.sto'
   - any-glob-to-any-file: 'taxonomies/additives.result.txt'
 
+# https://envol-vert.org/en/methodology/
 🌳 Forest Footprint:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/ForestFootprint.pm'
   - any-glob-to-any-file: 'tests/unit/forest_footprint.t'
 
+# https://dev.maxmind.com/geoip
+# Used to geolocate products based on IP
 📍 geolite:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/GeoIP.pm'
@@ -627,11 +630,12 @@ Product page:
 
 🔐 Password:
 - changed-files:
-  - any-glob-to-any-file: 'templates/web/pages/reset_password/reset_password.tt.html'
+  - any-glob-to-any-file: 'cgi/change_password.pl'
   - any-glob-to-any-file: 'templates/web/pages/change_password/change_password.tt.html'
+  - any-glob-to-any-file: 'templates/web/pages/reset_password/reset_password.tt.html'
   - any-glob-to-any-file: 'cgi/reset_password.pl'
   - any-glob-to-any-file: 'cgi/reset_password_for_user.pl'
-
+  
 ✔︎ Spellcheck:
 - changed-files:
   - any-glob-to-any-file: 'templates/web/pages/spellcheck/spellcheck_test.tt.html'
@@ -726,7 +730,11 @@ Minion:
   - any-glob-to-any-file: 'scripts/minion_import_test.pl'
   - any-glob-to-any-file: 'scripts/minion_producers.pl'
   - any-glob-to-any-file: 'scripts/minion_producers_test.pl'
-
+  - any-glob-to-any-file: 'cgi/minion_job_status.pl'
+  - any-glob-to-any-file: 'cgi/import_file_job_status.pl'
+  - any-glob-to-any-file: 'cgi/import_file_process.pl'
+  - any-glob-to-any-file: 'cgi/import_products_categories_from_public_database.pl'
+  
 OCR:
 - changed-files:
   - any-glob-to-any-file: 'scripts/run_cloud_vision_ocr.pl'
@@ -795,7 +803,8 @@ Checkbot:
   - any-glob-to-any-file: 'scripts/find_and_replace_user_id_in_products.pl'
   - any-glob-to-any-file: 'cgi/remove_products.pl'
   - any-glob-to-any-file: 'templates/web/pages/remove_products/remove_products.tt.html'
-
+  - any-glob-to-any-file: 'lib/ProductOpener/APIProductRevert.pm'
+  
 sto:
 - changed-files:
   - any-glob-to-any-file: 'scripts/sto_to_json.pl'
@@ -897,7 +906,9 @@ API:
   - any-glob-to-any-file: 'tests/integration/api_v2_product_read.t'
   - any-glob-to-any-file: 'docs/api/ref/requestBodies/lc_cc.yaml'
   - any-glob-to-any-file: 'docs/api/ref/requestBodies/fields_tags_lc.yaml'
-
+  - any-glob-to-any-file: 'lib/ProductOpener/APIProductServices.pm'
+  - any-glob-to-any-file: 'tests/integration/api_v3_product_services.t'
+  
 API v3:
 - changed-files:
   - any-glob-to-any-file: 'docs/api/ref/api-v3.yml'
@@ -907,6 +918,7 @@ API v3:
 API READ:
 - changed-files:
   - any-glob-to-any-file: 'tests/integration/api_v3_product_read.t'
+  - any-glob-to-any-file: 'lib/ProductOpener/APIProductRead.pm'
 
 API WRITE:
 - changed-files:
@@ -914,7 +926,9 @@ API WRITE:
   - any-glob-to-any-file: 'docs/api/ref/requestBodies/add_or_edit_a_product.yaml'
   - any-glob-to-any-file: 'docs/api/ref/requestBodies/crop_a_photo.yaml'
   - any-glob-to-any-file: 'docs/api/ref/requestBodies/add_photo_to_existing_product.yaml'
-  
+  - any-glob-to-any-file: 'lib/ProductOpener/APIProductWrite.pm'
+  - any-glob-to-any-file: 'lib/ProductOpener/APIProductRevert.pm'
+  - any-glob-to-any-file: 'tests/integration/api_v3_product_revert.t'
 monitoring:
 - changed-files:
   - any-glob-to-any-file: 'scripts/api_stats.pl'
@@ -937,6 +951,11 @@ Data exports:
   - any-glob-to-any-file: 'scripts/gen_feeds_daily_off.sh'
   - any-glob-to-any-file: 'scripts/gen_feeds_daily_opf.sh'
   - any-glob-to-any-file: 'scripts/gen_feeds_daily_opff.sh'
+
+Countries:
+- changed-files:
+  - any-glob-to-any-file: 'cgi/countries.pl'
+  # Not actively used anymore, it is believed
 
 # TODO: find or create proper labels for those
 #- scripts/extract_images.pl
