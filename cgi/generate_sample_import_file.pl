@@ -228,7 +228,7 @@ foreach my $group_ref (@$select2_options_ref) {
 			next;
 		}
 
-		$worksheet->write($headers_row, $col, $field_ref->{id}, $formats{$importance});
+		$worksheet->write($headers_row, $col, $field_ref->{text}, $formats{$importance});
 		my $width = length($field_ref->{text});
 		($width < 20) and $width = 20;
 		$worksheet->set_column($col, $col, $width);
