@@ -173,13 +173,6 @@ CSS:
   - any-glob-to-any-file: 'cgi/top_translators.pl'
   - any-glob-to-any-file: 'cgi/translate_taxonomy.pl'
 
-🧪 Tests:
-- changed-files:
-  - any-glob-to-any-file: 'test/**/*'
-  - any-glob-to-any-file: 'tests/**/*'
-  - any-glob-to-any-file: 't/**/*'
-  - any-glob-to-any-file: 'lib/ProductOpener/Test.pm'
-
 Dependencies:
 - changed-files:
   - any-glob-to-any-file: 'package.json'
@@ -428,6 +421,7 @@ lang:
   - any-glob-to-any-file: 'lib/ProductOpener/Mail.pm'
   - any-glob-to-any-file: 'templates/emails/import_csv_file_admin_notification.tt.html'
   - any-glob-to-any-file: 'templates/emails/user_new_pro_account_admin_notification.tt.html'
+  - any-glob-to-any-file: 'lib/ProductOpener/Brevo.pm'
 
 MainCountries:
 - changed-files:
@@ -841,7 +835,13 @@ Exports:
 Subdomains:
 - changed-files:
   - any-glob-to-any-file: 'scripts/list_subdomains.pl'
-
+  
+🧪 Tests:
+- changed-files:
+  - any-glob-to-any-file: 'tests/**/*'
+  - any-glob-to-any-file: 't/**/*'
+  - any-glob-to-any-file: 'lib/ProductOpener/Test.pm'
+  
 🧪 integration tests:
 - changed-files:
   - any-glob-to-any-file: 'tests/integration/import_csv_file.t'
