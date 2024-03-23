@@ -20,9 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2017';
-use utf8;
-use strict;
+use ProductOpener::PerlStandards;
 
 use ProductOpener::Food qw/:all/;
 
