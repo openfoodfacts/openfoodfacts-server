@@ -56,7 +56,10 @@ on http://openfoodfacts.localhost just as documented in the quickstart guide!
 [github-codespaces]: https://github.com/features/codespaces
 
 **Remark:** for some Linux distributions, the port 80 is reserved. A workaround is to switch to port 8080: in gitpod, open the .env file and replace the line PRODUCT_OPENER_PORT=80 by PRODUCT_OPENER_PORT=8080, then replace -L 80:localhost:80 by -L 8080:localhost:8080. **Rollback the changes on .env before to make a pull request!***  
-**Remark:** on MacOS, when trying to bind, you might see a bind fail. Remember that anyport below 1024 is reserved for the sudo user. You might want to add sudo to the ssh intruction. It will then prompt you whether you you want to trust the fingerprint. 
+
+**Remark:** you will need to trust the fingerprint at first connection. 
+
+**Remark:** on MacOS or Linux, when trying to bind, you might see a bind fail. Remember that any port below 1024 is reserved for the root user. You might want to add `sudo` just before the ssh command.
 
 **Remark:** the address to connect with ssh can change after few days. If you get a ```Connection closed by ... port 22``` simply go back to https://gitpod.io/workspaces and copy the new address.  
 
