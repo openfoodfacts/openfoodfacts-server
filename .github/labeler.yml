@@ -742,8 +742,7 @@ Scanbot:
   - any-glob-to-any-file: 'scripts/compute_missions.pl'
   - any-glob-to-any-file: 'scripts/compute_missions_for_user.pl'
   - any-glob-to-any-file: 'scripts/export_battle_food.pl'
-  - any-glob-to-any-file: 'cgi/top_translators.pl
-    '
+  - any-glob-to-any-file: 'cgi/top_translators.pl'
 
 Config:
 - changed-files:
