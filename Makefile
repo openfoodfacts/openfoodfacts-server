@@ -274,10 +274,11 @@ test-stop:
 
 # usage:  make test-unit test=test-name.t
 # you can add args= to pass options, like args="-d" to debug
+# or args="-PProductOpener::Module" to preload modules
 test-unit: guard-test create_folders
 	@echo "🥫 Running test: 'tests/unit/${test}' …"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
-	${DOCKER_COMPOSE_TEST} run --rm backend perl ${args} tests/unit/${test}
+	${DOCKER_COMPOSE_TEST} run --rm backend yath ${args} tests/unit/${test}
 
 # usage:  make test-int test=test-name.t
 # to update expected results: make test-int test="test-name.t --update-expected-results"
