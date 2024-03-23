@@ -4175,7 +4175,14 @@ HTML
 				# We are on the main page of the tag (not a sub-page with another tag)
 				# so we display more information related to the tag
 
-				my $tag_logo_html = display_tags_hierarchy_taxonomy($lc, $tagtype, [$canon_tagid]);
+				my $tag_logo_html;
+
+				if (defined $taxonomy_fields{$tagtype}) {
+					$tag_logo_html = display_tags_hierarchy_taxonomy($lc, $tagtype, [$canon_tagid]);
+				}
+				else {
+					$tag_logo_html = display_tags_hierarchy($tagtype, [$canon_tagid]);
+				}
 
 				$tag_logo_html =~ s/.*<\/a>(<br \/>)?//;    # remove link, keep only tag logo
 
@@ -4254,6 +4261,7 @@ HTML
 	# TODO: is_crawl_bot should be added directly by process_template(),
 	# but we would need to add a new $request_ref parameter to process_template(), will do later
 	$tag_template_data_ref->{is_crawl_bot} = $request_ref->{is_crawl_bot};
+
 	process_template('web/pages/tag/tag.tt.html', $tag_template_data_ref, \$tag_html)
 		or $tag_html = "<p>tag.tt.html template error: " . $tt->error() . "</p>";
 
@@ -8685,7 +8693,7 @@ HTML
 			my $link;
 
 			# taxonomy field?
-			if ($tagid =~ /:/) {
+			if (defined $taxonomy_fields{$class}) {
 				$tag = display_taxonomy_tag($lc, $class, $tagid);
 				$link = canonicalize_taxonomy_tag_link($lc, $class, $tagid);
 			}

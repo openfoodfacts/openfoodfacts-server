@@ -79,6 +79,11 @@ use JSON::PP;
 
 use Log::Any qw($log);
 
+# Default values for $lang and $lc
+# TODO: there should not be any difference between $lc and $lang, so we should be able to remove $lang
+$lc = "en";
+$lang = "en";
+
 =head1 FUNCTIONS
 
 =head2 separator_before_colon( $l )

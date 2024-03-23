@@ -20,22 +20,11 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2017';
-use utf8;
+use ProductOpener::PerlStandards;
 
-use ProductOpener::Config qw/:all/;
-use ProductOpener::Tags qw/:all/;
+use ProductOpener::Food qw/:all/;
 
-my $tagtype = $ARGV[0] // '*';
-my $publish = $ARGV[1] // 1;
-
-print STDERR "tagtype: $tagtype\n";
-
-if ($tagtype eq '*') {
-	ProductOpener::Tags::build_all_taxonomies($publish);
-}
-else {
-	ProductOpener::Tags::build_tags_taxonomy($tagtype, $publish);
-}
+create_nutrients_level_taxonomy();
 
 exit(0);
+
