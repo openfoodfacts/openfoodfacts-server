@@ -463,7 +463,16 @@ Numbers:
   - any-glob-to-any-file: 'packager-codes/**'
   - any-glob-to-any-file: 'tests/integration/expected_test_results/facets/packager-code_fr-85-222-003-ec.json'
   - any-glob-to-any-file: 'tests/integration/expected_test_results/facets/packager-code_fr-85-222-003-ce.json'
+  - any-glob-to-any-file: 'packager-codes/FR-merge-UTF-8.csv'
+  
+🇫🇷 France:
+- changed-files:
+  - any-glob-to-any-file: 'packager-codes/FR-merge-UTF-8.csv'
 
+Redis:
+- changed-files:
+  - any-glob-to-any-file: 'lib/ProductOpener/Redis.pm'
+  
 📦 Packaging:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/Packaging.pm'
