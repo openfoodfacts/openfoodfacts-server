@@ -177,7 +177,8 @@ Dependencies:
 - changed-files:
   - any-glob-to-any-file: 'package.json'
   - any-glob-to-any-file: 'package-lock.json'
-
+  - any-glob-to-any-file: 'cpanfile'
+  
 Template::Toolkit:
 - changed-files:
   - any-glob-to-any-file: 'templates/**/*'
@@ -409,7 +410,8 @@ Categories:
   - any-glob-to-any-file: 'tests/integration/expected_test_results/api_v3_product_read/get-knowledge-panels.json'
   - any-glob-to-any-file: 'tests/integration/expected_test_results/api_v3_product_read/get-knowledge-panels-fr.json'
   - any-glob-to-any-file: 'docs/api/ref/schemas/knowledge_panels/**'
-
+  - any-glob-to-any-file: 'lib/ProductOpener/KnowledgePanelsTags.pm'
+  
 Serving size:
 - changed-files:
   - any-glob-to-any-file: 'templates/api/knowledge-panels/health/nutrition/serving_size.tt.json'
@@ -681,7 +683,10 @@ Tags:
   - any-glob-to-any-file: 'scripts/gen_top_tags_per_country.pl'
   - any-glob-to-any-file: 'lib/ProductOpener/TagsEntries.pm'
   - any-glob-to-any-file: 'templates/web/pages/tag/tag.tt.html'
-
+  - any-glob-to-any-file: 'lib/ProductOpener/APITagRead.pm'
+  - any-glob-to-any-file: 'lib/ProductOpener/TagsEntries.pm'
+  - any-glob-to-any-file: 'lib/ProductOpener/KnowledgePanelsTags.pm'
+  
 Site layout:
 - changed-files:
   - any-glob-to-any-file: 'templates/web/common/site_layout.tt.html'
@@ -850,7 +855,8 @@ Exports:
   - any-glob-to-any-file: 'tests/integration/expected_test_results/api_cgi_suggest/categories-term-fraise.json'
   - any-glob-to-any-file: 'tests/integration/expected_test_results/api_cgi_suggest/categories-term-strawberry.json'
   - any-glob-to-any-file: 'tests/integration/expected_test_results/api_cgi_suggest/no-tagtype.json'
-
+  - any-glob-to-any-file: 'lib/ProductOpener/APITaxonomySuggestions.pm'
+  
 Subdomains:
 - changed-files:
   - any-glob-to-any-file: 'scripts/list_subdomains.pl'
