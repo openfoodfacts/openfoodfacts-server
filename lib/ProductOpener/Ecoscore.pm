@@ -1146,9 +1146,7 @@ sub init_production_system_labels () {
 
 sub compute_ecoscore_production_system_adjustment ($product_ref) {
 
-	if (not $production_system_labels_initialized) {
-		init_production_system_labels();
-	}
+	init_production_system_labels();
 
 	$product_ref->{ecoscore_data}{adjustments}{production_system} = {value => 0, labels => []};
 
