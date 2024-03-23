@@ -173,18 +173,12 @@ CSS:
   - any-glob-to-any-file: 'cgi/top_translators.pl'
   - any-glob-to-any-file: 'cgi/translate_taxonomy.pl'
 
-🧪 Tests:
-- changed-files:
-  - any-glob-to-any-file: 'test/**/*'
-  - any-glob-to-any-file: 'tests/**/*'
-  - any-glob-to-any-file: 't/**/*'
-  - any-glob-to-any-file: 'lib/ProductOpener/Test.pm'
-
 Dependencies:
 - changed-files:
   - any-glob-to-any-file: 'package.json'
   - any-glob-to-any-file: 'package-lock.json'
-
+  - any-glob-to-any-file: 'cpanfile'
+  
 Template::Toolkit:
 - changed-files:
   - any-glob-to-any-file: 'templates/**/*'
@@ -204,6 +198,7 @@ Footer:
   - any-glob-to-any-file: 'docs/**/*'
   - any-glob-to-any-file: 'scripts/generate_perl_html_doc_from_pod.pl'
   - any-glob-to-any-file: 'po/README.md'
+  - any-glob-to-any-file: 'README.md'
 
 📚 OpenAPI:
 - changed-files:
@@ -299,11 +294,14 @@ Food groups:
   - any-glob-to-any-file: 'taxonomies/additives.result.sto'
   - any-glob-to-any-file: 'taxonomies/additives.result.txt'
 
+# https://envol-vert.org/en/methodology/
 🌳 Forest Footprint:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/ForestFootprint.pm'
   - any-glob-to-any-file: 'tests/unit/forest_footprint.t'
 
+# https://dev.maxmind.com/geoip
+# Used to geolocate products based on IP
 📍 geolite:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/GeoIP.pm'
@@ -412,7 +410,8 @@ Categories:
   - any-glob-to-any-file: 'tests/integration/expected_test_results/api_v3_product_read/get-knowledge-panels.json'
   - any-glob-to-any-file: 'tests/integration/expected_test_results/api_v3_product_read/get-knowledge-panels-fr.json'
   - any-glob-to-any-file: 'docs/api/ref/schemas/knowledge_panels/**'
-
+  - any-glob-to-any-file: 'lib/ProductOpener/KnowledgePanelsTags.pm'
+  
 Serving size:
 - changed-files:
   - any-glob-to-any-file: 'templates/api/knowledge-panels/health/nutrition/serving_size.tt.json'
@@ -427,6 +426,7 @@ lang:
   - any-glob-to-any-file: 'lib/ProductOpener/Mail.pm'
   - any-glob-to-any-file: 'templates/emails/import_csv_file_admin_notification.tt.html'
   - any-glob-to-any-file: 'templates/emails/user_new_pro_account_admin_notification.tt.html'
+  - any-glob-to-any-file: 'lib/ProductOpener/Brevo.pm'
 
 MainCountries:
 - changed-files:
@@ -468,7 +468,16 @@ Numbers:
   - any-glob-to-any-file: 'packager-codes/**'
   - any-glob-to-any-file: 'tests/integration/expected_test_results/facets/packager-code_fr-85-222-003-ec.json'
   - any-glob-to-any-file: 'tests/integration/expected_test_results/facets/packager-code_fr-85-222-003-ce.json'
+  - any-glob-to-any-file: 'packager-codes/FR-merge-UTF-8.csv'
+  
+🇫🇷 France:
+- changed-files:
+  - any-glob-to-any-file: 'packager-codes/FR-merge-UTF-8.csv'
 
+Redis:
+- changed-files:
+  - any-glob-to-any-file: 'lib/ProductOpener/Redis.pm'
+  
 📦 Packaging:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/Packaging.pm'
@@ -623,11 +632,12 @@ Product page:
 
 🔐 Password:
 - changed-files:
-  - any-glob-to-any-file: 'templates/web/pages/reset_password/reset_password.tt.html'
+  - any-glob-to-any-file: 'cgi/change_password.pl'
   - any-glob-to-any-file: 'templates/web/pages/change_password/change_password.tt.html'
+  - any-glob-to-any-file: 'templates/web/pages/reset_password/reset_password.tt.html'
   - any-glob-to-any-file: 'cgi/reset_password.pl'
   - any-glob-to-any-file: 'cgi/reset_password_for_user.pl'
-
+  
 ✔︎ Spellcheck:
 - changed-files:
   - any-glob-to-any-file: 'templates/web/pages/spellcheck/spellcheck_test.tt.html'
@@ -663,6 +673,7 @@ Nutrient levels:
 Product history:
 - changed-files:
   - any-glob-to-any-file: 'templates/web/pages/product/includes/display_rev_info.tt.html'
+  - any-glob-to-any-file: 'templates/web/pages/product/includes/edit_history.tt.html'
   - any-glob-to-any-file: 'lib/ProductOpener/Version.pm'
 
 Tags:
@@ -672,7 +683,10 @@ Tags:
   - any-glob-to-any-file: 'scripts/gen_top_tags_per_country.pl'
   - any-glob-to-any-file: 'lib/ProductOpener/TagsEntries.pm'
   - any-glob-to-any-file: 'templates/web/pages/tag/tag.tt.html'
-
+  - any-glob-to-any-file: 'lib/ProductOpener/APITagRead.pm'
+  - any-glob-to-any-file: 'lib/ProductOpener/TagsEntries.pm'
+  - any-glob-to-any-file: 'lib/ProductOpener/KnowledgePanelsTags.pm'
+  
 Site layout:
 - changed-files:
   - any-glob-to-any-file: 'templates/web/common/site_layout.tt.html'
@@ -721,7 +735,11 @@ Minion:
   - any-glob-to-any-file: 'scripts/minion_import_test.pl'
   - any-glob-to-any-file: 'scripts/minion_producers.pl'
   - any-glob-to-any-file: 'scripts/minion_producers_test.pl'
-
+  - any-glob-to-any-file: 'cgi/minion_job_status.pl'
+  - any-glob-to-any-file: 'cgi/import_file_job_status.pl'
+  - any-glob-to-any-file: 'cgi/import_file_process.pl'
+  - any-glob-to-any-file: 'cgi/import_products_categories_from_public_database.pl'
+  
 OCR:
 - changed-files:
   - any-glob-to-any-file: 'scripts/run_cloud_vision_ocr.pl'
@@ -737,8 +755,7 @@ Scanbot:
   - any-glob-to-any-file: 'scripts/compute_missions.pl'
   - any-glob-to-any-file: 'scripts/compute_missions_for_user.pl'
   - any-glob-to-any-file: 'scripts/export_battle_food.pl'
-  - any-glob-to-any-file: 'cgi/top_translators.pl
-    '
+  - any-glob-to-any-file: 'cgi/top_translators.pl'
 
 Config:
 - changed-files:
@@ -791,7 +808,10 @@ Checkbot:
   - any-glob-to-any-file: 'scripts/find_and_replace_user_id_in_products.pl'
   - any-glob-to-any-file: 'cgi/remove_products.pl'
   - any-glob-to-any-file: 'templates/web/pages/remove_products/remove_products.tt.html'
-
+  - any-glob-to-any-file: 'lib/ProductOpener/APIProductRevert.pm'
+  - any-glob-to-any-file: 'scripts/make_user_moderator.pl'
+  - any-glob-to-any-file: 'tests/integration/delete_user.t'
+  
 sto:
 - changed-files:
   - any-glob-to-any-file: 'scripts/sto_to_json.pl'
@@ -835,11 +855,18 @@ Exports:
   - any-glob-to-any-file: 'tests/integration/expected_test_results/api_cgi_suggest/categories-term-fraise.json'
   - any-glob-to-any-file: 'tests/integration/expected_test_results/api_cgi_suggest/categories-term-strawberry.json'
   - any-glob-to-any-file: 'tests/integration/expected_test_results/api_cgi_suggest/no-tagtype.json'
-
+  - any-glob-to-any-file: 'lib/ProductOpener/APITaxonomySuggestions.pm'
+  
 Subdomains:
 - changed-files:
   - any-glob-to-any-file: 'scripts/list_subdomains.pl'
-
+  
+🧪 Tests:
+- changed-files:
+  - any-glob-to-any-file: 'tests/**/*'
+  - any-glob-to-any-file: 't/**/*'
+  - any-glob-to-any-file: 'lib/ProductOpener/Test.pm'
+  
 🧪 integration tests:
 - changed-files:
   - any-glob-to-any-file: 'tests/integration/import_csv_file.t'
@@ -887,7 +914,9 @@ API:
   - any-glob-to-any-file: 'tests/integration/api_v2_product_read.t'
   - any-glob-to-any-file: 'docs/api/ref/requestBodies/lc_cc.yaml'
   - any-glob-to-any-file: 'docs/api/ref/requestBodies/fields_tags_lc.yaml'
-
+  - any-glob-to-any-file: 'lib/ProductOpener/APIProductServices.pm'
+  - any-glob-to-any-file: 'tests/integration/api_v3_product_services.t'
+  
 API v3:
 - changed-files:
   - any-glob-to-any-file: 'docs/api/ref/api-v3.yml'
@@ -897,6 +926,7 @@ API v3:
 API READ:
 - changed-files:
   - any-glob-to-any-file: 'tests/integration/api_v3_product_read.t'
+  - any-glob-to-any-file: 'lib/ProductOpener/APIProductRead.pm'
 
 API WRITE:
 - changed-files:
@@ -904,7 +934,9 @@ API WRITE:
   - any-glob-to-any-file: 'docs/api/ref/requestBodies/add_or_edit_a_product.yaml'
   - any-glob-to-any-file: 'docs/api/ref/requestBodies/crop_a_photo.yaml'
   - any-glob-to-any-file: 'docs/api/ref/requestBodies/add_photo_to_existing_product.yaml'
-  
+  - any-glob-to-any-file: 'lib/ProductOpener/APIProductWrite.pm'
+  - any-glob-to-any-file: 'lib/ProductOpener/APIProductRevert.pm'
+  - any-glob-to-any-file: 'tests/integration/api_v3_product_revert.t'
 monitoring:
 - changed-files:
   - any-glob-to-any-file: 'scripts/api_stats.pl'
@@ -927,6 +959,11 @@ Data exports:
   - any-glob-to-any-file: 'scripts/gen_feeds_daily_off.sh'
   - any-glob-to-any-file: 'scripts/gen_feeds_daily_opf.sh'
   - any-glob-to-any-file: 'scripts/gen_feeds_daily_opff.sh'
+
+Countries:
+- changed-files:
+  - any-glob-to-any-file: 'cgi/countries.pl'
+  # Not actively used anymore, it is believed
 
 # TODO: find or create proper labels for those
 #- scripts/extract_images.pl

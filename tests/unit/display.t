@@ -10,6 +10,7 @@ use Log::Any::Adapter 'TAP';
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Web qw/:all/;
 use ProductOpener::Lang qw/:all/;
+
 # date tests
 my $t = 1472292529;
 $lc = 'en';
