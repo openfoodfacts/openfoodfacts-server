@@ -148,7 +148,7 @@ use ProductOpener::Redis qw/push_to_redis_stream/;
 # may be moved to another module at some point
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Nutriscore qw/:all/;
-use ProductOpener::Ecoscore qw/:all/;
+use ProductOpener::Ecoscore qw/compute_ecoscore/;
 use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::Packaging qw/:all/;
 use ProductOpener::DataQuality qw/:all/;

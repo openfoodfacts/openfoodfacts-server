@@ -64,7 +64,7 @@ use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::Ecoscore qw/:all/;
+use ProductOpener::Ecoscore qw/is_ecoscore_extended_data_more_precise_than_agribalyse/;
 use ProductOpener::PackagerCodes qw/:all/;
 use ProductOpener::KnowledgePanelsContribution qw/create_contribution_card_panel/;
 

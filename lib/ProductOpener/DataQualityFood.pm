@@ -51,7 +51,7 @@ use ProductOpener::Config qw(:all);
 use ProductOpener::Store qw(:all);
 use ProductOpener::Tags qw(:all);
 use ProductOpener::Food qw(:all);
-use ProductOpener::Ecoscore qw(:all);
+use ProductOpener::Ecoscore qw(is_ecoscore_extended_data_more_precise_than_agribalyse);
 use ProductOpener::Units qw(extract_standard_unit);
 
 use Data::DeepAccess qw(deep_exists);

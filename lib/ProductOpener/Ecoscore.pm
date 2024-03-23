@@ -56,10 +56,6 @@ BEGIN {
 
 		&is_ecoscore_extended_data_more_precise_than_agribalyse
 
-		%ecoscore_countries
-		@ecoscore_countries_sorted
-		%ecoscore_countries_enabled
-		@ecoscore_countries_enabled_sorted
 
 		%agribalyse
 
@@ -96,7 +92,8 @@ so this list will be overrode when we load the Eco-Score data.
 
 =cut
 
-@ecoscore_countries_enabled_sorted = qw(be ch de es fr ie it lu nl uk);
+my @ecoscore_countries_enabled_sorted = qw(be ch de es fr ie it lu nl uk);
+my %ecoscore_countries_enabled;
 
 foreach my $country (@ecoscore_countries_enabled_sorted) {
 	$ecoscore_countries_enabled{$country} = 1;
@@ -174,7 +171,7 @@ sub load_agribalyse_data() {
 
 my %ecoscore_data = (origins => {},);
 
-%ecoscore_countries = ();
+my %ecoscore_countries = ();
 
 =head2 load_ecoscore_data_origins_of_ingredients_distances ( $product_ref )
 
@@ -211,7 +208,7 @@ sub load_ecoscore_data_origins_of_ingredients_distances() {
 			# Score 0 for unknown origin
 			$ecoscore_data{origins}{"en:unknown"}{"transportation_score_" . $countries[$i]} = 0;
 		}
-		@ecoscore_countries_sorted = sort keys %ecoscore_countries;
+		my @ecoscore_countries_sorted = sort keys %ecoscore_countries;
 
 		%ecoscore_countries_enabled = %ecoscore_countries;
 		@ecoscore_countries_enabled_sorted = @ecoscore_countries_sorted;

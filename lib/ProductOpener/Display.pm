@@ -167,7 +167,7 @@ use ProductOpener::URL qw(:all);
 use ProductOpener::Data qw(:all);
 use ProductOpener::Text qw(:all);
 use ProductOpener::Nutriscore qw(:all);
-use ProductOpener::Ecoscore qw(:all);
+use ProductOpener::Ecoscore qw(localize_ecoscore);
 use ProductOpener::Attributes qw(:all);
 use ProductOpener::KnowledgePanels qw(:all);
 use ProductOpener::KnowledgePanelsTags qw(:all);
