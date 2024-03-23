@@ -72,6 +72,7 @@ sub load_data() {
 
 	$log->debug("loading data - start") if $log->is_debug();
 
+	init_taxonomies(1);    # Die if some taxonomies cannot be loaded
 	init_emb_codes();
 	init_packager_codes();
 	init_geocode_addresses();
