@@ -95,7 +95,7 @@ edit_etc_hosts:
 create_folders:
 # create some folders to avoid having them owned by root (when created by docker compose)
 	@echo "🥫 Creating folders before docker compose use them."
-	mkdir -p logs/apache2 debug html/data || ( whoami; ls -l . ; false )
+	mkdir -p logs/apache2 logs/nginx debug html/data || ( whoami; ls -l . ; false )
 
 # TODO: Figure out events => actions and implement live reload
 # live_reload:
@@ -193,7 +193,7 @@ reset_owner:
 	${DOCKER_COMPOSE_TEST} run --rm --no-deps --user root backend chown www-data:www-data -R /opt/product-opener/ /mnt/podata /var/log/apache2 /var/log/httpd  || true
 	${DOCKER_COMPOSE_TEST} run --rm --no-deps --user root frontend chown www-data:www-data -R /opt/product-opener/html/images/icons/dist /opt/product-opener/html/js/dist /opt/product-opener/html/css/dist
 
-init_backend: build_taxonomies build_lang 
+init_backend: build_taxonomies build_lang
 
 create_mongodb_indexes:
 	@echo "🥫 Creating MongoDB indexes …"
@@ -386,14 +386,14 @@ check_openapi: check_openapi_v2 check_openapi_v3
 # Compilation #
 #-------------#
 
-build_taxonomies:
+build_taxonomies: create_folders
 	@echo "🥫 build taxonomies"
     # GITHUB_TOKEN might be empty, but if it's a valid token it enables pushing taxonomies to build cache repository
 	${DOCKER_COMPOSE} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl ${name}
 
 rebuild_taxonomies: build_taxonomies
 
-build_taxonomies_test:
+build_taxonomies_test: create_folders
 	@echo "🥫 build taxonomies"
     # GITHUB_TOKEN might be empty, but if it's a valid token it enables pushing taxonomies to build cache repository
 	${DOCKER_COMPOSE_TEST} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl ${name}
