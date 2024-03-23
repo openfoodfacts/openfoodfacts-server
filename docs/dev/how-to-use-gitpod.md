@@ -9,7 +9,6 @@ of setting up local environments and IDEs with Perl, Docker and plugins, making 
 OpenFoodFacts Server to get started in minutes instead of hours!
 
 
-
 Note that while this how-to is tailored for Gitpod, using alternatives like [GitHub Codespaces][github-codespaces] should be
 similar.
 
@@ -32,10 +31,12 @@ On the Gitpod side, you can also update what Gitpod is allowed to do with your G
 > the project for you on opening and comes with Docker and other tools pre-installed making it one of the fastest ways
 > to spin up an environment for `openfoodfacts-server`.
 
+
+
 Once the repository is open in Gitpod, other instructions in the
 [quick-start guide](how-to-quick-start-guide.md) can be generally followed.
 
-## Accessing your development instance of OpenFoodFacts Web
+## Accessing your development instance of openfoodfacts-server
 
 Since Gitpod runs your code in a remote machine, your dev-deployment spun up with `make dev` or `make up` will not
 accessible when you open the default http://openfoodfacts.localhost in your browser. This occurs because the server
@@ -44,17 +45,18 @@ running on the remote machine is not accessible on your local network interface.
 To overcome this, we can make use of SSH tunnel that listens to your local port 80 and forwards traffic to the port 80
 of the remote machine. Gitpod makes it really simple to SSH into your dev environment by letting you copy the `ssh`
 command required to reach your remote environment. To start, follow the ssh instructions on Gitpod's official
-guide: [SSH for workspaces as easy as copy/paste][gitpod-ssh-guide]. Once you have copied the ssh command and ensure it
-works as-is, add a `-L 80:localhost:80` to the command to make it look like:
+guide: [SSH for workspaces as easy as copy/paste][gitpod-ssh-guide]. 
+Once you have copied the ssh command and ensure it works as-is, add a `-L 80:localhost:80` to the command to make it look like:
 `ssh -L 80:localhost:80 'openfoodfac-openfoodfac-tok-openfoodfac-r9f61214h9vt.ssh.ws-c.gitpod.io'`.
 
-Once you execute the altered command in your terminal, you should be able to access OpenFoodFacts
+Once you execute the altered command in your terminal, you should be able to access Open Food Facts
 on http://openfoodfacts.localhost just as documented in the quickstart guide!
 
 [gitpod-ssh-guide]: https://www.gitpod.io/blog/copy-paste-ssh-workspace-access
 [github-codespaces]: https://github.com/features/codespaces
 
 **Remark:** for some Linux distributions, the port 80 is reserved. A workaround is to switch to port 8080: in gitpod, open the .env file and replace the line PRODUCT_OPENER_PORT=80 by PRODUCT_OPENER_PORT=8080, then replace -L 80:localhost:80 by -L 8080:localhost:8080. **Rollback the changes on .env before to make a pull request!***  
+**Remark:** on MacOS, when trying to bind, you might see a bind fail. Remember that anyport below 1024 is reserved for the sudo user. You might want to add sudo to the ssh intruction. It will then prompt you whether you you want to trust the fingerprint. 
 
 **Remark:** the address to connect with ssh can change after few days. If you get a ```Connection closed by ... port 22``` simply go back to https://gitpod.io/workspaces and copy the new address.  
 
