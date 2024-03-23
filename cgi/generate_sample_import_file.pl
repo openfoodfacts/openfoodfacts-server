@@ -81,7 +81,7 @@ my %formats = (
 		align => 'center'
 	),
 	description => $workbook->add_format(italic => 1, text_wrap => 1, valign => 'vcenter'),
-  example => $workbook->add_format(italic => 1, valign => 'vcenter', text_wrap => 1,),
+	example => $workbook->add_format(italic => 1, valign => 'vcenter', text_wrap => 1,),
 );
 
 # Re-use the structure used to output select2 options in import_file_select_format.pl
@@ -106,13 +106,14 @@ my $header_line = <$example_fh>;
 chomp($header_line);
 my @headers = split("\t", $header_line);
 while (my $line = <$example_fh>) {
-    chomp($line);
-    my @values = split("\t", $line);
-    my $line_lc = lc($values[0] || 'en');
-    for my $i (0 .. $#headers) {
-        next if $headers[$i] eq 'lc';
-        $example_values_by_language_and_header{$line_lc}{$headers[$i]} = $values[$i] if defined $values[$i];
-    }
+	chomp($line);
+	my @values = split("\t", $line);
+	my $line_lc = $values[0];
+	next if not $line_lc;    # Skip lines that don't have a language set (e.g. the 2nd line with English colunm names)
+	for my $i (0 .. $#headers) {
+		next if $headers[$i] eq 'lc';
+		$example_values_by_language_and_header{$line_lc}{$headers[$i]} = $values[$i] if defined $values[$i];
+	}
 }
 close($example_fh);
 
@@ -192,7 +193,7 @@ foreach my $group_ref (@$select2_options_ref) {
 		}
 
 		my $line_lc = lc($request_ref->{lc} || 'en');
-    my $example_value = $example_values_by_language_and_header{$line_lc}{$field_ref->{text}} // '';
+		my $example_value = $example_values_by_language_and_header{$line_lc}{$field_ref->{id}} // '';
 
 		# Set a different format for mandatory / recommended / optional fields
 
@@ -227,7 +228,7 @@ foreach my $group_ref (@$select2_options_ref) {
 			next;
 		}
 
-		$worksheet->write($headers_row, $col, $field_ref->{text}, $formats{$importance});
+		$worksheet->write($headers_row, $col, $field_ref->{id}, $formats{$importance});
 		my $width = length($field_ref->{text});
 		($width < 20) and $width = 20;
 		$worksheet->set_column($col, $col, $width);
@@ -237,9 +238,9 @@ foreach my $group_ref (@$select2_options_ref) {
 		}
 
 		if ($example_value) {
-            $worksheet->write($example_row, 0, $example, $formats{'example'});
-            $worksheet->write($example_row, $col, $example_value, $formats{'example'});
-        }
+			$worksheet->write($example_row, 0, $example, $formats{'example'});
+			$worksheet->write($example_row, $col, $example_value, $formats{'example'});
+		}
 
 		$col++;
 
