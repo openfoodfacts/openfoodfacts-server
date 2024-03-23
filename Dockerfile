@@ -36,6 +36,7 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
         tar \
         unzip \
         zip \
+        pigz \
         # useful to send mail
         mailutils \
         # perlmagick \
