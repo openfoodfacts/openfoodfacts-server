@@ -17,7 +17,7 @@ use ProductOpener::Import qw/:all/;
 use ProductOpener::Export qw/:all/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Packaging qw/:all/;
-use ProductOpener::Ecoscore qw/:all/;
+use ProductOpener::Ecoscore qw/load_agribalyse_data load_ecoscore_data/;
 use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::Test qw/:all/;
 use ProductOpener::ImportConvertCarrefourFrance qw/:all/;

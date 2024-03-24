@@ -31,7 +31,7 @@ use ProductOpener::Routing qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/:all/;
-use ProductOpener::API qw/:all/;
+use ProductOpener::API qw/decode_json_request_body init_api_response process_api_request read_request_body/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;

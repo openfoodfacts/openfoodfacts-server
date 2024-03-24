@@ -22,7 +22,7 @@ use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Attributes qw/:all/;
 use ProductOpener::Packaging qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
-use ProductOpener::API qw/:all/;
+use ProductOpener::API qw/get_initialized_response/;
 use ProductOpener::LoadData qw/:all/;
 
 load_data();

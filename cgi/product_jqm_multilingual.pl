@@ -56,7 +56,7 @@ use ProductOpener::Ecoscore qw/:all/;
 use ProductOpener::Packaging qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::Text qw/:all/;
-use ProductOpener::API qw/:all/;
+use ProductOpener::API qw/get_initialized_response/;
 use ProductOpener::APIProductWrite qw/:all/;
 
 use Apache2::RequestRec ();

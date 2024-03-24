@@ -76,7 +76,7 @@ use ProductOpener::Packaging qw(:all);
 use ProductOpener::ForestFootprint qw(:all);
 use ProductOpener::MainCountries qw(:all);
 use ProductOpener::PackagerCodes qw/:all/;
-use ProductOpener::API qw/:all/;
+use ProductOpener::API qw/get_initialized_response/;
 use ProductOpener::LoadData qw/:all/;
 use ProductOpener::Redis qw/push_to_redis_stream/;
 

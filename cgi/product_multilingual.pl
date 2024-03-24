@@ -50,7 +50,7 @@ use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::Web qw(get_languages_options_list);
 use ProductOpener::Text qw/:all/;
 use ProductOpener::Events qw/:all/;
-use ProductOpener::API qw/:all/;
+use ProductOpener::API qw/get_initialized_response/;
 use ProductOpener::APIProductWrite qw/:all/;
 
 use Apache2::RequestRec ();
