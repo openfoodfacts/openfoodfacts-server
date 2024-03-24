@@ -50,7 +50,6 @@ BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 
-
 		&init_csv_fields
 		&read_gs1_json_file
 		&generate_gs1_confirmation_message

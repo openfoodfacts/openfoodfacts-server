@@ -2210,8 +2210,8 @@ sub check_labels ($product_ref) {
 			(
 				(       (defined $product_ref->{nutriments}{sodium_100g})
 					and ($product_ref->{nutriments}{sodium_100g} > 0.005))
-				or
-				((defined $product_ref->{nutriments}{salt_100g}) and ($product_ref->{nutriments}{salt_100g} > 0.0125))
+				or (    (defined $product_ref->{nutriments}{salt_100g})
+					and ($product_ref->{nutriments}{salt_100g} > 0.0125))
 			)
 			and (has_tag($product_ref, "labels", "en:no-sodium") or has_tag($product_ref, "labels", "en:no-salt"))
 			)

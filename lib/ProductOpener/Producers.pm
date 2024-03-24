@@ -79,7 +79,8 @@ use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Lang qw/$lc %Lang lang/;
 use ProductOpener::Display qw/$header $nutriment_table/;
 use ProductOpener::Export qw/export_csv/;
-use ProductOpener::Import qw/$IMPORT_MAX_PACKAGING_COMPONENTS import_csv_file import_products_categories_from_public_database/;
+use ProductOpener::Import
+	qw/$IMPORT_MAX_PACKAGING_COMPONENTS import_csv_file import_products_categories_from_public_database/;
 use ProductOpener::ImportConvert qw/clean_fields/;
 use ProductOpener::Users qw/$Org_id $Owner_id $User_id %User/;
 
@@ -1474,7 +1475,12 @@ sub init_columns_fields_match ($input_headers_ref, $rows_ref) {
 
 			$log->debug(
 				"before match_column_name_to_field",
-				{lc => $lc, column => $column, column_id => $column_id, column_field => $columns_fields_ref->{$column}}
+				{
+					lc => $lc,
+					column => $column,
+					column_id => $column_id,
+					column_field => $columns_fields_ref->{$column}
+				}
 			) if $log->is_debug();
 
 			$columns_fields_ref->{$column}
@@ -1483,7 +1489,12 @@ sub init_columns_fields_match ($input_headers_ref, $rows_ref) {
 
 			$log->debug(
 				"after match_column_name_to_field",
-				{lc => $lc, column => $column, column_id => $column_id, column_field => $columns_fields_ref->{$column}}
+				{
+					lc => $lc,
+					column => $column,
+					column_id => $column_id,
+					column_field => $columns_fields_ref->{$column}
+				}
 			) if $log->is_debug();
 
 			# If we don't know if the column contains value + unit, value, or unit,

@@ -3,7 +3,8 @@ use ProductOpener::PerlStandards;
 use Test::More;
 use Log::Any::Adapter 'TAP';
 
-use ProductOpener::Ingredients qw/compute_ingredients_percent_estimates compute_ingredients_percent_min_max_values delete_ingredients_percent_values parse_ingredients_text_service/;
+use ProductOpener::Ingredients
+	qw/compute_ingredients_percent_estimates compute_ingredients_percent_min_max_values delete_ingredients_percent_values parse_ingredients_text_service/;
 use ProductOpener::NutritionCiqual qw/load_ciqual_data/;
 use ProductOpener::NutritionEstimation qw/estimate_nutrients_from_ingredients/;
 use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;

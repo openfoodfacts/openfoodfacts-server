@@ -39,7 +39,10 @@ my @tests = (
 	],
 	[{lc => "fr", ingredients_text => "Laitue, Carmine"}, []],
 	[
-		{lc => "fr", ingredients_text => "poudres à lever (carbonates acides d’ammonium et de sodium, acide citrique)"},
+		{
+			lc => "fr",
+			ingredients_text => "poudres à lever (carbonates acides d’ammonium et de sodium, acide citrique)"
+		},
 		["en:e503ii", "en:e500ii", "en:e330"]
 	],
 	[

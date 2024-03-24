@@ -10,7 +10,8 @@ use Log::Any::Adapter 'TAP';
 use JSON;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Packaging qw/aggregate_packaging_by_parent_materials analyze_and_combine_packaging_data get_checked_and_taxonomized_packaging_component_data guess_language_of_packaging_text init_packaging_taxonomies_regexps/;
+use ProductOpener::Packaging
+	qw/aggregate_packaging_by_parent_materials analyze_and_combine_packaging_data get_checked_and_taxonomized_packaging_component_data guess_language_of_packaging_text init_packaging_taxonomies_regexps/;
 use ProductOpener::Test qw/init_expected_results/;
 use ProductOpener::API qw/get_initialized_response/;
 

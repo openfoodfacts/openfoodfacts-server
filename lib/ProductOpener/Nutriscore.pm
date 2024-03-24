@@ -84,9 +84,6 @@ BEGIN {
 		&get_value_with_one_less_negative_point
 		&get_value_with_one_more_positive_point
 
-
-
-
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -380,8 +377,8 @@ sub compute_nutriscore_score_2021 ($nutriscore_data_ref) {
 						($nutrient eq "saturated_fat_ratio")
 					and ($nutriscore_data_ref->{$nutrient . "_value"} >= $threshold)
 				)
-				or
-				(($nutrient ne "saturated_fat_ratio") and ($nutriscore_data_ref->{$nutrient . "_value"} > $threshold))
+				or (    ($nutrient ne "saturated_fat_ratio")
+					and ($nutriscore_data_ref->{$nutrient . "_value"} > $threshold))
 				)
 			{
 				$nutriscore_data_ref->{$nutrient . "_points"}++;

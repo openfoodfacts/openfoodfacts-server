@@ -2414,7 +2414,8 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 
 			chomp($ingredient);
 
-			$debug_ingredients and $log->debug("analyzing ingredient", {ingredient => $ingredient}) if $log->is_debug();
+			$debug_ingredients and $log->debug("analyzing ingredient", {ingredient => $ingredient})
+				if $log->is_debug();
 
 			# Repeat the removal of parts of the ingredient (that corresponds to labels, origins, processing, % etc.)
 			# as long as we have removed something and that we haven't recognized the ingredient
@@ -2479,7 +2480,8 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 					}
 					else {
 						$origin = join(",",
-							map {canonicalize_taxonomy_tag($ingredients_lc, "origins", $_)} split(/,/, $origin_string));
+							map {canonicalize_taxonomy_tag($ingredients_lc, "origins", $_)}
+								split(/,/, $origin_string));
 					}
 				}
 
@@ -2508,7 +2510,8 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 							my $before_the_label = $`;
 							my $after_the_label = $';
 
-							$before_the_label = remove_stopwords_from_start_or_end_of_string("labels", $ingredients_lc,
+							$before_the_label
+								= remove_stopwords_from_start_or_end_of_string("labels", $ingredients_lc,
 								$before_the_label);
 
 							# Don't remove stopwords on $after_the_label, as it can remove words we want to keep
@@ -2549,7 +2552,8 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 				}
 				else {
 
-					$debug_ingredients and $log->trace("ingredient not recognized", {ingredient_id => $ingredient_id})
+					$debug_ingredients
+						and $log->trace("ingredient not recognized", {ingredient_id => $ingredient_id})
 						if $log->is_trace();
 
 					# Try to see if we have an origin somewhere
@@ -2635,7 +2639,11 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 
 							$debug_ingredients and $log->debug(
 								"between is a known label",
-								{between => $between, label => $label_id, label_ingredient_id => $label_ingredient_id}
+								{
+									between => $between,
+									label => $label_id,
+									label_ingredient_id => $label_ingredient_id
+								}
 							) if $log->is_debug();
 
 							if (defined $label_ingredient_id) {
@@ -2653,7 +2661,11 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 
 								$debug_ingredients and $log->debug(
 									"unknown ingredient is a label, add label and add corresponding ingredient",
-									{ingredient => $ingredient, label_id => $label_id, ingredient_id => $ingredient_id}
+									{
+										ingredient => $ingredient,
+										label_id => $label_id,
+										ingredient_id => $ingredient_id
+									}
 								) if $log->is_debug();
 							}
 							else {
@@ -2742,7 +2754,8 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 								'^vastaa \d{1,3}\s*% viljaraaka-aineista$',
 								'^Kuorta ei ole tarkoitettu syötäväksi$',
 								'^Kollageeni\/liha-proteiinisuhde alle',
-								'^Valmistettu (?:myllyssä|tehtaassa)', # Valmistettu myllyssä, jossa käsitellään vehnää.
+								'^Valmistettu (?:myllyssä|tehtaassa)'
+								,    # Valmistettu myllyssä, jossa käsitellään vehnää.
 								'^Kuiva-aineiden täysjyväpitoisuus',
 								'^Tuote on valmistettu linjalla'
 								,    # Tuote on valmistettu linjalla, jossa käsitellään myös muita viljoja.
@@ -2796,7 +2809,8 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 								'^masa kakaowa( w czekoladzie mlecznej)? min(imum)?$',
 								'^masa mleczna min(imum)?$',
 								'^zawartość tłuszczu$',
-								'^(?>\d+\s+g\s+)?(?>\w+\s?)*?100\s?g(?> \w*)?$',  # "pomidorów zużyto na 100 g produktu"
+								'^(?>\d+\s+g\s+)?(?>\w+\s?)*?100\s?g(?> \w*)?$'
+								,    # "pomidorów zużyto na 100 g produktu"
 								'^\w*\s?z \d* g (?>\w+\s?)*?100\s?g\s(?>produktu)?$'
 								,    # "Sporządzono z 40 g owoców na 100 g produktu"
 								'^(?>\d+\s+g\s+)?(?>\w+\s?)*?ze\s+\d+\s?g(?>\s+\w*)*$' # "produktu wyprodukowano ze 133 g mięsa wieprzowego"

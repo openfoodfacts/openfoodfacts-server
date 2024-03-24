@@ -50,7 +50,8 @@ use ProductOpener::Users qw/$Org_id $Owner_id $User_id/;
 use ProductOpener::Lang qw/$lc/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::API qw/add_error add_warning customize_response_for_product normalize_requested_code/;
-use ProductOpener::Packaging qw/add_or_combine_packaging_component_data get_checked_and_taxonomized_packaging_component_data/;
+use ProductOpener::Packaging
+	qw/add_or_combine_packaging_component_data get_checked_and_taxonomized_packaging_component_data/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::Tags qw/%language_fields %writable_tags_fields add_tags_to_field compute_field_tags/;
 

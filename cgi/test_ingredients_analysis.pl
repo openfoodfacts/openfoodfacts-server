@@ -31,7 +31,8 @@ use ProductOpener::Display qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/$lc/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Ingredients qw/clean_ingredients_text extract_ingredients_classes_from_text extract_ingredients_from_text preparse_ingredients_text/;
+use ProductOpener::Ingredients
+	qw/clean_ingredients_text extract_ingredients_classes_from_text extract_ingredients_from_text preparse_ingredients_text/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
 
 use CGI qw/:cgi :form escapeHTML charset/;

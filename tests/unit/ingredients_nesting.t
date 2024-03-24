@@ -162,7 +162,10 @@ my @tests = (
 	],
 
 	[
-		{lc => "fr", ingredients_text => "Teneur en légumes : 74 % : tomate (60 %, Espagne) eau, Sel (France, Italie)"},
+		{
+			lc => "fr",
+			ingredients_text => "Teneur en légumes : 74 % : tomate (60 %, Espagne) eau, Sel (France, Italie)"
+		},
 		[
 			{
 				'id' => "fr:teneur-en-legumes",
@@ -305,7 +308,10 @@ my @tests = (
 	],
 
 	[
-		{lc => "fr", ingredients_text => "minéraux (carbonate de calcium, carbonate de magnésium, fer élémentaire)"},
+		{
+			lc => "fr",
+			ingredients_text => "minéraux (carbonate de calcium, carbonate de magnésium, fer élémentaire)"
+		},
 		[
 			{
 				'id' => 'en:minerals',

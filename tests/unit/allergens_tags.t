@@ -75,7 +75,10 @@ my @tests = (
 		["en:molluscs",]
 	],
 	[
-		{lc => "fi", ingredients_text => "Marinoituja kampasimpukoita (8.6 %), ainesosat myös pienellä, ei poimintaa"},
+		{
+			lc => "fi",
+			ingredients_text => "Marinoituja kampasimpukoita (8.6 %), ainesosat myös pienellä, ei poimintaa"
+		},
 		[]
 	],
 	[{lc => "fi", ingredients_text => "grillattuja SEESAMINSIEMENIÄ, aineosia myös pienellä"}, ["en:sesame-seeds",]],
@@ -98,8 +101,8 @@ my @tests = (
 
 	[{lc => "fr", traces => "Traces de lait"}, [], ["en:milk"]],
 	[
-		{lc => "fr", traces => "Peut contenir des traces de lait et d'autres fruits à coques"}, [],
-		["en:milk", "en:nuts"]
+		{lc => "fr", traces => "Peut contenir des traces de lait et d'autres fruits à coques"},
+		[], ["en:milk", "en:nuts"]
 	],
 	[{lc => "fr", traces => "Lait, Gluten"}, [], ["en:gluten", "en:milk"]],
 	[
@@ -107,7 +110,11 @@ my @tests = (
 		[], ["en:celery", "en:gluten", "en:milk"]
 	],
 	[
-		{lc => "fr", ingredients_text => "Traces éventuelles de moutarde, sésame et céleri", traces => "Lait, Gluten"},
+		{
+			lc => "fr",
+			ingredients_text => "Traces éventuelles de moutarde, sésame et céleri",
+			traces => "Lait, Gluten"
+		},
 		[],
 		["en:celery", "en:gluten", "en:milk", "en:mustard", "en:sesame-seeds"]
 	],

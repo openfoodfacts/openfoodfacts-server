@@ -32,7 +32,8 @@ use ProductOpener::Display qw/:all/;
 use ProductOpener::Lang qw/$lc lang/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/$Org_id $Owner_id $User_id %User/;
-use ProductOpener::Images qw/get_code_and_imagefield_from_file_name is_protected_image process_image_crop process_image_upload scan_code/;
+use ProductOpener::Images
+	qw/get_code_and_imagefield_from_file_name is_protected_image process_image_crop process_image_upload scan_code/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::APIProductWrite qw/:all/;

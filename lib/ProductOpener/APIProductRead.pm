@@ -52,9 +52,7 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Ingredients qw/flatten_sub_ingredients/;
 use ProductOpener::API qw/add_error customize_response_for_product normalize_requested_code/;
 
-
 my $cc;
-
 
 =head2 read_product_api ( $request_ref )
 

@@ -101,7 +101,8 @@ use ProductOpener::Tags qw/:all/;
 use ProductOpener::Images qw/extract_text_from_image/;
 use ProductOpener::Nutriscore qw/compute_nutriscore_score_and_grade/;
 use ProductOpener::Numbers qw/convert_string_to_number round_to_max_decimal_places/;
-use ProductOpener::Ingredients qw/estimate_nutriscore_2021_milk_percent_from_ingredients estimate_nutriscore_2023_red_meat_percent_from_ingredients/;
+use ProductOpener::Ingredients
+	qw/estimate_nutriscore_2021_milk_percent_from_ingredients estimate_nutriscore_2023_red_meat_percent_from_ingredients/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::FoodGroups qw/compute_food_groups/;
 use ProductOpener::Units qw/:all/;
@@ -1859,7 +1860,8 @@ sub check_availability_of_nutrients_needed_for_nutriscore ($product_ref) {
 						($nid eq "saturated-fat")
 						&& saturated_fat_0_because_of_fat_0($product_ref->{nutriments}, $prepared)
 					)
-					|| (($nid eq "sugars") && sugar_0_because_of_carbohydrates_0($product_ref->{nutriments}, $prepared))
+					|| (($nid eq "sugars")
+						&& sugar_0_because_of_carbohydrates_0($product_ref->{nutriments}, $prepared))
 					);
 				$product_ref->{"nutrition_grades_tags"} = ["unknown"];
 				add_tag($product_ref, "misc", "en:nutrition-not-enough-data-to-compute-nutrition-score");

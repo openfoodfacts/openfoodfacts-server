@@ -101,7 +101,6 @@ BEGIN {
 		&compute_data_sources
 		&compute_sort_keys
 
-
 		&process_product_edit_rules
 		&preprocess_product_field
 		&product_data_is_protected
@@ -110,7 +109,6 @@ BEGIN {
 		&change_product_server_or_code
 
 		&find_and_replace_user_id_in_products
-
 
 		&remove_fields
 
@@ -142,7 +140,8 @@ use ProductOpener::Redis qw/push_to_redis_stream/;
 
 # needed by analyze_and_enrich_product_data()
 # may be moved to another module at some point
-use ProductOpener::Ingredients qw/clean_ingredients_text detect_allergens_from_text extract_ingredients_classes_from_text extract_ingredients_from_text select_ingredients_lc/;
+use ProductOpener::Ingredients
+	qw/clean_ingredients_text detect_allergens_from_text extract_ingredients_classes_from_text extract_ingredients_from_text select_ingredients_lc/;
 use ProductOpener::Nutriscore qw/:all/;
 use ProductOpener::Ecoscore qw/compute_ecoscore/;
 use ProductOpener::ForestFootprint qw/compute_forest_footprint/;
@@ -782,7 +781,13 @@ sub init_product ($userid, $orgid, $code, $countryid) {
 
 		$log->debug(
 			"init_product - private_products enabled",
-			{userid => $userid, orgid => $orgid, code => $code, ownerid => $ownerid, product_id => $product_ref->{_id}}
+			{
+				userid => $userid,
+				orgid => $orgid,
+				code => $code,
+				ownerid => $ownerid,
+				product_id => $product_ref->{_id}
+			}
 		) if $log->is_debug();
 	}
 
@@ -965,14 +970,24 @@ sub retrieve_product ($product_id) {
 			$product_ref->{server} = $server;
 			$log->debug(
 				"retrieve_product - product on another server",
-				{product_id => $product_id, product_data_root => $product_data_root, path => $path, server => $server}
+				{
+					product_id => $product_id,
+					product_data_root => $product_data_root,
+					path => $path,
+					server => $server
+				}
 			) if $log->is_debug();
 		}
 
 		if ($product_ref->{deleted}) {
 			$log->debug(
 				"retrieve_product - deleted product",
-				{product_id => $product_id, product_data_root => $product_data_root, path => $path, server => $server}
+				{
+					product_id => $product_id,
+					product_data_root => $product_data_root,
+					path => $path,
+					server => $server
+				}
 			) if $log->is_debug();
 			return;
 		}
@@ -1270,7 +1285,11 @@ sub store_product ($user_id, $product_ref, $comment) {
 			dirmove("$BASE_DIRS{PRODUCTS}/$old_path", "$new_data_root/products/$path")
 				or $log->error(
 				"could not move product data",
-				{source => "$BASE_DIRS{PRODUCTS}/$old_path", destination => "$BASE_DIRS{PRODUCTS}/$path", error => $!}
+				{
+					source => "$BASE_DIRS{PRODUCTS}/$old_path",
+					destination => "$BASE_DIRS{PRODUCTS}/$path",
+					error => $!
+				}
 				);
 
 			$log->debug(

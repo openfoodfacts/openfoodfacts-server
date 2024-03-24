@@ -72,7 +72,8 @@ use ProductOpener::Images qw/:all/;
 use ProductOpener::DataQuality qw/check_quality/;
 use ProductOpener::Data qw/get_products_collection/;
 use ProductOpener::Ecoscore qw(compute_ecoscore);
-use ProductOpener::Packaging qw(analyze_and_combine_packaging_data guess_language_of_packaging_text init_packaging_taxonomies_regexps);
+use ProductOpener::Packaging
+	qw(analyze_and_combine_packaging_data guess_language_of_packaging_text init_packaging_taxonomies_regexps);
 use ProductOpener::ForestFootprint qw(compute_forest_footprint);
 use ProductOpener::MainCountries qw(compute_main_countries);
 use ProductOpener::PackagerCodes qw/normalize_packager_codes/;
@@ -1013,14 +1014,14 @@ while (my $product_ref = $cursor->next) {
 						and (defined $product_ref->{images}{$imgid}{orientation})
 						and ($product_ref->{images}{$imgid}{orientation} != 0)
 						# only rotate images that have not been manually cropped
-						and
-						((not defined $product_ref->{images}{$imgid}{x1}) or ($product_ref->{images}{$imgid}{x1} <= 0))
-						and
-						((not defined $product_ref->{images}{$imgid}{y1}) or ($product_ref->{images}{$imgid}{y1} <= 0))
-						and
-						((not defined $product_ref->{images}{$imgid}{x2}) or ($product_ref->{images}{$imgid}{x2} <= 0))
-						and
-						((not defined $product_ref->{images}{$imgid}{y2}) or ($product_ref->{images}{$imgid}{y2} <= 0))
+						and (  (not defined $product_ref->{images}{$imgid}{x1})
+							or ($product_ref->{images}{$imgid}{x1} <= 0))
+						and (  (not defined $product_ref->{images}{$imgid}{y1})
+							or ($product_ref->{images}{$imgid}{y1} <= 0))
+						and (  (not defined $product_ref->{images}{$imgid}{x2})
+							or ($product_ref->{images}{$imgid}{x2} <= 0))
+						and (  (not defined $product_ref->{images}{$imgid}{y2})
+							or ($product_ref->{images}{$imgid}{y2} <= 0))
 						)
 					{
 						print STDERR "rotating image $imgid by "

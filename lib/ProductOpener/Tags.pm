@@ -320,7 +320,6 @@ my %root_entries = ();
 
 my %cities;
 
-
 my $logo_height = 90;
 
 =head1 FUNCTIONS

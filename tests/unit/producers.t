@@ -51,7 +51,10 @@ my @tests = (
 	["fr", "Matières grasses / Lipides pour 100 g / 100 ml", {}],
 
 	["en", "energy-kj_prepared", {field => "energy-kj_prepared_100g_value_unit", value_unit => 'value_in_kj'}],
-	["en", "energy-kcal_prepared", {field => "energy-kcal_prepared_100g_value_unit", value_unit => 'value_in_kcal'}],
+	[
+		"en", "energy-kcal_prepared",
+		{field => "energy-kcal_prepared_100g_value_unit", value_unit => 'value_in_kcal'}
+	],
 	["en", "energy-kcal_prepared_value", {field => "energy-kcal_prepared_100g_value_unit", value_unit => 'value'}],
 
 	["es", "proteinas", {field => "proteins_100g_value_unit"}],
@@ -70,7 +73,11 @@ my @tests = (
 	["es", "Valor Energético 100gr", {field => "energy_100g_value_unit"}],
 	["es", "Valor Energético KJ / 100 gr", {field => "energy-kj_100g_value_unit", value_unit => 'value_in_kj'}],
 	["es", "Valor Energético KJ / 100gr", {field => "energy-kj_100g_value_unit", value_unit => 'value_in_kj'}],
-	["es", "Valor Energético KJ por porción", {field => "energy-kj_serving_value_unit", value_unit => 'value_in_kj'}],
+	[
+		"es",
+		"Valor Energético KJ por porción",
+		{field => "energy-kj_serving_value_unit", value_unit => 'value_in_kj'}
+	],
 
 	["en", "vitamin c (µg)", {field => "vitamin-c_100g_value_unit", value_unit => "value_in_mcg"}],
 	["en", "folates_ug_100g", {field => 'folates_100g_value_unit', value_unit => 'value_in_mcg'}],

@@ -48,7 +48,8 @@ use ProductOpener::Config qw(:all);
 use ProductOpener::Store qw(:all);
 use ProductOpener::Tags qw(:all);
 use ProductOpener::Food qw(%categories_nutriments_per_country);
-use ProductOpener::Nutriscore qw(compute_nutriscore_score_and_grade get_value_with_one_less_negative_point get_value_with_one_more_positive_point);
+use ProductOpener::Nutriscore
+	qw(compute_nutriscore_score_and_grade get_value_with_one_less_negative_point get_value_with_one_more_positive_point);
 
 use Log::Any qw($log);
 use Storable qw(dclone);

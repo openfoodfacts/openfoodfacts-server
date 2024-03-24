@@ -36,7 +36,8 @@ use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Mail qw/send_email_to_admin/;
 use ProductOpener::Products qw/:all/;
-use ProductOpener::Food qw/%nutriments_tables %other_nutriments_lists assign_nutriments_values_from_request_parameters compute_serving_size_data/;
+use ProductOpener::Food
+	qw/%nutriments_tables %other_nutriments_lists assign_nutriments_values_from_request_parameters compute_serving_size_data/;
 use ProductOpener::Units qw/g_to_unit mmoll_to_unit/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
@@ -45,7 +46,8 @@ use ProductOpener::KnowledgePanelsContribution qw/create_contribution_card_panel
 use ProductOpener::URL qw/:all/;
 use ProductOpener::DataQuality qw/:all/;
 use ProductOpener::Ecoscore qw/:all/;
-use ProductOpener::Packaging qw/apply_rules_to_augment_packaging_component_data get_checked_and_taxonomized_packaging_component_data/;
+use ProductOpener::Packaging
+	qw/apply_rules_to_augment_packaging_component_data get_checked_and_taxonomized_packaging_component_data/;
 use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::Web qw(get_languages_options_list);
 use ProductOpener::Text qw/remove_tags_and_quote/;

@@ -36,7 +36,8 @@ use ProductOpener::Users qw/$User_id/;
 use ProductOpener::Images qw/process_image_crop process_image_upload/;
 use ProductOpener::Lang qw/$lc lang/;
 use ProductOpener::Mail qw/:all/;
-use ProductOpener::Products qw/analyze_and_enrich_product_data init_product product_exists retrieve_product store_product/;
+use ProductOpener::Products
+	qw/analyze_and_enrich_product_data init_product product_exists retrieve_product store_product/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Units qw/unit_to_g/;
 use ProductOpener::Ingredients qw/:all/;
@@ -448,7 +449,8 @@ while (my $imported_product_ref = $csv->getline_hr($io)) {
 	if (
 		   (not defined $images_ref->{$code})
 		or (not defined $images_ref->{$code}{front})
-		or ((not defined $images_ref->{$code}{ingredients}) and (not exists $products_without_ingredients_lists{$code}))
+		or (    (not defined $images_ref->{$code}{ingredients})
+			and (not exists $products_without_ingredients_lists{$code}))
 		)
 	{
 		print "MISSING IMAGES SOME - PRODUCT CODE $code\n";
@@ -1235,7 +1237,11 @@ while (my $imported_product_ref = $csv->getline_hr($io)) {
 						# normalize quantity
 						$log->debug(
 							"normalizing quantity",
-							{field => $field, existing_value => $product_ref->{$field}, new_value => $new_field_value}
+							{
+								field => $field,
+								existing_value => $product_ref->{$field},
+								new_value => $new_field_value
+							}
 						) if $log->is_debug();
 						$product_ref->{$field} = $new_field_value;
 						push @modified_fields, $field;

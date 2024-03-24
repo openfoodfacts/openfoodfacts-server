@@ -71,7 +71,10 @@ my @tests = (
 
 	[
 		'propagate-max-percent',
-		{lc => "en", ingredients_text => "Beans (52%), Tomatoes (33%), Water, Sugar, Cornflour, Salt, Spirit Vinegar"},
+		{
+			lc => "en",
+			ingredients_text => "Beans (52%), Tomatoes (33%), Water, Sugar, Cornflour, Salt, Spirit Vinegar"
+		},
 	],
 
 	['minimum-percent', {lc => "es", ingredients_text => "Leche. Cacao: 27% mínimo"},],
@@ -88,7 +91,10 @@ my @tests = (
 	# bug #3762 "min" in "cumin"
 	[
 		'min-in-cumin-bug',
-		{lc => "fr", ingredients_text => "sel (min 20%), poivre (min. 10%), piment (min : 5%), cumin 0,4%, ail : 0.1%"},
+		{
+			lc => "fr",
+			ingredients_text => "sel (min 20%), poivre (min. 10%), piment (min : 5%), cumin 0,4%, ail : 0.1%"
+		},
 	],
 
 	# Relative percent

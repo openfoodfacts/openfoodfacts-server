@@ -56,7 +56,6 @@ BEGIN {
 
 		&is_ecoscore_extended_data_more_precise_than_agribalyse
 
-
 		%agribalyse
 
 	);    # symbols to export on request
@@ -613,7 +612,11 @@ sub load_ecoscore_data_packaging() {
 
 			$log->debug(
 				"ecoscore shapes CSV file - row",
-				{shape => $shape, shape_id => $shape_id, ecoscore_data => $ecoscore_data{packaging_shapes}{$shape_id}}
+				{
+					shape => $shape,
+					shape_id => $shape_id,
+					ecoscore_data => $ecoscore_data{packaging_shapes}{$shape_id}
+				}
 			) if $log->is_debug();
 		}
 
@@ -1166,7 +1169,10 @@ sub compute_ecoscore_production_system_adjustment ($product_ref) {
 			# Don't count the points for en:eu-organic if we already have fr:ab-agriculture-biologique
 			# and for ASC if we already have MSC
 			if (
-				(($label ne "en:eu-organic") or not(has_tag($product_ref, "labels", "fr:ab-agriculture-biologique")))
+				(
+					($label ne "en:eu-organic")
+					or not(has_tag($product_ref, "labels", "fr:ab-agriculture-biologique"))
+				)
 				and (($label ne "en:sustainable-seafood-msc")
 					or not(has_tag($product_ref, "labels", "en:sustainable-fishing-method")))
 				and (

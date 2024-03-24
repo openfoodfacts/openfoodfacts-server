@@ -1476,8 +1476,19 @@ sub process_image_crop ($user_id, $product_id, $id, $imgid, $angle, $normalize, 
 				($distance->(\@rgb, [$original->GetPixel(x => $x + 1, y => $y - 1)]) <= $max_distance)
 					and push @q, [$x + 1, $y - 1];
 				$i++;
-				($i % 10000) == 0 and $log->debug("white color detection",
-					{i => $i, x => $x, y => $y, r => $rgb[0], g => $rgb[1], b => $rgb[2], width => $w, height => $h});
+				($i % 10000) == 0 and $log->debug(
+					"white color detection",
+					{
+						i => $i,
+						x => $x,
+						y => $y,
+						r => $rgb[0],
+						g => $rgb[1],
+						b => $rgb[2],
+						width => $w,
+						height => $h
+					}
+				);
 			}
 		}
 

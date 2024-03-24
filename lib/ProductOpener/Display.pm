@@ -90,7 +90,6 @@ BEGIN {
 		&display_possible_improvement_description
 		&display_properties
 
-
 		&data_to_display_nutriscore
 		&data_to_display_nutrient_levels
 		&data_to_display_ingredients_analysis
@@ -104,7 +103,6 @@ BEGIN {
 		&process_template
 
 		@search_series
-
 
 		$admin
 		$memd
@@ -157,17 +155,21 @@ use ProductOpener::Products qw(:all);
 use ProductOpener::Missions qw(:all);
 use ProductOpener::MissionsConfig qw(:all);
 use ProductOpener::URL qw(format_subdomain);
-use ProductOpener::Data qw(execute_aggregate_tags_query execute_count_tags_query execute_query get_products_collection get_recent_changes_collection);
-use ProductOpener::Text qw(escape_char escape_single_quote_and_newlines get_decimal_formatter get_percent_formatter remove_tags_and_quote);
+use ProductOpener::Data
+	qw(execute_aggregate_tags_query execute_count_tags_query execute_query get_products_collection get_recent_changes_collection);
+use ProductOpener::Text
+	qw(escape_char escape_single_quote_and_newlines get_decimal_formatter get_percent_formatter remove_tags_and_quote);
 use ProductOpener::Nutriscore qw(%points_thresholds compute_nutriscore_grade);
 use ProductOpener::Ecoscore qw(localize_ecoscore);
 use ProductOpener::Attributes qw(compute_attributes list_attributes);
 use ProductOpener::KnowledgePanels qw(create_knowledge_panels initialize_knowledge_panels_options);
 use ProductOpener::KnowledgePanelsTags qw(create_tag_knowledge_panels);
 use ProductOpener::Orgs qw(is_user_in_org_group retrieve_org);
-use ProductOpener::Web qw(display_data_quality_issues_and_improvement_opportunities display_field display_knowledge_panel);
+use ProductOpener::Web
+	qw(display_data_quality_issues_and_improvement_opportunities display_field display_knowledge_panel);
 use ProductOpener::Recipes qw(add_product_recipe_to_set analyze_recipes compute_product_recipe);
-use ProductOpener::PackagerCodes qw($ec_code_regexp %geocode_addresses %packager_codes init_geocode_addresses init_packager_codes);
+use ProductOpener::PackagerCodes
+	qw($ec_code_regexp %geocode_addresses %packager_codes init_geocode_addresses init_packager_codes);
 use ProductOpener::Export qw(export_csv);
 use ProductOpener::API qw(add_error customize_response_for_product process_api_request);
 use ProductOpener::Units qw/g_to_unit/;
@@ -211,8 +213,6 @@ use Apache2::Const qw(:http :common);
 use URI::Find;
 
 my $bodyabout;
-
-
 
 my $uri_finder = URI::Find->new(
 	sub ($uri, $orig_uri) {
