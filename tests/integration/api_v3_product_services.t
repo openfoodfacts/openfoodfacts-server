@@ -57,12 +57,14 @@ my $tests_ref = [
 			"services":["unknown"],
 			"product":{}
 		}',
+		expected_status_code => 400,
 	},
 	# echo service
 	{
 		test_case => 'service-no-body',
 		method => 'POST',
 		path => '/api/v3/product_services',
+		expected_status_code => 400,
 	},
 	{
 		test_case => 'echo-service-hazelnut-spread',

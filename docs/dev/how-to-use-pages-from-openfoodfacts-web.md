@@ -12,6 +12,6 @@ you should first clone openfoodfacts-web repo locally,
 and then:
 
 - if you are using docker, 
-  you can set the `WEB_LANG_PATH` env variable to a relative or absolute path
-  leading to openfoodfacts-web lang directory.
-- else, make symlink `lang` point to openfoodfacts-web lang directory.
+  you can set the `WEB_RESOURCES_PATH` env variable to a relative or absolute path
+  leading to openfoodfacts-web directory.
+- else, make symlink `lang` point to openfoodfacts-web `lang` directory, and `html/off_web_html` points to openfoodfacts-web `html` directory.

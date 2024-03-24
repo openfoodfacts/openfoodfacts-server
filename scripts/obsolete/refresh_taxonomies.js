@@ -99,7 +99,7 @@ async function main() {
         // Launch the Perl script to rebuild the taxonomy
         const perl = spawn(
           'perl',
-          ['-CS', '-Ilib', 'scripts/build_tags_taxonomy.pl', file, '1'],
+          ['-CS', '-Ilib', 'scripts/taxonomies/build_tags_taxonomy.pl', file, '1'],
           { stdio: ['pipe', 'inherit', 'inherit'] }
         );
         spawns.push(perl);

@@ -92,6 +92,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_proxy_food_code" : "36005",
          "id" : "en:chicken-bone",
          "labels" : "en:pgi",
          "percent_estimate" : 16.6666666666667,
@@ -152,10 +153,8 @@
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 3,
    "ingredients_with_unspecified_percent_sum" : 100,
-   "ingredients_without_ciqual_codes" : [
-      "en:chicken-bone"
-   ],
-   "ingredients_without_ciqual_codes_n" : 1,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
    "known_ingredients_n" : 7,
    "lc" : "fr",
    "misc_tags" : [

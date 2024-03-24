@@ -333,30 +333,43 @@ my %unknown_entries_in_gs1_maps = ();
 
 # Normalize some entries
 
-foreach my $tag (sort keys %{$gs1_maps{allergenTypeCode}}) {
-	my $canon_tag = canonicalize_taxonomy_tag("en", "allergens", $gs1_maps{allergenTypeCode}{$tag});
-	if (exists_taxonomy_tag("allergens", $canon_tag)) {
-		$gs1_maps{allergenTypeCode}{$tag} = $canon_tag;
-	}
-	else {
-		$log->error("gs1_maps - entry not in taxonomy",
-			{tagtype => "allergens", tag => $gs1_maps{allergenTypeCode}{$tag}})
-			if $log->is_error();
-		die;
-	}
-}
+my $gs1_maps_entries_normalized = 0;
 
-foreach my $tag (sort keys %{$gs1_maps{packagingMarkedLabelAccreditationCode}}) {
-	my $canon_tag = canonicalize_taxonomy_tag("en", "labels", $gs1_maps{packagingMarkedLabelAccreditationCode}{$tag});
-	if (exists_taxonomy_tag("labels", $canon_tag)) {
-		$gs1_maps{packagingMarkedLabelAccreditationCode}{$tag} = $canon_tag;
+sub normalize_gs1_maps_entries() {
+
+	return if $gs1_maps_entries_normalized;
+
+	foreach my $tag (sort keys %{$gs1_maps{allergenTypeCode}}) {
+		my $canon_tag = canonicalize_taxonomy_tag("en", "allergens", $gs1_maps{allergenTypeCode}{$tag});
+		if (exists_taxonomy_tag("allergens", $canon_tag)) {
+			$gs1_maps{allergenTypeCode}{$tag} = $canon_tag;
+		}
+		else {
+			$log->error("gs1_maps - entry not in taxonomy",
+				{tagtype => "allergens", tag => $gs1_maps{allergenTypeCode}{$tag}})
+				if $log->is_error();
+			print STDERR "tag: $tag - canon_tag: $canon_tag\n";
+			die;
+		}
 	}
-	else {
-		$log->error("gs1_maps - entry not in taxonomy",
-			{tagtype => "labels", tag => $gs1_maps{packagingMarkedLabelAccreditationCode}{$tag}})
-			if $log->is_error();
-		die;
+
+	foreach my $tag (sort keys %{$gs1_maps{packagingMarkedLabelAccreditationCode}}) {
+		my $canon_tag
+			= canonicalize_taxonomy_tag("en", "labels", $gs1_maps{packagingMarkedLabelAccreditationCode}{$tag});
+		if (exists_taxonomy_tag("labels", $canon_tag)) {
+			$gs1_maps{packagingMarkedLabelAccreditationCode}{$tag} = $canon_tag;
+		}
+		else {
+			$log->error("gs1_maps - entry not in taxonomy",
+				{tagtype => "labels", tag => $gs1_maps{packagingMarkedLabelAccreditationCode}{$tag}})
+				if $log->is_error();
+			die;
+		}
 	}
+
+	$gs1_maps_entries_normalized = 1;
+
+	return;
 }
 
 =head2 %gs1_message_to_off
@@ -1752,6 +1765,8 @@ The encapsulating GS1 message is added to the $messages_ref array
 sub read_gs1_json_file ($json_file, $products_ref, $messages_ref) {
 
 	$log->debug("read_gs1_json_file", {json_file => $json_file}) if $log->is_debug();
+
+	normalize_gs1_maps_entries();
 
 	open(my $in, "<", $json_file) or die("Cannot open json file $json_file : $!\n");
 	my $json = join(q{}, (<$in>));

@@ -12,12 +12,12 @@
     "evaluation": "unknown",
     [% END %]
     "title_element": {
-        "title":"[% lang("ingredients_analysis_details") %]",
+        "title":"[% edq(lang('ingredients_analysis_details')) %]",
         "icon_url": "[% static_subdomain %]/images/icons/dist/off-magnifying-glass.svg",
         "icon_size": "small",
         "icon_color_from_evaluation": true,        
         [% IF panel.unknown_ingredients %]
-        "subtitle": "[% lang("we_need_your_help") %]",
+        "subtitle": "[% edq(lang('we_need_your_help')) %]",
         [% END %]
     },    
     "elements": [

@@ -175,7 +175,7 @@ if ($User_id eq 'unwanted-user-french') {
 # Response structure to keep track of warnings and errors
 # Note: currently some warnings and errors are added,
 # but we do not yet do anything with them
-my $response_ref = get_initialized_response();
+my $response_ref = ProductOpener::API::get_initialized_response();
 
 my $type = single_param('type') || 'search_or_add';
 my $action = single_param('action') || 'display';
@@ -220,7 +220,7 @@ if ($type eq 'search_or_add') {
 		if ((not defined $code) or ($code eq "")) {
 			$code = process_search_image_form(\$filename);
 		}
-		elsif ($code !~ /^\d{4,24}$/) {
+		elsif (not is_valid_code($code)) {
 			display_error_and_exit($Lang{invalid_barcode}{$lang}, 403);
 		}
 
@@ -315,7 +315,7 @@ else {
 	if ((not defined $code) or ($code eq '')) {
 		display_error_and_exit($Lang{missing_barcode}{$lang}, 403);
 	}
-	elsif ($code !~ /^\d{4,24}$/) {
+	elsif (not is_valid_code($code)) {
 		display_error_and_exit($Lang{invalid_barcode}{$lang}, 403);
 	}
 	else {
@@ -759,7 +759,6 @@ if (($action eq 'display') and (($type eq 'add') or ($type eq 'edit'))) {
 	compute_serving_size_data($product_ref);
 
 	my $template_data_ref_display = {};
-	my $js;
 
 	$log->debug("displaying product", {code => $code}) if $log->is_debug();
 
@@ -777,19 +776,20 @@ HTML
 		;
 
 	$scripts .= <<HTML
-<script type="text/javascript" src="/js/dist/webcomponentsjs/webcomponents-loader.js"></script>
-<script type="text/javascript" src="/js/dist/cropper.js"></script>
-<script type="text/javascript" src="/js/dist/jquery-cropper.js"></script>
-<script type="text/javascript" src="/js/dist/jquery.form.js"></script>
-<script type="text/javascript" src="/js/dist/tagify.min.js"></script>
-<script type="text/javascript" src="/js/dist/jquery.iframe-transport.js"></script>
-<script type="text/javascript" src="/js/dist/jquery.fileupload.js"></script>
-<script type="text/javascript" src="/js/dist/load-image.all.min.js"></script>
-<script type="text/javascript" src="/js/dist/canvas-to-blob.js"></script>
+<script type="text/javascript" src="$static_subdomain/js/dist/webcomponentsjs/webcomponents-loader.js"></script>
+<script type="text/javascript" src="$static_subdomain/js/dist/cropper.js"></script>
+<script type="text/javascript" src="$static_subdomain/js/dist/jquery-cropper.js"></script>
+<script type="text/javascript" src="$static_subdomain/js/dist/jquery.form.js"></script>
+<script type="text/javascript" src="$static_subdomain/js/dist/tagify.min.js"></script>
+<script type="text/javascript" src="$static_subdomain/js/dist/jquery.iframe-transport.js"></script>
+<script type="text/javascript" src="$static_subdomain/js/dist/jquery.fileupload.js"></script>
+<script type="text/javascript" src="$static_subdomain/js/dist/load-image.all.min.js"></script>
+<script type="text/javascript" src="$static_subdomain/js/dist/canvas-to-blob.js"></script>
 <script type="text/javascript">
 var admin = $moderator;
 </script>
-<script type="text/javascript" src="/js/dist/product-multilingual.js?v=$file_timestamps{'js/dist/product-multilingual.js'}"></script>
+<script type="text/javascript" src="$static_subdomain/js/dist/product-multilingual.js?v=$file_timestamps{'js/dist/product-multilingual.js'}"></script>
+<script type="text/javascript" src="$static_subdomain/js/dist/product-history.js"></script>
 
 HTML
 		;
@@ -1045,7 +1045,9 @@ CSS
 
 	my %column_display_style = ();
 	my %nutrition_data_per_display_style = ();
-	my @nutrition_products;
+
+	# We can display 2 nutrition facts columns, one for the product as sold, and one for the prepared product
+	my @nutrition_product_types = ();
 
 	# keep existing field ids for the product as sold, and append _prepared_product for the product after it has been prepared
 	foreach my $product_type ("", "_prepared") {
@@ -1092,7 +1094,7 @@ CSS
 		}
 
 		push(
-			@nutrition_products,
+			@nutrition_product_types,
 			{
 				checked => $checked,
 				nutrition_data => $nutrition_data,
@@ -1112,7 +1114,7 @@ CSS
 
 	}
 
-	$template_data_ref_display->{nutrition_products} = \@nutrition_products;
+	$template_data_ref_display->{nutrition_product_types} = \@nutrition_product_types;
 
 	$template_data_ref_display->{column_display_style_nutrition_data} = $column_display_style{"nutrition_data"};
 	$template_data_ref_display->{column_display_style_nutrition_data_prepared}
@@ -1479,13 +1481,12 @@ HTML
 	$template_data_ref_display->{param_fields} = single_param("fields");
 	$template_data_ref_display->{type} = $type;
 	$template_data_ref_display->{code} = $code;
-	$template_data_ref_display->{display_product_history} = display_product_history($code, $product_ref);
+	$template_data_ref_display->{display_product_history} = display_product_history($request_ref, $code, $product_ref);
 	$template_data_ref_display->{product} = $product_ref;
 
 	process_template('web/pages/product_edit/product_edit_form_display.tt.html', $template_data_ref_display, \$html)
 		or $html = "<p>" . $tt->error() . "</p>";
-	process_template('web/pages/product_edit/product_edit_form_display.tt.js', $template_data_ref_display, \$js);
-	$initjs .= $js;
+
 	$request_ref->{page_type} = "product_edit";
 	$request_ref->{page_format} = "banner";
 

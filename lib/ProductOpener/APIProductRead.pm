@@ -124,17 +124,14 @@ sub read_product_api ($request_ref) {
 
 		# Return an error if we could not find a product
 
-		if ($request_ref->{api_version} >= 1) {
-			$request_ref->{status_code} = 404;
-		}
-
 		add_error(
 			$response_ref,
 			{
 				message => {id => "product_not_found"},
 				field => {id => "code", value => $code},
 				impact => {id => "failure"},
-			}
+			},
+			404
 		);
 		$response_ref->{result} = {id => "product_not_found"};
 	}

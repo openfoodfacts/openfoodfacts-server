@@ -54,8 +54,7 @@ $log->info("start", {type => $type, action => $action, userid_or_email => $id, r
 
 my @errors = ();
 
-my $email_ref = undef;
-my $userid = undef;
+my $user_ref = undef;
 
 my $html = '';
 
@@ -70,25 +69,15 @@ if ($action eq 'process') {
 		# Is it an email?
 
 		if ($id =~ /\@/) {
-			my $emails_ref = retrieve("$BASE_DIRS{USERS}/users_emails.sto");
-			if (not defined $emails_ref->{$id}) {
-				# not found, try with lower case email
-				$id = lc $id;
-			}
-			if (not defined $emails_ref->{$id}) {
+			$user_ref = retrieve_user_by_email($id);
+			if (not defined $user_ref) {
 				push @errors, $Lang{error_reset_unknown_email}{$lang};
-			}
-			else {
-				$email_ref = $emails_ref->{$id};
 			}
 		}
 		else {
-			$id = get_string_id_for_lang("no_language", $id);
-			if (!-e "$BASE_DIRS{USERS}/$id.sto") {
+			$user_ref = retrieve_user($id);
+			if (not defined $user_ref) {
 				push @errors, $Lang{error_reset_unknown_id}{$lang};
-			}
-			else {
-				$userid = $id;
 			}
 		}
 
@@ -130,45 +119,33 @@ if ($action eq 'display') {
 elsif ($action eq 'process') {
 
 	if ($type eq 'send_email') {
-
-		my @userids = ();
-		if (defined $email_ref) {
-			@userids = @{$email_ref};
-		}
-		elsif (defined $userid) {
-			@userids = ($userid);
-		}
-
 		$template_data_ref->{status} = "error";
 
-		foreach my $userid (@userids) {
+		if (defined $user_ref) {
 
-			my $user_ref = retrieve("$BASE_DIRS{USERS}/$userid.sto");
-			if (defined $user_ref) {
+			$user_ref->{token_t} = time();
+			$user_ref->{token} = generate_token(64);
+			$user_ref->{token_ip} = remote_addr();
 
-				$user_ref->{token_t} = time();
-				$user_ref->{token} = generate_token(64);
-				$user_ref->{token_ip} = remote_addr();
+			store_user_session($user_ref);
+			my $userid = $user_ref->{userid};
 
-				store("$BASE_DIRS{USERS}/$userid.sto", $user_ref);
+			my $url
+				= format_subdomain($subdomain)
+				. "/cgi/reset_password.pl?type=reset&resetid=$userid&token="
+				. $user_ref->{token};
 
-				my $url
-					= format_subdomain($subdomain)
-					. "/cgi/reset_password.pl?type=reset&resetid=$userid&token="
-					. $user_ref->{token};
+			my $email = lang("reset_password_email_body");
+			$email =~ s/<USERID>/$userid/g;
+			$email =~ s/<RESET_URL>/$url/g;
+			send_email($user_ref, lang("reset_password_email_subject"), $email);
 
-				my $email = lang("reset_password_email_body");
-				$email =~ s/<USERID>/$userid/g;
-				$email =~ s/<RESET_URL>/$url/g;
-				send_email($user_ref, lang("reset_password_email_subject"), $email);
-
-				$template_data_ref->{status} = "email_sent";
-			}
+			$template_data_ref->{status} = "email_sent";
 		}
 	}
 	elsif ($type eq 'reset') {
-		my $userid = get_string_id_for_lang("no_language", single_param('resetid'));
-		my $user_ref = retrieve("$BASE_DIRS{USERS}/$userid.sto");
+		my $userid = single_param('resetid');
+		my $user_ref = retrieve_user($userid);
 
 		$log->debug("resetting password", {userid => $userid}) if $log->is_debug();
 
@@ -191,7 +168,7 @@ elsif ($action eq 'process') {
 
 				delete $user_ref->{token};
 
-				store("$BASE_DIRS{USERS}/$userid.sto", $user_ref);
+				store_user($user_ref);
 
 			}
 			else {

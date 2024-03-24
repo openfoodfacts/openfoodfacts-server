@@ -1,0 +1,67 @@
+type: object
+description: Parameters of type nutrients (for search)
+properties:
+  nutrient_lower_than:
+    in: query
+    name: '<nutrient>_lt_<value>'
+    description: |
+      Search on nutrient lower than a value
+    schema:
+      type: object
+      patternProperties:
+        '(?<nutrient>\w+)(?<prepared>_prepared)?(?<portion>100g|serving)<(?<value>\d+)':
+          type: string
+          description: |
+            Will search for products with nutrients lower than  `value`
+            per `portion` (100g or serving).
+
+            If `prepared` is "prepared" search in prepared product instead of "as sold".
+
+            Important: the parameter value is discarded and should be empty
+      examples:
+        - salt_100g_lt_2:
+          summary: salt per 100g is lower than 2g (in product as sold)
+          value:
+            "salt_100g<2": 1
+  nutrient_greater_than:
+    in: query
+    name: '<nutrient>_gt_<value>'
+    description: |
+      Search on nutrient greater than a value
+    schema:
+      type: object
+      patternProperties:
+        '(?<nutrient>\w+)(?<prepared>_prepared)?(?<portion>100g|serving)>(?<value>\d+)':
+          type: string
+          description: |
+            Will search for products with nutrients more than  `value`
+            per `portion` (100g or serving).
+
+            If `prepared` is "prepared" search in prepared product instead of "as sold".
+
+            Important: the parameter value is discarded and should be empty
+      examples:
+        - carbohydrates_prepared_serving_gt_10:
+          summary: carbohydrates per serving is greater than 10g in prepared product
+          value:
+            "salt_100g>10": 1
+  nutrient_equal:
+    in: query
+    name: '<nutrient>_eq_<value>'
+    description: |
+      Search on nutrient for an exact quantity
+    schema:
+      type: object
+      patternProperties:
+        '(?<nutrient>\w+)(?<prepared>_prepared)?(?<portion>100g|serving)':
+          type: string
+          description: |
+            Will search for products with nutrients exactl  the parameter value
+            per `portion` (100g or serving).
+
+            If `prepared` is "prepared" search in prepared product instead of "as sold".
+      examples:
+        - fat_100g_eq_5:
+          summary: fat per 100g is exactly equal to 5g (in product as sold)
+          value:
+            "fat_100g": 5

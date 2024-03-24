@@ -43,7 +43,7 @@
                     </div>
 
                     <div class="small-12 medium-12 large-4 columns tag-search-criterion">
-                        <input type="text" id="tag_[% type.id %]" name="tag_[% tagtype.id %]" value="[% tagtype.input_value %]" placeholder="[% lang('search_value') %]"/>
+                        <input type="text" id="tag_[% type.id %]" name="tag_[% tagtype.id %]" value="[% tagtype.input_value %]" placeholder="[% edq(lang('search_value')) %]"/>
                     </div>
                 </div>
             </div>
@@ -177,7 +177,7 @@
                         [% END %]
                     </div>
                 </div>
-                <input type="submit" name="graph" value="[% lang('search_generate_graph') %]" class="button" />
+                <input type="submit" name="graph" value="[% edq(lang('search_generate_graph')) %]" class="button" />
             </div>
         </li>
 
@@ -210,7 +210,7 @@
                 <input type="radio" name="format" value="csv" id="format_csv" />
                     <label for="format_csv">[% lang('search_download_csv') %] - [% lang('search_download_csv_description') %]</label><br>
 
-                <input type="submit" name="download" value="[% lang('search_download_button') %]" class="button" />
+                <input type="submit" name="download" value="[% edq(lang('search_download_button')) %]" class="button" />
 
             </div>
         </li>

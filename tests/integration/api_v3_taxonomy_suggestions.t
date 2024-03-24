@@ -23,11 +23,13 @@ my $tests_ref = [
 		test_case => 'no-tagtype',
 		method => 'GET',
 		path => '/api/v3/taxonomy_suggestions',
+		expected_status_code => 400,
 	},
 	{
 		test_case => 'incorrect-tagtype',
 		method => 'GET',
 		path => '/api/v3/taxonomy_suggestions?tagtype=not_a_taxonomy',
+		expected_status_code => 400,
 	},
 	{
 		test_case => 'categories-no-string',
@@ -75,6 +77,12 @@ my $tests_ref = [
 		test_case => 'categories-string-fr-cafe-accent',
 		method => 'GET',
 		path => '/api/v3/taxonomy_suggestions?tagtype=categories&string=Café&lc=fr',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'allergens-string-fr-o-get-synonyms',
+		method => 'GET',
+		path => '/api/v3/taxonomy_suggestions?tagtype=allergens&string=o&lc=fr&get_synonyms=1',
 		expected_status_code => 200,
 	},
 	# Packaging suggestions return most popular suggestions first

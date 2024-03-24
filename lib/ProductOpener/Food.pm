@@ -89,6 +89,8 @@ BEGIN {
 
 		&assign_nutriments_values_from_request_parameters
 
+		&check_nutriscore_categories_exist_in_taxonomy
+
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -123,34 +125,42 @@ use Storable qw/dclone/;
 
 use Log::Any qw($log);
 
-# Normalize values listed in Config.pm
+sub check_nutriscore_categories_exist_in_taxonomy() {
 
-# Canonicalize the list of categories used to compute Nutri-Score, so that Nutri-Score
-# computation does not change if we change the canonical English name of a category
+	# Normalize values listed in Config.pm
 
-foreach my $categories_list_id (
-	qw(
-	categories_not_considered_as_beverages_for_nutriscore_2021
-	categories_not_considered_as_beverages_for_nutriscore_2023
-	categories_exempted_from_nutriscore
-	categories_not_exempted_from_nutriscore
-	categories_exempted_from_nutrient_levels
-	)
-	)
-{
-	my $categories_list_ref = $options{$categories_list_id};
-	if (defined $categories_list_ref) {
-		foreach my $category_id (@{$categories_list_ref}) {
-			$category_id = canonicalize_taxonomy_tag("en", "categories", $category_id);
-			# Check that the entry exists
-			if (not exists_taxonomy_tag("categories", $category_id)) {
-				$log->error(
-					"Category used in Nutri-Score and listed in Config.pm \$options\{$categories_list_id\} does not exist in the categories taxonomy.",
-					{category_id => $category_id}
-				) if $log->is_error();
+	# Canonicalize the list of categories used to compute Nutri-Score, so that Nutri-Score
+	# computation does not change if we change the canonical English name of a category
+
+	foreach my $categories_list_id (
+		qw(
+		categories_not_considered_as_beverages_for_nutriscore_2021
+		categories_not_considered_as_beverages_for_nutriscore_2023
+		categories_exempted_from_nutriscore
+		categories_not_exempted_from_nutriscore
+		categories_exempted_from_nutrient_levels
+		)
+		)
+	{
+		my $categories_list_ref = $options{$categories_list_id};
+		if (defined $categories_list_ref) {
+			foreach my $category_id (@{$categories_list_ref}) {
+				$category_id = canonicalize_taxonomy_tag("en", "categories", $category_id);
+				# Check that the entry exists
+				if (not exists_taxonomy_tag("categories", $category_id)) {
+					$log->error(
+						"Category used in Nutri-Score and listed in Config.pm \$options\{$categories_list_id\} does not exist in the categories taxonomy.",
+						{category_id => $category_id}
+					) if $log->is_error();
+					die(
+						"Category used in Nutri-Score and listed in Config.pm \$options\{$categories_list_id\} does not exist in the categories taxonomy."
+					);
+				}
 			}
 		}
 	}
+
+	return;
 }
 
 # Load nutrient stats for all categories and countries
@@ -657,10 +667,10 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'vitamin-b9-', 'folates-',
 			'vitamin-b12-', 'biotin-',
 			'pantothenic-acid-', '#minerals',
-			'silica-', 'bicarbonate-',
-			'potassium', 'chloride-',
-			'calcium', 'phosphorus-',
-			'iron', 'magnesium-',
+			'calcium', 'iron',
+			'potassium', 'silica-',
+			'bicarbonate-', 'chloride-',
+			'phosphorus-', 'magnesium-',
 			'zinc-', 'copper-',
 			'manganese-', 'fluoride-',
 			'selenium-', 'chromium-',
@@ -837,35 +847,6 @@ foreach my $region (keys %nutriments_tables) {
 	}
 }
 
-# nutrient levels
-
-$log->info("Initializing nutrient levels") if $log->is_info();
-foreach my $l (@Langs) {
-
-	$lc = $l;
-	$lang = $l;
-
-	foreach my $nutrient_level_ref (@nutrient_levels) {
-		my ($nid, $low, $high) = @{$nutrient_level_ref};
-
-		foreach my $level ('low', 'moderate', 'high') {
-			my $fmt = lang("nutrient_in_quantity");
-			my $nutrient_name = display_taxonomy_tag($lc, "nutrients", "zz:$nid");
-			my $level_quantity = lang($level . "_quantity");
-			if ((not defined $fmt) or (not defined $nutrient_name) or (not defined $level_quantity)) {
-				next;
-			}
-
-			my $tag = sprintf($fmt, $nutrient_name, $level_quantity);
-			my $tagid = get_string_id_for_lang($lc, $tag);
-			$canon_tags{$lc}{nutrient_levels}{$tagid} = $tag;
-			# print "nutrient_levels : lc: $lc - tagid: $tagid - tag: $tag\n";
-		}
-	}
-}
-
-$log->debug("Nutrient levels initialized") if $log->is_debug();
-
 =head2 canonicalize_nutriment ( $product_ref )
 
 Canonicalizes the nutrients input by the user in the nutrition table product edit. 
@@ -914,7 +895,9 @@ sub is_beverage_for_nutrition_score_2021 ($product_ref) {
 
 	my $is_beverage = 0;
 
-	if (has_tag($product_ref, "categories", "en:beverages")) {
+	if (   has_tag($product_ref, "categories", "en:beverages")
+		or has_tag($product_ref, "categories", "en:beverage-preparations"))
+	{
 
 		$is_beverage = 1;
 
@@ -965,7 +948,9 @@ sub is_beverage_for_nutrition_score_2023 ($product_ref) {
 
 	my $is_beverage = 0;
 
-	if (has_tag($product_ref, "categories", "en:beverages")) {
+	if (   has_tag($product_ref, "categories", "en:beverages")
+		or has_tag($product_ref, "categories", "en:beverage-preparations"))
+	{
 
 		$is_beverage = 1;
 
@@ -1247,9 +1232,20 @@ my @fruits_vegetables_nuts_by_category_sorted_2021 = (
 	["en:vegetables-based-foods", 85],
 );
 
-# Canonicalize the entries, in case the canonical entry changed
-foreach my $category_ref (@fruits_vegetables_nuts_by_category_sorted_2021) {
-	$category_ref->[0] = canonicalize_taxonomy_tag("en", "categories", $category_ref->[0]);
+my $nutriscore_fruits_vegetables_nuts_by_category_sorted_2021_initialized = 0;
+
+sub init_nutriscore_fruits_vegetables_nuts_by_category_sorted_2021() {
+
+	return if $nutriscore_fruits_vegetables_nuts_by_category_sorted_2021_initialized;
+
+	# Canonicalize the entries, in case the canonical entry changed
+	foreach my $category_ref (@fruits_vegetables_nuts_by_category_sorted_2021) {
+		$category_ref->[0] = canonicalize_taxonomy_tag("en", "categories", $category_ref->[0]);
+	}
+
+	$nutriscore_fruits_vegetables_nuts_by_category_sorted_2021_initialized = 1;
+
+	return;
 }
 
 =head2 compute_nutriscore_2021_fruits_vegetables_nuts_colza_walnut_olive_oil($product_ref, $prepared)
@@ -1265,6 +1261,8 @@ The fruit ratio
 =cut
 
 sub compute_nutriscore_2021_fruits_vegetables_nuts_colza_walnut_olive_oil ($product_ref, $prepared) {
+
+	init_nutriscore_fruits_vegetables_nuts_by_category_sorted_2021();
 
 	my $fruits = undef;
 
@@ -1371,9 +1369,19 @@ my @fruits_vegetables_legumes_by_category_if_no_ingredients_specified_sorted = (
 	["en:jams", 50],
 );
 
-# Canonicalize the entries, in case the canonical entry changed
-foreach my $category_ref (@fruits_vegetables_legumes_by_category_if_no_ingredients_specified_sorted) {
-	$category_ref->[0] = canonicalize_taxonomy_tag("en", "categories", $category_ref->[0]);
+my $nutriscore_fruits_vegetables_nuts_by_category_sorted_2023_initialized = 0;
+
+sub init_nutriscore_fruits_vegetables_legumes_by_category_sorted_2023() {
+
+	return if $nutriscore_fruits_vegetables_nuts_by_category_sorted_2023_initialized;
+
+	# Canonicalize the entries, in case the canonical entry changed
+	foreach my $category_ref (@fruits_vegetables_legumes_by_category_if_no_ingredients_specified_sorted) {
+		$category_ref->[0] = canonicalize_taxonomy_tag("en", "categories", $category_ref->[0]);
+	}
+	$nutriscore_fruits_vegetables_nuts_by_category_sorted_2023_initialized = 1;
+
+	return;
 }
 
 =head2 compute_nutriscore_2023_fruits_vegetables_legumes($product_ref, $prepared)
@@ -1390,9 +1398,15 @@ Differences with the 2021 version:
 
 =head4 $prepared - string contains either "" or "-prepared"
 
+=head3 Return values
+
+Return undef if no value could be computed or estimated.
+
 =cut
 
 sub compute_nutriscore_2023_fruits_vegetables_legumes ($product_ref, $prepared) {
+
+	init_nutriscore_fruits_vegetables_legumes_by_category_sorted_2023();
 
 	# Check if we have a category override:
 	# - if the product is in a category that has no unprocessed fruits/vegetables/nuts (e.g. crisps), return 0
@@ -1601,11 +1615,7 @@ sub compute_nutriscore_data ($product_ref, $prepared, $nutriments_field, $versio
 			salt => $nutriments_ref->{"salt" . $prepared . "_100g"},
 
 			fruits_vegetables_legumes => $fruits_vegetables_legumes,
-			fiber => (
-				(defined $nutriments_ref->{"fiber" . $prepared . "_100g"})
-				? $nutriments_ref->{"fiber" . $prepared . "_100g"}
-				: 0
-			),
+			fiber => $nutriments_ref->{"fiber" . $prepared . "_100g"},
 			proteins => $nutriments_ref->{"proteins" . $prepared . "_100g"},
 		};
 
@@ -1621,9 +1631,7 @@ sub compute_nutriscore_data ($product_ref, $prepared, $nutriments_field, $versio
 		}
 
 		if ($is_beverage) {
-			if (defined $product_ref->{with_non_nutritive_sweeteners}) {
-				$nutriscore_data_ref->{with_non_nutritive_sweeteners} = $product_ref->{with_non_nutritive_sweeteners};
-			}
+			$nutriscore_data_ref->{non_nutritive_sweeteners} = $product_ref->{ingredients_non_nutritive_sweeteners_n};
 		}
 	}
 
@@ -1692,6 +1700,11 @@ sub remove_nutriscore_fields ($product_ref) {
 			"nutrition-score-uk_serving"
 		]
 	);
+
+	# remove misc_tags fields related to Nutri-Score
+	if (defined $product_ref->{misc_tags}) {
+		$product_ref->{misc_tags} = [grep {$_ !~ /^en:(nutriscore|nutrition)-/} @{$product_ref->{misc_tags}}];
+	}
 
 	return;
 }
@@ -1799,7 +1812,7 @@ sub check_availability_of_nutrients_needed_for_nutriscore ($product_ref) {
 	foreach my $category_tag (
 		"en:dried-products-to-be-rehydrated", "en:cocoa-and-chocolate-powders",
 		"en:dessert-mixes", "en:flavoured-syrups",
-		"en:instant-beverages"
+		"en:instant-beverages", "en:beverage-preparations"
 		)
 	{
 
@@ -2222,7 +2235,6 @@ sub compute_serving_size_data ($product_ref) {
 
 				my $unit = get_property("nutrients", "zz:$nid", "unit:en")
 					;    # $unit will be undef if the nutrient is not in the taxonomy
-				print STDERR "nid: $nid - unit: $unit\n";
 
 				# If the nutrient has no unit (e.g. pH), or is a % (e.g. "% vol" for alcohol), it is the same regardless of quantity
 				# otherwise we adjust the value for 100g
@@ -2438,6 +2450,8 @@ It creates entries such as "High in saturated fat" in all languages.
 
 sub create_nutrients_level_taxonomy() {
 
+	# We need the nutrients taxonomy to be loaded before generating the nutrient_levels taxonomy
+
 	my $nutrient_levels_taxonomy = '';
 
 	foreach my $nutrient_level_ref (@nutrient_levels) {
@@ -2464,9 +2478,14 @@ sub create_nutrients_level_taxonomy() {
 		}
 	}
 
-	open(my $OUT, ">:encoding(UTF-8)", "$data_root/taxonomies/nutrient_levels.txt");
+	my $file = "$BASE_DIRS{TAXONOMIES_SRC}/nutrient_levels.txt";
+
+	print STDERR "generate $file\n";
+
+	open(my $OUT, ">:encoding(UTF-8)", $file)
+		or die("Can't write $file: $!");
 	print $OUT <<TXT
-# nutrient levels taxonomy generated automatically by Food.pm
+# nutrient levels taxonomy generated automatically by Food.pm from nutrients taxonomy + language translations (.po files)
 
 TXT
 		;
@@ -2475,6 +2494,8 @@ TXT
 
 	return;
 }
+
+$log->debug("Nutrient levels initialized") if $log->is_debug();
 
 =head2 compute_units_of_alcohol ($product_ref, $serving_size_in_ml)
 

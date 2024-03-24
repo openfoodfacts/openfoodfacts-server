@@ -21,6 +21,7 @@ server {
 	return 301 http://foodbattle.net$request_uri;
 }
 
+include /etc/nginx/expires-no-json-xml.conf;
 
 server {
 	#listen 80 default_server;
@@ -104,5 +105,4 @@ server {
 	#       deny all;
 	#}
 
-	include /etc/nginx/expires-no-json-xml.conf;
 }

@@ -2355,6 +2355,31 @@ my @tests = (
 		]
 
 	],
+
+	# processing inside an ingredient: "caldo deshidratado de vegetales"
+	# https://github.com/openfoodfacts/openfoodfacts-server/issues/3625
+	[
+		{lc => "es", ingredients_text => "caldo deshidratado de vegetales"},
+		[
+			{
+				'id' => 'en:vegetable-broth',
+				'processing' => 'en:dehydrated',
+				'text' => 'caldo de vegetales'
+			}
+		]
+	],
+	# processing inside an ingredient: should be removed last, if we have not found an existing ingredient
+	# e.g. "pur jus de fruit" -> "jus de fruit" and not just "fruit"
+	[
+		{lc => "fr", ingredients_text => "pur jus de fruit"},
+		[
+			{
+				'id' => 'en:fruit-juice',
+				'processing' => 'en:pure',
+				'text' => 'jus de fruit'
+			}
+		]
+	],
 );
 
 foreach my $test_ref (@tests) {

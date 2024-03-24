@@ -803,7 +803,7 @@ $series
 </initjs>
 
 <scripts>
-<script src="/js/dist/highcharts.js"></script></scripts>
+<script src="$static_subdomain/js/dist/highcharts.js"></script></scripts>
 <header>
 $meta
 </header>

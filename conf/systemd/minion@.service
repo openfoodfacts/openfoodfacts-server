@@ -11,6 +11,8 @@ User=off
 Group=off
 WorkingDirectory=/srv/%i
 Environment="PERL5LIB=/srv/%i/lib"
+# Apache needs some environment variables like PRODUCT_OPENER_FLAVOR_SHORT
+EnvironmentFile=/srv/%i/env/env.%i
 ExecStart=/srv/%i/scripts/minion_producers.pl minion worker -m production
 KillMode=process
 

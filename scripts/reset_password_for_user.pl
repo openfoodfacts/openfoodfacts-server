@@ -40,6 +40,7 @@ use URI::Escape::XS;
 use Encode;
 
 my $userid = $ARGV[0];
-my $user_ref = retrieve("$BASE_DIRS{USERS}/$userid.sto");
+# This will need to be fixed for Keycloak
+my $user_ref = retrieve_user($userid);
 $user_ref->{encrypted_password} = create_password_hash(encode_utf8(decode utf8 => $ARGV[1]));
-store("$BASE_DIRS{USERS}/$userid.sto", $user_ref);
+store_user($user_ref);

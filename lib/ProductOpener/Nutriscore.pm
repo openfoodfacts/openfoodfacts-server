@@ -669,7 +669,7 @@ sub add_units_to_positive_and_negative_nutriscore_components ($nutriscore_data_r
 			# Compute the unit.
 			my $unit;
 			if ($component_ref->{id} eq 'non_nutritive_sweeteners') {
-				$unit = undef;
+				$unit = 'number';
 			}
 			elsif (($component_ref->{id} eq 'fruits_vegetables_legumes')
 				or ($component_ref->{id} eq 'saturated_fat_ratio'))
@@ -719,7 +719,6 @@ sub compute_nutriscore_score_2023 ($nutriscore_data_ref) {
 	}
 
 	foreach my $nutrient ($energy, "sugars", $saturated_fat, "salt", "fruits_vegetables_legumes", "fiber", "proteins") {
-		next if not defined $nutriscore_data_ref->{$nutrient};
 
 		my $nutrient_threshold_id = $nutrient;
 		if (    (defined $nutriscore_data_ref->{is_beverage})
@@ -731,12 +730,15 @@ sub compute_nutriscore_score_2023 ($nutriscore_data_ref) {
 
 		$nutriscore_data_ref->{$nutrient . "_points"} = 0;
 
-		foreach my $threshold (@{$points_thresholds_2023{$nutrient_threshold_id}}) {
-			# The saturated fat ratio table uses the greater or equal sign instead of greater
-			if (   (($nutrient eq "saturated_fat_ratio") and ($nutriscore_data_ref->{$nutrient} >= $threshold))
-				or (($nutrient ne "saturated_fat_ratio") and ($nutriscore_data_ref->{$nutrient} > $threshold)))
-			{
-				$nutriscore_data_ref->{$nutrient . "_points"}++;
+		# If the nutrient value is defined, assign points according to the thresholds
+		if (defined $nutriscore_data_ref->{$nutrient}) {
+			foreach my $threshold (@{$points_thresholds_2023{$nutrient_threshold_id}}) {
+				# The saturated fat ratio table uses the greater or equal sign instead of greater
+				if (   (($nutrient eq "saturated_fat_ratio") and ($nutriscore_data_ref->{$nutrient} >= $threshold))
+					or (($nutrient ne "saturated_fat_ratio") and ($nutriscore_data_ref->{$nutrient} > $threshold)))
+				{
+					$nutriscore_data_ref->{$nutrient . "_points"}++;
+				}
 			}
 		}
 
@@ -769,14 +771,15 @@ sub compute_nutriscore_score_2023 ($nutriscore_data_ref) {
 	# Beverages with non-nutritive sweeteners have 4 extra negative points
 	if ($nutriscore_data_ref->{is_beverage}) {
 		push @$negative_components, "non_nutritive_sweeteners";
-		$nutriscore_data_ref->{non_nutritive_sweeteners_max} = 4;
-		if ($nutriscore_data_ref->{with_non_nutritive_sweeteners}) {
+		$nutriscore_data_ref->{non_nutritive_sweeteners_points_max} = 4;
+		# If we don't have ingredients, assume the product does not contain non-nutritive sweeteners
+		if (    (defined $nutriscore_data_ref->{non_nutritive_sweeteners})
+			and ($nutriscore_data_ref->{non_nutritive_sweeteners} > 0))
+		{
 			$nutriscore_data_ref->{non_nutritive_sweeteners_points} = 4;
-			$nutriscore_data_ref->{non_nutritive_sweeteners} = "presence";
 		}
 		else {
 			$nutriscore_data_ref->{non_nutritive_sweeteners_points} = 0;
-			$nutriscore_data_ref->{non_nutritive_sweeteners} = "absence";
 		}
 	}
 

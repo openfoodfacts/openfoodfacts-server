@@ -70,13 +70,11 @@ if (defined single_param('userid')) {
 
 	# The userid looks like an e-mail
 	if ($admin and ($userid =~ /\@/)) {
-		my $emails_ref = retrieve("$BASE_DIRS{USERS}/users_emails.sto");
-		if (defined $emails_ref->{$userid}) {
-			$userid = $emails_ref->{$userid}[0];
+		my $user_by_email = retrieve_user_by_email($userid);
+		if (defined $user_by_email) {
+			$userid = $user_by_email->{userid};
 		}
 	}
-
-	$userid = get_fileid($userid, 1);
 }
 
 $log->debug("user form - start", {type => $type, action => $action, userid => $userid, User_id => $User_id})
@@ -88,7 +86,7 @@ my $js = '';
 my $user_ref = {};
 
 if ($type =~ /^edit/) {
-	$user_ref = retrieve("$BASE_DIRS{USERS}/$userid.sto");
+	$user_ref = retrieve_user($userid);
 	if (not defined $user_ref) {
 		display_error_and_exit($Lang{error_invalid_user}{$lang}, 404);
 	}

@@ -49,11 +49,11 @@ use JSON::PP;
 
 my $user_id = $ARGV[0];
 
-my $user_ref = retrieve("$BASE_DIRS{USERS}/${user_id}.sto");
+my $user_ref = retrieve_user($user_id);
 
 if (defined $user_ref) {
 	ProductOpener::Missions::compute_missions_for_user($user_ref);
-	# store("$BASE_DIRS{USERS}/${user_id}.sto", $user_ref);
+	# store_user($user_ref);
 }
 else {
 	print "user_id: $user_id not found\n";

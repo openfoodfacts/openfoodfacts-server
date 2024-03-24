@@ -511,7 +511,7 @@ is_deeply(
 	$product_ref,
 	{
 		nutriments => {
-			'calcium' => '0.2',
+			'calcium' => '0.26',
 			'calcium_unit' => '% DV',
 			'calcium_value' => 20,
 			'vitamin-a' => '1.2e-05',
@@ -520,7 +520,7 @@ is_deeply(
 			'vitamin-b1' => '0.0012',
 			'vitamin-b1_unit' => '% DV',
 			'vitamin-b1_value' => 100,
-			'vitamin-d' => '8e-06',
+			'vitamin-d' => '4e-06',
 			'vitamin-d_unit' => '% DV',
 			'vitamin-d_value' => 20,
 			'vitamin-e' => '0.0266666666666667',

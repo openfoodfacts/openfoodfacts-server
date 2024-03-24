@@ -8,6 +8,9 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/:all/;
 use File::Path qw/remove_tree/;
 
+# hardcode docker path for now
+my $src_root = "/opt/product-opener";
+
 my $EXPECTED_BASE_PATHS = {
 	CACHE_BUILD => "$data_root/build-cache",
 	CACHE_DEBUG => "$data_root/debug",
@@ -31,6 +34,7 @@ my $EXPECTED_BASE_PATHS = {
 	PUBLIC_EXPORTS => "$www_root/exports",
 	PUBLIC_FILES => "$www_root/files",
 	REVERTED_PRODUCTS => "$data_root/reverted_products",
+	TAXONOMIES_SRC => "$src_root/taxonomies",
 	USERS => "$data_root/users",
 	USERS_TRANSLATIONS => "$data_root/translate",
 };

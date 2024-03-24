@@ -1,0 +1,1 @@
+The files in this directory are config files for apache2 when Product Opener is not run through Docker (e.g. in production as of 2024/03/04).

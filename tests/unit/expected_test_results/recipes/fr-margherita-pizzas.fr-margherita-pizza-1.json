@@ -59,6 +59,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_proxy_food_code" : "11009",
          "id" : "en:yeast",
          "percent_estimate" : 0.625,
          "percent_max" : 7.75,
@@ -183,10 +184,9 @@
    "ingredients_with_unspecified_percent_sum" : 57,
    "ingredients_without_ciqual_codes" : [
       "en:herb",
-      "en:spice",
-      "en:yeast"
+      "en:spice"
    ],
-   "ingredients_without_ciqual_codes_n" : 3,
+   "ingredients_without_ciqual_codes_n" : 2,
    "known_ingredients_n" : 22,
    "lc" : "fr",
    "misc_tags" : [

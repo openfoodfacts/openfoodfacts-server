@@ -155,24 +155,24 @@ else {
     </script>
 
     <!-- The Templates plugin is included to render the upload/download listings -->
-    <script src="/js/dist/tmpl.js"></script>
+    <script src="$static_subdomain/js/dist/tmpl.js"></script>
     <!-- The Load Image plugin is included for the preview images and image resizing functionality -->
-    <script src="/js/dist/load-image.all.min.js"></script>
+    <script src="$static_subdomain/js/dist/load-image.all.min.js"></script>
     <!-- The Canvas to Blob plugin is included for image resizing functionality -->
-    <script src="/js/dist/canvas-to-blob.js"></script>
+    <script src="$static_subdomain/js/dist/canvas-to-blob.js"></script>
 
     <!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
-    <script src="/js/dist/jquery.iframe-transport.js"></script>
+    <script src="$static_subdomain/js/dist/jquery.iframe-transport.js"></script>
     <!-- The basic File Upload plugin -->
-    <script src="/js/dist/jquery.fileupload.js"></script>
+    <script src="$static_subdomain/js/dist/jquery.fileupload.js"></script>
     <!-- The File Upload processing plugin -->
-    <script src="/js/dist/jquery.fileupload-process.js"></script>
+    <script src="$static_subdomain/js/dist/jquery.fileupload-process.js"></script>
     <!-- The File Upload image preview & resize plugin -->
-    <script src="/js/dist/jquery.fileupload-image.js"></script>
+    <script src="$static_subdomain/js/dist/jquery.fileupload-image.js"></script>
     <!-- The File Upload validation plugin -->
-    <script src="/js/dist/jquery.fileupload-validate.js"></script>
+    <script src="$static_subdomain/js/dist/jquery.fileupload-validate.js"></script>
     <!-- The File Upload user interface plugin -->
-    <script src="/js/dist/jquery.fileupload-ui.js"></script>
+    <script src="$static_subdomain/js/dist/jquery.fileupload-ui.js"></script>
 JS
 		;
 

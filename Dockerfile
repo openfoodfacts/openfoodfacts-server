@@ -36,6 +36,7 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
         tar \
         unzip \
         zip \
+        pigz \
         # useful to send mail
         mailutils \
         # perlmagick \
@@ -103,9 +104,6 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
         libclass-singleton-perl \
         # DateTime::Locale
         libfile-sharedir-install-perl \
-        # Encode::Punycode
-        libnet-idn-encode-perl \
-        libtest-nowarnings-perl \
         # File::chmod::Recursive
         libfile-chmod-perl \
         # GeoIP2

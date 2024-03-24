@@ -36,6 +36,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "17130",
          "from_palm_oil" : "no",
          "id" : "en:rapeseed-oil",
          "percent_estimate" : 7.5,
@@ -95,10 +96,8 @@
    "ingredients_with_specified_percent_sum" : 35,
    "ingredients_with_unspecified_percent_n" : 3,
    "ingredients_with_unspecified_percent_sum" : 65,
-   "ingredients_without_ciqual_codes" : [
-      "en:rapeseed-oil"
-   ],
-   "ingredients_without_ciqual_codes_n" : 1,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
    "known_ingredients_n" : 10,
    "lc" : "en",
    "misc_tags" : [

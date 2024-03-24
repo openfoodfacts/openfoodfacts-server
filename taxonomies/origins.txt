@@ -130,7 +130,7 @@ hu:Ismeretlen
 it:Sconosciuto
 ja:不明
 nl:Onbekend
-pl:Nieznany
+pl:Nieznany, Nieznane
 pt:Desconhecido
 ru:Неизвестно
 tr:Bilinmiyor
@@ -3931,6 +3931,7 @@ fr:Union Européenne, UE
 hr:u EU
 hu:Európai Unió, EU
 nl:Europese Unie, EU
+pl:Unia Europejska, UE, EU
 pt:União Europeia, UE
 ro:Uniunea Europeană, UE
 ru:Европейский союз, ЕС
@@ -3947,6 +3948,7 @@ fi:ei-EU
 fr:Non Union Européenne, Non UE
 hr:izvan EU
 hu:Nem Európai Unió, Nem-EU, EU-n kívüli, Európai Unión kívüli
+pl:spoza Unii Europejskiej, spoza UE
 pt:Fora da União Europeia
 
 en:European Union and Non European Union, EU and non EU, EU non EU
@@ -3955,6 +3957,7 @@ ca:Unió Europea i no Unió Europea, UE i no UE
 fr:Union Européenne et Non Union Européenne, UE et non UE, UE non UE
 hr:u/izvan EU
 hu:EU és Nem-EU, Európai Unió és nem Európai Unió
+pl:Unia Europejska i spoza Unii Europejskiej
 
 
 # Country regions
@@ -3965,6 +3968,7 @@ hu:EU és Nem-EU, Európai Unió és nem Európai Unió
 en:Alsace
 bg:Елзас
 fr:Alsace
+pl:Alzacja
 
 <en:france
 en:Ardèche
@@ -3990,6 +3994,7 @@ de:Bretagne
 es:Bretaña
 fr:Bretagne
 hu:Bretagne
+pl:Bretania
 
 <en:france
 en:Camargue
@@ -4010,10 +4015,12 @@ fr:Morbihan
 <en:france
 en:Loire-Atlantique
 fr:Loire-Atlantique
+pl:Loara Atlantycka
 
 <en:france
 en:Pays de la Loire
 fr:Pays de la Loire
+pl:Kraj Loary
 
 <en:france
 en:Auvergne
@@ -4023,6 +4030,7 @@ fr:Auvergne
 <en:france
 en:Franche-Comté
 fr:Franche-Comté
+pl:Franche-Comté
 
 <en:france
 en:Normandy
@@ -4032,6 +4040,7 @@ es:Normandía
 fr:Normandie
 hu:Normandia
 nl:Normandië
+pl:Normandia
 pt:Normandia
 
 <en:france
@@ -4039,6 +4048,7 @@ en:Provence
 bg:Прованс
 fr:Provence
 hu:Provance
+pl:Prowansja
 
 <en:france
 en:Haute Provence
@@ -4047,6 +4057,7 @@ fr:Haute Provence
 <en:france
 en:Savoy
 fr:Savoie
+pl:Sabaudia
 
 <en:france
 en:South-western France, South-west of France
@@ -4075,10 +4086,12 @@ fr:Rhône-Alpes
 <en:France
 en:Lorraine
 fr:Lorraine
+pl:Lotaryngia
 
 <en:France
 en:Aveyron
 fr:Aveyron
+pl:Aveyron
 
 <en:France
 en:Vendée
@@ -4091,6 +4104,7 @@ fr:Périgord
 <en:France
 en:Dordogne
 fr:Dordogne
+pl:Dordogne
 
 <en:France
 en:Guérande
@@ -4149,12 +4163,14 @@ fr:Antilles
 en:Baden-Württemberg
 bg:Баден-Вюртемберг
 de:Baden-Württemberg
+pl:Badenia-Wirtembergia
 
 <en:germany
 en:Bayern
 bg:Бавария
 de:Bayern
 hu:Bajorország
+pl:Bawaria
 
 <en:germany
 en:Berlin
@@ -4166,12 +4182,14 @@ xx:Berlin
 en:Brandenburg
 bg:Бранденбург
 de:Brandenburg
+pl:Brandenburgia
 xx:Brandenburg
 
 <en:germany
 en:Bremen
 bg:Бремен
 de:Bremen
+pl:Brema
 xx:Bremen
 
 <en:germany
@@ -4188,46 +4206,55 @@ xx:Hessen
 <en:germany
 en:Mecklenburg-Vorpommern
 de:Mecklenburg-Vorpommern
+pl:Meklemburgia-Pomorze Przednie
 xx:Mecklenburg-Vorpommern
 
 <en:germany
 en:Lower Saxony, Niedersachsen
 de:Niedersachsen
+pl:Dolna Saksonia
 xx:Niedersachsen
 
 <en:germany
 en:North Rhine-Westphalia, Nordrhein-Westfalen
 de:Nordrhein-Westfalen
+pl:Nadrenia Północna-Westfalia
 xx:Nordrhein-Westfalen
 
 <en:germany
 en:Rheinland-Pfalz
 de:Rheinland-Pfalz
+pl:Nadrenia-Palatynat
 xx:Rheinland-Pfalz
 
 <en:germany
 en:Saarland
 de:Saarland
+pl:Saara
 xx:Saarland
 
 <en:germany
 en:Saxony, Sachsen
 de:Sachsen
+pl:Saksonia
 xx:Sachsen
 
 <en:germany
 en:Sachsen-Anhalt
 de:Sachsen-Anhalt
+pl:Saksonia-Anhalt
 xx:Sachsen-Anhalt
 
 <en:germany
 en:Schleswig-Holstein
 de:Schleswig-Holstein
+pl:Szlezwik-Holsztyn
 xx:Schleswig-Holstein
 
 <en:germany
 en:Thuringia, Thüringen
 de:Thüringen
+pl:Turyngia
 xx:Thüringen
 
 # Italy regions
@@ -4239,6 +4266,7 @@ fr:Sicile
 hu:Szicília
 it:Sicilia
 nl:Sicilië
+pl:SycyliaF
 tr:Sicilya
 
 # Spanish regions
@@ -4267,6 +4295,7 @@ es:Castilla y León
 en:Navarra
 es:Navarra
 fr:Navarre
+pl:Nawarra
 
 # UK origins
 
@@ -4275,6 +4304,7 @@ en:Great Britain, Britain
 bg:Великобритания
 fr:Grande Bretagne
 nl:Groot-Britagne
+pl:Wielka Brytania
 
 <en:great-britain
 en:England
@@ -4313,6 +4343,7 @@ es:California
 fr:Californie
 hu:Kalifornia
 nl:Californië
+pl:Kalifornia
 tr:Kaliforniya
 
 <en:united-states
@@ -4321,6 +4352,7 @@ bg:Флорида
 fr:Floride
 hu:Florida
 nl:Florida
+pl:Floryda
 
 <en:United States
 en:South Carolina
@@ -4866,6 +4898,7 @@ es:Océano Indio, Océano Índico
 fr:Océan Indien
 hu:Indiai-óceán
 nl:Indische Oceaan
+pl:Ocean Indyjski
 wikidata:en:Q1239
 
 <en:Indian Ocean
@@ -4949,7 +4982,7 @@ fr:Océan Pacifique Nord, Nord de l'Océan Pacifique
 hu:Északi Csendes-óceán
 it:Oceano Pacifico Settentrionale
 nl:Noordelijke Grote Oceaan
-pl:Północny Ocean Spokojny
+pl:Północny Ocean Spokojny, Północny Pacyfik
 pt:Oceano Pacífico Norte
 ro:Oceanul Pacific de Nord
 ru:Северный Тихий океан
@@ -4961,6 +4994,7 @@ wikidata:en:Q12353254
 en:Northwest Pacific Ocean
 fr:Océan Pacifique Nord-Ouest, FAO 61, FAO N°61
 hu:Északnyugat-Csendes-óceán
+pl:Północno-zachodni Ocean Spokojny, Północno-zachodni Pacyfik
 xx:FAO 61
 wikidata:en:Q34765253
 
@@ -4969,6 +5003,7 @@ en:Northeast Pacific Ocean
 de:Nordostpazifik
 fr:Océan Pacifique Nord-Est, FAO 67, FAO N°67
 hu:Északkelet-Csendes-óceán
+pl:Północno-wschodni Ocean Spokojny, Północno-wschodni Pacyfik
 xx:FAO 67
 wikidata:en:Q63860551
 

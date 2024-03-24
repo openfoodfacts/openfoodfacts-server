@@ -373,7 +373,9 @@ my $tests_ref = (
     [
 		{
 			# request description
-			test_case => 'no-body',  # a description of the test, should be unique to easily retrieve which test failed
+			setup => 1,	# optional, if set to 1, the request will be executed (e.g. to create a product to test on) but the result content will not be checked
+						# expected status code (defaulting to 200) will still be checked to report setup issues
+			test_case => 'no-body',  # test case id, must be unique as it is used to name the expected results file
 			method => 'POST',		# defaults to GET
 			subdomain => 'world',	# defaults to "world"
 			path => '/api/v3/product/12345678',
@@ -384,6 +386,7 @@ my $tests_ref = (
 			ua => a LWP::UserAgent object, if a specific user is needed (e.g. with moderator status)
 
 			# expected return
+			expected_status_code => 200,	# optional. Defaults to 200
 			headers => {header1 => value1, }  # optional. You may add an undef value to test for the inexistance of a header
 			response_content_must_match => "regexp"	# optional. You may add a case insensitive regexp (e.g. "Product saved") that must be matched
 			response_content_must_not_match => "regexp"	# optional. You may add a case insensitive regexp (e.g. "error") that must not be matched
@@ -402,167 +405,174 @@ Note: this setting can be overriden for each test case by specifying a "ua" fiel
 
 =cut
 
-sub execute_api_tests ($file, $tests_ref, $ua = undef) {
+sub execute_request ($test_ref, $ua) {
 
-	my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results($file));
+	# We may have a test case specific user agent
+	my $test_ua = $test_ref->{ua} // $ua;
 
-	$ua = $ua // LWP::UserAgent->new();
+	my $test_case = $test_ref->{test_case};
+	my $url
+		= construct_test_url($test_ref->{path} . ($test_ref->{query_string} || ''), $test_ref->{subdomain} || 'world');
+	$test_ref->{url} = $url;
 
-	foreach my $test_ref (@$tests_ref) {
+	my $method = $test_ref->{method} || 'GET';
+	$test_ref->{method} = $method;
 
-		# We may have a test case specific user agent
-		my $test_ua = $test_ref->{ua} // $ua;
+	my $headers_in = {"Origin" => origin_from_url($url)};
+	if (defined $test_ref->{headers_in}) {
+		# combine with computed headers
+		$headers_in = {%$headers_in, %{$test_ref->{headers_in}}};
+	}
 
-		my $test_case = $test_ref->{test_case};
-		my $url = construct_test_url($test_ref->{path} . ($test_ref->{query_string} || ''),
-			$test_ref->{subdomain} || 'world');
+	my $response;
 
-		my $method = $test_ref->{method} || 'GET';
-
-		my $response;
-
-		my $headers_in = {"Origin" => origin_from_url($url)};
-		if (defined $test_ref->{headers_in}) {
-			# combine with computed headers
-			$headers_in = {%$headers_in, %{$test_ref->{headers_in}}};
+	# Send the request
+	if ($method eq 'OPTIONS') {
+		# not yet supported by our (system) version of HTTP::Request::Common
+		# $response = $ua->request(OPTIONS($url));
+		# hacky: use internal method
+		my $request = HTTP::Request::Common::request_type_with_data("OPTIONS", $url, %$headers_in);
+		$response = $test_ua->request($request);
+	}
+	elsif ($method eq 'GET') {
+		$response = $test_ua->get($url, %$headers_in);
+	}
+	elsif ($method eq 'POST') {
+		if (defined $test_ref->{body}) {
+			$response = $test_ua->post(
+				$url,
+				Content => encode_utf8($test_ref->{body}),
+				"Content-Type" => "application/json; charset=utf-8",
+				%$headers_in
+			);
 		}
-
-		# Send the request
-		if ($method eq 'OPTIONS') {
-			# not yet supported by our (system) version of HTTP::Request::Common
-			# $response = $ua->request(OPTIONS($url));
-			# hacky: use internal method
-			my $request = HTTP::Request::Common::request_type_with_data("OPTIONS", $url, %$headers_in);
-			$response = $test_ua->request($request);
-		}
-		elsif ($method eq 'GET') {
-			$response = $test_ua->get($url, %$headers_in);
-		}
-		elsif ($method eq 'POST') {
-			if (defined $test_ref->{body}) {
+		elsif (defined $test_ref->{form}) {
+			my $form = $test_ref->{form};
+			my $is_multipart = 0;
+			foreach my $value (values %$form) {
+				if (ref($value) eq 'ARRAY') {
+					$is_multipart = 1;
+					last;
+				}
+			}
+			if ($is_multipart) {
 				$response = $test_ua->post(
 					$url,
-					Content => encode_utf8($test_ref->{body}),
-					"Content-Type" => "application/json; charset=utf-8",
+					"Content-Type" => "multipart/form-data",
+					Content => $form,
 					%$headers_in
 				);
 			}
-			elsif (defined $test_ref->{form}) {
-				my $form = $test_ref->{form};
-				my $is_multipart = 0;
-				foreach my $value (values %$form) {
-					if (ref($value) eq 'ARRAY') {
-						$is_multipart = 1;
-						last;
-					}
-				}
-				if ($is_multipart) {
-					$response = $test_ua->post(
-						$url,
-						"Content-Type" => "multipart/form-data",
-						Content => $form,
-						%$headers_in
-					);
-				}
-				else {
-					$response = $test_ua->post($url, Content => $form, %$headers_in);
-				}
+			else {
+				$response = $test_ua->post($url, Content => $form, %$headers_in);
+			}
+		}
+		else {
+			$response = $test_ua->post($url, %$headers_in);
+		}
+	}
+	elsif ($method eq 'PUT') {
+		$response = $test_ua->put(
+			$url,
+			Content => encode_utf8($test_ref->{body}),
+			"Content-Type" => "application/json; charset=utf-8",
+			%$headers_in,
+		);
+	}
+	elsif ($method eq 'DELETE') {
+		$response = $test_ua->delete(
+			$url,
+			Content => encode_utf8($test_ref->{body}),
+			"Content-Type" => "application/json; charset=utf-8",
+			%$headers_in,
+		);
+	}
+	elsif ($method eq 'PATCH') {
+		my $request = HTTP::Request::Common::PATCH(
+			$url,
+			Content => encode_utf8($test_ref->{body}),
+			"Content-Type" => "application/json; charset=utf-8",
+			%$headers_in,
+		);
+		$response = $test_ua->request($request);
+	}
+
+	# Check if we got a redirect: they are currently not supported by execute_api_tests
+	# We would need to re-construct the url
+	my $final_url = $response->request->uri;
+	if ($url ne $final_url) {
+		diag("Got a redirect to " . $final_url);
+	}
+
+	return $response;
+}
+
+sub check_request_response ($test_ref, $response, $test_id, $test_dir, $expected_result_dir, $update_expected_results) {
+
+	my $test_case = $test_ref->{test_case};
+
+	# Check if we got the expected response status code, expect 200 if not provided
+	if (not defined $test_ref->{expected_status_code}) {
+		$test_ref->{expected_status_code} = 200;
+	}
+
+	is($response->code, $test_ref->{expected_status_code}, "$test_case - Test status")
+		or diag(explain($test_ref), "Response status line: " . $response->status_line);
+
+	if (defined $test_ref->{headers}) {
+		while (my ($hname, $hvalue) = each %{$test_ref->{headers}}) {
+			my $rvalue = $response->header($hname);
+			# one may put undef values to test the inexistance of a header
+			if (!defined $hvalue) {
+				ok(!defined $rvalue, "$test_case - header $hname should not be defined");
 			}
 			else {
-				$response = $test_ua->post($url, %$headers_in);
+				is($rvalue, $hvalue, "$test_case - header $hname");
 			}
 		}
-		elsif ($method eq 'PUT') {
-			$response = $test_ua->put(
-				$url,
-				Content => encode_utf8($test_ref->{body}),
-				"Content-Type" => "application/json; charset=utf-8",
-				%$headers_in,
+	}
+
+	my $response_content = $response->decoded_content;
+
+	# Check that we don't get an errore message generated by the Apache Server
+	# e.g. "Apache/2.4.56 (Debian) Server at world.openfoodfacts.localhost Port 80"
+	if ($response_content =~ /Apache.*Server/) {
+		fail("Received an Apache Server generated error message for test $test_case");
+		diag("Response content: " . $response_content);
+	}
+
+	if ((defined $test_ref->{expected_type}) and ($test_ref->{expected_type} eq 'text')) {
+		# Check that the text file is the same as expected (useful for checking dynamic robots.txt)
+		is(
+			compare_file_to_expected_results(
+				$response_content, "$expected_result_dir/$test_case.txt",
+				$update_expected_results, $test_ref
+			),
+			1,
+			"$test_case - result"
+		);
+	}
+	elsif (not((defined $test_ref->{expected_type}) and ($test_ref->{expected_type} eq "html"))) {
+
+		# Check that we got a JSON response
+
+		my $decoded_json;
+		eval {
+			$decoded_json = decode_json($response_content);
+			1;
+		} or do {
+			my $json_decode_error = $@;
+			diag(
+				"$test_case - $test_ref->{method} $test_ref->{url} request got a response that is not valid JSON: $json_decode_error"
 			);
-		}
-		elsif ($method eq 'DELETE') {
-			$response = $test_ua->delete(
-				$url,
-				Content => encode_utf8($test_ref->{body}),
-				"Content-Type" => "application/json; charset=utf-8",
-				%$headers_in,
-			);
-		}
-		elsif ($method eq 'PATCH') {
-			my $request = HTTP::Request::Common::PATCH(
-				$url,
-				Content => encode_utf8($test_ref->{body}),
-				"Content-Type" => "application/json; charset=utf-8",
-				%$headers_in,
-			);
-			$response = $test_ua->request($request);
-		}
-
-		# Check if we got a redirect: they are currently not supported by execute_api_tests
-		# We would need to re-construct the url
-		my $final_url = $response->request->uri;
-		if ($url ne $final_url) {
-			diag("Got a redirect to " . $final_url);
-		}
-
-		# Check if we got the expected response status code, expect 200 if not provided
-		if (not defined $test_ref->{expected_status_code}) {
-			$test_ref->{expected_status_code} = 200;
-		}
-
-		is($response->code, $test_ref->{expected_status_code}, "$test_case - Test status")
-			or diag(explain($test_ref), "Response status line: " . $response->status_line);
-
-		if (defined $test_ref->{headers}) {
-			while (my ($hname, $hvalue) = each %{$test_ref->{headers}}) {
-				my $rvalue = $response->header($hname);
-				# one may put undef values to test the inexistance of a header
-				if (!defined $hvalue) {
-					ok(!defined $rvalue, "$test_case - header $hname should not be defined");
-				}
-				else {
-					is($rvalue, $hvalue, "$test_case - header $hname");
-				}
-			}
-		}
-
-		my $response_content = $response->decoded_content;
-
-		# Check that we don't get an errore message generated by the Apache Server
-		# e.g. "Apache/2.4.56 (Debian) Server at world.openfoodfacts.localhost Port 80"
-		if ($response_content =~ /Apache.*Server/) {
-			fail("Received an Apache Server generated error message for test $test_case");
 			diag("Response content: " . $response_content);
-		}
+			fail($test_case);
+			next;
+		};
 
-		if ((defined $test_ref->{expected_type}) and ($test_ref->{expected_type} eq 'text')) {
-			# Check that the text file is the same as expected (useful for checking dynamic robots.txt)
-			is(
-				compare_file_to_expected_results(
-					$response_content, "$expected_result_dir/$test_case.txt",
-					$update_expected_results, $test_ref
-				),
-				1,
-				"$test_case - result"
-			);
-		}
-		elsif (not((defined $test_ref->{expected_type}) and ($test_ref->{expected_type} eq "html"))) {
-
-			# Check that we got a JSON response
-
-			my $decoded_json;
-			eval {
-				$decoded_json = decode_json($response_content);
-				1;
-			} or do {
-				my $json_decode_error = $@;
-				diag(
-					"$test_case - The $method request to $url returned a response that is not valid JSON: $json_decode_error"
-				);
-				diag("Response content: " . $response_content);
-				fail($test_case);
-				next;
-			};
+		# If the request was a setup request, we don't need to save or check the response
+		# otherwise, save or check the response
+		if (not $test_ref->{setup}) {
 
 			# normalize for comparison
 			if (ref($decoded_json) eq 'HASH') {
@@ -585,25 +595,42 @@ sub execute_api_tests ($file, $tests_ref, $ua = undef) {
 				1,
 				"$test_case - result"
 			);
-		}
 
-		# Check if the response content matches what we expect
-		my $must_match = $test_ref->{response_content_must_match};
-		if (    (defined $must_match)
-			and ($response_content !~ /$must_match/i))
-		{
-			fail($test_case);
-			diag("Must match: " . $must_match . "\n" . "Response content: " . $response_content);
 		}
+	}
 
-		my $must_not_match = $test_ref->{response_content_must_not_match};
-		if (    (defined $must_not_match)
-			and ($response_content =~ /$must_not_match/i))
-		{
-			fail($test_case);
-			diag("Must not match: " . $must_not_match . "\n" . "Response content: " . $response_content);
-		}
+	# Check if the response content matches what we expect
+	my $must_match = $test_ref->{response_content_must_match};
+	if (    (defined $must_match)
+		and ($response_content !~ /$must_match/i))
+	{
+		fail($test_case);
+		diag("Must match: " . $must_match . "\n" . "Response content: " . $response_content);
+	}
 
+	my $must_not_match = $test_ref->{response_content_must_not_match};
+	if (    (defined $must_not_match)
+		and ($response_content =~ /$must_not_match/i))
+	{
+		fail($test_case);
+		diag("Must not match: " . $must_not_match . "\n" . "Response content: " . $response_content);
+	}
+
+	return;
+}
+
+sub execute_api_tests ($file, $tests_ref, $ua = undef) {
+
+	my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results($file));
+
+	$ua = $ua // LWP::UserAgent->new();
+
+	foreach my $test_ref (@$tests_ref) {
+
+		my $response = execute_request($test_ref, $ua);
+
+		check_request_response($test_ref, $response, $test_id, $test_dir, $expected_result_dir,
+			$update_expected_results);
 	}
 	return;
 }

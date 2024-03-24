@@ -236,6 +236,7 @@ foreach my $test_ref (@tests) {
 
 	# Set $lc global because currently analyze_request uses the global $lc
 	$lc = $test_ref->{input_request}{lc};
+	$lang = $test_ref->{input_request}{lc};
 	analyze_request($test_ref->{input_request});
 
 	is_deeply($test_ref->{input_request}, $test_ref->{expected_output_request}) or diag explain $test_ref;

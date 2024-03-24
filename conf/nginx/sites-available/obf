@@ -11,14 +11,17 @@
 # Please see /usr/share/doc/nginx-doc/examples/ for more detailed examples.
 ##
 
+
+include /etc/nginx/snippets/expires-no-json-xml.conf;
+
 # Default server configuration
 #
 server {
 	# listen 80 default_server;
 	# listen [::]:80 default_server;
 
-		listen 80;
-		listen [::]:80;
+	listen 80;
+	listen [::]:80;
 
 
 	server_name openbeautyfacts.org *.openbeautyfacts.org ;
@@ -37,46 +40,48 @@ server {
 	listen [::]:443 http2 ssl;
 
 	include snippets/ssl.openbeautyfacts.org;
-		include snippets/ssl-params.conf;
+	include snippets/ssl-params.conf;
 
 	root /srv/obf/html;
 
 	access_log /srv/obf/logs/nginx.access2.log;
 	error_log /srv/obf/logs/nginx.error2.log;
 
-		# Redirect GET requests to https. POST requests will be transformed
-		# to GET by most browsers when redirected, and it breaks apps that
-		# use the API through http.
+	# Redirect GET requests to https. POST requests will be transformed
+	# to GET by most browsers when redirected, and it breaks apps that
+	# use the API through http.
 
-		if ($scheme = http) {
-			set $test "A";
-		}
-		if ($request_uri !~ "/api/") {
-			set $test "${test}B";
-		}
-		if ($request_method = GET) {
-			set $test "${test}C";
-		}
-		if ($test = ABC) {
-			return 301 https://$host$request_uri;
-		}
+	if ($scheme = http) {
+		set $test "A";
+	}
+	if ($request_uri !~ "/api/") {
+		set $test "${test}B";
+	}
+	if ($request_method = GET) {
+		set $test "${test}C";
+	}
+	if ($test = ABC) {
+		return 301 https://$host$request_uri;
+	}
 
 	gzip on;
 	gzip_min_length 1000;
 
 	location /data/ {
 		include snippets/off.cors-headers.include;
+		include snippets/expiry-headers.include;
 		include snippets/ssl-headers.conf;
 		# First attempt to serve request as file, then
 		# as directory, then fall back to displaying a 404.
 		try_files $uri $uri/ =404;
-}
+	}
 
 	# Add index.php to the list if you are using PHP
 	index index.html index.htm index.nginx-debian.html;
 
 	location ~* \.(eot|ttf|woff|woff2)$ {
 		include snippets/off.cors-headers.include;
+		include snippets/expiry-headers.include;
 	}
 
 	location ~ ^/images/products/ {
@@ -96,18 +101,20 @@ server {
 
 	location ~ ^/(.well-known|images|fonts|css|js|rss|files|resources|foundation|bower_components)/ {
 		include snippets/off.cors-headers.include;
+		include snippets/expiry-headers.include;
 		# First attempt to serve request as file, then
 		# as directory, then fall back to displaying a 404.
 		try_files $uri $uri/ =404;
 	}
 
-        # GoogleAssociationService made 2500 requests/min to assetlinks.json
-        # and much less when caching headers are sent
-        location = /.well-known/assetlinks.json {
-                include snippets/off.cors-headers.include;
-                expires 1d;
-                try_files $uri $uri/ =404;
-        }
+	# GoogleAssociationService made 2500 requests/min to assetlinks.json
+	# and much less when caching headers are sent
+	location = /.well-known/assetlinks.json {
+			include snippets/off.cors-headers.include;
+		include snippets/expiry-headers.include;
+			expires 1d;
+			try_files $uri $uri/ =404;
+	}
 
 	location / {
 		proxy_set_header Host $host;
@@ -130,5 +137,4 @@ server {
 	#       deny all;
 	#}
 
-	include /etc/nginx/expires-no-json-xml.conf;
 }

@@ -187,7 +187,7 @@ my $tests_ref = [
 		method => 'GET',
 		path => '/api/v3/product/4260392550101',
 		query_string => '?fields=code,product_name&user_id=tests&password=bad_password',
-		expected_status_code => 200,
+		expected_status_code => 403,
 	},
 
 ];

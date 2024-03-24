@@ -21,6 +21,7 @@ use ProductOpener::Ecoscore qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::Test qw/:all/;
 use ProductOpener::ImportConvertCarrefourFrance qw/:all/;
+use ProductOpener::LoadData qw/:all/;
 
 use JSON;
 
@@ -32,10 +33,7 @@ ProductOpener::Test::remove_all_products();
 
 # Import test products
 
-init_emb_codes();
-init_packager_codes();
-init_geocode_addresses();
-init_packaging_taxonomies_regexps();
+load_data();
 
 if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
 	load_agribalyse_data();

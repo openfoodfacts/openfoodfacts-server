@@ -105,7 +105,7 @@ jobs:
     - name: Download backend image from artifacts
       uses: ishworkh/docker-image-artifact-download@v1
       with:
-        image: "openfoodfacts-server/backend:dev"
+        image: "openfoodfacts-server/backend:dev"       
     - name: tests
       run: |
         make codecov_prepare

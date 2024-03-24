@@ -69,11 +69,13 @@ Tags can be prefixed by a - to indicate that we want products without this tag
 
 sub extract_tagtype_and_tag_value_pairs_from_components ($request_ref, $components_ref) {
 
+	my $target_lc = $request_ref->{lc};
+
 	$request_ref->{tags} = [];
 
 	while (
 		(scalar @$components_ref >= 2)
-		and (  (defined $tag_type_from_singular{$lc}{$components_ref->[0]})
+		and (  (defined $tag_type_from_singular{$target_lc}{$components_ref->[0]})
 			or (defined $tag_type_from_singular{"en"}{$components_ref->[0]}))
 		)
 	{
@@ -83,12 +85,12 @@ sub extract_tagtype_and_tag_value_pairs_from_components ($request_ref, $componen
 		my $tagid;
 
 		$log->debug("request looks like a singular tag",
-			{lc => $lc, tagtype => $components_ref->[0], tagid => $components_ref->[1]})
+			{lc => $target_lc, tagtype => $components_ref->[0], tagid => $components_ref->[1]})
 			if $log->is_debug();
 
 		# If the first component is a valid singular tag type, use it as the tag type
-		if (defined $tag_type_from_singular{$lc}{$components_ref->[0]}) {
-			$tagtype = $tag_type_from_singular{$lc}{shift @$components_ref};
+		if (defined $tag_type_from_singular{$target_lc}{$components_ref->[0]}) {
+			$tagtype = $tag_type_from_singular{$target_lc}{shift @$components_ref};
 		}
 		# Otherwise, use "en" as the default language and try again
 		else {
@@ -117,10 +119,10 @@ sub extract_tagtype_and_tag_value_pairs_from_components ($request_ref, $componen
 			}
 			else {
 				if ($tag !~ /^(\w\w):/) {
-					$tag = $lc . ":" . $tag;
+					$tag = $target_lc . ":" . $tag;
 				}
 
-				$tagid = get_taxonomyid($lc, $tag);
+				$tagid = get_taxonomyid($target_lc, $tag);
 			}
 		}
 		else {
@@ -129,7 +131,7 @@ sub extract_tagtype_and_tag_value_pairs_from_components ($request_ref, $componen
 		}
 
 		$request_ref->{canon_rel_url}
-			.= "/" . $tag_type_singular{$tagtype}{$lc} . "/" . $tag_prefix . $tagid;
+			.= "/" . $tag_type_singular{$tagtype}{$target_lc} . "/" . $tag_prefix . $tagid;
 
 		# Add the tag properties to the list of tags
 		push @{$request_ref->{tags}}, {tagtype => $tagtype, tag => $tagid, tagid => $tagid, tag_prefix => $tag_prefix};
@@ -185,11 +187,7 @@ Sometimes we modify request parameters (param) to correspond to request_ref:
 
 sub analyze_request ($request_ref) {
 
-	# TODO: this function uses the global $lc
-	# we should replace it with $request_ref->{lc}
-	# Ideally, we should remove completely the global $lc
-	# and then in this function we can have
-	# my $lc = $resquest_ref->{lc}
+	my $target_lc = $request_ref->{lc};
 
 	$request_ref->{query_string} = $request_ref->{original_query_string};
 
@@ -312,7 +310,7 @@ sub analyze_request ($request_ref) {
 		# this is so that we can quickly add /api/v3/ to get the API
 
 		if (    ($request_ref->{api_action} ne 'search')
-			and ($request_ref->{api_action} eq $tag_type_singular{products}{$lc}))
+			and ($request_ref->{api_action} eq $tag_type_singular{products}{$target_lc}))
 		{
 			$request_ref->{api_action} = 'product';
 		}
@@ -378,8 +376,10 @@ sub analyze_request ($request_ref) {
 	}
 
 	# Renamed text?
-	elsif ((defined $options{redirect_texts}) and (defined $options{redirect_texts}{$lang . "/" . $components[0]})) {
-		$request_ref->{redirect} = $formatted_subdomain . "/" . $options{redirect_texts}{$lang . "/" . $components[0]};
+	elsif ((defined $options{redirect_texts}) and (defined $options{redirect_texts}{$target_lc . "/" . $components[0]}))
+	{
+		$request_ref->{redirect}
+			= $formatted_subdomain . "/" . $options{redirect_texts}{$target_lc . "/" . $components[0]};
 		$log->info("renamed text, redirecting", {textid => $components[0], redirect => $request_ref->{redirect}})
 			if $log->is_info();
 		redirect_to_url($request_ref, 302, $request_ref->{redirect});
@@ -387,7 +387,7 @@ sub analyze_request ($request_ref) {
 
 	# First check if the request is for a text
 	elsif ( (defined $texts{$components[0]})
-		and ((defined $texts{$components[0]}{$lang}) or (defined $texts{$components[0]}{en}))
+		and ((defined $texts{$components[0]}{$target_lc}) or (defined $texts{$components[0]}{en}))
 		and (not defined $components[1]))
 	{
 		$request_ref->{text} = $components[0];
@@ -399,7 +399,7 @@ sub analyze_request ($request_ref) {
 		# check the product code looks like a number
 		if ($components[1] =~ /^\d/) {
 			$request_ref->{redirect}
-				= $formatted_subdomain . '/' . $tag_type_singular{products}{$lc} . '/' . $components[1];
+				= $formatted_subdomain . '/' . $tag_type_singular{products}{$target_lc} . '/' . $components[1];
 		}
 		else {
 			$request_ref->{status_code} = 404;
@@ -408,8 +408,8 @@ sub analyze_request ($request_ref) {
 	}
 
 	# Product?
-	# try language from $lc, and English, so that /product/ always work
-	elsif (($components[0] eq $tag_type_singular{products}{$lc})
+	# try language from $target_lc, and English, so that /product/ always work
+	elsif (($components[0] eq $tag_type_singular{products}{$target_lc})
 		or ($components[0] eq $tag_type_singular{products}{en}))
 	{
 
@@ -430,16 +430,8 @@ sub analyze_request ($request_ref) {
 		}
 	}
 
-	# Graph of the products?
-	# $BASE_DIRS{LANG}/$lang/texts/products_stats_$cc.html
-	#elsif (($components[0] eq $tag_type_plural{products}{$lc}) and (not defined $components[1])) {
-	#	$request_ref->{text} = "products_stats_$cc";
-	#	$request_ref->{canon_rel_url} = "/" . $components[0];
-	#}
-	# -> done through a text transclusion in /lang/fr/produits.html etc.
-
 	# Mission?
-	elsif ($components[0] eq $tag_type_singular{missions}{$lc}) {
+	elsif ($components[0] eq $tag_type_singular{missions}{$target_lc}) {
 		$request_ref->{mission} = 1;
 		$request_ref->{missionid} = $components[1];
 	}
@@ -454,34 +446,29 @@ sub analyze_request ($request_ref) {
 		$request_ref->{canon_rel_url} = '';
 		my $canon_rel_url_suffix = '';
 
-		#check if last field is number
-		if (($#components >= 1) and ($components[-1] =~ /^\d+$/)) {
-			#if first field or third field is tags (plural) then last field is page number
-			if (   defined $tag_type_from_plural{$lc}{$components[0]}
-				or defined $tag_type_from_plural{"en"}{$components[0]}
-				or defined $tag_type_from_plural{$lc}{$components[2]}
-				or defined $tag_type_from_plural{"en"}{$components[2]})
-			{
+		# We may have a page number
+		if ($#components >= 0) {
+			# The last component can be a page number
+			if (($components[-1] =~ /^\d+$/) and ($components[-1] <= 1000)) {
 				$request_ref->{page} = pop @components;
-				$log->debug("get page number", {$request_ref->{page}}) if $log->is_debug();
+				$log->debug("got a page number", {$request_ref->{page}}) if $log->is_debug();
 			}
 		}
-		# list of tags? (plural of tagtype must be the last field)
 
-		$log->debug("checking last component",
-			{last_component => $components[-1], is_plural => $tag_type_from_plural{$lc}{$components[-1]}})
-			if $log->is_debug();
+		# Extract tag type / tag value pairs and store them in an array $request_ref->{tags}
+		# e.g. /category/breakfast-cereals/label/organic/brand/monoprix
+		extract_tagtype_and_tag_value_pairs_from_components($request_ref, \@components);
 
 		# list of (categories) tags with stats for a nutriment
 		if (    ($#components == 1)
-			and (defined $tag_type_from_plural{$lc}{$components[0]})
-			and ($tag_type_from_plural{$lc}{$components[0]} eq "categories")
-			and (defined $nutriments_labels{$lc}{$components[1]}))
+			and (defined $tag_type_from_plural{$target_lc}{$components[0]})
+			and ($tag_type_from_plural{$target_lc}{$components[0]} eq "categories")
+			and (defined $nutriments_labels{$target_lc}{$components[1]}))
 		{
 
-			$request_ref->{groupby_tagtype} = $tag_type_from_plural{$lc}{$components[0]};
-			$request_ref->{stats_nid} = $nutriments_labels{$lc}{$components[1]};
-			$canon_rel_url_suffix .= "/" . $tag_type_plural{$request_ref->{groupby_tagtype}}{$lc};
+			$request_ref->{groupby_tagtype} = $tag_type_from_plural{$target_lc}{$components[0]};
+			$request_ref->{stats_nid} = $nutriments_labels{$target_lc}{$components[1]};
+			$canon_rel_url_suffix .= "/" . $tag_type_plural{$request_ref->{groupby_tagtype}}{$target_lc};
 			$canon_rel_url_suffix .= "/" . $components[1];
 			pop @components;
 			pop @components;
@@ -490,39 +477,32 @@ sub analyze_request ($request_ref) {
 				if $log->is_debug();
 		}
 
-		if (defined $tag_type_from_plural{$lc}{$components[-1]}) {
+		# if we have at least one component, check if the last component is a plural of a tagtype -> list of tags
+		if (defined $components[-1]) {
+			if (defined $tag_type_from_plural{$target_lc}{$components[-1]}) {
 
-			$request_ref->{groupby_tagtype} = $tag_type_from_plural{$lc}{pop @components};
-			$canon_rel_url_suffix .= "/" . $tag_type_plural{$request_ref->{groupby_tagtype}}{$lc};
-			$log->debug("request looks like a list of tags", {groupby => $request_ref->{groupby_tagtype}, lc => $lc})
-				if $log->is_debug();
+				$request_ref->{groupby_tagtype} = $tag_type_from_plural{$target_lc}{pop @components};
+				$canon_rel_url_suffix .= "/" . $tag_type_plural{$request_ref->{groupby_tagtype}}{$target_lc};
+				$log->debug("request looks like a list of tags",
+					{groupby => $request_ref->{groupby_tagtype}, lc => $target_lc})
+					if $log->is_debug();
+			}
+			# also try English tagtype
+			elsif (defined $tag_type_from_plural{"en"}{$components[-1]}) {
+
+				$request_ref->{groupby_tagtype} = $tag_type_from_plural{"en"}{pop @components};
+				# use $target_lc for canon url
+				$canon_rel_url_suffix .= "/" . $tag_type_plural{$request_ref->{groupby_tagtype}}{$target_lc};
+				$log->debug("request looks like a list of tags",
+					{groupby => $request_ref->{groupby_tagtype}, lc => "en"})
+					if $log->is_debug();
+			}
 		}
-		# also try English tagtype
-		elsif (defined $tag_type_from_plural{"en"}{$components[-1]}) {
-
-			$request_ref->{groupby_tagtype} = $tag_type_from_plural{"en"}{pop @components};
-			# use $lc for canon url
-			$canon_rel_url_suffix .= "/" . $tag_type_plural{$request_ref->{groupby_tagtype}}{$lc};
-			$log->debug("request looks like a list of tags", {groupby => $request_ref->{groupby_tagtype}, lc => "en"})
-				if $log->is_debug();
-		}
-
-		# Extract tag type / tag value pairs and store them in an array $request_ref->{tags}
-		# e.g. /category/breakfast-cereals/label/organic/brand/monoprix
-		extract_tagtype_and_tag_value_pairs_from_components($request_ref, \@components);
 
 		# Old Open Food Hunt points
 		if ((defined $components[0]) and ($components[0] eq 'points')) {
 			$request_ref->{points} = 1;
 			$request_ref->{canon_rel_url} .= "/points";
-		}
-
-		# We may have a page number
-		if ($#components >= 0) {
-			# The last component can be a page number
-			if (($components[-1] =~ /^\d+$/) and ($components[-1] <= 1000)) {
-				$request_ref->{page} = pop @components;
-			}
 		}
 
 		if ($#components >= 0) {
@@ -552,7 +532,7 @@ sub analyze_request ($request_ref) {
 		$request_ref->{no_index} = 1;
 	}
 
-	$log->debug("request analyzed", {lc => $lc, lang => $lang, request_ref => $request_ref}) if $log->is_debug();
+	$log->debug("request analyzed", {lc => $target_lc, request_ref => $request_ref}) if $log->is_debug();
 
 	return 1;
 }
@@ -577,7 +557,7 @@ sub is_no_index_page ($request_ref) {
 						# Ingredients were left out because of the number of possible ingredients (1.2M)
 						(not exists($ProductOpener::Display::index_tag_types_set{$request_ref->{tagtype}}))
 						# Don't index facet pages with page number > 1 (we want only 1 index page per facet value)
-						or ($request_ref->{page} >= 2)
+						or ((defined $request_ref->{page}) and ($request_ref->{page} >= 2))
 						# Don't index web pages with 2 nested tags: as an example, there are billions of combinations for
 						# category x ingredient alone
 						or (defined $request_ref->{tagtype2})

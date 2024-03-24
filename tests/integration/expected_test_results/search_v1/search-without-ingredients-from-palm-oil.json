@@ -484,6 +484,7 @@
             "4",
             "1-10"
          ],
+         "ingredients_non_nutritive_sweeteners_n" : 0,
          "ingredients_original_tags" : [
             "en:apple",
             "en:milk",
@@ -491,6 +492,7 @@
             "en:palm-oil"
          ],
          "ingredients_percent_analysis" : 1,
+         "ingredients_sweeteners_n" : 0,
          "ingredients_tags" : [
             "en:apple",
             "en:fruit",
@@ -1310,11 +1312,13 @@
             "2",
             "1-10"
          ],
+         "ingredients_non_nutritive_sweeteners_n" : 0,
          "ingredients_original_tags" : [
             "en:fruit",
             "en:rice"
          ],
          "ingredients_percent_analysis" : 1,
+         "ingredients_sweeteners_n" : 0,
          "ingredients_tags" : [
             "en:fruit",
             "en:rice"
@@ -1424,7 +1428,7 @@
                "category_available" : 1,
                "data" : {
                   "energy" : null,
-                  "fiber" : 0,
+                  "fiber" : null,
                   "fruits_vegetables_legumes" : 75,
                   "is_beverage" : 0,
                   "is_cheese" : 0,
@@ -1979,12 +1983,14 @@
             "3",
             "1-10"
          ],
+         "ingredients_non_nutritive_sweeteners_n" : 0,
          "ingredients_original_tags" : [
             "en:apple",
             "en:milk",
             "en:egg"
          ],
          "ingredients_percent_analysis" : 1,
+         "ingredients_sweeteners_n" : 0,
          "ingredients_tags" : [
             "en:apple",
             "en:fruit",
@@ -2785,12 +2791,14 @@
             "3",
             "1-10"
          ],
+         "ingredients_non_nutritive_sweeteners_n" : 0,
          "ingredients_original_tags" : [
             "en:apple",
             "en:water",
             "en:palm-oil"
          ],
          "ingredients_percent_analysis" : 1,
+         "ingredients_sweeteners_n" : 0,
          "ingredients_tags" : [
             "en:apple",
             "en:fruit",
@@ -3504,27 +3512,27 @@
             },
             "agribalyse" : {
                "agribalyse_proxy_food_code" : "32135",
-               "co2_agriculture" : 2.2396004,
+               "co2_agriculture" : 2.4106751,
                "co2_consumption" : 0,
-               "co2_distribution" : 0.019530673,
-               "co2_packaging" : 0.28159592,
-               "co2_processing" : 0.77051126,
-               "co2_total" : 3.564111983,
-               "co2_transportation" : 0.25287373,
+               "co2_distribution" : 0.019437894,
+               "co2_packaging" : 0.28123298,
+               "co2_processing" : 0.53688699,
+               "co2_total" : 3.502316864,
+               "co2_transportation" : 0.2540839,
                "code" : "32135",
                "dqr" : "4.03",
-               "ef_agriculture" : 0.50064279,
+               "ef_agriculture" : 0.49403158,
                "ef_consumption" : 0,
-               "ef_distribution" : 0.0048315303,
-               "ef_packaging" : 0.023715692,
-               "ef_processing" : 0.078716079,
-               "ef_total" : 0.6323498093,
-               "ef_transportation" : 0.024443718,
+               "ef_distribution" : 0.0047895045,
+               "ef_packaging" : 0.023591079,
+               "ef_processing" : 0.078951852,
+               "ef_total" : 0.6258899635,
+               "ef_transportation" : 0.024525948,
                "is_beverage" : 0,
                "name_en" : "Breakfast cereals, mix of puffed or extruded cereals, fortified with vitamins and chemical elements",
                "name_fr" : "Multi-céréales soufflées ou extrudées, enrichies en vitamines et minéraux",
                "score" : 45,
-               "version" : "3.1"
+               "version" : "3.1.1"
             },
             "grade" : "d",
             "grades" : {
@@ -3731,11 +3739,13 @@
             "2",
             "1-10"
          ],
+         "ingredients_non_nutritive_sweeteners_n" : 0,
          "ingredients_original_tags" : [
             "en:apple",
             "en:water"
          ],
          "ingredients_percent_analysis" : 1,
+         "ingredients_sweeteners_n" : 0,
          "ingredients_tags" : [
             "en:apple",
             "en:fruit",
@@ -4477,27 +4487,27 @@
             },
             "agribalyse" : {
                "agribalyse_proxy_food_code" : "32135",
-               "co2_agriculture" : 2.2396004,
+               "co2_agriculture" : 2.4106751,
                "co2_consumption" : 0,
-               "co2_distribution" : 0.019530673,
-               "co2_packaging" : 0.28159592,
-               "co2_processing" : 0.77051126,
-               "co2_total" : 3.564111983,
-               "co2_transportation" : 0.25287373,
+               "co2_distribution" : 0.019437894,
+               "co2_packaging" : 0.28123298,
+               "co2_processing" : 0.53688699,
+               "co2_total" : 3.502316864,
+               "co2_transportation" : 0.2540839,
                "code" : "32135",
                "dqr" : "4.03",
-               "ef_agriculture" : 0.50064279,
+               "ef_agriculture" : 0.49403158,
                "ef_consumption" : 0,
-               "ef_distribution" : 0.0048315303,
-               "ef_packaging" : 0.023715692,
-               "ef_processing" : 0.078716079,
-               "ef_total" : 0.6323498093,
-               "ef_transportation" : 0.024443718,
+               "ef_distribution" : 0.0047895045,
+               "ef_packaging" : 0.023591079,
+               "ef_processing" : 0.078951852,
+               "ef_total" : 0.6258899635,
+               "ef_transportation" : 0.024525948,
                "is_beverage" : 0,
                "name_en" : "Breakfast cereals, mix of puffed or extruded cereals, fortified with vitamins and chemical elements",
                "name_fr" : "Multi-céréales soufflées ou extrudées, enrichies en vitamines et minéraux",
                "score" : 45,
-               "version" : "3.1"
+               "version" : "3.1.1"
             },
             "grade" : "d",
             "grades" : {
@@ -4705,11 +4715,13 @@
             "2",
             "1-10"
          ],
+         "ingredients_non_nutritive_sweeteners_n" : 0,
          "ingredients_original_tags" : [
             "en:apple",
             "en:water"
          ],
          "ingredients_percent_analysis" : 1,
+         "ingredients_sweeteners_n" : 0,
          "ingredients_tags" : [
             "en:apple",
             "en:fruit",

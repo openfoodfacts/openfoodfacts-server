@@ -79,6 +79,11 @@ use JSON::PP;
 
 use Log::Any qw($log);
 
+# Default values for $lang and $lc
+# TODO: there should not be any difference between $lc and $lang, so we should be able to remove $lang
+$lc = "en";
+$lang = "en";
+
 =head1 FUNCTIONS
 
 =head2 separator_before_colon( $l )
@@ -119,26 +124,7 @@ In the .po translation files, we use the msgctxt field for the string id.
 =cut
 
 sub lang ($stringid) {
-
-	my $short_l = undef;
-	if ($lang =~ /_/) {
-		$short_l = $`;    # pt_pt
-	}
-
-	# English values have been copied to languages that do not have defined values
-
-	if (not defined $Lang{$stringid}) {
-		return '';
-	}
-	elsif (defined $Lang{$stringid}{$lang}) {
-		return $Lang{$stringid}{$lang};
-	}
-	elsif ((defined $short_l) and (defined $Lang{$stringid}{$short_l}) and ($Lang{$stringid}{$short_l} ne '')) {
-		return $Lang{$stringid}{$short_l};
-	}
-	else {
-		return '';
-	}
+	return lang_in_other_lc($lang, $stringid);
 }
 
 =head2 f_lang( $stringid, $variables_ref )

@@ -131,8 +131,6 @@ use ProductOpener::Products qw/:all/;
 use CGI qw/:cgi :form escapeHTML/;
 
 use Image::Magick;
-use Graphics::Color::RGB;
-use Graphics::Color::HSL;
 use Barcode::ZBar;
 use Imager;
 use Imager::zxing;

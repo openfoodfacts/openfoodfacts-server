@@ -248,7 +248,8 @@ sub compute_food_groups ($product_ref) {
 			if (    (defined $properties{categories}{$categoryid})
 				and (defined $properties{categories}{$categoryid}{"food_groups:en"}))
 			{
-				$product_ref->{food_groups} = $properties{categories}{$categoryid}{"food_groups:en"};
+				$product_ref->{food_groups} = canonicalize_taxonomy_tag("en", "food_groups",
+					$properties{categories}{$categoryid}{"food_groups:en"});
 				$log->debug("found food group for category",
 					{category_id => $categoryid, food_groups => $product_ref->{food_groups}})
 					if $log->is_debug();

@@ -54,6 +54,7 @@ ok(!html_displays_error($resp), "no error creating pro user");
 my $logs = tail_log_read($tail);
 
 # As it is the first user of the org, user is already part of the org
+# TODO: This may need to change with Keycloak
 my $user_ref = retrieve("$data_root/users/tests.sto");
 # user is already part of org
 is($user_ref->{pro}, 1, "user is marked as pro");

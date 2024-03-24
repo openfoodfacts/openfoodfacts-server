@@ -60,6 +60,9 @@ properties:
       (eg. the nutrition facts for a bowl of milk with cocoa powder),
       a `_prepared` suffix is added (before other suffixes).
 
+      You can get all possible nutrients from the
+      [nutrients taxonomy](https://static.openfoodfacts.org/data/taxonomies/nutrients.json)
+
       **FIXME** add more nutrients with description.
     properties:
       alcohol:
