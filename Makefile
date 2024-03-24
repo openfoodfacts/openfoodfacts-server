@@ -258,7 +258,7 @@ tests: build_taxonomies_test build_lang_test unit_test integration_test
 unit_test: create_folders
 	@echo "🥫 Running unit tests …"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
-	${DOCKER_COMPOSE_TEST} run ${COVER_OPTS} -e PO_EAGER_LOAD_DATA=1 -T --rm backend yath --job-count ${CPU_COUNT} -PProductOpener::LoadData  tests/unit
+	${DOCKER_COMPOSE_TEST} run ${COVER_OPTS} -e PO_EAGER_LOAD_DATA=1 -T --rm backend yath test --job-count=${CPU_COUNT} -PProductOpener::LoadData  tests/unit
 	${DOCKER_COMPOSE_TEST} stop
 	@echo "🥫 unit tests success"
 
