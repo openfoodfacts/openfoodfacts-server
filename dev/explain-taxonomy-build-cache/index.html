@@ -1030,7 +1030,7 @@ Only the public_repo scope is needed.</p>
 <h1 id="considerations">Considerations<a class="headerlink" href="#considerations" title="Permanent link">#</a></h1>
 <p>In maintaining this code be aware of the following complications...</p>
 <h2 id="circular-dependencies">Circular Dependencies<a class="headerlink" href="#circular-dependencies" title="Permanent link">#</a></h2>
-<p>There is a cicular dependency between taxonomies, languages and foods. The foods library is used to create the source for the nutrient_levels taxonomy, which uses transalations from languages. However, languages depends on the languages taxonomy...</p>
+<p>There is a circular dependency between taxonomies, languages and foods. The foods library is used to create the source for the nutrient_levels taxonomy, which uses translations from languages. However, languages depends on the languages taxonomy...</p>
 <p>This is currently resolved by building the taxonomy on the fly if it is requested but not currently built.</p>
 <h2 id="taxonomy-dependencies">Taxonomy Dependencies<a class="headerlink" href="#taxonomy-dependencies" title="Permanent link">#</a></h2>
 <p>Some taxonomies perform lookups on others, e.g. additives_classes are referenced by additives, so the referenced taxonomy needs to be built first. The build order is determined in the Config_off.pm file.</p>
