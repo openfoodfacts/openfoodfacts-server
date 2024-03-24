@@ -25,7 +25,7 @@ Stores:
   - any-glob-to-any-file: 'taxonomies/unused/stores.txt'
   - any-glob-to-any-file: 'scripts/tag_stores_magasins_u.pl'
 
-
+# System to provide the mobile app with one JSON news headline, variating based on country, language, mobile OS and app version (for the legacy app and for the newer V2 app)
 🤳🥫 tagline:
 - changed-files:
   - any-glob-to-any-file: 'html/files/app/tagline/tagline-off-ios.json'
@@ -887,6 +887,15 @@ Checkbot:
   - any-glob-to-any-file: 'scripts/make_user_moderator.pl'
   - any-glob-to-any-file: 'tests/integration/delete_user.t'
 
+
+# Enabling users to delete account while preserving accountability for edits
+# By default we don't delete products belonging to the user. It only happens for potential spam accounts.
+Account deletion:
+- changed-files:
+  - any-glob-to-any-file: 'tests/integration/delete_user.t'
+  - any-glob-to-any-file: 'scripts/delete_products_from_user.pl'
+  - any-glob-to-any-file: 'scripts/delete_spam_users.pl'
+  
 # Edit Rules prevent quality issues by selectively ignoring or altering specific edits
 🧽 Data quality - edit rules:
 - changed-files:
@@ -959,6 +968,7 @@ CIQUAL:
   - any-glob-to-any-file: 'tests/​unit/​expected_test_results/​nutrition_ciqual/​40601-offal-cooked-average.json'
 
 # The API requires auth in order to perform editing.There is a common mechanism & mechanism built for Robotoff - our AI system
+# We're in the process of migrating to Keycloak
 🔐 Auth:
 - changed-files:
   - any-glob-to-any-file: 'cgi/auth.pl'
