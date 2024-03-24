@@ -3,7 +3,9 @@
 use Modern::Perl '2017';
 use utf8;
 
-use Test::More;
+use Test2::V0;
+use Data::Dumper;
+$Data::Dumper::Terse=1;
 use Log::Any::Adapter 'TAP';
 #use Log::Any::Adapter 'TAP', filter => "none";
 
@@ -44,7 +46,7 @@ my @ingredients_tests = (
 foreach my $test_ref (@ingredients_tests) {
 	my $ingredient_id = canonicalize_taxonomy_tag("en", "ingredients", $test_ref->[0]);
 	is(ProductOpener::Ingredients::is_fruits_vegetables_legumes($ingredient_id), $test_ref->[1])
-		or diag explain $test_ref;
+		or diag Dumper $test_ref;
 }
 
 # test the estimate percent of fruits and vegetables
@@ -136,7 +138,7 @@ foreach my $test_ref (@ingredients_text_tests) {
 			: undef
 		),
 		$expected_fruits_2021
-	) or diag explain $product_ref->{ingredients};
+	) or diag Dumper $product_ref->{ingredients};
 
 	is(
 		(
@@ -145,7 +147,7 @@ foreach my $test_ref (@ingredients_text_tests) {
 			: undef
 		),
 		$expected_fruits_2023
-	) or diag explain $product_ref->{ingredients};
+	) or diag Dumper $product_ref->{ingredients};
 }
 
 # test the estimate percent of milk
@@ -175,7 +177,7 @@ foreach my $test_ref (@ingredients_text_tests) {
 	extract_ingredients_from_text($product_ref);
 
 	is(estimate_nutriscore_2021_milk_percent_from_ingredients($product_ref), $expected_value)
-		or diag explain $product_ref->{ingredients};
+		or diag Dumper $product_ref->{ingredients};
 }
 
 # test the estimate percent of red meat
@@ -196,7 +198,7 @@ foreach my $test_ref (@ingredients_text_tests) {
 	extract_ingredients_from_text($product_ref);
 
 	is(estimate_nutriscore_2023_red_meat_percent_from_ingredients($product_ref), $expected_value)
-		or diag explain $product_ref->{ingredients};
+		or diag Dumper $product_ref->{ingredients};
 }
 
 done_testing();

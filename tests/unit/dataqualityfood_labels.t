@@ -3,7 +3,9 @@
 use Modern::Perl '2017';
 use utf8;
 
-use Test::More;
+use Test2::V0;
+use Data::Dumper;
+$Data::Dumper::Terse=1;
 
 use ProductOpener::DataQuality qw/check_quality/;
 use ProductOpener::DataQualityFood qw/:all/;
@@ -18,11 +20,11 @@ sub check_quality_and_test_product_has_quality_tag($$$$) {
 	ProductOpener::DataQuality::check_quality($product_ref);
 	if ($yesno) {
 		ok(has_tag($product_ref, 'data_quality', $tag), $reason)
-			or diag explain {tag => $tag, yesno => $yesno, product => $product_ref};
+			or diag Dumper {tag => $tag, yesno => $yesno, product => $product_ref};
 	}
 	else {
 		ok(!has_tag($product_ref, 'data_quality', $tag), $reason)
-			or diag explain {tag => $tag, yesno => $yesno, product => $product_ref};
+			or diag Dumper {tag => $tag, yesno => $yesno, product => $product_ref};
 	}
 
 	return;

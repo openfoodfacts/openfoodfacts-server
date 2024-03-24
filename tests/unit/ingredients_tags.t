@@ -3,7 +3,9 @@
 use Modern::Perl '2017';
 use utf8;
 
-use Test::More;
+use Test2::V0;
+use Data::Dumper;
+$Data::Dumper::Terse=1;
 use Log::Any::Adapter 'TAP';
 #use Log::Any::Adapter 'TAP', filter => "none";
 
@@ -332,7 +334,7 @@ foreach my $test_ref (@tests) {
 
 	extract_ingredients_from_text($product_ref);
 
-	is_deeply($product_ref->{ingredients_original_tags}, $expected_tags) or diag explain $product_ref;
+	is($product_ref->{ingredients_original_tags}, $expected_tags) or diag Dumper $product_ref;
 }
 
 my $before = "";

@@ -5,12 +5,12 @@
 use Modern::Perl '2017';
 use utf8;
 
-use Test::More;
+use Test2::V0;
+use Data::Dumper;
+$Data::Dumper::Terse=1;
 
-my $builder = Test::More->builder;
-binmode $builder->output, ":encoding(utf8)";
-binmode $builder->failure_output, ":encoding(utf8)";
-binmode $builder->todo_output, ":encoding(utf8)";
+my $tap = Test2::Formatter::TAP->new();
+binmode $tap->encoding('utf8');
 
 #use Log::Any::Adapter 'TAP';
 use Log::Any::Adapter 'TAP', filter => 'trace';
@@ -2390,14 +2390,14 @@ foreach my $test_ref (@tests) {
 
 	parse_ingredients_text_service($product_ref, {});
 
-	is_deeply($product_ref->{ingredients}, $expected_ingredients_ref)
+	is($product_ref->{ingredients}, $expected_ingredients_ref)
 
 		# using print + join instead of diag so that we don't have
 		# hashtags. It makes copy/pasting the resulting structure
 		# inside the test file much easier when tests results need
 		# to be updated. Caveat is that it might interfere with
 		# test output.
-		or print STDERR join("\n", explain $product_ref->{ingredients});
+		or print STDERR join("\n", Dumper $product_ref->{ingredients});
 }
 
 done_testing();

@@ -5,8 +5,7 @@ use utf8;
 
 use JSON;
 
-use Test::More;
-use Test::Number::Delta relative => 1.001;
+use Test2::V0;
 use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Config qw/:all/;
