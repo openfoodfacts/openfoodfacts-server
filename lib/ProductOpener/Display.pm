@@ -10327,9 +10327,9 @@ sub display_product_api ($request_ref) {
 	my $html;
 
 	my $template_data_ref = {
-			lang => $lang,
-			Lang => \%Lang,
-			request_ref => $request_ref,
+		lang => $lang,
+		Lang => \%Lang,
+		request_ref => $request_ref,
 	};
 
 	my $rev = single_param("rev");
