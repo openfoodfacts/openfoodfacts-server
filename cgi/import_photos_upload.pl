@@ -129,25 +129,25 @@ else {
 						  <span class="name">{\%=file.filename\%}</span>
                   {\% } \%}
                   {\% if (file.info) { \%}
-                      <div><span class="label info">$Lang{info}{$lang}</span> {\%=file.info\%}</div>
+                      <div><span class="label info">$Lang{info}{$lc}</span> {\%=file.info\%}</div>
                   {\% } \%}
                   {\% if (file.code_from_filename) { \%}
-                      <div>$Lang{code_from_filename}{$lang} :</span> {\%=file.code_from_filename\%}</div>
+                      <div>$Lang{code_from_filename}{$lc} :</span> {\%=file.code_from_filename\%}</div>
                   {\% } \%}
                   {\% if (file.scanned_code) { \%}
-                      <div>$Lang{scanned_code}{$lang} : {\%=file.scanned_code\%}</div>
+                      <div>$Lang{scanned_code}{$lc} : {\%=file.scanned_code\%}</div>
                   {\% } \%}
                   {\% if (file.using_previous_code) { \%}
-                      <div>$Lang{using_previous_code}{$lang} :</span> {\%=file.using_previous_code\%}</div>
+                      <div>$Lang{using_previous_code}{$lc} :</span> {\%=file.using_previous_code\%}</div>
                   {\% } \%}
                   {\% if (file.error) { \%}
-                      <div><span class="label alert">$Lang{error}{$lang}</span> {\%=file.error\%}</div>
+                      <div><span class="label alert">$Lang{error}{$lc}</span> {\%=file.error\%}</div>
                   {\% } \%}
               </td>
               <td>
                   <span class="size">{\%=o.formatFileSize(file.size)\%}</span><br>
 				  {\% if (!file.error) { \%}
-                      $Lang{file_received}{$lang} </div>
+                      $Lang{file_received}{$lc} </div>
                   {\% } \%}
               </td>
           </tr>

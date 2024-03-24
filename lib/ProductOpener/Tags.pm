@@ -4278,7 +4278,7 @@ sub canonicalize_tag_link ($tagtype, $tagid, $tag_prefix = undef) {
 		}
 	}
 
-	my $path = $tag_type_singular{$tagtype}{$lang};
+	my $path = $tag_type_singular{$tagtype}{$lc};
 	if (not defined $path) {
 		$path = $tag_type_singular{$tagtype}{en};
 	}
