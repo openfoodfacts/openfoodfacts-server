@@ -3032,7 +3032,7 @@ sub display_points ($request_ref) {
 	my $description = '';
 
 	if ($tagtype eq 'users') {
-		my $user_ref = retrieve("$BASE_DIRS{USERS}/$tagid.sto");
+		my $user_ref = retrieve_user($tagid);
 		if (defined $user_ref) {
 			if ((defined $user_ref->{name}) and ($user_ref->{name} ne '')) {
 				$title = $user_ref->{name} . " ($tagid)";
@@ -4073,7 +4073,7 @@ HTML
 
 				# User
 
-				$user_or_org_ref = retrieve("$BASE_DIRS{USERS}/$tagid.sto");
+				$user_or_org_ref = retrieve_user($tagid);
 
 				if (not defined $user_or_org_ref) {
 					display_error_and_exit(lang("error_unknown_user"), 404);
@@ -4190,7 +4190,14 @@ HTML
 				# We are on the main page of the tag (not a sub-page with another tag)
 				# so we display more information related to the tag
 
-				my $tag_logo_html = display_tags_hierarchy_taxonomy($lc, $tagtype, [$canon_tagid]);
+				my $tag_logo_html;
+
+				if (defined $taxonomy_fields{$tagtype}) {
+					$tag_logo_html = display_tags_hierarchy_taxonomy($lc, $tagtype, [$canon_tagid]);
+				}
+				else {
+					$tag_logo_html = display_tags_hierarchy($tagtype, [$canon_tagid]);
+				}
 
 				$tag_logo_html =~ s/.*<\/a>(<br \/>)?//;    # remove link, keep only tag logo
 
@@ -4269,6 +4276,7 @@ HTML
 	# TODO: is_crawl_bot should be added directly by process_template(),
 	# but we would need to add a new $request_ref parameter to process_template(), will do later
 	$tag_template_data_ref->{is_crawl_bot} = $request_ref->{is_crawl_bot};
+
 	process_template('web/pages/tag/tag.tt.html', $tag_template_data_ref, \$tag_html)
 		or $tag_html = "<p>tag.tt.html template error: " . $tt->error() . "</p>";
 
@@ -4434,8 +4442,8 @@ JS
 			;
 
 		$scripts .= <<JS
-<script src="/js/product-preferences.js"></script>
-<script src="/js/product-search.js"></script>
+<script src="$static_subdomain/js/product-preferences.js"></script>
+<script src="$static_subdomain/js/product-search.js"></script>
 JS
 			;
 
@@ -5468,8 +5476,8 @@ JS
 			;
 
 		$scripts .= <<JS
-<script src="/js/product-preferences.js"></script>
-<script src="/js/product-search.js"></script>
+<script src="$static_subdomain/js/product-preferences.js"></script>
+<script src="$static_subdomain/js/product-search.js"></script>
 JS
 			;
 
@@ -8439,8 +8447,8 @@ var preferences_text = "$preferences_text";
 var product = $product_attribute_groups_json;
 </script>
 
-<script src="/js/product-preferences.js"></script>
-<script src="/js/product-search.js"></script>
+<script src="$static_subdomain/js/product-preferences.js"></script>
+<script src="$static_subdomain/js/product-search.js"></script>
 JS
 			;
 
@@ -8700,7 +8708,7 @@ HTML
 			my $link;
 
 			# taxonomy field?
-			if ($tagid =~ /:/) {
+			if (defined $taxonomy_fields{$class}) {
 				$tag = display_taxonomy_tag($lc, $class, $tagid);
 				$link = canonicalize_taxonomy_tag_link($lc, $class, $tagid);
 			}
