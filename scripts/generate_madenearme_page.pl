@@ -26,7 +26,7 @@ use CGI::Carp qw(fatalsToBrowser);
 use CGI qw/:cgi :form escapeHTML/;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
@@ -34,8 +34,8 @@ use ProductOpener::Display qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
-use ProductOpener::Tags qw/:all/;
-use ProductOpener::URL qw/:all/;
+use ProductOpener::Tags qw/%country_codes/;
+use ProductOpener::URL qw/format_subdomain/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -45,7 +45,7 @@ use Getopt::Long;
 use JSON::MaybeXS;
 use Log::Any qw($log);
 
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Lang qw/$lang $lc/;
 
 # initialize html
 sub get_initial_html ($cc) {

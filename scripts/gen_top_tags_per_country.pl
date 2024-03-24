@@ -24,11 +24,11 @@ use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die/;
+use ProductOpener::Store qw/get_string_id_for_lang store/;
 use ProductOpener::Index qw/:all/;
-use ProductOpener::Display qw/:all/;
-use ProductOpener::Tags qw/:all/;
+use ProductOpener::Display qw/$cc $country $static_subdomain add_product_nutriment_to_stats compute_stats_for_products/;
+use ProductOpener::Tags qw/%country_languages %properties canonicalize_taxonomy_tag_link display_taxonomy_tag exists_taxonomy_tag/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/:all/;
@@ -38,7 +38,7 @@ use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/:all/;
-use ProductOpener::Data qw/:all/;
+use ProductOpener::Data qw/get_products_collection/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;

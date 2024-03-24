@@ -6,8 +6,8 @@ use utf8;
 use Test::More;
 use Log::Any::Adapter 'TAP';
 
-use ProductOpener::Test qw/:all/;
-use ProductOpener::Tags qw/:all/;
+use ProductOpener::Test qw/init_expected_results/;
+use ProductOpener::Tags qw/get_all_taxonomy_entries get_inherited_property get_property retrieve_tags_taxonomy/;
 
 my ($test_id, $test_dir, $expected_results_dir, $update_expected_results) = (init_expected_results(__FILE__));
 

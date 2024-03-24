@@ -28,14 +28,14 @@ binmode(STDERR, ":encoding(UTF-8)");
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
+use ProductOpener::Store qw/get_string_id_for_lang retrieve/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::Users qw/:all/;
+use ProductOpener::Users qw/$Owner_id/;
 use ProductOpener::Images qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Lang qw/$lc lang/;
 use ProductOpener::Mail qw/:all/;
-use ProductOpener::Producers qw/:all/;
+use ProductOpener::Producers qw/generate_import_export_columns_groups_for_select2 init_columns_fields_match load_csv_or_excel_file/;
 use ProductOpener::Tags qw(%language_fields display_taxonomy_tag);
 use ProductOpener::Web qw(get_languages_options_list);
 

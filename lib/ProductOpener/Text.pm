@@ -56,7 +56,6 @@ BEGIN {
 		&escape_char
 		&escape_single_quote_and_newlines
 
-		&remove_tags
 		&remove_tags_and_quote
 		&xml_escape
 		&regexp_escape

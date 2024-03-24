@@ -64,8 +64,8 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
+use ProductOpener::Lang qw/$lang lang/;
 use Email::Stuffer;
 use Log::Any qw($log);
 

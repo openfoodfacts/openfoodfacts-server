@@ -11,7 +11,7 @@ use Log::Any::Adapter 'TAP';
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::TagsEntries qw/:all/;
-use ProductOpener::Ingredients qw/:all/;
+use ProductOpener::Ingredients qw/cut_ingredients_text_for_lang preparse_ingredients_text/;
 
 my @lists = (
 	# en phrases_after_ingredients_list

@@ -48,9 +48,9 @@ BEGIN {
 }
 
 use ProductOpener::Config qw(:all);
-use ProductOpener::Store qw(:all);
+use ProductOpener::Store qw(get_string_id_for_lang);
 use ProductOpener::Tags qw(:all);
-use ProductOpener::Food qw(:all);
+use ProductOpener::Food qw(%categories_nutriments_per_country);
 use ProductOpener::Ecoscore qw(is_ecoscore_extended_data_more_precise_than_agribalyse);
 use ProductOpener::Units qw(extract_standard_unit);
 

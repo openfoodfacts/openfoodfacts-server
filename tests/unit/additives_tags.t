@@ -7,7 +7,7 @@ use Test::More;
 use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Ingredients qw/:all/;
+use ProductOpener::Ingredients qw/extract_ingredients_classes_from_text/;
 use ProductOpener::Products qw/:all/;
 
 # dummy product for testing

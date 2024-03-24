@@ -93,7 +93,6 @@ BEGIN {
 
 		&get_code_and_imagefield_from_file_name
 		&get_imagefield_from_string
-		&get_selected_image_uploader
 		&is_protected_image
 		&process_image_upload
 		&process_image_move
@@ -123,9 +122,9 @@ BEGIN {
 
 use vars @EXPORT_OK;
 
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Store qw/get_string_id_for_lang retrieve store/;
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die/;
 use ProductOpener::Products qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
@@ -139,11 +138,11 @@ use Imager::zxing;
 use Image::OCR::Tesseract 'get_ocr';
 
 use ProductOpener::Products qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Lang qw/$lang $lc %Lang lang/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::URL qw/:all/;
-use ProductOpener::Users qw/:all/;
-use ProductOpener::Text qw/:all/;
+use ProductOpener::URL qw/format_subdomain/;
+use ProductOpener::Users qw/%User/;
+use ProductOpener::Text qw/remove_tags_and_quote/;
 use Data::DeepAccess qw(deep_get);
 
 use IO::Compress::Gzip qw(gzip $GzipError);

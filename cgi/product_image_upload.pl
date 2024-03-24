@@ -25,16 +25,16 @@ use ProductOpener::PerlStandards;
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created/;
+use ProductOpener::Store qw/get_string_id_for_lang/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Lang qw/$lc lang/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Users qw/:all/;
-use ProductOpener::Images qw/:all/;
+use ProductOpener::Users qw/$Org_id $Owner_id $User_id %User/;
+use ProductOpener::Images qw/get_code_and_imagefield_from_file_name is_protected_image process_image_crop process_image_upload scan_code/;
 use ProductOpener::Products qw/:all/;
-use ProductOpener::Text qw/:all/;
+use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::APIProductWrite qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;

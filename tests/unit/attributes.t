@@ -13,17 +13,17 @@ my $json = JSON::PP->new->allow_nonref->canonical;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::TagsEntries qw/:all/;
-use ProductOpener::Test qw/:all/;
-use ProductOpener::Products qw/:all/;
+use ProductOpener::Test qw/init_expected_results/;
+use ProductOpener::Products qw/analyze_and_enrich_product_data/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::Ecoscore qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
-use ProductOpener::Attributes qw/:all/;
+use ProductOpener::Attributes qw/compute_attributes/;
 use ProductOpener::Packaging qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::API qw/get_initialized_response/;
-use ProductOpener::LoadData qw/:all/;
+use ProductOpener::LoadData qw/load_data/;
 
 load_data();
 

@@ -26,8 +26,8 @@ use utf8;
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Tags qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Tags qw/%properties/;
+use ProductOpener::Lang qw/%lang_lc/;
 
 foreach my $country (sort keys %{$properties{countries}}) {
 	next if not $country;

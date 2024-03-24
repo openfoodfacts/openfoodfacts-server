@@ -26,21 +26,21 @@ use utf8;
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::Tags qw/:all/;
+use ProductOpener::Tags qw/%tags_fields/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Images qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Lang qw/$lang $lc %lang_lc/;
 use ProductOpener::Mail qw/:all/;
-use ProductOpener::Products qw/:all/;
+use ProductOpener::Products qw/product_path/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/:all/;
-use ProductOpener::Data qw/:all/;
+use ProductOpener::Data qw/get_products_collection/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;

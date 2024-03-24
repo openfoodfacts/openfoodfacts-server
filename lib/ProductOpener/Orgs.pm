@@ -56,7 +56,6 @@ BEGIN {
 		&set_org_gs1_gln
 
 		&org_name
-		&org_url
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -64,13 +63,13 @@ BEGIN {
 
 use vars @EXPORT_OK;
 
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Store qw/get_string_id_for_lang retrieve store/;
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created/;
 use ProductOpener::Mail qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Lang qw/lang/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::Tags qw/:all/;
+use ProductOpener::Tags qw/canonicalize_tag_link/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;

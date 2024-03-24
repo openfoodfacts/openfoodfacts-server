@@ -8,9 +8,9 @@ use Test::Number::Delta;
 #use Log::Any::Adapter 'TAP', filter => "none";
 use Log::Any::Adapter 'TAP';
 
-use ProductOpener::Producers qw/:all/;
-use ProductOpener::Store qw/:all/;
-use ProductOpener::Test qw/:all/;
+use ProductOpener::Producers qw/init_fields_columns_names_for_lang match_column_name_to_field normalize_column_name/;
+use ProductOpener::Store qw/get_string_id_for_lang/;
+use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 my $inputs_dir = "$test_dir/inputs/$test_id/";

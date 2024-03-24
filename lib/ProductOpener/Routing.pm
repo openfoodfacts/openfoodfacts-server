@@ -43,14 +43,14 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/:all/;
-use ProductOpener::Display qw/:all/;
+use ProductOpener::Display qw/$formatted_subdomain display_robots_txt_and_exit init_request redirect_to_url single_param/;
 use ProductOpener::Users qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Lang qw/%tag_type_from_plural %tag_type_from_singular %tag_type_plural %tag_type_singular lang/;
 use ProductOpener::API qw/:all/;
-use ProductOpener::Tags qw/:all/;
-use ProductOpener::Food qw/:all/;
-use ProductOpener::Index qw/:all/;
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Tags qw/%taxonomy_fields canonicalize_taxonomy_tag_linkeddata canonicalize_taxonomy_tag_weblink get_taxonomyid/;
+use ProductOpener::Food qw/%nutriments_labels/;
+use ProductOpener::Index qw/%texts/;
+use ProductOpener::Store qw/get_string_id_for_lang/;
 
 use Encode;
 use CGI qw/:cgi :form escapeHTML/;

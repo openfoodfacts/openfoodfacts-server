@@ -31,9 +31,9 @@ use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Users qw/:all/;
-use ProductOpener::Mail qw/:all/;
-use ProductOpener::Lang qw/:all/;
-use ProductOpener::URL qw/:all/;
+use ProductOpener::Mail qw/send_email/;
+use ProductOpener::Lang qw/$lang %Lang lang/;
+use ProductOpener::URL qw/format_subdomain/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;

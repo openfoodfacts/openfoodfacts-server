@@ -57,9 +57,7 @@ BEGIN {
 	@EXPORT_OK = qw(
 
 		&parse_ingredients_text_service
-		&extend_ingredients_service
 		&estimate_ingredients_percent_service
-		&analyze_ingredients_service
 
 		&extract_ingredients_from_image
 
@@ -81,26 +79,18 @@ BEGIN {
 		&preparse_ingredients_text
 
 		&flatten_sub_ingredients
-		&compute_ingredients_tags
 
-		&get_percent_or_quantity_and_normalized_quantity
 		&compute_ingredients_percent_min_max_values
-		&init_percent_values
-		&set_percent_min_values
-		&set_percent_max_values
 		&delete_ingredients_percent_values
 		&compute_ingredients_percent_estimates
 
-		&estimate_nutriscore_2021_fruits_vegetables_nuts_percent_from_ingredients
 		&estimate_nutriscore_2021_milk_percent_from_ingredients
-		&estimate_nutriscore_2023_fruits_vegetables_legumes_percent_from_ingredients
 		&estimate_nutriscore_2023_red_meat_percent_from_ingredients
 
 		&has_specific_ingredient_property
 
 		&init_origins_regexps
 		&match_ingredient_origin
-		&parse_processing_from_ingredient
 		&parse_origins_from_text
 
 		&assign_ciqual_codes
@@ -111,16 +101,16 @@ BEGIN {
 use vars @EXPORT_OK;
 use experimental 'smartmatch';
 
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Store qw/get_string_id_for_lang unac_string_perl/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Users qw/:all/;
-use ProductOpener::TagsEntries qw/:all/;
+use ProductOpener::TagsEntries qw/%ingredients_classes %ingredients_classes_sorted/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Products qw/:all/;
+use ProductOpener::Products qw/remove_fields/;
 use ProductOpener::URL qw/:all/;
-use ProductOpener::Images qw/:all/;
-use ProductOpener::Lang qw/:all/;
-use ProductOpener::Units qw/:all/;
+use ProductOpener::Images qw/extract_text_from_image/;
+use ProductOpener::Lang qw/$lc %Lang lang/;
+use ProductOpener::Units qw/normalize_quantity/;
 use ProductOpener::Food qw/is_fat_oil_nuts_seeds_for_nutrition_score/;
 
 use Encode;
