@@ -1462,18 +1462,18 @@ run <code>make restart</code> to reload the changes.</p>
 <p>Run the following to open a bash shell within the <code>backend</code> container:</p>
 <div class="highlight"><pre><span></span><code>docker compose exec backend bash
 </code></pre></div>
-<p>You should see <code>root@&lt;CONTAINER_ID&gt;:/#</code> (opened root shell): you are now within the Docker container and can begin typing some commands !</p>
+<p>You should see <code>root@&lt;CONTAINER_ID&gt;:/#</code> (opened root shell): you are now within the Docker container and can begin typing some commands!</p>
 <h3 id="checking-permissions">Checking permissions<a class="headerlink" href="#checking-permissions" title="Permanent link">#</a></h3>
-<p>Navigate to the directory the specific directory and run</p>
+<p>Navigate to the specific directory and run</p>
 <p><div class="highlight"><pre><span></span><code>ls -lrt
 </code></pre></div>
-It will list all the directories and their permission status.</p>
+It will list all directories and their permissions.</p>
 <h3 id="creating-directory">Creating directory<a class="headerlink" href="#creating-directory" title="Permanent link">#</a></h3>
-<p>Navigate to your specific directory using <code>cd</code> command and run</p>
+<p>Navigate to your specific directory using <code>cd</code> and run</p>
 <div class="highlight"><pre><span></span><code>mkdir directory-name
 </code></pre></div>
 <h3 id="running-minion-jobs">Running minion jobs<a class="headerlink" href="#running-minion-jobs" title="Permanent link">#</a></h3>
-<p><a href="https://docs.mojolicious.org/Minion">Minion</a> is a high-performance job queue for Perl. <a href="https://docs.mojolicious.org/Minion">Minion</a> is used in <a href="https://github.com/openfoodfacts/openfoodfacts-server">openfoodfacts-server</a> for time-consuming import and export tasks. These tasks are processed and queued using the minion jobs queue. Therefore, they are called minion jobs.</p>
+<p><a href="https://docs.mojolicious.org/Minion">Minion</a> is a high-performance job queue for Perl, used in <a href="https://github.com/openfoodfacts/openfoodfacts-server">openfoodfacts-server</a> for time-consuming import and export tasks. These tasks are processed and queued using the minion jobs queue. Therefore, they are called minion jobs.</p>
 <p>Go to <code>/opt/product-opener/scripts</code> and run</p>
 <div class="highlight"><pre><span></span><code>./minion_producers.pl minion job
 </code></pre></div>
@@ -1489,23 +1489,23 @@ restart <code>Apache</code> from inside the container:</p>
 <p>Use <code>exit</code> to exit the container.</p>
 <h2 id="making-code-changes">Making code changes<a class="headerlink" href="#making-code-changes" title="Permanent link">#</a></h2>
 <p>In the dev environment, any code change to the local directory will be written 
-on the container. That said, some code changes require a restart of the <code>backend</code> 
+to the container. That said, some code changes require a restart of the <code>backend</code> 
 container, or rebuilding the NPM assets.</p>
 <h2 id="getting-away-from-make-up">Getting away from make up<a class="headerlink" href="#getting-away-from-make-up" title="Permanent link">#</a></h2>
 <p><code>make up</code> is a good command for starters,
-but it's not the right one to use if you develop on a daily bases, because it maybe slow,
+but it's not the right one to use if you develop on a daily basis, because it may be slow,
 as it does a full rebuild, which, in dev mode, should only be necessary in a few cases.</p>
-<p>On a daily bases you could better run those:</p>
+<p>On a daily basis you could better run those:</p>
 <ul>
 <li><code>docker compose up</code> to start and monitor the stack.</li>
 <li><code>docker compose restart backend</code> to account for a code change in a <code>.pm</code> file
   (cgi <code>pl</code> files do not need a restart)</li>
 <li><code>docker compose stop</code> to stop them all</li>
 </ul>
-<p>If some important file changed (like Dockerfile or cpanfile, etc.), or in case of doubt,
+<p>If some important file changed (like Dockerfile or cpanfile, etc.), or if in doubt,
 you can run <code>docker compose build</code> (or maybe it's a good time to use <code>make up</code> once)</p>
-<p>You should explore the <a href="https://docs.docker.com/compose/reference/">docker compose commands</a>
-most are useful!</p>
+<p>You should explore the <a href="https://docs.docker.com/compose/reference/">docker compose commands</a>.
+Most are useful!</p>
 <h3 id="live-reload">Live reload<a class="headerlink" href="#live-reload" title="Permanent link">#</a></h3>
 <p>To automate the live reload on code changes, you can install the Python package <code>when-changed</code>:
 <div class="highlight"><pre><span></span><code>pip3 install when-changed
@@ -1527,10 +1527,10 @@ db.products.deleteOne({_id: &quot;5053990155354&quot;})
 </code></pre></div>
 <p>See the <a href="https://www.mongodb.com/products/shell"><code>mongo</code> shell docs</a> for more commands.</p>
 <h2 id="adding-environment-variables">Adding environment variables<a class="headerlink" href="#adding-environment-variables" title="Permanent link">#</a></h2>
-<p>If you need some value to be configurable, it is best to set is as an environment variable.</p>
+<p>If you need some value to be configurable, it is best to set it as an environment variable.</p>
 <p>To add a new environment variable <code>TEST</code>:</p>
 <ul>
-<li>In <code>.env</code> file, add <code>TEST=test_val</code> [local].</li>
+<li>In a <code>.env</code> file, add <code>TEST=test_val</code> [local].</li>
 <li>In <code>.github/workflows/container-deploy.yml</code>, add <code>echo "TEST=${{ secrets.TEST }}" &gt;&gt; .env</code> to the "Set environment variables" build step [remote]. Also add the corresponding GitHub secret <code>TEST=test_val</code>.</li>
 <li>In <code>docker-compose.yml</code> file, add it under the <code>backend</code> &gt; <code>environment</code> section.</li>
 <li>In <code>conf/apache.conf</code> file, add <code>PerlPassEnv TEST</code>.</li>
@@ -1542,25 +1542,25 @@ db.products.deleteOne({_id: &quot;5053990155354&quot;})
 <p>To juggle between multiple local deployments (e.g: to run different flavors of Open Food Facts on the same host),
 there are different possible strategies.</p>
 <h3 id="a-set-env-script">a set env script<a class="headerlink" href="#a-set-env-script" title="Permanent link">#</a></h3>
-<p>docker compose takes it settings from, in order of priority:</p>
+<p>docker compose takes its settings from, in decreasing priority:</p>
 <ul>
 <li>the environment</li>
 <li>the <code>.env</code> file</li>
 </ul>
 <p>So one strategy to have a different instance,
-can be to keep same <code>.env</code> file, but super-seed some env variables to tweak the configuration.
-This is a good strategy for the pro plateform.</p>
+can be to keep the same <code>.env</code> file, but override some env variables to tweak the configuration.
+This is a good strategy for the pro platform.</p>
 <p>For this case we have a 
-<a href="https://github.com/openfoodfacts/openfoodfacts-server/blob/main/setenv-pro.sh"><code>setenv-pro.sh</code></a>
+<a href="https://github.com/openfoodfacts/openfoodfacts-server/blob/main/env/setenv.sh"><code>setenv.sh</code></a>
 script.</p>
 <p>To use it, open a terminal, where you want to be in pro environment and simply use:</p>
-<div class="highlight"><pre><span></span><code>.<span class="w"> </span>setenv-pro.sh
+<div class="highlight"><pre><span></span><code>.<span class="w"> </span>setenv.sh<span class="w"> </span>off-pro
 </code></pre></div>
 <p>then you can use whatever docker compose command.</p>
 <p><strong>Note:</strong> This terminal will remain in <code>pro</code> mode until you end its session.</p>
 <p>See also <a href="../how-to-develop-producer-platform/">Developing on the producers platform</a></p>
 <h3 id="different-env-file">different .env file<a class="headerlink" href="#different-env-file" title="Permanent link">#</a></h3>
-<p>This strategy might be the right one if your settings differs a lot.</p>
+<p>This strategy might be the right one if your settings differ a lot.</p>
 <p>You will need:</p>
 <ul>
 <li>
