@@ -788,13 +788,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-build-your-dev-environment" class="md-nav__link">
+  <a href="#3-build-your-dev-environment" class="md-nav__link">
     <span class="md-ellipsis">
-      4. Build your dev environment
+      3. Build your dev environment
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="4. Build your dev environment">
+    <nav class="md-nav" aria-label="3. Build your dev environment">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1316,13 +1316,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-build-your-dev-environment" class="md-nav__link">
+  <a href="#3-build-your-dev-environment" class="md-nav__link">
     <span class="md-ellipsis">
-      4. Build your dev environment
+      3. Build your dev environment
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="4. Build your dev environment">
+    <nav class="md-nav" aria-label="3. Build your dev environment">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1447,22 +1447,20 @@ to instantly provision a ready-to-code development environment in the cloud.</p>
 </ul>
 <h2 id="1-prerequisites">1. Prerequisites<a class="headerlink" href="#1-prerequisites" title="Permanent link">#</a></h2>
 <p><strong>Docker</strong> is the easiest way to install the Open Food Facts server, play with it, and even modify the code.</p>
-<p>Docker provides an isolated environment, very close to a Virtual Machine. This environment contains everything required to launch the Open Food Facts server. There is <strong>no need to install</strong> Perl, Perl modules, Nginx, nor Apache separately.</p>
+<p>Docker provides an isolated environment, very close to a Virtual Machine. This environment contains everything required to launch the Open Food Facts server. There is <strong>no need to install</strong> Perl, Perl modules, Nginx, or Apache separately.</p>
 <blockquote>
 <p><strong><em>NOTE:</em></strong>  New to Perl? Check <a href="../how-to-learn-perl/">how to learn perl</a>!</p>
 </blockquote>
 <p><strong>Installation steps:</strong></p>
 <ul>
-<li><a href="https://docs.docker.com/install/#supported-platforms">Install Docker CE</a><blockquote>
+<li><a href="https://docs.docker.com/engine/install/">Install Docker CE</a><blockquote>
 <p>If you run e.g. Debian, don't forget to add your user to the <code>docker</code> group!</p>
 </blockquote>
 </li>
-<li><a href="https://docs.docker.com/compose/install/">Install Docker Compose</a></li>
-<li><a href="https://docs.docker.com/compose/completion/">Enable command-line completion</a></li>
 </ul>
 <h3 id="windows-prerequisites">Windows Prerequisites<a class="headerlink" href="#windows-prerequisites" title="Permanent link">#</a></h3>
 <p>When running with Windows, install <a href="https://www.docker.com/products/docker-desktop/">Docker Desktop</a> <strong>which will cover all of the above</strong>.</p>
-<p>The Make tasks use a number of Linux commands, such as rm and nproc, so it is recommeded to run Make commands from the Git Bash shell. In addition, the following need to be installed and included in the PATH:</p>
+<p>The Make tasks use a number of Linux commands, such as rm and nproc, so it is recommended to run Make commands from the Git Bash shell. In addition, the following need to be installed and included in the PATH:</p>
 <ul>
 <li><a href="http://gnuwin32.sourceforge.net/packages/make.htm">Make for Windows</a></li>
 <li><a href="https://eternallybored.org/misc/wget/">wget for windows</a> (In order to download the full product database). If you want to download wget with the executable, copy the wget.exe file to C:/Windows/System32 and you are done.</li>
@@ -1473,7 +1471,7 @@ to instantly provision a ready-to-code development environment in the cloud.</p>
 <li>Completely disable UAC</li>
 <li>Specifically grant the <a href="https://learn.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/create-symbolic-links">Create symbolic links</a> permission to your user</li>
 </ul>
-<p>Make sure you also activated the <a href="https://learn.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development">Developper mode</a> on your device.</p>
+<p>Make sure you also activated the <a href="https://learn.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development">Developer mode</a> on your device.</p>
 <h2 id="2-fork-and-clone-the-repository-from-github">2. Fork and clone the repository from GitHub<a class="headerlink" href="#2-fork-and-clone-the-repository-from-github" title="Permanent link">#</a></h2>
 <blockquote>
 <p><em>You must have a GitHub account and fork the project if you want to contribute to Open Food Facts development, but it’s not required if you just want to see how it works.</em></p>
@@ -1481,15 +1479,15 @@ to instantly provision a ready-to-code development environment in the cloud.</p>
 </blockquote>
 <h3 id="fork-the-repository">Fork the repository<a class="headerlink" href="#fork-the-repository" title="Permanent link">#</a></h3>
 <p>If you want to collaborate you will need to fork the repository.
-(see <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork"><em>Creating a pull request from a fork</em> in Github documentation</a> for an explanation)</p>
+(See <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork"><em>Creating a pull request from a fork</em> in Github documentation</a> for an explanation.)</p>
 <p>Go to https://github.com/openfoodfacts/openfoodfacts-server and click the "Fork" button.</p>
 <p>This will create a new repository in your GitHub account.
 eg. (for an hypothetical my-user-id user): https://github.com/my-user-id/openfoodfacts-server.</p>
 <p>This is the url you have to use in the following instructions.</p>
 <p>Very important: always work in new branches, never in "main", otherwise it will be difficult
-to sync your project with upstream repository (the openfoodfacts original repository).</p>
+to sync your project with the upstream repository (the openfoodfacts original repository).</p>
 <p>From time to time (before starting a new branch), it's a good idea to sync your fork,
-either using the github interface and then pulling "main" locally, either from the command line.</p>
+either using the github interface and then pulling "main" locally, or from the command line.</p>
 <h3 id="clone">Clone<a class="headerlink" href="#clone" title="Permanent link">#</a></h3>
 <p>Choose your preferred way to clone, either:</p>
 <h4 id="on-windows">On Windows:<a class="headerlink" href="#on-windows" title="Permanent link">#</a></h4>
@@ -1517,7 +1515,7 @@ or (if you want to use ssh)
 <div class="highlight"><pre><span></span><code><span class="go">git clone --single-branch --depth=1 https://github.com/openfoodfacts/openfoodfacts-server.git</span>
 </code></pre></div>
 <p>To save your PC's resources, consider using a shallow clone by only cloning the <code>main</code> branch combined with a shallow fetch. This reduces the downloaded data to approximately 333 MiB and the repo will only use around 350 MiB of drive space.</p>
-<p>You will still be able to contribute PRs based on the <code>main</code>. However, you will not be able to view the full Git version history of any files, and you need to use an additional from GitHub, e.g., <code>gh-pages</code>, you can do it like this:</p>
+<p>You will still be able to contribute PRs based on the <code>main</code> branch. However, you will not be able to view the full Git version history of any files, and you need to use an additional branch from GitHub, e.g., <code>gh-pages</code>, you can do it like this:</p>
 <div class="highlight"><pre><span></span><code><span class="go">git remote set-branches --add origin gh-pages</span>
 <span class="go">git fetch --depth=1 origin gh-pages:gh-pages</span>
 <span class="go">git checkout gh-pages</span>
@@ -1603,11 +1601,11 @@ Product Opener's environment (<code>.env</code> file).</p>
 <li><code>COMPOSE_SEPARATOR</code> is the separator used for <code>COMPOSE_FILE</code>.</li>
 </ul>
 <p><strong>Note:</strong>
-Instead of modifying <code>.env</code> (with the risk commit it inadvertently),
-You can also set needed variables in your shell, they will override <code>.env</code> values.
+Instead of modifying <code>.env</code> (and risk committing it inadvertently),
+you can also set needed variables in your shell; they will override <code>.env</code> values.
 Consider creating a <code>.envrc</code> file that you source each time you need to work on the project.
 On linux and macOS, you can automatically do it if you <a href="../how-to-use-direnv/">use direnv</a>.</p>
-<h2 id="4-build-your-dev-environment">4. Build your dev environment<a class="headerlink" href="#4-build-your-dev-environment" title="Permanent link">#</a></h2>
+<h2 id="3-build-your-dev-environment">3. Build your dev environment<a class="headerlink" href="#3-build-your-dev-environment" title="Permanent link">#</a></h2>
 <p>From the repository root, run:</p>
 <div class="highlight"><pre><span></span><code><span class="go">make dev</span>
 </code></pre></div>
@@ -1640,12 +1638,12 @@ It can be solved by adding <code>{"base": "172.80.0.0/16","size": 24}, {"base": 
 <p>Since the default <code>PRODUCT_OPENER_DOMAIN</code> in the <code>.env</code> file is set to <code>openfoodfacts.localhost</code>, add the following to your hosts file (Windows: <code>C:\Windows\System32\drivers\etc\hosts</code>; Linux/MacOSX: <code>/etc/hosts</code>):</p>
 <div class="highlight"><pre><span></span><code>127.0.0.1 world.openfoodfacts.localhost fr.openfoodfacts.localhost static.openfoodfacts.localhost ssl-api.openfoodfacts.localhost fr-en.openfoodfacts.localhost
 </code></pre></div>
-<p><strong>You're done ! Check http://openfoodfacts.localhost/ !</strong></p>
+<p><strong>You're done! Check <code>http://openfoodfacts.localhost/</code>.</strong></p>
 <h3 id="going-further">Going further<a class="headerlink" href="#going-further" title="Permanent link">#</a></h3>
 <p>To learn more about developing with Docker, see the <a href="../how-to-develop-using-docker/">Docker developer's guide</a>.</p>
-<p>To have all site page on your dev instance, see <a href="../how-to-use-pages-from-openfoodfacts-web/">Using pages from openfoodfacts-web</a></p>
+<p>To have all site pages on your dev instance, see <a href="../how-to-use-pages-from-openfoodfacts-web/">Using pages from openfoodfacts-web</a></p>
 <p><a href="../how-to-use-repl/">Using Repl</a> offers you a way to play with perl.</p>
-<p>Specific notes are provide on <a href="../how-to-update-agribalyse-ecoscore/">applying AGRIBALYSE updates to support the Ecoscore</a> calculation.</p>
+<p>Specific notes are provided on <a href="../how-to-update-agribalyse-ecoscore/">applying AGRIBALYSE updates to support the Ecoscore</a> calculation.</p>
 <h2 id="visual-studio-code">Visual Studio Code<a class="headerlink" href="#visual-studio-code" title="Permanent link">#</a></h2>
 <p><strong>WARNING</strong>: Devcontainer support is currently experimental. It's recommended to run the normal docker commands before, and stop the containers: <code>make dev down</code>. Note that <code>make dev</code>, <code>make test</code>, and so on may currently conflict with the devcontainer.</p>
 <p>This repository comes with a configuration for Visual Studio Code (VS Code) <a href="https://code.visualstudio.com/docs/remote/containers">development containers (devcontainer)</a>. This enables some Perl support in VS Code without the need to install the correct Perl version and modules on your local machine.</p>
@@ -1655,9 +1653,14 @@ It can be solved by adding <code>{"base": "172.80.0.0/16","size": 24}, {"base": 
 <p>When running <code>make dev</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="go">bash: make: command not found</span>
 </code></pre></div>
-<p><strong>Solution:</strong> 
+<p><strong>Solution (if using Windows):</strong> 
 Click the Windows button, then type “environment properties” into the search bar and hit Enter. Click Environment Variables, then under System variables choose Path and click Edit. Click New and insert C:\Program Files (x86)\GnuWin32\bin, then save the changes. Open a new terminal and test that the command works.
-(see <a href="https://pakstech.com/blog/make-windows/">Make Windows</a> for more)</p>
+(See <a href="https://pakstech.com/blog/make-windows/">Make Windows</a> for more.)</p>
+<p><strong>Solution (if using a Linux distro):</strong>
+Check that your bash PATH setting is correct. If it is, your Linux distro doesn't include <code>make</code> by default. For Debian (which I had that problem with --Pau Amma), use</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>make
+</code></pre></div>
+<p>For other distros, consult your distro's documentation or support resources for the command to use.</p>
 <h3 id="make-dev-error-build_lang-error-2-could-not-load-taxonomy-mntpodatataxonomiestracesresultsto">make dev error: [build_lang] Error 2 - Could not load taxonomy: /mnt/podata/taxonomies/traces.result.sto<a class="headerlink" href="#make-dev-error-build_lang-error-2-could-not-load-taxonomy-mntpodatataxonomiestracesresultsto" title="Permanent link">#</a></h3>
 <p>When running <code>make dev</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="go">&lt;h1&gt;Software error:&lt;/h1&gt;</span>
@@ -1685,7 +1688,7 @@ To enable Developer Mode:</p>
 </ul>
 <p>and turn on the toggle for <em>Developer Mode</em>.</p>
 <p>On Windows systems, the git repository needs to be cloned with symlinks enabled.</p>
-<p>You need to remove current directory where you clone the project, and clone the project again, using right options:</p>
+<p>You need to remove the directory where you cloned the project, and clone the project again, using the right options:</p>
 <div class="highlight"><pre><span></span><code><span class="gp"># </span>replace<span class="w"> </span>my-user-id<span class="w"> </span>with<span class="w"> </span>your<span class="w"> </span>user<span class="w"> </span>id<span class="w"> </span><span class="k">if</span><span class="w"> </span>you<span class="w"> </span>forked<span class="w"> </span>the<span class="w"> </span>repository,<span class="w"> </span>otherwise<span class="w"> </span>use<span class="w"> </span>openfoodfacts
 <span class="go">git clone -c core.symlinks=true git@github.com:my-user-id/openfoodfacts-server.git</span>
 </code></pre></div>
@@ -1720,7 +1723,7 @@ To enable Developer Mode:</p>
 </code></pre></div>
 <p><strong>Solution:</strong>
 The cause of this issue is that you already have the mongodb database server running on your local machine at port 27017. </p>
-<p><em>For linux users:</em></p>
+<p><em>For Linux users:</em></p>
 <p>First stop the MongoDB server from your OS
 <div class="highlight"><pre><span></span><code><span class="go">sudo systemctl stop mongod</span>
 </code></pre></div></p>
@@ -1732,7 +1735,7 @@ The cause of this issue is that you already have the mongodb database server run
 The output of this command should be:
   <code>Active: inactive (dead)</code></p>
 </blockquote>
-<p>Then, executed this:
+<p>Then, execute this:
 <div class="highlight"><pre><span></span><code><span class="go">docker compose up </span>
 </code></pre></div></p>
 <blockquote>
