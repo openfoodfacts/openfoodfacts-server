@@ -211,6 +211,7 @@ use Log::Any '$log', default_adapter => 'Stderr';
 our $mongodb_log = Log::Log4perl->get_logger('mongodb');
 $mongodb_log->info("start") if $mongodb_log->is_info();
 
+use Apache2::RequestUtil ();
 use Apache2::RequestRec ();
 use Apache2::Const qw(:http :common);
 
