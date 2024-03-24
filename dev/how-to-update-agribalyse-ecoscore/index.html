@@ -1133,7 +1133,7 @@
 <h2 id="review-and-fix-any-changed-categories">Review and fix any changed Categories<a class="headerlink" href="#review-and-fix-any-changed-categories" title="Permanent link">#</a></h2>
 <p>Review the changes to AGRIBALYSE_summary to determine if any codes have been removed or significantly edited and update the Categories taxonomy accordingly.</p>
 <p>Once the Categories have been updated you will need to build the taxonomies. You can then update unit test results with the update_tests_results.sh script to see if any have been affected.</p>
-<p>It is also worth checking the impact the update has had on the main product database. This can be downloaded locally and the differences determined by running the update_all_produycts script.</p>
+<p>It is also worth checking the impact the update has had on the main product database. This can be downloaded locally and the differences determined by running the update_all_products script.</p>
 <p>The previous values of the Ecoscore are stored in the previous_data section under ecoscore_data. Before applying an update you will need to delete this section with the following MongoDB script:</p>
 <div class="highlight"><pre><span></span><code><span class="nx">db</span><span class="p">.</span><span class="nx">products</span><span class="p">.</span><span class="nx">update</span><span class="p">({},</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">$unset</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;ecoscore_data.previous_data&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">});</span>
 </code></pre></div>
@@ -1256,12 +1256,12 @@
 <span class="p">});</span>
 </code></pre></div>
 <h2 id="link-existing-categories-to-new-agribalyse-codes">Link existing Categories to new AGRIBALYSE codes<a class="headerlink" href="#link-existing-categories-to-new-agribalyse-codes" title="Permanent link">#</a></h2>
-<p>If a new AGRIBALYSE category matches and existing OFF Category then the two can be linked by adding an <code>agribalyse_food_code:en</code> tag. If there is not a precise match then add an <code>agribalyse_proxy_food_code:en</code> tag along with the <code>agribalyse_proxy_food_name:en</code> and <code>agribalyse_proxy_food_name:fr</code> tags.</p>
+<p>If a new AGRIBALYSE category matches an existing OFF Category then the two can be linked by adding an <code>agribalyse_food_code:en</code> tag. If there is no precise match then add an <code>agribalyse_proxy_food_code:en</code> tag along with the <code>agribalyse_proxy_food_name:en</code> and <code>agribalyse_proxy_food_name:fr</code> tags.</p>
 <p>Re-run the <code>update_all_products</code> script after doing this to assess how many products now have an Ecoscore when they did not previously. Use the above scripts to analyse the MongoDB, the new categories will have previous values of <code>undefined</code>.</p>
 <h2 id="add-new-categories-for-new-agribalyse-codes">Add new Categories for new AGRIBALYSE codes<a class="headerlink" href="#add-new-categories-for-new-agribalyse-codes" title="Permanent link">#</a></h2>
 <p>For any new categories, review the AGRIBALYSE category descriptions to ensure they are concise and unambiguous such that an OFF user is most likely to get a match on a type-ahead search. Give notice of the change on the taxonomies channel in Slack so that additional translations can be added for the new categories.</p>
 <p>It is not necessary to add a category for every single AGRIBALYSE entry. For example, AGRIBALYSE has over 80 codes for different mineral waters but these all have almost exactly the same environmental impact. In cases like this it is acceptable to pick a single representative AGRIBALYSE code as a proxy for the Category in general.</p>
-<p>It may be worth doing a final check to see how many categories cominations still do not have a match to AGRIBALYSE:</p>
+<p>It may be worth doing a final check to see how many category combinations still do not have a match in AGRIBALYSE:</p>
 <div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">missing</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">products</span>
 <span class="w">  </span><span class="p">.</span><span class="nx">aggregate</span><span class="p">([</span>
 <span class="w">    </span><span class="p">{</span>
