@@ -10357,8 +10357,6 @@ sub display_product_api ($request_ref) {
 
 	process_template('web/common/includes/display_product_api.tt.html',
 	$template_data_ref, \$html) || return "template error: " . $tt->error();
-
-		}
 	}
 	else {
 		$response{status} = 1;
