@@ -672,9 +672,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#note-the-setup-does-not-currently-support-running-the-http-server-for-both-public-and-pro-platform-at-the-same-simultaneously-therefore-to-access-the-public-platform-you-need-to-follow-these-steps" class="md-nav__link">
+  <a href="#note-the-setup-does-not-currently-support-running-the-http-server-for-both-public-and-pro-platform-at-the-same-time-therefore-to-access-the-public-platform-you-need-to-follow-these-steps" class="md-nav__link">
     <span class="md-ellipsis">
-      Note: The setup does not currently support running the http server for both public and pro platform at the same simultaneously. Therefore, to access the public platform, you need to follow these steps:
+      Note: The setup does not currently support running the http server for both public and pro platform at the same time. Therefore, to access the public platform, you need to follow these steps:
     </span>
   </a>
   
@@ -1122,9 +1122,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#note-the-setup-does-not-currently-support-running-the-http-server-for-both-public-and-pro-platform-at-the-same-simultaneously-therefore-to-access-the-public-platform-you-need-to-follow-these-steps" class="md-nav__link">
+  <a href="#note-the-setup-does-not-currently-support-running-the-http-server-for-both-public-and-pro-platform-at-the-same-time-therefore-to-access-the-public-platform-you-need-to-follow-these-steps" class="md-nav__link">
     <span class="md-ellipsis">
-      Note: The setup does not currently support running the http server for both public and pro platform at the same simultaneously. Therefore, to access the public platform, you need to follow these steps:
+      Note: The setup does not currently support running the http server for both public and pro platform at the same time. Therefore, to access the public platform, you need to follow these steps:
     </span>
   </a>
   
@@ -1157,7 +1157,7 @@
 <p>Here is how to develop for the producers platform using docker.</p>
 <h3 id="prerequisites">Prerequisites:<a class="headerlink" href="#prerequisites" title="Permanent link">#</a></h3>
 <ul>
-<li>Docker should already be <a href="../how-to-quick-start-guide/">set up for development.</a>.</li>
+<li>Docker should already be <a href="../how-to-quick-start-guide/">set up for development</a>.</li>
 </ul>
 <h3 id="shell-setup">Shell Setup:<a class="headerlink" href="#shell-setup" title="Permanent link">#</a></h3>
 <p>You will need two types of shells:</p>
@@ -1167,8 +1167,8 @@
 </ul>
 </li>
 <li>Shell for OpenFoodFacts-Pro: Use this shell when working on the OpenFoodFacts-Pro platform.<ul>
-<li>To set up the shell, source the <code>setenv-pro.sh</code> file by running the command: <code>. setenv-pro.sh</code>.</li>
-<li>Once the shell is set up, your prompt will show <code>(pro)</code> to indicate that you are in the producers environment.(this simply sets some environment variables that will overides the one in <code>.env</code>)</li>
+<li>To set up the shell, run the command: <code>. env/setenv.sh off-pro</code> (this simply sets some environment variables that will override the ones in <code>.env</code>).</li>
+<li>Once the shell is set up, your prompt will show <code>(pro)</code> to indicate that you are in the producers environment.</li>
 </ul>
 </li>
 </ul>
@@ -1189,22 +1189,22 @@
 </ul>
 </li>
 </ul>
-<h4 id="note-the-setup-does-not-currently-support-running-the-http-server-for-both-public-and-pro-platform-at-the-same-simultaneously-therefore-to-access-the-public-platform-you-need-to-follow-these-steps">Note: The setup does not currently support running the http server for both public and pro platform at the same simultaneously. Therefore, to access the public platform, you need to follow these steps:<a class="headerlink" href="#note-the-setup-does-not-currently-support-running-the-http-server-for-both-public-and-pro-platform-at-the-same-simultaneously-therefore-to-access-the-public-platform-you-need-to-follow-these-steps" title="Permanent link">#</a></h4>
+<h4 id="note-the-setup-does-not-currently-support-running-the-http-server-for-both-public-and-pro-platform-at-the-same-time-therefore-to-access-the-public-platform-you-need-to-follow-these-steps">Note: The setup does not currently support running the http server for both public and pro platform at the same time. Therefore, to access the public platform, you need to follow these steps:<a class="headerlink" href="#note-the-setup-does-not-currently-support-running-the-http-server-for-both-public-and-pro-platform-at-the-same-time-therefore-to-access-the-public-platform-you-need-to-follow-these-steps" title="Permanent link">#</a></h4>
 <ul>
 <li>in your <em>pro shell</em>, run a <code>docker compose stop frontend</code></li>
 <li>in your <em>non pro shell</em>, run a <code>docker compose up frontend</code>
 Now, the public database can be accessed at <code>openfoodfacts.localhost</code>.If you need to access the <em>pro</em> HTTP server, reverse these steps.</li>
 </ul>
-<p>Note that if you <a href="../how-to-use-direnv/">use direnv</a>, the setup should work seamlessly without redefining the variables set by <code>setenv-pro.sh</code>.</p>
+<p>Note that if you <a href="../how-to-use-direnv/">use direnv</a>, the setup should work seamlessly without redefining the variables set by <code>setenv.sh</code>.</p>
 <p>An explanation of the setup can be found at <a href="../explain-pro-dev-setup/">explain-pro-dev-setup.md</a></p>
 <ul>
-<li>If you want to see state of tasks, you can run:</li>
+<li>If you want to see the state of tasks, you can run:</li>
 </ul>
 <p><div class="highlight"><pre><span></span><code>docker compose exec minion /opt/product-opener/scripts/minion_producers.pl  minion job
 </code></pre></div>
 (add --help to see all options), or refer to https://docs.mojolicious.org/Minion/Command/minion/job</p>
 <ul>
-<li>You may also inspect database by running:
+<li>You may also inspect the database by running:
 <div class="highlight"><pre><span></span><code>docker compose exec  postgres psql -U productopener -W minion
 </code></pre></div>
 The password is given by the <code>POSTGRES_PASSWORD</code> variable in the <code>.env</code> file and defaults to <code>productopener</code>. 
