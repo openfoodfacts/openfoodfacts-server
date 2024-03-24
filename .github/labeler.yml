@@ -570,6 +570,7 @@ Redis:
 📦 Packaging:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/Packaging.pm'
+  - any-glob-to-any-file: 'lib/ProductOpener/PackagingStats.pm'
   - any-glob-to-any-file: 'taxonomies/packaging_materials.txt'
   - any-glob-to-any-file: 't/packaging.t'
   - any-glob-to-any-file: 'cgi/packaging.pl'
@@ -992,6 +993,10 @@ CIQUAL:
   - any-glob-to-any-file: 'lib/​ProductOpener/​NutritionCiqual.pm'
   - any-glob-to-any-file: 'tests/​unit/​expected_test_results/​nutrition_ciqual/​31016-white-sugar.json'
   - any-glob-to-any-file: 'tests/​unit/​expected_test_results/​nutrition_ciqual/​40601-offal-cooked-average.json'
+
+Nutrition estimation:
+- changed-files:
+  - any-glob-to-any-file: 'lib/ProductOpener/NutritionEstimation.pm'
 
 # The API requires auth in order to perform editing.There is a common mechanism & mechanism built for Robotoff - our AI system
 # We're in the process of migrating to Keycloak
