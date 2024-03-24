@@ -186,7 +186,7 @@ $flavor = 'off';
 	teolemon
 );
 
-my %options = (
+%options = (
 	site_name => "Open Food Facts",
 	product_type => "food",
 	og_image_url => "https://world.openbeautyfacts.org/images/misc/openbeautyfacts-logo-en.png",
