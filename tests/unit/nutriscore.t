@@ -910,6 +910,8 @@ foreach my $test_ref (@tests) {
 	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json", $update_expected_results);
 }
 
-is(compute_nutriscore_grade(1.56, 1, 0), "c");
+my $nutriscore = ProductOpener::Nutriscore->new;
+
+is($nutriscore->compute_nutriscore_grade(1.56, 1, 0), "c", 'Nutriscore returns the right grade');
 
 done_testing();

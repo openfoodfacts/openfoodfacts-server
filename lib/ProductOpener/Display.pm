@@ -8907,6 +8907,8 @@ the rounded value according to the Nutri-Score rules, and the corresponding poin
 
 sub display_nutriscore_calculation_details ($nutriscore_data_ref, $version = "2021") {
 
+	my %points_thresholds = ProductOpener::Nutriscore->new->points_thresholds->%*;
+
 	my $beverage_view;
 
 	if ($nutriscore_data_ref->{is_beverage}) {
