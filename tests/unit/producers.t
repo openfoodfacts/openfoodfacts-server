@@ -1,5 +1,7 @@
 #!/usr/bin/perl -w
 
+# HARNESS-TIMEOUT-EVENT 120
+
 use Modern::Perl '2017';
 use utf8;
 
