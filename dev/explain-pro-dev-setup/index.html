@@ -1020,21 +1020,21 @@ For explanations on how to use it, see: <a href="../how-to-develop-producer-plat
 off-pro is the producers platform (world.pro.openfoodfacts.org)</p>
 <p>When we work on the pro platform for development we want:</p>
 <ul>
-<li>off containers to talk between each other, and have their own volumes</li>
-<li>off-pro containers to talk between each other, and, generally, have their own volumes</li>
-<li>minion and backend from both app access to the same postgres database
+<li>off containers to talk to each other, and have their own volumes</li>
+<li>off-pro containers to talk to each other, and, generally, have their own volumes</li>
+<li>minion and backend from both apps to access the same postgres database
   (which stores tasks queues)</li>
-<li>off and off-pro backends / minion needs to share some volumes :
+<li>off and off-pro backends / minion needs to share some volumes:
   orgs, users ands some files living in podata</li>
 </ul>
-<p>Still we would like to avoid having different clone of the repository,
+<p>Still we would like to avoid having different clones of the repository,
 but we can isolate projects thanks to <code>COMPOSE_PROJECT_NAME</code>,
 which will prefix containers names, volumes and default network,
 thus isolate each projects.</p>
-<p>This is achieved by sourcing the .env-pro which setup some environment variables
-that will superseed the .env variables.
-The main one being setting <code>COMPOSE_PROJECT_NAME</code> and <code>PRODUCERS_PLATFORM</code>, but also other like <code>MINION_QUEUE</code>.</p>
-<p>On volume side, we will simply give hard-coded names to volumes
+<p>This is achieved by sourcing .env-pro which sets up some environment variables
+that will supersede the .env variables.
+The main one being setting <code>COMPOSE_PROJECT_NAME</code> and <code>PRODUCERS_PLATFORM</code>, but also others like <code>MINION_QUEUE</code>.</p>
+<p>On the volume side, we will simply give hard-coded names to volumes
 that should be shared between off and pro platform, thus they will be shared.
 Ideally we should not have to share single files but this is a work in progress,
 we will live without it as a first approx.</p>
@@ -1045,10 +1045,10 @@ we will use postgres database from off as the common database.</p>
 <li>we use profiles, so we won't start postgres in pro docker compose</li>
 <li>we connect <code>postgres</code>, <code>backend</code> and <code>minion</code> services to a shared network, called <code>minion_db</code>
 Fortunately this works, but note that there is a pitfall:
-on <code>minion_db</code> network both <code>backend</code> services (<code>off</code> and <code>off-pro</code>) will respond to same name.
+on the <code>minion_db</code> network both <code>backend</code> services (<code>off</code> and <code>off-pro</code>) will respond to the same name.
 For the moment it is not a problem for we don't need to communicate directly
 between instances.
-If it was, we would have to define custom aliases for those services on the <code>minion_db</code> network.</li>
+If it were, we would have to define custom aliases for those services on the <code>minion_db</code> network.</li>
 </ul>
 <div class="highlight"><pre><span></span><code>network    OFF              network       PRO              network
 po_default containers       minion_db     containers       po_pro_default
