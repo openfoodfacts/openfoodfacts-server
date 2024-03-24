@@ -44,7 +44,7 @@ use vars @EXPORT_OK;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/:all/;
 use ProductOpener::Display
-	qw/$formatted_subdomain display_robots_txt_and_exit init_request redirect_to_url single_param/;
+	qw/$formatted_subdomain %index_tag_types_set display_robots_txt_and_exit init_request redirect_to_url single_param/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/%tag_type_from_plural %tag_type_from_singular %tag_type_plural %tag_type_singular lang/;
 use ProductOpener::API qw/:all/;
@@ -557,7 +557,7 @@ sub is_no_index_page ($request_ref) {
 					defined $request_ref->{tagtype} and (
 						# Only allow indexation of a selected number of facets
 						# Ingredients were left out because of the number of possible ingredients (1.2M)
-						(not exists($ProductOpener::Display::index_tag_types_set{$request_ref->{tagtype}}))
+						(not exists($index_tag_types_set{$request_ref->{tagtype}}))
 						# Don't index facet pages with page number > 1 (we want only 1 index page per facet value)
 						or ((defined $request_ref->{page}) and ($request_ref->{page} >= 2))
 						# Don't index web pages with 2 nested tags: as an example, there are billions of combinations for

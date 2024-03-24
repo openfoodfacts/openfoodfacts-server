@@ -41,6 +41,8 @@ use Exporter qw(import);
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
+		%index_tag_types_set
+
 		&init_request
 		&redirect_to_url
 		&single_param
@@ -105,7 +107,6 @@ BEGIN {
 		@search_series
 
 		$admin
-		$memd
 
 		$scripts
 		$initjs
@@ -173,7 +174,7 @@ use ProductOpener::PackagerCodes
 use ProductOpener::Export qw(export_csv);
 use ProductOpener::API qw(add_error customize_response_for_product process_api_request);
 use ProductOpener::Units qw/g_to_unit/;
-use ProductOpener::Cache qw/$max_memcached_object_size generate_cache_key/;
+use ProductOpener::Cache qw/$max_memcached_object_size $memd generate_cache_key/;
 use ProductOpener::Permissions qw/has_permission/;
 
 use Encode;
@@ -286,7 +287,7 @@ if (defined $options{export_limit}) {
 }
 
 # Save all tag types to index in a set to make checks easier
-my %index_tag_types_set = ();
+%index_tag_types_set = ();
 @index_tag_types_set{@ProductOpener::Config::index_tag_types} = ();
 
 # Initialize the Template module
