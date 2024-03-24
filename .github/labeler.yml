@@ -1,5 +1,6 @@
 # Add labels to any any pull request with changes to the specified paths
 
+# Pull requests that update GitHub Actions code. If you navigate to the folder, you will have a README of what it does
 GitHub Actions:
 - changed-files:
   - any-glob-to-any-file: '.github/**/*'
@@ -34,6 +35,7 @@ Stores:
   - any-glob-to-any-file: 'html/files/tagline-off-ios-v2.json'
   - any-glob-to-any-file: 'html/files/tagline-off-android-v2.json'
 
+# https://wiki.openfoodfacts.org/Global_taxonomies
 🧬 Taxonomies:
 - changed-files:
   - any-glob-to-any-file: 'taxonomies/**/*'
@@ -74,6 +76,8 @@ WikiData:
   - any-glob-to-any-file: 'tests/unit/allergens.t'
   - any-glob-to-any-file: 'taxonomies/allergens.txt'
 
+# Our pet food project https://world.openpetfoodfacts.org
+# We have a mobile app. We plan in 2024 to integrate Open Food Facts, Open Beauty Facts, Open Pet Food Facts and Open Products Facts together.
 🐾 Open Pet Food Facts:
 - changed-files:
   - any-glob-to-any-file: 'taxonomies/petfood/**/*'
@@ -96,6 +100,8 @@ WikiData:
   - any-glob-to-any-file: 'lib/ProductOpener/Config_opff.pm'
   - any-glob-to-any-file: 'conf/nginx/snippets/ssl-params-opff.conf'
 
+# Our cosmetic analysis project https://world.openbeautyfacts.org
+# We have a mobile app. We plan in 2024 to integrate Open Food Facts, Open Beauty Facts, Open Pet Food Facts and Open Products Facts together.
 🧴 Open Beauty Facts:
 - changed-files:
   - any-glob-to-any-file: 'taxonomies/beauty/**/*'
@@ -136,6 +142,9 @@ WikiData:
   - any-glob-to-any-file: 'tests/unit/expected_test_results/import_gs1/equadis_unilever_obf_signal.off.json'
   - any-glob-to-any-file: 'tests/unit/expected_test_results/import_gs1/equadis_unilever_obf_signal.json'
 
+# Open Products Facts is our platform for other platform. We plan to turn it into the data platform to facilitate circular behaviors (buy, maintain, repare, donate, resale)
+# We have a mobile app. We plan in 2024 to integrate Open Food Facts, Open Beauty Facts, Open Pet Food Facts and Open Products Facts together.
+# Our project to increase the lifespan of objects. https://world.openproductsfacts.org
 📸 Open Products Facts:
 - changed-files:
   - any-glob-to-any-file: 'taxonomies/products/**/*'
@@ -153,10 +162,12 @@ Icons:
 - changed-files:
   - any-glob-to-any-file: 'icons/**/*'
 
+# Foundation is the CSS framework of Open Food Facts.
 CSS:
 - changed-files:
   - any-glob-to-any-file: 'scss/**/*'
 
+# We use a non-standard version of GetText, lack language variants support translate.openfoodfacts.org
 🌐 Translations:
 - changed-files:
   - any-glob-to-any-file: 'po/**/*'
@@ -178,7 +189,8 @@ Dependencies:
   - any-glob-to-any-file: 'package.json'
   - any-glob-to-any-file: 'package-lock.json'
   - any-glob-to-any-file: 'cpanfile'
-  
+
+# The templating toolkit used by product opener. The starting point for HTML/JS/CSS fixes.
 Template::Toolkit:
 - changed-files:
   - any-glob-to-any-file: 'templates/**/*'
@@ -211,6 +223,7 @@ Footer:
   - any-glob-to-any-file: '.dockerignore'
   - any-glob-to-any-file: 'conf/nginx-docker/nginx.conf'
 
+# The Folksonomy project allows to add custom data to product, and model non food products.
 🏷️ Folksonomy Project:
 - changed-files:
   - any-glob-to-any-file: 'html/js/folksonomy.js'
@@ -221,6 +234,7 @@ Attributes:
   - any-glob-to-any-file: 'lib/ProductOpener/Attributes.pm'
   - any-glob-to-any-file: 'tests/unit/attributes.t'
 
+# https://wiki.openfoodfacts.org/Quality
 🧽 Data Quality:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/DataQuality.pm'
@@ -230,10 +244,16 @@ Attributes:
   - any-glob-to-any-file: 'tests/unit/dataqualityfood.t'
   - any-glob-to-any-file: 'taxonomies/data_quality.txt'
 
+# One of the facets available in Open Food Facts is /quality & allows us to spot products w/ bad data
+# 🧽 Quality facet:
+# - changed-files:
+#  - any-glob-to-any-file: ''
+
 Display:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/Display.pm'
 
+# https://world.openfoodfacts.org/eco-score-the-environmental-impact-of-food-products
 🌱 Eco-Score:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/Ecoscore.pm'
@@ -265,12 +285,6 @@ Agribalyse:
   - any-glob-to-any-file: 'scripts/add_agribalyse_food_codes_to_taxonomy.pl'
   - any-glob-to-any-file: 'templates/api/knowledge-panels/environment/ecoscore/agribalyse.tt.json'
 
-Export:
-- changed-files:
-  - any-glob-to-any-file: 'lib/ProductOpener/Export.pm'
-  - any-glob-to-any-file: 't/expected_test_results/export/**/*'
-  - any-glob-to-any-file: 'scripts/mongodb_dump.sh'
-
 Food.pm:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/Food.pm'
@@ -295,18 +309,21 @@ Food groups:
   - any-glob-to-any-file: 'taxonomies/additives.result.txt'
 
 # https://envol-vert.org/en/methodology/
+# This is a score designed by a French NGO to assess the deforestation impact (in sq meters)
 🌳 Forest Footprint:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/ForestFootprint.pm'
   - any-glob-to-any-file: 'tests/unit/forest_footprint.t'
 
 # https://dev.maxmind.com/geoip
-# Used to geolocate products based on IP
+# Geolite is used to recognize the IP's country to add the country where sold field + scan stats
 📍 geolite:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/GeoIP.pm'
   - any-glob-to-any-file: 'scripts/test_geoip.pl'
 
+# GS1 is a standardization organization around product data. They also sell and manage barcodes. They have per-country entities.
+# The producer platform is integrating with the GS1 product data formats.
 GS1:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/GS1.pm'
@@ -336,7 +353,8 @@ Data import:
   - any-glob-to-any-file: 'tests/unit/ingredients_tags.t'
   - any-glob-to-any-file: 'scripts/test_ingredient_parser.pl'
 
-Ingredients analysis:
+# https://wiki.openfoodfacts.org/Ingredients_Extraction_and_Analysis
+🥗🔍 Ingredients analysis:
 - changed-files:
   - any-glob-to-any-file: 'templates/web/pages/product/includes/ingredients_analysis.tt.html'
   - any-glob-to-any-file: 'templates/api/knowledge-panels/health/ingredients/ingredients_analysis_help.tt.json'
@@ -359,10 +377,14 @@ Categories:
 - changed-files:
   - any-glob-to-any-file: 'taxonomies/categories.txt'
 
+# Origins are used for Eco-Score computation. We want to have structured origins.
 📍 Origins:
 - changed-files:
   - any-glob-to-any-file: 'taxonomies/origins.txt'
-
+  - any-glob-to-any-file: 'templates/api/knowledge-panels/environment/origins_of_ingredients.tt.json'
+  - any-glob-to-any-file: 'templates/api/knowledge-panels/environment/ecoscore/origins_of_ingredients.tt.json'
+  
+# https://wiki.openfoodfacts.org/Knowledge_panels
 📖 Knowledge panels:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/KnowledgePanels.pm'
@@ -436,6 +458,8 @@ Numbers:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/Numbers.pm'
 
+# https://world.openfoodfacts.org/nutriscore
+# Read how Open Food Facts was instrumental in disseminating Nutri-Score: https://world.openfoodfacts.org/open-food-facts-and-the-nutriscore
 🚦 Nutri-Score:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/Nutriscore.pm'
@@ -451,6 +475,7 @@ Numbers:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/Orgs.pm'
 
+# https://blog.openfoodfacts.org/en/news/discover-what-food-products-are-made-near-you-with-made-near-me
 📍🏭 Packager Codes:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/PackagerCodes.pm'
@@ -469,6 +494,12 @@ Numbers:
   - any-glob-to-any-file: 'tests/integration/expected_test_results/facets/packager-code_fr-85-222-003-ec.json'
   - any-glob-to-any-file: 'tests/integration/expected_test_results/facets/packager-code_fr-85-222-003-ce.json'
   - any-glob-to-any-file: 'packager-codes/FR-merge-UTF-8.csv'
+
+# facets: facets allow you to explore products according to various criterion. Based on MongoDB
+facets:
+- changed-files:
+  - any-glob-to-any-file: 'tests/integration/expected_test_results/facets/packager-code_fr-85-222-003-ec.json'
+  - any-glob-to-any-file: 'tests/integration/expected_test_results/facets/packager-code_fr-85-222-003-ce.json'
   
 🇫🇷 France:
 - changed-files:
@@ -477,7 +508,8 @@ Numbers:
 Redis:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/Redis.pm'
-  
+
+# https://wiki.openfoodfacts.org/Category:Recycling
 📦 Packaging:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/Packaging.pm'
@@ -509,7 +541,8 @@ Redis:
   - any-glob-to-any-file: 'tests/unit/packaging.t'
   - any-glob-to-any-file: 'docs/api/ref/schemas/packagings/**'
   - any-glob-to-any-file: 'scripts/gen_packaging_stats.pl'
-  
+
+# https://wiki.openfoodfacts.org/Platform_for_producers
 🏭 Producers Platform:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/GS1.pm'
@@ -718,6 +751,7 @@ Blocks:
   - any-glob-to-any-file: 'cgi/sugar_check.pl'
   - any-glob-to-any-file: 'cgi/sugar_random.pl'
 
+# https://blog.openfoodfacts.org/en/news/discover-what-food-products-are-made-near-you-with-made-near-me
 🗺️ Made Near Me:
 - changed-files:
   - any-glob-to-any-file: 'scripts/generate_madenearme_page.pl'
@@ -727,6 +761,7 @@ PAO:
 - changed-files:
   - any-glob-to-any-file: 'scripts/generate_pao_taxonomy.pl'
 
+# We use Minion tasks for background job processing in the Producer Platform
 Minion:
 - changed-files:
   - any-glob-to-any-file: 'scripts/minion.pl'
@@ -786,6 +821,9 @@ Ingredients processing:
   - any-glob-to-any-file: 'scripts/gen_users_names.pl'
   - any-glob-to-any-file: 'cgi/user.pl'
 
+# NOVA is an indicator for food ultra-processing. 
+# Ultra-processing is bad for your health, and Open Food Facts' support of ultra-processing detection has been featured in places like the BBC.
+# https://world.openfoodfacts.org/nova
 NOVA:
 - changed-files:
   - any-glob-to-any-file: 'tests/unit/nova.t'
@@ -811,7 +849,12 @@ Checkbot:
   - any-glob-to-any-file: 'lib/ProductOpener/APIProductRevert.pm'
   - any-glob-to-any-file: 'scripts/make_user_moderator.pl'
   - any-glob-to-any-file: 'tests/integration/delete_user.t'
-  
+
+# Edit Rules prevent quality issues by selectively ignoring or altering specific edits
+🧽 Data quality - edit rules:
+- changed-files:
+  - any-glob-to-any-file: 'tests/unit/process_product_edit_rules.t'
+
 sto:
 - changed-files:
   - any-glob-to-any-file: 'scripts/sto_to_json.pl'
@@ -824,6 +867,7 @@ update all products:
   - any-glob-to-any-file: 'scripts/update_all_products_from_dir_in_mongodb.pl'
   - any-glob-to-any-file: 'scripts/update_all_products_revisions_from_dir_in_mongodb.pl'
 
+# We export data nightly as CSV, MongoDB… See: https://world.openfoodfacts.org/data
 Exports:
 - changed-files:
   - any-glob-to-any-file: 'scripts/extract_ingredients_test_set.pl'
@@ -837,11 +881,25 @@ Exports:
   - any-glob-to-any-file: 'scripts/export_tags_hierarchies.pl'
   - any-glob-to-any-file: 'scripts/popular_products_images.pl'
 
+Export:
+- changed-files:
+  - any-glob-to-any-file: 'lib/ProductOpener/Export.pm'
+  - any-glob-to-any-file: 't/expected_test_results/export/**/*'
+  - any-glob-to-any-file: 'scripts/mongodb_dump.sh'
+
+Data exports:
+- changed-files:
+  - any-glob-to-any-file: 'scripts/gen_feeds_daily_obf.sh'
+  - any-glob-to-any-file: 'scripts/gen_feeds_daily_off.sh'
+  - any-glob-to-any-file: 'scripts/gen_feeds_daily_opf.sh'
+  - any-glob-to-any-file: 'scripts/gen_feeds_daily_opff.sh'
+
 🔐 Auth:
 - changed-files:
   - any-glob-to-any-file: 'cgi/auth.pl'
   - any-glob-to-any-file: 'cgi/sso.pl'
 
+# Providing autosuggest for taxonomized fields. Mostly used in editing scenarii
 ✏️ Editing - Auto Suggest:
 - changed-files:
   - any-glob-to-any-file: 'cgi/suggest.pl'
@@ -888,6 +946,7 @@ Subdomains:
   - any-glob-to-any-file: 'tests/unit/templates.t'
   - any-glob-to-any-file: 'tests/unit/text.t'
 
+# Product name, Generic name, Ingredients, Packaging text are multilingual fields.
 Multilingual products:
 - changed-files:
   - any-glob-to-any-file: 'cgi/product_jqm_multilingual.pl'
@@ -904,6 +963,8 @@ file import:
 - changed-files:
   - any-glob-to-any-file: 'lib/startup_apache2.pl'
 
+# Related to the Open Food Facts API. More specific labels exist & should be used (API WRITE…) 
+# https://openfoodfacts.github.io/openfoodfacts-server/api/
 API:
 - changed-files:
   - any-glob-to-any-file: 'scripts/api_stats.pl'
@@ -916,18 +977,23 @@ API:
   - any-glob-to-any-file: 'docs/api/ref/requestBodies/fields_tags_lc.yaml'
   - any-glob-to-any-file: 'lib/ProductOpener/APIProductServices.pm'
   - any-glob-to-any-file: 'tests/integration/api_v3_product_services.t'
-  
+
+# https://openfoodfacts.github.io/openfoodfacts-server/api/
 API v3:
 - changed-files:
   - any-glob-to-any-file: 'docs/api/ref/api-v3.yml'
   - any-glob-to-any-file: 'tests/integration/api_v3_product_read.t'
   - any-glob-to-any-file: 'tests/integration/api_v3_product_write.t'
 
+# All READ APIs include Product, Search…
+# https://openfoodfacts.github.io/openfoodfacts-server/api/
 API READ:
 - changed-files:
   - any-glob-to-any-file: 'tests/integration/api_v3_product_read.t'
   - any-glob-to-any-file: 'lib/ProductOpener/APIProductRead.pm'
 
+# WRITE API to allow sending product info and images
+# https://openfoodfacts.github.io/openfoodfacts-server/api/
 API WRITE:
 - changed-files:
   - any-glob-to-any-file: 'tests/integration/api_v3_product_write.t'
@@ -952,13 +1018,6 @@ Static content:
 matomo:
 - changed-files:
   - any-glob-to-any-file: 'scripts/utils/logs/download_matomo_logs.pl'
-
-Data exports:
-- changed-files:
-  - any-glob-to-any-file: 'scripts/gen_feeds_daily_obf.sh'
-  - any-glob-to-any-file: 'scripts/gen_feeds_daily_off.sh'
-  - any-glob-to-any-file: 'scripts/gen_feeds_daily_opf.sh'
-  - any-glob-to-any-file: 'scripts/gen_feeds_daily_opff.sh'
 
 Countries:
 - changed-files:
