@@ -75,8 +75,6 @@ if (defined single_param('userid')) {
 			$userid = $mail_based_userid;
 		}
 	}
-
-	$userid = get_fileid($userid, 1);
 }
 
 $log->debug("user form - start", {type => $type, action => $action, userid => $userid, User_id => $User_id})
@@ -88,7 +86,7 @@ my $js = '';
 my $user_ref = {};
 
 if ($type =~ /^edit/) {
-	$user_ref = retrieve("$BASE_DIRS{USERS}/$userid.sto");
+	$user_ref = retrieve_user($userid);
 	if (not defined $user_ref) {
 		display_error_and_exit($Lang{error_invalid_user}{$lang}, 404);
 	}

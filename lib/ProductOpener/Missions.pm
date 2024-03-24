@@ -150,27 +150,17 @@ sub gen_missions_html() {
 
 sub compute_missions() {
 
-	opendir DH, $BASE_DIRS{USERS} or die "Couldn't open the current directory: $!";
-	my @userids = sort(readdir(DH));
-	closedir(DH);
+	my @userids = retrieve_userids();
 
 	my $missions_ref = {};
 
 	foreach my $userid (@userids) {
-		next if $userid eq "." or $userid eq "..";
-		next if $userid eq 'all';
-
-		$log->debug("userid with extension", {userid => $userid}) if $log->is_debug();
-
-		$userid =~ s/\.sto$//;
-
-		$log->debug("userid without extension", {userid => $userid}) if $log->is_debug();
-
-		my $user_ref = retrieve("$BASE_DIRS{USERS}/$userid.sto");
+		my $user_ref = retrieve_user($userid);
 
 		compute_missions_for_user($user_ref);
 
-		store("$BASE_DIRS{USERS}/$userid.sto", $user_ref);
+		# This assumes email is not affectd and will not update Keycloak
+		store_user_session($user_ref);
 
 		foreach my $missionid (keys %{$user_ref->{missions}}) {
 			(defined $missions_ref->{$missionid}) or $missions_ref->{$missionid} = {};

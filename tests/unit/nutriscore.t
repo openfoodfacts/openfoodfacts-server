@@ -25,6 +25,8 @@ my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init
 # Needed to compute estimated nutrients
 load_ciqual_data();
 
+check_nutriscore_categories_exist_in_taxonomy();
+
 my @tests = (
 
 	[

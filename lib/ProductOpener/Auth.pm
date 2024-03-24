@@ -493,11 +493,9 @@ sub create_user_in_product_opener ($id_token) {
 		$user_ref->{email} = $id_token->{'email'};
 	}
 
-	my $user_id = $user_ref->{userid};
-	my $user_file = "$BASE_DIRS{USERS}/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
-	store($user_file, $user_ref);
+	store_user($user_ref);
 
-	return $user_id;
+	return $user_ref->{userid};
 }
 
 =head2 get_token_using_password_credentials($username, $password)

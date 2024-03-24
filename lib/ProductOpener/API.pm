@@ -975,14 +975,13 @@ sub process_auth_header ($request_ref, $r) {
 		display_error_and_exit('Internal error', 500);
 	}
 
-	my $user_file = "$BASE_DIRS{USERS}/" . get_string_id_for_lang('no_language', $user_id) . '.sto';
-	unless (-e $user_file) {
-		$log->info('User file not found', {user_file => $user_file, user_id => $user_id}) if $log->is_info();
+	my $user_ref = retrieve_user($user_id);
+	unless (defined $user_ref) {
+		$log->info('User not found', {user_id => $user_id}) if $log->is_info();
 		display_error_and_exit('Internal error', 500);
 	}
 
 	$log->debug('user_id found', {user_id => $user_id}) if $log->is_debug();
-	my $user_ref = retrieve($user_file);
 
 	my $user_session = open_user_session($user_ref, undef, undef, $access_token->{access_token},
 		undef, $access_token->{id_token}, $request_ref);
