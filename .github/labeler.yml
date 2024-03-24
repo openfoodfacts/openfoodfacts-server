@@ -244,15 +244,18 @@ Attributes:
   - any-glob-to-any-file: 'tests/unit/attributes.t'
 
 # https://wiki.openfoodfacts.org/Quality
+# TODO: it would be nice to harmonize test names scheme
 🧽 Data Quality:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/DataQuality.pm'
   - any-glob-to-any-file: 'lib/ProductOpener/DataQualityCommon.pm'
   - any-glob-to-any-file: 'lib/ProductOpener/DataQualityFood.pm'
+  - any-glob-to-any-file: 'taxonomies/data_quality.txt'
+  - any-glob-to-any-file: 'tests/unit/dataqualityfood_labels.t'
+  - any-glob-to-any-file: 'tests/unit/data_quality_tags_panel.t'
   - any-glob-to-any-file: 'tests/unit/dataquality.t'
   - any-glob-to-any-file: 'tests/unit/dataqualityfood.t'
-  - any-glob-to-any-file: 'taxonomies/data_quality.txt'
-
+  
 # One of the facets available in Open Food Facts is /quality & allows us to spot products w/ bad data
 # 🧽 Quality facet:
 # - changed-files:
@@ -401,11 +404,15 @@ Data import:
   - any-glob-to-any-file: 'scripts/aggregate_ingredients.pl'
   - any-glob-to-any-file: 'lib/ProductOpener/Ingredients.pm'
 
+# Labels are all claims present on product packages.
+# https://wiki.openfoodfacts.org/Labels
 Labels:
 - changed-files:
   - any-glob-to-any-file: 'taxonomies/labels.txt'
   - any-glob-to-any-file: 'taxonomies/unused/labels_categories.txt'
 
+# Categories allow easy product comparison, they are also mobilized in Nutri-Score and NOVA groups computation. 
+# They are also used to fetch the right LCA from agribalyse, for Eco-Score computation.
 Categories:
 - changed-files:
   - any-glob-to-any-file: 'taxonomies/categories.txt'
@@ -416,8 +423,13 @@ Categories:
   - any-glob-to-any-file: 'taxonomies/origins.txt'
   - any-glob-to-any-file: 'templates/api/knowledge-panels/environment/origins_of_ingredients.tt.json'
   - any-glob-to-any-file: 'templates/api/knowledge-panels/environment/ecoscore/origins_of_ingredients.tt.json'
+  - any-glob-to-any-file: 'tests/unit/parse_origins_from_text.t'
   
 # https://wiki.openfoodfacts.org/Knowledge_panels
+# Knowledge panels are json data that describe content to be displayed to the user.
+# They are currently used on the new smoothie flutter application and on the Product Opener web platform.
+# Introduction: https://openfoodfacts.github.io/openfoodfacts-server/introduction/knowledge-panels/
+# Reference documentation: https://openfoodfacts.github.io/openfoodfacts-server/reference/api/#get-/api/v2/product/-barcode--fields-knowledge_panels
 📖 Knowledge panels:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/KnowledgePanels.pm'
@@ -482,6 +494,12 @@ lang:
   - any-glob-to-any-file: 'templates/emails/import_csv_file_admin_notification.tt.html'
   - any-glob-to-any-file: 'templates/emails/user_new_pro_account_admin_notification.tt.html'
   - any-glob-to-any-file: 'lib/ProductOpener/Brevo.pm'
+
+# We use https://www.brevo.com/fr/ to send Newsletter to users who have opted in. Currently programmatic emails are sent directly by our own servers.
+📨 Emails - Brevo:
+- changed-files:
+  - any-glob-to-any-file: 'lib/ProductOpener/Brevo.pm'
+  - any-glob-to-any-file: 'tests/unit/brevo.t'
 
 MainCountries:
 - changed-files:
@@ -680,6 +698,7 @@ Web:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/Web.pm'
 
+# Donation pages and banners for the Open Food Facts NGO.
 🎁 Donations:
 - changed-files:
   - any-glob-to-any-file: 'html/donate/tt.html'
@@ -721,8 +740,6 @@ Product page:
 🗺️ Maps:
 - changed-files:
   - any-glob-to-any-file: 'templates/web/pages/products_map/map_of_products.tt.html'
-
-
 
 Top translators:
 - changed-files:
@@ -794,6 +811,8 @@ Blocks:
   - any-glob-to-any-file: 'scripts/generate_madenearme_page.pl'
   - any-glob-to-any-file: 'scripts/generate_madenearme_pages.sh'
 
+# This is used by Open Beauty Facts
+# https://en.wikipedia.org/wiki/Period-after-opening_symbol
 PAO:
 - changed-files:
   - any-glob-to-any-file: 'scripts/generate_pao_taxonomy.pl'
@@ -811,11 +830,14 @@ Minion:
   - any-glob-to-any-file: 'cgi/import_file_job_status.pl'
   - any-glob-to-any-file: 'cgi/import_file_process.pl'
   - any-glob-to-any-file: 'cgi/import_products_categories_from_public_database.pl'
-  
+
+# We use Cloud Vision for NSFW detection and OCR.
 OCR:
 - changed-files:
   - any-glob-to-any-file: 'scripts/run_cloud_vision_ocr.pl'
+  - any-glob-to-any-file: 'tests/unit/send_image_to_cloud_vision.t'
 
+# Scanbot is the bot updating Scan statistics on products. The plan is to eventually use openfoodfacts-events for scan statistics.
 Scanbot:
 - changed-files:
   - any-glob-to-any-file: 'scripts/scanbot.pl'
@@ -869,7 +891,11 @@ NOVA:
 Vitamins:
 - changed-files:
   - any-glob-to-any-file: 'tests/unit/vitamins.t'
-
+  - any-glob-to-any-file: 'taxonomies/​vitamins.txt'
+  - any-glob-to-any-file: 'html/​images/​misc/​ajout-produit-nutrition-vitamines.png'
+  - any-glob-to-any-file: 'tests/​unit/​expected_test_results/​ingredients/​en-vitamin.json'
+  - any-glob-to-any-file: 'tests/​integration/​expected_test_results/​facets/​category-vitamins.json'
+  
 Checkbot:
 - changed-files:
   - any-glob-to-any-file: 'scripts/checkbot.pl'
