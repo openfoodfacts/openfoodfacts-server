@@ -228,6 +228,7 @@ my %contains_regexps = (
 	es => "contiene",
 	et => "sisaldab",
 	fr => "contient",
+	hr => "sadrže",
 	it => "contengono",
 	nl => "bevat",
 	pl => "zawiera|zawierają",
@@ -4957,7 +4958,7 @@ my %phrases_after_ingredients_list = (
 		'najbolje upotrijebiti do',    # best before
 		'nakon otvaranja',    # after opening
 		'neotvoreno',    # not opened can be stored etc.
-		'pakirano u (kontroliranoj|zaštitnoj) atmosferi',    # packed in a ... atmosphere
+		'pakirano u',    # packed in a ... atmosphere
 		'pakiranje sadrži',    # pack contains x portions
 		'Prijedlog za serviranje',    # Proposal for serving
 		'priprema obroka',    # meal preparation
