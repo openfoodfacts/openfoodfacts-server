@@ -90,4 +90,8 @@ sub load_data() {
 	return;
 }
 
+if ($ENV{PO_EAGER_LOAD_DATA}) {
+	load_data();
+}
+
 1;
