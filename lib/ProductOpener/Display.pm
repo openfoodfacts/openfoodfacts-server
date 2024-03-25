@@ -726,8 +726,6 @@ sub init_request ($request_ref = {}) {
 		$lc = 'en';
 	}
 
-	$lang = $lc;
-
 	# If the language is equal to the first language of the country, but we are on a different subdomain, redirect to the main country subdomain. (fr-fr => fr)
 	if (    (defined $lc)
 		and (defined $cc)
@@ -767,7 +765,6 @@ sub init_request ($request_ref = {}) {
 		@lcs = split(/,/, lc($param_lc));
 		if (defined $language_codes{$lcs[0]}) {
 			$lc = $lcs[0];
-			$lang = $lc;
 			$cc_lc_overrides = 1;
 			$log->debug("lc override from request parameter", {lc => $lc, lcs => \@lcs}) if $log->is_debug();
 		}
@@ -814,7 +811,6 @@ sub init_request ($request_ref = {}) {
 			subdomain => $subdomain,
 			original_subdomain => $original_subdomain,
 			lc => $lc,
-			lang => $lang,
 			cc => $cc,
 			country => $country
 		}
@@ -1175,9 +1171,9 @@ sub display_robots_txt_and_exit ($request_ref) {
 
 	foreach my $type (sort keys %tag_type_singular) {
 		# Get facet name for both english and the request language
-		foreach my $lang ('en', $request_ref->{lc}) {
-			my $tag_value_singular = $tag_type_singular{$type}{$lang};
-			my $tag_value_plural = $tag_type_plural{$type}{$lang};
+		foreach my $l ('en', $request_ref->{lc}) {
+			my $tag_value_singular = $tag_type_singular{$type}{$l};
+			my $tag_value_plural = $tag_type_plural{$type}{$l};
 			if (
 					defined $tag_value_singular
 				and length($tag_value_singular) != 0
@@ -1259,29 +1255,29 @@ sub display_text ($request_ref) {
 		$request_ref->{page_format} = "banner";
 	}
 
-	my $text_lang = $lang;
+	my $text_lc = $request_ref->{lc};
 
 	# if a page does not exist in the local language, use the English version
 	# e.g. Index, Discover, Contribute pages.
-	if ((not defined $texts{$textid}{$text_lang}) and (defined $texts{$textid}{en})) {
-		$text_lang = 'en';
+	if ((not defined $texts{$textid}{$text_lc}) and (defined $texts{$textid}{en})) {
+		$text_lc = 'en';
 	}
 
-	my $file = "$BASE_DIRS{LANG}/$text_lang/texts/" . $texts{$textid}{$text_lang};
+	my $file = "$BASE_DIRS{LANG}/$text_lc/texts/" . $texts{$textid}{$text_lc};
 
-	display_text_content($request_ref, $textid, $text_lang, $file);
+	display_text_content($request_ref, $textid, $text_lc, $file);
 	return;
 }
 
 sub display_stats ($request_ref) {
 	my $textid = $request_ref->{text};
-	my $stats_dir = "$BASE_DIRS{PUBLIC_DATA}/products_stats/$lang";
+	my $stats_dir = "$BASE_DIRS{PUBLIC_DATA}/products_stats/" . $request_ref->{lc};
 	my $file = "$stats_dir/products_stats_$cc.html";
-	display_text_content($request_ref, $textid, $lang, $file);
+	display_text_content($request_ref, $textid, $request_ref->{lc}, $file);
 	return;
 }
 
-sub display_text_content ($request_ref, $textid, $text_lang, $file) {
+sub display_text_content ($request_ref, $textid, $text_lc, $file) {
 
 	$request_ref->{page_type} = "text";
 
@@ -1316,7 +1312,7 @@ sub display_text_content ($request_ref, $textid, $text_lang, $file) {
 	}
 
 	$log->info("displaying text from file",
-		{cc => $cc, lc => $lc, lang => $lang, textid => $textid, textlang => $text_lang, file => $file})
+		{cc => $cc, lc => $lc, textid => $textid, text_lc => $text_lc, file => $file})
 		if $log->is_info();
 
 	# if page number is higher than 1, then keep only the h1 header
@@ -1492,7 +1488,7 @@ sub display_mission ($request_ref) {
 
 	my $missionid = $request_ref->{missionid};
 
-	open(my $IN, "<:encoding(UTF-8)", "$BASE_DIRS{PUBLIC_DATA}/missions/$lang/$missionid.html");
+	open(my $IN, "<:encoding(UTF-8)", "$BASE_DIRS{PUBLIC_DATA}/missions/" . $request_ref->{lc} . "/$missionid.html");
 	my $html = join('', (<$IN>));
 
 	$request_ref->{content_ref} = \$html;
@@ -1805,6 +1801,7 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 sub display_list_of_tags ($request_ref, $query_ref) {
 
 	my ($results, $sort_by) = query_list_of_tags($request_ref, $query_ref);
+	my $request_lc = $request_ref->{lc};
 
 	# Column that will be sorted by using JS
 	my $sort_order = '[[ 1, "desc" ]]';
@@ -1834,38 +1831,30 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 			$request_ref->{structured_response}{count} = ($#tags + 1);
 		}
 
-		$request_ref->{title} = sprintf(lang("list_of_x"), $Lang{$tagtype . "_p"}{$lang});
+		my $tagtype_p = lang_in_other_lc($request_lc, $tagtype . "_p");
 
-		if (  -e "$BASE_DIRS{LANG}/$lc/texts/"
-			. get_string_id_for_lang("no_language", $Lang{$tagtype . "_p"}{$lang})
-			. ".list.html")
-		{
-			open(
-				my $IN,
-				q{<},
-				"$BASE_DIRS{LANG}/$lc/texts/"
-					. get_string_id_for_lang("no_language", $Lang{$tagtype . "_p"}{$lang})
-					. ".list.html"
-			);
+		$request_ref->{title} = sprintf(lang_in_other_lc($request_lc, "list_of_x"), $tagtype_p);
+
+		my $text_for_tagtype_file
+			= "$BASE_DIRS{LANG}/$request_lc/texts/" . get_string_id_for_lang("no_language", $tagtype_p) . ".list.html";
+
+		if (-e $text_for_tagtype_file) {
+			open(my $IN, q{<}, $text_for_tagtype_file);
 			$html .= join("\n", (<$IN>));
 			close $IN;
 		}
 
 		foreach (my $line = 1; (defined $Lang{$tagtype . "_facet_description_" . $line}); $line++) {
-			$html .= "<p>" . $Lang{$tagtype . "_facet_description_" . $line}{$lc} . "</p>";
+			$html .= "<p>" . lang_in_other_lc($request_lc, $tagtype . "_facet_description_" . $line) . "</p>";
 		}
 
 		$html
 			.= "<p>"
 			. $request_ref->{structured_response}{count} . " "
-			. $Lang{$tagtype . "_p"}{$lang}
+			. $tagtype_p
 			. separator_before_colon($lc) . ":</p>";
 
 		my $th_nutriments = '';
-
-		#if ($tagtype eq 'categories') {
-		#	$th_nutriments = "<th>" . ucfirst($Lang{"products_with_nutriments"}{$lang}) . "</th>";
-		#}
 
 		my $categories_nutriments_ref = $categories_nutriments_per_country{$cc};
 		my @cols = ();
@@ -1891,9 +1880,9 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 
 		$html
 			.= "<div style=\"max-width:600px;\"><table id=\"tagstable\">\n<thead><tr><th>"
-			. ucfirst($Lang{$tagtype . "_s"}{$lang})
+			. ucfirst(lang_in_other_lc($request_lc, $tagtype . "_s"))
 			. "</th><th>"
-			. ucfirst($Lang{"products"}{$lang}) . "</th>"
+			. ucfirst(lang_in_other_lc($request_lc, "products")) . "</th>"
 			. $th_nutriments
 			. "</tr></thead>\n<tbody>\n";
 
@@ -2460,7 +2449,8 @@ HTML
 		#	$html .= "<p>La colonne * indique que la catégorie ne fait pas partie de la hiérarchie de la catégorie. S'il y a une *, la catégorie n'est pas dans la hiérarchie.</p>";
 		#}
 
-		my $tagtype_p = $Lang{$tagtype . "_p"}{$lang};
+		my $tagstable_search = lang_in_other_lc($request_lc, "tagstable_search");
+		my $tagstable_filtered = lang_in_other_lc($request_lc, "tagstable_filtered");
 
 		my $extra_column_searchable = "";
 		if (defined $taxonomy_fields{$tagtype}) {
@@ -2470,9 +2460,9 @@ HTML
 		$initjs .= <<JS
 oTable = \$('#tagstable').DataTable({
 	language: {
-		search: "$Lang{tagstable_search}{$lang}",
+		search: "$tagstable_search",
 		info: "_TOTAL_ $tagtype_p",
-		infoFiltered: " - $Lang{tagstable_filtered}{$lang}"
+		infoFiltered: " - $tagstable_filtered",
 	},
 	paging: false,
 	order: $sort_order,
@@ -2504,6 +2494,9 @@ HEADER
 sub display_list_of_tags_translate ($request_ref, $query_ref) {
 
 	my ($results, $sort_by) = query_list_of_tags($request_ref, $query_ref);
+	my $request_lc = $request_ref->{lc};
+	my $tagtype = $request_ref->{groupby_tagtype};
+	my $tagtype_p = lang_in_other_lc($request_lc, $tagtype . "_p");
 
 	my $html = '';
 	my $html_pages = '';
@@ -2523,19 +2516,20 @@ sub display_list_of_tags_translate ($request_ref, $query_ref) {
 	else {
 
 		my @tags = @{$results};
-		my $tagtype = $request_ref->{groupby_tagtype};
 
 		$request_ref->{structured_response}{count} = ($#tags + 1);
 
-		$request_ref->{title} = sprintf(lang("list_of_x"), $Lang{$tagtype . "_p"}{$lang});
+		$request_ref->{title} = sprintf(lang("list_of_x"), $tagtype_p);
 
-		# $html .= "<h3>" . sprintf(lang("translate_taxonomy_to"), $Lang{$tagtype . "_p"}{$lang}, $Languages{$lc}{$lc}) . "</h3>";
 		# Display the message in English until we have translated the translate_taxonomy_to message in many languages,
 		# to avoid mixing local words with English words
 
-		$template_data_ref_tags_translate->{tagtype_s} = ucfirst($Lang{$tagtype . "_s"}{$lang});
-		$template_data_ref_tags_translate->{translate_taxonomy}
-			= sprintf($Lang{"translate_taxonomy_to"}{en}, $Lang{$tagtype . "_p"}{en}, $Languages{$lc}{en});
+		$template_data_ref_tags_translate->{tagtype_s} = ucfirst(lang_in_other_lc($request_lc, $tagtype . "_s"));
+		$template_data_ref_tags_translate->{translate_taxonomy} = sprintf(
+			lang_in_other_lc("en", "translate_taxonomy_to"),
+			lang_in_other_lc("en", $tagtype . "_p"),
+			$Languages{$lc}{en}
+		);
 
 		#var availableTags = [
 		#      "ActionScript",
@@ -2717,7 +2711,7 @@ sub display_list_of_tags_translate ($request_ref, $query_ref) {
 
 		my $counts
 			= ($#tags + 1) . " "
-			. $Lang{$tagtype . "_p"}{$lang} . " ("
+			. $tagtype_p . " ("
 			. lang("translated")
 			. " : $translated, "
 			. lang("to_be_translated")
@@ -2729,14 +2723,15 @@ sub display_list_of_tags_translate ($request_ref, $query_ref) {
 
 		$log->debug("going through all tags - done", {}) if $log->is_debug();
 
-		my $tagtype_p = $Lang{$tagtype . "_p"}{$lang};
+		my $tagstable_search = lang_in_other_lc($request_lc, "tagstable_search");
+		my $tagstable_filtered = lang_in_other_lc($request_lc, "tagstable_filtered");
 
 		$initjs .= <<JS
 oTable = \$('#tagstable').DataTable({
 	language: {
-		search: "$Lang{tagstable_search}{$lang}",
+		search: "$tagstable_search",
 		info: "_TOTAL_ $tagtype_p",
-		infoFiltered: " - $Lang{tagstable_filtered}{$lang}"
+		infoFiltered: " - $tagstable_filtered",
 	},
 	paging: false,
 	order: [[ 1, "desc" ]],
@@ -2898,14 +2893,16 @@ sub display_points_ranking ($tagtype, $tagid) {
 
 	$html .= "</table>\n";
 
-	my $tagtype_p = $Lang{$ranktype . "_p"}{$lang};
+	my $tagtype_p = lang_in_other_lc($lc, $ranktype . "_p");
+	my $tagstable_search = lang_in_other_lc($lc, "tagstable_search");
+	my $tagstable_filtered = lang_in_other_lc($lc, "tagstable_filtered");
 
 	$initjs .= <<JS
 ${tagtype}Table = \$('#${tagtype}table').DataTable({
 	language: {
-		search: "$Lang{tagstable_search}{$lang}",
+		search: "$tagstable_search",
 		info: "_TOTAL_ $tagtype_p",
-		infoFiltered: " - $Lang{tagstable_filtered}{$lang}"
+		infoFiltered: " - $tagstable_filtered"
 	},
 	paging: false,
 	order: [[ 1, "desc" ]]
@@ -2989,12 +2986,9 @@ sub display_points ($request_ref) {
 			$title = $display_tag;
 			$new_tagid_path = canonicalize_tag_link($tagtype, $new_tagid);
 			$request_ref->{current_link} = $new_tagid_path;
-			my $current_lang = $lang;
 			my $current_lc = $lc;
-			$lang = 'en';
 			$lc = 'en';
 			$request_ref->{world_current_link} = canonicalize_tag_link($tagtype, $new_tagid);
-			$lang = $current_lang;
 			$lc = $current_lc;
 			$log->debug("displaying points for a normal tag",
 				{canon_tagid => $canon_tagid, new_tagid => $new_tagid, title => $title})
@@ -3121,12 +3115,9 @@ sub canonicalize_request_tags_and_redirect_to_canonical_url ($request_ref) {
 			}
 			$new_tagid_path = canonicalize_tag_link($tagtype, $new_tagid, $tag_prefix);
 			$request_ref->{current_link} .= $new_tagid_path;
-			my $current_lang = $lang;
 			my $current_lc = $lc;
-			$lang = 'en';
 			$lc = 'en';
 			$request_ref->{world_current_link} .= canonicalize_tag_link($tagtype, $new_tagid, $tag_prefix);
-			$lang = $current_lang;
 			$lc = $current_lc;
 			$log->info("displaying normal tag", {canon_tagid => $canon_tagid, new_tagid => $new_tagid})
 				if $log->is_info();
@@ -3723,6 +3714,8 @@ When displaying a list of tags, the function calls display_list_of_tags().
 sub display_tag ($request_ref) {
 
 	local $log->context->{tags} = $request_ref->{tags};
+
+	my $request_lc = $request_ref->{lc};
 
 	init_tags_texts() unless %tags_texts;
 
@@ -5545,6 +5538,8 @@ sub display_pagination ($request_ref, $count, $limit, $page) {
 		$nofollow = ' nofollow';
 	}
 
+	print STDERR "zzz lc: $lc - request_ref->lc: $request_ref->{lc}\n";
+
 	if ((($nb_pages > 1) and (defined $current_link)) and (not defined $request_ref->{product_changes_saved})) {
 
 		my $prev = '';
@@ -7012,6 +7007,8 @@ sub display_page ($request_ref) {
 
 	$log->trace("Start of display_page") if $log->is_trace();
 
+	my $request_lc = $request_ref->{lc};
+
 	my $template_data_ref = {};
 
 	# If the client is requesting json, jsonp, xml or jqm,
@@ -7127,7 +7124,7 @@ sub display_page ($request_ref) {
 	}
 
 	$template_data_ref->{server_domain} = $server_domain;
-	$template_data_ref->{language} = $lang;
+	$template_data_ref->{language} = $request_lc;
 	$template_data_ref->{title} = $title;
 	$template_data_ref->{og_type} = $og_type;
 	$template_data_ref->{fb_config} = 219331381518041;
@@ -7140,7 +7137,8 @@ sub display_page ($request_ref) {
 	$template_data_ref->{static_subdomain} = $static_subdomain;
 	$template_data_ref->{images_subdomain} = $images_subdomain;
 	$template_data_ref->{formatted_subdomain} = $formatted_subdomain;
-	$template_data_ref->{css_timestamp} = $file_timestamps{'css/dist/app-' . lang('text_direction') . '.css'};
+	$template_data_ref->{css_timestamp}
+		= $file_timestamps{'css/dist/app-' . lang_in_other_lc($request_lc, 'text_direction') . '.css'};
 	$template_data_ref->{header} = $header;
 	$template_data_ref->{page_type} = $request_ref->{page_type} // "other";
 	$template_data_ref->{page_format} = $request_ref->{page_format} // "normal";
@@ -7149,9 +7147,9 @@ sub display_page ($request_ref) {
 		$template_data_ref->{schema_org_itemtype} = $request_ref->{schema_org_itemtype};
 	}
 
-	my $site_name = $Lang{site_name}{$lang};
+	my $site_name = lang_in_other_lc($request_lc, "site_name");
 	if ($server_options{producers_platform}) {
-		$site_name = $Lang{producers_platform}{$lc};
+		$site_name = lang_in_other_lc($request_lc, "producers_platform");
 	}
 
 	# Override Google Analytics from Config.pm with server_options
@@ -7352,7 +7350,7 @@ sub display_page ($request_ref) {
 
 	binmode(STDOUT, ":encoding(UTF-8)");
 
-	$log->debug("display done", {lc => $lc, lang => $lang, mongodb => $mongodb, data_root => $data_root})
+	$log->debug("display done", {lc => $lc, mongodb => $mongodb, data_root => $data_root})
 		if $log->is_debug();
 
 	print $html;
@@ -7516,12 +7514,13 @@ sub display_possible_improvement_description ($product_ref, $tagid) {
 
 sub display_product ($request_ref) {
 
+	my $request_lc = $request_ref->{lc};
 	my $request_code = $request_ref->{code};
 	my $code = normalize_code($request_code);
 	local $log->context->{code} = $code;
 
 	if (not is_valid_code($code)) {
-		display_error_and_exit($Lang{invalid_barcode}{$lang}, 403);
+		display_error_and_exit(lang_in_other_lc($request_lc, "invalid_barcode"), 403);
 	}
 
 	my $product_id = product_id_for_owner($Owner_id, $code);
@@ -7961,8 +7960,10 @@ JS
 
 	}
 
-	$template_data_ref->{display_ingredients_in_lang}
-		= sprintf(lang("add_ingredients_in_language"), display_taxonomy_tag($lc, 'languages', $language_codes{$lc}));
+	$template_data_ref->{display_ingredients_in_lang} = sprintf(
+		lang("add_ingredients_in_language"),
+		display_taxonomy_tag($lc, 'languages', $language_codes{$request_lc})
+	);
 
 	$template_data_ref->{display_field_allergens} = display_field($product_ref, 'allergens');
 
@@ -8155,7 +8156,7 @@ JS
 		. $product_ref->{last_editor} . "</a>";
 
 	if ($other_editors ne "") {
-		$other_editors = "<br>\n$Lang{also_edited_by}{$lang} ${other_editors}.";
+		$other_editors = "<br>\n" . lang_in_other_lc($request_lc, "also_edited_by") . " ${other_editors}.";
 	}
 
 	my $checked = "";
@@ -8166,7 +8167,12 @@ JS
 			. canonicalize_tag_link("editors", get_string_id_for_lang("no_language", $product_ref->{last_checker}))
 			. "\">"
 			. $product_ref->{last_checker} . "</a>";
-		$checked = "<br/>\n$Lang{product_last_checked}{$lang} $last_checked_date $Lang{by}{$lang} $last_checker.";
+		$checked
+			= "<br/>\n"
+			. lang_in_other_lc($request_lc, "product_last_checked")
+			. " $last_checked_date "
+			. lang_in_other_lc($request_lc, "by")
+			. " $last_checker.";
 	}
 
 	$template_data_ref->{created_date} = display_date_tag($product_ref->{created_t});
@@ -8291,8 +8297,13 @@ JS
 	return;
 }
 
+# Note: this function is needed for the API called by the old PhoneGap / Cordova app
+# This app has been replaced for the last 5 years by the new iOS + Android apps and
+# now by the Flutter app. But the current OBF app still uses it (as of 2024/04/24).
+
 sub display_product_jqm ($request_ref) {    # jquerymobile
 
+	my $request_lc = $request_ref->{lc};
 	my $code = normalize_code($request_ref->{code});
 	my $product_id = product_id_for_owner($Owner_id, $code);
 	local $log->context->{code} = $code;
@@ -8613,7 +8624,7 @@ HTML
 		my @comparisons = ();
 
 		if ($product_ref->{no_nutrition_data} eq 'on') {
-			$html .= "<div class='panel callout'>$Lang{no_nutrition_data}{$lang}</div>";
+			$html .= "<div class='panel callout'>" . lang_in_other_lc($request_lc, "no_nutrition_data") . "</div>";
 		}
 
 		$html .= display_nutrition_table($product_ref, \@comparisons);
@@ -8634,7 +8645,7 @@ HTML
 
 	if ((not defined($product_ref->{images})) or ((scalar keys %{$product_ref->{images}}) < 1)) {
 
-		$image_warning = $Lang{product_has_no_photos}{$lang};
+		$image_warning = lang_in_other_lc($request_lc, "product_has_no_photos");
 
 	}
 	elsif ((defined $product_ref->{last_image_t}) and ($product_ref->{last_image_t} > 0)) {
@@ -8642,16 +8653,15 @@ HTML
 		my $last_image_date = display_date($product_ref->{last_image_t});
 		my $last_image_date_without_time = display_date_without_time($product_ref->{last_image_t});
 
-		$last_image = "<br>" . "$Lang{last_image_added}{$lang} $last_image_date";
+		$last_image = "<br>" . lang_in_other_lc($request_lc, "last_image_added") . " $last_image_date";
 
 		# Was the last photo uploaded more than 6 months ago?
 
 		if (($product_ref->{last_image_t} + 86400 * 30 * 6) < time()) {
 
-			$image_warning = sprintf($Lang{product_has_old_photos}{$lang}, $last_image_date_without_time);
-
+			$image_warning
+				= sprintf(lang_in_other_lc($request_lc, "product_has_old_photos"), $last_image_date_without_time);
 		}
-
 	}
 
 	if ($image_warning ne "") {
@@ -8677,28 +8687,28 @@ HTML
 	$html .= <<HTML
 
 <p>
-$Lang{product_added}{$lang} $created_date $Lang{by}{$lang} $creator
+$Lang{product_added}{$lc} $created_date $Lang{by}{$lc} $creator
 $last_image
 </p>
 
 
 <div style="margin-bottom:20px;">
 
-<p>$Lang{fixme_product}{$lang}</p>
+<p>$Lang{fixme_product}{$request_lc}</p>
 
 $image_warning
 
-<p>$Lang{app_you_can_add_pictures}{$lang}</p>
+<p>$Lang{app_you_can_add_pictures}{$request_lc}</p>
 
-<button onclick="captureImage();" data-icon="off-camera">$Lang{image_front}{$lang}</button>
+<button onclick="captureImage();" data-icon="off-camera">$Lang{image_front}{$request_lc}</button>
 <div id="upload_image_result_front"></div>
-<button onclick="captureImage();" data-icon="off-camera">$Lang{image_ingredients}{$lang}</button>
+<button onclick="captureImage();" data-icon="off-camera">$Lang{image_ingredients}{$request_lc}</button>
 <div id="upload_image_result_ingredients"></div>
-<button onclick="captureImage();" data-icon="off-camera">$Lang{image_nutrition}{$lang}</button>
+<button onclick="captureImage();" data-icon="off-camera">$Lang{image_nutrition}{$request_lc}</button>
 <div id="upload_image_result_nutrition"></div>
-<button onclick="captureImage();" data-icon="off-camera">$Lang{app_take_a_picture}{$lang}</button>
+<button onclick="captureImage();" data-icon="off-camera">$Lang{app_take_a_picture}{$request_lc}</button>
 <div id="upload_image_result"></div>
-<p>$Lang{app_take_a_picture_note}{$lang}</p>
+<p>$Lang{app_take_a_picture_note}{$request_lc}</p>
 
 </div>
 HTML
@@ -10149,6 +10159,7 @@ sub display_product_api ($request_ref) {
 
 	my $product_ref;
 
+	my $request_lc = $request_ref->{lc};
 	my $rev = single_param("rev");
 	local $log->context->{rev} = $rev;
 	if (defined $rev) {
@@ -10173,10 +10184,10 @@ sub display_product_api ($request_ref) {
 		$response{status_verbose} = 'product not found';
 		if (single_param("jqm")) {
 			$response{jqm} = <<HTML
-$Lang{app_please_take_pictures}{$lang}
-<button onclick="captureImage();" data-icon="off-camera">$Lang{app_take_a_picture}{$lang}</button>
+$Lang{app_please_take_pictures}{$request_lc}
+<button onclick="captureImage();" data-icon="off-camera">$Lang{app_take_a_picture}{$request_lc}</button>
 <div id="upload_image_result"></div>
-<p>$Lang{app_take_a_picture_note}{$lang}</p>
+<p>$Lang{app_take_a_picture_note}{$request_lc}</p>
 HTML
 				;
 			if ($request_ref->{api_version} >= 0.1) {
@@ -10191,10 +10202,10 @@ HTML
 				foreach my $field (@app_fields) {
 
 					# placeholder in value
-					my $value = $Lang{$field}{$lang};
+					my $value = $Lang{$field}{$request_lc};
 
 					$html .= <<HTML
-<label for="$field">$Lang{$field}{$lang}</label>
+<label for="$field">$Lang{$field}{$request_lc}</label>
 <input type="text" name="$field" id="$field" value="" placeholder="$value">
 HTML
 						;
@@ -10203,16 +10214,16 @@ HTML
 				$html .= <<HTML
 </div>
 <div id="save_button">
-<input type="submit" id="save" name="save" value="$Lang{save}{$lang}">
+<input type="submit" id="save" name="save" value="$Lang{save}{$request_lc}">
 </div>
 <div id="saving" style="display:none">
-<img src="loading2.gif" style="margin-right:10px"> $Lang{saving}{$lang}
+<img src="loading2.gif" style="margin-right:10px"> $Lang{saving}{$request_lc}
 </div>
 <div id="saved" style="display:none">
-$Lang{saved}{$lang}
+$Lang{saved}{$request_lc}
 </div>
 <div id="not_saved" style="display:none">
-$Lang{not_saved}{$lang}
+$Lang{not_saved}{$request_lc}
 </div>
 </form>
 HTML
@@ -11336,7 +11347,8 @@ sub data_to_display_image ($product_ref, $imagetype, $target_lc) {
 
 			my $path = product_path($product_ref);
 			my $rev = $product_ref->{images}{$id}{rev};
-			my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $Lang{$imagetype . '_alt'}{$lang};
+			my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - '
+				. lang_in_other_lc($target_lc, $imagetype . '_alt');
 			if ($img_lc ne $target_lc) {
 				$alt .= ' - ' . $img_lc;
 			}
