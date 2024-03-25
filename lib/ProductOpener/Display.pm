@@ -226,6 +226,9 @@ my $uri_finder = URI::Find->new(
 	}
 );
 
+# Sort keys of JSON output
+my $json = JSON::PP->new->allow_nonref->canonical;
+
 =head1 VARIABLES
 
 Exported variables that are available for other modules.
@@ -5398,7 +5401,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		}
 
 		my $contributor_prefs_json = decode_utf8(
-			encode_json(
+			$json->utf8->encode(
 				{
 					display_barcode => $User{display_barcode},
 					edit_link => $User{edit_link},
@@ -10462,9 +10465,6 @@ sub display_structured_response ($request_ref) {
 		display_structured_response_opensearch_rss($request_ref);
 	}
 	else {
-		# my $data =  encode_json($request_ref->{structured_response});
-		# Sort keys of the JSON output
-		my $json = JSON::PP->new->allow_nonref->canonical;
 		my $data = $json->utf8->encode($request_ref->{structured_response});
 
 		my $jsonp = undef;

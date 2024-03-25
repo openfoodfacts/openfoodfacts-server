@@ -501,7 +501,7 @@ sub execute_request ($test_ref, $ua) {
 	# We would need to re-construct the url
 	my $final_url = $response->request->uri;
 	if ($url ne $final_url) {
-		diag("Got a redirect to " . $final_url);
+		diag("Warning: redirects are not supported by APITest.pm!!! Got a redirect to " . $final_url);
 	}
 
 	return $response;
