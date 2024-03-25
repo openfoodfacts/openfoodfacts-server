@@ -52,6 +52,9 @@ volumes:
     name: ${COMPOSE_PROJECT_NAME}_redisdata
   export_files:
     name: ${COMPOSE_PROJECT_NAME}_export_files
+  build_cache:
+    name: ${COMPOSE_PROJECT_NAME}_build_cache
+
 
 networks:
   webnet:
