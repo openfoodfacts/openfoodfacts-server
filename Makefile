@@ -55,6 +55,7 @@ DOCKER_COMPOSE=docker compose --env-file=${ENV_FILE} ${LOAD_EXTRA_ENV_FILE}
 DOCKER_COMPOSE_TEST=WEB_RESOURCES_PATH=./web-default ROBOTOFF_URL="http://backend:8881/" GOOGLE_CLOUD_VISION_API_URL="http://backend:8881/" COMPOSE_PROJECT_NAME=${COMPOSE_PROJECT_NAME}_test PO_COMMON_PREFIX=test_ MONGO_EXPOSE_PORT=27027 docker compose --env-file=${ENV_FILE}
 # Enable Redis only for integration tests
 DOCKER_COMPOSE_INT_TEST=REDIS_URL="redis:6379" ${DOCKER_COMPOSE_TEST}
+TEST_CMD ?= yath test -PProductOpener::LoadData
 
 .DEFAULT_GOAL := usage
 
@@ -279,20 +280,21 @@ test-stop:
 	${DOCKER_COMPOSE_TEST} stop
 
 # usage:  make test-unit test=test-name.t
-# you can add args= to pass options, like args="-d" to debug
-# or args="-PProductOpener::Module" to preload modules
+# you can use TEST_CMD to change test command, like TEST_CMD="perl -d" to debug a test
+# you can also add args= to pass more options to your test command
 test-unit: guard-test create_folders
 	@echo "🥫 Running test: 'tests/unit/${test}' …"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
-	${DOCKER_COMPOSE_TEST} run --rm -e PO_EAGER_LOAD_DATA=1 backend yath -PProductOpener::LoadData ${args} tests/unit/${test}
+	${DOCKER_COMPOSE_TEST} run --rm -e PO_EAGER_LOAD_DATA=1 backend ${TEST_CMD} ${args} tests/unit/${test}
 
 # usage:  make test-int test=test-name.t
 # to update expected results: make test-int test="test-name.t --update-expected-results"
-# you can add args= to pass options, like args="-d" to debug
+# you can use TEST_CMD to change test command, like TEST_CMD="perl -d" to debug a test
+# you can also add args= to pass more options to your test command
 test-int: guard-test create_folders
 	@echo "🥫 Running test: 'tests/integration/${test}' …"
 	${DOCKER_COMPOSE_INT_TEST} up -d memcached postgres mongodb backend dynamicfront incron minion redis
-	${DOCKER_COMPOSE_INT_TEST} exec -e PO_EAGER_LOAD_DATA=1 backend yath -PProductOpener::LoadData ${args} tests/integration/${test}
+	${DOCKER_COMPOSE_INT_TEST} exec -e PO_EAGER_LOAD_DATA=1 backend ${TEST_CMD} ${args} tests/integration/${test}
 # better shutdown, for if we do a modification of the code, we need a restart
 	${DOCKER_COMPOSE_INT_TEST} stop backend
 
