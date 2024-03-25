@@ -239,6 +239,28 @@
                {
                   "element_type" : "panel_group",
                   "panel_group_element" : {
+                     "panel_group_id" : "nutrition",
+                     "panel_ids" : [
+                        "nutriscore",
+                        "nutrient_levels"
+                     ],
+                     "title" : "Nutrition",
+                     "type" : "subcard"
+                  }
+               },
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_ids" : [
+                        "nutrition_facts_table",
+                        "serving_size"
+                     ],
+                     "title" : ""
+                  }
+               },
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
                      "panel_group_id" : "ingredients",
                      "panel_ids" : [
                         "ingredients"
@@ -264,28 +286,6 @@
                         "ingredients_analysis_details"
                      ],
                      "title" : "Ingredients analysis"
-                  }
-               },
-               {
-                  "element_type" : "panel_group",
-                  "panel_group_element" : {
-                     "panel_group_id" : "nutrition",
-                     "panel_ids" : [
-                        "nutriscore",
-                        "nutrient_levels"
-                     ],
-                     "title" : "Nutrition",
-                     "type" : "subcard"
-                  }
-               },
-               {
-                  "element_type" : "panel_group",
-                  "panel_group_element" : {
-                     "panel_ids" : [
-                        "nutrition_facts_table",
-                        "serving_size"
-                     ],
-                     "title" : ""
                   }
                }
             ],
