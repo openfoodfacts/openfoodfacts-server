@@ -10326,10 +10326,11 @@ sub display_product_api ($request_ref) {
 
 	my $html;
 
+	my @app_fields = qw(product_name brands quantity);
+
 	my $template_data_ref = {
-		lang => $lang,
-		Lang => \%Lang,
-		request_ref => $request_ref,
+		api_version => $request_ref->{api_version},
+		app_fields => \@app_fields,
 	};
 
 	my $rev = single_param("rev");
