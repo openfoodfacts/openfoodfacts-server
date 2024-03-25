@@ -173,7 +173,7 @@ use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die get_file_for_ta
 use ProductOpener::Lang qw/$lc  %Lang %tag_type_singular lang/;
 use ProductOpener::Text qw/normalize_percentages regexp_escape/;
 use ProductOpener::PackagerCodes qw/localize_packager_code normalize_packager_codes/;
-use ProductOpener::Index qw/$lc_dir/;
+use ProductOpener::Index qw/$lang_dir/;
 
 use Clone qw(clone);
 use List::MoreUtils qw(uniq);
