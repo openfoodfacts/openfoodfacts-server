@@ -1112,8 +1112,7 @@ may be used to edit files.</p>
 <h2 id="perlcritic">Perlcritic<a class="headerlink" href="#perlcritic" title="Permanent link">#</a></h2>
 <p>One way to have perlcritic work is the following:</p>
 <ul>
-<li>install the <a href="https://marketplace.visualstudio.com/items?itemName=sfodje.perlcritic">perlcritic</a>
-  extension</li>
+<li>install the <a href="https://marketplace.visualstudio.com/items?itemName=sfodje.perlcritic">perlcritic extension</a></li>
 <li>add a <code>perlcritic.sh</code> at the root of your project with following content:
   <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env bash</span>
 .<span class="w"> </span>.envrc<span class="w"> </span>&gt;/dev/null<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
@@ -1122,14 +1121,14 @@ docker<span class="w"> </span>compose<span class="w"> </span>run<span class="w">
   the second line is useful only if you <a href="../how-to-use-direnv/">use direnv</a></li>
 <li><code>chmod +x perlcritic.sh</code></li>
 <li>patch perlcritic by editing its files, following <a href="https://github.com/sfodje/perlcritic/issues/26#issuecomment-1006411268">sfodje/perlcritic issue #26</a></li>
-<li>the edit perlcritic configuration in workspace to set those values:<ul>
-<li>Executable: <code>/home/alex/docker/off-server/perlcritic.sh</code></li>
+<li>edit the perlcritic configuration in workspace to set the value (after adjusting the pathname for your own OFF setup):<ul>
+<li>Executable: <code>/path/to/your/own/OFF-server/perlcritic.sh</code></li>
 </ul>
 </li>
 </ul>
 <h2 id="perl-language-server">Perl Language Server<a class="headerlink" href="#perl-language-server" title="Permanent link">#</a></h2>
-<p>The extension <a href="https://marketplace.visualstudio.com/items?itemName=richterger.perl">Language Server and Debugger</a> is less easy to work with !</p>
-<p><strong>Note:</strong> This setup does not work yet, but might not be so far. It is probably due to https://github.com/richterger/Perl-LanguageServer/issues/131</p>
+<p>The extension <a href="https://marketplace.visualstudio.com/items?itemName=richterger.perl">Language Server and Debugger</a> is harder to work with!</p>
+<p><strong>Note:</strong> This setup does not work yet, but might be getting close. It is probably due to https://github.com/richterger/Perl-LanguageServer/issues/131.</p>
 <ul>
 <li>install the extension</li>
 <li>add a script <code>shell-into-appserver.sh</code> in the project:
@@ -1161,8 +1160,8 @@ docker<span class="w"> </span>compose<span class="w"> </span>run<span class="w">
 <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers">Remote Container</a>
 extension.
 While we can consider using it,
-it has some drawback because not all the project is contained within the "backend" container.
-For example all that concern nodejs is in the "frontend" container.
+it has some drawbacks because not all the project is contained within the "backend" container.
+For example everything related to nodejs is in the "frontend" container.
 So it means making a quite complete Docker image on its own with all the tooling necessary.</p>
 
 
