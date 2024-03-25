@@ -36,7 +36,6 @@ use Log::Any qw($log);
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
-
 		&unit_to_g
 		&g_to_unit
 
@@ -130,8 +129,6 @@ sub init_units_names() {
 
 	return;
 }
-
-init_units_names();
 
 =head2 unit_to_g($value, $unit)
 
@@ -279,6 +276,7 @@ Returns undef if no quantity was detected.
 =cut
 
 sub normalize_quantity ($quantity_field) {
+
 	my ($quantity, $multiplier, $unit) = parse_quantity_unit($quantity_field);
 
 	$quantity = convert_string_to_number($quantity);
@@ -345,6 +343,8 @@ sub normalize_serving_size ($serving) {
 	}
 	return;
 }
+
+init_units_names();
 
 1;
 

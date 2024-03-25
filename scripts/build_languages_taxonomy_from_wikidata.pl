@@ -26,6 +26,7 @@ use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 
@@ -294,7 +295,7 @@ foreach my $qc (@languages) {
 	}
 }
 
-open(my $OUT, ">:encoding(UTF-8)", "$data_root/taxonomies/languages.txt.temp");
+open(my $OUT, ">:encoding(UTF-8)", "$BASE_DIRS{TAXONOMIES_SRC}/languages.txt.temp");
 
 foreach my $qc (sort {$names{$a} cmp $names{$b}} keys %names) {
 

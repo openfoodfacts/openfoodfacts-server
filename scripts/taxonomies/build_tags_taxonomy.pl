@@ -25,9 +25,6 @@ use utf8;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Food qw/:all/;
-use File::Copy;
-use File::Basename;
 
 my $tagtype = $ARGV[0] // '*';
 my $publish = $ARGV[1] // 1;
@@ -35,10 +32,10 @@ my $publish = $ARGV[1] // 1;
 print STDERR "tagtype: $tagtype\n";
 
 if ($tagtype eq '*') {
-	build_all_taxonomies($publish);
+	ProductOpener::Tags::build_all_taxonomies($publish);
 }
 else {
-	build_tags_taxonomy($tagtype, $publish);
+	ProductOpener::Tags::build_tags_taxonomy($tagtype, $publish);
 }
 
 exit(0);
