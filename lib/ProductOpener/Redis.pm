@@ -17,7 +17,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::PerlStandards;
 use Exporter qw< import >;
 use Encode;
-use JSON::PP;
+use JSON;
 
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
@@ -124,15 +124,17 @@ sub _read_user_deleted_stream($search_from) {
 		'STREAMS' => 'user-deleted',
 		$search_from,
 		sub {
-			my ($reply, $err) = @_;
+			my ($reply_ref, $err) = @_;
 			if ($err) {
 				$log->warn("Error reading from Redis", {error => $err}) if $log->is_warn();
 				return;
 			}
 
-			if ($reply) {
-				# TODO: The message should be updated to be real JSON string in openfoodfacts-auth. Then, modify this to parse the JSON.
-				# $search_from = $message_id;
+			if ($reply_ref) {
+				my $last_processed_message_id = _process_xread_stream_reply($reply_ref);
+				if ($last_processed_message_id) {
+					$search_from = $last_processed_message_id;
+				}
 			}
 
 			_read_user_deleted_stream($search_from);
@@ -141,6 +143,50 @@ sub _read_user_deleted_stream($search_from) {
 	);
 
 	return;
+}
+
+sub _process_xread_stream_reply($reply_ref) {
+	my $last_processed_message_id;
+	require ProductOpener::Producers;
+
+	my @streams = @{$reply_ref};
+	foreach my $stream_ref (@streams) {
+		my @stream = @{$stream_ref};
+		if (not($stream[0] eq 'user-deleted')) {
+			return;
+		}
+
+		$last_processed_message_id = _process_deleted_users_stream($stream[1]);
+	}
+
+	return $last_processed_message_id,;
+}
+
+sub _process_deleted_users_stream ($stream_values_ref) {
+	my $last_processed_message_id;
+
+	foreach my $outer_ref (@{$stream_values_ref}) {
+		my @outer = @{$outer_ref};
+		my $message_id = $outer[0];
+		my @values = @{$outer[1]};
+
+		my %message_hash;
+		for (my $i = 0; $i < scalar(@values); $i += 2) {
+			my $key = $values[$i];
+			my $value = $values[$i + 1];
+			$message_hash{$key} = $value;
+		}
+
+		$log->info("User deleted", {user_id => $message_hash{'userName'}}) if $log->is_info();
+
+		my $args_ref = {userid => $message_hash{'userName'}};
+		ProductOpener::Producers::queue_job(
+			delete_user => [$args_ref] => {queue => $server_options{minion_local_queue}});
+
+		$last_processed_message_id = $message_id;
+	}
+
+	return $last_processed_message_id;
 }
 
 =head2 push_to_redis_stream ($user_id, $product_ref, $action, $comment, $diffs)

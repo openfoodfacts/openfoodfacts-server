@@ -1557,6 +1557,7 @@
   "eventsExpiration": 7776000,
   "eventsListeners": [
     "jboss-logging",
+    "persist-deleted-user-event-listener",
     "redis-event-listener"
   ],
   "enabledEventTypes": [
