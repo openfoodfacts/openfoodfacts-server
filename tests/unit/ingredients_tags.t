@@ -8,7 +8,6 @@ use Log::Any::Adapter 'TAP';
 #use Log::Any::Adapter 'TAP', filter => "none";
 
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::TagsEntries qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 
 init_emb_codes();

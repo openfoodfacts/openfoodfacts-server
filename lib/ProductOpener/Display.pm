@@ -153,7 +153,6 @@ use ProductOpener::Store qw(:all);
 use ProductOpener::Config qw(:all);
 use ProductOpener::Paths qw/:all/;
 use ProductOpener::Tags qw(:all);
-use ProductOpener::TagsEntries qw(:all);
 use ProductOpener::Users qw(:all);
 use ProductOpener::Index qw(:all);
 use ProductOpener::Lang qw(:all);
@@ -3815,49 +3814,6 @@ sub display_tag ($request_ref) {
 		}
 
 		$description =~ s/<tag>/$title/g;
-
-		if (defined $ingredients_classes{$tagtype}) {
-			my $class = $tagtype;
-
-			if ($class eq 'additives') {
-				$icid =~ s/-.*//;
-			}
-			if ($ingredients_classes{$class}{$icid}{other_names} =~ /,/) {
-				$description
-					.= "<p>"
-					. lang("names")
-					. separator_before_colon($lc) . ": "
-					. $ingredients_classes{$class}{$icid}{other_names} . "</p>";
-			}
-
-			if ($ingredients_classes{$class}{$icid}{description} ne '') {
-				$description .= "<p>" . $ingredients_classes{$class}{$icid}{description} . "</p>";
-			}
-
-			if ($ingredients_classes{$class}{$icid}{level} > 0) {
-
-				my $warning = $ingredients_classes{$class}{$icid}{warning};
-				$warning =~ s/(<br>|<br\/>|<br \/>|\n)/<\li>\n<li>/g;
-				$warning = "<li>" . $warning . "</li>";
-
-				if (defined $Lang{$class . '_' . $ingredients_classes{$class}{$icid}{level}}{$request_lc}) {
-					$description
-						.= "<p class=\""
-						. $class . '_'
-						. $ingredients_classes{$class}{$icid}{level} . "\">"
-						. $Lang{$class . '_' . $ingredients_classes{$class}{$icid}{level}}{$request_lc}
-						. "</p>\n";
-				}
-
-				$description .= "<ul>" . $warning . '</ul>';
-			}
-		}
-		if ((defined $tagtype2) and (defined $ingredients_classes{$tagtype2})) {
-			my $class = $tagtype2;
-			if ($class eq 'additives') {
-				$tagid2 =~ s/-.*//;
-			}
-		}
 
 		# We may have a text corresponding to the tag
 
@@ -8015,133 +7971,6 @@ JS
 
 	$template_data_ref->{display_ingredients_analysis_details} = display_ingredients_analysis_details($product_ref);
 
-	my $html_ingredients_classes = "";
-
-	# to compute the number of columns displayed
-	my $ingredients_classes_n = 0;
-
-	foreach my $class (
-		'additives', 'vitamins',
-		'minerals', 'amino_acids',
-		'nucleotides', 'other_nutritional_substances',
-		'ingredients_from_palm_oil', 'ingredients_that_may_be_from_palm_oil'
-		)
-	{
-
-		my $tagtype = $class;
-		my $tagtype_field = $tagtype;
-		# display the list of additives variants in the order that they were found, without the parents (no E450 for E450i)
-		if (($class eq 'additives') and (exists $product_ref->{'additives_original_tags'})) {
-			$tagtype_field = 'additives_original';
-		}
-
-		if (    (defined $product_ref->{$tagtype_field . '_tags'})
-			and (scalar @{$product_ref->{$tagtype_field . '_tags'}} > 0))
-		{
-
-			$ingredients_classes_n++;
-
-			$html_ingredients_classes
-				.= "<div class=\"column_class\"><b>"
-				. ucfirst(lang($class . "_p") . separator_before_colon($lc))
-				. ":</b><br>";
-
-			if (defined $tags_images{$lc}{$tagtype}{get_string_id_for_lang("no_language", $tagtype)}) {
-				my $img = $tags_images{$lc}{$tagtype}{get_string_id_for_lang("no_language", $tagtype)};
-				my $size = '';
-				if ($img =~ /\.(\d+)x(\d+)/) {
-					$size = " width=\"$1\" height=\"$2\"";
-				}
-				$html_ingredients_classes .= <<HTML
-<img src="/images/lang/$lc/$tagtype/$img"$size/ style="display:inline">
-HTML
-					;
-			}
-
-			$html_ingredients_classes .= "<ul style=\"display:block;float:left;\">";
-			foreach my $tagid (@{$product_ref->{$tagtype_field . '_tags'}}) {
-
-				my $tag;
-				my $link;
-
-				# taxonomy field?
-				if (defined $taxonomy_fields{$class}) {
-					$tag = display_taxonomy_tag($lc, $class, $tagid);
-					$link = canonicalize_taxonomy_tag_link($lc, $class, $tagid);
-				}
-				else {
-					$tag = canonicalize_tag2($class, $tagid);
-					$link = canonicalize_tag_link($class, $tagid);
-				}
-
-				my $info = '';
-				my $more_info = '';
-
-				if ($class eq 'additives') {
-
-					my $canon_tagid = $tagid;
-					$tagid =~ s/.*://;    # levels are defined only in old French list
-
-					if (    (defined $properties{$tagtype})
-						and (defined $properties{$tagtype}{$canon_tagid})
-						and (defined $properties{$tagtype}{$canon_tagid}{"efsa_evaluation_overexposure_risk:en"})
-						and ($properties{$tagtype}{$canon_tagid}{"efsa_evaluation_overexposure_risk:en"} ne 'en:no'))
-					{
-
-						my $tagtype_field = "additives_efsa_evaluation_overexposure_risk";
-						my $valueid = $properties{$tagtype}{$canon_tagid}{"efsa_evaluation_overexposure_risk:en"};
-						$valueid =~ s/^en://;
-
-						# check if we have an icon
-						if (exists $Lang{$tagtype_field . "_icon_alt_" . $valueid}{$lc}) {
-							my $alt = $Lang{$tagtype_field . "_icon_alt_" . $valueid}{$lc};
-							my $iconid = $tagtype_field . "_icon_" . $valueid;
-							$iconid =~ s/_/-/g;
-							$more_info = <<HTML
-<a href="$link">
-<img src="/images/misc/$iconid.svg" alt="$alt" width="45" height="45">
-</a>
-<a href="$link" class="additives_efsa_evaluation_overexposure_risk_$valueid">
-$alt
-</a>
-HTML
-								;
-						}
-
-					}
-				}
-
-				$html_ingredients_classes .= "<li><a href=\"" . $link . "\"$info>" . $tag . "</a>$more_info</li>\n";
-			}
-			$html_ingredients_classes .= "</ul></div>";
-		}
-
-	}
-
-	$template_data_ref->{ingredients_classes_n} = $ingredients_classes_n;
-
-	if ($ingredients_classes_n > 0) {
-
-		my $column_class = "small-12 columns";
-
-		if ($ingredients_classes_n == 2) {
-			$column_class = "medium-6 columns";
-		}
-		elsif ($ingredients_classes_n == 3) {
-			$column_class = "medium-6 large-4 columns";
-		}
-		elsif ($ingredients_classes_n == 4) {
-			$column_class = "medium-6 large-3 columns";
-		}
-		elsif ($ingredients_classes_n >= 5) {
-			$column_class = "medium-6 large-3 xlarge-2 columns";
-		}
-
-		$html_ingredients_classes =~ s/column_class/$column_class/g;
-		$template_data_ref->{html_ingredients_classes} = $html_ingredients_classes;
-
-	}
-
 	# special ingredients tags
 
 	if ((defined $ingredients_text) and ($ingredients_text !~ /^\s*$/s) and (defined $special_tags{ingredients})) {
@@ -8712,18 +8541,6 @@ HTML
 			}
 
 			my $info = '';
-
-			if ($class eq 'additives') {
-				$tagid =~ s/.*://;    # levels are defined only in old French list
-
-				if ($ingredients_classes{$class}{$tagid}{level} > 0) {
-					$info
-						= ' class="additives_'
-						. $ingredients_classes{$class}{$tagid}{level}
-						. '" title="'
-						. $ingredients_classes{$class}{$tagid}{warning} . '" ';
-				}
-			}
 
 			$html .= "<li><a href=\"" . $link . "\"$info>" . $tag . "</a></li>\n";
 		}

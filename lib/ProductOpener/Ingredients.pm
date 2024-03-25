@@ -114,7 +114,6 @@ use experimental 'smartmatch';
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Users qw/:all/;
-use ProductOpener::TagsEntries qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::URL qw/:all/;
@@ -228,6 +227,7 @@ my %contains_regexps = (
 	es => "contiene",
 	et => "sisaldab",
 	fr => "contient",
+	hr => "sadrže",
 	it => "contengono",
 	nl => "bevat",
 	pl => "zawiera|zawierają",
@@ -706,68 +706,6 @@ sub init_additives_classes_regexps() {
 }
 
 if ((keys %labels_regexps) > 0) {exit;}
-
-# load ingredients classes
-opendir(DH, "$data_root/ingredients")
-	or $log->error("cannot open ingredients directory", {path => "$data_root/ingredients", error => $!});
-
-foreach my $f (readdir(DH)) {
-	# Skip entry if its not a valid file
-	next if $f eq '.';
-	next if $f eq '..';
-	next if ($f !~ /\.txt$/);
-
-	# Remove file extension
-	my $class = $f;
-	$class =~ s/\.txt$//;
-
-	$ingredients_classes{$class} = {};
-
-	open(my $IN, "<:encoding(UTF-8)", "$data_root/ingredients/$f");
-	while (<$IN>) {
-		# Skip EOF and lines prefixed with #
-		chomp;
-		next if /^\#/;
-
-		my ($canon_name, $other_names, $misc, $desc, $level, $warning) = split("\t");
-		my $id = get_string_id_for_lang("no_language", $canon_name);
-		next if (not defined $id) or ($id eq '');
-		(not defined $level) and $level = 0;
-
-		# additives: always set level to 0 right now, until we have a better list
-		$level = 0;
-
-		if (not defined $ingredients_classes{$class}{$id}) {
-			# E322 before E322(i) : E322 should be associated with "lecithine"
-			$ingredients_classes{$class}{$id} = {
-				name => $canon_name,
-				id => $id,
-				other_names => $other_names,
-				level => $level,
-				description => $desc,
-				warning => $warning
-			};
-		}
-		#print STDERR "name: $canon_name\nother_names: $other_names\n";
-		if (defined $other_names) {
-			foreach my $other_name (split(/,/, $other_names)) {
-				$other_name =~ s/^\s+//;
-				$other_name =~ s/\s+$//;
-				my $other_id = get_string_id_for_lang("no_language", $other_name);
-				next if $other_id eq '';
-				next if $other_name eq '';
-				if (not defined $ingredients_classes{$class}{$other_id}) {    # Take the first one
-					$ingredients_classes{$class}{$other_id} = {name => $other_name, id => $id};
-					#print STDERR "$id\t$other_id\n";
-				}
-			}
-		}
-	}
-	close $IN;
-
-	$ingredients_classes_sorted{$class} = [sort keys %{$ingredients_classes{$class}}];
-}
-closedir(DH);
 
 sub extract_ingredients_from_image ($product_ref, $id, $ocr_engine, $results_ref) {
 
@@ -4957,7 +4895,7 @@ my %phrases_after_ingredients_list = (
 		'najbolje upotrijebiti do',    # best before
 		'nakon otvaranja',    # after opening
 		'neotvoreno',    # not opened can be stored etc.
-		'pakirano u (kontroliranoj|zaštitnoj) atmosferi',    # packed in a ... atmosphere
+		'pakirano u',    # packed in a ... atmosphere
 		'pakiranje sadrži',    # pack contains x portions
 		'Prijedlog za serviranje',    # Proposal for serving
 		'priprema obroka',    # meal preparation
@@ -6913,105 +6851,6 @@ sub extract_ingredients_classes_from_text ($product_ref) {
 			}
 		}
 	}
-
-	foreach my $class (sort keys %ingredients_classes) {
-
-		my $tagtype = $class;
-
-		if ($tagtype eq 'additives') {
-			$tagtype = 'additives_old';
-		}
-
-		$product_ref->{$tagtype . '_tags'} = [];
-
-		# skip palm oil classes if there is a palm oil free label
-		if (($class =~ /palm/) and has_tag($product_ref, "labels", 'en:palm-oil-free')) {
-
-		}
-		else {
-
-			my %seen = ();
-
-			foreach my $ingredient_id (@ingredients_ids) {
-
-				#$product_ref->{$tagtype . "_debug_ingredients_ids" } .=  " ; " . $ingredient_id . " ";
-
-				if (    (defined $ingredients_classes{$class}{$ingredient_id})
-					and (not defined $seen{$ingredients_classes{$class}{$ingredient_id}{id}}))
-				{
-
-					next
-						if (($ingredients_classes{$class}{$ingredient_id}{id} eq 'huile-vegetale')
-						and (defined $all_seen{"huile-de-palme"}));
-
-					#$product_ref->{$tagtype . "_debug_ingredients_ids" } .= " -> exact match $ingredients_classes{$class}{$ingredient_id}{id} ";
-
-					push @{$product_ref->{$tagtype . '_tags'}}, $ingredients_classes{$class}{$ingredient_id}{id};
-					$seen{$ingredients_classes{$class}{$ingredient_id}{id}} = 1;
-					$all_seen{$ingredients_classes{$class}{$ingredient_id}{id}} = 1;
-
-				}
-				else {
-
-					#$product_ref->{$tagtype . "_debug_ingredients_ids" } .= " -> no exact match ";
-
-					foreach my $id (@{$ingredients_classes_sorted{$class}}) {
-
-						if (index($ingredient_id, $id) == 0) {
-							# only compile the regex if we can't avoid it
-							if (    ($ingredient_id =~ /^$id\b/)
-								and (not defined $seen{$ingredients_classes{$class}{$id}{id}}))
-							{
-
-								next
-									if (($ingredients_classes{$class}{$id}{id} eq 'huile-vegetale')
-									and (defined $all_seen{"huile-de-palme"}));
-
-								#$product_ref->{$tagtype . "_debug_ingredients_ids" } .= " -> match $id - $ingredients_classes{$class}{$id}{id} ";
-
-								push @{$product_ref->{$tagtype . '_tags'}}, $ingredients_classes{$class}{$id}{id};
-								$seen{$ingredients_classes{$class}{$id}{id}} = 1;
-								$all_seen{$ingredients_classes{$class}{$id}{id}} = 1;
-							}
-						}
-
-					}
-				}
-			}
-		}
-
-		# No ingredients?
-		if ((defined $product_ref->{ingredients_text}) and ($product_ref->{ingredients_text} eq '')) {
-			delete $product_ref->{$tagtype . '_n'};
-		}
-		else {
-			$product_ref->{$tagtype . '_n'} = scalar @{$product_ref->{$tagtype . '_tags'}};
-		}
-
-		# Delete empty arrays
-		# -> not active
-		# -> may be dangerous if some apps rely on them existing even if empty
-
-		if (0) {
-			if ((defined $product_ref->{$tagtype . '_tags'}) and ((scalar @{$product_ref->{$tagtype . '_tags'}}) == 0))
-			{
-				delete $product_ref->{$tagtype . '_tags'};
-			}
-		}
-	}
-
-	if (defined $product_ref->{additives_old_tags}) {
-		for (my $i = 0; $i < (scalar @{$product_ref->{additives_old_tags}}); $i++) {
-			$product_ref->{additives_old_tags}[$i] = 'en:' . $product_ref->{additives_old_tags}[$i];
-		}
-	}
-
-	# keep the old additives for France until we can fix the new taxonomy matching to support all special cases
-	# e.g. lecithine de soja
-	#if ($ingredients_lc ne 'fr') {
-	#	$product_ref->{additives_tags} = $product_ref->{new_additives_tags};
-	#	$product_ref->{additives_tags_n} = $product_ref->{new_additives_tags_n};
-	#}
 
 	# compute minus and debug values
 

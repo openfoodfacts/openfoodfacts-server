@@ -10,8 +10,6 @@ This is a handy package to try out perl expressions and learn.
 Thanks to `PERL5LIB` variable which is already configured,
 you can load any module of `ProductOpener` from within it.
 
-Also it as the right
-
 ## Launch Repl
 
 Just run
@@ -45,7 +43,7 @@ World
 
 ## Reading a sto
 
-Another use case is reading a sto file to see what it contains.
+Another use case is reading a `.sto` file to see what it contains.
 
 Eg. for a user:
 
