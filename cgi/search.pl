@@ -665,11 +665,11 @@ elsif ($action eq 'process') {
 		}
 	}
 
-	if (defined $sort_by) {
-		$current_link .= "&sort_by=$sort_by";
-	}
+	# if (defined $sort_by) {
+	# 	$current_link .= "&sort_by=$sort_by";
+	# }
 
-	$current_link .= "\&page_size=$limit";
+	# $current_link .= "\&page_size=$limit";
 
 	# Graphs
 

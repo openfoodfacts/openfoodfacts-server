@@ -60,6 +60,7 @@ BEGIN {
 		&display_knowledge_panel
 		&get_languages_options_list
 		&get_countries_options_list
+		&add_params
 	);    #the fucntions which are called outside this file
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -376,6 +377,34 @@ sub get_countries_options_list ($target_lc, $exclude_world = 1) {
 		@countries_list = grep {$_->{value} ne "world"} @countries_list;
 	}
 	return \@countries_list;
+}
+
+=head2 add_params( $url, $params )
+
+Adds parameters to a URL while properly handling the existing query string.
+
+=head3 Arguments
+
+=head4 $url - The URL to which parameters need to be added.
+
+=head4 $params - The parameters to be added in the format "key=value".
+
+=head3 Return value
+
+The modified URL with added parameters.
+
+=cut
+
+sub add_params ($url, $params) {
+
+    # Check if the URL already contains parameters
+    if ($url =~ /\?/) {
+        $url .= "&$params"; # Append using '&' if parameters already exist
+    } else {
+        $url .= "?$params"; # Append using '?' if no parameters exist
+    }
+
+    return $url;
 }
 
 1;
