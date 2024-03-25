@@ -541,18 +541,21 @@ sub check_request_response ($test_ref, $response, $test_id, $test_dir, $expected
 		diag("Response content: " . $response_content);
 	}
 
-	if ((defined $test_ref->{expected_type}) and ($test_ref->{expected_type} eq 'text')) {
-		# Check that the text file is the same as expected (useful for checking dynamic robots.txt)
+	my $expected_type = $test_ref->{expected_type};
+
+	if ((defined $expected_type) and (($expected_type eq 'text') or ($expected_type eq 'html'))) {
+		# Check that the file is the same as expected (useful for HTML content or dynamic robots.txt)
 		is(
 			compare_file_to_expected_results(
-				$response_content, "$expected_result_dir/$test_case.txt",
+				$response_content, "$expected_result_dir/$test_case.$expected_type",
 				$update_expected_results, $test_ref
 			),
 			1,
 			"$test_case - result"
 		);
 	}
-	elsif (not((defined $test_ref->{expected_type}) and ($test_ref->{expected_type} eq "html"))) {
+	# Otherwise we expect the result is JSON
+	else {
 
 		# Check that we got a JSON response
 
