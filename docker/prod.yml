@@ -55,7 +55,12 @@ volumes:
     external: true
     name: ${COMPOSE_PROJECT_NAME}_redisdata
   export_files:
+    external: true
     name: ${COMPOSE_PROJECT_NAME}_export_files
+  build_cache:
+    external: true
+    name: ${COMPOSE_PROJECT_NAME}_build_cache
+
 
 networks:
   webnet:

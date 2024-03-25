@@ -332,7 +332,7 @@ sub check_user_form ($type, $user_ref, $errors_ref) {
 			$log->debug("check_user_form - email already in use",
 				{type => $type, email => $email, existing_userid => $user_id_from_mail})
 				if $log->is_debug();
-			push @{$errors_ref}, $Lang{error_email_already_in_use}{$lang};
+			push @{$errors_ref}, $Lang{error_email_already_in_use}{$lc};
 		}
 
 		# Keep old email until the user is saved
@@ -408,23 +408,23 @@ sub check_user_form ($type, $user_ref, $errors_ref) {
 
 	if ($type eq 'add') {
 		if (length($user_ref->{name}) < 2) {
-			push @{$errors_ref}, $Lang{error_no_name}{$lang};
+			push @{$errors_ref}, $Lang{error_no_name}{$lc};
 		}
 		elsif (length($user_ref->{name}) > 60) {
-			push @{$errors_ref}, $Lang{error_name_too_long}{$lang};
+			push @{$errors_ref}, $Lang{error_name_too_long}{$lc};
 		}
 
 		if (length($user_ref->{userid}) < 2) {
-			push @{$errors_ref}, $Lang{error_no_username}{$lang};
+			push @{$errors_ref}, $Lang{error_no_username}{$lc};
 		}
 		elsif (user_exists($user_ref->{userid})) {
-			push @{$errors_ref}, $Lang{error_username_not_available}{$lang};
+			push @{$errors_ref}, $Lang{error_username_not_available}{$lc};
 		}
 		elsif ($user_ref->{userid} !~ /^[a-z0-9]+[a-z0-9\-]*[a-z0-9]+$/) {
-			push @{$errors_ref}, $Lang{error_invalid_username}{$lang};
+			push @{$errors_ref}, $Lang{error_invalid_username}{$lc};
 		}
 		elsif (length($user_ref->{userid}) > 40) {
-			push @{$errors_ref}, $Lang{error_username_too_long}{$lang};
+			push @{$errors_ref}, $Lang{error_username_too_long}{$lc};
 		}
 	}
 
@@ -668,7 +668,7 @@ sub check_edit_owner ($user_ref, $errors_ref) {
 		# Add check that organization exists when we add org profiles
 
 		if (!user_exists($userid)) {
-			push @{$errors_ref}, sprintf($Lang{error_user_does_not_exist}{$lang}, $userid);
+			push @{$errors_ref}, sprintf($Lang{error_user_does_not_exist}{$lc}, $userid);
 		}
 		else {
 			$User{pro_moderator_owner} = $user_ref->{pro_moderator_owner};
@@ -1102,7 +1102,7 @@ sub init_user ($request_ref) {
 					$user_id = undef;
 					$log->info('bad password - input does not match stored hash') if $log->is_info();
 					# Trigger an error
-					return ($Lang{error_bad_login_password}{$lang});
+					return ($Lang{error_bad_login_password}{$lc});
 				}
 				# We have the right login/password
 				elsif (
@@ -1120,7 +1120,7 @@ sub init_user ($request_ref) {
 				$user_id = undef;
 				$log->info("bad user") if $log->is_info();
 				# Trigger an error
-				return ($Lang{error_bad_login_password}{$lang});
+				return ($Lang{error_bad_login_password}{$lc});
 			}
 		}
 	}
