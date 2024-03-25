@@ -8,7 +8,6 @@ use Log::Any::Adapter 'TAP';
 #use Log::Any::Adapter 'TAP', filter => "none";
 
 use ProductOpener::Tags qw/canonicalize_taxonomy_tag exists_taxonomy_tag init_emb_codes/;
-use ProductOpener::TagsEntries qw/:all/;
 use ProductOpener::Ingredients qw/extract_ingredients_from_text/;
 
 init_emb_codes();

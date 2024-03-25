@@ -89,14 +89,14 @@ stopwords:en:added to enhance freshness, added to maintain flavor and freshness,
 stopwords:es:contiene,de,del,la,el,las,los,con,y,e,en,minimo,maximo,puede,contener,por,categoria,calibre,minimo,min,vereidad,variedad,de cultivo,origen,nota,produccion,controlada,equivalente,equivale
 stopwords:fi:sisältää,muun muassa,valio, koskenlaskija, snellmanin, jossa, noin, käymisen aikana muodostuva
 stopwords:fr:aux,au,de,le,du,la,a,et,avec,ou,en,proportion,variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets, pour souleves,dont,avec,autres,d'autres,d', avec ajout, sachet, marquants, demeter, minimum
-# example: karamelizirani šećerni sirup (sadrži bojilo E150a) # also for alergens "SADRŽI celer i gorušicu"
 # example: grašak u prahu BOGAT BJELANČEVINAMA
 # example: KLASIČNA MJEŠAVINA arabica i robusta kave
 # example: luk u prahu (OD ČEGA mladi luk 0,06 %)
 # example: prah ploda limuna (Citrus limon) 0,1% (ODGOVARA svježeg limuna)
 # example: prirodne arome (UKLJUČUJUĆI I kofein)
 # example: sojin umak bez glutena
-stopwords:hr:bez glutena, i/ili, i, ili, iz, max, min, najmanje, najviše, obično poznat kao, od, u promjenjivim omjerima, u promjenjivim udjelima, u različitim omjerima, u tragovima, bogat bjelančevinama, klasična mješavina, od čega, odgovara, titriran na 25 % 5-HTP, uključujući i, uključujući
+# example: marelice 8.3% (SADRŽE sumporni dioksid) / SADRŽI sulfite
+stopwords:hr:bez glutena, i/ili, i, ili, iz, max, min, najmanje, najviše, obično poznat kao, od, u promjenjivim omjerima, u promjenjivim udjelima, u različitim omjerima, u tragovima, bogat bjelančevinama, klasična mješavina, od čega, odgovara, titriran na 25 % 5-HTP, uključujući i, uključujući, sadrže, sadrži
 stopwords:hu:tartalmaz, változó arányban, min, zsírtartalom, összetevő, összetétel, amelyből, amiből
 stopwords:id:mengandung
 stopwords:is:úr
@@ -15165,6 +15165,7 @@ sv:mjölkfett
 tr:süt yağı, sütyağı
 vegan:en:no
 vegetarian:en:yes
+from_palm_oil:en:no
 
 <en:milkfat
 en:milk fat without lactose
@@ -37722,6 +37723,10 @@ zh:大果蔓越梅
 wikidata:en:Q149397
 wikipedia:en:https://en.wikipedia.org/wiki/Vaccinium_macrocarpon
 
+<en:cranberry
+en:wild cranberry
+hr:šumska brusnica
+
 <en:berries
 en:bearberry, bearberries
 la:Arctostaphylos uva-ursi
@@ -41901,7 +41906,7 @@ da:blåbær
 de:Wilde Heidelbeeren
 fi:villimustikka
 fr:myrtille sauvage
-hr:divlja borovnica
+hr:divlja borovnica, šumska borovnica
 it:mirtilli selvatici
 nl:wilde bosbes, wilde blauwe bosbessen, wilde bosbessen
 pl:borówka dzika, borówki dzikie
@@ -43071,6 +43076,7 @@ ru:меджул даты
 en:date paste
 de:pürierte Datteln
 fr:pâte de datte
+hr:pasta od datulja
 nl:dadelpuree
 pl:pasta daktylowa
 sv:dadelpuré

@@ -8,7 +8,6 @@ use Log::Any::Adapter 'TAP';
 use Log::Any::Adapter 'TAP', filter => "none";
 
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::TagsEntries qw/:all/;
 use ProductOpener::Ingredients qw/estimate_ingredients_percent_service parse_ingredients_text_service/;
 use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
 

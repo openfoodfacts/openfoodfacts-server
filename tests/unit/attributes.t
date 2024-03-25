@@ -12,7 +12,6 @@ my $json = JSON::PP->new->allow_nonref->canonical;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::TagsEntries qw/:all/;
 use ProductOpener::Test qw/init_expected_results/;
 use ProductOpener::Products qw/analyze_and_enrich_product_data/;
 use ProductOpener::Food qw/:all/;

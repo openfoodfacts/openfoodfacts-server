@@ -10,7 +10,6 @@ use JSON;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Tags qw/canonicalize_taxonomy_tag/;
-use ProductOpener::TagsEntries qw/:all/;
 use ProductOpener::Test qw/init_expected_results/;
 use ProductOpener::Ingredients qw/extract_ingredients_from_text/;
 use ProductOpener::Recipes qw/add_product_recipe_to_set analyze_recipes compute_product_recipe/;

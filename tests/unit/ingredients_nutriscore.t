@@ -8,7 +8,6 @@ use Log::Any::Adapter 'TAP';
 #use Log::Any::Adapter 'TAP', filter => "none";
 
 use ProductOpener::Tags qw/canonicalize_taxonomy_tag get_inherited_property/;
-use ProductOpener::TagsEntries qw/:all/;
 use ProductOpener::Ingredients
 	qw/estimate_nutriscore_2021_milk_percent_from_ingredients estimate_nutriscore_2023_red_meat_percent_from_ingredients extract_ingredients_from_text/;
 
