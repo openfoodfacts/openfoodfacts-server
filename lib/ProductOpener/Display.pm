@@ -5538,6 +5538,8 @@ sub display_pagination ($request_ref, $count, $limit, $page) {
 		$nofollow = ' nofollow';
 	}
 
+	print STDERR "zzz lc: $lc - request_ref->lc: $request_ref->{lc}\n";
+
 	if ((($nb_pages > 1) and (defined $current_link)) and (not defined $request_ref->{product_changes_saved})) {
 
 		my $prev = '';
