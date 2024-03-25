@@ -91,7 +91,6 @@ my @fields = qw (
 foreach my $l ('fr') {
 
 	$lc = $l;
-	$lang = $l;
 
 	my $fields_ref = {code => 1, product_name => 1, brands => 1, quantity => 1, nutriments => 1};
 	my %tags = ();
@@ -625,7 +624,7 @@ HTML
 
 	$html .= "</tbody></table>";
 
-	open(my $OUT, ">:encoding(UTF-8)", "$BASE_DIRS{LANG}/$lang/texts/sugar.html");
+	open(my $OUT, ">:encoding(UTF-8)", "$BASE_DIRS{LANG}/$l/texts/sugar.html");
 	print $OUT $html;
 	close $OUT;
 
