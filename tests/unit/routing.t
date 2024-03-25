@@ -7,7 +7,7 @@ use Test::More;
 use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Routing qw/analyze_request/;
-use ProductOpener::Lang qw/$lang $lc/;
+use ProductOpener::Lang qw/$lc /;
 
 # TODO: create a test case array and use the update_test_results system to
 # store and compare the returned $request object

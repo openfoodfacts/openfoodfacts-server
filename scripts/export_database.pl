@@ -40,7 +40,7 @@ use ProductOpener::Display qw/search_and_export_products/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Images qw/:all/;
-use ProductOpener::Lang qw/$lang $lc %lang_lc/;
+use ProductOpener::Lang qw/$lc  %lang_lc/;
 use ProductOpener::Mail qw/:all/;
 use ProductOpener::Products qw/add_images_urls_to_product product_url/;
 use ProductOpener::Food qw/%nutriments_tables/;

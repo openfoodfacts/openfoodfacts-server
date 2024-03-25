@@ -32,7 +32,7 @@ use ProductOpener::Store qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Users qw/$Owner_id/;
 use ProductOpener::Images qw/:all/;
-use ProductOpener::Lang qw/$lang %Lang lang/;
+use ProductOpener::Lang qw/$lc %Lang lang/;
 use ProductOpener::Mail qw/:all/;
 
 use Apache2::RequestRec ();

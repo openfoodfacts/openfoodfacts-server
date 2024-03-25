@@ -32,7 +32,7 @@ use ProductOpener::Display qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Mail qw/send_email/;
-use ProductOpener::Lang qw/$lang %Lang lang/;
+use ProductOpener::Lang qw/$lc %Lang lang/;
 use ProductOpener::URL qw/format_subdomain/;
 
 use CGI qw/:cgi :form escapeHTML/;

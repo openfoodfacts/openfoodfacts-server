@@ -86,7 +86,7 @@ use ProductOpener::Store qw/get_string_id_for_lang retrieve store/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Mail qw/get_html_email_content send_email_to_admin send_email_to_producers_admin send_html_email/;
-use ProductOpener::Lang qw/$lang $lc %Lang lang/;
+use ProductOpener::Lang qw/$lc  %Lang lang/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Orgs qw/add_user_to_org create_org remove_user_from_org retrieve_or_create_org retrieve_org/;
 use ProductOpener::Products qw/find_and_replace_user_id_in_products/;

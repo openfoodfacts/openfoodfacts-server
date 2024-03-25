@@ -33,7 +33,7 @@ use ProductOpener::Display qw/:all/;
 use ProductOpener::Tags qw/%tags_fields/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Images qw/:all/;
-use ProductOpener::Lang qw/$lang $lc %lang_lc/;
+use ProductOpener::Lang qw/$lc  %lang_lc/;
 use ProductOpener::Mail qw/:all/;
 use ProductOpener::Products qw/product_path/;
 use ProductOpener::Food qw/:all/;

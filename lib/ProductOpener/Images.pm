@@ -136,7 +136,7 @@ use Imager::zxing;
 use Image::OCR::Tesseract 'get_ocr';
 
 use ProductOpener::Products qw/:all/;
-use ProductOpener::Lang qw/$lang $lc %Lang lang/;
+use ProductOpener::Lang qw/$lc  %Lang lang/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::URL qw/format_subdomain/;
 use ProductOpener::Users qw/%User/;

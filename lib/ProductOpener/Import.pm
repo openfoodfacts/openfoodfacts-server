@@ -85,7 +85,7 @@ use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Images qw/get_imagefield_from_string process_image_crop process_image_upload/;
-use ProductOpener::Lang qw/$lang $lc lang/;
+use ProductOpener::Lang qw/$lc  lang/;
 use ProductOpener::Mail qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;

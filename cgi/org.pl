@@ -29,7 +29,7 @@ use ProductOpener::Store qw/get_fileid/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Users qw/:all/;
-use ProductOpener::Lang qw/$lang %Lang lang/;
+use ProductOpener::Lang qw/$lc %Lang lang/;
 use ProductOpener::Orgs qw/:all/;
 use ProductOpener::Tags qw/canonicalize_tag_link/;
 use ProductOpener::Text qw/remove_tags_and_quote/;

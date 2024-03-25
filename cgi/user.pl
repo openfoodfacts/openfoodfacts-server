@@ -29,7 +29,7 @@ use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Web qw/get_countries_options_list get_languages_options_list/;
 use ProductOpener::Users qw/:all/;
-use ProductOpener::Lang qw/$lang $lc %Lang lang/;
+use ProductOpener::Lang qw/$lc  %Lang lang/;
 use ProductOpener::Orgs qw/org_name retrieve_org/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
 

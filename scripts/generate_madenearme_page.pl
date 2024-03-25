@@ -45,7 +45,7 @@ use Getopt::Long;
 use JSON::MaybeXS;
 use Log::Any qw($log);
 
-use ProductOpener::Lang qw/$lang $lc/;
+use ProductOpener::Lang qw/$lc /;
 
 # initialize html
 sub get_initial_html ($cc) {
