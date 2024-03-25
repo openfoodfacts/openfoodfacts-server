@@ -59,7 +59,7 @@ my $user_ref = undef;
 my $html = '';
 
 if (defined $User_id) {
-	display_error_and_exit($Lang{error_reset_already_connected}{$lang}, undef);
+	display_error_and_exit($Lang{error_reset_already_connected}{$lc}, undef);
 }
 
 if ($action eq 'process') {
@@ -71,13 +71,13 @@ if ($action eq 'process') {
 		if ($id =~ /\@/) {
 			$user_ref = retrieve_user_by_email($id);
 			if (not defined $user_ref) {
-				push @errors, $Lang{error_reset_unknown_email}{$lang};
+				push @errors, $Lang{error_reset_unknown_email}{$lc};
 			}
 		}
 		else {
 			$user_ref = retrieve_user($id);
 			if (not defined $user_ref) {
-				push @errors, $Lang{error_reset_unknown_id}{$lang};
+				push @errors, $Lang{error_reset_unknown_id}{$lc};
 			}
 		}
 
@@ -85,11 +85,11 @@ if ($action eq 'process') {
 	elsif (($type eq 'reset') and (defined single_param('resetid'))) {
 
 		if (length(single_param('password')) < 6) {
-			push @errors, $Lang{error_invalid_password}{$lang};
+			push @errors, $Lang{error_invalid_password}{$lc};
 		}
 
 		if (single_param('password') ne single_param('confirm_password')) {
-			push @errors, $Lang{error_different_passwords}{$lang};
+			push @errors, $Lang{error_different_passwords}{$lc};
 		}
 
 	}
@@ -173,7 +173,7 @@ elsif ($action eq 'process') {
 			}
 			else {
 				$log->debug("token is invalid", {userid => $userid}) if $log->is_debug();
-				display_error_and_exit($Lang{error_reset_invalid_token}{$lang}, undef);
+				display_error_and_exit($Lang{error_reset_invalid_token}{$lc}, undef);
 			}
 		}
 	}
@@ -182,7 +182,7 @@ elsif ($action eq 'process') {
 process_template('web/pages/reset_password/reset_password.tt.html', $template_data_ref, \$html)
 	or $html = "<p>" . $tt->error() . "</p>";
 
-$request_ref->{title} = $Lang{'reset_password'}{$lang};
+$request_ref->{title} = $Lang{'reset_password'}{$lc};
 $request_ref->{content_ref} = \$html;
 display_page($request_ref);
 

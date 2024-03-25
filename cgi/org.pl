@@ -72,7 +72,7 @@ if (not defined $org_ref) {
 		$template_data_ref->{org_does_not_exist} = 1;
 	}
 	else {
-		display_error_and_exit($Lang{error_org_does_not_exist}{$lang}, 404);
+		display_error_and_exit($Lang{error_org_does_not_exist}{$lc}, 404);
 	}
 }
 
@@ -82,7 +82,7 @@ if (not(is_user_in_org_group($org_ref, $User_id, "admins") or $admin or $User{pr
 	$log->debug("user does not have permission to edit org",
 		{orgid => $orgid, org_admins => $org_ref->{admins}, User_id => $User_id})
 		if $log->is_debug();
-	display_error_and_exit($Lang{error_no_permission}{$lang}, 403);
+	display_error_and_exit($Lang{error_no_permission}{$lc}, 403);
 }
 
 my @errors = ();
@@ -95,7 +95,7 @@ if ($action eq 'process') {
 				$type = 'delete';
 			}
 			else {
-				display_error_and_exit($Lang{error_no_permission}{$lang}, 403);
+				display_error_and_exit($Lang{error_no_permission}{$lc}, 403);
 			}
 		}
 		else {
@@ -148,7 +148,7 @@ if ($action eq 'process') {
 			}
 
 			if (not defined $org_ref->{name}) {
-				push @errors, $Lang{error_missing_org_name}{$lang};
+				push @errors, $Lang{error_missing_org_name}{$lc};
 			}
 
 			# Contact sections
@@ -369,7 +369,7 @@ elsif ($action eq 'process') {
 			$template_data_ref->{result} = lang("edit_org_result");
 		}
 		else {
-			display_error_and_exit($Lang{error_no_permission}{$lang}, 403);
+			display_error_and_exit($Lang{error_no_permission}{$lc}, 403);
 		}
 
 	}

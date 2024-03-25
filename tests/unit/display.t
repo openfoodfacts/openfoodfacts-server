@@ -44,8 +44,14 @@ is(url_for_text($textid), '/eco-score-el-impacto-medioambiental-de-los-productos
 $lc = 'does not exist';
 is(url_for_text($textid), '/eco-score-the-environmental-impact-of-food-products');
 
+$lc = 'en';
+
 #test search query
-my $request_ref->{current_link} = '/cgi/search.pl?action=process&sort_by=unique_scans_n&page_size=24';
+my $request_ref = {
+	lc => "en",
+	current_link => '/cgi/search.pl?action=process&sort_by=unique_scans_n&page_size=24',
+};
+
 my $count = 25;
 my $limit = 24;
 my $page = 1;

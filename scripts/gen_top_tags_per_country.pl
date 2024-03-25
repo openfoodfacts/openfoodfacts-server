@@ -687,8 +687,6 @@ HTML
 	push @languages, "en" unless grep {$_ eq 'en'} @languages;
 	foreach my $lc (@languages) {
 
-		$lang = $lc;
-
 		my $series = '';
 
 		my $end = 0;
@@ -708,7 +706,7 @@ HTML
 			my $series_start = $countries_dates{$country}{$date . ".start"};
 			my $series_end = $countries_dates{$country}{$date . ".end"};
 
-			my $name = $Lang{"products_stats_$date"}{$lang};
+			my $name = $Lang{"products_stats_$date"}{$lc};
 			my $series_point_start = $series_start * 86400 * 1000;
 			$series .= <<HTML
 {
@@ -741,16 +739,16 @@ HTML
 
 		$series =~ s/,\n$//;
 
-		my $country_name = display_taxonomy_tag($lang, 'countries', $country);
+		my $country_name = display_taxonomy_tag($lc, 'countries', $country);
 
-		#$Lang{products_p}{$lang} is undefined, products_p doesn't appear to be in the .po files.
+		#$Lang{products_p}{$lc} is undefined, products_p doesn't appear to be in the .po files.
 		my $html = <<HTML
 <initjs>
 
 Highcharts.setOptions({
 	lang: {
-		months: $Lang{months}{$lang},
-		weekdays: $Lang{weekdays}{$lang}
+		months: $Lang{months}{$lc},
+		weekdays: $Lang{weekdays}{$lc}
 	}
 });
 
@@ -759,7 +757,7 @@ Highcharts.setOptions({
                 type: 'area'
             },
             title: {
-                text: '$Lang{products_stats}{$lang} - $country_name'
+                text: '$Lang{products_stats}{$lc} - $country_name'
             },
             subtitle: {
                 text: 'Source: <a href="https://$cc.$server_domain">'+
@@ -770,7 +768,7 @@ Highcharts.setOptions({
             },
             yAxis: {
                 title: {
-                    text: '$Lang{products}{$lang}'
+                    text: '$Lang{products}{$lc}'
                 },
                 labels: {
                     formatter: function() {
@@ -814,7 +812,7 @@ $meta
 HTML
 			;
 
-		my $stats_dir = "$BASE_DIRS{PUBLIC_DATA}/products_stats/$lang";
+		my $stats_dir = "$BASE_DIRS{PUBLIC_DATA}/products_stats/$lc";
 		print "products_stats - saving $stats_dir/products_stats_$cc.html\n";
 		ensure_dir_created_or_die($stats_dir);
 		if (open(my $OUT, ">:encoding(UTF-8)", "$stats_dir/products_stats_$cc.html")) {
@@ -855,9 +853,6 @@ foreach my $country (
 	keys %countries
 	)
 {
-
-	$lang = $lc;
-
 	my $series_start = $countries_dates{$country}{$date . ".start"};
 	my $series_end = $countries_dates{$country}{$date . ".end"};
 
@@ -896,7 +891,6 @@ HTML
 
 $series =~ s/,\n$//;
 
-$lang = 'en';
 $lc = 'en';
 
 my $html = <<HTML
@@ -907,7 +901,7 @@ my $html = <<HTML
                 type: 'area'
             },
             title: {
-                text: '$Lang{products_stats}{$lang}'
+                text: '$Lang{products_stats}{$lc}'
             },
             subtitle: {
                 text: 'Source: <a href="https://$server_domain">'+
@@ -921,7 +915,7 @@ my $html = <<HTML
             },
             yAxis: {
                 title: {
-                    text: '$Lang{products}{$lang}'
+                    text: '$Lang{products}{$lc}'
                 },
                 labels: {
                     formatter: function() {

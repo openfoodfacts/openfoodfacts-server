@@ -123,8 +123,6 @@ $formatted_subdomain = format_subdomain($subdomain);
 $header = "";
 $initjs = "";
 
-$lang = $lc;
-
 if ((not defined $cc) or (not defined $lc)) {
 	die("$usage\nError: Pass country code (or world) and language code as arguments.\n");
 }
