@@ -217,9 +217,7 @@ sub update_tags_fields ($request_ref, $product_ref, $field, $add_to_existing_tag
 		my $tags_list = join(',', @$value);
 
 		if ($remove_tags && ref($remove_tags) eq 'ARRAY') {
-			foreach my $tag (@$remove_tags) {
-				remove_tags_from_field($product_ref, $tags_lc, $field, $tag);
-			}
+			remove_tags_from_field($product_ref, $tags_lc, $field, $remove_tags);    #join(',', @$remove_tags)
 		}
 
 		if ($add_to_existing_tags) {
@@ -317,7 +315,10 @@ sub update_product_fields ($request_ref, $product_ref, $response_ref) {
 
 			my $add_to_existing_tags = $3;
 
-			update_tags_fields($request_ref, $product_ref, $tagtype, $add_to_existing_tags, $tags_lc, $value);
+			my $remove_tags = $request_body_ref->{remove_tags}; # Add this line to get remove_tags from the request body
+
+			update_tags_fields($request_ref, $product_ref, $tagtype, $add_to_existing_tags, $remove_tags, $tags_lc,
+				$value);
 		}
 		# Simple product fields
 		elsif (defined $product_simple_fields{$field}) {

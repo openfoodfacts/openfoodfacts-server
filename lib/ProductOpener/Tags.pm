@@ -109,6 +109,7 @@ BEGIN {
 
 		&compute_field_tags
 		&add_tags_to_field
+		&remove_tags_from_field
 
 		&init_tags_texts
 		&get_knowledge_content
@@ -4613,47 +4614,41 @@ sub add_tags_to_field ($product_ref, $tag_lc, $field, $additional_fields) {
 	return;
 }
 
-sub remove_tags_from_field($product_ref, $tag_lc, $field, $tags_to_remove) {
+sub remove_tags_from_field ($product_ref, $tag_lc, $field, $tags_to_remove) {
 
-	my %existing = ();
-	if (defined $product_ref->{$field . "_tags"}) {
-		foreach my $tagid (@{$product_ref->{$field . "_tags"}}) {
-			$existing{$tagid} = 1;
+	# Split the tags to remove string into separate tags
+	my @excluded_tags = split(/,\s*/, $tags_to_remove);
+
+	# Check if all tags should be removed
+	if (join(", ", sort @excluded_tags) eq $product_ref->{$field}) {
+		$product_ref->{$field} = "";    # Set field to empty string
+	}
+	else {
+		# Retrieve the current tags from the specified field
+		my $current_tags = $product_ref->{$field};
+
+		# Split the current tags into an array
+		my @tags = split(/,/, $current_tags);
+
+		# Initialize an array to store the modified tags
+		my @modified_tags;
+
+		# Iterate through the tags and remove the specified tags
+		foreach my $tag (@tags) {
+			$tag =~ s/^\s+|\s+$//g;  
+			unless (grep {$_ eq $tag} @excluded_tags) {
+				push @modified_tags, $tag;
+			}
 		}
+
+		# Update the field with the modified tag list
+		$product_ref->{$field} = join(", ", @modified_tags);
+		$product_ref->{$field} =~ s/^,\s*//;    # Remove leading comma and whitespaces
 	}
 
-	my @removed_tags = ();
-	my @tags_to_remove = split(/,/, $tags_to_remove);
-
-	foreach my $tag (@tags_to_remove) {
-
-		$tag =~ s/^\s+//;
-		$tag =~ s/\s+$//;
-
-		my $tagid;
-
-		if (defined $taxonomy_fields{$field}) {
-			$tagid = get_taxonomyid($tag_lc, canonicalize_taxonomy_tag($tag_lc, $field, $tag));
-		}
-		else {
-			$tagid = get_string_id_for_lang($tag_lc, $tag);
-		}
-		if (exists $existing{$tagid}) {
-			delete $existing{$tagid};
-			push @removed_tags, $tag;
-		}
-	}
-
-	if (scalar @removed_tags > 0) {
-
-		my $current_value = $product_ref->{$field};
-		$product_ref->{$field} = join(", ", values %existing);
-		compute_field_tags($product_ref, $tag_lc, $field);
-
-	}
+	compute_field_tags($product_ref, $tag_lc, $field);    # Recompute field tags if necessary
 
 	return;
-
 }
 
 sub compute_field_tags ($product_ref, $tag_lc, $field) {
