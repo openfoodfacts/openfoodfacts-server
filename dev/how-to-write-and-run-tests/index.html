@@ -1190,23 +1190,23 @@
 
 
 <h1 id="how-to-write-and-run-tests">How to write and run tests<a class="headerlink" href="#how-to-write-and-run-tests" title="Permanent link">#</a></h1>
-<p>If you are a developer you are really encouraged to write tests as you fix bug or develop new features.</p>
+<p>If you are a developer you are really encouraged to write tests as you fix bugs or develop new features.</p>
 <p>Having a test is also a good way to debug a particular piece of code.</p>
-<p>We would really love to see our test coverage augment.</p>
+<p>We would really love to see our test coverage grow.</p>
 <p>If you are new to tests, please read:</p>
 <ul>
-<li><a href="https://automationstepbystep.com/2020/05/02/what-is-a-test-pyramid/">something about test pyramid</a> to understand importance of unit tests and integration tests</li>
+<li><a href="https://automationstepbystep.com/2020/05/02/what-is-a-test-pyramid/">introduction to test pyramids</a> to understand importance of unit tests and integration tests</li>
 <li><a href="https://perldoc.perl.org/Test">perldoc on test</a></li>
 <li><a href="https://perldoc.perl.org/Test::More">Test::More module doc</a></li>
 </ul>
 <h2 id="helpers">Helpers<a class="headerlink" href="#helpers" title="Permanent link">#</a></h2>
-<p>We have some helpers for tests.</p>
+<p>We have some helper functions for tests.</p>
 <p>See mainly:</p>
 <ul>
 <li><a href="https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Test.html">Test.pm</a> (notably <code>init_expected_results</code> and <code>compare_to_expected_results</code>)</li>
 <li><a href="https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/APITest.html">APITest.pm</a></li>
 </ul>
-<p>and other modules with Test in their name !</p>
+<p>and other modules with Test in their name!</p>
 <h2 id="unit-and-integration-tests">Unit and Integration tests<a class="headerlink" href="#unit-and-integration-tests" title="Permanent link">#</a></h2>
 <p>Unit tests are located in <code>tests/unit/</code>.</p>
 <p>Integration tests are in <code>tests/integration/</code>.</p>
@@ -1215,51 +1215,51 @@
 <p>Using Makefile targets, tests are run </p>
 <ul>
 <li>with a specific `COMPOSE_PROJECT_NAME° to avoid crashing your development data while running tests (as the project name <a href="https://docs.docker.com/compose/environment-variables/envvars/#compose_project_name">changes container, network and volumes names</a>)</li>
-<li>with a specific expose port for Mongodb, to avoid clashes with dev instance.</li>
+<li>with a specific exposed port for Mongodb, to avoid clashes with the dev instance.</li>
 </ul>
 <h2 id="writing-tests">Writing tests<a class="headerlink" href="#writing-tests" title="Permanent link">#</a></h2>
-<p>You can read other tests to understand how we write them (inspire yourself from recently created tests).</p>
+<p>You can read other tests to understand how we write them (get inspiration from recently created tests).</p>
 <p>One effective way is to create a list of tests each represented by a hashmap with inputs and expected outputs and run them in a loop. Add an <code>id</code> and/or a <code>desc</code> (description) and use it as last argument to check functions (like <code>ok</code>, <code>is</code>, …) to easily see tests running and identify failing tests.</p>
 <h3 id="using-json-files-to-save-expected-results-of-tests">Using JSON files to save expected results of tests<a class="headerlink" href="#using-json-files-to-save-expected-results-of-tests" title="Permanent link">#</a></h3>
 <p>If the output of the function you are testing is small (e.g. a function that returns one single value), the expected return value can be stored in the .t test file.</p>
-<p>If your outputs are complex and/or large (e.g. for unit tests of functions that return a complex structure, or for API integration tests that return a JSON response), you can use json files to save the expected result of each test, stored on disk. </p>
+<p>If your outputs are complex and/or large (e.g. for unit tests of functions that return a complex structure, or for API integration tests that return a JSON response), you can use json files to store the expected result of each test. </p>
 <p><a href="https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Test.html">Test.pm</a> contains helper functions to compare results to expected results and to update the expected results. For instance if your function returns a reference $results_ref to a complex object (like a product):</p>
 <p><code>compare_to_expected_results($results_ref, "$expected_result_dir/$testid.json", $update_expected_results);</code></p>
-<p>After writing the test, you need to use once <code>init_expected_results</code> (see below) to create a JSON file that contains the resulting object.</p>
+<p>After writing the test, you need to use <code>init_expected_results</code> (see below) once to create a JSON file that contains the resulting object.</p>
 <p>Then the next time you run the test, the results will be compared to the stored expected results.</p>
-<p>You can also use <code>init_expected_results</code> to generate new expected results file and easily what has changed using it <code>git diff</code>. If the changes are expected, you can commit the new expected results.</p>
+<p>You can also use <code>init_expected_results</code> to generate new expected results file and easily see what has changed using <code>git diff</code>. If the changes are expected, you can commit the new expected results.</p>
 <h2 id="running-tests">Running tests<a class="headerlink" href="#running-tests" title="Permanent link">#</a></h2>
-<p>The best way to run all test is to run:</p>
+<p>The best way to run all tests is to run:</p>
 <div class="highlight"><pre><span></span><code>make<span class="w"> </span>tests
 </code></pre></div>
 <p>To run a single test you can use:</p>
 <ul>
-<li>for unit test:
+<li>for a unit test:
    <div class="highlight"><pre><span></span><code>make<span class="w"> </span>test-unit<span class="w"> </span><span class="nv">test</span><span class="o">=</span><span class="s2">&quot;filename.t&quot;</span>
 </code></pre></div></li>
-<li>for integration test:
+<li>for an integration test:
    <div class="highlight"><pre><span></span><code>make<span class="w"> </span>test-int<span class="w"> </span><span class="nv">test</span><span class="o">=</span><span class="s2">&quot;filename.t&quot;</span>
 </code></pre></div></li>
 </ul>
-<p>If you made change that impact stored expected results, you can use:</p>
+<p>If you made a change that affects stored expected results, you can use:</p>
 <ul>
-<li>to re-generate all expected results:
+<li>to regenerate all expected results:
   <div class="highlight"><pre><span></span><code>make<span class="w"> </span>update_tests_results
 </code></pre></div></li>
 <li>or to generate expected results for a single test
-  (here for integration test, <code>test-unit</code> otherwise)
+  (here for an integration test, <code>test-unit</code> otherwise)
   <div class="highlight"><pre><span></span><code>make<span class="w"> </span>test-int<span class="w"> </span><span class="nv">test</span><span class="o">=</span><span class="s2">&quot;filename.t --update-expected-results&quot;</span>
 </code></pre></div></li>
 </ul>
-<p>If you re-generate test results, be sure to look carefully that the changes your commit are expected changes.</p>
+<p>If you regenerate test results, be sure to check carefully that the changes in your commit are expected.</p>
 <h2 id="debugging-with-tests">Debugging with tests<a class="headerlink" href="#debugging-with-tests" title="Permanent link">#</a></h2>
 <p>Launching a test is a very effective way to understand what's going on in the code using the debugger.</p>
 <p>This is done calling the test with <code>perl -d</code>.
 You can also use "args" argument with make target:</p>
 <div class="highlight"><pre><span></span><code>make<span class="w"> </span>test-unit<span class="w"> </span><span class="nv">test</span><span class="o">=</span><span class="s2">&quot;my-test.t&quot;</span><span class="w"> </span><span class="nv">args</span><span class="o">=</span><span class="s2">&quot;-d&quot;</span>
 </code></pre></div>
-<p>Most of the time, you will have to use the next command "n" four times, before landing in you test, where you can easily set a breakpoint with <code>b &lt;line-number&gt;</code>.</p>
-<p>Read <a href="https://perldoc.perl.org/perldebug">perldoc about debugger</a> to learn. more.</p>
+<p>Most often, you will have to use the next command "n" four times, before landing in you test, where you can easily set a breakpoint with <code>b &lt;line-number&gt;</code>.</p>
+<p>Read <a href="https://perldoc.perl.org/perldebug">perldoc about debugger</a> to learn more.</p>
 <blockquote>
 <p>:pencil: Note: With this explanation, in integration tests that issue requests to the server, you won't be able to run the debugger inside the server code, only in the test.</p>
 </blockquote>
