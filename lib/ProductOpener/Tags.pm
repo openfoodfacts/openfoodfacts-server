@@ -181,7 +181,6 @@ use vars @EXPORT_OK;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/:all/;
-use ProductOpener::TagsEntries qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Text qw/:all/;
 use ProductOpener::PackagerCodes qw/:all/;
@@ -3401,25 +3400,7 @@ sub canonicalize_tag2 ($tagtype, $tag) {
 
 	$tag = $canon_tag;
 
-	if (($tagtype ne "additives_debug") and ($tagtype =~ /^additives(|_prev|_next|_debug)$/)) {
-
-		# e322-lecithines -> e322
-		my $tagid = get_string_id_for_lang($lc, $tag);
-		$tagid =~ s/-.*//;
-		my $other_name = $ingredients_classes{$tagtype}{$tagid}{other_names};
-		$other_name =~ s/,.*//;
-		if ($other_name ne '') {
-			$other_name = " - " . $other_name;
-		}
-		$tag = ucfirst($tagid) . $other_name;
-	}
-
-	elsif (($tagtype eq 'ingredients_from_palm_oil') or ($tagtype eq 'ingredients_that_may_be_from_palm_oil')) {
-		my $tagid = get_string_id_for_lang($lc, $tag);
-		$tag = $ingredients_classes{$tagtype}{$tagid}{name};
-	}
-
-	elsif ($tagtype eq 'emb_codes') {
+	if ($tagtype eq 'emb_codes') {
 
 		$tag = uc($tag);
 
@@ -3434,7 +3415,6 @@ sub canonicalize_tag2 ($tagtype, $tag) {
 	}
 
 	return $tag;
-
 }
 
 sub get_taxonomyid ($tag_lc, $tagid) {
