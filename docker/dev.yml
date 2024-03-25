@@ -5,6 +5,8 @@ x-backend-conf: &backend-conf
   build:
     context: .
     dockerfile: Dockerfile
+    cache_from:
+      - ghcr.io/openfoodfacts/openfoodfacts-server/backend:buildcache
     # align user id
     args:
       USER_UID: ${USER_UID:-1000}
@@ -51,6 +53,8 @@ services:
     image: openfoodfacts-server/dynamicfront:dev
     build:
       context: .
+      cache_from:
+        - ghcr.io/openfoodfacts/openfoodfacts-server/frontend:buildcache
       target: builder
       dockerfile: Dockerfile.frontend
       args:
@@ -73,6 +77,8 @@ services:
     image: openfoodfacts-server/frontend:dev
     build:
       context: .
+      cache_from:
+        - ghcr.io/openfoodfacts/openfoodfacts-server/frontend:buildcache
       dockerfile: Dockerfile.frontend
       args:
         USER_UID: ${USER_UID:-1000}
