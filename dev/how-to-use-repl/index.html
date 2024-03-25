@@ -1114,7 +1114,6 @@ comes with <a href="https://metacpan.org/pod/Devel::REPL">Devel::REPL</a> instal
 <p>This is a handy package to try out perl expressions and learn.</p>
 <p>Thanks to <code>PERL5LIB</code> variable which is already configured,
 you can load any module of <code>ProductOpener</code> from within it.</p>
-<p>Also it as the right</p>
 <h2 id="launch-repl">Launch Repl<a class="headerlink" href="#launch-repl" title="Permanent link">#</a></h2>
 <p>Just run</p>
 <div class="highlight"><pre><span></span><code>docker compose run --rm backend re.pl
@@ -1135,7 +1134,7 @@ or seeing how they react.</p>
 <span class="n">World</span>
 </code></pre></div>
 <h2 id="reading-a-sto">Reading a sto<a class="headerlink" href="#reading-a-sto" title="Permanent link">#</a></h2>
-<p>Another use case is reading a sto file to see what it contains.</p>
+<p>Another use case is reading a <code>.sto</code> file to see what it contains.</p>
 <p>Eg. for a user:</p>
 <div class="highlight"><pre><span></span><code><span class="nv">$</span><span class="w"> </span><span class="nv">use</span><span class="w"> </span><span class="nn">ProductOpener::</span><span class="n">Store</span><span class="w"> </span><span class="sx">qw/:all/</span><span class="p">;</span>
 <span class="nv">$</span><span class="w"> </span><span class="nv">my</span><span class="w"> </span><span class="nv">$product_ref</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">retrieve</span><span class="p">(</span><span class="s">&quot;/mnt/podata/products/007/107/917/0260/product.sto&quot;</span><span class="p">);</span>
