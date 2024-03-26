@@ -914,6 +914,7 @@ Checkbot:
   - any-glob-to-any-file: 'scripts/make_user_moderator.pl'
   - any-glob-to-any-file: 'tests/integration/delete_user.t'
 
+
 # Enabling users to delete account while preserving accountability for edits
 # By default we don't delete products belonging to the user. It only happens for potential spam accounts.
 Account deletion:
@@ -1160,11 +1161,6 @@ Static content:
 matomo:
 - changed-files:
   - any-glob-to-any-file: 'scripts/utils/logs/download_matomo_logs.pl'
-
-Countries:
-- changed-files:
-  - any-glob-to-any-file: 'cgi/countries.pl'
-  # Not actively used anymore, it is believed
 
 Countries:
 - changed-files:

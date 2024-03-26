@@ -92,6 +92,7 @@ sub load_data() {
 }
 
 if ($ENV{PO_EAGER_LOAD_DATA}) {
+	# in test we want to be sure to load data eagerly
 	load_data();
 }
 

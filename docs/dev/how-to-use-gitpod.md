@@ -59,9 +59,11 @@ on http://openfoodfacts.localhost just as documented in the quickstart guide!
 
 **Remark:** for some Linux distributions, port 80 is reserved. A workaround is to switch to port 8080: in gitpod, open the .env file and replace the line PRODUCT_OPENER_PORT=80 by PRODUCT_OPENER_PORT=8080, then replace -L 80:localhost:80 by -L 8080:localhost:8080. **Rollback the changes on .env before making a pull request!**
 
-**Remark:** on MacOS or Linux, when trying to bind, you might see a bind fail. Remember that any port below 1024 is reserved for the root user. You might want to add `sudo` just before the ssh command.
+**Remark:** on MacOS or Linux, when trying to bind, you might see a bind fail. Remember that any port below 1024 is reserved for the root user.
+* The easiest fix is to add `sudo` just before the ssh command.
+* Another way is to switch to port 8080: in gitpod, open the .env file (or better [user direnv](./how-to-use-direnv.md)) and change PRODUCT_OPENER_PORT=80 by PRODUCT_OPENER_PORT=8080, then replace `-L 80:localhost:80` by `-L 8080:localhost:8080` in the ssh command and connect to world.openfoodfacts.localhost:8080. **Rollback the changes on .env before making a pull request!**
 
-**Remark:** the address to connect with ssh can change after few days. If you get a ```Connection closed by ... port 22``` simply go back to https://gitpod.io/workspaces and copy the new address.  
+**Remark:** the address to connect with ssh can change after a few days. If you get a ```Connection closed by ... port 22``` simply go back to https://gitpod.io/workspaces and copy the new address.  
 
 **Remark:** if you load the page after some changes but get a ```502 Bad Gateway```, check again your code. Something may be wrong with it. Just in case, try commenting out the part you just coded to see if it works. 
 
