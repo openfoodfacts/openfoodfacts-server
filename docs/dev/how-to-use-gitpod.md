@@ -1,8 +1,8 @@
-# How to using Gitpod for Remote Development
+# How to use Gitpod for Remote Development
 
 If your computer performance restricts you from developing, you can use [Gitpod](https://gitpod.io). 
-Gitpod allows you to do the devs on an ephemeral environment. It is free for a maximum of 500 credits or 
-50 hours per months (https://www.gitpod.io/pricing).
+Gitpod allows you to do the devs on an ephemeral environment. It is free up to
+50 hours per month (https://www.gitpod.io/pricing).
 
 Gitpod provides a robust ready-to-code developer environment in the cloud eliminating the friction
 of setting up local environments and IDEs with Perl, Docker and plugins, making it possible for even new contributors to
@@ -14,7 +14,7 @@ similar.
 
 For the most part, development on Gitpod is similar to developing locally as documented
 in the [quickstart guide](how-to-quick-start-guide.md)
-and [docker-developer-guide](how-to-develop-using-docker.md), however accessing your dev-deployment of
+and [docker-developer-guide](how-to-develop-using-docker.md); however accessing your dev-deployment of
 `openfoodfacts-server` requires an extra step.
 
 ## Connect GitHub and Gitpod
@@ -38,11 +38,11 @@ Once the repository is open in Gitpod, other instructions in the
 
 ## Accessing your development instance of openfoodfacts-server
 
-Since Gitpod runs your code in a remote machine, your dev-deployment spun up with `make dev` or `make up` will not
-accessible when you open the default http://openfoodfacts.localhost in your browser. This occurs because the server
+Since Gitpod runs your code in a remote machine, your dev-deployment spun up with `make dev` or `make up` is not
+accessible when you open the default http://openfoodfacts.localhost in your browser. This happens because the server
 running on the remote machine is not accessible on your local network interface.
 
-To overcome this, we can make use of SSH tunnel that listens to your local port 80 and forwards traffic to the port 80
+To overcome this, we can use a SSH tunnel that listens to your local port 80 and forwards traffic to port 80
 of the remote machine. Gitpod makes it really simple to SSH into your dev environment by letting you copy the `ssh`
 command required to reach your remote environment. To start, follow the ssh instructions on Gitpod's official
 guide: [SSH for workspaces as easy as copy/paste][gitpod-ssh-guide]. 
@@ -55,15 +55,15 @@ on http://openfoodfacts.localhost just as documented in the quickstart guide!
 [gitpod-ssh-guide]: https://www.gitpod.io/blog/copy-paste-ssh-workspace-access
 [github-codespaces]: https://github.com/features/codespaces
 
-**Remark:** for some Linux distributions, the port 80 is reserved. A workaround is to switch to port 8080: in gitpod, open the .env file and replace the line PRODUCT_OPENER_PORT=80 by PRODUCT_OPENER_PORT=8080, then replace -L 80:localhost:80 by -L 8080:localhost:8080. **Rollback the changes on .env before to make a pull request!***  
-
 **Remark:** you will need to trust the fingerprint at first connection. 
+
+**Remark:** for some Linux distributions, port 80 is reserved. A workaround is to switch to port 8080: in gitpod, open the .env file and replace the line PRODUCT_OPENER_PORT=80 by PRODUCT_OPENER_PORT=8080, then replace -L 80:localhost:80 by -L 8080:localhost:8080. **Rollback the changes on .env before making a pull request!**
 
 **Remark:** on MacOS or Linux, when trying to bind, you might see a bind fail. Remember that any port below 1024 is reserved for the root user. You might want to add `sudo` just before the ssh command.
 
 **Remark:** the address to connect with ssh can change after few days. If you get a ```Connection closed by ... port 22``` simply go back to https://gitpod.io/workspaces and copy the new address.  
 
-**Remark:** if you load the page after some changes but get a ```502 Bad Gateway``` check again your code. Something may be wrong with it. Eventually, try to comment the part you just coded to see if it works. 
+**Remark:** if you load the page after some changes but get a ```502 Bad Gateway```, check again your code. Something may be wrong with it. Just in case, try commenting out the part you just coded to see if it works. 
 
 Create an account to be able to edit products.
 
