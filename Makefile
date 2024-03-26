@@ -16,7 +16,7 @@ OS := $(shell uname)
 
 # mount point for shared data (default to the one on staging)
 NFS_VOLUMES_ADDRESS ?= 10.0.0.3
-NFS_VOLUMES_BASE_PATH ?= /rpool/off/clones
+NFS_VOLUMES_BASE_PATH ?= /rpool/staging-clones
 
 export DOCKER_BUILDKIT=1
 export COMPOSE_DOCKER_CLI_BUILD=1
@@ -193,7 +193,7 @@ reset_owner:
 	${DOCKER_COMPOSE_TEST} run --rm --no-deps --user root backend chown www-data:www-data -R /opt/product-opener/ /mnt/podata /var/log/apache2 /var/log/httpd  || true
 	${DOCKER_COMPOSE_TEST} run --rm --no-deps --user root frontend chown www-data:www-data -R /opt/product-opener/html/images/icons/dist /opt/product-opener/html/js/dist /opt/product-opener/html/css/dist
 
-init_backend: build_lang build_taxonomies
+init_backend: build_taxonomies build_lang
 
 create_mongodb_indexes:
 	@echo "🥫 Creating MongoDB indexes …"
@@ -219,6 +219,12 @@ import_prod_data:
 	@echo "🥫 Removing old archive in case you have one"
 	( rm -f ./html/data/openfoodfacts-mongodbdump.gz || true ) && ( rm -f ./html/data/gz-sha256sum || true )
 	@echo "🥫 Downloading full MongoDB dump from production …"
+# verify we got sufficient space, NEEDED is in octet, LEFT in ko, we normalize to MB and NEEDED is multiplied by two (because it also will be imported)
+	NEEDED=$$(curl -s --head https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.gz|grep -i content-length: |cut -d ":" -f 2|tr -d " \r\n\t"); \
+	  LEFT=$$(df . -k --output=avail |tail -n 1); \
+	  NEEDED=$$(($$NEEDED/1048576 * 2)); \
+	  LEFT=$$(($$LEFT/1024)); \
+	  if [[ $$LEFT -lt $$NEEDED ]]; then >&2 echo "NOT ENOUGH SPACE LEFT ON DEVICE: $$NEEDED MB > $$LEFT MB"; exit 1; fi
 	wget --no-verbose https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.gz -P ./html/data
 	wget --no-verbose https://static.openfoodfacts.org/data/gz-sha256sum -P ./html/data
 	cd ./html/data && sha256sum --check gz-sha256sum
@@ -246,7 +252,7 @@ checks: front_build front_lint check_perltidy check_perl_fast check_critic
 lint: lint_perltidy
 # TODO: add lint_taxonomies when taxonomies ready
 
-tests: build_lang_test unit_test integration_test
+tests: build_taxonomies_test build_lang_test unit_test integration_test
 
 # add COVER_OPTS='-e HARNESS_PERL_SWITCHES="-MDevel::Cover"' if you want to trigger code coverage report generation
 unit_test: create_folders
@@ -297,7 +303,7 @@ stop_tests:
 clean_tests:
 	${DOCKER_COMPOSE_TEST} down -v --remove-orphans
 
-update_tests_results: build_lang_test
+update_tests_results: build_taxonomies_test build_lang_test
 	@echo "🥫 Updated expected test results with actuals for easy Git diff"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb backend dynamicfront incron
 	${DOCKER_COMPOSE_TEST} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl ${name}
@@ -336,10 +342,7 @@ check_translations:
 # check all perl files compile (takes time, but needed to check a function rename did not break another module !)
 check_perl:
 	@echo "🥫 Checking all perl files"
-	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
-	${DOCKER_COMPOSE_TEST} run --rm --no-deps backend make -j ${CPU_COUNT} cgi/*.pl scripts/*.pl lib/*.pl lib/ProductOpener/*.pm
-	${DOCKER_COMPOSE_TEST} stop
-
+	${DOCKER_COMPOSE} run --rm --no-deps backend make -j ${CPU_COUNT} cgi/*.pl scripts/*.pl lib/*.pl lib/ProductOpener/*.pm
 
 # check with perltidy
 # we exclude files that are in .perltidy_excludes
@@ -356,6 +359,8 @@ lint_perltidy:
 
 #Checking with Perl::Critic
 # adding an echo of search.pl in case no files are edited
+# note: to run a complete critic on all files (when you change policy), use:
+# find . -regex ".*\.\(p[lM]\|t\)"|grep -v "/\."|grep -v "/obsolete/"|xargs docker compose run --rm --no-deps -T backend perlcritic
 check_critic:
 	@echo "🥫 Checking with perlcritic"
 	test -z "${TO_CHECK}" || ${DOCKER_COMPOSE} run --rm --no-deps backend perlcritic ${TO_CHECK}
@@ -389,25 +394,42 @@ check_openapi: check_openapi_v2 check_openapi_v3
 # Compilation #
 #-------------#
 
-build_taxonomies: build_lang # build_lang generates the nutrient_level taxonomy source file
+build_taxonomies: create_folders
 	@echo "🥫 build taxonomies"
     # GITHUB_TOKEN might be empty, but if it's a valid token it enables pushing taxonomies to build cache repository
 	${DOCKER_COMPOSE} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl ${name}
 
 rebuild_taxonomies: build_taxonomies
 
+build_taxonomies_test: create_folders
+	@echo "🥫 build taxonomies"
+    # GITHUB_TOKEN might be empty, but if it's a valid token it enables pushing taxonomies to build cache repository
+	${DOCKER_COMPOSE_TEST} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl ${name}
+
+
+_clean_old_external_volumes:
+# THIS IS A MIGRATION STEP, TO BE REMOVED IN THE FUTURE
+# we need to stop dockers to remove old volumes
+	( docker volume inspect ${COMPOSE_PROJECT_NAME}_{users,orgs,products,product_images} | grep /rpool/off/clones && docker compose down ) || true
+	( docker volume inspect ${COMPOSE_PROJECT_NAME}_users|grep /rpool/off/clones && docker volume rm ${COMPOSE_PROJECT_NAME}_users ) || true
+	( docker volume inspect ${COMPOSE_PROJECT_NAME}_orgs|grep /rpool/off/clones && docker volume rm ${COMPOSE_PROJECT_NAME}_orgs ) || true
+	( docker volume inspect ${COMPOSE_PROJECT_NAME}_products|grep /rpool/off/clones && docker volume rm ${COMPOSE_PROJECT_NAME}_products ) || true
+	( docker volume inspect ${COMPOSE_PROJECT_NAME}_product_images|grep /rpool/off/clones && docker volume rm ${COMPOSE_PROJECT_NAME}_product_images ) || true
+
 #------------#
 # Production #
 #------------#
-create_external_volumes:
+create_external_volumes: _clean_old_external_volumes
 	@echo "🥫 Creating external volumes (production only) …"
 # zfs clones hosted on Ovh3 as NFS
+	[[ -n "${PRODUCT_OPENER_FLAVOR_SHORT}" ]] || (echo "🥫 PRODUCT_OPENER_FLAVOR_SHORT is not set, can't create external volumes" && exit 1)
 	docker volume create --driver=local --opt type=nfs --opt o=addr=${NFS_VOLUMES_ADDRESS},rw,nolock --opt device=:${NFS_VOLUMES_BASE_PATH}/users ${COMPOSE_PROJECT_NAME}_users
-	docker volume create --driver=local --opt type=nfs --opt o=addr=${NFS_VOLUMES_ADDRESS},rw,nolock --opt device=:${NFS_VOLUMES_BASE_PATH}/products ${COMPOSE_PROJECT_NAME}_products
-	docker volume create --driver=local --opt type=nfs --opt o=addr=${NFS_VOLUMES_ADDRESS},rw,nolock --opt device=:${NFS_VOLUMES_BASE_PATH}/images/products ${COMPOSE_PROJECT_NAME}_product_images
+	docker volume create --driver=local --opt type=nfs --opt o=addr=${NFS_VOLUMES_ADDRESS},rw,nolock --opt device=:${NFS_VOLUMES_BASE_PATH}/${PRODUCT_OPENER_FLAVOR_SHORT}-products ${COMPOSE_PROJECT_NAME}_products
+	docker volume create --driver=local --opt type=nfs --opt o=addr=${NFS_VOLUMES_ADDRESS},rw,nolock --opt device=:${NFS_VOLUMES_BASE_PATH}/${PRODUCT_OPENER_FLAVOR_SHORT}-images/products ${COMPOSE_PROJECT_NAME}_product_images
 	docker volume create --driver=local --opt type=nfs --opt o=addr=${NFS_VOLUMES_ADDRESS},rw,nolock --opt device=:${NFS_VOLUMES_BASE_PATH}/orgs ${COMPOSE_PROJECT_NAME}_orgs
 # local data
 	docker volume create --driver=local -o type=none -o o=bind -o device=${DOCKER_LOCAL_DATA}/data ${COMPOSE_PROJECT_NAME}_html_data
+	docker volume create --driver=local -o type=none -o o=bind -o device=${DOCKER_LOCAL_DATA}/build_cache ${COMPOSE_PROJECT_NAME}_build_cache
 	docker volume create --driver=local -o type=none -o o=bind -o device=${DOCKER_LOCAL_DATA}/podata ${COMPOSE_PROJECT_NAME}_podata
 # note for this one, it should be shared with pro instance in the future
 	docker volume create --driver=local -o type=none -o o=bind -o device=${DOCKER_LOCAL_DATA}/export_files ${COMPOSE_PROJECT_NAME}_export_files

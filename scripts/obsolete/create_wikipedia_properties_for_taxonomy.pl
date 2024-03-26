@@ -24,11 +24,12 @@ use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Store qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Config qw/:all/;
 
 # tmx files contain translations from the EU laws
 
-my $wikipedia_file = "$data_root/taxonomies/off/additives/additives.wikipedia.txt";
+my $wikipedia_file = "$BASE_DIRS{TAXONOMIES_SRC}/old/off/additives/additives.wikipedia.txt";
 
 open(my $IN, "<:encoding(UTF-8)", $wikipedia_file) or die("Could not open $wikipedia_file: $!");
 
