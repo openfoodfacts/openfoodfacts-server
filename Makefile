@@ -359,6 +359,8 @@ lint_perltidy:
 
 #Checking with Perl::Critic
 # adding an echo of search.pl in case no files are edited
+# note: to run a complete critic on all files (when you change policy), use:
+# find . -regex ".*\.\(p[lM]\|t\)"|grep -v "/\."|grep -v "/obsolete/"|xargs docker compose run --rm --no-deps -T backend perlcritic
 check_critic:
 	@echo "🥫 Checking with perlcritic"
 	test -z "${TO_CHECK}" || ${DOCKER_COMPOSE} run --rm --no-deps backend perlcritic ${TO_CHECK}
