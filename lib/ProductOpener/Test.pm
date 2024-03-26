@@ -35,7 +35,6 @@ BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		&capture_ouputs
-		&compare_arr
 		&ensure_expected_results_dir
 		&compare_file_to_expected_results
 		&compare_to_expected_results
@@ -51,7 +50,6 @@ BEGIN {
 		&remove_all_products
 		&remove_all_users
 		&remove_all_orgs
-		&check_not_production
 		&wait_for
 		&read_gzip_file
 		&check_ocr_result
@@ -64,7 +62,7 @@ use vars @EXPORT_OK;
 use IO::Capture::Stdout::Extended;
 use IO::Capture::Stderr::Extended;
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Data qw/execute_query get_products_collection/;
 use ProductOpener::Store "store";
 

@@ -16,8 +16,7 @@ binmode $builder->todo_output, ":encoding(utf8)";
 use Log::Any::Adapter 'TAP', filter => 'trace';
 
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::TagsEntries qw/:all/;
-use ProductOpener::Ingredients qw/:all/;
+use ProductOpener::Ingredients qw/parse_ingredients_text_service/;
 
 # dummy product for testing
 

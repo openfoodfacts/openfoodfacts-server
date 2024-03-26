@@ -10,8 +10,7 @@ use Test::More;
 use Log::Any::Adapter 'TAP', filter => 'trace';
 
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::TagsEntries qw/:all/;
-use ProductOpener::Ingredients qw/:all/;
+use ProductOpener::Ingredients qw/parse_ingredients_text_service/;
 
 # dummy product for testing
 
@@ -162,7 +161,10 @@ my @tests = (
 	],
 
 	[
-		{lc => "fr", ingredients_text => "Teneur en légumes : 74 % : tomate (60 %, Espagne) eau, Sel (France, Italie)"},
+		{
+			lc => "fr",
+			ingredients_text => "Teneur en légumes : 74 % : tomate (60 %, Espagne) eau, Sel (France, Italie)"
+		},
 		[
 			{
 				'id' => "fr:teneur-en-legumes",
@@ -305,7 +307,10 @@ my @tests = (
 	],
 
 	[
-		{lc => "fr", ingredients_text => "minéraux (carbonate de calcium, carbonate de magnésium, fer élémentaire)"},
+		{
+			lc => "fr",
+			ingredients_text => "minéraux (carbonate de calcium, carbonate de magnésium, fer élémentaire)"
+		},
 		[
 			{
 				'id' => 'en:minerals',
