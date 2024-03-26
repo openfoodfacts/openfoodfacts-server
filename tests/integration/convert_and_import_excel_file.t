@@ -18,7 +18,7 @@ use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Products "retrieve_product";
 use ProductOpener::Store "store";
 use ProductOpener::Test qw/:all/;
-use ProductOpener::LoadData qw/:all/;
+use ProductOpener::LoadData qw/load_data/;
 
 load_data();
 

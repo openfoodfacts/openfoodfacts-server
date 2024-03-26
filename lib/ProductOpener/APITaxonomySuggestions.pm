@@ -44,11 +44,11 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Display qw/:all/;
-use ProductOpener::Tags qw/:all/;
+use ProductOpener::Display qw/request_param/;
+use ProductOpener::Tags qw/%taxonomy_fields/;
 use ProductOpener::Lang qw/:all/;
-use ProductOpener::TaxonomySuggestions qw/:all/;
-use ProductOpener::API qw/:all/;
+use ProductOpener::TaxonomySuggestions qw/get_taxonomy_suggestions_with_synonyms/;
+use ProductOpener::API qw/add_error/;
 
 use Encode;
 

@@ -25,11 +25,11 @@ use ProductOpener::PerlStandards;
 use CGI::Carp qw(fatalsToBrowser);
 use CGI qw/:cgi :form escapeHTML/;
 
-use ProductOpener::Lang qw/:all/;
-use ProductOpener::Display qw/:all/;
-use ProductOpener::HTTP qw/:all/;
-use ProductOpener::Food qw/:all/;
-use ProductOpener::Tags qw/:all/;
+use ProductOpener::Lang qw/$lc/;
+use ProductOpener::Display qw/$nutriment_table init_request/;
+use ProductOpener::HTTP qw/write_cors_headers/;
+use ProductOpener::Food qw/%nutriments_tables/;
+use ProductOpener::Tags qw/display_taxonomy_tag get_property/;
 
 use Log::Any qw($log);
 use CGI qw/:cgi :form escapeHTML/;

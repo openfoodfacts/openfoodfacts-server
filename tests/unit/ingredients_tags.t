@@ -7,8 +7,8 @@ use Test::More;
 use Log::Any::Adapter 'TAP';
 #use Log::Any::Adapter 'TAP', filter => "none";
 
-use ProductOpener::Tags qw/:all/;
-use ProductOpener::Ingredients qw/:all/;
+use ProductOpener::Tags qw/canonicalize_taxonomy_tag exists_taxonomy_tag init_emb_codes/;
+use ProductOpener::Ingredients qw/extract_ingredients_from_text/;
 
 init_emb_codes();
 
@@ -43,12 +43,15 @@ my @tests = (
 				"Eau minérale naturelle Volvic (96%), sucre (3,7%), acidifiant : acide citrique, arôme naturel​, extraits de thé (0,02%)"
 		},
 		[
-			"en:volvic-natural-mineral-water", "en:sugar", "en:acid", "en:natural-flavouring", "en:tea-extract",
-			"en:e330"
+			"en:volvic-natural-mineral-water", "en:sugar", "en:acid", "en:natural-flavouring",
+			"en:tea-extract", "en:e330"
 		],
 	],
 	[
-		{lc => "fr", ingredients_text => "jus de pomme, eau, sucre. Traces possibles de céleri, moutarde et gluten."},
+		{
+			lc => "fr",
+			ingredients_text => "jus de pomme, eau, sucre. Traces possibles de céleri, moutarde et gluten."
+		},
 		["en:apple-juice", "en:water", "en:sugar"],
 	],
 	[
@@ -56,12 +59,18 @@ my @tests = (
 		["en:superior-quality-durum-wheat-semolina"],
 	],
 	[
-		{lc => "fr", ingredients_text => "100 % semoule de BLE dur de qualité supérieure Traces éventuelles d'oeufs"},
+		{
+			lc => "fr",
+			ingredients_text => "100 % semoule de BLE dur de qualité supérieure Traces éventuelles d'oeufs"
+		},
 		["en:superior-quality-durum-wheat-semolina",],
 	],
 	[{lc => "fr", ingredients_text => "Eau. Traces possibles d'oeuf et de moutarde"}, ["en:water"],],
 	[
-		{lc => "fr", ingredients_text => "jus de pomme, eau, sucre, Traces possibles d'oeuf, de moutarde et gluten."},
+		{
+			lc => "fr",
+			ingredients_text => "jus de pomme, eau, sucre, Traces possibles d'oeuf, de moutarde et gluten."
+		},
 		["en:apple-juice", "en:water", "en:sugar"],
 	],
 	[{lc => "fr", ingredients_text => "Traces de moutarde"}, [],],
@@ -203,7 +212,10 @@ my @tests = (
 		["en:strawberry"]
 	],
 	[
-		{lc => "en", ingredients_text => "Apples. Contains: milk, nuts and mustard. May contains traces of celery."},
+		{
+			lc => "en",
+			ingredients_text => "Apples. Contains: milk, nuts and mustard. May contains traces of celery."
+		},
 		["en:apple"]
 	],
 
@@ -244,7 +256,10 @@ my @tests = (
 
 	# removal of "allergy advice..." in %ignore_regexps
 	[
-		{lc => "en", ingredients_text => "salt, spice. allergy advice! for allergens, see ingredients in bold, water."},
+		{
+			lc => "en",
+			ingredients_text => "salt, spice. allergy advice! for allergens, see ingredients in bold, water."
+		},
 		['en:salt', 'en:spice', 'en:water']
 	],
 	[

@@ -49,8 +49,8 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Tags qw/:all/;
-use ProductOpener::NutritionCiqual qw/:all/;
+use ProductOpener::Tags qw/get_inherited_property/;
+use ProductOpener::NutritionCiqual qw/%ciqual_data/;
 
 use Data::DeepAccess qw(deep_get deep_set deep_exists);
 

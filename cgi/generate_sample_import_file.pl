@@ -28,13 +28,13 @@ binmode(STDERR, ":encoding(UTF-8)");
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Display qw/:all/;
+use ProductOpener::Display qw/init_request/;
 use ProductOpener::Users qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Lang qw/$lc lang/;
 use ProductOpener::Mail qw/:all/;
-use ProductOpener::Producers qw/:all/;
-use ProductOpener::Tags qw/:all/;
-use ProductOpener::Food qw/:all/;
+use ProductOpener::Producers qw/generate_import_export_columns_groups_for_select2/;
+use ProductOpener::Tags qw/%language_fields %tags_fields/;
+use ProductOpener::Food qw/default_unit_for_nid/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
