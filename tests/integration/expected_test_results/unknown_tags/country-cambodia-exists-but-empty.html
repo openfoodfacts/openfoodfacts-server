@@ -4,13 +4,13 @@
 <html class="no-js" lang="en" data-serverdomain="openfoodfacts.localhost" dir="ltr">
 <head>
     <meta charset="utf-8">
-    <title>List of brands - World</title>
+    <title>Cambodia</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta property="fb:app_id" content="219331381518041">
     <meta property="og:type" content="food">
     <meta property="og:title" content="">
-    <meta property="og:url" content="http://world.openfoodfacts.localhost/brands">
+    <meta property="og:url" content="http://world.openfoodfacts.localhost/country/en:cambodia">
     
     <meta property="og:image" content="https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png">
     <meta property="og:description" content="">
@@ -27,13 +27,12 @@
 <meta name="apple-itunes-app" content="app-id=588797948">
 <meta name="flattr:id" content="dw637l">
 
-    <link rel="canonical" href="http://world.openfoodfacts.localhost/brands">
+    <link rel="canonical" href="http://world.openfoodfacts.localhost/country/en:cambodia">
     <link rel="stylesheet" href="http://static.openfoodfacts.localhost/css/dist/app-ltr.css?v=--ignore--" data-base-layout="true">
     <link rel="stylesheet" href="http://static.openfoodfacts.localhost/css/dist/jqueryui/themes/base/jquery-ui.css" data-base-layout="true">
     <link rel="stylesheet" href="http://static.openfoodfacts.localhost/css/dist/select2.min.css">
     <link rel="search" href="http://world.openfoodfacts.localhost/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="Open Food Facts">
-	<link rel="stylesheet" href="http://static.openfoodfacts.localhost/js/datatables.min.css">
-
+	
     <style media="all">
         
         .show-when-no-access-to-producers-platform {display:none}
@@ -64,7 +63,7 @@
 
 
 </head>
-<body class="list_of_tags_page">
+<body class="products_page">
 
 	<div id="page">
 		<div class="upper-nav contain-to-grid"  id="upNav">
@@ -307,17 +306,68 @@
 						
             			
 						
-							<div class="row">
-								<div class="small-12 column">
-									<h1 class="if-empty-dnone">List of brands - World</h1>
-									<!-- start templates/web/pages/tag/tag.tt.html -->
+							
+								<!-- some lists of products for facets (e.g. brands) have microformats data -->
+								<div itemscope itemtype="https://schema.org/Thing">
+									<div class="row">
+										<div class="small-12 column v-space-short">
+											<h1 itemprop="name">Cambodia</h1>
+										</div>
+									</div>
+								  <!-- start templates/web/pages/tag/tag.tt.html -->
 <div class="tag">
     <div class="row">
         <div class="large-6 column">
 
             <div class="tag_navigation">
                 
+                    <a href="/countries">Country</a>:
+                    <a href="/country/cambodia">Cambodia</a>
+                    
+                
             </div>
+
+            
+
+                
+
+                
+
+                
+
+                
+
+                
+                <div class="description">
+                    <div class="row">
+
+	<div id="tag_description" class="large-12 columns">
+		
+	</div>
+	<div id="tag_map" class="large-9 columns" style="display: none;">
+		<div id="container" style="height: 300px"></div>
+	</div>
+
+</div>
+<!-- start templates/web/pages/tags_map/map_of_tags.tt.html -->
+
+<link rel="stylesheet" href="http://static.openfoodfacts.localhost/css/dist/leaflet.css" />
+<script src="http://static.openfoodfacts.localhost/js/dist/leaflet.js"></script>
+<script src="http://static.openfoodfacts.localhost/js/dist/osmtogeojson.js"></script>
+<script src="http://static.openfoodfacts.localhost/js/dist/display-tag.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    displayMap([], ["Q424"]);
+  });
+</script>
+
+<!-- end templates/web/pages/tags_map/map_of_tags.tt.html -->
+
+                </div>
+                
+
+                
 
             
 
@@ -327,38 +377,79 @@
         </div>
 
         
+            
+
+            <div class="large-6 column">                
+            <!-- injecting facet-knowledge-panel -->
+            <div id="facet-knowledge-panel" style="margin-left: 70px; z-index: 1;">
+                <h2 id="facet_panels_title"></h2>
+                <div id="facet_panels_content"></div>
+            </div>
+            <!-- Fetching facet knowledge panel -->                
+            <script>
+                    let facet_kp = "https://facets-kp.openfoodfacts.org/render-to-html";
+                    let params = "?facet_tag=countries&value_tag=en:cambodia";
+                    if ("") {
+                        params += "&sec_facet_tag=&sec_value_tag="
+                    }
+                    // Filtering data for country
+                    if ("world" !== "world") {
+                        // Adding language code to get transalted data
+                        params += "&lang_code=en&country=world";
+                    }
+
+                    fetch(facet_kp + params)
+                        .then((response) => {
+                            if (response.ok) {
+                                return response.text();
+                            }
+                            else {
+                                throw new Error("Network Response Error while fetching facet kp");
+
+                            }
+                        })
+                        .then(data => {
+                            let title = document.getElementById("facet_panels_title");
+                            title.innerHTML = "Facet knowledge panel";
+                            let knowledgepanel = document.getElementById("facet_panels_content");
+                            knowledgepanel.innerHTML = data;
+                            // Keeping Hungergames and Lastedits panel open by default
+                            jQuery("#HungerGames").attr("open", true);
+                            jQuery("#LastEdits").attr("open", true);
+
+                        })
+                </script>
+            </div>
+            
+        
     </div>
 </div>
 
 <!-- end templates/web/pages/tag/tag.tt.html -->
-<p>11 brands:</p><div style="max-width:600px;"><table id="tagstable">
-<thead><tr><th>Brand</th><th>Products</th></tr></thead>
-<tbody>
-<tr><td><a href="/brand/bob-s-juices" class="tag">Bob-s-juices</a></td>
-<td style="text-align:right"><a href="/brand/bob-s-juices" class="tag">2</a></td></tr>
-<tr><td><a href="/brand/bob-s-salads" class="tag">Bob-s-salads</a></td>
-<td style="text-align:right"><a href="/brand/bob-s-salads" class="tag">1</a></td></tr>
-<tr><td><a href="/brand/bob-s-ice-creams" class="tag">Bob-s-ice-creams</a></td>
-<td style="text-align:right"><a href="/brand/bob-s-ice-creams" class="tag">1</a></td></tr>
-<tr><td><a href="/brand/bob-s-pizzas" class="tag">Bob-s-pizzas</a></td>
-<td style="text-align:right"><a href="/brand/bob-s-pizzas" class="tag">1</a></td></tr>
-<tr><td><a href="/brand/les-tartes-de-robert" class="tag">Les-tartes-de-robert</a></td>
-<td style="text-align:right"><a href="/brand/les-tartes-de-robert" class="tag">1</a></td></tr>
-<tr><td><a href="/brand/%E3%83%A9%E3%83%A0%E3%83%8D" class="tag">ラムネ</a></td>
-<td style="text-align:right"><a href="/brand/%E3%83%A9%E3%83%A0%E3%83%8D" class="tag">1</a></td></tr>
-<tr><td><a href="/brand/alice-s-ice-creams" class="tag">Alice-s-ice-creams</a></td>
-<td style="text-align:right"><a href="/brand/alice-s-ice-creams" class="tag">1</a></td></tr>
-<tr><td><a href="/brand/bob-s-creme" class="tag">Bob-s-creme</a></td>
-<td style="text-align:right"><a href="/brand/bob-s-creme" class="tag">1</a></td></tr>
-<tr><td><a href="/brand/mario-s-olive-oils" class="tag">Mario-s-olive-oils</a></td>
-<td style="text-align:right"><a href="/brand/mario-s-olive-oils" class="tag">1</a></td></tr>
-<tr><td><a href="/brand/bob-s-pies" class="tag">Bob-s-pies</a></td>
-<td style="text-align:right"><a href="/brand/bob-s-pies" class="tag">1</a></td></tr>
-<tr><td><a href="/brand/pablo-s-tartas" class="tag">Pablo-s-tartas</a></td>
-<td style="text-align:right"><a href="/brand/pablo-s-tartas" class="tag">1</a></td></tr>
-</tbody></table></div>
+<!-- start templates/web/common/includes/list_of_products.tt.html --> 
+
+<div class="row">
+  <div class="small-12 columns"> 
+    
+      <p>No products.</p>
+    
+    
+      
+      
+      
+      <!-- display a permalink if the url is for a script that may have POST parameters -->
+      
+    
+    
+  </div>
+</div>
+
+
+
+<!-- end templates/web/common/includes/list_of_products.tt.html -->
+
 								</div>
-							</div>
+							
 						
 					</div>
 				</div>
@@ -498,19 +589,10 @@
 
 <script>
 $(function() {
-oTable = $('#tagstable').DataTable({
-	language: {
-		search: "Search:",
-		info: "_TOTAL_ brands",
-		infoFiltered: " - out of _MAX_"
-	},
-	paging: false,
-	order: [[ 1, "desc" ]],
-	columns: [
-		null,
-		{"searchable": false} 
-	]
+display_user_product_preferences("#preferences_selected", "#preferences_selection_form", function () {
+	rank_and_display_products("#search_results", products, contributor_prefs);
 });
+rank_and_display_products("#search_results", products, contributor_prefs);
 
 
 });
@@ -521,7 +603,14 @@ oTable = $('#tagstable').DataTable({
 <script src="http://static.openfoodfacts.localhost/js/dist/foundation.js" data-base-layout="true"></script>
 <script src="http://static.openfoodfacts.localhost/js/dist/jquery.cookie.js"></script>
 <script src="http://static.openfoodfacts.localhost/js/dist/select2.min.js"></script>
-<script src="http://static.openfoodfacts.localhost/js/datatables.min.js"></script>
+<script type="text/javascript">
+var page_type = "products";
+var preferences_text = "Classify the 0 products below according to your preferences";
+var contributor_prefs = {"display_barcode":null,"edit_link":null};
+var products = [];
+</script>
+<script src="http://static.openfoodfacts.localhost/js/product-preferences.js"></script>
+<script src="http://static.openfoodfacts.localhost/js/product-search.js"></script>
 
 <script>
 $(document).foundation({

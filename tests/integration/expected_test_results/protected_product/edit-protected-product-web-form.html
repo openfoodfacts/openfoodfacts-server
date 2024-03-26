@@ -4,13 +4,13 @@
 <html class="no-js" lang="fr" data-serverdomain="openfoodfacts.localhost" dir="ltr">
 <head>
     <meta charset="utf-8">
-    <title>Liste des labels - France</title>
+    <title>Modifier un produit</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta property="fb:app_id" content="219331381518041">
     <meta property="og:type" content="food">
     <meta property="og:title" content="">
-    <meta property="og:url" content="http://fr.openfoodfacts.localhost/labels">
+    <meta property="og:url" content="http://be-fr.openfoodfacts.localhost">
     
     <meta property="og:image" content="https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png">
     <meta property="og:description" content="">
@@ -27,17 +27,16 @@
 <meta name="apple-itunes-app" content="app-id=588797948">
 <meta name="flattr:id" content="dw637l">
 
-    <link rel="canonical" href="http://fr.openfoodfacts.localhost/labels">
+    <link rel="canonical" href="http://be-fr.openfoodfacts.localhost">
     <link rel="stylesheet" href="http://static.openfoodfacts.localhost/css/dist/app-ltr.css?v=--ignore--" data-base-layout="true">
     <link rel="stylesheet" href="http://static.openfoodfacts.localhost/css/dist/jqueryui/themes/base/jquery-ui.css" data-base-layout="true">
     <link rel="stylesheet" href="http://static.openfoodfacts.localhost/css/dist/select2.min.css">
-    <link rel="search" href="http://fr.openfoodfacts.localhost/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="Open Food Facts">
-	<link rel="stylesheet" href="http://static.openfoodfacts.localhost/js/datatables.min.css">
-
+    <link rel="search" href="http://be-fr.openfoodfacts.localhost/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="Open Food Facts">
+	
     <style media="all">
         
         .show-when-no-access-to-producers-platform {display:none}
-.show-when-logged-in {display:none}
+.hide-when-logged-in {display:none}
 
     </style>
     <!-- Matomo -->
@@ -64,7 +63,7 @@
 
 
 </head>
-<body class="list_of_tags_page">
+<body class="other_page">
 
 	<div id="page">
 		<div class="upper-nav contain-to-grid"  id="upNav">
@@ -111,10 +110,10 @@
 									</select>
 								</li>
 								<li class="has-dropdown">
-									<a href="http://fr.openfoodfacts.localhost/">Français</a>
+									<a href="http://be-fr.openfoodfacts.localhost/">Français</a>
 
 									<ul class="dropdown">
-										<li><a href="http://fr-en.openfoodfacts.localhost/">English</a></li>
+										<li><a href="http://be.openfoodfacts.localhost/">Nederlands</a></li><li><a href="http://be-de.openfoodfacts.localhost/">Deutsch</a></li><li><a href="http://be-en.openfoodfacts.localhost/">English</a></li>
 									</ul>
 								</li>
 							</ul>
@@ -126,11 +125,34 @@
 					
 					<ul class="right">
 						
-							<li class="h-space-tiny has-form">
-								<a href="/cgi/session.pl" class="round button secondary">
-									<span class="material-icons material-symbols-button">account_circle</span>
-									Se connecter
+							<li class="has-dropdown">
+								<a href="#" class="userlink h-space-tiny">
+									<span class="material-icons">
+										account_circle
+									</span>
+									Test
 								</a>
+								<ul class="dropdown">
+									<li><a href="/cgi/user.pl?type=edit&userid=tests"><span class="material-icons">settings</span> Paramètres du compte</a></li>
+
+									
+
+									
+									
+									<li class="divider"></li>			
+									<li><label>Vos contributions</label></li>
+									<li><a href="/contributeur/tests">Produits ajoutés</a></li>
+									<li><a href="/editeur/tests">Produits modifiés</a></li>
+									<li><a href="/photographe/tests">Produits photographiés</a></li>
+									
+									<li class="divider"></li>			
+									<li class="has-form">
+										<form method="post" action="/cgi/session.pl">
+											<input type="hidden" name="length" value="logout">
+											<input type="submit" name=".submit" value="Se déconnecter" class="button small">
+										</form>
+									</li>
+								</ul>
 							</li>
 						
 					</ul>
@@ -194,7 +216,7 @@
 	
 		<nav class="tab-bar hide">
 			<div class="left-small">
-				<a href="#idOfLeftMenu" role="button" aria-controls="idOfLeftMenu" aria-expanded="false" class="left-off-canvas-toggle button postfix anonymous">
+				<a href="#idOfLeftMenu" role="button" aria-controls="idOfLeftMenu" aria-expanded="false" class="left-off-canvas-toggle button postfix loggedin">
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon" aria-hidden="true" focusable="false"><path d="M3 5v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2H5c-1.11 0-2 .9-2 2zm12 4c0 1.66-1.34 3-3 3s-3-1.34-3-3 1.34-3 3-3 3 1.34 3 3zm-9 8c0-2 4-3.1 6-3.1s6 1.1 6 3.1v1H6v-1z"/><path d="M0 0h24v24H0z" fill="none"/></svg>
 				</a>
 			</div>
@@ -309,46 +331,449 @@
 						
 							<div class="row">
 								<div class="small-12 column">
-									<h1 class="if-empty-dnone">Liste des labels - France</h1>
-									<!-- start templates/web/pages/tag/tag.tt.html -->
-<div class="tag">
-    <div class="row">
-        <div class="large-6 column">
+									<h1 class="if-empty-dnone">Modifier un produit</h1>
+									<!-- start templates/web/pages/product_edit/product_edit_form.tt.html -->
 
-            <div class="tag_navigation">
-                
+
+
+
+
+<!-- end templates/web/pages/product_edit/product_edit_form.tt.html --><!-- start templates/web/pages/product_edit/product_edit_form_process.tt.html -->
+
+
+
+    <section class="row" id="changes_saved">
+        <div class="large-12 column">
+            <div class="card">
+                <div class="card-section">
+                    <div class="panel_card radius"style="margin-top:0.5rem;margin-bottom:1.5rem;">
+                        <h2 class="panel_title_card text-medium">Les modifications ont été enregistrées.</h2>
+                        <div class="content panel_content_card active" style="margin-bottom: 1rem;">
+                            <img src="http://static.openfoodfacts.localhost/images/icons/dist/volunteer_activism.svg" style="height:72px;float:left;margin-right:1rem;" alt="icon" class="filter-grey">
+                            <div>
+                                <p>Vous venez de contribuer à améliorer la plus grande base de données ouverte du monde.</p>
+                                <p>Merci beaucoup de nous avoir rejoints dans notre voyage vers la transparence des données !</p>
+                            </div>
+                        </div>
+                        <div>
+                            <a class="button small" href="/produit/0200000000135/new-french-product-name-test-brand" style="margin-right: 1rem;">Voir la fiche du produit</a>
+                            <a class="button small warning" href="/cgi/product.pl?type=edit&code=0200000000135">Modifier à nouveau le produit</a></p>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            
-
-            
-            <p>Pays : France
-                - <a href="http://world-fr.openfoodfacts.localhost/labels">Voir la liste pour les produits correspondants du monde entier</a>
-            </p>
-            
-
-            
         </div>
+    </section>
+    <section class="row" id="contribution">
+        <div class="large-12 column">
+            <div class="card">
+                <div class="card-section">
+                    
+<!-- start templates/web/panels/panel.tt.html - panel_id: contribution_card -->
+
+<div class="panel_card radius" id="panel_contribution_card"
+    
+        style="margin-top:0.5rem;margin-bottom:1.5rem;"
+    
+>
+    
+        
+            <h2 class="panel_title_card text-medium">Contribution</h2>
+        
+    
+
+
+
+    
+    <div
+      id="panel_contribution_card_content"
+      class="content panel_content_card active
+        "
+    >
+    
+        
 
         
+            
+<!-- start templates/web/panels/panel.tt.html - panel_id: data_quality_warnings -->
+
+<ul data-accordion class="panel_accordion accordion" id="panel_data_quality_warnings"
+    
+        style="margin-top:0.5rem;margin-bottom:1.5rem;"
+    
+>
+<li class="accordion-navigation">
+
+    
+        <a href="#panel_data_quality_warnings_content" class="panel_title"
+            
+        >
+            
+            <img src="http://static.openfoodfacts.localhost/images/icons/dist/data-warning.svg"
+                style="height:72px;float:left;margin-right:1rem;"
+                alt="icon"
+                
+                    
+                        class="filter-orange"
+                    
+                
+            >
+            
+            <h4 
+                class="evaluation_average_title"
+                
+            >
+                
+                Problèmes potentiels
+            </h4>
+            
+                <span >Nous avons détecté des problèmes potentiels ou des améliorations potentielles, pourriez-vous vérifier si certains s'appliquent ?</span>
+            
+            <hr class="floatclear">
+        </a>
+    
+
+
+
+    
+    <div
+      id="panel_data_quality_warnings_content"
+      class="content panel_content
+        "
+    >
+    
+        
+
+        
+
+            <div style="margin-bottom:0.5rem">
+
+            
+                
+
+                
+                <div>
+                
+
+
+                
+                    <div class="panel_text">
+                
+                    
+                    <ul> <li id="data-error-en:nutrition-value-under-0-001-g-salt"> Valeur nutritionnelle inférieure à 0‚001 g - Sel </li> </ul>
+                
+                    </div>
+                
+                
+                </div>
+
+                
+
+            
+
+            </div>
+
+        
+    
+        
+
+        
+
+            <div style="margin-bottom:0.5rem">
+
+            
+                <div>
+                
+
+                
+
+                
+                    <a class="button small action-add_nutrition_facts"
+                        href="/cgi/product.pl?type=edit&code=0200000000135#nutrition">
+                        Ajouter les informations nutritionnelles
+                    </a>
+                
+
+                </div>
+
+            
+
+            </div>
+
+        
+    
+        
+
+        
+
+            <div style="margin-bottom:0.5rem">
+
+            
+                
+
+                
+                <div>
+                
+
+
+                
+                    <div class="panel_text">
+                
+                    
+                    <ul> <li id="data-error-en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown"> en:EcoScore origins of ingredients origins are 100 percent unknown <br><span class="description">Origins of ingredients are one of the Eco-Score components. They are currently extracted from the ingredient list and the Origins field.</span> </li> </ul>
+                
+                    </div>
+                
+                
+                </div>
+
+                
+
+            
+
+            </div>
+
+        
+    
+        
+
+        
+
+            <div style="margin-bottom:0.5rem">
+
+            
+                <div>
+                
+
+                
+
+                
+                    <a class="button small action-add_origins"
+                        href="/cgi/product.pl?type=edit&code=0200000000135#origins">
+                        Ajouter les origines des ingrédients pour ce produit
+                    </a>
+                
+
+                </div>
+
+            
+
+            </div>
+
+        
+    
+        
+
+        
+
+            <div style="margin-bottom:0.5rem">
+
+            
+                
+
+                
+                <div>
+                
+
+
+                
+                    <div class="panel_text">
+                
+                    
+                    <ul> <li id="data-error-en:ecoscore-production-system-no-label"> EcoScore - système de production - sans étiquette </li> </ul>
+                
+                    </div>
+                
+                
+                </div>
+
+                
+
+            
+
+            </div>
+
+        
+    
     </div>
+    
+
+</li>
+</ul>
+
+<!-- end templates/web/panels/panel.tt.html - panel_id: data_quality_warnings -->
+
+        
+    
+        
+
+        
+            
+<!-- start templates/web/panels/panel.tt.html - panel_id: data_quality_info -->
+
+<ul data-accordion class="panel_accordion accordion" id="panel_data_quality_info"
+    
+        style="margin-top:0.5rem;margin-bottom:1.5rem;"
+    
+>
+<li class="accordion-navigation">
+
+    
+        <a href="#panel_data_quality_info_content" class="panel_title"
+            
+        >
+            
+            <img src="http://static.openfoodfacts.localhost/images/icons/dist/data-info.svg"
+                style="height:72px;float:left;margin-right:1rem;"
+                alt="icon"
+                
+                    
+                        class="filter-green"
+                    
+                
+            >
+            
+            <h4 
+                class="evaluation_good_title"
+                
+            >
+                
+                Informations sur la qualité des données
+            </h4>
+            
+                <span >Quelques infos sur la qualité des données sur ce produit</span>
+            
+            <hr class="floatclear">
+        </a>
+    
+
+
+
+    
+    <div
+      id="panel_data_quality_info_content"
+      class="content panel_content active
+        expand-for-large"
+    >
+    
+        
+
+        
+
+            <div style="margin-bottom:0.5rem">
+
+            
+                
+
+                
+                <div>
+                
+
+
+                
+                    <div class="panel_text">
+                
+                    
+                    <ul> <li id="data-error-en:packaging-data-incomplete"> en:Packaging data - incomplete </li> </ul>
+                
+                    </div>
+                
+                
+                </div>
+
+                
+
+            
+
+            </div>
+
+        
+    
+        
+
+        
+
+            <div style="margin-bottom:0.5rem">
+
+            
+                <div>
+                
+
+                
+
+                
+                    <a class="button small action-add_packaging_components"
+                        href="/cgi/product.pl?type=edit&code=0200000000135#packaging">
+                        Ajouter des composants d'emballage
+                    </a>
+                
+
+                </div>
+
+            
+
+            </div>
+
+        
+    
+        
+
+        
+
+            <div style="margin-bottom:0.5rem">
+
+            
+                
+
+                
+                <div>
+                
+
+
+                
+                    <div class="panel_text">
+                
+                    
+                    <ul> <li id="data-error-en:ecoscore-extended-data-not-computed"> EcoScore - Données étendues - Non calculées </li> <li id="data-error-en:food-groups-1-unknown"> en:Food groups 1 unknown </li> <li id="data-error-en:food-groups-2-unknown"> en:Food groups 2 unknown </li> <li id="data-error-en:food-groups-3-unknown"> en:Food groups 3 unknown </li> <li id="data-error-en:ingredients-percent-analysis-ok"> Analyse des pourcentages d'ingrédients OK </li> </ul>
+                
+                    </div>
+                
+                
+                </div>
+
+                
+
+            
+
+            </div>
+
+        
+    
+    </div>
+    
+
+</li>
+</ul>
+
+<!-- end templates/web/panels/panel.tt.html - panel_id: data_quality_info -->
+
+        
+    
+    </div>
+    
+
 </div>
 
-<!-- end templates/web/pages/tag/tag.tt.html -->
-<p>5 labels :</p><div style="max-width:600px;"><table id="tagstable">
-<thead><tr><th>Label</th><th>Produits</th><th>*</th></tr></thead>
-<tbody>
-<tr><td><a href="/label/commerce-equitable" class="tag known">Commerce équitable</a></td>
-<td style="text-align:right"><a href="/label/commerce-equitable" class="tag known">3</a></td><td></td></tr>
-<tr><td><a href="/label/bio" class="tag known">Bio</a></td>
-<td style="text-align:right"><a href="/label/bio" class="tag known">3</a></td><td></td></tr>
-<tr><td><a href="/label/en:free-range-duck" class="tag user_defined">en:free-range-duck</a></td>
-<td style="text-align:right"><a href="/label/en:free-range-duck" class="tag user_defined">1</a></td><td style="text-align:center">*</td></tr>
-<tr><td><a href="/label/en:very-good" class="tag user_defined">en:very-good</a></td>
-<td style="text-align:right"><a href="/label/en:very-good" class="tag user_defined">1</a></td><td style="text-align:center">*</td></tr>
-<tr><td><a href="/label/sans-huile-de-palme" class="tag known">Sans huile de palme</a></td>
-<td style="text-align:right"><a href="/label/sans-huile-de-palme" class="tag known">1</a></td><td></td></tr>
-</tbody></table></div>
+<!-- end templates/web/panels/panel.tt.html - panel_id: contribution_card -->
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+<!-- end templates/web/pages/product_edit/product_edit_form_process.tt.html -->
 								</div>
 							</div>
 						
@@ -441,7 +866,7 @@
 							<li><a class="button small white-button radius" href="/cgi/top_translators.pl">Traducteurs</a></li>
 							<li><a class="button small white-button radius" href="/partenaires">Partenaires</a></li>
 							<li><a class="button small white-button radius" href="https://world-fr.openbeautyfacts.org">Open Beauty Facts - Cosmétiques</a></li>
-							<li><a class="button small white-button radius" href="http://fr.pro.openfoodfacts.localhost/">Open Food Facts pour les producteurs</a></li>
+							<li><a class="button small white-button radius" href="http://be-fr.pro.openfoodfacts.localhost/">Open Food Facts pour les producteurs</a></li>
 						</ul>
 					</div>
 				</div>
@@ -490,19 +915,6 @@
 
 <script>
 $(function() {
-oTable = $('#tagstable').DataTable({
-	language: {
-		search: "Recherche :",
-		info: "_TOTAL_ labels",
-		infoFiltered: " - parmi _MAX_"
-	},
-	paging: false,
-	order: [[ 1, "desc" ]],
-	columns: [
-		null,
-		{"searchable": false} , {"searchable": false}
-	]
-});
 
 
 });
@@ -513,7 +925,6 @@ oTable = $('#tagstable').DataTable({
 <script src="http://static.openfoodfacts.localhost/js/dist/foundation.js" data-base-layout="true"></script>
 <script src="http://static.openfoodfacts.localhost/js/dist/jquery.cookie.js"></script>
 <script src="http://static.openfoodfacts.localhost/js/dist/select2.min.js"></script>
-<script src="http://static.openfoodfacts.localhost/js/datatables.min.js"></script>
 
 <script>
 $(document).foundation({
@@ -533,10 +944,10 @@ $(document).foundation({
 	"@context" : "https://schema.org",
 	"@type" : "WebSite",
 	"name" : "Open Food Facts",
-	"url" : "http://fr.openfoodfacts.localhost",
+	"url" : "http://be-fr.openfoodfacts.localhost",
 	"potentialAction": {
 		"@type": "SearchAction",
-		"target": "http://fr.openfoodfacts.localhost/cgi/search.pl?search_terms=?{search_term_string}",
+		"target": "http://be-fr.openfoodfacts.localhost/cgi/search.pl?search_terms=?{search_term_string}",
 		"query-input": "required name=search_term_string"
 	}
 }
@@ -545,7 +956,7 @@ $(document).foundation({
 {
 	"@context": "https://schema.org/",
 	"@type": "Organization",
-	"url": "http://fr.openfoodfacts.localhost",
+	"url": "http://be-fr.openfoodfacts.localhost",
 	"logo": "http://static.openfoodfacts.localhost/images/logos/off-logo-vertical-light.svg",
 	"name": "Open Food Facts",
 	"sameAs" : [  "https://www.facebook.com/OpenFoodFacts.fr", "https://twitter.com/OpenFoodFactsFR"]
