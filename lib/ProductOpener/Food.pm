@@ -1,4 +1,4 @@
-# This file is part of Product Opener.
+ # This file is part of Product Opener.
 #
 # Product Opener
 # Copyright (C) 2011-2023 Association Open Food Facts
@@ -17,6 +17,8 @@
 #
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+=encoding UTF-8
 
 =head1 NAME
 
@@ -419,9 +421,13 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 =item The level of each nutrient is indicated by leading dashes before its id:
 
 =over
+
 =item C<nutrient> - no dash for top nutrients
+
 =item C<-sub-nutrient> - for level 2
+
 =item C<--sub-sub-nutrient> - for level 3, etc.
+
 =back
 
 =item C<nutrient-> a C<-> at the end indicates that the nutrient should be hidden and only shown if explicitly added.
