@@ -1060,7 +1060,7 @@ sub init_user ($request_ref) {
 				$user_id = undef;
 				$log->info('bad user') if $log->is_info();
 				# Trigger an error
-				return ($Lang{error_bad_login_password}{$lang});
+				return ($Lang{error_bad_login_password}{$lc});
 			}
 		}
 	}
@@ -1077,7 +1077,7 @@ sub init_user ($request_ref) {
 			$user_id = is_email_has_off_account($user_id);
 			# Trigger an error
 			unless (defined $user_id) {
-				return ($Lang{error_bad_login_password}{$lang});
+				return ($Lang{error_bad_login_password}{$lc});
 			}
 		}
 
