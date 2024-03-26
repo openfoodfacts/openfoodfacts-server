@@ -2634,6 +2634,8 @@ If set to 1, the function will die if some taxonomies cannot be loaded.
 =cut
 
 sub init_taxonomies($die_if_some_taxonomies_cannot_be_loaded = 0) {
+	# this is only to avoid loading data when we check compilation
+	return if ($ENV{PO_NO_LOAD_DATA});
 
 	# load all tags images
 

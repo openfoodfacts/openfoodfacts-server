@@ -69,6 +69,8 @@ It needs to be called once at startup:
 =cut
 
 sub load_data() {
+	# this is only to avoid loading data when we check compilation
+	return if ($ENV{PO_NO_LOAD_DATA});
 
 	$log->debug("loading data - start") if $log->is_debug();
 
