@@ -38,6 +38,7 @@ use ProductOpener::Tags qw/:all/;
 use ProductOpener::PackagerCodes qw/:all/;
 use ProductOpener::Text qw/:all/;
 use ProductOpener::Lang qw/:all/;
+use ProductOpener::Web qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -665,11 +666,13 @@ elsif ($action eq 'process') {
 		}
 	}
 
-	# if (defined $sort_by) {
-	# 	$current_link .= "&sort_by=$sort_by";
-	# }
+	if (defined $sort_by && $current_link !~ /[?&]sort_by=/) {
+		add_params($current_link, "sort_by=$sort_by");
+	}
 
-	# $current_link .= "\&page_size=$limit";
+	if (defined $limit && $current_link !~ /[?&]page_size=/) {
+		add_params($current_link, "page_size=$limit");
+	}
 
 	# Graphs
 
