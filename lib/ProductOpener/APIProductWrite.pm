@@ -217,7 +217,8 @@ sub update_tags_fields ($request_ref, $product_ref, $field, $add_to_existing_tag
 		my $tags_list = join(',', @$value);
 
 		if ($remove_tags && ref($remove_tags) eq 'ARRAY') {
-			remove_tags_from_field($product_ref, $tags_lc, $field, $remove_tags);    #join(',', @$remove_tags)
+			remove_tags_from_field($product_ref, $tags_lc, $field, join(',', @$remove_tags));
+
 		}
 
 		if ($add_to_existing_tags) {

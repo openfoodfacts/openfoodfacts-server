@@ -4607,14 +4607,20 @@ sub add_tags_to_field ($product_ref, $tag_lc, $field, $additional_fields) {
 	return;
 }
 
-sub remove_tags_from_field ($product_ref, $tag_lc, $field, $tags_to_remove) {
-
-	# Split the tags to remove string into separate tags
-	my @excluded_tags = split(/,\s*/, $tags_to_remove);
+sub remove_tags_from_field ($product_ref, $tag_lc, $field, @tags_to_remove) {
 
 	# Check if all tags should be removed
-	if (join(", ", sort @excluded_tags) eq $product_ref->{$field}) {
-		$product_ref->{$field} = "";    # Set field to empty string
+	if (
+		scalar(@tags_to_remove) == scalar(split(/\s*,\s*/, $product_ref->{$field}))
+		&& scalar(
+			grep {
+				my $tag = $_;
+				!grep {$_ eq $tag} @tags_to_remove
+			} split(/\s*,\s*/, $product_ref->{$field})
+		) == 0
+		)
+	{
+		$product_ref->{$field} = "";
 	}
 	else {
 		# Retrieve the current tags from the specified field
@@ -4628,8 +4634,8 @@ sub remove_tags_from_field ($product_ref, $tag_lc, $field, $tags_to_remove) {
 
 		# Iterate through the tags and remove the specified tags
 		foreach my $tag (@tags) {
-			$tag =~ s/^\s+|\s+$//g;  
-			unless (grep {$_ eq $tag} @excluded_tags) {
+			$tag =~ s/^\s+|\s+$//g;
+			unless (grep {$_ eq $tag} @tags_to_remove) {
 				push @modified_tags, $tag;
 			}
 		}

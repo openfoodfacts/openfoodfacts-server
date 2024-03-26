@@ -673,7 +673,7 @@ my $tests_ref = [
 				"categories_tags_remove": ["en:tea"],
 				"stores_tags_remove": ["Carrefour", "Mon Ptit magasin"],
 				"countries_tags_fr_remove": ["Italie", "en:spain"],
-				"labels_tags_fr": ["végétarien", "Something unrecognized in French"]
+				"labels_tags_remove": ["végétarien", "Something unrecognized in French"]
 			}
 		}',
 	},
