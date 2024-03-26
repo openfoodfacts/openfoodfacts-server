@@ -1,6 +1,7 @@
 {
    "ingredients" : [
       {
+         "ciqual_proxy_food_code" : "19051",
          "id" : "en:milk",
          "percent_estimate" : 56.25,
          "percent_max" : 100,
@@ -34,6 +35,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_proxy_food_code" : "31016",
          "id" : "en:sugar",
          "percent_estimate" : 2.734375,
          "percent_max" : 20,
@@ -43,6 +45,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_proxy_food_code" : "11015",
          "id" : "en:pepper",
          "percent_estimate" : 1.3671875,
          "percent_max" : 16.6666666666667,
@@ -146,13 +149,10 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
       "en:another-unknown-ingredient",
-      "en:milk",
-      "en:pepper",
       "en:some-unknown-ingredient",
-      "en:spice",
-      "en:sugar"
+      "en:spice"
    ],
-   "ingredients_without_ciqual_codes_n" : 6,
+   "ingredients_without_ciqual_codes_n" : 3,
    "known_ingredients_n" : 11,
    "lc" : "en",
    "nutriments" : {

@@ -104,6 +104,7 @@ sub echo_service ($product_ref, $updated_product_fields_ref) {
 my %service_functions = (
 	echo => \&echo_service,
 	parse_ingredients_text => \&ProductOpener::Ingredients::parse_ingredients_text_service,
+	extend_ingredients => \&ProductOpener::Ingredients::extend_ingredients_service,
 	estimate_ingredients_percent => \&ProductOpener::Ingredients::estimate_ingredients_percent_service,
 	analyze_ingredients => \&ProductOpener::Ingredients::analyze_ingredients_service,
 );

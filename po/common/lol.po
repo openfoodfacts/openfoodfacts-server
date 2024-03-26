@@ -83,6 +83,18 @@ msgctxt "add_user_existing_org_pending"
 msgid "Your request to join the organization is pending approval of the organization administrator."
 msgstr "crwdns225123:0crwdne225123:0"
 
+msgctxt "admin_status_updated"
+msgid "Admin Status Updated"
+msgstr "crwdns245830:0crwdne245830:0"
+
+msgctxt "admin_status"
+msgid "Admin Status"
+msgstr "crwdns245832:0crwdne245832:0"
+
+msgctxt "grant_remove_admin_status"
+msgid "Grant/Remove Admin status"
+msgstr "crwdns245834:0crwdne245834:0"
+
 msgctxt "please_email_producers"
 msgid "Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> if you have any question."
 msgstr "crwdns225125:0crwdne225125:0"
@@ -160,6 +172,10 @@ msgctxt "alcohol_warning"
 msgid "Excess drinking is harmful for health."
 msgstr "crwdns225159:0crwdne225159:0"
 
+msgctxt "email_warning"
+msgid "Please note that your Pro account will only be valid if you use your professional e-mail address. Our moderation team checks that the domain name is consistent with the organisation you wish to join."
+msgstr "crwdns247014:0crwdne247014:0"
+
 msgctxt "all_missions"
 msgid "All missions"
 msgstr "crwdns225161:0crwdne225161:0"
@@ -196,7 +212,7 @@ msgstr "crwdns225175:0crwdne225175:0"
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
 msgctxt "android_app_icon_url"
 msgid "/images/misc/playstore/img/en_get.svg"
-msgstr "crwdns225177:0crwdne225177:0"
+msgstr "crwdns245750:0crwdne245750:0"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -654,8 +670,8 @@ msgid "The user name must contain only unaccented letters, digits and dashes."
 msgstr "crwdns225403:0crwdne225403:0"
 
 msgctxt "error_username_too_long"
-msgid "The user name is too long (maximum 20 characters)."
-msgstr "crwdns225405:0crwdne225405:0"
+msgid "The user name is too long (maximum 40 characters)."
+msgstr "crwdns246512:0crwdne246512:0"
 
 msgctxt "error_name_too_long"
 msgid "The name is too long (maximum 60 characters)."
@@ -857,6 +873,10 @@ msgstr "crwdns225497:0crwdne225497:0"
 msgctxt "footer_obf_link"
 msgid "https://world.openbeautyfacts.org"
 msgstr "crwdns225499:0crwdne225499:0"
+
+msgctxt "footer_pro"
+msgid "Open Food Facts for Producers"
+msgstr "crwdns247016:0crwdne247016:0"
 
 msgctxt "for"
 msgid "for"
@@ -2609,6 +2629,10 @@ msgctxt "product_js_use_low_res_images"
 msgid "Load lower resolution images (for slow connections)"
 msgstr "crwdns226359:0crwdne226359:0"
 
+msgctxt "protected_image_message"
+msgid "An image has been sent by the manufacturer. If you think it is incorrect or not up-to-date, please contact us."
+msgstr "crwdns245460:0crwdne245460:0"
+
 msgctxt "nutrition_grade_fr_nutriments_estimated_warning"
 msgid "Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients."
 msgstr "crwdns226361:0crwdne226361:0"
@@ -3984,6 +4008,10 @@ msgctxt "thank_you"
 msgid "Thank you!"
 msgstr "crwdns227029:0crwdne227029:0"
 
+msgctxt "thank_you_very_much"
+msgid "Thank you very much!"
+msgstr "crwdns245812:0crwdne245812:0"
+
 msgctxt "value_for_the_product"
 msgid "Value for the product"
 msgstr "crwdns227031:0crwdne227031:0"
@@ -4176,6 +4204,10 @@ msgstr "crwdns227121:0crwdne227121:0"
 msgctxt "remove_products"
 msgid "Remove all the products"
 msgstr "crwdns227123:0crwdne227123:0"
+
+msgctxt "remove_user"
+msgid "Remove user"
+msgstr "crwdns245836:0crwdne245836:0"
 
 msgctxt "remove_products_from_producers_platform"
 msgid "Remove all your products from the platform for producers"
@@ -5728,15 +5760,17 @@ msgctxt "donation_title"
 msgid "Important: we need your support!"
 msgstr "crwdns227877:0crwdne227877:0"
 
-# variable names between { } must not be translated, {number_of_employees} will be a number
-msgctxt "donation_body_employees"
-msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with {number_of_employees} employees."
-msgstr "crwdns227879:0{number_of_employees}crwdne227879:0"
+msgctxt "donation_text_2023_main"
+msgid "Help us make food transparency the norm!"
+msgstr "crwdns246412:0crwdne246412:0"
 
-# variable names between { } must not be translated, {year} will be the upcoming year
-msgctxt "donation_why_year"
-msgid "We need your donations to fund the Open Food Facts {year} budget and to continue to develop the project."
-msgstr "crwdns227881:0{year}crwdne227881:0"
+msgctxt "donation_text_2023_secondary"
+msgid "As a non-profit organization, we depend on your donations to continue informing consumers around the world about what they eat."
+msgstr "crwdns246414:0crwdne246414:0"
+
+msgctxt "donation_text_2023_tertiary"
+msgid "The food revolution starts with you!"
+msgstr "crwdns246416:0crwdne246416:0"
 
 msgctxt "donation_cta"
 msgid "Donate"
@@ -6595,6 +6629,10 @@ msgctxt "relative_to_all_products"
 msgid "relative to all products"
 msgstr "crwdns228277:0crwdne228277:0"
 
+msgctxt "preferred_language"
+msgid "Preferred Language"
+msgstr "crwdns245752:0crwdne245752:0"
+
 msgctxt "packagings_n_p"
 msgid "Numbers of packaging components"
 msgstr "crwdns245269:0crwdne245269:0"
@@ -6618,4 +6656,144 @@ msgstr "crwdns245277:0crwdne245277:0"
 msgctxt "weight_percent"
 msgid "Weight percent"
 msgstr "crwdns245279:0crwdne245279:0"
+
+msgctxt "nutriscore_component_energy"
+msgid "Energy"
+msgstr "crwdns247018:0crwdne247018:0"
+
+msgctxt "nutriscore_component_energy_from_saturated_fat"
+msgid "Energy from saturated fat"
+msgstr "crwdns247020:0crwdne247020:0"
+
+msgctxt "nutriscore_component_sugars"
+msgid "Sugars"
+msgstr "crwdns247022:0crwdne247022:0"
+
+msgctxt "nutriscore_component_saturated_fat"
+msgid "Saturated fat"
+msgstr "crwdns247024:0crwdne247024:0"
+
+msgctxt "nutriscore_component_saturated_fat_ratio"
+msgid "Saturated fat / fat"
+msgstr "crwdns247026:0crwdne247026:0"
+
+msgctxt "nutriscore_component_salt"
+msgid "Salt"
+msgstr "crwdns247028:0crwdne247028:0"
+
+msgctxt "nutriscore_component_non_nutritive_sweeteners"
+msgid "Non-nutritive sweeteners"
+msgstr "crwdns247030:0crwdne247030:0"
+
+msgctxt "nutriscore_component_fruits_vegetables_legumes"
+msgid "Fruits, vegetables and legumes"
+msgstr "crwdns247032:0crwdne247032:0"
+
+msgctxt "nutriscore_component_fiber"
+msgid "Fiber"
+msgstr "crwdns247034:0crwdne247034:0"
+
+msgctxt "nutriscore_component_proteins"
+msgid "Proteins"
+msgstr "crwdns247036:0crwdne247036:0"
+
+msgctxt "presence"
+msgid "Presence"
+msgstr "crwdns247038:0crwdne247038:0"
+
+msgctxt "absence"
+msgid "Absence"
+msgstr "crwdns247040:0crwdne247040:0"
+
+msgctxt "nutriscore_is_water"
+msgid "This product is considered to be water for the calculation of the Nutri-Score."
+msgstr "crwdns247042:0crwdne247042:0"
+
+msgctxt "nutriscore_is_fat_oil_nuts_seeds"
+msgid "This product is considered to be fat, oil, nuts or seeds for the calculation of the Nutri-Score."
+msgstr "crwdns247044:0crwdne247044:0"
+
+msgctxt "nutriscore_is_cheese"
+msgid "This product is considered to be cheese for the calculation of the Nutri-Score."
+msgstr "crwdns247046:0crwdne247046:0"
+
+msgctxt "nutriscore_is_red_meat_product"
+msgid "This product is considered to be a red meat product for the calculation of the Nutri-Score."
+msgstr "crwdns247048:0crwdne247048:0"
+
+msgctxt "nutriscore_count_proteins_reason_beverage"
+msgid "Points for proteins are counted because the product is considered to be a beverage."
+msgstr "crwdns247050:0crwdne247050:0"
+
+msgctxt "nutriscore_count_proteins_reason_cheese"
+msgid "Points for proteins are counted because the product is considered to be cheese."
+msgstr "crwdns247052:0crwdne247052:0"
+
+msgctxt "nutriscore_count_proteins_reason_negative_points_less_than_7"
+msgid "Points for proteins are counted because the negative points are less than 7."
+msgstr "crwdns247054:0crwdne247054:0"
+
+msgctxt "nutriscore_count_proteins_reason_negative_points_less_than_11"
+msgid "Points for proteins are counted because the negative points are less than 11."
+msgstr "crwdns247056:0crwdne247056:0"
+
+msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_to_7"
+msgid "Points for proteins are not counted because the negative points greater than or equal to 7."
+msgstr "crwdns247058:0crwdne247058:0"
+
+msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_to_11"
+msgid "Points for proteins are not counted because the negative points greater than or equal to 11."
+msgstr "crwdns247060:0crwdne247060:0"
+
+msgctxt "nutriscore_explanation_what_it_is"
+msgid "The Nutri-Score is a logo on the overall nutritional quality of products."
+msgstr "crwdns247062:0crwdne247062:0"
+
+msgctxt "nutriscore_explanation_what_it_takes_into_account"
+msgid "The score from A to E is calculated based on nutrients and foods to favor (proteins, fiber, fruits, vegetables and legumes ...) and nutrients to limit (calories, saturated fat, sugars, salt)."
+msgstr "crwdns247064:0crwdne247064:0"
+
+msgctxt "nutriscore_explanation_where_the_data_comes_from"
+msgid "The score is calculated from the data of the nutrition facts table and the composition data (fruits, vegetables and legumes)."
+msgstr "crwdns247066:0crwdne247066:0"
+
+msgctxt "nutriscore_explanation_recommended_by_public_health_authorities"
+msgid "The display of this logo is recommended by public health authorities without obligation for companies."
+msgstr "crwdns247068:0crwdne247068:0"
+
+msgctxt "nutriscore_explanation_title"
+msgid "What is the Nutri-Score?"
+msgstr "crwdns247070:0crwdne247070:0"
+
+msgctxt "nutrient_info_energy_risk"
+msgid "Energy intakes above energy requirements are associated with increased risks of weight gain, overweight, obesity, and consequently risk of diet-related chronic diseases."
+msgstr "crwdns247072:0crwdne247072:0"
+
+msgctxt "nutrient_info_saturated_fat_risk"
+msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
+msgstr "crwdns247074:0crwdne247074:0"
+
+msgctxt "nutrient_info_saturated_fat_ratio_risk"
+msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
+msgstr "crwdns247076:0crwdne247076:0"
+
+msgctxt "nutrient_info_energy_from_saturated_fat_risk"
+msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
+msgstr "crwdns247078:0crwdne247078:0"
+
+msgctxt "nutrient_info_non_nutritive_sweeteners_risk"
+msgid "Non-nutritive sweeteners may not confer any long-term benefit in reducing body fat in adults or children. There may be potential undesirable effects from long-term use of non-nutritive sweeteners, such as an increased risk of type 2 diabetes and cardiovascular diseases in adults."
+msgstr "crwdns247080:0crwdne247080:0"
+
+msgctxt "nutrient_info_fiber_benefit"
+msgid "Consuming foods rich in fiber (especially whole grain foods) reduces the risks of aerodigestive cancers, cardiovascular diseases, obesity and diabetes."
+msgstr "crwdns247082:0crwdne247082:0"
+
+msgctxt "nutrient_info_fruits_vegetables_legumes_benefit"
+msgid "Consuming foods rich in fruits, vegetables and legumes reduces the risks of aerodigestive cancers, cardiovascular diseases, obesity and diabetes."
+msgstr "crwdns247084:0crwdne247084:0"
+
+msgctxt "nutrient_info_proteins_benefit"
+msgid "Foods that are rich in proteins are usually rich in calcium or iron which are essential minerals with numerous health benefits."
+msgstr "crwdns247086:0crwdne247086:0"
 

@@ -20,6 +20,7 @@ use ProductOpener::Packaging qw/:all/;
 use ProductOpener::Ecoscore qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::Test qw/:all/;
+use ProductOpener::LoadData qw/:all/;
 
 use Getopt::Long;
 use JSON;
@@ -32,16 +33,7 @@ ProductOpener::Test::remove_all_products();
 
 # Import test products
 
-init_emb_codes();
-init_packager_codes();
-init_geocode_addresses();
-init_packaging_taxonomies_regexps();
-
-if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
-	load_agribalyse_data();
-	load_ecoscore_data();
-	load_forest_footprint_data();
-}
+load_data();
 
 my $import_args_ref = {
 	user_id => "test",
@@ -68,7 +60,7 @@ export_csv($export_args_ref);
 close($exported_csv);
 
 ProductOpener::Test::compare_csv_file_to_expected_results($exported_csv_file, $expected_result_dir,
-	$update_expected_results);
+	$update_expected_results, "csv-export");
 
 # Export more fields
 
@@ -84,6 +76,6 @@ export_csv($export_args_ref);
 close($exported_csv);
 
 ProductOpener::Test::compare_csv_file_to_expected_results($exported_csv_file, "${expected_result_dir}_more_fields",
-	$update_expected_results);
+	$update_expected_results, "csv-export-more-fields");
 
 done_testing();

@@ -33,7 +33,7 @@
         >
             [% IF panel.title_element.icon_url.defined %]
             <img src="[% panel.title_element.icon_url %]"
-                style="[% IF panel.title_element.icon_size == 'small' %]height:36px;[% ELSE %]height:72px;[% END %]float:left;margin-right:1rem;"
+                style="[% IF panel.title_element.icon_size == 'very_small' %]height: 24px;[% ELSIF panel.title_element.icon_size == 'small' %]height:36px;[% ELSE %]height:72px;[% END %]float:left;margin-right:1rem;"
                 alt="[% IF panel.title_element.icon_alt.defined %][% panel.title_element.icon_alt %][% ELSE %]icon[% END %]"
                 [% IF panel.title_element.icon_color_from_evaluation %]
                     [% IF panel.evaluation == "good" %]
@@ -74,7 +74,7 @@
                 [% panel.title_element.title %]
             </h4>
             [% IF panel.title_element.subtitle.defined %]
-                <h5>[% panel.title_element.subtitle %]</h5>
+                <span [% IF panel.size == "small" %]style="font-size:0.9rem;"[% END %]>[% panel.title_element.subtitle %]</span>
             [% END %]
             <hr class="floatclear">
         </a>
@@ -106,8 +106,30 @@
                         <div class="large-8 small-12 columns">
                 [% END %]
 
+                [% IF panel_group_element.icon_url.defined %]
+                <img src="[% panel_group_element.icon_url %]"
+                    style="[% IF panel_group_element.icon_size == 'very_small' %]height: 24px;[% ELSIF panel_group_element.icon_size == 'small' %]height:36px;[% ELSE %]height:72px;[% END %]float:left;margin-right:1rem;"
+                    alt="[% IF panel_group_element.icon_alt.defined %][% panel_group_element.icon_alt %][% ELSE %]icon[% END %]"
+                    [% IF panel_group_element.icon_color_from_evaluation %]
+                        [% IF panel_group_element.evaluation == "good" %]
+                            class="filter-green"
+                        [% ELSIF panel_group_element.evaluation == "bad" %]
+                            class="filter-red"
+                        [% ELSIF panel_group_element.evaluation == "average" %]
+                            class="filter-orange"
+                        [% ELSIF panel_group_element.evaluation == "neutral" %]
+                            class="filter-grey"
+                        [% ELSIF panel_group_element.evaluation == "unknown" %]
+                            class="filter-grey"
+                        [% ELSE %]
+                            class="filter-grey"
+                        [% END %]
+                    [% END %]
+                >
+                [% END %]                
+
                 [% IF panel_group_element.title.defined %]
-                    <h3 [% IF panel_group_element.panel_group_id.defined %]id="panel_group_[% panel_group_element.panel_group_id | replace(':','-') %]"[% END %] class="panel_title_[% panel.type %][% IF panel_group_element.type == 'subcard' %] text-medium[% END %]">[% panel_group_element.title %]</h3>
+                    <h3 [% IF panel_group_element.panel_group_id.defined %]id="panel_group_[% panel_group_element.panel_group_id | replace(':','-') %]"[% END %] class="panel_title_[% panel.type %][% IF panel_group_element.type == 'subcard' %] text-medium[% END %][% IF panel_group_element.evaluation.defined %] evaluation_[%panel_group_element.evaluation %]_title"[% END %]">[% panel_group_element.title %]</h3>
                 [% END %]
                 [% FOREACH panel_id IN panel_group_element.panel_ids %]
                     [% INCLUDE web/panels/panel.tt.html panel_id = panel_id %]
@@ -289,8 +311,8 @@
                 [% map_element = element_ref.map_element %]
                 <!-- start templates/[% template.name %] -->
 
-                <div id="tag_map" class="large-9 columns" style="display: none;">
-                    <div id="container" style="height: 300px"></div>
+                <div id="tag_map" class="large-9 columns" style="display: none;  z-index: 1;">
+                    <div id="container" style="height: 300px; z-index: 1;"></div>
                 </div>
 
                 <link rel="stylesheet" href="[% static_subdomain %]/css/dist/leaflet.css" />

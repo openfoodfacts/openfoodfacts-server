@@ -26,7 +26,7 @@ use strict;
 use utf8;
 use warnings;
 
-use JSON;
+use ProductOpener::GS1 qw/:all/;
 
 my $dir = $ARGV[0];
 
@@ -41,5 +41,5 @@ foreach my $file (sort(readdir($dh))) {
 	next if $file !~ /\.xml$/;
 	$file = $`;    # remove xml extension
 
-	convert_gs1_xml_file_to_json("dir/$file.xml", "dir/$file.json");
+	convert_gs1_xml_file_to_json("$dir/$file.xml", "$dir/$file.json");
 }

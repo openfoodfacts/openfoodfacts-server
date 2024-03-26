@@ -1,13 +1,13 @@
 <!-- start templates/[% component.name %] -->
 
 <h4>[% lang('nutrition_grade_fr_title') %]
-    <a href="/nutriscore" title="[% lang('nutrition_grade_fr_formula') %]">
+    <a href="/nutriscore" title="[% edq(lang('nutrition_grade_fr_formula')) %]">
         [% display_icon('info') %]</a>
 </h4>
 
 [% IF nutriscore_grade.defined %]
-<a href="/nutriscore" title="[% lang('nutrition_grade_fr_formula') %]">
-    <img src="[% static_subdomain %]/images/attributes/nutriscore-[% nutriscore_grade %].svg" alt="[% lang('nutrition_grade_fr_alt}') %] [% nutriscore_grade | ucfirst %]" style="margin-bottom:1rem;max-width:100%">
+<a href="/nutriscore" title="[% edq(lang('nutrition_grade_fr_formula')) %]">
+    <img src="[% static_subdomain %]/images/attributes/dist/nutriscore-[% nutriscore_grade %].svg" alt="[% edq(lang('nutrition_grade_fr_alt')) %] [% nutriscore_grade | ucfirst %]" style="margin-bottom:1rem;max-width:100%">
 </a>
 <br>
 [% END %]

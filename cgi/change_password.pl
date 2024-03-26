@@ -25,6 +25,7 @@ use ProductOpener::PerlStandards;
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Users qw/:all/;
@@ -51,8 +52,8 @@ if (not defined $User_id) {
 my @errors = ();
 
 if ($ENV{'REQUEST_METHOD'} eq 'POST') {
-	my $user_file = "$data_root/users/" . get_string_id_for_lang('no_language', $User_id) . '.sto';
-	my $user_ref = retrieve($user_file);
+	# TODO: This will change for Keycloak
+	my $user_ref = retrieve_user($User_id);
 	if (not(defined $user_ref)) {
 		push @errors, 'undefined user';
 		$template_data_ref->{success} = 0;
@@ -83,7 +84,7 @@ if ($ENV{'REQUEST_METHOD'} eq 'POST') {
 	}
 	else {
 		$user_ref->{encrypted_password} = create_password_hash(encode_utf8(decode utf8 => single_param('password')));
-		store("$data_root/users/$User_id.sto", $user_ref);
+		store_user($user_ref);
 		$template_data_ref->{success} = 1;
 	}
 }

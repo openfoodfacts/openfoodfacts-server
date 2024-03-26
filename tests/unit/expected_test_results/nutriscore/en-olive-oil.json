@@ -1,7 +1,5 @@
 {
    "additives_n" : 0,
-   "additives_old_n" : 0,
-   "additives_old_tags" : [],
    "additives_original_tags" : [],
    "additives_tags" : [],
    "amino_acids_tags" : [],
@@ -47,6 +45,7 @@
    ],
    "ingredients" : [
       {
+         "ciqual_proxy_food_code" : "17270",
          "from_palm_oil" : "no",
          "id" : "en:olive-oil",
          "percent_estimate" : 100,
@@ -63,9 +62,6 @@
       "en:vegan",
       "en:vegetarian"
    ],
-   "ingredients_from_or_that_may_be_from_palm_oil_n" : 0,
-   "ingredients_from_palm_oil_n" : 0,
-   "ingredients_from_palm_oil_tags" : [],
    "ingredients_hierarchy" : [
       "en:olive-oil",
       "en:oil-and-fat",
@@ -77,10 +73,12 @@
       "1",
       "1-10"
    ],
+   "ingredients_non_nutritive_sweeteners_n" : 0,
    "ingredients_original_tags" : [
       "en:olive-oil"
    ],
    "ingredients_percent_analysis" : 1,
+   "ingredients_sweeteners_n" : 0,
    "ingredients_tags" : [
       "en:olive-oil",
       "en:oil-and-fat",
@@ -88,16 +86,12 @@
       "en:vegetable-oil"
    ],
    "ingredients_text" : "olive oil",
-   "ingredients_that_may_be_from_palm_oil_n" : 0,
-   "ingredients_that_may_be_from_palm_oil_tags" : [],
    "ingredients_with_specified_percent_n" : 0,
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 1,
    "ingredients_with_unspecified_percent_sum" : 100,
-   "ingredients_without_ciqual_codes" : [
-      "en:olive-oil"
-   ],
-   "ingredients_without_ciqual_codes_n" : 1,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
    "known_ingredients_n" : 4,
    "lc" : "en",
    "minerals_tags" : [],
@@ -222,43 +216,69 @@
       "2023" : {
          "category_available" : 1,
          "data" : {
+            "components" : {
+               "negative" : [
+                  {
+                     "id" : "energy_from_saturated_fat",
+                     "points" : 5,
+                     "points_max" : 10,
+                     "unit" : "kJ",
+                     "value" : 629
+                  },
+                  {
+                     "id" : "sugars",
+                     "points" : 0,
+                     "points_max" : 15,
+                     "unit" : "g",
+                     "value" : 0
+                  },
+                  {
+                     "id" : "saturated_fat_ratio",
+                     "points" : 2,
+                     "points_max" : 10,
+                     "unit" : "%",
+                     "value" : 18.7
+                  },
+                  {
+                     "id" : "salt",
+                     "points" : 0,
+                     "points_max" : 20,
+                     "unit" : "g",
+                     "value" : 0
+                  }
+               ],
+               "positive" : [
+                  {
+                     "id" : "fiber",
+                     "points" : 0,
+                     "points_max" : 5,
+                     "unit" : "g",
+                     "value" : 0
+                  },
+                  {
+                     "id" : "fruits_vegetables_legumes",
+                     "points" : 5,
+                     "points_max" : 5,
+                     "unit" : "%",
+                     "value" : 100
+                  }
+               ]
+            },
             "count_proteins" : 0,
-            "count_proteins_reason" : "negative_points_more_than_7",
-            "energy" : 3367,
-            "energy_from_saturated_fat" : 629,
-            "energy_from_saturated_fat_points" : 5,
-            "fat" : 91,
-            "fiber" : 0,
-            "fiber_points" : 0,
-            "fruits_vegetables_legumes" : 100,
-            "fruits_vegetables_legumes_points" : 5,
+            "count_proteins_reason" : "negative_points_greater_than_or_equal_to_7",
             "is_beverage" : 0,
             "is_cheese" : 0,
             "is_fat_oil_nuts_seeds" : 1,
             "is_red_meat_product" : 0,
             "is_water" : 0,
-            "negative_nutrients" : [
-               "energy_from_saturated_fat",
-               "sugars",
-               "saturated_fat_ratio",
-               "salt",
-               "non_nutritive_sweeteners"
-            ],
             "negative_points" : 7,
+            "negative_points_max" : 55,
             "positive_nutrients" : [
-               "fruits_vegetables_legumes",
-               "fiber"
+               "fiber",
+               "fruits_vegetables_legumes"
             ],
             "positive_points" : 5,
-            "proteins" : 0,
-            "proteins_points" : 0,
-            "salt" : 0,
-            "salt_points" : 0,
-            "saturated_fat" : 17,
-            "saturated_fat_ratio" : 18.6813186813187,
-            "saturated_fat_ratio_points" : 2,
-            "sugars" : 0,
-            "sugars_points" : 0
+            "positive_points_max" : 10
          },
          "grade" : "b",
          "nutrients_available" : 1,

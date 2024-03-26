@@ -518,4 +518,19 @@ detect_allergens_from_text($product_ref);
 
 is($product_ref->{ingredients_text_with_allergens_en}, "Whole Grain Oat Flakes (65.0%)");
 
+# German and underscores, see issue #8386
+$product_ref = {
+	lc => "de",
+	lang => "de",
+	ingredients_text_de =>
+		"Seitan 65% (_Weizen_eiweiß, Wasser), Rapsöl, Kidneybohnen, _Dinkel_vollkornmehl (_Weizen_art), Apfelessig, Gewürze, Tomatenmark, _Soja_soße (Wasser, _Soja_bohnen, Salz, _Weizen_mehl), Kartoffelstärke, Salz."
+};
+
+compute_languages($product_ref);
+detect_allergens_from_text($product_ref);
+
+diag explain $product_ref->{allergens_tags};
+
+is_deeply($product_ref->{allergens_tags}, ['en:gluten', 'en:soybeans',]) || diag explain $product_ref->{allergens_tags};
+
 done_testing();

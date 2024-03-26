@@ -10,6 +10,7 @@ use Log::Any::Adapter 'TAP';
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Web qw/:all/;
 use ProductOpener::Lang qw/:all/;
+
 # date tests
 my $t = 1472292529;
 $lc = 'en';
@@ -29,20 +30,6 @@ is(display_date_tag($t), '<time datetime="2016-08-27T12:08:49">27. August 2016, 
 #	'<p><span class="field">Link to the product page on the official site of the producer:</span> <a href="http://producer.com">http://producer.com</a></p>'
 # );
 
-# paging tests
-# issue # 1960 - negative query lost during pagination and in other links
-my $link = "/country/spain";
-my $tag_prefix = "-";
-is(add_tag_prefix_to_link($link, $tag_prefix), "/country/-spain");
-
-$link = "/country/spain/city/madrid";
-$tag_prefix = "-";
-is(add_tag_prefix_to_link($link, $tag_prefix), "/country/spain/city/-madrid");
-
-$link = "/spain";
-$tag_prefix = "-";
-is(add_tag_prefix_to_link($link, $tag_prefix), "/-spain");
-
 #test for URL localization
 #test for path not existing in urls_for_text
 my $textid = '/doesnotexist';
@@ -57,8 +44,14 @@ is(url_for_text($textid), '/eco-score-el-impacto-medioambiental-de-los-productos
 $lc = 'does not exist';
 is(url_for_text($textid), '/eco-score-the-environmental-impact-of-food-products');
 
+$lc = 'en';
+
 #test search query
-my $request_ref->{current_link} = '/cgi/search.pl?action=process&sort_by=unique_scans_n&page_size=24';
+my $request_ref = {
+	lc => "en",
+	current_link => '/cgi/search.pl?action=process&sort_by=unique_scans_n&page_size=24',
+};
+
 my $count = 25;
 my $limit = 24;
 my $page = 1;
@@ -154,6 +147,12 @@ like(display_field($product_ref, 'states'), qr/$expected/);
 
 # should not loose the second facet at the end of the url on redirection
 my $facets_ref = {
+	tags => [
+		{
+			'tagtype' => 'categories',
+			'tagid' => 'en:bread'
+		}
+	],
 	'tagtype' => 'categories',
 	'groupby_tagtype' => 'data_quality',
 	'tagid' => 'en:bread'
@@ -206,5 +205,9 @@ display_tag($facets_ref);
 
 is($facets_ref->{'current_link'}, '/category/breads/data-quality');
 is($facets_ref->{'redirect'}, '/category/breads/data-quality');
+
+$request_ref->{body_json}{labels_tags} = 'en:organic';
+is(request_param($request_ref, 'unexisting_field'), undef);
+is(request_param($request_ref, 'labels_tags'), 'en:organic') or diag explain request_param($request_ref, 'labels_tags');
 
 done_testing();

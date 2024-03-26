@@ -103,6 +103,7 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Products qw/:all/;
@@ -334,27 +335,32 @@ sub match_taxonomy_tags ($product_ref, $source, $target, $options_ref) {
 			$value =~ s/^\s+//;
 			$value =~ s/\s+$//;
 
-			my $canon_tag = canonicalize_taxonomy_tag($product_ref->{lc}, $target, $value);
-			$log->trace("match_taxonomy_tags: split value", {value => $value, canon_tag => $canon_tag})
-				if $log->is_trace();
-
-			if (exists_taxonomy_tag($target, $canon_tag)) {
-
-				assign_value($product_ref, $target, $canon_tag);
-				$log->info("match_taxonomy_tags: assigning value",
-					{source => $source, value => $canon_tag, target => $target})
-					if $log->is_info();
-			}
 			# try to see if we have a packager code
 			# e.g. from Carrefour: Fabriqué en France par EMB 29181 (F) ou EMB 86092A (G) pour Interdis.
-			elsif (($value =~ /^((e|emb)(\s|-|\.)*(\d{5})(\s|-|\.)*(\w)?)$/i)
-				or ($value =~ /([a-z][a-z])(\s|\.|-)+\d\d(\s|\.|-)+\d\d\d(\s|\.|-)+\d\d\d(\s|\.|-)+(ce|ec|eg)/i))
-			{
-				assign_value($product_ref, "emb_codes", $value);
-				$log->info(
-					"match_taxonomy_tags: found packaging code - assigning value",
-					{source => $source, value => $value, target => "emb_codes"}
-				) if $log->is_info();
+			if ($target eq "emb_codes") {
+				if (   ($value =~ /^((e|emb)(\s|-|\.)*(\d{5})(\s|-|\.)*(\w)?)$/i)
+					or ($value =~ /([a-z][a-z])(\s|\.|-)+\d\d(\s|\.|-)+\d\d\d(\s|\.|-)+\d\d\d(\s|\.|-)+(ce|ec|eg)/i))
+				{
+					assign_value($product_ref, "emb_codes", $value);
+					$log->info(
+						"match_taxonomy_tags: found packaging code - assigning value",
+						{source => $source, value => $value, target => "emb_codes"}
+					) if $log->is_info();
+				}
+			}
+			# Or a known taxonomy entry
+			else {
+				my $canon_tag = canonicalize_taxonomy_tag($product_ref->{lc}, $target, $value);
+				$log->trace("match_taxonomy_tags: split value", {value => $value, canon_tag => $canon_tag})
+					if $log->is_trace();
+
+				if (exists_taxonomy_tag($target, $canon_tag)) {
+
+					assign_value($product_ref, $target, $canon_tag);
+					$log->info("match_taxonomy_tags: assigning value",
+						{source => $source, value => $canon_tag, target => $target})
+						if $log->is_info();
+				}
 			}
 		}
 	}
@@ -1233,7 +1239,7 @@ sub load_xml_file ($file, $xml_rules_ref, $xml_fields_mapping_ref, $code) {
 
 	if ($log->is_trace()) {
 		binmode STDOUT, ":encoding(UTF-8)";
-		open(my $OUT_JSON, ">", "$www_root/data/import_debug_xml.json");
+		open(my $OUT_JSON, ">", "$BASE_DIRS{PUBLIC_DATA}/import_debug_xml.json");
 		print $OUT_JSON encode_json($xml_ref);
 		close($OUT_JSON);
 	}

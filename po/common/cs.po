@@ -83,6 +83,18 @@ msgctxt "add_user_existing_org_pending"
 msgid "Your request to join the organization is pending approval of the organization administrator."
 msgstr "Vaše žádost o připojení k organizaci čeká na schválení správcem organizace."
 
+msgctxt "admin_status_updated"
+msgid "Admin Status Updated"
+msgstr "Stav správce aktualizován"
+
+msgctxt "admin_status"
+msgid "Admin Status"
+msgstr "Stav správce"
+
+msgctxt "grant_remove_admin_status"
+msgid "Grant/Remove Admin status"
+msgstr "Udělit/odebrat stav správce"
+
 msgctxt "please_email_producers"
 msgid "Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> if you have any question."
 msgstr "Pokud máte nějaké otázky, napište prosím e-mail na <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a>."
@@ -160,6 +172,10 @@ msgctxt "alcohol_warning"
 msgid "Excess drinking is harmful for health."
 msgstr "Nadměrné pití je škodlivé pro zdraví."
 
+msgctxt "email_warning"
+msgid "Please note that your Pro account will only be valid if you use your professional e-mail address. Our moderation team checks that the domain name is consistent with the organisation you wish to join."
+msgstr "Vezměte prosím na vědomí, že váš účet Pro bude platný pouze v případě, že použijete svou profesionální e-mailovou adresu. Náš moderátorský tým zkontroluje, zda název domény odpovídá organizaci, ke které se chcete připojit."
+
 msgctxt "all_missions"
 msgid "All missions"
 msgstr "Všechny mise"
@@ -196,7 +212,7 @@ msgstr "https://world-cs.openfoodfacts.org/files/off.apk"
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
 msgctxt "android_app_icon_url"
 msgid "/images/misc/playstore/img/en_get.svg"
-msgstr "/images/misc/playstore/img/cs_get.svg"
+msgstr ""
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -654,8 +670,8 @@ msgid "The user name must contain only unaccented letters, digits and dashes."
 msgstr "Uživatelské jméno musí obsahovat pouze písmena bez diakritiky, číslice a pomlčky."
 
 msgctxt "error_username_too_long"
-msgid "The user name is too long (maximum 20 characters)."
-msgstr "Uživatelské jméno je příliš dlouhé (maximálně 20 znaků)."
+msgid "The user name is too long (maximum 40 characters)."
+msgstr "Uživatelské jméno je příliš dlouhé (maximálně 40 znaků)."
 
 msgctxt "error_name_too_long"
 msgid "The name is too long (maximum 60 characters)."
@@ -857,6 +873,10 @@ msgstr "Open Beauty Facts - Kosmetika"
 msgctxt "footer_obf_link"
 msgid "https://world.openbeautyfacts.org"
 msgstr "https://world-cs.openbeautyfacts.org"
+
+msgctxt "footer_pro"
+msgid "Open Food Facts for Producers"
+msgstr "Open Food Facts pro výrobce"
 
 msgctxt "for"
 msgid "for"
@@ -1463,7 +1483,7 @@ msgstr "Nutriční hodnoty"
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
-msgstr "Průměrné nutriční údaje pro %d produktů z %s kategorie, pro které jsou známy výživové údaje (z %d produktů)."
+msgstr "Průměrné nutriční údaje pro %d produktů z kategorie %s, pro které jsou známy výživové údaje (z %d produktů)."
 
 msgctxt "nutrition_data_compare_percent"
 msgid "% of difference"
@@ -2624,6 +2644,10 @@ msgctxt "product_js_use_low_res_images"
 msgid "Load lower resolution images (for slow connections)"
 msgstr "Načíst obrázky s nižším rozlišením (pro pomalá připojení)"
 
+msgctxt "protected_image_message"
+msgid "An image has been sent by the manufacturer. If you think it is incorrect or not up-to-date, please contact us."
+msgstr "Obrázek byl zaslán výrobcem. Pokud si myslíte, že je nesprávný nebo neaktuální, prosím kontaktujte nás."
+
 msgctxt "nutrition_grade_fr_nutriments_estimated_warning"
 msgid "Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients."
 msgstr "Upozornění: nutriční údaje nejsou uvedeny. Byly odhadnuty ze seznamu přísad."
@@ -2798,16 +2822,16 @@ msgstr "U připravovaného produktu jsou uvedeny nutriční údaje."
 
 msgctxt "nova_groups_s"
 msgid "NOVA group"
-msgstr "NOVA třída"
+msgstr "Skupina NOVA"
 
 msgctxt "nova_groups_p"
 msgid "NOVA groups"
-msgstr "NOVA třídy"
+msgstr "Skupiny NOVA"
 
 # Title for the link to the explanation of what a NOVA Group is
 msgctxt "nova_groups_info"
 msgid "NOVA groups for food processing"
-msgstr "NOVA třídy zpracování potravin"
+msgstr "Skupiny NOVA pro zpracování potravin"
 
 msgctxt "footer_partners"
 msgid "Partners"
@@ -3999,6 +4023,10 @@ msgctxt "thank_you"
 msgid "Thank you!"
 msgstr "Děkujeme!"
 
+msgctxt "thank_you_very_much"
+msgid "Thank you very much!"
+msgstr "Děkujeme mnohokrát!"
+
 msgctxt "value_for_the_product"
 msgid "Value for the product"
 msgstr "Hodnota za produkt"
@@ -4191,6 +4219,10 @@ msgstr "Přidat pole"
 msgctxt "remove_products"
 msgid "Remove all the products"
 msgstr "Odstranit všechny produkty"
+
+msgctxt "remove_user"
+msgid "Remove user"
+msgstr "Odebrat uživatele"
 
 msgctxt "remove_products_from_producers_platform"
 msgid "Remove all your products from the platform for producers"
@@ -4575,7 +4607,7 @@ msgstr "Průmyslové zpracování"
 
 msgctxt "attribute_nova_name"
 msgid "NOVA group"
-msgstr "NOVA třída"
+msgstr "Skupina NOVA"
 
 msgctxt "attribute_nova_unknown_title"
 msgid "NOVA not computed"
@@ -4624,7 +4656,7 @@ msgstr "Filtr dotazů"
 
 msgctxt "nova_group_producer"
 msgid "NOVA group"
-msgstr "NOVA třída"
+msgstr "Skupina NOVA"
 
 msgctxt "error_unknown_org"
 msgid "Unknown organization."
@@ -5743,15 +5775,17 @@ msgctxt "donation_title"
 msgid "Important: we need your support!"
 msgstr "Důležité: potřebujeme vaši podporu!"
 
-# variable names between { } must not be translated, {number_of_employees} will be a number
-msgctxt "donation_body_employees"
-msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with {number_of_employees} employees."
-msgstr "Open Food Facts je společný projekt vytvořený desítkami tisíc dobrovolníků a spravovaný neziskovou organizací s {number_of_employees} zaměstnanci."
+msgctxt "donation_text_2023_main"
+msgid "Help us make food transparency the norm!"
+msgstr "Pomozte nám, aby se transparentnost potravin stala normou!"
 
-# variable names between { } must not be translated, {year} will be the upcoming year
-msgctxt "donation_why_year"
-msgid "We need your donations to fund the Open Food Facts {year} budget and to continue to develop the project."
-msgstr "Potřebujeme vaše dary na financování rozpočtu Open Food Facts {year} a na pokračování v rozvoji projektu."
+msgctxt "donation_text_2023_secondary"
+msgid "As a non-profit organization, we depend on your donations to continue informing consumers around the world about what they eat."
+msgstr "Jako nezisková organizace jsme závislí na vašich darech, abychom i nadále mohli informovat spotřebitele po celém světě o tom, co jedí."
+
+msgctxt "donation_text_2023_tertiary"
+msgid "The food revolution starts with you!"
+msgstr "Potravinová revoluce začíná u vás!"
 
 msgctxt "donation_cta"
 msgid "Donate"
@@ -6610,6 +6644,10 @@ msgctxt "relative_to_all_products"
 msgid "relative to all products"
 msgstr "vzhledem ke všem produktům"
 
+msgctxt "preferred_language"
+msgid "Preferred Language"
+msgstr "Preferovaný jazyk"
+
 msgctxt "packagings_n_p"
 msgid "Numbers of packaging components"
 msgstr "Čísla součástí balení"
@@ -6633,4 +6671,144 @@ msgstr "Hmotnost na 100 g produktu"
 msgctxt "weight_percent"
 msgid "Weight percent"
 msgstr "Procenta hmotnosti"
+
+msgctxt "nutriscore_component_energy"
+msgid "Energy"
+msgstr "Energie"
+
+msgctxt "nutriscore_component_energy_from_saturated_fat"
+msgid "Energy from saturated fat"
+msgstr "Energie z nasycených tuků"
+
+msgctxt "nutriscore_component_sugars"
+msgid "Sugars"
+msgstr "Cukry"
+
+msgctxt "nutriscore_component_saturated_fat"
+msgid "Saturated fat"
+msgstr "Nasycené tuky"
+
+msgctxt "nutriscore_component_saturated_fat_ratio"
+msgid "Saturated fat / fat"
+msgstr "Nasycený tuk / tuk"
+
+msgctxt "nutriscore_component_salt"
+msgid "Salt"
+msgstr "Sůl"
+
+msgctxt "nutriscore_component_non_nutritive_sweeteners"
+msgid "Non-nutritive sweeteners"
+msgstr "Nevýživná sladidla"
+
+msgctxt "nutriscore_component_fruits_vegetables_legumes"
+msgid "Fruits, vegetables and legumes"
+msgstr "Ovoce, zelenina a luštěniny"
+
+msgctxt "nutriscore_component_fiber"
+msgid "Fiber"
+msgstr "Vláknina"
+
+msgctxt "nutriscore_component_proteins"
+msgid "Proteins"
+msgstr "Bílkoviny"
+
+msgctxt "presence"
+msgid "Presence"
+msgstr "Výskyt"
+
+msgctxt "absence"
+msgid "Absence"
+msgstr "Absence"
+
+msgctxt "nutriscore_is_water"
+msgid "This product is considered to be water for the calculation of the Nutri-Score."
+msgstr "Tento produkt je považován za vodu pro výpočet Nutri-Score."
+
+msgctxt "nutriscore_is_fat_oil_nuts_seeds"
+msgid "This product is considered to be fat, oil, nuts or seeds for the calculation of the Nutri-Score."
+msgstr "Tento produkt je považován za tuk, olej, ořechy nebo semena pro výpočet Nutri-Score."
+
+msgctxt "nutriscore_is_cheese"
+msgid "This product is considered to be cheese for the calculation of the Nutri-Score."
+msgstr "Tento produkt je považován za sýr pro výpočet Nutri-Score."
+
+msgctxt "nutriscore_is_red_meat_product"
+msgid "This product is considered to be a red meat product for the calculation of the Nutri-Score."
+msgstr "Tento produkt je považován za červené maso pro výpočet Nutri-Score."
+
+msgctxt "nutriscore_count_proteins_reason_beverage"
+msgid "Points for proteins are counted because the product is considered to be a beverage."
+msgstr "Body za bílkoviny se počítají, protože výrobek je považován za nápoj."
+
+msgctxt "nutriscore_count_proteins_reason_cheese"
+msgid "Points for proteins are counted because the product is considered to be cheese."
+msgstr "Body za bílkoviny se počítají, protože výrobek je považován za sýr."
+
+msgctxt "nutriscore_count_proteins_reason_negative_points_less_than_7"
+msgid "Points for proteins are counted because the negative points are less than 7."
+msgstr "Body za bílkoviny se počítají, protože záporných bodů je méně než 7."
+
+msgctxt "nutriscore_count_proteins_reason_negative_points_less_than_11"
+msgid "Points for proteins are counted because the negative points are less than 11."
+msgstr "Body za bílkoviny se počítají, protože záporných bodů je méně než 11."
+
+msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_to_7"
+msgid "Points for proteins are not counted because the negative points greater than or equal to 7."
+msgstr "Body za bílkoviny se nepočítají, protože záporné body jsou větší nebo rovné 7."
+
+msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_to_11"
+msgid "Points for proteins are not counted because the negative points greater than or equal to 11."
+msgstr "Body za bílkoviny se nepočítají, protože záporné body jsou větší nebo rovné 11."
+
+msgctxt "nutriscore_explanation_what_it_is"
+msgid "The Nutri-Score is a logo on the overall nutritional quality of products."
+msgstr "Nutri-Score je logo o celkové nutriční kvalitě produktů."
+
+msgctxt "nutriscore_explanation_what_it_takes_into_account"
+msgid "The score from A to E is calculated based on nutrients and foods to favor (proteins, fiber, fruits, vegetables and legumes ...) and nutrients to limit (calories, saturated fat, sugars, salt)."
+msgstr "Skóre od A do E se vypočítá na základě živin a potravin, které je třeba upřednostňovat (bílkoviny, vláknina, ovoce, zelenina a luštěniny...) a živin, které je třeba omezit (kalorie, nasycené tuky, cukry, sůl)."
+
+msgctxt "nutriscore_explanation_where_the_data_comes_from"
+msgid "The score is calculated from the data of the nutrition facts table and the composition data (fruits, vegetables and legumes)."
+msgstr "Skóre se vypočítá z údajů tabulky nutričních údajů a údajů o složení (ovoce, zelenina a luštěniny)."
+
+msgctxt "nutriscore_explanation_recommended_by_public_health_authorities"
+msgid "The display of this logo is recommended by public health authorities without obligation for companies."
+msgstr "Zobrazení tohoto loga je doporučováno úřady ochrany veřejného zdraví nezávazně pro firmy."
+
+msgctxt "nutriscore_explanation_title"
+msgid "What is the Nutri-Score?"
+msgstr "Co je Nutri-Score?"
+
+msgctxt "nutrient_info_energy_risk"
+msgid "Energy intakes above energy requirements are associated with increased risks of weight gain, overweight, obesity, and consequently risk of diet-related chronic diseases."
+msgstr "Energetický příjem nad energetickou náročnost je spojen se zvýšeným rizikem přibírání na váze, nadváhou, obezitou a následně rizikem chronických onemocnění souvisejících s dietou."
+
+msgctxt "nutrient_info_saturated_fat_risk"
+msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
+msgstr "Vysoká konzumace tuků, zejména nasycených, může zvýšit hladinu cholesterolu, což zvyšuje riziko srdečních onemocnění."
+
+msgctxt "nutrient_info_saturated_fat_ratio_risk"
+msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
+msgstr "Vysoká konzumace tuků, zejména nasycených, může zvýšit hladinu cholesterolu, což zvyšuje riziko srdečních onemocnění."
+
+msgctxt "nutrient_info_energy_from_saturated_fat_risk"
+msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
+msgstr "Vysoká konzumace tuků, zejména nasycených, může zvýšit hladinu cholesterolu, což zvyšuje riziko srdečních onemocnění."
+
+msgctxt "nutrient_info_non_nutritive_sweeteners_risk"
+msgid "Non-nutritive sweeteners may not confer any long-term benefit in reducing body fat in adults or children. There may be potential undesirable effects from long-term use of non-nutritive sweeteners, such as an increased risk of type 2 diabetes and cardiovascular diseases in adults."
+msgstr "Nevýživná sladidla nemusí poskytovat žádné dlouhodobé výhody při snižování tělesného tuku u dospělých nebo dětí. Dlouhodobé užívání nevýživných sladidel může mít potenciální nežádoucí účinky, jako je zvýšené riziko cukrovky 2. typu a kardiovaskulárních onemocnění u dospělých."
+
+msgctxt "nutrient_info_fiber_benefit"
+msgid "Consuming foods rich in fiber (especially whole grain foods) reduces the risks of aerodigestive cancers, cardiovascular diseases, obesity and diabetes."
+msgstr "Konzumace potravin bohatých na vlákninu (zejména celozrnné potraviny) snižuje rizika aerodigestivní rakoviny, kardiovaskulárních onemocnění, obezity a cukrovky."
+
+msgctxt "nutrient_info_fruits_vegetables_legumes_benefit"
+msgid "Consuming foods rich in fruits, vegetables and legumes reduces the risks of aerodigestive cancers, cardiovascular diseases, obesity and diabetes."
+msgstr "Konzumace potravin bohatých na ovoce, zeleninu a luštěniny snižuje rizika aerodigestivní rakoviny, kardiovaskulárních onemocnění, obezity a cukrovky."
+
+msgctxt "nutrient_info_proteins_benefit"
+msgid "Foods that are rich in proteins are usually rich in calcium or iron which are essential minerals with numerous health benefits."
+msgstr "Potraviny bohaté na bílkoviny jsou obvykle bohaté na vápník nebo železo, což jsou základní minerály s četnými zdravotními přínosy."
 

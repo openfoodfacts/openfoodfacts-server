@@ -5,11 +5,33 @@ stopwords:fr:ou,de,d'
 # Containers
 
 en:Unknown
+de:Unbekannt
 bg:Неизвестно
 fr:Inconnu, inconnue, inconnus, inconnues
 hu:Ismeretlen
 nl:Onbekend
-pt:Desconhecido
+es:Desconocido, desconocida, desconocidos, desconocidas
+it:Sconosciuto, sconosciuta, sconosciuti, sconosciute
+pt:Desconhecido, desconhecida, desconhecidos, desconhecidas
+ro:Necunoscut, necunoscută, necunoscuți, necunoscute
+pl:Nieznany, nieznana, nieznani, nieznane
+sv:Okänd, okända
+fi:Tuntematon
+da:Ukendt
+cs:Neznámý, neznámá, neznámí, neznámé
+sk:Neznámy, neznáma, neznámi, neznáme
+sl:Neznano
+et:Tundmatu
+lt:Nežinomas, nežinoma, nežinomi, nežinomos
+lv:Nezināms, nezināma, nezināmi, nezināmas
+el:Άγνωστο, άγνωστη, άγνωστοι, άγνωστες
+tr:Bilinmeyen
+uk:Невідомо
+ru:Неизвестно
+ar:غير معروف
+zh:未知
+ja:不明
+ko:알 수 없음
 description:en:Unidentified packaging
 description:nl:Niet herkende verpakking
 
@@ -127,6 +149,7 @@ es:Tarro
 fr:Bocal, bocaux
 hu:Befőttes üveg, befőttes üvegek
 it:Vasetto, Barattolo
+nb:Glass
 nl:Pot, Potten, Bokaal, Bokaalen
 pl:Słoik
 pt:Jarro, jarros, jarra, jarras
@@ -192,11 +215,17 @@ description:nl:platte, vierkante, kartonnen doos waarin men een pizza kan stoppe
 <en:box
 en:pill box
 fr:pilulier
+nl:pillendoos
+de:Pillendose
+it:scatola per pillole
+pt:caixa de comprimidos
 
 en:Case, cases
 fr:Caisse, caisses, caissette, caissettes
 it:Cassa, casse
 pt:Engradado, engradados
+nl:Kist, kisten
+de:Kiste, Kisten
 
 # fr:Bidon / Bonbonne used by Les Mousquetaires
 en:Jug or canister, canister or jug
@@ -204,6 +233,7 @@ fr:Bidon ou bonbonne, bonbonne ou bidon
 
 <en:Jug or canister
 en:Jug, jugs
+de:Kanne
 fr:Bidon, bidons
 nl:Kruik, kruiken
 pt:garrafão
@@ -371,7 +401,7 @@ description:nl:Een cilindervormig afgesloten blikken vaatje voor groenten, e.d.
 # fr:Coupe / Coupelle in data from Les Mousquetaires
 en:pot, cup, pots, cups
 bg:кофичка
-de:Kanne, Becher
+de:Becher
 es:Bote, botes, vaso, vasos
 fr:Pot, pots, coupelle, coupelles, verrine, verrines, ravier, raviers, coupe, coupes, coupe / coupelle
 hu:Pohár, fazék, lábas, edény, csésze, kanna
@@ -558,6 +588,7 @@ de:Deckel
 el:Καπάκι
 fr:Couvercle, couvercles
 hu:Fedél, tető, fedő
+nb:Lokk
 nl:Deksel, deksels
 pl:Nakrętka, Zakrętka, Pokrywka, Wieczko, Wieko
 pt:Tampa, tampas
@@ -609,6 +640,13 @@ wikidata:en:Q86511715
 <en:Wine cork
 en:Champagne cork
 fr:bouchon de Champagne
+bg:Шампанска корк
+de:Sektverschluss
+el:Πώμα σαμπάνιας
+hu:Pezsgő dugó
+nl:Champagnestop
+pl:Korek do szampana
+pt:Tampa de champanhe
 wikidata:en:Q106910341
 # image:xx:bouchon-3.svg (champagne cork)
 
@@ -625,6 +663,12 @@ fr:Capsule, capsules
 hu:Kapszula, kapszulák
 nl:Capsule, Kroonkurk, Kroonkurken
 pt:Cápsula, cápsulas
+es:Cápsula, cápsulas
+de:Kapsel, Kapseln
+it:Capsula, capsule
+lt:Kapsulė, kapsulės
+pl:Kapsułka, kapsułki
+ru:Капсула, капсулы
 # image:xx:capsule-metal.svg (looks like a soda capsule)
 # image:xx:capsule-autre.svg (looks like a plastic capsule for wine)
 # suggest:packaging_materials:en: en:plastic, en:metal
@@ -635,6 +679,10 @@ hu:Kávékapszula, kávé kapszula, kávékapszulák, kávé kapszulák
 nl:Koffiecapsule, Koffiecapsules, Nespressocapsule, Nespresso-capsule
 pl:Kapsułka do kawy
 pt:Cápsula de café, cápsulas de café, cápsula de cafés, cápsulas de cafés
+es:Cápsula de café, cápsulas de café
+de:Kaffeekapsel, Kaffeekapseln
+it:Capsula di caffè, capsule di caffè
+lt:Kavos kapsulė, kavos kapsulės
 wikidata:en:Q4236462
 # suggest:packaging_materials:en: en:plastic, en:aluminium
 # related_categories:en: en:Nespresso-compatible coffee capsules
@@ -655,6 +703,9 @@ en:Tassimo-compatible capsules, T-Disc capsules
 de:Tassimo-kompatible Kapseln
 fr:Dosettes compatible Tassimo, Dosettes Tassimo, Capsules Tassimo, Dosettes T-Disc, Capsules T-Disc
 nl:Tassimo-compatibele Capsules, Tassimo
+es:Cápsulas compatibles con Tassimo, Cápsulas T-Disc
+it:Capsule compatibili Tassimo, Capsule T-Disc
+lt:Tassimo kapsulės, T-Disc kapsulės
 # related_categories:en: en:Tassimo-compatible coffee capsules
 
 <en:Coffee capsule
@@ -668,10 +719,19 @@ nl:Dolce Gusto-compatibele Capsules, Dolce Gusto
 # related_categories:en: fr:Dosettes Dolce Gusto
 
 en:Tea capsules
+fr:Capsules de thé
+de:Tee-Kapseln
+es:Cápsulas de té
+it:Capsule di tè
+nl:Theecapsules
+bg:Чайни капсули
+hu:Tea kapszulák
+pt:Cápsulas de chá
 
 en:coffee pad, coffee pads
 fr:dosette de café, dosettes de café
 nl:Koffiepad
+de:Kaffeepad, Kaffeepads
 
 #As are used in Senseo
 <en:coffee pad
@@ -683,6 +743,9 @@ fr:Dosettes Senseo, Capsules Senseo, Cafés en dosettes compatible Senseo
 it:Capsule di caffè compatibili Senseo
 lt:Senseo kapsulės
 nl:Senseo-compatibele koffiecapsules, Senseo-compatibele koffiecapsule, Senseo
+hu:Senseo-kompatibilis kávékapszulák
+pt:Cápsulas de café compatíveis com Senseo
+bg:Кафе капсули съвместими с Senseo
 # suggest:packaging_materials:en: en:paper
 # related_categories:en: en:Senseo-compatible coffee capsules
 
@@ -707,6 +770,9 @@ pt:Talheres, talher
 en:Cutlery
 fr:Couverts, couvert
 pl:Sztućce
+bg:Съдове за хранене
+da:Bestik
+de:Besteck
 
 # keep the plural
 <en:Eating utensils
@@ -719,6 +785,13 @@ hu:evőpálcikák, evőpálkcika
 nl:Stokjes
 pl:Pałeczki
 pt:Pauzinhos chineses, palitinhos, hashi
+es:Palillos chinos
+it:Bacchette cinesi
+lt:Valgymo lazdelės
+ro:Bățuri de mâncat
+ru:Палочки для еды
+sv:Ätpinnar
+tr:Yemek çubukları
 wikidata:en:Q81980
 
 <en:Cutlery
@@ -758,6 +831,13 @@ hu:kanál, kanalak
 nl:lepel, lepels
 pl:Łyżka, łyżki
 pt:Colher, colheres
+es:Cuchara, cucharas
+it:Cucchiaio, cucchiai
+lt:Šaukštas, šaukštai
+ro:Lingură, linguri
+ru:Ложка, ложки
+sv:Sked, skedar
+tr:Kaşık, kaşıklar
 wikidata:en:Q81895
 
 <en:Spoon
@@ -897,6 +977,11 @@ fr:vrac, sans emballage
 hu:ömlesztett, csomagolás nélkül, csomagolás nélküli, csomagolatlan
 nl:zonder verpakking
 pt:Granel, a granel, sem embalagem, sem embalagens
+es:a granel, sin empaque, sin envase, sin embalaje
+it:alla rinfusa, senza imballaggio
+ja:包装なし, バルク
+ru:весовой, без упаковки
+zh:散装, 无包装
 
 <en:dish
 en:Bowl, bows
@@ -1000,6 +1085,9 @@ en:Blister, Blister pack
 bg:Блистер
 fr:Blister
 nl:Blister
+hu:Bliszter
+pt:Blister
+es:Blíster
 wikidata:en:Q1334675
 # image:xx:blister-coque-1.svg
 # image:xx:blister-coque-2.svg
@@ -1029,8 +1117,8 @@ fr:Rouleau, Bobine, Mandrin, Mandrin / Rouleau
 # image:xx:bobine-rouleau-2.svg 
 # suggest:packaging_materials:en: en:cardboard, en:paper
 
-en:Jug or canister
-en:Canister
+<en:Jug or canister
+en: Canister
 fr:Bombonne, bombonnes, bonbonne, bonbonnes
 nl:Spuitbus, spuitbussen
 # related_categories:en: en:Waters
@@ -1122,6 +1210,9 @@ fr:ficelle, ficelles, ruban, rubans
 
 en:individual dose, Individual capsule
 fr:dose invididuelle, doses individuelles, dosette, dosettes
+es:dosis individual, cápsula individual
+de:Einzeldosis, Einzelkapsel
+nl:individuele dosis, individuele capsule
 # suggest:packaging_materials:en: en:paper, en:cardboard, en:other
 # dose-individuelle-papier.svg (looks like a sugar individual dose)
 # dose-individuelle-autre.svg (looks like a small doypack)
@@ -1260,6 +1351,9 @@ fr:Plat, plats, Plat, Plat (Bol - Saladier - Terrine - …)
 <en:dish
 en:salad bowl, salad bowls
 fr:saladier, saladiers
+es:ensaladera, ensaladeras
+de:Salatschüssel, Salatschüsseln
+it:insalatiera, insalatiere
 
 # CITEO only translates it by pot
 <en:dish
@@ -1355,7 +1449,7 @@ tr:kamış
 uk:соломинка
 vi:ống hút
 wa:paye
-y:שטרוי
+yi:שטרוי
 zh:吸管
 description:en:A long tube (usually made out of plastic or paper) through which a beverage is drunk via suction
 description:de:Hilfsmittel, mit welchem sich Flüssigkeiten aufsaugen lassen, um sie zu trinken
@@ -1426,6 +1520,14 @@ wikidata:en:Q2893427
 #wikidata:en:Q54803638
 
 fr:Bouchon verseur
+en:Pouring cap
+es:Tapa vertedora
+de:Ausgießkappe
+nl:Schroefdop met schenktuit
+it:Tappo versatore
+pt:Tampa de despejo
+ru:Носик для наливания
+zh:倒口盖
 wikidata:en:Q2921384
 
 # fr:Pistolet / Pompe / Diffuseur / Robinet / Bouchon Technique in data from Les Mousquetaires

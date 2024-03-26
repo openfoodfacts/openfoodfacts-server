@@ -105,7 +105,8 @@ sub update_field_with_0_or_1_value ($request_ref, $product_ref, $field, $value) 
 				message => {id => "invalid_value_must_be_0_or_1"},
 				field => {id => $field},
 				impact => {id => "field_ignored"},
-			}
+			},
+			200
 		);
 	}
 	else {
@@ -132,7 +133,8 @@ sub update_packagings ($request_ref, $product_ref, $field, $add_to_existing_comp
 				message => {id => "invalid_type_must_be_array"},
 				field => {id => $field},
 				impact => {id => "field_ignored"},
-			}
+			},
+			200
 		);
 	}
 	else {
@@ -163,7 +165,8 @@ sub update_packagings ($request_ref, $product_ref, $field, $add_to_existing_comp
 								message => {id => "invalid_type_must_be_object"},
 								field => {id => $property},
 								impact => {id => "field_ignored"},
-							}
+							},
+							200
 						);
 					}
 				}
@@ -205,7 +208,8 @@ sub update_tags_fields ($request_ref, $product_ref, $field, $add_to_existing_tag
 				message => {id => "invalid_type_must_be_array"},
 				field => {id => $field},
 				impact => {id => "field_ignored"},
-			}
+			},
+			200
 		);
 	}
 	else {
@@ -323,7 +327,8 @@ sub update_product_fields ($request_ref, $product_ref, $response_ref) {
 						message => {id => "invalid_language_code"},
 						field => {id => $field},
 						impact => {id => "field_ignored"},
-					}
+					},
+					200
 				);
 
 			}
@@ -455,7 +460,8 @@ sub write_product_api ($request_ref) {
 					message => {id => "edit_against_edit_rules"},
 					field => {id => "product"},
 					impact => {id => "failure"},
-				}
+				},
+				403
 			);
 		}
 		else {

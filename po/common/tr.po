@@ -83,6 +83,18 @@ msgctxt "add_user_existing_org_pending"
 msgid "Your request to join the organization is pending approval of the organization administrator."
 msgstr "Organizasyona katılma talebiniz, organizasyon yöneticisinin onayını bekliyor."
 
+msgctxt "admin_status_updated"
+msgid "Admin Status Updated"
+msgstr "Yönetici Durumu Güncellendi"
+
+msgctxt "admin_status"
+msgid "Admin Status"
+msgstr "Yönetici Durumu"
+
+msgctxt "grant_remove_admin_status"
+msgid "Grant/Remove Admin status"
+msgstr "Yönetici ayrıcalığını ver/kaldır"
+
 msgctxt "please_email_producers"
 msgid "Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> if you have any question."
 msgstr "Herhangi bir sorunuz varsa lütfen <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> adresine mail gönderin."
@@ -160,6 +172,10 @@ msgctxt "alcohol_warning"
 msgid "Excess drinking is harmful for health."
 msgstr "Aşırı içki sağlığa zararlıdır."
 
+msgctxt "email_warning"
+msgid "Please note that your Pro account will only be valid if you use your professional e-mail address. Our moderation team checks that the domain name is consistent with the organisation you wish to join."
+msgstr "Pro hesabınızın yalnızca profesyonel e-posta adresinizi kullanmanız durumunda geçerli olacağını lütfen unutmayın. Moderasyon ekibimiz alan adının katılmak istediğiniz kuruluşla uyumlu olup olmadığını kontrol eder."
+
 msgctxt "all_missions"
 msgid "All missions"
 msgstr "Bütün görevler"
@@ -196,7 +212,7 @@ msgstr "https://world.openfoodfacts.org/files/off.apk"
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
 msgctxt "android_app_icon_url"
 msgid "/images/misc/playstore/img/en_get.svg"
-msgstr "/images/misc/playstore/img/tr_get.svg"
+msgstr ""
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -655,8 +671,8 @@ msgid "The user name must contain only unaccented letters, digits and dashes."
 msgstr "Kullanıcı adı yalnızca renksiz rakamlar, rakamlar ve çizgiler içermelidir."
 
 msgctxt "error_username_too_long"
-msgid "The user name is too long (maximum 20 characters)."
-msgstr "Kullanıcı adı çok uzun (maksimum 20 karakter)."
+msgid "The user name is too long (maximum 40 characters)."
+msgstr "Kullanıcı adı çok uzun (maksimum 40 karakter)."
 
 msgctxt "error_name_too_long"
 msgid "The name is too long (maximum 60 characters)."
@@ -858,6 +874,10 @@ msgstr "Open Beauty Facts - Kozmetik ürünleri"
 msgctxt "footer_obf_link"
 msgid "https://world.openbeautyfacts.org"
 msgstr "https://world.openbeautyfacts.org"
+
+msgctxt "footer_pro"
+msgid "Open Food Facts for Producers"
+msgstr "Üreticiler için Açık Gıda Gerçekleri"
 
 msgctxt "for"
 msgid "for"
@@ -2624,6 +2644,10 @@ msgctxt "product_js_use_low_res_images"
 msgid "Load lower resolution images (for slow connections)"
 msgstr "Daha düşük çözünürlüklü görüntüler yükleyin (yavaş bağlantıdan dolayı)"
 
+msgctxt "protected_image_message"
+msgid "An image has been sent by the manufacturer. If you think it is incorrect or not up-to-date, please contact us."
+msgstr "Üretici tarafından bir resim gönderildi. Yanlış olduğunu veya güncel olmadığını düşünüyorsanız lütfen bizimle iletişime geçin."
+
 msgctxt "nutrition_grade_fr_nutriments_estimated_warning"
 msgid "Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients."
 msgstr "Uyarı: beslenme faktörleri belirtilmemiştir. İçindekiler listesinden tahmin edilmiştir."
@@ -3999,6 +4023,10 @@ msgctxt "thank_you"
 msgid "Thank you!"
 msgstr "Teşekkürler!"
 
+msgctxt "thank_you_very_much"
+msgid "Thank you very much!"
+msgstr "Çok teşekkürler!"
+
 msgctxt "value_for_the_product"
 msgid "Value for the product"
 msgstr "Ürün için değer"
@@ -4191,6 +4219,10 @@ msgstr "Bir alan ekle"
 msgctxt "remove_products"
 msgid "Remove all the products"
 msgstr "Tüm ürünleri kaldırın"
+
+msgctxt "remove_user"
+msgid "Remove user"
+msgstr "Kullanıcıyı kaldır"
 
 msgctxt "remove_products_from_producers_platform"
 msgid "Remove all your products from the platform for producers"
@@ -5743,15 +5775,17 @@ msgctxt "donation_title"
 msgid "Important: we need your support!"
 msgstr "Önemli: Desteğinize ihtiyacımız var!"
 
-# variable names between { } must not be translated, {number_of_employees} will be a number
-msgctxt "donation_body_employees"
-msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with {number_of_employees} employees."
-msgstr "Open Food Facts, on binlerce gönüllü tarafından desteklenen ve {number_of_employees} çalışanı olan, kar amacı gütmeyen bir dernek tarafından yönetilen ortak bir projedir."
+msgctxt "donation_text_2023_main"
+msgid "Help us make food transparency the norm!"
+msgstr "Gıda şeffaflığını bir norm haline getirmemize yardımcı olun!"
 
-# variable names between { } must not be translated, {year} will be the upcoming year
-msgctxt "donation_why_year"
-msgid "We need your donations to fund the Open Food Facts {year} budget and to continue to develop the project."
-msgstr "Open Food Facts {year} bütçesini finanse etmek ve projeyi geliştirmeye devam etmek için bağışlarınıza ihtiyacımız var."
+msgctxt "donation_text_2023_secondary"
+msgid "As a non-profit organization, we depend on your donations to continue informing consumers around the world about what they eat."
+msgstr "Kâr amacı gütmeyen bir kuruluş olarak, dünyanın dört bir yanındaki tüketicileri ne yedikleri konusunda bilgilendirmeye devam etmek için bağışlarınıza güveniyoruz."
+
+msgctxt "donation_text_2023_tertiary"
+msgid "The food revolution starts with you!"
+msgstr "Gıda devrimi sizinle başlıyor!"
 
 msgctxt "donation_cta"
 msgid "Donate"
@@ -6610,6 +6644,10 @@ msgctxt "relative_to_all_products"
 msgid "relative to all products"
 msgstr "tüm ürünlere göre"
 
+msgctxt "preferred_language"
+msgid "Preferred Language"
+msgstr "Tercih Edilen Dil"
+
 msgctxt "packagings_n_p"
 msgid "Numbers of packaging components"
 msgstr "Ambalaj bileşenlerinin sayısı"
@@ -6633,4 +6671,144 @@ msgstr "100 gram ürün başına ağırlık"
 msgctxt "weight_percent"
 msgid "Weight percent"
 msgstr "Ağırlık yüzdesi"
+
+msgctxt "nutriscore_component_energy"
+msgid "Energy"
+msgstr "Enerji"
+
+msgctxt "nutriscore_component_energy_from_saturated_fat"
+msgid "Energy from saturated fat"
+msgstr "Doymuş yağdan enerji"
+
+msgctxt "nutriscore_component_sugars"
+msgid "Sugars"
+msgstr "Şeker"
+
+msgctxt "nutriscore_component_saturated_fat"
+msgid "Saturated fat"
+msgstr "Doymuş yağ"
+
+msgctxt "nutriscore_component_saturated_fat_ratio"
+msgid "Saturated fat / fat"
+msgstr "Doymuş yağ / yağ"
+
+msgctxt "nutriscore_component_salt"
+msgid "Salt"
+msgstr "Tuz"
+
+msgctxt "nutriscore_component_non_nutritive_sweeteners"
+msgid "Non-nutritive sweeteners"
+msgstr "Besleyici olmayan tatlandırıcılar"
+
+msgctxt "nutriscore_component_fruits_vegetables_legumes"
+msgid "Fruits, vegetables and legumes"
+msgstr "Meyve, sebze ve baklagiller"
+
+msgctxt "nutriscore_component_fiber"
+msgid "Fiber"
+msgstr "Lif"
+
+msgctxt "nutriscore_component_proteins"
+msgid "Proteins"
+msgstr "Proteinler"
+
+msgctxt "presence"
+msgid "Presence"
+msgstr "Varlık"
+
+msgctxt "absence"
+msgid "Absence"
+msgstr "Yokluk"
+
+msgctxt "nutriscore_is_water"
+msgid "This product is considered to be water for the calculation of the Nutri-Score."
+msgstr "Bu ürün Nutri-Score'un hesaplanmasında su olarak kabul edilir."
+
+msgctxt "nutriscore_is_fat_oil_nuts_seeds"
+msgid "This product is considered to be fat, oil, nuts or seeds for the calculation of the Nutri-Score."
+msgstr "Bu ürün, Nutri-Score'un hesaplanmasında katı, sıvı yağ, sert kabuklu yemişler veya tohumlar olarak kabul edilir."
+
+msgctxt "nutriscore_is_cheese"
+msgid "This product is considered to be cheese for the calculation of the Nutri-Score."
+msgstr "Bu ürün Nutri-Score'un hesaplanmasında peynir olarak kabul edilir."
+
+msgctxt "nutriscore_is_red_meat_product"
+msgid "This product is considered to be a red meat product for the calculation of the Nutri-Score."
+msgstr "Bu ürün, Nutri-Score'un hesaplanmasında kırmızı et ürünü olarak kabul edilir."
+
+msgctxt "nutriscore_count_proteins_reason_beverage"
+msgid "Points for proteins are counted because the product is considered to be a beverage."
+msgstr "Ürün içecek olarak kabul edildiğinden protein puanları sayılmaktadır."
+
+msgctxt "nutriscore_count_proteins_reason_cheese"
+msgid "Points for proteins are counted because the product is considered to be cheese."
+msgstr "Ürün peynir olarak kabul edildiğinden protein puanları sayılmaktadır."
+
+msgctxt "nutriscore_count_proteins_reason_negative_points_less_than_7"
+msgid "Points for proteins are counted because the negative points are less than 7."
+msgstr "Negatif puanlar 7'den az olduğu için proteinlere ilişkin puanlar sayılır."
+
+msgctxt "nutriscore_count_proteins_reason_negative_points_less_than_11"
+msgid "Points for proteins are counted because the negative points are less than 11."
+msgstr "Negatif puanlar 11'den az olduğu için proteinlere ilişkin puanlar sayılır."
+
+msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_to_7"
+msgid "Points for proteins are not counted because the negative points greater than or equal to 7."
+msgstr "Proteinlere ilişkin puanlar sayılmaz çünkü negatif noktalar 7'den büyük veya ona eşittir."
+
+msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_to_11"
+msgid "Points for proteins are not counted because the negative points greater than or equal to 11."
+msgstr "Proteinlere ilişkin puanlar sayılmaz çünkü negatif puanlar 11'den büyük veya ona eşittir."
+
+msgctxt "nutriscore_explanation_what_it_is"
+msgid "The Nutri-Score is a logo on the overall nutritional quality of products."
+msgstr "Nutri-Score, ürünlerin genel besin kalitesine ilişkin bir logodur."
+
+msgctxt "nutriscore_explanation_what_it_takes_into_account"
+msgid "The score from A to E is calculated based on nutrients and foods to favor (proteins, fiber, fruits, vegetables and legumes ...) and nutrients to limit (calories, saturated fat, sugars, salt)."
+msgstr "A'dan E'ye kadar olan puan, tercih edilen besin maddeleri ve gıdalara (proteinler, lif, meyveler, sebzeler ve baklagiller...) ve sınırlanacak besin maddelerine (kalori, doymuş yağ, şekerler, tuz) göre hesaplanır."
+
+msgctxt "nutriscore_explanation_where_the_data_comes_from"
+msgid "The score is calculated from the data of the nutrition facts table and the composition data (fruits, vegetables and legumes)."
+msgstr "Puan, besin değerleri tablosundaki verilerden ve bileşim verilerinden (meyveler, sebzeler ve baklagiller) hesaplanır."
+
+msgctxt "nutriscore_explanation_recommended_by_public_health_authorities"
+msgid "The display of this logo is recommended by public health authorities without obligation for companies."
+msgstr "Bu logonun sergilenmesi, şirketlere herhangi bir yükümlülük getirmeksizin halk sağlığı yetkilileri tarafından tavsiye edilmektedir."
+
+msgctxt "nutriscore_explanation_title"
+msgid "What is the Nutri-Score?"
+msgstr "Nutri-Score nedir?"
+
+msgctxt "nutrient_info_energy_risk"
+msgid "Energy intakes above energy requirements are associated with increased risks of weight gain, overweight, obesity, and consequently risk of diet-related chronic diseases."
+msgstr "Enerji gereksinimlerinin üzerindeki enerji alımları, artan kilo alma, aşırı kilo, obezite ve dolayısıyla diyetle ilişkili kronik hastalık risklerinin artmasıyla ilişkilidir."
+
+msgctxt "nutrient_info_saturated_fat_risk"
+msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
+msgstr "Yüksek yağ tüketimi, özellikle doymuş yağlar, kalp hastalığı riskini artıran kolesterolü yükseltebilir."
+
+msgctxt "nutrient_info_saturated_fat_ratio_risk"
+msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
+msgstr "Yüksek yağ tüketimi, özellikle doymuş yağlar, kalp hastalığı riskini artıran kolesterolü yükseltebilir."
+
+msgctxt "nutrient_info_energy_from_saturated_fat_risk"
+msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
+msgstr "Yüksek yağ tüketimi, özellikle doymuş yağlar, kalp hastalığı riskini artıran kolesterolü yükseltebilir."
+
+msgctxt "nutrient_info_non_nutritive_sweeteners_risk"
+msgid "Non-nutritive sweeteners may not confer any long-term benefit in reducing body fat in adults or children. There may be potential undesirable effects from long-term use of non-nutritive sweeteners, such as an increased risk of type 2 diabetes and cardiovascular diseases in adults."
+msgstr "Besleyici olmayan tatlandırıcılar yetişkinlerde veya çocuklarda vücut yağının azaltılmasında uzun vadede herhangi bir fayda sağlamayabilir. Besleyici olmayan tatlandırıcıların uzun süreli kullanımından kaynaklanan, yetişkinlerde tip 2 diyabet ve kardiyovasküler hastalık riskinde artış gibi potansiyel istenmeyen etkiler olabilir."
+
+msgctxt "nutrient_info_fiber_benefit"
+msgid "Consuming foods rich in fiber (especially whole grain foods) reduces the risks of aerodigestive cancers, cardiovascular diseases, obesity and diabetes."
+msgstr "Lif bakımından zengin gıdaların (özellikle tam tahıllı gıdalar) tüketilmesi, sindirim sistemi kanserleri, kardiyovasküler hastalıklar, obezite ve diyabet riskini azaltır."
+
+msgctxt "nutrient_info_fruits_vegetables_legumes_benefit"
+msgid "Consuming foods rich in fruits, vegetables and legumes reduces the risks of aerodigestive cancers, cardiovascular diseases, obesity and diabetes."
+msgstr "Meyve, sebze ve baklagiller açısından zengin gıdaların tüketilmesi, sindirim sistemi kanserleri, kalp-damar hastalıkları, obezite ve diyabet riskini azaltır."
+
+msgctxt "nutrient_info_proteins_benefit"
+msgid "Foods that are rich in proteins are usually rich in calcium or iron which are essential minerals with numerous health benefits."
+msgstr "Protein açısından zengin gıdalar genellikle sağlığa birçok faydası olan temel mineraller olan kalsiyum veya demir açısından zengindir."
 

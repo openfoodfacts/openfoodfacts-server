@@ -10,7 +10,6 @@ use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::TagsEntries qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 
 #use Log::Any::Adapter 'TAP', filter => "none";
@@ -223,7 +222,7 @@ my @lists = (
 		"arôme naturel de citron, arôme naturel de citron vert, arôme naturel d'agrumes"
 	],
 	["fr", "arômes naturels de citron et de limette", "arômes naturels de citron, arômes naturels de limette"],
-	["fr", "arôme naturel de pomme avec d'autres arômes naturels", "arôme naturel de pomme, arômes naturels"],
+	["fr", "arôme naturel de pomme avec d'autres arômes naturels", "arôme naturel de pomme et arômes naturels"],
 	["fr", "jus de pomme, eau, sucre. Traces de lait.", "jus de pomme, eau, sucre. traces éventuelles : lait."],
 	[
 		"fr",
@@ -326,7 +325,7 @@ my @lists = (
 	[
 		"fr",
 		"huiles* (tournesol*, olive vierge extra), sel marin. *issus de l'agriculture biologique.",
-		"huiles Bio de tournesol Bio, huiles Bio d'olive vierge extra), sel marin."
+		"huiles Bio de tournesol Bio, huiles Bio d'olive vierge extra, sel marin."
 	],
 	["fr", "riz de Camargue (1), sel. (1): IGP : Indication Géographique Protégée.", "riz de Camargue IGP, sel."],
 	[
@@ -628,21 +627,38 @@ my @lists = (
 	["sk", "syr, E470 a E470a, mlieko.", "syr, e470, e470a, mlieko."],
 	# normalize category and types
 	["fr", "Piments (vert, rouge, jaune)", "Piments vert, Piments rouge, Piments jaune"],
+	# New feature:
+	["de", "pflanzliches Fett (Kokosnuss, Palmkern)", "Kokosnussfett, Palmkernfett"],
+	[
+		"de", "pflanzliche Öle und Fette (Raps, Palm, Shea, Sonnenblumen)",
+		"Rapsöl, Palmfett, Sheafett, Sonnenblumenfett"
+	],
 	[
 		"fr",
 		"Huiles végétales de palme, de colza et de tournesol",
 		"Huiles végétales de palme, Huiles végétales de colza, Huiles végétales de tournesol"
 	],
-	["fr", "arôme naturel de pomme avec d'autres âromes", "arôme naturel de pomme, âromes"],
+	["fr", "arôme naturel de pomme avec d'autres âromes", "arôme naturel de pomme et âromes"],
 	["fr", "Carbonate de magnésium, fer élémentaire", "Carbonate de magnésium, fer élémentaire"],
 	["fr", "huile végétale (colza)", "huile végétale de colza"],
 	["fr", "huile végétale : colza", "huile végétale de colza"],
 	["hr", "ječmeni i pšenični slad", "ječmeni slad, pšenični slad"],
 	["hr", "ječmeni, ječmeni i pšenični slad", "ječmeni slad, ječmeni slad, pšenični slad"],
+	["hr", "Pasterizirano mlijeko (s 1.0% mliječne masti)", "pasterizirano mlijeko s 1.0% mliječne masti"],
 	["en", "Vegetal oil (sunflower, olive and palm)", "sunflower vegetal oil, olive vegetal oil, palm vegetal oil"],
 	["en", "vegetable oil (palm)", "palm vegetable oil"],
 	["en", "vegetable oil: palm", "palm vegetable oil"],
-
+	["fr", "protéines végétales (soja, blé)", "protéine de soja, protéine de blé"],
+	["de", "pflanzliche Proteine (Erbsen, Sonnenblumen)", "erbsenprotein, sonnenblumenprotein"],
+	# Should not develop the enumeration if it contains unknown types (like "sel" here)
+	["fr", "Piments (vert, rouge, jaune, sel)", "Piments (vert, rouge, jaune, sel)"],
+	["fr", "Huile de palme, noisettes et tournesol", "huile de palme, huile de noisettes, huile de tournesol"],
+	["fr", "Huile de palme, noisettes", "huile de palme, noisettes"],
+	[
+		"fr",
+		"arôme naturel de citron, citron vert et d'autres agrumes",
+		"arôme naturel de citron, arôme naturel de citron vert, arôme naturel d'agrumes"
+	],
 );
 
 foreach my $test_ref (@lists) {

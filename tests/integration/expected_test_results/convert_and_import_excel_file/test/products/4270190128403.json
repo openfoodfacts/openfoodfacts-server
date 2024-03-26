@@ -6,8 +6,6 @@
    ],
    "added_countries_tags" : [],
    "additives_n" : 0,
-   "additives_old_n" : 0,
-   "additives_old_tags" : [],
    "additives_original_tags" : [],
    "additives_tags" : [],
    "allergens" : "",
@@ -117,6 +115,9 @@
             ],
             "epi_score" : 0,
             "epi_value" : -5,
+            "origins_from_categories" : [
+               "en:unknown"
+            ],
             "origins_from_origins_field" : [
                "en:unknown"
             ],
@@ -390,9 +391,6 @@
       "en:vegan-status-unknown",
       "en:vegetarian-status-unknown"
    ],
-   "ingredients_from_or_that_may_be_from_palm_oil_n" : 0,
-   "ingredients_from_palm_oil_n" : 0,
-   "ingredients_from_palm_oil_tags" : [],
    "ingredients_hierarchy" : [
       "fr:white-peaches",
       "fr:high-fructose-corn-syrup"
@@ -403,11 +401,13 @@
       "2",
       "1-10"
    ],
+   "ingredients_non_nutritive_sweeteners_n" : 0,
    "ingredients_original_tags" : [
       "fr:white-peaches",
       "fr:high-fructose-corn-syrup"
    ],
    "ingredients_percent_analysis" : 1,
+   "ingredients_sweeteners_n" : 0,
    "ingredients_tags" : [
       "fr:white-peaches",
       "fr:high-fructose-corn-syrup"
@@ -417,8 +417,6 @@
    "ingredients_text_fr_imported" : "White peaches, high fructose corn syrup",
    "ingredients_text_with_allergens" : "White peaches, high fructose corn syrup",
    "ingredients_text_with_allergens_fr" : "White peaches, high fructose corn syrup",
-   "ingredients_that_may_be_from_palm_oil_n" : 0,
-   "ingredients_that_may_be_from_palm_oil_tags" : [],
    "ingredients_with_specified_percent_n" : 0,
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 2,
@@ -449,6 +447,7 @@
    "last_editor" : "test-user",
    "last_modified_by" : "test-user",
    "last_modified_t" : "--ignore--",
+   "last_updated_t" : "--ignore--",
    "lc" : "en",
    "lc_imported" : "en",
    "main_countries_tags" : [],
@@ -520,7 +519,7 @@
          "category_available" : 1,
          "data" : {
             "energy" : 500,
-            "fiber" : 0,
+            "fiber" : null,
             "fruits_vegetables_legumes" : 0,
             "is_beverage" : 0,
             "is_cheese" : 0,

@@ -129,25 +129,25 @@ else {
 						  <span class="name">{\%=file.filename\%}</span>
                   {\% } \%}
                   {\% if (file.info) { \%}
-                      <div><span class="label info">$Lang{info}{$lang}</span> {\%=file.info\%}</div>
+                      <div><span class="label info">$Lang{info}{$lc}</span> {\%=file.info\%}</div>
                   {\% } \%}
                   {\% if (file.code_from_filename) { \%}
-                      <div>$Lang{code_from_filename}{$lang} :</span> {\%=file.code_from_filename\%}</div>
+                      <div>$Lang{code_from_filename}{$lc} :</span> {\%=file.code_from_filename\%}</div>
                   {\% } \%}
                   {\% if (file.scanned_code) { \%}
-                      <div>$Lang{scanned_code}{$lang} : {\%=file.scanned_code\%}</div>
+                      <div>$Lang{scanned_code}{$lc} : {\%=file.scanned_code\%}</div>
                   {\% } \%}
                   {\% if (file.using_previous_code) { \%}
-                      <div>$Lang{using_previous_code}{$lang} :</span> {\%=file.using_previous_code\%}</div>
+                      <div>$Lang{using_previous_code}{$lc} :</span> {\%=file.using_previous_code\%}</div>
                   {\% } \%}
                   {\% if (file.error) { \%}
-                      <div><span class="label alert">$Lang{error}{$lang}</span> {\%=file.error\%}</div>
+                      <div><span class="label alert">$Lang{error}{$lc}</span> {\%=file.error\%}</div>
                   {\% } \%}
               </td>
               <td>
                   <span class="size">{\%=o.formatFileSize(file.size)\%}</span><br>
 				  {\% if (!file.error) { \%}
-                      $Lang{file_received}{$lang} </div>
+                      $Lang{file_received}{$lc} </div>
                   {\% } \%}
               </td>
           </tr>
@@ -155,24 +155,24 @@ else {
     </script>
 
     <!-- The Templates plugin is included to render the upload/download listings -->
-    <script src="/js/dist/tmpl.js"></script>
+    <script src="$static_subdomain/js/dist/tmpl.js"></script>
     <!-- The Load Image plugin is included for the preview images and image resizing functionality -->
-    <script src="/js/dist/load-image.all.min.js"></script>
+    <script src="$static_subdomain/js/dist/load-image.all.min.js"></script>
     <!-- The Canvas to Blob plugin is included for image resizing functionality -->
-    <script src="/js/dist/canvas-to-blob.js"></script>
+    <script src="$static_subdomain/js/dist/canvas-to-blob.js"></script>
 
     <!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
-    <script src="/js/dist/jquery.iframe-transport.js"></script>
+    <script src="$static_subdomain/js/dist/jquery.iframe-transport.js"></script>
     <!-- The basic File Upload plugin -->
-    <script src="/js/dist/jquery.fileupload.js"></script>
+    <script src="$static_subdomain/js/dist/jquery.fileupload.js"></script>
     <!-- The File Upload processing plugin -->
-    <script src="/js/dist/jquery.fileupload-process.js"></script>
+    <script src="$static_subdomain/js/dist/jquery.fileupload-process.js"></script>
     <!-- The File Upload image preview & resize plugin -->
-    <script src="/js/dist/jquery.fileupload-image.js"></script>
+    <script src="$static_subdomain/js/dist/jquery.fileupload-image.js"></script>
     <!-- The File Upload validation plugin -->
-    <script src="/js/dist/jquery.fileupload-validate.js"></script>
+    <script src="$static_subdomain/js/dist/jquery.fileupload-validate.js"></script>
     <!-- The File Upload user interface plugin -->
-    <script src="/js/dist/jquery.fileupload-ui.js"></script>
+    <script src="$static_subdomain/js/dist/jquery.fileupload-ui.js"></script>
 JS
 		;
 

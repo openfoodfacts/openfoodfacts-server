@@ -132,9 +132,11 @@
    "ingredients_with_unspecified_percent_n" : 5,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
-      "en:avocado"
+      "en:avocado",
+      "en:fruit",
+      "en:vegetable"
    ],
-   "ingredients_without_ciqual_codes_n" : 1,
+   "ingredients_without_ciqual_codes_n" : 3,
    "known_ingredients_n" : 13,
    "lc" : "en",
    "nutriments" : {

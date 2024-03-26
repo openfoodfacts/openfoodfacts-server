@@ -32,6 +32,28 @@ bg:Неизвестно
 fr:Inconnu, inconnue, inconnus, inconnues
 hu:Ismeretlen
 nl:Onbekend
+es:Desconocido, desconocida, desconocidos, desconocidas
+it:Sconosciuto, sconosciuta, sconosciuti, sconosciute
+pt:Desconhecido, desconhecida, desconhecidos, desconhecidas
+ro:Necunoscut, necunoscută, necunoscuți, necunoscute
+pl:Nieznany, nieznana, nieznani, nieznane
+sv:Okänd, okända
+fi:Tuntematon
+da:Ukendt
+cs:Neznámý, neznámá, neznámí, neznámé
+sk:Neznámy, neznáma, neznámi, neznáme
+sl:Neznano
+et:Tundmatu
+lt:Nežinomas, nežinoma, nežinomi, nežinomos
+lv:Nezināms, nezināma, nezināmi, nezināmas
+el:Άγνωστο, άγνωστη, άγνωστοι, άγνωστες
+tr:Bilinmeyen
+uk:Невідомо
+ru:Неизвестно
+ar:غير معروف
+zh:未知
+ja:不明
+ko:알 수 없음
 non_recyclable_and_non_biodegradable:en:maybe
 description:de:Art und Herkunft des Materials sind unbekannt und können nicht erkannt werden.
 description:en:The nature and origing of the material is unknown and can not be recognised.
@@ -118,7 +140,6 @@ tr:Kompozit malzemeler
 uk:композиційний матеріал
 zh:复合材料
 wikidata:en:Q181790
-non_recyclable_and_non_biodegradable:en:yes
 description:de:Verbundmaterialien werden hergestellt, indem zwei oder mehr Materialien kombiniert werden, um gewünschte Eigenschaften zu erzielen. Sie werden aufgrund ihrer Haltbarkeit, ihres geringen Gewichts und ihrer Feuchtigkeitsbeständigkeit häufig in Lebensmittelverpackungen verwendet. Verbundmaterialien können recycelt werden, aber der Prozess kann aufgrund der Vielfalt der Materialien, die bei ihrer Herstellung verwendet werden, eine Herausforderung darstellen.
 description:en:Composite materials are produced by combining two or more materials to achieve desired properties. They are commonly used in food packaging due to their durability, lightweight and moisture resistance. Composite materials can be recycled, but the process can be challenging due to the variety of materials used in their production.
 description:fr:Les matériaux composites sont produits en combinant deux ou plusieurs matériaux pour obtenir les propriétés souhaitées. Ils sont couramment utilisés dans les emballages alimentaires en raison de leur durabilité, de leur légèreté et de leur résistance à l'humidité. Les matériaux composites peuvent être recyclés, mais le processus peut être difficile en raison de la variété des matériaux utilisés dans leur production.
@@ -135,7 +156,33 @@ hu:Újrahasznosítható anyag
 it:Materiale riciclabile
 nl:Recycleerbaar materiaal
 pt:Material reciclável
+ar:مادة قابلة للتدوير
+ca:Material reciclable
+da:Genanvendeligt materiale
+et:Töödeldav materjal
+eu:Material birziklagarri
+fi:Kierrätettävä materiaali
+he:חומר ממוחזר
+hr:Reciklabilni materijal
+is:Endurvinnanlegt efni
+ja:リサイクル可能な材料
+ko:재활용 가능한 재료
+lt:Perdirbamas medžiaga
+lv:Pārstrādājams materiāls
+mk:Рециклирање на материјали
+no:Resirkulerbart materiale
+pl:Materiał nadający się do recyklingu
+ro:Material reciclabil
+ru:Перерабатываемый материал
+sk:Recyklovateľný materiál
+sl:Reciklabilni material
+sq:Materiali i riciklueshëm
+sr:Материјал за рециклирање
+sv:Återvinningsbart material
+tr:Geri dönüştürülebilir malzeme
+uk:Перероблюваний матеріал
 wikidata:en:Q57305800
+non_recyclable_and_non_biodegradable:en:no
 description:de:Wertstoffe entstehen durch die Sammlung und Verarbeitung von Abfallprodukten. Sie werden bei der Herstellung von Lebensmittelverpackungen als umweltfreundlichere Alternative zu herkömmlichen Materialien verwendet. Ist die Verpackung einmal benutzt, kann sie gesammelt, aufbereitet und wieder in Wertstoffe umgewandelt werden, die später wiederverwendet werden können.
 description:en:Recyclable materials are produced through the collection and processing of waste products. They are used in the production of food packaging as a more environmentally friendly alternative to traditional materials. Once the packaging has been used, it can be collected, processed and transformed back into recyclable material to be used again in the future.
 description:es:Los materiales reciclables se producen a través de la recolección y el procesamiento de productos de desecho. Se utilizan en la producción de envases para alimentos como una alternativa más ecológica a los materiales tradicionales. Una vez que se ha utilizado el embalaje, se puede recoger, procesar y transformar de nuevo en material reciclable para volver a utilizarlo en el futuro.
@@ -156,6 +203,27 @@ it:Plastica riciclabile
 ja:プラマーク
 nl:Recycleerbaar plastic, Recycleerbaar plastiek
 pt:Plástico reciclável
+ca:Plàstic reciclable
+da:Genanvendelig plastik
+et:Töödeldav plastik
+eu:Plastiko birziklagarria
+fi:Kierrätettävä muovi
+he:פלסטיק ממוחזר
+hr:Reciklabilna plastika
+lv:Pārstrādājama plastmasa
+mk:Рециклирана пластика
+nn:Resirkulerbar plast
+pl:Plastik nadający się do recyklingu
+ro:Plastic reciclabil
+ru:Перерабатываемый пластик
+sk:Recyklovateľný plast
+sl:Reciklabilna plastika
+sq:Plastika riciklueshme
+sr:Reciklabilna plastika
+sv:Återvinningsbar plast
+tr:Geri dönüştürülebilir plastik
+uk:Перероблюваний пластик
+zh:可回收塑料
 description:de:Recyclebaar plastic wordt geproduceerd uit aardolieproducten en kan worden omgesmolten en opnieuw worden gevormd tot nieuwe plastic producten. Voedselverpakkingen worden veel gebruikt voor recyclebaar plastic en vormen een barrière om voedsel te beschermen tegen besmetting en de houdbaarheid te verlengen. Bij het recyclen van plastic wordt het plastic verzameld en gesorteerd, schoongemaakt en versnipperd en vervolgens omgesmolten om er nieuwe producten of materialen van te maken.
 description:en:Recyclable plastic is produced from petroleum products and can be melted down and re-molded into new plastic products. Food packaging is a common use for recyclable plastic, providing a barrier to protect food from contamination and extend shelf life. Recycling of plastic involves collecting and sorting the plastic, cleaning and shredding it, then melting it down to make new products or materials.
 description:es:El plástico reciclable se produce a partir de productos derivados del petróleo y se puede derretir y volver a moldear en nuevos productos de plástico. El envasado de alimentos es un uso común para el plástico reciclable, ya que proporciona una barrera para proteger los alimentos de la contaminación y prolongar la vida útil. El reciclaje de plástico implica recolectar y clasificar el plástico, limpiarlo y triturarlo, y luego fundirlo para fabricar nuevos productos o materiales.
@@ -173,6 +241,7 @@ hu:Újrahasznosított anyag, Újrahasznosított anyagból
 it:Materiale riciclato
 nl:Hergebruikt materiaal
 pt:Material reciclado
+es:Material reciclado
 wikidata:en:Q37328535
 description:de:Recycelte Materialien werden hergestellt, indem Abfallstoffe wie Papier, Glas oder Kunststoff gesammelt und verarbeitet und in neue Produkte umgewandelt werden. Recycelte Materialien können in Lebensmittelverpackungen wie Behältern und Verpackungen verwendet werden, um die Menge an erzeugtem Abfall zu reduzieren und die Auswirkungen auf die Umwelt zu minimieren. Der Prozess des Recyclings hilft, Ressourcen zu schonen, Treibhausgasemissionen zu reduzieren und spart Energie im Vergleich zur Herstellung von Materialien aus Rohstoffen.
 description:en:Recycled materials are produced by collecting and processing waste materials, such as paper, glass, or plastic, and transforming them into new products. Recycled materials can be used in food packaging, such as containers and wraps, to reduce the amount of waste generated and minimize the impact on the environment. The process of recycling helps conserve resources, reduce greenhouse gas emissions, and saves energy compared to producing materials from raw materials.
@@ -293,10 +362,22 @@ xx:PETG
 # Plastique / Silicone in data from Les Mousquetaires
 en:Silicone
 fr:Silicone, Plastique / Silicone
+es:Silicona, Plástico / Silicona
+de:Silikon, Kunststoff / Silikon
+it:Silicone, Plastica / Silicone
+nl:Silicone, Kunststof / Silicone
+pt:Silicone, Plástico / Silicone
+xx:Silicone, Plastic / Silicone
 
 <en:Plastic
 en:Biobased plastic
 fr:Plastique biosourcé, Plastiques / Autres plastiques Biosourcés (base amidon)
+de:Biobasierter Kunststoff
+es:Plástico de base biológica
+it:Plastica biobased
+pt:Plástico biobaseado
+da:Biobaseret plastik
+hu:Biobázisú műanyag
 
 <xx:PET
 en:bPET - Biobased PET, Biobased PET
@@ -354,11 +435,13 @@ fr:PET - coloré, PET coloré
 hu:PET - Színezet, színes PET
 nl:PET - gekleurd, Gekleurd PET
 pt:PET - colorido
+es:PET - coloreado, PET coloreado
+it:PET - colorato, PET colorato
 description:en:Colored PET (polyethylene terephthalate), which requires additional recycling processes
-description:Farbiges PET (Polyethylenterephthalat), das zusätzliche Recyclingprozesse erfordert
+description:de:Farbiges PET (Polyethylenterephthalat), das zusätzliche Recyclingprozesse erfordert
 description:es:PET coloreado (tereftalato de polietileno), que requiere procesos de reciclaje adicionales
 description:fr:PET coloré (polyéthylène téréphtalate), qui nécessite des processus de recyclage supplémentaires
-description:PET colorato (polietilene tereftalato), che richiede ulteriori processi di riciclaggio
+description:it:PET colorato (polietilene tereftalato), che richiede ulteriori processi di riciclaggio
 description:nl:Gekleurd PET (polyethyleentereftalaat), dat extra recyclingprocessen vereist
 description:pt:PET colorido (tereftalato de polietileno), que requer processos de reciclagem adicionais
 #comment:en:This is banned in India, Japan and South Korea
@@ -473,6 +556,8 @@ fr:bioHDPE - PEHD biosourcé, PEHD biosourcé, HDPE biosourcé
 hu:bioHDPE - Biobázisú HDPE
 nl:bioHDPE - Biologische HDPE
 pt:bioHDPE - Bioplástico PEHD
+es:bioHDPE - HDPE de base biológica, PE-HD de base biológica
+it:bioHDPE - HDPE biobased, PE-HD biobased
 xx:Bio-HDPE, bHDPE
 description:de:Das biobasierte HDPE ist dem herkömmlichen Polyethylen strukturell ähnlich, stammt jedoch aus natürlichen und nachwachsenden Rohstoffen. Es kann in den gleichen Kanälen wie Standard-Polyethylen recycelt werden.
 description:en:The biobased HDPE is structurally similar to conventional polyethylene but it comes from natural and renewable resources. It can be recycled in the same channels as standard polyethylene.
@@ -767,8 +852,36 @@ description:en:Polyamide (PA), also known as nylon, is a synthetic polymer that 
 
 <en:Plastic
 <en:Other plastics
-en:PU/PUR - Polyurethan, Polyurethan
-fr:PU/PUR - Polyuréthane, Polyuréthane
+en:PU/PUR - Polyurethane, Polyurethane
+bg:PU/PUR - Полиуретан, Полиуретан
+ca:PU/PUR - Poliuretà, Poliuretà
+cs:PU/PUR - Polyuretan, Polyuretan
+da:PU/PUR - Polyurethan, Polyurethan
+de:PU/PUR - Polyurethan, Polyurethan
+el:PU/PUR - Πολυουρεθάνη, Πολυουρεθάνη
+es:PU/PUR - Poliuretano, Poliuretano
+et:PU/PUR - Polüuretaan, Polüuretaan
+fi:PU/PUR - Polyuretaani, Polyuretaani
+hr:PU/PUR - Poliuretan, Poliuretan
+hu:PU/PUR - Poliuretán, Poliuretán
+is:PU/PUR - Pólýúretan, Pólýúretan
+it:PU/PUR - Poliuretano, Poliuretano
+lt:PU/PUR - Poliuretanas, Poliuretanas
+mk:PU/PUR - полиуретан, полиуретан
+nb:PU/PUR - Polyuretan, Polyuretan
+nl:PU/PUR - Polyurethaan, Polyurethaan
+nn:PU/PUR - Polyuretan, Polyuretan
+pl:PU/PUR - Poliuretan, Poliuretan
+pt:PU/PUR - Poliuretano, Poliuretano
+ro:PU/PUR - Poliuretan, Poliuretan
+ru:PU/PUR - полиуретан, полиуретан
+sk:PU/PUR - Polyuretán, Polyuretán
+sr:PU/PUR - полиуретан, полиуретан
+sv:PU/PUR - Polyuretan, Polyuretan
+tr:PU/PUR - Poliüretan, Poliüretan
+uk:PU/PUR - поліуретан, поліуретан
+xx:PU/PUR, PU/PUR
+wikidata:en:Q146322
 xx:PU/PUR,PU,PUR
 
 # 09 is for Alkaline batteries, not sure if 09 ABS exists.
@@ -872,6 +985,32 @@ description:pt:O ácido poliláctico (PLA) é produzido a partir do ácido láct
 
 <en:PLA - Polylactic acid
 en:CPLA - Crystallized Polyactic Acid, Crystallized Polyactic Acid
+bg:CPLA - Кристализиран полилактичен киселинен полимер, Кристализиран полилактичен киселинен полимер
+ca:CPLA - Àcid polilàctic cristal·litzat, Àcid polilàctic cristal·litzat
+cs:CPLA - Krystalizovaná kyselina polymléčná, Krystalizovaná kyselina polymléčná
+da:CPLA - Krystalliseret polyactisk syre, Krystalliseret polyactisk syre
+de:CPLA - Kristallisiertes Polymilchsäure, Kristallisiertes Polymilchsäure
+el:CPLA - Κρυσταλλωμένο πολυγαλακτικό οξύ, Κρυσταλλωμένο πολυγαλακτικό οξύ
+es:CPLA - Ácido poliláctico cristalizado, Ácido poliláctico cristalizado
+et:CPLA - Kristalliseerunud polüaktiinhape, Kristalliseerunud polüaktiinhape
+fi:CPLA - Kiteytynyt polylaktiinihappo, Kiteytynyt polylaktiinihappo
+fr:CPLA - Acide polylactique cristallisé, Acide polylactique cristallisé
+ga:CPLA - Aigéad polilactaide criostalaithe, Aigéad polilactaide criostalaithe
+hu:CPLA - Kristályosodott polilaktinsav, Kristályosodott polilaktinsav
+it:CPLA - Acido polilattico cristallizzato, Acido polilattico cristallizzato
+nb:CPLA - Krystallisert polyaktisk syre, Krystallisert polyaktisk syre
+nl:CPLA - Gekristalliseerd polylactisch zuur, Gekristalliseerd polylactisch zuur
+nn:CPLA - Krystallisert polyaktisk syre, Krystallisert polyaktisk syre
+pl:CPLA - Kryształowy kwas polimlekowy, Kryształowy kwas polimlekowy
+pt:CPLA - Ácido poliláctico cristalizado, Ácido poliláctico cristalizado
+ru:CPLA - Кристаллизованная полимолочная кислота, Кристаллизованная полимолочная кислота
+sk:CPLA - Krystalizovaná kyselina polymliečna, Krystalizovaná kyselina polymliečna
+sl:CPLA - Kristalizirana polilaktična kislina, Kristalizirana polilaktična kislina
+sr:CPLA - кристализована полилактична киселина, кристализована полилактична киселина
+sv:CPLA - Kristalliserad polyaktisk syra, Kristalliserad polyaktisk syra
+tr:CPLA - Kristalize polilaktik asit, Kristalize polilaktik asit
+uk:CPLA - Кристалізована полімолочна кислота, Кристалізована полімолочна кислота
+xx:CPLA, 07 CPLA, CPLA 07, 07CPLA, CPLA07, 7 CPLA, CPLA 7, 7CPLA, CPLA7
 
 <en:Plastic
 <en:Other plastics
@@ -948,11 +1087,19 @@ description:pt:O EVOH (Etileno Vinil Álcool) é um plástico flexível, transl�
 <en:Other plastics
 xx:EVA
 fr:EVA - Éthylène-acétate de vinyle, Éthylène-acétate de vinyle, Plastiques / EVA - Éthylène-acétate de vinyle
+es:EVA - Etileno-acetato de vinilo, Etileno-acetato de vinilo, Plásticos / EVA - Etileno-acetato de vinilo
+it:EVA - Etilene-acetato di vinile, Etilene-acetato di vinile, Plastica / EVA - Etilene-acetato di vinile
+nl:EVA - Etheen-acetaatvinyl, Etheen-acetaatvinyl, Kunststoffen / EVA - Etheen-acetaatvinyl
+pt:EVA - Etileno-acetato de vinilo, Etileno-acetato de vinilo, Plásticos / EVA - Etileno-acetato de vinilo
 
 <en:Plastic
 <en:Other plastics
 xx:PAN
 fr:PAN - Polyacrylonitrile, Polyacrylonitrile, Plastiques / PAN - Polyacrylonitrile
+es:PAN - Poliacrilonitrilo, Poliacrilonitrilo, Plásticos / PAN - Poliacrilonitrilo
+it:PAN - Poliacrilonitrile, Poliacrilonitrile, Plastica / PAN - Poliacrilonitrile
+nl:PAN - Polyacrylonitril, Polyacrylonitril, Kunststoffen / PAN - Polyacrylonitril
+pt:PAN - Poliacrilonitrilo, Poliacrilonitrilo, Plásticos / PAN - Poliacrilonitrilo
 
 <en:Plastic
 <en:Other plastics
@@ -965,6 +1112,10 @@ fr:Batterie au plomb
 hu:Ólom-sav akkumulátor
 nl:Lood, Loodaccu
 pt:Bateria de chumbo-ácido
+es:Batería de plomo-ácido
+it:Batteria al piombo-acido
+pl:Akumulator kwasowo-ołowiowy
+ru:Свинцово-кислотный аккумулятор
 xx:08 Lead, Lead 08, 8 Lead, Lead 8
 wikidata:en:Q337724
 
@@ -1008,6 +1159,10 @@ hr:nikal-kadmijeva baterija
 hu:Nikkel-kadmium akkumulátor
 nl:Nikkel-cadmium-accu
 pt:Bateria de níquel cádmio, pilha de níquel cádmio, bateria de níquel-cádmio, pilha de níquel-cádmio
+es:Batería de níquel-cadmio
+it:Batteria al nichel-cadmio
+pl:Akumulator niklowo-kadmowy
+ru:Никель-кадмиевый аккумулятор
 xx:10 NiCD, NiCD 10, 10 NiCad, NiCad 10
 wikidata:en:Q898377
 
@@ -1092,7 +1247,7 @@ bg:Вълнообразен картон
 ca:Cartró ondulat
 cs:vlnitá lepenka
 de:Wellpappe
-es:cartón ondulado
+es:cartón ondulado, cartón corrugado
 fi:aaltopahvi
 fr:Carton ondulé, Cellulosique / Carton ondulé
 hr:valovita ljepenka
@@ -1119,19 +1274,50 @@ description:pt:Material, consistindo de uma ou mais camadas de papelão ondulado
 en:Non-corrugated cardboard
 de:Ungewellte Pappe, Nicht gewellte Pappe, Sonstige Pappe, Andere Pappe
 bg:Друг картон
+es:Cartón no ondulado, Cartón no corrugado
 fr:Carton non ondulé, carton plat, Cellulosique / Carton plat
 hr:ravna ljepenka
 xx:21 PAP, PAP 21, 21PAP, PAP21
 
 <en:cardboard
 en:Armed cardboard
+es:Cartón armado, cartón piedra
 fr:Carton armé, Cellulosique / Carton armé
+bg:Въоръжен картон
+ca:Cartó armat
+cs:Ozbrojený karton
+da:Armeret pap
+de:Bewehrter Karton
+et:Reljeefne kartong
+fi:Vahvistettu pahvi
+ga:Cairtchlár armtha
+hr:Oklopljeni karton
+hu:Fegyveres karton
+it:Cartone armato
+lt:Ginkluotas kartonas
+lv:Ieroču kartons
+mk:наоружан картон
+nl:Gewapend karton
+pl:Karton zbrojony
+pt:Cartão armado
+ro:Carton armat
+ru:Вооруженный картон
+sv:Armerad kartong
+uk:Озброєний картон
+description:de:Bewehrter Karton ist ein Material, das aus einer oder mehreren Schichten dünner Kartonplatten besteht, die mit einer Verstärkungsschicht versehen sind. Bewehrter Karton wird für Verpackungen verwendet, die eine erhöhte Stabilität erfordern.
+description:en:Armed cardboard is a material that consists of one or more layers of thin cardboard sheets reinforced with a reinforcement layer. Armed cardboard is used for packaging that requires increased stability.
+description:es:El cartón armado es un material que consiste en una o más capas de láminas de cartón delgadas reforzadas con una capa de refuerzo. El cartón armado se utiliza para el embalaje que requiere una mayor estabilidad.
+description:fr:Le carton armé est un matériau composé d'une ou plusieurs couches de feuilles de carton minces renforcées par une couche de renforcement. Le carton armé est utilisé pour les emballages nécessitant une stabilité accrue.
+description:it:Il cartone armato è un materiale composto da uno o più strati di sottili fogli di cartone rinforzati con uno strato di rinforzo. Il cartone armato viene utilizzato per l'imballaggio che richiede una maggiore stabilità.
+description:nl:Gewapend karton is een materiaal dat bestaat uit één of meer lagen dunne kartonnen platen versterkt met een versterkingslaag. Gewapend karton wordt gebruikt voor verpakkingen die een verhoogde stabiliteit vereisen.
+description:pt:O cartão armado é um material que consiste em uma ou mais camadas de folhas de papelão fino reforçadas com uma camada de reforço. O cartão armado é usado para embalagens que requerem maior estabilidade.
 
 <en:Cardboard
 <en:Recycled material
 en:Recycled cardboard, 100% recycled cardboard
 da:Genbrugspap
 de:Recycelte Pappe, Recyclingpappe, Recycelter Karton, Recyclingkarton
+es:Cartón reciclado, 100% cartón reciclado
 fr:Carton recyclé, carton recyclé 100%, carton 100% recyclé
 hu:Újrahasznosított hullámpapír, újrahasznosított karton
 nl:Recycled karton
@@ -1147,9 +1333,16 @@ description:pt:O papelão reciclado é feito de papelão usado e coletado e pode
 <en:Cardboard
 en:FSC cardboard
 de:FSC Karton, FSC Pappe
+es:Cartón FSC
 fr:Carton FSC
 nl:FSC karton
 pt:Cartão FSC
+it:Cartone FSC
+sv:FSC kartong
+ru:Картон FSC
+pl:Karton FSC
+ja:FSCカードボード
+zh:FSC纸板
 # associated_label:en: en:FSC
 
 <en:Cardboard
@@ -1161,6 +1354,7 @@ en:Paper
 bg:Хартия
 da:Papir
 de:Papier
+es:Papel, 22 PAP
 fr:Papier, papier standard, Cellulosique / Papier / Vélin
 hr:papir
 hu:Papír
@@ -1181,7 +1375,7 @@ cs:pečicí papír
 da:bagepapir
 de:Backpapier
 el:λαδόκολλα
-es:papel sulfurizado, papel de horno
+es:papel sulfurizado, papel de horno, papel para hornear
 fi:leivinpaperi
 fr:Papier sulfurisé, papier cuisson, papier parchemin
 hu:sütőpapír
@@ -1207,14 +1401,25 @@ description:pt:O papel manteiga[1] é um tipo de papel translúcido e antiaderen
 
 en:Cellulose
 fr:Cellulose, Cellulose moulée, Cellulosique / Cellulose moulée, Cellulosique / Autres fibres cellulosiques / végétales
+es:Celulosa
 
 en:Rubber
+es:Goma, Caucho, Celulósico / Caucho
 fr:Caoutchouc, Cellulosique / Caoutchouc
+de:Gummi, Cellulosique / Gummi
+it:Gomma, Cellulosico / Gomma
+pt:Borracha, Celulósico / Borracha
+nl:Rubber, Cellulosique / Rubber
+ru:Резина, Cellulosique / Резина
+pl:Guma, Cellulosique / Guma
+ja:ゴム, Cellulosique / ゴム
+zh:橡胶, Cellulosique / 橡胶
 
 # thick cardboard (e.g. book covers)
 <en:cardboard
 en:Paperboard
 # de:Karton
+es:Cartón duro, cartulina
 fi:Kartonki
 fr:Papier cartonné
 hr:ljepenka
@@ -1228,6 +1433,7 @@ wikidata:en:Q14934005
 <en:paper
 en:Other paper
 de:Sonstiges Papier, Anderes Papier
+es:Otros tipos de papel
 fr:Autres papiers, autre papier, Cellulosique / Autre papier
 hu:Egyéb papír, más papír
 nl:Ander karton
@@ -1238,6 +1444,7 @@ en:Recycled paper, 100% recycled paper
 bg:Рециклирана хартия
 da:Genbrugspapir
 de:Recyceltes Papier, Recyclingpapier, 100% recyceltes Papier, 100% Recyclingpapier
+es:Papel reciclado, 100% papel reciclado
 fr:Papier recyclé, papier recyclé 100%, papier 100% recyclé
 hu:Újrahasznosított papír
 nl:Recycled papier
@@ -1246,9 +1453,13 @@ pt:Papel reciclado, 100% papel reciclado, papel 100% reciclado
 <en:paper
 en:FSC paper
 de:FSC Papier
+es:Papel FSC
 fr:Papier FSC
 nl:FSC-papier
 pt:Papel FSC
+it:Carta FSC
+ru:Бумага FSC
+pl:Papier FSC
 # We have a en:FSC label - https://world.openfoodfacts.org/label/FSC - https://www.wikidata.org/wiki/Q748367
 # associated_label:en: en:FSC
 
@@ -1256,10 +1467,29 @@ pt:Papel FSC
 en:Kraft paper, kraft
 bg:Крафт хартия
 de:Kraftpapier
+es:Papel de saco
 fr:Papier kraft, kraft
 hr:natronski papir
 nl:Kraft-papier
 pt:Papel kraft, kraft
+cs:Kraftový papír
+da:Kraftpapir
+el:Χαρτί Kraft
+et:Kraftpaber
+fi:Kraft-paperi
+hu:Kraft papír
+it:Carta kraft
+lt:Krafto popierius
+lv:Kraft papīrs
+mk:Крафт хартија
+nb:Kraftpapir
+nn:Kraftpapir
+pl:Papier kraft
+ru:Крафт-бумага
+sv:Kraftpapper
+tr:Kraft kağıdı
+uk:Крафт-папір
+zh:牛皮纸
 wikidata:en:Q1755609
 
 en:Wax
@@ -1300,7 +1530,7 @@ bg:Метал, метали
 da:Metal, Metaller
 de:Metall, Metalle
 fr:Métal, Métaux, métallique, métalliques, Autres métaux (dont métaux non magnétiques)
-es:Metal
+es:Metal, Metales
 hr:metale
 hu:Fém, fémek
 it:Metallo, Metalli
@@ -1328,6 +1558,10 @@ it:Metalli riciclabili
 nl:Recyclebaar metaal
 pl:Metal do recyclingu
 pt:Metais recicláveis
+ru:Перерабатываемые металлы
+sv:Återvinningsbara metaller
+uk:Перероблювані метали
+zh:可回收金属
 description:de:Alle Metalle können bei ordnungsgemäßer Rückgabe wiederverwendet werden.
 description:en:All metals can be reused, if returned properly.
 description:es:Todos los metales se pueden reutilizar, si se devuelven correctamente.
@@ -1342,6 +1576,7 @@ en:Steel, iron
 bg:Стомана, желязо
 de:Stahl
 da:Stål
+es:Acero, hierro
 fr:Acier, fer, Métaux / Acier et fer (magnétiques)
 hr:čelik
 hu:Acél
@@ -1414,6 +1649,9 @@ ru:Алюминий
 sk:hliník
 sl:aluminij
 sv:aluminium
+tr:alüminyum
+uk:алюміній
+zh:铝
 xx:41 ALU, ALU 41, ALU, ALU41, 41ALU
 wikidata:en:Q663
 description:de:Die Aluminiumproduktion aus Erz hat einen großen CO2-Fußabdruck, aber Recycling kann diesen um das 20-fache verbessern. Aluminium wird beispielsweise als Folie, Schalen oder Dosen verwendet. Aluminium ist gut recycelbar, erfordert aber einen separaten Rücklauf oder eine spezielle Absaugtechnik (nur bei dickem Aluminium).
@@ -1433,6 +1671,29 @@ it:Alluminio spesso, Alluminio pesante
 nl:Dik aluminium, Zwaar aluminium
 pl:Grube aluminium, Ciężkie aluminium
 pt:Alumínio pesado, alumínio grosso, alumínio rígido
+bg:Тежък алуминий, дебел алуминий
+ca:Alumini pesat, alumini gruixut
+cs:Těžký hliník, tlustý hliník
+da:Tung aluminium, tykt aluminium
+el:Βαρύ αργίλιο, παχύ αργίλιο
+et:Raske alumiinium, paks alumiinium
+fi:Paksu alumiini, raskas alumiini
+ga:Alúmanam trom, alúmanam crua
+hr:Teški aluminij, debeli aluminij
+hu:Nehéz alumínium, vastag alumínium
+ja:重いアルミニウム、厚いアルミニウム
+lt:Sunkus aliuminis, storas aliuminis
+lv:Smags alumīnijs, biezs alumīnijs
+mt:Aluminju tqil, aluminju spiss
+nn:Tungt aluminium, tykt aluminium
+ro:Aluminiu greu, aluminiu gros
+ru:Тяжелый алюминий, толстый алюминий
+sk:Ťažký hliník, hrubý hliník
+sl:Težek aluminij, debel aluminij
+sv:Tungt aluminium, tjockt aluminium
+tr:Ağır alüminyum, kalın alüminyum
+uk:Важкий алюміній, товстий алюміній
+zh:重铝, 厚铝
 description:de:Die Aluminiumproduktion aus Erz hat einen großen CO2-Fußabdruck, aber Recycling kann diesen um das 20-fache verbessern. Dickes Aluminium wird zum Beispiel für Schalen oder Dosen verwendet. Dickes Aluminium lässt sich gut recyceln, erfordert aber einen separaten Rücklauf oder eine spezielle Absaugtechnik.
 description:en:Aluminum production from ore has a large carbon footprint, but recycling can improve this by 20x. Thick aluminum is used, for example, for trays or cans. Thick aluminum is highly recyclable, but requires a separate return flow or special extraction technology.
 description:es:La producción de aluminio a partir de minerales tiene una gran huella de carbono, pero el reciclaje puede mejorarla 20 veces. El aluminio grueso se utiliza, por ejemplo, para bandejas o latas. El aluminio grueso es altamente reciclable, pero requiere un flujo de retorno separado o una tecnología de extracción especial.
@@ -1445,10 +1706,36 @@ description:pt:A produção de alumínio a partir do minério tem uma grande peg
 <en:Aluminium
 en:Light aluminium, thin aluminium
 de:Leichtes Aluminium, dünnes Aluminium
+es:Papel de aluminio, hojas finas de aluminio, aluminio fino, papel albal
 fr:Aluminium léger, aluminium fin
 nl:Dun aluminium
 pl:Cienkie aluminium, Lekkie aluminium
 pt:Alumínio leve, alumínio fino, alumínio maleável
+bg:Лек алуминий, тънък алуминий
+ca:Alumini lleuger, alumini prim
+cs:Lehký hliník, tenký hliník
+da:Lette aluminium, tyndt aluminium
+el:Ελαφρύ αργίλιο, λεπτό αργίλιο
+et:Kerge alumiinium, õhuke alumiinium
+eu:Aluminio arina, aluminio tenka, aluminio txiki
+fi:Kevyt alumiini, ohut alumiini
+ga:Alúmanam éadrom, alúmanam tanaí
+hr:Lagani aluminij, tanki aluminij
+hu:Könnyű alumínium, vékony alumínium
+is:Léttur alúminíum, þunnur alúminíum
+it:Alluminio leggero, alluminio sottile
+lt:Lengvas aliuminis, plonas aliuminis
+lv:Viegls alumīnijs, plāns alumīnijs
+mt:Aluminju ring, aluminju tan
+nn:Lett aluminium, tynn aluminium
+ro:Aluminiu ușor, aluminiu subțire
+ru:Легкий алюминий, тонкий алюминий
+sk:Ľahký hliník, tenký hliník
+sl:Lahki aluminij, tanek aluminij
+sv:Lätt aluminium, tunn aluminium
+tr:Hafif alüminyum, ince alüminyum
+uk:Легкий алюміній, тонкий алюміній
+zh:轻铝, 薄铝
 description:de:Die Aluminiumproduktion aus Erz hat einen großen CO2-Fußabdruck, aber Recycling kann diesen um das 20-fache verbessern. Als Folie wird beispielsweise dünnes Aluminium verwendet. Dünnes Aluminium ist schwer zu recyceln, da es nicht aus Abfallströmen gewonnen werden kann.
 description:en:Aluminum production from ore has a large carbon footprint, but recycling can improve this by 20x. For example, thin aluminum is used as a foil. Thin aluminum is difficult to recycle because it cannot be extracted from waste streams.
 description:es:La producción de aluminio a partir de minerales tiene una gran huella de carbono, pero el reciclaje puede mejorarla 20 veces. Por ejemplo, el aluminio delgado se usa como lámina. El aluminio delgado es difícil de reciclar porque no se puede extraer de los flujos de desechos.
@@ -1540,6 +1827,53 @@ description:pt:A cortiça é um material leve e elástico feito da casca do sobr
 
 en:Textile, textiles
 fr:Textile, textiles, fibre textile, fibres textiles
+af:Tekstiel, tekstiele
+ar:نسيج, أقمشة
+az:Tekstil, tekstillər
+be:Тэкстыль, тэкстылі
+bg:Текстил, текстилни изделия
+br:Tekstil, tekstilioù
+ca:Tèxtil, tèxtils
+cs:Textil, textilie
+da:Tekstil, tekstiler
+de:Textil, Textilien
+el:Υφαντουργία, υφάσματα
+eo:Tekstilaĵo, tekstilaĵoj
+es:Textil, textiles
+et:Tekstiil, tekstiilid
+eu:Textila, textilak
+fa:متن, پارچه‌ها
+fi:Tekstiili, tekstiilit
+fo:Tekstil, tekstil
+fy:Tekstyl, tekstilen
+he:טקסטיל, בדים
+hr:Tekstil, tekstilni materijali
+hu:Textil, textíliák
+id:Tekstil, tekstil
+io:Tekstilo, tekstili
+it:Tessile, tessili
+lt:Tekstilė, tekstilės
+lv:Tekstils, tekstilizstrādājumi
+mk:Текстил, текстилни материјали
+mt:Tekstil, tekstili
+nb:Tekstil, tekstiler
+nl:Textiel
+nn:Tekstil, tekstilar
+oc:Textil, textiles
+pl:Tekstylia, tekstylia
+pt:Têxtil, têxteis
+ro:Textil, textile
+ru:Текстиль, текстильные изделия
+sk:Textil, textílie
+sl:Tekstil, tekstilni izdelki
+sq:Tekstil, tekstilet
+sr:Текстил, текстилни материјали
+sv:Textil, textilier
+sw:Kitambaa, vitambaa
+tr:Tekstil, tekstil ürünleri
+uk:Текстиль, текстильні вироби
+xx:52 FOR, FOR 52
+wikidata:en:Q728
 
 <en:Textile
 en:Cotton
@@ -1606,6 +1940,11 @@ description:pt:O algodão é uma fibra natural cultivada e colhida principalment
 <en:Textile
 en:Linen, flax
 fr:Lin, Fibre - Textile / Lin
+es:Lino, fibra de lino
+de:Leinen, Flachs
+it:Lino, fibra di lino
+nl:Linnen, vlas
+pt:Linho, fibra de linho
 
 #<en:Fiber
 en:61 TEX Jute, Jute
@@ -1660,7 +1999,7 @@ it:Altri Tessili
 nl:Ander textiel
 pt:Outros têxteis
 xx:62 TEX, TEX 62, 63 TEX, TEX 63, 64 TEX, TEX 64, 65 TEX, TEX 65, 66 TEX, TEX 66, 67 TEX, TEX 67, 68 TEX, TEX 68, 69 TEX, TEX 69
-description:Elk textiel (uit draden gemaakt materiaal) dat niet jute of katoen is.
+description:nl:Elk textiel (uit draden gemaakt materiaal) dat niet jute of katoen is.
 
 # Silicates / Verre (sodo-calcique) in data from Les Mousquetaires
 en:Glass
@@ -1712,12 +2051,17 @@ en:Clear Glass
 bg:Безцветно стъкло
 da:Klar Glas
 de:Klarglas, Farbloses Glas
+es:Vidrio transparente
 fr:Verre transparent
 hr:bezbojno staklo
 hu:Fehér üveg
 nl:transparant glas, transparant glazen
 pl:Przezroczyste szkło, Przeźroczyste szkło
 pt:Vidro transparente
+it:Vetro trasparente
+sv:Klart glas
+tr:Net cam
+uk:Прозоре скло
 xx:70 GL, GL 70, 70GL, GL70, 70 GLS, GLS 70, 70GLS, GLS70
 wikidata:en:Q28869937
 
@@ -1726,12 +2070,33 @@ en:Green Glass
 bg:Зелено стъкло
 da:Grønt Glas
 de:Grünglas, Grünes Glas
+es:Vidrio verde
 fr:Verre vert
 hr:zeleno staklo
 hu:Zöld üveg
 nl:Groen glas, groene glazen
 pl:Zielone szkło
 pt:Vidro verde
+cs:Zelené sklo
+et:roheline klaas
+fi:vihreä lasi
+ga:glais glas
+is:grænt gler
+it:vetro verde
+lt:žalias stiklas
+lv:zaļš stikls
+mk:зелено стакло
+nb:grønt glass
+nn:grønt glas
+ro:sticlă verde
+ru:зеленое стекло
+sk:zelené sklo
+sl:zeleno steklo
+sq:xhami jeshil
+sr:зелено стакло
+sv:grönt glas
+tr:Yeşil cam
+uk:зелене скло
 xx:71 GL, GL 71, 71GL, GL71, 71 GLS, GLS 71, 71GLS, GLS71
 
 <en:Glass
@@ -1745,6 +2110,29 @@ it:vetro marrone
 nl:Bruin glas, bruine glazen
 pl:Brązowe szkło
 pt:vidro marrom
+cs:hnědé sklo
+da:brunt glas
+el:καφέ γυαλί
+et:pruun klaas
+fi:ruskea lasi
+ga:glais donn
+hu:barna üveg
+is:brúnt gler
+lt:ruda stiklas
+lv:brūns stikls
+mk:кафеаво стакло
+mt:ħġieġ braun
+nb:brunt glass
+nn:brunt glas
+ro:sticlă maro
+ru:коричневое стекло
+sk:hnedé sklo
+sl:rjavo steklo
+sq:xham kafe
+sr:braon staklo
+sv:brunt glas
+tr:kahverengi cam
+uk:коричневе скло
 xx:72 GL, GL 72, 72GL, GL72, 72 GLS, GLS 72, 72GLS, GLS72
 wikidata:en:Q2184152
 # wikidata is for brown glass bottles
@@ -1759,6 +2147,7 @@ description:pt:O vidro marrom é feito adicionando óxido de ferro às matérias
 <en:Glass
 en:Dark Sort Glass
 de:Dunkles Sortierglas
+es:Vidrio oscuro
 fr:Verre sombre
 hr:ostalih boja staklo
 hu:Sötét válogatott üveg
@@ -1768,6 +2157,7 @@ xx:73 GL, GL 73, 73GL, GL73, 73 GLS, GLS 73, 73GLS, GLS73
 <en:Glass
 en:Light Sort Glass
 de:Helles Sortierglas
+es:Vidrio claro
 fr:Verre clair
 hu:Világos válogatott üveg
 nl:Lichtgekleurd glas
@@ -1776,6 +2166,10 @@ xx:74 GL, GL 74, 74GL, GL74, 74 GLS, GLS 74, 74GLS, GLS74
 <en:Glass
 en:Light Leaded Glass
 de:Leichtes Bleiglas
+es:Vidrio con un poco de plomo
+fr:Verre plombé léger
+it:Vetro al piombo leggero
+nl:Licht loodglas
 xx:75 GL, GL 75, 75GL, GL75, 75 GLS, GLS 75, 75GLS, GLS75
 
 <en:Glass
@@ -1784,7 +2178,7 @@ ca:76 GL - vidre de plom, vidre de plom
 cs:76 GL - Křišťálové sklo, Křišťálové sklo
 da:76 GL - blyglas, blyglas
 de:76 GL - Bleiglas, Bleiglas
-es:76 GL - vidrio de plomo, vidrio de plomo
+es:76 GL - vidrio de plomo, vidrio con plomo
 et:76 GL - Pliiklaas, Pliiklaas
 fi:76 GL - Kristalli, Kristalli
 fr:76 GL - cristal, cristal
@@ -2481,6 +2875,7 @@ description:nl:Uit metaal en PETmet (gemetalliseerd Polyethylene terephthalate) 
 
 <xx:92 C/X
 xx:92 C/PEmet
+
 <xx:92 C/X
 xx:92 C/MDPE, 92 C/PEMD
 description:en:Composite material with MDPE (Medium-density polyethylene) and metal
@@ -2721,7 +3116,7 @@ description:en:Tetra Rex®Plant-based is manufactured solely from a combination 
 en:Tetra Top
 xx:Tetra Top
 web:en:https://www.tetrapak.com/solutions/packaging/packages/tetra-top
-description:Drink cartons with a large separable top
+description:en:Drink cartons with a large separable top
 
 <en:Tetra Pak
 en:Tetra Stelo Aseptic, Tetra Stelo
@@ -2741,6 +3136,9 @@ xx:Tetra Classic Aseptic, Tetra Classic
 wikidata:en:Q4050869
 web:en:https://www.tetrapak.com/solutions/packaging/packages/tetra-classic-aseptic
 description:en:Packaging with a tetrahedron shape
+description:fr:Emballage de forme tétraédrique
+description:de:Verpackung mit tetraedrischer Form
+description:es:Embalaje con forma de tetraedro
 
 <en:Tetra Pak
 en:Tetra Gemina Aseptic, Tetra Gemina
@@ -2828,6 +3226,9 @@ en:Italpack, Italpack Cartons
 xx:Italpack, Italpack Cartons
 web:en:http://www.italpack.net/en/
 description:en:packaging for for powdery and granular products in pre-made square-bottom paper bags
+description:fr:emballage pour les produits en poudre et granulés dans des sacs en papier préfabriqués à fond carré
+description:es:envase para productos en polvo y granulares en bolsas de papel preformadas de fondo cuadrado
+description:de:Verpackung für pulverförmige und granuläre Produkte in vorgefertigten quadratischen Papiertüten
 
 en:sandstone
 ca:gres
@@ -2882,41 +3283,79 @@ description:nl:materiaal dat noch een metaal noch een polymeer is. Voorbeelden v
 en:fabric, fabrics
 de:Stoff, Stoffe, Gewebe
 fr:tissu, tissus
-nl:textiel, stof, stoffen
+nl:stof, stoffen
 wikidata:en:Q28823
 description:nl:uit draden geweven materiaal en daaruit gemaakte voorwerpen
 
 en:adhesive tape
 de:Klebeband
 fr:ruban adhésif
+es:cinta adhesiva
+it:nastro adesivo
+nl:plakband
+pt:fita adesiva
+ru:скотч
+ja:粘着テープ
+zh:胶带
+ko:접착 테이프
 wikidata:en:Q320441
 comment:en:Should these not be shapes?
 
 <en:adhesive tape
 en:adhesive plastic tape
 de:Kunststoffklebeband
+fr:ruban adhésif en plastique
+es:cinta adhesiva de plástico
+it:nastro adesivo in plastica
+nl:kunststof plakband
+pt:fita adesiva de plástico
 comment:en:Should these not be shapes?
 
 <en:adhesive tape
 en:washi tape
 de:Washi-Tape
 ja:和紙テープ
+fr:ruban washi
+es:cinta washi
+it:nastro washi
+nl:washi-tape
+pt:fita washi
+ru:восковая лента
 #comment:en:Should these not be shapes?
 
 en:Gas
 fr:Gaz
+es:Gas
+de:Gas
+it:Gas
+nl:Gas
 
 <en:Gas
 en:CO2 - Carbon dioxide, Carbon dioxide
 fr:CO2 - Dioxide de carbone, CO2, Dioxide de carbone, gaz carbonique
+es:CO2 - Dióxido de carbono, CO2, Dióxido de carbono, gas carbónico
+de:CO2 - Kohlendioxid, CO2, Kohlendioxid
+it:CO2 - Anidride carbonica, CO2, Anidride carbonica
+nl:CO2 - Koolstofdioxide, CO2, Koolstofdioxide
+pt:CO2 - Dióxido de carbono, CO2, Dióxido de carbono
 xx:CO2
 
 <en:Gas
 en:N2 - Azote, Azote
 fr:N2 - Azote, Azote
+es:N2 - Nitrógeno, Nitrógeno
+de:N2 - Stickstoff, Stickstoff
+it:N2 - Azoto, Azoto
+nl:N2 - Stikstof, Stikstof
+pt:N2 - Nitrogênio, Nitrogênio
 xx:N2
 
 <en:Gas
 en:Other gas
 fr:Autre gaz
+es:Otros gases
+de:Andere Gase
+it:Altro gas
+nl:Andere gassen
+pt:Outros gases
 

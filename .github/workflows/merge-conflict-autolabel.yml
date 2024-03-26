@@ -1,4 +1,4 @@
-name: 'Auto-Label Merge Conflicts on PRs'
+name: '💥 Auto-Label Merge Conflicts on PRs'
 on:
   push:
     branches:
@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: mschilde/auto-label-merge-conflicts@master
         with:
-          CONFLICT_LABEL_NAME: "merge-conflicts"
+          CONFLICT_LABEL_NAME: "💥 Merge Conflicts"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           MAX_RETRIES: 5
           WAIT_MS: 5000

@@ -9,8 +9,6 @@
    ],
    "added_countries_tags" : [],
    "additives_n" : 0,
-   "additives_old_n" : 0,
-   "additives_old_tags" : [],
    "additives_original_tags" : [],
    "additives_tags" : [],
    "allergens" : "",
@@ -105,6 +103,9 @@
             ],
             "epi_score" : 50,
             "epi_value" : 0,
+            "origins_from_categories" : [
+               "en:unknown"
+            ],
             "origins_from_origins_field" : [
                "en:martinique"
             ],
@@ -362,9 +363,6 @@
       "en:vegan",
       "en:vegetarian"
    ],
-   "ingredients_from_or_that_may_be_from_palm_oil_n" : 0,
-   "ingredients_from_palm_oil_n" : 0,
-   "ingredients_from_palm_oil_tags" : [],
    "ingredients_hierarchy" : [
       "en:banana",
       "en:fruit"
@@ -375,10 +373,12 @@
       "1",
       "1-10"
    ],
+   "ingredients_non_nutritive_sweeteners_n" : 0,
    "ingredients_original_tags" : [
       "en:banana"
    ],
    "ingredients_percent_analysis" : 1,
+   "ingredients_sweeteners_n" : 0,
    "ingredients_tags" : [
       "en:banana",
       "en:fruit"
@@ -388,8 +388,6 @@
    "ingredients_text_fr_imported" : "Banane",
    "ingredients_text_with_allergens" : "Banane",
    "ingredients_text_with_allergens_fr" : "Banane",
-   "ingredients_that_may_be_from_palm_oil_n" : 0,
-   "ingredients_that_may_be_from_palm_oil_tags" : [],
    "ingredients_with_specified_percent_n" : 0,
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 1,
@@ -417,6 +415,7 @@
    "last_editor" : "test-user",
    "last_modified_by" : "test-user",
    "last_modified_t" : "--ignore--",
+   "last_updated_t" : "--ignore--",
    "lc" : "fr",
    "lc_imported" : "fr",
    "main_countries_tags" : [],

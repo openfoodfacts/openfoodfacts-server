@@ -65,6 +65,7 @@ use Exporter qw< import >;
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
+		&is_valid_code
 		&normalize_code
 		&normalize_code_with_gs1_ai
 		&assign_new_code
@@ -129,6 +130,7 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Orgs qw/:all/;
 use ProductOpener::Lang qw/:all/;
@@ -140,7 +142,7 @@ use ProductOpener::Data qw/:all/;
 use ProductOpener::MainCountries qw/:all/;
 use ProductOpener::Text qw/:all/;
 use ProductOpener::Display qw/single_param/;
-use ProductOpener::Redis qw/push_to_search_service/;
+use ProductOpener::Redis qw/push_to_redis_stream/;
 
 # needed by analyze_and_enrich_product_data()
 # may be moved to another module at some point
@@ -208,6 +210,13 @@ sub make_sure_numbers_are_stored_as_numbers ($product_ref) {
 		}
 	}
 
+	# Make sure product _id and code are saved as string and not a number
+	# see bug #1077 - https://github.com/openfoodfacts/openfoodfacts-server/issues/1077
+	# make sure that code is saved as a string, otherwise mongodb saves it as number, and leading 0s are removed
+	# Note: #$product_ref->{code} .= ''; does not seem to be enough to force the type to be a string
+	$product_ref->{_id} = "$product_ref->{_id}";
+	$product_ref->{code} = "$product_ref->{code}";
+
 	return;
 }
 
@@ -241,20 +250,20 @@ sub assign_new_code() {
 
 	my $code = 2000000000001;    # Codes beginning with 2 are for internal use
 
-	my $internal_code_ref = retrieve("$data_root/products/internal_code.sto");
+	my $internal_code_ref = retrieve("$BASE_DIRS{PRODUCTS}/internal_code.sto");
 	if ((defined $internal_code_ref) and (${$internal_code_ref} > $code)) {
 		$code = ${$internal_code_ref};
 	}
 
 	my $product_id = product_id_for_owner($Owner_id, $code);
 
-	while (-e ("$data_root/products/" . product_path_from_id($product_id))) {
+	while (-e ("$BASE_DIRS{PRODUCTS}/" . product_path_from_id($product_id))) {
 
 		$code++;
 		$product_id = product_id_for_owner($Owner_id, $code);
 	}
 
-	store("$data_root/products/internal_code.sto", \$code);
+	store("$BASE_DIRS{PRODUCTS}/internal_code.sto", \$code);
 
 	$log->debug("assigning a new code", {code => $code, lc => $lc}) if $log->is_debug();
 
@@ -390,6 +399,24 @@ sub _try_normalize_code_gs1 ($code) {
 # - When products are private, the _id is [owner]/[code] (e.g. user-abc/1234567890123 or org-xyz/1234567890123
 # FIXME: bug #677
 
+=head2 is_valid_code($code)
+
+C<is_valid_code()> checks if the given code is a valid product code.
+
+=head3 Arguments
+
+Product Code: $code
+
+=head3 Return Values
+
+Boolean value indicating if the code is valid or not.
+
+=cut
+
+sub is_valid_code ($code) {
+	return $code =~ /^\d{4,24}$/;
+}
+
 =head2 split_code()
 
 C<split_code()> this function splits the product code for determining the product path and the _id.
@@ -409,7 +436,7 @@ Example: 1234567890123  :-  123/456/789/0123
 sub split_code ($code) {
 
 	# Require at least 4 digits (some stores use very short internal barcodes, they are likely to be conflicting)
-	if ($code !~ /^\d{4,24}$/) {
+	if (not is_valid_code($code)) {
 
 		$log->info("invalid code", {code => $code}) if $log->is_info();
 		return "invalid";
@@ -638,7 +665,7 @@ sub product_id_from_path ($product_path) {
 		$id = dirname($id);
 	}
 	# eventually remove root path
-	my $root = quotemeta("$data_root/products/");
+	my $root = quotemeta("$BASE_DIRS{PRODUCTS}/");
 	$id =~ s/^$root//;
 	# transform to id by simply removing "/"
 	$id =~ s/\///g;
@@ -1025,7 +1052,7 @@ sub change_product_server_or_code ($product_ref, $new_code, $errors_ref) {
 	}
 
 	$new_code = normalize_code($new_code);
-	if ($new_code !~ /^\d{4,24}$/) {
+	if (not is_valid_code($new_code)) {
 		push @$errors_ref, lang("invalid_barcode");
 	}
 	else {
@@ -1221,13 +1248,8 @@ sub store_product ($user_id, $product_ref, $comment) {
 
 		$log->debug("creating product directories", {path => $path, prefix_path => $prefix_path}) if $log->is_debug();
 		# Create the directories for the product
-		foreach my $current_dir ($new_data_root . "/products", $new_www_root . "/images/products") {
-			(-e "$current_dir") or mkdir($current_dir, 0755) or die("could not create $current_dir: $!\n");
-			foreach my $component (split("/", $prefix_path)) {
-				$current_dir .= "/$component";
-				(-e "$current_dir") or mkdir($current_dir, 0755) or die("could not create $current_dir: $!\n");
-			}
-		}
+		ensure_dir_created_or_die("$new_data_root/products/$prefix_path");
+		ensure_dir_created_or_die("$new_www_root/images/products/$prefix_path");
 
 		if (    (!-e "$new_data_root/products/$path")
 			and (!-e "$new_www_root/images/products/$path"))
@@ -1247,21 +1269,26 @@ sub store_product ($user_id, $product_ref, $comment) {
 			File::Copy::Recursive->import(qw( dirmove ));
 
 			$log->debug("moving product data",
-				{source => "$data_root/products/$old_path", destination => "$data_root/products/$path"})
+				{source => "$BASE_DIRS{PRODUCTS}/$old_path", destination => "$BASE_DIRS{PRODUCTS}/$path"})
 				if $log->is_debug();
-			dirmove("$data_root/products/$old_path", "$new_data_root/products/$path")
-				or $log->error("could not move product data",
-				{source => "$data_root/products/$old_path", destination => "$data_root/products/$path", error => $!});
+			dirmove("$BASE_DIRS{PRODUCTS}/$old_path", "$new_data_root/products/$path")
+				or $log->error(
+				"could not move product data",
+				{source => "$BASE_DIRS{PRODUCTS}/$old_path", destination => "$BASE_DIRS{PRODUCTS}/$path", error => $!}
+				);
 
 			$log->debug(
 				"moving product images",
-				{source => "$www_root/images/products/$old_path", destination => "$new_www_root/images/products/$path"}
+				{
+					source => "$BASE_DIRS{PRODUCTS_IMAGES}/$old_path",
+					destination => "$new_www_root/images/products/$path"
+				}
 			) if $log->is_debug();
-			dirmove("$www_root/images/products/$old_path", "$new_www_root/images/products/$path")
+			dirmove("$BASE_DIRS{PRODUCTS_IMAGES}/$old_path", "$new_www_root/images/products/$path")
 				or $log->error(
 				"could not move product images",
 				{
-					source => "$www_root/images/products/$old_path",
+					source => "$BASE_DIRS{PRODUCTS_IMAGES}/$old_path",
 					destination => "$new_www_root/images/products/$path",
 					error => $!
 				}
@@ -1282,11 +1309,15 @@ sub store_product ($user_id, $product_ref, $comment) {
 		else {
 			(-e "$new_data_root/products/$path")
 				and $log->error("cannot move product data, because the destination already exists",
-				{source => "$data_root/products/$old_path", destination => "$data_root/products/$path"});
-			(-e "$new_www_root/products/$path") and $log->error(
+				{source => "$BASE_DIRS{PRODUCTS}/$old_path", destination => "$BASE_DIRS{PRODUCTS}/$path"});
+			(-e "$new_www_root/products/$path")
+				and $log->error(
 				"cannot move product images data, because the destination already exists",
-				{source => "$www_root/images/products/$old_path", destination => "$new_www_root/images/products/$path"}
-			);
+				{
+					source => "$BASE_DIRS{PRODUCTS_IMAGES}/$old_path",
+					destination => "$new_www_root/images/products/$path"
+				}
+				);
 		}
 
 		$comment .= " - barcode changed from $old_code to $code by $user_id";
@@ -1294,13 +1325,8 @@ sub store_product ($user_id, $product_ref, $comment) {
 
 	if ($rev < 1) {
 		# Create the directories for the product
-		foreach my $current_dir ($new_data_root . "/products", $new_www_root . "/images/products") {
-			(-e "$current_dir") or mkdir($current_dir, 0755);
-			foreach my $component (split("/", $path)) {
-				$current_dir .= "/$component";
-				(-e "$current_dir") or mkdir($current_dir, 0755);
-			}
-		}
+		ensure_dir_created_or_die("$new_data_root/products/$path");
+		ensure_dir_created_or_die("$new_www_root/images/products/$path");
 	}
 
 	# Check lock and previous version
@@ -1326,8 +1352,11 @@ sub store_product ($user_id, $product_ref, $comment) {
 	$rev++;
 
 	$product_ref->{rev} = $rev;
+	# last_modified_t is the date of the last change of the product raw data
+	# last_updated_t is the date of the last change of the product derived data (e.g. ingredient analysis, scores etc.)
 	$product_ref->{last_modified_by} = $user_id;
 	$product_ref->{last_modified_t} = time() + 0;
+	$product_ref->{last_updated_t} = $product_ref->{last_modified_t};
 	if (not exists $product_ref->{creator}) {
 		my $creator = $user_id;
 		if ((not defined $user_id) or ($user_id eq '')) {
@@ -1452,11 +1481,11 @@ sub store_product ($user_id, $product_ref, $comment) {
 
 	$log->debug("store_product - done", {code => $code, product_id => $product_id}) if $log->is_debug();
 
-	# index for search service
-	push_to_search_service($product_ref);
+	my $update_type = $product_ref->{deleted} ? "deleted" : "updated";
+	# Publish information about update on Redis stream
+	push_to_redis_stream($user_id, $product_ref, $update_type, $comment, $diffs);
 
 	# Notify Robotoff
-	my $update_type = $product_ref->{deleted} ? "deleted" : "updated";
 	send_notification_for_product_change($user_id, $product_ref, $update_type, $comment, $diffs);
 
 	return 1;
@@ -1935,7 +1964,7 @@ sub replace_user_id_in_product ($product_id, $user_id, $new_user_id, $products_c
 
 	# List of changes
 
-	my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
+	my $changes_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/changes.sto");
 	if (not defined $changes_ref) {
 		$log->warn("replace_user_id_in_products - no changes file found for " . $product_id);
 		return;
@@ -1958,7 +1987,7 @@ sub replace_user_id_in_product ($product_id, $user_id, $new_user_id, $products_c
 		if (not defined $rev) {
 			$rev = $revs;    # was not set before June 2012
 		}
-		my $product_ref = retrieve("$data_root/products/$path/$rev.sto");
+		my $product_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/$rev.sto");
 
 		if (defined $product_ref) {
 
@@ -2003,7 +2032,7 @@ sub replace_user_id_in_product ($product_id, $user_id, $new_user_id, $products_c
 			# Save product
 
 			if ($changes) {
-				store("$data_root/products/$path/$rev.sto", $product_ref);
+				store("$BASE_DIRS{PRODUCTS}/$path/$rev.sto", $product_ref);
 			}
 		}
 
@@ -2015,7 +2044,7 @@ sub replace_user_id_in_product ($product_id, $user_id, $new_user_id, $products_c
 			$most_recent_product_ref, {upsert => 1});
 	}
 
-	store("$data_root/products/$path/changes.sto", $changes_ref);
+	store("$BASE_DIRS{PRODUCTS}/$path/changes.sto", $changes_ref);
 
 	return;
 }
@@ -2560,7 +2589,7 @@ sub add_back_field_values_removed_by_user ($current_product_ref, $changes_ref, $
 		if (not defined $rev) {
 			$rev = $revs;    # was not set before June 2012
 		}
-		my $product_ref = retrieve("$data_root/products/$path/$rev.sto");
+		my $product_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/$rev.sto");
 
 		# if not found, we may be be updating the product, with the latest rev not set yet
 		if ((not defined $product_ref) or ($rev == $current_product_ref->{rev})) {
@@ -2852,7 +2881,7 @@ sub compute_codes ($product_ref) {
 		if (product_exists('0' . $code)) {
 			push @codes, "conflict-with-ean-13";
 		}
-		elsif (-e ("$data_root/products/" . product_path_from_id("0" . $code))) {
+		elsif (-e ("$BASE_DIRS{PRODUCTS}/" . product_path_from_id("0" . $code))) {
 			push @codes, "conflict-with-deleted-ean-13";
 		}
 	}
