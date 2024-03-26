@@ -11,4 +11,4 @@ For each nutrient:
  - _100g: Amount per 100g in original unit
  - _serving: Amount per serving normalised unit
  - _no suffix_: What was entered in normalised unit
- - _label: Entered label for an unknown untrient?
+ - _label: Entered label for an unknown nutrient?

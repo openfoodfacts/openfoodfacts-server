@@ -97,6 +97,7 @@ export function buildJs() {
 
 function buildjQueryUi() {
   return src([
+    "./node_modules/jquery-ui/ui/jquery-patch.js",
     "./node_modules/jquery-ui/ui/version.js",
     "./node_modules/jquery-ui/ui/widget.js",
     "./node_modules/jquery-ui/ui/position.js",
