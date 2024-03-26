@@ -254,11 +254,8 @@ sub products_images_dir ($server_name) {
 }
 
 sub _source_dir() {
-	# comput src_root
-	my $src_root = abs_path(dirname(__FILE__) . '../..');
-	unless ($src_root =~ m|^/|) {
-		$src_root = cwd() . $src_root;
-	}
+	# compute $src_root
+	my $src_root = abs_path(dirname(__FILE__) . '/../..');
 	return $src_root;
 }
 
@@ -295,14 +292,7 @@ full path for taxonomy file
 sub get_path_for_taxonomy($tagtype, $product_type) {
 	# The source file can be prefixed by the product type
 	my $source_file = get_file_for_taxonomy($tagtype, $product_type);
-	# handle special cases
-	if ($tagtype eq "nutrient_levels") {
-		# this is a built taxonomy
-		return "$BASE_DIRS{CACHE_BUILD}/taxonomies-result/$source_file";
-	}
-	else {
-		return "$BASE_DIRS{TAXONOMIES_SRC}/$source_file";
-	}
+	return "$BASE_DIRS{TAXONOMIES_SRC}/$source_file";
 }
 
 =head2 base_paths()

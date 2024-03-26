@@ -91,7 +91,6 @@ my @fields = qw (
 foreach my $l ('en') {
 
 	$lc = $l;
-	$lang = $l;
 
 	my $fields_ref = {code => 1, product_name => 1, brands => 1, quantity => 1, nutriments => 1};
 	my %tags = ();
@@ -109,15 +108,15 @@ foreach my $l ('en') {
 <initjs>
     oTable = \$('#tagstable').DataTable({
 	language: {
-		search: "$Lang{tagstable_search}{$lang}",
+		search: "$Lang{tagstable_search}{$lc}",
 		info: "_TOTAL_ ",
-		infoFiltered: " - $Lang{tagstable_filtered}{$lang}"
+		infoFiltered: " - $Lang{tagstable_filtered}{$lc}"
 	},
 	paging: false
     });
 </initjs>
 <scripts>
-<script src="/js/datatables.min.js"></script>
+<script src="$static_subdomain/js/datatables.min.js"></script>
 </scripts>
 <header>
 <link rel="stylesheet" href="/js/datatables.min.css" />
@@ -631,7 +630,7 @@ HTML
 
 	$html .= "</tbody></table>";
 
-	open(my $OUT, ">:encoding(UTF-8)", "$BASE_DIRS{LANG}/$lang/texts/sugar.html");
+	open(my $OUT, ">:encoding(UTF-8)", "$BASE_DIRS{LANG}/$l/texts/sugar.html");
 	print $OUT $html;
 	close $OUT;
 

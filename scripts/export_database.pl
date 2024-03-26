@@ -141,13 +141,12 @@ my $date = sprintf("%04d-%02d-%02d", $year + 1900, $mon + 1, $mday);
 foreach my $l ("en", "fr") {
 
 	$lc = $l;
-	$lang = $l;
 
 	$langs{$l} = 0;
 
-	my $csv_filename = "$BASE_DIRS{PUBLIC_DATA}/$lang.$server_domain.products.csv";
-	my $rdf_filename = "$BASE_DIRS{PUBLIC_DATA}/$lang.$server_domain.products.rdf";
-	my $log_filename = "$BASE_DIRS{PUBLIC_DATA}/$lang.$server_domain.products.bad-chars.log";
+	my $csv_filename = "$BASE_DIRS{PUBLIC_DATA}/$l.$server_domain.products.csv";
+	my $rdf_filename = "$BASE_DIRS{PUBLIC_DATA}/$l.$server_domain.products.rdf";
+	my $log_filename = "$BASE_DIRS{PUBLIC_DATA}/$l.$server_domain.products.bad-chars.log";
 
 	print STDERR "Write file: $csv_filename.temp\n";
 	print STDERR "Write file: $rdf_filename.temp\n";
