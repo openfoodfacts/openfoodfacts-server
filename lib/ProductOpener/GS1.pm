@@ -345,8 +345,7 @@ sub normalize_gs1_maps_entries() {
 			$log->error("gs1_maps - entry not in taxonomy",
 				{tagtype => "allergens", tag => $gs1_maps{allergenTypeCode}{$tag}})
 				if $log->is_error();
-			print STDERR "tag: $tag - canon_tag: $canon_tag\n";
-			die;
+			die("gs1_maps - entry not in taxonomy - tagtype: allergens - tag: $tag - canon_tag: $canon_tag");
 		}
 	}
 
@@ -360,7 +359,7 @@ sub normalize_gs1_maps_entries() {
 			$log->error("gs1_maps - entry not in taxonomy",
 				{tagtype => "labels", tag => $gs1_maps{packagingMarkedLabelAccreditationCode}{$tag}})
 				if $log->is_error();
-			die;
+			die("gs1_maps - entry not in taxonomy - tagtype: labels - tag: $tag - canon_tag: $canon_tag");
 		}
 	}
 

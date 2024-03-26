@@ -95,7 +95,7 @@ edit_etc_hosts:
 create_folders:
 # create some folders to avoid having them owned by root (when created by docker compose)
 	@echo "🥫 Creating folders before docker compose use them."
-	mkdir -p logs/apache2 logs/nginx debug html/data || ( whoami; ls -l . ; false )
+	mkdir -p logs/apache2 logs/nginx debug html/data sftp || ( whoami; ls -l . ; false )
 
 # TODO: Figure out events => actions and implement live reload
 # live_reload:
@@ -205,9 +205,13 @@ refresh_product_tags:
 	${DOCKER_COMPOSE} run --rm backend perl /opt/product-opener/scripts/refresh_postgres.pl ${from}
 
 import_sample_data:
-	@echo "🥫 Importing sample data (~200 products) into MongoDB …"
-	${DOCKER_COMPOSE} run --rm backend bash /opt/product-opener/scripts/import_sample_data.sh
-
+	@ if [[ "${PRODUCT_OPENER_FLAVOR_SHORT}" = "off" &&  "${PRODUCERS_PLATFORM}" != "1" ]]; then \
+   		echo "🥫 Importing sample data (~200 products) into MongoDB …"; \
+		${DOCKER_COMPOSE} run --rm backend bash /opt/product-opener/scripts/import_sample_data.sh; \
+	else \
+	 	echo "🥫 Not importing sample data into MongoDB (only for po_off project)"; \
+	fi
+	
 import_more_sample_data:
 	@echo "🥫 Importing sample data (~2000 products) into MongoDB …"
 	${DOCKER_COMPOSE} run --rm backend bash /opt/product-opener/scripts/import_more_sample_data.sh
