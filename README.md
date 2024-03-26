@@ -46,7 +46,7 @@ Visit the [website](https://world.openfoodfacts.org) for more info.
 <br><br>
 ## Weekly Meetings
 
-- We e-meet on Mondays at 16:00 Paris Time (15:00 London Time, 20:30 IST, 07:00 AM PT)
+- We e-meet on Mondays at 17:00 Paris Time (Europe/Paris), which is CET (UTC+1) or CEST (UTC+2 during Daylight Saving Time). For easy conversion in local time, check [17:00 in Paris](https://time.is/1700_in_Paris).
 - ![Google Meet](https://img.shields.io/badge/Google%20Meet-00897B?logo=google-meet&logoColor=white) Video call link: https://meet.google.com/nnw-qswu-hza
 - Join by phone: https://tel.meet/nnw-qswu-hza?pin=2111028061202
 - Add the event to your calendar by [adding the Open Food Facts community calendar to your calendar](https://wiki.openfoodfacts.org/Events).
