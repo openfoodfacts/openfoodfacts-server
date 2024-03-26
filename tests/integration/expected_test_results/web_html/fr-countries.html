@@ -348,12 +348,12 @@
 <td style="text-align:right"><a href="/pays/royaume-uni" class="tag known">3</a></td><td></td></tr>
 <tr><td><a href="/pays/italie" class="tag known">Italie</a></td>
 <td style="text-align:right"><a href="/pays/italie" class="tag known">2</a></td><td></td></tr>
-<tr><td><a href="/pays/suisse" class="tag known">Suisse</a></td>
-<td style="text-align:right"><a href="/pays/suisse" class="tag known">1</a></td><td></td></tr>
-<tr><td><a href="/pays/belgique" class="tag known">Belgique</a></td>
-<td style="text-align:right"><a href="/pays/belgique" class="tag known">1</a></td><td></td></tr>
 <tr><td><a href="/pays/espagne" class="tag known">Espagne</a></td>
 <td style="text-align:right"><a href="/pays/espagne" class="tag known">1</a></td><td></td></tr>
+<tr><td><a href="/pays/belgique" class="tag known">Belgique</a></td>
+<td style="text-align:right"><a href="/pays/belgique" class="tag known">1</a></td><td></td></tr>
+<tr><td><a href="/pays/suisse" class="tag known">Suisse</a></td>
+<td style="text-align:right"><a href="/pays/suisse" class="tag known">1</a></td><td></td></tr>
 </tbody></table></div>
 								</div>
 							</div>
@@ -496,7 +496,7 @@
 
 <script>
 $(function() {
-var countries_map_data=JSON.parse("{\"GB\":3,\"FR\":6,\"IT\":2,\"BE\":1,\"CH\":1,\"DE\":4,\"ES\":1}");var countries_map_links=JSON.parse("{\"ES\":\"/pays/espagne\",\"CH\":\"/pays/suisse\",\"DE\":\"/pays/allemagne\",\"IT\":\"/pays/italie\",\"FR\":\"/pays/france\",\"BE\":\"/pays/belgique\",\"GB\":\"/pays/royaume-uni\"}");var countries_map_names=JSON.parse("{\"BE\":\"Belgique\",\"FR\":\"France\",\"IT\":\"Italie\",\"GB\":\"Royaume-Uni\",\"ES\":\"Espagne\",\"DE\":\"Allemagne\",\"CH\":\"Suisse\"}");displayWorldMap('#world-map', { 'data': countries_map_data, 'links': countries_map_links, 'names': countries_map_names });
+var countries_map_data=JSON.parse("{\"BE\":1,\"CH\":1,\"DE\":4,\"ES\":1,\"FR\":6,\"GB\":3,\"IT\":2}");var countries_map_links=JSON.parse("{\"BE\":\"/pays/belgique\",\"CH\":\"/pays/suisse\",\"DE\":\"/pays/allemagne\",\"ES\":\"/pays/espagne\",\"FR\":\"/pays/france\",\"GB\":\"/pays/royaume-uni\",\"IT\":\"/pays/italie\"}");var countries_map_names=JSON.parse("{\"BE\":\"Belgique\",\"CH\":\"Suisse\",\"DE\":\"Allemagne\",\"ES\":\"Espagne\",\"FR\":\"France\",\"GB\":\"Royaume-Uni\",\"IT\":\"Italie\"}");displayWorldMap('#world-map', { 'data': countries_map_data, 'links': countries_map_links, 'names': countries_map_names });
 oTable = $('#tagstable').DataTable({
 	language: {
 		search: "Recherche :",

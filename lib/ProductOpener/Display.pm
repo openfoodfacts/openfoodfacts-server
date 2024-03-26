@@ -460,7 +460,7 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	};
 
 	$template_data_ref->{encode_json} = sub ($var) {
-		return decode_utf8(JSON::PP->new->utf8->canonical->encode($var));
+		return $json->utf8->encode($var);
 	};
 
 	return ($tt->process($template_filename, $template_data_ref, $result_content_ref));
@@ -3952,7 +3952,6 @@ HTML
 
 		my $map_html;
 		if (((scalar @wikidata_objects) > 0) or ((scalar @markers) > 0)) {
-			my $json = JSON::PP->new->utf8(0);
 			my $map_template_data_ref = {
 				lang => \&lang,
 				encode_json => sub ($obj_ref) {
@@ -4363,13 +4362,11 @@ sub display_search_results ($request_ref) {
 			$search_api_url =~ s/\&/\?/;
 		}
 
-		my $contributor_prefs_json = decode_utf8(
-			encode_json(
-				{
-					display_barcode => $User{display_barcode},
-					edit_link => $User{edit_link},
-				}
-			)
+		my $contributor_prefs_json = $json->utf8->encode(
+			{
+				display_barcode => $User{display_barcode},
+				edit_link => $User{edit_link},
+			}
 		);
 
 		my $preferences_text = lang("classify_products_according_to_your_preferences");
@@ -5396,16 +5393,14 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		my $products_json = '[]';
 
 		if (defined $request_ref->{structured_response}{products}) {
-			$products_json = decode_utf8(encode_json($request_ref->{structured_response}{products}));
+			$products_json = $json->encode($request_ref->{structured_response}{products});
 		}
 
-		my $contributor_prefs_json = decode_utf8(
-			$json->utf8->encode(
-				{
-					display_barcode => $User{display_barcode},
-					edit_link => $User{edit_link},
-				}
-			)
+		my $contributor_prefs_json = $json->utf8->encode(
+			{
+				display_barcode => $User{display_barcode},
+				edit_link => $User{edit_link},
+			}
 		);
 
 		$scripts .= <<JS
@@ -6883,7 +6878,6 @@ sub map_of_products ($products_iter, $request_ref, $graph_ref) {
 		$request_ref->{current_link_query_display} =~ s/\?action=process/\?action=display/;
 	}
 
-	my $json = JSON::PP->new->utf8(0);
 	my $map_template_data_ref = {
 		lang => \&lang,
 		encode_json => sub ($obj_ref) {
@@ -8253,7 +8247,7 @@ HTML
 		compute_attributes($product_ref, $lc, $cc, $attributes_options_ref);
 
 		my $product_attribute_groups_json
-			= decode_utf8(encode_json({"attribute_groups" => $product_ref->{"attribute_groups_" . $lc}}));
+			= $json->utf8->encode({"attribute_groups" => $product_ref->{"attribute_groups_" . $lc}});
 		my $preferences_text = lang("classify_products_according_to_your_preferences");
 
 		$scripts .= <<JS
@@ -11411,8 +11405,7 @@ sub generate_select2_options_for_taxonomy ($target_lc, $tagtype) {
 
 sub generate_select2_options_for_taxonomy_to_json ($target_lc, $tagtype) {
 
-	return decode_utf8(
-		JSON::PP->new->utf8->canonical->encode(generate_select2_options_for_taxonomy($target_lc, $tagtype)));
+	return $json->utf8->encode(generate_select2_options_for_taxonomy($target_lc, $tagtype));
 }
 
 1;

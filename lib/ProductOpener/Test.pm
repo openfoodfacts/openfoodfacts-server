@@ -840,6 +840,9 @@ sub normalize_html_for_test_comparison ($html_ref) {
 
 	$$html_ref =~ s/\?v=\d+/\?v=--ignore--/g;
 
+	# <time datetime="2024-03-26T18:43:45">26 mars 2024, 18:43:45 CET</time>
+	$$html_ref =~ s/<time datetime="[^"]+">[^<]+<\/time>/<time datetime="--ignore--">--ignore--<\/time>/g;
+
 	return;
 }
 
