@@ -71,15 +71,16 @@ Visit the [website](https://world.openfoodfacts.org) for more info.
 - Join us on slack at <https://openfoodfacts.slack.com/> in the channels: `#api`, `#productopener`, `#dev`.
 - [API v2 documentation (WIP)](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/) ([source](https://github.com/openfoodfacts/openfoodfacts-server/tree/main/docs/api/ref/api.yml))
 - Developer documentation:
-  - [Server documentation](https://openfoodfacts.github.io/openfoodfacts-server/)
-  - [Quick start guide (docker)](./docs/dev/how-to-quick-start-guide.md)
-  - [Developer guide (docker)](./docs/dev/how-to-develop-using-docker.md)
-  - [Developer guide (gitpod)](./docs/dev/how-to-use-gitpod.md)
-  - Configuration [TBA]
-  - Dependencies [TBA]
-  - Database configuration [TBA]
-  - How to run tests [TBA]
-  - [Perl modules documentation (POD)](https://openfoodfacts.github.io/dev/ref-perl/)
+  - To start coding, head to the [Quick start guide (docker)](./docs/dev/how-to-quick-start-guide.md)
+  - Additional documentation
+    - [Server documentation](https://openfoodfacts.github.io/openfoodfacts-server/)
+    - [Developer guide (docker)](./docs/dev/how-to-develop-using-docker.md)
+    - [Developer guide (gitpod)](./docs/dev/how-to-use-gitpod.md)
+    - Configuration [TBA]
+    - Dependencies [TBA]
+    - Database configuration [TBA]
+    - How to run tests [TBA]
+    - [Perl modules documentation (POD)](https://openfoodfacts.github.io/dev/ref-perl/)
 
 
 **Note:** Documentation follows the [Diátaxis Framework](https://diataxis.fr/).
