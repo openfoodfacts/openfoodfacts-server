@@ -32,7 +32,7 @@ foreach my $ingredient (@ingredients) {
 		$eurocode_2_group_3_prefix =~ s/\.[^\.]+$//;
 		is($eurocode_2_group_3_prefix, $eurocode_2_group_2, "$eurocode_2_group_3 prefix matches eurocode_2_group_2");
 
-		# Add to the list of known Eurocodes
+		# Add to the list of known Eurocodes
 		# We may have several taxonomy entries with the same eurocode_2_group_3,
 		# we suffix them with the name of the ingredient
 		$eurocodes{$eurocode_2_group_3 . " " . $ingredient} = {
@@ -45,7 +45,7 @@ foreach my $ingredient (@ingredients) {
 }
 
 # Output the list of known Eurocodes in tab separated CSV
-# Used to see diffs, and also to easily see which Eurocodes we have
+# Used to see diffs, and also to easily see which Eurocodes we have
 
 if (!-e $expected_results_dir) {
 	mkdir($expected_results_dir, 0755) or confess("Could not create $expected_results_dir directory: $!\n");
