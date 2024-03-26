@@ -11,8 +11,8 @@ use Log::Any::Adapter 'TAP', filter => "none";
 
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Ingredients qw/:all/;
-use ProductOpener::ImportConvert qw/:all/;
+use ProductOpener::Ingredients qw/cut_ingredients_text_for_lang split_generic_name_from_ingredients/;
+use ProductOpener::ImportConvert qw/clean_fields/;
 use ProductOpener::Config qw/:all/;
 
 ProductOpener::Ingredients::validate_regular_expressions();

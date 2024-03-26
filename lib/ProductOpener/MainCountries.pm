@@ -67,10 +67,10 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
-use ProductOpener::Tags qw/:all/;
-use ProductOpener::Store qw/:all/;
-use ProductOpener::Products qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
+use ProductOpener::Tags qw/%country_languages country_to_cc/;
+use ProductOpener::Store qw/retrieve_json/;
+use ProductOpener::Products qw/product_path/;
 
 =head1 FUNCTIONS
 

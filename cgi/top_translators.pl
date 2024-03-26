@@ -26,8 +26,8 @@ use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::Lang qw/:all/;
-use ProductOpener::URL qw/:all/;
+use ProductOpener::Lang qw/lang/;
+use ProductOpener::URL qw/format_subdomain/;
 
 use CGI qw/:cgi :form escapeHTML charset/;
 use URI::Escape::XS;

@@ -95,7 +95,7 @@ edit_etc_hosts:
 create_folders:
 # create some folders to avoid having them owned by root (when created by docker compose)
 	@echo "🥫 Creating folders before docker compose use them."
-	mkdir -p logs/apache2 logs/nginx debug html/data || ( whoami; ls -l . ; false )
+	mkdir -p logs/apache2 logs/nginx debug html/data sftp || ( whoami; ls -l . ; false )
 
 # TODO: Figure out events => actions and implement live reload
 # live_reload:
@@ -205,9 +205,13 @@ refresh_product_tags:
 	${DOCKER_COMPOSE} run --rm backend perl /opt/product-opener/scripts/refresh_postgres.pl ${from}
 
 import_sample_data:
-	@echo "🥫 Importing sample data (~200 products) into MongoDB …"
-	${DOCKER_COMPOSE} run --rm backend bash /opt/product-opener/scripts/import_sample_data.sh
-
+	@ if [[ "${PRODUCT_OPENER_FLAVOR_SHORT}" = "off" &&  "${PRODUCERS_PLATFORM}" != "1" ]]; then \
+   		echo "🥫 Importing sample data (~200 products) into MongoDB …"; \
+		${DOCKER_COMPOSE} run --rm backend bash /opt/product-opener/scripts/import_sample_data.sh; \
+	else \
+	 	echo "🥫 Not importing sample data into MongoDB (only for po_off project)"; \
+	fi
+	
 import_more_sample_data:
 	@echo "🥫 Importing sample data (~2000 products) into MongoDB …"
 	${DOCKER_COMPOSE} run --rm backend bash /opt/product-opener/scripts/import_more_sample_data.sh
@@ -320,8 +324,8 @@ bash_test:
 	${DOCKER_COMPOSE_TEST} run --rm -w /opt/product-opener backend bash
 
 # check perl compiles, (pattern rule) / but only for newer files
-%.pm %.pl: _FORCE
-	@if [[ -f $@ ]]; then perl -c -CS -Ilib $@; else true; fi
+%.pm %.pl %.t: _FORCE
+	@if [[ -f $@ ]]; then PO_NO_LOAD_DATA=1 perl -c -CS -Ilib $@; else true; fi
 
 
 # TO_CHECK look at changed files (compared to main) with extensions .pl, .pm, .t
@@ -333,27 +337,36 @@ TO_CHECK := $(shell [ -x "`which git 2>/dev/null`" ] && git diff origin/main --n
 
 check_perl_fast:
 	@echo "🥫 Checking ${TO_CHECK}"
-	test -z "${TO_CHECK}" || ${DOCKER_COMPOSE} run --rm backend make -j ${CPU_COUNT} ${TO_CHECK}
+	test -z "${TO_CHECK}" || \
+	  ${DOCKER_COMPOSE} run --rm backend make -j ${CPU_COUNT} ${TO_CHECK} || \
+	  ( echo "Perl syntax errors! Look at 'failed--compilation' in above logs" && false )
 
 check_translations:
 	@echo "🥫 Checking translations"
 	${DOCKER_COMPOSE} run --rm backend scripts/check-translations.sh
 
 # check all perl files compile (takes time, but needed to check a function rename did not break another module !)
+# IMPORTANT: We exclude some files that are in .check_perl_excludes
 check_perl:
 	@echo "🥫 Checking all perl files"
-	${DOCKER_COMPOSE} run --rm --no-deps backend make -j ${CPU_COUNT} cgi/*.pl scripts/*.pl lib/*.pl lib/ProductOpener/*.pm
+	@if grep -P '^\s*$$' .check_perl_excludes; then echo "No blank line accepted in .check_perl_excludes, fix it"; false; fi
+	ALL_PERL_FILES=$$(find . -regex ".*\.\(p[lm]\|t\)"|grep -v "/\."|grep -v "/obsolete/"| grep -vFf .check_perl_excludes) ; \
+	${DOCKER_COMPOSE} run --rm --no-deps backend make -j ${CPU_COUNT} $$ALL_PERL_FILES  || \
+	  ( echo "Perl syntax errors! Look at 'failed--compilation' in above logs" && false )
 
 # check with perltidy
 # we exclude files that are in .perltidy_excludes
+# see %.pl %.pm %.t rule above that compiles files individually
 TO_TIDY_CHECK := $(shell echo ${TO_CHECK}| tr " " "\n" | grep -vFf .perltidy_excludes)
 check_perltidy:
 	@echo "🥫 Checking with perltidy ${TO_TIDY_CHECK}"
+	@if grep -P '^\s*$$' .perltidy_excludes; then echo "No blank line accepted in .perltidy_excludes, fix it"; false; fi
 	test -z "${TO_TIDY_CHECK}" || ${DOCKER_COMPOSE} run --rm --no-deps backend perltidy --assert-tidy -opath=/tmp/ --standard-error-output ${TO_TIDY_CHECK}
 
 # same as check_perltidy, but this time applying changes
 lint_perltidy:
 	@echo "🥫 Linting with perltidy ${TO_TIDY_CHECK}"
+	@if grep -P '^\s*$$' .perltidy_excludes; then echo "No blank line accepted in .perltidy_excludes, fix it"; false; fi
 	test -z "${TO_TIDY_CHECK}" || ${DOCKER_COMPOSE} run --rm --no-deps backend perltidy --standard-error-output -b -bext=/ ${TO_TIDY_CHECK}
 
 

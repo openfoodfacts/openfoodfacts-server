@@ -58,7 +58,6 @@ BEGIN {
 		$empty_regexp
 		$unknown_regexp
 		$not_applicable_regexp
-		$none_regexp
 		$empty_unknown_not_applicable_or_none_regexp
 
 		%fields
@@ -66,7 +65,6 @@ BEGIN {
 		%products
 
 		&assign_value
-		&remove_value
 
 		&get_list_of_files
 
@@ -78,7 +76,6 @@ BEGIN {
 		&print_stats
 
 		&match_taxonomy_tags
-		&match_specific_taxonomy_tags
 		&match_labels_in_product_name
 		&assign_countries_for_product
 		&assign_main_language_of_product
@@ -103,14 +100,14 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
+use ProductOpener::Store qw/get_string_id_for_lang unac_string_perl/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Products qw/:all/;
-use ProductOpener::Ingredients qw/:all/;
+use ProductOpener::Products qw/normalize_code/;
+use ProductOpener::Ingredients qw/clean_ingredients_text_for_lang split_generic_name_from_ingredients/;
 use ProductOpener::Food qw/:all/;
-use ProductOpener::Units qw/:all/;
-use ProductOpener::Text qw/:all/;
+use ProductOpener::Units qw/normalize_quantity/;
+use ProductOpener::Text qw/regexp_escape/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -134,7 +131,7 @@ my $mode = "append";
 $empty_regexp = '(?:,|\%|;|_|°|-|\/|\\|\.|\s)*';
 $unknown_regexp = 'unknown|inconnu|inconnue|non renseigné(?:e)?(?:s)?|nr|n\/r';
 $not_applicable_regexp = 'n(?:\/|\\|\.|-)?a(?:\.)?|(?:not|non)(?: |-)applicable|no aplica';
-$none_regexp = 'none|aucun|aucune|aucun\(e\)';
+my $none_regexp = 'none|aucun|aucune|aucun\(e\)';
 
 $empty_unknown_not_applicable_or_none_regexp
 	= join('|', ($empty_regexp, $unknown_regexp, $not_applicable_regexp, $none_regexp));

@@ -39,12 +39,12 @@ use ProductOpener::PerlStandards;
 use Exporter qw(import);
 
 use ProductOpener::Store qw(:all);
-use ProductOpener::Display qw(:all);
+use ProductOpener::Display qw($country $tt display_possible_improvement_description process_template);
 use ProductOpener::Config qw(:all);
 use ProductOpener::Tags qw(:all);
 use ProductOpener::Users qw(:all);
 use ProductOpener::Orgs qw(:all);
-use ProductOpener::Lang qw(:all);
+use ProductOpener::Lang qw($lc @Langs lang);
 use ProductOpener::Images qw(:all);
 
 use Template;
@@ -56,7 +56,6 @@ BEGIN {
 	@EXPORT_OK = qw(
 		&display_field
 		&display_data_quality_issues_and_improvement_opportunities
-		&display_data_quality_description
 		&display_knowledge_panel
 		&get_languages_options_list
 		&get_countries_options_list

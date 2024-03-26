@@ -38,7 +38,6 @@ BEGIN {
 		%moderator_user_form
 		%pro_moderator_user_form
 
-		$test_password
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -49,7 +48,7 @@ use vars @EXPORT_OK;
 The default test password
 =cut
 
-$test_password = "testtest";
+my $test_password = "testtest";
 
 =head2 %default_user_form
 A basic user.

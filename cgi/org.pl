@@ -25,14 +25,14 @@ use ProductOpener::PerlStandards;
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Store qw/get_fileid/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Users qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Lang qw/$lc %Lang lang/;
 use ProductOpener::Orgs qw/:all/;
-use ProductOpener::Tags qw/:all/;
-use ProductOpener::Text qw/:all/;
+use ProductOpener::Tags qw/canonicalize_tag_link/;
+use ProductOpener::Text qw/remove_tags_and_quote/;
 
 use CGI qw/:cgi :form escapeHTML charset/;
 use URI::Escape::XS;

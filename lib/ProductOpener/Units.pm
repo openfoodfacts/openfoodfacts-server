@@ -54,9 +54,9 @@ BEGIN {
 
 use vars @EXPORT_OK;
 
-use ProductOpener::Numbers qw/:all/;
-use ProductOpener::Tags qw/:all/;
-use ProductOpener::Text qw/:all/;
+use ProductOpener::Numbers qw/$number_regexp convert_string_to_number/;
+use ProductOpener::Tags qw/%translations_to get_all_taxonomy_entries get_property get_taxonomy_tag_synonyms/;
+use ProductOpener::Text qw/regexp_escape/;
 
 =head1 FUNCTIONS
 
