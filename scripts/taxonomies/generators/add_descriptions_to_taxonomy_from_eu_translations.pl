@@ -24,11 +24,12 @@ use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Store qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Config qw/:all/;
 
 # tmx files contain translations from the EU laws
 
-my @tmx_files = ("$data_root/taxonomies/off/additives_classes/32008R1333.tmx");
+my @tmx_files = ("$BASE_DIRS{TAXONOMIES_SRC}/old/off/additives_classes/32008R1333.tmx");
 
 my %translations = ();
 

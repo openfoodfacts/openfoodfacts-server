@@ -10,7 +10,6 @@ use JSON;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::TagsEntries qw/:all/;
 use ProductOpener::Test qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Recipes qw/:all/;

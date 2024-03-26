@@ -12,7 +12,6 @@ my $json = JSON::PP->new->allow_nonref->canonical;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::TagsEntries qw/:all/;
 use ProductOpener::Test qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
@@ -23,13 +22,9 @@ use ProductOpener::Attributes qw/:all/;
 use ProductOpener::Packaging qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::API qw/:all/;
+use ProductOpener::LoadData qw/:all/;
 
-load_agribalyse_data();
-load_ecoscore_data();
-
-init_packaging_taxonomies_regexps();
-
-load_forest_footprint_data();
+load_data();
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 

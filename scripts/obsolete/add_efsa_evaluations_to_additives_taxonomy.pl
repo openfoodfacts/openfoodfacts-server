@@ -24,11 +24,12 @@ use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Store qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Config qw/:all/;
 
 # tmx files contain translations from the EU laws
 
-my $classes_file = "$data_root/taxonomies/off/additives/additives.classes.txt";
+my $classes_file = "$BASE_DIRS{TAXONOMIES_SRC}/old/off/additives/additives.classes.txt";
 
 open(my $IN, "<:encoding(UTF-8)", $classes_file) or die("Could not open $classes_file: $!");
 
@@ -56,7 +57,7 @@ while (<$IN>) {
 
 #exit;
 
-my $csv_file = "$data_root/taxonomies/off/additives/additives.openfoodtoxtx22051_opinion.csv";
+my $csv_file = "$BASE_DIRS{TAXONOMIES_SRC}/old/off/additives/additives.openfoodtoxtx22051_opinion.csv";
 
 use Text::CSV;
 
