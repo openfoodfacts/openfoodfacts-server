@@ -5002,13 +5002,13 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		push @{$template_data_ref->{sort_options}},
 			{
 			value => "popularity",
-			link => $request_ref->{current_link} . "?sort_by=popularity",
+			link => add_params($request_ref->{current_link}, "sort_by=popularity") . "&page_size=$limit",
 			name => lang("sort_by_popularity")
 			};
 		push @{$template_data_ref->{sort_options}},
 			{
 			value => "nutriscore_score",
-			link => $request_ref->{current_link} . "?sort_by=nutriscore_score",
+			link => add_params($request_ref->{current_link}, "sort_by=nutriscore_score") . "&page_size=$limit",
 			name => lang("sort_by_nutriscore_score")
 			};
 
@@ -5017,7 +5017,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 			push @{$template_data_ref->{sort_options}},
 				{
 				value => "ecoscore_score",
-				link => $request_ref->{current_link} . "?sort_by=ecoscore_score",
+				link => add_params($request_ref->{current_link}, "sort_by=ecoscore_score") . "&page_size=$limit",
 				name => lang("sort_by_ecoscore_score")
 				};
 		}
@@ -5026,13 +5026,13 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 	push @{$template_data_ref->{sort_options}},
 		{
 		value => "created_t",
-		link => $request_ref->{current_link} . "?sort_by=created_t",
+		link => add_params($request_ref->{current_link}, "sort_by=created_t") . "&page_size=$limit",
 		name => lang("sort_by_created_t")
 		};
 	push @{$template_data_ref->{sort_options}},
 		{
 		value => "last_modified_t",
-		link => $request_ref->{current_link} . "?sort_by=last_modified_t",
+		link => add_params($request_ref->{current_link}, "sort_by=last_modified_t") . "&page_size=$limit",
 		name => lang("sort_by_last_modified_t")
 		};
 
