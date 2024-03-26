@@ -8,9 +8,7 @@ use Path::Tiny;
 
 # files to inspect
 my @poddirs = ("$Bin/../lib", "$Bin/../cgi", "$Bin/../scripts" );
-my @podfiles = 
-  grep {!/DAL_local/}
-  all_pod_files( @poddirs );
+my @podfiles = all_pod_files( @poddirs );
 
 
 foreach my $file (@podfiles) {
