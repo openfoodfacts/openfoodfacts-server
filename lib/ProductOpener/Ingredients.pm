@@ -57,6 +57,7 @@ BEGIN {
 	@EXPORT_OK = qw(
 
 		&parse_ingredients_text_service
+		&extend_ingredients_service
 		&estimate_ingredients_percent_service
 
 		&extract_ingredients_from_image
