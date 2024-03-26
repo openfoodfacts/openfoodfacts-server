@@ -28,7 +28,7 @@
 <meta name="flattr:id" content="dw637l">
 
     <link rel="canonical" href="http://world.openfoodfacts.localhost/countries">
-    <link rel="stylesheet" href="http://static.openfoodfacts.localhost/css/dist/app-ltr.css?v=1711353428" data-base-layout="true">
+    <link rel="stylesheet" href="http://static.openfoodfacts.localhost/css/dist/app-ltr.css?v=--ignore--" data-base-layout="true">
     <link rel="stylesheet" href="http://static.openfoodfacts.localhost/css/dist/jqueryui/themes/base/jquery-ui.css" data-base-layout="true">
     <link rel="stylesheet" href="http://static.openfoodfacts.localhost/css/dist/select2.min.css">
     <link rel="search" href="http://world.openfoodfacts.localhost/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="Open Food Facts">
@@ -338,14 +338,14 @@
 <tbody>
 <tr><td><a href="/country/france" class="tag known">France</a></td>
 <td style="text-align:right"><a href="/country/france" class="tag known">6</a></td><td></td></tr>
+<tr><td><a href="/country/italy" class="tag known">Italy</a></td>
+<td style="text-align:right"><a href="/country/italy" class="tag known">4</a></td><td></td></tr>
 <tr><td><a href="/country/united-kingdom" class="tag known">United Kingdom</a></td>
 <td style="text-align:right"><a href="/country/united-kingdom" class="tag known">4</a></td><td></td></tr>
 <tr><td><a href="/country/spain" class="tag known">Spain</a></td>
 <td style="text-align:right"><a href="/country/spain" class="tag known">4</a></td><td></td></tr>
 <tr><td><a href="/country/germany" class="tag known">Germany</a></td>
 <td style="text-align:right"><a href="/country/germany" class="tag known">4</a></td><td></td></tr>
-<tr><td><a href="/country/italy" class="tag known">Italy</a></td>
-<td style="text-align:right"><a href="/country/italy" class="tag known">4</a></td><td></td></tr>
 <tr><td><a href="/country/united-states" class="tag known">United States</a></td>
 <td style="text-align:right"><a href="/country/united-states" class="tag known">2</a></td><td></td></tr>
 <tr><td><a href="/country/japan" class="tag known">Japan</a></td>
@@ -356,10 +356,10 @@
 <td style="text-align:right"><a href="/country/mexico" class="tag known">1</a></td><td></td></tr>
 <tr><td><a href="/country/portugal" class="tag known">Portugal</a></td>
 <td style="text-align:right"><a href="/country/portugal" class="tag known">1</a></td><td></td></tr>
-<tr><td><a href="/country/belgium" class="tag known">Belgium</a></td>
-<td style="text-align:right"><a href="/country/belgium" class="tag known">1</a></td><td></td></tr>
 <tr><td><a href="/country/switzerland" class="tag known">Switzerland</a></td>
 <td style="text-align:right"><a href="/country/switzerland" class="tag known">1</a></td><td></td></tr>
+<tr><td><a href="/country/belgium" class="tag known">Belgium</a></td>
+<td style="text-align:right"><a href="/country/belgium" class="tag known">1</a></td><td></td></tr>
 <tr><td><a href="/country/india" class="tag known">India</a></td>
 <td style="text-align:right"><a href="/country/india" class="tag known">1</a></td><td></td></tr>
 <tr><td><a href="/country/canada" class="tag known">Canada</a></td>
@@ -508,7 +508,7 @@
 
 <script>
 $(function() {
-var countries_map_data=JSON.parse("{\"PT\":1,\"CA\":1,\"JP\":2,\"ES\":4,\"MX\":1,\"US\":2,\"GR\":1,\"BE\":1,\"DE\":4,\"FR\":6,\"AR\":1,\"IT\":4,\"CH\":1,\"IN\":1,\"GB\":4}");var countries_map_links=JSON.parse("{\"CA\":\"/country/canada\",\"ES\":\"/country/spain\",\"JP\":\"/country/japan\",\"PT\":\"/country/portugal\",\"BE\":\"/country/belgium\",\"MX\":\"/country/mexico\",\"GR\":\"/country/greece\",\"US\":\"/country/united-states\",\"FR\":\"/country/france\",\"IT\":\"/country/italy\",\"AR\":\"/country/argentina\",\"DE\":\"/country/germany\",\"GB\":\"/country/united-kingdom\",\"IN\":\"/country/india\",\"CH\":\"/country/switzerland\"}");var countries_map_names=JSON.parse("{\"PT\":\"Portugal\",\"CA\":\"Canada\",\"JP\":\"Japan\",\"ES\":\"Spain\",\"MX\":\"Mexico\",\"US\":\"United States\",\"GR\":\"Greece\",\"BE\":\"Belgium\",\"DE\":\"Germany\",\"FR\":\"France\",\"AR\":\"Argentina\",\"IT\":\"Italy\",\"CH\":\"Switzerland\",\"IN\":\"India\",\"GB\":\"United Kingdom\"}");displayWorldMap('#world-map', { 'data': countries_map_data, 'links': countries_map_links, 'names': countries_map_names });
+var countries_map_data=JSON.parse("{\"FR\":6,\"AR\":1,\"GR\":1,\"MX\":1,\"IT\":4,\"JP\":2,\"PT\":1,\"GB\":4,\"ES\":4,\"DE\":4,\"BE\":1,\"IN\":1,\"US\":2,\"CA\":1,\"CH\":1}");var countries_map_links=JSON.parse("{\"CH\":\"/country/switzerland\",\"CA\":\"/country/canada\",\"US\":\"/country/united-states\",\"IN\":\"/country/india\",\"BE\":\"/country/belgium\",\"ES\":\"/country/spain\",\"DE\":\"/country/germany\",\"JP\":\"/country/japan\",\"PT\":\"/country/portugal\",\"IT\":\"/country/italy\",\"GB\":\"/country/united-kingdom\",\"MX\":\"/country/mexico\",\"AR\":\"/country/argentina\",\"FR\":\"/country/france\",\"GR\":\"/country/greece\"}");var countries_map_names=JSON.parse("{\"IN\":\"India\",\"BE\":\"Belgium\",\"CH\":\"Switzerland\",\"US\":\"United States\",\"CA\":\"Canada\",\"MX\":\"Mexico\",\"FR\":\"France\",\"AR\":\"Argentina\",\"GR\":\"Greece\",\"ES\":\"Spain\",\"DE\":\"Germany\",\"IT\":\"Italy\",\"JP\":\"Japan\",\"PT\":\"Portugal\",\"GB\":\"United Kingdom\"}");displayWorldMap('#world-map', { 'data': countries_map_data, 'links': countries_map_links, 'names': countries_map_names });
 oTable = $('#tagstable').DataTable({
 	language: {
 		search: "Search:",

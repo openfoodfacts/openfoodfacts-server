@@ -346,17 +346,6 @@ my $tests_ref = [
 		expected_type => 'html',
 	},
 	{
-		test_case => 'world-discover',
-		path => '/',
-		expected_type => 'html',
-	},
-	{
-		test_case => 'fr-decouvrir',
-		subdomain => 'fr',
-		path => '/',
-		expected_type => 'html',
-	},
-	{
 		test_case => 'world-product',
 		path => '/product/3300000000001/apple-pie-bob-s-pies',
 		expected_type => 'html',

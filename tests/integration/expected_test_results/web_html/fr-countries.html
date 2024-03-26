@@ -28,7 +28,7 @@
 <meta name="flattr:id" content="dw637l">
 
     <link rel="canonical" href="http://fr.openfoodfacts.localhost/pays">
-    <link rel="stylesheet" href="http://static.openfoodfacts.localhost/css/dist/app-ltr.css?v=1711353428" data-base-layout="true">
+    <link rel="stylesheet" href="http://static.openfoodfacts.localhost/css/dist/app-ltr.css?v=--ignore--" data-base-layout="true">
     <link rel="stylesheet" href="http://static.openfoodfacts.localhost/css/dist/jqueryui/themes/base/jquery-ui.css" data-base-layout="true">
     <link rel="stylesheet" href="http://static.openfoodfacts.localhost/css/dist/select2.min.css">
     <link rel="search" href="http://fr.openfoodfacts.localhost/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="Open Food Facts">
@@ -348,10 +348,10 @@
 <td style="text-align:right"><a href="/pays/royaume-uni" class="tag known">3</a></td><td></td></tr>
 <tr><td><a href="/pays/italie" class="tag known">Italie</a></td>
 <td style="text-align:right"><a href="/pays/italie" class="tag known">2</a></td><td></td></tr>
-<tr><td><a href="/pays/belgique" class="tag known">Belgique</a></td>
-<td style="text-align:right"><a href="/pays/belgique" class="tag known">1</a></td><td></td></tr>
 <tr><td><a href="/pays/suisse" class="tag known">Suisse</a></td>
 <td style="text-align:right"><a href="/pays/suisse" class="tag known">1</a></td><td></td></tr>
+<tr><td><a href="/pays/belgique" class="tag known">Belgique</a></td>
+<td style="text-align:right"><a href="/pays/belgique" class="tag known">1</a></td><td></td></tr>
 <tr><td><a href="/pays/espagne" class="tag known">Espagne</a></td>
 <td style="text-align:right"><a href="/pays/espagne" class="tag known">1</a></td><td></td></tr>
 </tbody></table></div>
@@ -496,7 +496,7 @@
 
 <script>
 $(function() {
-var countries_map_data=JSON.parse("{\"FR\":6,\"ES\":1,\"IT\":2,\"DE\":4,\"GB\":3,\"BE\":1,\"CH\":1}");var countries_map_links=JSON.parse("{\"DE\":\"/pays/allemagne\",\"IT\":\"/pays/italie\",\"ES\":\"/pays/espagne\",\"FR\":\"/pays/france\",\"CH\":\"/pays/suisse\",\"BE\":\"/pays/belgique\",\"GB\":\"/pays/royaume-uni\"}");var countries_map_names=JSON.parse("{\"CH\":\"Suisse\",\"BE\":\"Belgique\",\"GB\":\"Royaume-Uni\",\"DE\":\"Allemagne\",\"ES\":\"Espagne\",\"IT\":\"Italie\",\"FR\":\"France\"}");displayWorldMap('#world-map', { 'data': countries_map_data, 'links': countries_map_links, 'names': countries_map_names });
+var countries_map_data=JSON.parse("{\"GB\":3,\"FR\":6,\"IT\":2,\"BE\":1,\"CH\":1,\"DE\":4,\"ES\":1}");var countries_map_links=JSON.parse("{\"ES\":\"/pays/espagne\",\"CH\":\"/pays/suisse\",\"DE\":\"/pays/allemagne\",\"IT\":\"/pays/italie\",\"FR\":\"/pays/france\",\"BE\":\"/pays/belgique\",\"GB\":\"/pays/royaume-uni\"}");var countries_map_names=JSON.parse("{\"BE\":\"Belgique\",\"FR\":\"France\",\"IT\":\"Italie\",\"GB\":\"Royaume-Uni\",\"ES\":\"Espagne\",\"DE\":\"Allemagne\",\"CH\":\"Suisse\"}");displayWorldMap('#world-map', { 'data': countries_map_data, 'links': countries_map_links, 'names': countries_map_names });
 oTable = $('#tagstable').DataTable({
 	language: {
 		search: "Recherche :",
