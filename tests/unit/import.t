@@ -9,8 +9,9 @@ use Log::Any::Adapter 'TAP', filter => "info";
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::ImportConvert qw/:all/;
+use ProductOpener::LoadData qw/:all/;
 
-init_emb_codes();
+load_data();
 
 # dummy product for testing
 

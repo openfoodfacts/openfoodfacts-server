@@ -131,8 +131,6 @@ use ProductOpener::Products qw/:all/;
 use CGI qw/:cgi :form escapeHTML/;
 
 use Image::Magick;
-use Graphics::Color::RGB;
-use Graphics::Color::HSL;
 use Barcode::ZBar;
 use Imager;
 use Imager::zxing;
@@ -183,7 +181,7 @@ sub display_select_crop ($object_ref, $id_lc, $language) {
 
 	# $id_lc = shift  ->  id_lc = [front|ingredients|nutrition|packaging]_[new_]?[lc]
 	my $id = $id_lc;
-	my $message = $Lang{"protected_image_message"}{$lang};
+	my $message = $Lang{"protected_image_message"}{$lc};
 	my $imagetype = $id_lc;
 	my $display_lc = $lc;
 
@@ -193,11 +191,11 @@ sub display_select_crop ($object_ref, $id_lc, $language) {
 	}
 
 	my $note = '';
-	if (defined $Lang{"image_" . $imagetype . "_note"}{$lang}) {
-		$note = "<p class=\"note\">&rarr; " . $Lang{"image_" . $imagetype . "_note"}{$lang} . "</p>";
+	if (defined $Lang{"image_" . $imagetype . "_note"}{$lc}) {
+		$note = "<p class=\"note\">&rarr; " . $Lang{"image_" . $imagetype . "_note"}{$lc} . "</p>";
 	}
 
-	my $label = $Lang{"image_" . $imagetype}{$lang};
+	my $label = $Lang{"image_" . $imagetype}{$lc};
 
 	my $html = '';
 	if (is_protected_image($object_ref, $id_lc) and (not $User{moderator}) and (not $admin)) {
@@ -405,7 +403,7 @@ sub display_search_image_form ($id) {
 
 	my $html = '';
 
-	my $product_image_with_barcode = $Lang{product_image_with_barcode}{$lang};
+	my $product_image_with_barcode = $Lang{product_image_with_barcode}{$lc};
 	$product_image_with_barcode =~ s/( |\&nbsp;)?:$//;
 
 	my $template_data_ref = {
@@ -1771,7 +1769,7 @@ sub display_image_thumb ($product_ref, $id_lc) {
 
 			my $path = product_path($product_ref);
 			my $rev = $product_ref->{images}{$id}{rev};
-			my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $Lang{$imagetype . '_alt'}{$lang};
+			my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $Lang{$imagetype . '_alt'}{$lc};
 
 			$html .= <<HTML
 <img src="$images_subdomain/images/products/$path/$id.$rev.$thumb_size.jpg" width="$product_ref->{images}{$id}{sizes}{$thumb_size}{w}" height="$product_ref->{images}{$id}{sizes}{$thumb_size}{h}" srcset="$images_subdomain/images/products/$path/$id.$rev.$small_size.jpg 2x" alt="$alt" loading="lazy" $css/>
@@ -1831,17 +1829,17 @@ sub display_image ($product_ref, $id_lc, $size) {
 
 			my $path = product_path($product_ref);
 			my $rev = $product_ref->{images}{$id}{rev};
-			my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $Lang{$imagetype . '_alt'}{$lang};
+			my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $Lang{$imagetype . '_alt'}{$lc};
 			if ($id eq ($imagetype . "_" . $display_lc)) {
 				$alt
 					= remove_tags_and_quote($product_ref->{product_name}) . ' - '
-					. $Lang{$imagetype . '_alt'}{$lang} . ' - '
+					. $Lang{$imagetype . '_alt'}{$lc} . ' - '
 					. $display_lc;
 			}
 			elsif ($id eq ($imagetype . "_" . $product_ref->{lc})) {
 				$alt
 					= remove_tags_and_quote($product_ref->{product_name}) . ' - '
-					. $Lang{$imagetype . '_alt'}{$lang} . ' - '
+					. $Lang{$imagetype . '_alt'}{$lc} . ' - '
 					. $product_ref->{lc};
 			}
 
