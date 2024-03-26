@@ -33,7 +33,7 @@ use Apache2::Const ();
 use List::Util qw(shuffle);
 use Log::Any qw($log);
 
-use ProductOpener::Paths qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
 
 # this script is used by howmuchsugar to redirect to a new product randomly
 

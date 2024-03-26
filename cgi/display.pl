@@ -27,11 +27,11 @@ use CGI::Carp qw(fatalsToBrowser);
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
-use ProductOpener::Routing qw/:all/;
+use ProductOpener::Routing qw/analyze_request/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::Users qw/:all/;
-use ProductOpener::Lang qw/:all/;
-use ProductOpener::API qw/:all/;
+use ProductOpener::Users qw/$Owner_id init_user/;
+use ProductOpener::Lang qw/lang/;
+use ProductOpener::API qw/decode_json_request_body init_api_response process_api_request read_request_body/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;

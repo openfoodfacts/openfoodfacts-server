@@ -10,8 +10,8 @@ use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::TagsEntries qw/:all/;
-use ProductOpener::Ingredients qw/:all/;
+use ProductOpener::Ingredients
+	qw/normalize_a_of_b normalize_enumeration preparse_ingredients_text separate_additive_class/;
 
 #use Log::Any::Adapter 'TAP', filter => "none";
 

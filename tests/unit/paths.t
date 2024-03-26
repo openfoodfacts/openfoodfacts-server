@@ -5,7 +5,7 @@ use ProductOpener::PerlStandards;
 use Test::More;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS base_paths ensure_dir_created ensure_dir_created_or_die/;
 use File::Path qw/remove_tree/;
 
 # hardcode docker path for now

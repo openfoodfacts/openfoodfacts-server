@@ -3,9 +3,9 @@
 use ProductOpener::PerlStandards;
 
 use Test::More;
-use ProductOpener::APITest qw/:all/;
-use ProductOpener::Test qw/:all/;
-use ProductOpener::TestDefaults qw/:all/;
+use ProductOpener::APITest qw/construct_test_url create_user new_client wait_application_ready/;
+use ProductOpener::Test qw/remove_all_users/;
+use ProductOpener::TestDefaults qw/%default_user_form/;
 
 remove_all_users();
 wait_application_ready();

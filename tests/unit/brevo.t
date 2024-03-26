@@ -5,7 +5,7 @@ use HTTP::Response;
 use HTTP::Headers;
 use JSON;
 use Test::Fake::HTTPD qw/run_http_server/;
-use ProductOpener::Brevo qw/:all/;
+use ProductOpener::Brevo qw/$brevo_api_key $list_id add_contact_to_list/;
 use ProductOpener::APITest qw/:all/;
 use ProductOpener::Test qw/:all/;
 use File::Temp ();

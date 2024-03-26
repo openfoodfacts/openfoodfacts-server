@@ -5,10 +5,10 @@ use utf8;
 
 use Test::More;
 
-use ProductOpener::DataQuality qw/:all/;
+use ProductOpener::DataQuality qw/check_quality/;
 use ProductOpener::DataQualityFood qw/:all/;
-use ProductOpener::Tags qw/:all/;
-use ProductOpener::Ingredients qw/:all/;
+use ProductOpener::Tags qw/has_tag/;
+use ProductOpener::Ingredients qw/extract_ingredients_from_text/;
 
 sub check_quality_and_test_product_has_quality_tag($$$$) {
 	my $product_ref = shift;

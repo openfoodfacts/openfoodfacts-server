@@ -89,14 +89,14 @@ stopwords:en:added to enhance freshness, added to maintain flavor and freshness,
 stopwords:es:contiene,de,del,la,el,las,los,con,y,e,en,minimo,maximo,puede,contener,por,categoria,calibre,minimo,min,vereidad,variedad,de cultivo,origen,nota,produccion,controlada,equivalente,equivale
 stopwords:fi:sisältää,muun muassa,valio, koskenlaskija, snellmanin, jossa, noin, käymisen aikana muodostuva
 stopwords:fr:aux,au,de,le,du,la,a,et,avec,ou,en,proportion,variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets, pour souleves,dont,avec,autres,d'autres,d', avec ajout, sachet, marquants, demeter, minimum
-# example: karamelizirani šećerni sirup (sadrži bojilo E150a) # also for alergens "SADRŽI celer i gorušicu"
 # example: grašak u prahu BOGAT BJELANČEVINAMA
 # example: KLASIČNA MJEŠAVINA arabica i robusta kave
 # example: luk u prahu (OD ČEGA mladi luk 0,06 %)
 # example: prah ploda limuna (Citrus limon) 0,1% (ODGOVARA svježeg limuna)
 # example: prirodne arome (UKLJUČUJUĆI I kofein)
 # example: sojin umak bez glutena
-stopwords:hr:bez glutena, i/ili, i, ili, iz, max, min, najmanje, najviše, obično poznat kao, od, u promjenjivim omjerima, u promjenjivim udjelima, u različitim omjerima, u tragovima, bogat bjelančevinama, klasična mješavina, od čega, odgovara, titriran na 25 % 5-HTP, uključujući i, uključujući
+# example: marelice 8.3% (SADRŽE sumporni dioksid) / SADRŽI sulfite
+stopwords:hr:bez glutena, i/ili, i, ili, iz, max, min, najmanje, najviše, obično poznat kao, od, u promjenjivim omjerima, u promjenjivim udjelima, u različitim omjerima, u tragovima, bogat bjelančevinama, klasična mješavina, od čega, odgovara, titriran na 25 % 5-HTP, uključujući i, uključujući, sadrže, sadrži
 stopwords:hu:tartalmaz, változó arányban, min, zsírtartalom, összetevő, összetétel, amelyből, amiből
 stopwords:id:mengandung
 stopwords:is:úr
@@ -15173,6 +15173,7 @@ sv:mjölkfett
 tr:süt yağı, sütyağı
 vegan:en:no
 vegetarian:en:yes
+from_palm_oil:en:no
 
 <en:milkfat
 en:milk fat without lactose
@@ -31292,6 +31293,11 @@ fr:sirop de sucres issus de fruits
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sirop-de-sucres-issus-de-fruits
 # 22 products @2019-05-30
 
+<en:sugar syrup
+en:coconut blossom syrup
+de:Kokosblütensirup
+fr:sirop de sucre de fleur de coco
+
 <en:disaccharide
 en:wheat syrup
 bg:пшеничен сироп
@@ -37618,7 +37624,7 @@ et:jõhvikas, harilik jõhvikas
 fa:کرنبری
 fi:karpalo, karpalot
 fo:tranuber
-fr:airelles, cranberries, cranberry, cranberrys, canneberge, Canneberge crue, Cranberry crue
+fr:canneberge, cranberries, cranberry, cranberrys, Canneberge crue, Cranberry crue
 ga:mónóg
 gl:arandeira vermella
 gv:smeyr churree
@@ -37735,6 +37741,10 @@ zh:大果蔓越梅
 #hsb:Wulkopłodowa tymjenka
 wikidata:en:Q149397
 wikipedia:en:https://en.wikipedia.org/wiki/Vaccinium_macrocarpon
+
+<en:cranberry
+en:wild cranberry
+hr:šumska brusnica
 
 <en:berries
 en:bearberry, bearberries
@@ -40507,26 +40517,15 @@ de:konzentrierter Zitronenextrakt
 fi:tiivistetty sitruunauute
 fr:Extrait de citron concentré
 
-<en:lemon
-en:lemon marmalade
-ca:melmelada de llimona
-de:Zitronenmarmelade, Zitronen-Marmelade
-es:mermelada de limón
-
 <en:preparation
-<en:lemon
 en:lemon preparation
 hr:pripravak od limuna
 
 <en:preparation
-<en:lemon
-<en:cake
-<en:honey
 en:lemon cake honey preparation
 hr:pripravak limun kolač med
 
 <en:filling
-<en:lemon
 en:lemon filling
 hr:punjenje s okusom limuna
 
@@ -41868,7 +41867,7 @@ cs:Borůvka
 da:bølle
 de:Heidelbeeren, Blaubeeren
 eo:mirtelo
-es:arándano
+es:arándano, arándanos, mirtilo
 et:mustikas, mustikad
 fa:بیل‌بری
 fi:mustikka
@@ -41926,7 +41925,7 @@ da:blåbær
 de:Wilde Heidelbeeren
 fi:villimustikka
 fr:myrtille sauvage
-hr:divlja borovnica
+hr:divlja borovnica, šumska borovnica
 it:mirtilli selvatici
 nl:wilde bosbes, wilde blauwe bosbessen, wilde bosbessen
 pl:borówka dzika, borówki dzikie
@@ -41962,7 +41961,6 @@ pl:borówka dzika, borówki dzikie
 #processing:en: en:juice
 <en:blueberry
 en:blueberry juice
-#de:Preiselbeersaft
 #es:Jugo de zarzamora
 #fi:mustikkamehu
 #fr:jus de myrtille
@@ -43096,6 +43094,7 @@ ru:меджул даты
 en:date paste
 de:pürierte Datteln
 fr:pâte de datte
+hr:pasta od datulja
 nl:dadelpuree
 pl:pasta daktylowa
 sv:dadelpuré
@@ -43795,12 +43794,12 @@ pl:sok z koncentratu z kiwi
 en:lingonberry, lingonberries, cowberry, cowberries, foxberry, foxberries, mountain cranberry, mountain cranberries, red whortleberry, red whortleberries
 ca:nabius
 da:tyttebær
-de:Preiselbeeren
-es:Arándanos agrios,arándanos
+de:Preiselbeere, Preiselbeeren
+es:Arándanos agrios
 et:pohl
 fi:Puolukka
-fr:myrtille rouge
-it:Mirtilli rossi
+fr:airelle, airelles, airelle rouge, airelles rouges
+it:mirtillo rosso, mirtilli rossi
 la:Vaccinium vitis-idaea
 lb:rout Molbier
 lt:Bruknė
@@ -43813,6 +43812,11 @@ sv:lingon
 # 7 products @2018-10-01
 eurocode_2_group_3:en: 9.30.44
 
+<en:lingonberry
+en:wild lingonberry, wild lingonberries
+de:Wild-Preiselbeere, Wild-Preiselbeeren, Wildpreiselbeere, Wildpreiselbeeren
+fr:airelle sauvage, airelles sauvages
+
 # No products
 # <en:fruit
 # fr:purée de myrtille rouge
@@ -43822,6 +43826,7 @@ eurocode_2_group_3:en: 9.30.44
 en:lingonberry juice
 de:Preiselbeersaft
 fi:puolukkamehu, puolukkatäysmehu
+fr:jus d'airelle, jus d'airelles, jus d'airelle rouge, jus d'airelles rouges
 sv:lingonjuice
 
 <en:fruit
@@ -88816,6 +88821,7 @@ de:preiselbeermarmelade
 es:mermelada de arándano rojo
 et:pohlamoos
 fi:puolukkahillo
+fr:confiture d'airelle
 id:selai lingonberry
 ja:リンゴンベリー・ジャム
 ko:월귤잼
@@ -88857,11 +88863,19 @@ hr:pripavak jagoda
 pl:dżem truskawkowy
 
 # <en:compound
-<en:jamen:raspberry jam
+<en:jam
+en:raspberry jam
 bg:конфитюр от малини
 de:Himbeermarmelade
 fr:confiture de framboise
 wikidata:en:Q11962286
+
+# <en:compound
+<en:jam
+en:lemon marmalade
+ca:melmelada de llimona
+de:Zitronenmarmelade, Zitronen-Marmelade
+es:mermelada de limón
 
 #<en:compound
 en:cocoa spread, cocoa cream
