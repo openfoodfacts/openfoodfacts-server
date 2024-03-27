@@ -330,25 +330,28 @@ my @products = (
 
 foreach my $product_ref (@products) {
 	edit_product($ua, $product_ref);
+    # Sleep one second so that each product has a different last_modified_t
+    # needed to get a predictive order of products in the index page
+    sleep(1);
 }
 
 # Note: expected results are stored in json files, see execute_api_tests
 my $tests_ref = [
 	{
 		test_case => 'world-index',
-		path => '/',
+		path => '/?sort_by=last_modified_t',
 		expected_type => 'html',
 	},
 	{
 		test_case => 'world-index-signedin',
-		path => '/',
+		path => '/?sort_by=last_modified_t',
 		expected_type => 'html',
 		ua => $ua,
 	},
 	{
 		test_case => 'fr-index',
 		subdomain => 'fr',
-		path => '/',
+		path => '/?sort_by=last_modified_t',
 		expected_type => 'html',
 	},
 	{
