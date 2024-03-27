@@ -610,7 +610,6 @@ my $tests_ref = [
 			"Access-Control-Allow-Origin" => "*",
 			"Access-Control-Allow-Methods" => "HEAD, GET, PATCH, POST, PUT, OPTIONS",
 		},
-		expected_type => "html",
 	},
 	{
 		test_case => 'patch-unrecognized-field',
