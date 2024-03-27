@@ -1400,7 +1400,7 @@ sub check_nutrition_data ($product_ref) {
 			my $minimum_ingredients
 				= get_inherited_property_from_categories_tags($product_ref, 'minimum_number_of_ingredients:en');
 
-			if ($minimum_ingredients && $ingredient_count < $minimum_ingredients) {
+			if ($minimum_ingredients && ($ingredient_count < $minimum_ingredients)) {
 				push @{$product_ref->{data_quality_warnings_tags}},
 					'en:ingredients-less-than-minimum-ingredients-for-category';
 			}
