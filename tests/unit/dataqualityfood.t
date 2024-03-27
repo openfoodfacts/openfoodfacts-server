@@ -1910,3 +1910,4 @@ is(scalar @{$product_ref_2->{data_quality_warnings_tags}},
 	1, 'Product with Mozzarella category and insufficient ingredients should raise a warning');
 
 done_testing();
+
