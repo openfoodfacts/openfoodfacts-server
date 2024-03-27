@@ -570,7 +570,7 @@ sub check_request_response ($test_ref, $response, $test_id, $test_dir, $expected
 			);
 			diag("Response content: " . $response_content);
 			fail($test_case);
-			next;
+			return;
 		};
 
 		# If the request was a setup request, we don't need to save or check the response

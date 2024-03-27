@@ -435,6 +435,26 @@ my $tests_ref = [
 		expected_type => 'html',
 		ua => $ua,
 	},
+    {
+        test_case => 'world-search-form',
+        path => '/cgi/search.pl',
+        expected_type => 'html',
+    },
+    {
+        test_case => 'fr-search-form',
+        path => '/cgi/search.pl',
+        expected_type => 'html',
+    },
+    {
+        test_case => 'world-search-results',
+        path => '/cgi/search.pl?search_terms=apple',
+        expected_type => 'html',
+    },
+    {
+        test_case => 'fr-search-results',
+        path => '/cgi/search.pl?search_terms=tarte',
+        expected_type => 'html',
+    },    
 ];
 
 execute_api_tests(__FILE__, $tests_ref);
