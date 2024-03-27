@@ -6,9 +6,9 @@ use utf8;
 use Test::More;
 use Log::Any::Adapter 'TAP';
 
-use ProductOpener::FoodGroups qw/:all/;
-use ProductOpener::Ingredients qw/:all/;
-use ProductOpener::Tags qw/:all/;
+use ProductOpener::FoodGroups qw/compute_food_groups/;
+use ProductOpener::Ingredients qw/extract_ingredients_from_text/;
+use ProductOpener::Tags qw/compute_field_tags/;
 
 my @tests = (
 

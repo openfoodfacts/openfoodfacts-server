@@ -3,14 +3,14 @@
 use ProductOpener::PerlStandards;
 
 use Test::More;
-use ProductOpener::APITest qw/:all/;
-use ProductOpener::Test qw/:all/;
-use ProductOpener::TestDefaults qw/:all/;
+use ProductOpener::APITest qw/wait_application_ready/;
+use ProductOpener::Test qw/remove_all_products/;
+use ProductOpener::TestDefaults qw/%default_product %default_product_form/;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Data qw/:all/;
-use ProductOpener::Products qw/:all/;
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Data qw/get_products_collection/;
+use ProductOpener::Products qw/product_path product_path_from_id retrieve_product retrieve_product_or_deleted_product/;
+use ProductOpener::Store qw/retrieve store/;
 
 remove_all_products();
 wait_application_ready();

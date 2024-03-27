@@ -6,9 +6,9 @@ use utf8;
 use Test::More;
 use Log::Any::Adapter 'TAP';
 
-use ProductOpener::Products qw/:all/;
+use ProductOpener::Products qw/compute_languages/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Ingredients qw/:all/;
+use ProductOpener::Ingredients qw/detect_allergens_from_text/;
 
 # dummy product for testing
 

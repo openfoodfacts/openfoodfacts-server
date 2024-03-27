@@ -65,11 +65,9 @@ BEGIN {
 		&check_password_hash
 		&retrieve_user
 		&retrieve_userids
-		&user_exists
 		&retrieve_user_by_email
 		&store_user
 		&store_user_session
-		&remove_user
 		&remove_user_by_org_admin
 		&add_users_to_org_by_admin
 		&is_suspicious_name
@@ -84,16 +82,16 @@ BEGIN {
 
 use vars @EXPORT_OK;
 
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Store qw/get_string_id_for_lang retrieve store/;
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
-use ProductOpener::Mail qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
+use ProductOpener::Mail qw/get_html_email_content send_email_to_admin send_email_to_producers_admin send_html_email/;
+use ProductOpener::Lang qw/$lc  %Lang lang/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::Orgs qw/:all/;
-use ProductOpener::Products qw/:all/;
-use ProductOpener::Text qw/:all/;
-use ProductOpener::Brevo qw/:all/;
+use ProductOpener::Orgs qw/add_user_to_org create_org remove_user_from_org retrieve_or_create_org retrieve_org/;
+use ProductOpener::Products qw/find_and_replace_user_id_in_products/;
+use ProductOpener::Text qw/remove_tags_and_quote/;
+use ProductOpener::Brevo qw/add_contact_to_list/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
@@ -391,7 +389,7 @@ sub check_user_form ($type, $user_ref, $errors_ref) {
 			$log->debug("check_user_form - email already in use",
 				{type => $type, email => $email, existing_userid => $existing_user->{userid}})
 				if $log->is_debug();
-			push @{$errors_ref}, $Lang{error_email_already_in_use}{$lang};
+			push @{$errors_ref}, $Lang{error_email_already_in_use}{$lc};
 		}
 
 		# Keep old email until the user is saved
@@ -470,17 +468,17 @@ sub check_user_form ($type, $user_ref, $errors_ref) {
 	# Check input parameters, redisplay if necessary
 
 	if (length($user_ref->{name}) < 2) {
-		push @{$errors_ref}, $Lang{error_no_name}{$lang};
+		push @{$errors_ref}, $Lang{error_no_name}{$lc};
 	}
 	elsif (length($user_ref->{name}) > 60) {
-		push @{$errors_ref}, $Lang{error_name_too_long}{$lang};
+		push @{$errors_ref}, $Lang{error_name_too_long}{$lc};
 	}
 
 	my $address;
 	eval {$address = Email::Valid->address(-address => $user_ref->{email}, -mxcheck => 1);};
 	$address = 0 if $@;
 	if (not $address) {
-		push @{$errors_ref}, $Lang{error_invalid_email}{$lang};
+		push @{$errors_ref}, $Lang{error_invalid_email}{$lc};
 	}
 	else {
 		# If all checks have passed, reinitialize with modified email
@@ -489,25 +487,26 @@ sub check_user_form ($type, $user_ref, $errors_ref) {
 
 	if ($type eq 'add') {
 		if (length($user_ref->{userid}) < 2) {
-			push @{$errors_ref}, $Lang{error_no_username}{$lang};
+			push @{$errors_ref}, $Lang{error_no_username}{$lc};
 		}
 		elsif (user_exists($user_ref->{userid})) {
-			push @{$errors_ref}, $Lang{error_username_not_available}{$lang};
+
+			push @{$errors_ref}, $Lang{error_username_not_available}{$lc};
 		}
 		elsif ($user_ref->{userid} !~ /^[a-z0-9]+[a-z0-9\-]*[a-z0-9]+$/) {
-			push @{$errors_ref}, $Lang{error_invalid_username}{$lang};
+			push @{$errors_ref}, $Lang{error_invalid_username}{$lc};
 		}
 		elsif (length($user_ref->{userid}) > 40) {
-			push @{$errors_ref}, $Lang{error_username_too_long}{$lang};
+			push @{$errors_ref}, $Lang{error_username_too_long}{$lc};
 		}
 
 		if (length(decode utf8 => single_param('password')) < 6) {
-			push @{$errors_ref}, $Lang{error_invalid_password}{$lang};
+			push @{$errors_ref}, $Lang{error_invalid_password}{$lc};
 		}
 	}
 
 	if (param('password') ne single_param('confirm_password')) {
-		push @{$errors_ref}, $Lang{error_different_passwords}{$lang};
+		push @{$errors_ref}, $Lang{error_different_passwords}{$lc};
 	}
 	elsif (single_param('password') ne '') {
 		$user_ref->{encrypted_password} = create_password_hash(encode_utf8(decode utf8 => single_param('password')));
@@ -747,7 +746,8 @@ sub check_edit_owner ($user_ref, $errors_ref) {
 		# Add check that organization exists when we add org profiles
 
 		if (!user_exists($userid)) {
-			push @{$errors_ref}, sprintf($Lang{error_user_does_not_exist}{$lang}, $userid);
+
+			push @{$errors_ref}, sprintf($Lang{error_user_does_not_exist}{$lc}, $userid);
 		}
 		else {
 			$User{pro_moderator_owner} = $user_ref->{pro_moderator_owner};
@@ -1123,7 +1123,7 @@ sub init_user ($request_ref) {
 				$user_id = undef;
 				$log->info("Unknown user e-mail", {email => $user_id}) if $log->is_info();
 				# Trigger an error
-				return ($Lang{error_bad_login_password}{$lang});
+				return ($Lang{error_bad_login_password}{$lc});
 			}
 			else {
 				$user_id = $user_ref->{userid};
@@ -1156,7 +1156,7 @@ sub init_user ($request_ref) {
 						{encrypted_password => $user_ref->{'encrypted_password'}}
 					) if $log->is_info();
 					# Trigger an error
-					return ($Lang{error_bad_login_password}{$lang});
+					return ($Lang{error_bad_login_password}{$lc});
 				}
 				# We have the right login/password
 				elsif (
@@ -1173,7 +1173,7 @@ sub init_user ($request_ref) {
 				$user_id = undef;
 				$log->info("bad user") if $log->is_info();
 				# Trigger an error
-				return ($Lang{error_bad_login_password}{$lang});
+				return ($Lang{error_bad_login_password}{$lc});
 			}
 		}
 	}

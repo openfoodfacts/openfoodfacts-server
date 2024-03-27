@@ -1,3 +1,5 @@
+#!/usr/bin/perl -w
+
 # This file is part of Product Opener.
 #
 # Product Opener
@@ -16,24 +18,13 @@
 # GNU Affero General Public License for more details.
 #
 # You should have received a copy of the GNU Affero General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-package ProductOpener::TagsEntries;
+use ProductOpener::PerlStandards;
 
-use utf8;
-use Modern::Perl '2017';
-use Exporter qw< import >;
+use ProductOpener::Food qw/:all/;
 
-BEGIN {
-	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
-	@EXPORT_OK = qw(
-		%ingredients_classes
-		%ingredients_classes_sorted
+create_nutrients_level_taxonomy();
 
-	);    # symbols to export on request
-	%EXPORT_TAGS = (all => [@EXPORT_OK]);
-}
+exit(0);
 
-use vars @EXPORT_OK;
-
-1;

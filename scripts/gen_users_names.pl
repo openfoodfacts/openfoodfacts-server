@@ -28,7 +28,8 @@ use CGI::Carp qw(fatalsToBrowser);
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Users qw/:all/;
+
+use ProductOpener::Users qw/retrieve_user retrieve_userids/;
 
 my @userids;
 
