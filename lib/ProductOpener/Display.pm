@@ -228,7 +228,10 @@ my $uri_finder = URI::Find->new(
 );
 
 # Sort keys of JSON output
+# $json has utf8 disabled: it encodes to Perl Unicode strings
 my $json = JSON::PP->new->utf8(0)->allow_nonref->canonical;
+# $json_utf8 has utf8 enabled: it encodes to UTF-8 bytes
+my $json_utf8 = JSON::PP->new->utf8(1)->allow_nonref->canonical;
 
 =head1 VARIABLES
 
@@ -10455,7 +10458,8 @@ sub display_structured_response ($request_ref) {
 		display_structured_response_opensearch_rss($request_ref);
 	}
 	else {
-		my $data = $json->encode($request_ref->{structured_response});
+		# We need to output binary UTF8 encoded JSON
+		my $data = $json_utf8->encode($request_ref->{structured_response});
 
 		my $jsonp = undef;
 
