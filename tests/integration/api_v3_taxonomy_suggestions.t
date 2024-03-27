@@ -3,8 +3,8 @@
 use ProductOpener::PerlStandards;
 
 use Test::More;
-use ProductOpener::APITest qw/:all/;
-use ProductOpener::Test qw/:all/;
+use ProductOpener::APITest qw/execute_api_tests wait_application_ready/;
+use ProductOpener::Test qw/remove_all_products remove_all_users/;
 use ProductOpener::TestDefaults qw/:all/;
 
 use File::Basename "dirname";

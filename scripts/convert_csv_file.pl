@@ -25,7 +25,7 @@ use utf8;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Producers qw/:all/;
+use ProductOpener::Producers qw/convert_file/;
 
 use URI::Escape::XS;
 use Storable qw/dclone/;
