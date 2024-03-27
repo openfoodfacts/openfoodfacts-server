@@ -1856,7 +1856,41 @@ a.panel_title {
   padding: 0.25rem 0.5rem;
 }
 
-.moderator-only{
-  border: 2px solid #007bff;
-  background-color: #f0f0f0;
+.moderator-only {
+  position: relative;
+  padding-left: 35px;
+  background-color: #ffff00;
+  cursor: help;
+}
+
+.moderator-only::before {
+  content: "\1F6E1";
+  font-family: "Segoe UI Emoji", "Noto Color Emoji", "Android Emoji", "EmojiSymbols";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ffa500;
+  font-size: 20px;
+}
+
+.moderator-only::after {
+  content: "This feature is exclusive to moderators.";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ffa500;
+  color: #fff;
+  padding: 5px 10px;
+  font-size: 12px;
+  border-radius: 3px;
+  white-space: nowrap;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s linear;
+}
+
+.moderator-only:hover::after {
+  visibility: visible;
+  opacity: 1;
 }
