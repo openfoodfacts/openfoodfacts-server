@@ -340,6 +340,12 @@ my $tests_ref = [
 		expected_type => 'html',
 	},
 	{
+		test_case => 'world-index-signedin',
+		path => '/',
+		expected_type => 'html',
+		ua => $ua,
+	},
+	{
 		test_case => 'fr-index',
 		subdomain => 'fr',
 		path => '/',
@@ -416,6 +422,18 @@ my $tests_ref = [
 		test_case => 'world-label-organic',
 		path => '/label/organic',
 		expected_type => 'html',
+	},
+	{
+		test_case => 'world-edit-product',
+		path => '/cgi/product.pl?type=edit&code=3300000000001',
+		expected_type => 'html',
+		ua => $ua,
+	},
+	{
+		test_case => 'fr-edit-product',
+		path => '/cgi/product.pl?type=edit&code=3300000000002',
+		expected_type => 'html',
+		ua => $ua,
 	},
 ];
 

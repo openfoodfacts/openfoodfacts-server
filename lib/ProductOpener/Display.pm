@@ -203,6 +203,7 @@ use Devel::Size qw(size total_size);
 use Data::DeepAccess qw(deep_get deep_set);
 use Log::Log4perl;
 use LWP::UserAgent;
+use Tie::IxHash;
 
 use Log::Any '$log', default_adapter => 'Stderr';
 
@@ -1646,14 +1647,18 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 
 	# allow sorting by tagname
 	my $sort_by = request_param($request_ref, "sort_by") // $default_sort_by;
-	my $sort_ref;
+	my %sort = ();
+
+	# We need a tie hash so that the keys are ordered by insertion order when passed to MongoDB
+	tie(%sort, 'Tie::IxHash');
+	my $sort_ref = \%sort;
 
 	if ($sort_by eq "tag") {
-		$sort_ref = {"_id" => 1};
+		$sort_ref->{"_id"} = 1;
 	}
 	else {
-		$sort_ref = {"count" => -1};
-		$sort_by = "count";
+		$sort_ref->{"count"} = -1;
+		$sort_ref->{"_id"} = 1;
 	}
 
 	# groupby_tagtype

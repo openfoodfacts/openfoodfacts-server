@@ -447,7 +447,7 @@ sub compare_file_to_expected_results ($content_str, $expected_results_file, $upd
 			print $result $content_str;
 			close($result);
 
-			files_eq_or_diff($results_file, $expected_results_file, $title);
+			files_eq_or_diff($expected_results_file, $results_file, $title);
 			unlink($results_file);
 		}
 		else {
