@@ -852,7 +852,7 @@ sub init_request ($request_ref = {}) {
 				"init_request - init_user error - display error page",
 				{init_user_error => $request_ref->{init_user_error}}
 			) if $log->is_debug();
-			display_error_and_exit($error, 403);
+			display_error_and_exit($request_ref, $error, 403);
 		}
 	}
 
@@ -1088,7 +1088,7 @@ sub display_date_iso ($t) {
 	}
 }
 
-=head2 display_error ( $error_message, $status_code )
+=head2 display_error ( $request_ref, $error_message, $status_code )
 
 Display an error message using the site template.
 
@@ -1096,21 +1096,19 @@ The request is not terminated by this function, it will continue to run.
 
 =cut
 
-sub display_error ($error_message, $status_code) {
+sub display_error ($request_ref, $error_message, $status_code) {
 
 	my $html = "<p>$error_message</p>";
-	display_page(
-		{
-			title => lang('error'),
-			content_ref => \$html,
-			status_code => $status_code,
-			page_type => "error",
-		}
-	);
+	$request_ref->{status_code} = $status_code;
+	$request_ref->{page_type} = "error";
+	$request_ref->{title} = lang('error');
+	$request_ref->{content_ref} = \$html;
+
+	display_page($request_ref);
 	return;
 }
 
-=head2 display_error_and_exit ( $error_message, $status_code )
+=head2 display_error_and_exit ( $request_ref, $error_message, $status_code )
 
 Display an error message using the site template, and terminate the request immediately.
 
@@ -1118,9 +1116,9 @@ Any code after the call to display_error_and_exit() will not be executed.
 
 =cut
 
-sub display_error_and_exit ($error_message, $status_code) {
+sub display_error_and_exit ($request_ref, $error_message, $status_code) {
 
-	display_error($error_message, $status_code);
+	display_error($request_ref, $error_message, $status_code);
 	exit();
 }
 
@@ -2468,7 +2466,7 @@ oTable = \$('#tagstable').DataTable({
 	language: {
 		search: "$tagstable_search",
 		info: "_TOTAL_ $tagtype_p",
-		infoFiltered: " - $tagstable_filtered",
+		infoFiltered: " - $tagstable_filtered"
 	},
 	paging: false,
 	order: $sort_order,
@@ -2737,7 +2735,7 @@ oTable = \$('#tagstable').DataTable({
 	language: {
 		search: "$tagstable_search",
 		info: "_TOTAL_ $tagtype_p",
-		infoFiltered: " - $tagstable_filtered",
+		infoFiltered: " - $tagstable_filtered"
 	},
 	paging: false,
 	order: [[ 1, "desc" ]],
@@ -3993,7 +3991,7 @@ HTML
 				$user_or_org_ref = retrieve_org($orgid);
 
 				if (not defined $user_or_org_ref) {
-					display_error_and_exit(lang("error_unknown_org"), 404);
+					display_error_and_exit($request_ref, lang("error_unknown_org"), 404);
 				}
 			}
 			elsif ($tagid =~ /\./) {
@@ -4015,7 +4013,7 @@ HTML
 				$user_or_org_ref = retrieve_user($tagid);
 
 				if (not defined $user_or_org_ref) {
-					display_error_and_exit(lang("error_unknown_user"), 404);
+					display_error_and_exit($request_ref, lang("error_unknown_user"), 404);
 				}
 			}
 
@@ -4275,7 +4273,7 @@ HTML
 		)
 		)
 	{
-		display_error_and_exit(lang("no_products"), 404);
+		display_error_and_exit($request_ref, lang("no_products"), 404);
 	}
 	else {
 		display_page($request_ref);
@@ -7520,7 +7518,7 @@ sub display_product ($request_ref) {
 	local $log->context->{code} = $code;
 
 	if (not is_valid_code($code)) {
-		display_error_and_exit(lang_in_other_lc($request_lc, "invalid_barcode"), 403);
+		display_error_and_exit($request_ref, lang_in_other_lc($request_lc, "invalid_barcode"), 403);
 	}
 
 	my $product_id = product_id_for_owner($Owner_id, $code);
@@ -7569,7 +7567,7 @@ JS
 	}
 
 	if (not defined $product_ref) {
-		display_error_and_exit(sprintf(lang("no_product_for_barcode"), $code), 404);
+		display_error_and_exit($request_ref, sprintf(lang("no_product_for_barcode"), $code), 404);
 	}
 
 	$title = product_name_brand_quantity($product_ref);
