@@ -62,7 +62,6 @@ $product_ref = {
 	additives_tags => ["en:e950"],
 	with_sweeteners => 1,
 };
-
 special_process_product($product_ref);
 
 #ok( has_tag($product_ref, 'categories', 'en:artificially-sweetened-beverages'), 'should add en:artificially-sweetened-beverages' ) || diag explain $product_ref;
