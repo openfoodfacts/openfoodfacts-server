@@ -228,7 +228,7 @@ my $uri_finder = URI::Find->new(
 );
 
 # Sort keys of JSON output
-my $json = JSON::PP->new->allow_nonref->canonical;
+my $json = JSON::PP->new->utf8(0)->allow_nonref->canonical;
 
 =head1 VARIABLES
 
@@ -461,7 +461,7 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	};
 
 	$template_data_ref->{encode_json} = sub ($var) {
-		return $json->utf8->encode($var);
+		return $json->encode($var);
 	};
 
 	return ($tt->process($template_filename, $template_data_ref, $result_content_ref));
@@ -3958,10 +3958,6 @@ HTML
 		my $map_html;
 		if (((scalar @wikidata_objects) > 0) or ((scalar @markers) > 0)) {
 			my $map_template_data_ref = {
-				lang => \&lang,
-				encode_json => sub ($obj_ref) {
-					return $json->encode($obj_ref);
-				},
 				wikidata => \@wikidata_objects,
 				pointers => \@markers
 			};
@@ -4367,7 +4363,7 @@ sub display_search_results ($request_ref) {
 			$search_api_url =~ s/\&/\?/;
 		}
 
-		my $contributor_prefs_json = $json->utf8->encode(
+		my $contributor_prefs_json = $json->encode(
 			{
 				display_barcode => $User{display_barcode},
 				edit_link => $User{edit_link},
@@ -5401,7 +5397,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 			$products_json = $json->encode($request_ref->{structured_response}{products});
 		}
 
-		my $contributor_prefs_json = $json->utf8->encode(
+		my $contributor_prefs_json = $json->encode(
 			{
 				display_barcode => $User{display_barcode},
 				edit_link => $User{edit_link},
@@ -6884,10 +6880,6 @@ sub map_of_products ($products_iter, $request_ref, $graph_ref) {
 	}
 
 	my $map_template_data_ref = {
-		lang => \&lang,
-		encode_json => sub ($obj_ref) {
-			return $json->encode($obj_ref);
-		},
 		title => $count_string,
 		pointers => \@pointers,
 		current_link => $request_ref->{current_link},
@@ -8252,7 +8244,7 @@ HTML
 		compute_attributes($product_ref, $lc, $cc, $attributes_options_ref);
 
 		my $product_attribute_groups_json
-			= $json->utf8->encode({"attribute_groups" => $product_ref->{"attribute_groups_" . $lc}});
+			= $json->encode({"attribute_groups" => $product_ref->{"attribute_groups_" . $lc}});
 		my $preferences_text = lang("classify_products_according_to_your_preferences");
 
 		$scripts .= <<JS
@@ -10463,7 +10455,7 @@ sub display_structured_response ($request_ref) {
 		display_structured_response_opensearch_rss($request_ref);
 	}
 	else {
-		my $data = $json->utf8->encode($request_ref->{structured_response});
+		my $data = $json->encode($request_ref->{structured_response});
 
 		my $jsonp = undef;
 
@@ -11410,7 +11402,7 @@ sub generate_select2_options_for_taxonomy ($target_lc, $tagtype) {
 
 sub generate_select2_options_for_taxonomy_to_json ($target_lc, $tagtype) {
 
-	return $json->utf8->encode(generate_select2_options_for_taxonomy($target_lc, $tagtype));
+	return $json->encode(generate_select2_options_for_taxonomy($target_lc, $tagtype));
 }
 
 1;
