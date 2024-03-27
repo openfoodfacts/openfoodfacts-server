@@ -42,7 +42,6 @@ BEGIN {
 		&html_displays_error
 		&login
 		&mails_from_log
-		&mail_to_text
 		&new_client
 		&normalize_mail_for_comparison
 		&origin_from_url
@@ -50,9 +49,7 @@ BEGIN {
 		&tail_log_start
 		&tail_log_read
 		&wait_application_ready
-		&wait_dynamic_front
 		&execute_api_tests
-		&wait_server
 		&fake_http_server
 		&get_minion_jobs
 	);    # symbols to export on request

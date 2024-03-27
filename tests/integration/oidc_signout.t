@@ -6,9 +6,9 @@ use Test::More;
 use Log::Any::Adapter 'TAP';
 use Log::Any qw($log);
 
-use ProductOpener::APITest qw/:all/;
-use ProductOpener::Test qw/:all/;
-use ProductOpener::TestDefaults qw/:all/;
+use ProductOpener::APITest qw/wait_application_ready new_client construct_test_url/;
+use ProductOpener::Test qw/remove_all_products remove_all_users/;
+use ProductOpener::TestDefaults qw/%default_product %default_product_form/;
 use ProductOpener::Auth qw/get_token_using_password_credentials/;
 
 use List::Util qw/first/;

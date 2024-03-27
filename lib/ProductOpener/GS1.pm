@@ -50,11 +50,8 @@ BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 
-		%gs1_maps
-
 		&init_csv_fields
 		&read_gs1_json_file
-		&generate_gs1_message_identifier
 		&generate_gs1_confirmation_message
 		&write_off_csv_file
 		&print_unknown_entries_in_gs1_maps
@@ -67,7 +64,7 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Tags qw/:all/;
+use ProductOpener::Tags qw/%language_fields canonicalize_taxonomy_tag exists_taxonomy_tag/;
 use ProductOpener::Display qw/$tt process_template display_date_iso/;
 
 use JSON::PP;
@@ -96,7 +93,7 @@ my %unknown_entries_in_gs1_maps = ();
 
 # see https://www.gs1.fr/content/download/2265/17736/version/3/file/FicheProduit3.1.9_PROFIL_ParfumerieSelective_20190523.xlsx
 
-%gs1_maps = (
+my %gs1_maps = (
 
 	# https://gs1.se/en/guides/documentation/code-lists/t4078-allergen-type-code/
 	allergenTypeCode => {
@@ -348,8 +345,7 @@ sub normalize_gs1_maps_entries() {
 			$log->error("gs1_maps - entry not in taxonomy",
 				{tagtype => "allergens", tag => $gs1_maps{allergenTypeCode}{$tag}})
 				if $log->is_error();
-			print STDERR "tag: $tag - canon_tag: $canon_tag\n";
-			die;
+			die("gs1_maps - entry not in taxonomy - tagtype: allergens - tag: $tag - canon_tag: $canon_tag");
 		}
 	}
 
@@ -363,7 +359,7 @@ sub normalize_gs1_maps_entries() {
 			$log->error("gs1_maps - entry not in taxonomy",
 				{tagtype => "labels", tag => $gs1_maps{packagingMarkedLabelAccreditationCode}{$tag}})
 				if $log->is_error();
-			die;
+			die("gs1_maps - entry not in taxonomy - tagtype: labels - tag: $tag - canon_tag: $canon_tag");
 		}
 	}
 

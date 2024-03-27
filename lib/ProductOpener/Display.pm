@@ -41,7 +41,8 @@ use Exporter qw(import);
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
-		&startup
+		%index_tag_types_set
+
 		&init_request
 		&redirect_to_url
 		&single_param
@@ -54,7 +55,6 @@ BEGIN {
 		&get_packager_code_coordinates
 		&display_icon
 
-		&display_structured_response
 		&display_no_index_page_and_exit
 		&display_robots_txt_and_exit
 		&display_page
@@ -87,13 +87,10 @@ BEGIN {
 		&display_taxonomy_api
 		&map_of_products
 
-		&display_nested_list_of_ingredients
 		&display_ingredients_analysis_details
 		&display_ingredients_analysis
 		&display_possible_improvement_description
 		&display_properties
-
-		&get_world_subdomain
 
 		&data_to_display_nutriscore
 		&data_to_display_nutrient_levels
@@ -109,17 +106,12 @@ BEGIN {
 
 		@search_series
 
-		%index_tag_types_set
-
 		$admin
-		$memd
-		$default_request_ref
 
 		$scripts
 		$initjs
 		$styles
 		$header
-		$bodyabout
 
 		$original_subdomain
 		$subdomain
@@ -148,37 +140,41 @@ BEGIN {
 
 use vars @EXPORT_OK;
 
-use ProductOpener::HTTP qw(:all);
-use ProductOpener::Store qw(:all);
+use ProductOpener::HTTP qw(write_cors_headers);
+use ProductOpener::Store qw(get_string_id_for_lang retrieve);
 use ProductOpener::Config qw(:all);
-use ProductOpener::Paths qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Tags qw(:all);
 use ProductOpener::Users qw(:all);
-use ProductOpener::Index qw(:all);
+use ProductOpener::Index qw(%texts);
 use ProductOpener::Lang qw(:all);
-use ProductOpener::Images qw(:all);
+use ProductOpener::Images qw(display_image display_image_thumb);
 use ProductOpener::Food qw(:all);
-use ProductOpener::Ingredients qw(:all);
+use ProductOpener::Ingredients qw(flatten_sub_ingredients);
 use ProductOpener::Products qw(:all);
 use ProductOpener::Missions qw(:all);
 use ProductOpener::MissionsConfig qw(:all);
-use ProductOpener::URL qw(:all);
-use ProductOpener::Data qw(:all);
-use ProductOpener::Text qw(:all);
-use ProductOpener::Nutriscore qw(:all);
-use ProductOpener::Ecoscore qw(:all);
-use ProductOpener::Attributes qw(:all);
-use ProductOpener::KnowledgePanels qw(:all);
-use ProductOpener::KnowledgePanelsTags qw(:all);
-use ProductOpener::Orgs qw(:all);
-use ProductOpener::Web qw(:all);
-use ProductOpener::Recipes qw(:all);
-use ProductOpener::PackagerCodes qw(:all);
-use ProductOpener::Export qw(:all);
-use ProductOpener::API qw(:all);
-use ProductOpener::Units qw/:all/;
-use ProductOpener::Cache qw/:all/;
-use ProductOpener::Permissions qw/:all/;
+use ProductOpener::URL qw(format_subdomain);
+use ProductOpener::Data
+	qw(execute_aggregate_tags_query execute_count_tags_query execute_query get_products_collection get_recent_changes_collection);
+use ProductOpener::Text
+	qw(escape_char escape_single_quote_and_newlines get_decimal_formatter get_percent_formatter remove_tags_and_quote);
+use ProductOpener::Nutriscore qw(%points_thresholds compute_nutriscore_grade);
+use ProductOpener::Ecoscore qw(localize_ecoscore);
+use ProductOpener::Attributes qw(compute_attributes list_attributes);
+use ProductOpener::KnowledgePanels qw(create_knowledge_panels initialize_knowledge_panels_options);
+use ProductOpener::KnowledgePanelsTags qw(create_tag_knowledge_panels);
+use ProductOpener::Orgs qw(is_user_in_org_group retrieve_org);
+use ProductOpener::Web
+	qw(display_data_quality_issues_and_improvement_opportunities display_field display_knowledge_panel);
+use ProductOpener::Recipes qw(add_product_recipe_to_set analyze_recipes compute_product_recipe);
+use ProductOpener::PackagerCodes
+	qw($ec_code_regexp %geocode_addresses %packager_codes init_geocode_addresses init_packager_codes);
+use ProductOpener::Export qw(export_csv);
+use ProductOpener::API qw(add_error customize_response_for_product process_api_request process_auth_header);
+use ProductOpener::Units qw/g_to_unit/;
+use ProductOpener::Cache qw/$max_memcached_object_size $memd generate_cache_key/;
+use ProductOpener::Permissions qw/has_permission/;
 
 use Encode;
 use URI::Escape::XS;
@@ -210,10 +206,13 @@ use Log::Any '$log', default_adapter => 'Stderr';
 our $mongodb_log = Log::Log4perl->get_logger('mongodb');
 $mongodb_log->info("start") if $mongodb_log->is_info();
 
+use Apache2::RequestUtil ();
 use Apache2::RequestRec ();
 use Apache2::Const qw(:http :common);
 
 use URI::Find;
+
+my $bodyabout;
 
 my $uri_finder = URI::Find->new(
 	sub ($uri, $orig_uri) {
@@ -306,7 +305,7 @@ $tt = Template->new(
 
 # Initialize exported variables
 
-$default_request_ref = {page => 1,};
+my $default_request_ref = {page => 1,};
 
 # Initialize internal variables
 # - using my $variable; is causing problems with mod_perl, it looks
@@ -10846,7 +10845,10 @@ sub display_nested_list_of_ingredients ($ingredients_ref, $ingredients_text_ref,
 		${$ingredients_list_ref}
 			.= "<li>" . "<span$class>" . $ingredient_ref->{text} . "</span>" . " -> " . $ingredient_ref->{id};
 
-		foreach my $property (qw(origin labels vegan vegetarian from_palm_oil percent_min percent percent_max)) {
+		foreach my $property (
+			qw(origin labels vegan vegetarian from_palm_oil ciqual_food_code ciqual_proxy_food_code percent_min percent percent_max)
+			)
+		{
 			if (defined $ingredient_ref->{$property}) {
 				${$ingredients_list_ref} .= " - " . $property . ":&nbsp;" . $ingredient_ref->{$property};
 			}

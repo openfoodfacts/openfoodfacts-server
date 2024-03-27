@@ -3,9 +3,9 @@
 use ProductOpener::PerlStandards;
 
 use Test::More;
-use ProductOpener::APITest qw/:all/;
-use ProductOpener::Test qw/:all/;
-use ProductOpener::TestDefaults qw/:all/;
+use ProductOpener::APITest qw/create_user execute_api_tests login new_client wait_application_ready/;
+use ProductOpener::Test qw/remove_all_products remove_all_users/;
+use ProductOpener::TestDefaults qw/%default_user_form/;
 
 use File::Basename "dirname";
 
@@ -123,7 +123,7 @@ execute_api_tests(__FILE__, $tests_ref);
 create_user($ua, \%default_user_form);
 
 my $auth_ua = new_client();
-login($auth_ua, "tests", $test_password);
+login($auth_ua, "tests", '!!!TestTest1!!!');
 
 $tests_ref = [
 	{

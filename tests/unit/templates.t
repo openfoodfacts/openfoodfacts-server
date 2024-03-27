@@ -7,7 +7,7 @@ use Test::More;
 use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Display qw/:all/;
+use ProductOpener::Display qw/$tt/;
 
 # Recursive function to go through the templates directory and compile
 # every template to check for errors.

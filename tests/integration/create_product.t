@@ -3,8 +3,8 @@
 use ProductOpener::PerlStandards;
 
 use Test::More;
-use ProductOpener::APITest qw/:all/;
-use ProductOpener::Test qw/:all/;
+use ProductOpener::APITest qw/construct_test_url create_user edit_product new_client wait_application_ready/;
+use ProductOpener::Test qw/remove_all_products/;
 
 remove_all_products();
 wait_application_ready();

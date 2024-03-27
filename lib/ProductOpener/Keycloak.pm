@@ -34,10 +34,8 @@ use ProductOpener::PerlStandards;
 
 use Log::Any qw($log);
 
-use ProductOpener::Auth qw/:all/;
+use ProductOpener::Auth qw/get_token_using_client_credentials/;
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
-use ProductOpener::Store qw/:all/;
 
 use JSON;
 use LWP::UserAgent;

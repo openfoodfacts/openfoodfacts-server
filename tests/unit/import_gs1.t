@@ -14,10 +14,11 @@ use Log::Any qw($log);
 use JSON;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::GS1 qw/:all/;
+use ProductOpener::GS1
+	qw/generate_gs1_confirmation_message init_csv_fields print_unknown_entries_in_gs1_maps read_gs1_json_file/;
 use ProductOpener::Food qw/:all/;
-use ProductOpener::Tags qw/:all/;
-use ProductOpener::Test qw/:all/;
+use ProductOpener::Tags qw/exists_taxonomy_tag/;
+use ProductOpener::Test qw/init_expected_results/;
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
@@ -28,7 +29,10 @@ foreach my $gs1_nutrient (sort keys %{$ProductOpener::GS1::gs1_maps{nutrientType
 	if (not exists_taxonomy_tag("nutrients", "zz:" . $ProductOpener::GS1::gs1_maps{nutrientTypeCode}{$gs1_nutrient})) {
 		$log->warn(
 			"mapping for GS1 nutrient does not exist in OFF",
-			{gs1_nutrient => $gs1_nutrient, mapping => $ProductOpener::GS1::gs1_maps{nutrientTypeCode}{$gs1_nutrient}}
+			{
+				gs1_nutrient => $gs1_nutrient,
+				mapping => $ProductOpener::GS1::gs1_maps{nutrientTypeCode}{$gs1_nutrient}
+			}
 		) if $log->is_warn();
 	}
 }

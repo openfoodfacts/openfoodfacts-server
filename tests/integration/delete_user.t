@@ -4,8 +4,8 @@ use ProductOpener::PerlStandards;
 
 use Test::More;
 use ProductOpener::APITest qw/:all/;
-use ProductOpener::Test qw/:all/;
-use ProductOpener::TestDefaults qw/:all/;
+use ProductOpener::Test qw/remove_all_users/;
+use ProductOpener::TestDefaults qw/%admin_user_form %default_product %default_user_form/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Producers qw/:all/;
 
@@ -85,7 +85,7 @@ like($response_contributor->content, qr/Unknown user\./, "the contributor page o
 my $url_login = construct_test_url("/cgi/login.pl", "world");
 my %login_form = (
 	user_id => "tests",
-	password => $test_password,
+	password => '!!!TestTest1!!!',
 	submit => "Sign in"
 );
 my $response_login = $ua->post($url_login, \%login_form);

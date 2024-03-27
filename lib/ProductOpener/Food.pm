@@ -60,11 +60,8 @@ BEGIN {
 		&fix_salt_equivalent
 
 		&is_beverage_for_nutrition_score_2021
-		&is_beverage_for_nutrition_score_2023
 		&is_fat_oil_nuts_seeds_for_nutrition_score
 		&is_water_for_nutrition_score
-		&is_cheese_for_nutrition_score
-		&is_fat_for_nutrition_score
 
 		&compute_nutriscore
 		&compute_nutriscore
@@ -72,7 +69,6 @@ BEGIN {
 		&compute_serving_size_data
 		&compute_unknown_nutrients
 		&compute_nutrient_levels
-		&compute_units_of_alcohol
 		&compute_estimated_nutrients
 
 		&compare_nutriments
@@ -97,22 +93,23 @@ BEGIN {
 
 use vars @EXPORT_OK;
 
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Store qw/get_string_id_for_lang retrieve/;
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
+use ProductOpener::Lang qw/$lc %Lang %Langs lang/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Images qw/:all/;
-use ProductOpener::Nutriscore qw/:all/;
-use ProductOpener::Numbers qw/:all/;
-use ProductOpener::Ingredients qw/:all/;
-use ProductOpener::Text qw/:all/;
-use ProductOpener::FoodGroups qw/:all/;
+use ProductOpener::Images qw/extract_text_from_image/;
+use ProductOpener::Nutriscore qw/compute_nutriscore_score_and_grade/;
+use ProductOpener::Numbers qw/convert_string_to_number round_to_max_decimal_places/;
+use ProductOpener::Ingredients
+	qw/estimate_nutriscore_2021_milk_percent_from_ingredients estimate_nutriscore_2023_red_meat_percent_from_ingredients/;
+use ProductOpener::Text qw/remove_tags_and_quote/;
+use ProductOpener::FoodGroups qw/compute_food_groups/;
 use ProductOpener::Units qw/:all/;
 use ProductOpener::Products qw(&remove_fields);
 use ProductOpener::Display qw/single_param/;
 use ProductOpener::APIProductWrite qw/skip_protected_field/;
-use ProductOpener::NutritionEstimation qw/:all/;
+use ProductOpener::NutritionEstimation qw/estimate_nutrients_from_ingredients/;
 
 use Hash::Util;
 use Encode;
@@ -1863,7 +1860,8 @@ sub check_availability_of_nutrients_needed_for_nutriscore ($product_ref) {
 						($nid eq "saturated-fat")
 						&& saturated_fat_0_because_of_fat_0($product_ref->{nutriments}, $prepared)
 					)
-					|| (($nid eq "sugars") && sugar_0_because_of_carbohydrates_0($product_ref->{nutriments}, $prepared))
+					|| (($nid eq "sugars")
+						&& sugar_0_because_of_carbohydrates_0($product_ref->{nutriments}, $prepared))
 					);
 				$product_ref->{"nutrition_grades_tags"} = ["unknown"];
 				add_tag($product_ref, "misc", "en:nutrition-not-enough-data-to-compute-nutrition-score");

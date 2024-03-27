@@ -32,9 +32,9 @@ use ProductOpener::PerlStandards;
 
 use CGI::Carp qw(fatalsToBrowser);
 
-use ProductOpener::Auth qw/:all/;
-use ProductOpener::Display qw/:all/;
-use ProductOpener::Routing qw/:all/;
+use ProductOpener::Auth qw/access_to_protected_resource/;
+use ProductOpener::Display qw/init_request/;
+use ProductOpener::Routing qw/analyze_request/;
 
 use Log::Any qw($log);
 

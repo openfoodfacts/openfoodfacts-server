@@ -28,9 +28,9 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::Users qw/:all/;
-use ProductOpener::Lang qw/:all/;
-use ProductOpener::Auth qw/:all/;
+use ProductOpener::Users qw/$User_id retrieve_user/;
+use ProductOpener::Lang qw/lang/;
+use ProductOpener::Auth qw/password_signin/;
 
 use Apache2::Const -compile => qw/OK :http/;
 use CGI qw/:cgi :form escapeHTML/;

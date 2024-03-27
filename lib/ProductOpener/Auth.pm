@@ -60,13 +60,10 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
-use ProductOpener::Display qw/:all/;
-use ProductOpener::HTTP qw/:all/;
-use ProductOpener::URL qw/:all/;
-use ProductOpener::Store qw/:all/;
-use ProductOpener::Users qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Display qw/$cc $subdomain $formatted_subdomain single_param redirect_to_url/;
+use ProductOpener::URL qw/get_cookie_domain format_subdomain/;
+use ProductOpener::Users qw/$User_id retrieve_user generate_token init_user/;
+use ProductOpener::Lang qw/$lc/;
 
 use OIDC::Lite;
 use OIDC::Lite::Client::WebServer;

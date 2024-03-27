@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2024 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -38,7 +38,6 @@ BEGIN {
 		%moderator_user_form
 		%pro_moderator_user_form
 
-		$test_password
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -49,7 +48,7 @@ use vars @EXPORT_OK;
 The default test password
 =cut
 
-$test_password = "!!!TestTest1!!!";
+my $test_password = "!!!TestTest1!!!";
 
 =head2 %default_user_form
 A basic user.

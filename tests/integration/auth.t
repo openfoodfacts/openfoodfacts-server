@@ -39,7 +39,7 @@ subtest 'password_signin' => sub {
 
 	subtest 'with good password' => sub {
 		my ($oidc_user_id, $refresh_token, $refresh_expires_at, $access_token, $access_expires_at, $id_token)
-			= password_signin('tests', $test_password);
+			= password_signin('tests', '!!!TestTest1!!!');
 		is($oidc_user_id, 'tests', 'user_id matches the one we used');
 		ok($refresh_token, 'refresh token is defined');
 		ok($refresh_expires_at, 'refresh token expires_at is defined');

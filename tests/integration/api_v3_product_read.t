@@ -3,9 +3,9 @@
 use ProductOpener::PerlStandards;
 
 use Test::More;
-use ProductOpener::APITest qw/:all/;
-use ProductOpener::Test qw/:all/;
-use ProductOpener::TestDefaults qw/:all/;
+use ProductOpener::APITest qw/create_user edit_product execute_api_tests new_client wait_application_ready/;
+use ProductOpener::Test qw/remove_all_products remove_all_users/;
+use ProductOpener::TestDefaults qw/%default_product_form %default_user_form/;
 
 use File::Basename "dirname";
 
@@ -179,7 +179,7 @@ my $tests_ref = [
 		test_case => 'get-auth-good-password',
 		method => 'GET',
 		path => '/api/v3/product/4260392550101',
-		query_string => '?fields=code,product_name&user_id=tests&password=' . $test_password,
+		query_string => '?fields=code,product_name&user_id=tests&password=!!!TestTest1!!!',
 		expected_status_code => 200,
 	},
 	{

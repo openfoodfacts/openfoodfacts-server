@@ -6,8 +6,8 @@ use Test::More;
 use Log::Any::Adapter 'TAP';
 use Log::Any qw($log);
 
-use ProductOpener::APITest qw/:all/;
-use ProductOpener::Test qw/:all/;
+use ProductOpener::APITest qw/create_user execute_api_tests new_client wait_application_ready/;
+use ProductOpener::Test qw/remove_all_products remove_all_users/;
 use ProductOpener::TestDefaults qw/:all/;
 use ProductOpener::Auth qw/get_token_using_password_credentials/;
 
@@ -28,7 +28,7 @@ my $ua = new_client();
 my %create_user_args = (%default_user_form, (email => 'bob@gmail.com'));
 create_user($ua, \%create_user_args);
 
-my $token = get_token_using_password_credentials('tests', $test_password)->{access_token};
+my $token = get_token_using_password_credentials('tests', '!!!TestTest1!!!')->{access_token};
 $log->debug('test token', {token => $token}) if $log->is_debug();
 
 my $tests_ref = [

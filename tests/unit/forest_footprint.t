@@ -11,9 +11,9 @@ use JSON;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Test qw/:all/;
-use ProductOpener::Ingredients qw/:all/;
-use ProductOpener::ForestFootprint qw/:all/;
+use ProductOpener::Test qw/init_expected_results/;
+use ProductOpener::Ingredients qw/extract_ingredients_from_text/;
+use ProductOpener::ForestFootprint qw/compute_forest_footprint load_forest_footprint_data/;
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 

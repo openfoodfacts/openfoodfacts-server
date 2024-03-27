@@ -32,9 +32,10 @@ use ProductOpener::PerlStandards;
 
 use CGI::Carp qw(fatalsToBrowser);
 
-use ProductOpener::Auth qw/:all/;
-use ProductOpener::Display qw/:all/;
-use ProductOpener::Routing qw/:all/;
+use ProductOpener::Auth qw/start_signout/;
+use ProductOpener::Display qw/init_request display_error_and_exit/;
+use ProductOpener::Routing qw/analyze_request/;
+use ProductOpener::URL qw/format_subdomain/;
 
 use Log::Any qw($log);
 

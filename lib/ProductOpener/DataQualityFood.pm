@@ -48,10 +48,10 @@ BEGIN {
 }
 
 use ProductOpener::Config qw(:all);
-use ProductOpener::Store qw(:all);
+use ProductOpener::Store qw(get_string_id_for_lang);
 use ProductOpener::Tags qw(:all);
-use ProductOpener::Food qw(:all);
-use ProductOpener::Ecoscore qw(:all);
+use ProductOpener::Food qw(%categories_nutriments_per_country);
+use ProductOpener::Ecoscore qw(is_ecoscore_extended_data_more_precise_than_agribalyse);
 use ProductOpener::Units qw(extract_standard_unit);
 
 use Data::DeepAccess qw(deep_exists);
@@ -2210,8 +2210,8 @@ sub check_labels ($product_ref) {
 			(
 				(       (defined $product_ref->{nutriments}{sodium_100g})
 					and ($product_ref->{nutriments}{sodium_100g} > 0.005))
-				or
-				((defined $product_ref->{nutriments}{salt_100g}) and ($product_ref->{nutriments}{salt_100g} > 0.0125))
+				or (    (defined $product_ref->{nutriments}{salt_100g})
+					and ($product_ref->{nutriments}{salt_100g} > 0.0125))
 			)
 			and (has_tag($product_ref, "labels", "en:no-sodium") or has_tag($product_ref, "labels", "en:no-salt"))
 			)
