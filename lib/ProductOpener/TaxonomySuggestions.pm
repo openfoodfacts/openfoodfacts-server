@@ -46,13 +46,13 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
-use ProductOpener::Store qw/:all/;
-use ProductOpener::Display qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
+use ProductOpener::Store qw/get_string_id_for_lang retrieve_json/;
+use ProductOpener::Display qw/$country/;
+use ProductOpener::Lang qw/lang/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::PackagerCodes qw/:all/;
-use ProductOpener::Cache qw/:all/;
+use ProductOpener::PackagerCodes qw/@sorted_packager_codes normalize_packager_codes/;
+use ProductOpener::Cache qw/$memd generate_cache_key/;
 
 use List::Util qw/min/;
 use Data::DeepAccess qw(deep_exists deep_get);
@@ -126,7 +126,7 @@ sub get_taxonomy_suggestions_with_synonyms ($tagtype, $search_lc, $string, $cont
 		}
 	) if $log->is_debug();
 
-	# Check if we have cached suggestions
+	# Check if we have cached suggestions
 	my $key = generate_cache_key(
 		"get_taxonomy_suggestions",
 		{

@@ -15,8 +15,7 @@ use Log::Any::Adapter 'TAP', filter => 'trace';
 #use Text::Diff;
 
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::TagsEntries qw/:all/;
-use ProductOpener::Ingredients qw/:all/;
+use ProductOpener::Ingredients qw/parse_ingredients_text_service/;
 
 # dummy product for testing
 

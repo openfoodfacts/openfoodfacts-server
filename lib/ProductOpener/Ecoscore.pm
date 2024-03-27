@@ -56,11 +56,6 @@ BEGIN {
 
 		&is_ecoscore_extended_data_more_precise_than_agribalyse
 
-		%ecoscore_countries
-		@ecoscore_countries_sorted
-		%ecoscore_countries_enabled
-		@ecoscore_countries_enabled_sorted
-
 		%agribalyse
 
 	);    # symbols to export on request
@@ -70,10 +65,10 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Store qw/get_string_id_for_lang/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Packaging qw/:all/;
-use ProductOpener::Ingredients qw/:all/;
+use ProductOpener::Ingredients qw/has_specific_ingredient_property/;
 
 use Storable qw(dclone freeze);
 use Text::CSV();
@@ -96,7 +91,8 @@ so this list will be overrode when we load the Eco-Score data.
 
 =cut
 
-@ecoscore_countries_enabled_sorted = qw(be ch de es fr ie it lu nl uk);
+my @ecoscore_countries_enabled_sorted = qw(be ch de es fr ie it lu nl uk);
+my %ecoscore_countries_enabled;
 
 foreach my $country (@ecoscore_countries_enabled_sorted) {
 	$ecoscore_countries_enabled{$country} = 1;
@@ -174,7 +170,7 @@ sub load_agribalyse_data() {
 
 my %ecoscore_data = (origins => {},);
 
-%ecoscore_countries = ();
+my %ecoscore_countries = ();
 
 =head2 load_ecoscore_data_origins_of_ingredients_distances ( $product_ref )
 
@@ -211,7 +207,7 @@ sub load_ecoscore_data_origins_of_ingredients_distances() {
 			# Score 0 for unknown origin
 			$ecoscore_data{origins}{"en:unknown"}{"transportation_score_" . $countries[$i]} = 0;
 		}
-		@ecoscore_countries_sorted = sort keys %ecoscore_countries;
+		my @ecoscore_countries_sorted = sort keys %ecoscore_countries;
 
 		%ecoscore_countries_enabled = %ecoscore_countries;
 		@ecoscore_countries_enabled_sorted = @ecoscore_countries_sorted;
@@ -616,7 +612,11 @@ sub load_ecoscore_data_packaging() {
 
 			$log->debug(
 				"ecoscore shapes CSV file - row",
-				{shape => $shape, shape_id => $shape_id, ecoscore_data => $ecoscore_data{packaging_shapes}{$shape_id}}
+				{
+					shape => $shape,
+					shape_id => $shape_id,
+					ecoscore_data => $ecoscore_data{packaging_shapes}{$shape_id}
+				}
 			) if $log->is_debug();
 		}
 
@@ -1127,13 +1127,26 @@ my @production_system_labels = (
 	["en:responsible-aquaculture-asc", 10],
 );
 
-foreach my $label_ref (@production_system_labels) {
+my $production_system_labels_initialized = 0;
 
-	# Canonicalize the label ids in case the normalized id changed
-	$label_ref->[0] = canonicalize_taxonomy_tag("en", "labels", $label_ref->[0]);
+sub init_production_system_labels () {
+
+	return if $production_system_labels_initialized;
+
+	# Canonicalize the labels
+	foreach my $label_ref (@production_system_labels) {
+
+		# Canonicalize the label ids in case the normalized id changed
+		$label_ref->[0] = canonicalize_taxonomy_tag("en", "labels", $label_ref->[0]);
+	}
+	$production_system_labels_initialized = 1;
+
+	return;
 }
 
 sub compute_ecoscore_production_system_adjustment ($product_ref) {
+
+	init_production_system_labels();
 
 	$product_ref->{ecoscore_data}{adjustments}{production_system} = {value => 0, labels => []};
 
@@ -1156,7 +1169,10 @@ sub compute_ecoscore_production_system_adjustment ($product_ref) {
 			# Don't count the points for en:eu-organic if we already have fr:ab-agriculture-biologique
 			# and for ASC if we already have MSC
 			if (
-				(($label ne "en:eu-organic") or not(has_tag($product_ref, "labels", "fr:ab-agriculture-biologique")))
+				(
+					($label ne "en:eu-organic")
+					or not(has_tag($product_ref, "labels", "fr:ab-agriculture-biologique"))
+				)
 				and (($label ne "en:sustainable-seafood-msc")
 					or not(has_tag($product_ref, "labels", "en:sustainable-fishing-method")))
 				and (

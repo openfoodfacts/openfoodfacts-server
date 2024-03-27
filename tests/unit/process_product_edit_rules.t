@@ -10,7 +10,7 @@ use ProductOpener::Config qw/@edit_rules/;
 use ProductOpener::Users qw/$User_id/;
 
 use ProductOpener::Test qw/:all/;
-use ProductOpener::TestDefaults qw/:all/;
+use ProductOpener::TestDefaults qw/%default_product %default_product_form/;
 use ProductOpener::Products qw/process_product_edit_rules/;
 
 my %base_product = (%default_product,);

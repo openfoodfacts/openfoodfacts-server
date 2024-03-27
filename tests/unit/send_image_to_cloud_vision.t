@@ -9,8 +9,8 @@ use File::Basename "dirname";
 use File::Slurp;
 use JSON;
 
-use ProductOpener::Test qw/:all/;
-use ProductOpener::Images qw/:all/;
+use ProductOpener::Test qw/check_ocr_result compare_to_expected_results init_expected_results read_gzip_file/;
+use ProductOpener::Images qw/@CLOUD_VISION_FEATURES_FULL @CLOUD_VISION_FEATURES_TEXT send_image_to_cloud_vision/;
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 

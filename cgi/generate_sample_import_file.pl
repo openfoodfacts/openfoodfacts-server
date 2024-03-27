@@ -28,14 +28,15 @@ binmode(STDERR, ":encoding(UTF-8)");
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Display qw/:all/;
+use ProductOpener::Display qw/init_request/;
 use ProductOpener::Users qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Lang qw/$lc lang/;
 use ProductOpener::Mail qw/:all/;
-use ProductOpener::Producers qw/:all/;
-use ProductOpener::Tags qw/:all/;
-use ProductOpener::Food qw/:all/;
+use ProductOpener::Producers qw/generate_import_export_columns_groups_for_select2/;
+use ProductOpener::Tags qw/%language_fields %tags_fields/;
+use ProductOpener::Food qw/default_unit_for_nid/;
 use ProductOpener::TaxonomySuggestions qw/:all/;
+
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -84,18 +85,41 @@ my %formats = (
 		align => 'center'
 	),
 	description => $workbook->add_format(italic => 1, text_wrap => 1, valign => 'vcenter'),
+	example => $workbook->add_format(italic => 1, valign => 'vcenter', text_wrap => 1,),
 );
 
 # Re-use the structure used to output select2 options in import_file_select_format.pl
 my $select2_options_ref = generate_import_export_columns_groups_for_select2([$lc]);
 
 my $headers_row = 0;
+
 my $description_row = 1;
+my $example_row = 2;
 my $col = 1;
 
 my $description = lang("description");
 my $field_id;
 my $comment;
+
+my $example = lang("example");
+my $example_tsv_file = 'conf/pro-platform/Import template - Example translations - Import sheet.tsv';
+my %example_values_by_language_and_header;
+
+open(my $example_fh, '<', $example_tsv_file) or die "Cannot open $example_tsv_file: $!";
+my $header_line = <$example_fh>;
+chomp($header_line);
+my @headers = split("\t", $header_line);
+while (my $line = <$example_fh>) {
+	chomp($line);
+	my @values = split("\t", $line);
+	my $line_lc = $values[0];
+	next if not $line_lc;    # Skip lines that don't have a language set (e.g. the 2nd line with English colunm names)
+	for my $i (0 .. $#headers) {
+		next if $headers[$i] eq 'lc';
+		$example_values_by_language_and_header{$line_lc}{$headers[$i]} = $values[$i] if defined $values[$i];
+	}
+}
+close($example_fh);
 
 $worksheet->set_row(0, 70);
 $worksheet->set_column('A:ZZ', 30);
@@ -172,18 +196,8 @@ foreach my $group_ref (@$select2_options_ref) {
 			}
 		}
 
-		my $example = lang($field_id . "_example");
-
-		if ($example ne "") {
-
-			my $example_title = lang("example");
-
-			# Several examples?
-			if ($example =~ /,/) {
-				$example_title = lang("examples");
-			}
-			$comment .= $example_title . " " . $example . "\n\n";
-		}
+		my $line_lc = lc($request_ref->{lc} || 'en');
+		my $example_value = $example_values_by_language_and_header{$line_lc}{$field_ref->{id}} // '';
 
 		# Set a different format for mandatory / recommended / optional fields
 
@@ -225,6 +239,11 @@ foreach my $group_ref (@$select2_options_ref) {
 
 		if ($comment ne "") {
 			$worksheet->write($description_row, $col, $comment, $formats{'description'});
+		}
+
+		if ($example_value) {
+			$worksheet->write($example_row, 0, $example, $formats{'example'});
+			$worksheet->write($example_row, $col, $example_value, $formats{'example'});
 		}
 
 		$col++;

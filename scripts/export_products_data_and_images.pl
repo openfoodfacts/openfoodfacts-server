@@ -24,10 +24,10 @@ use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Export qw/:all/;
-use ProductOpener::Display qw/:all/;
-use ProductOpener::Products qw/:all/;
+use ProductOpener::Display qw/add_params_to_query/;
+use ProductOpener::Products qw/product_path_from_id/;
 
 use URI::Escape::XS;
 use Storable qw/dclone/;
@@ -37,7 +37,7 @@ use Time::Local;
 use Data::Dumper;
 use Getopt::Long;
 use CGI qw(:cgi :cgi-lib);
-use ProductOpener::Data qw/:all/;
+use ProductOpener::Data qw/get_products_collection/;
 
 binmode(STDOUT, ":encoding(UTF-8)");
 binmode(STDERR, ":encoding(UTF-8)");
