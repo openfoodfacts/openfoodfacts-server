@@ -87,6 +87,8 @@ BEGIN {
 
 		&check_nutriscore_categories_exist_in_taxonomy
 
+		&get_nutrient_unit
+
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -3170,6 +3172,24 @@ sub compute_estimated_nutrients ($product_ref) {
 	}
 
 	return $results_ref;
+}
+
+=head2 get_nutrient_unit ( $nid, $cc )
+
+Returns the unit of the nutrient.
+
+We may have a unit specific to the country (e.g. US nutrition facts table using the International Unit for this nutrient, and Europe using mg)
+
+=cut
+
+sub get_nutrient_unit ($nid, $cc = undef) {
+	my $unit;
+	if ($cc) {
+		$unit = get_property("nutrients", "zz:$nid", "unit_$cc:en");
+		return $unit if $unit;
+	}
+	$unit = get_property("nutrients", "zz:$nid", "unit:en") // 'g';
+	return $unit;
 }
 
 1;
