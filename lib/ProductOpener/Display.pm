@@ -3017,7 +3017,7 @@ sub display_points ($request_ref) {
 	my $description = '';
 
 	if ($tagtype eq 'users') {
-		my $user_ref = retrieve("$BASE_DIRS{USERS}/$tagid.sto");
+		my $user_ref = retrieve_user($tagid);
 		if (defined $user_ref) {
 			if ((defined $user_ref->{name}) and ($user_ref->{name} ne '')) {
 				$title = $user_ref->{name} . " ($tagid)";
@@ -4058,7 +4058,7 @@ HTML
 
 				# User
 
-				$user_or_org_ref = retrieve("$BASE_DIRS{USERS}/$tagid.sto");
+				$user_or_org_ref = retrieve_user($tagid);
 
 				if (not defined $user_or_org_ref) {
 					display_error_and_exit(lang("error_unknown_user"), 404);
@@ -4419,8 +4419,8 @@ JS
 			;
 
 		$scripts .= <<JS
-<script src="/js/product-preferences.js"></script>
-<script src="/js/product-search.js"></script>
+<script src="$static_subdomain/js/product-preferences.js"></script>
+<script src="$static_subdomain/js/product-search.js"></script>
 JS
 			;
 
@@ -5453,8 +5453,8 @@ JS
 			;
 
 		$scripts .= <<JS
-<script src="/js/product-preferences.js"></script>
-<script src="/js/product-search.js"></script>
+<script src="$static_subdomain/js/product-preferences.js"></script>
+<script src="$static_subdomain/js/product-search.js"></script>
 JS
 			;
 
@@ -8424,8 +8424,8 @@ var preferences_text = "$preferences_text";
 var product = $product_attribute_groups_json;
 </script>
 
-<script src="/js/product-preferences.js"></script>
-<script src="/js/product-search.js"></script>
+<script src="$static_subdomain/js/product-preferences.js"></script>
+<script src="$static_subdomain/js/product-search.js"></script>
 JS
 			;
 
