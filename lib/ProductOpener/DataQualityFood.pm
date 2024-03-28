@@ -1394,7 +1394,7 @@ sub check_nutrition_data ($product_ref) {
 	return;
 }
 
-	# Check for Mozzarella category and minimum number of ingredients
+# Check for Mozzarella category and minimum number of ingredients
 	sub check_mozzarella_ingredients {
 		my ($product_ref) = @_;
 
