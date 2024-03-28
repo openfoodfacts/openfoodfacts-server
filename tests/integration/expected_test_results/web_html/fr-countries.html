@@ -497,7 +497,7 @@
 <script>
 $(function() {
 var countries_map_data=JSON.parse("{\"BE\":1,\"CH\":1,\"DE\":4,\"ES\":1,\"FR\":6,\"GB\":3,\"IT\":2}");var countries_map_links=JSON.parse("{\"BE\":\"/pays/belgique\",\"CH\":\"/pays/suisse\",\"DE\":\"/pays/allemagne\",\"ES\":\"/pays/espagne\",\"FR\":\"/pays/france\",\"GB\":\"/pays/royaume-uni\",\"IT\":\"/pays/italie\"}");var countries_map_names=JSON.parse("{\"BE\":\"Belgique\",\"CH\":\"Suisse\",\"DE\":\"Allemagne\",\"ES\":\"Espagne\",\"FR\":\"France\",\"GB\":\"Royaume-Uni\",\"IT\":\"Italie\"}");displayWorldMap('#world-map', { 'data': countries_map_data, 'links': countries_map_links, 'names': countries_map_names });
-oTable = $('#tagstable').DataTable({
+let oTable = $('#tagstable').DataTable({
 	language: {
 		search: "Recherche :",
 		info: "_TOTAL_ pays",

@@ -509,7 +509,7 @@
 <script>
 $(function() {
 var countries_map_data=JSON.parse("{\"AR\":1,\"BE\":1,\"CA\":1,\"CH\":1,\"DE\":4,\"ES\":4,\"FR\":6,\"GB\":4,\"GR\":1,\"IN\":1,\"IT\":4,\"JP\":2,\"MX\":1,\"PT\":1,\"US\":2}");var countries_map_links=JSON.parse("{\"AR\":\"/country/argentina\",\"BE\":\"/country/belgium\",\"CA\":\"/country/canada\",\"CH\":\"/country/switzerland\",\"DE\":\"/country/germany\",\"ES\":\"/country/spain\",\"FR\":\"/country/france\",\"GB\":\"/country/united-kingdom\",\"GR\":\"/country/greece\",\"IN\":\"/country/india\",\"IT\":\"/country/italy\",\"JP\":\"/country/japan\",\"MX\":\"/country/mexico\",\"PT\":\"/country/portugal\",\"US\":\"/country/united-states\"}");var countries_map_names=JSON.parse("{\"AR\":\"Argentina\",\"BE\":\"Belgium\",\"CA\":\"Canada\",\"CH\":\"Switzerland\",\"DE\":\"Germany\",\"ES\":\"Spain\",\"FR\":\"France\",\"GB\":\"United Kingdom\",\"GR\":\"Greece\",\"IN\":\"India\",\"IT\":\"Italy\",\"JP\":\"Japan\",\"MX\":\"Mexico\",\"PT\":\"Portugal\",\"US\":\"United States\"}");displayWorldMap('#world-map', { 'data': countries_map_data, 'links': countries_map_links, 'names': countries_map_names });
-oTable = $('#tagstable').DataTable({
+let oTable = $('#tagstable').DataTable({
 	language: {
 		search: "Search:",
 		info: "_TOTAL_ countries",

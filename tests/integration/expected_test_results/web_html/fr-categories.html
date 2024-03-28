@@ -450,11 +450,9 @@
                     if ("") {
                         params += "&sec_facet_tag=&sec_value_tag="
                     }
-                    // Filtering data for country
-                    if ("fr" !== "world") {
-                        // Adding language code to get transalted data
-                        params += "&lang_code=fr&country=fr";
-                    }
+
+                    // Adding language code to get translated data
+                    params += "&lang_code=fr&country=fr";
 
                     fetch(facet_kp + params)
                         .then((response) => {
