@@ -22,7 +22,16 @@
 
 use ProductOpener::PerlStandards;
 
+use File::Basename qw/basename dirname/;
+use File::Copy qw/move/;
+use File::Temp;
+use Getopt::Long qw/GetOptions/;
 
+use ProductOpener::Tags qw/sanitize_taxonomy_line/;
+
+
+# compare synonyms entries on language prefix with "xx" > "en" then alpha order
+# also work for property name + language prefix
 sub cmp_on_language :prototype($$) ($a, $b) {
 	if ((!defined $a) || (!defined $b)) {
 		return $a cmp $b;
@@ -31,6 +40,7 @@ sub cmp_on_language :prototype($$) ($a, $b) {
 	$b = lc($b);
 	my $a_prefix = undef;
 	my $b_prefix = undef;
+	# case of property name: <name>:<lang>
 	if ($a =~ /^(\w+):(\w+)$/) {
 		$a_prefix = $1;
 		$a = $2;
@@ -40,8 +50,10 @@ sub cmp_on_language :prototype($$) ($a, $b) {
 		$b = $2;
 	}
 	if ($a_prefix && $b_prefix) {
+		# property name is the first item to sort on
 		return $a_prefix cmp $b_prefix if ($a_prefix ne $b_prefix);
 	}
+	# compare on language code
 	return 0 if ($a eq $b);
 	# en and xx takes precedence over all others
 	return -1 if ($a eq "xx");
@@ -51,6 +63,8 @@ sub cmp_on_language :prototype($$) ($a, $b) {
 	return $a cmp $b;
 }
 
+
+# simple iterator on lines, ensuring last line is empty (to simplify getting last entry)
 sub iter_taxonomy_lines($fd) {
 	my $last_line;
 	# iterator
@@ -64,12 +78,14 @@ sub iter_taxonomy_lines($fd) {
 			$last_line = "\n";  # make next call terminate
 			return "\n";
 		}
-		# end of iterator
+		# end of iteratorsanitize_taxonomy_line
 		return;
 	}
 }
 
 
+# iter over the taxonomy entry by entry
+# return a ref to a hash map with entry infos
 sub iter_taxonomy_entries ($lines_iter) {
 	my $line_num = 0;  # this is global
 	return sub {
@@ -81,6 +97,7 @@ sub iter_taxonomy_entries ($lines_iter) {
 		my @original_lines = ();
 		# non meaningful lines above a meaningful line (entry, parent or porperty)
 		my @previous_lines = ();
+		my @errors = ();
 		my $entry_start_line = $line_num + 1;
 		while (my $line = $lines_iter->()) {
 			$line_num += 1;
@@ -97,27 +114,42 @@ sub iter_taxonomy_entries ($lines_iter) {
 					tail_lines => \@previous_lines,
 					start_line => $entry_start_line,
 					end_line => $line_num,
+					errors => \@errors,
 				};
 				# return $entry
 				return $entry;
 			}
 			# parents
 			elsif ($line =~ /^</) {
-				push @parents, {line => $line, previous => [@previous_lines]};
+				push @parents, {line => $line, previous => [@previous_lines], line_num => $line_num};
 				@previous_lines = ();
 			}
 			# synonym
 			elsif ($line =~ /^(\w+):[^:]*(,.*)*$/) {
 				if (!defined $entry_id_line) {
-					$entry_id_line = {line => $line, previous => [@previous_lines], lc => $1};
+					$entry_id_line = {line => $line, previous => [@previous_lines], lc => $1, , line_num => $line_num};
 				}
 				else {
 					my $lc = $1;
 					if ((defined $entries{$lc}) || ($entry_id_line->{lc} eq $lc)) {
-						# emit a warning as this seems like a strange case
-						print STDERR "Warning: duplicate synonym for $lc, on entry line $line_num\n";
-						print STDERR "- " . ($entries{$lc}{line} // $entry_id_line->{line});
-						print STDERR "- " . $line;
+						my $previous_lc_line;
+						if (defined $entries{$lc}) {
+							$previous_lc_line = $entries{$lc}{line};
+						}
+						else {
+							$previous_lc_line = $entry_id_line->{line};
+						}
+
+						push @errors, {
+							severity => "Error",
+							type => "Correctness",
+							line => $line_num,
+							message => (
+								"duplicate synonym for $lc:\n" .
+								"- $previous_lc_line" .
+								"- $line"
+							)
+						};
 					}
 					# but try to do our best and continue
 					if (defined $entries{$lc}) {
@@ -125,7 +157,7 @@ sub iter_taxonomy_entries ($lines_iter) {
 						push @{$entries{$lc}{previous}}, @previous_lines;
 					}
 					else {
-						$entries{$lc} = {line => $line, previous => [@previous_lines]};
+						$entries{$lc} = {line => $line, previous => [@previous_lines], , line_num => $line_num};
 					}
 				}
 				@previous_lines = ();
@@ -134,7 +166,20 @@ sub iter_taxonomy_entries ($lines_iter) {
 			elsif ($line =~ /^(\w+):(\w+):(.*)$/) {
 				my $prop = $1;
 				my $lc = $2;
-				$props{"$prop:$lc"} = {line => $line, previous => [@previous_lines]};
+				if (defined $props{"$prop:$lc"}) {
+					push @errors, {
+							severity => "Error",
+							type => "Correctness",
+							line => $line_num,
+							message => (
+								"duplicate property value for $prop:$lc:\n" .
+								"- " . $props{"$prop:$lc"}->{line} .
+								"- $line"
+							)
+						};
+				}
+				# override to continue
+				$props{"$prop:$lc"} = {line => $line, previous => [@previous_lines], line_num => $line_num};
 				@previous_lines = ();
 			}
 			# comments or undefined
@@ -147,75 +192,221 @@ sub iter_taxonomy_entries ($lines_iter) {
 	}
 }
 
-sub lint_taxonomy($entries_iterator, $is_check, $is_verbose) {
-	my $has_changes = 0;
-	while (my $entry_ref = $entries_iterator->()) {
-		my @parents = @{$entry_ref->{parents}};
+# add some info about entry in errors
+sub add_entry_id($entry_ref, $errors_ref) {
+	my @errors = @$errors_ref;
+	foreach my $e (@errors) {
+		$e->{entry_start_line} = $entry_ref->{start_line};
 		my $entry_id_line = $entry_ref->{entry_id_line};
-		my %entries = %{$entry_ref->{entries}};
-		my %props = %{$entry_ref->{props}};
-		my @original_lines = @{$entry_ref->{original_lines}};
-		my @tail_lines = @{$entry_ref->{tail_lines}};
-		my $entry_start_line = $entry_ref->{start_line};
-		my $entry_end_line = $entry_ref->{end_line};
-		# eventual result
-		my @output_lines = ();
-		# sort items
-		@parents = sort {$a->{line} cmp $b->{line}} @parents;
-		my @sorted_entries = sort cmp_on_language (keys %entries);
-		my @sorted_props = sort cmp_on_language (keys %props);
-		# print parents, line id, synonyms, sorted props
-		for my $parent (@parents) {
-			push @output_lines, @{$parent->{previous}};
-			push @output_lines, $parent->{line};
-		}
-		if (defined $entry_id_line) {
-			push @output_lines, @{$entry_id_line->{previous}};
-			push @output_lines, $entry_id_line->{line};
-		}
-		for my $key (@sorted_entries) {
-			push @output_lines, @{$entries{$key}->{previous}};
-			push @output_lines, $entries{$key}->{line};
-		}
-		for my $key (@sorted_props) {
-			push @output_lines, @{$props{$key}->{previous}};
-			push @output_lines, $props{$key}->{line};
-		}
-		push @output_lines, @tail_lines;
-		# print a blank line
-		push @output_lines, "\n";
-		my $original = join("", @original_lines);
-		my $output = join("", @output_lines);
-		if ($is_check) {
-			# compare with original lines
-			if (not $original eq $output) {
-				$has_changes = 1;
-				if ($is_verbose) {
-					print "Error: output is not the same as original, line $entry_start_line..$entry_end_line\n";
-					print "Original --------------------\n";
-					print "$original\n";
-					print "Sorted --------------------\n";
-					print "$output\n";
-				}
-			}
-		}
-		else {
-			print "$output";
-		}
+		$e->{entry_id_line} = $entry_id_line->{line} if defined $entry_id_line;
 	}
-	return $has_changes;
 }
 
+# lint lines of an entry
+sub lint_entry($entry_ref, $do_sort) {
+	my @parents = @{$entry_ref->{parents}};
+	my $entry_id_line = $entry_ref->{entry_id_line};
+	my %entries = %{$entry_ref->{entries}};
+	my %props = %{$entry_ref->{props}};
+	my @original_lines = @{$entry_ref->{original_lines}};
+	my @tail_lines = @{$entry_ref->{tail_lines}};
+	# eventual result
+	my @output_lines = ();
+	# sort items
+	my (@sorted_entries, @sorted_props);
+	if ($do_sort) {
+		@parents = sort {$a->{line} cmp $b->{line}} @parents;
+		@sorted_entries = sort cmp_on_language (keys %entries);
+		@sorted_props = sort cmp_on_language (keys %props);
+	} else {
+		# simply sort by line number, no need to sort parents
+		@sorted_entries = sort {$entries{$a}{line_num} cmp $entries{$b}{line_num}} (keys %entries);
+		@sorted_props = sort {$props{$a}{line_num} cmp $props{$b}{line_num}} (keys %props);
+	}
+	# print parents, line id, synonyms, sorted props
+	for my $parent (@parents) {
+		push @output_lines, @{$parent->{previous}};
+		push @output_lines, $parent->{line};
+	}
+	if (defined $entry_id_line) {
+		push @output_lines, @{$entry_id_line->{previous}};
+		push @output_lines, $entry_id_line->{line};
+	}
+	for my $key (@sorted_entries) {
+		push @output_lines, @{$entries{$key}->{previous}};
+		push @output_lines, $entries{$key}->{line};
+	}
+	for my $key (@sorted_props) {
+		push @output_lines, @{$props{$key}->{previous}};
+		push @output_lines, $props{$key}->{line};
+	}
+	push @output_lines, @tail_lines;
+	# print a blank line
+	push @output_lines, "\n";
+	return join("", @output_lines);
+}
+
+# check that an entry is already sorted, compared to $sorted_output
+sub check_linted($entry_ref, $linted_output) {
+	# compare with original lines
+	my $original = join("", @{$entry_ref->{original_lines}});
+	my $entry_start_line = $entry_ref->{start_line};
+	my $entry_end_line = $entry_ref->{end_line};
+	# do not account for eventual added line at the end
+	my $trimed_original = $original;
+	$trimed_original =~ s/\n+$//;
+	my $trimed_linted = $linted_output;
+	$trimed_linted =~ s/\n+$//;
+	if ($trimed_original ne $trimed_linted) {
+		return {
+			severity => "Error",
+			type => "Linting",
+			entry_start_line => $entry_start_line,
+			entry_id_line => $entry_ref->{entry_id_line},
+			message => (
+				"output is not the same as original, line $entry_start_line..$entry_end_line\n" .
+				"Original --------------------\n" .
+				"$original\n" .
+				"Linted --------------------\n" .
+				"$linted_output\n"
+			),
+		}
+	}
+	return;
+}
+
+# lint or check the taxonomy
+sub lint_taxonomy($entries_iterator, $out, $is_check, $is_quiet, $do_sort) {
+	my @errors = ();
+	while (my $entry_ref = $entries_iterator->()) {
+		my @entry_errors = @{$entry_ref->{errors}};
+		# we will try to lint only if we don't have errors so far
+		my $linted_output;
+		if (!@entry_errors) {
+			$linted_output = lint_entry($entry_ref, $do_sort);
+		}
+		else {
+			# keep original lines
+			$linted_output = join("", @{$entry_ref->{original_lines}});
+		}
+		if ($is_check) {
+			# search for linting error only if there is no othe errors
+			if (!@entry_errors) {
+				my $lint_error = check_linted($entry_ref, $linted_output);
+				push(@entry_errors, $lint_error) if $lint_error;
+			}
+		} else {
+			# immediate output
+			print $out $linted_output;
+			if (@entry_errors) {
+				# signal it was not linted
+				push(@entry_errors, {
+					severity => "Warning",
+					type => "Linting",
+					entry_start_line => $entry_ref->{start_line},
+					entry_id_line => $entry_ref->{entry_id_line},
+					message => (
+						"Entry won't be linted because it as errors, " .
+						"line $entry_ref->{start_line}..$entry_ref->{end_line}\n"
+					),
+				});
+			}
+		}
+		# register errors globally
+		add_entry_id($entry_ref, \@entry_errors);
+		@errors = (@errors, @entry_errors);
+		display_errors(\@entry_errors) unless $is_quiet;
+	}
+	return \@errors;
+}
+
+# display errors
+sub display_errors($errors_ref) {
+	foreach my $error (@$errors_ref) {
+		my $entry_id_line = $error->{entry_id_line};
+		my $entry_id = "";
+		if ($entry_id_line) {
+			$entry_id = (split(/,/, $entry_id_line))[0];
+			# trim
+			$entry_id =~ s/(^\s+|\s+$)//g;
+			if ($entry_id) {
+				$entry_id = " on $entry_id";
+			}
+		}
+		my $entry_line = $error->{entry_start_line} ? " (line $error->{entry_start_line})" : "";
+		print STDERR "$error->{severity}($error->{type}):$entry_id$entry_line\n";
+		print STDERR "$error->{message}\n";
+	}
+	return;
+}
+
+# run the program only if called directly
 unless (caller) {
 	# main
-	my $is_check = grep {$_ eq "--check"} @ARGV;
-	my $is_verbose = grep {$_ eq "-v"} @ARGV;
+
+	my $usage = <<TXT
+Check or lint taxonomies.
+
+If an error is encountered, taxonomy won't be linted (as it is risky)
+
+--check: only perform checks
+--verbose: print additional info about progress on stderr
+--quiet: do not display errors on stderr
+--no-sort: do not sort lines of each taxonomy entries
+TXT
+	;
+	my $is_check;
+	my $is_quiet;
+	my $is_verbose;
+	my $no_sort;
+
+	my $update_expected_results;
+
+	GetOptions("check" => \$is_check, "verbose" => \$is_verbose, "quiet" => \$is_quiet, "no-sort" => \$no_sort)
+		or die("Error in command line arguments.\n\n" . $usage);
+
+	my @in_files = @ARGV;
+	my $tmp_dir = File::Temp->newdir();
+	my $tmp_dirname = $tmp_dir->dirname();
+
+	if (!@in_files) {
+		# we will use stdin
+		@in_files = ("<",);
+	}
 
 	binmode(STDIN, ":encoding(UTF-8)");
 	binmode(STDOUT, ":encoding(UTF-8)");
 	binmode(STDERR, ":encoding(UTF-8)");
 
-	my $entries_iterator = iter_taxonomy_entries(iter_taxonomy_lines(*STDIN));
-	my $has_changes = lint_taxonomy($entries_iterator, $is_check, $is_verbose);
-	exit($is_check and $has_changes);
+	my $error_code = 0;
+
+	foreach my $file (@in_files) {
+		my $fd;
+		my $out;
+		my $out_path;
+		if ($file eq "<") {
+			$fd = *STDIN;
+			$out = *STDOUT
+		} else {
+			open($fd, "<:encoding(UTF-8)", $file) or die("can't open $file");
+			# out to tempfile, will replace only if no errors
+			$out_path = "$tmp_dirname/" . basename($file);
+			open($out, ">:encoding(UTF-8)", $out_path) or die("can't write to $out_path");
+			print("Processing $file =============\n\n") if $is_verbose;
+		}
+		my $entries_iterator = iter_taxonomy_entries(iter_taxonomy_lines($fd));
+		my $errors_ref = lint_taxonomy($entries_iterator, $out, $is_check, $is_quiet, !$no_sort);
+		close($fd);
+		close($out);
+		if ((!$is_check) and $out_path) {
+			# $file = (getcwd() . "/$file") unless ($file =~ /^\//);
+			# replace file with the linted one
+			move($out_path, $file) or die("unable to move $out_path to $file: $!");
+		}
+		if (scalar @$errors_ref) {
+			$error_code = 1;
+		}
+	}
+	exit($error_code);
 }
+1;

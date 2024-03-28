@@ -380,15 +380,17 @@ check_critic:
 
 TAXONOMIES_TO_CHECK := $(shell [ -x "`which git 2>/dev/null`" ] && git diff origin/main --name-only | grep  'taxonomies*/*\.txt$$' | grep -v '\.result.txt' | xargs ls -d 2>/dev/null | grep -v "^.$$")
 
+# TODO remove --no-sort as soon as we have sorted taxonomies
 check_taxonomies:
 	@echo "🥫 Checking taxonomies"
 	test -z "${TAXONOMIES_TO_CHECK}" || \
-	${DOCKER_COMPOSE} run --rm --no-deps backend scripts/taxonomies/sort_each_taxonomy_entry.sh --check ${TAXONOMIES_TO_CHECK}
+	${DOCKER_COMPOSE} run --rm --no-deps backend scripts/taxonomies/sort_each_taxonomy_entry.pl --verbose --check --no-sort ${TAXONOMIES_TO_CHECK}
 
+# TODO remove --no-sort as soon as we have sorted taxonomies
 lint_taxonomies:
 	@echo "🥫 Linting taxonomies"
 	test -z "${TAXONOMIES_TO_CHECK}" || \
-	${DOCKER_COMPOSE} run --rm --no-deps backend scripts/taxonomies/sort_each_taxonomy_entry.sh ${TAXONOMIES_TO_CHECK}
+	${DOCKER_COMPOSE} run --rm --no-deps backend scripts/taxonomies/sort_each_taxonomy_entry.pl --verbose --no-sort ${TAXONOMIES_TO_CHECK}
 
 
 check_openapi_v2:
