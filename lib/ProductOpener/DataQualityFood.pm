@@ -1405,6 +1405,7 @@ sub check_nutrition_data ($product_ref) {
 					'en:ingredients-less-than-minimum-ingredients-for-category';
 			}
 		}
+		return;
 	}
 
 	return;
