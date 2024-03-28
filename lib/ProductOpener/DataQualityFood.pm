@@ -1395,21 +1395,21 @@ sub check_nutrition_data ($product_ref) {
 }
 
 # Check for Mozzarella category and minimum number of ingredients
-	sub check_mozzarella_ingredients {
-		my ($product_ref) = @_;
+sub check_mozzarella_ingredients {
+	my ($product_ref) = @_;
 
-		if (defined $product_ref->{category_id2}) {
-			my $ingredient_count = (defined $product_ref->{ingredients}) ? scalar(@{$product_ref->{ingredients}}) : 0;
-			my $minimum_ingredients
-				= get_inherited_property_from_categories_tags($product_ref, 'minimum_number_of_ingredients:en');
+	if (defined $product_ref->{category_id2}) {
+		my $ingredient_count = (defined $product_ref->{ingredients}) ? scalar(@{$product_ref->{ingredients}}) : 0;
+		my $minimum_ingredients
+			= get_inherited_property_from_categories_tags($product_ref, 'minimum_number_of_ingredients:en');
 
-			if ($minimum_ingredients && ($ingredient_count < $minimum_ingredients)) {
-				push @{$product_ref->{data_quality_warnings_tags}},
-					'en:ingredients-less-than-minimum-ingredients-for-category';
-			}
+		if ($minimum_ingredients && ($ingredient_count < $minimum_ingredients)) {
+			push @{$product_ref->{data_quality_warnings_tags}},
+				'en:ingredients-less-than-minimum-ingredients-for-category';
 		}
-		return;
 	}
+	return;
+}
 
 =head2 compare_nutrition_facts_with_products_from_the_same_category( PRODUCT_REF )
 
