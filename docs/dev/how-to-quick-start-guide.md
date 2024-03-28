@@ -38,6 +38,17 @@ The process of cloning the repository will create a number of symbolic links whi
 
 Make sure you also activated the [Developer mode](https://learn.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development) on your device.
 
+
+### Windows Subsystem for Linux (WSL) Prequisites
+
+Ensure that you have WSL installed on your Windows machine. For instructions on how to do so, you can follow [Microsoft's guide to install WSL](https://learn.microsoft.com/en-us/windows/wsl/install). 
+
+After succcessfully installing WSL, you need to set up your Linux distribution and install Docker on it: 
+- Go to the Microsoft Store and install [Ubuntu](https://www.microsoft.com/store/productId/9PDXGNCFSCZV?ocid=pdpshare) as your Linux distribution
+- Open Ubuntu and execute the commands/instructions specified in [Installing Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/) (**NOTE: this is NOT the same thing as Docker for Desktop)
+- Restart your computer to ensure all changes take effect and WSL can properly integrate with Docker 
+
+
 ## 2. Fork and clone the repository from GitHub
 
 > _You must have a GitHub account and fork the project if you want to contribute to Open Food Facts development, but it’s not required if you just want to see how it works._
