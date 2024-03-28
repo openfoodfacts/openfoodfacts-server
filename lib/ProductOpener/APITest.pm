@@ -541,9 +541,9 @@ sub check_request_response ($test_ref, $response, $test_id, $test_dir, $expected
 		diag("Response content: " . $response_content);
 	}
 
-	my $expected_type = $test_ref->{expected_type};
+	my $expected_type = $test_ref->{expected_type} // 'json';
 
-	if ((defined $expected_type) and (($expected_type eq 'text') or ($expected_type eq 'html'))) {
+	if ((($expected_type eq 'text') or ($expected_type eq 'html'))) {
 		# Check that the file is the same as expected (useful for HTML content or dynamic robots.txt)
 		is(
 			compare_file_to_expected_results(
@@ -555,7 +555,7 @@ sub check_request_response ($test_ref, $response, $test_id, $test_dir, $expected
 		);
 	}
 	# Otherwise we expect the result is JSON
-	else {
+	elsif ($expected_type eq 'json') {
 
 		# Check that we got a JSON response
 
@@ -600,6 +600,11 @@ sub check_request_response ($test_ref, $response, $test_id, $test_dir, $expected
 			);
 
 		}
+	}
+	# We do not check the response content for some queries (e.g OPTIONS queries), in that case expected_type is set to 'none'
+	elsif ($expected_type ne 'none') {
+		fail($test_case);
+		diag("Unknown expected type: $expected_type");
 	}
 
 	# Check if the response content matches what we expect
