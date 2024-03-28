@@ -904,6 +904,14 @@ CSS
 		$producers_platform_url =~ s/\.open/\.pro\.open/;
 	}
 
+# Power User Script
+	if ($admin) {
+		$scripts .= <<HTML
+<script type="text/javascript" src="/js/power.user.js"></script>
+HTML
+;
+	}
+	
 	# Enable or disable user food preferences: used to compute attributes and to display
 	# personalized product scores and search results
 	if (((defined $options{product_type}) and ($options{product_type} eq "food"))) {
@@ -7296,6 +7304,10 @@ sub display_page ($request_ref) {
 	$template_data_ref->{join_us_on_slack} = $join_us_on_slack;
 
 	# init javascript code
+  # Kept those 3 lines during the rebase. Not evident if needed @CharlesNepote
+#<script src="$static_subdomain/js/dist/foundation.js"></script>
+#<script src="$static_subdomain/js/dist/jquery.cookie.js"></script>
+#<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js" integrity="sha256-d/edyIFneUo3SvmaFnf96hRcVBcyaOy96iMkPez1kaU=" crossorigin="anonymous"></script>
 
 	$template_data_ref->{scripts} = $scripts;
 	$template_data_ref->{initjs} = $initjs;
