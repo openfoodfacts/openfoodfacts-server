@@ -4271,6 +4271,11 @@ HTML
 		)
 		)
 	{
+		# We need also to remove the canonical URL from the request so that it does not get displayed in the error page
+		delete $request_ref->{canon_url};
+		delete $request_ref->{canon_rel_url};
+		delete $request_ref->{url};
+		delete $request_ref->{current_link};
 		display_error_and_exit($request_ref, lang("no_products"), 404);
 	}
 	else {

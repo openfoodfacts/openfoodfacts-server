@@ -135,7 +135,7 @@ $tests_ref = [
 			"Access-Control-Allow-Credentials" => "true",
 			"Vary" => "Origin"
 		},
-		expected_type => "html",
+		expected_type => "none",
 	},
 	{
 		test_case => 'user-options-auth-bad-origin',
@@ -147,7 +147,7 @@ $tests_ref = [
 			"Access-Control-Allow-Origin" => "*",
 			"Access-Control-Allow-Credentials" => undef,
 		},
-		expected_type => "html",
+		expected_type => "none",
 	},
 ];
 execute_api_tests(__FILE__, $tests_ref, $auth_ua);
