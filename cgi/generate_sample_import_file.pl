@@ -37,7 +37,6 @@ use ProductOpener::Tags qw/%language_fields %tags_fields/;
 use ProductOpener::Food qw/default_unit_for_nid/;
 use ProductOpener::TaxonomySuggestions qw/:all/;
 
-
 use Apache2::RequestRec ();
 use Apache2::Const ();
 
