@@ -330,9 +330,9 @@ my @products = (
 
 foreach my $product_ref (@products) {
 	edit_product($ua, $product_ref);
-    # Sleep one second so that each product has a different last_modified_t
-    # needed to get a predictive order of products in the index page
-    sleep(1);
+	# Sleep one second so that each product has a different last_modified_t
+	# needed to get a predictive order of products in the index page
+	sleep(1);
 }
 
 # Note: expected results are stored in json files, see execute_api_tests
@@ -438,26 +438,31 @@ my $tests_ref = [
 		expected_type => 'html',
 		ua => $ua,
 	},
-    {
-        test_case => 'world-search-form',
-        path => '/cgi/search.pl',
-        expected_type => 'html',
-    },
-    {
-        test_case => 'fr-search-form',
-        path => '/cgi/search.pl',
-        expected_type => 'html',
-    },
-    {
-        test_case => 'world-search-results',
-        path => '/cgi/search.pl?search_terms=apple',
-        expected_type => 'html',
-    },
-    {
-        test_case => 'fr-search-results',
-        path => '/cgi/search.pl?search_terms=tarte',
-        expected_type => 'html',
-    },    
+	{
+		test_case => 'world-search-form',
+		path => '/cgi/search.pl',
+		expected_type => 'html',
+	},
+	{
+		test_case => 'fr-search-form',
+		path => '/cgi/search.pl',
+		expected_type => 'html',
+	},
+	{
+		test_case => 'world-search-results',
+		path => '/cgi/search.pl?search_terms=apple',
+		expected_type => 'html',
+	},
+	{
+		test_case => 'fr-search-results',
+		path => '/cgi/search.pl?search_terms=tarte',
+		expected_type => 'html',
+	},
+	{
+		test_case => 'user-register',
+		path => '/cgi/user.pl',
+		expected_type => 'html',
+	},
 ];
 
 execute_api_tests(__FILE__, $tests_ref);
