@@ -67,6 +67,7 @@ use ProductOpener::Producers qw/get_minion/;
 
 use Test2::V0;
 use Data::Dumper;
+$Data::Dumper::Terse = 1;
 use LWP::UserAgent;
 use HTTP::CookieJar::LWP;
 use HTTP::Request::Common;

@@ -2,7 +2,7 @@
 
 use ProductOpener::PerlStandards;
 
-use Test::More;
+use Test2::V0;
 use ProductOpener::APITest qw/:all/;
 use ProductOpener::Test qw/remove_all_users/;
 use ProductOpener::TestDefaults qw/%admin_user_form %default_product %default_user_form/;
