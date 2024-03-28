@@ -55,7 +55,7 @@ print "Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml
 
 my $workbook = Excel::Writer::XLSX->new(\*STDOUT);
 my $worksheet = $workbook->add_worksheet();
-my $worksheet_categories = $workbook->add_worksheet('Categories');
+my $worksheet_categories = $workbook->add_worksheet(lang("categories"));
 
 my %formats = (
 	normal => $workbook->add_format(border => 1, bold => 1),
