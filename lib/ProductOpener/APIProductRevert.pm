@@ -21,6 +21,7 @@
 =head1 NAME
 
 ProductOpener::APIProductRevert - implementation of API to revert a product to a specific revision
+
 =head1 DESCRIPTION
 
 =cut

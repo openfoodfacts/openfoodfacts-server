@@ -341,6 +341,7 @@ This will then be used in process_user_form
 =head3 Parameters
 
 =head4 String action type $type
+
 edit / add / delete
 
 =head4 User object $user_ref
@@ -635,6 +636,7 @@ To be used after check_user_form
 =head3 Parameters
 
 =head4 String action type $type
+
 edit / add / delete
 
 =head4 User object $user_ref

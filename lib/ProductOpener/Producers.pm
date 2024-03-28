@@ -98,12 +98,15 @@ use Minion;
 my $minion;
 
 =head2 get_minion()
+
 Function to get the backend minion
 
 =head3 Arguments
+
 None
 
 =head3 Return values
+
 The backend minion $minion
 
 =cut
