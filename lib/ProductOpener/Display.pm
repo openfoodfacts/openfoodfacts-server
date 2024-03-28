@@ -199,6 +199,7 @@ use Devel::Size qw(size total_size);
 use Data::DeepAccess qw(deep_get deep_set);
 use Log::Log4perl;
 use LWP::UserAgent;
+use Tie::IxHash;
 
 use Log::Any '$log', default_adapter => 'Stderr';
 
@@ -224,6 +225,12 @@ my $uri_finder = URI::Find->new(
 		}
 	}
 );
+
+# Sort keys of JSON output
+# $json has utf8 disabled: it encodes to Perl Unicode strings
+my $json = JSON::PP->new->utf8(0)->allow_nonref->canonical;
+# $json_utf8 has utf8 enabled: it encodes to UTF-8 bytes
+my $json_utf8 = JSON::PP->new->utf8(1)->allow_nonref->canonical;
 
 =head1 VARIABLES
 
@@ -456,7 +463,7 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	};
 
 	$template_data_ref->{encode_json} = sub ($var) {
-		return decode_utf8(JSON::PP->new->utf8->canonical->encode($var));
+		return $json->encode($var);
 	};
 
 	return ($tt->process($template_filename, $template_data_ref, $result_content_ref));
@@ -1638,14 +1645,18 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 
 	# allow sorting by tagname
 	my $sort_by = request_param($request_ref, "sort_by") // $default_sort_by;
-	my $sort_ref;
+	my %sort = ();
+
+	# We need a tie hash so that the keys are ordered by insertion order when passed to MongoDB
+	tie(%sort, 'Tie::IxHash');
+	my $sort_ref = \%sort;
 
 	if ($sort_by eq "tag") {
-		$sort_ref = {"_id" => 1};
+		$sort_ref->{"_id"} = 1;
 	}
 	else {
-		$sort_ref = {"count" => -1};
-		$sort_by = "count";
+		$sort_ref->{"count"} = -1;
+		$sort_ref->{"_id"} = 1;
 	}
 
 	# groupby_tagtype
@@ -2422,7 +2433,6 @@ HTML
 
 		# countries map?
 		if (keys %{$countries_map_data} > 0) {
-			my $json = JSON::PP->new->utf8(0);
 			$initjs .= 'var countries_map_data=JSON.parse(' . $json->encode($json->encode($countries_map_data)) . ');'
 				.= 'var countries_map_links=JSON.parse(' . $json->encode($json->encode($countries_map_links)) . ');'
 				.= 'var countries_map_names=JSON.parse(' . $json->encode($json->encode($countries_map_names)) . ');'
@@ -3942,12 +3952,7 @@ HTML
 
 		my $map_html;
 		if (((scalar @wikidata_objects) > 0) or ((scalar @markers) > 0)) {
-			my $json = JSON::PP->new->utf8(0);
 			my $map_template_data_ref = {
-				lang => \&lang,
-				encode_json => sub ($obj_ref) {
-					return $json->encode($obj_ref);
-				},
 				wikidata => \@wikidata_objects,
 				pointers => \@markers
 			};
@@ -4353,13 +4358,11 @@ sub display_search_results ($request_ref) {
 			$search_api_url =~ s/\&/\?/;
 		}
 
-		my $contributor_prefs_json = decode_utf8(
-			encode_json(
-				{
-					display_barcode => $User{display_barcode},
-					edit_link => $User{edit_link},
-				}
-			)
+		my $contributor_prefs_json = $json->encode(
+			{
+				display_barcode => $User{display_barcode},
+				edit_link => $User{edit_link},
+			}
 		);
 
 		my $preferences_text = lang("classify_products_according_to_your_preferences");
@@ -5386,16 +5389,14 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		my $products_json = '[]';
 
 		if (defined $request_ref->{structured_response}{products}) {
-			$products_json = decode_utf8(encode_json($request_ref->{structured_response}{products}));
+			$products_json = $json->encode($request_ref->{structured_response}{products});
 		}
 
-		my $contributor_prefs_json = decode_utf8(
-			encode_json(
-				{
-					display_barcode => $User{display_barcode},
-					edit_link => $User{edit_link},
-				}
-			)
+		my $contributor_prefs_json = $json->encode(
+			{
+				display_barcode => $User{display_barcode},
+				edit_link => $User{edit_link},
+			}
 		);
 
 		$scripts .= <<JS
@@ -6875,12 +6876,7 @@ sub map_of_products ($products_iter, $request_ref, $graph_ref) {
 		$request_ref->{current_link_query_display} =~ s/\?action=process/\?action=display/;
 	}
 
-	my $json = JSON::PP->new->utf8(0);
 	my $map_template_data_ref = {
-		lang => \&lang,
-		encode_json => sub ($obj_ref) {
-			return $json->encode($obj_ref);
-		},
 		title => $count_string,
 		pointers => \@pointers,
 		current_link => $request_ref->{current_link},
@@ -8256,7 +8252,7 @@ HTML
 		compute_attributes($product_ref, $lc, $cc, $attributes_options_ref);
 
 		my $product_attribute_groups_json
-			= decode_utf8(encode_json({"attribute_groups" => $product_ref->{"attribute_groups_" . $lc}}));
+			= $json->encode({"attribute_groups" => $product_ref->{"attribute_groups_" . $lc}});
 		my $preferences_text = lang("classify_products_according_to_your_preferences");
 
 		$scripts .= <<JS
@@ -10474,10 +10470,8 @@ sub display_structured_response ($request_ref) {
 		display_structured_response_opensearch_rss($request_ref);
 	}
 	else {
-		# my $data =  encode_json($request_ref->{structured_response});
-		# Sort keys of the JSON output
-		my $json = JSON::PP->new->allow_nonref->canonical;
-		my $data = $json->utf8->encode($request_ref->{structured_response});
+		# We need to output binary UTF8 encoded JSON
+		my $data = $json_utf8->encode($request_ref->{structured_response});
 
 		my $jsonp = undef;
 
@@ -11428,8 +11422,7 @@ sub generate_select2_options_for_taxonomy ($target_lc, $tagtype) {
 
 sub generate_select2_options_for_taxonomy_to_json ($target_lc, $tagtype) {
 
-	return decode_utf8(
-		JSON::PP->new->utf8->canonical->encode(generate_select2_options_for_taxonomy($target_lc, $tagtype)));
+	return $json->encode(generate_select2_options_for_taxonomy($target_lc, $tagtype));
 }
 
 1;
