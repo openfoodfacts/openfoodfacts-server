@@ -789,6 +789,14 @@ sub init_request ($request_ref = {}) {
 		}
 	}
 
+	# Set cc, lc and lcs in the request object
+	# Ideally, we should rely on those fields in the request object
+	# and remove the $lc, $cc and @lcs global variables
+	$request_ref->{lc} = $lc;
+	$request_ref->{cc} = $cc;
+	$request_ref->{country} = $country;
+	$request_ref->{lcs} = \@lcs;
+
 	# If lc is not one of the official languages of the country and if the request comes from
 	# a bot crawler, don't index the webpage (return an empty noindex HTML page)
 	# We also disable indexing for all subdomains that don't have the format world, cc or cc-lc
@@ -957,14 +965,6 @@ CSS
 		}
 	) if $log->is_debug();
 
-	# Set cc, lc and lcs in the request object
-	# Ideally, we should rely on those fields in the request object
-	# and remove the $lc, $cc and @lcs global variables
-	$request_ref->{lc} = $lc;
-	$request_ref->{cc} = $cc;
-	$request_ref->{country} = $country;
-	$request_ref->{lcs} = \@lcs;
-
 	return $request_ref;
 }
 
@@ -1100,6 +1100,10 @@ The request is not terminated by this function, it will continue to run.
 =cut
 
 sub display_error ($request_ref, $error_message, $status_code) {
+
+	$log->debug("display_error",
+		{error_message => $error_message, status_code => $status_code, request_ref => $request_ref})
+		if $log->is_debug();
 
 	my $html = "<p>$error_message</p>";
 	$request_ref->{status_code} = $status_code;
