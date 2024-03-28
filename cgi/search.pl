@@ -46,6 +46,8 @@ use Encode;
 use JSON::PP;
 use Log::Any qw($log);
 
+my $request_ref = ProductOpener::Display::init_request();
+
 # Passing values to the template
 my $template_data_ref = {};
 
@@ -58,12 +60,12 @@ my $html;
 if (user_agent() =~ /apps-spreadsheets/) {
 
 	display_error_and_exit(
+		$request_ref,
 		"Automated queries using Google Spreadsheet overload the Open Food Facts server. We cannot support them. You can contact us at contact\@openfoodfacts.org to tell us about your use case, so that we can see if there is another way to support it.",
 		200
 	);
 }
 
-my $request_ref = ProductOpener::Display::init_request();
 $request_ref->{search} = 1;
 
 my $action = single_param('action') || 'display';

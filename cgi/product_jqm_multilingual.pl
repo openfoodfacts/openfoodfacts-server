@@ -140,7 +140,7 @@ else {
 	my @errors = ();
 
 	# Store parameters for debug purposes
-	ensure_dir_created($BASE_DIRS{CACHE_DEBUG}) or display_error_and_exit("Missing path", 503);
+	ensure_dir_created($BASE_DIRS{CACHE_DEBUG}) or display_error_and_exit($request_ref, "Missing path", 503);
 	open(my $out, ">", "$BASE_DIRS{CACHE_DEBUG}/product_jqm_multilingual." . time() . "." . $code);
 	print $out encode_json(Vars());
 	close $out;

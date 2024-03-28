@@ -59,7 +59,7 @@ local $log->context->{type} = $type;
 local $log->context->{action} = $action;
 
 if (not defined $Owner_id) {
-	display_error_and_exit(lang("no_owner_defined"), 200);
+	display_error_and_exit($request_ref, lang("no_owner_defined"), 200);
 }
 
 if ($action eq "process") {
@@ -81,7 +81,8 @@ if ($action eq "process") {
 		$log->debug("processing upload form", {filename => $filename, file_id => $file_id, extension => $extension})
 			if $log->is_debug();
 
-		ensure_dir_created("$BASE_DIRS{IMPORT_FILES}/${Owner_id}") or display_error_and_exit("Missing path", 503);
+		ensure_dir_created("$BASE_DIRS{IMPORT_FILES}/${Owner_id}")
+			or display_error_and_exit($request_ref, "Missing path", 503);
 
 		open(my $out, ">", "$BASE_DIRS{IMPORT_FILES}/${Owner_id}/$file_id.$extension");
 		while (my $chunk = <$file>) {

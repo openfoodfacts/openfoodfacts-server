@@ -62,7 +62,7 @@ my $js = '';
 my $template_data_ref = {};
 
 if (not defined $Owner_id) {
-	display_error_and_exit(lang("no_owner_defined"), 200);
+	display_error_and_exit($request_ref, lang("no_owner_defined"), 200);
 }
 
 my $import_files_ref = retrieve("$BASE_DIRS{IMPORT_FILES}/${Owner_id}/import_files.sto");
@@ -84,7 +84,7 @@ if (defined $import_files_ref->{$file_id}) {
 }
 else {
 	$log->debug("File not found in import_files.sto", {file_id => $file_id}) if $log->is_debug();
-	display_error_and_exit("File not found.", 404);
+	display_error_and_exit($request_ref, "File not found.", 404);
 }
 
 $log->debug("File found in import_files.sto",
@@ -96,7 +96,7 @@ if ($action eq "display") {
 	my $results_ref = load_csv_or_excel_file($file);
 
 	if ($results_ref->{error}) {
-		display_error_and_exit($results_ref->{error}, 200);
+		display_error_and_exit($request_ref, $results_ref->{error}, 200);
 	}
 
 	my $headers_ref = $results_ref->{headers};
