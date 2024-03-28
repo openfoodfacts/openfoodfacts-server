@@ -95,7 +95,7 @@ edit_etc_hosts:
 create_folders:
 # create some folders to avoid having them owned by root (when created by docker compose)
 	@echo "🥫 Creating folders before docker compose use them."
-	mkdir -p logs/apache2 logs/nginx debug html/data || ( whoami; ls -l . ; false )
+	mkdir -p logs/apache2 logs/nginx debug html/data sftp || ( whoami; ls -l . ; false )
 
 # TODO: Figure out events => actions and implement live reload
 # live_reload:
@@ -193,7 +193,7 @@ reset_owner:
 	${DOCKER_COMPOSE_TEST} run --rm --no-deps --user root backend chown www-data:www-data -R /opt/product-opener/ /mnt/podata /var/log/apache2 /var/log/httpd  || true
 	${DOCKER_COMPOSE_TEST} run --rm --no-deps --user root frontend chown www-data:www-data -R /opt/product-opener/html/images/icons/dist /opt/product-opener/html/js/dist /opt/product-opener/html/css/dist
 
-init_backend: build_lang build_taxonomies
+init_backend: build_taxonomies build_lang
 
 create_mongodb_indexes:
 	@echo "🥫 Creating MongoDB indexes …"
@@ -205,9 +205,13 @@ refresh_product_tags:
 	${DOCKER_COMPOSE} run --rm backend perl /opt/product-opener/scripts/refresh_postgres.pl ${from}
 
 import_sample_data:
-	@echo "🥫 Importing sample data (~200 products) into MongoDB …"
-	${DOCKER_COMPOSE} run --rm backend bash /opt/product-opener/scripts/import_sample_data.sh
-
+	@ if [[ "${PRODUCT_OPENER_FLAVOR_SHORT}" = "off" &&  "${PRODUCERS_PLATFORM}" != "1" ]]; then \
+   		echo "🥫 Importing sample data (~200 products) into MongoDB …"; \
+		${DOCKER_COMPOSE} run --rm backend bash /opt/product-opener/scripts/import_sample_data.sh; \
+	else \
+	 	echo "🥫 Not importing sample data into MongoDB (only for po_off project)"; \
+	fi
+	
 import_more_sample_data:
 	@echo "🥫 Importing sample data (~2000 products) into MongoDB …"
 	${DOCKER_COMPOSE} run --rm backend bash /opt/product-opener/scripts/import_more_sample_data.sh
@@ -219,6 +223,12 @@ import_prod_data:
 	@echo "🥫 Removing old archive in case you have one"
 	( rm -f ./html/data/openfoodfacts-mongodbdump.gz || true ) && ( rm -f ./html/data/gz-sha256sum || true )
 	@echo "🥫 Downloading full MongoDB dump from production …"
+# verify we got sufficient space, NEEDED is in octet, LEFT in ko, we normalize to MB and NEEDED is multiplied by two (because it also will be imported)
+	NEEDED=$$(curl -s --head https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.gz|grep -i content-length: |cut -d ":" -f 2|tr -d " \r\n\t"); \
+	  LEFT=$$(df . -k --output=avail |tail -n 1); \
+	  NEEDED=$$(($$NEEDED/1048576 * 2)); \
+	  LEFT=$$(($$LEFT/1024)); \
+	  if [[ $$LEFT -lt $$NEEDED ]]; then >&2 echo "NOT ENOUGH SPACE LEFT ON DEVICE: $$NEEDED MB > $$LEFT MB"; exit 1; fi
 	wget --no-verbose https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.gz -P ./html/data
 	wget --no-verbose https://static.openfoodfacts.org/data/gz-sha256sum -P ./html/data
 	cd ./html/data && sha256sum --check gz-sha256sum
@@ -246,7 +256,7 @@ checks: front_build front_lint check_perltidy check_perl_fast check_critic
 lint: lint_perltidy
 # TODO: add lint_taxonomies when taxonomies ready
 
-tests: build_lang_test unit_test integration_test
+tests: build_taxonomies_test build_lang_test unit_test integration_test
 
 # add COVER_OPTS='-e HARNESS_PERL_SWITCHES="-MDevel::Cover"' if you want to trigger code coverage report generation
 unit_test: create_folders
@@ -297,7 +307,7 @@ stop_tests:
 clean_tests:
 	${DOCKER_COMPOSE_TEST} down -v --remove-orphans
 
-update_tests_results: build_lang_test
+update_tests_results: build_taxonomies_test build_lang_test
 	@echo "🥫 Updated expected test results with actuals for easy Git diff"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb backend dynamicfront incron
 	${DOCKER_COMPOSE_TEST} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl ${name}
@@ -314,8 +324,8 @@ bash_test:
 	${DOCKER_COMPOSE_TEST} run --rm -w /opt/product-opener backend bash
 
 # check perl compiles, (pattern rule) / but only for newer files
-%.pm %.pl: _FORCE
-	@if [[ -f $@ ]]; then perl -c -CS -Ilib $@; else true; fi
+%.pm %.pl %.t: _FORCE
+	@if [[ -f $@ ]]; then PO_NO_LOAD_DATA=1 perl -c -CS -Ilib $@; else true; fi
 
 
 # TO_CHECK look at changed files (compared to main) with extensions .pl, .pm, .t
@@ -327,32 +337,43 @@ TO_CHECK := $(shell [ -x "`which git 2>/dev/null`" ] && git diff origin/main --n
 
 check_perl_fast:
 	@echo "🥫 Checking ${TO_CHECK}"
-	test -z "${TO_CHECK}" || ${DOCKER_COMPOSE} run --rm backend make -j ${CPU_COUNT} ${TO_CHECK}
+	test -z "${TO_CHECK}" || \
+	  ${DOCKER_COMPOSE} run --rm backend make -j ${CPU_COUNT} ${TO_CHECK} || \
+	  ( echo "Perl syntax errors! Look at 'failed--compilation' in above logs" && false )
 
 check_translations:
 	@echo "🥫 Checking translations"
 	${DOCKER_COMPOSE} run --rm backend scripts/check-translations.sh
 
 # check all perl files compile (takes time, but needed to check a function rename did not break another module !)
+# IMPORTANT: We exclude some files that are in .check_perl_excludes
 check_perl:
 	@echo "🥫 Checking all perl files"
-	${DOCKER_COMPOSE} run --rm --no-deps backend make -j ${CPU_COUNT} cgi/*.pl scripts/*.pl lib/*.pl lib/ProductOpener/*.pm
+	@if grep -P '^\s*$$' .check_perl_excludes; then echo "No blank line accepted in .check_perl_excludes, fix it"; false; fi
+	ALL_PERL_FILES=$$(find . -regex ".*\.\(p[lm]\|t\)"|grep -v "/\."|grep -v "/obsolete/"| grep -vFf .check_perl_excludes) ; \
+	${DOCKER_COMPOSE} run --rm --no-deps backend make -j ${CPU_COUNT} $$ALL_PERL_FILES  || \
+	  ( echo "Perl syntax errors! Look at 'failed--compilation' in above logs" && false )
 
 # check with perltidy
 # we exclude files that are in .perltidy_excludes
+# see %.pl %.pm %.t rule above that compiles files individually
 TO_TIDY_CHECK := $(shell echo ${TO_CHECK}| tr " " "\n" | grep -vFf .perltidy_excludes)
 check_perltidy:
 	@echo "🥫 Checking with perltidy ${TO_TIDY_CHECK}"
+	@if grep -P '^\s*$$' .perltidy_excludes; then echo "No blank line accepted in .perltidy_excludes, fix it"; false; fi
 	test -z "${TO_TIDY_CHECK}" || ${DOCKER_COMPOSE} run --rm --no-deps backend perltidy --assert-tidy -opath=/tmp/ --standard-error-output ${TO_TIDY_CHECK}
 
 # same as check_perltidy, but this time applying changes
 lint_perltidy:
 	@echo "🥫 Linting with perltidy ${TO_TIDY_CHECK}"
+	@if grep -P '^\s*$$' .perltidy_excludes; then echo "No blank line accepted in .perltidy_excludes, fix it"; false; fi
 	test -z "${TO_TIDY_CHECK}" || ${DOCKER_COMPOSE} run --rm --no-deps backend perltidy --standard-error-output -b -bext=/ ${TO_TIDY_CHECK}
 
 
 #Checking with Perl::Critic
 # adding an echo of search.pl in case no files are edited
+# note: to run a complete critic on all files (when you change policy), use:
+# find . -regex ".*\.\(p[lM]\|t\)"|grep -v "/\."|grep -v "/obsolete/"|xargs docker compose run --rm --no-deps -T backend perlcritic
 check_critic:
 	@echo "🥫 Checking with perlcritic"
 	test -z "${TO_CHECK}" || ${DOCKER_COMPOSE} run --rm --no-deps backend perlcritic ${TO_CHECK}
@@ -386,12 +407,18 @@ check_openapi: check_openapi_v2 check_openapi_v3
 # Compilation #
 #-------------#
 
-build_taxonomies: build_lang # build_lang generates the nutrient_level taxonomy source file
+build_taxonomies: create_folders
 	@echo "🥫 build taxonomies"
     # GITHUB_TOKEN might be empty, but if it's a valid token it enables pushing taxonomies to build cache repository
 	${DOCKER_COMPOSE} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl ${name}
 
 rebuild_taxonomies: build_taxonomies
+
+build_taxonomies_test: create_folders
+	@echo "🥫 build taxonomies"
+    # GITHUB_TOKEN might be empty, but if it's a valid token it enables pushing taxonomies to build cache repository
+	${DOCKER_COMPOSE_TEST} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl ${name}
+
 
 _clean_old_external_volumes:
 # THIS IS A MIGRATION STEP, TO BE REMOVED IN THE FUTURE
@@ -415,6 +442,7 @@ create_external_volumes: _clean_old_external_volumes
 	docker volume create --driver=local --opt type=nfs --opt o=addr=${NFS_VOLUMES_ADDRESS},rw,nolock --opt device=:${NFS_VOLUMES_BASE_PATH}/orgs ${COMPOSE_PROJECT_NAME}_orgs
 # local data
 	docker volume create --driver=local -o type=none -o o=bind -o device=${DOCKER_LOCAL_DATA}/data ${COMPOSE_PROJECT_NAME}_html_data
+	docker volume create --driver=local -o type=none -o o=bind -o device=${DOCKER_LOCAL_DATA}/build_cache ${COMPOSE_PROJECT_NAME}_build_cache
 	docker volume create --driver=local -o type=none -o o=bind -o device=${DOCKER_LOCAL_DATA}/podata ${COMPOSE_PROJECT_NAME}_podata
 # note for this one, it should be shared with pro instance in the future
 	docker volume create --driver=local -o type=none -o o=bind -o device=${DOCKER_LOCAL_DATA}/export_files ${COMPOSE_PROJECT_NAME}_export_files

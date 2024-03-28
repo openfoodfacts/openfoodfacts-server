@@ -7,9 +7,9 @@ use Test::More;
 use Log::Any::Adapter 'TAP';
 #use Log::Any::Adapter 'TAP', filter => "none";
 
-use ProductOpener::Tags qw/:all/;
-use ProductOpener::TagsEntries qw/:all/;
-use ProductOpener::Ingredients qw/:all/;
+use ProductOpener::Tags qw/canonicalize_taxonomy_tag get_inherited_property/;
+use ProductOpener::Ingredients
+	qw/estimate_nutriscore_2021_milk_percent_from_ingredients estimate_nutriscore_2023_red_meat_percent_from_ingredients extract_ingredients_from_text/;
 
 my @ingredients = (
 
@@ -87,9 +87,12 @@ my @ingredients_text_tests = (
 	# For products that contain water that is not consumed (e.g. canned vegetables)
 	# the % of fruits/vegetables must be estimated on the product without water
 	[
-		{lc => "fr", ingredients_text => "eau 80%, sucre 10%, haricots verts 10%", categories_tags => ["en:beverages"]},
-		10,
-		10
+		{
+			lc => "fr",
+			ingredients_text => "eau 80%, sucre 10%, haricots verts 10%",
+			categories_tags => ["en:beverages"]
+		},
+		10, 10
 	],
 	# canned fruits: water is counted as it is consumed
 	[

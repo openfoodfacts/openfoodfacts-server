@@ -5,7 +5,7 @@ use ProductOpener::PerlStandards;
 use Test::More;
 use Log::Any::Adapter 'TAP';
 
-use ProductOpener::Users qw/:all/;
+use ProductOpener::Users qw/is_suspicious_name/;
 
 foreach my $name ("click here", "go forms.yandex.ru", "https://test.me") {
 	ok(is_suspicious_name($name), "$name is a suspicious name");

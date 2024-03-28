@@ -18,8 +18,6 @@ requires 'JSON::MaybeXS'; # libjson-maybexs-perl
 requires 'Clone'; # libclone-perl
 requires 'Crypt::PasswdMD5'; # libcrypt-passwdmd5-perl
 requires 'Encode::Detect'; # libencode-detect-perl
-requires 'Graphics::Color::RGB'; # libgraphics-color-perl
-requires 'Graphics::Color::HSL'; # libgraphics-color-perl
 requires 'Barcode::ZBar'; # libbarcode-zbar-perl
 requires 'XML::FeedPP'; # libxml-feedpp-perl
 requires 'URI::Find'; # liburi-find-perl
@@ -44,7 +42,6 @@ requires 'Path::Tiny', '>= 0.118'; # libpath-tiny-perl
 requires 'MongoDB', '>= 2.2.2, < 2.3'; # libmongodb-perl has 1.8.1/2.0.3 vs 2.2.2. deps: libauthen-sasl-saslprep-perl, libbson-perl, libauthen-scram-perl, libclass-xsaccessor-perl, libdigest-hmac-perl, libsafe-isa-perl, libconfig-autoconf-perl, libpath-tiny-perl
 # we fix this because MongoDB depends on it, and 0.023 does not install correctly
 requires 'Type::Tiny::XS', '==0.022';
-requires 'Encode::Punycode'; # deps: libnet-idn-encode-perl, libtest-nowarnings-perl
 requires 'GraphViz2'; # deps: libfile-which-perl, libdata-section-simple-perl, libwant-perl, libipc-run3-perl, liblog-handler-perl, libtest-deep-perl
 requires 'Algorithm::CheckDigits'; # libalgorithm-checkdigits-perl has 0.50 vs 1.3.3. deps: libprobe-perl-perl
 requires 'Image::OCR::Tesseract'; # deps: libfile-find-rule-perl

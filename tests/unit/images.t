@@ -5,7 +5,7 @@ use ProductOpener::PerlStandards;
 use Test::More;
 use Log::Any::Adapter 'TAP';
 
-use ProductOpener::Images qw/:all/;
+use ProductOpener::Images qw/get_code_and_imagefield_from_file_name scan_code/;
 
 use File::Basename 'dirname';
 
