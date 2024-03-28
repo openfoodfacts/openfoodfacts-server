@@ -1,6 +1,7 @@
 [
    {
       "id" : "en:sugar",
+      "is_in_taxonomy" : 1,
       "percent_estimate" : 50,
       "percent_max" : 54,
       "percent_min" : 46,
@@ -11,12 +12,14 @@
       "ingredients" : [
          {
             "id" : "en:e220",
+            "is_in_taxonomy" : 1,
             "percent_estimate" : 46,
             "percent_max" : 46,
             "percent_min" : 46,
             "text" : "sumporni dioksid"
          }
       ],
+      "is_in_taxonomy" : 1,
       "percent" : 46,
       "percent_estimate" : 46,
       "percent_max" : 46,
@@ -26,6 +29,7 @@
    },
    {
       "id" : "en:water",
+      "is_in_taxonomy" : 1,
       "percent_estimate" : 2,
       "percent_max" : 8,
       "percent_min" : 0,
@@ -36,12 +40,14 @@
       "ingredients" : [
          {
             "id" : "en:e330",
+            "is_in_taxonomy" : 1,
             "percent_estimate" : 1,
             "percent_max" : 4,
             "percent_min" : 0,
             "text" : "limunska kiselina"
          }
       ],
+      "is_in_taxonomy" : 1,
       "percent_estimate" : 1,
       "percent_max" : 4,
       "percent_min" : 0,
@@ -52,12 +58,14 @@
       "ingredients" : [
          {
             "id" : "en:fruit-pectin",
+            "is_in_taxonomy" : 1,
             "percent_estimate" : 1,
             "percent_max" : 2.66666666666667,
             "percent_min" : 0,
             "text" : "voćni pektin"
          }
       ],
+      "is_in_taxonomy" : 1,
       "percent_estimate" : 1,
       "percent_max" : 2.66666666666667,
       "percent_min" : 0,

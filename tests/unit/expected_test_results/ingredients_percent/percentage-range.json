@@ -1,6 +1,7 @@
 [
    {
       "id" : "en:pasteurised-whole-milk",
+      "is_in_taxonomy" : 1,
       "labels" : "en:fair-trade",
       "percent" : 74.3,
       "percent_estimate" : 74.3,
@@ -8,24 +9,28 @@
    },
    {
       "id" : "en:cane-sugar",
+      "is_in_taxonomy" : 1,
       "percent" : 10,
       "percent_estimate" : 10,
       "text" : "sucre de canne"
    },
    {
       "id" : "en:cream",
+      "is_in_taxonomy" : 1,
       "percent" : 5.5,
       "percent_estimate" : 5.5,
       "text" : "crème"
    },
    {
       "id" : "en:corn-starch",
+      "is_in_taxonomy" : 1,
       "percent" : 5,
       "percent_estimate" : 5,
       "text" : "amidon de mais"
    },
    {
       "id" : "en:coffee",
+      "is_in_taxonomy" : 1,
       "percent_estimate" : 5.2,
       "processing" : "en:freeze-dried",
       "text" : "café"

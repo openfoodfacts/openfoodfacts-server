@@ -1,6 +1,7 @@
 [
    {
       "id" : "en:blackcurrant",
+      "is_in_taxonomy" : 1,
       "percent" : 40,
       "percent_estimate" : 40,
       "percent_max" : 40,
@@ -9,6 +10,7 @@
    },
    {
       "id" : "en:sugar",
+      "is_in_taxonomy" : 1,
       "percent_estimate" : 27.5,
       "percent_max" : 40,
       "percent_min" : 15,
@@ -16,6 +18,7 @@
    },
    {
       "id" : "en:water",
+      "is_in_taxonomy" : 1,
       "percent_estimate" : 19.5833333333333,
       "percent_max" : 33.3333333333333,
       "percent_min" : 6.66666666666667,
@@ -26,12 +29,14 @@
       "ingredients" : [
          {
             "id" : "en:e440a",
+            "is_in_taxonomy" : 1,
             "percent_estimate" : 6.45833333333334,
             "percent_max" : 22.5,
             "percent_min" : 0,
             "text" : "e440"
          }
       ],
+      "is_in_taxonomy" : 1,
       "percent_estimate" : 6.45833333333334,
       "percent_max" : 22.5,
       "percent_min" : 0,
@@ -42,12 +47,14 @@
       "ingredients" : [
          {
             "id" : "en:e202",
+            "is_in_taxonomy" : 1,
             "percent_estimate" : 6.45833333333334,
             "percent_max" : 15,
             "percent_min" : 0,
             "text" : "e202"
          }
       ],
+      "is_in_taxonomy" : 1,
       "percent_estimate" : 6.45833333333334,
       "percent_max" : 15,
       "percent_min" : 0,

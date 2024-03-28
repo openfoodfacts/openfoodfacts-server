@@ -36,6 +36,7 @@
       {
          "ciqual_proxy_food_code" : "28205",
          "id" : "en:pork-meat",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 61,
          "percent_max" : 97,
          "percent_min" : 25,
@@ -46,6 +47,7 @@
       {
          "ciqual_food_code" : "21523",
          "id" : "en:lamb-meat",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 20,
          "percent_max" : 49,
          "percent_min" : 1,
@@ -56,6 +58,7 @@
       {
          "ciqual_food_code" : "36005",
          "id" : "en:chicken-meat",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 10,
          "percent_max" : 33,
          "percent_min" : 1,
@@ -66,6 +69,7 @@
       {
          "ciqual_food_code" : "11058",
          "id" : "en:salt",
+         "is_in_taxonomy" : 1,
          "percent" : 1,
          "percent_estimate" : 9,
          "percent_max" : 1,
