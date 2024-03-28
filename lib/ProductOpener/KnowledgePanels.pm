@@ -47,6 +47,7 @@ BEGIN {
 		&initialize_knowledge_panels_options
 		&create_knowledge_panels
 		&create_panel_from_json_template
+		$create_edit_history_panel
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -1072,6 +1073,111 @@ sub create_nutrition_facts_table_panel ($product_ref, $target_lc, $target_cc, $o
 			"api/knowledge-panels/health/nutrition/nutrition_facts_table.tt.json",
 			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
 	}
+	return;
+}
+
+=head2 create_edit_history_panel ( $product_ref, $target_lc, $target_cc, $options_ref )
+
+Creates a knowledge panel with the edit history table.
+
+=head3 Arguments
+
+=head4 product reference $product_ref
+
+Loaded from the MongoDB database, Storable files, or the OFF API.
+
+=head4 language code $target_lc
+
+Returned attributes contain both data and strings intended to be displayed to users.
+This parameter sets the desired language for the user facing strings.
+
+=head4 country code $target_cc
+
+=cut
+
+sub create_edit_history_panel ($product_ref, $target_lc, $target_cc, $options_ref) {
+
+	$log->debug("create edit history facts panel", {code => $product_ref->{code},}) if $log->is_debug();
+
+	
+	if ($product_ref->{rev} <= 0) {
+		return;
+	}
+
+	my $path = product_path($product_ref);
+	my $changes_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/changes.sto");
+	if (not defined $changes_ref) {
+		$changes_ref = [];
+	}
+
+	my $current_rev = $product_ref->{rev};
+	my @revisions = ();
+
+	foreach my $change_ref (reverse @{$changes_ref}) {
+
+		my $userid = get_change_userid_or_uuid($change_ref);
+		my $comment = _format_comment($change_ref->{comment});
+
+		my $change_rev = $change_ref->{rev};
+
+		if (not defined $change_rev) {
+			$change_rev = $current_rev;
+		}
+
+		$current_rev--;
+
+		push @revisions,
+			{
+			number => $change_rev,
+			date => display_date_tag($change_ref->{t}),
+			userid => $userid,
+			diffs => compute_changes_diff_text($change_ref),
+			comment => $comment
+			};
+
+	}
+
+	my $template_data_ref = {
+		lang => \&lang,
+		display_editor_link => sub ($uid) {
+			return display_tag_link('editors', $uid);
+		},
+		this_product_url => product_url($product_ref),
+		revisions => \@revisions,
+		product => $product_ref,
+
+		edit_history_table => {
+			id => "edit_history",
+			header => {
+				name => lang('edit_history_data_table'),
+				columns => [
+                    {
+                        lang('date')
+                    },
+                    {
+                        lang('contributor')
+                    },
+                    {
+                        lang('changes')
+                    },
+                    {
+                        lang('permalink')
+                    },
+					{
+						lang('revert')
+                    }
+                ],
+			},
+			rows => {
+				revisions => \@revisions,
+			}
+		},
+	};
+
+	create_panel_from_json_template("edit_history_table",
+		"api/knowledge-panels/history/edit_history.tt.json",
+		$template_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
+
 	return;
 }
 
