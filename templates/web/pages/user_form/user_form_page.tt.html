@@ -29,9 +29,8 @@
 
     inputfield.value = value;
     }
-    [% INCLUDE web/pages/user_form/togglepassword.tt.js %]
 </script>
-
+<script type="text/javascript" src="/js/togglepassword.js"></script>
 <style>
     .pro_org_display {
         display: none;
@@ -256,5 +255,7 @@
 [% IF debug %]
     <p>type: [% type %] action: [% action %] userid: [% userid %]</p>
 [% END %]
+
+<script type="text/javascript" src="/js/user_form.js"></script>
 
 <!-- end templates/[% template.name %] -->
