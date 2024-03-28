@@ -662,6 +662,21 @@ my $tests_ref = [
 			}
 		}',
 	},
+	# remove to categories (existing)
+	{
+		test_case => 'patch-tags-fields-remove',
+		method => 'PATCH',
+		path => '/api/v3/product/1234567890100',
+		body => '{
+			"fields" : "updated",
+			"product": { 
+				"categories_tags_remove": ["en:tea"],
+				"stores_tags_remove": ["Carrefour", "Mon Ptit magasin"],
+				"countries_tags_fr_remove": ["Italie", "en:spain"],
+				"labels_tags_remove": ["végétarien", "Something unrecognized in French"]
+			}
+		}',
+	},
 	# nutriscore of a test product
 	{
 		test_case => 'patch-ingredients-categories-to-get-nutriscore',
