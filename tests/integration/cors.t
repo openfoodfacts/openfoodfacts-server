@@ -34,6 +34,7 @@ my $tests_ref = [
 			"Access-Control-Allow-Credentials" => "true",
 			"Vary" => "Origin"
 		},
+		expected_type => "none",    # no body for OPTIONS requests
 	},
 	{
 		test_case => 'get-auth',
@@ -45,6 +46,7 @@ my $tests_ref = [
 			"Access-Control-Allow-Credentials" => "true",
 			"Vary" => "Origin"
 		},
+		expected_type => "none",    # no body for OPTIONS requests
 	},
 	{
 		test_case => 'options-auth-bad-origin',
@@ -56,6 +58,7 @@ my $tests_ref = [
 			"Access-Control-Allow-Origin" => "*",
 			"Access-Control-Allow-Credentials" => undef,
 		},
+		expected_type => "none",    # no body for OPTIONS requests
 	},
 	# Note: in API v3, we return a 200 status code for OPTIONS, even if the product does not exist
 	{
@@ -67,6 +70,7 @@ my $tests_ref = [
 			"Access-Control-Allow-Origin" => "*",
 			"Access-Control-Allow-Methods" => "HEAD, GET, PATCH, POST, PUT, OPTIONS",
 		},
+		expected_type => "none",    # no body for OPTIONS requests
 	},
 	{
 		test_case => 'options-api-v3-test-product',
@@ -77,6 +81,7 @@ my $tests_ref = [
 			"Access-Control-Allow-Origin" => "*",
 			"Access-Control-Allow-Methods" => "HEAD, GET, PATCH, POST, PUT, OPTIONS",
 		},
+		expected_type => "none",    # no body for OPTIONS requests
 	},
 	{
 		test_case => 'get-api-v3',
@@ -87,6 +92,7 @@ my $tests_ref = [
 			"Access-Control-Allow-Origin" => "*",
 			"Access-Control-Allow-Methods" => "HEAD, GET, PATCH, POST, PUT, OPTIONS",
 		},
+		expected_type => "none",    # no body for OPTIONS requests
 	},
 	{
 		test_case => 'options-api-v2',
@@ -97,6 +103,7 @@ my $tests_ref = [
 			"Access-Control-Allow-Origin" => "*",
 			"Access-Control-Allow-Methods" => "HEAD, GET, PATCH, POST, PUT, OPTIONS",
 		},
+		expected_type => "none",    # no body for OPTIONS requests
 	},
 	{
 		test_case => 'get-api-v2',
