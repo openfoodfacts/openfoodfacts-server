@@ -825,6 +825,15 @@ msgctxt "footer_legal_link"
 msgid "/legal"
 msgstr "/legal"
 
+msgctxt "footer_privacy"
+msgid "Privacy"
+msgstr "Soukromí"
+
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
+msgctxt "footer_privacy_link"
+msgid "/privacy"
+msgstr "/privacy"
+
 msgctxt "footer_press"
 msgid "Press"
 msgstr "Média"
@@ -6139,7 +6148,7 @@ msgstr "Zrušit výběr obrázku"
 
 msgctxt "nutriscore_learn_more"
 msgid "Learn more about the Nutri-Score"
-msgstr "Další informace o Nutri-Score"
+msgstr "Děkujeme"
 
 msgctxt "ecoscore_learn_more"
 msgid "Learn more about the Eco-Score"
@@ -6218,6 +6227,10 @@ msgstr "Vyfoťte informace o recyklaci"
 msgctxt "action_add_packaging_components"
 msgid "Add packaging components"
 msgstr "Přidat součásti obalu"
+
+msgctxt "action_add_quantity"
+msgid "Add quantity of the product"
+msgstr "Přidejte množství produktu"
 
 # this is not used yet
 msgctxt "action_add_basic_details"
@@ -6811,4 +6824,42 @@ msgstr "Konzumace potravin bohatých na ovoce, zeleninu a luštěniny snižuje r
 msgctxt "nutrient_info_proteins_benefit"
 msgid "Foods that are rich in proteins are usually rich in calcium or iron which are essential minerals with numerous health benefits."
 msgstr "Potraviny bohaté na bílkoviny jsou obvykle bohaté na vápník nebo železo, což jsou základní minerály s četnými zdravotními přínosy."
+
+msgctxt "revert"
+msgid "Revert to this revision"
+msgstr "Vrátit se k této revizi"
+
+msgctxt "product_js_product_revert_confirm"
+msgid "Revert to this product revision?"
+msgstr "Vrátit se k této revizi produktu?"
+
+msgctxt "api_status_success"
+msgid "Success"
+msgstr "Úspěch"
+
+msgctxt "api_status_failure"
+msgid "Failure"
+msgstr "Selhání"
+
+msgctxt "api_result_product_reverted"
+msgid "Product reverted to the specified revision"
+msgstr "Produkt byl vrácen do určené revize"
+
+msgctxt "api_result_product_not_reverted"
+msgid "Product not reverted to the specified revision"
+msgstr "Produkt nebyl vrácen do určené revize"
+
+# sweeteners (additives), plural
+msgctxt "sweeteners"
+msgid "sweeteners"
+msgstr "sladidla"
+
+# sweetener (additive), singular
+msgctxt "sweetener"
+msgid "sweetener"
+msgstr "sladidlo"
+
+msgctxt "description"
+msgid "Description"
+msgstr "Popis"
 
