@@ -349,6 +349,7 @@ check_translations:
 # IMPORTANT: We exclude some files that are in .check_perl_excludes
 check_perl:
 	@echo "🥫 Checking all perl files"
+
 	@if grep -P '^\s*$$' .check_perl_excludes; then echo "No blank line accepted in .check_perl_excludes, fix it"; false; fi
 	ALL_PERL_FILES=$$(find . -regex ".*\.\(p[lm]\|t\)"|grep -v "/\."|grep -v "/obsolete/"| grep -vFf .check_perl_excludes) ; \
 	${DOCKER_COMPOSE} run --rm --no-deps backend make -j ${CPU_COUNT} $$ALL_PERL_FILES  || \

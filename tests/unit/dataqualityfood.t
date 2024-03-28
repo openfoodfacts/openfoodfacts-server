@@ -5,10 +5,10 @@ use utf8;
 
 use Test::More;
 
-use ProductOpener::DataQuality qw/check_quality/;
+use ProductOpener::DataQuality qw/:all/;
 use ProductOpener::DataQualityFood qw/:all/;
-use ProductOpener::Tags qw/has_tag/;
-use ProductOpener::Ingredients qw/extract_ingredients_from_text/;
+use ProductOpener::Tags qw/:all/;
+use ProductOpener::Ingredients qw/:all/;
 
 sub check_quality_and_test_product_has_quality_tag($$$$) {
 	my $product_ref = shift;
@@ -1885,4 +1885,20 @@ ok(
 	'Soluble fiber + Insoluble fiber exceeds total fiber'
 ) or diag explain $product_ref;
 
+# Test case: Mozzarella category with minimum number of ingredients
+my $product_ref = {
+	categories_tags => ['en:mozzarella'],
+	properties => {
+		minimum_number_of_ingredients => 3,
+	},
+	ingredients => ['cheese', 'salt', 'herbs'],
+	data_quality_warnings_tags => [],
+};
+
+ProductOpener::DataQualityFood::check_mozzarella_ingredients($product_ref);
+
+is(scalar @{$product_ref->{data_quality_warnings_tags}},
+	0, 'Product with Mozzarella category and sufficient ingredients should not raise a warning');
+
 done_testing();
+

@@ -71,12 +71,14 @@ if ($action eq 'process') {
 		if ($id =~ /\@/) {
 			$user_ref = retrieve_user_by_email($id);
 			if (not defined $user_ref) {
+
 				push @errors, $Lang{error_reset_unknown_email}{$lc};
 			}
 		}
 		else {
 			$user_ref = retrieve_user($id);
 			if (not defined $user_ref) {
+
 				push @errors, $Lang{error_reset_unknown_id}{$lc};
 			}
 		}
