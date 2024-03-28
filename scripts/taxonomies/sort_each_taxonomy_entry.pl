@@ -22,17 +22,17 @@
 
 use ProductOpener::PerlStandards;
 
+use Data::Compare;
 use File::Basename qw/basename dirname/;
 use File::Copy qw/move/;
 use File::Temp;
 use Getopt::Long qw/GetOptions/;
 
-use ProductOpener::Tags qw/sanitize_taxonomy_line/;
-
+use ProductOpener::Tags qw/%translations_from canonicalize_taxonomy_tag sanitize_taxonomy_line/;
 
 # compare synonyms entries on language prefix with "xx" > "en" then alpha order
 # also work for property name + language prefix
-sub cmp_on_language :prototype($$) ($a, $b) {
+sub cmp_on_language : prototype($$) ($a, $b) {
 	if ((!defined $a) || (!defined $b)) {
 		return $a cmp $b;
 	}
@@ -63,7 +63,6 @@ sub cmp_on_language :prototype($$) ($a, $b) {
 	return $a cmp $b;
 }
 
-
 # simple iterator on lines, ensuring last line is empty (to simplify getting last entry)
 sub iter_taxonomy_lines($fd) {
 	my $last_line;
@@ -75,7 +74,7 @@ sub iter_taxonomy_lines($fd) {
 		}
 		# be sure to end with a blank line
 		unless ($last_line =~ /^\s*$/) {
-			$last_line = "\n";  # make next call terminate
+			$last_line = "\n";    # make next call terminate
 			return "\n";
 		}
 		# end of iteratorsanitize_taxonomy_line
@@ -83,11 +82,10 @@ sub iter_taxonomy_lines($fd) {
 	}
 }
 
-
 # iter over the taxonomy entry by entry
 # return a ref to a hash map with entry infos
 sub iter_taxonomy_entries ($lines_iter) {
-	my $line_num = 0;  # this is global
+	my $line_num = 0;    # this is global
 	return sub {
 		# re-init at start and after returning each entry
 		my @parents = ();    # lines defining parents
@@ -116,6 +114,7 @@ sub iter_taxonomy_entries ($lines_iter) {
 					end_line => $line_num,
 					errors => \@errors,
 				};
+				add_entry_id($entry, \@errors);
 				# return $entry
 				return $entry;
 			}
@@ -127,7 +126,7 @@ sub iter_taxonomy_entries ($lines_iter) {
 			# synonym
 			elsif ($line =~ /^(\w+):[^:]*(,.*)*$/) {
 				if (!defined $entry_id_line) {
-					$entry_id_line = {line => $line, previous => [@previous_lines], lc => $1, , line_num => $line_num};
+					$entry_id_line = {line => $line, previous => [@previous_lines], lc => $1,, line_num => $line_num};
 				}
 				else {
 					my $lc = $1;
@@ -140,16 +139,13 @@ sub iter_taxonomy_entries ($lines_iter) {
 							$previous_lc_line = $entry_id_line->{line};
 						}
 
-						push @errors, {
+						push @errors,
+							{
 							severity => "Error",
 							type => "Correctness",
 							line => $line_num,
-							message => (
-								"duplicate synonym for $lc:\n" .
-								"- $previous_lc_line" .
-								"- $line"
-							)
-						};
+							message => ("duplicate synonym for $lc:\n" . "- $previous_lc_line" . "- $line")
+							};
 					}
 					# but try to do our best and continue
 					if (defined $entries{$lc}) {
@@ -157,7 +153,7 @@ sub iter_taxonomy_entries ($lines_iter) {
 						push @{$entries{$lc}{previous}}, @previous_lines;
 					}
 					else {
-						$entries{$lc} = {line => $line, previous => [@previous_lines], , line_num => $line_num};
+						$entries{$lc} = {line => $line, previous => [@previous_lines],, line_num => $line_num};
 					}
 				}
 				@previous_lines = ();
@@ -167,15 +163,16 @@ sub iter_taxonomy_entries ($lines_iter) {
 				my $prop = $1;
 				my $lc = $2;
 				if (defined $props{"$prop:$lc"}) {
-					push @errors, {
-							severity => "Error",
-							type => "Correctness",
-							line => $line_num,
-							message => (
-								"duplicate property value for $prop:$lc:\n" .
-								"- " . $props{"$prop:$lc"}->{line} .
-								"- $line"
-							)
+					push @errors,
+						{
+						severity => "Error",
+						type => "Correctness",
+						line => $line_num,
+						message => (
+								  "duplicate property value for $prop:$lc:\n" . "- "
+								. $props{"$prop:$lc"}->{line}
+								. "- $line"
+						)
 						};
 				}
 				# override to continue
@@ -190,6 +187,54 @@ sub iter_taxonomy_entries ($lines_iter) {
 		# end of iterator
 		return;
 	}
+}
+
+# make entry properties that reference a taxonomy use the canonical id
+sub canonicalize_entry_properties($entry_ref, $is_check) {
+	return unless (defined $entry_ref->{entry_id_line});    # not a regular entry
+	my @errors = ();
+	my %props = %{$entry_ref->{props}};
+	for my $prop_name (keys %props) {
+		# If the property name matches the name of an already loaded taxonomy,
+		# canonicalize the property values for the corresponding synonym
+		# e.g. if an additive has a class additives_classes:en: en:stabilizer (a synonym),
+		# we can map it to en:stabiliser (the canonical name in the additives_classes taxonomy)
+		# FIXME: don't we want to check for existence of items ?
+		my ($property, $lc) = split(/:/, $prop_name);
+		if (exists $translations_from{$property}) {
+			my $value = sanitize_taxonomy_line($props{$prop_name}{line});
+			my @values = split(/\s*,\s*/, $value);
+			# canonicalize
+			my @canon_values = (@values);
+			map({canonicalize_taxonomy_tag($lc, $property, $_)} @canon_values);
+			my $canon_value = join(",", @canon_values);
+			# we compare list to avoid having problem just for spaces between commas
+			if (!Compare(@values, @canon_values)) {
+				if ($is_check) {
+					# values changed this is an error
+					push(
+						@errors,
+						{
+							severity => "Error",
+							type => "Linting",
+							entry_start_line => $entry_ref->{start_line},
+							entry_id_line => $entry_ref->{entry_id_line},
+							message => (
+									  "Property $prop_name is not canonical, at $props{$prop_name}{line_num}\n"
+									. "- $props{$prop_name}{line}\n"
+									. "- $canon_value\n"
+							),
+						}
+					);
+				}
+				else {
+					# replace value
+					$props{$prop_name}{line} = $canon_value;
+				}
+			}
+		}
+	}
+	return @errors;
 }
 
 # add some info about entry in errors
@@ -218,7 +263,8 @@ sub lint_entry($entry_ref, $do_sort) {
 		@parents = sort {$a->{line} cmp $b->{line}} @parents;
 		@sorted_entries = sort cmp_on_language (keys %entries);
 		@sorted_props = sort cmp_on_language (keys %props);
-	} else {
+	}
+	else {
 		# simply sort by line number, no need to sort parents
 		@sorted_entries = sort {$entries{$a}{line_num} cmp $entries{$b}{line_num}} (keys %entries);
 		@sorted_props = sort {$props{$a}{line_num} cmp $props{$b}{line_num}} (keys %props);
@@ -264,13 +310,13 @@ sub check_linted($entry_ref, $linted_output) {
 			entry_start_line => $entry_start_line,
 			entry_id_line => $entry_ref->{entry_id_line},
 			message => (
-				"output is not the same as original, line $entry_start_line..$entry_end_line\n" .
-				"Original --------------------\n" .
-				"$original\n" .
-				"Linted --------------------\n" .
-				"$linted_output\n"
+					  "output is not the same as original, line $entry_start_line..$entry_end_line\n"
+					. "Original --------------------\n"
+					. "$original\n"
+					. "Linted --------------------\n"
+					. "$linted_output\n"
 			),
-		}
+		};
 	}
 	return;
 }
@@ -280,6 +326,8 @@ sub lint_taxonomy($entries_iterator, $out, $is_check, $is_quiet, $do_sort) {
 	my @errors = ();
 	while (my $entry_ref = $entries_iterator->()) {
 		my @entry_errors = @{$entry_ref->{errors}};
+		my @canon_errors = canonicalize_entry_properties($entry_ref, $is_check);
+		push(@entry_errors, @canon_errors) if @canon_errors;
 		# we will try to lint only if we don't have errors so far
 		my $linted_output;
 		if (!@entry_errors) {
@@ -295,25 +343,28 @@ sub lint_taxonomy($entries_iterator, $out, $is_check, $is_quiet, $do_sort) {
 				my $lint_error = check_linted($entry_ref, $linted_output);
 				push(@entry_errors, $lint_error) if $lint_error;
 			}
-		} else {
+		}
+		else {
 			# immediate output
 			print $out $linted_output;
 			if (@entry_errors) {
 				# signal it was not linted
-				push(@entry_errors, {
-					severity => "Warning",
-					type => "Linting",
-					entry_start_line => $entry_ref->{start_line},
-					entry_id_line => $entry_ref->{entry_id_line},
-					message => (
-						"Entry won't be linted because it as errors, " .
-						"line $entry_ref->{start_line}..$entry_ref->{end_line}\n"
-					),
-				});
+				push(
+					@entry_errors,
+					{
+						severity => "Warning",
+						type => "Linting",
+						entry_start_line => $entry_ref->{start_line},
+						entry_id_line => $entry_ref->{entry_id_line}{line},
+						message => (
+								  "Entry won't be linted because it as errors, "
+								. "line $entry_ref->{start_line}..$entry_ref->{end_line}\n"
+						),
+					}
+				);
 			}
 		}
 		# register errors globally
-		add_entry_id($entry_ref, \@entry_errors);
 		@errors = (@errors, @entry_errors);
 		display_errors(\@entry_errors) unless $is_quiet;
 	}
@@ -347,14 +398,14 @@ unless (caller) {
 	my $usage = <<TXT
 Check or lint taxonomies.
 
-If an error is encountered, taxonomy won't be linted (as it is risky)
+If an error is encountered on an entry, this part of the taxonomy won't be linted (as it is risky)
 
 --check: only perform checks
 --verbose: print additional info about progress on stderr
 --quiet: do not display errors on stderr
 --no-sort: do not sort lines of each taxonomy entries
 TXT
-	;
+		;
 	my $is_check;
 	my $is_quiet;
 	my $is_verbose;
@@ -386,8 +437,9 @@ TXT
 		my $out_path;
 		if ($file eq "<") {
 			$fd = *STDIN;
-			$out = *STDOUT
-		} else {
+			$out = *STDOUT;
+		}
+		else {
 			open($fd, "<:encoding(UTF-8)", $file) or die("can't open $file");
 			# out to tempfile, will replace only if no errors
 			$out_path = "$tmp_dirname/" . basename($file);
