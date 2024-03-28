@@ -2469,7 +2469,7 @@ HTML
 		}
 
 		$initjs .= <<JS
-oTable = \$('#tagstable').DataTable({
+let oTable = \$('#tagstable').DataTable({
 	language: {
 		search: "$tagstable_search",
 		info: "_TOTAL_ $tagtype_p",
@@ -2738,7 +2738,7 @@ sub display_list_of_tags_translate ($request_ref, $query_ref) {
 		my $tagstable_filtered = lang_in_other_lc($request_lc, "tagstable_filtered");
 
 		$initjs .= <<JS
-oTable = \$('#tagstable').DataTable({
+let oTable = \$('#tagstable').DataTable({
 	language: {
 		search: "$tagstable_search",
 		info: "_TOTAL_ $tagtype_p",
