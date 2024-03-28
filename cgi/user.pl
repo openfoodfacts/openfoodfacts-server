@@ -187,7 +187,7 @@ if ($action eq 'display') {
 				},
 				{
 					field => "userid",
-					label => "username"
+					label => "userid"
 				},
 				{
 					field => "password",
