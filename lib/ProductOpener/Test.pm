@@ -53,6 +53,7 @@ BEGIN {
 		&wait_for
 		&read_gzip_file
 		&check_ocr_result
+		&delete_user_from_keycloak
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }

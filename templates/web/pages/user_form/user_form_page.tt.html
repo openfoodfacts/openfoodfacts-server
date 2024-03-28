@@ -161,20 +161,13 @@
             <p>[% lang("unsubscribe_info") %]</p>
         [% END %]
 
-        [% IF userid and (type != 'add') %]
-            <fieldset>
-                <legend class="text_warning">[% lang("danger_zone") %]</legend>
-                [% delete_confirm=esq(lang("delete_confirmation")) %]
-                <input type="button" name=".delete" class="button text_warning" value= "[% edq(lang('delete_user')) %]" onclick="if ('[% userid %]'.localeCompare(prompt('[% delete_confirm %]'),undefined,'base') === 0) {document.getElementById('delete_input').value='on';document.getElementById('user_form').submit();}"/>
-                <input type="hidden" name="delete" id="delete_input"/>
-            </fieldset>
-        [% END %]
-
         <input type="hidden" name="action" value="process" />
         <input type="hidden" name="type" value="[% type %]" />
         [% IF userid %]
+            <p>[% lang("keycloak_info") %]</p>
             <input type="hidden" name="userid" value="[% userid %]" />
             <input type="submit" name=".submit" class="button" value= "[% edq(lang('save')) %]" />
+            <a href="[% keycloak_account_link %]" class="button secondary">[% lang("keycloak_account_button") %]</a>
         [% ELSE %]
             <input type="submit" name=".submit" class="button" value= "[% edq(lang('add_user')) %]" />
         [% END %]

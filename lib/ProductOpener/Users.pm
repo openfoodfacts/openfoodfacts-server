@@ -131,28 +131,6 @@ sub generate_token ($name_length) {
 
 # we use user_init() now and not create_user()
 
-=head2 delete_user ($user_ref)
-
-C<delete_user()> Creates a background job to delete the user
-
-=head3 Arguments
-
-Takes in the $user_ref of the user to be deleted
-
-=cut
-
-sub delete_user ($user_ref) {
-	my $args_ref = {
-		userid => get_string_id_for_lang("no_language", $user_ref->{userid}),
-		email => $user_ref->{email},
-	};
-
-	require ProductOpener::Producers;
-	ProductOpener::Producers::queue_job(delete_user => [$args_ref] => {queue => $server_options{minion_local_queue}});
-
-	return;
-}
-
 =head2 delete_user_task ($job, $args_ref)
 
 C<delete_user_task()> Background task that deletes a user. 

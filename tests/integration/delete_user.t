@@ -4,10 +4,14 @@ use ProductOpener::PerlStandards;
 
 use Test::More;
 use ProductOpener::APITest qw/:all/;
-use ProductOpener::Test qw/remove_all_users/;
+use ProductOpener::Test qw/remove_all_users delete_user_from_keycloak/;
 use ProductOpener::TestDefaults qw/%admin_user_form %default_product %default_user_form/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Producers qw/:all/;
+use ProductOpener::Keycloak;
+use ProductOpener::Config qw/:all/;
+
+use Clone qw/clone/;
 
 wait_application_ready();
 remove_all_users();
@@ -17,7 +21,16 @@ my $ua = new_client();
 my %create_client_args = (%default_user_form, (email => 'bob@test.com'));
 create_user($ua, \%create_client_args);
 
-#new admin user agent
+#new admin user agent - admin user has to be created before the deletion
+#and admin user cannot be deleted by another Minion task
+my %random_admin_user_form = (
+	%{clone(\%default_user_form)},
+	email => 'admin' . generate_token(32) . '@openfoodfacts.org',
+	userid => generate_token(32),
+	name => "Admin",
+);
+%admins = (%admins, $random_admin_user_form{userid} => 1);
+
 my $admin = new_client();
 create_user($admin, \%admin_user_form);
 
@@ -25,28 +38,12 @@ create_user($admin, \%admin_user_form);
 edit_product($ua, \%default_product);
 
 my $url_userid = construct_test_url("/cgi/user.pl?type=edit&userid=tests", "world");
-my $url_delete = construct_test_url("/cgi/user.pl", "world");
-my $response_edit = $ua->get($url_userid);
-
-my %delete_form = (
-	name => 'Test',
-	email => 'bob@test.com',
-	password => '',
-	confirm_password => '',
-	delete => 'on',
-	action => 'process',
-	type => 'edit',
-	userid => 'tests'
-);
-
-#checking if the delete button exist
-like($response_edit->content, qr/Delete the user/, "the delete button does exist");
+my $keycloak = ProductOpener::Keycloak->new();
+my $keycloak_user = $keycloak->find_user_by_email('bob@test.com');
 
 #deleting the account
 my $before_delete_ts = time();
-my $response_delete = $ua->post($url_delete, \%delete_form);
-#checking if we are redirected to the account deleted page
-like($response_delete->content, qr/User is being deleted\. This may take a few minutes\./, "the account was deleted");
+delete_user_from_keycloak($keycloak_user);
 
 #waiting the deletion task to be done (weirdly enough it is not useful anymore..)
 my $max_time = 60;

@@ -32,6 +32,7 @@ use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/$lc  %Lang lang/;
 use ProductOpener::Orgs qw/org_name retrieve_org/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
+use ProductOpener::Keycloak;
 
 use CGI qw/:cgi :form escapeHTML charset/;
 use URI::Escape::XS;
@@ -104,12 +105,6 @@ my @errors = ();
 
 if ($action eq 'process') {
 
-	if ($type eq 'edit') {
-		if (single_param('delete') eq 'on') {
-			$type = 'delete';
-		}
-	}
-
 	# change organization
 	if ($type eq 'edit_owner') {
 		# only admin and pro moderators can change organization freely
@@ -120,7 +115,7 @@ if ($action eq 'process') {
 			display_error_and_exit($Lang{error_no_permission}{$lc}, 403);
 		}
 	}
-	elsif ($type ne 'delete') {
+	else {
 		ProductOpener::Users::check_user_form($type, $user_ref, \@errors);
 	}
 
@@ -363,9 +358,6 @@ elsif ($action eq 'process') {
 	if (($type eq 'add') or ($type =~ /^edit/)) {
 		ProductOpener::Users::process_user_form($type, $user_ref, $request_ref);
 	}
-	elsif ($type eq 'delete') {
-		ProductOpener::Users::delete_user($user_ref);
-	}
 
 	if ($type eq 'add') {
 
@@ -389,6 +381,7 @@ elsif ($action eq 'process') {
 $template_data_ref->{debug} = $debug;
 $template_data_ref->{userid} = $userid;
 $template_data_ref->{type} = $type;
+$template_data_ref->{keycloak_account_link} = ProductOpener::Keycloak->new()->get_account_link();
 
 if (($type eq "edit_owner") and ($action eq "process")) {
 	$log->info("redirecting to / after changing owner", {}) if $log->is_info();

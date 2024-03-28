@@ -485,9 +485,14 @@ msgctxt "delete_user"
 msgid "Delete a user"
 msgstr "Delete a user"
 
-msgctxt "delete_confirmation"
-msgid "This will delete your user details and anonymise all of your contributions. Please re-enter your user name to confirm."
-msgstr "This will delete your user details and anonymise all of your contributions. Please re-enter your user name to confirm."
+msgctxt "keycloak_info"
+msgid "To edit more information, or to delete your account, please open the user center."
+msgstr "To edit more information, or to delete your account, please open the user center."
+
+# Link in button style to the Keycloak account page
+msgctxt "keycloak_account_button"
+msgid "User Center"
+msgstr "User Center"
 
 msgctxt "danger_zone"
 msgid "Danger Zone"

@@ -57,6 +57,9 @@ sub new($class) {
 		. uri_escape($oidc_options{keycloak_realm_name})
 		. '/users';
 
+	$self->{account_service}
+		= $oidc_options{keycloak_base_url} . '/realms/' . uri_escape($oidc_options{keycloak_realm_name}) . '/account';
+
 	return $self;
 }
 
@@ -204,6 +207,24 @@ sub find_user_by_email ($self, $email) {
 	my $json_response = $search_user_response->decoded_content(charset => 'UTF-8');
 	my $users = decode_json($json_response);
 	return $$users[0];
+}
+
+=head2 get_account_link()
+
+Gets the link to the account service on Keycloak.
+
+=head3 Arguments
+
+None
+
+=head3 Return values
+
+Returns the URL.
+
+=cut
+
+sub get_account_link ($self) {
+	return $self->{account_service};
 }
 
 1;
