@@ -11,11 +11,11 @@ use File::Basename "dirname";
 
 use Storable qw(dclone);
 
+wait_application_ready();
+
 remove_all_users();
 
 remove_all_products();
-
-wait_application_ready();
 
 # First user
 

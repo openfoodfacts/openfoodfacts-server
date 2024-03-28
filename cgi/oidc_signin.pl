@@ -20,22 +20,29 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+=head1 DESCRIPTION
+
+This cgi script initiates sign-in process with the OIDC service (eg. keycloak)
+
+It redirects to the OIDC service, which will redirect back to oidc_signin_callback.pl
+
+=cut
+
 use ProductOpener::PerlStandards;
 
 use CGI::Carp qw(fatalsToBrowser);
 
-use ProductOpener::Config qw/:all/;
-use ProductOpener::Display qw/init_request display_error_and_exit redirect_to_url/;
+use ProductOpener::Auth qw/access_to_protected_resource/;
+use ProductOpener::Display qw/init_request/;
+use ProductOpener::Routing qw/analyze_request/;
 
-use URI::Escape::XS qw/uri_escape/;
+use Log::Any qw($log);
 
-my $request_ref = ProductOpener::Display::init_request();
+$log->info('start') if $log->is_info();
 
-unless ((defined $oidc_options{keycloak_base_url}) and (defined $oidc_options{keycloak_realm_name})) {
-	display_error_and_exit('File not found.', 404);
-}
+my $request_ref = init_request();
+analyze_request($request_ref);
 
-my $redirect
-	= $oidc_options{keycloak_base_url} . '/admin/realms/' . uri_escape($oidc_options{keycloak_realm_name}) . '/users';
+access_to_protected_resource($request_ref);
 
-redirect_to_url($request_ref, 302, $redirect);
+1;

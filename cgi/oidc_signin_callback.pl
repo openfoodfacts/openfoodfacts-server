@@ -20,22 +20,41 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+=head1 DESCRIPTION
+
+This cgi script is called after successful sign-in happens on OIDC service (eg. keycloak)
+
+It verifies authentication is ok, and redirects to a site url.
+
+=cut
+
 use ProductOpener::PerlStandards;
 
 use CGI::Carp qw(fatalsToBrowser);
 
-use ProductOpener::Config qw/:all/;
+use ProductOpener::Auth qw/signin_callback/;
 use ProductOpener::Display qw/init_request display_error_and_exit redirect_to_url/;
+use ProductOpener::Routing qw/analyze_request/;
+use ProductOpener::URL qw/format_subdomain/;
+use ProductOpener::Users qw/$User_id/;
 
-use URI::Escape::XS qw/uri_escape/;
+use Log::Any qw($log);
 
-my $request_ref = ProductOpener::Display::init_request();
+$log->info('start') if $log->is_info();
 
-unless ((defined $oidc_options{keycloak_base_url}) and (defined $oidc_options{keycloak_realm_name})) {
-	display_error_and_exit('File not found.', 404);
+my $request_ref = init_request();
+analyze_request($request_ref);
+
+my $return_url = signin_callback($request_ref);
+
+unless (defined $User_id) {
+	display_error_and_exit('Unauthorized', 401);
 }
 
-my $redirect
-	= $oidc_options{keycloak_base_url} . '/admin/realms/' . uri_escape($oidc_options{keycloak_realm_name}) . '/users';
+unless (defined $return_url) {
+	$return_url = format_subdomain('world');
+}
 
-redirect_to_url($request_ref, 302, $redirect);
+redirect_to_url($request_ref, 302, $return_url);
+
+1;

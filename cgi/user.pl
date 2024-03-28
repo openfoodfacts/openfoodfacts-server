@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2024 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -32,6 +32,7 @@ use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/$lc  %Lang lang/;
 use ProductOpener::Orgs qw/org_name retrieve_org/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
+use ProductOpener::Keycloak;
 
 use CGI qw/:cgi :form escapeHTML charset/;
 use URI::Escape::XS;
@@ -70,9 +71,9 @@ if (defined single_param('userid')) {
 
 	# The userid looks like an e-mail
 	if ($admin and ($userid =~ /\@/)) {
-		my $user_by_email = retrieve_user_by_email($userid);
-		if (defined $user_by_email) {
-			$userid = $user_by_email->{userid};
+		my $mail_based_userid = is_email_has_off_account($userid);
+		if (defined $mail_based_userid) {
+			$userid = $mail_based_userid;
 		}
 	}
 }
@@ -104,12 +105,6 @@ my @errors = ();
 
 if ($action eq 'process') {
 
-	if ($type eq 'edit') {
-		if (single_param('delete') eq 'on') {
-			$type = 'delete';
-		}
-	}
-
 	# change organization
 	if ($type eq 'edit_owner') {
 		# only admin and pro moderators can change organization freely
@@ -120,7 +115,7 @@ if ($action eq 'process') {
 			display_error_and_exit($Lang{error_no_permission}{$lc}, 403);
 		}
 	}
-	elsif ($type ne 'delete') {
+	else {
 		ProductOpener::Users::check_user_form($type, $user_ref, \@errors);
 	}
 
@@ -153,12 +148,10 @@ if ($action eq 'display') {
 			$user_ref->{email} = $user_info;
 			$user_ref->{userid} = $1;
 			$user_ref->{name} = $1;
-			$user_ref->{password} = $new_user_password;
 		}
 		else {
 			$user_ref->{userid} = $user_info;
 			$user_ref->{name} = $user_info;
-			$user_ref->{password} = $new_user_password;
 		}
 	}
 
@@ -169,49 +162,12 @@ if ($action eq 'display') {
 	$template_data_ref->{sections} = [];
 
 	if ($user_ref) {
-		my $selected_language = $user_ref->{preferred_language}
-			// (remove_tags_and_quote(single_param('preferred_language')) || "$lc");
-		my $selected_country = $user_ref->{country} // (remove_tags_and_quote(single_param('country')) || $country);
-		if ($selected_country eq "en:world") {
-			$selected_country = "";
-		}
 		push @{$template_data_ref->{sections}}, {
 			id => "user",
 			fields => [
 				{
-					field => "name"
-				},
-				{
-					field => "email",
-					type => "email",
-				},
-				{
 					field => "userid",
 					label => "username"
-				},
-				{
-					field => "password",
-					type => "password",
-					label => "password"
-				},
-				{
-					field => "confirm_password",
-					type => "password",
-					label => "password_confirm"
-				},
-				{
-					field => "preferred_language",
-					type => "select",
-					label => "preferred_language",
-					selected => $selected_language,
-					options => get_languages_options_list($lc),
-				},
-				{
-					field => "country",
-					type => "select",
-					label => "select_country",
-					selected => $selected_country,
-					options => get_countries_options_list($lc),
 				},
 				{
 					# this is a honeypot to detect scripts, that fills every fields
@@ -402,9 +358,6 @@ elsif ($action eq 'process') {
 	if (($type eq 'add') or ($type =~ /^edit/)) {
 		ProductOpener::Users::process_user_form($type, $user_ref, $request_ref);
 	}
-	elsif ($type eq 'delete') {
-		ProductOpener::Users::delete_user($user_ref);
-	}
 
 	if ($type eq 'add') {
 
@@ -428,6 +381,7 @@ elsif ($action eq 'process') {
 $template_data_ref->{debug} = $debug;
 $template_data_ref->{userid} = $userid;
 $template_data_ref->{type} = $type;
+$template_data_ref->{keycloak_account_link} = ProductOpener::Keycloak->new()->get_account_link();
 
 if (($type eq "edit_owner") and ($action eq "process")) {
 	$log->info("redirecting to / after changing owner", {}) if $log->is_info();

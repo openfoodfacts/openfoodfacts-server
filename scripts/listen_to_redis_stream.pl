@@ -20,22 +20,44 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+# This script is meant to be called through process_new_image_off.sh, itself run through an icrontab
+
 use ProductOpener::PerlStandards;
 
-use CGI::Carp qw(fatalsToBrowser);
-
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Display qw/init_request display_error_and_exit redirect_to_url/;
+use ProductOpener::Redis qw/:all/;
 
-use URI::Escape::XS qw/uri_escape/;
+use Log::Any qw($log);
+use Log::Any::Adapter ('Stderr', log_level => 'debug');
 
-my $request_ref = ProductOpener::Display::init_request();
+use AnyEvent;
+use EV;
 
-unless ((defined $oidc_options{keycloak_base_url}) and (defined $oidc_options{keycloak_realm_name})) {
-	display_error_and_exit('File not found.', 404);
+sub run ($cv) {
+	subscribe_to_redis_streams();
+
+	# call event loop
+	$cv->recv;    # Wait for the event loop to finish
+	EV::run();
+	return;
 }
 
-my $redirect
-	= $oidc_options{keycloak_base_url} . '/admin/realms/' . uri_escape($oidc_options{keycloak_realm_name}) . '/users';
+sub main() {
+	$log->info("Starting listen_to_redis_stream.pl") if $log->is_info();
 
-redirect_to_url($request_ref, 302, $redirect);
+	my $cv = AE::cv;
+
+	# signal handler for TERM, KILL, QUIT
+	foreach my $sig (qw/TERM KILL QUIT/) {
+		EV::signal $sig, sub {
+			$log->info("Exiting after receiving", {signal => $sig}) if $log->is_info();
+			$cv->send;
+			exit(0);
+		};
+	}
+
+	run($cv);
+	return;
+}
+
+main();
