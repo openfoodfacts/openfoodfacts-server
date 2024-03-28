@@ -38,6 +38,7 @@ BEGIN {
 	@EXPORT_OK = qw(
 		&get_taxonomy_suggestions_with_synonyms
 		&get_taxonomy_suggestions
+		&generate_sorted_list_of_taxonomy_entries
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
