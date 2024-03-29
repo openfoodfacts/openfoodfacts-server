@@ -2718,6 +2718,8 @@ sub init_taxonomies($die_if_some_taxonomies_cannot_be_loaded = 0) {
 	}
 	# ingredients_original uses the ingredients taxonomy
 	$taxonomy_fields{"ingredients_original"} = "ingredients";
+	# mandatory_additive_class uses additives_classes
+	$taxonomy_fields{"mandatory_additive_class"} = "additives_classes";
 
 	init_languages();
 	init_countries();
