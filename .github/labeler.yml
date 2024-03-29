@@ -88,7 +88,9 @@ WikiData:
   - any-glob-to-any-file: 'tests/unit/allergens.t'
   - any-glob-to-any-file: 'taxonomies/allergens.txt'
 
-# Our pet food project https://world.openpetfoodfacts.org
+# Open Pet Food Facts is a specialized install of Product Opener that tackles all food products for pets. 
+# It started as an April's Fool joke. https://world.openpetfoodfacts.org
+# https://world.openpetfoodfacts.org
 # We have a mobile app. We plan in 2024 to integrate Open Food Facts, Open Beauty Facts, Open Pet Food Facts and Open Products Facts together.
 # Tracking issue: https://github.com/openfoodfacts/openfoodfacts-server/issues/5536
 🐾 Open Pet Food Facts:
@@ -114,6 +116,7 @@ WikiData:
   - any-glob-to-any-file: 'conf/nginx/snippets/ssl-params-opff.conf'
 
 # Our cosmetic analysis project https://world.openbeautyfacts.org
+# Open Beauty Facts is a specialized install of Product Opener. The deployed version is a very old codebase, 2 years old.
 # We have a mobile app. We plan in 2024 to integrate Open Food Facts, Open Beauty Facts, Open Pet Food Facts and Open Products Facts together.
 # Tracking issue: https://github.com/openfoodfacts/openfoodfacts-server/issues/5505
 🧴 Open Beauty Facts:
@@ -157,8 +160,11 @@ WikiData:
   - any-glob-to-any-file: 'tests/unit/expected_test_results/import_gs1/equadis_unilever_obf_signal.json'
 
 # Open Products Facts is our platform for other platform. We plan to turn it into the data platform to facilitate circular behaviors (buy, maintain, repare, donate, resale)
+# Open Products Facts is a specialized install of Product Opener that tackles all products OFF, OBF or OPFF are not tackling. 
+# http://world.openproductsfacts.org/ 
+# The Folksonomy Engine is probably what's going to enable Open Products Facts to describe any kind of product.
 # We have a mobile app. We plan in 2024 to integrate Open Food Facts, Open Beauty Facts, Open Pet Food Facts and Open Products Facts together.
-# Our project to increase the lifespan of objects. https://world.openproductsfacts.org
+# Our project is to increase the lifespan of objects by facilitating those circular behaviors.
 # Tracking issue: https://github.com/openfoodfacts/openfoodfacts-server/issues/5555
 📸 Open Products Facts:
 - changed-files:
@@ -222,8 +228,10 @@ Footer:
   - any-glob-to-any-file: 'html/images/illustrations/footer-planet.svg'
   - any-glob-to-any-file: 'scss/_footer.scss'
 
+# The more documented Open Food Facts is, the easier it is to contribute or use, the more impact we have.
 # Tracking issue (OpenAPI): https://github.com/openfoodfacts/openfoodfacts-server/issues/7446
 # Tracking issue (Product Opener): https://github.com/openfoodfacts/openfoodfacts-server/issues/5559
+# Project: https://github.com/orgs/openfoodfacts/projects/25
 📚 Documentation:
 - changed-files:
   - any-glob-to-any-file: 'docs/**/*'
@@ -265,6 +273,8 @@ Attributes:
   - any-glob-to-any-file: 'lib/ProductOpener/Attributes.pm'
   - any-glob-to-any-file: 'tests/unit/attributes.t'
 
+# We strive to ensure excellent data quality at scale on Open Food Facts: detecting and preventing mistakes before they happen, detecting existing mistakes, and providing efficient ways to fix them. 
+# More at https://wiki.openfoodfacts.org/Quality
 # https://wiki.openfoodfacts.org/Quality
 # TODO: it would be nice to harmonize test names scheme
 # https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/DataQuality.html
@@ -428,8 +438,11 @@ Data import:
   - any-glob-to-any-file: 'tests/unit/ingredients_tags.t'
   - any-glob-to-any-file: 'scripts/test_ingredient_parser.pl'
 
+# We want to improve the analysis of ingredient list to extract ingredients and their properties, across languages. 
+# This is helpful to determine if a product is vegan, vegetarian, contains palm oil, is kosher/halal, the exact Nutri-Score, how much environmental impact it has…
 # https://wiki.openfoodfacts.org/Ingredients_Extraction_and_Analysis
 # Tracking issue: https://github.com/openfoodfacts/openfoodfacts-server/issues/5706
+# Project: https://github.com/orgs/openfoodfacts/projects/38
 🥗🔍 Ingredients analysis:
 - changed-files:
   - any-glob-to-any-file: 'templates/web/pages/product/includes/ingredients_analysis.tt.html'
@@ -468,8 +481,9 @@ Categories:
   - any-glob-to-any-file: 'tests/unit/parse_origins_from_text.t'
   
 # Wiki page: https://wiki.openfoodfacts.org/Knowledge_panels
-# Knowledge panels are json data that describe content to be displayed to the user.
-# They are currently used on the new smoothie flutter application and on the Product Opener web platform.
+# Knowledge panels are JSON data that describe content to be displayed to the user.
+# They are currently used on the new mobile flutter application and on the Product Opener web platform.
+# Knowledge panels is a system (API+Web) to make it easy to distribute knowledge on all platforms, in all languages, while minimizing code updates client-side.
 # Introduction: https://openfoodfacts.github.io/openfoodfacts-server/introduction/knowledge-panels/
 # Reference documentation: https://openfoodfacts.github.io/openfoodfacts-server/reference/api/#get-/api/v2/product/-barcode--fields-knowledge_panels
 # https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/KnowledgePanels.html
@@ -561,10 +575,12 @@ Numbers:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/Numbers.pm'
 
+# Ensuring our support of Nutri-Score stays first-class, that we make it easy to get on new/incomplete products, easy to understand, and easy to leverage (search, filtering…)
 # https://world.openfoodfacts.org/nutriscore
 # Read how Open Food Facts was instrumental in disseminating Nutri-Score: https://world.openfoodfacts.org/open-food-facts-and-the-nutriscore
 # https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Nutriscore.html
 # Tracking issue: https://github.com/openfoodfacts/openfoodfacts-server/issues/5517
+# Project: https://github.com/orgs/openfoodfacts/projects/92
 🚦 Nutri-Score:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/Nutriscore.pm'
@@ -626,6 +642,8 @@ Redis:
   - any-glob-to-any-file: 'taxonomies/packaging_shapes.result.sto'
   - any-glob-to-any-file: 'taxonomies/packaging_shapes.result.txt'
 
+# Packaging is the #1 topic consumers care about when it comes to the environmental impact of food. 
+# While packaging is not actually the #1 impact by magnitude, it's one that is actionable, and that we try to have good support for.
 # https://wiki.openfoodfacts.org/Category:Recycling
 # https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Packaging.html
 # https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/PackagingStats.html
@@ -663,6 +681,8 @@ Redis:
   - any-glob-to-any-file: 'docs/api/ref/schemas/packagings/**'
   - any-glob-to-any-file: 'scripts/gen_packaging_stats.pl'
 
+# Our Producers Platform (https://world.pro.openfoodfacts.org) lets food producers import their product data/images using Excel files or Product Information Systems like EQUADIS or AGENA3000. 
+# It also provides opportunity for product improvement (currently only for Nutri-Score)
 # https://wiki.openfoodfacts.org/Platform_for_producers
 # https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Producers.html
 # https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/ProducersFood.html
@@ -895,6 +915,7 @@ Blocks:
   - any-glob-to-any-file: 'cgi/sugar_check.pl'
   - any-glob-to-any-file: 'cgi/sugar_random.pl'
 
+# Made Near Me is a worldwide map of food factories, leveraging public data and Open Food Facts data: https://madenear.me/
 # https://blog.openfoodfacts.org/en/news/discover-what-food-products-are-made-near-you-with-made-near-me
 # Tracking issue: 
 🗺️ Made Near Me:
@@ -1206,10 +1227,12 @@ file import:
   - any-glob-to-any-file: 'conf/​apache-2.4/​sites-available/​off-pro.conf'
   - any-glob-to-any-file: 'conf/​systemd/​apache2.service.d/​override.conf'
   - any-glob-to-any-file: 'conf/​apache-2.4/​sites-available/​foodbattle.conf'
-  
+
+# Half of our new logo is a search icon. We want to improve the search experience since it helps consumers and producers find better products for them and the planet.
 # Please look at search-a-licious project for the future of Open Food Facts search
-# https://github.com/openfoodfacts/search-a-licious
+# Search-a-licious API and backend: https://github.com/openfoodfacts/search-a-licious
 # Tracking issue: https://github.com/openfoodfacts/openfoodfacts-server/issues/5492
+# Product Opener Project: https://github.com/orgs/openfoodfacts/projects/82
 🔎 Search:
 - changed-files:
   - any-glob-to-any-file: 'templates/web/pages/search_results/search_results.tt.html'
@@ -1288,6 +1311,10 @@ Countries:
 - changed-files:
   - any-glob-to-any-file: 'cgi/countries.pl'
   # Not actively used anymore, it is believed
+
+# Accessibility
+# This project has been made to track the status of our compliance with this [Report](https://github.com/openfoodfacts/openfoodfacts-server/files/5702582/Report.OpenFoodFact.15-12-2020.pdf) that tracks how accessible Open Food Facts is.
+# Project: https://github.com/orgs/openfoodfacts/projects/35
 
 # https://github.com/openfoodfacts/openfoodfacts-server/issues/5690
 #- lib/ProductOpener/I18N.pm
