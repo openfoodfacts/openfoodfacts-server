@@ -26,7 +26,7 @@ use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 

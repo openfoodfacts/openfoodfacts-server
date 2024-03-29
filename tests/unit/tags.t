@@ -6,10 +6,10 @@ use Test::More;
 #use Log::Any::Adapter 'TAP', filter => "none";
 
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Store qw/get_fileid get_string_id_for_lang/;
 # Display.pm is currently needed, as we need $lc to be defined for canonicalize_tag2
 use ProductOpener::Display qw/:all/;
-use ProductOpener::Test qw/:all/;
+use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 

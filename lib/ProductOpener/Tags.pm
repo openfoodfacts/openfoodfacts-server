@@ -69,14 +69,12 @@ BEGIN {
 		&get_inherited_properties
 		&get_tags_grouped_by_property
 
-		%canon_tags
 		%tags_images
 		%tags_texts
 		%level
 		%special_tags
 
 		&get_taxonomyid
-		&get_taxonomyurl
 
 		&gen_tags_hierarchy_taxonomy
 		&gen_ingredients_tags_hierarchy_taxonomy
@@ -99,13 +97,11 @@ BEGIN {
 
 		&spellcheck_taxonomy_tag
 
-		&get_tag_css_class
 		&get_tag_image
 
 		&display_tag_name
 		&display_tag_link
 		&display_tags_list
-		&display_tag_and_parents
 		&display_parents_and_children
 		&display_tags_hierarchy
 		&export_tags_hierarchy
@@ -119,7 +115,6 @@ BEGIN {
 		&get_city_code
 		%emb_codes_cities
 		%emb_codes_geo
-		%cities
 		&init_emb_codes
 
 		%tags_fields
@@ -132,7 +127,6 @@ BEGIN {
 		%properties
 
 		%language_codes
-		%language_codes_reverse
 
 		%country_names
 		%country_codes
@@ -143,9 +137,7 @@ BEGIN {
 
 		%stopwords
 		%synonyms_for
-		%synonyms_for_extended
 		%just_synonyms
-		%translations_from
 		%translations_to
 
 		%Languages
@@ -153,7 +145,6 @@ BEGIN {
 		&country_to_cc
 
 		&add_user_translation
-		&load_users_translations
 		&load_users_translations_for_lc
 		&add_users_translations_to_taxonomy
 
@@ -170,8 +161,6 @@ BEGIN {
 		&cmp_taxonomy_tags_alphabetically
 
 		&cached_display_taxonomy_tag
-		$cached_display_taxonomy_tag_calls
-		$cached_display_taxonomy_tag_misses
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -181,11 +170,11 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
-use ProductOpener::Lang qw/:all/;
-use ProductOpener::Text qw/:all/;
-use ProductOpener::PackagerCodes qw/:all/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die get_file_for_taxonomy get_path_for_taxonomy/;
+use ProductOpener::Lang qw/$lc  %Lang %tag_type_singular lang/;
+use ProductOpener::Text qw/normalize_percentages regexp_escape/;
+use ProductOpener::PackagerCodes qw/localize_packager_code normalize_packager_codes/;
+use ProductOpener::Index qw/$lang_dir/;
 
 use Clone qw(clone);
 use List::MoreUtils qw(uniq);
@@ -303,7 +292,7 @@ To this initial list, taxonomized fields will be added by retrieve_tags_taxonomy
 	environment_infocard => 1,
 );
 
-%canon_tags = ();
+my %canon_tags = ();
 
 my %tags_level = ();
 my %tags_direct_parents = ();
@@ -315,8 +304,8 @@ my %tags_all_parents = ();
 my %just_tags = ();    # does not include synonyms that are only synonyms
 my %synonyms = ();
 %synonyms_for = ();
-%synonyms_for_extended = ();
-%translations_from = ();
+my %synonyms_for_extended = ();
+my %translations_from = ();
 %translations_to = ();
 %level = ();
 my %direct_parents = ();
@@ -328,6 +317,8 @@ my %root_entries = ();
 
 %tags_images = ();
 %tags_texts = ();
+
+my %cities;
 
 my $logo_height = 90;
 
@@ -2560,7 +2551,7 @@ sub init_languages() {
 	# Build map of language codes and names
 
 	%language_codes = ();
-	%language_codes_reverse = ();
+	my %language_codes_reverse = ();
 
 	%Languages = ();    # Hash of language codes, will be used to initialize %Lang::Langs
 
@@ -2635,6 +2626,8 @@ If set to 1, the function will die if some taxonomies cannot be loaded.
 =cut
 
 sub init_taxonomies($die_if_some_taxonomies_cannot_be_loaded = 0) {
+	# this is only to avoid loading data when we check compilation
+	return if ($ENV{PO_NO_LOAD_DATA});
 
 	# load all tags images
 
@@ -4045,8 +4038,8 @@ otherwise, the tag id.
 =cut
 
 my %cached_display_taxonomy_tags = ();
-$cached_display_taxonomy_tag_calls = 0;
-$cached_display_taxonomy_tag_misses = 0;
+my $cached_display_taxonomy_tag_calls = 0;
+my $cached_display_taxonomy_tag_misses = 0;
 
 sub cached_display_taxonomy_tag ($target_lc, $tagtype, $tag) {
 	$cached_display_taxonomy_tag_calls++;

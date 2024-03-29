@@ -48,13 +48,13 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Tags qw/:all/;
-use ProductOpener::PackagerCodes qw/:all/;
-use ProductOpener::Packaging qw/:all/;
-use ProductOpener::ForestFootprint qw/:all/;
-use ProductOpener::Ecoscore qw(:all);
-use ProductOpener::MainCountries qw(:all);
-use ProductOpener::NutritionCiqual qw(:all);
+use ProductOpener::Tags qw/init_emb_codes init_taxonomies/;
+use ProductOpener::PackagerCodes qw/init_geocode_addresses init_packager_codes/;
+use ProductOpener::Packaging qw/init_packaging_taxonomies_regexps/;
+use ProductOpener::ForestFootprint qw/load_forest_footprint_data/;
+use ProductOpener::Ecoscore qw(load_agribalyse_data load_ecoscore_data);
+use ProductOpener::MainCountries qw(load_scans_data);
+use ProductOpener::NutritionCiqual qw(load_ciqual_data);
 
 =head1 FUNCTIONS
 
@@ -69,6 +69,8 @@ It needs to be called once at startup:
 =cut
 
 sub load_data() {
+	# this is only to avoid loading data when we check compilation
+	return if ($ENV{PO_NO_LOAD_DATA});
 
 	$log->debug("loading data - start") if $log->is_debug();
 
@@ -89,6 +91,11 @@ sub load_data() {
 	$log->debug("loading data - done") if $log->is_debug();
 
 	return;
+}
+
+if ($ENV{PO_EAGER_LOAD_DATA}) {
+	# in test we want to be sure to load data eagerly
+	load_data();
 }
 
 1;

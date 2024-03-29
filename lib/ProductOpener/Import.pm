@@ -79,29 +79,30 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created/;
+use ProductOpener::Store qw/get_string_id_for_lang retrieve store/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Images qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Images qw/get_imagefield_from_string process_image_crop process_image_upload/;
+use ProductOpener::Lang qw/$lc  lang/;
 use ProductOpener::Mail qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
-use ProductOpener::DataQuality qw/:all/;
+use ProductOpener::DataQuality qw/check_quality/;
+use ProductOpener::Data qw/get_products_collection/;
+use ProductOpener::ImportConvert qw/$empty_regexp $not_applicable_regexp $unknown_regexp clean_fields/;
+use ProductOpener::Users qw/$Org_id $Owner_id $User_id/;
+use ProductOpener::Orgs qw/create_org retrieve_org set_org_gs1_gln store_org/;
 use ProductOpener::Data qw/:all/;
-use ProductOpener::ImportConvert qw/:all/;
-use ProductOpener::Users qw/:all/;
-use ProductOpener::Orgs qw/:all/;
-use ProductOpener::Data qw/:all/;
-use ProductOpener::Packaging qw/:all/;
+use ProductOpener::Packaging
+	qw/add_or_combine_packaging_component_data get_checked_and_taxonomized_packaging_component_data/;
 use ProductOpener::Ecoscore qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
-use ProductOpener::PackagerCodes qw/:all/;
-use ProductOpener::API qw/:all/;
+use ProductOpener::PackagerCodes qw/normalize_packager_codes/;
+use ProductOpener::API qw/get_initialized_response/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -1161,8 +1162,8 @@ sub import_packaging_components (
 				(defined $input_packaging_ref->{number_of_units})
 			and (defined $input_packaging_ref->{shape})
 			and (defined $input_packaging_ref->{material})
-			and
-			((defined $input_packaging_ref->{weight_specified}) or (defined $input_packaging_ref->{weight_measured}))
+			and (  (defined $input_packaging_ref->{weight_specified})
+				or (defined $input_packaging_ref->{weight_measured}))
 			)
 		{
 			$data_is_complete = 1;
@@ -2660,15 +2661,15 @@ sub import_csv_file ($args_ref) {
 										(not exists $product_ref->{images}{$imagefield_with_lc})
 										or (
 											(
-												   ($product_ref->{images}{$imagefield_with_lc}{imgid} != $imgid)
-												or
-												(($x1 > 1) and ($product_ref->{images}{$imagefield_with_lc}{x1} != $x1))
-												or
-												(($x2 > 1) and ($product_ref->{images}{$imagefield_with_lc}{x2} != $x2))
-												or
-												(($y1 > 1) and ($product_ref->{images}{$imagefield_with_lc}{y1} != $y1))
-												or
-												(($y2 > 1) and ($product_ref->{images}{$imagefield_with_lc}{y2} != $y2))
+												($product_ref->{images}{$imagefield_with_lc}{imgid} != $imgid)
+												or (    ($x1 > 1)
+													and ($product_ref->{images}{$imagefield_with_lc}{x1} != $x1))
+												or (    ($x2 > 1)
+													and ($product_ref->{images}{$imagefield_with_lc}{x2} != $x2))
+												or (    ($y1 > 1)
+													and ($product_ref->{images}{$imagefield_with_lc}{y1} != $y1))
+												or (    ($y2 > 1)
+													and ($product_ref->{images}{$imagefield_with_lc}{y2} != $y2))
 												or ($product_ref->{images}{$imagefield_with_lc}{angle} != $angle)
 											)
 										)

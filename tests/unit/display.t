@@ -8,8 +8,8 @@ use Test::MockModule;
 use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Display qw/:all/;
-use ProductOpener::Web qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Web qw/display_field/;
+use ProductOpener::Lang qw/$lc lang separator_before_colon/;
 
 # date tests
 my $t = 1472292529;

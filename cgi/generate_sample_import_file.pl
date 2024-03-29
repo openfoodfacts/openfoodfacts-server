@@ -28,13 +28,14 @@ binmode(STDERR, ":encoding(UTF-8)");
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Display qw/:all/;
+use ProductOpener::Display qw/init_request/;
 use ProductOpener::Users qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Lang qw/$lc lang/;
 use ProductOpener::Mail qw/:all/;
-use ProductOpener::Producers qw/:all/;
-use ProductOpener::Tags qw/:all/;
-use ProductOpener::Food qw/:all/;
+use ProductOpener::Producers qw/generate_import_export_columns_groups_for_select2/;
+use ProductOpener::Tags qw/%language_fields %tags_fields/;
+use ProductOpener::Food qw/default_unit_for_nid/;
+use ProductOpener::TaxonomySuggestions qw/:all/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -54,6 +55,8 @@ print "Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml
 
 my $workbook = Excel::Writer::XLSX->new(\*STDOUT);
 my $worksheet = $workbook->add_worksheet();
+my $worksheet_categories = $workbook->add_worksheet(lang("categories"));
+
 my %formats = (
 	normal => $workbook->add_format(border => 1, bold => 1),
 	mandatory => $workbook->add_format(
@@ -247,6 +250,13 @@ foreach my $group_ref (@$select2_options_ref) {
 		$log->debug("field - comment", {group_id => $group_id, field_id => $field_id, comment => $comment})
 			if $log->is_debug();
 	}
+}
+
+my $tagtype = "categories";
+my @category_entries = ProductOpener::TaxonomySuggestions::generate_sorted_list_of_taxonomy_entries($tagtype, $lc, {});
+foreach my $i (0 .. $#category_entries) {
+	my $category_entry = display_taxonomy_tag($lc, $tagtype, $category_entries[$i]);
+	$worksheet_categories->write($i, 0, $category_entry);
 }
 
 exit(0);
