@@ -556,9 +556,11 @@ facets:
 - changed-files:
   - any-glob-to-any-file: 'packager-codes/FR-merge-UTF-8.csv'
 
+# https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Redis.html
 Redis:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/Redis.pm'
+
 
 📦 Packaging shapes:
 - changed-files:
@@ -639,26 +641,31 @@ Redis:
   - any-glob-to-any-file: 'scripts/equadis-import/run_equadis_import.sh'
   - any-glob-to-any-file: 'cgi/generate_sample_import_file.pl'
 
+# AGENA3000 is a PIM (Product Information Management) system that is compatible with the producer platform
 🏭 AGENA3000:
 - changed-files:
   - any-glob-to-any-file: 'scripts/imports/agena3000/run_agena3000_import.sh'
 
+# Bayard is a PIM (Product Information Management) system that is compatible with the producer platform
 🏭 Bayard:
 - changed-files:
   - any-glob-to-any-file: 'scripts/bayard-import/run_bayard_import.sh'
 
+# CodeOnline was a project by GS1 France that was attempting to replicate Open Food Facts.
 🏭 CodeOnline:
 - changed-files:
   - any-glob-to-any-file: 'scripts/codeonline-import/run_codeonline_import.sh'
   - any-glob-to-any-file: 'scripts/codeonline-import/split_gs1_codeonline_json.pl'
   - any-glob-to-any-file: 'scripts/codeonline-import/stats_gs1_codeonline_json.pl'
 
+# EQUADIS is a PIM (Product Information Management) system that is compatible with the producer platform
 🏭 EQUADIS:
 - changed-files:
   - any-glob-to-any-file: 'scripts/equadis-import/run_equadis_import.sh'
   - any-glob-to-any-file: 'tests/unit/expected_test_results/import_gs1/equadis_unilever_obf_signal.off.json'
   - any-glob-to-any-file: 'tests/unit/expected_test_results/import_gs1/equadis_unilever_obf_signal.json'
-  
+
+# https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Store.html
 Store:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/Store.pm'
@@ -677,10 +684,12 @@ Store:
   - any-glob-to-any-file: 'docs/ref/api/requestBodies/add_photo_to_existing_product.yaml'
   - any-glob-to-any-file: 'docs/api/tutorial-uploading-photo-to-a-product.md'
 
+# https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Products.html
 Products:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/Products.pm'
 
+# https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Recipes.html
 Recipes:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/Recipes.pm'
@@ -731,7 +740,8 @@ Product page:
   - any-glob-to-any-file: 'templates/web/pages/reset_password/reset_password.tt.html'
   - any-glob-to-any-file: 'cgi/reset_password.pl'
   - any-glob-to-any-file: 'cgi/reset_password_for_user.pl'
-  
+
+# An on-going ML project is going on to augment/replace this experimental system.
 ✔︎ Spellcheck:
 - changed-files:
   - any-glob-to-any-file: 'templates/web/pages/spellcheck/spellcheck_test.tt.html'
@@ -742,6 +752,7 @@ Product page:
 - changed-files:
   - any-glob-to-any-file: 'templates/web/pages/products_map/map_of_products.tt.html'
 
+# This page is meant to acknowledge Top Translators from Crowdin
 Top translators:
 - changed-files:
   - any-glob-to-any-file: 'templates/web/pages/top_translators/top_translators.tt.html'
@@ -843,6 +854,8 @@ Scanbot:
 - changed-files:
   - any-glob-to-any-file: 'scripts/scanbot.pl'
 
+
+# We used to have a nice missions system with badges you'd earn by doing certain contribution tasks. It was disabled when we made Open Food Facts multilingual, and we never got to refactor it.
 🕹️ Gamification:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/Missions.pm'
@@ -861,6 +874,15 @@ Config:
   - any-glob-to-any-file: 'lib/ProductOpener/Config_opf.pm'
   - any-glob-to-any-file: 'lib/ProductOpener/Config_opff.pm'
 
+# NOVA is an indicator for food ultra-processing. 
+# Ultra-processing is bad for your health, and Open Food Facts' support of ultra-processing detection has been featured in places like the BBC.
+# https://world.openfoodfacts.org/nova
+NOVA:
+- changed-files:
+  - any-glob-to-any-file: 'tests/unit/nova.t'
+  - any-glob-to-any-file: 'templates/api/knowledge-panels/health/ingredients/nova.tt.json'
+
+# Related to NOVA
 Ingredients processing:
 - changed-files:
   - any-glob-to-any-file: 'tests/unit/ingredients_processing.t'
@@ -881,14 +903,6 @@ Ingredients processing:
   - any-glob-to-any-file: 'scripts/gen_users_names.pl'
   - any-glob-to-any-file: 'cgi/user.pl'
 
-# NOVA is an indicator for food ultra-processing. 
-# Ultra-processing is bad for your health, and Open Food Facts' support of ultra-processing detection has been featured in places like the BBC.
-# https://world.openfoodfacts.org/nova
-NOVA:
-- changed-files:
-  - any-glob-to-any-file: 'tests/unit/nova.t'
-  - any-glob-to-any-file: 'templates/api/knowledge-panels/health/ingredients/nova.tt.json'
-
 Vitamins:
 - changed-files:
   - any-glob-to-any-file: 'tests/unit/vitamins.t'
@@ -901,6 +915,7 @@ Checkbot:
 - changed-files:
   - any-glob-to-any-file: 'scripts/checkbot.pl'
 
+# https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/APIProductRevert.html
 👮 Moderation:
 - changed-files:
   - any-glob-to-any-file: 'scripts/delete_products_from_user.pl'
@@ -954,6 +969,7 @@ Exports:
   - any-glob-to-any-file: 'scripts/export_tags_hierarchies.pl'
   - any-glob-to-any-file: 'scripts/popular_products_images.pl'
 
+# https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Export.html
 Export:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/Export.pm'
@@ -1005,6 +1021,7 @@ Nutrition estimation:
   - any-glob-to-any-file: 'cgi/auth.pl'
   - any-glob-to-any-file: 'cgi/sso.pl'
 
+# https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/TaxonomySuggestions.html
 # Providing autosuggest for taxonomized fields. Mostly used in editing scenarii
 ✏️ Editing - Auto Suggest:
 - changed-files:
@@ -1024,7 +1041,8 @@ Nutrition estimation:
 Subdomains:
 - changed-files:
   - any-glob-to-any-file: 'scripts/list_subdomains.pl'
-  
+
+# https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Test.html
 🧪 Tests:
 - changed-files:
   - any-glob-to-any-file: 'tests/**/*'
@@ -1126,6 +1144,7 @@ API v3:
 
 # All READ APIs include Product, Search…
 # https://openfoodfacts.github.io/openfoodfacts-server/api/
+# https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/APIProductRead.html
 API READ:
 - changed-files:
   - any-glob-to-any-file: 'tests/integration/api_v3_product_read.t'
@@ -1133,6 +1152,7 @@ API READ:
 
 # WRITE API to allow sending product info and images
 # https://openfoodfacts.github.io/openfoodfacts-server/api/
+# https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/APIProductWrite.html
 API WRITE:
 - changed-files:
   - any-glob-to-any-file: 'tests/integration/api_v3_product_write.t'
@@ -1158,6 +1178,7 @@ Static content:
 - changed-files:
   - any-glob-to-any-file: 'scripts/copy_text_files.pl'
 
+# Matomo is our analytics system. We need to fetch matomo logs to generate scan statistics. We used to do that with server side logs.
 matomo:
 - changed-files:
   - any-glob-to-any-file: 'scripts/utils/logs/download_matomo_logs.pl'
