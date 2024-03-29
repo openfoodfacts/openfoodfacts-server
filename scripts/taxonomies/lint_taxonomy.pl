@@ -29,7 +29,7 @@ use File::Temp;
 use Getopt::Long qw/GetOptions/;
 use List::Util qw/first/;
 
-use ProductOpener::Tags qw/%translations_from canonicalize_taxonomy_tag sanitize_taxonomy_line/;
+use ProductOpener::Tags qw/%taxonomy_fields %translations_from canonicalize_taxonomy_tag sanitize_taxonomy_line/;
 
 # compare synonyms entries on language prefix with "xx" > "en" then alpha order
 # also work for property name + language prefix
@@ -219,7 +219,8 @@ sub canonicalize_entry_properties($entry_ref, $is_check) {
 		# e.g. if an additive has a class additives_classes:en: en:stabilizer (a synonym),
 		# we can map it to en:stabiliser (the canonical name in the additives_classes taxonomy)
 		my ($property, $lc) = split(/:/, $prop_name);
-		if (exists $translations_from{$property}) {
+		my $prop_tagtype = $taxonomy_fields{$property};
+		if ((defined $prop_tagtype) && (exists $translations_from{$prop_tagtype})) {
 			my $prop_value = substr($props{$prop_name}{line}, length($prop_name) + 1);
 			my $value = $prop_value;
 			$value =~ s/^\s*//;
@@ -231,7 +232,7 @@ sub canonicalize_entry_properties($entry_ref, $is_check) {
 			my %different = ();    # better track it to display only differing values
 			foreach my $v (@values) {
 				my $exists;
-				my $canon_value = canonicalize_taxonomy_tag($lc, $property, $v, \$exists);
+				my $canon_value = canonicalize_taxonomy_tag($lc, $prop_tagtype, $v, \$exists);
 				push(@canon_values, $canon_value);
 				push(@not_found, $canon_value) unless $exists;
 				$different{$v} = $canon_value if $canon_value ne $v;
@@ -272,7 +273,7 @@ sub canonicalize_entry_properties($entry_ref, $is_check) {
 				}
 				else {
 					# replace value to lint
-					$props{$prop_name}{line} = join(", ", @canon_values);
+					$props{$prop_name}{line} = "$prop_name: " . join(", ", @canon_values) . "\n";
 				}
 			}
 		}
