@@ -1248,8 +1248,9 @@
 </code></pre></div></li>
 <li>or to generate expected results for a single test
   (here for an integration test, <code>test-unit</code> otherwise)
-  <div class="highlight"><pre><span></span><code>make<span class="w"> </span>test-int<span class="w"> </span><span class="nv">test</span><span class="o">=</span><span class="s2">&quot;filename.t --update-expected-results&quot;</span>
-</code></pre></div></li>
+  <div class="highlight"><pre><span></span><code>make<span class="w"> </span>test-int<span class="w"> </span><span class="nv">test</span><span class="o">=</span><span class="s2">&quot;filename.t :: --update-expected-results&quot;</span>
+</code></pre></div>
+  (the <code>::</code> tell the yath test runner that following arguments are for the test, not for yath)</li>
 </ul>
 <p>If you regenerate test results, be sure to check carefully that the changes in your commit are expected.</p>
 <h2 id="debugging-with-tests">Debugging with tests<a class="headerlink" href="#debugging-with-tests" title="Permanent link">#</a></h2>
