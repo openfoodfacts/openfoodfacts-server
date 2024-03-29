@@ -88,8 +88,9 @@ If you made a change that affects stored expected results, you can use:
 * or to generate expected results for a single test
   (here for an integration test, `test-unit` otherwise)
   ```bash
-  make test-int test="filename.t --update-expected-results"
+  make test-int test="filename.t :: --update-expected-results"
   ```
+  (the `::` tell the yath test runner that following arguments are for the test, not for yath)
 
 If you regenerate test results, be sure to check carefully that the changes in your commit are expected.
 
