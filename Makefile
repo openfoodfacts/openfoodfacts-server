@@ -288,7 +288,7 @@ test-unit: guard-test create_folders
 	${DOCKER_COMPOSE_TEST} run --rm -e PO_EAGER_LOAD_DATA=1 backend ${TEST_CMD} ${args} tests/unit/${test}
 
 # usage:  make test-int test=test-name.t
-# to update expected results: make test-int test="test-name.t --update-expected-results"
+# to update expected results: make test-int test="test-name.t :: --update-expected-results"
 # you can use TEST_CMD to change test command, like TEST_CMD="perl -d" to debug a test
 # you can also add args= to pass more options to your test command
 test-int: guard-test create_folders
