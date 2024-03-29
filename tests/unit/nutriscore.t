@@ -10,13 +10,13 @@ use Test::Number::Delta relative => 1.001;
 use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Tags qw/:all/;
+use ProductOpener::Tags qw/compute_field_tags/;
 use ProductOpener::Food qw/:all/;
-use ProductOpener::Ingredients qw/:all/;
-use ProductOpener::Nutriscore qw/:all/;
-use ProductOpener::NutritionCiqual qw/:all/;
+use ProductOpener::Ingredients qw/extract_ingredients_classes_from_text extract_ingredients_from_text/;
+use ProductOpener::Nutriscore qw/compute_nutriscore_grade/;
+use ProductOpener::NutritionCiqual qw/load_ciqual_data/;
 use ProductOpener::NutritionEstimation qw/:all/;
-use ProductOpener::Test qw/:all/;
+use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
 
 use Data::DeepAccess qw(deep_exists);
 

@@ -43,7 +43,6 @@ BEGIN {
 		&get_path_for_taxonomy
 		&get_file_for_taxonomy
 		&base_paths
-		&base_paths_loading_script
 		&check_missing_dirs
 		&ensure_dir_created
 		&ensure_dir_created_or_die

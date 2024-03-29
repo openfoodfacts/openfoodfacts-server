@@ -6,7 +6,7 @@ use utf8;
 use Test::More;
 use Log::Any::Adapter 'TAP';
 
-use ProductOpener::Tags qw/:all/;
+use ProductOpener::Tags qw/exists_taxonomy_tag has_tag/;
 use ProductOpener::Food qw/:all/;
 
 my $product_ref = {
