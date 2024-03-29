@@ -182,6 +182,7 @@ use Clone qw(clone);
 use List::MoreUtils qw(uniq);
 
 use URI::Escape::XS;
+use List::Util qw(first);
 use Log::Any qw($log);
 use Digest::SHA1;
 use File::Copy;
@@ -1528,7 +1529,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 			print STDERR "Errors in the $tagtype taxonomy definition:\n";
 			print STDERR join("", map {_taxonomy_error_display($_)} @taxonomy_errors);
 			# do we only have duplicate synonyms errors ?
-			my $only_duplicate_errors = !(grep {%{$_}{type} ne "duplicate_synonym"} @taxonomy_errors);
+			my $only_duplicate_errors = !(first {%{$_}{type} ne "duplicate_synonym"} @taxonomy_errors);
 			# Disable die for the ingredients taxonomy that is merged with additives, minerals etc.
 			# Disable die for the packaging taxonomy as some legit material and shape might have same name
 			my $taxonomy_with_duplicate_tolerated
@@ -2176,7 +2177,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 			print STDERR "Errors in the $tagtype taxonomy definition:\n";
 			print STDERR join("", map {_taxonomy_error_display($_)} @taxonomy_errors);
 			# do we only have duplicate synonyms errors ?
-			my $only_duplicate_errors = !(grep {%{$_}{type} ne "duplicate_synonym"} @taxonomy_errors);
+			my $only_duplicate_errors = !(first {%{$_}{type} ne "duplicate_synonym"} @taxonomy_errors);
 			# Disable die for the ingredients taxonomy that is merged with additives, minerals etc.
 			# Disable die for the packaging taxonomy as some legit material and shape might have same name
 			my $taxonomy_with_duplicate_tolerated

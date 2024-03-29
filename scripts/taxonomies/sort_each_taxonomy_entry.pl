@@ -27,6 +27,7 @@ use File::Basename qw/basename dirname/;
 use File::Copy qw/move/;
 use File::Temp;
 use Getopt::Long qw/GetOptions/;
+use List::Util qw/first/;
 
 use ProductOpener::Tags qw/%translations_from canonicalize_taxonomy_tag sanitize_taxonomy_line/;
 
@@ -496,7 +497,8 @@ TXT
 			# replace file with the linted one
 			move($out_path, $file) or die("unable to move $out_path to $file: $!");
 		}
-		if (scalar @$errors_ref) {
+		# do we have errors (and not only warnings)
+		if ((first {lc($_->{severity}) eq "error"} @$errors_ref)) {
 			$error_code = 1;
 		}
 	}
