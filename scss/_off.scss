@@ -1857,9 +1857,10 @@ a.panel_title {
 }
 
 .moderator-only {
+  background-color: #FFCC00;
+  border: 2px solid #FFA500;
+  padding-left: 40px;
   position: relative;
-  padding-left: 35px;
-  background-color: #ffff00;
   cursor: help;
 }
 
@@ -1867,31 +1868,27 @@ a.panel_title {
   content: "\1F6E1";
   font-family: "Segoe UI Emoji", "Noto Color Emoji", "Android Emoji", "EmojiSymbols", sans-serif;
   position: absolute;
-  top: 50%;
   left: 5px;
+  top: 50%;
   transform: translateY(-50%);
-  color: #ffa500;
   font-size: 20px;
 }
 
-.moderator-only::after {
+.moderator-only:hover::after {
   content: "This feature is exclusive to moderators.";
   position: absolute;
-  top: 100%;
+  bottom: 100%;
   left: 50%;
   transform: translateX(-50%);
-  background-color: #ffa500;
-  color: #fff;
+  background-color: black;
+  color: white;
   padding: 5px 10px;
-  font-size: 12px;
-  border-radius: 3px;
-  white-space: nowrap;
+  border-radius: 5px;
+  opacity: 1;
   visibility: hidden;
-  opacity: 0;
-  transition: visibility 0s, opacity 0.5s linear;
+  transition: opacity 0.3s, visibility 0.3s;
 }
 
 .moderator-only:hover::after {
   visibility: visible;
-  opacity: 1;
 }
