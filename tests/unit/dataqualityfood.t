@@ -1899,7 +1899,7 @@ is(scalar @{$product_ref->{data_quality_warnings_tags}},
 
 # Test case: Mozzarella category with insufficient ingredients
 my $product_ref = {
-	categories_tags => ['en:mozzarella'],
+	categories_tags => ['en:Mozzarella'],
 	ingredients => ['cheese', 'salt'],
 	data_quality_warnings_tags => [],
 };
