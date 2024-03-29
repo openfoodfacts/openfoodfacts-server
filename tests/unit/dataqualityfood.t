@@ -1888,9 +1888,6 @@ ok(
 # Test case: Mozzarella category with minimum number of ingredients
 my $product_ref = {
 	categories_tags => ['en:mozzarella'],
-	properties => {
-		minimum_number_of_ingredients => 3,
-	},
 	ingredients => ['cheese', 'salt', 'herbs'],
 	data_quality_warnings_tags => [],
 };
@@ -1899,6 +1896,18 @@ ProductOpener::DataQualityFood::check_mozzarella_ingredients($product_ref);
 
 is(scalar @{$product_ref->{data_quality_warnings_tags}},
 	0, 'Product with Mozzarella category and sufficient ingredients should not raise a warning');
+
+# Test case: Mozzarella category with insufficient ingredients
+my $product_ref = {
+    categories_tags => ['en:Mozzarella'],
+    ingredients => ['cheese', 'salt'],
+    data_quality_warnings_tags => [],
+};
+
+ProductOpener::DataQualityFood::check_mozzarella_ingredients($product_ref);
+
+is(scalar @{$product_ref->{data_quality_warnings_tags}},
+    1, 'Product with Mozzarella category and insufficient ingredients should raise a warning');
 
 done_testing();
 
