@@ -1,0 +1,99 @@
+{
+   "code" : "1234567890100",
+   "errors" : [],
+   "product" : {},
+   "status" : "success_with_warnings",
+   "warnings" : [
+      {
+         "field" : {
+            "default_value" : "en",
+            "id" : "tags_lc"
+         },
+         "impact" : {
+            "id" : "warning",
+            "lc_name" : "Warning",
+            "name" : "Warning"
+         },
+         "message" : {
+            "id" : "missing_field",
+            "lc_name" : "Missing field",
+            "name" : "Missing field"
+         }
+      },
+      {
+         "field" : {
+            "id" : "categories_tags_remove",
+            "value" : [
+               "en:tea"
+            ]
+         },
+         "impact" : {
+            "id" : "warning",
+            "lc_name" : "Warning",
+            "name" : "Warning"
+         },
+         "message" : {
+            "id" : "unrecognized_field",
+            "lc_name" : "Unrecognized field",
+            "name" : "Unrecognized field"
+         }
+      },
+      {
+         "field" : {
+            "id" : "countries_tags_fr_remove",
+            "value" : [
+               "Italie",
+               "en:spain"
+            ]
+         },
+         "impact" : {
+            "id" : "warning",
+            "lc_name" : "Warning",
+            "name" : "Warning"
+         },
+         "message" : {
+            "id" : "unrecognized_field",
+            "lc_name" : "Unrecognized field",
+            "name" : "Unrecognized field"
+         }
+      },
+      {
+         "field" : {
+            "id" : "labels_tags_remove",
+            "value" : [
+               "végétarien",
+               "Something unrecognized in French"
+            ]
+         },
+         "impact" : {
+            "id" : "warning",
+            "lc_name" : "Warning",
+            "name" : "Warning"
+         },
+         "message" : {
+            "id" : "unrecognized_field",
+            "lc_name" : "Unrecognized field",
+            "name" : "Unrecognized field"
+         }
+      },
+      {
+         "field" : {
+            "id" : "stores_tags_remove",
+            "value" : [
+               "Carrefour",
+               "Mon Ptit magasin"
+            ]
+         },
+         "impact" : {
+            "id" : "warning",
+            "lc_name" : "Warning",
+            "name" : "Warning"
+         },
+         "message" : {
+            "id" : "unrecognized_field",
+            "lc_name" : "Unrecognized field",
+            "name" : "Unrecognized field"
+         }
+      }
+   ]
+}
