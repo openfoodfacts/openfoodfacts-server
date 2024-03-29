@@ -26,6 +26,9 @@ Stores:
   - any-glob-to-any-file: 'taxonomies/unused/stores.txt'
   - any-glob-to-any-file: 'scripts/tag_stores_magasins_u.pl'
 
+# Mobile App 
+# Tracking issue: https://github.com/openfoodfacts/openfoodfacts-server/issues/8919
+
 # System to provide the mobile app with one JSON news headline, variating based on country, language, mobile OS and app version (for the legacy app and for the newer V2 app)
 🤳🥫 tagline:
 - changed-files:
@@ -87,7 +90,7 @@ WikiData:
 
 # Our pet food project https://world.openpetfoodfacts.org
 # We have a mobile app. We plan in 2024 to integrate Open Food Facts, Open Beauty Facts, Open Pet Food Facts and Open Products Facts together.
-# Tracking issue: 
+# Tracking issue: https://github.com/openfoodfacts/openfoodfacts-server/issues/5536
 🐾 Open Pet Food Facts:
 - changed-files:
   - any-glob-to-any-file: 'taxonomies/petfood/**/*'
@@ -112,7 +115,7 @@ WikiData:
 
 # Our cosmetic analysis project https://world.openbeautyfacts.org
 # We have a mobile app. We plan in 2024 to integrate Open Food Facts, Open Beauty Facts, Open Pet Food Facts and Open Products Facts together.
-# Tracking issue: 
+# Tracking issue: https://github.com/openfoodfacts/openfoodfacts-server/issues/5505
 🧴 Open Beauty Facts:
 - changed-files:
   - any-glob-to-any-file: 'taxonomies/beauty/**/*'
@@ -156,7 +159,7 @@ WikiData:
 # Open Products Facts is our platform for other platform. We plan to turn it into the data platform to facilitate circular behaviors (buy, maintain, repare, donate, resale)
 # We have a mobile app. We plan in 2024 to integrate Open Food Facts, Open Beauty Facts, Open Pet Food Facts and Open Products Facts together.
 # Our project to increase the lifespan of objects. https://world.openproductsfacts.org
-# Tracking issue: 
+# Tracking issue: https://github.com/openfoodfacts/openfoodfacts-server/issues/5555
 📸 Open Products Facts:
 - changed-files:
   - any-glob-to-any-file: 'taxonomies/products/**/*'
@@ -212,13 +215,15 @@ SCSS:
 - changed-files:
   - any-glob-to-any-file: 'scss/_footer.scss'
 
+# The Footer of the Open Food Facts web experience, that probably should be reorganized, a bit like the apple.com footer for clarity
 Footer:
 - changed-files:
   - any-glob-to-any-file: 'html/images/illustrations/footer-orange.svg'
   - any-glob-to-any-file: 'html/images/illustrations/footer-planet.svg'
   - any-glob-to-any-file: 'scss/_footer.scss'
 
-# Tracking issue: 
+# Tracking issue (OpenAPI): https://github.com/openfoodfacts/openfoodfacts-server/issues/7446
+# Tracking issue (Product Opener): https://github.com/openfoodfacts/openfoodfacts-server/issues/5559
 📚 Documentation:
 - changed-files:
   - any-glob-to-any-file: 'docs/**/*'
@@ -228,7 +233,7 @@ Footer:
 
 # OpenAPI documentation of Open Food Facts. Still incomplete, and needs help.
 # Eventually, we'd like to see if it's possible to generate clean SDKs out of it.
-# Tracking issue: https://github.com/openfoodfacts/openfoodfacts-server/issues/5523
+# Tracking issue: https://github.com/openfoodfacts/openfoodfacts-server/issues/7446
 📚 OpenAPI:
 - changed-files:
   - any-glob-to-any-file: 'docs/assets/api-rapidoc.html'
@@ -243,6 +248,9 @@ Footer:
   - any-glob-to-any-file: 'conf/nginx-docker/nginx.conf'
 
 # The Folksonomy project allows to add custom data to product, and model non food products.
+# The Experimental Folksonomy API allows you to add and read information beyond the traditional product format to Open Food Facts, Open Products Facts, Open Pet Food Facts and Open Beauty Facts.  
+# The API is documented separately at https://api.folksonomy.openfoodfacts.org/
+# Please be aware that there's a chance that all data added using this API could be deleted without notice, until we mark it as stable, due to unforeseen technical issues.
 # Tracking issue: 
 🏷️ Folksonomy Project:
 - changed-files:
@@ -262,7 +270,7 @@ Attributes:
 # https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/DataQuality.html
 # https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/DataQualityCommon.html
 # https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/DataQualityFood.html
-# Tracking issue: 
+# Tracking issue: https://github.com/openfoodfacts/openfoodfacts-server/issues/5538
 🧽 Data Quality:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/DataQuality.pm'
@@ -286,7 +294,7 @@ Display:
 
 # https://world.openfoodfacts.org/eco-score-the-environmental-impact-of-food-products
 # https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Ecoscore.html
-# Tracking issue: 
+# Tracking issue: https://github.com/openfoodfacts/openfoodfacts-server/issues/5520
 🌱 Eco-Score:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/Ecoscore.pm'
@@ -556,7 +564,7 @@ Numbers:
 # https://world.openfoodfacts.org/nutriscore
 # Read how Open Food Facts was instrumental in disseminating Nutri-Score: https://world.openfoodfacts.org/open-food-facts-and-the-nutriscore
 # https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Nutriscore.html
-# Tracking issue: 
+# Tracking issue: https://github.com/openfoodfacts/openfoodfacts-server/issues/5517
 🚦 Nutri-Score:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/Nutriscore.pm'
@@ -658,7 +666,7 @@ Redis:
 # https://wiki.openfoodfacts.org/Platform_for_producers
 # https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Producers.html
 # https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/ProducersFood.html
-# Tracking issue: 
+# Tracking issue: https://github.com/openfoodfacts/openfoodfacts-server/issues/5521
 🏭 Producers Platform:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/GS1.pm'
@@ -951,7 +959,7 @@ Config:
 # NOVA is an indicator for food ultra-processing. 
 # Ultra-processing is bad for your health, and Open Food Facts' support of ultra-processing detection has been featured in places like the BBC.
 # https://world.openfoodfacts.org/nova
-# Tracking issue: 
+# Tracking issue: https://github.com/openfoodfacts/openfoodfacts-server/issues/5519
 NOVA:
 - changed-files:
   - any-glob-to-any-file: 'tests/unit/nova.t'
@@ -1034,6 +1042,7 @@ update all products:
   - any-glob-to-any-file: 'scripts/update_all_products_revisions_from_dir_in_mongodb.pl'
 
 # We export data nightly as CSV, MongoDB… See: https://world.openfoodfacts.org/data
+# Tracking issue: https://github.com/openfoodfacts/openfoodfacts-server/issues/6429
 Exports:
 - changed-files:
   - any-glob-to-any-file: 'scripts/extract_ingredients_test_set.pl'
@@ -1200,7 +1209,7 @@ file import:
   
 # Please look at search-a-licious project for the future of Open Food Facts search
 # https://github.com/openfoodfacts/search-a-licious
-# Tracking issue: 
+# Tracking issue: https://github.com/openfoodfacts/openfoodfacts-server/issues/5492
 🔎 Search:
 - changed-files:
   - any-glob-to-any-file: 'templates/web/pages/search_results/search_results.tt.html'
@@ -1211,7 +1220,7 @@ file import:
 
 # Related to the Open Food Facts API. More specific labels exist & should be used (API WRITE…) 
 # https://openfoodfacts.github.io/openfoodfacts-server/api/
-# Tracking issue: 
+# Tracking issue: https://github.com/openfoodfacts/openfoodfacts-server/issues/5523
 API:
 - changed-files:
   - any-glob-to-any-file: 'scripts/api_stats.pl'
