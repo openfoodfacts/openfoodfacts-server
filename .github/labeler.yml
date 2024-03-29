@@ -238,6 +238,7 @@ Footer:
   - any-glob-to-any-file: 'templates/web/common/includes/folksonomy_script.tt.html'
 
 # https://wiki.openfoodfacts.org/Product_Attributes
+# https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Attributes.html
 Attributes:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/Attributes.pm'
@@ -245,6 +246,9 @@ Attributes:
 
 # https://wiki.openfoodfacts.org/Quality
 # TODO: it would be nice to harmonize test names scheme
+# https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/DataQuality.html
+# https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/DataQualityCommon.html
+# https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/DataQualityFood.html
 🧽 Data Quality:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/DataQuality.pm'
@@ -261,11 +265,13 @@ Attributes:
 # - changed-files:
 #  - any-glob-to-any-file: ''
 
+# https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Display.html
 Display:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/Display.pm'
 
 # https://world.openfoodfacts.org/eco-score-the-environmental-impact-of-food-products
+# https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Ecoscore.html
 🌱 Eco-Score:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/Ecoscore.pm'
@@ -317,11 +323,13 @@ Agribalyse:
   - any-glob-to-any-file: 'templates/​api/​knowledge-panels/​environment/​ecoscore/​agribalyse.tt.json'
   - any-glob-to-any-file: 'tests/​unit/​expected_test_results/​ecoscore/​agribalyse-updated-category.json'
   - any-glob-to-any-file: 'external-data/​ecoscore/​agribalyse/​AGRIBALYSE3.1.1_produits alimentaires.xlsx'
-  
+
+# https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Food.html
 Food.pm:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/Food.pm'
 
+$# https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/FoodGroups.html
 Food groups:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/FoodGroups.pm'
@@ -344,6 +352,7 @@ Food groups:
 
 # https://envol-vert.org/en/methodology/
 # This is a score designed by a French NGO to assess the deforestation impact (in sq meters)
+# https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/ForestFootprint.html
 🌳 Forest Footprint:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/ForestFootprint.pm'
@@ -351,6 +360,7 @@ Food groups:
 
 # https://dev.maxmind.com/geoip
 # Geolite is used to recognize the IP's country to add the country where sold field + scan stats
+# https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/GeoIP.html
 📍 geolite:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/GeoIP.pm'
@@ -361,6 +371,7 @@ Food groups:
 
 # GS1 is a standardization organization around product data. They also sell and manage barcodes. They have per-country entities.
 # The producer platform is integrating with the GS1 product data formats.
+# https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/GS1.html
 GS1:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/GS1.pm'
@@ -368,6 +379,8 @@ GS1:
   - any-glob-to-any-file: 'scripts/convert_gs1_json_to_off_csv.pl'
   - any-glob-to-any-file: 'scripts/convert_gs1_xml_to_json_in_dir.pl'
 
+# https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Import.html
+# https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/ImportConvert.html
 Data import:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/Import.pm'
@@ -375,6 +388,7 @@ Data import:
   - any-glob-to-any-file: 'scripts/convert_csv_file.pl'
   - any-glob-to-any-file: 'cgi/generate_sample_import_file.pl'
 
+# https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Ingredients.html
 🥗 Ingredients:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/Ingredients.pm'
@@ -432,6 +446,7 @@ Categories:
 # They are currently used on the new smoothie flutter application and on the Product Opener web platform.
 # Introduction: https://openfoodfacts.github.io/openfoodfacts-server/introduction/knowledge-panels/
 # Reference documentation: https://openfoodfacts.github.io/openfoodfacts-server/reference/api/#get-/api/v2/product/-barcode--fields-knowledge_panels
+# https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/KnowledgePanels.html
 📖 Knowledge panels:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/KnowledgePanels.pm'
@@ -486,6 +501,7 @@ Serving size:
   - any-glob-to-any-file: 'templates/api/knowledge-panels/health/nutrition/serving_size.tt.json'
   - any-glob-to-any-file: 'tests/unit/food_normalize_serving_size.t'
 
+# https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Lang.html
 lang:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/Lang.pm'
@@ -512,6 +528,7 @@ MainCountries:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/MainCountries.pm'
 
+# https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Numbers.html
 Numbers:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/Numbers.pm'
@@ -536,6 +553,7 @@ Numbers:
   - any-glob-to-any-file: 'lib/ProductOpener/Orgs.pm'
 
 # https://blog.openfoodfacts.org/en/news/discover-what-food-products-are-made-near-you-with-made-near-me
+# https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/PackagerCodes.html
 📍🏭 Packager Codes:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/PackagerCodes.pm'
@@ -578,6 +596,8 @@ Redis:
   - any-glob-to-any-file: 'taxonomies/packaging_shapes.result.txt'
 
 # https://wiki.openfoodfacts.org/Category:Recycling
+# https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Packaging.html
+# https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/PackagingStats.html
 📦 Packaging:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/Packaging.pm'
@@ -612,6 +632,8 @@ Redis:
   - any-glob-to-any-file: 'scripts/gen_packaging_stats.pl'
 
 # https://wiki.openfoodfacts.org/Platform_for_producers
+# https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Producers.html
+# https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/ProducersFood.html
 🏭 Producers Platform:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/GS1.pm'
@@ -620,7 +642,6 @@ Redis:
   - any-glob-to-any-file: 'lib/ProductOpener/ImportConvert.pm'
   - any-glob-to-any-file: 'lib/ProductOpener/Producers.pm'
   - any-glob-to-any-file: 'lib/ProductOpener/ProducersFood.pm'
-  - any-glob-to-any-file: 'lib/ProductOpener/Producers.pm'
   - any-glob-to-any-file: 'scripts/export_producers_platform_data_to_public_database.sh'
   - any-glob-to-any-file: 'lib/ProductOpener/ProducersFood.pm'
   - any-glob-to-any-file: 'templates/web/pages/org_form/org_form.tt.html'
@@ -680,6 +701,9 @@ Store:
   - any-glob-to-any-file: 'lib/ProductOpener/Store.pm'
   - any-glob-to-any-file: 'tests/unit/store.t'
 
+# Our users and producers upload images. They can be cropped, rotated, unselected in various languages, using the web interface or the API. 
+# The better cropped the images, the better the legibility of photographic proofs, the better the OCR results.
+# https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Images.html
 🖼️ Images:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/Images.pm'
@@ -705,14 +729,17 @@ Recipes:
   - any-glob-to-any-file: 'templates/web/pages/recipes/recipes.tt.html'
   - any-glob-to-any-file: 'tests/unit/recipes.t'
 
+# https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Text.html
 Text:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/Text.pm'
 
+# https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/URL.html
 URL:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/URL.pm'
 
+# https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Web.html
 Web:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/Web.pm'
@@ -780,12 +807,14 @@ Nutrient levels:
 - changed-files:
   - any-glob-to-any-file: 'templates/web/pages/product/includes/nutrient_levels.tt.html'
 
+# https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Version.html
 Product history:
 - changed-files:
   - any-glob-to-any-file: 'templates/web/pages/product/includes/display_rev_info.tt.html'
   - any-glob-to-any-file: 'templates/web/pages/product/includes/edit_history.tt.html'
   - any-glob-to-any-file: 'lib/ProductOpener/Version.pm'
 
+# https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Tags.html
 Tags:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/Tags.pm'
@@ -869,6 +898,8 @@ Scanbot:
 
 # We used to have a nice missions system with badges you'd earn by doing certain contribution tasks. It was disabled when we made Open Food Facts multilingual, and we never got to refactor it.
 # Tracking issue: https://github.com/openfoodfacts/openfoodfacts-server/issues/5516
+# https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Missions.html
+# https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/MissionsConfig.html
 🕹️ Gamification:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/Missions.pm'
@@ -901,6 +932,7 @@ Ingredients processing:
   - any-glob-to-any-file: 'tests/unit/ingredients_processing.t'
   - any-glob-to-any-file: 'taxonomies/ingredients_processing.txt'
 
+# https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Users.html
 👥 Users:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/Users.pm'
@@ -1216,19 +1248,42 @@ Countries:
 #- scripts/extract_images.pl
 #- scripts/test_text_fuzzy.pl
 #- cgi/import_file_job_status.pl
+
+# https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/.html
 #- cgi/display.pl
 #- lib/ProductOpener/Display.pm
+
+# https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/.html
 #- lib/ProductOpener/Cache.pm
+
+# https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/.html
 #- lib/ProductOpener/Export.pm
 
+# https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/.html
 #- lib/ProductOpener/MainCountries.pm
+
+# https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/.html
 #- lib/ProductOpener/PerlStandards.pm
+
+# https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/.html
 #- lib/ProductOpener/URL.pm
+
+# https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/.html
 #- lib/ProductOpener/Data.pm
+
+# https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/.html
 #- lib/ProductOpener/Web.pm
+
+# https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/.html
 #- lib/ProductOpener/Products.pm
+
+# https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/.html
 #- lib/ProductOpener/Index.pm
+
+# https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/.html
 #- lib/ProductOpener/Lang.pm
+
+# https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/.html
 #- lib/ProductOpener/Text.pm
 #- scripts/build_lang.pl
 #- scripts/check_lang_pm.pl
