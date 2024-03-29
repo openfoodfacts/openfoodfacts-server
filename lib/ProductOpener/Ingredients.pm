@@ -4653,7 +4653,7 @@ my %phrases_before_ingredients_list = (
 
 	tr => ['(İ|i)çindekiler', 'içeriği',],
 
-	uz => ['tarkib','Mahsulot tarkibi',],
+	uz => ['tarkib', 'Mahsulot tarkibi',],
 
 	zh => ['配料', '成份',],
 
