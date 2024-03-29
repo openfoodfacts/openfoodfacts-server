@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2024 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -120,6 +120,20 @@ sub iter_taxonomy_entries ($lines_iter) {
 			}
 			# parents
 			elsif ($line =~ /^</) {
+				# if we already have an entry id, parent are not at the good position,
+				# and it might mean two entries where merged inadvertantly (eg. by an auto merge)
+				if ($entry_id_line) {
+					push (@errors,
+						{
+						severity => "Error",
+						type => "Correctness",
+						line => $line_num,
+						message => (
+								  "Parent in the middle of an entry, might mean erroneous merge of two entries:\n"
+								. "- $line"
+						)
+					});
+				}
 				push @parents, {line => $line, previous => [@previous_lines], line_num => $line_num};
 				@previous_lines = ();
 			}
@@ -163,7 +177,7 @@ sub iter_taxonomy_entries ($lines_iter) {
 				my $prop = $1;
 				my $lc = $2;
 				if (defined $props{"$prop:$lc"}) {
-					push @errors,
+					push (@errors,
 						{
 						severity => "Error",
 						type => "Correctness",
@@ -173,7 +187,7 @@ sub iter_taxonomy_entries ($lines_iter) {
 								. $props{"$prop:$lc"}->{line}
 								. "- $line"
 						)
-						};
+						});
 				}
 				# override to continue
 				$props{"$prop:$lc"} = {line => $line, previous => [@previous_lines], line_num => $line_num};
@@ -199,17 +213,38 @@ sub canonicalize_entry_properties($entry_ref, $is_check) {
 		# canonicalize the property values for the corresponding synonym
 		# e.g. if an additive has a class additives_classes:en: en:stabilizer (a synonym),
 		# we can map it to en:stabiliser (the canonical name in the additives_classes taxonomy)
-		# FIXME: don't we want to check for existence of items ?
 		my ($property, $lc) = split(/:/, $prop_name);
 		if (exists $translations_from{$property}) {
-			my $value = sanitize_taxonomy_line($props{$prop_name}{line});
+			my $prop_value = substr($props{$prop_name}{line}, length($prop_name) + 1);
+			my $value = $prop_value;
+			$value =~ s/^\s*//;
+			$value = sanitize_taxonomy_line($value);
 			my @values = split(/\s*,\s*/, $value);
-			# canonicalize
-			my @canon_values = (@values);
-			map({canonicalize_taxonomy_tag($lc, $property, $_)} @canon_values);
-			my $canon_value = join(",", @canon_values);
-			# we compare list to avoid having problem just for spaces between commas
-			if (!Compare(@values, @canon_values)) {
+			# check values exists in taxonomy and canonicalize
+			my @canon_values = ();
+			my @not_found = ();
+			my %different = ();  # better track it to display only differing values
+			foreach my $v (@values) {
+				my $exists;
+				my $canon_value = canonicalize_taxonomy_tag($lc, $property, $v, \$exists);
+				push(@canon_values, $canon_value);
+				push(@not_found, $canon_value) unless $exists;
+				$different{$v} = $canon_value if $canon_value ne $v;
+			}
+			if (@not_found) {
+				my $not_found = join(",", @not_found);
+				push(@errors, {
+					severity => "Warning",
+					type => "Consistency",
+					entry_start_line => $entry_ref->{start_line},
+					entry_id_line => $entry_ref->{entry_id_line},
+					message => (
+								"Values $not_found do not exists in taxonomy, at $props{$prop_name}{line_num}\n"
+							. "- $props{$prop_name}{line}"
+					),
+				});
+			}
+			if (%different) {
 				if ($is_check) {
 					# values changed this is an error
 					push(
@@ -221,15 +256,15 @@ sub canonicalize_entry_properties($entry_ref, $is_check) {
 							entry_id_line => $entry_ref->{entry_id_line},
 							message => (
 									  "Property $prop_name is not canonical, at $props{$prop_name}{line_num}\n"
-									. "- $props{$prop_name}{line}\n"
-									. "- $canon_value\n"
+									. "- " . join(", ", keys %different) . "\n"
+									. "- " . join(", ", values %different) . "\n"
 							),
 						}
 					);
 				}
 				else {
-					# replace value
-					$props{$prop_name}{line} = $canon_value;
+					# replace value to lint
+					$props{$prop_name}{line} = join(", ", @canon_values);
 				}
 			}
 		}
@@ -245,6 +280,7 @@ sub add_entry_id($entry_ref, $errors_ref) {
 		my $entry_id_line = $entry_ref->{entry_id_line};
 		$e->{entry_id_line} = $entry_id_line->{line} if defined $entry_id_line;
 	}
+	return;
 }
 
 # lint lines of an entry
@@ -410,8 +446,6 @@ TXT
 	my $is_quiet;
 	my $is_verbose;
 	my $no_sort;
-
-	my $update_expected_results;
 
 	GetOptions("check" => \$is_check, "verbose" => \$is_verbose, "quiet" => \$is_quiet, "no-sort" => \$no_sort)
 		or die("Error in command line arguments.\n\n" . $usage);
