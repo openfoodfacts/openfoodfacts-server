@@ -1255,8 +1255,8 @@
 <h2 id="debugging-with-tests">Debugging with tests<a class="headerlink" href="#debugging-with-tests" title="Permanent link">#</a></h2>
 <p>Launching a test is a very effective way to understand what's going on in the code using the debugger.</p>
 <p>This is done calling the test with <code>perl -d</code>.
-You can also use "args" argument with make target:</p>
-<div class="highlight"><pre><span></span><code>make<span class="w"> </span>test-unit<span class="w"> </span><span class="nv">test</span><span class="o">=</span><span class="s2">&quot;my-test.t&quot;</span><span class="w"> </span><span class="nv">args</span><span class="o">=</span><span class="s2">&quot;-d&quot;</span>
+You can also use "TEST_CMD" argument with make target:</p>
+<div class="highlight"><pre><span></span><code>make<span class="w"> </span>test-unit<span class="w"> </span><span class="nv">test</span><span class="o">=</span><span class="s2">&quot;my-test.t&quot;</span><span class="w"> </span><span class="nv">TEST_CMD</span><span class="o">=</span><span class="s2">&quot;perl -d&quot;</span>
 </code></pre></div>
 <p>Most often, you will have to use the next command "n" four times, before landing in you test, where you can easily set a breakpoint with <code>b &lt;line-number&gt;</code>.</p>
 <p>Read <a href="https://perldoc.perl.org/perldebug">perldoc about debugger</a> to learn more.</p>

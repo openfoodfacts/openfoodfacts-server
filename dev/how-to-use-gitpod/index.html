@@ -1161,9 +1161,13 @@ Once you have copied the ssh command and ensure it works as-is, add a <code>-L 8
 <code>ssh -L 80:localhost:80 'openfoodfac-openfoodfac-tok-openfoodfac-r9f61214h9vt.ssh.ws-c.gitpod.io'</code>.</p>
 <p>Once you execute the altered command in your terminal, you should be able to access Open Food Facts
 on http://openfoodfacts.localhost just as documented in the quickstart guide!</p>
-<p><strong>Remark:</strong> for some Linux distributions, port 80 is reserved. A workaround is to switch to port 8080: in gitpod, open the .env file and replace the line PRODUCT_OPENER_PORT=80 by PRODUCT_OPENER_PORT=8080, then replace -L 80:localhost:80 by -L 8080:localhost:8080. <strong>Rollback the changes on .env before making a pull request!</strong></p>
 <p><strong>Remark:</strong> you will need to trust the fingerprint at first connection. </p>
-<p><strong>Remark:</strong> on MacOS or Linux, when trying to bind, you might see a bind fail. Remember that any port below 1024 is reserved for the root user. You might want to add <code>sudo</code> just before the ssh command.</p>
+<p><strong>Remark:</strong> for some Linux distributions, port 80 is reserved. A workaround is to switch to port 8080: in gitpod, open the .env file and replace the line PRODUCT_OPENER_PORT=80 by PRODUCT_OPENER_PORT=8080, then replace -L 80:localhost:80 by -L 8080:localhost:8080. <strong>Rollback the changes on .env before making a pull request!</strong></p>
+<p><strong>Remark:</strong> on MacOS or Linux, when trying to bind, you might see a bind fail. Remember that any port below 1024 is reserved for the root user.</p>
+<ul>
+<li>The easiest fix is to add <code>sudo</code> just before the ssh command.</li>
+<li>Another way is to switch to port 8080: in gitpod, open the .env file (or better <a href="../how-to-use-direnv/">user direnv</a>) and change PRODUCT_OPENER_PORT=80 by PRODUCT_OPENER_PORT=8080, then replace <code>-L 80:localhost:80</code> by <code>-L 8080:localhost:8080</code> in the ssh command and connect to world.openfoodfacts.localhost:8080. <strong>Rollback the changes on .env before making a pull request!</strong></li>
+</ul>
 <p><strong>Remark:</strong> the address to connect with ssh can change after a few days. If you get a <code>Connection closed by ... port 22</code> simply go back to https://gitpod.io/workspaces and copy the new address.  </p>
 <p><strong>Remark:</strong> if you load the page after some changes but get a <code>502 Bad Gateway</code>, check again your code. Something may be wrong with it. Just in case, try commenting out the part you just coded to see if it works. </p>
 <p>Create an account to be able to edit products.</p>
