@@ -1887,8 +1887,6 @@ a.panel_title {
   opacity: 1;
   visibility: hidden;
   transition: opacity 0.3s, visibility 0.3s;
-}
-
-.moderator-only:hover::after {
   visibility: visible;
 }
+
