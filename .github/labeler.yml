@@ -328,6 +328,7 @@ Food groups:
   - any-glob-to-any-file: 'tests/unit/food_groups.t'
   - any-glob-to-any-file: 'taxonomies/food_groups.txt'
 
+# Tracking issue: https://github.com/openfoodfacts/openfoodfacts-server/issues/7528
 🧪 Additives:
 - changed-files:
   - any-glob-to-any-file: 'taxonomies/food/additives.txt'
@@ -390,6 +391,7 @@ Data import:
   - any-glob-to-any-file: 'scripts/test_ingredient_parser.pl'
 
 # https://wiki.openfoodfacts.org/Ingredients_Extraction_and_Analysis
+# Tracking issue: https://github.com/openfoodfacts/openfoodfacts-server/issues/5706
 🥗🔍 Ingredients analysis:
 - changed-files:
   - any-glob-to-any-file: 'templates/web/pages/product/includes/ingredients_analysis.tt.html'
@@ -488,6 +490,8 @@ lang:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/Lang.pm'
 
+# https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Mail.html
+# Tracking issue: https://github.com/openfoodfacts/openfoodfacts-server/issues/5730
 📨 Mail:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/Mail.pm'
@@ -495,12 +499,15 @@ lang:
   - any-glob-to-any-file: 'templates/emails/user_new_pro_account_admin_notification.tt.html'
   - any-glob-to-any-file: 'lib/ProductOpener/Brevo.pm'
 
+# https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Brevo.html
 # We use https://www.brevo.com/fr/ to send Newsletter to users who have opted in. Currently programmatic emails are sent directly by our own servers.
+# Tracking issue: https://github.com/openfoodfacts/openfoodfacts-server/issues/5730
 📨 Emails - Brevo:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/Brevo.pm'
   - any-glob-to-any-file: 'tests/unit/brevo.t'
 
+# https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/MainCountries.html
 MainCountries:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/MainCountries.pm'
@@ -511,6 +518,7 @@ Numbers:
 
 # https://world.openfoodfacts.org/nutriscore
 # Read how Open Food Facts was instrumental in disseminating Nutri-Score: https://world.openfoodfacts.org/open-food-facts-and-the-nutriscore
+# https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Nutriscore.html
 🚦 Nutri-Score:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/Nutriscore.pm'
@@ -522,6 +530,7 @@ Numbers:
   - any-glob-to-any-file: 'tests/unit/ingredients_nutriscore.t'
   - any-glob-to-any-file: 'scripts/add_nutriscore_to_scanbot_csv.pl'
 
+# https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Orgs.html
 🏭 Orgs:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/Orgs.pm'
@@ -709,6 +718,7 @@ Web:
   - any-glob-to-any-file: 'lib/ProductOpener/Web.pm'
 
 # Donation pages and banners for the Open Food Facts NGO.
+# Tracking issue: https://github.com/openfoodfacts/openfoodfacts-server/issues/5720
 🎁 Donations:
 - changed-files:
   - any-glob-to-any-file: 'html/donate/tt.html'
@@ -716,6 +726,8 @@ Web:
   - any-glob-to-any-file: 'html/donate/fr.helloasso.html'
   - any-glob-to-any-file: 'html/donate/en.html'
 
+# The easier it is to edit Open Food Facts, the more transparency we can create.
+# Tracking issue: https://github.com/openfoodfacts/openfoodfacts-server/issues/5525
 ✏️ Editing:
 - changed-files:
   - any-glob-to-any-file: 'templates/web/pages/product_edit/product_edit_form.tt.html'
@@ -856,6 +868,7 @@ Scanbot:
 
 
 # We used to have a nice missions system with badges you'd earn by doing certain contribution tasks. It was disabled when we made Open Food Facts multilingual, and we never got to refactor it.
+# Tracking issue: https://github.com/openfoodfacts/openfoodfacts-server/issues/5516
 🕹️ Gamification:
 - changed-files:
   - any-glob-to-any-file: 'lib/ProductOpener/Missions.pm'
@@ -1196,6 +1209,9 @@ Countries:
   - any-glob-to-any-file: 'cgi/countries.pl'
   # Not actively used anymore, it is believed
 
+# https://github.com/openfoodfacts/openfoodfacts-server/issues/5690
+#- lib/ProductOpener/I18N.pm
+
 # TODO: find or create proper labels for those
 #- scripts/extract_images.pl
 #- scripts/test_text_fuzzy.pl
@@ -1204,7 +1220,7 @@ Countries:
 #- lib/ProductOpener/Display.pm
 #- lib/ProductOpener/Cache.pm
 #- lib/ProductOpener/Export.pm
-#- lib/ProductOpener/I18N.pm
+
 #- lib/ProductOpener/MainCountries.pm
 #- lib/ProductOpener/PerlStandards.pm
 #- lib/ProductOpener/URL.pm
