@@ -116,24 +116,6 @@ if (defined $server_options{cookie_domain}) {
 		= "." . $server_options{cookie_domain};    # e.g. fr.import.openfoodfacts.org sets domain to .openfoodfacts.org
 }
 
-=head1 FUNCTIONS
-
-=head2 generate_token()
-
-C<generate_token()> generates a secure token for the session IDs. More information: https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#Session_ID_Content_.28or_Value.29
-
-=head3 Return values
-
-Creates a new session ID
-
-=cut
-
-sub generate_token ($name_length) {
-
-	my @chars = ('a' .. 'z', 'A' .. 'Z', 0 .. 9);
-	return join '', map {$chars[irand @chars]} 1 .. $name_length;
-}
-
 =head2 create_password_hash($password)
 
 Takes $password and hashes it using scrypt

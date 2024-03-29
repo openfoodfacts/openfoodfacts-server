@@ -34,6 +34,7 @@ use ProductOpener::Users qw/:all/;
 use ProductOpener::Mail qw/send_email/;
 use ProductOpener::Lang qw/$lc %Lang lang/;
 use ProductOpener::URL qw/format_subdomain/;
+use ProductOpener::Utils ();
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -124,7 +125,7 @@ elsif ($action eq 'process') {
 		if (defined $user_ref) {
 
 			$user_ref->{token_t} = time();
-			$user_ref->{token} = generate_token(64);
+			$user_ref->{token} = ProductOpener::Utils->generate_token(64);
 			$user_ref->{token_ip} = remote_addr();
 
 			store_user_session($user_ref);
