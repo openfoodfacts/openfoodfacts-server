@@ -27,11 +27,11 @@ use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::Web qw/:all/;
+use ProductOpener::Web qw/get_countries_options_list get_languages_options_list/;
 use ProductOpener::Users qw/:all/;
-use ProductOpener::Lang qw/:all/;
-use ProductOpener::Orgs qw/:all/;
-use ProductOpener::Text qw/:all/;
+use ProductOpener::Lang qw/$lc  %Lang lang/;
+use ProductOpener::Orgs qw/org_name retrieve_org/;
+use ProductOpener::Text qw/remove_tags_and_quote/;
 
 use CGI qw/:cgi :form escapeHTML charset/;
 use URI::Escape::XS;
@@ -88,7 +88,7 @@ my $user_ref = {};
 if ($type =~ /^edit/) {
 	$user_ref = retrieve_user($userid);
 	if (not defined $user_ref) {
-		display_error_and_exit($Lang{error_invalid_user}{$lc}, 404);
+		display_error_and_exit($request_ref, $Lang{error_invalid_user}{$lc}, 404);
 	}
 }
 else {
@@ -96,7 +96,7 @@ else {
 }
 
 if (($type =~ /^edit/) and ($User_id ne $userid) and not $admin) {
-	display_error_and_exit($Lang{error_no_permission}{$lc}, 403);
+	display_error_and_exit($request_ref, $Lang{error_no_permission}{$lc}, 403);
 }
 
 my $debug = 0;
@@ -117,11 +117,11 @@ if ($action eq 'process') {
 			ProductOpener::Users::check_edit_owner($user_ref, \@errors);
 		}
 		else {
-			display_error_and_exit($Lang{error_no_permission}{$lc}, 403);
+			display_error_and_exit($request_ref, $Lang{error_no_permission}{$lc}, 403);
 		}
 	}
 	elsif ($type ne 'delete') {
-		ProductOpener::Users::check_user_form($type, $user_ref, \@errors);
+		ProductOpener::Users::check_user_form($request_ref, $type, $user_ref, \@errors);
 	}
 
 	if ($#errors >= 0) {

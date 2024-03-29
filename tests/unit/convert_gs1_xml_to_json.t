@@ -9,8 +9,8 @@ use Test::More;
 use Test::Number::Delta relative => 1.001;
 use Log::Any::Adapter 'TAP';
 
-use ProductOpener::GS1 qw/:all/;
-use ProductOpener::Test qw/:all/;
+use ProductOpener::GS1 qw/convert_gs1_xml_file_to_json read_gs1_json_file/;
+use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
 
 use JSON "decode_json";
 

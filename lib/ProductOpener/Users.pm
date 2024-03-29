@@ -65,11 +65,9 @@ BEGIN {
 		&check_password_hash
 		&retrieve_user
 		&retrieve_userids
-		&user_exists
 		&retrieve_user_by_email
 		&store_user
 		&store_user_session
-		&remove_user
 		&remove_user_by_org_admin
 		&add_users_to_org_by_admin
 		&is_suspicious_name
@@ -84,16 +82,16 @@ BEGIN {
 
 use vars @EXPORT_OK;
 
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Store qw/get_string_id_for_lang retrieve store/;
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
-use ProductOpener::Mail qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
+use ProductOpener::Mail qw/get_html_email_content send_email_to_admin send_email_to_producers_admin send_html_email/;
+use ProductOpener::Lang qw/$lc  %Lang lang/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::Orgs qw/:all/;
-use ProductOpener::Products qw/:all/;
-use ProductOpener::Text qw/:all/;
-use ProductOpener::Brevo qw/:all/;
+use ProductOpener::Orgs qw/add_user_to_org create_org remove_user_from_org retrieve_or_create_org retrieve_org/;
+use ProductOpener::Products qw/find_and_replace_user_id_in_products/;
+use ProductOpener::Text qw/remove_tags_and_quote/;
+use ProductOpener::Brevo qw/add_contact_to_list/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
@@ -333,7 +331,7 @@ sub is_suspicious_name ($value) {
 	return ((defined $value) and ($value =~ $invite_re) and (not $value =~ $email_re));
 }
 
-=head2 check_user_form($type, $user_ref, $errors_ref)
+=head2 check_user_form($request_ref, $type, $user_ref, $errors_ref)
 
 C<check_user_form()> This method checks and validates the different entries in the user form.
 It also handles Spam-usernames, fields for the organization accounts.
@@ -341,6 +339,8 @@ It also handles Spam-usernames, fields for the organization accounts.
 This will then be used in process_user_form
 
 =head3 Parameters
+
+=head4 Request object $request_ref
 
 =head4 String action type $type
 edit / add / delete
@@ -351,7 +351,7 @@ edit / add / delete
 
 =cut
 
-sub check_user_form ($type, $user_ref, $errors_ref) {
+sub check_user_form ($request_ref, $type, $user_ref, $errors_ref) {
 
 	# Removing the tabs, spaces and white space characters
 	# Assigning 'userid' to 0 -- if userid is not defined
@@ -376,7 +376,7 @@ sub check_user_form ($type, $user_ref, $errors_ref) {
 		print $log remote_addr() . "\t" . time() . "\t" . $user_ref->{userid} . "\t" . $user_ref->{name} . "\n";
 		close($log);
 		# bail out, return 200 status code
-		display_error_and_exit("", 200);
+		display_error_and_exit($request_ref, "", 200);
 	}
 
 	my $email = remove_tags_and_quote(decode utf8 => single_param('email'));

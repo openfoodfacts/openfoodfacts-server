@@ -17,7 +17,7 @@ only 		= 1
 [Modules::ProhibitEvilModules]
 [Modules::RequireBarewordIncludes]
 
-[-Modules::RequireFilenameMatchesPackage]
+[Modules::RequireFilenameMatchesPackage]
 
 [Subroutines::ProhibitExplicitReturnUndef]
 [Subroutines::ProhibitNestedSubs]
