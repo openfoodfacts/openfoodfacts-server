@@ -110,6 +110,8 @@ use ProductOpener::Config2;
 # lowercase:
 # - useful when the same word appears in lowercase, with a first capital letter, or in all caps.
 
+# IMPORTANT: if you change it, you need to change $BUILD_TAGS_VERSION in Tags.pm
+
 %string_normalization_for_lang = (
 	# no_language is used for strings that are not in a specific language (e.g. user names)
 	no_language => {

@@ -414,7 +414,11 @@ build_taxonomies: create_folders
     # GITHUB_TOKEN might be empty, but if it's a valid token it enables pushing taxonomies to build cache repository
 	${DOCKER_COMPOSE} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl ${name}
 
-rebuild_taxonomies: build_taxonomies
+# a version where we force building without using cache
+# use it when you are developing in Tags.pm and want to iterate
+# at the end, change the $BUILD_TAGS_VERSION in Tags.pm
+rebuild_taxonomies:
+	${DOCKER_COMPOSE} run --no-deps --rm -e TAXONOMY_NO_GET_FROM_CACHE=1 backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl ${name}
 
 build_taxonomies_test: create_folders
 	@echo "🥫 build taxonomies"

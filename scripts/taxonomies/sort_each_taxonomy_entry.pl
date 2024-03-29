@@ -123,16 +123,18 @@ sub iter_taxonomy_entries ($lines_iter) {
 				# if we already have an entry id, parent are not at the good position,
 				# and it might mean two entries where merged inadvertantly (eg. by an auto merge)
 				if ($entry_id_line) {
-					push (@errors,
+					push(
+						@errors,
 						{
-						severity => "Error",
-						type => "Correctness",
-						line => $line_num,
-						message => (
-								  "Parent in the middle of an entry, might mean erroneous merge of two entries:\n"
-								. "- $line"
-						)
-					});
+							severity => "Error",
+							type => "Correctness",
+							line => $line_num,
+							message => (
+									  "Parent in the middle of an entry, might mean erroneous merge of two entries:\n"
+									. "- $line"
+							)
+						}
+					);
 				}
 				push @parents, {line => $line, previous => [@previous_lines], line_num => $line_num};
 				@previous_lines = ();
@@ -177,17 +179,19 @@ sub iter_taxonomy_entries ($lines_iter) {
 				my $prop = $1;
 				my $lc = $2;
 				if (defined $props{"$prop:$lc"}) {
-					push (@errors,
+					push(
+						@errors,
 						{
-						severity => "Error",
-						type => "Correctness",
-						line => $line_num,
-						message => (
-								  "duplicate property value for $prop:$lc:\n" . "- "
-								. $props{"$prop:$lc"}->{line}
-								. "- $line"
-						)
-						});
+							severity => "Error",
+							type => "Correctness",
+							line => $line_num,
+							message => (
+									  "duplicate property value for $prop:$lc:\n" . "- "
+									. $props{"$prop:$lc"}->{line}
+									. "- $line"
+							)
+						}
+					);
 				}
 				# override to continue
 				$props{"$prop:$lc"} = {line => $line, previous => [@previous_lines], line_num => $line_num};
@@ -223,7 +227,7 @@ sub canonicalize_entry_properties($entry_ref, $is_check) {
 			# check values exists in taxonomy and canonicalize
 			my @canon_values = ();
 			my @not_found = ();
-			my %different = ();  # better track it to display only differing values
+			my %different = ();    # better track it to display only differing values
 			foreach my $v (@values) {
 				my $exists;
 				my $canon_value = canonicalize_taxonomy_tag($lc, $property, $v, \$exists);
@@ -233,16 +237,19 @@ sub canonicalize_entry_properties($entry_ref, $is_check) {
 			}
 			if (@not_found) {
 				my $not_found = join(",", @not_found);
-				push(@errors, {
-					severity => "Warning",
-					type => "Consistency",
-					entry_start_line => $entry_ref->{start_line},
-					entry_id_line => $entry_ref->{entry_id_line},
-					message => (
-								"Values $not_found do not exists in taxonomy, at $props{$prop_name}{line_num}\n"
-							. "- $props{$prop_name}{line}"
-					),
-				});
+				push(
+					@errors,
+					{
+						severity => "Warning",
+						type => "Consistency",
+						entry_start_line => $entry_ref->{start_line},
+						entry_id_line => $entry_ref->{entry_id_line},
+						message => (
+								  "Values $not_found do not exists in taxonomy, at $props{$prop_name}{line_num}\n"
+								. "- $props{$prop_name}{line}"
+						),
+					}
+				);
 			}
 			if (%different) {
 				if ($is_check) {
@@ -255,9 +262,9 @@ sub canonicalize_entry_properties($entry_ref, $is_check) {
 							entry_start_line => $entry_ref->{start_line},
 							entry_id_line => $entry_ref->{entry_id_line},
 							message => (
-									  "Property $prop_name is not canonical, at $props{$prop_name}{line_num}\n"
-									. "- " . join(", ", keys %different) . "\n"
-									. "- " . join(", ", values %different) . "\n"
+									  "Property $prop_name is not canonical, at $props{$prop_name}{line_num}\n" . "- "
+									. join(", ", keys %different) . "\n" . "- "
+									. join(", ", values %different) . "\n"
 							),
 						}
 					);
