@@ -79,7 +79,7 @@ use File::Tail;
 use Test::Fake::HTTPD;
 use Minion;
 
-no  warnings qw(experimental::signatures);
+no warnings qw(experimental::signatures);
 
 # Constants of the test website main domain and url
 # Should be used internally only (see: construct_test_url to build urls in tests)

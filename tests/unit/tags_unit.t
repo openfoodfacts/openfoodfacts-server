@@ -33,8 +33,8 @@ use ProductOpener::Tags qw/get_lc_tagid/;
 				return $tagid;
 			}
 
-			]
-		);
+		]
+	);
 
 	# this would be the section of %synonyms for our tagtype (categories)
 	my $synonyms_ref = {

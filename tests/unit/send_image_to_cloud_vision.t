@@ -37,15 +37,15 @@ my $image_path = dirname(__FILE__) . "/inputs/small-img.jpg";
 	#my $user_agent_module = Test::MockModule->new('LWP::UserAgent');
 	## mock request
 	#$user_agent_module->mock('request', \&fake_ua_request);
-my @ua_requests = ();
-# put responses for call to requests here, we will pop first
-my @ua_responses = ();
+	my @ua_requests = ();
+	# put responses for call to requests here, we will pop first
+	my @ua_responses = ();
 
 	# mock request
 	my $user_agent_module = mock 'LWP::UserAgent' => (
 		override => [
 			request => sub {
-				my ( $ua, $request_ref ) = (shift, shift);
+				my ($ua, $request_ref) = (shift, shift);
 				push(@ua_requests, $request_ref);
 				return shift @ua_responses;
 			}

@@ -7,7 +7,7 @@ use utf8;
 
 use Test2::V0;
 use Data::Dumper;
-$Data::Dumper::Terse=1;
+$Data::Dumper::Terse = 1;
 
 my $tap = Test2::Formatter::TAP->new();
 binmode $tap->encoding('utf8');

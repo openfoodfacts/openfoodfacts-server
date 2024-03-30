@@ -375,11 +375,11 @@ sub compare_to_expected_results ($object_ref, $expected_results_file, $update_ex
 				$title = $test_ref->{desc} // $test_ref->{test_case} // $test_ref->{id};
 				$title = undef unless $title;
 			}
-			is($object_ref, $expected_object_ref, $title) or diag(Dumper ($test_ref), Dumper($object_ref));
+			is($object_ref, $expected_object_ref, $title) or diag(Dumper($test_ref), Dumper($object_ref));
 		}
 		else {
 			fail("could not load $expected_results_file");
-			diag(Dumper ($test_ref), Dumper($object_ref));
+			diag(Dumper($test_ref), Dumper($object_ref));
 		}
 	}
 
@@ -438,7 +438,7 @@ sub compare_file_to_expected_results ($content_str, $expected_results_file, $upd
 		}
 		else {
 			fail("could not load $expected_results_file");
-			diag(Dumper ($test_ref), Dumper ($content_str));
+			diag(Dumper($test_ref), Dumper($content_str));
 		}
 	}
 

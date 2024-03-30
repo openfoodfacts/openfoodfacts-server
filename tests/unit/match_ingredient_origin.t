@@ -2,7 +2,7 @@ use ProductOpener::PerlStandards;
 
 use Test2::V0;
 use Data::Dumper;
-$Data::Dumper::Terse=1;
+$Data::Dumper::Terse = 1;
 use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Ingredients qw/match_ingredient_origin init_origins_regexps/;

@@ -35,13 +35,13 @@ sub do_mock ($brevo_api_key, $list_id, $code, $msg, $response) {
 	# Mock LWP::UserAgent to check our request parameters to brevo are correct and simulate a success
 	my $mocked_ua = mock 'LWP::UserAgent' => (
 		override => [
-		'request' => sub {
-			my ($self, $request) = @_;
-			# store sent request to verify it in test
-			$request_headers = $request->headers();
-			$request_content = $request->content;
-			return HTTP::Response->new($code, $msg, HTTP::Headers->new(), $response);
-		}
+			'request' => sub {
+				my ($self, $request) = @_;
+				# store sent request to verify it in test
+				$request_headers = $request->headers();
+				$request_content = $request->content;
+				return HTTP::Response->new($code, $msg, HTTP::Headers->new(), $response);
+			}
 		]
 	);
 	return ($mocked_ua, $mocked_brevo);

@@ -2,12 +2,12 @@
 
 use Modern::Perl '2017';
 no warnings qw(experimental::signatures);
- 
+
 use utf8;
 
 use Test2::V0;
 use Data::Dumper;
-$Data::Dumper::Terse=1;
+$Data::Dumper::Terse = 1;
 use Log::Any::Adapter 'TAP';
 
 use JSON::PP;
@@ -220,8 +220,6 @@ foreach my $test_ref (@tests) {
 	walk $product_ref, sub {return unless defined $_[0]; $_[0] =~ s/https?:\/\/([^\/]+)\//https:\/\/server_domain\//;};
 
 	# Save the result
-
-
 
 	if ($update_expected_results) {
 		open(my $result, ">:encoding(UTF-8)", "$expected_result_dir/$testid.json")

@@ -5,8 +5,8 @@ use utf8;
 
 use Test2::V0;
 use Data::Dumper;
-$Data::Dumper::Terse=1;
-use Test::Files;   # compliant Test2
+$Data::Dumper::Terse = 1;
+use Test::Files;    # compliant Test2
 use File::Spec;
 use Log::Any::Adapter 'TAP';
 

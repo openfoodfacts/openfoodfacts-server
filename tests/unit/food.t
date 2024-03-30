@@ -5,7 +5,7 @@ use utf8;
 
 use Test2::V0;
 use Data::Dumper;
-$Data::Dumper::Terse=1;
+$Data::Dumper::Terse = 1;
 use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Tags qw/exists_taxonomy_tag has_tag/;

@@ -61,7 +61,7 @@ foreach my $test_ref (@tests) {
 	my $import_module = mock 'ProductOpener::Import' => (
 		override => [
 			# mock download image to fetch image in inputs_dir
-			'download_image' =>  \&fake_download_image
+			'download_image' => \&fake_download_image
 		]
 	);
 

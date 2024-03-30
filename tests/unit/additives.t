@@ -5,7 +5,7 @@ use utf8;
 
 use Test2::V0;
 use Data::Dumper;
-$Data::Dumper::Terse=1;
+$Data::Dumper::Terse = 1;
 use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Products qw/compute_languages/;
@@ -146,8 +146,7 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-is($product_ref->{additives_original_tags}, ['en:e965ii', 'en:e140i', 'en:e141ii', 'en:e160aii', 'en:e160aiv',],
-);
+is($product_ref->{additives_original_tags}, ['en:e965ii', 'en:e140i', 'en:e141ii', 'en:e160aii', 'en:e160aiv',],);
 
 $product_ref = {
 	lc => "fr",
@@ -166,10 +165,7 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-0 and is(
-	$product_ref->{additives_original_tags},
-	['en:e100', 'en:e120', 'en:e330', 'en:e331', 'en:e100', 'en:e102',],
-);
+0 and is($product_ref->{additives_original_tags}, ['en:e100', 'en:e120', 'en:e330', 'en:e331', 'en:e100', 'en:e102',],);
 
 $product_ref = {
 	lc => "fr",
@@ -554,10 +550,7 @@ is($product_ref->{additives_original_tags}, ["en:e300",],);
 
 is($product_ref->{minerals_tags}, ["en:mineral", "en:calcium", "en:iron", "en:magnesium",],);
 
-is(
-	$product_ref->{vitamins_tags},
-	["en:vitamin-e", "en:thiamin", "en:riboflavin", "en:vitamin-b6", "en:folic-acid",],
-);
+is($product_ref->{vitamins_tags}, ["en:vitamin-e", "en:thiamin", "en:riboflavin", "en:vitamin-b6", "en:folic-acid",],);
 
 $product_ref = {
 	lc => "en",
@@ -912,8 +905,7 @@ extract_ingredients_classes_from_text($product_ref);
 
 diag Dumper $product_ref->{additives};
 
-is($product_ref->{additives_original_tags}, ['en:e414', 'en:e412', 'en:e336', 'en:e500', 'en:e440', 'en:e330',],
-);
+is($product_ref->{additives_original_tags}, ['en:e414', 'en:e412', 'en:e336', 'en:e500', 'en:e440', 'en:e330',],);
 
 $product_ref = {
 	lc => "fr",
@@ -1001,9 +993,6 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-is(
-	$product_ref->{additives_original_tags},
-	['en:e414', 'en:e420', 'en:e965ii', 'en:e950', 'en:e330', 'en:e901',],
-);
+is($product_ref->{additives_original_tags}, ['en:e414', 'en:e420', 'en:e965ii', 'en:e950', 'en:e330', 'en:e901',],);
 
 done_testing();

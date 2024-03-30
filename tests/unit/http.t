@@ -7,7 +7,6 @@ use Log::Any::Adapter 'TAP';
 
 use ProductOpener::HTTP qw/get_cors_headers/;
 
-
 {
 
 	# mock download image to fetch image in inputs_dir

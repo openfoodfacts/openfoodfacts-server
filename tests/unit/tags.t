@@ -4,7 +4,7 @@ use ProductOpener::PerlStandards;
 
 use Test2::V0;
 use Data::Dumper;
-$Data::Dumper::Terse=1;
+$Data::Dumper::Terse = 1;
 #use Log::Any::Adapter 'TAP', filter => "none";
 
 use ProductOpener::Tags qw/:all/;
@@ -338,11 +338,7 @@ is(get_inherited_property("test", "en:fake-duck-meat", "carbon_footprint_fr_food
 
 is(get_inherited_properties("test", "fr:yaourts-au-citron-alleges", []),
 	{}, "Getting an empty list of property returns an empty hashmap");
-is(
-	get_inherited_properties("test", "en:fake-meat", ["vegan:en"]),
-	{"vegan:en" => "yes"},
-	"Getting only one property"
-);
+is(get_inherited_properties("test", "en:fake-meat", ["vegan:en"]), {"vegan:en" => "yes"}, "Getting only one property");
 is(
 	get_inherited_properties("test", "en:lemon-yogurts", ["color:en", "description:fr", "non-existing", "another:fr"]),
 	{"color:en" => "yellow", "description:fr" => "un yaourt avec du citron"},
@@ -525,8 +521,7 @@ is(\@tags, ['en:mustard', 'en:sulphur-dioxide-and-sulphites']) or diag Dumper(\@
 is(canonicalize_taxonomy_tag("fr", "test", "yaourts au maracuja"), "en:passion-fruit-yogurts");
 is(canonicalize_taxonomy_tag("fr", "test", "yaourt banane"), "en:banana-yogurts");
 is(canonicalize_taxonomy_tag("fr", "test", "yogourts à la banane"), "en:banana-yogurts");
-is(canonicalize_taxonomy_tag("fr", "labels", "european v-label vegetarian"),
-	"en:european-vegetarian-union-vegetarian");
+is(canonicalize_taxonomy_tag("fr", "labels", "european v-label vegetarian"), "en:european-vegetarian-union-vegetarian");
 
 is(canonicalize_taxonomy_tag("fr", "labels", "pur jus"), "en:pure-juice");
 # should not be matched to "pur jus" in French and return "en:pure-juice"
@@ -706,8 +701,7 @@ $value =~ s/<(([^>]|\n)*)>//g;
 $product_ref->{"test"} = $value;
 compute_field_tags($product_ref, "fr", "test");
 
-is($product_ref->{test_tags},
-	['fr:french-entry', 'fr:french-entry-with-default-value', 'xx:language-less-entry'])
+is($product_ref->{test_tags}, ['fr:french-entry', 'fr:french-entry-with-default-value', 'xx:language-less-entry'])
 	or diag Dumper $product_ref->{test_tags};
 
 # Double synonym: zumo/jugo and soja/soya

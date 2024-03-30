@@ -7,7 +7,7 @@ use utf8;
 
 use Test2::V0;
 use Data::Dumper;
-$Data::Dumper::Terse=1;
+$Data::Dumper::Terse = 1;
 use Log::Any::Adapter 'TAP', filter => "none";
 #use Log::Any::Adapter 'TAP';
 
@@ -16,7 +16,6 @@ use ProductOpener::Tags qw/:all/;
 use ProductOpener::Ingredients qw/cut_ingredients_text_for_lang split_generic_name_from_ingredients/;
 use ProductOpener::ImportConvert qw/clean_fields/;
 use ProductOpener::Config qw/:all/;
-
 
 my @tests = (
 
@@ -322,11 +321,11 @@ $server_options{producers_platform} = 1;
 
 );
 
-
 # was ProductOpener::Ingredients::validate_regular_expressions()
 my %regexps = (
 	phrases_before_ingredients_list => \%ProductOpener::Ingredients::phrases_before_ingredients_list,
-	phrases_before_ingredients_list_uppercase => \%ProductOpener::Ingredients::phrases_before_ingredients_list_uppercase,
+	phrases_before_ingredients_list_uppercase =>
+		\%ProductOpener::Ingredients::phrases_before_ingredients_list_uppercase,
 	phrases_after_ingredients_list => \%ProductOpener::Ingredients::phrases_after_ingredients_list,
 	prefixes_before_dash => \%ProductOpener::Ingredients::prefixes_before_dash,
 	ignore_phrases => \%ProductOpener::Ingredients::ignore_phrases,
@@ -339,7 +338,7 @@ foreach my $list (sort keys %regexps) {
 		foreach my $regexp (@{$regexps{$list}{$language}}) {
 			eval {"test" =~ /$regexp/;};
 			is($@, "", "validate_regular_expressions");
-			diag ("validate_regular_expressions", {list => $list, l => $language, regexp => $regexp});
+			diag("validate_regular_expressions", {list => $list, l => $language, regexp => $regexp});
 		}
 	}
 }

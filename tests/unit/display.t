@@ -5,7 +5,7 @@ use utf8;
 
 use Test2::V0;
 use Data::Dumper;
-$Data::Dumper::Terse=1;
+$Data::Dumper::Terse = 1;
 use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Display qw/:all/;
@@ -161,37 +161,37 @@ my $facets_ref = {
 
 my $apache_util_module = mock 'Apache2::RequestUtil' => (
 	add => [
-	'request' => sub {
-		# Return a mock Apache request object
-		my $r = {};
-		bless $r, 'Apache2::RequestRec';
+		'request' => sub {
+			# Return a mock Apache request object
+			my $r = {};
+			bless $r, 'Apache2::RequestRec';
 
-		return $r;
-	},
+			return $r;
+		},
 	]
 );
 
 my $request_rec_module = mock 'Apache2::RequestRec' => (
 	add => [
-	'rflush' => sub {
-		# Do nothing, am just mocking the method
-	},
-	'status' => sub {
-		# Do nothing, am just mocking the method
-	},
-	'headers_out' => sub {
-		# Do nothing, am just mocking the method
+		'rflush' => sub {
+			# Do nothing, am just mocking the method
+		},
+		'status' => sub {
+			# Do nothing, am just mocking the method
+		},
+		'headers_out' => sub {
+			# Do nothing, am just mocking the method
 
-	},
+		},
 	]
 );
 
 my $display_module = mock 'ProductOpener::Display' => (
 	override => [
-	'redirect_to_url',
-	sub {
-		# Do nothing, am just mocking the method
-	}
+		'redirect_to_url',
+		sub {
+			# Do nothing, am just mocking the method
+		}
 	]
 );
 

@@ -5,7 +5,7 @@ use utf8;
 
 use Test2::V0;
 use Data::Dumper;
-$Data::Dumper::Terse=1;
+$Data::Dumper::Terse = 1;
 use Log::Any::Adapter 'TAP', filter => "info";
 
 use ProductOpener::Products qw/:all/;

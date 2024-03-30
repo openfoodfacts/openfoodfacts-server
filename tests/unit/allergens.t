@@ -5,7 +5,7 @@ use utf8;
 
 use Test2::V0;
 use Data::Dumper;
-$Data::Dumper::Terse=1;
+$Data::Dumper::Terse = 1;
 use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Products qw/compute_languages/;
@@ -24,7 +24,7 @@ my $product_ref = {
 compute_languages($product_ref);
 detect_allergens_from_text($product_ref);
 
-diag Dumper( $product_ref->{allergens_tags} );
+diag Dumper($product_ref->{allergens_tags});
 
 is(
 	$product_ref->{allergens_tags},
@@ -32,7 +32,7 @@ is(
 		'en:celery', 'en:crustaceans', 'en:eggs', 'en:fish', 'en:gluten', 'en:milk',
 		'en:molluscs', 'en:mustard', 'en:nuts',
 	]
-) || diag Dumper ($product_ref->{allergens_tags});
+) || diag Dumper($product_ref->{allergens_tags});
 
 is($product_ref->{traces_tags}, ['en:lupin', 'en:peanuts', 'en:sesame-seeds', 'en:soybeans',]);
 
@@ -65,7 +65,7 @@ detect_allergens_from_text($product_ref);
 
 is($product_ref->{allergens_tags}, ["en:celery", "en:gluten", "en:lupin", "en:mustard", "en:soybeans",]);
 
-diag Dumper( $product_ref->{allergens_tags} );
+diag Dumper($product_ref->{allergens_tags});
 
 is($product_ref->{traces_tags}, ["en:fish", "en:nuts", "en:peanuts",]);
 
@@ -114,7 +114,7 @@ $product_ref = {
 compute_languages($product_ref);
 detect_allergens_from_text($product_ref);
 
-diag Dumper ($product_ref->{allergens_tags});
+diag Dumper($product_ref->{allergens_tags});
 
 is($product_ref->{allergens_tags}, ['en:molluscs',]);
 
@@ -127,7 +127,7 @@ $product_ref = {
 compute_languages($product_ref);
 detect_allergens_from_text($product_ref);
 
-diag Dumper ($product_ref->{allergens_tags});
+diag Dumper($product_ref->{allergens_tags});
 
 is($product_ref->{allergens_tags}, ['en:molluscs',]);
 
@@ -140,7 +140,7 @@ $product_ref = {
 compute_languages($product_ref);
 detect_allergens_from_text($product_ref);
 
-diag Dumper ( $product_ref->{allergens_tags} );
+diag Dumper($product_ref->{allergens_tags});
 
 is($product_ref->{allergens_tags}, ['en:molluscs',]);
 
@@ -153,7 +153,7 @@ $product_ref = {
 compute_languages($product_ref);
 detect_allergens_from_text($product_ref);
 
-diag Dumper ( $product_ref->{allergens_tags} );
+diag Dumper($product_ref->{allergens_tags});
 
 is($product_ref->{allergens_tags}, ['en:molluscs',]);
 
@@ -166,7 +166,7 @@ $product_ref = {
 compute_languages($product_ref);
 detect_allergens_from_text($product_ref);
 
-diag Dumper ( $product_ref->{allergens_tags} );
+diag Dumper($product_ref->{allergens_tags});
 
 is($product_ref->{allergens_tags}, ['en:gluten',]);
 
@@ -181,7 +181,7 @@ $product_ref = {
 compute_languages($product_ref);
 detect_allergens_from_text($product_ref);
 
-diag Dumper ( $product_ref->{allergens_tags} );
+diag Dumper($product_ref->{allergens_tags});
 
 is($product_ref->{allergens_tags}, ['en:gluten',]);
 
@@ -197,7 +197,7 @@ $product_ref = {
 compute_languages($product_ref);
 detect_allergens_from_text($product_ref);
 
-diag Dumper ( $product_ref->{allergens_tags} );
+diag Dumper($product_ref->{allergens_tags});
 
 is($product_ref->{allergens_tags}, ['en:gluten', 'en:sulphur-dioxide-and-sulphites',]);
 

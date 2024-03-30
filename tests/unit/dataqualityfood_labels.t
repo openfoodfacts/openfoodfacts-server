@@ -5,7 +5,7 @@ use utf8;
 
 use Test2::V0;
 use Data::Dumper;
-$Data::Dumper::Terse=1;
+$Data::Dumper::Terse = 1;
 
 use ProductOpener::DataQuality qw/check_quality/;
 use ProductOpener::DataQualityFood qw/:all/;
