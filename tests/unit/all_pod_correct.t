@@ -9,8 +9,7 @@ use Path::Tiny;
 # files to inspect
 my $root = path($Bin)->parent(2);
 my @poddirs = map {$root->child($_)->canonpath} qw/lib cgi scripts/;
-my @podfiles = grep {!/_DAL_/ && !/local_lib/} 
-                    all_pod_files( @poddirs );
+my @podfiles = grep all_pod_files( @poddirs );
 
 
 foreach my $file (@podfiles) {
