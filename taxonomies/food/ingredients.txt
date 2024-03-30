@@ -6385,8 +6385,8 @@ ca:formatge de llet pasteuritzada
 es:queso de leche pasteurizada
 # fr:fromage-au-lait-pasteurisé has 55 products in 1 language @2018-10-28
 
-#<en:cheese
-#en:cheese powder
+<en:cheese
+en:cheese powder
 #en:processing:en:powder
 #bg:сирене на прах
 #ca:formatge en pols
@@ -18264,7 +18264,7 @@ pt:vinagre de álcool
 sv:ättiksprit
 
 <en:alcohol vinegar
-<en:vinegar powder
+#<en:vinegar powder
 en:alcohol vinegar powder
 fr:poudre de vinaigre d'alcool
 ro:oţet praf din alcool, otet praf din alcool
@@ -21192,30 +21192,24 @@ hu:bodza aroma
 
 <en:flavouring
 en:ketchup flavouring
-hr:aroma kečapa
+hr:aroma kečapa, okus kečapa
 de:Ketchup-Aroma
 es:aroma de ketchup
-fi:ketsuppiaromi
+fi:ketsuppiaromi, ketsuppimaku
 fr:arôme de ketchup
-hu:ketchup aroma
-it:aroma di ketchup
-nl:ketchuparoma
-ro:aromă de ketchup
+hu:ketchup aroma, ketchup íz
+it:aroma di ketchup, sapore di ketchup
+nl:ketchuparoma, ketchupsmaak
+ro:aromă de ketchup, gust de ketchup
 bg:кетчуп аромат
 cs:chuť kečupu
 da:ketchupsmag
 el:αρωματική ύφεση κέτσαπ
 et:ketsupiaroom
-fi:ketsuppimaku
-hr:okus kečapa
-hu:ketchup íz
-it:sapore di ketchup
 lt:ketchup skonis
 lv:ketchup garša
-nl:ketchupsmaak
 pl:smak ketchupu
 pt:sabor de ketchup
-ro:gust de ketchup
 sk:chuť kečupu
 sl:ketchup okus
 sv:ketchupsmak
@@ -37605,7 +37599,7 @@ et:jõhvikas, harilik jõhvikas
 fa:کرنبری
 fi:karpalo, karpalot
 fo:tranuber
-fr:airelles, cranberries, cranberry, cranberrys, canneberge, Canneberge crue, Cranberry crue
+fr:canneberge, cranberries, cranberry, cranberrys, Canneberge crue, Cranberry crue
 ga:mónóg
 gl:arandeira vermella
 gv:smeyr churree
@@ -39382,11 +39376,10 @@ en:Granny smith apple juice
 
 <en:apple juice
 <en:apple puree
-fr:Jus et purée de pomme
+fr:jus et purée de pomme
 
-<en:organic apple juice
-<en:organic apple puree
-fr:Jus et purée de pomme biologiques
+<fr:jus et purée de pomme
+fr:jus et purée de pomme biologiques
 
 
 #is compound: en:apple
@@ -41848,7 +41841,7 @@ cs:Borůvka
 da:bølle
 de:Heidelbeeren, Blaubeeren
 eo:mirtelo
-es:arándano
+es:arándano, arándanos, mirtilo
 et:mustikas, mustikad
 fa:بیل‌بری
 fi:mustikka
@@ -41942,7 +41935,6 @@ pl:borówka dzika, borówki dzikie
 #processing:en: en:juice
 <en:blueberry
 en:blueberry juice
-#de:Preiselbeersaft
 #es:Jugo de zarzamora
 #fi:mustikkamehu
 #fr:jus de myrtille
@@ -43749,11 +43741,11 @@ ciqual_food_name:fr:Kiwi, pulpe et graines, cru
 
 #processing:en: en:juice
 #processing:en: en:from concentrate
-<en:kiwi juice
-en:kiwi juice from concentrate
-de:Kiwisaft aus Kiwisaftkonzentrat
-fr:jus de kiwi à base de concentré
-pl:sok z koncentratu z kiwi
+#<en:kiwi juice
+#en:kiwi juice from concentrate
+#de:Kiwisaft aus Kiwisaftkonzentrat
+#fr:jus de kiwi à base de concentré
+#pl:sok z koncentratu z kiwi
 
 # No products
 
@@ -43776,12 +43768,12 @@ pl:sok z koncentratu z kiwi
 en:lingonberry, lingonberries, cowberry, cowberries, foxberry, foxberries, mountain cranberry, mountain cranberries, red whortleberry, red whortleberries
 ca:nabius
 da:tyttebær
-de:Preiselbeeren
-es:Arándanos agrios,arándanos
+de:Preiselbeere, Preiselbeeren
+es:Arándanos agrios
 et:pohl
 fi:Puolukka
-fr:myrtille rouge
-it:Mirtilli rossi
+fr:airelle, airelles, airelle rouge, airelles rouges
+it:mirtillo rosso, mirtilli rossi
 la:Vaccinium vitis-idaea
 lb:rout Molbier
 lt:Bruknė
@@ -43794,6 +43786,11 @@ sv:lingon
 # 7 products @2018-10-01
 eurocode_2_group_3:en: 9.30.44
 
+<en:lingonberry
+en:wild lingonberry, wild lingonberries
+de:Wild-Preiselbeere, Wild-Preiselbeeren, Wildpreiselbeere, Wildpreiselbeeren
+fr:airelle sauvage, airelles sauvages
+
 # No products
 # <en:fruit
 # fr:purée de myrtille rouge
@@ -43803,6 +43800,7 @@ eurocode_2_group_3:en: 9.30.44
 en:lingonberry juice
 de:Preiselbeersaft
 fi:puolukkamehu, puolukkatäysmehu
+fr:jus d'airelle, jus d'airelles, jus d'airelle rouge, jus d'airelles rouges
 sv:lingonjuice
 
 <en:fruit
@@ -43947,7 +43945,6 @@ de:Rambutan
 es:rambután
 fr:Ramboutan, Litchi chevelu
 it:rambutan
-es:rambután
 
 <en:fruit
 en:longan
@@ -53635,8 +53632,8 @@ sv:potatismjöl
 <fr:Pommes de terre de consommation à chair ferme
 fr:Pommes de terre de consommation à chair ferme bio
 
-<en:organic potato
-en:organic potato from France
+<en:potato
+en:organic potatos from France
 fr:Pommes de terre biologiques origine France
 
 <en:potato
@@ -81326,7 +81323,6 @@ ar:بن قصبي
 ca:Cafè robust
 cs:Kávovník statný
 de:Robusta-Kaffee
-en:Coffea canephora
 eo:Fortika kofeo
 es:Coffea canephora
 et:Kongo kohvipuu
@@ -83793,8 +83789,7 @@ nl:scharrelei-eiwitpoeder, scharreleiwitpoeder
 
 <en:egg white powder
 # en:processing:powder
-nl:vrije uitloopeiwitpoeder
-nl:vrije-uitloopei-eiwitpoeder, vrije uitloopeiwitpoeder
+nl:vrije uitloopeiwitpoeder, vrije-uitloopei-eiwitpoeder, vrije uitloopeiwitpoeder
 
 <en:egg white powder
 fr:blanc d'oeuf en poudre de poules élevées au sol
@@ -88781,6 +88776,7 @@ de:preiselbeermarmelade
 es:mermelada de arándano rojo
 et:pohlamoos
 fi:puolukkahillo
+fr:confiture d'airelle
 id:selai lingonberry
 ja:リンゴンベリー・ジャム
 ko:월귤잼

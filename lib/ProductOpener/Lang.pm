@@ -42,14 +42,12 @@ BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		$lc
-		$text_direction
 
 		%tag_type_singular
 		%tag_type_from_singular
 		%tag_type_plural
 		%tag_type_from_plural
 		%Lang
-		%CanonicalLang
 		%Langs
 		@Langs
 
@@ -67,9 +65,9 @@ BEGIN {
 
 use vars @EXPORT_OK;
 use ProductOpener::I18N;
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Store qw/get_string_id_for_lang retrieve/;
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die/;
 
 use DateTime;
 use DateTime::Locale;

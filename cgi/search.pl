@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2024 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -26,19 +26,18 @@ use CGI::Carp qw(fatalsToBrowser);
 use CGI qw/:cgi :form escapeHTML/;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
+use ProductOpener::Store qw/get_string_id_for_lang/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::HTTP qw/:all/;
-use ProductOpener::Users qw/:all/;
-use ProductOpener::Products qw/:all/;
-use ProductOpener::Food qw/:all/;
+use ProductOpener::HTTP qw/write_cors_headers/;
+use ProductOpener::Users qw/$Owner_id/;
+use ProductOpener::Products qw/normalize_code normalize_search_terms product_exists product_id_for_owner product_url/;
+use ProductOpener::Food qw/%nutriments_lists/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::PackagerCodes qw/:all/;
-use ProductOpener::Text qw/:all/;
-use ProductOpener::Lang qw/:all/;
-use ProductOpener::Web qw/:all/;
+use ProductOpener::PackagerCodes qw/normalize_packager_codes/;
+use ProductOpener::Text qw/remove_tags_and_quote/;
+use ProductOpener::Lang qw/$lc %Lang %tag_type_singular lang/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;

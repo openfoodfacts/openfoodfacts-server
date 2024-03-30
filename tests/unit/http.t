@@ -6,7 +6,7 @@ use Test::More;
 use Log::Any::Adapter 'TAP';
 use Test::MockModule;
 
-use ProductOpener::HTTP qw/:all/;
+use ProductOpener::HTTP qw/get_cors_headers/;
 
 # fake request
 sub fake_request ($fake_arg) {

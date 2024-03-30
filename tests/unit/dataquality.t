@@ -5,8 +5,8 @@ use utf8;
 
 use Test::More;
 
-use ProductOpener::DataQuality qw/:all/;
-use ProductOpener::Tags qw/:all/;
+use ProductOpener::DataQuality qw/check_quality/;
+use ProductOpener::Tags qw/has_tag/;
 
 sub check_quality_and_test_product_has_quality_tag($$$$) {
 	my $product_ref = shift;

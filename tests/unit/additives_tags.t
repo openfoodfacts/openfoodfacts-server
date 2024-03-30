@@ -7,7 +7,7 @@ use Test::More;
 use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Ingredients qw/:all/;
+use ProductOpener::Ingredients qw/extract_ingredients_classes_from_text/;
 use ProductOpener::Products qw/:all/;
 
 # dummy product for testing
@@ -39,7 +39,10 @@ my @tests = (
 	],
 	[{lc => "fr", ingredients_text => "Laitue, Carmine"}, []],
 	[
-		{lc => "fr", ingredients_text => "poudres à lever (carbonates acides d’ammonium et de sodium, acide citrique)"},
+		{
+			lc => "fr",
+			ingredients_text => "poudres à lever (carbonates acides d’ammonium et de sodium, acide citrique)"
+		},
 		["en:e503ii", "en:e500ii", "en:e330"]
 	],
 	[

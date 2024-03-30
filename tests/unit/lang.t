@@ -7,7 +7,7 @@ use Test::More;
 use Test2::Plugin::UTF8;
 use Log::Any::Adapter 'TAP';
 
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Lang qw/$lc  %Lang/;
 use ProductOpener::Config qw/:all/;
 
 sub test_links {
