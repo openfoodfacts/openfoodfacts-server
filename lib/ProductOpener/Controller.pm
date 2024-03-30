@@ -24,11 +24,20 @@ ProductOpener::Controller - manage a request lifecycle
 
 =head1 DESCRIPTION
 
-This module is an intermediary step for refactoring ProductOpener towards a modern
-MVC architecture.
-At this point no firm decision has been made about which Web framework will be used, so 
-this temporary module is a bare object managing a request lifecycle
-(previously it was mixed up with request/response information in the old huge 'Display.pm').
+This module is an intermediary step for refactoring ProductOpener
+towards a modern MVC architecture.  At this point no firm decision has
+been made about which Web framework will be used, so this temporary
+module is a bare object for managing a request lifecycle (previously it
+was mixed up with request/response information in the old huge
+'Display.pm').
+
+
+An instance of this class is created when receiving a new HTTP request;
+the instance is destroyed after the HTTP response has been sent.
+So do not store long-term information here.
+See also L<ProductOpener::App>.
+
+
 
 =cut
 
@@ -62,8 +71,166 @@ sub new ($class, $request_ref, $log) {
 	$self->{response} = ProductOpener::Response->new();
 
 
+	$self->TODO_SETUP_SUBDOMAIN;
+
+	$self->TODO_SETUP_USER;
+
+	return $self;
+}
 
 
+
+sub req($self) {
+	return $self->{request};
+}
+
+
+
+sub TODO_SETUP_USER ($self) {
+
+	my $error = ProductOpener::Users::init_user($self);
+	if ($error) {
+		# We were sent bad user_id / password credentials
+
+		# If it is an API v3 query, the error will be handled by API::process_api_request()
+		if ((defined $self->{api_version}) and ($self->{api_version} >= 3)) {
+			$log->debug(
+				"init_request - init_user error - API v3: continue",
+				{init_user_error => $self->{init_user_error}}
+			) if $log->is_debug();
+			add_error(
+				$self->{api_response},
+				{
+					message => {id => "invalid_user_id_and_password"},
+					impact => {id => "failure"},
+				},
+				403
+			);
+		}
+		# /cgi/auth.pl returns a JSON body
+		# for requests to /cgi/auth.pl, we will now return a JSON body, set in /cgi/auth.pl
+		elsif ($r->uri() =~ /\/cgi\/auth\.pl/) {
+			$log->debug(
+				"init_request - init_user error - /cgi/auth.pl: continue",
+				{init_user_error => $self->{init_user_error}}
+			) if $log->is_debug();
+		}
+		# Otherwise we return an error page in HTML (including for v0 / v1 / v2 API queries)
+		else {
+			$log->debug(
+				"init_request - init_user error - display error page",
+				{init_user_error => $self->{init_user_error}}
+			) if $log->is_debug();
+			display_error_and_exit($error, 403);
+		}
+	}
+
+	# %admin is defined in Config.pm
+	# admins can change permissions for all users
+	if (is_admin_user($User_id)) {
+		$admin = 1;
+	}
+	$self->{admin} = $admin;
+	# TODO: remove the $admin global variable, and use $self->{admin} instead.
+
+	$self->{moderator} = $User{moderator};
+	$self->{pro_moderator} = $User{pro_moderator};
+
+	# Producers platform: not logged in users, or users with no permission to add products
+
+	if (($server_options{producers_platform})
+		and not((defined $Owner_id) and (($Owner_id =~ /^org-/) or ($User{moderator}) or $User{pro_moderator})))
+	{
+		$styles .= <<CSS
+.hide-when-no-access-to-producers-platform {display:none}
+CSS
+			;
+	}
+	else {
+		$styles .= <<CSS
+.show-when-no-access-to-producers-platform {display:none}
+CSS
+			;
+	}
+
+	# Not logged in users
+
+	if (defined $User_id) {
+		$styles .= <<CSS
+.hide-when-logged-in {display:none}
+CSS
+			;
+	}
+	else {
+		$styles .= <<CSS
+.show-when-logged-in {display:none}
+CSS
+			;
+	}
+
+
+
+	# call format_subdomain($subdomain) only once
+	$formatted_subdomain = format_subdomain($subdomain);
+	$producers_platform_url = $formatted_subdomain . '/';
+
+	# If we are not already on the producers platform: add .pro
+	if ($producers_platform_url !~ /\.pro\.open/) {
+		$producers_platform_url =~ s/\.open/\.pro\.open/;
+	}
+
+	# Enable or disable user food preferences: used to compute attributes and to display
+	# personalized product scores and search results
+	if (((defined $options{product_type}) and ($options{product_type} eq "food"))) {
+		$self->{user_preferences} = 1;
+	}
+	else {
+		$self->{user_preferences} = 0;
+	}
+
+	if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
+		$show_ecoscore = 1;
+		$attributes_options_ref = {};
+		$knowledge_panels_options_ref = {};
+	}
+	else {
+		$show_ecoscore = 0;
+		$attributes_options_ref = {
+			skip_ecoscore => 1,
+			skip_forest_footprint => 1,
+		};
+		$knowledge_panels_options_ref = {
+			skip_ecoscore => 1,
+			skip_forest_footprint => 1,
+		};
+	}
+
+	if ($self->{admin}) {
+		$knowledge_panels_options_ref->{admin} = 1;
+	}
+	if ($User{moderator}) {
+		$knowledge_panels_options_ref->{moderator} = 1;
+	}
+	if ($server_options{producers_platform}) {
+		$knowledge_panels_options_ref->{producers_platform} = 1;
+	}
+
+	$log->debug(
+		"owner, org and user",
+		{
+			private_products => $server_options{private_products},
+			owner_id => $Owner_id,
+			user_id => $User_id,
+			org_id => $Org_id
+		}
+	) if $log->is_debug();
+
+
+}
+
+
+
+sub TODO_SETUP_SUBDOMAIN ($self) {
 
 	# sub-domain format:
 	#
@@ -247,17 +414,9 @@ sub new ($class, $request_ref, $log) {
 		}
 	) if $log->is_debug();
 
-
-
-
-	return $self;
 }
 
 
-
-sub req($self) {
-	return $self->{request};
-}
 
 
 

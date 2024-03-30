@@ -31,7 +31,7 @@ use ProductOpener::PerlStandards;
 use ProductOpener::Utils ();
 
 
-use CGI qw(referer); # qw(:cgi :cgi-lib :form escapeHTML');
+use CGI qw(referer user_agent param); # qw(:cgi :cgi-lib :form escapeHTML');
 use Apache2::RequestUtil ();
 use Apache2::RequestRec ();
 use Apache2::Const qw(:http :common);
@@ -69,337 +69,11 @@ sub new ($class, $initial_request_ref, $log) {
 	$self->{deny_all_robots_txt} = 0;
 
 
-	# CONTINUE HERE
-
-
 	my $r = Apache2::RequestUtil->request();
 	$self->{method} = $r->method();
 
 
-	# sub-domain format:
-	#
-	# [2 letters country code or "world"] -> set cc + default language for the country
-	# [2 letters country code or "world"]-[2 letters language code] -> set cc + lc
-	#
-	# Note: cc and lc can be overridden by query parameters
-	# (especially for the API so that we can use only one subdomain : api.openfoodfacts.org)
-
-	my $hostname = $r->hostname;
-	$subdomain = lc($hostname);
-
-	local $log->context->{hostname} = $hostname;
-	local $log->context->{ip} = remote_addr();
-	local $log->context->{query_string} = $self->{original_query_string};
-
-	$subdomain =~ s/\..*//;
-
-	$original_subdomain = $subdomain;    # $subdomain can be changed if there are cc and/or lc overrides
-
-	$log->debug("initializing request", {subdomain => $subdomain}) if $log->is_debug();
-
-	if ($subdomain eq 'world') {
-		($cc, $country, $lc) = ('world', 'en:world', 'en');
-	}
-	elsif (defined $country_codes{$subdomain}) {
-		# subdomain is the country code: fr.openfoodfacts.org, uk.openfoodfacts.org,...
-		local $log->context->{subdomain_format} = 1;
-
-		$cc = $subdomain;
-		$country = $country_codes{$cc};
-		$lc = $country_languages{$cc}[0];    # first official language
-
-		$log->debug("subdomain matches known country code",
-			{subdomain => $subdomain, lc => $lc, cc => $cc, country => $country})
-			if $log->is_debug();
-
-		if (not exists $Langs{$lc}) {
-			$log->debug("current lc does not exist, falling back to lc = en",
-				{subdomain => $subdomain, lc => $lc, cc => $cc, country => $country})
-				if $log->is_debug();
-			$lc = 'en';
-		}
-
-	}
-	elsif ($subdomain =~ /(.*?)-(.*)/) {
-		# subdomain contains the country code and the language code: world-fr.openfoodfacts.org, ch-it.openfoodfacts.org,...
-		local $log->context->{subdomain_format} = 2;
-		$log->debug("subdomain in cc-lc format - checking values",
-			{subdomain => $subdomain, lc => $lc, cc => $cc, country => $country})
-			if $log->is_debug();
-
-		if (defined $country_codes{$1}) {
-			$cc = $1;
-			$country = $country_codes{$cc};
-			$lc = $country_languages{$cc}[0];    # first official language
-			if (defined $language_codes{$2}) {
-				$lc = $2;
-				$lc =~ s/-/_/;    # pt-pt -> pt_pt
-			}
-
-			$log->debug("subdomain matches known country code",
-				{subdomain => $subdomain, lc => $lc, cc => $cc, country => $country})
-				if $log->is_debug();
-		}
-	}
-	elsif (defined $country_names{$subdomain}) {
-		local $log->context->{subdomain_format} = 3;
-		($cc, $country, $lc) = @{$country_names{$subdomain}};
-
-		$log->debug("subdomain matches known country name",
-			{subdomain => $subdomain, lc => $lc, cc => $cc, country => $country})
-			if $log->is_debug();
-	}
-	elsif ($self->{original_query_string} !~ /^api\//) {
-		# redirect
-		my $redirect_url
-			= get_world_subdomain()
-			. ($self->{script_name} ? $self->{script_name} . "?" : '/')
-			. $self->{original_query_string};
-		$log->info("request could not be matched to a known country, redirecting to world",
-			{subdomain => $subdomain, lc => $lc, cc => $cc, country => $country, redirect => $redirect_url})
-			if $log->is_info();
-		redirect_to_url($self, 302, $redirect_url);
-	}
-
-	$lc =~ s/_.*//;    # PT_PT doest not work yet: categories
-
-	if ((not defined $lc) or (($lc !~ /^\w\w(_|-)\w\w$/) and (length($lc) != 2))) {
-		$log->debug("replacing unknown lc with en", {lc => $lc}) if $log->debug();
-		$lc = 'en';
-	}
-
-	# If the language is equal to the first language of the country, but we are on a different subdomain, redirect to the main country subdomain. (fr-fr => fr)
-	if (    (defined $lc)
-		and (defined $cc)
-		and (defined $country_languages{$cc}[0])
-		and ($country_languages{$cc}[0] eq $lc)
-		and ($subdomain ne $cc)
-		and ($subdomain !~ /^(ssl-)?api/)
-		and ($r->method() eq 'GET')
-		and ($self->{original_query_string} !~ /^api\//))
-	{
-		# redirect
-		my $ccdom = format_subdomain($cc);
-		my $redirect_url
-			= $ccdom
-			. ($self->{script_name} ? $self->{script_name} . "?" : '/')
-			. $self->{original_query_string};
-		$log->info(
-			"lc is equal to first lc of the country, redirecting to countries main domain",
-			{subdomain => $subdomain, lc => $lc, cc => $cc, country => $country, redirect => $redirect_url}
-		) if $log->is_info();
-		redirect_to_url($self, 302, $redirect_url);
-	}
-
-	# Allow cc and lc overrides as query parameters
-	# do not redirect to the corresponding subdomain
-	my $cc_lc_overrides = 0;
-	my $param_cc = single_param('cc');
-	if ((defined $param_cc) and ((defined $country_codes{lc($param_cc)}) or (lc($param_cc) eq 'world'))) {
-		$cc = lc($param_cc);
-		$country = $country_codes{$cc};
-		$cc_lc_overrides = 1;
-		$log->debug("cc override from request parameter", {cc => $cc}) if $log->is_debug();
-	}
-	my $param_lc = single_param('lc');
-	if (defined $param_lc) {
-		# allow multiple languages in an ordered list
-		@lcs = split(/,/, lc($param_lc));
-		if (defined $language_codes{$lcs[0]}) {
-			$lc = $lcs[0];
-			$cc_lc_overrides = 1;
-			$log->debug("lc override from request parameter", {lc => $lc, lcs => \@lcs}) if $log->is_debug();
-		}
-		else {
-			@lcs = ($lc);
-		}
-	}
-	else {
-		@lcs = ($lc);
-	}
-	# change the subdomain if we have overrides so that links to product pages are properly constructed
-	if ($cc_lc_overrides) {
-		$subdomain = $cc;
-		if (not((defined $country_languages{$cc}[0]) and ($lc eq $country_languages{$cc}[0]))) {
-			$subdomain .= "-" . $lc;
-		}
-	}
-
-	# If lc is not one of the official languages of the country and if the request comes from
-	# a bot crawler, don't index the webpage (return an empty noindex HTML page)
-	# We also disable indexing for all subdomains that don't have the format world, cc or cc-lc
-	if ((!($lc ~~ $country_languages{$cc})) or $subdomain =~ /^(ssl-)?api/) {
-		# Use robots.txt with disallow: / for all agents
-		$self->{deny_all_robots_txt} = 1;
-
-		if ($self->{is_crawl_bot} eq 1) {
-			$self->{no_index} = 1;
-		}
-	}
-
-	# select the nutriment table format according to the country
-	$nutriment_table = $cc_nutriment_table{default};
-	if (exists $cc_nutriment_table{$cc}) {
-		$nutriment_table = $cc_nutriment_table{$cc};
-	}
-
-	if ($test) {
-		$subdomain =~ s/\.openfoodfacts/.test.openfoodfacts/;
-	}
-
-	$log->debug(
-		"URI parsed for additional information",
-		{
-			subdomain => $subdomain,
-			original_subdomain => $original_subdomain,
-			lc => $lc,
-			cc => $cc,
-			country => $country
-		}
-	) if $log->is_debug();
-
-	my $error = ProductOpener::Users::init_user($self);
-	if ($error) {
-		# We were sent bad user_id / password credentials
-
-		# If it is an API v3 query, the error will be handled by API::process_api_request()
-		if ((defined $self->{api_version}) and ($self->{api_version} >= 3)) {
-			$log->debug(
-				"init_request - init_user error - API v3: continue",
-				{init_user_error => $self->{init_user_error}}
-			) if $log->is_debug();
-			add_error(
-				$self->{api_response},
-				{
-					message => {id => "invalid_user_id_and_password"},
-					impact => {id => "failure"},
-				},
-				403
-			);
-		}
-		# /cgi/auth.pl returns a JSON body
-		# for requests to /cgi/auth.pl, we will now return a JSON body, set in /cgi/auth.pl
-		elsif ($r->uri() =~ /\/cgi\/auth\.pl/) {
-			$log->debug(
-				"init_request - init_user error - /cgi/auth.pl: continue",
-				{init_user_error => $self->{init_user_error}}
-			) if $log->is_debug();
-		}
-		# Otherwise we return an error page in HTML (including for v0 / v1 / v2 API queries)
-		else {
-			$log->debug(
-				"init_request - init_user error - display error page",
-				{init_user_error => $self->{init_user_error}}
-			) if $log->is_debug();
-			display_error_and_exit($error, 403);
-		}
-	}
-
-	# %admin is defined in Config.pm
-	# admins can change permissions for all users
-	if (is_admin_user($User_id)) {
-		$admin = 1;
-	}
-	$self->{admin} = $admin;
-	# TODO: remove the $admin global variable, and use $self->{admin} instead.
-
-	$self->{moderator} = $User{moderator};
-	$self->{pro_moderator} = $User{pro_moderator};
-
-	# Producers platform: not logged in users, or users with no permission to add products
-
-	if (($server_options{producers_platform})
-		and not((defined $Owner_id) and (($Owner_id =~ /^org-/) or ($User{moderator}) or $User{pro_moderator})))
-	{
-		$styles .= <<CSS
-.hide-when-no-access-to-producers-platform {display:none}
-CSS
-			;
-	}
-	else {
-		$styles .= <<CSS
-.show-when-no-access-to-producers-platform {display:none}
-CSS
-			;
-	}
-
-	# Not logged in users
-
-	if (defined $User_id) {
-		$styles .= <<CSS
-.hide-when-logged-in {display:none}
-CSS
-			;
-	}
-	else {
-		$styles .= <<CSS
-.show-when-logged-in {display:none}
-CSS
-			;
-	}
-
-	# call format_subdomain($subdomain) only once
-	$formatted_subdomain = format_subdomain($subdomain);
-	$producers_platform_url = $formatted_subdomain . '/';
-
-	# If we are not already on the producers platform: add .pro
-	if ($producers_platform_url !~ /\.pro\.open/) {
-		$producers_platform_url =~ s/\.open/\.pro\.open/;
-	}
-
-	# Enable or disable user food preferences: used to compute attributes and to display
-	# personalized product scores and search results
-	if (((defined $options{product_type}) and ($options{product_type} eq "food"))) {
-		$self->{user_preferences} = 1;
-	}
-	else {
-		$self->{user_preferences} = 0;
-	}
-
-	if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
-		$show_ecoscore = 1;
-		$attributes_options_ref = {};
-		$knowledge_panels_options_ref = {};
-	}
-	else {
-		$show_ecoscore = 0;
-		$attributes_options_ref = {
-			skip_ecoscore => 1,
-			skip_forest_footprint => 1,
-		};
-		$knowledge_panels_options_ref = {
-			skip_ecoscore => 1,
-			skip_forest_footprint => 1,
-		};
-	}
-
-	if ($self->{admin}) {
-		$knowledge_panels_options_ref->{admin} = 1;
-	}
-	if ($User{moderator}) {
-		$knowledge_panels_options_ref->{moderator} = 1;
-	}
-	if ($server_options{producers_platform}) {
-		$knowledge_panels_options_ref->{producers_platform} = 1;
-	}
-
-	$log->debug(
-		"owner, org and user",
-		{
-			private_products => $server_options{private_products},
-			owner_id => $Owner_id,
-			user_id => $User_id,
-			org_id => $Org_id
-		}
-	) if $log->is_debug();
-
-	# Set cc, lc and lcs in the request object
-	# Ideally, we should rely on those fields in the request object
-	# and remove the $lc, $cc and @lcs global variables
-	$self->{lc} = $lc;
-	$self->{cc} = $cc;
-	$self->{country} = $country;
-	$self->{lcs} = \@lcs;
+	$self->{hostname} = $r->hostname;
 
 	return $self;
 }
@@ -442,6 +116,329 @@ sub set_user_agent_request_ref_attributes ($self) {
 	$self->{is_denied_crawl_bot} = $is_denied_crawl_bot;
 	return;
 }
+
+
+=head2 request_param ($request_ref, $param_name)
+
+Return a request parameter. The parameter can be passed in the query string,
+as a POST multipart form data parameter, or in a POST JSON body
+
+=head3 Arguments
+
+=head4 Parameter name $param_name
+
+=head3 Return value
+
+A scalar value for the parameter, or undef if the parameter is not defined.
+
+=cut
+
+sub request_param ($request_ref, $param_name) {
+	my $cgi_param = scalar param($param_name);
+	if (defined $cgi_param) {
+		return decode utf8 => $cgi_param;
+	}
+	else {
+		return deep_get($request_ref, "body_json", $param_name);
+	}
+}
+
+
+
+#======================================================================
+# backcompat functions
+#======================================================================
+
+=head2 single_param ($param_name)
+
+CGI.pm param() function returns a list when called in a list context
+(e.g. when param() is an argument of a function, or the value of a field in a hash).
+This causes issues for function signatures that expect a scalar, and that may get passed an empty list
+if the parameter is not set.
+
+So instead of calling CGI.pm param() directly, we call single_param() to prefix it with scalar.
+
+=head3 Arguments
+
+=head4 CGI parameter name $param_name
+
+=head3 Return value
+
+A scalar value for the parameter, or undef if the parameter is not defined.
+
+=cut
+
+sub single_param ($param_name) {
+	return scalar param($param_name);
+}
+
+
+
+
+
+# Parameters that can be query filters passed as parameters
+# (GET query parameters, POST JSON body or from url facets),
+# in addition to tags fields.
+# It is safer to use a positive list, instead of just the %ignore_params list
+
+my %valid_params = (code => 1, creator => 1);
+
+sub TODO_add_params_to_query ($request_ref, $query_ref) {
+
+	$log->debug("add_params_to_query", {params => {CGI::Vars()}}) if $log->is_debug();
+
+	# nocache was renamed to no_cache
+	if (defined single_param('nocache')) {
+		param('no_cache', single_param('nocache'));
+	}
+
+	my $and = $query_ref->{"\$and"};
+
+	foreach my $field (list_all_request_params($request_ref)) {
+
+		$log->debug("add_params_to_query - field", {field => $field}) if $log->is_debug();
+
+		# skip params that are not query filters
+		next if (defined $ignore_params{$field});
+
+		if (($field eq "page") or ($field eq "page_size")) {
+			$request_ref->{$field} = single_param($field) + 0;    # Make sure we have a number
+		}
+
+		elsif ($field eq "sort_by") {
+			$request_ref->{$field} = single_param($field);
+		}
+
+		# Tags fields can be passed with taxonomy ids as values (e.g labels_tags=en:organic)
+		# or with values in a given language (e.g. labels_tags_fr=bio)
+
+		elsif ($field =~ /^(.*)_tags(_(\w\w))?/) {
+			my $tagtype = $1;
+			my $tag_lc = $lc;
+			if (defined $3) {
+				$tag_lc = $3;
+			}
+
+			# Possible values:
+			# xyz_tags=a
+			# xyz_tags=a,b	products with tag a and b
+			# xyz_tags=a|b	products with either tag a or tag b
+			# xyz_tags=-c	products without the c tag
+			# xyz_tags=a,b,-c,-d
+
+			my $values = remove_tags_and_quote(request_param($request_ref, $field));
+
+			$log->debug("add_params_to_query - tags param",
+				{field => $field, lc => $lc, tag_lc => $tag_lc, values => $values})
+				if $log->is_debug();
+
+			foreach my $tag (split(/,/, $values)) {
+
+				my $suffix = "_tags";
+
+				# If there is more than one criteria on the same field, we need to use a $and query
+				my $remove = 0;
+				if (defined $query_ref->{$tagtype . $suffix}) {
+					$remove = 1;
+					if (not defined $and) {
+						$and = [];
+					}
+					push @$and, {$tagtype . $suffix => $query_ref->{$tagtype . $suffix}};
+				}
+
+				my $not;
+				if ($tag =~ /^-/) {
+					$not = 1;
+					$tag = $';
+				}
+
+				# Multiple values separated by |
+				if ($tag =~ /\|/) {
+					my @tagids = ();
+					foreach my $tag2 (split(/\|/, $tag)) {
+						my $tagid2;
+						if (defined $taxonomy_fields{$tagtype}) {
+							$tagid2 = get_taxonomyid($tag_lc, canonicalize_taxonomy_tag($tag_lc, $tagtype, $tag2));
+							if ($tagtype eq 'additives') {
+								$tagid2 =~ s/-.*//;
+							}
+						}
+						else {
+							$tagid2 = get_string_id_for_lang("no_language", canonicalize_tag2($tagtype, $tag2));
+							# EU packager codes are normalized to have -ec at the end
+							if ($tagtype eq 'emb_codes') {
+								$tagid2 =~ s/-($ec_code_regexp)$/-ec/ie;
+							}
+						}
+						push @tagids, $tagid2;
+					}
+
+					$log->debug(
+						"add_params_to_query - tags param - multiple values (OR) separated by | ",
+						{field => $field, lc => $lc, tag_lc => $tag_lc, tag => $tag, tagids => \@tagids}
+					) if $log->is_debug();
+
+					if ($not) {
+						$query_ref->{$tagtype . $suffix} = {'$nin' => \@tagids};
+					}
+					else {
+						$query_ref->{$tagtype . $suffix} = {'$in' => \@tagids};
+					}
+				}
+				# Single value
+				else {
+					my $tagid;
+					if (defined $taxonomy_fields{$tagtype}) {
+						$tagid = get_taxonomyid($tag_lc, canonicalize_taxonomy_tag($tag_lc, $tagtype, $tag));
+						if ($tagtype eq 'additives') {
+							$tagid =~ s/-.*//;
+						}
+					}
+					else {
+						$tagid = get_string_id_for_lang("no_language", canonicalize_tag2($tagtype, $tag));
+						# EU packager codes are normalized to have -ec at the end
+						if ($tagtype eq 'emb_codes') {
+							$tagid =~ s/-($ec_code_regexp)$/-ec/ie;
+						}
+					}
+					$log->debug("add_params_to_query - tags param - single value",
+						{field => $field, lc => $lc, tag_lc => $tag_lc, tag => $tag, tagid => $tagid})
+						if $log->is_debug();
+
+					# if the value is "unknown", we need to add a condition on the field being empty
+					# warning: unknown is a value for pnns_groups_1 and 2
+					if (
+						(
+							($tagid eq get_string_id_for_lang($tag_lc, lang("unknown")))
+							or (
+								$tagid eq (
+									$tag_lc . ":"
+										. get_string_id_for_lang($tag_lc, lang_in_other_lc($tag_lc, "unknown"))
+								)
+							)
+						)
+						and ($tagtype !~ /^pnns_groups_/)
+						and ($tagtype ne "creator")
+						)
+					{
+						if ($not) {
+							$query_ref->{$tagtype . $suffix} = {'$nin' => [undef, []]};
+						}
+						else {
+							$query_ref->{$tagtype . $suffix} = {'$in' => [undef, []]};
+						}
+
+					}
+					# Normal single value (not unknown)
+					else {
+						if ($not) {
+							$query_ref->{$tagtype . $suffix} = {'$ne' => $tagid};
+						}
+						else {
+							$query_ref->{$tagtype . $suffix} = $tagid;
+						}
+					}
+				}
+
+				if ($remove) {
+					push @$and, {$tagtype . $suffix => $query_ref->{$tagtype . $suffix}};
+					delete $query_ref->{$tagtype . $suffix};
+					$query_ref->{"\$and"} = $and;
+				}
+			}
+		}
+
+		# Conditions on nutrients
+
+		# e.g. saturated-fat_prepared_serving=<3=0
+		# the parameter name is exactly the same as the key in the nutriments hash of the product
+
+		elsif ($field =~ /^(.*?)_(100g|serving)$/) {
+
+			# We can have multiple conditions, separated with a comma
+			# e.g. sugars_100g=>10,<=20
+
+			my $conditions = request_param($request_ref, $field);
+
+			$log->debug("add_params_to_query - nutrient conditions", {field => $field, conditions => $conditions})
+				if $log->is_debug();
+
+			foreach my $condition (split(/,/, $conditions)) {
+
+				# the field value is a number, possibly preceded by <, >, <= or >=
+
+				my $operator;
+				my $value;
+
+				if ($condition =~ /^(<|>|<=|>=)(\d.*)$/) {
+					$operator = $1;
+					$value = $2;
+				}
+				else {
+					$operator = '=';
+					$value = request_param($request_ref, $field);
+				}
+
+				$log->debug("add_params_to_query - nutrient condition",
+					{field => $field, condition => $condition, operator => $operator, value => $value})
+					if $log->is_debug();
+
+				my %mongo_operators = (
+					'<' => 'lt',
+					'<=' => 'lte',
+					'>' => 'gt',
+					'>=' => 'gte',
+				);
+
+				if ($operator eq '=') {
+					$query_ref->{"nutriments." . $field}
+						= $value + 0.0;    # + 0.0 to force scalar to be treated as a number
+				}
+				else {
+					if (not defined $query_ref->{$field}) {
+						$query_ref->{"nutriments." . $field} = {};
+					}
+					$query_ref->{"nutriments." . $field}{'$' . $mongo_operators{$operator}} = $value + 0.0;
+				}
+			}
+		}
+
+		# Exact match on a specific field (e.g. "code")
+		elsif (defined $valid_params{$field}) {
+
+			my $values = remove_tags_and_quote(request_param($request_ref, $field));
+
+			# Possible values:
+			# xyz=a
+			# xyz=a|b xyz=a,b xyz=a+b	products with either xyz a or xyz b
+
+			if ($values =~ /\||\+|,/) {
+				# Multiple values: construct a MongoDB $in query
+				my @values = split(/\||\+|,/, $values);
+				if ($field eq "code") {
+					# normalize barcodes: add missing leading 0s
+					$query_ref->{$field} = {'$in' => [map {normalize_code($_)} @values]};
+				}
+				else {
+					$query_ref->{$field} = {'$in' => \@values};
+				}
+			}
+			else {
+				# Single value
+				if ($field eq "code") {
+					$query_ref->{$field} = normalize_code($values);
+				}
+				else {
+					$query_ref->{$field} = $values;
+				}
+			}
+		}
+	}
+	return;
+}
+
+
+
 
 
 
