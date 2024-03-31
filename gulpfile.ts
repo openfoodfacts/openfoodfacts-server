@@ -43,19 +43,20 @@ export function attributesIcons() {
 export function css() {
   console.log("(re)building css");
 
-  return src(sassSrc).
-    pipe(init()).
-    pipe(
+  return src(sassSrc)
+    .pipe(init())
+    .pipe(
       sass({
         errLogToConsole: true,
         outputStyle: "expanded",
         includePaths: ["./node_modules/foundation-sites/scss"],
       }).on("error", sass.logError)
-    ).
-    pipe(minifyCSS()).
-    pipe(write(".")).
-    pipe(dest("./html/css/dist"));
+    )
+    .pipe(minifyCSS())
+    .pipe(write("."))
+    .pipe(dest("./html/css/dist"));
 }
+
 
 export function copyJs() {
   return src([
@@ -133,15 +134,16 @@ function copyCss() {
     "./node_modules/leaflet/dist/leaflet.css",
     "./node_modules/leaflet.markercluster/dist/MarkerCluster.css",
     "./node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css",
-    "./node_modules/@yaireo/tagify/dist/tagify.css",
+    // "./node_modules/@yaireo/tagify/dist/tagify.css", // This line should be commented out or removed
     "./node_modules/cropperjs/dist/cropper.css",
     "./node_modules/select2/dist/css/select2.min.css",
-  ]).
-    pipe(init()).
-    pipe(minifyCSS()).
-    pipe(write(".")).
-    pipe(dest("./html/css/dist"));
+  ])
+  .pipe(init())
+  .pipe(minifyCSS())
+  .pipe(write("."))
+  .pipe(dest("./html/css/dist"));
 }
+
 
 function copyImages() {
   return src(imagesSrc).pipe(dest("./html/css/dist"));
