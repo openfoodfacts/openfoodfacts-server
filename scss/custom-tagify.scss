@@ -1,0 +1,34 @@
+@import "../node_modules/@yaireo/tagify/src/tagify.scss";
+@import "variables"; 
+
+// Placeholder style for Tagify input
+.tagify__input::placeholder {
+  color: $dark;
+}
+
+// Hover state for Tagify tags
+.tagify__tag:hover {
+  background-color: $skyblue;
+  border-color: lighten($paleblue, 10%);
+}
+
+// Style for the remove button in tags
+.tagify__tag .tagify__tag__removeBtn {
+  background-color: $text-color-dark;
+}
+
+// Hover state for the remove button in tags
+.tagify__tag .tagify__tag__removeBtn:hover {
+  background-color: $off-pink;
+}
+
+// Hover state for dropdown items
+.tagify__dropdown__item--active,
+.tagify__dropdown__item:hover {
+  background-color: $skyblue;
+}
+
+// Style for dropdown items
+.tagify__dropdown__item {
+  border-color: $paleblue;
+}
