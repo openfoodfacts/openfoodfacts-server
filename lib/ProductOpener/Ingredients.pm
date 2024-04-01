@@ -4621,6 +4621,8 @@ my %phrases_before_ingredients_list = (
 
 	mk => ['Состојки',],
 
+	md => ['(I|i)ngrediente',],
+
 	nl => ['(I|i)ngredi(e|ë)nten', 'samenstelling', 'bestanddelen'],
 
 	nb => ['Ingredienser',],
@@ -4651,7 +4653,7 @@ my %phrases_before_ingredients_list = (
 
 	tr => ['(İ|i)çindekiler', 'içeriği',],
 
-	uz => ['tarkib',],
+	uz => ['tarkib', 'Mahsulot tarkibi',],
 
 	zh => ['配料', '成份',],
 
