@@ -25,15 +25,18 @@ use ProductOpener::PerlStandards;
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created/;
+use ProductOpener::Store qw/get_string_id_for_lang/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Lang qw/$lc lang/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Users qw/:all/;
-use ProductOpener::Images qw/:all/;
+use ProductOpener::Users qw/$Org_id $Owner_id $User_id %User/;
+use ProductOpener::Images
+	qw/get_code_and_imagefield_from_file_name is_protected_image process_image_crop process_image_upload scan_code/;
 use ProductOpener::Products qw/:all/;
-use ProductOpener::Text qw/:all/;
+use ProductOpener::Text qw/remove_tags_and_quote/;
+use ProductOpener::APIProductWrite qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -113,19 +116,19 @@ if (not defined $code) {
 			my $extension = lc($1);
 			$tmp_filename = get_string_id_for_lang("no_language", remote_addr() . '_' . $`);
 
-			(-e "$data_root/tmp") or mkdir("$data_root/tmp", 0755);
-			open(my $out, ">", "$data_root/tmp/$tmp_filename.$extension");
+			ensure_dir_created($BASE_DIRS{CACHE_TMP}) or display_error_and_exit("Missing path", 503);
+			open(my $out, ">", "$BASE_DIRS{CACHE_TMP}/$tmp_filename.$extension");
 			while (my $chunk = <$file>) {
 				print $out $chunk;
 			}
 			close($out);
 
-			$code = scan_code("$data_root/tmp/$tmp_filename.$extension");
+			$code = scan_code("$BASE_DIRS{CACHE_TMP}/$tmp_filename.$extension");
 			if (defined $code) {
 				$code = normalize_code($code);
 				$scanned_code = $code;
 			}
-			$tmp_filename = "$data_root/tmp/$tmp_filename.$extension";
+			$tmp_filename = "$BASE_DIRS{CACHE_TMP}/$tmp_filename.$extension";
 		}
 
 		# If we have a previous code, use it
@@ -172,13 +175,8 @@ my $product_id = product_id_for_owner($Owner_id, $code);
 
 my $interface_version = '20120622';
 
-# Create image directory if needed
-if (!-e "$www_root/images") {
-	mkdir("$www_root/images", 0755);
-}
-if (!-e "$www_root/images/products") {
-	mkdir("$www_root/images/products", 0755);
-}
+# Check that the image directory exists
+ensure_dir_created($BASE_DIRS{PRODUCTS_IMAGES}) or display_error_and_exit("Missing path", 503);
 
 if ($imagefield) {
 
@@ -199,19 +197,100 @@ if ($imagefield) {
 		exit(0);
 	}
 
-	if ((not defined $delete) or ($delete ne 'on')) {
+	my $product_ref = product_exists($product_id);    # returns 0 if not
 
-		my $product_ref = product_exists($product_id);    # returns 0 if not
+	if (not $product_ref) {
+		$log->info("product code does not exist yet, creating product", {code => $code});
+		$product_ref = init_product($User_id, $Org_id, $code, $country);
+		$product_ref->{interface_version_created} = $interface_version;
+		$product_ref->{lc} = $lc;
+		store_product($User_id, $product_ref, "Creating product (image upload)");
+	}
+	else {
+		$log->info("product code already exists", {code => $code});
+	}
 
-		if (not $product_ref) {
-			$log->info("product code does not exist yet, creating product", {code => $code});
-			$product_ref = init_product($User_id, $Org_id, $code, $country);
-			$product_ref->{interface_version_created} = $interface_version;
-			$product_ref->{lc} = $lc;
-			store_product($User_id, $product_ref, "Creating product (image upload)");
+	my $product_name = remove_tags_and_quote(product_name_brand_quantity($product_ref));
+	if ((not defined $product_name) or ($product_name eq "")) {
+		$product_name = $code;
+	}
+
+	my $product_url = product_url($product_ref);
+
+	$response_ref->{files}[0]{url} = $product_url;
+	$response_ref->{files}[0]{name} = $product_name;
+
+	# Some apps may be passing a full locale like imagefield=front_pt-BR
+	$imagefield =~ s/^(front|ingredients|nutrition|packaging|other)_(\w\w)-.*/$1_$2/;
+
+	# For apps that do not specify the language associated with the image, try to assign one
+	if ($imagefield =~ /^(front|ingredients|nutrition|packaging|other)$/) {
+		# If the product exists, use the main language of the product
+		# otherwise if the product was just created above, we will get the current $lc
+		$imagefield .= "_" . $product_ref->{lc};
+	}
+
+	$response_ref->{imagefield} = $imagefield;
+
+	my $imgid;
+	my $debug_string;
+
+	my $imagefield_or_filename = $imagefield;
+	(defined $tmp_filename) and $imagefield_or_filename = $tmp_filename;
+
+	my $imgid_returncode
+		= process_image_upload($product_id, $imagefield_or_filename, $User_id, time(), "image upload", \$imgid,
+		\$debug_string);
+
+	$log->debug(
+		"after process_image_upload",
+		{
+			imgid => $imgid,
+			imagefield => $imagefield,
+			$imgid_returncode => $imgid_returncode,
+			debug_string => $debug_string
 		}
-		else {
-			$log->info("product code already exists", {code => $code});
+	) if $log->is_debug();
+
+	$response_ref->{imgid} = $imgid;
+	if ($imgid > 0) {
+		$response_ref->{files}[0]{thumbnailUrl} = "/images/products/$path/$imgid.$thumb_size.jpg";
+	}
+
+	if ($imgid_returncode < 0) {
+		$response_ref->{status} = 'status not ok';
+		$response_ref->{error} = "error";
+		($imgid_returncode == -2) and $response_ref->{error} = "field imgupload_$imagefield not set";
+		($imgid_returncode == -3) and $response_ref->{error} = lang("image_upload_error_image_already_exists");
+		($imgid_returncode == -4) and $response_ref->{error} = lang("image_upload_error_image_too_small");
+		($imgid_returncode == -5) and $response_ref->{error} = lang("image_upload_error_could_not_read_image");
+
+		if (not $code_specified) {
+			# for jquery.fileupload-ui.js
+			if ($imgid_returncode == -3) {
+				$response_ref->{files}[0]{info} = $response_ref->{error};
+			}
+			else {
+				$response_ref->{files}[0]{error} = $response_ref->{error};
+			}
+		}
+
+		if (defined $debug_string) {
+			$response_ref->{debug} = $debug_string;
+		}
+	}
+	else {
+
+		my $image_data_ref = {
+			imgid => $imgid,
+			thumb_url => "$imgid.${thumb_size}.jpg",
+			crop_url => "$imgid.${crop_size}.jpg",
+		};
+
+		if ($User{moderator}) {
+			$product_ref = retrieve_product($product_id);
+			$image_data_ref->{uploader} = $product_ref->{images}{$imgid}{uploader};
+			$image_data_ref->{uploaded} = $product_ref->{images}{$imgid}{uploaded_t};
 		}
 
 		my $product_name = remove_tags_and_quote(product_name_brand_quantity($product_ref));
@@ -221,167 +300,81 @@ if ($imagefield) {
 
 		my $product_url = product_url($product_ref);
 
-		$response_ref->{files}[0]{url} = $product_url;
-		$response_ref->{files}[0]{name} = $product_name;
+		$response_ref->{status} = 'status ok';
+		$response_ref->{image} = $image_data_ref;
 
-		# Some apps may be passing a full locale like imagefield=front_pt-BR
-		$imagefield =~ s/^(front|ingredients|nutrition|packaging|other)_(\w\w)-.*/$1_$2/;
+		# Select the image
+		if (
+			($imagefield =~ /^(front|ingredients|nutrition|packaging)_/)
+			# Changed 2020-03-05: overwrite already selected images
+			# and ((not defined $product_ref->{images}{$imagefield}) or ($select_image))
+			# Changed 2020-04-20: don't overwrite selected images if the source is the product edit form
+			and (  (not defined single_param('source'))
+				or (single_param('source') ne "product_edit_form")
+				or (not defined $product_ref->{images}{$imagefield}))
+			and (not is_protected_image($product_ref, $imagefield) or $User{moderator})
 
-		# For apps that do not specify the language associated with the image, try to assign one
-		if ($imagefield =~ /^(front|ingredients|nutrition|packaging|other)$/) {
-			# If the product exists, use the main language of the product
-			# otherwise if the product was just created above, we will get the current $lc
-			$imagefield .= "_" . $product_ref->{lc};
+			)
+		{
+			$log->debug("selecting image", {imgid => $imgid, imagefield => $imagefield}) if $log->is_debug();
+			process_image_crop($User_id, $product_id, $imagefield, $imgid, 0, undef, undef, -1, -1, -1, -1, "full");
 		}
-
-		$response_ref->{imagefield} = $imagefield;
-
-		my $imgid;
-		my $debug_string;
-
-		my $imagefield_or_filename = $imagefield;
-		(defined $tmp_filename) and $imagefield_or_filename = $tmp_filename;
-
-		my $imgid_returncode
-			= process_image_upload($product_id, $imagefield_or_filename, $User_id, time(), "image upload", \$imgid,
-			\$debug_string);
-
-		$log->debug(
-			"after process_image_upload",
-			{
-				imgid => $imgid,
-				imagefield => $imagefield,
-				$imgid_returncode => $imgid_returncode,
-				debug_string => $debug_string
-			}
-		) if $log->is_debug();
-
-		$response_ref->{imgid} = $imgid;
-		if ($imgid > 0) {
-			$response_ref->{files}[0]{thumbnailUrl} = "/images/products/$path/$imgid.$thumb_size.jpg";
-		}
-
-		if ($imgid_returncode < 0) {
-			$response_ref->{status} = 'status not ok';
-			$response_ref->{error} = "error";
-			($imgid_returncode == -2) and $response_ref->{error} = "field imgupload_$imagefield not set";
-			($imgid_returncode == -3) and $response_ref->{error} = lang("image_upload_error_image_already_exists");
-			($imgid_returncode == -4) and $response_ref->{error} = lang("image_upload_error_image_too_small");
-			($imgid_returncode == -5) and $response_ref->{error} = lang("image_upload_error_could_not_read_image");
-
-			if (not $code_specified) {
-				# for jquery.fileupload-ui.js
-				if ($imgid_returncode == -3) {
-					$response_ref->{files}[0]{info} = $response_ref->{error};
+		# If the image type is "other" and we don't have a front image, assign it
+		# This is in particular for producers that send us many images without specifying their type: assume the first one is the front
+		elsif (
+			($imagefield =~ /^other/)
+			and (
+				(not defined $product_ref->{images}{"front_" . $product_ref->{lc}})
+				or (    (defined $previous_imgid)
+					and ($previous_imgid eq $product_ref->{images}{"front_" . $product_ref->{lc}}{imgid}))
+			)
+			)
+		{
+			$log->debug(
+				"selecting front image as we don't have one",
+				{
+					imgid => $imgid,
+					previous_imgid => $previous_imgid,
+					imagefield => $imagefield,
+					front_imagefield => "front_" . $product_ref->{lc}
 				}
-				else {
-					$response_ref->{files}[0]{error} = $response_ref->{error};
-				}
-			}
-
-			if (defined $debug_string) {
-				$response_ref->{debug} = $debug_string;
-			}
+			) if $log->is_debug();
+			process_image_crop($User_id, $product_id, "front_" . $product_ref->{lc},
+				$imgid, 0, undef, undef, -1, -1, -1, -1, "full");
 		}
 		else {
-
-			my $image_data_ref = {
-				imgid => $imgid,
-				thumb_url => "$imgid.${thumb_size}.jpg",
-				crop_url => "$imgid.${crop_size}.jpg",
-			};
-
-			if ($User{moderator}) {
-				$product_ref = retrieve_product($product_id);
-				$image_data_ref->{uploader} = $product_ref->{images}{$imgid}{uploader};
-				$image_data_ref->{uploaded} = $product_ref->{images}{$imgid}{uploaded_t};
-			}
-
-			my $product_name = remove_tags_and_quote(product_name_brand_quantity($product_ref));
-			if ((not defined $product_name) or ($product_name eq "")) {
-				$product_name = $code;
-			}
-
-			my $product_url = product_url($product_ref);
-
-			$response_ref->{status} = 'status ok';
-			$response_ref->{image} = $image_data_ref;
-
-			# Select the image
-			if (
-				($imagefield =~ /^(front|ingredients|nutrition|packaging)_/)
-				# Changed 2020-03-05: overwrite already selected images
-				# and ((not defined $product_ref->{images}{$imagefield}) or ($select_image))
-				# Changed 2020-04-20: don't overwrite selected images if the source is the product edit form
-				and (  (not defined single_param('source'))
-					or (single_param('source') ne "product_edit_form")
-					or (not defined $product_ref->{images}{$imagefield}))
-				)
-			{
-				$log->debug("selecting image", {imgid => $imgid, imagefield => $imagefield}) if $log->is_debug();
-				process_image_crop($User_id, $product_id, $imagefield, $imgid, 0, undef, undef, -1, -1, -1, -1, "full");
-			}
-			# If the image type is "other" and we don't have a front image, assign it
-			# This is in particular for producers that send us many images without specifying their type: assume the first one is the front
-			elsif (
-				($imagefield =~ /^other/)
-				and (
-					(not defined $product_ref->{images}{"front_" . $product_ref->{lc}})
-					or (    (defined $previous_imgid)
-						and ($previous_imgid eq $product_ref->{images}{"front_" . $product_ref->{lc}}{imgid}))
-				)
-				)
-			{
-				$log->debug(
-					"selecting front image as we don't have one",
-					{
-						imgid => $imgid,
-						previous_imgid => $previous_imgid,
-						imagefield => $imagefield,
-						front_imagefield => "front_" . $product_ref->{lc}
-					}
-				) if $log->is_debug();
-				process_image_crop($User_id, $product_id, "front_" . $product_ref->{lc},
-					$imgid, 0, undef, undef, -1, -1, -1, -1, "full");
-			}
-			else {
-				$log->debug(
-					"not selecting as front image",
-					{
-						imgid => $imgid,
-						previous_imgid => $previous_imgid,
-						imagefield => $imagefield,
-						front_imagefield => "front_" . $product_ref->{lc},
-						front_image => $product_ref->{images}{"front_" . $product_ref->{lc}}
-					}
-				) if $log->is_debug();
-			}
+			$log->debug(
+				"not selecting as front image",
+				{
+					imgid => $imgid,
+					previous_imgid => $previous_imgid,
+					imagefield => $imagefield,
+					front_imagefield => "front_" . $product_ref->{lc},
+					front_image => $product_ref->{images}{"front_" . $product_ref->{lc}}
+				}
+			) if $log->is_debug();
 		}
-
-		(defined $code) and $response_ref->{files}[0]{code} = $code;
-		(defined $code_from_file_name) and $response_ref->{files}[0]{code_from_file_name} = $code_from_file_name;
-		(defined $scanned_code) and $response_ref->{files}[0]{scanned_code} = $scanned_code;
-		(defined $using_previous_code) and $response_ref->{files}[0]{using_previous_code} = $using_previous_code;
-
-		my $data = encode_json($response_ref);
-
-		$log->debug("JSON data output", {data => $data}) if $log->is_debug();
-
-		print header(-type => 'application/json', -charset => 'utf-8') . $data;
-
 	}
-	else {
 
-		$log->warn("no image field defined");
-		$response_ref->{status} = 'status not ok';
-		$response_ref->{error} = "error - imagefield not defined";
-		my $data = encode_json($response_ref);
-		print header(-type => 'application/json', -charset => 'utf-8') . $data;
-	}
+	(defined $code) and $response_ref->{files}[0]{code} = $code;
+	(defined $code_from_file_name) and $response_ref->{files}[0]{code_from_file_name} = $code_from_file_name;
+	(defined $scanned_code) and $response_ref->{files}[0]{scanned_code} = $scanned_code;
+	(defined $using_previous_code) and $response_ref->{files}[0]{using_previous_code} = $using_previous_code;
+
+	my $data = encode_json($response_ref);
+
+	$log->debug("JSON data output", {data => $data}) if $log->is_debug();
+
+	print header(-type => 'application/json', -charset => 'utf-8') . $data;
 
 }
 else {
+
 	$log->warn("no image field defined");
+	$response_ref->{status} = 'status not ok';
+	$response_ref->{error} = "error - imagefield not defined";
+	my $data = encode_json($response_ref);
+	print header(-type => 'application/json', -charset => 'utf-8') . $data;
 }
 
 exit(0);

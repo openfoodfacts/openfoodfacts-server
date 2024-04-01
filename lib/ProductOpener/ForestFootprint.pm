@@ -57,7 +57,7 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Store qw/get_string_id_for_lang/;
 
 use Storable qw(dclone freeze);
 use Text::CSV();
@@ -84,7 +84,8 @@ sub load_forest_footprint_data() {
 
 	for (my $k = 0; $k <= 1; $k++) {
 
-		my $csv_file = $data_root . "/forest-footprint/envol-vert/Empreinte Forêt - Envol Vert - OFF.csv.$k";
+		my $csv_file
+			= $data_root . "/external-data/forest-footprint/envol-vert/Empreinte Forêt - Envol Vert - OFF.csv.$k";
 		my $encoding = "UTF-8";
 
 		$log->debug("opening forest footprint CSV file", {file => $csv_file}) if $log->is_debug();

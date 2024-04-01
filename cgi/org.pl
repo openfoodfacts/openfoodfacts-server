@@ -25,21 +25,23 @@ use ProductOpener::PerlStandards;
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Store qw/get_fileid/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Users qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Lang qw/$lc %Lang lang/;
 use ProductOpener::Orgs qw/:all/;
-use ProductOpener::Tags qw/:all/;
-use ProductOpener::Text qw/:all/;
+use ProductOpener::Tags qw/canonicalize_tag_link/;
+use ProductOpener::Text qw/remove_tags_and_quote/;
 
 use CGI qw/:cgi :form escapeHTML charset/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
 use Log::Any qw($log);
-
+use Array::Diff;
+my @org_members;
+my %user_is_admin;
 my $type = single_param('type') || 'edit';
 my $action = single_param('action') || 'display';
 
@@ -70,7 +72,7 @@ if (not defined $org_ref) {
 		$template_data_ref->{org_does_not_exist} = 1;
 	}
 	else {
-		display_error_and_exit($Lang{error_org_does_not_exist}{$lang}, 404);
+		display_error_and_exit($Lang{error_org_does_not_exist}{$lc}, 404);
 	}
 }
 
@@ -80,7 +82,7 @@ if (not(is_user_in_org_group($org_ref, $User_id, "admins") or $admin or $User{pr
 	$log->debug("user does not have permission to edit org",
 		{orgid => $orgid, org_admins => $org_ref->{admins}, User_id => $User_id})
 		if $log->is_debug();
-	display_error_and_exit($Lang{error_no_permission}{$lang}, 403);
+	display_error_and_exit($Lang{error_no_permission}{$lc}, 403);
 }
 
 my @errors = ();
@@ -93,7 +95,7 @@ if ($action eq 'process') {
 				$type = 'delete';
 			}
 			else {
-				display_error_and_exit($Lang{error_no_permission}{$lang}, 403);
+				display_error_and_exit($Lang{error_no_permission}{$lc}, 403);
 			}
 		}
 		else {
@@ -146,7 +148,7 @@ if ($action eq 'process') {
 			}
 
 			if (not defined $org_ref->{name}) {
-				push @errors, $Lang{error_missing_org_name}{$lang};
+				push @errors, $Lang{error_missing_org_name}{$lc};
 			}
 
 			# Contact sections
@@ -359,30 +361,86 @@ elsif ($action eq 'process') {
 
 		store_org($org_ref);
 		$template_data_ref->{result} = lang("edit_org_result");
+	}
+	elsif ($type eq 'user_delete') {
 
-		$template_data_ref->{profile_url} = canonicalize_tag_link("editors", "org-" . $orgid);
-		$template_data_ref->{profile_name} = sprintf(lang('user_s_page'), $org_ref->{name});
+		if (is_user_in_org_group($org_ref, $User_id, "admins") or $admin or $User{pro_moderator}) {
+			remove_user_by_org_admin(single_param('org_id'), single_param('user_id'));
+			$template_data_ref->{result} = lang("edit_org_result");
+		}
+		else {
+			display_error_and_exit($Lang{error_no_permission}{$lc}, 403);
+		}
+
 	}
-	elsif ($type eq 'delete') {
+	elsif ($type eq 'add_users') {
+		if (is_user_in_org_group($org_ref, $User_id, "admins") or $admin or $User{pro_moderator}) {
+			my $email_list = remove_tags_and_quote(single_param('email_list'));
+			my $email_ref = add_users_to_org_by_admin($orgid, $email_list);
+
+			# Set the template data for display
+			$template_data_ref->{email_ref} = {
+				added => \@{$email_ref->{added}},
+				invited => \@{$email_ref->{invited}},
+			};
+		}
 	}
+
+	elsif ($type eq 'admin_status') {
+		# verify right to change status
+		if (is_user_in_org_group($org_ref, $User_id, "admins") or $admin or $User{pro_moderator}) {
+			# inputs are in the form admin_status_<user_id>, get them among param and extract the user_id
+			my @user_ids = sort map {$_ =~ /^admin_status_/ ? $' : ()} param();
+			my @existing_admins = sort grep {is_user_in_org_group($org_ref, $_, "admins")} keys %{$org_ref->{members}};
+			my $diff = Array::Diff->diff(\@existing_admins, \@user_ids);
+
+			$log->debug("my user ids", {user_ids => @user_ids, difference => $diff})
+				if $log->is_debug();
+
+			foreach my $user_id (@{$diff->added}) {
+				add_user_to_org($org_ref, $user_id, ["admins"]);
+			}
+
+			foreach my $user_id (@{$diff->deleted}) {
+				# never remove current user from admin list
+				next if ($user_id eq $User_id);
+				remove_user_from_org($org_ref, $user_id, ["admins"]);
+			}
+
+			store_org($org_ref);
+			$template_data_ref->{result} = lang("admin_status_updated");
+		}
+	}
+	$template_data_ref->{profile_url} = canonicalize_tag_link("editors", "org-" . $orgid);
+	$template_data_ref->{profile_name} = sprintf(lang('user_s_page'), $org_ref->{name});
 }
 
 $template_data_ref->{orgid} = $orgid;
 $template_data_ref->{type} = $type;
 
-my $full_width = 1;
-if ($action ne 'display') {
-	$full_width = 0;
-}
-
 my $title = lang($type . '_org_title');
 
 $log->debug("org form - template data", {template_data_ref => $template_data_ref}) if $log->is_debug();
+
+# allow org admins to view the list of users associated with their org
+
+foreach my $member_id (sort keys %{$org_ref->{members}}) {
+	if (is_user_in_org_group($org_ref, $member_id, "admins")) {
+		$user_is_admin{$member_id} = 1;
+	}
+	else {
+		$user_is_admin{$member_id} = 0;
+	}
+	my $member_user_ref = retrieve_user($member_id);
+	push @org_members, $member_user_ref;
+}
+$template_data_ref->{org_members} = \@org_members;
+$template_data_ref->{user_is_admin} = \%user_is_admin;
+$template_data_ref->{current_user_id} = $User_id;
 
 $tt->process('web/pages/org_form/org_form.tt.html', $template_data_ref, \$html)
 	or $html = "<p>template error: " . $tt->error() . "</p>";
 
 $request_ref->{title} = $title;
 $request_ref->{content_ref} = \$html;
-$request_ref->{full_width} = $full_width;
 display_page($request_ref);

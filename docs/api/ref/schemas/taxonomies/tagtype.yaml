@@ -1,0 +1,45 @@
+title: tagtype
+x-stoplight:
+  id: cyaecslbj8x2i
+type: string
+enum:
+  - additives_classes
+  - additives
+  - allergens
+  - amino_acids
+  - categories
+  - countries
+  - data_quality
+  - data_quality
+  - data_quality
+  - data_quality
+  - data_quality
+  - data_quality
+  - data_quality
+  - food_groups
+  - improvements
+  - ingredients_analysis
+  - ingredients_processing
+  - ingredients
+  - labels
+  - languages
+  - minerals
+  - misc
+  - nova_groups
+  - nucleotides
+  - nutrient_levels
+  - nutrients
+  - origins
+  - other_nutritional_substances
+  - packaging_materials
+  - packaging_recycling
+  - packaging
+  - packaging_shapes
+  - periods_after_opening
+  - preservation
+  - states
+  - test
+  - traces
+  - vitamins
+description: 'Identifier of a taxonomy. See https://wiki.openfoodfacts.org/Global_taxonomies and https://github.com/openfoodfacts/openfoodfacts-server/tree/main/taxonomies'
+examples: []

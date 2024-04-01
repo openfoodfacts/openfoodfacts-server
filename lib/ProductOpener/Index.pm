@@ -26,13 +26,9 @@ use Exporter qw< import >;
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
-		&normalize
-		&decode_html
-		&decode_html_entities
 
 		&normalize
 
-		$memd
 		$lang_dir
 		%texts
 
@@ -44,10 +40,10 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
 
 use CGI qw/:standard escape unescape/;
 use Time::Local;
-use Cache::Memcached::Fast;
 use Digest::MD5 qw(md5);
 use URI::Escape;
 use URI::Escape::XS;
@@ -65,15 +61,6 @@ use HTML::Entities qw(decode_entities);
 #setlocale(LC_CTYPE, "fr_FR");   # May need to be changed depending on system
 # -> setting a locale makes unac_string fail to unaccent... :-(
 
-# Initialize exported variables
-
-$memd = Cache::Memcached::Fast->new(
-	{
-		'servers' => ["127.0.0.1:11211"],
-		'utf8' => 1,
-	}
-);
-
 # Load the texts from the /lang directory
 
 # The /lang directory is not present in the openfoodfacts-server repository,
@@ -84,12 +71,12 @@ $memd = Cache::Memcached::Fast->new(
 
 %texts = ();
 
-$lang_dir = "$data_root/lang";
+$lang_dir = $BASE_DIRS{LANG};
 
 if (not -e $lang_dir) {
-	$lang_dir = "$data_root/lang-default";
+	$lang_dir = "$BASE_DIRS{LANG}-default";
 	$log->warn(
-		"The $data_root/lang directory does not exist. It should be copied from the openfoodfacts-web repository. Using default texts from $lang_dir"
+		"The $BASE_DIRS{LANG} directory does not exist. It should be copied from the openfoodfacts-web repository. Using default texts from $lang_dir"
 	) if $log->is_warn();
 }
 
@@ -125,7 +112,7 @@ if (opendir DH2, $lang_dir) {
 }
 else {
 	$log->error("Texts could not be loaded.") if $log->is_error();
-	die("Texts could not be loaded from $data_root/lang or $data_root/lang-default");
+	die("Texts could not be loaded from $BASE_DIRS{LANG} or $BASE_DIRS{LANG}-default");
 }
 
 # Initialize internal variables

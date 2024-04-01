@@ -48,9 +48,13 @@ $decalTop:48px;
         display:flex;
     }
     padding:0;
+
+    @media (max-width:1024px){
+        margin-bottom:50px;
+    }
 }
 #attributes_grid {
-    
+
     display: flex;
     flex-wrap: wrap;
     align-content: stretch;
@@ -113,6 +117,14 @@ $decalTop:48px;
         border-radius: 0 0 8px 8px  ;
     }
 }
+
+// align dropdown only on manages images accordion
+#manage_images_accordion .accordion-navigation {
+    &:after {
+        top: 11px;
+    }
+}
+
 #preferences_selection_form {
     margin:1rem;
 }
@@ -157,6 +169,9 @@ $decalTop:48px;
 
 
 #navbar {
+li.product-section-button {
+    margin-bottom: .5rem;
+}
 a.active {
     background-color:#000;
     color:white;
@@ -171,12 +186,12 @@ a.active {
 ////edit
 ////
     .bottom-validation {
-        position: fixed; 
-        bottom: 0; 
+        position: fixed;
+        bottom: 0;
         left:0;
-        width: 100%; 
-        border-top: 1px solid #eee; 
-        z-index: 100; 
+        width: 100%;
+        border-top: 1px solid #eee;
+        z-index: 100;
         padding: 1rem;
 	padding-bottom: 0.5rem;
         pointer-events: none;
@@ -191,7 +206,7 @@ a.active {
             #close {
                 background: $white;
             }
-        } 
+        }
 
 
 .image_box {
@@ -240,4 +255,10 @@ html[dir="rtl"] .image_box figure figcaption {
 
 .allergen {
 	font-weight:bold;
+}
+
+.tagify {
+    // HACK: The default was changed from flex to inline-flex in https://github.com/yairEO/tagify/commit/4060b04b25d9505a6ac946f1477d581d596fed50
+    // This breaks the layout of the tags in the product page. This is a temporary fix until the issue is resolved.
+    display: flex !important;
 }

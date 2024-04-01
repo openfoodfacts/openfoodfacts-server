@@ -6,14 +6,15 @@
 PIP_INSTALL=$(mktemp)
 cat >$PIP_INSTALL <<EOF
 #!/bin/sh
-echo "installing mdx_truly_sane_lists"
-pip3 install mdx_truly_sane_lists
+echo "installing mdx_truly_sane_lists and mdx-breakless-lists"
+pip3 install mdx_truly_sane_lists mdx-breakless-lists
 EOF
 # get group id to use it in the docker
 GID=$(id -g)
 
-# copy README.md as the index but change links starting with ./docs/ to ./
-sed -e 's|(\./docs/|(./|g' README.md > docs/index.md
+# copy docker/README.md as ref-docker-commands.md
+cp docs/dev/ref-docker-commands.md{,.original}
+sed -e 's|(\.\./docs/dev|(|g' docker/README.md > docs/dev/ref-docker-commands.md
 
 # we use minidocks capability to add entrypoint to install some pip package
 # we use also it's capability to change user and group id to avoid permissions problems
@@ -23,4 +24,5 @@ docker run --rm \
   -v $(pwd):/app -w /app \
   minidocks/mkdocs build
 # cleanup
-rm docs/index.md $PIP_INSTALL
+rm $PIP_INSTALL
+mv docs/dev/ref-docker-commands.md{.original,}

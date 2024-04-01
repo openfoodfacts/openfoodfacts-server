@@ -1,6 +1,5 @@
 db.products.createIndex({additives_tags:1,"last_modified_t": -1}, { background: true });
 db.products.createIndex({allergens_tags:1,"last_modified_t": -1}, { background: true });
-db.products.createIndex({amino_acids_tags:1,"last_modified_t": -1}, { background: true });
 db.products.createIndex({brands_tags:1,"last_modified_t": -1}, { background: true });
 db.products.createIndex({categories_properties_tags:1,"last_modified_t": -1}, { background: true });
 db.products.createIndex({categories_tags:1,"last_modified_t": -1}, { background: true });
@@ -9,9 +8,10 @@ db.products.createIndex({cities_tags:1,"last_modified_t": -1}, { background: tru
 db.products.createIndex({code: 1}, { background: true });
 db.products.createIndex({codes_tags:1,"last_modified_t": -1}, { background: true });
 db.products.createIndex({correctors_tags:1,"last_modified_t": -1}, { background: true });
+db.products.createIndex({countries_tags:1,"created_t": -1}, { background: true });
 db.products.createIndex({countries_tags:1,"last_modified_t": -1}, { background: true });
 db.products.createIndex({countries_tags:1,"popularity_key": -1}, { background: true });
-db.products.createIndex({"created_t": -1}, { background: true });
+db.products.createIndex({created_t: -1}, { background: true });
 db.products.createIndex({creator:1,"last_modified_t": -1}, { background: true });
 db.products.createIndex({creator_tags:1,"last_modified_t": -1}, { background: true });
 db.products.createIndex({data_quality_bugs_tags:1,"last_modified_t": -1}, { background: true });
@@ -37,7 +37,7 @@ db.products.createIndex({labels_tags:1,"last_modified_t": -1}, { background: tru
 db.products.createIndex({languages_tags:1,"last_modified_t": -1}, { background: true });
 db.products.createIndex({last_edit_dates_tags:1,"last_modified_t": -1}, { background: true });
 db.products.createIndex({last_image_dates_tags:1,"last_modified_t": -1}, { background: true });
-db.products.createIndex({"last_modified_t": -1}, { background: true });
+db.products.createIndex({last_modified_t: -1}, { background: true });
 db.products.createIndex({manufacturing_places_tags:1,"last_modified_t": -1}, { background: true });
 db.products.createIndex({minerals_tags:1,"last_modified_t": -1}, { background: true });
 db.products.createIndex({misc_tags:1,"last_modified_t": -1}, { background: true });

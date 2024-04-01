@@ -24,7 +24,7 @@ use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Producers qw/:all/;
+use ProductOpener::Producers qw/import_products_categories_from_public_database_task/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Nutriscore qw/:all/;
@@ -33,7 +33,7 @@ use ProductOpener::Packaging qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::MainCountries qw/:all/;
 use ProductOpener::PackagerCodes qw/:all/;
-use ProductOpener::LoadData qw/:all/;
+use ProductOpener::LoadData qw/load_data/;
 
 use Log::Any qw($log);
 use Log::Log4perl;
@@ -49,12 +49,17 @@ use Minion;
 
 $log->info("starting minion producers workers", {minion_backend => $server_options{minion_backend}}) if $log->is_info();
 
-load_data();
-
 if (not defined $server_options{minion_backend}) {
-
 	die("No Minion backend configured in lib/ProductOpener/Config2.pm\n");
 }
+
+# for worker, if we don't have a -q argument, deduce it from configuration
+if ((grep {/^worker$/} @ARGV) and (!grep {/^-q$/} @ARGV)) {
+	push @ARGV, "-q";
+	push @ARGV, $server_domain;
+}
+
+load_data();
 
 plugin Minion => $server_options{minion_backend};
 
@@ -67,6 +72,8 @@ app->minion->add_task(
 
 app->minion->add_task(
 	import_products_categories_from_public_database => \&import_products_categories_from_public_database_task);
+
+app->minion->add_task(delete_user => \&ProductOpener::Users::delete_user_task);
 
 app->config(
 	hypnotoad => {

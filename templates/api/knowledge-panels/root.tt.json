@@ -13,6 +13,14 @@
             "panel_element": {
                 "panel_id": "environment_card",
             },
-        },        
+        },
+        [% IF panel.has_contribution_card %]
+            {
+                "element_type": "panel",
+                "panel_element": {
+                    "panel_id": "contribution_card",
+                },
+            },
+        [% END %]
     ],
 }

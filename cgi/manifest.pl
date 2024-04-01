@@ -28,10 +28,10 @@ use CGI qw/:cgi :form escapeHTML/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
-use ProductOpener::Display qw/:all/;
+use ProductOpener::Display qw/$cc $subdomain init_request/;
 use ProductOpener::Users qw/:all/;
-use ProductOpener::URL qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::URL qw/format_subdomain/;
+use ProductOpener::Lang qw/$lc lang/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;

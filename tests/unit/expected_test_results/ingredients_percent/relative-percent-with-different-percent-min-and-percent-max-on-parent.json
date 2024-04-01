@@ -1,0 +1,47 @@
+[
+   {
+      "id" : "en:water",
+      "percent" : 60,
+      "percent_estimate" : 60,
+      "percent_max" : 60,
+      "percent_min" : 60,
+      "text" : "water"
+   },
+   {
+      "id" : "en:fruit-concentrate",
+      "ingredients" : [
+         {
+            "id" : "en:apple",
+            "percent_estimate" : 12,
+            "percent_max" : 16,
+            "percent_min" : 8,
+            "text" : "apple"
+         },
+         {
+            "id" : "en:mango",
+            "percent_estimate" : 9,
+            "percent_max" : 12,
+            "percent_min" : 6,
+            "text" : "mango"
+         },
+         {
+            "id" : "en:citrus-fruit",
+            "percent_estimate" : 9,
+            "percent_max" : 12,
+            "percent_min" : 0,
+            "text" : "citrus"
+         }
+      ],
+      "percent_estimate" : 30,
+      "percent_max" : 40,
+      "percent_min" : 20,
+      "text" : "fruit concentrate"
+   },
+   {
+      "id" : "en:sugar",
+      "percent_estimate" : 10,
+      "percent_max" : 20,
+      "percent_min" : 0,
+      "text" : "sugar"
+   }
+]

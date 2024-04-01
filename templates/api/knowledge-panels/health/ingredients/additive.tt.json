@@ -5,10 +5,17 @@
     ],
     "size": "small",
     "title_element": {
-        "title": `[% display_taxonomy_tag_name("additives", panel.additive) %]`,
+        "title": `[% display_taxonomy_tag_name("additives", panel.additive) %]`
     },        
     "elements": [
-        [% IF panel.wikipedia_abstract %]
+        [% IF panel.additive_description -%]
+        {
+            "element_type": "text",
+            "text_element": {
+                "html": `[% panel.additive_description %]`
+            }
+        }
+        [% ELSIF panel.wikipedia_abstract -%]
         {
             "element_type": "text",
             "text_element": {
@@ -18,7 +25,7 @@
                 "source_lc": "[% panel.wikipedia_url_lc %]",
                 "source_language": "[% panel.wikipedia_url_language %]"
             }
-        },
+        }
         [% END %]
     ]
 }

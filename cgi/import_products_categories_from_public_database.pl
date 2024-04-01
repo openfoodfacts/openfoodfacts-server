@@ -30,11 +30,11 @@ use CGI::Carp qw(fatalsToBrowser);
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::Users qw/:all/;
+use ProductOpener::Users qw/$Org_id $Owner_id $User_id/;
 use ProductOpener::Images qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Lang qw/lang/;
 use ProductOpener::Mail qw/:all/;
-use ProductOpener::Producers qw/:all/;
+use ProductOpener::Producers qw/get_minion/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -78,7 +78,9 @@ elsif ($action eq "process") {
 		import_id => $import_id,
 	};
 
-	my $job_id = $minion->enqueue(import_products_categories_from_public_database => [$args_ref] =>
+	my $job_id
+		= get_minion()
+		->enqueue(import_products_categories_from_public_database => [$args_ref] =>
 			{queue => $server_options{minion_local_queue}});
 
 	$template_data_ref->{import_id} = $import_id;

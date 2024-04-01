@@ -48,11 +48,11 @@ BEGIN {
 
 use vars @EXPORT_OK;
 
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Store qw/get_string_id_for_lang/;
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Lang qw/lang/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Food qw/:all/;
+use ProductOpener::Food qw/is_beverage_for_nutrition_score_2021/;
 
 use Log::Any qw($log);
 
@@ -234,7 +234,7 @@ All levels food groups are stored in $product_ref->{food_groups_tags}
 
 sub compute_food_groups ($product_ref) {
 
-	$product_ref->{nutrition_score_beverage} = is_beverage_for_nutrition_score($product_ref);
+	$product_ref->{nutrition_score_beverage} = is_beverage_for_nutrition_score_2021($product_ref);
 
 	# Temporarily change categories (backup old one in original_categories_tags)
 	temporarily_change_categories_for_food_groups_computation($product_ref);
@@ -248,7 +248,8 @@ sub compute_food_groups ($product_ref) {
 			if (    (defined $properties{categories}{$categoryid})
 				and (defined $properties{categories}{$categoryid}{"food_groups:en"}))
 			{
-				$product_ref->{food_groups} = $properties{categories}{$categoryid}{"food_groups:en"};
+				$product_ref->{food_groups} = canonicalize_taxonomy_tag("en", "food_groups",
+					$properties{categories}{$categoryid}{"food_groups:en"});
 				$log->debug("found food group for category",
 					{category_id => $categoryid, food_groups => $product_ref->{food_groups}})
 					if $log->is_debug();

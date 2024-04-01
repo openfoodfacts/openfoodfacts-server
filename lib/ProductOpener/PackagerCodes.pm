@@ -55,9 +55,9 @@ BEGIN {
 
 use vars @EXPORT_OK;
 
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Store qw/get_string_id_for_lang retrieve/;
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Lang qw/lang/;
 
 use Log::Any qw($log);
 
@@ -189,6 +189,7 @@ my %local_ec = (
 	ES => "CE",
 	FI => "EY",
 	FR => "CE",
+	HR => "EU",
 	IT => "CE",
 	NL => "EG",
 	PL => "WE",

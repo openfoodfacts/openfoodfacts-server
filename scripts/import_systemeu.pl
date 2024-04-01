@@ -28,21 +28,23 @@ use CGI::Carp qw(fatalsToBrowser);
 binmode(STDOUT, ":encoding(UTF-8)");
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Store qw/get_fileid get_string_id_for_lang/;
 use ProductOpener::Index qw/:all/;
-use ProductOpener::Display qw/:all/;
+use ProductOpener::Display qw/$country/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Users qw/:all/;
-use ProductOpener::Images qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Users qw/$User_id/;
+use ProductOpener::Images qw/process_image_crop process_image_upload/;
+use ProductOpener::Lang qw/$lc lang/;
 use ProductOpener::Mail qw/:all/;
-use ProductOpener::Products qw/:all/;
+use ProductOpener::Products
+	qw/analyze_and_enrich_product_data init_product product_exists retrieve_product store_product/;
 use ProductOpener::Food qw/:all/;
+use ProductOpener::Units qw/unit_to_g/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::DataQuality qw/:all/;
-use ProductOpener::ImportConvert qw/:all/;
-use ProductOpener::PackagerCodes qw/:all/;
+use ProductOpener::ImportConvert qw/%global_params @fields clean_fields extract_nutrition_facts_from_text/;
+use ProductOpener::PackagerCodes qw/normalize_packager_codes/;
 
 use Log::Any qw($log);
 use Log::Any::Adapter 'TAP', filter => "none";
@@ -447,7 +449,8 @@ while (my $imported_product_ref = $csv->getline_hr($io)) {
 	if (
 		   (not defined $images_ref->{$code})
 		or (not defined $images_ref->{$code}{front})
-		or ((not defined $images_ref->{$code}{ingredients}) and (not exists $products_without_ingredients_lists{$code}))
+		or (    (not defined $images_ref->{$code}{ingredients})
+			and (not exists $products_without_ingredients_lists{$code}))
 		)
 	{
 		print "MISSING IMAGES SOME - PRODUCT CODE $code\n";
@@ -1234,7 +1237,11 @@ while (my $imported_product_ref = $csv->getline_hr($io)) {
 						# normalize quantity
 						$log->debug(
 							"normalizing quantity",
-							{field => $field, existing_value => $product_ref->{$field}, new_value => $new_field_value}
+							{
+								field => $field,
+								existing_value => $product_ref->{$field},
+								new_value => $new_field_value
+							}
 						) if $log->is_debug();
 						$product_ref->{$field} = $new_field_value;
 						push @modified_fields, $field;
@@ -1548,115 +1555,10 @@ TXT
 
 	# Process the fields
 
-	# Food category rules for sweeetened/sugared beverages
-	# French PNNS groups from categories
+	$User_id = $editor_user_id;
 
-	if ($server_domain =~ /openfoodfacts/) {
-		ProductOpener::Food::special_process_product($product_ref);
-	}
-
-	if (    (defined $product_ref->{nutriments}{"carbon-footprint"})
-		and ($product_ref->{nutriments}{"carbon-footprint"} ne ''))
-	{
-		push @{$product_ref->{"labels_hierarchy"}}, "en:carbon-footprint";
-		push @{$product_ref->{"labels_tags"}}, "en:carbon-footprint";
-	}
-
-	if ((defined $product_ref->{nutriments}{"glycemic-index"}) and ($product_ref->{nutriments}{"glycemic-index"} ne ''))
-	{
-		push @{$product_ref->{"labels_hierarchy"}}, "en:glycemic-index";
-		push @{$product_ref->{"labels_tags"}}, "en:glycemic-index";
-	}
-
-	# Language and language code / subsite
-
-	if (defined $product_ref->{lang}) {
-		$product_ref->{lc} = $product_ref->{lang};
-	}
-
-	# For fields that can have different values in different languages, copy the main language value to the non suffixed field
-
-	foreach my $field (keys %language_fields) {
-		if ($field !~ /_image/) {
-			if (defined $product_ref->{$field . "_$product_ref->{lc}"}) {
-				$product_ref->{$field} = $product_ref->{$field . "_$product_ref->{lc}"};
-			}
-		}
-	}
-
-	if ($testing_allergens) {
-
-		$product_ref->{allergens} = "";
-		$product_ref->{traces} = "";
-	}
-
-	if ($server_domain =~ /openfoodfacts/) {
-		ProductOpener::Food::special_process_product($product_ref);
-	}
-
-	if (($testing_allergens) or (not $testing)) {
-		# Ingredients classes
-		print STDERR "computing allergens etc.\n";
-
-		extract_ingredients_from_text($product_ref);
-		extract_ingredients_classes_from_text($product_ref);
-
-		compute_languages($product_ref);    # need languages for allergens detection
-		detect_allergens_from_text($product_ref);
-
-	}
-
-	# allergens diffs;
-
-	if ($testing_allergens) {
-
-		my @allergens_import_tags = gen_tags_hierarchy_taxonomy("fr", "allergens", $allergens_import);
-
-		my @allergens_tags = ();
-
-		if (defined $product_ref->{"allergens" . "_hierarchy"}) {
-			@allergens_tags = @{$product_ref->{"allergens" . "_hierarchy"}};
-
-		}
-		else {
-			print STDERR "allergens_hierarchy field not set\n";
-
-		}
-
-		my $allergens_import_tags_string = join(", ", @allergens_import_tags);
-		my $allergens_tags_string = join(", ", @allergens_tags);
-
-		if ($allergens_tags_string ne $allergens_import_tags_string) {
-			print "ALLERGENS DIFF, code: $code, import: $allergens_import_tags_string\n";
-			print "ALLERGENS DIFF, code: $code, detect: $allergens_tags_string\n";
-			print "ALLERGENS DIFF 2\t$code\t$allergens_import_tags_string\t$allergens_tags_string\n";
-			next if $code eq "3368954600477";    # erreur u
-			next if $code eq "3256222240480";    # vinegar
-			next if $code eq "3256226385569";
-			next if $code eq "3256220514583";
-			next if $code eq "3256222645162";    # weird, to be checked
-			next if $code eq "3256225051106";
-			next if $allergens_import_tags_string =~ /sulphur/;
-			#exit;
-		}
-
-	}
-
-	#"sources": [
-	#{
-	#"id", "usda-ndb",
-	#"url", "https://ndb.nal.usda.gov/ndb/foods/show/58513?format=Abridged&reportfmt=csv&Qv=1" (direct product url if available)
-	#"import_t", "423423" (timestamp of import date)
-	#"fields" : ["product_name","ingredients","nutrients"]
-	#"images" : [ "1", "2", "3" ] (images ids)
-	#},
-	#{
-	#"id", "usda-ndb",
-	#"url", "https://ndb.nal.usda.gov/ndb/foods/show/58513?format=Abridged&reportfmt=csv&Qv=1" (direct product url if available)
-	#"import_t", "523423" (timestamp of import date)
-	#"fields" : ["ingredients","nutrients"]
-	#"images" : [ "4", "5", "6" ] (images ids)
-	#},
+	my $response_ref = {};
+	analyze_and_enrich_product_data($product_ref, $response_ref);
 
 	if (not defined $product_ref->{sources}) {
 		$product_ref->{sources} = [];
@@ -1673,28 +1575,7 @@ TXT
 		images => \@images_ids,
 		};
 
-	$User_id = $editor_user_id;
-
 	if ((not $testing) and (not $testing_allergens)) {
-
-		fix_salt_equivalent($product_ref);
-
-		compute_serving_size_data($product_ref);
-
-		compute_nutrition_score($product_ref);
-
-		compute_nova_group($product_ref);
-
-		compute_nutrient_levels($product_ref);
-
-		compute_unknown_nutrients($product_ref);
-
-		ProductOpener::DataQuality::check_quality($product_ref);
-
-		#print STDERR "Storing product code $code\n";
-		#				use Data::Dumper;
-		#print STDERR Dumper($product_ref);
-		#exit;
 
 		$product_ref->{owner} = "org-systeme-u";
 		$product_ref->{owners_tags} = ["org-systeme-u"];

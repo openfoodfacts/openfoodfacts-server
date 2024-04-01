@@ -6,7 +6,7 @@ use Test::More;
 use Log::Any::Adapter 'TAP';
 use Test::MockModule;
 
-use ProductOpener::HTTP qw/:all/;
+use ProductOpener::HTTP qw/get_cors_headers/;
 
 # fake request
 sub fake_request ($fake_arg) {
@@ -34,7 +34,7 @@ sub fake_headers_in ($fake_arg) {
 	my $expected_base_ref = {
 		"Access-Control-Allow-Methods" => "HEAD, GET, PATCH, POST, PUT, OPTIONS",
 		"Access-Control-Allow-Headers" =>
-			"DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,If-None-Match",
+			"DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,If-None-Match,Authorization",
 		"Access-Control-Expose-Headers" => "Content-Length,Content-Range",
 	};
 

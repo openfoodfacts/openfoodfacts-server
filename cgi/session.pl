@@ -28,9 +28,9 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::HTTP qw/:all/;
-use ProductOpener::Users qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::HTTP qw/write_cors_headers/;
+use ProductOpener::Users qw/$User_id %User/;
+use ProductOpener::Lang qw/lang/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -49,7 +49,6 @@ $template_data_ref->{user_id} = $User_id;
 if (defined $User_id) {
 
 	$template_data_ref->{user_name} = $User{name};
-	$template_data_ref->{server_options_producers} = $server_options{producers_platform};
 
 	my $next_action = single_param('next_action');
 	my $code = single_param('code');

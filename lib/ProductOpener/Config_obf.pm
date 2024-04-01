@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2024 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -18,6 +18,8 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+## no critic (RequireFilenameMatchesPackage);
+
 package ProductOpener::Config;
 
 use utf8;
@@ -25,17 +27,18 @@ use Modern::Perl '2017';
 use Exporter qw< import >;
 
 BEGIN {
+
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		%string_normalization_for_lang
 		%admins
-		%moderators
 
 		$server_domain
 		@ssl_subdomains
 		$conf_root
 		$data_root
 		$www_root
+		$sftp_root
 		$geolite2_path
 		$reference_timezone
 		$contact_email
@@ -43,14 +46,20 @@ BEGIN {
 		$producers_email
 
 		$google_cloud_vision_api_key
+		$google_cloud_vision_api_url
 
 		$crowdin_project_identifier
 		$crowdin_project_key
 
+		$log_emails
 		$robotoff_url
+		$query_url
 		$events_url
 		$events_username
 		$events_password
+
+		$facets_kp_url
+		$redis_url
 
 		$mongodb
 		$mongodb_host
@@ -77,6 +86,7 @@ BEGIN {
 		@display_other_fields
 		@drilldown_fields
 		@taxonomy_fields
+		@index_tag_types
 		@export_fields
 
 		%tesseract_ocr_available_languages
@@ -85,6 +95,7 @@ BEGIN {
 
 		@edit_rules
 
+		$build_cache_repo
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -145,35 +156,16 @@ use ProductOpener::Config2;
 );
 
 %admins = map {$_ => 1} qw(
-	agamitsudo
-	aleene
-	bcatelin
-	bojackhorseman
+	alex-off
+	cha-delh
 	charlesnepote
+	gala-nafikova
 	hangy
-	javichu
-	kyzh
-	lafel
-	lucaa
-	mbe
-	moon-rabbit
+	manoncorneille
 	raphael0202
-	sebleouf
-	segundo
 	stephane
 	tacinte
-	tacite
 	teolemon
-	twoflower
-
-	jniderkorn
-	desan
-	cedagaesse
-	m-etchebarne
-);
-
-%moderators = map {$_ => 1} qw(
-
 );
 
 $options{product_type} = "beauty";
@@ -196,6 +188,7 @@ $conf_root = $ProductOpener::Config2::conf_root;
 $geolite2_path = $ProductOpener::Config2::geolite2_path;
 
 $google_cloud_vision_api_key = $ProductOpener::Config2::google_cloud_vision_api_key;
+$google_cloud_vision_api_url = $ProductOpener::Config2::google_cloud_vision_api_url;
 
 $crowdin_project_identifier = $ProductOpener::Config2::crowdin_project_identifier;
 $crowdin_project_key = $ProductOpener::Config2::crowdin_project_key;
@@ -203,6 +196,7 @@ $crowdin_project_key = $ProductOpener::Config2::crowdin_project_key;
 # Set this to your instance of https://github.com/openfoodfacts/robotoff/ to
 # enable an in-site robotoff-asker in the product page
 $robotoff_url = $ProductOpener::Config2::robotoff_url;
+$query_url = $ProductOpener::Config2::query_url;
 
 # Set this to your instance of https://github.com/openfoodfacts/openfoodfacts-events
 # enable creating events for some actions (e.g. when a product is edited)
@@ -213,6 +207,8 @@ $events_password = $ProductOpener::Config2::events_password;
 # server options
 
 %server_options = %ProductOpener::Config2::server_options;
+
+$build_cache_repo = $ProductOpener::Config2::build_cache_repo;
 
 $reference_timezone = 'Europe/Paris';
 
@@ -229,16 +225,6 @@ $zoom_size = 800;
 $page_size = 20;
 
 $google_analytics = <<HTML
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-31851927-5"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-31851927-5');
-</script>
-
 HTML
 	;
 
@@ -247,7 +233,10 @@ HTML
 # fields for which we will load taxonomies
 
 @taxonomy_fields
-	= qw(states countries languages labels categories additives allergens traces nutrient_levels ingredients periods_after_opening inci_functions);
+	= qw(units states countries languages labels categories additives allergens traces nutrient_levels ingredients periods_after_opening inci_functions);
+
+# tag types (=facets) that should be indexed by web crawlers, all other tag types are not indexable
+@index_tag_types = qw(brands categories labels additives products);
 
 # fields in product edit form, above ingredients and nutrition facts
 
@@ -382,6 +371,9 @@ $options{display_tag_ingredients} = [
 
 # allow moving products to other instances of Product Opener on the same server
 # e.g. OFF -> OBF
+
+$options{current_server} = "obf";
+
 $options{other_servers} = {
 	obf => {
 		name => "Open Beauty Facts",
@@ -416,5 +408,8 @@ $options{other_servers} = {
 };
 
 $options{no_nutrition_table} = 1;
+
+# Name of the Redis stream to which product updates are published
+$options{redis_stream_name} = "product_updates_obf";
 
 1;

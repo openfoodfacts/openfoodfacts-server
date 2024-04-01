@@ -1,0 +1,40 @@
+[%# Please include the following code within a list
+Example: <ul> ... INCLUDE 'web/common/producers_resources_list.tt.html' ... </ul> %]
+<li>
+    <a href="[% IF lc == "fr" %]
+        https://blog.openfoodfacts.org/fr/Guide-dutilisation-Plateforme-Pro.pdf
+        [% ELSIF lc== "it" %]
+        https://blog.openfoodfacts.org/it/guida-pratica-piattaforma-produttori.pdf
+        [% ELSIF lc== "de" %]
+        https://blog.openfoodfacts.org/de/Pro-Plateform-Benutzerhandbuch.pdf
+        [% ELSE %]
+        https://blog.openfoodfacts.org/en/EN-Pro-Plateform-User-Guide.pdf
+        [% END %]">
+        [% lang('pro_platform_user_guide') %]
+    </a>
+</li>
+<li>
+
+    <a href="https://www.youtube.com/playlist?list=PLjAH-USadsF3xgSVfUUBS4we3XBr-1r55" target="_blank">
+        [% lang('video_tutorials') %]
+    </a>
+</li>
+<li>
+
+    <a href="[% IF lc == "fr" %]
+            https://support.openfoodfacts.org/help/fr-fr/3-producers
+            [% ELSE %]
+            https://support.openfoodfacts.org/help/en-gb/3-producers
+            [% END %]">
+        [% lang('faq_for_producers') %]
+    </a>
+</li>
+<li>
+    <a href="[% IF lc == "fr" %]
+    https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=M3ZmNmZlMmo4czlhZHR1dmpndXI2OGN0NDhfMjAyMzA1MTZUMTIwMDAwWiBjXzlkMGU3ZmM2OGYxOWY2NGZkOTFmNjBhYzE5MzZhMDM2NDc1MGVjODY4MjcyY2VmZWI1NzQ2NGRiYTBlZjkwNmNAZw&tmsrc=c_9d0e7fc68f19f64fd91f60ac1936a0364750ec868272cefeb57464dba0ef906c%40group.calendar.google.com&scp=ALL
+            [% ELSE %]
+            https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=NGxtYWhla3ZiYnM3YnNpMDJ0OGw3dTY1aG9fMjAyMzA1MTZUMTMwMDAwWiBjXzlkMGU3ZmM2OGYxOWY2NGZkOTFmNjBhYzE5MzZhMDM2NDc1MGVjODY4MjcyY2VmZWI1NzQ2NGRiYTBlZjkwNmNAZw&tmsrc=c_9d0e7fc68f19f64fd91f60ac1936a0364750ec868272cefeb57464dba0ef906c%40group.calendar.google.com&scp=ALL
+            [% END %]">
+        [% lang('join_the_next_pros_meet_up') %]
+    </a>
+</li>

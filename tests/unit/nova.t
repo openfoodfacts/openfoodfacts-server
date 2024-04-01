@@ -7,9 +7,9 @@ use Test::More;
 use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::TagsEntries qw/:all/;
-use ProductOpener::Ingredients qw/:all/;
-use ProductOpener::Food qw/:all/;
+use ProductOpener::Ingredients
+	qw/clean_ingredients_text extract_ingredients_classes_from_text extract_ingredients_from_text/;
+use ProductOpener::Food qw/compute_nova_group/;
 
 # dummy product for testing
 
@@ -47,6 +47,9 @@ my @tests = (
 	# products without ingredients: return only 1 for waters that are not flavoured waters
 	[{lc => "en", categories_tags => ["en:waters"]}, 1],
 	[{lc => "en", categories_tags => ["en:flavoured-waters"]}, undef],
+
+	# allergens in parenthesis should not change the nova score but should appear in allergens
+	[{lc => "hr", ingredients_text_hr => "Krupica od durum pšenice (gluten), voda."}, 1],
 
 );
 

@@ -1,6 +1,7 @@
 {
    "ingredients" : [
       {
+         "ciqual_proxy_food_code" : "19051",
          "id" : "en:milk",
          "origins" : "en:united-kingdom,en:european-union",
          "percent_estimate" : 75,
@@ -11,6 +12,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_proxy_food_code" : "31016",
          "id" : "en:sugar",
          "origins" : "en:paraguay,en:uruguay,en:costa-rica",
          "percent_estimate" : 25,
@@ -60,9 +62,13 @@
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 2,
    "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
    "known_ingredients_n" : 5,
    "lc" : "en",
    "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
    },
@@ -71,7 +77,7 @@
          "id" : "en:milk",
          "ingredient" : "milk",
          "origins" : "en:united-kingdom,en:european-union",
-         "text" : "Origin of the milk: UK, European Union."
+         "text" : "Origin of the milk: UK, European Union"
       },
       {
          "id" : "en:sugar",

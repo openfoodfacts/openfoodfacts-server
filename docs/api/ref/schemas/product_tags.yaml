@@ -1,0 +1,114 @@
+type: object
+description: |
+  Data about a product which is represented as tags
+properties:
+
+  brands:
+    type: string
+  brands_tags:
+    type: array
+    items:
+      type: string
+
+  categories:
+    type: string
+  categories_hierarchy:
+    type: array
+    items:
+      type: string
+  categories_lc:
+    type: string
+  categories_tags:
+    type: array
+    items:
+      type: string
+
+  checkers_tags:
+    type: array
+    items:
+      type: string
+  cities:
+    type: string
+  cities_tags:
+    type: array
+    items:
+      type: object
+  correctors_tags:
+    type: array
+    items:
+      type: string
+
+  countries:
+    type: string
+    description: |
+      List of countries where the product is sold.
+  countries_hierarchy:
+    type: array
+    items:
+      type: string
+  countries_lc:
+    type: string
+  countries_tags:
+    type: array
+    items:
+      type: string
+  ecoscore_tags:
+    description: |
+      All ecoscore of a product.
+      Most of the time it's only one value,
+      but it might eventually be more for products composed of sub-products.
+      See also: `ecoscore_score`, `ecoscore_grade`.
+    type: array
+    items:
+      type: string
+
+  emb_codes:
+    type: string
+    description: |
+      Packager code.
+    example: EMB 2013330
+  emb_codes_orig:
+    type: string
+  emb_codes_tags:
+    type: array
+    items:
+      type: object
+
+
+  labels:
+    type: string
+  labels_hierarchy:
+    type: array
+    items:
+      type: string
+  labels_lc:
+    type: string
+  labels_tags:
+    type: array
+    items:
+      type: string
+
+  entry_dates_tags:
+    description: |
+      The data as a series of tag: `yyyy-mm-dd`, `yyyy-mm`, `yyyy`
+    type: array
+    items:
+      type: string
+    example: ["2016-03-11","2016-03","2016"]
+
+  manufacturing_places:
+    type: string
+    description: |
+      Places where the product was manufactured or transformed.
+  manufacturing_places_tags:
+    type: array
+    items:
+      type: object
+  nova_groups_tags:
+    type: array
+    items:
+      type: string
+  nutrient_levels_tags:
+    type: array
+    items:
+      type: string

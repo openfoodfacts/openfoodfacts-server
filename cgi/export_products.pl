@@ -30,12 +30,12 @@ use CGI::Carp qw(fatalsToBrowser);
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::Users qw/:all/;
+use ProductOpener::Users qw/$Org_id $Owner_id $User_id %Org %User/;
 use ProductOpener::Images qw/:all/;
-use ProductOpener::Lang qw/:all/;
-use ProductOpener::Mail qw/:all/;
-use ProductOpener::Producers qw/:all/;
-use ProductOpener::Text qw/:all/;
+use ProductOpener::Lang qw/$lc %Lang lang/;
+use ProductOpener::Mail qw/send_email_to_producers_admin/;
+use ProductOpener::Producers qw/export_and_import_to_public_database/;
+use ProductOpener::Text qw/remove_tags_and_quote/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -74,7 +74,7 @@ my $allow_submit = (
 
 if ($action eq "display") {
 
-	my $template_data_ref = {lang => \&lang,};
+	my $template_data_ref = {};
 
 	# Query filters
 
@@ -95,25 +95,10 @@ if ($action eq "display") {
 		}
 	}
 
-	# Number of products matching the optional query
-	my $count = count_products({}, $query_ref);
-
 	# Number of products matching the query with changes that have not yet been imported
 	$query_ref->{states_tags} = "en:to-be-exported";
-	my $count_to_be_exported = count_products({}, $query_ref);
-
-	$template_data_ref->{count} = $count;
-	$template_data_ref->{count_to_be_exported} = $count_to_be_exported;
-
-	if ($count == 0) {
-		$template_data_ref->{n_products_will_be_exported} = lang("no_products_to_export");
-	}
-	elsif ($count == 1) {
-		$template_data_ref->{n_products_will_be_exported} = lang("one_product_will_be_exported");
-	}
-	else {
-		$template_data_ref->{n_products_will_be_exported} = sprintf(lang("n_products_will_be_exported"), $count);
-	}
+	$template_data_ref->{count_to_be_exported} = count_products({}, $query_ref);
+	$template_data_ref->{count_obsolete_to_be_exported} = count_products({}, $query_ref, 1);
 
 	my $export_photos_value = "";
 	my $replace_selected_photos_value = "";

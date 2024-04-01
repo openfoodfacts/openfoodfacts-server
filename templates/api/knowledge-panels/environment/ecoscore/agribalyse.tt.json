@@ -4,8 +4,11 @@
         "environment"
     ],
     "title_element": {
-        "title": "[% lang('average_impact_of_the_category') %][% sep %]: [% panel.agribalyse_grade FILTER upper %] (Score: [% panel.agribalyse_score %]/100)",
-        "subtitle": "[% lang('categories_s') FILTER ucfirst %][% sep %]: [% panel.agribalyse_category_name.dquote %]",
+        "icon_url": "[% static_subdomain %]/images/icons/dist/lca.svg",
+        "icon_color_from_evaluation": true,
+        "icon_size": "small",
+        "title": "[% edq(lang('average_impact_of_the_category')) %][% sep %]: [% panel.agribalyse_grade FILTER upper %] (Score: [% panel.agribalyse_score %]/100)",
+        "subtitle": "[% edq(lang('categories_s')) FILTER ucfirst %][% sep %]: [% panel.agribalyse_category_name.dquote %]",
         "type": "grade",
         "grade": "[% panel.agribalyse_grade %]",
     },
@@ -16,7 +19,7 @@
                 "type": "summary",
                 "html": `
                     <p>[% lang('categories_s') FILTER ucfirst %][% sep %]: 
-                    <a href=\"https://agribalyse.ademe.fr/app/aliments/[% product.ecoscore_data.agribalyse.code %]\">[% panel.agribalyse_category_name %]</a>
+                    <a href="https://agribalyse.ademe.fr/app/aliments/[% product.ecoscore_data.agribalyse.code %]">[% panel.agribalyse_category_name %]</a>
                     </p>
                     <ul>
                         <li>
@@ -36,14 +39,14 @@
             "table_element": {
                 "id": "ecoscore_lca_impacts_by_stages_table",
                 "table_type": "percents",
-                "title": "[% lang('ecoscore_impact_detail_by_stages') %]",
+                "title": "[% edq(lang('ecoscore_impact_detail_by_stages')) %]",
                 "columns": [
                     {
-                        "text": "[% lang('ecoscore_stage') %]",
+                        "text": "[% edq(lang('ecoscore_stage')) %]",
                         "type": "text",
                     },
                     {
-                        "text": "[% lang('ecoscore_impact') %]",
+                        "text": "[% edq(lang('ecoscore_impact')) %]",
                         "type": "percent",
                     }
                 ],
@@ -54,7 +57,7 @@
                         "values": [
                             {
                                 "icon_url": "[% static_subdomain %]/images/icons/dist/[% step %].svg",
-                                "text": "[% lang("ecoscore_$step") %]"
+                                "text": "[% edq(lang("ecoscore_$step")) %]"
                             },
                             {
                                 [% ef_step = "ef_$step" %]

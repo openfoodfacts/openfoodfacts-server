@@ -3,9 +3,9 @@
 use ProductOpener::PerlStandards;
 
 use Test::More;
-use ProductOpener::APITest qw/:all/;
-use ProductOpener::Test qw/:all/;
-use ProductOpener::TestDefaults qw/:all/;
+use ProductOpener::APITest qw/create_user execute_api_tests login new_client wait_application_ready/;
+use ProductOpener::Test qw/remove_all_products remove_all_users/;
+use ProductOpener::TestDefaults qw/%default_user_form/;
 
 use File::Basename "dirname";
 
@@ -60,11 +60,23 @@ my $tests_ref = [
 		},
 		expected_type => "html",
 	},
+	# Note: in API v3, we return a 200 status code for OPTIONS, even if the product does not exist
 	{
 		test_case => 'options-api-v3',
 		method => 'OPTIONS',
 		path => '/api/v3/product/0000002',
-		expected_status_code => 404,
+		expected_status_code => 200,
+		headers => {
+			"Access-Control-Allow-Origin" => "*",
+			"Access-Control-Allow-Methods" => "HEAD, GET, PATCH, POST, PUT, OPTIONS",
+		},
+		expected_type => "html",
+	},
+	{
+		test_case => 'options-api-v3-test-product',
+		method => 'OPTIONS',
+		path => '/api/v3/product/test',
+		expected_status_code => 200,
 		headers => {
 			"Access-Control-Allow-Origin" => "*",
 			"Access-Control-Allow-Methods" => "HEAD, GET, PATCH, POST, PUT, OPTIONS",

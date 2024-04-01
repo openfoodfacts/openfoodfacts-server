@@ -1,4 +1,4 @@
-name: "Semantic PRs"
+name: "📋 Semantic Pull Requests"
 
 on:
   pull_request_target:
@@ -7,9 +7,13 @@ on:
       - edited
       - synchronize
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   main:
-    name: Validate PR title
+    name: Validate Pull Request title
     runs-on: ubuntu-latest
     steps:
       - uses: amannn/action-semantic-pull-request@v5

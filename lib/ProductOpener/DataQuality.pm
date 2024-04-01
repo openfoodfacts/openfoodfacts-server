@@ -81,11 +81,11 @@ BEGIN {
 }
 
 use ProductOpener::Config qw(:all);
-use ProductOpener::Tags qw(:all);
+use ProductOpener::Tags qw(%level exists_taxonomy_tag get_inherited_property has_tag);
 
-use ProductOpener::DataQualityCommon qw(:all);
-use ProductOpener::DataQualityFood qw(:all);
-use ProductOpener::ProducersFood qw(:all);
+use ProductOpener::DataQualityCommon qw(check_quality_common);
+use ProductOpener::DataQualityFood qw(check_quality_food);
+use ProductOpener::ProducersFood qw(detect_possible_improvements);
 
 =head1 FUNCTIONS
 
@@ -131,7 +131,7 @@ sub check_quality ($product_ref) {
 			foreach my $value (@{$product_ref->{"data_quality_" . $level . "_tags"}}) {
 				if (exists_taxonomy_tag("data_quality", $value)) {
 					my $show_on_producers_platform
-						= get_property("data_quality", $value, "show_on_producers_platform:en");
+						= get_inherited_property("data_quality", $value, "show_on_producers_platform:en");
 					if ((defined $show_on_producers_platform) and ($show_on_producers_platform eq "yes")) {
 						push @{$product_ref->{"data_quality_" . $level . "_producers_tags"}}, $value;
 					}

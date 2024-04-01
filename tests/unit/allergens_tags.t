@@ -8,8 +8,8 @@ use Log::Any::Adapter 'TAP';
 #use Log::Any::Adapter 'TAP', filter => "none";
 
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Ingredients qw/:all/;
-use ProductOpener::Products qw/:all/;
+use ProductOpener::Ingredients qw/detect_allergens_from_text extract_ingredients_from_text/;
+use ProductOpener::Products qw/compute_languages/;
 
 # dummy product for testing
 
@@ -75,7 +75,10 @@ my @tests = (
 		["en:molluscs",]
 	],
 	[
-		{lc => "fi", ingredients_text => "Marinoituja kampasimpukoita (8.6 %), ainesosat myös pienellä, ei poimintaa"},
+		{
+			lc => "fi",
+			ingredients_text => "Marinoituja kampasimpukoita (8.6 %), ainesosat myös pienellä, ei poimintaa"
+		},
 		[]
 	],
 	[{lc => "fi", ingredients_text => "grillattuja SEESAMINSIEMENIÄ, aineosia myös pienellä"}, ["en:sesame-seeds",]],
@@ -98,8 +101,8 @@ my @tests = (
 
 	[{lc => "fr", traces => "Traces de lait"}, [], ["en:milk"]],
 	[
-		{lc => "fr", traces => "Peut contenir des traces de lait et d'autres fruits à coques"}, [],
-		["en:milk", "en:nuts"]
+		{lc => "fr", traces => "Peut contenir des traces de lait et d'autres fruits à coques"},
+		[], ["en:milk", "en:nuts"]
 	],
 	[{lc => "fr", traces => "Lait, Gluten"}, [], ["en:gluten", "en:milk"]],
 	[
@@ -107,7 +110,11 @@ my @tests = (
 		[], ["en:celery", "en:gluten", "en:milk"]
 	],
 	[
-		{lc => "fr", ingredients_text => "Traces éventuelles de moutarde, sésame et céleri", traces => "Lait, Gluten"},
+		{
+			lc => "fr",
+			ingredients_text => "Traces éventuelles de moutarde, sésame et céleri",
+			traces => "Lait, Gluten"
+		},
 		[],
 		["en:celery", "en:gluten", "en:milk", "en:mustard", "en:sesame-seeds"]
 	],
@@ -173,6 +180,43 @@ my @tests = (
 
 	# Use the ingredients taxonomy to add allergens
 	[{lc => "fr", ingredients_text => "semoule de blé dur, pousses de soja"}, ["en:gluten"], []],
+
+	# Japanese allergens are in parenthesis
+	[
+		{
+			lc => "ja",
+			ingredients_text => "香料 (ラッカセイ, 種実類,魚)"
+		},
+		["en:peanuts",],    # allergens
+		["en:fish", "en:nuts", "en:peanuts",],    # traces
+	],
+	# Japanese allergens are in parenthesis with specific words
+	[
+		{
+			lc => "ja",
+			ingredients_text => "ミートボール(一部に卵・グルテン・乳成分・大豆を含む)."
+		},
+		["en:eggs", "en:gluten", "en:milk", "en:soybeans",],    # allergens
+		[],    # traces
+	],
+	# Japanese allergens are in parenthesis with other specific words
+	[
+		{
+			lc => "ja",
+			ingredients_text => "香料(乳由来)."
+		},
+		["en:milk",],    # allergens
+		[],    # traces
+	],
+	# allergens in parenthesis should not change the nova score but should appear in allergens
+	[
+		{
+			lc => "hr",
+			ingredients_text => "Krupica od durum pšenice (gluten), voda."
+		},
+		["en:gluten",],    # allergens
+		[],    # traces
+	],
 
 );
 

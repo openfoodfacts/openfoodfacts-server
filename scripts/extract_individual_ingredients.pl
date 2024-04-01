@@ -40,39 +40,19 @@ use ProductOpener::Display qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Images qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Lang qw/$lc/;
 use ProductOpener::Mail qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
-use ProductOpener::Ingredients qw/:all/;
+use ProductOpener::Ingredients qw/extract_ingredients_from_text/;
 use ProductOpener::Images qw/:all/;
-use ProductOpener::Data qw/:all/;
+use ProductOpener::Data qw/get_products_collection/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
 use JSON::PP;
-
-#use Getopt::Long;
-#
-#my @fields_to_update = ();
-#my $key;
-#my $index = '';
-#my $pretend = '';
-#my $process_ingredients = '';
-#my $compute_nutrition_score = '';
-#my $check_quality = '';
-#
-#GetOptions ("key=s"   => \$key,      # string
-#			"fields=s" => \@fields_to_update,
-#			"index" => \$index,
-#			"pretend" => \$pretend,
-#			"process-ingredients" => \$process_ingredients,
-#			"compute-nutrition-score" => \$compute_nutrition_score,
-#			"check-quality" => \$check_quality,
-#			)
-# or die("Error in command line arguments:\n$\nusage");
 
 my $query_ref = {};
 

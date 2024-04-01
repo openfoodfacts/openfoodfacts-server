@@ -1,0 +1,79 @@
+{
+   "ingredients" : [
+      {
+         "ciqual_food_code" : "20047",
+         "id" : "en:tomato",
+         "ingredients" : [
+            {
+               "id" : "ja:ときがわ町",
+               "percent_estimate" : 100,
+               "percent_max" : 100,
+               "percent_min" : 100,
+               "text" : "ときがわ町"
+            }
+         ],
+         "percent_estimate" : 100,
+         "percent_max" : 100,
+         "percent_min" : 100,
+         "text" : "トマト",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:palm-oil-content-unknown" : [
+         "ja:ときがわ町"
+      ],
+      "en:vegan-status-unknown" : [
+         "ja:ときがわ町"
+      ],
+      "en:vegetarian-status-unknown" : [
+         "ja:ときがわ町"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-content-unknown",
+      "en:vegan-status-unknown",
+      "en:vegetarian-status-unknown"
+   ],
+   "ingredients_hierarchy" : [
+      "en:tomato",
+      "en:vegetable",
+      "en:fruit-vegetable",
+      "ja:ときがわ町"
+   ],
+   "ingredients_n" : 2,
+   "ingredients_n_tags" : [
+      "2",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:tomato",
+      "ja:ときがわ町"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:tomato",
+      "en:vegetable",
+      "en:fruit-vegetable",
+      "ja:ときがわ町"
+   ],
+   "ingredients_text" : "トマト(ときがわ町])",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 1,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "ja:ときがわ町"
+   ],
+   "ingredients_without_ciqual_codes_n" : 1,
+   "known_ingredients_n" : 3,
+   "lc" : "ja",
+   "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 100,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 100,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 100,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 100
+   },
+   "unknown_ingredients_n" : 1
+}

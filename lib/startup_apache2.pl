@@ -68,10 +68,12 @@ use Log::Any::Adapter;
 Log::Any::Adapter->set('Log4perl');    # Send all logs to Log::Log4perl
 
 use ProductOpener::Lang qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
+use ProductOpener::Units qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Tags qw/:all/;
@@ -92,9 +94,9 @@ use ProductOpener::Recipes qw(:all);
 use ProductOpener::MainCountries qw/:all/;
 use ProductOpener::PackagerCodes qw/:all/;
 use ProductOpener::API qw/:all/;
-use ProductOpener::APITest qw/:all/;
 use ProductOpener::APIProductRead qw/:all/;
 use ProductOpener::APIProductWrite qw/:all/;
+use ProductOpener::APIProductRevert qw/:all/;
 use ProductOpener::APITaxonomySuggestions qw/:all/;
 use ProductOpener::TaxonomySuggestions qw/:all/;
 use ProductOpener::Routing qw/:all/;
@@ -113,6 +115,8 @@ use ProductOpener::FoodGroups qw/:all/;
 use ProductOpener::Events qw/:all/;
 use ProductOpener::Data qw/:all/;
 use ProductOpener::LoadData qw/:all/;
+use ProductOpener::NutritionCiqual qw/:all/;
+use ProductOpener::NutritionEstimation qw/:all/;
 
 use Apache2::Const -compile => qw(OK);
 use Apache2::Connection ();
@@ -146,17 +150,23 @@ sub get_remote_proxy_address {
 }
 
 # set up error logging
-open *STDERR, '>', "/$data_root/logs/modperl_error_log" or Carp::croak('Could not open modperl_error_log');
+open *STDERR, '>', "/$BASE_DIRS{LOGS}/modperl_error_log" or Carp::croak('Could not open modperl_error_log');
 print {*STDERR} $log or Carp::croak('Unable to write to *STDERR');
+
+# check folders
+my @missing_dirs = @{check_missing_dirs()};
+if (scalar @missing_dirs) {
+	die("FATAL: Some important directories are missing: " . (join(":", @missing_dirs)));
+}
 
 # load large data files into mod_perl memory
 load_data();
 
-# This startup script is run as root, it will create the $data_root/tmp directory
+# This startup script is run as root, it will create the $BASE_DIRS{CACHE_TMP} directory
 # if it does not exist, as well as sub-directories for the Template module
 # We need to set more permissive permissions so that it can be writable by the Apache user.
 
-chmod_recursive(S_IRWXU | S_IRWXG | S_IRWXO, "$data_root/tmp");
+chmod_recursive(S_IRWXU | S_IRWXG | S_IRWXO, $BASE_DIRS{CACHE_TMP});
 
 $log->info('product opener started', {version => $version});
 

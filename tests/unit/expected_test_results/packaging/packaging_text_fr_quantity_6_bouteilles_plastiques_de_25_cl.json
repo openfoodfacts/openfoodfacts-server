@@ -1,9 +1,15 @@
 {
    "lc" : "fr",
    "misc_tags" : [
+      "en:packagings-number-of-components-1",
       "en:packagings-not-complete",
       "en:packagings-not-empty-but-not-complete",
       "en:packagings-not-empty"
+   ],
+   "packaging_materials_tags" : [],
+   "packaging_recycling_tags" : [],
+   "packaging_shapes_tags" : [
+      "en:bottle"
    ],
    "packaging_text" : "6 bouteilles plastiques de 25 cl",
    "packagings" : [
@@ -14,5 +20,10 @@
          "quantity_per_unit_value" : 25,
          "shape" : "en:bottle"
       }
-   ]
+   ],
+   "packagings_materials" : {
+      "all" : {},
+      "en:unknown" : {}
+   },
+   "packagings_n" : 1
 }

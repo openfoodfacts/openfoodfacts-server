@@ -1,0 +1,146 @@
+type: object
+description: |
+  Fields related to Eco-Score for a product.
+
+  See also: `ecoscore_score`, `ecoscore_grade` and `ecoscore_tags`.
+  
+properties:
+  ecoscore_data:
+    type: object
+    description: |
+      An object about a lot of details about data needed for Eco-Score computation 
+      and complementary data of interest.
+    properties:
+      adjustments:
+        type: object
+        properties:
+          origins_of_ingredients:
+            type: object
+            properties:
+              aggregated_origins:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    origin:
+                      type: string
+                    percent:
+                      type: integer
+              epi_score:
+                type: integer
+              epi_value:
+                type: integer
+              origins_from_origins_field:
+                type: array
+                items:
+                  type: string
+              transportation_scores:
+                type: object
+                patternProperties:
+                  (?<language_code>\w\w):
+                    type: integer
+              transportation_values:
+                type: object
+                patternProperties:
+                  (?<language_code>\w\w):
+                    type: integer
+
+              values:
+                type: object
+                patternProperties:
+                  (?<language_code>\w\w):
+                    type: integer
+              warning:
+                type: string
+          packaging:
+            type: object
+            properties:
+              non_recyclable_and_non_biodegradable_materials:
+                type: integer
+              packagings:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    ecoscore_material_score:
+                      type: integer
+                    ecoscore_shape_ratio:
+                      type: integer
+                    material:
+                      type: string
+                    shape:
+                      type: string
+              score:
+                type: integer
+              value:
+                type: integer
+              warning:
+                type: string
+          production_system:
+            type: object
+            properties:
+              labels:
+                type: array
+                example: "vegan, fat free, Kosher"
+                items:
+                  type: string
+              value:
+                type: integer
+              warning:
+                type: string
+          threatened_species:
+            type: object
+            properties:
+              ingredient:
+                type: string
+              value:
+                type: integer
+      agribalyse:
+        $ref: "./agribalyse.yaml"
+      grade:
+        type: string
+      grades:
+        type: object
+        patternProperties:
+          (?<language_code>\w\w):
+            type: string
+      missing:
+        type: object
+        properties:
+          labels:
+            type: integer
+          origins:
+            type: integer
+          packagings:
+            type: integer
+
+      missing_data_warning:
+        type: integer
+
+      previous_data:
+        type: object
+        properties:
+          grade:
+            type: string
+          score:
+            type: integer
+          agribalyse:
+            $ref: "./agribalyse.yaml"
+      score:
+        type: integer
+      scores:
+        type: object
+        patternProperties:
+          (?<language_code>\w\w):
+            type: integer
+      status:
+        type: string
+  ecoscore_extended_data_version:
+    type: string
+
+  environment_impact_level:
+    type: string
+  environment_impact_level_tags:
+    type: array
+    items:
+      type: object

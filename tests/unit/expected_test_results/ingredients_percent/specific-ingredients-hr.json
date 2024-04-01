@@ -1,0 +1,66 @@
+[
+   {
+      "id" : "en:sugar",
+      "percent_estimate" : 50,
+      "percent_max" : 54,
+      "percent_min" : 46,
+      "text" : "Šećer"
+   },
+   {
+      "id" : "en:fig",
+      "ingredients" : [
+         {
+            "id" : "en:e220",
+            "percent_estimate" : 46,
+            "percent_max" : 46,
+            "percent_min" : 46,
+            "text" : "sumporni dioksid"
+         }
+      ],
+      "percent" : 46,
+      "percent_estimate" : 46,
+      "percent_max" : 46,
+      "percent_min" : 46,
+      "processing" : "en:dried",
+      "text" : "smokva"
+   },
+   {
+      "id" : "en:water",
+      "percent_estimate" : 2,
+      "percent_max" : 8,
+      "percent_min" : 0,
+      "text" : "voda"
+   },
+   {
+      "id" : "en:acidity-regulator",
+      "ingredients" : [
+         {
+            "id" : "en:e330",
+            "percent_estimate" : 1,
+            "percent_max" : 4,
+            "percent_min" : 0,
+            "text" : "limunska kiselina"
+         }
+      ],
+      "percent_estimate" : 1,
+      "percent_max" : 4,
+      "percent_min" : 0,
+      "text" : "regulator kiselosti"
+   },
+   {
+      "id" : "en:thickener",
+      "ingredients" : [
+         {
+            "id" : "en:fruit-pectin",
+            "percent_estimate" : 1,
+            "percent_max" : 2.66666666666667,
+            "percent_min" : 0,
+            "text" : "voćni pektin"
+         }
+      ],
+      "percent_estimate" : 1,
+      "percent_max" : 2.66666666666667,
+      "percent_min" : 0,
+      "text" : "zgušnjivač"
+   }
+]

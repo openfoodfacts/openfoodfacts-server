@@ -50,14 +50,12 @@ BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 
-		%gs1_maps
-
 		&init_csv_fields
 		&read_gs1_json_file
-		&generate_gs1_message_identifier
 		&generate_gs1_confirmation_message
 		&write_off_csv_file
 		&print_unknown_entries_in_gs1_maps
+		&convert_gs1_xml_file_to_json
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -66,12 +64,13 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Tags qw/:all/;
+use ProductOpener::Tags qw/%language_fields canonicalize_taxonomy_tag exists_taxonomy_tag/;
 use ProductOpener::Display qw/$tt process_template display_date_iso/;
 
 use JSON::PP;
 use boolean;
 use Data::DeepAccess qw(deep_get);
+use XML::XML2JSON;
 
 =head1 GS1 MAPS
 
@@ -94,7 +93,7 @@ my %unknown_entries_in_gs1_maps = ();
 
 # see https://www.gs1.fr/content/download/2265/17736/version/3/file/FicheProduit3.1.9_PROFIL_ParfumerieSelective_20190523.xlsx
 
-%gs1_maps = (
+my %gs1_maps = (
 
 	# https://gs1.se/en/guides/documentation/code-lists/t4078-allergen-type-code/
 	allergenTypeCode => {
@@ -132,6 +131,7 @@ my %unknown_entries_in_gs1_maps = ();
 		# Shellfish could be Molluscs or Crustaceans
 		# "UN" => "Shellfish",
 		"UW" => "Wheat",
+		"X99" => "None",
 	},
 
 	measurementUnitCode => {
@@ -161,6 +161,7 @@ my %unknown_entries_in_gs1_maps = ();
 		"CU" => "copper",
 		"ENER-" => "energy",
 		"ENERSF" => "calories-from-saturated-fat",
+		"ERYTHL" => "erythritol",
 		"F18D2CN6" => "linoleic-acid",
 		"F18D3N3" => "alpha-linolenic-acid",
 		"F20D4" => "arachidonic-acid",
@@ -216,6 +217,7 @@ my %unknown_entries_in_gs1_maps = ();
 		"SUGAR" => "sugars",
 		"SUGAR-" => "sugars",
 		"TAU" => "taurine",
+		"UNSATURATED_FAT" => "unsaturated-fat",
 		"THIA" => "vitamin-b1",
 		"THIA-" => "vitamin-b1",
 		"VITA-" => "vitamin-a",
@@ -229,30 +231,10 @@ my %unknown_entries_in_gs1_maps = ();
 		"WHEY" => "serum-proteins",
 		# skipped X_ entries such as X_ACAI_BERRY_EXTRACT
 		"ZN" => "zinc",
+		"X_FUNS" => "unsaturated-fat",
 	},
 
 	packagingTypeCode => {
-		"AE" => "Aérosol",
-		"BA" => "Tonneau",
-		"BG" => "Sac",
-		"BK" => "Barquette",
-		"BO" => "Bouteille",
-		"BPG" => "Blister",
-		"BRI" => "Brique",
-		"BX" => "Boite",
-		"CNG" => "Canette",
-		"CR" => "Caisse",
-		"CT" => "Conteneur",
-		"CU" => "Pot",
-		"EN" => "Enveloppe",
-		"JR" => "Bocal",
-		"PO" => "Poche",
-		"PUG" => "Sac de transport",
-		"TU" => "Tube",
-		"WRP" => "Film",
-	},
-
-	packagingTypeCode_unused_not_taxonomized_yet => {
 		"AE" => "en:aerosol",
 		"BA" => "en:barrel",
 		"BG" => "en:bag",
@@ -284,6 +266,7 @@ my %unknown_entries_in_gs1_maps = ();
 		"APPELLATION_ORIGINE_CONTROLEE" => "fr:aoc",
 		"AQUACULTURE_STEWARDSHIP_COUNCIL" => "en:responsible-aquaculture-asc",
 		"BLEU_BLANC_COEUR" => "fr:bleu-blanc-coeur",
+		"BIO_LABEL_GERMAN" => "de:EG-Öko-Verordnung",
 		"BIO_PARTENAIRE" => "fr:biopartenaire",
 		"CROSSED_GRAIN_SYMBOL" => "en:crossed-grain-symbol",
 		"DEMETER" => "en:demeter",
@@ -311,6 +294,7 @@ my %unknown_entries_in_gs1_maps = ();
 		"ŒUFS_DE_FRANCE" => "en:french-eggs",
 		"OEUFS_DE_FRANCE" => "en:french-eggs",
 		"ORIGINE_FRANCE_GARANTIE" => "fr:origine-france",
+		"POMMES_DE_TERRES_DE_FRANCE" => "en:potatoes-from-france",
 		"PRODUIT_EN_BRETAGNE" => "en:produced-in-brittany",
 		"PROTECTED_DESIGNATION_OF_ORIGIN" => "en:pdo",
 		"PROTECTED_GEOGRAPHICAL_INDICATION" => "en:pgi",
@@ -322,12 +306,20 @@ my %unknown_entries_in_gs1_maps = ();
 		"TRIMAN" => "fr:triman",
 		"UTZ_CERTIFIED" => "en:utz-certified",
 		"UTZ_CERTIFIED_COCOA" => "en:utz-certified-cocoa",
+		"VIANDE_AGNEAU_FRANCAIS" => "fr:viande-d-agneau-francais",
 		"VIANDE_BOVINE_FRANCAISE" => "en:french-beef",
 		"VOLAILLE_FRANCAISE" => "en:french-poultry",
 	},
 
+	# https://gs1.se/en/guides/documentation/code-lists/t3783-target-market-country-code/
 	targetMarketCountryCode => {
+		"040" => "en:austria",
+		"056" => "en:belgium",
 		"250" => "en:france",
+		"276" => "en:germany",
+		"380" => "en:italy",
+		"724" => "en:spain",
+		"756" => "en:switzerland",
 	},
 
 	timeMeasurementUnitCode => {
@@ -338,30 +330,42 @@ my %unknown_entries_in_gs1_maps = ();
 
 # Normalize some entries
 
-foreach my $tag (sort keys %{$gs1_maps{allergenTypeCode}}) {
-	my $canon_tag = canonicalize_taxonomy_tag("en", "allergens", $gs1_maps{allergenTypeCode}{$tag});
-	if (exists_taxonomy_tag("allergens", $canon_tag)) {
-		$gs1_maps{allergenTypeCode}{$tag} = $canon_tag;
-	}
-	else {
-		$log->error("gs1_maps - entry not in taxonomy",
-			{tagtype => "allergens", tag => $gs1_maps{allergenTypeCode}{$tag}})
-			if $log->is_error();
-		die;
-	}
-}
+my $gs1_maps_entries_normalized = 0;
 
-foreach my $tag (sort keys %{$gs1_maps{packagingMarkedLabelAccreditationCode}}) {
-	my $canon_tag = canonicalize_taxonomy_tag("en", "labels", $gs1_maps{packagingMarkedLabelAccreditationCode}{$tag});
-	if (exists_taxonomy_tag("labels", $canon_tag)) {
-		$gs1_maps{packagingMarkedLabelAccreditationCode}{$tag} = $canon_tag;
+sub normalize_gs1_maps_entries() {
+
+	return if $gs1_maps_entries_normalized;
+
+	foreach my $tag (sort keys %{$gs1_maps{allergenTypeCode}}) {
+		my $canon_tag = canonicalize_taxonomy_tag("en", "allergens", $gs1_maps{allergenTypeCode}{$tag});
+		if (exists_taxonomy_tag("allergens", $canon_tag)) {
+			$gs1_maps{allergenTypeCode}{$tag} = $canon_tag;
+		}
+		else {
+			$log->error("gs1_maps - entry not in taxonomy",
+				{tagtype => "allergens", tag => $gs1_maps{allergenTypeCode}{$tag}})
+				if $log->is_error();
+			die("gs1_maps - entry not in taxonomy - tagtype: allergens - tag: $tag - canon_tag: $canon_tag");
+		}
 	}
-	else {
-		$log->error("gs1_maps - entry not in taxonomy",
-			{tagtype => "labels", tag => $gs1_maps{packagingMarkedLabelAccreditationCode}{$tag}})
-			if $log->is_error();
-		die;
+
+	foreach my $tag (sort keys %{$gs1_maps{packagingMarkedLabelAccreditationCode}}) {
+		my $canon_tag
+			= canonicalize_taxonomy_tag("en", "labels", $gs1_maps{packagingMarkedLabelAccreditationCode}{$tag});
+		if (exists_taxonomy_tag("labels", $canon_tag)) {
+			$gs1_maps{packagingMarkedLabelAccreditationCode}{$tag} = $canon_tag;
+		}
+		else {
+			$log->error("gs1_maps - entry not in taxonomy",
+				{tagtype => "labels", tag => $gs1_maps{packagingMarkedLabelAccreditationCode}{$tag}})
+				if $log->is_error();
+			die("gs1_maps - entry not in taxonomy - tagtype: labels - tag: $tag - canon_tag: $canon_tag");
+		}
 	}
+
+	$gs1_maps_entries_normalized = 1;
+
+	return;
 }
 
 =head2 %gs1_message_to_off
@@ -756,19 +760,22 @@ my %gs1_product_to_off = (
 									},
 								],
 
-								[
-									"packaging_information:packagingInformationModule",
-									{
-										fields => [
-											[
-												"packaging",
-												{
-													fields => [["packagingTypeCode", "+packaging%packagingTypeCode"],],
-												},
-											],
-										],
-									},
-								],
+								# 20230328: this packaging field is too imprecise, and the packaging field is deprecated,
+								# as we have a new packagings components structure
+								#
+								#								[
+								#									"packaging_information:packagingInformationModule",
+								#									{
+								#										fields => [
+								#											[
+								#												"packaging",
+								#												{
+								#													fields => [["packagingTypeCode", "+packaging%packagingTypeCode"],],
+								#												},
+								#											],
+								#										],
+								#									},
+								#								],
 
 								[
 									"packaging_marking:packagingMarkingModule",
@@ -1755,6 +1762,8 @@ sub read_gs1_json_file ($json_file, $products_ref, $messages_ref) {
 
 	$log->debug("read_gs1_json_file", {json_file => $json_file}) if $log->is_debug();
 
+	normalize_gs1_maps_entries();
+
 	open(my $in, "<", $json_file) or die("Cannot open json file $json_file : $!\n");
 	my $json = join(q{}, (<$in>));
 	close($in);
@@ -1931,6 +1940,44 @@ sub print_unknown_entries_in_gs1_maps() {
 	}
 
 	return $unknown_entries;
+}
+
+=head2 convert_gs1_xml_file_to_json ($xml_file, $json_file)
+
+Convert a GS1 XML file to a JSON file
+
+=cut 
+
+sub convert_gs1_xml_file_to_json ($xml_file, $json_file) {
+
+	my $xml2json = XML::XML2JSON->new(module => 'JSON', pretty => 1, force_array => 0, attribute_prefix => "");
+
+	open(my $in, "<:encoding(UTF-8)", $xml_file) or die("Could not read $xml_file: $!");
+	my $xml = join('', (<$in>));
+	close($in);
+
+	my $json = $xml2json->convert($xml);
+
+	# XML2JSON changes the namespace concatenation character from : to $
+	# e.g. "allergen_information$allergenInformationModule":
+	# it is unwanted, turn it back to : so that we can match the expected input of ProductOpener::GS1
+	$json =~ s/([a-z])\$([a-z])/$1:$2/ig;
+
+	# Note: XML2JSON also creates a hash for simple text values. Text values of tags are converted to $t properties.
+	# e.g. <gtin>03449862093657</gtin>
+	#
+	# becomes:
+	#
+	# gtin: {
+	#    $t: "03449865355608"
+	# },
+	#
+	# This is taken care of later by the ProductOpener::GS1::convert_single_text_property_to_direct_value() function
+
+	open(my $out, ">:encoding(UTF-8)", $json_file) or die("Could not write $json_file: $!");
+	print $out $json;
+	close($out);
+	return;
 }
 
 1;

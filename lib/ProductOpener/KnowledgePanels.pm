@@ -46,6 +46,7 @@ BEGIN {
 
 		&initialize_knowledge_panels_options
 		&create_knowledge_panels
+		&create_panel_from_json_template
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -54,15 +55,18 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Products qw/:all/;
-use ProductOpener::Food qw/:all/;
+use ProductOpener::Users qw/$User_id/;
+use ProductOpener::Food qw/%categories_nutriments_per_country/;
 use ProductOpener::Ingredients qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Lang qw/f_lang f_lang_in_lc lang lang_in_other_lc/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::Ecoscore qw/:all/;
-use ProductOpener::PackagerCodes qw/:all/;
+use ProductOpener::Ecoscore qw/is_ecoscore_extended_data_more_precise_than_agribalyse/;
+use ProductOpener::PackagerCodes qw/%packager_codes/;
+use ProductOpener::KnowledgePanelsContribution qw/create_contribution_card_panel/;
 
 use JSON::PP;
 use Encode;
@@ -99,6 +103,9 @@ sub initialize_knowledge_panels_options ($knowledge_panels_options_ref, $request
 		}
 	}
 	$knowledge_panels_options_ref->{knowledge_panels_client} = $knowledge_panels_client;
+
+	# some info about users
+	$knowledge_panels_options_ref->{user_logged_in} = defined $User_id;
 
 	return;
 }
@@ -184,17 +191,20 @@ sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref)
 		$product_ref->{"knowledge_panels_" . $target_lc}{"tags_brands_nutella_doyouknow"} = $test_panel_ref;
 	}
 
-	# Add knowledge panels
-
 	# Create recommendation panels first, as they will be included in cards such has the health card and environment card
 	create_recommendation_panels($product_ref, $target_lc, $target_cc, $options_ref);
 
 	create_health_card_panel($product_ref, $target_lc, $target_cc, $options_ref);
 	create_environment_card_panel($product_ref, $target_lc, $target_cc, $options_ref);
+	my $has_contribution_card = create_contribution_card_panel($product_ref, $target_lc, $target_cc, $options_ref);
 
 	# Create the root panel that contains the panels we want to show directly on the product page
-	create_panel_from_json_template("root", "api/knowledge-panels/root.tt.json",
-		{}, $product_ref, $target_lc, $target_cc, $options_ref);
+	create_panel_from_json_template(
+		"root",
+		"api/knowledge-panels/root.tt.json",
+		{has_contribution_card => $has_contribution_card},
+		$product_ref, $target_lc, $target_cc, $options_ref
+	);
 	return;
 }
 
@@ -207,11 +217,13 @@ The function converts the multiline string into a single line string.
 
 sub convert_multiline_string_to_singleline ($line) {
 
+	# Escape " and \ unless they have been escaped already
+	# negative look behind to not convert \n to \\n or \" to \\" or \\ to \\\\
+	$line =~ s/(?<!\\)("|\\)/\\$1/g;
+
 	# \R will match all Unicode newline sequence
 	$line =~ s/\R/\\n/sg;
-	# Escape quotes unless they have been escaped already
-	# negative look behind to not convert \" to \\"
-	$line =~ s/(?<!\\)"/\\"/g;
+
 	return '"' . $line . '"';
 }
 
@@ -344,11 +356,12 @@ sub create_panel_from_json_template ($panel_id, $panel_template, $panel_data_ref
 			my $json_decode_error = $@;
 
 			# Save the JSON file so that it can be more easily debugged, and that we can monitor issues
-			my $target_file = "/files/debug/knowledge_panels/$panel_id." . $product_ref->{code} . ".json";
-			(-e "$www_root/files") or mkdir("$www_root/files", 0755);
-			(-e "$www_root/files/debug") or mkdir("$www_root/files/debug", 0755);
-			(-e "$www_root/files/debug/knowledge_panels") or mkdir("$www_root/files/debug/knowledge_panels", 0755);
-			open(my $out, ">:encoding(UTF-8)", $www_root . $target_file) or die "cannot open $www_root/$target_file";
+			my $target_dir = "$BASE_DIRS{PUBLIC_FILES}/debug/knowledge_panels/";
+			my $filename = $panel_id . $product_ref->{code} . ".json";
+			my $target_file = "$target_dir/" . $filename;
+			my $url = "/files/debug/knowledge_panels/" . $filename;
+			ensure_dir_created_or_die($target_dir);
+			open(my $out, ">:encoding(UTF-8)", $target_file) or die "cannot open $target_file";
 			print $out $panel_json;
 			close($out);
 
@@ -356,7 +369,7 @@ sub create_panel_from_json_template ($panel_id, $panel_template, $panel_data_ref
 				"template" => $panel_template,
 				"json_error" => $json_decode_error,
 				"json" => $panel_json,
-				"json_debug_url" => $static_subdomain . $target_file
+				"json_debug_url" => $static_subdomain . $url
 			};
 		}
 	}
@@ -692,9 +705,15 @@ sub create_environment_card_panel ($product_ref, $target_lc, $target_cc, $option
 			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
 	}
 
-	# Create panel for packaging recycling
+	# Create panel for packaging components, and packaging materials
 	create_panel_from_json_template("packaging_recycling",
 		"api/knowledge-panels/environment/packaging_recycling.tt.json",
+		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
+	create_panel_from_json_template("packaging_materials",
+		"api/knowledge-panels/environment/packaging_materials.tt.json",
+		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
+	create_panel_from_json_template("packaging_components",
+		"api/knowledge-panels/environment/packaging_components.tt.json",
 		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
 
 	# Create panel for manufacturing place
@@ -793,6 +812,9 @@ sub create_health_card_panel ($product_ref, $target_lc, $target_cc, $options_ref
 	$log->debug("create health card panel", {code => $product_ref->{code}}) if $log->is_debug();
 
 	create_nutriscore_panel($product_ref, $target_lc, $target_cc, $options_ref);
+	if ($options_ref->{admin} || $options_ref->{moderator} || $options_ref->{producers_platform}) {
+		create_nutriscore_2023_panel($product_ref, $target_lc, $target_cc, $options_ref);
+	}
 
 	create_nutrient_levels_panels($product_ref, $target_lc, $target_cc, $options_ref);
 
@@ -865,6 +887,108 @@ sub create_nutriscore_panel ($product_ref, $target_lc, $target_cc, $options_ref)
 	return;
 }
 
+sub create_nutriscore_2023_panel ($product_ref, $target_lc, $target_cc, $options_ref) {
+
+	my $version = "2023";
+
+	$log->debug("create nutriscore_2023 panel",
+		{code => $product_ref->{code}, nutriscore_data => deep_get($product_ref, qw/nutriscore 2023 data/)})
+		if $log->is_debug();
+
+	my $panel_data_ref = data_to_display_nutriscore($product_ref, $version);
+
+	# Nutri-Score panel
+	my $grade = deep_get($product_ref, "nutriscore", $version, "grade");
+
+	# Title
+	if ($grade eq "not-applicable") {
+		$panel_data_ref->{title} = lang_in_other_lc($target_lc, "attribute_nutriscore_not_applicable_title");
+	}
+	else {
+		$panel_data_ref->{title}
+			= sprintf(lang_in_other_lc($target_lc, "attribute_nutriscore_grade_title"), uc($grade));
+	}
+
+	# Subtitle
+	if ($panel_data_ref->{nutriscore_unknown_reason_short}) {
+		$panel_data_ref->{subtitle} = $panel_data_ref->{nutriscore_unknown_reason_short};
+	}
+	else {
+		$panel_data_ref->{subtitle} = lang_in_other_lc($target_lc,
+			"attribute_nutriscore_" . $panel_data_ref->{nutriscore_grade} . "_description_short");
+	}
+
+	# Nutri-Score computed
+	if (($grade ne "not-applicable") and ($grade ne "unknown")) {
+
+		# Nutri-Score sub-panels for each positive or negative component
+		foreach my $type (qw/positive negative/) {
+			my $components_ref = deep_get($product_ref, "nutriscore", $version, "data", "components", $type) // [];
+			foreach my $component_ref (@$components_ref) {
+
+				my $value = $component_ref->{value};
+
+				# Specify if there is a space between the value and the unit
+				my $space_before_unit = '';
+
+				my $unit = $component_ref->{unit};
+
+				# If the value is not defined (e.g. fiber or fruits_vegetables_legumes), display "unknown" with no unit
+				if (not defined $value) {
+					$value = lc(lang_in_other_lc($target_lc, "unknown"));
+					$unit = '';
+				}
+				else {
+					# Localize the unit for the number of non-nutritive sweeteners
+					if ($component_ref->{id} eq "non_nutritive_sweeteners") {
+						$space_before_unit = ' ';
+						if ($value > 1) {
+							$unit = lang_in_other_lc($target_lc, "sweeteners");
+						}
+						else {
+							$unit = lang_in_other_lc($target_lc, "sweetener");
+						}
+					}
+				}
+
+				my $component_panel_data_ref = {
+					"type" => $type,
+					"id" => $component_ref->{id},
+					"value" => $value,
+					"unit" => $unit,
+					"space_before_unit" => $space_before_unit,
+					"points" => $component_ref->{points},
+					"points_max" => $component_ref->{points_max},
+				};
+				create_panel_from_json_template(
+					"nutriscore_component_" . $component_ref->{id},
+					"api/knowledge-panels/health/nutriscore/nutriscore_component.tt.json",
+					$component_panel_data_ref,
+					$product_ref,
+					$target_lc,
+					$target_cc,
+					$options_ref
+				);
+			}
+
+			create_panel_from_json_template("nutriscore_details",
+				"api/knowledge-panels/health/nutriscore/nutriscore_details.tt.json",
+				$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
+		}
+	}
+
+	# Nutri-Score panel: parent panel
+	create_panel_from_json_template("nutriscore_2023", "api/knowledge-panels/health/nutriscore/nutriscore_2023.tt.json",
+		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
+
+	# Nutri-Score description
+	create_panel_from_json_template("nutriscore_description",
+		"api/knowledge-panels/health/nutriscore/nutriscore_description.tt.json",
+		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
+
+	return;
+}
+
 =head2 create_nutrient_levels_panels ( $product_ref, $target_lc, $target_cc, $options_ref )
 
 Creates knowledge panels for nutrient levels for fat, saturated fat, sugars and salt.
@@ -902,6 +1026,10 @@ sub create_nutrient_levels_panels ($product_ref, $target_lc, $target_cc, $option
 				$nutrient_level_ref, $product_ref, $target_lc, $target_cc, $options_ref
 			);
 		}
+
+		create_panel_from_json_template("nutrient_levels",
+			"api/knowledge-panels/health/nutrition/nutrient_levels.tt.json",
+			{}, $product_ref, $target_lc, $target_cc, $options_ref);
 	}
 	return;
 }
@@ -974,7 +1102,11 @@ sub create_serving_size_panel ($product_ref, $target_lc, $target_cc, $options_re
 
 	# Generate a panel only for food products that have a serving size
 	if (defined $product_ref->{serving_size}) {
-		my $panel_data_ref = {};
+		my $serving_warning = undef;
+		if (($product_ref->{serving_quantity} <= 5) and ($product_ref->{nutrition_data_per} eq 'serving')) {
+			$serving_warning = lang_in_other_lc($target_lc, "serving_too_small_for_nutrition_analysis");
+		}
+		my $panel_data_ref = {"serving_warning" => $serving_warning,};
 		create_panel_from_json_template("serving_size", "api/knowledge-panels/health/nutrition/serving_size.tt.json",
 			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
 	}
@@ -1125,7 +1257,7 @@ sub create_ingredients_panel ($product_ref, $target_lc, $target_cc, $options_ref
 
 	my $ingredients_text = $product_ref->{ingredients_text};
 	my $ingredients_text_with_allergens = $product_ref->{ingredients_text_with_allergens};
-	my $ingredients_text_lc = $product_ref->{lc};
+	my $ingredients_text_lc = $product_ref->{ingredients_lc};
 
 	if (    (defined $product_ref->{"ingredients_text" . "_" . $target_lc})
 		and ($product_ref->{"ingredients_text" . "_" . $target_lc} ne ''))
@@ -1200,6 +1332,14 @@ sub create_additives_panel ($product_ref, $target_lc, $target_cc, $options_ref) 
 			add_taxonomy_properties_in_target_languages_to_object($additive_panel_data_ref, "additives", $additive,
 				["wikipedia_url", "wikipedia_title", "wikipedia_abstract"],
 				$target_lcs_ref);
+
+			# We check if the knowledge content for this additive (and language/country) is available.
+			# If it is it will be displayed instead of the wikipedia extract
+			my $additive_description = get_knowledge_content("additives", $additive, $target_lc, $target_cc);
+
+			if (defined $additive_description) {
+				$additive_panel_data_ref->{additive_description} = $additive_description;
+			}
 
 			create_panel_from_json_template($additive_panel_id,
 				"api/knowledge-panels/health/ingredients/additive.tt.json",
@@ -1281,6 +1421,26 @@ sub create_ingredients_analysis_panel ($product_ref, $target_lc, $target_cc, $op
 	return;
 }
 
+sub remove_latex_sequences ($string) {
+
+	# Some wikipedia abstracts have chemical formulas like {\\displaystyle \\mathrm {NaNO_{3}} +\\mathrm {Pb} \\to \\mathrm {NaNO_{2}} +\\mathrm {PbO} }
+	# In practice, we remove everything between { }
+
+	$string =~ s/
+        (                   
+        {                   # match an opening {
+            (?:
+                [^{}]++     # one or more non angle brackets, non backtracking
+                  |
+                (?1)        # found { or }, so recurse to capture group 1
+            )*
+        }                   # match a closing }
+        )                   
+        //xg;
+
+	return $string;
+}
+
 =head2 add_taxonomy_properties_in_target_languages_to_object ( $object_ref, $tagtype, $tagid, $properties_ref, $target_lcs_ref )
 
 This function adds to the hash ref $object_ref (for instance a data structure passed to a template) the values
@@ -1323,7 +1483,7 @@ sub add_taxonomy_properties_in_target_languages_to_object ($object_ref, $tagtype
 			}
 		}
 		if (defined $property_value) {
-			$object_ref->{$property} = $property_value;
+			$object_ref->{$property} = remove_latex_sequences($property_value);
 			$object_ref->{$property . "_lc"} = $property_lc;
 			$object_ref->{$property . "_language"}
 				= display_taxonomy_tag($target_lcs_ref->[0], "languages", $language_codes{$property_lc});

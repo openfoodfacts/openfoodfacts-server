@@ -1,9 +1,27 @@
 {
    "lc" : "fr",
    "misc_tags" : [
+      "en:packagings-number-of-components-8",
       "en:packagings-not-complete",
       "en:packagings-not-empty-but-not-complete",
       "en:packagings-not-empty"
+   ],
+   "packaging_materials_tags" : [
+      "en:cardboard",
+      "en:paper",
+      "en:plastic",
+      "en:wood"
+   ],
+   "packaging_recycling_tags" : [],
+   "packaging_shapes_tags" : [
+      "en:basket",
+      "en:blister",
+      "en:capsule",
+      "en:case",
+      "en:crate",
+      "en:string",
+      "en:tie",
+      "en:tumbler"
    ],
    "packaging_text" : "Gobelet en plastique; cageots en bois; caisse en carton; ficelle; liens plastiques; blister en plastique; panier en papier; capsules individuelles",
    "packagings" : [
@@ -23,6 +41,9 @@
          "shape" : "en:string"
       },
       {
+         "shape" : "en:tie"
+      },
+      {
          "material" : "en:plastic",
          "shape" : "en:blister"
       },
@@ -33,5 +54,12 @@
       {
          "shape" : "en:capsule"
       }
-   ]
+   ],
+   "packagings_materials" : {
+      "all" : {},
+      "en:paper-or-cardboard" : {},
+      "en:plastic" : {},
+      "en:unknown" : {}
+   },
+   "packagings_n" : 8
 }

@@ -24,9 +24,10 @@ use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Export qw/:all/;
-use ProductOpener::Display qw/:all/;
-use ProductOpener::Products qw/:all/;
+use ProductOpener::Display qw/add_params_to_query/;
+use ProductOpener::Products qw/product_path_from_id/;
 
 use URI::Escape::XS;
 use Storable qw/dclone/;
@@ -36,7 +37,7 @@ use Time::Local;
 use Data::Dumper;
 use Getopt::Long;
 use CGI qw(:cgi :cgi-lib);
-use ProductOpener::Data qw/:all/;
+use ProductOpener::Data qw/get_products_collection/;
 
 binmode(STDOUT, ":encoding(UTF-8)");
 binmode(STDERR, ":encoding(UTF-8)");
@@ -139,7 +140,8 @@ use Data::Dumper;
 print STDERR "MongoDB query:\n" . Dumper($query_ref) . "\n";
 
 # harvest products'code from mongo db
-my $cursor = get_products_collection(3 * 60 * 60 * 1000)->query($query_ref)->fields({"code" => 1})->sort({code => 1});
+my $cursor = get_products_collection({timeout => 3 * 60 * 60 * 1000})->query($query_ref)->fields({"code" => 1})
+	->sort({code => 1});
 
 $cursor->immortal(1);
 
@@ -168,8 +170,8 @@ if (defined $products_file) {
 	if ($products_file =~ /\.gz$/) {
 		$tar_cmd = "cvfz";
 	}
-	print STDERR "Executing tar command: tar $tar_cmd $products_file -C $data_root/products -T $tmp_file\n";
-	system('tar', $tar_cmd, $products_file, "-C", "$data_root/products", "-T", $tmp_file);
+	print STDERR "Executing tar command: tar $tar_cmd $products_file -C $BASE_DIRS{PRODUCTS} -T $tmp_file\n";
+	system('tar', $tar_cmd, $products_file, "-C", $BASE_DIRS{PRODUCTS}, "-T", $tmp_file);
 }
 
 if (defined $images_file) {
@@ -178,8 +180,8 @@ if (defined $images_file) {
 	if ($images_file =~ /\.gz$/) {
 		$tar_cmd = "cvfz";
 	}
-	print STDERR "Executing tar command: tar $tar_cmd $images_file -C $www_root/images/products -T $tmp_file\n";
-	system('tar', $tar_cmd, $images_file, "-C", "$www_root/images/products", "-T", $tmp_file);
+	print STDERR "Executing tar command: tar $tar_cmd $images_file -C $BASE_DIRS{PRODUCTS_IMAGES} -T $tmp_file\n";
+	system('tar', $tar_cmd, $images_file, "-C", $BASE_DIRS{PRODUCTS_IMAGES}, "-T", $tmp_file);
 }
 
 print STDERR "$i products exported.\n";

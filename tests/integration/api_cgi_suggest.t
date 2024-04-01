@@ -3,8 +3,8 @@
 use ProductOpener::PerlStandards;
 
 use Test::More;
-use ProductOpener::APITest qw/:all/;
-use ProductOpener::Test qw/:all/;
+use ProductOpener::APITest qw/execute_api_tests wait_application_ready/;
+use ProductOpener::Test qw/remove_all_products remove_all_users/;
 use ProductOpener::TestDefaults qw/:all/;
 
 use File::Basename "dirname";
@@ -81,6 +81,12 @@ my $tests_ref = [
 		test_case => 'categories-string-fr-cafe-accent',
 		method => 'GET',
 		path => '/cgi/suggest.pl?tagtype=categories&string=Café&lc=fr',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'synonym-string-fr-dairy-drinks',
+		method => 'GET',
+		path => '/cgi/suggest.pl?tagtype=categories&string=jus de fruits au lait&lc=fr',
 		expected_status_code => 200,
 	},
 ];

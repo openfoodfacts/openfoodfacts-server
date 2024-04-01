@@ -6,7 +6,7 @@ use utf8;
 use Test::More;
 use Log::Any::Adapter 'TAP';
 
-use ProductOpener::Text qw/:all/;
+use ProductOpener::Text qw/normalize_percentages remove_email/;
 
 # Patterns according to Unicode CDLR v29
 # Pattern	# Locales using it
@@ -60,5 +60,10 @@ is(normalize_percentages('2500%', 'fr'), "2\N{U+00A0}500\N{U+00A0}%");
 #en
 is(normalize_percentages('2,50%', 'en'), "2.5%");
 is(normalize_percentages('2.50%', 'en'), "2.5%");
+
+# Test remove_email
+is(remove_email('test@example.com'), '');
+is(remove_email('test string'), "test string");
+is(remove_email('no email address'), 'no email address');
 
 done_testing();

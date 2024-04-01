@@ -15,8 +15,7 @@ use Log::Any::Adapter 'TAP', filter => 'trace';
 #use Text::Diff;
 
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::TagsEntries qw/:all/;
-use ProductOpener::Ingredients qw/:all/;
+use ProductOpener::Ingredients qw/parse_ingredients_text_service/;
 
 # dummy product for testing
 
@@ -184,7 +183,7 @@ TODO: {
 
 		print STDERR "ingredients_text: " . $product_ref->{ingredients_text} . "\n";
 
-		parse_ingredients_text($product_ref);
+		parse_ingredients_text_service($product_ref, {});
 
 		is_deeply($product_ref->{ingredients}, $expected_ingredients_ref)
 			# using print + join instead of diag so that we don't have
@@ -200,7 +199,7 @@ TODO: {
 			print STDERR "# Got:\n";
 			print STDERR join("\n", explain $product_ref->{ingredients});
 			print STDERR "# Expected:\n";
-			print STDERR join("\n", explain $expected_ingredients_ref );
+			print STDERR join("\n", explain $expected_ingredients_ref);
 			};
 
 		#			or do {

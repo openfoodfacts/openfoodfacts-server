@@ -29,12 +29,12 @@ use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Display qw/:all/;
+use ProductOpener::Display qw/init_request single_param/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Mail qw/:all/;
-use ProductOpener::Producers qw/:all/;
+use ProductOpener::Producers qw/get_minion/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -65,13 +65,13 @@ $log->debug("minion_job_status.pl - start", {data => \%data}) if $log->is_debug(
 
 if (not $data{error}) {
 
-	my $job = $minion->job($job_id);
+	my $job = get_minion()->job($job_id);
 
 	# Get Minion::Job object without making any changes to the actual job or return undef if job does not exist.
 
 	# Check job info
 	$log->debug("minion_job_status.pl - get job_info", {data => \%data}) if $log->is_debug();
-	$data{job_info} = $minion->job($job_id)->info;
+	$data{job_info} = get_minion()->job($job_id)->info;
 }
 
 my $data = encode_json(\%data);

@@ -40,7 +40,7 @@ it is likely that the MongoDB cursor of products to be updated will expire, and 
 --query some_field=-some_value	match products that don't have some_value for some_field
 --process-ingredients	compute allergens, additives detection
 --clean-ingredients	remove nutrition facts, conservation conditions etc.
---compute-nutrition-score	nutriscore
+--compute-nutriscore	nutriscore
 --compute-serving-size	compute serving size values
 --compute-history	compute history and completeness
 --check-quality	run quality checks
@@ -56,27 +56,30 @@ TXT
 	;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
+use ProductOpener::Store qw/retrieve store/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Users qw/:all/;
-use ProductOpener::Images qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Users qw/$User_id %User/;
+use ProductOpener::Images qw/process_image_crop/;
+use ProductOpener::Lang qw/$lc/;
 use ProductOpener::Mail qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
-use ProductOpener::DataQuality qw/:all/;
-use ProductOpener::Data qw/:all/;
-use ProductOpener::Ecoscore qw(:all);
-use ProductOpener::Packaging qw(:all);
-use ProductOpener::ForestFootprint qw(:all);
-use ProductOpener::MainCountries qw(:all);
-use ProductOpener::PackagerCodes qw/:all/;
-use ProductOpener::API qw/:all/;
-use ProductOpener::LoadData qw/:all/;
+use ProductOpener::DataQuality qw/check_quality/;
+use ProductOpener::Data qw/get_products_collection/;
+use ProductOpener::Ecoscore qw(compute_ecoscore);
+use ProductOpener::Packaging
+	qw(analyze_and_combine_packaging_data guess_language_of_packaging_text init_packaging_taxonomies_regexps);
+use ProductOpener::ForestFootprint qw(compute_forest_footprint);
+use ProductOpener::MainCountries qw(compute_main_countries);
+use ProductOpener::PackagerCodes qw/normalize_packager_codes/;
+use ProductOpener::API qw/get_initialized_response/;
+use ProductOpener::LoadData qw/load_data/;
+use ProductOpener::Redis qw/push_to_redis_stream/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -84,6 +87,7 @@ use Storable qw/dclone/;
 use Encode;
 use JSON::PP;
 use Data::DeepAccess qw(deep_get deep_exists deep_set);
+use Data::Compare;
 
 use Log::Any::Adapter 'TAP';
 
@@ -97,7 +101,7 @@ my $just_print_codes = '', my $pretend = '';
 my $process_ingredients = '';
 my $process_packagings = '';
 my $clean_ingredients = '';
-my $compute_nutrition_score = '';
+my $compute_nutriscore = '';
 my $compute_serving_size = '';
 my $compute_data_sources = '';
 my $compute_nova = '';
@@ -116,6 +120,7 @@ my $run_ocr = '';
 my $autorotate = '';
 my $remove_team = '';
 my $remove_label = '';
+my $remove_category = '';
 my $remove_nutrient = '';
 my $remove_old_carbon_footprint = '';
 my $fix_spanish_ingredientes = '';
@@ -135,6 +140,12 @@ my $fix_nutrition_data = '';
 my $compute_main_countries = '';
 my $prefix_packaging_tags_with_language = '';
 my $fix_non_string_ids = '';
+my $fix_non_string_codes = '';
+my $fix_string_last_modified_t = '';
+my $assign_ciqual_codes = '';
+my $obsolete = 0;
+my $fix_obsolete;
+my $fix_last_modified_t;    # Will set the update key and ensure last_updated_t is initialised
 
 my $query_ref = {};    # filters for mongodb query
 
@@ -150,7 +161,7 @@ GetOptions(
 	"process-ingredients" => \$process_ingredients,
 	"process-packagings" => \$process_packagings,
 	"assign-categories-properties" => \$assign_categories_properties,
-	"compute-nutrition-score" => \$compute_nutrition_score,
+	"compute-nutriscore" => \$compute_nutriscore,
 	"compute-history" => \$compute_history,
 	"compute-serving-size" => \$compute_serving_size,
 	"reassign-energy-kcal" => \$reassign_energy_kcal,
@@ -167,6 +178,8 @@ GetOptions(
 	"fix-zulu-lang" => \$fix_zulu_lang,
 	"fix-rev-not-incremented" => \$fix_rev_not_incremented,
 	"fix-non-string-ids" => \$fix_non_string_ids,
+	"fix-non-string-codes" => \$fix_non_string_codes,
+	"fix-string-last-modified-t" => \$fix_string_last_modified_t,
 	"user-id=s" => \$User_id,
 	"comment=s" => \$comment,
 	"run-ocr" => \$run_ocr,
@@ -174,6 +187,7 @@ GetOptions(
 	"fix-yuka-salt" => \$fix_yuka_salt,
 	"remove-team=s" => \$remove_team,
 	"remove-label=s" => \$remove_label,
+	"remove-category=s" => \$remove_category,
 	"remove-nutrient=s" => \$remove_nutrient,
 	"remove-old-carbon-footprint" => \$remove_old_carbon_footprint,
 	"fix-spanish-ingredientes" => \$fix_spanish_ingredientes,
@@ -188,6 +202,10 @@ GetOptions(
 	"fix-nutrition-data" => \$fix_nutrition_data,
 	"compute-main-countries" => \$compute_main_countries,
 	"prefix-packaging-tags-with-language" => \$prefix_packaging_tags_with_language,
+	"assign-ciqual-codes" => \$assign_ciqual_codes,
+	"obsolete" => \$obsolete,
+	"fix-obsolete" => \$fix_obsolete,
+	"fix-last-modified-t" => \$fix_last_modified_t,
 ) or die("Error in command line arguments:\n\n$usage");
 
 use Data::Dumper;
@@ -208,8 +226,7 @@ my $unknown_fields = 0;
 
 foreach my $field (@fields_to_update) {
 	if (    (not defined $tags_fields{$field})
-		and (not defined $taxonomy_fields{$field})
-		and (not defined $hierarchy_fields{$field}))
+		and (not defined $taxonomy_fields{$field}))
 	{
 		print "Unknown field: $field\n";
 		$unknown_fields++;
@@ -221,7 +238,7 @@ if ($unknown_fields > 0) {
 }
 
 if (    (not $process_ingredients)
-	and (not $compute_nutrition_score)
+	and (not $compute_nutriscore)
 	and (not $compute_nova)
 	and (not $clean_ingredients)
 	and (not $delete_old_fields)
@@ -240,8 +257,11 @@ if (    (not $process_ingredients)
 	and (not $fix_nutrition_data_per)
 	and (not $fix_nutrition_data)
 	and (not $fix_non_string_ids)
+	and (not $fix_non_string_codes)
+	and (not $fix_string_last_modified_t)
 	and (not $compute_sort_key)
 	and (not $remove_team)
+	and (not $remove_category)
 	and (not $remove_label)
 	and (not $remove_nutrient)
 	and (not $remove_old_carbon_footprint)
@@ -259,7 +279,10 @@ if (    (not $process_ingredients)
 	and (scalar @fields_to_update == 0)
 	and (not $count)
 	and (not $just_print_codes)
-	and (not $prefix_packaging_tags_with_language))
+	and (not $prefix_packaging_tags_with_language)
+	and (not $assign_ciqual_codes)
+	and (not $fix_obsolete)
+	and (not $fix_last_modified_t))
 {
 	die("Missing fields to update or --count option:\n$usage");
 }
@@ -318,6 +341,16 @@ if ($fix_non_string_ids) {
 	$query_ref->{_id} = {'$type' => "long"};
 }
 
+# Query products that have the _id field stored as a number
+if ($fix_non_string_codes) {
+	$query_ref->{code} = {'$type' => "long"};
+}
+
+# Query products that have the last_modified_t field stored as a number
+if ($fix_string_last_modified_t) {
+	$query_ref->{last_modified_t} = {'$type' => "string"};
+}
+
 # On the producers platform, require --query owners_tags to be set, or the --all-owners field to be set.
 
 if ((defined $server_options{private_products}) and ($server_options{private_products})) {
@@ -335,6 +368,10 @@ if ((defined $remove_label) and ($remove_label ne "")) {
 	$query_ref->{labels_tags} = $remove_label;
 }
 
+if ((defined $remove_category) and ($remove_category ne "")) {
+	$query_ref->{categories_tags} = $remove_category;
+}
+
 if (defined $key) {
 	$query_ref->{update_key} = {'$ne' => "$key"};
 }
@@ -350,7 +387,15 @@ use Data::Dumper;
 print STDERR "MongoDB query:\n" . Dumper($query_ref);
 
 my $socket_timeout_ms = 2 * 60000;    # 2 mins, instead of 30s default, to not die as easily if mongodb is busy.
-my $products_collection = get_products_collection($socket_timeout_ms);
+
+# Collection that will be used to iterate products
+my $products_collection = get_products_collection({obsolete => $obsolete, timeout => $socket_timeout_ms});
+
+# Collections for saving current / obsolete products
+my %products_collections = (
+	current => get_products_collection({timeout => $socket_timeout_ms}),
+	obsolete => get_products_collection({obsolete => $obsolete, timeout => $socket_timeout_ms}),
+);
 
 my $products_count = "";
 
@@ -373,10 +418,14 @@ else {
 }
 $cursor->immortal(1);
 
-my $n = 0;    # number of products updated
-my $m = 0;    # number of products with a new version created
+my $products_processed = 0;    # number of products processed by the script
+my $products_changed = 0;    # number of products changed by the script
+my $products_new_version_created = 0;    # number of products with a new version created
+my $products_silently_updated = 0;    # number of products updated without creating a new version
+my $products_pushed_to_redis = 0;    # number of products pushed to redis
 
 my $fix_rev_not_incremented_fixed = 0;
+my $fix_obsolete_fixed = 0;
 
 # Used to get stats on fields deleted by an user
 my %deleted_fields = ();
@@ -400,6 +449,7 @@ if ($prefix_packaging_tags_with_language) {
 }
 
 while (my $product_ref = $cursor->next) {
+	$products_processed++;
 
 	# Response structure to keep track of warnings and errors
 	# Note: currently some warnings and errors are added,
@@ -416,13 +466,10 @@ while (my $product_ref = $cursor->next) {
 	}
 
 	if (not defined $code) {
-		print STDERR "code field undefined for product id: "
-			. $product_ref->{id}
-			. " _id: "
-			. $product_ref->{_id} . "\n";
+		print STDERR "\ncode field undefined for product id: " . $product_ref->{id} . " _id: " . $product_ref->{_id};
 	}
 	else {
-		print STDERR "updating product code: $code $owner_info ($n / $products_count)\n";
+		print STDERR "\nupdating product code: $code $owner_info ($products_processed / $products_count)";
 	}
 
 	next if $just_print_codes;
@@ -433,6 +480,10 @@ while (my $product_ref = $cursor->next) {
 	}
 
 	if ((defined $product_ref) and ($productid ne '')) {
+		# Delete the update_key if it exists, the field is used to keep track of which products have been processed by a run of this script,
+		# even if they were not updated because the updated product had the same content as the original product.
+		delete $product_ref->{update_key};
+		my $original_product = dclone($product_ref);
 
 		$lc = $product_ref->{lc};
 
@@ -532,6 +583,12 @@ while (my $product_ref = $cursor->next) {
 			compute_field_tags($product_ref, $product_ref->{lc}, "labels");
 		}
 
+		if ((defined $remove_category) and ($remove_category ne "")) {
+			remove_tag($product_ref, "categories", $remove_category);
+			$product_ref->{categories} = join(',', @{$product_ref->{categories_tags}});
+			compute_field_tags($product_ref, $product_ref->{lc}, "categories");
+		}
+
 		if ((defined $remove_nutrient) and ($remove_nutrient ne "")) {
 			if (defined $product_ref->{nutriments}) {
 				delete $product_ref->{nutriments}{$remove_nutrient};
@@ -578,7 +635,7 @@ while (my $product_ref = $cursor->next) {
 
 			my $rev = $product_ref->{rev} - 1;
 			while ($rev >= 1) {
-				my $rev_product_ref = retrieve("$data_root/products/$path/$rev.sto");
+				my $rev_product_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/$rev.sto");
 				if ((defined $rev_product_ref) and (defined $rev_product_ref->{ingredients_text_es})) {
 					my $rindex = rindex($rev_product_ref->{ingredients_text_es}, $current_ingredients);
 
@@ -670,7 +727,7 @@ while (my $product_ref = $cursor->next) {
 
 		if ($fix_rev_not_incremented) {    # https://github.com/openfoodfacts/openfoodfacts-server/issues/2321
 
-			my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
+			my $changes_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/changes.sto");
 			if (defined $changes_ref) {
 				my $change_ref = $changes_ref->[-1];
 				my $last_rev = $change_ref->{rev};
@@ -683,7 +740,7 @@ while (my $product_ref = $cursor->next) {
 					my $blame_ref = {};
 					compute_product_history_and_completeness($data_root, $product_ref, $changes_ref, $blame_ref);
 					compute_data_sources($product_ref, $changes_ref);
-					store("$data_root/products/$path/changes.sto", $changes_ref);
+					store("$BASE_DIRS{PRODUCTS}/$path/changes.sto", $changes_ref);
 				}
 				else {
 					next;
@@ -692,6 +749,26 @@ while (my $product_ref = $cursor->next) {
 			else {
 				next;
 			}
+		}
+
+		if ($fix_last_modified_t) {
+			# https://github.com/openfoodfacts/openfoodfacts-server/pull/9646#issuecomment-1892160060
+			my $changes_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/changes.sto");
+			if (defined $changes_ref) {
+				my $change_ref = $changes_ref->[-1];
+				my $change_last_modified_t = $change_ref->{t};
+				my $current_last_modified_t = $product_ref->{last_modified_t} // 0;
+				if ($current_last_modified_t != $change_last_modified_t) {
+					print STDERR "-> fixing last_modified_t from $current_last_modified_t to $change_last_modified_t";
+					# print statement above makes $change_last_modified_t a a string
+					$product_ref->{last_modified_t} = $change_last_modified_t + 0;
+				}
+			}
+		}
+
+		if ($fix_string_last_modified_t) {
+			# Make sure last_modified_t is stored as a number
+			$product_ref->{last_modified_t} += 0;
 		}
 
 		# Fix zulu lang, bug https://github.com/openfoodfacts/openfoodfacts-server/issues/2063
@@ -809,9 +886,9 @@ while (my $product_ref = $cursor->next) {
 
 								require File::Copy;
 								foreach my $size (100, 200, 400, "full") {
-									my $source = "$www_root/images/products/$path/${imgid}_zu.$rev.$size.jpg";
+									my $source = "$BASE_DIRS{PRODUCTS_IMAGES}/$path/${imgid}_zu.$rev.$size.jpg";
 									my $target
-										= "$www_root/images/products/$path/${imgid}_"
+										= "$BASE_DIRS{PRODUCTS_IMAGES}/$path/${imgid}_"
 										. $product_ref->{lc}
 										. ".$rev.$size.jpg";
 									print STDERR "move $source to $target\n";
@@ -937,14 +1014,14 @@ while (my $product_ref = $cursor->next) {
 						and (defined $product_ref->{images}{$imgid}{orientation})
 						and ($product_ref->{images}{$imgid}{orientation} != 0)
 						# only rotate images that have not been manually cropped
-						and
-						((not defined $product_ref->{images}{$imgid}{x1}) or ($product_ref->{images}{$imgid}{x1} <= 0))
-						and
-						((not defined $product_ref->{images}{$imgid}{y1}) or ($product_ref->{images}{$imgid}{y1} <= 0))
-						and
-						((not defined $product_ref->{images}{$imgid}{x2}) or ($product_ref->{images}{$imgid}{x2} <= 0))
-						and
-						((not defined $product_ref->{images}{$imgid}{y2}) or ($product_ref->{images}{$imgid}{y2} <= 0))
+						and (  (not defined $product_ref->{images}{$imgid}{x1})
+							or ($product_ref->{images}{$imgid}{x1} <= 0))
+						and (  (not defined $product_ref->{images}{$imgid}{y1})
+							or ($product_ref->{images}{$imgid}{y1} <= 0))
+						and (  (not defined $product_ref->{images}{$imgid}{x2})
+							or ($product_ref->{images}{$imgid}{x2} <= 0))
+						and (  (not defined $product_ref->{images}{$imgid}{y2})
+							or ($product_ref->{images}{$imgid}{y2} <= 0))
 						)
 					{
 						print STDERR "rotating image $imgid by "
@@ -953,7 +1030,7 @@ while (my $product_ref = $cursor->next) {
 						# Save product so that OCR results now:
 						# autorotate may call image_process_crop which will read the product file on disk and
 						# write a new one
-						store("$data_root/products/$path/product.sto", $product_ref);
+						store("$BASE_DIRS{PRODUCTS}/$path/product.sto", $product_ref);
 
 						eval {
 
@@ -1034,7 +1111,7 @@ while (my $product_ref = $cursor->next) {
 		}
 
 		if ($compute_data_sources) {
-			my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
+			my $changes_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/changes.sto");
 			if (not defined $changes_ref) {
 				$changes_ref = [];
 			}
@@ -1047,9 +1124,9 @@ while (my $product_ref = $cursor->next) {
 			compute_nova_group($product_ref);
 		}
 
-		if ($compute_nutrition_score) {
+		if ($compute_nutriscore) {
 			fix_salt_equivalent($product_ref);
-			compute_nutrition_score($product_ref);
+			compute_nutriscore($product_ref);
 			compute_nutrient_levels($product_ref);
 		}
 
@@ -1101,7 +1178,7 @@ while (my $product_ref = $cursor->next) {
 		if ($fix_yuka_salt) {    # https://github.com/openfoodfacts/openfoodfacts-server/issues/2945
 			my $blame_ref = {};
 
-			my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
+			my $changes_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/changes.sto");
 			compute_product_history_and_completeness($data_root, $product_ref, $changes_ref, $blame_ref);
 
 			if (
@@ -1168,7 +1245,7 @@ while (my $product_ref = $cursor->next) {
 
 					fix_salt_equivalent($product_ref);
 					compute_serving_size_data($product_ref);
-					compute_nutrition_score($product_ref);
+					compute_nutriscore($product_ref);
 					compute_nutrient_levels($product_ref);
 					$product_values_changed = 1;
 				}
@@ -1191,7 +1268,7 @@ while (my $product_ref = $cursor->next) {
 
 				fix_salt_equivalent($product_ref);
 				compute_serving_size_data($product_ref);
-				compute_nutrition_score($product_ref);
+				compute_nutriscore($product_ref);
 				compute_nutrient_levels($product_ref);
 			}
 		}
@@ -1213,18 +1290,18 @@ while (my $product_ref = $cursor->next) {
 		}
 
 		if (($compute_history) or ((defined $User_id) and ($User_id ne '') and ($product_values_changed))) {
-			my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
+			my $changes_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/changes.sto");
 			if (not defined $changes_ref) {
 				$changes_ref = [];
 			}
 			my $blame_ref = {};
 			compute_product_history_and_completeness($data_root, $product_ref, $changes_ref, $blame_ref);
 			compute_data_sources($product_ref, $changes_ref);
-			store("$data_root/products/$path/changes.sto", $changes_ref);
+			store("$BASE_DIRS{PRODUCTS}/$path/changes.sto", $changes_ref);
 		}
 
 		if ($restore_values_deleted_by_user) {
-			my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
+			my $changes_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/changes.sto");
 			if (not defined $changes_ref) {
 				$changes_ref = [];
 			}
@@ -1242,7 +1319,7 @@ while (my $product_ref = $cursor->next) {
 					$rev = $revs;    # was not set before June 2012
 				}
 
-				my $rev_product_ref = retrieve("$data_root/products/$path/$rev.sto");
+				my $rev_product_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/$rev.sto");
 
 				if (defined $rev_product_ref) {
 
@@ -1312,44 +1389,102 @@ while (my $product_ref = $cursor->next) {
 			}
 		}
 
+		if ($assign_ciqual_codes) {
+			assign_ciqual_codes($product_ref);
+		}
+
+		my $any_change = $product_values_changed;
 		if (not $pretend) {
+			if (!$any_change) {
+				# Deep compare with original (if we don't already know that a change has been made)
+				$any_change = !Compare($product_ref, $original_product);
+			}
+			if (!$any_change) {
+				print STDERR ". Skipped: no change";
+			}
+			else {
+				print STDERR ". Changed";
+				$products_changed++;
+			}
+		}
+
+		if (!$pretend) {
+
+			# If the product was not changed, we will still save it with the new update_key, so that we don't have to reprocess all products
+			# if the update_all_products.pl script is interrupted
 			$product_ref->{update_key} = $key;
 
 			# Create a new version of the product and create a new .sto file
 			# Useful when we actually change a value entered by a user
 			if ((defined $User_id) and ($User_id ne '') and ($product_values_changed)) {
 				store_product($User_id, $product_ref, "update_all_products.pl - " . $comment);
-				$m++;
+				$products_new_version_created++;
 			}
-
 			# Otherwise, we silently update the .sto file of the last version
 			else {
+				$products_silently_updated++;
+
+				# In all cases (even if the product data did not change),
+				# we store the product with the new update_key in the .sto file and the mongodb collection
+
+				# Set last modified time if something was changed
+				if ($any_change) {
+					$product_ref->{last_updated_t} = time() + 0;
+				}
+				else {
+					# Initialise the last_updates_t if it is not currently set
+					if (not defined $product_ref->{last_updated_t}) {
+						$product_ref->{last_updated_t} = $product_ref->{last_modified_t};
+					}
+				}
 
 				# make sure nutrient values are numbers
 				ProductOpener::Products::make_sure_numbers_are_stored_as_numbers($product_ref);
 
 				if (!$mongodb_to_mongodb) {
 					# Store data to .sto file
-					store("$data_root/products/$path/product.sto", $product_ref);
+					store("$BASE_DIRS{PRODUCTS}/$path/product.sto", $product_ref);
 				}
 
 				# Store data to mongodb
-				# Make sure product _id and code are saved as string and not a number
-				# see bug #1077 - https://github.com/openfoodfacts/openfoodfacts-server/issues/1077
-				# make sure that code is saved as a string, otherwise mongodb saves it as number, and leading 0s are removed
-				$product_ref->{_id} .= '';
-				$product_ref->{code} .= '';
-				$products_collection->replace_one({"_id" => $product_ref->{_id}}, $product_ref, {upsert => 1});
+				my $collection = "current";
+				if ($product_ref->{obsolete}) {
+					$collection = "obsolete";
+				}
+				$products_collections{$collection}
+					->replace_one({"_id" => $product_ref->{_id}}, $product_ref, {upsert => 1});
+
+				# If the obsolete flag of the product does not
+				# correspond to the collection we are iterating over
+				# delete the product from the collection
+				if (
+					$fix_obsolete
+					and (  ($obsolete and not $product_ref->{obsolete})
+						or ((not $obsolete) and $product_ref->{obsolete}))
+					)
+				{
+					$products_collection->delete_one({"_id" => $product_ref->{_id}});
+					$fix_obsolete_fixed++;
+				}
+
+				# Push to redis stream only if the product was changed (apart from its update_key)
+				if ($any_change) {
+					$products_pushed_to_redis++;
+					print STDERR ". Pushed to Redis stream";
+					push_to_redis_stream('update_all_products', $product_ref, "updated", $comment, {});
+				}
+				else {
+					print STDERR ". Not pushed to Redis stream";
+				}
 			}
 		}
-
-		$n++;
 	}
 	else {
-		print STDERR "Unable to load product file for product code $code\n";
+		print STDERR ". Unable to load product file for product code $code";
 	}
-
 }
+
+print STDERR "\n";
 
 if ($prefix_packaging_tags_with_language) {
 
@@ -1387,7 +1522,9 @@ if ($prefix_packaging_tags_with_language) {
 	print "prefix_packaging_language_not_found: $prefix_packaging_language_not_found" . "\n" . "\n";
 }
 
-print "$n products updated (pretend: $pretend) - $m new versions created\n";
+if ($fix_obsolete_fixed) {
+	print "$fix_obsolete_fixed removed from wrong collection (obsolete or current)\n";
+}
 
 if ($fix_rev_not_incremented_fixed) {
 	print "$fix_rev_not_incremented_fixed rev fixed\n";
@@ -1415,5 +1552,11 @@ if ($fix_non_string_ids) {
 	print STDERR "products with non string ids can now be deleted from MongoDB with this command:"
 		. 'db.products.remove({_id : { $type : "long" }})' . "\n";
 }
+
+print STDERR "products_processed: $products_processed\n";
+print STDERR "products_changed: $products_changed\n";
+print STDERR "products_new_version_created: $products_new_version_created\n";
+print STDERR "products_silently_updated: $products_silently_updated\n";
+print STDERR "products_pushed_to_redis: $products_pushed_to_redis\n";
 
 exit(0);

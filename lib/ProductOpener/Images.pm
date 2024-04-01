@@ -56,10 +56,8 @@ Same image saved with a maximum width and height of 100 and 400 pixels. Those th
 
 OCR output from Google Cloud Vision.
 
-When a new image is uploaded, a symbolic link to it is created in /new_images. This triggers a script to generate and save the OCR:
-
-incrontab -l -u off
-/srv/off/new_images IN_ATTRIB,IN_CREATE,IN_MOVED_TO /srv/off/scripts/process_new_image_off.sh $@/$#
+When a new image is uploaded, a symbolic link to it is created in /new_images.
+This triggers a script to generate and save the OCR: C<run_cloud_vision_ocr.pl>.
 
 =item [front|ingredients|nutrition|packaging]_[2 letter language code].[product revision].[full|100|200|400].jpg
 
@@ -95,6 +93,7 @@ BEGIN {
 
 		&get_code_and_imagefield_from_file_name
 		&get_imagefield_from_string
+		&is_protected_image
 		&process_image_upload
 		&process_image_move
 
@@ -111,6 +110,11 @@ BEGIN {
 		&display_image_thumb
 
 		&extract_text_from_image
+		&send_image_to_cloud_vision
+		&send_image_to_robotoff
+
+		@CLOUD_VISION_FEATURES_FULL
+		@CLOUD_VISION_FEATURES_TEXT
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -118,25 +122,28 @@ BEGIN {
 
 use vars @EXPORT_OK;
 
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Store qw/get_string_id_for_lang retrieve store/;
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die/;
 use ProductOpener::Products qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 
 use Image::Magick;
-use Graphics::Color::RGB;
-use Graphics::Color::HSL;
 use Barcode::ZBar;
+use Imager;
+use Imager::zxing;
 use Image::OCR::Tesseract 'get_ocr';
 
 use ProductOpener::Products qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Lang qw/$lc  %Lang lang/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::URL qw/:all/;
-use ProductOpener::Users qw/:all/;
-use ProductOpener::Text qw/:all/;
+use ProductOpener::URL qw/format_subdomain/;
+use ProductOpener::Users qw/%User/;
+use ProductOpener::Text qw/remove_tags_and_quote/;
+use Data::DeepAccess qw(deep_get);
 
+use IO::Compress::Gzip qw(gzip $GzipError);
 use Log::Any qw($log);
 use Encode;
 use JSON::PP;
@@ -173,7 +180,7 @@ sub display_select_crop ($object_ref, $id_lc, $language) {
 
 	# $id_lc = shift  ->  id_lc = [front|ingredients|nutrition|packaging]_[new_]?[lc]
 	my $id = $id_lc;
-
+	my $message = $Lang{"protected_image_message"}{$lc};
 	my $imagetype = $id_lc;
 	my $display_lc = $lc;
 
@@ -183,19 +190,28 @@ sub display_select_crop ($object_ref, $id_lc, $language) {
 	}
 
 	my $note = '';
-	if (defined $Lang{"image_" . $imagetype . "_note"}{$lang}) {
-		$note = "<p class=\"note\">&rarr; " . $Lang{"image_" . $imagetype . "_note"}{$lang} . "</p>";
+	if (defined $Lang{"image_" . $imagetype . "_note"}{$lc}) {
+		$note = "<p class=\"note\">&rarr; " . $Lang{"image_" . $imagetype . "_note"}{$lc} . "</p>";
 	}
 
-	my $label = $Lang{"image_" . $imagetype}{$lang};
+	my $label = $Lang{"image_" . $imagetype}{$lc};
 
-	my $html = <<HTML
+	my $html = '';
+	if (is_protected_image($object_ref, $id_lc) and (not $User{moderator}) and (not $admin)) {
+		$html .= <<HTML;
+<p>$message</p>
 <label for="$id">$label (<span class="tab_language">$language</span>)</label>
+<div class=\"select_crop\" id=\"$id\" data-info="protect"></div>
+HTML
+	}
+	else {
+		$html .= <<HTML;
+	<label for="$id">$label (<span class="tab_language">$language</span>)</label>
 $note
 <div class=\"select_crop\" id=\"$id\"></div>
 <hr class="floatclear" />
 HTML
-		;
+	}
 
 	my @fields = qw(imgid x1 y1 x2 y2);
 	foreach my $field (@fields) {
@@ -257,16 +273,18 @@ sub display_select_crop_init ($object_ref) {
 	}
 
 	foreach my $imgid (sort {$object_ref->{images}{$a}{uploaded_t} <=> $object_ref->{images}{$b}{uploaded_t}} @images) {
-		my $admin_fields = '';
-		if ($User{moderator}) {
-			$admin_fields
-				= ", uploader: '"
-				. $object_ref->{images}{$imgid}{uploader}
-				. "', uploaded: '"
-				. display_date($object_ref->{images}{$imgid}{uploaded_t}) . "'";
-		}
+		my $uploader = $object_ref->{images}{$imgid}{uploader};
+		my $uploaded_date = display_date($object_ref->{images}{$imgid}{uploaded_t});
+
 		$images .= <<JS
-{imgid: "$imgid", thumb_url: "$imgid.$thumb_size.jpg", crop_url: "$imgid.$crop_size.jpg", display_url: "$imgid.$display_size.jpg" $admin_fields},
+{
+	imgid: "$imgid",
+	thumb_url: "$imgid.$thumb_size.jpg",
+	crop_url: "$imgid.$crop_size.jpg",
+	display_url: "$imgid.$display_size.jpg",
+	uploader: "$uploader",
+	uploaded: "$uploaded_date",
+},
 JS
 			;
 	}
@@ -278,7 +296,7 @@ JS
 	\$([]).selectcrop('init_images', [
 		$images
 	]);
-	\$(".select_crop").selectcrop('init', {img_path : "/images/products/$path/"});
+	\$(".select_crop").selectcrop('init', {img_path : "//images.$server_domain/images/products/$path/"});
 	\$(".select_crop").selectcrop('show');
 
 HTML
@@ -290,13 +308,7 @@ sub scan_code ($file) {
 
 	my $code = undef;
 
-	# create a reader
-	my $scanner = Barcode::ZBar::ImageScanner->new();
-
 	print STDERR "scan_code file: $file\n";
-
-	# configure the reader
-	$scanner->parse_config("enable");
 
 	# obtain image data
 	my $magick = Image::Magick->new();
@@ -310,6 +322,12 @@ sub scan_code ($file) {
 		$log->warn("cannot read file to scan barcode", {error => $imagemagick_error}) if $log->is_warn();
 	}
 	else {
+		# create a reader/decoder
+		my $scanner = Barcode::ZBar::ImageScanner->new();
+
+		# configure the reader/decoder
+		$scanner->parse_config("enable");
+
 		# wrap image data
 		my $image = Barcode::ZBar::Image->new();
 		$image->set_format('Y800');
@@ -331,7 +349,7 @@ sub scan_code ($file) {
 				$log->debug("barcode found", {code => $code, type => $type}) if $log->is_debug();
 				print STDERR "scan_code code found: $code\n";
 
-				if (($code !~ /^[0-9]+$/) or ($type eq 'QR-Code')) {
+				if (($code !~ /^\d+|(?:[\^(\N{U+001D}\N{U+241D}]|https?:\/\/).+$/)) {
 					$code = undef;
 					next;
 				}
@@ -339,16 +357,43 @@ sub scan_code ($file) {
 			}
 
 			if (defined $code) {
-				$code = normalize_code($code);
 				last;
 			}
-			else {
-				$magick->Rotate(degrees => 90);
-			}
 
+			$magick->Rotate(degrees => 90);
 		}
 	}
-	print STDERR "scan_code return code: $code\n";
+
+	if (not(defined $code)) {
+		my $decoder = Imager::zxing::Decoder->new();
+		$decoder->set_formats("DataMatrix|QRCode|MicroQRCode|DataBar|DataBarExpanded");
+
+		my $imager = Imager->new();
+		$imager->read(file => $file)
+			or die "Cannot read $file: ", $imager->errstr;
+		my @results = $decoder->decode($imager);
+		# extract results
+		foreach my $result (@results) {
+			if (not($result->is_valid())) {
+				next;
+			}
+
+			$code = $result->text();
+			my $type = $result->format();
+			$log->debug("barcode found", {code => $code, type => $type}) if $log->is_debug();
+			print STDERR "scan_code code found: $code\n";
+			if (($code !~ /^\d+|(?:[\^(\N{U+001D}\N{U+241D}]|https?:\/\/).+$/)) {
+				$code = undef;
+				next;
+			}
+			last;
+		}
+	}
+
+	if (defined $code) {
+		$code = normalize_code($code);
+		print STDERR "scan_code return code: $code\n";
+	}
 
 	return $code;
 }
@@ -357,7 +402,7 @@ sub display_search_image_form ($id) {
 
 	my $html = '';
 
-	my $product_image_with_barcode = $Lang{product_image_with_barcode}{$lang};
+	my $product_image_with_barcode = $Lang{product_image_with_barcode}{$lc};
 	$product_image_with_barcode =~ s/( |\&nbsp;)?:$//;
 
 	my $template_data_ref = {
@@ -457,18 +502,18 @@ sub process_search_image_form ($filename_ref) {
 			my $extension = lc($1);
 			my $filename = get_string_id_for_lang("no_language", remote_addr() . '_' . $`);
 
-			(-e "$data_root/tmp") or mkdir("$data_root/tmp", 0755);
-			open(my $out, ">", "$data_root/tmp/$filename.$extension");
+			ensure_dir_created_or_die($BASE_DIRS{CACHE_TMP});
+			open(my $out, ">", "$BASE_DIRS{CACHE_TMP}/$filename.$extension");
 			while (my $chunk = <$file>) {
 				print $out $chunk;
 			}
 			close($out);
 
-			$code = scan_code("$data_root/tmp/$filename.$extension");
+			$code = scan_code("$BASE_DIRS{CACHE_TMP}/$filename.$extension");
 			if (defined $code) {
 				$code = normalize_code($code);
 			}
-			${$filename_ref} = "$data_root/tmp/$filename.$extension";
+			${$filename_ref} = "$BASE_DIRS{CACHE_TMP}/$filename.$extension";
 		}
 	}
 	return $code;
@@ -596,6 +641,36 @@ sub get_imagefield_from_string ($l, $filename) {
 	return $imagefield;
 }
 
+sub get_selected_image_uploader ($product_ref, $imagefield) {
+
+	# Retrieve the product's image data
+	my $imgid = deep_get($product_ref, "images", $imagefield, "imgid");
+
+	# Retrieve the uploader of the image
+	if (defined $imgid) {
+		my $uploader = deep_get($product_ref, "images", $imgid, "uploader");
+		return $uploader;
+	}
+
+	return;
+}
+
+sub is_protected_image ($product_ref, $imagefield) {
+
+	my $selected_uploader = get_selected_image_uploader($product_ref, $imagefield);
+	my $owner = $product_ref->{owner};
+
+	if (    (not $server_options{producers_platform})
+		and (defined $owner)
+		and (defined $selected_uploader)
+		and ($selected_uploader eq $owner))
+	{
+		return 1;    #image should be protected
+	}
+
+	return 0;    # image should not be protected
+}
+
 =head2 process_image_upload ( $product_id, $imagefield, $user_id, $time, $comment, $imgid_ref, $debug_string_ref )
 
 Process an image uploaded to a product (from the web site, from the API, or from an import):
@@ -611,7 +686,8 @@ Process an image uploaded to a product (from the web site, from the API, or from
 
 =head4 Image field $imagefield
 
-Indicates what the image is and its language.
+Indicates what the image is and its language, or indicate a path to the image file
+(for imports and when uploading an image with a barcode)
 
 Format: [front|ingredients|nutrition|packaging|other]_[2 letter language code]
 
@@ -621,7 +697,7 @@ Format: [front|ingredients|nutrition|packaging|other]_[2 letter language code]
 
 =head4 Comment $comment
 
-=head4 Reference to an imgid $img_id
+=head4 Reference to an image id $img_id
 
 Used to return the number identifying the image to the caller.
 
@@ -660,6 +736,7 @@ sub process_image_upload ($product_id, $imagefield, $user_id, $time, $comment, $
 	my $extension = 'jpg';
 
 	# Image that was already read by barcode scanner: can't read it again
+	# $image_field can be a path to the image file (for imports and when uploading an image with a barcode)
 	my $tmp_filename;
 	if ($imagefield =~ /\//) {
 		$tmp_filename = $imagefield;
@@ -724,24 +801,19 @@ sub process_image_upload ($product_id, $imagefield, $user_id, $time, $comment, $
 		my $filename = get_string_id_for_lang("no_language", remote_addr() . '_' . $`);
 
 		my $current_product_ref = retrieve_product($product_id);
-		$imgid = $current_product_ref->{max_imgid} + 1;
+		$imgid = ($current_product_ref->{max_imgid} || 0) + 1;
 
 		# if for some reason the images directories were not created at product creation (it can happen if the images directory's permission / ownership are incorrect at some point)
 		# create them
 
 		# Create the directories for the product
-		foreach my $current_dir ($product_www_root . "/images/products") {
-			(-e "$current_dir") or mkdir($current_dir, 0755);
-			foreach my $component (split("/", $path)) {
-				$current_dir .= "/$component";
-				(-e "$current_dir") or mkdir($current_dir, 0755);
-			}
-		}
+		my $target_image_dir = "$product_www_root/images/products/$path";
+		ensure_dir_created_or_die($target_image_dir);
 
-		my $lock_path = "$product_www_root/images/products/$path/$imgid.lock";
-		while ((-e $lock_path) or (-e "$product_www_root/images/products/$path/$imgid.jpg")) {
+		my $lock_path = "$target_image_dir/$imgid.lock";
+		while ((-e $lock_path) or (-e "$target_image_dir/$imgid.jpg")) {
 			$imgid++;
-			$lock_path = "$product_www_root/images/products/$path/$imgid.lock";
+			$lock_path = "$target_image_dir/$imgid.lock";
 		}
 
 		mkdir($lock_path, 0755)
@@ -750,7 +822,8 @@ sub process_image_upload ($product_id, $imagefield, $user_id, $time, $comment, $
 		local $log->context->{imgid} = $imgid;
 		$log->debug("new imgid: ", {imgid => $imgid, extension => $extension}) if $log->is_debug();
 
-		my $img_orig = "$product_www_root/images/products/$path/$imgid.$extension.orig";
+		my $img_orig = "$target_image_dir/$imgid.$extension.orig";
+		$log->debug("writing the original image", {img_orig => $img_orig}) if $log->is_debug();
 		open(my $out, ">", $img_orig)
 			or $log->warn("could not open image path for saving", {path => $img_orig, error => $!});
 		while (my $chunk = <$file>) {
@@ -765,7 +838,7 @@ sub process_image_upload ($product_id, $imagefield, $user_id, $time, $comment, $
 		if (($imagemagick_error) and ($imagemagick_error =~ /(\d+)/) and ($1 >= 400))
 		{    # ImageMagick returns a string starting with a number greater than 400 for errors
 			$log->error("cannot read image",
-				{path => "$product_www_root/images/products/$path/$imgid.$extension", error => $imagemagick_error});
+				{path => "$target_image_dir/$imgid.$extension", error => $imagemagick_error});
 			$debug .= " - could not read image: $imagemagick_error";
 			${$debug_string_ref} = $debug;
 			return -5;
@@ -774,8 +847,8 @@ sub process_image_upload ($product_id, $imagefield, $user_id, $time, $comment, $
 		$source->AutoOrient();
 		$source->Strip();    #remove orientation data and all other metadata (EXIF)
 
-		# remove the transparency for PNG files
-		if ($extension eq "png") {
+		# remove the transparency when there is an alpha channel (e.g. in PNG files) by adding a white background
+		if ($source->Get('matte')) {
 			$log->debug("png file, trying to remove the alpha background") if $log->is_debug();
 			my $bg = Image::Magick->new;
 			$bg->Set(size => $source->Get('width') . "x" . $source->Get('height'));
@@ -784,7 +857,7 @@ sub process_image_upload ($product_id, $imagefield, $user_id, $time, $comment, $
 			$source = $bg;
 		}
 
-		my $img_jpg = "$product_www_root/images/products/$path/$imgid.jpg";
+		my $img_jpg = "$target_image_dir/$imgid.jpg";
 
 		$source->Set('quality', 95);
 		$imagemagick_error = $source->Write("jpeg:$img_jpg");
@@ -815,12 +888,12 @@ sub process_image_upload ($product_id, $imagefield, $user_id, $time, $comment, $
 			# but we stored original PNG files before they were converted to JPG in [imgid].png
 			# We compare both the sizes of the original files and the converted files
 
-			my @existing_images = ("$product_www_root/images/products/$path/$i.jpg");
-			if (-e "$product_www_root/images/products/$path/$i.$extension.orig") {
-				push @existing_images, "$product_www_root/images/products/$path/$i.$extension.orig";
+			my @existing_images = ("$target_image_dir/$i.jpg");
+			if (-e "$target_image_dir/$i.$extension.orig") {
+				push @existing_images, "$target_image_dir/$i.$extension.orig";
 			}
-			if (($extension ne "jpg") and (-e "$product_www_root/images/products/$path/$i.$extension")) {
-				push @existing_images, "$product_www_root/images/products/$path/$i.$extension";
+			if (($extension ne "jpg") and (-e "$target_image_dir/$i.$extension")) {
+				push @existing_images, "$target_image_dir/$i.$extension";
 			}
 
 			foreach my $existing_image (@existing_images) {
@@ -854,13 +927,12 @@ sub process_image_upload ($product_id, $imagefield, $user_id, $time, $comment, $
 							and (defined $product_ref->{images})
 							and (exists $product_ref->{images}{$i}))
 						{
-							$log->debug(
-								"unlinking image",
-								{imgid => $imgid, file => "$product_www_root/images/products/$path/$imgid.$extension"}
-							) if $log->is_debug();
+							$log->debug("unlinking image",
+								{imgid => $imgid, file => "$target_image_dir/$imgid.$extension"})
+								if $log->is_debug();
 							unlink $img_orig;
 							unlink $img_jpg;
-							rmdir("$product_www_root/images/products/$path/$imgid.lock");
+							rmdir("$target_image_dir/$imgid.lock");
 							${$imgid_ref} = $i;
 							$debug .= " - we already have an image with this file size: $size - imgid: $i";
 							${$debug_string_ref} = $debug;
@@ -881,8 +953,8 @@ sub process_image_upload ($product_id, $imagefield, $user_id, $time, $comment, $
 				or (not defined $options{users_who_can_upload_small_images}{$user_id}))
 			)
 		{
-			unlink "$product_www_root/images/products/$path/$imgid.$extension";
-			rmdir("$product_www_root/images/products/$path/$imgid.lock");
+			unlink "$target_image_dir/$imgid.$extension";
+			rmdir("$target_image_dir/$imgid.lock");
 			$debug .= " - image too small - width: " . $source->Get('width') . " - height: " . $source->Get('height');
 			${$debug_string_ref} = $debug;
 			return -4;
@@ -917,20 +989,20 @@ sub process_image_upload ($product_id, $imagefield, $user_id, $time, $comment, $
 			);
 			_set_magickal_options($img, $w);
 
-			$imagemagick_error = $img->Write("jpeg:$product_www_root/images/products/$path/$imgid.$max.jpg");
+			$imagemagick_error = $img->Write("jpeg:$target_image_dir/$imgid.$max.jpg");
 			if (($imagemagick_error) and ($imagemagick_error =~ /(\d+)/) and ($1 >= 400))
 			{    # ImageMagick returns a string starting with a number greater than 400 for errors
 				$log->warn(
 					"could not write jpeg",
 					{
-						path => "jpeg:$product_www_root/images/products/$path/$imgid.$max.jpg",
+						path => "jpeg:$target_image_dir/$imgid.$max.jpg",
 						error => $imagemagick_error
 					}
 				) if $log->is_warn();
 				last;
 			}
 			else {
-				$log->info("jpeg written", {path => "jpeg:$product_www_root/images/products/$path/$imgid.$max.jpg"})
+				$log->info("jpeg written", {path => "jpeg:$target_image_dir/$imgid.$max.jpg"})
 					if $log->is_info();
 			}
 
@@ -986,7 +1058,7 @@ sub process_image_upload ($product_id, $imagefield, $user_id, $time, $comment, $
 			(-e "$product_data_root/new_images") or mkdir("$product_data_root/new_images", 0755);
 			my $code = $product_id;
 			$code =~ s/.*\///;
-			symlink("$product_www_root/images/products/$path/$imgid.jpg",
+			symlink("$target_image_dir/$imgid.jpg",
 				"$product_data_root/new_images/" . time() . "." . $code . "." . $imagefield . "." . $imgid . ".jpg");
 
 			# Save the image file size so that we can skip the image before processing it if it is uploaded again
@@ -999,7 +1071,7 @@ sub process_image_upload ($product_id, $imagefield, $user_id, $time, $comment, $
 			$imgid = -5;
 		}
 
-		rmdir("$product_www_root/images/products/$path/$imgid.lock");
+		rmdir("$target_image_dir/$imgid.lock");
 
 		# make sure to close the file so that it does not stay in /tmp forever
 		my $tmpfilename = tmpFileName($file);
@@ -1061,7 +1133,7 @@ sub process_image_move ($user_id, $code, $imgids, $move_to, $ownerid) {
 			if ($move_to =~ /^((off|obf|opf|opff):)?\d+$/) {
 				$ok = process_image_upload(
 					$move_to_id,
-					"$www_root/images/products/$path/$imgid.jpg",
+					"$BASE_DIRS{PRODUCTS_IMAGES}/$path/$imgid.jpg",
 					$product_ref->{images}{$imgid}{uploader},
 					$product_ref->{images}{$imgid}{uploaded_t},
 					"image moved from product $code on $server_domain by $user_id -- uploader: $product_ref->{images}{$imgid}{uploader} - time: $product_ref->{images}{$imgid}{uploaded_t}",
@@ -1072,7 +1144,7 @@ sub process_image_move ($user_id, $code, $imgids, $move_to, $ownerid) {
 					$log->error(
 						"could not move image to other product",
 						{
-							source_path => "$www_root/images/products/$path/$imgid.jpg",
+							source_path => "$BASE_DIRS{PRODUCTS_IMAGES}/$path/$imgid.jpg",
 							move_to => $move_to,
 							old_code => $code,
 							ownerid => $ownerid,
@@ -1085,7 +1157,7 @@ sub process_image_move ($user_id, $code, $imgids, $move_to, $ownerid) {
 					$log->info(
 						"moved image to other product",
 						{
-							source_path => "$www_root/images/products/$path/$imgid.jpg",
+							source_path => "$BASE_DIRS{PRODUCTS_IMAGES}/$path/$imgid.jpg",
 							move_to => $move_to,
 							old_code => $code,
 							ownerid => $ownerid,
@@ -1099,7 +1171,7 @@ sub process_image_move ($user_id, $code, $imgids, $move_to, $ownerid) {
 				$log->info(
 					"moved image to trash",
 					{
-						source_path => "$www_root/images/products/$path/$imgid.jpg",
+						source_path => "$BASE_DIRS{PRODUCTS_IMAGES}/$path/$imgid.jpg",
 						old_code => $code,
 						ownerid => $ownerid,
 						user_id => $user_id,
@@ -1111,28 +1183,29 @@ sub process_image_move ($user_id, $code, $imgids, $move_to, $ownerid) {
 			# Don't delete images to be moved if they weren't moved correctly
 			if ($ok) {
 				# Delete images (move them to the deleted.images dir
-
-				-e "$data_root/deleted.images" or mkdir("$data_root/deleted.images", 0755);
+				ensure_dir_created_or_die($BASE_DIRS{DELETED_IMAGES});
 
 				File::Copy->import(qw( move ));
 
 				$log->info(
 					"moving source image to deleted images directory",
 					{
-						source_path => "$www_root/images/products/$path/$imgid.jpg",
-						destination_path => "$data_root/deleted.images/product.$code.$imgid.jpg"
+						source_path => "$BASE_DIRS{PRODUCTS_IMAGES}/$path/$imgid.jpg",
+						destination_path => "$BASE_DIRS{DELETED_IMAGES}/product.$code.$imgid.jpg"
 					}
 				);
 
-				move("$www_root/images/products/$path/$imgid.jpg",
-					"$data_root/deleted.images/product.$code.$imgid.jpg");
 				move(
-					"$www_root/images/products/$path/$imgid.$thumb_size.jpg",
-					"$data_root/deleted.images/product.$code.$imgid.$thumb_size.jpg"
+					"$BASE_DIRS{PRODUCTS_IMAGES}/$path/$imgid.jpg",
+					"$BASE_DIRS{DELETED_IMAGES}/product.$code.$imgid.jpg"
 				);
 				move(
-					"$www_root/images/products/$path/$imgid.$crop_size.jpg",
-					"$data_root/deleted.images/product.$code.$imgid.$crop_size.jpg"
+					"$BASE_DIRS{PRODUCTS_IMAGES}/$path/$imgid.$thumb_size.jpg",
+					"$BASE_DIRS{DELETED_IMAGES}/product.$code.$imgid.$thumb_size.jpg"
+				);
+				move(
+					"$BASE_DIRS{PRODUCTS_IMAGES}/$path/$imgid.$crop_size.jpg",
+					"$BASE_DIRS{DELETED_IMAGES}/product.$code.$imgid.$crop_size.jpg"
 				);
 
 				delete $product_ref->{images}{$imgid};
@@ -1252,6 +1325,12 @@ sub process_image_crop ($user_id, $product_id, $id, $imgid, $angle, $normalize, 
 		my $z = $w;
 		$w = $h;
 		$h = $z;
+	}
+
+	# potential divide by zero error - but log and let it flow for now for it is complex to handle
+	if (!($w && $h)) {
+		$log->error("Cannot crop image $id / $imgid contributed by $user_id on $product_id: "
+				. " crop width or height is 0: $w x $h");
 	}
 
 	print STDERR
@@ -1395,8 +1474,19 @@ sub process_image_crop ($user_id, $product_id, $id, $imgid, $angle, $normalize, 
 				($distance->(\@rgb, [$original->GetPixel(x => $x + 1, y => $y - 1)]) <= $max_distance)
 					and push @q, [$x + 1, $y - 1];
 				$i++;
-				($i % 10000) == 0 and $log->debug("white color detection",
-					{i => $i, x => $x, y => $y, r => $rgb[0], g => $rgb[1], b => $rgb[2], width => $w, height => $h});
+				($i % 10000) == 0 and $log->debug(
+					"white color detection",
+					{
+						i => $i,
+						x => $x,
+						y => $y,
+						r => $rgb[0],
+						g => $rgb[1],
+						b => $rgb[2],
+						width => $w,
+						height => $h
+					}
+				);
 			}
 		}
 
@@ -1689,7 +1779,7 @@ sub display_image_thumb ($product_ref, $id_lc) {
 
 			my $path = product_path($product_ref);
 			my $rev = $product_ref->{images}{$id}{rev};
-			my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $Lang{$imagetype . '_alt'}{$lang};
+			my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $Lang{$imagetype . '_alt'}{$lc};
 
 			$html .= <<HTML
 <img src="$images_subdomain/images/products/$path/$id.$rev.$thumb_size.jpg" width="$product_ref->{images}{$id}{sizes}{$thumb_size}{w}" height="$product_ref->{images}{$id}{sizes}{$thumb_size}{h}" srcset="$images_subdomain/images/products/$path/$id.$rev.$small_size.jpg 2x" alt="$alt" loading="lazy" $css/>
@@ -1749,17 +1839,17 @@ sub display_image ($product_ref, $id_lc, $size) {
 
 			my $path = product_path($product_ref);
 			my $rev = $product_ref->{images}{$id}{rev};
-			my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $Lang{$imagetype . '_alt'}{$lang};
+			my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $Lang{$imagetype . '_alt'}{$lc};
 			if ($id eq ($imagetype . "_" . $display_lc)) {
 				$alt
 					= remove_tags_and_quote($product_ref->{product_name}) . ' - '
-					. $Lang{$imagetype . '_alt'}{$lang} . ' - '
+					. $Lang{$imagetype . '_alt'}{$lc} . ' - '
 					. $display_lc;
 			}
 			elsif ($id eq ($imagetype . "_" . $product_ref->{lc})) {
 				$alt
 					= remove_tags_and_quote($product_ref->{product_name}) . ' - '
-					. $Lang{$imagetype . '_alt'}{$lang} . ' - '
+					. $Lang{$imagetype . '_alt'}{$lc} . ' - '
 					. $product_ref->{lc};
 			}
 
@@ -1769,21 +1859,21 @@ sub display_image ($product_ref, $id_lc, $size) {
 				# add srcset with 2x image only if the 2x image exists
 				my $srcset = '';
 				if (defined $product_ref->{images}{$id}{sizes}{$display_size}) {
-					$srcset = "srcset=\"/images/products/$path/$id.$rev.$display_size.jpg 2x\"";
+					$srcset = "srcset=\"$images_subdomain/images/products/$path/$id.$rev.$display_size.jpg 2x\"";
 				}
 
 				$html .= <<HTML
-<img class="hide-for-xlarge-up" src="/images/products/$path/$id.$rev.$size.jpg" $srcset width="$product_ref->{images}{$id}{sizes}{$size}{w}" height="$product_ref->{images}{$id}{sizes}{$size}{h}" alt="$alt" itemprop="thumbnail" loading="lazy" />
+<img class="hide-for-xlarge-up" src="$images_subdomain/images/products/$path/$id.$rev.$size.jpg" $srcset width="$product_ref->{images}{$id}{sizes}{$size}{w}" height="$product_ref->{images}{$id}{sizes}{$size}{h}" alt="$alt" itemprop="thumbnail" loading="lazy" />
 HTML
 					;
 
 				$srcset = '';
 				if (defined $product_ref->{images}{$id}{sizes}{$zoom_size}) {
-					$srcset = "srcset=\"/images/products/$path/$id.$rev.$zoom_size.jpg 2x\"";
+					$srcset = "srcset=\"$images_subdomain/images/products/$path/$id.$rev.$zoom_size.jpg 2x\"";
 				}
 
 				$html .= <<HTML
-<img class="show-for-xlarge-up" src="/images/products/$path/$id.$rev.$display_size.jpg" $srcset width="$product_ref->{images}{$id}{sizes}{$display_size}{w}" height="$product_ref->{images}{$id}{sizes}{$display_size}{h}" alt="$alt" itemprop="thumbnail" loading="lazy" />
+<img class="show-for-xlarge-up" src="$images_subdomain/images/products/$path/$id.$rev.$display_size.jpg" $srcset width="$product_ref->{images}{$id}{sizes}{$display_size}{w}" height="$product_ref->{images}{$id}{sizes}{$display_size}{h}" alt="$alt" itemprop="thumbnail" loading="lazy" />
 HTML
 					;
 
@@ -1791,7 +1881,8 @@ HTML
 
 					my $title = lang($id . '_alt');
 
-					my $full_image_url = "/images/products/$path/$id.$product_ref->{images}{$id}{rev}.full.jpg";
+					my $full_image_url
+						= "$images_subdomain/images/products/$path/$id.$product_ref->{images}{$id}{rev}.full.jpg";
 					my $representative_of_page = '';
 					if ($id eq 'front') {
 						$representative_of_page = 'true';
@@ -1824,7 +1915,7 @@ HTML
 			else {
 				# jquery mobile for Cordova app
 				$html .= <<HTML
-<img src="/images/products/$path/$id.$rev.$size.jpg" width="$product_ref->{images}{$id}{sizes}{$size}{w}" height="$product_ref->{images}{$id}{sizes}{$size}{h}" alt="$alt" />
+<img src="$images_subdomain/images/products/$path/$id.$rev.$size.jpg" width="$product_ref->{images}{$id}{sizes}{$size}{w}" height="$product_ref->{images}{$id}{sizes}{$size}{h}" alt="$alt" />
 HTML
 					;
 			}
@@ -1961,8 +2052,8 @@ sub extract_text_from_image ($product_ref, $id, $field, $ocr_engine, $results_re
 		return;
 	}
 
-	my $image = "$www_root/images/products/$path/$filename.full.jpg";
-	my $image_url = format_subdomain('static') . "/images/products/$path/$filename.full.jpg";
+	my $image = "$BASE_DIRS{PRODUCTS_IMAGES}/$path/$filename.full.jpg";
+	my $image_url = "$images_subdomain/images/products/$path/$filename.full.jpg";
 
 	my $text;
 
@@ -1996,93 +2087,203 @@ sub extract_text_from_image ($product_ref, $id, $field, $ocr_engine, $results_re
 		else {
 			$log->warn("no available tesseract dictionary", {lc => $lc, lan => $lan, id => $id}) if $log->is_warn();
 		}
-
 	}
 	elsif ($ocr_engine eq 'google_cloud_vision') {
 
-		my $url = "https://vision.googleapis.com/v1/images:annotate?key="
-			. $ProductOpener::Config::google_cloud_vision_api_key;
+		my $json_file = "$BASE_DIRS{PRODUCTS_IMAGES}/$path/$filename.json.gz";
+		open(my $gv_logs, ">>:encoding(UTF-8)", "$BASE_DIRS{LOGS}/cloud_vision.log");
+		my $cloudvision_ref = send_image_to_cloud_vision($image, $json_file, \@CLOUD_VISION_FEATURES_TEXT, $gv_logs);
+		close $gv_logs;
 
-		my $ua = LWP::UserAgent->new();
+		if (    (defined $cloudvision_ref->{responses})
+			and (defined $cloudvision_ref->{responses}[0])
+			and (defined $cloudvision_ref->{responses}[0]{fullTextAnnotation})
+			and (defined $cloudvision_ref->{responses}[0]{fullTextAnnotation}{text}))
+		{
 
-		open(my $IMAGE, "<", $image) || die "Could not read $image: $!\n";
-		binmode($IMAGE);
-		local $/;
-		my $image_data = do {local $/; <$IMAGE>};    # https://www.perlmonks.org/?node_id=287647
-		close $IMAGE;
+			$log->debug("text found in google cloud vision response") if $log->is_debug();
 
-		my $api_request_ref = {
-			requests => [
-				{
-					features => [{type => 'TEXT_DETECTION'}],
-					# image => { source => { imageUri => $image_url}}
-					image => {content => encode_base64($image_data)}
-				}
-			]
-		};
-		my $json = encode_json($api_request_ref);
-
-		my $request = HTTP::Request->new(POST => $url);
-		$request->header('Content-Type' => 'application/json');
-		$request->content($json);
-
-		my $res = $ua->request($request);
-		# $log->info("google cloud vision response", { json_response => $res->decoded_content, api_token => $ProductOpener::Config::google_cloud_vision_api_key });
-
-		if ($res->is_success) {
-
-			$log->info("request to google cloud vision was successful") if $log->is_info();
-
-			open(my $OUT, ">>:encoding(UTF-8)", "$data_root/logs/cloud_vision.log");
-			print $OUT "success\t" . $image_url . "\t" . $res->code . "\n";
-			close $OUT;
-
-			my $json_response = $res->decoded_content;
-
-			my $cloudvision_ref = decode_json($json_response);
-
-			my $json_file = "$www_root/images/products/$path/$filename.json";
-
-			$log->info("saving google cloud vision json response to file", {path => $json_file}) if $log->is_info();
-
-			# UTF-8 issue , see https://stackoverflow.com/questions/4572007/perl-lwpuseragent-mishandling-utf-8-response
-			$json_response = decode("utf8", $json_response);
-
-			open($OUT, ">:encoding(UTF-8)", $json_file);
-			print $OUT $json_response;
-			close $OUT;
-
-			if (    (defined $cloudvision_ref->{responses})
-				and (defined $cloudvision_ref->{responses}[0])
-				and (defined $cloudvision_ref->{responses}[0]{fullTextAnnotation})
-				and (defined $cloudvision_ref->{responses}[0]{fullTextAnnotation}{text}))
-			{
-
-				$log->debug("text found in google cloud vision response") if $log->is_debug();
-
-				$results_ref->{$field} = $cloudvision_ref->{responses}[0]{fullTextAnnotation}{text};
-				$results_ref->{$field . "_annotations"} = $cloudvision_ref;
-				$results_ref->{status} = 0;
-				$product_ref->{images}{$id}{ocr} = 1;
-				$product_ref->{images}{$id}{orientation}
-					= compute_orientation_from_cloud_vision_annotations($cloudvision_ref);
-			}
-			else {
-				$product_ref->{images}{$id}{ocr} = 0;
-			}
-
+			$results_ref->{$field} = $cloudvision_ref->{responses}[0]{fullTextAnnotation}{text};
+			$results_ref->{$field . "_annotations"} = $cloudvision_ref;
+			$results_ref->{status} = 0;
+			$product_ref->{images}{$id}{ocr} = 1;
+			$product_ref->{images}{$id}{orientation}
+				= compute_orientation_from_cloud_vision_annotations($cloudvision_ref);
 		}
 		else {
-			$log->warn("google cloud vision request not successful", {code => $res->code, response => $res->message})
-				if $log->is_warn();
-
-			open(my $OUT, ">>:encoding(UTF-8)", "$data_root/logs/cloud_vision.log");
-			print $OUT "error\t" . $image_url . "\t" . $res->code . "\t" . $res->message . "\n";
-			close $OUT;
+			$product_ref->{images}{$id}{ocr} = 0;
 		}
 	}
-
 	return;
+}
+
+@CLOUD_VISION_FEATURES_FULL = (
+	# DOCUMENT_TEXT_DETECTION does not bring significant advantages
+	# See https://github.com/openfoodfacts/openfoodfacts-server/issues/9723
+	{type => 'TEXT_DETECTION'},
+	{type => 'LOGO_DETECTION'},
+	{type => 'LABEL_DETECTION'},
+	{type => 'SAFE_SEARCH_DETECTION'},
+	{type => 'FACE_DETECTION'},
+);
+
+@CLOUD_VISION_FEATURES_TEXT = ({type => 'TEXT_DETECTION'});
+
+=head2 send_image_to_cloud_vision ($image_path, $json_file, $features_ref, $gv_logs)
+
+Call to Google Cloud vision API
+
+=head3 Arguments
+
+=head4 $image_path - str path to image
+
+=head4 $json_file - str path to the file where we will store OCR result as gzipped JSON
+
+=head4 $features_ref - hash reference - the "features" parameter of Google Cloud Vision
+
+This determine which detection will be performed.
+Remember each feature is a cost.
+
+C<@CLOUD_VISION_FEATURES_FULL> and C<@CLOUD_VISION_FEATURES_TEXT> are two constant you can use.
+
+=head4 $gv_logs - file handle
+
+A file where we write additional logs, specific to the service.
+
+=head3 Response
+
+Return JSON content of the response.
+
+=cut
+
+sub send_image_to_cloud_vision ($image_path, $json_file, $features_ref, $gv_logs) {
+
+	my $url
+		= $ProductOpener::Config::google_cloud_vision_api_url . "?key="
+		. $ProductOpener::Config::google_cloud_vision_api_key;
+	print($gv_logs "CV:sending to $url\n");
+
+	my $ua = LWP::UserAgent->new();
+
+	open(my $IMAGE, "<", $image_path) || die "Could not read $image_path: $!\n";
+	binmode($IMAGE);
+	local $/;
+	my $image_data = do {local $/; <$IMAGE>};    # https://www.perlmonks.org/?node_id=287647
+	close $IMAGE;
+
+	my $api_request_ref = {
+		requests => [
+			{
+				features => $features_ref,
+				# image => { source => { imageUri => $image_url}}
+				image => {content => encode_base64($image_data)},
+			}
+		]
+	};
+	my $json = encode_json($api_request_ref);
+
+	my $request = HTTP::Request->new(POST => $url);
+	$request->header('Content-Type' => 'application/json');
+	$request->content($json);
+
+	my $cloud_vision_response = $ua->request($request);
+	# $log->info("google cloud vision response", { json_response => $cloud_vision_response->decoded_content, api_token => $ProductOpener::Config::google_cloud_vision_api_key });
+
+	my $cloudvision_ref = undef;
+	if ($cloud_vision_response->is_success) {
+
+		$log->info("request to google cloud vision was successful for $image_path") if $log->is_info();
+
+		my $json_response = $cloud_vision_response->decoded_content(charset => 'UTF-8');
+
+		$cloudvision_ref = decode_json($json_response);
+
+		# Adding creation timestamp, to know when the OCR has been generated
+		$cloudvision_ref->{created_at} = time();
+
+		$log->info("saving google cloud vision json response to file", {path => $json_file}) if $log->is_info();
+
+		if (open(my $OUT, ">:raw", $json_file)) {
+			my $gzip_handle = IO::Compress::Gzip->new($OUT)
+				or die "Cannot create gzip filehandle: $GzipError\n";
+			my $encoded_json = encode_json($cloudvision_ref);
+			$gzip_handle->print($encoded_json);
+			$gzip_handle->close;
+
+			print($gv_logs "--> cloud vision success for $image_path\n");
+		}
+		else {
+			$log->error("Cannot write $json_file: $!\n");
+			print($gv_logs "Cannot write $json_file: $!\n");
+		}
+
+	}
+	else {
+		$log->warn(
+			"google cloud vision request not successful",
+			{
+				code => $cloud_vision_response->code,
+				image_path => $image_path,
+				response => $cloud_vision_response->message
+			}
+		) if $log->is_warn();
+		print $gv_logs "error\t"
+			. $image_path . "\t"
+			. $cloud_vision_response->code . "\t"
+			. $cloud_vision_response->message . "\n";
+	}
+	return $cloudvision_ref;
+
+}
+
+=head2 send_image_to_robotoff ($code, $image_url, $json_url, $api_server_domain)
+
+Send a notification about a new image (already gone through OCR) to Robotoff
+
+=head3 Arguments
+
+=head4 $code - product code
+
+=head4 $image_url - public url of the image
+
+=head4 $json_url - public url of OCR result as JSON
+
+=head4 $api_server_domain - the API url for this product opener instance
+
+=head3 Response
+
+Return Robotoff HTTP::Response object.
+
+=cut
+
+sub send_image_to_robotoff ($code, $image_url, $json_url, $api_server_domain) {
+
+	my $ua = LWP::UserAgent->new();
+
+	my $robotoff_response = $ua->post(
+		$robotoff_url . "/api/v1/images/import",
+		{
+			'barcode' => $code,
+			'image_url' => $image_url,
+			'ocr_url' => $json_url,
+			'server_domain' => $api_server_domain,
+		}
+	);
+
+	if ($robotoff_response->is_success) {
+		$log->info("request to robotoff was successful") if $log->is_info();
+	}
+	else {
+		$log->warn(
+			"robotoff request not successful",
+			{
+				code => $robotoff_response->code,
+				response => $robotoff_response->message,
+				status_line => $robotoff_response->status_line
+			}
+		) if $log->is_warn();
+	}
+	return $robotoff_response;
 }
 
 1;

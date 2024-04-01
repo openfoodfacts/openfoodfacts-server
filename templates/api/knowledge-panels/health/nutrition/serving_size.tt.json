@@ -15,5 +15,14 @@
                 `,
             }
         },
+        [% IF panel.serving_warning.defined %]
+        {
+            "element_type": "text",
+            "text_element": {
+                "type": "warning",
+                "html": `[% panel.serving_warning %]`,
+            }
+        },
+        [% END %]
     ]
 }

@@ -24,10 +24,12 @@ use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die/;
+use ProductOpener::Store qw/get_string_id_for_lang store/;
 use ProductOpener::Index qw/:all/;
-use ProductOpener::Display qw/:all/;
-use ProductOpener::Tags qw/:all/;
+use ProductOpener::Display qw/$cc $country $static_subdomain add_product_nutriment_to_stats compute_stats_for_products/;
+use ProductOpener::Tags
+	qw/%country_languages %properties canonicalize_taxonomy_tag_link display_taxonomy_tag exists_taxonomy_tag/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/:all/;
@@ -37,7 +39,7 @@ use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/:all/;
-use ProductOpener::Data qw/:all/;
+use ProductOpener::Data qw/get_products_collection/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -46,19 +48,12 @@ use Encode;
 use File::Path qw(mkpath);
 use JSON::PP;
 
-# Output will be in the $data_root/data directory
+# Output will be in the $BASE_DIRS{PRIVATE_DATA} directory
 # data/index: data related to the Open Food Hunt operation (old): points for countries, users and ambassadors
 # data/categories_stats: statistics for the nutrients of categories, used to compare products to their categories
 
-(-e "$data_root/data")
-	or mkdir("$data_root/data", oct(755))
-	or die("Could not create target directory $data_root/data : $!\n");
-(-e "$data_root/data/index")
-	or mkdir("$data_root/data/index", oct(755))
-	or die("Could not create target directory $data_root/data/index : $!\n");
-(-e "$data_root/data/categories_stats")
-	or mkdir("$data_root/data/categories_stats", oct(755))
-	or die("Could not create target directory $data_root/data/categories_stats : $!\n");
+ensure_dir_created_or_die("$BASE_DIRS{PRIVATE_DATA}/index");
+ensure_dir_created_or_die("$BASE_DIRS{PRIVATE_DATA}/categories_stats");
 
 # Generate a list of the top brands, categories, users, additives etc.
 
@@ -100,6 +95,9 @@ my %countries = ();
 my $total = 0;
 
 my @dates = ('created_t', 'completed_t');
+# country => $date_name.start => first date for this country
+# country => $date_name.end => last date for this country
+# country => $date_name => day (as timestamp) => number of cumulated products at this date
 my %countries_dates = ();
 my %products = ();
 
@@ -107,24 +105,29 @@ my %products = ();
 
 my $l = 'en';
 $lc = $l;
-
+# country => date_type (see @dates) => day (as timestamp) => number of products at this date
+# will help us compute countries_dates
 my %dates = ();
 
 my $fields_ref = {code => 1};
 my %tags = ();
+# $country => $tag_type / "$tagtype"
+# also $country => $tag_type_nutriments / "$tagtype"
 my %countries_tags = ();
-
+# hashmap of all seen codes
 my %codes = ();
+# for each country associate the minimun and maximum found dates (either completed_t or created_t)
+# we start with 0 and 100000000000000000
 my %true_end = ();    # 0;
 my %true_start = ();    # 100000000000000000;
 my $complete = 0;
 
 # Add in $fields_ref all the fields we need to retrieve from MongoDB
-
+# simple tags
 foreach my $tagtype (@fields) {
 	$fields_ref->{$tagtype . "_tags"} = 1;
 }
-
+# initialize country structures
 foreach my $country (keys %{$properties{countries}}, 'en:world') {
 	$countries_tags{$country} = {};
 	foreach my $tagtype (@fields) {
@@ -141,8 +144,9 @@ foreach my $country (keys %{$properties{countries}}, 'en:world') {
 	$true_end{$country} = 0;
 	$true_start{$country} = 100000000000000000;
 }
-
+# we don't need users tags
 delete $fields_ref->{users_tags};
+# more fields to get
 $fields_ref->{creator} = 1;
 $fields_ref->{nutriments} = 1;
 $fields_ref->{created_t} = 1;
@@ -158,8 +162,8 @@ $fields_ref->{ecoscore_extended_data} = 1;
 
 # 300 000 ms timeout so that we can export the whole database
 # 5mins is not enough, 50k docs were exported
-my $cursor = get_products_collection(3 * 60 * 60 * 1000)->query({'empty' => {"\$ne" => 1}, 'obsolete' => {"\$ne" => 1}})
-	->sort({created_t => 1})->fields($fields_ref);
+my $cursor = get_products_collection({timeout => 3 * 60 * 60 * 1000})
+	->query({'empty' => {"\$ne" => 1}, 'obsolete' => {"\$ne" => 1}})->sort({created_t => 1})->fields($fields_ref);
 
 $cursor->immortal(1);
 
@@ -170,6 +174,7 @@ my %countries_counts = ();
 my %countries_points = ();
 my %users_points = ();
 
+# filter on created_t
 my $start_t = 1424476800 - 12 * 3600;
 my $end_t = 1424476800 - 12 * 3600 + 10 * 86400;
 
@@ -400,7 +405,7 @@ while (my $product_ref = $cursor->next) {
 # compute points
 # Read ambassadors.txt
 my %ambassadors = ();
-if (open(my $IN, q{<}, "$data_root/data/ambassadors.txt")) {
+if (open(my $IN, q{<}, "$BASE_DIRS{PRIVATE_DATA}/ambassadors.txt")) {
 	while (<$IN>) {
 		chomp();
 		if (/\s+/) {
@@ -411,7 +416,7 @@ if (open(my $IN, q{<}, "$data_root/data/ambassadors.txt")) {
 	}
 }
 else {
-	print STDERR "$data_root/data/ambassadors.txt does not exist\n";
+	print STDERR "$BASE_DIRS{PRIVATE_DATA}/ambassadors.txt does not exist\n";
 }
 
 my %ambassadors_countries_points = (_all_ => {});
@@ -441,11 +446,11 @@ foreach my $country (keys %countries_points) {
 	}
 }
 
-store("$data_root/data/index/countries_points.sto", \%countries_points);
-store("$data_root/data/index/users_points.sto", \%users_points);
+store("$BASE_DIRS{PRIVATE_DATA}/index/countries_points.sto", \%countries_points);
+store("$BASE_DIRS{PRIVATE_DATA}/index/users_points.sto", \%users_points);
 
-store("$data_root/data/index/ambassadors_countries_points.sto", \%ambassadors_countries_points);
-store("$data_root/data/index/ambassadors_users_points.sto", \%ambassadors_users_points);
+store("$BASE_DIRS{PRIVATE_DATA}/index/ambassadors_countries_points.sto", \%ambassadors_countries_points);
+store("$BASE_DIRS{PRIVATE_DATA}/index/ambassadors_users_points.sto", \%ambassadors_users_points);
 
 foreach my $country (keys %{$properties{countries}}) {
 
@@ -492,7 +497,7 @@ foreach my $country (keys %{$properties{countries}}) {
 		}
 	}
 
-	store("$data_root/data/categories_stats/categories_nutriments_per_country.$cc.sto", \%categories);
+	store("$BASE_DIRS{PRIVATE_DATA}/categories_stats/categories_nutriments_per_country.$cc.sto", \%categories);
 
 	# Dates
 
@@ -515,7 +520,7 @@ foreach my $country (keys %{$properties{countries}}) {
 
 		#print "dates_stats_$country countryid: $country - date: $date - start: $start - end: $end\n";
 
-		my $current = 0;
+		my $current = 0;    # count products
 		for (my $i = $start; $i <= $end; $i++) {
 			$current += ($dates{$country}{$date}{$i} // 0);
 			$countries_dates{$country}{$date}{$i} = $current;
@@ -524,131 +529,130 @@ foreach my $country (keys %{$properties{countries}}) {
 	}
 }
 
-# Open Food Facts - What's in my yogurt?
+# # Open Food Facts - What's in my yogurt? - disabled
+# if ($server_domain eq 'openfoodfacts.org') {
+# 	print "Starting yogurts_countries.html...\n";
 
-if ($server_domain eq 'openfoodfacts.org') {
-	print "Starting yogurts_countries.html...\n";
+# 	open(my $DEBUG, ">:encoding(UTF-8)", "/home/yogurt/html/yogurts_debug");
 
-	open(my $DEBUG, ">:encoding(UTF-8)", "/home/yogurt/html/yogurts_debug");
+# 	my $html = "";
+# 	my $c = 0;
+# 	foreach my $country (
+# 		sort {
+# 			($countries_tags{$b}{categories}{"en:yogurts"} // 0)
+# 				<=> ($countries_tags{$a}{categories}{"en:yogurts"} // 0)
+# 		} keys %countries
+# 		)
+# 	{
 
-	my $html = "";
-	my $c = 0;
-	foreach my $country (
-		sort {
-			($countries_tags{$b}{categories}{"en:yogurts"} // 0)
-				<=> ($countries_tags{$a}{categories}{"en:yogurts"} // 0)
-		} keys %countries
-		)
-	{
+# 		print $DEBUG "yogurts - $country - "
+# 			. ($countries_tags{$country}{categories}{"en:yogurts"} // 'undefined') . "\n";
+# 		print STDERR "yogurts - $country - "
+# 			. ($countries_tags{$country}{categories}{"en:yogurts"} // 'undefined') . "\n";
+# 		if (($countries_tags{$country}{categories}{"en:yogurts"} // 0) > 0) {
+# 			my $cc = lc($properties{countries}{$country}{"country_code_2:en"});
+# 			if ($country eq 'en:world') {
+# 				$cc = 'world';
+# 			}
+# 			$lc = $country_languages{$cc}[0];    # first official language
 
-		print $DEBUG "yogurts - $country - "
-			. ($countries_tags{$country}{categories}{"en:yogurts"} // 'undefined') . "\n";
-		print STDERR "yogurts - $country - "
-			. ($countries_tags{$country}{categories}{"en:yogurts"} // 'undefined') . "\n";
-		if (($countries_tags{$country}{categories}{"en:yogurts"} // 0) > 0) {
-			my $cc = lc($properties{countries}{$country}{"country_code_2:en"});
-			if ($country eq 'en:world') {
-				$cc = 'world';
-			}
-			$lc = $country_languages{$cc}[0];    # first official language
+# 			if (not exists $Langs{$lc}) {
+# 				$lc = 'en';
+# 			}
 
-			if (not exists $Langs{$lc}) {
-				$lc = 'en';
-			}
+# 			print $DEBUG "yogurts - cc: $cc - lc: $lc \n";
 
-			print $DEBUG "yogurts - cc: $cc - lc: $lc \n";
+# 			$cc ne '' or next;
+# 			$c++;
 
-			$cc ne '' or next;
-			$c++;
+# 			my $n = $countries_tags{$country}{categories}{"en:yogurts"};
+# 			$n =~ s/(\d)(?=(\d{3})+$)/$1/g;
+# 			my $link
+# 				= "<a href=\"https://$cc.$server_domain"
+# 				. canonicalize_taxonomy_tag_link($lc, "categories", "en:yogurts") . "\">"
+# 				. display_taxonomy_tag('en', 'countries', $country) . "</a>";
 
-			my $n = $countries_tags{$country}{categories}{"en:yogurts"};
-			$n =~ s/(\d)(?=(\d{3})+$)/$1/g;
-			my $link
-				= "<a href=\"https://$cc.$server_domain"
-				. canonicalize_taxonomy_tag_link($lc, "categories", "en:yogurts") . "\">"
-				. display_taxonomy_tag('en', 'countries', $country) . "</a>";
+# 			$html .= "<li>$link - " . $countries_tags{$country}{categories}{"en:yogurts"} . " yogurts</li>\n";
+# 		}
 
-			$html .= "<li>$link - " . $countries_tags{$country}{categories}{"en:yogurts"} . " yogurts</li>\n";
-		}
+# 	}
+# 	$html =~ s/ 1 yogurts/ 1 yogurt/g;
 
-	}
-	$html =~ s/ 1 yogurts/ 1 yogurt/g;
+# 	my $yogurts = $countries_tags{"en:world"}{categories}{"en:yogurts"};
 
-	my $yogurts = $countries_tags{"en:world"}{categories}{"en:yogurts"};
+# 	$html
+# 		= "<h2 style=\"color:white\">$yogurts yogurts opened so far!</h2>\n<p>$yogurts yogurts sold in $c countries and territories:</p>\n<ul>\n$html</ul>\n";
 
-	$html
-		= "<h2 style=\"color:white\">$yogurts yogurts opened so far!</h2>\n<p>$yogurts yogurts sold in $c countries and territories:</p>\n<ul>\n$html</ul>\n";
+# 	open(my $OUT, ">:encoding(UTF-8)", "/home/yogurt/html/yogurts_countries.html");
+# 	print $OUT $html;
+# 	close $OUT;
 
-	open(my $OUT, ">:encoding(UTF-8)", "/home/yogurt/html/yogurts_countries.html");
-	print $OUT $html;
-	close $OUT;
+# 	close $DEBUG;
 
-	close $DEBUG;
-
-}
+# }
 
 # Open Beauty Facts - What's in my shampoo?
 
-if ($server_domain eq 'openbeautyfacts.org') {
-	print "Starting shampoos_countries.html...\n";
+# if ($server_domain eq 'openbeautyfacts.org') {
+# 	print "Starting shampoos_countries.html...\n";
 
-	open(my $DEBUG, ">:encoding(UTF-8)", "/home/shampoo/html/shampoos_debug");
+# 	open(my $DEBUG, ">:encoding(UTF-8)", "/home/shampoo/html/shampoos_debug");
 
-	my $html = "";
-	my $c = 0;
-	foreach my $country (
-		sort {
-			($countries_tags{$b}{categories}{"en:shampoos"} // 0)
-				<=> ($countries_tags{$a}{categories}{"en:shampoos"} // 0)
-		} keys %countries
-		)
-	{
+# 	my $html = "";
+# 	my $c = 0;
+# 	foreach my $country (
+# 		sort {
+# 			($countries_tags{$b}{categories}{"en:shampoos"} // 0)
+# 				<=> ($countries_tags{$a}{categories}{"en:shampoos"} // 0)
+# 		} keys %countries
+# 		)
+# 	{
 
-		print $DEBUG "shampoos - $country - "
-			. ($countries_tags{$country}{categories}{"en:shampoos"} // 'undefined') . "\n";
-		print STDERR "shampoos - $country - "
-			. ($countries_tags{$country}{categories}{"en:shampoos"} // 'undefined') . "\n";
-		if (($countries_tags{$country}{categories}{"en:shampoos"} // 0) > 0) {
-			my $cc = lc($properties{countries}{$country}{"country_code_2:en"});
-			if ($country eq 'en:world') {
-				$cc = 'world';
-			}
-			$lc = $country_languages{$cc}[0];    # first official language
+# 		print $DEBUG "shampoos - $country - "
+# 			. ($countries_tags{$country}{categories}{"en:shampoos"} // 'undefined') . "\n";
+# 		print STDERR "shampoos - $country - "
+# 			. ($countries_tags{$country}{categories}{"en:shampoos"} // 'undefined') . "\n";
+# 		if (($countries_tags{$country}{categories}{"en:shampoos"} // 0) > 0) {
+# 			my $cc = lc($properties{countries}{$country}{"country_code_2:en"});
+# 			if ($country eq 'en:world') {
+# 				$cc = 'world';
+# 			}
+# 			$lc = $country_languages{$cc}[0];    # first official language
 
-			if (not exists $Langs{$lc}) {
-				$lc = 'en';
-			}
+# 			if (not exists $Langs{$lc}) {
+# 				$lc = 'en';
+# 			}
 
-			print $DEBUG "shampoos - cc: $cc - lc: $lc \n";
+# 			print $DEBUG "shampoos - cc: $cc - lc: $lc \n";
 
-			$cc ne '' or next;
-			$c++;
+# 			$cc ne '' or next;
+# 			$c++;
 
-			my $n = $countries_tags{$country}{categories}{"en:shampoos"};
-			$n =~ s/(\d)(?=(\d{3})+$)/$1/g;
-			my $link
-				= "<a href=\"https://$cc.$server_domain"
-				. canonicalize_taxonomy_tag_link($lc, "categories", "en:shampoos") . "\">"
-				. display_taxonomy_tag('en', 'countries', $country) . "</a>";
+# 			my $n = $countries_tags{$country}{categories}{"en:shampoos"};
+# 			$n =~ s/(\d)(?=(\d{3})+$)/$1/g;
+# 			my $link
+# 				= "<a href=\"https://$cc.$server_domain"
+# 				. canonicalize_taxonomy_tag_link($lc, "categories", "en:shampoos") . "\">"
+# 				. display_taxonomy_tag('en', 'countries', $country) . "</a>";
 
-			$html .= "<li>$link - " . $countries_tags{$country}{categories}{"en:shampoos"} . " shampoos</li>\n";
-		}
+# 			$html .= "<li>$link - " . $countries_tags{$country}{categories}{"en:shampoos"} . " shampoos</li>\n";
+# 		}
 
-	}
-	$html =~ s/ 1 shampoos/ 1 shampoo/g;
+# 	}
+# 	$html =~ s/ 1 shampoos/ 1 shampoo/g;
 
-	my $shampoos = $countries_tags{"en:world"}{categories}{"en:shampoos"};
+# 	my $shampoos = $countries_tags{"en:world"}{categories}{"en:shampoos"};
 
-	$html
-		= "<h2 style=\"color:white\">$shampoos shampoos opened so far!</h2>\n<p>$shampoos shampoos sold in $c countries and territories:</p>\n<ul>\n$html</ul>\n";
+# 	$html
+# 		= "<h2 style=\"color:white\">$shampoos shampoos opened so far!</h2>\n<p>$shampoos shampoos sold in $c countries and territories:</p>\n<ul>\n$html</ul>\n";
 
-	open(my $OUT, ">:encoding(UTF-8)", "/home/shampoo/html/shampoos_countries.html");
-	print $OUT $html;
-	close $OUT;
+# 	open(my $OUT, ">:encoding(UTF-8)", "/home/shampoo/html/shampoos_countries.html");
+# 	print $OUT $html;
+# 	close $OUT;
 
-	close $DEBUG;
+# 	close $DEBUG;
 
-}
+# }
 
 # Number of products and complete products
 
@@ -674,9 +678,14 @@ HTML
 		print "found meta products_graph_country_$cc.png image\n";
 	}
 
-	foreach my $lc (@{$country_languages{$cc}}) {
-
-		$lang = $lc;
+	my @languages = (@{$country_languages{$cc}});
+	if ($cc eq "world") {
+		# all languages
+		@languages = keys %Langs;
+	}
+	# also always add english
+	push @languages, "en" unless grep {$_ eq 'en'} @languages;
+	foreach my $lc (@languages) {
 
 		my $series = '';
 
@@ -697,7 +706,7 @@ HTML
 			my $series_start = $countries_dates{$country}{$date . ".start"};
 			my $series_end = $countries_dates{$country}{$date . ".end"};
 
-			my $name = $Lang{"products_stats_$date"}{$lang};
+			my $name = $Lang{"products_stats_$date"}{$lc};
 			my $series_point_start = $series_start * 86400 * 1000;
 			$series .= <<HTML
 {
@@ -730,16 +739,16 @@ HTML
 
 		$series =~ s/,\n$//;
 
-		my $country_name = display_taxonomy_tag($lang, 'countries', $country);
+		my $country_name = display_taxonomy_tag($lc, 'countries', $country);
 
-		#$Lang{products_p}{$lang} is undefined, products_p doesn't appear to be in the .po files.
+		#$Lang{products_p}{$lc} is undefined, products_p doesn't appear to be in the .po files.
 		my $html = <<HTML
 <initjs>
 
 Highcharts.setOptions({
 	lang: {
-		months: $Lang{months}{$lang},
-		weekdays: $Lang{weekdays}{$lang}
+		months: $Lang{months}{$lc},
+		weekdays: $Lang{weekdays}{$lc}
 	}
 });
 
@@ -748,7 +757,7 @@ Highcharts.setOptions({
                 type: 'area'
             },
             title: {
-                text: '$Lang{products_stats}{$lang} - $country_name'
+                text: '$Lang{products_stats}{$lc} - $country_name'
             },
             subtitle: {
                 text: 'Source: <a href="https://$cc.$server_domain">'+
@@ -759,7 +768,7 @@ Highcharts.setOptions({
             },
             yAxis: {
                 title: {
-                    text: '$Lang{products}{$lang}'
+                    text: '$Lang{products}{$lc}'
                 },
                 labels: {
                     formatter: function() {
@@ -793,7 +802,7 @@ $series
 </initjs>
 
 <scripts>
-<script src="/js/dist/highcharts.js"></script></scripts>
+<script src="$static_subdomain/js/dist/highcharts.js"></script></scripts>
 <header>
 $meta
 </header>
@@ -803,17 +812,16 @@ $meta
 HTML
 			;
 
-		print "products_stats - saving $data_root/lang/$lang/texts/products_stats_$cc.html\n";
-		my $stats_dir = "$data_root/lang/$lang/texts";
-		(-e $stats_dir) or mkpath($stats_dir, {"mode" => oct(755)});
+		my $stats_dir = "$BASE_DIRS{PUBLIC_DATA}/products_stats/$lc";
+		print "products_stats - saving $stats_dir/products_stats_$cc.html\n";
+		ensure_dir_created_or_die($stats_dir);
 		if (open(my $OUT, ">:encoding(UTF-8)", "$stats_dir/products_stats_$cc.html")) {
 			print $OUT $html;
 			close $OUT;
 		}
 		else {
-			print STDERR "Failed to write to '$data_root/lang/$lang/texts/products_stats_$cc.html'\n";
+			print STDERR "Failed to write to '$stats_dir/products_stats_$cc.html'\n";
 		}
-
 	}
 }
 
@@ -845,9 +853,6 @@ foreach my $country (
 	keys %countries
 	)
 {
-
-	$lang = $lc;
-
 	my $series_start = $countries_dates{$country}{$date . ".start"};
 	my $series_end = $countries_dates{$country}{$date . ".end"};
 
@@ -886,7 +891,6 @@ HTML
 
 $series =~ s/,\n$//;
 
-$lang = 'en';
 $lc = 'en';
 
 my $html = <<HTML
@@ -897,7 +901,7 @@ my $html = <<HTML
                 type: 'area'
             },
             title: {
-                text: '$Lang{products_stats}{$lang}'
+                text: '$Lang{products_stats}{$lc}'
             },
             subtitle: {
                 text: 'Source: <a href="https://$server_domain">'+
@@ -911,7 +915,7 @@ my $html = <<HTML
             },
             yAxis: {
                 title: {
-                    text: '$Lang{products}{$lang}'
+                    text: '$Lang{products}{$lc}'
                 },
                 labels: {
                     formatter: function() {
@@ -942,8 +946,9 @@ $series
 
 HTML
 	;
-
-open(my $OUT, ">:encoding(UTF-8)", "$www_root/products_countries.js");
+my $stats_dir = "$BASE_DIRS{PUBLIC_DATA}/products_stats/";
+ensure_dir_created_or_die($stats_dir);
+open(my $OUT, ">:encoding(UTF-8)", "$stats_dir/products_countries.js");
 print $OUT $html;
 close $OUT;
 

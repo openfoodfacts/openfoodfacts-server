@@ -1,0 +1,32 @@
+[
+   {
+      "id" : "en:chocolate",
+      "ingredients" : [
+         {
+            "id" : "en:cocoa",
+            "percent_estimate" : 50,
+            "percent_max" : 100,
+            "percent_min" : 25,
+            "text" : "cocoa"
+         },
+         {
+            "id" : "en:sugar",
+            "percent_estimate" : 25,
+            "percent_max" : 50,
+            "percent_min" : 0,
+            "text" : "sugar"
+         }
+      ],
+      "percent_estimate" : 75,
+      "percent_max" : 100,
+      "percent_min" : 50,
+      "text" : "chocolate"
+   },
+   {
+      "id" : "en:milk",
+      "percent_estimate" : 25,
+      "percent_max" : 50,
+      "percent_min" : 0,
+      "text" : "milk"
+   }
+]

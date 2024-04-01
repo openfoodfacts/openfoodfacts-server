@@ -27,11 +27,11 @@ use CGI::Carp qw(fatalsToBrowser);
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
-use ProductOpener::Routing qw/:all/;
+use ProductOpener::Routing qw/analyze_request/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::Users qw/:all/;
-use ProductOpener::Lang qw/:all/;
-use ProductOpener::API qw/:all/;
+use ProductOpener::Users qw/$Owner_id init_user/;
+use ProductOpener::Lang qw/lang/;
+use ProductOpener::API qw/decode_json_request_body init_api_response process_api_request read_request_body/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -110,6 +110,13 @@ if (defined $request_ref->{error_message}) {
 	return Apache2::Const::OK;
 }
 
+if ($request_ref->{no_index} eq 1) {
+	# The request is made from a known web crawler and the web-page shouldn't be indexed:
+	# return directly a "noindex" empty HTML page
+	display_no_index_page_and_exit();
+	return Apache2::Const::OK;
+}
+
 $log->debug(
 	"after analyze_request",
 	{
@@ -178,7 +185,13 @@ elsif (defined $request_ref->{properties}) {
 	display_properties($request_ref);
 }
 elsif (defined $request_ref->{text}) {
-	display_text($request_ref);
+	if ($request_ref->{text} =~ /^products_stats/) {
+		display_stats($request_ref);
+	}
+	else {
+		# note: this also displays the index or index-pro pages
+		display_text($request_ref);
+	}
 }
 elsif (defined $request_ref->{mission}) {
 	display_mission($request_ref);

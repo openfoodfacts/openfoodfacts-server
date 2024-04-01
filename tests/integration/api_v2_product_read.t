@@ -3,9 +3,9 @@
 use ProductOpener::PerlStandards;
 
 use Test::More;
-use ProductOpener::APITest qw/:all/;
-use ProductOpener::Test qw/:all/;
-use ProductOpener::TestDefaults qw/:all/;
+use ProductOpener::APITest qw/create_user edit_product execute_api_tests new_client wait_application_ready/;
+use ProductOpener::Test qw/remove_all_products remove_all_users/;
+use ProductOpener::TestDefaults qw/%default_product_form %default_user_form/;
 
 use File::Basename "dirname";
 
@@ -28,6 +28,8 @@ my @products = (
 	{
 		%{dclone(\%default_product_form)},
 		(
+			lc => "en",
+			lang => "en",
 			code => '200000000034',
 			product_name => "Some product",
 			generic_name => "Tester",
@@ -153,7 +155,7 @@ my $tests_ref = [
 		method => 'GET',
 		path => '/api/v2/product/200000000034',
 		query_string => '?fields=code,product_name&user_id=tests&password=bad_password',
-		expected_status_code => 200,
+		expected_status_code => 403,
 		expected_type => "html",
 	},
 ];

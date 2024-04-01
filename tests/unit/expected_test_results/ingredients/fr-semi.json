@@ -1,0 +1,80 @@
+{
+   "ingredients" : [
+      {
+         "ciqual_food_code" : "9520",
+         "id" : "en:semi-wholemeal-rice-flour",
+         "percent_estimate" : 75,
+         "percent_max" : 100,
+         "percent_min" : 50,
+         "text" : "farine demi-complète de riz",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_proxy_food_code" : "9410",
+         "id" : "en:semi-wholemeal-wheat-flour",
+         "percent_estimate" : 25,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "text" : "farine de blé demi complet",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {},
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:vegan",
+      "en:vegetarian"
+   ],
+   "ingredients_hierarchy" : [
+      "en:semi-wholemeal-rice-flour",
+      "en:flour",
+      "en:cereal-flour",
+      "en:rice",
+      "en:rice-flour",
+      "en:semi-wholemeal-flour",
+      "en:semi-wholemeal-wheat-flour",
+      "en:cereal",
+      "en:wheat",
+      "en:wheat-flour"
+   ],
+   "ingredients_n" : 2,
+   "ingredients_n_tags" : [
+      "2",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:semi-wholemeal-rice-flour",
+      "en:semi-wholemeal-wheat-flour"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:semi-wholemeal-rice-flour",
+      "en:flour",
+      "en:cereal-flour",
+      "en:rice",
+      "en:rice-flour",
+      "en:semi-wholemeal-flour",
+      "en:semi-wholemeal-wheat-flour",
+      "en:cereal",
+      "en:wheat",
+      "en:wheat-flour"
+   ],
+   "ingredients_text" : "farine demi-complète de riz, farine de blé demi complet",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 2,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
+   "known_ingredients_n" : 10,
+   "lc" : "fr",
+   "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
+   },
+   "unknown_ingredients_n" : 0
+}

@@ -44,12 +44,15 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Display qw/:all/;
-use ProductOpener::Users qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
+use ProductOpener::Display qw/request_param single_param/;
+use ProductOpener::Users qw/$Owner_id/;
+use ProductOpener::Lang qw/$lc/;
 use ProductOpener::Products qw/:all/;
-use ProductOpener::Ingredients qw/:all/;
-use ProductOpener::API qw/:all/;
+use ProductOpener::Ingredients qw/flatten_sub_ingredients/;
+use ProductOpener::API qw/add_error customize_response_for_product normalize_requested_code/;
+
+my $cc;
 
 =head2 read_product_api ( $request_ref )
 
@@ -83,7 +86,7 @@ sub read_product_api ($request_ref) {
 			|| "";
 	}
 
-	my $code = normalize_requested_code($request_ref->{code}, $response_ref);
+	my ($code, $ai_data_string) = &normalize_requested_code($request_ref->{code}, $response_ref);
 
 	my $product_ref;
 	my $product_id;
@@ -96,7 +99,7 @@ sub read_product_api ($request_ref) {
 			$response_ref,
 			{
 				message => {id => "invalid_code"},
-				field => {id => "code", value => $code},
+				field => {id => "code", value => $request_ref->{code}},
 				impact => {id => "failure"},
 			}
 		);
@@ -123,17 +126,14 @@ sub read_product_api ($request_ref) {
 
 		# Return an error if we could not find a product
 
-		if ($request_ref->{api_version} >= 1) {
-			$request_ref->{status_code} = 404;
-		}
-
 		add_error(
 			$response_ref,
 			{
 				message => {id => "product_not_found"},
 				field => {id => "code", value => $code},
 				impact => {id => "failure"},
-			}
+			},
+			404
 		);
 		$response_ref->{result} = {id => "product_not_found"};
 	}
@@ -165,7 +165,7 @@ sub read_product_api ($request_ref) {
 		# Return blame information
 		if (single_param("blame")) {
 			my $path = product_path_from_id($product_id);
-			my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
+			my $changes_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/changes.sto");
 			if (not defined $changes_ref) {
 				$changes_ref = [];
 			}

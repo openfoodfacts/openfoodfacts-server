@@ -1,0 +1,88 @@
+[
+   {
+      "id" : "en:peach",
+      "percent" : 50,
+      "percent_estimate" : 50,
+      "percent_max" : 50,
+      "percent_min" : 50,
+      "text" : "perziken"
+   },
+   {
+      "id" : "en:sugar",
+      "percent_estimate" : 29.1666666666667,
+      "percent_max" : 50,
+      "percent_min" : 8.33333333333333,
+      "text" : "suiker"
+   },
+   {
+      "id" : "en:gelling-agent",
+      "ingredients" : [
+         {
+            "id" : "en:citrus-pectin",
+            "percent_estimate" : 10.4166666666667,
+            "percent_max" : 33.3333333333333,
+            "percent_min" : 0,
+            "text" : "citruspectine"
+         }
+      ],
+      "percent_estimate" : 10.4166666666667,
+      "percent_max" : 33.3333333333333,
+      "percent_min" : 0,
+      "text" : "geleermiddel"
+   },
+   {
+      "id" : "en:lemon-juice-from-concentrate",
+      "percent_estimate" : 5.20833333333333,
+      "percent_max" : 20.8333333333333,
+      "percent_min" : 0,
+      "text" : "citroensap uit concentraat"
+   },
+   {
+      "id" : "en:preservative",
+      "ingredients" : [
+         {
+            "id" : "en:e202",
+            "percent_estimate" : 2.60416666666666,
+            "percent_max" : 13.8888888888889,
+            "percent_min" : 0,
+            "text" : "kaliumsorbaat"
+         }
+      ],
+      "percent_estimate" : 2.60416666666666,
+      "percent_max" : 13.8888888888889,
+      "percent_min" : 0,
+      "text" : "conserveermiddel"
+   },
+   {
+      "id" : "en:antioxidant",
+      "ingredients" : [
+         {
+            "id" : "en:e300",
+            "percent_estimate" : 1.30208333333333,
+            "percent_max" : 10.4166666666667,
+            "percent_min" : 0,
+            "text" : "ascorbinezuur"
+         }
+      ],
+      "percent_estimate" : 1.30208333333333,
+      "percent_max" : 10.4166666666667,
+      "percent_min" : 0,
+      "text" : "antioxidant"
+   },
+   {
+      "id" : "en:sweetener",
+      "ingredients" : [
+         {
+            "id" : "en:e960",
+            "percent_estimate" : 1.30208333333333,
+            "percent_max" : 8.33333333333333,
+            "percent_min" : 0,
+            "text" : "steviolglycosiden"
+         }
+      ],
+      "percent_estimate" : 1.30208333333333,
+      "percent_max" : 8.33333333333333,
+      "percent_min" : 0,
+      "text" : "zoetstof"
+   }
+]

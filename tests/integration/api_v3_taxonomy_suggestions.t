@@ -3,8 +3,8 @@
 use ProductOpener::PerlStandards;
 
 use Test::More;
-use ProductOpener::APITest qw/:all/;
-use ProductOpener::Test qw/:all/;
+use ProductOpener::APITest qw/execute_api_tests wait_application_ready/;
+use ProductOpener::Test qw/remove_all_products remove_all_users/;
 use ProductOpener::TestDefaults qw/:all/;
 
 use File::Basename "dirname";
@@ -23,11 +23,13 @@ my $tests_ref = [
 		test_case => 'no-tagtype',
 		method => 'GET',
 		path => '/api/v3/taxonomy_suggestions',
+		expected_status_code => 400,
 	},
 	{
 		test_case => 'incorrect-tagtype',
 		method => 'GET',
 		path => '/api/v3/taxonomy_suggestions?tagtype=not_a_taxonomy',
+		expected_status_code => 400,
 	},
 	{
 		test_case => 'categories-no-string',
@@ -77,6 +79,12 @@ my $tests_ref = [
 		path => '/api/v3/taxonomy_suggestions?tagtype=categories&string=Café&lc=fr',
 		expected_status_code => 200,
 	},
+	{
+		test_case => 'allergens-string-fr-o-get-synonyms',
+		method => 'GET',
+		path => '/api/v3/taxonomy_suggestions?tagtype=allergens&string=o&lc=fr&get_synonyms=1',
+		expected_status_code => 200,
+	},
 	# Packaging suggestions return most popular suggestions first
 	{
 		test_case => 'packaging-shapes',
@@ -99,7 +107,7 @@ my $tests_ref = [
 	{
 		test_case => 'packaging-shapes-string-fr-po',
 		method => 'GET',
-		path => '/api/v3/taxonomy_suggestions?tagtype=packaging_shapes&string=po',
+		path => '/api/v3/taxonomy_suggestions?tagtype=packaging_shapes&string=po&lc=fr',
 		expected_status_code => 200,
 	},
 	# Packaging shape suggestions can be specific to a country and categories, and shape
@@ -111,9 +119,9 @@ my $tests_ref = [
 	},
 	# categories can contain a comma separated list of taxonomy entry ids, entry name or synonym in the lc language
 	{
-		test_case => 'packaging-shapes-categories-mango-juice-beverages',
+		test_case => 'packaging-shapes-categories-mango-nectars-beverages',
 		method => 'GET',
-		path => '/api/v3/taxonomy_suggestions?tagtype=packaging_shapes&categories=mango%20juice,beverages',
+		path => '/api/v3/taxonomy_suggestions?tagtype=packaging_shapes&categories=mango%20nectars,beverages',
 		expected_status_code => 200,
 	},
 	{
