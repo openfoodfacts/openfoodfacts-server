@@ -115,6 +115,7 @@ my %tags_fields = (
 
 my %langs = ();
 my $total = 0;
+my %exported_products;
 
 my $fields_ref = {};
 
@@ -297,6 +298,12 @@ XML
 			my $csv = '';
 			my $url = "http://world-$lc.$server_domain" . product_url($product_ref);
 			my $code = ($product_ref->{code} // '');
+
+			if ($product_ref->{obsolete}) {
+				if ($exported_products{$code}) {
+					next;
+				}
+			}
 
 			$code eq '' and next;
 			$code < 1 and next;
@@ -509,6 +516,7 @@ XML
 
 			print $OUT $csv;
 			print $RDF $rdf;
+			$exported_products{$code} = 1;
 		}
 	}
 
