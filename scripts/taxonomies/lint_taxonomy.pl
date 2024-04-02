@@ -161,7 +161,7 @@ sub iter_taxonomy_entries ($lines_iter) {
 							severity => "Error",
 							type => "Correctness",
 							line => $line_num,
-							message => ("duplicate synonym for $lc:\n" . "- $previous_lc_line" . "- $line")
+							message => ("duplicate language line for $lc:\n" . "- $previous_lc_line" . "- $line")
 							};
 					}
 					# but try to do our best and continue
@@ -187,7 +187,7 @@ sub iter_taxonomy_entries ($lines_iter) {
 							type => "Correctness",
 							line => $line_num,
 							message => (
-									  "duplicate property value for $prop:$lc:\n" . "- "
+									  "duplicate property language line for $prop:$lc:\n" . "- "
 									. $props{"$prop:$lc"}->{line}
 									. "- $line"
 							)
@@ -262,7 +262,7 @@ sub canonicalize_entry_properties($entry_ref, $is_check) {
 							severity => "Error",
 							type => "Linting",
 							entry_start_line => $entry_ref->{start_line},
-							entry_id_line => $entry_ref->{entry_id_line},
+							entry_id_line => $entry_ref->{entry_id_line}{line},
 							message => (
 									  "Property $prop_name is not canonical, at $props{$prop_name}{line_num}\n" . "- "
 									. join(", ", keys %different) . "\n" . "- "
