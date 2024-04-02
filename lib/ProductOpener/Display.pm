@@ -1099,6 +1099,13 @@ sub display_error ($request_ref, $error_message, $status_code) {
 		{error_message => $error_message, status_code => $status_code, request_ref => $request_ref})
 		if $log->is_debug();
 
+	# We need to remove the canonical URL from the request so that it does not get displayed in the error page
+	# This is needed in particular for facet pages like /some-facet/some-spam-value-that-we-don-t-want-to-output-in-the-error-page
+	delete $request_ref->{canon_url};
+	delete $request_ref->{canon_rel_url};
+	delete $request_ref->{url};
+	delete $request_ref->{current_link};
+
 	my $html = "<p>$error_message</p>";
 	$request_ref->{status_code} = $status_code;
 	$request_ref->{page_type} = "error";
@@ -4270,11 +4277,6 @@ HTML
 		)
 		)
 	{
-		# We need also to remove the canonical URL from the request so that it does not get displayed in the error page
-		delete $request_ref->{canon_url};
-		delete $request_ref->{canon_rel_url};
-		delete $request_ref->{url};
-		delete $request_ref->{current_link};
 		display_error_and_exit($request_ref, lang("no_products"), 404);
 	}
 	else {
@@ -6685,6 +6687,7 @@ or city.
 The traceability code
 
 =head3 returns - list of 2 elements
+
 (latitude, longitude) if found, or (undef, undef) otherwise
 
 =cut
@@ -6984,6 +6987,7 @@ sub search_and_map_products ($request_ref, $query_ref, $graph_ref) {
 add a permalink to a search result page
 
 =head3 return - string - generated HTML
+
 =cut
 
 sub search_permalink ($request_ref) {
