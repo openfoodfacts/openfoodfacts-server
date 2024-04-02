@@ -1,0 +1,3 @@
+#!/bin/sh
+
+./export_csv_file.pl --query labels_tags=en:demeter --query countries_tags=en:france  --fields=code,product_name,brands,categories_tags_fr,labels_tags_fr,ecoscore_grade,ecoscore_score,ecoscore_data.agribalyse.code,ecoscore_data.agribalyse.name_fr,ecoscore_data.agribalyse.score,ecoscore_data.adjustments.production_system.labels.0,ecoscore_data.adjustments.production_system.value,ecoscore_data.adjustments.origins_of_ingredients.transportation_value_fr,ecoscore_data.adjustments.origins_of_ingredients.epi_value,ecoscore_data.adjustments.packaging.non_recyclable_and_non_biodegradable_materials,ecoscore_data.adjustments.packaging.value,ecoscore_data.adjustments.threatened_species.value > ecoscore.tsv

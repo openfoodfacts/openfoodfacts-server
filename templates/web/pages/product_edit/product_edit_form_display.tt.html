@@ -63,13 +63,13 @@
 
 
         [% IF moderator %]
-            <label for="new_code" id="label_new_code">[% label_new_code %]</label>
+            <label for="new_code" id="label_new_code" class="moderator-only">[% label_new_code %]</label>
             <input type="text" name="new_code" id="new_code" class="text" value="" /><br/>
         [% END %]
 
         [% IF moderator || owner_id %]
             <input type="checkbox" id="obsolete" name="obsolete" [% obsolete_checked %]/>
-            <label for="obsolete" class="checkbox_label">[% lang("obsolete") %]</label>
+            <label for="obsolete" class="checkbox_label moderator-only">[% lang("obsolete") %]</label>
             [% display_field_obsolete %]
         [% END %]
 
@@ -89,7 +89,7 @@
         [% IF moderator %]
             <ul id="manage_images_accordion" class="accordion" data-accordion>
                 <li class="accordion-navigation">
-                    <a href="#manage_images_drop">[% display_icon('collections') %] [% lang("manage_images") %]</a>
+                    <a href="#manage_images_drop" class="moderator-only">[% display_icon('collections') %] [% lang("manage_images") %]</a>
                     <div id="manage_images_drop" class="content" style="background:#eeeeee">
                         [% display_select_manage %]
                         <p>[% manage_images_info %]</p>
@@ -262,7 +262,9 @@
                     </div>
 
                 [% IF moderator %]
+                <div class="moderator-only">  
                     <div><a class="small button" onclick="\$('.nutriment_value').val('')">[% lang('remove_all_nutrient_values') %]</a></div>
+                </div>
                 [% END %]
 
                 <p class="asterisk">&rarr;*[% sep %]:[% lang('nutrition_data_table_asterisk') %]</p>
@@ -287,7 +289,7 @@
                 <p>[% lang('photos_and_data_check_description') %]</p>
 
                 <input type="checkbox" id="photos_and_data_checked" name="photos_and_data_checked" [% product_check_checked %] />
-                <label for="photos_and_data_checked" class="checkbox_label">[% lang('photos_and_data_checked') %]</label><br/>
+                <label for="photos_and_data_checked" class="checkbox_label moderator-only">[% lang('photos_and_data_checked') %]</label><br/>
 
                 [% IF product_ref_checked.defined && product_ref_checked == 'on' %]
                     <input type="checkbox" id="photos_and_data_rechecked" name="photos_and_data_rechecked" />

@@ -178,7 +178,7 @@ sub iter_taxonomy_entries ($lines_iter) {
 				push @parents, {line => $line, previous => [@previous_lines], line_num => $line_num};
 				@previous_lines = ();
 			}
-			# synonym
+			# translations of entry name + synonyms
 			elsif ($line =~ /^(\w+):[^:]*(,.*)*$/) {
 				if (!defined $entry_id_line) {
 					$entry_id_line = {line => $line, previous => [@previous_lines], lc => $1,, line_num => $line_num};
@@ -194,13 +194,30 @@ sub iter_taxonomy_entries ($lines_iter) {
 							$previous_lc_line = $entry_id_line->{line};
 						}
 
-						push @errors,
-							{
-							severity => "Error",
-							type => "Correctness",
-							line => $line_num,
-							message => ("duplicate language line for $lc:\n" . "- $previous_lc_line" . "- $line")
-							};
+						# If the 2 language lines are identical, issue a warning, and it will be fixed by the linter
+						# otherwise it is an error that needs human attention
+						if ($previous_lc_line ne $line) {
+							push(
+								@errors,
+								{
+									severity => "Error",
+									type => "Correctness",
+									line => $line_num,
+									message => ("multiple entry language lines for $lc:\n" . "- $previous_lc_line" . "- $line")
+								}
+							);
+						}
+						else {
+							push(
+								@errors,
+								{
+									severity => "Warning",
+									type => "Correctness",
+									line => $line_num,
+									message => ("duplicate entry language line for $lc:\n" . "- $previous_lc_line")
+								}
+							);
+						}
 					}
 					# but try to do our best and continue
 					if (defined $entries{$lc}) {
@@ -218,19 +235,38 @@ sub iter_taxonomy_entries ($lines_iter) {
 				my $prop = $1;
 				my $lc = $2;
 				if (defined $props{"$prop:$lc"}) {
-					push(
-						@errors,
-						{
-							severity => "Error",
-							type => "Correctness",
-							line => $line_num,
-							message => (
-									  "duplicate property language line for $prop:$lc:\n" . "- "
-									. $props{"$prop:$lc"}->{line}
-									. "- $line"
-							)
-						}
-					);
+					# If the 2 property values are identical, issue a warning, and it will be fixed by the linter
+					# otherwise it is an error that needs human attention
+					if ($props{"$prop:$lc"}->{line} ne $line) {
+						push(
+							@errors,
+							{
+								severity => "Error",
+								type => "Correctness",
+								line => $line_num,
+								message => (
+										  "multiple property language lines for $prop:$lc:\n" . "- "
+										. $props{"$prop:$lc"}->{line}
+										. "- $line"
+								)
+							}
+						);
+					}
+					else {
+						push(
+							@errors,
+							{
+								severity => "Warning",
+								type => "Correctness",
+								line => $line_num,
+								message => (
+										  "duplicate property language line for $prop:$lc:\n" . "- "
+										. $props{"$prop:$lc"}->{line}
+										. "- $line"
+								)
+							}
+						);
+					}
 				}
 				# override to continue
 				$props{"$prop:$lc"} = {line => $line, previous => [@previous_lines], line_num => $line_num};
@@ -283,7 +319,7 @@ sub canonicalize_entry_properties($entry_ref, $is_check) {
 						severity => "Warning",
 						type => "Consistency",
 						entry_start_line => $entry_ref->{start_line},
-						entry_id_line => $entry_ref->{entry_id_line},
+						entry_id_line => $entry_ref->{entry_id_line}{line},
 						message => (
 								  "Values $not_found do not exists in taxonomy, at $props{$prop_name}{line_num}\n"
 								. "- $props{$prop_name}{line}"
@@ -419,7 +455,7 @@ sub lint_taxonomy($entries_iterator, $out, $is_check, $is_quiet, $do_sort) {
 			$linted_output = join("", @{$entry_ref->{original_lines}});
 		}
 		if ($is_check) {
-			# search for linting error only if there is no other errors
+			# search for linting error only if there are no other errors
 			if (!@entry_errors) {
 				my $lint_error = check_linted($entry_ref, $linted_output);
 				push(@entry_errors, $lint_error) if $lint_error;
