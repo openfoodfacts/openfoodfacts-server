@@ -53,6 +53,8 @@ BEGIN {
 		&canonicalize_tag2
 		&canonicalize_tag_link
 
+		&sanitize_taxonomy_line
+
 		&has_tag
 		&has_one_of_the_tags_from_the_list
 		&add_tag
@@ -73,6 +75,7 @@ BEGIN {
 		%tags_texts
 		%level
 		%special_tags
+		%translations_from
 
 		&get_taxonomyid
 
@@ -179,6 +182,7 @@ use Clone qw(clone);
 use List::MoreUtils qw(uniq);
 
 use URI::Escape::XS;
+use List::Util qw(first);
 use Log::Any qw($log);
 use Digest::SHA1;
 use File::Copy;
@@ -261,8 +265,10 @@ To this initial list, taxonomized fields will be added by retrieve_tags_taxonomy
 	weighers => 1,
 );
 
-# Fields that have an associated taxonomy
-%taxonomy_fields = ();    # populated by retrieve_tags_taxonomy
+# Fields, that is property, that have an associated taxonomy
+# most of the time it associate the taxonomy name with itself,
+# but their might be other property refering to a taxonomy under an other name
+%taxonomy_fields = ();    # populated by retrieve_tags_taxonomy and init_taxonomies
 
 # Fields that can have different values by language
 %language_fields = (
@@ -304,7 +310,7 @@ my %just_tags = ();    # does not include synonyms that are only synonyms
 my %synonyms = ();
 %synonyms_for = ();
 my %synonyms_for_extended = ();
-my %translations_from = ();
+%translations_from = ();
 %translations_to = ();
 %level = ();
 my %direct_parents = ();
@@ -1036,6 +1042,12 @@ sub get_file_from_cache ($source, $target) {
 	return 0;
 }
 
+# Add a version string to the taxonomy data
+# Change this version string if you want to force the taxonomies to be rebuilt
+# e.g. if the taxonomy building algorithm or configuration has changed
+# This needs to be done also when the unaccenting parameters for languages set in Config.pm are changed
+my $BUILD_TAGS_VERSION = "20240329 - better taxonomy errors handling";
+
 sub get_from_cache ($tagtype, @files) {
 	# If the full set of cached files can't be found then returns the hash to be used
 	# when saving the new cached files.
@@ -1044,12 +1056,8 @@ sub get_from_cache ($tagtype, @files) {
 
 	my $sha1 = Digest::SHA1->new;
 
-	# Add a version string to the taxonomy data
-	# Change this version string if you want to force the taxonomies to be rebuilt
-	# e.g. if the taxonomy building algorithm or configuration has changed
-	# This needs to be done also when the unaccenting parameters for languages set in Config.pm are changed
-
-	$sha1->add("20230316 - made xx: unaccented");
+	# marker for code version
+	$sha1->add($BUILD_TAGS_VERSION);
 
 	foreach my $source_file (@files) {
 		# The source file can be prefixed by the product type
@@ -1064,6 +1072,10 @@ sub get_from_cache ($tagtype, @files) {
 
 	my $hash = $sha1->hexdigest;
 	my $cache_prefix = "$tagtype.$hash";
+
+	# disable by env variable, useful when iterating over Tags.pm (see make rebuild_taxonomies)
+	return $cache_prefix if $ENV{TAXONOMY_NO_GET_FROM_CACHE};
+
 	my $got_from_cache = get_file_from_cache("$cache_prefix.result.sto", "$tag_data_root.result.sto");
 	if ($got_from_cache) {
 		$got_from_cache = get_file_from_cache("$cache_prefix.result.txt", "$tag_data_root.result.txt");
@@ -1124,11 +1136,31 @@ sub put_to_cache ($tagtype, $cache_prefix) {
 	put_file_to_cache("$tag_www_root.full.json", "$cache_prefix.full.json");
 	put_file_to_cache("$tag_data_root.result.txt", "$cache_prefix.result.txt");
 	put_file_to_cache("$tag_data_root.result.sto", "$cache_prefix.result.sto");
+	# note: we don't put errors to cache as it is a non sense, errors are to be fixed before
+	# and you need them only if you touch the taxonomy hence rebuild it (and thus have them locally)
 
 	return;
 }
 
-=head2 build_tags_taxonomy( $tagtype, $file, $publish )
+# create a struct for a taxonomy error
+sub _taxonomy_error($severity, $type, $msg, $line = undef) {
+	return {
+		severity => $severity,
+		type => $type,
+		msg => $msg,
+		line_num => $line,
+	};
+}
+
+# error to string
+sub _taxonomy_error_display($error_ref) {
+	my %error = %$error_ref;
+	my $line = "";
+	$line = "$error{line_num} - " if $error{line_num};
+	return "$error{severity} - $error{type} - $line$error{msg}";
+}
+
+=head2 build_tags_taxonomy( $tagtype, $file, $publish)
 
 Build taxonomy from the taxonomy file
 
@@ -1275,7 +1307,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 	# $tagtype -> $canon_tagid -> "$property:$lc" stores the value for property
 	$properties{$tagtype} = {};
 
-	my $errors = '';
+	my @taxonomy_errors = ();
 
 	if (open(my $IN, "<:encoding(UTF-8)", $file_path)) {
 
@@ -1403,7 +1435,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 						. $translations_from{$tagtype}{"$lc:$lc_tagid"} . " ("
 						. $tagtype . ")"
 						. " - $lc:$lc_tagid cannot be mapped to entry $canon_tagid\n";
-					$errors .= "ERROR - " . $msg;
+					push(@taxonomy_errors, _taxonomy_error("ERROR", "duplicate_synonym", $msg, $line_number));
 					next;
 				}
 
@@ -1443,7 +1475,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 							. $translations_from{$tagtype}{$lc . ":" . $synonyms{$tagtype}{$lc}{$tagid}}
 							. " ($tagtype)"
 							. " - $lc:$tagid cannot be mapped to entry $canon_tagid / $lc:$lc_tagid\n";
-						$errors .= "ERROR - " . $msg;
+						push(@taxonomy_errors, _taxonomy_error("ERROR", "duplicate_synonym", $msg, $line_number));
 						next;
 					}
 					# add synonym to both tracking lists
@@ -1465,7 +1497,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 						. $nutriscore_grade
 						. " is incorrect\n";
 
-					$errors .= "ERROR - " . $msg;
+					push(@taxonomy_errors, _taxonomy_error("ERROR", "unknown_nutriscore", $msg, $line_number));
 				}
 			}
 			elsif ($line =~ /^expected_ingredients:en:/) {
@@ -1476,11 +1508,12 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 					my $msg
 						= "expected_ingredients:en: in "
 						. $tagtype
-						. " should contain a single letter "
+						. " should contain a single value "
 						. $expected_ingredients
 						. " is incorrect\n";
 
-					$errors .= "ERROR - " . $msg;
+					push(@taxonomy_errors,
+						_taxonomy_error("ERROR", "multiple_expected_ingredients", $msg, $line_number));
 				}
 			}
 			else {
@@ -1491,13 +1524,18 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 
 		close($IN);
 
-		if ($errors ne "") {
+		if (scalar @taxonomy_errors) {
 
 			print STDERR "Errors in the $tagtype taxonomy definition:\n";
-			print STDERR $errors;
+			print STDERR join("", map {_taxonomy_error_display($_)} @taxonomy_errors);
+			# do we only have duplicate synonyms errors ?
+			my $only_duplicate_errors = !(first {$_->{type} ne "duplicate_synonym"} @taxonomy_errors);
 			# Disable die for the ingredients taxonomy that is merged with additives, minerals etc.
 			# Disable die for the packaging taxonomy as some legit material and shape might have same name
-			unless (($tagtype eq "ingredients") or ($tagtype eq "packaging") or ($tagtype eq "inci_functions")) {
+			my $taxonomy_with_duplicate_tolerated
+				= (($tagtype eq "ingredients") or ($tagtype eq "packaging") or ($tagtype eq "inci_functions"));
+			unless ($only_duplicate_errors and $taxonomy_with_duplicate_tolerated) {
+				store("$result_dir/$tagtype.errors.sto", {errors => \@taxonomy_errors});
 				die("Errors in the $tagtype taxonomy definition");
 			}
 		}
@@ -1736,9 +1774,12 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 
 		$canon_tagid = undef;
 
+		$line_number = 0;
+
 		while (<$IN>) {
 
 			my $line = sanitize_taxonomy_line($_);
+			$line_number++;
 
 			# consider parenthesis as spaces
 			$line =~ s/\(|\)/-/g;
@@ -1807,7 +1848,8 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 					foreach my $parentid (sort keys %parents) {
 						# Make sure the parent is not equal to the child
 						if ($parentid eq $canon_tagid) {
-							$errors .= "ERROR - $canon_tagid is a parent of itself\n";
+							my $msg = "$canon_tagid is a parent of itself\n";
+							push(@taxonomy_errors, _taxonomy_error("ERROR", "circular_parent", $msg, $line_number));
 							next;
 						}
 						defined $direct_parents{$tagtype}{$canon_tagid} or $direct_parents{$tagtype}{$canon_tagid} = {};
@@ -1866,9 +1908,11 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 
 			$canon_tagid = undef;
 
+			$line_number = 0;
 			while (<$IN>) {
 
 				my $line = sanitize_taxonomy_line($_);
+				$line_number++;
 
 				# consider parenthesis as spaces
 				$line =~ s/\(|\)/-/g;
@@ -1948,7 +1992,8 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 				#print "- $parentid\n";
 
 				if ($parentid eq $tagid) {
-					$errors .= "ERROR - $tagid is a parent of itself\n";
+					my $msg = "$tagid is a parent of itself\n";
+					push(@taxonomy_errors, _taxonomy_error("ERROR", "circular_parent", $msg));
 				}
 				elsif (not defined $seen{$parentid}) {
 					defined $all_parents{$tagtype}{$tagid} or $all_parents{$tagtype}{$tagid} = [];
@@ -2028,7 +2073,9 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 					my $lc = $parentid;
 					$lc =~ s/^(\w\w):.*/$1/;
 					if (not exists $translations_to{$tagtype}{$parentid}{$lc}) {
-						$errors .= "ERROR - $tagid has an undefined parent $parentid\n";
+						my $msg = "$tagid has an undefined parent $parentid\n";
+						push(@taxonomy_errors, _taxonomy_error("ERROR", "unknown_parent", $msg));
+
 					}
 					else {
 						print $OUT "< $lc:" . $translations_to{$tagtype}{$parentid}{$lc} . "\n";
@@ -2125,13 +2172,18 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 
 		close $OUT;
 
-		if ($errors ne "") {
+		if (scalar @taxonomy_errors) {
 
 			print STDERR "Errors in the $tagtype taxonomy definition:\n";
-			print STDERR $errors;
+			print STDERR join("", map {_taxonomy_error_display($_)} @taxonomy_errors);
+			# do we only have duplicate synonyms errors ?
+			my $only_duplicate_errors = !(first {%{$_}{type} ne "duplicate_synonym"} @taxonomy_errors);
 			# Disable die for the ingredients taxonomy that is merged with additives, minerals etc.
-			# Disable also for packaging taxonomy for some shapes and materials shares same names
-			unless (($tagtype eq "ingredients") or ($tagtype eq "packaging") or ($tagtype eq "inci_functions")) {
+			# Disable die for the packaging taxonomy as some legit material and shape might have same name
+			my $taxonomy_with_duplicate_tolerated
+				= (($tagtype eq "ingredients") or ($tagtype eq "packaging") or ($tagtype eq "inci_functions"));
+			unless ($only_duplicate_errors and $taxonomy_with_duplicate_tolerated) {
+				store("$result_dir/$tagtype.errors.sto", {errors => \@taxonomy_errors});
 				die("Errors in the $tagtype taxonomy definition");
 			}
 		}
@@ -2163,7 +2215,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 			# system("gzip $BASE_DIRS{PUBLIC_DATA}/taxonomies/$tagtype.json");
 		}
 
-		$log->error("taxonomy errors", {errors => $errors}) if $log->is_error();
+		$log->error("taxonomy errors", {errors => \@taxonomy_errors}) if $log->is_error();
 
 		my $taxonomy_ref = {
 			stopwords => $stopwords{$tagtype},
@@ -2183,11 +2235,12 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 
 		if ($publish) {
 			store("$result_dir/$tagtype.result.sto", $taxonomy_ref);
+			store("$result_dir/$tagtype.errors.sto", {errors => \@taxonomy_errors});
 			put_to_cache($tagtype, $cache_prefix);
 		}
 	}
 
-	return;
+	return @taxonomy_errors;
 }
 
 =head2 build_all_taxonomies ( $pubish)
@@ -2201,15 +2254,17 @@ Build all taxonomies, including the test taxonomy
 =cut
 
 sub build_all_taxonomies ($publish) {
+	my %errors = ();
 	foreach my $taxonomy (@taxonomy_fields, "test") {
 		# traces and data_quality_xxx are not real taxonomy per se
 		# (but built from allergens and data_quality)
 		if ($taxonomy ne "traces" and rindex($taxonomy, 'data_quality_', 0) != 0) {
-			build_tags_taxonomy($taxonomy, $publish);
+			my @taxonomy_errors = build_tags_taxonomy($taxonomy, $publish);
+			$errors{$taxonomy} = \@taxonomy_errors if @taxonomy_errors;
 		}
 	}
 
-	return;
+	return \%errors;
 }
 
 =head2 generate_tags_taxonomy_extract ( $tagtype, $tags_ref, $options_ref, $lcs_ref)
@@ -2661,6 +2716,8 @@ sub init_taxonomies($die_if_some_taxonomies_cannot_be_loaded = 0) {
 	}
 	# ingredients_original uses the ingredients taxonomy
 	$taxonomy_fields{"ingredients_original"} = "ingredients";
+	# mandatory_additive_class uses additives_classes
+	$taxonomy_fields{"mandatory_additive_class"} = "additives_classes";
 
 	init_languages();
 	init_countries();
