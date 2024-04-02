@@ -85,15 +85,15 @@ msgstr "A szervezethez való csatlakozási kérelme a szervezet adminisztrátor�
 
 msgctxt "admin_status_updated"
 msgid "Admin Status Updated"
-msgstr ""
+msgstr "Admin állapot frissítve"
 
 msgctxt "admin_status"
 msgid "Admin Status"
-msgstr ""
+msgstr "Admin állapot"
 
 msgctxt "grant_remove_admin_status"
 msgid "Grant/Remove Admin status"
-msgstr ""
+msgstr "Adminisztrátori állapot megadása/eltávolítása"
 
 msgctxt "please_email_producers"
 msgid "Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> if you have any question."
@@ -129,11 +129,11 @@ msgstr "Kérjük, adja meg a gazdasági szervezet nevét (cégnév vagy márka).
 
 msgctxt "enter_email_addresses_of_users"
 msgid "Enter email addresses of users to invite (comma-separated):"
-msgstr ""
+msgstr "Adja meg a meghívni kívánt felhasználók e-mail címét (vesszővel elválasztva):"
 
 msgctxt "f_this_is_a_pro_account_for_org"
 msgid "This account is a professional account associated with the producer or brand {org}. You have access to the Platform for Producers."
-msgstr ""
+msgstr "Ez a fiók a(z) {org} gyártóhoz vagy márkához társított professzionális fiók. Hozzáférhet a Producerek Platformjához."
 
 # please check that site_name and the brackets stays intact
 msgctxt "add_user_email_subject"
@@ -174,7 +174,7 @@ msgstr "A túlzott ivás káros az egészségre."
 
 msgctxt "email_warning"
 msgid "Please note that your Pro account will only be valid if you use your professional e-mail address. Our moderation team checks that the domain name is consistent with the organisation you wish to join."
-msgstr ""
+msgstr "Felhívjuk figyelmét, hogy Pro-fiókja csak akkor lesz érvényes, ha szakmai e-mail címét használja. Moderátorcsapatunk ellenőrzi, hogy a domain név megegyezik-e a csatlakozni kívánt szervezettel."
 
 msgctxt "all_missions"
 msgid "All missions"
@@ -263,11 +263,11 @@ msgstr "Ön is segíthet az Open Food Facts program finanszírozásában"
 
 msgctxt "producers_administration_manual"
 msgid "Producers Admin manual"
-msgstr ""
+msgstr "Producer Admin kézikönyv"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr ""
+msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org Az /images/svg/donate-icon.svg\" alt=\"Adományozás az Open Food Facts-nak\" /></a><p><<site_name>> egy, az iparágtól független non-profit egyesület készítette. Mindenki számára készült, mindenki által, és mindenki finanszírozza. Munkánkat úgy támogathatja, hogy <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">adományoz az Open Food Facts számára</a > és <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">a Lilo keresőmotor használatával</a> is.<br/ ><b>Köszönjük!</b></p>"
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
@@ -483,15 +483,15 @@ msgstr "Képek törlése"
 
 msgctxt "delete_user"
 msgid "Delete a user"
-msgstr ""
+msgstr "Felhasználó törlése"
 
 msgctxt "delete_confirmation"
 msgid "This will delete your user details and anonymise all of your contributions. Please re-enter your user name to confirm."
-msgstr ""
+msgstr "Ezzel törli felhasználói adatait, és anonimizálja az összes hozzájárulását. A megerősítéshez adja meg újra a felhasználónevét."
 
 msgctxt "danger_zone"
 msgid "Danger Zone"
-msgstr ""
+msgstr "Veszélyes területet"
 
 msgctxt "diff_add"
 msgid "Added:"
@@ -579,7 +579,7 @@ msgstr "szerkesztő"
 
 msgctxt "email"
 msgid "E-mail address"
-msgstr ""
+msgstr "Email cím"
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with traceability code %s"
@@ -672,11 +672,11 @@ msgstr "A felhasználónév csak ékezet nélküli angol betűket (a-z), számje
 
 msgctxt "error_username_too_long"
 msgid "The user name is too long (maximum 40 characters)."
-msgstr ""
+msgstr "A felhasználónév túl hosszú (maximum 40 karakter)."
 
 msgctxt "error_name_too_long"
 msgid "The name is too long (maximum 60 characters)."
-msgstr ""
+msgstr "A név túl hosszú (maximum 60 karakter)."
 
 msgctxt "error_new_code_already_exists"
 msgid "A product already exists with the new code"
@@ -757,7 +757,7 @@ msgstr "<<site_name>> blog"
 # Do not translate
 msgctxt "footer_blog_link"
 msgid "https://blog.openfoodfacts.org/en/"
-msgstr ""
+msgstr "https://blog.openfoodfacts.org/en/"
 
 msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
@@ -830,12 +830,12 @@ msgstr "/legal"
 
 msgctxt "footer_privacy"
 msgid "Privacy"
-msgstr ""
+msgstr "Magánélet"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_privacy_link"
 msgid "/privacy"
-msgstr ""
+msgstr "/privacy"
 
 msgctxt "footer_press"
 msgid "Press"
