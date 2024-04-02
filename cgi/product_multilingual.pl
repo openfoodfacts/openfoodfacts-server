@@ -37,7 +37,7 @@ use ProductOpener::Lang qw/:all/;
 use ProductOpener::Mail qw/send_email_to_admin/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Food
-	qw/%nutriments_tables %other_nutriments_lists assign_nutriments_values_from_request_parameters compute_serving_size_data/;
+	qw/%nutriments_tables %other_nutriments_lists assign_nutriments_values_from_request_parameters compute_serving_size_data get_nutrient_unit/;
 use ProductOpener::Units qw/g_to_unit mmoll_to_unit/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
@@ -1219,8 +1219,7 @@ CSS
 		if (exists_taxonomy_tag("nutrients", "zz:$nid")) {
 			$nutriment_ref->{name} = display_taxonomy_tag($lc, "nutrients", "zz:$nid");
 			# We may have a unit specific to the country (e.g. US nutrition facts table using the International Unit for this nutrient, and Europe using mg)
-			$unit = get_property("nutrients", "zz:$nid", "unit_$cc:en")
-				// get_property("nutrients", "zz:$nid", "unit:en") // 'g';
+			$unit = get_nutrient_unit($nid, $cc);
 		}
 		else {
 			if (defined $product_ref->{nutriments}{$nid . "_unit"}) {

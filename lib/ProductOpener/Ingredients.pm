@@ -18,6 +18,8 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+=encoding UTF-8
+
 =head1 NAME
 
 ProductOpener::Ingredients - process and analyze ingredients lists
@@ -4621,6 +4623,8 @@ my %phrases_before_ingredients_list = (
 
 	mk => ['Состојки',],
 
+	md => ['(I|i)ngrediente',],
+
 	nl => ['(I|i)ngredi(e|ë)nten', 'samenstelling', 'bestanddelen'],
 
 	nb => ['Ingredienser',],
@@ -4651,7 +4655,7 @@ my %phrases_before_ingredients_list = (
 
 	tr => ['(İ|i)çindekiler', 'içeriği',],
 
-	uz => ['tarkib',],
+	uz => ['tarkib', 'Mahsulot tarkibi',],
 
 	zh => ['配料', '成份',],
 

@@ -6688,6 +6688,7 @@ or city.
 The traceability code
 
 =head3 returns - list of 2 elements
+
 (latitude, longitude) if found, or (undef, undef) otherwise
 
 =cut
@@ -6987,6 +6988,7 @@ sub search_and_map_products ($request_ref, $query_ref, $graph_ref) {
 add a permalink to a search result page
 
 =head3 return - string - generated HTML
+
 =cut
 
 sub search_permalink ($request_ref) {

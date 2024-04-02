@@ -304,6 +304,7 @@ Return if a form displays errors
 
 Most forms will return a 200 while displaying an error message.
 This function assumes error_list.tt.html was used.
+
 =cut
 
 sub html_displays_error ($page) {
@@ -693,7 +694,9 @@ sub tail_log_read ($tail) {
 }
 
 =head2 mails_from_log($text)
+
 Retrieve mails in a log extract
+
 =cut
 
 sub mails_from_log ($text) {
@@ -704,15 +707,19 @@ sub mails_from_log ($text) {
 }
 
 =head2 mail_to_text($text)
+
 Make mail more easy to search by removing some specific formatting
 
 Especially we replace "3D=" for "=" and join line and their continuation
+
 =head3 Arguments
 
 =head4 $mail text of mail
 
 =head3 Returns
+
 Reformatted text
+
 =cut
 
 sub mail_to_text ($mail) {
@@ -728,12 +735,15 @@ sub mail_to_text ($mail) {
 
 Replace parts of mail that varies from tests to tests,
 and also in a format that's nice in json.
+
 =head3 Arguments
 
 =head4 $mail text of mail
 
 =head3 Returns
+
 ref to an array of lines of the email
+
 =cut
 
 sub normalize_mail_for_comparison ($mail) {
@@ -823,21 +833,26 @@ sub fake_http_server ($port, $dump_path, $responses_ref) {
 }
 
 =head2 get_minion_jobs($task_name, $created_after_ts, $max_waiting_time)
+
 Subprogram which wait till the minion finished its job or
 if it takes too much time
 
 =head3 Arguments
 
 =head4 $task_name
+
 The name of the task 
 
 =head4 $created_after_ts
+
 The timestamp of the creation of the task
 
 =head4 $max_waiting_time
+
 The max waiting time for this given task
 
 =head3 Returns
+
 Returns a list of jobs information associated with the task_name
 
 Note: for each job we return the job information (as returned by the jobs() iterator),
