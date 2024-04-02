@@ -88,8 +88,9 @@ If you made a change that affects stored expected results, you can use:
 * or to generate expected results for a single test
   (here for an integration test, `test-unit` otherwise)
   ```bash
-  make test-int test="filename.t --update-expected-results"
+  make test-int test="filename.t :: --update-expected-results"
   ```
+  (the `::` tell the yath test runner that following arguments are for the test, not for yath)
 
 If you regenerate test results, be sure to check carefully that the changes in your commit are expected.
 
@@ -99,10 +100,10 @@ If you regenerate test results, be sure to check carefully that the changes in y
 Launching a test is a very effective way to understand what's going on in the code using the debugger.
 
 This is done calling the test with `perl -d`.
-You can also use "args" argument with make target:
+You can also use "TEST_CMD" argument with make target:
 
 ```bash
-make test-unit test="my-test.t" args="-d"
+make test-unit test="my-test.t" TEST_CMD="perl -d"
 ```
 
 Most often, you will have to use the next command "n" four times, before landing in you test, where you can easily set a breakpoint with `b <line-number>`.
