@@ -265,6 +265,10 @@ XML
 		$csv .= "${nid}_100g" . "\t";
 	}
 
+	if (grep { $_ eq 'products_obsolete' } @collections) {
+		$csv .= "obsolete\t";
+	}
+
 	$csv =~ s/\t$/\n/;
 	print $OUT $csv;
 
@@ -274,6 +278,7 @@ XML
 		get_products_collection({obsolete => 1, timeout => 3 * 60 * 60 * 1000})
 	);
 
+	push @export_fields, "obsolete";
 	my $count = 0;
 	my %ingredients = ();
 
@@ -297,6 +302,12 @@ XML
 			my $csv = '';
 			my $url = "http://world-$lc.$server_domain" . product_url($product_ref);
 			my $code = ($product_ref->{code} // '');
+
+			if ($product_ref->{obsolete}) {
+				if ($exported_products{$code}) {
+					next;
+				}
+			}
 
 			$code eq '' and next;
 			$code < 1 and next;
@@ -337,6 +348,15 @@ XML
 
 				if ($field_value ne '') {
 					$field_value = sanitize_field_content($field_value, $BAD, "$code barcode -> field $field:");
+				}
+
+				#Obsolete field
+				if ($field eq "obsolete") {
+					$field_value = $product_ref->{obsolete} ? 1 : 0;
+				}
+
+				else {
+					$field_value = ($product_ref->{$field} // "");
 				}
 
 				# Add field value to CSV file
@@ -509,6 +529,7 @@ XML
 
 			print $OUT $csv;
 			print $RDF $rdf;
+			$exported_products{$code} = 1;
 		}
 	}
 
