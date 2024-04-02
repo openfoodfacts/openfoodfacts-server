@@ -78,7 +78,7 @@ use File::Path qw/make_path remove_tree/;
 use File::Copy;
 use Path::Tiny qw/path/;
 use Scalar::Util qw(looks_like_number);
-use Test::File::Contents;
+use Test::File::Contents qw/files_eq_or_diff/;
 
 use Log::Any qw($log);
 
