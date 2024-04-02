@@ -5,6 +5,13 @@ stopwords:fr:ou,de,d'
 # Containers
 
 en:Unknown
+ru:Неизвестно
+ar:غير معروف
+zh:未知
+ja:不明
+ko:알 수 없음
+de:Unbekannt
+bg:Неизвестно
 fr:Inconnu, inconnue, inconnus, inconnues
 hu:Ismeretlen
 nl:Onbekend
@@ -25,13 +32,6 @@ lv:Nezināms, nezināma, nezināmi, nezināmas
 el:Άγνωστο, άγνωστη, άγνωστοι, άγνωστες
 tr:Bilinmeyen
 uk:Невідомо
-ru:Неизвестно
-ar:غير معروف
-zh:未知
-ja:不明
-ko:알 수 없음
-de:Unbekannt
-bg:Неизвестно
 description:en:Unidentified packaging
 description:nl:Niet herkende verpakking
 
@@ -68,11 +68,6 @@ sv:förpackningsmaterial
 description:nl:Het materiaal waarin iets verpakt is.
 
 en:packet, pack, packs, packets, package
-ko:패킷
-ky:пакет
-lo:ຫໍ່
-lt:pakelis
-lv:paciņa
 mk:пакет
 mn:пакет
 mo:pākete
@@ -125,6 +120,11 @@ ja:パケット
 ka:პაკეტი
 kk:пакет
 km:បេ
+ko:패킷
+ky:пакет
+lo:ຫໍ່
+lt:pakelis
+lv:paciņa
 description:en:A small pack or package; a little bundle or parcel, eg. flour packet, paquet de biscuits, pack d'eau, beer pack
 description:nl:Het omhulsel rond het product.
 
@@ -1540,3 +1540,4 @@ fr:Valve, valves, soupape, soupapes
 # Used on top of a bottle to reduce the flow (e.g. for oil)
 en:Reducer
 fr:Réducteur
+

@@ -34,6 +34,7 @@ use ProductOpener::Tags qw/%taxonomy_fields %translations_from canonicalize_taxo
 # compare synonyms entries on language prefix with "xx" > "en" then alpha order
 # also work for property name + language prefix
 sub cmp_on_language : prototype($$) ($a, $b) {
+
 	if ((!defined $a) || (!defined $b)) {
 		return $a cmp $b;
 	}
@@ -217,6 +218,7 @@ sub iter_taxonomy_entries ($lines_iter) {
 									message => ("duplicate entry language line for $lc:\n" . "- $previous_lc_line")
 								}
 							);
+							delete $entries{$lc};
 						}
 					}
 					# but try to do our best and continue
@@ -266,6 +268,7 @@ sub iter_taxonomy_entries ($lines_iter) {
 								)
 							}
 						);
+						next;
 					}
 				}
 				# override to continue
@@ -474,7 +477,7 @@ sub lint_taxonomy($entries_iterator, $out, $is_check, $is_quiet, $do_sort) {
 						entry_start_line => $entry_ref->{start_line},
 						entry_id_line => $entry_ref->{entry_id_line}{line},
 						message => (
-								  "Entry won't be linted because it as errors, "
+								  "Entry won't be linted because it has errors, "
 								. "line $entry_ref->{start_line}..$entry_ref->{end_line}\n"
 						),
 					}
