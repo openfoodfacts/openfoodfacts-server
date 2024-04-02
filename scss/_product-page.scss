@@ -260,6 +260,7 @@ html[dir="rtl"] .image_box figure figcaption {
 .tagify {
     // HACK: The default was changed from flex to inline-flex in https://github.com/yairEO/tagify/commit/4060b04b25d9505a6ac946f1477d581d596fed50
     // This breaks the layout of the tags in the product page. This is a temporary fix until the issue is resolved.
+    display: flex !important;
 }
 
 //knowledge panel template
