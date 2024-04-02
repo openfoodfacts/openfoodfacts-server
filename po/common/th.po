@@ -279,7 +279,7 @@ msgstr "ยี่ห้อสินค้า"
 
 msgctxt "brands_example"
 msgid "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero"
-msgstr "ไวไวปรุงสำเร็จ, คาลบี้รสดั้งเดิม, ป็อกกี้รสสตรอเบอรี่"
+msgstr "ไวไว, คาลบี้, ป็อกกี้ (ควรตรวจสอบการสะกดภาษาไทยกับ Google)"
 
 msgctxt "brands_p"
 msgid "brands"
@@ -395,7 +395,7 @@ msgstr "รหัส"
 
 msgctxt "completed_n_missions"
 msgid "completed %d missions:"
-msgstr ""
+msgstr "ทำภารกิจเสร็จสิ้น %d :"
 
 msgctxt "connected_with_facebook"
 msgid "You are connected with your Facebook account."
@@ -459,15 +459,15 @@ msgstr "แหล่งที่มาของข้อมูล"
 
 msgctxt "debug_p"
 msgid "debug"
-msgstr ""
+msgstr "ดีบั๊ก"
 
 msgctxt "debug_s"
 msgid "debug"
-msgstr ""
+msgstr "ดีบั๊ก"
 
 msgctxt "delete_comment"
 msgid "Reason for removal"
-msgstr ""
+msgstr "เหตุผลในการลบ"
 
 msgctxt "delete_product"
 msgid "Delete a product"
@@ -483,7 +483,7 @@ msgstr "ลบรูปภาพ"
 
 msgctxt "delete_user"
 msgid "Delete a user"
-msgstr ""
+msgstr "ลบผู้ใช้งาน"
 
 msgctxt "delete_confirmation"
 msgid "This will delete your user details and anonymise all of your contributions. Please re-enter your user name to confirm."
@@ -583,7 +583,7 @@ msgstr "อีเมล"
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with traceability code %s"
-msgstr ""
+msgstr "ผลิตภัณฑ์ที่บรรจุโดยบริษัทโดยมีรหัสตรวจสอบย้อนกลับ %s"
 
 msgctxt "emb_code_p"
 msgid "Traceability codes"
@@ -591,19 +591,19 @@ msgstr ""
 
 msgctxt "emb_code_s"
 msgid "Traceability code"
-msgstr ""
+msgstr "รหัสการตรวจสอบย้อนกลับ"
 
 msgctxt "emb_codes"
 msgid "Traceability code"
-msgstr ""
+msgstr "รหัสการตรวจสอบย้อนกลับ"
 
 msgctxt "emb_codes_p"
 msgid "traceability codes"
-msgstr ""
+msgstr "รหัสการตรวจสอบย้อนกลับ"
 
 msgctxt "emb_codes_products"
 msgid "Products with the traceability code %s"
-msgstr ""
+msgstr "ผลิตภัณฑ์ที่มีรหัสตรวจสอบย้อนกลับ %s"
 
 msgctxt "emb_codes_s"
 msgid "traceability code"
@@ -611,7 +611,7 @@ msgstr ""
 
 msgctxt "emb_codes_without_products"
 msgid "Products without the traceability code %s"
-msgstr ""
+msgstr "ผลิตภัณฑ์ที่ไม่มีรหัสตรวจสอบย้อนกลับ %s"
 
 # Those are country specific codes. For European countries, you can change FR 62.448.034 CE to DE BY 718 EG (for instance)
 msgctxt "emb_codes_example"
@@ -950,7 +950,7 @@ msgstr "ระบบสามารถอ่าน ส่วนประกอ�
 
 msgctxt "image_nutrition"
 msgid "Nutrition facts picture"
-msgstr ""
+msgstr "รูปภาพฉลากโภชนาการ"
 
 msgctxt "image_upload_error_image_already_exists"
 msgid "This picture has already been sent."
@@ -1143,7 +1143,7 @@ msgstr ""
 
 msgctxt "labels"
 msgid "Labels, certifications, awards"
-msgstr "ฉลากต่างๆ การรับรอง และรางวัล"
+msgstr "ตราสัญญลักษณ์ต่างๆ (เช่น ฮาลาล, อย, ทางเลือกสุขภาพ ฯลฯ)"
 
 msgctxt "labels_example"
 msgid "Organic"
@@ -1217,7 +1217,7 @@ msgstr ""
 
 msgctxt "link"
 msgid "Link to the product page on the official site of the producer"
-msgstr "เชื่อมโยงไปยังหน้าสินค้าบนเว็บไซต์อย่างเป็นทางการของผู้ผลิต"
+msgstr "ลิงค์ไปยังหน้าผลิตภัณฑ์บนเว็บไซต์อย่างเป็นทางการของผู้ผลิต"
 
 msgctxt "list_of_x"
 msgid "List of %s"
@@ -1421,11 +1421,11 @@ msgstr ""
 
 msgctxt "multiple_nutrition_data"
 msgid "Multiple nutrition facts are specified on the product (e.g. with added water or milk)."
-msgstr ""
+msgstr "มีข้อมูลโภชนาการหลายประเภทที่ระบุไว้ในผลิตภัณฑ์ (เช่น เมื่อมีการเพิ่มน้ำหรือนม)"
 
 msgctxt "multiple_nutrition_data_instructions"
 msgid "Enter only the nutrition facts for the unprepared product, without added water or milk. If there are different products, enter nutrition facts for the first product listed."
-msgstr ""
+msgstr "ใส่ข้อมูลโภชนาการสำหรับผลิตภัณฑ์ที่ยังไม่ได้ปรุง (โดยไม่มีการเพิ่มน้ำหรือนมเข้าไป) หากมีผลิตภัณฑ์มากกว่า 1 ชนิด (เช่น คุกกี้หลายแบบ แต่ละแบบมีฉลากของตัวเอง) ใส่ข้อมูลโภชนาการสำหรับผลิตภัณฑ์ที่แสดงอยู่ในรายการแรกเท่านั้น"
 
 msgctxt "no_product_for_barcode"
 msgid "No product listed for barcode %s."
@@ -1494,7 +1494,7 @@ msgstr "ข้อมูลโภชนาการ"
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
-msgstr ""
+msgstr "ค่าเฉลี่ยของสารอาหาร สำหรับผลิตภัณฑ์ %d ในหมวดหมู่ %s (จากผลิตภัณฑ์ %d ที่มีฉลากโภชนาการ)"
 
 msgctxt "nutrition_data_compare_percent"
 msgid "% of difference"
@@ -1514,7 +1514,7 @@ msgstr ""
 
 msgctxt "nutrition_data_note"
 msgid "If the picture is sufficiently sharp and level, nutrition facts can be automatically extracted from the picture."
-msgstr ""
+msgstr "หากภาพมีความคมชัดเพียงพอ ข้อมูลโภชนาการจะถูกดึงออกมาจากภาพโดยอัตโนมัติ"
 
 msgctxt "nutrition_data_per_10"
 msgid "10th centile"
@@ -1803,7 +1803,7 @@ msgstr ""
 
 msgctxt "product_image"
 msgid "Product picture"
-msgstr ""
+msgstr "รูปภาพของผลิตภัณฑ์"
 
 msgctxt "product_image_with_barcode"
 msgid "Picture with barcode:"
@@ -1819,7 +1819,7 @@ msgstr ""
 
 msgctxt "product_js_extract_ingredients"
 msgid "Extract the ingredients from the picture"
-msgstr "อ่านส่วนประกอบอาหารจากภาพ"
+msgstr "อ่านส่วนประกอบอาหารจากรูปภาพ"
 
 msgctxt "product_js_extracted_ingredients_nok"
 msgid "Ingredients text could not be extracted. Try with a sharper image, with higher resolution or a better framing of the text."
@@ -1903,7 +1903,7 @@ msgstr "เพิ่มรูปภาพ"
 
 msgctxt "product_js_upload_image_note"
 msgid "→ With Chrome, Firefox and Safari, you can select multiple pictures (product, ingredients, nutrition facts etc.) by clicking them while holding the Ctrl key pressed to add them all in one shot."
-msgstr ""
+msgstr "→ ถ้าคุณใช้ Chrome, Firefox หรือ Safari คุณสามารถเลือกรูปภาพได้หลายรูป (ผลิตภัณฑ์ ส่วนผสม ข้อมูลโภชนาการ ฯลฯ) โดยการคลิกรูปภาพเหล่านั้นในขณะที่กดปุ่ม Ctrl ค้างไว้เพื่อเพิ่มรูปภาพทั้งหมดในครั้งเดียว"
 
 msgctxt "product_js_uploading_image"
 msgid "Uploading image"
@@ -1919,7 +1919,7 @@ msgstr "ชื่อสินค้า"
 
 msgctxt "product_name_example"
 msgid "Kinder Bueno White"
-msgstr ""
+msgstr "ไวไวปรุงสำเร็จ, คาลบี้รสดั้งเดิม, ป็อกกี้รสสตรอเบอรี่"
 
 msgctxt "products"
 msgid "products"
@@ -1947,7 +1947,7 @@ msgstr ""
 
 msgctxt "purchase_places"
 msgid "City, state and country where purchased"
-msgstr "เมืองรัฐและประเทศที่ซื้อ"
+msgstr "สถานที่จำหน่าย (ระบุเป็นเมือง จังหวัด หรือ ประเทศที่มีวางขาย)"
 
 msgctxt "purchase_places_note"
 msgid "Indicate where you bought or saw the product (at least the country)"
@@ -1979,7 +1979,7 @@ msgstr "ปริมาณ"
 
 msgctxt "quantity_example"
 msgid "2 l, 250 g, 1 kg, 25 cl, 6 fl oz, 1 pound"
-msgstr ""
+msgstr "2 l, 250 g, 1 kg, 25 cl, 6 fl oz, 1 pound (ระบบรองรับหน่วยในภาษาอังกฤษเท่านั้น)"
 
 msgctxt "remember_me"
 msgid "Remember me"
@@ -2336,19 +2336,19 @@ msgstr "หน่วยบริโภค"
 
 msgctxt "serving_size_prepared"
 msgid "Prepared serving size"
-msgstr ""
+msgstr "หน่วยบริโภค (หลังจากปรุงแล้ว)"
 
 msgctxt "serving_size_example"
 msgid "60 g, 12 oz, 20cl, 2 fl oz"
-msgstr ""
+msgstr "60 g, 12 oz, 20cl, 2 fl oz (ระบบรองรับเฉพาะภาษาอังกฤษ)"
 
 msgctxt "serving_size_note"
 msgid "If the nutrition facts table contains values for the prepared product, indicate the total serving size of the prepared product (including added water or milk)."
-msgstr ""
+msgstr "หากฉลากโภชนาแสดงค่าของผลิตภัณฑ์ที่ปรุงไว้แล้ว ให้ระบุจำนวนหน่วยบริโภคของผลิตภัณฑ์ที่ปรุงไว้ด้วย (ใส่น้ำหนักที่รวมน้ำหรือนมที่เติมด้วย)"
 
 msgctxt "serving_too_small_for_nutrition_analysis"
 msgid "Serving size is too small (5 g / 5 ml or less) to calculate 100 g / 100 ml values and perform any further nutritional analysis"
-msgstr ""
+msgstr "หน่วยบริโภคเล็กเกินไป (5 ก. / 5 มล. หรือน้อยกว่า) จึงไม่มีการคำนวณค่า 100 ก. / 100 มล. และไม่มีการวิเคราะห์เพิ่มเติม"
 
 msgctxt "session_title"
 msgid "Sign-in"
@@ -2428,7 +2428,7 @@ msgstr "ร้านค้า"
 
 msgctxt "stores_note"
 msgid "Name of the shop or supermarket chain"
-msgstr ""
+msgstr "ชื่อร้านค้าหรือ ซูเปอร์มาร์เก็ตที่จำหน่าย"
 
 msgctxt "stores_p"
 msgid "stores"
@@ -2481,11 +2481,11 @@ msgstr "สารเจือปน"
 
 msgctxt "traces_example"
 msgid "Milk, Gluten, Nuts"
-msgstr ""
+msgstr "นม กลูเตน ถั่ว แป้งสาลี ไข่"
 
 msgctxt "traces_note"
 msgid "Indicate ingredients from mentions like \"May contain traces of\", \"Made in a factory that also uses\" etc."
-msgstr ""
+msgstr "มีข้อความ เช่น \"ข้อมูลสำหรับผู้แพ้อาหาร อาจมีส่วนผสมของ...\" ระบุ เป็นต้น"
 
 msgctxt "traces_p"
 msgid "traces"
@@ -2640,7 +2640,7 @@ msgstr ""
 
 msgctxt "product_js_use_low_res_images"
 msgid "Load lower resolution images (for slow connections)"
-msgstr ""
+msgstr "โหลดรูปภาพที่ความละเอียดต่ำ (เมื่ออินเตอร์เน็ตช้า)"
 
 msgctxt "protected_image_message"
 msgid "An image has been sent by the manufacturer. If you think it is incorrect or not up-to-date, please contact us."
@@ -2812,11 +2812,11 @@ msgstr ""
 
 msgctxt "nutrition_data_exists"
 msgid "Nutrition facts are specified for the product as sold."
-msgstr ""
+msgstr "ข้อมูลโภชนาการระบุไว้สำหรับผลิตภัณฑ์ในรูปแบบที่ขาย (เช่น คอนเฟล็กที่ไม่ใส่นม)"
 
 msgctxt "nutrition_data_prepared_exists"
 msgid "Nutrition facts are specified for the prepared product."
-msgstr ""
+msgstr "ข้อมูลโภชนาการระบุไว้สำหรับผลิตภัณฑ์ในรูปแบบที่ปรุงแล้วพร้อมกิน (เช่น คอนเฟล็กที่ใส่นม แสดงค่าที่รวมนมมาให้ด้วย)"
 
 msgctxt "nova_groups_s"
 msgid "NOVA group"
@@ -3078,15 +3078,15 @@ msgstr ""
 
 msgctxt "origin"
 msgid "Origin of the product and/or its ingredients"
-msgstr ""
+msgstr "ที่มาของผลิตภัณฑ์และ/หรือส่วนผสมของผลิตภัณฑ์"
 
 msgctxt "origin_note"
 msgid "Packaging mentions that indicate the manufacturing place and/or the origins of the ingredients"
-msgstr ""
+msgstr "ข้อความบนบรรจุภัณฑ์ที่ระบุสถานที่ผลิตหรือแหล่งผลิตส่วนผสม"
 
 msgctxt "origin_example"
 msgid "Made in France. Tomatoes from Italy. Origin of the rice: India, Thailand."
-msgstr ""
+msgstr "Made in Thailand, ผลิตในไทย, ข้าวจากทุ่งกุลาร้องไห้, ช็อกโกแลตจากเบลเยี่ยม, ทุเรียนนนท์, ชมพู่เพชร"
 
 msgctxt "customer_service"
 msgid "Customer service"
@@ -3230,7 +3230,7 @@ msgstr ""
 
 msgctxt "for_one_serving"
 msgid "for one serving"
-msgstr ""
+msgstr "ต่อหน่วยบริโภค"
 
 msgctxt "methodology"
 msgid "Methodology"
@@ -4429,7 +4429,7 @@ msgstr ""
 
 msgctxt "origin_import_note"
 msgid "Text or sentences that indicate the origin of the product and/or its ingredients."
-msgstr ""
+msgstr "ข้อความที่บ่งบอกถึงที่มาของผลิตภัณฑ์และ/หรือส่วนผสมของผลิตภัณฑ์"
 
 msgctxt "nutriscore_grade_producer_note"
 msgid "Nutri-Score grade from A to E displayed on the product label"
@@ -4759,7 +4759,7 @@ msgstr ""
 
 msgctxt "product_js_extract_packaging"
 msgid "Extract the recycling instructions and/or packaging information from the picture"
-msgstr ""
+msgstr "อ่านข้อมูลคำแนะนำการรีไซเคิลและ/หรือข้อมูลบรรจุภัณฑ์จากรูปภาพ"
 
 msgctxt "product_js_extracted_packaging_nok"
 msgid "Recycling instructions and/or packaging information text could not be extracted. Try with a sharper image, with higher resolution or a better framing of the text."
@@ -5014,7 +5014,7 @@ msgstr ""
 
 msgctxt "missing_nutrition_facts"
 msgid "Missing nutrition facts"
-msgstr ""
+msgstr "ยังไม่มีฉลากโภชนาการ"
 
 msgctxt "ecoscore_p"
 msgid "Eco-Score"
@@ -5922,7 +5922,7 @@ msgstr ""
 
 msgctxt "nutriscore_missing_nutrition_data"
 msgid "The nutrition facts of the product must be specified in order to compute the Nutri-Score."
-msgstr ""
+msgstr "ต้องระบุข้อมูลโภชนาการของผลิตภัณฑ์เพื่อคำนวณ Nutri-Score"
 
 msgctxt "nutriscore_missing_category_and_nutrition_data"
 msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
@@ -6010,7 +6010,7 @@ msgstr ""
 
 msgctxt "nutriscore_missing_nutrition_data_short"
 msgid "Missing nutrition facts"
-msgstr ""
+msgstr "ยังไม่มีฉลากโภชนาการ"
 
 msgctxt "nutriscore_missing_category_and_nutrition_data_short"
 msgid "Missing category and nutrition facts"
@@ -6203,7 +6203,7 @@ msgstr ""
 
 msgctxt "action_add_nutrition_facts"
 msgid "Add nutrition facts"
-msgstr ""
+msgstr "เพิ่มฉลากโภชนาการ"
 
 msgctxt "action_add_origins"
 msgid "Add the origins of ingredients for this product"
@@ -6274,7 +6274,7 @@ msgstr ""
 # this is not used yet
 msgctxt "action_packager_codes_image"
 msgid "Take a photo of traceability codes"
-msgstr ""
+msgstr "ถ่ายภาพรหัสตรวจสอบย้อนกลับ"
 
 # Used as a header for key facts
 msgctxt "knowledge_panels_facts"
