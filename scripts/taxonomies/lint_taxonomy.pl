@@ -283,9 +283,9 @@ sub canonicalize_entry_properties($entry_ref, $is_check) {
 						severity => "Warning",
 						type => "Consistency",
 						entry_start_line => $entry_ref->{start_line},
-						entry_id_line => $entry_ref->{entry_id_line},
+						entry_id_line => $entry_ref->{entry_id_line}{line},
 						message => (
-								  "Values $not_found do not exists in taxonomy, at $props{$prop_name}{line_num}\n"
+								  "Values $not_found do not exists in taxonomy $prop_tagtype, at $props{$prop_name}{line_num}\n"
 								. "- $props{$prop_name}{line}"
 						),
 					}
@@ -438,7 +438,7 @@ sub lint_taxonomy($entries_iterator, $out, $is_check, $is_quiet, $do_sort) {
 						entry_start_line => $entry_ref->{start_line},
 						entry_id_line => $entry_ref->{entry_id_line}{line},
 						message => (
-								  "Entry won't be linted because it as errors, "
+								  "Entry won't be linted because it has errors, "
 								. "line $entry_ref->{start_line}..$entry_ref->{end_line}\n"
 						),
 					}
