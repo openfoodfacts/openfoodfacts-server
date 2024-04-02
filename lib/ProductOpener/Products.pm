@@ -3014,7 +3014,7 @@ It does not block image upload.
 
 =item * name: rule name to identify it in logs and describe it
 
-=item * conditions: the conditions the product must match, a list of [fieldname, value]
+=item * conditions: the conditions the product must match, a list of [field name, value]
 
 =item * actions: the actions to take, a list, where each element is a list with a rule name, and eventual arguments
 
