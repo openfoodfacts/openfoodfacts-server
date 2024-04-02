@@ -104,13 +104,51 @@ sub iter_taxonomy_entries ($lines_iter) {
 
 			# blank line means we are changing entry, so let's return collected data
 			if ($line =~ /^\s*$/) {
+				push(@previous_lines, "\n");
 				my $entry = {
+					type => "entry",
 					parents => \@parents,
 					entry_id_line => $entry_id_line,
 					entries => \%entries,
 					props => \%props,
 					original_lines => \@original_lines,
 					tail_lines => \@previous_lines,
+					start_line => $entry_start_line,
+					end_line => $line_num,
+					errors => \@errors,
+				};
+				add_entry_id($entry, \@errors);
+				# return $entry
+				return $entry;
+			}
+			# stopwords and synonyms
+			elsif ($line =~ /^(?<prefix>synonyms|stopwords):/i ) {
+				# synonyms and stopwords are special, return entry immediatly,
+				# but verify values are as expected.
+				my $entry_type = $+{prefix};
+				my @checks = ();
+				push(@checks, "Parents before a $entry_type line\n") if @parents;
+				push(@checks, "$entry_type in the midst of a entry $entry_id_line->{line}\n") if $entry_id_line;
+				push(@checks, "$entry_type surrounded by other lines") if (%entries || %props);
+				for my $err (@checks) {
+					push(
+						@errors,
+						{
+							severity => "Error",
+							type => "Correctness",
+							line => $line_num,
+							message => ($err),
+						}
+					);
+				}
+				my $entry = {
+					type => $entry_type,
+					parents => [],
+					entry_id_line => {line => $line, previous => [@previous_lines], line_num => $line_num},
+					entries => {},
+					props => {},
+					original_lines => \@original_lines,
+					tail_lines => [],
 					start_line => $entry_start_line,
 					end_line => $line_num,
 					errors => \@errors,
@@ -176,7 +214,7 @@ sub iter_taxonomy_entries ($lines_iter) {
 				@previous_lines = ();
 			}
 			# property
-			elsif ($line =~ /^(\w+):(\w+):(.*)$/) {
+			elsif ($line =~ /^(\w+):(\w{2}):(.*)$/) {
 				my $prop = $1;
 				my $lc = $2;
 				if (defined $props{"$prop:$lc"}) {
@@ -332,8 +370,6 @@ sub lint_entry($entry_ref, $do_sort) {
 		push @output_lines, $props{$key}->{line};
 	}
 	push @output_lines, @tail_lines;
-	# print a blank line
-	push @output_lines, "\n";
 	return join("", @output_lines);
 }
 
@@ -383,7 +419,7 @@ sub lint_taxonomy($entries_iterator, $out, $is_check, $is_quiet, $do_sort) {
 			$linted_output = join("", @{$entry_ref->{original_lines}});
 		}
 		if ($is_check) {
-			# search for linting error only if there is no othe errors
+			# search for linting error only if there is no other errors
 			if (!@entry_errors) {
 				my $lint_error = check_linted($entry_ref, $linted_output);
 				push(@entry_errors, $lint_error) if $lint_error;
