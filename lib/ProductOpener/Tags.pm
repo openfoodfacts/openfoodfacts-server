@@ -18,6 +18,8 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+=encoding UTF-8
+
 =head1 NAME
 
 ProductOpener::Tags - multilingual tags taxonomies (hierarchies of tags)
@@ -199,6 +201,7 @@ use Data::DeepAccess qw(deep_get deep_exists);
 binmode STDERR, ":encoding(UTF-8)";
 
 =head1 GLOBAL VARIABLES
+
 =cut
 
 =head2 %tags_fields
@@ -491,6 +494,7 @@ Iterating from the most specific category, try to get a property for a tag by ex
 =head3 Parameters
 
 =head4 $product_ref - the product reference
+
 =head4 $property - the property - string
 
 =head3 Return
@@ -533,9 +537,13 @@ and then decide the order, but this methods is more eager to save time.
 =head3 Parameters
 
 =head4 $tagtype - str, name of taxonomy
+
 =head4 $canon_tagid - tag id for which we want properties
+
 =head4 $properties_names - ref to a list of property name
+
 =head4 $fallback_lcs - fallback language code to try
+
 If may search a description:fr but if fallback is ['xx', 'en']
 and we find a description:xx or description:en property we will use this value.
 
@@ -641,11 +649,13 @@ sub get_inherited_properties ($tagtype, $canon_tagid, $properties_names_ref, $fa
 }
 
 =head2 get_tags_grouped_by_property ($tagtype, $tagids_ref, $prop_name, $props_ref, $inherited_props_ref, $fallback_lcs = ["xx", "en"])
+
 Retrieve properties of a series of tags given in C<$tagids_ref>
 and return them, but grouped by C<$prop_name>,
 also fetching C<$props_ref> and C<$inherited_props_ref>
 
 =head3 Return
+
 A ref to a hashmap, where keys are property C<$prop_name> values,
 and values are in turn hashmaps where keys are tag ids,
 and values are a hashmap with of properties and their values.
@@ -653,6 +663,7 @@ and values are a hashmap with of properties and their values.
 Tags with undefined property are with group under "undef" value.
 
 =head4 Example
+
 we asks for quality tags, grouped by fix_action, while getting descriptions
 {
 	"add_nutrition_facts" => {
@@ -670,6 +681,7 @@ we asks for quality tags, grouped by fix_action, while getting descriptions
 		}
 	}
 }
+
 =cut
 
 sub get_tags_grouped_by_property ($tagtype, $tagids_ref, $prop_name, $props_ref, $inherited_props_ref,
