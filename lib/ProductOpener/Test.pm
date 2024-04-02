@@ -89,6 +89,7 @@ Read gzipped file and return binary content
 =head3 Parameters
 
 =head4 String $filepath
+
 The path of the gzipped file.
 
 =cut
@@ -109,6 +110,7 @@ Check that OCR result returned by Google Cloud Vision is as expected:
 =head3 Parameters
 
 =head4 String $ocr_result
+
 String of OCR result JSON as returned by Google Cloud Vision.
 
 =cut
@@ -134,6 +136,7 @@ There are two modes: one to update expected results, and one to test against the
 =head3 Parameters
 
 =head4 String $filepath
+
 The path of the file containing the test.
 Generally should be <pre>__FILE__</pre> within the test.
 
@@ -845,6 +848,7 @@ sub normalize_html_for_test_comparison ($html_ref) {
 }
 
 =head2 wait_for($code, $timeout=3, $poll_time=1)
+
 Wait for an event to happen, up to a certain amount of time
 
 =head3 parameters
