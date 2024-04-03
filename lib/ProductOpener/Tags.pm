@@ -1884,19 +1884,9 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 				if (defined $canon_tagid) {
 					defined $properties{$tagtype}{$canon_tagid} or $properties{$tagtype}{$canon_tagid} = {};
 
-					# If the property name matches the name of an already loaded taxonomy,
-					# canonicalize the property values for the corresponding synonym
-					# e.g. if an additive has a class additives_classes:en: en:stabilizer (a synonym),
-					# we can map it to en:stabiliser (the canonical name in the additives_classes taxonomy)
-					if (exists $translations_from{$property}) {
-						$properties{$tagtype}{$canon_tagid}{"$property:$lc"}
-							= join(",", map({canonicalize_taxonomy_tag($lc, $property, $_)} split(/\s*,\s*/, $line)));
-					}
-					else {
-						# TODO print a warning if the property is already defined
-						# add property value
-						$properties{$tagtype}{$canon_tagid}{"$property:$lc"} = $line;
-					}
+					# TODO print a warning if the property is already defined
+					# add property value
+					$properties{$tagtype}{$canon_tagid}{"$property:$lc"} = $line;
 				}
 				else {
 					print STDERR "taxonomy : $tagtype : discarding orphan line : $property : "
