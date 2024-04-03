@@ -123,6 +123,8 @@ on 'test' => sub {
   requires 'Devel::Cover::Report::Codecovbash';
   requires 'Test::Fake::HTTPD';
   requires 'URL::Encode';
+  requires 'FindBin';
+  requires 'Test::Pod';
 };
 
 on 'develop' => sub {

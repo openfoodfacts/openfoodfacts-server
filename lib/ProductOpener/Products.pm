@@ -1836,6 +1836,7 @@ to determine if the change was done through an app, the OFF userid, or an app sp
 =head3 Parameters
 
 =head4 $change_ref
+
 reference to a change record
 
 =head3 Return value
@@ -3010,10 +3011,15 @@ It does not block image upload.
 =head3 edit_rules structure
 
 =over 1
+
 =item * name: rule name to identify it in logs and describe it
-=item * conditions: the conditions the product must match, a list of [fieldname, value]
+
+=item * conditions: the conditions the product must match, a list of [field name, value]
+
 =item * actions: the actions to take, a list, where each element is a list with a rule name, and eventual arguments
+
 =item * notifications: also notify, list of email addresses or specific notification rules
+
 =back
 
 =head4 conditions
@@ -3039,12 +3045,19 @@ C<ignore_if_CONDITION_FIELD> or C<warn_if_CONDITION_FIELD>
 This time it's to check the value the user want's to add.
 
 C<CONDITION> is one of the following:
+
 =over 1
+
 =item * existing - user tries to edit this field with a non empty value
+
 =item * 0 - user tries to put numerical value 0 in the field
+
 =item * equal / lesser / greater - comparison of numeric value (requires a value as argument)
+
 =item * match - comparison to a string (equality, requires a value as argument)
+
 =item * regexp_match - match against a regexp (requires a regexp value as argument)
+
 =back
 
 =head4 notifications
@@ -3055,6 +3068,7 @@ or "slack_CHANNEL_NAME" (B<warning> currently channel name is ignored, we post t
 =head4 Example of an edit rule
 
 =begin text
+
 {
 	name => "App XYZ",
 	conditions => [
@@ -3072,6 +3086,7 @@ or "slack_CHANNEL_NAME" (B<warning> currently channel name is ignored, we post t
 		slack_channel_edit-alert-test
 	),
 },
+
 =end text
 
 =cut
