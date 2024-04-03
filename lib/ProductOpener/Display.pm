@@ -10165,10 +10165,14 @@ sub display_product_api ($request_ref) {
 
 	my $request_lc = $request_ref->{lc};
 
+	my $has_jqm_param = single_param("jqm") ? 1 : 0;
+
 	my $template_data_ref = {
 		api_version => $request_ref->{api_version},
 		app_fields => \@app_fields,
 		request_lc => $request_lc,
+		Lang => \%Lang,
+		has_jqm_param => $has_jqm_param,
 	};
 
 	my $rev = single_param("rev");
@@ -10196,6 +10200,7 @@ sub display_product_api ($request_ref) {
 
 		process_template('web/common/includes/display_product_api.tt.html', $template_data_ref, \$html)
 			|| return "template error: " . $tt->error();
+		$response{jqm} .= $html;
 
 	}
 	else {
