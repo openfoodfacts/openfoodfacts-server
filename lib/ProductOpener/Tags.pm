@@ -1058,7 +1058,9 @@ sub get_file_from_cache ($source, $target) {
 # Change this version string if you want to force the taxonomies to be rebuilt
 # e.g. if the taxonomy building algorithm or configuration has changed
 # This needs to be done also when the unaccenting parameters for languages set in Config.pm are changed
-my $BUILD_TAGS_VERSION = "20240329 - better taxonomy errors handling";
+
+my $BUILD_TAGS_VERSION
+	= "20240403 - fix issue with additives.properties.txt not loaded + circular_parent check + moved canonicalization of properties to linter";
 
 sub get_from_cache ($tagtype, @files) {
 	# If the full set of cached files can't be found then returns the hash to be used
@@ -1884,19 +1886,9 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 				if (defined $canon_tagid) {
 					defined $properties{$tagtype}{$canon_tagid} or $properties{$tagtype}{$canon_tagid} = {};
 
-					# If the property name matches the name of an already loaded taxonomy,
-					# canonicalize the property values for the corresponding synonym
-					# e.g. if an additive has a class additives_classes:en: en:stabilizer (a synonym),
-					# we can map it to en:stabiliser (the canonical name in the additives_classes taxonomy)
-					if (exists $translations_from{$property}) {
-						$properties{$tagtype}{$canon_tagid}{"$property:$lc"}
-							= join(",", map({canonicalize_taxonomy_tag($lc, $property, $_)} split(/\s*,\s*/, $line)));
-					}
-					else {
-						# TODO print a warning if the property is already defined
-						# add property value
-						$properties{$tagtype}{$canon_tagid}{"$property:$lc"} = $line;
-					}
+					# TODO print a warning if the property is already defined
+					# add property value
+					$properties{$tagtype}{$canon_tagid}{"$property:$lc"} = $line;
 				}
 				else {
 					print STDERR "taxonomy : $tagtype : discarding orphan line : $property : "
@@ -1910,7 +1902,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 		# allow a second file for wikipedia abstracts -> too big, so don't include it in the main file
 		# only process properties
 		my $properties_path = $file_path;
-		$properties_path =~ s/\.txt^/.properties.txt/;
+		$properties_path =~ s/\.txt$/.properties.txt/;
 
 		if (-e $properties_path) {
 
