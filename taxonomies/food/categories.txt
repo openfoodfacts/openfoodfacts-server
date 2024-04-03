@@ -96809,7 +96809,7 @@ it:Confitture di arancia, Confitture di arancia dolce, Marmellata di arance
 ja:オレンジジャム, オレンジマーマレード
 nl:Sinaasappeljams, Sinaasappelmarmelades
 wikidata:en:Q43669016
-wikidata:en:Q19842607
+#wikidata:en:Q19842607
 agribalyse_food_code:en:31039
 ciqual_food_code:en:31039
 ciqual_food_name:en:Marmalade, orange
@@ -97836,7 +97836,6 @@ wikidata:en:Q9280616
 protected_name_file_number:en: TSG-NL-0901
 protected_name_type:en: tsg
 origins:en: en:Netherlands
-wikidata:en:Q9280616
 
 <en:Brown sugars
 <en:Cane sugar
@@ -98658,7 +98657,7 @@ fr:Légumes français
 fr:Oignon de Roscoff
 protected_name_file_number:en: PDO-FR-0812
 protected_name_type:en: pdo
-origins:en: en:France, fr:Roscoff
+origins:en: en:France
 wikidata:en:Q3349932
 
 <en:French vegetables
@@ -100725,14 +100724,14 @@ es:Ajo morado
 fr:Ail blanc de Lomagne
 protected_name_file_number:en: PGI-FR-0470
 protected_name_type:en: pgi
-origins:en: en:France, fr:Lomagne
+origins:en: en:France
 
 <en:Garlic
 <en:French vegetables
 fr:Ail rose de Lautrec
 protected_name_file_number:en: PGI-FR-0193
 protected_name_type:en: pgi
-origins:en: en:France, fr:Lautrec
+origins:en: en:France
 
 <en:Garlic
 <en:French vegetables
@@ -100746,7 +100745,7 @@ origins:en: en:France, fr:Drôme
 fr:Ail fumé d'Arleux
 protected_name_file_number:en: PGI-FR-0820
 protected_name_type:en: pgi
-origins:en: en:France, fr:Arleux
+origins:en: en:France
 
 <en:Garlic
 <en:French vegetables
@@ -100996,9 +100995,8 @@ zh:莴苣属, 萵苣
 # yue:生菜
 # zh-tw:萵苣
 wikidata:en:Q83193
-wikidata:en:Q578052
+# wikidata:en:Q578052
 wikipedia:en:https://en.wikipedia.org/wiki/Lettuce
-wikipedia:en:https://en.wikipedia.org/wiki/Lactuca
 # ingredient/fr:laitue has 157 products in 5 languages @2019-04-04
 # category/lettuces has 84 products @2019-5-22
 agribalyse_food_code:en:20031
@@ -101653,14 +101651,13 @@ en:Potatoes from Île de Ré
 fr:Pommes de terre de l'île de Ré, Pomme de terre de l'île de Ré
 protected_name_file_number:en: PDO-FR-0065
 protected_name_type:en: pdo
-origins:en: en:France, fr:île de Ré
+origins:en: en:France
 wikidata:en:Q3395977
 
 <en:Potatoes from France
 en:Potatoes from Noirmoutier
 fr:Pomme de terre de Noirmoutier
-protected_name_type:en: pdo
-origins:en: en:France, fr:Noirmoutier
+origins:en: en:France
 protected_name_file_number:en: PGI-FR-02434
 protected_name_type:en: pgi
 
@@ -104856,7 +104853,6 @@ origins:en: en:Italy
 wikidata:en:Q3604285
 protected_name_file_number:en: PGI-IT-0430, PGI-IT-0430-AM01
 protected_name_type:en: pgi
-origins:en: en:Italy
 #wikidata:en:
 
 <en:Balsamic vinegars
@@ -105401,7 +105397,7 @@ tr:Siyah zeytin
 fr:Olives noires de Nyons
 protected_name_file_number:en: PDO-FR-0374
 protected_name_type:en: pdo
-origins:en: en:France, fr:Nyons
+origins:en: en:France
 
 <en:Black olives
 en:Black olives in brine
