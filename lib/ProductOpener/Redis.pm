@@ -36,7 +36,9 @@ use AnyEvent;
 use AnyEvent::RipeRedis;
 
 =head2 $redis_client
+
 The connection to redis
+
 =cut
 
 my $redis_client;
@@ -196,19 +198,24 @@ Add an event to Redis stream to inform that a product was updated.
 =head3 Arguments
 
 =head4 String $user_id
+
 The user that updated the product.
 
 =head4 Product Object $product_ref
+
 The product that was updated.
 
 =head4 String $action
+
 The action that was performed on the product (either "updated" or "deleted").
 A product creation is considered as an update.
 
 =head4 String $comment
+
 The user comment associated with the update.
 
 =head4 HashRef $diffs
+
 a hashref of the differences between the previous and new revision of the product.
 
 =cut

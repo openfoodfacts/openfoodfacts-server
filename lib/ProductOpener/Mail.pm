@@ -72,13 +72,17 @@ use Log::Any qw($log);
 =head1 CONSTANTS
 
 =head2 LOG_EMAIL_START
+
 Text used before logging an email
+
 =cut
 
 $LOG_EMAIL_START = "---- EMAIL START ----\n";
 
 =head2 LOG_EMAIL_END
+
 Text used after logging an email
+
 =cut
 
 $LOG_EMAIL_END = "\n---- EMAIL END ----\n";

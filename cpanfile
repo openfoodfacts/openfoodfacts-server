@@ -126,6 +126,9 @@ on 'test' => sub {
   requires 'Devel::Cover::Report::Codecovbash';
   requires 'Test::Fake::HTTPD';
   requires 'URL::Encode';
+  requires 'Test::File::Contents';
+  requires 'FindBin';
+  requires 'Test::Pod';
 };
 
 on 'develop' => sub {
@@ -137,6 +140,7 @@ on 'develop' => sub {
   requires 'Devel::Cover';
   requires 'Devel::Cover::Report::Codecov';
   requires 'Devel::Cover::Report::Codecovbash';
+  requires 'Test2::Harness';
 };
 
 feature "off_server_dev_tools", "Optional development tools" => sub {

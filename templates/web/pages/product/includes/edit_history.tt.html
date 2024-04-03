@@ -7,7 +7,7 @@
   [% FOREACH revision IN revisions %]
   <li>
     [% revision.date %] - [% display_editor_link(revision.userid) %]
-    [% IF revision.uuid %] (UUID: [% revision.uuid %]) [% END %]
+    [% IF revision.uuid %] (UUID: [% revision.uuid %])[% END %]
     [% IF revision.clientid %] ([% revision.clientid %]) [% END %]
     [% revision.diffs %] [% IF
     revision.comment %] - [% revision.comment %] [% END %] -
