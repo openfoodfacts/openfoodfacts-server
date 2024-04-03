@@ -116,7 +116,7 @@ if (not defined $code) {
 			my $extension = lc($1);
 			$tmp_filename = get_string_id_for_lang("no_language", remote_addr() . '_' . $`);
 
-			ensure_dir_created($BASE_DIRS{CACHE_TMP}) or display_error_and_exit("Missing path", 503);
+			ensure_dir_created($BASE_DIRS{CACHE_TMP}) or display_error_and_exit($request_ref, "Missing path", 503);
 			open(my $out, ">", "$BASE_DIRS{CACHE_TMP}/$tmp_filename.$extension");
 			while (my $chunk = <$file>) {
 				print $out $chunk;
@@ -176,7 +176,7 @@ my $product_id = product_id_for_owner($Owner_id, $code);
 my $interface_version = '20120622';
 
 # Check that the image directory exists
-ensure_dir_created($BASE_DIRS{PRODUCTS_IMAGES}) or display_error_and_exit("Missing path", 503);
+ensure_dir_created($BASE_DIRS{PRODUCTS_IMAGES}) or display_error_and_exit($request_ref, "Missing path", 503);
 
 if ($imagefield) {
 
