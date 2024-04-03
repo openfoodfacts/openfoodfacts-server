@@ -1058,7 +1058,7 @@ sub get_file_from_cache ($source, $target) {
 # Change this version string if you want to force the taxonomies to be rebuilt
 # e.g. if the taxonomy building algorithm or configuration has changed
 # This needs to be done also when the unaccenting parameters for languages set in Config.pm are changed
-my $BUILD_TAGS_VERSION = "20240403 - fix issue with additives.properties.txt not loaded + circular_parent check";
+my $BUILD_TAGS_VERSION = "20240403 - fix issue with additives.properties.txt not loaded + circular_parent check + moved canonicalization of properties to linter";
 
 sub get_from_cache ($tagtype, @files) {
 	# If the full set of cached files can't be found then returns the hash to be used
