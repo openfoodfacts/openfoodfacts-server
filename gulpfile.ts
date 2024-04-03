@@ -17,6 +17,8 @@ const jsSrc = [
   "./html/js/hc-sticky.js",
   "./html/js/stikelem.js",
   "./html/js/scrollNav.js",
+  "./html/js/togglepassword.js",
+  "./html/js/user_form.js",
 ];
 
 const sassSrc = "./scss/**/*.scss";
