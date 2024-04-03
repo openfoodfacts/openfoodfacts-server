@@ -836,7 +836,7 @@ sub init_request ($request_ref = {}) {
 				"init_request - init_user error - display error page",
 				{init_user_error => $request_ref->{init_user_error}}
 			) if $log->is_debug();
-			display_error_and_exit($signed_in_oidc, 403);
+			display_error_and_exit($request_ref, $signed_in_oidc, 403);
 		}
 	}
 

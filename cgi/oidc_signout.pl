@@ -39,13 +39,13 @@ use ProductOpener::URL qw/format_subdomain/;
 
 use Log::Any qw($log);
 
-if (not($ENV{'REQUEST_METHOD'} eq 'POST')) {
-	display_error_and_exit('Method Not Allowed.', 405);
-}
-
 $log->info('start') if $log->is_info();
 
 my $request_ref = init_request();
+if (not($ENV{'REQUEST_METHOD'} eq 'POST')) {
+	display_error_and_exit($request_ref, 'Method Not Allowed.', 405);
+}
+
 analyze_request($request_ref);
 
 start_signout($request_ref);

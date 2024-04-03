@@ -48,7 +48,7 @@ analyze_request($request_ref);
 my $return_url = signin_callback($request_ref);
 
 unless (defined $User_id) {
-	display_error_and_exit('Unauthorized', 401);
+	display_error_and_exit($request_ref, 'Unauthorized', 401);
 }
 
 unless (defined $return_url) {
