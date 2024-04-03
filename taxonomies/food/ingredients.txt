@@ -13606,8 +13606,9 @@ fr:gras et couenne de porc
 en:pork minute steak
 hr:svinjski minutni odrezak
 
-<en:broth
+<en:fond
 <en:pork
+en:pork fond
 fr:fond de porc
 
 <en:pork
@@ -13741,6 +13742,7 @@ nutriscore_red_meat:en:yes
 
 # <en:bone
 <en:veal
+en:veal bone
 fr:os de veau
 
 <en:veal
@@ -87951,10 +87953,16 @@ wikipedia:en:https://en.wikipedia.org/wiki/Brine
 
 
 # description:en:BROTH is a savory liquid made of water in which bones, meat, fish, or vegetables have been simmered.
+# We separate it from "fond" which is used for sauces
+
+en:fond, stock for sauce, stocks for sauce, fond for sauce
+da:fond
+fr:fond, fond de sauce, fonds de sauce
+wikipedia:en:https://en.wikipedia.org/wiki/Fond
 
 # <en:compound
 # <en:mainIngredient:en:water
-en:broth, broths, stock, bouillon, Stocks, fond
+en:broth, broths, stock, bouillon, Stocks
 af:bouillon
 ar:زومات
 az:Bulyon
@@ -87964,7 +87972,7 @@ bg:Бульон
 bn:সুরুয়া
 ca:brou
 cs:vývar
-da:fond, bouillon
+da:bouillon
 de:Brühe, Brühen, Bouillons
 el:ζωμός
 eo:buljono
@@ -87973,7 +87981,7 @@ et:puljong
 eu:Salda
 fa:گوشتابه
 fi:liemi, liemivalmiste
-fr:bouillon, fond, Bouillons, fond de sauce
+fr:bouillon, Bouillons
 ga:anraith
 gd:brot
 gl:Caldo
@@ -88081,7 +88089,7 @@ da:Hønsekødsbouillon
 de:Geflügelbouillon
 es:Caldo de ave
 fi:siipikarjaliemi
-fr:bouillon de volaille, fond de volaille, Bouillons de volaille
+fr:bouillon de volaille, Bouillons de volaille
 it:Brodo di pollame
 ja:鶏肉スープ
 nl:gevogeltebouillon
@@ -88093,7 +88101,28 @@ ciqual_food_code:en:11174
 ciqual_food_name:en:Broth, stock or bouillon, poultry, dehydrated
 ciqual_food_name:fr:Bouillon de volaille, déshydraté
 
-<en:poultry broth
+<en:fond
+en:poultry fond
+fr:fond de volaille
+
+<en:poultry fond
+en:chickend fond
+fr:fond de poulet
+
+<en:poultry fond
+en:duck fond
+fr:fond de canard
+
+<en:poultry fond
+en:turkey fond
+fr:fond de dine
+
+<en:fond
+en:shellfish fond
+fr:fond de crustacés
+
+<en:poultry fond
+en:flavored poultry fond
 fr:fond de volaille aromatisé
 # ingredient/fr:fond-de-volaille-aromatisé has 39 products in french @2019-03-09
 
@@ -88105,7 +88134,6 @@ ciqual_food_name:en:Broth, stock or bouillon, poultry, dehydrated
 ciqual_food_name:fr:Bouillon de volaille, déshydraté
 
 #comment:en:a fond has 2/3 less water than a stock
-<en:dehydrated poultry stock
 <en:fond
 en:dehydrated poultry fond, Poultry stock for sauce and cooking dehydrated
 fr:fond de volaille déshydraté, Fond de volaille pour sauces et cuisson déshydraté
@@ -88125,7 +88153,7 @@ da:Kyllingebouillon
 de:Hühnerbrühe
 es:Caldo de pollo
 fi:kanaliemi
-fr:Bouillon de poulet, fond de poulet
+fr:Bouillon de poulet
 it:brodo di pollo
 ja:チキンスープ, チキンブイヨン
 nl:Kippenbouillon
