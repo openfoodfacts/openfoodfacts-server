@@ -10,22 +10,22 @@
     // remove everything after @ so that we don't end up with
     // email addresses as usernames.
 
-    value = value.replace(new RegExp("\@.*"),"");
+    value = value.replace(/@.*/,"");
 
-    value = value.replace(new RegExp(" ", 'g'),"-");
-    value = value.replace(new RegExp("[àáâãäå]", 'g'),"a");
-    value = value.replace(new RegExp("æ", 'g'),"ae");
-    value = value.replace(new RegExp("ç", 'g'),"c");
-    value = value.replace(new RegExp("[èéêë]", 'g'),"e");
-    value = value.replace(new RegExp("[ìíîï]", 'g'),"i");
-    value = value.replace(new RegExp("ñ", 'g'),"n");
-    value = value.replace(new RegExp("[òóôõö]", 'g'),"o");
-    value = value.replace(new RegExp("œ", 'g'),"oe");
-    value = value.replace(new RegExp("[ùúûü]", 'g'),"u");
-    value = value.replace(new RegExp("[ýÿ]", 'g'),"y");
-    value = value.replace(new RegExp("[^a-zA-Z0-9-]", 'g'),"-");
-    value = value.replace(new RegExp("-+", 'g'),"-");
-    value = value.replace(new RegExp("^-"),"");
+    value = value.replace(/ /g,"-");
+    value = value.replace(/[àáâãäå]/g,"a");
+    value = value.replace(/æ/g,"ae");
+    value = value.replace(/ç/g,"c");
+    value = value.replace(/[èéêë]/g,"e");
+    value = value.replace(/[ìíîï]/g,"i");
+    value = value.replace(/ñ/g,"n");
+    value = value.replace(/[òóôõö]/g,"o");
+    value = value.replace(/œ/g,"oe");
+    value = value.replace(/[ùúûü]/g,"u");
+    value = value.replace(/[ýÿ]/g,"y");
+    value = value.replace(/[^a-zA-Z0-9-]/g,"-");
+    value = value.replace(/-+/g,"-");
+    value = value.replace(/^-/,"");
 
     inputfield.value = value;
     }
