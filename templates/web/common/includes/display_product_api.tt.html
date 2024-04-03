@@ -6,7 +6,7 @@
     <p>[% Lang.app_take_a_picture_note.$request_lc %]</p>
 [% END %]
 
-[% IF request_ref.api_version >= 0.1 %]
+[% IF api_version >= 0.1 %]
     <form id="product_fields" action="javascript:void(0);">
         <div data-role="fieldcontain" class="ui-hide-label" style="border-bottom-width: 0;">
             [% FOREACH field IN app_fields %]
