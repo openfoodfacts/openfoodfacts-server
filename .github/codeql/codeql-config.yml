@@ -1,0 +1,3 @@
+name: "CodeQL config"
+paths-ignore:
+  - 'tests/integration/expected_test_results/**/*'
