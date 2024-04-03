@@ -55,6 +55,7 @@ DOCKER_COMPOSE=docker compose --env-file=${ENV_FILE} ${LOAD_EXTRA_ENV_FILE}
 DOCKER_COMPOSE_TEST=WEB_RESOURCES_PATH=./web-default ROBOTOFF_URL="http://backend:8881/" GOOGLE_CLOUD_VISION_API_URL="http://backend:8881/" COMPOSE_PROJECT_NAME=${COMPOSE_PROJECT_NAME}_test PO_COMMON_PREFIX=test_ MONGO_EXPOSE_PORT=27027 docker compose --env-file=${ENV_FILE}
 # Enable Redis only for integration tests
 DOCKER_COMPOSE_INT_TEST=REDIS_URL="redis:6379" ${DOCKER_COMPOSE_TEST}
+TEST_CMD ?= yath test -PProductOpener::LoadData
 
 .DEFAULT_GOAL := usage
 
@@ -262,7 +263,7 @@ tests: build_taxonomies_test build_lang_test unit_test integration_test
 unit_test: create_folders
 	@echo "🥫 Running unit tests …"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
-	${DOCKER_COMPOSE_TEST} run ${COVER_OPTS} -T --rm backend prove -l --jobs ${CPU_COUNT} -r tests/unit
+	${DOCKER_COMPOSE_TEST} run ${COVER_OPTS} -e PO_EAGER_LOAD_DATA=1 -T --rm backend yath test --job-count=${CPU_COUNT} -PProductOpener::LoadData  tests/unit
 	${DOCKER_COMPOSE_TEST} stop
 	@echo "🥫 unit tests success"
 
@@ -273,7 +274,7 @@ integration_test: create_folders
 # this is the place where variables are important
 	${DOCKER_COMPOSE_INT_TEST} up -d memcached postgres mongodb backend dynamicfront incron minion redis
 # note: we need the -T option for ci (non tty environment)
-	${DOCKER_COMPOSE_INT_TEST} exec ${COVER_OPTS}  -T backend prove -l -r tests/integration
+	${DOCKER_COMPOSE_INT_TEST} exec ${COVER_OPTS} -e PO_EAGER_LOAD_DATA=1 -T backend yath -PProductOpener::LoadData tests/integration
 	${DOCKER_COMPOSE_INT_TEST} stop
 	@echo "🥫 integration tests success"
 
@@ -283,19 +284,21 @@ test-stop:
 	${DOCKER_COMPOSE_TEST} stop
 
 # usage:  make test-unit test=test-name.t
-# you can add args= to pass options, like args="-d" to debug
+# you can use TEST_CMD to change test command, like TEST_CMD="perl -d" to debug a test
+# you can also add args= to pass more options to your test command
 test-unit: guard-test create_folders
 	@echo "🥫 Running test: 'tests/unit/${test}' …"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
-	${DOCKER_COMPOSE_TEST} run --rm backend perl ${args} tests/unit/${test}
+	${DOCKER_COMPOSE_TEST} run --rm -e PO_EAGER_LOAD_DATA=1 backend ${TEST_CMD} ${args} tests/unit/${test}
 
 # usage:  make test-int test=test-name.t
-# to update expected results: make test-int test="test-name.t --update-expected-results"
-# you can add args= to pass options, like args="-d" to debug
+# to update expected results: make test-int test="test-name.t :: --update-expected-results"
+# you can use TEST_CMD to change test command, like TEST_CMD="perl -d" to debug a test
+# you can also add args= to pass more options to your test command
 test-int: guard-test create_folders
 	@echo "🥫 Running test: 'tests/integration/${test}' …"
 	${DOCKER_COMPOSE_INT_TEST} up -d memcached postgres mongodb backend dynamicfront incron minion redis
-	${DOCKER_COMPOSE_INT_TEST} exec backend perl ${args} tests/integration/${test}
+	${DOCKER_COMPOSE_INT_TEST} exec -e PO_EAGER_LOAD_DATA=1 backend ${TEST_CMD} ${args} tests/integration/${test}
 # better shutdown, for if we do a modification of the code, we need a restart
 	${DOCKER_COMPOSE_INT_TEST} stop backend
 
@@ -378,17 +381,19 @@ check_critic:
 	@echo "🥫 Checking with perlcritic"
 	test -z "${TO_CHECK}" || ${DOCKER_COMPOSE} run --rm --no-deps backend perlcritic ${TO_CHECK}
 
-TAXONOMIES_TO_CHECK := $(shell [ -x "`which git 2>/dev/null`" ] && git diff origin/main --name-only | grep  'taxonomies*/*\.txt$$' | grep -v '\.result.txt' | xargs ls -d 2>/dev/null | grep -v "^.$$")
+TAXONOMIES_TO_CHECK := $(shell [ -x "`which git 2>/dev/null`" ] && git diff origin/main --name-only | grep  'taxonomies.*/.*\.txt$$' | grep -v '\.result.txt' | xargs ls -d 2>/dev/null | grep -v "^.$$")
 
+# TODO remove --no-sort as soon as we have sorted taxonomies
 check_taxonomies:
 	@echo "🥫 Checking taxonomies"
 	test -z "${TAXONOMIES_TO_CHECK}" || \
-	${DOCKER_COMPOSE} run --rm --no-deps backend scripts/taxonomies/sort_each_taxonomy_entry.sh --check ${TAXONOMIES_TO_CHECK}
+	${DOCKER_COMPOSE} run --rm --no-deps backend scripts/taxonomies/lint_taxonomy.pl --verbose --check --no-sort ${TAXONOMIES_TO_CHECK}
 
+# TODO remove --no-sort as soon as we have sorted taxonomies
 lint_taxonomies:
 	@echo "🥫 Linting taxonomies"
 	test -z "${TAXONOMIES_TO_CHECK}" || \
-	${DOCKER_COMPOSE} run --rm --no-deps backend scripts/taxonomies/sort_each_taxonomy_entry.sh ${TAXONOMIES_TO_CHECK}
+	${DOCKER_COMPOSE} run --rm --no-deps backend scripts/taxonomies/lint_taxonomy.pl --verbose --no-sort ${TAXONOMIES_TO_CHECK}
 
 
 check_openapi_v2:
@@ -412,7 +417,11 @@ build_taxonomies: create_folders
     # GITHUB_TOKEN might be empty, but if it's a valid token it enables pushing taxonomies to build cache repository
 	${DOCKER_COMPOSE} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl ${name}
 
-rebuild_taxonomies: build_taxonomies
+# a version where we force building without using cache
+# use it when you are developing in Tags.pm and want to iterate
+# at the end, change the $BUILD_TAGS_VERSION in Tags.pm
+rebuild_taxonomies:
+	${DOCKER_COMPOSE} run --no-deps --rm -e TAXONOMY_NO_GET_FROM_CACHE=1 backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl ${name}
 
 build_taxonomies_test: create_folders
 	@echo "🥫 build taxonomies"

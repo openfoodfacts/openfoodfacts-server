@@ -10,7 +10,8 @@
 # Supporting multiple ingredients is doable but would require code changes.
 
 stopwords:en:ingredients, agricultural, from, with, of, by, the, verified, certified, approved, 100%, pure, guaranty, guaranteed, product guaranteed, product certified, standard, during, period, phase, label, mark, logo
-stopwords:bg:съставки, земеделие, от, с, контролиран, сертифициран, 100%, натурален, гарантиран, продукт
+stopwords:bg:съставки, земеделие, от, с, контролиран, сертифициран, 100%, натурален, гарантиран, продуктheart
+
 stopwords:da:fra, kontrolleret, dyrkning, dyrket, dyrkede, råvarer, landbrug, certificeret
 stopwords:de:Zutaten, von, mit, enthält, kontrolliert, zertifiziert, geprüft, 100%, rein, Produkt, Garantie, garantiert, Standard, während
 stopwords:es:por, la, las, los, el, apto, para, con, de, verificado, certificado, aprovado, controlado, registrado, 100%, garantía, garantizado, garantizada, estándar, procedente
@@ -1347,6 +1348,11 @@ xx:FACE, Federación de Asociaciones de Celiacos de España
 <en:Crossed Grain Trademark
 fr:Afdiag, Association Française des Intolérants au Gluten
 xx:Afdiag, Association Française des Intolérants au Gluten
+
+<en:No gluten
+pt:Associação Portuguesa de Celíacos
+label_categories:en: en:Specific diets
+image:en:apc-novo-logo.178x90.png
 
 en:Contains gluten
 bg:Съдържа глутен
@@ -4196,7 +4202,6 @@ en:No artificial colours and preservatives
 bg:Без изкуствени оцветители и консерванти
 it:Senza coloranti e conservanti artificiali
 pt:Sem corantes e conservantes artificiais
-bg:Без изкуствени оцветители и консерванти
 ca:Sense colorants i conservants artificials
 de:Keine künstlichen Farbstoffe und Konservierungsstoffe
 es:Sin colorantes y conservantes artificiales
@@ -5091,6 +5096,9 @@ fr:Non adapté aux enfants de moins de 1 an
 de:Nicht geeignet für Kinder unter 1 Jahr
 it:Non adatto ai bambini sotto l'anno di età
 pt:Não adequado para crianças menores de 1 ano
+
+pt:Fundação Portuguesa de Cardiologia
+label_categories:en: en:Specific diets
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -20315,7 +20323,9 @@ xx:Tidy man, tidyman
 wikidata:en:Q3528198
 
 en:Animal welfare
+es:Bienestar animal
 nl:Dierenwelzijn
+pt:Bem-estar animal
 
 <en:Animal welfare
 en:Chicken welfare
@@ -22683,26 +22693,40 @@ xx:Eco-Score E
 en:GLOBALG.A.P.
 xx:GLOBALG.A.P., Global GAP
 
+pt:Açores
+country:en:Portugal
+image:en:acores-certificado-pela-natureza.90x90.png
+
 en:Portuguese protected product
 pt:Produto protegido de Portugal
+country:en:Portugal
 
 pt:Carne Alentejana DOP, DOP Carne Alentejana, Carne Alentejana D.O.P., D.O.P. Carne Alentejana
+country:en:Portugal
 
 pt:Carne Arouquesa DOP, DOP Carne Arouquesa, Carne Arouquesa D.O.P., D.O.P. Carne Arouquesa
+country:en:Portugal
 
 pt:Carne Barrosã DOP, DOP Carne Barrosã, Carne Barrosã D.O.P., D.O.P. Carne Barrosã
+country:en:Portugal
 
 pt:Carne Chaneda da Peneda DOP, DOP Carne Chaneda da Peneda, Carne Chaneda da Peneda D.O.P., D.O.P. Carne Chaneda da Peneda
+country:en:Portugal
 
 pt:Carne da Charneca DOP, DOP Carne da Charneca, Carne da Charneca D.O.P., D.O.P. Carne da Charneca
+country:en:Portugal
 
 pt:Carne de Bísaro Transmontano DOP, DOP Carne de Bísaro Transmontano, Carne de Bísaro Transmontano D.O.P., D.O.P. Carne de Bísaro Transmontano
+country:en:Portugal
 
 pt:Carne de Porco Transmontano DOP, DOP Carne de Porco Transmontano, Carne de Porco Transmontano D.O.P., D.O.P. Carne de Porco Transmontano
+country:en:Portugal
 
 pt:Carne de Bravo do Ribatejo DOP, DOP Carne de Bravo do Ribatejo, Carne de Bravo do Ribatejo D.O.P., D.O.P. Carne de Bravo do Ribatejo
+country:en:Portugal
 
 pt:Carne de Bravo do Ribatejo DOP, DOP Carne de Bravo do Ribatejo, Carne de Bravo do Ribatejo D.O.P., D.O.P. Carne de Bravo do Ribatejo
+country:en:Portugal
 
 pt:Carne de Porco Alentejano DOP, DOP Carne de Porco Alentejano, Carne de Porco Alentejano D.O.P., D.O.P. Carne de Porco Alentejano
 
@@ -22724,7 +22748,7 @@ pt:Cabrito Transmontano DOP, DOP Cabrito Transmontano, Cabrito Transmontano D.O.
 
 pt:Presunto do Alentejo DOP, DOP Presunto do Alentejo, Presunto do Alentejo D.O.P., D.O.P. Presunto do Alentejo, Paleta do Alentejo DOP, DOP Paleta do Alentejo, Paleta do Alentejo D.O.P., D.O.P. Paleta do Alentejo
 
-Pt:Presunto de Barrancos DOP, DOP Presunto de Barrancos, Presunto de Barrancos D.O.P., D.O.P. Presunto de Barrancos, Paleta de Barrancos DOP, DOP Paleta de Barrancos, Paleta de Barrancos D.O.P., D.O.P. Paleta de Barrancos
+pt:Presunto de Barrancos DOP, DOP Presunto de Barrancos, Presunto de Barrancos D.O.P., D.O.P. Presunto de Barrancos, Paleta de Barrancos DOP, DOP Paleta de Barrancos, Paleta de Barrancos D.O.P., D.O.P. Paleta de Barrancos
 
 <pt:Denominação de Origem
 <en:Portuguese protected product
@@ -22790,41 +22814,57 @@ pt:Lagoa DO, DO Lagoa, Denominação de Origem Lagoa, D.O. Lagoa
 pt:Lagos DO, DO Lagos, Denominação de Origem Lagos, D.O. Lagos
 
 pt:Portimão DO, DO Portimão, Denominação de Origem Portimão, D.O. Portimão
+country:en:Portugal
 
 pt:Tavira DO, DO Tavira, Denominação de Origem Tavira, D.O. Tavira
+country:en:Portugal
 
 pt:Algarve IG, IG Algarve, Indicação Geográfica Algarve, I.G. Algarve
+country:en:Portugal
 
 pt:Portalegre DOC, DOC Portalegre, Denominação de Origem Controlada Portalegre, D.O.C. Portalegre
+country:en:Portugal
 
 pt:Redondo DOC, DOC Redondo, Denominação de Origem Controlada Redondo, D.O.C. Redondo
+country:en:Portugal
 
 pt:DOC Beira Interior, Beira Interior DOC, Denominação de Origem Beira Interior, D.O.C. Beira Interior
+country:en:Portugal
 
 pt:IG Terras da Beira, Terras da Beira IG, Indicação Geográfica Terras da Beira, I.G. Terras da Beira
+country:en:Portugal
 
 pt:DOC Távora-Varosa, Távora-Varosa DOC, denominação de Origem Távora-Varosa, D.O.C. Távora-Varosa
+country:en:Portugal
 
 pt:DOC Borba, Borba DOC, Denominação de Origem Controlada Borba, D.O.C. Borba
+country:en:Portugal
 
 pt:DOC Reguengos, Reguengos DOC, Denominação de Origem Controlada Reguengos, D.O.C. Reguengos
+country:en:Portugal
 
 pt:DOC Setúbal, Setúbal DOC, Denominação de Origem Controlada Setúbal, D.O.C. Setúbal, Moscatel de Setúbal
+country:en:Portugal
 
 pt:DOC Vidigueira, Vidigueira DOC, Denominação de Origem Controlada Vidigueira, D.O.C. Vidigueira
+country:en:Portugal
 
 # Portuguese seal to promote Portuguese wines
 pt:Wines of Portugal
+country:en:Portugal
 
 # Portuguese seal to promote Portuguese products
 pt:Portugal Sou Eu
+country:en:Portugal
 
 # Portuguese seal to promote Portuguese products
 pt:Compro que é Nosso, Made in Portugal Compro que é Nosso, Compro que é Nosso Made in Portugal
+country:en:Portugal
 
 <en:Animal welfare
-es:Bienestar animal, Certificado Welfair, Animal Welfair
-xx:Bienestar animal
+en:Welfair certificate, Animal welfare Welfair certificate
+es:Certificado Welfair, Certificado Welfair de Bienestar Animal
+pt:Certificação Welfair, Certificação Welfair de bem-estar animal
 label_categories:en: en:Animal welfare
 description:en:Evaluates and monitors animal welfare quality on farms, in rearing areas and in slaughterhouses for bovine, porcine and ovine species as well as for hens, chickens, rabbits and turkeys.
 image:es:bienestar-animal.62x90.png

@@ -273,12 +273,14 @@ correspond to the _id field
 =head3 Return values
 
 Returns a hash with:
-<dl>
-  <dt>removed</dt>
-  <dd>int - number of effectively removed items</dd>
-  <dt>errors</dt>
-  <dd>ref to a list of errors</dd>
-</dl>
+
+	<dl>
+	  <dt>removed</dt>
+	  <dd>int - number of effectively removed items</dd>
+	  <dt>errors</dt>
+	  <dd>ref to a list of errors</dd>
+	</dl>
+
 =cut
 
 sub remove_documents_by_ids ($ids_to_remove_ref, $coll, $bulk_write_size = 100) {
