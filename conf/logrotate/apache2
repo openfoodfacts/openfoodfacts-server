@@ -4,8 +4,8 @@
     daily
     missingok
     rotate -1
-    # remove after two years
-    maxage 730
+    # remove after 6 month
+    maxage 183
     compress
     delaycompress
     notifempty
