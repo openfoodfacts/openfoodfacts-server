@@ -1910,7 +1910,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 		# allow a second file for wikipedia abstracts -> too big, so don't include it in the main file
 		# only process properties
 		my $properties_path = $file_path;
-		$properties_path =~ s/\.txt^/.properties.txt/;
+		$properties_path =~ s/\.txt$/.properties.txt/;
 
 		if (-e $properties_path) {
 
