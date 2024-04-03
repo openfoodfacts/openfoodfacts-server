@@ -85,6 +85,9 @@ sub unac_string_perl ($s) {
 # 4. keep other UTF-8 characters (e.g. Chinese, Japanese, Korean, Arabic, Hebrew etc.) untouched
 # 5. remove leading and trailing -, turn multiple - to -
 
+# IMPORTANT: if you change the behaviour of this method,
+# you need to change $BUILD_TAGS_VERSION in Tags.pm
+
 sub get_string_id_for_lang ($lc, $string) {
 
 	defined $lc or die("Undef \$lc in call to get_string_id_for_lang (string: $string)\n");
