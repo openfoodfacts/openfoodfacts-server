@@ -114,7 +114,7 @@ We create the user properties file locally before, and we create the user in key
 
 =head3 Return Value
 
-A hashmap reference with created user information.
+A hashmap reference with created user information.
 
 =cut
 
@@ -182,7 +182,7 @@ Try to find a user in Keycloak by their mail address.
 
 =head3 Return Value
 
-A hashmap reference with user information from Keycloak.
+A hashmap reference with user information from Keycloak.
 
 =cut
 

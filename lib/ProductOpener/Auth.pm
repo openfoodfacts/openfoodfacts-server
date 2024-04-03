@@ -104,6 +104,7 @@ Initiates the authorization process by redirecting the user to the authorization
 =head3 Return Values
 
 None
+
 =cut
 
 sub start_authorize ($request_ref) {
@@ -143,6 +144,7 @@ Handles the callback after successful authentication, verifies the ID token, and
 =head3 Return values
 
 The return URL after successful authentication.
+
 =cut
 
 sub signin_callback ($request_ref) {
@@ -215,11 +217,13 @@ We support this to enable passing user and password in the request json. This is
 =head3 Arguments
 
 =head4 The username for password-based authentication. $username
+
 =head4 The password for password-based authentication. $password
 
 =head3 Return Values
 
 A list containing the user's ID, refresh token, refresh token expiration time, access token, access token expiration time, and the ID token
+
 =cut
 
 sub password_signin ($username, $password) {
@@ -267,7 +271,7 @@ If the user properties file does not yet exists, it create it.
 
 The OIDC identification token information
 
-=heade4 boolean $require_verified_email
+=head4 boolean $require_verified_email
 
 If true, the email must be verified before proceeding.
 
@@ -332,9 +336,11 @@ If user is not authenticated, or his access token can't be refreshed,
 it will be redirected to signin process.
 
 =head3 Arguments
+
 =head4 A reference to a hash containing request information. $request_ref
-.
+
 =head3 Return Values
+
 None
 
 =cut
@@ -379,10 +385,11 @@ Initiates the sign-out process by redirecting the user to the authorization page
 =head3 Arguments
 
 =head4 A reference to a hash containing request information. $request_ref
-.
+
 =head3 Return Values
 
 None
+
 =cut
 
 sub start_signout ($request_ref) {
@@ -436,6 +443,7 @@ Handles the callback after successful sign-out, clears session cookie.
 =head3 Return values
 
 The return URL after successful sign-out.
+
 =cut
 
 sub signout_callback ($request_ref) {
@@ -624,6 +632,7 @@ Parameters:
 - $access_token_string: The access token to be verified.
 
 Returns: The verified access token or undefined if verification fails.
+
 =cut
 
 sub verify_access_token ($access_token_string) {
@@ -647,6 +656,7 @@ Parameters:
 - $id_token_string: The ID token to be verified.
 
 Returns: The verified ID token or undefined if verification fails.
+
 =cut
 
 sub verify_id_token ($id_token_string) {
@@ -677,6 +687,7 @@ This is useful for example for products change log.
 =head3 Return values
 
 The authorized party (client ID) or undefined if the token is not issued by the correct issuer.
+
 =cut
 
 sub get_azp ($access_token) {
@@ -727,6 +738,7 @@ None.
 =head3 Return values
 
 A workable instance of OIDC::Lite::Client::WebServer.
+
 =cut
 
 sub _get_client () {
@@ -760,6 +772,7 @@ None.
 =head3 Return values
 
 None.
+
 =cut
 
 sub _ensure_oidc_is_discovered () {
@@ -799,6 +812,7 @@ https://auth0.com/docs/secure/tokens/json-web-tokens/json-web-key-sets
 =head3 Return values
 
 None.
+
 =cut
 
 sub _load_jwks_configuration_to_oidc_options ($jwks_uri) {
@@ -825,6 +839,7 @@ None.
 =head3 Return values
 
 None.
+
 =cut
 
 sub write_auth_deprecated_headers() {
