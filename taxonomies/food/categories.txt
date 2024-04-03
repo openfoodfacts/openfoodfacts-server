@@ -4165,7 +4165,7 @@ protected_name_type:en: gi
 origins:en: en:France
 wikidata:en:Q3268
 wikipedia:en:https://en.wikipedia.org/wiki/Calvados
-origins:en: en:France, fr:Calvados
+origins:en: en:France
 
 <en:Calvados
 fr:Calvados Domfrontais
@@ -4244,7 +4244,7 @@ de:Apfelbrand aus Maine
 nl:Eau-de-vies uit de Maine-streek
 protected_name_file_number:en: PGI-FR-02036
 protected_name_type:en: gi
-origins:en: en:France, fr:Maine
+origins:en: en:France
 #wikidata:en:
 
 <en:French Eaux-de-vie
@@ -4262,7 +4262,7 @@ ciqual_food_name:fr:Eau de vie de vin, type armagnac, cognac
 fr:Eau-de-vie de Jura
 de:Branntwein aus dem Jura
 nl:Eau-devies uit de Jura
-origins:en: en:France, fr:Jura
+origins:en: en:France
 
 <en:French Eaux-de-vie
 fr:Eau-de-vie de poiré de Bretagne
@@ -4283,7 +4283,7 @@ origins:en: en:France, fr:Normandie
 fr:Eau-de-vie de poiré du Maine
 de:Birnenbrand aus Maine
 nl:Peren-eau-de-vies uit de Maine-streek
-origins:en: en:France, fr:Maine
+origins:en: en:France
 #wikidata:en:
 
 <en:French Eaux-de-vie
@@ -4297,7 +4297,7 @@ origins:en: en:France, fr:Bourgogne
 fr:Eau-de-vie de vin de la Marne
 de:Branntwein aus Marne, Branntwein aus dem Marne Tal
 nl:Wijn-eau-de-vies uit de Marne
-origins:en: en:France, fr:Marne
+origins:en: en:France
 protected_name_file_number:en: PGI-FR-02029, en: PGI-FR-02029-AM01
 protected_name_type:en: gi
 #wikidata:en:
@@ -4315,7 +4315,7 @@ de:Branntwein aus dem Rhône Tal, Branntwein aus Côtes-du-Rhône
 nl:Wijn-eau-de-vies uit de Côtes-du-Rhône
 protected_name_file_number:en: PGI-FR-02070
 protected_name_type:en: gi
-origins:en: en:France, fr:Côtes-du-Rhône
+origins:en: en:France
 #wikidata:en:
 
 <en:French Eaux-de-vie
@@ -4343,14 +4343,14 @@ origins:en: en:France, fr:Provence
 fr:Eau-de-vie de vin originaire des Coteaux de la Loire
 de:Branntwein aus dem Loire Tal, Branntwein aus Coteaux de la Loire
 nl:Wijn-eau-de-vies uit de Coteaux de la Loire
-origins:en: en:France, fr:Coteaux de la Loire
+origins:en: en:France
 #wikidata:en:
 
 <en:French Eaux-de-vie
 fr:Eau-de-vie de vin originaire du Bugey
 de:Branntwein aus dem Bugey
 nl:Wijn-eau-de-vies uit de Bugey
-origins:en: en:France, fr:Bugey
+origins:en: en:France
 protected_name_file_number:en: PGI-FR-02068
 protected_name_type:en: gi
 origins:en: en:France
@@ -4369,14 +4369,14 @@ de:Branntwein aus dem Languedoc
 nl:Wijn eau-de-vies uit de Languedoc
 protected_name_file_number:en: PGI-FR-02067
 protected_name_type:en: gi
-origins:en: en:France, fr:Languedoc
+origins:en: en:France
 #wikidata:en:
 
 <en:French Eaux-de-vie
 fr:Eau-de-vie des Charentes
 de:Branntwein aus Charente
 nl:Eau-de-vies uit de Charante
-origins:en: en:France, fr:Charentes
+origins:en: en:France
 #wikidata:en:
 
 <en:Swiss Eaux-de-vie
@@ -4632,7 +4632,7 @@ origins:en: en:France
 fr:Rhum des Antilles françaises
 protected_name_file_number:en: PGI-FR-01990
 protected_name_type:en: gi
-origins:en: en:France, fr:Antilles françaises
+origins:en: en:France
 
 <en:French rums
 fr:Rhum des départements français d'outre-mer
@@ -4666,7 +4666,7 @@ origins:en: en:France, fr:Guadeloupe
 fr:Rhum de la Guyane
 protected_name_file_number:en: PGI-FR-02066
 protected_name_type:en: gi
-origins:en: en:France, en:French Guyana
+origins:en: en:France
 wikidata:en:Q110722095
 
 <en:Rums
@@ -5635,7 +5635,7 @@ fr:Crèmes de cassis françaises
 fr:Cassis de Saintonge
 protected_name_file_number:en: PGI-FR-01986
 protected_name_type:en: gi
-origins:en: en:France, fr:Saintonge
+origins:en: en:France
 #wikidata:en:
 
 <en:French Crème de cassis
@@ -5649,7 +5649,7 @@ origins:en: en:France, fr:Bourgogne
 fr:Cassis de Dijon
 protected_name_file_number:en: PGI-FR-01991
 protected_name_type:en: gi
-origins:en: en:France, fr:Dijon
+origins:en: en:France
 #wikidata:en:
 
 <en:Liqueurs
@@ -8257,7 +8257,6 @@ ru:Чай в пакетиках
 # should not be in pnns_group_2:en:Teas and herbal teas and coffees
 pnns_group_2:en:unknown
 # should not be in food_groups:en: en:Teas and herbal teas and coffees
-food_groups:en: en:unknown
 
 <en:Herbal teas
 en:Instant herbal teas
@@ -8988,7 +8987,6 @@ zh:袋茶, 茶包, 袋泡茶
 # should not be in pnns_group_2:en:Teas and herbal teas and coffees
 pnns_group_2:en:unknown
 # should not be in food_groups:en: en:Teas and herbal teas and coffees
-food_groups:en: en:unknown
 agribalyse_food_code:en:18020
 ciqual_food_code:en:18020
 ciqual_food_name:en:Tea, brewed, without sugar
@@ -10797,7 +10795,7 @@ origins:en: en:France
 fr:Marc du Jura
 protected_name_file_number:en: PGI-FR-02027
 protected_name_type:en: gi
-origins:en: en:France, fr:Jura
+origins:en: en:France
 
 <en:French grape marc spirit or grape marc
 fr:Marc d'Alsace Gewurztraminer
@@ -10815,7 +10813,7 @@ origins:en: en:France, fr:Auvergne
 fr:Marc des Côtes-du-Rhône, Eau-de-vie de marc des Côtes du Rhône
 protected_name_file_number:en: PGI-FR-01979
 protected_name_type:en: gi
-origins:en: en:France, fr:Côtes-du-Rhône
+origins:en: en:France
 
 <en:French grape marc spirit or grape marc
 fr:Marc de Provence
@@ -10827,13 +10825,13 @@ origins:en: en:France, fr:Provence
 fr:Marc du Languedoc
 protected_name_file_number:en: PGI-FR-02074
 protected_name_type:en: gi
-origins:en: en:France, fr:Languedoc
+origins:en: en:France
 
 <en:French grape marc spirit or grape marc
 fr:Marc du Bugey
 protected_name_file_number:en: PGI-FR-02025
 protected_name_type:en: gi
-origins:en: en:France, fr:Bugey
+origins:en: en:France
 
 <en:French grape marc spirit or grape marc
 fr:Marc de Savoie
@@ -12195,7 +12193,6 @@ origins:en: en:France
 wikidata:en:Q2130903
 protected_name_file_number:en: PDO-FR-A0386
 protected_name_type:en: pdo
-origins:en: en:France
 
 <fr:Alsace Grand Cru
 fr:Alsace Grand Cru Saering, Saering
@@ -12203,7 +12200,6 @@ origins:en: en:France
 wikidata:en:Q3461235
 protected_name_file_number:en: PDO-FR-A0375
 protected_name_type:en: pdo
-origins:en: en:France
 
 <fr:Alsace Grand Cru
 fr:Alsace Grand Cru Schlossberg, Schlossberg
@@ -12211,7 +12207,6 @@ origins:en: en:France
 wikidata:en:Q3475436
 protected_name_file_number:en: PDO-FR-A0415
 protected_name_type:en: pdo
-origins:en: en:France
 
 <fr:Alsace Grand Cru
 fr:Alsace Grand Cru Schoenenbourg, Schoenenbourg
@@ -12219,7 +12214,6 @@ origins:en: en:France
 wikidata:en:Q3475471
 protected_name_file_number:en: PDO-FR-A0418
 protected_name_type:en: pdo
-origins:en: en:France
 
 <fr:Alsace Grand Cru
 fr:Alsace Grand Cru Sommerberg, Sommerberg
@@ -12227,7 +12221,6 @@ origins:en: en:France
 wikidata:en:Q3489881
 protected_name_file_number:en: PDO-FR-A0416
 protected_name_type:en: pdo
-origins:en: en:France
 
 <fr:Alsace Grand Cru
 fr:Alsace Grand Cru Sonnenglanz, Sonnenglanz
@@ -12235,7 +12228,6 @@ origins:en: en:France
 wikidata:en:Q3490492
 protected_name_file_number:en: PDO-FR-A0625
 protected_name_type:en: pdo
-origins:en: en:France
 
 <fr:Alsace Grand Cru
 fr:Alsace Grand Cru Spiegel, Spiegel
@@ -12519,22 +12511,22 @@ origins:en: en:France
 
 <en:Wines from France
 fr:Beaujolais
-origins:en: en:France, fr:Beaujolais
+origins:en: en:France
 grape_variety:fr:gamay, chardonnay
 
 <en:Wines from France
 fr:Beaujolais Villages
-origins:en: en:France, fr:Beaujolais
+origins:en: en:France
 grape_variety:fr:gamay, chardonnay
 
 <en:Wines from France
 fr:Beaujolais Supérieur
-origins:en: en:France, fr:Beaujolais
+origins:en: en:France
 grape_variety:fr:gamay
 
 <fr:Beaujolais
 fr:Beaujolais nouveau, Beaujolais primeur
-origins:en: en:France, fr:Beaujolais
+origins:en: en:France
 grape_variety:fr:gamay, chardonnay
 
 <en:Burgundy wines
@@ -13543,7 +13535,7 @@ grape_variety:fr:aligoté
 <en:Wines from France
 fr:Brouilly
 wikidata:en:Q461400
-origins:en: en:France, fr:Beaujolais
+origins:en: en:France
 
 <en:Wines from France
 fr:Bugey, Vins du Bugey, Mousseux du Bugey, Pétillant du Bugey, Roussette du Bugey, Bugey Mousseux, Bugey Pétillant
@@ -13576,7 +13568,6 @@ fr:Cabernet de Saumur, Cabernet de Saumur Val de Loire
 origins:en: en:France
 protected_name_file_number:en: PDO-FR-A0257
 protected_name_type:en: pdo
-origins:en: en:France
 #wikidata:en:
 
 <en:Bordeaux wines
@@ -14846,7 +14837,7 @@ origins:en: en:France
 <en:White wines
 fr:Château-Chalon
 wikidata:en:Q1090298
-origins:en: en:France, fr:Jura
+origins:en: en:France
 
 <en:Wines from France
 fr:Châteaumeillant
@@ -14866,7 +14857,7 @@ origins:en: en:France
 <en:Wines from France
 fr:Chenas, Chénas
 wikidata:en:Q1090927
-origins:en: en:France, fr:Beaujolais
+origins:en: en:France
 
 <en:Burgundy wines
 <en:White wines
@@ -14891,7 +14882,7 @@ origins:en: en:France
 <en:Wines from France
 fr:Chiroubles
 wikidata:en:Q1074779
-origins:en: en:France, fr:Beaujolais
+origins:en: en:France
 
 <en:Wines from France
 fr:Chorey-les-Beaune Côte de Beaune, Chorey-les-Beaune Côte de Beaune-Villages, Chorey-les-Beaune
@@ -15073,7 +15064,7 @@ origins:en: en:France, fr:Bourgogne
 <en:Wines from France
 fr:Côte de Brouilly
 wikidata:en:Q461328
-origins:en: en:France, fr:Beaujolais
+origins:en: en:France
 
 <en:Burgundy wines
 fr:Côte de Nuits-villages, Vins Fins de la Côte de Nuits
@@ -15100,7 +15091,7 @@ protected_name_type:en: pgi
 
 <en:Wines from France
 fr:Coteaux champenois
-origins:en: en:France, fr:Champagne
+origins:en: en:France
 wikidata:en:Q2998542
 
 <en:Bordeaux wines
@@ -15795,7 +15786,7 @@ protected_name_type:en: pdo
 fr:Fleurie
 protected_name_file_number:en: PDO-FR-A0930
 protected_name_type:en: pdo
-origins:en: en:France, fr:Beaujolais
+origins:en: en:France
 #wikidata:en:
 
 <en:Wines from France
@@ -16532,7 +16523,7 @@ origins:en: en:France
 fr:Juliénas
 protected_name_file_number:en: PDO-FR-A1025
 protected_name_type:en: pdo
-origins:en: en:France, fr:Beaujolais
+origins:en: en:France
 #wikidata:en:
 
 <en:Wines from France
@@ -18286,7 +18277,7 @@ wikidata:en:Q42862923
 
 <en:Wines from France
 fr:Morgon
-origins:en: en:France, fr:Beaujolais
+origins:en: en:France
 
 <en:Wines from France
 fr:Moselle
@@ -18297,7 +18288,7 @@ origins:en: en:France
 
 <en:Wines from France
 fr:Moulin-à-Vent
-origins:en: en:France, fr:Beaujolais
+origins:en: en:France
 
 <en:Wines from France
 fr:Moulis, Moulis en Médoc, Moulis en Medoc, Moulis-en-Médoc, Moulis-en-Medoc
@@ -19726,7 +19717,7 @@ wikidata:en:Q42862538
 
 <en:Wines from France
 fr:Régnié
-origins:en: en:France, fr:Beaujolais
+origins:en: en:France
 #wikidata:en:
 
 <en:Wines from France
@@ -19795,7 +19786,7 @@ origins:en: en:France
 <en:Wines from France
 fr:Rosé des Riceys
 wikidata:en:Q2167983
-origins:en: en:France, fr:Champagne
+origins:en: en:France
 
 <en:Wines from France
 fr:Vin Rosette
@@ -20175,7 +20166,7 @@ protected_name_type:en: pgi
 
 <en:Wines from France
 fr:Saint-Amour
-origins:en: en:France, fr:Beaujolais
+origins:en: en:France
 
 <en:Burgundy wines
 <en:Red wines
@@ -54485,7 +54476,7 @@ origins:en: en:France, fr:Cévennes
 en:Acacia honeys from Jura
 fr:Miels d’acacia du Jura
 nl:Acaciahoningen uit de Jura
-# Disabled for safety: origins:en: en:France, fr:Jura
+# Disabled for safety: origins:en: en:France
 
 <en:Honeys from Alsace
 fr:Miels de châtaignier d'Alsace
@@ -54581,7 +54572,7 @@ origins:en: en:France, fr:Gatinais
 en:Honeys from Jura
 fr:Miels du Jura
 nl:Honingen uit de Jura
-# Disabled for safety: origins:en: en:France, fr:Jura
+# Disabled for safety: origins:en: en:France
 
 <en:Honeys
 en:Honeys from Bulgaria, Bulgarian honeys
@@ -81526,7 +81517,7 @@ protected_name_type:en: pgi
 fr:Volailles de la Champagne
 protected_name_file_number:en: PGI-FR-0172
 protected_name_type:en: pgi
-origins:en: en:France, fr:Champagne
+origins:en: en:France
 
 <en:Poultries
 fr:Volailles du Berry
@@ -81545,7 +81536,7 @@ en:Poultry from Languedoc
 fr:Volailles du Languedoc
 protected_name_file_number:en: PGI-FR-0173
 protected_name_type:en: pgi
-origins:en: en:France, fr:Languedoc
+origins:en: en:France
 
 <en:Poultries
 en:Poultry from Lauragais
@@ -103940,7 +103931,7 @@ pl:Soczewica czerwona
 
 <en:Lentils
 fr:lentilles rosées de Champagne, lentillon de Champagne
-origins:en: en:France, fr:Champagne
+origins:en: en:France
 
 <en:Pulses
 en:Lupin beans, Lupins, Lupini beans
