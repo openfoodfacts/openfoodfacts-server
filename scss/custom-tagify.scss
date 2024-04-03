@@ -8,8 +8,8 @@
 
 // Hover state for Tagify tags
 .tagify__tag:hover {
-  background-color: $skyblue;
-  border-color: lighten($paleblue, 10%);
+  background-color: $chocolate; // Use 'chocolate' for better contrast and theme consistency
+  border-color: lighten($chocolate, 10%); // Lighten the chocolate color for border
 }
 
 // Style for the remove button in tags
@@ -19,16 +19,16 @@
 
 // Hover state for the remove button in tags
 .tagify__tag .tagify__tag__removeBtn:hover {
-  background-color: $off-pink;
+  background-color: $chocolate; // Same 'chocolate' color for consistency
 }
 
 // Hover state for dropdown items
 .tagify__dropdown__item--active,
 .tagify__dropdown__item:hover {
-  background-color: $skyblue;
+  background-color: $chocolate; // Again, using 'chocolate' for hover state
 }
 
 // Style for dropdown items
 .tagify__dropdown__item {
-  border-color: $paleblue;
+  border-color: lighten($chocolate, 20%); // Lighten for subtle borders
 }
