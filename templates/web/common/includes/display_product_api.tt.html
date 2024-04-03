@@ -1,5 +1,5 @@
 
-[% IF single_param("jqm") %]
+[% IF has_jqm_param %]
     [% Lang.app_please_take_pictures.$request_lc %]
     <button onclick="captureImage();" data-icon="off-camera">[% Lang.app_take_a_picture.$request_lc %]</button>
     <div id="upload_image_result"></div>
