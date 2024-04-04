@@ -17,26 +17,12 @@ my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init
 # Default OCR response, containing a single response element
 my $ocr_default_response = '{"responses": [{}]}';
 
-=pod
-
-my @ua_requests = ();
-# put responses for call to requests here, we will pop first
-my @ua_responses = ();
-# fake request for User-Agent module
-sub fake_ua_request ($ua, $request_ref) {
-	push(@ua_requests, $request_ref);
-	return shift @ua_responses;
-}
-
-=cut
 
 # a very small image to avoid having too large request json object
 my $image_path = dirname(__FILE__) . "/inputs/small-img.jpg";
 
 {
-	#my $user_agent_module = Test::MockModule->new('LWP::UserAgent');
 	## mock request
-	#$user_agent_module->mock('request', \&fake_ua_request);
 	my @ua_requests = ();
 	# put responses for call to requests here, we will pop first
 	my @ua_responses = ();
