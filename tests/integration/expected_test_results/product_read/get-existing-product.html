@@ -502,8 +502,10 @@
             <div class="card">
                 <div class="card-section">
                         
-<!-- start templates/web/panels/panel.tt.html - panel_id: health_card -->
 
+	<!-- start templates/web/panels/panel.tt.html - panel_id: health_card -->
+
+	
 <div class="panel_card radius" id="panel_health_card"
     
         style="margin-top:0.5rem;margin-bottom:1.5rem;"
@@ -515,33 +517,28 @@
         
     
 
+	   	 <div
+	   	    id="panel_health_card_content"
+	   	    class="content panel_content_card active"
+	   	  >
+          
+              
+    <div class="panel_group">
 
+        
 
-    
-    <div
-      id="panel_health_card_content"
-      class="content panel_content_card active
-        "
-    >
-    
+                        
+
+        
+            <h3 id="panel_group_ingredients" class="panel_title_card text-medium">Ingredients</h3>
         
 
         
             
-            <div class="panel_group">
 
-                
+	<!-- start templates/web/panels/panel.tt.html - panel_id: ingredients -->
 
-                                
-
-                
-                    <h3 id="panel_group_ingredients" class="panel_title_card text-medium">Ingredients</h3>
-                
-                
-                    
-<!-- start templates/web/panels/panel.tt.html - panel_id: ingredients -->
-
-<ul data-accordion class="panel_accordion accordion" id="panel_ingredients"
+	<ul data-accordion class="panel_accordion accordion" id="panel_ingredients"
     
         style="margin-top:0.5rem;margin-bottom:1.5rem;"
     
@@ -557,9 +554,7 @@
                 style="height:72px;float:left;margin-right:1rem;"
                 alt="icon"
                 
-                    
                         class="filter-grey"
-                    
                 
             >
             
@@ -575,116 +570,75 @@
         </a>
     
 
+	   	 <div
+	   	    id="panel_ingredients_content"
+	   	    class="content panel_content active expand-for-large"
+	   	  >
+          
+              <div style="margin-bottom:0.5rem">
+       
+        <div>
+    
 
 
     
-    <div
-      id="panel_ingredients_content"
-      class="content panel_content active
-        expand-for-large"
-    >
+           <div class="panel_text">
+             <span class="allergen">apple</span>, <span class="allergen">milk</span>, <span class="allergen">eggs</span>, palm oil
+           </div>
     
-        
 
-        
-
-            <div style="margin-bottom:0.5rem">
-
-            
-                
-
-                
-                <div>
-                
-
-
-                
-                    <div class="panel_text">
-                
-                    
-                    <span class="allergen">apple</span>, <span class="allergen">milk</span>, <span class="allergen">eggs</span>, palm oil
-                
-                    </div>
-                
-                
-                </div>
-
-                
-
-            
-
-            </div>
-
-        
-    
-        
-
-        
-
-            <div style="margin-bottom:0.5rem">
-
-            
-                
-
-                
-                <div>
-                
-
-
-                
-                    <div class="panel_text">
-                
-                    
-                    <strong>Allergens:</strong> 
-                    Apple, Eggs, Milk
-                
-                
-                    </div>
-                
-                
-                </div>
-
-                
-
-            
-
-            </div>
-
-        
     
     </div>
+
+    
+    </div>
+              <div style="margin-bottom:0.5rem">
+       
+        <div>
     
 
+
+    
+           <div class="panel_text">
+             <strong>Allergens:</strong> 
+                    Apple, Eggs, Milk
+                
+           </div>
+    
+
+    
+    </div>
+
+    
+    </div>
+	   	 </div>
+	
 </li>
 </ul>
 
-<!-- end templates/web/panels/panel.tt.html - panel_id: ingredients -->
-
-                
-
-                                
-                
-            </div>
+	<!-- end templates/web/panels/panel.tt.html - panel_id: ingredients -->
         
-    
+
+                        
+        
+    </div>
+              
+    <div class="panel_group">
+
+        
+
+                        
+
+        
+            <h3 class="panel_title_card">Food processing</h3>
         
 
         
             
-            <div class="panel_group">
 
-                
+	<!-- start templates/web/panels/panel.tt.html - panel_id: nova -->
 
-                                
-
-                
-                    <h3  class="panel_title_card">Food processing</h3>
-                
-                
-                    
-<!-- start templates/web/panels/panel.tt.html - panel_id: nova -->
-
-<ul data-accordion class="panel_accordion accordion" id="panel_nova"
+	<ul data-accordion class="panel_accordion accordion" id="panel_nova"
     
         style="margin-top:0.5rem;margin-bottom:1.5rem;"
     
@@ -714,34 +668,20 @@
         </a>
     
 
+	   	 <div
+	   	    id="panel_nova_content"
+	   	    class="content panel_content"
+	   	  >
+          
+              <div style="margin-bottom:0.5rem">
+       
+        <div>
+    
 
 
     
-    <div
-      id="panel_nova_content"
-      class="content panel_content
-        "
-    >
-    
-        
-
-        
-
-            <div style="margin-bottom:0.5rem">
-
-            
-                
-
-                
-                <div>
-                
-
-
-                
-                    <div class="panel_text">
-                
-                    
-                    
+           <div class="panel_text">
+             
 
     
         
@@ -755,39 +695,23 @@
     
 
 
-                
-                    </div>
-                
-                
-                </div>
-
-                
-
-            
-
-            </div>
-
-        
+           </div>
     
-        
 
-        
+    
+    </div>
 
-            <div style="margin-bottom:0.5rem">
-
-            
-                
-
-                
-                <div>
-                
+    
+    </div>
+              <div style="margin-bottom:0.5rem">
+       
+        <div>
+    
 
 
-                
-                    <div class="panel_text">
-                
-                    
-                    
+    
+           <div class="panel_text">
+             
 <p>Food products are classified into 4 groups according to their degree of processing:</p>
 <ol>
 <li>Unprocessed or minimally processed foods</li>
@@ -799,52 +723,42 @@
 <p>The determination of the group is based on the category of the product and on the ingredients it contains.</p>
 <p>&rarr; <a href="http://world.openfoodfacts.localhost/nova">Learn more about the NOVA classification</a></p>
 
-                
-                    </div>
-                
-                
-                </div>
+           </div>
+    
 
-                
-
-            
-
-            </div>
-
-        
     
     </div>
-    
 
+    
+    </div>
+	   	 </div>
+	
 </li>
 </ul>
 
-<!-- end templates/web/panels/panel.tt.html - panel_id: nova -->
-
-                
-
-                                
-                
-            </div>
+	<!-- end templates/web/panels/panel.tt.html - panel_id: nova -->
         
-    
+
+                        
+        
+    </div>
+              
+    <div class="panel_group">
+
+        
+
+                        
+
+        
+            <h3 class="panel_title_card">Ingredients analysis</h3>
         
 
         
             
-            <div class="panel_group">
 
-                
+	<!-- start templates/web/panels/panel.tt.html - panel_id: ingredients_analysis -->
 
-                                
-
-                
-                    <h3  class="panel_title_card">Ingredients analysis</h3>
-                
-                
-                    
-<!-- start templates/web/panels/panel.tt.html - panel_id: ingredients_analysis -->
-
+	
 <div class="panel_inline radius" id="panel_ingredients_analysis"
     
         style="margin-top:0.5rem;margin-bottom:1.5rem;"
@@ -852,22 +766,16 @@
 >
     
 
+	   	 <div
+	   	    id="panel_ingredients_analysis_content"
+	   	    class="content panel_content_inline active"
+	   	  >
+          
+              
 
+	<!-- start templates/web/panels/panel.tt.html - panel_id: ingredients_analysis_en:palm-oil -->
 
-    
-    <div
-      id="panel_ingredients_analysis_content"
-      class="content panel_content_inline active
-        "
-    >
-    
-        
-
-        
-            
-<!-- start templates/web/panels/panel.tt.html - panel_id: ingredients_analysis_en:palm-oil -->
-
-<ul data-accordion class="panel_accordion accordion" id="panel_ingredients_analysis_en-palm-oil"
+	<ul data-accordion class="panel_accordion accordion" id="panel_ingredients_analysis_en-palm-oil"
     
         style="margin-top:0.2rem;margin-bottom:0.2rem;"
     
@@ -885,9 +793,7 @@
                 style="height:36px;float:left;margin-right:1rem;"
                 alt="icon"
                 
-                    
                         class="filter-red"
-                    
                 
             >
             
@@ -903,70 +809,44 @@
         </a>
     
 
+	   	 <div
+	   	    id="panel_ingredients_analysis_en-palm-oil_content"
+	   	    class="content panel_content"
+	   	  >
+          
+              <div style="margin-bottom:0.5rem">
+       
+        <div>
+    
 
 
     
-    <div
-      id="panel_ingredients_analysis_en-palm-oil_content"
-      class="content panel_content
-        "
-    >
-    
-        
-
-        
-
-            <div style="margin-bottom:0.5rem">
-
-            
-                
-
-                
-                <div>
-                
-
-
-                
-                    <div class="panel_text">
-                
-                    
-                    
+           <div class="panel_text">
+             
                 
                     <strong>Ingredients that contain palm oil:</strong>
                     Palm oil
                 
                     
-                
-                    </div>
-                
-                
-                </div>
+           </div>
+    
 
-                
-
-            
-
-            </div>
-
-        
     
     </div>
-    
 
+    
+    </div>
+	   	 </div>
+	
 </li>
 </ul>
 
-<!-- end templates/web/panels/panel.tt.html - panel_id: ingredients_analysis_en:palm-oil -->
+	<!-- end templates/web/panels/panel.tt.html - panel_id: ingredients_analysis_en:palm-oil -->
+              
 
-        
-    
-        
+	<!-- start templates/web/panels/panel.tt.html - panel_id: ingredients_analysis_en:non-vegan -->
 
-        
-            
-<!-- start templates/web/panels/panel.tt.html - panel_id: ingredients_analysis_en:non-vegan -->
-
-<ul data-accordion class="panel_accordion accordion" id="panel_ingredients_analysis_en-non-vegan"
+	<ul data-accordion class="panel_accordion accordion" id="panel_ingredients_analysis_en-non-vegan"
     
         style="margin-top:0.2rem;margin-bottom:0.2rem;"
     
@@ -984,9 +864,7 @@
                 style="height:36px;float:left;margin-right:1rem;"
                 alt="icon"
                 
-                    
                         class="filter-red"
-                    
                 
             >
             
@@ -1002,70 +880,44 @@
         </a>
     
 
+	   	 <div
+	   	    id="panel_ingredients_analysis_en-non-vegan_content"
+	   	    class="content panel_content"
+	   	  >
+          
+              <div style="margin-bottom:0.5rem">
+       
+        <div>
+    
 
 
     
-    <div
-      id="panel_ingredients_analysis_en-non-vegan_content"
-      class="content panel_content
-        "
-    >
-    
-        
-
-        
-
-            <div style="margin-bottom:0.5rem">
-
-            
-                
-
-                
-                <div>
-                
-
-
-                
-                    <div class="panel_text">
-                
-                    
-                    
+           <div class="panel_text">
+             
                 
                     <strong>Non-vegan ingredients:</strong>
                     Milk, Egg
                 
                     
-                
-                    </div>
-                
-                
-                </div>
+           </div>
+    
 
-                
-
-            
-
-            </div>
-
-        
     
     </div>
-    
 
+    
+    </div>
+	   	 </div>
+	
 </li>
 </ul>
 
-<!-- end templates/web/panels/panel.tt.html - panel_id: ingredients_analysis_en:non-vegan -->
+	<!-- end templates/web/panels/panel.tt.html - panel_id: ingredients_analysis_en:non-vegan -->
+              
 
-        
-    
-        
+	<!-- start templates/web/panels/panel.tt.html - panel_id: ingredients_analysis_en:vegetarian -->
 
-        
-            
-<!-- start templates/web/panels/panel.tt.html - panel_id: ingredients_analysis_en:vegetarian -->
-
-<ul data-accordion class="panel_accordion accordion" id="panel_ingredients_analysis_en-vegetarian"
+	<ul data-accordion class="panel_accordion accordion" id="panel_ingredients_analysis_en-vegetarian"
     
         style="margin-top:0.2rem;margin-bottom:0.2rem;"
     
@@ -1083,9 +935,7 @@
                 style="height:36px;float:left;margin-right:1rem;"
                 alt="icon"
                 
-                    
                         class="filter-green"
-                    
                 
             >
             
@@ -1101,108 +951,68 @@
         </a>
     
 
+	   	 <div
+	   	    id="panel_ingredients_analysis_en-vegetarian_content"
+	   	    class="content panel_content"
+	   	  >
+          
+              <div style="margin-bottom:0.5rem">
+       
+        <div>
+    
 
 
     
-    <div
-      id="panel_ingredients_analysis_en-vegetarian_content"
-      class="content panel_content
-        "
-    >
-    
-        
-
-        
-
-            <div style="margin-bottom:0.5rem">
-
-            
-                
-
-                
-                <div>
-                
-
-
-                
-                    <div class="panel_text">
-                
-                    
-                    
+           <div class="panel_text">
+             
                 
                     No non-vegetarian ingredients detected
                     
                 
                     
-                
-                    </div>
-                
-                
-                </div>
+           </div>
+    
 
-                
-
-            
-
-            </div>
-
-        
     
     </div>
-    
 
+    
+    </div>
+	   	 </div>
+	
 </li>
 </ul>
 
-<!-- end templates/web/panels/panel.tt.html - panel_id: ingredients_analysis_en:vegetarian -->
-
-        
+	<!-- end templates/web/panels/panel.tt.html - panel_id: ingredients_analysis_en:vegetarian -->
+              <div style="margin-bottom:0.5rem">
+       
+        <div>
     
-        
-
-        
-
-            <div style="margin-bottom:0.5rem">
-
-            
-                
-
-                
-                <div>
-                
 
 
-                
-                    <div class="panel_text">
-                
-                    
-                    The analysis is based solely on the ingredients listed and does not take into account processing methods.
-                
-                    </div>
-                
-                
-                </div>
+    
+           <div class="panel_text">
+             The analysis is based solely on the ingredients listed and does not take into account processing methods.
+           </div>
+    
 
-                
-
-            
-
-            </div>
-
-        
     
     </div>
-    
 
+    
+    </div>
+	   	 </div>
+	
 </div>
 
-<!-- end templates/web/panels/panel.tt.html - panel_id: ingredients_analysis -->
 
-                
-                    
-<!-- start templates/web/panels/panel.tt.html - panel_id: ingredients_analysis_details -->
+	<!-- end templates/web/panels/panel.tt.html - panel_id: ingredients_analysis -->
+        
+            
 
-<ul data-accordion class="panel_accordion accordion" id="panel_ingredients_analysis_details"
+	<!-- start templates/web/panels/panel.tt.html - panel_id: ingredients_analysis_details -->
+
+	<ul data-accordion class="panel_accordion accordion" id="panel_ingredients_analysis_details"
     
         style="margin-top:0.2rem;margin-bottom:0.2rem;"
     
@@ -1220,9 +1030,7 @@
                 style="height:36px;float:left;margin-right:1rem;"
                 alt="icon"
                 
-                    
                         class="filter-grey"
-                    
                 
             >
             
@@ -1238,153 +1046,96 @@
         </a>
     
 
+	   	 <div
+	   	    id="panel_ingredients_analysis_details_content"
+	   	    class="content panel_content"
+	   	  >
+          
+              <div style="margin-bottom:0.5rem">
+       
+        <div>
+    
 
 
     
-    <div
-      id="panel_ingredients_analysis_details_content"
-      class="content panel_content
-        "
-    >
+           <div class="panel_text">
+             en: <span>apple</span>, <span>milk</span>, <span>eggs</span>, <span>palm oil</span>
+           </div>
     
-        
 
-        
-
-            <div style="margin-bottom:0.5rem">
-
-            
-                
-
-                
-                <div>
-                
-
-
-                
-                    <div class="panel_text">
-                
-                    
-                    en: <span>apple</span>, <span>milk</span>, <span>eggs</span>, <span>palm oil</span>
-                
-                    </div>
-                
-                
-                </div>
-
-                
-
-            
-
-            </div>
-
-        
     
-        
+    </div>
 
-        
-
-            <div style="margin-bottom:0.5rem">
-
-            
-                
-
-                
-                <div>
-                
+    
+    </div>
+              <div style="margin-bottom:0.5rem">
+       
+        <div>
+    
 
 
-                
-                    <div class="panel_text">
-                
-                    
-                    <ol id="ordered_ingredients_list">
+    
+           <div class="panel_text">
+             <ol id="ordered_ingredients_list">
 <li><span>apple</span> -> en:apple - vegan:&nbsp;yes - vegetarian:&nbsp;yes - ciqual_food_code:&nbsp;13050 - percent_min:&nbsp;25 - percent_max:&nbsp;100</li>
 <li><span>milk</span> -> en:milk - vegan:&nbsp;no - vegetarian:&nbsp;yes - ciqual_proxy_food_code:&nbsp;19051 - percent_min:&nbsp;0 - percent_max:&nbsp;50</li>
 <li><span>eggs</span> -> en:egg - vegan:&nbsp;no - vegetarian:&nbsp;yes - ciqual_food_code:&nbsp;22000 - percent_min:&nbsp;0 - percent_max:&nbsp;33.3333333333333</li>
 <li><span>palm oil</span> -> en:palm-oil - vegan:&nbsp;yes - vegetarian:&nbsp;yes - from_palm_oil:&nbsp;yes - ciqual_food_code:&nbsp;16129 - percent_min:&nbsp;0 - percent_max:&nbsp;25</li>
 </ol>
 
-                
-                    </div>
-                
-                
-                </div>
-
-                
-
-            
-
-            </div>
-
-        
+           </div>
     
-        
 
-        
-
-            <div style="margin-bottom:0.5rem">
-
-            
-                
-
-                
-                <div>
-                
-
-
-                
-                    <div class="panel_text">
-                
-                    
-                    
-                
-                    </div>
-                
-                
-                </div>
-
-                
-
-            
-
-            </div>
-
-        
     
     </div>
+
+    
+    </div>
+              <div style="margin-bottom:0.5rem">
+       
+        <div>
     
 
+
+    
+           <div class="panel_text">
+             
+           </div>
+    
+
+    
+    </div>
+
+    
+    </div>
+	   	 </div>
+	
 </li>
 </ul>
 
-<!-- end templates/web/panels/panel.tt.html - panel_id: ingredients_analysis_details -->
-
-                
-
-                                
-                
-            </div>
+	<!-- end templates/web/panels/panel.tt.html - panel_id: ingredients_analysis_details -->
         
-    
+
+                        
+        
+    </div>
+              
+    <div class="panel_group">
+
+        
+
+                        
+
+        
+            <h3 id="panel_group_nutrition" class="panel_title_card text-medium">Nutrition</h3>
         
 
         
             
-            <div class="panel_group">
 
-                
+	<!-- start templates/web/panels/panel.tt.html - panel_id: nutriscore -->
 
-                                
-
-                
-                    <h3 id="panel_group_nutrition" class="panel_title_card text-medium">Nutrition</h3>
-                
-                
-                    
-<!-- start templates/web/panels/panel.tt.html - panel_id: nutriscore -->
-
-<ul data-accordion class="panel_accordion accordion" id="panel_nutriscore"
+	<ul data-accordion class="panel_accordion accordion" id="panel_nutriscore"
     
         style="margin-top:0.5rem;margin-bottom:1.5rem;"
     
@@ -1414,102 +1165,54 @@
         </a>
     
 
+	   	 <div
+	   	    id="panel_nutriscore_content"
+	   	    class="content panel_content"
+	   	  >
+          
+              <div style="margin-bottom:0.5rem">
+       
+        <div>
+    
 
 
     
-    <div
-      id="panel_nutriscore_content"
-      class="content panel_content
-        "
-    >
+           <div class="panel_text panel_text_warning">⚠
+             ️Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients.
+                    
+           </div>
+
     
-        
+    </div>
 
-        
-
-            <div style="margin-bottom:0.5rem">
-
-            
-                
-
-                
-                <div>
-                
-
-
-                
-                    <div class="panel_text panel_text_warning">⚠️
-                
-                    
-                    Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients.
-                    
-                
-                    </div>
-                
-                
-                </div>
-
-                
-
-            
-
-            </div>
-
-        
     
-        
-
-        
-
-            <div style="margin-bottom:0.5rem">
-
-            
-                
-
-                
-                <div>
-                
-
-
-                
-                    <div class="panel_text panel_text_warning">⚠️
-                
-                    
-                    Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: 62
-                    
-                
-                    </div>
-                
-                
-                </div>
-
-                
-
-            
-
-            </div>
-
-        
+    </div>
+              <div style="margin-bottom:0.5rem">
+       
+        <div>
     
-        
-
-        
-
-            <div style="margin-bottom:0.5rem">
-
-            
-                
-
-                
-                <div>
-                
 
 
-                
-                    <div class="panel_text">
-                
+    
+           <div class="panel_text panel_text_warning">⚠
+             ️Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: 62
                     
-                    <!-- start templates/web/pages/product/includes/nutriscore_details.tt.html -->
+           </div>
+
+    
+    </div>
+
+    
+    </div>
+              <div style="margin-bottom:0.5rem">
+       
+        <div>
+    
+
+
+    
+           <div class="panel_text">
+             <!-- start templates/web/pages/product/includes/nutriscore_details.tt.html -->
 
 <p>This product is not considered a beverage for the calculation of the Nutri-Score.</p>
 
@@ -1595,88 +1298,61 @@
 <p><strong>Nutri-Score: </strong></p>
 
 <!-- end templates/web/pages/product/includes/nutriscore_details.tt.html -->
-                
-                    </div>
-                
-                
-                </div>
-
-                
-
-            
-
-            </div>
-
-        
+           </div>
     
-        
 
-        
-
-            <div style="margin-bottom:0.5rem">
-
-            
-                
-
-                
-                <div>
-                
-
-
-                
-                    <div class="panel_text">
-                
-                    
-                    
-<p>&rarr; <a href="http://world.openfoodfacts.localhost/nutriscore">Learn more about the Nutri-Score</a></p>
-
-                
-                    </div>
-                
-                
-                </div>
-
-                
-
-            
-
-            </div>
-
-        
     
     </div>
+
+    
+    </div>
+              <div style="margin-bottom:0.5rem">
+       
+        <div>
     
 
+
+    
+           <div class="panel_text">
+             
+<p>&rarr; <a href="http://world.openfoodfacts.localhost/nutriscore">Learn more about the Nutri-Score</a></p>
+
+           </div>
+    
+
+    
+    </div>
+
+    
+    </div>
+	   	 </div>
+	
 </li>
 </ul>
 
-<!-- end templates/web/panels/panel.tt.html - panel_id: nutriscore -->
-
-                
-
-                                
-                
-            </div>
+	<!-- end templates/web/panels/panel.tt.html - panel_id: nutriscore -->
         
-    
+
+                        
+        
+    </div>
+              
+    <div class="panel_group">
+
+        
+
+                        
+
+        
+            <h3 class="panel_title_card"></h3>
         
 
         
             
-            <div class="panel_group">
 
-                
+	<!-- start templates/web/panels/panel.tt.html - panel_id: nutrition_facts_table -->
 
-                                
-
-                
-                    <h3  class="panel_title_card"></h3>
-                
-                
-                    
-<!-- start templates/web/panels/panel.tt.html - panel_id: nutrition_facts_table -->
-
-<ul data-accordion class="panel_accordion accordion" id="panel_nutrition_facts_table"
+	<ul data-accordion class="panel_accordion accordion" id="panel_nutrition_facts_table"
     
         style="margin-top:0.5rem;margin-bottom:1.5rem;"
     
@@ -1692,9 +1368,7 @@
                 style="height:72px;float:left;margin-right:1rem;"
                 alt="icon"
                 
-                    
                         class="filter-grey"
-                    
                 
             >
             
@@ -1710,399 +1384,384 @@
         </a>
     
 
-
-
-    
-    <div
-      id="panel_nutrition_facts_table_content"
-      class="content panel_content active
-        expand-for-large"
-    >
-    
-        
-
-        
-
-            <div style="margin-bottom:0.5rem">
-
-            
+	   	 <div
+	   	    id="panel_nutrition_facts_table_content"
+	   	    class="content panel_content active expand-for-large"
+	   	  >
+          
+              <div style="margin-bottom:0.5rem">
+       
+    <table aria-label="Nutrition facts">
+        <thead>
+            <tr>
                 
-                <table aria-label="Nutrition facts">
-                    <thead>
-                        <tr>
-                            
-                            <th scope="col" style="max-width:15rem">
-                                Nutrition facts
-                            </th>
-                            
-                            <th scope="col">
-                                As sold<br>for 100 g / 100 ml
-                            </th>
-                            
-                            <th scope="col">
-                                As sold<br>per serving (10 g)
-                            </th>
-                            
-                        </tr>
-                    </thead>
-                    <tbody>
-                        
-                        <tr>
-                            
-                                <td style="max-width:15rem">
-                                    
-                                    
-                                        <span
-                                        
-                                            style="padding-left: 0rem;"
-                                        
-                                        
-                                        >
-                                            Fat
-                                        </span>
-                                    
-                                </td>
-                            
-                                <td >
-                                    
-                                    
-                                        <span
-                                        
-                                        
-                                        >
-                                            ?
-                                        </span>
-                                    
-                                </td>
-                            
-                                <td >
-                                    
-                                    
-                                        <span
-                                        
-                                        
-                                        >
-                                            ?
-                                        </span>
-                                    
-                                </td>
-                            
-                        </tr>
-                        
-                        <tr>
-                            
-                                <td style="max-width:15rem">
-                                    
-                                    
-                                        <span
-                                        
-                                            style="padding-left: 1rem;"
-                                        
-                                        
-                                        >
-                                            Saturated fat
-                                        </span>
-                                    
-                                </td>
-                            
-                                <td >
-                                    
-                                    
-                                        <span
-                                        
-                                        
-                                        >
-                                            ?
-                                        </span>
-                                    
-                                </td>
-                            
-                                <td >
-                                    
-                                    
-                                        <span
-                                        
-                                        
-                                        >
-                                            ?
-                                        </span>
-                                    
-                                </td>
-                            
-                        </tr>
-                        
-                        <tr>
-                            
-                                <td style="max-width:15rem">
-                                    
-                                    
-                                        <span
-                                        
-                                            style="padding-left: 0rem;"
-                                        
-                                        
-                                        >
-                                            Carbohydrates
-                                        </span>
-                                    
-                                </td>
-                            
-                                <td >
-                                    
-                                    
-                                        <span
-                                        
-                                        
-                                        >
-                                            ?
-                                        </span>
-                                    
-                                </td>
-                            
-                                <td >
-                                    
-                                    
-                                        <span
-                                        
-                                        
-                                        >
-                                            ?
-                                        </span>
-                                    
-                                </td>
-                            
-                        </tr>
-                        
-                        <tr>
-                            
-                                <td style="max-width:15rem">
-                                    
-                                    
-                                        <span
-                                        
-                                            style="padding-left: 1rem;"
-                                        
-                                        
-                                        >
-                                            Sugars
-                                        </span>
-                                    
-                                </td>
-                            
-                                <td >
-                                    
-                                    
-                                        <span
-                                        
-                                        
-                                        >
-                                            ?
-                                        </span>
-                                    
-                                </td>
-                            
-                                <td >
-                                    
-                                    
-                                        <span
-                                        
-                                        
-                                        >
-                                            ?
-                                        </span>
-                                    
-                                </td>
-                            
-                        </tr>
-                        
-                        <tr>
-                            
-                                <td style="max-width:15rem">
-                                    
-                                    
-                                        <span
-                                        
-                                            style="padding-left: 0rem;"
-                                        
-                                        
-                                        >
-                                            Fiber
-                                        </span>
-                                    
-                                </td>
-                            
-                                <td >
-                                    
-                                    
-                                        <span
-                                        
-                                        
-                                        >
-                                            ?
-                                        </span>
-                                    
-                                </td>
-                            
-                                <td >
-                                    
-                                    
-                                        <span
-                                        
-                                        
-                                        >
-                                            ?
-                                        </span>
-                                    
-                                </td>
-                            
-                        </tr>
-                        
-                        <tr>
-                            
-                                <td style="max-width:15rem">
-                                    
-                                    
-                                        <span
-                                        
-                                            style="padding-left: 0rem;"
-                                        
-                                        
-                                        >
-                                            Proteins
-                                        </span>
-                                    
-                                </td>
-                            
-                                <td >
-                                    
-                                    
-                                        <span
-                                        
-                                        
-                                        >
-                                            ?
-                                        </span>
-                                    
-                                </td>
-                            
-                                <td >
-                                    
-                                    
-                                        <span
-                                        
-                                        
-                                        >
-                                            ?
-                                        </span>
-                                    
-                                </td>
-                            
-                        </tr>
-                        
-                        <tr>
-                            
-                                <td style="max-width:15rem">
-                                    
-                                    
-                                        <span
-                                        
-                                            style="padding-left: 0rem;"
-                                        
-                                        
-                                        >
-                                            Salt
-                                        </span>
-                                    
-                                </td>
-                            
-                                <td >
-                                    
-                                    
-                                        <span
-                                        
-                                        
-                                        >
-                                            ?
-                                        </span>
-                                    
-                                </td>
-                            
-                                <td >
-                                    
-                                    
-                                        <span
-                                        
-                                        
-                                        >
-                                            ?
-                                        </span>
-                                    
-                                </td>
-                            
-                        </tr>
-                        
-                        <tr>
-                            
-                                <td style="max-width:15rem">
-                                    
-                                    
-                                        <span
-                                        
-                                            style="padding-left: 0rem;"
-                                        
-                                        
-                                        >
-                                            Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (estimate from ingredients list analysis)
-                                        </span>
-                                    
-                                </td>
-                            
-                                <td >
-                                    
-                                    
-                                        <span
-                                        
-                                        
-                                        >
-                                            62.5 %
-                                        </span>
-                                    
-                                </td>
-                            
-                                <td >
-                                    
-                                    
-                                        <span
-                                        
-                                        
-                                        >
-                                            62.5 %
-                                        </span>
-                                    
-                                </td>
-                            
-                        </tr>
-                        
-                    </tbody>
-                </table>
+                <th scope="col" style="max-width:15rem">
+                    Nutrition facts
+                </th>
+                
+                <th scope="col">
+                    As sold<br>for 100 g / 100 ml
+                </th>
+                
+                <th scope="col">
+                    As sold<br>per serving (10 g)
+                </th>
+                
+            </tr>
+        </thead>
+        <tbody>
             
+            <tr>
+                
+                    <td style="max-width:15rem">
+                      
 
-            </div>
-
-        
+     
+         <span
+         
+             style="padding-left: 0rem;"
+         
+         >
+            Fat
+        </span>
     
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ?
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ?
+        </span>
+    
+                    </td>
+                
+            </tr>
+            
+            <tr>
+                
+                    <td style="max-width:15rem">
+                      
+
+     
+         <span
+         
+             style="padding-left: 1rem;"
+         
+         >
+            Saturated fat
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ?
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ?
+        </span>
+    
+                    </td>
+                
+            </tr>
+            
+            <tr>
+                
+                    <td style="max-width:15rem">
+                      
+
+     
+         <span
+         
+             style="padding-left: 0rem;"
+         
+         >
+            Carbohydrates
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ?
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ?
+        </span>
+    
+                    </td>
+                
+            </tr>
+            
+            <tr>
+                
+                    <td style="max-width:15rem">
+                      
+
+     
+         <span
+         
+             style="padding-left: 1rem;"
+         
+         >
+            Sugars
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ?
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ?
+        </span>
+    
+                    </td>
+                
+            </tr>
+            
+            <tr>
+                
+                    <td style="max-width:15rem">
+                      
+
+     
+         <span
+         
+             style="padding-left: 0rem;"
+         
+         >
+            Fiber
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ?
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ?
+        </span>
+    
+                    </td>
+                
+            </tr>
+            
+            <tr>
+                
+                    <td style="max-width:15rem">
+                      
+
+     
+         <span
+         
+             style="padding-left: 0rem;"
+         
+         >
+            Proteins
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ?
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ?
+        </span>
+    
+                    </td>
+                
+            </tr>
+            
+            <tr>
+                
+                    <td style="max-width:15rem">
+                      
+
+     
+         <span
+         
+             style="padding-left: 0rem;"
+         
+         >
+            Salt
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ?
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ?
+        </span>
+    
+                    </td>
+                
+            </tr>
+            
+            <tr>
+                
+                    <td style="max-width:15rem">
+                      
+
+     
+         <span
+         
+             style="padding-left: 0rem;"
+         
+         >
+            Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (estimate from ingredients list analysis)
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            62.5 %
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            62.5 %
+        </span>
+    
+                    </td>
+                
+            </tr>
+            
+        </tbody>
+    </table>
     </div>
-    
-
+	   	 </div>
+	
 </li>
 </ul>
 
-<!-- end templates/web/panels/panel.tt.html - panel_id: nutrition_facts_table -->
+	<!-- end templates/web/panels/panel.tt.html - panel_id: nutrition_facts_table -->
+        
+            
 
-                
-                    
-<!-- start templates/web/panels/panel.tt.html - panel_id: serving_size -->
+	<!-- start templates/web/panels/panel.tt.html - panel_id: serving_size -->
 
+	
 <div class="panel_inline radius" id="panel_serving_size"
     
         style="margin-top:0.5rem;margin-bottom:1.5rem;"
@@ -2110,72 +1769,48 @@
 >
     
 
+	   	 <div
+	   	    id="panel_serving_size_content"
+	   	    class="content panel_content_inline active"
+	   	  >
+          
+              <div style="margin-bottom:0.5rem">
+       
+        <div>
+    
 
 
     
-    <div
-      id="panel_serving_size_content"
-      class="content panel_content_inline active
-        "
-    >
-    
-        
-
-        
-
-            <div style="margin-bottom:0.5rem">
-
-            
-                
-
-                
-                <div>
-                
-
-
-                
-                    <div class="panel_text">
-                
-                    
-                    
+           <div class="panel_text">
+             
                     <strong>Serving size:</strong>
                     10 g
                 
-                
-                    </div>
-                
-                
-                </div>
+           </div>
+    
 
-                
-
-            
-
-            </div>
-
-        
     
     </div>
-    
 
-</div>
-
-<!-- end templates/web/panels/panel.tt.html - panel_id: serving_size -->
-
-                
-
-                                
-                
-            </div>
-        
     
     </div>
-    
-
+	   	 </div>
+	
 </div>
 
-<!-- end templates/web/panels/panel.tt.html - panel_id: serving_size -->
 
+	<!-- end templates/web/panels/panel.tt.html - panel_id: serving_size -->
+        
+
+                        
+        
+    </div>
+	   	 </div>
+	
+</div>
+
+
+	<!-- end templates/web/panels/panel.tt.html - panel_id: health_card --> 
                 </div>
             </div>
         </div>
@@ -2186,8 +1821,10 @@
             <div class="card">
                 <div class="card-section">
                         
-<!-- start templates/web/panels/panel.tt.html - panel_id: environment_card -->
 
+	<!-- start templates/web/panels/panel.tt.html - panel_id: environment_card -->
+
+	
 <div class="panel_card radius" id="panel_environment_card"
     
         style="margin-top:0.5rem;margin-bottom:1.5rem;"
@@ -2199,22 +1836,16 @@
         
     
 
+	   	 <div
+	   	    id="panel_environment_card_content"
+	   	    class="content panel_content_card active"
+	   	  >
+          
+              
 
+	<!-- start templates/web/panels/panel.tt.html - panel_id: ecoscore -->
 
-    
-    <div
-      id="panel_environment_card_content"
-      class="content panel_content_card active
-        "
-    >
-    
-        
-
-        
-            
-<!-- start templates/web/panels/panel.tt.html - panel_id: ecoscore -->
-
-<ul data-accordion class="panel_accordion accordion" id="panel_ecoscore"
+	<ul data-accordion class="panel_accordion accordion" id="panel_ecoscore"
     
         style="margin-top:0.5rem;margin-bottom:1.5rem;"
     
@@ -2244,136 +1875,81 @@
         </a>
     
 
+	   	 <div
+	   	    id="panel_ecoscore_content"
+	   	    class="content panel_content"
+	   	  >
+          
+              <div style="margin-bottom:0.5rem">
+       
+        <div>
+    
 
 
     
-    <div
-      id="panel_ecoscore_content"
-      class="content panel_content
-        "
-    >
+           <div class="panel_text panel_text_warning">⚠
+             ️Select a country in order to include the full impact of transportation.
+           </div>
+
     
-        
+    </div>
 
-        
-
-            <div style="margin-bottom:0.5rem">
-
-            
-                
-
-                
-                <div>
-                
-
-
-                
-                    <div class="panel_text panel_text_warning">⚠️
-                
-                    
-                    Select a country in order to include the full impact of transportation.
-                
-                    </div>
-                
-                
-                </div>
-
-                
-
-            
-
-            </div>
-
-        
     
-        
-
-        
-
-            <div style="margin-bottom:0.5rem">
-
-            
-                
-
-                
-                <div>
-                
-
-
-                
-                    <div class="panel_text">
-                
-                    
-                    The <a href="http://world.openfoodfacts.localhost/ecoscore">Eco-Score</a> is an experimental score that summarizes the environmental impacts of food products.
-                
-                    </div>
-                
-                
-                </div>
-
-                
-
-            
-
-            </div>
-
-        
+    </div>
+              <div style="margin-bottom:0.5rem">
+       
+        <div>
     
-        
-
-        
-
-            <div style="margin-bottom:0.5rem">
-
-            
-                
-
-                
-                <div>
-                
 
 
-                
-                    <div class="panel_text panel_text_note">→
-                
-                    
-                    
+    
+           <div class="panel_text">
+             The <a href="http://world.openfoodfacts.localhost/ecoscore">Eco-Score</a> is an experimental score that summarizes the environmental impacts of food products.
+           </div>
+    
+
+    
+    </div>
+
+    
+    </div>
+              <div style="margin-bottom:0.5rem">
+       
+        <div>
+    
+
+
+    
+           <div class="panel_text panel_text_note">→
+             
                     
                         The Eco-Score was initially developped for France and it is being extended to other European countries. The Eco-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country.
                                     
                 
-                
-                    </div>
-                
-                
-                </div>
+           </div>
 
-                
-
-            
-
-            </div>
-
-        
     
+    </div>
+
+    
+    </div>
+              
+    <div class="panel_group">
+
+        
+
+                        
+
+        
+            <h3 class="panel_title_">Life cycle analysis</h3>
         
 
         
             
-            <div class="panel_group">
 
-                
+	<!-- start templates/web/panels/panel.tt.html - panel_id: ecoscore_agribalyse -->
 
-                                
-
-                
-                    <h3  class="panel_title_">Life cycle analysis</h3>
-                
-                
-                    
-<!-- start templates/web/panels/panel.tt.html - panel_id: ecoscore_agribalyse -->
-
-<ul data-accordion class="panel_accordion accordion" id="panel_ecoscore_agribalyse"
+	<ul data-accordion class="panel_accordion accordion" id="panel_ecoscore_agribalyse"
     
         style="margin-top:0.5rem;margin-bottom:1.5rem;"
     
@@ -2389,9 +1965,7 @@
                 style="height:36px;float:left;margin-right:1rem;"
                 alt="icon"
                 
-                    
                         class="filter-grey"
-                    
                 
             >
             
@@ -2409,34 +1983,20 @@
         </a>
     
 
+	   	 <div
+	   	    id="panel_ecoscore_agribalyse_content"
+	   	    class="content panel_content"
+	   	  >
+          
+              <div style="margin-bottom:0.5rem">
+       
+        <div>
+    
 
 
     
-    <div
-      id="panel_ecoscore_agribalyse_content"
-      class="content panel_content
-        "
-    >
-    
-        
-
-        
-
-            <div style="margin-bottom:0.5rem">
-
-            
-                
-
-                
-                <div>
-                
-
-
-                
-                    <div class="panel_text">
-                
-                    
-                    
+           <div class="panel_text">
+             
                     <p>Category: 
                     <a href="https://agribalyse.ademe.fr/app/aliments/24000">Biscuit (cookie)</a>
                     </p>
@@ -2451,289 +2011,261 @@
                         </li>
                     </ul>
                     
-                
-                    </div>
-                
-                
-                </div>
-
-                
-
-            
-
-            </div>
-
-        
+           </div>
     
-        
 
-        
-
-            <div style="margin-bottom:0.5rem">
-
-            
-                
-                <table aria-label="Details of the impacts by stages of the life cycle">
-                    <thead>
-                        <tr>
-                            
-                            <th scope="col">
-                                Stage
-                            </th>
-                            
-                            <th scope="col">
-                                Impact
-                            </th>
-                            
-                        </tr>
-                    </thead>
-                    <tbody>
-                        
-                        <tr id="agriculture">
-                            
-                                <td >
-                                    
-                                        <span class="icon"><img src="http://static.openfoodfacts.localhost/images/icons/dist/agriculture.svg" alt="icon"></span>
-                                    
-                                    
-                                        <span
-                                        
-                                        
-                                        >
-                                            Agriculture
-                                        </span>
-                                    
-                                </td>
-                            
-                                <td >
-                                    
-                                    
-                                        <div style="width:200px;float:left;margin-right:1rem;" class="show-for-large-up">
-                                            <div class="agribalyse_impact_bar_full">
-                                                <div class="percent_bar
-                                                    
-                                                    "
-                                                    style="width:160px;height:1.2rem;"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        80.2 %
-                                    
-                                </td>
-                            
-                        </tr>
-                        
-                        <tr id="processing">
-                            
-                                <td >
-                                    
-                                        <span class="icon"><img src="http://static.openfoodfacts.localhost/images/icons/dist/processing.svg" alt="icon"></span>
-                                    
-                                    
-                                        <span
-                                        
-                                        
-                                        >
-                                            Processing
-                                        </span>
-                                    
-                                </td>
-                            
-                                <td >
-                                    
-                                    
-                                        <div style="width:200px;float:left;margin-right:1rem;" class="show-for-large-up">
-                                            <div class="agribalyse_impact_bar_full">
-                                                <div class="percent_bar
-                                                    
-                                                    "
-                                                    style="width:24px;height:1.2rem;"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        12.0 %
-                                    
-                                </td>
-                            
-                        </tr>
-                        
-                        <tr id="packaging">
-                            
-                                <td >
-                                    
-                                        <span class="icon"><img src="http://static.openfoodfacts.localhost/images/icons/dist/packaging.svg" alt="icon"></span>
-                                    
-                                    
-                                        <span
-                                        
-                                        
-                                        >
-                                            Packaging
-                                        </span>
-                                    
-                                </td>
-                            
-                                <td >
-                                    
-                                    
-                                        <div style="width:200px;float:left;margin-right:1rem;" class="show-for-large-up">
-                                            <div class="agribalyse_impact_bar_full">
-                                                <div class="percent_bar
-                                                    
-                                                    "
-                                                    style="width:6px;height:1.2rem;"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        3.2 %
-                                    
-                                </td>
-                            
-                        </tr>
-                        
-                        <tr id="transportation">
-                            
-                                <td >
-                                    
-                                        <span class="icon"><img src="http://static.openfoodfacts.localhost/images/icons/dist/transportation.svg" alt="icon"></span>
-                                    
-                                    
-                                        <span
-                                        
-                                        
-                                        >
-                                            Transportation
-                                        </span>
-                                    
-                                </td>
-                            
-                                <td >
-                                    
-                                    
-                                        <div style="width:200px;float:left;margin-right:1rem;" class="show-for-large-up">
-                                            <div class="agribalyse_impact_bar_full">
-                                                <div class="percent_bar
-                                                    
-                                                    "
-                                                    style="width:6px;height:1.2rem;"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        3.2 %
-                                    
-                                </td>
-                            
-                        </tr>
-                        
-                        <tr id="distribution">
-                            
-                                <td >
-                                    
-                                        <span class="icon"><img src="http://static.openfoodfacts.localhost/images/icons/dist/distribution.svg" alt="icon"></span>
-                                    
-                                    
-                                        <span
-                                        
-                                        
-                                        >
-                                            Distribution
-                                        </span>
-                                    
-                                </td>
-                            
-                                <td >
-                                    
-                                    
-                                        <div style="width:200px;float:left;margin-right:1rem;" class="show-for-large-up">
-                                            <div class="agribalyse_impact_bar_full">
-                                                <div class="percent_bar
-                                                    
-                                                    "
-                                                    style="width:3px;height:1.2rem;"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        1.4 %
-                                    
-                                </td>
-                            
-                        </tr>
-                        
-                        <tr id="consumption">
-                            
-                                <td >
-                                    
-                                        <span class="icon"><img src="http://static.openfoodfacts.localhost/images/icons/dist/consumption.svg" alt="icon"></span>
-                                    
-                                    
-                                        <span
-                                        
-                                        
-                                        >
-                                            Consumption
-                                        </span>
-                                    
-                                </td>
-                            
-                                <td >
-                                    
-                                    
-                                        <div style="width:200px;float:left;margin-right:1rem;" class="show-for-large-up">
-                                            <div class="agribalyse_impact_bar_full">
-                                                <div class="percent_bar
-                                                    
-                                                    "
-                                                    style="width:0px;height:1.2rem;"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        0.0 %
-                                    
-                                </td>
-                            
-                        </tr>
-                        
-                    </tbody>
-                </table>
-            
-
-            </div>
-
-        
     
     </div>
-    
 
+    
+    </div>
+              <div style="margin-bottom:0.5rem">
+       
+    <table aria-label="Details of the impacts by stages of the life cycle">
+        <thead>
+            <tr>
+                
+                <th scope="col">
+                    Stage
+                </th>
+                
+                <th scope="col">
+                    Impact
+                </th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            
+            <tr id="agriculture">
+                
+                    <td >
+                      
+         <span class="icon"><img src="http://static.openfoodfacts.localhost/images/icons/dist/agriculture.svg" alt="icon"></span>
+     
+
+     
+         <span
+         
+         >
+            Agriculture
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <div style="width:200px;float:left;margin-right:1rem;" class="show-for-large-up">
+             <div class="agribalyse_impact_bar_full">
+                 <div class="percent_bar "
+                     style="width:160px;height:1.2rem;"></div>
+                 </div>
+             </div>
+         </div>
+         80.2 %
+     
+                    </td>
+                
+            </tr>
+            
+            <tr id="processing">
+                
+                    <td >
+                      
+         <span class="icon"><img src="http://static.openfoodfacts.localhost/images/icons/dist/processing.svg" alt="icon"></span>
+     
+
+     
+         <span
+         
+         >
+            Processing
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <div style="width:200px;float:left;margin-right:1rem;" class="show-for-large-up">
+             <div class="agribalyse_impact_bar_full">
+                 <div class="percent_bar "
+                     style="width:24px;height:1.2rem;"></div>
+                 </div>
+             </div>
+         </div>
+         12.0 %
+     
+                    </td>
+                
+            </tr>
+            
+            <tr id="packaging">
+                
+                    <td >
+                      
+         <span class="icon"><img src="http://static.openfoodfacts.localhost/images/icons/dist/packaging.svg" alt="icon"></span>
+     
+
+     
+         <span
+         
+         >
+            Packaging
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <div style="width:200px;float:left;margin-right:1rem;" class="show-for-large-up">
+             <div class="agribalyse_impact_bar_full">
+                 <div class="percent_bar "
+                     style="width:6px;height:1.2rem;"></div>
+                 </div>
+             </div>
+         </div>
+         3.2 %
+     
+                    </td>
+                
+            </tr>
+            
+            <tr id="transportation">
+                
+                    <td >
+                      
+         <span class="icon"><img src="http://static.openfoodfacts.localhost/images/icons/dist/transportation.svg" alt="icon"></span>
+     
+
+     
+         <span
+         
+         >
+            Transportation
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <div style="width:200px;float:left;margin-right:1rem;" class="show-for-large-up">
+             <div class="agribalyse_impact_bar_full">
+                 <div class="percent_bar "
+                     style="width:6px;height:1.2rem;"></div>
+                 </div>
+             </div>
+         </div>
+         3.2 %
+     
+                    </td>
+                
+            </tr>
+            
+            <tr id="distribution">
+                
+                    <td >
+                      
+         <span class="icon"><img src="http://static.openfoodfacts.localhost/images/icons/dist/distribution.svg" alt="icon"></span>
+     
+
+     
+         <span
+         
+         >
+            Distribution
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <div style="width:200px;float:left;margin-right:1rem;" class="show-for-large-up">
+             <div class="agribalyse_impact_bar_full">
+                 <div class="percent_bar "
+                     style="width:3px;height:1.2rem;"></div>
+                 </div>
+             </div>
+         </div>
+         1.4 %
+     
+                    </td>
+                
+            </tr>
+            
+            <tr id="consumption">
+                
+                    <td >
+                      
+         <span class="icon"><img src="http://static.openfoodfacts.localhost/images/icons/dist/consumption.svg" alt="icon"></span>
+     
+
+     
+         <span
+         
+         >
+            Consumption
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <div style="width:200px;float:left;margin-right:1rem;" class="show-for-large-up">
+             <div class="agribalyse_impact_bar_full">
+                 <div class="percent_bar "
+                     style="width:0px;height:1.2rem;"></div>
+                 </div>
+             </div>
+         </div>
+         0.0 %
+     
+                    </td>
+                
+            </tr>
+            
+        </tbody>
+    </table>
+    </div>
+	   	 </div>
+	
 </li>
 </ul>
 
-<!-- end templates/web/panels/panel.tt.html - panel_id: ecoscore_agribalyse -->
-
-                
-
-                                
-                
-            </div>
+	<!-- end templates/web/panels/panel.tt.html - panel_id: ecoscore_agribalyse -->
         
-    
+
+                        
+        
+    </div>
+              
+    <div class="panel_group">
+
+        
+
+                        
+
+        
+            <h3 class="panel_title_">Bonuses and maluses</h3>
         
 
         
             
-            <div class="panel_group">
 
-                
+	<!-- start templates/web/panels/panel.tt.html - panel_id: ecoscore_origins_of_ingredients -->
 
-                                
-
-                
-                    <h3  class="panel_title_">Bonuses and maluses</h3>
-                
-                
-                    
-<!-- start templates/web/panels/panel.tt.html - panel_id: ecoscore_origins_of_ingredients -->
-
-<ul data-accordion class="panel_accordion accordion" id="panel_ecoscore_origins_of_ingredients"
+	<ul data-accordion class="panel_accordion accordion" id="panel_ecoscore_origins_of_ingredients"
     
         style="margin-top:0.5rem;margin-bottom:1.5rem;"
     
@@ -2749,9 +2281,7 @@
                 style="height:36px;float:left;margin-right:1rem;"
                 alt="icon"
                 
-                    
                         class="filter-grey"
-                    
                 
             >
             
@@ -2769,65 +2299,43 @@
         </a>
     
 
+	   	 <div
+	   	    id="panel_ecoscore_origins_of_ingredients_content"
+	   	    class="content panel_content"
+	   	  >
+          
+              <div style="margin-bottom:0.5rem">
+       
+        <div>
+    
 
 
     
-    <div
-      id="panel_ecoscore_origins_of_ingredients_content"
-      class="content panel_content
-        "
-    >
-    
-        
-
-        
-
-            <div style="margin-bottom:0.5rem">
-
-            
-                
-
-                
-                <div>
-                
-
-
-                
-                    <div class="panel_text panel_text_warning">⚠️
-                
-                    
-                    
+           <div class="panel_text panel_text_warning">⚠
+             ️
                 The origins of the ingredients of this product are not indicated.<br><br>
                 If they are indicated on the packaging, you can modify the product sheet and add them.<br><br>
                 If you are the manufacturer of this product, you can send us the information with our <a href="https://world.pro.openfoodfacts.org">free platform for producers</a>.
                     
-                
-                    </div>
-                
-                
-                </div>
+           </div>
 
-                
-
-            
-
-            </div>
-
-        
     
     </div>
-    
 
+    
+    </div>
+	   	 </div>
+	
 </li>
 </ul>
 
-<!-- end templates/web/panels/panel.tt.html - panel_id: ecoscore_origins_of_ingredients -->
+	<!-- end templates/web/panels/panel.tt.html - panel_id: ecoscore_origins_of_ingredients -->
+        
+            
 
-                
-                    
-<!-- start templates/web/panels/panel.tt.html - panel_id: ecoscore_threatened_species -->
+	<!-- start templates/web/panels/panel.tt.html - panel_id: ecoscore_threatened_species -->
 
-<ul data-accordion class="panel_accordion accordion" id="panel_ecoscore_threatened_species"
+	<ul data-accordion class="panel_accordion accordion" id="panel_ecoscore_threatened_species"
     
         style="margin-top:0.5rem;margin-bottom:1.5rem;"
     
@@ -2843,9 +2351,7 @@
                 style="height:36px;float:left;margin-right:1rem;"
                 alt="icon"
                 
-                    
                         class="filter-red"
-                    
                 
             >
             
@@ -2863,64 +2369,43 @@
         </a>
     
 
+	   	 <div
+	   	    id="panel_ecoscore_threatened_species_content"
+	   	    class="content panel_content"
+	   	  >
+          
+              <div style="margin-bottom:0.5rem">
+       
+        <div>
+    
 
 
     
-    <div
-      id="panel_ecoscore_threatened_species_content"
-      class="content panel_content
-        "
-    >
-    
-        
-
-        
-
-            <div style="margin-bottom:0.5rem">
-
-            
-                
-
-                
-                <div>
-                
-
-
-                
-                    <div class="panel_text">
-                
-                    
-                    
+           <div class="panel_text">
+             
                         <p><strong>Contains palm oil</strong></p> 
                         <p>Tropical forests in Asia, Africa and Latin America are destroyed to create and expand oil palm tree plantations. The deforestation contributes to climate change, and it endangers species such as the orangutan, the pigmy elephant and the Sumatran rhino.</p> 
                         
-                
-                    </div>
-                
-                
-                </div>
+           </div>
+    
 
-                
-
-            
-
-            </div>
-
-        
     
     </div>
-    
 
+    
+    </div>
+	   	 </div>
+	
 </li>
 </ul>
 
-<!-- end templates/web/panels/panel.tt.html - panel_id: ecoscore_threatened_species -->
+	<!-- end templates/web/panels/panel.tt.html - panel_id: ecoscore_threatened_species -->
+        
+            
 
-                
-                    
-<!-- start templates/web/panels/panel.tt.html - panel_id: ecoscore_packaging -->
+	<!-- start templates/web/panels/panel.tt.html - panel_id: ecoscore_packaging -->
 
-<ul data-accordion class="panel_accordion accordion" id="panel_ecoscore_packaging"
+	<ul data-accordion class="panel_accordion accordion" id="panel_ecoscore_packaging"
     
         style="margin-top:0.5rem;margin-bottom:1.5rem;"
     
@@ -2936,9 +2421,7 @@
                 style="height:36px;float:left;margin-right:1rem;"
                 alt="icon"
                 
-                    
                         class="filter-orange"
-                    
                 
             >
             
@@ -2956,317 +2439,290 @@
         </a>
     
 
-
-
-    
-    <div
-      id="panel_ecoscore_packaging_content"
-      class="content panel_content
-        "
-    >
-    
-        
-
-        
-
-            <div style="margin-bottom:0.5rem">
-
-            
+	   	 <div
+	   	    id="panel_ecoscore_packaging_content"
+	   	    class="content panel_content"
+	   	  >
+          
+              <div style="margin-bottom:0.5rem">
+       
+    <table aria-label="Packaging parts">
+        <thead>
+            <tr>
                 
-                <table aria-label="Packaging parts">
-                    <thead>
-                        <tr>
-                            
-                            <th scope="col">
-                                Shape
-                            </th>
-                            
-                            <th scope="col">
-                                Material
-                            </th>
-                            
-                            <th scope="col">
-                                Recycling
-                            </th>
-                            
-                            <th scope="col">
-                                Impact
-                            </th>
-                            
-                        </tr>
-                    </thead>
-                    <tbody>
-                        
-                        <tr>
-                            
-                                <td >
-                                    
-                                    
-                                        <span
-                                        
-                                        
-                                        >
-                                            1 Box
-                                        </span>
-                                    
-                                </td>
-                            
-                                <td >
-                                    
-                                    
-                                        <span
-                                        
-                                        
-                                        >
-                                            Wood
-                                        </span>
-                                    
-                                </td>
-                            
-                                <td >
-                                    
-                                    
-                                        <span
-                                        
-                                        
-                                            class=" green
-                                            "
-                                        
-                                        >
-                                            Recycle
-                                        </span>
-                                    
-                                </td>
-                            
-                                <td >
-                                    
-                                    
-                                        <span
-                                        
-                                        
-                                            class=" orange
-                                            "
-                                        
-                                        >
-                                            Medium
-                                        </span>
-                                    
-                                </td>
-                            
-                        </tr>
-                        
-                        <tr>
-                            
-                                <td >
-                                    
-                                    
-                                        <span
-                                        
-                                        
-                                        >
-                                            6 Bottle
-                                        </span>
-                                    
-                                </td>
-                            
-                                <td >
-                                    
-                                    
-                                        <span
-                                        
-                                        
-                                        >
-                                            Glass
-                                        </span>
-                                    
-                                </td>
-                            
-                                <td >
-                                    
-                                    
-                                        <span
-                                        
-                                        
-                                        >
-                                            Reuse
-                                        </span>
-                                    
-                                </td>
-                            
-                                <td >
-                                    
-                                    
-                                        <span
-                                        
-                                        
-                                            class=" green
-                                            "
-                                        
-                                        >
-                                            Low
-                                        </span>
-                                    
-                                </td>
-                            
-                        </tr>
-                        
-                        <tr>
-                            
-                                <td >
-                                    
-                                    
-                                        <span
-                                        
-                                        
-                                        >
-                                            3 Lid
-                                        </span>
-                                    
-                                </td>
-                            
-                                <td >
-                                    
-                                    
-                                        <span
-                                        
-                                        
-                                        >
-                                            Steel
-                                        </span>
-                                    
-                                </td>
-                            
-                                <td >
-                                    
-                                    
-                                        <span
-                                        
-                                        
-                                            class=" green
-                                            "
-                                        
-                                        >
-                                            Recycle
-                                        </span>
-                                    
-                                </td>
-                            
-                                <td >
-                                    
-                                    
-                                        <span
-                                        
-                                        
-                                            class=" green
-                                            "
-                                        
-                                        >
-                                            Low
-                                        </span>
-                                    
-                                </td>
-                            
-                        </tr>
-                        
-                        <tr>
-                            
-                                <td >
-                                    
-                                    
-                                        <span
-                                        
-                                        
-                                        >
-                                            1 Film
-                                        </span>
-                                    
-                                </td>
-                            
-                                <td >
-                                    
-                                    
-                                        <span
-                                        
-                                        
-                                        >
-                                            Plastic
-                                        </span>
-                                    
-                                </td>
-                            
-                                <td >
-                                    
-                                    
-                                        <span
-                                        
-                                        
-                                            class=" red
-                                            "
-                                        
-                                        >
-                                            Discard
-                                        </span>
-                                    
-                                </td>
-                            
-                                <td >
-                                    
-                                    
-                                        <span
-                                        
-                                        
-                                            class=" red
-                                            "
-                                        
-                                        >
-                                            High
-                                        </span>
-                                    
-                                </td>
-                            
-                        </tr>
-                        
-                    </tbody>
-                </table>
+                <th scope="col">
+                    Shape
+                </th>
+                
+                <th scope="col">
+                    Material
+                </th>
+                
+                <th scope="col">
+                    Recycling
+                </th>
+                
+                <th scope="col">
+                    Impact
+                </th>
+                
+            </tr>
+        </thead>
+        <tbody>
             
+            <tr>
+                
+                    <td >
+                      
 
-            </div>
-
-        
+     
+         <span
+         
+         >
+            1 Box
+        </span>
     
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            Wood
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         
+             class="green"
+         >
+            Recycle
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         
+             class="orange"
+         >
+            Medium
+        </span>
+    
+                    </td>
+                
+            </tr>
+            
+            <tr>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            6 Bottle
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            Glass
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            Reuse
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         
+             class="green"
+         >
+            Low
+        </span>
+    
+                    </td>
+                
+            </tr>
+            
+            <tr>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            3 Lid
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            Steel
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         
+             class="green"
+         >
+            Recycle
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         
+             class="green"
+         >
+            Low
+        </span>
+    
+                    </td>
+                
+            </tr>
+            
+            <tr>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            1 Film
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            Plastic
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         
+             class="red"
+         >
+            Discard
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         
+             class="red"
+         >
+            High
+        </span>
+    
+                    </td>
+                
+            </tr>
+            
+        </tbody>
+    </table>
     </div>
-    
-
+	   	 </div>
+	
 </li>
 </ul>
 
-<!-- end templates/web/panels/panel.tt.html - panel_id: ecoscore_packaging -->
-
-                
-
-                                
-                
-            </div>
+	<!-- end templates/web/panels/panel.tt.html - panel_id: ecoscore_packaging -->
         
-    
+
+                        
+        
+    </div>
+              
+    <div class="panel_group">
+
+        
+
+                        
+
+        
+            <h3 class="panel_title_">Eco-Score for this product</h3>
         
 
         
             
-            <div class="panel_group">
 
-                
+	<!-- start templates/web/panels/panel.tt.html - panel_id: ecoscore_total -->
 
-                                
-
-                
-                    <h3  class="panel_title_">Eco-Score for this product</h3>
-                
-                
-                    
-<!-- start templates/web/panels/panel.tt.html - panel_id: ecoscore_total -->
-
-<ul data-accordion class="panel_accordion accordion" id="panel_ecoscore_total"
+	<ul data-accordion class="panel_accordion accordion" id="panel_ecoscore_total"
     
         style="margin-top:0.5rem;margin-bottom:1.5rem;"
     
@@ -3298,34 +2754,20 @@
         </a>
     
 
+	   	 <div
+	   	    id="panel_ecoscore_total_content"
+	   	    class="content panel_content"
+	   	  >
+          
+              <div style="margin-bottom:0.5rem">
+       
+        <div>
+    
 
 
     
-    <div
-      id="panel_ecoscore_total_content"
-      class="content panel_content
-        "
-    >
-    
-        
-
-        
-
-            <div style="margin-bottom:0.5rem">
-
-            
-                
-
-                
-                <div>
-                
-
-
-                
-                    <div class="panel_text">
-                
-                    
-                    
+           <div class="panel_text">
+             
                 Life cycle analysis score: 70<br>
                 Sum of bonuses and maluses:
                     
@@ -3334,98 +2776,67 @@
                 Final score: 47/100
                 
                 
-                
-                    </div>
-                
-                
-                </div>
+           </div>
+    
 
-                
-
-            
-
-            </div>
-
-        
     
     </div>
-    
 
+    
+    </div>
+	   	 </div>
+	
 </li>
 </ul>
 
-<!-- end templates/web/panels/panel.tt.html - panel_id: ecoscore_total -->
-
-                
-
-                                
-                
-            </div>
+	<!-- end templates/web/panels/panel.tt.html - panel_id: ecoscore_total -->
         
+
+                        
+        
+    </div>
+              <div style="margin-bottom:0.5rem">
+       
+        <div>
     
-        
-
-        
-
-            <div style="margin-bottom:0.5rem">
-
-            
-                
-
-                
-                <div>
-                
 
 
-                
-                    <div class="panel_text">
-                
-                    
-                    
+    
+           <div class="panel_text">
+             
 <p>&rarr; <a href="http://world.openfoodfacts.localhost/eco-score-the-environmental-impact-of-food-products">Learn more about the Eco-Score</a></p>
 
-                
-                    </div>
-                
-                
-                </div>
+           </div>
+    
 
-                
-
-            
-
-            </div>
-
-        
     
     </div>
-    
 
+    
+    </div>
+	   	 </div>
+	
 </li>
 </ul>
 
-<!-- end templates/web/panels/panel.tt.html - panel_id: ecoscore_total -->
+	<!-- end templates/web/panels/panel.tt.html - panel_id: ecoscore -->
+              
+    <div class="panel_group">
 
         
-    
+
+                        
+
+        
+            <h3 class="panel_title_card">Carbon footprint</h3>
         
 
         
             
-            <div class="panel_group">
 
-                
+	<!-- start templates/web/panels/panel.tt.html - panel_id: carbon_footprint -->
 
-                                
-
-                
-                    <h3  class="panel_title_card">Carbon footprint</h3>
-                
-                
-                    
-<!-- start templates/web/panels/panel.tt.html - panel_id: carbon_footprint -->
-
-<ul data-accordion class="panel_accordion accordion" id="panel_carbon_footprint"
+	<ul data-accordion class="panel_accordion accordion" id="panel_carbon_footprint"
     
         style="margin-top:0.5rem;margin-bottom:1.5rem;"
     
@@ -3441,9 +2852,7 @@
                 style="height:72px;float:left;margin-right:1rem;"
                 alt="icon"
                 
-                    
                         class="filter-green"
-                    
                 
             >
             
@@ -3461,322 +2870,280 @@
         </a>
     
 
+	   	 <div
+	   	    id="panel_carbon_footprint_content"
+	   	    class="content panel_content"
+	   	  >
+          
+              <div style="margin-bottom:0.5rem">
+       
+        <div>
+    
 
 
     
-    <div
-      id="panel_carbon_footprint_content"
-      class="content panel_content
-        "
-    >
-    
-        
-
-        
-
-            <div style="margin-bottom:0.5rem">
-
-            
-                
-
-                
-                <div>
-                
-
-
-                
-                    <div class="panel_text">
-                
-                    
-                    
+           <div class="panel_text">
+             
                     <p>The carbon emission figure comes from ADEME's Agribalyse database, for the category: 
                     <a href="https://agribalyse.ademe.fr/app/aliments/24000">Biscuit (cookie)</a>
                     (Source: ADEME Agribalyse Database)
                     </p>
                     
-                
-                    </div>
-                
-                
-                </div>
-
-                
-
-            
-
-            </div>
-
-        
+           </div>
     
-        
 
-        
-
-            <div style="margin-bottom:0.5rem">
-
-            
-                
-                <table aria-label="Details of the impacts by stages of the life cycle">
-                    <thead>
-                        <tr>
-                            
-                            <th scope="col">
-                                Stage
-                            </th>
-                            
-                            <th scope="col">
-                                Impact
-                            </th>
-                            
-                        </tr>
-                    </thead>
-                    <tbody>
-                        
-                        <tr id="agriculture">
-                            
-                                <td >
-                                    
-                                        <span class="icon"><img src="http://static.openfoodfacts.localhost/images/icons/dist/agriculture.svg" alt="icon"></span>
-                                    
-                                    
-                                        <span
-                                        
-                                        
-                                        >
-                                            Agriculture
-                                        </span>
-                                    
-                                </td>
-                            
-                                <td >
-                                    
-                                    
-                                        <div style="width:200px;float:left;margin-right:1rem;" class="show-for-large-up">
-                                            <div class="agribalyse_impact_bar_full">
-                                                <div class="percent_bar
-                                                    
-                                                    "
-                                                    style="width:165px;height:1.2rem;"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        82.7 %
-                                    
-                                </td>
-                            
-                        </tr>
-                        
-                        <tr id="processing">
-                            
-                                <td >
-                                    
-                                        <span class="icon"><img src="http://static.openfoodfacts.localhost/images/icons/dist/processing.svg" alt="icon"></span>
-                                    
-                                    
-                                        <span
-                                        
-                                        
-                                        >
-                                            Processing
-                                        </span>
-                                    
-                                </td>
-                            
-                                <td >
-                                    
-                                    
-                                        <div style="width:200px;float:left;margin-right:1rem;" class="show-for-large-up">
-                                            <div class="agribalyse_impact_bar_full">
-                                                <div class="percent_bar
-                                                    
-                                                    "
-                                                    style="width:16px;height:1.2rem;"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        8.0 %
-                                    
-                                </td>
-                            
-                        </tr>
-                        
-                        <tr id="packaging">
-                            
-                                <td >
-                                    
-                                        <span class="icon"><img src="http://static.openfoodfacts.localhost/images/icons/dist/packaging.svg" alt="icon"></span>
-                                    
-                                    
-                                        <span
-                                        
-                                        
-                                        >
-                                            Packaging
-                                        </span>
-                                    
-                                </td>
-                            
-                                <td >
-                                    
-                                    
-                                        <div style="width:200px;float:left;margin-right:1rem;" class="show-for-large-up">
-                                            <div class="agribalyse_impact_bar_full">
-                                                <div class="percent_bar
-                                                    
-                                                    "
-                                                    style="width:8px;height:1.2rem;"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        3.8 %
-                                    
-                                </td>
-                            
-                        </tr>
-                        
-                        <tr id="transportation">
-                            
-                                <td >
-                                    
-                                        <span class="icon"><img src="http://static.openfoodfacts.localhost/images/icons/dist/transportation.svg" alt="icon"></span>
-                                    
-                                    
-                                        <span
-                                        
-                                        
-                                        >
-                                            Transportation
-                                        </span>
-                                    
-                                </td>
-                            
-                                <td >
-                                    
-                                    
-                                        <div style="width:200px;float:left;margin-right:1rem;" class="show-for-large-up">
-                                            <div class="agribalyse_impact_bar_full">
-                                                <div class="percent_bar
-                                                    
-                                                    "
-                                                    style="width:9px;height:1.2rem;"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        4.7 %
-                                    
-                                </td>
-                            
-                        </tr>
-                        
-                        <tr id="distribution">
-                            
-                                <td >
-                                    
-                                        <span class="icon"><img src="http://static.openfoodfacts.localhost/images/icons/dist/distribution.svg" alt="icon"></span>
-                                    
-                                    
-                                        <span
-                                        
-                                        
-                                        >
-                                            Distribution
-                                        </span>
-                                    
-                                </td>
-                            
-                                <td >
-                                    
-                                    
-                                        <div style="width:200px;float:left;margin-right:1rem;" class="show-for-large-up">
-                                            <div class="agribalyse_impact_bar_full">
-                                                <div class="percent_bar
-                                                    
-                                                    "
-                                                    style="width:1px;height:1.2rem;"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        0.7 %
-                                    
-                                </td>
-                            
-                        </tr>
-                        
-                        <tr id="consumption">
-                            
-                                <td >
-                                    
-                                        <span class="icon"><img src="http://static.openfoodfacts.localhost/images/icons/dist/consumption.svg" alt="icon"></span>
-                                    
-                                    
-                                        <span
-                                        
-                                        
-                                        >
-                                            Consumption
-                                        </span>
-                                    
-                                </td>
-                            
-                                <td >
-                                    
-                                    
-                                        <div style="width:200px;float:left;margin-right:1rem;" class="show-for-large-up">
-                                            <div class="agribalyse_impact_bar_full">
-                                                <div class="percent_bar
-                                                    
-                                                    "
-                                                    style="width:0px;height:1.2rem;"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        0.0 %
-                                    
-                                </td>
-                            
-                        </tr>
-                        
-                    </tbody>
-                </table>
-            
-
-            </div>
-
-        
     
     </div>
-    
 
+    
+    </div>
+              <div style="margin-bottom:0.5rem">
+       
+    <table aria-label="Details of the impacts by stages of the life cycle">
+        <thead>
+            <tr>
+                
+                <th scope="col">
+                    Stage
+                </th>
+                
+                <th scope="col">
+                    Impact
+                </th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            
+            <tr id="agriculture">
+                
+                    <td >
+                      
+         <span class="icon"><img src="http://static.openfoodfacts.localhost/images/icons/dist/agriculture.svg" alt="icon"></span>
+     
+
+     
+         <span
+         
+         >
+            Agriculture
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <div style="width:200px;float:left;margin-right:1rem;" class="show-for-large-up">
+             <div class="agribalyse_impact_bar_full">
+                 <div class="percent_bar "
+                     style="width:165px;height:1.2rem;"></div>
+                 </div>
+             </div>
+         </div>
+         82.7 %
+     
+                    </td>
+                
+            </tr>
+            
+            <tr id="processing">
+                
+                    <td >
+                      
+         <span class="icon"><img src="http://static.openfoodfacts.localhost/images/icons/dist/processing.svg" alt="icon"></span>
+     
+
+     
+         <span
+         
+         >
+            Processing
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <div style="width:200px;float:left;margin-right:1rem;" class="show-for-large-up">
+             <div class="agribalyse_impact_bar_full">
+                 <div class="percent_bar "
+                     style="width:16px;height:1.2rem;"></div>
+                 </div>
+             </div>
+         </div>
+         8.0 %
+     
+                    </td>
+                
+            </tr>
+            
+            <tr id="packaging">
+                
+                    <td >
+                      
+         <span class="icon"><img src="http://static.openfoodfacts.localhost/images/icons/dist/packaging.svg" alt="icon"></span>
+     
+
+     
+         <span
+         
+         >
+            Packaging
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <div style="width:200px;float:left;margin-right:1rem;" class="show-for-large-up">
+             <div class="agribalyse_impact_bar_full">
+                 <div class="percent_bar "
+                     style="width:8px;height:1.2rem;"></div>
+                 </div>
+             </div>
+         </div>
+         3.8 %
+     
+                    </td>
+                
+            </tr>
+            
+            <tr id="transportation">
+                
+                    <td >
+                      
+         <span class="icon"><img src="http://static.openfoodfacts.localhost/images/icons/dist/transportation.svg" alt="icon"></span>
+     
+
+     
+         <span
+         
+         >
+            Transportation
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <div style="width:200px;float:left;margin-right:1rem;" class="show-for-large-up">
+             <div class="agribalyse_impact_bar_full">
+                 <div class="percent_bar "
+                     style="width:9px;height:1.2rem;"></div>
+                 </div>
+             </div>
+         </div>
+         4.7 %
+     
+                    </td>
+                
+            </tr>
+            
+            <tr id="distribution">
+                
+                    <td >
+                      
+         <span class="icon"><img src="http://static.openfoodfacts.localhost/images/icons/dist/distribution.svg" alt="icon"></span>
+     
+
+     
+         <span
+         
+         >
+            Distribution
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <div style="width:200px;float:left;margin-right:1rem;" class="show-for-large-up">
+             <div class="agribalyse_impact_bar_full">
+                 <div class="percent_bar "
+                     style="width:1px;height:1.2rem;"></div>
+                 </div>
+             </div>
+         </div>
+         0.7 %
+     
+                    </td>
+                
+            </tr>
+            
+            <tr id="consumption">
+                
+                    <td >
+                      
+         <span class="icon"><img src="http://static.openfoodfacts.localhost/images/icons/dist/consumption.svg" alt="icon"></span>
+     
+
+     
+         <span
+         
+         >
+            Consumption
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <div style="width:200px;float:left;margin-right:1rem;" class="show-for-large-up">
+             <div class="agribalyse_impact_bar_full">
+                 <div class="percent_bar "
+                     style="width:0px;height:1.2rem;"></div>
+                 </div>
+             </div>
+         </div>
+         0.0 %
+     
+                    </td>
+                
+            </tr>
+            
+        </tbody>
+    </table>
+    </div>
+	   	 </div>
+	
 </li>
 </ul>
 
-<!-- end templates/web/panels/panel.tt.html - panel_id: carbon_footprint -->
-
-                
-
-                                
-                
-            </div>
+	<!-- end templates/web/panels/panel.tt.html - panel_id: carbon_footprint -->
         
-    
+
+                        
+        
+    </div>
+              
+    <div class="panel_group">
+
+        
+
+                        
+
+        
+            <h3 id="panel_group_packaging_recycling" class="panel_title_card">Packaging</h3>
         
 
         
             
-            <div class="panel_group">
 
-                
+	<!-- start templates/web/panels/panel.tt.html - panel_id: packaging_recycling -->
 
-                                
-
-                
-                    <h3 id="panel_group_packaging_recycling" class="panel_title_card">Packaging</h3>
-                
-                
-                    
-<!-- start templates/web/panels/panel.tt.html - panel_id: packaging_recycling -->
-
-<ul data-accordion class="panel_accordion accordion" id="panel_packaging_recycling"
+	<ul data-accordion class="panel_accordion accordion" id="panel_packaging_recycling"
     
         style="margin-top:0.5rem;margin-bottom:1.5rem;"
     
@@ -3792,9 +3159,7 @@
                 style="height:72px;float:left;margin-right:1rem;"
                 alt="icon"
                 
-                    
                         class="filter-orange"
-                    
                 
             >
             
@@ -3810,22 +3175,16 @@
         </a>
     
 
+	   	 <div
+	   	    id="panel_packaging_recycling_content"
+	   	    class="content panel_content active"
+	   	  >
+          
+              
 
+	<!-- start templates/web/panels/panel.tt.html - panel_id: packaging_components -->
 
-    
-    <div
-      id="panel_packaging_recycling_content"
-      class="content panel_content active
-        "
-    >
-    
-        
-
-        
-            
-<!-- start templates/web/panels/panel.tt.html - panel_id: packaging_components -->
-
-<ul data-accordion class="panel_accordion accordion" id="panel_packaging_components"
+	<ul data-accordion class="panel_accordion accordion" id="panel_packaging_components"
     
         style="margin-top:0.5rem;margin-bottom:1.5rem;"
     
@@ -3849,43 +3208,26 @@
         </a>
     
 
+	   	 <div
+	   	    id="panel_packaging_components_content"
+	   	    class="content panel_content active"
+	   	  >
+          
+              <div style="margin-bottom:0.5rem">
+       
+    	<img src="http://static.openfoodfacts.localhost/images/icons/dist/recycle-variant.svg"
+    	    style="height:72px;float:left;margin-right:1rem;"
+    	    alt="Recycle"
+    	    
+  	            class="filter-green"
+    	    >
+    	<div style="float:left;">
+    
 
 
     
-    <div
-      id="panel_packaging_components_content"
-      class="content panel_content active
-        "
-    >
-    
-        
-
-        
-
-            <div style="margin-bottom:0.5rem">
-
-            
-                
-
-                
-                <img src="http://static.openfoodfacts.localhost/images/icons/dist/recycle-variant.svg"
-                    style="height:72px;float:left;margin-right:1rem;"
-                    alt="Recycle"
-                    
-                        
-                            class="filter-green"
-                        
-                    
-                >
-                <div style="float:left;">
-                
-
-
-                
-                    <div class="panel_text">
-                
-                    
-                    
+           <div class="panel_text">
+             
                         
                             
                                 1 x 
@@ -3916,50 +3258,31 @@
                             
                         
                         
-                
-                    </div>
-                
-                
-                </div>
-
-                
-                <hr class="floatclear">
-                
-
-            
-
-            </div>
-
-        
+           </div>
     
-        
 
-        
+    
+    </div>
 
-            <div style="margin-bottom:0.5rem">
-
-            
-                
-
-                
-                <img src="http://static.openfoodfacts.localhost/images/icons/dist/delete.svg"
-                    style="height:72px;float:left;margin-right:1rem;"
-                    alt="Discard"
-                    
-                        
-                            class="filter-red"
-                        
-                    
-                >
-                <div style="float:left;">
-                
+    
+    <hr class="floatclear">
+    
+    </div>
+              <div style="margin-bottom:0.5rem">
+       
+    	<img src="http://static.openfoodfacts.localhost/images/icons/dist/delete.svg"
+    	    style="height:72px;float:left;margin-right:1rem;"
+    	    alt="Discard"
+    	    
+  	            class="filter-red"
+    	    >
+    	<div style="float:left;">
+    
 
 
-                
-                    <div class="panel_text">
-                
-                    
-                    
+    
+           <div class="panel_text">
+             
                         
                             
                         
@@ -3980,50 +3303,31 @@
                             
                         
                         
-                
-                    </div>
-                
-                
-                </div>
-
-                
-                <hr class="floatclear">
-                
-
-            
-
-            </div>
-
-        
+           </div>
     
-        
 
-        
+    
+    </div>
 
-            <div style="margin-bottom:0.5rem">
-
-            
-                
-
-                
-                <img src="http://static.openfoodfacts.localhost/images/icons/dist/help.svg"
-                    style="height:72px;float:left;margin-right:1rem;"
-                    alt="Unknown"
-                    
-                        
-                            class="filter-grey"
-                        
-                    
-                >
-                <div style="float:left;">
-                
+    
+    <hr class="floatclear">
+    
+    </div>
+              <div style="margin-bottom:0.5rem">
+       
+    	<img src="http://static.openfoodfacts.localhost/images/icons/dist/help.svg"
+    	    style="height:72px;float:left;margin-right:1rem;"
+    	    alt="Unknown"
+    	    
+  	            class="filter-grey"
+    	    >
+    	<div style="float:left;">
+    
 
 
-                
-                    <div class="panel_text">
-                
-                    
-                    
+    
+           <div class="panel_text">
+             
                         
                             
                         
@@ -4044,39 +3348,27 @@
                             
                         
                         
-                
-                    </div>
-                
-                
-                </div>
+           </div>
+    
 
-                
-                <hr class="floatclear">
-                
-
-            
-
-            </div>
-
-        
     
     </div>
-    
 
+    
+    <hr class="floatclear">
+    
+    </div>
+	   	 </div>
+	
 </li>
 </ul>
 
-<!-- end templates/web/panels/panel.tt.html - panel_id: packaging_components -->
+	<!-- end templates/web/panels/panel.tt.html - panel_id: packaging_components -->
+              
 
-        
-    
-        
+	<!-- start templates/web/panels/panel.tt.html - panel_id: packaging_materials -->
 
-        
-            
-<!-- start templates/web/panels/panel.tt.html - panel_id: packaging_materials -->
-
-<ul data-accordion class="panel_accordion accordion" id="panel_packaging_materials"
+	<ul data-accordion class="panel_accordion accordion" id="panel_packaging_materials"
     
         style="margin-top:0.5rem;margin-bottom:1.5rem;"
     
@@ -4100,306 +3392,282 @@
         </a>
     
 
-
-
-    
-    <div
-      id="panel_packaging_materials_content"
-      class="content panel_content active
-        "
-    >
-    
-        
-
-        
-
-            <div style="margin-bottom:0.5rem">
-
-            
+	   	 <div
+	   	    id="panel_packaging_materials_content"
+	   	    class="content panel_content active"
+	   	  >
+          
+              <div style="margin-bottom:0.5rem">
+       
+    <table aria-label="Packaging materials">
+        <thead>
+            <tr>
                 
-                <table aria-label="Packaging materials">
-                    <thead>
-                        <tr>
-                            
-                            <th scope="col">
-                                Material
-                            </th>
-                            
-                            <th scope="col">
-                                %
-                            </th>
-                            
-                            <th scope="col">
-                                Packaging weight
-                            </th>
-                            
-                            <th scope="col">
-                                Packaging weight per 100 g of product
-                            </th>
-                            
-                        </tr>
-                    </thead>
-                    <tbody>
-                        
-                        <tr>
-                            
-                                <td >
-                                    
-                                    
-                                        <span
-                                        
-                                        
-                                        >
-                                            Plastic
-                                        </span>
-                                    
-                                </td>
-                            
-                                <td >
-                                    
-                                    
-                                        <span
-                                        
-                                        
-                                        >
-                                            
-                                        </span>
-                                    
-                                </td>
-                            
-                                <td >
-                                    
-                                    
-                                        <span
-                                        
-                                        
-                                        >
-                                            
-                                        </span>
-                                    
-                                </td>
-                            
-                                <td >
-                                    
-                                    
-                                        <span
-                                        
-                                        
-                                        >
-                                            
-                                        </span>
-                                    
-                                </td>
-                            
-                        </tr>
-                        
-                        <tr>
-                            
-                                <td >
-                                    
-                                    
-                                        <span
-                                        
-                                        
-                                        >
-                                            Glass
-                                        </span>
-                                    
-                                </td>
-                            
-                                <td >
-                                    
-                                    
-                                        <span
-                                        
-                                        
-                                        >
-                                            
-                                        </span>
-                                    
-                                </td>
-                            
-                                <td >
-                                    
-                                    
-                                        <span
-                                        
-                                        
-                                        >
-                                            
-                                        </span>
-                                    
-                                </td>
-                            
-                                <td >
-                                    
-                                    
-                                        <span
-                                        
-                                        
-                                        >
-                                            
-                                        </span>
-                                    
-                                </td>
-                            
-                        </tr>
-                        
-                        <tr>
-                            
-                                <td >
-                                    
-                                    
-                                        <span
-                                        
-                                        
-                                        >
-                                            Metal
-                                        </span>
-                                    
-                                </td>
-                            
-                                <td >
-                                    
-                                    
-                                        <span
-                                        
-                                        
-                                        >
-                                            
-                                        </span>
-                                    
-                                </td>
-                            
-                                <td >
-                                    
-                                    
-                                        <span
-                                        
-                                        
-                                        >
-                                            
-                                        </span>
-                                    
-                                </td>
-                            
-                                <td >
-                                    
-                                    
-                                        <span
-                                        
-                                        
-                                        >
-                                            
-                                        </span>
-                                    
-                                </td>
-                            
-                        </tr>
-                        
-                        <tr style="font-weight: bold">
-                            
-                                <td >
-                                    
-                                    
-                                        <span
-                                        
-                                        
-                                        >
-                                            Total
-                                        </span>
-                                    
-                                </td>
-                            
-                                <td >
-                                    
-                                    
-                                        <span
-                                        
-                                        
-                                        >
-                                            
-                                        </span>
-                                    
-                                </td>
-                            
-                                <td >
-                                    
-                                    
-                                        <span
-                                        
-                                        
-                                        >
-                                            
-                                        </span>
-                                    
-                                </td>
-                            
-                                <td >
-                                    
-                                    
-                                        <span
-                                        
-                                        
-                                        >
-                                            
-                                        </span>
-                                    
-                                </td>
-                            
-                        </tr>
-                        
-                    </tbody>
-                </table>
+                <th scope="col">
+                    Material
+                </th>
+                
+                <th scope="col">
+                    %
+                </th>
+                
+                <th scope="col">
+                    Packaging weight
+                </th>
+                
+                <th scope="col">
+                    Packaging weight per 100 g of product
+                </th>
+                
+            </tr>
+        </thead>
+        <tbody>
             
+            <tr>
+                
+                    <td >
+                      
 
-            </div>
-
-        
+     
+         <span
+         
+         >
+            Plastic
+        </span>
     
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            
+        </span>
+    
+                    </td>
+                
+            </tr>
+            
+            <tr>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            Glass
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            
+        </span>
+    
+                    </td>
+                
+            </tr>
+            
+            <tr>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            Metal
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            
+        </span>
+    
+                    </td>
+                
+            </tr>
+            
+            <tr style="font-weight: bold">
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            Total
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            
+        </span>
+    
+                    </td>
+                
+            </tr>
+            
+        </tbody>
+    </table>
     </div>
-    
-
+	   	 </div>
+	
 </li>
 </ul>
 
-<!-- end templates/web/panels/panel.tt.html - panel_id: packaging_materials -->
-
-        
-    
-    </div>
-    
-
+	<!-- end templates/web/panels/panel.tt.html - panel_id: packaging_materials -->
+	   	 </div>
+	
 </li>
 </ul>
 
-<!-- end templates/web/panels/panel.tt.html - panel_id: packaging_recycling -->
-
-                
-
-                                
-                
-            </div>
+	<!-- end templates/web/panels/panel.tt.html - panel_id: packaging_recycling -->
         
-    
+
+                        
+        
+    </div>
+              
+    <div class="panel_group">
+
+        
+
+                        
+
+        
+            <h3 class="panel_title_card">Transportation</h3>
         
 
         
             
-            <div class="panel_group">
 
-                
+	<!-- start templates/web/panels/panel.tt.html - panel_id: origins_of_ingredients -->
 
-                                
-
-                
-                    <h3  class="panel_title_card">Transportation</h3>
-                
-                
-                    
-<!-- start templates/web/panels/panel.tt.html - panel_id: origins_of_ingredients -->
-
-<ul data-accordion class="panel_accordion accordion" id="panel_origins_of_ingredients"
+	<ul data-accordion class="panel_accordion accordion" id="panel_origins_of_ingredients"
     
         style="margin-top:0.5rem;margin-bottom:1.5rem;"
     
@@ -4415,9 +3683,7 @@
                 style="height:72px;float:left;margin-right:1rem;"
                 alt="icon"
                 
-                    
                         class="filter-grey"
-                    
                 
             >
             
@@ -4435,112 +3701,74 @@
         </a>
     
 
+	   	 <div
+	   	    id="panel_origins_of_ingredients_content"
+	   	    class="content panel_content"
+	   	  >
+          
+              <div style="margin-bottom:0.5rem">
+       
+        <div>
+    
 
 
     
-    <div
-      id="panel_origins_of_ingredients_content"
-      class="content panel_content
-        "
-    >
-    
-        
-
-        
-
-            <div style="margin-bottom:0.5rem">
-
-            
-                
-
-                
-                <div>
-                
-
-
-                
-                    <div class="panel_text panel_text_warning">⚠️
-                
-                    
-                    
+           <div class="panel_text panel_text_warning">⚠
+             ️
                 The origins of the ingredients of this product are not indicated.<br><br>
                 If they are indicated on the packaging, you can modify the product sheet and add them.<br><br>
                 If you are the manufacturer of this product, you can send us the information with our <a href="https://world.pro.openfoodfacts.org">free platform for producers</a>.
                     
-                
-                    </div>
-                
-                
-                </div>
+           </div>
 
-                
-
-            
-
-            </div>
-
-        
-    
-        
-
-        
-
-            <div style="margin-bottom:0.5rem">
-
-            
-                <div>
-                
-
-                Add the origins of ingredients for this product
-
-                
-                    <a class="button small action-add_origins"
-                        href="/cgi/product.pl?type=edit&code=200000000034#origins">
-                        Add the origins of ingredients for this product
-                    </a>
-                
-
-                </div>
-
-            
-
-            </div>
-
-        
     
     </div>
+
+    
+    </div>
+              <div style="margin-bottom:0.5rem">
+       <div>
     
 
+    Add the origins of ingredients for this product
+
+    
+        <a class="button small action-add_origins"
+            href="/cgi/product.pl?type=edit&code=200000000034#origins">
+            Add the origins of ingredients for this product
+        </a>
+    
+
+    </div>
+    </div>
+	   	 </div>
+	
 </li>
 </ul>
 
-<!-- end templates/web/panels/panel.tt.html - panel_id: origins_of_ingredients -->
-
-                
-
-                                
-                
-            </div>
+	<!-- end templates/web/panels/panel.tt.html - panel_id: origins_of_ingredients -->
         
-    
+
+                        
+        
+    </div>
+              
+    <div class="panel_group">
+
+        
+
+                        
+
+        
+            <h3 class="panel_title_card">Threatened species</h3>
         
 
         
             
-            <div class="panel_group">
 
-                
+	<!-- start templates/web/panels/panel.tt.html - panel_id: palm_oil -->
 
-                                
-
-                
-                    <h3  class="panel_title_card">Threatened species</h3>
-                
-                
-                    
-<!-- start templates/web/panels/panel.tt.html - panel_id: palm_oil -->
-
-<ul data-accordion class="panel_accordion accordion" id="panel_palm_oil"
+	<ul data-accordion class="panel_accordion accordion" id="panel_palm_oil"
     
         style="margin-top:0.5rem;margin-bottom:1.5rem;"
     
@@ -4556,9 +3784,7 @@
                 style="height:72px;float:left;margin-right:1rem;"
                 alt="icon"
                 
-                    
                         class="filter-red"
-                    
                 
             >
             
@@ -4576,72 +3802,47 @@
         </a>
     
 
+	   	 <div
+	   	    id="panel_palm_oil_content"
+	   	    class="content panel_content"
+	   	  >
+          
+              <div style="margin-bottom:0.5rem">
+       
+        <div>
+    
 
 
     
-    <div
-      id="panel_palm_oil_content"
-      class="content panel_content
-        "
-    >
-    
-        
-
-        
-
-            <div style="margin-bottom:0.5rem">
-
-            
-                
-
-                
-                <div>
-                
-
-
-                
-                    <div class="panel_text">
-                
-                    
-                    
+           <div class="panel_text">
+             
                     <p>Tropical forests in Asia, Africa and Latin America are destroyed to create and expand oil palm tree plantations. The deforestation contributes to climate change, and it endangers species such as the orangutan, the pigmy elephant and the Sumatran rhino.</p> 
                     
-                
-                    </div>
-                
-                
-                </div>
+           </div>
+    
 
-                
-
-            
-
-            </div>
-
-        
     
     </div>
-    
 
+    
+    </div>
+	   	 </div>
+	
 </li>
 </ul>
 
-<!-- end templates/web/panels/panel.tt.html - panel_id: palm_oil -->
-
-                
-
-                                
-                
-            </div>
+	<!-- end templates/web/panels/panel.tt.html - panel_id: palm_oil -->
         
-    
-    </div>
-    
 
+                        
+        
+    </div>
+	   	 </div>
+	
 </div>
 
-<!-- end templates/web/panels/panel.tt.html - panel_id: palm_oil -->
 
+	<!-- end templates/web/panels/panel.tt.html - panel_id: environment_card --> 
                 </div>
             </div>
         </div>
