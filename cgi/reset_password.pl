@@ -59,7 +59,7 @@ my $user_ref = undef;
 my $html = '';
 
 if (defined $User_id) {
-	display_error_and_exit($Lang{error_reset_already_connected}{$lc}, undef);
+	display_error_and_exit($request_ref, $Lang{error_reset_already_connected}{$lc}, undef);
 }
 
 if ($action eq 'process') {
@@ -97,7 +97,7 @@ if ($action eq 'process') {
 	}
 	else {
 		$log->debug("invalid address", {type => $type}) if $log->is_debug();
-		display_error_and_exit(lang("error_invalid_address"), 404);
+		display_error_and_exit($request_ref, lang("error_invalid_address"), 404);
 	}
 
 	if ($#errors >= 0) {
@@ -175,7 +175,7 @@ elsif ($action eq 'process') {
 			}
 			else {
 				$log->debug("token is invalid", {userid => $userid}) if $log->is_debug();
-				display_error_and_exit($Lang{error_reset_invalid_token}{$lc}, undef);
+				display_error_and_exit($request_ref, $Lang{error_reset_invalid_token}{$lc}, undef);
 			}
 		}
 	}

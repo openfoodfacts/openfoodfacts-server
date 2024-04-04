@@ -18,6 +18,8 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+=encoding UTF-8
+
 =head1 NAME
 
 ProductOpener::Food - functions related to food products and nutrition
@@ -86,6 +88,8 @@ BEGIN {
 		&assign_nutriments_values_from_request_parameters
 
 		&check_nutriscore_categories_exist_in_taxonomy
+
+		&get_nutrient_unit
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -419,9 +423,13 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 =item The level of each nutrient is indicated by leading dashes before its id:
 
 =over
+
 =item C<nutrient> - no dash for top nutrients
+
 =item C<-sub-nutrient> - for level 2
+
 =item C<--sub-sub-nutrient> - for level 3, etc.
+
 =back
 
 =item C<nutrient-> a C<-> at the end indicates that the nutrient should be hidden and only shown if explicitly added.
@@ -787,6 +795,69 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'-soluble-fiber-', '-insoluble-fiber-',
 			'!salt', '-added-salt-',
 			'#sodium-', 'alcohol',
+			'#vitamins', 'vitamin-a-',
+			'beta-carotene-', 'vitamin-d-',
+			'vitamin-e-', 'vitamin-k-',
+			'vitamin-c-', 'vitamin-b1-',
+			'vitamin-b2-', 'vitamin-pp-',
+			'vitamin-b6-', 'vitamin-b9-',
+			'folates-', 'vitamin-b12-',
+			'biotin-', 'pantothenic-acid-',
+			'#minerals', 'silica-',
+			'bicarbonate-', 'potassium-',
+			'chloride-', 'calcium-',
+			'phosphorus-', 'iron-',
+			'magnesium-', 'zinc-',
+			'copper-', 'manganese-',
+			'fluoride-', 'selenium-',
+			'chromium-', 'molybdenum-',
+			'iodine-', 'caffeine-',
+			'taurine-', 'ph-',
+			'fruits-vegetables-nuts-', 'fruits-vegetables-nuts-dried-',
+			'fruits-vegetables-nuts-estimate-', 'collagen-meat-protein-ratio-',
+			'cocoa-', 'chlorophyl-',
+			'carbon-footprint-', 'carbon-footprint-from-meat-or-fish-',
+			'nutrition-score-fr-', 'nutrition-score-uk-',
+			'glycemic-index-', 'water-hardness-',
+			'choline-', 'phylloquinone-',
+			'beta-glucan-', 'inositol-',
+			'carnitine-', 'sulphate-',
+			'nitrate-', 'acidity-',
+		)
+	],
+	in => [
+		(
+			'!energy-kj', '!energy-kcal',
+			'!proteins', '-casein-',
+			'-serum-proteins-', '-nucleotides-',
+			'!fat', '-saturated-fat',
+			'--butyric-acid-', '--caproic-acid-',
+			'--caprylic-acid-', '--capric-acid-',
+			'--lauric-acid-', '--myristic-acid-',
+			'--palmitic-acid-', '--stearic-acid-',
+			'--arachidic-acid-', '--behenic-acid-',
+			'--lignoceric-acid-', '--cerotic-acid-',
+			'--montanic-acid-', '--melissic-acid-',
+			'-unsaturated-fat-', '--monounsaturated-fat-',
+			'---omega-9-fat-', '--polyunsaturated-fat-',
+			'---omega-3-fat-', '---omega-6-fat-',
+			'--alpha-linolenic-acid-', '--eicosapentaenoic-acid-',
+			'--docosahexaenoic-acid-', '--linoleic-acid-',
+			'--arachidonic-acid-', '--gamma-linolenic-acid-',
+			'--dihomo-gamma-linolenic-acid-', '--oleic-acid-',
+			'--elaidic-acid-', '--gondoic-acid-',
+			'--mead-acid-', '--erucic-acid-',
+			'--nervonic-acid-', '-trans-fat-',
+			'-cholesterol-', '!carbohydrates',
+			'-sugars', '--added-sugars-',
+			'--sucrose-', '--glucose-',
+			'--fructose-', '--lactose-',
+			'--maltose-', '--maltodextrins-',
+			'-starch-', '-polyols-',
+			'--erythritol-', '!fiber',
+			'-soluble-fiber-', '-insoluble-fiber-',
+			'!salt', '-added-salt-',
+			'sodium', 'alcohol',
 			'#vitamins', 'vitamin-a-',
 			'beta-carotene-', 'vitamin-d-',
 			'vitamin-e-', 'vitamin-k-',
@@ -3170,6 +3241,24 @@ sub compute_estimated_nutrients ($product_ref) {
 	}
 
 	return $results_ref;
+}
+
+=head2 get_nutrient_unit ( $nid, $cc )
+
+Returns the unit of the nutrient.
+
+We may have a unit specific to the country (e.g. US nutrition facts table using the International Unit for this nutrient, and Europe using mg)
+
+=cut
+
+sub get_nutrient_unit ($nid, $cc = undef) {
+	my $unit;
+	if ($cc) {
+		$unit = get_property("nutrients", "zz:$nid", "unit_$cc:en");
+		return $unit if $unit;
+	}
+	$unit = get_property("nutrients", "zz:$nid", "unit:en") // 'g';
+	return $unit;
 }
 
 1;
