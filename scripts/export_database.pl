@@ -265,10 +265,6 @@ XML
 		$csv .= "${nid}_100g" . "\t";
 	}
 
-	if (grep { $_ eq 'products_obsolete' } @collections) {
-		$csv .= "obsolete\t";
-	}
-
 	$csv =~ s/\t$/\n/;
 	print $OUT $csv;
 
@@ -278,9 +274,9 @@ XML
 		get_products_collection({obsolete => 1, timeout => 3 * 60 * 60 * 1000})
 	);
 
-	push @export_fields, "obsolete";
 	my $count = 0;
 	my %ingredients = ();
+	my %exported_products = ();
 
 	foreach my $collection (@collections) {
 
@@ -355,9 +351,7 @@ XML
 					$field_value = $product_ref->{obsolete} ? 1 : 0;
 				}
 
-				else {
-					$field_value = ($product_ref->{$field} // "");
-				}
+				$field_value //= "";
 
 				# Add field value to CSV file
 				$csv .= $field_value . "\t";
