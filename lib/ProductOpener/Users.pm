@@ -331,7 +331,7 @@ sub is_suspicious_name ($value) {
 	return ((defined $value) and ($value =~ $invite_re) and (not $value =~ $email_re));
 }
 
-=head2 check_user_form($type, $user_ref, $errors_ref)
+=head2 check_user_form($request_ref, $type, $user_ref, $errors_ref)
 
 C<check_user_form()> This method checks and validates the different entries in the user form.
 It also handles Spam-usernames, fields for the organization accounts.
@@ -339,6 +339,8 @@ It also handles Spam-usernames, fields for the organization accounts.
 This will then be used in process_user_form
 
 =head3 Parameters
+
+=head4 Request object $request_ref
 
 =head4 String action type $type
 
@@ -350,7 +352,7 @@ edit / add / delete
 
 =cut
 
-sub check_user_form ($type, $user_ref, $errors_ref) {
+sub check_user_form ($request_ref, $type, $user_ref, $errors_ref) {
 
 	# Removing the tabs, spaces and white space characters
 	# Assigning 'userid' to 0 -- if userid is not defined
@@ -375,7 +377,7 @@ sub check_user_form ($type, $user_ref, $errors_ref) {
 		print $log remote_addr() . "\t" . time() . "\t" . $user_ref->{userid} . "\t" . $user_ref->{name} . "\n";
 		close($log);
 		# bail out, return 200 status code
-		display_error_and_exit("", 200);
+		display_error_and_exit($request_ref, "", 200);
 	}
 
 	my $email = remove_tags_and_quote(decode utf8 => single_param('email'));
