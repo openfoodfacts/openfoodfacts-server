@@ -355,6 +355,7 @@ XML
 	pnns_groups_1
 	pnns_groups_2
 	states
+	obsolete
 );
 
 # for ingredients OCR, we use tesseract-ocr
