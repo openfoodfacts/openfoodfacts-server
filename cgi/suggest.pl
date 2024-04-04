@@ -26,10 +26,10 @@ use CGI::Carp qw(fatalsToBrowser);
 use CGI qw/:cgi :form escapeHTML/;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Display qw/:all/;
-use ProductOpener::TaxonomySuggestions qw/:all/;
+use ProductOpener::Display qw/init_request request_param/;
+use ProductOpener::TaxonomySuggestions qw/get_taxonomy_suggestions/;
 use ProductOpener::Lang qw/:all/;
-use ProductOpener::HTTP qw/:all/;
+use ProductOpener::HTTP qw/write_cors_headers/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;

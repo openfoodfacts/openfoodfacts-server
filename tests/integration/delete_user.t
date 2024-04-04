@@ -4,8 +4,8 @@ use ProductOpener::PerlStandards;
 
 use Test::More;
 use ProductOpener::APITest qw/:all/;
-use ProductOpener::Test qw/:all/;
-use ProductOpener::TestDefaults qw/:all/;
+use ProductOpener::Test qw/remove_all_users/;
+use ProductOpener::TestDefaults qw/%admin_user_form %default_product %default_user_form/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Producers qw/:all/;
 

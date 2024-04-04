@@ -41,16 +41,13 @@ use Exporter qw< import >;
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
-		$lang
 		$lc
-		$text_direction
 
 		%tag_type_singular
 		%tag_type_from_singular
 		%tag_type_plural
 		%tag_type_from_plural
 		%Lang
-		%CanonicalLang
 		%Langs
 		@Langs
 
@@ -68,9 +65,9 @@ BEGIN {
 
 use vars @EXPORT_OK;
 use ProductOpener::I18N;
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Store qw/get_string_id_for_lang retrieve/;
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die/;
 
 use DateTime;
 use DateTime::Locale;
@@ -79,10 +76,8 @@ use JSON::PP;
 
 use Log::Any qw($log);
 
-# Default values for $lang and $lc
-# TODO: there should not be any difference between $lc and $lang, so we should be able to remove $lang
+# Default values for $lc
 $lc = "en";
-$lang = "en";
 
 =head1 FUNCTIONS
 
@@ -111,7 +106,7 @@ sub separator_before_colon ($l) {
 
 =head2 lang( $stringid )
 
-Returns a translation for a specific string id in the language defined in the $lang global variable.
+Returns a translation for a specific string id in the language defined in the $lc global variable.
 
 If a translation is not available, the function returns English.
 
@@ -124,13 +119,13 @@ In the .po translation files, we use the msgctxt field for the string id.
 =cut
 
 sub lang ($stringid) {
-	return lang_in_other_lc($lang, $stringid);
+	return lang_in_other_lc($lc, $stringid);
 }
 
 =head2 f_lang( $stringid, $variables_ref )
 
 Returns a translation for a specific string id with specific arguments
-in the language defined in the $lang global variable.
+in the language defined in the $lc global variable.
 
 The translation is stored using Python's f-string format with
 named parameters between { }.

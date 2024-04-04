@@ -69,7 +69,6 @@ BEGIN {
 		&normalize_code
 		&normalize_code_with_gs1_ai
 		&assign_new_code
-		&split_code
 		&product_id_for_owner
 		&server_for_product_id
 		&data_root_for_product_id
@@ -85,7 +84,6 @@ BEGIN {
 		&retrieve_product_or_deleted_product
 		&retrieve_product_rev
 		&store_product
-		&send_notification_for_product_change
 		&product_name_brand
 		&product_name_brand_quantity
 		&product_url
@@ -103,8 +101,6 @@ BEGIN {
 		&compute_data_sources
 		&compute_sort_keys
 
-		&add_back_field_values_removed_by_user
-
 		&process_product_edit_rules
 		&preprocess_product_field
 		&product_data_is_protected
@@ -113,8 +109,6 @@ BEGIN {
 		&change_product_server_or_code
 
 		&find_and_replace_user_id_in_products
-
-		&add_users_team
 
 		&remove_fields
 
@@ -128,30 +122,31 @@ BEGIN {
 
 use vars @EXPORT_OK;
 
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Store qw/get_string_id_for_lang get_url_id_for_lang retrieve store/;
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
-use ProductOpener::Users qw/:all/;
-use ProductOpener::Orgs qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die/;
+use ProductOpener::Users qw/$Org_id $Owner_id $User_id %User init_user/;
+use ProductOpener::Orgs qw/retrieve_org/;
+use ProductOpener::Lang qw/$lc %tag_type_singular lang/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Mail qw/:all/;
-use ProductOpener::URL qw/:all/;
-use ProductOpener::Data qw/:all/;
-use ProductOpener::MainCountries qw/:all/;
-use ProductOpener::Text qw/:all/;
+use ProductOpener::Mail qw/send_email/;
+use ProductOpener::URL qw/format_subdomain/;
+use ProductOpener::Data qw/execute_query get_products_collection get_recent_changes_collection/;
+use ProductOpener::MainCountries qw/compute_main_countries/;
+use ProductOpener::Text qw/remove_email remove_tags_and_quote/;
 use ProductOpener::Display qw/single_param/;
 use ProductOpener::Redis qw/push_to_redis_stream/;
 
 # needed by analyze_and_enrich_product_data()
 # may be moved to another module at some point
-use ProductOpener::Ingredients qw/:all/;
+use ProductOpener::Ingredients
+	qw/clean_ingredients_text detect_allergens_from_text extract_ingredients_classes_from_text extract_ingredients_from_text select_ingredients_lc/;
 use ProductOpener::Nutriscore qw/:all/;
-use ProductOpener::Ecoscore qw/:all/;
-use ProductOpener::ForestFootprint qw/:all/;
-use ProductOpener::Packaging qw/:all/;
-use ProductOpener::DataQuality qw/:all/;
+use ProductOpener::Ecoscore qw/compute_ecoscore/;
+use ProductOpener::ForestFootprint qw/compute_forest_footprint/;
+use ProductOpener::Packaging qw/analyze_and_combine_packaging_data/;
+use ProductOpener::DataQuality qw/check_quality/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
@@ -786,7 +781,13 @@ sub init_product ($userid, $orgid, $code, $countryid) {
 
 		$log->debug(
 			"init_product - private_products enabled",
-			{userid => $userid, orgid => $orgid, code => $code, ownerid => $ownerid, product_id => $product_ref->{_id}}
+			{
+				userid => $userid,
+				orgid => $orgid,
+				code => $code,
+				ownerid => $ownerid,
+				product_id => $product_ref->{_id}
+			}
 		) if $log->is_debug();
 	}
 
@@ -969,14 +970,24 @@ sub retrieve_product ($product_id) {
 			$product_ref->{server} = $server;
 			$log->debug(
 				"retrieve_product - product on another server",
-				{product_id => $product_id, product_data_root => $product_data_root, path => $path, server => $server}
+				{
+					product_id => $product_id,
+					product_data_root => $product_data_root,
+					path => $path,
+					server => $server
+				}
 			) if $log->is_debug();
 		}
 
 		if ($product_ref->{deleted}) {
 			$log->debug(
 				"retrieve_product - deleted product",
-				{product_id => $product_id, product_data_root => $product_data_root, path => $path, server => $server}
+				{
+					product_id => $product_id,
+					product_data_root => $product_data_root,
+					path => $path,
+					server => $server
+				}
 			) if $log->is_debug();
 			return;
 		}
@@ -1274,7 +1285,11 @@ sub store_product ($user_id, $product_ref, $comment) {
 			dirmove("$BASE_DIRS{PRODUCTS}/$old_path", "$new_data_root/products/$path")
 				or $log->error(
 				"could not move product data",
-				{source => "$BASE_DIRS{PRODUCTS}/$old_path", destination => "$BASE_DIRS{PRODUCTS}/$path", error => $!}
+				{
+					source => "$BASE_DIRS{PRODUCTS}/$old_path",
+					destination => "$BASE_DIRS{PRODUCTS}/$path",
+					error => $!
+				}
 				);
 
 			$log->debug(
@@ -1821,6 +1836,7 @@ to determine if the change was done through an app, the OFF userid, or an app sp
 =head3 Parameters
 
 =head4 $change_ref
+
 reference to a change record
 
 =head3 Return value
@@ -2995,10 +3011,15 @@ It does not block image upload.
 =head3 edit_rules structure
 
 =over 1
+
 =item * name: rule name to identify it in logs and describe it
-=item * conditions: the conditions the product must match, a list of [fieldname, value]
+
+=item * conditions: the conditions the product must match, a list of [field name, value]
+
 =item * actions: the actions to take, a list, where each element is a list with a rule name, and eventual arguments
+
 =item * notifications: also notify, list of email addresses or specific notification rules
+
 =back
 
 =head4 conditions
@@ -3024,12 +3045,19 @@ C<ignore_if_CONDITION_FIELD> or C<warn_if_CONDITION_FIELD>
 This time it's to check the value the user want's to add.
 
 C<CONDITION> is one of the following:
+
 =over 1
+
 =item * existing - user tries to edit this field with a non empty value
+
 =item * 0 - user tries to put numerical value 0 in the field
+
 =item * equal / lesser / greater - comparison of numeric value (requires a value as argument)
+
 =item * match - comparison to a string (equality, requires a value as argument)
+
 =item * regexp_match - match against a regexp (requires a regexp value as argument)
+
 =back
 
 =head4 notifications
@@ -3040,6 +3068,7 @@ or "slack_CHANNEL_NAME" (B<warning> currently channel name is ignored, we post t
 =head4 Example of an edit rule
 
 =begin text
+
 {
 	name => "App XYZ",
 	conditions => [
@@ -3057,6 +3086,7 @@ or "slack_CHANNEL_NAME" (B<warning> currently channel name is ignored, we post t
 		slack_channel_edit-alert-test
 	),
 },
+
 =end text
 
 =cut

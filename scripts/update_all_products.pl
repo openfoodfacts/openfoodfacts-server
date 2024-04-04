@@ -56,28 +56,29 @@ TXT
 	;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
+use ProductOpener::Store qw/retrieve store/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Users qw/:all/;
-use ProductOpener::Images qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Users qw/$User_id %User/;
+use ProductOpener::Images qw/process_image_crop/;
+use ProductOpener::Lang qw/$lc/;
 use ProductOpener::Mail qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
-use ProductOpener::DataQuality qw/:all/;
-use ProductOpener::Data qw/:all/;
-use ProductOpener::Ecoscore qw(:all);
-use ProductOpener::Packaging qw(:all);
-use ProductOpener::ForestFootprint qw(:all);
-use ProductOpener::MainCountries qw(:all);
-use ProductOpener::PackagerCodes qw/:all/;
-use ProductOpener::API qw/:all/;
-use ProductOpener::LoadData qw/:all/;
+use ProductOpener::DataQuality qw/check_quality/;
+use ProductOpener::Data qw/get_products_collection/;
+use ProductOpener::Ecoscore qw(compute_ecoscore);
+use ProductOpener::Packaging
+	qw(analyze_and_combine_packaging_data guess_language_of_packaging_text init_packaging_taxonomies_regexps);
+use ProductOpener::ForestFootprint qw(compute_forest_footprint);
+use ProductOpener::MainCountries qw(compute_main_countries);
+use ProductOpener::PackagerCodes qw/normalize_packager_codes/;
+use ProductOpener::API qw/get_initialized_response/;
+use ProductOpener::LoadData qw/load_data/;
 use ProductOpener::Redis qw/push_to_redis_stream/;
 
 use CGI qw/:cgi :form escapeHTML/;
@@ -1013,14 +1014,14 @@ while (my $product_ref = $cursor->next) {
 						and (defined $product_ref->{images}{$imgid}{orientation})
 						and ($product_ref->{images}{$imgid}{orientation} != 0)
 						# only rotate images that have not been manually cropped
-						and
-						((not defined $product_ref->{images}{$imgid}{x1}) or ($product_ref->{images}{$imgid}{x1} <= 0))
-						and
-						((not defined $product_ref->{images}{$imgid}{y1}) or ($product_ref->{images}{$imgid}{y1} <= 0))
-						and
-						((not defined $product_ref->{images}{$imgid}{x2}) or ($product_ref->{images}{$imgid}{x2} <= 0))
-						and
-						((not defined $product_ref->{images}{$imgid}{y2}) or ($product_ref->{images}{$imgid}{y2} <= 0))
+						and (  (not defined $product_ref->{images}{$imgid}{x1})
+							or ($product_ref->{images}{$imgid}{x1} <= 0))
+						and (  (not defined $product_ref->{images}{$imgid}{y1})
+							or ($product_ref->{images}{$imgid}{y1} <= 0))
+						and (  (not defined $product_ref->{images}{$imgid}{x2})
+							or ($product_ref->{images}{$imgid}{x2} <= 0))
+						and (  (not defined $product_ref->{images}{$imgid}{y2})
+							or ($product_ref->{images}{$imgid}{y2} <= 0))
 						)
 					{
 						print STDERR "rotating image $imgid by "

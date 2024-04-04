@@ -42,7 +42,6 @@ BEGIN {
 		&html_displays_error
 		&login
 		&mails_from_log
-		&mail_to_text
 		&new_client
 		&normalize_mail_for_comparison
 		&origin_from_url
@@ -50,9 +49,7 @@ BEGIN {
 		&tail_log_start
 		&tail_log_read
 		&wait_application_ready
-		&wait_dynamic_front
 		&execute_api_tests
-		&wait_server
 		&fake_http_server
 		&get_minion_jobs
 	);    # symbols to export on request
@@ -307,6 +304,7 @@ Return if a form displays errors
 
 Most forms will return a 200 while displaying an error message.
 This function assumes error_list.tt.html was used.
+
 =cut
 
 sub html_displays_error ($page) {
@@ -501,7 +499,7 @@ sub execute_request ($test_ref, $ua) {
 	# We would need to re-construct the url
 	my $final_url = $response->request->uri;
 	if ($url ne $final_url) {
-		diag("Got a redirect to " . $final_url);
+		diag("Warning: redirects are not supported by APITest.pm!!! Got a redirect to " . $final_url);
 	}
 
 	return $response;
@@ -541,18 +539,21 @@ sub check_request_response ($test_ref, $response, $test_id, $test_dir, $expected
 		diag("Response content: " . $response_content);
 	}
 
-	if ((defined $test_ref->{expected_type}) and ($test_ref->{expected_type} eq 'text')) {
-		# Check that the text file is the same as expected (useful for checking dynamic robots.txt)
+	my $expected_type = $test_ref->{expected_type} // 'json';
+
+	if ((($expected_type eq 'text') or ($expected_type eq 'html'))) {
+		# Check that the file is the same as expected (useful for HTML content or dynamic robots.txt)
 		is(
 			compare_file_to_expected_results(
-				$response_content, "$expected_result_dir/$test_case.txt",
+				$response_content, "$expected_result_dir/$test_case.$expected_type",
 				$update_expected_results, $test_ref
 			),
 			1,
 			"$test_case - result"
 		);
 	}
-	elsif (not((defined $test_ref->{expected_type}) and ($test_ref->{expected_type} eq "html"))) {
+	# Otherwise we expect the result is JSON
+	elsif ($expected_type eq 'json') {
 
 		# Check that we got a JSON response
 
@@ -567,7 +568,7 @@ sub check_request_response ($test_ref, $response, $test_id, $test_dir, $expected
 			);
 			diag("Response content: " . $response_content);
 			fail($test_case);
-			next;
+			return;
 		};
 
 		# If the request was a setup request, we don't need to save or check the response
@@ -597,6 +598,11 @@ sub check_request_response ($test_ref, $response, $test_id, $test_dir, $expected
 			);
 
 		}
+	}
+	# We do not check the response content for some queries (e.g OPTIONS queries), in that case expected_type is set to 'none'
+	elsif ($expected_type ne 'none') {
+		fail($test_case);
+		diag("Unknown expected type: $expected_type");
 	}
 
 	# Check if the response content matches what we expect
@@ -688,7 +694,9 @@ sub tail_log_read ($tail) {
 }
 
 =head2 mails_from_log($text)
+
 Retrieve mails in a log extract
+
 =cut
 
 sub mails_from_log ($text) {
@@ -699,15 +707,19 @@ sub mails_from_log ($text) {
 }
 
 =head2 mail_to_text($text)
+
 Make mail more easy to search by removing some specific formatting
 
 Especially we replace "3D=" for "=" and join line and their continuation
+
 =head3 Arguments
 
 =head4 $mail text of mail
 
 =head3 Returns
+
 Reformatted text
+
 =cut
 
 sub mail_to_text ($mail) {
@@ -723,12 +735,15 @@ sub mail_to_text ($mail) {
 
 Replace parts of mail that varies from tests to tests,
 and also in a format that's nice in json.
+
 =head3 Arguments
 
 =head4 $mail text of mail
 
 =head3 Returns
+
 ref to an array of lines of the email
+
 =cut
 
 sub normalize_mail_for_comparison ($mail) {
@@ -818,21 +833,26 @@ sub fake_http_server ($port, $dump_path, $responses_ref) {
 }
 
 =head2 get_minion_jobs($task_name, $created_after_ts, $max_waiting_time)
+
 Subprogram which wait till the minion finished its job or
 if it takes too much time
 
 =head3 Arguments
 
 =head4 $task_name
+
 The name of the task 
 
 =head4 $created_after_ts
+
 The timestamp of the creation of the task
 
 =head4 $max_waiting_time
+
 The max waiting time for this given task
 
 =head3 Returns
+
 Returns a list of jobs information associated with the task_name
 
 Note: for each job we return the job information (as returned by the jobs() iterator),

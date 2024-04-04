@@ -12,10 +12,10 @@ use File::Copy::Recursive qw(dircopy fcopy);
 use Test::Fake::HTTPD qw/run_http_server/;
 use URL::Encode qw/url_params_mixed/;
 
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Store qw/retrieve/;
 use ProductOpener::Config qw/:all/;
 
-use ProductOpener::APITest qw/:all/;
+use ProductOpener::APITest qw/fake_http_server wait_application_ready/;
 use ProductOpener::Test qw/:all/;
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));

@@ -6,7 +6,7 @@ use utf8;
 use Test::More;
 use Log::Any::Adapter 'TAP';
 
-use ProductOpener::Tags qw/:all/;
+use ProductOpener::Tags qw/exists_taxonomy_tag has_tag/;
 use ProductOpener::Food qw/:all/;
 
 my $product_ref = {
@@ -556,5 +556,24 @@ is_deeply(
 		'serving_size' => '5 g'
 	}
 ) or diag explain $product_ref;
+
+# Testing for get_nutrient_unit both for India and a country where no unit is described
+# Test case for fetching unit for sodium in India
+{
+	my $unit_in_india = get_nutrient_unit("sodium", "in");
+	is($unit_in_india, "mg", "Check if unit_in is fetched correctly for sodium in India");
+}
+
+# Test case for fetching unit for sodium outside India (eg: US)
+{
+	my $unit_in_us = get_nutrient_unit("sodium", "us");
+	is($unit_in_us, "mg", "Check if unit_us is fetched correctly for sodium in US");
+}
+
+# Test case for fetching unit for sodium outside India (eg: Canada)
+{
+	my $unit_in_canada = get_nutrient_unit("sodium", "ca");
+	is($unit_in_canada, "g", "Check if unit is fetched correctly for sodium in Canada");
+}
 
 done_testing();

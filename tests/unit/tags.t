@@ -6,10 +6,10 @@ use Test::More;
 #use Log::Any::Adapter 'TAP', filter => "none";
 
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Store qw/get_fileid get_string_id_for_lang/;
 # Display.pm is currently needed, as we need $lc to be defined for canonicalize_tag2
 use ProductOpener::Display qw/:all/;
-use ProductOpener::Test qw/:all/;
+use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
@@ -712,7 +712,7 @@ is_deeply($product_ref->{test_tags},
 is(canonicalize_taxonomy_tag('es', 'ingredients', 'jugo de soya'), 'en:soy-base');
 
 # check that properties are taxonomized if their name match a previously loaded taxonomy
-is(get_property("additives", "en:e170i", "additives_classes:en"), "en:colour,en:stabiliser");
+is(get_property("additives", "en:e170i", "additives_classes:en"), "en:colour, en:stabiliser");
 
 # test list_taxonomy_tags_in_language
 
