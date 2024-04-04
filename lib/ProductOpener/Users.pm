@@ -889,17 +889,20 @@ sub store_user ($user_ref) {
 	my $userid = $user_ref->{userid};
 
 	# Update email
-	my $emails_ref = retrieve("$BASE_DIRS{USERS}/users_emails.sto");
-	my $email = $user_ref->{email};
+	my $emails_file = "$BASE_DIRS{USERS}/users_emails.sto";
+	if (-e $emails_file) {
+ 		my $emails_ref = retrieve($emails_file);
+		my $email = $user_ref->{email};
 
-	if ((defined $email) and ($email =~ /\@/)) {
-		$emails_ref->{$email} = [$userid];
+		if ((defined $email) and ($email =~ /\@/)) {
+			$emails_ref->{$email} = [$userid];
+		}
+		if (defined $user_ref->{old_email}) {
+			delete $emails_ref->{$user_ref->{old_email}};
+			delete $user_ref->{old_email};
+		}
+		store("$BASE_DIRS{USERS}/users_emails.sto", $emails_ref);
 	}
-	if (defined $user_ref->{old_email}) {
-		delete $emails_ref->{$user_ref->{old_email}};
-		delete $user_ref->{old_email};
-	}
-	store("$BASE_DIRS{USERS}/users_emails.sto", $emails_ref);
 
 	# save user
 	store_user_session($user_ref);
