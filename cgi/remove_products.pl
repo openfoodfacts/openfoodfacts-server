@@ -28,14 +28,14 @@ binmode(STDERR, ":encoding(UTF-8)");
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::Users qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Users qw/$Owner_id/;
+use ProductOpener::Lang qw/lang/;
 use ProductOpener::Mail qw/:all/;
 use ProductOpener::Producers qw/:all/;
-use ProductOpener::Data qw/:all/;
+use ProductOpener::Data qw/get_products_collection/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -55,11 +55,11 @@ my $template_data_ref = {};
 $template_data_ref->{action} = $action;
 
 if (not $server_options{producers_platform}) {
-	display_error_and_exit(lang("function_not_available"), 200);
+	display_error_and_exit($request_ref, lang("function_not_available"), 200);
 }
 
 if ((not defined $Owner_id) or ($Owner_id !~ /^(user|org)-\S+$/)) {
-	display_error_and_exit(lang("no_owner_defined"), 200);
+	display_error_and_exit($request_ref, lang("no_owner_defined"), 200);
 }
 
 if ($action eq "display") {
@@ -82,7 +82,7 @@ elsif ($action eq "process") {
 	File::Copy::Recursive->import(qw( dirmove ));
 
 	my $deleted_dir = $BASE_DIRS{DELETED_PRIVATE_PRODUCTS} . "/" . $Owner_id . "." . time();
-	ensure_dir_created($BASE_DIRS{PRODUCTS_IMAGES}) or display_error_and_exit("Missing path", 503);
+	ensure_dir_created($BASE_DIRS{PRODUCTS_IMAGES}) or display_error_and_exit($request_ref, "Missing path", 503);
 
 	$log->debug("Moving data to deleted dir", {owner => $Owner_id, deleted_dir => $deleted_dir}) if $log->is_debug();
 

@@ -7,9 +7,9 @@ use Test::More;
 use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::TagsEntries qw/:all/;
-use ProductOpener::Ingredients qw/:all/;
-use ProductOpener::Food qw/:all/;
+use ProductOpener::Ingredients
+	qw/clean_ingredients_text extract_ingredients_classes_from_text extract_ingredients_from_text/;
+use ProductOpener::Food qw/compute_nova_group/;
 
 # dummy product for testing
 

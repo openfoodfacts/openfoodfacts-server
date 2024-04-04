@@ -89,14 +89,14 @@ stopwords:en:added to enhance freshness, added to maintain flavor and freshness,
 stopwords:es:contiene,de,del,la,el,las,los,con,y,e,en,minimo,maximo,puede,contener,por,categoria,calibre,minimo,min,vereidad,variedad,de cultivo,origen,nota,produccion,controlada,equivalente,equivale
 stopwords:fi:sisältää,muun muassa,valio, koskenlaskija, snellmanin, jossa, noin, käymisen aikana muodostuva
 stopwords:fr:aux,au,de,le,du,la,a,et,avec,ou,en,proportion,variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets, pour souleves,dont,avec,autres,d'autres,d', avec ajout, sachet, marquants, demeter, minimum
-# example: karamelizirani šećerni sirup (sadrži bojilo E150a) # also for alergens "SADRŽI celer i gorušicu"
 # example: grašak u prahu BOGAT BJELANČEVINAMA
 # example: KLASIČNA MJEŠAVINA arabica i robusta kave
 # example: luk u prahu (OD ČEGA mladi luk 0,06 %)
 # example: prah ploda limuna (Citrus limon) 0,1% (ODGOVARA svježeg limuna)
 # example: prirodne arome (UKLJUČUJUĆI I kofein)
 # example: sojin umak bez glutena
-stopwords:hr:bez glutena, i/ili, i, ili, iz, max, min, najmanje, najviše, obično poznat kao, od, u promjenjivim omjerima, u promjenjivim udjelima, u različitim omjerima, u tragovima, bogat bjelančevinama, klasična mješavina, od čega, odgovara, titriran na 25 % 5-HTP, uključujući i, uključujući
+# example: marelice 8.3% (SADRŽE sumporni dioksid) / SADRŽI sulfite
+stopwords:hr:bez glutena, i/ili, i, ili, iz, max, min, najmanje, najviše, obično poznat kao, od, u promjenjivim omjerima, u promjenjivim udjelima, u različitim omjerima, u tragovima, bogat bjelančevinama, klasična mješavina, od čega, odgovara, titriran na 25 % 5-HTP, uključujući i, uključujući, sadrže, sadrži
 stopwords:hu:tartalmaz, változó arányban, min, zsírtartalom, összetevő, összetétel, amelyből, amiből
 stopwords:id:mengandung
 stopwords:is:úr
@@ -1090,7 +1090,7 @@ hr:mikrobne kulture
 hu:baktérium kultúra, baktériumkultúra, kultúra, kultúrák, elő kultúrák
 it:cultura microbiotica, cultura
 nl:Microbiële cultuur
-pl:Kultury bakterii, żywe kultury bakterii, kultury starterowe, kultury startowe bakterii, kultury starterowe bakterii
+pl:Kultury bakterii, żywe kultury bakterii, kultury starterowe, kultury startowe bakterii, kultury starterowe bakterii, bakterie
 pt:Cultura microbial
 ro:Culturi microbiene
 sv:mikrobiell kultur, kultur, aktiva kulturer, levande kulturer, bakteriekultur
@@ -1219,6 +1219,7 @@ ka:ბიფიდობაქტერიები
 kk:Бифидобактериялар
 la:Bifidobacterium
 nl:bifidus, Bifidobacterium
+pl:bifidobacterium sp, bifidobacterium, bifidobacterium BB-12
 pt:Bifidus
 ru:Бифидобактерии
 sv:bifidobacterium, bifidobacterium sp
@@ -1352,6 +1353,7 @@ fi:Lactobacillus acidophilus, L. acidophilus
 hr:lactobacillus acidophilus La-5, kultura Lactobacillus acidophilus, mikrobiološke kulture Lactobacillus acidophilus La-5, mljekarska kultura s Lactobacillus acidophilus
 it:Lactobacillus acidophilus, L. acidophilus
 kk:Ацидофилин таяқшасы
+pl:bakterie Lactobacillus acidophilus, bakterie Lactobacillus acidophilus LA-5, Lactobacillus acidophilus LA-5, Lactobacillus acidophilus
 ro:Lapte acidofil
 ru:Lactobacillus acidophilus, Ацидофильная палочка
 sv:Lactobacillus acidophilus, kultur av lactobacillus acidophilus
@@ -1378,7 +1380,7 @@ en:Lactobacillus bulgaricus, L. bulgaricus, Lactobacillus delbrueckii subsp. bul
 bg:Лактобацилус булгарикус, Lactobacillus bulgaricus, Lactobacillus delbrueckii subsp. bulgaricus, L. delbrueckii subsp. bulgaricus, Lactobacillus delbrueskii subsp. bulgaricus
 es:lactobacilus delbrueckii sp Bulgaricus, Lactobacillus delbrueckii subspecies bulgaricus
 fr:L bulgaricus, bulgaricus
-xx:Lactobacillus bulgaricus, L. bulgaricus
+xx:Lactobacillus bulgaricus, L. bulgaricus, Lactobacillus delbrueckii ssp. bulgaricus, Lactobacillus delbruecki ssp. bulgaricus
 sv:Lactobacillus bulgaricus, L. bulgaricus
 wikidata:en:Q47455075
 wikipedia:en:https://en.wikipedia.org/wiki/Lactobacillus_delbrueckii_subsp._bulgaricus
@@ -1475,6 +1477,12 @@ wikipedia:en:https://en.wikipedia.org/wiki/Bacillus_coagulans
 <en:lactobacillus casei
 fr:ferments lactiques dont lactobacillus casei
 # fr:ferments-lactiques-dont-lactobacillus-casei has 28 products in 1 language @2018-11-02
+
+<en:lactic ferments
+en:Lacticaseibacillus paracasei, Lc. paracasei, L. paracasei
+xx:Lacticaseibacillus paracasei, Lc. paracasei, L. paracasei
+wikidata:en:Q1799829
+wikipedia:en:https://en.wikipedia.org/wiki/Lacticaseibacillus_paracasei
 
 
 # description:en:STREPTOCOCCUS THERMOPHILUS also known as Streptococcus salivarius subsp. thermophilus is a gram-positive bacterium, and a fermentative facultative anaerobe, of the viridans group. It is also classified as a lactic acid bacterium.
@@ -1852,7 +1860,7 @@ lt:laktazė
 mk:Лактаза
 nl:lactase
 oc:lactasa
-pl:laktaza
+pl:laktaza, enzym laktaza
 pt:lactase
 ru:Лактаза
 sh:laktaza
@@ -5153,6 +5161,9 @@ description:nl:Room bestaat uit melkvet en kleine hoeveelheden van andere koemel
 description:pt:A nata ou creme de leite é a gordura do leite, um tipo de laticínio, muito utilizada em culinária e confeitaria e também como principal ingrediente da manteiga.
 # ingredient/cream has 27881 products in 29 languages @2019-07-12
 
+<en:Cream
+fr:Crème fleurette, Crèmes fleurettes
+
 <en:cream
 en:buffalo milk cream
 
@@ -6385,8 +6396,8 @@ ca:formatge de llet pasteuritzada
 es:queso de leche pasteurizada
 # fr:fromage-au-lait-pasteurisé has 55 products in 1 language @2018-10-28
 
-#<en:cheese
-#en:cheese powder
+<en:cheese
+en:cheese powder
 #en:processing:en:powder
 #bg:сирене на прах
 #ca:formatge en pols
@@ -13602,8 +13613,9 @@ fr:gras et couenne de porc
 en:pork minute steak
 hr:svinjski minutni odrezak
 
-<en:broth
+<en:fond
 <en:pork
+en:pork fond
 fr:fond de porc
 
 <en:pork
@@ -13737,6 +13749,7 @@ nutriscore_red_meat:en:yes
 
 # <en:bone
 <en:veal
+en:veal bone
 fr:os de veau
 
 <en:veal
@@ -15165,6 +15178,7 @@ sv:mjölkfett
 tr:süt yağı, sütyağı
 vegan:en:no
 vegetarian:en:yes
+from_palm_oil:en:no
 
 <en:milkfat
 en:milk fat without lactose
@@ -18107,7 +18121,7 @@ nn:eddik
 no:eddik
 oc:vinagre
 pa:ਸਿਰਕਾ
-pl:ocet, octu, octowy, octowa, octowe, octowej, octowego, octowych
+pl:ocet, octu, octowy, octowa, octowe, octowej, octowego, octowych, zalewa octowa
 pt:vinagre
 qu:mama aqha
 ro:oțet, otet
@@ -18263,7 +18277,7 @@ pt:vinagre de álcool
 sv:ättiksprit
 
 <en:alcohol vinegar
-<en:vinegar powder
+#<en:vinegar powder
 en:alcohol vinegar powder
 fr:poudre de vinaigre d'alcool
 ro:oţet praf din alcool, otet praf din alcool
@@ -21191,30 +21205,24 @@ hu:bodza aroma
 
 <en:flavouring
 en:ketchup flavouring
-hr:aroma kečapa
+hr:aroma kečapa, okus kečapa
 de:Ketchup-Aroma
 es:aroma de ketchup
-fi:ketsuppiaromi
+fi:ketsuppiaromi, ketsuppimaku
 fr:arôme de ketchup
-hu:ketchup aroma
-it:aroma di ketchup
-nl:ketchuparoma
-ro:aromă de ketchup
+hu:ketchup aroma, ketchup íz
+it:aroma di ketchup, sapore di ketchup
+nl:ketchuparoma, ketchupsmaak
+ro:aromă de ketchup, gust de ketchup
 bg:кетчуп аромат
 cs:chuť kečupu
 da:ketchupsmag
 el:αρωματική ύφεση κέτσαπ
 et:ketsupiaroom
-fi:ketsuppimaku
-hr:okus kečapa
-hu:ketchup íz
-it:sapore di ketchup
 lt:ketchup skonis
 lv:ketchup garša
-nl:ketchupsmaak
 pl:smak ketchupu
 pt:sabor de ketchup
-ro:gust de ketchup
 sk:chuť kečupu
 sl:ketchup okus
 sv:ketchupsmak
@@ -21975,7 +21983,7 @@ hu:füst aroma, füst ízesétés, füst íz
 it:aroma di affumicato, aroma di affumicatura, affumicatura
 nb:røykaroma
 nl:rookaroma, rookaroma's
-pl:Aromat dymu wędzarniczego
+pl:aromat dymu wędzarniczego, aromat dymu
 pt:aroma de fumo
 ro:aroma de fum
 sv:rökarom
@@ -22757,7 +22765,7 @@ nb:røyk
 nl:rook, houtrook
 nn:røyk
 oc:Fum
-pl:dym
+pl:dym, dym wędzarniczy
 pt:fumo
 qu:Q'usñi
 ro:Fum
@@ -22814,8 +22822,13 @@ fr:fumée de bois de hêtre, fumée naturelle au bois de hêtre
 hr:dim bukovine, dim drva bukve
 hu:bükkfán füstölt, bükkfa füst
 it:fumo di faggio
+pl:dym z drewna bukowego
 sv:bokträrök
 # ingredient/fr:fumée-de-bois-de-hêtre has 211 products in 4 languages @2019-04-14
+
+<en:smoke
+en:fir wood smoke
+pl:dym z drewna jodłowego
 
 # description:en:LIQUID SMOKE is a water-soluble yellow to red liquid used for flavoring. It is used as a substitute for cooking with wood smoke while retaining a similar flavor. It can be used to flavor any meat or vegetable. It is generally made by concentrating the smoke from wood, but can contain any number of food additives.
 # description:de:FLÜSSIGRAUCH ist eine wasserlösliche gelb bis rote Flüssigkeit, die zum Würzen verwendet wird. Es wird als Ersatz für das Kochen mit Holzrauch verwendet und behält dabei einen ähnlichen Geschmack. Es kann zum Würzen von Fleisch oder Gemüse verwendet werden. Es wird in der Regel durch Konzentration des Rauchs aus Holz hergestellt, kann aber auch beliebige Lebensmittelzusatzstoffe enthalten.
@@ -25545,6 +25558,7 @@ en:gluten free oat flour
 de: glutenfreies Hafermehl
 es:harina de avena libre de gluten, harina de avena sin gluten
 fr:farine d'avoine sans gluten
+pl:bezglutenowa mąka owsiana
 
 <en:oat
 <en:vegetable fibre
@@ -25574,6 +25588,7 @@ en:gluten free oat fibre
 de:glutenfreie Haferfaser
 fr:fibre d'avoine sans gluten
 nl:glutenvrije havervezels
+pl:błonnik owsiany bezglutenowy, bezglutenowy błonnik owsiany
 
 <en:oat
 en:oat bran, oatbran
@@ -27731,6 +27746,12 @@ ciqual_food_name:fr:Maïs entier, cru
 # 41540 in 66 @2021-12-19
 
 <en:corn
+en:canned corn
+fr:maïs en conserve
+ciqual_food_code:en:20066
+ciqual_food_name:fr:Maïs doux, appertisé, égoutté
+
+<en:corn
 en:organic corn
 bg:био царевица
 de:Bio-Mais
@@ -27811,6 +27832,7 @@ fr:Fibre de maïs
 hr:kukuruzna vlakna
 lt:kukurūzų skaidulos, kukurūzų ląsteliena
 nl:maïsvezel
+pl:błonnik kukurydziany
 sk:kukuričná vláknina
 
 <en:corn
@@ -29681,7 +29703,7 @@ hr:karamelizirani šećer, karameliziran šećer
 hu:karamellizált cukor
 it:zucchero caramellato
 nl:gekarameliseerde suiker, gebrande suiker
-pl:cukier karmelizowany
+pl:cukier karmelizowany, cukier skarmelizowany
 pt:açúcar caramelizado
 ro:zahăr caramelizat
 ru:карамелизованный сахар
@@ -33010,11 +33032,13 @@ it:fibra di cacao
 ja:カカオ繊維
 mk:какаови влакна
 nl:cacaovezel
+pl:błonnik kakaowy
 ru:какао-волокна
 sq:rrënjë kakaoje
 sv:kakaofiber
 uk:какао-волокна
 zh:可可纤维
+pl:błonnik kakaowy
 
 #<en:compound
 en:cocoa bar
@@ -33618,6 +33642,7 @@ fi:suklaakastike
 fr:sauce au chocolat, sauce parfum chocolat
 lt:šokoladinis padažas
 nl:chocoladesaus
+pl:sos czekoladowy
 sv:chokladsås
 ciqual_food_code:en:11300
 ciqual_food_name:en:Chocolate sauce
@@ -37604,7 +37629,7 @@ et:jõhvikas, harilik jõhvikas
 fa:کرنبری
 fi:karpalo, karpalot
 fo:tranuber
-fr:airelles, cranberries, cranberry, cranberrys, canneberge, Canneberge crue, Cranberry crue
+fr:canneberge, cranberries, cranberry, cranberrys, Canneberge crue, Cranberry crue
 ga:mónóg
 gl:arandeira vermella
 gv:smeyr churree
@@ -37721,6 +37746,10 @@ zh:大果蔓越梅
 #hsb:Wulkopłodowa tymjenka
 wikidata:en:Q149397
 wikipedia:en:https://en.wikipedia.org/wiki/Vaccinium_macrocarpon
+
+<en:cranberry
+en:wild cranberry
+hr:šumska brusnica
 
 <en:berries
 en:bearberry, bearberries
@@ -39377,11 +39406,10 @@ en:Granny smith apple juice
 
 <en:apple juice
 <en:apple puree
-fr:Jus et purée de pomme
+fr:jus et purée de pomme
 
-<en:organic apple juice
-<en:organic apple puree
-fr:Jus et purée de pomme biologiques
+<fr:jus et purée de pomme
+fr:jus et purée de pomme biologiques
 
 
 #is compound: en:apple
@@ -41843,7 +41871,7 @@ cs:Borůvka
 da:bølle
 de:Heidelbeeren, Blaubeeren
 eo:mirtelo
-es:arándano
+es:arándano, arándanos, mirtilo
 et:mustikas, mustikad
 fa:بیل‌بری
 fi:mustikka
@@ -41901,7 +41929,7 @@ da:blåbær
 de:Wilde Heidelbeeren
 fi:villimustikka
 fr:myrtille sauvage
-hr:divlja borovnica
+hr:divlja borovnica, šumska borovnica
 it:mirtilli selvatici
 nl:wilde bosbes, wilde blauwe bosbessen, wilde bosbessen
 pl:borówka dzika, borówki dzikie
@@ -41937,7 +41965,6 @@ pl:borówka dzika, borówki dzikie
 #processing:en: en:juice
 <en:blueberry
 en:blueberry juice
-#de:Preiselbeersaft
 #es:Jugo de zarzamora
 #fi:mustikkamehu
 #fr:jus de myrtille
@@ -43071,6 +43098,7 @@ ru:меджул даты
 en:date paste
 de:pürierte Datteln
 fr:pâte de datte
+hr:pasta od datulja
 nl:dadelpuree
 pl:pasta daktylowa
 sv:dadelpuré
@@ -43743,11 +43771,11 @@ ciqual_food_name:fr:Kiwi, pulpe et graines, cru
 
 #processing:en: en:juice
 #processing:en: en:from concentrate
-<en:kiwi juice
-en:kiwi juice from concentrate
-de:Kiwisaft aus Kiwisaftkonzentrat
-fr:jus de kiwi à base de concentré
-pl:sok z koncentratu z kiwi
+#<en:kiwi juice
+#en:kiwi juice from concentrate
+#de:Kiwisaft aus Kiwisaftkonzentrat
+#fr:jus de kiwi à base de concentré
+#pl:sok z koncentratu z kiwi
 
 # No products
 
@@ -43770,12 +43798,12 @@ pl:sok z koncentratu z kiwi
 en:lingonberry, lingonberries, cowberry, cowberries, foxberry, foxberries, mountain cranberry, mountain cranberries, red whortleberry, red whortleberries
 ca:nabius
 da:tyttebær
-de:Preiselbeeren
-es:Arándanos agrios,arándanos
+de:Preiselbeere, Preiselbeeren
+es:Arándanos agrios
 et:pohl
 fi:Puolukka
-fr:myrtille rouge
-it:Mirtilli rossi
+fr:airelle, airelles, airelle rouge, airelles rouges
+it:mirtillo rosso, mirtilli rossi
 la:Vaccinium vitis-idaea
 lb:rout Molbier
 lt:Bruknė
@@ -43788,6 +43816,11 @@ sv:lingon
 # 7 products @2018-10-01
 eurocode_2_group_3:en: 9.30.44
 
+<en:lingonberry
+en:wild lingonberry, wild lingonberries
+de:Wild-Preiselbeere, Wild-Preiselbeeren, Wildpreiselbeere, Wildpreiselbeeren
+fr:airelle sauvage, airelles sauvages
+
 # No products
 # <en:fruit
 # fr:purée de myrtille rouge
@@ -43797,6 +43830,7 @@ eurocode_2_group_3:en: 9.30.44
 en:lingonberry juice
 de:Preiselbeersaft
 fi:puolukkamehu, puolukkatäysmehu
+fr:jus d'airelle, jus d'airelles, jus d'airelle rouge, jus d'airelles rouges
 sv:lingonjuice
 
 <en:fruit
@@ -43941,7 +43975,6 @@ de:Rambutan
 es:rambután
 fr:Ramboutan, Litchi chevelu
 it:rambutan
-es:rambután
 
 <en:fruit
 en:longan
@@ -53629,8 +53662,8 @@ sv:potatismjöl
 <fr:Pommes de terre de consommation à chair ferme
 fr:Pommes de terre de consommation à chair ferme bio
 
-<en:organic potato
-en:organic potato from France
+<en:potato
+en:organic potatos from France
 fr:Pommes de terre biologiques origine France
 
 <en:potato
@@ -66703,6 +66736,10 @@ ciqual_food_name:fr:Laurier, feuille
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:laurier
 # 3758 in 22 @2021-09-19
 
+<en:bay leaf
+en:bay leaf extract
+pl:ekstrakt z liścia laurowego
+
 
 ###################################################################################################
 #
@@ -72354,6 +72391,10 @@ en:mushroom sauce
 pl:sos grzybowy
 wikidata:en:Q12020426
 
+<en:mushroom sauce
+en:champignon sauce
+pl:sos pieczarkowy
+
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -72715,6 +72756,7 @@ en:white fish meat
 ca:carn de peix blanc, carn de peix blanca
 es:carne de pescado blanco, carne de pescado blanca
 hr:meso bijele ribe
+pl:mięso ryb białych
 
 <en:fish
 en:fish protein
@@ -72920,6 +72962,7 @@ sv:Alaska pollock
 uk:Минтай далекосхідний
 vi:Cá minh thái Alaska
 zh:黄线狭鳕
+xx:Gadus chalcogrammus
 # yue:阿拉斯加鱈
 # zh-hans:黄线狭鳕
 # zh-hant:黃線狹鱈
@@ -74592,6 +74635,10 @@ wikidata:en:Q2396858
 wikipedia:en:https://en.wikipedia.org/wiki/Atlantic_herring
 # structure:inner:role:synonym,  eg:Hareng (Clupea Harengus)
 
+<en:Atlantic herring
+en:Atlantic herring fillet, Atlantic herring fillets
+pl:filety ze śledzia atlantyckiego
+
 
 <en:Atlantic herring
 fr:clupea harengus pêché en Atlantique Nord
@@ -75045,7 +75092,7 @@ nb:Atlantisk laks
 nl:atlantische zalm
 nn:Atlanterhavslaks
 pa:ਅਟਲਾਂਟਿਕ ਸਾਮਨ
-pl:łosoś szlachetny
+pl:łosoś szlachetny, łosoś atlantycki
 pt:salmão atlântico
 ro:Somon
 ru:сёмга
@@ -75832,6 +75879,7 @@ tr:Yazılı orkinos
 uk:Тунець смугастий
 vi:Cá ngừ vằn
 zh:鲣
+xx:Katsuwonus pelamis, Euthynnus palamis, Euthynnus, katsuwonus
 # ace:Amè-amè
 # ast:Alistáu
 # ceb:Sambagon
@@ -76124,7 +76172,7 @@ hr:scomber japonicus
 it:sgombro occhione
 la:Scomber japonicus, Scomber colias
 nl:Spaanse makreel
-pl:makreli kolias
+pl:makrela kolias, makreli kolias
 wikidata:en:Q815837
 wikipedia:en:https://en.wikipedia.org/wiki/Chub_mackerel
 ciqual_food_code:en:26102
@@ -76136,6 +76184,7 @@ ciqual_food_name:fr:Maquereau espagnol ou maquereau blanc ou billard cru
 fr:Filets de maquereaux espagnols
 it:Filetti di sgombro occhione
 nl:Spaanse makreelfilets
+pl:filet z makreli kolias, filety z makreli kolias
 
 <en:mackerel
 en:horse mackerel
@@ -79678,7 +79727,7 @@ pl:łupina nasienna babki jajowatej, łupiny nasion babki jajowatej, łuska babk
 
 <en:blond psyllium
 en:blond psyllium fibre
-pl:błonnik babki jajowatej, błonnik z babki jajowatej
+pl:błonnik babki jajowatej, błonnik z babki jajowatej, błonnik z łuski babki jajowatej
 
 
 
@@ -81320,7 +81369,6 @@ ar:بن قصبي
 ca:Cafè robust
 cs:Kávovník statný
 de:Robusta-Kaffee
-en:Coffea canephora
 eo:Fortika kofeo
 es:Coffea canephora
 et:Kongo kohvipuu
@@ -83787,8 +83835,7 @@ nl:scharrelei-eiwitpoeder, scharreleiwitpoeder
 
 <en:egg white powder
 # en:processing:powder
-nl:vrije uitloopeiwitpoeder
-nl:vrije-uitloopei-eiwitpoeder, vrije uitloopeiwitpoeder
+nl:vrije uitloopeiwitpoeder, vrije-uitloopei-eiwitpoeder, vrije uitloopeiwitpoeder
 
 <en:egg white powder
 fr:blanc d'oeuf en poudre de poules élevées au sol
@@ -85768,6 +85815,7 @@ carbon_footprint_fr_foodges_value:fr:7.3
 
 #comment:en:Has a few products, which has cooked pieces of shortbread in it (ice)
 #category/shortbread-cookies
+<en:Biscuits
 en:shortbread, shortbread cookie, shortbread cookies
 af:brosbrood
 ar:مخبوز هش
@@ -85778,6 +85826,24 @@ ko:쇼트브레드
 xx:shortbread
 zh:奶油酥餅
 wikidata:en:Q652695
+agribalyse_food_code:en:24071
+ciqual_food_code:en:24071
+ciqual_food_name:en:Shortbread pastry biscuit
+ciqual_food_name:fr:Sablé pâtissier
+
+<en:Biscuits
+en:sablé, sablés, sablé biscuit, sablé cookie
+fr:sablé, sablés
+xx:sablé
+wikidata:en:Q2915670
+agribalyse_food_code:en:24071
+ciqual_food_code:en:24071
+ciqual_food_name:en:Shortbread pastry biscuit
+ciqual_food_name:fr:Sablé pâtissier
+
+<en:Shortbread cookies
+en:Shortbread cookies from Brittany
+fr:Galettes bretonnes, galette bretonne, Galettes bretonnes au beurre, sablé breton, sablés bretons
 
 <en:shortbread
 en:Cooked shortbread dough
@@ -87271,7 +87337,7 @@ allergens:en: en:gluten
 
 description:en:The "PETIT BEURRE", or "Véritable Petit Beurre", also known under the initials "VPB", is a kind of shortbread from Nantes, that is best known in France. It is the Petit Beurre of the LU society, which has become a success worldwide.
 # mainIngredient:en:wheat
-# <en:Biscuits
+<en:Biscuits
 en:Petit-Beurre
 de:Butterkekse, Butterkeks
 el:πτι-μπερ
@@ -87946,10 +88012,16 @@ wikipedia:en:https://en.wikipedia.org/wiki/Brine
 
 
 # description:en:BROTH is a savory liquid made of water in which bones, meat, fish, or vegetables have been simmered.
+# We separate it from "fond" which is used for sauces
+
+en:fond, stock for sauce, stocks for sauce, fond for sauce
+da:fond
+fr:fond, fond de sauce, fonds de sauce
+wikipedia:en:https://en.wikipedia.org/wiki/Fond
 
 # <en:compound
 # <en:mainIngredient:en:water
-en:broth, broths, stock, bouillon, Stocks, fond
+en:broth, broths, stock, bouillon, Stocks
 af:bouillon
 ar:زومات
 az:Bulyon
@@ -87959,7 +88031,7 @@ bg:Бульон
 bn:সুরুয়া
 ca:brou
 cs:vývar
-da:fond, bouillon
+da:bouillon
 de:Brühe, Brühen, Bouillons
 el:ζωμός
 eo:buljono
@@ -87968,7 +88040,7 @@ et:puljong
 eu:Salda
 fa:گوشتابه
 fi:liemi, liemivalmiste
-fr:bouillon, fond, Bouillons, fond de sauce
+fr:bouillon, Bouillons
 ga:anraith
 gd:brot
 gl:Caldo
@@ -88076,7 +88148,7 @@ da:Hønsekødsbouillon
 de:Geflügelbouillon
 es:Caldo de ave
 fi:siipikarjaliemi
-fr:bouillon de volaille, fond de volaille, Bouillons de volaille
+fr:bouillon de volaille, Bouillons de volaille
 it:Brodo di pollame
 ja:鶏肉スープ
 nl:gevogeltebouillon
@@ -88088,7 +88160,28 @@ ciqual_food_code:en:11174
 ciqual_food_name:en:Broth, stock or bouillon, poultry, dehydrated
 ciqual_food_name:fr:Bouillon de volaille, déshydraté
 
-<en:poultry broth
+<en:fond
+en:poultry fond
+fr:fond de volaille
+
+<en:poultry fond
+en:chickend fond
+fr:fond de poulet
+
+<en:poultry fond
+en:duck fond
+fr:fond de canard
+
+<en:poultry fond
+en:turkey fond
+fr:fond de dine
+
+<en:fond
+en:shellfish fond
+fr:fond de crustacés
+
+<en:poultry fond
+en:flavored poultry fond
 fr:fond de volaille aromatisé
 # ingredient/fr:fond-de-volaille-aromatisé has 39 products in french @2019-03-09
 
@@ -88100,7 +88193,6 @@ ciqual_food_name:en:Broth, stock or bouillon, poultry, dehydrated
 ciqual_food_name:fr:Bouillon de volaille, déshydraté
 
 #comment:en:a fond has 2/3 less water than a stock
-<en:dehydrated poultry stock
 <en:fond
 en:dehydrated poultry fond, Poultry stock for sauce and cooking dehydrated
 fr:fond de volaille déshydraté, Fond de volaille pour sauces et cuisson déshydraté
@@ -88120,7 +88212,7 @@ da:Kyllingebouillon
 de:Hühnerbrühe
 es:Caldo de pollo
 fi:kanaliemi
-fr:Bouillon de poulet, fond de poulet
+fr:Bouillon de poulet
 it:brodo di pollo
 ja:チキンスープ, チキンブイヨン
 nl:Kippenbouillon
@@ -88775,6 +88867,7 @@ de:preiselbeermarmelade
 es:mermelada de arándano rojo
 et:pohlamoos
 fi:puolukkahillo
+fr:confiture d'airelle
 id:selai lingonberry
 ja:リンゴンベリー・ジャム
 ko:월귤잼
@@ -89031,6 +89124,7 @@ hr:bbq umak
 <en:sauce
 en:ajvar
 hr:ajvar
+pl:ajwar
 
 # description:en:BÉCHAMEL SAUCE, also known as white sauce, is made from a white roux (butter and flour) and milk.
 
@@ -89111,7 +89205,7 @@ ka:ჰარისა
 ko:하리사
 la:Erise
 pa:ਹਰੀਸਾ
-pl:harissa
+pl:harissa, pasta harissa
 ru:харисса
 sr:Harisa
 ur:ھریسا
@@ -89505,6 +89599,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Mirin
 <en:mustard
 en:mustard sauce
 fr:sauce moutarde
+pl:sos musztardowy
 
 <en:mustard sauce
 en:Prepacked mustard sauce
@@ -89696,6 +89791,7 @@ he:תמרי
 it:Tamari
 ja:たまり
 nl:tamari
+pl:tamari, sos tamari, sos sojowy tamari
 wikidata:en:Q3514675
 # ingredient/fr:tamari has 84 products in 3 languages @2019-04-11
 # usage:nl: tamari (water, volle soja, zeezout, alcohol, fermentatiestarter)
@@ -90064,7 +90160,7 @@ fr:sauce caramel
 it:salsa al caramello
 ja:カラメルソース
 nl:caramelsaus, karamelsaus
-pl:sosu karmelowego, sos karmelowy
+pl:sos karmelowy, sosu karmelowego
 pt:molho de caramelo
 ru:карамельный соус
 sv:kolasås

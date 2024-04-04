@@ -6,8 +6,8 @@ use utf8;
 use Test::More;
 use Log::Any::Adapter 'TAP';
 
-use ProductOpener::Tags qw/:all/;
-use ProductOpener::TaxonomySuggestions qw/:all/;
+use ProductOpener::Tags qw/retrieve_tags_taxonomy/;
+use ProductOpener::TaxonomySuggestions qw/get_taxonomy_suggestions get_taxonomy_suggestions_with_synonyms/;
 
 ProductOpener::Tags::retrieve_tags_taxonomy("test");
 
