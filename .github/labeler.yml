@@ -467,14 +467,14 @@ Data import:
 # Tracking issue: 
 Labels:
 - changed-files:
-  - any-glob-to-any-file: 'taxonomies/labels.txt'
+  - any-glob-to-any-file: 'taxonomies/food/labels.txt'
   - any-glob-to-any-file: 'taxonomies/unused/labels_categories.txt'
 
 # Categories allow easy product comparison, they are also mobilized in Nutri-Score and NOVA groups computation. 
 # They are also used to fetch the right LCA from agribalyse, for Eco-Score computation.
 Categories:
 - changed-files:
-  - any-glob-to-any-file: 'taxonomies/categories.txt'
+  - any-glob-to-any-file: 'taxonomies/food/categories.txt'
 
 # Origins are used for Eco-Score computation. We want to have structured origins.
 # Tracking issue: 
