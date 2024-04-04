@@ -318,6 +318,7 @@ HTML
 	ingredients_that_may_be_from_palm_oil_n
 	ingredients_that_may_be_from_palm_oil
 	states
+	obsolete
 );
 
 # for ingredients OCR, we use tesseract-ocr
