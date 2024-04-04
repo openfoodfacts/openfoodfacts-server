@@ -1320,6 +1320,11 @@ Countries:
   - any-glob-to-any-file: 'cgi/countries.pl'
   # Not actively used anymore, it is believed
 
+systemd:
+- changed-files:
+  - any-glob-to-any-file: 'conf/systemd/gen_feeds_daily@.service'
+  - any-glob-to-any-file: 'conf/systemd/gen_feeds@.service'
+
 # Accessibility
 # This project has been made to track the status of our compliance with this [Report](https://github.com/openfoodfacts/openfoodfacts-server/files/5702582/Report.OpenFoodFact.15-12-2020.pdf) that tracks how accessible Open Food Facts is.
 # Project: https://github.com/orgs/openfoodfacts/projects/35
