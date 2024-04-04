@@ -105,7 +105,7 @@ analyze_request($request_ref);
 
 if (defined $request_ref->{error_message}) {
 	$log->debug("analyze_request error", {request_ref => $request_ref});
-	display_error($request_ref->{error_message}, $request_ref->{status_code});
+	display_error($request_ref, $request_ref->{error_message}, $request_ref->{status_code});
 	$log->debug("analyze_request error - return Apache2::Const::OK");
 	return Apache2::Const::OK;
 }
@@ -139,7 +139,7 @@ if (
 	)
 {
 
-	display_error_and_exit(lang("no_owner_defined"), 200);
+	display_error_and_exit($request_ref, lang("no_owner_defined"), 200);
 }
 
 if ((defined $request_ref->{api}) and (defined $request_ref->{api_action})) {

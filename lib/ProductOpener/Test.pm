@@ -45,6 +45,7 @@ BEGIN {
 		&normalize_org_for_test_comparison
 		&normalize_product_for_test_comparison
 		&normalize_products_for_test_comparison
+		&normalize_html_for_test_comparison
 		&sort_products_for_test_comparison
 		&normalize_user_for_test_comparison
 		&remove_all_products
@@ -78,6 +79,7 @@ use File::Path qw/make_path remove_tree/;
 use File::Copy;
 use Path::Tiny qw/path/;
 use Scalar::Util qw(looks_like_number);
+use Test::File::Contents qw/files_eq_or_diff/;
 
 use Log::Any qw($log);
 
@@ -90,6 +92,7 @@ Read gzipped file and return binary content
 =head3 Parameters
 
 =head4 String $filepath
+
 The path of the gzipped file.
 
 =cut
@@ -110,6 +113,7 @@ Check that OCR result returned by Google Cloud Vision is as expected:
 =head3 Parameters
 
 =head4 String $ocr_result
+
 String of OCR result JSON as returned by Google Cloud Vision.
 
 =cut
@@ -135,6 +139,7 @@ There are two modes: one to update expected results, and one to test against the
 =head3 Parameters
 
 =head4 String $filepath
+
 The path of the file containing the test.
 Generally should be <pre>__FILE__</pre> within the test.
 
@@ -388,7 +393,7 @@ sub compare_to_expected_results ($object_ref, $expected_results_file, $update_ex
 
 =head2 compare_file_to_expected_results($content_str, $expected_results_file, $update_expected_results, $test_ref = undef) {
 
-Compare an string (e.g. text or HTML file) to expected results.
+Compare a file (e.g. text or HTML file) to expected results.
 
 The expected result is stored as a plain text file.
 
@@ -418,6 +423,11 @@ sub compare_file_to_expected_results ($content_str, $expected_results_file, $upd
 		$desc = $test_ref->{desc} // $test_ref->{id};
 	}
 
+	# Normalize html
+	if ($expected_results_file =~ /\.html$/) {
+		normalize_html_for_test_comparison(\$content_str);
+	}
+
 	if ($update_expected_results) {
 		open(my $result, ">:encoding(UTF-8)", $expected_results_file)
 			or confess("Could not create $expected_results_file: $!");
@@ -434,7 +444,15 @@ sub compare_file_to_expected_results ($content_str, $expected_results_file, $upd
 				$title = $test_ref->{desc} // $test_ref->{test_case} // $test_ref->{id};
 				$title = undef unless $title;
 			}
-			is($content_str, $expected_result, $title);
+
+			my $results_file = $expected_results_file . ".test";
+			open(my $result, ">:encoding(UTF-8)", $results_file)
+				or confess("Could not create $results_file: $!");
+			print $result $content_str;
+			close($result);
+
+			files_eq_or_diff($expected_results_file, $results_file, $title);
+			unlink($results_file);
 		}
 		else {
 			fail("could not load $expected_results_file");
@@ -807,7 +825,33 @@ sub normalize_org_for_test_comparison ($org_ref) {
 	return;
 }
 
+=head2 normalize_html_for_test_comparison ($html_ref)
+
+Normalize the HTML of a web page to be able to compare them across tests runs.
+
+We remove time dependent fields.
+
+=head3 Arguments
+
+=head4 product_ref - Hash ref containing product information
+
+=cut
+
+sub normalize_html_for_test_comparison ($html_ref) {
+
+	# Remove timestamps
+	# <link rel="stylesheet" href="http://static.openfoodfacts.localhost/css/dist/app-ltr.css?v=1711465499" data-base-layout="true">
+
+	$$html_ref =~ s/\?v=\d+/\?v=--ignore--/g;
+
+	# <time datetime="2024-03-26T18:43:45">26 mars 2024, 18:43:45 CET</time>
+	$$html_ref =~ s/<time datetime="[^"]+">[^<]+<\/time>/<time datetime="--ignore--">--ignore--<\/time>/g;
+
+	return;
+}
+
 =head2 wait_for($code, $timeout=3, $poll_time=1)
+
 Wait for an event to happen, up to a certain amount of time
 
 =head3 parameters
