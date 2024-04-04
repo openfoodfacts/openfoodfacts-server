@@ -3,7 +3,7 @@
 # "TODO" Tests for known issues, to track if they get fixed while fixing something else.
 # See https://perldoc.perl.org/Test/More.html#*TODO%3a-BLOCK*
 
-use utf8;
+use ProductOpener::PerlStandards;
 
 use Test2::V0;
 use Data::Dumper;
