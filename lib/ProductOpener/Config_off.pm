@@ -855,6 +855,7 @@ $options{replace_existing_values_when_importing_those_tags_fields} = {
 	popularity_tags
 	completeness
 	last_image_t
+	obsolete
 );
 
 # List of fields that can be imported on the producers platform
