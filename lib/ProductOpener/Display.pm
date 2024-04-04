@@ -8366,11 +8366,9 @@ sub display_product_jqm ($request_ref) {    # jquerymobile
 
 	if (not $template_data_nutriscore_ref->{do_not_display}) {
 
-		process_template(
-			'web/pages/product/includes/nutriscore.tt.html',
-			$template_data_nutriscore_ref,
-			\$nutriscore_html
-		) || return "template error: " . $tt->error();
+		process_template('web/pages/product/includes/nutriscore.tt.html',
+			$template_data_nutriscore_ref, \$nutriscore_html)
+			|| return "template error: " . $tt->error();
 		process_template(
 			'web/pages/product/includes/nutrient_levels.tt.html',
 			$template_data_nutrient_levels_ref,
