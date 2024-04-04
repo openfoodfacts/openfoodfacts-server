@@ -313,6 +313,7 @@ HTML
 	additives_n
 	additives
 	states
+	obsolete
 );
 
 # for ingredients OCR, we use tesseract-ocr
