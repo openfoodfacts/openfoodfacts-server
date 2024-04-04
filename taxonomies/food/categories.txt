@@ -94431,6 +94431,14 @@ ru:Тунец
 th:ทูน่า
 zh:吞拿鱼
 wikidata:en:Q2346039
+# agribalyse_proxy_food_code instead of agribalyse_food_code as we do not know what kind of tuna it is
+agribalyse_proxy_food_code:en:26053
+ciqual_proxy_food_code:en:26053
+ciqual_proxy_food_name:en:Tuna, raw
+
+<en:Tunas
+en:Raw tunas
+fr:Thons crus, thon cru
 agribalyse_food_code:en:26053
 ciqual_food_code:en:26053
 ciqual_food_name:en:Tuna, raw
@@ -94453,9 +94461,9 @@ la:Thunnus thynnus, Scomber thynnus
 nl:Blauwvintonijn
 ro:Bucăți de ton
 wikidata:en:Q214415
-ciqual_food_code:en:26069
-ciqual_food_name:en:Atlantic bluefin tuna, raw
-ciqual_food_name:fr:Thon rouge, cru
+ciqual_proxy_food_code:en:26069
+ciqual_proxy_food_name:en:Atlantic bluefin tuna, raw
+ciqual_proxy_food_name:fr:Thon rouge, cru
 
 <en:Smoked fishes
 <en:Tunas
