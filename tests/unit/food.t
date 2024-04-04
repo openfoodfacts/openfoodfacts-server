@@ -8,7 +8,7 @@ use Data::Dumper;
 $Data::Dumper::Terse = 1;
 use Log::Any::Adapter 'TAP';
 
-use ProductOpener::Tags qw/exists_taxonomy_tag has_tag/;
+use ProductOpener::Tags qw/exists_taxonomy_tag has_tag get_property %properties/;
 use ProductOpener::Food qw/:all/;
 
 my $product_ref = {
@@ -563,7 +563,13 @@ is(
 # Test case for fetching unit for sodium in India
 {
 	my $unit_in_india = get_nutrient_unit("sodium", "in");
-	is($unit_in_india, "mg", "Check if unit_in is fetched correctly for sodium in India");
+	# my $lbo = get_property("nutrients", "zz:sodium", "unit_in:en") // 'undef';
+	# diag "lbo 1 = " . $lbo;
+	# $lbo = get_property("nutrients", "zz:sodium", "unit:en") // 'undef';
+	# diag "lbo 2 = " . $lbo;
+	# $lbo = $ProductOpener::Tags::properties{nutrients}{'zz:sodium'};
+	# diag "lbo 3 = " . Dumper($lbo);
+	is($unit_in_india, "g", "Check if unit_in is fetched correctly for sodium in India");
 }
 
 # Test case for fetching unit for sodium outside India (eg: US)
