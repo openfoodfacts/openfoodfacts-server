@@ -6031,8 +6031,6 @@ ca:formatge ratllat sec
 es:queso rallado seco
 carbon_footprint_fr_foodges_ingredient:fr:Fromage à pâte dure (type emmental)
 carbon_footprint_fr_foodges_value:fr:5.6
-carbon_footprint_fr_foodges_ingredient:fr:Fromage à pâte molle (type camembert)
-carbon_footprint_fr_foodges_value:fr:4.3
 
 <en:cheese
 # <en:pasteurized
@@ -7049,7 +7047,6 @@ ciqual_food_name:fr:Edam
 description:de:Edamer ist ein Käse mit dem Ursprungsort Edam. Als „Edam Holland“ ist er seit 2010 ein Produkt mit geschützter geografischer Angabe.
 description:en:EDAM is a semi-hard cheese that originated in the Netherlands, and is named after the town of Edam in the province of North Holland.
 description:es:El queso edam es un queso neerlandés que se ha elaborado tradicionalmente en forma de bolas o esferas recubiertas de parafina de color rojo o amarillo. El nombre del queso proviene de la ciudad de Edam.
-description:it:L’édam est un fromage des Pays-Bas, traditionnellement vendu sous forme d'une boule de fromage jaune pâle enveloppée dans une pellicule épaisse de paraffine jaune ou rouge.
 description:it:L'edam è un formaggio a base di latte vaccino con l'aggiunta di caglio animale tipico dei Paesi Bassi, venduto in forme dalla pasta giallo tenue e con una sottile protezione di cera rossastra.
 description:nl:Edammer kaas of kortweg edammer is een bolvormige Nederlandse harde kaassoort, die van oorsprong verhandeld werd vanuit de stad Edam. De bekende kleur van de kaas is rood.
 description:pt:O queijo Edam é um queijo semi-duro típico da cidade de Edam, na província da Holanda do Norte, nos Países Baixos.
@@ -8178,7 +8175,6 @@ uk:Мюнстер
 zh:芒斯特芝士
 wikidata:en:Q765540
 oqali_family:en: fr:Fromages - Munster
-protected_name_file_number:en: PDO-FR-0125
 protected_name_type:en: pdo
 origins:en: en:France
 agribalyse_food_code:en:12039
@@ -14894,7 +14890,6 @@ hu:hidrogénezett olaj
 it:olio idrogenato
 nl:Gehydrogeneerde olie
 wikidata:en:Q57656844
-wikidata:en:Q11587683
 wikipedia:en:https://en.wikipedia.org/wiki/Hydrogenation#Food_industry
 # ingredient/hydrogenated-oil has 283 products in 9 languages @2019-07-10
 
@@ -16998,7 +16993,6 @@ allergens:en: en:sesame seeds
 wikipedia:en:https://en.wikipedia.org/wiki/Sesame_oil
 wikidata:en:Q212317
 from_palm_oil:en:no
-allergens:en: en:sesame
 ciqual_food_code:en:17400
 ciqual_food_name:en:Sesame oil
 ciqual_food_name:fr:Huile de sésame
@@ -17073,7 +17067,6 @@ vi:dầu mè nguyên chất, dầu mè tự nhiên
 zh:纯正芝麻油, 天然芝麻油
 # ingredient/fr:huile-vierge-de-sesame has 12 products in french @2019-05-29
 
-description:en:SOYBEAN OIL is a vegetable oil extracted from the seeds of the soybean (Glycine max).
 <en:vegetable oil
 en:soya oil, Soybean oil, soy oil, soyabean oil
 ar:زيت فول الصويا
@@ -17161,7 +17154,6 @@ it:Olio di semi di soia idrogenato
 <en:soya oil
 fr:huile de soja entièrement raffinée
 
-description:en:CAMELINA sativa is a flowering plant in the family Brassicaceae and is usually known in English as camelina. The crop is being researched due to its exceptionally high level (up to 45%) of omega-3 fatty acids, which is uncommon in vegetable sources.
 <en:vegetable oil
 en:camelina oil
 de:Leindotteröl
@@ -21773,8 +21765,6 @@ it:aroma naturale di vaniglia di Madagascar
 nl:natuurlijk vanillearoma uit Madagaskar
 de:natürliches Vanillearoma aus Madagaskar
 
-# en:description:Vanillin is a phenolic aldehyde, which is an organic compound with the molecular formula C8H8O3.
-comment:en:Note that the aroma's are found under the aroma section.
 en:Vanillin
 ar:فانيلين
 be:Ванілін
@@ -21817,6 +21807,7 @@ uz:Vanilin
 zh:香草醛
 comment:en:Note that the aroma's are found under the aroma section.
 # azb:وانیلین
+en:description:Vanillin is a phenolic aldehyde, which is an organic compound with the molecular formula C8H8O3.
 wikidata:en:Q33495
 wikipedia:en:https://en.wikipedia.org/wiki/Vanillin
 # ingredient/fr:vanilline has 831 products in 10 languages @2018-12-12
@@ -24209,8 +24200,6 @@ likely_allergens:en: en:gluten
 #
 ##################################################################################
 
-description:en:BARLEY (Hordeum vulgare), a member of the grass family, is a major cereal grain grown in temperate climates globally
-comment:en:The translations taken from wikipedia need to be checked. They can refer to the plant species.
 <en:cereal
 en:barley
 am:ገብስ
@@ -25018,7 +25007,6 @@ fr:sarrasin réhydraté
 #
 ##################################################################################
 
-comment:en:does not contain gluten
 <en:cereal
 en:millet
 af:manna
@@ -25250,8 +25238,6 @@ sr:експандиран амарант
 #
 ##################################################################################
 
-description:en:The OAT (Avena sativa) is a species of cereal grain grown for its seed.
-comment:en:oat does not contain gluten, but is often contaminated by gluten containing cereals.
 <en:cereal
 en:oat
 am:ገረማ
@@ -25812,7 +25798,6 @@ fr:quinoa rouge et blanc, quinoa blanc et rouge
 #
 ##################################################################################
 
-description:en:RYE (Secale cereale) is a grass grown extensively as a grain, a cover crop and a forage crop.
 <en:cereal
 en:rye
 af:rog
@@ -33225,10 +33210,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Chocolate
 # ingredient/chocolate has 4595 products in 18 languages @2019-05-26
 # category/chocolates has 7757 products @2019-05-26
 # usage:en:chocolate (cocoa mass, sugar, cocoa butter, emulsifiers:lecithins (soy), natural vanilla flavouring)
-carbon_footprint_fr_foodges_ingredient:fr:Chocolat en morceau (au lait)
-carbon_footprint_fr_foodges_value:fr:5.9
-carbon_footprint_fr_foodges_ingredient:fr:Chocolat en morceau (blanc)
-carbon_footprint_fr_foodges_value:fr:6.5
 carbon_footprint_fr_foodges_ingredient:fr:Chocolat en morceau (noir)
 carbon_footprint_fr_foodges_value:fr:4.9
 vegan:en:maybe
@@ -34345,8 +34326,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Ice
 
 
 description:en:SOYA is used as a generic word to indicate it is made from soybeans
-comment:en:Using wikipedia as translation is difficult, sometimes it is translated as soya, soybean or glycine max
-comment:en:note that soya is english and soy is american
+comment:en:Using wikipedia as translation is difficult, sometimes it is translated as soya, soybean or glycine max, note that soya is english and soy is american
 
 en:soya, soy, soja, soia
 an:soya
@@ -34416,7 +34396,6 @@ vegetarian:en:yes
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/soy
 # 39698 products in 23 languages @2018-09-25
 
-comment:en:This is the actual flower, not flour
 <en:soya
 en:soya flower
 de:Sojablüte, Sojablüten
@@ -36517,12 +36496,12 @@ za:mak
 zh:水果
 carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen importé par bateau et camion
 carbon_footprint_fr_foodges_value:fr:1.3
-carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen, hors saison produit sous serre chauffée
-carbon_footprint_fr_foodges_value:fr:2.3
-carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen , importé par avion (saison ou hors saison)
-carbon_footprint_fr_foodges_value:fr:27.4
-carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen de saison, produit localement
-carbon_footprint_fr_foodges_value:fr:0.3
+#carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen, hors saison produit sous serre chauffée
+#carbon_footprint_fr_foodges_value:fr:2.3
+#carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen , importé par avion (saison ou hors saison)
+#carbon_footprint_fr_foodges_value:fr:27.4
+#carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen de saison, produit localement
+#carbon_footprint_fr_foodges_value:fr:0.3
 # aeb-arab:غلة
 # arz:فواكه
 # ast:Fruta
@@ -37094,8 +37073,8 @@ zh:杏
 # zh-cn:杏
 wikipedia:en:https://en.wikipedia.org/wiki/Apricot
 wikidata:en:Q3733836
-carbon_footprint_fr_foodges_ingredient:fr:Abricot saison (France)
-carbon_footprint_fr_foodges_value:fr:0.6
+#carbon_footprint_fr_foodges_ingredient:fr:Abricot saison (France)
+#carbon_footprint_fr_foodges_value:fr:0.6
 carbon_footprint_fr_foodges_ingredient:fr:Abricot "Pays du Sud"
 carbon_footprint_fr_foodges_value:fr:1.1
 # 5160 in 25 @2021-09-12
@@ -37992,7 +37971,6 @@ hu:természetes mangó aroma
 #
 ###################################################################################################
 
-description:en:The PEACH (Prunus persica) is a deciduous tree native to the region of Northwest China
 comment:en:The wikipedia entry mixes the name of the tree and the name of the fruit
 <en:prunus species fruit
 en:peach, peaches
@@ -38039,8 +38017,8 @@ wikidata:en:Q13411121
 # ingredient/peach 6059 products in 7 languages @2021-08-19
 carbon_footprint_fr_foodges_ingredient:fr:Pêche "Pays du Sud"
 carbon_footprint_fr_foodges_value:fr:1
-carbon_footprint_fr_foodges_ingredient:fr:Pêche (France)
-carbon_footprint_fr_foodges_value:fr:0.7
+#carbon_footprint_fr_foodges_ingredient:fr:Pêche (France)
+#carbon_footprint_fr_foodges_value:fr:0.7
 description:de:Der Pfirsich (Prunus persica) ist eine Pflanzenart aus der Gattung Prunus innerhalb der Familie der Rosengewächse. Seine Früchte werden Pfirsiche genannt und zählen zum Steinobst.
 description:en:The peach (Prunus persica) is a deciduous tree native to the region of Northwest China. It bears edible juicy fruits with various characteristics, most called peaches and others (the glossy-skinned varieties), nectarines.
 description:es:Prunus persica es una especie de árbol del género Prunus de la familia Rosaceae. También se suele denominar duraznero y a su fruto, durazno en países latinoamericanos y en castellano antiguo albérchigo.
@@ -38330,8 +38308,8 @@ zh:梨
 wikipedia:en:https://en.wikipedia.org/wiki/Pear
 wikidata:en:Q13099586
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/pear
-carbon_footprint_fr_foodges_ingredient:fr:Poire (Belgique)
-carbon_footprint_fr_foodges_value:fr:0.5
+#carbon_footprint_fr_foodges_ingredient:fr:Poire (Belgique)
+#carbon_footprint_fr_foodges_value:fr:0.5
 carbon_footprint_fr_foodges_ingredient:fr:Poire (Argentine)
 carbon_footprint_fr_foodges_value:fr:1
 # 130 products in 5 languages @2018-09-28
@@ -38890,8 +38868,8 @@ yo:èso òro òyìnbó
 za:Makbinzgoj
 zh:蘋果
 zu:Ihhabhula
-carbon_footprint_fr_foodges_ingredient:fr:Pomme France
-carbon_footprint_fr_foodges_value:fr:0.3
+#carbon_footprint_fr_foodges_ingredient:fr:Pomme France
+#carbon_footprint_fr_foodges_value:fr:0.3
 carbon_footprint_fr_foodges_ingredient:fr:Pomme amérique du Sud
 carbon_footprint_fr_foodges_value:fr:1.3
 # aeb-arab:كعبة تفّاح
@@ -40969,8 +40947,8 @@ yi:מאראנץ
 yo:ọsàn
 za:Makdoengj
 zh:橙
-carbon_footprint_fr_foodges_ingredient:fr:Orange destinée à l'industrie
-carbon_footprint_fr_foodges_value:fr:0.8
+#carbon_footprint_fr_foodges_ingredient:fr:Orange destinée à l'industrie
+#carbon_footprint_fr_foodges_value:fr:0.8
 carbon_footprint_fr_foodges_ingredient:fr:Orange fraîche
 carbon_footprint_fr_foodges_value:fr:0.8
 # ast:Naranxa
@@ -45519,12 +45497,12 @@ zh:草莓
 # yue:士多啤梨
 wikidata:en:Q14458220
 wikipedia:en:https://en.wikipedia.org/wiki/Strawberry
-carbon_footprint_fr_foodges_ingredient:fr:Fraise saison (France)
-carbon_footprint_fr_foodges_value:fr:0.6
+#carbon_footprint_fr_foodges_ingredient:fr:Fraise saison (France)
+#carbon_footprint_fr_foodges_value:fr:0.6
 carbon_footprint_fr_foodges_ingredient:fr:Fraise hors saison sous serre (France)
 carbon_footprint_fr_foodges_value:fr:3.5
-carbon_footprint_fr_foodges_ingredient:fr:Fraise "Pays du Sud"
-carbon_footprint_fr_foodges_value:fr:0.8
+#carbon_footprint_fr_foodges_ingredient:fr:Fraise "Pays du Sud"
+#carbon_footprint_fr_foodges_value:fr:0.8
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/strawberry
 # 2504 products in 15 languages @2018-10-01
 ciqual_food_code:en:13014
@@ -48036,14 +48014,14 @@ tr:Sebze
 zh:蔬菜
 vegan:en:yes
 vegetarian:en:yes
-carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen importé par bateau et camion
-carbon_footprint_fr_foodges_value:fr:1.3
+#carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen importé par bateau et camion
+#carbon_footprint_fr_foodges_value:fr:1.3
 carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen, hors saison produit sous serre chauffée
 carbon_footprint_fr_foodges_value:fr:2.3
-carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen , importé par avion (saison ou hors saison)
-carbon_footprint_fr_foodges_value:fr:27.4
-carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen de saison, produit localement
-carbon_footprint_fr_foodges_value:fr:0.3
+#carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen , importé par avion (saison ou hors saison)
+#carbon_footprint_fr_foodges_value:fr:27.4
+#carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen de saison, produit localement
+#carbon_footprint_fr_foodges_value:fr:0.3
 nutriscore_fruits_vegetables_nuts:en:yes
 eurocode_2_group_1:en: 8
 
@@ -50868,8 +50846,8 @@ yi:אספארגוס
 zh:芦笋
 carbon_footprint_fr_foodges_ingredient:fr:Asperges en boite Chine
 carbon_footprint_fr_foodges_value:fr:2.4
-carbon_footprint_fr_foodges_ingredient:fr:Asperges saison France
-carbon_footprint_fr_foodges_value:fr:0.9
+#carbon_footprint_fr_foodges_ingredient:fr:Asperges saison France
+#carbon_footprint_fr_foodges_value:fr:0.9
 # als:Schbargl
 # ang:eorþnafela
 # ast:espárragu
@@ -54356,8 +54334,8 @@ zh:茄子
 # zh-tw:茄
 wikidata:en:Q7540
 wikipedia:en:https://en.wikipedia.org/wiki/Eggplant
-carbon_footprint_fr_foodges_ingredient:fr:Aubergine
-carbon_footprint_fr_foodges_value:fr:1.2
+#carbon_footprint_fr_foodges_ingredient:fr:Aubergine
+#carbon_footprint_fr_foodges_value:fr:1.2
 carbon_footprint_fr_foodges_ingredient:fr:Aubergine serre chauffée
 carbon_footprint_fr_foodges_value:fr:6.2
 # en:aubergine has 733 products in 9 languages @2018-10-17
@@ -55026,8 +55004,8 @@ wikidata:en:Q7224565
 wikipedia:en:https://en.wikipedia.org/wiki/Radish
 carbon_footprint_fr_foodges_ingredient:fr:Radis de saison
 carbon_footprint_fr_foodges_value:fr:0.6
-carbon_footprint_fr_foodges_ingredient:fr:Radis serre chauffée
-carbon_footprint_fr_foodges_value:fr:8.4
+#carbon_footprint_fr_foodges_ingredient:fr:Radis serre chauffée
+#carbon_footprint_fr_foodges_value:fr:8.4
 # ingredient/fr:Radis has 393 products in 4 languages @2019-05-16
 # category/radish has 2 products @2019-05-22
 # usage:en:fruit and vegetable concentrates (safflower, radish, black carrot, lemon, hibiscus)
@@ -55116,9 +55094,9 @@ ru:зелень
 sv:Sallad
 zh:沙拉
 wikipedia:en:https://en.wikipedia.org/wiki/Salad
-wikipedia:en:https://en.wikipedia.org/wiki/Leaf_vegetable
-wikipedia:de:https://de.wikipedia.org/wiki/Salatpflanze
-wikipedia:fr:https://fr.wikipedia.org/wiki/Salade_(plante)
+#wikipedia:en:https://en.wikipedia.org/wiki/Leaf_vegetable
+#wikipedia:de:https://de.wikipedia.org/wiki/Salatpflanze
+#wikipedia:fr:https://fr.wikipedia.org/wiki/Salade_(plante)
 # ingredient/fr:salade has 483 products in 4 languages @2019-05-17
 carbon_footprint_fr_foodges_ingredient:fr:Salade
 carbon_footprint_fr_foodges_value:fr:0.8
@@ -56199,12 +56177,12 @@ fr:tomates fraîches
 it:pomodori freschi
 nl:verse tomaten
 ru:томаты свежие
-carbon_footprint_fr_foodges_ingredient:fr:Tomate fraîche saison (France)
-carbon_footprint_fr_foodges_value:fr:0.4
+#carbon_footprint_fr_foodges_ingredient:fr:Tomate fraîche saison (France)
+#carbon_footprint_fr_foodges_value:fr:0.4
 carbon_footprint_fr_foodges_ingredient:fr:Tomate fraiche hors saison (France)
 carbon_footprint_fr_foodges_value:fr:2.3
-carbon_footprint_fr_foodges_ingredient:fr:Tomate fraiche importée (Espagne)
-carbon_footprint_fr_foodges_value:fr:0.7
+#carbon_footprint_fr_foodges_ingredient:fr:Tomate fraiche importée (Espagne)
+#carbon_footprint_fr_foodges_value:fr:0.7
 # ingredient/fresh-tomatoes has 89 products in 4 languages @2018-12-26
 
 <en:tomato
@@ -56641,8 +56619,6 @@ pt:Sumo de tomate
 ru:Томатный сок
 sv:tomatjuice
 tr:domates suyu
-carbon_footprint_fr_foodges_ingredient:fr:Tomate pelées ou pulpe de tomate
-carbon_footprint_fr_foodges_value:fr:1.4
 carbon_footprint_fr_foodges_ingredient:fr:Tomate pelées ou pulpe de tomate
 carbon_footprint_fr_foodges_value:fr:1.4
 # ingredient/en:tomato-juice has 2171 products in 10 languages @2018-12-26
@@ -57493,8 +57469,8 @@ zh:豆角
 wikidata:en:Q2987371
 carbon_footprint_fr_foodges_ingredient:fr:Haricot vert frais locaux
 carbon_footprint_fr_foodges_value:fr:0.7
-carbon_footprint_fr_foodges_ingredient:fr:Haricot vert importé par avion
-carbon_footprint_fr_foodges_value:fr:22.8
+#carbon_footprint_fr_foodges_ingredient:fr:Haricot vert importé par avion
+#carbon_footprint_fr_foodges_value:fr:22.8
 ciqual_food_code:en:20061
 ciqual_food_name:en:French bean, raw
 ciqual_food_name:fr:Haricot vert, cru
@@ -58915,10 +58891,10 @@ la:Pisum sativum L. subsp. sativum var. sativum
 nl:doperwten, doperwt
 carbon_footprint_fr_foodges_ingredient:fr:Pois surgelés
 carbon_footprint_fr_foodges_value:fr:1.5
-carbon_footprint_fr_foodges_ingredient:fr:Pois en conserve (type printemps)
-carbon_footprint_fr_foodges_value:fr:0.9
-carbon_footprint_fr_foodges_ingredient:fr:Pois de printemps frais
-carbon_footprint_fr_foodges_value:fr:0.7
+#carbon_footprint_fr_foodges_ingredient:fr:Pois en conserve (type printemps)
+#carbon_footprint_fr_foodges_value:fr:0.9
+#carbon_footprint_fr_foodges_ingredient:fr:Pois de printemps frais
+#carbon_footprint_fr_foodges_value:fr:0.7
 ciqual_food_code:en:20072
 ciqual_food_name:en:Garden peas, raw
 ciqual_food_name:fr:Petits pois, crus
@@ -71026,7 +71002,6 @@ zh:食用蕈, 蕈類
 # wuu:蘑菇
 # yue:菇
 wikidata:en:Q654236
-wikidata:en:Q83093
 wikipedia:en:https://en.wikipedia.org/wiki/Mushroom
 vegan:en:yes
 vegetarian:en:yes
@@ -71034,7 +71009,6 @@ nutriscore_fruits_vegetables_nuts:en:yes
 # en:mushroom has 1817 products in 16 languages @2018-11-02
 carbon_footprint_fr_foodges_ingredient:fr:Champignons de Paris
 carbon_footprint_fr_foodges_value:fr:1.9
-nutriscore_fruits_vegetables_nuts:en:yes
 ciqual_food_code:en:20010
 ciqual_food_name:en:Mushroom, all types, raw
 ciqual_food_name:fr:Champignon, tout type, cru
@@ -72677,15 +72651,14 @@ zu:inhlanzi
 # zh-mo:鱼
 # zh-sg:鱼
 # zh-tw:魚
-wikidata:en:Q152
 wikidata:en:Q600396
 wikipedia:en:https://en.wikipedia.org/wiki/Fish
 vegan:en:no
 vegetarian:en:no
 allergens:en: en:fish
 # ingredient/fish has 7147 products in 12 languages @2018-12-21
-carbon_footprint_fr_foodges_ingredient:fr:Poisson sauvage entier
-carbon_footprint_fr_foodges_value:fr:10.2
+#carbon_footprint_fr_foodges_ingredient:fr:Poisson sauvage entier
+#carbon_footprint_fr_foodges_value:fr:10.2
 carbon_footprint_fr_foodges_ingredient:fr:Poisson sauvage (filet)
 carbon_footprint_fr_foodges_value:fr:11.5
 ciqual_proxy_food_code:en:26140
@@ -73414,7 +73387,6 @@ ciqual_food_code:en:26100
 ciqual_food_name:en:Bogue, raw
 ciqual_food_name:fr:Bogue, crue
 
-description:en:The capelin or caplin (Mallotus villosus) is a small forage fish of the smelt family found in the North Atlantic, North Pacific, and Arctic oceans.
 <en:fish
 en:capelin, caplin
 ar:كبلين
@@ -74436,7 +74408,7 @@ fr:mérou
 ga:Garúpach
 nl:tandbaars
 ru:Груперы
-wikipedia:en:Q5559352
+wikidata:en:Q5559352
 wikipedia:en:https://en.wikipedia.org/wiki/Grouper
 description:de:Die Zackenbarsche (Epinephelidae) sind eine Familie kleiner bis sehr großer Meeresfische aus der Ordnung der Barschartigen.
 description:en:Groupers are fish of any of a number of genera in the subfamily Epinephelinae of the family Serranidae, in the order Perciformes.
@@ -81716,8 +81688,8 @@ zh:黄瓜
 # ang:hwerhwette
 wikidata:en:Q2735883
 wikipedia:en:https://en.wikipedia.org/wiki/Cucumber
-carbon_footprint_fr_foodges_ingredient:fr:Concombre
-carbon_footprint_fr_foodges_value:fr:1.7
+#carbon_footprint_fr_foodges_ingredient:fr:Concombre
+#carbon_footprint_fr_foodges_value:fr:1.7
 carbon_footprint_fr_foodges_ingredient:fr:Concombre serre chauffée
 carbon_footprint_fr_foodges_value:fr:2.4
 description:de:Die Gurke (Cucumis sativus), auch als Kukumer und Gartengurke bezeichnet, ist eine Art der Gattung Gurken (Cucumis) aus der Familie der Kürbisgewächse. Die Salatgurken werden vorwiegend frisch als Salat verzehrt.
@@ -81766,7 +81738,7 @@ pl:korniszon, korniszony, ogórek konserwowy, ogórki konserwowe
 ro:castraveți murați
 sv:inläggningsgurka
 wikidata:en:Q23425
-wikidata:en:Q1365891
+#wikidata:en:Q1365891
 # ingredient/gherkin has 1006 products in 8 languages @2018-12-01
 nutriscore_fruits_vegetables_nuts:en:yes
 ciqual_proxy_food_code:en:11004
@@ -86741,8 +86713,6 @@ zh:面饼
 # bjn:Wadai
 # en-ca:Biscuit
 # en-gb:Biscuit
-carbon_footprint_fr_foodges_ingredient:fr:Biscuit au beurre
-carbon_footprint_fr_foodges_value:fr:4.5
 # gsw:Keks
 # pt-br:Biscoito
 # scn:Viscottu
@@ -87335,7 +87305,6 @@ allergens:en: en:gluten
 # ingredient/fr:galette-de-blé has 60 products in 4 languages @2019-02-09
 # Weizenfladen [ Weizenmehl, Wasser, Kokosnussöl, Kochsalz ]
 
-description:en:The "PETIT BEURRE", or "Véritable Petit Beurre", also known under the initials "VPB", is a kind of shortbread from Nantes, that is best known in France. It is the Petit Beurre of the LU society, which has become a success worldwide.
 # mainIngredient:en:wheat
 <en:Biscuits
 en:Petit-Beurre
@@ -88363,7 +88332,6 @@ pt:preparado à base de soja
 sv:sojabönsberedning
 allergens:en: en:soybeans
 
-description:en:SOY MILK or soymilk is a plant-based drink produced by soaking and grinding soybeans, boiling the mixture, and filtering out remaining particulates.
 <en:soy preparation
 # mainIngredient:en:water
 en:soy milk, soy drink
@@ -88616,8 +88584,6 @@ es:morcilla
 fr:Viande cuisinée
 # usage:fr:Viande cuisinée 33% : viande de bœuf (origine : France) 19%, carottes 5,1%, eau
 
-description:en:ICE CREAM is a sweetened frozen food typically eaten as a snack or dessert. It may be made from dairy milk or cream, or soy, cashew, coconut or almondmilk, and is flavored with a sweetener, either sugar or an alternative, and any spice, such as cocoa or vanilla. Colourings are usually added, in addition to stabilizers.
-comment:en:Maybe it is possible to distinguish between ice and ice cream by look if it is a compound ingredient.
 en:ice cream, ice creams
 ab:аршәы
 af:Roomys
