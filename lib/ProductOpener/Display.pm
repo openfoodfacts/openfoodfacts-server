@@ -8359,7 +8359,7 @@ sub display_product_jqm ($request_ref) {    # jquerymobile
 
 	# Generate HTML for Nutri-Score and nutrient levels
 	my $template_data_nutriscore_ref = data_to_display_nutriscore($product_ref);
-	my $template_data_nutrient_levels_ref = data_to_display_nutrient_levels($product_ref);	
+	my $template_data_nutrient_levels_ref = data_to_display_nutrient_levels($product_ref);
 
 	my $nutriscore_html = '';
 	my $nutrient_levels_html = '';
