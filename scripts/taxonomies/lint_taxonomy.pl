@@ -31,6 +31,12 @@ use List::Util qw/first/;
 
 use ProductOpener::Tags qw/%taxonomy_fields %translations_from canonicalize_taxonomy_tag sanitize_taxonomy_line/;
 
+
+# return true if $errors_ref list contains at least one error (as opposed to only warnings)
+sub has_errors($errors_ref) {
+	return !!(first {lc($_->{severity}) eq "error"} @$errors_ref);
+}
+
 # compare synonyms entries on language prefix with "xx" > "en" then alpha order
 # also work for property name + language prefix
 sub cmp_on_language : prototype($$) ($a, $b) {
@@ -349,8 +355,8 @@ sub lint_entry($entry_ref, $do_sort) {
 	}
 	else {
 		# simply sort by line number, no need to sort parents
-		@sorted_entries = sort {$entries{$a}{line_num} cmp $entries{$b}{line_num}} (keys %entries);
-		@sorted_props = sort {$props{$a}{line_num} cmp $props{$b}{line_num}} (keys %props);
+		@sorted_entries = sort {$entries{$a}{line_num} <=> $entries{$b}{line_num}} (keys %entries);
+		@sorted_props = sort {$props{$a}{line_num} <=> $props{$b}{line_num}} (keys %props);
 	}
 	# print parents, line id, synonyms, sorted props
 	for my $parent (@parents) {
@@ -428,7 +434,7 @@ sub lint_taxonomy($entries_iterator, $out, $is_check, $is_quiet, $do_sort) {
 		else {
 			# immediate output
 			print $out $linted_output;
-			if (@entry_errors) {
+			if (has_errors(\@entry_errors)) {
 				# signal it was not linted
 				push(
 					@entry_errors,
@@ -535,7 +541,7 @@ TXT
 			move($out_path, $file) or die("unable to move $out_path to $file: $!");
 		}
 		# do we have errors (and not only warnings)
-		if ((first {lc($_->{severity}) eq "error"} @$errors_ref)) {
+		if (has_errors($errors_ref)) {
 			$error_code = 1;
 		}
 	}
