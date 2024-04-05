@@ -3,8 +3,9 @@
 use Modern::Perl '2017';
 use utf8;
 
-use Test::More;
-use Test::MockModule;
+use Test2::V0;
+use Data::Dumper;
+$Data::Dumper::Terse = 1;
 use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Display qw/:all/;
@@ -158,47 +159,40 @@ my $facets_ref = {
 	'tagid' => 'en:bread'
 };
 
-my $apache_util_module = Test::MockModule->new('Apache2::RequestUtil');
-$apache_util_module->mock(
-	'request',
-	sub {
-		# Return a mock Apache request object
-		my $r = {};
-		bless $r, 'Apache2::RequestRec';
+my $apache_util_module = mock 'Apache2::RequestUtil' => (
+	add => [
+		'request' => sub {
+			# Return a mock Apache request object
+			my $r = {};
+			bless $r, 'Apache2::RequestRec';
 
-		return $r;
-	}
+			return $r;
+		},
+	]
 );
 
-my $request_rec_module = Test::MockModule->new('Apache2::RequestRec');
-$request_rec_module->mock(
-	'rflush',
-	sub {
-		# Do nothing, am just mocking the method
-	}
+my $request_rec_module = mock 'Apache2::RequestRec' => (
+	add => [
+		'rflush' => sub {
+			# Do nothing, am just mocking the method
+		},
+		'status' => sub {
+			# Do nothing, am just mocking the method
+		},
+		'headers_out' => sub {
+			# Do nothing, am just mocking the method
+
+		},
+	]
 );
 
-$request_rec_module->mock(
-	'status',
-	sub {
-		# Do nothing, am just mocking the method
-	}
-);
-
-$request_rec_module->mock(
-	'headers_out',
-	sub {
-		# Do nothing, am just mocking the method
-
-	}
-);
-
-my $display_module = Test::MockModule->new('ProductOpener::Display');
-$display_module->mock(
-	'redirect_to_url',
-	sub {
-		# Do nothing, am just mocking the method
-	}
+my $display_module = mock 'ProductOpener::Display' => (
+	override => [
+		'redirect_to_url',
+		sub {
+			# Do nothing, am just mocking the method
+		}
+	]
 );
 
 display_tag($facets_ref);
@@ -208,6 +202,6 @@ is($facets_ref->{'redirect'}, '/category/breads/data-quality');
 
 $request_ref->{body_json}{labels_tags} = 'en:organic';
 is(request_param($request_ref, 'unexisting_field'), undef);
-is(request_param($request_ref, 'labels_tags'), 'en:organic') or diag explain request_param($request_ref, 'labels_tags');
+is(request_param($request_ref, 'labels_tags'), 'en:organic') or diag Dumper request_param($request_ref, 'labels_tags');
 
 done_testing();

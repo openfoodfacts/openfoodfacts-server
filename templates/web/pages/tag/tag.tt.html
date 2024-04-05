@@ -81,11 +81,9 @@
                     if ("[% tags.1.tagid.defined %]") {
                         params += "&sec_facet_tag=[% tags.1.tagtype %]&sec_value_tag=[% tags.1.canon_tagid %]"
                     }
-                    // Filtering data for country
-                    if ("[% country_code %]" !== "world") {
-                        // Adding language code to get transalted data
-                        params += "&lang_code=[% lc %]&country=[% cc %]";
-                    }
+
+                    // Adding language code to get translated data
+                    params += "&lang_code=[% lc %]&country=[% cc %]";
 
                     fetch(facet_kp + params)
                         .then((response) => {

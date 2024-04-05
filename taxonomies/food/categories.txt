@@ -73,6 +73,10 @@ stopwords:de:und,mit,von
 # additional countries can be added separated by a semi colon (";"). Example for en:fruit, 35g, in EU and en:fruit, 35g in en:other-country:
 # expected_minimal_amount_specific_ingredients:en: en:fruit, 35, en:eu;  en:fruit, 35, en:other-country
 
+en:Bulk
+fr:Vrac
+nl:Verpakkingsvrij
+
 en:Artisan products
 ca:Prouctes artesans
 de:Handgefertigte Produkte, Artisanale Produkte, Handgemachte Produkte
@@ -4823,15 +4827,12 @@ es:Vodka con sabor, vodka aromatizada
 
 <en:Vodka
 en:Vodkas from Lithania, Lithuanian vodka
-de:Litauischer Wodka
+de:Litauischer Wodka, Litauische Wodkas
 fr:Vodkas lithuaniennes, Vodka lituanienne
-es:Vodka lituano
+es:Vodka lituano, Vodkas lituanas
 it:Vodka lituana
 lt:Lietuviška degtinė
 nl:Wodkas uit Litouwen, Litouwse wodkas
-de:Litauische Wodkas
-es:Vodkas lituanas
-it:Vodka lituane
 pl:Wódki litewskie, Litewska wódka
 ru:Литовская водка
 # disabled for safety: origins:en: en:Lithuania
@@ -4932,7 +4933,7 @@ ru:Латвийская водка
 
 
 <en:Vodka
-no:Norsk Vodka, Norwegian Vodka
+en:Vodka from Norway, Norwegian Vodka
 sv:Norsk Vodka, Norwegian Vodka
 fi:Norjalainen Vodka, Norwegian Vodka
 da:Norsk Vodka, Norwegian Vodka
@@ -4941,6 +4942,7 @@ de:Norwegische Vodka, Norwegian Vodka
 fr:Vodka norvégienne, Norwegian Vodka
 es:Vodka noruego, Norwegian Vodka
 it:Vodka norvegese, Norwegian Vodka
+no:Norsk Vodka, Norwegian Vodka
 pl:Norweska wódka, Norwegian Vodka
 ru:Норвежская водка, Norwegian Vodka
 zh:挪威伏特加, Norwegian Vodka
@@ -10956,7 +10958,6 @@ sv:Franska mousserande viner
 th:ไวน์อัดแก๊สฝรั่งเศส
 tr:Fransız şampanyaları
 zh:法国起泡酒
-ja:フランス産スパークリングワイン
 
 <en:Wines
 en:Red wines, red wine
@@ -14172,9 +14173,11 @@ fr:Chassagne-Montrachet premier cru Blanchot Dessus, Chassagne-Montrachet Blanch
 origins:en: en:France, fr:Bourgogne
 protected_name_type:en: pdo
 #wikidata:en:
+
 <fr:Chassagne-Montrachet
 fr:Chassagne-Montrachet premier cru Blanchot dessus rouge
 wikidata:en:Q42300474
+
 <fr:Chassagne-Montrachet
 fr:Chassagne-Montrachet premier cru Blanchot dessus blanc
 wikidata:en:Q42866480
@@ -33210,7 +33213,7 @@ ciqual_food_name:fr:Sablé pâtissier
 
 <en:Shortbread cookies
 en:Shortbread cookies from Brittany
-fr:Galettes bretonnes au beurre
+fr:Galettes bretonnes au beurre, galettes bretonnes
 
 <en:Shortbread cookies
 fr:Palets, Palet, Palets sablés, Palet sablé, Palet breton, Palets bretons
@@ -35663,6 +35666,7 @@ ciqual_food_name:en:Soft cake filled with fruits, mini sponge roll type
 ciqual_food_name:fr:Gâteau moelleux fourré aux fruits type mini-roulé ou mini-cake fourré
 #wikidata:en:
 # Note: en:dessert-mixes is a category that changes the computation of the Nutri-Score, the canonical name should not be changed without corresponding code changes
+
 <en:Cooking helpers
 en:Dessert mixes, Dessert mix
 de:Nachtischmischungen, Nachtischmischung
@@ -37887,7 +37891,7 @@ nl:Chocolade dinosauriërs
 
 <en:Chocolate candies
 <en:Bars
-en:Bars covered with chocolate, Chocolate bars
+en:Candy chocolate bars, Bars covered with chocolate, Chocolate bars
 bg:Шоколадови барове
 ca:Barretes de xocolata
 de:Schokoriegel, Schokoladenriegel
@@ -42586,7 +42590,7 @@ lt:Sūriai, Sūris
 lb:Kéis
 nl:Kazen, Kaas
 nl_be:Kazen
-no:Oster
+no:Oster, Ost
 pl:Sery
 pt:Queijos
 ro:Brânzeturi, Brânză, cascaval, cașcaval
@@ -42671,6 +42675,19 @@ sv:Muenster
 th:มึนสเตอร์ชีส
 wikidata:en:Q6931973
 description:en:American cheese.
+
+<en:Cheeses
+en:Cheeses from Norway, Norwegian Cheeses
+fr:Fromages norvégiennes
+nl:Noorse Kazen, Kazen uit Noorwegen
+no:Norske Oster
+origins:en: en:Norway
+#wikidata:en:
+
+<en:Cheeses from Norway
+<en:Cow cheeses
+en:Yellow cheeses
+no:Gulost
 
 <en:Cheeses
 en:Mexican cheeses, cheeses from Mexico
@@ -47533,6 +47550,7 @@ wikidata:en:Q6094554
 en:Spanish hard cheeses
 
 <en:Cheeses
+en:Cheeses from Norway
 en:Brunost
 da:myseost
 fi:mesjuusto
@@ -47541,7 +47559,7 @@ nb:Brunost, mysost
 sv:mesost
 
 <en:Cheeses
-en:Swedish cheeses, cheeses from Sweden
+en:Swedish cheeses, Cheeses from Sweden
 de:Schwedischer Käse
 fr:Fromages suédois, Fromages de Suède
 lt:Švediški sūriai
@@ -50442,8 +50460,13 @@ nl:Smeerkazen
 pt:Queijos para barrar
 agribalyse_proxy_food_code:en:12315
 agribalyse_proxy_food_name:en:Uncured soft cheese, spreadable, around 25% fat, in a tub
+ciqual_proxy_food_code:en:12315
+ciqual_proxy_food_name:en:Uncured soft cheese, spreadable, around 25% fat, in a tub
 intake24_category_code:en:SPRD
-#wikidata:en:
+
+<en:cheese spreads
+en:St Moret, Saint Moret
+xx:St Moret, Saint Moret
 
 <en:Cheese spreads
 en:Uncured soft cheese spreadable with around 25% fat
@@ -61639,8 +61662,15 @@ ciqual_food_code:en:39502
 ciqual_food_name:en:Frozen dessert, ice cream with meringue, vacherin ice cream or mystery ice cream type
 ciqual_food_name:fr:Dessert glacé type mystère ou vacherin
 
-
-
+<en:Frozen desserts
+en:Sundae ice cream
+fr:Sundae
+ja:サンデー, パフェ
+lt:Sundae ledai
+agribalyse_food_code:en:39512
+ciqual_food_code:en:39512
+ciqual_food_name:en:Frozen dessert, Sundae ice cream type
+ciqual_food_name:fr:Dessert glacé, type sundae
 
 <en:Frozen desserts
 en:Ice creams and sorbets, Flavoured ice creams, Flavoured sorbets, Flavoured ice pops
@@ -62168,16 +62198,6 @@ it:Biscotto gelato
 lt:Ledų sumuštiniai
 nl:Roomijswafels
 
-<en:Ice creams
-en:Sundae ice cream
-fr:Sundae
-ja:サンデー, パフェ
-lt:Sundae ledai
-agribalyse_food_code:en:39512
-ciqual_food_code:en:39512
-ciqual_food_name:en:Frozen dessert, Sundae ice cream type
-ciqual_food_name:fr:Dessert glacé, type sundae
-
 <en:Ice creams and sorbets
 en:Sorbets
 bg:Сорбе
@@ -62483,11 +62503,12 @@ nl:Plantaardige ijswafels
 <en:Frozen desserts
 en:Ice pops, Popsicle, Freeze pop, Ice lolly, Ice block, Icy pole, Freezer pop
 es:Helados de hielo, Helados de agua, Polos de hielo, Polos de agua, Paletas de hielo, Paletas de agua
+de:Wassereis
 fi:mehujäät
 fr:Glaces à l'eau
 it:Ghiaccioli
 ja:アイスキャンディー, アイスバー
-nl:Waterijsjes, IJslollies
+nl:Waterijsjes, Waterijs, IJslollies
 wikidata:en:Q855373
 agribalyse_food_code:en:39526
 ciqual_food_code:en:39526
@@ -64022,7 +64043,7 @@ en:Lingonberries, Cowberries
 de:Preiselbeeren
 es:Arándanos rojos
 fi:Puolukat
-fr:Airelles rouges
+fr:Airelles, airelle rouge, airelles rouges
 la:Vaccinium vitis-idaea
 lt:Bruknės
 nl:Rode bosbessen, Vossenbessen
@@ -64530,6 +64551,10 @@ fr:Oranges fraîches
 lt:Švieži apelsinai
 tr:Taze portakal
 season_in_country_fr:en: 1,2,3,12
+
+<en:Fresh oranges
+en:Clemenvillas
+xx:Clemenvillas
 
 <en:Oranges
 en:Orange pulp
@@ -94411,6 +94436,14 @@ ru:Тунец
 th:ทูน่า
 zh:吞拿鱼
 wikidata:en:Q2346039
+# agribalyse_proxy_food_code instead of agribalyse_food_code as we do not know what kind of tuna it is
+agribalyse_proxy_food_code:en:26053
+ciqual_proxy_food_code:en:26053
+ciqual_proxy_food_name:en:Tuna, raw
+
+<en:Tunas
+en:Raw tunas
+fr:Thons crus, thon cru
 agribalyse_food_code:en:26053
 ciqual_food_code:en:26053
 ciqual_food_name:en:Tuna, raw
@@ -94433,9 +94466,9 @@ la:Thunnus thynnus, Scomber thynnus
 nl:Blauwvintonijn
 ro:Bucăți de ton
 wikidata:en:Q214415
-ciqual_food_code:en:26069
-ciqual_food_name:en:Atlantic bluefin tuna, raw
-ciqual_food_name:fr:Thon rouge, cru
+ciqual_proxy_food_code:en:26069
+ciqual_proxy_food_name:en:Atlantic bluefin tuna, raw
+ciqual_proxy_food_name:fr:Thon rouge, cru
 
 <en:Smoked fishes
 <en:Tunas
@@ -107529,15 +107562,16 @@ pt:Barras de amendoim
 zh:花生棒
 
 <en:Bars
-<en:Ice creams
+<en:Frozen desserts
+en:Frozen bars
 fr:Barres glacées
 de:Eisriegel, Eis-Riegel, Speiseeisriegel
 nl:IJsrepen
 
 <en:Bars
 <en:Ice creams
-en:Chocolate coated ice cream
-fr:Barre glacée chocolatée
+en:Frozen candy chocolate bars, Chocolate coated ice cream
+fr:Barres chocolatées glacées, Barre glacée chocolatée
 ru:Мороженое в шоколаде
 agribalyse_food_code:en:31035
 ciqual_food_code:en:31035
