@@ -708,7 +708,7 @@ is($product_ref->{test_tags}, ['fr:french-entry', 'fr:french-entry-with-default-
 is(canonicalize_taxonomy_tag('es', 'ingredients', 'jugo de soya'), 'en:soy-base');
 
 # check that properties are taxonomized if their name match a previously loaded taxonomy
-is(get_property("additives", "en:e170i", "additives_classes:en"), "en:colour,en:stabiliser");
+is(get_property("additives", "en:e170i", "additives_classes:en"), "en:colour, en:stabiliser");
 
 # test list_taxonomy_tags_in_language
 
