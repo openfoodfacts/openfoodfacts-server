@@ -3,7 +3,7 @@
 use Modern::Perl '2017';
 use utf8;
 
-use Test::More;
+use Test2::V0;
 use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Store qw/get_fileid get_string_id_for_lang get_urlid/;
