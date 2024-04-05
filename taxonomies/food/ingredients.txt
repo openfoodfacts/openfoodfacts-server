@@ -53932,10 +53932,6 @@ description:it:L'avocado (Persea americana) è una specie arborea da frutto che 
 description:nl:De avocado (Persea americana) is een boom uit Centraal-Amerika. Hij is bekend om zijn gelijknamige voor consumptie geschikte vrucht.
 # 858 in 12 @2021-09-21
 eurocode_2_group_3:en: 8.40.60
-
-<en:avocado
-en:Raw avocado pulp
-fr:Pulpe d'avocat crue
 ciqual_food_code:en:13004
 ciqual_food_name:en:Avocado, pulp, raw
 ciqual_food_name:fr:Avocat, pulpe, cru
@@ -54775,6 +54771,13 @@ ciqual_food_name:en:Jerusalem artichoke, raw
 ciqual_food_name:fr:Topinambour, cru
 eurocode_2_group_3:en: 8.34.20
 
+
+en:pale-leaf woodland sunflower
+fr:hélianthi, hélianthe scrofuleux, hélianti, héliantis, salsifis d'Amérique, racine d'hélianthi
+la:helianthus strumosus
+ciqual_proxy_food_code:en:20196
+ciqual_proxy_food_name:en:Jerusalem artichoke, raw
+ciqual_proxy_food_name:fr:Topinambour, cru
 
 # description:en:Asclepias is a genus of herbaceous, perennial, flowering plants known as milkweeds.
 <en:root vegetable
@@ -75717,9 +75720,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Tuna
 # ingredient/tuna has 1347 products in 10 languages @2019-01-02
 carbon_footprint_fr_foodges_ingredient:fr:Thon en boîte
 carbon_footprint_fr_foodges_value:fr:4
-ciqual_food_code:en:26053
-ciqual_food_name:en:Tuna, raw
-ciqual_food_name:fr:Thon, cru
+ciqual_proxy_food_code:en:26053
+ciqual_proxy_food_name:en:Tuna, raw
+ciqual_proxy_food_name:fr:Thon, cru
 description:de:Thunfische bezeichnen eine Gattung großer Raubfische, die in allen tropischen, subtropischen und gemäßigten Meeren vorkommt. Sie gehören zu den wichtigsten Speisefischen.
 description:en:A tuna is a saltwater fish that belongs to the tribe Thunnini, a subgrouping of the Scombridae family.
 description:es:El grupo Thunnus es un género de peces óseos marinos con menos de diez especies incluidas en él.
@@ -75728,6 +75731,75 @@ description:it:Thunnus è un genere della famiglia Scombridae che raggruppa otto
 description:nl:Tonijnen zijn enkele soorten oceaanvissen uit de familie van makrelen (Scombridae).
 description:pt:Os atuns (género Thunnus) são um dos grupos de espécies de peixes mais importantes do ponto de vista pesqueiro.
 # 2838 @2021-09-02
+
+<en:Tuna
+en:Raw tuna
+fr:Thon cru
+ciqual_food_code:en:26053
+ciqual_food_name:en:Tuna, raw
+ciqual_food_name:fr:Thon, cru
+
+<en:Tuna
+en:Canned tuna
+bg:Консерви риба тон
+de:Thunfischkonserve
+es:Atun en conserva
+fi:purkitetut tonnikalat
+fr:Thon en conserve, thons en conserve
+he:טונה בקופסה, טונה בקופסא, שימורי טונה
+it:Tonno in scatola, tonni in scatola
+nl:Tonijn in blik/pot
+pt:Atuns em lata
+ro:Conserve de ton
+ru:Консервы из тунца, Консервы тунцовые
+agribalyse_proxy_food_code:en:26039
+ciqual_proxy_food_code:en:26039
+ciqual_proxy_food_name:en:Tuna, plain, canned, drained
+ciqual_proxy_food_name:fr:Thon, au naturel, appertisé, égoutté
+wikidata:en:Q5711293
+
+<en:Canned tuna
+en:Tuna in brine, tunas in brine
+bg:Риба тон в собствен сос
+de:Thunfische im eigenen Saft
+es:Atún al natural
+fi:tonnikalaa vedessä
+fr:Thon au naturel, thons au naturel, conserves de thon au naturel, conserve de thon au naturel
+it:Tonno al naturale
+nl:Tonijn natuur
+agribalyse_food_code:en:26039
+ciqual_food_code:en:26039
+ciqual_food_name:en:Tuna, plain, canned, drained
+ciqual_food_name:fr:Thon, au naturel, appertisé, égoutté
+
+<en:Canned tuna
+en:Tuna in oil, Tunas in oil, Canned tuna in oil, Canned tunas in oil
+bg:Риба тон в олио
+de:Thunfische in Öl
+es:Atún en aceite
+fi:Tonnikalat öljyssä
+fr:Thon à l’huile, Thons à l'huile, Thon à l'huile appertisé, Thon à l'huile en conserve
+he:טונה בשמן
+it:Tonno sott'olio, tonni sott'olio
+nl:Tonijn op olie
+pt:Atun em óleo
+ru:Консервированный тунец в масле
+# note Ciqual 26071 "Tuna in oil" was replaced, but it is still used for Agribalyse
+agribalyse_food_code:en:26071
+ciqual_food_code:en:26180
+ciqual_food_name:fr:Thon à l'huile de tournesol, entier, appertisé, égoutté
+
+<en:Canned tunas
+en:Tuna chunks
+bg:Парченца риба тон
+de:Thunfisch Stücke
+fi:tonnikalaa paloina
+fr:Miettes de thon
+it:Tranci di tonno
+nl:Tonijnstukjes
+agribalyse_proxy_food_code:en:26245
+agribalyse_proxy_food_name:en:Tuna, flaked, in oil, canned, drained
+agribalyse_proxy_food_name:fr:Miettes de thon à l'huile, appertisées
 
 <en:tuna
 fr:filets de thon
@@ -75956,14 +76028,6 @@ de:Großaugenthun
 la:Thunnus obesus
 wikidata:en:Q1122241
 wikipedia:en:https://en.wikipedia.org/wiki/Bigeye_tuna
-
-
-#compound
-<en:tuna
-fr:thon au naturel
-# ingredient/fr:thon-au-naturel 53 in french @202109-02
-# thon au naturel (thon albacore, eau, sel)
-
 
 <en:fish
 en:grenadier
