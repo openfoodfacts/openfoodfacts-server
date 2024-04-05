@@ -31,7 +31,6 @@ use List::Util qw/first/;
 
 use ProductOpener::Tags qw/%taxonomy_fields %translations_from canonicalize_taxonomy_tag sanitize_taxonomy_line/;
 
-
 # return true if $errors_ref list contains at least one error (as opposed to only warnings)
 sub has_errors($errors_ref) {
 	return !!(first {lc($_->{severity}) eq "error"} @$errors_ref);
@@ -128,7 +127,7 @@ sub iter_taxonomy_entries ($lines_iter) {
 				return $entry;
 			}
 			# stopwords and synonyms
-			elsif ($line =~ /^(?<prefix>synonyms|stopwords):/i ) {
+			elsif ($line =~ /^(?<prefix>synonyms|stopwords):/i) {
 				# synonyms and stopwords are special, return entry immediatly,
 				# but verify values are as expected.
 				my $entry_type = $+{prefix};
@@ -291,7 +290,7 @@ sub canonicalize_entry_properties($entry_ref, $is_check) {
 						entry_start_line => $entry_ref->{start_line},
 						entry_id_line => $entry_ref->{entry_id_line}{line},
 						message => (
-								  "Values $not_found do not exists in taxonomy $prop_tagtype, at $props{$prop_name}{line_num}\n"
+							"Values $not_found do not exists in taxonomy $prop_tagtype, at $props{$prop_name}{line_num}\n"
 								. "- $props{$prop_name}{line}"
 						),
 					}
