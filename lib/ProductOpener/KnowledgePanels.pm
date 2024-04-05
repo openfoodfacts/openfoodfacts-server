@@ -1605,4 +1605,47 @@ sub create_nova_panel ($product_ref, $target_lc, $target_cc, $options_ref) {
 	return;
 }
 
+
+=head2 create_productreport_panel ( $product_ref, $target_lc, $target_cc, $options_ref )
+
+Creates a knowledge panel with a link to an external governmental URL for product reporting (SignalConso in France).
+The URL is defined in external templates and requires the product barcode.
+This panel is currently implemented for products sold in France only,
+but can be extended to other countries in the future.
+https://github.com/openfoodfacts/openfoodfacts-server/issues/9928
+
+=head3 Arguments
+
+=head4 product reference $product_ref
+
+Loaded from the MongoDB database, Storable files, or the OFF API.
+
+=head4 language code $target_lc
+
+Returned attributes contain both data and strings intended to be displayed to users.
+This parameter sets the desired language for the user facing strings.
+
+=head4 country code $target_cc
+
+=cut
+
+sub create_productreport_panel ($product_ref, $target_lc, $target_cc, $options_ref) {
+
+	$log->debug("create product report panel", {code => $product_ref->{code}}) if $log->is_debug();
+
+	# France - Product Report by Signal Conso
+
+	if ($target_cc eq 'fr') {
+
+		# Check if the product is sold in France
+		if (has_tag($product_ref, "countries", "france")) {
+
+			create_panel_from_json_template("productreport",
+				"api/knowledge-panels/misc/fr/signal-conso-product-reports/signal-conso.tt.json",
+				{}, $product_ref, $target_lc, $target_cc, $options_ref);
+		}
+	}
+	return;
+}
+
 1;

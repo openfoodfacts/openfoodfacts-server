@@ -1,0 +1,40 @@
+{
+    "type": "card",
+    "expanded": true,
+    "topics": [
+        "misc"
+    ],
+    "title_element": {
+        "title": "[% edq(lang('signalconso')) %]",
+    },    
+    "elements": [
+        [% IF panels.signalconso.defined %]
+        {
+            "element_type": "panel",
+            "panel_element": {
+                "panel_id": "signalconso",
+            },
+        },
+        [% END %]
+
+        [% IF options.knowledge_panels_client == 'web' %]
+If you have encountered a problem with this product, such as non-compliant labeling, expired product still being sold, presence of foreign objects, etc., please report it to the company and the fraud repression authorities through SignalConso. 
+SignalConso is a tool provided by the French General Directorate for Competition, Consumer Affairs, and Fraud Control (DGCCRF).
+Please note that reports will only be treated for products sold in France. Products sold outside France, or French products sold abroad are not covered by SignalConso.
+
+Vous avez rencontré un problème avec ce produit : étiquetage non conforme, produit périmé encore en vente, présence d'un corps étranger, etc. ? 
+Faites un signalement à l'entreprise et à la répression des fraudes sur SignalConso, un outil de la Direction générale de la concurrence, de la consommation et la pression des fraudes (DGCCRF).
+Attention, les signalements ne seront traités que pour les produits vendus en France. Les produits vendus hors de France, ou les produits français vendus à l'étranger ne sont pas couverts par SignalConso.
+
+          TODO: Add true signalconso image
+          <a href="https://signal.conso.gouv.fr/fr/alimentaire-codebarres/faire-un-signalement?gtin=[% code %]">
+            <img src="https://signalconso.beta.gouv.fr/static/media/logo.1f3b7b7b.png" alt="Report an issue with this product to SignalConso" style="width: 100%; max-width: 300px; margin: 0 auto; display: block;">
+            </a>
+        [% ELSE %]
+        TODO: Add true signalconso image
+        <a href="https://signal.conso.gouv.fr/fr/alimentaire-codebarres/faire-un-signalement?gtin=[% code %]">
+        <img src="https://signalconso.beta.gouv.fr/static/media/logo.1f3b7b7b.png" alt="Report an issue with this product to SignalConso" style="width: 100%; max-width: 300px; margin: 0 auto; display: block;">
+        </a>
+        [% END %]
+    ],
+}
