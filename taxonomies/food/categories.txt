@@ -4113,7 +4113,7 @@ de:Armagnac, Branntwein aus de Gascogne
 fr:Armagnacs, Armagnac
 nl:Armagnacs, Armagnac
 pl:Armagnac, Armaniak
-wikidata_category:en:Q9469550
+xx:Armagnac
 origins:en: en:France, fr:Gascogne
 wikidata:en:Q503252
 wikipedia:en:https://en.wikipedia.org/wiki/Armagnac
@@ -4121,13 +4121,14 @@ agribalyse_food_code:en:1023
 ciqual_food_code:en:1023
 ciqual_food_name:en:Spirit made from wine, armagnac or cognac type
 ciqual_food_name:fr:Eau de vie de vin, type armagnac, cognac
-origins:en: en:France
+origins:en: en:France, fr:Gascogne
 
 <en:Armagnac
 en:Armagnac-Ténarèze
 de:Armagnac aus dem Anbaugebiet Ténarèze
 fr:Armagnac-Ténarèze
 nl:Armagnac uit Ténarèze
+xx:Armagnac-Ténarèze
 origins:en: en:France, fr:Gascogne
 wikidata:en:Q4792603
 wikipedia:en:https://en.wikipedia.org/wiki/Armagnac-T%C3%A9nar%C3%A8ze
@@ -4226,7 +4227,7 @@ de:Apfelbrand aus der Bretagne
 nl:Bretons cider eau-de-vies
 protected_name_file_number:en: PGI-FR-02035
 protected_name_type:en: gi
-origins:en: en:france
+origins:en: en:France, fr:Bretagne
 #wikidata:en:
 
 <en:French cider eau-de-vies
@@ -4244,7 +4245,7 @@ de:Apfelbrand aus Maine
 nl:Eau-de-vies uit de Maine-streek
 protected_name_file_number:en: PGI-FR-02036
 protected_name_type:en: gi
-origins:en: en:France, fr:Maine
+origins:en: en:France, fr:Maine (France)
 #wikidata:en:
 
 <en:French Eaux-de-vie
@@ -4262,7 +4263,7 @@ ciqual_food_name:fr:Eau de vie de vin, type armagnac, cognac
 fr:Eau-de-vie de Jura
 de:Branntwein aus dem Jura
 nl:Eau-devies uit de Jura
-origins:en: en:France, fr:Jura
+origins:en: en:France, fr:Jura français
 
 <en:French Eaux-de-vie
 fr:Eau-de-vie de poiré de Bretagne
@@ -4283,7 +4284,7 @@ origins:en: en:france, en:normandy
 fr:Eau-de-vie de poiré du Maine
 de:Birnenbrand aus Maine
 nl:Peren-eau-de-vies uit de Maine-streek
-origins:en: en:France, fr:Maine
+origins:en: en:France, fr:Maine (France)
 #wikidata:en:
 
 <en:French Eaux-de-vie
@@ -4296,8 +4297,7 @@ origins:en: en:france, en:burgundy
 <en:French Eaux-de-vie
 fr:Eau-de-vie de vin de la Marne
 de:Branntwein aus Marne, Branntwein aus dem Marne Tal
-nl:Wijn-eau-de-vies uit de Marne
-origins:en: en:France, fr:Marne
+origins:en: en:France, fr:Maine (France)
 protected_name_file_number:en: PGI-FR-02029, en: PGI-FR-02029-AM01
 protected_name_type:en: gi
 #wikidata:en:
@@ -4315,7 +4315,7 @@ de:Branntwein aus dem Rhône Tal, Branntwein aus Côtes-du-Rhône
 nl:Wijn-eau-de-vies uit de Côtes-du-Rhône
 protected_name_file_number:en: PGI-FR-02070
 protected_name_type:en: gi
-origins:en: en:France, fr:Côtes-du-Rhône
+origins:en: en:France
 #wikidata:en:
 
 <en:French Eaux-de-vie
@@ -4343,7 +4343,7 @@ origins:en: en:france, en:provence
 fr:Eau-de-vie de vin originaire des Coteaux de la Loire
 de:Branntwein aus dem Loire Tal, Branntwein aus Coteaux de la Loire
 nl:Wijn-eau-de-vies uit de Coteaux de la Loire
-origins:en: en:France, fr:Coteaux de la Loire
+origins:en: en:France
 #wikidata:en:
 
 <en:French Eaux-de-vie
@@ -8257,7 +8257,6 @@ ru:Чай в пакетиках
 # should not be in pnns_group_2:en:Teas and herbal teas and coffees
 pnns_group_2:en:unknown
 # should not be in food_groups:en: en:Teas and herbal teas and coffees
-food_groups:en: en:unknown
 
 <en:Herbal teas
 en:Instant herbal teas
@@ -8988,7 +8987,6 @@ zh:袋茶, 茶包, 袋泡茶
 # should not be in pnns_group_2:en:Teas and herbal teas and coffees
 pnns_group_2:en:unknown
 # should not be in food_groups:en: en:Teas and herbal teas and coffees
-food_groups:en: en:unknown
 agribalyse_food_code:en:18020
 ciqual_food_code:en:18020
 ciqual_food_name:en:Tea, brewed, without sugar
@@ -10797,7 +10795,7 @@ origins:en: en:france
 fr:Marc du Jura
 protected_name_file_number:en: PGI-FR-02027
 protected_name_type:en: gi
-origins:en: en:France, fr:Jura
+origins:en: en:France, fr:Jura français
 
 <en:French grape marc spirit or grape marc
 fr:Marc d'Alsace Gewurztraminer
@@ -10815,7 +10813,7 @@ origins:en: en:france, en:auvergne
 fr:Marc des Côtes-du-Rhône, Eau-de-vie de marc des Côtes du Rhône
 protected_name_file_number:en: PGI-FR-01979
 protected_name_type:en: gi
-origins:en: en:France, fr:Côtes-du-Rhône
+origins:en: en:France
 
 <en:French grape marc spirit or grape marc
 fr:Marc de Provence
@@ -12195,7 +12193,6 @@ origins:en: en:France
 wikidata:en:Q2130903
 protected_name_file_number:en: PDO-FR-A0386
 protected_name_type:en: pdo
-origins:en: en:France
 
 <fr:Alsace Grand Cru
 fr:Alsace Grand Cru Saering, Saering
@@ -12203,7 +12200,6 @@ origins:en: en:France
 wikidata:en:Q3461235
 protected_name_file_number:en: PDO-FR-A0375
 protected_name_type:en: pdo
-origins:en: en:France
 
 <fr:Alsace Grand Cru
 fr:Alsace Grand Cru Schlossberg, Schlossberg
@@ -12211,7 +12207,6 @@ origins:en: en:France
 wikidata:en:Q3475436
 protected_name_file_number:en: PDO-FR-A0415
 protected_name_type:en: pdo
-origins:en: en:France
 
 <fr:Alsace Grand Cru
 fr:Alsace Grand Cru Schoenenbourg, Schoenenbourg
@@ -12219,7 +12214,6 @@ origins:en: en:France
 wikidata:en:Q3475471
 protected_name_file_number:en: PDO-FR-A0418
 protected_name_type:en: pdo
-origins:en: en:France
 
 <fr:Alsace Grand Cru
 fr:Alsace Grand Cru Sommerberg, Sommerberg
@@ -12227,7 +12221,6 @@ origins:en: en:France
 wikidata:en:Q3489881
 protected_name_file_number:en: PDO-FR-A0416
 protected_name_type:en: pdo
-origins:en: en:France
 
 <fr:Alsace Grand Cru
 fr:Alsace Grand Cru Sonnenglanz, Sonnenglanz
@@ -12235,7 +12228,6 @@ origins:en: en:France
 wikidata:en:Q3490492
 protected_name_file_number:en: PDO-FR-A0625
 protected_name_type:en: pdo
-origins:en: en:France
 
 <fr:Alsace Grand Cru
 fr:Alsace Grand Cru Spiegel, Spiegel
@@ -13576,7 +13568,6 @@ fr:Cabernet de Saumur, Cabernet de Saumur Val de Loire
 origins:en: en:France
 protected_name_file_number:en: PDO-FR-A0257
 protected_name_type:en: pdo
-origins:en: en:France
 #wikidata:en:
 
 <en:Bordeaux wines
@@ -14846,7 +14837,7 @@ origins:en: en:france
 <en:White wines
 fr:Château-Chalon
 wikidata:en:Q1090298
-origins:en: en:France, fr:Jura
+origins:en: en:France, fr:Jura français
 
 <en:Wines from France
 fr:Châteaumeillant
@@ -15190,7 +15181,6 @@ wikidata:en:Q21427111
 protected_name_file_number:en: PGI-FR-A1233
 protected_name_type:en: pgi
 origins:en: en:France
-protected_name_type:en: pgi
 
 <en:Wines from France
 fr:Coteaux de l'Aubance Val de Loire
@@ -15227,26 +15217,21 @@ wikidata:en:Q21427113
 origins:en: en:France
 protected_name_type:en: pgi
 protected_name_file_number:en: PGI-FR-A1134
-protected_name_type:en: pgi
-origins:en: en:France
 
 <en:Wines from France
 fr:Coteaux des Baronnies
 wikidata:en:Q2998547
 origins:en: en:France
 protected_name_type:en: pgi
-origins:en: en:France
 
 <en:Wines from France
 fr:Coteaux du Cher et de l’Arnon
 wikidata:en:Q21427114
 origins:en: en:France
 protected_name_type:en: pgi
-origins:en: en:France
 
 <en:Wines from France
 fr:Coteaux du Giennois
-origins:en: en:France
 origins:en: en:France
 wikidata:en:Q1136598
 
@@ -15691,8 +15676,6 @@ origins:en: en:France
 protected_name_type:en: pdo
 grape_variety:fr:sémillon, sauvignon, muscadelle
 protected_name_file_number:en: PDO-FR-A0406
-protected_name_type:en: pdo
-origins:en: en:France
 
 <en:Wines from France
 fr:Faugères
@@ -16674,7 +16657,6 @@ fr:Lavilledieu
 origins:en: en:France
 protected_name_file_number:en: PGI-FR-A1136
 protected_name_type:en: pgi
-origins:en: en:France
 #wikidata:en:
 
 <en:Wines from France
@@ -16709,7 +16691,6 @@ origins:en: en:France
 wikidata:en:Q1516318
 protected_name_file_number:en: PDO-FR-A0276
 protected_name_type:en: pdo
-origins:en: en:France
 
 <en:Wines from France
 fr:Lot
@@ -17122,7 +17103,6 @@ protected_name_type:en: pdo
 fr:Méditerranée
 origins:en: en:France
 wikidata:en:Q3332682
-origins:en: en:France
 protected_name_type:en: pgi
 
 <en:Bordeaux
@@ -18343,7 +18323,6 @@ origins:en: en:France, fr:Bourgogne
 wikidata:en:Q3346179
 protected_name_type:en: pdo
 protected_name_file_number:en: PDO-FR-A0579
-protected_name_type:en: pdo
 origins:en: en:France
 
 <fr:Nuits-Saint-Georges
@@ -25375,7 +25354,6 @@ it:Arcole
 origins:en: en:Italy
 protected_name_file_number:en: PDO-IT-A0438
 protected_name_type:en: pdo
-origins:en: en:Italy
 #wikidata:en:
 
 <en:Wines from Italy
@@ -25397,7 +25375,6 @@ it:Bagnoli di Sopra, Bagnoli
 origins:en: en:Italy
 protected_name_file_number:en: PDO-IT-A0466
 protected_name_type:en: pdo
-origins:en: en:Italy
 wikidata:en:Q2879110
 
 <en:Wines from Italy
@@ -25443,7 +25420,6 @@ it:Barco Reale di Carmignano
 origins:en: en:Italy
 protected_name_file_number:en: PDO-IT-A1325
 protected_name_type:en: pdo
-origins:en: en:Italy
 wikidata:en:Q3634897
 
 <en:Wines from Italy
@@ -26545,7 +26521,6 @@ wikidata:en:Q2983291
 <it:Colli Tortonesi
 it:Colli Tortonesi Cortese spumante
 wikidata:en:Q2983292
-wikidata:en:Q2983293
 
 <it:Colli Tortonesi
 it:Colli Tortonesi Dolcetto
@@ -26623,7 +26598,6 @@ origins:en: en:Italy
 #wikidata:en:
 protected_name_file_number:en: PDO-IT-A0775
 protected_name_type:en: pdo
-origins:en: en:Italy
 #wikidata:en:
 
 <en:Wines from Italy
@@ -27733,7 +27707,6 @@ it:Pornassio, Ormeasco di Pornassio
 origins:en: en:Italy
 protected_name_file_number:en: PDO-IT-A0356
 protected_name_type:en: pdo
-origins:en: en:Italy
 #wikidata:en:
 
 <en:Wines from Italy
@@ -27894,7 +27867,6 @@ it:Rosso Orvietano, Orvietano Rosso
 origins:en: en:Italy
 protected_name_file_number:en: PDO-IT-A0847
 protected_name_type:en: pdo
-origins:en: en:Italy
 #wikidata:en:
 
 <en:Wines from Italy
@@ -28312,14 +28284,12 @@ it:Valdadige Terradeiforti, Terradeiforti Valdadige, Terradeiforti
 protected_name_file_number:en: PDO-IT-A0475
 protected_name_type:en: pdo
 origins:en: en:Italy
-origins:en: en:Italy
 #wikidata:en:
 
 <en:Wines from Italy
 it:Valdadige, Etschtaler, Valdadige Terra dei Forti
 protected_name_file_number:en: PDO-IT-A0474
 protected_name_type:en: pdo
-origins:en: en:Italy
 origins:en: en:Italy
 #wikidata:en:
 
@@ -28603,7 +28573,6 @@ it:Verduno Pelaverga, Verduno
 origins:en: en:Italy
 protected_name_file_number:en: PDO-IT-A1244
 protected_name_type:en: pdo
-origins:en: en:Italy
 #wikidata:en:
 
 <en:Wines from Italy
@@ -28631,7 +28600,6 @@ origins:en: en:italy
 it:Vin Santo di Montepulciano
 protected_name_file_number:en: PDO-IT-A1515
 protected_name_type:en: pdo
-origins:en: en:Italy
 origins:en: en:Italy
 wikidata:en:Q4013004
 
@@ -29017,7 +28985,6 @@ it:Mamertino, Mamertino di Milazzo
 protected_name_file_number:en: PDO-IT-A0783
 protected_name_type:en: pdo
 origins:en: en:Italy
-origins:en: en:Italy
 #wikidata:en:
 
 <en:Wines from Italy
@@ -29045,7 +29012,6 @@ origins:en: en:italy
 it:Benevento, Beneventano
 protected_name_file_number:en: PGI-IT-A0283
 protected_name_type:en: pgi
-origins:en: en:Italy
 origins:en: en:Italy
 #wikidata:en:
 
@@ -29863,7 +29829,6 @@ wikidata:en:Q3320744
 it:Moscato di Sorso, Moscato di Sennori, Moscato di Sorso - Sennori
 protected_name_file_number:en: PDO-IT-A0909
 protected_name_type:en: pdo
-origins:en: en:Italy
 origins:en: en:Italy
 #wikidata:en:
 
@@ -33213,7 +33178,7 @@ ciqual_food_name:fr:Sablé pâtissier
 
 <en:Shortbread cookies
 en:Shortbread cookies from Brittany
-fr:Galettes bretonnes au beurre
+fr:Galettes bretonnes au beurre, galettes bretonnes
 
 <en:Shortbread cookies
 fr:Palets, Palet, Palets sablés, Palet sablé, Palet breton, Palets bretons
@@ -37229,7 +37194,6 @@ agribalyse_food_code:en:31010
 ciqual_food_code:en:31010
 ciqual_food_name:en:White chocolate bar
 ciqual_food_name:fr:Chocolat blanc, tablette
-agribalyse_food_code:en:31010
 
 <en:White chocolates
 <en:Chocolates with sweeteners
@@ -37642,7 +37606,6 @@ it:Cioccolato fondente con arancia, cioccolato fondente all'arancio
 lt:Juodi šokoladai su apelsinais, Juodos šokolado plytelės su apelsinais
 nl:Pure chocola met sinaasappelschil
 agribalyse_proxy_food_code:en:31069
-agribalyse_proxy_food_code:en:31069
 agribalyse_proxy_food_name:en:Dark chocolate bar, with fruits (orange, raspberries, pear)
 agribalyse_food_code:en:31069
 ciqual_food_code:en:31069
@@ -37652,7 +37615,6 @@ ciqual_food_name:en:Dark chocolate bar, with fruits (orange, raspberries, pear)
 en:Dark chocolates with raspberries, Dark chocolate bar with raspberries
 fr:Chocolats noirs à la framboise
 lt:Juodi šokoladai su avietėmis, Juodos šokolado plytelės su avietėmis
-agribalyse_proxy_food_code:en:31069
 agribalyse_proxy_food_code:en:31069
 agribalyse_proxy_food_name:en:Dark chocolate bar, with fruits (orange, raspberries, pear)
 agribalyse_food_code:en:31069
@@ -39275,7 +39237,6 @@ ja:トゥロン, トローネ
 nl:Turrón
 wikidata:en:Q159304
 agribalyse_proxy_food_code:en:31033
-agribalyse_proxy_food_code:en:31033
 agribalyse_proxy_food_name:en:Nougat
 
 <en:Turrón
@@ -39780,9 +39741,6 @@ lt:Omletai su sūriu
 agribalyse_food_code:en:22506
 ciqual_food_code:en:22506
 ciqual_food_name:en:Omelette, with cheese
-ciqual_food_code:en:22511
-ciqual_food_name:en:Omelette, with vegetables, cheese, meat
-ciqual_food_name:fr:Omelette, garnitures diverses : légumes, fromages, viandes... (aliment moyen)
 #wikidata:en:
 
 <fr:Omelette avec garniture
@@ -42401,7 +42359,7 @@ ciqual_food_name:fr:Boisson lactée, lait fermenté ou yaourt à boire, aux frui
 en:Fermented milk drinks with sugar, Plain drinkable yogurts with sugar, Plain dairy drinks with sugar, Plain fermented milks with sugar, Plain yogurts with sugar
 fr:Boissons lactées fermentées sucrées nature, Boissons lactées nature sucrées au lait fermenté, Yaourts à boire nature sucrés, Laits fermentés nature sucrés, laits fermentés sucrés
 agribalyse_proxy_food_code:en:19538
-agribalyse_proxy_food_name:en:Boisson lactée, lait fermenté ou yaourt à boire, nature, sucré, au L Casei
+agribalyse_proxy_food_name:fr:Boisson lactée, lait fermenté ou yaourt à boire, nature, sucré, au L Casei
 agribalyse_proxy_food_name:en:Dairy drink or fermented milk or yogurt, plain, with sugar, with L Casei
 ciqual_food_code:en:19537
 ciqual_food_name:en:Dairy drink or fermented milk or yogurt, plain, with sugar
@@ -42862,7 +42820,6 @@ ciqual_food_code:en:12526
 ciqual_food_name:en:Gex blue cheese, or Jura blue cheese or Septmoncel blue cheese, from cow's milk
 protected_name_file_number:en: PDO-FR-0109
 protected_name_type:en: pdo
-origins:en: en:France
 wikidata:en:Q12899023
 
 <en:French blue-veined cheeses
@@ -42875,7 +42832,6 @@ ciqual_food_code:en:12526
 ciqual_food_name:en:Gex blue cheese, or Jura blue cheese or Septmoncel blue cheese, from cow's milk
 protected_name_file_number:en: PDO-FR-0109
 protected_name_type:en: pdo
-origins:en: en:France
 
 <en:French blue-veined cheeses
 fr:Bleus de Laqueuille
@@ -42924,7 +42880,6 @@ ciqual_food_code:en:12519
 ciqual_food_name:en:Fourme de Montbrison cheese
 protected_name_file_number:en: PDO-FR-0542
 protected_name_type:en: pdo
-origins:en: en:France
 
 <en:French blue-veined cheeses
 fr:Fromages de pays
@@ -42952,7 +42907,6 @@ ciqual_food_name:en:Roquefort cheese, from ewe's milk
 ciqual_food_name:fr:Roquefort
 protected_name_file_number:en: PDO-FR-0131
 protected_name_type:en: pdo
-origins:en: en:France
 
 <en:French blue-veined cheeses
 fr:Tignard
@@ -43326,7 +43280,6 @@ uk:Мюнстер
 zh:芒斯特芝士
 wikidata:en:Q765540
 oqali_family:en: fr:Fromages - Munster
-protected_name_file_number:en: PDO-FR-0125
 protected_name_type:en: pdo
 origins:en: en:France
 agribalyse_food_code:en:12039
@@ -44339,7 +44292,7 @@ ciqual_food_name:en:Brie de Meaux cheese, from cow's milk
 <en:Bries
 en:Brie de Melun, Brie de Melun cheeses, Brie de Melun cheese from cow's milk
 fr:Brie de Melun, Bries de Melun
-protected_name_file_number:en: PDO-FR-0111
+# protected_name_file_number:en: PDO-FR-0111
 protected_name_file_number:en: PDO-FR-0111-AM01
 protected_name_type:en: pdo
 origins:en: en:France
@@ -44377,7 +44330,7 @@ ciqual_food_code:en:12722
 ciqual_food_name:en:Cantal cheese, half matured, from cow's milk
 ciqual_food_name:fr:Cantal entre-deux
 origins:en: en:France
-protected_name_file_number:en: PDO-FR-0113
+# protected_name_file_number:en: PDO-FR-0113
 protected_name_file_number:en: PDO-FR-0113-AM02
 protected_name_type:en: pdo
 origins:en: en:France
@@ -44406,7 +44359,6 @@ ciqual_food_name:fr:Cantal, Salers ou Laguiole
 origins:en: en:France
 protected_name_file_number:en: PDO-FR-0120-AM05, en: PDO-FR-0120
 protected_name_type:en: pdo
-origins:en: en:France
 wikidata:en:Q681326
 
 <en:French cheeses
@@ -44421,9 +44373,8 @@ ciqual_food_name:en:Chabichou cheese, from goat's milk
 protected_name_file_number:en: PDO-FR-0115-AM01
 protected_name_type:en: pdo
 origins:en: en:France
-protected_name_file_number:en: PDO-FR-0115
+# protected_name_file_number:en: PDO-FR-0115
 protected_name_type:en: pdo
-origins:en: en:France
 #wikidata:en:
 
 <en:French cheeses
@@ -44437,7 +44388,6 @@ ciqual_food_code:en:12028
 ciqual_food_name:en:Chaource cheese, from cow's milk
 protected_name_file_number:en: PDO-FR-0114
 protected_name_type:en: pdo
-origins:en: en:France
 #wikidata:en:
 
 <en:French cheeses
@@ -44460,7 +44410,6 @@ origins:en: en:France
 #ciqual_food_name:fr:Chevrot (fromage de chèvre)
 protected_name_file_number:en: PDO-FR-0246
 protected_name_type:en: pdo
-origins:en: en:France
 #wikidata:en:
 
 <en:Goat cheeses
@@ -44489,7 +44438,6 @@ ciqual_food_code:en:12834
 ciqual_food_name:en:Crottin de Chavignol cheese, from goat's milk
 protected_name_file_number:en: PDO-FR-0117
 protected_name_type:en: pdo
-origins:en: en:France
 
 <en:French cheeses
 <en:Soft cheeses with washed rind
@@ -44504,7 +44452,6 @@ ciqual_food_code:en:12038
 ciqual_food_name:en:Époisses cheese, from cow's milk
 protected_name_file_number:en: PDO-FR-0118
 protected_name_type:en: pdo
-origins:en: en:France
 
 <en:French cheeses
 <en:Cooked pressed cheeses
@@ -44569,7 +44516,6 @@ ciqual_food_code:en:12031
 ciqual_food_name:en:Neufchâtel cheese, from cow's milk
 protected_name_file_number:en: PDO-FR-0126
 protected_name_type:en: pdo
-origins:en: en:France
 #wikidata:en:
 
 <en:French cheeses
@@ -44584,7 +44530,7 @@ agribalyse_food_code:en:12119
 ciqual_food_code:en:12119
 ciqual_food_name:en:Ossau-Iraty cheese, from ewe's milk
 ciqual_food_name:fr:Ossau-Iraty
-origins:en: en:France, fr:Pays-Basque
+origins:en: en:France
 
 <en:Cheeses
 en:Russian cheeses
@@ -44620,7 +44566,6 @@ ciqual_food_code:en:12836
 ciqual_food_name:en:Picodon cheese, from goat's milk
 protected_name_file_number:en: PDO-FR-0298
 protected_name_type:en: pdo
-origins:en: en:France
 #wikidata:en:
 
 <en:Goat cheeses
@@ -44645,7 +44590,6 @@ wikidata:en:Q2089007
 oqali_family:en: fr:Fromages - Crottin de chevre
 protected_name_file_number:en: PDO-FR-0782
 protected_name_type:en: pdo
-origins:en: en:France
 
 <en:Goat cheeses
 <en:Soft cheese with a natural rind
@@ -44693,7 +44637,6 @@ ciqual_food_code:en:12049
 ciqual_food_name:en:Saint-Marcellin cheese, from cow's milk
 protected_name_file_number:en: PGI-FR-0832
 protected_name_type:en: pgi
-origins:en: en:France
 
 <en:Cow cheeses
 <en:Uncooked pressed cheeses
@@ -44720,7 +44663,6 @@ ciqual_food_code:en:12763
 ciqual_food_name:en:Tomme cheese (PDO) from the French Bauges mountains
 protected_name_file_number:en: PDO-FR-0254
 protected_name_type:en: pdo
-origins:en: en:France
 
 <en:Cow cheeses
 <en:Soft cheeses with washed rind
@@ -46442,7 +46384,6 @@ it:Formaggio di Fossa di Sogliano
 protected_name_file_number:en: PDO-IT-0580
 protected_name_type:en: pdo
 origins:en: en:Italy
-origins:en: en:Italy
 wikidata:en:Q21272237
 
 <en:Italian cheeses
@@ -46476,7 +46417,6 @@ ciqual_food_code:en:12123
 ciqual_food_name:en:Grana Padano cheese, from cow's milk
 protected_name_file_number:en: PDO-IT-0011
 protected_name_type:en: pdo
-origins:en: en:Italy
 wikidata:en:Q940319
 
 <en:Italian cheeses
@@ -46640,7 +46580,6 @@ wikidata:en:Q155922
 protected_name_file_number:en: PDO-IT-0016
 protected_name_type:en: pdo
 origins:en: en:Italy
-wikidata:en:Q155922
 oqali_family:en: fr:Fromages - Parmesan et assimiles
 agribalyse_food_code:en:12120
 ciqual_food_code:en:12120
@@ -46868,7 +46807,6 @@ wikidata:en:Q9079780
 it:Strachitunt
 protected_name_file_number:en: PDO-IT-1047
 protected_name_type:en: pdo
-origins:en: en:Italy
 origins:en: en:Italy
 wikidata:en:Q3974593
 
@@ -47549,8 +47487,7 @@ wikidata:en:Q6094554
 <en:Hard cheeses
 en:Spanish hard cheeses
 
-<en:Cheeses
-en:Cheeses from Norway
+<en:Cheeses from Norway
 en:Brunost
 da:myseost
 fi:mesjuusto
@@ -50460,8 +50397,13 @@ nl:Smeerkazen
 pt:Queijos para barrar
 agribalyse_proxy_food_code:en:12315
 agribalyse_proxy_food_name:en:Uncured soft cheese, spreadable, around 25% fat, in a tub
+ciqual_proxy_food_code:en:12315
+ciqual_proxy_food_name:en:Uncured soft cheese, spreadable, around 25% fat, in a tub
 intake24_category_code:en:SPRD
-#wikidata:en:
+
+<en:cheese spreads
+en:St Moret, Saint Moret
+xx:St Moret, Saint Moret
 
 <en:Cheese spreads
 en:Uncured soft cheese spreadable with around 25% fat
@@ -53212,7 +53154,6 @@ ru:Орехи Кешью
 tr:Kaju
 wikidata:en:Q34007
 agribalyse_proxy_food_code:en:15019
-agribalyse_proxy_food_code:en:15019
 agribalyse_proxy_food_name:en:Cashew nut, grilled, salted
 wco_hs_heading:en: 08.01
 wco_hs_code:en: 0801.31
@@ -53681,7 +53622,6 @@ ru:Фисташки
 sv:Pistaschnötter, pistaschnöt
 tr:Antep fıstığı
 wikidata:en:Q19958754
-agribalyse_proxy_food_code:en:15044
 agribalyse_proxy_food_code:en:15044
 agribalyse_proxy_food_name:en:Pistachio nut, grilled
 wco_hs_heading:en: 08.02
@@ -54485,7 +54425,7 @@ origins:en: en:France, fr:Cévennes
 en:Acacia honeys from Jura
 fr:Miels d’acacia du Jura
 nl:Acaciahoningen uit de Jura
-# Disabled for safety: origins:en: en:France, fr:Jura
+# Disabled for safety: origins:en: en:France, fr:Jura français
 
 <en:Honeys from Alsace
 fr:Miels de châtaignier d'Alsace
@@ -54581,7 +54521,7 @@ origins:en: en:France, fr:Gatinais
 en:Honeys from Jura
 fr:Miels du Jura
 nl:Honingen uit de Jura
-# Disabled for safety: origins:en: en:France, fr:Jura
+# Disabled for safety: origins:en: en:France, fr:Jura français
 
 <en:Honeys
 en:Honeys from Bulgaria, Bulgarian honeys
@@ -56431,7 +56371,6 @@ wikidata:en:Q1434098
 ciqual_food_code:en:17220
 ciqual_food_name:en:Walnut oil
 agribalyse_proxy_food_code:en:17210
-agribalyse_proxy_food_code:en:17210
 agribalyse_proxy_food_name:en:Hazelnut oil
 #TODO validate proxy
 
@@ -56641,7 +56580,7 @@ fr:Huile d'olive de Nyons
 nl:Olijfoliën uit Nyons, Olijfolies uit Nyons
 protected_name_file_number:en: PDO-FR-0142
 protected_name_type:en: pdo
-origins:en: en:france
+origins:en: en:France, fr:Nyons
 #wikidata:en:
 
 <en:Olive oils from France
@@ -56649,7 +56588,7 @@ fr:Huile d'olive de Provence
 nl:Olijfoliën uit de Provence, Olijfolies uit de Provence, Provençaalse olijfolies, Provençaalse olijfoliën
 protected_name_file_number:en: PDO-FR-02421
 protected_name_type:en: pdo
-origins:en: en:france
+origins:en: en:France, en:Provence
 #wikidata:en:
 
 ############ ITALIAN OLIVE OILS
@@ -58112,7 +58051,7 @@ de:Olivenöle aus Portugal
 fr:Huiles d'olive de Portugal
 lt:Alyvuogių aliejai iš Portugalijos
 nl:Olijfoliën uit Portugal, Portugese olijfoliën, Olijfolies uit Portugal, Portugese olijfolies
-origins:en: en: en:Portugal
+origins:en: en:Portugal
 
 <en:Olive oils from Portugal
 en:Olive oils from Alentejo Interior
@@ -58210,7 +58149,7 @@ en:Olive oils from Maroc, Maroccan olive oils
 fr:Huiles d'olive de Maroc
 lt:Alyvuogių aliejai iš Maroko
 nl:Olijfoliën uit Marokko, Olijfolies uit Marokko, Marokkaanse olijfolies, Marokkaanse olijfoliën
-origins:en: en:Maroc
+origins:en: en:Marocco
 
 <en:Olive oils
 en:Olive oils from Tunisia, Tunisian olive oils
@@ -61186,7 +61125,6 @@ ja:酵母, イースト
 lt:Mielės
 nl:Gist
 tr:Maya
-agribalyse_proxy_food_code:en:11045
 agribalyse_proxy_food_code:en:11045
 agribalyse_proxy_food_name:en:Baker's yeast, dehydrated
 
@@ -65047,7 +64985,7 @@ agribalyse_food_code:en:13026
 ciqual_food_code:en:13026
 ciqual_food_name:en:Melon, cantaloupe (ex Cavaillon or Charentais melon), pulp, raw
 ciqual_food_name:fr:Melon cantaloup (par ex.: Charentais, de Cavaillon) pulpe, cru
-wikidata:en:Q61858403
+# wikidata:en:Q61858403
 
 <en:Cantaloupe melons
 en:Charentais melons
@@ -66129,9 +66067,6 @@ tr:Hurma
 tt:хөрмә җимеше
 uk:фініки
 zh:椰枣
-agribalyse_proxy_food_code:en:13011
-agribalyse_proxy_food_name:en:Date, pulp and peel, dried
-agribalyse_proxy_food_name:fr:Datte, pulpe et peau, sèche
 # ang:fingeræppel
 # atj:Pikesaniminan
 # nah:Zōyacapolin
@@ -69382,7 +69317,7 @@ fr:Poivre gris moulu, Poivre gris en poudre
 lt:Malti pilkieji pipirai
 agribalyse_proxy_food_code:en:11019
 agribalyse_proxy_food_name:fr:Poivre blanc, poudre
-agribalyse_proxy_food_name:fr:en:White pepper, powder
+agribalyse_proxy_food_name:en:White pepper, powder
 ciqual_food_code:en:11020
 ciqual_food_name:en:Grey pepper, powder
 ciqual_food_name:fr:Poivre gris, poudre
@@ -71288,9 +71223,8 @@ wikidata:en:Q21427661
 # Le vin blanc utilisé doit être produit en Bourgogne ou dans le Beaujolais.
 # La moutarde de Bourgogne comprend nécessairement des graines de moutarde produites et stockées en Bourgogne, du vin blanc aligoté et/ou chardonnay en proportion de 25 % minimum (et jusqu'à 16 % du produit fini2) à la mise en œuvre, d'eau, de sucre, d'épices, de quelques additifs et de sel
 compulsory_ingredient:fr:graines de moutarde
-minimum_percentage:fr:vin blanc aligoté:25
 minimum_percentage:fr:chardonnay:25
-
+# minimum_percentage:fr:vin blanc aligoté:25
 
 <en:Mustards
 en:German mustards
@@ -81844,7 +81778,6 @@ nl:Gepaneerde kippen
 it:Pollo impanato
 lt:Vištiena džiūvėsėliuose
 agribalyse_proxy_food_code:en:25512
-agribalyse_proxy_food_code:en:25512
 agribalyse_proxy_food_name:en:Poultry nuggets
 
 <en:Breaded chicken
@@ -83260,7 +83193,6 @@ fr:Jambon persillé, Jambon persillé en gelée
 ciqual_food_code:en:8429
 ciqual_food_name:en:Pork ham w parsley and jelly
 ciqual_food_name:fr:Jambon persillé en gelée
-agribalyse_proxy_food_code:en:28900
 agribalyse_proxy_food_code:en:28900
 agribalyse_proxy_food_name:en:Cooked ham, superior quality
 
@@ -85902,7 +85834,7 @@ wikidata:en:Q52422692
 fr:Agneau du Poitou-Charentes
 protected_name_file_number:en: PGI-FR-9177
 protected_name_type:en: pgi
-origins:en: en:france
+origins:en: en:France, fr:Poitou-Charentes
 wikidata:en:Q2826918
 
 <en:Lamb meat
@@ -85916,6 +85848,9 @@ wikidata:en:Q2826919
 
 <en:Meals with meat
 en:Meals with lamb
+fr:Plats à base d'agneau
+es:Platos con cordero
+de:Lammgerichte
 intake24_category_code:en:LDSH
 
 <en:Meals with lamb
@@ -86718,7 +86653,6 @@ fr:Tomme des Pyrénées, Tommes des Pyrénées
 origins:en: en:France
 protected_name_file_number:en: PGI-FR-0176-AM01, PGI-FR-0176
 protected_name_type:en: pgi
-origins:en: en:France
 #wikidata:en:
 
 <en:Tomme cheese from cow's milk
@@ -90302,7 +90236,6 @@ agribalyse_food_code:en:23491
 ciqual_food_code:en:23491
 ciqual_food_name:en:Strawberries tart
 ciqual_food_name:fr:Tarte aux fraises
-wikidata:en:Q12320332
 
 <en:Sweet pies
 en:Sponge sandwich cake filled and topped with strawberries
@@ -91280,7 +91213,6 @@ fr:Sandwichs Jambon Fromage
 it:Panini prosciutto e formaggio, Sandwich prosciutto e formaggio, Tramezzini prosciutto e formaggio
 nl:Ham-kaas sandwiches
 wikidata:en:Q3782694
-agribalyse_proxy_food_code:en:25576
 agribalyse_proxy_food_code:en:25576
 agribalyse_proxy_food_name:en:Sandwich made with wholemeal loaf bread, ham and cheese
 
@@ -92712,7 +92644,6 @@ agribalyse_food_code:en:10021
 ciqual_food_code:en:10021
 ciqual_food_name:en:Shrimp or prawn, raw
 ciqual_food_name:fr:Crevette, crue
-<en:Shrimps
 
 <en:Prawns
 en:Deep water pink shrimps
@@ -94431,6 +94362,14 @@ ru:Тунец
 th:ทูน่า
 zh:吞拿鱼
 wikidata:en:Q2346039
+# agribalyse_proxy_food_code instead of agribalyse_food_code as we do not know what kind of tuna it is
+agribalyse_proxy_food_code:en:26053
+ciqual_proxy_food_code:en:26053
+ciqual_proxy_food_name:en:Tuna, raw
+
+<en:Tunas
+en:Raw tunas
+fr:Thons crus, thon cru
 agribalyse_food_code:en:26053
 ciqual_food_code:en:26053
 ciqual_food_name:en:Tuna, raw
@@ -94453,9 +94392,9 @@ la:Thunnus thynnus, Scomber thynnus
 nl:Blauwvintonijn
 ro:Bucăți de ton
 wikidata:en:Q214415
-ciqual_food_code:en:26069
-ciqual_food_name:en:Atlantic bluefin tuna, raw
-ciqual_food_name:fr:Thon rouge, cru
+ciqual_proxy_food_code:en:26069
+ciqual_proxy_food_name:en:Atlantic bluefin tuna, raw
+ciqual_proxy_food_name:fr:Thon rouge, cru
 
 <en:Smoked fishes
 <en:Tunas
@@ -94488,11 +94427,11 @@ bg:Консерви риба тон
 de:Thunfischkonserve
 es:Atun en conserva
 fi:purkitetut tonnikalat
-fr:Thons en conserve, Conserve de thons
+fr:Thons en conserve, Thon en conserve, Conserve de thons
 he:טונה בקופסה, טונה בקופסא, שימורי טונה
 it:Tonno in scatola, tonni in scatola
 nl:Tonijn in blik/pot
-pt:Atuns em lata
+pt:Atuns em lata, atun em lata
 ro:Conserve de ton
 ru:Консервы из тунца, Консервы тунцовые
 wikidata:en:Q5711293
@@ -94503,7 +94442,7 @@ bg:Риба тон в олио
 de:Thunfische in Öl
 es:Atún en aceite
 fi:Tonnikalat öljyssä
-fr:Thons à l’huile, Thon à l'huile appertisé, Thon à l'huile en conserve
+fr:Thons à l’huile, thon à l'huile, Thon à l'huile appertisé, Thon à l'huile en conserve
 he:טונה בשמן
 it:Tonno sott'olio, tonni sott'olio
 nl:Tonijn op olie
@@ -94544,21 +94483,18 @@ ciqual_food_name:en:Tuna, flaked, in oil, canned, drained
 ciqual_food_name:fr:Miettes de thon à l'huile, appertisées
 
 <en:Tunas
-fr:Thons à la Catalane
-
-<en:Tunas
 en:Tunas in escabèche sauce
 fr:Thons à l'escabèche
 
 <en:Tunas
 en:Tuna mayo
-fr:Thons à la mayonnaise
+fr:Thons à la mayonnaise, Thon à la mayonnaise
 ja:ツナマヨネーズ, ツナマヨ
 
 <en:Tunas
 #<en:Fish rillettes
 en:Tuna in Catalan-style, Tuna in tomato sauce, Tunas with tomato sauce
-fr:Thon à la catalane, Thons à la tomate
+fr:Thons à la catalane, Thon à la catalane, Thons à la tomate, Thon à la tomate
 agribalyse_food_code:en:26243
 ciqual_food_code:en:26243
 ciqual_food_name:en:Tuna, in Catalan-style or in tomato sauce, canned
@@ -94571,7 +94507,7 @@ en:Tuna in olive oil
 bg:Риба тон в дървено масло
 de:Thunfische in Olivenöl, Thunfisch in Olivenöl
 es:Atún en aceite de oliva
-fr:Thons à l’huile d’olive
+fr:Thons à l’huile d’olive, thon à l'huile d'olive
 it:Tonno sott'olio di oliva
 nl:Tonijn op olijfolie
 pt:Atum em azeite de oliveira
@@ -94595,12 +94531,12 @@ nl:Tonijn op zonnebloemolie
 pt:Atuns em óleo de girassol
 
 <en:Tunas
-en:Tuna in brine
+en:Tunas in brine, tuna in brine
 bg:Риба тон в собствен сос
 de:Thunfische im eigenen Saft
 es:Atún al natural
 fi:tonnikalaa vedessä
-fr:Thons au naturel
+fr:Thons au naturel, thon au naturel, conserves de thon au naturel, conserve de thon au naturel
 it:Tonno al naturale
 nl:Tonijn natuur
 agribalyse_food_code:en:26039
@@ -96867,7 +96803,7 @@ ja:レモンジャム, レモンマーマレード
 nl:Citroenjams, Citroenmarmelades
 pt:Doces de limão
 wikidata:en:Q43670051
-wikidata:en:Q40867220
+# wikidata:en:Q40867220
 
 <en:Citrus jams
 en:Mandarin jams
@@ -96886,7 +96822,7 @@ it:Confitture di arancia, Confitture di arancia dolce, Marmellata di arance
 ja:オレンジジャム, オレンジマーマレード
 nl:Sinaasappeljams, Sinaasappelmarmelades
 wikidata:en:Q43669016
-wikidata:en:Q19842607
+#wikidata:en:Q19842607
 agribalyse_food_code:en:31039
 ciqual_food_code:en:31039
 ciqual_food_name:en:Marmalade, orange
@@ -97913,7 +97849,6 @@ wikidata:en:Q9280616
 protected_name_file_number:en: TSG-NL-0901
 protected_name_type:en: tsg
 origins:en: en:Netherlands
-wikidata:en:Q9280616
 
 <en:Brown sugars
 <en:Cane sugar
@@ -101073,9 +101008,8 @@ zh:莴苣属, 萵苣
 # yue:生菜
 # zh-tw:萵苣
 wikidata:en:Q83193
-wikidata:en:Q578052
+# wikidata:en:Q578052
 wikipedia:en:https://en.wikipedia.org/wiki/Lettuce
-wikipedia:en:https://en.wikipedia.org/wiki/Lactuca
 # ingredient/fr:laitue has 157 products in 5 languages @2019-04-04
 # category/lettuces has 84 products @2019-5-22
 agribalyse_food_code:en:20031
@@ -101736,7 +101670,6 @@ wikidata:en:Q3395977
 <en:Potatoes from France
 en:Potatoes from Noirmoutier
 fr:Pomme de terre de Noirmoutier
-protected_name_type:en: pdo
 origins:en: en:France, fr:Noirmoutier
 protected_name_file_number:en: PGI-FR-02434
 protected_name_type:en: pgi
@@ -104933,7 +104866,6 @@ origins:en: en:Italy
 wikidata:en:Q3604285
 protected_name_file_number:en: PGI-IT-0430, PGI-IT-0430-AM01
 protected_name_type:en: pgi
-origins:en: en:Italy
 #wikidata:en:
 
 <en:Balsamic vinegars

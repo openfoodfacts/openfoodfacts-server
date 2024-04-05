@@ -2,7 +2,7 @@
 
 use ProductOpener::PerlStandards;
 
-use Test::More;
+use Test2::V0;
 use ProductOpener::APITest qw/edit_product execute_api_tests new_client wait_application_ready/;
 use ProductOpener::Test qw/remove_all_products remove_all_users/;
 use ProductOpener::TestDefaults qw/%default_product_form/;
@@ -119,7 +119,7 @@ my $tests_ref = [
 	},
 	# Normal user should have access to list of tags
 	{
-		test_case => 'normal-user-access-category-facet-page',
+		test_case => 'normal-user-access-list-of-tags',
 		method => 'GET',
 		path => '/categories',
 		headers_in => {'User-Agent' => $NORMAL_USER_USER_AGENT},

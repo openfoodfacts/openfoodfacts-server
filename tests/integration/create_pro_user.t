@@ -5,7 +5,7 @@ use ProductOpener::PerlStandards;
 use ProductOpener::Config qw/$data_root/;
 use ProductOpener::Store qw/retrieve/;
 
-use Test::More;
+use Test2::V0;
 use ProductOpener::APITest qw/:all/;
 use ProductOpener::Test qw/:all/;
 use ProductOpener::TestDefaults

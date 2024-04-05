@@ -1,7 +1,6 @@
 use ProductOpener::PerlStandards;
 
-use Test::More;
-use Test::MockModule;
+use Test2::V0;
 use HTTP::Headers;
 use HTTP::Response;
 use File::Basename "dirname";

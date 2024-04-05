@@ -3,7 +3,9 @@
 use Modern::Perl '2017';
 use utf8;
 
-use Test::More;
+use Test2::V0;
+use Data::Dumper;
+$Data::Dumper::Terse = 1;
 use Log::Any::Adapter 'TAP';
 
 use JSON;
@@ -126,10 +128,10 @@ foreach my $recipes_test_ref (@recipes_tests) {
 
 			local $/;    #Enable 'slurp' mode
 			my $expected_product_ref = $json->decode(<$expected_result>);
-			is_deeply($product_ref, $expected_product_ref) or diag explain $product_ref;
+			is($product_ref, $expected_product_ref) or diag Dumper $product_ref;
 		}
 		else {
-			diag explain $product_ref;
+			diag Dumper $product_ref;
 			fail("could not load expected_test_results/$test_id/$recipes_testid.$testid.json");
 		}
 	}
@@ -151,10 +153,10 @@ foreach my $recipes_test_ref (@recipes_tests) {
 
 		local $/;    #Enable 'slurp' mode
 		my $expected_analysis_ref = $json->decode(<$expected_result>);
-		is_deeply($analysis_ref, $expected_analysis_ref) or diag explain $analysis_ref;
+		is($analysis_ref, $expected_analysis_ref) or diag Dumper $analysis_ref;
 	}
 	else {
-		diag explain $analysis_ref;
+		diag Dumper $analysis_ref;
 		fail("could not load expected_test_results/$test_id/$recipes_testid.json");
 	}
 }
