@@ -416,7 +416,7 @@ sub lint_taxonomy($entries_iterator, $out, $is_check, $is_quiet, $do_sort) {
 		push(@entry_errors, @canon_errors) if @canon_errors;
 		# we will try to lint only if we don't have errors so far
 		my $linted_output;
-		if (!@entry_errors) {
+		if (!has_errors(\@entry_errors)) {
 			$linted_output = lint_entry($entry_ref, $do_sort);
 		}
 		else {
