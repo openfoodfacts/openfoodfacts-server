@@ -17,7 +17,6 @@ my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init
 # Default OCR response, containing a single response element
 my $ocr_default_response = '{"responses": [{}]}';
 
-
 # a very small image to avoid having too large request json object
 my $image_path = dirname(__FILE__) . "/inputs/small-img.jpg";
 
