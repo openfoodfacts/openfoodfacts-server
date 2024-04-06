@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2024 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -37,6 +37,7 @@ BEGIN {
 		&construct_test_url
 		&create_user
 		&edit_user
+		&create_user_in_keycloak
 		&edit_product
 		&get_page
 		&html_displays_error
@@ -248,6 +249,58 @@ sub login ($ua, $user_id, $password) {
 		confess("Resuming");
 	}
 	return $response;
+}
+
+=head2 create_user_in_keycloak($user_ref)
+
+Call API to create a user in Keycloak
+without creating them in ProductOpener, too.
+As create_user uses the ProductOpener API, this
+is useful for testing the Keycloak API on it's own.
+
+=head3 Arguments
+
+=head4 $user_ref - fields
+
+=cut
+
+sub create_user_in_keycloak ($user_ref) {
+
+	my $credential = {
+		type => 'password',
+		value => $user_ref->{password},
+		temporary => $JSON::false
+	};
+
+	my $keycloak_user_ref = {
+		email => $user_ref->{email},
+		emailVerified => $user_ref->{email_verified} ? $JSON::PP::true : $JSON::PP::true,
+		enabled => $JSON::PP::true,
+		username => $user_ref->{userid},
+		credentials => [$credential],
+		attributes => [
+			name => [$user_ref->{name}],
+			locale => [$user_ref->{initial_lc}],
+			country => [$user_ref->{initial_cc}],
+		]
+	};
+
+	my $json = encode_json($keycloak_user_ref);
+
+	my $keycloak = ProductOpener::Keycloak->new();
+	my $request_token = $keycloak->get_or_refresh_token();
+	my $create_user_request = HTTP::Request->new(POST => $keycloak->{users_endpoint});
+	$create_user_request->header('Content-Type' => 'application/json');
+	$create_user_request->header(
+		'Authorization' => $request_token->{token_type} . ' ' . $request_token->{access_token});
+	$create_user_request->content($json);
+	my $new_user_response = LWP::UserAgent::Plugin->new->request($create_user_request);
+
+	unless ($new_user_response->is_success) {
+		return 0;
+	}
+
+	return 1;
 }
 
 =head2 get_page ($ua, $url)

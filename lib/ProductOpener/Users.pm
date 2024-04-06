@@ -891,7 +891,7 @@ sub store_user ($user_ref) {
 	# Update email
 	my $emails_file = "$BASE_DIRS{USERS}/users_emails.sto";
 	if (-e $emails_file) {
- 		my $emails_ref = retrieve($emails_file);
+		my $emails_ref = retrieve($emails_file);
 		my $email = $user_ref->{email};
 
 		if ((defined $email) and ($email =~ /\@/)) {

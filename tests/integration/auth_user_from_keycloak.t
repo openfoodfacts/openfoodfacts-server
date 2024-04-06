@@ -23,7 +23,7 @@ remove_all_products();
 my $ua = new_client();
 
 my %create_user_args = (%default_user_form, (email => 'bob@gmail.com'));
-create_user($ua, \%create_user_args);
+create_user_in_keycloak(\%create_user_args);
 
 subtest 'user + password_signin' => sub {
 	subtest 'with bad password' => sub {
