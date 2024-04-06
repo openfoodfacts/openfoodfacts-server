@@ -31,6 +31,11 @@ use List::Util qw/first/;
 
 use ProductOpener::Tags qw/%taxonomy_fields %translations_from canonicalize_taxonomy_tag sanitize_taxonomy_line/;
 
+# return true if $errors_ref list contains at least one error (as opposed to only warnings)
+sub has_errors($errors_ref) {
+	return !!(first {lc($_->{severity}) eq "error"} @$errors_ref);
+}
+
 # compare synonyms entries on language prefix with "xx" > "en" then alpha order
 # also work for property name + language prefix
 sub cmp_on_language : prototype($$) ($a, $b) {
@@ -104,13 +109,51 @@ sub iter_taxonomy_entries ($lines_iter) {
 
 			# blank line means we are changing entry, so let's return collected data
 			if ($line =~ /^\s*$/) {
+				push(@previous_lines, "\n");
 				my $entry = {
+					type => "entry",
 					parents => \@parents,
 					entry_id_line => $entry_id_line,
 					entries => \%entries,
 					props => \%props,
 					original_lines => \@original_lines,
 					tail_lines => \@previous_lines,
+					start_line => $entry_start_line,
+					end_line => $line_num,
+					errors => \@errors,
+				};
+				add_entry_id($entry, \@errors);
+				# return $entry
+				return $entry;
+			}
+			# stopwords and synonyms
+			elsif ($line =~ /^(?<prefix>synonyms|stopwords):/i) {
+				# synonyms and stopwords are special, return entry immediatly,
+				# but verify values are as expected.
+				my $entry_type = $+{prefix};
+				my @checks = ();
+				push(@checks, "Parents before a $entry_type line\n") if @parents;
+				push(@checks, "$entry_type in the midst of a entry $entry_id_line->{line}\n") if $entry_id_line;
+				push(@checks, "$entry_type surrounded by other lines") if (%entries || %props);
+				for my $err (@checks) {
+					push(
+						@errors,
+						{
+							severity => "Error",
+							type => "Correctness",
+							line => $line_num,
+							message => ($err),
+						}
+					);
+				}
+				my $entry = {
+					type => $entry_type,
+					parents => [],
+					entry_id_line => {line => $line, previous => [@previous_lines], line_num => $line_num},
+					entries => {},
+					props => {},
+					original_lines => \@original_lines,
+					tail_lines => [],
 					start_line => $entry_start_line,
 					end_line => $line_num,
 					errors => \@errors,
@@ -176,7 +219,7 @@ sub iter_taxonomy_entries ($lines_iter) {
 				@previous_lines = ();
 			}
 			# property
-			elsif ($line =~ /^(\w+):(\w+):(.*)$/) {
+			elsif ($line =~ /^(\w+):(\w{2}):(.*)$/) {
 				my $prop = $1;
 				my $lc = $2;
 				if (defined $props{"$prop:$lc"}) {
@@ -245,9 +288,9 @@ sub canonicalize_entry_properties($entry_ref, $is_check) {
 						severity => "Warning",
 						type => "Consistency",
 						entry_start_line => $entry_ref->{start_line},
-						entry_id_line => $entry_ref->{entry_id_line},
+						entry_id_line => $entry_ref->{entry_id_line}{line},
 						message => (
-								  "Values $not_found do not exists in taxonomy, at $props{$prop_name}{line_num}\n"
+							"Values $not_found do not exists in taxonomy $prop_tagtype, at $props{$prop_name}{line_num}\n"
 								. "- $props{$prop_name}{line}"
 						),
 					}
@@ -311,8 +354,8 @@ sub lint_entry($entry_ref, $do_sort) {
 	}
 	else {
 		# simply sort by line number, no need to sort parents
-		@sorted_entries = sort {$entries{$a}{line_num} cmp $entries{$b}{line_num}} (keys %entries);
-		@sorted_props = sort {$props{$a}{line_num} cmp $props{$b}{line_num}} (keys %props);
+		@sorted_entries = sort {$entries{$a}{line_num} <=> $entries{$b}{line_num}} (keys %entries);
+		@sorted_props = sort {$props{$a}{line_num} <=> $props{$b}{line_num}} (keys %props);
 	}
 	# print parents, line id, synonyms, sorted props
 	for my $parent (@parents) {
@@ -332,8 +375,6 @@ sub lint_entry($entry_ref, $do_sort) {
 		push @output_lines, $props{$key}->{line};
 	}
 	push @output_lines, @tail_lines;
-	# print a blank line
-	push @output_lines, "\n";
 	return join("", @output_lines);
 }
 
@@ -375,7 +416,7 @@ sub lint_taxonomy($entries_iterator, $out, $is_check, $is_quiet, $do_sort) {
 		push(@entry_errors, @canon_errors) if @canon_errors;
 		# we will try to lint only if we don't have errors so far
 		my $linted_output;
-		if (!@entry_errors) {
+		if (!has_errors(\@entry_errors)) {
 			$linted_output = lint_entry($entry_ref, $do_sort);
 		}
 		else {
@@ -383,7 +424,7 @@ sub lint_taxonomy($entries_iterator, $out, $is_check, $is_quiet, $do_sort) {
 			$linted_output = join("", @{$entry_ref->{original_lines}});
 		}
 		if ($is_check) {
-			# search for linting error only if there is no othe errors
+			# search for linting error only if there is no other errors
 			if (!@entry_errors) {
 				my $lint_error = check_linted($entry_ref, $linted_output);
 				push(@entry_errors, $lint_error) if $lint_error;
@@ -392,7 +433,7 @@ sub lint_taxonomy($entries_iterator, $out, $is_check, $is_quiet, $do_sort) {
 		else {
 			# immediate output
 			print $out $linted_output;
-			if (@entry_errors) {
+			if (has_errors(\@entry_errors)) {
 				# signal it was not linted
 				push(
 					@entry_errors,
@@ -402,7 +443,7 @@ sub lint_taxonomy($entries_iterator, $out, $is_check, $is_quiet, $do_sort) {
 						entry_start_line => $entry_ref->{start_line},
 						entry_id_line => $entry_ref->{entry_id_line}{line},
 						message => (
-								  "Entry won't be linted because it as errors, "
+								  "Entry won't be linted because it has errors, "
 								. "line $entry_ref->{start_line}..$entry_ref->{end_line}\n"
 						),
 					}
@@ -499,7 +540,7 @@ TXT
 			move($out_path, $file) or die("unable to move $out_path to $file: $!");
 		}
 		# do we have errors (and not only warnings)
-		if ((first {lc($_->{severity}) eq "error"} @$errors_ref)) {
+		if (has_errors($errors_ref)) {
 			$error_code = 1;
 		}
 	}
