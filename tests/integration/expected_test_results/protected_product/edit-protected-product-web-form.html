@@ -368,8 +368,10 @@
             <div class="card">
                 <div class="card-section">
                     
-<!-- start templates/web/panels/panel.tt.html - panel_id: contribution_card -->
 
+	<!-- start templates/web/panels/panel.tt.html - panel_id: contribution_card -->
+
+	
 <div class="panel_card radius" id="panel_contribution_card"
     
         style="margin-top:0.5rem;margin-bottom:1.5rem;"
@@ -381,22 +383,16 @@
         
     
 
+	   	 <div
+	   	    id="panel_contribution_card_content"
+	   	    class="content panel_content_card active"
+	   	  >
+          
+              
 
+	<!-- start templates/web/panels/panel.tt.html - panel_id: data_quality_warnings -->
 
-    
-    <div
-      id="panel_contribution_card_content"
-      class="content panel_content_card active
-        "
-    >
-    
-        
-
-        
-            
-<!-- start templates/web/panels/panel.tt.html - panel_id: data_quality_warnings -->
-
-<ul data-accordion class="panel_accordion accordion" id="panel_data_quality_warnings"
+	<ul data-accordion class="panel_accordion accordion" id="panel_data_quality_warnings"
     
         style="margin-top:0.5rem;margin-bottom:1.5rem;"
     
@@ -412,9 +408,7 @@
                 style="height:72px;float:left;margin-right:1rem;"
                 alt="icon"
                 
-                    
                         class="filter-orange"
-                    
                 
             >
             
@@ -432,185 +426,103 @@
         </a>
     
 
+	   	 <div
+	   	    id="panel_data_quality_warnings_content"
+	   	    class="content panel_content"
+	   	  >
+          
+              <div style="margin-bottom:0.5rem">
+       
+        <div>
+    
 
 
     
-    <div
-      id="panel_data_quality_warnings_content"
-      class="content panel_content
-        "
-    >
+           <div class="panel_text">
+             <ul> <li id="data-error-en:nutrition-value-under-0-001-g-salt"> Valeur nutritionnelle inférieure à 0‚001 g - Sel </li> </ul>
+           </div>
     
-        
 
-        
-
-            <div style="margin-bottom:0.5rem">
-
-            
-                
-
-                
-                <div>
-                
-
-
-                
-                    <div class="panel_text">
-                
-                    
-                    <ul> <li id="data-error-en:nutrition-value-under-0-001-g-salt"> Valeur nutritionnelle inférieure à 0‚001 g - Sel </li> </ul>
-                
-                    </div>
-                
-                
-                </div>
-
-                
-
-            
-
-            </div>
-
-        
-    
-        
-
-        
-
-            <div style="margin-bottom:0.5rem">
-
-            
-                <div>
-                
-
-                
-
-                
-                    <a class="button small action-add_nutrition_facts"
-                        href="/cgi/product.pl?type=edit&code=0200000000135#nutrition">
-                        Ajouter les informations nutritionnelles
-                    </a>
-                
-
-                </div>
-
-            
-
-            </div>
-
-        
-    
-        
-
-        
-
-            <div style="margin-bottom:0.5rem">
-
-            
-                
-
-                
-                <div>
-                
-
-
-                
-                    <div class="panel_text">
-                
-                    
-                    <ul> <li id="data-error-en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown"> en:EcoScore origins of ingredients origins are 100 percent unknown <br><span class="description">Origins of ingredients are one of the Eco-Score components. They are currently extracted from the ingredient list and the Origins field.</span> </li> </ul>
-                
-                    </div>
-                
-                
-                </div>
-
-                
-
-            
-
-            </div>
-
-        
-    
-        
-
-        
-
-            <div style="margin-bottom:0.5rem">
-
-            
-                <div>
-                
-
-                
-
-                
-                    <a class="button small action-add_origins"
-                        href="/cgi/product.pl?type=edit&code=0200000000135#origins">
-                        Ajouter les origines des ingrédients pour ce produit
-                    </a>
-                
-
-                </div>
-
-            
-
-            </div>
-
-        
-    
-        
-
-        
-
-            <div style="margin-bottom:0.5rem">
-
-            
-                
-
-                
-                <div>
-                
-
-
-                
-                    <div class="panel_text">
-                
-                    
-                    <ul> <li id="data-error-en:ecoscore-production-system-no-label"> EcoScore - système de production - sans étiquette </li> </ul>
-                
-                    </div>
-                
-                
-                </div>
-
-                
-
-            
-
-            </div>
-
-        
     
     </div>
+
+    
+    </div>
+              <div style="margin-bottom:0.5rem">
+       <div>
     
 
+    
+
+    
+        <a class="button small action-add_nutrition_facts"
+            href="/cgi/product.pl?type=edit&code=0200000000135#nutrition">
+            Ajouter les informations nutritionnelles
+        </a>
+    
+
+    </div>
+    </div>
+              <div style="margin-bottom:0.5rem">
+       
+        <div>
+    
+
+
+    
+           <div class="panel_text">
+             <ul> <li id="data-error-en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown"> en:EcoScore origins of ingredients origins are 100 percent unknown <br><span class="description">Origins of ingredients are one of the Eco-Score components. They are currently extracted from the ingredient list and the Origins field.</span> </li> </ul>
+           </div>
+    
+
+    
+    </div>
+
+    
+    </div>
+              <div style="margin-bottom:0.5rem">
+       <div>
+    
+
+    
+
+    
+        <a class="button small action-add_origins"
+            href="/cgi/product.pl?type=edit&code=0200000000135#origins">
+            Ajouter les origines des ingrédients pour ce produit
+        </a>
+    
+
+    </div>
+    </div>
+              <div style="margin-bottom:0.5rem">
+       
+        <div>
+    
+
+
+    
+           <div class="panel_text">
+             <ul> <li id="data-error-en:ecoscore-production-system-no-label"> EcoScore - système de production - sans étiquette </li> </ul>
+           </div>
+    
+
+    
+    </div>
+
+    
+    </div>
+	   	 </div>
+	
 </li>
 </ul>
 
-<!-- end templates/web/panels/panel.tt.html - panel_id: data_quality_warnings -->
+	<!-- end templates/web/panels/panel.tt.html - panel_id: data_quality_warnings -->
+              
 
-        
-    
-        
+	<!-- start templates/web/panels/panel.tt.html - panel_id: data_quality_info -->
 
-        
-            
-<!-- start templates/web/panels/panel.tt.html - panel_id: data_quality_info -->
-
-<ul data-accordion class="panel_accordion accordion" id="panel_data_quality_info"
+	<ul data-accordion class="panel_accordion accordion" id="panel_data_quality_info"
     
         style="margin-top:0.5rem;margin-bottom:1.5rem;"
     
@@ -626,9 +538,7 @@
                 style="height:72px;float:left;margin-right:1rem;"
                 alt="icon"
                 
-                    
                         class="filter-green"
-                    
                 
             >
             
@@ -646,125 +556,72 @@
         </a>
     
 
+	   	 <div
+	   	    id="panel_data_quality_info_content"
+	   	    class="content panel_content active expand-for-large"
+	   	  >
+          
+              <div style="margin-bottom:0.5rem">
+       
+        <div>
+    
 
 
     
-    <div
-      id="panel_data_quality_info_content"
-      class="content panel_content active
-        expand-for-large"
-    >
+           <div class="panel_text">
+             <ul> <li id="data-error-en:packaging-data-incomplete"> en:Packaging data - incomplete </li> </ul>
+           </div>
     
-        
 
-        
-
-            <div style="margin-bottom:0.5rem">
-
-            
-                
-
-                
-                <div>
-                
-
-
-                
-                    <div class="panel_text">
-                
-                    
-                    <ul> <li id="data-error-en:packaging-data-incomplete"> en:Packaging data - incomplete </li> </ul>
-                
-                    </div>
-                
-                
-                </div>
-
-                
-
-            
-
-            </div>
-
-        
-    
-        
-
-        
-
-            <div style="margin-bottom:0.5rem">
-
-            
-                <div>
-                
-
-                
-
-                
-                    <a class="button small action-add_packaging_components"
-                        href="/cgi/product.pl?type=edit&code=0200000000135#packaging">
-                        Ajouter des composants d'emballage
-                    </a>
-                
-
-                </div>
-
-            
-
-            </div>
-
-        
-    
-        
-
-        
-
-            <div style="margin-bottom:0.5rem">
-
-            
-                
-
-                
-                <div>
-                
-
-
-                
-                    <div class="panel_text">
-                
-                    
-                    <ul> <li id="data-error-en:ecoscore-extended-data-not-computed"> EcoScore - Données étendues - Non calculées </li> <li id="data-error-en:food-groups-1-unknown"> en:Food groups 1 unknown </li> <li id="data-error-en:food-groups-2-unknown"> en:Food groups 2 unknown </li> <li id="data-error-en:food-groups-3-unknown"> en:Food groups 3 unknown </li> <li id="data-error-en:ingredients-percent-analysis-ok"> Analyse des pourcentages d'ingrédients OK </li> </ul>
-                
-                    </div>
-                
-                
-                </div>
-
-                
-
-            
-
-            </div>
-
-        
     
     </div>
+
+    
+    </div>
+              <div style="margin-bottom:0.5rem">
+       <div>
     
 
+    
+
+    
+        <a class="button small action-add_packaging_components"
+            href="/cgi/product.pl?type=edit&code=0200000000135#packaging">
+            Ajouter des composants d'emballage
+        </a>
+    
+
+    </div>
+    </div>
+              <div style="margin-bottom:0.5rem">
+       
+        <div>
+    
+
+
+    
+           <div class="panel_text">
+             <ul> <li id="data-error-en:ecoscore-extended-data-not-computed"> EcoScore - Données étendues - Non calculées </li> <li id="data-error-en:food-groups-1-unknown"> en:Food groups 1 unknown </li> <li id="data-error-en:food-groups-2-unknown"> en:Food groups 2 unknown </li> <li id="data-error-en:food-groups-3-unknown"> en:Food groups 3 unknown </li> <li id="data-error-en:ingredients-percent-analysis-ok"> Analyse des pourcentages d'ingrédients OK </li> </ul>
+           </div>
+    
+
+    
+    </div>
+
+    
+    </div>
+	   	 </div>
+	
 </li>
 </ul>
 
-<!-- end templates/web/panels/panel.tt.html - panel_id: data_quality_info -->
-
-        
-    
-    </div>
-    
-
+	<!-- end templates/web/panels/panel.tt.html - panel_id: data_quality_info -->
+	   	 </div>
+	
 </div>
 
-<!-- end templates/web/panels/panel.tt.html - panel_id: contribution_card -->
 
+	<!-- end templates/web/panels/panel.tt.html - panel_id: contribution_card --> 
                 </div>
             </div>
         </div>

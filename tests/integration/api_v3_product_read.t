@@ -2,7 +2,7 @@
 
 use ProductOpener::PerlStandards;
 
-use Test::More;
+use Test2::V0;
 use ProductOpener::APITest qw/create_user edit_product execute_api_tests new_client wait_application_ready/;
 use ProductOpener::Test qw/remove_all_products remove_all_users/;
 use ProductOpener::TestDefaults qw/%default_product_form %default_user_form/;

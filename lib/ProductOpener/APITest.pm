@@ -67,7 +67,9 @@ use ProductOpener::Store qw/store retrieve/;
 use ProductOpener::Producers qw/get_minion/;
 use ProductOpener::Config qw/%oidc_options/;
 
-use Test::More;
+use Test2::V0;
+use Data::Dumper;
+$Data::Dumper::Terse = 1;
 use LWP::UserAgent;
 use HTTP::CookieJar::LWP;
 use HTTP::Request::Common;
@@ -78,6 +80,8 @@ use Clone qw/clone/;
 use File::Tail;
 use Test::Fake::HTTPD;
 use Minion;
+
+no warnings qw(experimental::signatures);
 
 # Constants of the test website main domain and url
 # Should be used internally only (see: construct_test_url to build urls in tests)
@@ -154,7 +158,7 @@ sub wait_server() {
 		$count++;
 		if (($count % 3) == 0) {
 			print("Waiting for backend to be ready since more than $count seconds...\n");
-			diag explain({url => $target_url, status => $response->code, response => $response});
+			diag Dumper({url => $target_url, status => $response->code, response => $response});
 		}
 		confess("Waited too much for backend") if $count > 60;
 	}
@@ -210,8 +214,8 @@ sub create_user ($ua, $args_ref) {
 	my $tail = tail_log_start();
 	my $response = $ua->post("$TEST_WEBSITE_URL/cgi/user.pl", Content => \%fields);
 	if (not $response->is_success) {
-		diag("Couldn't create user with " . explain(\%fields) . "\n");
-		diag explain $response;
+		diag("Couldn't create user with " . Dumper(\%fields) . "\n");
+		diag Dumper $response;
 		diag("\n\nLog4Perl Logs: \n" . tail_log_read($tail) . "\n\n");
 		confess("\nResuming");
 	}
@@ -244,8 +248,8 @@ sub login ($ua, $user_id, $password) {
 	);
 	my $response = $ua->post("$TEST_WEBSITE_URL/cgi/login.pl", Content => \%fields);
 	if (not($response->is_success || $response->is_redirect)) {
-		diag("Couldn't login with " . explain(\%fields) . "\n");
-		diag explain $response;
+		diag("Couldn't login with " . Dumper(\%fields) . "\n");
+		diag Dumper $response;
 		confess("Resuming");
 	}
 	return $response;
@@ -319,7 +323,7 @@ sub get_page ($ua, $url) {
 	my $response = $ua->get("$TEST_WEBSITE_URL$url");
 	if (not $response->is_success) {
 		diag("Couldn't get page $url\n");
-		diag explain $response;
+		diag Dumper $response;
 		confess("Resuming");
 	}
 	return $response;
@@ -344,8 +348,8 @@ Reference of a hash of fields to pass as the form result
 sub post_form ($ua, $url, $fields_ref) {
 	my $response = $ua->post("$TEST_WEBSITE_URL$url", Content => $fields_ref);
 	if (not $response->is_success) {
-		diag("Couldn't submit form $url with " . explain($fields_ref) . "\n");
-		diag explain $response;
+		diag("Couldn't submit form $url with " . Dumper($fields_ref) . "\n");
+		diag Dumper $response;
 		confess("Resuming");
 	}
 	return $response;
@@ -373,8 +377,8 @@ sub edit_product ($ua, $product_fields) {
 
 	my $response = $ua->post("$TEST_WEBSITE_URL/cgi/product_jqm2.pl", Content => \%fields,);
 	if (not $response->is_success) {
-		diag("Couldn't create product with " . explain(\%fields) . "\n");
-		diag explain $response;
+		diag("Couldn't create product with " . Dumper(\%fields) . "\n");
+		diag Dumper $response;
 		confess("Resuming");
 	}
 	return $response;
@@ -597,7 +601,7 @@ sub check_request_response ($test_ref, $response, $test_id, $test_dir, $expected
 	}
 
 	is($response->code, $test_ref->{expected_status_code}, "$test_case - Test status")
-		or diag(explain($test_ref), "Response status line: " . $response->status_line);
+		or diag(Dumper($test_ref), "Response status line: " . $response->status_line);
 
 	if (defined $test_ref->{headers}) {
 		while (my ($hname, $hvalue) = each %{$test_ref->{headers}}) {

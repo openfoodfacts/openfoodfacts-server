@@ -109,10 +109,8 @@ requires 'Crypt::JWT';
 requires 'Module::Load';
 
 on 'test' => sub {
-  requires 'Test::More', '>= 1.302186, < 2.0';
-  requires 'Test::MockModule';
+  requires 'Test2::V0';
   requires 'Mock::Quick';
-  requires 'Test::Number::Delta'; # libtest-number-delta-perl
   requires 'Test::Files';
   requires 'File::Spec';
   requires 'Log::Any::Adapter::TAP'; # liblog-any-adapter-tap-perl

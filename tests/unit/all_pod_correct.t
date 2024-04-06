@@ -1,7 +1,5 @@
-use utf8;
-use strict;
-use warnings;
-use Test::More;
+use ProductOpener::PerlStandards;
+use Test2::V0;
 use FindBin qw/$Bin/;
 use Test::Pod;
 use Path::Tiny;
