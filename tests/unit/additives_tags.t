@@ -137,7 +137,7 @@ my @tests = (
 			ingredients_text =>
 				"Mleczna baza [syrop glukozowy, oleje roślinne (kokosowy, z ziaren palmowych w zmiennych proporcjach), mleko w proszku odtłuszczone (5%), serwatka (z mleka) w proszku, regulatory kwasowości: fosforan dipotasowy, cytrynian trisodowy, białka mleka, substancja przeciwzbrylajaca: dwutlenek krzemu], cukier, kawa rozpuszczalna (8,7%), kawa zbożowa rozpuszczalna (ekstrakt prażonego jęczmienia i żyta) (6%), węglan magnezu, mleko w proszku pełne (1%), aromat. Produkt może zawierać soję."
 		},
-		["en:e340ii", "en:e331iii", "en:e551"]
+		["en:e340ii", "en:e331iii", "en:e551", "en:e504i"]
 	],
 	[
 		{lc => "pl", ingredients_text => "regulatory kwasowości: kwas cytrynowy i cytryniany sodu."},
