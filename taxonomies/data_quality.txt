@@ -4,11 +4,11 @@
 
 # Data quality errors should not contain false positive, as opposed to data quality warnings
 en:Data quality errors
-it:Errori di qualità dei dati
-pt:Erros de qualidade de dados
 fr:Erreurs de qualité des données
 es:Errores de calidad de datos
 de:Datenqualitätsfehler
+it:Errori di qualità dei dati
+pt:Erros de qualidade de dados
 description:en: Error detected on data
 
 <en:Data quality errors
@@ -96,11 +96,11 @@ description:fr:La portion est nulle ou non reconnue alors que les valeurs nutrit
 
 <en:Nutrition errors
 en:Nutrition value over 1000 - Alcohol
+fr:Valeur nutritionnelle supérieure à 1000 - Alcool
 es:Valor nutricional superior a 1000 - Alcohol
 de:Nährwert über 1000 - Alkohol
 it:Valore nutrizionale superiore a 1000 - Alcol
 pt:Valor nutricional acima de 1000 - Álcool
-fr:Valeur nutritionnelle supérieure à 1000 - Alcool
 description:en:Alcohol value is over 1000g per 100g, which is impossible.
 
 <en:Nutrition errors
