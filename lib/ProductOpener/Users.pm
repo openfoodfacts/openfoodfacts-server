@@ -842,8 +842,7 @@ sub retrieve_user ($user_id) {
 
 sub is_email_has_off_account ($email) {
 
-	my $keycloak = ProductOpener::Keycloak->new();
-	my $user = $keycloak->find_user_by_email($email);
+	my $user = _find_user_by_email_in_keycloak($email);
 	unless (defined $user) {
 		return;    # Email is not known in Keycloak
 	}
@@ -853,6 +852,66 @@ sub is_email_has_off_account ($email) {
 	unless ($user_ref) {
 		$log->info('User not found', {user_id => $user_id}) if $log->is_info();
 		return;    # Email is not associated with an OFF account
+	}
+
+	return $user_ref->{userid};
+}
+
+sub _find_user_by_email_in_keycloak($email) {
+	my $keycloak = ProductOpener::Keycloak->new();
+	return $keycloak->find_user_by_email($email);
+}
+
+=head2 _get_or_create_account_by_mail ($email)
+
+Tries to get a user based on their mail address from Keycloak.
+
+If the account is available in Keycloak, but does not exist
+as a `user.sto` file, yet, it will be created.
+
+=head3 Arguments
+
+=head4 string $email
+
+Mail address of the user
+
+=head4 boolean $require_verified_email
+
+If true, the email must be verified before proceeding.
+
+=head3 Return values
+
+User's user ID
+
+=cut
+
+sub _get_or_create_account_by_mail ($email, $require_verified_email = 0) {
+
+	my $user = _find_user_by_email_in_keycloak($email);
+	unless (defined $user) {
+		return;    # Email is not known in Keycloak
+	}
+
+	my $user_id = $user->{preferred_username};
+	my $user_ref = retrieve_user($user_id);
+	unless ($user_ref) {
+		if ($require_verified_email and (not($user->{emailVerified} eq $JSON::PP::true))) {
+			$log->info('User not found, and user email is not verified. Not creating new account in OFF.',
+				{user => $user->{email}})
+				if $log->is_info();
+			return;
+		}
+
+		# Initialize user based on Keycloak data
+		$log->info('User not found. Creating based on Keycloak data', {user_id => $user_id, keycloak_user => $user})
+			if $log->is_info();
+		$user_ref = {
+			userid => $user->{username},
+			name => $user->{name} // $user->{username}
+		};
+
+		$user_ref->{email} = $user->{email};
+		store_user($user_ref);
 	}
 
 	return $user_ref->{userid};
@@ -1028,7 +1087,7 @@ sub init_user ($request_ref) {
 		$user_id = remove_tags_and_quote(request_param($request_ref, 'user_id'));
 
 		if ($user_id =~ /\@/) {
-			$user_id = is_email_has_off_account($user_id);
+			$user_id = _get_or_create_account_by_mail($user_id);
 			# Trigger an error
 			unless (defined $user_id) {
 				return ($Lang{error_bad_login_password}{$lc});
