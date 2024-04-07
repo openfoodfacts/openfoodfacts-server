@@ -377,7 +377,8 @@ Food groups:
 # Tracking issue: https://github.com/openfoodfacts/openfoodfacts-server/issues/7528
 🧪 Additives:
 - changed-files:
-  - any-glob-to-any-file: 'taxonomies/food/additives.txt'
+  - any-glob-to-any-file: 'taxonomies/additives.txt'
+  - any-glob-to-any-file: 'taxonomies/additives_classes.txt'
   - any-glob-to-any-file: 'scripts/merge_additives_lists.pl'
   - any-glob-to-any-file: 'scripts/extract_additives.pl'
   - any-glob-to-any-file: 'scripts/add_efsa_evaluations_to_additives_taxonomy.pl'
