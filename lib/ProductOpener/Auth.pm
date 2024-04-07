@@ -124,7 +124,8 @@ sub start_authorize ($request_ref) {
 		scope => q{openid profile offline_access},
 		state => $nonce,
 		)
-		. '&lc='
+		. '&ui_locales='
+		. uri_escape($lc) . '&lc='
 		. uri_escape($lc) . '&cc='
 		. uri_escape($cc);
 
