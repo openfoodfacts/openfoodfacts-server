@@ -495,10 +495,7 @@ sub create_user_in_product_opener ($id_token) {
 		name => $id_token->{'name'} // $id_token->{'preferred_username'}
 	};
 
-	if ($id_token->{'email_verified'} eq $JSON::PP::true) {
-		$user_ref->{email} = $id_token->{'email'};
-	}
-
+	$user_ref->{email} = $id_token->{'email'};
 	store_user($user_ref);
 
 	return $user_ref->{userid};
