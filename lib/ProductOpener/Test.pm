@@ -71,7 +71,8 @@ use Carp qw/confess/;
 use Data::DeepAccess qw(deep_exists deep_get deep_set);
 use Getopt::Long;
 use IO::Uncompress::AnyInflate qw(anyinflate $AnyInflateError);
-use Test::More;
+use Test2::V0;
+use Data::Dumper;
 use JSON "decode_json";
 use File::Basename "fileparse";
 use File::Path qw/make_path remove_tree/;
@@ -81,6 +82,8 @@ use Scalar::Util qw(looks_like_number);
 use Test::File::Contents qw/files_eq_or_diff/;
 
 use Log::Any qw($log);
+
+no warnings qw(experimental::signatures);
 
 =head2 read_gzip_file($filepath)
 
@@ -377,11 +380,11 @@ sub compare_to_expected_results ($object_ref, $expected_results_file, $update_ex
 				$title = $test_ref->{desc} // $test_ref->{test_case} // $test_ref->{id};
 				$title = undef unless $title;
 			}
-			is_deeply($object_ref, $expected_object_ref, $title) or diag(explain $test_ref, explain $object_ref);
+			is($object_ref, $expected_object_ref, $title) or diag(Dumper($test_ref), Dumper($object_ref));
 		}
 		else {
 			fail("could not load $expected_results_file");
-			diag(explain $test_ref, explain $object_ref);
+			diag(Dumper($test_ref), Dumper($object_ref));
 		}
 	}
 
@@ -453,7 +456,7 @@ sub compare_file_to_expected_results ($content_str, $expected_results_file, $upd
 		}
 		else {
 			fail("could not load $expected_results_file");
-			diag(explain $test_ref, explain $content_str);
+			diag(Dumper($test_ref), Dumper($content_str));
 		}
 	}
 
@@ -575,10 +578,10 @@ sub compare_array_to_expected_results ($array_ref, $expected_results_dir, $updat
 
 			local $/;    #Enable 'slurp' mode
 			my $expected_product_ref = $json->decode(<$expected_result>);
-			is_deeply($product_ref, $expected_product_ref, "$test_name - $code") or diag explain $product_ref;
+			is($product_ref, $expected_product_ref, "$test_name - $code") or diag Dumper($product_ref);
 		}
 		else {
-			diag explain $product_ref;
+			diag Dumper($product_ref);
 			fail("could not load $expected_results_dir/$code.json");
 		}
 	}

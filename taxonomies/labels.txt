@@ -1317,7 +1317,6 @@ en:Certified gluten-free
 es:Sin TACC, Sin T.A.C.C.
 wikidata:en:Q101542317
 image:en:Sin-tacc.86x90.png
-wikidata:en:Q101542317
 #gluten free certification mark in Argentina
 
 <en:No gluten
@@ -1513,7 +1512,7 @@ he:תווית איכות תאילנדית
 
 <en:Thai quality label
 en:Thailand Diversity & Refinement
-origins:en: en:Thailand
+origins:en: en:thailand
 
 <en:Thai quality label
 en:Thai fish sauce quality label
@@ -2623,8 +2622,8 @@ nl:Weinig zout
 pt:Baixo teor de sal
 ru:Низкое содержание соли
 th:สูตรลดเกลือ
-description:en:In EU, a claim that a food is low sodium or low salt may only be made where the product contains no more than 0,12 g of sodium, or the equivalent value for salt, per 100 g or per 100 ml. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 xx:low salt
+description:en:In EU, a claim that a food is low sodium or low salt may only be made where the product contains no more than 0,12 g of sodium, or the equivalent value for salt, per 100 g or per 100 ml. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
 <en:Low salt
 en:Reduced salt, Less salt
@@ -3081,7 +3080,7 @@ nl:Geproduceerd in Australië
 pt:Fabricado na Austrália, feito na Austrália, produto da Austrália, produzido na Austrália, originário da Austrália, proveniente da Austrália
 wikidata:en:Q17000991
 country:en:Australia
-origins:en: en:Australia
+origins:en: en:australia
 label_categories:en: en:Geographic label
 # TODO: we need special support https://hunger.openfoodfacts.org/logos?logo_id=3291469&count=50
 # en:Made in Australia from at least 99% Australian ingredients
@@ -3090,7 +3089,7 @@ label_categories:en: en:Geographic label
 
 en:Australian grown
 country:en:Australia
-origins:en: en:Australia
+origins:en: en:australia
 label_categories:en: en:Geographic label
 
 # Bosnia i Herzegovina
@@ -3786,12 +3785,12 @@ fr:Fabrication à la ferme
 nl:Geproduceerd op de boerderij
 
 fr:La Lorraine notre signature
-origins:en: en:france, fr:Lorraine
+origins:en: en:france, en:lorraine
 label_categories:en: en:Geographic label
 
 fr:Saveurs en Or, Saveurs en'Or
 wikidata:en:Q3474531
-origins:en: en:france, fr:Hauts-de-France
+origins:en: en:france, fr:hauts-de-france
 label_categories:en: en:Geographic label
 
 fr:Savourez l'Alsace
@@ -5587,7 +5586,6 @@ country:en:Spain
 <en:Organic
 es:Consejo de Agricultura Ecologica de la Región de Murcia, comite agricultura ecologica comunidad region de murcia, CAERM, Comite Andaluz de Agricultura Ecologica, CAAE
 country:en:Spain
-country:en:Spain
 
 <en:EU Organic
 en:AT-BIO-004
@@ -6683,7 +6681,6 @@ xx:ekološkog proizvoda, eko hrvatski proizvod, hrvatski eko proizvod, hrvatski 
 country:en:Croatia
 label_categories:en: en:Environnement
 image:hr:ekološkog-proizvoda.91x90.png
-country:en:Croatia
 
 <en:EU Organic
 en:HR-EKO-01
@@ -20120,13 +20117,13 @@ ingredients:en: en:wheat-flour
 fr:Soja Français, Soja de France, Filière Soja Français, Soja origine France
 pt:Soja francêsa, soja de França, soja da França
 origins:en: en:france
-ingredients:en: en:soy
+ingredients:en: en:soya
 label_categories:en: en:Soy
 
 <fr:Soja Français
 fr:Soja bio de France
 origins:en: en:france
-ingredients:en: en:soy
+ingredients:en: en:soya
 label_categories:en: en:Soy
 label:en: en:organic
 
@@ -20782,7 +20779,7 @@ label_categories:en: en:Packaging
 # associated_shapes:en: en:bottle
 
 fr:Mis en bouteille à la propriété
-packaging:en: en:Bottles
+packaging:en: en:bottle
 label_categories:en: en:Packaging
 # associated_shapes:en: en:bottle
 
@@ -21463,11 +21460,11 @@ ru:Сто лучших товаров России 2015
 
 en:Swiss AOC, CH AOC, AOC CH
 fr:AOC Suisse, AOC CH, CH AOC
-origins:en: en:Switzerland
+origins:en: en:switzerland
 
 en:Swiss PGI, CH PGI, PGI CH
 fr:IGP Suisse, IGP CH, CH IGP
-origins:en: en:Switzerland
+origins:en: en:switzerland
 
 en:Suisse Garantie, SuisseGarantie
 de:Schweizer Garantie
@@ -21480,7 +21477,7 @@ ca:Pro Montagna, ProMontagna, Coop Pro Montagna
 
 de:Migros "Aus der Region", "Aus der Region"
 fr:Migros "De la région", "De la région"
-origins:en: en:Switzerland
+origins:en: en:switzerland
 
 en:IP-Suisse
 
@@ -22125,7 +22122,7 @@ xx:Health Star Rating 5
 fr:Indication géographique protégée de la République populaire de Chine, IGPRPC
 zh:中国地理标志
 wikidata:en:Q3150362
-origins:en: en:China
+origins:en: en:china
 
 fr:Fruits et Légumes de France, Fruits & Légumes de France
 pt:Frutas e legumas de França, frutas e legumas da França
@@ -22160,7 +22157,7 @@ ingredients:en: en:tomato
 fr:Fruits de France, fruits français
 pt:Fruta de França, frutas de França, fruta da França, frutas da França, fruta francesa, frutas francesas
 origins:en: en:france
-ingredients:en: en:fruits
+ingredients:en: en:fruit
 
 en:Potatoes from France
 ca:Patates de França
@@ -22492,7 +22489,7 @@ fi:Kasvatettu Norjassa
 fr:élevé en Norvège, élevés en Norvège, élevée en Norvège, élevées en Norvège
 it:Cresciuto in Norvegia
 pt:Criado na Noruega, criados na Noruega, criada na Noruega, criadas na Noruega
-origins:en: en:Norway
+origins:en: en:norway
 label_categories:en: en:Geographic label
 
 en:raised in Scotland
@@ -22501,7 +22498,7 @@ fi:Kasvatettu Skotlannissa
 fr:élevé en Ecosse, élevés en Ecosse, élevée en Ecosse, élevées en Ecosse
 it:Cresciuto in Scozia, Allevato in Scozia
 pt:Criado na Escócia, criados na Escócia, criada na Escócia, criadas na Escócia
-origins:en: en:Scotland, en:United Kingdom
+origins:en: en:scotland, en:united-kingdom
 label_categories:en: en:Geographic label
 
 en:raised in Ireland
@@ -22509,7 +22506,7 @@ de:aufgezogen in Irland, aufgewachsen in Irland
 fi:kasvatettu Irlannissa
 fr:élevé en Irlande, élevés en Irlande, élevée en Irlande, élevées en Irlande
 pt:Criado na Irlanda, criados na Irlanda, criada na Irlanda, criadas na Irlanda
-origins:en: en:Ireland
+origins:en: en:ireland
 label_categories:en: en:Geographic label
 
 en:Contains a source of phenylalanine
@@ -22912,3 +22909,4 @@ auth_url:fr:https://collegedesproducteurs.be/
 image:fr:prix-juste-producteur.90x90.png
 description:fr:En choisissant des produits Prix Juste Producteur, on vous garantit une juste rémunération des producteurs basée sur les coûts de production et la qualité, une origine locale de 80% des matières premières du produit et une traçabilité complète de ces matières premières.
 web:fr:https://prixjuste.be/
+
