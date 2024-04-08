@@ -1,4 +1,4 @@
-<html><head><title>ProductOpener::KnowledgePanelsContribution</title>
+<html><head><title>ProductOpener::KnowledgePanelsReportProblem</title>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" >
 <link rel="stylesheet" title="simple.min" type="text/css" href="../simple.min.css" media="all" >
 
@@ -26,7 +26,7 @@
   <li class='indexItem indexItem1'><a href='#NAME'>NAME</a>
   <li class='indexItem indexItem1'><a href='#SYNOPSIS'>SYNOPSIS</a>
   <ul   class='indexList indexList2'>
-    <li class='indexItem indexItem2'><a href='#create_contribution_card_panel_(_%24product_ref%2C_%24target_lc%2C_%24target_cc%2C_%24options_ref_)'>create_contribution_card_panel ( $product_ref, $target_lc, $target_cc, $options_ref )</a>
+    <li class='indexItem indexItem2'><a href='#create_report_problem_card_panel_(_%24product_ref%2C_%24target_lc%2C_%24target_cc%2C_%24options_ref_)'>create_report_problem_card_panel ( $product_ref, $target_lc, $target_cc, $options_ref )</a>
     <ul   class='indexList indexList3'>
       <li class='indexItem indexItem3'><a href='#Arguments'>Arguments</a>
       <ul   class='indexList indexList4'>
@@ -34,16 +34,6 @@
         <li class='indexItem indexItem4'><a href='#language_code_%24target_lc'>language code $target_lc</a>
         <li class='indexItem indexItem4'><a href='#country_code_%24target_cc'>country code $target_cc</a>
         <li class='indexItem indexItem4'><a href='#options_reference_%24options_ref'>options reference $options_ref</a>
-      </ul>
-    </ul>
-    <li class='indexItem indexItem2'><a href='#create_data_quality_panel_(_%24tags_type%2C_%24product_ref%2C_%24target_lc%2C_%24target_cc%2C_%24options_ref_)'>create_data_quality_panel ( $tags_type, $product_ref, $target_lc, $target_cc, $options_ref )</a>
-    <ul   class='indexList indexList3'>
-      <li class='indexItem indexItem3'><a href='#Arguments'>Arguments</a>
-      <ul   class='indexList indexList4'>
-        <li class='indexItem indexItem4'><a href='#%24tags_type_-_str'>$tags_type - str</a>
-        <li class='indexItem indexItem4'><a href='#product_reference_%24product_ref'>product reference $product_ref</a>
-        <li class='indexItem indexItem4'><a href='#language_code_%24target_lc'>language code $target_lc</a>
-        <li class='indexItem indexItem4'><a href='#country_code_%24target_cc'>country code $target_cc</a>
       </ul>
     </ul>
   </ul>
@@ -54,22 +44,24 @@
 name="NAME"
 >NAME</a></h1>
 
-<p>ProductOpener::KnowledgePanelsContribution - Generate knowledge panels around contribution</p>
+<p>ProductOpener::KnowledgePanelsReportProblem - Generate knowledge panels to report a problem with the data or the product</p>
 
 <h1><a class='u' href='#___top' title='click to go to top of document'
 name="SYNOPSIS"
 >SYNOPSIS</a></h1>
 
-<p>This is a subpart of Knowledge Panels where we concentrate around contribution information</p>
+<p>Knowledge panels to indicate how to report a problem with the product data,
+or with the product (e.g.
+link to report to authorities like SignalConso in France)</p>
 
 <h2><a class='u' href='#___top' title='click to go to top of document'
-name="create_contribution_card_panel_(_$product_ref,_$target_lc,_$target_cc,_$options_ref_)"
->create_contribution_card_panel ( $product_ref,
+name="create_report_problem_card_panel_(_$product_ref,_$target_lc,_$target_cc,_$options_ref_)"
+>create_report_problem_card_panel ( $product_ref,
 $target_lc,
 $target_cc,
 $options_ref )</a></h2>
 
-<p>Creates a knowledge panel card that contains all knowledge panels related to contribution</p>
+<p>Creates a knowledge panel card that contains all knowledge panels related to reporting problems.</p>
 
 <h3><a class='u' href='#___top' title='click to go to top of document'
 name="Arguments"
@@ -100,47 +92,6 @@ or country specific scores.</p>
 <h4><a class='u' href='#___top' title='click to go to top of document'
 name="options_reference_$options_ref"
 >options reference $options_ref</a></h4>
-
-<h2><a class='u' href='#___top' title='click to go to top of document'
-name="create_data_quality_panel_(_$tags_type,_$product_ref,_$target_lc,_$target_cc,_$options_ref_)"
->create_data_quality_panel ( $tags_type,
-$product_ref,
-$target_lc,
-$target_cc,
-$options_ref )</a></h2>
-
-<p>Creates knowledge panels to describe quality issues and invite to contribute</p>
-
-<h3><a class='u' href='#___top' title='click to go to top of document'
-name="Arguments"
->Arguments</a></h3>
-
-<h4><a class='u' href='#___top' title='click to go to top of document'
-name="$tags_type_-_str"
->$tags_type - str</a></h4>
-
-<p>The type of tag.
-Eg.
-&#34;data_quality_errors&#34;</p>
-
-<h4><a class='u' href='#___top' title='click to go to top of document'
-name="product_reference_$product_ref"
->product reference $product_ref</a></h4>
-
-<p>Loaded from the MongoDB database,
-Storable files,
-or the OFF API.</p>
-
-<h4><a class='u' href='#___top' title='click to go to top of document'
-name="language_code_$target_lc"
->language code $target_lc</a></h4>
-
-<p>Returned attributes contain both data and strings intended to be displayed to users.
-This parameter sets the desired language for the user facing strings.</p>
-
-<h4><a class='u' href='#___top' title='click to go to top of document'
-name="country_code_$target_cc"
->country code $target_cc</a></h4>
 <p class="backlinkbottom"><b><a name="___bottom" href="../index.html" title="All Documents">&lt;&lt;</a></b></p>
 
 <!-- end doc -->
