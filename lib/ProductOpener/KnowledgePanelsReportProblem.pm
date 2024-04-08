@@ -89,10 +89,12 @@ sub create_report_problem_card_panel ($product_ref, $target_lc, $target_cc, $opt
 
 	# Panel to tell users that they can fix the data themselves
 
-	create_panel_from_json_template("incomplete_or_incorrect_data",
-			"api/knowledge-panels/report_problem/incomplete_or_incorrect_data.tt.json",
-			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
-		push(@panels, "incomplete_or_incorrect_data");
+	create_panel_from_json_template(
+		"incomplete_or_incorrect_data",
+		"api/knowledge-panels/report_problem/incomplete_or_incorrect_data.tt.json",
+		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref
+	);
+	push(@panels, "incomplete_or_incorrect_data");
 
 	# TODO: add a panel for Nutri-Patrol once it is ready
 
@@ -101,10 +103,12 @@ sub create_report_problem_card_panel ($product_ref, $target_lc, $target_cc, $opt
 	# France - SignalConso
 
 	if (($target_cc eq "fr") and ($target_lc eq "fr")) {
-		
-		create_panel_from_json_template("fr_report_product_signalconso",
+
+		create_panel_from_json_template(
+			"fr_report_product_signalconso",
 			"api/knowledge-panels/report_problem/fr_report_product_signalconso.tt.json",
-			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
+			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref
+		);
 		push(@panels, "fr_report_product_signalconso");
 	}
 
