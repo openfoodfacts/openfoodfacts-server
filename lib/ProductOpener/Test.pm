@@ -831,6 +831,8 @@ Normalize the HTML of a web page to be able to compare them across tests runs.
 
 We remove time dependent fields.
 
+We also normalize URLS to avoid the scheme prefix (so that we avoid false positives in CodeQL)
+
 =head3 Arguments
 
 =head4 product_ref - Hash ref containing product information
@@ -846,6 +848,9 @@ sub normalize_html_for_test_comparison ($html_ref) {
 
 	# <time datetime="2024-03-26T18:43:45">26 mars 2024, 18:43:45 CET</time>
 	$$html_ref =~ s/<time datetime="[^"]+">[^<]+<\/time>/<time datetime="--ignore--">--ignore--<\/time>/g;
+
+	# normalize URLs be removing scheme to avoid false positive alerts on security
+	$$html_ref =~ s/https?:\/\//\/\//g;
 
 	return;
 }
