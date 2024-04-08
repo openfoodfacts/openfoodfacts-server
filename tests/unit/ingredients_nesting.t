@@ -5,13 +5,14 @@
 use Modern::Perl '2017';
 use utf8;
 
-use Test::More;
+use Test2::V0;
+use Data::Dumper;
+$Data::Dumper::Terse = 1;
 #use Log::Any::Adapter 'TAP';
 use Log::Any::Adapter 'TAP', filter => 'trace';
 
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::TagsEntries qw/:all/;
-use ProductOpener::Ingredients qw/:all/;
+use ProductOpener::Ingredients qw/parse_ingredients_text_service/;
 
 # dummy product for testing
 
@@ -162,7 +163,10 @@ my @tests = (
 	],
 
 	[
-		{lc => "fr", ingredients_text => "Teneur en légumes : 74 % : tomate (60 %, Espagne) eau, Sel (France, Italie)"},
+		{
+			lc => "fr",
+			ingredients_text => "Teneur en légumes : 74 % : tomate (60 %, Espagne) eau, Sel (France, Italie)"
+		},
 		[
 			{
 				'id' => "fr:teneur-en-legumes",
@@ -305,7 +309,10 @@ my @tests = (
 	],
 
 	[
-		{lc => "fr", ingredients_text => "minéraux (carbonate de calcium, carbonate de magnésium, fer élémentaire)"},
+		{
+			lc => "fr",
+			ingredients_text => "minéraux (carbonate de calcium, carbonate de magnésium, fer élémentaire)"
+		},
 		[
 			{
 				'id' => 'en:minerals',
@@ -379,13 +386,13 @@ foreach my $test_ref (@tests) {
 
 	parse_ingredients_text_service($product_ref, {});
 
-	is_deeply($product_ref->{ingredients}, $expected_ingredients_ref)
+	is($product_ref->{ingredients}, $expected_ingredients_ref)
 		# using print + join instead of diag so that we don't have
 		# hashtags. It makes copy/pasting the resulting structure
 		# inside the test file much easier when tests results need
 		# to be updated. Caveat is that it might interfere with
 		# test output.
-		or print STDERR join("\n", explain $product_ref->{ingredients});
+		or print STDERR join("\n", Dumper $product_ref->{ingredients});
 }
 
 done_testing();

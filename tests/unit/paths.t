@@ -2,11 +2,14 @@
 
 use ProductOpener::PerlStandards;
 
-use Test::More;
+use Test2::V0;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS base_paths ensure_dir_created ensure_dir_created_or_die/;
 use File::Path qw/remove_tree/;
+
+# hardcode docker path for now
+my $src_root = "/opt/product-opener";
 
 my $EXPECTED_BASE_PATHS = {
 	CACHE_BUILD => "$data_root/build-cache",
@@ -31,6 +34,7 @@ my $EXPECTED_BASE_PATHS = {
 	PUBLIC_EXPORTS => "$www_root/exports",
 	PUBLIC_FILES => "$www_root/files",
 	REVERTED_PRODUCTS => "$data_root/reverted_products",
+	TAXONOMIES_SRC => "$src_root/taxonomies",
 	USERS => "$data_root/users",
 	USERS_TRANSLATIONS => "$data_root/translate",
 };
@@ -43,7 +47,7 @@ my $EXPECTED_FOREIGN_PATHS = {
 	OPF_PRODUCTS_IMAGES_DIR => '/srv/opf/html/images/products',
 };
 my %EXPECTED_OFF_PATHS = (%{$EXPECTED_BASE_PATHS}, %{$EXPECTED_FOREIGN_PATHS},);
-is_deeply(base_paths(), \%EXPECTED_OFF_PATHS, "base_paths content for off");
+is(base_paths(), \%EXPECTED_OFF_PATHS, "base_paths content for off");
 
 ok(ensure_dir_created("$BASE_DIRS{CACHE_TMP}"), "cache tmp directory exists");
 remove_tree("$BASE_DIRS{CACHE_TMP}/test-unit-xxx");
@@ -61,7 +65,7 @@ my %EXPECTED_OFF_PRO_PATHS = (%{$EXPECTED_BASE_PATHS}, "SFTP_HOME" => "/mnt/poda
 my $producers_platform_previous = $server_options{producers_platform};
 {
 	$server_options{producers_platform} = 1;
-	is_deeply(base_paths(), \%EXPECTED_OFF_PRO_PATHS, "base_paths content for off pro");
+	is(base_paths(), \%EXPECTED_OFF_PRO_PATHS, "base_paths content for off pro");
 }
 $server_options{producers_platform} = $producers_platform_previous;
 

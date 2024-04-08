@@ -224,6 +224,8 @@ en:Case, cases
 fr:Caisse, caisses, caissette, caissettes
 it:Cassa, casse
 pt:Engradado, engradados
+nl:Kist, kisten
+de:Kiste, Kisten
 
 # fr:Bidon / Bonbonne used by Les Mousquetaires
 en:Jug or canister, canister or jug
@@ -638,6 +640,13 @@ wikidata:en:Q86511715
 <en:Wine cork
 en:Champagne cork
 fr:bouchon de Champagne
+bg:Шампанска корк
+de:Sektverschluss
+el:Πώμα σαμπάνιας
+hu:Pezsgő dugó
+nl:Champagnestop
+pl:Korek do szampana
+pt:Tampa de champanhe
 wikidata:en:Q106910341
 # image:xx:bouchon-3.svg (champagne cork)
 
@@ -654,6 +663,12 @@ fr:Capsule, capsules
 hu:Kapszula, kapszulák
 nl:Capsule, Kroonkurk, Kroonkurken
 pt:Cápsula, cápsulas
+es:Cápsula, cápsulas
+de:Kapsel, Kapseln
+it:Capsula, capsule
+lt:Kapsulė, kapsulės
+pl:Kapsułka, kapsułki
+ru:Капсула, капсулы
 # image:xx:capsule-metal.svg (looks like a soda capsule)
 # image:xx:capsule-autre.svg (looks like a plastic capsule for wine)
 # suggest:packaging_materials:en: en:plastic, en:metal
@@ -664,6 +679,10 @@ hu:Kávékapszula, kávé kapszula, kávékapszulák, kávé kapszulák
 nl:Koffiecapsule, Koffiecapsules, Nespressocapsule, Nespresso-capsule
 pl:Kapsułka do kawy
 pt:Cápsula de café, cápsulas de café, cápsula de cafés, cápsulas de cafés
+es:Cápsula de café, cápsulas de café
+de:Kaffeekapsel, Kaffeekapseln
+it:Capsula di caffè, capsule di caffè
+lt:Kavos kapsulė, kavos kapsulės
 wikidata:en:Q4236462
 # suggest:packaging_materials:en: en:plastic, en:aluminium
 # related_categories:en: en:Nespresso-compatible coffee capsules
@@ -684,6 +703,9 @@ en:Tassimo-compatible capsules, T-Disc capsules
 de:Tassimo-kompatible Kapseln
 fr:Dosettes compatible Tassimo, Dosettes Tassimo, Capsules Tassimo, Dosettes T-Disc, Capsules T-Disc
 nl:Tassimo-compatibele Capsules, Tassimo
+es:Cápsulas compatibles con Tassimo, Cápsulas T-Disc
+it:Capsule compatibili Tassimo, Capsule T-Disc
+lt:Tassimo kapsulės, T-Disc kapsulės
 # related_categories:en: en:Tassimo-compatible coffee capsules
 
 <en:Coffee capsule
@@ -703,6 +725,8 @@ es:Cápsulas de té
 it:Capsule di tè
 nl:Theecapsules
 bg:Чайни капсули
+hu:Tea kapszulák
+pt:Cápsulas de chá
 
 en:coffee pad, coffee pads
 fr:dosette de café, dosettes de café
@@ -719,6 +743,9 @@ fr:Dosettes Senseo, Capsules Senseo, Cafés en dosettes compatible Senseo
 it:Capsule di caffè compatibili Senseo
 lt:Senseo kapsulės
 nl:Senseo-compatibele koffiecapsules, Senseo-compatibele koffiecapsule, Senseo
+hu:Senseo-kompatibilis kávékapszulák
+pt:Cápsulas de café compatíveis com Senseo
+bg:Кафе капсули съвместими с Senseo
 # suggest:packaging_materials:en: en:paper
 # related_categories:en: en:Senseo-compatible coffee capsules
 
@@ -743,6 +770,9 @@ pt:Talheres, talher
 en:Cutlery
 fr:Couverts, couvert
 pl:Sztućce
+bg:Съдове за хранене
+da:Bestik
+de:Besteck
 
 # keep the plural
 <en:Eating utensils
@@ -755,6 +785,13 @@ hu:evőpálcikák, evőpálkcika
 nl:Stokjes
 pl:Pałeczki
 pt:Pauzinhos chineses, palitinhos, hashi
+es:Palillos chinos
+it:Bacchette cinesi
+lt:Valgymo lazdelės
+ro:Bățuri de mâncat
+ru:Палочки для еды
+sv:Ätpinnar
+tr:Yemek çubukları
 wikidata:en:Q81980
 
 <en:Cutlery
@@ -794,6 +831,13 @@ hu:kanál, kanalak
 nl:lepel, lepels
 pl:Łyżka, łyżki
 pt:Colher, colheres
+es:Cuchara, cucharas
+it:Cucchiaio, cucchiai
+lt:Šaukštas, šaukštai
+ro:Lingură, linguri
+ru:Ложка, ложки
+sv:Sked, skedar
+tr:Kaşık, kaşıklar
 wikidata:en:Q81895
 
 <en:Spoon
@@ -933,6 +977,11 @@ fr:vrac, sans emballage
 hu:ömlesztett, csomagolás nélkül, csomagolás nélküli, csomagolatlan
 nl:zonder verpakking
 pt:Granel, a granel, sem embalagem, sem embalagens
+es:a granel, sin empaque, sin envase, sin embalaje
+it:alla rinfusa, senza imballaggio
+ja:包装なし, バルク
+ru:весовой, без упаковки
+zh:散装, 无包装
 
 <en:dish
 en:Bowl, bows
@@ -1036,6 +1085,9 @@ en:Blister, Blister pack
 bg:Блистер
 fr:Blister
 nl:Blister
+hu:Bliszter
+pt:Blister
+es:Blíster
 wikidata:en:Q1334675
 # image:xx:blister-coque-1.svg
 # image:xx:blister-coque-2.svg
@@ -1158,6 +1210,9 @@ fr:ficelle, ficelles, ruban, rubans
 
 en:individual dose, Individual capsule
 fr:dose invididuelle, doses individuelles, dosette, dosettes
+es:dosis individual, cápsula individual
+de:Einzeldosis, Einzelkapsel
+nl:individuele dosis, individuele capsule
 # suggest:packaging_materials:en: en:paper, en:cardboard, en:other
 # dose-individuelle-papier.svg (looks like a sugar individual dose)
 # dose-individuelle-autre.svg (looks like a small doypack)
@@ -1296,6 +1351,9 @@ fr:Plat, plats, Plat, Plat (Bol - Saladier - Terrine - …)
 <en:dish
 en:salad bowl, salad bowls
 fr:saladier, saladiers
+es:ensaladera, ensaladeras
+de:Salatschüssel, Salatschüsseln
+it:insalatiera, insalatiere
 
 # CITEO only translates it by pot
 <en:dish
@@ -1482,3 +1540,4 @@ fr:Valve, valves, soupape, soupapes
 # Used on top of a bottle to reduce the flow (e.g. for oil)
 en:Reducer
 fr:Réducteur
+

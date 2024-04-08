@@ -25,9 +25,9 @@ use ProductOpener::PerlStandards;
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Products qw/:all/;
+use ProductOpener::Products qw/retrieve_product/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Data qw/:all/;
+use ProductOpener::Data qw/get_products_collection/;
 
 # This script is run daily to remove empty products (without data or pictures)
 # in particular products created by the button to add a product without a barcode
