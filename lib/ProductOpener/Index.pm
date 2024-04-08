@@ -26,9 +26,6 @@ use Exporter qw< import >;
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
-		&normalize
-		&decode_html
-		&decode_html_entities
 
 		&normalize
 
@@ -43,7 +40,7 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
 
 use CGI qw/:standard escape unescape/;
 use Time::Local;

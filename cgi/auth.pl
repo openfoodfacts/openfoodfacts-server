@@ -26,9 +26,9 @@ use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Display qw/:all/;
-use ProductOpener::HTTP qw/:all/;
-use ProductOpener::Users qw/:all/;
+use ProductOpener::Display qw/init_request single_param/;
+use ProductOpener::HTTP qw/write_cors_headers/;
+use ProductOpener::Users qw/$User_id %User is_admin_user/;
 use ProductOpener::Lang qw/:all/;
 
 use Apache2::Const -compile => qw(OK);
@@ -53,8 +53,11 @@ if (defined $User_id) {
 		status_verbose => 'user signed-in',
 		user_id => $User_id,
 		user => {
-			email => $User{email},
 			name => $User{name},
+			preferred_language => $User{preferred_language},
+			country => $User{country},
+			moderator => $User{moderator} ? 1 : 0,
+			admin => is_admin_user($User_id) ? 1 : 0,
 		},
 	};
 

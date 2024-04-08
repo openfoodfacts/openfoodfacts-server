@@ -20,6 +20,8 @@ x-backend-conf: &backend-conf
     - ./docker/docker-entrypoint.sh:/docker-entrypoint.sh
     # we use this for debugging, from times to times
     - ./debug:/mnt/podata/debug/
+    # sftp folder for the pro platform
+    - ./sftp:/mnt/podata/sftp/
   # Allow the container to connect to the host when using Linux.
   # This is needed to access other services that are running outside of Docker
   # e.g. when developing with Robotoff or openfoodfacts-query

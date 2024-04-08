@@ -55,17 +55,17 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Users qw/$User_id/;
-use ProductOpener::Food qw/:all/;
+use ProductOpener::Food qw/%categories_nutriments_per_country/;
 use ProductOpener::Ingredients qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Lang qw/f_lang f_lang_in_lc lang lang_in_other_lc/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::Ecoscore qw/:all/;
-use ProductOpener::PackagerCodes qw/:all/;
+use ProductOpener::Ecoscore qw/is_ecoscore_extended_data_more_precise_than_agribalyse/;
+use ProductOpener::PackagerCodes qw/%packager_codes/;
 use ProductOpener::KnowledgePanelsContribution qw/create_contribution_card_panel/;
 use ProductOpener::KnowledgePanelsReportProblem qw/create_report_problem_card_panel/;
 
