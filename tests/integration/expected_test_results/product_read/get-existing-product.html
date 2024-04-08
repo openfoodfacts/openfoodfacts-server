@@ -377,6 +377,7 @@
                         <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#match"><span>Your criteria</span></a></li>
                         <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#health"><span>Health</span></a></li>
                         <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#environment"><span>Environment</span></a></li>
+                        <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#report_problem"><span>Report a problem</span></a></li>
                         <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#contribution"><span>Contribution</span></a></li>
                     </ul>
                 </nav><!-- .navbar -->
@@ -3848,13 +3849,126 @@
         </div>
     </section>
 
-
-
-
 <!-- other fields -->
 
 
+    <section class="row" id="report_problem">
+        <div class="large-12 column">
+            <div class="card">
+                <div class="card-section">
+                        
 
+	<!-- start templates/web/panels/panel.tt.html - panel_id: report_problem_card -->
+
+	
+<div class="panel_card radius" id="panel_report_problem_card"
+    
+        style="margin-top:0.5rem;margin-bottom:1.5rem;"
+    
+>
+    
+        
+            <h2 class="panel_title_card text-medium">Report a problem</h2>
+        
+    
+
+	   	 <div
+	   	    id="panel_report_problem_card_content"
+	   	    class="content panel_content_card active"
+	   	  >
+          
+              
+
+	<!-- start templates/web/panels/panel.tt.html - panel_id: incomplete_or_incorrect_data -->
+
+	<ul data-accordion class="panel_accordion accordion" id="panel_incomplete_or_incorrect_data"
+    
+        style="margin-top:0.5rem;margin-bottom:1.5rem;"
+    
+>
+<li class="accordion-navigation">
+
+    
+        <a href="#panel_incomplete_or_incorrect_data_content" class="panel_title"
+            
+        >
+            
+            <img src="http://static.openfoodfacts.localhost/images/logos/off-logo-icon-light.svg"
+                style="height:72px;float:left;margin-right:1rem;"
+                alt="icon"
+                
+            >
+            
+            <h4 
+                class="evaluation_neutral_title"
+                
+            >
+                
+                Incomplete or incorrect information?
+            </h4>
+            
+                <span >Category, labels, ingredients, allergens, nutritional information, photos etc.</span>
+            
+            <hr class="floatclear">
+        </a>
+    
+
+	   	 <div
+	   	    id="panel_incomplete_or_incorrect_data_content"
+	   	    class="content panel_content active expand-for-large"
+	   	  >
+          
+              <div style="margin-bottom:0.5rem">
+       
+        <div>
+    
+
+
+    
+           <div class="panel_text">
+             
+                If the information does not match the information on the packaging, please complete or correct it.
+                Open Food Facts is a collaborative database, and every contribution is useful for all.
+                
+           </div>
+    
+
+    
+    </div>
+
+    
+    </div>
+              <div style="margin-bottom:0.5rem">
+       <div>
+    
+
+    
+
+    
+        <a class="button small action-edit_product"
+            href="/cgi/product.pl?type=edit&code=200000000034">
+            Complete or correct product information
+        </a>
+    
+
+    </div>
+    </div>
+	   	 </div>
+	
+</li>
+</ul>
+
+	<!-- end templates/web/panels/panel.tt.html - panel_id: incomplete_or_incorrect_data -->
+	   	 </div>
+	
+</div>
+
+
+	<!-- end templates/web/panels/panel.tt.html - panel_id: report_problem_card --> 
+                </div>
+            </div>
+        </div>
+    </section>
 
 <!-- Platform for producers: data quality issues and improvements opportunities -->
 
