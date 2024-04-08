@@ -51,7 +51,7 @@
         [% END %]
     ],
 }
-
+// After this line, it's just building components to use or delete
             [% edq(lang('report-an-issue-to-x')) %]
             // Report an issue with this product to {service}
             [% edq(lang('report-an-issue')) %]
