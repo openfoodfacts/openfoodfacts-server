@@ -1,10 +1,13 @@
 #!/usr/bin/perl -w
 
+# HARNESS-TIMEOUT-EVENT 240
+
 use Modern::Perl '2017';
 use utf8;
 
-use Test::More;
-use Test::Number::Delta;
+use Test2::V0;
+use Data::Dumper;
+$Data::Dumper::Terse = 1;
 #use Log::Any::Adapter 'TAP', filter => "none";
 use Log::Any::Adapter 'TAP';
 
@@ -137,8 +140,8 @@ foreach my $test_ref (@tests) {
 
 	my $fieldid = get_string_id_for_lang("no_language", normalize_column_name($test_ref->[1]));
 	my $result_ref = match_column_name_to_field($test_ref->[0], $fieldid);
-	is_deeply($result_ref, $test_ref->[2])
-		or diag explain {test => $test_ref, fieldid => $fieldid, result => $result_ref};
+	is($result_ref, $test_ref->[2])
+		or diag Dumper {test => $test_ref, fieldid => $fieldid, result => $result_ref};
 
 }
 
