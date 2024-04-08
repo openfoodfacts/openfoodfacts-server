@@ -27,7 +27,7 @@ Direction générale de la concurrence, de la consommation et de la répression 
             "image_element": {
                 "url": "[% static_subdomain %]/images/panels/report_problem/signalconso-button.png",
                 "alt": "Je fais un signalement sur SignalConso",
-                "link_url": "https://signal.conso.gouv.fr/fr/alimentaire-codebarres/faire-un-signalement?gtin=[% product.code %]"
+                "link_url": "https://signal.conso.gouv.fr/fr/alimentaire-codebarres/faire-un-signalement?gtin=[% product.code %]&utm_source=openfoodfacts&utm_campaign=product_page_panel"
             }
 
         }          
