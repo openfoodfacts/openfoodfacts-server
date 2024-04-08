@@ -5,18 +5,17 @@ use utf8;
 
 use JSON;
 
-use Test::More;
-use Test::Number::Delta relative => 1.001;
+use Test2::V0;
 use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Tags qw/:all/;
+use ProductOpener::Tags qw/compute_field_tags/;
 use ProductOpener::Food qw/:all/;
-use ProductOpener::Ingredients qw/:all/;
-use ProductOpener::Nutriscore qw/:all/;
-use ProductOpener::NutritionCiqual qw/:all/;
+use ProductOpener::Ingredients qw/extract_ingredients_classes_from_text extract_ingredients_from_text/;
+use ProductOpener::Nutriscore qw/compute_nutriscore_grade/;
+use ProductOpener::NutritionCiqual qw/load_ciqual_data/;
 use ProductOpener::NutritionEstimation qw/:all/;
-use ProductOpener::Test qw/:all/;
+use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
 
 use Data::DeepAccess qw(deep_exists);
 
@@ -24,6 +23,8 @@ my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init
 
 # Needed to compute estimated nutrients
 load_ciqual_data();
+
+check_nutriscore_categories_exist_in_taxonomy();
 
 my @tests = (
 

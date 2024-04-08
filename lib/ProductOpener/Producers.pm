@@ -61,9 +61,6 @@ BEGIN {
 
 		&export_and_import_to_public_database
 
-		&import_csv_file_task
-		&export_csv_file_task
-		&update_export_status_for_csv_file_task
 		&import_products_categories_from_public_database_task
 
 	);    # symbols to export on request
@@ -73,18 +70,19 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created ensure_dir_created_or_die/;
+use ProductOpener::Store qw/get_string_id_for_lang retrieve store/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Products qw/:all/;
-use ProductOpener::Food qw/:all/;
+use ProductOpener::Food qw/%cc_nutriment_table %nutriments_tables/;
 use ProductOpener::Ingredients qw/:all/;
-use ProductOpener::Lang qw/:all/;
-use ProductOpener::Display qw/:all/;
-use ProductOpener::Export qw/:all/;
-use ProductOpener::Import qw/:all/;
-use ProductOpener::ImportConvert qw/:all/;
-use ProductOpener::Users qw/:all/;
+use ProductOpener::Lang qw/$lc %Lang lang/;
+use ProductOpener::Display qw/$header $nutriment_table/;
+use ProductOpener::Export qw/export_csv/;
+use ProductOpener::Import
+	qw/$IMPORT_MAX_PACKAGING_COMPONENTS import_csv_file import_products_categories_from_public_database/;
+use ProductOpener::ImportConvert qw/clean_fields/;
+use ProductOpener::Users qw/$Org_id $Owner_id $User_id %User/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -100,12 +98,15 @@ use Minion;
 my $minion;
 
 =head2 get_minion()
+
 Function to get the backend minion
 
 =head3 Arguments
+
 None
 
 =head3 Return values
+
 The backend minion $minion
 
 =cut
@@ -1477,7 +1478,12 @@ sub init_columns_fields_match ($input_headers_ref, $rows_ref) {
 
 			$log->debug(
 				"before match_column_name_to_field",
-				{lc => $lc, column => $column, column_id => $column_id, column_field => $columns_fields_ref->{$column}}
+				{
+					lc => $lc,
+					column => $column,
+					column_id => $column_id,
+					column_field => $columns_fields_ref->{$column}
+				}
 			) if $log->is_debug();
 
 			$columns_fields_ref->{$column}
@@ -1486,7 +1492,12 @@ sub init_columns_fields_match ($input_headers_ref, $rows_ref) {
 
 			$log->debug(
 				"after match_column_name_to_field",
-				{lc => $lc, column => $column, column_id => $column_id, column_field => $columns_fields_ref->{$column}}
+				{
+					lc => $lc,
+					column => $column,
+					column_id => $column_id,
+					column_field => $columns_fields_ref->{$column}
+				}
 			) if $log->is_debug();
 
 			# If we don't know if the column contains value + unit, value, or unit,

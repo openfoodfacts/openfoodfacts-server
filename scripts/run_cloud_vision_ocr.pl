@@ -27,8 +27,8 @@ use ProductOpener::PerlStandards
 	binmode(STDOUT, ":encoding(UTF-8)");
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
-use ProductOpener::Images qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
+use ProductOpener::Images qw/@CLOUD_VISION_FEATURES_FULL send_image_to_cloud_vision send_image_to_robotoff/;
 
 use AnyEvent::Inotify::Simple;
 use Log::Any qw($log);
