@@ -2830,7 +2830,7 @@ sub product_action_url ($code, $action) {
 		$url .= "#countries";
 	}
 	# END will do nothing unless a custom section is added
-	else {
+	elsif ($action ne "edit_product") {
 		$log->error("unknown product action", {code => $code, action => $action});
 	}
 

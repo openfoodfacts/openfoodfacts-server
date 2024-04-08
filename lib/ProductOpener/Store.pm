@@ -46,7 +46,6 @@ use ProductOpener::Paths qw/:all/;
 
 use Storable qw(lock_store lock_nstore lock_retrieve);
 use Encode;
-use Encode::Punycode;
 use URI::Escape::XS;
 use Unicode::Normalize;
 use Log::Any qw($log);

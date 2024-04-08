@@ -14,6 +14,12 @@
                 "panel_id": "environment_card",
             },
         },
+        {
+            "element_type": "panel",
+            "panel_element": {
+                "panel_id": "report_problem_card",
+            },
+        },        
         [% IF panel.has_contribution_card %]
             {
                 "element_type": "panel",

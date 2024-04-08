@@ -222,9 +222,6 @@
         </div>
     </section>
 
-
-
-
 <!-- other fields -->
 [% IF other_fields != "" %]
     <section class="row" id="other">
@@ -247,7 +244,15 @@
     </section>
     [% END %]
 
-
+    <section class="row" id="report_problem">
+        <div class="large-12 column">
+            <div class="card">
+                <div class="card-section">
+                        [% report_problem_card_panel %]
+                </div>
+            </div>
+        </div>
+    </section>
 
 <!-- Platform for producers: data quality issues and improvements opportunities -->
 [% IF server_options_producers_platform %]
