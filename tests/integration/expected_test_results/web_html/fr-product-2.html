@@ -379,6 +379,7 @@
                         <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#match"><span>Vos critères</span></a></li>
                         <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#health"><span>Santé</span></a></li>
                         <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#environment"><span>Environnement</span></a></li>
+                        <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#report_problem"><span>Signaler un problème</span></a></li>
                         <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#contribution"><span>Contribution</span></a></li>
                     </ul>
                 </nav><!-- .navbar -->
@@ -3449,13 +3450,203 @@
         </div>
     </section>
 
-
-
-
 <!-- other fields -->
 
 
+    <section class="row" id="report_problem">
+        <div class="large-12 column">
+            <div class="card">
+                <div class="card-section">
+                        
 
+	<!-- start templates/web/panels/panel.tt.html - panel_id: report_problem_card -->
+
+	
+<div class="panel_card radius" id="panel_report_problem_card"
+    
+        style="margin-top:0.5rem;margin-bottom:1.5rem;"
+    
+>
+    
+        
+            <h2 class="panel_title_card text-medium">Signaler un problème</h2>
+        
+    
+
+	   	 <div
+	   	    id="panel_report_problem_card_content"
+	   	    class="content panel_content_card active"
+	   	  >
+          
+              
+
+	<!-- start templates/web/panels/panel.tt.html - panel_id: incomplete_or_incorrect_data -->
+
+	<ul data-accordion class="panel_accordion accordion" id="panel_incomplete_or_incorrect_data"
+    
+        style="margin-top:0.5rem;margin-bottom:1.5rem;"
+    
+>
+<li class="accordion-navigation">
+
+    
+        <a href="#panel_incomplete_or_incorrect_data_content" class="panel_title"
+            
+        >
+            
+            <img src="//static.openfoodfacts.localhost/images/logos/off-logo-icon-light.svg"
+                style="height:72px;float:left;margin-right:1rem;"
+                alt="icon"
+                
+            >
+            
+            <h4 
+                class="evaluation_neutral_title"
+                
+            >
+                
+                Informations incomplètes ou incorrectes ?
+            </h4>
+            
+                <span >Catégorie, labels, ingrédients, allergènes, informations nutritionnelles, photos etc.</span>
+            
+            <hr class="floatclear">
+        </a>
+    
+
+	   	 <div
+	   	    id="panel_incomplete_or_incorrect_data_content"
+	   	    class="content panel_content active expand-for-large"
+	   	  >
+          
+              <div style="margin-bottom:0.5rem">
+       
+        <div>
+    
+
+
+    
+           <div class="panel_text">
+             
+                Si les informations ne correspondent pas aux informations présentes sur l'emballage, vous pouvez les compléter ou de les corriger. Merci !
+                Open Food Facts est une base de données collaborative, et chaque contribution est utile à tous.
+                
+           </div>
+    
+
+    
+    </div>
+
+    
+    </div>
+              <div style="margin-bottom:0.5rem">
+       <div>
+    
+
+    
+
+    
+        <a class="button small action-edit_product"
+            href="/cgi/product.pl?type=edit&code=3300000000002">
+            Compléter ou corriger les informations du produit
+        </a>
+    
+
+    </div>
+    </div>
+	   	 </div>
+	
+</li>
+</ul>
+
+	<!-- end templates/web/panels/panel.tt.html - panel_id: incomplete_or_incorrect_data -->
+              
+
+	<!-- start templates/web/panels/panel.tt.html - panel_id: fr_report_product_signalconso -->
+
+	<ul data-accordion class="panel_accordion accordion" id="panel_fr_report_product_signalconso"
+    
+        style="margin-top:0.5rem;margin-bottom:1.5rem;"
+    
+>
+<li class="accordion-navigation">
+
+    
+        <a href="#panel_fr_report_product_signalconso_content" class="panel_title"
+            
+        >
+            
+            <img src="//static.openfoodfacts.localhost/images/panels/report_problem/signalconso.png"
+                style="height:72px;float:left;margin-right:1rem;"
+                alt="icon"
+                
+            >
+            
+            <h4 
+                class="evaluation_neutral_title"
+                
+            >
+                
+                Faire un signalement sur SignalConso
+            </h4>
+            
+                <span >Etiquetage non conforme, vente d'un produit périmé, présence d'un corps étranger, etc.</span>
+            
+            <hr class="floatclear">
+        </a>
+    
+
+	   	 <div
+	   	    id="panel_fr_report_product_signalconso_content"
+	   	    class="content panel_content active expand-for-large"
+	   	  >
+          
+              <div style="margin-bottom:0.5rem">
+       
+        <div>
+    
+
+
+    
+           <div class="panel_text">
+             
+Vous avez rencontré un problème avec ce produit : <b>étiquetage non conforme, produit périmé encore en vente,
+présence d'un corps étranger, etc.</b> ?<br>
+Faites un signalement à l'entreprise et à la répression des fraudes sur SignalConso, un outil de la
+Direction générale de la concurrence, de la consommation et de la répression des fraudes (DGCCRF).
+                
+           </div>
+    
+
+    
+    </div>
+
+    
+    </div>
+              <div style="margin-bottom:0.5rem">
+       
+    <a href="//signal.conso.gouv.fr/fr/alimentaire-codebarres/faire-un-signalement?gtin=3300000000002&utm_source=openfoodfacts&utm_campaign=product_page_panel">
+        <img src="//static.openfoodfacts.localhost/images/panels/report_problem/signalconso-button.png" alt="Je fais un signalement sur SignalConso">
+    </a>
+
+    
+    </div>
+	   	 </div>
+	
+</li>
+</ul>
+
+	<!-- end templates/web/panels/panel.tt.html - panel_id: fr_report_product_signalconso -->
+	   	 </div>
+	
+</div>
+
+
+	<!-- end templates/web/panels/panel.tt.html - panel_id: report_problem_card --> 
+                </div>
+            </div>
+        </div>
+    </section>
 
 <!-- Platform for producers: data quality issues and improvements opportunities -->
 
