@@ -15,8 +15,8 @@
             "element_type": "text",
             "text_element": {
                 "html": `
-                [% edq(lang('incomplete_or_incorrect_data_content_correct')) %]
-                [% edq(lang('incomplete_or_incorrect_data_content_correct_off')) %]
+                [% lang('incomplete_or_incorrect_data_content_correct') %]
+                [% lang('incomplete_or_incorrect_data_content_correct_off') %]
                 `
             },
         },
