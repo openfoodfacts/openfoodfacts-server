@@ -112,13 +112,12 @@ sub create_report_problem_card_panel ($product_ref, $target_lc, $target_cc, $opt
 		push(@panels, "fr_report_product_signalconso");
 	}
 
-	if (@panels) {
-		my $panel_data_ref = {report_problem_panels => \@panels,};
-		create_panel_from_json_template("report_problem_card",
-			"api/knowledge-panels/report_problem/report_problem_card.tt.json",
-			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
-	}
-	return !!@panels;
+	my $panel_data_ref = {report_problem_panels => \@panels,};
+	create_panel_from_json_template("report_problem_card",
+		"api/knowledge-panels/report_problem/report_problem_card.tt.json",
+		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
+
+	return;
 }
 
 1;
