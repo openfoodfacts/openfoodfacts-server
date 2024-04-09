@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.30.1](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.30.0...v2.30.1) (2024-04-09)
+
+
+### Bug Fixes
+
+* base_paths_loading_script needs to be exported ([#10114](https://github.com/openfoodfacts/openfoodfacts-server/issues/10114)) ([18ab9e4](https://github.com/openfoodfacts/openfoodfacts-server/commit/18ab9e4bcf0d4dc7b9d12e3001ed6d830d7eaffa))
+* howmuchsugar / combiendesucres ([#10111](https://github.com/openfoodfacts/openfoodfacts-server/issues/10111)) ([39e9a3a](https://github.com/openfoodfacts/openfoodfacts-server/commit/39e9a3a5eb74532ca3272342f81f60bc3011d797))
+* remove warning in KnowledgePanelsReportProblem.pm, remove report problem card from pro platform ([#10112](https://github.com/openfoodfacts/openfoodfacts-server/issues/10112)) ([7108cae](https://github.com/openfoodfacts/openfoodfacts-server/commit/7108caeab76ce06cc7701925342c5aabe1a9d4a3))
+
 ## [2.30.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.29.0...v2.30.0) (2024-04-08)
 
 
