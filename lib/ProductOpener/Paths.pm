@@ -45,12 +45,15 @@ BEGIN {
 		&get_path_for_taxonomy
 		&get_file_for_taxonomy
 		&base_paths
+		&base_paths_loading_script
 		&check_missing_dirs
 		&ensure_dir_created
 		&ensure_dir_created_or_die
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
+
+# &base_paths_loading_script needs to be exported, it is used in shell scripts to export the paths as environment variables
 
 use vars @EXPORT_OK;
 

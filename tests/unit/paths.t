@@ -5,7 +5,8 @@ use ProductOpener::PerlStandards;
 use Test2::V0;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/%BASE_DIRS base_paths ensure_dir_created ensure_dir_created_or_die/;
+# Specifically import :all to test the base_paths_loading_script function used in shell scripts
+use ProductOpener::Paths qw/:all/;
 use File::Path qw/remove_tree/;
 
 # hardcode docker path for now
@@ -68,5 +69,9 @@ my $producers_platform_previous = $server_options{producers_platform};
 	is(base_paths(), \%EXPECTED_OFF_PRO_PATHS, "base_paths content for off pro");
 }
 $server_options{producers_platform} = $producers_platform_previous;
+
+my $export_commands = base_paths_loading_script();
+
+like($export_commands, qr/export OFF_CACHE_BUILD_DIR=$data_root\/build-cache/, "export OFF_CACHE_BUILD_DIR");
 
 done_testing()
