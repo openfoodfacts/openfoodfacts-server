@@ -81,7 +81,6 @@ sub create_report_problem_card_panel ($product_ref, $target_lc, $target_cc, $opt
 	$log->debug("create contribution card panel", {code => $product_ref->{code}}) if $log->is_debug();
 
 	my @panels = ();
-	my $panel_data_ref = {};
 
 	# TODO: add a panel to display the consumer service contact information if we have it
 	# for the owner of the product. Otherwise, warn that we don't make or sell the product
@@ -92,7 +91,7 @@ sub create_report_problem_card_panel ($product_ref, $target_lc, $target_cc, $opt
 	create_panel_from_json_template(
 		"incomplete_or_incorrect_data",
 		"api/knowledge-panels/report_problem/incomplete_or_incorrect_data.tt.json",
-		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref
+		{}, $product_ref, $target_lc, $target_cc, $options_ref
 	);
 	push(@panels, "incomplete_or_incorrect_data");
 
@@ -107,7 +106,7 @@ sub create_report_problem_card_panel ($product_ref, $target_lc, $target_cc, $opt
 		create_panel_from_json_template(
 			"fr_report_product_signalconso",
 			"api/knowledge-panels/report_problem/fr_report_product_signalconso.tt.json",
-			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref
+			{}, $product_ref, $target_lc, $target_cc, $options_ref
 		);
 		push(@panels, "fr_report_product_signalconso");
 	}
@@ -117,7 +116,7 @@ sub create_report_problem_card_panel ($product_ref, $target_lc, $target_cc, $opt
 		"api/knowledge-panels/report_problem/report_problem_card.tt.json",
 		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
 
-	return;
+	return 1;
 }
 
 1;
