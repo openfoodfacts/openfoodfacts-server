@@ -197,15 +197,24 @@ sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref)
 
 	create_health_card_panel($product_ref, $target_lc, $target_cc, $options_ref);
 	create_environment_card_panel($product_ref, $target_lc, $target_cc, $options_ref);
-	create_report_problem_card_panel($product_ref, $target_lc, $target_cc, $options_ref);
+	my $has_report_problem_card;
+	if (not $options_ref->{producers_platform}) {
+		$has_report_problem_card = create_report_problem_card_panel($product_ref, $target_lc, $target_cc, $options_ref);
+	}
 	my $has_contribution_card = create_contribution_card_panel($product_ref, $target_lc, $target_cc, $options_ref);
 
 	# Create the root panel that contains the panels we want to show directly on the product page
 	create_panel_from_json_template(
 		"root",
 		"api/knowledge-panels/root.tt.json",
-		{has_contribution_card => $has_contribution_card},
-		$product_ref, $target_lc, $target_cc, $options_ref
+		{
+			has_report_problem_card => $has_report_problem_card,
+			has_contribution_card => $has_contribution_card
+		},
+		$product_ref,
+		$target_lc,
+		$target_cc,
+		$options_ref
 	);
 	return;
 }
