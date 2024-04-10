@@ -5438,9 +5438,19 @@ labels:en: en:organic
 Marinaleda S.C.A.
 es:Humar Marinaleda
 
-en:Mars Inc.
+en:Mars, Mars Inc.
 
-<en:Mars Inc.
+<en:Mars
+en:Wrigley, William Wrigley Jr. Company
+xx:Wrigley
+
+<en:Wrigley
+es:Orbit
+
+<en:Wrigley
+es:Sugus
+
+<en:Mars
 en:Mars
 
 <en:Mars Inc.
@@ -7486,8 +7496,14 @@ en:Marmite
 <en:Unilever PLC/N.V.
 es:Tulipán, Tulipan
 
-<es:Valgren S.L.
-es:Valgren
+#######################################################################################
+#
+#                           VVVVVVVVVVVVVVVVVVVVV
+#
+#######################################################################################
+
+en:Valgren, Valgren S.L.
+xx:Valgren
 
 <fr:Groupe Soparind Bongrain
 es:Valrhona S.A.
@@ -7540,9 +7556,8 @@ es:Sogurlat
 <es:Vinagres Parras S.A.
 es:Vinagres Parras
 
-Vitacress Salads Ltd.
-<es:Grupo RAR
-es:Vitacress
+en:Vitacress, Vitacress Salads Ltd.
+xx:Vitacress
 
 <es:VI.P Coop. Soc. Agrícola
 es:Bio Val Venosta
@@ -7556,14 +7571,6 @@ es:Weetabix
 <es:WH Group Ltd.
 en:WH Food Europe S.L.
 
-<en:Mars Inc.
-en:William Wrigley Jr. Company
-
-<en:William Wrigley Jr. Company
-es:Orbit
-
-<en:William Wrigley Jr. Company
-es:Sugus
 
 #######################################################################################
 #
@@ -7630,11 +7637,10 @@ wikidata:en:Q1768969
 #
 #######################################################################################
 
-<en:Yantai Yitian Food Co. Ltd.
+en:Yantai, Yantai Yitian Food Co. Ltd.
 es:Yantai Yitian Food
 
-<es:Yemas de Santa Teresa S.A. 
-es:Santa Teresa
+es:Santa Teresa, Yemas de Santa Teresa S.A. 
 
 en:Ynsadiet
 xx:Ynsadiet
@@ -7655,11 +7661,17 @@ es:NaturTierra, Natur Tierra
 #
 #######################################################################################
 
-en:Zarabiku, Zarabiku S.L.
-es:Ecochips de Zarabiku
+en:Zarabiku
+xx:Zarabiku
+es:Ecochips de Zarabiku, Ecochips, Zarabiku
+country:en: en:Spain
+#category:en en:chips
 
-en:Zespri, Zespri Group Limited 
+en:Zespri, Zespri International Limited 
 xx:Zespri
+wikipedia:en:Zespri
+country:en: en:New Zealand
+category:en: en:kiwi
 
 <en:Zespri
 en:Zespri Green
