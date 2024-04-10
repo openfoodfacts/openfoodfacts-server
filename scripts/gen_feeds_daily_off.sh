@@ -29,6 +29,17 @@ cd /srv/off/scripts
 # Small products data and images export for Docker dev environments
 # for about 1/10000th of the products contained in production.
 ./export_products_data_and_images.pl --sample-mod 10000,0 --products-file $OFF_PUBLIC_EXPORTS_DIR/products.random-modulo-10000.tar.gz --images-file $OFF_PUBLIC_EXPORTS_DIR/products.random-modulo-10000.images.tar.gz
+# same as jsonl and archive for mongodb
+mongoexport --collection products --host 10.1.0.102 --db off --query='{"created_t": {"$mod": [10000, 0]}}' | gzip > products.random-modulo-10000.jsonl.gz
+mongodump --collection products --host 10.1.0.102 --db off --query='{"created_t": {"$mod": [10000, 0]}}' --gzip --archive="products.random-modulo-10000.mongodbdump.gz"
+# On saturday, export modulo 1000 for larger sample
+if [ "$(date +%u)" = "6" ]
+then
+    ./export_products_data_and_image--host s.pl --sample-mod 10000,0 --products-file $OFF_PUBLIC_EXPORTS_DIR/products.random-modulo-1000.tar.gz --images-file $OFF_PUBLIC_EXPORTS_DIR/products.random-modulo-1000.images.tar.gz
+    # same as jsonl and archive for mongodb
+    mongoexport --collection products --host 10.1.0.102 --db off --query='{"created_t": {"$mod": [1000, 0]}}' | gzip > products.random-modulo-1000.jsonl.gz
+    mongodump --collection products 10.1.0.102 --db off --gzip --query='{"created_t": {"$mod": [1000, 0]}}'  --archive="products.random-modulo-1000.mongodbdump.gz"
+fi
 
 ./generate_dump_for_offline_apps_off.py
 cd /srv/off/html/data/offline
