@@ -64,6 +64,7 @@ Usage:
 
 export_products_data_and_images.pl --query field_name=field_value --query other_field_name=other_field_value
 [--products-file=path to .tar.gz file] [--images-file=path to .tar.gz file]
+[--jsonl-file=path to jsonl.gz file] [--mongo-file=path to mongodbdump.gz file]
 TXT
 	;
 
@@ -71,6 +72,8 @@ my %query_fields_values = ();
 my $query_codes_from_file;
 my $products_file;
 my $images_file;
+my $jsonl_file;
+my $mongo_file;
 my $sample_mod;
 
 GetOptions(
@@ -78,6 +81,8 @@ GetOptions(
 	"query-codes-from-file=s" => \$query_codes_from_file,
 	"images-file=s" => \$images_file,
 	"products-file=s" => \$products_file,
+	"jsonl-file=s" => \$jsonl_file,
+	"mongo-file=s" => \$mongo_file,
 	"sample-mod=s" => \$sample_mod,
 
 ) or die("Error in command line arguments:\n\n$usage");
@@ -182,6 +187,22 @@ if (defined $images_file) {
 	}
 	print STDERR "Executing tar command: tar $tar_cmd $images_file -C $BASE_DIRS{PRODUCTS_IMAGES} -T $tmp_file\n";
 	system('tar', $tar_cmd, $images_file, "-C", $BASE_DIRS{PRODUCTS_IMAGES}, "-T", $tmp_file);
+}
+
+# mongodb dumps
+if (defined $jsonl_file || defined $mongo_file) {
+	my @mongo_args = ("--host", $mongodb_host, "--collection", "products", "--db", $mongodb);
+	my $json = JSON->new->utf8->allow_nonref->canonical;
+	my $query_str = $json->encode($query_ref);
+	push (@mongo_args, "--query", "'$query_str'");
+	if (defined $jsonl_file) {
+		my $cmd = join(" ", ('mongoexport', @mongo_args, '|', 'gzip', '>', $jsonl_file));
+		system($cmd);
+	}
+	if (defined $mongo_file) {
+		my $cmd = join(" ", ('mongodump', @mongo_args, '--archive', '--gzip', $mongo_file));
+		system($cmd);
+	}
 }
 
 print STDERR "$i products exported.\n";
