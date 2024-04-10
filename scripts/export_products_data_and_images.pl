@@ -196,11 +196,11 @@ if (defined $jsonl_file || defined $mongo_file) {
 	my $query_str = $json->encode($query_ref);
 	push (@mongo_args, "--query", "'$query_str'");
 	if (defined $jsonl_file) {
-		my $cmd = join(" ", ('mongoexport', @mongo_args, '|', 'gzip', '>', $jsonl_file));
+		my $cmd = join(" ", ('mongoexport', @mongo_args, '|', 'gzip', '>', '"$jsonl_file"'));
 		system($cmd);
 	}
 	if (defined $mongo_file) {
-		my $cmd = join(" ", ('mongodump', @mongo_args, '--archive', '--gzip', $mongo_file));
+		my $cmd = join(" ", ('mongodump', @mongo_args, '--gzip', '--archive="$mongo_file"'));
 		system($cmd);
 	}
 }
