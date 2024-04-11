@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 @import "../node_modules/@yaireo/tagify/src/tagify.scss";
 @import "variables"; 
@@ -21,10 +22,28 @@
 }
 
 // Default style for Tagify tag removal button
+=======
+@import "../node_modules/@yaireo/tagify/src/tagify.scss";
+@import "variables"; 
+
+// Placeholder style for Tagify input
+.tagify__input::placeholder {
+  color: $dark;
+}
+
+// Hover state for Tagify tags
+.tagify__tag:hover {
+  background-color: $chocolate; // Use 'chocolate' for better contrast and theme consistency
+  border-color: lighten($chocolate, 10%); // Lighten the chocolate color for border
+}
+
+// Style for the remove button in tags
+>>>>>>> 336c50d8b87fe355cbdfc7d79595992b3fb9dc58
 .tagify__tag .tagify__tag__removeBtn {
   background-color: $text-color-dark;
 }
 
+<<<<<<< HEAD
 // Hover effect for tag removal button, increases visibility and interactivity
 .tagify__tag .tagify__tag__removeBtn:hover {
   background-color: var(--chocolate);
@@ -47,4 +66,20 @@
 .tagify__dropdown__item--active {
   background-color: var(--chocolate);
   color: white;
+=======
+// Hover state for the remove button in tags
+.tagify__tag .tagify__tag__removeBtn:hover {
+  background-color: $chocolate; // Same 'chocolate' color for consistency
+}
+
+// Hover state for dropdown items
+.tagify__dropdown__item--active,
+.tagify__dropdown__item:hover {
+  background-color: $chocolate; // Again, using 'chocolate' for hover state
+}
+
+// Style for dropdown items
+.tagify__dropdown__item {
+  border-color: lighten($chocolate, 20%); // Lighten for subtle borders
+>>>>>>> 336c50d8b87fe355cbdfc7d79595992b3fb9dc58
 }
