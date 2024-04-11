@@ -222,13 +222,17 @@ paths:
           content:
             application/json:
               schema:
-                $ref: ./responses/add_or_edit_a_product.yaml
+                AllOf:
+                - $ref: ./responses/add_or_edit_a_product.yaml
+                - $ref: ./responses/change_ref_properties.yaml
       parameters: []
       requestBody:
         content:
           multipart/form-data:
             schema:
-              $ref: ./requestBodies/add_or_edit_a_product.yaml
+              AllOf:
+              - $ref: ./requestBodies/add_or_edit_a_product.yaml
+              - $ref: ./responses/change_ref_properties.yaml
       tags:
         - Write Requests
       description: |
