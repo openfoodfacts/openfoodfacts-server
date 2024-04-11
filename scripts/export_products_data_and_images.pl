@@ -91,7 +91,6 @@ print STDERR "export_products_data_and_images.pl
 - query fields values:
 ";
 
-
 # build the query
 my $query_ref = {};
 my $request_ref = {};
@@ -201,7 +200,7 @@ if ($jsonl_file || $mongo_file) {
 	my @mongo_args = ("--host", $mongodb_host, "--collection", "products", "--db", $mongodb);
 	my $json = JSON->new->utf8->allow_nonref->canonical;
 	my $query_str = $json->encode($query_ref);
-	push (@mongo_args, "--query", "'$query_str'");
+	push(@mongo_args, "--query", "'$query_str'");
 	if ($jsonl_file) {
 		my $cmd = join(" ", ('mongoexport', @mongo_args, '|', 'gzip', '>', "'$jsonl_file'"));
 		print(STDERR "Executing mongoexport command: $cmd\n");
