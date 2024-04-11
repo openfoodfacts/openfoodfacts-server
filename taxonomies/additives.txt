@@ -282,8 +282,8 @@ ro:E101a, E101a food additive
 sk:E101a, E101a food additive
 sl:E101a, E101a food additive
 sv:E101a, E101a food additive
-comment:en:E101a is the same as E101(ii). All synonyms are under E101(ii). Needs more cleanup
 xx:E101a
+comment:en:E101a is the same as E101(ii). All synonyms are under E101(ii). Needs more cleanup
 wikidata:en:Q376061
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2013.3357
 efsa_evaluation_date:en: 2013-10-22
@@ -515,8 +515,8 @@ e_number:en:110
 wikidata:en:Q410095
 colour_index:en:CI 15985
 efsa:en:http://www.efsa.europa.eu/fr/efsajournal/doc/3765.pdf
-efsa:en:http://www.efsa.europa.eu/fr/efsajournal/doc/2349.pdf
-efsa:en:http://www.efsa.europa.eu/fr/efsajournal/doc/1330.pdf
+# efsa:en:http://www.efsa.europa.eu/fr/efsajournal/doc/2349.pdf
+# efsa:en:http://www.efsa.europa.eu/fr/efsajournal/doc/1330.pdf
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2014.3765
 efsa_evaluation_date:en: 2014-07-15
 efsa_evaluation:en: Reconsideration of the temporary ADI and refined exposure assessment for Sunset Yellow FCF (E110)
@@ -607,7 +607,7 @@ xx:E120
 # en-gb:E120, Carmine
 # pt-br:E120, Carmim
 # scn:E120, carminiu
-wikidata:en:Q320617
+# wikidata:en:Q320617
 wikipedia:en:https://en.wikipedia.org/wiki/Carmine
 # en:carminic-acid has 4 products in english @2018-11-17
 # additive/e120-cochineal has 3909 products in 18 languages @2018-11-17
@@ -949,7 +949,7 @@ e_number:en:129
 wikidata:en:Q419895
 colour_index:en:CI 16035
 efsa:en:http://www.efsa.europa.eu/fr/efsajournal/doc/1327.pdf
-efsa:en:http://www.efsa.europa.eu/fr/efsajournal/doc/3234.pdf
+# efsa:en:http://www.efsa.europa.eu/fr/efsajournal/doc/3234.pdf
 efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2015.4007
 efsa_evaluation_date:en: 2015/02/13
 efsa_evaluation:en: Refined exposure assessment for Allura Red AC (E 129)
@@ -1164,8 +1164,8 @@ sl:E140, Klorofili in Klorofilini
 sv:E140, Klorofyller och Klorofylliner
 xx:E140
 e_number:en:140
-wikidata:en: Q26806091
-wikidata:en:Q82182
+wikidata:en:Q26806091
+# wikidata:en:Q82182
 colour_index:en:CI 75815
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2015.4089
 efsa_evaluation_date:en: 2015-05-07
@@ -1634,7 +1634,7 @@ xx:E150a
 wikidata:en:Q227816
 wikipedia:en:https://en.wikipedia.org/wiki/Caramel_color
 efsa:en:http://www.efsa.europa.eu/fr/efsajournal/doc/2004.pdf
-efsa:en:http://www.efsa.europa.eu/fr/efsajournal/doc/3030.pdf
+# efsa:en:http://www.efsa.europa.eu/fr/efsajournal/doc/3030.pdf
 efsa_evaluation_overexposure_risk:en: en:no
 efsa_evaluation_exposure_mean_greater_than_adi:en: en:no-group
 efsa_evaluation_exposure_95th_greater_than_adi:en: en:no-group
@@ -1721,7 +1721,7 @@ xx:E150c
 wikidata:en:Q11735907
 # ingredient/fr:caramel-ammoniacal has 123 products in 6 languages @2019-03-09
 efsa:en:http://www.efsa.europa.eu/fr/efsajournal/doc/2004.pdf
-efsa:en:http://www.efsa.europa.eu/fr/efsajournal/doc/3030.pdf
+# efsa:en:http://www.efsa.europa.eu/fr/efsajournal/doc/3030.pdf
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2012.3030
 efsa_evaluation_date:en: 2012-12-03
 efsa_evaluation:en: Refined exposure assessment for caramel colours (E 150a, c, d)
@@ -1765,7 +1765,7 @@ xx:E150d
 wikidata:en:Q13081740
 # ingredient/fr:caramel-au-sulfite-d’ammonium has 147 products in 5 languages @2019-03-09
 efsa:en:http://www.efsa.europa.eu/fr/efsajournal/doc/2004.pdf
-efsa:en:http://www.efsa.europa.eu/fr/efsajournal/doc/3030.pdf
+# efsa:en:http://www.efsa.europa.eu/fr/efsajournal/doc/3030.pdf
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2012.3030
 efsa_evaluation_date:en: 2012-12-03
 efsa_evaluation:en: Refined exposure assessment for caramel colours (E 150a, c, d)
@@ -1878,7 +1878,6 @@ xx:E153
 # nl_be:E153, Plantaardige koolstof
 e_number:en:153
 wikidata:en: Q59557415
-wikidata:en:Q18944671
 efsa:en:http://www.efsa.europa.eu/fr/efsajournal/doc/2592.pdf
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2012.2592
 efsa_evaluation_date:en: 2012-04-27
@@ -2059,8 +2058,8 @@ sk:E160a, Karotén
 sl:E160a, E160a food additive
 sv:E160a, Karoten, Karotener, Karotin, Alfakaroten
 tr:E160a, karoten, karotenler
-mandatory_additive_class:en: en:colour
 xx:E160a
+mandatory_additive_class:en: en:colour
 wikidata:en:Q190156
 e_number:en:160a
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2016.4434
@@ -2604,8 +2603,8 @@ ro:E161d, Rubixantină
 sk:E161d, Rubixantín
 sl:E161d, Rubixantin
 sv:E161d, Rubixantin
-colour_index:en:CI 75135
 xx:E161d
+colour_index:en:CI 75135
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2010.1852
 efsa_evaluation_date:en: 2010-10-22
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of canthaxanthin (E 161 g) as a food additive
@@ -2697,8 +2696,8 @@ ro:E161g, Cantaxantină
 sk:E161g, Kantaxantín
 sl:E161g, Kantaksantin
 sv:E161g, Kantaxantin
-colour_index:en:CI 40850
 xx:E161g
+colour_index:en:CI 40850
 efsa:en:http://www.efsa.europa.eu/fr/efsajournal/doc/1852.pdf
 e_number:en:161g
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2010.1852
@@ -3264,8 +3263,8 @@ it:E170, Carbonati di calcio
 nl:E170, Calciumcarbonaten
 pl:E170, Węglany wapnia
 pt:E170
-comment:en:enter the synonyms in plural.
 xx:E170
+comment:en:enter the synonyms in plural.
 anses_additives_of_interest:en:yes
 
 #comment:en:This entry must be doubled in the minerals and additives taxonomy (for the time being).
@@ -3489,7 +3488,7 @@ bg:E172, Железни оксиди и железни хидроксиди
 ca:E172, Òxids i hidròxids de ferro, oxids i hidroxids de ferro
 cs:E172, Oxidy a hydroxidy železa
 da:E172, Jernoxider og jernhydroxider
-de:E172, Eisenoxide und Eisenhydroxide, Eisenoxide, Eisenhydroxide
+de:E172, Eisenoxide und Eisenhydroxide, Eisenoxid, Eisenoxide, Eisenhydroxid, Eisenhydroxide
 el:E172, Οξειδια του σιδηρου και υδροξειδια του σιδηρου συνώνυμα
 es:E172, Óxidos e hidróxidos de hierro
 et:E172, Raudoksiidid ja raudhüdroksiidid
@@ -5349,7 +5348,7 @@ xx:E243
 e_number:en:243
 wikidata:en:Q18608852
 efsa:en:http://www.efsa.europa.eu/fr/scdocs/doc/511.pdf
-efsa:en:http://www.efsa.europa.eu/en/efsajournal/doc/3294.pdf
+# efsa:en:http://www.efsa.europa.eu/en/efsajournal/doc/3294.pdf
 efsa_evaluation_url:en:https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2019.5621
 efsa_evaluation_date:en:2019/03/08
 efsa_evaluation:en:Safety of ethyl lauroyl arginate (E 243) as a food additive in the light of the new information provided and the proposed extension of use
@@ -6209,7 +6208,7 @@ xx:E270
 wikidata:en:Q56626856
 wikipedia:en:https://en.wikipedia.org/wiki/Lactic_acid
 # en:lactic-acid has 7496 products in 20 languages@2018-11-17
-wikidata:en:Q161249
+# wikidata:en:Q161249
 organic_eu:en:authorized
 vegan:en:yes
 vegetarian:en:yes
@@ -6606,7 +6605,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Carbon_dioxide
 # ingredient/fr:anhydride-carbonique has 17 products in 4 languages @2019-02-05
 # additive/e290-carbon-dioxide has 1474 products in 20 languages @2019-02-05
 e_number:en:290
-additives_classes:en: en:preservative, en:propellant
+additives_classes:en: en:preservative, en:propellent-gas
 organic_eu:en:authorized
 vegan:en:yes
 vegetarian:en:yes
@@ -7074,8 +7073,8 @@ ro:E307a, D-Alpha-tocoferol
 sk:E307a, D-Alpha-tokoferol
 sl:E307a, D-Alpha-tokoferol
 sv:E307a, D-Alpha-tokoferol
-mandatory_additive_class:en: en:antioxidant
 xx:E307a
+mandatory_additive_class:en: en:antioxidant
 wikidata:en:Q158348
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2015.4247
 efsa_evaluation_date:en: 2015-09-30
@@ -7107,8 +7106,8 @@ ro:E307b, tocoferol concentrat
 sk:E307b, koncentrovaný tokoferol
 sl:E307b, koncentriran tokoferol
 sv:E307b, koncentrerad tokoferol
-mandatory_additive_class:en: en:antioxidant
 xx:E307b
+mandatory_additive_class:en: en:antioxidant
 wikidata:en:Q158348
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2015.4247
 efsa_evaluation_date:en: 2015-09-30
@@ -7143,8 +7142,8 @@ sk:E307c, DL-α-tokoferol
 sl:E307c, dl alfa tokoferol
 sr:E307c
 sv:E307c, DL-α-Tokoferol
-mandatory_additive_class:en: en:antioxidant
 xx:E307c
+mandatory_additive_class:en: en:antioxidant
 wikidata:en:Q158348
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2015.4247
 efsa_evaluation_date:en: 2015-09-30
@@ -7408,8 +7407,8 @@ ro:E314, Rășină de guaiac
 sk:E314, E314 food additive
 sl:E314, E314 food additive
 sv:E314, E314 food additive
-wikipedia:en:Gum_guaicum
 xx:E314
+wikipedia:en:Gum_guaicum
 e_number:en:314
 additives_classes:en: en:antioxidant
 vegan:en:yes
@@ -8232,7 +8231,6 @@ sl:E331(i), Mononatrijev citrat
 sv:E331(i), Mononatriumcitrat
 xx:E331(i)
 e_number:en:331
-wikidata:en:Q6460572
 additives_classes:en: en:emulsifier, en:sequestrant, en:stabiliser
 organic_eu:en:authorized
 wikidata:en:Q4179018
@@ -8268,7 +8266,6 @@ sl:E331(ii), Dinatrijev citrat
 sv:E331(ii), Dinatriumcitrat
 xx:E331(ii)
 e_number:en:331
-wikidata:en:Q6460572
 additives_classes:en: en:emulsifier, en:sequestrant, en:stabiliser
 organic_eu:en:authorized
 wikidata:en:Q4177124
@@ -8326,8 +8323,8 @@ ru:E332, Калиевые цитраты
 sk:E332, Citrán draselný
 sl:E332, Kalijevi citrati
 sv:E332, Kaliumcitrater
-mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabiliser
 xx:E332
+mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabiliser
 e_number:en:332
 wikidata:en:Q419921
 additives_classes:en: en:sequestrant, en:stabiliser
@@ -8357,12 +8354,10 @@ ro:E332(i), Citrat monopotasic
 sk:E332(i). E332(i) food additive
 sl:E332(i), Monokalijev citrat
 sv:E332(i), Monokaliumcitrat
-mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabiliser
 xx:E332(i)
+mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabiliser
 e_number:en:332
-wikidata:en:Q419921
 additives_classes:en: en:sequestrant, en:stabiliser
-wikidata:en:Q63255997
 # additive/e332i-monopotassium-citrate has 3 products in french @2019-04-22
 
 #comment:en:(TRI-)POTASSIUM CITRATE is entered both under the minerals and the additives for the moment.
@@ -8449,8 +8444,8 @@ ru:E333, Цитрат кальция
 sk:E333, Citrát trivápenatý
 sl:E333, E333 food additive
 sv:E333, Kalciumcitrater
-mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabiliser, en:firming-agent
 xx:E333
+mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabiliser, en:firming-agent
 e_number:en:333
 wikidata:en:Q420280
 additives_classes:en: en:sequestrant, en:stabiliser
@@ -8482,8 +8477,8 @@ ro:E333(i), Citrat monocalcic
 sk:E333(i), Citran monovápenatý, Kalcium-citrát
 sl:E333(i), Monokalcijev citrat
 sv:E333(i), Monokalciumcitrat
-mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabiliser, en:firming-agent
 xx:E333(i)
+mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabiliser, en:firming-agent
 e_number:en:333
 wikidata:en:Q420280
 additives_classes:en: en:sequestrant, en:stabiliser
@@ -8545,8 +8540,8 @@ sk:E333(iii), Citran trivápenatý, dicitran trivápenatý
 sl:E333(iii), Trikalcijev citrat
 sv:E333(iii), Trikalciumcitrat
 zh:E333(iii), 柠檬酸钙
-mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabiliser, en:firming-agent
 xx:E333(iii)
+mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabiliser, en:firming-agent
 e_number:en:333
 wikidata:en:Q420280
 additives_classes:en: en:sequestrant, en:stabiliser
@@ -8818,7 +8813,6 @@ xx:E336(ii)
 # azb:E336(ii), پوتاسیوم تارترات
 e_number:en:336
 wikidata:en:Q418064
-wikidata:en:Q65770886
 wikipedia:en:https://en.wikipedia.org/wiki/Potassium_tartrate
 organic_eu:en:authorized
 anses_additives_of_interest:en:yes
@@ -8930,8 +8924,8 @@ sl:E339, natrijev fosfat
 sv:E339, Natriumfosfater, Natriumfosfat
 vi:E339, Natri phosphat
 zh:E339, 磷酸钠
-mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabiliser, en:emulsifier, en:thickener, en:humectant, en:raising-agent
 xx:E339
+mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabiliser, en:emulsifier, en:thickener, en:humectant, en:raising-agent
 e_number:en:339
 wikidata:en:Q3249706
 efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2019.5674
@@ -8983,7 +8977,6 @@ zh:E339(i), 磷酸二氢钠
 xx:E339(i)
 # azb:E339(i), مونوسودیوم فوسفات
 e_number:en:339
-wikidata:en:Q3249706
 additives_classes:en: en:emulsifier, en:humectant, en:preservative, en:sequestrant, en:stabiliser, en:thickener
 anses_additives_of_interest:en:yes
 wikidata:en:Q415877
@@ -9031,7 +9024,6 @@ xx:E339(ii)
 # zh-sg:E339(ii), 磷酸一氢钠
 # zh-tw:E339(ii), 磷酸一氫鈉
 e_number:en:339
-wikidata:en:Q3249706
 additives_classes:en: en:emulsifier, en:humectant, en:preservative, en:sequestrant, en:stabiliser, en:thickener
 anses_additives_of_interest:en:yes
 wikidata:en:Q418448
@@ -9435,8 +9427,7 @@ ta:E343(i), மக்னீசியம் பாசுபேட்டு
 zh:E343(i), 磷酸二氢镁
 xx:E343(i)
 e_number:en:343
-wikipedia:en:https://en.wikipedia.org/wiki/Magnesium_phosphate
-wikidata:en:Q2634889
+# wikipedia:en:https://en.wikipedia.org/wiki/Magnesium_phosphate
 wikidata:en:Q4161317
 wikipedia:en:https://en.wikipedia.org/wiki/Monomagnesium_phosphate
 additives_classes:en: en:stabiliser, en:thickener
@@ -9523,8 +9514,8 @@ ro:E345, Citrat de magneziu
 sk:E345, Citrát horečnatý
 sl:E345, Citrat magnezija
 sv:E345, Magnesiumcitrat
-mandatory_additive_class:en: en:preservative
 xx:E345
+mandatory_additive_class:en: en:preservative
 e_number:en:345
 wikidata:en:Q45044
 vegan:en:yes
@@ -9585,7 +9576,7 @@ sv:E350, natriummalater
 xx:E350
 e_number:en:350
 wikidata:en:Q836788
-wikidata:en:Q27163168
+# wikidata:en:Q27163168
 additives_classes:en: en:humectant
 vegan:en:yes
 vegetarian:en:yes
@@ -9657,7 +9648,6 @@ sl:E350(ii), Natrijev hidrogenmalat
 sv:E350(ii), Natriumvätemalat
 xx:E350(ii)
 e_number:en:350
-wikidata:en:Q836788
 additives_classes:en: en:humectant
 wikidata:en:Q42807545
 # ingredient/fr:malate-acide-de-sodium has 125 products in 5 languages @2019-05-06
@@ -10166,8 +10156,8 @@ ro:E375, Acid nicotinic, Niacină, Nicotinamidă
 sk:E375, Kyselina nikotínová, Niacín, Nikotínamid
 sl:E375, Nikotinska kislina, Niacin, Nikotinamid
 sv:E375, Nikotinsyra, Niacin, Nikotinamid
-mandatory_additive_class:en: en:colour-retention-agent
 xx:E375
+mandatory_additive_class:en: en:colour-retention-agent
 e_number:en:375
 vegan:en:maybe
 vegetarian:en:maybe
@@ -10225,8 +10215,8 @@ ro:E381, citrat feric de amoniu
 sk:E381, citran amónno-železitý
 sl:E381, železov amonijev citrat
 sv:E381, ferriammoniumcitrat
-comment:en:FERRIC AMMONIUM CITRATE is for the moment listed in both the additves and ingredients taxonomy.
 xx:E381
+comment:en:FERRIC AMMONIUM CITRATE is for the moment listed in both the additves and ingredients taxonomy.
 e_number:en:381
 wikidata:en:Q473522
 vegan:en:yes
@@ -10260,8 +10250,8 @@ sk:E383, glycerofosforečnan vápenatý
 sl:E383, kalcijev glicerofosfat
 sr:E383, Kalcijum glicerilfosfat
 sv:E383, kalciumglycerolfosfat
-comment:en:CALCIUM GLYCEROPHOSPHATE is for the moment listed in both the additves and ingredients taxonomy.
 xx:E383
+comment:en:CALCIUM GLYCEROPHOSPHATE is for the moment listed in both the additves and ingredients taxonomy.
 e_number:en:383
 wikidata:en:Q4119838
 wikipedia:en:https://en.wikipedia.org/wiki/Calcium_glycerylphosphate
@@ -12532,7 +12522,6 @@ sl:E440(ii), Amidirani pektin
 sv:E440(ii), Amiderat pektin
 xx:E440(ii)
 e_number:en:440
-wikidata:en:Q188154
 additives_classes:en: en:emulsifier, en:stabiliser, en:thickener
 wikidata:en:Q42807519
 # fr:pectine-amidée has 74 products in 1 language @2018-11-03
@@ -14243,8 +14232,8 @@ ro:E470a, Săruri de sodiu/potasiu și calciu ale acizilor grași
 sk:E470a, Sodné/draselné a vápenaté soli mastných kyselín
 sl:E470a, Natrijeve/kalijeve in kalcijeve soli maščobnih kislin
 sv:E470a, Natrium-/kalium- och kalciumsalter av fettsyror
-additives_classes:en: en:emulsifier, en:stabiliser, en:thickener
 xx:E470a
+additives_classes:en: en:emulsifier, en:stabiliser, en:thickener
 e_number:en:470a
 vegan:en:maybe
 vegetarian:en:maybe
@@ -14256,8 +14245,8 @@ en:E470a(i), Sodium salts of fatty acids
 fi:E470a(i), Rasvahappojen natriumsuolat, Rasvahappojen natriumsuoloja
 hu:E470a(i), Zsírsavak nátriumsói
 ro:E470a(i), Săruri de sodiu ale acizilor grași
-additives_classes:en: en:emulsifier, en:stabiliser, en:thickener
 xx:E470a(i)
+additives_classes:en: en:emulsifier, en:stabiliser, en:thickener
 e_number:en:470a
 
 <en:E470a
@@ -14265,8 +14254,8 @@ en:E470a(ii), Potassium salts of fatty acids
 fi:E470a(ii), Rasvahappojen kaliumsuolat, Rasvahappojen kaliumsuoloja
 hu:E470a(ii), Zsírsavak káliumsói
 ro:E470a(ii), Săruri de potasiu ale acizilor grași
-additives_classes:en: en:emulsifier, en:stabiliser, en:thickener
 xx:E470a(ii)
+additives_classes:en: en:emulsifier, en:stabiliser, en:thickener
 e_number:en:470a
 
 <en:E470a
@@ -14274,8 +14263,8 @@ en:E470a(iii), Calcium salts of fatty acids
 fi:E470a(iii), Rasvahappojen kalsiumsuolat, Rasvahappojen kalsiumsuoloja
 hu:E470a(iii), Zsírsavak kalciumsói
 ro:E470a(iii), Săruri de calciu ale acizilor grași
-additives_classes:en: en:emulsifier, en:stabiliser, en:thickener
 xx:E470a(iii)
+additives_classes:en: en:emulsifier, en:stabiliser, en:thickener
 e_number:en:470a
 
 en:E470b, Magnesium salts of fatty acids
@@ -14303,8 +14292,8 @@ ro:E470b, Săruri de magneziu ale acizilor grași
 sk:E470b, Horečnaté soli mastných kyselín
 sl:E470b, Magnezijeve soli maščobnih kislin
 sv:E470b, Magnesiumsalter av fettsyror
-additives_classes:en: en:emulsifier, en:stabiliser, en:thickener
 xx:E470b
+additives_classes:en: en:emulsifier, en:stabiliser, en:thickener
 e_number:en:470b
 vegan:en:maybe
 vegetarian:en:maybe
@@ -14348,7 +14337,6 @@ vegan:en:maybe
 vegetarian:en:maybe
 from_palm_oil:en:maybe
 #description:en:MONO- AND DIGLYCERIDES OF FATTY ACIDS (E471) refers to a food additive composed of diglycerides and monoglycerides which is used as an emulsifier.
-wikidata:en:Q416711
 wikipedia:en:https://en.wikipedia.org/wiki/Mono-_and_diglycerides_of_fatty_acids
 # mono—and-diglycerides-of-fatty-acids has 2139 products in 19 languages @2018-11-12
 # fr:diglycérides-d’acide-gras has 2301 products in 11 languages @2018-11-12
@@ -14687,7 +14675,6 @@ sl:E473, Saharozni estri maščobnih kislin, saharozni estri
 sv:E473, Sackarosestrar av fettsyror, Sackarosestrar
 xx:E473
 e_number:en:473
-wikidata:en:Q32418
 efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2018.5087
 efsa_evaluation_date:en: 2018/01/05
 efsa_evaluation:en: Refined exposure assessment of sucrose esters of fatty acids (E 473) from its use as a food additive
@@ -14804,7 +14791,6 @@ sl:E475, Poliglicerolni estri maščobnih kislin
 sv:E475, Polyglycerolestrar av fettsyror
 xx:E475
 e_number:en:475
-wikidata:en:Q4037764
 additives_classes:en: en:emulsifier, en:stabiliser
 vegan:en:maybe
 vegetarian:en:maybe
@@ -14948,8 +14934,8 @@ ro:E479b, Ulei de soia oxidat termic interacționat cu mono- și digliceridele a
 sk:E479b, Tepelne zoxidovaný olej sójových bôbov zreagovaný s mono- a diglyceridmi mastných kyselín
 sl:E479b, Toplotno oksidirano sojino olje, v interakciji z mono- in digliceridi maščobnih kislin
 sv:E479b, Termiskt oxiderad sojabönsolja som reagerat med mono- och diglycerider av fettsyror
-additives_classes:en: en:emulsifier
 xx:E479b
+additives_classes:en: en:emulsifier
 e_number:en:479b
 vegan:en:maybe
 vegetarian:en:maybe
@@ -15733,7 +15719,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sodium_bicarbonate
 # fr:500ii has 403 products @2018-11-03
 e_number:en:500
 wikidata:en:Q179731
-wikidata:en:Q190227
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2013.3152
 efsa_evaluation_date:en: 2013-04-09
 efsa_evaluation:en: Scientific Opinion on the safety evaluation of the active substances citric acid (E330) and sodium hydrogen carbonate (E500ii), used as carbon dioxide generators, together with liquid absorbers cellulose and polyacrylic acid sodium salt crosslinked, in active food contact materials.
@@ -15775,7 +15760,6 @@ sv:E500(iii), Natriumseskvikarbonat
 zh:E500(iii), 鈉倍半
 xx:E500(iii)
 e_number:en:500
-wikidata:en:Q190227
 wikidata:en:Q2234978
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2013.3152
 efsa_evaluation_date:en: 2013-04-09
@@ -15808,8 +15792,8 @@ ro:E501, Carbonați de potasiu
 sk:E501, uhličitany draselné
 sl:E501, E501 food additive
 sv:E501, Kaliumkarbonater
-comment:en:Use plural for E501 and singular for E501i.
 xx:E501
+comment:en:Use plural for E501 and singular for E501i.
 e_number:en:501
 mandatory_additive_class:en: en:acidity-regulator
 wikidata:en:Q379885
@@ -15945,7 +15929,6 @@ xx:E501(ii)
 # zh-sg:E501(ii), 碳酸氢钾
 # zh-tw:E501(ii), 碳酸氫鉀
 e_number:en:501
-wikidata:en:Q379885
 additives_classes:en: en:stabiliser
 organic_eu:en:authorized
 # description:en:POTASSIUM BICARBONATE (also known as potassium hydrogen carbonate or potassium acid carbonate) is the inorganic compound with the chemical formula KHCO3. This compound is a source of carbon dioxide for leavening in baking. As an inexpensive, nontoxic base, it is widely used in diverse application to regulate pH or as a reagent. Examples include as buffering agent in medications, an additive in winemaking. Potassium bicarbonate is often found added to club soda to improve taste, to soften the effect of effervescence.
@@ -16126,7 +16109,6 @@ wikidata:en:Q421123
 wikipedia:en:https://en.wikipedia.org/wiki/Ammonium_bicarbonate
 # additive/e503ii-ammonium-hydrogen-carbonate has 1665 products in 23 languages @2019-04-05
 e_number:en:503
-wikidata:en:Q204873
 organic_eu:en:authorized
 description:en:AMMONIUM BICARBONATE is an inorganic compound with formula (NH4)HCO3, simplified to NH5CO3. Ammonium bicarbonate is used in the food industry as a raising agent for flat baked goods, such as cookies and crackers, and in China in steamed buns and Chinese almond cookies. It was commonly used in the home before modern day baking powder was made available.
 
@@ -16217,7 +16199,7 @@ xx:E504(i)
 # zh-sg:E504(i), 碳酸镁
 # zh-tw:E504(i), 碳酸鎂
 e_number:en:504
-mandatory_additive_class:en: en:acidity-regulator,en:anticaking-agent
+mandatory_additive_class:en: en:acidity-regulator, en:anti-caking-agent
 wikidata:en:Q407931
 additives_classes:en: en:carrier
 organic_eu:en:authorized
@@ -16343,8 +16325,8 @@ ro:E508, Clorură de potasiu, Silvină
 sk:E508, Chlorid draselný, Sylvín
 sl:E508, Kalijev klorid
 sv:E508, Kaliumklorid, Sylvin
-mandatory_additive_class:en: en:flavour-enhancer, en:stabiliser, en:thickener
 xx:E508
+mandatory_additive_class:en: en:flavour-enhancer, en:stabiliser, en:thickener
 e_number:en:508
 wikidata:en:Q184630
 efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2019.5751
@@ -16550,8 +16532,8 @@ ro:E511, Clorură de magneziu
 sk:E511, Chlorid horečnatý
 sl:E511, Magnezijev klorid
 sv:E511, Magnesiumklorid
-mandatory_additive_class:en: en:acidity-regulator, en:firming-agent, en:sequestrant, en:colour-retention-agent
 xx:E511
+mandatory_additive_class:en: en:acidity-regulator, en:firming-agent, en:sequestrant, en:colour-retention-agent
 e_number:en:511
 wikidata:en:Q265414
 efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2019.5751
@@ -16920,8 +16902,8 @@ ro:E518, Sulfat de magneziu
 sk:E518, E518 food additive
 sl:E518, Magnezijev sulfat
 sv:E518, Magnesiumsulfat
-mandatory_additive_class:en: en:flavour-enhancer, en:firming-agent
 xx:E518
+mandatory_additive_class:en: en:flavour-enhancer, en:firming-agent
 e_number:en:518
 wikidata:en:Q288266
 vegan:en:yes
@@ -16950,8 +16932,8 @@ ro:E519, Sulfat de cupru, Piatră vânătă
 sk:E519, Síran meďnatý, Modrá skalica
 sl:E519, Bakrov(II) sulfat, Modra galica, CuSO4, Bakrov sulfat
 sv:E519, Kopparsulfat, Koppar(II)sulfat, Kopparvitriol, Blå vitriol, CuSO4
-mandatory_additive_class:en: en:colour-retention-agent, en:preservative
 xx:E519
+mandatory_additive_class:en: en:colour-retention-agent, en:preservative
 e_number:en:519
 wikidata:en:Q107184
 vegan:en:yes
@@ -17273,8 +17255,8 @@ ru:E526, Гидроксид кальция, Гашеная известь, Ка�
 sk:E526, Hydroxid vápenatý, Hasené vápno, Vápenné mlieko
 sl:E526, Kalcijev hidroksid, gašeno apno
 sv:E526, Kalciumhydroxid, Släckt kalk
-mandatory_additive_class:en: en:acidity-regulator, en:firming-agent
 xx:E526
+mandatory_additive_class:en: en:acidity-regulator, en:firming-agent
 e_number:en:526
 wikidata:en:Q182849
 vegan:en:yes
@@ -17303,8 +17285,8 @@ ro:E527, Hidroxid de amoniu, Apă amoniacală, Hidroxidul de amoniu
 sk:E527, Hydroxid amónny, Čpavková voda, Čpavok
 sl:E527, Amonijev hidroksid, amoniak
 sv:E527, Ammoniumhydroxid, Ammoniaklösning, E 527
-mandatory_additive_class:en: en:acidity-regulator
 xx:E527
+mandatory_additive_class:en: en:acidity-regulator
 e_number:en:527
 wikidata:en:Q421888
 vegan:en:yes
@@ -17482,7 +17464,7 @@ xx:E530
 # sr-ec:E530, магнезијум оксид
 # wuu:E530, 氧化镁
 e_number:en:530
-mandatory_additive_class:en: en:acidity-regulator, en:anticaking-agent
+mandatory_additive_class:en: en:acidity-regulator, en:anti-caking-agent
 wikidata:en:Q214769
 vegan:en:yes
 vegetarian:en:yes
@@ -17807,8 +17789,8 @@ ro:E553a, E553a food additive
 sk:E553a, E553a food additive
 sl:E553a, E553a food additive
 sv:E553a, E553a food additive
-additives_classes:en: en:thickener
 xx:E553a
+additives_classes:en: en:thickener
 e_number:en:553a
 organic_eu:en:authorized
 vegan:en:yes
@@ -17818,8 +17800,8 @@ vegetarian:en:yes
 <en:E553a
 en:E553a(i), Synthetic magnesium silicate
 sv:E553a(i), syntetisk Magnesiumsilikat
-additives_classes:en: en:thickener
 xx:E553a(i)
+additives_classes:en: en:thickener
 e_number:en:553a
 organic_eu:en:authorized
 
@@ -17847,8 +17829,8 @@ ro:E553a(ii), Trisilicat de magneziu
 sk:E553a(ii), Trikremičitan horečnatý
 sl:E553a(ii), Magnezijev trisilikat
 sv:E553a(ii), Magnesiumtrisilikat
-additives_classes:en: en:thickener
 xx:E553a(ii)
+additives_classes:en: en:thickener
 e_number:en:553a
 organic_eu:en:authorized
 
@@ -18293,8 +18275,8 @@ ro:E574, Acid gluconic, Acid D-gluconic
 sk:E574, Kyselina glukónová, kyselina D-glukónová
 sl:E574, Glukonska kislina, D–glukonska kislina
 sv:E574, Glukonsyra, D-Glukonsyra
-mandatory_additive_class:en: en:acidity-regulator, en:raising-agent
 xx:E574
+mandatory_additive_class:en: en:acidity-regulator, en:raising-agent
 e_number:en:574
 wikidata:en:Q407569
 vegan:en:yes
@@ -19199,7 +19181,6 @@ wikidata:en:Q18967210
 vegan:en:maybe
 vegetarian:en:maybe
 # description:en:DISODIUM 5'-RIBONUCLEOTIDES, E number E635, is a flavor enhancer which is synergistic with glutamates in creating the taste of umami.
-wikidata:en:Q421286
 wikipedia:en:https://en.wikipedia.org/wiki/Disodium_ribonucleotides
 # additive/e635-disodium-5-ribonucleotide has 454 products in 21 languages @2019-01-05
 
@@ -20064,7 +20045,6 @@ xx:E905b
 #zh-hk:E905b, 凡士林
 # zh-sg:E905b, 凡士林
 # zh-tw:E905b, 凡士林
-wikidata:en:Q579764
 wikidata:en:Q457239
 #synchronised with wikidata 21-08-2020
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2013.3146
@@ -20711,8 +20691,8 @@ tr:E917, Potasyum iyodat
 uk:E917, Йодат калію
 vi:E917, Kali iodat
 zh:E917, 碘酸钾
-comment:en:POTASSIUM IODATE is for the moment listed in both the additves and ingredients taxonomy.
 xx:E917
+comment:en:POTASSIUM IODATE is for the moment listed in both the additves and ingredients taxonomy.
 #azb:E917, پوتاسیوم یدات
 #zh-cn:E917, 碘酸钾
 #zh-hans:E917, 碘酸钾
@@ -21633,7 +21613,7 @@ xx:E941
 # zh-tw:941, 氮
 e_number:en:941
 wikidata:en:Q627
-additives_classes:en: en:propellant
+additives_classes:en: en:propellent-gas
 organic_eu:en:authorized
 vegan:en:yes
 vegetarian:en:yes
@@ -21708,7 +21688,7 @@ xx:E942
 # yue:E942, 笑氣
 e_number:en:942
 wikidata:en:Q905750
-additives_classes:en: en:antioxidant, en:propellant
+additives_classes:en: en:antioxidant, en:propellent-gas
 vegan:en:yes
 vegetarian:en:yes
 # description:en:NITROUS OXIDE, commonly known as laughing gas or nitrous, is a chemical compound, an oxide of nitrogen with the formula N2O.
@@ -23053,7 +23033,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Amylase
 # description:en:AMYLASE are enzymes that catalyse the hydrolysis of starch into sugars.
 # comment:en:when indicated, probably alpha-amylase is meant
 # alpha-amylase, (α-amylase) is a protein enzyme EC 3.2.1.1 that hydrolyses alpha bonds of large, alpha-linked polysaccharides, such as starch and glycogen, yielding glucose and maltose.
-wikipedia:en:https://en.wikipedia.org/wiki/Alpha-amylase
+# wikipedia:en:https://en.wikipedia.org/wiki/Alpha-amylase
 # additive/e1100-alpha-amylase has 518 products @2019-02-01
 
 en:E1101, Protease, peptidase, proteinase, EC 3.4, E-1101, E 1101
@@ -23336,7 +23316,6 @@ xx:E1105
 # zh-sg:E1105, 溶菌酶
 # zh-tw:E1105, 溶菌酶
 e_number:en:1105
-wikidata:en:Q273144
 additives_classes:en: en:preservative
 vegan:en:maybe
 vegetarian:en:yes
@@ -24645,3 +24624,4 @@ ja:有機酸
 
 en:Inorganic salts
 ja:無機塩
+

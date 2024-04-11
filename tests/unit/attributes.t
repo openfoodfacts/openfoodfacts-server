@@ -1,9 +1,13 @@
 #!/usr/bin/perl -w
 
 use Modern::Perl '2017';
+no warnings qw(experimental::signatures);
+
 use utf8;
 
-use Test::More;
+use Test2::V0;
+use Data::Dumper;
+$Data::Dumper::Terse = 1;
 use Log::Any::Adapter 'TAP';
 
 use JSON::PP;
@@ -213,7 +217,7 @@ foreach my $test_ref (@tests) {
 		return;
 	}
 
-	walk $product_ref, sub {$_[0] =~ s/https?:\/\/([^\/]+)\//https:\/\/server_domain\//;};
+	walk $product_ref, sub {return unless defined $_[0]; $_[0] =~ s/https?:\/\/([^\/]+)\//https:\/\/server_domain\//;};
 
 	# Save the result
 
@@ -230,10 +234,10 @@ foreach my $test_ref (@tests) {
 
 		local $/;    #Enable 'slurp' mode
 		my $expected_product_ref = $json->decode(<$expected_result>);
-		is_deeply($product_ref, $expected_product_ref) or diag explain $product_ref;
+		is($product_ref, $expected_product_ref) or diag Dumper $product_ref;
 	}
 	else {
-		diag explain $product_ref;
+		diag Dumper $product_ref;
 		fail("could not load $expected_result_dir/$testid.json");
 	}
 }

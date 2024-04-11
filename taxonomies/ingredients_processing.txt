@@ -372,7 +372,8 @@ cs:strouhaný
 de:gerieben, geriebener, geriebene, geriebenes, geraspelt, geraspelte, geraspelter, geraspeltes
 es:rallada, rallado, ralladas, rallados, rayada, rayado, rayadas, rayados
 fi:raastettu, raastetut
-fr:râpé, râpée, râpés, râpées
+# we need both râpé and rapé listed for matching in ingredients analysis
+fr:râpé, râpée, râpés, râpées, rapé, rapée, rapés, rapées
 hr:naribani, ribana, ribani
 hu:reszelt, reszelve
 it:grattugiato, grattugiata, grattugiati, grattugiate
@@ -2012,7 +2013,7 @@ en:unsalted, un-salted
 ca:sense sal
 de:ungesalzen, ungesalzene
 es:sin sal
-fr:non salée, non-salée
+fr:non salé, non salée, non salés, non salées
 it:senza sale, non salato
 nl:ongezouten
 pl:bez soli, niesolone
@@ -2038,7 +2039,7 @@ hr:koncentrat za zaslađivanje
 
 en:unsweetened
 de:ungesüßt, ungesüßte, ungesüßter, ungesüßtes
-fr:non sucré, non sucrée
+fr:non sucré, non sucrée, non sucrés, non sucrées
 it:non zuccherato, non zuccherati, senza zucchero aggiunto, senza zuccheri aggiunti
 pl:niesłodzony, niesłodzona, niesłodzone
 pt:não adoçado, não adoçada, não adoçados, não adoçadas, não adocicado, não adocicada, não adocicados, não adocicadas, não açucarado, não açucarada, não açucarados, não açucaradas, sem açúcar, sem açúcares

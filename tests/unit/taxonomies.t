@@ -3,7 +3,7 @@
 use Modern::Perl '2017';
 use utf8;
 
-use Test::More;
+use Test2::V0;
 use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Test qw/init_expected_results/;
