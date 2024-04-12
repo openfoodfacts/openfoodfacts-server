@@ -2798,54 +2798,31 @@ This function is called by the web/panels/panel.tt.html template for knowledge p
 
 =cut
 
+my %actions_urls = (
+	edit_product => "",
+	add_categories => "#categories",
+	add_ingredients_image => "#ingredients",
+	add_ingredients_text => "#ingredients",
+	add_nutrition_facts_image => "#nutrition",
+	add_nutrition_facts => "#nutrition",
+	add_packaging_image => "#packaging",
+	add_packaging_text => "#packaging",
+	add_packaging_components => "#packaging",
+	add_origins => "#origins",
+	add_quantity => "#product_characteristics",
+	add_stores => "#stores",
+	add_packager_codes_image => "#packager_codes",
+	add_labels => "#labels",
+	add_countries => "#countries",
+);
+
 sub product_action_url ($code, $action) {
 
 	my $url = "/cgi/product.pl?type=edit&code=" . $code;
 
-	if ($action eq "add_categories") {
-		$url .= "#categories";
+	if (defined $actions_urls{$action}) {
+		$url .= $actions_urls{$action};
 	}
-	elsif ($action eq "add_ingredients_image") {
-		$url .= "#ingredients";
-	}
-	elsif ($action eq "add_ingredients_text") {
-		$url .= "#ingredients";
-	}
-	elsif ($action eq "add_nutrition_facts_image") {
-		$url .= "#nutrition";
-	}
-	elsif ($action eq "add_nutrition_facts") {
-		$url .= "#nutrition";
-	}
-	elsif ($action eq "add_packaging_image") {
-		$url .= "#packaging";
-	}
-	elsif ($action eq "add_packaging_text") {
-		$url .= "#packaging";
-	}
-	elsif ($action eq "add_packaging_components") {
-		$url .= "#packaging";
-	}
-	# Note: 27/11/2022 - Pierre - The following HTML anchors links will do nothing unless a matching custom HTML anchor is added in the future to the product edition template
-	elsif ($action eq "add_origins") {
-		$url .= "#origins";
-	}
-	elsif ($action eq "add_quantity") {
-		$url .= "#product_characteristics";
-	}
-	elsif ($action eq "add_stores") {
-		$url .= "#stores";
-	}
-	elsif ($action eq "add_packager_codes_image") {
-		$url .= "#packager_codes";
-	}
-	elsif ($action eq "add_labels") {
-		$url .= "#labels";
-	}
-	elsif ($action eq "add_countries") {
-		$url .= "#countries";
-	}
-	# END will do nothing unless a custom section is added
 	else {
 		$log->error("unknown product action", {code => $code, action => $action});
 	}
