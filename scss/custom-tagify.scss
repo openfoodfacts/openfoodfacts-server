@@ -1,85 +1,44 @@
-<<<<<<< HEAD
-
 @import "../node_modules/@yaireo/tagify/src/tagify.scss";
 @import "variables"; 
 
-// Global definitions for CSS custom properties
+
 :root {
-  // Primary color for Tagify dropdown, set for easy theming
   $tagify-dd-color-primary: #341100 !important; 
   --tagify-dd-color-primary: #341100 !important;
 }
 
-// Style adjustments for Tagify input placeholder
+
 .tagify__input::placeholder {
-  color: $dark; // Use dark color for placeholder text as defined in variables
+  color: $dark; 
 }
 
-// Enhance hover state for Tagify tags for better user experience
+
 .tagify__tag:hover {
-  background-color: var(--chocolate);
-  border-color: var(--chocolate-light);
+  background-color: #341100;
 }
 
-// Default style for Tagify tag removal button
-=======
-@import "../node_modules/@yaireo/tagify/src/tagify.scss";
-@import "variables"; 
 
-// Placeholder style for Tagify input
-.tagify__input::placeholder {
-  color: $dark;
-}
-
-// Hover state for Tagify tags
-.tagify__tag:hover {
-  background-color: $chocolate; // Use 'chocolate' for better contrast and theme consistency
-  border-color: lighten($chocolate, 10%); // Lighten the chocolate color for border
-}
-
-// Style for the remove button in tags
->>>>>>> 336c50d8b87fe355cbdfc7d79595992b3fb9dc58
 .tagify__tag .tagify__tag__removeBtn {
   background-color: $text-color-dark;
 }
 
-<<<<<<< HEAD
-// Hover effect for tag removal button, increases visibility and interactivity
+
 .tagify__tag .tagify__tag__removeBtn:hover {
+  
   background-color: var(--chocolate);
 }
 
-// Base styling for dropdown items, setting defaults for readability and aesthetics
 .tagify__dropdown__item {
   background-color: white;
-  border-color: var(--chocolate-lighter);
   color: black;
 }
 
-// Hover state for dropdown items to indicate selection possibility
 .tagify__dropdown__item:hover {
-  background-color: var(--chocolate);
+  background-color: #341100;
   color: white;
 }
 
-// Active state styling for dropdown items to indicate current selection
 .tagify__dropdown__item--active {
-  background-color: var(--chocolate);
+  background-color: #341100;
   color: white;
-=======
-// Hover state for the remove button in tags
-.tagify__tag .tagify__tag__removeBtn:hover {
-  background-color: $chocolate; // Same 'chocolate' color for consistency
-}
-
-// Hover state for dropdown items
-.tagify__dropdown__item--active,
-.tagify__dropdown__item:hover {
-  background-color: $chocolate; // Again, using 'chocolate' for hover state
-}
-
-// Style for dropdown items
-.tagify__dropdown__item {
-  border-color: lighten($chocolate, 20%); // Lighten for subtle borders
->>>>>>> 336c50d8b87fe355cbdfc7d79595992b3fb9dc58
 }
