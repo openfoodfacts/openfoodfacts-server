@@ -438,7 +438,7 @@ $template_data_ref->{org_members} = \@org_members;
 $template_data_ref->{user_is_admin} = \%user_is_admin;
 $template_data_ref->{current_user_id} = $User_id;
 
-$tt->process('web/pages/org_form/org_form.tt.html', $template_data_ref, \$html)
+process_template('web/pages/org_form/org_form.tt.html', $template_data_ref, \$html)
 	or $html = "<p>template error: " . $tt->error() . "</p>";
 
 $request_ref->{title} = $title;
