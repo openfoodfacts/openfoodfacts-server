@@ -30,7 +30,7 @@ use ProductOpener::Store qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Users qw/$User_id retrieve_user/;
 use ProductOpener::Lang qw/lang/;
-use ProductOpener::Auth qw/password_signin/;
+use ProductOpener::Auth qw/password_signin access_to_protected_resource/;
 
 use Apache2::Const -compile => qw/OK :http/;
 use CGI qw/:cgi :form escapeHTML/;
@@ -56,8 +56,9 @@ if (defined $User_id) {
 
 if (not($final_status_set) and (not($ENV{'REQUEST_METHOD'} eq 'POST'))) {
 	# After OIDC/Keycloak integration, the original login form is no longer used.
-	# This file is only kept around temporarily to handle the old form from integration tests.
-	$status_code = Apache2::Const::HTTP_METHOD_NOT_ALLOWED;
+	# However, some external sites (ie. Hunger Games) may still be using it.
+	$request_ref->{return_url} = single_param('redirect');
+	access_to_protected_resource($request_ref);
 	$final_status_set = 1;
 }
 

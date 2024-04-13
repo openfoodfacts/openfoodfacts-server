@@ -972,13 +972,13 @@ sub process_auth_header ($request_ref, $r) {
 	my $user_id = get_user_id_using_token($access_token);
 	unless (defined $user_id) {
 		$log->info('User not found and not created') if $log->is_info();
-		display_error_and_exit('Internal error', 500);
+		display_error_and_exit($request_ref, 'Internal error', 500);
 	}
 
 	my $user_ref = retrieve_user($user_id);
 	unless (defined $user_ref) {
 		$log->info('User not found', {user_id => $user_id}) if $log->is_info();
-		display_error_and_exit('Internal error', 500);
+		display_error_and_exit($request_ref, 'Internal error', 500);
 	}
 
 	$log->debug('user_id found', {user_id => $user_id}) if $log->is_debug();

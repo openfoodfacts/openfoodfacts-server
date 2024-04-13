@@ -33,7 +33,7 @@ use ProductOpener::PerlStandards;
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Auth qw/access_to_protected_resource/;
-use ProductOpener::Display qw/init_request/;
+use ProductOpener::Display qw/init_request single_param/;
 use ProductOpener::Routing qw/analyze_request/;
 
 use Log::Any qw($log);
@@ -43,6 +43,7 @@ $log->info('start') if $log->is_info();
 my $request_ref = init_request();
 analyze_request($request_ref);
 
+$request_ref->{return_url} = single_param('return_url');
 access_to_protected_resource($request_ref);
 
 1;

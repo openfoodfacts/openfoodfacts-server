@@ -110,7 +110,7 @@ None
 sub start_authorize ($request_ref) {
 	# random private token to identify the sign-in process
 	my $nonce = generate_token(64);
-	my $return_url = single_param('return_url');
+	my $return_url = $request_ref->{return_url};
 	if (   (not $return_url)
 		or (not($return_url =~ /^https?:\/\/$subdomain\.$server_domain/)))
 	{
@@ -162,7 +162,7 @@ sub signin_callback ($request_ref) {
 	my $access_token = $current_client->get_access_token(
 		code => $code,
 		redirect_uri => $callback_uri,
-	) or display_error_and_exit($current_client->errstr, 500);
+	) or display_error_and_exit($request_ref, $current_client->errstr, 500);
 	$log->info('got access token during callback', {access_token => $access_token}) if $log->is_info();
 
 	my %cookie_ref = cookie($cookie_name);
@@ -170,26 +170,26 @@ sub signin_callback ($request_ref) {
 	my $nonce = $cookie_ref{'nonce'};
 	if (not($state eq $nonce)) {
 		$log->info('unexpected nonce', {nonce => $nonce, expected_nonce => $state}) if $log->is_info();
-		display_error_and_exit('Invalid Nonce during OIDC login', 500);
+		display_error_and_exit($request_ref, 'Invalid Nonce during OIDC login', 500);
 	}
 
 	# validation against JWKS
 	my $id_token = verify_id_token($access_token->id_token);
 	unless ($id_token) {
 		$log->info('id token did not verify') if $log->is_info();
-		display_error_and_exit('Authentication error', 401);
+		display_error_and_exit($request_ref, 'Authentication error', 401);
 	}
 
 	my $user_id = get_user_id_using_token($id_token);
 	unless (defined $user_id) {
 		$log->info('User not found and not created') if $log->is_info();
-		display_error_and_exit('Internal error', 500);
+		display_error_and_exit($request_ref, 'Internal error', 500);
 	}
 
 	my $user_ref = retrieve_user($user_id);
 	unless ($user_ref) {
 		$log->info('User not found', {user_id => $user_id}) if $log->is_info();
-		display_error_and_exit('Internal error', 500);
+		display_error_and_exit($request_ref, 'Internal error', 500);
 	}
 
 	$log->debug('user found', {user_ref => $user_ref}) if $log->is_debug();
@@ -459,7 +459,7 @@ sub signout_callback ($request_ref) {
 	my $nonce = $cookie_ref{'nonce'};
 	if (not($state eq $nonce)) {
 		$log->info('unexpected nonce', {nonce => $nonce, expected_nonce => $state}) if $log->is_info();
-		display_error_and_exit('Invalid Nonce during OIDC logout', 500);
+		display_error_and_exit($request_ref, 'Invalid Nonce during OIDC logout', 500);
 	}
 
 	param('length', 'logout');

@@ -32,7 +32,7 @@ use URI::Escape::XS qw/uri_escape/;
 my $request_ref = ProductOpener::Display::init_request();
 
 unless ((defined $oidc_options{keycloak_base_url}) and (defined $oidc_options{keycloak_realm_name})) {
-	display_error_and_exit('File not found.', 404);
+	display_error_and_exit($request_ref, 'File not found.', 404);
 }
 
 my $redirect
