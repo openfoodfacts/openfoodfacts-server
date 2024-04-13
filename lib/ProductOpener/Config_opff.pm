@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2024 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -18,6 +18,8 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+## no critic (RequireFilenameMatchesPackage);
+
 package ProductOpener::Config;
 
 use utf8;
@@ -29,13 +31,13 @@ BEGIN {
 	@EXPORT_OK = qw(
 		%string_normalization_for_lang
 		%admins
-		%moderators
 
 		$server_domain
 		@ssl_subdomains
 		$conf_root
 		$data_root
 		$www_root
+		$sftp_root
 		$geolite2_path
 		$reference_timezone
 		$contact_email
@@ -48,11 +50,15 @@ BEGIN {
 		$crowdin_project_identifier
 		$crowdin_project_key
 
+		$log_emails
 		$robotoff_url
 		$query_url
 		$events_url
 		$events_username
 		$events_password
+
+		$facets_kp_url
+		$redis_url
 
 		$mongodb
 		$mongodb_host
@@ -87,6 +93,8 @@ BEGIN {
 		%weblink_templates
 
 		@edit_rules
+
+		$build_cache_repo
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -103,6 +111,8 @@ use ProductOpener::Config2;
 # - dangerous if different words (in the same context like ingredients or category names) have the same unaccented form
 # lowercase:
 # - useful when the same word appears in lowercase, with a first capital letter, or in all caps.
+
+# IMPORTANT: if you change it, you need to change $BUILD_TAGS_VERSION in Tags.pm
 
 %string_normalization_for_lang = (
 	# no_language is used for strings that are not in a specific language (e.g. user names)
@@ -147,36 +157,19 @@ use ProductOpener::Config2;
 );
 
 %admins = map {$_ => 1} qw(
-	agamitsudo
-	aleene
-	bcatelin
-	bojackhorseman
+	alex-off
+	cha-delh
 	charlesnepote
+	gala-nafikova
 	hangy
-	javichu
-	kyzh
-	lafel
-	lucaa
-	mbe
-	moon-rabbit
+	manoncorneille
 	raphael0202
-	sebleouf
-	segundo
 	stephane
 	tacinte
-	tacite
 	teolemon
-	twoflower
-
-	jniderkorn
-	desan
-	cedagaesse
-	m-etchebarne
 );
 
-%moderators = map {$_ => 1} qw(
-
-);
+$options{product_type} = "petfood";
 
 @edit_rules = ();
 
@@ -215,6 +208,8 @@ $events_password = $ProductOpener::Config2::events_password;
 # server options
 
 %server_options = %ProductOpener::Config2::server_options;
+
+$build_cache_repo = $ProductOpener::Config2::build_cache_repo;
 
 $reference_timezone = 'Europe/Paris';
 

@@ -56,7 +56,6 @@ BEGIN {
 		&escape_char
 		&escape_single_quote_and_newlines
 
-		&remove_tags
 		&remove_tags_and_quote
 		&xml_escape
 		&regexp_escape
@@ -116,16 +115,16 @@ sub normalize_percentages ($text, $locale) {
 
 }
 
-%ProductOpener::Text::cldrs = ();
+my %cldrs = ();
 
 sub _get_cldr ($locale) {
 
-	if (defined $ProductOpener::Text::cldrs{$locale}) {
-		return $ProductOpener::Text::cldrs{$locale};
+	if (defined $cldrs{$locale}) {
+		return $cldrs{$locale};
 	}
 
 	my $cldr = CLDR::Number->new(locale => $locale);
-	$ProductOpener::Text::cldrs{$locale} = $cldr;
+	$cldrs{$locale} = $cldr;
 	return $cldr;
 
 }
@@ -169,6 +168,7 @@ Escape character $char in string $s
 
 This is use in templates to say escape single quote or double quote
 for expressions displayed with single/double quotes (in json or HTML for example)
+
 =cut
 
 sub escape_char($s, $char) {
@@ -240,12 +240,12 @@ sub get_percent_formatter ($locale, $maximum_fraction_digits) {
 
 }
 
-%ProductOpener::Text::regexes = ();
+my %regexes = ();
 
 sub _get_locale_percent_regex ($cldr, $perf, $locale) {
 
-	if (defined $ProductOpener::Text::regexes{$locale}) {
-		return $ProductOpener::Text::regexes{$locale};
+	if (defined $regexes{$locale}) {
+		return $regexes{$locale};
 	}
 
 	# this should escape '.' to '\.' to be used in the regex ...
@@ -263,7 +263,7 @@ sub _get_locale_percent_regex ($cldr, $perf, $locale) {
 		$regex = qr/([$p$m]?(?:\d{1,3}$g)*\d+(?:($d|\.)\d+)*\h*%)/;
 	}
 
-	$ProductOpener::Text::regexes{$locale} = $regex;
+	$regexes{$locale} = $regex;
 	return $regex;
 
 }

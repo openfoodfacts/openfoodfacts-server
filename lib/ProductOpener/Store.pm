@@ -45,8 +45,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/:all/;
 
 use Storable qw(lock_store lock_nstore lock_retrieve);
-use Encode;
-use Encode::Punycode;
+
 use URI::Escape::XS;
 use Unicode::Normalize;
 use Log::Any qw($log);
@@ -86,6 +85,9 @@ sub unac_string_perl ($s) {
 # 3. turn ascii characters that are not letters / numbers to -
 # 4. keep other UTF-8 characters (e.g. Chinese, Japanese, Korean, Arabic, Hebrew etc.) untouched
 # 5. remove leading and trailing -, turn multiple - to -
+
+# IMPORTANT: if you change the behaviour of this method,
+# you need to change $BUILD_TAGS_VERSION in Tags.pm
 
 sub get_string_id_for_lang ($lc, $string) {
 

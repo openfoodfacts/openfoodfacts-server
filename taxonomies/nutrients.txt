@@ -8,6 +8,7 @@
 # - The "automatically_computed:en: yes" property is used for nutrients (or scores) that are not entered by users, but computed by Product Opener
 # (e.g. the NOVA group, Nutrition score, % of fruits/vegetables estimated by ingredients analysis etc.)
 # See also: https://wiki.openfoodfacts.org/Nutrients_handling_in_Open_Food_Facts
+# DV (Daily Value) for minerals and vitamins in the US: https://www.fda.gov/food/nutrition-facts-label/daily-value-nutrition-and-supplement-facts-labels
 
 stopwords:en: including, of, which
 stopwords:fr: dont
@@ -1127,7 +1128,6 @@ fr:Acides gras polyinsaturés, Acides gras poly-insaturés, polyinsaturés, poly
 ga:Pola-neamhsháitheáin saill
 he:שומן רב בלתי רווי
 hr:višestruko nezasićene masne kiseline
-hr:Višestruko nezasićene masne kiseline
 hu:Többszörösen telítetlen zsírsavak, Többszörösen telítetlen zsírsav
 it:Acidi grassi polinsaturi
 lt:Polinesočiosios riebalų rūgštys
@@ -3089,6 +3089,7 @@ yi:זאלץ
 yo:Iyọ̀
 zh:食盐
 unit:en: g
+unit_in:en: mg
 wikidata:en: Q11254
 wikipedia:en: https://en.wikipedia.org/wiki/Salt
 evaluation:en: bad
@@ -3228,6 +3229,7 @@ zh_HK:鈉
 zh_TW:鈉
 unit:en: g
 unit_us:en: mg
+unit_in:en: mg
 wikidata:en: Q658
 wikipedia:en: https://en.wikipedia.org/wiki/Sodium
 evaluation:en: bad
@@ -3547,7 +3549,7 @@ vi:vitamin D
 yi:וויטאמין D
 zh:维生素D
 dv_2016_value:en: 20
-dv_value:en: 40
+dv_value:en: 20
 iu_value:en: 0.025
 unit:en: µg
 wikidata:en: Q175621
@@ -4452,6 +4454,7 @@ zh:钾
 unit:en: mg
 wikidata:en: Q703
 wikipedia:en: https://en.wikipedia.org/wiki/Potassium
+dv_value:en: 4700
 
 zz:chloride
 en:Chloride
@@ -4627,7 +4630,7 @@ yi:קאלציום
 yo:Calcium
 zh:鈣, 钙
 dv_2016_value:en: 1300
-dv_value:en: 1000
+dv_value:en: 1300
 unit:en: mg
 unit_ca:en: % DV
 unit:pt:mg
@@ -6663,7 +6666,6 @@ zz:l-leucine
 en:L-Leucine, Leucine
 es:L-Leucina, Leucina
 ca:L-Leucina, Leucina
-en:L-Leucine, Leucine
 unit:en: mg
 wikidata:en: Q483745
 wikipedia:en: https://en.wikipedia.org/wiki/Leucine
@@ -6672,7 +6674,6 @@ zz:l-isoleucine
 en:L-Isoleucine, Isoleucine
 es:L-Isoleucina, Isoleucina
 ca:L-Isoleucina, Isoleucina
-en:L-Isoleucine, Isoleucine
 unit:en: mg
 wikidata:en: Q484940
 wikipedia:en: https://en.wikipedia.org/wiki/Isoleucine
@@ -6703,3 +6704,4 @@ xx:L-Glutathione, Glutathione
 unit:en: mg
 wikidata:en: Q116907
 wikipedia:en: https://en.wikipedia.org/wiki/Glutathione
+

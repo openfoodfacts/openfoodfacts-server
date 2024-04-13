@@ -2,9 +2,9 @@
 
 use ProductOpener::PerlStandards;
 
-use Test::More;
-use ProductOpener::APITest qw/:all/;
-use ProductOpener::Test qw/:all/;
+use Test2::V0;
+use ProductOpener::APITest qw/execute_api_tests wait_application_ready/;
+use ProductOpener::Test qw/remove_all_products remove_all_users/;
 use ProductOpener::TestDefaults qw/:all/;
 
 use File::Basename "dirname";
@@ -23,11 +23,13 @@ my $tests_ref = [
 		test_case => 'no-tagtype',
 		method => 'GET',
 		path => '/api/v3/taxonomy_suggestions',
+		expected_status_code => 400,
 	},
 	{
 		test_case => 'incorrect-tagtype',
 		method => 'GET',
 		path => '/api/v3/taxonomy_suggestions?tagtype=not_a_taxonomy',
+		expected_status_code => 400,
 	},
 	{
 		test_case => 'categories-no-string',
