@@ -7,6 +7,7 @@
    "amino_acids_tags" : [],
    "categories" : "boissons végétales de soja",
    "categories_hierarchy" : [
+      "en:beverages-and-beverages-preparations",
       "en:plant-based-foods-and-beverages",
       "en:beverages",
       "en:plant-based-foods",
@@ -35,6 +36,7 @@
       "agribalyse-18900"
    ],
    "categories_tags" : [
+      "en:beverages-and-beverages-preparations",
       "en:plant-based-foods-and-beverages",
       "en:beverages",
       "en:plant-based-foods",
@@ -96,11 +98,13 @@
       "2",
       "1-10"
    ],
+   "ingredients_non_nutritive_sweeteners_n" : 0,
    "ingredients_original_tags" : [
       "en:water",
       "en:soya-bean"
    ],
    "ingredients_percent_analysis" : 1,
+   "ingredients_sweeteners_n" : 0,
    "ingredients_tags" : [
       "en:water",
       "en:soya-bean",
@@ -240,42 +244,84 @@
       "2023" : {
          "category_available" : 1,
          "data" : {
+            "components" : {
+               "negative" : [
+                  {
+                     "id" : "energy",
+                     "points" : 3,
+                     "points_max" : 10,
+                     "unit" : "kJ",
+                     "value" : 178
+                  },
+                  {
+                     "id" : "sugars",
+                     "points" : 0,
+                     "points_max" : 10,
+                     "unit" : "g",
+                     "value" : 0.5
+                  },
+                  {
+                     "id" : "saturated_fat",
+                     "points" : 0,
+                     "points_max" : 10,
+                     "unit" : "g",
+                     "value" : 0.6
+                  },
+                  {
+                     "id" : "salt",
+                     "points" : 0,
+                     "points_max" : 20,
+                     "unit" : "g",
+                     "value" : 0.03
+                  },
+                  {
+                     "id" : "non_nutritive_sweeteners",
+                     "points" : 0,
+                     "points_max" : 4,
+                     "unit" : "number",
+                     "value" : 0
+                  }
+               ],
+               "positive" : [
+                  {
+                     "id" : "proteins",
+                     "points" : 7,
+                     "points_max" : 7,
+                     "unit" : "g",
+                     "value" : 3.9
+                  },
+                  {
+                     "id" : "fiber",
+                     "points" : 0,
+                     "points_max" : 5,
+                     "unit" : "g",
+                     "value" : 0.5
+                  },
+                  {
+                     "id" : "fruits_vegetables_legumes",
+                     "points" : 0,
+                     "points_max" : 6,
+                     "unit" : "%",
+                     "value" : 8
+                  }
+               ]
+            },
             "count_proteins" : 1,
             "count_proteins_reason" : "beverage",
-            "energy" : 178,
-            "energy_points" : 3,
-            "fiber" : 0.5,
-            "fiber_points" : 0,
-            "fruits_vegetables_legumes" : 8,
-            "fruits_vegetables_legumes_points" : 0,
             "is_beverage" : 1,
             "is_cheese" : 0,
             "is_fat_oil_nuts_seeds" : 0,
             "is_red_meat_product" : 0,
             "is_water" : 0,
-            "negative_nutrients" : [
-               "energy",
-               "sugars",
-               "saturated_fat",
-               "salt",
-               "non_nutritive_sweeteners"
-            ],
             "negative_points" : 3,
-            "non_nutritive_sweeteners_points" : 0,
+            "negative_points_max" : 54,
             "positive_nutrients" : [
-               "fruits_vegetables_legumes",
+               "proteins",
                "fiber",
-               "proteins"
+               "fruits_vegetables_legumes"
             ],
             "positive_points" : 7,
-            "proteins" : 3.9,
-            "proteins_points" : 7,
-            "salt" : 0.03,
-            "salt_points" : 0,
-            "saturated_fat" : 0.6,
-            "saturated_fat_points" : 0,
-            "sugars" : 0.5,
-            "sugars_points" : 0
+            "positive_points_max" : 18
          },
          "grade" : "b",
          "nutrients_available" : 1,

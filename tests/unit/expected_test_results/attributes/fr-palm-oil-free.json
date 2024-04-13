@@ -630,6 +630,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_proxy_food_code" : "9410",
          "id" : "en:flour",
          "percent_estimate" : 18.75,
          "percent_max" : 50,
@@ -685,6 +686,7 @@
       "4",
       "1-10"
    ],
+   "ingredients_non_nutritive_sweeteners_n" : 0,
    "ingredients_original_tags" : [
       "en:water",
       "en:flour",
@@ -692,6 +694,7 @@
       "en:chocolate"
    ],
    "ingredients_percent_analysis" : 1,
+   "ingredients_sweeteners_n" : 0,
    "ingredients_tags" : [
       "en:water",
       "en:flour",
@@ -708,10 +711,9 @@
    "ingredients_with_unspecified_percent_n" : 4,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
-      "en:chocolate",
-      "en:flour"
+      "en:chocolate"
    ],
-   "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ciqual_codes_n" : 1,
    "known_ingredients_n" : 6,
    "languages" : {},
    "languages_codes" : {},
@@ -781,7 +783,7 @@
          "category_available" : 0,
          "data" : {
             "energy" : null,
-            "fiber" : 0,
+            "fiber" : null,
             "fruits_vegetables_legumes" : 0,
             "is_beverage" : 0,
             "is_cheese" : 0,

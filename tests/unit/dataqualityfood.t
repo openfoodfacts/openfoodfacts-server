@@ -1394,6 +1394,35 @@ ok(!has_tag($product_ref, 'data_quality', 'en:nutrition-sugars-plus-starch-great
 	'sum of sugars and starch greater carbohydrates')
 	or diag explain $product_ref;
 
+# unexpected character in ingredients
+$product_ref = {
+	languages_codes => {
+		en => 1
+	},
+	lc => 'en',
+	ingredients_text_en => 'AaaAAa, BbbBBB, $, @, !, ?, Https://,',
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+
+ok(has_tag($product_ref, 'data_quality', 'en:ingredients-en-5-vowels'), '5 vowel in a row')
+	or diag explain $product_ref;
+ok(has_tag($product_ref, 'data_quality', 'en:ingredients-en-5-consonants'), '5 consonants in a row')
+	or diag explain $product_ref;
+ok(has_tag($product_ref, 'data_quality', 'en:ingredients-en-4-repeated-chars'), '4 repeated characters')
+	or diag explain $product_ref;
+ok(has_tag($product_ref, 'data_quality', 'en:ingredients-en-unexpected-chars-currencies'), '$')
+	or diag explain $product_ref;
+ok(has_tag($product_ref, 'data_quality', 'en:ingredients-en-unexpected-chars-arobase'), '@')
+	or diag explain $product_ref;
+ok(has_tag($product_ref, 'data_quality', 'en:ingredients-en-unexpected-chars-exclamation-mark'), '!')
+	or diag explain $product_ref;
+ok(has_tag($product_ref, 'data_quality', 'en:ingredients-en-unexpected-chars-question-mark'), '?')
+	or diag explain $product_ref;
+ok(has_tag($product_ref, 'data_quality', 'en:ingredients-en-ending-comma'), ',')
+	or diag explain $product_ref;
+ok(has_tag($product_ref, 'data_quality', 'en:ingredients-en-unexpected-url'), 'detected url')
+	or diag explain $product_ref;
+
 # jam and related categories and fruit (specific ingredients) content
 ## missing specific ingredients
 $product_ref = {
@@ -1432,7 +1461,7 @@ $product_ref = {
 			ingredient => "fruit",
 			quantity => "50 g",
 			quantity_g => 50,
-			text => "Prepared with 50g fruit per 100g",
+			text => "Prepared with 50g of fruit per 100g",
 		},
 	]
 };
@@ -1457,7 +1486,7 @@ $product_ref = {
 			ingredient => "fruit",
 			quantity => "5 g",
 			quantity_g => 5,
-			text => "Prepared with 5g fruit per 100g",
+			text => "Prepared with 5g of fruit per 100g",
 		},
 	]
 };
@@ -1482,7 +1511,7 @@ $product_ref = {
 			ingredient => "fruit",
 			quantity => "10 g",
 			quantity_g => 10,
-			text => "Prepared with 10 fruit per 100g",
+			text => "Prepared with 10g of fruit per 100g",
 		},
 	]
 };
@@ -1511,7 +1540,7 @@ $product_ref = {
 			ingredient => "fruit",
 			quantity => "30 g",
 			quantity_g => 30,
-			text => "Prepared with 30 fruit per 100g",
+			text => "Prepared with 30g of fruit per 100g",
 		},
 	]
 };
@@ -1529,6 +1558,314 @@ ok(
 		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-25-for-category-redcurrants-jams'
 	),
 	'en:fruit content too small'
+) or diag explain $product_ref;
+## extra jams
+$product_ref = {
+	categories_tags => ["en:extra-jams"],
+	countries_tags => ["en:slovenia",],
+	specific_ingredients => [
+		{
+			id => "en:fruit",
+			ingredient => "fruit",
+			quantity => "1 g",
+			quantity_g => 1,
+			text => "Prepared with 1g of fruit per 100g",
+		},
+	]
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	has_tag(
+		$product_ref, 'data_quality',
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-45-for-category-extra-jams'
+	),
+	'en:fruit content too small extra jams'
+) or diag explain $product_ref;
+## Blackcurrant jams
+$product_ref = {
+	categories_tags => ["en:blackcurrant-jams"],
+	countries_tags => ["en:slovenia",],
+	specific_ingredients => [
+		{
+			id => "en:fruit",
+			ingredient => "fruit",
+			quantity => "2 g",
+			quantity_g => 3,
+			text => "Prepared with 2g of fruit per 100g",
+		},
+	]
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	has_tag(
+		$product_ref, 'data_quality',
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-25-for-category-blackcurrant-jams'
+	),
+	'en:fruit content too small blackcurrant jams'
+) or diag explain $product_ref;
+## ginger jams
+$product_ref = {
+	categories_tags => ["en:ginger-jams"],
+	countries_tags => ["en:slovenia",],
+	specific_ingredients => [
+		{
+			id => "en:fruit",
+			ingredient => "fruit",
+			quantity => "3 g",
+			quantity_g => 3,
+			text => "Prepared with 3g of fruit per 100g",
+		},
+	]
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	has_tag(
+		$product_ref, 'data_quality',
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-15-for-category-ginger-jams'
+	),
+	'en:fruit content too small ginger jams'
+) or diag explain $product_ref;
+## quince jams
+$product_ref = {
+	categories_tags => ["en:quince-jams"],
+	countries_tags => ["en:slovenia",],
+	specific_ingredients => [
+		{
+			id => "en:fruit",
+			ingredient => "fruit",
+			quantity => "4 g",
+			quantity_g => 4,
+			text => "Prepared with 4g of fruit per 100g",
+		},
+	]
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	has_tag(
+		$product_ref, 'data_quality',
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-25-for-category-quince-jams'
+	),
+	'en:fruit content too small quince jams'
+) or diag explain $product_ref;
+## rosehip jams
+$product_ref = {
+	categories_tags => ["en:rosehip-jams"],
+	countries_tags => ["en:slovenia",],
+	specific_ingredients => [
+		{
+			id => "en:fruit",
+			ingredient => "fruit",
+			quantity => "5 g",
+			quantity_g => 5,
+			text => "Prepared with 5g of fruit per 100g",
+		},
+	]
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	has_tag(
+		$product_ref, 'data_quality',
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-25-for-category-rosehip-jams'
+	),
+	'en:fruit content too small rosehip jams'
+) or diag explain $product_ref;
+## Sea-buckthorn jams
+$product_ref = {
+	categories_tags => ["en:sea-buckthorn-jams"],
+	countries_tags => ["en:slovenia",],
+	specific_ingredients => [
+		{
+			id => "en:fruit",
+			ingredient => "fruit",
+			quantity => "6 g",
+			quantity_g => 6,
+			text => "Prepared with 6g of fruit per 100g",
+		},
+	]
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	has_tag(
+		$product_ref, 'data_quality',
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-25-for-category-sea-buckthorn-jams'
+	),
+	'en:fruit content too small sea-buckthorn jams'
+) or diag explain $product_ref;
+## marmalades
+$product_ref = {
+	categories_tags => ["en:marmalades"],
+	countries_tags => ["en:slovenia",],
+	specific_ingredients => [
+		{
+			id => "en:fruit",
+			ingredient => "fruit",
+			quantity => "7 g",
+			quantity_g => 7,
+			text => "Prepared with 7g of fruit per 100g",
+		},
+	]
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	has_tag(
+		$product_ref, 'data_quality',
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-20-for-category-marmalades'
+	),
+	'en:fruit content too small marmalades jams'
+) or diag explain $product_ref;
+## citrus jams
+$product_ref = {
+	categories_tags => ["en:citrus-jams"],
+	countries_tags => ["en:slovenia",],
+	specific_ingredients => [
+		{
+			id => "en:fruit",
+			ingredient => "fruit",
+			quantity => "8 g",
+			quantity_g => 8,
+			text => "Prepared with 8g of fruit per 100g",
+		},
+	]
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	has_tag(
+		$product_ref, 'data_quality',
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-20-for-category-citrus-jams'
+	),
+	'en:fruit content too small citrus jams'
+) or diag explain $product_ref;
+## blackcurrants jellies
+$product_ref = {
+	categories_tags => ["en:blackcurrants-jellies"],
+	countries_tags => ["en:slovenia",],
+	specific_ingredients => [
+		{
+			id => "en:fruit",
+			ingredient => "fruit",
+			quantity => "9 g",
+			quantity_g => 9,
+			text => "Prepared with 9g of fruit per 100g",
+		},
+	]
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	has_tag(
+		$product_ref, 'data_quality',
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-25-for-category-blackcurrants-jellies'
+	),
+	'en:fruit content too small blackcurrants jellies'
+) or diag explain $product_ref;
+## passion fruit jellies
+$product_ref = {
+	categories_tags => ["en:passion-fruit-jellies"],
+	countries_tags => ["en:slovenia",],
+	specific_ingredients => [
+		{
+			id => "en:fruit",
+			ingredient => "fruit",
+			quantity => "1 g",
+			quantity_g => 1,
+			text => "Prepared with 1g of fruit per 100g",
+		},
+	]
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	has_tag(
+		$product_ref, 'data_quality',
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-6-for-category-passion-fruit-jellies'
+	),
+	'en:fruit content too small passion fruit jellies'
+) or diag explain $product_ref;
+## Quince jellies
+$product_ref = {
+	categories_tags => ["en:quince-jellies"],
+	countries_tags => ["en:slovenia",],
+	specific_ingredients => [
+		{
+			id => "en:fruit",
+			ingredient => "fruit",
+			quantity => "10 g",
+			quantity_g => 10,
+			text => "Prepared with 10g of fruit per 100g",
+		},
+	]
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	has_tag(
+		$product_ref, 'data_quality',
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-25-for-category-quince-jellies'
+	),
+	'en:fruit content too small quince jellies'
+) or diag explain $product_ref;
+## Redcurrants jellies
+$product_ref = {
+	categories_tags => ["en:redcurrants-jellies"],
+	countries_tags => ["en:slovenia",],
+	specific_ingredients => [
+		{
+			id => "en:fruit",
+			ingredient => "fruit",
+			quantity => "11 g",
+			quantity_g => 11,
+			text => "Prepared with 11g of fruit per 100g",
+		},
+	]
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	has_tag(
+		$product_ref, 'data_quality',
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-25-for-category-redcurrants-jellies'
+	),
+	'en:fruit content too small redcurrants jellies'
+) or diag explain $product_ref;
+## sea-buckthorn jellies
+$product_ref = {
+	categories_tags => ["en:sea-buckthorn-jellies"],
+	countries_tags => ["en:slovenia",],
+	specific_ingredients => [
+		{
+			id => "en:fruit",
+			ingredient => "fruit",
+			quantity => "12 g",
+			quantity_g => 12,
+			text => "Prepared with 12g of fruit per 100g",
+		},
+	]
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	has_tag(
+		$product_ref, 'data_quality',
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-25-for-category-sea-buckthorn-jellies'
+	),
+	'en:fruit content too small sea-buckthorn jellies'
+) or diag explain $product_ref;
+## chestnut spreads
+$product_ref = {
+	categories_tags => ["en:chestnut-spreads"],
+	countries_tags => ["en:slovenia",],
+	specific_ingredients => [
+		{
+			id => "en:fruit",
+			ingredient => "fruit",
+			quantity => "13 g",
+			quantity_g => 13,
+			text => "Prepared with 13g of fruit per 100g",
+		},
+	]
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	has_tag(
+		$product_ref, 'data_quality',
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-38-for-category-chestnut-spreads'
+	),
+	'en:fruit content too small chestnut-spreads'
 ) or diag explain $product_ref;
 
 done_testing();

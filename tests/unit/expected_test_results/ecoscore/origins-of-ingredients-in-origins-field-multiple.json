@@ -238,27 +238,27 @@
       },
       "agribalyse" : {
          "agribalyse_proxy_food_code" : "31024",
-         "co2_agriculture" : 0.32867606,
-         "co2_consumption" : 0.0066875618,
-         "co2_distribution" : 0.019530673,
-         "co2_packaging" : 0.52619775,
-         "co2_processing" : 0.25169407,
-         "co2_total" : 1.4203653848,
-         "co2_transportation" : 0.28757927,
+         "co2_agriculture" : 0.32737262,
+         "co2_consumption" : 0.0066736979,
+         "co2_distribution" : 0.019437894,
+         "co2_packaging" : 0.52557377,
+         "co2_processing" : 0.25129964,
+         "co2_total" : 1.4171211319,
+         "co2_transportation" : 0.28676351,
          "code" : "31024",
          "dqr" : "3.16",
-         "ef_agriculture" : 0.14745825,
-         "ef_consumption" : 0.0024548656,
-         "ef_distribution" : 0.0048315303,
-         "ef_packaging" : 0.055774591,
-         "ef_processing" : 0.039231554,
-         "ef_total" : 0.2734337009,
-         "ef_transportation" : 0.02368291,
+         "ef_agriculture" : 0.14649409,
+         "ef_consumption" : 0.002442269,
+         "ef_distribution" : 0.0047895045,
+         "ef_packaging" : 0.055373026,
+         "ef_processing" : 0.039080907,
+         "ef_total" : 0.2717172325,
+         "ef_transportation" : 0.023537436,
          "is_beverage" : 0,
          "name_en" : "Jam, strawberry",
          "name_fr" : "Confiture de fraise (extra ou classique)",
          "score" : 80,
-         "version" : "3.1"
+         "version" : "3.1.1"
       },
       "grade" : "b",
       "grades" : {
@@ -407,6 +407,7 @@
    ],
    "ingredients" : [
       {
+         "ciqual_food_code" : "13000",
          "id" : "en:apricot",
          "percent" : 60,
          "percent_estimate" : 60,
@@ -485,10 +486,8 @@
    "ingredients_with_specified_percent_sum" : 90,
    "ingredients_with_unspecified_percent_n" : 1,
    "ingredients_with_unspecified_percent_sum" : 10,
-   "ingredients_without_ciqual_codes" : [
-      "en:apricot"
-   ],
-   "ingredients_without_ciqual_codes_n" : 1,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
    "known_ingredients_n" : 10,
    "lc" : "en",
    "misc_tags" : [

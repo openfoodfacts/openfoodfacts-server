@@ -627,6 +627,7 @@
    "food_groups_tags" : [],
    "ingredients" : [
       {
+         "ciqual_proxy_food_code" : "9510",
          "id" : "en:tapioca",
          "percent_estimate" : 66.6666666666667,
          "percent_max" : 100,
@@ -690,12 +691,14 @@
       "3",
       "1-10"
    ],
+   "ingredients_non_nutritive_sweeteners_n" : 0,
    "ingredients_original_tags" : [
       "en:tapioca",
       "en:palm-oil",
       "en:enzyme"
    ],
    "ingredients_percent_analysis" : 1,
+   "ingredients_sweeteners_n" : 0,
    "ingredients_tags" : [
       "en:tapioca",
       "en:starch",
@@ -713,10 +716,9 @@
    "ingredients_with_unspecified_percent_n" : 3,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
-      "en:enzyme",
-      "en:tapioca"
+      "en:enzyme"
    ],
-   "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ciqual_codes_n" : 1,
    "known_ingredients_n" : 7,
    "languages" : {},
    "languages_codes" : {},
@@ -801,7 +803,7 @@
          "category_available" : 1,
          "data" : {
             "energy" : null,
-            "fiber" : 0,
+            "fiber" : null,
             "fruits_vegetables_legumes" : 0,
             "is_beverage" : 0,
             "is_cheese" : 0,

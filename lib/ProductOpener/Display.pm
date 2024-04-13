@@ -396,6 +396,10 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	$template_data_ref->{sep} = separator_before_colon($lc);
 	$template_data_ref->{lang} = \&lang;
 	$template_data_ref->{f_lang} = \&f_lang;
+	# escaping quotes for use in javascript or json
+	# using short names to favour readability
+	$template_data_ref->{esq} = sub {escape_char(@_, "\'")};    # esq as escape_single_quote_and_newlines
+	$template_data_ref->{edq} = sub {escape_char(@_, '"')};    # edq as escape_double_quote
 	$template_data_ref->{lang_sprintf} = \&lang_sprintf;
 	$template_data_ref->{lc} = $lc;
 	$template_data_ref->{cc} = $cc;
@@ -919,6 +923,16 @@ CSS
 			skip_ecoscore => 1,
 			skip_forest_footprint => 1,
 		};
+	}
+
+	if ($request_ref->{admin}) {
+		$knowledge_panels_options_ref->{admin} = 1;
+	}
+	if ($User{moderator}) {
+		$knowledge_panels_options_ref->{moderator} = 1;
+	}
+	if ($server_options{producers_platform}) {
+		$knowledge_panels_options_ref->{producers_platform} = 1;
 	}
 
 	$log->debug(
@@ -4207,8 +4221,8 @@ HTML
 	# Add parameters corresponding to the tag filters so that they can be added to the query by add_params_to_query()
 
 	foreach my $tag_ref (@{$request_ref->{tags}}) {
-		if ($tagtype eq 'users') {
-			deep_set($request_ref, "body_json", "creator", $tagid);
+		if ($tag_ref->{tagtype} eq 'users') {
+			deep_set($request_ref, "body_json", "creator", $tag_ref->{tagid});
 		}
 		else {
 			my $field_name = $tag_ref->{tagtype} . "_tags";
@@ -4297,7 +4311,7 @@ HTML
 	return;
 }
 
-=head2 display_list_of_tags ( $request_ref, $query_ref )
+=head2 list_all_request_params ( $request_ref, $query_ref )
 
 Return an array of names of all request parameters.
 
@@ -5726,18 +5740,6 @@ sub search_and_export_products ($request_ref, $query_ref, $sort_by) {
 	return;
 }
 
-sub escape_single_quote ($s) {
-
-	# some app escape single quotes already, so we have \' already
-	if (not defined $s) {
-		return '';
-	}
-	$s =~ s/\\'/'/g;
-	$s =~ s/'/\\'/g;
-	$s =~ s/\n/ /g;
-	return $s;
-}
-
 @search_series = (qw/organic fairtrade with_sweeteners default/);
 
 my %search_series_colors = (
@@ -5792,29 +5794,29 @@ sub get_search_field_title_and_details ($field) {
 
 	if ($field eq 'additives_n') {
 		$allow_decimals = "allowDecimals:false,\n";
-		$title = escape_single_quote(lang("number_of_additives"));
+		$title = escape_single_quote_and_newlines(lang("number_of_additives"));
 	}
 	elsif ($field eq "forest_footprint") {
 		$allow_decimals = "allowDecimals:true,\n";
-		$title = escape_single_quote(lang($field));
+		$title = escape_single_quote_and_newlines(lang($field));
 	}
 	elsif ($field =~ /_n$/) {
 		$allow_decimals = "allowDecimals:false,\n";
-		$title = escape_single_quote(lang($field . "_s"));
+		$title = escape_single_quote_and_newlines(lang($field . "_s"));
 	}
 	elsif ($field eq "product_quantity") {
 		$allow_decimals = "allowDecimals:false,\n";
-		$title = escape_single_quote(lang("quantity"));
+		$title = escape_single_quote_and_newlines(lang("quantity"));
 		$unit = ' (g)';
 		$unit2 = 'g';
 	}
 	elsif ($field eq "nova_group") {
 		$allow_decimals = "allowDecimals:false,\n";
-		$title = escape_single_quote(lang("nova_groups_s"));
+		$title = escape_single_quote_and_newlines(lang("nova_groups_s"));
 	}
 	elsif ($field eq "ecoscore_score") {
 		$allow_decimals = "allowDecimals:false,\n";
-		$title = escape_single_quote(lang("ecoscore_score"));
+		$title = escape_single_quote_and_newlines(lang("ecoscore_score"));
 	}
 	elsif ($field =~ /^packagings_materials\.([^.]+)\.([^.]+)$/) {
 		my $material = $1;
@@ -6255,7 +6257,7 @@ sub display_histogram ($graph_ref, $products_ref) {
 	}
 
 	$axis_details{"y"} = {
-		title => escape_single_quote(lang("number_of_products")),
+		title => escape_single_quote_and_newlines(lang("number_of_products")),
 		allow_decimals => "allowDecimals:false,\n",
 		unit => '',
 		unit2 => '',
@@ -6669,7 +6671,7 @@ sub search_and_graph_products ($request_ref, $query_ref, $graph_ref) {
 
 	if ($count > 0) {
 
-		$graph_ref->{graph_title} = escape_single_quote($graph_ref->{graph_title});
+		$graph_ref->{graph_title} = escape_single_quote_and_newlines($graph_ref->{graph_title});
 
 		# 1 axis: histogram / bar chart -> axis_y == "product_n" or is empty
 		# 2 axis: scatter plot
@@ -6800,7 +6802,7 @@ sub map_of_products ($products_iter, $request_ref, $graph_ref) {
 	init_packager_codes();
 	init_geocode_addresses();
 
-	$graph_ref->{graph_title} = escape_single_quote($graph_ref->{graph_title});
+	$graph_ref->{graph_title} = escape_single_quote_and_newlines($graph_ref->{graph_title});
 
 	my $matching_products = 0;
 	my $places = 0;
@@ -6813,7 +6815,7 @@ sub map_of_products ($products_iter, $request_ref, $graph_ref) {
 	while (my $product_ref = $products_iter->()) {
 		my $url = $formatted_subdomain . product_url($product_ref->{code});
 
-		my $manufacturing_places = escape_single_quote($product_ref->{"manufacturing_places"});
+		my $manufacturing_places = escape_single_quote_and_newlines($product_ref->{"manufacturing_places"});
 		$manufacturing_places =~ s/,( )?/, /g;
 		if ($manufacturing_places ne '') {
 			$manufacturing_places
@@ -6822,7 +6824,7 @@ sub map_of_products ($products_iter, $request_ref, $graph_ref) {
 				. $manufacturing_places . "<br>";
 		}
 
-		my $origins = escape_single_quote($product_ref->{origins});
+		my $origins = escape_single_quote_and_newlines($product_ref->{origins});
 		$origins =~ s/,( )?/, /g;
 		if ($origins ne '') {
 			$origins = ucfirst(lang("origins_p")) . separator_before_colon($lc) . ": " . $origins . "<br>";
@@ -7384,8 +7386,6 @@ sub display_page ($request_ref) {
 
 sub display_image_box ($product_ref, $id, $minheight_ref) {
 
-	# print STDERR "display_image_box : $id\n";
-
 	my $img = display_image($product_ref, $id, $small_size);
 	if ($img ne '') {
 		my $code = $product_ref->{code};
@@ -7562,6 +7562,7 @@ sub display_product ($request_ref) {
 <script src="$static_subdomain/js/dist/display-product.js"></script>
 SCRIPTS
 		;
+
 	# call equalizer when dropdown content is shown
 	$initjs .= <<JS
 \$('.f-dropdown').on('opened.fndtn.dropdown', function() {
@@ -8874,7 +8875,7 @@ HTML
 	return;
 }
 
-=head2 display_nutriscore_calculation_details( $nutriscore_data_ref )
+=head2 display_nutriscore_calculation_details( $nutriscore_data_ref, $version = "2021" )
 
 Generates HTML code with information on how the Nutri-Score was computed for a particular product.
 
@@ -8883,7 +8884,7 @@ the rounded value according to the Nutri-Score rules, and the corresponding poin
 
 =cut
 
-sub display_nutriscore_calculation_details ($nutriscore_data_ref) {
+sub display_nutriscore_calculation_details ($nutriscore_data_ref, $version = "2021") {
 
 	my $beverage_view;
 
@@ -9070,7 +9071,7 @@ sub data_to_display_nutrient_levels ($product_ref) {
 	return $result_data_ref;
 }
 
-=head2 data_to_display_nutriscore ( $product_ref )
+=head2 data_to_display_nutriscore ($nutriscore_data_ref, $version = "2021" )
 
 Generates a data structure to display the Nutri-Score.
 
@@ -9086,9 +9087,7 @@ Reference to a data structure with needed data to display.
 
 =cut
 
-sub data_to_display_nutriscore($) {
-
-	my $product_ref = shift;
+sub data_to_display_nutriscore ($product_ref, $version = "2021") {
 
 	my $result_data_ref = {};
 
@@ -9096,9 +9095,17 @@ sub data_to_display_nutriscore($) {
 
 	my @nutriscore_warnings = ();
 
-	if ((defined $product_ref->{nutrition_grade_fr}) and ($product_ref->{nutrition_grade_fr} =~ /^[abcde]$/)) {
+	my $nutriscore_grade = deep_get($product_ref, "nutriscore", $version, "grade");
+	my $nutriscore_data_ref = deep_get($product_ref, "nutriscore", $version, "data");
+	# On old product revisions, nutriscore grade was in nutrition_grade_fr
+	if ((not defined $nutriscore_grade) and ($version eq "2021")) {
+		$nutriscore_grade = $product_ref->{"nutrition_grade_fr"};
+		$nutriscore_data_ref = $product_ref->{nutriscore_data};
+	}
 
-		$result_data_ref->{nutriscore_grade} = $product_ref->{"nutrition_grade_fr"};
+	if ((defined $nutriscore_grade) and ($nutriscore_grade =~ /^[abcde]$/)) {
+
+		$result_data_ref->{nutriscore_grade} = $nutriscore_grade;
 
 		# Do not display a warning for water
 		if (not(has_tag($product_ref, "categories", "en:spring-waters"))) {
@@ -9213,8 +9220,7 @@ sub data_to_display_nutriscore($) {
 
 	# Display the details of the computation of the Nutri-Score if we computed one
 	if ((defined $product_ref->{nutriscore_grade}) and ($product_ref->{nutriscore_grade} =~ /^[a-e]$/)) {
-		$result_data_ref->{nutriscore_details}
-			= display_nutriscore_calculation_details($product_ref->{nutriscore_data});
+		$result_data_ref->{nutriscore_details} = display_nutriscore_calculation_details($nutriscore_data_ref, $version);
 	}
 
 	return $result_data_ref;
