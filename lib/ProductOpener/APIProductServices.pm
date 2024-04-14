@@ -107,68 +107,98 @@ my %service_functions = (
 	extend_ingredients => \&ProductOpener::Ingredients::extend_ingredients_service,
 	estimate_ingredients_percent => \&ProductOpener::Ingredients::estimate_ingredients_percent_service,
 	analyze_ingredients => \&ProductOpener::Ingredients::analyze_ingredients_service,
+	check_quality => \&check_quality_service,
 );
 
 sub check_product_services_api_input ($request_ref) {
 
-	my $response_ref = $request_ref->{api_response};
-	my $request_body_ref = $request_ref->{body_json};
+    my $response_ref = $request_ref->{api_response};
+    my $request_body_ref = $request_ref->{body_json};
 
-	my $error = 0;
+    my $error = 0;
 
-	# Check that we have an input body
-	if (not defined $request_body_ref) {
-		$log->error("product_services_api - missing or invalid input body", {}) if $log->is_error();
-		$error = 1;
-	}
-	else {
-		# Check that we have the input body fields we expect
+    # Check that we have an input body
+    if (not defined $request_body_ref) {
+        $log->error("product_services_api - missing or invalid input body", {}) if $log->is_error();
+        $error = 1;
+    }
+    else {
+        # Check for the presence of the 'product' field (make optional if not always required)
+        if (not defined $request_body_ref->{product}) {
+            $log->error("product_services_api - missing input product", {request_body => $request_body_ref})
+                if $log->is_error();
+            add_error(
+                $response_ref,
+                {
+                    message => {id => "missing_field"},
+                    field => {id => "product"},
+                    impact => {id => "failure"},
+                }
+            );
+            $error = 1;
+        }
 
-		if (not defined $request_body_ref->{product}) {
-			$log->error("product_services_api - missing input product", {request_body => $request_body_ref})
-				if $log->is_error();
-			add_error(
-				$response_ref,
-				{
-					message => {id => "missing_field"},
-					field => {id => "product"},
-					impact => {id => "failure"},
-				}
-			);
-			$error = 1;
-		}
+        # Validate presence and type of 'services' array
+        if (not defined $request_body_ref->{services}) {
+            $log->error("product_services_api - missing services", {request_body => $request_body_ref})
+                if $log->is_error();
+            add_error(
+                $response_ref,
+                {
+                    message => {id => "missing_field"},
+                    field => {id => "services"},
+                    impact => {id => "failure"},
+                }
+            );
+            $error = 1;
+        }
+        elsif (ref($request_body_ref->{services}) ne 'ARRAY') {
+            add_error(
+                $response_ref,
+                {
+                    message => {id => "invalid_type_must_be_array"},
+                    field => {id => "services"},
+                    impact => {id => "failure"},
+                }
+            );
+            $error = 1;
+        }
 
-		if (not defined $request_body_ref->{services}) {
-			$log->error("product_services_api - missing services", {request_body => $request_body_ref})
-				if $log->is_error();
-			add_error(
-				$response_ref,
-				{
-					message => {id => "missing_field"},
-					field => {id => "services"},
-					impact => {id => "failure"},
-				}
-			);
-			$error = 1;
-		}
-		elsif (ref($request_body_ref->{services}) ne 'ARRAY') {
-			add_error(
-				$response_ref,
-				{
-					message => {id => "invalid_type_must_be_array"},
-					field => {id => "services"},
-					impact => {id => "failure"},
-				}
-			);
-			$error = 1;
-		}
-		else {
-			# Echo back the services that were requested
-			$response_ref->{services} = $request_body_ref->{services};
-		}
-	}
-	return $error;
+        # Check optional 'nutrition' field if it exists and ensure it is a hash
+        if (defined $request_body_ref->{nutrition} && ref($request_body_ref->{nutrition}) ne 'HASH') {
+            add_error(
+                $response_ref,
+                {
+                    message => {id => "invalid_type_must_be_hash"},
+                    field => {id => "nutrition"},
+                    impact => {id => "failure"},
+                }
+            );
+            $error = 1;
+        }
+
+        # Check optional 'ingredients' field if it exists and ensure it is an array
+        if (defined $request_body_ref->{ingredients} && ref($request_body_ref->{ingredients}) ne 'ARRAY') {
+            add_error(
+                $response_ref,
+                {
+                    message => {id => "invalid_type_must_be_array"},
+                    field => {id => "ingredients"},
+                    impact => {id => "failure"},
+                }
+            );
+            $error = 1;
+        }
+    }
+
+    # Echo back the services that were requested
+    if (!$error) {
+        $response_ref->{services} = $request_body_ref->{services};
+    }
+
+    return $error;
 }
+
 
 =head2 product_services_api()
 
@@ -178,57 +208,82 @@ Process API v3 product services requests.
 
 sub product_services_api ($request_ref) {
 
-	$log->debug("product_services_api - start", {request => $request_ref}) if $log->is_debug();
+    $log->debug("product_services_api - start", {request => $request_ref}) if $log->is_debug();
 
-	my $response_ref = $request_ref->{api_response};
-	my $request_body_ref = $request_ref->{body_json};
+    my $response_ref = $request_ref->{api_response};
+    my $request_body_ref = $request_ref->{body_json};
 
-	$log->debug("product_services_api - body", {request_body => $request_body_ref}) if $log->is_debug();
+    $log->debug("product_services_api - body", {request_body => $request_body_ref}) if $log->is_debug();
 
-	my $error = check_product_services_api_input($request_ref);
+    my $error = check_product_services_api_input($request_ref);
 
-	# If we did not get a fatal error, we can execute the services on the input product object
-	if (not $error) {
+    # If we did not get a fatal error, we can execute the services on the input product object
+    if (not $error) {
 
-		my $product_ref = $request_body_ref->{product};
+        my $product_ref = $request_body_ref->{product};
+        $request_ref->{updated_product_fields} = {};
 
-		# We will track of fields updated by the services so that we can return only those fields
-		# if the fields parameter value is "updated"
-		$request_ref->{updated_product_fields} = {};
+        foreach my $service (@{$request_body_ref->{services}}) {
+            my $service_function = $service_functions{$service};
 
-		foreach my $service (@{$request_body_ref->{services}}) {
-			my $service_function = $service_functions{$service};
-			if (defined $service_function) {
-				&$service_function($product_ref, $request_ref->{updated_product_fields});
-			}
-			else {
-				add_error(
-					$response_ref,
-					{
-						message => {id => "unknown_service"},
-						field => {id => "services", value => $service},
-						impact => {id => "failure"},
-					}
-				);
-			}
-		}
+            if (defined $service_function) {
+                if ($service eq 'check_quality') {
+                    # Create a temporary product reference for quality checks
+                    my $temp_product_ref = {};
+                    $temp_product_ref->{nutrition} = $request_body_ref->{nutrition} if defined $request_body_ref->{nutrition};
+                    $temp_product_ref->{ingredients} = $request_body_ref->{ingredients} if defined $request_body_ref->{ingredients};
 
-		# Select / compute only the fields requested by the caller, default to updated fields
-		my $fields_ref = request_param($request_ref, 'fields');
-		if (not defined $fields_ref) {
-			$fields_ref = ["updated"];
-		}
-		$log->debug("product_services_api - before customize", {fields_ref => $fields_ref, product_ref => $product_ref})
-			if $log->is_debug();
-		$response_ref->{product} = customize_response_for_product($request_ref, $product_ref, undef, $fields_ref);
+                    # Call the check_quality service, passing the temporary product ref
+                    &$service_function($temp_product_ref, $request_ref->{updated_product_fields});
+                    
+                    # Integrate the quality check results back into the main product_ref
+                    $product_ref->{data_quality_tags} = $temp_product_ref->{data_quality_tags} if defined $temp_product_ref->{data_quality_tags};
+                } else {
+                    &$service_function($product_ref, $request_ref->{updated_product_fields});
+                }
+            } else {
+                add_error(
+                    $response_ref,
+                    {
+                        message => {id => "unknown_service"},
+                        field => {id => "services", value => $service},
+                        impact => {id => "failure"},
+                    }
+                );
+            }
+        }
 
-		# Echo back the services that were executed
-		$response_ref->{fields} = $fields_ref;
-	}
+        # Select / compute only the fields requested by the caller, default to updated fields
+        my $fields_ref = request_param($request_ref, 'fields');
+        if (not defined $fields_ref) {
+            $fields_ref = ["updated"];
+        }
+        $log->debug("product_services_api - before customize", {fields_ref => $fields_ref, product_ref => $product_ref})
+            if $log->is_debug();
+        $response_ref->{product} = customize_response_for_product($request_ref, $product_ref, undef, $fields_ref);
 
-	$log->debug("product_services_api - stop", {request => $request_ref}) if $log->is_debug();
+        # Echo back the services that were executed
+        $response_ref->{fields} = $fields_ref;
+    }
 
-	return;
+    $log->debug("product_services_api - stop", {request => $request_ref}) if $log->is_debug();
+
+    return;
 }
+
+sub check_quality_service ($product_ref, $updated_product_fields_ref) {
+    # Check if nutrition data is provided
+    if (exists $product_ref->{nutrition}) {
+        ProductOpener::DataQuality::check_quality($product_ref->{nutrition});
+        $updated_product_fields_ref->{nutrition_data_quality_tags} = $product_ref->{nutrition}->{data_quality_tags};
+    }
+
+    # Check if ingredient data is provided
+    if (exists $product_ref->{ingredients}) {
+        ProductOpener::DataQuality::check_quality($product_ref->{ingredients});
+        $updated_product_fields_ref->{ingredient_data_quality_tags} = $product_ref->{ingredients}->{data_quality_tags};
+    }
+}
+
 
 1;
