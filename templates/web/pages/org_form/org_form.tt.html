@@ -68,13 +68,13 @@
 	</div>
 	[% END %]
 
-		<form method="post" action="/cgi/org.pl" enctype="multipart/form-data" style="margin-bottom: 20px;">
+	<form method="post" action="/cgi/org.pl" enctype="multipart/form-data" style="margin-bottom: 20px;">
 		<p>[% lang('enter_email_addresses_of_users') %]</p>
-		<textarea id="email_list" name="email_list" style="height:100px;width:50vw"></textarea>
+		<textarea id="email_list" name="email_list" style="height:100px;width:50vw" oninput="toggleInviteButton()"></textarea>
 		<input type="hidden" name="action" value="process" />
 		<input type="hidden" name="type" value="add_users" />
 		<input type="hidden" name="orgid" value="[% orgid %]" />
-		<input type="submit" name=".submit" class="button" value= "[% edq(lang('invite_user')) %]"/>
+		<input type="submit" id="invite_button" name=".submit" class="button" value= "[% edq(lang('invite_user')) %]" disabled />
 	</form>
 
     <!-- Start form -->
@@ -176,5 +176,18 @@
     <p>[% result %]</p>
     <p>&rarr; <a href="[% profile_url %]">[% profile_name %]</a></p>
 [% END %]
+
+<script>
+	function toggleInviteButton() {
+		var emailList = document.getElementById('email_list').value.trim();
+		var inviteButton = document.getElementById('invite_button');
+		var allValid = emailList.split(',').every(validateEmail); // the button will be enabled, only if all email addresses are valid
+    	inviteButton.disabled = !allValid;
+	}
+
+	function validateEmail(email) {
+		return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
+	}
+</script>
 
 <!-- end templates/[% template.name %] -->
