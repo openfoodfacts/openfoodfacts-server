@@ -828,6 +828,15 @@ msgctxt "footer_legal_link"
 msgid "/legal"
 msgstr "/legal"
 
+msgctxt "footer_privacy"
+msgid "Privacy"
+msgstr "Privacidade"
+
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
+msgctxt "footer_privacy_link"
+msgid "/privacy"
+msgstr ""
+
 msgctxt "footer_press"
 msgid "Press"
 msgstr "Imprensa"
@@ -1154,7 +1163,7 @@ msgstr "Produtos com a etiqueta %s"
 
 msgctxt "labels_s"
 msgid "label"
-msgstr "etiqueta"
+msgstr "rótulo"
 
 msgctxt "labels_tagsinput"
 msgid "add a label"
@@ -1411,7 +1420,7 @@ msgstr "Produto sem código de barras"
 
 msgctxt "no_nutrition_data"
 msgid "Nutrition facts are not specified on the product."
-msgstr "A informação nutricional não é está presente no produto."
+msgstr "Informação nutricional não especificada no produto."
 
 msgctxt "multiple_nutrition_data"
 msgid "Multiple nutrition facts are specified on the product (e.g. with added water or milk)."
@@ -3182,19 +3191,19 @@ msgstr "Nota importante: este produto deixou de ser vendido. Os dados são manti
 # Use infinitive instead of imperative
 msgctxt "get_the_app"
 msgid "Get the app"
-msgstr "Obtenha a aplicação"
+msgstr "Obter a app"
 
 msgctxt "get_the_app_android"
 msgid "Get the Android app"
-msgstr "Obtenha a aplicação para Android"
+msgstr "Obter a app para Android"
 
 msgctxt "get_the_app_iphone"
 msgid "Get the iPhone app"
-msgstr "Obtenha a aplicação para iPhone"
+msgstr "Obter a app para iPhone"
 
 msgctxt "get_the_app_ipad"
 msgid "Get the iPad app"
-msgstr "Obtenha a aplicação para iPad"
+msgstr "Obter a app para iPad"
 
 msgctxt "warning_gs1_company_prefix"
 msgid "<em>Ambiguous barcode</em>: This product has a Restricted Circulation Number barcode for products within a company. This means that different producers and stores can use the same barcode for different products."
@@ -6221,6 +6230,10 @@ msgctxt "action_add_packaging_components"
 msgid "Add packaging components"
 msgstr "Adicionar componentes de embalagem"
 
+msgctxt "action_add_quantity"
+msgid "Add quantity of the product"
+msgstr "Adicionar quantidade do produto"
+
 # this is not used yet
 msgctxt "action_add_basic_details"
 msgid "Add basic details"
@@ -6809,4 +6822,70 @@ msgstr "O consumo de alimentos ricos em frutas, vegetais e leguminosas reduz os 
 msgctxt "nutrient_info_proteins_benefit"
 msgid "Foods that are rich in proteins are usually rich in calcium or iron which are essential minerals with numerous health benefits."
 msgstr "Os alimentos ricos em proteínas são geralmente ricos em cálcio ou ferro, que são minerais essenciais com inúmeros benefícios para a saúde."
+
+msgctxt "revert"
+msgid "Revert to this revision"
+msgstr "Reverter para esta revisão"
+
+msgctxt "product_js_product_revert_confirm"
+msgid "Revert to this product revision?"
+msgstr "Reverter para esta revisão do produto?"
+
+msgctxt "api_status_success"
+msgid "Success"
+msgstr "Sucesso"
+
+msgctxt "api_status_failure"
+msgid "Failure"
+msgstr "Falha"
+
+msgctxt "api_result_product_reverted"
+msgid "Product reverted to the specified revision"
+msgstr "Produto revertido para a revisão especificada"
+
+msgctxt "api_result_product_not_reverted"
+msgid "Product not reverted to the specified revision"
+msgstr "Produto não revertido para a revisão especificada"
+
+# sweeteners (additives), plural
+msgctxt "sweeteners"
+msgid "sweeteners"
+msgstr "adoçantes"
+
+# sweetener (additive), singular
+msgctxt "sweetener"
+msgid "sweetener"
+msgstr "adoçante"
+
+msgctxt "action_edit_product"
+msgid "Complete or correct product information"
+msgstr "Informação completa ou correta do produto"
+
+msgctxt "report_problem_panel_title"
+msgid "Report a problem"
+msgstr "Reportar um problema"
+
+msgctxt "incomplete_or_incorrect_data_title"
+msgid "Incomplete or incorrect information?"
+msgstr "Informação incompleta ou incorreta?"
+
+msgctxt "incomplete_or_incorrect_data_subtitle_off"
+msgid "Category, labels, ingredients, allergens, nutritional information, photos etc."
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_content_correct"
+msgid "If the information does not match the information on the packaging, you can complete or correct it. Thank you!"
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_content_correct_off"
+msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
+msgstr ""
+
+msgctxt "description"
+msgid "Description"
+msgstr "Descrição"
+
+msgctxt "report_problem_navigation"
+msgid "Report a problem"
+msgstr "Reportar um problema"
 
