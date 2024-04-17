@@ -251,7 +251,7 @@ msgstr "垂直坐标"
 
 msgctxt "barcode"
 msgid "Barcode"
-msgstr "条形码"
+msgstr "條碼"
 
 msgctxt "barcode_number"
 msgid "Barcode number:"
@@ -315,7 +315,7 @@ msgstr "由"
 
 msgctxt "categories"
 msgid "Categories"
-msgstr "分类"
+msgstr "類別"
 
 msgctxt "categories_example"
 msgid "Sardines in olive oil, Orange juice from concentrate"
@@ -335,7 +335,7 @@ msgstr "分类为%s的产品"
 
 msgctxt "categories_s"
 msgid "category"
-msgstr "分类"
+msgstr "分類"
 
 msgctxt "categories_tagsinput"
 msgid "add a category"
@@ -439,7 +439,7 @@ msgstr "产品在 %s 出售"
 
 msgctxt "countries_s"
 msgid "country"
-msgstr "国家"
+msgstr "國家"
 
 msgctxt "countries_without_products"
 msgid "Products not sold in %s"
@@ -779,7 +779,7 @@ msgstr "/data"
 
 msgctxt "footer_discover_the_project"
 msgid "Discover the project"
-msgstr "了解产品"
+msgstr "探索項目"
 
 msgctxt "footer_faq"
 msgid "Frequently asked questions"
@@ -792,7 +792,7 @@ msgstr "https://support.openfoodfacts.org/help/zh-cn"
 
 msgctxt "footer_translators"
 msgid "Translators"
-msgstr "翻译人员"
+msgstr "翻譯員"
 
 # Do not translate
 msgctxt "footer_translators_link"
@@ -812,7 +812,7 @@ msgstr "安装app"
 
 msgctxt "footer_join_the_community"
 msgid "Join the community"
-msgstr "加入社区"
+msgstr "加入社群"
 
 msgctxt "footer_join_us_on"
 msgid "Join us on %s:"
@@ -827,9 +827,18 @@ msgctxt "footer_legal_link"
 msgid "/legal"
 msgstr "/legal"
 
+msgctxt "footer_privacy"
+msgid "Privacy"
+msgstr ""
+
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
+msgctxt "footer_privacy_link"
+msgid "/privacy"
+msgstr ""
+
 msgctxt "footer_press"
 msgid "Press"
-msgstr "按键"
+msgstr "傳媒"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_press_link"
@@ -838,7 +847,7 @@ msgstr "/press"
 
 msgctxt "footer_tagline"
 msgid "A collaborative, free and open database of food products from around the world."
-msgstr "是一个有世界各地参与的食品合作项目，是自由和开放的食品数据库"
+msgstr "來自全世界共同協作、自由且開放的食品資料庫。"
 
 msgctxt "footer_terms"
 msgid "Terms of use"
@@ -851,7 +860,7 @@ msgstr "/terms-of-use"
 
 msgctxt "footer_who_we_are"
 msgid "Who we are"
-msgstr "我们是谁"
+msgstr "我們是誰"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_who_we_are_link"
@@ -870,7 +879,7 @@ msgstr "https://wiki.openfoodfacts.org"
 # Do not translate Open Beauty Facts but do translate Cosmetics
 msgctxt "footer_obf"
 msgid "Open Beauty Facts - Cosmetics"
-msgstr "Open Beauty Facts - 化妆品"
+msgstr "Open Beauty Facts - 化妝品"
 
 msgctxt "footer_obf_link"
 msgid "https://world.openbeautyfacts.org"
@@ -1152,7 +1161,7 @@ msgstr "有%s标签的产品"
 
 msgctxt "labels_s"
 msgid "label"
-msgstr "标签"
+msgstr "標籤"
 
 msgctxt "labels_tagsinput"
 msgid "add a label"
@@ -1401,7 +1410,7 @@ msgstr "订阅新闻资讯"
 
 msgctxt "next"
 msgid "Next"
-msgstr "下一个"
+msgstr "下一個"
 
 msgctxt "no_barcode"
 msgid "Product without barcode"
@@ -1478,11 +1487,11 @@ msgstr "不含%s成分的产品"
 
 msgctxt "nutrition_alt"
 msgid "Nutrition facts"
-msgstr "营养成分"
+msgstr "營養成分"
 
 msgctxt "nutrition_data"
 msgid "Nutrition facts"
-msgstr "营养成分"
+msgstr "營養成分"
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
@@ -1554,7 +1563,7 @@ msgstr "标准方差"
 
 msgctxt "nutrition_data_table"
 msgid "Nutrition facts"
-msgstr "营养成分"
+msgstr "營養成分"
 
 msgctxt "nutrition_data_table_note"
 msgid "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
@@ -1645,7 +1654,7 @@ msgstr "包装类型，格式，材料"
 
 msgctxt "packaging_p"
 msgid "packaging"
-msgstr "包装"
+msgstr "包裝"
 
 msgctxt "packaging_products"
 msgid "Products with a %s packaging"
@@ -1653,7 +1662,7 @@ msgstr "产品带有%s的包装"
 
 msgctxt "packaging_s"
 msgid "packaging"
-msgstr "包装"
+msgstr "包裝"
 
 msgctxt "packaging_tagsinput"
 msgid "add a type, shape or material"
@@ -1969,7 +1978,7 @@ msgstr "不售于%s的产品"
 
 msgctxt "quantity"
 msgid "Quantity"
-msgstr "数量"
+msgstr "數量"
 
 msgctxt "quantity_example"
 msgid "2 l, 250 g, 1 kg, 25 cl, 6 fl oz, 1 pound"
@@ -2049,7 +2058,7 @@ msgstr "盐当量"
 
 msgctxt "save"
 msgid "Save"
-msgstr "保存"
+msgstr "儲存"
 
 msgctxt "saved"
 msgid "Saved."
@@ -2061,7 +2070,7 @@ msgstr "存储"
 
 msgctxt "search"
 msgid "Search"
-msgstr "搜索"
+msgstr "搜尋"
 
 msgctxt "search_a_product_placeholder"
 msgid "Search a product"
@@ -2069,7 +2078,7 @@ msgstr "搜索商品"
 
 msgctxt "search_button"
 msgid "Search"
-msgstr "搜索"
+msgstr "搜尋"
 
 msgctxt "search_contains"
 msgid "contains"
@@ -2310,7 +2319,7 @@ msgstr "再次编辑产品"
 
 msgctxt "select_country"
 msgid "Country"
-msgstr "国家/地区"
+msgstr "地區"
 
 msgctxt "select_lang"
 msgid "Language"
@@ -2807,7 +2816,7 @@ msgstr "已准备"
 
 msgctxt "unit"
 msgid "Unit"
-msgstr "单位"
+msgstr "單位"
 
 msgctxt "nutrition_data_exists"
 msgid "Nutrition facts are specified for the product as sold."
@@ -3281,23 +3290,23 @@ msgstr "当前翻译"
 
 msgctxt "button_caption_yes"
 msgid "Yes"
-msgstr "是的"
+msgstr "是"
 
 msgctxt "button_caption_no"
 msgid "No"
-msgstr "不"
+msgstr "否"
 
 msgctxt "button_caption_skip"
 msgid "Skip"
-msgstr "跳过"
+msgstr "略過"
 
 msgctxt "popularity_s"
 msgid "popularity"
-msgstr "受欢迎程度"
+msgstr "人氣"
 
 msgctxt "popularity_p"
 msgid "popularity"
-msgstr "受欢迎程度"
+msgstr "人氣"
 
 msgctxt "ingredients_analysis_p"
 msgid "ingredients analysis"
@@ -3401,7 +3410,7 @@ msgstr "成分"
 
 msgctxt "fields_group_nutrition"
 msgid "Nutrition facts"
-msgstr "营养成分"
+msgstr "營養成分"
 
 msgctxt "fields_group_nutrition_other"
 msgid "Optional nutrition facts"
@@ -3504,7 +3513,7 @@ msgstr "在右边的文本字段中键入目标字段的名称，或者留空以
 
 msgctxt "value"
 msgid "Value"
-msgstr "价值"
+msgstr "值"
 
 msgctxt "value_unit"
 msgid "Value + Unit"
@@ -3893,7 +3902,7 @@ msgstr "开始"
 
 msgctxt "close"
 msgid "Close"
-msgstr "关闭"
+msgstr "關閉"
 
 msgctxt "cancel_upload"
 msgid "Cancel upload"
@@ -3957,7 +3966,7 @@ msgstr "糖"
 
 msgctxt "nutriscore_points_for_saturated_fat"
 msgid "Saturated fat"
-msgstr "饱和脂肪"
+msgstr "飽和脂肪"
 
 msgctxt "nutriscore_points_for_saturated_fat_ratio"
 msgid "Saturated fat / fat ratio"
@@ -3965,7 +3974,7 @@ msgstr "饱和脂肪/脂肪比例"
 
 msgctxt "nutriscore_points_for_sodium"
 msgid "Sodium"
-msgstr "钠"
+msgstr "鈉"
 
 msgctxt "nutriscore_points_for_fruits_vegetables_nuts_colza_walnut_olive_oils"
 msgid "Fruits, vegetables, nuts, and colza/walnut/olive oils"
@@ -4305,7 +4314,7 @@ msgstr "团队%s"
 
 msgctxt "contributor_settings"
 msgid "Contributor"
-msgstr "贡献者"
+msgstr "貢獻者"
 
 msgctxt "contributor_settings_description"
 msgid "Those settings allow you to personalize some aspects of the website"
@@ -4625,15 +4634,15 @@ msgstr "小组%s"
 
 msgctxt "attribute_nova_1_description_short"
 msgid "Unprocessed or minimally processed foods"
-msgstr "组别1 未加工或最低限度加工的食物"
+msgstr "组别1 组别1 未加工或最低限度加工的食物"
 
 msgctxt "attribute_nova_2_description_short"
 msgid "Processed culinary ingredients"
-msgstr "处理过的烹饪原料"
+msgstr "组别2 处理过的烹饪原料"
 
 msgctxt "attribute_nova_3_description_short"
 msgid "Processed foods"
-msgstr "加工食品"
+msgstr "第三组 加工食品"
 
 msgctxt "attribute_nova_4_description_short"
 msgid "Ultra processed foods"
@@ -5099,7 +5108,7 @@ msgstr "含大豆的原料"
 
 msgctxt "type"
 msgid "Type"
-msgstr "类型"
+msgstr "類型"
 
 msgctxt "processing_factor"
 msgid "Processing factor"
@@ -5786,7 +5795,7 @@ msgstr "视频革命从你开始！"
 
 msgctxt "donation_cta"
 msgid "Donate"
-msgstr "捐助"
+msgstr "贊助/捐款"
 
 msgctxt "ecoscore_production_system_no_labels_with_environmental_benefits"
 msgid "No labels with environmental benefits"
@@ -6215,6 +6224,10 @@ msgstr "拍一张回收说明的照片"
 msgctxt "action_add_packaging_components"
 msgid "Add packaging components"
 msgstr "添加包装组件"
+
+msgctxt "action_add_quantity"
+msgid "Add quantity of the product"
+msgstr ""
 
 # this is not used yet
 msgctxt "action_add_basic_details"
@@ -6679,7 +6692,7 @@ msgstr "糖"
 
 msgctxt "nutriscore_component_saturated_fat"
 msgid "Saturated fat"
-msgstr "饱和脂肪"
+msgstr "飽和脂肪"
 
 msgctxt "nutriscore_component_saturated_fat_ratio"
 msgid "Saturated fat / fat"
@@ -6687,7 +6700,7 @@ msgstr ""
 
 msgctxt "nutriscore_component_salt"
 msgid "Salt"
-msgstr "盐"
+msgstr "鹽"
 
 msgctxt "nutriscore_component_non_nutritive_sweeteners"
 msgid "Non-nutritive sweeteners"
@@ -6803,5 +6816,71 @@ msgstr ""
 
 msgctxt "nutrient_info_proteins_benefit"
 msgid "Foods that are rich in proteins are usually rich in calcium or iron which are essential minerals with numerous health benefits."
+msgstr ""
+
+msgctxt "revert"
+msgid "Revert to this revision"
+msgstr ""
+
+msgctxt "product_js_product_revert_confirm"
+msgid "Revert to this product revision?"
+msgstr ""
+
+msgctxt "api_status_success"
+msgid "Success"
+msgstr ""
+
+msgctxt "api_status_failure"
+msgid "Failure"
+msgstr "失败"
+
+msgctxt "api_result_product_reverted"
+msgid "Product reverted to the specified revision"
+msgstr ""
+
+msgctxt "api_result_product_not_reverted"
+msgid "Product not reverted to the specified revision"
+msgstr ""
+
+# sweeteners (additives), plural
+msgctxt "sweeteners"
+msgid "sweeteners"
+msgstr ""
+
+# sweetener (additive), singular
+msgctxt "sweetener"
+msgid "sweetener"
+msgstr "甜味剂"
+
+msgctxt "action_edit_product"
+msgid "Complete or correct product information"
+msgstr ""
+
+msgctxt "report_problem_panel_title"
+msgid "Report a problem"
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_title"
+msgid "Incomplete or incorrect information?"
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_subtitle_off"
+msgid "Category, labels, ingredients, allergens, nutritional information, photos etc."
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_content_correct"
+msgid "If the information does not match the information on the packaging, you can complete or correct it. Thank you!"
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_content_correct_off"
+msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
+msgstr ""
+
+msgctxt "description"
+msgid "Description"
+msgstr ""
+
+msgctxt "report_problem_navigation"
+msgid "Report a problem"
 msgstr ""
 
