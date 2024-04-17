@@ -174,7 +174,7 @@ msgstr "Overmatig alcoholgebruik schaadt de gezondheid. Drink met mate."
 
 msgctxt "email_warning"
 msgid "Please note that your Pro account will only be valid if you use your professional e-mail address. Our moderation team checks that the domain name is consistent with the organisation you wish to join."
-msgstr ""
+msgstr "Houd er rekening mee dat uw Pro-account alleen geldig is als u uw professionele e-mailadres gebruikt. Ons moderatieteam controleert of de domeinnaam consistent is met de organisatie waarbij u zich wilt aansluiten."
 
 msgctxt "all_missions"
 msgid "All missions"
@@ -828,6 +828,15 @@ msgctxt "footer_legal_link"
 msgid "/legal"
 msgstr "/juridisch"
 
+msgctxt "footer_privacy"
+msgid "Privacy"
+msgstr "Privacy"
+
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
+msgctxt "footer_privacy_link"
+msgid "/privacy"
+msgstr "/privacy"
+
 msgctxt "footer_press"
 msgid "Press"
 msgstr "Pers"
@@ -879,7 +888,7 @@ msgstr "https://world.openbeautyfacts.org"
 
 msgctxt "footer_pro"
 msgid "Open Food Facts for Producers"
-msgstr ""
+msgstr "Open Food Facts voor producenten"
 
 msgctxt "for"
 msgid "for"
@@ -6221,6 +6230,10 @@ msgctxt "action_add_packaging_components"
 msgid "Add packaging components"
 msgstr "Voeg verpakkingsonderdelen toe"
 
+msgctxt "action_add_quantity"
+msgid "Add quantity of the product"
+msgstr "Voeg de hoeveelheid van het product toe"
+
 # this is not used yet
 msgctxt "action_add_basic_details"
 msgid "Add basic details"
@@ -6676,7 +6689,7 @@ msgstr "Energie"
 
 msgctxt "nutriscore_component_energy_from_saturated_fat"
 msgid "Energy from saturated fat"
-msgstr ""
+msgstr "Energie van verzadigde vetzuren"
 
 msgctxt "nutriscore_component_sugars"
 msgid "Sugars"
@@ -6688,7 +6701,7 @@ msgstr "Verzadigd vet"
 
 msgctxt "nutriscore_component_saturated_fat_ratio"
 msgid "Saturated fat / fat"
-msgstr ""
+msgstr "Verzadigde vetzuren/vet"
 
 msgctxt "nutriscore_component_salt"
 msgid "Salt"
@@ -6696,11 +6709,11 @@ msgstr "Zout"
 
 msgctxt "nutriscore_component_non_nutritive_sweeteners"
 msgid "Non-nutritive sweeteners"
-msgstr ""
+msgstr "Niet-voedzame zoetstoffen"
 
 msgctxt "nutriscore_component_fruits_vegetables_legumes"
 msgid "Fruits, vegetables and legumes"
-msgstr ""
+msgstr "Fruit, groenten en peulvruchten"
 
 msgctxt "nutriscore_component_fiber"
 msgid "Fiber"
@@ -6712,75 +6725,75 @@ msgstr "Eiwitten"
 
 msgctxt "presence"
 msgid "Presence"
-msgstr ""
+msgstr "Aanwezigheid"
 
 msgctxt "absence"
 msgid "Absence"
-msgstr ""
+msgstr "Afwezigheid"
 
 msgctxt "nutriscore_is_water"
 msgid "This product is considered to be water for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "Dit product wordt voor de berekening van de Nutri-Score beschouwd als water."
 
 msgctxt "nutriscore_is_fat_oil_nuts_seeds"
 msgid "This product is considered to be fat, oil, nuts or seeds for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "Dit product wordt beschouwd als vet, olie, noten of zaden voor de berekening van de Nutri-Score."
 
 msgctxt "nutriscore_is_cheese"
 msgid "This product is considered to be cheese for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "Dit product wordt beschouwd als kaas voor de berekening van de Nutri-Score."
 
 msgctxt "nutriscore_is_red_meat_product"
 msgid "This product is considered to be a red meat product for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "Dit product wordt beschouwd als een rood vleesproduct voor de berekening van de Nutri-Score."
 
 msgctxt "nutriscore_count_proteins_reason_beverage"
 msgid "Points for proteins are counted because the product is considered to be a beverage."
-msgstr ""
+msgstr "Punten voor eiwitten worden meegeteld omdat het product als een drankje wordt beschouwd."
 
 msgctxt "nutriscore_count_proteins_reason_cheese"
 msgid "Points for proteins are counted because the product is considered to be cheese."
-msgstr ""
+msgstr "Punten voor eiwitten worden meegeteld omdat het product als kaas wordt beschouwd."
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_less_than_7"
 msgid "Points for proteins are counted because the negative points are less than 7."
-msgstr ""
+msgstr "Punten voor eiwitten worden meegeteld omdat er minder dan 7 negatieve punten zijn."
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_less_than_11"
 msgid "Points for proteins are counted because the negative points are less than 11."
-msgstr ""
+msgstr "Punten voor eiwitten worden meegeteld omdat er minder dan 11 negatieve punten zijn."
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_to_7"
 msgid "Points for proteins are not counted because the negative points greater than or equal to 7."
-msgstr ""
+msgstr "Punten voor eiwitten worden niet meegeteld omdat het aantal negatieve punten groter dan of gelijk aan 7 zijn."
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_to_11"
 msgid "Points for proteins are not counted because the negative points greater than or equal to 11."
-msgstr ""
+msgstr "Punten voor eiwitten worden niet meegeteld omdat het aantal negatieve punten groter dan of gelijk aan 11 zijn."
 
 msgctxt "nutriscore_explanation_what_it_is"
 msgid "The Nutri-Score is a logo on the overall nutritional quality of products."
-msgstr ""
+msgstr "De Nutri-Score is een logo dat de algehele voedingskwaliteit van producten weergeeft."
 
 msgctxt "nutriscore_explanation_what_it_takes_into_account"
 msgid "The score from A to E is calculated based on nutrients and foods to favor (proteins, fiber, fruits, vegetables and legumes ...) and nutrients to limit (calories, saturated fat, sugars, salt)."
-msgstr ""
+msgstr "De score van A tot E wordt berekend op basis van voedingsstoffen en voedingsmiddelen die de voorkeur genieten (eiwitten, vezels, fruit, groenten en peulvruchten ...) en voedingsstoffen die moeten worden beperkt (calorieën, verzadigd vet, suikers, zout)."
 
 msgctxt "nutriscore_explanation_where_the_data_comes_from"
 msgid "The score is calculated from the data of the nutrition facts table and the composition data (fruits, vegetables and legumes)."
-msgstr ""
+msgstr "De score wordt berekend op basis van de voedingswaardentabel en de ingrediënten (fruit, groenten en peulvruchten)."
 
 msgctxt "nutriscore_explanation_recommended_by_public_health_authorities"
 msgid "The display of this logo is recommended by public health authorities without obligation for companies."
-msgstr ""
+msgstr "Het tonen van dit logo wordt door de volksgezondheidsautoriteiten vrijblijvend aanbevolen voor bedrijven."
 
 msgctxt "nutriscore_explanation_title"
 msgid "What is the Nutri-Score?"
-msgstr ""
+msgstr "Wat is de Nutri-Score?"
 
 msgctxt "nutrient_info_energy_risk"
 msgid "Energy intakes above energy requirements are associated with increased risks of weight gain, overweight, obesity, and consequently risk of diet-related chronic diseases."
-msgstr ""
+msgstr "Een energie-inname boven de energiebehoefte wordt in verband gebracht met een verhoogd risico op gewichtstoename, overgewicht en zwaarlijvigheid, en bijgevolg op een risico op voedingsgerelateerde chronische ziekten."
 
 msgctxt "nutrient_info_saturated_fat_risk"
 msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
@@ -6796,17 +6809,83 @@ msgstr "Een hoge consumptie van vet, vooral verzadigde vetten, kan het cholester
 
 msgctxt "nutrient_info_non_nutritive_sweeteners_risk"
 msgid "Non-nutritive sweeteners may not confer any long-term benefit in reducing body fat in adults or children. There may be potential undesirable effects from long-term use of non-nutritive sweeteners, such as an increased risk of type 2 diabetes and cardiovascular diseases in adults."
-msgstr ""
+msgstr "Niet-voedzame zoetstoffen bieden mogelijk geen enkel langetermijnvoordeel bij het verminderen van lichaamsvet bij volwassenen of kinderen. Er kunnen mogelijk ongewenste effecten optreden bij langdurig gebruik van niet-voedzame zoetstoffen, zoals een verhoogd risico op diabetes type 2 en hart- en vaatziekten bij volwassenen."
 
 msgctxt "nutrient_info_fiber_benefit"
 msgid "Consuming foods rich in fiber (especially whole grain foods) reduces the risks of aerodigestive cancers, cardiovascular diseases, obesity and diabetes."
-msgstr ""
+msgstr "Het consumeren van voedsel dat rijk is aan vezels (met name volkoren voedsel) vermindert de kans op aerodigestieve kankers, hart- en vaatziekten, obesitas en diabetes."
 
 msgctxt "nutrient_info_fruits_vegetables_legumes_benefit"
 msgid "Consuming foods rich in fruits, vegetables and legumes reduces the risks of aerodigestive cancers, cardiovascular diseases, obesity and diabetes."
-msgstr ""
+msgstr "Het consumeren van voedsel dat rijk is aan fruit, groenten en peulvruchten, vermindert de kans op aerodigestieve kanker, hart- en vaatziekten, obesitas en diabetes."
 
 msgctxt "nutrient_info_proteins_benefit"
 msgid "Foods that are rich in proteins are usually rich in calcium or iron which are essential minerals with numerous health benefits."
-msgstr ""
+msgstr "Levensmiddelen die rijk zijn aan eiwitten zijn meestal rijk aan calcium of ijzer die essentiële mineralen zijn met talloze gezondheidsvoordelen."
+
+msgctxt "revert"
+msgid "Revert to this revision"
+msgstr "Keer terug naar deze revisie"
+
+msgctxt "product_js_product_revert_confirm"
+msgid "Revert to this product revision?"
+msgstr "Terugkeren naar deze productrevisie?"
+
+msgctxt "api_status_success"
+msgid "Success"
+msgstr "Geslaagd"
+
+msgctxt "api_status_failure"
+msgid "Failure"
+msgstr "Fout"
+
+msgctxt "api_result_product_reverted"
+msgid "Product reverted to the specified revision"
+msgstr "Product teruggezet naar de opgegeven revisie"
+
+msgctxt "api_result_product_not_reverted"
+msgid "Product not reverted to the specified revision"
+msgstr "Product is niet teruggezet naar de opgegeven revisie"
+
+# sweeteners (additives), plural
+msgctxt "sweeteners"
+msgid "sweeteners"
+msgstr "zoetstoffen"
+
+# sweetener (additive), singular
+msgctxt "sweetener"
+msgid "sweetener"
+msgstr "zoetstof"
+
+msgctxt "action_edit_product"
+msgid "Complete or correct product information"
+msgstr "Corrigeer en/of vul productinformatie aan"
+
+msgctxt "report_problem_panel_title"
+msgid "Report a problem"
+msgstr "Meld een probleem"
+
+msgctxt "incomplete_or_incorrect_data_title"
+msgid "Incomplete or incorrect information?"
+msgstr "Onvolledige of onjuiste informatie?"
+
+msgctxt "incomplete_or_incorrect_data_subtitle_off"
+msgid "Category, labels, ingredients, allergens, nutritional information, photos etc."
+msgstr "Categorie, labels, ingrediënten, allergenen, voedingswaarden, foto's, etc."
+
+msgctxt "incomplete_or_incorrect_data_content_correct"
+msgid "If the information does not match the information on the packaging, you can complete or correct it. Thank you!"
+msgstr "Indien de gegevens niet overeenkomen met de gegevens op de verpakking, kunt u deze aanvullen of corrigeren. Bedankt!"
+
+msgctxt "incomplete_or_incorrect_data_content_correct_off"
+msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
+msgstr "Open Food Facts is een samenwerkingsdatabase en elke bijdrage is nuttig voor iedereen."
+
+msgctxt "description"
+msgid "Description"
+msgstr "Beschrijving"
+
+msgctxt "report_problem_navigation"
+msgid "Report a problem"
+msgstr "Meld een probleem"
 
