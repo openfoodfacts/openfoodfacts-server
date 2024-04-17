@@ -125,10 +125,8 @@ sub taxonomy_suggestions_api ($request_ref) {
 	}
 	# Generate suggestions
 	else {
-		my $options_relavant = {%$options_ref};
-		delete $options_relavant->{get_synonyms};
 		my @suggestions
-			= get_taxonomy_suggestions_with_synonyms($tagtype, $search_lc, $string, $context_ref, $options_relavant);
+			= get_taxonomy_suggestions_with_synonyms($tagtype, $search_lc, $string, $context_ref, $options_ref);
 		$log->debug("taxonomy_suggestions_api", @suggestions) if $log->is_debug();
 		$response_ref->{suggestions} = [map {$_->{tag}} @suggestions];
 		if ($options_ref->{get_synonyms}) {
