@@ -826,6 +826,15 @@ msgctxt "footer_legal_link"
 msgid "/legal"
 msgstr "/legal"
 
+msgctxt "footer_privacy"
+msgid "Privacy"
+msgstr "Mahremiyet"
+
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
+msgctxt "footer_privacy_link"
+msgid "/privacy"
+msgstr "/mahremiyet"
+
 msgctxt "footer_press"
 msgid "Press"
 msgstr "Basın"
@@ -6219,6 +6228,10 @@ msgctxt "action_add_packaging_components"
 msgid "Add packaging components"
 msgstr "Paketleme bileşenleri ekleyin"
 
+msgctxt "action_add_quantity"
+msgid "Add quantity of the product"
+msgstr "Ürün miktarını ekleyin"
+
 # this is not used yet
 msgctxt "action_add_basic_details"
 msgid "Add basic details"
@@ -6807,4 +6820,70 @@ msgstr "Meyve, sebze ve baklagiller açısından zengin gıdaların tüketilmesi
 msgctxt "nutrient_info_proteins_benefit"
 msgid "Foods that are rich in proteins are usually rich in calcium or iron which are essential minerals with numerous health benefits."
 msgstr "Protein açısından zengin gıdalar genellikle sağlığa birçok faydası olan temel mineraller olan kalsiyum veya demir açısından zengindir."
+
+msgctxt "revert"
+msgid "Revert to this revision"
+msgstr "Bu düzeltmeye geri dön"
+
+msgctxt "product_js_product_revert_confirm"
+msgid "Revert to this product revision?"
+msgstr "Bu ürün revizyonuna geri dönülsün mü?"
+
+msgctxt "api_status_success"
+msgid "Success"
+msgstr "Başarılı"
+
+msgctxt "api_status_failure"
+msgid "Failure"
+msgstr "Başarısızlık"
+
+msgctxt "api_result_product_reverted"
+msgid "Product reverted to the specified revision"
+msgstr "Ürün belirtilen revizyona geri döndürüldü"
+
+msgctxt "api_result_product_not_reverted"
+msgid "Product not reverted to the specified revision"
+msgstr "Ürün belirtilen revizyona geri döndürülmedi"
+
+# sweeteners (additives), plural
+msgctxt "sweeteners"
+msgid "sweeteners"
+msgstr "tatlandırıcılar"
+
+# sweetener (additive), singular
+msgctxt "sweetener"
+msgid "sweetener"
+msgstr "tatlandırıcı"
+
+msgctxt "action_edit_product"
+msgid "Complete or correct product information"
+msgstr "Ürün bilgilerini tamamlayın veya düzeltin"
+
+msgctxt "report_problem_panel_title"
+msgid "Report a problem"
+msgstr "Bir sorun bildir"
+
+msgctxt "incomplete_or_incorrect_data_title"
+msgid "Incomplete or incorrect information?"
+msgstr "Eksik veya hatalı bilgi mi?"
+
+msgctxt "incomplete_or_incorrect_data_subtitle_off"
+msgid "Category, labels, ingredients, allergens, nutritional information, photos etc."
+msgstr "Kategori, etiketler, içerikler, alerjenler, beslenme bilgileri, fotoğraflar vb."
+
+msgctxt "incomplete_or_incorrect_data_content_correct"
+msgid "If the information does not match the information on the packaging, you can complete or correct it. Thank you!"
+msgstr "Eğer bilgiler ambalaj üzerindeki bilgilerle eşleşmiyorsa tamamlayabilir veya düzeltebilirsiniz. Teşekkür ederim!"
+
+msgctxt "incomplete_or_incorrect_data_content_correct_off"
+msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
+msgstr "Open Food Facts ortak çalışmaya dayalı bir veri tabanıdır ve her katkı herkes için faydalıdır."
+
+msgctxt "description"
+msgid "Description"
+msgstr "Açıklama"
+
+msgctxt "report_problem_navigation"
+msgid "Report a problem"
+msgstr "Bir sorun bildir"
 
