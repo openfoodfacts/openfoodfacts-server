@@ -828,6 +828,15 @@ msgctxt "footer_legal_link"
 msgid "/legal"
 msgstr "/legal"
 
+msgctxt "footer_privacy"
+msgid "Privacy"
+msgstr "Конфіденційність"
+
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
+msgctxt "footer_privacy_link"
+msgid "/privacy"
+msgstr ""
+
 msgctxt "footer_press"
 msgid "Press"
 msgstr "Натисніть"
@@ -6225,6 +6234,10 @@ msgctxt "action_add_packaging_components"
 msgid "Add packaging components"
 msgstr "Додайте пакувальні компоненти"
 
+msgctxt "action_add_quantity"
+msgid "Add quantity of the product"
+msgstr "Додайте кількість товару"
+
 # this is not used yet
 msgctxt "action_add_basic_details"
 msgid "Add basic details"
@@ -6500,7 +6513,7 @@ msgstr "Перетворено значення"
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units"
 msgid "Number of units"
-msgstr ""
+msgstr "Кількість одиниць"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight"
@@ -6813,4 +6826,81 @@ msgstr ""
 msgctxt "nutrient_info_proteins_benefit"
 msgid "Foods that are rich in proteins are usually rich in calcium or iron which are essential minerals with numerous health benefits."
 msgstr ""
+
+msgctxt "revert"
+msgid "Revert to this revision"
+msgstr "Повернути до цієї версії"
+
+msgctxt "product_js_product_revert_confirm"
+msgid "Revert to this product revision?"
+msgstr "Повернутися до цієї версії продукту?"
+
+msgctxt "api_status_success"
+msgid "Success"
+msgstr "Успішно"
+
+msgctxt "api_status_failure"
+msgid "Failure"
+msgstr "Збій"
+
+msgctxt "api_result_product_reverted"
+msgid "Product reverted to the specified revision"
+msgstr "Товар повернений до вказаної версії"
+
+msgctxt "api_result_product_not_reverted"
+msgid "Product not reverted to the specified revision"
+msgstr "Продукт не повернуто до зазначеної версії"
+
+# sweeteners (additives), plural
+msgctxt "sweeteners"
+msgid "sweeteners"
+msgstr "підсолоджувачі"
+
+# sweetener (additive), singular
+msgctxt "sweetener"
+msgid "sweetener"
+msgstr "підсолоджувач sweetener\n"
+"gassing agent\n"
+"strengthening agent\n"
+"filler\n"
+"antibacterial agent\n"
+"anti-foaming agent\n"
+"anti-freeze agent\n"
+"glazing agent\n"
+"emulsifier\n"
+"sequestrant\n"
+"moisturising agent\n"
+"flavour"
+
+msgctxt "action_edit_product"
+msgid "Complete or correct product information"
+msgstr "Повна або правильна інформація про товар"
+
+msgctxt "report_problem_panel_title"
+msgid "Report a problem"
+msgstr "Повідомити про проблему"
+
+msgctxt "incomplete_or_incorrect_data_title"
+msgid "Incomplete or incorrect information?"
+msgstr "Неповна чи неправильна інформація?"
+
+msgctxt "incomplete_or_incorrect_data_subtitle_off"
+msgid "Category, labels, ingredients, allergens, nutritional information, photos etc."
+msgstr "Категорія, етикетки, інгредієнти, алергени, харчова інформація, фотографії тощо."
+
+msgctxt "incomplete_or_incorrect_data_content_correct"
+msgid "If the information does not match the information on the packaging, you can complete or correct it. Thank you!"
+msgstr "Якщо інформація не відповідає інформації на упаковці, ви можете її доповнити або виправити. Дякую!"
+
+msgctxt "incomplete_or_incorrect_data_content_correct_off"
+msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
+msgstr "Open Food Facts — це спільна база даних, і кожен внесок корисний для всіх."
+
+msgctxt "description"
+msgid "Description"
+msgstr "Опис"
+
+msgctxt "report_problem_navigation"
+msgid "Report a problem"
+msgstr "Повідомити про проблему"
 
