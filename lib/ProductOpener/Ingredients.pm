@@ -2757,6 +2757,12 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 								'^(?>\d+\s+g\s+)?(?>\w+\s?)*?ze\s+\d+\s?g(?>\s+\w*)*$' # "produktu wyprodukowano ze 133 g mięsa wieprzowego"
 							],
 
+							'ro' => [
+								'in proporţie variabilă',
+								'Informatiile scrise cu majuscule sunt destinate persoanelor cu intolerante sau alergice',
+								'Ambalat in atmosfera protectoare',
+							],
+
 							'ru' => [
 								'^россия$', '^состав( продукта)?$',
 								'^энергетическая ценность$', '^калорийность$',

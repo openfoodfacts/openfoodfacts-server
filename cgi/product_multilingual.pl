@@ -774,7 +774,7 @@ if (($action eq 'display') and (($type eq 'add') or ($type eq 'edit'))) {
 
 	$header .= <<HTML
 <link rel="stylesheet" type="text/css" href="/css/dist/cropper.css" />
-<link rel="stylesheet" type="text/css" href="/css/dist/tagify.css" />
+<link rel="stylesheet" href="[% static_subdomain %]/css/dist/custom-tagify.css" data-base-layout="true">
 HTML
 		;
 

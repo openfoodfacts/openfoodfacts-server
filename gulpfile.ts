@@ -134,7 +134,6 @@ function copyCss() {
     "./node_modules/leaflet/dist/leaflet.css",
     "./node_modules/leaflet.markercluster/dist/MarkerCluster.css",
     "./node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css",
-    // "./node_modules/@yaireo/tagify/dist/tagify.css", // This line should be commented out or removed
     "./node_modules/cropperjs/dist/cropper.css",
     "./node_modules/select2/dist/css/select2.min.css",
   ])

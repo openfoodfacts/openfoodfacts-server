@@ -107,7 +107,6 @@ my %service_functions = (
 	extend_ingredients => \&ProductOpener::Ingredients::extend_ingredients_service,
 	estimate_ingredients_percent => \&ProductOpener::Ingredients::estimate_ingredients_percent_service,
 	analyze_ingredients => \&ProductOpener::Ingredients::analyze_ingredients_service,
-    check_quality => \&check_quality_service,
 );
 
 sub check_product_services_api_input ($request_ref) {
@@ -231,41 +230,5 @@ sub product_services_api ($request_ref) {
 
 	return;
 }
-
-
-sub check_quality_service ($product_ref, $updated_product_fields_ref) {
-
-    # Call check_quality from DataQuality.pm
-    ProductOpener::DataQuality::check_quality($product_ref);
-
-    # Initialize arrays to store the structured quality issues
-    my $quality_issues = {
-        bugs => [],
-        info => [],
-        warnings => [],
-        errors => [],
-    };
-
-    # Extract and organize the quality tags
-    foreach my $type (qw(bugs info warnings errors)) {
-        my $tag_key = "data_quality_" . $type . "_tags";
-        if (defined $product_ref->{$tag_key} and @{$product_ref->{$tag_key}}) {
-            foreach my $tag (@{$product_ref->{$tag_key}}) {
-                push @{$quality_issues->{$type}}, $tag;
-            }
-        }
-    }
-
-    # Store the quality issues in the product_ref for returning to the client
-    $product_ref->{'data_quality_issues'} = $quality_issues;
-
-    # Indicate that we've updated the data_quality_issues field
-    $updated_product_fields_ref->{'data_quality_issues'} = 1;
-
-    return;
-}
-
-
-
 
 1;
