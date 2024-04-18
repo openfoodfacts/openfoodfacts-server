@@ -404,6 +404,7 @@
             {
                "ciqual_food_code" : "13050",
                "id" : "en:apple",
+               "is_in_taxonomy": 1,
                "percent_estimate" : 62.5,
                "percent_max" : 100,
                "percent_min" : 25,
@@ -415,6 +416,7 @@
             {
                "ciqual_proxy_food_code" : "19051",
                "id" : "en:milk",
+               "is_in_taxonomy": 1,
                "percent_estimate" : 18.75,
                "percent_max" : 50,
                "percent_min" : 0,
@@ -426,6 +428,7 @@
             {
                "ciqual_food_code" : "22000",
                "id" : "en:egg",
+               "is_in_taxonomy": 1,
                "percent_estimate" : 9.375,
                "percent_max" : 33.3333333333333,
                "percent_min" : 0,
@@ -437,6 +440,7 @@
             {
                "ciqual_food_code" : "16129",
                "from_palm_oil" : "yes",
+               "is_in_taxonomy": 1,
                "id" : "en:palm-oil",
                "percent_estimate" : 9.375,
                "percent_max" : 25,
