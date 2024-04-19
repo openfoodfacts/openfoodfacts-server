@@ -825,6 +825,15 @@ msgctxt "footer_legal_link"
 msgid "/legal"
 msgstr "crwdns225477:0crwdne225477:0"
 
+msgctxt "footer_privacy"
+msgid "Privacy"
+msgstr "crwdns247740:0crwdne247740:0"
+
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
+msgctxt "footer_privacy_link"
+msgid "/privacy"
+msgstr "crwdns247742:0crwdne247742:0"
+
 msgctxt "footer_press"
 msgid "Press"
 msgstr "crwdns225479:0crwdne225479:0"
@@ -2565,6 +2574,10 @@ msgstr "crwdns226327:0crwdne226327:0"
 msgctxt "view"
 msgid "view"
 msgstr "crwdns226329:0crwdne226329:0"
+
+msgctxt "view_this_revision"
+msgid "View this revision"
+msgstr "crwdns248222:0crwdne248222:0"
 
 msgctxt "view_list_for_products_from_the_entire_world"
 msgid "View the list for matching products from the entire world"
@@ -6204,6 +6217,10 @@ msgctxt "action_add_packaging_components"
 msgid "Add packaging components"
 msgstr "crwdns228087:0crwdne228087:0"
 
+msgctxt "action_add_quantity"
+msgid "Add quantity of the product"
+msgstr "crwdns247804:0crwdne247804:0"
+
 # this is not used yet
 msgctxt "action_add_basic_details"
 msgid "Add basic details"
@@ -6792,4 +6809,70 @@ msgstr "crwdns247084:0crwdne247084:0"
 msgctxt "nutrient_info_proteins_benefit"
 msgid "Foods that are rich in proteins are usually rich in calcium or iron which are essential minerals with numerous health benefits."
 msgstr "crwdns247086:0crwdne247086:0"
+
+msgctxt "revert"
+msgid "Revert to this revision"
+msgstr "crwdns247832:0crwdne247832:0"
+
+msgctxt "product_js_product_revert_confirm"
+msgid "Revert to this product revision?"
+msgstr "crwdns247834:0crwdne247834:0"
+
+msgctxt "api_status_success"
+msgid "Success"
+msgstr "crwdns247836:0crwdne247836:0"
+
+msgctxt "api_status_failure"
+msgid "Failure"
+msgstr "crwdns247838:0crwdne247838:0"
+
+msgctxt "api_result_product_reverted"
+msgid "Product reverted to the specified revision"
+msgstr "crwdns247840:0crwdne247840:0"
+
+msgctxt "api_result_product_not_reverted"
+msgid "Product not reverted to the specified revision"
+msgstr "crwdns247842:0crwdne247842:0"
+
+# sweeteners (additives), plural
+msgctxt "sweeteners"
+msgid "sweeteners"
+msgstr "crwdns247708:0crwdne247708:0"
+
+# sweetener (additive), singular
+msgctxt "sweetener"
+msgid "sweetener"
+msgstr "crwdns247710:0crwdne247710:0"
+
+msgctxt "action_edit_product"
+msgid "Complete or correct product information"
+msgstr "crwdns248100:0crwdne248100:0"
+
+msgctxt "report_problem_panel_title"
+msgid "Report a problem"
+msgstr "crwdns248102:0crwdne248102:0"
+
+msgctxt "incomplete_or_incorrect_data_title"
+msgid "Incomplete or incorrect information?"
+msgstr "crwdns248104:0crwdne248104:0"
+
+msgctxt "incomplete_or_incorrect_data_subtitle_off"
+msgid "Category, labels, ingredients, allergens, nutritional information, photos etc."
+msgstr "crwdns248106:0crwdne248106:0"
+
+msgctxt "incomplete_or_incorrect_data_content_correct"
+msgid "If the information does not match the information on the packaging, you can complete or correct it. Thank you!"
+msgstr "crwdns248108:0crwdne248108:0"
+
+msgctxt "incomplete_or_incorrect_data_content_correct_off"
+msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
+msgstr "crwdns248110:0crwdne248110:0"
+
+msgctxt "description"
+msgid "Description"
+msgstr "crwdns247894:0crwdne247894:0"
+
+msgctxt "report_problem_navigation"
+msgid "Report a problem"
+msgstr "crwdns248112:0crwdne248112:0"
 
