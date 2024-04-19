@@ -359,6 +359,7 @@
    "ingredients" : [
       {
          "id" : "fr:white-peaches",
+         "is_in_taxonomy" : 0,
          "percent_estimate" : 75,
          "percent_max" : 100,
          "percent_min" : 50,
@@ -366,6 +367,7 @@
       },
       {
          "id" : "fr:high-fructose-corn-syrup",
+         "is_in_taxonomy" : 0,
          "percent_estimate" : 25,
          "percent_max" : 50,
          "percent_min" : 0,
