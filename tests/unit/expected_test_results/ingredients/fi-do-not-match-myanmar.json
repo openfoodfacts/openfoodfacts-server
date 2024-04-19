@@ -26,7 +26,6 @@
                "vegetarian" : "yes"
             },
             {
-               "ciqual_food_code" : "20041",
                "id" : "en:spice-or-bell-pepper",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 10.4166666666667,
@@ -90,10 +89,9 @@
       "en:turmeric",
       "en:ginger",
       "en:spice-or-bell-pepper",
-      "en:vegetable",
-      "en:fruit-vegetable",
-      "en:bell-pepper",
+      "en:plant",
       "en:garlic",
+      "en:vegetable",
       "en:root-vegetable",
       "en:onion-family-vegetable",
       "en:coriander",
@@ -122,10 +120,9 @@
       "en:turmeric",
       "en:ginger",
       "en:spice-or-bell-pepper",
-      "en:vegetable",
-      "en:fruit-vegetable",
-      "en:bell-pepper",
+      "en:plant",
       "en:garlic",
+      "en:vegetable",
       "en:root-vegetable",
       "en:onion-family-vegetable",
       "en:coriander",
@@ -140,14 +137,15 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
       "en:coriander",
-      "en:spice"
+      "en:spice",
+      "en:spice-or-bell-pepper"
    ],
-   "ingredients_without_ciqual_codes_n" : 2,
-   "known_ingredients_n" : 15,
+   "ingredients_without_ciqual_codes_n" : 3,
+   "known_ingredients_n" : 14,
    "lc" : "fi",
    "nutriments" : {
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 15.625,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 15.625,
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 5.20833333333333,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 5.20833333333333,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 5.20833333333333,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 5.20833333333333
    },

@@ -31226,6 +31226,7 @@ hu:juharszirup
 it:sciroppo d'acero
 nl:esdoornsiroop, ahornsiroop
 pl:syrop klonowy
+ro:sirop de arţar
 ru:кленовый сироп
 vegan:en:yes
 vegetarian:en:yes
@@ -34557,9 +34558,6 @@ es:salvado de soja
 fi:soijaleseet
 fr:son de soja
 
-<en:soya bean
-de:Sojaerzeugnis
-
 #process:en: en:concentrated
 #<en:soya bean
 #es:concentrado de soja
@@ -36662,7 +36660,6 @@ vegetarian:en:yes
 nutriscore_fruits_vegetables_nuts:en:yes
 
 <en:fruits preparation
-<en:berries
 en:berry preparation
 de:Fruchtzubereitung aus roten Früchten
 fi:marjavalmiste
@@ -36909,7 +36906,6 @@ sv:växtkoncentrat, plantkoncentrat
 fr:specialité de fruits pomme poire
 
 <en:preparation
-<en:fruit
 en:fruits preparation
 de:Fruchtzubereitung
 fr:préparation de fruits
@@ -36919,7 +36915,6 @@ sv:fruktberedning
 # usage:de:Fruchtzubereitung (Zucker, Pfirsichsaft aus Pfirsichsaftkonzentrat, Wasser, Pfirsichmark, Maracujasaft aus Maracujasaftkonzentrat, modifizierte Stärke, natürliches Aroma, Säurungsmittel: Citronensäure; Säureregulator: Natriumcitrat)
 
 <en:fruits preparation
-<en:pear
 en:pear preparation
 fi:päärynävalmiste
 fr:préparation de poires
@@ -39411,12 +39406,10 @@ en:apple wine
 hr:vino od jabuke
 
 <en:preparation
-<en:apple
 en:apple preparation
 hr:pripravak s jabukama
 
 <en:filling
-<en:apple
 en:apple filling
 hr:punjenje od jabuke
 
@@ -41331,8 +41324,7 @@ ciqual_food_name:fr:Marmelade d'orange
 #22 @2021-09-26
 
 <en:preparation
-<en:orange
-en:oragne filling
+en:orange filling
 hr:punjenje od naranče
 
 
@@ -41825,8 +41817,6 @@ en:pieces and juice of blackcurrant
 hr:komadi i sok crnog ribiza
 
 <en:preparation
-<en:blackcurrant
-<en:cinnamon
 en:black currant cinnamon preparation
 hr:pripravak crni ribiz cimet, emulzija crne ribizle
 
@@ -42448,11 +42438,7 @@ it:Succo di amarena
 de:Sauerkirschsaft aus Sauerkirschsaftkonzentrat
 hr:sok višnje od koncentriranog soka, sok od višnje od koncentriranog soka
 
-<en:cherry
-en:glacé cherry, glacé cherries
-
 <en:preparation
-<en:cherry
 en:cherry preparation
 hr:pripravak trešnja
 
@@ -42551,13 +42537,12 @@ fr:bigarreaux confits
 # ingredient/fr:bigarreaux-confits has 40 products in french @2019-02-22
 # bigarreaux confits  ( bigarreaux ; sucre ; conservateurs :E202, anhydride sulfureux; correcteur d'acidité :acide citrique ; colorant :E127)
 
-<en:preparation
-<en:sweet cherry
+<en:cherry preparation
 en:sweet cherry preparation
 hr:pripravak višnja
 
 # CERISES CONFITES is a compound ingredient
-<en:cherry
+<en:cherry preparation
 en:glacé cherry, glacé cherries
 de:kandierte Kirsche, kandierte Kirschen
 fi:kandeeratut kirsikat
@@ -45524,7 +45509,6 @@ fi:mansikkatäyte
 pl:nadzienie truskawkowe, wsad truskawkowy, nadzienie o smaku truskawkowym
 
 <en:preparation
-<en:strawberry
 en:strawberry preparation
 hr:pripravak od jagoda, pripravak od jagode
 
@@ -56001,6 +55985,7 @@ fr:Paprika en poudre
 hr:paprika u prahu
 nl:paprikapoeder
 pl:papryka w proszku, papryka suszona, papryka suszona czerwona, papryka czerwona suszona, papryka mielona
+ro:boia de ardei
 
 <en:paprika
 en:smoked paprika
@@ -56038,8 +56023,7 @@ en:hot paprika
 pl:ostra papryka, ostra papryka w proszku, papryka ostra, papryka ostra mielona
 
 # in some languages paprika is either the spice or the vegetable
-<en:bell pepper
-<en:spice
+<en:plant
 en:spice or bell pepper
 bg:червен пипер, паприка
 cs:paprika
@@ -58346,7 +58330,6 @@ fr:fève sêche, fèves sèches
 eurocode_2_group_3:en: 7.10.20
 
 <en:preparation
-<en:broad bean
 en:faba bean preparation
 nl:bereiding van tuinbonen
 
@@ -59777,20 +59760,16 @@ de:karamellisierte Mandeln
 
 # fr:praliné aux amandes et aux noisettes is a compound ingredient
 
-<en:almond
-<en:hazelnut
+<en:preparation
 fr:praliné aux amandes et aux noisettes
 nl:amandelen-hazelnotenpraliné
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:praliné-aux-amandes-et-aux-noisettes
 # 31 products in 2 languages @2018-10-06
 
-<en:almond
-<en:hazelnut
+<en:preparation
 fr:pâte de praliné
 
 <en:preparation
-<en:almond
-<en:pistachio nuts
 en:almond pistachio preparation
 hr:pripravak badem pistacija
 
@@ -88383,10 +88362,10 @@ de:kakaohaltiges Getränkepulver
 
 # description:en:A food product based on soy.
 
+# <en:compound
 <en:preparation
-<en:soya
 en:soy preparation
-de:Sojabereitung, Soja-Produkt, Sojaprodukt, Sojamittel
+de:Sojabereitung, Soja-Produkt, Sojaprodukt, Sojamittel, Sojaerzeugnis
 es:preparación de soja
 fi:Soijavalmiste
 fr:préparation à base de soja
