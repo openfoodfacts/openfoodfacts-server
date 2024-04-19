@@ -177,7 +177,7 @@
     <p>&rarr; <a href="[% profile_url %]">[% profile_name %]</a></p>
 [% END %]
 
-<script src="https://static.openfoodfacts.org/js/dist/jquery.js"></script>
+<script src="[% static_subdomain %]/js/dist/jquery.js" data-base-layout="true"></script>
 <script>
     \$(document).ready(function() {
         \$('#email_list').on('input', function(event) {
