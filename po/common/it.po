@@ -154,7 +154,7 @@ msgstr "Additivo alimentare bandito in Europa. Evitare a ogni costo."
 
 msgctxt "additives_p"
 msgid "additives"
-msgstr "additivi"
+msgstr ""
 
 msgctxt "additives_s"
 msgid "additive"
@@ -174,7 +174,7 @@ msgstr "Bere in eccesso è pericoloso per la salute."
 
 msgctxt "email_warning"
 msgid "Please note that your Pro account will only be valid if you use your professional e-mail address. Our moderation team checks that the domain name is consistent with the organisation you wish to join."
-msgstr ""
+msgstr "Ti preghiamo di notare che il tuo profilo Pro sarà valido esclusivamente utilizzando il tuo indirizzo email professionale. Il nostro team di moderazione verifica che il nome di dominio sia coerrente con l'organizzazione a cui desideri aderire."
 
 msgctxt "all_missions"
 msgid "All missions"
@@ -828,6 +828,15 @@ msgctxt "footer_legal_link"
 msgid "/legal"
 msgstr "/legal"
 
+msgctxt "footer_privacy"
+msgid "Privacy"
+msgstr "Privacy"
+
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
+msgctxt "footer_privacy_link"
+msgid "/privacy"
+msgstr "/privacy"
+
 msgctxt "footer_press"
 msgid "Press"
 msgstr "Stampa"
@@ -879,7 +888,7 @@ msgstr "https://world.openbeautyfacts.org"
 
 msgctxt "footer_pro"
 msgid "Open Food Facts for Producers"
-msgstr ""
+msgstr "Open Food Facts per Produttori"
 
 msgctxt "for"
 msgid "for"
@@ -2584,6 +2593,10 @@ msgstr "Video Tutorial"
 msgctxt "view"
 msgid "view"
 msgstr "mostra"
+
+msgctxt "view_this_revision"
+msgid "View this revision"
+msgstr ""
 
 msgctxt "view_list_for_products_from_the_entire_world"
 msgid "View the list for matching products from the entire world"
@@ -6224,6 +6237,10 @@ msgctxt "action_add_packaging_components"
 msgid "Add packaging components"
 msgstr "Aggiungi i componenti dell'imballaggio"
 
+msgctxt "action_add_quantity"
+msgid "Add quantity of the product"
+msgstr "Aggiungi quantità del prodotto"
+
 # this is not used yet
 msgctxt "action_add_basic_details"
 msgid "Add basic details"
@@ -6679,7 +6696,7 @@ msgstr "Energia"
 
 msgctxt "nutriscore_component_energy_from_saturated_fat"
 msgid "Energy from saturated fat"
-msgstr ""
+msgstr "Energia dai grassi saturi"
 
 msgctxt "nutriscore_component_sugars"
 msgid "Sugars"
@@ -6691,7 +6708,7 @@ msgstr "Grassi saturi"
 
 msgctxt "nutriscore_component_saturated_fat_ratio"
 msgid "Saturated fat / fat"
-msgstr ""
+msgstr "Grassi saturi / grassi"
 
 msgctxt "nutriscore_component_salt"
 msgid "Salt"
@@ -6699,11 +6716,11 @@ msgstr "Sale"
 
 msgctxt "nutriscore_component_non_nutritive_sweeteners"
 msgid "Non-nutritive sweeteners"
-msgstr ""
+msgstr "Dolcificanti non nutritivi"
 
 msgctxt "nutriscore_component_fruits_vegetables_legumes"
 msgid "Fruits, vegetables and legumes"
-msgstr ""
+msgstr "Frutta, verdura e legumi"
 
 msgctxt "nutriscore_component_fiber"
 msgid "Fiber"
@@ -6715,75 +6732,75 @@ msgstr "Proteine"
 
 msgctxt "presence"
 msgid "Presence"
-msgstr ""
+msgstr "Presenza"
 
 msgctxt "absence"
 msgid "Absence"
-msgstr ""
+msgstr "Assenza"
 
 msgctxt "nutriscore_is_water"
 msgid "This product is considered to be water for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "Questo prodotto è considerato come acqua per il calcolo del Nutri-Score."
 
 msgctxt "nutriscore_is_fat_oil_nuts_seeds"
 msgid "This product is considered to be fat, oil, nuts or seeds for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "Questo prodotto è considerato essere grasso, olio, frutta secca o semi, per il calcolo del Nutri-Score."
 
 msgctxt "nutriscore_is_cheese"
 msgid "This product is considered to be cheese for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "Questo prodotto è considerato essere formaggio per il calcolo del Nutri-Score."
 
 msgctxt "nutriscore_is_red_meat_product"
 msgid "This product is considered to be a red meat product for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "Questo prodotto è considerato essere carne rossa per il calcolo del Nutri-Score."
 
 msgctxt "nutriscore_count_proteins_reason_beverage"
 msgid "Points for proteins are counted because the product is considered to be a beverage."
-msgstr ""
+msgstr "I punti per le proteine sono contati perché il prodotto è considerato essere una bevanda."
 
 msgctxt "nutriscore_count_proteins_reason_cheese"
 msgid "Points for proteins are counted because the product is considered to be cheese."
-msgstr ""
+msgstr "I punti per le proteine sono contati perché il prodotto è considerato essere formaggio."
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_less_than_7"
 msgid "Points for proteins are counted because the negative points are less than 7."
-msgstr ""
+msgstr "I punti per le proteine sono contati perché i punti negativi sono inferiori a 7."
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_less_than_11"
 msgid "Points for proteins are counted because the negative points are less than 11."
-msgstr ""
+msgstr "I punti per le proteine sono contati perché i punti negativi sono inferiori a 11."
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_to_7"
 msgid "Points for proteins are not counted because the negative points greater than or equal to 7."
-msgstr ""
+msgstr "I punti per le proteine non sono contati perché i punti negativi sono maggiori o uguali a 7."
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_to_11"
 msgid "Points for proteins are not counted because the negative points greater than or equal to 11."
-msgstr ""
+msgstr "I punti per le proteine non sono contati perché i punti negativi sono maggiori o uguali a 11."
 
 msgctxt "nutriscore_explanation_what_it_is"
 msgid "The Nutri-Score is a logo on the overall nutritional quality of products."
-msgstr ""
+msgstr "Il Nutri-Score è un logo sulla qualità nutrizionale complessiva dei prodotti."
 
 msgctxt "nutriscore_explanation_what_it_takes_into_account"
 msgid "The score from A to E is calculated based on nutrients and foods to favor (proteins, fiber, fruits, vegetables and legumes ...) and nutrients to limit (calories, saturated fat, sugars, salt)."
-msgstr ""
+msgstr "Il punteggio dalla A alla E è calcolato secondo i nutrienti e gli alimenti da preferire (proteine, fibre, frutta, verdura e legumi ...) e i nutrienti da limitare (calorie, grassi saturi, zuccheri, sale)."
 
 msgctxt "nutriscore_explanation_where_the_data_comes_from"
 msgid "The score is calculated from the data of the nutrition facts table and the composition data (fruits, vegetables and legumes)."
-msgstr ""
+msgstr "Il punteggio viene calcolato dai dati della tabella dei valori nutrizionali e i dati di composizione (frutta, verdura e legumi)."
 
 msgctxt "nutriscore_explanation_recommended_by_public_health_authorities"
 msgid "The display of this logo is recommended by public health authorities without obligation for companies."
-msgstr ""
+msgstr "L'esposizione di questo logo è consigliata dalle autorità di sanità pubblica, senza obbligo per le aziende."
 
 msgctxt "nutriscore_explanation_title"
 msgid "What is the Nutri-Score?"
-msgstr ""
+msgstr "Cos'è il Nutri-Score?"
 
 msgctxt "nutrient_info_energy_risk"
 msgid "Energy intakes above energy requirements are associated with increased risks of weight gain, overweight, obesity, and consequently risk of diet-related chronic diseases."
-msgstr ""
+msgstr "Gli apporti energetici superiore al fabbisogno sono associati a un aumento dei rischi di aumento di peso, sovrappeso, obesità e consegunte rischio di malattie croniche legate all'alimentazione."
 
 msgctxt "nutrient_info_saturated_fat_risk"
 msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
@@ -6799,17 +6816,83 @@ msgstr "Un elevato consumo di grassi, in particolare di grassi saturi, può aume
 
 msgctxt "nutrient_info_non_nutritive_sweeteners_risk"
 msgid "Non-nutritive sweeteners may not confer any long-term benefit in reducing body fat in adults or children. There may be potential undesirable effects from long-term use of non-nutritive sweeteners, such as an increased risk of type 2 diabetes and cardiovascular diseases in adults."
-msgstr ""
+msgstr "Gli edulcoranti non nutritivi potrebbero non conferire alcun beneficio a lungo termine nel ridure il grasso corporeo negli adulti o bambii. Potrebbero esistere degli effetti indesiderati dall'utilizzo a lungo termine di edulcoranti non nutritivi, come un aumento del rischio di diabete di tipo 2 e malattie cardiovascolari negli adulti."
 
 msgctxt "nutrient_info_fiber_benefit"
 msgid "Consuming foods rich in fiber (especially whole grain foods) reduces the risks of aerodigestive cancers, cardiovascular diseases, obesity and diabetes."
-msgstr ""
+msgstr "Il consumo di alimenti ricchi in fibre (specialmente gli alimenti integrali), riduce i rischi di tumori aerodigestivi, malattie cardiovascolari, obesità e diabete."
 
 msgctxt "nutrient_info_fruits_vegetables_legumes_benefit"
 msgid "Consuming foods rich in fruits, vegetables and legumes reduces the risks of aerodigestive cancers, cardiovascular diseases, obesity and diabetes."
-msgstr ""
+msgstr "Il consumo di alimenti ricchi in frutta, verdura e legumi, riduce i rischi di tumori aerodigestivi, malattie cardiovascolari, obesità e diabete."
 
 msgctxt "nutrient_info_proteins_benefit"
 msgid "Foods that are rich in proteins are usually rich in calcium or iron which are essential minerals with numerous health benefits."
+msgstr "Gli alimenti ricchi in proteine sono solitamente ricchi in calcio o ferro, minerali essenziali, aventi numerosi benefici per la salute."
+
+msgctxt "revert"
+msgid "Revert to this revision"
+msgstr "Torna a questa revisione"
+
+msgctxt "product_js_product_revert_confirm"
+msgid "Revert to this product revision?"
+msgstr "Tornare a questa revisione del prodotto?"
+
+msgctxt "api_status_success"
+msgid "Success"
+msgstr "Successo"
+
+msgctxt "api_status_failure"
+msgid "Failure"
+msgstr "Errore"
+
+msgctxt "api_result_product_reverted"
+msgid "Product reverted to the specified revision"
+msgstr "Prodotto ripristinato alla revisione specificata"
+
+msgctxt "api_result_product_not_reverted"
+msgid "Product not reverted to the specified revision"
+msgstr "Prodotto non ripristinato alla revisione specificata"
+
+# sweeteners (additives), plural
+msgctxt "sweeteners"
+msgid "sweeteners"
+msgstr "dolcificanti"
+
+# sweetener (additive), singular
+msgctxt "sweetener"
+msgid "sweetener"
+msgstr "dolcificante"
+
+msgctxt "action_edit_product"
+msgid "Complete or correct product information"
+msgstr ""
+
+msgctxt "report_problem_panel_title"
+msgid "Report a problem"
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_title"
+msgid "Incomplete or incorrect information?"
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_subtitle_off"
+msgid "Category, labels, ingredients, allergens, nutritional information, photos etc."
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_content_correct"
+msgid "If the information does not match the information on the packaging, you can complete or correct it. Thank you!"
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_content_correct_off"
+msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
+msgstr ""
+
+msgctxt "description"
+msgid "Description"
+msgstr "Descrizione"
+
+msgctxt "report_problem_navigation"
+msgid "Report a problem"
 msgstr ""
 
