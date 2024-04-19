@@ -3,7 +3,9 @@
 use Modern::Perl '2017';
 use utf8;
 
-use Test::More;
+use Test2::V0;
+use Data::Dumper;
+$Data::Dumper::Terse = 1;
 use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Products qw/compute_languages/;
@@ -19,13 +21,13 @@ my $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-diag explain $product_ref->{additives};
+diag Dumper $product_ref->{additives};
 
 # vitamine C is not used as an additive (no fuction)
 
-is_deeply($product_ref->{additives_original_tags}, [],);
+is($product_ref->{additives_original_tags}, [],);
 
-is_deeply($product_ref->{vitamins_tags}, ["en:thiamin", "en:vitamin-c", "en:vitamin-e", "en:riboflavin",],);
+is($product_ref->{vitamins_tags}, ["en:thiamin", "en:vitamin-c", "en:vitamin-e", "en:riboflavin",],);
 
 # false positives: acides gras -> E-570
 
@@ -42,13 +44,13 @@ compute_languages($product_ref);
 clean_ingredients_text($product_ref);
 extract_ingredients_classes_from_text($product_ref);
 
-is_deeply(
+is(
 	$product_ref->{additives_original_tags},
 	[
 		"en:e330",
 		"en:e570",    # detected wrongly because of the bogus data after the ingredients list
 	],
-) or diag explain $product_ref;
+) or diag Dumper $product_ref;
 
 # Make sure 100% is not recognized as E-100
 $product_ref = {
@@ -59,7 +61,7 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-is_deeply($product_ref->{additives_original_tags}, [],);
+is($product_ref->{additives_original_tags}, [],);
 
 $product_ref = {
 	lc => "fr",
@@ -75,7 +77,7 @@ is($product_ref->{additives},
 
 # vitamine C is not used as an additive (no function)
 
-is_deeply($product_ref->{additives_original_tags}, ['en:e330', 'en:e120', 'en:e500',],);
+is($product_ref->{additives_original_tags}, ['en:e330', 'en:e120', 'en:e500',],);
 
 # E316 detection - https://github.com/openfoodfacts/openfoodfacts-server/issues/269
 
@@ -87,12 +89,12 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-is_deeply($product_ref->{additives_original_tags}, ['en:e326', 'en:e250', 'en:e316',],);
+is($product_ref->{additives_original_tags}, ['en:e326', 'en:e250', 'en:e316',],);
 
 is(canonicalize_taxonomy_tag("fr", "additives", "erythorbate de sodium"), "en:e316");
 is(canonicalize_taxonomy_tag("fr", "additives", "acide citrique"), "en:e330");
 
-#is_deeply($product_ref, $expected_product_ref);
+#is($product_ref, $expected_product_ref);
 
 # issue/801-wrong-E471
 
@@ -104,7 +106,7 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-is_deeply($product_ref->{additives_original_tags}, ['en:e503', 'en:e500', 'en:e330', 'en:e392',],);
+is($product_ref->{additives_original_tags}, ['en:e503', 'en:e500', 'en:e330', 'en:e392',],);
 
 $product_ref = {
 	lc => "fr",
@@ -114,9 +116,9 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-diag explain $product_ref->{additives};
+diag Dumper $product_ref->{additives};
 
-is_deeply($product_ref->{additives_original_tags}, ['en:e502', 'en:e251', 'en:e541',],);
+is($product_ref->{additives_original_tags}, ['en:e502', 'en:e251', 'en:e541',],);
 
 $product_ref = {
 	lc => "fr",
@@ -125,7 +127,7 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-is_deeply($product_ref->{additives_original_tags}, ['en:e500', 'en:e503',]);
+is($product_ref->{additives_original_tags}, ['en:e500', 'en:e503',]);
 
 $product_ref = {
 	lc => "fr",
@@ -134,7 +136,7 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-is_deeply($product_ref->{additives_original_tags}, ['en:e173', 'en:e175', 'en:e174',],);
+is($product_ref->{additives_original_tags}, ['en:e173', 'en:e175', 'en:e174',],);
 
 $product_ref = {
 	lc => "fr",
@@ -144,8 +146,7 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-is_deeply($product_ref->{additives_original_tags}, ['en:e965ii', 'en:e140i', 'en:e141ii', 'en:e160aii', 'en:e160aiv',],
-);
+is($product_ref->{additives_original_tags}, ['en:e965ii', 'en:e140i', 'en:e141ii', 'en:e160aii', 'en:e160aiv',],);
 
 $product_ref = {
 	lc => "fr",
@@ -154,7 +155,7 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-0 and is_deeply($product_ref->{additives_original_tags}, ['en:e160a', 'en:e160c', 'en:e100',],);
+0 and is($product_ref->{additives_original_tags}, ['en:e160a', 'en:e160c', 'en:e100',],);
 
 $product_ref = {
 	lc => "fr",
@@ -164,10 +165,7 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-0 and is_deeply(
-	$product_ref->{additives_original_tags},
-	['en:e100', 'en:e120', 'en:e330', 'en:e331', 'en:e100', 'en:e102',],
-);
+0 and is($product_ref->{additives_original_tags}, ['en:e100', 'en:e120', 'en:e330', 'en:e331', 'en:e100', 'en:e102',],);
 
 $product_ref = {
 	lc => "fr",
@@ -176,7 +174,7 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-is_deeply($product_ref->{additives_original_tags}, ['en:e160a',],);
+is($product_ref->{additives_original_tags}, ['en:e160a',],);
 
 $product_ref = {
 	lc => "fr",
@@ -187,7 +185,7 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-is_deeply(
+is(
 	$product_ref->{additives_original_tags},
 	[
 		'en:e14xx', 'en:e412', 'en:e415', 'en:e334', 'en:e330', 'en:e296',
@@ -206,15 +204,15 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-diag explain $product_ref->{additives_original_tags};
+diag Dumper $product_ref->{additives_original_tags};
 
-is_deeply(
+is(
 	$product_ref->{additives_original_tags},
 	[
 		'en:e967', 'en:e968', 'en:e421', 'en:e965', 'en:e420', 'en:e965ii', 'en:e951', 'en:e950',
 		'en:e955', 'en:e414', 'en:e428', 'en:e171', 'en:e422', 'en:e322i', 'en:e903', 'en:e320'
 	],
-) or diag explain $product_ref->{additives_original_tags};
+) or diag Dumper $product_ref->{additives_original_tags};
 
 # additives that are only additives when preceeded by their function
 
@@ -225,7 +223,7 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-is_deeply($product_ref->{additives_original_tags}, [],);
+is($product_ref->{additives_original_tags}, [],);
 
 $product_ref = {
 	lc => "fr",
@@ -234,9 +232,9 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-diag explain $product_ref->{additives};
+diag Dumper $product_ref->{additives};
 
-is_deeply($product_ref->{additives_original_tags}, ['en:e300',],);
+is($product_ref->{additives_original_tags}, ['en:e300',],);
 
 $product_ref = {
 	lc => "fr",
@@ -245,9 +243,9 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-diag explain $product_ref->{additives};
+diag Dumper $product_ref->{additives};
 
-is_deeply($product_ref->{additives_original_tags}, ['en:e300',],);
+is($product_ref->{additives_original_tags}, ['en:e300',],);
 
 $product_ref = {
 	lc => "fr",
@@ -256,7 +254,7 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-is_deeply($product_ref->{additives_original_tags}, ['en:e300', 'en:e330',],);
+is($product_ref->{additives_original_tags}, ['en:e300', 'en:e330',],);
 
 $product_ref = {
 	lc => "fr",
@@ -265,9 +263,9 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-diag explain $product_ref->{additives};
+diag Dumper $product_ref->{additives};
 
-is_deeply($product_ref->{vitamins_tags}, ["en:vitamin-a", "en:vitamin-c",],);
+is($product_ref->{vitamins_tags}, ["en:vitamin-a", "en:vitamin-c",],);
 
 $product_ref = {
 	lc => "fr",
@@ -276,9 +274,9 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-diag explain $product_ref->{additives};
+diag Dumper $product_ref->{additives};
 
-is_deeply($product_ref->{vitamins_tags}, ["en:vitamin-e", "en:vitamin-b6",],);
+is($product_ref->{vitamins_tags}, ["en:vitamin-e", "en:vitamin-b6",],);
 
 $product_ref = {
 	lc => "fr",
@@ -287,9 +285,9 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-diag explain $product_ref->{additives};
+diag Dumper $product_ref->{additives};
 
-is_deeply($product_ref->{vitamins_tags}, ["en:folic-acid", "en:vitamin-b12",],);
+is($product_ref->{vitamins_tags}, ["en:folic-acid", "en:vitamin-b12",],);
 
 $product_ref = {
 	lc => "fr",
@@ -298,9 +296,9 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-diag explain $product_ref->{additives};
+diag Dumper $product_ref->{additives};
 
-is_deeply($product_ref->{vitamins_tags}, ["en:vitamin-d", "en:vitamin-k", "en:niacin",],);
+is($product_ref->{vitamins_tags}, ["en:vitamin-d", "en:vitamin-k", "en:niacin",],);
 
 $product_ref = {
 	lc => "fr",
@@ -309,9 +307,9 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-diag explain $product_ref->{additives};
+diag Dumper $product_ref->{additives};
 
-is_deeply($product_ref->{vitamins_tags}, ["en:vitamin-c", "en:niacin", "en:folic-acid", "en:vitamin-e",],);
+is($product_ref->{vitamins_tags}, ["en:vitamin-c", "en:niacin", "en:folic-acid", "en:vitamin-e",],);
 
 $product_ref = {
 	lc => "fr",
@@ -320,11 +318,11 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-diag explain $product_ref->{additives};
+diag Dumper $product_ref->{additives};
 
-is_deeply($product_ref->{additives_original_tags}, ['en:e510',],);
+is($product_ref->{additives_original_tags}, ['en:e510',],);
 
-is_deeply($product_ref->{minerals_tags}, ['en:calcium-chloride',],);
+is($product_ref->{minerals_tags}, ['en:calcium-chloride',],);
 
 $product_ref = {
 	lc => "fr",
@@ -333,11 +331,11 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-diag explain $product_ref->{additives};
+diag Dumper $product_ref->{additives};
 
-is_deeply($product_ref->{additives_original_tags}, ['en:e510',],);
+is($product_ref->{additives_original_tags}, ['en:e510',],);
 
-is_deeply($product_ref->{minerals_tags}, ['en:calcium-chloride',],);
+is($product_ref->{minerals_tags}, ['en:calcium-chloride',],);
 
 $product_ref = {
 	lc => "fr",
@@ -346,11 +344,11 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-diag explain $product_ref->{additives};
+diag Dumper $product_ref->{additives};
 
-is_deeply($product_ref->{additives_original_tags}, [],);
+is($product_ref->{additives_original_tags}, [],);
 
-is_deeply($product_ref->{minerals_tags}, ["en:ferrous-sulfate", "en:zinc-sulfate", "en:copper-sulfate",],);
+is($product_ref->{minerals_tags}, ["en:ferrous-sulfate", "en:zinc-sulfate", "en:copper-sulfate",],);
 
 $product_ref = {
 	lc => "fr",
@@ -359,11 +357,11 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-diag explain $product_ref->{additives};
+diag Dumper $product_ref->{additives};
 
-is_deeply($product_ref->{additives_original_tags}, [],);
+is($product_ref->{additives_original_tags}, [],);
 
-is_deeply($product_ref->{minerals_tags}, ["en:mineral", "en:calcium-carbonate",],);
+is($product_ref->{minerals_tags}, ["en:mineral", "en:calcium-carbonate",],);
 
 $product_ref = {
 	lc => "fr",
@@ -372,11 +370,11 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-diag explain $product_ref->{additives};
+diag Dumper $product_ref->{additives};
 
-is_deeply($product_ref->{additives_original_tags}, [],);
+is($product_ref->{additives_original_tags}, [],);
 
-is_deeply($product_ref->{minerals_tags}, ["en:calcium-carbonate",],);
+is($product_ref->{minerals_tags}, ["en:calcium-carbonate",],);
 
 $product_ref = {
 	lc => "fr",
@@ -386,11 +384,11 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-diag explain $product_ref->{additives};
+diag Dumper $product_ref->{additives};
 
-is_deeply($product_ref->{additives_original_tags}, [],);
+is($product_ref->{additives_original_tags}, [],);
 
-is_deeply(
+is(
 	$product_ref->{minerals_tags},
 	[
 		"en:mineral", "en:calcium-carbonate", "en:calcium-chloride", "en:potassium-chloride",
@@ -408,11 +406,11 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-diag explain $product_ref->{additives};
+diag Dumper $product_ref->{additives};
 
-is_deeply($product_ref->{additives_original_tags}, [],);
+is($product_ref->{additives_original_tags}, [],);
 
-is_deeply(
+is(
 	$product_ref->{minerals_tags},
 	[
 		"en:calcium-carbonate", "en:calcium-chloride", "en:potassium-chloride", "en:magnesium-chloride",
@@ -430,11 +428,11 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-diag explain $product_ref->{additives_original_tags};
+diag Dumper $product_ref->{additives_original_tags};
 
-diag explain $product_ref->{additives};
+diag Dumper $product_ref->{additives};
 
-is_deeply($product_ref->{additives_original_tags}, ['en:e322i',],);
+is($product_ref->{additives_original_tags}, ['en:e322i',],);
 
 $product_ref = {
 	lc => "fr",
@@ -444,13 +442,13 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-diag explain $product_ref->{additives_original_tags};
+diag Dumper $product_ref->{additives_original_tags};
 
-diag explain $product_ref->{additives};
+diag Dumper $product_ref->{additives};
 
-is_deeply($product_ref->{additives_original_tags}, ['en:e422', 'en:e331', 'en:e330', 'en:e500', 'en:e503',],);
+is($product_ref->{additives_original_tags}, ['en:e422', 'en:e331', 'en:e330', 'en:e500', 'en:e503',],);
 
-is_deeply(
+is(
 	$product_ref->{vitamins_tags},
 	[
 		'en:vitamin-a', 'en:thiamin', 'en:riboflavin', 'en:pantothenic-acid',
@@ -459,7 +457,7 @@ is_deeply(
 	],
 );
 
-is_deeply(
+is(
 	$product_ref->{minerals_tags},
 	[
 		'en:mineral', 'en:potassium', 'en:calcium', 'en:magnesium', 'en:iron', 'en:zinc',
@@ -474,11 +472,11 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-diag explain $product_ref->{additives};
+diag Dumper $product_ref->{additives};
 
-is_deeply($product_ref->{additives_original_tags}, [],);
+is($product_ref->{additives_original_tags}, [],);
 
-is_deeply($product_ref->{minerals_tags}, ["en:calcium-phosphate",],);
+is($product_ref->{minerals_tags}, ["en:calcium-phosphate",],);
 
 $product_ref = {
 	lc => "en",
@@ -487,11 +485,11 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-diag explain $product_ref->{additives};
+diag Dumper $product_ref->{additives};
 
-is_deeply($product_ref->{additives_original_tags}, ["en:e341"],);
+is($product_ref->{additives_original_tags}, ["en:e341"],);
 
-is_deeply($product_ref->{minerals_tags}, [],);
+is($product_ref->{minerals_tags}, [],);
 
 $product_ref = {
 	lc => "fr",
@@ -501,19 +499,19 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-diag explain $product_ref->{additives};
+diag Dumper $product_ref->{additives};
 
-is_deeply($product_ref->{additives_original_tags}, ["en:e1400",],) or diag explain($product_ref->{mineral_tags});
+is($product_ref->{additives_original_tags}, ["en:e1400",],) or diag Dumper($product_ref->{mineral_tags});
 
-is_deeply(
+is(
 	$product_ref->{minerals_tags},
 	[
 		"en:mineral", "en:calcium-phosphate", "en:magnesium-oxide", "en:ferric-diphosphate",
 		"en:zinc-gluconate", "en:copper-gluconate", "en:potassium-iodate", "en:sodium-selenite",
 	],
-) or diag explain($product_ref->{minerals_tags});
+) or diag Dumper($product_ref->{minerals_tags});
 
-is_deeply(
+is(
 	$product_ref->{vitamins_tags},
 	[
 		"en:sodium-l-ascorbate", "en:vitamin-c", "en:vitamin-b12", "en:niacin",
@@ -530,13 +528,13 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-diag explain $product_ref->{additives};
+diag Dumper $product_ref->{additives};
 
-is_deeply($product_ref->{additives_original_tags}, [],);
+is($product_ref->{additives_original_tags}, [],);
 
-is_deeply($product_ref->{minerals_tags}, ["en:magnesium-oxide", "en:calcium-gluconate",],);
+is($product_ref->{minerals_tags}, ["en:magnesium-oxide", "en:calcium-gluconate",],);
 
-is_deeply($product_ref->{vitamins_tags}, [],);
+is($product_ref->{vitamins_tags}, [],);
 
 $product_ref = {
 	lc => "fr",
@@ -546,16 +544,13 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-diag explain $product_ref->{additives};
+diag Dumper $product_ref->{additives};
 
-is_deeply($product_ref->{additives_original_tags}, ["en:e300",],);
+is($product_ref->{additives_original_tags}, ["en:e300",],);
 
-is_deeply($product_ref->{minerals_tags}, ["en:mineral", "en:calcium", "en:iron", "en:magnesium",],);
+is($product_ref->{minerals_tags}, ["en:mineral", "en:calcium", "en:iron", "en:magnesium",],);
 
-is_deeply(
-	$product_ref->{vitamins_tags},
-	["en:vitamin-e", "en:thiamin", "en:riboflavin", "en:vitamin-b6", "en:folic-acid",],
-);
+is($product_ref->{vitamins_tags}, ["en:vitamin-e", "en:thiamin", "en:riboflavin", "en:vitamin-b6", "en:folic-acid",],);
 
 $product_ref = {
 	lc => "en",
@@ -565,9 +560,9 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-diag explain $product_ref->{additives};
+diag Dumper $product_ref->{additives};
 
-is_deeply($product_ref->{additives_original_tags}, ["en:e300", "en:e334", "en:e440", "en:e337", "en:e141",],);
+is($product_ref->{additives_original_tags}, ["en:e300", "en:e334", "en:e440", "en:e337", "en:e141",],);
 
 # bug 1133
 $product_ref = {
@@ -578,9 +573,9 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-diag explain $product_ref->{additives};
+diag Dumper $product_ref->{additives};
 
-is_deeply($product_ref->{additives_original_tags}, ["en:e330", "en:e331", "en:e304",],);
+is($product_ref->{additives_original_tags}, ["en:e330", "en:e331", "en:e304",],);
 
 $product_ref = {
 	lc => "fr",
@@ -590,15 +585,15 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-diag explain $product_ref->{additives};
+diag Dumper $product_ref->{additives};
 
-is_deeply($product_ref->{additives_original_tags}, [],);
+is($product_ref->{additives_original_tags}, [],);
 
-is_deeply($product_ref->{amino_acids_tags}, ["en:l-cysteine",],);
+is($product_ref->{amino_acids_tags}, ["en:l-cysteine",],);
 
-is_deeply($product_ref->{nucleotides_tags}, ["en:sodium-salts-of-amp",],);
+is($product_ref->{nucleotides_tags}, ["en:sodium-salts-of-amp",],);
 
-is_deeply(
+is(
 	$product_ref->{other_nutritional_substances_tags},
 	["en:choline-chloride", "en:taurine", "en:inositol", "en:carnitine",],
 );
@@ -610,9 +605,9 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-diag explain $product_ref->{additives};
+diag Dumper $product_ref->{additives};
 
-is_deeply($product_ref->{additives_original_tags}, ["en:e1001", "en:e920",],);
+is($product_ref->{additives_original_tags}, ["en:e1001", "en:e920",],);
 
 $product_ref = {
 	lc => "fr",
@@ -622,11 +617,11 @@ Lait partiellement écrémé, eau, lactose, maltodextrines, huiles végétales (
 
 extract_ingredients_classes_from_text($product_ref);
 
-diag explain $product_ref->{additives};
+diag Dumper $product_ref->{additives};
 
-is_deeply($product_ref->{additives_original_tags}, ["en:e322i",],);
+is($product_ref->{additives_original_tags}, ["en:e322i",],);
 
-is_deeply(
+is(
 	$product_ref->{minerals_tags},
 	[
 		"en:mineral", "en:calcium-citrate", "en:ferrous-sulfate", "en:magnesium-sulfate",
@@ -643,20 +638,20 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-diag explain $product_ref->{additives};
+diag Dumper $product_ref->{additives};
 
-is_deeply($product_ref->{additives_original_tags}, ["en:e472c", "en:e304i", "en:e306",],);
+is($product_ref->{additives_original_tags}, ["en:e472c", "en:e304i", "en:e306",],);
 
-is_deeply($product_ref->{nucleotides_tags}, [],);
+is($product_ref->{nucleotides_tags}, [],);
 
-is_deeply($product_ref->{amino_acids_tags}, ["en:l-phenylalanine", "en:l-tryptophan", "en:l-tyrosine",],);
+is($product_ref->{amino_acids_tags}, ["en:l-phenylalanine", "en:l-tryptophan", "en:l-tyrosine",],);
 
-is_deeply(
+is(
 	$product_ref->{other_nutritional_substances_tags},
 	["en:choline-chloride", "en:taurine", "en:inositol", "en:l-carnitine",],
 );
 
-is_deeply(
+is(
 	$product_ref->{minerals_tags},
 	[
 		"en:mineral", "en:calcium-phosphate", "en:potassium-chloride", "en:sodium-citrate",
@@ -673,11 +668,11 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-diag explain $product_ref->{additives};
+diag Dumper $product_ref->{additives};
 
-is_deeply($product_ref->{additives_original_tags}, [],);
+is($product_ref->{additives_original_tags}, [],);
 
-is_deeply($product_ref->{minerals_tags}, ["en:calcium-phosphate", "en:calcium-carbonate", "en:potassium-citrates",],);
+is($product_ref->{minerals_tags}, ["en:calcium-phosphate", "en:calcium-carbonate", "en:potassium-citrates",],);
 
 $product_ref = {
 	lc => "en",
@@ -686,11 +681,11 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-diag explain $product_ref->{additives};
+diag Dumper $product_ref->{additives};
 
-is_deeply($product_ref->{additives_original_tags}, [],);
+is($product_ref->{additives_original_tags}, [],);
 
-is_deeply($product_ref->{minerals_tags}, ["en:cupric-carbonate",],);
+is($product_ref->{minerals_tags}, ["en:cupric-carbonate",],);
 
 $product_ref = {
 	lc => "fr",
@@ -699,9 +694,9 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-diag explain $product_ref->{additives};
+diag Dumper $product_ref->{additives};
 
-is_deeply($product_ref->{additives_original_tags}, [],);
+is($product_ref->{additives_original_tags}, [],);
 
 # 100 % --> no E100 curcumine
 $product_ref = {
@@ -711,9 +706,9 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-diag explain $product_ref->{additives};
+diag Dumper $product_ref->{additives};
 
-is_deeply($product_ref->{additives_original_tags}, [],);
+is($product_ref->{additives_original_tags}, [],);
 
 # products in Hong Kong sometimes have no E before E numbers
 # https://hk.openfoodfacts.org/product/4891028164456/vlt-vita
@@ -727,9 +722,9 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-diag explain $product_ref->{additives};
+diag Dumper $product_ref->{additives};
 
-is_deeply($product_ref->{additives_original_tags}, ["en:e330", "en:e331", "en:e304",],);
+is($product_ref->{additives_original_tags}, ["en:e330", "en:e331", "en:e304",],);
 
 $product_ref = {
 	lc => "fr",
@@ -739,9 +734,9 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-diag explain $product_ref->{additives};
+diag Dumper $product_ref->{additives};
 
-is_deeply(
+is(
 	$product_ref->{additives_original_tags},
 	["en:e422", "en:e415", "en:e450i", "en:e500", "en:e471", "en:e202", "en:e101i",],
 );
@@ -754,9 +749,9 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-diag explain $product_ref->{additives};
+diag Dumper $product_ref->{additives};
 
-is_deeply(
+is(
 	$product_ref->{additives_original_tags},
 	[
 		'en:e500',
@@ -800,9 +795,9 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-diag explain $product_ref->{additives};
+diag Dumper $product_ref->{additives};
 
-is_deeply($product_ref->{additives_original_tags}, ["en:e252", "en:e250", "en:e553b", "en:e170i",],);
+is($product_ref->{additives_original_tags}, ["en:e252", "en:e250", "en:e553b", "en:e170i",],);
 
 $product_ref = {
 	lc => "fr",
@@ -813,9 +808,9 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-diag explain $product_ref->{additives};
+diag Dumper $product_ref->{additives};
 
-is_deeply(
+is(
 	$product_ref->{additives_original_tags},
 	[
 		"en:e163",
@@ -839,9 +834,9 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-diag explain $product_ref->{additives};
+diag Dumper $product_ref->{additives};
 
-is_deeply(
+is(
 	$product_ref->{additives_original_tags},
 	[
 		'en:e322i', 'en:e422', 'en:e330', 'en:e440', 'en:e331', 'en:e500',
@@ -858,10 +853,10 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-diag explain $product_ref->{additives};
+diag Dumper $product_ref->{additives};
 
 # spellchecking of additives is now disabled, commenting the test
-0 and is_deeply(
+0 and is(
 	$product_ref->{additives_original_tags},
 	[
 		'en:e330',
@@ -882,9 +877,9 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-diag explain $product_ref->{additives};
+diag Dumper $product_ref->{additives};
 
-is_deeply($product_ref->{additives_original_tags}, ['en:e501',],);
+is($product_ref->{additives_original_tags}, ['en:e501',],);
 
 $product_ref = {
 	lc => "fr",
@@ -895,9 +890,9 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-diag explain $product_ref->{additives};
+diag Dumper $product_ref->{additives};
 
-is_deeply($product_ref->{additives_original_tags}, ['en:e330',],);
+is($product_ref->{additives_original_tags}, ['en:e330',],);
 
 $product_ref = {
 	lc => "fr",
@@ -908,10 +903,9 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-diag explain $product_ref->{additives};
+diag Dumper $product_ref->{additives};
 
-is_deeply($product_ref->{additives_original_tags}, ['en:e414', 'en:e412', 'en:e336', 'en:e500', 'en:e440', 'en:e330',],
-);
+is($product_ref->{additives_original_tags}, ['en:e414', 'en:e412', 'en:e336', 'en:e500', 'en:e440', 'en:e330',],);
 
 $product_ref = {
 	lc => "fr",
@@ -921,9 +915,9 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-diag explain $product_ref->{additives};
+diag Dumper $product_ref->{additives};
 
-is_deeply($product_ref->{additives_original_tags}, ['en:e171', 'en:e621',],);
+is($product_ref->{additives_original_tags}, ['en:e171', 'en:e621',],);
 
 $product_ref = {
 	lc => "fr",
@@ -933,9 +927,9 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-diag explain $product_ref->{additives};
+diag Dumper $product_ref->{additives};
 
-is_deeply($product_ref->{additives_original_tags}, [],);
+is($product_ref->{additives_original_tags}, [],);
 
 $product_ref = {
 	lc => "fr",
@@ -945,12 +939,12 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-diag explain $product_ref->{additives};
+diag Dumper $product_ref->{additives};
 
-is_deeply(
+is(
 	$product_ref->{additives_original_tags},
 	["en:e463", "en:e432", "en:e472", "en:e322", "en:e333", "en:e474", "en:e475",],
-) or diag explain $product_ref->{additives_original_tags};
+) or diag Dumper $product_ref->{additives_original_tags};
 
 $product_ref = {
 	lc => "es",
@@ -959,8 +953,8 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-is_deeply($product_ref->{vitamins_tags}, ["en:vitamin-a", "en:vitamin-d", "en:vitamin-e", "en:folic-acid",],)
-	or diag explain $product_ref->{vitamins_tags};
+is($product_ref->{vitamins_tags}, ["en:vitamin-a", "en:vitamin-d", "en:vitamin-e", "en:folic-acid",],)
+	or diag Dumper $product_ref->{vitamins_tags};
 
 # Finnish
 
@@ -976,7 +970,7 @@ is($product_ref->{additives},
 	' [ sitruunahappo -> en:e330  -> exists  -- ok  ]  [ väri -> fi:väri  ]  [ e120 -> en:e120  -> exists  -- mandatory_additive_class: en:colour (current: en:colour)  -- ok  ]  [ c-vitamiini -> en:e300  -> exists  -- mandatory_additive_class: en:acidity-regulator,en:antioxidant,en:flour-treatment-agent,en:sequestrant,en:acid (current: en:colour)  -> exists as a vitamin en:vitamin-c  ]  [ e500 -> en:e500  -> exists  -- mandatory_additive_class: en:acidity-regulator, en:raising-agent (current: en:vitamins)  -- e-number  ] '
 );
 
-is_deeply($product_ref->{additives_original_tags}, ['en:e330', 'en:e120', 'en:e500',],);
+is($product_ref->{additives_original_tags}, ['en:e330', 'en:e120', 'en:e500',],);
 
 $product_ref = {
 	lc => "fi",
@@ -986,7 +980,7 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-is_deeply($product_ref->{additives_original_tags}, ['en:e326', 'en:e250', 'en:e316',],);
+is($product_ref->{additives_original_tags}, ['en:e326', 'en:e250', 'en:e316',],);
 
 is(canonicalize_taxonomy_tag("fi", "additives", "natriumerytorbaatti"), "en:e316");
 is(canonicalize_taxonomy_tag("fi", "additives", "sitruunahappo"), "en:e330");
@@ -999,9 +993,6 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-is_deeply(
-	$product_ref->{additives_original_tags},
-	['en:e414', 'en:e420', 'en:e965ii', 'en:e950', 'en:e330', 'en:e901',],
-);
+is($product_ref->{additives_original_tags}, ['en:e414', 'en:e420', 'en:e965ii', 'en:e950', 'en:e330', 'en:e901',],);
 
 done_testing();

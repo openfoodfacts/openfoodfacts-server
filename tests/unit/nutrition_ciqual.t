@@ -1,6 +1,6 @@
 use ProductOpener::PerlStandards;
 
-use Test::More;
+use Test2::V0;
 use Log::Any::Adapter 'TAP';
 
 use ProductOpener::NutritionCiqual qw/%ciqual_data load_ciqual_data/;

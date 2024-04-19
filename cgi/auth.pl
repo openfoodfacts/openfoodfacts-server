@@ -82,6 +82,10 @@ my $json = JSON::PP->new->allow_nonref->canonical->utf8->encode($response_ref);
 my $r = Apache2::RequestUtil->request();
 my $allow_credentials = 1;
 write_cors_headers($allow_credentials);
+# Write a session cookie if we were passed a user id and password
+if ($request_ref->{cookie}) {
+	$r->err_headers_out->add('Set-Cookie' => $request_ref->{cookie});
+}
 print header(-status => $status, -type => 'application/json', -charset => 'utf-8');
 
 # 2022-10-11 - The Open Food Facts Flutter app is expecting an empty body
