@@ -81,7 +81,7 @@ msgstr "Υπάρχει ήδη ένας οργανισμός με το όνομα
 
 msgctxt "add_user_existing_org_pending"
 msgid "Your request to join the organization is pending approval of the organization administrator."
-msgstr ""
+msgstr "Το αίτημά σας για συμμετοχή στον οργανισμό εκκρεμεί έγκριση από τον διαχειριστή του οργανισμού."
 
 msgctxt "admin_status_updated"
 msgid "Admin Status Updated"
@@ -825,6 +825,15 @@ msgstr "Νομική αναφέρει"
 msgctxt "footer_legal_link"
 msgid "/legal"
 msgstr "/legal"
+
+msgctxt "footer_privacy"
+msgid "Privacy"
+msgstr ""
+
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
+msgctxt "footer_privacy_link"
+msgid "/privacy"
+msgstr ""
 
 msgctxt "footer_press"
 msgid "Press"
@@ -2571,6 +2580,10 @@ msgctxt "view"
 msgid "view"
 msgstr "Βλέπε"
 
+msgctxt "view_this_revision"
+msgid "View this revision"
+msgstr ""
+
 msgctxt "view_list_for_products_from_the_entire_world"
 msgid "View the list for matching products from the entire world"
 msgstr "Δείτε τη λίστα αντίστοιχων προϊόντων από όλο τον κόσμο"
@@ -3307,31 +3320,31 @@ msgstr ""
 
 msgctxt "ingredients_analysis_disclaimer"
 msgid "The analysis is based solely on the ingredients listed and does not take into account processing methods."
-msgstr ""
+msgstr "Η ανάλυση βασίζεται αποκλειστικά στα συστατικά που αναφέρονται και δεν λαμβάνει υπόψη τις μεθόδους επεξεργασίας."
 
 msgctxt "rev_warning"
 msgid "You are viewing an old version of this product page!"
-msgstr ""
+msgstr "Βλέπετε μια παλιά έκδοση αυτής της σελίδας προϊόντος!"
 
 msgctxt "rev_number"
 msgid "Revision number: "
-msgstr ""
+msgstr "Αριθμός αναθεώρησης: "
 
 msgctxt "rev_contributor"
 msgid "Edited by: "
-msgstr ""
+msgstr "Επεξεργασία από: "
 
 msgctxt "rev_previous"
 msgid "Previous version"
-msgstr ""
+msgstr "Προηγούμενη έκδοση"
 
 msgctxt "rev_next"
 msgid "Next version"
-msgstr ""
+msgstr "Επόμενη Έκδοση"
 
 msgctxt "rev_latest"
 msgid "Latest version"
-msgstr ""
+msgstr "Τελευταία έκδοση"
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_title"
@@ -6210,6 +6223,10 @@ msgctxt "action_add_packaging_components"
 msgid "Add packaging components"
 msgstr ""
 
+msgctxt "action_add_quantity"
+msgid "Add quantity of the product"
+msgstr ""
+
 # this is not used yet
 msgctxt "action_add_basic_details"
 msgid "Add basic details"
@@ -6797,5 +6814,71 @@ msgstr ""
 
 msgctxt "nutrient_info_proteins_benefit"
 msgid "Foods that are rich in proteins are usually rich in calcium or iron which are essential minerals with numerous health benefits."
+msgstr ""
+
+msgctxt "revert"
+msgid "Revert to this revision"
+msgstr ""
+
+msgctxt "product_js_product_revert_confirm"
+msgid "Revert to this product revision?"
+msgstr ""
+
+msgctxt "api_status_success"
+msgid "Success"
+msgstr ""
+
+msgctxt "api_status_failure"
+msgid "Failure"
+msgstr ""
+
+msgctxt "api_result_product_reverted"
+msgid "Product reverted to the specified revision"
+msgstr ""
+
+msgctxt "api_result_product_not_reverted"
+msgid "Product not reverted to the specified revision"
+msgstr ""
+
+# sweeteners (additives), plural
+msgctxt "sweeteners"
+msgid "sweeteners"
+msgstr ""
+
+# sweetener (additive), singular
+msgctxt "sweetener"
+msgid "sweetener"
+msgstr ""
+
+msgctxt "action_edit_product"
+msgid "Complete or correct product information"
+msgstr ""
+
+msgctxt "report_problem_panel_title"
+msgid "Report a problem"
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_title"
+msgid "Incomplete or incorrect information?"
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_subtitle_off"
+msgid "Category, labels, ingredients, allergens, nutritional information, photos etc."
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_content_correct"
+msgid "If the information does not match the information on the packaging, you can complete or correct it. Thank you!"
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_content_correct_off"
+msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
+msgstr ""
+
+msgctxt "description"
+msgid "Description"
+msgstr ""
+
+msgctxt "report_problem_navigation"
+msgid "Report a problem"
 msgstr ""
 
