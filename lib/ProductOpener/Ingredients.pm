@@ -2813,6 +2813,9 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 					text => $ingredient
 				);
 
+				my $is_in_taxonomy = exists_taxonomy_tag("ingredients", $ingredient_id) ? 1 : 0;
+				$ingredient{is_in_taxonomy} = $is_in_taxonomy;
+
 				if (defined $percent_or_quantity_value) {
 					my ($percent, $quantity, $quantity_g)
 						= get_percent_or_quantity_and_normalized_quantity($percent_or_quantity_value,
