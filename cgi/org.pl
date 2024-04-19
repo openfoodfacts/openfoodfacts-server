@@ -25,14 +25,14 @@ use ProductOpener::PerlStandards;
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Store qw/get_fileid/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Users qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Lang qw/$lc %Lang lang/;
 use ProductOpener::Orgs qw/:all/;
-use ProductOpener::Tags qw/:all/;
-use ProductOpener::Text qw/:all/;
+use ProductOpener::Tags qw/canonicalize_tag_link/;
+use ProductOpener::Text qw/remove_tags_and_quote/;
 
 use CGI qw/:cgi :form escapeHTML charset/;
 use URI::Escape::XS;
@@ -72,7 +72,7 @@ if (not defined $org_ref) {
 		$template_data_ref->{org_does_not_exist} = 1;
 	}
 	else {
-		display_error_and_exit($Lang{error_org_does_not_exist}{$lang}, 404);
+		display_error_and_exit($request_ref, $Lang{error_org_does_not_exist}{$lc}, 404);
 	}
 }
 
@@ -82,7 +82,7 @@ if (not(is_user_in_org_group($org_ref, $User_id, "admins") or $admin or $User{pr
 	$log->debug("user does not have permission to edit org",
 		{orgid => $orgid, org_admins => $org_ref->{admins}, User_id => $User_id})
 		if $log->is_debug();
-	display_error_and_exit($Lang{error_no_permission}{$lang}, 403);
+	display_error_and_exit($request_ref, $Lang{error_no_permission}{$lc}, 403);
 }
 
 my @errors = ();
@@ -95,7 +95,7 @@ if ($action eq 'process') {
 				$type = 'delete';
 			}
 			else {
-				display_error_and_exit($Lang{error_no_permission}{$lang}, 403);
+				display_error_and_exit($request_ref, $Lang{error_no_permission}{$lc}, 403);
 			}
 		}
 		else {
@@ -148,7 +148,7 @@ if ($action eq 'process') {
 			}
 
 			if (not defined $org_ref->{name}) {
-				push @errors, $Lang{error_missing_org_name}{$lang};
+				push @errors, $Lang{error_missing_org_name}{$lc};
 			}
 
 			# Contact sections
@@ -369,7 +369,7 @@ elsif ($action eq 'process') {
 			$template_data_ref->{result} = lang("edit_org_result");
 		}
 		else {
-			display_error_and_exit($Lang{error_no_permission}{$lang}, 403);
+			display_error_and_exit($request_ref, $Lang{error_no_permission}{$lc}, 403);
 		}
 
 	}
@@ -438,7 +438,7 @@ $template_data_ref->{org_members} = \@org_members;
 $template_data_ref->{user_is_admin} = \%user_is_admin;
 $template_data_ref->{current_user_id} = $User_id;
 
-$tt->process('web/pages/org_form/org_form.tt.html', $template_data_ref, \$html)
+process_template('web/pages/org_form/org_form.tt.html', $template_data_ref, \$html)
 	or $html = "<p>template error: " . $tt->error() . "</p>";
 
 $request_ref->{title} = $title;

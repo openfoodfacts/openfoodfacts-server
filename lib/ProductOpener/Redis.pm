@@ -15,6 +15,7 @@ package ProductOpener::Redis;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::PerlStandards;
 use Exporter qw< import >;
+use Encode;
 use JSON::PP;
 
 BEGIN {
@@ -34,7 +35,9 @@ use ProductOpener::Config qw/$redis_url/;
 use Redis;
 
 =head2 $redis_client
+
 The connection to redis
+
 =cut
 
 my $redis_client;
@@ -75,19 +78,24 @@ Add an event to Redis stream to inform that a product was updated.
 =head3 Arguments
 
 =head4 String $user_id
+
 The user that updated the product.
 
 =head4 Product Object $product_ref
+
 The product that was updated.
 
 =head4 String $action
+
 The action that was performed on the product (either "updated" or "deleted").
 A product creation is considered as an update.
 
 =head4 String $comment
+
 The user comment associated with the update.
 
 =head4 HashRef $diffs
+
 a hashref of the differences between the previous and new revision of the product.
 
 =cut
@@ -114,16 +122,16 @@ sub push_to_redis_stream ($user_id, $product_ref, $action, $comment, $diffs) {
 		eval {
 			$redis_client->xadd(
 				# name of the Redis stream
-				'product_update',
+				$options{redis_stream_name},
 				# We do not add a MAXLEN
 				'MAXLEN', '~', '10000000',
 				# We let Redis generate the id
 				'*',
 				# fields
-				'code', $product_ref->{code},
-				'flavor', $options{current_server},
-				'user_id', $user_id, 'action', $action,
-				'comment', $comment, 'diffs', encode_json($diffs)
+				'code', Encode::encode_utf8($product_ref->{code}),
+				'flavor', Encode::encode_utf8($options{current_server}),
+				'user_id', Encode::encode_utf8($user_id), 'action', Encode::encode_utf8($action),
+				'comment', Encode::encode_utf8($comment), 'diffs', encode_json($diffs)
 			);
 		};
 		$error = $@;

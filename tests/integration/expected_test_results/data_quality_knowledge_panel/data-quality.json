@@ -272,7 +272,7 @@
                      "panel_group_id" : "nutrition",
                      "panel_ids" : [
                         "nutriscore",
-                        "nutrient_level_salt"
+                        "nutrient_levels"
                      ],
                      "title" : "Nutrition",
                      "type" : "subcard"
@@ -297,6 +297,36 @@
                "health"
             ],
             "type" : "card"
+         },
+         "incomplete_or_incorrect_data" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n                If the information does not match the information on the packaging, please complete or correct it.\n                Open Food Facts is a collaborative database, and every contribution is useful for all.\n                "
+                  }
+               },
+               {
+                  "action_element" : {
+                     "actions" : [
+                        "edit_product"
+                     ],
+                     "html" : ""
+                  },
+                  "element_type" : "action"
+               }
+            ],
+            "evaluation" : "neutral",
+            "expand_for" : "large",
+            "level" : "info",
+            "title_element" : {
+               "icon_url" : "http://static.openfoodfacts.localhost/images/logos/off-logo-icon-light.svg",
+               "subtitle" : "Category, labels, ingredients, allergens, nutritional information, photos etc.",
+               "title" : "Incomplete or incorrect information?"
+            },
+            "topics" : [
+               "problem"
+            ]
          },
          "ingredients" : {
             "elements" : [
@@ -376,7 +406,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "<ol id=\"ordered_ingredients_list\">\n<li><span>water</span> -> en:water - vegan:&nbsp;yes - vegetarian:&nbsp;yes - percent_min:&nbsp;50 - percent_max:&nbsp;100</li>\n<li><span class=\"text_info unknown_ingredient\">test_ingredient</span> -> en:test-ingredient - percent_min:&nbsp;0 - percent_max:&nbsp;50</li>\n</ol>\n"
+                     "html" : "<ol id=\"ordered_ingredients_list\">\n<li><span>water</span> -> en:water - vegan:&nbsp;yes - vegetarian:&nbsp;yes - ciqual_food_code:&nbsp;18066 - percent_min:&nbsp;50 - percent_max:&nbsp;100</li>\n<li><span class=\"text_info unknown_ingredient\">test_ingredient</span> -> en:test-ingredient - percent_min:&nbsp;0 - percent_max:&nbsp;50</li>\n</ol>\n"
                   }
                },
                {
@@ -571,6 +601,31 @@
                "icon_size" : "small",
                "icon_url" : "http://static.openfoodfacts.localhost/images/misc/high.svg",
                "title" : "Salt in high quantity (120%)"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutrient_levels" : {
+            "elements" : [
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_group_id" : "nutrient_levels_group",
+                     "panel_ids" : [
+                        "nutrient_level_salt"
+                     ]
+                  }
+               }
+            ],
+            "evaluation" : "unknown",
+            "expand_for" : "large",
+            "expanded" : false,
+            "level" : "info",
+            "title_element" : {
+               "icon_color_from_evaluation" : true,
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/nutrition.svg",
+               "title" : "Nutrient levels"
             },
             "topics" : [
                "health"
@@ -912,6 +967,24 @@
                "environment"
             ]
          },
+         "report_problem_card" : {
+            "elements" : [
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "incomplete_or_incorrect_data"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "title_element" : {
+               "title" : "Report a problem"
+            },
+            "topics" : [
+               "problems"
+            ],
+            "type" : "card"
+         },
          "root" : {
             "elements" : [
                {
@@ -924,6 +997,12 @@
                   "element_type" : "panel",
                   "panel_element" : {
                      "panel_id" : "environment_card"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "report_problem_card"
                   }
                },
                {

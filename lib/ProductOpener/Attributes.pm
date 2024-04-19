@@ -18,6 +18,8 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+=encoding UTF-8
+
 =head1 NAME
 
 ProductOpener::Attributes - Generate product attributes that can be requested through the API
@@ -49,14 +51,7 @@ BEGIN {
 	@EXPORT_OK = qw(
 
 		&list_attributes
-		&initialize_attribute_group
-		&initialize_attribute
-		&override_general_value
-		&add_attribute_to_group
 		&compute_attributes
-		&compute_attribute_nutriscore
-		&compute_attribute_nova
-		&compute_attribute_has_tag
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -66,12 +61,12 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Tags qw/:all/;
+use ProductOpener::Tags qw/%level display_taxonomy_tag display_taxonomy_tag_name has_tag/;
 use ProductOpener::Products qw/:all/;
-use ProductOpener::Food qw/:all/;
+use ProductOpener::Food qw/@nutrient_levels/;
 use ProductOpener::Ingredients qw/:all/;
-use ProductOpener::Lang qw/:all/;
-use ProductOpener::Display qw/:all/;
+use ProductOpener::Lang qw/f_lang_in_lc lang lang_in_other_lc/;
+use ProductOpener::Display qw/$static_subdomain/;
 use ProductOpener::Ecoscore qw/:all/;
 
 use Data::DeepAccess qw(deep_get);
@@ -1088,6 +1083,7 @@ e.g. "salt", "sugars", "fat", "saturated-fat"
 The return value is a reference to the resulting attribute data structure.
 
 =head4 % Match
+
 For "low" levels:
 
 - 100% if the nutrient quantity is 0%
@@ -1388,6 +1384,7 @@ vegan, non-vegan, maybe-vegan, vegan-status-unknown
 The return value is a reference to the resulting attribute data structure.
 
 =head4 % Match
+
 For "low" levels:
 
 - 100% if the property matches

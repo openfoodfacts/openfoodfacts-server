@@ -11,17 +11,20 @@ export PERL5LIB="../lib:${PERL5LIB}"
 ./remove_empty_products.pl
 ./gen_top_tags_per_country.pl
 #./compute_missions.pl
+
+# Generate the CSV and RDF exports
 ./export_database.pl
-./mongodb_dump.sh /srv/off/html openfoodfacts 10.0.0.3 off
 
 cd $OFF_PUBLIC_DATA_DIR
-gzip < en.openfoodfacts.org.products.rdf > en.openfoodfacts.org.products.rdf.gz
-gzip < fr.openfoodfacts.org.products.rdf > fr.openfoodfacts.org.products.rdf.gz
+for export in en.openfoodfacts.org.products.csv fr.openfoodfacts.org.products.csv en.openfoodfacts.org.products.rdf fr.openfoodfacts.org.products.rdf; do
+   nice pigz < $export > new.$export.gz
+   mv -f new.$export.gz $export.gz
+done
 
-gzip < en.openfoodfacts.org.products.csv > en.openfoodfacts.org.products.csv.gz
-gzip < fr.openfoodfacts.org.products.csv > fr.openfoodfacts.org.products.csv.gz
-
+# Generate the MongoDB dumps and jsonl export
 cd /srv/off/scripts
+
+./mongodb_dump.sh /srv/off/html openfoodfacts 10.1.0.102 off
 
 # Small products data and images export for Docker dev environments
 # for about 1/10000th of the products contained in production.
@@ -37,3 +40,8 @@ cd /srv/off
 
 ./scripts/export_csv_file.pl --fields code,nutrition_grades_tags --separator ';' > $OFF_PUBLIC_DATA_DIR/exports/nutriscore.csv
 
+# On sunday, generates madenearme
+if [ "$(date +%u)" = "7" ]
+then
+    ./scripts/generate_madenearme_pages.sh
+fi

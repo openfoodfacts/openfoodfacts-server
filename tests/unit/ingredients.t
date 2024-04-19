@@ -3,16 +3,15 @@
 use Modern::Perl '2017';
 use utf8;
 
-use Test::More;
+use Test2::V0;
 use Log::Any::Adapter 'TAP';
 
 use JSON;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Tags qw/:all/;
-use ProductOpener::TagsEntries qw/:all/;
-use ProductOpener::Ingredients qw/:all/;
-use ProductOpener::Test qw/:all/;
+use ProductOpener::Tags qw/compute_field_tags/;
+use ProductOpener::Ingredients qw/extract_ingredients_from_text/;
+use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
@@ -798,6 +797,50 @@ puffed orange and caramelized unknown_fruit4.",
 		{
 			lc => "fr",
 			ingredients_text => "cacao issu de l'agriculture biologique de Madagascar",
+		}
+	],
+	# Allergens in parenthesis
+	[
+		"en-allergens-in-parenthesis",
+		{
+			lc => "en",
+			ingredients_text =>
+				"butter (milk), surimi (fish), wheat flour (gluten), dough (flour, gluten, salt, water)",
+		}
+	],
+	# Japanese allergens in parenthesis
+	[
+		"ja-allergens-in-parenthesis",
+		{
+			lc => "ja",
+			ingredients_text => "香料 (ラッカセイ, 種実類, 魚).",
+		}
+	],
+	# Ingredients in parenthesis that are in the allergens taxonomy
+	# Those ingredients should not be removed from the ingredients list
+	# e.g. if we have "butter (milk)", we may want to consider that milk is not a sub ingredient, but an indication of an allergen
+	# but if we have "cheese (parmigiano reggiano)", we definitely want to keep "parmigiano reggiano" as a sub ingredient
+	[
+		"en-ingredients-in-parenthesis-that-are-in-the-allergens-taxonomy",
+		{
+			lc => "en",
+			ingredients_text => "butter (milk), cheese (parmigiano reggiano)",
+		}
+	],
+	[
+		"fr-ingredients-in-parenthesis-that-are-in-the-allergens-taxonomy",
+		{
+			lc => "fr",
+			ingredients_text => "beurre (lait), fromage (parmesan)",
+		}
+	],
+	# Infinite loop https://github.com/openfoodfacts/openfoodfacts-server/issues/9755
+	[
+		"fr-infinite-loop-allergens",
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Sucre, LAIT* entier en poudre 25%, graisse végétale (palme, palmiste), beurre de cacao1, pâte de cacao1, LAIT* écrémé en poudre 3%, huile de tournesol, émulsifiant: lécithines, arômes de vanille. Traces éventuelles de fruits à coque et de céréales contenant du gluten. Cacao: 30% minimum dans le chocolat au lait. *Lait: origine UE et/ou non UE (Royaume-Uni)",
 		}
 	],
 );

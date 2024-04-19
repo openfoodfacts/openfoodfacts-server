@@ -7,6 +7,7 @@
             {
                "ciqual_food_code" : "31077",
                "id" : "en:glucose-fructose-syrup",
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 20.5,
                "text" : "sirop de glucose-fructose",
                "vegan" : "yes",
@@ -15,6 +16,7 @@
             {
                "ciqual_proxy_food_code" : "31016",
                "id" : "en:sugar",
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 10.25,
                "text" : "sucre",
                "vegan" : "yes",
@@ -23,6 +25,7 @@
             {
                "ciqual_food_code" : "13034",
                "id" : "en:orange-pulp",
+               "is_in_taxonomy" : 1,
                "percent" : 4.5,
                "percent_estimate" : 4.5,
                "text" : "pulpe d'orange",
@@ -30,8 +33,10 @@
                "vegetarian" : "yes"
             },
             {
+               "ciqual_proxy_food_code" : "2070",
                "id" : "en:concentrated-orange-juice",
                "ingredients" : [],
+               "is_in_taxonomy" : 1,
                "percent" : 1.4,
                "percent_estimate" : 1.4,
                "text" : "jus d'orange concentré",
@@ -39,8 +44,10 @@
                "vegetarian" : "yes"
             },
             {
+               "ciqual_proxy_food_code" : "13034",
                "id" : "en:orange",
                "ingredients" : [],
+               "is_in_taxonomy" : 1,
                "percent" : 0.6,
                "percent_estimate" : 0.6,
                "processing" : "en:pulp,en:concentrated",
@@ -53,12 +60,14 @@
                "ingredients" : [
                   {
                      "id" : "en:e440a",
+                     "is_in_taxonomy" : 1,
                      "percent_estimate" : 1.875,
                      "text" : "pectines",
                      "vegan" : "yes",
                      "vegetarian" : "yes"
                   }
                ],
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 1.875,
                "text" : "gélifiant"
             },
@@ -67,12 +76,14 @@
                "ingredients" : [
                   {
                      "id" : "en:e330",
+                     "is_in_taxonomy" : 1,
                      "percent_estimate" : 0.9375,
                      "text" : "acide citrique",
                      "vegan" : "yes",
                      "vegetarian" : "yes"
                   }
                ],
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 0.9375,
                "text" : "acidifiant"
             },
@@ -81,6 +92,7 @@
                "ingredients" : [
                   {
                      "id" : "en:e333",
+                     "is_in_taxonomy" : 1,
                      "percent_estimate" : 0.234375,
                      "text" : "citrate de calcium",
                      "vegan" : "yes",
@@ -88,15 +100,18 @@
                   },
                   {
                      "id" : "en:sodium-citrate",
+                     "is_in_taxonomy" : 1,
                      "percent_estimate" : 0.234375,
                      "text" : "citrate de sodium"
                   }
                ],
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 0.46875,
                "text" : "correcteurs d'acidité"
             },
             {
                "id" : "en:natural-orange-flavouring",
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 0.234375,
                "text" : "arôme naturel d'orange",
                "vegan" : "maybe",
@@ -107,16 +122,19 @@
                "ingredients" : [
                   {
                      "id" : "en:e415",
+                     "is_in_taxonomy" : 1,
                      "percent_estimate" : 0.234375,
                      "text" : "gomme xanthane",
                      "vegan" : "yes",
                      "vegetarian" : "yes"
                   }
                ],
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 0.234375,
                "text" : "épaississant"
             }
          ],
+         "is_in_taxonomy" : 1,
          "percent" : 41,
          "percent_estimate" : 41,
          "text" : "Marmelade d'oranges"
@@ -127,13 +145,16 @@
             {
                "ciqual_proxy_food_code" : "31016",
                "id" : "en:sugar",
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 12.45,
                "text" : "sucre",
                "vegan" : "yes",
                "vegetarian" : "yes"
             },
             {
+               "ciqual_proxy_food_code" : "16030",
                "id" : "en:cocoa-paste",
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 6.225,
                "text" : "pâte de cacao",
                "vegan" : "yes",
@@ -142,6 +163,7 @@
             {
                "ciqual_food_code" : "16030",
                "id" : "en:cocoa-butter",
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 3.1125,
                "text" : "beurre de cacao",
                "vegan" : "yes",
@@ -150,6 +172,7 @@
             {
                "from_palm_oil" : "no",
                "id" : "en:illipe-oil",
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 1.55625,
                "text" : "graisses végétales d'illipe",
                "vegan" : "yes",
@@ -158,6 +181,7 @@
             {
                "from_palm_oil" : "no",
                "id" : "en:mango-kernel-oil",
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 0.778124999999999,
                "text" : "graisses végétales de mangue",
                "vegan" : "yes",
@@ -166,22 +190,27 @@
             {
                "from_palm_oil" : "no",
                "id" : "en:shorea-robusta-seed-oil",
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 0.3890625,
                "text" : "graisses végétales de sal",
                "vegan" : "yes",
                "vegetarian" : "yes"
             },
             {
+               "ciqual_food_code" : "16110",
                "from_palm_oil" : "no",
                "id" : "en:shea-butter",
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 0.194531250000001,
                "text" : "graisses végétales de karité",
                "vegan" : "yes",
                "vegetarian" : "yes"
             },
             {
+               "ciqual_proxy_food_code" : "16129",
                "from_palm_oil" : "yes",
                "id" : "en:palm-fat",
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 0.0972656250000004,
                "text" : "graisses végétales de palme",
                "vegan" : "yes",
@@ -189,6 +218,7 @@
             },
             {
                "id" : "en:flavouring",
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 0.0486328124999993,
                "text" : "arôme",
                "vegan" : "maybe",
@@ -200,23 +230,27 @@
                   {
                      "ciqual_food_code" : "42200",
                      "id" : "en:soya-lecithin",
+                     "is_in_taxonomy" : 1,
                      "percent_estimate" : 0.0243164062499996,
                      "text" : "lécithine de soja",
                      "vegan" : "yes",
                      "vegetarian" : "yes"
                   }
                ],
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 0.0243164062499996,
                "text" : "émulsifiant"
             },
             {
                "id" : "en:lactose-and-milk-proteins",
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 0.0243164062500014,
                "text" : "lactose et protéines de lait",
                "vegan" : "no",
                "vegetarian" : "yes"
             }
          ],
+         "is_in_taxonomy" : 1,
          "percent" : 24.9,
          "percent_estimate" : 24.9,
          "text" : "chocolat",
@@ -226,6 +260,7 @@
       {
          "ciqual_proxy_food_code" : "9410",
          "id" : "en:wheat-flour",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 17.05,
          "text" : "farine de blé",
          "vegan" : "yes",
@@ -234,6 +269,7 @@
       {
          "ciqual_proxy_food_code" : "31016",
          "id" : "en:sugar",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 8.525,
          "text" : "sucre",
          "vegan" : "yes",
@@ -242,6 +278,7 @@
       {
          "ciqual_food_code" : "22000",
          "id" : "en:egg",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 4.2625,
          "text" : "oeufs",
          "vegan" : "no",
@@ -250,6 +287,7 @@
       {
          "ciqual_food_code" : "31077",
          "id" : "en:glucose-fructose-syrup",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 2.13125,
          "text" : "sirop de glucose-fructose",
          "vegan" : "yes",
@@ -259,6 +297,7 @@
          "ciqual_food_code" : "17130",
          "from_palm_oil" : "no",
          "id" : "en:colza-oil",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 1.065625,
          "text" : "huile de colza",
          "vegan" : "yes",
@@ -269,6 +308,7 @@
          "ingredients" : [
             {
                "id" : "en:e503ii",
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 0.266406249999999,
                "text" : "carbonate acide d'ammonium",
                "vegan" : "yes",
@@ -276,6 +316,7 @@
             },
             {
                "id" : "en:e450i",
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 0.133203125,
                "text" : "diphosphate disodique",
                "vegan" : "yes",
@@ -283,18 +324,21 @@
             },
             {
                "id" : "en:e500ii",
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 0.133203125,
                "text" : "carbonate acide de sodium",
                "vegan" : "yes",
                "vegetarian" : "yes"
             }
          ],
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 0.532812499999999,
          "text" : "poudre à lever"
       },
       {
          "ciqual_food_code" : "11058",
          "id" : "en:salt",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 0.266406250000003,
          "text" : "sel",
          "vegan" : "yes",
@@ -306,12 +350,14 @@
             {
                "ciqual_food_code" : "42200",
                "id" : "en:soya-lecithin",
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 0.266406250000003,
                "text" : "lécithine de soja",
                "vegan" : "yes",
                "vegetarian" : "yes"
             }
          ],
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 0.266406250000003,
          "text" : "émulsifiant"
       }
@@ -542,8 +588,6 @@
       "en:acid",
       "en:acidity-regulator",
       "en:chocolate",
-      "en:cocoa-paste",
-      "en:concentrated-orange-juice",
       "en:e330",
       "en:e333",
       "en:e415",
@@ -558,15 +602,12 @@
       "en:lactose-and-milk-proteins",
       "en:mango-kernel-oil",
       "en:natural-orange-flavouring",
-      "en:orange",
-      "en:palm-fat",
       "en:raising-agent",
-      "en:shea-butter",
       "en:shorea-robusta-seed-oil",
       "en:sodium-citrate",
       "en:thickener"
    ],
-   "ingredients_without_ciqual_codes_n" : 26,
+   "ingredients_without_ciqual_codes_n" : 21,
    "known_ingredients_n" : 71,
    "lc" : "fr",
    "misc_tags" : [

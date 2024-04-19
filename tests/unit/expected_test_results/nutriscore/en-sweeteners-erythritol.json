@@ -1,9 +1,5 @@
 {
    "additives_n" : 1,
-   "additives_old_n" : 1,
-   "additives_old_tags" : [
-      "en:e968"
-   ],
    "additives_original_tags" : [
       "en:e968"
    ],
@@ -13,6 +9,7 @@
    "amino_acids_tags" : [],
    "categories" : "sodas",
    "categories_hierarchy" : [
+      "en:beverages-and-beverages-preparations",
       "en:beverages",
       "en:carbonated-drinks",
       "en:sodas"
@@ -32,19 +29,21 @@
       "agribalyse-18340"
    ],
    "categories_tags" : [
+      "en:beverages-and-beverages-preparations",
       "en:beverages",
       "en:carbonated-drinks",
       "en:sodas"
    ],
-   "food_groups" : "en:artificially-sweetened-beverages",
+   "food_groups" : "en:sweetened-beverages",
    "food_groups_tags" : [
       "en:beverages",
-      "en:artificially-sweetened-beverages"
+      "en:sweetened-beverages"
    ],
    "ingredients" : [
       {
          "ciqual_food_code" : "2074",
          "id" : "en:apple-juice",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 70.5,
          "percent_max" : 100,
          "percent_min" : 41,
@@ -55,6 +54,7 @@
       {
          "ciqual_food_code" : "18066",
          "id" : "en:water",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 14.75,
          "percent_max" : 50,
          "percent_min" : 0,
@@ -65,6 +65,7 @@
       {
          "ciqual_proxy_food_code" : "31016",
          "id" : "en:sugar",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 2.25,
          "percent_max" : 4.5,
          "percent_min" : 0,
@@ -74,6 +75,7 @@
       },
       {
          "id" : "en:e968",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 12.5,
          "percent_max" : 4.5,
          "percent_min" : 0,
@@ -88,9 +90,6 @@
       "en:vegan",
       "en:vegetarian"
    ],
-   "ingredients_from_or_that_may_be_from_palm_oil_n" : 0,
-   "ingredients_from_palm_oil_n" : 0,
-   "ingredients_from_palm_oil_tags" : [],
    "ingredients_hierarchy" : [
       "en:apple-juice",
       "en:fruit",
@@ -109,6 +108,7 @@
       "4",
       "1-10"
    ],
+   "ingredients_non_nutritive_sweeteners_n" : 0,
    "ingredients_original_tags" : [
       "en:apple-juice",
       "en:water",
@@ -116,6 +116,7 @@
       "en:e968"
    ],
    "ingredients_percent_analysis" : 1,
+   "ingredients_sweeteners_n" : 0,
    "ingredients_tags" : [
       "en:apple-juice",
       "en:fruit",
@@ -130,8 +131,6 @@
       "en:e968"
    ],
    "ingredients_text" : "apple juice, water, sugar, erythritol",
-   "ingredients_that_may_be_from_palm_oil_n" : 0,
-   "ingredients_that_may_be_from_palm_oil_tags" : [],
    "ingredients_with_specified_percent_n" : 0,
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 4,
@@ -213,42 +212,84 @@
       "2023" : {
          "category_available" : 1,
          "data" : {
+            "components" : {
+               "negative" : [
+                  {
+                     "id" : "energy",
+                     "points" : 1,
+                     "points_max" : 10,
+                     "unit" : "kJ",
+                     "value" : 82
+                  },
+                  {
+                     "id" : "sugars",
+                     "points" : 3,
+                     "points_max" : 10,
+                     "unit" : "g",
+                     "value" : 4.5
+                  },
+                  {
+                     "id" : "saturated_fat",
+                     "points" : 0,
+                     "points_max" : 10,
+                     "unit" : "g",
+                     "value" : 0
+                  },
+                  {
+                     "id" : "salt",
+                     "points" : 0,
+                     "points_max" : 20,
+                     "unit" : "g",
+                     "value" : 0.03
+                  },
+                  {
+                     "id" : "non_nutritive_sweeteners",
+                     "points" : 0,
+                     "points_max" : 4,
+                     "unit" : "number",
+                     "value" : 0
+                  }
+               ],
+               "positive" : [
+                  {
+                     "id" : "proteins",
+                     "points" : 0,
+                     "points_max" : 7,
+                     "unit" : "g",
+                     "value" : 0
+                  },
+                  {
+                     "id" : "fiber",
+                     "points" : 0,
+                     "points_max" : 5,
+                     "unit" : "g",
+                     "value" : null
+                  },
+                  {
+                     "id" : "fruits_vegetables_legumes",
+                     "points" : 4,
+                     "points_max" : 6,
+                     "unit" : "%",
+                     "value" : 70.5
+                  }
+               ]
+            },
             "count_proteins" : 1,
             "count_proteins_reason" : "beverage",
-            "energy" : 82,
-            "energy_points" : 1,
-            "fiber" : 0,
-            "fiber_points" : 0,
-            "fruits_vegetables_legumes" : 70.5,
-            "fruits_vegetables_legumes_points" : 4,
             "is_beverage" : 1,
             "is_cheese" : 0,
             "is_fat_oil_nuts_seeds" : 0,
             "is_red_meat_product" : 0,
             "is_water" : 0,
-            "negative_nutrients" : [
-               "energy",
-               "sugars",
-               "saturated_fat",
-               "salt",
-               "non_nutritive_sweeteners"
-            ],
             "negative_points" : 4,
-            "non_nutritive_sweeteners_points" : 0,
+            "negative_points_max" : 54,
             "positive_nutrients" : [
-               "fruits_vegetables_legumes",
+               "proteins",
                "fiber",
-               "proteins"
+               "fruits_vegetables_legumes"
             ],
             "positive_points" : 4,
-            "proteins" : 0,
-            "proteins_points" : 0,
-            "salt" : 0.025,
-            "salt_points" : 0,
-            "saturated_fat" : 0,
-            "saturated_fat_points" : 0,
-            "sugars" : 4.5,
-            "sugars_points" : 3
+            "positive_points_max" : 18
          },
          "grade" : "b",
          "nutrients_available" : 1,
@@ -320,12 +361,11 @@
       "beverages",
       "known"
    ],
-   "pnns_groups_2" : "Artificially sweetened beverages",
+   "pnns_groups_2" : "Sweetened beverages",
    "pnns_groups_2_tags" : [
-      "artificially-sweetened-beverages",
+      "sweetened-beverages",
       "known"
    ],
    "unknown_ingredients_n" : 0,
-   "vitamins_tags" : [],
-   "with_sweeteners" : 1
+   "vitamins_tags" : []
 }

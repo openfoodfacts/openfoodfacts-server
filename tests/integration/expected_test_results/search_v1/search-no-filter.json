@@ -13,18 +13,18 @@
          ],
          "added_countries_tags" : [],
          "additives_n" : 0,
-         "additives_old_n" : 0,
-         "additives_old_tags" : [],
          "additives_original_tags" : [],
          "additives_tags" : [],
          "allergens" : "",
-         "allergens_from_ingredients" : "en:milk, milk, eggs",
+         "allergens_from_ingredients" : "en:milk, apple, milk, eggs",
          "allergens_from_user" : "(en) ",
          "allergens_hierarchy" : [
+            "en:apple",
             "en:eggs",
             "en:milk"
          ],
          "allergens_tags" : [
+            "en:apple",
             "en:eggs",
             "en:milk"
          ],
@@ -404,6 +404,7 @@
             {
                "ciqual_food_code" : "13050",
                "id" : "en:apple",
+               "is_in_taxonomy": 1,
                "percent_estimate" : 62.5,
                "percent_max" : 100,
                "percent_min" : 25,
@@ -415,6 +416,7 @@
             {
                "ciqual_proxy_food_code" : "19051",
                "id" : "en:milk",
+               "is_in_taxonomy": 1,
                "percent_estimate" : 18.75,
                "percent_max" : 50,
                "percent_min" : 0,
@@ -426,6 +428,7 @@
             {
                "ciqual_food_code" : "22000",
                "id" : "en:egg",
+               "is_in_taxonomy": 1,
                "percent_estimate" : 9.375,
                "percent_max" : 33.3333333333333,
                "percent_min" : 0,
@@ -437,6 +440,7 @@
             {
                "ciqual_food_code" : "16129",
                "from_palm_oil" : "yes",
+               "is_in_taxonomy": 1,
                "id" : "en:palm-oil",
                "percent_estimate" : 9.375,
                "percent_max" : 25,
@@ -461,9 +465,6 @@
             "en:non-vegan",
             "en:vegetarian"
          ],
-         "ingredients_from_or_that_may_be_from_palm_oil_n" : 0,
-         "ingredients_from_palm_oil_n" : 0,
-         "ingredients_from_palm_oil_tags" : [],
          "ingredients_hierarchy" : [
             "en:apple",
             "en:fruit",
@@ -482,6 +483,7 @@
             "4",
             "1-10"
          ],
+         "ingredients_non_nutritive_sweeteners_n" : 0,
          "ingredients_original_tags" : [
             "en:apple",
             "en:milk",
@@ -489,6 +491,7 @@
             "en:palm-oil"
          ],
          "ingredients_percent_analysis" : 1,
+         "ingredients_sweeteners_n" : 0,
          "ingredients_tags" : [
             "en:apple",
             "en:fruit",
@@ -503,10 +506,8 @@
          ],
          "ingredients_text" : "apple, milk, eggs, palm oil",
          "ingredients_text_en" : "apple, milk, eggs, palm oil",
-         "ingredients_text_with_allergens" : "apple, <span class=\"allergen\">milk</span>, <span class=\"allergen\">eggs</span>, palm oil",
-         "ingredients_text_with_allergens_en" : "apple, <span class=\"allergen\">milk</span>, <span class=\"allergen\">eggs</span>, palm oil",
-         "ingredients_that_may_be_from_palm_oil_n" : 0,
-         "ingredients_that_may_be_from_palm_oil_tags" : [],
+         "ingredients_text_with_allergens" : "<span class=\"allergen\">apple</span>, <span class=\"allergen\">milk</span>, <span class=\"allergen\">eggs</span>, palm oil",
+         "ingredients_text_with_allergens_en" : "<span class=\"allergen\">apple</span>, <span class=\"allergen\">milk</span>, <span class=\"allergen\">eggs</span>, palm oil",
          "ingredients_with_specified_percent_n" : 0,
          "ingredients_with_specified_percent_sum" : 0,
          "ingredients_with_unspecified_percent_n" : 4,
@@ -534,6 +535,7 @@
          "last_editor" : "tests",
          "last_modified_by" : "tests",
          "last_modified_t" : "--ignore--",
+         "last_updated_t" : "--ignore--",
          "lc" : "en",
          "link" : "http://world.openfoodfacts.org/",
          "main_countries_tags" : [],
@@ -674,41 +676,77 @@
             "2023" : {
                "category_available" : 1,
                "data" : {
+                  "components" : {
+                     "negative" : [
+                        {
+                           "id" : "energy",
+                           "points" : 1,
+                           "points_max" : 10,
+                           "unit" : "kJ",
+                           "value" : 558.75
+                        },
+                        {
+                           "id" : "sugars",
+                           "points" : 2,
+                           "points_max" : 15,
+                           "unit" : "g",
+                           "value" : 7.26
+                        },
+                        {
+                           "id" : "saturated_fat",
+                           "points" : 4,
+                           "points_max" : 10,
+                           "unit" : "g",
+                           "value" : 4.9
+                        },
+                        {
+                           "id" : "salt",
+                           "points" : 0,
+                           "points_max" : 20,
+                           "unit" : "g",
+                           "value" : 0.05
+                        }
+                     ],
+                     "positive" : [
+                        {
+                           "id" : "proteins",
+                           "points" : 0,
+                           "points_max" : 7,
+                           "unit" : "g",
+                           "value" : 1.97
+                        },
+                        {
+                           "id" : "fiber",
+                           "points" : 0,
+                           "points_max" : 5,
+                           "unit" : "g",
+                           "value" : 0.81
+                        },
+                        {
+                           "id" : "fruits_vegetables_legumes",
+                           "points" : 2,
+                           "points_max" : 5,
+                           "unit" : "%",
+                           "value" : 62.5
+                        }
+                     ]
+                  },
                   "count_proteins" : 1,
                   "count_proteins_reason" : "negative_points_less_than_11",
-                  "energy" : 558.75,
-                  "energy_points" : 1,
-                  "fiber" : 0.8125,
-                  "fiber_points" : 0,
-                  "fruits_vegetables_legumes" : 62.5,
-                  "fruits_vegetables_legumes_points" : 2,
                   "is_beverage" : 0,
                   "is_cheese" : 0,
                   "is_fat_oil_nuts_seeds" : 0,
                   "is_red_meat_product" : 0,
                   "is_water" : 0,
-                  "negative_nutrients" : [
-                     "energy",
-                     "sugars",
-                     "saturated_fat",
-                     "salt",
-                     "non_nutritive_sweeteners"
-                  ],
                   "negative_points" : 7,
+                  "negative_points_max" : 55,
                   "positive_nutrients" : [
-                     "fruits_vegetables_legumes",
+                     "proteins",
                      "fiber",
-                     "proteins"
+                     "fruits_vegetables_legumes"
                   ],
                   "positive_points" : 2,
-                  "proteins" : 1.974375,
-                  "proteins_points" : 0,
-                  "salt" : 0.0496875,
-                  "salt_points" : 0,
-                  "saturated_fat" : 4.903125,
-                  "saturated_fat_points" : 4,
-                  "sugars" : 7.2621875,
-                  "sugars_points" : 2
+                  "positive_points_max" : 17
                },
                "grade" : "c",
                "nutrients_available" : 1,
@@ -836,10 +874,12 @@
          "product_name" : "test_1",
          "product_name_en" : "test_1",
          "product_quantity" : 100,
+         "product_quantity_unit" : "g",
          "quantity" : "100 g",
          "removed_countries_tags" : [],
          "rev" : 1,
          "serving_quantity" : 10,
+         "serving_quantity_unit" : "g",
          "serving_size" : "10 g",
          "states" : "en:to-be-completed, en:nutrition-facts-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-completed, en:product-name-completed, en:photos-to-be-uploaded",
          "states_hierarchy" : [
@@ -895,8 +935,6 @@
          ],
          "added_countries_tags" : [],
          "additives_n" : 0,
-         "additives_old_n" : 0,
-         "additives_old_tags" : [],
          "additives_original_tags" : [],
          "additives_tags" : [],
          "allergens" : "",
@@ -1230,6 +1268,7 @@
          "ingredients" : [
             {
                "id" : "en:fruit",
+               "is_in_taxonomy": 1,
                "percent_estimate" : 75,
                "percent_max" : 100,
                "percent_min" : 50,
@@ -1240,6 +1279,7 @@
             },
             {
                "ciqual_proxy_food_code" : "9100",
+               "is_in_taxonomy": 1,
                "id" : "en:rice",
                "percent_estimate" : 25,
                "percent_max" : 50,
@@ -1256,9 +1296,6 @@
             "en:vegan",
             "en:vegetarian"
          ],
-         "ingredients_from_or_that_may_be_from_palm_oil_n" : 0,
-         "ingredients_from_palm_oil_n" : 0,
-         "ingredients_from_palm_oil_tags" : [],
          "ingredients_hierarchy" : [
             "en:fruit",
             "en:rice"
@@ -1269,11 +1306,13 @@
             "2",
             "1-10"
          ],
+         "ingredients_non_nutritive_sweeteners_n" : 0,
          "ingredients_original_tags" : [
             "en:fruit",
             "en:rice"
          ],
          "ingredients_percent_analysis" : 1,
+         "ingredients_sweeteners_n" : 0,
          "ingredients_tags" : [
             "en:fruit",
             "en:rice"
@@ -1282,8 +1321,6 @@
          "ingredients_text_en" : "fruit, rice",
          "ingredients_text_with_allergens" : "fruit, rice",
          "ingredients_text_with_allergens_en" : "fruit, rice",
-         "ingredients_that_may_be_from_palm_oil_n" : 0,
-         "ingredients_that_may_be_from_palm_oil_tags" : [],
          "ingredients_with_specified_percent_n" : 0,
          "ingredients_with_specified_percent_sum" : 0,
          "ingredients_with_unspecified_percent_n" : 2,
@@ -1313,6 +1350,7 @@
          "last_editor" : "tests",
          "last_modified_by" : "tests",
          "last_modified_t" : "--ignore--",
+         "last_updated_t" : "--ignore--",
          "lc" : "en",
          "link" : "http://world.openfoodfacts.org/",
          "main_countries_tags" : [],
@@ -1382,7 +1420,7 @@
                "category_available" : 1,
                "data" : {
                   "energy" : null,
-                  "fiber" : 0,
+                  "fiber" : null,
                   "fruits_vegetables_legumes" : 75,
                   "is_beverage" : 0,
                   "is_cheese" : 0,
@@ -1450,10 +1488,12 @@
          "product_name" : "vegan & palm oil free",
          "product_name_en" : "vegan & palm oil free",
          "product_quantity" : 100,
+         "product_quantity_unit" : "g",
          "quantity" : "100 g",
          "removed_countries_tags" : [],
          "rev" : 1,
          "serving_quantity" : 10,
+         "serving_quantity_unit" : "g",
          "serving_size" : "10 g",
          "states" : "en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-completed, en:product-name-completed, en:photos-to-be-uploaded",
          "states_hierarchy" : [
@@ -1510,18 +1550,18 @@
          ],
          "added_countries_tags" : [],
          "additives_n" : 0,
-         "additives_old_n" : 0,
-         "additives_old_tags" : [],
          "additives_original_tags" : [],
          "additives_tags" : [],
          "allergens" : "",
-         "allergens_from_ingredients" : "en:milk, milk, eggs",
+         "allergens_from_ingredients" : "en:milk, apple, milk, eggs",
          "allergens_from_user" : "(en) ",
          "allergens_hierarchy" : [
+            "en:apple",
             "en:eggs",
             "en:milk"
          ],
          "allergens_tags" : [
+            "en:apple",
             "en:eggs",
             "en:milk"
          ],
@@ -1874,6 +1914,7 @@
             {
                "ciqual_food_code" : "13050",
                "id" : "en:apple",
+               "is_in_taxonomy": 1,
                "percent_estimate" : 66.6666666666667,
                "percent_max" : 100,
                "percent_min" : 33.3333333333333,
@@ -1885,6 +1926,7 @@
             {
                "ciqual_proxy_food_code" : "19051",
                "id" : "en:milk",
+               "is_in_taxonomy": 1,
                "percent_estimate" : 16.6666666666667,
                "percent_max" : 50,
                "percent_min" : 0,
@@ -1896,6 +1938,7 @@
             {
                "ciqual_food_code" : "22000",
                "id" : "en:egg",
+               "is_in_taxonomy": 1,
                "percent_estimate" : 16.6666666666667,
                "percent_max" : 33.3333333333333,
                "percent_min" : 0,
@@ -1916,9 +1959,6 @@
             "en:non-vegan",
             "en:vegetarian"
          ],
-         "ingredients_from_or_that_may_be_from_palm_oil_n" : 0,
-         "ingredients_from_palm_oil_n" : 0,
-         "ingredients_from_palm_oil_tags" : [],
          "ingredients_hierarchy" : [
             "en:apple",
             "en:fruit",
@@ -1933,12 +1973,14 @@
             "3",
             "1-10"
          ],
+         "ingredients_non_nutritive_sweeteners_n" : 0,
          "ingredients_original_tags" : [
             "en:apple",
             "en:milk",
             "en:egg"
          ],
          "ingredients_percent_analysis" : 1,
+         "ingredients_sweeteners_n" : 0,
          "ingredients_tags" : [
             "en:apple",
             "en:fruit",
@@ -1949,10 +1991,8 @@
          ],
          "ingredients_text" : "apple, milk, eggs",
          "ingredients_text_en" : "apple, milk, eggs",
-         "ingredients_text_with_allergens" : "apple, <span class=\"allergen\">milk</span>, <span class=\"allergen\">eggs</span>",
-         "ingredients_text_with_allergens_en" : "apple, <span class=\"allergen\">milk</span>, <span class=\"allergen\">eggs</span>",
-         "ingredients_that_may_be_from_palm_oil_n" : 0,
-         "ingredients_that_may_be_from_palm_oil_tags" : [],
+         "ingredients_text_with_allergens" : "<span class=\"allergen\">apple</span>, <span class=\"allergen\">milk</span>, <span class=\"allergen\">eggs</span>",
+         "ingredients_text_with_allergens_en" : "<span class=\"allergen\">apple</span>, <span class=\"allergen\">milk</span>, <span class=\"allergen\">eggs</span>",
          "ingredients_with_specified_percent_n" : 0,
          "ingredients_with_specified_percent_sum" : 0,
          "ingredients_with_unspecified_percent_n" : 3,
@@ -1980,6 +2020,7 @@
          "last_editor" : "tests",
          "last_modified_by" : "tests",
          "last_modified_t" : "--ignore--",
+         "last_updated_t" : "--ignore--",
          "lc" : "en",
          "link" : "http://world.openfoodfacts.org/",
          "main_countries_tags" : [],
@@ -2119,41 +2160,77 @@
             "2023" : {
                "category_available" : 1,
                "data" : {
+                  "components" : {
+                     "negative" : [
+                        {
+                           "id" : "energy",
+                           "points" : 0,
+                           "points_max" : 10,
+                           "unit" : "kJ",
+                           "value" : 260
+                        },
+                        {
+                           "id" : "sugars",
+                           "points" : 2,
+                           "points_max" : 15,
+                           "unit" : "g",
+                           "value" : 7.6
+                        },
+                        {
+                           "id" : "saturated_fat",
+                           "points" : 0,
+                           "points_max" : 10,
+                           "unit" : "g",
+                           "value" : 0.47
+                        },
+                        {
+                           "id" : "salt",
+                           "points" : 0,
+                           "points_max" : 20,
+                           "unit" : "g",
+                           "value" : 0.07
+                        }
+                     ],
+                     "positive" : [
+                        {
+                           "id" : "proteins",
+                           "points" : 1,
+                           "points_max" : 7,
+                           "unit" : "g",
+                           "value" : 2.84
+                        },
+                        {
+                           "id" : "fiber",
+                           "points" : 0,
+                           "points_max" : 5,
+                           "unit" : "g",
+                           "value" : 0.87
+                        },
+                        {
+                           "id" : "fruits_vegetables_legumes",
+                           "points" : 2,
+                           "points_max" : 5,
+                           "unit" : "%",
+                           "value" : 66.7
+                        }
+                     ]
+                  },
                   "count_proteins" : 1,
                   "count_proteins_reason" : "negative_points_less_than_11",
-                  "energy" : 260,
-                  "energy_points" : 0,
-                  "fiber" : 0.866666666666667,
-                  "fiber_points" : 0,
-                  "fruits_vegetables_legumes" : 66.6666666666667,
-                  "fruits_vegetables_legumes_points" : 2,
                   "is_beverage" : 0,
                   "is_cheese" : 0,
                   "is_fat_oil_nuts_seeds" : 0,
                   "is_red_meat_product" : 0,
                   "is_water" : 0,
-                  "negative_nutrients" : [
-                     "energy",
-                     "sugars",
-                     "saturated_fat",
-                     "salt",
-                     "non_nutritive_sweeteners"
-                  ],
                   "negative_points" : 2,
+                  "negative_points_max" : 55,
                   "positive_nutrients" : [
-                     "fruits_vegetables_legumes",
+                     "proteins",
                      "fiber",
-                     "proteins"
+                     "fruits_vegetables_legumes"
                   ],
                   "positive_points" : 3,
-                  "proteins" : 2.84333333333333,
-                  "proteins_points" : 1,
-                  "salt" : 0.07,
-                  "salt_points" : 0,
-                  "saturated_fat" : 0.472333333333333,
-                  "saturated_fat_points" : 0,
-                  "sugars" : 7.6,
-                  "sugars_points" : 2
+                  "positive_points_max" : 17
                },
                "grade" : "a",
                "nutrients_available" : 1,
@@ -2243,10 +2320,12 @@
          "product_name" : "palm oil free & non vegan",
          "product_name_en" : "palm oil free & non vegan",
          "product_quantity" : 100,
+         "product_quantity_unit" : "ml",
          "quantity" : "100 ml",
          "removed_countries_tags" : [],
          "rev" : 1,
          "serving_quantity" : 10,
+         "serving_quantity_unit" : "g",
          "serving_size" : "10 g",
          "states" : "en:to-be-completed, en:nutrition-facts-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-completed, en:product-name-completed, en:photos-to-be-uploaded",
          "states_hierarchy" : [
@@ -2297,15 +2376,17 @@
          ],
          "added_countries_tags" : [],
          "additives_n" : 0,
-         "additives_old_n" : 0,
-         "additives_old_tags" : [],
          "additives_original_tags" : [],
          "additives_tags" : [],
          "allergens" : "",
-         "allergens_from_ingredients" : "",
+         "allergens_from_ingredients" : "apple",
          "allergens_from_user" : "(en) ",
-         "allergens_hierarchy" : [],
-         "allergens_tags" : [],
+         "allergens_hierarchy" : [
+            "en:apple"
+         ],
+         "allergens_tags" : [
+            "en:apple"
+         ],
          "amino_acids_tags" : [],
          "categories" : "snacks",
          "categories_hierarchy" : [
@@ -2635,6 +2716,7 @@
             {
                "ciqual_food_code" : "13050",
                "id" : "en:apple",
+               "is_in_taxonomy": 1,
                "percent_estimate" : 66.6666666666667,
                "percent_max" : 100,
                "percent_min" : 33.3333333333333,
@@ -2646,6 +2728,7 @@
             {
                "ciqual_food_code" : "18066",
                "id" : "en:water",
+               "is_in_taxonomy": 1,
                "percent_estimate" : 16.6666666666667,
                "percent_max" : 50,
                "percent_min" : 0,
@@ -2658,6 +2741,7 @@
                "ciqual_food_code" : "16129",
                "from_palm_oil" : "yes",
                "id" : "en:palm-oil",
+               "is_in_taxonomy": 1,
                "percent_estimate" : 16.6666666666667,
                "percent_max" : 33.3333333333333,
                "percent_min" : 0,
@@ -2677,9 +2761,6 @@
             "en:vegan",
             "en:vegetarian"
          ],
-         "ingredients_from_or_that_may_be_from_palm_oil_n" : 0,
-         "ingredients_from_palm_oil_n" : 0,
-         "ingredients_from_palm_oil_tags" : [],
          "ingredients_hierarchy" : [
             "en:apple",
             "en:fruit",
@@ -2696,12 +2777,14 @@
             "3",
             "1-10"
          ],
+         "ingredients_non_nutritive_sweeteners_n" : 0,
          "ingredients_original_tags" : [
             "en:apple",
             "en:water",
             "en:palm-oil"
          ],
          "ingredients_percent_analysis" : 1,
+         "ingredients_sweeteners_n" : 0,
          "ingredients_tags" : [
             "en:apple",
             "en:fruit",
@@ -2714,10 +2797,8 @@
          ],
          "ingredients_text" : "apple, water, palm oil",
          "ingredients_text_en" : "apple, water, palm oil",
-         "ingredients_text_with_allergens" : "apple, water, palm oil",
-         "ingredients_text_with_allergens_en" : "apple, water, palm oil",
-         "ingredients_that_may_be_from_palm_oil_n" : 0,
-         "ingredients_that_may_be_from_palm_oil_tags" : [],
+         "ingredients_text_with_allergens" : "<span class=\"allergen\">apple</span>, water, palm oil",
+         "ingredients_text_with_allergens_en" : "<span class=\"allergen\">apple</span>, water, palm oil",
          "ingredients_with_specified_percent_n" : 0,
          "ingredients_with_specified_percent_sum" : 0,
          "ingredients_with_unspecified_percent_n" : 3,
@@ -2745,6 +2826,7 @@
          "last_editor" : "tests",
          "last_modified_by" : "tests",
          "last_modified_t" : "--ignore--",
+         "last_updated_t" : "--ignore--",
          "lc" : "es",
          "link" : "http://world.openfoodfacts.org/",
          "main_countries_tags" : [],
@@ -2882,40 +2964,69 @@
             "2023" : {
                "category_available" : 1,
                "data" : {
+                  "components" : {
+                     "negative" : [
+                        {
+                           "id" : "energy",
+                           "points" : 2,
+                           "points_max" : 10,
+                           "unit" : "kJ",
+                           "value" : 754.67
+                        },
+                        {
+                           "id" : "sugars",
+                           "points" : 1,
+                           "points_max" : 15,
+                           "unit" : "g",
+                           "value" : 6.73
+                        },
+                        {
+                           "id" : "saturated_fat",
+                           "points" : 8,
+                           "points_max" : 10,
+                           "unit" : "g",
+                           "value" : 8.23
+                        },
+                        {
+                           "id" : "salt",
+                           "points" : 0,
+                           "points_max" : 20,
+                           "unit" : "g",
+                           "value" : 0
+                        }
+                     ],
+                     "positive" : [
+                        {
+                           "id" : "fiber",
+                           "points" : 0,
+                           "points_max" : 5,
+                           "unit" : "g",
+                           "value" : 0.87
+                        },
+                        {
+                           "id" : "fruits_vegetables_legumes",
+                           "points" : 2,
+                           "points_max" : 5,
+                           "unit" : "%",
+                           "value" : 66.7
+                        }
+                     ]
+                  },
                   "count_proteins" : 0,
-                  "count_proteins_reason" : "negative_points_more_than_11",
-                  "energy" : 754.666666666666,
-                  "energy_points" : 2,
-                  "fiber" : 0.866666666666667,
-                  "fiber_points" : 0,
-                  "fruits_vegetables_legumes" : 66.6666666666667,
-                  "fruits_vegetables_legumes_points" : 2,
+                  "count_proteins_reason" : "negative_points_greater_than_or_equal_to_11",
                   "is_beverage" : 0,
                   "is_cheese" : 0,
                   "is_fat_oil_nuts_seeds" : 0,
                   "is_red_meat_product" : 0,
                   "is_water" : 0,
-                  "negative_nutrients" : [
-                     "energy",
-                     "sugars",
-                     "saturated_fat",
-                     "salt",
-                     "non_nutritive_sweeteners"
-                  ],
                   "negative_points" : 11,
+                  "negative_points_max" : 55,
                   "positive_nutrients" : [
-                     "fruits_vegetables_legumes",
-                     "fiber"
+                     "fiber",
+                     "fruits_vegetables_legumes"
                   ],
                   "positive_points" : 2,
-                  "proteins" : 0.18,
-                  "proteins_points" : 0,
-                  "salt" : 0.00126666666666667,
-                  "salt_points" : 0,
-                  "saturated_fat" : 8.23066666666666,
-                  "saturated_fat_points" : 8,
-                  "sugars" : 6.73333333333333,
-                  "sugars_points" : 1
+                  "positive_points_max" : 10
                },
                "grade" : "c",
                "nutrients_available" : 1,
@@ -3003,10 +3114,12 @@
          "popularity_key" : 0,
          "product_name_en" : "Vegan Test Snack with palm oil",
          "product_quantity" : 100,
+         "product_quantity_unit" : "g",
          "quantity" : "100 g",
          "removed_countries_tags" : [],
          "rev" : 1,
          "serving_quantity" : 10,
+         "serving_quantity_unit" : "g",
          "serving_size" : "10 g",
          "states" : "en:to-be-completed, en:nutrition-facts-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-completed, en:product-name-to-be-completed, en:photos-to-be-uploaded",
          "states_hierarchy" : [
@@ -3058,15 +3171,17 @@
          ],
          "added_countries_tags" : [],
          "additives_n" : 0,
-         "additives_old_n" : 0,
-         "additives_old_tags" : [],
          "additives_original_tags" : [],
          "additives_tags" : [],
          "allergens" : "",
-         "allergens_from_ingredients" : "",
+         "allergens_from_ingredients" : "apple",
          "allergens_from_user" : "(en) ",
-         "allergens_hierarchy" : [],
-         "allergens_tags" : [],
+         "allergens_hierarchy" : [
+            "en:apple"
+         ],
+         "allergens_tags" : [
+            "en:apple"
+         ],
          "amino_acids_tags" : [],
          "categories" : "breakfast cereals",
          "categories_hierarchy" : [
@@ -3379,27 +3494,27 @@
             },
             "agribalyse" : {
                "agribalyse_proxy_food_code" : "32135",
-               "co2_agriculture" : 2.2396004,
+               "co2_agriculture" : 2.4106751,
                "co2_consumption" : 0,
-               "co2_distribution" : 0.019530673,
-               "co2_packaging" : 0.28159592,
-               "co2_processing" : 0.77051126,
-               "co2_total" : 3.564111983,
-               "co2_transportation" : 0.25287373,
+               "co2_distribution" : 0.019437894,
+               "co2_packaging" : 0.28123298,
+               "co2_processing" : 0.53688699,
+               "co2_total" : 3.502316864,
+               "co2_transportation" : 0.2540839,
                "code" : "32135",
                "dqr" : "4.03",
-               "ef_agriculture" : 0.50064279,
+               "ef_agriculture" : 0.49403158,
                "ef_consumption" : 0,
-               "ef_distribution" : 0.0048315303,
-               "ef_packaging" : 0.023715692,
-               "ef_processing" : 0.078716079,
-               "ef_total" : 0.6323498093,
-               "ef_transportation" : 0.024443718,
+               "ef_distribution" : 0.0047895045,
+               "ef_packaging" : 0.023591079,
+               "ef_processing" : 0.078951852,
+               "ef_total" : 0.6258899635,
+               "ef_transportation" : 0.024525948,
                "is_beverage" : 0,
                "name_en" : "Breakfast cereals, mix of puffed or extruded cereals, fortified with vitamins and chemical elements",
                "name_fr" : "Multi-céréales soufflées ou extrudées, enrichies en vitamines et minéraux",
                "score" : 45,
-               "version" : "3.1"
+               "version" : "3.1.1"
             },
             "grade" : "d",
             "grades" : {
@@ -3565,6 +3680,7 @@
             {
                "ciqual_food_code" : "13050",
                "id" : "en:apple",
+               "is_in_taxonomy": 1,
                "percent_estimate" : 75,
                "percent_max" : 100,
                "percent_min" : 50,
@@ -3576,6 +3692,7 @@
             {
                "ciqual_food_code" : "18066",
                "id" : "en:water",
+               "is_in_taxonomy": 1,
                "percent_estimate" : 25,
                "percent_max" : 50,
                "percent_min" : 0,
@@ -3591,9 +3708,6 @@
             "en:vegan",
             "en:vegetarian"
          ],
-         "ingredients_from_or_that_may_be_from_palm_oil_n" : 0,
-         "ingredients_from_palm_oil_n" : 0,
-         "ingredients_from_palm_oil_tags" : [],
          "ingredients_hierarchy" : [
             "en:apple",
             "en:fruit",
@@ -3606,11 +3720,13 @@
             "2",
             "1-10"
          ],
+         "ingredients_non_nutritive_sweeteners_n" : 0,
          "ingredients_original_tags" : [
             "en:apple",
             "en:water"
          ],
          "ingredients_percent_analysis" : 1,
+         "ingredients_sweeteners_n" : 0,
          "ingredients_tags" : [
             "en:apple",
             "en:fruit",
@@ -3619,10 +3735,8 @@
          ],
          "ingredients_text" : "apple, water",
          "ingredients_text_en" : "apple, water",
-         "ingredients_text_with_allergens" : "apple, water",
-         "ingredients_text_with_allergens_en" : "apple, water",
-         "ingredients_that_may_be_from_palm_oil_n" : 0,
-         "ingredients_that_may_be_from_palm_oil_tags" : [],
+         "ingredients_text_with_allergens" : "<span class=\"allergen\">apple</span>, water",
+         "ingredients_text_with_allergens_en" : "<span class=\"allergen\">apple</span>, water",
          "ingredients_with_specified_percent_n" : 0,
          "ingredients_with_specified_percent_sum" : 0,
          "ingredients_with_unspecified_percent_n" : 2,
@@ -3650,6 +3764,7 @@
          "last_editor" : "tests",
          "last_modified_by" : "tests",
          "last_modified_t" : "--ignore--",
+         "last_updated_t" : "--ignore--",
          "lc" : "es",
          "link" : "http://world.openfoodfacts.org/",
          "main_countries_tags" : [],
@@ -3794,41 +3909,77 @@
             "2023" : {
                "category_available" : 1,
                "data" : {
+                  "components" : {
+                     "negative" : [
+                        {
+                           "id" : "energy",
+                           "points" : 0,
+                           "points_max" : 10,
+                           "unit" : "kJ",
+                           "value" : 155.25
+                        },
+                        {
+                           "id" : "sugars",
+                           "points" : 2,
+                           "points_max" : 15,
+                           "unit" : "g",
+                           "value" : 7.58
+                        },
+                        {
+                           "id" : "saturated_fat",
+                           "points" : 0,
+                           "points_max" : 10,
+                           "unit" : "g",
+                           "value" : 0.02
+                        },
+                        {
+                           "id" : "salt",
+                           "points" : 0,
+                           "points_max" : 20,
+                           "unit" : "g",
+                           "value" : 0
+                        }
+                     ],
+                     "positive" : [
+                        {
+                           "id" : "proteins",
+                           "points" : 0,
+                           "points_max" : 7,
+                           "unit" : "g",
+                           "value" : 0.2
+                        },
+                        {
+                           "id" : "fiber",
+                           "points" : 0,
+                           "points_max" : 5,
+                           "unit" : "g",
+                           "value" : 0.97
+                        },
+                        {
+                           "id" : "fruits_vegetables_legumes",
+                           "points" : 2,
+                           "points_max" : 5,
+                           "unit" : "%",
+                           "value" : 75
+                        }
+                     ]
+                  },
                   "count_proteins" : 1,
                   "count_proteins_reason" : "negative_points_less_than_11",
-                  "energy" : 155.25,
-                  "energy_points" : 0,
-                  "fiber" : 0.975,
-                  "fiber_points" : 0,
-                  "fruits_vegetables_legumes" : 75,
-                  "fruits_vegetables_legumes_points" : 2,
                   "is_beverage" : 0,
                   "is_cheese" : 0,
                   "is_fat_oil_nuts_seeds" : 0,
                   "is_red_meat_product" : 0,
                   "is_water" : 0,
-                  "negative_nutrients" : [
-                     "energy",
-                     "sugars",
-                     "saturated_fat",
-                     "salt",
-                     "non_nutritive_sweeteners"
-                  ],
                   "negative_points" : 2,
+                  "negative_points_max" : 55,
                   "positive_nutrients" : [
-                     "fruits_vegetables_legumes",
+                     "proteins",
                      "fiber",
-                     "proteins"
+                     "fruits_vegetables_legumes"
                   ],
                   "positive_points" : 2,
-                  "proteins" : 0.2025,
-                  "proteins_points" : 0,
-                  "salt" : 0.0019,
-                  "salt_points" : 0,
-                  "saturated_fat" : 0.01575,
-                  "saturated_fat_points" : 0,
-                  "sugars" : 7.575,
-                  "sugars_points" : 2
+                  "positive_points_max" : 17
                },
                "grade" : "a",
                "nutrients_available" : 1,
@@ -3917,10 +4068,12 @@
          "popularity_key" : 0,
          "product_name_en" : "Vegan breakfast cereals without palm oil",
          "product_quantity" : 100,
+         "product_quantity_unit" : "g",
          "quantity" : "100 g",
          "removed_countries_tags" : [],
          "rev" : 1,
          "serving_quantity" : 10,
+         "serving_quantity_unit" : "g",
          "serving_size" : "10 g",
          "states" : "en:to-be-completed, en:nutrition-facts-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-completed, en:product-name-to-be-completed, en:photos-to-be-uploaded",
          "states_hierarchy" : [
@@ -3978,15 +4131,17 @@
          ],
          "added_countries_tags" : [],
          "additives_n" : 0,
-         "additives_old_n" : 0,
-         "additives_old_tags" : [],
          "additives_original_tags" : [],
          "additives_tags" : [],
          "allergens" : "",
-         "allergens_from_ingredients" : "",
+         "allergens_from_ingredients" : "apple",
          "allergens_from_user" : "(en) ",
-         "allergens_hierarchy" : [],
-         "allergens_tags" : [],
+         "allergens_hierarchy" : [
+            "en:apple"
+         ],
+         "allergens_tags" : [
+            "en:apple"
+         ],
          "amino_acids_tags" : [],
          "categories" : "breakfast cereals",
          "categories_hierarchy" : [
@@ -4309,27 +4464,27 @@
             },
             "agribalyse" : {
                "agribalyse_proxy_food_code" : "32135",
-               "co2_agriculture" : 2.2396004,
+               "co2_agriculture" : 2.4106751,
                "co2_consumption" : 0,
-               "co2_distribution" : 0.019530673,
-               "co2_packaging" : 0.28159592,
-               "co2_processing" : 0.77051126,
-               "co2_total" : 3.564111983,
-               "co2_transportation" : 0.25287373,
+               "co2_distribution" : 0.019437894,
+               "co2_packaging" : 0.28123298,
+               "co2_processing" : 0.53688699,
+               "co2_total" : 3.502316864,
+               "co2_transportation" : 0.2540839,
                "code" : "32135",
                "dqr" : "4.03",
-               "ef_agriculture" : 0.50064279,
+               "ef_agriculture" : 0.49403158,
                "ef_consumption" : 0,
-               "ef_distribution" : 0.0048315303,
-               "ef_packaging" : 0.023715692,
-               "ef_processing" : 0.078716079,
-               "ef_total" : 0.6323498093,
-               "ef_transportation" : 0.024443718,
+               "ef_distribution" : 0.0047895045,
+               "ef_packaging" : 0.023591079,
+               "ef_processing" : 0.078951852,
+               "ef_total" : 0.6258899635,
+               "ef_transportation" : 0.024525948,
                "is_beverage" : 0,
                "name_en" : "Breakfast cereals, mix of puffed or extruded cereals, fortified with vitamins and chemical elements",
                "name_fr" : "Multi-céréales soufflées ou extrudées, enrichies en vitamines et minéraux",
                "score" : 45,
-               "version" : "3.1"
+               "version" : "3.1.1"
             },
             "grade" : "d",
             "grades" : {
@@ -4496,6 +4651,7 @@
             {
                "ciqual_food_code" : "13050",
                "id" : "en:apple",
+               "is_in_taxonomy": 1,
                "percent_estimate" : 75,
                "percent_max" : 100,
                "percent_min" : 50,
@@ -4507,6 +4663,7 @@
             {
                "ciqual_food_code" : "18066",
                "id" : "en:water",
+               "is_in_taxonomy": 1,
                "percent_estimate" : 25,
                "percent_max" : 50,
                "percent_min" : 0,
@@ -4522,9 +4679,6 @@
             "en:vegan",
             "en:vegetarian"
          ],
-         "ingredients_from_or_that_may_be_from_palm_oil_n" : 0,
-         "ingredients_from_palm_oil_n" : 0,
-         "ingredients_from_palm_oil_tags" : [],
          "ingredients_hierarchy" : [
             "en:apple",
             "en:fruit",
@@ -4537,11 +4691,13 @@
             "2",
             "1-10"
          ],
+         "ingredients_non_nutritive_sweeteners_n" : 0,
          "ingredients_original_tags" : [
             "en:apple",
             "en:water"
          ],
          "ingredients_percent_analysis" : 1,
+         "ingredients_sweeteners_n" : 0,
          "ingredients_tags" : [
             "en:apple",
             "en:fruit",
@@ -4550,10 +4706,8 @@
          ],
          "ingredients_text" : "apple, water",
          "ingredients_text_en" : "apple, water",
-         "ingredients_text_with_allergens" : "apple, water",
-         "ingredients_text_with_allergens_en" : "apple, water",
-         "ingredients_that_may_be_from_palm_oil_n" : 0,
-         "ingredients_that_may_be_from_palm_oil_tags" : [],
+         "ingredients_text_with_allergens" : "<span class=\"allergen\">apple</span>, water",
+         "ingredients_text_with_allergens_en" : "<span class=\"allergen\">apple</span>, water",
          "ingredients_with_specified_percent_n" : 0,
          "ingredients_with_specified_percent_sum" : 0,
          "ingredients_with_unspecified_percent_n" : 2,
@@ -4581,6 +4735,7 @@
          "last_editor" : "tests",
          "last_modified_by" : "tests",
          "last_modified_t" : "--ignore--",
+         "last_updated_t" : "--ignore--",
          "lc" : "en",
          "link" : "http://world.openfoodfacts.org/",
          "main_countries_tags" : [],
@@ -4725,41 +4880,77 @@
             "2023" : {
                "category_available" : 1,
                "data" : {
+                  "components" : {
+                     "negative" : [
+                        {
+                           "id" : "energy",
+                           "points" : 0,
+                           "points_max" : 10,
+                           "unit" : "kJ",
+                           "value" : 155.25
+                        },
+                        {
+                           "id" : "sugars",
+                           "points" : 2,
+                           "points_max" : 15,
+                           "unit" : "g",
+                           "value" : 7.58
+                        },
+                        {
+                           "id" : "saturated_fat",
+                           "points" : 0,
+                           "points_max" : 10,
+                           "unit" : "g",
+                           "value" : 0.02
+                        },
+                        {
+                           "id" : "salt",
+                           "points" : 0,
+                           "points_max" : 20,
+                           "unit" : "g",
+                           "value" : 0
+                        }
+                     ],
+                     "positive" : [
+                        {
+                           "id" : "proteins",
+                           "points" : 0,
+                           "points_max" : 7,
+                           "unit" : "g",
+                           "value" : 0.2
+                        },
+                        {
+                           "id" : "fiber",
+                           "points" : 0,
+                           "points_max" : 5,
+                           "unit" : "g",
+                           "value" : 0.97
+                        },
+                        {
+                           "id" : "fruits_vegetables_legumes",
+                           "points" : 2,
+                           "points_max" : 5,
+                           "unit" : "%",
+                           "value" : 75
+                        }
+                     ]
+                  },
                   "count_proteins" : 1,
                   "count_proteins_reason" : "negative_points_less_than_11",
-                  "energy" : 155.25,
-                  "energy_points" : 0,
-                  "fiber" : 0.975,
-                  "fiber_points" : 0,
-                  "fruits_vegetables_legumes" : 75,
-                  "fruits_vegetables_legumes_points" : 2,
                   "is_beverage" : 0,
                   "is_cheese" : 0,
                   "is_fat_oil_nuts_seeds" : 0,
                   "is_red_meat_product" : 0,
                   "is_water" : 0,
-                  "negative_nutrients" : [
-                     "energy",
-                     "sugars",
-                     "saturated_fat",
-                     "salt",
-                     "non_nutritive_sweeteners"
-                  ],
                   "negative_points" : 2,
+                  "negative_points_max" : 55,
                   "positive_nutrients" : [
-                     "fruits_vegetables_legumes",
+                     "proteins",
                      "fiber",
-                     "proteins"
+                     "fruits_vegetables_legumes"
                   ],
                   "positive_points" : 2,
-                  "proteins" : 0.2025,
-                  "proteins_points" : 0,
-                  "salt" : 0.0019,
-                  "salt_points" : 0,
-                  "saturated_fat" : 0.01575,
-                  "saturated_fat_points" : 0,
-                  "sugars" : 7.575,
-                  "sugars_points" : 2
+                  "positive_points_max" : 17
                },
                "grade" : "a",
                "nutrients_available" : 1,
@@ -4849,10 +5040,12 @@
          "product_name" : "More vegan breakfast cereals without palm oil",
          "product_name_en" : "More vegan breakfast cereals without palm oil",
          "product_quantity" : 100,
+         "product_quantity_unit" : "g",
          "quantity" : "100 g",
          "removed_countries_tags" : [],
          "rev" : 1,
          "serving_quantity" : 10,
+         "serving_quantity_unit" : "g",
          "serving_size" : "10 g",
          "states" : "en:to-be-completed, en:nutrition-facts-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-completed, en:product-name-completed, en:photos-to-be-uploaded",
          "states_hierarchy" : [

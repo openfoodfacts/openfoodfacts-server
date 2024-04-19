@@ -3,6 +3,7 @@
       {
          "ciqual_food_code" : "13014",
          "id" : "en:strawberry",
+         "is_in_taxonomy" : 1,
          "origins" : "en:france",
          "percent_estimate" : 55.5555555555556,
          "percent_max" : 100,
@@ -14,6 +15,7 @@
       {
          "ciqual_food_code" : "13007",
          "id" : "en:blackcurrant",
+         "is_in_taxonomy" : 1,
          "origins" : "en:south-africa",
          "percent_estimate" : 22.2222222222222,
          "percent_max" : 50,
@@ -25,6 +27,7 @@
       {
          "ciqual_food_code" : "13015",
          "id" : "en:raspberry",
+         "is_in_taxonomy" : 1,
          "origins" : "en:belgium",
          "percent_estimate" : 11.1111111111111,
          "percent_max" : 33.3333333333333,
@@ -34,7 +37,9 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_proxy_food_code" : "13040",
          "id" : "en:grapefruit",
+         "is_in_taxonomy" : 1,
          "labels" : "en:organic",
          "percent_estimate" : 5.55555555555556,
          "percent_max" : 25,
@@ -44,7 +49,9 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_proxy_food_code" : "13034",
          "id" : "en:orange",
+         "is_in_taxonomy" : 1,
          "labels" : "en:organic",
          "percent_estimate" : 2.77777777777778,
          "percent_max" : 20,
@@ -56,6 +63,7 @@
       {
          "ciqual_proxy_food_code" : "13009",
          "id" : "en:lemon",
+         "is_in_taxonomy" : 1,
          "labels" : "en:organic",
          "percent_estimate" : 1.38888888888889,
          "percent_max" : 16.6666666666667,
@@ -65,7 +73,9 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_proxy_food_code" : "18100",
          "id" : "en:cocoa",
+         "is_in_taxonomy" : 1,
          "labels" : "en:fair-trade",
          "percent_estimate" : 0.694444444444443,
          "percent_max" : 14.2857142857143,
@@ -77,6 +87,7 @@
       {
          "ciqual_food_code" : "16030",
          "id" : "en:cocoa-butter",
+         "is_in_taxonomy" : 1,
          "labels" : "en:fair-trade",
          "percent_estimate" : 0.347222222222221,
          "percent_max" : 12.5,
@@ -88,6 +99,7 @@
       {
          "ciqual_food_code" : "13008",
          "id" : "en:cherry",
+         "is_in_taxonomy" : 1,
          "labels" : "en:organic",
          "percent_estimate" : 0.347222222222229,
          "percent_max" : 11.1111111111111,
@@ -157,12 +169,8 @@
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 9,
    "ingredients_with_unspecified_percent_sum" : 100,
-   "ingredients_without_ciqual_codes" : [
-      "en:cocoa",
-      "en:grapefruit",
-      "en:orange"
-   ],
-   "ingredients_without_ciqual_codes_n" : 3,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
    "known_ingredients_n" : 14,
    "lc" : "fr",
    "nutriments" : {

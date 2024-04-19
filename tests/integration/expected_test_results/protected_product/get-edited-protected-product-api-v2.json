@@ -16,18 +16,18 @@
       ],
       "added_countries_tags" : [],
       "additives_n" : 0,
-      "additives_old_n" : 0,
-      "additives_old_tags" : [],
       "additives_original_tags" : [],
       "additives_tags" : [],
       "allergens" : "",
-      "allergens_from_ingredients" : "en:milk, milk, eggs",
+      "allergens_from_ingredients" : "en:milk, apple, milk, eggs",
       "allergens_from_user" : "(en) ",
       "allergens_hierarchy" : [
+         "en:apple",
          "en:eggs",
          "en:milk"
       ],
       "allergens_tags" : [
+         "en:apple",
          "en:eggs",
          "en:milk"
       ],
@@ -432,6 +432,7 @@
          {
             "ciqual_food_code" : "13050",
             "id" : "en:apple",
+            "is_in_taxonomy": 1,
             "percent_estimate" : 62.5,
             "percent_max" : 100,
             "percent_min" : 25,
@@ -442,6 +443,7 @@
          {
             "ciqual_proxy_food_code" : "19051",
             "id" : "en:milk",
+            "is_in_taxonomy": 1,
             "percent_estimate" : 18.75,
             "percent_max" : 50,
             "percent_min" : 0,
@@ -452,6 +454,7 @@
          {
             "ciqual_food_code" : "22000",
             "id" : "en:egg",
+            "is_in_taxonomy": 1,
             "percent_estimate" : 9.375,
             "percent_max" : 33.3333333333333,
             "percent_min" : 0,
@@ -463,6 +466,7 @@
             "ciqual_food_code" : "16129",
             "from_palm_oil" : "yes",
             "id" : "en:palm-oil",
+            "is_in_taxonomy": 1,
             "percent_estimate" : 9.375,
             "percent_max" : 25,
             "percent_min" : 0,
@@ -485,9 +489,6 @@
          "en:non-vegan",
          "en:vegetarian"
       ],
-      "ingredients_from_or_that_may_be_from_palm_oil_n" : 0,
-      "ingredients_from_palm_oil_n" : 0,
-      "ingredients_from_palm_oil_tags" : [],
       "ingredients_hierarchy" : [
          "en:apple",
          "en:fruit",
@@ -506,6 +507,7 @@
          "4",
          "1-10"
       ],
+      "ingredients_non_nutritive_sweeteners_n" : 0,
       "ingredients_original_tags" : [
          "en:apple",
          "en:milk",
@@ -513,6 +515,7 @@
          "en:palm-oil"
       ],
       "ingredients_percent_analysis" : 1,
+      "ingredients_sweeteners_n" : 0,
       "ingredients_tags" : [
          "en:apple",
          "en:fruit",
@@ -528,11 +531,9 @@
       "ingredients_text" : "apple, milk, eggs, palm oil",
       "ingredients_text_en" : "apple, milk, eggs, palm oil",
       "ingredients_text_fr" : "Farine de blé, eau, sel, sucre",
-      "ingredients_text_with_allergens" : "apple, <span class=\"allergen\">milk</span>, <span class=\"allergen\">eggs</span>, palm oil",
-      "ingredients_text_with_allergens_en" : "apple, <span class=\"allergen\">milk</span>, <span class=\"allergen\">eggs</span>, palm oil",
+      "ingredients_text_with_allergens" : "<span class=\"allergen\">apple</span>, <span class=\"allergen\">milk</span>, <span class=\"allergen\">eggs</span>, palm oil",
+      "ingredients_text_with_allergens_en" : "<span class=\"allergen\">apple</span>, <span class=\"allergen\">milk</span>, <span class=\"allergen\">eggs</span>, palm oil",
       "ingredients_text_with_allergens_fr" : "Farine de <span class=\"allergen\">blé</span>, eau, sel, sucre",
-      "ingredients_that_may_be_from_palm_oil_n" : 0,
-      "ingredients_that_may_be_from_palm_oil_tags" : [],
       "ingredients_with_specified_percent_n" : 0,
       "ingredients_with_specified_percent_sum" : 0,
       "ingredients_with_unspecified_percent_n" : 4,
@@ -573,6 +574,7 @@
       "last_editor" : "tests",
       "last_modified_by" : "tests",
       "last_modified_t" : "--ignore--",
+      "last_updated_t" : "--ignore--",
       "lc" : "en",
       "link" : "http://world.openfoodfacts.org/",
       "main_countries_tags" : [],
@@ -730,7 +732,7 @@
             "category_available" : 1,
             "data" : {
                "energy" : 10,
-               "fiber" : 0,
+               "fiber" : null,
                "fruits_vegetables_legumes" : 62.5,
                "is_beverage" : 0,
                "is_cheese" : 0,
@@ -850,10 +852,12 @@
       "product_name_en" : "A protected product",
       "product_name_fr" : "New French product name",
       "product_quantity" : "90",
+      "product_quantity_unit" : "g",
       "quantity" : "90g",
       "removed_countries_tags" : [],
       "rev" : 3,
       "serving_quantity" : "20",
+      "serving_quantity_unit" : "g",
       "serving_size" : "20 g",
       "states" : "en:to-be-completed, en:nutrition-facts-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-completed, en:packaging-to-be-completed, en:quantity-completed, en:product-name-completed, en:photos-to-be-uploaded",
       "states_hierarchy" : [

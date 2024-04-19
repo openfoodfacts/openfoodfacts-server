@@ -65,10 +65,10 @@ use Exporter qw< import >;
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
+		&is_valid_code
 		&normalize_code
 		&normalize_code_with_gs1_ai
 		&assign_new_code
-		&split_code
 		&product_id_for_owner
 		&server_for_product_id
 		&data_root_for_product_id
@@ -84,7 +84,6 @@ BEGIN {
 		&retrieve_product_or_deleted_product
 		&retrieve_product_rev
 		&store_product
-		&send_notification_for_product_change
 		&product_name_brand
 		&product_name_brand_quantity
 		&product_url
@@ -102,8 +101,6 @@ BEGIN {
 		&compute_data_sources
 		&compute_sort_keys
 
-		&add_back_field_values_removed_by_user
-
 		&process_product_edit_rules
 		&preprocess_product_field
 		&product_data_is_protected
@@ -112,8 +109,6 @@ BEGIN {
 		&change_product_server_or_code
 
 		&find_and_replace_user_id_in_products
-
-		&add_users_team
 
 		&remove_fields
 
@@ -127,30 +122,31 @@ BEGIN {
 
 use vars @EXPORT_OK;
 
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Store qw/get_string_id_for_lang get_url_id_for_lang retrieve store/;
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
-use ProductOpener::Users qw/:all/;
-use ProductOpener::Orgs qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die/;
+use ProductOpener::Users qw/$Org_id $Owner_id $User_id %User init_user/;
+use ProductOpener::Orgs qw/retrieve_org/;
+use ProductOpener::Lang qw/$lc %tag_type_singular lang/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Mail qw/:all/;
-use ProductOpener::URL qw/:all/;
-use ProductOpener::Data qw/:all/;
-use ProductOpener::MainCountries qw/:all/;
-use ProductOpener::Text qw/:all/;
+use ProductOpener::Mail qw/send_email/;
+use ProductOpener::URL qw/format_subdomain/;
+use ProductOpener::Data qw/execute_query get_products_collection get_recent_changes_collection/;
+use ProductOpener::MainCountries qw/compute_main_countries/;
+use ProductOpener::Text qw/remove_email remove_tags_and_quote/;
 use ProductOpener::Display qw/single_param/;
 use ProductOpener::Redis qw/push_to_redis_stream/;
 
 # needed by analyze_and_enrich_product_data()
 # may be moved to another module at some point
-use ProductOpener::Ingredients qw/:all/;
+use ProductOpener::Ingredients
+	qw/clean_ingredients_text detect_allergens_from_text extract_ingredients_classes_from_text extract_ingredients_from_text select_ingredients_lc/;
 use ProductOpener::Nutriscore qw/:all/;
-use ProductOpener::Ecoscore qw/:all/;
-use ProductOpener::ForestFootprint qw/:all/;
-use ProductOpener::Packaging qw/:all/;
-use ProductOpener::DataQuality qw/:all/;
+use ProductOpener::Ecoscore qw/compute_ecoscore/;
+use ProductOpener::ForestFootprint qw/compute_forest_footprint/;
+use ProductOpener::Packaging qw/analyze_and_combine_packaging_data/;
+use ProductOpener::DataQuality qw/check_quality/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
@@ -208,6 +204,13 @@ sub make_sure_numbers_are_stored_as_numbers ($product_ref) {
 			}
 		}
 	}
+
+	# Make sure product _id and code are saved as string and not a number
+	# see bug #1077 - https://github.com/openfoodfacts/openfoodfacts-server/issues/1077
+	# make sure that code is saved as a string, otherwise mongodb saves it as number, and leading 0s are removed
+	# Note: #$product_ref->{code} .= ''; does not seem to be enough to force the type to be a string
+	$product_ref->{_id} = "$product_ref->{_id}";
+	$product_ref->{code} = "$product_ref->{code}";
 
 	return;
 }
@@ -391,6 +394,24 @@ sub _try_normalize_code_gs1 ($code) {
 # - When products are private, the _id is [owner]/[code] (e.g. user-abc/1234567890123 or org-xyz/1234567890123
 # FIXME: bug #677
 
+=head2 is_valid_code($code)
+
+C<is_valid_code()> checks if the given code is a valid product code.
+
+=head3 Arguments
+
+Product Code: $code
+
+=head3 Return Values
+
+Boolean value indicating if the code is valid or not.
+
+=cut
+
+sub is_valid_code ($code) {
+	return $code =~ /^\d{4,24}$/;
+}
+
 =head2 split_code()
 
 C<split_code()> this function splits the product code for determining the product path and the _id.
@@ -410,7 +431,7 @@ Example: 1234567890123  :-  123/456/789/0123
 sub split_code ($code) {
 
 	# Require at least 4 digits (some stores use very short internal barcodes, they are likely to be conflicting)
-	if ($code !~ /^\d{4,24}$/) {
+	if (not is_valid_code($code)) {
 
 		$log->info("invalid code", {code => $code}) if $log->is_info();
 		return "invalid";
@@ -760,7 +781,13 @@ sub init_product ($userid, $orgid, $code, $countryid) {
 
 		$log->debug(
 			"init_product - private_products enabled",
-			{userid => $userid, orgid => $orgid, code => $code, ownerid => $ownerid, product_id => $product_ref->{_id}}
+			{
+				userid => $userid,
+				orgid => $orgid,
+				code => $code,
+				ownerid => $ownerid,
+				product_id => $product_ref->{_id}
+			}
 		) if $log->is_debug();
 	}
 
@@ -943,14 +970,24 @@ sub retrieve_product ($product_id) {
 			$product_ref->{server} = $server;
 			$log->debug(
 				"retrieve_product - product on another server",
-				{product_id => $product_id, product_data_root => $product_data_root, path => $path, server => $server}
+				{
+					product_id => $product_id,
+					product_data_root => $product_data_root,
+					path => $path,
+					server => $server
+				}
 			) if $log->is_debug();
 		}
 
 		if ($product_ref->{deleted}) {
 			$log->debug(
 				"retrieve_product - deleted product",
-				{product_id => $product_id, product_data_root => $product_data_root, path => $path, server => $server}
+				{
+					product_id => $product_id,
+					product_data_root => $product_data_root,
+					path => $path,
+					server => $server
+				}
 			) if $log->is_debug();
 			return;
 		}
@@ -1026,7 +1063,7 @@ sub change_product_server_or_code ($product_ref, $new_code, $errors_ref) {
 	}
 
 	$new_code = normalize_code($new_code);
-	if ($new_code !~ /^\d{4,24}$/) {
+	if (not is_valid_code($new_code)) {
 		push @$errors_ref, lang("invalid_barcode");
 	}
 	else {
@@ -1248,7 +1285,11 @@ sub store_product ($user_id, $product_ref, $comment) {
 			dirmove("$BASE_DIRS{PRODUCTS}/$old_path", "$new_data_root/products/$path")
 				or $log->error(
 				"could not move product data",
-				{source => "$BASE_DIRS{PRODUCTS}/$old_path", destination => "$BASE_DIRS{PRODUCTS}/$path", error => $!}
+				{
+					source => "$BASE_DIRS{PRODUCTS}/$old_path",
+					destination => "$BASE_DIRS{PRODUCTS}/$path",
+					error => $!
+				}
 				);
 
 			$log->debug(
@@ -1326,8 +1367,11 @@ sub store_product ($user_id, $product_ref, $comment) {
 	$rev++;
 
 	$product_ref->{rev} = $rev;
+	# last_modified_t is the date of the last change of the product raw data
+	# last_updated_t is the date of the last change of the product derived data (e.g. ingredient analysis, scores etc.)
 	$product_ref->{last_modified_by} = $user_id;
 	$product_ref->{last_modified_t} = time() + 0;
+	$product_ref->{last_updated_t} = $product_ref->{last_modified_t};
 	if (not exists $product_ref->{creator}) {
 		my $creator = $user_id;
 		if ((not defined $user_id) or ($user_id eq '')) {
@@ -1792,6 +1836,7 @@ to determine if the change was done through an app, the OFF userid, or an app sp
 =head3 Parameters
 
 =head4 $change_ref
+
 reference to a change record
 
 =head3 Return value
@@ -2753,54 +2798,31 @@ This function is called by the web/panels/panel.tt.html template for knowledge p
 
 =cut
 
+my %actions_urls = (
+	edit_product => "",
+	add_categories => "#categories",
+	add_ingredients_image => "#ingredients",
+	add_ingredients_text => "#ingredients",
+	add_nutrition_facts_image => "#nutrition",
+	add_nutrition_facts => "#nutrition",
+	add_packaging_image => "#packaging",
+	add_packaging_text => "#packaging",
+	add_packaging_components => "#packaging",
+	add_origins => "#origins",
+	add_quantity => "#product_characteristics",
+	add_stores => "#stores",
+	add_packager_codes_image => "#packager_codes",
+	add_labels => "#labels",
+	add_countries => "#countries",
+);
+
 sub product_action_url ($code, $action) {
 
 	my $url = "/cgi/product.pl?type=edit&code=" . $code;
 
-	if ($action eq "add_categories") {
-		$url .= "#categories";
+	if (defined $actions_urls{$action}) {
+		$url .= $actions_urls{$action};
 	}
-	elsif ($action eq "add_ingredients_image") {
-		$url .= "#ingredients";
-	}
-	elsif ($action eq "add_ingredients_text") {
-		$url .= "#ingredients";
-	}
-	elsif ($action eq "add_nutrition_facts_image") {
-		$url .= "#nutrition";
-	}
-	elsif ($action eq "add_nutrition_facts") {
-		$url .= "#nutrition";
-	}
-	elsif ($action eq "add_packaging_image") {
-		$url .= "#packaging";
-	}
-	elsif ($action eq "add_packaging_text") {
-		$url .= "#packaging";
-	}
-	elsif ($action eq "add_packaging_components") {
-		$url .= "#packaging";
-	}
-	# Note: 27/11/2022 - Pierre - The following HTML anchors links will do nothing unless a matching custom HTML anchor is added in the future to the product edition template
-	elsif ($action eq "add_origins") {
-		$url .= "#origins";
-	}
-	elsif ($action eq "add_quantity") {
-		$url .= "#product_characteristics";
-	}
-	elsif ($action eq "add_stores") {
-		$url .= "#stores";
-	}
-	elsif ($action eq "add_packager_codes_image") {
-		$url .= "#packager_codes";
-	}
-	elsif ($action eq "add_labels") {
-		$url .= "#labels";
-	}
-	elsif ($action eq "add_countries") {
-		$url .= "#countries";
-	}
-	# END will do nothing unless a custom section is added
 	else {
 		$log->error("unknown product action", {code => $code, action => $action});
 	}
@@ -2966,10 +2988,15 @@ It does not block image upload.
 =head3 edit_rules structure
 
 =over 1
+
 =item * name: rule name to identify it in logs and describe it
-=item * conditions: the conditions the product must match, a list of [fieldname, value]
+
+=item * conditions: the conditions the product must match, a list of [field name, value]
+
 =item * actions: the actions to take, a list, where each element is a list with a rule name, and eventual arguments
+
 =item * notifications: also notify, list of email addresses or specific notification rules
+
 =back
 
 =head4 conditions
@@ -2995,12 +3022,19 @@ C<ignore_if_CONDITION_FIELD> or C<warn_if_CONDITION_FIELD>
 This time it's to check the value the user want's to add.
 
 C<CONDITION> is one of the following:
+
 =over 1
+
 =item * existing - user tries to edit this field with a non empty value
+
 =item * 0 - user tries to put numerical value 0 in the field
+
 =item * equal / lesser / greater - comparison of numeric value (requires a value as argument)
+
 =item * match - comparison to a string (equality, requires a value as argument)
+
 =item * regexp_match - match against a regexp (requires a regexp value as argument)
+
 =back
 
 =head4 notifications
@@ -3011,6 +3045,7 @@ or "slack_CHANNEL_NAME" (B<warning> currently channel name is ignored, we post t
 =head4 Example of an edit rule
 
 =begin text
+
 {
 	name => "App XYZ",
 	conditions => [
@@ -3028,6 +3063,7 @@ or "slack_CHANNEL_NAME" (B<warning> currently channel name is ignored, we post t
 		slack_channel_edit-alert-test
 	),
 },
+
 =end text
 
 =cut

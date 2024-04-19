@@ -29,7 +29,6 @@ stopwords:xx:100%, RC, Recycling Code
 en:Unknown
 de:Unbekannt
 bg:Неизвестно
-es:Desconocido
 fr:Inconnu, inconnue, inconnus, inconnues
 hu:Ismeretlen
 nl:Onbekend
@@ -326,7 +325,6 @@ xx:PVDC, 07 PVDC, PVDC 07, 07PVDC, PVDC07, 7 PVDC, PVDC 7, 7PVDC, PVDC7
 wikidata:en:Q146383
 description:de:Polyvinylidenchlorid wird als wasserbasierte Beschichtung auf Folien aus anderen Kunststoffen aufgetragen, was die Haltbarkeit der verpackten Lebensmittel erhöht.
 description:en:Polyvinylidene chloride is applied as a water-based coating to films made of other plastics, which increases the shelf life of the packaged food.
-description:de:Polyvinylidenchlorid wird als wasserbasierte Beschichtung auf Folien aus anderen Kunststoffen aufgetragen, was die Haltbarkeit der verpackten Lebensmittel erhöht.
 description:es:El cloruro de polivinilideno se aplica como recubrimiento a base de agua a películas hechas de otros plásticos, lo que aumenta la vida útil de los alimentos envasados.
 description:fr:Le chlorure de polyvinylidène est appliqué comme revêtement à base d'eau sur des films faits d'autres plastiques, ce qui augmente la durée de conservation des aliments emballés.
 description:it:Il cloruro di polivinilidene viene applicato come rivestimento a base d'acqua su pellicole di altre materie plastiche, il che aumenta la durata di conservazione degli alimenti confezionati.
@@ -436,11 +434,13 @@ fr:PET - coloré, PET coloré
 hu:PET - Színezet, színes PET
 nl:PET - gekleurd, Gekleurd PET
 pt:PET - colorido
+es:PET - coloreado, PET coloreado
+it:PET - colorato, PET colorato
 description:en:Colored PET (polyethylene terephthalate), which requires additional recycling processes
-description:Farbiges PET (Polyethylenterephthalat), das zusätzliche Recyclingprozesse erfordert
+description:de:Farbiges PET (Polyethylenterephthalat), das zusätzliche Recyclingprozesse erfordert
 description:es:PET coloreado (tereftalato de polietileno), que requiere procesos de reciclaje adicionales
 description:fr:PET coloré (polyéthylène téréphtalate), qui nécessite des processus de recyclage supplémentaires
-description:PET colorato (polietilene tereftalato), che richiede ulteriori processi di riciclaggio
+description:it:PET colorato (polietilene tereftalato), che richiede ulteriori processi di riciclaggio
 description:nl:Gekleurd PET (polyethyleentereftalaat), dat extra recyclingprocessen vereist
 description:pt:PET colorido (tereftalato de polietileno), que requer processos de reciclagem adicionais
 #comment:en:This is banned in India, Japan and South Korea
@@ -555,6 +555,8 @@ fr:bioHDPE - PEHD biosourcé, PEHD biosourcé, HDPE biosourcé
 hu:bioHDPE - Biobázisú HDPE
 nl:bioHDPE - Biologische HDPE
 pt:bioHDPE - Bioplástico PEHD
+es:bioHDPE - HDPE de base biológica, PE-HD de base biológica
+it:bioHDPE - HDPE biobased, PE-HD biobased
 xx:Bio-HDPE, bHDPE
 description:de:Das biobasierte HDPE ist dem herkömmlichen Polyethylen strukturell ähnlich, stammt jedoch aus natürlichen und nachwachsenden Rohstoffen. Es kann in den gleichen Kanälen wie Standard-Polyethylen recycelt werden.
 description:en:The biobased HDPE is structurally similar to conventional polyethylene but it comes from natural and renewable resources. It can be recycled in the same channels as standard polyethylene.
@@ -590,7 +592,6 @@ sk:PVC 3 - Polyvinylchlorid, Polyvinylchlorid
 sl:PVC 3 - Polivinil klorid, Polivinil klorid
 sv:PVC 3 - polyvinylklorid, polyvinylklorid
 wikidata:en:Q146368
-description:en:Material from  PVC (Polyvinyl chloride)
 description:de:PVC gehört zu den am häufigsten verwendeten Kunststoffen. Es wird als Folie für frisches Obst und Gemüse sowie Fleischprodukte verwendet. Beim Verbrennen von PVC werden Schadstoffe freigesetzt. Eine Wiederverwendung von Lebensmittelverpackungen findet nicht statt.
 description:en:PVC is one of the most commonly used plastics. It is used as a foil for fresh fruit and vegetables, and meat products. When PVC is burned, harmful substances are released. Reuse of food packaging does not take place.
 descrirption:es:El PVC es uno de los plásticos más utilizados. Se utiliza como lámina para frutas y verduras frescas y productos cárnicos. Cuando se quema el PVC, se liberan sustancias nocivas. No se realiza la reutilización de los envases de alimentos.
@@ -849,9 +850,36 @@ description:en:Polyamide (PA), also known as nylon, is a synthetic polymer that 
 
 <en:Plastic
 <en:Other plastics
-en:PU/PUR - Polyurethan, Polyurethan
-fr:PU/PUR - Polyuréthane, Polyuréthane
+en:PU/PUR - Polyurethane, Polyurethane
+bg:PU/PUR - Полиуретан, Полиуретан
+ca:PU/PUR - Poliuretà, Poliuretà
+cs:PU/PUR - Polyuretan, Polyuretan
+da:PU/PUR - Polyurethan, Polyurethan
+de:PU/PUR - Polyurethan, Polyurethan
+el:PU/PUR - Πολυουρεθάνη, Πολυουρεθάνη
+es:PU/PUR - Poliuretano, Poliuretano
+et:PU/PUR - Polüuretaan, Polüuretaan
+fi:PU/PUR - Polyuretaani, Polyuretaani
+hr:PU/PUR - Poliuretan, Poliuretan
+hu:PU/PUR - Poliuretán, Poliuretán
+is:PU/PUR - Pólýúretan, Pólýúretan
+it:PU/PUR - Poliuretano, Poliuretano
+lt:PU/PUR - Poliuretanas, Poliuretanas
+mk:PU/PUR - полиуретан, полиуретан
+nb:PU/PUR - Polyuretan, Polyuretan
+nl:PU/PUR - Polyurethaan, Polyurethaan
+nn:PU/PUR - Polyuretan, Polyuretan
+pl:PU/PUR - Poliuretan, Poliuretan
+pt:PU/PUR - Poliuretano, Poliuretano
+ro:PU/PUR - Poliuretan, Poliuretan
+ru:PU/PUR - полиуретан, полиуретан
+sk:PU/PUR - Polyuretán, Polyuretán
+sr:PU/PUR - полиуретан, полиуретан
+sv:PU/PUR - Polyuretan, Polyuretan
+tr:PU/PUR - Poliüretan, Poliüretan
+uk:PU/PUR - поліуретан, поліуретан
 xx:PU/PUR,PU,PUR
+wikidata:en:Q146322
 
 # 09 is for Alkaline batteries, not sure if 09 ABS exists.
 
@@ -1056,11 +1084,19 @@ description:pt:O EVOH (Etileno Vinil Álcool) é um plástico flexível, transl�
 <en:Other plastics
 xx:EVA
 fr:EVA - Éthylène-acétate de vinyle, Éthylène-acétate de vinyle, Plastiques / EVA - Éthylène-acétate de vinyle
+es:EVA - Etileno-acetato de vinilo, Etileno-acetato de vinilo, Plásticos / EVA - Etileno-acetato de vinilo
+it:EVA - Etilene-acetato di vinile, Etilene-acetato di vinile, Plastica / EVA - Etilene-acetato di vinile
+nl:EVA - Etheen-acetaatvinyl, Etheen-acetaatvinyl, Kunststoffen / EVA - Etheen-acetaatvinyl
+pt:EVA - Etileno-acetato de vinilo, Etileno-acetato de vinilo, Plásticos / EVA - Etileno-acetato de vinilo
 
 <en:Plastic
 <en:Other plastics
 xx:PAN
 fr:PAN - Polyacrylonitrile, Polyacrylonitrile, Plastiques / PAN - Polyacrylonitrile
+es:PAN - Poliacrilonitrilo, Poliacrilonitrilo, Plásticos / PAN - Poliacrilonitrilo
+it:PAN - Poliacrilonitrile, Poliacrilonitrile, Plastica / PAN - Poliacrilonitrile
+nl:PAN - Polyacrylonitril, Polyacrylonitril, Kunststoffen / PAN - Polyacrylonitril
+pt:PAN - Poliacrilonitrilo, Poliacrilonitrilo, Plásticos / PAN - Poliacrilonitrilo
 
 <en:Plastic
 <en:Other plastics
@@ -1073,6 +1109,10 @@ fr:Batterie au plomb
 hu:Ólom-sav akkumulátor
 nl:Lood, Loodaccu
 pt:Bateria de chumbo-ácido
+es:Batería de plomo-ácido
+it:Batteria al piombo-acido
+pl:Akumulator kwasowo-ołowiowy
+ru:Свинцово-кислотный аккумулятор
 xx:08 Lead, Lead 08, 8 Lead, Lead 8
 wikidata:en:Q337724
 
@@ -1116,6 +1156,10 @@ hr:nikal-kadmijeva baterija
 hu:Nikkel-kadmium akkumulátor
 nl:Nikkel-cadmium-accu
 pt:Bateria de níquel cádmio, pilha de níquel cádmio, bateria de níquel-cádmio, pilha de níquel-cádmio
+es:Batería de níquel-cadmio
+it:Batteria al nichel-cadmio
+pl:Akumulator niklowo-kadmowy
+ru:Никель-кадмиевый аккумулятор
 xx:10 NiCD, NiCD 10, 10 NiCad, NiCad 10
 wikidata:en:Q898377
 
@@ -1213,8 +1257,8 @@ ru:гофрокартон
 sv:wellpapp
 tr:Oluklu mukavva
 uk:гофрокартон
-wikipedia:en:Q7463524
 xx:20 PAP, PAP 20, 20PAP, PAP20, 20 C PAP, 20 C PCB
+wikipedia:en:Q7463524
 description:de:Material, bestehend aus einer oder mehreren Lagen dünner Wellpappe aus Holz, Lumpen und Gräsern (und Recyclingpappe). Wellpappe wird hauptsächlich für Umverpackungen verwendet. Wellpappe ist bis zu 7 Mal recycelbar.
 description:en:Material, consisting of one or more layers of thin, corrugated cardboard made from wood, rags and grasses (and recycled cardboard). Corrugated cardboard is mainly used for outer packaging boxes. Corrugated cardboard is recyclable up to 7 times.
 description:es:Material, que consiste en una o más capas de cartón corrugado delgado hecho de madera, trapos y pastos (y cartón reciclado). El cartón corrugado se utiliza principalmente para cajas de embalaje exterior. El cartón corrugado es reciclable hasta 7 veces.
@@ -1241,7 +1285,6 @@ ca:Cartó armat
 cs:Ozbrojený karton
 da:Armeret pap
 de:Bewehrter Karton
-es:Cartón armado
 et:Reljeefne kartong
 fi:Vahvistettu pahvi
 ga:Cairtchlár armtha
@@ -1291,7 +1334,6 @@ es:Cartón FSC
 fr:Carton FSC
 nl:FSC karton
 pt:Cartão FSC
-es:Cartón FSC
 it:Cartone FSC
 sv:FSC kartong
 ru:Картон FSC
@@ -1359,11 +1401,9 @@ fr:Cellulose, Cellulose moulée, Cellulosique / Cellulose moulée, Cellulosique 
 es:Celulosa
 
 en:Rubber
-es:Goma
+es:Goma, Caucho, Celulósico / Caucho
 fr:Caoutchouc, Cellulosique / Caoutchouc
-en:Rubber
 de:Gummi, Cellulosique / Gummi
-es:Caucho, Celulósico / Caucho
 it:Gomma, Cellulosico / Gomma
 pt:Borracha, Celulósico / Borracha
 nl:Rubber, Cellulosique / Rubber
@@ -1414,6 +1454,9 @@ es:Papel FSC
 fr:Papier FSC
 nl:FSC-papier
 pt:Papel FSC
+it:Carta FSC
+ru:Бумага FSC
+pl:Papier FSC
 # We have a en:FSC label - https://world.openfoodfacts.org/label/FSC - https://www.wikidata.org/wiki/Q748367
 # associated_label:en: en:FSC
 
@@ -1426,6 +1469,24 @@ fr:Papier kraft, kraft
 hr:natronski papir
 nl:Kraft-papier
 pt:Papel kraft, kraft
+cs:Kraftový papír
+da:Kraftpapir
+el:Χαρτί Kraft
+et:Kraftpaber
+fi:Kraft-paperi
+hu:Kraft papír
+it:Carta kraft
+lt:Krafto popierius
+lv:Kraft papīrs
+mk:Крафт хартија
+nb:Kraftpapir
+nn:Kraftpapir
+pl:Papier kraft
+ru:Крафт-бумага
+sv:Kraftpapper
+tr:Kraft kağıdı
+uk:Крафт-папір
+zh:牛皮纸
 wikidata:en:Q1755609
 
 en:Wax
@@ -1494,6 +1555,10 @@ it:Metalli riciclabili
 nl:Recyclebaar metaal
 pl:Metal do recyclingu
 pt:Metais recicláveis
+ru:Перерабатываемые металлы
+sv:Återvinningsbara metaller
+uk:Перероблювані метали
+zh:可回收金属
 description:de:Alle Metalle können bei ordnungsgemäßer Rückgabe wiederverwendet werden.
 description:en:All metals can be reused, if returned properly.
 description:es:Todos los metales se pueden reutilizar, si se devuelven correctamente.
@@ -1581,6 +1646,9 @@ ru:Алюминий
 sk:hliník
 sl:aluminij
 sv:aluminium
+tr:alüminyum
+uk:алюміній
+zh:铝
 xx:41 ALU, ALU 41, ALU, ALU41, 41ALU
 wikidata:en:Q663
 description:de:Die Aluminiumproduktion aus Erz hat einen großen CO2-Fußabdruck, aber Recycling kann diesen um das 20-fache verbessern. Aluminium wird beispielsweise als Folie, Schalen oder Dosen verwendet. Aluminium ist gut recycelbar, erfordert aber einen separaten Rücklauf oder eine spezielle Absaugtechnik (nur bei dickem Aluminium).
@@ -1600,6 +1668,29 @@ it:Alluminio spesso, Alluminio pesante
 nl:Dik aluminium, Zwaar aluminium
 pl:Grube aluminium, Ciężkie aluminium
 pt:Alumínio pesado, alumínio grosso, alumínio rígido
+bg:Тежък алуминий, дебел алуминий
+ca:Alumini pesat, alumini gruixut
+cs:Těžký hliník, tlustý hliník
+da:Tung aluminium, tykt aluminium
+el:Βαρύ αργίλιο, παχύ αργίλιο
+et:Raske alumiinium, paks alumiinium
+fi:Paksu alumiini, raskas alumiini
+ga:Alúmanam trom, alúmanam crua
+hr:Teški aluminij, debeli aluminij
+hu:Nehéz alumínium, vastag alumínium
+ja:重いアルミニウム、厚いアルミニウム
+lt:Sunkus aliuminis, storas aliuminis
+lv:Smags alumīnijs, biezs alumīnijs
+mt:Aluminju tqil, aluminju spiss
+nn:Tungt aluminium, tykt aluminium
+ro:Aluminiu greu, aluminiu gros
+ru:Тяжелый алюминий, толстый алюминий
+sk:Ťažký hliník, hrubý hliník
+sl:Težek aluminij, debel aluminij
+sv:Tungt aluminium, tjockt aluminium
+tr:Ağır alüminyum, kalın alüminyum
+uk:Важкий алюміній, товстий алюміній
+zh:重铝, 厚铝
 description:de:Die Aluminiumproduktion aus Erz hat einen großen CO2-Fußabdruck, aber Recycling kann diesen um das 20-fache verbessern. Dickes Aluminium wird zum Beispiel für Schalen oder Dosen verwendet. Dickes Aluminium lässt sich gut recyceln, erfordert aber einen separaten Rücklauf oder eine spezielle Absaugtechnik.
 description:en:Aluminum production from ore has a large carbon footprint, but recycling can improve this by 20x. Thick aluminum is used, for example, for trays or cans. Thick aluminum is highly recyclable, but requires a separate return flow or special extraction technology.
 description:es:La producción de aluminio a partir de minerales tiene una gran huella de carbono, pero el reciclaje puede mejorarla 20 veces. El aluminio grueso se utiliza, por ejemplo, para bandejas o latas. El aluminio grueso es altamente reciclable, pero requiere un flujo de retorno separado o una tecnología de extracción especial.
@@ -1617,6 +1708,31 @@ fr:Aluminium léger, aluminium fin
 nl:Dun aluminium
 pl:Cienkie aluminium, Lekkie aluminium
 pt:Alumínio leve, alumínio fino, alumínio maleável
+bg:Лек алуминий, тънък алуминий
+ca:Alumini lleuger, alumini prim
+cs:Lehký hliník, tenký hliník
+da:Lette aluminium, tyndt aluminium
+el:Ελαφρύ αργίλιο, λεπτό αργίλιο
+et:Kerge alumiinium, õhuke alumiinium
+eu:Aluminio arina, aluminio tenka, aluminio txiki
+fi:Kevyt alumiini, ohut alumiini
+ga:Alúmanam éadrom, alúmanam tanaí
+hr:Lagani aluminij, tanki aluminij
+hu:Könnyű alumínium, vékony alumínium
+is:Léttur alúminíum, þunnur alúminíum
+it:Alluminio leggero, alluminio sottile
+lt:Lengvas aliuminis, plonas aliuminis
+lv:Viegls alumīnijs, plāns alumīnijs
+mt:Aluminju ring, aluminju tan
+nn:Lett aluminium, tynn aluminium
+ro:Aluminiu ușor, aluminiu subțire
+ru:Легкий алюминий, тонкий алюминий
+sk:Ľahký hliník, tenký hliník
+sl:Lahki aluminij, tanek aluminij
+sv:Lätt aluminium, tunn aluminium
+tr:Hafif alüminyum, ince alüminyum
+uk:Легкий алюміній, тонкий алюміній
+zh:轻铝, 薄铝
 description:de:Die Aluminiumproduktion aus Erz hat einen großen CO2-Fußabdruck, aber Recycling kann diesen um das 20-fache verbessern. Als Folie wird beispielsweise dünnes Aluminium verwendet. Dünnes Aluminium ist schwer zu recyceln, da es nicht aus Abfallströmen gewonnen werden kann.
 description:en:Aluminum production from ore has a large carbon footprint, but recycling can improve this by 20x. For example, thin aluminum is used as a foil. Thin aluminum is difficult to recycle because it cannot be extracted from waste streams.
 description:es:La producción de aluminio a partir de minerales tiene una gran huella de carbono, pero el reciclaje puede mejorarla 20 veces. Por ejemplo, el aluminio delgado se usa como lámina. El aluminio delgado es difícil de reciclar porque no se puede extraer de los flujos de desechos.
@@ -1821,6 +1937,11 @@ description:pt:O algodão é uma fibra natural cultivada e colhida principalment
 <en:Textile
 en:Linen, flax
 fr:Lin, Fibre - Textile / Lin
+es:Lino, fibra de lino
+de:Leinen, Flachs
+it:Lino, fibra di lino
+nl:Linnen, vlas
+pt:Linho, fibra de linho
 
 #<en:Fiber
 en:61 TEX Jute, Jute
@@ -1875,7 +1996,7 @@ it:Altri Tessili
 nl:Ander textiel
 pt:Outros têxteis
 xx:62 TEX, TEX 62, 63 TEX, TEX 63, 64 TEX, TEX 64, 65 TEX, TEX 65, 66 TEX, TEX 66, 67 TEX, TEX 67, 68 TEX, TEX 68, 69 TEX, TEX 69
-description:Elk textiel (uit draden gemaakt materiaal) dat niet jute of katoen is.
+description:nl:Elk textiel (uit draden gemaakt materiaal) dat niet jute of katoen is.
 
 # Silicates / Verre (sodo-calcique) in data from Les Mousquetaires
 en:Glass
@@ -1934,7 +2055,6 @@ hu:Fehér üveg
 nl:transparant glas, transparant glazen
 pl:Przezroczyste szkło, Przeźroczyste szkło
 pt:Vidro transparente
-es:Vidrio transparente
 it:Vetro trasparente
 sv:Klart glas
 tr:Net cam
@@ -1955,7 +2075,6 @@ nl:Groen glas, groene glazen
 pl:Zielone szkło
 pt:Vidro verde
 cs:Zelené sklo
-es:Vidrio verde
 et:roheline klaas
 fi:vihreä lasi
 ga:glais glas
@@ -2045,6 +2164,9 @@ xx:74 GL, GL 74, 74GL, GL74, 74 GLS, GLS 74, 74GLS, GLS74
 en:Light Leaded Glass
 de:Leichtes Bleiglas
 es:Vidrio con un poco de plomo
+fr:Verre plombé léger
+it:Vetro al piombo leggero
+nl:Licht loodglas
 xx:75 GL, GL 75, 75GL, GL75, 75 GLS, GLS 75, 75GLS, GLS75
 
 <en:Glass
@@ -2750,6 +2872,7 @@ description:nl:Uit metaal en PETmet (gemetalliseerd Polyethylene terephthalate) 
 
 <xx:92 C/X
 xx:92 C/PEmet
+
 <xx:92 C/X
 xx:92 C/MDPE, 92 C/PEMD
 description:en:Composite material with MDPE (Medium-density polyethylene) and metal
@@ -2990,7 +3113,7 @@ description:en:Tetra Rex®Plant-based is manufactured solely from a combination 
 en:Tetra Top
 xx:Tetra Top
 web:en:https://www.tetrapak.com/solutions/packaging/packages/tetra-top
-description:Drink cartons with a large separable top
+description:en:Drink cartons with a large separable top
 
 <en:Tetra Pak
 en:Tetra Stelo Aseptic, Tetra Stelo
@@ -3010,6 +3133,9 @@ xx:Tetra Classic Aseptic, Tetra Classic
 wikidata:en:Q4050869
 web:en:https://www.tetrapak.com/solutions/packaging/packages/tetra-classic-aseptic
 description:en:Packaging with a tetrahedron shape
+description:fr:Emballage de forme tétraédrique
+description:de:Verpackung mit tetraedrischer Form
+description:es:Embalaje con forma de tetraedro
 
 <en:Tetra Pak
 en:Tetra Gemina Aseptic, Tetra Gemina
@@ -3097,6 +3223,9 @@ en:Italpack, Italpack Cartons
 xx:Italpack, Italpack Cartons
 web:en:http://www.italpack.net/en/
 description:en:packaging for for powdery and granular products in pre-made square-bottom paper bags
+description:fr:emballage pour les produits en poudre et granulés dans des sacs en papier préfabriqués à fond carré
+description:es:envase para productos en polvo y granulares en bolsas de papel preformadas de fondo cuadrado
+description:de:Verpackung für pulverförmige und granuläre Produkte in vorgefertigten quadratischen Papiertüten
 
 en:sandstone
 ca:gres
@@ -3201,11 +3330,21 @@ nl:Gas
 <en:Gas
 en:CO2 - Carbon dioxide, Carbon dioxide
 fr:CO2 - Dioxide de carbone, CO2, Dioxide de carbone, gaz carbonique
+es:CO2 - Dióxido de carbono, CO2, Dióxido de carbono, gas carbónico
+de:CO2 - Kohlendioxid, CO2, Kohlendioxid
+it:CO2 - Anidride carbonica, CO2, Anidride carbonica
+nl:CO2 - Koolstofdioxide, CO2, Koolstofdioxide
+pt:CO2 - Dióxido de carbono, CO2, Dióxido de carbono
 xx:CO2
 
 <en:Gas
 en:N2 - Azote, Azote
 fr:N2 - Azote, Azote
+es:N2 - Nitrógeno, Nitrógeno
+de:N2 - Stickstoff, Stickstoff
+it:N2 - Azoto, Azoto
+nl:N2 - Stikstof, Stikstof
+pt:N2 - Nitrogênio, Nitrogênio
 xx:N2
 
 <en:Gas
@@ -3214,4 +3353,6 @@ fr:Autre gaz
 es:Otros gases
 de:Andere Gase
 it:Altro gas
+nl:Andere gassen
+pt:Outros gases
 
