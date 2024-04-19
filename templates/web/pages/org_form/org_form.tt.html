@@ -70,7 +70,7 @@
 
 	<form method="post" action="/cgi/org.pl" enctype="multipart/form-data" style="margin-bottom: 20px;">
 		<p>[% lang('enter_email_addresses_of_users') %]</p>
-		<textarea id="email_list" name="email_list" style="height:100px;width:50vw" oninput="toggleInviteButton()"></textarea>
+		<textarea id="email_list" name="email_list" style="height:100px;width:50vw"></textarea>
 		<input type="hidden" name="action" value="process" />
 		<input type="hidden" name="type" value="add_users" />
 		<input type="hidden" name="orgid" value="[% orgid %]" />
@@ -177,17 +177,21 @@
     <p>&rarr; <a href="[% profile_url %]">[% profile_name %]</a></p>
 [% END %]
 
+<script src="https://static.openfoodfacts.org/js/dist/jquery.js"></script>
 <script>
-	function toggleInviteButton() {
-		var emailList = document.getElementById('email_list').value.trim();
-		var inviteButton = document.getElementById('invite_button');
-		var allValid = emailList.split(',').every(validateEmail); // the button will be enabled, only if all email addresses are valid
-    	inviteButton.disabled = !allValid;
-	}
+    \$(document).ready(function() {
+        \$('#email_list').on('input', function(event) {
+            var emailList = \$(event.target).val().split(',').map(function(email) {
+                return email.trim();
+            });
+            var allValid = emailList.every(validateEmail);
+            \$('#invite_button').prop('disabled', !allValid || emailList.length === 0 || emailList[0] === '');
+        });
+    });
 
-	function validateEmail(email) {
-		return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email.trim());
-	}
+    function validateEmail(email) {
+        return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email.trim());
+    }
 </script>
 
 <!-- end templates/[% template.name %] -->
