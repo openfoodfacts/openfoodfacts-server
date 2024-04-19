@@ -635,7 +635,8 @@ sub set_rate_limit_attributes ($request_ref, $ip) {
 		# if $limit is not defined, the rate-limiter is disabled for this API action
 		defined $limit
 		and defined $request_ref->{rate_limiter_user_requests}
-		and $request_ref->{rate_limiter_user_requests} >= $limit)
+		and $request_ref->{rate_limiter_user_requests} >= $limit
+		)
 	{
 		my $block_message = "Rate-limiter blocking: the user has reached the rate-limit";
 		# Check if rate-limit blocking is enabled
@@ -672,6 +673,7 @@ sub check_and_update_rate_limits($request_ref) {
 			increment_rate_limit_requests($ip_address, $api_action);
 		}
 	}
+	return;
 }
 
 1;
