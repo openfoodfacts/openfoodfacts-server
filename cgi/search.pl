@@ -71,7 +71,7 @@ $request_ref->{api_action} = 'search';
 
 check_and_update_rate_limits($request_ref);
 
-if ($request_ref->{rate_limiter_blocking} eq 1) {
+if ($request_ref->{rate_limiter_blocking}) {
 	# The request is blocked by the rate limiter:
 	# return directly a "too many requests" empty HTML page
 	display_too_many_requests_page_and_exit();
