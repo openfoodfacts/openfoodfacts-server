@@ -828,6 +828,15 @@ msgctxt "footer_legal_link"
 msgid "/legal"
 msgstr "/legal"
 
+msgctxt "footer_privacy"
+msgid "Privacy"
+msgstr "Datenschutz"
+
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
+msgctxt "footer_privacy_link"
+msgid "/privacy"
+msgstr "/privacy"
+
 msgctxt "footer_press"
 msgid "Press"
 msgstr "Presse"
@@ -879,7 +888,7 @@ msgstr "https://world-de.openbeautyfacts.org"
 
 msgctxt "footer_pro"
 msgid "Open Food Facts for Producers"
-msgstr "Open Food Facts für Produzenten"
+msgstr "Open Food Fakten für Produzenten"
 
 msgctxt "for"
 msgid "for"
@@ -2583,6 +2592,10 @@ msgstr "Videoanleitungen"
 msgctxt "view"
 msgid "view"
 msgstr "anzeigen"
+
+msgctxt "view_this_revision"
+msgid "View this revision"
+msgstr ""
 
 msgctxt "view_list_for_products_from_the_entire_world"
 msgid "View the list for matching products from the entire world"
@@ -6222,6 +6235,10 @@ msgctxt "action_add_packaging_components"
 msgid "Add packaging components"
 msgstr "Verpackungsbestandteile hinzufügen"
 
+msgctxt "action_add_quantity"
+msgid "Add quantity of the product"
+msgstr "Menge des Produkts hinzufügen"
+
 # this is not used yet
 msgctxt "action_add_basic_details"
 msgid "Add basic details"
@@ -6810,4 +6827,70 @@ msgstr "Der Verzehr von Lebensmitteln, die reich an Obst, Gemüse und Hülsenfr�
 msgctxt "nutrient_info_proteins_benefit"
 msgid "Foods that are rich in proteins are usually rich in calcium or iron which are essential minerals with numerous health benefits."
 msgstr "Lebensmittel, die reich an Proteinen sind, sind in der Regel auch reich an Kalzium oder Eisen, also an essenziellen Mineralien mit zahlreichen gesundheitlichen Vorteilen."
+
+msgctxt "revert"
+msgid "Revert to this revision"
+msgstr "Diese Revision wiederherstellen"
+
+msgctxt "product_js_product_revert_confirm"
+msgid "Revert to this product revision?"
+msgstr "Diese Produktrevision wiederherstellen?"
+
+msgctxt "api_status_success"
+msgid "Success"
+msgstr "Abgeschlossen"
+
+msgctxt "api_status_failure"
+msgid "Failure"
+msgstr "Fehlgeschlagen"
+
+msgctxt "api_result_product_reverted"
+msgid "Product reverted to the specified revision"
+msgstr "Produkt wurde auf die angegebene Revision zurückgesetzt"
+
+msgctxt "api_result_product_not_reverted"
+msgid "Product not reverted to the specified revision"
+msgstr "Produkt wurde nicht auf die angegebene Revision zurückgesetzt"
+
+# sweeteners (additives), plural
+msgctxt "sweeteners"
+msgid "sweeteners"
+msgstr "Süßungsmittel"
+
+# sweetener (additive), singular
+msgctxt "sweetener"
+msgid "sweetener"
+msgstr "Süßstoffe"
+
+msgctxt "action_edit_product"
+msgid "Complete or correct product information"
+msgstr "Produktinformation vervollständigen oder korrigieren"
+
+msgctxt "report_problem_panel_title"
+msgid "Report a problem"
+msgstr "Problem melden"
+
+msgctxt "incomplete_or_incorrect_data_title"
+msgid "Incomplete or incorrect information?"
+msgstr "Unvollständige oder falsche Informationen?"
+
+msgctxt "incomplete_or_incorrect_data_subtitle_off"
+msgid "Category, labels, ingredients, allergens, nutritional information, photos etc."
+msgstr "Kategorie, Etiketten, Zutaten, Allergene, Nährwertangaben, Fotos usw."
+
+msgctxt "incomplete_or_incorrect_data_content_correct"
+msgid "If the information does not match the information on the packaging, you can complete or correct it. Thank you!"
+msgstr "Wenn die Angaben nicht mit den Informationen auf der Verpackung übereinstimmen, können Sie sie ergänzen oder korrigieren. Vielen Dank dafür!"
+
+msgctxt "incomplete_or_incorrect_data_content_correct_off"
+msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
+msgstr "Open Food Facts ist eine gemeinschaftliche Datenbank, und jeder Beitrag ist für alle nützlich."
+
+msgctxt "description"
+msgid "Description"
+msgstr "Beschreibung"
+
+msgctxt "report_problem_navigation"
+msgid "Report a problem"
+msgstr "Problem melden"
 
