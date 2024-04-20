@@ -2,7 +2,7 @@
 
 use ProductOpener::PerlStandards;
 
-use Test::More;
+use Test2::V0;
 use ProductOpener::Test qw/:all/;
 
 use ProductOpener::Config qw/:all/;

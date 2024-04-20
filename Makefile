@@ -251,11 +251,9 @@ front_build:
 	COMPOSE_PATH_SEPARATOR=";" COMPOSE_FILE="docker-compose.yml;docker/dev.yml;docker/jslint.yml" docker compose run --rm dynamicfront  npm run build
 
 
-checks: front_build front_lint check_perltidy check_perl_fast check_critic
-# TODO: add check_taxonomies when taxonomies ready
+checks: front_build front_lint check_perltidy check_perl_fast check_critic check_taxonomies
 
-lint: lint_perltidy
-# TODO: add lint_taxonomies when taxonomies ready
+lint: lint_perltidy lint_taxonomies
 
 tests: build_taxonomies_test build_lang_test unit_test integration_test
 
@@ -381,17 +379,19 @@ check_critic:
 	@echo "🥫 Checking with perlcritic"
 	test -z "${TO_CHECK}" || ${DOCKER_COMPOSE} run --rm --no-deps backend perlcritic ${TO_CHECK}
 
-TAXONOMIES_TO_CHECK := $(shell [ -x "`which git 2>/dev/null`" ] && git diff origin/main --name-only | grep  'taxonomies*/*\.txt$$' | grep -v '\.result.txt' | xargs ls -d 2>/dev/null | grep -v "^.$$")
+TAXONOMIES_TO_CHECK := $(shell [ -x "`which git 2>/dev/null`" ] && git diff origin/main --name-only | grep  'taxonomies.*/.*\.txt$$' | grep -v '\.result.txt' | xargs ls -d 2>/dev/null | grep -v "^.$$")
 
+# TODO remove --no-sort as soon as we have sorted taxonomies
 check_taxonomies:
 	@echo "🥫 Checking taxonomies"
 	test -z "${TAXONOMIES_TO_CHECK}" || \
-	${DOCKER_COMPOSE} run --rm --no-deps backend scripts/taxonomies/sort_each_taxonomy_entry.sh --check ${TAXONOMIES_TO_CHECK}
+	${DOCKER_COMPOSE} run --rm --no-deps backend scripts/taxonomies/lint_taxonomy.pl --verbose --check --no-sort ${TAXONOMIES_TO_CHECK}
 
+# TODO remove --no-sort as soon as we have sorted taxonomies
 lint_taxonomies:
 	@echo "🥫 Linting taxonomies"
 	test -z "${TAXONOMIES_TO_CHECK}" || \
-	${DOCKER_COMPOSE} run --rm --no-deps backend scripts/taxonomies/sort_each_taxonomy_entry.sh ${TAXONOMIES_TO_CHECK}
+	${DOCKER_COMPOSE} run --rm --no-deps backend scripts/taxonomies/lint_taxonomy.pl --verbose --no-sort ${TAXONOMIES_TO_CHECK}
 
 
 check_openapi_v2:
@@ -415,7 +415,11 @@ build_taxonomies: create_folders
     # GITHUB_TOKEN might be empty, but if it's a valid token it enables pushing taxonomies to build cache repository
 	${DOCKER_COMPOSE} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl ${name}
 
-rebuild_taxonomies: build_taxonomies
+# a version where we force building without using cache
+# use it when you are developing in Tags.pm and want to iterate
+# at the end, change the $BUILD_TAGS_VERSION in Tags.pm
+rebuild_taxonomies:
+	${DOCKER_COMPOSE} run --no-deps --rm -e TAXONOMY_NO_GET_FROM_CACHE=1 backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl ${name}
 
 build_taxonomies_test: create_folders
 	@echo "🥫 build taxonomies"

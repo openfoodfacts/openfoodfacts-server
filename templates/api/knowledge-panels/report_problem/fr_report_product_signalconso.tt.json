@@ -1,0 +1,35 @@
+{
+    "level": "info",
+    "topics": [
+        "problem"
+    ],
+    "expand_for": "large",
+    "evaluation": "neutral",
+    "title_element": {
+        "title": "Faire un signalement sur SignalConso",
+        "subtitle": "Etiquetage non conforme, vente d'un produit périmé, présence d'un corps étranger, etc.",
+        "icon_url": "[% static_subdomain %]/images/panels/report_problem/signalconso.png",
+    },
+    "elements": [
+        {
+            "element_type": "text",
+            "text_element": {
+                "html": `
+Vous avez rencontré un problème avec ce produit : <b>étiquetage non conforme, produit périmé encore en vente,
+présence d'un corps étranger, etc.</b> ?<br>
+Faites un signalement à l'entreprise et à la répression des fraudes sur <a href="https://signal.conso.gouv.fr/fr/alimentaire-codebarres/faire-un-signalement?gtin=[% product.code %]&utm_source=openfoodfacts&utm_campaign=product_page_panel">SignalConso</a>,
+un outil de la Direction générale de la concurrence, de la consommation et de la répression des fraudes (DGCCRF).
+                `
+            },
+        },
+        {
+            "element_type": "image",
+            "image_element": {
+                "url": "[% static_subdomain %]/images/panels/report_problem/signalconso-button.png",
+                "alt": "Je fais un signalement sur SignalConso",
+                "link_url": "https://signal.conso.gouv.fr/fr/alimentaire-codebarres/faire-un-signalement?gtin=[% product.code %]&utm_source=openfoodfacts&utm_campaign=product_page_panel"
+            }
+
+        }          
+    ]
+}

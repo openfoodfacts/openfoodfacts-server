@@ -3,8 +3,9 @@
 use Modern::Perl '2017';
 use utf8;
 
-use Test::More;
-use Test::Number::Delta relative => 1.001;
+use Test2::V0;
+use Data::Dumper;
+$Data::Dumper::Terse = 1;
 use Log::Any::Adapter 'TAP';
 
 use JSON;
@@ -708,11 +709,11 @@ foreach my $test_ref (@tests) {
 
 		local $/;    #Enable 'slurp' mode
 		my $expected_product_ref = $json->decode(<$expected_result>);
-		is_deeply($product_ref, $expected_product_ref) or diag explain $product_ref;
+		is($product_ref, $expected_product_ref) or diag Dumper $product_ref;
 	}
 	else {
 		fail("could not load $expected_result_dir/$testid.json");
-		diag explain $product_ref;
+		diag Dumper $product_ref;
 	}
 }
 

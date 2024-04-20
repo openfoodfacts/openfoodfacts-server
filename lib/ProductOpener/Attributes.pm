@@ -18,6 +18,8 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+=encoding UTF-8
+
 =head1 NAME
 
 ProductOpener::Attributes - Generate product attributes that can be requested through the API
@@ -1081,6 +1083,7 @@ e.g. "salt", "sugars", "fat", "saturated-fat"
 The return value is a reference to the resulting attribute data structure.
 
 =head4 % Match
+
 For "low" levels:
 
 - 100% if the nutrient quantity is 0%
@@ -1381,6 +1384,7 @@ vegan, non-vegan, maybe-vegan, vegan-status-unknown
 The return value is a reference to the resulting attribute data structure.
 
 =head4 % Match
+
 For "low" levels:
 
 - 100% if the property matches

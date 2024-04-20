@@ -18,6 +18,8 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+=encoding UTF-8
+
 =head1 NAME
 
 ProductOpener::Nutriscore - compute the Nutriscore grade of a food product
@@ -350,7 +352,7 @@ sub compute_nutriscore_score_2021 ($nutriscore_data_ref) {
 	if (   (($nutriscore_data_ref->{"sugars_value"} - int($nutriscore_data_ref->{"sugars_value"})) > 0.9)
 		or (($nutriscore_data_ref->{"sugars_value"} - int($nutriscore_data_ref->{"sugars_value"})) < 0.1))
 	{
-		$nutriscore_data_ref->{"sugars_value"} = int($nutriscore_data_ref->{"sugars"} * 10 + 0.5) / 10;
+		$nutriscore_data_ref->{"sugars_value"} = int(($nutriscore_data_ref->{"sugars"} // 0) * 10 + 0.5) / 10;
 	}
 
 	# Compute the negative and positive points

@@ -106,10 +106,8 @@ requires 'Imager::File::WEBP';
 requires 'Module::Load';
 
 on 'test' => sub {
-  requires 'Test::More', '>= 1.302186, < 2.0';
-  requires 'Test::MockModule';
+  requires 'Test2::V0';
   requires 'Mock::Quick';
-  requires 'Test::Number::Delta'; # libtest-number-delta-perl
   requires 'Test::Files';
   requires 'File::Spec';
   requires 'Log::Any::Adapter::TAP'; # liblog-any-adapter-tap-perl
@@ -123,6 +121,9 @@ on 'test' => sub {
   requires 'Devel::Cover::Report::Codecovbash';
   requires 'Test::Fake::HTTPD';
   requires 'URL::Encode';
+  requires 'Test::File::Contents';
+  requires 'FindBin';
+  requires 'Test::Pod';
 };
 
 on 'develop' => sub {

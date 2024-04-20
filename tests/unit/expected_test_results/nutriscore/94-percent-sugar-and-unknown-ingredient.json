@@ -35,6 +35,7 @@
       {
          "ciqual_proxy_food_code" : "31016",
          "id" : "en:sugar",
+         "is_in_taxonomy" : 1,
          "percent" : 94,
          "percent_estimate" : 94,
          "percent_max" : 94,
@@ -45,6 +46,7 @@
       },
       {
          "id" : "en:strange-ingredient",
+         "is_in_taxonomy" : 0,
          "percent_estimate" : 6,
          "percent_max" : 6,
          "percent_min" : 6,

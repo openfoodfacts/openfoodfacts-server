@@ -3,7 +3,9 @@
 use Modern::Perl '2017';
 use utf8;
 
-use Test::More;
+use Test2::V0;
+use Data::Dumper;
+$Data::Dumper::Terse = 1;
 use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Routing qw/analyze_request/;
@@ -238,7 +240,7 @@ foreach my $test_ref (@tests) {
 	$lc = $test_ref->{input_request}{lc};
 	analyze_request($test_ref->{input_request});
 
-	is_deeply($test_ref->{input_request}, $test_ref->{expected_output_request}) or diag explain $test_ref;
+	is($test_ref->{input_request}, $test_ref->{expected_output_request}) or diag Dumper $test_ref;
 }
 
 done_testing();
