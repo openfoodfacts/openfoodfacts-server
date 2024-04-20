@@ -1100,128 +1100,70 @@ sub process_image_upload ($product_id, $imagefield, $user_id, $time, $comment, $
 
 sub process_image_move ($user_id, $code, $imgids, $move_to, $ownerid) {
 
-	# move images only to trash or another valid barcode (number)
-	if (($move_to ne 'trash') and ($move_to !~ /^((off|obf|opf|opff):)?\d+$/)) {
-		return "invalid barcode number: $move_to";
-	}
+    # move images only to trash or another valid barcode (number)
+    if (($move_to ne 'trash') and ($move_to !~ /^((off|obf|opf|opff):)?\d+$/)) {
+        return "invalid barcode number: $move_to";
+    }
 
-	my $product_id = product_id_for_owner($ownerid, $code);
-	my $move_to_id = product_id_for_owner($ownerid, $move_to);
+    my $product_id = product_id_for_owner($ownerid, $code);
+    my $move_to_id = product_id_for_owner($ownerid, $move_to);
 
-	$log->debug("process_image_move - start", {product_id => $product_id, imgids => $imgids, move_to_id => $move_to_id})
-		if $log->is_debug();
+    $log->debug("process_image_move - start", {product_id => $product_id, imgids => $imgids, move_to_id => $move_to_id})
+        if $log->is_debug();
 
-	my $path = product_path_from_id($product_id);
+    my $path = product_path_from_id($product_id);
 
-	my $product_ref = retrieve_product($product_id);
-	defined $product_ref->{images} or $product_ref->{images} = {};
+    my $product_ref = retrieve_product($product_id);
+    defined $product_ref->{images} or $product_ref->{images} = {};
 
-	# iterate on each images
+    # iterate on each image
+    foreach my $imgid (split(/,/, $imgids)) {
+        next if ($imgid !~ /^\d+$/);
 
-	foreach my $imgid (split(/,/, $imgids)) {
+        # check the imgid exists
+        if (defined $product_ref->{images}{$imgid}) {
 
-		next if ($imgid !~ /^\d+$/);
+            my $ok = 1;
 
-		# check the imgid exists
-		if (defined $product_ref->{images}{$imgid}) {
+            my $new_imgid;
+            my $debug;
 
-			my $ok = 1;
+            if ($move_to =~ /^((off|obf|opf|opff):)?\d+$/) {
+                # Moving to another product, handle this differently
+               $ok = process_image_upload(
+                    $move_to_id,
+                    "$BASE_DIRS{PRODUCTS_IMAGES}/$path/$imgid.jpg",
+                    $product_ref->{images}{$imgid}{uploader},
+                    $product_ref->{images}{$imgid}{uploaded_t},
+                    "image moved from product $code on $server_domain by $user_id -- uploader: $product_ref->{images}{$imgid}{uploader} - time: $product_ref->{images}{$imgid}{uploaded_t}",
+                    \$new_imgid,
+                    \$debug
+			   );
+            } else {
+                $log->info("moved image to trash", {source_path => "$BASE_DIRS{PRODUCTS_IMAGES}/$path/$imgid.jpg",
+                                                    old_code => $code, ownerid => $ownerid, user_id => $user_id,
+                                                    result => $ok});
+            }
 
-			my $new_imgid;
-			my $debug;
+            # Unselect the image if it was selected
+            if ($ok) {
+                foreach my $field (keys %{$product_ref->{selected_images}}) {
+                    if ($product_ref->{selected_images}{$field} eq $imgid) {
+                        process_image_unselect($user_id, $product_ref, $field);
+                        $log->debug("Image unselected because it was deleted: field: $field imgid: $imgid", {}) if $log->is_debug();
+                    }
+                }
+                delete $product_ref->{images}{$imgid};
+            }
+        }
+    }
 
-			if ($move_to =~ /^((off|obf|opf|opff):)?\d+$/) {
-				$ok = process_image_upload(
-					$move_to_id,
-					"$BASE_DIRS{PRODUCTS_IMAGES}/$path/$imgid.jpg",
-					$product_ref->{images}{$imgid}{uploader},
-					$product_ref->{images}{$imgid}{uploaded_t},
-					"image moved from product $code on $server_domain by $user_id -- uploader: $product_ref->{images}{$imgid}{uploader} - time: $product_ref->{images}{$imgid}{uploaded_t}",
-					\$new_imgid,
-					\$debug
-				);
-				if ($ok < 0) {
-					$log->error(
-						"could not move image to other product",
-						{
-							source_path => "$BASE_DIRS{PRODUCTS_IMAGES}/$path/$imgid.jpg",
-							move_to => $move_to,
-							old_code => $code,
-							ownerid => $ownerid,
-							user_id => $user_id,
-							result => $ok
-						}
-					);
-				}
-				else {
-					$log->info(
-						"moved image to other product",
-						{
-							source_path => "$BASE_DIRS{PRODUCTS_IMAGES}/$path/$imgid.jpg",
-							move_to => $move_to,
-							old_code => $code,
-							ownerid => $ownerid,
-							user_id => $user_id,
-							result => $ok
-						}
-					);
-				}
-			}
-			else {
-				$log->info(
-					"moved image to trash",
-					{
-						source_path => "$BASE_DIRS{PRODUCTS_IMAGES}/$path/$imgid.jpg",
-						old_code => $code,
-						ownerid => $ownerid,
-						user_id => $user_id,
-						result => $ok
-					}
-				);
-			}
+    store_product($user_id, $product_ref, "Moved images $imgids to $move_to");
 
-			# Don't delete images to be moved if they weren't moved correctly
-			if ($ok) {
-				# Delete images (move them to the deleted.images dir
-				ensure_dir_created_or_die($BASE_DIRS{DELETED_IMAGES});
+    $log->debug("process_image_move - end", {product_id => $product_id, imgids => $imgids, move_to_id => $move_to_id})
+        if $log->is_debug();
 
-				File::Copy->import(qw( move ));
-
-				$log->info(
-					"moving source image to deleted images directory",
-					{
-						source_path => "$BASE_DIRS{PRODUCTS_IMAGES}/$path/$imgid.jpg",
-						destination_path => "$BASE_DIRS{DELETED_IMAGES}/product.$code.$imgid.jpg"
-					}
-				);
-
-				move(
-					"$BASE_DIRS{PRODUCTS_IMAGES}/$path/$imgid.jpg",
-					"$BASE_DIRS{DELETED_IMAGES}/product.$code.$imgid.jpg"
-				);
-				move(
-					"$BASE_DIRS{PRODUCTS_IMAGES}/$path/$imgid.$thumb_size.jpg",
-					"$BASE_DIRS{DELETED_IMAGES}/product.$code.$imgid.$thumb_size.jpg"
-				);
-				move(
-					"$BASE_DIRS{PRODUCTS_IMAGES}/$path/$imgid.$crop_size.jpg",
-					"$BASE_DIRS{DELETED_IMAGES}/product.$code.$imgid.$crop_size.jpg"
-				);
-
-				delete $product_ref->{images}{$imgid};
-
-			}
-
-		}
-
-	}
-
-	store_product($user_id, $product_ref, "Moved images $imgids to $move_to");
-
-	$log->debug("process_image_move - end", {product_id => $product_id, imgids => $imgids, move_to_id => $move_to_id})
-		if $log->is_debug();
-
-	return 0;
+    return 0;
 }
 
 sub process_image_crop ($user_id, $product_id, $id, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2,

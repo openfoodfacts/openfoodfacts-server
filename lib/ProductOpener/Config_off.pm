@@ -182,6 +182,7 @@ use ProductOpener::Config2;
 	stephane
 	tacinte
 	teolemon
+	lmedway
 );
 
 $options{export_limit} = 10000;
