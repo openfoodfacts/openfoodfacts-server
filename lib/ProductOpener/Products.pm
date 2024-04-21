@@ -1836,6 +1836,7 @@ to determine if the change was done through an app, the OFF userid, or an app sp
 =head3 Parameters
 
 =head4 $change_ref
+
 reference to a change record
 
 =head3 Return value
@@ -2797,54 +2798,31 @@ This function is called by the web/panels/panel.tt.html template for knowledge p
 
 =cut
 
+my %actions_urls = (
+	edit_product => "",
+	add_categories => "#categories",
+	add_ingredients_image => "#ingredients",
+	add_ingredients_text => "#ingredients",
+	add_nutrition_facts_image => "#nutrition",
+	add_nutrition_facts => "#nutrition",
+	add_packaging_image => "#packaging",
+	add_packaging_text => "#packaging",
+	add_packaging_components => "#packaging",
+	add_origins => "#origins",
+	add_quantity => "#product_characteristics",
+	add_stores => "#stores",
+	add_packager_codes_image => "#packager_codes",
+	add_labels => "#labels",
+	add_countries => "#countries",
+);
+
 sub product_action_url ($code, $action) {
 
 	my $url = "/cgi/product.pl?type=edit&code=" . $code;
 
-	if ($action eq "add_categories") {
-		$url .= "#categories";
+	if (defined $actions_urls{$action}) {
+		$url .= $actions_urls{$action};
 	}
-	elsif ($action eq "add_ingredients_image") {
-		$url .= "#ingredients";
-	}
-	elsif ($action eq "add_ingredients_text") {
-		$url .= "#ingredients";
-	}
-	elsif ($action eq "add_nutrition_facts_image") {
-		$url .= "#nutrition";
-	}
-	elsif ($action eq "add_nutrition_facts") {
-		$url .= "#nutrition";
-	}
-	elsif ($action eq "add_packaging_image") {
-		$url .= "#packaging";
-	}
-	elsif ($action eq "add_packaging_text") {
-		$url .= "#packaging";
-	}
-	elsif ($action eq "add_packaging_components") {
-		$url .= "#packaging";
-	}
-	# Note: 27/11/2022 - Pierre - The following HTML anchors links will do nothing unless a matching custom HTML anchor is added in the future to the product edition template
-	elsif ($action eq "add_origins") {
-		$url .= "#origins";
-	}
-	elsif ($action eq "add_quantity") {
-		$url .= "#product_characteristics";
-	}
-	elsif ($action eq "add_stores") {
-		$url .= "#stores";
-	}
-	elsif ($action eq "add_packager_codes_image") {
-		$url .= "#packager_codes";
-	}
-	elsif ($action eq "add_labels") {
-		$url .= "#labels";
-	}
-	elsif ($action eq "add_countries") {
-		$url .= "#countries";
-	}
-	# END will do nothing unless a custom section is added
 	else {
 		$log->error("unknown product action", {code => $code, action => $action});
 	}
@@ -3010,10 +2988,15 @@ It does not block image upload.
 =head3 edit_rules structure
 
 =over 1
+
 =item * name: rule name to identify it in logs and describe it
-=item * conditions: the conditions the product must match, a list of [fieldname, value]
+
+=item * conditions: the conditions the product must match, a list of [field name, value]
+
 =item * actions: the actions to take, a list, where each element is a list with a rule name, and eventual arguments
+
 =item * notifications: also notify, list of email addresses or specific notification rules
+
 =back
 
 =head4 conditions
@@ -3039,12 +3022,19 @@ C<ignore_if_CONDITION_FIELD> or C<warn_if_CONDITION_FIELD>
 This time it's to check the value the user want's to add.
 
 C<CONDITION> is one of the following:
+
 =over 1
+
 =item * existing - user tries to edit this field with a non empty value
+
 =item * 0 - user tries to put numerical value 0 in the field
+
 =item * equal / lesser / greater - comparison of numeric value (requires a value as argument)
+
 =item * match - comparison to a string (equality, requires a value as argument)
+
 =item * regexp_match - match against a regexp (requires a regexp value as argument)
+
 =back
 
 =head4 notifications
@@ -3055,6 +3045,7 @@ or "slack_CHANNEL_NAME" (B<warning> currently channel name is ignored, we post t
 =head4 Example of an edit rule
 
 =begin text
+
 {
 	name => "App XYZ",
 	conditions => [
@@ -3072,6 +3063,7 @@ or "slack_CHANNEL_NAME" (B<warning> currently channel name is ignored, we post t
 		slack_channel_edit-alert-test
 	),
 },
+
 =end text
 
 =cut

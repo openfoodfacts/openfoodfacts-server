@@ -535,13 +535,14 @@ function initializeTagifyInputs() {
         forEach((input) => initializeTagifyInput(input));
 }
 
-const maximumRecentEntriesPerTag = 3;
+const maximumRecentEntriesPerTag = 10;
 
 function initializeTagifyInput(el) {
     const input = new Tagify(el, {
         autocomplete: true,
         whitelist: get_recents(el.id) || [],
         dropdown: {
+            highlightFirst: false,
             enabled: 0,
             maxItems: 100
         }
@@ -579,7 +580,7 @@ function initializeTagifyInput(el) {
                     then((RES) => RES.json()).
                     then(function (json) {
                         const lc = (/^\w\w:/).exec(value);
-                        let whitelist = Object.values(json.matched_synonyms);
+                        let whitelist = json.suggestions;
                         if (lc) {
                             whitelist = whitelist.map(function (e) {
                                 return {"value": lc + e, "searchBy": e};

@@ -18,6 +18,8 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+=encoding UTF-8
+
 =head1 NAME
 
 ProductOpener::Ingredients - process and analyze ingredients lists
@@ -121,7 +123,6 @@ use Encode;
 use JSON::PP;
 use Log::Any qw($log);
 use List::MoreUtils qw(uniq);
-use Test::More;
 use Data::DeepAccess qw(deep_get deep_exists);
 
 # MIDDLE DOT with common substitutes (BULLET variants, BULLET OPERATOR and DOT OPERATOR (multiplication))
@@ -200,7 +201,8 @@ my %may_contain_regexps = (
 		"Dit product kan sporen van|bevat mogelijk sporen van|Kan sporen bevatten van|Kan sporen van|bevat mogelijk|sporen van|Geproduceerd in ruimtes waar",
 	nb =>
 		"kan inneholde spor av|kan forekomme spor av|kan inneholde spor|kan forekomme spor|kan inneholde|kan forekomme",
-	pl => "może zawierać śladowe ilości|produkt może zawierać|może zawierać|możliwa obecność",
+	pl =>
+		"może zawierać śladowe ilości|produkt może zawierać|może zawierać|możliwa obecność|może zawierać alergeny|możliwa obecność|w produkcie możliwa obecność|wyprodukowano w zakładzie przetwarzającym",
 	pt => "pode conter vestígios de|pode conter",
 	ro => "poate con[țţt]ine urme de|poate con[țţt]ine|poate con[țţt]in|produsul poate conţine urme de",
 	rs => "može sadržati tragove",
@@ -2755,6 +2757,12 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 								'^(?>\d+\s+g\s+)?(?>\w+\s?)*?ze\s+\d+\s?g(?>\s+\w*)*$' # "produktu wyprodukowano ze 133 g mięsa wieprzowego"
 							],
 
+							'ro' => [
+								'in proporţie variabilă',
+								'Informatiile scrise cu majuscule sunt destinate persoanelor cu intolerante sau alergice',
+								'Ambalat in atmosfera protectoare',
+							],
+
 							'ru' => [
 								'^россия$', '^состав( продукта)?$',
 								'^энергетическая ценность$', '^калорийность$',
@@ -2804,6 +2812,9 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 					id => get_taxonomyid($ingredients_lc, $ingredient_id),
 					text => $ingredient
 				);
+
+				my $is_in_taxonomy = exists_taxonomy_tag("ingredients", $ingredient_id) ? 1 : 0;
+				$ingredient{is_in_taxonomy} = $is_in_taxonomy;
 
 				if (defined $percent_or_quantity_value) {
 					my ($percent, $quantity, $quantity_g)
@@ -4621,6 +4632,8 @@ my %phrases_before_ingredients_list = (
 
 	mk => ['Состојки',],
 
+	md => ['(I|i)ngrediente',],
+
 	nl => ['(I|i)ngredi(e|ë)nten', 'samenstelling', 'bestanddelen'],
 
 	nb => ['Ingredienser',],
@@ -4651,7 +4664,7 @@ my %phrases_before_ingredients_list = (
 
 	tr => ['(İ|i)çindekiler', 'içeriği',],
 
-	uz => ['tarkib',],
+	uz => ['tarkib', 'Mahsulot tarkibi',],
 
 	zh => ['配料', '成份',],
 
@@ -5059,40 +5072,6 @@ my %ignore_phrases = (
 	fr => ['non applicable|non concerné',],
 
 );
-
-=head2 validate_regular_expressions ( )
-
-This function is used to check that all regular expressions / parts of
-regular expressions used to parse ingredients are valid, without
-unmatched parenthesis etc.
-
-=cut
-
-sub validate_regular_expressions() {
-
-	my %regexps = (
-		phrases_before_ingredients_list => \%phrases_before_ingredients_list,
-		phrases_before_ingredients_list_uppercase => \%phrases_before_ingredients_list_uppercase,
-		phrases_after_ingredients_list => \%phrases_after_ingredients_list,
-		prefixes_before_dash => \%prefixes_before_dash,
-		ignore_phrases => \%ignore_phrases,
-	);
-
-	foreach my $list (sort keys %regexps) {
-
-		foreach my $language (sort keys %{$regexps{$list}}) {
-
-			foreach my $regexp (@{$regexps{$list}{$language}}) {
-				$log->debug("validate_regular_expressions", {list => $list, l => $language, regexp => $regexp})
-					if $log->is_debug();
-				eval {"test" =~ /$regexp/;};
-				is($@, "");
-			}
-		}
-	}
-
-	return;
-}
 
 =head2 split_generic_name_from_ingredients ( product_ref language_code )
 

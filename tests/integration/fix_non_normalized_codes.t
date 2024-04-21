@@ -2,7 +2,7 @@
 
 use ProductOpener::PerlStandards;
 
-use Test::More;
+use Test2::V0;
 use ProductOpener::APITest qw/wait_application_ready/;
 use ProductOpener::Test qw/remove_all_products/;
 use ProductOpener::TestDefaults qw/%default_product %default_product_form/;
@@ -11,6 +11,8 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Data qw/get_products_collection/;
 use ProductOpener::Products qw/product_path product_path_from_id retrieve_product retrieve_product_or_deleted_product/;
 use ProductOpener::Store qw/retrieve store/;
+
+no warnings qw(experimental::signatures);
 
 remove_all_products();
 wait_application_ready();
@@ -99,7 +101,7 @@ my $script_out = `perl scripts/fix_non_normalized_codes.pl`;
 $script_out =~ s/\n\s*\n/\n/sg;    # trim empty lines
 $script_out =~ s/(^\s*\n*|\s*\n*$)//sg;
 my @outputs = split("\n", $script_out);
-is_deeply(
+is(
 	\@outputs,
 	[
 		# removed product_broken_code
@@ -119,22 +121,22 @@ my $product_ref;
 my %fixed_product;
 # product_ok is there
 $product_ref = retrieve_product("2000000000001");
-is_deeply($product_ref, \%product_ok);
+is($product_ref, \%product_ok);
 $product_ref = $products_collection->find_id("2000000000001");
-is_deeply($product_ref, \%product_ok);
+is($product_ref, \%product_ok);
 
 # product has no more int code
 $product_ref = retrieve_product("2000000000002");
 %fixed_product = (%product_int_code, code => "2000000000002", _id => "2000000000002");
-is_deeply($product_ref, \%fixed_product);
+is($product_ref, \%fixed_product);
 $product_ref = $products_collection->find_id("2000000000002");
-is_deeply($product_ref, \%fixed_product);
+is($product_ref, \%fixed_product);
 $product_ref = $products_collection->find_id(2000000000002);
 is($product_ref, undef);
 # product has no more int code even deleted
 $product_ref = retrieve_product_or_deleted_product("2000000000003");
 %fixed_product = (%product_int_code_deleted, code => "2000000000003", _id => "2000000000003");
-is_deeply($product_ref, \%fixed_product);
+is($product_ref, \%fixed_product);
 # but not indexed
 is($products_collection->find_id("2000000000003"), undef);
 is($products_collection->find_id(2000000000003), undef);
@@ -149,26 +151,26 @@ $product_ref = retrieve_product("12345678");
 %fixed_product = (%product_non_normalized_code, code => "12345678", _id => "12345678", rev => "1");
 # pop some inconvenient field
 remove_non_relevant_fields($product_ref, \%fixed_product);
-is_deeply($product_ref, \%fixed_product);
+is($product_ref, \%fixed_product);
 $product_ref = $products_collection->find_id("12345678");
 # pop some inconvenient field
 remove_non_relevant_fields($product_ref, \%fixed_product);
-is_deeply($product_ref, \%fixed_product);
+is($product_ref, \%fixed_product);
 is($products_collection->find_id("0000012345678"), undef);
 
 # product normalized deleted
 $product_ref = retrieve_test_product("0000012345679");
 # untouched
-is_deeply($product_ref, \%product_non_normalized_code_deleted);
+is($product_ref, \%product_non_normalized_code_deleted);
 # but no more in mongo, neither a normalized version
 is($products_collection->find_id("0000012345679"), undef);
 is($products_collection->find_id("12345679"), undef);
 
 # product_existing is there, unchanged
 $product_ref = retrieve_product("12345670");
-is_deeply($product_ref, \%product_normalized_existing);
+is($product_ref, \%product_normalized_existing);
 $product_ref = $products_collection->find_id("12345670");
-is_deeply($product_ref, \%product_normalized_existing);
+is($product_ref, \%product_normalized_existing);
 
 # while non normalize version is deleted and no more in mondo
 $product_ref = retrieve_product("0000012345670");
@@ -187,7 +189,7 @@ is($products_collection->find_id("12345671"), undef);
 $product_ref = retrieve_test_product("broken-123");
 # removed
 %fixed_product = (%product_broken_code, deleted => "on");
-is_deeply($product_ref, \%fixed_product);
+is($product_ref, \%fixed_product);
 # no more in mongo
 is($products_collection->find_id("broken-123"), undef);
 
