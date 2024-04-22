@@ -1605,8 +1605,8 @@ $options{sample_product_code} = "093270067481501";    # A good product for you -
 ## Rate limiting ##
 
 # Number of requests per minutes for the search API
-$options{rate_limit_search} = 2;
+$options{rate_limit_search} = 10;
 # Number of requests per minutes for the product API
-$options{rate_limit_product} = 10;
+$options{rate_limit_product} = 100;
 
 1;
