@@ -1077,7 +1077,7 @@ sub get_from_cache ($tagtype, @files) {
 		# The source file can be prefixed by the product type
 		my $source_path = get_path_for_taxonomy($source_file, $options{product_type});
 		open(my $IN, "<", $source_path)
-			or die("Cannot open $source_path: $!\n");
+			or die("Cannot open $source_path (tagtype: $tagtype - product_type: $options{product_type}): $!\n");
 
 		binmode($IN);
 		$sha1->addfile($IN);
