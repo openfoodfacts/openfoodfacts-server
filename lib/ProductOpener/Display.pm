@@ -199,6 +199,7 @@ use Devel::Size qw(size total_size);
 use Data::DeepAccess qw(deep_get deep_set);
 use Log::Log4perl;
 use LWP::UserAgent;
+use Tie::IxHash;
 
 use Log::Any '$log', default_adapter => 'Stderr';
 
@@ -224,6 +225,12 @@ my $uri_finder = URI::Find->new(
 		}
 	}
 );
+
+# Sort keys of JSON output
+# $json has utf8 disabled: it encodes to Perl Unicode strings
+my $json = JSON::PP->new->utf8(0)->allow_nonref->canonical;
+# $json_utf8 has utf8 enabled: it encodes to UTF-8 bytes
+my $json_utf8 = JSON::PP->new->utf8(1)->allow_nonref->canonical;
 
 =head1 VARIABLES
 
@@ -299,7 +306,6 @@ $tt = Template->new(
 		COMPILE_EXT => '.ttc',    # compile templates to Perl code for much faster reload
 		COMPILE_DIR => $data_root . "/tmp/templates",
 		ENCODING => 'UTF-8',
-		RECURSION => 1,    # Needed for the knowledge panels that contain subpanels
 	}
 );
 
@@ -388,12 +394,22 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	(not defined $template_data_ref->{user}) and $template_data_ref->{user} = \%User;
 	(not defined $template_data_ref->{org_id}) and $template_data_ref->{org_id} = $Org_id;
 
+	$template_data_ref->{flavor} = $flavor;
+	$template_data_ref->{options} = \%options;
 	$template_data_ref->{product_type} = $options{product_type};
 	$template_data_ref->{admin} = $admin;
 	$template_data_ref->{moderator} = $User{moderator};
 	$template_data_ref->{pro_moderator} = $User{pro_moderator};
 	$template_data_ref->{sep} = separator_before_colon($lc);
 	$template_data_ref->{lang} = \&lang;
+	# also provide lang_flavor() and lang_product_type() to provide translations specific
+	# to a flavor (e.g. off, obf) or product type (e.g. food, beauty)
+	$template_data_ref->{lang_flavor} = sub ($stringid) {
+		return lang($stringid . "_" . $flavor);
+	};
+	$template_data_ref->{lang_product_type} = sub ($stringid) {
+		return lang($stringid . "_" . $options{product_type});
+	};
 	$template_data_ref->{f_lang} = \&f_lang;
 	# escaping quotes for use in javascript or json
 	# using short names to favour readability
@@ -416,11 +432,6 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 		# an alternative would be to pass the $request_ref object to process_template() calls
 		return has_permission({admin => $admin, moderator => $User{moderator}, pro_moderator => $User{pro_moderator}},
 			$permission);
-	};
-
-	# select2 options generator for all entries in a taxonomy
-	$template_data_ref->{generate_select2_options_for_taxonomy_to_json} = sub ($tagtype) {
-		return generate_select2_options_for_taxonomy_to_json($lc, $tagtype);
 	};
 
 	# Return a link to one taxonomy entry in the target language
@@ -456,7 +467,7 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	};
 
 	$template_data_ref->{encode_json} = sub ($var) {
-		return decode_utf8(JSON::PP->new->utf8->canonical->encode($var));
+		return $json->encode($var);
 	};
 
 	return ($tt->process($template_filename, $template_data_ref, $result_content_ref));
@@ -782,6 +793,14 @@ sub init_request ($request_ref = {}) {
 		}
 	}
 
+	# Set cc, lc and lcs in the request object
+	# Ideally, we should rely on those fields in the request object
+	# and remove the $lc, $cc and @lcs global variables
+	$request_ref->{lc} = $lc;
+	$request_ref->{cc} = $cc;
+	$request_ref->{country} = $country;
+	$request_ref->{lcs} = \@lcs;
+
 	# If lc is not one of the official languages of the country and if the request comes from
 	# a bot crawler, don't index the webpage (return an empty noindex HTML page)
 	# We also disable indexing for all subdomains that don't have the format world, cc or cc-lc
@@ -848,7 +867,7 @@ sub init_request ($request_ref = {}) {
 				"init_request - init_user error - display error page",
 				{init_user_error => $request_ref->{init_user_error}}
 			) if $log->is_debug();
-			display_error_and_exit($error, 403);
+			display_error_and_exit($request_ref, $error, 403);
 		}
 	}
 
@@ -949,14 +968,6 @@ CSS
 			org_id => $Org_id
 		}
 	) if $log->is_debug();
-
-	# Set cc, lc and lcs in the request object
-	# Ideally, we should rely on those fields in the request object
-	# and remove the $lc, $cc and @lcs global variables
-	$request_ref->{lc} = $lc;
-	$request_ref->{cc} = $cc;
-	$request_ref->{country} = $country;
-	$request_ref->{lcs} = \@lcs;
 
 	return $request_ref;
 }
@@ -1084,7 +1095,7 @@ sub display_date_iso ($t) {
 	}
 }
 
-=head2 display_error ( $error_message, $status_code )
+=head2 display_error ( $request_ref, $error_message, $status_code )
 
 Display an error message using the site template.
 
@@ -1092,21 +1103,30 @@ The request is not terminated by this function, it will continue to run.
 
 =cut
 
-sub display_error ($error_message, $status_code) {
+sub display_error ($request_ref, $error_message, $status_code) {
+
+	$log->debug("display_error",
+		{error_message => $error_message, status_code => $status_code, request_ref => $request_ref})
+		if $log->is_debug();
+
+	# We need to remove the canonical URL from the request so that it does not get displayed in the error page
+	# This is needed in particular for facet pages like /some-facet/some-spam-value-that-we-don-t-want-to-output-in-the-error-page
+	delete $request_ref->{canon_url};
+	delete $request_ref->{canon_rel_url};
+	delete $request_ref->{url};
+	delete $request_ref->{current_link};
 
 	my $html = "<p>$error_message</p>";
-	display_page(
-		{
-			title => lang('error'),
-			content_ref => \$html,
-			status_code => $status_code,
-			page_type => "error",
-		}
-	);
+	$request_ref->{status_code} = $status_code;
+	$request_ref->{page_type} = "error";
+	$request_ref->{title} = lang('error');
+	$request_ref->{content_ref} = \$html;
+
+	display_page($request_ref);
 	return;
 }
 
-=head2 display_error_and_exit ( $error_message, $status_code )
+=head2 display_error_and_exit ( $request_ref, $error_message, $status_code )
 
 Display an error message using the site template, and terminate the request immediately.
 
@@ -1114,9 +1134,9 @@ Any code after the call to display_error_and_exit() will not be executed.
 
 =cut
 
-sub display_error_and_exit ($error_message, $status_code) {
+sub display_error_and_exit ($request_ref, $error_message, $status_code) {
 
-	display_error($error_message, $status_code);
+	display_error($request_ref, $error_message, $status_code);
 	exit();
 }
 
@@ -1638,14 +1658,18 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 
 	# allow sorting by tagname
 	my $sort_by = request_param($request_ref, "sort_by") // $default_sort_by;
-	my $sort_ref;
+	my %sort = ();
+
+	# We need a tie hash so that the keys are ordered by insertion order when passed to MongoDB
+	tie(%sort, 'Tie::IxHash');
+	my $sort_ref = \%sort;
 
 	if ($sort_by eq "tag") {
-		$sort_ref = {"_id" => 1};
+		$sort_ref->{"_id"} = 1;
 	}
 	else {
-		$sort_ref = {"count" => -1};
-		$sort_by = "count";
+		$sort_ref->{"count"} = -1;
+		$sort_ref->{"_id"} = 1;
 	}
 
 	# groupby_tagtype
@@ -2422,7 +2446,6 @@ HTML
 
 		# countries map?
 		if (keys %{$countries_map_data} > 0) {
-			my $json = JSON::PP->new->utf8(0);
 			$initjs .= 'var countries_map_data=JSON.parse(' . $json->encode($json->encode($countries_map_data)) . ');'
 				.= 'var countries_map_links=JSON.parse(' . $json->encode($json->encode($countries_map_links)) . ');'
 				.= 'var countries_map_names=JSON.parse(' . $json->encode($json->encode($countries_map_names)) . ');'
@@ -2457,11 +2480,11 @@ HTML
 		}
 
 		$initjs .= <<JS
-oTable = \$('#tagstable').DataTable({
+let oTable = \$('#tagstable').DataTable({
 	language: {
 		search: "$tagstable_search",
 		info: "_TOTAL_ $tagtype_p",
-		infoFiltered: " - $tagstable_filtered",
+		infoFiltered: " - $tagstable_filtered"
 	},
 	paging: false,
 	order: $sort_order,
@@ -2726,11 +2749,11 @@ sub display_list_of_tags_translate ($request_ref, $query_ref) {
 		my $tagstable_filtered = lang_in_other_lc($request_lc, "tagstable_filtered");
 
 		$initjs .= <<JS
-oTable = \$('#tagstable').DataTable({
+let oTable = \$('#tagstable').DataTable({
 	language: {
 		search: "$tagstable_search",
 		info: "_TOTAL_ $tagtype_p",
-		infoFiltered: " - $tagstable_filtered",
+		infoFiltered: " - $tagstable_filtered"
 	},
 	paging: false,
 	order: [[ 1, "desc" ]],
@@ -3942,12 +3965,7 @@ HTML
 
 		my $map_html;
 		if (((scalar @wikidata_objects) > 0) or ((scalar @markers) > 0)) {
-			my $json = JSON::PP->new->utf8(0);
 			my $map_template_data_ref = {
-				lang => \&lang,
-				encode_json => sub ($obj_ref) {
-					return $json->encode($obj_ref);
-				},
 				wikidata => \@wikidata_objects,
 				pointers => \@markers
 			};
@@ -3987,7 +4005,7 @@ HTML
 				$user_or_org_ref = retrieve_org($orgid);
 
 				if (not defined $user_or_org_ref) {
-					display_error_and_exit(lang("error_unknown_org"), 404);
+					display_error_and_exit($request_ref, lang("error_unknown_org"), 404);
 				}
 			}
 			elsif ($tagid =~ /\./) {
@@ -4009,7 +4027,7 @@ HTML
 				$user_or_org_ref = retrieve_user($tagid);
 
 				if (not defined $user_or_org_ref) {
-					display_error_and_exit(lang("error_unknown_user"), 404);
+					display_error_and_exit($request_ref, lang("error_unknown_user"), 404);
 				}
 			}
 
@@ -4269,7 +4287,7 @@ HTML
 		)
 		)
 	{
-		display_error_and_exit(lang("no_products"), 404);
+		display_error_and_exit($request_ref, lang("no_products"), 404);
 	}
 	else {
 		display_page($request_ref);
@@ -4353,13 +4371,11 @@ sub display_search_results ($request_ref) {
 			$search_api_url =~ s/\&/\?/;
 		}
 
-		my $contributor_prefs_json = decode_utf8(
-			encode_json(
-				{
-					display_barcode => $User{display_barcode},
-					edit_link => $User{edit_link},
-				}
-			)
+		my $contributor_prefs_json = $json->encode(
+			{
+				display_barcode => $User{display_barcode},
+				edit_link => $User{edit_link},
+			}
 		);
 
 		my $preferences_text = lang("classify_products_according_to_your_preferences");
@@ -5386,16 +5402,14 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		my $products_json = '[]';
 
 		if (defined $request_ref->{structured_response}{products}) {
-			$products_json = decode_utf8(encode_json($request_ref->{structured_response}{products}));
+			$products_json = $json->encode($request_ref->{structured_response}{products});
 		}
 
-		my $contributor_prefs_json = decode_utf8(
-			encode_json(
-				{
-					display_barcode => $User{display_barcode},
-					edit_link => $User{edit_link},
-				}
-			)
+		my $contributor_prefs_json = $json->encode(
+			{
+				display_barcode => $User{display_barcode},
+				edit_link => $User{edit_link},
+			}
 		);
 
 		$scripts .= <<JS
@@ -6683,6 +6697,7 @@ or city.
 The traceability code
 
 =head3 returns - list of 2 elements
+
 (latitude, longitude) if found, or (undef, undef) otherwise
 
 =cut
@@ -6875,12 +6890,7 @@ sub map_of_products ($products_iter, $request_ref, $graph_ref) {
 		$request_ref->{current_link_query_display} =~ s/\?action=process/\?action=display/;
 	}
 
-	my $json = JSON::PP->new->utf8(0);
 	my $map_template_data_ref = {
-		lang => \&lang,
-		encode_json => sub ($obj_ref) {
-			return $json->encode($obj_ref);
-		},
 		title => $count_string,
 		pointers => \@pointers,
 		current_link => $request_ref->{current_link},
@@ -6987,6 +6997,7 @@ sub search_and_map_products ($request_ref, $query_ref, $graph_ref) {
 add a permalink to a search result page
 
 =head3 return - string - generated HTML
+
 =cut
 
 sub search_permalink ($request_ref) {
@@ -7043,7 +7054,7 @@ sub display_page ($request_ref) {
 	my $type;
 	my $id;
 
-	my $site = "<a href=\"/\">" . lang("site_name") . "</a>";
+	my $site = "<a href=\"/\">" . $options{site_name} . "</a>";
 
 	${$content_ref} =~ s/<SITE>/$site/g;
 
@@ -7075,7 +7086,7 @@ sub display_page ($request_ref) {
 		$description = remove_tags_and_quote($description);
 	}
 	if ($canon_description eq '') {
-		$canon_description = lang("site_description");
+		$canon_description = lang("site_description_$flavor");
 	}
 	my $canon_image_url = "";
 	my $canon_url = $formatted_subdomain;
@@ -7101,7 +7112,7 @@ sub display_page ($request_ref) {
 	# More images?
 
 	my $og_images = '';
-	my $og_images2 = '<meta property="og:image" content="' . lang("og_image_url") . '">';
+	my $og_images2 = '<meta property="og:image" content="' . $options{og_image_url} . '">';
 	my $more_images = 0;
 
 	# <img id="og_image" src="https://recettes.de/images/misc/recettes-de-cuisine-logo.gif" width="150" height="200">
@@ -7146,9 +7157,9 @@ sub display_page ($request_ref) {
 		$template_data_ref->{schema_org_itemtype} = $request_ref->{schema_org_itemtype};
 	}
 
-	my $site_name = lang_in_other_lc($request_lc, "site_name");
+	my $site_name = $options{site_name};
 	if ($server_options{producers_platform}) {
-		$site_name = lang_in_other_lc($request_lc, "producers_platform");
+		$site_name .= " - " . lang_in_other_lc($request_lc, "producers_platform");
 	}
 
 	# Override Google Analytics from Config.pm with server_options
@@ -7228,7 +7239,7 @@ sub display_page ($request_ref) {
 	$template_data_ref->{link} = $link;
 	$template_data_ref->{lc} = $lc;
 
-	my $tagline = lang("tagline");
+	my $tagline = lang("tagline_$flavor");
 
 	if ($server_options{producers_platform}) {
 		$tagline = "";
@@ -7272,7 +7283,7 @@ sub display_page ($request_ref) {
 		$template_data_ref->{mobile} = {
 			device => $device,
 			system => $system,
-			link => lang($system . "_app_link"),
+			link => $options{$system . "_app_link"},
 			text => lang("app_banner_text"),
 		};
 	}
@@ -7519,7 +7530,7 @@ sub display_product ($request_ref) {
 	local $log->context->{code} = $code;
 
 	if (not is_valid_code($code)) {
-		display_error_and_exit(lang_in_other_lc($request_lc, "invalid_barcode"), 403);
+		display_error_and_exit($request_ref, lang_in_other_lc($request_lc, "invalid_barcode"), 403);
 	}
 
 	my $product_id = product_id_for_owner($Owner_id, $code);
@@ -7568,7 +7579,7 @@ JS
 	}
 
 	if (not defined $product_ref) {
-		display_error_and_exit(sprintf(lang("no_product_for_barcode"), $code), 404);
+		display_error_and_exit($request_ref, sprintf(lang("no_product_for_barcode"), $code), 404);
 	}
 
 	$title = product_name_brand_quantity($product_ref);
@@ -7654,6 +7665,8 @@ JS
 		= display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "environment_card");
 	$template_data_ref->{health_card_panel}
 		= display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "health_card");
+	$template_data_ref->{report_problem_card_panel}
+		= display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "report_problem_card");
 	if ($product_ref->{"knowledge_panels_" . $lc}{"contribution_card"}) {
 		$template_data_ref->{contribution_card_panel}
 			= display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "contribution_card");
@@ -8256,7 +8269,7 @@ HTML
 		compute_attributes($product_ref, $lc, $cc, $attributes_options_ref);
 
 		my $product_attribute_groups_json
-			= decode_utf8(encode_json({"attribute_groups" => $product_ref->{"attribute_groups_" . $lc}}));
+			= $json->encode({"attribute_groups" => $product_ref->{"attribute_groups_" . $lc}});
 		my $preferences_text = lang("classify_products_according_to_your_preferences");
 
 		$scripts .= <<JS
@@ -10474,10 +10487,8 @@ sub display_structured_response ($request_ref) {
 		display_structured_response_opensearch_rss($request_ref);
 	}
 	else {
-		# my $data =  encode_json($request_ref->{structured_response});
-		# Sort keys of the JSON output
-		my $json = JSON::PP->new->allow_nonref->canonical;
-		my $data = $json->utf8->encode($request_ref->{structured_response});
+		# We need to output binary UTF8 encoded JSON
+		my $data = $json_utf8->encode($request_ref->{structured_response});
 
 		my $jsonp = undef;
 
@@ -10524,7 +10535,7 @@ sub display_structured_response_opensearch_rss ($request_ref) {
 
 	my $xs = XML::Simple->new(NumericEscape => 2);
 
-	my $short_name = lang("site_name");
+	my $short_name = $options{site_name};
 	my $long_name = $short_name;
 	if ($cc eq 'world') {
 		$long_name .= " " . uc($lc);
@@ -10536,7 +10547,8 @@ sub display_structured_response_opensearch_rss ($request_ref) {
 	$long_name = $xs->escape_value(encode_utf8($long_name));
 	$short_name = $xs->escape_value(encode_utf8($short_name));
 	my $query_link = $xs->escape_value(encode_utf8($formatted_subdomain . $request_ref->{current_link} . "&rss=1"));
-	my $description = $xs->escape_value(encode_utf8(lang("search_description_opensearch")));
+	my $description
+		= $xs->escape_value(encode_utf8($options{site_name} . " - " . lang("search_description_opensearch")));
 
 	my $search_terms = $xs->escape_value(encode_utf8(decode utf8 => single_param('search_terms')));
 	my $count = $xs->escape_value($request_ref->{structured_response}{count});
@@ -11380,56 +11392,6 @@ sub data_to_display_image ($product_ref, $imagetype, $target_lc) {
 	}
 
 	return $image_ref;
-}
-
-=head2 generate_select2_options_for_taxonomy ($target_lc, $tagtype)
-
-Generates an array of taxonomy entries in a specific language, to be used as options
-in a select2 input.
-
-See https://select2.org/data-sources/arrays
-
-=head3 Arguments
-
-=head4 Language code $target_lc
-
-=head4 Taxonomy $tagtype
-
-=head3 Return values
-
-- Reference to an array of options
-
-=cut
-
-sub generate_select2_options_for_taxonomy ($target_lc, $tagtype) {
-
-	my @entries = ();
-
-	# all tags can be retrieved from the $translations_to hash
-	foreach my $canon_tagid (keys %{$translations_to{$tagtype}}) {
-		# just_synonyms are not real entries
-		next if defined $just_synonyms{$tagtype}{$canon_tagid};
-
-		push @entries, display_taxonomy_tag($target_lc, $tagtype, $canon_tagid);
-	}
-
-	my @options = ();
-
-	foreach my $entry (sort @entries) {
-		push @options,
-			{
-			id => $entry,
-			text => $entry,
-			};
-	}
-
-	return \@options;
-}
-
-sub generate_select2_options_for_taxonomy_to_json ($target_lc, $tagtype) {
-
-	return decode_utf8(
-		JSON::PP->new->utf8->canonical->encode(generate_select2_options_for_taxonomy($target_lc, $tagtype)));
 }
 
 1;

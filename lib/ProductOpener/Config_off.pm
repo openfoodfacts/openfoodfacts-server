@@ -29,6 +29,8 @@ use Exporter qw< import >;
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
+		$flavor
+
 		%string_normalization_for_lang
 		%admins
 
@@ -102,6 +104,8 @@ use vars @EXPORT_OK;    # no 'my' keyword for these
 
 use ProductOpener::Config2;
 
+$flavor = 'off';
+
 # define the normalization applied to change a string to a tag id (in particular for taxonomies)
 # tag ids are also used in URLs.
 
@@ -111,6 +115,8 @@ use ProductOpener::Config2;
 # - dangerous if different words (in the same context like ingredients or category names) have the same unaccented form
 # lowercase:
 # - useful when the same word appears in lowercase, with a first capital letter, or in all caps.
+
+# IMPORTANT: if you change it, you need to change $BUILD_TAGS_VERSION in Tags.pm
 
 %string_normalization_for_lang = (
 	# no_language is used for strings that are not in a specific language (e.g. user names)
@@ -184,6 +190,17 @@ use ProductOpener::Config2;
 	teolemon
 );
 
+%options = (
+	site_name => "Open Food Facts",
+	product_type => "food",
+	og_image_url => "https://static.openfoodfacts.org/images/logos/off-logo-vertical-white-social-media-preview.png",
+	android_apk_app_link => "https://world.openfoodfacts.org/files/off.apk",
+	android_app_link => "https://world.openfoodfacts.org/files/off.apk",
+	ios_app_link => "https://apps.apple.com/app/open-food-facts/id588797948",
+	facebook_page_url => "https://www.facebook.com/OpenFoodFacts",
+	twitter_account => "OpenFoodFacts",
+);
+
 $options{export_limit} = 10000;
 
 $options{users_who_can_upload_small_images} = {
@@ -195,8 +212,6 @@ $options{users_who_can_upload_small_images} = {
 		teolemon
 		)
 };
-
-$options{product_type} = "food";
 
 # edit rules
 # see ProductOpener::Products::process_product_edit_rules for documentation

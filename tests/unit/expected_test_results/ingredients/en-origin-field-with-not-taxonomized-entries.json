@@ -2,6 +2,7 @@
    "ingredients" : [
       {
          "id" : "en:peach",
+         "is_in_taxonomy" : 1,
          "origins" : "en:spain",
          "percent_estimate" : 66.6666666666667,
          "percent_max" : 100,
@@ -12,6 +13,7 @@
       },
       {
          "id" : "en:some-unknown-ingredient",
+         "is_in_taxonomy" : 0,
          "origins" : "en:france",
          "percent_estimate" : 16.6666666666667,
          "percent_max" : 50,
@@ -20,6 +22,7 @@
       },
       {
          "id" : "en:another-unknown-ingredient",
+         "is_in_taxonomy" : 0,
          "origins" : "en:malta",
          "percent_estimate" : 16.6666666666667,
          "percent_max" : 33.3333333333333,

@@ -2,7 +2,7 @@
 
 use ProductOpener::PerlStandards;
 
-use Test::More;
+use Test2::V0;
 use ProductOpener::APITest qw/execute_api_tests wait_application_ready/;
 use ProductOpener::Test qw/remove_all_products remove_all_users/;
 use ProductOpener::TestDefaults qw/:all/;

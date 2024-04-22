@@ -2097,8 +2097,8 @@ msgid "Select products with specific brands, categories, labels, origins of ingr
 msgstr "Select products with specific brands, categories, labels, origins of ingredients, manufacturing places etc."
 
 msgctxt "search_description_opensearch"
-msgid "Open Food Facts product search"
-msgstr "Open Food Facts product search"
+msgid "Product search"
+msgstr "Product search"
 
 msgctxt "search_does_not_contain"
 msgid "does not contain"
@@ -2594,6 +2594,10 @@ msgstr "Video Tutorials"
 msgctxt "view"
 msgid "view"
 msgstr "view"
+
+msgctxt "view_this_revision"
+msgid "View this revision"
+msgstr "View this revision"
 
 msgctxt "view_list_for_products_from_the_entire_world"
 msgid "View the list for matching products from the entire world"
@@ -6598,10 +6602,6 @@ msgctxt "faq_for_producers"
 msgid "FAQ for producers"
 msgstr "FAQ for producers"
 
-msgctxt "join_the_next_pros_meet_up"
-msgid "Join the next Pros' Meet-up"
-msgstr "Join the next Pros' Meet-up"
-
 # variable names between { } must not be translated
 msgctxt "product_js_enter_value_between_0_and_max"
 msgid "Please enter a value between 0 and {max}."
@@ -6865,6 +6865,111 @@ msgctxt "sweetener"
 msgid "sweetener"
 msgstr "sweetener"
 
+msgctxt "action_edit_product"
+msgid "Complete or correct product information"
+msgstr "Complete or correct product information"
+
+msgctxt "report_problem_panel_title"
+msgid "Report a problem"
+msgstr "Report a problem"
+
+msgctxt "incomplete_or_incorrect_data_title"
+msgid "Incomplete or incorrect information?"
+msgstr "Incomplete or incorrect information?"
+
+msgctxt "incomplete_or_incorrect_data_subtitle_off"
+msgid "Category, labels, ingredients, allergens, nutritional information, photos etc."
+msgstr "Category, labels, ingredients, allergens, nutritional information, photos etc."
+
+msgctxt "incomplete_or_incorrect_data_content_correct"
+msgid "If the information does not match the information on the packaging, please complete or correct it."
+msgstr "If the information does not match the information on the packaging, please complete or correct it."
+
+msgctxt "incomplete_or_incorrect_data_content_correct_off"
+msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
+msgstr "Open Food Facts is a collaborative database, and every contribution is useful for all."
+
 msgctxt "description"
 msgid "Description"
 msgstr "Description"
+
+# Overrides by flavor (e.g. obf) or product type (e.g. beauty)
+
+# OFF
+
+msgctxt "site_description_off"
+msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
+msgstr "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
+
+msgctxt "tagline_off"
+msgid   "Open Food Facts gathers information and data on food products from around the world."
+msgstr  "Open Food Facts gathers information and data on food products from around the world."
+
+msgctxt "footer_tagline_off"
+msgid "A collaborative, free and open database of food products from around the world."
+msgstr "A collaborative, free and open database of food products from around the world."
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_off"
+msgid "/open-food-facts-mobile-app"
+msgstr "/open-food-facts-mobile-app"
+
+# OBF
+
+msgctxt "footer_tagline_obf"
+msgid "A collaborative, free and open database of cosmetic products from around the world."
+msgstr "A collaborative, free and open database of cosmetic products from around the world."
+
+msgctxt "site_description_obf"
+msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
+msgstr "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
+
+msgctxt "tagline_obf"
+msgid "Open Beauty Facts gathers information and data on cosmetic products from around the world."
+msgstr "Open Beauty Facts gathers information and data on cosmetic products from around the world."
+
+msgctxt "warning_not_complete_obf"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
+msgstr "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
+
+msgctxt "footer_and_the_facebook_group_obf"
+msgid "and the <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">Facebook group for contributors</a>"
+msgstr "and the <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">Facebook group for contributors</a>"
+
+msgctxt "search_description_opensearch_obf"
+msgid "Open Beauty Facts product search"
+msgstr "Open Beauty Facts product search"
+
+msgctxt "brands_example_beauty"
+msgid "Nivea, Nivea Men"
+msgstr "Nivea, Nivea Men"
+
+msgctxt "categories_example_beauty"
+msgid "Anti-dandruff shampoo, Whitening toothpaste"
+msgstr "Anti-dandruff shampoo, Whitening toothpaste"
+
+msgctxt "emb_codes_example_beauty"
+msgid "EMB 53062"
+msgstr "EMB 53062"
+
+msgctxt "generic_name_example_beauty"
+msgid "Anti-dandruff shampoo"
+msgstr "Anti-dandruff shampoo"
+
+msgctxt "product_name_example_beauty"
+msgid "Anti-Perspirant Stress Protect"
+msgstr "Anti-Perspirant Stress Protect"
+
+msgctxt "ingredients_text_example_beauty"
+msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
+msgstr "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_obf"
+msgid "/open-beauty-facts-mobile-app"
+msgstr "/open-beauty-facts-mobile-app"
+
+msgctxt "report_problem_navigation"
+msgid "Report a problem"
+msgstr "Report a problem"
+

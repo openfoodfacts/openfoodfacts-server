@@ -58,7 +58,7 @@ my $title = lang("export_product_data_photos");
 my $html = '';
 
 if (not defined $Owner_id) {
-	display_error_and_exit(lang("no_owner_defined"), 200);
+	display_error_and_exit($request_ref, lang("no_owner_defined"), 200);
 }
 
 # Require moderator status to launch the export / import process,

@@ -30,6 +30,8 @@ BEGIN {
 
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
+		$flavor
+
 		%string_normalization_for_lang
 		%admins
 
@@ -103,6 +105,8 @@ use vars @EXPORT_OK;    # no 'my' keyword for these
 
 use ProductOpener::Config2;
 
+$flavor = 'obf';
+
 # define the normalization applied to change a string to a tag id (in particular for taxonomies)
 # tag ids are also used in URLs.
 
@@ -112,6 +116,8 @@ use ProductOpener::Config2;
 # - dangerous if different words (in the same context like ingredients or category names) have the same unaccented form
 # lowercase:
 # - useful when the same word appears in lowercase, with a first capital letter, or in all caps.
+
+# IMPORTANT: if you change it, you need to change $BUILD_TAGS_VERSION in Tags.pm
 
 %string_normalization_for_lang = (
 	# no_language is used for strings that are not in a specific language (e.g. user names)
@@ -168,7 +174,16 @@ use ProductOpener::Config2;
 	teolemon
 );
 
-$options{product_type} = "beauty";
+%options = (
+	site_name => "Open Beauty Facts",
+	product_type => "beauty",
+	og_image_url => "https://world.openbeautyfacts.org/images/misc/openbeautyfacts-logo-en.png",
+	android_apk_app_link => "https://world.openbeautyfacts.org/images/apps/obf.apk",
+	android_app_link => "https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner",
+	ios_app_link => "https://apps.apple.com/app/open-beauty-facts/id1122926380",
+	facebook_page_url => "https://www.facebook.com/openbeautyfacts",
+	twitter_account => "OpenBeautyFacts",
+);
 
 @edit_rules = ();
 
