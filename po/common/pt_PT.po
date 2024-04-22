@@ -204,11 +204,6 @@ msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
 msgstr "APK Android"
 
-# DO NOT TRANSLATE
-msgctxt "android_apk_app_link"
-msgid "https://world.openfoodfacts.org/files/off.apk"
-msgstr "https://world.openfoodfacts.org/files/off.apk"
-
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
 msgctxt "android_app_icon_url"
 msgid "/images/misc/playstore/img/en_get.svg"
@@ -217,11 +212,6 @@ msgstr ""
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
 msgstr "Disponível no Google Play"
-
-# Change hl=en to your language, and make sure the url works
-msgctxt "android_app_link"
-msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en"
-msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=pt"
 
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
@@ -738,10 +728,6 @@ msgctxt "facebook_locale"
 msgid "en_US"
 msgstr "pt_PT"
 
-msgctxt "facebook_page"
-msgid "https://www.facebook.com/OpenFoodFacts"
-msgstr "https://www.facebook.com/OpenFoodFacts"
-
 msgctxt "fixme_product"
 msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
 msgstr "Se os dados estiverem incompletos ou incorretos, pode completá-los ou corrigi-los editando esta página."
@@ -845,10 +831,6 @@ msgstr "Imprensa"
 msgctxt "footer_press_link"
 msgid "/press"
 msgstr "/press"
-
-msgctxt "footer_tagline"
-msgid "A collaborative, free and open database of food products from around the world."
-msgstr "Uma base de dados colaborativa, livre e aberta sobre produtos alimentares de todo o mundo."
 
 msgctxt "footer_terms"
 msgid "Terms of use"
@@ -1128,10 +1110,6 @@ msgstr "/images/misc/appstore/black/appstore_PT_PT.svg"
 msgctxt "ios_app_icon_alt_text"
 msgid "Download on the App Store"
 msgstr "Disponível na App Store"
-
-msgctxt "ios_app_link"
-msgid "https://apps.apple.com/app/open-food-facts/id588797948"
-msgstr ""
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
@@ -2094,8 +2072,8 @@ msgid "Select products with specific brands, categories, labels, origins of ingr
 msgstr "Selecione produtos de marcas específicas, categorias, etiquetas, origens de ingredientes, locais de fabrico, etc."
 
 msgctxt "search_description_opensearch"
-msgid "Open Food Facts product search"
-msgstr "Pesquisa de produto em Open Food Facts"
+msgid "Product search"
+msgstr ""
 
 msgctxt "search_does_not_contain"
 msgid "does not contain"
@@ -2386,18 +2364,6 @@ msgctxt "signout"
 msgid "Sign-out"
 msgstr "Terminar sessão"
 
-msgctxt "site_description"
-msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
-msgstr "Uma base de dados livre, aberta e colaborativa sobre ingredientes, informações nutricionais e produtos alimentares de todo o mundo"
-
-msgctxt "site_name"
-msgid "Open Food Facts"
-msgstr "Open Food Facts"
-
-msgctxt "logo_site_name"
-msgid "Open Food Facts logo"
-msgstr "Logótipo do Open Food Facts"
-
 msgctxt "sort_by"
 msgid "Sort by"
 msgstr "Ordenar por"
@@ -2511,10 +2477,6 @@ msgctxt "twitter"
 msgid "Twitter username (optional)"
 msgstr "Nome de utilizador no Twitter (opcional)"
 
-msgctxt "twitter_account"
-msgid "OpenFoodFacts"
-msgstr "OpenFoodFacts"
-
 msgctxt "unknown"
 msgid "Unknown"
 msgstr "Desconhecido"
@@ -2616,20 +2578,6 @@ msgstr "As informações que adicionar devem ser provenientes da embalagem e dos
 msgctxt "website"
 msgid "Site or blog address"
 msgstr "Endereço do site ou blogue"
-
-# Please change English.svg to French.svg or German.svg… Check the url https://static.openfoodfacts.org/images/misc/microsoft/XXXX.svg
-msgctxt "windows_phone_app_icon_url"
-msgid "/images/misc/microsoft/English.svg"
-msgstr "/images/misc/microsoft/Portuguese-Portugal.svg"
-
-msgctxt "windows_phone_app_icon_alt_text"
-msgid "Get it from Microsoft"
-msgstr "Obter da Microsoft"
-
-# Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
-msgctxt "windows_phone_app_link"
-msgid "https://apps.microsoft.com/store/detail/open-food-facts-scan-to-get-nutriscore-ecoscore-and-more/XP8LT18SRPKLRG"
-msgstr "https://apps.microsoft.com/store/detail/open-food-facts-scan-to-get-nutriscore-ecoscore-and-more/XP8LT18SRPKLRG"
 
 msgctxt "you_are_connected_as_x"
 msgid "You are connected as %s."
@@ -6888,6 +6836,76 @@ msgstr "Open Food Facts é uma base de dados colaborativa e cada contribuição 
 msgctxt "description"
 msgid "Description"
 msgstr "Descrição"
+
+msgctxt "site_description_off"
+msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
+msgstr ""
+
+msgctxt "tagline_off"
+msgid "Open Food Facts gathers information and data on food products from around the world."
+msgstr "O Open Food Facts reúne dados e informação sobre produtos alimentares de todo o mundo."
+
+msgctxt "footer_tagline_off"
+msgid "A collaborative, free and open database of food products from around the world."
+msgstr "Uma base de dados colaborativa, livre e aberta sobre produtos alimentares de todo o mundo."
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_off"
+msgid "/open-food-facts-mobile-app"
+msgstr "/open-food-facts-mobile-app"
+
+msgctxt "site_description_obf"
+msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
+msgstr "Uma base de dados colaborativa, gratuita e aberta de ingredientes e informações sobre produtos cosméticos de todo o mundo"
+
+msgctxt "tagline_obf"
+msgid "Open Beauty Facts gathers information and data on cosmetic products from around the world."
+msgstr "Open Beauty Facts reune dados e informação sobre produtos cosméticos de todo o mundo."
+
+msgctxt "footer_tagline_obf"
+msgid "A collaborative, free and open database of cosmetic products from around the world."
+msgstr "Uma base de dados colaborativa, gratuita e aberta de produtos cosméticos de todo o mundo."
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_obf"
+msgid "/open-beauty-facts-mobile-app"
+msgstr "/open-beauty-facts-mobile-app"
+
+msgctxt "footer_and_the_facebook_group_obf"
+msgid "and the <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">Facebook group for contributors</a>"
+msgstr "e o <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">grupo do Facebook para colaboradores</a>"
+
+msgctxt "search_description_opensearch_obf"
+msgid "Open Beauty Facts product search"
+msgstr "Pesquisa de produtos do Open Beauty Facts"
+
+msgctxt "warning_not_complete_obf"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
+msgstr "Esta página de produto não está completa. Pode ajudar a completá-la editando-la e adicionando mais dados das fotografias existentes ou tirando mais fotos usando a aplicação para <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=pt\">Android</a><a href=\"https://apps.apple.com/pt/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Obrigado!"
+
+msgctxt "brands_example_beauty"
+msgid "Nivea, Nivea Men"
+msgstr "Nivea, Nivea Men"
+
+msgctxt "categories_example_beauty"
+msgid "Anti-dandruff shampoo, Whitening toothpaste"
+msgstr "Champô anti-caspa, pasta de dentes branqueadora"
+
+msgctxt "emb_codes_example_beauty"
+msgid "EMB 53062"
+msgstr "EMB 53062"
+
+msgctxt "generic_name_example_beauty"
+msgid "Anti-dandruff shampoo"
+msgstr "Shampoo anti-caspa"
+
+msgctxt "product_name_example_beauty"
+msgid "Anti-Perspirant Stress Protect"
+msgstr "Anti-Transpirante Stress Protect"
+
+msgctxt "ingredients_text_example_beauty"
+msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
+msgstr "AQUA / ÁGUA, SULFATO DE LÍTIO DE SÓDIO, COCOAMPHODIACETATE DE DISÓDIO, GLICOL DISTEARADO, COCAMIDE MEA"
 
 msgctxt "report_problem_navigation"
 msgid "Report a problem"
