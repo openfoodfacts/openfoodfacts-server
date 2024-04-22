@@ -493,6 +493,7 @@ sub check_user_form ($request_ref, $type, $user_ref, $errors_ref) {
 			push @{$errors_ref}, $Lang{error_no_username}{$lc};
 		}
 		elsif (user_exists($user_ref->{userid})) {
+
 			push @{$errors_ref}, $Lang{error_username_not_available}{$lc};
 		}
 		elsif ($user_ref->{userid} !~ /^[a-z0-9]+[a-z0-9\-]*[a-z0-9]+$/) {
@@ -749,6 +750,7 @@ sub check_edit_owner ($user_ref, $errors_ref) {
 		# Add check that organization exists when we add org profiles
 
 		if (!user_exists($userid)) {
+
 			push @{$errors_ref}, sprintf($Lang{error_user_does_not_exist}{$lc}, $userid);
 		}
 		else {

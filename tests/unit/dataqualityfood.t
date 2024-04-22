@@ -7,10 +7,10 @@ use Test2::V0;
 use Data::Dumper;
 $Data::Dumper::Terse = 1;
 
-use ProductOpener::DataQuality qw/check_quality/;
+use ProductOpener::DataQuality qw/:all/;
 use ProductOpener::DataQualityFood qw/:all/;
-use ProductOpener::Tags qw/has_tag/;
-use ProductOpener::Ingredients qw/extract_ingredients_from_text/;
+use ProductOpener::Tags qw/:all/;
+use ProductOpener::Ingredients qw/:all/;
 
 sub check_quality_and_test_product_has_quality_tag($$$$) {
 	my $product_ref = shift;
@@ -1887,4 +1887,35 @@ ok(
 	'Soluble fiber + Insoluble fiber exceeds total fiber'
 ) or diag Dumper $product_ref;
 
+# Test case: Mozzarella category with minimum number of ingredients
+my $product_ref = {
+	categories_tags => ['en:mozzarella'],
+	ingredients => ['cheese', 'salt', 'herbs'],
+	data_quality_warnings_tags => []
+};
+
+ProductOpener::DataQualityFood::check_mozzarella_ingredients($product_ref);
+
+is(scalar @{$product_ref->{data_quality_warnings_tags}},
+	0, 'Product with Mozzarella category and sufficient ingredients should not raise a warning');
+
+# Test case: Mozzarella category with insufficient ingredients
+$product_ref = {
+	categories_tags => ['en:mozzarella'],
+	ingredients => ['cheese', 'salt'],
+	data_quality_warnings_tags => []
+};
+
+ProductOpener::DataQualityFood::check_mozzarella_ingredients($product_ref);
+
+is(scalar @{$product_ref->{data_quality_warnings_tags}},
+	1, 'Product with Mozzarella category and insufficient ingredients should raise the expected warning');
+
+ok(
+	grep {$_ eq 'en:ingredients-less-than-minimum-ingredients-for-category'}
+		@{$product_ref->{data_quality_warnings_tags}},
+	'Product with Mozzarella category and insufficient ingredients should raise the expected warning'
+);
+
 done_testing();
+
