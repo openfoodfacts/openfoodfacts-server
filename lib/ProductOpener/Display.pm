@@ -800,7 +800,7 @@ sub init_request ($request_ref = {}) {
 		# Use robots.txt with disallow: / for all agents
 		$request_ref->{deny_all_robots_txt} = 1;
 
-		if ($request_ref->{is_crawl_bot} eq 1) {
+		if ($request_ref->{is_crawl_bot}) {
 			$request_ref->{no_index} = 1;
 		}
 	}

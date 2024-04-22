@@ -163,9 +163,11 @@ If the rate-limiter is not configured or if an error occurs, returns undef.
 =head3 Arguments
 
 =head4 String $ip
+
 The IP address of the user who is making the request.
 
 =head4 String $api_action
+
 The API action that is being requested.
 
 =cut
@@ -227,10 +229,13 @@ See https://redis.com/glossary/rate-limiting/ for more information.
 =head3 Arguments
 
 =head4 String $ip
+
 The IP address of the user who is making the request.
 
 =head4 String $api_action
+
 The API action that is being requested.
+
 =cut
 
 sub increment_rate_limit_requests ($ip, $api_action) {

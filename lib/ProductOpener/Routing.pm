@@ -551,9 +551,9 @@ Return 1 if the page should not be indexed by web crawlers based on analyzed req
 
 sub is_no_index_page ($request_ref) {
 	return scalar(
-		($request_ref->{is_crawl_bot} == 1) and (
+		($request_ref->{is_crawl_bot}) and (
 			# if is_denied_crawl_bot == 1, we don't accept any request from this bot
-			($request_ref->{is_denied_crawl_bot} == 1)
+			($request_ref->{is_denied_crawl_bot})
 			# All list of tags pages should be non-indexable
 			or (defined $request_ref->{groupby_tagtype})
 			or (
@@ -619,7 +619,7 @@ sub set_rate_limit_attributes ($request_ref, $ip) {
 	$request_ref->{rate_limiter_user_requests} = get_rate_limit_user_requests($ip, $api_action);
 
 	my $limit;
-	if ($api_action eq "search" or $request_ref->{search} == 1) {
+	if (($api_action eq "search") or ($request_ref->{search})) {
 		$limit = $options{rate_limit_search};
 	}
 	elsif ($api_action eq "product") {
@@ -640,7 +640,7 @@ sub set_rate_limit_attributes ($request_ref, $ip) {
 	{
 		my $block_message = "Rate-limiter blocking: the user has reached the rate-limit";
 		# Check if rate-limit blocking is enabled
-		if ($rate_limiter_blocking_enabled eq "1") {
+		if ($rate_limiter_blocking_enabled) {
 			$request_ref->{rate_limiter_blocking} = 1;
 		}
 		else {
@@ -662,7 +662,7 @@ sub set_rate_limit_attributes ($request_ref, $ip) {
 
 sub check_and_update_rate_limits($request_ref) {
 	# There is no need to check the rate-limiter if we return a no-index page
-	if ($request_ref->{no_index} ne 1) {
+	if (not $request_ref->{no_index}) {
 		my $ip_address = remote_addr();
 		# Set rate-limiter related request attributes
 		set_rate_limit_attributes($request_ref, $ip_address);
