@@ -22,6 +22,7 @@
 	</ul>
 
 	[% IF allow_submit %]
+		<div class="skip"><a href="#export_photos" tabindex="-1">[% lang('skip_to_content') %]</a></div>
 
 		<label for="export_photos">
 			<input type="checkbox" id="export_photos" name="export_photos" [% export_photos_value %]>
@@ -40,6 +41,8 @@
 		
 		[% IF admin %]
 		
+		<div class="skip"><a href="#overwrite_owner" tabindex="-1">[% lang('skip_to_content') %]</a></div>
+
 		<label for="overwrite_owner">
 			<input type="checkbox" id="overwrite_owner" name="overwrite_owner" [% overwrite_owner %]>	
 			[% lang('overwrite_owner') %]
