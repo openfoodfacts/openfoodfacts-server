@@ -63,7 +63,6 @@ use experimental 'smartmatch';
 use ProductOpener::Config qw/:all/;
 
 use MongoDB;
-use Tie::IxHash;
 use JSON::PP;
 use CGI ':cgi-lib';
 use Log::Any qw($log);
