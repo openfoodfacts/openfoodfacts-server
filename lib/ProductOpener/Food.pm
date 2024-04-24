@@ -1211,23 +1211,6 @@ sub is_red_meat_product_for_nutrition_score ($product_ref) {
 	return 0;
 }
 
-=head2 special_process_product ( $ingredients_ref )
-
-Computes food groups, and whether a product is to be considered a beverage for the Nutri-Score.
-
-Ingredients analysis (extract_ingredients_from_text) needs to be done before calling this function?
-
-=cut
-
-sub special_process_product ($product_ref) {
-
-	assign_categories_properties_to_product($product_ref);
-
-	compute_food_groups($product_ref);
-
-	return;
-}
-
 sub fix_salt_equivalent ($product_ref) {
 
 	# EU fixes the conversion: sodium = salt / 2.5 (instead of 2.54 previously)

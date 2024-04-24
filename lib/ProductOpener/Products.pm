@@ -128,7 +128,6 @@ use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die/;
 use ProductOpener::Users qw/$Org_id $Owner_id $User_id %User init_user/;
 use ProductOpener::Orgs qw/retrieve_org/;
 use ProductOpener::Lang qw/$lc %tag_type_singular lang/;
-use ProductOpener::Food qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Mail qw/send_email/;
 use ProductOpener::URL qw/format_subdomain/;
@@ -137,16 +136,17 @@ use ProductOpener::MainCountries qw/compute_main_countries/;
 use ProductOpener::Text qw/remove_email remove_tags_and_quote/;
 use ProductOpener::Display qw/single_param/;
 use ProductOpener::Redis qw/push_to_redis_stream/;
+use ProductOpener::Food qw/%nutriments_lists/;
 
 # needed by analyze_and_enrich_product_data()
 # may be moved to another module at some point
-use ProductOpener::Ingredients
-	qw/clean_ingredients_text detect_allergens_from_text extract_ingredients_classes_from_text extract_ingredients_from_text select_ingredients_lc/;
-use ProductOpener::Nutriscore qw/:all/;
-use ProductOpener::Ecoscore qw/compute_ecoscore/;
-use ProductOpener::ForestFootprint qw/compute_forest_footprint/;
 use ProductOpener::Packaging qw/analyze_and_combine_packaging_data/;
 use ProductOpener::DataQuality qw/check_quality/;
+
+# Specific to the product type
+use ProductOpener::FoodProducts qw/specific_processes_for_food_product/;
+use ProductOpener::PetFoodProducts qw/specific_processes_for_pet_food_product/;
+use ProductOpener::BeautyProducts qw/specific_processes_for_beauty_product/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
@@ -3675,46 +3675,21 @@ sub analyze_and_enrich_product_data ($product_ref, $response_ref) {
 		}
 	}
 
-	compute_languages($product_ref);    # need languages for allergens detection and cleaning ingredients
-
-	# Ingredients classes
-	# Select best language to parse ingredients
-	$product_ref->{ingredients_lc} = select_ingredients_lc($product_ref);
-	clean_ingredients_text($product_ref);
-	extract_ingredients_from_text($product_ref);
-	extract_ingredients_classes_from_text($product_ref);
-	detect_allergens_from_text($product_ref);
-
-	# Food category rules for sweetened/sugared beverages
-	# French PNNS groups from categories
-
-	if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
-		ProductOpener::Food::special_process_product($product_ref);
-	}
-
-	# Compute nutrition data per 100g and per serving
-
-	$log->debug("compute nutrition data") if $log->is_debug();
-
-	fix_salt_equivalent($product_ref);
-
-	compute_serving_size_data($product_ref);
-
-	compute_estimated_nutrients($product_ref);
-
-	compute_nutriscore($product_ref);
-
-	compute_nova_group($product_ref);
-
-	compute_nutrient_levels($product_ref);
-
-	compute_unknown_nutrients($product_ref);
-
+	# We need packaging analysis before calling the Eco-Score for food products
 	analyze_and_combine_packaging_data($product_ref, $response_ref);
 
-	if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
-		compute_ecoscore($product_ref);
-		compute_forest_footprint($product_ref);
+	compute_languages($product_ref);    # need languages for allergens detection and cleaning ingredients
+
+	# Run special analysis, score calculations that it specific to the product type
+
+	if (($options{product_type} eq "food")) {
+		specific_processes_for_food_product($product_ref);
+	}
+	elsif (($options{product_type} eq "pet_food")) {
+		specific_processes_for_pet_food_product($product_ref);
+	}
+	elsif (($options{product_type} eq "beauty")) {
+		specific_processes_for_beauty_product($product_ref);
 	}
 
 	ProductOpener::DataQuality::check_quality($product_ref);

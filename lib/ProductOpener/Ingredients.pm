@@ -39,7 +39,7 @@ ingredients (is the product vegetarian, vegan, does it contain palm oil etc.)
 
 	extract_ingredients_from_text($product_ref);
 
-	extract_ingredients_classes_from_text($product_ref);
+	extract_additives_from_text($product_ref);
 
 	detect_allergens_from_text($product_ref);
 
@@ -77,7 +77,7 @@ BEGIN {
 		&normalize_a_of_b
 		&normalize_enumeration
 
-		&extract_ingredients_classes_from_text
+		&extract_additives_from_text
 		&extract_ingredients_from_text
 		&preparse_ingredients_text
 
@@ -6364,7 +6364,17 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	return $text;
 }
 
-sub extract_ingredients_classes_from_text ($product_ref) {
+=head2 extract_additives_from_text ($product_ref) - extract additives from the ingredients text
+
+This function extracts additives from the ingredients text and adds them to the product_ref in the additives_tags array.
+
+=head3 Arguments
+
+=head4 Product reference
+
+=cut
+
+sub extract_additives_from_text ($product_ref) {
 
 	if (not defined $product_ref->{ingredients_text}) {
 		return;
