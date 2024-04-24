@@ -234,13 +234,13 @@ if ($imagefield) {
 
 	my $imgid;
 	my $debug_string;
-	my $comment;
+	my $comment=request_param("comment");
 
 	my $imagefield_or_filename = $imagefield;
 	(defined $tmp_filename) and $imagefield_or_filename = $tmp_filename;
 
 	my $imgid_returncode
-		= process_image_upload($product_id, $imagefield_or_filename, $User_id, time(), $comment, \$imgid,
+		= process_image_upload($product_id, $imagefield_or_filename, $User_id, time(),"image upload", $comment, \$imgid,
 		\$debug_string);
 
 	$log->debug(
