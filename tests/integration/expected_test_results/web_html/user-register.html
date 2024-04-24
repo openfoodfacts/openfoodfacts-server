@@ -340,26 +340,7 @@
 
     inputfield.value = value;
     }
-    
-function togglePasswordVisibility(FieldID) {
-    const passwordInput = document.getElementById(FieldID);
-    const toggleIcon = passwordInput.nextElementSibling.querySelector(".material-icons");
-
-    if (passwordInput.type === "password") {
-        passwordInput.type = "text";
-        if (toggleIcon) {
-            toggleIcon.textContent = "visibility";
-        }
-       
-    } else {
-        passwordInput.type = "password";
-        if (toggleIcon) {
-            toggleIcon.textContent = "visibility_off";
-        }
-    }
-}
 </script>
-
 <style>
     .pro_org_display {
         display: none;
@@ -1639,33 +1620,12 @@ function togglePasswordVisibility(FieldID) {
 <script src="//static.openfoodfacts.localhost/js/dist/display.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/stikelem.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/scrollNav.js"></script>
+<script src="//static.openfoodfacts.localhost/js/dist/togglepassword.js"></script>
+<script src="//static.openfoodfacts.localhost/js/dist/user_form.js"></script>
 
 <script>
 $(function() {
 
-$(document).ready( function () {
-
-	$('#pro').change(function() {
-	if ($(this).prop('checked')) {
-		$('.pro_org_display').show();
-		$('#teams_section').hide();
-		if ( ! $('#pro-email-warning').length ) {
-			let pro_email_warning = '<div style="color: red; font-weight: 600;" id="pro-email-warning">🚨 Please note that your Pro account will only be valid if you use your professional e-mail address. Our moderation team checks that the domain name is consistent with the organisation you wish to join.</div>';
-			$('.pro_org_display').first().prepend(pro_email_warning);
-		}
-	} else {
-		$('.pro_org_display').hide();
-		$('#teams_section').show();
-	}
-	$(document).foundation('equalizer', 'reflow');
-});
-
-if ($('#pro').prop('checked')) {
-	$('.pro_org_display').show();
-	$('#teams_section').hide();
-}
-
-});
 
 });
 </script>
