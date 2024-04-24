@@ -7,7 +7,6 @@
 [% IF action == 'display' %]
 
 	[% IF org_does_not_exist %]
-		<div class="skip"><a href=".panel" tabindex="-1">[% lang('skip_to_content') %]</a></div>
 		<div class="panel" style="background-color:#ffdddd">The organization <strong>[% orgid %]</strong> does not exist yet. It will be created if you submit the form.</div>
 	[% END %]
 
