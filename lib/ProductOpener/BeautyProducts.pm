@@ -51,7 +51,7 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Ingredients
 	qw/select_ingredients_lc clean_ingredients_text extract_ingredients_from_text extract_additives_from_text detect_allergens_from_text/;
-use ProductOpener::Food qw/compute_serving_size_data/;
+use ProductOpener::Food qw/compute_serving_size_data assign_categories_properties_to_product/;
 
 use Log::Any qw($log);
 

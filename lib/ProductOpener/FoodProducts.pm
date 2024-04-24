@@ -52,7 +52,7 @@ use vars @EXPORT_OK;
 use ProductOpener::Ingredients
 	qw/select_ingredients_lc clean_ingredients_text extract_ingredients_from_text extract_additives_from_text detect_allergens_from_text/;
 use ProductOpener::NutritionEstimation qw/estimate_nutrients_from_ingredients/;
-use ProductOpener::Food qw/fix_salt_equivalent compute_serving_size_data compute_estimated_nutrients compute_unknown_nutrients compute_nova_group/;
+use ProductOpener::Food qw/fix_salt_equivalent compute_serving_size_data assign_categories_properties_to_product compute_estimated_nutrients compute_unknown_nutrients compute_nova_group compute_nutriscore compute_nutrient_levels/;
 use ProductOpener::Nutriscore qw/:all/;
 use ProductOpener::Ecoscore qw/compute_ecoscore/;
 use ProductOpener::ForestFootprint qw/compute_forest_footprint/;
