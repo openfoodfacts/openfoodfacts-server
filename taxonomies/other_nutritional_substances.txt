@@ -75,6 +75,9 @@ th:คาร์นิทีน
 tr:Karnitin
 uk:Карнитин
 zh:肉碱
+vegan:en:maybe
+# ingredient/Carnitine has 194 products @2019-06-23
+vegetarian:en:maybe
 # azb:کارنیتین
 # sr-ec:карнитин
 # sr-el:Karnitin
@@ -86,9 +89,6 @@ zh:肉碱
 # zh-tw:肉鹼
 wikidata:en:Q243309
 wikipedia:en:https://en.wikipedia.org/wiki/Carnitine
-# ingredient/Carnitine has 194 products @2019-06-23
-vegetarian:en:maybe
-vegan:en:maybe
 
 # description:en:L-CARNITINE is the left isomer of carnitine, a quaternary ammonium compound involved in metabolism in most mammals, plants and some bacteria. The body synthesizes enough carnitine from lysine side chains to keep up with the needs of energy production in the body as carnitine acts as a transporter of long-chain fatty acids into the mitochondria to be oxidized and produce energy. Food sources rich in L-carnitine are animal products such as meat, poultry, fish, and milk. Redder meats tend to have higher levels of L-carnitine. Some individuals with genetic or medical disorders (like preterm infants) cannot make enough, so this makes carnitine a conditionally essential nutrient for them.
 
@@ -220,6 +220,8 @@ uk:Таурин
 vi:Taurine
 wa:Torene
 zh:牛磺酸
+vegan:en:maybe
+vegetarian:en:maybe
 # zh-cn:牛磺酸
 # zh-hans:牛磺酸
 # zh-hant:牛磺酸
@@ -228,8 +230,6 @@ zh:牛磺酸
 # zh-tw:牛磺酸
 wikidata:en:Q207051
 wikipedia:en:https://en.wikipedia.org/wiki/Taurine
-vegan:en:maybe
-vegetarian:en:maybe
 # ingredient/fr:taurine has 309 products in 6 languages @2019-5-17
 # other-nutritional-substance/taurine has 591 products in 8 languages @2019-05-17
 
@@ -274,12 +274,12 @@ tr:Kolin
 # tyv:Холин
 uk:Холін
 zh:胆碱
+vegan:en:maybe
+# ingredient/choline has 73 products @2019-06-23
+vegetarian:en:maybe
 # zh_CN:胆碱
 wikidata:en:Q193166
 wikipedia:en:https://en.wikipedia.org/wiki/Choline
-# ingredient/choline has 73 products @2019-06-23
-vegetarian:en:maybe
-vegan:en:maybe
 
 # description:en:Choline chloride is an organic compound containing both quaternary ammonium salt and an alcohol. It is an important additive in feed especially for chickens where it accelerates growth. The US Food and Drug Administration requires that infant formula not made from cow's milk be supplemented with choline. Choline-providing dietary supplement ingredients include: choline chloride, choline bitartrate, citicoline (CDP-choline), L-alpha-glycerophosphocholine (Alpha-GPC), lecithin, phosphatidylcholine.
 
@@ -408,6 +408,10 @@ sr:инозитол
 sv:inositol
 uk:Інозитол
 zh:肌醇
+# ingredient/inositol has 296 products @2019-06-23
+vegan:en:yes
+vegetarian:en:yes
+wikidata:en:Q407997
 # azb:اینوزیتول
 # en-ca:inositol
 # en-gb:inositol
@@ -421,7 +425,4 @@ zh:肌醇
 # zh-sg:肌醇
 # zh-tw:肌醇
 wikipedia:en:https://en.wikipedia.org/wiki/Inositol
-wikidata:en:Q407997
-# ingredient/inositol has 296 products @2019-06-23
-vegan:en:yes
-vegetarian:en:yes
+

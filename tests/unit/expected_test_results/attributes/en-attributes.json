@@ -846,6 +846,7 @@
       {
          "ciqual_proxy_food_code" : "9410",
          "id" : "en:wheat-flour",
+         "is_in_taxonomy" : 1,
          "origins" : "en:united-kingdom",
          "percent_estimate" : 54.5454545454545,
          "percent_max" : 100,
@@ -857,6 +858,7 @@
       {
          "ciqual_proxy_food_code" : "31016",
          "id" : "en:sugar",
+         "is_in_taxonomy" : 1,
          "origins" : "en:paraguay",
          "percent_estimate" : 12.5,
          "percent_max" : 25,
@@ -868,6 +870,7 @@
       {
          "ciqual_food_code" : "22000",
          "id" : "en:egg",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 12.5,
          "percent_max" : 25,
          "percent_min" : 0,
@@ -878,6 +881,7 @@
       {
          "ciqual_food_code" : "13014",
          "id" : "en:strawberry",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 10.2272727272727,
          "percent_max" : 25,
          "percent_min" : 0,
@@ -888,6 +892,7 @@
       {
          "ciqual_food_code" : "31077",
          "id" : "en:high-fructose-corn-syrup",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 5.11363636363636,
          "percent_max" : 20,
          "percent_min" : 0,
@@ -899,6 +904,7 @@
          "ciqual_food_code" : "17130",
          "from_palm_oil" : "no",
          "id" : "en:rapeseed-oil",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 2.55681818181818,
          "percent_max" : 16.6666666666667,
          "percent_min" : 0,
@@ -909,6 +915,7 @@
       {
          "ciqual_food_code" : "15027",
          "id" : "en:macadamia-nut",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 1.27840909090909,
          "percent_max" : 14.2857142857143,
          "percent_min" : 0,
@@ -918,6 +925,7 @@
       },
       {
          "id" : "en:milk-proteins",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 0.639204545454547,
          "percent_max" : 12.5,
          "percent_min" : 0,
@@ -928,6 +936,7 @@
       {
          "ciqual_food_code" : "11058",
          "id" : "en:salt",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 0.125,
          "percent_max" : 0.25,
          "percent_min" : 0,
@@ -937,6 +946,7 @@
       },
       {
          "id" : "en:e102",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 0.125,
          "percent_max" : 0.25,
          "percent_min" : 0,
@@ -946,6 +956,7 @@
       },
       {
          "id" : "en:e120",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 0.389204545454547,
          "percent_max" : 0.25,
          "percent_min" : 0,

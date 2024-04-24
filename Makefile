@@ -251,11 +251,9 @@ front_build:
 	COMPOSE_PATH_SEPARATOR=";" COMPOSE_FILE="docker-compose.yml;docker/dev.yml;docker/jslint.yml" docker compose run --rm dynamicfront  npm run build
 
 
-checks: front_build front_lint check_perltidy check_perl_fast check_critic
-# TODO: add check_taxonomies when taxonomies ready
+checks: front_build front_lint check_perltidy check_perl_fast check_critic check_taxonomies
 
-lint: lint_perltidy
-# TODO: add lint_taxonomies when taxonomies ready
+lint: lint_perltidy lint_taxonomies
 
 tests: build_taxonomies_test build_lang_test unit_test integration_test
 
@@ -387,13 +385,12 @@ TAXONOMIES_TO_CHECK := $(shell [ -x "`which git 2>/dev/null`" ] && git diff orig
 check_taxonomies:
 	@echo "🥫 Checking taxonomies"
 	test -z "${TAXONOMIES_TO_CHECK}" || \
-	${DOCKER_COMPOSE} run --rm --no-deps backend scripts/taxonomies/lint_taxonomy.pl --verbose --check --no-sort ${TAXONOMIES_TO_CHECK}
+	${DOCKER_COMPOSE} run --rm --no-deps backend scripts/taxonomies/lint_taxonomy.pl --verbose -check ${TAXONOMIES_TO_CHECK}
 
-# TODO remove --no-sort as soon as we have sorted taxonomies
 lint_taxonomies:
 	@echo "🥫 Linting taxonomies"
 	test -z "${TAXONOMIES_TO_CHECK}" || \
-	${DOCKER_COMPOSE} run --rm --no-deps backend scripts/taxonomies/lint_taxonomy.pl --verbose --no-sort ${TAXONOMIES_TO_CHECK}
+	${DOCKER_COMPOSE} run --rm --no-deps backend scripts/taxonomies/lint_taxonomy.pl --verbose ${TAXONOMIES_TO_CHECK}
 
 
 check_openapi_v2:

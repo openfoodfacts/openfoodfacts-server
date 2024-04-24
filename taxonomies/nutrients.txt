@@ -16,8 +16,8 @@ stopwords:hr: od kojih
 stopwords:nl: waarvan
 
 zz:energy-kj
-en:Energy (kJ)
 xx:Energy (kJ)
+en:Energy (kJ)
 ar:الطاقه (kJ)
 bg:Енергийна стойност (kJ)
 cs:Energetická hodnota (kJ)
@@ -54,12 +54,12 @@ zh:能量 (kJ)
 zh_CN:能量 (kJ)
 zh_HK:能量 (kJ)
 zh_TW:能量 (kJ)
-unit:en: kj
 evaluation:en: bad
+unit:en: kj
 
 zz:energy-kcal
-en:Energy (kcal), kcal, kilocalories
 xx:Energy (kcal), kcal, kilocalories
+en:Energy (kcal), kcal, kilocalories
 ar:الطاقه (kcal)
 bg:Енергийна стойност (kcal)
 cs:Energetická hodnota (kcal)
@@ -96,12 +96,12 @@ zh:能量 (kcal)
 zh_CN:能量 (kcal)
 zh_HK:能量 (kcal)
 zh_TW:能量 (kcal)
-unit:en: kcal
 evaluation:en: bad
+unit:en: kcal
 
 zz:energy
-en:Energy
 xx:Energy
+en:Energy
 af:energie
 am:አቅም
 an:enerchía
@@ -211,16 +211,16 @@ zh:能量
 zh_CN:能量
 zh_HK:能量
 zh_TW:能量
+evaluation:en: bad
 unit:en: kj
 unit_ca:en: kcal
 unit_us:en: kcal
 wikidata:en: Q11379
 wikipedia:en: https://en.wikipedia.org/wiki/Food_energy
-evaluation:en: bad
 
 zz:energy-from-fat
-en:Energy from fat
 xx:Energy from fat
+en:Energy from fat
 cs:Energie z tuku
 de:Brennwert aus Fetten
 fi:Energia rasvasta
@@ -235,14 +235,14 @@ zh:来自脂肪的能量
 zh_CN:来自脂肪的能量
 zh_HK:來自脂肪的能量
 zh_TW:來自脂肪的能量
+evaluation:en: bad
 unit:en: kj
 unit_ca:en: kcal
 unit_us:en: kcal
-evaluation:en: bad
 
 zz:fat
-en:Fat, Total fat, Lipids, fats
 xx:Fat, Total fat, Lipids, fats
+en:Fat, Total fat, Lipids, fats
 af:Vet
 ak:sradeɛ
 an:Graixa
@@ -324,14 +324,14 @@ zh:脂肪
 zh_CN:脂肪
 zh_HK:脂肪
 zh_TW:脂肪
+evaluation:en: bad
 unit:en: g
 wikidata:en: Q127980
 wikipedia:en: https://en.wikipedia.org/wiki/Fat
-evaluation:en: bad
 
 zz:saturated-fat
-en:Saturated fat, Saturated fatty acids, saturated
 xx:Saturated fat, Saturated fatty acids
+en:Saturated fat, Saturated fatty acids, saturated
 ar:دهن مشبع
 bg:Наситени мастни киселини
 ca:àcid gras saturat
@@ -386,14 +386,14 @@ zh:饱和脂肪
 zh_CN:饱和脂肪
 zh_HK:飽和脂肪
 zh_TW:飽和脂肪
+evaluation:en: bad
 unit:en: g
 wikidata:en: Q970537
 wikipedia:en: https://en.wikipedia.org/wiki/Saturated_fat
-evaluation:en: bad
 
 zz:butyric-acid
-en:Butyric acid
 xx:Butyric acid
+en:Butyric acid
 af:Bottersuur
 ar:الزبدة
 bg:Маслена киселина
@@ -451,8 +451,8 @@ wikidata:en: Q193213
 wikipedia:en: https://en.wikipedia.org/wiki/Butyric_acid
 
 zz:caproic-acid
-en:Caproic acid, Hexanoic acid
 xx:Caproic acid, Hexanoic acid
+en:Caproic acid, Hexanoic acid
 ar:حمض الهكسانويك
 az:Kapron turşusu
 bg:Капронова киселина
@@ -496,8 +496,8 @@ wikidata:en: Q422597
 wikipedia:en: https://en.wikipedia.org/wiki/Hexanoic_acid
 
 zz:caprylic-acid
-en:Caprylic acid
 xx:Caprylic acid
+en:Caprylic acid
 ar:حمض الأوكتانويك
 bg:Каприлова киселина
 ca:àcid caprílic
@@ -536,8 +536,8 @@ wikidata:en: Q409564
 wikipedia:en: https://en.wikipedia.org/wiki/Caprylic_acid
 
 zz:capric-acid
-en:Capric acid
 xx:Capric acid
+en:Capric acid
 ar:حمض الديكانويك
 bg:Капринова киселина 
 ca:àcid càpric
@@ -579,8 +579,8 @@ wikidata:en: Q422613
 wikipedia:en: https://en.wikipedia.org/wiki/Decanoic_acid
 
 zz:lauric-acid
-en:Lauric acid
 xx:Lauric acid
+en:Lauric acid
 ar:حمض الغار
 bg:Лауринова киселина
 ca:àcid làuric
@@ -628,8 +628,8 @@ wikidata:en: Q422627
 wikipedia:en: https://en.wikipedia.org/wiki/Lauric_acid
 
 zz:myristic-acid
-en:Myristic acid
 xx:Myristic acid
+en:Myristic acid
 ar:حمض الميريستيك
 bg:Миристинова киселина
 bs:Miristinska kiselina
@@ -675,8 +675,8 @@ wikidata:en: Q422658
 wikipedia:en: https://en.wikipedia.org/wiki/Myristic_acid
 
 zz:palmitic-acid
-en:Palmitic acid
 xx:Palmitic acid
+en:Palmitic acid
 ar:حمض النخيل
 be:Пальміцінавая кіслата
 bg:Палмитинова киселина
@@ -735,8 +735,8 @@ wikidata:en: Q209727
 wikipedia:en: https://en.wikipedia.org/wiki/Palmitic_acid
 
 zz:Allulose, Psicose
-en:Allulose, Psicose
 xx:Allulose, Psicose
+en:Allulose, Psicose
 ar:بسايكوز
 be:Псікоза
 bg:Псикоза
@@ -765,8 +765,8 @@ wikidata:en: Q423198
 wikipedia:en: https://en.wikipedia.org/wiki/Psicose
 
 zz:stearic-acid
-en:Stearic acid
 xx:Stearic acid
+en:Stearic acid
 ar:حمض الشمع
 be:Стэарынавая кіслата
 bg:стеаринова киселина
@@ -825,8 +825,8 @@ wikidata:en: Q209685
 wikipedia:en: https://en.wikipedia.org/wiki/Stearic_acid
 
 zz:arachidic-acid
-en:Arachidic acid
 xx:Arachidic acid
+en:Arachidic acid
 ar:حمض الأراكيديك
 bg:арахинова киселина
 ca:Àcid icosanoic
@@ -867,8 +867,8 @@ wikidata:en: Q409608
 wikipedia:en: https://en.wikipedia.org/wiki/Arachidic_acid
 
 zz:behenic-acid
-en:Behenic acid
 xx:Behenic acid
+en:Behenic acid
 ar:حمض البيهينيك
 bg:бехенова киселина
 ca:Àcid behènic
@@ -910,8 +910,8 @@ wikidata:en: Q422590
 wikipedia:en: https://en.wikipedia.org/wiki/Behenic_acid
 
 zz:lignoceric-acid
-en:Lignoceric acid
 xx:Lignoceric acid
+en:Lignoceric acid
 ar:حمض الليغنوسيريك
 bg:лигноцеринова киселина
 ca:àcid lignocèric
@@ -948,8 +948,8 @@ wikidata:en: Q422634
 wikipedia:en: https://en.wikipedia.org/wiki/Lignoceric_acid
 
 zz:cerotic-acid
-en:Cerotic acid, hexacosanoic acid
 xx:Cerotic acid, hexacosanoic acid
+en:Cerotic acid, hexacosanoic acid
 ar:حمض السيروتيك
 bg:Церотична киселина 
 ca:Àcid ceròtic
@@ -984,8 +984,8 @@ wikidata:en: Q903348
 wikipedia:en: https://en.wikipedia.org/wiki/Cerotic_acid
 
 zz:montanic-acid
-en:Montanic acid
 xx:Montanic acid
+en:Montanic acid
 ar:حمض المونتانيك
 bg:Монтанова киселина 
 ca:Àcid octacosanoic
@@ -1019,8 +1019,8 @@ wikidata:en: Q911196
 wikipedia:en: https://en.wikipedia.org/wiki/Montanic_acid
 
 zz:melissic-acid
-en:Melissic acid
 xx:Melissic acid
+en:Melissic acid
 ar:حمض الميليسيك
 bg:Мелисинова киселина 
 ca:Àcid triacontanoic
@@ -1053,13 +1053,13 @@ wikidata:en: Q420731
 wikipedia:en: https://en.wikipedia.org/wiki/Melissic_acid
 
 zz:unsaturated-fat
-en:Unsaturated fat
 xx:Unsaturated fat
+en:Unsaturated fat
 nl:Onverzadigde vetzuren, Onverzadigd vet, onverzadigde vetten
 
 zz:monounsaturated-fat
-en:Monounsaturated fat, mono-unsaturated fat, monounsaturated, mono-unsaturated
 xx:Monounsaturated fat
+en:Monounsaturated fat, mono-unsaturated fat, monounsaturated, mono-unsaturated
 ar:دهون أحادية غير مشبعة
 be:Монаненасычаныя тлустыя кіслоты
 bg:Мононенаситени мастни киселини
@@ -1111,8 +1111,8 @@ wikidata:en: Q650973
 wikipedia:en: https://en.wikipedia.org/wiki/Monounsaturated_fat
 
 zz:polyunsaturated-fat
-en:Polyunsaturated fat, poly-unsaturated fat, polyunsaturated, poly-unsaturated
 xx:Polyunsaturated fat
+en:Polyunsaturated fat, poly-unsaturated fat, polyunsaturated, poly-unsaturated
 ar:دهون غير مشبعة متعددة
 bg:Полиненаситени мастни киселини
 ca:Àcid gras poliinsaturat
@@ -1159,8 +1159,8 @@ unit:en: g
 wikidata:en: Q3604509
 
 zz:omega-3-fat
-en:Omega 3 fat, Omega 3 fatty acids
 xx:Omega 3 fat, Omega 3 fatty acids
+en:Omega 3 fat, Omega 3 fatty acids
 bg:Омега 3 мастни киселини
 cs:Omega 3 mastné kyseliny
 de:Omega-3-Fettsäuren
@@ -1185,8 +1185,8 @@ zh_TW:Omega 3 脂肪酸
 unit:en: mg
 
 zz:alpha-linolenic-acid
-en:Alpha-linolenic acid, ALA
 xx:Alpha-linolenic acid, ALA
+en:Alpha-linolenic acid, ALA
 ar:حمض ألفا-اللينولينيك
 bg:Алфа-линоленова киселина 
 ca:àcid alfa-linolènic
@@ -1237,8 +1237,8 @@ wikidata:en: Q256502
 wikipedia:en: https://en.wikipedia.org/wiki/Alpha-Linolenic_acid
 
 zz:eicosapentaenoic-acid
-en:Eicosapentaenoic acid, EPA
 xx:Eicosapentaenoic acid, EPA
+en:Eicosapentaenoic acid, EPA
 ar:حمض الإيكوسابنتاينويك
 bg:Ейкозапентаенова киселина 
 ca:Àcid eicosapentaenoic
@@ -1281,8 +1281,8 @@ wikidata:en: Q409990
 wikipedia:en: https://en.wikipedia.org/wiki/Eicosapentaenoic_acid
 
 zz:docosahexaenoic-acid
-en:Docosahexaenoic acid, DHA
 xx:Docosahexaenoic acid, DHA
+en:Docosahexaenoic acid, DHA
 ar:حمض الدوكوساهكساينويك
 bg:Докозахексаенова киселина
 ca:Àcid docosahexaenoic
@@ -1328,8 +1328,8 @@ wikidata:en: Q423345
 wikipedia:en: https://en.wikipedia.org/wiki/Docosahexaenoic_acid
 
 zz:omega-6-fat
-en:Omega 6 fat, Omega 6 fatty acids
 xx:Omega 6 fat, Omega 6 fatty acids
+en:Omega 6 fat, Omega 6 fatty acids
 bg:Омега 6 мастни киселини
 de:Omega-6-Fettsäuren
 el:Ωμέγα-6 λιπαρά
@@ -1353,8 +1353,8 @@ zh_TW:Omega 6 脂肪酸
 unit:en: mg
 
 zz:linoleic-acid
-en:Linoleic acid, LA
 xx:Linoleic acid, LA
+en:Linoleic acid, LA
 ar:حمض اللينولييك
 be:Лінолевая кіслата
 bg:Линолова киселина 
@@ -1402,8 +1402,8 @@ wikidata:en: Q407426
 wikipedia:en: https://en.wikipedia.org/wiki/Linoleic_acid
 
 zz:arachidonic-acid
-en:Arachidonic acid, AA, ARA
 xx:Arachidonic acid, AA, ARA
+en:Arachidonic acid, AA, ARA
 ar:حمض الأراكيدونيك
 be:Арахідонавая кіслата
 bg:арахидонова киселина
@@ -1453,8 +1453,8 @@ wikidata:en: Q407699
 wikipedia:en: https://en.wikipedia.org/wiki/Arachidonic_acid
 
 zz:gamma-linolenic-acid
-en:Gamma-linolenic acid, GLA, gamolenic acid
 xx:Gamma-linolenic acid, GLA, gamolenic acid
+en:Gamma-linolenic acid, GLA, gamolenic acid
 ar:حمض غاما-اللينولينيك
 bg:Гама-линоленова киселина 
 ca:Àcid γ-linolènic
@@ -1491,8 +1491,8 @@ wikidata:en: Q415885
 wikipedia:en: https://en.wikipedia.org/wiki/Gamma-Linolenic_acid
 
 zz:dihomo-gamma-linolenic-acid
-en:Dihomo-gamma-linolenic acid, DGLA
 xx:Dihomo-gamma-linolenic acid, DGLA
+en:Dihomo-gamma-linolenic acid, DGLA
 ar:حمض ديهومو-غاما-اللينولينيك
 bg:Дихомо-гама-линоленова киселина 
 ca:Àcid dihomo-γ-linolènic
@@ -1521,8 +1521,8 @@ wikidata:en: Q415398
 wikipedia:en: https://en.wikipedia.org/wiki/Dihomo-γ-linolenic_acid
 
 zz:omega-9-fat
-en:Omega 9 fat, Omega 9 fatty acids
 xx:Omega 9 fat, Omega 9 fatty acids
+en:Omega 9 fat, Omega 9 fatty acids
 bg:Омега 9 мастни киселини 
 de:Omega-9-Fettsäuren
 el:Ωμέγα-9 λιπαρά
@@ -1546,8 +1546,8 @@ zh_TW:Omega-9 脂肪酸
 unit:en: mg
 
 zz:oleic-acid
-en:Oleic acid
 xx:Oleic acid
+en:Oleic acid
 ar:حمض الزيت
 be:Алеінавая кіслата
 bg:олеинова киселина
@@ -1605,8 +1605,8 @@ wikidata:en: Q207688
 wikipedia:en: https://en.wikipedia.org/wiki/Oleic_acid
 
 zz:elaidic-acid
-en:Elaidic acid
 xx:Elaidic acid
+en:Elaidic acid
 ar:حمض الإيلايديك
 bg:елайдинова киселина
 ca:àcid elaídic
@@ -1640,8 +1640,8 @@ wikidata:en: Q413491
 wikipedia:en: https://en.wikipedia.org/wiki/Elaidic_acid
 
 zz:gondoic-acid
-en:Gondoic acid
 xx:Gondoic acid
+en:Gondoic acid
 ar:حمض الغوندويك
 bg:Гондоева киселина 
 ca:Àcid gondòic
@@ -1672,8 +1672,8 @@ wikidata:en: Q416618
 wikipedia:en: https://en.wikipedia.org/wiki/11-Eicosenoic_acid
 
 zz:mead-acid
-en:Mead acid
 xx:Mead acid
+en:Mead acid
 ar:حمض ميد
 ca:Àcid de Mead
 de:Mead'sche Säure
@@ -1700,8 +1700,8 @@ wikidata:en: Q416610
 wikipedia:en: https://en.wikipedia.org/wiki/Mead_acid
 
 zz:erucic-acid
-en:Erucic acid
 xx:Erucic acid
+en:Erucic acid
 ar:حمض الإروسيك
 bg:Ерукова киселина
 ca:àcid erúcic
@@ -1745,8 +1745,8 @@ wikidata:en: Q413531
 wikipedia:en: https://en.wikipedia.org/wiki/Erucic_acid
 
 zz:nervonic-acid
-en:Nervonic acid
 xx:Nervonic acid
+en:Nervonic acid
 ar:حمض النيرفونيك
 ca:Àcid nervònic
 cs:Kyselina nervonová
@@ -1781,8 +1781,8 @@ unit:en: g
 wikipedia:en: https://en.wikipedia.org/wiki/Nervonic_acid
 
 zz:trans-fat
-en:Trans fat, trans fatty acid
 xx:Trans fat, trans fatty acid
+en:Trans fat, trans fatty acid
 ar:دهن تقابلي
 bg:Транс-мазнина
 ca:Àcid gras trans
@@ -1836,8 +1836,8 @@ wikidata:en: Q243465
 wikipedia:en: https://en.wikipedia.org/wiki/Trans_fat
 
 zz:cholesterol
-en:Cholesterol
 xx:Cholesterol
+en:Cholesterol
 af:Cholesterol
 am:ኮሌስትሮል
 ar:الكوليسترول 
@@ -1930,8 +1930,8 @@ wikidata:en: Q43656
 wikipedia:en: https://en.wikipedia.org/wiki/Cholesterol
 
 zz:carbohydrates
-en:Carbohydrates, carbohydrate
 xx:Carbohydrates, carbohydrate
+en:Carbohydrates, carbohydrate
 ar:الكاربوهايدريد
 bg:Въглехидрати
 ca:Hidrats de carboni, Glúcids, Carbohidrats
@@ -1975,8 +1975,8 @@ zh_TW:碳水化合物
 unit:en: g
 
 zz:sugars
-en:Sugars, Sugar
 xx:Sugars, Sugar
+en:Sugars, Sugar
 af:Suikers
 am:ስኳር
 an:Zucre
@@ -2090,28 +2090,28 @@ zh:糖
 zh_CN:糖
 zh_HK:糖
 zh_TW:糖
+evaluation:en: bad
 unit:en: g
 wikidata:en: Q11002
 wikipedia:en: https://en.wikipedia.org/wiki/Sugar
-evaluation:en: bad
 
 zz:added-sugars
-en:Added sugars, Added sugar
 xx:Added sugars, Added sugar
+en:Added sugars, Added sugar
 bg:Добавена захар
+de:Hinzugefügter Zucker
 es:Azucares añadidos
 fr:Sucres ajoutés, sucre ajouté
-nl:Toegevoegde suikers, Toegevoegd suiker
-de:Hinzugefügter Zucker
 it:Zuccheri aggiunti, Zucchero aggiunto
-pt:Açúcares adicionados, Açúcar adicionado
+nl:Toegevoegde suikers, Toegevoegd suiker
 pl:Cukry dodane, Dodany cukier
-unit:en: g
+pt:Açúcares adicionados, Açúcar adicionado
 evaluation:en: bad
+unit:en: g
 
 zz:sucrose
-en:Sucrose
 xx:Sucrose
+en:Sucrose
 ar:سكروز
 be:Цукроза
 bg:Захароза
@@ -2188,8 +2188,8 @@ wikidata:en: Q4027534
 wikipedia:en: https://en.wikipedia.org/wiki/Sucrose
 
 zz:glucose
-en:Glucose, Dextrose
 xx:Glucose
+en:Glucose, Dextrose
 af:Glukose
 ar:جلوكوز
 as:গ্লুক'জ
@@ -2279,8 +2279,8 @@ wikidata:en: Q37525
 wikipedia:en: https://en.wikipedia.org/wiki/Glucose
 
 zz:fructose
-en:Fructose
 xx:Fructose
+en:Fructose
 af:Fruktose
 ar:فركتوز
 be:Фруктоза
@@ -2353,18 +2353,18 @@ wikidata:en: Q122043
 wikipedia:en: https://en.wikipedia.org/wiki/Fructose
 
 zz:oligosaccharide
-en:Oligosaccharide, oligosaccharides
 xx:Oligosaccharide, oligosaccharides
+en:Oligosaccharide, oligosaccharides
 ca:Oligosacàrids
 es:Oligosacáridos
+description:en: a saccharide polymer containing a small number (typically two to ten) of simple sugars (monosaccharides)
 unit:en: g
 wikidata:en: Q320607
 wikipedia:en: https://en.wikipedia.org/wiki/Oligosaccharide
-description:en: a saccharide polymer containing a small number (typically two to ten) of simple sugars (monosaccharides)
 
 zz:lactose
-en:Lactose
 xx:Lactose
+en:Lactose
 ar:لاكتوز
 be:Лактоза
 bg:Лактоза
@@ -2440,8 +2440,8 @@ fr:galactose
 unit:en: g
 
 zz:maltose
-en:Maltose
 xx:Maltose
+en:Maltose
 af:Maltose
 ar:مالتوز
 be:Мальтоза
@@ -2508,8 +2508,8 @@ wikidata:en: Q170002
 wikipedia:en: https://en.wikipedia.org/wiki/Maltose
 
 zz:maltodextrins
-en:Maltodextrins, maltodextrin
 xx:Maltodextrins, maltodextrin
+en:Maltodextrins, maltodextrin
 bg:Малтодекстрини, малтодекстрин
 de:Maltodextrine
 el:Μαλτοδεξτρίνες, μαλτοδεξτρίνη
@@ -2535,8 +2535,8 @@ wikidata:en: Q177570
 wikipedia:en: https://en.wikipedia.org/wiki/Maltodextrin
 
 zz:starch
-en:Starch
 xx:Starch
+en:Starch
 an:Amelón
 ar:نشا
 az:Nişasta
@@ -2619,17 +2619,17 @@ wikidata:en: Q41534
 wikipedia:en: https://en.wikipedia.org/wiki/Starch
 
 zz:Polydextrose
-en:Polydextrose
 xx:Polydextrose
+en:Polydextrose
 es:Polidextrosa
 gl:Polidextrosa
-pt:Polidextrose
 ja:ポリデキストロース
+pt:Polidextrose
 description:en:Polydextrose is a synthetic polymer of glucose.[1] It is a food ingredient classified as soluble fiber by the US FDA as well as Health Canada, as of April 2013. It is frequently used to increase the dietary fiber content of food, to replace sugar
 
 zz:polyols
-en:Polyols (sugar alcohols), Sugar alcohols, Polyols
 xx:Polyols, Sugar alcohols
+en:Polyols (sugar alcohols), Sugar alcohols, Polyols
 bg:Полиоли
 cs:Polyalkoholy
 da:Polyoler
@@ -2675,8 +2675,8 @@ unit:en: g
 wikidata:en: Q421873
 
 zz:fiber
-en:Fiber, Dietary fiber, Fiber, fibers, dietary fibers, fibers aoac, fibre, fibres, fibres aoac
 xx:Fiber, Dietary fiber, Fiber, fibers, dietary fibers, fibers aoac, fibre, fibres, fibres aoac
+en:Fiber, Dietary fiber, Fiber, fibers, dietary fibers, fibers aoac, fibre, fibres, fibres aoac
 bg:Влакнини
 cs:Vláknina
 da:Kostfibre
@@ -2710,12 +2710,12 @@ zh:膳食纤维
 zh_CN:膳食纤维
 zh_HK:膳食纖維
 zh_TW:纖維
-unit:en: g
 evaluation:en: good
+unit:en: g
 
 zz:soluble-fiber
-en:Soluble fiber
 xx:Soluble fiber
+en:Soluble fiber
 bg:Разтворими влакнини
 ca:fibra soluble
 cs:Rozpustná vláknina
@@ -2740,8 +2740,8 @@ zh_TW:可溶性纖維
 unit:en: g
 
 zz:insoluble-fiber
-en:Insoluble fiber
 xx:Insoluble fiber
+en:Insoluble fiber
 bg:Неразтворими влакнини
 ca:fibra insoluble
 cs:nerozpustné vlákniny
@@ -2766,8 +2766,8 @@ zh_TW:不可溶性纖維
 unit:en: g
 
 zz:proteins
-en:Proteins, Protein
 xx:Proteins, Protein
+en:Proteins, Protein
 af:proteïen
 an:Proteína
 ar:البروتين, بروتين
@@ -2876,14 +2876,14 @@ zh:蛋白质
 zh_CN:蛋白质
 zh_HK:蛋白質
 zh_TW:蛋白質
+evaluation:en: good
 unit:en: g
 wikidata:en: Q8054
 wikipedia:en: https://en.wikipedia.org/wiki/Protein_-nutrient-
-evaluation:en: good
 
 zz:casein
-en:casein
 xx:casein
+en:casein
 ar:كازين
 be:Казеін
 bg:Казеин
@@ -2944,8 +2944,8 @@ wikidata:en: Q193970
 wikipedia:en: https://en.wikipedia.org/wiki/Casein
 
 zz:serum-proteins
-en:Serum proteins
 xx:Serum proteins
+en:Serum proteins
 bg:Серумни белтъци
 de:Serumprotein
 el:Πρωτεΐνες ορού
@@ -2966,8 +2966,8 @@ zh_TW:血清蛋白
 unit:en: g
 
 zz:nucleotides
-en:Nucleotides
 xx:Nucleotides
+en:Nucleotides
 bg:Нуклеотиди
 de:Nukleotide
 el:Νουκλεοτίδια
@@ -2991,8 +2991,8 @@ wikidata:en: Q56058005
 wikipedia:en: https://en.wikipedia.org/wiki/Nucleotide
 
 zz:salt
-en:Salt, table salt, common salt, cooking salt, dry salt
 xx:Salt, table salt, common salt, cooking salt, dry salt
+en:Salt, table salt, common salt, cooking salt, dry salt
 af:tafelsout, Sout
 an:Sal, sal de cocina
 ar:ملح الطعام
@@ -3088,30 +3088,30 @@ xh:Ityiwa
 yi:זאלץ
 yo:Iyọ̀
 zh:食盐
+evaluation:en: bad
 unit:en: g
 unit_in:en: mg
 wikidata:en: Q11254
 wikipedia:en: https://en.wikipedia.org/wiki/Salt
-evaluation:en: bad
 
 zz:added-salt
-en:Added salt
 xx:Added salt
+en:Added salt
 bg:Добавена сол
-fr:Sel ajouté
-nl:Toegevoegd zout
-es:Sal añadida
-it:Sale aggiunto
-pt:Sal adicionado
 de:Hinzugefügtes Salz
+es:Sal añadida
+fr:Sel ajouté
+it:Sale aggiunto
+nl:Toegevoegd zout
 pl:Dodana sól
+pt:Sal adicionado
 ru:Добавленная соль
-unit:en: g
 evaluation:en: bad
+unit:en: g
 
 zz:sodium
-en:Sodium
 xx:Sodium
+en:Sodium
 af:natrium
 am:ሶዲየም
 an:Sodio
@@ -3227,16 +3227,16 @@ zh:钠
 zh_CN:钠
 zh_HK:鈉
 zh_TW:鈉
+evaluation:en: bad
 unit:en: g
-unit_us:en: mg
 unit_in:en: mg
+unit_us:en: mg
 wikidata:en: Q658
 wikipedia:en: https://en.wikipedia.org/wiki/Sodium
-evaluation:en: bad
 
 zz:alcohol
-en:Alcohol
 xx:Alcohol
+en:Alcohol
 af:Alkohol
 ak:Mmrosa
 an:Alcohol
@@ -3334,14 +3334,14 @@ zh:酒精度, 醇
 zh_CN:酒精度
 zh_HK:酒精
 zh_TW:酒精
+evaluation:en: always_bad
 unit:en: % vol
 wikidata:en: Q156
 wikipedia:en: https://en.wikipedia.org/wiki/Alcohol
-evaluation:en: always_bad
 
 zz:vitamin-a
-en:Vitamin A
 xx:Vitamin A
+en:Vitamin A
 af:Vitamien A
 ar:فيتامين ألف
 az:A vitamini
@@ -3426,8 +3426,8 @@ wikidata:en: Q18225
 wikipedia:en: https://en.wikipedia.org/wiki/Vitamin_A
 
 zz:beta-carotene
-en:Beta carotene
 xx:Beta carotene
+en:Beta carotene
 bg:Бета каротин
 ca:beta-carotè
 cs:beta-karoten
@@ -3476,8 +3476,8 @@ wikidata:en: Q306135
 wikipedia:en: https://en.wikipedia.org/wiki/Beta-Carotene
 
 zz:vitamin-d
-en:Vitamin D, D
 xx:Vitamin D, D, D3, vitamin D3
+en:Vitamin D, D
 af:Vitamien D
 ar:فيتامين دي
 az:D vitamini
@@ -3556,8 +3556,8 @@ wikidata:en: Q175621
 wikipedia:en: https://en.wikipedia.org/wiki/Vitamin_D
 
 zz:vitamin-e
-en:Vitamin E, Vitamin E, Tocopherol
 xx:Vitamin E, Vitamin E, Tocopherol
+en:Vitamin E, Vitamin E, Tocopherol
 bg:Витамин E
 de:Vitamin E (Tocopherol)
 el:Βιταμίνη E
@@ -3586,8 +3586,8 @@ iu_value:en: 0.666666666666667
 unit:en: mg
 
 zz:vitamin-k
-en:Vitamin K
 xx:Vitamin K
+en:Vitamin K
 af:Vitamien K
 ar:فيتامين ك
 az:K vitamini
@@ -3656,8 +3656,8 @@ wikidata:en: Q182338
 wikipedia:en: https://en.wikipedia.org/wiki/Vitamin_K
 
 zz:vitamin-c
-en:Vitamin C (ascorbic acid), Vitamin C, Ascorbic acid, E300, E 300
 xx:Vitamin C (ascorbic acid), Vitamin C, Ascorbic acid, E300, E 300
+en:Vitamin C (ascorbic acid), Vitamin C, Ascorbic acid, E300, E 300
 af:Vitamien C
 ar:فيتامين سي
 az:C vitamini
@@ -3742,8 +3742,8 @@ wikidata:en: Q199678
 wikipedia:en: https://en.wikipedia.org/wiki/Vitamin_C
 
 zz:vitamin-b1
-en:Vitamin B1 (Thiamin), Vitamin B1, Thiamin
 xx:Vitamin B1 (Thiamin), Vitamin B1, Thiamin
+en:Vitamin B1 (Thiamin), Vitamin B1, Thiamin
 bg:Витамин B1 (Тиамин)
 de:Vitamin B1 (Thiamin)
 el:Βιταμίνη B1 (Θειαμίνη)
@@ -3772,8 +3772,8 @@ dv_value:en: 1.2
 unit:en: mg
 
 zz:vitamin-b2
-en:Vitamin B2 (Riboflavin), Vitamin B2, Riboflavin
 xx:Vitamin B2 (Riboflavin), Vitamin B2, Riboflavin
+en:Vitamin B2 (Riboflavin), Vitamin B2, Riboflavin
 bg:Витамин B2 (Рибофлавин)
 de:Vitamin B2 (Riboflavin)
 el:Βιταμίνη B2 (Ριβοφλαβίνη)
@@ -3801,8 +3801,8 @@ dv_value:en: 1.7
 unit:en: mg
 
 zz:vitamin-pp
-en:Vitamin B3/PP (Niacin), Vitamin PP (Niacin), Vitamin B3, Vitamin PP, Niacin
 xx:Vitamin B3, Vitamin PP (Niacin), Vitamin B3, Vitamin PP, Niacin
+en:Vitamin B3/PP (Niacin), Vitamin PP (Niacin), Vitamin B3, Vitamin PP, Niacin
 bg:Ниацин, Витамин B3
 de:Vitamin B3/PP (Niacin), Vitamin B3, Vitamin PP (Niacin)
 el:Νιασίνη
@@ -3830,8 +3830,8 @@ dv_value:en: 20
 unit:en: mg
 
 zz:vitamin-b6
-en:Vitamin B6 (Pyridoxin), Vitamin B6, Pyridoxin, pyridoxamine
 xx:Vitamin B6 (Pyridoxin), Vitamin B6, Pyridoxin, pyridoxamine
+en:Vitamin B6 (Pyridoxin), Vitamin B6, Pyridoxin, pyridoxamine
 ar:فيتامين بي6
 az:Piridoksalfosfat
 bg:Витамин B6
@@ -3897,8 +3897,8 @@ wikidata:en: Q205130
 wikipedia:en: https://en.wikipedia.org/wiki/Vitamin_B6
 
 zz:vitamin-b9
-en:Vitamin B9 (Folic acid), Vitamin B9, Folic acid
 xx:Vitamin B9 (Folic acid), Vitamin B9, Folic acid
+en:Vitamin B9 (Folic acid), Vitamin B9, Folic acid
 bg:Витамин B9 (Фолиева киселина)
 de:Vitamin B9 (Folsäure)
 el:Βιταμίνη B9 (Φολικό οξύ)
@@ -3927,8 +3927,8 @@ dv_value:en: 400
 unit:en: µg
 
 zz:folates
-en:Folates (total folates), Folates, Total folates
 xx:Folates (total folates), Folates, Total folates
+en:Folates (total folates), Folates, Total folates
 fi:Folaatit
 fr:Folates (folates totaux)
 dv_2016_value:en: 400
@@ -3936,8 +3936,8 @@ dv_value:en: 400
 unit:en: µg
 
 zz:vitamin-b12
-en:Vitamin B12 (cobalamin), Vitamin B12, Cobalamin
 xx:Vitamin B12 (cobalamin), Vitamin B12, Cobalamin
+en:Vitamin B12 (cobalamin), Vitamin B12, Cobalamin
 bg:Витамин В12
 de:Vitamin B12 (Cobalamin)
 el:Βιταμίνη B12
@@ -3963,8 +3963,8 @@ dv_value:en: 6
 unit:en: µg
 
 zz:biotin
-en:Biotin, Vitamin H, Vitamin B7, B7
 xx:Biotin, Vitamin H, Vitamin B7, B7
+en:Biotin, Vitamin H, Vitamin B7, B7
 ar:بيوتين
 be:біятын
 bg:Биотин
@@ -4027,8 +4027,8 @@ wikidata:en: Q181354
 wikipedia:en: https://en.wikipedia.org/wiki/Biotin
 
 zz:pantothenic-acid
-en:Vitamin B5 (Pantothenic acid), Pantothenic acid, Pantothenate (Vitamin B5), Pantothenic acid, Pantothenate, Vitamin B5, B5
 xx:Vitamin B5 (Pantothenic acid), Pantothenic acid, Pantothenate (Vitamin B5), Pantothenic acid, Pantothenate, Vitamin B5, B5
+en:Vitamin B5 (Pantothenic acid), Pantothenic acid, Pantothenate (Vitamin B5), Pantothenic acid, Pantothenate, Vitamin B5, B5
 ar:فيتامين بي5
 bg:витамин B5 (Пантотенова киселина), Пантотенова киселина, витамин B5, B5
 bs:Vitamin B5
@@ -4095,8 +4095,8 @@ wikidata:en: Q179894
 wikipedia:en: https://en.wikipedia.org/wiki/Pantothenic_acid
 
 zz:silica
-en:Silica, Silicon dioxide
 xx:Silica, Silicon dioxide
+en:Silica, Silicon dioxide
 an:Silica
 ar:ثنائي أكسيد السيليكون
 az:Lüssatit
@@ -4164,8 +4164,8 @@ wikidata:en: Q116269
 wikipedia:en: https://en.wikipedia.org/wiki/Silicon_dioxide
 
 zz:bicarbonate
-en:Bicarbonate
 xx:Bicarbonate
+en:Bicarbonate
 bg:бикарбонат
 cs:bikarbonát
 da:bicarbonat
@@ -4196,8 +4196,8 @@ wikipedia:en: https://en.wikipedia.org/wiki/Bicarbonate
 
 # SO4--
 zz:Sulphate
-en:Sulphate, Sulfate
 xx:Sulphate
+en:Sulphate, Sulfate
 af:Sulfaat
 ar:كبريتات
 az:Sulfatlar
@@ -4258,8 +4258,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sulfate
 
 # NO3-
 zz:Nitrate
-en:Nitrate
 xx:Nitrate
+en:Nitrate
 af:Nitraat
 ar:نترات
 az:Nitratlar
@@ -4328,19 +4328,19 @@ wikipedia:en:https://en.wikipedia.org/wiki/Nitrate
 
 # HCO3-
 zz:Hydrogencarbonate
-en:Hydrogencarbonate
 xx:Hydrogencarbonate
+en:Hydrogencarbonate
 nl:Waterstofcarbonaat, Waterstofcarbonaten
 
 # NO2-
 zz:Nitrite
-en:Nitrite
 xx:Nitrite
+en:Nitrite
 nl:Nitriet, Nitrieten
 
 zz:potassium
-en:Potassium
 xx:Potassium
+en:Potassium
 af:kalium
 am:ፖታሺየም
 an:Potasio
@@ -4451,14 +4451,14 @@ yi:קאליום
 yo:Potassium
 za:Gyaz
 zh:钾
+dv_value:en: 4700
 unit:en: mg
 wikidata:en: Q703
 wikipedia:en: https://en.wikipedia.org/wiki/Potassium
-dv_value:en: 4700
 
 zz:chloride
-en:Chloride
 xx:Chloride
+en:Chloride
 af:Chloried
 ar:كلوريد
 be:хларыды
@@ -4517,8 +4517,8 @@ unit:en: mg
 wikidata:en: Q108200
 
 zz:calcium
-en:Calcium
 xx:Calcium
+en:Calcium
 af:kalsium
 am:ካልሲየም
 an:Calcio
@@ -4632,14 +4632,14 @@ zh:鈣, 钙
 dv_2016_value:en: 1300
 dv_value:en: 1300
 unit:en: mg
-unit_ca:en: % DV
 unit:pt:mg
+unit_ca:en: % DV
 wikidata:en: Q706
 wikipedia:en: https://en.wikipedia.org/wiki/Calcium
 
 zz:phosphorus
-en:Phosphorus
 xx:Phosphorus
+en:Phosphorus
 af:fosfor
 am:ፎስፈረስ
 an:Fosforo
@@ -4756,8 +4756,8 @@ wikidata:en: Q674
 wikipedia:en: https://en.wikipedia.org/wiki/Phosphorus
 
 zz:iron
-en:Iron
 xx:Iron
+en:Iron
 af:yster
 am:ብረት
 an:Fierro
@@ -4892,8 +4892,8 @@ wikidata:en: Q677
 wikipedia:en: https://en.wikipedia.org/wiki/Iron
 
 zz:magnesium
-en:Magnesium
 xx:Magnesium
+en:Magnesium
 af:magnesium
 am:ማግኒዥየም
 an:Magnesio
@@ -5009,8 +5009,8 @@ unit:en: mg
 wikipedia:en: https://en.wikipedia.org/wiki/Magnesium
 
 zz:zinc
-en:Zinc
 xx:Zinc
+en:Zinc
 af:sink
 am:ዚንክ
 an:Zinc
@@ -5127,8 +5127,8 @@ wikidata:en: Q758
 wikipedia:en: https://en.wikipedia.org/wiki/Zinc
 
 zz:copper
-en:Copper
 xx:Copper
+en:Copper
 af:koper
 am:መዳብ
 an:Arambre
@@ -5258,8 +5258,8 @@ wikidata:en: Q753
 wikipedia:en: https://en.wikipedia.org/wiki/Copper
 
 zz:manganese
-en:Manganese
 xx:Manganese
+en:Manganese
 af:Mangaan
 am:ማንጋኒዝ
 an:Manganés
@@ -5370,8 +5370,8 @@ wikidata:en: Q731
 wikipedia:en: https://en.wikipedia.org/wiki/Manganese
 
 zz:fluoride
-en:Fluoride
 xx:Fluoride
+en:Fluoride
 bg:Флуорид
 ca:fluorur
 cs:Fluor
@@ -5405,8 +5405,8 @@ wikidata:en: Q44793182
 wikipedia:en: https://en.wikipedia.org/wiki/Fluoride
 
 zz:selenium
-en:Selenium
 xx:Selenium
+en:Selenium
 af:selenium
 am:ሴሊኒየም
 an:Selenio
@@ -5517,8 +5517,8 @@ wikidata:en: Q876
 wikipedia:en: https://en.wikipedia.org/wiki/Selenium
 
 zz:chromium
-en:Chromium
 xx:Chromium
+en:Chromium
 af:chroom
 am:ክሮሚየም
 an:Cromo
@@ -5631,8 +5631,8 @@ wikidata:en: Q725
 wikipedia:en: https://en.wikipedia.org/wiki/Chromium
 
 zz:molybdenum
-en:Molybdenum
 xx:Molybdenum
+en:Molybdenum
 af:molibdeen
 am:ሞሊብዴነም
 an:Molibdén
@@ -5740,8 +5740,8 @@ wikidata:en: Q1053
 wikipedia:en: https://en.wikipedia.org/wiki/Molybdenum
 
 zz:iodine
-en:Iodine
 xx:Iodine
+en:Iodine
 af:jodium
 am:አዮዲን
 an:Yodo
@@ -5854,8 +5854,8 @@ wikidata:en: Q1103
 wikipedia:en: https://en.wikipedia.org/wiki/Iodine
 
 zz:caffeine
-en:Caffeine
 xx:Caffeine
+en:Caffeine
 af:Kafeïen
 ar:كافيين
 az:Kofein
@@ -5932,8 +5932,8 @@ wikidata:en: Q60235
 wikipedia:en: https://en.wikipedia.org/wiki/Caffeine
 
 zz:taurine
-en:Taurine
 xx:Taurine
+en:Taurine
 ar:التورين
 bg:Таурин
 ca:Taurina
@@ -5985,14 +5985,14 @@ zh_hk:牛磺酸
 zh_sg:牛磺酸
 zh_tw:牛磺酸
 unit:en: g
-zh_hans:en: 牛磺酸
-zh_hant:en: 牛磺酸
 wikidata:en: Q207051
 wikipedia:en: https://en.wikipedia.org/wiki/Taurine
+zh_hans:en: 牛磺酸
+zh_hant:en: 牛磺酸
 
 zz:ph
-en:pH
 xx:pH
+en:pH
 af:pH
 bg:PH
 bs:pH
@@ -6069,8 +6069,8 @@ wikidata:en: Q40936
 wikipedia:en: https://en.wikipedia.org/wiki/PH
 
 zz:fruits-vegetables-nuts
-en:Fruits\, vegetables\, nuts and rapeseed\, walnut and olive oils, Fruits and vegetables, Fruits\, vegetables and nuts, Fruits\, vegetables\, nuts, Fruits\, vegetables\, pulses\, nuts\, and rapeseed\, walnut and olive oils
 xx:Fruits\, vegetables\, nuts and rapeseed\, walnut and olive oils, Fruits and vegetables, Fruits\, vegetables and nuts, Fruits\, vegetables\, nuts, Fruits\, vegetables\, pulses\, nuts\, and rapeseed\, walnut and olive oils
+en:Fruits\, vegetables\, nuts and rapeseed\, walnut and olive oils, Fruits and vegetables, Fruits\, vegetables and nuts, Fruits\, vegetables\, nuts, Fruits\, vegetables\, pulses\, nuts\, and rapeseed\, walnut and olive oils
 bg:Плодове\, зеленчуци\, ядки и рапица
 de:Obst\, Gemüse und Nüsse
 el:Φρούτα\, λαχανικά\, καρποί
@@ -6084,8 +6084,8 @@ ro:Fructe\, legume\, nuci
 unit:en: %
 
 zz:fruits-vegetables-nuts-dried
-en:Fruits\, vegetables and nuts - dried
 xx:Fruits\, vegetables and nuts - dried
+en:Fruits\, vegetables and nuts - dried
 bg:Плодове\, зеленчуци и ядки - сушени
 fi:Kuivatut hedelmät\, kasvikset ja pähkinät
 fr:Fruits\, légumes et noix - séchés
@@ -6094,8 +6094,8 @@ ro:Fructe\, legume\, nuci uscate
 unit:en: %
 
 zz:fruits-vegetables-nuts-estimate
-en:Fruits\, vegetables\, nuts and rapeseed\, walnut and olive oils (manual estimate from ingredients list)
 xx:Fruits\, vegetables\, nuts and rapeseed\, walnut and olive oils (manual estimate from ingredients list)
+en:Fruits\, vegetables\, nuts and rapeseed\, walnut and olive oils (manual estimate from ingredients list)
 bg:Плодове\, зеленчуци\, ядки и рапица\, орехи и зехтин (ръчна оценка от списъка на съставките) 
 de:Obst\, Gemüse und Nüsse (Schätzung aus Zutatenliste)
 es:Frutas\, verduras y nueces (estimación de la lista de ingredientes)
@@ -6107,34 +6107,34 @@ nl_be:Fruit\, groenten en noten (Schat uit ingrediëntenlijst)
 unit:en: %
 
 zz:fruits-vegetables-nuts-estimate-from-ingredients
-en:Fruits\, vegetables\, nuts and rapeseed\, walnut and olive oils (estimate from ingredients list analysis)
 xx:Fruits\, vegetables\, nuts and rapeseed\, walnut and olive oils (estimate from ingredients list analysis)
+en:Fruits\, vegetables\, nuts and rapeseed\, walnut and olive oils (estimate from ingredients list analysis)
 ar:الفواكه \ ، الخضار \ ، المكسرات والبذور \ ، زيوت الجوز والزيتون (تقدير من تحليل قائمة المكونات)
-cs:Ovoce \, zelenina \, ořechy a řepky \, ořechové a olivové oleje (odhad z analýzy seznamu ingrediencí)
 bg:Плодове\, зеленчуци\, ядки и рапица\, орехи и зехтин (оценка от анализ на списъка на съставките)
+cs:Ovoce \, zelenina \, ořechy a řepky \, ořechové a olivové oleje (odhad z analýzy seznamu ingrediencí)
 de:Obst\, Gemüse und Nüsse (Schätzung aus der Analyse der Zutatenliste)
 el:Fruits \, λαχανικά \, καρύδια και κράμβη \, καρυδιά και ελαιόλαδο (εκτίμηση από την ανάλυση λίστας συστατικών)
 es:Frutas \, verduras \, nueces y colza \, aceites de nuez y oliva (estimación del análisis de la lista de ingredientes)
 fi:Hedelmät \, vihannekset \, pähkinät ja rypäleet \, pähkinä- ja oliiviöljyt (arvio ainesosaluettelon analyysistä)
 fr:Fruits\, légumes\, noix et huiles de colza\, noix et olive (estimation par analyse de la liste des ingrédients)
-it:Frutta\, verdura\, noci e olio di colza\, noci e oliva (stima dall'analisi dell'elenco degli ingredienti)  
 he:פירות \, ירקות \, אגוזים ונאנס \, שמני אגוז וזית (הערכת מניתוח רשימת החומרים)
+it:Frutta\, verdura\, noci e olio di colza\, noci e oliva (stima dall'analisi dell'elenco degli ingredienti)  
 ja:果物\、野菜\、ナッツと菜種\、クルミ\、オリーブオイル（成分リスト分析からの推定）
 ko:과일 \, 야채 \, 견과류 및 유채 \, 호두 및 올리브 오일 (성분 목록 분석에서 추정)
 nl:Vruchten \, groenten \, noten en raapzaad \, walnoot- en olijfolie (schatting van ingrediëntenlijstanalyse)
-ru:Фрукты \, овощи \, орехи и рапса \, ореховые и оливковые масла (оценка из анализа ингредиентов)
 pl:Owoce \, warzywa \, orzechy i rzepak \, orzech orzechowy i oliwek (ocena analizy listy składników)
 pt:Frutas \, vegetais \, nozes e colza \, nogueira e azeite (estimativa da análise da lista de ingredientes)
 ro:Fructe \, legume \, nuci și rapsee \, nuc și uleiuri de măsline (estimare din analiza listei de ingrediente)
+ru:Фрукты \, овощи \, орехи и рапса \, ореховые и оливковые масла (оценка из анализа ингредиентов)
 th:ผลไม้ \, ผัก \, ถั่วและเรพซีด \, วอลนัทและน้ำมันมะกอก (ประมาณจากการวิเคราะห์รายการส่วนผสม)
 vi:Trái cây \, rau \, các loại hạt và dầu hạt cải dầu\, gỗ óc chó và dầu ô liu (ước tính từ phân tích danh sách thành phần)
 zh:水果\，蔬菜\，坚果和菜籽油，核桃和橄榄油（根据成分清单分析估算）  
-unit:en: %
 automatically_computed:en: yes
+unit:en: %
 
 zz:collagen-meat-protein-ratio
-en:Collagen/Meat protein ratio (maximum)
 xx:Collagen/Meat protein ratio (maximum)
+en:Collagen/Meat protein ratio (maximum)
 de:Verhältnis Kollagen/Eiweiß
 el:Αναλογία κολλαγόνου/πρωτεΐνης κρέατος (μέγιστο)
 es:Relación tejido conjuntivo/proteínas de carne (máximo)
@@ -6146,8 +6146,8 @@ pt:Colágeno/rácio da proteína de carne (máximo), Colagénio/rácio da prote�
 unit:en: %
 
 zz:cocoa
-en:Cocoa (minimum)
 xx:Cocoa (minimum)
+en:Cocoa (minimum)
 bg:Какао (минимум)
 de:Kakao (Minimum)
 es:Cacao (mínimo)
@@ -6159,8 +6159,8 @@ ro:Cacao (minim)
 unit:en: %
 
 zz:chlorophyl
-en:Chlorophyl
 xx:Chlorophyl
+en:Chlorophyl
 bg:Хлорофил
 de:Chlorophyll
 fi:Lehtivihreä, Klorofylli
@@ -6170,8 +6170,8 @@ ro:Clorofilă
 unit:en: g
 
 zz:carbon-footprint
-en:Carbon footprint, CO2 emissions
 xx:Carbon footprint, CO2 emissions
+en:Carbon footprint, CO2 emissions
 ar:بصمة كربونية
 bg:Въглероден отпечатък
 ca:Petjada de carboni
@@ -6219,42 +6219,42 @@ wikidata:en: Q310667
 wikipedia:en: https://en.wikipedia.org/wiki/Carbon_footprint
 
 zz:carbon-footprint-from-meat-or-fish
-en:Carbon footprint from meat or fish
 xx:Carbon footprint from meat or fish
+en:Carbon footprint from meat or fish
 bg:Въглероден отпечатък от месо или риба 
 fi:Hiilijalanjälki lihasta tai kalasta
 fr:Empreinte carbone de la viande ou du poisson
 nl:koolstofvoetafdruk voor vlees of vis
-unit:en: g
 automatically_computed:en: yes
+unit:en: g
 
 zz:nutrition-score-fr
-en:Nutrition score - France
 xx:Nutrition score - France
+en:Nutrition score - France
 bg:Хранителна оценка – Франция
 el:Βαθμολογία θρεπτικής αξίας-FR
 fi:Ravintopisteet - Ranska
 fr:Score nutritionnel - France
 nl:Voedingsscore - FR
 pt:Classificação de nutrição - França
-unit:en: 
 automatically_computed:en: yes
+unit:en: 
 
 zz:nutrition-score-uk
-en:Nutrition score - UK
 xx:Nutrition score - UK
+en:Nutrition score - UK
 bg:Хранителна оценка – Обединено кралство
 el:Bαθμολογία θρεπτικής αξίας-UK
 fi:Ravintopisteet - UK
 nl:Voedingsscore - UK
 nl_be:Voedingsgraad
 pt:Classificação de nutrição - Reino Unido
-unit:en: 
 automatically_computed:en: yes
+unit:en: 
 
 zz:glycemic-index
-en:Glycemic Index
 xx:Glycemic Index
+en:Glycemic Index
 af:Glukemiese indeks
 ar:مؤشر جلايسيمي
 be:Глікемічны індэкс
@@ -6295,8 +6295,8 @@ wikidata:en: Q273924
 wikipedia:en: https://en.wikipedia.org/wiki/Glycemic_index
 
 zz:water-hardness
-en:Water hardness
 xx:Water hardness
+en:Water hardness
 ar:عسر الماء
 bg:Твърдост на водата
 bs:Tvrdoća vode
@@ -6342,8 +6342,8 @@ unit:en: mmol/l
 wikidata:en: Q192905
 
 zz:choline
-en:Choline
 xx:Choline
+en:Choline
 ar:كولين
 bg:Холин
 bs:Holin
@@ -6383,8 +6383,8 @@ tyv:en: Холин
 unit:en: g
 
 zz:phylloquinone
-en:Vitamin K1 (Phylloquinone), phylloquinone, vitamin K1, K1
 xx:Vitamin K1 (Phylloquinone), phylloquinone, vitamin K1, K1
+en:Vitamin K1 (Phylloquinone), phylloquinone, vitamin K1, K1
 ar:فايتوميناديون
 bg:Филохинон, фитоменадион
 ca:filloquinona, Vitamina K1
@@ -6423,8 +6423,8 @@ wikidata:en: Q186093
 wikipedia:en: https://en.wikipedia.org/wiki/Phytomenadione
 
 zz:beta-glucan
-en:Beta-glucan
 xx:Beta-glucan
+en:Beta-glucan
 ar:بيتا - كلوكانز
 bs:Beta-glukan
 cs:beta-glukan
@@ -6455,8 +6455,8 @@ wikidata:en: Q2076617
 wikipedia:en: https://en.wikipedia.org/wiki/Beta-glucan
 
 zz:inositol
-en:Inositol
 xx:Inositol
+en:Inositol
 ar:إينوزيتول
 bg:Инозитол
 ca:inositol
@@ -6499,8 +6499,8 @@ unit:en: g
 wikipedia:en: https://en.wikipedia.org/wiki/Inositol
 
 zz:carnitine
-en:Carnitine
 xx:Carnitine
+en:Carnitine
 ar:كارنتين
 bg:карнитин
 ca:carnitina
@@ -6551,16 +6551,16 @@ wikipedia:en: https://en.wikipedia.org/wiki/Carnitine
 # to enable some features like statistics per category
 
 zz:nova-group
-en:NOVA group
 xx:NOVA group
+en:NOVA group
 bg:Група NOVA
 fr:Groupe NOVA
-unit:en:
 automatically_computed:en: yes
+unit:en:
 
 zz:spermidine
-en:Spermidine
 xx:Spermidine
+en:Spermidine
 ar:سبيرمدين
 bg:Спермидин
 ca:Espermidina
@@ -6577,8 +6577,8 @@ pl:Spermidyna
 pt:Espermidina
 sh:Spermidin
 zh:亞精胺
-wikipedia:en: https://en.wikipedia.org/wiki/Spermidine
 description:en:Spermidine is a polyamine compound (C7H19N3) found in ribosomes and living tissues and having various metabolic functions within organisms.
+wikipedia:en: https://en.wikipedia.org/wiki/Spermidine
 
 zz:water
 en:Water
@@ -6609,8 +6609,8 @@ nl:Droogrest
 unit:en: mg
 
 zz:beta-alanine
-en:Beta-Alanine
 xx:Beta-Alanine
+en:Beta-Alanine
 es:Beta-Alanina
 fr:Bêta-Alanine
 unit:en: g
@@ -6618,89 +6618,90 @@ wikidata:en: Q310919
 wikipedia:en: https://en.wikipedia.org/wiki/%CE%92-Alanine
 
 zz:creatine
+xx:Creatine
 en:Creatine, Creatine Monohydrate
 ca:Creatina, Monohidrat de creatina, Monohidrat Creatina
 es:Creatina, Monohidrato de creatina, Monohidrato Creatina
 fr:Créatine, Monohydrate de Créatine
-xx:Creatine
 unit:en: g
 wikidata:en: Q223600
 wikipedia:en: https://en.wikipedia.org/wiki/Creatine
 
 zz:l-citrulline
+xx:L-citrulline, Citrulline
 en:L-citrulline, Citrulline
 ca:L-citrul·lina
 es:L-Citrulina, Citrulina
 fr:L-citruline
-xx:L-citrulline, Citrulline
 unit:en: mg
 wikidata:en: Q408641
 wikipedia:en: https://en.wikipedia.org/wiki/Citrulline
 
 zz:l-glutamine
-en:L-Glutamine, Glutamine, Gln
-es:L-Glutamina, Glutamina
-ca:L-Glutamina, Glutamina
 xx:L-Glutamine
+en:L-Glutamine, Glutamine, Gln
+ca:L-Glutamina, Glutamina
+es:L-Glutamina, Glutamina
 unit:en: mg
 wikidata:en: Q181619
 wikipedia:en: https://en.wikipedia.org/wiki/Glutamine
 
 zz:bcaa
-en:BCAA, BCAAs, Branched-Chain Amino Acid
 xx:BCAA
+en:BCAA, BCAAs, Branched-Chain Amino Acid
 unit:en: g
 wikidata:en: Q420726
 wikipedia:en: https://en.wikipedia.org/wiki/Branched-chain_amino_acid
 
 zz:l-valine
-en:L-Valine, Valine
-es:L-Valina, Valina
-ca:L-Valina, Valina
 xx:L-Valine, Valine
+en:L-Valine, Valine
+ca:L-Valina, Valina
+es:L-Valina, Valina
 unit:en: mg
 wikidata:en: Q483752
 wikipedia:en: https://en.wikipedia.org/wiki/Valine
 
 zz:l-leucine
 en:L-Leucine, Leucine
-es:L-Leucina, Leucina
 ca:L-Leucina, Leucina
+es:L-Leucina, Leucina
 unit:en: mg
 wikidata:en: Q483745
 wikipedia:en: https://en.wikipedia.org/wiki/Leucine
 
 zz:l-isoleucine
 en:L-Isoleucine, Isoleucine
-es:L-Isoleucina, Isoleucina
 ca:L-Isoleucina, Isoleucina
+es:L-Isoleucina, Isoleucina
 unit:en: mg
 wikidata:en: Q484940
 wikipedia:en: https://en.wikipedia.org/wiki/Isoleucine
 
 zz:l-arginine
-en:L-Arginine, Arginine
-es:L-Arginina, Arginina
-ca:L-Arginina, Arginina
 xx:L-Arginine, Arginine
+en:L-Arginine, Arginine
+ca:L-Arginina, Arginina
+es:L-Arginina, Arginina
 unit:en: mg
 wikidata:en: Q173670
 wikipedia:en: https://en.wikipedia.org/wiki/Arginine
 
 zz:l-cysteine
-en:L-Cysteine, Cysteine, Cystein
-es:L-Cisteína, Cisteína
-ca:L-Cisteïna, Cisteïna
 xx:L-Cysteine, Cysteine, Cystein
+en:L-Cysteine, Cysteine, Cystein
+ca:L-Cisteïna, Cisteïna
+es:L-Cisteína, Cisteína
 unit:en: mg
 wikidata:en: Q186474
 wikipedia:en: https://en.wikipedia.org/wiki/Cysteine
 
 zz:l-Glutathione
-en:L-Glutathione, Glutathione
-es:L-Glutatión, Glutationa
-ca:L-Glutatió, Glutatió
 xx:L-Glutathione, Glutathione
+en:L-Glutathione, Glutathione
+ca:L-Glutatió, Glutatió
+es:L-Glutatión, Glutationa
 unit:en: mg
 wikidata:en: Q116907
 wikipedia:en: https://en.wikipedia.org/wiki/Glutathione
+
