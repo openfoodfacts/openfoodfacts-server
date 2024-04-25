@@ -11,6 +11,7 @@ use Log::Any::Adapter 'TAP';
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Tags qw/compute_field_tags/;
 use ProductOpener::Food qw/:all/;
+use ProductOpener::FoodProduct qw/:all/;
 use ProductOpener::Ingredients qw/extract_additives_from_text extract_ingredients_from_text/;
 use ProductOpener::Nutriscore qw/compute_nutriscore_grade/;
 use ProductOpener::NutritionCiqual qw/load_ciqual_data/;
