@@ -5392,23 +5392,22 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		$html =~ s/(href|src)=("\/)/$1="$formatted_subdomain\//g;
 	}
 
-		my $preferences_text
-			= sprintf(lang("classify_the_d_products_below_according_to_your_preferences"), $page_count);
+	my $preferences_text = sprintf(lang("classify_the_d_products_below_according_to_your_preferences"), $page_count);
 
-		my $products_json = '[]';
+	my $products_json = '[]';
 
-		if (defined $request_ref->{structured_response}{products}) {
-			$products_json = $json->encode($request_ref->{structured_response}{products});
+	if (defined $request_ref->{structured_response}{products}) {
+		$products_json = $json->encode($request_ref->{structured_response}{products});
+	}
+
+	my $contributor_prefs_json = $json->encode(
+		{
+			display_barcode => $User{display_barcode},
+			edit_link => $User{edit_link},
 		}
+	);
 
-		my $contributor_prefs_json = $json->encode(
-			{
-				display_barcode => $User{display_barcode},
-				edit_link => $User{edit_link},
-			}
-		);
-
-		$scripts .= <<JS
+	$scripts .= <<JS
 <script type="text/javascript">
 var page_type = "products";
 var preferences_text = "$preferences_text";
@@ -5416,23 +5415,21 @@ var contributor_prefs = $contributor_prefs_json;
 var products = $products_json;
 </script>
 JS
-			;
+		;
 
-		$scripts .= <<JS
+	$scripts .= <<JS
 <script src="$static_subdomain/js/product-preferences.js"></script>
 <script src="$static_subdomain/js/product-search.js"></script>
 JS
-			;
+		;
 
-		$initjs .= <<JS
+	$initjs .= <<JS
 display_user_product_preferences("#preferences_selected", "#preferences_selection_form", function () {
 	rank_and_display_products("#search_results", products, contributor_prefs);
 });
 rank_and_display_products("#search_results", products, contributor_prefs);
 JS
-			;
-
-	
+		;
 
 	process_template('web/common/includes/list_of_products.tt.html', $template_data_ref, \$html)
 		|| return "template error: " . $tt->error();
