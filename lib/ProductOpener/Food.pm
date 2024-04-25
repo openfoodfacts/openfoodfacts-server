@@ -75,8 +75,6 @@ BEGIN {
 
 		&compare_nutriments
 
-		&special_process_product
-
 		&extract_nutrition_from_image
 
 		&default_unit_for_nid

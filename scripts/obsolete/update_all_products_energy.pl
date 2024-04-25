@@ -64,7 +64,7 @@ my $cursor = $products_collection->query({})->fields({ code => 1 });
 		$product_ref = retrieve_product($code);
 		
 		# Update
-		#extract_ingredients_classes_from_text($product_ref);
+		#extract_additives_from_text($product_ref);
 		
 		compute_serving_size_data($product_ref);
 

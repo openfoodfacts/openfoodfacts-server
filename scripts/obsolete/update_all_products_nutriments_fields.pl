@@ -66,7 +66,7 @@ my $cursor = $products_collection->query({})->fields({ code => 1 });
 		
 		
 		# Update
-		#extract_ingredients_classes_from_text($product_ref);
+		#extract_additives_from_text($product_ref);
 		
 		if ($product_ref->{lc}) {
 			$lc = $product_ref->{lc};

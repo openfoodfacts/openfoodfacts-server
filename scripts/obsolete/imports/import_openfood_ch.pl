@@ -1732,7 +1732,7 @@ if (opendir (DH, "$dir/json")) {
 			
 			# Ingredients classes
 			extract_ingredients_from_text($product_ref);
-			extract_ingredients_classes_from_text($product_ref);
+			extract_additives_from_text($product_ref);
 
 			compute_languages($product_ref); # need languages for allergens detection
 			detect_allergens_from_text($product_ref);
