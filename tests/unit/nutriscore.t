@@ -11,7 +11,7 @@ use Log::Any::Adapter 'TAP';
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Tags qw/compute_field_tags/;
 use ProductOpener::Food qw/:all/;
-use ProductOpener::Ingredients qw/extract_ingredients_classes_from_text extract_ingredients_from_text/;
+use ProductOpener::Ingredients qw/extract_additives_from_text extract_ingredients_from_text/;
 use ProductOpener::Nutriscore qw/compute_nutriscore_grade/;
 use ProductOpener::NutritionCiqual qw/load_ciqual_data/;
 use ProductOpener::NutritionEstimation qw/:all/;
@@ -901,7 +901,7 @@ foreach my $test_ref (@tests) {
 	compute_serving_size_data($product_ref);
 	compute_field_tags($product_ref, $product_ref->{lc}, "categories");
 	extract_ingredients_from_text($product_ref);
-	extract_ingredients_classes_from_text($product_ref);
+	extract_additives_from_text($product_ref);
 	special_process_product($product_ref);
 	compute_estimated_nutrients($product_ref);
 	compute_nutriscore($product_ref);
