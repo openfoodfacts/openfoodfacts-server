@@ -40,7 +40,6 @@ use Exporter qw< import >;
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
-	
 
 		&specific_processes_for_pet_food_product
 
@@ -53,7 +52,8 @@ use vars @EXPORT_OK;
 use ProductOpener::Ingredients
 	qw/select_ingredients_lc clean_ingredients_text extract_ingredients_from_text extract_additives_from_text detect_allergens_from_text/;
 use ProductOpener::NutritionEstimation qw/estimate_nutrients_from_ingredients/;
-use ProductOpener::Food qw/fix_salt_equivalent compute_serving_size_data assign_categories_properties_to_product compute_estimated_nutrients compute_unknown_nutrients compute_nova_group/;
+use ProductOpener::Food
+	qw/fix_salt_equivalent compute_serving_size_data assign_categories_properties_to_product compute_estimated_nutrients compute_unknown_nutrients compute_nova_group/;
 
 use Hash::Util;
 use Encode;

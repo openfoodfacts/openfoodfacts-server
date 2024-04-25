@@ -3694,6 +3694,11 @@ sub analyze_and_enrich_product_data ($product_ref, $response_ref) {
 
 	ProductOpener::DataQuality::check_quality($product_ref);
 
+	# Sort misc_tags in order to have a consistent order
+	if (defined $product_ref->{misc_tags}) {
+		$product_ref->{misc_tags} = [sort @{$product_ref->{misc_tags}}];
+	}
+
 	return;
 }
 

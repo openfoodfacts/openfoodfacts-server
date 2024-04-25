@@ -40,7 +40,7 @@ use Exporter qw< import >;
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
-	
+
 		&specific_processes_for_food_product
 
 	);    # symbols to export on request
@@ -52,7 +52,8 @@ use vars @EXPORT_OK;
 use ProductOpener::Ingredients
 	qw/select_ingredients_lc clean_ingredients_text extract_ingredients_from_text extract_additives_from_text detect_allergens_from_text/;
 use ProductOpener::NutritionEstimation qw/estimate_nutrients_from_ingredients/;
-use ProductOpener::Food qw/fix_salt_equivalent compute_serving_size_data assign_categories_properties_to_product compute_estimated_nutrients compute_unknown_nutrients compute_nova_group compute_nutriscore compute_nutrient_levels/;
+use ProductOpener::Food
+	qw/fix_salt_equivalent compute_serving_size_data assign_categories_properties_to_product compute_estimated_nutrients compute_unknown_nutrients compute_nova_group compute_nutriscore compute_nutrient_levels/;
 use ProductOpener::FoodGroups qw/compute_food_groups/;
 use ProductOpener::Nutriscore qw/:all/;
 use ProductOpener::Ecoscore qw/compute_ecoscore/;
@@ -109,7 +110,7 @@ sub specific_processes_for_food_product ($product_ref) {
 	# Environmental analysis
 
 	compute_ecoscore($product_ref);
-	compute_forest_footprint($product_ref);	
+	compute_forest_footprint($product_ref);
 
 	return;
 }
