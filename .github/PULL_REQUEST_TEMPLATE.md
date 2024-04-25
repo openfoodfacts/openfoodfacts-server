@@ -8,13 +8,15 @@ Make sure you've done all the following (You can delete the checklist before sub
 - [ ] Read and understood the [contribution guidelines](https://github.com/openfoodfacts/openfoodfacts-server/blob/main/CONTRIBUTING.md)
 -->
 ### What
-
 <!-- Describe the changes made and why they were made instead of how they were made. -->
+<!-- TAXONOMISTS: please indicate the topics of changes, and the languages involved -->
 
-### Screenshot
+### Screenshot of the result of your PR
 <!-- Optional, you can delete if not relevant -->
 
 ### Related issue(s) and discussion
 <!-- Please add the issue number this issue will close, that way, once your pull request is merged, the issue will be closed as well -->
-- Fixes #[ISSUE NUMBER]
+<!-- 
+- Fixes #[ISSUE NUMBER] 
+-->
 
