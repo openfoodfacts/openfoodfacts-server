@@ -22,7 +22,7 @@
 /*global lang jsVectorMap*/
 
 function getServerDomain() {
-  return window.location.href.match(/^https?:\/\/([^/?#]+)(?:[/?#]|$)/i)[1];
+  return (/^https?:\/\/([^/?#]+)(?:[/?#]|$)/i).exec(window.location.href)[1];
 }
 
 function displayWorldMap(selector, countries) {

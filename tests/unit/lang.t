@@ -3,11 +3,13 @@
 use Modern::Perl '2017';
 use utf8;
 
-use Test::More;
+use Test2::V0;
+use Data::Dumper;
+$Data::Dumper::Terse = 1;
 use Test2::Plugin::UTF8;
 use Log::Any::Adapter 'TAP';
 
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Lang qw/$lc  %Lang/;
 use ProductOpener::Config qw/:all/;
 
 sub test_links {
@@ -143,6 +145,6 @@ foreach my $stringid (sort keys %Lang) {
 	}
 }
 
-diag explain \%failed_languages;
+diag Dumper \%failed_languages;
 
 done_testing();

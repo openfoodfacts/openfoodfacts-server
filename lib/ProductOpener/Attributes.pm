@@ -18,6 +18,8 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+=encoding UTF-8
+
 =head1 NAME
 
 ProductOpener::Attributes - Generate product attributes that can be requested through the API
@@ -49,14 +51,7 @@ BEGIN {
 	@EXPORT_OK = qw(
 
 		&list_attributes
-		&initialize_attribute_group
-		&initialize_attribute
-		&override_general_value
-		&add_attribute_to_group
 		&compute_attributes
-		&compute_attribute_nutriscore
-		&compute_attribute_nova
-		&compute_attribute_has_tag
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -66,12 +61,12 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Tags qw/:all/;
+use ProductOpener::Tags qw/%level display_taxonomy_tag display_taxonomy_tag_name has_tag/;
 use ProductOpener::Products qw/:all/;
-use ProductOpener::Food qw/:all/;
+use ProductOpener::Food qw/@nutrient_levels/;
 use ProductOpener::Ingredients qw/:all/;
-use ProductOpener::Lang qw/:all/;
-use ProductOpener::Display qw/:all/;
+use ProductOpener::Lang qw/f_lang_in_lc lang lang_in_other_lc/;
+use ProductOpener::Display qw/$static_subdomain/;
 use ProductOpener::Ecoscore qw/:all/;
 
 use Data::DeepAccess qw(deep_get);
@@ -271,45 +266,45 @@ sub initialize_attribute ($attribute_id, $target_lc) {
 	# Initialize icon for the attribute
 
 	if ($attribute_id eq "nutriscore") {
-		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/nutriscore-a.svg";
+		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/nutriscore-a.svg";
 		$attribute_ref->{panel_id} = "nutriscore";
 	}
 	elsif ($attribute_id eq "ecoscore") {
-		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/ecoscore-a.svg";
+		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/ecoscore-a.svg";
 		$attribute_ref->{panel_id} = "ecoscore";
 	}
 	elsif ($attribute_id eq "forest_footprint") {
-		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/forest-footprint-a.svg";
+		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/forest-footprint-a.svg";
 	}
 	elsif ($attribute_id eq "nova") {
-		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/nova-group-1.svg";
+		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/nova-group-1.svg";
 		$attribute_ref->{panel_id} = "nova";
 	}
 	elsif ($attribute_id eq "additives") {
-		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/0-additives.svg";
+		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/0-additives.svg";
 		$attribute_ref->{panel_id} = "additives";
 	}
 	elsif ($attribute_id =~ /^allergens_no_(.*)$/) {
 		my $allergen = $1;
 		$allergen =~ s/_/-/g;
-		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/no-$allergen.svg";
+		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/no-$allergen.svg";
 	}
 	elsif ($attribute_id =~ /^(low)_(salt|sugars|fat|saturated_fat)$/) {
 		my $nid = $2;
 		$nid =~ s/_/-/g;
-		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/nutrient-level-$nid-low.svg";
+		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/nutrient-level-$nid-low.svg";
 	}
 	elsif (($attribute_id eq "vegan") or ($attribute_id eq "vegetarian") or ($attribute_id eq "palm_oil_free")) {
 		my $analysis_tag = $attribute_id;
 		$analysis_tag =~ s/_/-/g;
-		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/$analysis_tag.svg";
+		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/$analysis_tag.svg";
 	}
 	elsif ($attribute_id =~ /^(labels)_(.*)$/) {
 		my $tagtype = $1;
 		my $tag = $2;
 		$tag =~ s/_/-/g;
 
-		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/${tag}.svg";
+		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/${tag}.svg";
 	}
 
 	# Initialize name and setting name if a language is requested
@@ -537,13 +532,13 @@ sub compute_attribute_nutriscore ($product_ref, $target_lc) {
 			$attribute_ref->{description_short}
 				= lang_in_other_lc($target_lc, "attribute_nutriscore_" . $grade . "_description_short");
 		}
-		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/nutriscore-$grade.svg";
+		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/nutriscore-$grade.svg";
 	}
 
 	# Nutri-Score not-applicable: alcoholic beverages, baby food etc.
 	elsif (has_tag($product_ref, "nutrition_grades", "not-applicable")) {
 		$attribute_ref->{status} = "known";
-		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/nutriscore-not-applicable.svg";
+		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/nutriscore-not-applicable.svg";
 		$attribute_ref->{match} = 0;
 		if ($target_lc ne "data") {
 			$attribute_ref->{title} = lang_in_other_lc($target_lc, "attribute_nutriscore_not_applicable_title");
@@ -565,7 +560,7 @@ sub compute_attribute_nutriscore ($product_ref, $target_lc) {
 	# Nutri-Score not computed: missing data
 	else {
 		$attribute_ref->{status} = "unknown";
-		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/nutriscore-unknown.svg";
+		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/nutriscore-unknown.svg";
 		$attribute_ref->{match} = 0;
 		if ($target_lc ne "data") {
 			$attribute_ref->{title} = lang_in_other_lc($target_lc, "attribute_nutriscore_unknown_title");
@@ -667,12 +662,12 @@ sub compute_attribute_ecoscore ($product_ref, $target_lc, $target_cc) {
 			$attribute_ref->{description_short}
 				= lang_in_other_lc($target_lc, "attribute_ecoscore_" . $grade . "_description_short");
 		}
-		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/ecoscore-$grade.svg";
+		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/ecoscore-$grade.svg";
 	}
 	# Eco-Score is not-applicable
 	elsif ((defined $product_ref->{ecoscore_grade}) and ($product_ref->{ecoscore_grade} eq "not-applicable")) {
 		$attribute_ref->{status} = "unknown";
-		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/ecoscore-not-applicable.svg";
+		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/ecoscore-not-applicable.svg";
 		$attribute_ref->{match} = 0;
 		if ($target_lc ne "data") {
 			$attribute_ref->{title} = lang_in_other_lc($target_lc, "attribute_ecoscore_not_applicable_title");
@@ -693,7 +688,7 @@ sub compute_attribute_ecoscore ($product_ref, $target_lc, $target_cc) {
 	# Eco-Score is unknown
 	else {
 		$attribute_ref->{status} = "unknown";
-		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/ecoscore-unknown.svg";
+		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/ecoscore-unknown.svg";
 		$attribute_ref->{match} = 0;
 		if ($target_lc ne "data") {
 			$attribute_ref->{title} = lang_in_other_lc($target_lc, "attribute_ecoscore_unknown_title");
@@ -773,14 +768,14 @@ sub compute_attribute_forest_footprint ($product_ref, $target_lc) {
 			$attribute_ref->{description_short}
 				= lang_in_other_lc($target_lc, "attribute_forest_footprint_" . $grade . "_description_short");
 		}
-		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/forest-footprint-$grade.svg";
+		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/forest-footprint-$grade.svg";
 	}
 	else {
 		# If we don't have a forest footprint, we assume it is zero and mark it as known
 		# We do keep a greyed out icon until the forest footprint encompasses most sources of deforestation
 		# (e.g. not only chicken and eggs, but also other raised animals products and palm oil)
 		$attribute_ref->{status} = "known";
-		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/forest-footprint-not-computed.svg";
+		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/forest-footprint-not-computed.svg";
 		$attribute_ref->{match} = 0;
 		if ($target_lc ne "data") {
 			$attribute_ref->{title} = lang_in_other_lc($target_lc, "attribute_forest_footprint_not_computed_title");
@@ -861,12 +856,12 @@ sub compute_attribute_nova ($product_ref, $target_lc) {
 			$attribute_ref->{description_short}
 				= lang_in_other_lc($target_lc, "attribute_nova_" . $nova_group . "_description_short");
 		}
-		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/nova-group-$nova_group.svg";
+		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/nova-group-$nova_group.svg";
 
 	}
 	else {
 		$attribute_ref->{status} = "unknown";
-		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/nova-group-unknown.svg";
+		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/nova-group-unknown.svg";
 		$attribute_ref->{match} = 0;
 		if ($target_lc ne "data") {
 			$attribute_ref->{title} = lang_in_other_lc($target_lc, "attribute_nova_unknown_title");
@@ -955,13 +950,13 @@ sub compute_attribute_additives ($product_ref, $target_lc) {
 			$n = 10;
 		}
 
-		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/$n-additives.svg";
+		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/$n-additives.svg";
 
 	}
 	else {
 		$attribute_ref->{status} = "unknown";
 		$attribute_ref->{match} = 0;
-		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/additives-unknown.svg";
+		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/additives-unknown.svg";
 		if ($target_lc ne "data") {
 			$attribute_ref->{title} = lang_in_other_lc($target_lc, "attribute_additives_unknown_title");
 			$attribute_ref->{description} = lang_in_other_lc($target_lc, "attribute_additives_unknown_description");
@@ -1034,18 +1029,18 @@ sub compute_attribute_has_tag ($product_ref, $target_lc, $tagtype, $tagid) {
 
 		$attribute_ref->{status} = "unknown";
 		$value = "unknown";
-		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/${tag}-unknown.svg";
+		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/${tag}-unknown.svg";
 	}
 	elsif (has_tag($product_ref, $tagtype, $tagid)) {
 
 		$attribute_ref->{match} = 100;
 		$value = "yes";
-		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/${tag}.svg";
+		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/${tag}.svg";
 	}
 	else {
 		$attribute_ref->{match} = 0;
 		$value = "no";
-		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/not-${tag}.svg";
+		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/not-${tag}.svg";
 	}
 
 	if ($target_lc ne "data") {
@@ -1088,6 +1083,7 @@ e.g. "salt", "sugars", "fat", "saturated-fat"
 The return value is a reference to the resulting attribute data structure.
 
 =head4 % Match
+
 For "low" levels:
 
 - 100% if the nutrient quantity is 0%
@@ -1124,7 +1120,7 @@ sub compute_attribute_nutrient_level ($product_ref, $target_lc, $level, $nid) {
 
 	if ((not defined $product_ref->{nutrient_levels}) or (not defined $product_ref->{nutrient_levels}{$nid})) {
 		$attribute_ref->{status} = "unknown";
-		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/nutrient-level-$nid-unknown.svg";
+		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/nutrient-level-$nid-unknown.svg";
 		if ($target_lc ne "data") {
 			$attribute_ref->{title} = sprintf(
 				lang_in_other_lc($target_lc, "nutrient_in_quantity"),
@@ -1161,19 +1157,19 @@ sub compute_attribute_nutrient_level ($product_ref, $target_lc, $level, $nid) {
 
 			if ($value < $low) {
 				$match = 80 + 20 * ($low - $value) / $low;
-				$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/nutrient-level-$nid-low.svg";
+				$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/nutrient-level-$nid-low.svg";
 			}
 			elsif ($value <= $high) {
 				$match = 20 + 60 * ($high - $value) / ($high - $low);
-				$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/nutrient-level-$nid-medium.svg";
+				$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/nutrient-level-$nid-medium.svg";
 			}
 			elsif ($value < $high * 2) {
 				$match = 20 * ($high * 2 - $value) / $high;
-				$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/nutrient-level-$nid-high.svg";
+				$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/nutrient-level-$nid-high.svg";
 			}
 			else {
 				$match = 0;
-				$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/nutrient-level-$nid-high.svg";
+				$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/nutrient-level-$nid-high.svg";
 			}
 
 			$attribute_ref->{match} = $match;
@@ -1319,7 +1315,7 @@ sub compute_attribute_allergen ($product_ref, $target_lc, $attribute_id) {
 			lang_in_other_lc($target_lc, "presence_unknown_s"),
 			display_taxonomy_tag($target_lc, "allergens", $allergen_id)
 		);
-		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/$allergen-content-unknown.svg";
+		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/$allergen-content-unknown.svg";
 
 		if (not($product_ref->{ingredients_n})) {
 			# If we don't have ingredients,
@@ -1337,17 +1333,17 @@ sub compute_attribute_allergen ($product_ref, $target_lc, $attribute_id) {
 			lang_in_other_lc($target_lc, "does_not_contain_s"),
 			display_taxonomy_tag($target_lc, "allergens", $allergen_id)
 		);
-		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/no-$allergen.svg";
+		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/no-$allergen.svg";
 	}
 	elsif ($attribute_ref->{match} == 20) {
 		$attribute_ref->{title} = sprintf(
 			lang_in_other_lc($target_lc, "may_contain_s"),
 			display_taxonomy_tag($target_lc, "allergens", $allergen_id)
 		);
-		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/may-contain-$allergen.svg";
+		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/may-contain-$allergen.svg";
 	}
 	elsif ($attribute_ref->{match} == 0) {
-		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/contains-$allergen.svg";
+		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/contains-$allergen.svg";
 		$attribute_ref->{title} = sprintf(
 			lang_in_other_lc($target_lc, "contains_s"),
 			display_taxonomy_tag($target_lc, "allergens", $allergen_id)
@@ -1388,6 +1384,7 @@ vegan, non-vegan, maybe-vegan, vegan-status-unknown
 The return value is a reference to the resulting attribute data structure.
 
 =head4 % Match
+
 For "low" levels:
 
 - 100% if the property matches
@@ -1474,7 +1471,7 @@ sub compute_attribute_ingredients_analysis ($product_ref, $target_lc, $analysis)
 	}
 
 	$attribute_ref->{status} = $status;
-	$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/$analysis_tag.svg";
+	$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/$analysis_tag.svg";
 	# the ingredients_analysis taxonomy contains en:palm-oil and not en:contains-palm-oil
 	$analysis_tag =~ s/contains-(.*)$/$1/;
 

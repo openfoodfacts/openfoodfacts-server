@@ -41,16 +41,13 @@ use Exporter qw< import >;
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
-		$lang
 		$lc
-		$text_direction
 
 		%tag_type_singular
 		%tag_type_from_singular
 		%tag_type_plural
 		%tag_type_from_plural
 		%Lang
-		%CanonicalLang
 		%Langs
 		@Langs
 
@@ -68,8 +65,9 @@ BEGIN {
 
 use vars @EXPORT_OK;
 use ProductOpener::I18N;
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Store qw/get_string_id_for_lang retrieve/;
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die/;
 
 use DateTime;
 use DateTime::Locale;
@@ -77,6 +75,9 @@ use Encode;
 use JSON::PP;
 
 use Log::Any qw($log);
+
+# Default values for $lc
+$lc = "en";
 
 =head1 FUNCTIONS
 
@@ -105,7 +106,7 @@ sub separator_before_colon ($l) {
 
 =head2 lang( $stringid )
 
-Returns a translation for a specific string id in the language defined in the $lang global variable.
+Returns a translation for a specific string id in the language defined in the $lc global variable.
 
 If a translation is not available, the function returns English.
 
@@ -118,32 +119,13 @@ In the .po translation files, we use the msgctxt field for the string id.
 =cut
 
 sub lang ($stringid) {
-
-	my $short_l = undef;
-	if ($lang =~ /_/) {
-		$short_l = $`;    # pt_pt
-	}
-
-	# English values have been copied to languages that do not have defined values
-
-	if (not defined $Lang{$stringid}) {
-		return '';
-	}
-	elsif (defined $Lang{$stringid}{$lang}) {
-		return $Lang{$stringid}{$lang};
-	}
-	elsif ((defined $short_l) and (defined $Lang{$stringid}{$short_l}) and ($Lang{$stringid}{$short_l} ne '')) {
-		return $Lang{$stringid}{$short_l};
-	}
-	else {
-		return '';
-	}
+	return lang_in_other_lc($lc, $stringid);
 }
 
 =head2 f_lang( $stringid, $variables_ref )
 
 Returns a translation for a specific string id with specific arguments
-in the language defined in the $lang global variable.
+in the language defined in the $lc global variable.
 
 The translation is stored using Python's f-string format with
 named parameters between { }.
@@ -256,7 +238,7 @@ $log->info("initialize", {data_root => $data_root}) if $log->is_info();
 
 # Load stored %Lang from Lang.sto and Lang_tags.sto
 
-my $path = "$data_root/data/Lang.${server_domain}.sto";
+my $path = "$BASE_DIRS{PRIVATE_DATA}/Lang.${server_domain}.sto";
 if (-e $path) {
 
 	$log->info("Loading \%Lang", {path => $path}) if $log->is_info();
@@ -442,29 +424,6 @@ sub build_lang ($Languages_ref) {
 	# print $fh "Lang.pm - %Lang\n\n" . eDumper(\%Lang) . "\n";
 	# close $fh;
 
-	# Load site specific overrides
-	# the site-specific directory can be a symlink to openfoodfacts or openbeautyfacts
-	my $overrides_path = "$data_root/po/site-specific/";
-	if (-e $overrides_path) {
-
-		# Load overrides from %SiteLang
-		# %SiteLang overrides the general %Lang in Lang.pm
-
-		$log->info("Loading site-specific overrides", {path => $overrides_path});
-
-		my %SiteLang = %{ProductOpener::I18N::read_po_files("$data_root/po/site-specific/")};
-
-		foreach my $key (keys %SiteLang) {
-			next if $key =~ /^:/;    # :langname, :langtag
-			$log->debug("Using site specific string", {key => $key}) if $log->is_debug();
-
-			$Lang{$key} = {};
-			foreach my $l (keys %{$SiteLang{$key}}) {
-				$Lang{$key}{$l} = $SiteLang{$key}{$l};
-			}
-		}
-	}
-
 	foreach my $key (keys %Lang) {
 		if ((defined $Lang{$key}{fr}) or (defined $Lang{$key}{en})) {
 			foreach my $l (@Langs) {
@@ -545,16 +504,14 @@ sub build_lang ($Languages_ref) {
 sub build_json {
 	$log->info("Building I18N JSON") if $log->is_info();
 
-	my $i18n_root = "$www_root/data/i18n";
+	my $i18n_root = "$BASE_DIRS{PUBLIC_DATA}/i18n";
 	if (!-e $i18n_root) {
 		mkdir($i18n_root, 0755) or die("Could not create target directory $i18n_root : $!\n");
 	}
 
 	foreach my $l (@Langs) {
 		my $target_dir = "$i18n_root/$l";
-		if (!-e $target_dir) {
-			mkdir($target_dir, 0755) or die("Could not create target directory $target_dir : $!\n");
-		}
+		ensure_dir_created_or_die($target_dir);
 
 		my $short_l = undef;
 		if ($l =~ /_/) {

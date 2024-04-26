@@ -1,0 +1,11 @@
+[Unit]
+Description=Generate madenearme sites for %i
+
+[Timer]
+# once a week, on sunday
+OnCalendar=Sun 2:15
+# service instance name "%i" is off / obf / opff / opf
+Unit=madenearme_gen@%i.service
+
+[Install]
+WantedBy=multi-user.target

@@ -3,11 +3,13 @@
 use Modern::Perl '2017';
 use utf8;
 
-use Test::More;
+use Test2::V0;
+use Data::Dumper;
+$Data::Dumper::Terse = 1;
 use Log::Any::Adapter 'TAP';
 
-use ProductOpener::Routing qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Routing qw/analyze_request/;
+use ProductOpener::Lang qw/$lc /;
 
 # TODO: create a test case array and use the update_test_results system to
 # store and compare the returned $request object
@@ -63,6 +65,14 @@ my @tests = (
 			'tag_prefix' => '',
 			'tagid' => 'en:breads',
 			'tagtype' => 'categories',
+			'tags' => [
+				{
+					'tag' => 'en:breads',
+					'tag_prefix' => '',
+					'tagid' => 'en:breads',
+					'tagtype' => 'categories'
+				},
+			],
 			'no_index' => '0',
 			'is_crawl_bot' => '0'
 		},
@@ -89,6 +99,14 @@ my @tests = (
 			'tag_prefix' => '',
 			'tagid' => 'en:breads',
 			'tagtype' => 'categories',
+			'tags' => [
+				{
+					'tag' => 'en:breads',
+					'tag_prefix' => '',
+					'tagid' => 'en:breads',
+					'tagtype' => 'categories'
+				},
+			],
 			'no_index' => '0',
 			'is_crawl_bot' => '1'
 		},
@@ -115,6 +133,14 @@ my @tests = (
 			'tag_prefix' => '',
 			'tagid' => 'en:breads',
 			'tagtype' => 'categories',
+			'tags' => [
+				{
+					'tag' => 'en:breads',
+					'tag_prefix' => '',
+					'tagid' => 'en:breads',
+					'tagtype' => 'categories'
+				},
+			],
 			'no_index' => '1',
 			'is_crawl_bot' => '1'
 		},
@@ -141,6 +167,14 @@ my @tests = (
 			'tag_prefix' => '',
 			'tagid' => 'en:bread',
 			'tagtype' => 'categories',
+			'tags' => [
+				{
+					'tag' => 'en:bread',
+					'tag_prefix' => '',
+					'tagid' => 'en:bread',
+					'tagtype' => 'categories'
+				},
+			],
 			'no_index' => '0',
 			'is_crawl_bot' => '0'
 		},
@@ -206,7 +240,7 @@ foreach my $test_ref (@tests) {
 	$lc = $test_ref->{input_request}{lc};
 	analyze_request($test_ref->{input_request});
 
-	is_deeply($test_ref->{input_request}, $test_ref->{expected_output_request}) or diag explain $test_ref;
+	is($test_ref->{input_request}, $test_ref->{expected_output_request}) or diag Dumper $test_ref;
 }
 
 done_testing();

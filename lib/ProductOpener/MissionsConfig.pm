@@ -35,11 +35,11 @@ BEGIN {
 
 use vars @EXPORT_OK;
 
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Store qw/get_string_id_for_lang/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Products qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Lang qw/lang/;
 
 %Missions_by_lang = (
 
