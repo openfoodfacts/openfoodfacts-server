@@ -15,11 +15,12 @@ To identify the potential users' needs, Dave has met with some conscious consume
 
 ### Developer journeys
 
-- []()Dev Journey 1: Comparing sodas for Anna
-- []()Dev Journey 2: Finding healthy breakfast cereals for Stefano
-- []()Dev Journey 3: Adding missing products
-- []()Dev Journey 4: Get the Nutri-Score
-- []()Dev Journey 5: Get the Eco-Score
-- []()Dev Journey 6: Get ingredient related analysis on new or existing products (Nova, allergens, additives…)
+- []()Dev Journey 1: <a href="docs/reference/api-tutorials/comparing-sodas-for-anna.md">Comparing sodas for Anna</a>
+- []()Dev Journey 2: <a href="docs/reference/api-tutorials/finding-healthy-breakfast-cereals-for-stefano.md">Finding healthy breakfast cereals for Stefano</a>
+- []()Dev Journey 3: <a href="docs/reference/api-tutorials/adding-missing-products.md">Adding missing products</a>
+- []()Dev Journey 4: <a href="docs/reference/api-tutorials/get-the-nutri-score.md">Get the Nutri-Score</a>
+- []()Dev Journey 5: <a href="docs/reference/api-tutorials/get-the-eco-score.md">Get the Eco-Score</a>
+- []()Dev Journey 6: <a href="docs/reference/api-tutorials/get-ingredient-related-analysis.md">Get ingredient related analysis on new or existing products (Nova, allergens, additives…)</a>
 - []()Dev Journey 7: <a href="docs/reference/api-tutorials/folksonomy-engine.md
 ">Adding non-standard fields to a food product using Folksonomy Engine</a>
+- []()Dev Journey 8: Retrieving and adding prices to products (Coming soon)
