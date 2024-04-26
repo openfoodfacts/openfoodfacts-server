@@ -13,6 +13,11 @@
 
 use the official assets to display de nutriscore. You can get v1 logos here: [NutriScore variants](https://drive.google.com/drive/u/1/folders/13SL2hgqYHSLMhYjMze9nYXV9GOdGMBgc)
 
+### Getting ready for Nutri-Score V2
+- Nutri-Score V2 has a new computation method, which now requires the ingredient list, a category, and of course the nutrition table
+- It also has a transition period new logo, to indicate you are using the new computation. It is not compulsory to use it, but it will save you from a lot of questions from your users ("Do you have the new formula ?")
+- You can get the new assets by contacting reuse@openfoodfacts.org. We will make them public as soon as possible.
+
 ### Manual version: Getting the Nutri-Score value (we don't recommand the manual way anymore)
 
 ### Data completion flow
@@ -36,8 +41,7 @@ Here are the different messages to use according to the state:
 -   Prompt: "Add nutrition facts to compute the Nutri-Score"
 
 -   Add a one-click option to indicate no nutrition facts on the packaging
-
--   This product doesn't have nutrition facts
+  -   "This product doesn't have nutrition facts"
 
 #### Add a message if we have nutrition but no category
 
@@ -45,7 +49,7 @@ Here are the different messages to use according to the state:
 
 -   Prompt: "Add a category to compute the Nutri-Score"
 
--   Help the user add the category if it is missing
+#### Help the user add the category if it is missing
 
 -   You can use our Robotoff API to get your users to validate a prediction
 
@@ -57,43 +61,36 @@ Here are the different messages to use according to the state:
 
 -   Prompt: "Add nutrition facts and a category to compute the Nutri-Score"
 
--   Add a one-click option to indicate no nutrition facts on the packaging
+#### Add a one-click option to indicate no nutrition facts on the packaging
 
 -   This product doesn't have nutrition facts
 
--   Add a message if the nutrition image is missing
+#### Add a message if the nutrition image is missing
 
 -   if "en:nutrition-photo-to-be-selected" in states_tags OR "en:photos-to-be-uploaded" in states_tags
 
--   Add a message if the nutrition image is obsolete using the image refresh API
+#### Add a message if the nutrition image is obsolete using the image refresh API
 
 -   <https://github.com/openfoodfacts/api-documentation/issues/15>
 
 #### Add Nutri-Score disclaimers
 
--   a message if fibers are missing
+##### a message if fibers are missing
 
 -   msgctxt "nutrition_grade_fr_fiber_warning"
-
 -   msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
 
--   a message if fruit/nuts are missing
+##### a message if fruit/nuts are missing
 
 -   msgctxt "nutrition_grade_fr_no_fruits_vegetables_nuts_warning"
-
 -   msgid "Warning: the amount of fruits, vegetables and nuts is not specified, their possible positive contribution to the grade could not be taken into account."
 
--   a message if fruits/nuts is an estimate from ingredients
+##### a message if fruits/nuts is an estimate from ingredients
 
 -   msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
-
 -   msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d%"
 
--   a message if fruits/nuts is an estimate from category
+##### a message if fruits/nuts is an estimate from category
 
 -   msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
-
 -   msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d%"
-
-
-[https://docs.google.com/document/d/1_Y3tdgB8w3VkL6tXgjzPVmkmFiXsBfy0UfS6Mg3MkLs/edit](https://docs.google.com/document/d/1_Y3tdgB8w3VkL6tXgjzPVmkmFiXsBfy0UfS6Mg3MkLs/edit)
