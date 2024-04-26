@@ -10,7 +10,7 @@ use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Tags qw/exists_taxonomy_tag has_tag get_property %properties/;
 use ProductOpener::Food qw/:all/;
-use ProductOpener::FoodProduct qw/:all/;
+use ProductOpener::FoodProducts qw/:all/;
 
 my $product_ref = {
 	lc => "en",
