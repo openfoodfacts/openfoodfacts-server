@@ -1,0 +1,11 @@
+[Unit]
+Description=Generate %i feeds
+
+[Timer]
+# every two hours
+OnCalendar=0/2:35
+# service instance name "%i" is off / obf / opff / opf
+Unit=gen_feeds@%i.service
+
+[Install]
+WantedBy=timers.target

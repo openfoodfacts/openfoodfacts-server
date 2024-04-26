@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2024 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -17,6 +17,8 @@
 #
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+## no critic (RequireFilenameMatchesPackage);
 
 package ProductOpener::Config2;
 
@@ -35,6 +37,7 @@ BEGIN {
 		$producers_platform
 		$data_root
 		$conf_root
+		$sftp_root
 		$www_root
 		$geolite2_path
 		$log_emails
@@ -78,6 +81,7 @@ $server_domain = $is_localhost && $po_port != '80' ? "$po_domain:$po_port" : $po
 $data_root = "/mnt/podata";
 $www_root = "/opt/product-opener/html";
 $conf_root = "/opt/product-opener/conf";
+$sftp_root = "/mnt/podata/sftp";
 $geolite2_path = $ENV{GEOLITE2_PATH};
 
 my $mongodb_url = $ENV{MONGODB_HOST} || "mongodb";
