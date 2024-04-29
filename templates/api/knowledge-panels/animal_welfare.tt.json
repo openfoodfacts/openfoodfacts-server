@@ -1,0 +1,26 @@
+{
+  "type": "card",
+  "expanded": true,
+  "topics": [
+    "animal_welfare"
+  ],
+  "title_element": {
+    "title": "[% edq(lang('animal_welfare_panel_title')) %]",
+    "subtitle": "[% edq(lang('animal_welfare_panel_subtitle')) %]"
+  },
+  "elements": [
+    {
+      "element_type": "text",
+      "text_element": {
+        "type": "default",
+        "html": "[% edq(lang('animal_welfare_panel_description')) %]"
+      }
+    },
+    {
+      "element_type": "evaluation",
+      "evaluation_element": {
+        "evaluation": "[% edq(lang('animal_welfare_panel_evaluation')) %]"
+      }
+    }
+  ]
+}
