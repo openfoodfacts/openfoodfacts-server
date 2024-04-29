@@ -307,8 +307,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Vitamin_D
 <en:vitamin D
 en:Ergocalciferol, Vitamin D2, D2
 ar:إرغوكالسيفيرول
-ca:Ergocalciferol, vitamina D2, D2
 bg:Ергокалциферол
+ca:Ergocalciferol, vitamina D2, D2
 cs:ergokalciferol, Vitamín D2
 cy:ergocalcifferol
 de:Ergocalciferol, Vitamin D2, vitamine D2
@@ -342,6 +342,10 @@ sr:ергокалциферол
 sv:vitamin D2, D2, ergokalciferol
 uk:Ергокальциферол
 zh:麦角钙化醇, 维生素D2
+vegan:en:yes
+vegetarian:en:yes
+# vitamin/ergocalciferol has 690 products @2018-11-21
+wikidata:en:Q139200
 # sr-ec:ергокалциферол
 # sr-el:Ergokalciferol
 # zh-cn:维生素D2
@@ -351,10 +355,6 @@ zh:麦角钙化醇, 维生素D2
 # zh-sg:维生素D2
 # zh-tw:维生素D2
 wikipedia:en:https://en.wikipedia.org/wiki/Ergocalciferol
-# vitamin/ergocalciferol has 690 products @2018-11-21
-wikidata:en:Q139200
-vegan:en:yes
-vegetarian:en:yes
 
 # description:en:Cholecalciferol, also known as vitamin D3 and colecalciferol, is a type of vitamin D which is made by the skin, found in some foods, and taken as a dietary supplement.
 
@@ -412,6 +412,8 @@ uk:Холекальциферол, Вітамін D3
 vi:cholecalciferol, vitamin D3
 yi:וויטאמין D3
 zh:胆钙化醇, 维生素D3
+vegan:en:maybe
+vegetarian:en:maybe
 # ast:Vitamina D3
 # en-ca:Vitamin D3
 # en-gb:Vitamin D3
@@ -430,8 +432,6 @@ zh:胆钙化醇, 维生素D3
 # zh-tw:膽鈣化醇, 维生素D3
 wikidata:en:Q139347
 wikipedia:en:https://en.wikipedia.org/wiki/Cholecalciferol
-vegan:en:maybe
-vegetarian:en:maybe
 # vitamin/cholecalciferol has 2996 products in 8 languages @2018-11-21
 
 # description:en:VITAMIN E is a group of eight fat soluble compounds that include four tocopherols and four tocotrienols. In order to distinguish between the vitamin and antioxidant role, vitamin E is call tocoferol. The oxidant is called Tocopherol-rich extract or E306.
@@ -1345,6 +1345,7 @@ uk:Фолієва кислота
 ur:فولک تیزاب
 vi:axit folic
 zh:维生素B9, 叶酸
+wikidata:en:Q127060
 # ast:Ácidu fólicu
 # en-ca:Folic acid
 # en-gb:Folic acid
@@ -1356,7 +1357,6 @@ zh:维生素B9, 叶酸
 # sr-ec:фолна киселина
 # yue:葉酸
 wikipedia:en:https://en.wikipedia.org/wiki/Folate
-wikidata:en:Q127060
 # en:vitamin/folic-acid has 23535 products in 17 languages @2018-11-19
 # ingredient/fr:acide-folique has 22121 products in 13 languages @2018-11-19
 # ingredient/fr:folacine has 48 products in 2 languages @2019-04-16
@@ -1527,8 +1527,8 @@ es:Biotina, Vitamina B7
 et:Biotiin
 fi:Biotiini
 fr:Biotine, Vitamine B7, Vitamine H
-hu:Biotin, B7-vitamin, H-vitamin
 hr:biotin
+hu:Biotin, B7-vitamin, H-vitamin
 it:Biotina
 lt:Biotinas
 lv:Biotīns
