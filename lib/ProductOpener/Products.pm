@@ -119,7 +119,6 @@ BEGIN {
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
-
 use vars @EXPORT_OK;
 
 use ProductOpener::Store qw/get_string_id_for_lang get_url_id_for_lang retrieve store/;
@@ -166,6 +165,8 @@ my $ean_check = CheckDigits('ean');
 use Scalar::Util qw(looks_like_number);
 
 use GS1::SyntaxEngine::FFI::GS1Encoder;
+use ProductOpener::Images qw(process_image_move);
+
 
 =head1 FUNCTIONS
 
@@ -1469,13 +1470,30 @@ sub store_product ($user_id, $product_ref, $comment) {
 	store("$new_data_root/products/$path/$rev.sto", $product_ref);
 
 	# Also store the product in MongoDB, unless it was marked as deleted
+	# Assuming you're within the store_product function and the product is marked as deleted
 	if ($product_ref->{deleted}) {
+    # Check if there are any images associated with the product
+		if (defined $product_ref->{images}) {
+			my $move_to = 'trash';  # Define the destination for deletion
+
+			# Iterate over each image ID stored in the product's images hash
+			foreach my $imgid (keys %{$product_ref->{images}}) {
+				# Ensure the image ID is numeric or follows your expected format
+				if ($imgid =~ /^\d+$/ || $imgid =~ /^(front|ingredients|nutrition)/) {
+					# Call the process_image_move function using each image ID
+					process_image_move($user_id, $product_ref->{code}, $imgid, $move_to, $product_ref->{owner});
+				}
+			}
+
+			$log->info("All images moved to trash for product", {code => $product_ref->{code}});
+		}
+
+		# Proceed with deleting the product from the database
 		$new_products_collection->delete_one({"_id" => $product_ref->{_id}});
 	}
 	else {
 		$new_products_collection->replace_one({"_id" => $product_ref->{_id}}, $product_ref, {upsert => 1});
 	}
-
 	# product that has a changed obsolete status
 	if ($delete_from_previous_products_collection) {
 		$previous_products_collection->delete_one({"_id" => $product_ref->{_id}});
