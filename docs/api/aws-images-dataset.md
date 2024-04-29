@@ -3,20 +3,21 @@
 The Open Food Facts images dataset contains all images uploaded to Open Food
 Facts and the OCR results on these images obtained using Google Cloud Vision.
 
-The dataset is stored in the `openfoodfacts-images` bucket hosted in the
+The dataset is stored in the `openfoodfacts-images` S3 bucket hosted in the
 `eu-west-3` region. All data is stored in a single `/data` folder.
 
-Data is synchronized every month between Open Food Facts server and S3 bucket,
-as such some recent images are likely to be missing. You should not assume all
-images are present on the S3 bucket.
+Data is synchronized monthly between the Open Food Facts server and the bucket;
+as such some recent images are likely missing. You should not assume all
+images are present in the bucket.
 
 To know the bucket key associated with an image for the product with barcode
-'4012359114303', you should first split the barcode the following way:
-`/401/235/911/4303`.
+'4012359114303', you should first split the barcode as follows:
+`/401/235/911/4303` (that is, three groups of 3 digits followed by one group of
+4 digits, all four groups being prefixed with a `/`).
 
-This splitting process is only relevant for EAN13 (barcodes with 13 digits),
-for barcodes with a smaller number of digit (like EAN8), the directory path is
-not splitted: `/20065034`.
+This splitting is only relevant for EAN13 (13-digit barcodes):
+for barcodes with fewer digits (like EAN8), the directory path is
+not split: `/20065034`.
 
 To get the raw image '1' for barcode '4012359114303', simply add the image ID:
 `/401/235/911/4303/1.jpg`. Here, you will get the "raw" image, as sent by the
@@ -32,7 +33,7 @@ directly:
 
 `wget https://openfoodfacts-images.s3.eu-west-3.amazonaws.com/data/401/235/911/4303/1.jpg`
 
-You can know all existing objects (images, OCR results) on the bucket by
+You can list all existing objects (images, OCR results) in the bucket by
 downloading the gzipped text file `s3://openfoodfacts-images/data/data_keys.gz`:
 
 `wget https://openfoodfacts-images.s3.eu-west-3.amazonaws.com/data/data_keys.gz`
