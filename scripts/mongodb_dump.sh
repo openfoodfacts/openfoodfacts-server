@@ -39,10 +39,10 @@ mongoexport --collection products --host $HOST --db $DB --query "{ \"last_modifi
 mv new.${PREFIX}_products_${LASTTS}_${NEWTS}.json.gz ${PREFIX}_products_${LASTTS}_${NEWTS}.json.gz
 
 # Delete all but the last 14 delta files - https://stackoverflow.com/a/34862475/11963
-ls -tp ${PREFIX}-products_*.json.gz | grep -v '/$' | tail -n +14 | xargs -I {} rm -- {}
+ls -tp ${PREFIX}_products_*.json.gz | grep -v '/$' | tail -n +14 | xargs -I {} rm -- {}
 
 echo $NEWTS > $TSFILE
-ls -tp ${PREFIX}-products_*.json.gz > index.txt
+ls -tp ${PREFIX}_products_*.json.gz > index.txt
 
 popd > /dev/null # data/delta
 
