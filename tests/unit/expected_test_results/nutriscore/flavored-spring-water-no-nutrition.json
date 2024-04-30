@@ -1,6 +1,7 @@
 {
    "categories" : "flavoured spring water",
    "categories_hierarchy" : [
+      "en:beverages-and-beverages-preparations",
       "en:beverages",
       "en:waters",
       "en:flavored-waters",
@@ -23,6 +24,7 @@
       "agribalyse-18012"
    ],
    "categories_tags" : [
+      "en:beverages-and-beverages-preparations",
       "en:beverages",
       "en:waters",
       "en:flavored-waters",
@@ -74,13 +76,14 @@
          "category_available" : 1,
          "data" : {
             "energy" : null,
-            "fiber" : 0,
+            "fiber" : null,
             "fruits_vegetables_legumes" : null,
             "is_beverage" : 1,
             "is_cheese" : 0,
             "is_fat_oil_nuts_seeds" : 0,
             "is_red_meat_product" : 0,
             "is_water" : 0,
+            "non_nutritive_sweeteners" : null,
             "proteins" : null,
             "salt" : null,
             "saturated_fat" : null,

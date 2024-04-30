@@ -11,7 +11,8 @@ TXT
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
+use ProductOpener::Store qw/retrieve/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Tags qw/:all/;
@@ -19,12 +20,12 @@ use ProductOpener::Users qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Mail qw/:all/;
-use ProductOpener::Products qw/:all/;
+use ProductOpener::Products qw/log_change product_path/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::DataQuality qw/:all/;
-use ProductOpener::Data qw/:all/;
+use ProductOpener::Data qw/get_database get_products_collection get_recent_changes_collection/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -57,7 +58,7 @@ while (my $product_ref = $cursor->next) {
 	my $code = $product_ref->{code};
 	my $path = product_path($product_ref);
 
-	my $changes_path = "$data_root/products/$path/changes.sto";
+	my $changes_path = "$BASE_DIRS{PRODUCTS}/$path/changes.sto";
 	print STDERR "updating product $code from $changes_path\n";
 
 	my $changes_ref = retrieve($changes_path);

@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2024 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -18,6 +18,8 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+## no critic (RequireFilenameMatchesPackage);
+
 package ProductOpener::Config;
 
 use utf8;
@@ -27,6 +29,8 @@ use Exporter qw< import >;
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
+		$flavor
+
 		%string_normalization_for_lang
 		%admins
 
@@ -35,6 +39,7 @@ BEGIN {
 		$conf_root
 		$data_root
 		$www_root
+		$sftp_root
 		$geolite2_path
 		$reference_timezone
 		$contact_email
@@ -99,6 +104,8 @@ use vars @EXPORT_OK;    # no 'my' keyword for these
 
 use ProductOpener::Config2;
 
+$flavor = 'off';
+
 # define the normalization applied to change a string to a tag id (in particular for taxonomies)
 # tag ids are also used in URLs.
 
@@ -108,6 +115,8 @@ use ProductOpener::Config2;
 # - dangerous if different words (in the same context like ingredients or category names) have the same unaccented form
 # lowercase:
 # - useful when the same word appears in lowercase, with a first capital letter, or in all caps.
+
+# IMPORTANT: if you change it, you need to change $BUILD_TAGS_VERSION in Tags.pm
 
 %string_normalization_for_lang = (
 	# no_language is used for strings that are not in a specific language (e.g. user names)
@@ -176,10 +185,20 @@ use ProductOpener::Config2;
 	hangy
 	manoncorneille
 	raphael0202
-	sarazine-ouattara
 	stephane
 	tacinte
 	teolemon
+);
+
+%options = (
+	site_name => "Open Food Facts",
+	product_type => "food",
+	og_image_url => "https://static.openfoodfacts.org/images/logos/off-logo-vertical-white-social-media-preview.png",
+	android_apk_app_link => "https://world.openfoodfacts.org/files/off.apk",
+	android_app_link => "https://world.openfoodfacts.org/files/off.apk",
+	ios_app_link => "https://apps.apple.com/app/open-food-facts/id588797948",
+	facebook_page_url => "https://www.facebook.com/OpenFoodFacts",
+	twitter_account => "OpenFoodFacts",
 );
 
 $options{export_limit} = 10000;
@@ -193,8 +212,6 @@ $options{users_who_can_upload_small_images} = {
 		teolemon
 		)
 };
-
-$options{product_type} = "food";
 
 # edit rules
 # see ProductOpener::Products::process_product_edit_rules for documentation
@@ -329,6 +346,46 @@ $options{product_type} = "food";
 			)
 		],
 	},
+	{
+		name => "Vegan App Chakib",
+		conditions => [["user_id", "vegan-app-chakib"],],
+		actions => [["ignore"],],
+		notifications => [
+			qw (
+				slack_channel_edit-alert
+			)
+		],
+	},
+	{
+		name => "Vegetarian App Chakib",
+		conditions => [["user_id", "vegetarian-app-chakib"],],
+		actions => [["ignore"],],
+		notifications => [
+			qw (
+				slack_channel_edit-alert
+			)
+		],
+	},
+	{
+		name => "Allergies App Chakib",
+		conditions => [["user_id", "allergies-app-chakib"],],
+		actions => [["ignore"],],
+		notifications => [
+			qw (
+				slack_channel_edit-alert
+			)
+		],
+	},
+	{
+		name => "Additives App Chakib",
+		conditions => [["user_id", "additives-app-chakib"],],
+		actions => [["ignore"],],
+		notifications => [
+			qw (
+				slack_channel_edit-alert
+			)
+		],
+	},
 
 );
 
@@ -344,6 +401,7 @@ $memd_servers = $ProductOpener::Config2::memd_servers;
 $www_root = $ProductOpener::Config2::www_root;
 $data_root = $ProductOpener::Config2::data_root;
 $conf_root = $ProductOpener::Config2::conf_root;
+$sftp_root = $ProductOpener::Config2::sftp_root;    # might be undef
 
 $geolite2_path = $ProductOpener::Config2::geolite2_path;
 
@@ -767,6 +825,7 @@ $options{replace_existing_values_when_importing_those_tags_fields} = {
 	created_t
 	last_modified_t
 	last_modified_by
+	last_updated_t
 	product_name
 	abbreviated_product_name
 	generic_name
@@ -1023,6 +1082,9 @@ $options{other_servers} = {
 		domain => "openpetfoodfacts.org",
 	}
 };
+
+# Name of the Redis stream to which product updates are published
+$options{redis_stream_name} = "product_updates_off";
 
 # used to rename texts and to redirect to the new name
 $options{redirect_texts} = {
