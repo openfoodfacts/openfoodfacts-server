@@ -8,25 +8,25 @@
       
       
       
-        <link rel="canonical" href="https://openfoodfacts.github.io/openfoodfacts-server/dev/how-to-use-gitpod/">
+        <link rel="canonical" href="https://openfoodfacts.github.io/openfoodfacts-server/reference/api-tutorials/comparing-sodas/">
       
       
-        <link rel="prev" href="../how-to-use-direnv/">
+        <link rel="prev" href="../../../dev/ref-perl/">
       
       
-        <link rel="next" href="../how-to-use-pages-from-openfoodfacts-web/">
+        <link rel="next" href="../folksonomy-engine/">
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.18">
     
     
       
-        <title>How to use Gitpod for Remote Development - Product Opener (Open Food Facts Server)</title>
+        <title>Comparing sodas - Product Opener (Open Food Facts Server)</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.66ac8b77.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.66ac8b77.min.css">
       
       
 
@@ -45,7 +45,7 @@
       
     
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#how-to-use-gitpod-for-remote-development" class="md-skip">
+        <a href="#authentication-and-header" class="md-skip">
           Skip to content
         </a>
       
@@ -80,7 +80,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Product Opener (Open Food Facts Server)" class="md-header__button md-logo" aria-label="Product Opener (Open Food Facts Server)" data-md-component="logo">
+    <a href="../../.." title="Product Opener (Open Food Facts Server)" class="md-header__button md-logo" aria-label="Product Opener (Open Food Facts Server)" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              How to use Gitpod for Remote Development
+              Comparing sodas
             
           </span>
         </div>
@@ -187,7 +187,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Product Opener (Open Food Facts Server)" class="md-nav__button md-logo" aria-label="Product Opener (Open Food Facts Server)" data-md-component="logo">
+    <a href="../../.." title="Product Opener (Open Food Facts Server)" class="md-nav__button md-logo" aria-label="Product Opener (Open Food Facts Server)" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -217,7 +217,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -272,7 +272,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/" class="md-nav__link">
+      <a href="../../../api/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -293,7 +293,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/intro-robotoff/" class="md-nav__link">
+      <a href="../../../api/intro-robotoff/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -314,7 +314,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/tutorial-dev-journey/" class="md-nav__link">
+      <a href="../../../api/tutorial-dev-journey/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -335,7 +335,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/tutorial-off-api/" class="md-nav__link">
+      <a href="../../../api/tutorial-off-api/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -356,7 +356,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/tutorial-uploading-photo-to-a-product/" class="md-nav__link">
+      <a href="../../../api/tutorial-uploading-photo-to-a-product/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -377,7 +377,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/how-to-download-images/" class="md-nav__link">
+      <a href="../../../api/how-to-download-images/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -398,7 +398,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/explain-knowledge-panels/" class="md-nav__link">
+      <a href="../../../api/explain-knowledge-panels/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -419,7 +419,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/ref-cheatsheet/" class="md-nav__link">
+      <a href="../../../api/ref-cheatsheet/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -440,7 +440,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/ref-v2/" class="md-nav__link">
+      <a href="../../../api/ref-v2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -461,7 +461,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/ref-v3/" class="md-nav__link">
+      <a href="../../../api/ref-v3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -482,11 +482,473 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/aws-images-dataset/" class="md-nav__link">
+      <a href="../../../api/aws-images-dataset/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     Open Food Facts AWS images dataset
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Dev
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Dev
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dev/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction to Product Opener developer documentation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dev/how-to-deploy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to deploy to Prod environment
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dev/how-to-develop-producer-platform/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to develop on the producers platform
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dev/how-to-develop-using-docker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to use Docker to Develop - a guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dev/how-to-learn-perl/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How can I learn the Perl programming language?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dev/how-to-quick-start-guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to setup the Dev environment (quick start guide)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dev/how-to-update-agribalyse-ecoscore/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to update Agribalyse (Ecoscore)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dev/how-to-use-direnv/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to use direnv
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dev/how-to-use-gitpod/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to use Gitpod for Remote Development
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dev/how-to-use-pages-from-openfoodfacts-web/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to use pages from openfoodfacts-web
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dev/how-to-use-repl/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to use Perl REPL (re.pl)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dev/how-to-use-vscode/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to use VSCode
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dev/how-to-write-and-run-tests/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to write and run tests
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dev/explain-nutrition-data/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Explain nutrition data
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dev/explain-packaging-data/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Explanation on packaging data
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dev/explain-pro-dev-setup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Explanation on Docker Setup of pro platform for development
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dev/explain-taxonomy-build-cache/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Explanation on Taxonomy Build Cache
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dev/ref-docker-commands/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reference Docker / Makefile commands
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dev/ref-perl-pod/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Perl reference documentation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dev/ref-perl/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reference Perl code documentation
   </span>
   
 
@@ -519,24 +981,24 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
             
   
   <span class="md-ellipsis">
-    Dev
+    Reference
   </span>
   
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            Dev
+            Reference
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -544,169 +1006,38 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
         
-  
-  <span class="md-ellipsis">
-    Introduction to Product Opener developer documentation
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../how-to-deploy/" class="md-nav__link">
-        
   
   <span class="md-ellipsis">
-    How to deploy to Prod environment
+    Api tutorials
   </span>
   
 
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../how-to-develop-producer-platform/" class="md-nav__link">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
         
-  
-  <span class="md-ellipsis">
-    How to develop on the producers platform
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../how-to-develop-using-docker/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    How to use Docker to Develop - a guide
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../how-to-learn-perl/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    How can I learn the Perl programming language?
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../how-to-quick-start-guide/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    How to setup the Dev environment (quick start guide)
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../how-to-update-agribalyse-ecoscore/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    How to update Agribalyse (Ecoscore)
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../how-to-use-direnv/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    How to use direnv
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Api tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -721,14 +1052,12 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
-        
-      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
   
   <span class="md-ellipsis">
-    How to use Gitpod for Remote Development
+    Comparing sodas
   </span>
   
 
@@ -739,7 +1068,7 @@
         
   
   <span class="md-ellipsis">
-    How to use Gitpod for Remote Development
+    Comparing sodas
   </span>
   
 
@@ -751,8 +1080,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -761,36 +1088,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#connect-github-and-gitpod" class="md-nav__link">
+  <a href="#authentication-and-header" class="md-nav__link">
     <span class="md-ellipsis">
-      Connect GitHub and Gitpod
+      Authentication and Header
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#get-started" class="md-nav__link">
+  <a href="#subdomain" class="md-nav__link">
     <span class="md-ellipsis">
-      Get Started
+      Subdomain
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#accessing-your-development-instance-of-openfoodfacts-server" class="md-nav__link">
+  <a href="#api-version" class="md-nav__link">
     <span class="md-ellipsis">
-      Accessing your development instance of openfoodfacts-server
+      API Version
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#some-commands" class="md-nav__link">
+  <a href="#product-barcode" class="md-nav__link">
     <span class="md-ellipsis">
-      Some commands
+      Product Barcode
     </span>
   </a>
   
@@ -812,336 +1139,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../how-to-use-pages-from-openfoodfacts-web/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    How to use pages from openfoodfacts-web
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../how-to-use-repl/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    How to use Perl REPL (re.pl)
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../how-to-use-vscode/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    How to use VSCode
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../how-to-write-and-run-tests/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    How to write and run tests
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../explain-nutrition-data/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Explain nutrition data
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../explain-packaging-data/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Explanation on packaging data
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../explain-pro-dev-setup/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Explanation on Docker Setup of pro platform for development
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../explain-taxonomy-build-cache/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Explanation on Taxonomy Build Cache
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ref-docker-commands/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Reference Docker / Makefile commands
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ref-perl-pod/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Perl reference documentation
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ref-perl/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Reference Perl code documentation
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
-        
-          
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    Reference
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4">
-            <span class="md-nav__icon md-icon"></span>
-            Reference
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
-        
-          
-          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    Api tutorials
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_1">
-            <span class="md-nav__icon md-icon"></span>
-            Api tutorials
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../reference/api-tutorials/comparing-sodas/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Comparing sodas
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../reference/api-tutorials/folksonomy-engine/" class="md-nav__link">
+      <a href="../folksonomy-engine/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1187,8 +1185,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1197,36 +1193,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#connect-github-and-gitpod" class="md-nav__link">
+  <a href="#authentication-and-header" class="md-nav__link">
     <span class="md-ellipsis">
-      Connect GitHub and Gitpod
+      Authentication and Header
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#get-started" class="md-nav__link">
+  <a href="#subdomain" class="md-nav__link">
     <span class="md-ellipsis">
-      Get Started
+      Subdomain
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#accessing-your-development-instance-of-openfoodfacts-server" class="md-nav__link">
+  <a href="#api-version" class="md-nav__link">
     <span class="md-ellipsis">
-      Accessing your development instance of openfoodfacts-server
+      API Version
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#some-commands" class="md-nav__link">
+  <a href="#product-barcode" class="md-nav__link">
     <span class="md-ellipsis">
-      Some commands
+      Product Barcode
     </span>
   </a>
   
@@ -1250,68 +1246,41 @@
   
 
 
-<h1 id="how-to-use-gitpod-for-remote-development">How to use Gitpod for Remote Development<a class="headerlink" href="#how-to-use-gitpod-for-remote-development" title="Permanent link">#</a></h1>
-<p>If your computer performance restricts you from developing, you can use <a href="https://gitpod.io">Gitpod</a>. 
-Gitpod allows you to do the devs on an ephemeral environment. It is free up to
-50 hours per month (https://www.gitpod.io/pricing).</p>
-<p>Gitpod provides a robust ready-to-code developer environment in the cloud eliminating the friction
-of setting up local environments and IDEs with Perl, Docker and plugins, making it possible for even new contributors to
-OpenFoodFacts Server to get started in minutes instead of hours!</p>
-<p>Note that while this how-to is tailored for Gitpod, using alternatives like <a href="https://github.com/features/codespaces">GitHub Codespaces</a> should be
-similar.</p>
-<p>For the most part, development on Gitpod is similar to developing locally as documented
-in the <a href="../how-to-quick-start-guide/">quickstart guide</a>
-and <a href="../how-to-develop-using-docker/">docker-developer-guide</a>; however accessing your dev-deployment of
-<code>openfoodfacts-server</code> requires an extra step.</p>
-<h2 id="connect-github-and-gitpod">Connect GitHub and Gitpod<a class="headerlink" href="#connect-github-and-gitpod" title="Permanent link">#</a></h2>
-<p>When you use Gitpod, you allow Gitpod to use your GitHub account.</p>
-<p>In GitHub, you can review (and revoke if you stop using Gitpod) the access granted to Gitpod: click on your avatar on top right of the screen, then, Settings. In the left panel, under Integrations, click on Applications, then, Authorized OAuth Apps.</p>
-<p>On the Gitpod side, you can also update what Gitpod is allowed to do with your GitHub account: click on your avatar on the top right of the screen, then, Settings. In the left panel, click on Integrations. The line for GitHub should be green. At the end of this line, click on the three dots, then Edit Permissions. '''If you want to create a pull request via Gitpod, you need to grant public_repo access.'''</p>
-<h2 id="get-started">Get Started<a class="headerlink" href="#get-started" title="Permanent link">#</a></h2>
-<p><a href="https://gitpod.io/#https://github.com/openfoodfacts/openfoodfacts-server/"><img alt="Open in Gitpod" src="https://gitpod.io/button/open-in-gitpod.svg" /></a></p>
-<blockquote>
-<p>Gitpod will automatically clone and open the repository for you in VSCode by default. It will also automatically build
-the project for you on opening and comes with Docker and other tools pre-installed making it one of the fastest ways
-to spin up an environment for <code>openfoodfacts-server</code>.</p>
-</blockquote>
-<p>Once the repository is open in Gitpod, other instructions in the
-<a href="../how-to-quick-start-guide/">quick-start guide</a> can be generally followed.</p>
-<h2 id="accessing-your-development-instance-of-openfoodfacts-server">Accessing your development instance of openfoodfacts-server<a class="headerlink" href="#accessing-your-development-instance-of-openfoodfacts-server" title="Permanent link">#</a></h2>
-<p>Since Gitpod runs your code in a remote machine, your dev-deployment spun up with <code>make dev</code> or <code>make up</code> is not
-accessible when you open the default http://openfoodfacts.localhost in your browser. This happens because the server
-running on the remote machine is not accessible on your local network interface.</p>
-<p>To overcome this, we can use a SSH tunnel that listens to your local port 80 and forwards traffic to port 80
-of the remote machine. Gitpod makes it really simple to SSH into your dev environment by letting you copy the <code>ssh</code>
-command required to reach your remote environment. To start, follow the ssh instructions on Gitpod's official
-guide: <a href="https://www.gitpod.io/blog/copy-paste-ssh-workspace-access">SSH for workspaces as easy as copy/paste</a>. 
-Once you have copied the ssh command and ensure it works as-is, add a <code>-L 80:localhost:80</code> to the command to make it look like:
-<code>ssh -L 80:localhost:80 'openfoodfac-openfoodfac-tok-openfoodfac-r9f61214h9vt.ssh.ws-c.gitpod.io'</code>.</p>
-<p>Once you execute the altered command in your terminal, you should be able to access Open Food Facts
-on http://openfoodfacts.localhost just as documented in the quickstart guide!</p>
-<p><strong>Remark:</strong> you will need to trust the fingerprint at first connection. </p>
-<p><strong>Remark:</strong> for some Linux distributions, port 80 is reserved. A workaround is to switch to port 8080: in gitpod, open the .env file and replace the line PRODUCT_OPENER_PORT=80 by PRODUCT_OPENER_PORT=8080, then replace -L 80:localhost:80 by -L 8080:localhost:8080. <strong>Rollback the changes on .env before making a pull request!</strong></p>
-<p><strong>Remark:</strong> on MacOS or Linux, when trying to bind, you might see a bind fail. Remember that any port below 1024 is reserved for the root user.</p>
+  <h1>Comparing sodas</h1>
+
+<p><strong>Dave</strong> wants his app to make an API call to provide Anna the information she needs to make a conscious choice when buying sodas.</p>
+<hr />
+<h4 id="authentication-and-header">Authentication and Header<a class="headerlink" href="#authentication-and-header" title="Permanent link">#</a></h4>
+<p>To make the API query that returns the products that might be interesting for Anna, Dave doesn't need to authenticate (<code>READ</code> request).</p>
+<p>However, he has to add a <code>User-Agent</code> HTTP Header with the name of his app, the version, system and a url (if any), so that he doesn't get blocked by mistake.</p>
+<p>In this case, that would be: <code>User-Agent: HealthyFoodChoices - Android - Version 1.0</code></p>
+<hr />
+<h4 id="subdomain">Subdomain<a class="headerlink" href="#subdomain" title="Permanent link">#</a></h4>
+<p>Since Anna lives in NY, Dave wants to define the subdomain for the query as <code>us</code>. The subdomain automatically defines the country code (<code>cc</code>) and language of the interface (<code>lc</code>).</p>
+<p>The country code determines that only the products sold in the US are displayed. The language of the interface for the country code <code>us</code> is English.</p>
+<p>In this case:</p>
+<p><a href="https://us.openfoodfacts.org">https://us.openfoodfacts.org</a></p>
+<hr />
+<h4 id="api-version">API Version<a class="headerlink" href="#api-version" title="Permanent link">#</a></h4>
+<p>The current version number of the Open Food Facts API is v0.</p>
+<p><a href="https://us.openfoodfacts.org/api/v0">https://us.openfoodfacts.org/api/v0</a></p>
+<hr />
+<h4 id="product-barcode">Product Barcode<a class="headerlink" href="#product-barcode" title="Permanent link">#</a></h4>
+<p>After the version number, the word "product", followed by its barcode must be added:</p>
+<p><a href="https://us.openfoodfacts.org/api/v0/product/">https://us.openfoodfacts.org/api/v0/product/</a></p>
+<p>The app will provide Anna with information about additives, sugars and nutriscore of different types of colas, to help her make her purchase decision.</p>
+<p>Anna selects the products she wants to compare in the application (Coca-Cola, Pepsi, Coca-Cola diet, Coca-Cola zero and Pepsi diet). The app retrieves the corresponding barcodes and makes the following calls:</p>
 <ul>
-<li>The easiest fix is to add <code>sudo</code> just before the ssh command.</li>
-<li>Another way is to switch to port 8080: in gitpod, open the .env file (or better <a href="../how-to-use-direnv/">user direnv</a>) and change PRODUCT_OPENER_PORT=80 by PRODUCT_OPENER_PORT=8080, then replace <code>-L 80:localhost:80</code> by <code>-L 8080:localhost:8080</code> in the ssh command and connect to world.openfoodfacts.localhost:8080. <strong>Rollback the changes on .env before making a pull request!</strong></li>
+<li>Pepsico Pepsi Cola Soda:<br />
+<a href="https://us.openfoodfacts.org/api/v0/product/01223004">https://us.openfoodfacts.org/api/v0/product/01223004</a></li>
+<li>Coca-Cola Classic Coke Soft Drink<br />
+<a href="https://us.openfoodfacts.org/api/v0/product/04963406">https://us.openfoodfacts.org/api/v0/product/04963406</a></li>
+<li>Diet Pepsi<br />
+<a href="https://us.openfoodfacts.org/api/v0/product/069000019832">https://us.openfoodfacts.org/api/v0/product/069000019832</a></li>
+<li>Coca-Cola Zero<br />
+<a href="https://us.openfoodfacts.org/api/v0/product/5000112519945">https://us.openfoodfacts.org/api/v0/product/5000112519945</a></li>
 </ul>
-<p><strong>Remark:</strong> the address to connect with ssh can change after a few days. If you get a <code>Connection closed by ... port 22</code> simply go back to https://gitpod.io/workspaces and copy the new address.  </p>
-<p><strong>Remark:</strong> if you load the page after some changes but get a <code>502 Bad Gateway</code>, check again your code. Something may be wrong with it. Just in case, try commenting out the part you just coded to see if it works. </p>
-<p>Create an account to be able to edit products.</p>
-<h2 id="some-commands">Some commands<a class="headerlink" href="#some-commands" title="Permanent link">#</a></h2>
-<p>After you made devs and want to apply changes and see them on the website, you can run:<br />
-<div class="highlight"><pre><span></span><code>$ docker compose restart 
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>$ make up  
-</code></pre></div></p>
-<p>If you face some difficulties, you can always look at the logs (use ctrl + c, to quit):<br />
-<div class="highlight"><pre><span></span><code>$ make log  
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>$ make tail  
-</code></pre></div>
-After development, before opening a pull request, run the following command:<br />
-<div class="highlight"><pre><span></span><code>$ make checks  
-</code></pre></div></p>
+<hr />
 
 
 
@@ -1358,10 +1327,10 @@ After development, before opening a pull request, run the following command:<br 
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.3220b9d7.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.3220b9d7.min.js"></script>
       
     
   </body>
