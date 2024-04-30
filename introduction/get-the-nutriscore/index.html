@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://openfoodfacts.github.io/openfoodfacts-server/dev/how-to-develop-producer-platform/">
+        <link rel="canonical" href="https://openfoodfacts.github.io/openfoodfacts-server/introduction/get-the-nutriscore/">
       
       
-        <link rel="prev" href="../how-to-deploy/">
+        <link rel="prev" href="../../dev/ref-perl/">
       
       
-        <link rel="next" href="../how-to-develop-using-docker/">
+        <link rel="next" href="../../reference/api-tutorials/adding-missing-products/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>How to develop on the producers platform - Product Opener (Open Food Facts Server)</title>
+        <title>Get the nutriscore - Product Opener (Open Food Facts Server)</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#how-to-develop-on-the-producers-platform" class="md-skip">
+        <a href="#introduction" class="md-skip">
           Skip to content
         </a>
       
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              How to develop on the producers platform
+              Get the nutriscore
             
           </span>
         </div>
@@ -507,19 +507,17 @@
       
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -533,7 +531,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Dev
@@ -547,7 +545,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../../dev/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -568,7 +566,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../how-to-deploy/" class="md-nav__link">
+      <a href="../../dev/how-to-deploy/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -586,30 +584,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    How to develop on the producers platform
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../dev/how-to-develop-producer-platform/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -618,77 +596,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
-    <span class="md-ellipsis">
-      Prerequisites:
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#shell-setup" class="md-nav__link">
-    <span class="md-ellipsis">
-      Shell Setup:
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#development-workflow" class="md-nav__link">
-    <span class="md-ellipsis">
-      Development Workflow:
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#working-with-product-importexport-and-interacting-with-the-public-platform" class="md-nav__link">
-    <span class="md-ellipsis">
-      Working with Product Import/Export and Interacting with the Public Platform:
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Working with Product Import/Export and Interacting with the Public Platform:">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#note-the-setup-does-not-currently-support-running-the-http-server-for-both-public-and-pro-platform-at-the-same-time-therefore-to-access-the-public-platform-you-need-to-follow-these-steps" class="md-nav__link">
-    <span class="md-ellipsis">
-      Note: The setup does not currently support running the http server for both public and pro platform at the same time. Therefore, to access the public platform, you need to follow these steps:
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -701,7 +608,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../how-to-develop-using-docker/" class="md-nav__link">
+      <a href="../../dev/how-to-develop-using-docker/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -722,7 +629,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../how-to-learn-perl/" class="md-nav__link">
+      <a href="../../dev/how-to-learn-perl/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -743,7 +650,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../how-to-quick-start-guide/" class="md-nav__link">
+      <a href="../../dev/how-to-quick-start-guide/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -764,7 +671,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../how-to-update-agribalyse-ecoscore/" class="md-nav__link">
+      <a href="../../dev/how-to-update-agribalyse-ecoscore/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -785,7 +692,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../how-to-use-direnv/" class="md-nav__link">
+      <a href="../../dev/how-to-use-direnv/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -806,7 +713,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../how-to-use-gitpod/" class="md-nav__link">
+      <a href="../../dev/how-to-use-gitpod/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -827,7 +734,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../how-to-use-pages-from-openfoodfacts-web/" class="md-nav__link">
+      <a href="../../dev/how-to-use-pages-from-openfoodfacts-web/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -848,7 +755,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../how-to-use-repl/" class="md-nav__link">
+      <a href="../../dev/how-to-use-repl/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -869,7 +776,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../how-to-use-vscode/" class="md-nav__link">
+      <a href="../../dev/how-to-use-vscode/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -890,7 +797,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../how-to-write-and-run-tests/" class="md-nav__link">
+      <a href="../../dev/how-to-write-and-run-tests/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -911,7 +818,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../explain-nutrition-data/" class="md-nav__link">
+      <a href="../../dev/explain-nutrition-data/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -932,7 +839,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../explain-packaging-data/" class="md-nav__link">
+      <a href="../../dev/explain-packaging-data/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -953,7 +860,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../explain-pro-dev-setup/" class="md-nav__link">
+      <a href="../../dev/explain-pro-dev-setup/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -974,7 +881,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../explain-taxonomy-build-cache/" class="md-nav__link">
+      <a href="../../dev/explain-taxonomy-build-cache/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -995,7 +902,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ref-docker-commands/" class="md-nav__link">
+      <a href="../../dev/ref-docker-commands/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1016,7 +923,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ref-perl-pod/" class="md-nav__link">
+      <a href="../../dev/ref-perl-pod/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1037,7 +944,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ref-perl/" class="md-nav__link">
+      <a href="../../dev/ref-perl/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1062,17 +969,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
@@ -1086,7 +995,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Introduction
@@ -1097,10 +1006,28 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../introduction/get-the-nutriscore/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Get the nutriscore
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1109,6 +1036,207 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#display-nutri-score-knowledge-panels-all-the-logic-below-in-5-lines-of-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Display Nutri-Score knowledge panels - All the logic below in 5 lines of code !
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-the-official-visual-assets-of-the-nutri-score" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using the official visual assets of the Nutri-Score
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-ready-for-nutri-score-v2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getting ready for Nutri-Score V2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manual-version-getting-the-nutri-score-v1-value-we-dont-recommand-the-manual-way-anymore-especially-with-v2-around-the-corner" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manual version: Getting the Nutri-Score v1 value (we don't recommand the manual way anymore, especially with v2 around the corner)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-completion-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data completion flow
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data completion flow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-a-message-if-we-have-a-category-but-no-nutri-score" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add a message if we have a category but no Nutri-Score
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-message-if-we-have-a-category-but-no-nutrition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add a message if we have a category but no nutrition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-message-if-we-have-nutrition-but-no-category" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add a message if we have nutrition but no category
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#help-the-user-add-the-category-if-it-is-missing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Help the user add the category if it is missing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-message-if-we-have-no-category-and-no-nutrition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add a message if we have no category and no nutrition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-one-click-option-to-indicate-no-nutrition-facts-on-the-packaging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add a one-click option to indicate no nutrition facts on the packaging
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-message-if-the-nutrition-image-is-missing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add a message if the nutrition image is missing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-message-if-the-nutrition-image-is-obsolete-using-the-image-refresh-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add a message if the nutrition image is obsolete using the image refresh API
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-nutri-score-disclaimers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add Nutri-Score disclaimers
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Add Nutri-Score disclaimers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-message-if-fibers-are-missing" class="md-nav__link">
+    <span class="md-ellipsis">
+      a message if fibers are missing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-message-if-fruitnuts-are-missing" class="md-nav__link">
+    <span class="md-ellipsis">
+      a message if fruit/nuts are missing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-message-if-fruitsnuts-is-an-estimate-from-ingredients" class="md-nav__link">
+    <span class="md-ellipsis">
+      a message if fruits/nuts is an estimate from ingredients
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-message-if-fruitsnuts-is-an-estimate-from-category" class="md-nav__link">
+    <span class="md-ellipsis">
+      a message if fruits/nuts is an estimate from category
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1286,8 +1414,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1296,48 +1422,180 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
+  <a href="#introduction" class="md-nav__link">
     <span class="md-ellipsis">
-      Prerequisites:
+      Introduction
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#shell-setup" class="md-nav__link">
+  <a href="#display-nutri-score-knowledge-panels-all-the-logic-below-in-5-lines-of-code" class="md-nav__link">
     <span class="md-ellipsis">
-      Shell Setup:
+      Display Nutri-Score knowledge panels - All the logic below in 5 lines of code !
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#development-workflow" class="md-nav__link">
+  <a href="#using-the-official-visual-assets-of-the-nutri-score" class="md-nav__link">
     <span class="md-ellipsis">
-      Development Workflow:
+      Using the official visual assets of the Nutri-Score
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#working-with-product-importexport-and-interacting-with-the-public-platform" class="md-nav__link">
+  <a href="#getting-ready-for-nutri-score-v2" class="md-nav__link">
     <span class="md-ellipsis">
-      Working with Product Import/Export and Interacting with the Public Platform:
+      Getting ready for Nutri-Score V2
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Working with Product Import/Export and Interacting with the Public Platform:">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manual-version-getting-the-nutri-score-v1-value-we-dont-recommand-the-manual-way-anymore-especially-with-v2-around-the-corner" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manual version: Getting the Nutri-Score v1 value (we don't recommand the manual way anymore, especially with v2 around the corner)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-completion-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data completion flow
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data completion flow">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#note-the-setup-does-not-currently-support-running-the-http-server-for-both-public-and-pro-platform-at-the-same-time-therefore-to-access-the-public-platform-you-need-to-follow-these-steps" class="md-nav__link">
+  <a href="#add-a-message-if-we-have-a-category-but-no-nutri-score" class="md-nav__link">
     <span class="md-ellipsis">
-      Note: The setup does not currently support running the http server for both public and pro platform at the same time. Therefore, to access the public platform, you need to follow these steps:
+      Add a message if we have a category but no Nutri-Score
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-message-if-we-have-a-category-but-no-nutrition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add a message if we have a category but no nutrition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-message-if-we-have-nutrition-but-no-category" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add a message if we have nutrition but no category
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#help-the-user-add-the-category-if-it-is-missing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Help the user add the category if it is missing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-message-if-we-have-no-category-and-no-nutrition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add a message if we have no category and no nutrition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-one-click-option-to-indicate-no-nutrition-facts-on-the-packaging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add a one-click option to indicate no nutrition facts on the packaging
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-message-if-the-nutrition-image-is-missing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add a message if the nutrition image is missing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-message-if-the-nutrition-image-is-obsolete-using-the-image-refresh-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add a message if the nutrition image is obsolete using the image refresh API
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-nutri-score-disclaimers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add Nutri-Score disclaimers
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Add Nutri-Score disclaimers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-message-if-fibers-are-missing" class="md-nav__link">
+    <span class="md-ellipsis">
+      a message if fibers are missing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-message-if-fruitnuts-are-missing" class="md-nav__link">
+    <span class="md-ellipsis">
+      a message if fruit/nuts are missing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-message-if-fruitsnuts-is-an-estimate-from-ingredients" class="md-nav__link">
+    <span class="md-ellipsis">
+      a message if fruits/nuts is an estimate from ingredients
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-message-if-fruitsnuts-is-an-estimate-from-category" class="md-nav__link">
+    <span class="md-ellipsis">
+      a message if fruits/nuts is an estimate from category
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1364,63 +1622,103 @@
   
 
 
-<h1 id="how-to-develop-on-the-producers-platform">How to develop on the producers platform<a class="headerlink" href="#how-to-develop-on-the-producers-platform" title="Permanent link">#</a></h1>
-<p>Here is how to develop for the producers platform using docker.</p>
-<h3 id="prerequisites">Prerequisites:<a class="headerlink" href="#prerequisites" title="Permanent link">#</a></h3>
+  <h1>Get the nutriscore</h1>
+
+<h3 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">#</a></h3>
 <ul>
-<li>Docker should already be <a href="../how-to-quick-start-guide/">set up for development</a>.</li>
+<li>If you can't get the information on a specific product, you can get your user to send photos and data, that will then be processed by Open Food Facts AI and contributors to get the computed result you want to show them.</li>
+<li>You can implement the complete flow below so that they get immediately the result with some effort on their side.</li>
+<li>That will ensure user satisfaction</li>
 </ul>
-<h3 id="shell-setup">Shell Setup:<a class="headerlink" href="#shell-setup" title="Permanent link">#</a></h3>
-<p>You will need two types of shells:</p>
+<h3 id="display-nutri-score-knowledge-panels-all-the-logic-below-in-5-lines-of-code">Display Nutri-Score knowledge panels - All the logic below in 5 lines of code !<a class="headerlink" href="#display-nutri-score-knowledge-panels-all-the-logic-below-in-5-lines-of-code" title="Permanent link">#</a></h3>
 <ul>
-<li>Shell for OpenFoodFacts:<ul>
-<li>Use this shell for general development on the OpenFoodFacts platform.</li>
+<li>The Knowledge Panels are already implemented in the Dart package</li>
+<li>They are simple to implement from the JSON API</li>
+<li>They allow you to consume present and future knowledge from Open Food Facts</li>
+</ul>
+<h3 id="using-the-official-visual-assets-of-the-nutri-score">Using the official visual assets of the Nutri-Score<a class="headerlink" href="#using-the-official-visual-assets-of-the-nutri-score" title="Permanent link">#</a></h3>
+<p>use the official assets to display de nutriscore. You can get v1 logos here: <a href="https://drive.google.com/drive/u/1/folders/13SL2hgqYHSLMhYjMze9nYXV9GOdGMBgc">NutriScore variants</a></p>
+<h3 id="getting-ready-for-nutri-score-v2">Getting ready for Nutri-Score V2<a class="headerlink" href="#getting-ready-for-nutri-score-v2" title="Permanent link">#</a></h3>
+<ul>
+<li>Nutri-Score V2 has a new computation method, which now requires the ingredient list, a category, and of course the nutrition table</li>
+<li>It also has a transition period new logo, to indicate you are using the new computation. It is not compulsory to use it, but it will save you from a lot of questions from your users ("Do you have the new formula ?")</li>
+<li>You can get the new assets by contacting reuse@openfoodfacts.org. We will make them public as soon as possible.</li>
+</ul>
+<h3 id="manual-version-getting-the-nutri-score-v1-value-we-dont-recommand-the-manual-way-anymore-especially-with-v2-around-the-corner">Manual version: Getting the Nutri-Score v1 value (we don't recommand the manual way anymore, especially with v2 around the corner)<a class="headerlink" href="#manual-version-getting-the-nutri-score-v1-value-we-dont-recommand-the-manual-way-anymore-especially-with-v2-around-the-corner" title="Permanent link">#</a></h3>
+<h3 id="data-completion-flow">Data completion flow<a class="headerlink" href="#data-completion-flow" title="Permanent link">#</a></h3>
+<p>Here are the different messages to use according to the state:</p>
+<h4 id="add-a-message-if-we-have-a-category-but-no-nutri-score">Add a message if we have a category but no Nutri-Score<a class="headerlink" href="#add-a-message-if-we-have-a-category-but-no-nutri-score" title="Permanent link">#</a></h4>
+<pre>if "en:categories-completed" in states_tags AND nutrition_grade=Null</pre>
+
+<pre>"We could not compute an Nutri-Score for this product. It might be that the category is an exception. If you believe this is an error, you can email contact@thenameofyourapp.org"</pre>
+
+<ul>
+<li>List of exceptions: <a href="https://www.santepubliquefrance.fr/content/download/150262/file/QR_scientifique_technique_150421.pdf">https://www.santepubliquefrance.fr/content/download/150262/file/QR_scientifique_technique_150421.pdf</a></li>
+<li>You can get states with <a href="https://world.openfoodfacts.org/api/v0/product/3414280980209.json?fields=ecoscore_grade,states_tags">https://world.openfoodfacts.org/api/v0/product/3414280980209.json?fields=ecoscore_grade,states_tags </a></li>
+</ul>
+<h4 id="add-a-message-if-we-have-a-category-but-no-nutrition">Add a message if we have a category but no nutrition<a class="headerlink" href="#add-a-message-if-we-have-a-category-but-no-nutrition" title="Permanent link">#</a></h4>
+<pre>if "en:categories-completed" in states_tags  AND "en:nutrition-facts-to-be-completed" in states_tags</pre>
+<p>pre&gt;</p>
+<ul>
+<li>Prompt: "Add nutrition facts to compute the Nutri-Score"</li>
+</ul>
+<ul>
+<li>Add a one-click option to indicate no nutrition facts on the packaging<ul>
+<li>"This product doesn't have nutrition facts"</li>
 </ul>
 </li>
-<li>Shell for OpenFoodFacts-Pro: Use this shell when working on the OpenFoodFacts-Pro platform.<ul>
-<li>To set up the shell, run the command: <code>. env/setenv.sh off-pro</code> (this simply sets some environment variables that will override the ones in <code>.env</code>).</li>
-<li>Once the shell is set up, your prompt will show <code>(pro)</code> to indicate that you are in the producers environment.</li>
 </ul>
-</li>
-</ul>
-<h3 id="development-workflow">Development Workflow:<a class="headerlink" href="#development-workflow" title="Permanent link">#</a></h3>
-<p>To develop on the producers platform, follow these steps:</p>
+<h4 id="add-a-message-if-we-have-nutrition-but-no-category">Add a message if we have nutrition but no category<a class="headerlink" href="#add-a-message-if-we-have-nutrition-but-no-category" title="Permanent link">#</a></h4>
+<pre>if "en:categories-to-be-completed" in states_tags AND "en:nutrition-facts-completed" in states_tags</pre>
+
 <ul>
-<li>Open a shell for OpenFoodFacts-Pro.</li>
-<li>Run the command <code>make dev</code> to start the development environment. This command functions as usual.<ul>
-<li>If you encounter any issues with CSS not showing up, you can run <code>make build_lang</code> in the <em>pro</em> shell.</li>
+<li>Prompt: "Add a category to compute the Nutri-Score"</li>
 </ul>
-</li>
-</ul>
-<h3 id="working-with-product-importexport-and-interacting-with-the-public-platform">Working with Product Import/Export and Interacting with the Public Platform:<a class="headerlink" href="#working-with-product-importexport-and-interacting-with-the-public-platform" title="Permanent link">#</a></h3>
-<p>If you need to work on product import/export or interact with the public platform, you must start the following services: <code>PostgreSQL</code>, <code>MongoDB</code>, and the <code>Minion</code>. Here's how:</p>
+<h4 id="help-the-user-add-the-category-if-it-is-missing">Help the user add the category if it is missing<a class="headerlink" href="#help-the-user-add-the-category-if-it-is-missing" title="Permanent link">#</a></h4>
 <ul>
-<li>In a <em>non-pro</em> shell (OpenFoodFacts shell), run the command <code>docker compose up postgres minion mongodb</code>.<ul>
-<li>This command starts the necessary services in the background.</li>
+<li>You can use our Robotoff API to get your users to validate a prediction</li>
 </ul>
-</li>
-</ul>
-<h4 id="note-the-setup-does-not-currently-support-running-the-http-server-for-both-public-and-pro-platform-at-the-same-time-therefore-to-access-the-public-platform-you-need-to-follow-these-steps">Note: The setup does not currently support running the http server for both public and pro platform at the same time. Therefore, to access the public platform, you need to follow these steps:<a class="headerlink" href="#note-the-setup-does-not-currently-support-running-the-http-server-for-both-public-and-pro-platform-at-the-same-time-therefore-to-access-the-public-platform-you-need-to-follow-these-steps" title="Permanent link">#</a></h4>
 <ul>
-<li>in your <em>pro shell</em>, run a <code>docker compose stop frontend</code></li>
-<li>in your <em>non pro shell</em>, run a <code>docker compose up frontend</code>
-Now, the public database can be accessed at <code>openfoodfacts.localhost</code>.If you need to access the <em>pro</em> HTTP server, reverse these steps.</li>
+<li><a href="https://docs.google.com/document/d/1IoDy0toQrrqtWHvDYp2rEVw84Yq1J0x2pt-0RGTm7h0/edit">Robotoff Questions</a></li>
 </ul>
-<p>Note that if you <a href="../how-to-use-direnv/">use direnv</a>, the setup should work seamlessly without redefining the variables set by <code>setenv.sh</code>.</p>
-<p>An explanation of the setup can be found at <a href="../explain-pro-dev-setup/">explain-pro-dev-setup.md</a></p>
+<h4 id="add-a-message-if-we-have-no-category-and-no-nutrition">Add a message if we have no category and no nutrition<a class="headerlink" href="#add-a-message-if-we-have-no-category-and-no-nutrition" title="Permanent link">#</a></h4>
+<pre>if "en:categories-to-be-completed" in states_tags  AND "en:nutrition-facts-to-be-completed" in states_tags</pre>
+
 <ul>
-<li>If you want to see the state of tasks, you can run:</li>
+<li>Prompt: "Add nutrition facts and a category to compute the Nutri-Score"</li>
 </ul>
-<p><div class="highlight"><pre><span></span><code>docker compose exec minion /opt/product-opener/scripts/minion_producers.pl  minion job
-</code></pre></div>
-(add --help to see all options), or refer to https://docs.mojolicious.org/Minion/Command/minion/job</p>
+<h4 id="add-a-one-click-option-to-indicate-no-nutrition-facts-on-the-packaging">Add a one-click option to indicate no nutrition facts on the packaging<a class="headerlink" href="#add-a-one-click-option-to-indicate-no-nutrition-facts-on-the-packaging" title="Permanent link">#</a></h4>
 <ul>
-<li>You may also inspect the database by running:
-<div class="highlight"><pre><span></span><code>docker compose exec  postgres psql -U productopener -W minion
-</code></pre></div>
-The password is given by the <code>POSTGRES_PASSWORD</code> variable in the <code>.env</code> file and defaults to <code>productopener</code>. 
-Inspecting the minion table can be helpful in understanding the database structure and contents.</li>
+<li>This product doesn't have nutrition facts</li>
 </ul>
+<h4 id="add-a-message-if-the-nutrition-image-is-missing">Add a message if the nutrition image is missing<a class="headerlink" href="#add-a-message-if-the-nutrition-image-is-missing" title="Permanent link">#</a></h4>
+<pre>if "en:nutrition-photo-to-be-selected" in states_tags OR "en:photos-to-be-uploaded" in states_tags</pre>
+
+<h4 id="add-a-message-if-the-nutrition-image-is-obsolete-using-the-image-refresh-api">Add a message if the nutrition image is obsolete using the image refresh API<a class="headerlink" href="#add-a-message-if-the-nutrition-image-is-obsolete-using-the-image-refresh-api" title="Permanent link">#</a></h4>
+<ul>
+<li><a href="https://github.com/openfoodfacts/api-documentation/issues/15">https://github.com/openfoodfacts/api-documentation/issues/15</a></li>
+</ul>
+<h4 id="add-nutri-score-disclaimers">Add Nutri-Score disclaimers<a class="headerlink" href="#add-nutri-score-disclaimers" title="Permanent link">#</a></h4>
+<h5 id="a-message-if-fibers-are-missing">a message if fibers are missing<a class="headerlink" href="#a-message-if-fibers-are-missing" title="Permanent link">#</a></h5>
+<pre>
+msgctxt "nutrition_grade_fr_fiber_warning"
+msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
+</pre>
+<h5 id="a-message-if-fruitnuts-are-missing">a message if fruit/nuts are missing<a class="headerlink" href="#a-message-if-fruitnuts-are-missing" title="Permanent link">#</a></h5>
+<pre>
+msgctxt "nutrition_grade_fr_no_fruits_vegetables_nuts_warning"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified, their possible positive contribution to the grade could not be taken into account."
+</pre>
+<h5 id="a-message-if-fruitsnuts-is-an-estimate-from-ingredients">a message if fruits/nuts is an estimate from ingredients<a class="headerlink" href="#a-message-if-fruitsnuts-is-an-estimate-from-ingredients" title="Permanent link">#</a></h5>
+<pre>
+msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d%"
+</pre>
+<h5 id="a-message-if-fruitsnuts-is-an-estimate-from-category">a message if fruits/nuts is an estimate from category<a class="headerlink" href="#a-message-if-fruitsnuts-is-an-estimate-from-category" title="Permanent link">#</a></h5>
+<pre>
+msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d%"
+</pre>
 
 
 
