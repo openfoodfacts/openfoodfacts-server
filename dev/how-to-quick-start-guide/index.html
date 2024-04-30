@@ -858,6 +858,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#make-dev-error-open-dockerbuildxcurrent-permission-denied" class="md-nav__link">
+    <span class="md-ellipsis">
+      make dev error: open /.docker/buildx/current: permission denied
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#rm-is-not-recognized-as-an-internal-or-external-command" class="md-nav__link">
     <span class="md-ellipsis">
       'rm' is not recognized as an internal or external command
@@ -1501,6 +1510,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#make-dev-error-open-dockerbuildxcurrent-permission-denied" class="md-nav__link">
+    <span class="md-ellipsis">
+      make dev error: open /.docker/buildx/current: permission denied
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#rm-is-not-recognized-as-an-internal-or-external-command" class="md-nav__link">
     <span class="md-ellipsis">
       'rm' is not recognized as an internal or external command
@@ -1824,6 +1842,25 @@ To enable Developer Mode:</p>
 <div class="highlight"><pre><span></span><code><span class="gp"># </span>replace<span class="w"> </span>my-user-id<span class="w"> </span>with<span class="w"> </span>your<span class="w"> </span>user<span class="w"> </span>id<span class="w"> </span><span class="k">if</span><span class="w"> </span>you<span class="w"> </span>forked<span class="w"> </span>the<span class="w"> </span>repository,<span class="w"> </span>otherwise<span class="w"> </span>use<span class="w"> </span>openfoodfacts
 <span class="go">git clone -c core.symlinks=true git@github.com:my-user-id/openfoodfacts-server.git</span>
 </code></pre></div>
+<h3 id="make-dev-error-open-dockerbuildxcurrent-permission-denied">make dev error: open /.docker/buildx/current: permission denied<a class="headerlink" href="#make-dev-error-open-dockerbuildxcurrent-permission-denied" title="Permanent link">#</a></h3>
+<p>On macOS
+When running <code>make dev</code>:
+<div class="highlight"><pre><span></span><code><span class="go">docker compose --env-file=.env  build   2&gt;&amp;1</span>
+<span class="go">open /.docker/buildx/current: permission denied</span>
+<span class="go">make: *** [build] Error 1</span>
+<span class="go">openfoodfacts-server % </span>
+</code></pre></div></p>
+<p><strong>Solution:</strong>
+Check for permissions by
+<div class="highlight"><pre><span></span><code><span class="go">ls -la /.docker/buildx</span>
+</code></pre></div>
+If there is a file that is not owned by user with root instead of USER:
+<div class="highlight"><pre><span></span><code><span class="go">-rw-------   1 root    staff   48 Apr 28 17:04 current</span>
+</code></pre></div>
+Then Run 
+<div class="highlight"><pre><span></span><code><span class="go">sudo chown -R USER:USER /Users/USER/.docker/buildx</span>
+</code></pre></div>
+Replacing USER with current user</p>
 <h3 id="rm-is-not-recognized-as-an-internal-or-external-command">'rm' is not recognized as an internal or external command<a class="headerlink" href="#rm-is-not-recognized-as-an-internal-or-external-command" title="Permanent link">#</a></h3>
 <p>When running <code>make import_prod_data</code> or some other commands.</p>
 <p><strong>Solution:</strong></p>
