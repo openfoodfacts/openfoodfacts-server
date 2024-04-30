@@ -378,7 +378,8 @@ Food groups:
 # Tracking issue: https://github.com/openfoodfacts/openfoodfacts-server/issues/7528
 🧪 Additives:
 - changed-files:
-  - any-glob-to-any-file: 'taxonomies/food/additives.txt'
+  - any-glob-to-any-file: 'taxonomies/additives.txt'
+  - any-glob-to-any-file: 'taxonomies/additives_classes.txt'
   - any-glob-to-any-file: 'scripts/merge_additives_lists.pl'
   - any-glob-to-any-file: 'scripts/extract_additives.pl'
   - any-glob-to-any-file: 'scripts/add_efsa_evaluations_to_additives_taxonomy.pl'
@@ -616,6 +617,7 @@ Numbers:
   - any-glob-to-any-file: 'scripts/packager-codes/fi-packagers-xls2csv.pl'
   - any-glob-to-any-file: 'scripts/packager-codes/fr-packagers-refresh.pl'
   - any-glob-to-any-file: 'scripts/packager-codes/se-packagers-html2tsv.pl'
+  - any-glob-to-any-file: 'scripts/packager-codes/si-packagers-refresh.py'
   - any-glob-to-any-file: 'scripts/update_packager_codes.pl'
   - any-glob-to-any-file: 'scripts/update_packager_codes_fsa_ratings.pl'
   - any-glob-to-any-file: 'scripts/test_normalize_packaging_codes.pl'
@@ -624,6 +626,10 @@ Numbers:
   - any-glob-to-any-file: 'tests/integration/expected_test_results/facets/packager-code_fr-85-222-003-ec.json'
   - any-glob-to-any-file: 'tests/integration/expected_test_results/facets/packager-code_fr-85-222-003-ce.json'
   - any-glob-to-any-file: 'packager-codes/FR-merge-UTF-8.csv'
+  - any-glob-to-any-file: 'packager-codes/geocode_addresses.sto'
+  - any-glob-to-any-file: 'packager-codes/packager_codes.sto'
+
+
 
 # facets: facets allow you to explore products according to various criterion. Based on MongoDB
 facets:
