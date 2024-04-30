@@ -3,14 +3,19 @@ on:
   issues:
     types: [opened, edited]
 
+permissions:
+  issues: write
+  contents: read
+
 jobs:
   triage:
     runs-on: ubuntu-latest
     steps:
-    - uses: github/issue-labeler@v2.4.1
+    - uses: github/issue-labeler@v3.3 #May not be the latest version
       with:
-        repo-token: "${{ secrets.GITHUB_TOKEN }}"
-        configuration-path: .github/issue-labeler.yml
+        configuration-path: .github/labeler.yml
+        include-title: 1
+        include-body: 0
         not-before: "2022-03-07T02:54:32Z"
         enable-versioned-regex: 1
         versioned-regex: 'issue_labeler_regex_version=(\d+)'
