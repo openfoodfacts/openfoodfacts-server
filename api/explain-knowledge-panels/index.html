@@ -409,6 +409,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Explanation on Knowledge panels
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -418,6 +429,61 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#main-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Main elements
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-make-a-knowledge-panel-related-contribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to make a knowledge panel related contribution
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-pointers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code-pointers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-test-that-your-knowledge-panel-contribution-does-not-break-the-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to test that your knowledge panel contribution does not break the app
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1103,6 +1169,50 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#main-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Main elements
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-make-a-knowledge-panel-related-contribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to make a knowledge panel related contribution
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-pointers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code-pointers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-test-that-your-knowledge-panel-contribution-does-not-break-the-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to test that your knowledge panel contribution does not break the app
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1123,12 +1233,30 @@
 <p>The Open Food Facts API allows clients (such as the Open Food Facts website and mobile app) to request ready-to-display information about an object (such as a product or a facet like a category).</p>
 <p>Clients do not have to know in advance what kind of information is displayed (for example - the ingredients of a product, nutrition data, Nutri-Score or Eco-Score). They only have to know how to display essential data types such as texts, grades, images, and tables.</p>
 <p><img alt="Panels for oatmeal on the mobile app, showing ingredients and nutrition info" src="../../assets/knowledge-panels-in-action.png" /><br />
-Knowledge panels in action on the mobile app</p>
-<p>Main elements are panels, which in turn contain elements. Elements are typically <code>text_element</code>, <code>image_element</code>, <code>map_element</code>. Some panels are grouping panels together, forming a hierarchy.</p>
+Knowledge panels in action on the website</p>
+<p>Knowledge panels in action on the mobile app</p>
+<h2 id="main-elements">Main elements<a class="headerlink" href="#main-elements" title="Permanent link">#</a></h2>
+<p>Main elements are panels, which in turn contain elements. Elements are typically <code>text_element</code>, <code>image_element</code>, <code>map_element</code>. Some panels are grouping panels together, forming a hierarchy.
+We also have a concept of action, which allows the user to take an action, currently editing.</p>
 <p>The structure of the knowledge panels data returned by the API is described in the <a href="../ref/schemas/knowledge_panels/panels.yaml">knowledge panels JSON schema</a>.</p>
 <blockquote>
 <p>See the reference documentation for <a href="https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#get-/api/v2/product/-barcode--fields-knowledge_panels">Getting Knowledge panels for a specific product by barcode</a>.</p>
 </blockquote>
+<h2 id="how-to-make-a-knowledge-panel-related-contribution">How to make a knowledge panel related contribution<a class="headerlink" href="#how-to-make-a-knowledge-panel-related-contribution" title="Permanent link">#</a></h2>
+<ul>
+<li>You need to have a clear vision of the information you want to convey, both in synthetic and larger form</li>
+<li>If the information is missing to properly display the panel, you need to devise a clear way for the user to contribute it if it's available on pack, or explain that it's not available on pack</li>
+</ul>
+<h2 id="code-pointers">Code-pointers<a class="headerlink" href="#code-pointers" title="Permanent link">#</a></h2>
+<ul>
+<li>The code contains templates and logic for creating various knowledge panels, including environmental and contribution-related panels, as seen in <code>templates/api/knowledge-panels/environment/label.tt.json</code> and <code>lib/ProductOpener/KnowledgePanelsContribution.pm</code>.</li>
+<li>Knowledge panels are generated based on product data and taxonomies, with support for localization and customization as per <code>lib/ProductOpener/KnowledgePanels.pm</code> (for products) and <code>lib/ProductOpener/KnowledgePanelsTags.pm</code> (for facets).</li>
+</ul>
+<h2 id="how-to-test-that-your-knowledge-panel-contribution-does-not-break-the-app">How to test that your knowledge panel contribution does not break the app<a class="headerlink" href="#how-to-test-that-your-knowledge-panel-contribution-does-not-break-the-app" title="Permanent link">#</a></h2>
+<ul>
+<li>You can use tools such as ngrok.io to open a tunnel from your local development machine to the Internet. If you are using GitPod to run your Product Opener instance, you don't even need this step, as gitpod allows you to make your dev instance url public.</li>
+<li>You can then activate the DEV mode of the official Open Food Facts mobile app, switch the Server to test, and set a custom URL (yours) for the server. More details are available</li>
+</ul>
 
 
 
