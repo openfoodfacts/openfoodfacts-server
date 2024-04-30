@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://openfoodfacts.github.io/openfoodfacts-server/reference/api-tutorials/comparing-sodas/">
+        <link rel="canonical" href="https://openfoodfacts.github.io/openfoodfacts-server/reference/api-tutorials/adding-missing-products/">
       
       
-        <link rel="prev" href="../adding-missing-products/">
+        <link rel="prev" href="../../../dev/ref-perl/">
       
       
-        <link rel="next" href="../folksonomy-engine/">
+        <link rel="next" href="../comparing-sodas/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Comparing sodas - Product Opener (Open Food Facts Server)</title>
+        <title>Adding missing products - Product Opener (Open Food Facts Server)</title>
       
     
     
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Comparing sodas
+              Adding missing products
             
           </span>
         </div>
@@ -1043,27 +1043,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../adding-missing-products/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Adding missing products
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -1078,7 +1057,7 @@
           
   
   <span class="md-ellipsis">
-    Comparing sodas
+    Adding missing products
   </span>
   
 
@@ -1089,7 +1068,7 @@
         
   
   <span class="md-ellipsis">
-    Comparing sodas
+    Adding missing products
   </span>
   
 
@@ -1127,18 +1106,45 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#api-version" class="md-nav__link">
+  <a href="#product-barcode" class="md-nav__link">
     <span class="md-ellipsis">
-      API Version
+      Product Barcode
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#product-barcode" class="md-nav__link">
+  <a href="#credentials" class="md-nav__link">
     <span class="md-ellipsis">
-      Product Barcode
+      Credentials
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameters
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-a-comment-to-your-write-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding a Comment to your WRITE request.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-additional-information-to-existing-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding Additional Information to Existing Fields
     </span>
   </a>
   
@@ -1148,6 +1154,27 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../comparing-sodas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Comparing sodas
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1232,18 +1259,45 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#api-version" class="md-nav__link">
+  <a href="#product-barcode" class="md-nav__link">
     <span class="md-ellipsis">
-      API Version
+      Product Barcode
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#product-barcode" class="md-nav__link">
+  <a href="#credentials" class="md-nav__link">
     <span class="md-ellipsis">
-      Product Barcode
+      Credentials
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameters
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-a-comment-to-your-write-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding a Comment to your WRITE request.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-additional-information-to-existing-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding Additional Information to Existing Fields
     </span>
   </a>
   
@@ -1267,41 +1321,53 @@
   
 
 
-  <h1>Comparing sodas</h1>
+  <h1>Adding missing products</h1>
 
-<p><strong>Dave</strong> wants his app to make an API call to provide Anna the information she needs to make a conscious choice when buying sodas.</p>
+<p><strong>Dave</strong> regularly adds new products to the database and completes missing information via API calls. He has described the process below to show other developers how easy it is to contribute.</p>
 <hr />
-<h4 id="authentication-and-header">Authentication and Header<a class="headerlink" href="#authentication-and-header" title="Permanent link">#</a></h4>
-<p>To make the API query that returns the products that might be interesting for Anna, Dave doesn't need to authenticate (<code>READ</code> request).</p>
-<p>However, he has to add a <code>User-Agent</code> HTTP Header with the name of his app, the version, system and a url (if any), so that he doesn't get blocked by mistake.</p>
-<p>In this case, that would be: <code>User-Agent: HealthyFoodChoices - Android - Version 1.0</code></p>
-<hr />
-<h4 id="subdomain">Subdomain<a class="headerlink" href="#subdomain" title="Permanent link">#</a></h4>
-<p>Since Anna lives in NY, Dave wants to define the subdomain for the query as <code>us</code>. The subdomain automatically defines the country code (<code>cc</code>) and language of the interface (<code>lc</code>).</p>
-<p>The country code determines that only the products sold in the US are displayed. The language of the interface for the country code <code>us</code> is English.</p>
-<p>In this case:</p>
-<p><a href="https://us.openfoodfacts.org">https://us.openfoodfacts.org</a></p>
-<hr />
-<h4 id="api-version">API Version<a class="headerlink" href="#api-version" title="Permanent link">#</a></h4>
-<p>The current version number of the Open Food Facts API is v0.</p>
-<p><a href="https://us.openfoodfacts.org/api/v0">https://us.openfoodfacts.org/api/v0</a></p>
-<hr />
-<h4 id="product-barcode">Product Barcode<a class="headerlink" href="#product-barcode" title="Permanent link">#</a></h4>
-<p>After the version number, the word "product", followed by its barcode must be added:</p>
-<p><a href="https://us.openfoodfacts.org/api/v0/product/">https://us.openfoodfacts.org/api/v0/product/</a></p>
-<p>The app will provide Anna with information about additives, sugars and nutriscore of different types of colas, to help her make her purchase decision.</p>
-<p>Anna selects the products she wants to compare in the application (Coca-Cola, Pepsi, Coca-Cola diet, Coca-Cola zero and Pepsi diet). The app retrieves the corresponding barcodes and makes the following calls:</p>
+<h2 id="authentication-and-header">Authentication and Header<a class="headerlink" href="#authentication-and-header" title="Permanent link">#</a></h2>
+<p>If you have an app that makes POST calls and you don't want your users to authenticate in Open Food Facts, you can create a global account. Dave has created a global account for the app he is developing with the following credentials:</p>
 <ul>
-<li>Pepsico Pepsi Cola Soda:<br />
-<a href="https://us.openfoodfacts.org/api/v0/product/01223004">https://us.openfoodfacts.org/api/v0/product/01223004</a></li>
-<li>Coca-Cola Classic Coke Soft Drink<br />
-<a href="https://us.openfoodfacts.org/api/v0/product/04963406">https://us.openfoodfacts.org/api/v0/product/04963406</a></li>
-<li>Diet Pepsi<br />
-<a href="https://us.openfoodfacts.org/api/v0/product/069000019832">https://us.openfoodfacts.org/api/v0/product/069000019832</a></li>
-<li>Coca-Cola Zero<br />
-<a href="https://us.openfoodfacts.org/api/v0/product/5000112519945">https://us.openfoodfacts.org/api/v0/product/5000112519945</a></li>
+<li><code>user_id</code>: myappname</li>
+<li><code>password</code>: 123456</li>
 </ul>
 <hr />
+<h2 id="subdomain">Subdomain<a class="headerlink" href="#subdomain" title="Permanent link">#</a></h2>
+<p>Dave wants to define the subdomain for the query as <code>us</code>. The subdomain automatically defines the country code (<code>cc</code>) and language of the interface (<code>lc</code>).</p>
+<p>The country code determines that only the products sold in the US are displayed. The language of the interface for the country code US is English.</p>
+<p>In this case:</p>
+<p><a href="https://us.openfoodfacts.org/cgi/product_jqm2.pl?​​​​​​​">https://us.openfoodfacts.org/cgi/product_jqm2.pl?​​​​​​​</a></p>
+<hr />
+<h2 id="product-barcode">Product Barcode<a class="headerlink" href="#product-barcode" title="Permanent link">#</a></h2>
+<p>After the version number, the word <code>code</code>, followed by its barcode must be added:</p>
+<p><a href="https://us.openfoodfacts.org/cgi/product_jqm2.pl?code=0074570036004">https://us.openfoodfacts.org/cgi/product_jqm2.pl?code=0074570036004</a></p>
+<hr />
+<h2 id="credentials">Credentials<a class="headerlink" href="#credentials" title="Permanent link">#</a></h2>
+<p>Dave adds his user credentials to the call as follows:</p>
+<p><a href="https://us.openfoodfacts.org/cgi/product_jqm2.pl?code=0074570036004&amp;user_id=myappname&amp;password=">https://us.openfoodfacts.org/cgi/product_jqm2.pl?code=0074570036004&amp;user_id=myappname&amp;password=</a>**</p>
+<hr />
+<h2 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">#</a></h2>
+<p>You can define one or more parameters to add, for example, the brand and the Kosher label:</p>
+<ul>
+<li><code>brands</code>: Häagen-Dazs</li>
+<li><code>labels</code>: kosher</li>
+</ul>
+<p>The call looks like this:</p>
+<p><code>POST https://us.openfoodfacts.org/cgi/product_jqm2.pl?code=0074570036004&amp;user_id=test&amp;password=test&amp;brands=Häagen-Dazs&amp;labels=kosher</code></p>
+<hr />
+<h2 id="adding-a-comment-to-your-write-request">Adding a Comment to your WRITE request.<a class="headerlink" href="#adding-a-comment-to-your-write-request" title="Permanent link">#</a></h2>
+<p>Use the <code>comment</code> parameter to add the id of the user editing the product. The id should not contain any personal data.</p>
+<p><strong>Important!</strong> The user id is not the identifier of an Open Food facts user, but the id generated by your system.</p>
+<p>It should be structured as: user-agent + user-id.</p>
+<p><strong>Example</strong></p>
+<p><code>comment=Edit by a Healthy Choices 1.2 iOS user - SxGFRZkFwdytsK2NYaDg4MzRVenNvUEI4LzU2a2JWK05LZkFRSWc9PQ</code></p>
+<hr />
+<h2 id="adding-additional-information-to-existing-fields">Adding Additional Information to Existing Fields<a class="headerlink" href="#adding-additional-information-to-existing-fields" title="Permanent link">#</a></h2>
+<p>To add additional information to existing parameters, add the prefix <code>add_</code> to the parameter name.</p>
+<p><strong>Important!</strong> If you don't use the <code>add_</code> prefix, the existing values will be deleted.</p>
+<p><strong>Example</strong></p>
+<p><code>POST https://us.openfoodfacts.org/cgi/product_jqm2.pl?code=0074570036004&amp;user_id=test&amp;password=test&amp;add_categories=Desserts</code></p>
+<p>To see the complete list of parameters, see the <strong>Parameters</strong> section.</p>
 
 
 
