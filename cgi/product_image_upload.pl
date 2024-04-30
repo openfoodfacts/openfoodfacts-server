@@ -25,15 +25,17 @@ use ProductOpener::PerlStandards;
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created/;
+use ProductOpener::Store qw/get_string_id_for_lang/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Lang qw/$lc lang/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Users qw/:all/;
-use ProductOpener::Images qw/:all/;
+use ProductOpener::Users qw/$Org_id $Owner_id $User_id %User/;
+use ProductOpener::Images
+	qw/get_code_and_imagefield_from_file_name is_protected_image process_image_crop process_image_upload scan_code/;
 use ProductOpener::Products qw/:all/;
-use ProductOpener::Text qw/:all/;
+use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::APIProductWrite qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
@@ -114,19 +116,19 @@ if (not defined $code) {
 			my $extension = lc($1);
 			$tmp_filename = get_string_id_for_lang("no_language", remote_addr() . '_' . $`);
 
-			(-e "$data_root/tmp") or mkdir("$data_root/tmp", 0755);
-			open(my $out, ">", "$data_root/tmp/$tmp_filename.$extension");
+			ensure_dir_created($BASE_DIRS{CACHE_TMP}) or display_error_and_exit($request_ref, "Missing path", 503);
+			open(my $out, ">", "$BASE_DIRS{CACHE_TMP}/$tmp_filename.$extension");
 			while (my $chunk = <$file>) {
 				print $out $chunk;
 			}
 			close($out);
 
-			$code = scan_code("$data_root/tmp/$tmp_filename.$extension");
+			$code = scan_code("$BASE_DIRS{CACHE_TMP}/$tmp_filename.$extension");
 			if (defined $code) {
 				$code = normalize_code($code);
 				$scanned_code = $code;
 			}
-			$tmp_filename = "$data_root/tmp/$tmp_filename.$extension";
+			$tmp_filename = "$BASE_DIRS{CACHE_TMP}/$tmp_filename.$extension";
 		}
 
 		# If we have a previous code, use it
@@ -173,13 +175,8 @@ my $product_id = product_id_for_owner($Owner_id, $code);
 
 my $interface_version = '20120622';
 
-# Create image directory if needed
-if (!-e "$www_root/images") {
-	mkdir("$www_root/images", 0755);
-}
-if (!-e "$www_root/images/products") {
-	mkdir("$www_root/images/products", 0755);
-}
+# Check that the image directory exists
+ensure_dir_created($BASE_DIRS{PRODUCTS_IMAGES}) or display_error_and_exit($request_ref, "Missing path", 503);
 
 if ($imagefield) {
 

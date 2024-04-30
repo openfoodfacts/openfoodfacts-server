@@ -59,7 +59,7 @@ Aggregation counts are stored in a structure of the form:
 
 use ProductOpener::PerlStandards;
 
-use ProductOpener::PackagingStats qw/:all/;
+use ProductOpener::PackagingStats qw/generate_packaging_stats_for_query/;
 
 generate_packaging_stats_for_query("packagings-with-weights", {misc_tags => 'en:packagings-with-weights'});
 generate_packaging_stats_for_query("all", {});

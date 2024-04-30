@@ -5,12 +5,14 @@
          "ingredients" : [
             {
                "id" : "en:u",
+               "is_in_taxonomy" : 0,
                "percent_estimate" : 100,
                "percent_max" : 100,
                "percent_min" : 100,
                "text" : "U"
             }
          ],
+         "is_in_taxonomy" : 0,
          "percent_estimate" : 100,
          "percent_max" : 100,
          "percent_min" : 100,
@@ -60,9 +62,10 @@
    "ingredients_with_unspecified_percent_n" : 1,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
+      "en:something",
       "en:u"
    ],
-   "ingredients_without_ciqual_codes_n" : 1,
+   "ingredients_without_ciqual_codes_n" : 2,
    "known_ingredients_n" : 0,
    "lc" : "en",
    "nutriments" : {
