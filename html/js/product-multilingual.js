@@ -551,16 +551,25 @@ function initializeTagifyInput(el) {
     let abortController;
     let debounceTimer;
     const timeoutWait = 300;
+    let value = "";
 
-    function updateSuggestions() {
-        const value = input.state.inputText;
-        const lc = (/^\w\w:/).exec(value);
-        const term = lc ? value.substring(lc[0].length) : value;
-        input.dropdown.show(term);
+    function updateSuggestions(show) {
+        if (value) {
+            const lc = (/^\w\w:/).exec(value);
+            const term = lc ? value.substring(lc[0].length) : value;
+            if (show) {
+                input.dropdown.show(term);
+            }
+        } else {
+            input.whitelist = get_recents(el.id) || [];
+            if (show) {
+                input.dropdown.show();
+            }
+        }
     }
 
-    input.on("input", function (event) {
-        const value = event.detail.value;
+    function autocompleteWithSearch(newValue) {
+        value = newValue;
         input.whitelist = null; // reset the whitelist
 
         if (el.dataset.autocomplete && el.dataset.autocomplete !== "") {
@@ -593,11 +602,33 @@ function initializeTagifyInput(el) {
                         }
                         input.synonymMap = synonymMap;
                         input.whitelist = whitelist;
-                        updateSuggestions(); // render the suggestions dropdown
+                        updateSuggestions(true); // render the suggestions dropdown
                     });
             }, timeoutWait);
         }
-        updateSuggestions();
+        updateSuggestions(true);
+    }
+
+    input.on("input", function (event) {
+        autocompleteWithSearch(event.detail.value);
+    });
+
+    input.on("edit:input", function (event) {
+        autocompleteWithSearch(event.detail.data.newValue);
+    });
+
+    input.on("edit:start", function (event) {
+        autocompleteWithSearch(event.detail.data.value);
+    });
+
+    input.on("change", function () {
+        value = "";
+        updateSuggestions(false);
+    });
+
+    input.on("edit:updated", function () {
+        value = "";
+        updateSuggestions(false);
     });
 
     input.on("dropdown:show", function() {
@@ -634,11 +665,7 @@ function initializeTagifyInput(el) {
             obj[el.id] = [tag];
         } else if (obj[el.id] === null || !Array.isArray(obj[el.id])) {
             obj[el.id] = [tag];
-        } else {
-            if (obj[el.id].indexOf(tag) != -1) {
-                return;
-            }
-
+        } else if (obj[el.id].indexOf(tag) == -1) {
             if (obj[el.id].length >= maximumRecentEntriesPerTag) {
                 obj[el.id].pop();
             }
@@ -654,7 +681,18 @@ function initializeTagifyInput(el) {
             }
         }
 
-        input.settings.whitelist = obj[el.id]; // reset the whitelist
+        value = "";
+        updateSuggestions(false);
+    });
+
+    input.on("focus", function () {
+        value = "";
+        updateSuggestions(false);
+    });
+
+    input.on("blur", function () {
+        value = "";
+        updateSuggestions(false);
     });
 
     document.
@@ -1394,7 +1432,7 @@ function check_nutrient(nutrient_id) {
     else if (nutrient_id == 'alcohol') {
         max = 100;
         percent = true;
-    }	
+    }
     else if (nutrient_unit == 'g') {
         max = 100;
     }
@@ -1403,7 +1441,7 @@ function check_nutrient(nutrient_id) {
     }
     else if (nutrient_unit == 'µg') {
         max = 100 * 1000 * 1000;
-    }	
+    }
 
     let is_above_or_below_max;
     if (max) {
@@ -1426,7 +1464,7 @@ function check_nutrient(nutrient_id) {
 
         const is_sugars_above_carbohydrates = parseFloat(carbohydrates_value) < parseFloat(sugars_value);
         show_warning(is_sugars_above_carbohydrates, 'sugars', lang().product_js_sugars_warning);
-        
+
         const is_fat_above_saturated_fats = parseFloat(fat_value) < parseFloat(saturated_fats_value);
         show_warning(is_fat_above_saturated_fats, 'saturated-fat', lang().product_js_saturated_fat_warning);
     }
