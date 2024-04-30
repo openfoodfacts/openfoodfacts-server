@@ -1,7 +1,9 @@
 {
    "ingredients" : [
       {
+         "ciqual_proxy_food_code" : "19051",
          "id" : "en:milk",
+         "is_in_taxonomy" : 1,
          "origins" : "en:belgium,en:spain",
          "percent_estimate" : 75,
          "percent_max" : 100,
@@ -11,7 +13,9 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_proxy_food_code" : "31016",
          "id" : "en:sugar",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 25,
          "percent_max" : 50,
          "percent_min" : 0,
@@ -59,11 +63,8 @@
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 2,
    "ingredients_with_unspecified_percent_sum" : 100,
-   "ingredients_without_ciqual_codes" : [
-      "en:milk",
-      "en:sugar"
-   ],
-   "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
    "known_ingredients_n" : 5,
    "lc" : "en",
    "nutriments" : {

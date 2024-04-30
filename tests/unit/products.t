@@ -3,8 +3,9 @@
 use Modern::Perl '2017';
 use utf8;
 
-use Test::More;
-use Test::Number::Delta;
+use Test2::V0;
+use Data::Dumper;
+$Data::Dumper::Terse = 1;
 use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Products qw/:all/;
@@ -129,7 +130,8 @@ sub compute_and_test_completeness($$$) {
 	my $percent = $fraction * 100.0;
 	compute_completeness_and_missing_tags($product_ref, $product_ref, $previous_ref);
 	my $message = sprintf('%s is %g%% complete', $with, $percent);
-	delta_ok($product_ref->{completeness}, $fraction, $message);
+	#delta_ok($product_ref->{completeness}, $fraction, $message);
+	is($product_ref->{completeness}, float($fraction), $message);
 
 	return;
 }
@@ -304,8 +306,8 @@ foreach my $change_ref (@get_change_userid_or_uuid_tests) {
 
 	$change_ref->{resulting_userid} = get_change_userid_or_uuid($change_ref);
 
-	is($change_ref->{app}, $change_ref->{expected_app}) or diag explain $change_ref;
-	is($change_ref->{resulting_userid}, $change_ref->{expected_userid}) or diag explain $change_ref;
+	is($change_ref->{app}, $change_ref->{expected_app}) or diag Dumper $change_ref;
+	is($change_ref->{resulting_userid}, $change_ref->{expected_userid}) or diag Dumper $change_ref;
 
 }
 

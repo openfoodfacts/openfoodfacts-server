@@ -76,6 +76,9 @@
                ],
                "epi_score" : 0,
                "epi_value" : -5,
+               "origins_from_categories" : [
+                  "en:unknown"
+               ],
                "origins_from_origins_field" : [
                   "en:unknown"
                ],
@@ -341,6 +344,7 @@
       ],
       "last_edit_dates_tags" : "--ignore--",
       "last_modified_t" : "--ignore--",
+      "last_updated_t" : "--ignore--",
       "lc" : "en",
       "main_countries_tags" : [],
       "misc_tags" : [
@@ -398,7 +402,7 @@
             "category_available" : 0,
             "data" : {
                "energy" : null,
-               "fiber" : 0,
+               "fiber" : null,
                "fruits_vegetables_legumes" : null,
                "is_beverage" : 0,
                "is_cheese" : 0,
