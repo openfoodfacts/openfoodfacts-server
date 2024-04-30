@@ -26,17 +26,18 @@ use CGI::Carp qw(fatalsToBrowser);
 use CGI qw/:cgi :form escapeHTML/;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
+use ProductOpener::Store qw/get_string_id_for_lang/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::HTTP qw/:all/;
-use ProductOpener::Users qw/:all/;
-use ProductOpener::Products qw/:all/;
-use ProductOpener::Food qw/:all/;
+use ProductOpener::HTTP qw/write_cors_headers/;
+use ProductOpener::Users qw/$Owner_id/;
+use ProductOpener::Products qw/normalize_code normalize_search_terms product_exists product_id_for_owner product_url/;
+use ProductOpener::Food qw/%nutriments_lists/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::PackagerCodes qw/:all/;
-use ProductOpener::Text qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::PackagerCodes qw/normalize_packager_codes/;
+use ProductOpener::Text qw/remove_tags_and_quote/;
+use ProductOpener::Lang qw/$lc %Lang %tag_type_singular lang/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -44,6 +45,8 @@ use Storable qw/dclone/;
 use Encode;
 use JSON::PP;
 use Log::Any qw($log);
+
+my $request_ref = ProductOpener::Display::init_request();
 
 # Passing values to the template
 my $template_data_ref = {};
@@ -57,12 +60,12 @@ my $html;
 if (user_agent() =~ /apps-spreadsheets/) {
 
 	display_error_and_exit(
+		$request_ref,
 		"Automated queries using Google Spreadsheet overload the Open Food Facts server. We cannot support them. You can contact us at contact\@openfoodfacts.org to tell us about your use case, so that we can see if there is another way to support it.",
 		200
 	);
 }
 
-my $request_ref = ProductOpener::Display::init_request();
 $request_ref->{search} = 1;
 
 my $action = single_param('action') || 'display';
@@ -710,7 +713,7 @@ elsif ($action eq 'process') {
 	my $graph = single_param("graph") || '';
 	my $download = single_param("download") || '';
 
-	open(my $OUT, ">>:encoding(UTF-8)", "$data_root/logs/search_log_debug");
+	open(my $OUT, ">>:encoding(UTF-8)", "$BASE_DIRS{LOGS}/search_log_debug");
 	print $OUT remote_addr() . "\t" . time() . "\t" . decode utf8 => single_param('search_terms') . " - map: $map
 	 - graph: $graph - download: $download - page: $page\n";
 	close($OUT);
@@ -824,7 +827,7 @@ HTML
 		}
 
 		if (single_param('search_terms')) {
-			open(my $OUT, ">>:encoding(UTF-8)", "$data_root/logs/search_log");
+			open(my $OUT, ">>:encoding(UTF-8)", "$BASE_DIRS{LOGS}/search_log");
 			print $OUT remote_addr() . "\t"
 				. time() . "\t"
 				. decode utf8 => single_param('search_terms')
