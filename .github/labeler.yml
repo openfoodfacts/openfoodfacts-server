@@ -989,10 +989,20 @@ Config:
 # Ultra-processing is bad for your health, and Open Food Facts' support of ultra-processing detection has been featured in places like the BBC.
 # https://world.openfoodfacts.org/nova
 # Tracking issue: https://github.com/openfoodfacts/openfoodfacts-server/issues/5519
-NOVA:
+Nova - Ultra-processed foods:
 - changed-files:
   - any-glob-to-any-file: 'tests/unit/nova.t'
   - any-glob-to-any-file: 'templates/api/knowledge-panels/health/ingredients/nova.tt.json'
+  - any-glob-to-any-file: 'html/images/misc/nova-group-1.svg'
+  - any-glob-to-any-file: 'html/images/misc/nova-group-2.svg'
+  - any-glob-to-any-file: 'html/images/misc/nova-group-3.svg'
+  - any-glob-to-any-file: 'html/images/misc/nova-group-4.svg'
+  - any-glob-to-any-file: 'html/images/misc/nova-dark-mode/nova-group-1-dark.svg'
+  - any-glob-to-any-file: 'html/images/misc/nova-dark-mode/nova-group-2-dark.svg'
+  - any-glob-to-any-file: 'html/images/misc/nova-dark-mode/nova-group-3-dark.svg'
+  - any-glob-to-any-file: 'html/images/misc/nova-dark-mode/nova-group-4-dark.svg'
+  - any-glob-to-any-file: 'taxonomies/nova_groups.txt'
+  - any-glob-to-any-file: 'html/images/attributes/src/nova-group-unknown.svg'
 
 # Related to NOVA
 Ingredients processing:
