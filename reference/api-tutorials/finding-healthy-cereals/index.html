@@ -8,25 +8,25 @@
       
       
       
-        <link rel="canonical" href="https://openfoodfacts.github.io/openfoodfacts-server/dev/how-to-write-and-run-tests/">
+        <link rel="canonical" href="https://openfoodfacts.github.io/openfoodfacts-server/reference/api-tutorials/finding-healthy-cereals/">
       
       
-        <link rel="prev" href="../how-to-use-vscode/">
+        <link rel="prev" href="../comparing-sodas/">
       
       
-        <link rel="next" href="../explain-nutrition-data/">
+        <link rel="next" href="../folksonomy-engine/">
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.18">
     
     
       
-        <title>How to write and run tests - Product Opener (Open Food Facts Server)</title>
+        <title>Finding healthy cereals - Product Opener (Open Food Facts Server)</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.66ac8b77.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.66ac8b77.min.css">
       
       
 
@@ -45,7 +45,7 @@
       
     
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#how-to-write-and-run-tests" class="md-skip">
+        <a href="#authentication-and-header" class="md-skip">
           Skip to content
         </a>
       
@@ -80,7 +80,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Product Opener (Open Food Facts Server)" class="md-header__button md-logo" aria-label="Product Opener (Open Food Facts Server)" data-md-component="logo">
+    <a href="../../.." title="Product Opener (Open Food Facts Server)" class="md-header__button md-logo" aria-label="Product Opener (Open Food Facts Server)" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              How to write and run tests
+              Finding healthy cereals
             
           </span>
         </div>
@@ -187,7 +187,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Product Opener (Open Food Facts Server)" class="md-nav__button md-logo" aria-label="Product Opener (Open Food Facts Server)" data-md-component="logo">
+    <a href="../../.." title="Product Opener (Open Food Facts Server)" class="md-nav__button md-logo" aria-label="Product Opener (Open Food Facts Server)" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -217,7 +217,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -272,7 +272,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/" class="md-nav__link">
+      <a href="../../../api/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -293,7 +293,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/intro-robotoff/" class="md-nav__link">
+      <a href="../../../api/intro-robotoff/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -314,7 +314,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/tutorial-dev-journey/" class="md-nav__link">
+      <a href="../../../api/tutorial-dev-journey/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -335,7 +335,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/tutorial-off-api/" class="md-nav__link">
+      <a href="../../../api/tutorial-off-api/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -356,7 +356,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/tutorial-uploading-photo-to-a-product/" class="md-nav__link">
+      <a href="../../../api/tutorial-uploading-photo-to-a-product/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -377,7 +377,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/how-to-download-images/" class="md-nav__link">
+      <a href="../../../api/how-to-download-images/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -398,7 +398,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/explain-knowledge-panels/" class="md-nav__link">
+      <a href="../../../api/explain-knowledge-panels/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -419,7 +419,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/ref-cheatsheet/" class="md-nav__link">
+      <a href="../../../api/ref-cheatsheet/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -440,7 +440,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/ref-v2/" class="md-nav__link">
+      <a href="../../../api/ref-v2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -461,7 +461,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/ref-v3/" class="md-nav__link">
+      <a href="../../../api/ref-v3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -482,7 +482,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/aws-images-dataset/" class="md-nav__link">
+      <a href="../../../api/aws-images-dataset/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -507,19 +507,17 @@
       
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -533,7 +531,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Dev
@@ -547,7 +545,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../../../dev/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -568,7 +566,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../how-to-deploy/" class="md-nav__link">
+      <a href="../../../dev/how-to-deploy/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -589,7 +587,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../how-to-develop-producer-platform/" class="md-nav__link">
+      <a href="../../../dev/how-to-develop-producer-platform/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -610,7 +608,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../how-to-develop-using-docker/" class="md-nav__link">
+      <a href="../../../dev/how-to-develop-using-docker/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -631,7 +629,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../how-to-learn-perl/" class="md-nav__link">
+      <a href="../../../dev/how-to-learn-perl/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -652,7 +650,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../how-to-quick-start-guide/" class="md-nav__link">
+      <a href="../../../dev/how-to-quick-start-guide/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -673,7 +671,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../how-to-update-agribalyse-ecoscore/" class="md-nav__link">
+      <a href="../../../dev/how-to-update-agribalyse-ecoscore/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -694,7 +692,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../how-to-use-direnv/" class="md-nav__link">
+      <a href="../../../dev/how-to-use-direnv/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -715,7 +713,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../how-to-use-gitpod/" class="md-nav__link">
+      <a href="../../../dev/how-to-use-gitpod/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -736,7 +734,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../how-to-use-pages-from-openfoodfacts-web/" class="md-nav__link">
+      <a href="../../../dev/how-to-use-pages-from-openfoodfacts-web/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -757,7 +755,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../how-to-use-repl/" class="md-nav__link">
+      <a href="../../../dev/how-to-use-repl/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -778,7 +776,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../how-to-use-vscode/" class="md-nav__link">
+      <a href="../../../dev/how-to-use-vscode/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -796,30 +794,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    How to write and run tests
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../dev/how-to-write-and-run-tests/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -828,95 +806,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#helpers" class="md-nav__link">
-    <span class="md-ellipsis">
-      Helpers
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#unit-and-integration-tests" class="md-nav__link">
-    <span class="md-ellipsis">
-      Unit and Integration tests
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#integration-with-docker-compose" class="md-nav__link">
-    <span class="md-ellipsis">
-      Integration with docker compose
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#writing-tests" class="md-nav__link">
-    <span class="md-ellipsis">
-      Writing tests
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Writing tests">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#using-json-files-to-save-expected-results-of-tests" class="md-nav__link">
-    <span class="md-ellipsis">
-      Using JSON files to save expected results of tests
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#running-tests" class="md-nav__link">
-    <span class="md-ellipsis">
-      Running tests
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#debugging-with-tests" class="md-nav__link">
-    <span class="md-ellipsis">
-      Debugging with tests
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -929,7 +818,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../explain-nutrition-data/" class="md-nav__link">
+      <a href="../../../dev/explain-nutrition-data/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -950,7 +839,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../explain-packaging-data/" class="md-nav__link">
+      <a href="../../../dev/explain-packaging-data/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -971,7 +860,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../explain-pro-dev-setup/" class="md-nav__link">
+      <a href="../../../dev/explain-pro-dev-setup/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -992,7 +881,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../explain-taxonomy-build-cache/" class="md-nav__link">
+      <a href="../../../dev/explain-taxonomy-build-cache/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1013,7 +902,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ref-docker-commands/" class="md-nav__link">
+      <a href="../../../dev/ref-docker-commands/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1034,7 +923,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ref-perl-pod/" class="md-nav__link">
+      <a href="../../../dev/ref-perl-pod/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1055,7 +944,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ref-perl/" class="md-nav__link">
+      <a href="../../../dev/ref-perl/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1118,7 +1007,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../introduction/get-the-nutriscore/" class="md-nav__link">
+      <a href="../../../introduction/get-the-nutriscore/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1143,17 +1032,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -1167,7 +1058,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Reference
@@ -1178,17 +1069,19 @@
                 
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" checked>
         
           
           <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
@@ -1202,7 +1095,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_1">
             <span class="md-nav__icon md-icon"></span>
             Api tutorials
@@ -1216,7 +1109,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/api-tutorials/adding-missing-products/" class="md-nav__link">
+      <a href="../adding-missing-products/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1237,7 +1130,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/api-tutorials/comparing-sodas/" class="md-nav__link">
+      <a href="../comparing-sodas/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1255,10 +1148,28 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../reference/api-tutorials/finding-healthy-cereals/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Finding healthy cereals
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1267,6 +1178,51 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#authentication-and-header" class="md-nav__link">
+    <span class="md-ellipsis">
+      Authentication and Header
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subdomain" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subdomain
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#query-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Query Parameters
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1279,7 +1235,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/api-tutorials/folksonomy-engine/" class="md-nav__link">
+      <a href="../folksonomy-engine/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1300,7 +1256,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/api-tutorials/get-ingredient-related-analysis/" class="md-nav__link">
+      <a href="../get-ingredient-related-analysis/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1321,7 +1277,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/api-tutorials/get-the-ecoscore/" class="md-nav__link">
+      <a href="../get-the-ecoscore/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1367,8 +1323,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1377,69 +1331,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#helpers" class="md-nav__link">
+  <a href="#authentication-and-header" class="md-nav__link">
     <span class="md-ellipsis">
-      Helpers
+      Authentication and Header
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#unit-and-integration-tests" class="md-nav__link">
+  <a href="#subdomain" class="md-nav__link">
     <span class="md-ellipsis">
-      Unit and Integration tests
+      Subdomain
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#integration-with-docker-compose" class="md-nav__link">
+  <a href="#query-parameters" class="md-nav__link">
     <span class="md-ellipsis">
-      Integration with docker compose
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#writing-tests" class="md-nav__link">
-    <span class="md-ellipsis">
-      Writing tests
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Writing tests">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#using-json-files-to-save-expected-results-of-tests" class="md-nav__link">
-    <span class="md-ellipsis">
-      Using JSON files to save expected results of tests
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#running-tests" class="md-nav__link">
-    <span class="md-ellipsis">
-      Running tests
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#debugging-with-tests" class="md-nav__link">
-    <span class="md-ellipsis">
-      Debugging with tests
+      Query Parameters
     </span>
   </a>
   
@@ -1463,81 +1375,57 @@
   
 
 
-<h1 id="how-to-write-and-run-tests">How to write and run tests<a class="headerlink" href="#how-to-write-and-run-tests" title="Permanent link">#</a></h1>
-<p>If you are a developer you are really encouraged to write tests as you fix bugs or develop new features.</p>
-<p>Having a test is also a good way to debug a particular piece of code.</p>
-<p>We would really love to see our test coverage grow.</p>
-<p>If you are new to tests, please read:</p>
+  <h1>Finding healthy cereals</h1>
+
+<p><strong>Dave</strong> wants his app to make an API call to provide Stefano healthy plant-based breakfast cereals.</p>
+<hr />
+<h2 id="authentication-and-header">Authentication and Header<a class="headerlink" href="#authentication-and-header" title="Permanent link">#</a></h2>
+<p>To make the API query that returns the products that might be interesting for Anna, Dave doesn't need to authenticate. However, he has to add a User-Agent HTTP Header with the name of his app, the version, system and a url (if any), not to be blocked by mistake.</p>
+<p>In this case, that would be: <code>User-Agent: HealthyFoodChoices - Android - Version 1.0</code></p>
+<hr />
+<h2 id="subdomain">Subdomain<a class="headerlink" href="#subdomain" title="Permanent link">#</a></h2>
+<p>Since Stefano lives in Italy, Dave wants to define the subdomain for the query as us. The subdomain automatically defines the country code (<code>cc</code>) and language of the interface (<code>lc</code>).</p>
+<p>The country code determines that only the products sold in the Italy are displayed. The language of the interface for the country code <code>it</code> is Italian.</p>
+<p>In this case:</p>
+<p><a href="https://it.openfoodfacts.org">https://it.openfoodfacts.org</a></p>
+<hr />
+<h2 id="query-parameters">Query Parameters<a class="headerlink" href="#query-parameters" title="Permanent link">#</a></h2>
+<p>Dave wants to fine-tune the query to provide Anna with the products that match her buying preferences. To do so, he wants to drill down the results to display only breakfast cereals.</p>
+<p>First, he adds the following sequence after the https call: <code>/cgi/search.pl?</code> (all search queries need to include this)</p>
+<p>Then, he defines some tags and the appropriate values: <code>action=process&amp;tagtype_0=categories&amp;tag_contains_0=contains&amp;tag_0=breakfast_cereals</code></p>
+<p>where:</p>
 <ul>
-<li><a href="https://automationstepbystep.com/2020/05/02/what-is-a-test-pyramid/">introduction to test pyramids</a> to understand importance of unit tests and integration tests</li>
-<li><a href="https://perldoc.perl.org/Test">perldoc on test</a></li>
-<li><a href="https://perldoc.perl.org/Test::More">Test::More module doc</a></li>
+<li><code>action</code> introduces the action to be performed (process)</li>
+<li><code>tagtype_0</code> adds the first search criterion (categories)</li>
+<li><code>tag_contains_0=contains</code> determines that the results should be included (note that you can exclude products from the search)</li>
+<li><code>tag_0</code> defines the category to be filtered by (breakfast_cereals)</li>
 </ul>
-<h2 id="helpers">Helpers<a class="headerlink" href="#helpers" title="Permanent link">#</a></h2>
-<p>We have some helper functions for tests.</p>
-<p>See mainly:</p>
+<p><strong>Note:</strong> The parameters are concatenated with <code>&amp;</code>.</p>
+<p>To retrieve breakfast cereals sold in the US, Dave makes the following: <a href="https://us.openfoodfacts.org/cgi/search.pl?action=process&amp;tagtype_0=categories&amp;tag_contains_0=contains&amp;tag_0=breakfast_cereals">https://us.openfoodfacts.org/cgi/search.pl?action=process&amp;tagtype_0=categories&amp;tag_contains_0=contains&amp;tag_0=breakfast_cereals</a></p>
+<p>With this query, the nutrition facts of more than 200 products are displayed.</p>
+<p>Then, Dave wants to exclude the products that contain ingredients from palm oil. He adds a new parameter to the query:</p>
 <ul>
-<li><a href="https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Test.html">Test.pm</a> (notably <code>init_expected_results</code> and <code>compare_to_expected_results</code>)</li>
-<li><a href="https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/APITest.html">APITest.pm</a></li>
+<li><code>ingredients_from_palm_oil=without</code></li>
 </ul>
-<p>and other modules with Test in their name!</p>
-<h2 id="unit-and-integration-tests">Unit and Integration tests<a class="headerlink" href="#unit-and-integration-tests" title="Permanent link">#</a></h2>
-<p>Unit tests are located in <code>tests/unit/</code>.</p>
-<p>Integration tests are in <code>tests/integration/</code>.</p>
-<p>Most integration tests issue queries to an open food facts</p>
-<h2 id="integration-with-docker-compose">Integration with docker compose<a class="headerlink" href="#integration-with-docker-compose" title="Permanent link">#</a></h2>
-<p>Using Makefile targets, tests are run </p>
+<p>This parameter excludes the products that might contain palm oil ingredients from the search.</p>
+<p><a href="https://us.openfoodfacts.org/cgi/search.pl?action=process&amp;tagtype_0=categories&amp;tag_contains_0=contains&amp;tag_0=breakfast_cereals&amp;ingredients_from_palm_oil=without">https://us.openfoodfacts.org/cgi/search.pl?action=process&amp;tagtype_0=categories&amp;tag_contains_0=contains&amp;tag_0=breakfast_cereals&amp;ingredients_from_palm_oil=without</a></p>
+<p>Next, Dave adds another parameter to exclude the products that contain additives:</p>
 <ul>
-<li>with a specific `COMPOSE_PROJECT_NAME° to avoid crashing your development data while running tests (as the project name <a href="https://docs.docker.com/compose/environment-variables/envvars/#compose_project_name">changes container, network and volumes names</a>)</li>
-<li>with a specific exposed port for Mongodb, to avoid clashes with the dev instance.</li>
+<li><code>additives=without</code></li>
 </ul>
-<h2 id="writing-tests">Writing tests<a class="headerlink" href="#writing-tests" title="Permanent link">#</a></h2>
-<p>You can read other tests to understand how we write them (get inspiration from recently created tests).</p>
-<p>One effective way is to create a list of tests each represented by a hashmap with inputs and expected outputs and run them in a loop. Add an <code>id</code> and/or a <code>desc</code> (description) and use it as last argument to check functions (like <code>ok</code>, <code>is</code>, …) to easily see tests running and identify failing tests.</p>
-<h3 id="using-json-files-to-save-expected-results-of-tests">Using JSON files to save expected results of tests<a class="headerlink" href="#using-json-files-to-save-expected-results-of-tests" title="Permanent link">#</a></h3>
-<p>If the output of the function you are testing is small (e.g. a function that returns one single value), the expected return value can be stored in the .t test file.</p>
-<p>If your outputs are complex and/or large (e.g. for unit tests of functions that return a complex structure, or for API integration tests that return a JSON response), you can use json files to store the expected result of each test. </p>
-<p><a href="https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Test.html">Test.pm</a> contains helper functions to compare results to expected results and to update the expected results. For instance if your function returns a reference $results_ref to a complex object (like a product):</p>
-<p><code>compare_to_expected_results($results_ref, "$expected_result_dir/$testid.json", $update_expected_results);</code></p>
-<p>After writing the test, you need to use <code>init_expected_results</code> (see below) once to create a JSON file that contains the resulting object.</p>
-<p>Then the next time you run the test, the results will be compared to the stored expected results.</p>
-<p>You can also use <code>init_expected_results</code> to generate new expected results file and easily see what has changed using <code>git diff</code>. If the changes are expected, you can commit the new expected results.</p>
-<h2 id="running-tests">Running tests<a class="headerlink" href="#running-tests" title="Permanent link">#</a></h2>
-<p>The best way to run all tests is to run:</p>
-<div class="highlight"><pre><span></span><code>make<span class="w"> </span>tests
-</code></pre></div>
-<p>To run a single test you can use:</p>
+<p>The query is as follows:</p>
+<p><a href="https://us.openfoodfacts.org/cgi/search.pl?action=process&amp;tagtype_0=categories&amp;tag_contains_0=contains&amp;tag_0=breakfast_cereals&amp;ingredients_from_palm_oil=without&amp;additives=without">https://us.openfoodfacts.org/cgi/search.pl?action=process&amp;tagtype_0=categories&amp;tag_contains_0=contains&amp;tag_0=breakfast_cereals&amp;ingredients_from_palm_oil=without&amp;additives=without</a></p>
+<p>Finally, Dave adds another parameter to include only products with a nutriscore A. The nutriscore is a nutrition grade determined by the amount of healthy and unhealthy nutrients.</p>
 <ul>
-<li>for a unit test:
-   <div class="highlight"><pre><span></span><code>make<span class="w"> </span>test-unit<span class="w"> </span><span class="nv">test</span><span class="o">=</span><span class="s2">&quot;filename.t&quot;</span>
-</code></pre></div></li>
-<li>for an integration test:
-   <div class="highlight"><pre><span></span><code>make<span class="w"> </span>test-int<span class="w"> </span><span class="nv">test</span><span class="o">=</span><span class="s2">&quot;filename.t&quot;</span>
-</code></pre></div></li>
+<li><code>tagtype_1=nutrition_grade</code></li>
+<li><code>tag_contains_1=contains</code></li>
+<li><code>tag_1=A</code></li>
 </ul>
-<p>If you made a change that affects stored expected results, you can use:</p>
-<ul>
-<li>to regenerate all expected results:
-  <div class="highlight"><pre><span></span><code>make<span class="w"> </span>update_tests_results
-</code></pre></div></li>
-<li>or to generate expected results for a single test
-  (here for an integration test, <code>test-unit</code> otherwise)
-  <div class="highlight"><pre><span></span><code>make<span class="w"> </span>test-int<span class="w"> </span><span class="nv">test</span><span class="o">=</span><span class="s2">&quot;filename.t :: --update-expected-results&quot;</span>
-</code></pre></div>
-  (the <code>::</code> tell the yath test runner that following arguments are for the test, not for yath)</li>
-</ul>
-<p>If you regenerate test results, be sure to check carefully that the changes in your commit are expected.</p>
-<h2 id="debugging-with-tests">Debugging with tests<a class="headerlink" href="#debugging-with-tests" title="Permanent link">#</a></h2>
-<p>Launching a test is a very effective way to understand what's going on in the code using the debugger.</p>
-<p>This is done calling the test with <code>perl -d</code>.
-You can also use "TEST_CMD" argument with make target:</p>
-<div class="highlight"><pre><span></span><code>make<span class="w"> </span>test-unit<span class="w"> </span><span class="nv">test</span><span class="o">=</span><span class="s2">&quot;my-test.t&quot;</span><span class="w"> </span><span class="nv">TEST_CMD</span><span class="o">=</span><span class="s2">&quot;perl -d&quot;</span>
-</code></pre></div>
-<p>Most often, you will have to use the next command "n" four times, before landing in you test, where you can easily set a breakpoint with <code>b &lt;line-number&gt;</code>.</p>
-<p>Read <a href="https://perldoc.perl.org/perldebug">perldoc about debugger</a> to learn more.</p>
-<blockquote>
-<p>:pencil: Note: With this explanation, in integration tests that issue requests to the server, you won't be able to run the debugger inside the server code, only in the test.</p>
-</blockquote>
+<p>The complete query looks like this:</p>
+<p><a href="https://us.openfoodfacts.org/cgi/search.pl?action=process&amp;tagtype_0=categories&amp;tag_contains_0=contains&amp;tag_0=breakfast_cereals&amp;tagtype_1=nutrition_grades&amp;tag_contains_1=contains&amp;tag_1=A&amp;additives=without&amp;ingredients_from_palm_oil=without">https://us.openfoodfacts.org/cgi/search.pl?action=process&amp;tagtype_0=categories&amp;tag_contains_0=contains&amp;tag_0=breakfast_cereals&amp;tagtype_1=nutrition_grades&amp;tag_contains_1=contains&amp;tag_1=A&amp;additives=without&amp;ingredients_from_palm_oil=without</a></p>
+<p>Add the json=true parameter to avoid scraping.</p>
+<p><a href="https://us.openfoodfacts.org/cgi/search.pl?action=process&amp;tagtype_0=categories&amp;tag_contains_0=contains&amp;tag_0=breakfast_cereals&amp;tagtype_1=nutrition_grades&amp;tag_contains_1=contains&amp;tag_1=A&amp;additives=without&amp;ingredients_from_palm_oil=without&amp;json=true">https://us.openfoodfacts.org/cgi/search.pl?action=process&amp;tagtype_0=categories&amp;tag_contains_0=contains&amp;tag_0=breakfast_cereals&amp;tagtype_1=nutrition_grades&amp;tag_contains_1=contains&amp;tag_1=A&amp;additives=without&amp;ingredients_from_palm_oil=without&amp;json=true</a></p>
+<p>Anna can see now at a glance which products match her search criteria. In this case, around 20 brands of breakfast cereals.</p>
 
 
 
@@ -1584,10 +1472,10 @@ You can also use "TEST_CMD" argument with make target:</p>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.3220b9d7.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.3220b9d7.min.js"></script>
       
     
   </body>
