@@ -140,6 +140,7 @@ sub get_cors_headers ($allow_credentials = 0, $sub_domain_only = 0) {
 This function write cors_headers in response.
 
 see get_cors_headers to see how they are computed and parameters
+
 =cut
 
 sub write_cors_headers ($allow_credentials = 0, $sub_domain_only = 0) {

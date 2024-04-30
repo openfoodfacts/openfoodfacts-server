@@ -82,11 +82,11 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Display qw/:all/;
+use ProductOpener::Display qw/request_param/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Products qw/:all/;
-use ProductOpener::API qw/:all/;
+use ProductOpener::API qw/add_error customize_response_for_product/;
 
 use Encode;
 
@@ -104,6 +104,7 @@ sub echo_service ($product_ref, $updated_product_fields_ref) {
 my %service_functions = (
 	echo => \&echo_service,
 	parse_ingredients_text => \&ProductOpener::Ingredients::parse_ingredients_text_service,
+	extend_ingredients => \&ProductOpener::Ingredients::extend_ingredients_service,
 	estimate_ingredients_percent => \&ProductOpener::Ingredients::estimate_ingredients_percent_service,
 	analyze_ingredients => \&ProductOpener::Ingredients::analyze_ingredients_service,
 );

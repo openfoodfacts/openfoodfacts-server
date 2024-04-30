@@ -25,10 +25,11 @@ use CGI::Carp qw(fatalsToBrowser);
 use Modern::Perl '2017';
 use utf8;
 
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Lang qw/%Lang lang/;
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Store qw/:all/;
-use ProductOpener::Tags qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die/;
+use ProductOpener::Store qw/store/;
+use ProductOpener::Tags qw/%Languages init_languages retrieve_tags_taxonomy/;
 use ProductOpener::Food qw/:all/;
 
 print STDERR "Build \%Lang - data_root: $data_root - server_domain: $server_domain\n";
@@ -38,6 +39,8 @@ print STDERR "Build \%Lang - data_root: $data_root - server_domain: $server_doma
 # - English values for all missing values for all languages (done by Lang::build_lang() )
 
 # Tags.pm builds the %Languages hash of languages from the languages taxonomy
+retrieve_tags_taxonomy("languages");
+init_languages();
 
 ProductOpener::Lang::build_lang(\%Languages);
 my $tags_ref = ProductOpener::Lang::build_lang_tags();
@@ -45,17 +48,12 @@ my $tags_ref = ProductOpener::Lang::build_lang_tags();
 # use $server_domain in part of the name so that we have different files
 # when 2 instances of Product Opener share the same $data_root
 # as is the case with world.openfoodfacts.org and world.preprod.openfoodfacts.org
-if (!-e "$data_root/data") {
-	mkdir("$data_root/data", 0755) or die("Could not create target directory $data_root/data : $!\n");
-}
-store("$data_root/data/Lang.${server_domain}.sto", \%Lang);
+ensure_dir_created_or_die($BASE_DIRS{PRIVATE_DATA});
+store("$BASE_DIRS{PRIVATE_DATA}/Lang.${server_domain}.sto", \%Lang);
 store("$data_root/data/Lang_tags.${server_domain}.sto", $tags_ref);
 
 # Generate JSON files for JavaScript I18N
 ProductOpener::Lang::build_json();
-
-# Nutrients level taxonomy file is build using languages
-create_nutrients_level_taxonomy();
 
 exit(0);
 
