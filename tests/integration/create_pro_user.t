@@ -5,10 +5,11 @@ use ProductOpener::PerlStandards;
 use ProductOpener::Config qw/$data_root/;
 use ProductOpener::Store qw/retrieve/;
 
-use Test::More;
+use Test2::V0;
 use ProductOpener::APITest qw/:all/;
 use ProductOpener::Test qw/:all/;
-use ProductOpener::TestDefaults qw/:all/;
+use ProductOpener::TestDefaults
+	qw/%admin_user_form %default_org_edit_admin_form %default_org_edit_form %default_user_form %pro_moderator_user_form/;
 
 use Clone qw/clone/;
 use List::Util qw/first/;

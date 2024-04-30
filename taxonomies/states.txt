@@ -629,42 +629,42 @@ zh-TW:完成包裝
 zh-HK:完成包裝
 
 en:Quantity completed
+bg:Завършено количество
+bs:Količina završena
 ca:Quantitat completa
 cs:Informace o množství jsou hotové
+da:Mængde udfyldt
 de:Menge ausgefüllt
 el:Η ποσότητα συμπληρώθηκε
 es:Cantidad completada
+et:Kogus täidetud
 fi:Määrä täytetty
 fr:Quantité complétée
 he:כמות הושלמה
+hr:Količina dovršena
 hu:Mennyiség megadva
 it:Quantità completata
 ja:数量完了
-nl:Hoeveelheid klaar
-pl:Ilość uzupełniona
-pt:Quantidade completada
-ru:Количество указано
-sv:Mängd fullständigt
-vi:Số lượng hoàn thành
-zh:完成数量
 zh-CN:完成数量
 zh-TW:完成數量
 zh-HK:完成數量
 lt:Kiekis užpildytas
 lv:Daudzums aizpildīts
-et:Kogus täidetud
-da:Mængde udfyldt
-no:Mengde fullført
-sl:Količina dokončana
-hr:Količina dovršena
-sr:Količina završena
-bs:Količina završena
 mk:Количина завршена
-sq:Sasia e plotësuar
+nl:Hoeveelheid klaar
+no:Mengde fullført
+pl:Ilość uzupełniona
+pt:Quantidade completada
 ro:Cantitate completată
-bg:Завършено количество
-uk:Кількість вказана
+ru:Количество указано
+sl:Količina dokončana
+sq:Sasia e plotësuar
+sr:Količina završena
+sv:Mängd fullständigt
 tr:Miktar tamamlandı
+uk:Кількість вказана
+vi:Số lượng hoàn thành
+zh:完成数量
 
 en:Product name completed
 ca:Nom del producte complet
@@ -727,31 +727,31 @@ vi:Mã đóng gói đã hoàn thành
 zh:包装代码已完成
 
 en:Front photo selected
+bs:Prednja fotografija odabrana
 ca:Foto frontal seleccionada
 de:Frontfoto ausgewählt
+el:Επιλέχθηκε φωτογραφία μπροστά
 es:Foto frontal seleccionada
 fi:Etukuva valittu
 fr:Photo de face sélectionnée
 he:נבחרה תמונת חזית
+hr:Prednja fotografija odabrana
 hu:Borító fotó kiválasztva
 it:Foto frontale selezionata
-pt:Imagem frontal selecionada
-nl:Voorfoto geselecteerd
-ru:Выбрано фото спереди
-sv:Främre foto valt
-zh:已选择前照片
-el:Επιλέχθηκε φωτογραφία μπροστά
-hr:Prednja fotografija odabrana
+lt:Išrinktas priekinis nuotraukos
 mk:Избрана предна фотографија
+nl:Voorfoto geselecteerd
 no:Framsidebilde valgt
 pl:Wybrano zdjęcie przedniej części
+pt:Imagem frontal selecionada
 ro:Fotografie frontală selectată
+ru:Выбрано фото спереди
 sq:Fotografia e përparme është zgjedhur
 sr:Изабрана предња фотографија
-bs:Prednja fotografija odabrana
-uk:Обрано фото спереду
+sv:Främre foto valt
 tr:Ön fotoğraf seçildi
-lt:Išrinktas priekinis nuotraukos
+uk:Обрано фото спереду
+zh:已选择前照片
 
 en:Front photo to be selected
 ca:Falta seleccionar la foto frontal, Falta triar la foto frontal
@@ -840,8 +840,8 @@ he:יש לבחור בתמונת ערכים תזונתיים
 hu:Tápérték fotó kiválasztandó
 it:Foto delle informazioni nutrizionali da selezionare
 nl:Foto van voedingswaarden moet worden geselecteerd
-pt:Imagem das informações nutricionais a selecionar
 pl:Zdjęcie informacji o wartościach odżywczych do wyboru
+pt:Imagem das informações nutricionais a selecionar
 ru:Выбрать фото пищевой ценности
 sv:Näringsfotot måste väljas
 tr:Beslenme fotoğrafı seçilmeli
@@ -856,8 +856,8 @@ fr:Photo de l'emballage sélectionnée
 hu:Csomagolás fotó kiválasztva
 it:Foto dell'imballaggio selezionata
 nl:Verpakkingsfoto geselecteerd
-pt:Imagem da embalagem selecionada
 pl:Zdjęcie opakowania wybrane
+pt:Imagem da embalagem selecionada
 ru:Выбрано фото упаковки
 sv:Förpackningsfoto vald
 tr:Paketleme fotoğrafı seçildi
@@ -865,6 +865,7 @@ zh:已选择包装照片
 
 en:Packaging photo to be selected
 ca:Foto de l'embalatge a triar, Foto de l'embalatge a seleccionar, Seleccionar foto de l'embalatge, Triar foto de l'embalatge
+da:Vælg emballagefoto
 de:Verpackungsfoto muss ausgewählt werden
 es:Foto de embalaje a seleccionar
 fi:Pakkauskuva valitsematta
@@ -872,35 +873,34 @@ fr:Photo de l'emballage non sélectionnée
 he:יש לבחור בתמונת אריזה
 hu:Csomgaolás fotó kiválasztandó
 it:Foto dell'imballaggio da selezionare
+ja:パッケージ写真を選択してください
+ko:포장 사진을 선택하세요
 nl:Verpakkingsfoto moet worden geselecteerd
+no:Velg emballasjebilde
 pt:Imagem da embalagem a selecionar
 sv:Förpackningsfoto att välja
 tr:Paketleme fotoğrafı seçilmeli
 zh:需要选择包装照片
-ja:パッケージ写真を選択してください
-ko:포장 사진을 선택하세요
-da:Vælg emballagefoto
-no:Velg emballasjebilde
 
 en:Origins completed
+ca:Orígens completats
+da:Oprindelse fuldført
 de:Herkunft ausgefüllt
+es:Orígenes completados
+fi:Alkuperä täydennetty
 fr:Origines complétées
 hu:Származás kitöltve
 it:Origine degli ingredienti completata
+ja:起源が完了しました
+ko:기원이 완료되었습니다
 nl:Oorsprong vervolledigd
+no:Opprinnelse fullført
 pl:Pochodzenie uzupełnione
 pt:Origens dos ingredientes completas
-es:Orígenes completados
-fi:Alkuperä täydennetty
-ca:Orígens completats
 ru:Происхождение заполнено
 sv:Ursprung slutfört
 tr:Kökenler tamamlandı
 zh:起源已完成
-ja:起源が完了しました
-ko:기원이 완료되었습니다
-da:Oprindelse fuldført
-no:Opprinnelse fullført
 
 en:Origins to be completed
 ca:Orígens per completar
@@ -920,3 +920,4 @@ ru:Происхождение для заполнения
 sv:Ursprung att slutföra
 tr:Tamamlanacak kökenler
 zh:待完成的起源
+

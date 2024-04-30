@@ -64,21 +64,25 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
+use ProductOpener::Lang qw/$lc lang/;
 use Email::Stuffer;
 use Log::Any qw($log);
 
 =head1 CONSTANTS
 
 =head2 LOG_EMAIL_START
+
 Text used before logging an email
+
 =cut
 
 $LOG_EMAIL_START = "---- EMAIL START ----\n";
 
 =head2 LOG_EMAIL_END
+
 Text used after logging an email
+
 =cut
 
 $LOG_EMAIL_END = "\n---- EMAIL END ----\n";

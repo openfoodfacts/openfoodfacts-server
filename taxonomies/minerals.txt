@@ -116,6 +116,9 @@ vi:Khoáng vật
 yi:מינעראל
 za:Gvangvuz
 zh:礦物
+description:en:MINERAL is a naturally occurring chemical compound,[1] usually of crystalline form and not produced by life processes.
+vegan:en:yes
+vegetarian:en:yes
 # als:Mineral
 # ast:Mineral
 # bho:खनिज
@@ -145,9 +148,6 @@ zh:礦物
 # yue:礦物
 #wikidata:en:
 wikipedia:en:https://en.wikipedia.org/wiki/Mineral
-vegan:en:yes
-vegetarian:en:yes
-description:en:MINERAL is a naturally occurring chemical compound,[1] usually of crystalline form and not produced by life processes.
 
 
 
@@ -262,6 +262,8 @@ yi:קאליום
 yo:Potassium
 za:Gyaz
 zh:钾
+# ingredient/fr:potassium has 232 products in 4 languages @2019-05-10
+description:en:POTASSIUM is a chemical element with symbol K (from Neo-Latin kalium) and atomic number 19. Potassium ions are vital for the functioning of all living cells. The transfer of potassium ions across nerve cell membranes is necessary for normal nerve transmission; potassium deficiency and excess can each result in numerous signs and symptoms, including an abnormal heart rhythm and various electrocardiographic abnormalities. Fresh fruits and vegetables are good dietary sources of potassium.
 # ast:Potasiu
 # azb:پوتاسیوم
 # be-tarask:Каль
@@ -313,8 +315,6 @@ zh:钾
 # zh-hk:鉀
 wikidata:en:Q703
 wikipedia:en:https://en.wikipedia.org/wiki/Potassium
-# ingredient/fr:potassium has 232 products in 4 languages @2019-05-10
-description:en:POTASSIUM is a chemical element with symbol K (from Neo-Latin kalium) and atomic number 19. Potassium ions are vital for the functioning of all living cells. The transfer of potassium ions across nerve cell membranes is necessary for normal nerve transmission; potassium deficiency and excess can each result in numerous signs and symptoms, including an abnormal heart rhythm and various electrocardiographic abnormalities. Fresh fruits and vegetables are good dietary sources of potassium.
 
 <en:Potassium
 en:potassium bicarbonate
@@ -434,6 +434,12 @@ vi:Kali clorua
 # wuu:氯化钾
 # yue:氯化鉀
 zh:氯化钾
+additives_classes:en: en:stabiliser, en:thickener
+# mineral/potassium-chloride has 2404 products in 16 languages @2019-05-19
+# ingredient/fr:chlorure-de-potassium has 731 products @2019-05-19
+# usage:pl:chlorek potasu (potas)
+description:en:POTASSIUM CHLORIDE (KCl) is a metal halide salt composed of potassium and chlorine. It can be used as a salt substitute for food. Potassium is vital in the human body, and potassium chloride by mouth is the common means to treat low blood potassium.
+e_number:en:508
 # zh-cn:氯化钾
 # zh-hans:氯化钾
 # zh-hant:氯化鉀
@@ -441,14 +447,8 @@ zh:氯化钾
 # zh-sg:氯化钾
 # zh-tw:氯化鉀
 mandatory_additive_class:en:en:flavour-enhancer, en:stabiliser, en:thickener
-e_number:en:508
 wikidata:en:Q184630
-additives_classes:en:en:stabilizer, en:thickener
 wikipedia:en:https://en.wikipedia.org/wiki/Potassium_chloride
-# mineral/potassium-chloride has 2404 products in 16 languages @2019-05-19
-# ingredient/fr:chlorure-de-potassium has 731 products @2019-05-19
-# usage:pl:chlorek potasu (potas)
-description:en:POTASSIUM CHLORIDE (KCl) is a metal halide salt composed of potassium and chlorine. It can be used as a salt substitute for food. Potassium is vital in the human body, and potassium chloride by mouth is the common means to treat low blood potassium.
 
 #comment:en:POTASSIUM CITRATES is entered both under the minerals and the additives for the moment.
 #comment:en:E332 should be in plural, the specific form can be entered under i or ii. The singlar variant is ii.
@@ -462,12 +462,12 @@ ja:クエン酸一カリウム及びクエン酸三カリウム
 nl:Kaliumcitraten
 pt:Citratos de potássio
 sv:Kaliumcitrater
-mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabilizer
+additives_classes:en: en:sequestrant, en:stabiliser
 e_number:en:332
-wikidata:en:Q419921
-additives_classes:en: en:sequestrant, en:stabilizer
+mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabiliser
 vegan:en:yes
 vegetarian:en:yes
+wikidata:en:Q419921
 
 #comment:en:(TRI-)POTASSIUM CITRATE is entered both under the minerals and the additives for the moment.
 #comment:en:Not sure which word is preferred on packages, either the more chemical tripotassium or just potassium citrate in singular form. We use the tripotassium version here in order to better distinguish from E332.
@@ -508,6 +508,10 @@ ta:பொட்டாசியம் சிட்ரேட்டு
 te:పొటాషియం సిట్రేట్
 vi:Kali xitrat
 zh:檸檬酸鉀
+# last wikidatasynchronisation 4-sep-2020
+additives_classes:en: en:sequestrant, en:stabiliser
+# additive/e332ii-tripotassium-citrate has 23 products in 2 languages @2019-04-22
+description:en:POTASSIUM CITRATE (also known as tripotassium citrate) is a potassium salt of citric acid with the molecular formula K3C6H5O7. As a food additive, potassium citrate is used to regulate acidity. It is also used in many soft drinks as a buffering agent.
 #azb:پوتاسیوم سیترات
 #zh-cn:柠檬酸钾
 #zh-hans:柠檬酸钾
@@ -516,13 +520,9 @@ zh:檸檬酸鉀
 #zh-sg:柠檬酸钾
 #zh-tw:檸檬酸鉀
 e_number:en:332
-mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabilizer
+mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabiliser
 wikidata:en:Q419921
-# last wikidatasynchronisation 4-sep-2020
-additives_classes:en: en:sequestrant, en:stabilizer
 wikipedia:en:https://en.wikipedia.org/wiki/Potassium_citrate
-# additive/e332ii-tripotassium-citrate has 23 products in 2 languages @2019-04-22
-description:en:POTASSIUM CITRATE (also known as tripotassium citrate) is a potassium salt of citric acid with the molecular formula K3C6H5O7. As a food additive, potassium citrate is used to regulate acidity. It is also used in many soft drinks as a buffering agent.
 
 <en:Potassium
 en:potassium gluconate
@@ -873,6 +873,9 @@ uk:Карбонат кальцію
 uz:Kalsiy karbonat
 vi:canxi cacbonat
 zh:碳酸鈣
+# ingredient/calcium-carbonate has 4220 products in 10 languages @2019-02-03
+# mineral/calcium-carbonate has 4301 products @2019-02-03
+description:en:CALCIUM CARBONATE is a chemical compound with the formula CaCO3.
 # ast:Carbonato de calcio
 # azb:کلسیوم کربونات
 # de-ch:Calciumcarbonat
@@ -887,9 +890,6 @@ zh:碳酸鈣
 # yue:碳酸鈣
 wikidata:en:Q23767
 wikipedia:en:https://en.wikipedia.org/wiki/Calcium_carbonate
-# ingredient/calcium-carbonate has 4220 products in 10 languages @2019-02-03
-# mineral/calcium-carbonate has 4301 products @2019-02-03
-description:en:CALCIUM CARBONATE is a chemical compound with the formula CaCO3.
 
 <en:calcium carbonate
 fr:agent d'enrobage carbonate de calcium
@@ -1000,12 +1000,12 @@ ro:gluconat de calciu
 sk:glukónan vápenatý
 sl:kalcijev glukonat
 sv:kalciumglukonat
-mandatory_additive_class:en: en:acidity-regulator, en:firming-agent, en:sequestrant
-e_number:en:578
-wikidata:en:Q413739
 additives_classes:en: en:sequestrant
+e_number:en:578
+mandatory_additive_class:en: en:acidity-regulator, en:firming-agent, en:sequestrant
 vegan:en:yes
 vegetarian:en:yes
+wikidata:en:Q413739
 
 #comment:en:CALCIUM GLYCEROPHOSPHATE is for the moment listed in both the additves and ingredients taxonomy.
 <en:Calcium
@@ -1035,13 +1035,13 @@ sk:glycerofosforečnan vápenatý
 sl:kalcijev glicerofosfat
 sr:Kalcijum glicerilfosfat
 sv:kalciumglycerolfosfat
+description:en:Calcium glycerylphosphate (or calcium glycerophosphate) is a mineral supplement for Calcium.
 e_number:en:383
-wikidata:en:Q4119838
-wikipedia:en:https://en.wikipedia.org/wiki/Calcium_glycerylphosphate
 # ingredient/calcium-glycerophosphate has 1 product in french @2018-12-11
 vegan:en:yes
 vegetarian:en:yes
-description:en:Calcium glycerylphosphate (or calcium glycerophosphate) is a mineral supplement for Calcium.
+wikidata:en:Q4119838
+wikipedia:en:https://en.wikipedia.org/wiki/Calcium_glycerylphosphate
 
 <en:Calcium
 en:calcium lactate
@@ -1132,6 +1132,8 @@ tr:Kalsiyum hidroksit
 uk:Гідроксид кальцію
 vi:Canxi hiđroxit
 zh:氢氧化钙
+# ingredient/calcium-hydroxide has 152 products in 7 languages @2019-02-18
+description:en:CALCIUM HYDROXIDE (traditionally called slaked lime) is an inorganic compound with the chemical formula Ca(OH)2.
 # azb:کلسیوم هیدروکسید
 # kk-arab:ەزىلگەن اك
 # kk-cn:ەزىلگەن اك
@@ -1155,8 +1157,6 @@ zh:氢氧化钙
 # zh-tw:氫氧化鈣
 wikidata:en:Q182849
 wikipedia:en:https://en.wikipedia.org/wiki/Calcium_hydroxide
-# ingredient/calcium-hydroxide has 152 products in 7 languages @2019-02-18
-description:en:CALCIUM HYDROXIDE (traditionally called slaked lime) is an inorganic compound with the chemical formula Ca(OH)2.
 
 <en:Calcium
 en:calcium oxide
@@ -1415,6 +1415,8 @@ vi:magiê
 yi:מאגנעזיום
 yo:Magnésíọ̀mù
 zh:镁
+# mineral/magnesium has 436 products @2019-04-26
+description:en:MAGNESIUM is a chemical element with symbol Mg and atomic number 12. The important interaction between phosphate and magnesium ions makes magnesium essential to the basic nucleic acid chemistry of all cells of all known living organisms. Spices, nuts, cereals, cocoa and vegetables are rich sources of magnesium. Green leafy vegetables such as spinach are also rich in magnesium.
 # ast:Magnesiu
 # azb:منیزیوم
 # be-tarask:магн
@@ -1463,8 +1465,6 @@ zh:镁
 # zh-hant:鎂
 # zh-hk:鎂
 wikipedia:en:https://en.wikipedia.org/wiki/Magnesium
-# mineral/magnesium has 436 products @2019-04-26
-description:en:MAGNESIUM is a chemical element with symbol Mg and atomic number 12. The important interaction between phosphate and magnesium ions makes magnesium essential to the basic nucleic acid chemistry of all cells of all known living organisms. Spices, nuts, cereals, cocoa and vegetables are rich sources of magnesium. Green leafy vegetables such as spinach are also rich in magnesium.
 
 
 <en:Magnesium
@@ -1556,14 +1556,14 @@ ta:மெக்னீசயம் குளோரைடு
 uk:Хлорид магнію
 vi:Magie clorua
 zh:氯化镁
-# azb:کولورید منیزیوم
-# pt-br:cloreto de magnésio
-# sr-ec:магнезијум хлорид
-wikipedia:en:https://en.wikipedia.org/wiki/Magnesium_chloride
 # ingredient/magnesium%20chloride has 207 products @2019-04-29
 # mineral/magnesium-chloride has 495 products in 7 languages @2019-04-29
 # usage:es:gelificante:cloruro de magnesio
 description:en:MAGNESIUM CHLORIDE is the name for the chemical compound with the formula MgCl2 and its various hydrates MgCl2(H2O)x. Magnesium chloride is an important coagulant used in the preparation of tofu from soy milk. In Japan it is sold as nigari (にがり, derived from the Japanese word for "bitter"), a white powder produced from seawater after the sodium chloride has been removed, and the water evaporated. It is also an ingredient in baby formula milk.
+# azb:کولورید منیزیوم
+# pt-br:cloreto de magnésio
+# sr-ec:магнезијум хлорид
+wikipedia:en:https://en.wikipedia.org/wiki/Magnesium_chloride
 
 <en:Magnesium
 en:magnesium salts of citric acid
@@ -1782,6 +1782,9 @@ tr:Magnezyum sülfat
 uk:Сульфат магнію
 vi:Magie sulphat
 zh:硫酸镁
+# ingredient/fr:sulfate-de-magnésium has 67 products in 4 languages @2019-04-10
+# mineral/magnesium-sulphate has 272 products in 6 languages @2019-04-10
+description:en:MAGNESIUM SULFATE is an inorganic salt with the formula MgSO4(H2O)x where 0≤x≤7. Magnesium sulfate as a medication is used to treat and prevent low blood magnesium and seizures in women with eclampsia.
 # ast:Sulfatu de magnesiu
 # azb:منیزیوم سولفات
 # en-ca:Magnesium sulfate
@@ -1791,9 +1794,6 @@ zh:硫酸镁
 # yue:硫酸镁
 wikidata:en:Q288266
 wikipedia:en:https://en.wikipedia.org/wiki/Magnesium_sulfate_(medical_use)
-# ingredient/fr:sulfate-de-magnésium has 67 products in 4 languages @2019-04-10
-# mineral/magnesium-sulphate has 272 products in 6 languages @2019-04-10
-description:en:MAGNESIUM SULFATE is an inorganic salt with the formula MgSO4(H2O)x where 0≤x≤7. Magnesium sulfate as a medication is used to treat and prevent low blood magnesium and seizures in women with eclampsia.
 
 <en:Magnesium
 en:magnesium L-aspartate
@@ -1864,8 +1864,8 @@ sk:L-pidolát horečnatý
 sl:magnezijev L-pidolat
 sv:magnesium-L-pidolat
 
-<en:Potassium
 <en:Magnesium
+<en:Potassium
 en:magnesium potassium citrate
 bg:Магнезиево-калиев цитрат
 cs:citronan draselno-hořečnatý
@@ -1907,12 +1907,12 @@ sk:Citrát horečnatý
 sr:Magnezijum citrat
 sv:magnesiumcitrat
 tr:Magnezyum sitrat
-# azb:منیزیوم سیترات
-wikidata:en:Q45044
-wikipedia:en:https://en.wikipedia.org/wiki/Magnesium_citrate
 # mineral/magnesium-citrate has 192 products in 4 languages @2019-04-26
 # ingredient/fr:citrate-de-magnésium has 151 products in 4 languages @2019-04-26
 description:en:MAGNESIUM CITRATE is a magnesium preparation in salt form with citric acid in a 1:1 ratio (1 magnesium atom per citrate molecule). The name "magnesium citrate" is ambiguous and sometimes may refer to other salts such as trimagnesium citrate which has a magnesium:citrate ratio of 3:2. It is also used in the pill form as a magnesium dietary supplement. It contains 11.23% magnesium by weight.  As a food additive, magnesium citrate is used to regulate acidity and is known as E number E345.
+# azb:منیزیوم سیترات
+wikidata:en:Q45044
+wikipedia:en:https://en.wikipedia.org/wiki/Magnesium_citrate
 
 
 <en:mineral
@@ -2042,6 +2042,8 @@ yi:אייזן
 yo:Iron
 za:Diet
 zh:铁
+# ingredient/iron has 8977 products @2019-03-02
+description:en: IRON is a chemical element with symbol Fe (from Latin:ferrum) and atomic number 26. Iron is pervasive, but particularly rich sources of dietary iron include red meat, oysters, lentils, beans, poultry, fish, leaf vegetables, watercress, tofu, chickpeas, black-eyed peas, and blackstrap molasses. Iron provided by dietary supplements is often found as iron(II) fumarate, although iron(II) sulfate is cheaper and is absorbed equally well.
 # ang:Īsen
 # arc:ܦܪܙܠܐ
 # ast:Fierro
@@ -2117,8 +2119,6 @@ zh:铁
 # zh-hant:鐵
 wikidata:en:Q677
 wikipedia:en:https://en.wikipedia.org/wiki/Iron
-# ingredient/iron has 8977 products @2019-03-02
-description:en: IRON is a chemical element with symbol Fe (from Latin:ferrum) and atomic number 26. Iron is pervasive, but particularly rich sources of dietary iron include red meat, oysters, lentils, beans, poultry, fish, leaf vegetables, watercress, tofu, chickpeas, black-eyed peas, and blackstrap molasses. Iron provided by dietary supplements is often found as iron(II) fumarate, although iron(II) sulfate is cheaper and is absorbed equally well.
 
 <en:Iron
 en:ferrous carbonate, iron carbonate
@@ -2193,9 +2193,9 @@ sk:citran amónno-železitý
 sl:železov amonijev citrat
 sv:ferriammoniumcitrat
 e_number:en:381
-wikidata:en:Q473522
 vegan:en:yes
 vegetarian:en:yes
+wikidata:en:Q473522
 
 #comment:en:IRON(II) GLUCONATE is for the moment listed in both the additves and ingredients taxonomy.
 <en:iron
@@ -2232,9 +2232,9 @@ sv:Järnglukonat
 tr:ferrous gluconate
 # azb:قلوکونات دمیر
 e_number:en:579
-wikidata:en:Q421291
 vegan:en:yes
 vegetarian:en:yes
+wikidata:en:Q421291
 wikipedia:en:https://en.wikipedia.org/wiki/Iron(II)_gluconate
 # ingredient/fr:gluconate-de-fer has 37 products in 6 languages @2019-02-22
 
@@ -2270,6 +2270,8 @@ sl:železov fumarat
 sr:Gvožđe(II) fumarat
 sv:ferrofumarat
 zh:延胡索酸亚铁
+# ingredient/fr:fumarate-ferreux has 54 products in 4 languages @2019-02-06
+description:en:IRON(II) GLUCONATE, or ferrous gluconate,[1] is a black compound often used as an iron supplement. It is the iron(II) salt of gluconic acid.
 # azb:دمیر (II) فومارات
 # sr-el:Gvožđe(II) fumarat
 # zh-cn:延胡索酸亚铁
@@ -2280,8 +2282,6 @@ zh:延胡索酸亚铁
 # zh-tw:延胡索酸亞鐵
 wikidata:en:Q416370
 wikipedia:en:https://en.wikipedia.org/wiki/Iron(II)_fumarate
-# ingredient/fr:fumarate-ferreux has 54 products in 4 languages @2019-02-06
-description:en:IRON(II) GLUCONATE, or ferrous gluconate,[1] is a black compound often used as an iron supplement. It is the iron(II) salt of gluconic acid.
 
 <en:Iron
 en:ferric sodium diphosphate
@@ -2372,6 +2372,10 @@ th:ไอร์ออนซัลเฟต
 uk:Сульфат заліза
 vi:Sắt sulfat
 zh:硫酸亚铁
+# ingredient/fr:sulfate-de-fer has 158 products in 4 languages @2019-05-10
+# mineral/ferrous-sulphate has 3843 products in 7 languages @2019-05-10
+# ingredient/fr:sulfates-de-fer has 69 products in 3 languages @2019-03-06
+description:en:IRON(II) SULFATE denotes a range of salts with the formula FeSO4·xH2O. The hydrated form is used medically to treat iron deficiency. It is on the World Health Organization's List of Essential Medicines, the most important medications needed in a basic health system.
 # azb:دمیر سولفات
 # sr-ec:гвожђе сулфат
 # sr-el:Gvožđe sulfat
@@ -2384,10 +2388,6 @@ zh:硫酸亚铁
 # zh-tw:硫酸亞鐵
 wikidata:en:Q214863
 wikipedia:en:https://en.wikipedia.org/wiki/Iron(II)_sulfate
-# ingredient/fr:sulfate-de-fer has 158 products in 4 languages @2019-05-10
-# mineral/ferrous-sulphate has 3843 products in 7 languages @2019-05-10
-# ingredient/fr:sulfates-de-fer has 69 products in 3 languages @2019-03-06
-description:en:IRON(II) SULFATE denotes a range of salts with the formula FeSO4·xH2O. The hydrated form is used medically to treat iron deficiency. It is on the World Health Organization's List of Essential Medicines, the most important medications needed in a basic health system.
 
 <en:Iron
 en:ferrous ammonium phosphate
@@ -2463,19 +2463,19 @@ sl:železov difosfat, železov pirofosfat
 sv:ferridifosfat, ferripyrofosfat, järndifosfat
 ta:இரும்பு பைரோபாசுபேட்டு
 zh:焦磷酸铁
-wikidata:en:Q9207442
-wikipedia:en:https://en.wikipedia.org/wiki/Iron(II)_phosphate
 # ingredient/fr:diphosphate-ferrique has 116 products in 7 languages @2019-05-07
 # usage:de:Mineralstoff (Eisendiphosphat)
 description:en:IRON(II) PHOSPHATE, Fe3(PO4)2, is an iron salt of phosphoric acid.
+wikidata:en:Q9207442
+wikipedia:en:https://en.wikipedia.org/wiki/Iron(II)_phosphate
 
 
 <en:iron
 en:ferric orthophosphate, ferric phosphate, iron orthophosphate, iron phosphate
 es:ortofosfato férrico
+description:en:Iron(III) phosphate, also ferric phosphate, is the inorganic compound with the formula FePO4. Iron(III) phosphate is not allowed as food additive in the European Union. It was withdrawn from the list of allowed substances in the directive 2002/46/EC in 2007.
 wikidata:en:Q1311179
 wikipedia:en:https://en.wikipedia.org/wiki/Iron(III)_phosphate
-description:en:Iron(III) phosphate, also ferric phosphate, is the inorganic compound with the formula FePO4. Iron(III) phosphate is not allowed as food additive in the European Union. It was withdrawn from the list of allowed substances in the directive 2002/46/EC in 2007.
 
 <en:Iron
 en:ferric saccharate
@@ -2684,7 +2684,6 @@ da:Zink
 de:Zink
 dv:ޒިންކް
 el:Ψευδάργυρος
-en:Zinc
 eo:zinko
 es:Zinc
 et:Tsink
@@ -2771,6 +2770,8 @@ ur:خارصین
 uz:Rux
 vi:kẽm
 zh:锌
+# ingredient/zinc has 859 products in 6 languages @2019-01-25
+description:en:ZINC is a chemical element with symbol Zn and atomic number 30.
 # ast:Cinc
 # azb:زنگ
 # be-tarask:Цынк
@@ -2819,8 +2820,6 @@ zh:锌
 #zh-tw:鋅
 wikidata:en:Q758
 wikipedia:en:https://en.wikipedia.org/wiki/Zinc
-# ingredient/zinc has 859 products in 6 languages @2019-01-25
-description:en:ZINC is a chemical element with symbol Zn and atomic number 30.
 
 <en:Zinc
 en:zinc acetate
@@ -2924,11 +2923,11 @@ sk:glukónan zinočnatý
 sl:cinkov glukonat
 sr:Cink glukonat
 sv:zinkglukonat
+# ingredient/fr:gluconate-de-zinc has 113 products in 4 languages @2019-03-29
+description:en:ZINC GLUCONATE  is the zinc salt of gluconic acid. It is an ionic compound consisting of two anions of gluconate for each zinc(II) cation. Zinc gluconate is a popular form for the delivery of zinc as a dietary supplement
 # azb:قلوکونات چینکو
 wikidata:en:Q3822815
 wikipedia:en:https://en.wikipedia.org/wiki/Zinc_gluconate
-# ingredient/fr:gluconate-de-zinc has 113 products in 4 languages @2019-03-29
-description:en:ZINC GLUCONATE  is the zinc salt of gluconic acid. It is an ionic compound consisting of two anions of gluconate for each zinc(II) cation. Zinc gluconate is a popular form for the delivery of zinc as a dietary supplement
 
 <en:Zinc
 en:zinc lactate
@@ -3000,6 +2999,8 @@ th:สังกะสีออกไซด์
 uk:Оксид цинку
 vi:Kẽm ôxít
 zh:氧化鋅
+# ingredient/fr:oxyde-de-zinc has 111 products in 4 languages @2019-03-29
+description:en:ZINC OXIDE is an inorganic compound with the formula ZnO. Zinc oxide is added to many food products, including breakfast cereals, as a source of zinc, a necessary nutrient.
 # azb:اوکسید چینکو
 # csb:Cynkòwò bielëna
 # kk-arab:مىرىش توتىعى
@@ -3020,8 +3021,6 @@ zh:氧化鋅
 # zh-tw:氧化鋅
 wikidata:en:Q190077
 wikipedia:en:https://en.wikipedia.org/wiki/Zinc_oxide
-# ingredient/fr:oxyde-de-zinc has 111 products in 4 languages @2019-03-29
-description:en:ZINC OXIDE is an inorganic compound with the formula ZnO. Zinc oxide is added to many food products, including breakfast cereals, as a source of zinc, a necessary nutrient.
 
 <en:Zinc
 en:zinc carbonate
@@ -3085,10 +3084,10 @@ pt:sulfato de zinco
 ro:sulfat de zinc
 sh:Cink sulfat
 sk:síran zinočnatý
-sr:цинк-сулфат
 # sr-ec:цинк-сулфат
 # sr-el:Cink sulfat
 sl:cinkov sulfat
+sr:цинк-сулфат
 sv:zinksulfat
 ta:வெண் துத்தம்
 tr:zinc sulfate
@@ -3248,6 +3247,8 @@ yo:Bàbàowó
 za:Doengz
 zh:铜
 zu:Umthofu
+# ingredient/copper has 96 products in 4 languages @2019-03-08
+description:en:COPPER is a chemical element with symbol Cu (from Latin:cuprum) and atomic number 29.
 # ang:Coper
 # ast:Cobre
 # azb:پاخیٛر
@@ -3320,8 +3321,6 @@ zu:Umthofu
 # zh-tw:銅
 wikidata:en:Q753
 wikipedia:en:https://en.wikipedia.org/wiki/Copper
-# ingredient/copper has 96 products in 4 languages @2019-03-08
-description:en:COPPER is a chemical element with symbol Cu (from Latin:cuprum) and atomic number 29.
 
 
 <en:Copper
@@ -3399,10 +3398,10 @@ sl:bakrov glukonat
 sr:Bakar glukonat
 sv:kopparglukonat
 zh:葡萄糖酸铜
-wikidata:en:Q3109285
-wikipedia:en:https://en.wikipedia.org/wiki/Copper_gluconate
 # ingredient/fr:gluconate-de-cuivre has 105 products @2019-03-16
 description:en:COPPER GLUCONATE is the copper salt of D-gluconic acid.
+wikidata:en:Q3109285
+wikipedia:en:https://en.wikipedia.org/wiki/Copper_gluconate
 
 # comment:en:The (II) has been removed from the translations, as it is not used on packages.
 <en:copper
@@ -3452,14 +3451,14 @@ ru:сульфат меди
 sk:síran meďnatý
 sl:bakrov sulfat
 sv:kopparsulfat
+# ingredient/fr:sulfate-de-cuivre has 223 products in 4 languages @2019-05-13
+description:en:COPPER(II) SULFATE, also known as copper sulphate, are the inorganic compounds with the chemical formula CuSO4(H2O)x, where x can range from 0 to 5.
 # azb:پاخیر(II) سولفات
 # nan:Liû-sng tâng
 # nds:Koppersulfat
 # sco:capper sulphate
 wikidata:en:Q107184
 wikipedia:en:https://en.wikipedia.org/wiki/Copper(II)_sulfate
-# ingredient/fr:sulfate-de-cuivre has 223 products in 4 languages @2019-05-13
-description:en:COPPER(II) SULFATE, also known as copper sulphate, are the inorganic compounds with the chemical formula CuSO4(H2O)x, where x can range from 0 to 5.
 
 <en:Copper
 en:copper lysine complex
@@ -3589,6 +3588,8 @@ vi:mangan
 yi:מאנגאן
 yo:Manganisi
 zh:锰
+# ingredient/en:Manganese has 3 products @2019-05-12
+description:en:MANGANESE is a chemical element with symbol Mn and atomic number 25. Manganese is an essential human dietary element. It is present as a coenzyme in several biological processes, which include macronutrient metabolism, bone formation, free radical defense systems.
 # ast:Manganesu
 # azb:منگنز
 # be-tarask:Манган
@@ -3633,8 +3634,6 @@ zh:锰
 # zh-tw:錳
 wikidata:en:Q731
 wikipedia:en:https://en.wikipedia.org/wiki/Manganese
-# ingredient/en:Manganese has 3 products @2019-05-12
-description:en:MANGANESE is a chemical element with symbol Mn and atomic number 25. Manganese is an essential human dietary element. It is present as a coenzyme in several biological processes, which include macronutrient metabolism, bone formation, free radical defense systems.
 
 
 <en:Manganese
@@ -3791,12 +3790,12 @@ tr:Manganez sülfat
 uk:Сульфат марганцю
 vi:Mangan sulfat
 zh:硫酸锰
-# azb:سولفات منقنز
-# wuu:硫酸锰
-wikidata:en:Q409393
 # ingredient/manganese-sulfate has 354 products @2019-05-12
 # mineral/manganese-sulphate has 346 products @2019-05-12
 description:en:MANGANESE SULFATE usually refers to the inorganic compound with the formula MnSO4·H2O. Magnesium sulfate is used as a brewing salt in making beer. It may also be used as a coagulant for making tofu.
+# azb:سولفات منقنز
+# wuu:硫酸锰
+wikidata:en:Q409393
 
 <en:mineral
 en:Fluoride
@@ -3970,6 +3969,8 @@ vi:selen
 yi:סעלעניום
 yo:Selenium
 zh:硒
+# ingredient/fr:sélénium has 74 products in 4 languages @2018-12-21
+description:en:SELENIUM is a chemical element with symbol Se and atomic number 34.
 # ast:Seleniu
 # be-tarask:Сэлен
 # bho:सेलेनियम
@@ -4016,8 +4017,6 @@ zh:硒
 # zh-hk:硒
 # zh-tw:硒
 wikipedia:en:https://en.wikipedia.org/wiki/Selenium
-# ingredient/fr:sélénium has 74 products in 4 languages @2018-12-21
-description:en:SELENIUM is a chemical element with symbol Se and atomic number 34.
 
 
 <en:selenium
@@ -4051,12 +4050,12 @@ sr:Natrijum selenat
 sv:natriumselenat
 vi:Natri selenat
 zh:硒酸鹽
+# ingredient/fr:sélénate-de-sodium has 97 products in 4 languages @2019-04-21
+description:en:SODIUM SELENATE is the inorganic compound with the formula Na2SeO4. Chosen for its selenium content and high solubility, sodium selenate is a common ingredient in over-the-counter vitamin supplements.
 # azb:سلنات سودیوم
 # sr-el:Natrijum selenat
 wikidata:en:Q419488
 wikipedia:en:https://en.wikipedia.org/wiki/Sodium_selenate
-# ingredient/fr:sélénate-de-sodium has 97 products in 4 languages @2019-04-21
-description:en:SODIUM SELENATE is the inorganic compound with the formula Na2SeO4. Chosen for its selenium content and high solubility, sodium selenate is a common ingredient in over-the-counter vitamin supplements.
 
 <en:Selenium
 en:sodium hydrogen selenite
@@ -4116,13 +4115,13 @@ sv:natriumselenit
 ta:சோடியம் செலீனைட்டு
 vi:Natri selenit
 zh:亞硒酸鹽
+# ingredient/fr:sélénite%20de%20sodium has 320 products in 5 languages @2019-05-16
+description:en:SODIUM SELENITE is the inorganic compound with the formula Na2SeO3. Because selenium is an essential element, sodium selenite is an ingredient in dietary supplements such as multi-vitamin/mineral products.
 # azb:سلنیت سودیوم
 # pt-br:selenito de sódio
 # sr-el:Natrijum selenit
 wikidata:en:Q414626
 wikipedia:en:https://en.wikipedia.org/wiki/Sodium_selenite
-# ingredient/fr:sélénite%20de%20sodium has 320 products in 5 languages @2019-05-16
-description:en:SODIUM SELENITE is the inorganic compound with the formula Na2SeO3. Because selenium is an essential element, sodium selenite is an ingredient in dietary supplements such as multi-vitamin/mineral products.
 
 <en:Selenium
 en:selenium enriched yeast
@@ -4253,6 +4252,7 @@ vi:crom
 yi:כראם
 yo:Krómíọ̀mù
 zh:铬
+description:en:CHROMIUM is a chemical element with symbol Cr and atomic number 24.
 # ast:Cromu
 # be-tarask:Хром
 # bho:क्रोमियम
@@ -4299,7 +4299,6 @@ zh:铬
 # zh-tw:鉻
 wikidata:en:Q725
 wikipedia:en:https://en.wikipedia.org/wiki/Chromium
-description:en:CHROMIUM is a chemical element with symbol Cr and atomic number 24.
 
 <en:chromium
 en:chromium chloride
@@ -4327,12 +4326,12 @@ pl:chlorek chromu(III)
 ru:хлорид хрома(III)
 sk:Chlorid chromitý
 sv:Krom(III)klorid
+description:en:CHROMIUM(III) chloride (also called chromic chloride) describes any of several compounds of with the formula CrCl3 · xH2O, where x can be 0, 5, and 6. Although trivalent chromium is far less poisonous than hexavalent, chromium salts are generally considered toxic
 # azb:کولورید کوروم
 # en-ca:Chromium(III) chloride
 # en-gb:Chromium(III) chloride
 wikidata:en:Q411885
 wikipedia:en:https://en.wikipedia.org/wiki/Chromium(III)_chloride
-description:en:CHROMIUM(III) chloride (also called chromic chloride) describes any of several compounds of with the formula CrCl3 · xH2O, where x can be 0, 5, and 6. Although trivalent chromium is far less poisonous than hexavalent, chromium salts are generally considered toxic
 
 <en:Chromium
 en:chromium (III) sulfate and its hexahydrate
@@ -4487,6 +4486,7 @@ uz:Molibden
 vi:molypden
 yo:Molybdenum
 zh:钼
+description:en:MOLYBDENUM is a chemical element with symbol Mo and atomic number 42.  Molybdenum is an essential trace dietary element.
 # ast:Molibdenu
 # be-tarask:Малібдэн
 # bho:मोलिब्डेनम
@@ -4524,7 +4524,6 @@ zh:钼
 # yue:鉬
 wikidata:en:Q1053
 wikipedia:en:https://en.wikipedia.org/wiki/Molybdenum
-description:en:MOLYBDENUM is a chemical element with symbol Mo and atomic number 42.  Molybdenum is an essential trace dietary element.
 
 <en:Molybdenum
 en:ammonium molybdate
@@ -4571,6 +4570,9 @@ sr:Natrijum molibdat
 ta:சோடியம் மாலிப்டேட்டு
 vi:Natri molipđat
 zh:钼酸钠
+# ingredient/fr:molybdate-de-sodium has 83 products in 4 languages @2019-02-18
+# mineral/sodium-molybdate has 114 products @2019-02-18
+description:en:SODIUM MOLYBDATE, Na2MoO4, is useful as a source of molybdenum.
 # azb:سودیوم مولیبدات
 # zh-cn:钼酸钠
 # zh-hans:钼酸钠
@@ -4579,9 +4581,6 @@ zh:钼酸钠
 # zh-tw:鉬酸鈉
 wikidata:en:Q414518
 wikipedia:en:https://en.wikipedia.org/wiki/Sodium_molybdate
-# ingredient/fr:molybdate-de-sodium has 83 products in 4 languages @2019-02-18
-# mineral/sodium-molybdate has 114 products @2019-02-18
-description:en:SODIUM MOLYBDATE, Na2MoO4, is useful as a source of molybdenum.
 
 
 <en:mineral
@@ -4690,6 +4689,9 @@ vi:iốt
 yi:יאד
 yo:Iodine
 zh:碘
+# ingredient/fr:iode has 92 products in 4 languages @2019-03-20
+# sel de cuisine [iodé, fluoré]
+description:en:IODINE is a chemical element with symbol I and atomic number 53.
 # ast:Yodu
 # azb:یود
 # be-tarask:Ёд
@@ -4735,9 +4737,6 @@ zh:碘
 # zh-hk:碘
 wikidata:en:Q1103
 wikipedia:en:https://en.wikipedia.org/wiki/Iodine
-# ingredient/fr:iode has 92 products in 4 languages @2019-03-20
-# sel de cuisine [iodé, fluoré]
-description:en:IODINE is a chemical element with symbol I and atomic number 53.
 
 
 <en:iodine
@@ -4783,14 +4782,14 @@ tr:Potasyum iyodür
 uk:Йодид калію
 vi:Kali iođua
 zh:碘化钾
+# mineral/potassium-iodide has 718 products in 8 languages @2019-04-24
+# ingredient/fr:iodure-de-potassium has 504 products in 4 languages @2019-04-24
+description:en:POTASSIUM IODIDE is a chemical compound, medication, and dietary supplement. As a medication it is used to treat hyperthyroidism, in radiation emergencies, and to protect the thyroid gland when certain types of radiopharmaceuticals are used.
 # pnb:پوٹاشیم آیوڈائیڈ
 # sr-ec:калијум-јодид
 # sr-el:Kalijum jodid
 wikidata:en:Q121874
 wikipedia:en:https://en.wikipedia.org/wiki/Potassium_iodide
-# mineral/potassium-iodide has 718 products in 8 languages @2019-04-24
-# ingredient/fr:iodure-de-potassium has 504 products in 4 languages @2019-04-24
-description:en:POTASSIUM IODIDE is a chemical compound, medication, and dietary supplement. As a medication it is used to treat hyperthyroidism, in radiation emergencies, and to protect the thyroid gland when certain types of radiopharmaceuticals are used.
 
 #comment:en:POTASSIUM IODATE is for the moment listed in both the additves and ingredients taxonomy.
 <en:Iodine
@@ -4839,11 +4838,11 @@ zh:碘酸钾
 #zh-tw:碘酸鉀
 e_number:en:917
 mandatory_additive_class:en: en:flour-treatment-agent
-wikidata:en:Q414599
 # last wikidata synchro:4-sep-2020
 organic_eu:en:authorized
 vegan:en:yes
 vegetarian:en:yes
+wikidata:en:Q414599
 
 <en:Iodine
 en:sodium iodate
@@ -4891,14 +4890,14 @@ ta:கால்சியம் அயோடேட்டு
 tr:Kalsiyum iyodat
 vi:Canxi iodat
 zh:碘酸鈣
+# ingredient/calcium-iodate has 76 products in 2 languages@2019-05-07
+description:en:CALCIUM IODATES are inorganic compound composed of calcium and iodate anion. Calcium iodate can also be used as an iodine supplement.
 # azb:کلسیوم یدات
 # en-ca:Calcium iodate
 # en-gb:Calcium iodate
 # sr-el:Kalcijum jodat
 wikidata:en:Q2185998
 wikipedia:en:https://en.wikipedia.org/wiki/Calcium_iodate
-# ingredient/calcium-iodate has 76 products in 2 languages@2019-05-07
-description:en:CALCIUM IODATES are inorganic compound composed of calcium and iodate anion. Calcium iodate can also be used as an iodine supplement.
 
 
 <en:mineral
@@ -5014,6 +5013,9 @@ wa:Sodiom
 yi:נאטריום
 yo:Sodiomu
 zh:钠
+# usage:fr:sels minéraux de mer (sodium, potassium, magnésium, calcium)
+# ingredient/fr:sodium has 317 products @2019-05-06
+description:en:SODIUM is a chemical element with symbol Na (from Latin natrium) and atomic number 11. In humans, sodium is an essential mineral that regulates blood volume, blood pressure, osmotic equilibrium and pH; the minimum physiological requirement for sodium is 500 milligrams per day.
 # arz:صوديوم
 # ast:Sodiu
 # azb:سودیوم
@@ -5064,9 +5066,6 @@ zh:钠
 # zh-hk:鈉
 wikidata:en:Q658
 wikipedia:en:https://en.wikipedia.org/wiki/Sodium
-# usage:fr:sels minéraux de mer (sodium, potassium, magnésium, calcium)
-# ingredient/fr:sodium has 317 products @2019-05-06
-description:en:SODIUM is a chemical element with symbol Na (from Latin natrium) and atomic number 11. In humans, sodium is an essential mineral that regulates blood volume, blood pressure, osmotic equilibrium and pH; the minimum physiological requirement for sodium is 500 milligrams per day.
 
 <en:Sodium
 en:sodium bicarbonate
@@ -5179,6 +5178,8 @@ tl:Sodium chloride
 uk:Хлорид натрію
 uz:Natriy xlorid
 vi:natri clorua
+# usage:fr:sel (chlorure de sodium)
+description:en:SODIUM CHLORIDE commonly known as salt (though sea salt also contains other chemical salts), is an ionic compound with the chemical formula NaCl, representing a 1:1 ratio of sodium and chloride ions. Salt is added to food, either by the food producer or by the consumer, as a flavor enhancer, preservative, binder, fermentation-control additive, texture-control agent and color developer.
 # ast:Cloruru de sodiu
 # azb:کولورید سودیوم
 # de-ch:Natriumchlorid
@@ -5193,8 +5194,6 @@ vi:natri clorua
 # war:Sodium chloride
 wikidata:en:Q2314
 wikipedia:en:https://en.wikipedia.org/wiki/Sodium_chloride
-# usage:fr:sel (chlorure de sodium)
-description:en:SODIUM CHLORIDE commonly known as salt (though sea salt also contains other chemical salts), is an ionic compound with the chemical formula NaCl, representing a 1:1 ratio of sodium and chloride ions. Salt is added to food, either by the food producer or by the consumer, as a flavor enhancer, preservative, binder, fermentation-control additive, texture-control agent and color developer.
 
 #<en:E331
 <en:Sodium
