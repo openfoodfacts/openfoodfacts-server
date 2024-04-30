@@ -1,0 +1,1675 @@
+{
+   "encoding" : "UTF-8",
+   "catalogue_item_notification:catalogueItemNotificationMessage" : {
+      "sh:StandardBusinessDocumentHeader" : {
+         "sh:Receiver" : {
+            "sh:Identifier" : {
+               "Authority" : "GS1",
+               "$t" : "3770026870013"
+            }
+         },
+         "sh:HeaderVersion" : {
+            "$t" : "1.0"
+         },
+         "sh:Sender" : {
+            "sh:Identifier" : {
+               "$t" : "3034012285008",
+               "Authority" : "GS1"
+            }
+         },
+         "sh:DocumentIdentification" : {
+            "sh:MultipleType" : {
+               "$t" : "false"
+            },
+            "sh:Type" : {
+               "$t" : "catalogueItemNotification"
+            },
+            "sh:TypeVersion" : {
+               "$t" : "3.1"
+            },
+            "sh:CreationDateAndTime" : {
+               "$t" : "2022-09-23T10:47:23.443"
+            },
+            "sh:InstanceIdentifier" : {
+               "$t" : "OPENFOODFACT_02607_2022_09_23_10_47_23"
+            },
+            "sh:Standard" : {
+               "$t" : "GS1"
+            }
+         }
+      },
+      "transaction" : {
+         "transactionIdentification" : {
+            "entityIdentification" : {
+               "$t" : "3034012285008_000014d8ee7c2c29b44d2fab87afe952c326a8"
+            },
+            "contentOwner" : {
+               "gln" : {
+                  "$t" : "3012280210106"
+               }
+            }
+         },
+         "documentCommand" : {
+            "catalogue_item_notification:catalogueItemNotification" : {
+               "catalogueItem" : {
+                  "tradeItem" : {
+                     "gdsnTradeItemClassification" : {
+                        "gpcCategoryCode" : {
+                           "$t" : "10000028"
+                        },
+                        "gpcCategoryName" : {
+                           "$t" : "Fromage (Périssable)"
+                        }
+                     },
+                     "isTradeItemAService" : {
+                        "$t" : "false"
+                     },
+                     "nextLowerLevelTradeItemInformation" : {
+                        "quantityOfChildren" : {
+                           "$t" : "1"
+                        },
+                        "childTradeItem" : {
+                           "quantityOfNextLowerLevelTradeItem" : {
+                              "$t" : "150"
+                           },
+                           "gtin" : {
+                              "$t" : "03228025170097"
+                           }
+                        },
+                        "totalQuantityOfNextLowerLevelTradeItem" : {
+                           "$t" : "150"
+                        }
+                     },
+                     "isTradeItemABaseUnit" : {
+                        "$t" : "false"
+                     },
+                     "displayUnitInformation" : {
+                        "isTradeItemADisplayUnit" : {
+                           "$t" : "FALSE"
+                        }
+                     },
+                     "tradeItemUnitDescriptorCode" : {
+                        "$t" : "PALLET"
+                     },
+                     "tradeItemInformation" : {
+                        "extension" : {
+                           "delivery_purchasing_information:deliveryPurchasingInformationModule" : {
+                              "xmlns:delivery_purchasing_information" : "urn:gs1:gdsn:delivery_purchasing_information:xsd:3",
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:delivery_purchasing_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/DeliveryPurchasingInformationModule.xsd",
+                              "deliveryPurchasingInformation" : {
+                                 "orderQuantityMultiple" : {
+                                    "$t" : "1"
+                                 },
+                                 "firstOrderDateTime" : {
+                                    "$t" : "2017-01-05T00:00:00+01:00"
+                                 },
+                                 "orderQuantityMinimum" : {
+                                    "$t" : "1"
+                                 },
+                                 "startAvailabilityDateTime" : {
+                                    "$t" : "2017-01-05T00:00:00+01:00"
+                                 }
+                              }
+                           },
+                           "promotional_item_information:promotionalItemInformationModule" : {
+                              "isTradeItemAPromotionalUnit" : {
+                                 "$t" : "false"
+                              },
+                              "xmlns:promotional_item_information" : "urn:gs1:gdsn:promotional_item_information:xsd:3",
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:promotional_item_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PromotionalItemInformationModule.xsd"
+                           },
+                           "packaging_marking:packagingMarkingModule" : {
+                              "packagingMarking" : {
+                                 "isPackagingMarkedReturnable" : {
+                                    "$t" : "false"
+                                 },
+                                 "packagingMarkedLanguageCode" : {
+                                    "$t" : "fr"
+                                 }
+                              },
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:packaging_marking:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PackagingMarkingModule.xsd",
+                              "xmlns:packaging_marking" : "urn:gs1:gdsn:packaging_marking:xsd:3"
+                           },
+                           "variable_trade_item_information:variableTradeItemInformationModule" : {
+                              "xmlns:variable_trade_item_information" : "urn:gs1:gdsn:variable_trade_item_information:xsd:3",
+                              "variableTradeItemInformation" : {
+                                 "isTradeItemAVariableUnit" : {
+                                    "$t" : "false"
+                                 }
+                              },
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:variable_trade_item_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/VariableTradeItemInformationModule.xsd"
+                           },
+                           "trade_item_temperature_information:tradeItemTemperatureInformationModule" : {
+                              "xmlns:trade_item_temperature_information" : "urn:gs1:gdsn:trade_item_temperature_information:xsd:3",
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:trade_item_temperature_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemTemperatureInformationModule.xsd",
+                              "tradeItemTemperatureInformation" : {
+                                 "minimumTemperature" : {
+                                    "temperatureMeasurementUnitCode" : "CEL",
+                                    "$t" : "4"
+                                 },
+                                 "temperatureQualifierCode" : {
+                                    "$t" : "STORAGE_HANDLING"
+                                 },
+                                 "maximumTemperature" : {
+                                    "temperatureMeasurementUnitCode" : "CEL",
+                                    "$t" : "8"
+                                 }
+                              }
+                           },
+                           "trade_item_hierarchy:tradeItemHierarchyModule" : {
+                              "xmlns:trade_item_hierarchy" : "urn:gs1:gdsn:trade_item_hierarchy:xsd:3",
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:trade_item_hierarchy:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemHierarchyModule.xsd",
+                              "tradeItemHierarchy" : {
+                                 "quantityOfTradeItemsContainedInACompleteLayer" : {
+                                    "$t" : "10"
+                                 },
+                                 "quantityOfCompleteLayersContainedInATradeItem" : {
+                                    "$t" : "15"
+                                 }
+                              }
+                           },
+                           "trade_item_description:tradeItemDescriptionModule" : {
+                              "tradeItemDescriptionInformation" : {
+                                 "descriptionShort" : {
+                                    "languageCode" : "fr",
+                                    "$t" : "PAL CAMEMBERT PRESIDENT"
+                                 },
+                                 "tradeItemDescription" : {
+                                    "$t" : "PAL CAMEMBERT PRESIDENT",
+                                    "languageCode" : "fr"
+                                 },
+                                 "functionalName" : [
+                                    {
+                                       "$t" : "CAMEMBERTS ET ASSIMILES",
+                                       "languageCode" : "fr"
+                                    },
+                                    {
+                                       "languageCode" : "en",
+                                       "$t" : "CAMEMBERTS"
+                                    }
+                                 ],
+                                 "brandNameInformation" : {
+                                    "brandName" : {
+                                       "$t" : "PRESIDENT"
+                                    }
+                                 },
+                                 "invoiceName" : {
+                                    "languageCode" : "fr",
+                                    "$t" : "PAL CAMEMBERT PRESIDENT"
+                                 }
+                              },
+                              "xmlns:trade_item_description" : "urn:gs1:gdsn:trade_item_description:xsd:3",
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:trade_item_description:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemDescriptionModule.xsd"
+                           },
+                           "trade_item_measurements:tradeItemMeasurementsModule" : {
+                              "xmlns:trade_item_measurements" : "urn:gs1:gdsn:trade_item_measurements:xsd:3",
+                              "tradeItemMeasurements" : {
+                                 "tradeItemWeight" : {
+                                    "netWeight" : {
+                                       "measurementUnitCode" : "KGM",
+                                       "$t" : "450"
+                                    },
+                                    "grossWeight" : {
+                                       "measurementUnitCode" : "KGM",
+                                       "$t" : "535"
+                                    }
+                                 },
+                                 "height" : {
+                                    "measurementUnitCode" : "MMT",
+                                    "$t" : "1625"
+                                 },
+                                 "depth" : {
+                                    "measurementUnitCode" : "MMT",
+                                    "$t" : "1200"
+                                 },
+                                 "width" : {
+                                    "$t" : "800",
+                                    "measurementUnitCode" : "MMT"
+                                 }
+                              },
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:trade_item_measurements:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemMeasurementsModule.xsd"
+                           },
+                           "trade_item_data_carrier_and_identification:tradeItemDataCarrierAndIdentificationModule" : {
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:trade_item_data_carrier_and_identification:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemDataCarrierAndIdentificationModule.xsd",
+                              "dataCarrier" : {
+                                 "dataCarrierFamilyTypeCode" : {
+                                    "$t" : "ITF_14"
+                                 },
+                                 "dataCarrierTypeCode" : {
+                                    "$t" : "ITF_14"
+                                 }
+                              },
+                              "xmlns:trade_item_data_carrier_and_identification" : "urn:gs1:gdsn:trade_item_data_carrier_and_identification:xsd:3"
+                           },
+                           "packaging_information:packagingInformationModule" : {
+                              "xmlns:packaging_information" : "urn:gs1:gdsn:packaging_information:xsd:3",
+                              "packaging" : {
+                                 "packagingTypeDescription" : {
+                                    "languageCode" : "fr",
+                                    "$t" : "Palette"
+                                 },
+                                 "platformTermsAndConditionsCode" : {
+                                    "$t" : "2"
+                                 },
+                                 "platformTypeCode" : {
+                                    "$t" : "11"
+                                 },
+                                 "packagingTypeCode" : {
+                                    "$t" : "PX"
+                                 }
+                              },
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:packaging_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PackagingInformationModule.xsd"
+                           },
+                           "trade_item_handling:tradeItemHandlingModule" : {
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:trade_item_handling:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemHandlingModule.xsd",
+                              "xmlns:trade_item_handling" : "urn:gs1:gdsn:trade_item_handling:xsd:3",
+                              "tradeItemHandlingInformation" : {
+                                 "tradeItemStacking" : {
+                                    "stackingFactor" : {
+                                       "$t" : "1"
+                                    },
+                                    "stackingFactorTypeCode" : {
+                                       "$t" : "TRANSPORT_UNSPECIFIED"
+                                    }
+                                 }
+                              }
+                           }
+                        }
+                     },
+                     "isTradeItemADespatchUnit" : {
+                        "$t" : "true"
+                     },
+                     "gtin" : {
+                        "$t" : "03228025170103"
+                     },
+                     "tradeItemSynchronisationDates" : {
+                        "publicationDateTime" : {
+                           "$t" : "2022-09-23T10:47:24.754"
+                        },
+                        "effectiveDateTime" : {
+                           "$t" : "2022-02-21T00:00:00+01:00"
+                        },
+                        "lastChangeDateTime" : {
+                           "$t" : "2022-09-23T10:47:23.443"
+                        }
+                     },
+                     "additionalTradeItemIdentification" : {
+                        "additionalTradeItemIdentificationTypeCode" : "SUPPLIER_ASSIGNED",
+                        "$t" : "258830099"
+                     },
+                     "preliminaryItemStatusCode" : {
+                        "$t" : "FINAL"
+                     },
+                     "isTradeItemAConsumerUnit" : {
+                        "$t" : "false"
+                     },
+                     "targetMarket" : {
+                        "targetMarketCountryCode" : {
+                           "$t" : "250"
+                        }
+                     },
+                     "informationProviderOfTradeItem" : {
+                        "partyName" : {
+                           "$t" : "0"
+                        },
+                        "gln" : {
+                           "$t" : "3012280210106"
+                        }
+                     },
+                     "isTradeItemAnOrderableUnit" : {
+                        "$t" : "true"
+                     },
+                     "isTradeItemAnInvoiceUnit" : {
+                        "$t" : "false"
+                     }
+                  },
+                  "catalogueItemChildItemLink" : {
+                     "catalogueItem" : {
+                        "catalogueItemChildItemLink" : {
+                           "quantity" : {
+                              "$t" : "12"
+                           },
+                           "catalogueItem" : {
+                              "tradeItem" : {
+                                 "isTradeItemAService" : {
+                                    "$t" : "false"
+                                 },
+                                 "gdsnTradeItemClassification" : {
+                                    "gpcCategoryName" : {
+                                       "$t" : "Fromage (Périssable)"
+                                    },
+                                    "gpcCategoryCode" : {
+                                       "$t" : "10000028"
+                                    }
+                                 },
+                                 "isTradeItemADespatchUnit" : {
+                                    "$t" : "false"
+                                 },
+                                 "tradeItemInformation" : {
+                                    "productionVariantDescription" : {
+                                       "$t" : "Création",
+                                       "languageCode" : "fr"
+                                    },
+                                    "extension" : {
+                                       "consumer_instructions:consumerInstructionsModule" : {
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:consumer_instructions:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/ConsumerInstructionsModule.xsd",
+                                          "consumerInstructions" : {
+                                             "consumerStorageInstructions" : {
+                                                "languageCode" : "fr",
+                                                "$t" : "A conserver entre +4°C et +8°C."
+                                             }
+                                          },
+                                          "xmlns:consumer_instructions" : "urn:gs1:gdsn:consumer_instructions:xsd:3"
+                                       },
+                                       "alcohol_information:alcoholInformationModule" : {
+                                          "alcoholInformation" : {
+                                             "isTradeItemAQualityVintageAlcoholProduct" : {
+                                                "$t" : "false"
+                                             }
+                                          },
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:alcohol_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/AlcoholInformationModule.xsd",
+                                          "xmlns:alcohol_information" : "urn:gs1:gdsn:alcohol_information:xsd:3"
+                                       },
+                                       "packaging_information:packagingInformationModule" : {
+                                          "xmlns:packaging_information" : "urn:gs1:gdsn:packaging_information:xsd:3",
+                                          "packaging" : {
+                                             "packagingTypeCode" : {
+                                                "$t" : "BX"
+                                             },
+                                             "packagingTypeDescription" : {
+                                                "languageCode" : "fr",
+                                                "$t" : "Boîte"
+                                             }
+                                          },
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:packaging_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PackagingInformationModule.xsd"
+                                       },
+                                       "place_of_item_activity:placeOfItemActivityModule" : {
+                                          "importClassification" : {
+                                             "importClassificationTypeCode" : {
+                                                "$t" : "CUSTOMS_TARIFF_NUMBER"
+                                             },
+                                             "importClassificationValue" : {
+                                                "$t" : "0406908200"
+                                             }
+                                          },
+                                          "xmlns:place_of_item_activity" : "urn:gs1:gdsn:place_of_item_activity:xsd:3",
+                                          "placeOfProductActivity" : {
+                                             "countryOfOrigin" : {
+                                                "countryCode" : {
+                                                   "$t" : "250"
+                                                }
+                                             }
+                                          },
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:place_of_item_activity:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PlaceOfItemActivityModule.xsd"
+                                       },
+                                       "trade_item_measurements:tradeItemMeasurementsModule" : {
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:trade_item_measurements:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemMeasurementsModule.xsd",
+                                          "tradeItemMeasurements" : {
+                                             "tradeItemWeight" : {
+                                                "netWeight" : {
+                                                   "$t" : "0.25",
+                                                   "measurementUnitCode" : "KGM"
+                                                },
+                                                "grossWeight" : {
+                                                   "measurementUnitCode" : "KGM",
+                                                   "$t" : "0.273"
+                                                }
+                                             },
+                                             "netContent" : {
+                                                "measurementUnitCode" : "KGM",
+                                                "$t" : "0.25"
+                                             },
+                                             "netContentStatement" : [
+                                                {
+                                                   "languageCode" : "en",
+                                                   "$t" : "250g"
+                                                },
+                                                {
+                                                   "languageCode" : "es",
+                                                   "$t" : "250g"
+                                                },
+                                                {
+                                                   "$t" : "250g: 8x31.25g",
+                                                   "languageCode" : "fr"
+                                                }
+                                             ],
+                                             "width" : {
+                                                "$t" : "110",
+                                                "measurementUnitCode" : "MMT"
+                                             },
+                                             "depth" : {
+                                                "$t" : "30",
+                                                "measurementUnitCode" : "MMT"
+                                             },
+                                             "height" : {
+                                                "$t" : "110",
+                                                "measurementUnitCode" : "MMT"
+                                             }
+                                          },
+                                          "xmlns:trade_item_measurements" : "urn:gs1:gdsn:trade_item_measurements:xsd:3"
+                                       },
+                                       "trade_item_description:tradeItemDescriptionModule" : {
+                                          "xmlns:trade_item_description" : "urn:gs1:gdsn:trade_item_description:xsd:3",
+                                          "tradeItemDescriptionInformation" : {
+                                             "functionalName" : [
+                                                {
+                                                   "$t" : "CAMEMBERTS ET ASSIMILES",
+                                                   "languageCode" : "fr"
+                                                },
+                                                {
+                                                   "$t" : "CAMEMBERTS",
+                                                   "languageCode" : "en"
+                                                }
+                                             ],
+                                             "labelDescription" : {
+                                                "$t" : "CAMEMBERT PRESIDENT",
+                                                "languageCode" : "fr"
+                                             },
+                                             "additionalTradeItemDescription" : {
+                                                "languageCode" : "fr",
+                                                "$t" : "PRESIDENT CAMEMBERT 250g"
+                                             },
+                                             "regulatedProductName" : {
+                                                "languageCode" : "fr",
+                                                "$t" : "Camembert au lait de vache pasteurisé."
+                                             },
+                                             "descriptionShort" : {
+                                                "$t" : "PDT CAM 250g",
+                                                "languageCode" : "fr"
+                                             },
+                                             "tradeItemDescription" : {
+                                                "languageCode" : "fr",
+                                                "$t" : "PRESIDENT CAMEMBERT 250g"
+                                             },
+                                             "invoiceName" : {
+                                                "languageCode" : "fr",
+                                                "$t" : "PDT CAM 250g"
+                                             },
+                                             "brandNameInformation" : {
+                                                "brandName" : {
+                                                   "$t" : "PRESIDENT"
+                                                }
+                                             }
+                                          },
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:trade_item_description:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemDescriptionModule.xsd"
+                                       },
+                                       "trade_item_temperature_information:tradeItemTemperatureInformationModule" : {
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:trade_item_temperature_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemTemperatureInformationModule.xsd",
+                                          "xmlns:trade_item_temperature_information" : "urn:gs1:gdsn:trade_item_temperature_information:xsd:3",
+                                          "tradeItemTemperatureInformation" : {
+                                             "minimumTemperature" : {
+                                                "$t" : "4",
+                                                "temperatureMeasurementUnitCode" : "CEL"
+                                             },
+                                             "temperatureQualifierCode" : {
+                                                "$t" : "STORAGE_HANDLING"
+                                             },
+                                             "maximumTemperature" : {
+                                                "temperatureMeasurementUnitCode" : "CEL",
+                                                "$t" : "8"
+                                             }
+                                          },
+                                          "tradeItemTemperatureConditionTypeCode" : {
+                                             "$t" : "FRESH"
+                                          }
+                                       },
+                                       "food_and_beverage_preparation_serving:foodAndBeveragePreparationServingModule" : {
+                                          "xmlns:food_and_beverage_preparation_serving" : "urn:gs1:gdsn:food_and_beverage_preparation_serving:xsd:3",
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:food_and_beverage_preparation_serving:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/FoodAndBeveragePreparationServingModule.xsd",
+                                          "preparationServing" : {
+                                             "preparationTypeCode" : {
+                                                "$t" : "UNPREPARED"
+                                             }
+                                          },
+                                          "servingQuantityInformation" : {
+                                             "numberOfServingsRangeDescription" : {
+                                                "$t" : "8",
+                                                "languageCode" : "fr"
+                                             }
+                                          }
+                                       },
+                                       "health_wellness_packaging_marking:healthWellnessPackagingMarkingModule" : {
+                                          "xmlns:health_wellness_packaging_marking" : "urn:gs1:gdsn:health_wellness_packaging_marking:xsd:3",
+                                          "healthWellnessPackagingMarking" : {
+                                             "isPackagingMarkedWithIngredients" : {
+                                                "$t" : "true"
+                                             }
+                                          },
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:health_wellness_packaging_marking:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/HealthWellnessPackagingMarkingModule.xsd"
+                                       },
+                                       "marketing_information:marketingInformationModule" : {
+                                          "xmlns:marketing_information" : "urn:gs1:gdsn:marketing_information:xsd:3",
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:marketing_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/MarketingInformationModule.xsd",
+                                          "marketingInformation" : {
+                                             "tradeItemFeatureBenefit" : {
+                                                "$t" : "Le plaisir d'un camemberft au moelleux et à la saveur uniques",
+                                                "sequenceNumber" : "1",
+                                                "languageCode" : "fr"
+                                             },
+                                             "season" : {
+                                                "isTradeItemSeasonal" : {
+                                                   "$t" : "FALSE"
+                                                }
+                                             },
+                                             "tradeItemMarketingMessage" : {
+                                                "languageCode" : "fr",
+                                                "$t" : "À l’apéro, à chaud, en tartine, sur un plateau… Cela fait plus de 50 ans que le camembert Président régale tous les gourmands… Fabriqué dans notre fromagerie de Domfront en Normandie, avec du lait 100% normand, il est la star incontestée des bonnes tables. Succombez pour son moelleux unique et ses saveurs finement typées qui sauront ravir vos papilles.",
+                                                "sequenceNumber" : "1"
+                                             }
+                                          }
+                                       },
+                                       "promotional_item_information:promotionalItemInformationModule" : {
+                                          "xmlns:promotional_item_information" : "urn:gs1:gdsn:promotional_item_information:xsd:3",
+                                          "isTradeItemAPromotionalUnit" : {
+                                             "$t" : "false"
+                                          },
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:promotional_item_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PromotionalItemInformationModule.xsd"
+                                       },
+                                       "packaging_marking:packagingMarkingModule" : {
+                                          "packagingMarking" : {
+                                             "hasBatchNumber" : {
+                                                "$t" : "true"
+                                             },
+                                             "packagingDate" : {
+                                                "tradeItemDateOnPackagingTypeCode" : {
+                                                   "$t" : "BEST_BEFORE_DATE"
+                                                }
+                                             },
+                                             "isPackagingMarkedReturnable" : {
+                                                "$t" : "false"
+                                             },
+                                             "packagingMarkedLanguageCode" : {
+                                                "$t" : "fr"
+                                             },
+                                             "isTradeItemMarkedAsRecyclable" : {
+                                                "$t" : "false"
+                                             },
+                                             "warningCopyDescription" : {
+                                                "languageCode" : "fr",
+                                                "$t" : "A conserver entre +4°C et +8°C"
+                                             }
+                                          },
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:packaging_marking:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PackagingMarkingModule.xsd",
+                                          "xmlns:packaging_marking" : "urn:gs1:gdsn:packaging_marking:xsd:3"
+                                       },
+                                       "duty_fee_tax_information:dutyFeeTaxInformationModule" : {
+                                          "dutyFeeTaxInformation" : [
+                                             {
+                                                "dutyFeeTaxAgencyCode" : {
+                                                   "$t" : "65"
+                                                },
+                                                "dutyFeeTaxTypeCode" : {
+                                                   "$t" : "2G"
+                                                },
+                                                "dutyFeeTax" : {
+                                                   "dutyFeeTaxRate" : {
+                                                      "$t" : "5.5"
+                                                   }
+                                                },
+                                                "dutyFeeTaxTypeDescription" : {
+                                                   "languageCode" : "fr",
+                                                   "$t" : "TVA taux réduit"
+                                                }
+                                             },
+                                             {
+                                                "dutyFeeTax" : {
+                                                   "dutyFeeTaxAmount" : {
+                                                      "$t" : "0.0078",
+                                                      "currencyCode" : "EUR"
+                                                   }
+                                                },
+                                                "dutyFeeTaxAgencyCode" : {
+                                                   "$t" : "65"
+                                                },
+                                                "dutyFeeTaxTypeCode" : {
+                                                   "$t" : "3001000002282"
+                                                },
+                                                "dutyFeeTaxTypeDescription" : {
+                                                   "$t" : "Taxe Eco-Emballages",
+                                                   "languageCode" : "fr"
+                                                }
+                                             }
+                                          ],
+                                          "xmlns:duty_fee_tax_information" : "urn:gs1:gdsn:duty_fee_tax_information:xsd:3",
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:duty_fee_tax_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/DutyFeeTaxInformationModule.xsd"
+                                       },
+                                       "regulated_trade_item:regulatedTradeItemModule" : {
+                                          "xmlns:regulated_trade_item" : "urn:gs1:gdsn:regulated_trade_item:xsd:3",
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:regulated_trade_item:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/RegulatedTradeItemModule.xsd",
+                                          "regulatoryInformation" : {
+                                             "permitIdentification" : {
+                                                "permitStartDateTime" : {
+                                                   "$t" : "2020-06-01T00:00:00+02:00"
+                                                },
+                                                "regulatoryPermitIdentification" : {
+                                                   "$t" : "FR 61.145.001 CE"
+                                                }
+                                             },
+                                             "regulatoryAct" : {
+                                                "$t" : "SANITARY_AGREEMENT_NUMBER"
+                                             },
+                                             "regulatoryAgency" : {
+                                                "$t" : "SANITARY_AGREEMENT_NUMBER_AGENCY"
+                                             }
+                                          }
+                                       },
+                                       "dairy_fish_meat_poultry:dairyFishMeatPoultryItemModule" : {
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:dairy_fish_meat_poultry:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/DairyFishMeatPoultryItemModule.xsd",
+                                          "dairyFishMeatPoultryInformation" : {
+                                             "fatInMilkContent" : {
+                                                "$t" : "21"
+                                             },
+                                             "cheeseInformation" : {
+                                                "fatPercentageInDryMatter" : {
+                                                   "$t" : "48"
+                                                }
+                                             }
+                                          },
+                                          "xmlns:dairy_fish_meat_poultry" : "urn:gs1:gdsn:dairy_fish_meat_poultry:xsd:3"
+                                       },
+                                       "nutritional_information:nutritionalInformationModule" : {
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:nutritional_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/NutritionalInformationModule.xsd",
+                                          "nutrientHeader" : [
+                                             {
+                                                "nutrientBasisQuantityTypeCode" : {
+                                                   "$t" : "BY_SERVING"
+                                                },
+                                                "servingSizeDescription" : [
+                                                   {
+                                                      "languageCode" : "fr",
+                                                      "$t" : "30 g"
+                                                   },
+                                                   {
+                                                      "$t" : "30 g",
+                                                      "languageCode" : "en"
+                                                   },
+                                                   {
+                                                      "languageCode" : "es",
+                                                      "$t" : "30 g"
+                                                   }
+                                                ],
+                                                "nutrientBasisQuantity" : {
+                                                   "$t" : "30",
+                                                   "measurementUnitCode" : "GRM"
+                                                },
+                                                "nutrientBasisQuantityDescription" : [
+                                                   {
+                                                      "languageCode" : "fr",
+                                                      "$t" : "30 g"
+                                                   },
+                                                   {
+                                                      "$t" : "30 g",
+                                                      "languageCode" : "en"
+                                                   },
+                                                   {
+                                                      "languageCode" : "es",
+                                                      "$t" : "30 g"
+                                                   }
+                                                ],
+                                                "servingSize" : {
+                                                   "measurementUnitCode" : "GRM",
+                                                   "$t" : "30"
+                                                },
+                                                "nutrientDetail" : [
+                                                   {
+                                                      "quantityContained" : [
+                                                         {
+                                                            "$t" : "335",
+                                                            "measurementUnitCode" : "KJO"
+                                                         },
+                                                         {
+                                                            "$t" : "81",
+                                                            "measurementUnitCode" : "E14"
+                                                         }
+                                                      ],
+                                                      "measurementPrecisionCode" : {
+                                                         "$t" : "APPROXIMATELY"
+                                                      },
+                                                      "nutrientTypeCode" : {
+                                                         "$t" : "ENER-"
+                                                      }
+                                                   },
+                                                   {
+                                                      "nutrientTypeCode" : {
+                                                         "$t" : "FAT"
+                                                      },
+                                                      "measurementPrecisionCode" : {
+                                                         "$t" : "APPROXIMATELY"
+                                                      },
+                                                      "quantityContained" : {
+                                                         "$t" : "6.3",
+                                                         "measurementUnitCode" : "GRM"
+                                                      }
+                                                   },
+                                                   {
+                                                      "measurementPrecisionCode" : {
+                                                         "$t" : "APPROXIMATELY"
+                                                      },
+                                                      "quantityContained" : {
+                                                         "$t" : "4.5",
+                                                         "measurementUnitCode" : "GRM"
+                                                      },
+                                                      "nutrientTypeCode" : {
+                                                         "$t" : "FASAT"
+                                                      }
+                                                   },
+                                                   {
+                                                      "measurementPrecisionCode" : {
+                                                         "$t" : "APPROXIMATELY"
+                                                      },
+                                                      "quantityContained" : {
+                                                         "$t" : "0",
+                                                         "measurementUnitCode" : "GRM"
+                                                      },
+                                                      "nutrientTypeCode" : {
+                                                         "$t" : "CHOAVL"
+                                                      }
+                                                   },
+                                                   {
+                                                      "nutrientTypeCode" : {
+                                                         "$t" : "SUGAR-"
+                                                      },
+                                                      "measurementPrecisionCode" : {
+                                                         "$t" : "APPROXIMATELY"
+                                                      },
+                                                      "quantityContained" : {
+                                                         "$t" : "0",
+                                                         "measurementUnitCode" : "GRM"
+                                                      }
+                                                   },
+                                                   {
+                                                      "nutrientTypeCode" : {
+                                                         "$t" : "PRO-"
+                                                      },
+                                                      "quantityContained" : {
+                                                         "measurementUnitCode" : "GRM",
+                                                         "$t" : "6"
+                                                      },
+                                                      "measurementPrecisionCode" : {
+                                                         "$t" : "APPROXIMATELY"
+                                                      }
+                                                   },
+                                                   {
+                                                      "measurementPrecisionCode" : {
+                                                         "$t" : "APPROXIMATELY"
+                                                      },
+                                                      "quantityContained" : {
+                                                         "measurementUnitCode" : "GRM",
+                                                         "$t" : "0.42"
+                                                      },
+                                                      "nutrientTypeCode" : {
+                                                         "$t" : "SALTEQ"
+                                                      }
+                                                   },
+                                                   {
+                                                      "quantityContained" : {
+                                                         "measurementUnitCode" : "MGM",
+                                                         "$t" : "129"
+                                                      },
+                                                      "dailyValueIntakePercentMeasurementPrecisionCode" : {
+                                                         "$t" : "APPROXIMATELY"
+                                                      },
+                                                      "dailyValueIntakePercent" : {
+                                                         "$t" : "16"
+                                                      },
+                                                      "measurementPrecisionCode" : {
+                                                         "$t" : "APPROXIMATELY"
+                                                      },
+                                                      "nutrientTypeCode" : {
+                                                         "$t" : "CA"
+                                                      }
+                                                   }
+                                                ],
+                                                "preparationStateCode" : {
+                                                   "$t" : "UNPREPARED"
+                                                },
+                                                "dailyValueIntakeReference" : {
+                                                   "$t" : "Apports de référence pour un adulte type (8400kj/2000 Kcal)",
+                                                   "languageCode" : "fr"
+                                                }
+                                             },
+                                             {
+                                                "dailyValueIntakeReference" : {
+                                                   "$t" : "Apports de référence pour un adulte type (8400kj/2000 Kcal)",
+                                                   "languageCode" : "fr"
+                                                },
+                                                "servingSize" : {
+                                                   "measurementUnitCode" : "GRM",
+                                                   "$t" : "100"
+                                                },
+                                                "nutrientDetail" : [
+                                                   {
+                                                      "nutrientTypeCode" : {
+                                                         "$t" : "ENER-"
+                                                      },
+                                                      "quantityContained" : [
+                                                         {
+                                                            "$t" : "1117",
+                                                            "measurementUnitCode" : "KJO"
+                                                         },
+                                                         {
+                                                            "measurementUnitCode" : "E14",
+                                                            "$t" : "269"
+                                                         }
+                                                      ],
+                                                      "measurementPrecisionCode" : {
+                                                         "$t" : "APPROXIMATELY"
+                                                      }
+                                                   },
+                                                   {
+                                                      "measurementPrecisionCode" : {
+                                                         "$t" : "APPROXIMATELY"
+                                                      },
+                                                      "quantityContained" : {
+                                                         "measurementUnitCode" : "GRM",
+                                                         "$t" : "21"
+                                                      },
+                                                      "nutrientTypeCode" : {
+                                                         "$t" : "FAT"
+                                                      }
+                                                   },
+                                                   {
+                                                      "nutrientTypeCode" : {
+                                                         "$t" : "FASAT"
+                                                      },
+                                                      "quantityContained" : {
+                                                         "$t" : "15",
+                                                         "measurementUnitCode" : "GRM"
+                                                      },
+                                                      "measurementPrecisionCode" : {
+                                                         "$t" : "APPROXIMATELY"
+                                                      }
+                                                   },
+                                                   {
+                                                      "quantityContained" : {
+                                                         "measurementUnitCode" : "GRM",
+                                                         "$t" : "0"
+                                                      },
+                                                      "measurementPrecisionCode" : {
+                                                         "$t" : "APPROXIMATELY"
+                                                      },
+                                                      "nutrientTypeCode" : {
+                                                         "$t" : "CHOAVL"
+                                                      }
+                                                   },
+                                                   {
+                                                      "quantityContained" : {
+                                                         "$t" : "0",
+                                                         "measurementUnitCode" : "GRM"
+                                                      },
+                                                      "measurementPrecisionCode" : {
+                                                         "$t" : "APPROXIMATELY"
+                                                      },
+                                                      "nutrientTypeCode" : {
+                                                         "$t" : "SUGAR-"
+                                                      }
+                                                   },
+                                                   {
+                                                      "quantityContained" : {
+                                                         "$t" : "20",
+                                                         "measurementUnitCode" : "GRM"
+                                                      },
+                                                      "measurementPrecisionCode" : {
+                                                         "$t" : "APPROXIMATELY"
+                                                      },
+                                                      "nutrientTypeCode" : {
+                                                         "$t" : "PRO-"
+                                                      }
+                                                   },
+                                                   {
+                                                      "nutrientTypeCode" : {
+                                                         "$t" : "SALTEQ"
+                                                      },
+                                                      "measurementPrecisionCode" : {
+                                                         "$t" : "APPROXIMATELY"
+                                                      },
+                                                      "quantityContained" : {
+                                                         "$t" : "1.4",
+                                                         "measurementUnitCode" : "GRM"
+                                                      }
+                                                   },
+                                                   {
+                                                      "nutrientTypeCode" : {
+                                                         "$t" : "CA"
+                                                      },
+                                                      "dailyValueIntakePercentMeasurementPrecisionCode" : {
+                                                         "$t" : "APPROXIMATELY"
+                                                      },
+                                                      "quantityContained" : {
+                                                         "measurementUnitCode" : "MGM",
+                                                         "$t" : "430"
+                                                      },
+                                                      "dailyValueIntakePercent" : {
+                                                         "$t" : "54"
+                                                      },
+                                                      "measurementPrecisionCode" : {
+                                                         "$t" : "APPROXIMATELY"
+                                                      }
+                                                   }
+                                                ],
+                                                "preparationStateCode" : {
+                                                   "$t" : "UNPREPARED"
+                                                },
+                                                "nutrientBasisQuantityTypeCode" : {
+                                                   "$t" : "BY_MEASURE"
+                                                },
+                                                "nutrientBasisQuantity" : {
+                                                   "$t" : "100",
+                                                   "measurementUnitCode" : "GRM"
+                                                }
+                                             }
+                                          ],
+                                          "isNutrientRelevantDataProvided" : {
+                                             "$t" : "true"
+                                          },
+                                          "xmlns:nutritional_information" : "urn:gs1:gdsn:nutritional_information:xsd:3"
+                                       },
+                                       "food_and_beverage_ingredient:foodAndBeverageIngredientModule" : {
+                                          "xmlns:food_and_beverage_ingredient" : "urn:gs1:gdsn:food_and_beverage_ingredient:xsd:3",
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:food_and_beverage_ingredient:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/FoodAndBeverageIngredientModule.xsd",
+                                          "isIngredientRelevantDataProvided" : {
+                                             "$t" : "TRUE"
+                                          },
+                                          "ingredientStatement" : [
+                                             {
+                                                "languageCode" : "fr",
+                                                "$t" : "Ingrédients : LAIT (origine France), ferments lactiques et d'affinage, sel"
+                                             },
+                                             {
+                                                "languageCode" : "en",
+                                                "$t" : "*"
+                                             },
+                                             {
+                                                "$t" : "*",
+                                                "languageCode" : "es"
+                                             }
+                                          ]
+                                       },
+                                       "trade_item_data_carrier_and_identification:tradeItemDataCarrierAndIdentificationModule" : {
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:trade_item_data_carrier_and_identification:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemDataCarrierAndIdentificationModule.xsd",
+                                          "dataCarrier" : {
+                                             "dataCarrierTypeCode" : {
+                                                "$t" : "EAN_13"
+                                             },
+                                             "dataCarrierFamilyTypeCode" : {
+                                                "$t" : "EAN_UPC"
+                                             }
+                                          },
+                                          "xmlns:trade_item_data_carrier_and_identification" : "urn:gs1:gdsn:trade_item_data_carrier_and_identification:xsd:3"
+                                       },
+                                       "sales_information:salesInformationModule" : {
+                                          "salesInformation" : {
+                                             "priceComparisonMeasurement" : {
+                                                "measurementUnitCode" : "KGM",
+                                                "$t" : "0.25"
+                                             },
+                                             "sellingUnitOfMeasure" : {
+                                                "$t" : "H87"
+                                             },
+                                             "priceComparisonContentTypeCode" : {
+                                                "$t" : "PER_KILOGRAM"
+                                             }
+                                          },
+                                          "xmlns:sales_information" : "urn:gs1:gdsn:sales_information:xsd:3",
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:sales_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/SalesInformationModule.xsd"
+                                       },
+                                       "referenced_file_detail_information:referencedFileDetailInformationModule" : {
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:referenced_file_detail_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/ReferencedFileDetailInformationModule.xsd",
+                                          "xmlns:referenced_file_detail_information" : "urn:gs1:gdsn:referenced_file_detail_information:xsd:3",
+                                          "referencedFileHeader" : {
+                                             "fileEffectiveStartDateTime" : {
+                                                "$t" : "2018-09-03T00:00:00+02:00"
+                                             },
+                                             "fileFormatName" : {
+                                                "$t" : "PNG"
+                                             },
+                                             "fileName" : {
+                                                "$t" : "03228021170039_C1C1_s01.png"
+                                             },
+                                             "uniformResourceIdentifier" : {
+                                                "$t" : "https://lctls-marketing.alchemyasp.com/permalink_gs1/2/6912/document/ZAIPjwBcL01Bo131zbmo6cJJeb4IaU8RKu9gYIwAxt2wfLllS083VZqSZVHDt1vy/03228021170039_C1C1_s01.png"
+                                             },
+                                             "contentDescription" : {
+                                                "$t" : "visualVariantDescription : Camembert Président 250g",
+                                                "languageCode" : "fr"
+                                             },
+                                             "referencedFileDetail" : {
+                                                "isFileBackgroundTransparent" : {
+                                                   "$t" : "FALSE"
+                                                },
+                                                "fileUsageInformation" : {
+                                                   "canFilesBeEdited" : {
+                                                      "$t" : "FALSE"
+                                                   }
+                                                }
+                                             },
+                                             "referencedFileTypeCode" : {
+                                                "$t" : "PRODUCT_IMAGE"
+                                             },
+                                             "isPrimaryFile" : {
+                                                "$t" : "TRUE"
+                                             }
+                                          }
+                                       },
+                                       "trade_item_lifespan:tradeItemLifespanModule" : {
+                                          "xmlns:trade_item_lifespan" : "urn:gs1:gdsn:trade_item_lifespan:xsd:3",
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:trade_item_lifespan:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemLifespanModule.xsd",
+                                          "tradeItemLifespan" : {
+                                             "minimumTradeItemLifespanFromTimeOfArrival" : {
+                                                "$t" : "21"
+                                             },
+                                             "minimumTradeItemLifespanFromTimeOfProduction" : {
+                                                "$t" : "22"
+                                             }
+                                          }
+                                       },
+                                       "animal_feeding:animalFeedingModule" : {
+                                          "feedCompositionStatement" : [
+                                             {
+                                                "languageCode" : "fr",
+                                                "$t" : "LAIT (origine France), ferments lactiques et d'affinage, sel"
+                                             },
+                                             {
+                                                "languageCode" : "en",
+                                                "$t" : "*"
+                                             },
+                                             {
+                                                "$t" : "*",
+                                                "languageCode" : "es"
+                                             }
+                                          ],
+                                          "xmlns:animal_feeding" : "urn:gs1:gdsn:animal_feeding:xsd:3",
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:animal_feeding:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/AnimalFeedingModule.xsd"
+                                       },
+                                       "trade_item_size:tradeItemSizeModule" : {
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:trade_item_size:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemSizeModule.xsd",
+                                          "xmlns:trade_item_size" : "urn:gs1:gdsn:trade_item_size:xsd:3",
+                                          "size" : {
+                                             "descriptiveSize" : {
+                                                "languageCode" : "fr",
+                                                "$t" : "250g: 8x31.25g"
+                                             }
+                                          }
+                                       },
+                                       "variable_trade_item_information:variableTradeItemInformationModule" : {
+                                          "variableTradeItemInformation" : {
+                                             "isTradeItemAVariableUnit" : {
+                                                "$t" : "false"
+                                             }
+                                          },
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:variable_trade_item_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/VariableTradeItemInformationModule.xsd",
+                                          "xmlns:variable_trade_item_information" : "urn:gs1:gdsn:variable_trade_item_information:xsd:3"
+                                       },
+                                       "health_related_information:healthRelatedInformationModule" : {
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:health_related_information:xsd:3 http://www.gdsregistry.org/3.1/schemas/gs1/gdsn/HealthRelatedInformationModule.xsd",
+                                          "healthRelatedInformation" : {
+                                             "compulsoryAdditiveLabelInformation" : {
+                                                "languageCode" : "fr",
+                                                "$t" : "Dans le cadre d'une alimentation variée et équilibrée et d'un mode de vie sain."
+                                             },
+                                             "nutritionalProgram" : {
+                                                "nutritionalScore" : {
+                                                   "$t" : "EXEMPT"
+                                                },
+                                                "nutritionalProgramCode" : {
+                                                   "$t" : "8"
+                                                }
+                                             }
+                                          },
+                                          "xmlns:health_related_information" : "urn:gs1:gdsn:health_related_information:xsd:3"
+                                       },
+                                       "allergen_information:allergenInformationModule" : {
+                                          "allergenRelatedInformation" : {
+                                             "isAllergenRelevantDataProvided" : {
+                                                "$t" : "true"
+                                             },
+                                             "allergenStatement" : [
+                                                {
+                                                   "$t" : "Lait",
+                                                   "languageCode" : "fr"
+                                                },
+                                                {
+                                                   "$t" : "Leche",
+                                                   "languageCode" : "es"
+                                                },
+                                                {
+                                                   "$t" : "Milk",
+                                                   "languageCode" : "en"
+                                                }
+                                             ],
+                                             "allergenSpecificationAgency" : {
+                                                "$t" : "UE"
+                                             },
+                                             "allergen" : {
+                                                "allergenTypeCode" : {
+                                                   "$t" : "AM"
+                                                },
+                                                "levelOfContainmentCode" : {
+                                                   "$t" : "CONTAINS"
+                                                }
+                                             },
+                                             "allergenSpecificationName" : {
+                                                "$t" : "1169/2011"
+                                             }
+                                          },
+                                          "xmlns:allergen_information" : "urn:gs1:gdsn:allergen_information:xsd:3",
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:allergen_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/AllergenInformationModule.xsd"
+                                       },
+                                       "delivery_purchasing_information:deliveryPurchasingInformationModule" : {
+                                          "deliveryPurchasingInformation" : {
+                                             "orderingUnitOfMeasure" : {
+                                                "$t" : "H87"
+                                             },
+                                             "isTradeItemReorderable" : {
+                                                "$t" : "true"
+                                             },
+                                             "firstOrderDateTime" : {
+                                                "$t" : "2017-01-05T00:00:00+01:00"
+                                             },
+                                             "consumerFirstAvailabilityDateTime" : {
+                                                "$t" : "2017-01-05T00:00:00+01:00"
+                                             },
+                                             "startAvailabilityDateTime" : {
+                                                "$t" : "2017-01-05T00:00:00+01:00"
+                                             }
+                                          },
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:delivery_purchasing_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/DeliveryPurchasingInformationModule.xsd",
+                                          "xmlns:delivery_purchasing_information" : "urn:gs1:gdsn:delivery_purchasing_information:xsd:3"
+                                       },
+                                       "farming_and_processing_information:farmingAndProcessingInformationModule" : {
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:farming_and_processing_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/FarmingAndProcessingInformationModule.xsd",
+                                          "tradeItemOrganicInformation" : {
+                                             "organicClaim" : {
+                                                "organicClaimAgencyCode" : {
+                                                   "$t" : "999"
+                                                },
+                                                "organicTradeItemCode" : {
+                                                   "$t" : "5"
+                                                }
+                                             }
+                                          },
+                                          "xmlns:farming_and_processing_information" : "urn:gs1:gdsn:farming_and_processing_information:xsd:3",
+                                          "tradeItemFarmingAndProcessing" : {
+                                             "geneticallyModifiedDeclarationCode" : {
+                                                "$t" : "FREE_FROM"
+                                             },
+                                             "irradiatedCode" : {
+                                                "$t" : "FALSE"
+                                             }
+                                          }
+                                       }
+                                    },
+                                    "consumerProductVariantReasonCode" : {
+                                       "$t" : "PRIMARY_VERSION"
+                                    },
+                                    "tradeItemComponents" : {
+                                       "numberOfPiecesInSet" : {
+                                          "$t" : "1"
+                                       }
+                                    },
+                                    "productionVariantEffectiveDateTime" : {
+                                       "$t" : "2017-01-20T00:00:00+01:00"
+                                    }
+                                 },
+                                 "tradeItemUnitDescriptorCode" : {
+                                    "$t" : "BASE_UNIT_OR_EACH"
+                                 },
+                                 "displayUnitInformation" : {
+                                    "isTradeItemADisplayUnit" : {
+                                       "$t" : "FALSE"
+                                    }
+                                 },
+                                 "isTradeItemABaseUnit" : {
+                                    "$t" : "true"
+                                 },
+                                 "isTradeItemAConsumerUnit" : {
+                                    "$t" : "true"
+                                 },
+                                 "preliminaryItemStatusCode" : {
+                                    "$t" : "FINAL"
+                                 },
+                                 "avpList" : {
+                                    "stringAVP" : [
+                                       {
+                                          "$t" : "250",
+                                          "attributeName" : "countryOfSettlement"
+                                       },
+                                       {
+                                          "attributeName" : "isCitesCertificateRequired",
+                                          "$t" : "false"
+                                       }
+                                    ]
+                                 },
+                                 "additionalTradeItemIdentification" : {
+                                    "additionalTradeItemIdentificationTypeCode" : "SUPPLIER_ASSIGNED",
+                                    "$t" : "25882"
+                                 },
+                                 "tradeItemContactInformation" : [
+                                    {
+                                       "contactAddress" : {
+                                          "$t" : "BD Arago  Z.I. des Touches"
+                                       },
+                                       "structuredAddress" : {
+                                          "city" : {
+                                             "$t" : "LAVAL Cedex 9"
+                                          },
+                                          "postalCode" : {
+                                             "$t" : "53093"
+                                          },
+                                          "streetAddress" : {
+                                             "$t" : "BD Arago  Z.I. des Touches"
+                                          },
+                                          "countryCode" : {
+                                             "$t" : "250"
+                                          }
+                                       },
+                                       "contactTypeCode" : {
+                                          "$t" : "BZL"
+                                       },
+                                       "contactName" : {
+                                          "$t" : "LACTALIS FROMAGES"
+                                       }
+                                    },
+                                    {
+                                       "targetMarketCommunicationChannel" : [
+                                          {
+                                             "communicationChannel" : {
+                                                "communicationChannelCode" : {
+                                                   "$t" : "WEBSITE"
+                                                },
+                                                "communicationValue" : {
+                                                   "$t" : "www.president.fr/nous-contacter/"
+                                                }
+                                             },
+                                             "targetMarket" : {
+                                                "targetMarketCountryCode" : {
+                                                   "$t" : "250"
+                                                }
+                                             }
+                                          },
+                                          {
+                                             "targetMarket" : {
+                                                "targetMarketCountryCode" : {
+                                                   "$t" : "250"
+                                                }
+                                             },
+                                             "communicationChannel" : {
+                                                "communicationChannelCode" : {
+                                                   "$t" : "TELEPHONE"
+                                                },
+                                                "communicationValue" : {
+                                                   "$t" : "0 970 82 11 28"
+                                                }
+                                             }
+                                          }
+                                       ],
+                                       "contactName" : {
+                                          "$t" : "PRESIDENT à votre service"
+                                       },
+                                       "contactTypeCode" : {
+                                          "$t" : "CXC"
+                                       },
+                                       "contactAddress" : {
+                                          "$t" : "- F 53089 LAVAL Cedex 9"
+                                       }
+                                    }
+                                 ],
+                                 "tradeItemSynchronisationDates" : {
+                                    "publicationDateTime" : {
+                                       "$t" : "2022-09-23T10:47:24.754"
+                                    },
+                                    "lastChangeDateTime" : {
+                                       "$t" : "2022-09-23T10:47:23.443"
+                                    },
+                                    "effectiveDateTime" : {
+                                       "$t" : "2022-02-21T00:00:00+01:00"
+                                    }
+                                 },
+                                 "gtin" : {
+                                    "$t" : "03228021170039"
+                                 },
+                                 "isTradeItemAnInvoiceUnit" : {
+                                    "$t" : "true"
+                                 },
+                                 "isTradeItemAnOrderableUnit" : {
+                                    "$t" : "true"
+                                 },
+                                 "informationProviderOfTradeItem" : {
+                                    "partyName" : {
+                                       "$t" : "0"
+                                    },
+                                    "gln" : {
+                                       "$t" : "3012280210106"
+                                    }
+                                 },
+                                 "targetMarket" : {
+                                    "targetMarketCountryCode" : {
+                                       "$t" : "250"
+                                    }
+                                 }
+                              },
+                              "sourceDataPool" : {
+                                 "$t" : "3770026870013"
+                              },
+                              "catalogueItemState" : {
+                                 "catalogueItemStateCode" : {
+                                    "$t" : "REGISTERED"
+                                 }
+                              },
+                              "dataRecipient" : {
+                                 "$t" : "3770026870013"
+                              }
+                           }
+                        },
+                        "tradeItem" : {
+                           "additionalTradeItemIdentification" : {
+                              "$t" : "258830001",
+                              "additionalTradeItemIdentificationTypeCode" : "SUPPLIER_ASSIGNED"
+                           },
+                           "preliminaryItemStatusCode" : {
+                              "$t" : "FINAL"
+                           },
+                           "isTradeItemAConsumerUnit" : {
+                              "$t" : "false"
+                           },
+                           "gtin" : {
+                              "$t" : "03228025170097"
+                           },
+                           "tradeItemSynchronisationDates" : {
+                              "effectiveDateTime" : {
+                                 "$t" : "2022-02-21T00:00:00+01:00"
+                              },
+                              "lastChangeDateTime" : {
+                                 "$t" : "2022-09-23T10:47:23.443"
+                              },
+                              "publicationDateTime" : {
+                                 "$t" : "2022-09-23T10:47:24.754"
+                              }
+                           },
+                           "isTradeItemAnInvoiceUnit" : {
+                              "$t" : "false"
+                           },
+                           "targetMarket" : {
+                              "targetMarketCountryCode" : {
+                                 "$t" : "250"
+                              }
+                           },
+                           "informationProviderOfTradeItem" : {
+                              "partyName" : {
+                                 "$t" : "0"
+                              },
+                              "gln" : {
+                                 "$t" : "3012280210106"
+                              }
+                           },
+                           "isTradeItemAnOrderableUnit" : {
+                              "$t" : "true"
+                           },
+                           "nextLowerLevelTradeItemInformation" : {
+                              "childTradeItem" : {
+                                 "gtin" : {
+                                    "$t" : "03228021170039"
+                                 },
+                                 "quantityOfNextLowerLevelTradeItem" : {
+                                    "$t" : "12"
+                                 }
+                              },
+                              "quantityOfChildren" : {
+                                 "$t" : "1"
+                              },
+                              "totalQuantityOfNextLowerLevelTradeItem" : {
+                                 "$t" : "12"
+                              }
+                           },
+                           "gdsnTradeItemClassification" : {
+                              "gpcCategoryName" : {
+                                 "$t" : "Fromage (Périssable)"
+                              },
+                              "gpcCategoryCode" : {
+                                 "$t" : "10000028"
+                              }
+                           },
+                           "isTradeItemAService" : {
+                              "$t" : "false"
+                           },
+                           "tradeItemInformation" : {
+                              "extension" : {
+                                 "trade_item_temperature_information:tradeItemTemperatureInformationModule" : {
+                                    "tradeItemTemperatureInformation" : {
+                                       "minimumTemperature" : {
+                                          "temperatureMeasurementUnitCode" : "CEL",
+                                          "$t" : "4"
+                                       },
+                                       "maximumTemperature" : {
+                                          "$t" : "8",
+                                          "temperatureMeasurementUnitCode" : "CEL"
+                                       },
+                                       "temperatureQualifierCode" : {
+                                          "$t" : "STORAGE_HANDLING"
+                                       }
+                                    },
+                                    "xmlns:trade_item_temperature_information" : "urn:gs1:gdsn:trade_item_temperature_information:xsd:3",
+                                    "xsi:schemaLocation" : "urn:gs1:gdsn:trade_item_temperature_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemTemperatureInformationModule.xsd"
+                                 },
+                                 "variable_trade_item_information:variableTradeItemInformationModule" : {
+                                    "variableTradeItemInformation" : {
+                                       "isTradeItemAVariableUnit" : {
+                                          "$t" : "false"
+                                       }
+                                    },
+                                    "xsi:schemaLocation" : "urn:gs1:gdsn:variable_trade_item_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/VariableTradeItemInformationModule.xsd",
+                                    "xmlns:variable_trade_item_information" : "urn:gs1:gdsn:variable_trade_item_information:xsd:3"
+                                 },
+                                 "promotional_item_information:promotionalItemInformationModule" : {
+                                    "xsi:schemaLocation" : "urn:gs1:gdsn:promotional_item_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PromotionalItemInformationModule.xsd",
+                                    "isTradeItemAPromotionalUnit" : {
+                                       "$t" : "false"
+                                    },
+                                    "xmlns:promotional_item_information" : "urn:gs1:gdsn:promotional_item_information:xsd:3"
+                                 },
+                                 "packaging_marking:packagingMarkingModule" : {
+                                    "xmlns:packaging_marking" : "urn:gs1:gdsn:packaging_marking:xsd:3",
+                                    "packagingMarking" : {
+                                       "isPackagingMarkedReturnable" : {
+                                          "$t" : "false"
+                                       },
+                                       "packagingMarkedLanguageCode" : {
+                                          "$t" : "fr"
+                                       }
+                                    },
+                                    "xsi:schemaLocation" : "urn:gs1:gdsn:packaging_marking:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PackagingMarkingModule.xsd"
+                                 },
+                                 "delivery_purchasing_information:deliveryPurchasingInformationModule" : {
+                                    "xmlns:delivery_purchasing_information" : "urn:gs1:gdsn:delivery_purchasing_information:xsd:3",
+                                    "xsi:schemaLocation" : "urn:gs1:gdsn:delivery_purchasing_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/DeliveryPurchasingInformationModule.xsd",
+                                    "deliveryPurchasingInformation" : {
+                                       "orderingUnitOfMeasure" : {
+                                          "$t" : "H87"
+                                       },
+                                       "orderQuantityMultiple" : {
+                                          "$t" : "1"
+                                       },
+                                       "startAvailabilityDateTime" : {
+                                          "$t" : "2017-01-05T00:00:00+01:00"
+                                       },
+                                       "orderQuantityMinimum" : {
+                                          "$t" : "1"
+                                       },
+                                       "firstOrderDateTime" : {
+                                          "$t" : "2017-01-05T00:00:00+01:00"
+                                       }
+                                    }
+                                 },
+                                 "packaging_information:packagingInformationModule" : {
+                                    "xsi:schemaLocation" : "urn:gs1:gdsn:packaging_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PackagingInformationModule.xsd",
+                                    "packaging" : {
+                                       "packagingTypeDescription" : {
+                                          "languageCode" : "fr",
+                                          "$t" : "Carton"
+                                       },
+                                       "packagingTypeCode" : {
+                                          "$t" : "CT"
+                                       }
+                                    },
+                                    "xmlns:packaging_information" : "urn:gs1:gdsn:packaging_information:xsd:3"
+                                 },
+                                 "trade_item_data_carrier_and_identification:tradeItemDataCarrierAndIdentificationModule" : {
+                                    "xmlns:trade_item_data_carrier_and_identification" : "urn:gs1:gdsn:trade_item_data_carrier_and_identification:xsd:3",
+                                    "dataCarrier" : {
+                                       "dataCarrierFamilyTypeCode" : {
+                                          "$t" : "NO_BARCODE"
+                                       },
+                                       "dataCarrierTypeCode" : {
+                                          "$t" : "NO_BARCODE"
+                                       }
+                                    },
+                                    "xsi:schemaLocation" : "urn:gs1:gdsn:trade_item_data_carrier_and_identification:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemDataCarrierAndIdentificationModule.xsd"
+                                 },
+                                 "trade_item_measurements:tradeItemMeasurementsModule" : {
+                                    "xmlns:trade_item_measurements" : "urn:gs1:gdsn:trade_item_measurements:xsd:3",
+                                    "tradeItemMeasurements" : {
+                                       "depth" : {
+                                          "measurementUnitCode" : "MMT",
+                                          "$t" : "373"
+                                       },
+                                       "height" : {
+                                          "measurementUnitCode" : "MMT",
+                                          "$t" : "98"
+                                       },
+                                       "width" : {
+                                          "measurementUnitCode" : "MMT",
+                                          "$t" : "240"
+                                       },
+                                       "tradeItemWeight" : {
+                                          "netWeight" : {
+                                             "measurementUnitCode" : "KGM",
+                                             "$t" : "3"
+                                          },
+                                          "grossWeight" : {
+                                             "measurementUnitCode" : "KGM",
+                                             "$t" : "3.4"
+                                          }
+                                       }
+                                    },
+                                    "xsi:schemaLocation" : "urn:gs1:gdsn:trade_item_measurements:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemMeasurementsModule.xsd"
+                                 },
+                                 "trade_item_description:tradeItemDescriptionModule" : {
+                                    "xsi:schemaLocation" : "urn:gs1:gdsn:trade_item_description:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemDescriptionModule.xsd",
+                                    "xmlns:trade_item_description" : "urn:gs1:gdsn:trade_item_description:xsd:3",
+                                    "tradeItemDescriptionInformation" : {
+                                       "functionalName" : [
+                                          {
+                                             "$t" : "CAMEMBERTS ET ASSIMILES",
+                                             "languageCode" : "fr"
+                                          },
+                                          {
+                                             "languageCode" : "en",
+                                             "$t" : "CAMEMBERTS"
+                                          }
+                                       ],
+                                       "invoiceName" : {
+                                          "$t" : "CAM PDT 20% 250G X12",
+                                          "languageCode" : "fr"
+                                       },
+                                       "brandNameInformation" : {
+                                          "brandName" : {
+                                             "$t" : "PRESIDENT"
+                                          }
+                                       },
+                                       "descriptionShort" : {
+                                          "languageCode" : "fr",
+                                          "$t" : "CAM PDT 20% 250G X12"
+                                       },
+                                       "tradeItemDescription" : {
+                                          "languageCode" : "fr",
+                                          "$t" : "PRESIDENT CAMEMBERT 250G CARTON DE 12 UC"
+                                       }
+                                    }
+                                 }
+                              }
+                           },
+                           "isTradeItemADespatchUnit" : {
+                              "$t" : "true"
+                           },
+                           "isTradeItemABaseUnit" : {
+                              "$t" : "false"
+                           },
+                           "displayUnitInformation" : {
+                              "isTradeItemADisplayUnit" : {
+                                 "$t" : "FALSE"
+                              }
+                           },
+                           "tradeItemUnitDescriptorCode" : {
+                              "$t" : "CASE"
+                           }
+                        },
+                        "dataRecipient" : {
+                           "$t" : "3770026870013"
+                        },
+                        "sourceDataPool" : {
+                           "$t" : "3770026870013"
+                        },
+                        "catalogueItemState" : {
+                           "catalogueItemStateCode" : {
+                              "$t" : "REGISTERED"
+                           }
+                        }
+                     },
+                     "quantity" : {
+                        "$t" : "150"
+                     }
+                  },
+                  "catalogueItemState" : {
+                     "catalogueItemStateCode" : {
+                        "$t" : "REGISTERED"
+                     }
+                  },
+                  "sourceDataPool" : {
+                     "$t" : "3770026870013"
+                  },
+                  "dataRecipient" : {
+                     "$t" : "3770026870013"
+                  }
+               },
+               "catalogueItemNotificationIdentification" : {
+                  "entityIdentification" : {
+                     "$t" : "OPENFOODFACT_02607_2022_09_23_10_47_23"
+                  },
+                  "contentOwner" : {
+                     "gln" : {
+                        "$t" : "3012280210106"
+                     }
+                  }
+               },
+               "isReload" : {
+                  "$t" : "true"
+               },
+               "documentStatusCode" : {
+                  "$t" : "ORIGINAL"
+               },
+               "creationDateTime" : {
+                  "$t" : "2022-09-23T10:47:23.443"
+               }
+            },
+            "documentCommandHeader" : {
+               "documentCommandIdentification" : {
+                  "contentOwner" : {
+                     "gln" : {
+                        "$t" : "3012280210106"
+                     }
+                  },
+                  "entityIdentification" : {
+                     "$t" : "3034012285008_000014d8ee7c2c29b44d2fab87afe952c326a8"
+                  }
+               },
+               "type" : "CHANGE_BY_REFRESH"
+            }
+         }
+      },
+      "xmlns:xsi" : "http://www.w3.org/2001/XMLSchema-instance",
+      "xmlns:sh" : "http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader",
+      "xmlns:catalogue_item_notification" : "urn:gs1:gdsn:catalogue_item_notification:xsd:3",
+      "xsi:schemaLocation" : "urn:gs1:gdsn:catalogue_item_notification:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/CatalogueItemNotification.xsd"
+   },
+   "version" : "1.0"
+}

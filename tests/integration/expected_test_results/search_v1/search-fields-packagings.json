@@ -1,0 +1,56 @@
+{
+   "count" : 6,
+   "page" : "1",
+   "page_count" : 6,
+   "page_size" : 24,
+   "products" : [
+      {
+         "code" : "200000000034",
+         "packaging_text_en" : "1 25cl glass bottle, 1 steel lid, 1 plastic wrap",
+         "packagings" : [
+            {
+               "material" : "en:glass",
+               "number_of_units" : 1,
+               "quantity_per_unit" : "25cl",
+               "quantity_per_unit_unit" : "cl",
+               "quantity_per_unit_value" : 25,
+               "recycling" : "en:recycle",
+               "shape" : "en:bottle"
+            },
+            {
+               "material" : "en:steel",
+               "number_of_units" : 1,
+               "shape" : "en:lid"
+            },
+            {
+               "material" : "en:plastic",
+               "number_of_units" : 1,
+               "shape" : "en:film"
+            }
+         ]
+      },
+      {
+         "code" : "200000000037",
+         "packaging_text_en" : "no",
+         "packagings" : []
+      },
+      {
+         "code" : "200000000038",
+         "packagings" : []
+      },
+      {
+         "code" : "200000000039",
+         "packagings" : []
+      },
+      {
+         "code" : "200000000045",
+         "packaging_text_en" : "no",
+         "packagings" : []
+      },
+      {
+         "code" : "200000000046",
+         "packagings" : []
+      }
+   ],
+   "skip" : 0
+}

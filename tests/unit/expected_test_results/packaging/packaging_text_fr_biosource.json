@@ -1,0 +1,41 @@
+{
+   "lc" : "fr",
+   "misc_tags" : [
+      "en:packagings-number-of-components-3",
+      "en:packagings-not-complete",
+      "en:packagings-not-empty-but-not-complete",
+      "en:packagings-not-empty"
+   ],
+   "packaging_materials_tags" : [
+      "en:bpet-biobased-pet"
+   ],
+   "packaging_recycling_tags" : [],
+   "packaging_shapes_tags" : [
+      "en:bottle",
+      "en:lid",
+      "en:spoon"
+   ],
+   "packaging_text" : "1 bouteille en PET biosourcé, 1 couvercle en PET bio-sourcé, 1 cuillere en pet bio source",
+   "packagings" : [
+      {
+         "material" : "en:bpet-biobased-pet",
+         "number_of_units" : 1,
+         "shape" : "en:bottle"
+      },
+      {
+         "material" : "en:bpet-biobased-pet",
+         "number_of_units" : 1,
+         "shape" : "en:lid"
+      },
+      {
+         "material" : "en:bpet-biobased-pet",
+         "number_of_units" : 1,
+         "shape" : "en:spoon"
+      }
+   ],
+   "packagings_materials" : {
+      "all" : {},
+      "en:plastic" : {}
+   },
+   "packagings_n" : 3
+}

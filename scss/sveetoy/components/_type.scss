@@ -1,0 +1,347 @@
+@import "../mixins/colors";
+
+/*
+ *
+ * Typography
+ *
+ */
+
+$include-sveetoy-typography: $include-sveetoy-classes !default;
+// Some font weight in addition of Foundation ones
+$font-weight-thin: null !default;
+$font-weight-strong: null !default;
+$sveetoy-smalls: () !default;
+$sveetoy-underline-colors: () !default;
+$sveetoy-underline-distances: () !default;
+$sveetoy-underline-thickness: () !default;
+$sveetoy-underline-widths: () !default;
+$sveetoy-underline-default-color: #000000;
+$sveetoy-hr-colors: () !default;
+$sveetoy-hr-distances: () !default;
+$sveetoy-hr-thickness: () !default;
+$sveetoy-hr-default-color: #000000;
+@if $include-sveetoy-typography {
+    // No trailing margin on last paragraph in their container
+    p {
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    /*
+    * Transform and decoration
+    */
+    .text-upper {
+        text-transform: uppercase !important;
+    }
+    .text-important {
+        text-decoration: underline !important;
+    }
+    /*
+    * Various font weights
+    */
+    @if $font-weight-thin {
+        .text-thin {
+            font-weight: $font-weight-thin !important;
+        }
+    }
+    .text-normal {
+        font-weight: $font-weight-normal !important;
+    }
+    b,
+    .text-bold {
+        font-weight: $font-weight-bold !important;
+    }
+    @if $font-weight-medium {
+        .text-medium {
+            font-weight: $font-weight-medium !important;
+        }
+    }
+    
+    @if $font-weight-strong {
+        strong,
+        .text-strong {
+            font-weight: $font-weight-strong !important;
+        }
+    }
+    ///
+    /// Text colors
+    ///
+    @each $name,
+    $color in $sveetoy-color-text-palette {
+        .text-#{$name} {
+            color: $color !important;
+        }
+        .svg-#{$name} {
+            fill: $color !important;
+        }
+    }
+    ///
+    /// Various <small> modifier
+    ///
+    .text- {
+        @each $name,
+        $size in $sveetoy-smalls {
+            &#{$name} {
+                font-size: $size;
+            }
+        }
+    }
+    ///
+    /// Rewrite titles adding paragraph classes so we can have the same
+    /// behaviors without troubling SEO/semantic
+    ///
+    /// This is almost a copy'n'rewrite from foundation code. Depending from
+    /// foundation support since code is totally different between version 5
+    /// and 6.
+    ///
+    @if $sveetoy_foundation_support==5 {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        .title-1,
+        .title-2,
+        .title-3,
+        .title-4,
+        .title-5,
+        .title-6 {
+            font-family: $header-font-family;
+            font-weight: $header-font-weight;
+            font-style: $header-font-style;
+            color: $header-font-color;
+            text-rendering: $header-text-rendering;
+            margin-top: $header-top-margin;
+            margin-bottom: $header-bottom-margin;
+            line-height: $header-line-height;
+        }
+        h1,
+        .title-1 {
+            font-size: $h1-font-size - $h1-font-reduction;
+        }
+        h2,
+        .title-2 {
+            font-size: $h2-font-size - $h2-font-reduction;
+        }
+        h3,
+        .title-3 {
+            font-size: $h3-font-size - $h3-font-reduction;
+        }
+        h4,
+        .title-4 {
+            font-size: $h4-font-size - $h4-font-reduction;
+        }
+        h5,
+        .title-5 {
+            font-size: $h5-font-size - $h5-font-reduction;
+        }
+        h6,
+        .title-6 {
+            font-size: $h6-font-size - $h6-font-reduction;
+        }
+        @media #{$xlarge-up} {
+            h1,
+            .title-1 {
+                font-size: $h1-font-size;
+            }
+            h2,
+            .title-2 {
+                font-size: $h2-font-size;
+            }
+            h3,
+            .title-3 {
+                font-size: $h3-font-size;
+            }
+            h4,
+            .title-4 {
+                font-size: $h4-font-size;
+            }
+            h5,
+            .title-5 {
+                font-size: $h5-font-size;
+            }
+            h6,
+            .title-6 {
+                font-size: $h6-font-size;
+            }
+        }
+    }
+    @else {
+        // Heading styles
+        @each $size,
+        $headers in $header-styles {
+            @include breakpoint($size) {
+                @each $header,
+                $header-defs in $headers {
+                    $font-size-temp: 1rem;
+                    #{$header},
+                    .title-#{str-slice($header, 2)} {
+                        @if map-has-key($header-defs, font-size) {
+                            $font-size-temp: rem-calc(map-get($header-defs, font-size));
+                            font-size: $font-size-temp;
+                        }
+                        @else if map-has-key($header-defs, fs) {
+                            $font-size-temp: rem-calc(map-get($header-defs, fs));
+                            font-size: $font-size-temp;
+                        }
+                        @else if $size==$-zf-zero-breakpoint {
+                            font-size: $font-size-temp;
+                        }
+                        @if map-has-key($header-defs, line-height) {
+                            line-height: unitless-calc(map-get($header-defs, line-height), $font-size-temp);
+                        }
+                        @else if map-has-key($header-defs, lh) {
+                            line-height: unitless-calc(map-get($header-defs, lh), $font-size-temp);
+                        }
+                        @else if $size==$-zf-zero-breakpoint {
+                            line-height: unitless-calc($header-lineheight, $font-size-temp);
+                        }
+                        @if map-has-key($header-defs, margin-top) {
+                            margin-top: rem-calc(map-get($header-defs, margin-top));
+                        }
+                        @else if map-has-key($header-defs, mt) {
+                            margin-top: rem-calc(map-get($header-defs, mt));
+                        }
+                        @else if $size==$-zf-zero-breakpoint {
+                            margin-top: 0;
+                        }
+                        @if map-has-key($header-defs, margin-bottom) {
+                            margin-bottom: rem-calc(map-get($header-defs, margin-bottom));
+                        }
+                        @else if map-has-key($header-defs, mb) {
+                            margin-bottom: rem-calc(map-get($header-defs, mb));
+                        }
+                        @else if $size==$-zf-zero-breakpoint {
+                            margin-bottom: rem-calc($header-margin-bottom);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    ///
+    /// Underlined element
+    ///
+    @if $sveetoy-underline-thickness {
+        .underline {
+            // Base
+            &:after {
+                content: "";
+                display: block;
+                @if map-get($sveetoy-underline-distances, 'normal') {
+                    $distance: map-get($sveetoy-underline-distances, 'normal');
+                    margin-top: $distance;
+                    margin-left: 0;
+                    margin-right: 0;
+                }
+                @if map-get($sveetoy-underline-widths, 'normal') {
+                    $width: map-get($sveetoy-underline-widths, 'normal');
+                    width: $width;
+                }
+                @if map-get($sveetoy-underline-thickness, 'normal') {
+                    $thickness: map-get($sveetoy-underline-thickness, 'normal');
+                    border: map-get($thickness, 'style') $sveetoy-underline-default-color;
+                    border-width: 0 0 map-get($thickness, 'size');
+                }
+            }
+            // On centered text
+            &.text-center {
+                &:after {
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+            }
+            // Border thickness
+            @each $name,
+            $definitions in $sveetoy-underline-thickness {
+                &.#{$name}:after {
+                    border: map-get($definitions, 'style') $sveetoy-underline-default-color;
+                    border-width: 0 0 map-get($definitions, 'size');
+                }
+            }
+            // Border width size
+            @each $name,
+            $size in $sveetoy-underline-widths {
+                &.#{$name}:after {
+                    width: $size;
+                }
+            }
+            // Border distance from text
+            @each $name,
+            $distance in $sveetoy-underline-distances {
+                &.#{$name} {
+                    &:after {
+                        margin-top: $distance;
+                        margin-left: 0;
+                        margin-right: 0;
+                    }
+                    &.text-center {
+                        &:after {
+                            margin-top: $distance;
+                            margin-left: auto;
+                            margin-right: auto;
+                        }
+                    }
+                }
+            }
+            // Border colors
+            @each $name,
+            $color in $sveetoy-underline-colors {
+                &.#{$name}:after {
+                    border-color: $color;
+                }
+            }
+        }
+    }
+    ///
+    /// Horizontal rule
+    ///
+    hr {
+        clear: both;
+        height: 0;
+        @if map-get($sveetoy-hr-thickness, 'normal') {
+            $thickness: map-get($sveetoy-hr-thickness, 'normal');
+            border: map-get($thickness, 'style') $sveetoy-hr-default-color;
+            border-width: map-get($thickness, 'size') 0 0;
+        }
+        @if map-get($sveetoy-hr-distances, 'normal') {
+            $distance: map-get($sveetoy-hr-distances, 'normal');
+            @if $distance==0 {
+                margin: 0;
+            }
+            @else if $distance>0 {
+                margin: $distance 0;
+            }
+        }
+        // Border thickness
+        @each $name,
+        $definitions in $sveetoy-hr-thickness {
+            &.#{$name} {
+                border: map-get($definitions, 'style') $sveetoy-hr-default-color;
+                border-width: map-get($definitions, 'size') 0 0;
+            }
+        }
+        // Margin
+        @each $name,
+        $distance in $sveetoy-hr-distances {
+            @if $distance {
+                &.#{$name} {
+                    @if $distance==0 {
+                        margin: 0;
+                    }
+                    @else if $distance>0 {
+                        margin: $distance 0;
+                    }
+                }
+            }
+        }
+        // Border colors
+        @each $name,
+        $color in $sveetoy-hr-colors {
+            &.#{$name} {
+                border-color: $color;
+            }
+        }
+    }
+}

@@ -1,0 +1,33 @@
+{
+   "data_quality_warnings" : {
+      "elements" : [
+         {
+            "element_type" : "text",
+            "text_element" : {
+               "html" : "<ul> <li id=\"data-error-en:all-but-one-ingredient-with-specified-percent\"> All but one ingredient with specified percent </li> </ul>"
+            }
+         },
+         {
+            "action_element" : {
+               "actions" : [
+                  "add_ingredients_text"
+               ],
+               "html" : ""
+            },
+            "element_type" : "action"
+         }
+      ],
+      "evaluation" : "average",
+      "expanded" : false,
+      "level" : "info",
+      "title_element" : {
+         "icon_color_from_evaluation" : true,
+         "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/data-warning.svg",
+         "subtitle" : "We have detected some potential issues or potential improvements, could you check if some apply ?",
+         "title" : "Potential issues"
+      },
+      "topics" : [
+         "contribution"
+      ]
+   }
+}

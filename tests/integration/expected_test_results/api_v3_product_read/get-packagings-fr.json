@@ -1,0 +1,78 @@
+{
+   "code" : "4260392550101",
+   "errors" : [],
+   "product" : {
+      "packagings" : [
+         {
+            "material" : {
+               "id" : "en:wood",
+               "lc_name" : "Bois"
+            },
+            "number_of_units" : 1,
+            "recycling" : {
+               "id" : "en:recycle",
+               "lc_name" : "Recycler"
+            },
+            "shape" : {
+               "id" : "en:box",
+               "lc_name" : "Boîte"
+            }
+         },
+         {
+            "material" : {
+               "id" : "en:glass",
+               "lc_name" : "Verre"
+            },
+            "number_of_units" : 6,
+            "quantity_per_unit" : "25cl",
+            "quantity_per_unit_unit" : "cl",
+            "quantity_per_unit_value" : 25,
+            "recycling" : {
+               "id" : "en:reuse",
+               "lc_name" : "Réutiliser"
+            },
+            "shape" : {
+               "id" : "en:bottle",
+               "lc_name" : "Bouteille"
+            }
+         },
+         {
+            "material" : {
+               "id" : "en:steel",
+               "lc_name" : "Acier"
+            },
+            "number_of_units" : 3,
+            "recycling" : {
+               "id" : "en:recycle",
+               "lc_name" : "Recycler"
+            },
+            "shape" : {
+               "id" : "en:lid",
+               "lc_name" : "Couvercle"
+            }
+         },
+         {
+            "material" : {
+               "id" : "en:plastic",
+               "lc_name" : "Plastique"
+            },
+            "number_of_units" : 1,
+            "recycling" : {
+               "id" : "en:discard",
+               "lc_name" : "Jeter"
+            },
+            "shape" : {
+               "id" : "en:film",
+               "lc_name" : "Film"
+            }
+         }
+      ]
+   },
+   "result" : {
+      "id" : "product_found",
+      "lc_name" : "Product found",
+      "name" : "Product found"
+   },
+   "status" : "success",
+   "warnings" : []
+}

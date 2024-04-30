@@ -1,0 +1,80 @@
+{
+   "code" : "1234567890007",
+   "errors" : [],
+   "product" : {
+      "packagings" : [
+         {
+            "shape" : {
+               "id" : "en:bottle",
+               "lc_name" : "Bottle"
+            }
+         }
+      ]
+   },
+   "status" : "success_with_warnings",
+   "warnings" : [
+      {
+         "field" : {
+            "default_value" : "en",
+            "id" : "tags_lc"
+         },
+         "impact" : {
+            "id" : "warning",
+            "lc_name" : "Warning",
+            "name" : "Warning"
+         },
+         "message" : {
+            "id" : "missing_field",
+            "lc_name" : "Missing field",
+            "name" : "Missing field"
+         }
+      },
+      {
+         "field" : {
+            "id" : "number_of_units"
+         },
+         "impact" : {
+            "id" : "field_ignored",
+            "lc_name" : "Field ignored",
+            "name" : "Field ignored"
+         },
+         "message" : {
+            "id" : "missing_field",
+            "lc_name" : "Missing field",
+            "name" : "Missing field"
+         }
+      },
+      {
+         "field" : {
+            "id" : "material",
+            "value" : null
+         },
+         "impact" : {
+            "id" : "field_ignored",
+            "lc_name" : "Field ignored",
+            "name" : "Field ignored"
+         },
+         "message" : {
+            "id" : "missing_field",
+            "lc_name" : "Missing field",
+            "name" : "Missing field"
+         }
+      },
+      {
+         "field" : {
+            "id" : "recycling",
+            "value" : null
+         },
+         "impact" : {
+            "id" : "field_ignored",
+            "lc_name" : "Field ignored",
+            "name" : "Field ignored"
+         },
+         "message" : {
+            "id" : "missing_field",
+            "lc_name" : "Missing field",
+            "name" : "Missing field"
+         }
+      }
+   ]
+}

@@ -1,0 +1,122 @@
+// Color schemes
+$sveetoy-colors-schemes: () !default;
+// Color scheme for default section
+$sveetoy-colors-scheme-default: null !default;
+// Text color palette
+$sveetoy-color-text-palette: () !default;
+///
+/// Scheme colors
+///
+/// Includes properties to define background and font color on an element.
+///
+/// Require only one argument: a map of color options.
+///
+/// Given map require at least the 'background-color' key and eventually
+/// require the 'font-color' key if 'background-color' is 'transparent' or
+/// 'inherit'.
+///
+/// If 'font-color' is not given, its value will be the inverted background
+/// color.
+///
+/// Automatically apply font-color on title elements (h1, .title-1, etc..), or
+/// their specific color if given in map (as options 'h1-color', 'h2-color',
+/// etc..). If a title color option value is 'false', no color property is
+/// applied.
+///
+/// Also accept 'link-color' and '$link-color-hover' to apply color to link
+/// and its 'hover' event.
+///
+@mixin sveetoy-scheme-colors($scheme, $apply-border: false) {
+    // Raise error if background-color item is not in scheme
+    @if map-get($scheme, "background-color")==null {
+        @error "A scheme color must define the 'background-color' item";
+    }
+    @else if (map-get($scheme, "background-color")==transparent or map-get($scheme, "background-color")==inherit) and map-get($scheme, "font-color")==null {
+        @error "A scheme color must define the 'font-color' item if background-color is 'transparent' or 'inherit'";
+    }
+    $background-color: map-get($scheme, "background-color");
+    $font_item: map-get($scheme, "font-color");
+    $font-color: if($font_item, $font_item, invert($background-color));
+    $link-color: map-get($scheme, "link-color");
+    $link-color-hover: map-get($scheme, "link-color-hover");
+    color: $font-color;
+    background-color: $background-color;
+    // Optional border
+    @if $apply-border {
+        @include sveetoy-apply-border($scheme);
+    }
+    // Titles
+    @for $i from 1 through 6 {
+        h#{$i},
+        .title-#{$i} {
+            @if map-get($scheme, "h#{$i}-color")==null {
+                color: $font-color;
+            }
+            @else if map-get($scheme, "h#{$i}-color")==false {
+                // 'false' means "Do not define any color on this"
+            }
+            @else {
+                color: map-get($scheme, "h#{$i}-color");
+            }
+        }
+    }
+    // Link but not buttons
+    @if $link-color {
+        a:not(.button) {
+            color: if($link-color, $link-color, inherit);
+            fill:if($link-color, $link-color, inherit);
+            @if $link-color-hover {
+                &:hover {
+                    color: if($link-color-hover, $link-color-hover, inherit); fill:if($link-color, $link-color, inherit);
+                }
+            }
+        }
+    }
+}
+
+///
+/// Apply color scheme for a button
+///
+/// Same behavior than 'sveetoy-scheme-colors' but don't care about link color.
+///
+/// Also apply border parameters 'border-color', 'border-width', 'border-type'
+/// if given and '$apply-border' is true
+///
+/// Note that if '$apply-border' is true but 'border-color' is not given,
+/// 'font-color' value is used.
+///
+@mixin sveetoy-button-colors($scheme, $apply-border: false) {
+    $background-color: map-get($scheme, "background-color");
+    $font-item: map-get($scheme, "font-color");
+    $font-color: if($font-item, $font-item, invert($background-color));
+    color: $font-color;
+    background-color: $background-color;
+    @if $apply-border {
+        @include sveetoy-apply-border($scheme);
+    }
+}
+
+///
+/// Apply border properties for given scheme.
+///
+///
+@mixin sveetoy-apply-border($scheme) {
+    $background-color: map-get($scheme, "background-color");
+    $font-item: map-get($scheme, "font-color");
+    $font-color: if($font-item, $font-item, invert($background-color));
+    $border-color: map-get($scheme, "border-color");
+    $border-width: map-get($scheme, "border-width");
+    $border-style: map-get($scheme, "border-style");
+    border-color: if($border-color, $border-color, $font-color);
+    @if $border-width {
+        border-width: $border-width;
+    }
+    @if $border-style {
+        border-style: $border-style;
+    }
+}
+
+@mixin sveetoy-bg-colors($scheme, $apply-border: false) {
+    $background-color: map-get($scheme, "background-color");
+    background-color: $background-color;
+}

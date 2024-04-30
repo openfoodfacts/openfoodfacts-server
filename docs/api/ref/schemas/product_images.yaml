@@ -1,0 +1,92 @@
+type: object
+description: |
+  Information about Images of a product.
+
+  Images ensure the reliability of Open Food Facts data.
+  It provides a primary source and proof of all the structured data.
+  You may therefore want to display it along the structured information.
+
+  See also tutorials about images:
+  * [Getting images](https://openfoodfacts.github.io/openfoodfacts-server/api/how-to-download-images/)
+  * [Uploading images](https://openfoodfacts.github.io/openfoodfacts-server/api/tutorial-uploading-photo-to-a-product/)
+properties:
+  image_front_small_url:
+    type: string
+  image_front_thumb_url:
+    type: string
+  image_front_url:
+    type: string
+  image_nutrition_small_url:
+    type: string
+  image_nutrition_thumb_url:
+    type: string
+  image_nutrition_url:
+    type: string
+  image_small_url:
+    type: string
+  image_thumb_url:
+    type: string
+  image_url:
+    type: string
+  images:
+    description: |
+      This contains properties for all images contained on the product.
+    type: object
+    properties:
+      1:
+        type: object
+        description: |
+          This represents an image uploaded for this product.
+        $ref: ./image.yaml
+      front:
+        description:
+          This represents an image (or part of it) selected for a specific role on this product.
+        type: object
+        $ref: ./image_role.yaml
+    patternProperties:
+      '(?<imgid>\d+)':
+        description: |
+          See property `1` to get the real type of those objects
+          (Put this way because of a [bug in rapidoc](https://github.com/rapi-doc/RapiDoc/issues/880))
+        type: string
+      '(?<image_type>front|nutrition|ingredients|packaging|other)_(?<language_code>\w\w)':
+        description: |
+          See property `front` to get the real type of those objects
+          (Put this way because of a [bug in rapidoc](https://github.com/rapi-doc/RapiDoc/issues/880))
+        type: string
+
+  last_image_dates_tags:
+    type: array
+    items:
+      type: string
+  last_image_t:
+    type: integer
+
+  selected_images:
+    type: object
+    properties:
+      front:
+        type: object
+        description: URLs of thumbnails image of image of type `image_type`
+        properties:
+          display:
+            description: |
+              Thumbnail urls of product image (front) adapted to display on product page
+            type: object
+            $ref: 'image_urls.yaml'
+          small:
+            description: |
+              Thumbnail urls of product image (front) adapted to display on product list page
+            type: object
+            $ref: 'image_urls.yaml'
+          thumb:
+            description: |
+              Thumbnail urls of product image (front) in smallest format
+            type: object
+            $ref: 'image_urls.yaml'
+    patternProperties:
+      '(?<image_type>front|packaging|ingredients|nutrition|other)':
+        description: |
+          See property `front` to get the real type of those objects
+          (Put this way because of a [bug in rapidoc](https://github.com/rapi-doc/RapiDoc/issues/880))
+        type: string

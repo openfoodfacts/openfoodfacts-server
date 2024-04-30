@@ -4,10 +4,10 @@
 # list copied from:
 # REGULATION (EU) No 609/2013 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL
 # of 12 June 2013
-# on food intended for infants and young children, food for special medical purposes, 
+# on food intended for infants and young children, food for special medical purposes,
 # and total diet replacement for weight control and repealing Council Directive 92/52/EEC,
 # Commission Directives 96/8/EC, 1999/21/EC, 2006/125/EC and 2006/141/EC,
-# Directive 2009/39/EC of the European Parliament and of the Council and 
+# Directive 2009/39/EC of the European Parliament and of the Council and
 # Commission Regulations (EC) No 41/2009 and (EC) No 953/2009
 # http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32013R0609&from=FR
 
@@ -19,11 +19,11 @@ el:Βιταμίνη A
 es:Vitamina A
 et:A-vitamiin
 fi:A-vitamiini
-fr:Vitamine A
+fr:Vitamine A, vitamine Pro-A
 he:ויטמין A, רטינול
 hu:A-vitamin
 it:Vitamina A
-ja:ビタミン A
+ja:ビタミンA, ビタミンＡ, ビタミン A, ビタミン Ａ, V.A, Ｖ．Ａ, V-A, ＶーＡ
 lt:Vitaminas A
 lv:A vitamīns
 mt:Vitamina A
@@ -48,6 +48,7 @@ hu:retinol
 it:retinolo
 lt:retinolis
 lv:retinols
+nl:retinol
 wikidata:en:Q424976
 
 # description:en:Retinyl acetate (retinol acetate, vitamin A acetate) is a natural form of vitamin A which is the acetate ester of retinol.
@@ -112,7 +113,6 @@ sk:retinylpalmitát
 sl:retinil palmitat
 sr:Retinil palmitat
 sv:retinylpalmitat
-wikidata:en:Q7316807
 # azb:رتینیل پالمیتات
 wikidata:en:Q7316807
 wikipedia:en:https://en.wikipedia.org/wiki/Retinyl_palmitate
@@ -138,6 +138,7 @@ fr:bêtacarotène, Bêta-carotène, beta-carotène
 gl:Beta-caroteno
 he:בטא-קרוטן
 hi:बीटा कैरोटीन
+hr:beta-karoten
 hu:Béta-karotin
 id:Beta-karoten
 is:Beta-karótín
@@ -187,8 +188,10 @@ de:Provitamin A
 es:provitamina A
 fi:provitamiini A, A-vitamiinin provitamiini
 fr:pro-vitamine A, provitamine A
+hr:provitamina A, iz provitamina A
 hu:A-provitamin
 it:provitamina A
+nl:provitamine A
 wikidata:en:Q306135
 wikipedia:en:https://en.wikipedia.org/wiki/Beta-Carotene
 # vitamin/beta-carotene has 865 products in 8 languages @2018-11-20
@@ -200,6 +203,7 @@ de:Farbstoff Beta-Carotin
 es:colorante de beta-caroteno
 fr:colorant bêta-carotène
 hu:béta-karotin színezék
+nl:bètacaroteenkleurstof
 # fr:colorant-bêta-carotène has 71 products in 4 languages @2019-03-27
 
 # description:en:Vitamin D is a group of fat-soluble secosteroids responsible for increasing intestinal absorption of calcium, magnesium, and phosphate, and multiple other biological effects.
@@ -234,7 +238,7 @@ hy:Վիտամին D
 id:Vitamin D
 is:D-vítamín
 it:vitamina D
-ja:ビタミンD
+ja:ビタミンD, ビタミンＤ, ビタミン D, ビタミン Ｄ, V.D, Ｖ．Ｄ, V-D, ＶーＤ
 ka:ვიტამინი D
 ko:비타민 D
 ky:Кальциферол
@@ -303,11 +307,11 @@ wikipedia:en:https://en.wikipedia.org/wiki/Vitamin_D
 <en:vitamin D
 en:Ergocalciferol, Vitamin D2, D2
 ar:إرغوكالسيفيرول
-ca:Ergocalciferol, vitamina D2, D2
 bg:Ергокалциферол
+ca:Ergocalciferol, vitamina D2, D2
 cs:ergokalciferol, Vitamín D2
 cy:ergocalcifferol
-de:Ergocalciferol, Vitamin D2
+de:Ergocalciferol, Vitamin D2, vitamine D2
 el:εργοκαλσιφερόλη
 eo:Ergokalciferolo
 es:ergocalciferol, vitamina D2, D2
@@ -318,7 +322,7 @@ fr:ergocalciférol, vitamine D2
 hi:एर्गोकैल्सिफेरॉल
 hu:D2-vitamin, Ergokalciferol, D2
 it:Ergocalciferolo, Vitamina D2
-ja:エルゴカルシフェロール
+ja:エルゴカルシフェロール, ビタミンD2, ビタミンＤ２, ビタミン D2, ビタミン Ｄ２, V.D2, Ｖ．Ｄ２, V.D₂, V-D2, ＶーＤ２, V-D₂
 lt:ergokalciferolis
 lv:ergokalciferols
 mt:ergokalċiferol
@@ -338,6 +342,10 @@ sr:ергокалциферол
 sv:vitamin D2, D2, ergokalciferol
 uk:Ергокальциферол
 zh:麦角钙化醇, 维生素D2
+vegan:en:yes
+vegetarian:en:yes
+# vitamin/ergocalciferol has 690 products @2018-11-21
+wikidata:en:Q139200
 # sr-ec:ергокалциферол
 # sr-el:Ergokalciferol
 # zh-cn:维生素D2
@@ -347,10 +355,6 @@ zh:麦角钙化醇, 维生素D2
 # zh-sg:维生素D2
 # zh-tw:维生素D2
 wikipedia:en:https://en.wikipedia.org/wiki/Ergocalciferol
-# vitamin/ergocalciferol has 690 products @2018-11-21
-wikidata:en:Q139200
-vegan:en:yes
-vegetarian:en:yes
 
 # description:en:Cholecalciferol, also known as vitamin D3 and colecalciferol, is a type of vitamin D which is made by the skin, found in some foods, and taken as a dietary supplement.
 
@@ -373,10 +377,10 @@ fa:کلکلسیفرول
 fi:kolekalsiferoli, D3-vitamiini
 fr:cholécalciférol, Vitamine D3
 hi:कॉलेकैल्सिफेरॉल
-hr:Vitamin D3
+hr:Vitamin D3, kolekalciferol
 hu:D3-vitamin, Kolekalciferol, D3
 it:Colecalciferolo, Vitamina D3
-ja:ビタミンD3
+ja:ビタミンD3, ビタミンＤ３, ビタミン D3, ビタミン Ｄ３, V.D3, Ｖ．Ｄ３, V.D₃, V-D3, ＶーＤ３, V-D₃
 ka:ვიტამინი D3
 ko:비타민 D3
 lt:Vitaminas D3, cholekalciferolis
@@ -408,6 +412,8 @@ uk:Холекальциферол, Вітамін D3
 vi:cholecalciferol, vitamin D3
 yi:וויטאמין D3
 zh:胆钙化醇, 维生素D3
+vegan:en:maybe
+vegetarian:en:maybe
 # ast:Vitamina D3
 # en-ca:Vitamin D3
 # en-gb:Vitamin D3
@@ -426,9 +432,6 @@ zh:胆钙化醇, 维生素D3
 # zh-tw:膽鈣化醇, 维生素D3
 wikidata:en:Q139347
 wikipedia:en:https://en.wikipedia.org/wiki/Cholecalciferol
-wikidata:en:Q27089148
-vegan:en:maybe
-vegetarian:en:maybe
 # vitamin/cholecalciferol has 2996 products in 8 languages @2018-11-21
 
 # description:en:VITAMIN E is a group of eight fat soluble compounds that include four tocopherols and four tocotrienols. In order to distinguish between the vitamin and antioxidant role, vitamin E is call tocoferol. The oxidant is called Tocopherol-rich extract or E306.
@@ -458,7 +461,7 @@ hu:E-vitamin, Tokoferol
 hy:Վիտամին E
 id:Vitamin E
 it:Vitamina E
-ja:ビタミン E
+ja:ビタミンE, ビタミンＥ, ビタミン E, ビタミン Ｅ, V.E, Ｖ．Ｅ, V-E, ＶーＥ
 jv:Vitamin E
 ka:ვიტამინი E
 kk:Е дәрумені
@@ -569,17 +572,20 @@ es:acetato de DL-alfa tocoferilo, acetato de DL-alfa tocoferol
 et:DL-alfa-tokoferüülatsetaat
 fi:DL-alfa-tokoferyyliasetaatti
 fr:acétate de DL-alpha-tocophérol, acétate de DL-alpha-tocophéryle
+hr:DL-alfa-tokoferil acetat, DL-a-tokoferilacetat, DL-alpha-tokoferil acetat, dl-alfa-tokoferil-acetat, DL-a-tokoferil acetat
 hu:DL-alfa-tokoferil-acetát
 it:acetato di DL-alfa-tocoferile
 lt:DL-alfa-tokoferilacetatas
 lv:DL-alfa-tokoferilacetāts
 mt:Aċetat ta’ DL-alfa-tokoferil
 nl:DL-alfa-tocoferylacetaat
+nn:dl-α-tokoferylacetat
 pl:octan DL-alfa-tokoferylu
 pt:acetato de DL-alfa-tocoferilo
 ro:acetat de tocoferil DL-alfa
 sk:DL-alfa-tokoferylacetát
 sl:DL-alfa-tokoferil acetat
+sr:DL-a-tokoferil-acetat
 sv:DL-alfa-tokoferylacetat
 wikidata:en:Q27292783
 
@@ -638,7 +644,7 @@ fi:K-vitamiini
 fr:Vitamine K
 hu:K-vitamin
 it:Vitamina K
-ja:ビタミン K
+ja:ビタミンK, ビタミンＫ, ビタミン K, ビタミン Ｋ, V.K, Ｖ．Ｋ, V-K, ＶーＫ
 lt:Vitaminas K
 lv:K vitamīns
 mt:Vitamina K
@@ -662,10 +668,11 @@ es:filoquinona, fitomenadiona, vitamina K1
 et:füllokinoon, fütomenadioon
 fa:فیلوکینون
 fi:fyllokinoni, fytomenadioni, K1-vitamiini
-fr:phylloquinone, phytoménadione, phytonadione, Vitamine K1
+fr:phylloquinone, phytoménadione, phytonadione, Vitamine K1, K1
+hr:vitamin K1
 hu:fillokinon, fitomenadion, K1-vitamin
 it:fillochinone, fitomenadione, vitamina K1
-ja:フィロキノン
+ja:フィロキノン, ビタミンK1, ビタミンＫ１, ビタミン K1, ビタミン Ｋ１, V.K1, Ｖ．Ｋ１, V.K₁, V-K1, ＶーＫ１, V-K₁
 ko:필로퀴논
 ky:Филлохинон
 lt:filochinonas, fitomenadionas
@@ -673,7 +680,7 @@ lv:filohinons, fitomenadions
 mt:fillokinona, fitomenadjona
 nl:fyllochinon, fytomenadion, Vitamine K1
 or:ଫାଇଟୋମେନାଡିଓନ
-pl:filochinon, fitomenadion
+pl:filochinon, fitomenadion, witamina K1
 pt:filoquinona, fitomenadiona
 ro:filochinonă, fitomenadionă
 ru:Филлохинон
@@ -702,6 +709,7 @@ fi:menakinoni
 fr:ménaquinone, Vitamine K2
 hu:menakinon
 it:menachinone
+ja:ビタミンK2, ビタミンＫ２, ビタミン K2, ビタミン Ｋ２, V.K2, Ｖ．Ｋ２, V.K₂, V-K2, ＶーＫ２, V-K₂
 lt:menachinonas
 lv:menahinons
 mt:menakinona
@@ -726,7 +734,7 @@ ga:Vitimín K3
 he:ויטמין K3, מנדיון
 hu:K3-vitamin
 it:Vitamina K3
-ja:ビタミン K3
+ja:ビタミンK3, ビタミンＫ３, ビタミン K3, ビタミン Ｋ３, V.K3, Ｖ．Ｋ３, V.K₃, V-K3, ＶーＫ３, V-K₃
 lt:Vitaminas K3
 lv:K3 vitamīns
 mt:Vitamina K3
@@ -735,8 +743,8 @@ nl_be:Vitamine K3
 pl:Witamina K3
 pt:Vitamina K3
 ro:Vitamina K3
+sk:Vitamín K3
 zh:维生素K3
-sK3:Vitamín K3
 
 # description:en:Vitamin C, also known as ascorbic acid and L-ascorbic acid, is a vitamin found in food and used as a dietary supplement.
 
@@ -770,7 +778,7 @@ hy:Վիտամին C
 id:Vitamin C
 is:C-vítamín
 it:vitamina C
-ja:ビタミンC
+ja:ビタミンC, ビタミンＣ, ビタミン C, ビタミン Ｃ, V.C, Ｖ．Ｃ, V-C, ＶーＣ
 jv:Vitamin C
 ka:vitamine c
 kn:C ಜೀವ ಸತ್ವ
@@ -809,7 +817,7 @@ uk:Вітамін C
 ur:حیاتین ج
 vi:Vitamin C
 yi:וויטאמין C
-zh:维生素C
+zh:维生素C, 维生素 C
 # ast:Vitamina C
 # azb:ویتامین ث
 # nan:Bî-tá-mín C
@@ -844,9 +852,10 @@ et:L-askorbiinhape, askorbiinhape
 fi:L-askorbiinihappo, askorbiinihappo
 fr:acide L-ascorbique, acide ascorbique
 gl:Ácido ascórbico
-hr:askorbinska kiselina
+hr:L-askorbinska kiselina, askorbinska kiselina
 hu:L-aszkorbinsav, aszkorbinsav
 it:acido L-Ascorbico, acido Ascorbico
+ja:L-アスコルビン酸, アスコルビン酸
 lt:L–askorbo rūgštis, askorbo rūgštis
 lv:L-askorbīnskābe, askorbīnskābe
 mt:L-aċidu askorbiku, aċidu askorbiku
@@ -863,7 +872,7 @@ zh:抗坏血酸
 #scn:Ascurbatu
 
 <en:Vitamin C
-en:sodium-L-ascorbate, sodium ascorbate
+en:sodium-L-ascorbate, fscorbate
 bg:Натриев-L-аскорбат
 cs:L-askorbát sodný
 de:Natrium-L-ascorbat
@@ -956,7 +965,7 @@ sv:L-askorbyl-6-palmitat
 
 # description:en:Thiamine, also known as thiamin or vitamin B1, is a vitamin found in food, and manufactured as a dietary supplement and medication.
 
-en:Thiamin, vitamin b1, B1
+en:Thiamin, thiamine, vitamin b1, B1
 af:Tiamien
 ar:فيتامين ب1
 az:Tiamin, B1 vitamini
@@ -983,13 +992,13 @@ ga:Tiaimín
 gl:Tiamina, Vitamina B1
 he:ויטמין B1
 hi:विटामिन बी१
-hr:Tiamin, vitamin B1
+hr:Tiamin, vitamin B1, B1
 hu:Tiamin, B1-vitamin
 hy:Թիամին, Վիտամին B1
 id:Tiamina, Vitamin B1
 is:Þíamín, B1-vítamín
 it:tiamina, vitamina B1
-ja:チアミン, ビタミンB1, ビタミン B1, V.B1
+ja:チアミン, ビタミンB1, ビタミンＢ１, ビタミン B1, ビタミン Ｂ１, V.B1, Ｖ．Ｂ１, V.B₁, V-B1, ＶーＢ１, V-B₁
 ko:티아민, 바이타민 B1
 ky:Витамин В1
 lb:Thiamin, Vitamin B1
@@ -1039,17 +1048,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Thiamine
 # ingredient/vitamin-b1 has 4607 products in 11 languages @2018-11-23
 
 <en:Thiamin
-en:Thiamin mononitrate, thiamine mononitrate
-ca:mononitrat de tiamina
-da:thiamin-mononitrat
-de:Thiaminmononitrat
-es:mononitrato de tiamina
-fr:mononitrate de thiamine
-hu:tiamin-mononitrát
-it:mononitrato di tiamina
-# ingredient/fr:mononitrate-de-thiamine has 83 products in 4 languages @2019-03-11
-
-<en:Thiamin
 en:thiamin hydrochloride
 bg:Тиамин хидрохлорид
 cs:thiamin-hydrochlorid
@@ -1075,15 +1073,18 @@ sr:tiamin-hidrohlorid
 sv:tiaminhydroklorid
 
 <en:Thiamin
-en:thiamin mononitrate
+en:thiamin mononitrate, thiamine mononitrate
 bg:Тиамин мононитрат
+ca:mononitrat de tiamina
 cs:thiamin-mononitrát
+da:thiamin-mononitrat
 de:Thiaminmononitrat
 el:μονονιτρική θειαμίνη
 es:mononitrato de tiamina
 et:tiamiinmononitraat
 fi:tiamiinimononitraatti
 fr:mononitrate de thiamine
+hr:tiamin mononitrat, tiaminmononitrat
 hu:tiamin-mononitrát
 it:mononitrato di tiamina
 lt:tiamino mononitratas
@@ -1096,6 +1097,7 @@ ro:mononitrat de tiamină
 sk:tiamínmononitrát
 sl:tiamin mononitrat
 sv:tiaminmononitrat
+# ingredient/fr:mononitrate-de-thiamine has 83 products in 4 languages @2019-03-11
 
 en:Riboflavin, Vitamin B2
 bg:Рибофлавин
@@ -1106,7 +1108,7 @@ fi:Riboflaviini
 fr:Riboflavine, Vitamine B2
 hu:Riboflavin, B2-vitamin
 it:Riboflavina
-ja:リボフラビン, ビタミンB2, V.B2
+ja:リボフラビン, ビタミンB2, ビタミンＢ２, ビタミン B2, ビタミン Ｂ２, V.B2, Ｖ．Ｂ２, V.B₂, V-B2, ＶーＢ２, V-B₂
 lt:Riboflavinas
 lv:Riboflavīns
 nl:Riboflavine
@@ -1121,15 +1123,16 @@ es:Niacina, Vitamina B3
 et:Niatsiin
 fi:Niasiini
 fr:Niacine, Vitamine B3, Vitamine PP
+hr:niacin, Vitamin B3, nijacin
 hu:Niacin, B3-vitamin, PP-vitamin
 it:Niacina
-ja:ナイアシン
+ja:ナイアシン, ビタミンB3, ビタミンＢ３, ビタミン B3, ビタミン Ｂ３, V.B3, Ｖ．Ｂ３, V.B₃, V-B3, ＶーＢ３, V-B₃
 lt:Niacinas
 lv:Niacīns
 mt:Niaċina
 nb:Niacin
 nl:Niacine
-pl:Niacyna
+pl:Niacyna, witamina B3, witamina PP
 pt:Niacina
 ro:Niacină
 sk:Niacín
@@ -1171,7 +1174,8 @@ hu:nikotinamid
 lt:nikotinamidas
 lv:nikotīnamīds
 mt:nikotinamide
-pl:nikotynamid
+nl:nicotinamide
+pl:nikotynamid, amid kwasu nikotynowego
 pt:nicotinamida
 ro:nicotinamidă
 sk:nikotínamid
@@ -1179,15 +1183,17 @@ sl:nikotinamid
 sv:nikotinamid
 
 en:Vitamin B6, Pyridoxin
-bg:Витамин B6
-de:de:Vitamin B6, Pyridoxin
+bg:Витамин B6, Пиридоксин
+de:Vitamin B6, Pyridoxin
 el:Βιταμίνη B6
 es:Vitamina B6
 et:B6-vitamiin
 fi:B6-vitamiini
 fr:Vitamine B6, Pyridoxine
+hr:vitamin B6, B6
 hu:B6-vitamin, piridoxin
 it:Vitamina B6, piridoxina
+ja:ビタミンB6, ビタミンＢ６, ビタミン B6, ビタミン Ｂ６, V.B6, Ｖ．Ｂ６, V.B₆, V-B6, ＶーＢ６, V-B₆
 lt:Vitaminas B6
 lv:B6 vitamīns
 mt:Vitamina B6
@@ -1208,6 +1214,7 @@ es:clorhidrato de piridoxina
 et:püridoksiinvesinikkloriid
 fi:pyridoksiinihydrokloridi
 fr:chlorhydrate de pyridoxine
+hr:piridoksin-hidroklorid
 hu:piridoxin-hidroklorid
 it:cloridrato di piridossina
 lt:piridoksino hidrochloridas
@@ -1224,6 +1231,8 @@ sv:pyridoxinhydroklorid
 <en:Vitamin B6
 en:pyridoxine 5'-phosphate
 hu:pirodoxál-5-foszfát
+nl:pyridoxine-5'-fosfaat
+
 
 <en:Vitamin B6
 en:pyridoxine dipalmitate
@@ -1296,12 +1305,13 @@ gd:Searbhag dhuilleagach
 gl:Ácido fólico
 he:חומצה פולית
 hi:फोलिक एसिड
+hr:folna kiselina, pteroilmonoglutaminska kiselina, pteroylmonoglutamic, vitamin B9, B9
 hu:folsav, pteroil-monoglutaminsav, B9-vitamin
 hy:Վիտամին B9
 id:Asam folat
 is:Fólínsýra
 it:acido folico, acido pteroil-monoglutammico, Vitamina B9
-ja:葉酸, B9
+ja:葉酸, ビタミンB9, ビタミンＢ９, ビタミン B9, ビタミン Ｂ９, V.B9, Ｖ．Ｂ９, V.B₉, V-B9, ＶーＢ９, V-B₉
 kk:Птероилглютамин
 ko:엽산
 ky:Фоли кычкылы
@@ -1335,6 +1345,7 @@ uk:Фолієва кислота
 ur:فولک تیزاب
 vi:axit folic
 zh:维生素B9, 叶酸
+wikidata:en:Q127060
 # ast:Ácidu fólicu
 # en-ca:Folic acid
 # en-gb:Folic acid
@@ -1346,7 +1357,6 @@ zh:维生素B9, 叶酸
 # sr-ec:фолна киселина
 # yue:葉酸
 wikipedia:en:https://en.wikipedia.org/wiki/Folate
-wikidata:en:Q127060
 # en:vitamin/folic-acid has 23535 products in 17 languages @2018-11-19
 # ingredient/fr:acide-folique has 22121 products in 13 languages @2018-11-19
 # ingredient/fr:folacine has 48 products in 2 languages @2019-04-16
@@ -1378,6 +1388,7 @@ sv:kalcium-L-metylfolat
 en:folacin
 es:folacina
 fr:Folacine
+nl:folacin
 
 # description:en:Vitamin B12, also called cobalamin, is a water-soluble vitamin
 # that is involved in the metabolism of every cell of the human body:
@@ -1387,14 +1398,14 @@ en:vitamin b12, cobalamin
 af:Vitamien B12
 ar:فيتامين بي 12
 az:B12 vitamini
-bg:витамин В12
+bg:витамин В12, кобаламин
 bn:সায়ানোকোবালেমিন
 bs:Vitamin B12
 ca:cobalamina, vitamina B12, B12
 cs:kobalamin, vitamín B12
 cy:cobalamin, Fitamin B12
 da:Vitamin B12
-de:Cobalamine, Vitamin B12
+de:Cobalamine, Vitamin B12, vitamine B12
 dv:ވިޓަމިން ބީ12
 el:Βιταμίνη B12
 eo:Kobalamino, Vitamino B12
@@ -1406,13 +1417,13 @@ fi:Kobalamiini, B12-vitamiini, Vitamiini B12
 fr:Cobalamine, vitamine b12, b12
 he:ויטמין B12
 hi:विटामिन बी१२
-hr:Kobalamin, Vitamin B12
+hr:Kobalamin, Vitamin B12, B12, cianokobalamin, cijano-kobalamin
 hu:B12-vitamin, Kobalamin, B12
 hy:Վիտամին B12
 id:Vitamin B12
 is:B12-vítamín
 it:Cobalamina, vitamina B12
-ja:シアノコバラミン, ビタミン B12
+ja:シアノコバラミン, ビタミンB12, ビタミンＢ１２, ビタミン B12, ビタミン Ｂ１２, V.B12, Ｖ．Ｂ１２, V.B₁₂, V-B12, ＶーＢ１２, V-B₁₂
 jv:Vitamin b12
 kk:Кобаламин
 ko:비타민 B12
@@ -1468,6 +1479,7 @@ es:cianocobalamina
 et:tsüanokobalamiin
 fi:syanokobalamiini
 fr:cyanocobalamine
+hr:cijanokobalamin
 hu:cianokobalamin
 it:cianocobalamina
 lt:cianokobalaminas
@@ -1509,11 +1521,13 @@ sv:hydroxykobalamin
 
 en:biotin
 bg:Биотин
+de:Biotin, Vitamin B7
 el:Βιοτίνη
 es:Biotina, Vitamina B7
 et:Biotiin
 fi:Biotiini
 fr:Biotine, Vitamine B7, Vitamine H
+hr:biotin
 hu:Biotin, B7-vitamin, H-vitamin
 it:Biotina
 lt:Biotinas
@@ -1527,12 +1541,15 @@ sk:Biotín
 
 <en:Biotin
 en:D-Biotin
+hr:D-biotin
 hu:D-biotin
+nl:D-biotine
 
 # description:en:Vitamin B8 is a former designation given to several distinct chemical compounds, which is not considered a true vitamin
 
 <en:biotin
 en:vitamin b8, B8
+bg:витамин b8,витамин Б8, B8, инозитол
 ca:vitamina B8, B8
 de:Vitamin B8
 es:vitamina b8, B8
@@ -1540,21 +1557,25 @@ fi:B8-vitamiini, B8
 fr:vitamine b8, b8
 hu:B8-vitamin, B8
 it:vitamina b8, B8
+ja:ビタミンＢ８, ビタミン B8, ビタミン Ｂ８, V.B8, Ｖ．Ｂ８, V.B₈, V-B8, ＶーＢ８, V-B₈
+nl:vitamine b8, B8
 pl:witamina B8, B8
 # ingredient/vitamin-b8 has 35 products in 3 languages @2018-11-24
 
 en:Pantothenic Acid, Vitamin B5
-bg:Пантотенова киселина
+bg:Пантотенова киселина, Витамин B5
 cs:Kyselina pantothenová
 da:Pantotensyre, Pantothensyre
-de:Pantothensäure
+de:Pantothensäure, Pantothenat
 el:Παντοθενικό οξύ
 es:Ácido pantoténico
 et:Pantoteenhape
 fi:Pantoteenihappo
 fr:Acide pantothénique, Vitamine B5
+hr:vitamin B5
 hu:Panoténsav, B5-vitamin
 it:Acido pantotenico
+ja:パントテン酸, ビタミンＢ５, ビタミン B5, ビタミン Ｂ５, V.B5, Ｖ．Ｂ５, V.B₅, V-B5, ＶーＢ５, V-B₅
 lt:Pantoteno rūgštis
 lv:Pantotēn-skābe
 mt:Aċidu Pantoteniku
@@ -1576,8 +1597,10 @@ es:D-pantotenato cálcico
 et:kaltsium-D-pantotenaat
 fi:D-pantotenaatti kalsium
 fr:D-pantothénate de calcium,D- calcium pantothénate
+hr:kalcijev D-pantotenat
 hu:kalcium-D-pantotenát
 it:D-pantotenato calcio
+ja:パントテン酸ca, パントテン酸カルシウム
 lt:kalcio D-pantotenatas
 lv:kalcija D-pantotenāts
 mt:D-pantotenat kalċju
@@ -1625,6 +1648,7 @@ it:dexpantenolo
 lt:dekspantenolis
 lv:dekspantenols
 mt:dexpantenolu
+nl:dexpanthenol
 pl:dekspantenol
 pt:dexpantenol
 ro:dexpantenol
@@ -1647,9 +1671,4 @@ fi:A- ja D-vitamiini
 fr:vitamines A et D, A et D
 nl:vitamine A en D, A en D
 sv:vitamin A och D, vitamin A och vitamin D
-
-
-<en:vitamin B2
-<en:vitamin B9
-nl:Vitamines B2 en B9
 

@@ -1,0 +1,38 @@
+@import "../mixins/lists";
+
+/*
+ * Bullet list using arrow icon as bullet
+ */
+$include-sveetoy-lists: $include-sveetoy-classes !default;
+
+@if $include-sveetoy-lists {
+    ul.arrow{
+        list-style-type: none;
+
+        &:not(.defer){
+            li {
+                position: relative;
+                padding-left: 1.5rem;
+
+                &:before {
+                    @include sveetoy-arrow-bullet();
+                }
+            }
+        }
+        // Defer arrow pseudo element to first direct child element of list items
+        &.defer{
+            li {
+                position: relative;
+
+                &>*:first-child{
+                    position: relative;
+                    padding-left: 2rem;
+
+                    &:before {
+                        @include sveetoy-arrow-bullet($top-position: 0.60rem);
+                    }
+                }
+            }
+        }
+    }
+}

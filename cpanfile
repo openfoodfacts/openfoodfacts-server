@@ -1,6 +1,6 @@
 # Should also be available as Debian packages
 # If a minimum version number is specified, "cpanm --skip-satisfied" will install a newer version than apt if one is available in cpan.
-
+requires 'Array::Diff';
 requires 'CGI', '>= 4.53, < 5.0'; # libcgi-pm-perl
 requires 'Tie::IxHash'; # libtie-ixhash-perl
 requires 'LWP::Authen::Digest'; # libwww-perl
@@ -9,14 +9,15 @@ requires 'LWP::UserAgent'; # libwww-perl
 requires 'Image::Magick'; # libimage-magick-perl
 requires 'XML::Encoding'; # libxml-encoding-perl
 requires 'MIME::Lite'; # libmime-lite-perl
+requires 'MIME::Base32';
 requires 'Cache::Memcached::Fast'; #libcache-memcached-fast-perl
 requires 'JSON'; # libjson-perl
 requires 'JSON::PP'; # libjson-pp-perl
+requires 'Cpanel::JSON::XS'; # libcpanel-json-xs-perl - fast parsing
+requires 'JSON::MaybeXS'; # libjson-maybexs-perl
 requires 'Clone'; # libclone-perl
 requires 'Crypt::PasswdMD5'; # libcrypt-passwdmd5-perl
 requires 'Encode::Detect'; # libencode-detect-perl
-requires 'Graphics::Color::RGB'; # libgraphics-color-perl
-requires 'Graphics::Color::HSL'; # libgraphics-color-perl
 requires 'Barcode::ZBar'; # libbarcode-zbar-perl
 requires 'XML::FeedPP'; # libxml-feedpp-perl
 requires 'URI::Find'; # liburi-find-perl
@@ -39,7 +40,8 @@ requires 'Path::Tiny', '>= 0.118'; # libpath-tiny-perl
 
 # Probably not available as Debian/Ubuntu packages
 requires 'MongoDB', '>= 2.2.2, < 2.3'; # libmongodb-perl has 1.8.1/2.0.3 vs 2.2.2. deps: libauthen-sasl-saslprep-perl, libbson-perl, libauthen-scram-perl, libclass-xsaccessor-perl, libdigest-hmac-perl, libsafe-isa-perl, libconfig-autoconf-perl, libpath-tiny-perl
-requires 'Encode::Punycode'; # deps: libnet-idn-encode-perl, libtest-nowarnings-perl
+# we fix this because MongoDB depends on it, and 0.023 does not install correctly
+requires 'Type::Tiny::XS', '==0.022';
 requires 'GraphViz2'; # deps: libfile-which-perl, libdata-section-simple-perl, libwant-perl, libipc-run3-perl, liblog-handler-perl, libtest-deep-perl
 requires 'Algorithm::CheckDigits'; # libalgorithm-checkdigits-perl has 0.50 vs 1.3.3. deps: libprobe-perl-perl
 requires 'Image::OCR::Tesseract'; # deps: libfile-find-rule-perl
@@ -64,7 +66,10 @@ requires 'JSON::Create';
 requires 'JSON::Parse';
 requires 'Data::DeepAccess';
 requires 'XML::XML2JSON';
-
+requires 'Redis';
+requires 'Digest::SHA1';
+requires 'Data::Difference';
+requires 'Data::Compare';
 
 # Mojolicious/Minion
 requires 'Mojolicious::Lite';
@@ -80,24 +85,66 @@ requires 'Log::Any::Adapter::Log4perl', '>= 0.09'; # liblog-any-adapter-log4perl
 requires 'Action::CircuitBreaker';
 requires 'Action::Retry'; # deps: libmath-fibonacci-perl
 
+# AnyEvent
+requires 'AnyEvent';
+requires 'AnyEvent::Inotify::Simple';
+
+# more Apache stuff
+requires 'Apache::Bootstrap';  # needed by Apache2::Connection::XForwardedFor
+requires 'Apache2::Connection::XForwardedFor';
+
+# GS1 Sunrise 2027
+requires 'GS1::SyntaxEngine::FFI';
+requires 'Imager::zxing';
+requires 'Imager::File::AVIF';
+requires 'Imager::File::HEIF';
+requires 'Imager::File::JPEG';
+requires 'Imager::File::PNG';
+requires 'Imager::File::WEBP';
+
+# To dynamically load Config_*.pm modules
+requires 'Module::Load';
+
 on 'test' => sub {
-  requires 'Test::More', '>= 1.302186, < 2.0';
-  requires 'Test::MockModule';
+  requires 'Test2::V0';
   requires 'Mock::Quick';
-  requires 'Test::Number::Delta'; # libtest-number-delta-perl
   requires 'Test::Files';
   requires 'File::Spec';
   requires 'Log::Any::Adapter::TAP'; # liblog-any-adapter-tap-perl
   requires 'IO::Capture::Stdout::Extended';
   requires 'IO::Capture::Stderr::Extended';
+  requires 'HTTP::CookieJar::LWP';
+  requires 'File::Tail';
+  requires 'Test2::Plugin::UTF8';
+  requires 'Devel::Cover';
+  requires 'Devel::Cover::Report::Codecov';
+  requires 'Devel::Cover::Report::Codecovbash';
+  requires 'Test::Fake::HTTPD';
+  requires 'URL::Encode';
+  requires 'Test::File::Contents';
+  requires 'FindBin';
+  requires 'Test::Pod';
 };
 
 on 'develop' => sub {
   requires 'Test::Perl::Critic', '>=1.04', '<2.0'; # perl-critic refuse to install without this explicit deps
   requires 'Perl::Critic', '>= 1.140, < 2.0'; # libperl-critic-perl has 1.132 vs 1.138, and all the depended on packages are old too.
   requires 'Apache::DB', '>= 0.18, < 1.00'; # old non-working version also available as the Debian package libapache-db-perl 0.14
+  requires 'Perl::Tidy';
+  requires 'Perl::Critic';
+  requires 'Devel::Cover';
+  requires 'Devel::Cover::Report::Codecov';
+  requires 'Devel::Cover::Report::Codecovbash';
+  requires 'Test2::Harness';
+};
+
+feature "off_server_dev_tools", "Optional development tools" => sub {
+  # Modules needed to ease development but not need to run CI tasks or automated tests
+  # on GitHub, or for production
+  # For docker, use CPANMOPTS=--with-develop  --with-feature=off_server_dev_tools
   requires 'Devel::REPL';
   requires 'Term::ReadLine::Gnu', '>= 1.42, < 2.0'; # readline support for the Perl debugger. libterm-readline-gnu-perl is available.
   requires 'Perl::LanguageServer';
   requires 'Hash::SafeKeys';  # Perl::LanguageServer dependency
-}
+};
+

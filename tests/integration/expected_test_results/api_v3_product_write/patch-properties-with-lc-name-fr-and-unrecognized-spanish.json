@@ -1,0 +1,42 @@
+{
+   "code" : "1234567890012",
+   "errors" : [],
+   "product" : {
+      "packagings" : [
+         {
+            "material" : {
+               "id" : "en:paper",
+               "lc_name" : "Papier"
+            },
+            "number_of_units" : 2,
+            "recycling" : {
+               "id" : "en:recycle",
+               "lc_name" : "Recycler"
+            },
+            "shape" : {
+               "id" : "es:Something in Spanish",
+               "lc_name" : "es:Something in Spanish"
+            }
+         }
+      ]
+   },
+   "status" : "success_with_warnings",
+   "warnings" : [
+      {
+         "field" : {
+            "id" : "shape",
+            "value" : "es:Something in Spanish"
+         },
+         "impact" : {
+            "id" : "none",
+            "lc_name" : "None",
+            "name" : "None"
+         },
+         "message" : {
+            "id" : "unrecognized_value",
+            "lc_name" : "Unrecognized value",
+            "name" : "Unrecognized value"
+         }
+      }
+   ]
+}

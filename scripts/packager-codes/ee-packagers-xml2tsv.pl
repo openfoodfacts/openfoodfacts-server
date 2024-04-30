@@ -4,7 +4,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -42,52 +42,45 @@ my $APIKEY = undef;
 # (It will treat an HTTPS URL as a filename,
 # likely throwing a "No such file or directory" exception.)"
 # So we use LWP for downloading.
-my $xml_doc
-	= get
-	'https://agri.ee/sites/default/files/opendata/toit/Toidukaitlejad.xml'
+my $xml_doc = get 'https://agri.ee/sites/default/files/opendata/toit/Toidukaitlejad.xml'
 	or die "Error: Unable to get XML file.";
 
-my $dom_ref
-	= XML::LibXML->load_xml( string => ( \$xml_doc ), no_blanks => 1 );
+my $dom_ref = XML::LibXML->load_xml(string => (\$xml_doc), no_blanks => 1);
 
-foreach my $row_ref ( $dom_ref->findnodes('/v_toidukaitleja_avaandmed/row') )
-{
-	$row_ref->addNewChild( undef, 'lat' );
-	$row_ref->addNewChild( undef, 'lng' );
+foreach my $row_ref ($dom_ref->findnodes('/v_toidukaitleja_avaandmed/row')) {
+	$row_ref->addNewChild(undef, 'lat');
+	$row_ref->addNewChild(undef, 'lng');
 }
 
 # tunnustatud = approved
 # tunnusnumber = approval number
 my $approved_xpath_ref
 	= XML::LibXML::XPathExpression->new(
-	'//row[ tunnustatud = "true" and ./tunnusnumber/node() and ./tunnusnumber != "----" ]'
-	);
+	'//row[ tunnustatud = "true" and ./tunnusnumber/node() and ./tunnusnumber != "----" ]');
 my @approved_establs = $dom_ref->findnodes($approved_xpath_ref);
 
 my $geocoder_ref = undef;
 if ($APIKEY) {
 	$geocoder_ref = Geo::Coder::Google->new(
 		apikey => $APIKEY,
-		host   => 'maps.google.ee',
+		host => 'maps.google.ee',
 		region => 'ee'
 	);
 }
 
 if ($geocoder_ref) {
 	foreach my $approved_establ_ref (@approved_establs) {
-		my $address
-			= $approved_establ_ref->findvalue('./tegevuskoha_aadress');
+		my $address = $approved_establ_ref->findvalue('./tegevuskoha_aadress');
 		my ($lat_node_ref) = $approved_establ_ref->findnodes('./lat[1]');
 		my ($lng_node_ref) = $approved_establ_ref->findnodes('./lng[1]');
 		next
-			unless my $location_ref
-			= $geocoder_ref->geocode( location => $address );
-		$lat_node_ref->appendText( $location_ref->{geometry}{location}{lat} );
-		$lng_node_ref->appendText( $location_ref->{geometry}{location}{lng} );
+			unless my $location_ref = $geocoder_ref->geocode(location => $address);
+		$lat_node_ref->appendText($location_ref->{geometry}{location}{lat});
+		$lng_node_ref->appendText($location_ref->{geometry}{location}{lng});
 	}
 }
 
-my $xslt_ref      = XML::LibXSLT->new();
+my $xslt_ref = XML::LibXSLT->new();
 my $style_doc_ref = XML::LibXML->load_xml(
 	location => 'toidukaitlejad-tsv.xsl',
 	no_cdata => 1
@@ -96,4 +89,4 @@ my $stylesheet_ref = $xslt_ref->parse_stylesheet($style_doc_ref);
 
 my $tsv_ref = $stylesheet_ref->transform($dom_ref);
 
-$stylesheet_ref->output_file( $tsv_ref, 'EE-merge-UTF-8.tsv' );
+$stylesheet_ref->output_file($tsv_ref, 'EE-merge-UTF-8.tsv');

@@ -1,0 +1,5 @@
+type: object
+patternProperties:
+  '(?<language_code>\w\w)':
+    type: string
+    description: url of the image for language `language_code`

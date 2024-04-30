@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -26,6 +26,7 @@ use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
@@ -87,7 +88,7 @@ sub find_products($$) {
 
 
 if (scalar $#products < 0) {
-	find_products("$data_root/products",'');
+	find_products($BASE_DIRS{PRODUCTS},'');
 }
 
 
@@ -109,7 +110,7 @@ my %codes = ();
 		
 		
 		#my $product_ref = retrieve_product($code);
-		my $product_ref = retrieve("$data_root/products/$path/product.sto") or print "not defined $data_root/products/$path/product.sto\n";
+		my $product_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/product.sto") or print "not defined $BASE_DIRS{PRODUCTS}/$path/product.sto\n";
 
 		if ((defined $product_ref)) {
 

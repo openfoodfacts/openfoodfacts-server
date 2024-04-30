@@ -1,0 +1,26 @@
+title: image_element
+x-stoplight:
+  id: k4v4kwt489q3j
+type: object
+properties:
+  url:
+    type: string
+    description: full URL of the image
+  width:
+    type: integer
+    description: |
+      Width of the image.
+
+      This is just a suggestion coming from the server, 
+      the client may choose to use its own dimensions for the image.
+  height:
+    type: integer
+    description: |
+      Height of the image.
+
+      This is just a suggestion coming from the server,
+      the client may choose to use its own dimensions for the image.
+  alt_text:
+    type: string
+    description: Alt Text of the image.
+  

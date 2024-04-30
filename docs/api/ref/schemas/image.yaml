@@ -1,0 +1,36 @@
+type: object
+description: |
+  This object represent an image that was uploaded to a product.
+  "imgid" is an integer which is a sequential number unique to each picture.
+properties:
+  sizes:
+    type: object
+    description: |
+      The available image sizes for the product (both reduced and full). 
+      The reduced images are the ones with numbers as the key( 100, 200 etc) 
+      while the full images have `full` as the key.
+    properties:
+      full:
+          description: |
+            properties of fullsize image
+            **TODO** explain how to compute name
+          $ref: ./image_size.yaml
+    patternProperties:
+      '(?<image_size>100|400)':
+        description: |
+          properties of thumbnail of size `image_size`.
+          **TODO** explain how to compute name
+
+          For real type: see description of property `full`.
+          (Put this way because of a [bug in rapidoc](https://github.com/rapi-doc/RapiDoc/issues/880))
+        type: string
+  uploaded_t:
+    type: string
+    example: '1457680652'
+    description: |
+      The time the image was uploaded (as unix timestamp).
+  uploader:
+    type: string
+    example: openfoodfacts-contributors
+    description: |
+      The contributor that uploaded the image.

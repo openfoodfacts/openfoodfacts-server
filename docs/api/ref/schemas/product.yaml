@@ -1,0 +1,29 @@
+type: object
+description: |
+  This is all the fields describing a product and how to display it on a page.
+
+  Refer to the different sub schema for more readable entries:
+
+  * [Product Base](#cmp--schemas-product-base): Base fields of a product
+  * [Product Misc](#cmp--schemas-product-misc): Miscellaneous but important fields of a product
+  * [Product Tags](#cmp--schemas-product-tags): Tags fields on a product
+  * [Product Nutrition](#cmp--schemas-product-nutrition): Nutrition fields of a product
+  * [Product Ingredients](#cmp--schemas-product-ingredients): Fields about ingredients of a product
+  * [Product Images](#cmp--schemas-product-images): Information about Images of a product
+  * [Product Eco-Score](#cmp--schemas-product-images): Fields related to Eco-Score for a product
+  * [Product Metadata](#cmp--schemas-product-ecoscore): Metadata of a product (author, editors, etc.)
+  * [Product Data Quality](#cmp--schemas-product-quality): fields related to data quality for a product
+  * [Product Knowledge Panels](#cmp--schemas-product-knowledge-panels): Knowledge panels for a product
+
+allOf:
+  - $ref: './product_base.yaml'
+  - $ref: './product_misc.yaml'
+  - $ref: './product_tags.yaml'
+  - $ref: './product_images.yaml'
+  - $ref: './product_ecoscore.yaml'
+  - $ref: './product_ingredients.yaml'
+  - $ref: './product_nutrition.yaml'
+  - $ref: './product_quality.yaml'
+  - $ref: './product_extended.yaml'
+  - $ref: './product_meta.yaml'
+  - $ref: './product_knowledge_panels.yaml'

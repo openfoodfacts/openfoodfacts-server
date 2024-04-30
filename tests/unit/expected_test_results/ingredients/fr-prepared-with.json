@@ -1,0 +1,57 @@
+{
+   "ingredients" : [],
+   "ingredients_hierarchy" : [],
+   "ingredients_n" : 0,
+   "ingredients_n_tags" : [
+      "0",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [],
+   "ingredients_text" : "Elaboré avec 50g d'abricots, produit avec 30% d'asperges, fabriquée avec 500g de viande pour 100g, préparé à partir de 140 g de tomates pour 100g de produit",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 0,
+   "ingredients_with_unspecified_percent_sum" : 0,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
+   "known_ingredients_n" : 0,
+   "lc" : "fr",
+   "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 220,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 220,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 220,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 220
+   },
+   "specific_ingredients" : [
+      {
+         "id" : "en:apricot",
+         "ingredient" : "abricots",
+         "quantity" : "50 g",
+         "quantity_g" : 50,
+         "text" : "Elaboré avec 50g d'abricots"
+      },
+      {
+         "id" : "en:asparagus",
+         "ingredient" : "asperges",
+         "percent" : 30,
+         "text" : "produit avec 30% d'asperges"
+      },
+      {
+         "id" : "en:meat",
+         "ingredient" : "viande",
+         "quantity" : "500 g",
+         "quantity_g" : 500,
+         "text" : "fabriquée avec 500g de viande pour 100g"
+      },
+      {
+         "id" : "en:tomato",
+         "ingredient" : "tomates",
+         "quantity" : "140 g",
+         "quantity_g" : 140,
+         "text" : "préparé à partir de 140 g de tomates pour 100g de produit"
+      }
+   ],
+   "unknown_ingredients_n" : 0
+}

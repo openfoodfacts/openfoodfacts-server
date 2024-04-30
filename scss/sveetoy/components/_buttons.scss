@@ -1,0 +1,77 @@
+@import "../mixins/colors";
+
+/*
+ * Button enhancements
+ */
+$include-sveetoy-buttons: $include-sveetoy-classes !default;
+
+$sveetoy-button-modests: () !default;
+$sveetoy-button-colors-schemes: () !default;
+
+@if $include-sveetoy-buttons {
+    button,
+    .button,
+    .top-bar-section ul li> a.buttonbar{
+        ///
+        /// Explicitely remove all button margins
+        ///
+        &.unmarged {
+            margin: 0;
+        }
+
+        ///
+        /// Make important button
+        ///
+        &.important{
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        ///
+        /// Fullwidth (like '.expand' but keeping padding)
+        ///
+        &.full {
+            width: 100%;
+        }
+
+        ///
+        /// Modest padding
+        ///
+        &.modest{
+            $default-padding: map-get($sveetoy-button-modests, "medium");
+            @if $default-padding{
+                padding: $default-padding ($default-padding * 2) $default-padding ($default-padding * 2);
+            }
+
+            @each $name, $padding in $sveetoy-button-modests{
+                &.#{$name}{
+                    @if $default-padding{
+                        padding: $padding ($padding * 2) $padding ($padding * 2);
+                    }
+                }
+            }
+        }
+
+        ///
+        /// Various color variants from color schemes
+        ///
+        @if $sveetoy-button-colors-schemes{
+            @each $name, $scheme in $sveetoy-button-colors-schemes{
+                &.#{$name}{
+                    @include sveetoy-button-colors($scheme, $apply-border: true);
+                }
+            }
+        }
+    }
+
+    ///
+    /// Disable bottom margin for last element
+    ///
+    div, p, dd, li{
+        button, .button{
+            &:last-child{
+                margin-bottom: 0;
+            }
+        }
+    }
+}

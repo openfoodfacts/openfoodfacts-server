@@ -214,9 +214,9 @@ msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
 msgstr ""
 
-# Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
+# Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
 msgctxt "android_app_icon_url"
-msgid "/images/misc/google-play-badge-svg-master/img/en_get.svg"
+msgid "/images/misc/playstore/img/en_get.svg"
 msgstr ""
 
 msgctxt "android_app_icon_alt_text"
@@ -1527,7 +1527,7 @@ msgstr ""
 
 # Make sure the translated link works (eg that the image already exists in your language)
 msgctxt "og_image_url"
-msgid "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
+msgid "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
 msgstr ""
 
 # Do not change the lang code if the blog doesn't exist in your language
@@ -2308,7 +2308,7 @@ msgstr ""
 
 msgctxt "site_name"
 msgid "Open Food Facts"
-msgstr ""
+msgstr "Open Food Facts"
 
 msgctxt "logo_site_name"
 msgid "Open Food Facts logo"
@@ -2534,7 +2534,7 @@ msgstr ""
 
 # Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
 msgctxt "windows_phone_app_link"
-msgid "https://www.microsoft.com/en-us/p/openfoodfacts/9nblggh0dkqr"
+msgid "https://apps.microsoft.com/store/detail/open-food-facts-scan-to-get-nutriscore-ecoscore-and-more/XP8LT18SRPKLRG"
 msgstr ""
 
 msgctxt "you_are_connected_as_x"
@@ -2578,15 +2578,15 @@ msgid "Warning: the amount of fruits, vegetables and nuts is not specified, thei
 msgstr ""
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
-msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was manually estimated from the list of ingredients: %d%"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was manually estimated from the list of ingredients: %d"
 msgstr ""
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
-msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d%"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d"
 msgstr ""
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_from_ingredients_warning"
-msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d%"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d"
 msgstr ""
 
 msgctxt "nutrition_grade_fr_title"

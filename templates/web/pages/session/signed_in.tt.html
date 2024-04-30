@@ -1,0 +1,28 @@
+<!-- start templates/[% template.name %] -->
+
+<p>[% lang('hello')%] [% user_name %]!</p>
+
+[% IF !server_options_producers_platform %]
+    [% IF lc == "en" or lc == "fr" %]
+        <h3>[% lang('you_can_also_help_us') %]</h3>
+        <p>[% lang('bottom_content') %]</p>
+    [% END %]
+[% ELSE %]
+
+    <h3>[% lang("resources") %]</h3>
+
+    <ul>
+        [% INCLUDE 'web/common/producers_resources_list.tt.html' %]
+    </ul>
+
+[% END %]
+
+[% IF admin and server_options_producers_platform %]
+    <p>
+        <a href="https://docs.google.com/document/d/106LAPvseRcMA_6mBj0uNXZcEDiiCKWH9SKzg0JMeg0w/edit">
+            [% lang('producers_administration_manual') %]
+        </a>
+    </p>
+[% END %]
+
+<!-- end templates/[% template.name %] -->

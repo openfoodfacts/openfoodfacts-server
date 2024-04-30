@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2021 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -20,22 +20,22 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2017';
-use utf8;
+use ProductOpener::PerlStandards;
 
 use CGI::Carp qw(fatalsToBrowser);
 use CGI qw/:cgi :form escapeHTML/;
 
-use ProductOpener::Lang qw/:all/;
-use ProductOpener::Display qw/:all/;
-use ProductOpener::Food qw/:all/;
-use ProductOpener::Tags qw/:all/;
+use ProductOpener::Lang qw/$lc/;
+use ProductOpener::Display qw/$nutriment_table init_request/;
+use ProductOpener::HTTP qw/write_cors_headers/;
+use ProductOpener::Food qw/%nutriments_tables get_nutrient_unit/;
+use ProductOpener::Tags qw/display_taxonomy_tag get_property/;
 
 use Log::Any qw($log);
 use CGI qw/:cgi :form escapeHTML/;
 use JSON::PP;
 
-ProductOpener::Display::init();
+my $request_ref = ProductOpener::Display::init_request();
 
 # Turn the flat nutriments table array into a nested array of nutrients
 # The level of each nutrient is indicated by leading dashes before its id:
@@ -48,9 +48,9 @@ my $parent_level0;
 my $parent_level1;
 
 foreach (@{$nutriments_tables{$nutriment_table}}) {
-	my $nid = $_;	# Copy instead of alias
+	my $nid = $_;    # Copy instead of alias
 
-	$nid =~/^#/ and next;
+	$nid =~ /^#/ and next;
 	my $important = ($nid =~ /^!/) ? JSON::PP::true : JSON::PP::false;
 	$nid =~ s/!//g;
 	my $default_edit_form = $nid =~ /-$/ ? JSON::PP::false : JSON::PP::true;
@@ -58,41 +58,65 @@ foreach (@{$nutriments_tables{$nutriment_table}}) {
 
 	my $onid = $nid =~ s/^(\-+)//gr;
 
-	my $current_ref = { id => $onid, important => $important, display_in_edit_form => $default_edit_form };
+	my $current_ref = {id => $onid, important => $important, display_in_edit_form => $default_edit_form};
 	my $name = display_taxonomy_tag($lc, "nutrients", "zz:$onid");
 	if (defined $name) {
 		$current_ref->{name} = $name;
+	}
+	my $unit = get_nutrient_unit($onid);
+	if (defined $unit) {
+		$current_ref->{unit} = $unit;
 	}
 
 	my $prefix_length = 0;
 	if ($nid =~ s/^--//g) {
 		$prefix_length = 2;
-	} elsif($nid =~ s/^-//g) {
+	}
+	elsif ($nid =~ s/^-//g) {
 		$prefix_length = 1;
 	}
 
 	if ($prefix_length == 0) {
+
 		# I'm on level 0, I have no parent, and I'm the new level 0 parent
 		push @table, $current_ref;
 		$parent_level0 = $current_ref;
 		$parent_level1 = undef;
 	}
 	elsif (($prefix_length == 1) and (defined $parent_level0)) {
+
 		#  I'm on level 1, my parent is the latest level 0 parent, and I'm the new level 1 parent
 		defined $parent_level0->{nutrients} or $parent_level0->{nutrients} = [];
 		push @{$parent_level0->{nutrients}}, $current_ref unless not defined $current_ref;
 		$parent_level1 = $current_ref;
 	}
 	elsif (($prefix_length == 2) and (defined $parent_level1)) {
+
 		#  I'm on level 2, my parent is the latest level 1 parent
 		defined $parent_level1->{nutrients} or $parent_level1->{nutrients} = [];
 		push @{$parent_level1->{nutrients}}, $current_ref;
 	}
 	else {
-		$log->error("invalid nesting of nutrients", { nutriment_table => $nutriment_table, nid => $nid, prefix_length => $prefix_length, current_ref => $current_ref, parent_level0 => $parent_level0, parent_level1 => $parent_level1 }) if $log->is_error();
+		$log->error(
+			"invalid nesting of nutrients",
+			{
+				nutriment_table => $nutriment_table,
+				nid => $nid,
+				prefix_length => $prefix_length,
+				current_ref => $current_ref,
+				parent_level0 => $parent_level0,
+				parent_level1 => $parent_level1
+			}
+		) if $log->is_error();
 	}
 }
 
-my %result = ( nutrients => \@table );
+my %result = (nutrients => \@table);
 my $data = encode_json(\%result);
-print header( -type => 'application/json', -content_language => $lc, -charset => 'utf-8', -access_control_allow_origin => '*', -cache_control => 'public, max-age: 86400' ) . $data;
+write_cors_headers();
+print header(
+	-type => 'application/json',
+	-content_language => $lc,
+	-charset => 'utf-8',
+	-cache_control => 'public, max-age: 86400'
+) . $data;

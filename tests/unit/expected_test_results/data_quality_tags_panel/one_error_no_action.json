@@ -1,0 +1,24 @@
+{
+   "data_quality_errors" : {
+      "elements" : [
+         {
+            "element_type" : "text",
+            "text_element" : {
+               "html" : "<ul> <li id=\"data-error-en:nutri-score-grade-from-label-does-not-match-calculated-grade\"> Nutri-Score grade from label does not match calculated grade </li> </ul>"
+            }
+         }
+      ],
+      "evaluation" : "bad",
+      "expand_for" : "large",
+      "level" : "info",
+      "title_element" : {
+         "icon_color_from_evaluation" : true,
+         "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/data-error.svg",
+         "subtitle" : "Help us improve quality of our data by contributing fixes",
+         "title" : "Detected Errors"
+      },
+      "topics" : [
+         "contribution"
+      ]
+   }
+}
