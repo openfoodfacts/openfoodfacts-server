@@ -334,7 +334,8 @@ Display:
   - any-glob-to-any-file: 'templates/api/knowledge-panels/environment/packaging_recycling.tt.json'
   - any-glob-to-any-file: 'templates/api/knowledge-panels/environment/origins_of_ingredients.tt.json'
   - any-glob-to-any-file: 'templates/api/knowledge-panels/environment/ecoscore/threatened_species.tt.json'
-
+  - any-glob-to-any-file: '- docs/reference/api-tutorials/get-the-ecoscore.md'
+  
 # French Lifecycle Analysis for Food (LCA) database used in Eco-Score computations
 # https://doc.agribalyse.fr/documentation
 Agribalyse:
