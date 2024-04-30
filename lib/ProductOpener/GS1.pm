@@ -50,11 +50,8 @@ BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 
-		%gs1_maps
-
 		&init_csv_fields
 		&read_gs1_json_file
-		&generate_gs1_message_identifier
 		&generate_gs1_confirmation_message
 		&write_off_csv_file
 		&print_unknown_entries_in_gs1_maps
@@ -67,7 +64,7 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Tags qw/:all/;
+use ProductOpener::Tags qw/%language_fields canonicalize_taxonomy_tag exists_taxonomy_tag/;
 use ProductOpener::Display qw/$tt process_template display_date_iso/;
 
 use JSON::PP;
@@ -96,7 +93,7 @@ my %unknown_entries_in_gs1_maps = ();
 
 # see https://www.gs1.fr/content/download/2265/17736/version/3/file/FicheProduit3.1.9_PROFIL_ParfumerieSelective_20190523.xlsx
 
-%gs1_maps = (
+my %gs1_maps = (
 
 	# https://gs1.se/en/guides/documentation/code-lists/t4078-allergen-type-code/
 	allergenTypeCode => {
@@ -164,6 +161,7 @@ my %unknown_entries_in_gs1_maps = ();
 		"CU" => "copper",
 		"ENER-" => "energy",
 		"ENERSF" => "calories-from-saturated-fat",
+		"ERYTHL" => "erythritol",
 		"F18D2CN6" => "linoleic-acid",
 		"F18D3N3" => "alpha-linolenic-acid",
 		"F20D4" => "arachidonic-acid",
@@ -219,6 +217,7 @@ my %unknown_entries_in_gs1_maps = ();
 		"SUGAR" => "sugars",
 		"SUGAR-" => "sugars",
 		"TAU" => "taurine",
+		"UNSATURATED_FAT" => "unsaturated-fat",
 		"THIA" => "vitamin-b1",
 		"THIA-" => "vitamin-b1",
 		"VITA-" => "vitamin-a",
@@ -232,6 +231,7 @@ my %unknown_entries_in_gs1_maps = ();
 		"WHEY" => "serum-proteins",
 		# skipped X_ entries such as X_ACAI_BERRY_EXTRACT
 		"ZN" => "zinc",
+		"X_FUNS" => "unsaturated-fat",
 	},
 
 	packagingTypeCode => {
@@ -294,6 +294,7 @@ my %unknown_entries_in_gs1_maps = ();
 		"ŒUFS_DE_FRANCE" => "en:french-eggs",
 		"OEUFS_DE_FRANCE" => "en:french-eggs",
 		"ORIGINE_FRANCE_GARANTIE" => "fr:origine-france",
+		"POMMES_DE_TERRES_DE_FRANCE" => "en:potatoes-from-france",
 		"PRODUIT_EN_BRETAGNE" => "en:produced-in-brittany",
 		"PROTECTED_DESIGNATION_OF_ORIGIN" => "en:pdo",
 		"PROTECTED_GEOGRAPHICAL_INDICATION" => "en:pgi",
@@ -305,6 +306,7 @@ my %unknown_entries_in_gs1_maps = ();
 		"TRIMAN" => "fr:triman",
 		"UTZ_CERTIFIED" => "en:utz-certified",
 		"UTZ_CERTIFIED_COCOA" => "en:utz-certified-cocoa",
+		"VIANDE_AGNEAU_FRANCAIS" => "fr:viande-d-agneau-francais",
 		"VIANDE_BOVINE_FRANCAISE" => "en:french-beef",
 		"VOLAILLE_FRANCAISE" => "en:french-poultry",
 	},
@@ -328,30 +330,42 @@ my %unknown_entries_in_gs1_maps = ();
 
 # Normalize some entries
 
-foreach my $tag (sort keys %{$gs1_maps{allergenTypeCode}}) {
-	my $canon_tag = canonicalize_taxonomy_tag("en", "allergens", $gs1_maps{allergenTypeCode}{$tag});
-	if (exists_taxonomy_tag("allergens", $canon_tag)) {
-		$gs1_maps{allergenTypeCode}{$tag} = $canon_tag;
-	}
-	else {
-		$log->error("gs1_maps - entry not in taxonomy",
-			{tagtype => "allergens", tag => $gs1_maps{allergenTypeCode}{$tag}})
-			if $log->is_error();
-		die;
-	}
-}
+my $gs1_maps_entries_normalized = 0;
 
-foreach my $tag (sort keys %{$gs1_maps{packagingMarkedLabelAccreditationCode}}) {
-	my $canon_tag = canonicalize_taxonomy_tag("en", "labels", $gs1_maps{packagingMarkedLabelAccreditationCode}{$tag});
-	if (exists_taxonomy_tag("labels", $canon_tag)) {
-		$gs1_maps{packagingMarkedLabelAccreditationCode}{$tag} = $canon_tag;
+sub normalize_gs1_maps_entries() {
+
+	return if $gs1_maps_entries_normalized;
+
+	foreach my $tag (sort keys %{$gs1_maps{allergenTypeCode}}) {
+		my $canon_tag = canonicalize_taxonomy_tag("en", "allergens", $gs1_maps{allergenTypeCode}{$tag});
+		if (exists_taxonomy_tag("allergens", $canon_tag)) {
+			$gs1_maps{allergenTypeCode}{$tag} = $canon_tag;
+		}
+		else {
+			$log->error("gs1_maps - entry not in taxonomy",
+				{tagtype => "allergens", tag => $gs1_maps{allergenTypeCode}{$tag}})
+				if $log->is_error();
+			die("gs1_maps - entry not in taxonomy - tagtype: allergens - tag: $tag - canon_tag: $canon_tag");
+		}
 	}
-	else {
-		$log->error("gs1_maps - entry not in taxonomy",
-			{tagtype => "labels", tag => $gs1_maps{packagingMarkedLabelAccreditationCode}{$tag}})
-			if $log->is_error();
-		die;
+
+	foreach my $tag (sort keys %{$gs1_maps{packagingMarkedLabelAccreditationCode}}) {
+		my $canon_tag
+			= canonicalize_taxonomy_tag("en", "labels", $gs1_maps{packagingMarkedLabelAccreditationCode}{$tag});
+		if (exists_taxonomy_tag("labels", $canon_tag)) {
+			$gs1_maps{packagingMarkedLabelAccreditationCode}{$tag} = $canon_tag;
+		}
+		else {
+			$log->error("gs1_maps - entry not in taxonomy",
+				{tagtype => "labels", tag => $gs1_maps{packagingMarkedLabelAccreditationCode}{$tag}})
+				if $log->is_error();
+			die("gs1_maps - entry not in taxonomy - tagtype: labels - tag: $tag - canon_tag: $canon_tag");
+		}
 	}
+
+	$gs1_maps_entries_normalized = 1;
+
+	return;
 }
 
 =head2 %gs1_message_to_off
@@ -1747,6 +1761,8 @@ The encapsulating GS1 message is added to the $messages_ref array
 sub read_gs1_json_file ($json_file, $products_ref, $messages_ref) {
 
 	$log->debug("read_gs1_json_file", {json_file => $json_file}) if $log->is_debug();
+
+	normalize_gs1_maps_entries();
 
 	open(my $in, "<", $json_file) or die("Cannot open json file $json_file : $!\n");
 	my $json = join(q{}, (<$in>));
