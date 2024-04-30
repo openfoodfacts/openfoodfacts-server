@@ -25,33 +25,35 @@ use ProductOpener::PerlStandards;
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
+use ProductOpener::Store qw/get_string_id_for_lang/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::Web qw/:all/;
+use ProductOpener::Web qw/display_knowledge_panel get_languages_options_list/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Users qw/:all/;
+use ProductOpener::Users qw/$Org_id $Owner_id $User_id %User/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/:all/;
-use ProductOpener::Mail qw/:all/;
+use ProductOpener::Mail qw/send_email_to_admin/;
 use ProductOpener::Products qw/:all/;
-use ProductOpener::Food qw/:all/;
-use ProductOpener::Units qw/:all/;
+use ProductOpener::Food
+	qw/%nutriments_tables %other_nutriments_lists assign_nutriments_values_from_request_parameters compute_serving_size_data get_nutrient_unit/;
+use ProductOpener::Units qw/g_to_unit mmoll_to_unit/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
-use ProductOpener::KnowledgePanels qw/:all/;
-use ProductOpener::KnowledgePanelsContribution qw/:all/;
+use ProductOpener::KnowledgePanels qw/initialize_knowledge_panels_options/;
+use ProductOpener::KnowledgePanelsContribution qw/create_contribution_card_panel/;
 use ProductOpener::URL qw/:all/;
 use ProductOpener::DataQuality qw/:all/;
 use ProductOpener::Ecoscore qw/:all/;
-use ProductOpener::Packaging qw/:all/;
+use ProductOpener::Packaging
+	qw/apply_rules_to_augment_packaging_component_data get_checked_and_taxonomized_packaging_component_data/;
 use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::Web qw(get_languages_options_list);
-use ProductOpener::Text qw/:all/;
-use ProductOpener::Events qw/:all/;
-use ProductOpener::API qw/:all/;
-use ProductOpener::APIProductWrite qw/:all/;
+use ProductOpener::Text qw/remove_tags_and_quote/;
+use ProductOpener::Events qw/send_event/;
+use ProductOpener::API qw/get_initialized_response/;
+use ProductOpener::APIProductWrite qw/skip_protected_field/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -65,6 +67,8 @@ use Log::Any qw($log);
 use File::Copy qw(move);
 use Data::Dumper;
 
+my $request_ref = ProductOpener::Display::init_request();
+
 # Function to display a form to add a product with a specific barcode (either typed in a field, or extracted from a barcode photo)
 # or without a barcode
 
@@ -74,7 +78,7 @@ sub display_search_or_add_form() {
 	if (($server_options{producers_platform})
 		and not((defined $Owner_id) and (($Owner_id =~ /^org-/) or ($User{moderator}) or $User{pro_moderator})))
 	{
-		display_error_and_exit(lang("no_owner_defined"), 200);
+		display_error_and_exit($request_ref, lang("no_owner_defined"), 200);
 	}
 
 	my $html = '';
@@ -163,10 +167,9 @@ sub create_packaging_components_from_request_parameters ($product_ref) {
 	return;
 }
 
-my $request_ref = ProductOpener::Display::init_request();
-
 if ($User_id eq 'unwanted-user-french') {
 	display_error_and_exit(
+		$request_ref,
 		"<b>Il y a des problèmes avec les modifications de produits que vous avez effectuées. Ce compte est temporairement bloqué, merci de nous contacter.</b>",
 		403
 	);
@@ -221,7 +224,7 @@ if ($type eq 'search_or_add') {
 			$code = process_search_image_form(\$filename);
 		}
 		elsif (not is_valid_code($code)) {
-			display_error_and_exit($Lang{invalid_barcode}{$lc}, 403);
+			display_error_and_exit($request_ref, $Lang{invalid_barcode}{$lc}, 403);
 		}
 
 		my $r = Apache2::RequestUtil->request();
@@ -313,28 +316,28 @@ if ($type eq 'search_or_add') {
 else {
 	# We should have a code
 	if ((not defined $code) or ($code eq '')) {
-		display_error_and_exit($Lang{missing_barcode}{$lc}, 403);
+		display_error_and_exit($request_ref, $Lang{missing_barcode}{$lc}, 403);
 	}
 	elsif (not is_valid_code($code)) {
-		display_error_and_exit($Lang{invalid_barcode}{$lc}, 403);
+		display_error_and_exit($request_ref, $Lang{invalid_barcode}{$lc}, 403);
 	}
 	else {
 		if (    ((defined $server_options{private_products}) and ($server_options{private_products}))
 			and (not defined $Owner_id))
 		{
 
-			display_error_and_exit(lang("no_owner_defined"), 200);
+			display_error_and_exit($request_ref, lang("no_owner_defined"), 200);
 		}
 		$product_id = product_id_for_owner($Owner_id, $code);
 		$product_ref = retrieve_product_or_deleted_product($product_id, $User{moderator});
 		if (not defined $product_ref) {
-			display_error_and_exit(sprintf(lang("no_product_for_barcode"), $code), 404);
+			display_error_and_exit($request_ref, sprintf(lang("no_product_for_barcode"), $code), 404);
 		}
 	}
 }
 
 if (($type eq 'delete') and (not $User{moderator})) {
-	display_error_and_exit($Lang{error_no_permission}{$lc}, 403);
+	display_error_and_exit($request_ref, $Lang{error_no_permission}{$lc}, 403);
 }
 
 if ($User_id eq 'unwanted-bot-id') {
@@ -380,7 +383,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 	if (not $proceed_with_edit) {
 
-		display_error_and_exit("Edit against edit rules", 403);
+		display_error_and_exit($request_ref, "Edit against edit rules", 403);
 	}
 
 	$log->debug("phase 1", {code => $code, type => $type}) if $log->is_debug();
@@ -737,14 +740,18 @@ sub display_input_field ($product_ref, $field, $language) {
 
 	$template_data_ref_field->{field_notes} = \@field_notes;
 
-	if (defined $Lang{$fieldtype . "_example"}{$lc}) {
+	# We can have product type specific examples (e.g. for OBF)
+	my $field_type_examples
+		= $Lang{$fieldtype . "_example" . "_" . $options{product_type}}{$lc} || $Lang{$fieldtype . "_example"}{$lc};
+
+	if ($field_type_examples) {
 
 		my $examples = $Lang{example}{$lc};
 		if ($Lang{$fieldtype . "_example"}{$lc} =~ /,/) {
 			$examples = $Lang{examples}{$lc};
 		}
 		$template_data_ref_field->{examples} = $examples;
-		$template_data_ref_field->{field_type_examples} = $Lang{$fieldtype . "_example"}{$lc};
+		$template_data_ref_field->{field_type_examples} = $field_type_examples;
 	}
 
 	process_template('web/pages/product_edit/display_input_field.tt.html', $template_data_ref_field, \$html_field)
@@ -1216,8 +1223,7 @@ CSS
 		if (exists_taxonomy_tag("nutrients", "zz:$nid")) {
 			$nutriment_ref->{name} = display_taxonomy_tag($lc, "nutrients", "zz:$nid");
 			# We may have a unit specific to the country (e.g. US nutrition facts table using the International Unit for this nutrient, and Europe using mg)
-			$unit = get_property("nutrients", "zz:$nid", "unit_$cc:en")
-				// get_property("nutrients", "zz:$nid", "unit:en") // 'g';
+			$unit = get_nutrient_unit($nid, $cc);
 		}
 		else {
 			if (defined $product_ref->{nutriments}{$nid . "_unit"}) {

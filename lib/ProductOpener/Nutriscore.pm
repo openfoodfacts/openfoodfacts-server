@@ -18,6 +18,8 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+=encoding UTF-8
+
 =head1 NAME
 
 ProductOpener::Nutriscore - compute the Nutriscore grade of a food product
@@ -84,21 +86,13 @@ BEGIN {
 		&get_value_with_one_less_negative_point
 		&get_value_with_one_more_positive_point
 
-		%points_thresholds_2023
-
-		&compute_nutriscore_score_and_grade_2023
-		&compute_nutriscore_grade_2023
-
-		&get_value_with_one_less_negative_point_2023
-		&get_value_with_one_more_positive_point_2023
-
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
 use vars @EXPORT_OK;
 
-use ProductOpener::Numbers qw/:all/;
+use ProductOpener::Numbers qw/round_to_max_decimal_places/;
 
 =head1 FUNCTIONS
 
@@ -358,7 +352,7 @@ sub compute_nutriscore_score_2021 ($nutriscore_data_ref) {
 	if (   (($nutriscore_data_ref->{"sugars_value"} - int($nutriscore_data_ref->{"sugars_value"})) > 0.9)
 		or (($nutriscore_data_ref->{"sugars_value"} - int($nutriscore_data_ref->{"sugars_value"})) < 0.1))
 	{
-		$nutriscore_data_ref->{"sugars_value"} = int($nutriscore_data_ref->{"sugars"} * 10 + 0.5) / 10;
+		$nutriscore_data_ref->{"sugars_value"} = int(($nutriscore_data_ref->{"sugars"} // 0) * 10 + 0.5) / 10;
 	}
 
 	# Compute the negative and positive points
@@ -385,8 +379,8 @@ sub compute_nutriscore_score_2021 ($nutriscore_data_ref) {
 						($nutrient eq "saturated_fat_ratio")
 					and ($nutriscore_data_ref->{$nutrient . "_value"} >= $threshold)
 				)
-				or
-				(($nutrient ne "saturated_fat_ratio") and ($nutriscore_data_ref->{$nutrient . "_value"} > $threshold))
+				or (    ($nutrient ne "saturated_fat_ratio")
+					and ($nutriscore_data_ref->{$nutrient . "_value"} > $threshold))
 				)
 			{
 				$nutriscore_data_ref->{$nutrient . "_points"}++;

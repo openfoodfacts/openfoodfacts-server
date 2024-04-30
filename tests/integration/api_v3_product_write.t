@@ -2,10 +2,10 @@
 
 use ProductOpener::PerlStandards;
 
-use Test::More;
-use ProductOpener::APITest qw/:all/;
-use ProductOpener::Test qw/:all/;
-use ProductOpener::TestDefaults qw/:all/;
+use Test2::V0;
+use ProductOpener::APITest qw/create_user execute_api_tests new_client wait_application_ready/;
+use ProductOpener::Test qw/remove_all_products remove_all_users/;
+use ProductOpener::TestDefaults qw/%default_user_form/;
 
 use File::Basename "dirname";
 
@@ -610,7 +610,7 @@ my $tests_ref = [
 			"Access-Control-Allow-Origin" => "*",
 			"Access-Control-Allow-Methods" => "HEAD, GET, PATCH, POST, PUT, OPTIONS",
 		},
-		expected_type => "html",
+		expected_type => "none",    # no body for OPTIONS requests
 	},
 	{
 		test_case => 'patch-unrecognized-field',

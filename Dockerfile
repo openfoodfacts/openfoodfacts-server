@@ -229,7 +229,7 @@ RUN \
 RUN \
     mkdir -p var/run/apache2/ && \
     chown www-data:www-data var/run/apache2/ && \
-    for path in data html_data users products product_images orgs logs new_images deleted_products_images reverted_products deleted_private_products translate deleted_products deleted.images import_files tmp build-cache/taxonomies debug; do \
+    for path in data html_data users products product_images orgs logs new_images deleted_products_images reverted_products deleted_private_products translate deleted_products deleted.images import_files tmp build-cache/taxonomies debug sftp; do \
         mkdir -p /mnt/podata/${path}; \
     done && \
     chown www-data:www-data -R /mnt/podata && \

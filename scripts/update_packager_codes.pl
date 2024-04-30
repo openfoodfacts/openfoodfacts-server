@@ -26,11 +26,12 @@ use Modern::Perl '2017';
 use experimental qw/switch/;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Store qw/get_string_id_for_lang store/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::PackagerCodes qw/:all/;
+use ProductOpener::PackagerCodes
+	qw/$ec_code_regexp %geocode_addresses %packager_codes get_canon_local_authority normalize_packager_codes/;
 
 use Term::ANSIColor;
 use Carp;
@@ -105,6 +106,7 @@ sub normalize_code {
 			"$code EC" when 'rs';
 			"SE $code EC" when 'se';
 			"SK $code EC" when 'sk';
+			"$code ES" when 'si';
 			"UK $code EC" when 'uk';
 			join q{  }, uc($cc), $code, 'EC';
 		}
@@ -174,6 +176,7 @@ my %approval_key = (
 	pl => 'code',
 	rs => 'approval_number',
 	se => 'nr',
+	si => 'code',
 	sk => 'schvaľovacie_čislo',
 	uk => 'approval_number',
 );

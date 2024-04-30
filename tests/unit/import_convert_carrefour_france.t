@@ -7,21 +7,21 @@
 use Modern::Perl '2017';
 use utf8;
 
-use Test::More;
+use Test2::V0;
 use Log::Any::Adapter 'TAP', filter => "info";
 
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::PackagerCodes qw/:all/;
-use ProductOpener::Import qw/:all/;
-use ProductOpener::Export qw/:all/;
+use ProductOpener::Import qw/import_csv_file/;
+use ProductOpener::Export qw/export_csv/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Packaging qw/:all/;
-use ProductOpener::Ecoscore qw/:all/;
-use ProductOpener::ForestFootprint qw/:all/;
-use ProductOpener::Test qw/:all/;
-use ProductOpener::ImportConvertCarrefourFrance qw/:all/;
-use ProductOpener::LoadData qw/:all/;
+use ProductOpener::Ecoscore qw/load_agribalyse_data load_ecoscore_data/;
+use ProductOpener::ForestFootprint qw/load_forest_footprint_data/;
+use ProductOpener::Test qw/compare_csv_file_to_expected_results init_expected_results remove_all_products/;
+use ProductOpener::ImportConvertCarrefourFrance qw/convert_carrefour_france_files/;
+use ProductOpener::LoadData qw/load_data/;
 
 use JSON;
 

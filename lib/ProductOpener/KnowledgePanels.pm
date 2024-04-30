@@ -55,18 +55,19 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Users qw/$User_id/;
-use ProductOpener::Food qw/:all/;
+use ProductOpener::Food qw/%categories_nutriments_per_country/;
 use ProductOpener::Ingredients qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Lang qw/f_lang f_lang_in_lc lang lang_in_other_lc/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::Ecoscore qw/:all/;
-use ProductOpener::PackagerCodes qw/:all/;
+use ProductOpener::Ecoscore qw/is_ecoscore_extended_data_more_precise_than_agribalyse/;
+use ProductOpener::PackagerCodes qw/%packager_codes/;
 use ProductOpener::KnowledgePanelsContribution qw/create_contribution_card_panel/;
+use ProductOpener::KnowledgePanelsReportProblem qw/create_report_problem_card_panel/;
 
 use JSON::PP;
 use Encode;
@@ -196,14 +197,24 @@ sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref)
 
 	create_health_card_panel($product_ref, $target_lc, $target_cc, $options_ref);
 	create_environment_card_panel($product_ref, $target_lc, $target_cc, $options_ref);
+	my $has_report_problem_card;
+	if (not $options_ref->{producers_platform}) {
+		$has_report_problem_card = create_report_problem_card_panel($product_ref, $target_lc, $target_cc, $options_ref);
+	}
 	my $has_contribution_card = create_contribution_card_panel($product_ref, $target_lc, $target_cc, $options_ref);
 
 	# Create the root panel that contains the panels we want to show directly on the product page
 	create_panel_from_json_template(
 		"root",
 		"api/knowledge-panels/root.tt.json",
-		{has_contribution_card => $has_contribution_card},
-		$product_ref, $target_lc, $target_cc, $options_ref
+		{
+			has_report_problem_card => $has_report_problem_card,
+			has_contribution_card => $has_contribution_card
+		},
+		$product_ref,
+		$target_lc,
+		$target_cc,
+		$options_ref
 	);
 	return;
 }

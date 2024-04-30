@@ -18,6 +18,8 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+=encoding UTF-8
+
 =head1 NAME
 
 ProductOpener::Food - functions related to food products and nutrition
@@ -60,11 +62,8 @@ BEGIN {
 		&fix_salt_equivalent
 
 		&is_beverage_for_nutrition_score_2021
-		&is_beverage_for_nutrition_score_2023
 		&is_fat_oil_nuts_seeds_for_nutrition_score
 		&is_water_for_nutrition_score
-		&is_cheese_for_nutrition_score
-		&is_fat_for_nutrition_score
 
 		&compute_nutriscore
 		&compute_nutriscore
@@ -72,7 +71,6 @@ BEGIN {
 		&compute_serving_size_data
 		&compute_unknown_nutrients
 		&compute_nutrient_levels
-		&compute_units_of_alcohol
 		&compute_estimated_nutrients
 
 		&compare_nutriments
@@ -91,28 +89,31 @@ BEGIN {
 
 		&check_nutriscore_categories_exist_in_taxonomy
 
+		&get_nutrient_unit
+
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
 use vars @EXPORT_OK;
 
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Store qw/get_string_id_for_lang retrieve/;
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
+use ProductOpener::Lang qw/$lc %Lang %Langs lang/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Images qw/:all/;
-use ProductOpener::Nutriscore qw/:all/;
-use ProductOpener::Numbers qw/:all/;
-use ProductOpener::Ingredients qw/:all/;
-use ProductOpener::Text qw/:all/;
-use ProductOpener::FoodGroups qw/:all/;
+use ProductOpener::Images qw/extract_text_from_image/;
+use ProductOpener::Nutriscore qw/compute_nutriscore_score_and_grade/;
+use ProductOpener::Numbers qw/convert_string_to_number round_to_max_decimal_places/;
+use ProductOpener::Ingredients
+	qw/estimate_nutriscore_2021_milk_percent_from_ingredients estimate_nutriscore_2023_red_meat_percent_from_ingredients/;
+use ProductOpener::Text qw/remove_tags_and_quote/;
+use ProductOpener::FoodGroups qw/compute_food_groups/;
 use ProductOpener::Units qw/:all/;
 use ProductOpener::Products qw(&remove_fields);
 use ProductOpener::Display qw/single_param/;
 use ProductOpener::APIProductWrite qw/skip_protected_field/;
-use ProductOpener::NutritionEstimation qw/:all/;
+use ProductOpener::NutritionEstimation qw/estimate_nutrients_from_ingredients/;
 
 use Hash::Util;
 use Encode;
@@ -422,9 +423,13 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 =item The level of each nutrient is indicated by leading dashes before its id:
 
 =over
+
 =item C<nutrient> - no dash for top nutrients
+
 =item C<-sub-nutrient> - for level 2
+
 =item C<--sub-sub-nutrient> - for level 3, etc.
+
 =back
 
 =item C<nutrient-> a C<-> at the end indicates that the nutrient should be hidden and only shown if explicitly added.
@@ -790,6 +795,69 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'-soluble-fiber-', '-insoluble-fiber-',
 			'!salt', '-added-salt-',
 			'#sodium-', 'alcohol',
+			'#vitamins', 'vitamin-a-',
+			'beta-carotene-', 'vitamin-d-',
+			'vitamin-e-', 'vitamin-k-',
+			'vitamin-c-', 'vitamin-b1-',
+			'vitamin-b2-', 'vitamin-pp-',
+			'vitamin-b6-', 'vitamin-b9-',
+			'folates-', 'vitamin-b12-',
+			'biotin-', 'pantothenic-acid-',
+			'#minerals', 'silica-',
+			'bicarbonate-', 'potassium-',
+			'chloride-', 'calcium-',
+			'phosphorus-', 'iron-',
+			'magnesium-', 'zinc-',
+			'copper-', 'manganese-',
+			'fluoride-', 'selenium-',
+			'chromium-', 'molybdenum-',
+			'iodine-', 'caffeine-',
+			'taurine-', 'ph-',
+			'fruits-vegetables-nuts-', 'fruits-vegetables-nuts-dried-',
+			'fruits-vegetables-nuts-estimate-', 'collagen-meat-protein-ratio-',
+			'cocoa-', 'chlorophyl-',
+			'carbon-footprint-', 'carbon-footprint-from-meat-or-fish-',
+			'nutrition-score-fr-', 'nutrition-score-uk-',
+			'glycemic-index-', 'water-hardness-',
+			'choline-', 'phylloquinone-',
+			'beta-glucan-', 'inositol-',
+			'carnitine-', 'sulphate-',
+			'nitrate-', 'acidity-',
+		)
+	],
+	in => [
+		(
+			'!energy-kj', '!energy-kcal',
+			'!proteins', '-casein-',
+			'-serum-proteins-', '-nucleotides-',
+			'!fat', '-saturated-fat',
+			'--butyric-acid-', '--caproic-acid-',
+			'--caprylic-acid-', '--capric-acid-',
+			'--lauric-acid-', '--myristic-acid-',
+			'--palmitic-acid-', '--stearic-acid-',
+			'--arachidic-acid-', '--behenic-acid-',
+			'--lignoceric-acid-', '--cerotic-acid-',
+			'--montanic-acid-', '--melissic-acid-',
+			'-unsaturated-fat-', '--monounsaturated-fat-',
+			'---omega-9-fat-', '--polyunsaturated-fat-',
+			'---omega-3-fat-', '---omega-6-fat-',
+			'--alpha-linolenic-acid-', '--eicosapentaenoic-acid-',
+			'--docosahexaenoic-acid-', '--linoleic-acid-',
+			'--arachidonic-acid-', '--gamma-linolenic-acid-',
+			'--dihomo-gamma-linolenic-acid-', '--oleic-acid-',
+			'--elaidic-acid-', '--gondoic-acid-',
+			'--mead-acid-', '--erucic-acid-',
+			'--nervonic-acid-', '-trans-fat-',
+			'-cholesterol-', '!carbohydrates',
+			'-sugars', '--added-sugars-',
+			'--sucrose-', '--glucose-',
+			'--fructose-', '--lactose-',
+			'--maltose-', '--maltodextrins-',
+			'-starch-', '-polyols-',
+			'--erythritol-', '!fiber',
+			'-soluble-fiber-', '-insoluble-fiber-',
+			'!salt', '-added-salt-',
+			'sodium', 'alcohol',
 			'#vitamins', 'vitamin-a-',
 			'beta-carotene-', 'vitamin-d-',
 			'vitamin-e-', 'vitamin-k-',
@@ -1863,7 +1931,8 @@ sub check_availability_of_nutrients_needed_for_nutriscore ($product_ref) {
 						($nid eq "saturated-fat")
 						&& saturated_fat_0_because_of_fat_0($product_ref->{nutriments}, $prepared)
 					)
-					|| (($nid eq "sugars") && sugar_0_because_of_carbohydrates_0($product_ref->{nutriments}, $prepared))
+					|| (($nid eq "sugars")
+						&& sugar_0_because_of_carbohydrates_0($product_ref->{nutriments}, $prepared))
 					);
 				$product_ref->{"nutrition_grades_tags"} = ["unknown"];
 				add_tag($product_ref, "misc", "en:nutrition-not-enough-data-to-compute-nutrition-score");
@@ -3172,6 +3241,24 @@ sub compute_estimated_nutrients ($product_ref) {
 	}
 
 	return $results_ref;
+}
+
+=head2 get_nutrient_unit ( $nid, $cc )
+
+Returns the unit of the nutrient.
+
+We may have a unit specific to the country (e.g. US nutrition facts table using the International Unit for this nutrient, and Europe using mg)
+
+=cut
+
+sub get_nutrient_unit ($nid, $cc = undef) {
+	my $unit;
+	if ($cc) {
+		$unit = get_property("nutrients", "zz:$nid", "unit_$cc:en");
+		return $unit if $unit;
+	}
+	$unit = get_property("nutrients", "zz:$nid", "unit:en") // 'g';
+	return $unit;
 }
 
 1;
