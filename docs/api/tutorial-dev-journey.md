@@ -16,7 +16,7 @@ To identify the potential users' needs, Dave has met with some conscious consume
 ### Developer journeys
 
 - []()Dev Journey 1: <a href="docs/reference/api-tutorials/comparing-sodas-for-anna.md">Comparing sodas for Anna</a>
-- []()Dev Journey 2: <a href="docs/reference/api-tutorials/finding-healthy-breakfast-cereals-for-stefano.md">Finding healthy breakfast cereals for Stefano</a>
+- []()Dev Journey 2: <a href="docs/reference/api-tutorials/finding-healthy-cereals.md">Finding healthy breakfast cereals for Stefano</a>
 - []()Dev Journey 3: <a href="docs/reference/api-tutorials/adding-missing-products.md">Adding missing products</a>
 - []()Dev Journey 4: <a href="docs/reference/api-tutorials/get-the-nutri-score.md">Get the Nutri-Score</a>
 - []()Dev Journey 5: <a href="docs/reference/api-tutorials/get-the-eco-score.md">Get the Eco-Score</a>
