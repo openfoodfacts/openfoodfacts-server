@@ -97,7 +97,7 @@ sub detect_possible_improvements_nutriscore ($product_ref) {
 			my $new_nutriscore_data_ref = dclone($product_ref->{nutriscore_data});
 			$new_nutriscore_data_ref->{$nutrient} = $lower_value;
 			my ($new_nutriscore_score, $new_nutriscore_grade)
-				= ProductOpener::Food::compute_nutriscore_score_and_grade($new_nutriscore_data_ref, 2023);
+				= ProductOpener::Food::compute_nutriscore_score_and_grade($new_nutriscore_data_ref);
 
 			# Store the result of the experiment
 			$product_ref->{nutriscore_data}{$nutrient . "_lower"} = $lower_value;
