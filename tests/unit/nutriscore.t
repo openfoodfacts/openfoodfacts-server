@@ -909,7 +909,7 @@ foreach my $test_ref (@tests) {
 	compute_nutriscore($product_ref);
 
 	# Detect possible improvements
-	detect_possible_improvements_nutriscore($product_ref);
+	detect_possible_improvements_nutriscore($product_ref, 2021);
 
 	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json", $update_expected_results);
 }
