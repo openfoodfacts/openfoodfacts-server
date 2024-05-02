@@ -39,6 +39,19 @@
       "en:beverages",
       "en:sweetened-beverages"
    ],
+   "improvements_data" : {
+      "en:better-nutri-score-with-much-more-fruits_vegetables_legumes" : {
+         "current_nutriscore_grade" : "c",
+         "current_value" : 70.5,
+         "difference_percent" : 14.8936170212766,
+         "new_nutriscore_grade" : "b",
+         "new_value" : 81,
+         "nutrient" : "fruits_vegetables_legumes"
+      }
+   },
+   "improvements_tags" : [
+      "en:better-nutri-score-with-much-more-fruits_vegetables_legumes"
+   ],
    "ingredients" : [
       {
          "ciqual_food_code" : "2074",
@@ -222,6 +235,9 @@
                   },
                   {
                      "id" : "sugars",
+                     "new_grade" : "c",
+                     "new_score" : 3,
+                     "new_value" : 3.4,
                      "points" : 3,
                      "points_max" : 10,
                      "unit" : "g",
@@ -265,7 +281,12 @@
                      "value" : null
                   },
                   {
+                     "current_grade" : "c",
+                     "current_score" : 4,
                      "id" : "fruits_vegetables_legumes",
+                     "new_grade" : "b",
+                     "new_score" : 2,
+                     "new_value" : 81,
                      "points" : 4,
                      "points_max" : 6,
                      "unit" : "%",
@@ -311,9 +332,6 @@
       "fiber_points" : 0,
       "fiber_value" : 0,
       "fruits_vegetables_nuts_colza_walnut_olive_oils" : 70.5,
-      "fruits_vegetables_nuts_colza_walnut_olive_oils_higher" : 81,
-      "fruits_vegetables_nuts_colza_walnut_olive_oils_higher_grade" : "b",
-      "fruits_vegetables_nuts_colza_walnut_olive_oils_higher_score" : -4,
       "fruits_vegetables_nuts_colza_walnut_olive_oils_points" : 4,
       "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 70.5,
       "grade" : "c",
@@ -334,9 +352,6 @@
       "sodium_points" : 0,
       "sodium_value" : 10,
       "sugars" : 4.5,
-      "sugars_lower" : 3,
-      "sugars_lower_grade" : "c",
-      "sugars_lower_score" : 3,
       "sugars_points" : 3,
       "sugars_value" : 4.5
    },

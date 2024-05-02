@@ -45,6 +45,19 @@
       "en:beverages",
       "en:sweetened-beverages"
    ],
+   "improvements_data" : {
+      "en:better-nutri-score-with-much-less-salt" : {
+         "current_nutriscore_grade" : "e",
+         "current_value" : 0.5,
+         "difference_percent" : 20,
+         "new_nutriscore_grade" : "d",
+         "new_value" : 0.4,
+         "nutrient" : "salt"
+      }
+   },
+   "improvements_tags" : [
+      "en:better-nutri-score-with-much-less-salt"
+   ],
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "2070",
@@ -262,7 +275,12 @@
                      "value" : 182
                   },
                   {
+                     "current_grade" : "e",
+                     "current_score" : 10,
                      "id" : "sugars",
+                     "new_grade" : "d",
+                     "new_score" : 8,
+                     "new_value" : 6.8,
                      "points" : 7,
                      "points_max" : 10,
                      "unit" : "g",
@@ -276,7 +294,12 @@
                      "value" : 0
                   },
                   {
+                     "current_grade" : "e",
+                     "current_score" : 10,
                      "id" : "salt",
+                     "new_grade" : "d",
+                     "new_score" : 9,
+                     "new_value" : 0.4,
                      "points" : 2,
                      "points_max" : 20,
                      "unit" : "g",
@@ -292,21 +315,36 @@
                ],
                "positive" : [
                   {
+                     "current_grade" : "e",
+                     "current_score" : 10,
                      "id" : "proteins",
+                     "new_grade" : "c",
+                     "new_score" : 5,
+                     "new_value" : 2.5,
                      "points" : 0,
                      "points_max" : 7,
                      "unit" : "g",
                      "value" : 0.2
                   },
                   {
+                     "current_grade" : "e",
+                     "current_score" : 10,
                      "id" : "fiber",
+                     "new_grade" : "d",
+                     "new_score" : 9,
+                     "new_value" : 3.1,
                      "points" : 0,
                      "points_max" : 5,
                      "unit" : "g",
                      "value" : 0.5
                   },
                   {
+                     "current_grade" : "e",
+                     "current_score" : 10,
                      "id" : "fruits_vegetables_legumes",
+                     "new_grade" : "d",
+                     "new_score" : 8,
+                     "new_value" : 61,
                      "points" : 2,
                      "points_max" : 6,
                      "unit" : "%",
@@ -349,15 +387,9 @@
       "energy_points" : 7,
       "energy_value" : 182,
       "fiber" : 0.5,
-      "fiber_higher" : 1,
-      "fiber_higher_grade" : "e",
-      "fiber_higher_score" : 12,
       "fiber_points" : 0,
       "fiber_value" : 0.5,
       "fruits_vegetables_nuts_colza_walnut_olive_oils" : 50,
-      "fruits_vegetables_nuts_colza_walnut_olive_oils_higher" : 61,
-      "fruits_vegetables_nuts_colza_walnut_olive_oils_higher_grade" : "e",
-      "fruits_vegetables_nuts_colza_walnut_olive_oils_higher_score" : 11,
       "fruits_vegetables_nuts_colza_walnut_olive_oils_points" : 2,
       "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 50,
       "grade" : "e",
@@ -368,9 +400,6 @@
       "negative_points" : 15,
       "positive_points" : 2,
       "proteins" : 0.2,
-      "proteins_higher" : 1.7,
-      "proteins_higher_grade" : "e",
-      "proteins_higher_score" : 13,
       "proteins_points" : 0,
       "proteins_value" : 0.2,
       "saturated_fat" : 0,
@@ -378,15 +407,9 @@
       "saturated_fat_value" : 0,
       "score" : 13,
       "sodium" : 200,
-      "sodium_lower" : 180,
-      "sodium_lower_grade" : "e",
-      "sodium_lower_score" : 10,
       "sodium_points" : 2,
       "sodium_value" : 200,
       "sugars" : 8.9,
-      "sugars_lower" : 7.5,
-      "sugars_lower_grade" : "d",
-      "sugars_lower_score" : 9,
       "sugars_points" : 6,
       "sugars_value" : 8.9
    },

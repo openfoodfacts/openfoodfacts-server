@@ -104,6 +104,9 @@
                "negative" : [
                   {
                      "id" : "energy",
+                     "new_grade" : "e",
+                     "new_score" : 10,
+                     "new_value" : 335,
                      "points" : 9,
                      "points_max" : 10,
                      "unit" : "kJ",
@@ -220,9 +223,6 @@
       "sodium_points" : 0,
       "sodium_value" : 0,
       "sugars" : 3,
-      "sugars_lower" : 1.5,
-      "sugars_lower_grade" : "e",
-      "sugars_lower_score" : 10,
       "sugars_points" : 2,
       "sugars_value" : 3
    },

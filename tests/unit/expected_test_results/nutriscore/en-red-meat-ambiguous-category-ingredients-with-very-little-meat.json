@@ -32,19 +32,6 @@
       "en:fish-meat-eggs",
       "en:processed-meat"
    ],
-   "improvements_data" : {
-      "en:better-nutri-score-with-less-saturated-fat" : {
-         "current_nutriscore_grade" : "c",
-         "current_value" : 10,
-         "difference_percent" : 10,
-         "new_nutriscore_grade" : "b",
-         "new_value" : 9,
-         "nutrient" : "saturated_fat"
-      }
-   },
-   "improvements_tags" : [
-      "en:better-nutri-score-with-less-saturated-fat"
-   ],
    "ingredients" : [
       {
          "ciqual_food_code" : "22000",
@@ -323,6 +310,9 @@
                   },
                   {
                      "id" : "saturated_fat",
+                     "new_grade" : "b",
+                     "new_score" : 1,
+                     "new_value" : 9,
                      "points" : 9,
                      "points_max" : 10,
                      "unit" : "g",
@@ -411,9 +401,6 @@
       "proteins_points" : 5,
       "proteins_value" : 50,
       "saturated_fat" : 10,
-      "saturated_fat_lower" : 9,
-      "saturated_fat_lower_grade" : "b",
-      "saturated_fat_lower_score" : 1,
       "saturated_fat_points" : 9,
       "saturated_fat_value" : 10,
       "score" : 4,

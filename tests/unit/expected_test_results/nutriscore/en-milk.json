@@ -104,6 +104,9 @@
                   },
                   {
                      "id" : "sugars",
+                     "new_grade" : "b",
+                     "new_score" : -2,
+                     "new_value" : 3.4,
                      "points" : 3,
                      "points_max" : 10,
                      "unit" : "g",
@@ -134,6 +137,9 @@
                "positive" : [
                   {
                      "id" : "proteins",
+                     "new_grade" : "b",
+                     "new_score" : -1,
+                     "new_value" : 4.9,
                      "points" : 7,
                      "points_max" : 7,
                      "unit" : "g",
@@ -203,9 +209,6 @@
       "negative_points" : 1,
       "positive_points" : 2,
       "proteins" : 3.3,
-      "proteins_higher" : 4.9,
-      "proteins_higher_grade" : "a",
-      "proteins_higher_score" : -2,
       "proteins_points" : 2,
       "proteins_value" : 3.3,
       "saturated_fat" : 1,
@@ -216,9 +219,6 @@
       "sodium_points" : 0,
       "sodium_value" : 40,
       "sugars" : 4.8,
-      "sugars_lower" : 4.5,
-      "sugars_lower_grade" : "a",
-      "sugars_lower_score" : 0,
       "sugars_points" : 1,
       "sugars_value" : 4.8
    },

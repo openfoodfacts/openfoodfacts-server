@@ -31,6 +31,28 @@
       "en:canned-pineapples"
    ],
    "food_groups_tags" : [],
+   "improvements_data" : {
+      "en:better-nutri-score-with-less-sugars" : {
+         "current_nutriscore_grade" : "b",
+         "current_value" : 3.6,
+         "difference_percent" : 5.55555555555556,
+         "new_nutriscore_grade" : "a",
+         "new_value" : 3.4,
+         "nutrient" : "sugars"
+      },
+      "en:better-nutri-score-with-much-less-salt" : {
+         "current_nutriscore_grade" : "b",
+         "current_value" : 1.2,
+         "difference_percent" : 16.6666666666667,
+         "new_nutriscore_grade" : "a",
+         "new_value" : 1,
+         "nutrient" : "salt"
+      }
+   },
+   "improvements_tags" : [
+      "en:better-nutri-score-with-less-sugars",
+      "en:better-nutri-score-with-much-less-salt"
+   ],
    "ingredients" : [
       {
          "ciqual_food_code" : "18066",
@@ -198,7 +220,12 @@
                      "value" : 315
                   },
                   {
+                     "current_grade" : "b",
+                     "current_score" : 1,
                      "id" : "sugars",
+                     "new_grade" : "a",
+                     "new_score" : 0,
+                     "new_value" : 3.4,
                      "points" : 1,
                      "points_max" : 15,
                      "unit" : "g",
@@ -212,7 +239,12 @@
                      "value" : 0.1
                   },
                   {
+                     "current_grade" : "b",
+                     "current_score" : 1,
                      "id" : "salt",
+                     "new_grade" : "a",
+                     "new_score" : 0,
+                     "new_value" : 1,
                      "points" : 5,
                      "points_max" : 20,
                      "unit" : "g",
@@ -221,21 +253,36 @@
                ],
                "positive" : [
                   {
+                     "current_grade" : "b",
+                     "current_score" : 1,
                      "id" : "proteins",
+                     "new_grade" : "a",
+                     "new_score" : 0,
+                     "new_value" : 7.3,
                      "points" : 2,
                      "points_max" : 7,
                      "unit" : "g",
                      "value" : 5
                   },
                   {
+                     "current_grade" : "b",
+                     "current_score" : 1,
                      "id" : "fiber",
+                     "new_grade" : "a",
+                     "new_score" : 0,
+                     "new_value" : 6.4,
                      "points" : 3,
                      "points_max" : 5,
                      "unit" : "g",
                      "value" : 5.3
                   },
                   {
+                     "current_grade" : "b",
+                     "current_score" : 1,
                      "id" : "fruits_vegetables_legumes",
+                     "new_grade" : "a",
+                     "new_score" : 0,
+                     "new_value" : 41,
                      "points" : 0,
                      "points_max" : 5,
                      "unit" : "%",
@@ -281,9 +328,6 @@
       "fiber_points" : 5,
       "fiber_value" : 5.3,
       "fruits_vegetables_nuts_colza_walnut_olive_oils" : 10,
-      "fruits_vegetables_nuts_colza_walnut_olive_oils_higher" : 41,
-      "fruits_vegetables_nuts_colza_walnut_olive_oils_higher_grade" : "a",
-      "fruits_vegetables_nuts_colza_walnut_olive_oils_higher_score" : -4,
       "fruits_vegetables_nuts_colza_walnut_olive_oils_points" : 0,
       "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 10,
       "grade" : "a",
@@ -294,9 +338,6 @@
       "negative_points" : 5,
       "positive_points" : 8,
       "proteins" : 5,
-      "proteins_higher" : 6.5,
-      "proteins_higher_grade" : "a",
-      "proteins_higher_score" : -4,
       "proteins_points" : 3,
       "proteins_value" : 5,
       "saturated_fat" : 0.1,
@@ -304,9 +345,6 @@
       "saturated_fat_value" : 0.1,
       "score" : -3,
       "sodium" : 480,
-      "sodium_lower" : 450,
-      "sodium_lower_grade" : "a",
-      "sodium_lower_score" : -4,
       "sodium_points" : 5,
       "sodium_value" : 480,
       "sugars" : 3.6,

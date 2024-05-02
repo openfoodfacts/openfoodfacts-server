@@ -107,6 +107,9 @@
                "negative" : [
                   {
                      "id" : "energy",
+                     "new_grade" : "d",
+                     "new_score" : 13,
+                     "new_value" : 2345,
                      "points" : 7,
                      "points_max" : 10,
                      "unit" : "kJ",
@@ -114,6 +117,9 @@
                   },
                   {
                      "id" : "sugars",
+                     "new_grade" : "d",
+                     "new_score" : 13,
+                     "new_value" : 27,
                      "points" : 8,
                      "points_max" : 15,
                      "unit" : "g",
@@ -121,6 +127,9 @@
                   },
                   {
                      "id" : "saturated_fat",
+                     "new_grade" : "d",
+                     "new_score" : 13,
+                     "new_value" : 1,
                      "points" : 1,
                      "points_max" : 10,
                      "unit" : "g",
@@ -128,6 +137,9 @@
                   },
                   {
                      "id" : "salt",
+                     "new_grade" : "d",
+                     "new_score" : 13,
+                     "new_value" : 0.4,
                      "points" : 2,
                      "points_max" : 20,
                      "unit" : "g",
@@ -137,6 +149,9 @@
                "positive" : [
                   {
                      "id" : "fiber",
+                     "new_grade" : "d",
+                     "new_score" : 13,
+                     "new_value" : 7.5,
                      "points" : 4,
                      "points_max" : 5,
                      "unit" : "g",
@@ -205,15 +220,9 @@
       "saturated_fat_value" : 1,
       "score" : 10,
       "sodium" : 221,
-      "sodium_lower" : 180,
-      "sodium_lower_grade" : "d",
-      "sodium_lower_score" : 12,
       "sodium_points" : 2,
       "sodium_value" : 221,
       "sugars" : 31,
-      "sugars_lower" : 27,
-      "sugars_lower_grade" : "d",
-      "sugars_lower_score" : 11,
       "sugars_points" : 6,
       "sugars_value" : 31
    },

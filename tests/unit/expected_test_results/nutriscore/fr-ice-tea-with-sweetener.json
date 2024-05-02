@@ -469,6 +469,9 @@
                   },
                   {
                      "id" : "sugars",
+                     "new_grade" : "d",
+                     "new_score" : 7,
+                     "new_value" : 3.4,
                      "points" : 3,
                      "points_max" : 10,
                      "unit" : "g",
@@ -512,7 +515,12 @@
                      "value" : null
                   },
                   {
+                     "current_grade" : "d",
+                     "current_score" : 8,
                      "id" : "fruits_vegetables_legumes",
+                     "new_grade" : "c",
+                     "new_score" : 6,
+                     "new_value" : 41,
                      "points" : 0,
                      "points_max" : 6,
                      "unit" : "%",
@@ -558,9 +566,6 @@
       "fiber_points" : 0,
       "fiber_value" : 0,
       "fruits_vegetables_nuts_colza_walnut_olive_oils" : 0.1,
-      "fruits_vegetables_nuts_colza_walnut_olive_oils_higher" : 41,
-      "fruits_vegetables_nuts_colza_walnut_olive_oils_higher_grade" : "c",
-      "fruits_vegetables_nuts_colza_walnut_olive_oils_higher_score" : 4,
       "fruits_vegetables_nuts_colza_walnut_olive_oils_points" : 0,
       "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 0.1,
       "grade" : "d",
@@ -581,9 +586,6 @@
       "sodium_points" : 0,
       "sodium_value" : 10,
       "sugars" : 4.5,
-      "sugars_lower" : 3,
-      "sugars_lower_grade" : "c",
-      "sugars_lower_score" : 3,
       "sugars_points" : 3,
       "sugars_value" : 4.5
    },
