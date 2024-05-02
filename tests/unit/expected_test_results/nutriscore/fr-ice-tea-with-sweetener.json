@@ -15,6 +15,11 @@
       "en:e331iii",
       "en:e960"
    ],
+   "allergens" : "",
+   "allergens_from_ingredients" : "",
+   "allergens_from_user" : "(fr) ",
+   "allergens_hierarchy" : [],
+   "allergens_tags" : [],
    "amino_acids_tags" : [],
    "categories" : "ice teas",
    "categories_hierarchy" : [
@@ -44,6 +49,92 @@
       "en:beverages",
       "en:tea-based-beverages",
       "en:iced-teas"
+   ],
+   "ecoscore_data" : {
+      "adjustments" : {
+         "origins_of_ingredients" : {
+            "aggregated_origins" : [
+               {
+                  "origin" : "en:unknown",
+                  "percent" : 100
+               }
+            ],
+            "epi_score" : 0,
+            "epi_value" : -5,
+            "origins_from_categories" : [
+               "en:unknown"
+            ],
+            "origins_from_origins_field" : [
+               "en:unknown"
+            ],
+            "transportation_scores" : {
+               "be" : 0,
+               "ch" : 0,
+               "de" : 0,
+               "es" : 0,
+               "fr" : 0,
+               "ie" : 0,
+               "it" : 0,
+               "lu" : 0,
+               "nl" : 0,
+               "uk" : 0,
+               "world" : 0
+            },
+            "transportation_values" : {
+               "be" : 0,
+               "ch" : 0,
+               "de" : 0,
+               "es" : 0,
+               "fr" : 0,
+               "ie" : 0,
+               "it" : 0,
+               "lu" : 0,
+               "nl" : 0,
+               "uk" : 0,
+               "world" : 0
+            },
+            "values" : {
+               "be" : -5,
+               "ch" : -5,
+               "de" : -5,
+               "es" : -5,
+               "fr" : -5,
+               "ie" : -5,
+               "it" : -5,
+               "lu" : -5,
+               "nl" : -5,
+               "uk" : -5,
+               "world" : -5
+            },
+            "warning" : "origins_are_100_percent_unknown"
+         },
+         "packaging" : {
+            "non_recyclable_and_non_biodegradable_materials" : 1,
+            "value" : -15,
+            "warning" : "packaging_data_missing"
+         },
+         "production_system" : {
+            "labels" : [],
+            "value" : 0,
+            "warning" : "no_label"
+         },
+         "threatened_species" : {}
+      },
+      "agribalyse" : {
+         "agribalyse_proxy_food_code" : "18015"
+      },
+      "missing" : {
+         "labels" : 1,
+         "origins" : 1,
+         "packagings" : 1
+      },
+      "missing_agribalyse_match_warning" : 1,
+      "missing_key_data" : 1,
+      "status" : "unknown"
+   },
+   "ecoscore_grade" : "unknown",
+   "ecoscore_tags" : [
+      "unknown"
    ],
    "food_groups" : "en:sweetened-beverages",
    "food_groups_tags" : [
@@ -263,6 +354,7 @@
       "en:e300",
       "en:e960"
    ],
+   "ingredients_lc" : "fr",
    "ingredients_n" : 16,
    "ingredients_n_tags" : [
       "16",
@@ -348,16 +440,61 @@
       "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
       "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
       "en:nutriscore-2021-same-as-2023",
-      "en:nutriscore-2021-d-2023-d"
+      "en:nutriscore-2021-d-2023-d",
+      "en:ecoscore-extended-data-not-computed",
+      "en:ecoscore-not-computed"
+   ],
+   "nova_group" : 4,
+   "nova_group_debug" : "",
+   "nova_groups" : "4",
+   "nova_groups_markers" : {
+      "3" : [
+         [
+            "ingredients",
+            "en:sugar"
+         ]
+      ],
+      "4" : [
+         [
+            "additives",
+            "en:e960"
+         ],
+         [
+            "ingredients",
+            "en:flavouring"
+         ],
+         [
+            "ingredients",
+            "en:sweetener"
+         ]
+      ]
+   },
+   "nova_groups_tags" : [
+      "en:4-ultra-processed-food-and-drink-products"
    ],
    "nucleotides_tags" : [],
+   "nutrient_levels" : {
+      "fat" : "low",
+      "salt" : "low",
+      "saturated-fat" : "low",
+      "sugars" : "moderate"
+   },
+   "nutrient_levels_tags" : [
+      "en:fat-in-low-quantity",
+      "en:saturated-fat-in-low-quantity",
+      "en:sugars-in-moderate-quantity",
+      "en:salt-in-low-quantity"
+   ],
    "nutriments" : {
       "energy_100g" : 82,
-      "fat_100g" : 0,
+      "fat_100g" : "0",
       "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0.1,
       "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0.1,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0.1,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0.1,
+      "nova-group" : 4,
+      "nova-group_100g" : 4,
+      "nova-group_serving" : 4,
       "nutrition-score-fr" : 6,
       "nutrition-score-fr_100g" : 6,
       "proteins_100g" : 0,
@@ -365,7 +502,7 @@
       "salt_100g" : 0.025,
       "salt_unit" : "g",
       "salt_value" : 0.025,
-      "saturated-fat_100g" : 0,
+      "saturated-fat_100g" : "0",
       "sodium_100g" : 0.01,
       "sodium_value" : 0.01,
       "sugars_100g" : 4.5
@@ -613,6 +750,12 @@
       "sweetened-beverages",
       "known"
    ],
+   "traces" : "",
+   "traces_from_ingredients" : "",
+   "traces_from_user" : "(fr) ",
+   "traces_hierarchy" : [],
+   "traces_tags" : [],
    "unknown_ingredients_n" : 1,
+   "unknown_nutrients_tags" : [],
    "vitamins_tags" : []
 }

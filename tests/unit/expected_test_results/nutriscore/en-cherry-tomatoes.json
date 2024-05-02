@@ -2,6 +2,11 @@
    "additives_n" : 0,
    "additives_original_tags" : [],
    "additives_tags" : [],
+   "allergens" : "",
+   "allergens_from_ingredients" : "",
+   "allergens_from_user" : "(en) ",
+   "allergens_hierarchy" : [],
+   "allergens_tags" : [],
    "amino_acids_tags" : [],
    "categories" : "cherry tomatoes",
    "categories_hierarchy" : [
@@ -40,6 +45,92 @@
       "en:tomatoes",
       "en:cherry-tomatoes"
    ],
+   "ecoscore_data" : {
+      "adjustments" : {
+         "origins_of_ingredients" : {
+            "aggregated_origins" : [
+               {
+                  "origin" : "en:unknown",
+                  "percent" : 100
+               }
+            ],
+            "epi_score" : 0,
+            "epi_value" : -5,
+            "origins_from_categories" : [
+               "en:unknown"
+            ],
+            "origins_from_origins_field" : [
+               "en:unknown"
+            ],
+            "transportation_scores" : {
+               "be" : 0,
+               "ch" : 0,
+               "de" : 0,
+               "es" : 0,
+               "fr" : 0,
+               "ie" : 0,
+               "it" : 0,
+               "lu" : 0,
+               "nl" : 0,
+               "uk" : 0,
+               "world" : 0
+            },
+            "transportation_values" : {
+               "be" : 0,
+               "ch" : 0,
+               "de" : 0,
+               "es" : 0,
+               "fr" : 0,
+               "ie" : 0,
+               "it" : 0,
+               "lu" : 0,
+               "nl" : 0,
+               "uk" : 0,
+               "world" : 0
+            },
+            "values" : {
+               "be" : -5,
+               "ch" : -5,
+               "de" : -5,
+               "es" : -5,
+               "fr" : -5,
+               "ie" : -5,
+               "it" : -5,
+               "lu" : -5,
+               "nl" : -5,
+               "uk" : -5,
+               "world" : -5
+            },
+            "warning" : "origins_are_100_percent_unknown"
+         },
+         "packaging" : {
+            "non_recyclable_and_non_biodegradable_materials" : 1,
+            "value" : -15,
+            "warning" : "packaging_data_missing"
+         },
+         "production_system" : {
+            "labels" : [],
+            "value" : 0,
+            "warning" : "no_label"
+         },
+         "threatened_species" : {}
+      },
+      "agribalyse" : {
+         "agribalyse_food_code" : "20172"
+      },
+      "missing" : {
+         "labels" : 1,
+         "origins" : 1,
+         "packagings" : 1
+      },
+      "missing_agribalyse_match_warning" : 1,
+      "missing_key_data" : 1,
+      "status" : "unknown"
+   },
+   "ecoscore_grade" : "unknown",
+   "ecoscore_tags" : [
+      "unknown"
+   ],
    "food_groups" : "en:vegetables",
    "food_groups_tags" : [
       "en:fruits-and-vegetables",
@@ -70,6 +161,7 @@
       "en:fruit-vegetable",
       "en:tomato"
    ],
+   "ingredients_lc" : "en",
    "ingredients_n" : 1,
    "ingredients_n_tags" : [
       "1",
@@ -103,9 +195,30 @@
       "en:nutrition-all-nutriscore-values-known",
       "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
       "en:nutriscore-2021-same-as-2023",
-      "en:nutriscore-2021-a-2023-a"
+      "en:nutriscore-2021-a-2023-a",
+      "en:ecoscore-extended-data-not-computed",
+      "en:ecoscore-not-computed"
+   ],
+   "nova_group" : 1,
+   "nova_group_debug" : "",
+   "nova_groups" : "1",
+   "nova_groups_markers" : {},
+   "nova_groups_tags" : [
+      "en:1-unprocessed-or-minimally-processed-foods"
    ],
    "nucleotides_tags" : [],
+   "nutrient_levels" : {
+      "fat" : "low",
+      "salt" : "low",
+      "saturated-fat" : "low",
+      "sugars" : "low"
+   },
+   "nutrient_levels_tags" : [
+      "en:fat-in-low-quantity",
+      "en:saturated-fat-in-low-quantity",
+      "en:sugars-in-low-quantity",
+      "en:salt-in-low-quantity"
+   ],
    "nutriments" : {
       "energy_100g" : 81,
       "fat_100g" : 0.26,
@@ -114,10 +227,13 @@
       "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 100,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 100,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 100,
+      "nova-group" : 1,
+      "nova-group_100g" : 1,
+      "nova-group_serving" : 1,
       "nutrition-score-fr" : -6,
       "nutrition-score-fr_100g" : -6,
       "proteins_100g" : 0.86,
-      "salt_100g" : 0,
+      "salt_100g" : "0",
       "salt_value" : "0",
       "saturated-fat_100g" : 0.056,
       "sodium" : 0,
@@ -361,6 +477,12 @@
       "vegetables",
       "known"
    ],
+   "traces" : "",
+   "traces_from_ingredients" : "",
+   "traces_from_user" : "(en) ",
+   "traces_hierarchy" : [],
+   "traces_tags" : [],
    "unknown_ingredients_n" : 0,
+   "unknown_nutrients_tags" : [],
    "vitamins_tags" : []
 }

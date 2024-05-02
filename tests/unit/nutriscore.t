@@ -898,14 +898,10 @@ foreach my $test_ref (@tests) {
 		}
 	}
 
-	fix_salt_equivalent($product_ref);
 	compute_serving_size_data($product_ref);
 	compute_field_tags($product_ref, $product_ref->{lc}, "categories");
-	extract_ingredients_from_text($product_ref);
-	extract_additives_from_text($product_ref);
-	special_process_product($product_ref);
-	compute_estimated_nutrients($product_ref);
-	compute_nutriscore($product_ref);
+
+	specific_processes_for_food_product($product_ref);
 
 	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json", $update_expected_results);
 }

@@ -2,6 +2,11 @@
    "additives_n" : 0,
    "additives_original_tags" : [],
    "additives_tags" : [],
+   "allergens" : "",
+   "allergens_from_ingredients" : "",
+   "allergens_from_user" : "(fr) ",
+   "allergens_hierarchy" : [],
+   "allergens_tags" : [],
    "amino_acids_tags" : [],
    "categories" : "huile de colza",
    "categories_hierarchy" : [
@@ -36,6 +41,92 @@
       "en:vegetable-oils",
       "en:rapeseed-oils"
    ],
+   "ecoscore_data" : {
+      "adjustments" : {
+         "origins_of_ingredients" : {
+            "aggregated_origins" : [
+               {
+                  "origin" : "en:unknown",
+                  "percent" : 100
+               }
+            ],
+            "epi_score" : 0,
+            "epi_value" : -5,
+            "origins_from_categories" : [
+               "en:unknown"
+            ],
+            "origins_from_origins_field" : [
+               "en:unknown"
+            ],
+            "transportation_scores" : {
+               "be" : 0,
+               "ch" : 0,
+               "de" : 0,
+               "es" : 0,
+               "fr" : 0,
+               "ie" : 0,
+               "it" : 0,
+               "lu" : 0,
+               "nl" : 0,
+               "uk" : 0,
+               "world" : 0
+            },
+            "transportation_values" : {
+               "be" : 0,
+               "ch" : 0,
+               "de" : 0,
+               "es" : 0,
+               "fr" : 0,
+               "ie" : 0,
+               "it" : 0,
+               "lu" : 0,
+               "nl" : 0,
+               "uk" : 0,
+               "world" : 0
+            },
+            "values" : {
+               "be" : -5,
+               "ch" : -5,
+               "de" : -5,
+               "es" : -5,
+               "fr" : -5,
+               "ie" : -5,
+               "it" : -5,
+               "lu" : -5,
+               "nl" : -5,
+               "uk" : -5,
+               "world" : -5
+            },
+            "warning" : "origins_are_100_percent_unknown"
+         },
+         "packaging" : {
+            "non_recyclable_and_non_biodegradable_materials" : 1,
+            "value" : -15,
+            "warning" : "packaging_data_missing"
+         },
+         "production_system" : {
+            "labels" : [],
+            "value" : 0,
+            "warning" : "no_label"
+         },
+         "threatened_species" : {}
+      },
+      "agribalyse" : {
+         "agribalyse_food_code" : "17130"
+      },
+      "missing" : {
+         "labels" : 1,
+         "origins" : 1,
+         "packagings" : 1
+      },
+      "missing_agribalyse_match_warning" : 1,
+      "missing_key_data" : 1,
+      "status" : "unknown"
+   },
+   "ecoscore_grade" : "unknown",
+   "ecoscore_tags" : [
+      "unknown"
+   ],
    "food_groups" : "en:fats",
    "food_groups_tags" : [
       "en:fats-and-sauces",
@@ -67,6 +158,7 @@
       "en:vegetable-oil-and-fat",
       "en:rapeseed-oil"
    ],
+   "ingredients_lc" : "fr",
    "ingredients_n" : 1,
    "ingredients_n_tags" : [
       "1",
@@ -101,28 +193,59 @@
       "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
       "en:nutriscore-2021-different-from-2023",
       "en:nutriscore-2021-worse-than-2023",
-      "en:nutriscore-2021-c-2023-b"
+      "en:nutriscore-2021-c-2023-b",
+      "en:ecoscore-extended-data-not-computed",
+      "en:ecoscore-not-computed"
+   ],
+   "nova_group" : 2,
+   "nova_group_debug" : "",
+   "nova_groups" : "2",
+   "nova_groups_markers" : {
+      "2" : [
+         [
+            "categories",
+            "en:fats"
+         ]
+      ]
+   },
+   "nova_groups_tags" : [
+      "en:2-processed-culinary-ingredients"
    ],
    "nucleotides_tags" : [],
+   "nutrient_levels" : {
+      "fat" : "high",
+      "salt" : "low",
+      "saturated-fat" : "high",
+      "sugars" : "low"
+   },
+   "nutrient_levels_tags" : [
+      "en:fat-in-high-quantity",
+      "en:saturated-fat-in-high-quantity",
+      "en:sugars-in-low-quantity",
+      "en:salt-in-low-quantity"
+   ],
    "nutriments" : {
       "energy_100g" : 3400,
-      "fat_100g" : 92,
+      "fat_100g" : "92",
       "fiber_100g" : 0,
       "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
       "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 100,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 100,
+      "nova-group" : 2,
+      "nova-group_100g" : 2,
+      "nova-group_serving" : 2,
       "nutrition-score-fr" : 5,
       "nutrition-score-fr_100g" : 5,
       "proteins_100g" : 0,
-      "salt_100g" : 0,
+      "salt_100g" : "0",
       "salt_value" : "0",
       "saturated-fat_100g" : 7.3,
       "sodium" : 0,
       "sodium_100g" : 0,
       "sodium_unit" : "g",
       "sodium_value" : 0,
-      "sugars_100g" : 0
+      "sugars_100g" : "0"
    },
    "nutriments_estimated" : {
       "alcohol_100g" : 0,
@@ -363,6 +486,12 @@
       "fats",
       "known"
    ],
+   "traces" : "",
+   "traces_from_ingredients" : "",
+   "traces_from_user" : "(fr) ",
+   "traces_hierarchy" : [],
+   "traces_tags" : [],
    "unknown_ingredients_n" : 0,
+   "unknown_nutrients_tags" : [],
    "vitamins_tags" : []
 }
