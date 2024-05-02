@@ -39,6 +39,7 @@ BEGIN {
 	@EXPORT_OK = qw(
 
 		&detect_possible_improvements
+		&detect_possible_improvements_nutriscore
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -96,7 +97,7 @@ sub detect_possible_improvements_nutriscore ($product_ref) {
 			my $new_nutriscore_data_ref = dclone($product_ref->{nutriscore_data});
 			$new_nutriscore_data_ref->{$nutrient} = $lower_value;
 			my ($new_nutriscore_score, $new_nutriscore_grade)
-				= ProductOpener::Food::compute_nutriscore_score_and_grade($new_nutriscore_data_ref);
+				= ProductOpener::Food::compute_nutriscore_score_and_grade($new_nutriscore_data_ref, 2023);
 
 			# Store the result of the experiment
 			$product_ref->{nutriscore_data}{$nutrient . "_lower"} = $lower_value;

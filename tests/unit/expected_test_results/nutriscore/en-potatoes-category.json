@@ -37,6 +37,19 @@
       "en:cereals-and-potatoes",
       "en:potatoes"
    ],
+   "improvements_data" : {
+      "en:better-nutri-score-with-less-sodium" : {
+         "current_nutriscore_grade" : "c",
+         "current_value" : 200,
+         "difference_percent" : 10,
+         "new_nutriscore_grade" : "b",
+         "new_value" : 180,
+         "nutrient" : "sodium"
+      }
+   },
+   "improvements_tags" : [
+      "en:better-nutri-score-with-less-sodium"
+   ],
    "lc" : "en",
    "misc_tags" : [
       "en:nutriscore-computed",
@@ -195,6 +208,9 @@
       "energy_points" : 0,
       "energy_value" : 182,
       "fiber" : 0.5,
+      "fiber_higher" : 1,
+      "fiber_higher_grade" : "b",
+      "fiber_higher_score" : 2,
       "fiber_points" : 0,
       "fiber_value" : 0.5,
       "fruits_vegetables_nuts_colza_walnut_olive_oils" : 0,
@@ -208,6 +224,9 @@
       "negative_points" : 3,
       "positive_points" : 0,
       "proteins" : 0.2,
+      "proteins_higher" : 1.7,
+      "proteins_higher_grade" : "b",
+      "proteins_higher_score" : 2,
       "proteins_points" : 0,
       "proteins_value" : 0.2,
       "saturated_fat" : 0,
@@ -215,9 +234,15 @@
       "saturated_fat_value" : 0,
       "score" : 3,
       "sodium" : 200,
+      "sodium_lower" : 180,
+      "sodium_lower_grade" : "b",
+      "sodium_lower_score" : 2,
       "sodium_points" : 2,
       "sodium_value" : 200,
       "sugars" : 8.9,
+      "sugars_lower" : 4.5,
+      "sugars_lower_grade" : "b",
+      "sugars_lower_score" : 1,
       "sugars_points" : 1,
       "sugars_value" : 8.9
    },
