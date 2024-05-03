@@ -571,7 +571,7 @@
                   "panel_group_element" : {
                      "panel_group_id" : "nutrition",
                      "panel_ids" : [
-                        "nutriscore"
+                        "nutriscore_2023"
                      ],
                      "title" : "Nutrition",
                      "type" : "subcard"
@@ -874,7 +874,232 @@
                "health"
             ]
          },
-         "nutriscore" : {
+         "nutriscore_2023" : {
+            "elements" : [
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "nutriscore_description"
+                  }
+               },
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "evaluation" : "bad",
+                     "icon_color_from_evaluation" : true,
+                     "icon_size" : "small",
+                     "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/circle-minus.svg",
+                     "panel_ids" : [
+                        "nutriscore_component_energy",
+                        "nutriscore_component_sugars",
+                        "nutriscore_component_saturated_fat",
+                        "nutriscore_component_salt"
+                     ],
+                     "title" : "Points négatifs : 7/55"
+                  }
+               },
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "evaluation" : "good",
+                     "icon_color_from_evaluation" : true,
+                     "icon_size" : "small",
+                     "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/circle-plus.svg",
+                     "panel_ids" : [
+                        "nutriscore_component_proteins",
+                        "nutriscore_component_fiber",
+                        "nutriscore_component_fruits_vegetables_legumes"
+                     ],
+                     "title" : "Points positifs : 2/17"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "nutriscore_details"
+                  }
+               }
+            ],
+            "level" : "info",
+            "title_element" : {
+               "grade" : "c",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutriscore-c-new-fr.svg",
+               "subtitle" : "Qualité nutritionnelle moyenne",
+               "title" : "Nutri-Score C",
+               "type" : "grade"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutriscore_component_energy" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n<p>\n    \n    Les apports énergétiques supérieurs aux besoins énergétiques sont associés à des risques accrus de prise de poids, de surpoids, d'obésité et, par conséquent, à un risque de maladies chroniques liées à l'alimentation.\n</p>\n                "
+                  }
+               }
+            ],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/points-negative-1-10.svg",
+               "subtitle" : "1/10 points (558.75kJ)",
+               "title" : "Énergie"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutriscore_component_fiber" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n<p>\n    Consommer des aliments riches en fibres (notamment les aliments à grains entiers) réduit les risques de cancers aérodigestifs, de maladies cardiovasculaires, d’obésité et de diabète.\n    \n</p>\n                "
+                  }
+               }
+            ],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/points-positive-0-5.svg",
+               "subtitle" : "0/5 points (0.81g)",
+               "title" : "Fibre"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutriscore_component_fruits_vegetables_legumes" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n<p>\n    Consommer des aliments riches en fruits, légumes et légumineuses réduit les risques de cancers aérodigestifs, de maladies cardiovasculaires, d’obésité et de diabète.\n    \n</p>\n                "
+                  }
+               }
+            ],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/points-positive-2-5.svg",
+               "subtitle" : "2/5 points (62.5%)",
+               "title" : "Fruits, légumes et légumineuses"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutriscore_component_proteins" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n<p>\n    Les aliments riches en protéines sont généralement riches en calcium ou en fer, des minéraux essentiels aux nombreux bienfaits pour la santé.\n    \n</p>\n                "
+                  }
+               }
+            ],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/points-positive-0-7.svg",
+               "subtitle" : "0/7 points (1.97g)",
+               "title" : "Protéines"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutriscore_component_salt" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n<p>\n    \n    Une forte consommation de sel (ou de sodium) peut entraîner une augmentation de la pression artérielle, ce qui peut augmenter le risque de maladie cardiaque et d'accident vasculaire cérébral.\n</p>\n                "
+                  }
+               }
+            ],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/points-negative-0-20.svg",
+               "subtitle" : "0/20 points (0.05g)",
+               "title" : "Sel"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutriscore_component_saturated_fat" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n<p>\n    \n    Une consommation élevée de graisses, en particulier de graisses saturées, peut augmenter le cholestérol, ce qui augmente le risque de maladies cardiaques.\n</p>\n                "
+                  }
+               }
+            ],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/points-negative-4-10.svg",
+               "subtitle" : "4/10 points (4.9g)",
+               "title" : "Graisses saturées"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutriscore_component_sugars" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n<p>\n    \n    Une forte consommation de sucre peut entraîner une prise de poids et des caries dentaires. Il augmente également le risque de diabète de type 2 et de maladies cardio-vasculaires.\n</p>\n                "
+                  }
+               }
+            ],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/points-negative-2-15.svg",
+               "subtitle" : "2/15 points (7.26g)",
+               "title" : "Sucres"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutriscore_description" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<p>Le Nutri-Score est un logo sur la qualité nutritionnelle globale des produits.</p>\n<p>\nLe score de A à E est calculé en fonction des nutriments et aliments à favoriser (protéines, fibres, fruits et légumes, légumes secs…) et des nutriments à limiter (calories, matières grasses saturées, sucres, sel).\nLe score est calculé à partir des données du tableau de la déclaration nutritionnelle et des données de composition (fruits, légumes et légumes secs).\n</p>\n\n                ",
+                     "type" : "info"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n<p>&rarr; <a href=\"http://world-fr.openfoodfacts.localhost/nutriscore\">En savoir plus sur le Nutri-Score</a></p>\n"
+                  }
+               }
+            ],
+            "level" : "info",
+            "title_element" : {
+               "icon_size" : "small",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/info.svg",
+               "title" : "Qu'est ce que le Nutri-Score ?",
+               "type" : "info"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutriscore_details" : {
             "elements" : [
                {
                   "element_type" : "text",
@@ -893,22 +1118,16 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "<!-- start templates/web/pages/product/includes/nutriscore_details.tt.html -->\n\n<p>Ce produit n'est pas considéré comme une boisson pour le calcul du Nutri-Score.</p>\n\n\n\n\n\n  <p> \n    <strong>Points positifs : 3</strong> \n  </p>\n\n  <ul>\n    \n      <li>\n        <strong>Protéines :\n1&nbsp;</strong>/&nbsp;5\n(valeur : 1.974375, \n        valeur arrondie : 1.97)\n      </li>\n    \n      <li>\n        <strong>Fibre :\n0&nbsp;</strong>/&nbsp;5\n(valeur : 0.8125, \n        valeur arrondie : 0.81)\n      </li>\n    \n      <li>\n        <strong>Fruits, légumes, noix et huiles de colza / noix / olive :\n2&nbsp;</strong>/&nbsp;5\n(valeur : 62.5, \n        valeur arrondie : 62.5)\n      </li>\n    \n  </ul>\n\n\n\n  <p> \n    <strong>Points négatifs : 6</strong> \n  </p>\n\n  <ul>\n    \n      <li>\n        <strong>Énergie :\n1&nbsp;</strong>/&nbsp;10\n(valeur : 558.75, \n        valeur arrondie : 558.8)\n      </li>\n    \n      <li>\n        <strong>Sucres :\n1&nbsp;</strong>/&nbsp;10\n(valeur : 7.2621875, \n        valeur arrondie : 7.26)\n      </li>\n    \n      <li>\n        <strong>Graisses saturées :\n4&nbsp;</strong>/&nbsp;10\n(valeur : 4.903125, \n        valeur arrondie : 4.9)\n      </li>\n    \n      <li>\n        <strong>Sodium :\n0&nbsp;</strong>/&nbsp;10\n(valeur : 19.725, \n        valeur arrondie : 19.7)\n      </li>\n    \n  </ul>\n\n\n\n<p>Les points pour les protéines sont comptés car les points négatifs sont inférieurs à 11.</p>\n\n<p>\n  <strong>Score nutritionnel : </strong>\n  (6 - 3)\n</p>\n<p><strong>Nutri-Score : </strong></p>\n\n<!-- end templates/web/pages/product/includes/nutriscore_details.tt.html -->"
-                  }
-               },
-               {
-                  "element_type" : "text",
-                  "text_element" : {
-                     "html" : "\n<p>&rarr; <a href=\"http://world-fr.openfoodfacts.localhost/nutriscore\">En savoir plus sur le Nutri-Score</a></p>\n"
+                     "html" : "\n\n    <p>Ce produit n'est pas considéré comme une boisson pour le calcul du Nutri-Score.</p>\n\n\n\n\n\n<p>Les points pour les protéines sont comptés car les points négatifs sont inférieurs à 11.</p>\n\n<p>\n  <strong>Score nutritionnel : 5</strong>\n  (7 - 2)\n</p>\n<p><strong>Nutri-Score : C</strong></p>                \n                "
                   }
                }
             ],
             "level" : "info",
             "title_element" : {
-               "grade" : "c",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutriscore-c.svg",
-               "title" : "Qualité nutritionnelle moyenne",
-               "type" : "grade"
+               "icon_size" : "small",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/info.svg",
+               "title" : "Détail du calcul du Nutri-Score",
+               "type" : "info"
             },
             "topics" : [
                "health"
