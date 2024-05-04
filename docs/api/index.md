@@ -42,7 +42,7 @@ To protect our infrastructure, we enforce rate-limits on the API and the website
 
 If these limits are reached, we reserve the right to deny you access to the website and the API through IP address ban. If your IP has been banned, feel free to [email us to explain why you reached the limits][why_reached_limits]: reverting the ban is possible.
 
-[why_reached_limits]: mailto:contact@openfoodfacts.org
+[why_reached_limits]: mailto:reuse@openfoodfacts.org
 
 If your requests come from your users directly (ex: mobile app), the rate limits apply per user.
 
