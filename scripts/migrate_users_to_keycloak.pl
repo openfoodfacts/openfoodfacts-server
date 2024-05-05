@@ -132,7 +132,8 @@ sub convert_to_keycloak_user ($user_file) {
 			name => [$user_ref->{name}],
 			locale => [$user_ref->{initial_lc}],
 			country => [$user_ref->{initial_cc}],
-		]
+		],
+		createdTimestamp => $user_ref->{registered_t} * 1000
 	};
 
 	return $keycloak_user_ref;
@@ -191,7 +192,7 @@ if ($importtype eq 'realm-batch') {
 				push(@users, $keycloak_user) if defined $keycloak_user;
 			}
 
-			if (scalar @users >= 420) {
+			if (scalar @users >= 2000) {
 				import_users_in_keycloak(\@users);
 				@users = ();
 			}
