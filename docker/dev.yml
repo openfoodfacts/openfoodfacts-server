@@ -123,13 +123,15 @@ services:
       - KEYCLOAK_BASE_URL
       - KEYCLOAK_REALM_NAME
       - KC_SPI_EVENTS_LISTENER_REDIS_EVENT_LISTENER_REDIS_URL=redis://${REDIS_URL}
+      - KC_HOSTNAME_URL
+      - KC_HOSTNAME_ADMIN_URL
+      - KC_PROXY_HEADERS
       - PRODUCT_OPENER_DOMAIN
       - PRODUCT_OPENER_OIDC_CLIENT_ID
       - PRODUCT_OPENER_OIDC_CLIENT_SECRET
     volumes:
       - keycloak_data:/opt/keycloak/data
       - ./conf/keycloak:/opt/keycloak/data/import
-    command: start-dev --import-realm --features="account3,declarative-user-profile" --hostname-url=${KEYCLOAK_BASE_URL} --hostname-admin-url=${KEYCLOAK_BASE_URL} --proxy-headers=forwarded|xforwarded
     ports:
       - "127.0.0.1:${KEYCLOAK_EXPOSE_PORT:-5600}:8080"
     depends_on:
