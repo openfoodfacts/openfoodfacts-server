@@ -610,6 +610,11 @@ sub check_request_response ($test_ref, $response, $test_id, $test_dir, $expected
 			if (!defined $hvalue) {
 				ok(!defined $rvalue, "$test_case - header $hname should not be defined");
 			}
+			# one may put a /regexp/ to test the value of a header
+			elsif ($hvalue =~ /^\/(.*)\/$/) {
+				my $regexp = $1;
+				like($rvalue, qr/$regexp/, "$test_case - header $hname like $hvalue");
+			}
 			else {
 				is($rvalue, $hvalue, "$test_case - header $hname");
 			}

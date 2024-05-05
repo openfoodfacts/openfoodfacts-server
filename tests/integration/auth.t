@@ -3,74 +3,73 @@
 use ProductOpener::PerlStandards;
 
 use Test2::V0;
-use Log::Any::Adapter 'TAP';
-use Log::Any qw($log);
+use ProductOpener::APITest qw/create_user execute_api_tests login new_client wait_application_ready/;
+use ProductOpener::Test qw/remove_all_products remove_all_users/;
+use ProductOpener::TestDefaults qw/%default_user_form/;
 
-use ProductOpener::APITest qw/:all/;
-use ProductOpener::Test qw/:all/;
-use ProductOpener::TestDefaults qw/:all/;
-use ProductOpener::Auth qw/:all/;
+use File::Basename "dirname";
 
-use List::Util qw/first/;
-use URI::Escape::XS qw/uri_unescape/;
-
-wait_application_ready();
+use Storable qw(dclone);
 
 remove_all_users();
 
 remove_all_products();
+
+wait_application_ready();
 
 my $ua = new_client();
 
 my %create_user_args = (%default_user_form, (email => 'bob@gmail.com'));
 create_user($ua, \%create_user_args);
 
-subtest 'user + password_signin' => sub {
-	subtest 'with bad password' => sub {
-		my ($oidc_user_id, $refresh_token, $refresh_expires_at, $access_token, $access_expires_at, $id_token)
-			= password_signin('tests', 'badpassword');
-		is($oidc_user_id, undef, 'user_id is undefined');
-		is($refresh_token, undef, 'refresh_token is undefined');
-		is($refresh_expires_at, undef, 'refresh_expires_at is undefined');
-		is($access_token, undef, 'access_token is undefined');
-		is($access_expires_at, undef, 'access_expires_at is undefined');
-		is($id_token, undef, 'id_token is undefined');
-	};
+# TODO: add more tests !
+my $tests_ref = [
+	{
+		test_case => 'auth-not-authenticated',
+		method => 'GET',
+		path => '/cgi/auth.pl',
+		expected_status_code => 403,    # we are not authenticated
+		headers => {
+			"Set-Cookie" => undef,
+		},
+		expected_type => "none",
+	},
+	{
+		test_case => 'auth-authenticated-with-userid-and-password',
+		method => 'POST',
+		path => '/cgi/auth.pl',
+		form => {
+			user_id => "tests",
+			password => "!!!TestTest1!!!",
+			body => 1,
+		},
+		expected_status_code => 200,
+		headers => {
+			"Set-Cookie" => "/session=/",    # We get a session cookie
+		},
+		expected_type => "json",
+	},
+];
+execute_api_tests(__FILE__, $tests_ref);
 
-	subtest 'with good password' => sub {
-		my ($oidc_user_id, $refresh_token, $refresh_expires_at, $access_token, $access_expires_at, $id_token)
-			= password_signin('tests', '!!!TestTest1!!!');
-		is($oidc_user_id, 'tests', 'user_id matches the one we used');
-		ok($refresh_token, 'refresh token is defined');
-		ok($refresh_expires_at, 'refresh token expires_at is defined');
-		ok($access_token, 'access token is defined');
-		ok($access_expires_at, 'access token expires_at is defined');
-		ok($id_token, 'id token is defined');
-	};
-};
+# Test auth.pl with authenticated user
+create_user($ua, \%default_user_form);
 
-subtest 'mail + password_signin' => sub {
-	subtest 'with bad password' => sub {
-		my ($oidc_user_id, $refresh_token, $refresh_expires_at, $access_token, $access_expires_at, $id_token)
-			= password_signin('bob@gmail.com', 'badpassword');
-		is($oidc_user_id, undef, 'user_id is undefined');
-		is($refresh_token, undef, 'refresh_token is undefined');
-		is($refresh_expires_at, undef, 'refresh_expires_at is undefined');
-		is($access_token, undef, 'access_token is undefined');
-		is($access_expires_at, undef, 'access_expires_at is undefined');
-		is($id_token, undef, 'id_token is undefined');
-	};
+my $auth_ua = new_client();
+login($auth_ua, "tests", '!!!TestTest1!!!');
 
-	subtest 'with good password' => sub {
-		my ($oidc_user_id, $refresh_token, $refresh_expires_at, $access_token, $access_expires_at, $id_token)
-			= password_signin('bob@gmail.com', '!!!TestTest1!!!');
-		is($oidc_user_id, 'tests', 'user_id matches the one we used');
-		ok($refresh_token, 'refresh token is defined');
-		ok($refresh_expires_at, 'refresh token expires_at is defined');
-		ok($access_token, 'access token is defined');
-		ok($access_expires_at, 'access token expires_at is defined');
-		ok($id_token, 'id token is defined');
-	};
-};
+$tests_ref = [
+	{
+		test_case => 'auth-authenticated-with-cookie',
+		method => 'GET',
+		path => '/cgi/auth.pl',
+		expected_status_code => 200,
+		headers => {
+			"Set-Cookie" => undef,    # No session cookie
+		},
+		expected_type => "none",
+	},
+];
+execute_api_tests(__FILE__, $tests_ref, $auth_ua);
 
 done_testing();
