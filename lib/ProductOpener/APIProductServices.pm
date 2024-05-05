@@ -102,13 +102,14 @@ sub echo_service ($product_ref, $updated_product_fields_ref) {
 }
 
 my %service_functions = (
-	echo => \&echo_service,
-	parse_ingredients_text => \&ProductOpener::Ingredients::parse_ingredients_text_service,
-	extend_ingredients => \&ProductOpener::Ingredients::extend_ingredients_service,
-	estimate_ingredients_percent => \&ProductOpener::Ingredients::estimate_ingredients_percent_service,
-	analyze_ingredients => \&ProductOpener::Ingredients::analyze_ingredients_service,
-	check_quality => \&check_quality_service,
+    echo => \&echo_service,
+    parse_ingredients_text => \&ProductOpener::Ingredients::parse_ingredients_text_service,
+    extend_ingredients => \&ProductOpener::Ingredients::extend_ingredients_service,
+    estimate_ingredients_percent => \&ProductOpener::Ingredients::estimate_ingredients_percent_service,
+    analyze_ingredients => \&ProductOpener::Ingredients::analyze_ingredients_service,
+    check_quality => \&ProductOpener::DataQuality::check_quality_service,
 );
+
 
 sub check_product_services_api_input ($request_ref) {
 
@@ -207,7 +208,6 @@ Process API v3 product services requests.
 =cut
 
 sub product_services_api ($request_ref) {
-
     $log->debug("product_services_api - start", {request => $request_ref}) if $log->is_debug();
 
     my $response_ref = $request_ref->{api_response};
@@ -217,30 +217,17 @@ sub product_services_api ($request_ref) {
 
     my $error = check_product_services_api_input($request_ref);
 
-    # If we did not get a fatal error, we can execute the services on the input product object
     if (not $error) {
-
         my $product_ref = $request_body_ref->{product};
+        my $updated_product_fields_ref = {};
         $request_ref->{updated_product_fields} = {};
 
         foreach my $service (@{$request_body_ref->{services}}) {
             my $service_function = $service_functions{$service};
 
             if (defined $service_function) {
-                if ($service eq 'check_quality') {
-                    # Create a temporary product reference for quality checks
-                    my $temp_product_ref = {};
-                    $temp_product_ref->{nutrition} = $request_body_ref->{nutrition} if defined $request_body_ref->{nutrition};
-                    $temp_product_ref->{ingredients} = $request_body_ref->{ingredients} if defined $request_body_ref->{ingredients};
-
-                    # Call the check_quality service, passing the temporary product ref
-                    &$service_function($temp_product_ref, $request_ref->{updated_product_fields});
-                    
-                    # Integrate the quality check results back into the main product_ref
-                    $product_ref->{data_quality_tags} = $temp_product_ref->{data_quality_tags} if defined $temp_product_ref->{data_quality_tags};
-                } else {
-                    &$service_function($product_ref, $request_ref->{updated_product_fields});
-                }
+                # Generalize service function calling
+                &$service_function($product_ref, $request_ref->{updated_product_fields});
             } else {
                 add_error(
                     $response_ref,
@@ -252,18 +239,17 @@ sub product_services_api ($request_ref) {
                 );
             }
         }
+        if (%$updated_product_fields_ref) {
+            $response_ref->{updated_fields} = $updated_product_fields_ref;
+        }
 
         # Select / compute only the fields requested by the caller, default to updated fields
-        my $fields_ref = request_param($request_ref, 'fields');
-        if (not defined $fields_ref) {
-            $fields_ref = ["updated"];
-        }
+        my $fields_ref = request_param($request_ref, 'fields') || ["updated"];
         $log->debug("product_services_api - before customize", {fields_ref => $fields_ref, product_ref => $product_ref})
             if $log->is_debug();
         $response_ref->{product} = customize_response_for_product($request_ref, $product_ref, undef, $fields_ref);
 
-        # Echo back the services that were executed
-        $response_ref->{fields} = $fields_ref;
+        $response_ref->{fields} = $fields_ref;  # Echo back the services that were executed
     }
 
     $log->debug("product_services_api - stop", {request => $request_ref}) if $log->is_debug();
@@ -271,18 +257,21 @@ sub product_services_api ($request_ref) {
     return;
 }
 
-sub check_quality_service ($product_ref, $updated_product_fields_ref) {
-    # Check if nutrition data is provided
-    if (exists $product_ref->{nutrition}) {
-        ProductOpener::DataQuality::check_quality($product_ref->{nutrition});
-        $updated_product_fields_ref->{nutrition_data_quality_tags} = $product_ref->{nutrition}->{data_quality_tags};
+sub customize_response_for_product {
+    my ($product_ref, $fields_to_return) = @_;
+
+    # Example: Return only requested fields
+    my %filtered_product;
+    foreach my $field (@$fields_to_return) {
+        if ($field eq 'all') {
+            %filtered_product = %$product_ref;
+            last;
+        } else {
+            $filtered_product{$field} = $product_ref->{$field} if exists $product_ref->{$field};
+        }
     }
 
-    # Check if ingredient data is provided
-    if (exists $product_ref->{ingredients}) {
-        ProductOpener::DataQuality::check_quality($product_ref->{ingredients});
-        $updated_product_fields_ref->{ingredient_data_quality_tags} = $product_ref->{ingredients}->{data_quality_tags};
-    }
+    return \%filtered_product;
 }
 
 

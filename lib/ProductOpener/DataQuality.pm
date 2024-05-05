@@ -97,55 +97,64 @@ C<check_quality()> checks the quality of data for a given product.
 
 =cut
 
-sub check_quality ($product_ref) {
+sub check_quality_service ($product_ref, $updated_product_fields_ref, $fields_to_check = ['nutrition', 'ingredients']) {
+    # Remove old quality tags
+    delete $product_ref->{quality_tags};
 
-	# Remove old quality_tags
-	delete $product_ref->{quality_tags};
+    # Initialize the data quality arrays
+    $product_ref->{data_quality_bugs_tags} = [];
+    $product_ref->{data_quality_info_tags} = [];
+    $product_ref->{data_quality_warnings_tags} = [];
+    $product_ref->{data_quality_errors_tags} = [];
 
-	# Initialize the data_quality arrays
-	$product_ref->{data_quality_bugs_tags} = [];
-	$product_ref->{data_quality_info_tags} = [];
-	$product_ref->{data_quality_warnings_tags} = [];
-	$product_ref->{data_quality_errors_tags} = [];
+    # Run general quality checks applicable across different product types
+    ProductOpener::DataQualityFood::check_quality_food($product_ref);
 
-	check_quality_common($product_ref);
+    # Check specific fields based on $fields_to_check
+    for my $field (@$fields_to_check) {
+        if ($field eq 'nutrition' && defined $product_ref->{nutrition}) {
+            ProductOpener::DataQualityFood::check_nutrition_data($product_ref);
+            ProductOpener::DataQualityFood::check_nutrition_data_energy_computation($product_ref);
+        }
+        if ($field eq 'ingredients' && defined $product_ref->{ingredients}) {
+            ProductOpener::DataQualityFood::check_ingredients($product_ref);
+        }
+        # Additional checks for specific food products
+        if ($field eq 'food' && $options{product_type} eq "food") {
+            ProductOpener::DataQualityFood::check_quality_food($product_ref);
+        }
+    }
 
-	if ($options{product_type} eq "food") {
-		check_quality_food($product_ref);
-	}
+    # Combine all data quality tags into a single array
+    $product_ref->{data_quality_tags} = [
+        @{$product_ref->{data_quality_bugs_tags}},
+        @{$product_ref->{data_quality_info_tags}},
+        @{$product_ref->{data_quality_warnings_tags}},
+        @{$product_ref->{data_quality_errors_tags}}
+    ];
 
-	# Also combine all sub facets in a data-quality facet
-	$product_ref->{data_quality_tags} = [
-		@{$product_ref->{data_quality_bugs_tags}}, @{$product_ref->{data_quality_info_tags}},
-		@{$product_ref->{data_quality_warnings_tags}}, @{$product_ref->{data_quality_errors_tags}},
-	];
+    # Update the fields with quality tags
+    $updated_product_fields_ref->{data_quality_tags} = $product_ref->{data_quality_tags};
 
-	# If we are on the producers platform, also populate facets with the values that exist
-	# in the data-quality taxonomy and that have the show_on_producers_platform:en:yes property
-	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
-
-		foreach my $level ("warnings", "errors") {
-
-			$product_ref->{"data_quality_" . $level . "_producers_tags"} = [];
-
-			foreach my $value (@{$product_ref->{"data_quality_" . $level . "_tags"}}) {
-				if (exists_taxonomy_tag("data_quality", $value)) {
-					my $show_on_producers_platform
-						= get_inherited_property("data_quality", $value, "show_on_producers_platform:en");
-					if ((defined $show_on_producers_platform) and ($show_on_producers_platform eq "yes")) {
-						push @{$product_ref->{"data_quality_" . $level . "_producers_tags"}}, $value;
-					}
-				}
-			}
-		}
-
-		# Detect possible improvements opportunities for food products
-		if ($options{product_type} eq "food") {
-			detect_possible_improvements($product_ref);
-		}
-	}
-
-	return;
+    # Handle producer platform-specific tags and detect improvements if on a private platform
+    if ((defined $server_options{private_products}) && ($server_options{private_products})) {
+        foreach my $level ("warnings", "errors") {
+            $product_ref->{"data_quality_" . $level . "_producers_tags"} = [];
+            foreach my $value (@{$product_ref->{"data_quality_" . $level . "_tags"}}) {
+                if (exists_taxonomy_tag("data_quality", $value)) {
+                    my $show = get_inherited_property("data_quality", $value, "show_on_producers_platform:en");
+                    if ((defined $show) && ($show eq "yes")) {
+                        push @{$product_ref->{"data_quality_" . $level . "_producers_tags"}}, $value;
+                    }
+                }
+            }
+            $updated_product_fields_ref->{"data_quality_" . $level . "_producers_tags"} = $product_ref->{"data_quality_" . $level . "_producers_tags"};
+        }
+    }
 }
+
+
+
+
 
 1;
