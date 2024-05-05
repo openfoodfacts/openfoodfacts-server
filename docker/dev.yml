@@ -93,17 +93,18 @@ services:
           aliases:
             # trick: make it possible for robotoff to reach it internally, 
             # using localhost domain
-            - world.openfoodfacts.localhost
-            - static.openfoodfacts.localhost
-            - images.openfoodfacts.localhost
-            - fr.openfoodfacts.localhost
-            - world-de.openfoodfacts.localhost
-            - world-it.openfoodfacts.localhost
-            - es-it.openfoodfacts.localhost
-            - ch-it.openfoodfacts.localhost
-            - ssl-api.openfoodfacts.localhost
-            - fr.pro.openfoodfacts.localhost
-            - world.pro.openfoodfacts.localhost
+            - world.${PRODUCT_OPENER_DOMAIN}
+            - static.${PRODUCT_OPENER_DOMAIN}
+            - images.${PRODUCT_OPENER_DOMAIN}
+            - fr.${PRODUCT_OPENER_DOMAIN}
+            - world-de.${PRODUCT_OPENER_DOMAIN}
+            - world-it.${PRODUCT_OPENER_DOMAIN}
+            - es-it.${PRODUCT_OPENER_DOMAIN}
+            - ch-it.${PRODUCT_OPENER_DOMAIN}
+            - ssl-api.${PRODUCT_OPENER_DOMAIN}
+            - fr.pro.${PRODUCT_OPENER_DOMAIN}
+            - world.pro.${PRODUCT_OPENER_DOMAIN}
+            - auth.${PRODUCT_OPENER_DOMAIN}
   mongodb:
     # Note: keep it as close a possible to mongodb.yml
     image: mongo:4.4
@@ -115,7 +116,7 @@ services:
       - "127.0.0.1:${MONGO_EXPOSE_PORT:-27017}:27017"
   keycloak:
     # FIXME: Add keycloak to docker-compose.yml and/or docker/prod.yml
-    image: ghcr.io/openfoodfacts/openfoodfacts-auth:main@sha256:78d76019fc4b574811677ace774bd766b30127514b72e8e6b8050d2454847484
+    image: ghcr.io/openfoodfacts/openfoodfacts-auth:main@sha256:3c2340facad580546a766683dc14d43f8d21ffd2821c8d1047b84b42a61ecc62
     environment:
       - KEYCLOAK_ADMIN
       - KEYCLOAK_ADMIN_PASSWORD
@@ -128,15 +129,9 @@ services:
     volumes:
       - keycloak_data:/opt/keycloak/data
       - ./conf/keycloak:/opt/keycloak/data/import
-    command: start-dev --import-realm --features="account3,declarative-user-profile"
+    command: start-dev --import-realm --features="account3,declarative-user-profile" --hostname-url=${KEYCLOAK_BASE_URL} --hostname-admin-url=${KEYCLOAK_BASE_URL} --proxy-headers=forwarded|xforwarded
     ports:
-      - "127.0.0.1:${KEYCLOAK_EXPOSE_PORT:-8080}:8080"
-    networks:
-        default:
-          aliases:
-            # trick: make it possible for product opener to reach it internally,
-            # using localhost domain
-            - auth.${PRODUCT_OPENER_DOMAIN}
+      - "127.0.0.1:${KEYCLOAK_EXPOSE_PORT:-5600}:8080"
     depends_on:
       - redis
 
