@@ -255,7 +255,7 @@ checks: front_build front_lint check_perltidy check_perl_fast check_critic check
 
 lint: lint_perltidy lint_taxonomies
 
-tests: build_taxonomies_test build_lang_test unit_test integration_test
+tests: deps build_taxonomies_test build_lang_test unit_test integration_test
 
 # add COVER_OPTS='-e HARNESS_PERL_SWITCHES="-MDevel::Cover"' if you want to trigger code coverage report generation
 unit_test: create_folders
