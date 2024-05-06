@@ -26,7 +26,6 @@
         [% styles %]
     </style>
     [% google_analytics %]
-	<script src="https://cdn.jsdelivr.net/jsbarcode/3.3.7/JsBarcode.all.min.js"></script>
 </head>
 <body[% bodyabout %] class="[% page_type %]_page">
 
@@ -491,6 +490,7 @@
 [% END %]
 
 </body>
+<script src="[% static_subdomain %]/js/JsBarcode.all.min.js"></script>
 <script>
 	//init barcode SVGs if exist on the page
 	let barcode_svg_elements = document.getElementsByClassName("barcode-svg"); 
