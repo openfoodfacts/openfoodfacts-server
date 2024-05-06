@@ -60167,6 +60167,12 @@ fr:noisette du Piémont, noisettes du Piémont
 it:nocciola Piemonte
 protected_name_type:en: en:pgi
 
+<en:Piedmont hazelnut
+<en:ground hazelnuts
+en:ground Piedmont hazelnut
+fr:noisette du Piémont en poudre
+it:polvere di nocciola Piemonte
+
 <en:hazelnut
 fr:noisettes avec peau
 
@@ -60289,8 +60295,7 @@ sv:hasselnötsmassa, hasselnötspasta
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/hazelnut-paste
 # 965 products in 14 languages @2018-10-06
 
-<en:biscuit
-<en:hazelnut paste
+#<en:compound
 en:hazelnut paste with pieces of biscuits
 es:pasta de avellana con trozos de galletas
 fr:pâte à la noisette avec des morceaux de biscuits
@@ -60299,7 +60304,6 @@ it:pasta di nocciole con pezzi di biscotti
 nl:hazelnootpasta met stukjes koekjes
 
 <en:filling
-<en:hazelnut
 en:hazelnut filling
 es:relleno de avellana
 fr:garniture à la noisette
@@ -60309,7 +60313,7 @@ nl:hazelnootvulling
 
 # hazelnut praline is a compound product i.e.:(hazelnut, sugar)
 
-<en:hazelnut
+#<en:compound
 en:hazelnut praline
 de:Haselnuss-Praline
 fi:hasselpähkinäpraliini
