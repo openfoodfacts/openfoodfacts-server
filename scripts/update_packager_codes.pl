@@ -106,6 +106,7 @@ sub normalize_code {
 			"$code EC" when 'rs';
 			"SE $code EC" when 'se';
 			"SK $code EC" when 'sk';
+			"$code ES" when 'si';
 			"UK $code EC" when 'uk';
 			join q{  }, uc($cc), $code, 'EC';
 		}
@@ -175,6 +176,7 @@ my %approval_key = (
 	pl => 'code',
 	rs => 'approval_number',
 	se => 'nr',
+	si => 'code',
 	sk => 'schvaľovacie_čislo',
 	uk => 'approval_number',
 );

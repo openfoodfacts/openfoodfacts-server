@@ -16403,7 +16403,7 @@ fr:huile d'olive extra vierge, huile d'olive vierge extra, huile d'olive vierge 
 hr:ekstra djevičansko maslinovo ulje
 hu:extra szűz olívaolaj, extraszűz olívaolaj
 it:olio d'oliva extra vergine, olio extravergine di oliva, olio di oliva extra vergine, olio extra vergine di oliva, olio extra vergine d'oliva, olio extravergine d'oliva, olio vegetale extravergine d'oliva
-nl:olijfolie extra vierge, extra olijfolie van de eerste persing, extra vierge olijfolie, extra vergine olijfolie
+nl:olijfolie extra vierge, extra olijfolie van de eerste persing, extra vierge olijfolie, extra vergine olijfolie, Extra vierge olijfolie van de eerste persing
 no:extra virgin olivenolje, ekstra virgin olivenolje, ekstra jomfru olivenolje
 pl:oliwa z oliwek extra virgin, oliwa extra virgin, oliwa z oliwek ekstra virgin, oliwa ekstra virgin
 pt:Azeite extra virgem, azeite virgem extra
@@ -20881,6 +20881,21 @@ de:Brandy-Aroma
 es:aroma de brandy
 fr:arôme de brandy
 pl:aromat brandy
+
+<en:flavouring
+en:maple flavouring
+fr:arôme d'érable
+
+<en:natural flavouring
+en:natural maple flavouring
+fr:arôme naturel d'érable
+
+en:maple extract
+fr:extrait d'érable
+
+<en:maple extract
+en:natural maple extract
+fr:extrait naturel d'érable
 
 <en:flavouring
 en:plum flavouring
@@ -29666,6 +29681,7 @@ wikidata:en:Q412082
 wikipedia:en:https://en.wikipedia.org/wiki/Inverted_sugar_syrup
 
 <en:invert sugar
+<en:cane sugar
 en:invert cane sugar, inverted cane sugar
 de:Invertrohrzucker
 fr:sucre de canne inverti
@@ -29870,6 +29886,14 @@ en:rock candy, crystal candy
 ja:氷砂糖
 
 #################### Sugars from specific sources ##############
+
+<en:sugar
+en:maple sugar
+de:Ahornzucker
+es:azúcar de arce
+fr:sucre d'érable
+it:zucchero d'acero
+ja:メープルシュガー
 
 en:sugarcane, sugar cane
 bg:захарна тръстика
@@ -31668,6 +31692,9 @@ zh:果寡糖
 wikidata:en:Q418945
 wikipedia:en:https://en.wikipedia.org/wiki/Fructooligosaccharide
 # ingredient/fructooligosaccharide has 139 products in 7 languages @2019-05-06
+
+<en:sweetener
+en:monk fruit extract
 
 ##################################################################################
 #
