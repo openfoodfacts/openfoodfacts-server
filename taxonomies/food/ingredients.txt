@@ -4244,6 +4244,7 @@ ca:llet desnatada en pols reconstituida, llet desnatada en pols rehidratada
 es:leche desnatada en polvo reconstituida, leche desnatada en polvo rehidratada
 
 fr:matière grasse de lait anhydre
+it:grasso di latte anidro
 
 <en:milk
 fr:lait écrémé en poudre reconstitué, lait écrémé en poudre réhydraté
@@ -50954,7 +50955,7 @@ es:fibra de la raíz de achicoria,fibra de achicoria
 fi:sikurikuitu, sikurijuurikuitu
 fr:fibre de chicorée, fibres de chicorée, fibre de racine de chicorée, fibres de racine de chicorée, fibres de racines de chicorée
 hr:vlakna iz korijena cikorije
-it:Fibre di cicoria
+it:Fibre di cicoria, fibra di radice di cicoria
 nl:chichoreivezel, chichoreiwortelvezel
 pl:błonnik z cykorii, błonnik z korzenia cykorii, włókna z korzenia cykorii
 sk:vláknina z koreňa čakanky
@@ -51276,7 +51277,7 @@ es:Fibra de bambú
 fi:bambukuitu
 fr:fibre de bambou, fibres de bambou
 hr:vlakna bambusa
-it:fibre di bambù
+it:fibra di bambù, fibre di bambù
 nl:bamboevezel, bamboevezels
 pl:błonnik bambusowy, błonnik roślinny bambusowy
 sv:bambufiber
@@ -60161,6 +60162,12 @@ wikidata:en:Q578307
 wikipedia:en:https://en.wikipedia.org/wiki/Hazelnut
 
 <en:hazelnut
+en:Piedmont hazelnut, PGI Piedmont hazelnut
+fr:noisette du Piémont, noisettes du Piémont
+it:nocciola Piemonte
+protected_name_type:en: en:pgi
+
+<en:hazelnut
 fr:noisettes avec peau
 
 #processing:en: en:toasted
@@ -60253,7 +60260,7 @@ it:nocciole a scaglie
 
 # éclats de noisettes caramélisés is a compound producte, i.e. (noisettes, sucre de canne)
 
-<fr:éclats de noisettes
+#<en:compound
 fr:éclats de noisettes caramélisés
 fi:karamellisoidut hasselpähkinät
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:éclats-de-noisettes-caramélisés
@@ -62265,12 +62272,12 @@ fr:sésame complet
 <en:sesame
 en:sesame paste, sesame seed paste
 bg:паста от сусам
-de:Sesampaste
+de:Sesampaste, Sesammus
 es:pasta de sésamo
 fi:seesamitahna, sesamtahna
 fr:pâte de sésame, pâte de graines de sésame
 hr:pasta od sezama
-it:pasta di sesamo
+it:pasta di sesamo, crema di sesamo
 ja:胡麻ペスト
 nl:sesampasta
 pl:pasta sezamowa
@@ -69760,7 +69767,7 @@ da:formalede vaniljestænger
 de:Vanilleschoten gemahlen, Vannileschoten gemahlen, vermahlene Vanilleschoten
 fi:vaniljatangon palat, vaniljakodat
 fr:gousses de vanille moulues, gousses de vanille broyées
-it:semi di vaniglia macinat
+it:semi di vaniglia macinat, vaniglia in bacche macinata
 pl:kawałki wanilii, laska wanilii w proszku, mielona laska wanilii
 sv:mald vaniljstång, vaniljstångbitar
 # ingredient/fr:gousses-de-vanille-moulues has 45 products in 4 languages @2019-02-24
