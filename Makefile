@@ -270,7 +270,7 @@ integration_test: create_folders
 # we launch the server and run tests within same container
 # we also need dynamicfront for some assets to exists
 # this is the place where variables are important
-	${DOCKER_COMPOSE_INT_TEST} up -d memcached postgres mongodb backend dynamicfront incron minion keycloak redis redis-listener frontend
+	${DOCKER_COMPOSE_INT_TEST} up -d memcached postgres mongodb backend dynamicfront incron minion redis redis-listener frontend
 # note: we need the -T option for ci (non tty environment)
 	${DOCKER_COMPOSE_INT_TEST} exec ${COVER_OPTS} -e PO_EAGER_LOAD_DATA=1 -T backend yath -PProductOpener::LoadData tests/integration
 	${DOCKER_COMPOSE_INT_TEST} stop
@@ -295,7 +295,7 @@ test-unit: guard-test create_folders
 # you can also add args= to pass more options to your test command
 test-int: guard-test create_folders
 	@echo "🥫 Running test: 'tests/integration/${test}' …"
-	${DOCKER_COMPOSE_INT_TEST} up -d memcached postgres mongodb backend dynamicfront incron minion keycloak redis redis-listener frontend
+	${DOCKER_COMPOSE_INT_TEST} up -d memcached postgres mongodb backend dynamicfront incron minion redis redis-listener frontend
 	${DOCKER_COMPOSE_INT_TEST} exec -e PO_EAGER_LOAD_DATA=1 backend ${TEST_CMD} ${args} tests/integration/${test}
 # better shutdown, for if we do a modification of the code, we need a restart
 	${DOCKER_COMPOSE_INT_TEST} stop backend
