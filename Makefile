@@ -119,7 +119,7 @@ build:
 	@echo "🥫 Building containers …"
 	${DOCKER_COMPOSE} build ${args} ${container} 2>&1
 
-_up:
+_up: deps
 	@echo "🥫 Starting containers …"
 	${DOCKER_COMPOSE} up -d 2>&1
 	@echo "🥫 started service at http://openfoodfacts.localhost"
@@ -494,3 +494,12 @@ guard-%: # guard clause for targets that require an environment variable (usuall
    		exit 1; \
 	fi;
 
+# Load dependent projects
+deps:
+	@for dep in "openfoodfacts-auth" ; do \
+		if [ ! -d ../$$dep ]; then \
+			git clone --filter=blob:none --sparse \
+				https://github.com/openfoodfacts/$$dep.git ../$$dep; \
+		fi; \
+		cd ../$$dep && make -e run; \
+	done
