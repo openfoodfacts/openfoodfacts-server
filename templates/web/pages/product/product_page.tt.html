@@ -161,19 +161,34 @@
                     
                     <!-- Display UPC code if the EAN starts with 0 -->
                         [% IF upc_code == 'defined' %]
-                            <p id="barcode_paragraph">
-                                [% lang("barcode") %]:  <br>
-                                <span id="barcode" property="food:code" itemprop="gtin13" style="speak-as:digits;">[% code %]</span>
-                                [% upc %]
-                            </p>
-                            <svg class="barcode-svg"
-                                jsbarcode-format="auto"
-                                jsbarcode-value="[% code %]"
-                                jsbarcode-displayValue="false">
-                            </svg>
+                            <div id="barcode_div">
+                                <!-- Display only text of the code if mobile -->
+                                <div id="barcode_div_code">
+                                    <p id="barcode_paragraph">[% lang("barcode") %]: <br id="barcode_br"><span id="barcode" property="food:code" itemprop="gtin13" style="speak-as:digits;">[% code %]</span>[% upc %]</p>
+                                </div>
+                                <!-- Display with SVG if not mobile -->
+                                <div id="barcode_div_svg">
+                                    <svg class="barcode-svg"
+                                        jsbarcode-format="auto"
+                                        jsbarcode-value="[% code %]"
+                                        jsbarcode-displayValue="false">
+                                    </svg>
+                                </div>
+                            </div>
+                            <style>
+                                #barcode_div_code,#barcode_div_svg{
+                                    display: inline-block;
+                                    vertical-align: top;
+                                }
+                                @media only screen and (max-width: 600px) {
+                                    #barcode_div_svg,#barcode_br {
+                                        display: none;
+                                    }
+                                }
+                            </style>
                             <div property="gr:hasEAN_UCC-13" content="[% code %]" datatype="xsd:string"></div>
                         [% ELSE %]
-                          [%# put in DOM for folksonomy %]
+                         [%# put in DOM for folksonomy %]
                           <span id="barcode"  style="display: none;">[% code %]</span>
                         [% END %]
                         

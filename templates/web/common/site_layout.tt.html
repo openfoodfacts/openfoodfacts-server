@@ -411,6 +411,7 @@
 <script src="[% static_subdomain %]/js/dist/display.js"></script>
 <script src="[% static_subdomain %]/js/dist/stikelem.js"></script>
 <script src="[% static_subdomain %]/js/dist/scrollNav.js"></script>
+  
 
 <script>
 \$(function() {
@@ -490,14 +491,6 @@
 [% END %]
 
 </body>
-<script src="[% static_subdomain %]/js/dist/JsBarcode.all.min.js"></script>
-<script>
-	//init barcode SVGs if exist on the page
-	let barcode_svg_elements = document.getElementsByClassName("barcode-svg"); 
-	if(barcode_svg_elements.length!=0){
-		JsBarcode(".barcode-svg").init();	
-	}
-</script>
 </html>
 
 <!-- end templates/[% template.name %] -->
