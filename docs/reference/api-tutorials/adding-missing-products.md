@@ -8,6 +8,8 @@ If you have an app that makes POST calls and you don't want your users to authen
 
 - `user_id`: myappname
 - `password`: 123456
+
+* For a complete reference on AUTH, please read: https://openfoodfacts.github.io/openfoodfacts-server/api/#authentication
     
 ---
 
@@ -111,3 +113,6 @@ Getting your users to input packaging data: https://openfoodfacts.github.io/open
 ## Showing the result of their work
 - You can then reload the product, potentially using Knowledge Panels, to show the rewarding result of their work.
 - Make sure to congratulate them each time for their contribution to Open Food Facts and the common good.
+
+
+ 
