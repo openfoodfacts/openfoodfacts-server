@@ -8,25 +8,23 @@
       
       
       
-        <link rel="canonical" href="https://openfoodfacts.github.io/openfoodfacts-server/api/aws-images-dataset/">
+        <link rel="canonical" href="https://openfoodfacts.github.io/openfoodfacts-server/reference/api-tutorials/working-with-facets/">
       
       
-        <link rel="prev" href="../ref-v3/">
+        <link rel="prev" href="../reporting-issues-with-nutripatrol/">
       
       
-        <link rel="next" href="../../dev/">
       
-      
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.18">
     
     
       
-        <title>Open Food Facts AWS images dataset - Product Opener (Open Food Facts Server)</title>
+        <title>Providing knowledge panels for a particular Open Food Facts facet (category, brand, etc...) - Product Opener (Open Food Facts Server)</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.66ac8b77.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.66ac8b77.min.css">
       
       
 
@@ -45,7 +43,7 @@
       
     
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -64,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#open-food-facts-aws-images-dataset" class="md-skip">
+        <a href="#providing-knowledge-panels-for-a-particular-open-food-facts-facet-category-brand-etc" class="md-skip">
           Skip to content
         </a>
       
@@ -80,7 +78,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Product Opener (Open Food Facts Server)" class="md-header__button md-logo" aria-label="Product Opener (Open Food Facts Server)" data-md-component="logo">
+    <a href="../../.." title="Product Opener (Open Food Facts Server)" class="md-header__button md-logo" aria-label="Product Opener (Open Food Facts Server)" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -100,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Open Food Facts AWS images dataset
+              Providing knowledge panels for a particular Open Food Facts facet (category, brand, etc...)
             
           </span>
         </div>
@@ -187,7 +185,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Product Opener (Open Food Facts Server)" class="md-nav__button md-logo" aria-label="Product Opener (Open Food Facts Server)" data-md-component="logo">
+    <a href="../../.." title="Product Opener (Open Food Facts Server)" class="md-nav__button md-logo" aria-label="Product Opener (Open Food Facts Server)" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -217,7 +215,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -234,19 +232,17 @@
       
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -260,7 +256,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Api
@@ -274,7 +270,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../../../api/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -295,7 +291,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../intro-robotoff/" class="md-nav__link">
+      <a href="../../../api/intro-robotoff/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -316,7 +312,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorial-dev-journey/" class="md-nav__link">
+      <a href="../../../api/tutorial-dev-journey/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -337,7 +333,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorial-off-api/" class="md-nav__link">
+      <a href="../../../api/tutorial-off-api/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -358,7 +354,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorial-uploading-photo-to-a-product/" class="md-nav__link">
+      <a href="../../../api/tutorial-uploading-photo-to-a-product/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -379,7 +375,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../how-to-download-images/" class="md-nav__link">
+      <a href="../../../api/how-to-download-images/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -400,7 +396,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../explain-knowledge-panels/" class="md-nav__link">
+      <a href="../../../api/explain-knowledge-panels/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -421,7 +417,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ref-cheatsheet/" class="md-nav__link">
+      <a href="../../../api/ref-cheatsheet/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -442,7 +438,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ref-v2/" class="md-nav__link">
+      <a href="../../../api/ref-v2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -463,7 +459,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ref-v3/" class="md-nav__link">
+      <a href="../../../api/ref-v3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -481,19 +477,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../api/aws-images-dataset/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -502,7 +489,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -557,7 +543,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/" class="md-nav__link">
+      <a href="../../../dev/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -578,7 +564,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/how-to-deploy/" class="md-nav__link">
+      <a href="../../../dev/how-to-deploy/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -599,7 +585,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/how-to-develop-producer-platform/" class="md-nav__link">
+      <a href="../../../dev/how-to-develop-producer-platform/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -620,7 +606,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/how-to-develop-using-docker/" class="md-nav__link">
+      <a href="../../../dev/how-to-develop-using-docker/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -641,7 +627,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/how-to-learn-perl/" class="md-nav__link">
+      <a href="../../../dev/how-to-learn-perl/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -662,7 +648,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/how-to-quick-start-guide/" class="md-nav__link">
+      <a href="../../../dev/how-to-quick-start-guide/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -683,7 +669,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/how-to-update-agribalyse-ecoscore/" class="md-nav__link">
+      <a href="../../../dev/how-to-update-agribalyse-ecoscore/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -704,7 +690,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/how-to-use-direnv/" class="md-nav__link">
+      <a href="../../../dev/how-to-use-direnv/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -725,7 +711,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/how-to-use-gitpod/" class="md-nav__link">
+      <a href="../../../dev/how-to-use-gitpod/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -746,7 +732,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/how-to-use-pages-from-openfoodfacts-web/" class="md-nav__link">
+      <a href="../../../dev/how-to-use-pages-from-openfoodfacts-web/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -767,7 +753,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/how-to-use-repl/" class="md-nav__link">
+      <a href="../../../dev/how-to-use-repl/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -788,7 +774,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/how-to-use-vscode/" class="md-nav__link">
+      <a href="../../../dev/how-to-use-vscode/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -809,7 +795,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/how-to-write-and-run-tests/" class="md-nav__link">
+      <a href="../../../dev/how-to-write-and-run-tests/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -830,7 +816,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/explain-nutrition-data/" class="md-nav__link">
+      <a href="../../../dev/explain-nutrition-data/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -851,7 +837,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/explain-packaging-data/" class="md-nav__link">
+      <a href="../../../dev/explain-packaging-data/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -872,7 +858,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/explain-pro-dev-setup/" class="md-nav__link">
+      <a href="../../../dev/explain-pro-dev-setup/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -893,7 +879,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/explain-taxonomy-build-cache/" class="md-nav__link">
+      <a href="../../../dev/explain-taxonomy-build-cache/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -914,7 +900,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/ref-docker-commands/" class="md-nav__link">
+      <a href="../../../dev/ref-docker-commands/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -935,7 +921,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/ref-perl-pod/" class="md-nav__link">
+      <a href="../../../dev/ref-perl-pod/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -956,7 +942,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/ref-perl/" class="md-nav__link">
+      <a href="../../../dev/ref-perl/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1019,7 +1005,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../introduction/get-the-nutriscore/" class="md-nav__link">
+      <a href="../../../introduction/get-the-nutriscore/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1044,17 +1030,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -1068,7 +1056,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Reference
@@ -1079,17 +1067,19 @@
                 
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" checked>
         
           
           <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
@@ -1103,7 +1093,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_1">
             <span class="md-nav__icon md-icon"></span>
             Api tutorials
@@ -1117,7 +1107,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/api-tutorials/adding-missing-products/" class="md-nav__link">
+      <a href="../adding-missing-products/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1138,7 +1128,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/api-tutorials/comparing-sodas/" class="md-nav__link">
+      <a href="../comparing-sodas/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1159,7 +1149,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/api-tutorials/finding-healthy-cereals/" class="md-nav__link">
+      <a href="../finding-healthy-cereals/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1180,7 +1170,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/api-tutorials/folksonomy-engine/" class="md-nav__link">
+      <a href="../folksonomy-engine/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1201,7 +1191,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/api-tutorials/get-ingredient-related-analysis/" class="md-nav__link">
+      <a href="../get-ingredient-related-analysis/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1222,7 +1212,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/api-tutorials/get-the-ecoscore/" class="md-nav__link">
+      <a href="../get-the-ecoscore/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1243,7 +1233,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/api-tutorials/reporting-issues-with-nutripatrol/" class="md-nav__link">
+      <a href="../reporting-issues-with-nutripatrol/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1261,10 +1251,19 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../reference/api-tutorials/working-with-facets/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1273,6 +1272,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -1329,38 +1329,9 @@
   
 
 
-<h1 id="open-food-facts-aws-images-dataset">Open Food Facts AWS images dataset<a class="headerlink" href="#open-food-facts-aws-images-dataset" title="Permanent link">#</a></h1>
-<p>The Open Food Facts images dataset contains all images uploaded to Open Food
-Facts and the OCR results on these images obtained using Google Cloud Vision.</p>
-<p>The dataset is stored in the <code>openfoodfacts-images</code> S3 bucket hosted in the
-<code>eu-west-3</code> region. All data is stored in a single <code>/data</code> folder.</p>
-<p>Data is synchronized monthly between the Open Food Facts server and the bucket;
-as such some recent images are likely missing. You should not assume all
-images are present in the bucket.</p>
-<p>To know the bucket key associated with an image for the product with barcode
-'4012359114303', you should first split the barcode as follows:
-<code>/401/235/911/4303</code> (that is, three groups of 3 digits followed by one group of
-4 digits, all four groups being prefixed with a <code>/</code>).</p>
-<p>This splitting is only relevant for EAN13 (13-digit barcodes):
-for barcodes with fewer digits (like EAN8), the directory path is
-not split: <code>/20065034</code>.</p>
-<p>To get the raw image '1' for barcode '4012359114303', simply add the image ID:
-<code>/401/235/911/4303/1.jpg</code>. Here, you will get the "raw" image, as sent by the
-contributor. If you don't need the full resolution image, a 400px resized
-version is also available, by adding the <code>.400</code> suffix after the image ID:
-<code>/401/235/911/4303/1.400.jpg</code>.</p>
-<p>The OCR of the image is a gzipped JSON file, and has the same file name as the
-raw image, but with the <code>.json.gz</code> extension: <code>/401/235/911/4303/1.json.gz</code></p>
-<p>To download images, you can either use AWS CLI, or perform an HTTP request
-directly:</p>
-<p><code>wget https://openfoodfacts-images.s3.eu-west-3.amazonaws.com/data/401/235/911/4303/1.jpg</code></p>
-<p>You can list all existing objects (images, OCR results) in the bucket by
-downloading the gzipped text file <code>s3://openfoodfacts-images/data/data_keys.gz</code>:</p>
-<p><code>wget https://openfoodfacts-images.s3.eu-west-3.amazonaws.com/data/data_keys.gz</code></p>
-<p>Then you can easily filter the files you want using <code>grep</code> (raw images, OCR
-JSON) before downloading them. For example, to keep only 400px versions of all
-images:</p>
-<p><code>zcat data_keys.gz | grep '.400.jpg'</code></p>
+<h1 id="providing-knowledge-panels-for-a-particular-open-food-facts-facet-category-brand-etc">Providing knowledge panels for a particular Open Food Facts facet (category, brand, etc...)<a class="headerlink" href="#providing-knowledge-panels-for-a-particular-open-food-facts-facet-category-brand-etc" title="Permanent link">#</a></h1>
+<p>The "Knowedge Panel for Facets API" is a standardized way for clients to get semi-structured but generic data that they can present to users on facets pages (or potentially on product pages, if you click on a faceted value).</p>
+<p>https://facets-kp.openfoodfacts.org/docs</p>
 
 
 
@@ -1407,10 +1378,10 @@ images:</p>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.3220b9d7.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.3220b9d7.min.js"></script>
       
     
   </body>
