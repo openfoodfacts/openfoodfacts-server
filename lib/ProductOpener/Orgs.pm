@@ -164,31 +164,14 @@ sub store_org ($org_ref) {
 
 	if ((defined $previous_org_ref) && $previous_org_ref->{valid_org} ne 'on' && $org_ref->{valid_org} eq 'on') {
 		# we switched on validated
-
-		eval { 
-			my $crm_org_id = create_company($org_ref);
-			die "Failed to create company" 
-			if not defined $crm_org_id;
-
-			my $user_ref = retrieve_user($org_ref->{creator});
-			my $crm_user_id = create_contact($user_ref);
-			die "Failed to create contact" 
-			if not defined $crm_user_id;
-
-			die "Failed to add contact to company" 
-			if not defined add_contact_to_company($crm_user_id, $crm_org_id);
-
-			die "Failed to create opportunity" 
-			if not defined create_opportunity($user_ref, $org_ref);
-
-			$user_ref->{crm_user_id} = $crm_user_id;
-			$org_ref->{crm_org_id} = $crm_org_id;
+		my $user_ref = retrieve_user($org_ref->{creator});
+		my $crm_ids = create_opportunity_with_user_and_company($user_ref, $org_ref);
+		if (defined $crm_ids) {
+			$user_ref->{crm_user_id} = $crm_ids->{crm_user_id};
 			store_user($user_ref);
-			1;
-		} or do {
-			$log->warn("store_org", {err => $@}) if $log->is_error();
-		};
-		
+			$org_ref->{crm_org_id} = $crm_ids->{crm_org_id};
+			$org_ref->{crm_opportunity_id} = $crm_ids->{crm_opportunity_id};
+		}
 	}
 
 	store("$BASE_DIRS{ORGS}/" . $org_ref->{org_id} . ".sto", $org_ref);
@@ -363,7 +346,6 @@ sub add_user_to_org ($org_id_or_ref, $user_id, $groups_ref) {
 		$org_ref = $org_id_or_ref;
 		$org_id = $org_ref->{org_id};
 	}
-
 
 	$log->debug("add_user_to_org",
 		{org_id => $org_id, org_ref => $org_ref, user_id => $user_id, groups_ref => $groups_ref})
