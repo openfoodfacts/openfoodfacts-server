@@ -154,7 +154,7 @@ msgstr "วัตถุเจือปนอาหารนี้ห้ามใ
 
 msgctxt "additives_p"
 msgid "additives"
-msgstr ""
+msgstr "วัตถุเจือปนอาหาร"
 
 msgctxt "additives_s"
 msgid "additive"
@@ -477,7 +477,7 @@ msgstr "ลบผู้ใช้งาน"
 
 msgctxt "delete_confirmation"
 msgid "This will delete your user details and anonymise all of your contributions. Please re-enter your user name to confirm."
-msgstr ""
+msgstr "การดำเนินการนี้จะลบรายละเอียดผู้ใช้ของคุณและ ผลิตภัณฑ์ที่คุณเพิ่มไว้จะกลายเป็นไม่ระบุชื่อแทน กรุณากรอกชื่อผู้ใช้ของคุณอีกครั้งเพื่อยืนยันการลบบัญชีผู้ใช้"
 
 msgctxt "danger_zone"
 msgid "Danger Zone"
@@ -497,7 +497,7 @@ msgstr ""
 
 msgctxt "donate"
 msgid "Donate to Open Food Facts"
-msgstr ""
+msgstr "บริจาคให้กับ Open Food Facts"
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
@@ -908,15 +908,15 @@ msgstr "สวัสดี"
 
 msgctxt "high"
 msgid "high"
-msgstr ""
+msgstr "มาก"
 
 msgctxt "high_quantity"
 msgid "high quantity"
-msgstr "ปริมาณสูง"
+msgstr "มีปริมาณมาก"
 
 msgctxt "history"
 msgid "Changes history"
-msgstr ""
+msgstr "ประวัติการแก้ไขข้อมูล"
 
 msgctxt "image_front"
 msgid "Front picture"
@@ -940,16 +940,17 @@ msgstr "ภาพนี้ได้ถูกส่งไป"
 
 msgctxt "image_upload_error_image_too_small"
 msgid "The picture is too small. Please do not upload pictures found on the Internet and only send photos you have taken yourself."
-msgstr ""
+msgstr "รูปภาพมีขนาดเล็กเกินไป กรุณาอย่าอัปโหลดรูปภาพที่พบบนอินเทอร์เน็ต และใช้เฉพาะรูปภาพที่คุณถ่ายเองเท่านั้น"
 
 msgctxt "image_upload_error_no_barcode_found_in_image_long"
 msgid "The barcode in the image could not be read, or the image contained no barcode.\n"
 "You can try with another image, or directly enter the barcode."
-msgstr ""
+msgstr "ไม่สามารถอ่านบาร์โค้ดในภาพได้ หรือรูปภาพไม่มีบาร์โค้ด\n"
+"คุณสามารถลองใช้รูปภาพอื่นหรือป้อนบาร์โค้ดโดยตรง"
 
 msgctxt "image_upload_error_no_barcode_found_in_image_short"
 msgid "No barcode found in the image."
-msgstr ""
+msgstr "ไม่พบบาร์โค้ดในภาพ"
 
 msgctxt "image_upload_error_no_barcode_specified_or_found"
 msgid "No barcode specified or found in the image or filename."
