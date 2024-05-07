@@ -17,7 +17,7 @@ If you ask your users just one thing, it would be to send photos of the packagin
 
 ---
 
-## Sending the right country and language parameters, based on the country your user is located in, and the language is in.
+## Sending the right country and language parameters, based on the country your user is located in, and the language the product is in.
 
 Traditionnaly we advised to define the subdomain for the query as `us`. The subdomain automatically defines the country code (`cc`) and language of the interface (`lc`). The country code determines that only the products sold in the US are displayed. The language of the interface for the country code US is English.<br>
 In this case:
