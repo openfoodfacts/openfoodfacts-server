@@ -2161,7 +2161,7 @@ sub compute_nutriscore ($product_ref, $current_version = "2021") {
 		}
 		else {
 			($nutriscore_score, $nutriscore_grade)
-				= ProductOpener::Nutriscore::compute_nutriscore_score_and_grade(
+				= ProductOpener::Nutriscore->new->compute_nutriscore_score_and_grade(
 				$product_ref->{nutriscore}{$version}{data}, $version);
 		}
 
