@@ -12,19 +12,20 @@ use ProductOpener::DataQualityFood qw/:all/;
 use ProductOpener::Tags qw/has_tag/;
 use ProductOpener::Ingredients qw/extract_ingredients_from_text/;
 
-sub check_quality_and_test_product_has_quality_tag($$$$) {
+sub check_quality_and_test_product_has_quality_tag($$$$;$) {
 	my $product_ref = shift;
-	my $tag = shift;
+	my $tag_name = shift;
 	my $reason = shift;
 	my $yesno = shift;
+    my $tag_level = shift // 'data_quality';
 	ProductOpener::DataQuality::check_quality($product_ref);
 	if ($yesno) {
-		ok(has_tag($product_ref, 'data_quality', $tag), $reason)
-			or diag Dumper {tag => $tag, yesno => $yesno, product => $product_ref};
+		ok(has_tag($product_ref, $tag_level, $tag_name), $reason)
+			or diag Dumper {tag => $tag_name, yesno => $yesno, product => $product_ref};
 	}
 	else {
-		ok(!has_tag($product_ref, 'data_quality', $tag), $reason)
-			or diag Dumper {tag => $tag, yesno => $yesno, product => $product_ref};
+		ok(!has_tag($product_ref, $tag_level, $tag_name), $reason)
+			or diag Dumper {tag => $tag_name, yesno => $yesno, product => $product_ref};
 	}
 
 	return;
@@ -541,6 +542,24 @@ check_quality_and_test_product_has_quality_tag(
 	$product_ref,
 	'en:nutrition-value-negative-nutrition-score-fr',
 	'nutriment should have positive value (except nutrition-score)', 0
+);
+
+
+# en:nutrition-value-negative-$nid warning only should be raised - for nutriments containing "estimate"
+$product_ref = {
+	nutriments => {
+		"fruits-vegetables-nuts-estimate-from-ingredients_100g" => -0.0000194786420834592,
+	}
+};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-value-negative-fruits-vegetables-nuts-estimate-from-ingredients',
+	'negative nutriments containg "estimate" should not raise error', 0, 'data_quality_errors'
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-value-negative-fruits-vegetables-nuts-estimate-from-ingredients',
+	'negative nutriments containg "estimate" should raise warning only', 1, 'data_quality_warnings'
 );
 
 # serving size should contains digits
