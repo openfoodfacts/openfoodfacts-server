@@ -17,7 +17,7 @@ sub check_quality_and_test_product_has_quality_tag($$$$;$) {
 	my $tag_name = shift;
 	my $reason = shift;
 	my $yesno = shift;
-    my $tag_level = shift // 'data_quality';
+	my $tag_level = shift // 'data_quality';
 	ProductOpener::DataQuality::check_quality($product_ref);
 	if ($yesno) {
 		ok(has_tag($product_ref, $tag_level, $tag_name), $reason)
@@ -544,7 +544,6 @@ check_quality_and_test_product_has_quality_tag(
 	'nutriment should have positive value (except nutrition-score)', 0
 );
 
-
 # en:nutrition-value-negative-$nid warning only should be raised - for nutriments containing "estimate"
 $product_ref = {
 	nutriments => {
@@ -554,12 +553,14 @@ $product_ref = {
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
 	'en:nutrition-value-negative-fruits-vegetables-nuts-estimate-from-ingredients',
-	'negative nutriments containg "estimate" should not raise error', 0, 'data_quality_errors'
+	'negative nutriments containg "estimate" should not raise error',
+	0, 'data_quality_errors'
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
 	'en:nutrition-value-negative-fruits-vegetables-nuts-estimate-from-ingredients',
-	'negative nutriments containg "estimate" should raise warning only', 1, 'data_quality_warnings'
+	'negative nutriments containg "estimate" should raise warning only',
+	1, 'data_quality_warnings'
 );
 
 # serving size should contains digits
