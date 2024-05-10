@@ -32,7 +32,7 @@ my $location = $response_signin->header('Location');
 my @url_parts = split qr/[?]/sxm, $location;
 is(
 	$url_parts[0],
-	'http://auth.openfoodfacts.localhost:5600/realms/open-products-facts/protocol/openid-connect/auth',
+	'http://keycloak:8080/realms/open-products-facts/protocol/openid-connect/auth',
 	'Redirect to OIDC service'
 );
 
