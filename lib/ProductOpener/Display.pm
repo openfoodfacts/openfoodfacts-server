@@ -3879,6 +3879,15 @@ sub display_tag ($request_ref) {
 					push @markers, \@geo;
 				}
 
+				if ($packager_codes{$canon_tagid}{cc} eq 'at') {
+					$description .= <<HTML
+<p>$packager_codes{$canon_tagid}{name}<br>
+$packager_codes{$canon_tagid}{address} (Österreich)
+</p>
+HTML
+						;
+				}
+
 				if ($packager_codes{$canon_tagid}{cc} eq 'ch') {
 					$description .= <<HTML
 <p>$packager_codes{$canon_tagid}{full_address}</p>

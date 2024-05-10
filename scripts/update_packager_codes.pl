@@ -90,6 +90,7 @@ sub normalize_code {
 
 	my $arg = do {
 		given ($cc) {
+			"$code" when 'at';
 			"BE $code EC" when 'be';
 			"CH-$code" when 'ch';
 			"DE $code EC" when 'de';
@@ -161,6 +162,7 @@ sub normalize_local_authority {
 my $sep_set = [q{;}, qq{\t}];
 
 my %approval_key = (
+	at => 'code',
 	be => 'no_agrement',
 	ch => 'bew_nr',
 	de => 'code',
