@@ -9,6 +9,10 @@ Open Beauty Facts behaves mostly like Open Food Facts. Behaviours may change ove
 * Search-a-licious, Open Prices not supported yet
 * No Robotoff questions yet
 
+### API Roadmap
+* We plan to have a universal barcode scanning API, where you scan a barcode, and you get a result from either Open Food Facts, Open Pet Food Facts, Open Beauty Facts or Open Products Facts
+* If no result is found in any of the 4 databases, you will have to ask the type of product to your users, and use the classic product addition API on the right project.
+* If (it can happen) the product appears on the wrong project, we suggest you use the NutriPatrol API to let your users report it to the moderators, and the proceed to a product addition on the right project. The moderators will then move the existing data to the right project. Eventually, project categorization errors should be infinitesimal.
 
 #### Product in Open Beauty Facts
 * https://world.openbeautyfacts.org/api/v2/product/3560070791460.json
