@@ -549,6 +549,7 @@ brands:
   - any-glob-to-any-file: 'tests/integration/expected_test_results/api_v3_product_read/get-knowledge-panels-fr.json'
   - any-glob-to-any-file: 'docs/api/ref/schemas/knowledge_panels/**'
   - any-glob-to-any-file: 'lib/ProductOpener/KnowledgePanelsTags.pm'
+  - any-glob-to-any-file: 'docs/api/explain-knowledge-panels.md'
 
 # Tracking issue: 
 Serving size:
