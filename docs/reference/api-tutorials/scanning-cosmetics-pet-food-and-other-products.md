@@ -1,6 +1,6 @@
 ### Open Beauty Facts, Open Pet Food Facts, Open Products Facts experimental and specific APIs
 
-Open Beauty Facts, Open Pet Food Facts, Open Products Facts behaves mostly like Open Food Facts. Behaviours may change over time, as we tweak it.
+* Open Beauty Facts, Open Pet Food Facts, Open Products Facts behave mostly like Open Food Facts. Behaviours may change over time, as we tweak it.
 
 #### Specific base URLs
 * Cosmetics: The base URL is openbeautyfacts.org instead of openfoodfacts.org
@@ -9,7 +9,7 @@ Open Beauty Facts, Open Pet Food Facts, Open Products Facts behaves mostly like 
 
 #### Different behaviours common to Open Beauty Facts, Open Pet Food Facts, Open Products Facts
 * Old codebase, being upgraded very soon: Knowledge panels are not supported, the new packaging API is not supported
-* Search-a-licious, Open Prices, Folksonomy Engine not supported yet
+* Search-a-licious, Open Prices, Folksonomy Engine, Nutri-Patrol not supported yet
 * No Robotoff questions yet
 
 #### Specificities of Open Beauty Facts
