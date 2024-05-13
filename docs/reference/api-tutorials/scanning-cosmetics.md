@@ -1,6 +1,7 @@
 ### Open Beauty Facts experimental and specific APIs
 
 Open Beauty Facts behaves mostly like Open Food Facts. Behaviours may change over time, as we tweak it.
+The base URL is openbeautyfacts.org instead of openfoodfacts.org
 
 #### Specificities of Open Beauty Facts
 * No nutrition table
