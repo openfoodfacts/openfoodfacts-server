@@ -23,6 +23,19 @@
       "en:cocoa-and-chocolate-powders"
    ],
    "food_groups_tags" : [],
+   "improvements_data" : {
+      "en:better-nutri-score-with-less-saturated_fat" : {
+         "current_nutriscore_grade" : "b",
+         "current_value" : 1.1,
+         "difference_percent" : 9.0909090909091,
+         "new_nutriscore_grade" : "a",
+         "new_value" : 1,
+         "nutrient" : "saturated_fat"
+      }
+   },
+   "improvements_tags" : [
+      "en:better-nutri-score-with-less-saturated_fat"
+   ],
    "lc" : "en",
    "misc_tags" : [
       "en:nutrition-grade-computed-for-prepared-product",
@@ -100,14 +113,24 @@
                      "value" : 287
                   },
                   {
+                     "current_grade" : "b",
+                     "current_score" : 1,
                      "id" : "sugars",
+                     "new_grade" : "a",
+                     "new_score" : 0,
+                     "new_value" : 3.4,
                      "points" : 1,
                      "points_max" : 15,
                      "unit" : "g",
                      "value" : 6.3
                   },
                   {
+                     "current_grade" : "b",
+                     "current_score" : 1,
                      "id" : "saturated_fat",
+                     "new_grade" : "a",
+                     "new_score" : 0,
+                     "new_value" : 1,
                      "points" : 1,
                      "points_max" : 10,
                      "unit" : "g",
@@ -123,14 +146,24 @@
                ],
                "positive" : [
                   {
+                     "current_grade" : "b",
+                     "current_score" : 1,
                      "id" : "proteins",
+                     "new_grade" : "a",
+                     "new_score" : 0,
+                     "new_value" : 4.9,
                      "points" : 1,
                      "points_max" : 7,
                      "unit" : "g",
                      "value" : 3.8
                   },
                   {
+                     "current_grade" : "b",
+                     "current_score" : 1,
                      "id" : "fiber",
+                     "new_grade" : "a",
+                     "new_score" : 0,
+                     "new_value" : 3.1,
                      "points" : 0,
                      "points_max" : 5,
                      "unit" : "g",
