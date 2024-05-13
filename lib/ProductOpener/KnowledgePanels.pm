@@ -822,7 +822,7 @@ sub create_health_card_panel ($product_ref, $target_lc, $target_cc, $options_ref
 
 	$log->debug("create health card panel", {code => $product_ref->{code}}) if $log->is_debug();
 
-	if ($target_cc eq "fr") {
+   if ($target_cc eq "fr" || $options_ref->{admin} || $options_ref->{moderator} || $options_ref->{producers_platform}) {
 		create_nutriscore_panel($product_ref, $target_lc, $target_cc, $options_ref);
 	}
 	if ($target_cc ne "fr" || $options_ref->{admin} || $options_ref->{moderator} || $options_ref->{producers_platform})
