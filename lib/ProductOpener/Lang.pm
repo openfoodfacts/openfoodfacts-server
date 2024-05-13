@@ -247,8 +247,14 @@ if (-e $path) {
 	$log->info("Loaded \%Lang", {path => $path}) if $log->is_info();
 
 	# Initialize @Langs and $lang_lc
-	@Langs = sort keys %{$Lang{site_name}}
-		;    # any existing key can be used, as %Lang should contain values for all languages for all keys
+	# any existing key can be used, as %Lang should contain values for all languages for all keys
+	my $msgctxt = "add";
+	if (not defined $Lang{$msgctxt}) {
+		$log->error("Language translation file does not contain the 'add' key, \%Lang will be empty.", {path => $path})
+			if $log->is_error();
+		die("Language translation file does not contain the 'add' key, \%Lang will be empty.");
+	}
+	@Langs = sort keys %{$Lang{$msgctxt}};
 	%Langs = ();
 	%lang_lc = ();
 	foreach my $l (@Langs) {
@@ -450,22 +456,15 @@ sub build_lang ($Languages_ref) {
 		}
 	}
 
-	my @special_fields = ("site_name");
+	# Some translations have <<site_name>> in them, replace it with the site name
+	my $site_name = $options{site_name};
 
-	foreach my $special_field (@special_fields) {
-
-		foreach my $l (@Langs) {
-			my $value = $Lang{$special_field}{$l};
-			if (not(defined $value)) {
+	foreach my $l (@Langs) {
+		foreach my $key (keys %Lang) {
+			if (not defined $Lang{$key}{$l}) {
 				next;
 			}
-
-			foreach my $key (keys %Lang) {
-				if (not defined $Lang{$key}{$l}) {
-					next;
-				}
-				$Lang{$key}{$l} =~ s/\<\<$special_field\>\>/$value/g;
-			}
+			$Lang{$key}{$l} =~ s/\<\<site_name\>\>/$site_name/g;
 		}
 	}
 

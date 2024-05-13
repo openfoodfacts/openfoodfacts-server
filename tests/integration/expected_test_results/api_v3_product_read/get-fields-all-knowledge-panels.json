@@ -1324,7 +1324,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                If the information does not match the information on the packaging, please complete or correct it.\n                Open Food Facts is a collaborative database, and every contribution is useful for all.\n                "
+                     "html" : "\n                Si les informations ne correspondent pas à celles figurant sur l'emballage, vous pouvez les compléter ou les corriger. Merci!\n                Open Food Facts est une base de données collaborative, et chaque contribution est utile pour tous.\n                "
                   }
                },
                {
@@ -1342,8 +1342,8 @@
             "level" : "info",
             "title_element" : {
                "icon_url" : "http://static.openfoodfacts.localhost/images/logos/off-logo-icon-light.svg",
-               "subtitle" : "Category, labels, ingredients, allergens, nutritional information, photos etc.",
-               "title" : "Incomplete or incorrect information?"
+               "subtitle" : "Catégorie, étiquettes, ingrédients, allergènes, informations nutritionnelles, photos etc.",
+               "title" : "Informations incomplètes ou incorrectes ?"
             },
             "topics" : [
                "problem"
@@ -2013,7 +2013,7 @@
             ],
             "expanded" : true,
             "title_element" : {
-               "title" : "Report a problem"
+               "title" : "Signaler un problème"
             },
             "topics" : [
                "problems"
