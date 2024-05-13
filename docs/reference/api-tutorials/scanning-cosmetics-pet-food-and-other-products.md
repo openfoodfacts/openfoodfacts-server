@@ -22,7 +22,7 @@
 #### Specificities of Open Products Facts
 * No nutrition table
 * No Eco-Score, Nutri-Score or NOVA level for ultra-processing
-* Most data will be modelled using the Folksonomy Engine
+* Most data will be modelled using the [Folksonomy Engine](docs/reference/api-tutorials/folksonomy-engine.md)
 
 ### API Roadmap and multi-project behaviour
 * We plan to bring the APIs mentionned above to Open Beauty Facts (Search-a-licious, Knowledge Panels, Open Prices, Robotoff, Folksonomy Engine)
@@ -31,7 +31,7 @@
 * If (it can happen) the product appears on the wrong project, we suggest you use the NutriPatrol API to let your users report it to the moderators, and the proceed to a product addition on the right project. The moderators will then move the existing data to the right project. Eventually, project categorization errors should be infinitesimal.
 
 ### Sample outputs
-* Please use the Open Food Facts API reference for most operation (data and photo addition, ingredient lists, categories, labels…)
+* Please use the Open Food Facts API reference for most operations (data and photo addition, ingredient lists, categories, labels…)
 
 #### Product in Open Beauty Facts
 * https://world.openbeautyfacts.org/api/v2/product/3560070791460.json
