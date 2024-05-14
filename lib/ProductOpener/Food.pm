@@ -65,7 +65,8 @@ BEGIN {
 		&is_fat_oil_nuts_seeds_for_nutrition_score
 		&is_water_for_nutrition_score
 
-		&compute_nutriscore
+		&check_availability_of_nutrients_needed_for_nutriscore
+		&compute_nutriscore_data
 		&compute_nutriscore
 		&compute_nova_group
 		&compute_serving_size_data
