@@ -14,7 +14,7 @@ Be sure to also read the [introduction to the API](./index.md)
 ### Image license
 
 Product images must be under the [Creative Commons Attribution ShareAlike licence](https://creativecommons.org/licenses/by-sa/3.0/deed.en).
-If you don't own the image, don't upload it. Do not upload scrapped content from the internet. Only upload content taken by final users. If you have content from producers, please get in touch with producers@openfoodfacts.org before any upload.
+If you don't own the image, don't upload it. Do not upload scraped content from the internet. Only upload content taken by final users. If you have content from producers, please get in touch with producers@openfoodfacts.org before any upload.
 
 That means you should either upload:
 
