@@ -41,7 +41,7 @@ use JSON::PP;
 
 my $request_ref = ProductOpener::Display::init_request();
 
-my $short_name = lang("site_name");
+my $short_name = $options{site_name};
 my $long_name = $short_name;
 
 # https://stackoverflow.com/a/16533563/11963
