@@ -280,6 +280,9 @@
                "positive" : [
                   {
                      "id" : "proteins",
+                     "new_grade" : "b",
+                     "new_score" : -4,
+                     "new_value" : 4.9,
                      "points" : 7,
                      "points_max" : 7,
                      "unit" : "g",
@@ -287,6 +290,9 @@
                   },
                   {
                      "id" : "fiber",
+                     "new_grade" : "b",
+                     "new_score" : -5,
+                     "new_value" : 3.1,
                      "points" : 0,
                      "points_max" : 5,
                      "unit" : "g",
@@ -294,6 +300,9 @@
                   },
                   {
                      "id" : "fruits_vegetables_legumes",
+                     "new_grade" : "b",
+                     "new_score" : -6,
+                     "new_value" : 41,
                      "points" : 0,
                      "points_max" : 6,
                      "unit" : "%",
