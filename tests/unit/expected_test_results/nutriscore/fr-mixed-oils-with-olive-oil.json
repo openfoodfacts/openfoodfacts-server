@@ -36,6 +36,19 @@
       "en:fats-and-sauces",
       "en:fats"
    ],
+   "improvements_data" : {
+      "en:better-nutri-score-with-slightly-less-energy_from_saturated_fat" : {
+         "current_nutriscore_grade" : "c",
+         "current_value" : 362.6,
+         "difference_percent" : 0.717043574186438,
+         "new_nutriscore_grade" : "b",
+         "new_value" : 360,
+         "nutrient" : "energy_from_saturated_fat"
+      }
+   },
+   "improvements_tags" : [
+      "en:better-nutri-score-with-slightly-less-energy_from_saturated_fat"
+   ],
    "ingredients" : [
       {
          "ciqual_food_code" : "17130",
@@ -287,7 +300,12 @@
             "components" : {
                "negative" : [
                   {
+                     "current_grade" : "c",
+                     "current_score" : 3,
                      "id" : "energy_from_saturated_fat",
+                     "new_grade" : "b",
+                     "new_score" : 2,
+                     "new_value" : 360,
                      "points" : 3,
                      "points_max" : 10,
                      "unit" : "kJ",
