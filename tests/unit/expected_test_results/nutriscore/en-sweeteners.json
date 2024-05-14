@@ -39,6 +39,19 @@
       "en:beverages",
       "en:sweetened-beverages"
    ],
+   "improvements_data" : {
+      "en:better-nutri-score-with-much-more-fruits_vegetables_legumes" : {
+         "current_nutriscore_grade" : "c",
+         "current_value" : 70.5,
+         "difference_percent" : 14.8936170212766,
+         "new_nutriscore_grade" : "b",
+         "new_value" : 81,
+         "nutrient" : "fruits_vegetables_legumes"
+      }
+   },
+   "improvements_tags" : [
+      "en:better-nutri-score-with-much-more-fruits_vegetables_legumes"
+   ],
    "ingredients" : [
       {
          "ciqual_food_code" : "2074",
@@ -222,6 +235,9 @@
                   },
                   {
                      "id" : "sugars",
+                     "new_grade" : "c",
+                     "new_score" : 3,
+                     "new_value" : 3.4,
                      "points" : 3,
                      "points_max" : 10,
                      "unit" : "g",
@@ -265,7 +281,12 @@
                      "value" : null
                   },
                   {
+                     "current_grade" : "c",
+                     "current_score" : 4,
                      "id" : "fruits_vegetables_legumes",
+                     "new_grade" : "b",
+                     "new_score" : 2,
+                     "new_value" : 81,
                      "points" : 4,
                      "points_max" : 6,
                      "unit" : "%",
