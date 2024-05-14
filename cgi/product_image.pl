@@ -93,7 +93,7 @@ else {
 
 my $photographer = $product_ref->{images}{$id}{uploader};
 my $editor = $photographer;
-my $site_name = lang('site_name');
+my $site_name = $options{site_name};
 
 my $original_id = $product_ref->{images}{$id}{imgid};
 my $original_link = "";
