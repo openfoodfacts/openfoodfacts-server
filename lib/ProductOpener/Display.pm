@@ -7217,12 +7217,12 @@ sub display_page ($request_ref) {
 	my $join_us_on_slack
 		= sprintf($Lang{footer_join_us_on}{$lc}, '<a href="https://slack.openfoodfacts.org">Slack</a>');
 
-	my $twitter_account = lang("twitter_account");
-	if (defined $Lang{twitter_account_by_country}{$cc}) {
-		$twitter_account = $Lang{twitter_account_by_country}{$cc};
-	}
+	# Twitter account and Facebook page url from Config.pm
+	# Allow to have language specific Twitter accounts and Facebook page url, suffixed by the language code
+	my $twitter_account = $options{"twitter_account_$lc"} || $options{twitter_account};
 	$template_data_ref->{twitter_account} = $twitter_account;
-	# my $facebook_page = lang("facebook_page");
+	my $facebook_page = $options{"facebook_page_url_$lc"} || $options{facebook_page_url};
+	$template_data_ref->{facebook_page_url} = $facebook_page;
 
 	my $torso_class = "anonymous";
 	if (defined $User_id) {
