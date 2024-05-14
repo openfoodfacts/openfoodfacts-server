@@ -100,7 +100,8 @@ stopwords:hr:bez glutena, i/ili, i, ili, iz, max, min, najmanje, najviše, obič
 stopwords:hu:tartalmaz, változó arányban, min, zsírtartalom, összetevő, összetétel, amelyből, amiből
 stopwords:id:mengandung
 stopwords:is:úr
-stopwords:it:contiene, nella
+# example: COCCO in proporzione variabile
+stopwords:it:contiene, nella, in proporzione variabile
 # Japanese stopwords are matched without word boundaries, do not put as stopwords characters or words that could be part of an actual ingredient entry
 stopwords:ja:等, その他
 stopwords:lt:iš, su, su pridėtiniu, mažiausiai, įskaitant
@@ -62587,7 +62588,7 @@ ru:пряности натуральные
 #                                Herbs (general)
 #
 ###################################################################################################
-en:herb, mixed herbs
+en:herb, mixed herbs, aromatic plants
 bg:билка, билки
 bs:aromatično bilje
 ca:Herbes, herbes aromàtiques, plantes aromàtiques
