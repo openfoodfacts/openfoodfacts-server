@@ -2638,7 +2638,7 @@ sub init_countries() {
 	%country_codes_reverse = ();
 	%country_languages = ();
 
-	foreach my $country (keys %{$properties{countries}}) {
+	foreach my $country (sort keys %{$properties{countries}}) {
 
 		my $cc = country_to_cc($country);
 		if (not(defined $cc)) {
@@ -2659,9 +2659,11 @@ sub init_countries() {
 				my $nameid = get_string_id_for_lang("no_language", $name);
 				if (not defined $country_names{$nameid}) {
 					$country_names{$nameid} = [$cc, $country, $language];
-					# print STDERR "country_names{$nameid} = [$cc, $country, $language]\n";
 				}
 			}
+		}
+		else {
+			$log->warn("No language_codes:en for country $country") if $log->is_warn();
 		}
 	}
 	return;
