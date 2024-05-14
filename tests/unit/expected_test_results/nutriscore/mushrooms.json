@@ -299,6 +299,9 @@
                "negative" : [
                   {
                      "id" : "energy",
+                     "new_grade" : "a",
+                     "new_score" : -2,
+                     "new_value" : 335,
                      "points" : 1,
                      "points_max" : 10,
                      "unit" : "kJ",
@@ -313,6 +316,9 @@
                   },
                   {
                      "id" : "saturated_fat",
+                     "new_grade" : "a",
+                     "new_score" : -2,
+                     "new_value" : 1,
                      "points" : 1,
                      "points_max" : 10,
                      "unit" : "g",
@@ -320,6 +326,9 @@
                   },
                   {
                      "id" : "salt",
+                     "new_grade" : "a",
+                     "new_score" : -2,
+                     "new_value" : 0.8,
                      "points" : 4,
                      "points_max" : 20,
                      "unit" : "g",
@@ -329,6 +338,9 @@
                "positive" : [
                   {
                      "id" : "proteins",
+                     "new_grade" : "a",
+                     "new_score" : -3,
+                     "new_value" : 4.9,
                      "points" : 0,
                      "points_max" : 7,
                      "unit" : "g",
@@ -343,6 +355,9 @@
                   },
                   {
                      "id" : "fruits_vegetables_legumes",
+                     "new_grade" : "a",
+                     "new_score" : -4,
+                     "new_value" : 81,
                      "points" : 2,
                      "points_max" : 5,
                      "unit" : "%",

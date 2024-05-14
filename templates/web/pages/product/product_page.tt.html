@@ -170,6 +170,9 @@
                                 [% lang("barcode") %]:  <span id="barcode" property="food:code" itemprop="gtin13" style="speak-as:digits;">[% code %]</span> [% upc %]
                             </p>
                             <div property="gr:hasEAN_UCC-13" content="[% code %]" datatype="xsd:string"></div>
+                        [% ELSE %]
+                          [%# put in DOM for folksonomy %]
+                          <span id="barcode"  style="display: none;">[% code %]</span>
                         [% END %]
                         
                         [% product_fields %]

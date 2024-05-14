@@ -123,6 +123,28 @@
       "unknown"
    ],
    "food_groups_tags" : [],
+   "improvements_data" : {
+      "en:better-nutri-score-with-less-sugars" : {
+         "current_nutriscore_grade" : "b",
+         "current_value" : 3.6,
+         "difference_percent" : 5.55555555555556,
+         "new_nutriscore_grade" : "a",
+         "new_value" : 3.4,
+         "nutrient" : "sugars"
+      },
+      "en:better-nutri-score-with-much-less-salt" : {
+         "current_nutriscore_grade" : "b",
+         "current_value" : 1.2,
+         "difference_percent" : 16.6666666666667,
+         "new_nutriscore_grade" : "a",
+         "new_value" : 1,
+         "nutrient" : "salt"
+      }
+   },
+   "improvements_tags" : [
+      "en:better-nutri-score-with-less-sugars",
+      "en:better-nutri-score-with-much-less-salt"
+   ],
    "ingredients" : [
       {
          "ciqual_food_code" : "18066",
@@ -322,7 +344,12 @@
                      "value" : 315
                   },
                   {
+                     "current_grade" : "b",
+                     "current_score" : 1,
                      "id" : "sugars",
+                     "new_grade" : "a",
+                     "new_score" : 0,
+                     "new_value" : 3.4,
                      "points" : 1,
                      "points_max" : 15,
                      "unit" : "g",
@@ -336,7 +363,12 @@
                      "value" : 0.1
                   },
                   {
+                     "current_grade" : "b",
+                     "current_score" : 1,
                      "id" : "salt",
+                     "new_grade" : "a",
+                     "new_score" : 0,
+                     "new_value" : 1,
                      "points" : 5,
                      "points_max" : 20,
                      "unit" : "g",
@@ -345,21 +377,36 @@
                ],
                "positive" : [
                   {
+                     "current_grade" : "b",
+                     "current_score" : 1,
                      "id" : "proteins",
+                     "new_grade" : "a",
+                     "new_score" : 0,
+                     "new_value" : 7.3,
                      "points" : 2,
                      "points_max" : 7,
                      "unit" : "g",
                      "value" : 5
                   },
                   {
+                     "current_grade" : "b",
+                     "current_score" : 1,
                      "id" : "fiber",
+                     "new_grade" : "a",
+                     "new_score" : 0,
+                     "new_value" : 6.4,
                      "points" : 3,
                      "points_max" : 5,
                      "unit" : "g",
                      "value" : 5.3
                   },
                   {
+                     "current_grade" : "b",
+                     "current_score" : 1,
                      "id" : "fruits_vegetables_legumes",
+                     "new_grade" : "a",
+                     "new_score" : 0,
+                     "new_value" : 41,
                      "points" : 0,
                      "points_max" : 5,
                      "unit" : "%",

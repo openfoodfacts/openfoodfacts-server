@@ -354,6 +354,9 @@
                   },
                   {
                      "id" : "sugars",
+                     "new_grade" : "b",
+                     "new_score" : -1,
+                     "new_value" : 3.4,
                      "points" : 3,
                      "points_max" : 10,
                      "unit" : "g",
@@ -398,6 +401,9 @@
                   },
                   {
                      "id" : "fruits_vegetables_legumes",
+                     "new_grade" : "b",
+                     "new_score" : -2,
+                     "new_value" : 81,
                      "points" : 4,
                      "points_max" : 6,
                      "unit" : "%",

@@ -221,6 +221,9 @@
                "negative" : [
                   {
                      "id" : "energy",
+                     "new_grade" : "d",
+                     "new_score" : 13,
+                     "new_value" : 2345,
                      "points" : 7,
                      "points_max" : 10,
                      "unit" : "kJ",
@@ -228,6 +231,9 @@
                   },
                   {
                      "id" : "sugars",
+                     "new_grade" : "d",
+                     "new_score" : 13,
+                     "new_value" : 27,
                      "points" : 8,
                      "points_max" : 15,
                      "unit" : "g",
@@ -235,6 +241,9 @@
                   },
                   {
                      "id" : "saturated_fat",
+                     "new_grade" : "d",
+                     "new_score" : 13,
+                     "new_value" : 1,
                      "points" : 1,
                      "points_max" : 10,
                      "unit" : "g",
@@ -242,6 +251,9 @@
                   },
                   {
                      "id" : "salt",
+                     "new_grade" : "d",
+                     "new_score" : 13,
+                     "new_value" : 0.4,
                      "points" : 2,
                      "points_max" : 20,
                      "unit" : "g",
@@ -251,6 +263,9 @@
                "positive" : [
                   {
                      "id" : "fiber",
+                     "new_grade" : "d",
+                     "new_score" : 13,
+                     "new_value" : 7.5,
                      "points" : 4,
                      "points_max" : 5,
                      "unit" : "g",

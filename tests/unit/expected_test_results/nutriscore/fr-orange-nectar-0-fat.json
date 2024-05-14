@@ -395,6 +395,9 @@
                   },
                   {
                      "id" : "sugars",
+                     "new_grade" : "e",
+                     "new_score" : 13,
+                     "new_value" : 10,
                      "points" : 10,
                      "points_max" : 10,
                      "unit" : "g",
@@ -409,6 +412,9 @@
                   },
                   {
                      "id" : "salt",
+                     "new_grade" : "e",
+                     "new_score" : 14,
+                     "new_value" : 0.4,
                      "points" : 2,
                      "points_max" : 20,
                      "unit" : "g",
@@ -425,6 +431,9 @@
                "positive" : [
                   {
                      "id" : "proteins",
+                     "new_grade" : "e",
+                     "new_score" : 10,
+                     "new_value" : 2.5,
                      "points" : 0,
                      "points_max" : 7,
                      "unit" : "g",
@@ -439,6 +448,9 @@
                   },
                   {
                      "id" : "fruits_vegetables_legumes",
+                     "new_grade" : "e",
+                     "new_score" : 13,
+                     "new_value" : 61,
                      "points" : 2,
                      "points_max" : 6,
                      "unit" : "%",
