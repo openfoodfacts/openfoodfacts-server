@@ -430,8 +430,10 @@ sub build_lang ($Languages_ref) {
 	# print $fh "Lang.pm - %Lang\n\n" . eDumper(\%Lang) . "\n";
 	# close $fh;
 
+	my $missing_english_translations = 0;
+
 	foreach my $key (keys %Lang) {
-		if ((defined $Lang{$key}{fr}) or (defined $Lang{$key}{en})) {
+		if ((defined $Lang{$key}{en}) and ($Lang{$key}{en} ne '')) {
 			foreach my $l (@Langs) {
 
 				my $short_l = undef;
@@ -454,6 +456,16 @@ sub build_lang ($Languages_ref) {
 				my $tagid = get_string_id_for_lang($l, $Lang{$key}{$l});
 			}
 		}
+		elsif ($key !~ /\__/) {
+			$log->error("No English translation for $key") if $log->is_error();
+			print STDERR "No English translation for $key\n";
+			$missing_english_translations++;
+		}
+	}
+
+	if ($missing_english_translations) {
+		$log->error("Missing English translations: $missing_english_translations") if $log->is_error();
+		die("$missing_english_translations English translations are missing, please fix them in the .po files");
 	}
 
 	# Some translations have <<site_name>> in them, replace it with the site name
@@ -529,9 +541,6 @@ sub build_json {
 			}
 			elsif ((defined $Lang{$s}{en}) and ($Lang{$s}{en} ne '')) {
 				$value = $Lang{$s}{en};
-			}
-			elsif (defined $Lang{$s}{fr}) {
-				$value = $Lang{$s}{fr};
 			}
 
 			$result{$s} = $value if $value;
