@@ -162,15 +162,41 @@ sub store_org ($org_ref) {
 	# retrieve eventual previous values
 	my $previous_org_ref = retrieve("$BASE_DIRS{ORGS}/" . $org_ref->{org_id} . ".sto");
 
-	if ((defined $previous_org_ref) && $previous_org_ref->{valid_org} ne 'on' && $org_ref->{valid_org} eq 'on') {
-		# we switched on validated
+	if ((defined $previous_org_ref) 
+		&& $previous_org_ref->{valid_org} ne 'accepted' 
+		&& $org_ref->{valid_org} eq 'accepted') {
+
+		# We switched to validated, update CRM
+		# The opportunity will be linked with the creator  
 		my $user_ref = retrieve_user($org_ref->{creator});
-		my $crm_ids = create_opportunity_with_user_and_company($user_ref, $org_ref);
-		if (defined $crm_ids) {
-			$user_ref->{crm_user_id} = $crm_ids->{crm_user_id};
+
+		eval {
+			my $contact_id =  find_or_create_contact($user_ref);
+			defined $contact_id or die "Failed to get contact";
+
+			my $company_id =  find_or_create_company($org_ref, $contact_id);
+			defined $company_id or die "Failed to get company";
+
+			defined add_contact_to_company($contact_id, $company_id) or die "Failed to add contact to company";
+
+			$user_ref->{crm_user_id} = $contact_id;
 			store_user($user_ref);
-			$org_ref->{crm_org_id} = $crm_ids->{crm_org_id};
-			$org_ref->{crm_opportunity_id} = $crm_ids->{crm_opportunity_id};
+			$org_ref->{crm_org_id} = $company_id;
+
+			my $opportunity_id = create_opportunity("$org_ref->{name} - new", $user_ref->{crm_user_id});
+			defined $opportunity_id or die "Failed to create opportunity";
+			$org_ref->{crm_opportunity_id} = $opportunity_id;
+
+			1;
+		} or do {
+			$log->error("store_org", {error => $@}) if $log->is_error();
+			$org_ref->{valid_org} = 'unreviewed';
+		};
+		# # also, add the other members to the CRM, in the company
+		foreach my $user_id (keys %{$org_ref->{members}}) {
+			if($user_id ne $org_ref->{creator}) {
+				add_user_to_company($user_id, $org_ref->{crm_org_id});
+			}
 		}
 	}
 
@@ -194,17 +220,13 @@ or an admin that creates an org by assigning an user to it).
 
 Identifier for the org (without the "org-" prefix), or org name.
 
-=head4 boolean $validated
-
-Indicate if the org should be considered validated
-
 =head3 Return values
 
 This function returns a hash ref for the org.
 
 =cut
 
-sub create_org ($creator, $org_id_or_name, $validated = 0) {
+sub create_org ($creator, $org_id_or_name) {
 
 	my $org_id = get_string_id_for_lang("no_language", $org_id_or_name);
 
@@ -215,8 +237,7 @@ sub create_org ($creator, $org_id_or_name, $validated = 0) {
 		creator => $creator,
 		org_id => $org_id,
 		name => $org_id_or_name,
-		# indicates if the org was manually validated
-		validated => $validated,
+		valid_org => 'unreviewed',
 		# by default an org has its data protected
 		# we will remove this only if appears later not to be fair-play
 		protect_data => "on",
@@ -354,6 +375,11 @@ sub add_user_to_org ($org_id_or_ref, $user_id, $groups_ref) {
 	foreach my $group (@{$groups_ref}) {
 		(defined $org_ref->{$group}) or $org_ref->{$group} = {};
 		$org_ref->{$group}{$user_id} = 1;
+	}
+
+	# sync CRM
+	if ($org_ref->{valid_org} eq 'accepted') {
+		add_user_to_company($user_id, $org_ref->{crm_org_id});
 	}
 
 	store_org($org_ref);

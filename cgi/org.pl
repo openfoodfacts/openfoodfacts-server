@@ -204,7 +204,15 @@ if ($action eq 'display') {
 			(
 				{
 					field => "valid_org",
-					type => "checkbox",
+					type => "select",
+					selected => $org_ref->{valid_org},
+					description => lang("org_valid_org"),
+					required => 1,
+					options => [
+						{value => "unreviewed", label => "Unreviewed"},
+						{value => "accepted", label => "Accepted"},
+						{value => "rejected", label => "Rejected"},
+					],
 				},
 				{
 					field => "enable_manual_export_to_public_platform",
@@ -365,7 +373,7 @@ elsif ($action eq 'process') {
 	elsif ($type eq 'user_delete') {
 
 		if (is_user_in_org_group($org_ref, $User_id, "admins") or $admin or $User{pro_moderator}) {
-			remove_user_by_org_admin(single_param('org_id'), single_param('user_id'));
+			remove_user_by_org_admin(single_param('orgid'), single_param('user_id'));
 			$template_data_ref->{result} = lang("edit_org_result");
 		}
 		else {
