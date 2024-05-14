@@ -479,6 +479,11 @@ Categories:
 - changed-files:
   - any-glob-to-any-file: 'taxonomies/food/categories.txt'
 
+# Brands are not yet taxonomized, thus brands taxonomy is in the unused folder.
+brands:
+- changed-files:
+  - any-glob-to-any-file: 'taxonomies/unused/brands.txt'
+
 # Origins are used for Eco-Score computation. We want to have structured origins.
 # Tracking issue: 
 📍 Origins:
@@ -544,6 +549,7 @@ Categories:
   - any-glob-to-any-file: 'tests/integration/expected_test_results/api_v3_product_read/get-knowledge-panels-fr.json'
   - any-glob-to-any-file: 'docs/api/ref/schemas/knowledge_panels/**'
   - any-glob-to-any-file: 'lib/ProductOpener/KnowledgePanelsTags.pm'
+  - any-glob-to-any-file: 'docs/api/explain-knowledge-panels.md'
 
 # Tracking issue: 
 Serving size:
