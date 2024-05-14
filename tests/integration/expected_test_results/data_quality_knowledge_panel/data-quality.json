@@ -239,6 +239,28 @@
                {
                   "element_type" : "panel_group",
                   "panel_group_element" : {
+                     "panel_group_id" : "nutrition",
+                     "panel_ids" : [
+                        "nutriscore",
+                        "nutrient_levels"
+                     ],
+                     "title" : "Nutrition",
+                     "type" : "subcard"
+                  }
+               },
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_ids" : [
+                        "nutrition_facts_table",
+                        "serving_size"
+                     ],
+                     "title" : ""
+                  }
+               },
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
                      "panel_group_id" : "ingredients",
                      "panel_ids" : [
                         "ingredients"
@@ -265,28 +287,6 @@
                      ],
                      "title" : "Ingredients analysis"
                   }
-               },
-               {
-                  "element_type" : "panel_group",
-                  "panel_group_element" : {
-                     "panel_group_id" : "nutrition",
-                     "panel_ids" : [
-                        "nutriscore",
-                        "nutrient_levels"
-                     ],
-                     "title" : "Nutrition",
-                     "type" : "subcard"
-                  }
-               },
-               {
-                  "element_type" : "panel_group",
-                  "panel_group_element" : {
-                     "panel_ids" : [
-                        "nutrition_facts_table",
-                        "serving_size"
-                     ],
-                     "title" : ""
-                  }
                }
             ],
             "expanded" : true,
@@ -303,7 +303,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                If the information does not match the information on the packaging, please complete or correct it.\n                Open Food Facts is a collaborative database, and every contribution is useful for all.\n                "
+                     "html" : "\n                If the information does not match the information on the packaging, you can complete or correct it. Thank you!\n                Open Food Facts is a collaborative database, and every contribution is useful for all.\n                "
                   }
                },
                {

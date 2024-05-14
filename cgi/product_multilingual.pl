@@ -740,14 +740,18 @@ sub display_input_field ($product_ref, $field, $language) {
 
 	$template_data_ref_field->{field_notes} = \@field_notes;
 
-	if (defined $Lang{$fieldtype . "_example"}{$lc}) {
+	# We can have product type specific examples (e.g. for OBF)
+	my $field_type_examples
+		= $Lang{$fieldtype . "_example" . "_" . $options{product_type}}{$lc} || $Lang{$fieldtype . "_example"}{$lc};
+
+	if ($field_type_examples) {
 
 		my $examples = $Lang{example}{$lc};
 		if ($Lang{$fieldtype . "_example"}{$lc} =~ /,/) {
 			$examples = $Lang{examples}{$lc};
 		}
 		$template_data_ref_field->{examples} = $examples;
-		$template_data_ref_field->{field_type_examples} = $Lang{$fieldtype . "_example"}{$lc};
+		$template_data_ref_field->{field_type_examples} = $field_type_examples;
 	}
 
 	process_template('web/pages/product_edit/display_input_field.tt.html', $template_data_ref_field, \$html_field)

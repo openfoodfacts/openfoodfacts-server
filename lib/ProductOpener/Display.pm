@@ -394,12 +394,22 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	(not defined $template_data_ref->{user}) and $template_data_ref->{user} = \%User;
 	(not defined $template_data_ref->{org_id}) and $template_data_ref->{org_id} = $Org_id;
 
+	$template_data_ref->{flavor} = $flavor;
+	$template_data_ref->{options} = \%options;
 	$template_data_ref->{product_type} = $options{product_type};
 	$template_data_ref->{admin} = $admin;
 	$template_data_ref->{moderator} = $User{moderator};
 	$template_data_ref->{pro_moderator} = $User{pro_moderator};
 	$template_data_ref->{sep} = separator_before_colon($lc);
 	$template_data_ref->{lang} = \&lang;
+	# also provide lang_flavor() and lang_product_type() to provide translations specific
+	# to a flavor (e.g. off, obf) or product type (e.g. food, beauty)
+	$template_data_ref->{lang_flavor} = sub ($stringid) {
+		return lang($stringid . "_" . $flavor);
+	};
+	$template_data_ref->{lang_product_type} = sub ($stringid) {
+		return lang($stringid . "_" . $options{product_type});
+	};
 	$template_data_ref->{f_lang} = \&f_lang;
 	# escaping quotes for use in javascript or json
 	# using short names to favour readability
@@ -3905,6 +3915,15 @@ HTML
 						;
 				}
 
+				if ($packager_codes{$canon_tagid}{cc} eq 'si') {
+					$description .= <<HTML
+<p>$packager_codes{$canon_tagid}{name}<br>
+$packager_codes{$canon_tagid}{address} (Slovenija)
+</p>
+HTML
+						;
+				}
+
 				if ($packager_codes{$canon_tagid}{cc} eq 'uk') {
 
 					my $district = '';
@@ -7044,7 +7063,7 @@ sub display_page ($request_ref) {
 	my $type;
 	my $id;
 
-	my $site = "<a href=\"/\">" . lang("site_name") . "</a>";
+	my $site = "<a href=\"/\">" . $options{site_name} . "</a>";
 
 	${$content_ref} =~ s/<SITE>/$site/g;
 
@@ -7076,7 +7095,7 @@ sub display_page ($request_ref) {
 		$description = remove_tags_and_quote($description);
 	}
 	if ($canon_description eq '') {
-		$canon_description = lang("site_description");
+		$canon_description = lang("site_description_$flavor");
 	}
 	my $canon_image_url = "";
 	my $canon_url = $formatted_subdomain;
@@ -7102,7 +7121,7 @@ sub display_page ($request_ref) {
 	# More images?
 
 	my $og_images = '';
-	my $og_images2 = '<meta property="og:image" content="' . lang("og_image_url") . '">';
+	my $og_images2 = '<meta property="og:image" content="' . $options{og_image_url} . '">';
 	my $more_images = 0;
 
 	# <img id="og_image" src="https://recettes.de/images/misc/recettes-de-cuisine-logo.gif" width="150" height="200">
@@ -7147,9 +7166,9 @@ sub display_page ($request_ref) {
 		$template_data_ref->{schema_org_itemtype} = $request_ref->{schema_org_itemtype};
 	}
 
-	my $site_name = lang_in_other_lc($request_lc, "site_name");
+	my $site_name = $options{site_name};
 	if ($server_options{producers_platform}) {
-		$site_name = lang_in_other_lc($request_lc, "producers_platform");
+		$site_name .= " - " . lang_in_other_lc($request_lc, "producers_platform");
 	}
 
 	# Override Google Analytics from Config.pm with server_options
@@ -7198,12 +7217,12 @@ sub display_page ($request_ref) {
 	my $join_us_on_slack
 		= sprintf($Lang{footer_join_us_on}{$lc}, '<a href="https://slack.openfoodfacts.org">Slack</a>');
 
-	my $twitter_account = lang("twitter_account");
-	if (defined $Lang{twitter_account_by_country}{$cc}) {
-		$twitter_account = $Lang{twitter_account_by_country}{$cc};
-	}
+	# Twitter account and Facebook page url from Config.pm
+	# Allow to have language specific Twitter accounts and Facebook page url, suffixed by the language code
+	my $twitter_account = $options{"twitter_account_$lc"} || $options{twitter_account};
 	$template_data_ref->{twitter_account} = $twitter_account;
-	# my $facebook_page = lang("facebook_page");
+	my $facebook_page = $options{"facebook_page_url_$lc"} || $options{facebook_page_url};
+	$template_data_ref->{facebook_page_url} = $facebook_page;
 
 	my $torso_class = "anonymous";
 	if (defined $User_id) {
@@ -7229,7 +7248,7 @@ sub display_page ($request_ref) {
 	$template_data_ref->{link} = $link;
 	$template_data_ref->{lc} = $lc;
 
-	my $tagline = lang("tagline");
+	my $tagline = lang("tagline_$flavor");
 
 	if ($server_options{producers_platform}) {
 		$tagline = "";
@@ -7273,7 +7292,7 @@ sub display_page ($request_ref) {
 		$template_data_ref->{mobile} = {
 			device => $device,
 			system => $system,
-			link => lang($system . "_app_link"),
+			link => $options{$system . "_app_link"},
 			text => lang("app_banner_text"),
 		};
 	}
@@ -10525,7 +10544,7 @@ sub display_structured_response_opensearch_rss ($request_ref) {
 
 	my $xs = XML::Simple->new(NumericEscape => 2);
 
-	my $short_name = lang("site_name");
+	my $short_name = $options{site_name};
 	my $long_name = $short_name;
 	if ($cc eq 'world') {
 		$long_name .= " " . uc($lc);
@@ -10537,7 +10556,8 @@ sub display_structured_response_opensearch_rss ($request_ref) {
 	$long_name = $xs->escape_value(encode_utf8($long_name));
 	$short_name = $xs->escape_value(encode_utf8($short_name));
 	my $query_link = $xs->escape_value(encode_utf8($formatted_subdomain . $request_ref->{current_link} . "&rss=1"));
-	my $description = $xs->escape_value(encode_utf8(lang("search_description_opensearch")));
+	my $description
+		= $xs->escape_value(encode_utf8($options{site_name} . " - " . lang("search_description_opensearch")));
 
 	my $search_terms = $xs->escape_value(encode_utf8(decode utf8 => single_param('search_terms')));
 	my $count = $xs->escape_value($request_ref->{structured_response}{count});

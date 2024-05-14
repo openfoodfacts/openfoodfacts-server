@@ -25,7 +25,7 @@ msgstr "個人資料"
 
 msgctxt "add"
 msgid "Add"
-msgstr "加入產品"
+msgstr "加入产品"
 
 msgctxt "add_language"
 msgid "Add language"
@@ -45,7 +45,7 @@ msgstr "註冊"
 
 msgctxt "add_user_process"
 msgid "Welcome!"
-msgstr ""
+msgstr "欢迎!"
 
 msgctxt "add_user_result"
 msgid "Thank you for joining us!"
@@ -204,11 +204,6 @@ msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
 msgstr ""
 
-# DO NOT TRANSLATE
-msgctxt "android_apk_app_link"
-msgid "https://world.openfoodfacts.org/files/off.apk"
-msgstr "https://world.openfoodfacts.org/files/off.apk"
-
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
 msgctxt "android_app_icon_url"
 msgid "/images/misc/playstore/img/en_get.svg"
@@ -217,11 +212,6 @@ msgstr ""
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
 msgstr "Google Play立即下載"
-
-# Change hl=en to your language, and make sure the url works
-msgctxt "android_app_link"
-msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en"
-msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=zh-hk"
 
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
@@ -587,7 +577,7 @@ msgstr ""
 
 msgctxt "emb_code_p"
 msgid "Traceability codes"
-msgstr ""
+msgstr "可追踪码"
 
 msgctxt "emb_code_s"
 msgid "Traceability code"
@@ -607,7 +597,7 @@ msgstr ""
 
 msgctxt "emb_codes_s"
 msgid "traceability code"
-msgstr ""
+msgstr "可追踪码"
 
 msgctxt "emb_codes_without_products"
 msgid "Products without the traceability code %s"
@@ -632,7 +622,7 @@ msgstr "輸入日期"
 
 msgctxt "error"
 msgid "Error"
-msgstr "錯誤"
+msgstr "错误"
 
 msgctxt "error_bad_login_password"
 msgid "Incorrect user name or password. <a href=\"/cgi/reset_password.pl\">Forgotten password?</a>"
@@ -738,10 +728,6 @@ msgctxt "facebook_locale"
 msgid "en_US"
 msgstr "zh_HK"
 
-msgctxt "facebook_page"
-msgid "https://www.facebook.com/OpenFoodFacts"
-msgstr "https://www.facebook.com/OpenFoodFacts"
-
 msgctxt "fixme_product"
 msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
 msgstr "若數據有誤或不全面，您可以編輯此頁修正。"
@@ -826,6 +812,15 @@ msgctxt "footer_legal_link"
 msgid "/legal"
 msgstr "/legal"
 
+msgctxt "footer_privacy"
+msgid "Privacy"
+msgstr ""
+
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
+msgctxt "footer_privacy_link"
+msgid "/privacy"
+msgstr ""
+
 msgctxt "footer_press"
 msgid "Press"
 msgstr "傳媒"
@@ -835,13 +830,9 @@ msgctxt "footer_press_link"
 msgid "/press"
 msgstr "/press"
 
-msgctxt "footer_tagline"
-msgid "A collaborative, free and open database of food products from around the world."
-msgstr "來自全世界共同協作、自由且開放的食品資料庫。"
-
 msgctxt "footer_terms"
 msgid "Terms of use"
-msgstr "使用條款"
+msgstr "使用条款"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_terms_link"
@@ -1118,10 +1109,6 @@ msgctxt "ios_app_icon_alt_text"
 msgid "Download on the App Store"
 msgstr ""
 
-msgctxt "ios_app_link"
-msgid "https://apps.apple.com/app/open-food-facts/id588797948"
-msgstr ""
-
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
 msgstr "已知營養"
@@ -1375,7 +1362,7 @@ msgstr "%s個產品"
 
 msgctxt "name"
 msgid "Name"
-msgstr "名稱"
+msgstr "名称"
 
 msgctxt "names"
 msgid "Names"
@@ -1544,7 +1531,7 @@ msgstr "最小值"
 
 msgctxt "nutrition_data_per_serving"
 msgid "per serving"
-msgstr "每個包含"
+msgstr "每份"
 
 msgctxt "nutrition_data_per_std"
 msgid "Standard deviation"
@@ -1673,7 +1660,7 @@ msgstr "頁面："
 
 msgctxt "password"
 msgid "Password"
-msgstr "密碼"
+msgstr "密码"
 
 msgctxt "password_new"
 msgid "New password"
@@ -1761,7 +1748,7 @@ msgstr "前一頁"
 
 msgctxt "product_add_nutrient"
 msgid "Add a nutrient"
-msgstr "新增營養素"
+msgstr "添加营养"
 
 msgctxt "product_added"
 msgid "Product added on"
@@ -1925,7 +1912,7 @@ msgstr "完整資訊的產品"
 
 msgctxt "products_stats_created_t"
 msgid "Products"
-msgstr "產品"
+msgstr "产品"
 
 msgctxt "products_with_nutriments"
 msgid "with nutrition facts"
@@ -1981,7 +1968,7 @@ msgstr "記住採購地點給以後的產品使用"
 
 msgctxt "reset_password"
 msgid "Reset password"
-msgstr "重設密碼"
+msgstr "重置密码"
 
 msgctxt "reset_password_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -2078,8 +2065,8 @@ msgid "Select products with specific brands, categories, labels, origins of ingr
 msgstr "選擇具體品牌、類別、標籤、配料來源、製造地點...等等的產品"
 
 msgctxt "search_description_opensearch"
-msgid "Open Food Facts product search"
-msgstr "Open Food Facts 產品搜尋"
+msgid "Product search"
+msgstr ""
 
 msgctxt "search_does_not_contain"
 msgid "does not contain"
@@ -2352,7 +2339,7 @@ msgstr "登入"
 
 msgctxt "share"
 msgid "Share"
-msgstr "分享"
+msgstr "推荐给好友"
 
 msgctxt "show_category_stats"
 msgid "Show detailed stats"
@@ -2369,18 +2356,6 @@ msgstr "若您已有帳號於 <SITE>，入在填寫此表前請先登入。"
 msgctxt "signout"
 msgid "Sign-out"
 msgstr "登出"
-
-msgctxt "site_description"
-msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
-msgstr "來自全球有關食品原料、營養成分、及其資訊的合作、自由且開放的資料庫。"
-
-msgctxt "site_name"
-msgid "Open Food Facts"
-msgstr "Open Food Facts"
-
-msgctxt "logo_site_name"
-msgid "Open Food Facts logo"
-msgstr "Open Food Facts標誌"
 
 msgctxt "sort_by"
 msgid "Sort by"
@@ -2495,13 +2470,9 @@ msgctxt "twitter"
 msgid "Twitter username (optional)"
 msgstr "Twitter用戶名（選填）"
 
-msgctxt "twitter_account"
-msgid "OpenFoodFacts"
-msgstr "OpenFoodFacts"
-
 msgctxt "unknown"
 msgid "Unknown"
-msgstr "不明"
+msgstr "未知"
 
 msgctxt "unknown_nutrients_p"
 msgid "unknown nutrients"
@@ -2575,6 +2546,10 @@ msgctxt "view"
 msgid "view"
 msgstr "檢視"
 
+msgctxt "view_this_revision"
+msgid "View this revision"
+msgstr ""
+
 msgctxt "view_list_for_products_from_the_entire_world"
 msgid "View the list for matching products from the entire world"
 msgstr "檢視藉由輸入文字所找出相符的產品清單"
@@ -2595,20 +2570,6 @@ msgstr ""
 msgctxt "website"
 msgid "Site or blog address"
 msgstr "網站或部落格地址"
-
-# Please change English.svg to French.svg or German.svg… Check the url https://static.openfoodfacts.org/images/misc/microsoft/XXXX.svg
-msgctxt "windows_phone_app_icon_url"
-msgid "/images/misc/microsoft/English.svg"
-msgstr ""
-
-msgctxt "windows_phone_app_icon_alt_text"
-msgid "Get it from Microsoft"
-msgstr ""
-
-# Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
-msgctxt "windows_phone_app_link"
-msgid "https://apps.microsoft.com/store/detail/open-food-facts-scan-to-get-nutriscore-ecoscore-and-more/XP8LT18SRPKLRG"
-msgstr ""
 
 msgctxt "you_are_connected_as_x"
 msgid "You are connected as %s."
@@ -2736,7 +2697,7 @@ msgstr ""
 
 msgctxt "translators_column_name"
 msgid "Name"
-msgstr "名稱"
+msgstr "名称"
 
 msgctxt "translators_column_translated_words"
 msgid "Translated (Words)"
@@ -3390,7 +3351,7 @@ msgstr "產品識別"
 
 msgctxt "fields_group_origins"
 msgid "Origins"
-msgstr "原產地"
+msgstr "起源"
 
 msgctxt "fields_group_ingredients"
 msgid "Ingredients"
@@ -4265,7 +4226,7 @@ msgstr ""
 
 msgctxt "done_status"
 msgid "Done"
-msgstr ""
+msgstr "完成"
 
 msgctxt "to_do_status"
 msgid "To do"
@@ -4368,7 +4329,7 @@ msgstr ""
 
 msgctxt "invalid_barcode"
 msgid "Invalid barcode"
-msgstr ""
+msgstr "无效的条形码"
 
 # Either 'ltr' for left to right languages like English or 'rtl' for right to left languages like Arabic
 msgctxt "text_direction"
@@ -4609,7 +4570,7 @@ msgstr ""
 
 msgctxt "attribute_nova_unknown_description_short"
 msgid "Food processing level unknown"
-msgstr ""
+msgstr "食品加工水平未知"
 
 msgctxt "attribute_nova_setting_name"
 msgid "No or little food processing (NOVA group)"
@@ -4622,7 +4583,7 @@ msgstr ""
 
 msgctxt "attribute_nova_1_description_short"
 msgid "Unprocessed or minimally processed foods"
-msgstr "未加工或經少量加工食品"
+msgstr "第一類： 未加工或經少量加工食品"
 
 msgctxt "attribute_nova_2_description_short"
 msgid "Processed culinary ingredients"
@@ -4630,7 +4591,7 @@ msgstr "加工的烹飪用食品"
 
 msgctxt "attribute_nova_3_description_short"
 msgid "Processed foods"
-msgstr "加工食品"
+msgstr "第三類： 加工食品"
 
 msgctxt "attribute_nova_4_description_short"
 msgid "Ultra processed foods"
@@ -4848,7 +4809,7 @@ msgstr ""
 
 msgctxt "org_name"
 msgid "Name"
-msgstr "名稱"
+msgstr "名称"
 
 msgctxt "org_link"
 msgid "Link to the official web site"
@@ -4876,7 +4837,7 @@ msgstr ""
 
 msgctxt "contact_name"
 msgid "Name"
-msgstr "名稱"
+msgstr "名称"
 
 msgctxt "contact_address"
 msgid "Address"
@@ -4985,7 +4946,7 @@ msgstr ""
 
 msgctxt "preferences_edit_your_food_preferences"
 msgid "Edit your food preferences"
-msgstr ""
+msgstr "编辑您的食物偏好"
 
 msgctxt "preferences_your_preferences"
 msgid "Your food preferences"
@@ -5036,7 +4997,7 @@ msgstr ""
 
 msgctxt "packaging_shape"
 msgid "Shape"
-msgstr ""
+msgstr "形状"
 
 msgctxt "packaging_quantity"
 msgid "Quantity contained"
@@ -5044,7 +5005,7 @@ msgstr ""
 
 msgctxt "packaging_material"
 msgid "Material"
-msgstr ""
+msgstr "材料"
 
 msgctxt "packaging_recycling"
 msgid "Recycling"
@@ -6142,32 +6103,32 @@ msgstr ""
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_very_good_match"
 msgid "Very good match"
-msgstr ""
+msgstr "优秀的配对"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_good_match"
 msgid "Good match"
-msgstr ""
+msgstr "不错的配对"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_poor_match"
 msgid "Poor match"
-msgstr ""
+msgstr "较差的配对"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_unknown_match"
 msgid "Unknown match"
-msgstr ""
+msgstr "是否适合未知"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_may_not_match"
 msgid "May not match"
-msgstr ""
+msgstr "可能不匹配"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_does_not_match"
 msgid "Does not match"
-msgstr ""
+msgstr "不匹配"
 
 msgctxt "reset_preferences"
 msgid "Use default preferences"
@@ -6211,6 +6172,10 @@ msgstr ""
 
 msgctxt "action_add_packaging_components"
 msgid "Add packaging components"
+msgstr ""
+
+msgctxt "action_add_quantity"
+msgid "Add quantity of the product"
 msgstr ""
 
 # this is not used yet
@@ -6331,7 +6296,7 @@ msgstr ""
 
 msgctxt "sign_in"
 msgid "Sign in"
-msgstr "登入"
+msgstr "登录"
 
 msgctxt "sign_out"
 msgid "Sign out"
@@ -6386,7 +6351,7 @@ msgstr ""
 
 msgctxt "nutrition"
 msgid "Nutrition"
-msgstr "營養素"
+msgstr "营养"
 
 # Note: "criteria" is plural here. So in French for instance: "Vos critères"
 msgctxt "your_criteria"
@@ -6520,19 +6485,19 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units_description"
 msgid "Enter the number of packaging units of the same shape and material contained in the product."
-msgstr ""
+msgstr "输入产品中包含的相同形状和材料的包装单位数量。"
 
 msgctxt "packaging_shape_description"
 msgid "Enter the shape name listed in the recycling instructions if they are available, or select a shape."
-msgstr ""
+msgstr "输入回收说明中列出的形状名称（如果可用），或选择一个形状。"
 
 msgctxt "packaging_material_description"
 msgid "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure."
-msgstr ""
+msgstr "如果可以确定，请输入具体材料（三角形内的材料代码通常可以在包装部件上找到），如果您不确定，请输入通用材料（例如塑料或金属）。"
 
 msgctxt "packaging_recycling_description"
 msgid "Enter recycling instructions only if they are listed on the product."
-msgstr ""
+msgstr "只有在产品上列出的回收说明才可输入。"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight_description"
@@ -6542,7 +6507,7 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit_description"
 msgid "Enter the net weight or net volume and indicate the unit (for example g or ml)."
-msgstr ""
+msgstr "输入净重或净体积并注明单位（例如克 g 或毫升 ml）。"
 
 msgctxt "import_and_export_products"
 msgid "Import and export products"
@@ -6800,5 +6765,141 @@ msgstr ""
 
 msgctxt "nutrient_info_proteins_benefit"
 msgid "Foods that are rich in proteins are usually rich in calcium or iron which are essential minerals with numerous health benefits."
+msgstr ""
+
+msgctxt "revert"
+msgid "Revert to this revision"
+msgstr ""
+
+msgctxt "product_js_product_revert_confirm"
+msgid "Revert to this product revision?"
+msgstr ""
+
+msgctxt "api_status_success"
+msgid "Success"
+msgstr ""
+
+msgctxt "api_status_failure"
+msgid "Failure"
+msgstr ""
+
+msgctxt "api_result_product_reverted"
+msgid "Product reverted to the specified revision"
+msgstr ""
+
+msgctxt "api_result_product_not_reverted"
+msgid "Product not reverted to the specified revision"
+msgstr ""
+
+# sweeteners (additives), plural
+msgctxt "sweeteners"
+msgid "sweeteners"
+msgstr ""
+
+# sweetener (additive), singular
+msgctxt "sweetener"
+msgid "sweetener"
+msgstr "甜味劑"
+
+msgctxt "action_edit_product"
+msgid "Complete or correct product information"
+msgstr ""
+
+msgctxt "report_problem_panel_title"
+msgid "Report a problem"
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_title"
+msgid "Incomplete or incorrect information?"
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_subtitle_off"
+msgid "Category, labels, ingredients, allergens, nutritional information, photos etc."
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_content_correct"
+msgid "If the information does not match the information on the packaging, you can complete or correct it. Thank you!"
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_content_correct_off"
+msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
+msgstr ""
+
+msgctxt "description"
+msgid "Description"
+msgstr ""
+
+msgctxt "site_description_off"
+msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
+msgstr ""
+
+msgctxt "tagline_off"
+msgid "Open Food Facts gathers information and data on food products from around the world."
+msgstr "Open Food Facts收集世界各地的食品數據。"
+
+msgctxt "footer_tagline_off"
+msgid "A collaborative, free and open database of food products from around the world."
+msgstr "來自全世界共同協作、自由且開放的食品資料庫。"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_off"
+msgid "/open-food-facts-mobile-app"
+msgstr ""
+
+msgctxt "site_description_obf"
+msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
+msgstr "一個協作，免費，公開，有關全球美妝產品成分與資料的數據庫"
+
+msgctxt "tagline_obf"
+msgid "Open Beauty Facts gathers information and data on cosmetic products from around the world."
+msgstr "Open Beauty Facts 收集了世界各地美妝品的資訊與數據。"
+
+msgctxt "footer_tagline_obf"
+msgid "A collaborative, free and open database of cosmetic products from around the world."
+msgstr "一個集體，免費，公開，有關全球化妝產品的數據庫。"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_obf"
+msgid "/open-beauty-facts-mobile-app"
+msgstr ""
+
+msgctxt "footer_and_the_facebook_group_obf"
+msgid "and the <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">Facebook group for contributors</a>"
+msgstr ""
+
+msgctxt "search_description_opensearch_obf"
+msgid "Open Beauty Facts product search"
+msgstr ""
+
+msgctxt "warning_not_complete_obf"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
+msgstr ""
+
+msgctxt "brands_example_beauty"
+msgid "Nivea, Nivea Men"
+msgstr ""
+
+msgctxt "categories_example_beauty"
+msgid "Anti-dandruff shampoo, Whitening toothpaste"
+msgstr ""
+
+msgctxt "emb_codes_example_beauty"
+msgid "EMB 53062"
+msgstr ""
+
+msgctxt "generic_name_example_beauty"
+msgid "Anti-dandruff shampoo"
+msgstr "去屑洗髮露"
+
+msgctxt "product_name_example_beauty"
+msgid "Anti-Perspirant Stress Protect"
+msgstr ""
+
+msgctxt "ingredients_text_example_beauty"
+msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
+msgstr ""
+
+msgctxt "report_problem_navigation"
+msgid "Report a problem"
 msgstr ""
 
