@@ -469,6 +469,9 @@
                   },
                   {
                      "id" : "sugars",
+                     "new_grade" : "d",
+                     "new_score" : 7,
+                     "new_value" : 3.4,
                      "points" : 3,
                      "points_max" : 10,
                      "unit" : "g",
@@ -512,7 +515,12 @@
                      "value" : null
                   },
                   {
+                     "current_grade" : "d",
+                     "current_score" : 8,
                      "id" : "fruits_vegetables_legumes",
+                     "new_grade" : "c",
+                     "new_score" : 6,
+                     "new_value" : 41,
                      "points" : 0,
                      "points_max" : 6,
                      "unit" : "%",
