@@ -100,7 +100,8 @@ stopwords:hr:bez glutena, i/ili, i, ili, iz, max, min, najmanje, najviše, obič
 stopwords:hu:tartalmaz, változó arányban, min, zsírtartalom, összetevő, összetétel, amelyből, amiből
 stopwords:id:mengandung
 stopwords:is:úr
-stopwords:it:contiene, nella
+# example: COCCO in proporzione variabile
+stopwords:it:contiene, nella, in proporzione variabile
 # Japanese stopwords are matched without word boundaries, do not put as stopwords characters or words that could be part of an actual ingredient entry
 stopwords:ja:等, その他
 stopwords:lt:iš, su, su pridėtiniu, mažiausiai, įskaitant
@@ -623,7 +624,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Gelatin
 <en:beef
 <en:gelatin
 en:beef gelatin, bovine gelatine, bovine gelatin
-bg:телешки желатин, желатин от телешко месо
+bg:телешки желатин, желатин от телешко месо, говежди желатин
 de:Rindergelatine
 es:Gelatina de ternera
 fi:nautaliivate, nautagelatiini, naudan liivate, liivate naudasta
@@ -1836,6 +1837,7 @@ fr:hémicellulase
 <en:enzyme
 en:Lactase, lactase enzyme
 ar:لكتاز
+bg:лактаза
 bn:ল্যাকটেজ
 ca:lactasa
 cs:laktáza
@@ -2751,7 +2753,7 @@ nl:vloeibare melkbestanddelen
 
 <en:milk
 en:lactose-free milk
-bg:мляко без лактоза
+bg:мляко без лактоза, безлактозно мляко
 ca:llet sense lactosa
 de:laktosefreie Milch
 es:leche sin lactosa
@@ -2793,6 +2795,7 @@ nl:melk uit Frankrijk
 
 #<en:milk
 #en:origin of the milk
+#bg:произход на млякото
 #ca:origen de la llet
 #es:origen de la leche
 
@@ -7615,7 +7618,7 @@ protected_name_type:en: en:pdo
 en:gruyère, Gruyere cheese, Gruyere cheese from cow's milk
 xx:Gruyère
 az:Qruyer
-bg:Грюер
+bg:Грюер, сирене Грюер
 de:Greyerzer
 el:Γκρουγιέρ
 es:gruyer
@@ -11032,7 +11035,7 @@ de:rindergehacktes
 
 <en:beef meat
 en:beef heart
-bg:говеждо сърце
+bg:говеждо сърце, говежди сърца
 ca:cor de vedella
 de:Rinderherz
 es:corazón de res, corazón de ternera
@@ -12577,6 +12580,7 @@ ciqual_proxy_food_name:en:Pork, meat, cooked (average)
 <en:pork meat
 # en:processing:mechanically separated
 en:mechanically separated meat of pork
+bg:свинско механично отделено месо
 fr:viande de porc séparée mécaniquement, viande séparée mécaniquement de porc
 pl:mięso oddzielone mechanicznie wieprzowe, wieprzowina oddzialona mechanicznie
 
@@ -16403,7 +16407,7 @@ fr:huile d'olive extra vierge, huile d'olive vierge extra, huile d'olive vierge 
 hr:ekstra djevičansko maslinovo ulje
 hu:extra szűz olívaolaj, extraszűz olívaolaj
 it:olio d'oliva extra vergine, olio extravergine di oliva, olio di oliva extra vergine, olio extra vergine di oliva, olio extra vergine d'oliva, olio extravergine d'oliva, olio vegetale extravergine d'oliva
-nl:olijfolie extra vierge, extra olijfolie van de eerste persing, extra vierge olijfolie, extra vergine olijfolie
+nl:olijfolie extra vierge, extra olijfolie van de eerste persing, extra vierge olijfolie, extra vergine olijfolie, Extra vierge olijfolie van de eerste persing
 no:extra virgin olivenolje, ekstra virgin olivenolje, ekstra jomfru olivenolje
 pl:oliwa z oliwek extra virgin, oliwa extra virgin, oliwa z oliwek ekstra virgin, oliwa ekstra virgin
 pt:Azeite extra virgem, azeite virgem extra
@@ -17129,7 +17133,7 @@ nl:non-gmo sojaolie
 
 <en:soya oil
 en:refined soya oil
-bg:рафинирано соево олио
+bg:рафинирано соево олио, соево рафинирано олио
 pl:rafinowany olej sojowy
 
 <en:soya oil
@@ -17475,7 +17479,7 @@ en:sunflower oil, sunflower seed oil, sunflower vegetable oil
 ar:زيت زهرة الشمس
 az:Günəbaxan yağı
 be:Сланечнікавы алей
-bg:Слънчогледово олио, слънчогледово масло, масло слънчогледово, растително слънчогледово масло, слънчоглед, слънчогледово
+bg:Слънчогледово олио, слънчогледово масло, масло слънчогледово, растително слънчогледово масло, слънчогледова мазнина
 ca:oli de gira-sol, oli vegetal de gira-sol, oli de girasol, oli vegetal de girasol
 cs:Slunečnicový olej
 da:solsikkeolie
@@ -23458,6 +23462,7 @@ tr:buğday lifi
 
 <en:wheat fiber
 en:gluten free wheat fiber
+bg:безглутенови пшенични влакнини
 nl:glutenvrije tarwevezel
 pl:błonnik pszenny bezglutenowy
 
@@ -31693,6 +31698,9 @@ wikidata:en:Q418945
 wikipedia:en:https://en.wikipedia.org/wiki/Fructooligosaccharide
 # ingredient/fructooligosaccharide has 139 products in 7 languages @2019-05-06
 
+<en:sweetener
+en:monk fruit extract
+
 ##################################################################################
 #
 #                        Proteins
@@ -31860,7 +31868,7 @@ fr:protéine de levure
 
 <en:protein
 en:plant protein, vegetable protein, vegetal protein
-bg:растителен протеин
+bg:растителен протеин, растителни протеини
 ca:Proteïna vegetal
 cs:rostlinné proteiny, rostlinné bílkoviny
 da:vegetabilsk protein
@@ -32022,7 +32030,7 @@ pl:hydrolizat białka słonecznikowego, hydrolizowane białko słonecznikowe, hy
 
 <en:plant protein
 en:soy protein
-bg:соев протеин, соев белтък
+bg:соев протеин, соев белтък, соеви протеини
 ca:proteïna de soja
 cs:sójová bílkovina, sójová bilkovina
 da:sojaprotein
@@ -32861,7 +32869,7 @@ fr:Poudre de cacao brute, Cacao non sucré en poudre soluble
 
 <en:cocoa powder
 en:fat reduced cocoa powder, low-fat cocoa powder, low fat cocoa powder, cocoa powder with low fat content
-bg:обеэмаслено какао на прах, какао на прах с намалено маслено съдържание, нискомаслено какао на прах
+bg:обеэмаслено какао на прах, какао на прах с намалено маслено съдържание, нискомаслено какао на прах, какао на прах с ниска масленост
 ca:cacau desgreixat en pols, cacau en pols reduït en greix
 cs:Kakaový prášek se sníženým obsahem tuku
 da:fedtfattigt kakaopulver, fedtreduceret kakaopulver, skummet kakaopulver
@@ -35045,7 +35053,7 @@ it:naturale-fermento, lievito naturale, lievito madre
 <en:yeast
 en:Baker's yeast
 ar:فطريات الخميرة
-bg:хлебна мая, мая хлебна
+bg:хлебна мая, мая хлебна, мая за хляб
 ca:Llevat de forner
 cs:pekařské droždí
 de:Backhefe
@@ -36972,7 +36980,7 @@ an:alberje
 ar:مشمش
 az:ərik
 be:абрыкос
-bg:кайсия
+bg:кайсия, кайсии
 bn:খুবানি
 br:abriko
 bs:kajsija
@@ -41269,7 +41277,7 @@ fr:cellules d'oranges
 
 <en:orange
 en:orange zest, orange peel
-bg:портокалови кори
+bg:портокалови кори, портокалови корички
 ca:pell de taronja
 cs:Pomerančová kůra
 da:orangeskal
@@ -46103,7 +46111,7 @@ fr:concentré de raisin
 en:sultana, sultanas, Thompson seedless, sultanina
 af:sultana
 ar:العنب الكشمشي
-bg:султанина
+bg:султанина, светли стафиди
 ca:panses sultanes
 da:sultana
 de:Sultana, Sultanine, Sultanina, Sultaninen
@@ -48788,6 +48796,8 @@ nl:Baby spinazie
 sv:babyspenat
 
 <en:spinach
+en:spinach leaves
+bg:спанак на листа
 fr:feuille d'épinards
 nl:spinazieblad
 
@@ -58742,6 +58752,7 @@ la:Cicer arietinum
 
 #<en:chickpea
 #en:organic chickpea
+#bg:био нахут
 #fi:luomukikherne, luomu kikherne
 #fr:Pois chiches biologiques
 #10@2019-06-12
@@ -59603,6 +59614,7 @@ pt:polpa de amêndoa, polpa de amêndoas
 
 <en:almond
 en:blanches almonds, almonds blanched
+bg:бланширани бадеми
 de:blanchierte Mandlen, blanchierten mandeln, mandeln blanchiert
 es:almendras peladas
 fr:amandes blanchies, amandes blanches
@@ -60731,6 +60743,7 @@ fr:pistaches en coques
 
 <en:pistachio nuts
 en:pistachio paste
+bg:паста от шамфъстъци
 de:Pistazienpaste
 fi:pistaasitahna
 fr:pâte de pistache
@@ -61879,7 +61892,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Long_pepper
 <en:pepper
 en:white pepper
 ar:فلفل أبيض
-bg:бял пипep
+bg:бял пипер
 ca:pebre blanc
 cs:pepř bílý, Bílý pepř
 da:hvid peber
@@ -62575,7 +62588,7 @@ ru:пряности натуральные
 #                                Herbs (general)
 #
 ###################################################################################################
-en:herb, mixed herbs
+en:herb, mixed herbs, aromatic plants
 bg:билка, билки
 bs:aromatično bilje
 ca:Herbes, herbes aromàtiques, plantes aromàtiques
@@ -68853,7 +68866,7 @@ ar:دوار الشمس
 az:günəbaxan
 ba:көнбағыш
 be:Сланечнік
-bg:слънчоглед, слънчогледова
+bg:слънчоглед, слънчогледова, слънчогледово
 bs:suncokretovo
 ca:Gira-sol
 cs:slunečnice
@@ -78846,7 +78859,7 @@ am:ሠርጣን
 ar:سرطان
 az:Yengəclər
 be:крабы
-bg:рак
+bg:рак, раци
 bn:কাঁকড়া
 br:Krank
 ca:Cranc
@@ -78969,6 +78982,7 @@ sv:krabbextrakt
 
 <en:flavouring
 en:crab flavour
+bg:ароматизант от раци
 ca:aroma de cranc
 es:aroma de cangrejo
 
@@ -82007,6 +82021,7 @@ sv:Fjäderfäkött
 <en:mechanically separated meat
 <en:poultry meat
 en:mechanically separated poultry meat
+bg:механично сепарирано птиче месо
 fr:viande de volaille séparée mécaniquement, viande séparée mécaniquement de volaille
 
 <en:poultry meat
@@ -82393,6 +82408,7 @@ zh:鸡肉提取物
 <en:mechanically separated meat
 # en:processing:mechanically separated
 en:mechanically separated meat of chicken
+bg:пилешко механично отделено месо
 es:carne de pollo separada mecanimente, carne separada mecanicamente de pollo
 fr:viande de poulet séparée mécaniquement, viande séparée mécaniquement de poulet
 pl:mięso mechanicznie oddzielone z kurczaka, mięso oddzielone mechanicznie z kurczaka, mięso oddzielone mechanicznie z kurcząt
@@ -82949,6 +82965,7 @@ ciqual_food_name:fr:Foie, dinde, cru
 
 <en:turkey
 en:turkey meat
+bg:пуешко месо
 ca:Carn de gall dindi
 da:kalkunkød
 de:Trutenfleisch, Truthahnfleisch
@@ -83506,6 +83523,7 @@ nl:gepasteuriseerd ei van hennen met vrije uitloop
 
 <en:egg
 en:barn eggs
+bg:яйца от кокошки от подово отглеждане
 de:Eier aus Bodenhaltung
 es:huevos de granero
 fi:lattiakanojen munat, vapaan kanan munat, onnellisen kanan munat, pesämunat
@@ -83796,7 +83814,7 @@ pl:albumina jaja kurzego
 
 <en:egg white
 en:powdered egg white, dehydrated egg white, egg white powder
-bg:яйчен белтък на прах
+bg:яйчен белтък на прах, яйчни белтъци на прах
 ca:clara d'ou en pols, clara d'ou deshidratada, pols de clara d'ou
 da:æggehvidepulver
 de:Eiweißpulver, Eiweisspulver, Eiklarpulver, Trockeneiweiß, Eiklar getrocknet
@@ -83989,7 +84007,7 @@ en:egg yolk, eggs yolk
 am:አስኳል
 ar:مح
 be:Жаўток
-bg:жълтък, яйчен жълтък
+bg:жълтък, яйчен жълтък, яйчни жълтъци
 bn:কুসুম
 bs:Žumance
 ca:rovell d'ou, gema d'ou
@@ -84144,7 +84162,7 @@ en:eggs yolk powder from free range hens
 
 <en:egg yolk
 en:pasteurised egg yolk, pasteurized egg yolk
-bg:пастьоризиран яйчен жълтък
+bg:пастьоризиран яйчен жълтък, пастьоризирани яйчни жълтъци
 de:Pasteurisierter Eigelb Eier, pasteurisiertes Eigelb, pasteurisierter Eidotter
 es:yema de huevo pasteurizada, yemas de huevo pasteurizadas
 fr:jaune d'œuf pasteurisé, jaune d'oeuf pasteurisé
@@ -84602,7 +84620,7 @@ de:Inulin aus Topinambur
 
 <en:fiber
 en:vegetable fiber, vegetable fibers, plant fiber, plant fibre
-bg:растителни влакна, растителни влакнини, растителни фибри
+bg:растителни влакна, растителни влакнини, растителни фибри, зеленчукови фибри
 ca:fibra vegetal
 cs:rostlinná textilní vlákna
 de:pflanzliche Fasern, Pflanzenfaser, Pflanzenfasern, pflanzliche Ballaststoffe
