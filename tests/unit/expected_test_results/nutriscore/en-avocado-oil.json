@@ -218,6 +218,9 @@
                "negative" : [
                   {
                      "id" : "energy_from_saturated_fat",
+                     "new_grade" : "b",
+                     "new_score" : 1,
+                     "new_value" : 600,
                      "points" : 5,
                      "points_max" : 10,
                      "unit" : "kJ",
@@ -232,6 +235,9 @@
                   },
                   {
                      "id" : "saturated_fat_ratio",
+                     "new_grade" : "b",
+                     "new_score" : 2,
+                     "new_value" : 16,
                      "points" : 2,
                      "points_max" : 10,
                      "unit" : "%",

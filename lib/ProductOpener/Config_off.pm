@@ -198,7 +198,9 @@ $flavor = 'off';
 	android_app_link => "https://world.openfoodfacts.org/files/off.apk",
 	ios_app_link => "https://apps.apple.com/app/open-food-facts/id588797948",
 	facebook_page_url => "https://www.facebook.com/OpenFoodFacts",
+	facebook_page_url_fr => "https://www.facebook.com/OpenFoodFacts.fr",
 	twitter_account => "OpenFoodFacts",
+	twitter_account_fr => "OpenFoodFactsFr",
 );
 
 $options{export_limit} = 10000;
