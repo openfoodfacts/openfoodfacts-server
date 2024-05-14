@@ -104,6 +104,9 @@
                   },
                   {
                      "id" : "sugars",
+                     "new_grade" : "b",
+                     "new_score" : -2,
+                     "new_value" : 3.4,
                      "points" : 3,
                      "points_max" : 10,
                      "unit" : "g",
@@ -134,6 +137,9 @@
                "positive" : [
                   {
                      "id" : "proteins",
+                     "new_grade" : "b",
+                     "new_score" : -1,
+                     "new_value" : 4.9,
                      "points" : 7,
                      "points_max" : 7,
                      "unit" : "g",

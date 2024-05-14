@@ -194,6 +194,7 @@ my %local_ec = (
 	NL => "EG",
 	PL => "WE",
 	PT => "CE",
+	SI => "ES",
 	UK => "EC",
 );
 
