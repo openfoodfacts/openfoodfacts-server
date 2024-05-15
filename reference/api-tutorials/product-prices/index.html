@@ -8,25 +8,25 @@
       
       
       
-        <link rel="canonical" href="https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-docker-commands/">
+        <link rel="canonical" href="https://openfoodfacts.github.io/openfoodfacts-server/reference/api-tutorials/product-prices/">
       
       
-        <link rel="prev" href="../explain-taxonomy-build-cache/">
+        <link rel="prev" href="../license-be-on-the-legal-side/">
       
       
-        <link rel="next" href="../ref-perl-pod/">
+        <link rel="next" href="../reporting-issues-with-nutripatrol/">
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.18">
     
     
       
-        <title>Reference Docker / Makefile commands - Product Opener (Open Food Facts Server)</title>
+        <title>Product prices - Product Opener (Open Food Facts Server)</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.66ac8b77.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.66ac8b77.min.css">
       
       
 
@@ -45,7 +45,7 @@
       
     
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#reference-docker-makefile-commands" class="md-skip">
+        <a href="#open-prices" class="md-skip">
           Skip to content
         </a>
       
@@ -80,7 +80,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Product Opener (Open Food Facts Server)" class="md-header__button md-logo" aria-label="Product Opener (Open Food Facts Server)" data-md-component="logo">
+    <a href="../../.." title="Product Opener (Open Food Facts Server)" class="md-header__button md-logo" aria-label="Product Opener (Open Food Facts Server)" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Reference Docker / Makefile commands
+              Product prices
             
           </span>
         </div>
@@ -187,7 +187,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Product Opener (Open Food Facts Server)" class="md-nav__button md-logo" aria-label="Product Opener (Open Food Facts Server)" data-md-component="logo">
+    <a href="../../.." title="Product Opener (Open Food Facts Server)" class="md-nav__button md-logo" aria-label="Product Opener (Open Food Facts Server)" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -217,7 +217,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -272,7 +272,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/" class="md-nav__link">
+      <a href="../../../api/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -293,7 +293,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/intro-robotoff/" class="md-nav__link">
+      <a href="../../../api/intro-robotoff/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -314,7 +314,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/tutorial-dev-journey/" class="md-nav__link">
+      <a href="../../../api/tutorial-dev-journey/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -335,7 +335,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/tutorial-off-api/" class="md-nav__link">
+      <a href="../../../api/tutorial-off-api/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -356,7 +356,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/tutorial-uploading-photo-to-a-product/" class="md-nav__link">
+      <a href="../../../api/tutorial-uploading-photo-to-a-product/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -377,7 +377,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/how-to-download-images/" class="md-nav__link">
+      <a href="../../../api/how-to-download-images/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -398,7 +398,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/explain-knowledge-panels/" class="md-nav__link">
+      <a href="../../../api/explain-knowledge-panels/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -419,7 +419,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/ref-cheatsheet/" class="md-nav__link">
+      <a href="../../../api/ref-cheatsheet/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -440,7 +440,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/ref-v2/" class="md-nav__link">
+      <a href="../../../api/ref-v2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -461,7 +461,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/ref-v3/" class="md-nav__link">
+      <a href="../../../api/ref-v3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -482,11 +482,473 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/aws-images-dataset/" class="md-nav__link">
+      <a href="../../../api/aws-images-dataset/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     Open Food Facts AWS images dataset
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Dev
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Dev
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dev/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction to Product Opener developer documentation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dev/how-to-deploy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to deploy to Prod environment
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dev/how-to-develop-producer-platform/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to develop on the producers platform
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dev/how-to-develop-using-docker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to use Docker to Develop - a guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dev/how-to-learn-perl/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How can I learn the Perl programming language?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dev/how-to-quick-start-guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to setup the Dev environment (quick start guide)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dev/how-to-update-agribalyse-ecoscore/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to update Agribalyse (Ecoscore)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dev/how-to-use-direnv/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to use direnv
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dev/how-to-use-gitpod/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to use Gitpod for Remote Development
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dev/how-to-use-pages-from-openfoodfacts-web/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to use pages from openfoodfacts-web
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dev/how-to-use-repl/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to use Perl REPL (re.pl)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dev/how-to-use-vscode/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to use VSCode
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dev/how-to-write-and-run-tests/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to write and run tests
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dev/explain-nutrition-data/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Explain nutrition data
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dev/explain-packaging-data/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Explanation on packaging data
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dev/explain-pro-dev-setup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Explanation on Docker Setup of pro platform for development
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dev/explain-taxonomy-build-cache/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Explanation on Taxonomy Build Cache
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dev/ref-docker-commands/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reference Docker / Makefile commands
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dev/ref-perl-pod/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Perl reference documentation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dev/ref-perl/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reference Perl code documentation
   </span>
   
 
@@ -519,24 +981,61 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
             
   
   <span class="md-ellipsis">
-    Dev
+    Reference
   </span>
   
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            Dev
+            Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Api tutorials
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Api tutorials
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -547,11 +1046,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../adding-missing-products/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Introduction to Product Opener developer documentation
+    Adding missing products
   </span>
   
 
@@ -568,11 +1067,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../how-to-deploy/" class="md-nav__link">
+      <a href="../comparing-sodas/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    How to deploy to Prod environment
+    Comparing sodas
   </span>
   
 
@@ -589,11 +1088,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../how-to-develop-producer-platform/" class="md-nav__link">
+      <a href="../finding-healthy-cereals/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    How to develop on the producers platform
+    Finding healthy cereals
   </span>
   
 
@@ -610,11 +1109,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../how-to-develop-using-docker/" class="md-nav__link">
+      <a href="../folksonomy-engine/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    How to use Docker to Develop - a guide
+    Folksonomy engine
   </span>
   
 
@@ -631,11 +1130,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../how-to-learn-perl/" class="md-nav__link">
+      <a href="../get-in-touch-with-openfoodfacts/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    How can I learn the Perl programming language?
+    Get in touch with openfoodfacts
   </span>
   
 
@@ -652,11 +1151,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../how-to-quick-start-guide/" class="md-nav__link">
+      <a href="../get-ingredient-related-analysis/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    How to setup the Dev environment (quick start guide)
+    Get ingredient related analysis
   </span>
   
 
@@ -673,11 +1172,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../how-to-update-agribalyse-ecoscore/" class="md-nav__link">
+      <a href="../get-the-ecoscore/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    How to update Agribalyse (Ecoscore)
+    Get the ecoscore
   </span>
   
 
@@ -694,11 +1193,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../how-to-use-direnv/" class="md-nav__link">
+      <a href="../get-the-nutriscore/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    How to use direnv
+    Get the nutriscore
   </span>
   
 
@@ -715,11 +1214,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../how-to-use-gitpod/" class="md-nav__link">
+      <a href="../how-to-create-data-quality-controls-in-your-app/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    How to use Gitpod for Remote Development
+    How to create data quality controls in your app
   </span>
   
 
@@ -736,158 +1235,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../how-to-use-pages-from-openfoodfacts-web/" class="md-nav__link">
+      <a href="../license-be-on-the-legal-side/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    How to use pages from openfoodfacts-web
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../how-to-use-repl/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    How to use Perl REPL (re.pl)
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../how-to-use-vscode/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    How to use VSCode
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../how-to-write-and-run-tests/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    How to write and run tests
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../explain-nutrition-data/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Explain nutrition data
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../explain-packaging-data/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Explanation on packaging data
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../explain-pro-dev-setup/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Explanation on Docker Setup of pro platform for development
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../explain-taxonomy-build-cache/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Explanation on Taxonomy Build Cache
+    License be on the legal side
   </span>
   
 
@@ -910,14 +1262,12 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
-        
-      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
   
   <span class="md-ellipsis">
-    Reference Docker / Makefile commands
+    Product prices
   </span>
   
 
@@ -928,7 +1278,7 @@
         
   
   <span class="md-ellipsis">
-    Reference Docker / Makefile commands
+    Product prices
   </span>
   
 
@@ -940,8 +1290,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -950,9 +1298,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#makefile-targets" class="md-nav__link">
+  <a href="#open-prices" class="md-nav__link">
     <span class="md-ellipsis">
-      Makefile targets
+      Open Prices
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    <span class="md-ellipsis">
+      Links
     </span>
   </a>
   
@@ -974,357 +1331,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ref-perl-pod/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Perl reference documentation
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ref-perl/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Reference Perl code documentation
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
-        
-          
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    Reference
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4">
-            <span class="md-nav__icon md-icon"></span>
-            Reference
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
-        
-          
-          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    Api tutorials
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_1">
-            <span class="md-nav__icon md-icon"></span>
-            Api tutorials
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../reference/api-tutorials/adding-missing-products/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Adding missing products
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../reference/api-tutorials/comparing-sodas/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Comparing sodas
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../reference/api-tutorials/finding-healthy-cereals/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Finding healthy cereals
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../reference/api-tutorials/folksonomy-engine/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Folksonomy engine
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../reference/api-tutorials/get-in-touch-with-openfoodfacts/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Get in touch with openfoodfacts
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../reference/api-tutorials/get-ingredient-related-analysis/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Get ingredient related analysis
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../reference/api-tutorials/get-the-ecoscore/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Get the ecoscore
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../reference/api-tutorials/get-the-nutriscore/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Get the nutriscore
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../reference/api-tutorials/how-to-create-data-quality-controls-in-your-app/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    How to create data quality controls in your app
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../reference/api-tutorials/license-be-on-the-legal-side/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    License be on the legal side
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../reference/api-tutorials/product-prices/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Product prices
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../reference/api-tutorials/reporting-issues-with-nutripatrol/" class="md-nav__link">
+      <a href="../reporting-issues-with-nutripatrol/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1345,7 +1352,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/api-tutorials/scanning-cosmetics-pet-food-and-other-products/" class="md-nav__link">
+      <a href="../scanning-cosmetics-pet-food-and-other-products/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1366,7 +1373,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/api-tutorials/working-with-facets/" class="md-nav__link">
+      <a href="../working-with-facets/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1412,8 +1419,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1422,9 +1427,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#makefile-targets" class="md-nav__link">
+  <a href="#open-prices" class="md-nav__link">
     <span class="md-ellipsis">
-      Makefile targets
+      Open Prices
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    <span class="md-ellipsis">
+      Links
     </span>
   </a>
   
@@ -1448,121 +1462,19 @@
   
 
 
-<h1 id="reference-docker-makefile-commands">Reference Docker / Makefile commands<a class="headerlink" href="#reference-docker-makefile-commands" title="Permanent link">#</a></h1>
-<!--
-NOTE: this file is copied to ref-docker-commands.md at documentation build time
--->
+  <h1>Product prices</h1>
 
-<p>See also <a href="https://openfoodfacts.github.io/openfoodfacts-infrastructure/docker/">Docker best practice at Open Food Facts</a></p>
-<p>The docker/ directory contains <code>docker compose</code> overrides for running Product Opener on <a href="https://docker.com">Docker</a>.
-The main docker compose file <a href="../docker-compose.yml"><code>docker-compose.yml</code></a> is located in the root of the repository.</p>
-<p>The step-by-step guide to setup the Product Opener using Docker is available on <a href="/how-to-quick-start-guide.md">dev environment quick start guide</a>.</p>
-<h2 id="makefile-targets">Makefile targets<a class="headerlink" href="#makefile-targets" title="Permanent link">#</a></h2>
-<p>Makefile targets are handy for beginners to start the project and for some usual tasks.</p>
-<p>It's better though, as you progress, if you understand how things work and be able to use targeted docker compose commands.</p>
-<p>See also <a href="/how-to-write-and-run-tests.md#running-tests">targets to run tests</a></p>
-<table>
-<thead>
-<tr>
-<th>Command</th>
-<th>Description</th>
-<th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>make dev</code></td>
-<td>Setup a fresh dev environment.</td>
-<td>Run only once, then use the <code>up</code>, <code>down</code>, <code>restart</code> commands.</td>
-</tr>
-<tr>
-<td><code>make build</code></td>
-<td>build containers. Add <code>container=name</code> to build a specific container</td>
-<td>args="--progress log" keeps all log in console (to debug failing build)</td>
-</tr>
-<tr>
-<td><code>make up</code></td>
-<td>Start containers.</td>
-<td></td>
-</tr>
-<tr>
-<td><code>make down</code></td>
-<td>Stop containers and keep the volumes.</td>
-<td>Products and users data will be kept.</td>
-</tr>
-<tr>
-<td><code>make hdown</code></td>
-<td>Stop containers and delete the volumes (hard down).</td>
-<td>Products and users data will be lost !</td>
-</tr>
-<tr>
-<td><code>make restart</code></td>
-<td>Restart <code>frontend</code> and <code>backend</code> containers.</td>
-<td></td>
-</tr>
-<tr>
-<td><code>make reset</code></td>
-<td>Run <code>hdown</code> and <code>up</code>.</td>
-<td></td>
-</tr>
-<tr>
-<td><code>make status</code></td>
-<td>Get containers status (up, down, fail).</td>
-<td></td>
-</tr>
-<tr>
-<td><code>make log</code></td>
-<td>Get logs.</td>
-<td>Include only logs written to container's <code>stdout</code>.</td>
-</tr>
-<tr>
-<td><code>make tail</code></td>
-<td>Get other logs (<code>Apache</code>, <code>mod_perl</code>, ...) bound to the local <code>logs/</code> directory.</td>
-<td></td>
-</tr>
-<tr>
-<td><code>make prune</code></td>
-<td>Save space by removing unused Docker artifacts.</td>
-<td>Next build will take time (no cache) !</td>
-</tr>
-<tr>
-<td><code>make prune_cache</code></td>
-<td>Remove Docker build cache.</td>
-<td>Next build will take time (no build cache) !</td>
-</tr>
-<tr>
-<td><code>make clean</code></td>
-<td>Clean up your dev environment: removes locally bound folders, run <code>hdown</code> and <code>prune</code>.</td>
-<td>Run <code>make dev</code> to recreate a fresh dev env afterwards.</td>
-</tr>
-<tr>
-<td><code>make import_sample_data</code></td>
-<td>Load sample data (~100 products) into the MongoDB database.</td>
-<td></td>
-</tr>
-<tr>
-<td><code>make import_prod_data</code></td>
-<td>Load latest prod data (~2M products, 1.7GB) into the MongoDB database.</td>
-<td>Takes up to 10m. Not recommended for dev setups !</td>
-</tr>
-<tr>
-<td><code>make lint</code></td>
-<td>Indent and reformat your code<sup id="fnref:lint"><a class="footnote-ref" href="#fn:lint">1</a></sup></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<div class="footnote">
-<hr />
-<ol>
-<li id="fn:lint">
-<p>If you are having permission issues with <code>make lint</code> try writing the following commands :
-<code>export MSYS_NO_PATHCONV=1
-docker compose run --rm --no-deps -u root backend chown www-data:www-data -R /opt/product-opener/</code>
-then run again <code>make lint</code> and you should be good to go&#160;<a class="footnote-backref" href="#fnref:lint" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-</ol>
-</div>
+<h3 id="open-prices">Open Prices<a class="headerlink" href="#open-prices" title="Permanent link">#</a></h3>
+<ul>
+<li>Open Prices is a project to collect and share prices of food products around the world. It’s a publicly available dataset that can be used for research, analysis, and more. Open Prices is developed and maintained by Open Food Facts.</li>
+<li>We are crowdsourcing an open-source dataset of food prices. Prices can be added by users through our web app. Retailers or third-party apps can contribute as well by using our API.</li>
+<li>We ask contributors to provide a proof of the price, in the form of a photo of the price tag or receipt. This is to make it easier to ensure data quality.</li>
+</ul>
+<h3 id="links">Links<a class="headerlink" href="#links" title="Permanent link">#</a></h3>
+<ul>
+<li>Please read the FAQ at https://prices.openfoodfacts.org/</li>
+<li>The API is located at https://prices.openfoodfacts.org/api/docs</li>
+</ul>
 
 
 
@@ -1609,10 +1521,10 @@ then run again <code>make lint</code> and you should be good to go&#160;<a class
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.3220b9d7.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.3220b9d7.min.js"></script>
       
     
   </body>
