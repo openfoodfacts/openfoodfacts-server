@@ -787,7 +787,7 @@ HTML
 <script type="text/javascript" src="$static_subdomain/js/dist/cropper.js"></script>
 <script type="text/javascript" src="$static_subdomain/js/dist/jquery-cropper.js"></script>
 <script type="text/javascript" src="$static_subdomain/js/dist/jquery.form.js"></script>
-<script type="text/javascript" src="$static_subdomain/js/dist/tagify.min.js"></script>
+<script type="text/javascript" src="$static_subdomain/js/dist/tagify.js"></script>
 <script type="text/javascript" src="$static_subdomain/js/dist/jquery.iframe-transport.js"></script>
 <script type="text/javascript" src="$static_subdomain/js/dist/jquery.fileupload.js"></script>
 <script type="text/javascript" src="$static_subdomain/js/dist/load-image.all.min.js"></script>
