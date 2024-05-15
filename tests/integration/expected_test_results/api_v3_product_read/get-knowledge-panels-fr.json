@@ -320,7 +320,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                Les origines des ingrédients de ce produit ne sont pas renseignées.<br><br>\n                Si elles sont indiquées sur l'emballage, vous pouvez modifier la fiche produit et les ajouter.<br><br>\n                Si vous êtes le fabricant de ce produit, vous pouvez nous transmettre les informations avec notre <a href=\"https://fr.pro.openfoodfacts.org\">plateforme gratuite pour les producteurs</a>.\n                    ",
+                     "html" : "\n                Les origines des ingrédients de ce produit ne sont pas indiquées.<br><br>\n                Si elles sont indiquées sur l'emballage, vous pouvez modifier la fiche produit et les ajouter.<br><br>\n                Si vous êtes le fabricant de ce produit, vous pouvez nous transmettre les informations avec notre <a href=\"https://fr.pro.openfoodfacts.org\">plateforme gratuite pour les producteurs</a>.\n                    ",
                      "type" : "warning"
                   }
                }
@@ -633,7 +633,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                Si les informations ne correspondent pas aux informations présentes sur l'emballage, vous pouvez les compléter ou de les corriger. Merci !\n                Open Food Facts est une base de données collaborative, et chaque contribution est utile à tous.\n                "
+                     "html" : "\n                Si les informations ne correspondent pas à celles figurant sur l'emballage, vous pouvez les compléter ou les corriger. Merci!\n                Open Food Facts est une base de données collaborative, et chaque contribution est utile pour tous.\n                "
                   }
                },
                {
@@ -651,7 +651,7 @@
             "level" : "info",
             "title_element" : {
                "icon_url" : "http://static.openfoodfacts.localhost/images/logos/off-logo-icon-light.svg",
-               "subtitle" : "Catégorie, labels, ingrédients, allergènes, informations nutritionnelles, photos etc.",
+               "subtitle" : "Catégorie, étiquettes, ingrédients, allergènes, informations nutritionnelles, photos etc.",
                "title" : "Informations incomplètes ou incorrectes ?"
             },
             "topics" : [
@@ -1086,7 +1086,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                Les origines des ingrédients de ce produit ne sont pas renseignées.<br><br>\n                Si elles sont indiquées sur l'emballage, vous pouvez modifier la fiche produit et les ajouter.<br><br>\n                Si vous êtes le fabricant de ce produit, vous pouvez nous transmettre les informations avec notre <a href=\"https://fr.pro.openfoodfacts.org\">plateforme gratuite pour les producteurs</a>.\n                    ",
+                     "html" : "\n                Les origines des ingrédients de ce produit ne sont pas indiquées.<br><br>\n                Si elles sont indiquées sur l'emballage, vous pouvez modifier la fiche produit et les ajouter.<br><br>\n                Si vous êtes le fabricant de ce produit, vous pouvez nous transmettre les informations avec notre <a href=\"https://fr.pro.openfoodfacts.org\">plateforme gratuite pour les producteurs</a>.\n                    ",
                      "type" : "warning"
                   }
                },

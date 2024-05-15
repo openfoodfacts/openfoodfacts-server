@@ -3879,6 +3879,15 @@ sub display_tag ($request_ref) {
 					push @markers, \@geo;
 				}
 
+				if ($packager_codes{$canon_tagid}{cc} eq 'at') {
+					$description .= <<HTML
+<p>$packager_codes{$canon_tagid}{name}<br>
+$packager_codes{$canon_tagid}{address} (Österreich)
+</p>
+HTML
+						;
+				}
+
 				if ($packager_codes{$canon_tagid}{cc} eq 'ch') {
 					$description .= <<HTML
 <p>$packager_codes{$canon_tagid}{full_address}</p>
@@ -7217,12 +7226,12 @@ sub display_page ($request_ref) {
 	my $join_us_on_slack
 		= sprintf($Lang{footer_join_us_on}{$lc}, '<a href="https://slack.openfoodfacts.org">Slack</a>');
 
-	my $twitter_account = lang("twitter_account");
-	if (defined $Lang{twitter_account_by_country}{$cc}) {
-		$twitter_account = $Lang{twitter_account_by_country}{$cc};
-	}
+	# Twitter account and Facebook page url from Config.pm
+	# Allow to have language specific Twitter accounts and Facebook page url, suffixed by the language code
+	my $twitter_account = $options{"twitter_account_$lc"} || $options{twitter_account};
 	$template_data_ref->{twitter_account} = $twitter_account;
-	# my $facebook_page = lang("facebook_page");
+	my $facebook_page = $options{"facebook_page_url_$lc"} || $options{facebook_page_url};
+	$template_data_ref->{facebook_page_url} = $facebook_page;
 
 	my $torso_class = "anonymous";
 	if (defined $User_id) {
@@ -10400,6 +10409,7 @@ sub display_product_history ($request_ref, $code, $product_ref) {
 
 		my $userid = get_change_userid_or_uuid($change_ref);
 		my $uuid = $change_ref->{app_uuid};
+		my $app_version = $change_ref->{app_version};
 		my $comment = _format_comment($change_ref->{comment});
 
 		my $change_rev = $change_ref->{rev};
@@ -10416,6 +10426,7 @@ sub display_product_history ($request_ref, $code, $product_ref) {
 			date => display_date_tag($change_ref->{t}),
 			userid => $userid,
 			uuid => $uuid,
+			app_version => $app_version,
 			diffs => compute_changes_diff_text($change_ref),
 			comment => $comment
 			};
