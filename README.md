@@ -4,6 +4,7 @@
   <img height="48" src="https://static.openfoodfacts.org/images/logos/off-logo-horizontal-light.svg"/>
 </picture>
 
+([Looking for the Open Food Facts API doc ?](https://openfoodfacts.github.io/openfoodfacts-server/api/))
 
 # Open Food Facts - Product Opener (Web Server)
 
@@ -69,7 +70,9 @@ Visit the [website](https://world.openfoodfacts.org) for more info.
 <br><br>
 ## How do I get started?
 - Join us on slack at <https://openfoodfacts.slack.com/> in the channels: `#api`, `#productopener`, `#dev`.
-- [API v2 documentation (WIP)](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/) ([source](https://github.com/openfoodfacts/openfoodfacts-server/tree/main/docs/api/ref/api.yml))
+- Open Food Facts API documentation:
+  - [Introduction to the API](https://openfoodfacts.github.io/openfoodfacts-server/api/)
+  - [Full reference](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/) ([source](https://github.com/openfoodfacts/openfoodfacts-server/tree/main/docs/api/ref/api.yml))
 - Developer documentation:
   - To start coding, head to the [Quick start guide (docker)](./docs/dev/how-to-quick-start-guide.md)
   - Additional documentation
