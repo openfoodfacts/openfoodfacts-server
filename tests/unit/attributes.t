@@ -234,6 +234,7 @@ foreach my $test_ref (@tests) {
 
 		local $/;    #Enable 'slurp' mode
 		my $expected_product_ref = $json->decode(<$expected_result>);
+		print STDERR "testid: $testid\n";
 		is($product_ref, $expected_product_ref) or diag Dumper $product_ref;
 	}
 	else {
