@@ -167,36 +167,44 @@ sub store_org ($org_ref) {
 		&& $org_ref->{valid_org} eq 'accepted') {
 
 		# We switched to validated, update CRM
-		# The opportunity will be linked with the creator  
-		my $user_ref = retrieve_user($org_ref->{creator});
+		my $main_contact_user = $org_ref->{main_contact};
+		my $user_ref = retrieve_user($main_contact_user);
 
 		eval {
 			my $contact_id =  find_or_create_contact($user_ref);
 			defined $contact_id or die "Failed to get contact";
+			$user_ref->{crm_user_id} = $contact_id;
 
 			my $company_id =  find_or_create_company($org_ref, $contact_id);
 			defined $company_id or die "Failed to get company";
 
 			defined add_contact_to_company($contact_id, $company_id) or die "Failed to add contact to company";
 
-			$user_ref->{crm_user_id} = $contact_id;
-			store_user($user_ref);
-			$org_ref->{crm_org_id} = $company_id;
-
 			my $opportunity_id = create_opportunity("$org_ref->{name} - new", $user_ref->{crm_user_id});
 			defined $opportunity_id or die "Failed to create opportunity";
-			$org_ref->{crm_opportunity_id} = $opportunity_id;
 
+			$org_ref->{crm_org_id} = $company_id;
+			$org_ref->{crm_opportunity_id} = $opportunity_id;
+			store_user($user_ref);
 			1;
 		} or do {
-			$log->error("store_org", {error => $@}) if $log->is_error();
 			$org_ref->{valid_org} = 'unreviewed';
+			$log->error("store_org", {error => $@}) if $log->is_error();
 		};
-		# # also, add the other members to the CRM, in the company
+		# also, add the other members to the CRM, in the company
 		foreach my $user_id (keys %{$org_ref->{members}}) {
 			if($user_id ne $org_ref->{creator}) {
 				add_user_to_company($user_id, $org_ref->{crm_org_id});
 			}
+		}
+	}
+
+	if ($previous_org_ref->{valid_org} eq 'accepted') {
+		# update main contact in CRM if changed
+		if(exists $org_ref->{main_contact} and $org_ref->{main_contact} ne $previous_org_ref->{main_contact}) {
+			if (not change_company_main_contact($previous_org_ref, $org_ref->{main_contact})) {
+				$org_ref->{main_contact} = $previous_org_ref->{main_contact};
+			}	
 		}
 	}
 
@@ -243,6 +251,7 @@ sub create_org ($creator, $org_id_or_name) {
 		protect_data => "on",
 		admins => {},
 		members => {},
+		main_contact => $creator,
 	};
 
 	store_org($org_ref);

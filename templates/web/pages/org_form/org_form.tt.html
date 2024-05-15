@@ -69,6 +69,17 @@
 	</div>
 	[% END %]
 
+	[% IF has_main_contact %]
+	<form method="post" action="/cgi/org.pl" style="margin-bottom: 20px; margin-top: 10px;">
+		<p>[% lang('enter_main_contact_username') %]</p>
+		<input  type="text" id="main_contact" name="main_contact" style="width:50vw" placeholder="[% main_contact %]"></input>
+		<input type="hidden" name="action" value="process" />
+		<input type="hidden" name="type" value="change_main_contact" />
+		<input type="hidden" name="orgid" value="[% orgid %]" />
+		<input type="submit" id="contact_button" name=".submit" class="button" value= "[% edq(lang('change_main_contact')) %]" />
+	</form>
+	[% END %]
+
 	<form method="post" action="/cgi/org.pl" enctype="multipart/form-data" style="margin-bottom: 20px;">
 		<p>[% lang('enter_email_addresses_of_users') %]</p>
 		<textarea id="email_list" name="email_list" style="height:100px;width:50vw"></textarea>
