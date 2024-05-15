@@ -338,7 +338,7 @@ Display:
   - any-glob-to-any-file: 'templates/api/knowledge-panels/environment/packaging_recycling.tt.json'
   - any-glob-to-any-file: 'templates/api/knowledge-panels/environment/origins_of_ingredients.tt.json'
   - any-glob-to-any-file: 'templates/api/knowledge-panels/environment/ecoscore/threatened_species.tt.json'
-  - any-glob-to-any-file: '- docs/reference/api-tutorials/get-the-ecoscore.md'
+  - any-glob-to-any-file: 'docs/reference/api-tutorials/get-the-ecoscore.md'
   
 # French Lifecycle Analysis for Food (LCA) database used in Eco-Score computations
 # https://doc.agribalyse.fr/documentation
@@ -609,6 +609,7 @@ Numbers:
   - any-glob-to-any-file: 'tests/unit/ingredients_nutriscore.t'
   - any-glob-to-any-file: 'tests/unit/ingredients_nutriscore.t'
   - any-glob-to-any-file: 'scripts/add_nutriscore_to_scanbot_csv.pl'
+  - any-glob-to-any-file: 'docs/introduction/get-the-nutriscore.md'
 
 # https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Orgs.html
 🏭 Orgs:
@@ -1020,6 +1021,7 @@ Nova - Ultra-processed foods:
   - any-glob-to-any-file: 'html/images/misc/nova-dark-mode/nova-group-4-dark.svg'
   - any-glob-to-any-file: 'taxonomies/nova_groups.txt'
   - any-glob-to-any-file: 'html/images/attributes/src/nova-group-unknown.svg'
+  - any-glob-to-any-file: 'docs/reference/api-tutorials/get-ingredient-related-analysis.md'
 
 # Related to NOVA
 Ingredients processing:
@@ -1352,6 +1354,11 @@ systemd:
 - changed-files:
   - any-glob-to-any-file: 'conf/systemd/gen_feeds_daily@.service'
   - any-glob-to-any-file: 'conf/systemd/gen_feeds@.service'
+
+# See prices.openfoodfacts.org
+💸 Prices:
+- changed-files:
+  - any-glob-to-any-file: 'docs/reference/api-tutorials/product-prices.md'
 
 # Accessibility
 # This project has been made to track the status of our compliance with this [Report](https://github.com/openfoodfacts/openfoodfacts-server/files/5702582/Report.OpenFoodFact.15-12-2020.pdf) that tracks how accessible Open Food Facts is.
