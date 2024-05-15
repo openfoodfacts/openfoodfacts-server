@@ -8,6 +8,7 @@ use utf8;
 use Test2::V0;
 use Data::Dumper;
 $Data::Dumper::Terse = 1;
+$Data::Dumper::Sortkeys = 1;
 use Log::Any::Adapter 'TAP';
 
 use JSON::PP;

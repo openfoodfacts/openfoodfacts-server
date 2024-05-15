@@ -111,8 +111,6 @@ Loads the AgriBalyse database.
 
 sub load_agribalyse_data() {
 
-	return if $agribalyse_data_loaded;
-
 	my $agribalyse_details_by_step_csv_file = $data_root . "/external-data/ecoscore/agribalyse/AGRIBALYSE_vf.csv.2";
 
 	my $rows_ref = [];
@@ -671,8 +669,6 @@ Loads data needed to compute the Eco-Score.
 =cut
 
 sub load_ecoscore_data() {
-
-	return if $ecoscore_data_loaded;
 
 	load_ecoscore_data_origins_of_ingredients();
 	load_ecoscore_data_packaging();
