@@ -63,7 +63,7 @@ The call looks like this:
 
 `POST https://us.openfoodfacts.org/cgi/product_jqm2.pl?code=0074570036004&user_id=test&password=test&brands=Häagen-Dazs&labels=kosher`
 
-We strongly advise to use brands_add and labels_add instead, even on new products, to reduce the potential of your users or your API destroying data by mistake. brands or labels should be used if and only if you retrieve existing values, show them to your users, let them adjust them, and resend the whole dict with the proper format.
+We strongly advise to use add_brands and add_labels instead, even on new products, to reduce the potential of your users or your API destroying data by mistake. brands or labels should be used if and only if you retrieve existing values, show them to your users, let them adjust them, and resend the whole dict with the proper format.
 
 ---
 
