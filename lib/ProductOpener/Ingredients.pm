@@ -6417,6 +6417,28 @@ This function extracts additives from the ingredients text and adds them to the 
 
 sub extract_additives_from_text ($product_ref) {
 
+	# delete additive fields (including some old debug fields)
+
+	foreach
+		my $tagtype ('additives', 'additives_prev', 'additives_next', 'additives_old', 'old_additives', 'new_additives')
+	{
+
+		delete $product_ref->{$tagtype};
+		delete $product_ref->{$tagtype . "_debug"};
+		delete $product_ref->{$tagtype . "_n"};
+		delete $product_ref->{$tagtype . "_tags"};
+		delete $product_ref->{$tagtype . "_original_tags"};
+		delete $product_ref->{$tagtype . "_debug_tags"};
+	}
+
+	# Delete old fields, can be removed once all products have been reprocessed
+	delete $product_ref->{with_sweeteners};
+	delete $product_ref->{without_non_nutritive_sweeteners};
+
+	# Sweeteners fields will be added by count_sweeteners_and_non_nutritive_sweeteners() if we have an ingredient list
+	delete $product_ref->{ingredients_sweeteners_n};
+	delete $product_ref->{ingredients_non_nutritive_sweeteners_n};
+
 	if (not defined $product_ref->{ingredients_text}) {
 		return;
 	}
@@ -6475,18 +6497,6 @@ sub extract_additives_from_text ($product_ref) {
 	my %all_seen = ();    # used to not tag "huile végétale" if we have seen "huile de palme" already
 
 	# Additives using new global taxonomy
-
-	# delete old additive fields
-
-	foreach my $tagtype ('additives', 'additives_prev', 'additives_next', 'old_additives', 'new_additives') {
-
-		delete $product_ref->{$tagtype};
-		delete $product_ref->{$tagtype . "_prev"};
-		delete $product_ref->{$tagtype . "_prev_n"};
-		delete $product_ref->{$tagtype . "_tags"};
-	}
-
-	delete $product_ref->{new_additives_debug};
 
 	foreach my $tagtype ('additives', 'additives_prev', 'additives_next') {
 

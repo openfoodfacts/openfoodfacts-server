@@ -146,7 +146,7 @@ sub compute_pnns_groups ($product_ref) {
 	delete $product_ref->{pnns_groups_2};
 	delete $product_ref->{pnns_groups_2_tags};
 
-	if ((not defined $product_ref->{categories}) or ($product_ref->{categories} eq "")) {
+	if ((not defined $product_ref->{categories_tags}) or (scalar @{$product_ref->{categories_tags}} == 0)) {
 		$product_ref->{pnns_groups_2} = "unknown";
 		$product_ref->{pnns_groups_2_tags} = ["unknown", "missing-category"];
 		$product_ref->{pnns_groups_1} = "unknown";
@@ -373,7 +373,7 @@ sub temporarily_change_categories_for_food_groups_computation ($product_ref) {
 				}
 			}
 
-			if ($product_ref->{with_sweeteners}) {
+			if ($product_ref->{ingredients_sweeteners_n}) {
 				if (not has_tag($product_ref, "categories", "en:artificially-sweetened-beverages")) {
 					add_tag($product_ref, "categories", "en:artificially-sweetened-beverages");
 				}
