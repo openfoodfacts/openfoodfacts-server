@@ -9,7 +9,7 @@ Be sure to also read the [introduction to the API](./index.md)
 ### Why photos are important on Open Food Facts
 * Photos are source and proof of data.
 * They build trust in your edit.
-* They are the fastest and laziest way for your users to contribute
+* They are the fastest and easiest way for your users to contribute
 
 ### Image license
 
