@@ -36,93 +36,6 @@
       "en:vegetable-fats",
       "en:vegetable-oils"
    ],
-   "ecoscore_data" : {
-      "adjustments" : {
-         "origins_of_ingredients" : {
-            "aggregated_origins" : [
-               {
-                  "origin" : "en:unknown",
-                  "percent" : 100
-               }
-            ],
-            "epi_score" : 0,
-            "epi_value" : -5,
-            "origins_from_categories" : [
-               "en:unknown"
-            ],
-            "origins_from_origins_field" : [
-               "en:unknown"
-            ],
-            "transportation_scores" : {
-               "be" : 0,
-               "ch" : 0,
-               "de" : 0,
-               "es" : 0,
-               "fr" : 0,
-               "ie" : 0,
-               "it" : 0,
-               "lu" : 0,
-               "nl" : 0,
-               "uk" : 0,
-               "world" : 0
-            },
-            "transportation_values" : {
-               "be" : 0,
-               "ch" : 0,
-               "de" : 0,
-               "es" : 0,
-               "fr" : 0,
-               "ie" : 0,
-               "it" : 0,
-               "lu" : 0,
-               "nl" : 0,
-               "uk" : 0,
-               "world" : 0
-            },
-            "values" : {
-               "be" : -5,
-               "ch" : -5,
-               "de" : -5,
-               "es" : -5,
-               "fr" : -5,
-               "ie" : -5,
-               "it" : -5,
-               "lu" : -5,
-               "nl" : -5,
-               "uk" : -5,
-               "world" : -5
-            },
-            "warning" : "origins_are_100_percent_unknown"
-         },
-         "packaging" : {
-            "non_recyclable_and_non_biodegradable_materials" : 1,
-            "value" : -15,
-            "warning" : "packaging_data_missing"
-         },
-         "production_system" : {
-            "labels" : [],
-            "value" : 0,
-            "warning" : "no_label"
-         },
-         "threatened_species" : {}
-      },
-      "agribalyse" : {
-         "warning" : "missing_agribalyse_match"
-      },
-      "missing" : {
-         "agb_category" : 1,
-         "labels" : 1,
-         "origins" : 1,
-         "packagings" : 1
-      },
-      "missing_agribalyse_match_warning" : 1,
-      "missing_key_data" : 1,
-      "status" : "unknown"
-   },
-   "ecoscore_grade" : "unknown",
-   "ecoscore_tags" : [
-      "unknown"
-   ],
    "food_groups" : "en:fats",
    "food_groups_tags" : [
       "en:fats-and-sauces",
@@ -277,9 +190,7 @@
       "en:nutrition-all-nutriscore-values-known",
       "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
       "en:nutriscore-2021-same-as-2023",
-      "en:nutriscore-2021-c-2023-c",
-      "en:ecoscore-extended-data-not-computed",
-      "en:ecoscore-not-computed"
+      "en:nutriscore-2021-c-2023-c"
    ],
    "nova_group" : 2,
    "nova_group_debug" : "",

@@ -35,92 +35,6 @@
       "en:flavored-waters",
       "en:flavored-spring-waters"
    ],
-   "ecoscore_data" : {
-      "adjustments" : {
-         "origins_of_ingredients" : {
-            "aggregated_origins" : [
-               {
-                  "origin" : "en:unknown",
-                  "percent" : 100
-               }
-            ],
-            "epi_score" : 0,
-            "epi_value" : -5,
-            "origins_from_categories" : [
-               "en:unknown"
-            ],
-            "origins_from_origins_field" : [
-               "en:unknown"
-            ],
-            "transportation_scores" : {
-               "be" : 0,
-               "ch" : 0,
-               "de" : 0,
-               "es" : 0,
-               "fr" : 0,
-               "ie" : 0,
-               "it" : 0,
-               "lu" : 0,
-               "nl" : 0,
-               "uk" : 0,
-               "world" : 0
-            },
-            "transportation_values" : {
-               "be" : 0,
-               "ch" : 0,
-               "de" : 0,
-               "es" : 0,
-               "fr" : 0,
-               "ie" : 0,
-               "it" : 0,
-               "lu" : 0,
-               "nl" : 0,
-               "uk" : 0,
-               "world" : 0
-            },
-            "values" : {
-               "be" : -5,
-               "ch" : -5,
-               "de" : -5,
-               "es" : -5,
-               "fr" : -5,
-               "ie" : -5,
-               "it" : -5,
-               "lu" : -5,
-               "nl" : -5,
-               "uk" : -5,
-               "world" : -5
-            },
-            "warning" : "origins_are_100_percent_unknown"
-         },
-         "packaging" : {
-            "non_recyclable_and_non_biodegradable_materials" : 1,
-            "value" : -15,
-            "warning" : "packaging_data_missing"
-         },
-         "production_system" : {
-            "labels" : [],
-            "value" : 0,
-            "warning" : "no_label"
-         },
-         "threatened_species" : {
-            "warning" : "ingredients_missing"
-         }
-      },
-      "ecoscore_not_applicable_for_category" : "en:waters",
-      "missing" : {
-         "ingredients" : 1,
-         "labels" : 1,
-         "origins" : 1,
-         "packagings" : 1
-      },
-      "missing_key_data" : 1,
-      "status" : "unknown"
-   },
-   "ecoscore_grade" : "not-applicable",
-   "ecoscore_tags" : [
-      "not-applicable"
-   ],
    "food_groups" : "en:waters-and-flavored-waters",
    "food_groups_tags" : [
       "en:beverages",
@@ -140,10 +54,7 @@
       "en:nutrition-no-fiber",
       "en:nutriscore-not-computed",
       "en:nutrition-no-fruits-vegetables-nuts",
-      "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
-      "en:ecoscore-extended-data-not-computed",
-      "en:ecoscore-not-applicable",
-      "en:ecoscore-not-computed"
+      "en:nutrition-no-fiber-or-fruits-vegetables-nuts"
    ],
    "nova_group_debug" : "no nova group when the product does not have ingredients",
    "nova_group_error" : "missing_ingredients",

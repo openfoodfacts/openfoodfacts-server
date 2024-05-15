@@ -6,6 +6,7 @@ use utf8;
 use Test2::V0;
 use Data::Dumper;
 $Data::Dumper::Terse = 1;
+$Data::Dumper::Sortkeys = 1;
 use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Tags qw/exists_taxonomy_tag has_tag get_property %properties/;
@@ -16,7 +17,6 @@ my $product_ref = {
 	lc => "en",
 	categories_tags => ["en:beverages"],
 	categories => "beverages",
-	ingredients_tags => ["en:water", "en:fruit-juice"],
 };
 
 # without an ingredient list: should not add en:unsweetened-beverages
@@ -32,7 +32,6 @@ $product_ref = {
 	lc => "en",
 	categories_tags => ["en:beverages"],
 	categories => "beverages",
-	ingredients_tags => ["en:water", "en:fruit-juice"],
 	ingredients_text => "water, fruit juice",
 };
 
@@ -48,7 +47,7 @@ $product_ref = {
 	lc => "en",
 	categories_tags => ["en:beverages"],
 	categories => "beverages",
-	ingredients_tags => ["en:sugar"],
+	ingredients_text => "water, sugar",
 };
 
 specific_processes_for_food_product($product_ref);
@@ -61,9 +60,7 @@ $product_ref = {
 	lc => "en",
 	categories_tags => ["en:beverages"],
 	categories => "beverages",
-	ingredients_tags => ["en:sugar"],
-	additives_tags => ["en:e950"],
-	with_sweeteners => 1,
+	ingredients_text => "sugar, e950",
 };
 
 specific_processes_for_food_product($product_ref);
@@ -76,9 +73,7 @@ $product_ref = {
 	lc => "en",
 	categories_tags => ["en:beverages", "en:waters", "en:flavored-waters"],
 	categories => "beverages",
-	ingredients_tags => ["en:sugar"],
-	additives_tags => ["en:e950"],
-	with_sweeteners => 1,
+	ingredients_text => "sugar, e950",
 };
 
 specific_processes_for_food_product($product_ref);
@@ -146,7 +141,7 @@ ok(not(has_tag($product_ref, 'categories', 'en:artificially-sweetened-beverages'
 	'should add en:unsweetened-beverages')
 	|| diag Dumper $product_ref;
 
-is($product_ref->{pnns_groups_2}, "Artificially sweetened beverages") || diag Dumper $product_ref;
+is($product_ref->{pnns_groups_2}, "Unsweetened beverages") || diag Dumper $product_ref;
 
 $product_ref = {
 	lc => "en",
@@ -165,7 +160,7 @@ ok(not(not has_tag($product_ref, 'categories', 'en:unsweetened-beverages')), 'sh
 ok(not(has_tag($product_ref, 'categories', 'en:sweetened-beverages')), 'should add en:sweetened-beverages')
 	|| diag Dumper $product_ref;
 
-is($product_ref->{pnns_groups_2}, "Sweetened beverages") || diag Dumper $product_ref;
+is($product_ref->{pnns_groups_2}, "Unsweetened beverages") || diag Dumper $product_ref;
 
 is($product_ref->{nutrition_score_beverage}, 1);
 
@@ -578,5 +573,23 @@ is(
 	my $unit_in_canada = get_nutrient_unit("sodium", "ca");
 	is($unit_in_canada, "g", "Check if unit is fetched correctly for sodium in Canada");
 }
+
+# Test case for a product that previously had ingredients and additives, and then has its ingredients removed
+
+$product_ref = {
+	lc => "en",
+	categories => "beverages",
+	ingredients_text => "water, fruit juice, citric acid",
+};
+
+specific_processes_for_food_product($product_ref);
+
+ok((has_tag($product_ref, 'additives', 'en:e330')), 'should have en:330') || diag Dumper $product_ref;
+
+delete $product_ref->{ingredients_text};
+
+specific_processes_for_food_product($product_ref);
+
+ok((not has_tag($product_ref, 'additives', 'en:e330')), 'should not have en:330') || diag Dumper $product_ref;
 
 done_testing();
