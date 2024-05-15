@@ -13,6 +13,9 @@ use ProductOpener::Tags qw/exists_taxonomy_tag has_tag get_property %properties/
 use ProductOpener::Food qw/:all/;
 use ProductOpener::FoodProducts qw/:all/;
 
+# Note: the categories en:unsweetened-beverages, en:sweetened-beverages, en:artificially-sweetened-beverages
+# are now only added temporarily when we compute food groups, they are not kept in the product categories
+
 my $product_ref = {
 	lc => "en",
 	categories_tags => ["en:beverages"],
@@ -23,8 +26,8 @@ my $product_ref = {
 
 specific_processes_for_food_product($product_ref);
 
-ok((not has_tag($product_ref, 'categories', 'en:unsweetened-beverages')), 'should not add en:unsweetened-beverages')
-	|| diag Dumper $product_ref;
+# ok((not has_tag($product_ref, 'categories', 'en:unsweetened-beverages')), 'should not add en:unsweetened-beverages')
+#	|| diag Dumper $product_ref;
 
 is($product_ref->{pnns_groups_2}, "unknown") || diag Dumper $product_ref;
 
@@ -107,18 +110,10 @@ $product_ref = {
 	lc => "en",
 	categories => "beverages",
 	categories_tags => ["en:beverages", "en:ice-teas"],
-	ingredients_tags => ["en:sugar"],
-	additives_tags => ["en:e950"],
-	with_sweeteners => 1,
+	ingredients_text => "sugar, sorbitol",
 };
 
 specific_processes_for_food_product($product_ref);
-
-ok(not(has_tag($product_ref, 'categories', 'en:artificially-sweetened-beverages')),
-	'should add en:artificially-sweetened-beverages')
-	|| diag Dumper $product_ref;
-ok(not(has_tag($product_ref, 'categories', 'en:sweetened-beverages')), 'should add en:sweetened-beverages')
-	|| diag Dumper $product_ref;
 
 is($product_ref->{pnns_groups_2}, "Artificially sweetened beverages") || diag Dumper $product_ref;
 
@@ -126,20 +121,12 @@ $product_ref = {
 	lc => "en",
 	categories => "beverages",
 	categories_tags => ["en:beverages"],
-	ingredients_tags => ["en:water", "en:fruit-juice"],
 	ingredients_text => "water, fruit juice",
-	with_sweeteners => 1,
 };
 
 # with an ingredient list: should add en:unsweetened-beverages
 
 specific_processes_for_food_product($product_ref);
-
-ok((not(has_tag($product_ref, 'categories', 'en:unsweetened-beverages'))), 'should not add en:unsweetened-beverages')
-	|| diag Dumper $product_ref;
-ok(not(has_tag($product_ref, 'categories', 'en:artificially-sweetened-beverages')),
-	'should add en:unsweetened-beverages')
-	|| diag Dumper $product_ref;
 
 is($product_ref->{pnns_groups_2}, "Unsweetened beverages") || diag Dumper $product_ref;
 
@@ -154,11 +141,6 @@ $product_ref = {
 # with an ingredient list: should add en:unsweetened-beverages
 
 specific_processes_for_food_product($product_ref);
-
-ok(not(not has_tag($product_ref, 'categories', 'en:unsweetened-beverages')), 'should remove en:unsweetened-beverages')
-	|| diag Dumper $product_ref;
-ok(not(has_tag($product_ref, 'categories', 'en:sweetened-beverages')), 'should add en:sweetened-beverages')
-	|| diag Dumper $product_ref;
 
 is($product_ref->{pnns_groups_2}, "Unsweetened beverages") || diag Dumper $product_ref;
 

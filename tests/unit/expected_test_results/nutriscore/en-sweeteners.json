@@ -39,10 +39,10 @@
       "en:carbonated-drinks",
       "en:sodas"
    ],
-   "food_groups" : "en:sweetened-beverages",
+   "food_groups" : "en:artificially-sweetened-beverages",
    "food_groups_tags" : [
       "en:beverages",
-      "en:sweetened-beverages"
+      "en:artificially-sweetened-beverages"
    ],
    "improvements_data" : {
       "en:better-nutri-score-with-much-more-fruits_vegetables_legumes" : {
@@ -135,7 +135,7 @@
       "en:e951"
    ],
    "ingredients_percent_analysis" : 1,
-   "ingredients_sweeteners_n" : 0,
+   "ingredients_sweeteners_n" : 1,
    "ingredients_tags" : [
       "en:apple-juice",
       "en:fruit",
@@ -426,9 +426,9 @@
       "beverages",
       "known"
    ],
-   "pnns_groups_2" : "Sweetened beverages",
+   "pnns_groups_2" : "Artificially sweetened beverages",
    "pnns_groups_2_tags" : [
-      "sweetened-beverages",
+      "artificially-sweetened-beverages",
       "known"
    ],
    "traces" : "",
