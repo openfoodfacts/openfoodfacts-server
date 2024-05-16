@@ -1,4 +1,4 @@
-<html><head><title>ProductOpener::NutritionEstimation</title>
+<html><head><title>ProductOpener::PetFood</title>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" >
 <link rel="stylesheet" title="simple.min" type="text/css" href="../simple.min.css" media="all" >
 
@@ -25,9 +25,8 @@
 <ul   class='indexList indexList1'>
   <li class='indexItem indexItem1'><a href='#NAME'>NAME</a>
   <li class='indexItem indexItem1'><a href='#DESCRIPTION'>DESCRIPTION</a>
-  <li class='indexItem indexItem1'><a href='#FUNCTIONS'>FUNCTIONS</a>
   <ul   class='indexList indexList2'>
-    <li class='indexItem indexItem2'><a href='#estimate_nutrients_from_ingredients(%24ingredients_ref)'>estimate_nutrients_from_ingredients($ingredients_ref)</a>
+    <li class='indexItem indexItem2'><a href='#specific_processes_for_pet_food_product_(_%24ingredients_ref_)'>specific_processes_for_pet_food_product ( $ingredients_ref )</a>
   </ul>
 </ul>
 </div>
@@ -36,28 +35,23 @@
 name="NAME"
 >NAME</a></h1>
 
-<p>ProductOpener::NutritionEstimation - estimate nutrition facts from the list of ingredients of a product</p>
+<p>ProductOpener::PetFood - functions related to pet food products and nutrition</p>
 
 <h1><a class='u' href='#___top' title='click to go to top of document'
 name="DESCRIPTION"
 >DESCRIPTION</a></h1>
 
-<p>This module uses nutritional databases such as CIQUAL to estimate the nutrients of a product,
-using its list of ingredients.</p>
+<p><code>ProductOpener::PetFood</code> contains functions specific to pet food products.</p>
 
-<h1><a class='u' href='#___top' title='click to go to top of document'
-name="FUNCTIONS"
->FUNCTIONS</a></h1>
+<p>..</p>
 
 <h2><a class='u' href='#___top' title='click to go to top of document'
-name="estimate_nutrients_from_ingredients($ingredients_ref)"
->estimate_nutrients_from_ingredients($ingredients_ref)</a></h2>
+name="specific_processes_for_pet_food_product_(_$ingredients_ref_)"
+>specific_processes_for_pet_food_product ( $ingredients_ref )</a></h2>
 
-<p>Estimate nutrition facts from a structured list of ingredients (of a product or a recipe) with percentages.</p>
+<p>Runs specific processes for pet food products:</p>
 
-<p>In its current form,
-this function only looks at top level ingredients,
-and does not take into account nested sub ingredients.</p>
+<p>- Ingredients analysis - Additives detection - Allergens detection - Computation of scores</p>
 <p class="backlinkbottom"><b><a name="___bottom" href="../index.html" title="All Documents">&lt;&lt;</a></b></p>
 
 <!-- end doc -->
