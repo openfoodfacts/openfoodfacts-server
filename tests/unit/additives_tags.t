@@ -9,7 +9,7 @@ $Data::Dumper::Terse = 1;
 use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Ingredients qw/extract_ingredients_classes_from_text/;
+use ProductOpener::Ingredients qw/extract_additives_from_text/;
 use ProductOpener::Products qw/:all/;
 
 # dummy product for testing
@@ -222,7 +222,7 @@ foreach my $test_ref (@tests) {
 	$product_ref->{categories_tags} = ["en:debug"];
 	$product_ref->{"ingredients_text_" . $product_ref->{lc}} = $product_ref->{ingredients_text};
 
-	extract_ingredients_classes_from_text($product_ref);
+	extract_additives_from_text($product_ref);
 
 	is($product_ref->{additives_original_tags}, $expected_tags) or diag Dumper $product_ref;
 }

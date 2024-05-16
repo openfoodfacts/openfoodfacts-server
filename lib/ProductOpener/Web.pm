@@ -276,6 +276,11 @@ sub display_knowledge_panel ($product_ref, $panels_ref, $panel_id) {
 
 	my $html = '';
 
+	# Return undef if there is no panel with the given id
+	if (not defined $panels_ref->{$panel_id}) {
+		return;
+	}
+
 	my $template_data_ref = {
 		product => $product_ref,
 		panels => $panels_ref,

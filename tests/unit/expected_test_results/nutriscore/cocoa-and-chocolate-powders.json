@@ -1,4 +1,9 @@
 {
+   "allergens" : "",
+   "allergens_from_ingredients" : "",
+   "allergens_from_user" : "(en) ",
+   "allergens_hierarchy" : [],
+   "allergens_tags" : [],
    "categories" : "cocoa and chocolate powders",
    "categories_hierarchy" : [
       "en:cocoa-and-its-products",
@@ -36,6 +41,7 @@
    "improvements_tags" : [
       "en:better-nutri-score-with-less-saturated_fat"
    ],
+   "ingredients_lc" : "en",
    "lc" : "en",
    "misc_tags" : [
       "en:nutrition-grade-computed-for-prepared-product",
@@ -46,6 +52,13 @@
       "en:nutriscore-2021-better-than-2023",
       "en:nutriscore-2021-a-2023-b"
    ],
+   "nova_group_debug" : "no nova group when the product does not have ingredients",
+   "nova_group_error" : "missing_ingredients",
+   "nova_groups_tags" : [
+      "unknown"
+   ],
+   "nutrient_levels" : {},
+   "nutrient_levels_tags" : [],
    "nutriments" : {
       "energy_prepared_100g" : 287,
       "fat_prepared_100g" : 0,
@@ -265,5 +278,11 @@
    "pnns_groups_2_tags" : [
       "unknown",
       "missing-association"
-   ]
+   ],
+   "traces" : "",
+   "traces_from_ingredients" : "",
+   "traces_from_user" : "(en) ",
+   "traces_hierarchy" : [],
+   "traces_tags" : [],
+   "unknown_nutrients_tags" : []
 }
