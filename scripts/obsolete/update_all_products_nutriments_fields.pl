@@ -73,7 +73,7 @@ my $cursor = $products_collection->query({})->fields({ code => 1 });
 			$lang = $product_ref->{lc};
 		}
 		
-		compute_serving_size_data($product_ref);
+		compute_nutrition_data_per_100g_and_per_serving($product_ref);
 		
 		compute_nutrient_levels($product_ref);
 

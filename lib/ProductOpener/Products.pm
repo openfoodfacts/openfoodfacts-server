@@ -137,6 +137,7 @@ use ProductOpener::Text qw/remove_email remove_tags_and_quote/;
 use ProductOpener::Display qw/single_param/;
 use ProductOpener::Redis qw/push_to_redis_stream/;
 use ProductOpener::Food qw/%nutriments_lists/;
+use ProductOpener::Units qw/normalize_product_quantity_and_serving_size/;
 
 # needed by analyze_and_enrich_product_data()
 # may be moved to another module at some point
@@ -3675,6 +3676,10 @@ sub analyze_and_enrich_product_data ($product_ref, $response_ref) {
 		}
 	}
 
+	# Normalize the product quantity and serving size fields
+	# Needed before we analyze packaging data in order to compute packaging weights per 100g of product
+	normalize_product_quantity_and_serving_size($product_ref);
+
 	# We need packaging analysis before calling the Eco-Score for food products
 	analyze_and_combine_packaging_data($product_ref, $response_ref);
 
@@ -3701,5 +3706,3 @@ sub analyze_and_enrich_product_data ($product_ref, $response_ref) {
 
 	return;
 }
-
-1;

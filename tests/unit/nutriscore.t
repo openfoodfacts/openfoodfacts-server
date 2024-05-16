@@ -900,7 +900,7 @@ foreach my $test_ref (@tests) {
 		}
 	}
 
-	compute_serving_size_data($product_ref);
+	compute_nutrition_data_per_100g_and_per_serving($product_ref);
 	compute_field_tags($product_ref, $product_ref->{lc}, "categories");
 
 	specific_processes_for_food_product($product_ref);

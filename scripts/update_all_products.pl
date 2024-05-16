@@ -922,7 +922,7 @@ while (my $product_ref = $cursor->next) {
 				if ($product_ref->{nutrition_data_per} eq "100g") {
 					print STDERR "code $code deleting serving size " . $product_ref->{serving_size} . "\n";
 					delete $product_ref->{serving_size};
-					ProductOpener::Food::compute_serving_size_data($product_ref);
+					ProductOpener::Food::compute_nutrition_data_per_100g_and_per_serving($product_ref);
 					$product_values_changed = 1;
 				}
 
@@ -936,7 +936,7 @@ while (my $product_ref = $cursor->next) {
 					print STDERR "code $code changing " . $product_ref->{serving_size} . "\n";
 					$product_ref->{serving_size} =~ s/(\d)\s?(mg)\b/$1 ml/i;
 					print STDERR "code $code changed to " . $product_ref->{serving_size} . "\n";
-					ProductOpener::Food::compute_serving_size_data($product_ref);
+					ProductOpener::Food::compute_nutrition_data_per_100g_and_per_serving($product_ref);
 					$product_values_changed = 1;
 				}
 			}
@@ -1142,7 +1142,7 @@ while (my $product_ref = $cursor->next) {
 		if ($compute_carbon) {
 			compute_carbon_footprint_from_ingredients($product_ref);
 			compute_carbon_footprint_from_meat_or_fish($product_ref);
-			compute_serving_size_data($product_ref);
+			compute_nutrition_data_per_100g_and_per_serving($product_ref);
 			delete $product_ref->{environment_infocard};
 			delete $product_ref->{environment_infocard_en};
 			delete $product_ref->{environment_infocard_fr};
@@ -1169,11 +1169,11 @@ while (my $product_ref = $cursor->next) {
 					);
 				}
 			}
-			ProductOpener::Food::compute_serving_size_data($product_ref);
+			ProductOpener::Food::compute_nutrition_data_per_100g_and_per_serving($product_ref);
 		}
 
 		if ($compute_serving_size) {
-			ProductOpener::Food::compute_serving_size_data($product_ref);
+			ProductOpener::Food::compute_nutrition_data_per_100g_and_per_serving($product_ref);
 		}
 
 		if ($check_quality) {
@@ -1249,7 +1249,7 @@ while (my $product_ref = $cursor->next) {
 						$salt, $product_ref->{nutriments}{'salt_unit'});
 
 					fix_salt_equivalent($product_ref);
-					compute_serving_size_data($product_ref);
+					compute_nutrition_data_per_100g_and_per_serving($product_ref);
 					compute_nutriscore($product_ref);
 					compute_nutrient_levels($product_ref);
 					$product_values_changed = 1;
@@ -1272,7 +1272,7 @@ while (my $product_ref = $cursor->next) {
 					$salt, $product_ref->{nutriments}{'salt_unit'});
 
 				fix_salt_equivalent($product_ref);
-				compute_serving_size_data($product_ref);
+				compute_nutrition_data_per_100g_and_per_serving($product_ref);
 				compute_nutriscore($product_ref);
 				compute_nutrient_levels($product_ref);
 			}

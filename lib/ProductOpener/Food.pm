@@ -69,7 +69,7 @@ BEGIN {
 		&compute_nutriscore_data
 		&compute_nutriscore
 		&compute_nova_group
-		&compute_serving_size_data
+		&compute_nutrition_data_per_100g_and_per_serving
 		&compute_unknown_nutrients
 		&compute_nutrient_levels
 		&compute_estimated_nutrients
@@ -2167,45 +2167,14 @@ sub compute_nutriscore ($product_ref, $current_version = "2021") {
 	return;
 }
 
-sub compute_serving_size_data ($product_ref) {
+=head2 compute_nutrition_data_per_100g_and_per_serving ($product_ref)
 
-	# identify products that do not have comparable nutrition data
-	# e.g. products with multiple nutrition facts tables
-	# except in some cases like breakfast cereals
-	# bug #1145
-	# old
+Input nutrition data is indicated per 100g or per serving.
+This function computes the nutrition data for the other quantity (per serving or per 100g) if we know the serving quantity.
 
-	# Delete old fields
-	(defined $product_ref->{not_comparable_nutrition_data}) and delete $product_ref->{not_comparable_nutrition_data};
-	(defined $product_ref->{multiple_nutrition_data}) and delete $product_ref->{multiple_nutrition_data};
+=cut
 
-	(defined $product_ref->{product_quantity}) and delete $product_ref->{product_quantity};
-	(defined $product_ref->{product_quantity_unit}) and delete $product_ref->{product_quantity_unit};
-	if ((defined $product_ref->{quantity}) and ($product_ref->{quantity} ne "")) {
-		my $product_quantity = normalize_quantity($product_ref->{quantity});
-		if (defined $product_quantity) {
-			$product_ref->{product_quantity} = $product_quantity;
-		}
-		my $product_quantity_unit = extract_standard_unit($product_ref->{quantity});
-		if (defined $product_quantity_unit) {
-			$product_ref->{product_quantity_unit} = $product_quantity_unit;
-		}
-	}
-
-	if ((defined $product_ref->{serving_size}) and ($product_ref->{serving_size} ne "")) {
-		$product_ref->{serving_quantity} = normalize_serving_size($product_ref->{serving_size});
-
-		my $serving_quantity_unit = extract_standard_unit($product_ref->{serving_size});
-		if (defined $serving_quantity_unit) {
-			$product_ref->{serving_quantity_unit} = $serving_quantity_unit;
-		}
-	}
-	else {
-		(defined $product_ref->{serving_quantity}) and delete $product_ref->{serving_quantity};
-		(defined $product_ref->{serving_size})
-			and ($product_ref->{serving_size} eq "")
-			and delete $product_ref->{serving_size};
-	}
+sub compute_nutrition_data_per_100g_and_per_serving ($product_ref) {
 
 	# Record if we have nutrient values for as sold or prepared types,
 	# so that we can check the nutrition_data and nutrition_data_prepared boxes if we have data

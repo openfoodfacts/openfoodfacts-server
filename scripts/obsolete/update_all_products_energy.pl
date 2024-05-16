@@ -66,7 +66,7 @@ my $cursor = $products_collection->query({})->fields({ code => 1 });
 		# Update
 		#extract_additives_from_text($product_ref);
 		
-		compute_serving_size_data($product_ref);
+		compute_nutrition_data_per_100g_and_per_serving($product_ref);
 
 		# Store
 

@@ -184,7 +184,7 @@ $product_ref = {
 	serving_size => "25 g",
 };
 
-compute_serving_size_data($product_ref);
+compute_nutrition_data_per_100g_and_per_serving($product_ref);
 
 $expected_product_ref = {
 	'nutriments' => {
@@ -217,7 +217,7 @@ $product_ref = {
 	serving_size => "25 g",
 };
 
-compute_serving_size_data($product_ref);
+compute_nutrition_data_per_100g_and_per_serving($product_ref);
 
 $expected_product_ref = {
 	'nutriments' => {
@@ -253,7 +253,7 @@ $product_ref = {
 	serving_size => "25 g",
 };
 
-compute_serving_size_data($product_ref);
+compute_nutrition_data_per_100g_and_per_serving($product_ref);
 
 $expected_product_ref = {
 	'nutriments' => {
@@ -290,7 +290,7 @@ $product_ref = {
 	serving_size => "25 g",
 };
 
-compute_serving_size_data($product_ref);
+compute_nutrition_data_per_100g_and_per_serving($product_ref);
 
 $expected_product_ref = {
 	'nutriments' => {
@@ -356,12 +356,12 @@ my $modifier;
 normalize_nutriment_value_and_modifier(\$value, \$modifier);
 is($value, "50.1");
 is($modifier, undef);
-# test compute_serving_size_data with various units
+# test compute_nutrition_data_per_100g_and_per_serving with various units
 assign_nid_modifier_value_and_unit($product_ref, "salt", $modifier, $value, undef);
 assign_nid_modifier_value_and_unit($product_ref, "sugars", $modifier, $value, "g");
 assign_nid_modifier_value_and_unit($product_ref, "fat", $modifier, $value, "mg");
 
-compute_serving_size_data($product_ref);
+compute_nutrition_data_per_100g_and_per_serving($product_ref);
 
 is(
 	$product_ref,
@@ -407,7 +407,7 @@ is($modifier, undef);
 assign_nid_modifier_value_and_unit($product_ref, "fat", $modifier, $value, "g");
 
 # test modifiers are taken into account
-compute_serving_size_data($product_ref);
+compute_nutrition_data_per_100g_and_per_serving($product_ref);
 
 is(
 	$product_ref,
@@ -446,7 +446,7 @@ assign_nid_modifier_value_and_unit($product_ref, "salt_prepared", $modifier, $va
 assign_nid_modifier_value_and_unit($product_ref, "vitamin-a_prepared", "", 468, "IU");
 
 # test support of traces, as well as "nearly" and prepared values
-compute_serving_size_data($product_ref);
+compute_nutrition_data_per_100g_and_per_serving($product_ref);
 
 is(
 	$product_ref,
@@ -518,7 +518,7 @@ $product_ref = {
 };
 
 assign_nid_modifier_value_and_unit($product_ref, "fat", undef, '1', 'g');
-compute_serving_size_data($product_ref);
+compute_nutrition_data_per_100g_and_per_serving($product_ref);
 
 is(
 	$product_ref,

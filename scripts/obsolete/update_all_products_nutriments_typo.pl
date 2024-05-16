@@ -92,7 +92,7 @@ my $cursor = $products_collection->query({})->fields({ code => 1 });
 				delete $product_ref->{nutriments}{ $nid . "_label" };
 				delete $product_ref->{nutriments}{ $nid . "_100g" };
 				delete $product_ref->{nutriments}{ $nid . "_serving" };
-				compute_serving_size_data($product_ref);
+				compute_nutrition_data_per_100g_and_per_serving($product_ref);
 
 
 				# Store
