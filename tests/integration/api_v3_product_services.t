@@ -47,8 +47,47 @@ my $product_hazelnut_spread_json = '
     }
 ';
 
+
+my $product_with_errors_json = '
+    "product": {
+        "product_name_en": "Erroneous Nut Spread",
+        "product_name_fr": "Pâte de Noisettes Erronée",
+        "nutrition": {
+            "energy": "99999", # Excessive unrealistic energy value
+            "sugars": "-5" # Negative sugar value which is illogical
+        },
+        "ingredients": [
+            {
+                "id": "en:sugar",
+                "text": "Sugar",
+                "vegan": "yes",
+                "vegetarian": "yes"
+            },
+            {
+                "id": "en:palm-oil",
+                "text": "Palm oil",
+                "vegan": "yes",
+                "vegetarian": "yes",
+                "from_palm_oil": "yes"
+            }
+        ]
+    }
+';
+
 # Note: expected results are stored in json files, see execute_api_tests
 my $tests_ref = [
+	 {
+        test_case => 'check-quality-service-with-errors',
+        method => 'POST',
+        path => '/api/v3/product_services',
+        body => '{
+            "services":["check_quality"],
+            "product":' . $product_with_errors_json . '
+        }',
+        expected_status_code => 200, # Expecting a successful operation
+        expected_response => 'response/check-quality-service-with-errors.json' # Pointing to the expected JSON response
+    },
+	
 	{
 		test_case => 'unknown-service',
 		method => 'POST',

@@ -3716,8 +3716,9 @@ sub analyze_and_enrich_product_data ($product_ref, $response_ref) {
 		compute_ecoscore($product_ref);
 		compute_forest_footprint($product_ref);
 	}
-
-	ProductOpener::DataQuality::check_quality($product_ref);
+	my $fields_to_check = ['nutrition', 'ingredients'];
+	ProductOpener::DataQuality::check_quality_service($product_ref,  {}, $fields_to_check);
+;
 
 	return;
 }
