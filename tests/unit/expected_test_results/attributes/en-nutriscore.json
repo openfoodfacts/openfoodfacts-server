@@ -13,15 +13,15 @@
          "attributes" : [
             {
                "description" : "",
-               "description_short" : "Good nutritional quality",
-               "grade" : "b",
-               "icon_url" : "https://server_domain/images/attributes/dist/nutriscore-b.svg",
+               "description_short" : "Average nutritional quality",
+               "grade" : "c",
+               "icon_url" : "https://server_domain/images/attributes/dist/nutriscore-c-new-en.svg",
                "id" : "nutriscore",
-               "match" : 61,
+               "match" : 45.2222222222222,
                "name" : "Nutri-Score",
-               "panel_id" : "nutriscore",
+               "panel_id" : "nutriscore_2023",
                "status" : "known",
-               "title" : "Nutri-Score B"
+               "title" : "Nutri-Score C"
             },
             {
                "description_short" : "0 g / 100 g",

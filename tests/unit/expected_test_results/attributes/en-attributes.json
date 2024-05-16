@@ -23,15 +23,15 @@
          "attributes" : [
             {
                "description" : "",
-               "description_short" : "Average nutritional quality",
-               "grade" : "c",
-               "icon_url" : "https://server_domain/images/attributes/dist/nutriscore-c.svg",
+               "description_short" : "Poor nutritional quality",
+               "grade" : "d",
+               "icon_url" : "https://server_domain/images/attributes/dist/nutriscore-d-new-en.svg",
                "id" : "nutriscore",
-               "match" : 47.3333333333333,
+               "match" : 33.6666666666667,
                "name" : "Nutri-Score",
-               "panel_id" : "nutriscore",
+               "panel_id" : "nutriscore_2023",
                "status" : "known",
-               "title" : "Nutri-Score C"
+               "title" : "Nutri-Score D"
             },
             {
                "description_short" : "0.25 g / 100 g",

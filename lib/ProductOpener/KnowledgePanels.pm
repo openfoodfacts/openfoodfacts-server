@@ -856,8 +856,19 @@ sub create_health_card_panel ($product_ref, $target_lc, $target_cc, $options_ref
 	# Scores for food products
 	if ($options{product_type} eq "food") {
 		create_nova_panel($product_ref, $target_lc, $target_cc, $options_ref);
-		create_nutriscore_panel($product_ref, $target_lc, $target_cc, $options_ref);
-		if ($options_ref->{admin} || $options_ref->{moderator} || $options_ref->{producers_platform}) {
+
+		if (   $target_cc eq "fr"
+			|| $options_ref->{admin}
+			|| $options_ref->{moderator}
+			|| $options_ref->{producers_platform})
+		{
+			create_nutriscore_panel($product_ref, $target_lc, $target_cc, $options_ref);
+		}
+		if (   $target_cc ne "fr"
+			|| $options_ref->{admin}
+			|| $options_ref->{moderator}
+			|| $options_ref->{producers_platform})
+		{
 			create_nutriscore_2023_panel($product_ref, $target_lc, $target_cc, $options_ref);
 		}
 

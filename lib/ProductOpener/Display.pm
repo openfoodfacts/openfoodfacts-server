@@ -5114,7 +5114,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 			"nova_group" => 1,
 			"nutrient_levels" => 1,
 			"nutriments" => 1,
-			"nutriscore_data" => 1,
+			"nutriscore" => 1,
 			"nutriscore_grade" => 1,
 			"nutrition_grades" => 1,
 			"traces_tags" => 1,

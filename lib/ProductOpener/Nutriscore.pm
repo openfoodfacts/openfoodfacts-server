@@ -119,13 +119,11 @@ sub compute_nutriscore_score_and_grade ($nutriscore_data_ref, $version = "2021")
 
 # methods returning the 2021 version for now, to ease switch, later on.
 sub get_value_with_one_less_negative_point ($nutriscore_data_ref, $nutrient) {
-
-	return get_value_with_one_less_negative_point_2021($nutriscore_data_ref, $nutrient);
+	return get_value_with_one_less_negative_point_2023($nutriscore_data_ref, $nutrient);
 }
 
 sub get_value_with_one_more_positive_point ($nutriscore_data_ref, $nutrient) {
-
-	return get_value_with_one_more_positive_point_2021($nutriscore_data_ref, $nutrient);
+	return get_value_with_one_more_positive_point_2023($nutriscore_data_ref, $nutrient);
 }
 
 sub compute_nutriscore_grade ($nutrition_score, $is_beverage, $is_water, $version = "2021") {
