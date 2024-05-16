@@ -1104,17 +1104,33 @@ sub check_nutrition_data ($product_ref) {
 				$nid2 =~ s/_/-/g;
 
 				if (($nid !~ /energy/) and ($nid !~ /footprint/) and ($product_ref->{nutriments}{$nid} > 105)) {
-
-					push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-value-over-105-$nid2";
+					# product opener / ingredients analysis issue (See issue #10064)
+					if ($nid =~ /estimate/) {
+						push @{$product_ref->{data_quality_warnings_tags}}, "en:nutrition-value-over-105-$nid2";
+					}
+					else {
+						push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-value-over-105-$nid2";
+					}
 				}
 
 				if (($nid !~ /energy/) and ($nid !~ /footprint/) and ($product_ref->{nutriments}{$nid} > 1000)) {
-
-					push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-value-over-1000-$nid2";
+					# product opener / ingredients analysis issue (See issue #10064)
+					if ($nid =~ /estimate/) {
+						push @{$product_ref->{data_quality_warnings_tags}}, "en:nutrition-value-over-1000-$nid2";
+					}
+					else {
+						push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-value-over-1000-$nid2";
+					}
 				}
 
 				if (($product_ref->{nutriments}{$nid} < 0) and (index($nid, "nutrition-score") == -1)) {
-					push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-value-negative-$nid2";
+					# product opener / ingredients analysis issue (See issue #10064)
+					if ($nid =~ /estimate/) {
+						push @{$product_ref->{data_quality_warnings_tags}}, "en:nutrition-value-negative-$nid2";
+					}
+					else {
+						push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-value-negative-$nid2";
+					}
 				}
 			}
 
