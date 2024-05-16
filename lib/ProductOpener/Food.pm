@@ -2176,6 +2176,11 @@ This function computes the nutrition data for the other quantity (per serving or
 
 sub compute_nutrition_data_per_100g_and_per_serving ($product_ref) {
 
+	# Make sure we have normalized the product quantity and the serving size
+	# in a normal setting, this function has already been called by analyze_and_enrich_product_data()
+	# but some test functions (e.g. in food.t) may call this function directly
+	normalize_product_quantity_and_serving_size($product_ref);
+
 	# Record if we have nutrient values for as sold or prepared types,
 	# so that we can check the nutrition_data and nutrition_data_prepared boxes if we have data
 	my %nutrition_data = ();
