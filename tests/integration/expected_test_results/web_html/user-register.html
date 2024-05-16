@@ -64,6 +64,7 @@
 
 </head>
 <body class="other_page">
+	<div class="skip"><a href="#content" tabindex="0">Skip to Content</a></div>
 
 	<div id="page">
 		<div class="upper-nav contain-to-grid"  id="upNav">
@@ -381,7 +382,7 @@ function togglePasswordVisibility(FieldID) {
     <!-- Start form -->
 
     <form method="post" action="/cgi/user.pl" enctype="multipart/form-data" id="user_form">
-		
+        
 
             
 
@@ -390,28 +391,28 @@ function togglePasswordVisibility(FieldID) {
             
             <div class="form-wrapper">
                 <div class="form-container" style="width: 80%;margin-right: 20px;">
-                   
-                       
-                              <div >
-                                  <label for="name">Name</label>
-                                  <input type="text" id="name" name="name" value="" />
+                
+                    
+                            <div >
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" value="" />
                                 </div>
                         
                     
-                       
+                    
                             <label for="email">	E-mail address</label>
                             <input type="email" id="email" name="email" value = "" autocomplete="email"/>
                             
                         
                     
-                       
+                    
                             
                                 <label for="userid">  User name (non-accented letters, digits and/or dashes)</label>
                                 <input type="text" id="userid" name="userid" value="" autocomplete="username" onkeyup="normalize_string_value(this)" />
                             
                         
                     
-                       
+                    
                             <label for="password">Password</label>
                             <div class="password-container">
                                 <input type="password" id="password" name="password" value="" autocomplete="new-password"/>
@@ -421,7 +422,7 @@ function togglePasswordVisibility(FieldID) {
                                 </div>
                         
                     
-                       
+                    
                             <label for="confirm_password">Confirm password</label>
                             <div class="password-container">
                                 <input type="password" id="confirm_password" name="confirm_password" value="" autocomplete="new-password"/>
@@ -431,7 +432,7 @@ function togglePasswordVisibility(FieldID) {
                                 </div>
                         
                     
-                       
+                    
                             <label for="preferred_language">	Preferred Language</label>
                             <select name="preferred_language" id="preferred_language-select">
                                 <option value=""></option>
@@ -817,7 +818,7 @@ function togglePasswordVisibility(FieldID) {
                             </select>
                         
                     
-                       
+                    
                             <label for="country">	Country</label>
                             <select name="country" id="country-select">
                                 <option value=""></option>
@@ -1361,7 +1362,7 @@ function togglePasswordVisibility(FieldID) {
                             </select>
                         
                     
-                       
+                    
                             
                             <div style="display:none">
                                 <label for="faxnumber">Do not enter your fax number</label>
@@ -1373,11 +1374,11 @@ function togglePasswordVisibility(FieldID) {
                 <!-- show video about account creation beside user form section-->
                 
             </div>
-			
+            
 
             
 
-		
+        
 
             
                 <fieldset id="professional_section">
@@ -1393,26 +1394,26 @@ function togglePasswordVisibility(FieldID) {
             
             <div class="form-wrapper">
                 <div class="form-container" style="width: 80%;margin-right: 20px;">
-                   
-                       
+                
+                    
                             
                                 <label for="pro">
                                     <input type="checkbox" id="pro" name="pro"  />
-                                     This is a producer or brand account.
+                                    This is a producer or brand account.
                                 </label>
                             
                         
                     
-                       
+                    
                             <label for="pro">
                                 <input type="hidden" name="pro_checkbox" value="1">
                             </label>
                         
                     
-                       
-                              <div  class="pro_org_display" >
-                                  <label for="requested_org">Name of producer or name of brand:</label>
-                                  <input type="text" id="requested_org" name="requested_org" value="" />
+                    
+                            <div  class="pro_org_display" >
+                                <label for="requested_org">Name of producer or name of brand:</label>
+                                <input type="text" id="requested_org" name="requested_org" value="" />
                                 </div>
                         
                     
@@ -1420,7 +1421,7 @@ function togglePasswordVisibility(FieldID) {
                 <!-- show video about account creation beside user form section-->
                 
             </div>
-			
+            
             <div class="pro_org_display">
                 
                     <p>Please enter the name of your organization (company name or brand).</p>
@@ -1432,7 +1433,7 @@ function togglePasswordVisibility(FieldID) {
                 </fieldset>
             
 
-		
+        
 
             
                 <fieldset id="contributor_settings_section">
@@ -1446,21 +1447,21 @@ function togglePasswordVisibility(FieldID) {
             
             <div class="form-wrapper">
                 <div class="form-container" style="width: 80%;margin-right: 20px;">
-                   
-                       
+                
+                    
                             
                                 <label for="display_barcode">
                                     <input type="checkbox" id="display_barcode" name="display_barcode"  />
-                                     <svg style="width:24px;height:24px" viewBox="0 0 24 24" class="icon" aria-hidden="true" focusable="false"><path d="M2,6H4V18H2V6M5,6H6V18H5V6M7,6H10V18H7V6M11,6H12V18H11V6M14,6H16V18H14V6M17,6H20V18H17V6M21,6H22V18H21V6Z"/></svg>Display barcode in search results
+                                    <svg style="width:24px;height:24px" viewBox="0 0 24 24" class="icon" aria-hidden="true" focusable="false"><path d="M2,6H4V18H2V6M5,6H6V18H5V6M7,6H10V18H7V6M11,6H12V18H11V6M14,6H16V18H14V6M17,6H20V18H17V6M21,6H22V18H21V6Z"/></svg>Display barcode in search results
                                 </label>
                             
                         
                     
-                       
+                    
                             
                                 <label for="edit_link">
                                     <input type="checkbox" id="edit_link" name="edit_link"  />
-                                     <svg xmlns="//www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon" aria-hidden="true" focusable="false"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/><path d="M0 0h24v24H0z" fill="none"/></svg>Add an edit link in search results
+                                    <svg xmlns="//www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon" aria-hidden="true" focusable="false"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/><path d="M0 0h24v24H0z" fill="none"/></svg>Add an edit link in search results
                                 </label>
                             
                         
@@ -1469,13 +1470,13 @@ function togglePasswordVisibility(FieldID) {
                 <!-- show video about account creation beside user form section-->
                 
             </div>
-			
+            
 
             
                 </fieldset>
             
 
-		
+        
 
         <!--newsletter subscription-->
         
