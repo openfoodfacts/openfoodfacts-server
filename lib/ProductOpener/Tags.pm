@@ -3378,14 +3378,14 @@ sub display_tags_hierarchy_taxonomy ($target_lc, $tagtype, $tags_ref) {
 
 			my $canon_tagid = canonicalize_taxonomy_tag($target_lc, $tagtype, $tag);
 			my $img = get_tag_image($target_lc, $tagtype, $canon_tagid);
-			
+
 			if ($img) {
 				my $size = '';
 				if ($img =~ /\.(\d+)x(\d+)/) {
 					$size = " width=\"$1\" height=\"$2\"";
 				}
 				my $alt = display_taxonomy_tag_name($target_lc, $tagtype, $tag);
-				
+
 				$images .= <<HTML
 <img src="$img"$size/ style="display:inline" alt="$alt">
 HTML
