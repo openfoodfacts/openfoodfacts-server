@@ -177,17 +177,6 @@
                                     </svg>
                                 </div>
                             </div>
-                            <style>
-                                #barcode_div_code,#barcode_div_svg{
-                                    display: inline-block;
-                                    vertical-align: top;
-                                }
-                                @media only screen and (max-width: 600px) {
-                                    #barcode_div_svg,#barcode_br {
-                                        display: none;
-                                    }
-                                }
-                            </style>
                             <script>if (screen && screen.width >= 600) JsBarcode("#barcode_svg").init()</script>
                             <div property="gr:hasEAN_UCC-13" content="[% code %]" datatype="xsd:string"></div>
                         [% ELSE %]
