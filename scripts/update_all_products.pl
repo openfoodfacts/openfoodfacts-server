@@ -38,6 +38,7 @@ it is likely that the MongoDB cursor of products to be updated will expire, and 
 --just-print-codes	do not do any processing, just print the barcodes
 --query some_field=some_value (e.g. categories_tags=en:beers)	filter the products
 --query some_field=-some_value	match products that don't have some_value for some_field
+--analyze-and-enrich-product-data	run all the analysis and enrichments
 --process-ingredients	compute allergens, additives detection
 --clean-ingredients	remove nutrition facts, conservation conditions etc.
 --compute-nutriscore	nutriscore
@@ -97,7 +98,9 @@ my @fields_to_update = ();
 my $key;
 my $index = '';
 my $count = '';
-my $just_print_codes = '', my $pretend = '';
+my $just_print_codes = '';
+my $pretend = '';
+my $analyze_and_enrich_product_data = '';
 my $process_ingredients = '';
 my $process_packagings = '';
 my $clean_ingredients = '';
@@ -157,6 +160,7 @@ GetOptions(
 	"fields=s" => \@fields_to_update,
 	"index" => \$index,
 	"pretend" => \$pretend,
+	"analyze-and-enrich-product-data" => \$analyze_and_enrich_product_data,
 	"clean-ingredients" => \$clean_ingredients,
 	"process-ingredients" => \$process_ingredients,
 	"process-packagings" => \$process_packagings,
@@ -650,7 +654,7 @@ while (my $product_ref = $cursor->next) {
 						}
 						$product_values_changed = 1;
 						extract_ingredients_from_text($product_ref);
-						extract_ingredients_classes_from_text($product_ref);
+						extract_additives_from_text($product_ref);
 						compute_nova_group($product_ref);
 						compute_languages($product_ref);    # need languages for allergens detection
 						detect_allergens_from_text($product_ref);
@@ -918,7 +922,7 @@ while (my $product_ref = $cursor->next) {
 				if ($product_ref->{nutrition_data_per} eq "100g") {
 					print STDERR "code $code deleting serving size " . $product_ref->{serving_size} . "\n";
 					delete $product_ref->{serving_size};
-					ProductOpener::Food::compute_serving_size_data($product_ref);
+					ProductOpener::Food::compute_nutrition_data_per_100g_and_per_serving($product_ref);
 					$product_values_changed = 1;
 				}
 
@@ -932,7 +936,7 @@ while (my $product_ref = $cursor->next) {
 					print STDERR "code $code changing " . $product_ref->{serving_size} . "\n";
 					$product_ref->{serving_size} =~ s/(\d)\s?(mg)\b/$1 ml/i;
 					print STDERR "code $code changed to " . $product_ref->{serving_size} . "\n";
-					ProductOpener::Food::compute_serving_size_data($product_ref);
+					ProductOpener::Food::compute_nutrition_data_per_100g_and_per_serving($product_ref);
 					$product_values_changed = 1;
 				}
 			}
@@ -1083,12 +1087,13 @@ while (my $product_ref = $cursor->next) {
 			}
 		}
 
-		if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
-			ProductOpener::Food::special_process_product($product_ref);
+		# This option runs all the data enrichment functions
+		if ($analyze_and_enrich_product_data) {
+			analyze_and_enrich_product_data($product_ref);
 		}
-		if ($assign_categories_properties) {
-			# assign_categories_properties_to_product() is already called by special_process_product
-		}
+
+		# Many of the options below are included in the analyze_and_enrich_product_data option
+		# they are kept to be able to run only a specific part of the analysis (e.g. computing the Nutri-Score after an update to the formula)
 
 		if (    (defined $product_ref->{nutriments}{"carbon-footprint"})
 			and ($product_ref->{nutriments}{"carbon-footprint"} ne ''))
@@ -1104,7 +1109,7 @@ while (my $product_ref = $cursor->next) {
 		if ($process_ingredients) {
 			# Ingredients classes
 			extract_ingredients_from_text($product_ref);
-			extract_ingredients_classes_from_text($product_ref);
+			extract_additives_from_text($product_ref);
 			compute_nova_group($product_ref);
 			compute_languages($product_ref);    # need languages for allergens detection
 			detect_allergens_from_text($product_ref);
@@ -1137,7 +1142,7 @@ while (my $product_ref = $cursor->next) {
 		if ($compute_carbon) {
 			compute_carbon_footprint_from_ingredients($product_ref);
 			compute_carbon_footprint_from_meat_or_fish($product_ref);
-			compute_serving_size_data($product_ref);
+			compute_nutrition_data_per_100g_and_per_serving($product_ref);
 			delete $product_ref->{environment_infocard};
 			delete $product_ref->{environment_infocard_en};
 			delete $product_ref->{environment_infocard_fr};
@@ -1164,11 +1169,11 @@ while (my $product_ref = $cursor->next) {
 					);
 				}
 			}
-			ProductOpener::Food::compute_serving_size_data($product_ref);
+			ProductOpener::Food::compute_nutrition_data_per_100g_and_per_serving($product_ref);
 		}
 
 		if ($compute_serving_size) {
-			ProductOpener::Food::compute_serving_size_data($product_ref);
+			ProductOpener::Food::compute_nutrition_data_per_100g_and_per_serving($product_ref);
 		}
 
 		if ($check_quality) {
@@ -1244,7 +1249,7 @@ while (my $product_ref = $cursor->next) {
 						$salt, $product_ref->{nutriments}{'salt_unit'});
 
 					fix_salt_equivalent($product_ref);
-					compute_serving_size_data($product_ref);
+					compute_nutrition_data_per_100g_and_per_serving($product_ref);
 					compute_nutriscore($product_ref);
 					compute_nutrient_levels($product_ref);
 					$product_values_changed = 1;
@@ -1267,7 +1272,7 @@ while (my $product_ref = $cursor->next) {
 					$salt, $product_ref->{nutriments}{'salt_unit'});
 
 				fix_salt_equivalent($product_ref);
-				compute_serving_size_data($product_ref);
+				compute_nutrition_data_per_100g_and_per_serving($product_ref);
 				compute_nutriscore($product_ref);
 				compute_nutrient_levels($product_ref);
 			}

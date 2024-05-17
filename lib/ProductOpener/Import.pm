@@ -3049,15 +3049,9 @@ sub import_products_categories_from_public_database ($args_ref) {
 					$log->debug("import_product_categories - new categories", {categories => $product_ref->{$field}})
 						if $log->is_debug();
 					compute_field_tags($product_ref, $product_ref->{lc}, $field);
-					if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
-						$log->debug("Food::special_process_product") if $log->is_debug();
-						ProductOpener::Food::special_process_product($product_ref);
-					}
-					compute_nutriscore($product_ref);
-					compute_nova_group($product_ref);
-					compute_nutrient_levels($product_ref);
-					compute_unknown_nutrients($product_ref);
-					ProductOpener::DataQuality::check_quality($product_ref);
+
+					analyze_and_enrich_product_data($product_ref);
+
 					store_product($user_id, $product_ref, "imported categories from public database");
 				}
 

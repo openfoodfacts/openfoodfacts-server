@@ -65,17 +65,16 @@ BEGIN {
 		&is_fat_oil_nuts_seeds_for_nutrition_score
 		&is_water_for_nutrition_score
 
-		&compute_nutriscore
+		&check_availability_of_nutrients_needed_for_nutriscore
+		&compute_nutriscore_data
 		&compute_nutriscore
 		&compute_nova_group
-		&compute_serving_size_data
+		&compute_nutrition_data_per_100g_and_per_serving
 		&compute_unknown_nutrients
 		&compute_nutrient_levels
 		&compute_estimated_nutrients
 
 		&compare_nutriments
-
-		&special_process_product
 
 		&extract_nutrition_from_image
 
@@ -1211,23 +1210,6 @@ sub is_red_meat_product_for_nutrition_score ($product_ref) {
 	return 0;
 }
 
-=head2 special_process_product ( $ingredients_ref )
-
-Computes food groups, and whether a product is to be considered a beverage for the Nutri-Score.
-
-Ingredients analysis (extract_ingredients_from_text) needs to be done before calling this function?
-
-=cut
-
-sub special_process_product ($product_ref) {
-
-	assign_categories_properties_to_product($product_ref);
-
-	compute_food_groups($product_ref);
-
-	return;
-}
-
 sub fix_salt_equivalent ($product_ref) {
 
 	# EU fixes the conversion: sodium = salt / 2.5 (instead of 2.54 previously)
@@ -2185,45 +2167,19 @@ sub compute_nutriscore ($product_ref, $current_version = "2021") {
 	return;
 }
 
-sub compute_serving_size_data ($product_ref) {
+=head2 compute_nutrition_data_per_100g_and_per_serving ($product_ref)
 
-	# identify products that do not have comparable nutrition data
-	# e.g. products with multiple nutrition facts tables
-	# except in some cases like breakfast cereals
-	# bug #1145
-	# old
+Input nutrition data is indicated per 100g or per serving.
+This function computes the nutrition data for the other quantity (per serving or per 100g) if we know the serving quantity.
 
-	# Delete old fields
-	(defined $product_ref->{not_comparable_nutrition_data}) and delete $product_ref->{not_comparable_nutrition_data};
-	(defined $product_ref->{multiple_nutrition_data}) and delete $product_ref->{multiple_nutrition_data};
+=cut
 
-	(defined $product_ref->{product_quantity}) and delete $product_ref->{product_quantity};
-	(defined $product_ref->{product_quantity_unit}) and delete $product_ref->{product_quantity_unit};
-	if ((defined $product_ref->{quantity}) and ($product_ref->{quantity} ne "")) {
-		my $product_quantity = normalize_quantity($product_ref->{quantity});
-		if (defined $product_quantity) {
-			$product_ref->{product_quantity} = $product_quantity;
-		}
-		my $product_quantity_unit = extract_standard_unit($product_ref->{quantity});
-		if (defined $product_quantity_unit) {
-			$product_ref->{product_quantity_unit} = $product_quantity_unit;
-		}
-	}
+sub compute_nutrition_data_per_100g_and_per_serving ($product_ref) {
 
-	if ((defined $product_ref->{serving_size}) and ($product_ref->{serving_size} ne "")) {
-		$product_ref->{serving_quantity} = normalize_serving_size($product_ref->{serving_size});
-
-		my $serving_quantity_unit = extract_standard_unit($product_ref->{serving_size});
-		if (defined $serving_quantity_unit) {
-			$product_ref->{serving_quantity_unit} = $serving_quantity_unit;
-		}
-	}
-	else {
-		(defined $product_ref->{serving_quantity}) and delete $product_ref->{serving_quantity};
-		(defined $product_ref->{serving_size})
-			and ($product_ref->{serving_size} eq "")
-			and delete $product_ref->{serving_size};
-	}
+	# Make sure we have normalized the product quantity and the serving size
+	# in a normal setting, this function has already been called by analyze_and_enrich_product_data()
+	# but some test functions (e.g. in food.t) may call this function directly
+	normalize_product_quantity_and_serving_size($product_ref);
 
 	# Record if we have nutrient values for as sold or prepared types,
 	# so that we can check the nutrition_data and nutrition_data_prepared boxes if we have data

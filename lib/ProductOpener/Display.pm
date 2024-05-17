@@ -3879,6 +3879,15 @@ sub display_tag ($request_ref) {
 					push @markers, \@geo;
 				}
 
+				if ($packager_codes{$canon_tagid}{cc} eq 'at') {
+					$description .= <<HTML
+<p>$packager_codes{$canon_tagid}{name}<br>
+$packager_codes{$canon_tagid}{address} (Österreich)
+</p>
+HTML
+						;
+				}
+
 				if ($packager_codes{$canon_tagid}{cc} eq 'ch') {
 					$description .= <<HTML
 <p>$packager_codes{$canon_tagid}{full_address}</p>
@@ -4367,8 +4376,7 @@ sub display_search_results ($request_ref) {
 	$current_link =~ s/^\&/\?/;
 	$current_link = "/search" . $current_link;
 
-	if ((defined single_param("user_preferences")) and (single_param("user_preferences")) and not($request_ref->{api}))
-	{
+	if (not($request_ref->{api})) {
 
 		# The results will be filtered and ranked on the client side
 
@@ -4910,7 +4918,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		$limit = $request_ref->{page_size};
 	}
 	# If user preferences are turned on, return 100 products per page
-	elsif ((not defined $request_ref->{api}) and ($request_ref->{user_preferences})) {
+	elsif (not defined $request_ref->{api}) {
 		$limit = 100;
 	}
 	else {
@@ -5074,7 +5082,6 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 	{
 		$fields_ref = {};
 	}
-	# - if we use user preferences, we need a lot of fields to compute product attributes: load them all
 	elsif ($request_ref->{user_preferences}) {
 		# we restrict the fields that are queried to MongoDB, and use the basic ones and those necessary
 		# by Attributes.pm to compute attributes.
@@ -5107,7 +5114,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 			"nova_group" => 1,
 			"nutrient_levels" => 1,
 			"nutriments" => 1,
-			"nutriscore_data" => 1,
+			"nutriscore" => 1,
 			"nutriscore_grade" => 1,
 			"nutrition_grades" => 1,
 			"traces_tags" => 1,
@@ -5349,7 +5356,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		# For non API queries with user preferences, we need to add attributes
 		# For non API queries, we need to compute attributes for personal search
 		my $fields;
-		if ((not defined $request_ref->{api}) and ($request_ref->{user_preferences})) {
+		if (not defined $request_ref->{api}) {
 			$fields = "code,product_display_name,url,image_front_small_url,attribute_groups";
 		}
 		else {
@@ -5403,25 +5410,22 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		$html =~ s/(href|src)=("\/)/$1="$formatted_subdomain\//g;
 	}
 
-	if ($request_ref->{user_preferences}) {
+	my $preferences_text = sprintf(lang("classify_the_d_products_below_according_to_your_preferences"), $page_count);
 
-		my $preferences_text
-			= sprintf(lang("classify_the_d_products_below_according_to_your_preferences"), $page_count);
+	my $products_json = '[]';
 
-		my $products_json = '[]';
+	if (defined $request_ref->{structured_response}{products}) {
+		$products_json = $json->encode($request_ref->{structured_response}{products});
+	}
 
-		if (defined $request_ref->{structured_response}{products}) {
-			$products_json = $json->encode($request_ref->{structured_response}{products});
+	my $contributor_prefs_json = $json->encode(
+		{
+			display_barcode => $User{display_barcode},
+			edit_link => $User{edit_link},
 		}
+	);
 
-		my $contributor_prefs_json = $json->encode(
-			{
-				display_barcode => $User{display_barcode},
-				edit_link => $User{edit_link},
-			}
-		);
-
-		$scripts .= <<JS
+	$scripts .= <<JS
 <script type="text/javascript">
 var page_type = "products";
 var preferences_text = "$preferences_text";
@@ -5429,23 +5433,21 @@ var contributor_prefs = $contributor_prefs_json;
 var products = $products_json;
 </script>
 JS
-			;
+		;
 
-		$scripts .= <<JS
+	$scripts .= <<JS
 <script src="$static_subdomain/js/product-preferences.js"></script>
 <script src="$static_subdomain/js/product-search.js"></script>
 JS
-			;
+		;
 
-		$initjs .= <<JS
+	$initjs .= <<JS
 display_user_product_preferences("#preferences_selected", "#preferences_selection_form", function () {
 	rank_and_display_products("#search_results", products, contributor_prefs);
 });
 rank_and_display_products("#search_results", products, contributor_prefs);
 JS
-			;
-
-	}
+		;
 
 	process_template('web/common/includes/list_of_products.tt.html', $template_data_ref, \$html)
 		|| return "template error: " . $tt->error();
@@ -7217,12 +7219,12 @@ sub display_page ($request_ref) {
 	my $join_us_on_slack
 		= sprintf($Lang{footer_join_us_on}{$lc}, '<a href="https://slack.openfoodfacts.org">Slack</a>');
 
-	my $twitter_account = lang("twitter_account");
-	if (defined $Lang{twitter_account_by_country}{$cc}) {
-		$twitter_account = $Lang{twitter_account_by_country}{$cc};
-	}
+	# Twitter account and Facebook page url from Config.pm
+	# Allow to have language specific Twitter accounts and Facebook page url, suffixed by the language code
+	my $twitter_account = $options{"twitter_account_$lc"} || $options{twitter_account};
 	$template_data_ref->{twitter_account} = $twitter_account;
-	# my $facebook_page = lang("facebook_page");
+	my $facebook_page = $options{"facebook_page_url_$lc"} || $options{facebook_page_url};
+	$template_data_ref->{facebook_page_url} = $facebook_page;
 
 	my $torso_class = "anonymous";
 	if (defined $User_id) {
@@ -7680,6 +7682,9 @@ JS
 		$template_data_ref->{contribution_card_panel}
 			= display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "contribution_card");
 	}
+
+	# User preferences
+	$template_data_ref->{user_preferences} = $request_ref->{user_preferences};
 
 	# The front product image is rendered with the same template as the ingredients, nutrition and packaging images
 	# that are displayed directly through the knowledge panels
@@ -10369,6 +10374,7 @@ sub display_product_history ($request_ref, $code, $product_ref) {
 
 		my $userid = get_change_userid_or_uuid($change_ref);
 		my $uuid = $change_ref->{app_uuid};
+		my $app_version = $change_ref->{app_version};
 		my $comment = _format_comment($change_ref->{comment});
 
 		my $change_rev = $change_ref->{rev};
@@ -10385,6 +10391,7 @@ sub display_product_history ($request_ref, $code, $product_ref) {
 			date => display_date_tag($change_ref->{t}),
 			userid => $userid,
 			uuid => $uuid,
+			app_version => $app_version,
 			diffs => compute_changes_diff_text($change_ref),
 			comment => $comment
 			};

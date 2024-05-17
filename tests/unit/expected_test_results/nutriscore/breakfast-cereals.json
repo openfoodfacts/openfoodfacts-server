@@ -1,4 +1,9 @@
 {
+   "allergens" : "",
+   "allergens_from_ingredients" : "",
+   "allergens_from_user" : "(en) ",
+   "allergens_hierarchy" : [],
+   "allergens_tags" : [],
    "categories" : "breakfast cereals",
    "categories_hierarchy" : [
       "en:plant-based-foods-and-beverages",
@@ -37,6 +42,7 @@
       "en:cereals-and-potatoes",
       "en:breakfast-cereals"
    ],
+   "ingredients_lc" : "en",
    "lc" : "en",
    "misc_tags" : [
       "en:nutriscore-computed",
@@ -46,9 +52,26 @@
       "en:nutriscore-2021-better-than-2023",
       "en:nutriscore-2021-c-2023-d"
    ],
+   "nova_group_debug" : "no nova group when the product does not have ingredients",
+   "nova_group_error" : "missing_ingredients",
+   "nova_groups_tags" : [
+      "unknown"
+   ],
+   "nutrient_levels" : {
+      "fat" : "high",
+      "salt" : "moderate",
+      "saturated-fat" : "low",
+      "sugars" : "high"
+   },
+   "nutrient_levels_tags" : [
+      "en:fat-in-high-quantity",
+      "en:saturated-fat-in-low-quantity",
+      "en:sugars-in-high-quantity",
+      "en:salt-in-moderate-quantity"
+   ],
    "nutriments" : {
       "energy_100g" : 2450,
-      "fat_100g" : 100,
+      "fat_100g" : "100",
       "fiber_100g" : 6.9,
       "nutrition-score-fr" : 10,
       "nutrition-score-fr_100g" : 10,
@@ -60,7 +83,7 @@
       "saturated-fat_100g" : 1.03,
       "sodium_100g" : 0.221,
       "sodium_value" : 0.221,
-      "sugars_100g" : 31
+      "sugars_100g" : "31"
    },
    "nutriscore" : {
       "2021" : {
@@ -107,6 +130,9 @@
                "negative" : [
                   {
                      "id" : "energy",
+                     "new_grade" : "d",
+                     "new_score" : 13,
+                     "new_value" : 2345,
                      "points" : 7,
                      "points_max" : 10,
                      "unit" : "kJ",
@@ -114,6 +140,9 @@
                   },
                   {
                      "id" : "sugars",
+                     "new_grade" : "d",
+                     "new_score" : 13,
+                     "new_value" : 27,
                      "points" : 8,
                      "points_max" : 15,
                      "unit" : "g",
@@ -121,6 +150,9 @@
                   },
                   {
                      "id" : "saturated_fat",
+                     "new_grade" : "d",
+                     "new_score" : 13,
+                     "new_value" : 1,
                      "points" : 1,
                      "points_max" : 10,
                      "unit" : "g",
@@ -128,6 +160,9 @@
                   },
                   {
                      "id" : "salt",
+                     "new_grade" : "d",
+                     "new_score" : 13,
+                     "new_value" : 0.4,
                      "points" : 2,
                      "points_max" : 20,
                      "unit" : "g",
@@ -137,6 +172,9 @@
                "positive" : [
                   {
                      "id" : "fiber",
+                     "new_grade" : "d",
+                     "new_score" : 13,
+                     "new_value" : 7.5,
                      "points" : 4,
                      "points_max" : 5,
                      "unit" : "g",
@@ -237,5 +275,11 @@
    "pnns_groups_2_tags" : [
       "breakfast-cereals",
       "known"
-   ]
+   ],
+   "traces" : "",
+   "traces_from_ingredients" : "",
+   "traces_from_user" : "(en) ",
+   "traces_hierarchy" : [],
+   "traces_tags" : [],
+   "unknown_nutrients_tags" : []
 }

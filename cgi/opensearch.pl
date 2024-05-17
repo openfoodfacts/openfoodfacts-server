@@ -48,7 +48,7 @@ my $request_ref = ProductOpener::Display::init_request();
 
 # https://developer.mozilla.org/en-US/Add-ons/Creating_OpenSearch_plugins_for_Firefox
 # Maximum of 16 characters
-my $short_name = lang("site_name");
+my $short_name = $options{site_name};
 # Maximum of 48 characters
 my $long_name = $short_name;
 if ($cc eq 'world') {

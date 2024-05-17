@@ -2,6 +2,11 @@
    "additives_n" : 0,
    "additives_original_tags" : [],
    "additives_tags" : [],
+   "allergens" : "",
+   "allergens_from_ingredients" : "",
+   "allergens_from_user" : "(en) ",
+   "allergens_hierarchy" : [],
+   "allergens_tags" : [],
    "amino_acids_tags" : [],
    "categories" : "sugars",
    "categories_hierarchy" : [
@@ -55,6 +60,7 @@
       "en:added-sugar",
       "en:disaccharide"
    ],
+   "ingredients_lc" : "en",
    "ingredients_n" : 1,
    "ingredients_n_tags" : [
       "1",
@@ -100,12 +106,31 @@
       "en:nutriscore-2021-better-than-2023",
       "en:nutriscore-2021-d-2023-e"
    ],
+   "nova_group" : 2,
+   "nova_group_debug" : "",
+   "nova_groups" : "2",
+   "nova_groups_markers" : {
+      "2" : [
+         [
+            "categories",
+            "en:sugars"
+         ]
+      ]
+   },
+   "nova_groups_tags" : [
+      "en:2-processed-culinary-ingredients"
+   ],
    "nucleotides_tags" : [],
+   "nutrient_levels" : {},
+   "nutrient_levels_tags" : [],
    "nutriments" : {
       "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
       "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0,
+      "nova-group" : 2,
+      "nova-group_100g" : 2,
+      "nova-group_serving" : 2,
       "nutrition-score-fr" : 15,
       "nutrition-score-fr_100g" : 15
    },
@@ -337,6 +362,12 @@
       "sweets",
       "known"
    ],
+   "traces" : "",
+   "traces_from_ingredients" : "",
+   "traces_from_user" : "(en) ",
+   "traces_hierarchy" : [],
+   "traces_tags" : [],
    "unknown_ingredients_n" : 0,
+   "unknown_nutrients_tags" : [],
    "vitamins_tags" : []
 }

@@ -6,6 +6,11 @@
    "additives_tags" : [
       "en:e951"
    ],
+   "allergens" : "",
+   "allergens_from_ingredients" : "",
+   "allergens_from_user" : "(en) ",
+   "allergens_hierarchy" : [],
+   "allergens_tags" : [],
    "amino_acids_tags" : [],
    "categories" : "flavored syrup",
    "categories_hierarchy" : [
@@ -103,6 +108,7 @@
       "en:disaccharide",
       "en:e951"
    ],
+   "ingredients_lc" : "en",
    "ingredients_n" : 4,
    "ingredients_n_tags" : [
       "4",
@@ -116,7 +122,7 @@
       "en:e951"
    ],
    "ingredients_percent_analysis" : 1,
-   "ingredients_sweeteners_n" : 0,
+   "ingredients_sweeteners_n" : 1,
    "ingredients_tags" : [
       "en:apple-juice",
       "en:fruit",
@@ -151,7 +157,29 @@
       "en:nutriscore-2021-same-as-2023",
       "en:nutriscore-2021-d-2023-d"
    ],
+   "nova_group" : 4,
+   "nova_group_debug" : "",
+   "nova_groups" : "4",
+   "nova_groups_markers" : {
+      "3" : [
+         [
+            "ingredients",
+            "en:sugar"
+         ]
+      ],
+      "4" : [
+         [
+            "additives",
+            "en:e951"
+         ]
+      ]
+   },
+   "nova_groups_tags" : [
+      "en:4-ultra-processed-food-and-drink-products"
+   ],
    "nucleotides_tags" : [],
+   "nutrient_levels" : {},
+   "nutrient_levels_tags" : [],
    "nutriments" : {
       "energy_prepared_100g" : 82,
       "fat_prepared_100g" : 0,
@@ -159,6 +187,9 @@
       "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 62.5,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 62.5,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 62.5,
+      "nova-group" : 4,
+      "nova-group_100g" : 4,
+      "nova-group_serving" : 4,
       "nutrition-score-fr" : 6,
       "nutrition-score-fr_100g" : 6,
       "proteins_prepared_100g" : 0,
@@ -223,6 +254,9 @@
                   },
                   {
                      "id" : "sugars",
+                     "new_grade" : "d",
+                     "new_score" : 7,
+                     "new_value" : 3.4,
                      "points" : 3,
                      "points_max" : 10,
                      "unit" : "g",
@@ -359,11 +393,17 @@
       "beverages",
       "known"
    ],
-   "pnns_groups_2" : "Sweetened beverages",
+   "pnns_groups_2" : "Artificially sweetened beverages",
    "pnns_groups_2_tags" : [
-      "sweetened-beverages",
+      "artificially-sweetened-beverages",
       "known"
    ],
+   "traces" : "",
+   "traces_from_ingredients" : "",
+   "traces_from_user" : "(en) ",
+   "traces_hierarchy" : [],
+   "traces_tags" : [],
    "unknown_ingredients_n" : 0,
+   "unknown_nutrients_tags" : [],
    "vitamins_tags" : []
 }
