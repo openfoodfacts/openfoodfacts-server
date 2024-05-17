@@ -11,8 +11,9 @@ use Log::Any::Adapter 'TAP';
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Tags qw/compute_field_tags/;
 use ProductOpener::Food qw/:all/;
+use ProductOpener::FoodProducts qw/:all/;
 use ProductOpener::ProducersFood qw/:all/;
-use ProductOpener::Ingredients qw/extract_ingredients_classes_from_text extract_ingredients_from_text/;
+use ProductOpener::Ingredients qw/extract_additives_from_text extract_ingredients_from_text/;
 use ProductOpener::Nutriscore
 	qw/compute_nutriscore_grade get_value_with_one_less_negative_point_2023 get_value_with_one_more_positive_point_2023/;
 use ProductOpener::NutritionCiqual qw/load_ciqual_data/;
@@ -899,15 +900,10 @@ foreach my $test_ref (@tests) {
 		}
 	}
 
-	# Compute Nutri-Score
-	fix_salt_equivalent($product_ref);
-	compute_serving_size_data($product_ref);
+	compute_nutrition_data_per_100g_and_per_serving($product_ref);
 	compute_field_tags($product_ref, $product_ref->{lc}, "categories");
-	extract_ingredients_from_text($product_ref);
-	extract_ingredients_classes_from_text($product_ref);
-	special_process_product($product_ref);
-	compute_estimated_nutrients($product_ref);
-	compute_nutriscore($product_ref);
+
+	specific_processes_for_food_product($product_ref);
 
 	# Detect possible improvements
 	detect_possible_improvements_nutriscore($product_ref, 2023);

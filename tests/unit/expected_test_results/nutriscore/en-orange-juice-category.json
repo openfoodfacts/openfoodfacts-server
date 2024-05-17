@@ -1,4 +1,9 @@
 {
+   "allergens" : "",
+   "allergens_from_ingredients" : "",
+   "allergens_from_user" : "(en) ",
+   "allergens_hierarchy" : [],
+   "allergens_tags" : [],
    "categories" : "orange juices",
    "categories_hierarchy" : [
       "en:beverages-and-beverages-preparations",
@@ -41,6 +46,7 @@
       "en:beverages",
       "en:fruit-juices"
    ],
+   "ingredients_lc" : "en",
    "lc" : "en",
    "misc_tags" : [
       "en:nutriscore-computed",
@@ -52,9 +58,26 @@
       "en:nutriscore-2021-same-as-2023",
       "en:nutriscore-2021-c-2023-c"
    ],
+   "nova_group_debug" : "no nova group when the product does not have ingredients",
+   "nova_group_error" : "missing_ingredients",
+   "nova_groups_tags" : [
+      "unknown"
+   ],
+   "nutrient_levels" : {
+      "fat" : "low",
+      "salt" : "moderate",
+      "saturated-fat" : "low",
+      "sugars" : "high"
+   },
+   "nutrient_levels_tags" : [
+      "en:fat-in-low-quantity",
+      "en:saturated-fat-in-low-quantity",
+      "en:sugars-in-high-quantity",
+      "en:salt-in-moderate-quantity"
+   ],
    "nutriments" : {
       "energy_100g" : 182,
-      "fat_100g" : 0,
+      "fat_100g" : "0",
       "fiber_100g" : 0.5,
       "nutrition-score-fr" : 5,
       "nutrition-score-fr_100g" : 5,
@@ -63,7 +86,7 @@
       "salt_100g" : 0.5,
       "salt_unit" : "g",
       "salt_value" : 0.5,
-      "saturated-fat_100g" : 0,
+      "saturated-fat_100g" : "0",
       "sodium_100g" : 0.2,
       "sodium_value" : 0.2,
       "sugars_100g" : 8.9
@@ -275,5 +298,11 @@
    "pnns_groups_2_tags" : [
       "fruit-juices",
       "known"
-   ]
+   ],
+   "traces" : "",
+   "traces_from_ingredients" : "",
+   "traces_from_user" : "(en) ",
+   "traces_hierarchy" : [],
+   "traces_tags" : [],
+   "unknown_nutrients_tags" : []
 }
