@@ -174,6 +174,7 @@ sub store_org ($org_ref) {
 			my $contact_id =  find_or_create_contact($user_ref);
 			defined $contact_id or die "Failed to get contact";
 			$user_ref->{crm_user_id} = $contact_id;
+			store_user($user_ref);
 
 			my $company_id =  find_or_create_company($org_ref, $contact_id);
 			defined $company_id or die "Failed to get company";
@@ -185,7 +186,6 @@ sub store_org ($org_ref) {
 
 			$org_ref->{crm_org_id} = $company_id;
 			$org_ref->{crm_opportunity_id} = $opportunity_id;
-			store_user($user_ref);
 			1;
 		} or do {
 			$org_ref->{valid_org} = 'unreviewed';

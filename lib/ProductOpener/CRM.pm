@@ -58,8 +58,9 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config2;
-use ProductOpener::Tags qw(%country_codes_reverse);
+use ProductOpener::Tags qw/%country_codes_reverse/;
 use ProductOpener::Users qw/retrieve_user store_user/;
+use ProductOpener::Orgs qw/is_user_in_org_group/;
 use XML::RPC;
 use Log::Any qw($log);
 
@@ -229,8 +230,9 @@ Set the off_org field of a contact to the org_id
 =cut
 
 sub link_org_with_company($org_ref, $company_id) {
-    my $req = odoo('res.partner', 'write', [[$company_id], {x_off_org_id => $org_ref->{org_id}, category_id => [[4, $odoo_tags{Producter}]]}]);
-    return $req;
+	my $user_ref = retrieve_user($org_ref->{main_contact});
+    my $req = odoo('res.partner', 'write', [[$company_id], {x_off_org_id => $org_ref->{org_id}, category_id => [[4, $odoo_tags{Producter}]], x_main_contact => $user_ref->{crm_user_id}}]);
+	return $req;
 }
 
 =head2 find_company ($name)
@@ -296,7 +298,7 @@ the id of the created company
 =cut
 
 sub create_company ($org_ref) {
-	my $main_contact_user_ref = retrieve_user($org_ref);
+	my $main_contact_user_ref = retrieve_user($org_ref->{main_contact});
 	my $company = {
 		name => 		$org_ref->{name}, 
 		phone => 		$org_ref->{phone},
@@ -305,10 +307,10 @@ sub create_company ($org_ref) {
 		category_id =>  [$odoo_tags{Producter}],  # "Producter" category id in odoo
 		is_company => 	1,
 		x_off_org_id => $org_ref->{org_id}, 
-		x_main_contact => $main_contact_user_ref->{x_off_org_id},
+		x_main_contact => $main_contact_user_ref->{crm_user_id},
 	};
 	my $company_id = odoo('res.partner', 'create', [{%$company}]);
-	$log->debug("create_company", {company_id => $company_id}) if $log->is_debug();
+	$log->debug("create_company", {company_id => $company_id, company => $company}) if $log->is_debug();
 	return $company_id;
 }
 
@@ -404,6 +406,7 @@ sub add_user_to_company($user_id, $company_id) {
 
 Change the main contact of a company, 
 based on the associated company and contact in the CRM of the given org and user.
+Will also update the main contact of the opportunity associated with the org.
 
 =head3 Arguments
 
