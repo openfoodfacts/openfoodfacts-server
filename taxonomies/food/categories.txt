@@ -54253,6 +54253,24 @@ ciqual_food_code:en:23008
 ciqual_food_name:en:Dessert, Opera cake type
 wikidata:en:Q1858875
 
+<en:Sweet pies
+en:Raspberries sponge cake, Sponge sandwich cake filled and topped with raspberries
+fr:Framboisier
+agribalyse_food_code:en:23009
+ciqual_food_code:en:23009
+ciqual_food_name:en:Sponge sandwich cake filled and topped with strawberries or raspberries
+ciqual_food_name:fr:Fraisier ou framboisier
+wikidata:en:Q3080422
+
+<en:Sweet pies
+en:Sponge sandwich cake filled and topped with strawberries
+fr:Fraisier
+agribalyse_food_code:en:23009
+ciqual_food_code:en:23009
+ciqual_food_name:en:Sponge sandwich cake filled and topped with strawberries or raspberries
+ciqual_food_name:fr:Fraisier ou framboisier
+wikidata:en:Q3080408
+
 <en:Fruits based foods
 en:Fruit salads
 bg:Плодови салати
@@ -61808,7 +61826,6 @@ fr:Sarrasin soufflé
 lt:Pūsti grikiai
 nl:Gepofte boekweit
 
-<en:Millet
 <en:Puffed cereals
 en:Puffed millet
 es:Mijo inflado, Mijo hinchado
@@ -61873,6 +61890,14 @@ vi:Twibap
 zh:米香
 wikidata:en:Q154092
 
+<en:Puffed rice
+en:Plain puffed rice
+fr:Riz soufflé nature
+
+<en:Puffed rice
+en:Sweetened puffed rice
+fr:Riz soufflé sucré
+
 # Coco pops
 <en:Chocolate cereals
 <en:Puffed rice
@@ -61914,6 +61939,27 @@ lt:Pūsti rugiai
 nl:Gepofte rogge
 
 <en:Puffed cereals
+en:Puffed spelt
+de:Puffdinkel
+es:Espelta inflada, Espelta hinchada
+fr:Épeautre soufflé
+it:Farro soffiato
+lt:Pūstos speltos
+nl:Gepofte spelt
+
+<en:Puffed spelt
+en:Plain puffed spelt
+fr:Épeautre soufflé nature
+
+<en:Puffed spelt
+en:Chocolate puffed spelt 
+fr:Épeautre soufflé chocolaté
+
+<en:Puffed spelt
+en:Honey puffed spelt
+fr:Épeautre soufflé au miel
+
+<en:Puffed cereals
 en:Puffed wheat
 es:Trigo inflado, Trigo hinchado
 fr:Blé soufflé
@@ -61931,31 +61977,23 @@ ciqual_food_name:en:Khorasan wheat, wholemeal, puffed/popped
 ciqual_food_name:fr:Blé khorasan complet soufflé
 
 <en:Puffed wheat
-en:Puffed spelt
-de:Puffdinkel
-es:Espelta inflada, Espelta hinchada
-fr:Épeautre soufflé
-it:Farro soffiato
-lt:Pūstos speltos
-nl:Gepofte spelt
+en:Plain puffed wheat
+fr:Blé soufflé nature
 
-# Puffed wheat grains
-
-<en:Puffed cereals
-en:Puffed wheat grains
-fr:Grains de blé soufflés
-lt:Pūsti kviečių grūdai
+<en:Puffed wheat
+en:Sweetened puffed wheat
+fr:Blé soufflé sucré
 agribalyse_proxy_food_code:en:32000
 agribalyse_proxy_food_name:en:Breakfast cereals, popped or puffed wheat grain, with honey or caramel, fortified with vitamins and chemical elements
 
 <en:Chocolate cereals
-<en:Puffed wheat grains
-en:Chocolate puffed wheat grains
-fr:Grains de blé soufflés chocolatés, Grains de blé soufflés au chocolat
+<en:Puffed wheat
+en:Chocolate puffed wheat, Chocolate puffed wheat grains
+fr:Blé soufflé chocolaté, Grains de blé soufflés chocolatés, Grains de blé soufflés au chocolat
 lt:Pūsti šokoladiniai kviečių grūdai
 
 <en:Breakfast cereals fortified with vitamins and chemical elements
-<en:Chocolate puffed wheat grains
+<en:Chocolate puffed wheat
 en:Chocolate puffed wheat grains fortified with vitamins and chemical elements, Chocolate popped wheat grains fortified with vitamins and chemical elements
 fr:Grains de blé soufflés chocolatés enrichis en vitamines et minéraux
 lt:Pūsti kviečių grūdai papildyti vitaminais ir mineralais
@@ -61964,26 +62002,26 @@ ciqual_food_code:en:32115
 ciqual_food_name:en:Breakfast cereals, chocolate puffed/popped wheat grain, fortified with vitamins and chemical elements
 ciqual_food_name:fr:Grains de blé soufflés chocolatés, enrichis en vitamines et minéraux
 
-<en:Puffed wheat grains
-en:Popped wheat grain with honey
-fr:Grains de blé soufflés au miel
+<en:Puffed wheat
+en:Puffed wheat with honey, Popped wheat grain with honey
+fr:Blé soufflé au miel, Grains de blé soufflés au miel
 agribalyse_proxy_food_code:en:32000
 agribalyse_proxy_food_name:en:Breakfast cereals, popped or puffed wheat grain, with honey or caramel, fortified with vitamins and chemical elements
 
-<en:Popped wheat grain with honey
+<en:Puffed wheat with honey
 en:Popped wheat grain with honey fortified with vitamins and chemical elements, Puffed wheat grain with honey fortified with vitamins and chemical elements
 fr:Grains de blé soufflés au miel enrichis en vitamines et minéraux
 agribalyse_food_code:en:32000
 ciqual_food_code:en:32000
 ciqual_food_name:en:Breakfast cereals, popped or puffed wheat grain, with honey or caramel, fortified with vitamins and chemical elements
 
-<en:Puffed wheat grains
-en:Popped wheat grain with caramel
-fr:Grains de blé soufflés au caramel
+<en:Puffed wheat
+en:Puffed wheat with caramel, Popped wheat grain with caramel
+fr:Blé soufflé au caramel, Grains de blé soufflés au caramel
 agribalyse_proxy_food_code:en:32000
 agribalyse_proxy_food_name:en:Breakfast cereals, popped or puffed wheat grain, with honey or caramel, fortified with vitamins and chemical elements
 
-<en:Puffed wheat grains
+<en:Puffed wheat with caramel
 en:Popped wheat grain with caramel fortified with vitamins and chemical elements, Puffed wheat grain with caramel fortified with vitamins and chemical elements
 fr:Grains de blé soufflés au caramel enrichis en vitamines et minéraux
 agribalyse_food_code:en:32000
@@ -92396,15 +92434,6 @@ nl:Frambozentaarten
 pt:Tartes de framboesa
 wikidata:en:Q47472036
 
-<en:Sweet pies
-en:Raspberries sponge cake, Sponge sandwich cake filled and topped with raspberries
-fr:Framboisier
-agribalyse_food_code:en:23009
-ciqual_food_code:en:23009
-ciqual_food_name:en:Sponge sandwich cake filled and topped with strawberries or raspberries
-ciqual_food_name:fr:Fraisier ou framboisier
-wikidata:en:Q3080422
-
 <en:Fruit tarts
 en:Blueberry pies, blueberry pie
 fi:Mustikkapiirakat, mustikkapiirakka
@@ -92423,15 +92452,6 @@ ciqual_food_code:en:23491
 ciqual_food_name:en:Strawberries tart
 ciqual_food_name:fr:Tarte aux fraises
 wikidata:en:Q149766
-
-<en:Sweet pies
-en:Sponge sandwich cake filled and topped with strawberries
-fr:Fraisier
-agribalyse_food_code:en:23009
-ciqual_food_code:en:23009
-ciqual_food_name:en:Sponge sandwich cake filled and topped with strawberries or raspberries
-ciqual_food_name:fr:Fraisier ou framboisier
-wikidata:en:Q3080408
 
 <en:Sweet pies
 en:Apple pies, Apple tarts
