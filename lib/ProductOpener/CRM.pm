@@ -51,6 +51,8 @@ BEGIN {
 		&create_opportunity
 		&add_user_to_company
 		&change_company_main_contact
+		&update_last_import_date
+		&update_last_export_date
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 
@@ -440,6 +442,25 @@ sub change_company_main_contact($org_ref, $user_id) {
 	$log->debug("change_company_main_contact", {org_id => $org_ref->{org_id}, userid => $user_id}) if $log->is_debug();
 	return $req_opportunity;
 }
+
+sub update_last_import_date($org_id, $time) {
+	update_last_company_action_date($org_id, $time, 'x_last_import_date');
+}
+
+sub update_last_export_date($org_id, $time) {
+	update_last_company_action_date($org_id, $time, 'x_last_export_date');
+}
+
+# refactor above function
+sub update_last_company_action_date($org_id, $time, $field) {
+	my $org_ref = retrieve_org($org_id);
+	my ($sec, $min, $hour, $mday, $mon, $year) = localtime($time);
+	$year += 1900;
+	$mon += 1;
+	my $date_string = sprintf("%04d-%02d-%02d", $year, $mon, $mday);
+	odoo('res.partner', 'write', [[$org_ref->{crm_org_id}], {$field => $date_string}]);
+}
+
 
 =head2 odoo (@params)
 

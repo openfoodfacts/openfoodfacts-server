@@ -36,6 +36,7 @@ use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/$lc lang/;
 use ProductOpener::Mail qw/:all/;
 use ProductOpener::Producers qw/convert_file get_minion load_csv_or_excel_file normalize_column_name/;
+use ProductOpener::CRM qw/update_last_import_date/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -125,6 +126,8 @@ defined $import_files_ref->{$file_id}{imports} or $import_files_ref->{$file_id}{
 
 my $started_t = time();
 my $import_id = $started_t;
+# sync CRM
+update_last_import_date($Org_id, $started_t);
 
 my $columns_fields_file = "$file.import.$import_id.columns_fields.sto";
 my $converted_file = "$file.import.$import_id.converted.csv";
