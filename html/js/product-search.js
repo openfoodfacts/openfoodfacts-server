@@ -401,7 +401,7 @@ function display_product_summary(target, product) {
 		// card_html will be either a <div> or a <a> element, depending on whether it is linked to a knowledge panel
 		let card_html = 'class="attribute_card grade_' + grade + '">' +
 			'<div><div class="attr_card_header">' +
-			'<div class="img_attr"><img src="' + attribute.icon_url + '" style="height:72px;float:right;margin-left:0.5rem;"></div>' +
+			'<div class="img_attr"><img src="' + attribute.icon_url + '" style="height:72px;float:right;margin-left:0.5rem;" alt="'+ attribute.name +' icon"></div>' +
 			'<div class="attr_text"><h4 class="grade_' + grade + '_title attr_title">' + attribute.title + '</h4>';
 
 		if (attribute.description_short) {
