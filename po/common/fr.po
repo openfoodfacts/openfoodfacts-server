@@ -2077,7 +2077,7 @@ msgstr "Sélectionner les produits suivant leur marque, catégories, labels, ori
 
 msgctxt "search_description_opensearch"
 msgid "Product search"
-msgstr ""
+msgstr "Recherche de produits"
 
 msgctxt "search_does_not_contain"
 msgid "does not contain"
@@ -2560,7 +2560,7 @@ msgstr "voir"
 
 msgctxt "view_this_revision"
 msgid "View this revision"
-msgstr ""
+msgstr "Voir cette révision"
 
 msgctxt "view_list_for_products_from_the_entire_world"
 msgid "View the list for matching products from the entire world"
@@ -3916,7 +3916,7 @@ msgstr "Les points pour les protéines sont comptés car le produit appartient �
 
 msgctxt "nutriscore_proteins_is_added_fat"
 msgid "The product is in the fats category, the points for saturated fat are replaced by the points for the saturated fat / fat ratio."
-msgstr "Le produit est dans la catégorie des matières grasses, les points pour les matières grasses saturées sont remplacés par les points pour le rapport entre les matières grasses saturées et les matières grasses."
+msgstr "Le produit est dans la catégorie des matières grasses, les points pour les acides gras saturés sont remplacés par les points pour le rapport entre les acides gras saturés et les matières grasses."
 
 msgctxt "nutriscore_points_for_energy"
 msgid "Energy"
@@ -3928,11 +3928,11 @@ msgstr "Sucres"
 
 msgctxt "nutriscore_points_for_saturated_fat"
 msgid "Saturated fat"
-msgstr "Graisses saturées"
+msgstr "Acides gras saturés"
 
 msgctxt "nutriscore_points_for_saturated_fat_ratio"
 msgid "Saturated fat / fat ratio"
-msgstr "Ratio matières grasses saturées / matières grasses"
+msgstr "Ratio acides gras saturés / matières grasses"
 
 msgctxt "nutriscore_points_for_sodium"
 msgid "Sodium"
@@ -4648,7 +4648,7 @@ msgstr "Le taux de graisse est pris en compte par le Nutri-Score. Utilisez ce pa
 
 msgctxt "attribute_low_saturated_fat_setting_note"
 msgid "The saturated fat level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low saturated fat diet."
-msgstr "Le taux de graisses saturées est pris en compte par le Nutri-Score. Utilisez ce paramètre uniquement si vous suivez un régime alimentaire faible en graisses saturées."
+msgstr "Le taux d'acides gras saturés est pris en compte par le Nutri-Score. Utilisez ce paramètre uniquement si vous suivez un régime alimentaire faible en acides gras saturés."
 
 msgctxt "attribute_group_allergens_name"
 msgid "Allergens"
@@ -6297,15 +6297,15 @@ msgstr "Choisissez des produits à faible teneur en sucre et réduisez la consom
 
 msgctxt "nutrient_info_fat_and_saturated_fat_risk"
 msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
-msgstr "Une consommation élevée de graisses, en particulier de graisses saturées, peut augmenter le cholestérol, ce qui augmente le risque de maladies cardiaques."
+msgstr "Une consommation élevée de matières grasses, en particulier d'acides gras saturés, peut augmenter le cholestérol, ce qui augmente le risque de maladies cardiaques."
 
 msgctxt "nutrient_recommendation_fat_and_saturated_fat_title"
 msgid "Reduce the consumption of fat and saturated fat"
-msgstr "Réduire la consommation de graisses et de graisses saturées"
+msgstr "Réduire la consommation de matières grasses et d'acides gras saturés"
 
 msgctxt "nutrient_recommendation_fat_and_saturated_fat"
 msgid "Choose products with lower fat and saturated fat content."
-msgstr "Choisissez des produits à faible teneur en graisses et en graisses saturées."
+msgstr "Choisissez des produits à faible teneur en matières grasses et acides gras saturés."
 
 msgctxt "sign_in"
 msgid "Sign in"
@@ -6570,7 +6570,7 @@ msgstr "Les sucres ne doivent pas être supérieurs aux glucides."
 
 msgctxt "product_js_saturated_fat_warning"
 msgid "Saturated fat should not be higher than fat."
-msgstr "Les graisses saturées ne doivent pas être plus élevées que les graisses."
+msgstr "Les acides gras saturés ne doivent pas être plus élevées que les matières grasses."
 
 msgctxt "packaging_materials"
 msgid "Packaging materials"
@@ -6646,7 +6646,7 @@ msgstr "Énergie"
 
 msgctxt "nutriscore_component_energy_from_saturated_fat"
 msgid "Energy from saturated fat"
-msgstr "Energie provenant des graisses saturées"
+msgstr "Energie provenant des acides gras saturés"
 
 msgctxt "nutriscore_component_sugars"
 msgid "Sugars"
@@ -6654,11 +6654,11 @@ msgstr "Sucres"
 
 msgctxt "nutriscore_component_saturated_fat"
 msgid "Saturated fat"
-msgstr "Graisses saturées"
+msgstr "Acides gras saturés"
 
 msgctxt "nutriscore_component_saturated_fat_ratio"
 msgid "Saturated fat / fat"
-msgstr "Matières grasses saturées / matières grasses"
+msgstr "Acides gras saturés / matières grasses"
 
 msgctxt "nutriscore_component_salt"
 msgid "Salt"
@@ -6670,7 +6670,7 @@ msgstr "Edulcorants non-nutritifs"
 
 msgctxt "nutriscore_component_fruits_vegetables_legumes"
 msgid "Fruits, vegetables and legumes"
-msgstr "Fruits, légumes et légumineuses"
+msgstr "Fruits, légumes et légumes secs"
 
 msgctxt "nutriscore_component_fiber"
 msgid "Fiber"
@@ -6734,7 +6734,7 @@ msgstr "Le Nutri-Score est un logo sur la qualité nutritionnelle globale des pr
 
 msgctxt "nutriscore_explanation_what_it_takes_into_account"
 msgid "The score from A to E is calculated based on nutrients and foods to favor (proteins, fiber, fruits, vegetables and legumes ...) and nutrients to limit (calories, saturated fat, sugars, salt)."
-msgstr "Le score de A à E est calculé en fonction des nutriments et aliments à favoriser (protéines, fibres, fruits et légumes, légumes secs…) et des nutriments à limiter (calories, matières grasses saturées, sucres, sel)."
+msgstr "Le score de A à E est calculé en fonction des nutriments et aliments à favoriser (protéines, fibres, fruits et légumes, légumes secs…) et des nutriments à limiter (calories, acides gras saturés, sucres, sel)."
 
 msgctxt "nutriscore_explanation_where_the_data_comes_from"
 msgid "The score is calculated from the data of the nutrition facts table and the composition data (fruits, vegetables and legumes)."
@@ -6754,15 +6754,15 @@ msgstr "Les apports énergétiques supérieurs aux besoins énergétiques sont a
 
 msgctxt "nutrient_info_saturated_fat_risk"
 msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
-msgstr "Une consommation élevée de graisses, en particulier de graisses saturées, peut augmenter le cholestérol, ce qui augmente le risque de maladies cardiaques."
+msgstr "Une consommation élevée de matières grasses, en particulier d'acides gras saturés, peut augmenter le cholestérol, ce qui augmente le risque de maladies cardiaques."
 
 msgctxt "nutrient_info_saturated_fat_ratio_risk"
 msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
-msgstr "Une consommation élevée de graisses, en particulier de graisses saturées, peut augmenter le cholestérol, ce qui augmente le risque de maladies cardiaques."
+msgstr "Une consommation élevée de matières grasses, en particulier d'acides gras saturés, peut augmenter le cholestérol, ce qui augmente le risque de maladies cardiaques."
 
 msgctxt "nutrient_info_energy_from_saturated_fat_risk"
 msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
-msgstr "Une consommation élevée de graisses, en particulier de graisses saturées, peut augmenter le cholestérol, ce qui augmente le risque de maladies cardiaques."
+msgstr "Une consommation élevée de matières grasses, en particulier d'acides gras saturés, peut augmenter le cholestérol, ce qui augmente le risque de maladies cardiaques."
 
 msgctxt "nutrient_info_non_nutritive_sweeteners_risk"
 msgid "Non-nutritive sweeteners may not confer any long-term benefit in reducing body fat in adults or children. There may be potential undesirable effects from long-term use of non-nutritive sweeteners, such as an increased risk of type 2 diabetes and cardiovascular diseases in adults."
@@ -6774,7 +6774,7 @@ msgstr "Consommer des aliments riches en fibres (notamment les aliments à grain
 
 msgctxt "nutrient_info_fruits_vegetables_legumes_benefit"
 msgid "Consuming foods rich in fruits, vegetables and legumes reduces the risks of aerodigestive cancers, cardiovascular diseases, obesity and diabetes."
-msgstr "Consommer des aliments riches en fruits, légumes et légumineuses réduit les risques de cancers aérodigestifs, de maladies cardiovasculaires, d’obésité et de diabète."
+msgstr "Consommer des aliments riches en fruits, légumes et légumes secs réduit les risques de cancers aérodigestifs, de maladies cardiovasculaires, d’obésité et de diabète."
 
 msgctxt "nutrient_info_proteins_benefit"
 msgid "Foods that are rich in proteins are usually rich in calcium or iron which are essential minerals with numerous health benefits."
@@ -6844,5 +6844,5 @@ msgstr "Description"
 
 msgctxt "skip_to_content"
 msgid "Skip to Content"
-msgstr ""
+msgstr "Aller au contenu"
 
