@@ -8385,20 +8385,21 @@ sub display_product_jqm ($request_ref) {    # jquerymobile
 	}
 
 	# Generate HTML for Nutri-Score and nutrient levels
-	my $template_data_nutriscore_ref = data_to_display_nutriscore($product_ref);
-	my $template_data_nutrient_levels_ref = data_to_display_nutrient_levels($product_ref);
+	my $template_data_nutriscore_and_nutrient_levels_ref = data_to_display_nutriscore_and_nutrient_levels($product_ref);
 
 	my $nutriscore_html = '';
 	my $nutrient_levels_html = '';
 
-	if (not $template_data_nutriscore_ref->{do_not_display}) {
+	if (not $template_data_nutriscore_and_nutrient_levels_ref->{do_not_display}) {
 
-		process_template('web/pages/product/includes/nutriscore.tt.html',
-			$template_data_nutriscore_ref, \$nutriscore_html)
-			|| return "template error: " . $tt->error();
+		process_template(
+			'web/pages/product/includes/nutriscore.tt.html',
+			$template_data_nutriscore_and_nutrient_levels_ref,
+			\$nutriscore_html
+		) || return "template error: " . $tt->error();
 		process_template(
 			'web/pages/product/includes/nutrient_levels.tt.html',
-			$template_data_nutrient_levels_ref,
+			$template_data_nutriscore_and_nutrient_levels_ref,
 			\$nutrient_levels_html
 		) || return "template error: " . $tt->error();
 	}
@@ -8467,12 +8468,12 @@ HTML
 
 		$html .= <<HTML
 <h4>$Lang{nova_groups_s}{$lc}
-<a href="https://world.openfoodfacts.org/nova" title="$a_title">
+<a href="https://world.openfoodfacts.org/nova" title="${$a_title}">
 @{[ display_icon('info') ]}</a>
 </h4>
 
 
-<a href="https://world.openfoodfacts.org/nova" title="$a_title"><img src="/images/misc/nova-group-$group.svg" alt="$display" style="margin-bottom:1rem;max-width:100%"></a><br>
+<a href="https://world.openfoodfacts.org/nova" title="${$a_title}"><img src="/images/misc/nova-group-$group.svg" alt="$display" style="margin-bottom:1rem;max-width:100%"></a><br>
 $display
 HTML
 			;
@@ -10184,21 +10185,9 @@ sub display_product_api ($request_ref) {
 
 	my $product_ref;
 
-	my $html;
-
 	my @app_fields = qw(product_name brands quantity);
 
 	my $request_lc = $request_ref->{lc};
-
-	my $has_jqm_param = single_param("jqm") ? 1 : 0;
-
-	my $template_data_ref = {
-		api_version => $request_ref->{api_version},
-		app_fields => \@app_fields,
-		request_lc => $request_lc,
-		Lang => \%Lang,
-		has_jqm_param => $has_jqm_param,
-	};
 
 	my $rev = single_param("rev");
 	local $log->context->{rev} = $rev;
@@ -10223,10 +10212,18 @@ sub display_product_api ($request_ref) {
 		$response{status} = 0;
 		$response{status_verbose} = 'product not found';
 
-		process_template('web/common/includes/display_product_api.tt.html', $template_data_ref, \$html)
-			|| return "template error: " . $tt->error();
-		$response{jqm} .= $html;
-
+		if (single_param("jqm")) {
+			my $template_data_ref = {
+				api_version => $request_ref->{api_version},
+				app_fields => \@app_fields,
+				request_lc => $request_lc,
+				Lang => \%Lang,
+			};
+			my $html;
+			process_template('web/common/includes/display_product_api.tt.html', $template_data_ref, \$html)
+				|| return "template error: " . $tt->error();
+			$response{jqm} .= $html;
+		}
 	}
 	else {
 		$response{status} = 1;

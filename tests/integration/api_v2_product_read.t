@@ -56,6 +56,13 @@ my $tests_ref = [
 		expected_status_code => 404,
 	},
 	{
+		test_case => 'get-unexisting-product-jqm',
+		method => 'GET',
+		query_string => '?jqm=1',
+		path => '/api/v2/product/12345678',
+		expected_status_code => 404,
+	},
+	{
 		test_case => 'get-existing-product',
 		method => 'GET',
 		path => '/api/v2/product/200000000034',

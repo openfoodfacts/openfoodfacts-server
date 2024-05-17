@@ -1,10 +1,7 @@
-
-[% IF has_jqm_param %]
-    [% Lang.app_please_take_pictures.$request_lc %]
-    <button onclick="captureImage();" data-icon="off-camera">[% Lang.app_take_a_picture.$request_lc %]</button>
-    <div id="upload_image_result"></div>
-    <p>[% Lang.app_take_a_picture_note.$request_lc %]</p>
-[% END %]
+[% Lang.app_please_take_pictures.$request_lc %]
+<button onclick="captureImage();" data-icon="off-camera">[% Lang.app_take_a_picture.$request_lc %]</button>
+<div id="upload_image_result"></div>
+<p>[% Lang.app_take_a_picture_note.$request_lc %]</p>
 
 [% IF api_version >= 0.1 %]
     <form id="product_fields" action="javascript:void(0);">
