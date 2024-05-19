@@ -85,84 +85,92 @@ def split_name_address(input_name_address: str, output: str) -> str:
         return address
 
 
-def read_all_csv() -> pl.dataframe.frame.DataFrame:
-    pdf_directory = '.'
+import os
+import polars as pl
 
+def read_csv_file(filename, pdf_directory) -> pl.dataframe.frame.DataFrame:
+    pdf_path = os.path.join(pdf_directory, filename)
+    df = pl.read_csv(filename, truncate_ragged_lines=True)
+    return df
+
+def process_dataframe(df) -> pl.dataframe.frame.DataFrame:
+    columns_to_drop = get_columns_to_drop(df)
+    df = df.drop(columns_to_drop)
+
+    df = remove_header_inside_column(df)
+
+    df = transform_column(df)
+
+    df = handle_split_columns(df)
+
+    df = remove_new_line_characters(df)
+
+    df = select_and_rename_columns(df)
+
+    df = filter_null_names(df)
+
+    df = append_suffix(df)
+
+    return df
+
+def get_columns_to_drop(df) -> list:
+    columns_to_drop = []
+    for i in range(len(df.columns)):
+        if df[df.columns[i]].null_count() == df[df.columns[i]].len():
+            columns_to_drop.append(df.columns[i])
+
+        if df[df.columns[i]].dtype == pl.String and (df[df.columns[i]].str.len_chars() == 0).all():
+            columns_to_drop.append(df.columns[i])
+
+    return columns_to_drop
+
+def remove_header_inside_column(df) -> pl.dataframe.frame.DataFrame:
+    return df.filter(pl.col(df.columns[1]) != df.columns[1])
+
+def transform_column(df) -> pl.dataframe.frame.DataFrame:
+    return df.with_columns(pl.col(df.columns[1]).map_elements(lambda x: "CY " + x if not x.startswith('CY') else x, return_dtype=str))
+                             .with_columns(pl.col(df.columns[1]).map_elements(lambda x: x.replace('CY', 'CY ') if not x.startswith('CY ') else x, return_dtype=str))
+
+def handle_split_columns(df) -> pl.dataframe.frame.DataFrame:
+    name_prefix = df[df.columns[1]].str.starts_with("CY").all()
+    name_length = (df[df.columns[1]].str.len_chars() == 3).all()
+    if name_prefix and name_length:
+        df = df.with_columns((pl.col(df.columns[1]) + " " + pl.col(df.columns[2])).alias(df.columns[1]))
+        df = df.drop(df.columns[2])
+    return df
+
+def remove_new_line_characters(df) -> pl.dataframe.frame.DataFrame:
+    for column in df.columns[1:4]:
+        df = df.with_columns(pl.col(column).str.replace_all('\n', ' ').str.replace_all('\r', ' ').str.replace_all('  ', ' '))
+    return df
+
+def select_and_rename_columns(df) -> pl.dataframe.frame.DataFrame:
+    df = df.select(df.columns[1:4])
+    new_column_names = ['code', 'name', 'address']
+    df = df.rename({i: j for i, j in zip(df.columns, new_column_names)})
+    return df
+
+def filter_null_names(df) -> pl.dataframe.frame.DataFrame:
+    return df.filter(pl.col('name').is_not_null())
+
+def append_suffix(df) -> pl.dataframe.frame.DataFrame:
+    return df.with_columns((pl.col(df.columns[0]) + " EK").alias(df.columns[0]))
+
+def read_all_csv(pdf_directory='.') -> pl.dataframe.frame.DataFrame:
     dfs = []
-
     for filename in os.listdir(pdf_directory):
         if filename.endswith('.csv') and filename != output_file:
             print(filename)
-
-            pdf_path = os.path.join(pdf_directory, filename)
-
             try:
-                df = pl.read_csv(filename, truncate_ragged_lines=True)
-
-                # remove empty columns (null, "")
-                columns_to_drop = []
-                for i in range(len(df.columns)):
-                    if df[df.columns[i]].null_count() == df[df.columns[i]].len():
-                        columns_to_drop.append(df.columns[i])
-
-                    # invalid series dtype: expected `String`, got `i64`
-                    if df[df.columns[i]].dtype == pl.String:
-                        if (df[df.columns[i]].str.len_chars() == 0).all():
-                            columns_to_drop.append(df.columns[i])
-                
-                df = df.drop(columns_to_drop)
-
-
-                # remove header inside column
-                df = df.filter(pl.col(df.columns[1]) != df.columns[1])
-
-                # transform 0022 to CY 0022 (EK)
-                df = df.with_columns(pl.col(df.columns[1]).map_elements(lambda x: "CY " + x if not x.startswith('CY') else x, return_dtype=str))
-                # make sure there is a space after CY
-                df = df.with_columns(pl.col(df.columns[1]).map_elements(lambda x: x.replace('CY', 'CY ') if not x.startswith('CY ') else x, return_dtype=str))                
-
-                # case CY and code are split in 2 columns
-                # set conditions to find these cases
-                name_prefix = df[df.columns[1]].str.starts_with("CY").all()
-                # 3 because we just added a space at the end before
-                name_length = (df[df.columns[1]].str.len_chars() == 3).all()
-                # apply changes if conditions are met
-                if name_prefix and name_length:
-                    df = df.with_columns((pl.col(df.columns[1]) + " " + pl.col(df.columns[2])).alias(df.columns[1]))
-                    df = df.drop(df.columns[2])
-
-                # remove new line characters
-                df = df.with_columns(pl.col(df.columns[1]).str.replace_all('\n', ' '))
-                df = df.with_columns(pl.col(df.columns[1]).str.replace_all('\r', ' '))
-                df = df.with_columns(pl.col(df.columns[1]).str.replace_all('  ', ' '))
-                df = df.with_columns(pl.col(df.columns[2]).str.replace_all('\n', ' '))
-                df = df.with_columns(pl.col(df.columns[2]).str.replace_all('\r', ' '))
-                df = df.with_columns(pl.col(df.columns[2]).str.replace_all('  ', ' '))
-                df = df.with_columns(pl.col(df.columns[3]).str.replace_all('\n', ' '))
-                df = df.with_columns(pl.col(df.columns[3]).str.replace_all('\r', ' '))
-                df = df.with_columns(pl.col(df.columns[3]).str.replace_all('  ', ' '))
-
-                df = df.select(df.columns[1:4])
-                new_column_names = ['code', 'name', 'address']
-                df = df.rename({i: j for i, j in zip(df.columns, new_column_names)})
-
-                # "9. fish and fishery products 9.1.2024Dataportal_tabula.csv" has a name that is empty
-                df = df.filter(pl.col('name').is_not_null())    
-
-                # append suffix EK at the end of the packaging codes
-                df = df.with_columns((pl.col(df.columns[0]) + " EK").alias(df.columns[0]))
-
+                df = read_csv_file(filename, pdf_directory)
+                df = process_dataframe(df)
                 dfs.append(df)
-
             except Exception as e:
                 print(f"Error processing {pdf_path}: {e}")
                 sys.exit(1)
 
-    # Concatenate all DataFrames into a single DataFrame
     result_df = pl.concat(dfs)
-
     return result_df
-
 
 
 output_file = 'CY-merge-UTF-8.csv'
