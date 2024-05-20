@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://openfoodfacts.github.io/openfoodfacts-server/reference/api-tutorials/adding-missing-products/">
+        <link rel="canonical" href="https://openfoodfacts.github.io/openfoodfacts-server/reference/api-tutorials/creating-a-local-cache-of-open-food-facts-data/">
       
       
-        <link rel="prev" href="../../../dev/ref-perl/">
+        <link rel="prev" href="../comparing-sodas/">
       
       
-        <link rel="next" href="../comparing-sodas/">
+        <link rel="next" href="../finding-healthy-cereals/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Adding missing products - Product Opener (Open Food Facts Server)</title>
+        <title>Creating a local cache of open food facts data - Product Opener (Open Food Facts Server)</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#authentication-and-header" class="md-skip">
+        <a href="#open-food-facts-local-caching-a-tutorial" class="md-skip">
           Skip to content
         </a>
       
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Adding missing products
+              Creating a local cache of open food facts data
             
           </span>
         </div>
@@ -1043,28 +1043,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Adding missing products
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../adding-missing-products/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1073,141 +1055,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#authentication-and-header" class="md-nav__link">
-    <span class="md-ellipsis">
-      Authentication and Header
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#adding-images-to-support-your-edit-and-get-machine-learning-predictions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Adding images to support your edit, and get machine learning predictions
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#sending-the-right-country-and-language-parameters-based-on-the-country-your-user-is-located-in-and-the-language-the-product-is-in" class="md-nav__link">
-    <span class="md-ellipsis">
-      Sending the right country and language parameters, based on the country your user is located in, and the language the product is in.
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#product-barcode" class="md-nav__link">
-    <span class="md-ellipsis">
-      Product Barcode
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#credentials" class="md-nav__link">
-    <span class="md-ellipsis">
-      Credentials
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#parameters" class="md-nav__link">
-    <span class="md-ellipsis">
-      Parameters
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#adding-additional-information-to-existing-fields" class="md-nav__link">
-    <span class="md-ellipsis">
-      Adding Additional Information to Existing Fields
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#adding-a-comment-to-your-write-request" class="md-nav__link">
-    <span class="md-ellipsis">
-      Adding a Comment to your WRITE request.
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#leveraging-robotoff-ml-predictions-to-simplify-life-for-your-users" class="md-nav__link">
-    <span class="md-ellipsis">
-      Leveraging Robotoff ML predictions to simplify life for your users
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#getting-your-users-to-check-ingredients-ocr-in-an-autonomous-fashion" class="md-nav__link">
-    <span class="md-ellipsis">
-      Getting your users to check ingredients OCR in an autonomous fashion
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#getting-your-users-to-input-nutrition-facts" class="md-nav__link">
-    <span class="md-ellipsis">
-      Getting your users to input nutrition facts
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#getting-your-users-to-input-packaging-data" class="md-nav__link">
-    <span class="md-ellipsis">
-      Getting your users to input packaging data
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#showing-the-result-of-their-work" class="md-nav__link">
-    <span class="md-ellipsis">
-      Showing the result of their work
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1238,10 +1085,28 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../creating-a-local-cache-of-open-food-facts-data/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Creating a local cache of open food facts data
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1250,6 +1115,111 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#open-food-facts-local-caching-a-tutorial" class="md-nav__link">
+    <span class="md-ellipsis">
+      Open Food Facts Local Caching: A Tutorial
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Open Food Facts Local Caching: A Tutorial">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-a-local-cache" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is a Local Cache?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#current-caching-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Current Caching Options
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#need-for-diverse-solutions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Need for Diverse Solutions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-not-to-cache" class="md-nav__link">
+    <span class="md-ellipsis">
+      When NOT to Cache
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#licensing-and-data-sharing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Licensing and Data Sharing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#challenges-of-cache-maintenance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Challenges of Cache Maintenance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#building-your-own-cache" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building Your Own Cache
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-involved" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get Involved!
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1547,119 +1517,89 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#authentication-and-header" class="md-nav__link">
+  <a href="#open-food-facts-local-caching-a-tutorial" class="md-nav__link">
     <span class="md-ellipsis">
-      Authentication and Header
+      Open Food Facts Local Caching: A Tutorial
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Open Food Facts Local Caching: A Tutorial">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-a-local-cache" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is a Local Cache?
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#adding-images-to-support-your-edit-and-get-machine-learning-predictions" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#current-caching-options" class="md-nav__link">
     <span class="md-ellipsis">
-      Adding images to support your edit, and get machine learning predictions
+      Current Caching Options
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#sending-the-right-country-and-language-parameters-based-on-the-country-your-user-is-located-in-and-the-language-the-product-is-in" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#need-for-diverse-solutions" class="md-nav__link">
     <span class="md-ellipsis">
-      Sending the right country and language parameters, based on the country your user is located in, and the language the product is in.
+      Need for Diverse Solutions
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#product-barcode" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#when-not-to-cache" class="md-nav__link">
     <span class="md-ellipsis">
-      Product Barcode
+      When NOT to Cache
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#credentials" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#licensing-and-data-sharing" class="md-nav__link">
     <span class="md-ellipsis">
-      Credentials
+      Licensing and Data Sharing
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#parameters" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#challenges-of-cache-maintenance" class="md-nav__link">
     <span class="md-ellipsis">
-      Parameters
+      Challenges of Cache Maintenance
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#adding-additional-information-to-existing-fields" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#building-your-own-cache" class="md-nav__link">
     <span class="md-ellipsis">
-      Adding Additional Information to Existing Fields
+      Building Your Own Cache
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#adding-a-comment-to-your-write-request" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#get-involved" class="md-nav__link">
     <span class="md-ellipsis">
-      Adding a Comment to your WRITE request.
+      Get Involved!
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#leveraging-robotoff-ml-predictions-to-simplify-life-for-your-users" class="md-nav__link">
-    <span class="md-ellipsis">
-      Leveraging Robotoff ML predictions to simplify life for your users
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#getting-your-users-to-check-ingredients-ocr-in-an-autonomous-fashion" class="md-nav__link">
-    <span class="md-ellipsis">
-      Getting your users to check ingredients OCR in an autonomous fashion
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#getting-your-users-to-input-nutrition-facts" class="md-nav__link">
-    <span class="md-ellipsis">
-      Getting your users to input nutrition facts
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#getting-your-users-to-input-packaging-data" class="md-nav__link">
-    <span class="md-ellipsis">
-      Getting your users to input packaging data
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#showing-the-result-of-their-work" class="md-nav__link">
-    <span class="md-ellipsis">
-      Showing the result of their work
-    </span>
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1681,81 +1621,43 @@
   
 
 
-  <h1>Adding missing products</h1>
+  <h1>Creating a local cache of open food facts data</h1>
 
-<p><strong>Dave</strong> regularly adds new products to the database and completes missing information via API calls. He has described the process below to show other developers how easy it is to contribute.</p>
-<hr />
-<h2 id="authentication-and-header">Authentication and Header<a class="headerlink" href="#authentication-and-header" title="Permanent link">#</a></h2>
-<p>If you have an app that makes POST calls and you don't want your users to authenticate in Open Food Facts, you can create a global account. Dave has created a global account for the app he is developing with the following credentials:</p>
+<h2 id="open-food-facts-local-caching-a-tutorial">Open Food Facts Local Caching: A Tutorial<a class="headerlink" href="#open-food-facts-local-caching-a-tutorial" title="Permanent link">#</a></h2>
+<p>Open Food Facts (OFF) offers a rich dataset of food product information. Creating a local cache can enhance performance for your heavy-duty applications. This tutorial will guide you through the process, considerations, and best practices.</p>
+<h3 id="what-is-a-local-cache">What is a Local Cache?<a class="headerlink" href="#what-is-a-local-cache" title="Permanent link">#</a></h3>
+<p>A local cache is a copy of OFF data stored directly on your system or server. This allows your application to retrieve information without constantly querying the main OFF API, improving speed and reliability.</p>
+<h3 id="current-caching-options">Current Caching Options<a class="headerlink" href="#current-caching-options" title="Permanent link">#</a></h3>
 <ul>
-<li><code>user_id</code>: myappname</li>
-<li><code>password</code>: 123456</li>
+<li><strong>FoodVisor Contributed (Python/MongoDB) backend:</strong> The FoodVisor startup contributed a few years ago <a href="https://github.com/openfoodfacts/openfoodfacts-apirestpython">a Python-based backend with a MongoDB export</a>, providing a solid starting point for caching in Python environments.</li>
+<li><strong>Project-Specific Caches:</strong> Several OFF projects like open-prices and robotoff have implemented local caches for their own needs. While not immediately reusable, they can serve as valuable references.</li>
+<li><strong>SDKs</strong> We have <a href="https://openfoodfacts.github.io/openfoodfacts-server/api/#sdks">a number of official SDKs</a> that can be leveraged as part of a caching backend. Please leverage and contribute to those 🙏</li>
+<li><strong>You can start a project within Open Food Facts to solve this</strong></li>
 </ul>
+<h3 id="need-for-diverse-solutions">Need for Diverse Solutions<a class="headerlink" href="#need-for-diverse-solutions" title="Permanent link">#</a></h3>
+<p>We encourage developers who feel the need for very intensive operations not driven by user scans to create local caching solutions in various programming languages. These can be integrated into your own projects, and if well-designed, have the potential to become official OFF backends.</p>
+<h3 id="when-not-to-cache">When NOT to Cache<a class="headerlink" href="#when-not-to-cache" title="Permanent link">#</a></h3>
+<p>For applications primarily focused on user-generated requests, a local cache may not be necessary. The OFF API can handle such many such requests efficiently, and direct API usage contributes to valuable scan statistics for the project.</p>
+<h3 id="licensing-and-data-sharing">Licensing and Data Sharing<a class="headerlink" href="#licensing-and-data-sharing" title="Permanent link">#</a></h3>
+<p>Even when using a local cache, you're still bound by the Open Database License (ODbL). <strong>Do not mix OFF data with external product data</strong>. All additions or modifications made to OFF data must be shared back to OFF, preferably through the WRITE API. Consider incorporating this functionality into your cache implementation.
+For more on legal issues, <a href="https://openfoodfacts.github.io/openfoodfacts-server/reference/api-tutorials/license-be-on-the-legal-side/">please read this page</a></p>
+<h3 id="challenges-of-cache-maintenance">Challenges of Cache Maintenance<a class="headerlink" href="#challenges-of-cache-maintenance" title="Permanent link">#</a></h3>
+<p>Maintaining a cache can be complex due to the dynamic nature of OFF data.</p>
 <ul>
-<li>For a complete reference on AUTH, please read: https://openfoodfacts.github.io/openfoodfacts-server/api/#authentication</li>
+<li><strong>Immediate Updates:</strong> Any writes to OFF data should first go through automatic moderation on your end (see our tutorial about this). After successful submission to OFF, your local cache should be immediately refreshed.</li>
+<li><strong>Real-Time Notifications (Future):</strong> Currently, there's no public API for real-time OFF updates stream. However, we have an internal system (REDIS) and are exploring options for a future 3rd party notification API. Express your interest by contacting <a href="mailto:reuse@openfoodfacts.org">reuse@openfoodfacts.org</a>.</li>
 </ul>
-<hr />
-<h2 id="adding-images-to-support-your-edit-and-get-machine-learning-predictions">Adding images to support your edit, and get machine learning predictions<a class="headerlink" href="#adding-images-to-support-your-edit-and-get-machine-learning-predictions" title="Permanent link">#</a></h2>
-<p>If you ask your users just one thing, it would be to send photos of the packaging (front, ingredients, nutrition, recycling, the more the better)<br>
-<a href="https://openfoodfacts.github.io/openfoodfacts-server/api/tutorial-uploading-photo-to-a-product/"> Please refer to our comprehensive tutorial on uploading images</a></p>
-<hr />
-<h2 id="sending-the-right-country-and-language-parameters-based-on-the-country-your-user-is-located-in-and-the-language-the-product-is-in">Sending the right country and language parameters, based on the country your user is located in, and the language the product is in.<a class="headerlink" href="#sending-the-right-country-and-language-parameters-based-on-the-country-your-user-is-located-in-and-the-language-the-product-is-in" title="Permanent link">#</a></h2>
-<p>Traditionnaly we advised to define the subdomain for the query as <code>us</code>. The subdomain automatically defines the country code (<code>cc</code>) and language of the interface (<code>lc</code>). The country code determines that only the products sold in the US are displayed. The language of the interface for the country code US is English.<br>
-In this case:
-<a href="https://us.openfoodfacts.org/cgi/product_jqm2.pl?​​​​​​​">https://us.openfoodfacts.org/cgi/product_jqm2.pl?​​​​​​​</a></p>
-<p>We now advise to pass the cc and lc parameters within the query, and to limit assumptions as much as you can, especially in bilingual countries (e.g. Belgium, the US…) but also other countries (some products can be imported).
-Ideally, your UI or some heuristic (traditional or using ML) on your side should determine which language(s) the data you send is in (e.g. for multilingual products, send the French ingredient list as a French ingredient list).
-We perform OCR on incoming images (even non selected ones), and make the JSON available immediately, so you can either leverage that (you upload the image, and then you select them in a second step, based on the OCR output from the Open Food Facts image server), or use on device ML to determine the proper language to send the call in.</p>
-<p><a href="https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#cmp--parameters-cc">New documentation for cc and lc parameters​​​​​​​</a></p>
-<p><a href="https://images.openfoodfacts.org/images/products/26073347/2.jpg">Sample image</a> and <a href="https://images.openfoodfacts.org/images/products/26073347/2.json">sample JSON</a> you can base your heuristic on.</p>
-<hr />
-<h2 id="product-barcode">Product Barcode<a class="headerlink" href="#product-barcode" title="Permanent link">#</a></h2>
-<p>After the version number, the word <code>code</code>, followed by its barcode must be added:</p>
-<p><a href="https://us.openfoodfacts.org/cgi/product_jqm2.pl?code=0074570036004">https://us.openfoodfacts.org/cgi/product_jqm2.pl?code=0074570036004</a></p>
-<hr />
-<h2 id="credentials">Credentials<a class="headerlink" href="#credentials" title="Permanent link">#</a></h2>
-<p>Dave adds his user credentials to the call as follows:</p>
-<p><a href="https://us.openfoodfacts.org/cgi/product_jqm2.pl?code=0074570036004&amp;user_id=myappname&amp;password=">https://us.openfoodfacts.org/cgi/product_jqm2.pl?code=0074570036004&amp;user_id=myappname&amp;password=</a>**</p>
-<hr />
-<h2 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">#</a></h2>
-<p>You can define one or more parameters to add, for example, the brand and the Kosher label:</p>
-<ul>
-<li><code>brands</code>: Häagen-Dazs</li>
-<li><code>labels</code>: kosher</li>
-</ul>
-<p>The call looks like this:</p>
-<p><code>POST https://us.openfoodfacts.org/cgi/product_jqm2.pl?code=0074570036004&amp;user_id=test&amp;password=test&amp;brands=Häagen-Dazs&amp;labels=kosher</code></p>
-<p>We strongly advise to use add_brands and add_labels instead, even on new products, to reduce the potential of your users or your API destroying data by mistake. brands or labels should be used if and only if you retrieve existing values, show them to your users, let them adjust them, and resend the whole dict with the proper format.</p>
-<hr />
-<h2 id="adding-additional-information-to-existing-fields">Adding Additional Information to Existing Fields<a class="headerlink" href="#adding-additional-information-to-existing-fields" title="Permanent link">#</a></h2>
-<p>To add additional information to existing parameters, add the prefix <code>add_</code> to the parameter name.</p>
-<p><strong>Important!</strong> If you don't use the <code>add_</code> prefix, the existing values will be deleted.</p>
-<p><strong>Example</strong></p>
-<p><code>POST https://us.openfoodfacts.org/cgi/product_jqm2.pl?code=0074570036004&amp;user_id=test&amp;password=test&amp;add_categories=Desserts</code></p>
-<p>To see the complete list of parameters, see the <strong>Parameters</strong> section.</p>
-<hr />
-<h2 id="adding-a-comment-to-your-write-request">Adding a Comment to your WRITE request.<a class="headerlink" href="#adding-a-comment-to-your-write-request" title="Permanent link">#</a></h2>
-<p>Use the <code>comment</code> parameter to add the id of the user editing the product. The id should not contain any personal data.</p>
-<p><strong>Important!</strong> The user id is not the identifier of an Open Food facts user, but the id generated by your system.</p>
-<p>It should be structured as: user-agent + user-id.</p>
-<p><strong>Example</strong></p>
-<p><code>comment=Edit by a Healthy Choices 1.2 iOS user - SxGFRZkFwdytsK2NYaDg4MzRVenNvUEI4LzU2a2JWK05LZkFRSWc9PQ</code></p>
-<hr />
-<h2 id="leveraging-robotoff-ml-predictions-to-simplify-life-for-your-users">Leveraging Robotoff ML predictions to simplify life for your users<a class="headerlink" href="#leveraging-robotoff-ml-predictions-to-simplify-life-for-your-users" title="Permanent link">#</a></h2>
-<p>Leveraging Robotoff prediction to simplify life for your users: https://openfoodfacts.github.io/openfoodfacts-server/api/intro-robotoff/
-You can get a category prediction from images (useful for Nutri-Score and Eco-Score), you can get quality labels prediction, brand predictions, weight predictions from images.
-To achieve this you need the upload image section above. Adding data like product name, ingredients and nutrition can help, but some predictions can be done with just images.</p>
-<h2 id="getting-your-users-to-check-ingredients-ocr-in-an-autonomous-fashion">Getting your users to check ingredients OCR in an autonomous fashion<a class="headerlink" href="#getting-your-users-to-check-ingredients-ocr-in-an-autonomous-fashion" title="Permanent link">#</a></h2>
-<p>Getting your users to check ingredients OCR in an autonomous fashion: https://openfoodfacts.github.io/openfoodfacts-server/reference/api-tutorials/get-ingredient-related-analysis/</p>
-<h2 id="getting-your-users-to-input-nutrition-facts">Getting your users to input nutrition facts<a class="headerlink" href="#getting-your-users-to-input-nutrition-facts" title="Permanent link">#</a></h2>
-<p>Getting your users to input nutrition facts: https://openfoodfacts.github.io/openfoodfacts-server/dev/explain-nutrition-data/</p>
-<h2 id="getting-your-users-to-input-packaging-data">Getting your users to input packaging data<a class="headerlink" href="#getting-your-users-to-input-packaging-data" title="Permanent link">#</a></h2>
-<p>Getting your users to input packaging data: https://openfoodfacts.github.io/openfoodfacts-server/dev/explain-packaging-data/</p>
-<h2 id="showing-the-result-of-their-work">Showing the result of their work<a class="headerlink" href="#showing-the-result-of-their-work" title="Permanent link">#</a></h2>
-<ul>
-<li>You can then reload the product, potentially using Knowledge Panels, to show the rewarding result of their work.</li>
-<li>Make sure to congratulate them each time for their contribution to Open Food Facts and the common good.</li>
-</ul>
+<h3 id="building-your-own-cache">Building Your Own Cache<a class="headerlink" href="#building-your-own-cache" title="Permanent link">#</a></h3>
+<ol>
+<li><strong>Choose Your Technology:</strong> Select a database or storage mechanism suitable for your language and project needs.</li>
+<li><strong>Data Structure:</strong> Design a structure to efficiently store product information, categories, ingredients, etc.</li>
+<li><strong>Synchronization:</strong> Develop processes to regularly fetch updates from the OFF API and refresh your cache.</li>
+<li><strong>Data Validation:</strong> Implement mechanisms to validate the accuracy and integrity of the cached data.</li>
+<li><strong>Sharing Back:</strong> Integrate the OFF WRITE API to automatically share any new or modified data.</li>
+</ol>
+<h3 id="get-involved">Get Involved!<a class="headerlink" href="#get-involved" title="Permanent link">#</a></h3>
+<p>If you're building a local cache, we'd love to hear about it! Your contribution can benefit the entire OFF community. By sharing your solution, you have the opportunity to make it an official OFF backend.</p>
+<p>Let's work together to make Open Food Facts data even more accessible and useful!</p>
 
 
 
