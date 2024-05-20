@@ -75,6 +75,9 @@ use Text::CSV();
 use Math::Round;
 use Data::DeepAccess qw(deep_get deep_exists);
 
+my $agribalyse_data_loaded = 0;
+my $ecoscore_data_loaded = 0;
+
 %agribalyse = ();
 
 =head1 VARIABLES
@@ -107,6 +110,7 @@ Loads the AgriBalyse database.
 =cut
 
 sub load_agribalyse_data() {
+
 	my $agribalyse_details_by_step_csv_file = $data_root . "/external-data/ecoscore/agribalyse/AGRIBALYSE_vf.csv.2";
 
 	my $rows_ref = [];
@@ -165,6 +169,9 @@ sub load_agribalyse_data() {
 	else {
 		die("Could not open agribalyse CSV $agribalyse_details_by_step_csv_file: $!");
 	}
+
+	$agribalyse_data_loaded = 1;
+
 	return;
 }
 
@@ -665,6 +672,8 @@ sub load_ecoscore_data() {
 
 	load_ecoscore_data_origins_of_ingredients();
 	load_ecoscore_data_packaging();
+
+	$ecoscore_data_loaded = 1;
 	return;
 }
 
@@ -689,6 +698,15 @@ Returned values:
 =cut
 
 sub compute_ecoscore ($product_ref) {
+
+	# Some test cases do not load the Eco-Score data (e.g. food.t) as they don't test the Eco-Score
+	# but compute_ecoscore() is still called by specific_processes_for_food_product($product_ref);
+	# So we check if the data is loaded, and do not compute the Eco-Score if not loaded
+	if (not($ecoscore_data_loaded and $agribalyse_data_loaded)) {
+		$log->warn("Eco-Score data not loaded, cannot compute Eco-Score") if $log->is_warn();
+		return;
+	}
+
 	my $old_ecoscore_data = $product_ref->{ecoscore_data};
 	my $old_agribalyse = $old_ecoscore_data->{agribalyse};
 	my $old_ecoscore_grade = $old_ecoscore_data->{grade};

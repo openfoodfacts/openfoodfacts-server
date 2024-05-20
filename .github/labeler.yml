@@ -114,6 +114,7 @@ WikiData:
   - any-glob-to-any-file: 'scripts/gen_feeds_daily_opff.sh'
   - any-glob-to-any-file: 'lib/ProductOpener/Config_opff.pm'
   - any-glob-to-any-file: 'conf/nginx/snippets/ssl-params-opff.conf'
+  - any-glob-to-any-file: 'docs/reference/api-tutorials/scanning-cosmetics-pet-food-and-other-products.md'
 
 # Our cosmetic analysis project https://world.openbeautyfacts.org
 # Open Beauty Facts is a specialized install of Product Opener. The deployed version is a very old codebase, 2 years old.
@@ -158,7 +159,8 @@ WikiData:
   - any-glob-to-any-file: 'taxonomies/beauty/inci_functions.result.sto'
   - any-glob-to-any-file: 'tests/unit/expected_test_results/import_gs1/equadis_unilever_obf_signal.off.json'
   - any-glob-to-any-file: 'tests/unit/expected_test_results/import_gs1/equadis_unilever_obf_signal.json'
-
+  - any-glob-to-any-file: 'docs/reference/api-tutorials/scanning-cosmetics-pet-food-and-other-products.md'
+  
 # Open Products Facts is our platform for other platform. We plan to turn it into the data platform to facilitate circular behaviors (buy, maintain, repare, donate, resale)
 # Open Products Facts is a specialized install of Product Opener that tackles all products OFF, OBF or OPFF are not tackling. 
 # http://world.openproductsfacts.org/ 
@@ -178,7 +180,8 @@ WikiData:
   - any-glob-to-any-file: 'scripts/gen_feeds_daily_opf.sh'
   - any-glob-to-any-file: 'lib/ProductOpener/Config_opf.pm'
   - any-glob-to-any-file: 'taxonomies/products/unspsc.txt'
-
+  - any-glob-to-any-file: 'docs/reference/api-tutorials/scanning-cosmetics-pet-food-and-other-products.md'
+  
 Icons:
 - changed-files:
   - any-glob-to-any-file: 'icons/**/*'
@@ -295,6 +298,7 @@ Attributes:
   - any-glob-to-any-file: 'tests/unit/data_quality_tags_panel.t'
   - any-glob-to-any-file: 'tests/unit/dataquality.t'
   - any-glob-to-any-file: 'tests/unit/dataqualityfood.t'
+  - any-glob-to-any-file: 'docs/reference/api-tutorials/how-to-create-data-quality-controls-in-your-app.md'
   
 # One of the facets available in Open Food Facts is /quality & allows us to spot products w/ bad data
 # 🧽 Quality facet:
@@ -334,7 +338,8 @@ Display:
   - any-glob-to-any-file: 'templates/api/knowledge-panels/environment/packaging_recycling.tt.json'
   - any-glob-to-any-file: 'templates/api/knowledge-panels/environment/origins_of_ingredients.tt.json'
   - any-glob-to-any-file: 'templates/api/knowledge-panels/environment/ecoscore/threatened_species.tt.json'
-
+  - any-glob-to-any-file: 'docs/reference/api-tutorials/get-the-ecoscore.md'
+  
 # French Lifecycle Analysis for Food (LCA) database used in Eco-Score computations
 # https://doc.agribalyse.fr/documentation
 Agribalyse:
@@ -478,6 +483,11 @@ Categories:
 - changed-files:
   - any-glob-to-any-file: 'taxonomies/food/categories.txt'
 
+# Brands are not yet taxonomized, thus brands taxonomy is in the unused folder.
+brands:
+- changed-files:
+  - any-glob-to-any-file: 'taxonomies/unused/brands.txt'
+
 # Origins are used for Eco-Score computation. We want to have structured origins.
 # Tracking issue: 
 📍 Origins:
@@ -543,6 +553,7 @@ Categories:
   - any-glob-to-any-file: 'tests/integration/expected_test_results/api_v3_product_read/get-knowledge-panels-fr.json'
   - any-glob-to-any-file: 'docs/api/ref/schemas/knowledge_panels/**'
   - any-glob-to-any-file: 'lib/ProductOpener/KnowledgePanelsTags.pm'
+  - any-glob-to-any-file: 'docs/api/explain-knowledge-panels.md'
 
 # Tracking issue: 
 Serving size:
@@ -598,6 +609,7 @@ Numbers:
   - any-glob-to-any-file: 'tests/unit/ingredients_nutriscore.t'
   - any-glob-to-any-file: 'tests/unit/ingredients_nutriscore.t'
   - any-glob-to-any-file: 'scripts/add_nutriscore_to_scanbot_csv.pl'
+  - any-glob-to-any-file: 'docs/introduction/get-the-nutriscore.md'
 
 # https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Orgs.html
 🏭 Orgs:
@@ -1009,6 +1021,7 @@ Nova - Ultra-processed foods:
   - any-glob-to-any-file: 'html/images/misc/nova-dark-mode/nova-group-4-dark.svg'
   - any-glob-to-any-file: 'taxonomies/nova_groups.txt'
   - any-glob-to-any-file: 'html/images/attributes/src/nova-group-unknown.svg'
+  - any-glob-to-any-file: 'docs/reference/api-tutorials/get-ingredient-related-analysis.md'
 
 # Related to NOVA
 Ingredients processing:
@@ -1341,6 +1354,11 @@ systemd:
 - changed-files:
   - any-glob-to-any-file: 'conf/systemd/gen_feeds_daily@.service'
   - any-glob-to-any-file: 'conf/systemd/gen_feeds@.service'
+
+# See prices.openfoodfacts.org
+💸 Prices:
+- changed-files:
+  - any-glob-to-any-file: 'docs/reference/api-tutorials/product-prices.md'
 
 # Accessibility
 # This project has been made to track the status of our compliance with this [Report](https://github.com/openfoodfacts/openfoodfacts-server/files/5702582/Report.OpenFoodFact.15-12-2020.pdf) that tracks how accessible Open Food Facts is.

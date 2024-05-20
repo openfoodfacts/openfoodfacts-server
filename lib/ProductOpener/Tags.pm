@@ -2638,7 +2638,7 @@ sub init_countries() {
 	%country_codes_reverse = ();
 	%country_languages = ();
 
-	foreach my $country (keys %{$properties{countries}}) {
+	foreach my $country (sort keys %{$properties{countries}}) {
 
 		my $cc = country_to_cc($country);
 		if (not(defined $cc)) {
@@ -2659,9 +2659,11 @@ sub init_countries() {
 				my $nameid = get_string_id_for_lang("no_language", $name);
 				if (not defined $country_names{$nameid}) {
 					$country_names{$nameid} = [$cc, $country, $language];
-					# print STDERR "country_names{$nameid} = [$cc, $country, $language]\n";
 				}
 			}
+		}
+		else {
+			$log->warn("No language_codes:en for country $country") if $log->is_warn();
 		}
 	}
 	return;
@@ -3168,8 +3170,9 @@ sub display_tags_list ($tagtype, $tags_list) {
 			if ($img =~ /\.(\d+)x(\d+)/) {
 				$size = " width=\"$1\" height=\"$2\"";
 			}
+			my $alt = display_taxonomy_tag_name($lc, $tagtype, $tag);
 			$images .= <<HTML
-<img src="/images/lang/$lc/$tagtype/$img"$size/ style="display:inline">
+<img src="/images/lang/$lc/$tagtype/$img"$size/ style="display:inline" alt="$alt">
 HTML
 				;
 		}
@@ -3282,9 +3285,9 @@ sub display_tags_hierarchy ($tagtype, $tags_ref) {
 					$size = " width=\"$1\" height=\"$2\"";
 				}
 				# print STDERR "abbio - lc: $lc - tagtype: $tagtype - tag: $tag - img: $img\n";
-
+				my $alt = display_taxonomy_tag_name($lc, $tagtype, $tag);
 				$images .= <<HTML
-<img src="/images/lang/$lc/$tagtype/$img"$size/ style="display:inline">
+<img src="/images/lang/$lc/$tagtype/$img"$size/ style="display:inline" atl="$alt">
 HTML
 					;
 			}
@@ -3381,8 +3384,10 @@ sub display_tags_hierarchy_taxonomy ($target_lc, $tagtype, $tags_ref) {
 				if ($img =~ /\.(\d+)x(\d+)/) {
 					$size = " width=\"$1\" height=\"$2\"";
 				}
+				my $alt = display_taxonomy_tag_name($target_lc, $tagtype, $tag);
+
 				$images .= <<HTML
-<img src="$img"$size/ style="display:inline">
+<img src="$img"$size/ style="display:inline" alt="$alt">
 HTML
 					;
 			}

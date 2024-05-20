@@ -620,6 +620,13 @@ sub init_request ($request_ref = {}) {
 	# If deny_all_robots_txt=1, serve a version of robots.txt where all agents are denied access (Disallow: /)
 	$request_ref->{deny_all_robots_txt} = 0;
 
+	# For denied crawl bots, also send Disallow: / in robots.txt
+	if ($request_ref->{is_denied_crawl_bot}) {
+		$log->info("init_request - denied crawl bot", {user_agent => $request_ref->{user_agent}}) if $log->is_info();
+		$request_ref->{no_index} = 1;
+		$request_ref->{deny_all_robots_txt} = 1;
+	}
+
 	# TODO: global variables should be moved to $request_ref
 	$styles = '';
 	$scripts = '';
@@ -808,7 +815,7 @@ sub init_request ($request_ref = {}) {
 		# Use robots.txt with disallow: / for all agents
 		$request_ref->{deny_all_robots_txt} = 1;
 
-		if ($request_ref->{is_crawl_bot} eq 1) {
+		if ($request_ref->{is_crawl_bot}) {
 			$request_ref->{no_index} = 1;
 		}
 	}
@@ -992,12 +999,12 @@ sub set_user_agent_request_ref_attributes ($request_ref) {
 	my $is_crawl_bot = 0;
 	my $is_denied_crawl_bot = 0;
 	if ($user_agent_str
-		=~ /\b(Googlebot|Googlebot-Image|Google-InspectionTool|bingbot|Applebot|Yandex|DuckDuck|DotBot|Seekport|Ahrefs|DataForSeo|Seznam|ZoomBot|Mojeek|QRbot|Qwant|facebookexternalhit|Bytespider|GPTBot|SEOkicks|Searchmetrics|MJ12|SurveyBot|SEOdiver|wotbox|Cliqz|Paracrawl|Scrapy|VelenPublicWebCrawler|Semrush|MegaIndex\.ru|Amazon|aiohttp|python-request)/i
+		=~ /\b(Googlebot|Googlebot-Image|Google-InspectionTool|bingbot|Applebot|Yandex|DuckDuck|DotBot|Seekport|Ahrefs|DataForSeo|Seznam|ZoomBot|Mojeek|QRbot|Qwant|facebookexternalhit|Bytespider|GPTBot|ClaudeBot|SEOkicks|Searchmetrics|MJ12|SurveyBot|SEOdiver|wotbox|Cliqz|Paracrawl|Scrapy|VelenPublicWebCrawler|Semrush|MegaIndex\.ru|Amazon|aiohttp|python-request)/i
 		)
 	{
 		$is_crawl_bot = 1;
 		if ($user_agent_str
-			=~ /\b(bingbot|Seekport|Ahrefs|DataForSeo|Seznam|ZoomBot|Mojeek|QRbot|Bytespider|SEOkicks|Searchmetrics|MJ12|SurveyBot|SEOdiver|wotbox|Cliqz|Paracrawl|Scrapy|VelenPublicWebCrawler|Semrush|MegaIndex\.ru|YandexMarket|Amazon)/
+			=~ /\b(bingbot|Seekport|Ahrefs|DataForSeo|Seznam|ZoomBot|Mojeek|QRbot|Bytespider|SEOkicks|Searchmetrics|MJ12|SurveyBot|SEOdiver|wotbox|Cliqz|Paracrawl|Scrapy|VelenPublicWebCrawler|Semrush|MegaIndex\.ru|YandexMarket|Amazon|ClaudeBot)/
 			)
 		{
 			$is_denied_crawl_bot = 1;
@@ -1005,6 +1012,14 @@ sub set_user_agent_request_ref_attributes ($request_ref) {
 	}
 	$request_ref->{is_crawl_bot} = $is_crawl_bot;
 	$request_ref->{is_denied_crawl_bot} = $is_denied_crawl_bot;
+	$log->debug(
+		"set_user_agent_request_ref_attributes",
+		{
+			user_agent => $user_agent_str,
+			is_crawl_bot => $is_crawl_bot,
+			is_denied_crawl_bot => $is_denied_crawl_bot
+		}
+	) if $log->is_debug();
 	return;
 }
 
@@ -3879,9 +3894,27 @@ sub display_tag ($request_ref) {
 					push @markers, \@geo;
 				}
 
+				if ($packager_codes{$canon_tagid}{cc} eq 'at') {
+					$description .= <<HTML
+<p>$packager_codes{$canon_tagid}{name}<br>
+$packager_codes{$canon_tagid}{address} (Österreich)
+</p>
+HTML
+						;
+				}
+
 				if ($packager_codes{$canon_tagid}{cc} eq 'ch') {
 					$description .= <<HTML
 <p>$packager_codes{$canon_tagid}{full_address}</p>
+HTML
+						;
+				}
+
+				if ($packager_codes{$canon_tagid}{cc} eq 'cy') {
+					$description .= <<HTML
+<p>$packager_codes{$canon_tagid}{name}<br>
+$packager_codes{$canon_tagid}{address} (Cyprus)
+</p>
 HTML
 						;
 				}
@@ -4367,8 +4400,7 @@ sub display_search_results ($request_ref) {
 	$current_link =~ s/^\&/\?/;
 	$current_link = "/search" . $current_link;
 
-	if ((defined single_param("user_preferences")) and (single_param("user_preferences")) and not($request_ref->{api}))
-	{
+	if (not($request_ref->{api})) {
 
 		# The results will be filtered and ranked on the client side
 
@@ -4910,7 +4942,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		$limit = $request_ref->{page_size};
 	}
 	# If user preferences are turned on, return 100 products per page
-	elsif ((not defined $request_ref->{api}) and ($request_ref->{user_preferences})) {
+	elsif (not defined $request_ref->{api}) {
 		$limit = 100;
 	}
 	else {
@@ -5074,7 +5106,6 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 	{
 		$fields_ref = {};
 	}
-	# - if we use user preferences, we need a lot of fields to compute product attributes: load them all
 	elsif ($request_ref->{user_preferences}) {
 		# we restrict the fields that are queried to MongoDB, and use the basic ones and those necessary
 		# by Attributes.pm to compute attributes.
@@ -5107,7 +5138,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 			"nova_group" => 1,
 			"nutrient_levels" => 1,
 			"nutriments" => 1,
-			"nutriscore_data" => 1,
+			"nutriscore" => 1,
 			"nutriscore_grade" => 1,
 			"nutrition_grades" => 1,
 			"traces_tags" => 1,
@@ -5349,7 +5380,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		# For non API queries with user preferences, we need to add attributes
 		# For non API queries, we need to compute attributes for personal search
 		my $fields;
-		if ((not defined $request_ref->{api}) and ($request_ref->{user_preferences})) {
+		if (not defined $request_ref->{api}) {
 			$fields = "code,product_display_name,url,image_front_small_url,attribute_groups";
 		}
 		else {
@@ -5403,25 +5434,22 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		$html =~ s/(href|src)=("\/)/$1="$formatted_subdomain\//g;
 	}
 
-	if ($request_ref->{user_preferences}) {
+	my $preferences_text = sprintf(lang("classify_the_d_products_below_according_to_your_preferences"), $page_count);
 
-		my $preferences_text
-			= sprintf(lang("classify_the_d_products_below_according_to_your_preferences"), $page_count);
+	my $products_json = '[]';
 
-		my $products_json = '[]';
+	if (defined $request_ref->{structured_response}{products}) {
+		$products_json = $json->encode($request_ref->{structured_response}{products});
+	}
 
-		if (defined $request_ref->{structured_response}{products}) {
-			$products_json = $json->encode($request_ref->{structured_response}{products});
+	my $contributor_prefs_json = $json->encode(
+		{
+			display_barcode => $User{display_barcode},
+			edit_link => $User{edit_link},
 		}
+	);
 
-		my $contributor_prefs_json = $json->encode(
-			{
-				display_barcode => $User{display_barcode},
-				edit_link => $User{edit_link},
-			}
-		);
-
-		$scripts .= <<JS
+	$scripts .= <<JS
 <script type="text/javascript">
 var page_type = "products";
 var preferences_text = "$preferences_text";
@@ -5429,23 +5457,21 @@ var contributor_prefs = $contributor_prefs_json;
 var products = $products_json;
 </script>
 JS
-			;
+		;
 
-		$scripts .= <<JS
+	$scripts .= <<JS
 <script src="$static_subdomain/js/product-preferences.js"></script>
 <script src="$static_subdomain/js/product-search.js"></script>
 JS
-			;
+		;
 
-		$initjs .= <<JS
+	$initjs .= <<JS
 display_user_product_preferences("#preferences_selected", "#preferences_selection_form", function () {
 	rank_and_display_products("#search_results", products, contributor_prefs);
 });
 rank_and_display_products("#search_results", products, contributor_prefs);
 JS
-			;
-
-	}
+		;
 
 	process_template('web/common/includes/list_of_products.tt.html', $template_data_ref, \$html)
 		|| return "template error: " . $tt->error();
@@ -7217,12 +7243,12 @@ sub display_page ($request_ref) {
 	my $join_us_on_slack
 		= sprintf($Lang{footer_join_us_on}{$lc}, '<a href="https://slack.openfoodfacts.org">Slack</a>');
 
-	my $twitter_account = lang("twitter_account");
-	if (defined $Lang{twitter_account_by_country}{$cc}) {
-		$twitter_account = $Lang{twitter_account_by_country}{$cc};
-	}
+	# Twitter account and Facebook page url from Config.pm
+	# Allow to have language specific Twitter accounts and Facebook page url, suffixed by the language code
+	my $twitter_account = $options{"twitter_account_$lc"} || $options{twitter_account};
 	$template_data_ref->{twitter_account} = $twitter_account;
-	# my $facebook_page = lang("facebook_page");
+	my $facebook_page = $options{"facebook_page_url_$lc"} || $options{facebook_page_url};
+	$template_data_ref->{facebook_page_url} = $facebook_page;
 
 	my $torso_class = "anonymous";
 	if (defined $User_id) {
@@ -7680,6 +7706,9 @@ JS
 		$template_data_ref->{contribution_card_panel}
 			= display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "contribution_card");
 	}
+
+	# User preferences
+	$template_data_ref->{user_preferences} = $request_ref->{user_preferences};
 
 	# The front product image is rendered with the same template as the ingredients, nutrition and packaging images
 	# that are displayed directly through the knowledge panels
@@ -10180,7 +10209,10 @@ sub display_product_api ($request_ref) {
 
 	my $product_ref;
 
+	my @app_fields = qw(product_name brands quantity);
+
 	my $request_lc = $request_ref->{lc};
+
 	my $rev = single_param("rev");
 	local $log->context->{rev} = $rev;
 	if (defined $rev) {
@@ -10203,55 +10235,18 @@ sub display_product_api ($request_ref) {
 		}
 		$response{status} = 0;
 		$response{status_verbose} = 'product not found';
+
 		if (single_param("jqm")) {
-			$response{jqm} = <<HTML
-$Lang{app_please_take_pictures}{$request_lc}
-<button onclick="captureImage();" data-icon="off-camera">$Lang{app_take_a_picture}{$request_lc}</button>
-<div id="upload_image_result"></div>
-<p>$Lang{app_take_a_picture_note}{$request_lc}</p>
-HTML
-				;
-			if ($request_ref->{api_version} >= 0.1) {
-
-				my @app_fields = qw(product_name brands quantity);
-
-				my $html = <<HTML
-<form id="product_fields" action="javascript:void(0);">
-<div data-role="fieldcontain" class="ui-hide-label" style="border-bottom-width: 0;">
-HTML
-					;
-				foreach my $field (@app_fields) {
-
-					# placeholder in value
-					my $value = $Lang{$field}{$request_lc};
-
-					$html .= <<HTML
-<label for="$field">$Lang{$field}{$request_lc}</label>
-<input type="text" name="$field" id="$field" value="" placeholder="$value">
-HTML
-						;
-				}
-
-				$html .= <<HTML
-</div>
-<div id="save_button">
-<input type="submit" id="save" name="save" value="$Lang{save}{$request_lc}">
-</div>
-<div id="saving" style="display:none">
-<img src="loading2.gif" style="margin-right:10px"> $Lang{saving}{$request_lc}
-</div>
-<div id="saved" style="display:none">
-$Lang{saved}{$request_lc}
-</div>
-<div id="not_saved" style="display:none">
-$Lang{not_saved}{$request_lc}
-</div>
-</form>
-HTML
-					;
-				$response{jqm} .= $html;
-
-			}
+			my $template_data_ref = {
+				api_version => $request_ref->{api_version},
+				app_fields => \@app_fields,
+				request_lc => $request_lc,
+				Lang => \%Lang,
+			};
+			my $html;
+			process_template('web/common/includes/display_product_api.tt.html', $template_data_ref, \$html)
+				|| return "template error: " . $tt->error();
+			$response{jqm} .= $html;
 		}
 	}
 	else {
@@ -10400,6 +10395,7 @@ sub display_product_history ($request_ref, $code, $product_ref) {
 
 		my $userid = get_change_userid_or_uuid($change_ref);
 		my $uuid = $change_ref->{app_uuid};
+		my $app_version = $change_ref->{app_version};
 		my $comment = _format_comment($change_ref->{comment});
 
 		my $change_rev = $change_ref->{rev};
@@ -10416,6 +10412,7 @@ sub display_product_history ($request_ref, $code, $product_ref) {
 			date => display_date_tag($change_ref->{t}),
 			userid => $userid,
 			uuid => $uuid,
+			app_version => $app_version,
 			diffs => compute_changes_diff_text($change_ref),
 			comment => $comment
 			};

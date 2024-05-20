@@ -254,6 +254,13 @@ my $tests_ref = [
 		subdomain => 'world',
 		expected_type => 'text',
 	},
+	# Indexing should be disabled for denied crawlers
+	{
+		test_case => 'get-robots-txt-denied-crawler',
+		path => '/robots.txt',
+		headers_in => {'User-Agent' => $DENIED_CRAWLING_BOT_USER_AGENT},
+		expected_type => 'text',
+	},
 ];
 
 execute_api_tests(__FILE__, $tests_ref);
