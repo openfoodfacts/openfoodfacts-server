@@ -620,6 +620,12 @@ sub init_request ($request_ref = {}) {
 	# If deny_all_robots_txt=1, serve a version of robots.txt where all agents are denied access (Disallow: /)
 	$request_ref->{deny_all_robots_txt} = 0;
 
+	if (0 and $request_ref->{is_denied_crawl_bot}) {
+		$log->info("init_request - denied crawl bot", {user_agent => $request_ref->{user_agent}}) if $log->is_info();
+		$request_ref->{no_index} = 1;
+		$request_ref->{deny_all_robots_txt} = 1;
+	}
+
 	# TODO: global variables should be moved to $request_ref
 	$styles = '';
 	$scripts = '';
@@ -808,7 +814,7 @@ sub init_request ($request_ref = {}) {
 		# Use robots.txt with disallow: / for all agents
 		$request_ref->{deny_all_robots_txt} = 1;
 
-		if ($request_ref->{is_crawl_bot} eq 1) {
+		if ($request_ref->{is_crawl_bot}) {
 			$request_ref->{no_index} = 1;
 		}
 	}
@@ -1005,6 +1011,14 @@ sub set_user_agent_request_ref_attributes ($request_ref) {
 	}
 	$request_ref->{is_crawl_bot} = $is_crawl_bot;
 	$request_ref->{is_denied_crawl_bot} = $is_denied_crawl_bot;
+	$log->debug(
+		"set_user_agent_request_ref_attributes",
+		{
+			user_agent => $user_agent_str,
+			is_crawl_bot => $is_crawl_bot,
+			is_denied_crawl_bot => $is_denied_crawl_bot
+		}
+	) if $log->is_debug();
 	return;
 }
 
