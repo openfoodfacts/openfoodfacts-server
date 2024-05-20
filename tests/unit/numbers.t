@@ -3,11 +3,10 @@
 use Modern::Perl '2017';
 use utf8;
 
-use Test::More;
-use Test::Number::Delta relative => 1.001;
+use Test2::V0;
 use Log::Any::Adapter 'TAP';
 
-use ProductOpener::Numbers qw/:all/;
+use ProductOpener::Numbers qw/convert_string_to_number remove_insignificant_digits/;
 
 my @tests = (
 	["1", "1"],

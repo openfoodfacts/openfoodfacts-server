@@ -481,9 +481,7 @@ details.recent {
 button.small,
 button.tiny,
 .button.tiny {
-  padding: 0.5rem;
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
+  padding: 0.5rem 0.75rem;
 }
 
 .postfix.button.small,
@@ -1691,7 +1689,7 @@ $font-green: #008c8c;
 .if-empty-dnone:empty { display: none !important; }
 
 // underline links
-#main_container a {
+#main_container a:not(.leaflet-control-zoom-in):not(.leaflet-control-zoom-out) {
   text-decoration:underline;
 }
 // except buttons
@@ -1852,3 +1850,42 @@ a.panel_title {
     }
   }
 }
+
+.button.tiny {
+  margin:0;
+  padding: 0.25rem 0.5rem;
+}
+
+.moderator-only {
+  background-color: #FFCC00;
+  border: 2px solid #FFA500;
+  padding-left: 40px;
+  position: relative;
+  cursor: help;
+}
+
+.moderator-only::before {
+  content: "\1F6E1";
+  font-family: "Segoe UI Emoji", "Noto Color Emoji", "Android Emoji", "EmojiSymbols", sans-serif;
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+}
+
+.moderator-only:hover::after {
+  content: "This feature is exclusive to moderators.";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: black;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  opacity: 1;
+  transition: opacity 0.3s, visibility 0.3s;
+  visibility: visible;
+}
+

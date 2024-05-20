@@ -85,15 +85,15 @@ msgstr "Pyyntösi liittyä organisaatioon odottaa organisaation valvojan hyväks
 
 msgctxt "admin_status_updated"
 msgid "Admin Status Updated"
-msgstr ""
+msgstr "Ylläpitäjän Tila Päivitetty"
 
 msgctxt "admin_status"
 msgid "Admin Status"
-msgstr ""
+msgstr "Ylläpitäjän Tila"
 
 msgctxt "grant_remove_admin_status"
 msgid "Grant/Remove Admin status"
-msgstr ""
+msgstr "Myönnä/poista ylläpitäjän tila"
 
 msgctxt "please_email_producers"
 msgid "Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> if you have any question."
@@ -172,6 +172,10 @@ msgctxt "alcohol_warning"
 msgid "Excess drinking is harmful for health."
 msgstr "Liiallinen juominen on haitallista terveydelle."
 
+msgctxt "email_warning"
+msgid "Please note that your Pro account will only be valid if you use your professional e-mail address. Our moderation team checks that the domain name is consistent with the organisation you wish to join."
+msgstr "Huomaa, että Pro-tilisi on voimassa vain, jos käytät ammattisähköpostiosoitettasi. Valvontatiimimme tarkistaa, että verkkotunnuksen nimi on yhdenmukainen organisaation kanssa, johon haluat liittyä."
+
 msgctxt "all_missions"
 msgid "All missions"
 msgstr "Kaikki tehtävät"
@@ -200,11 +204,6 @@ msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
 msgstr "Android APK"
 
-# DO NOT TRANSLATE
-msgctxt "android_apk_app_link"
-msgid "https://world.openfoodfacts.org/files/off.apk"
-msgstr "https://world.openfoodfacts.org/files/off.apk"
-
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
 msgctxt "android_app_icon_url"
 msgid "/images/misc/playstore/img/en_get.svg"
@@ -213,11 +212,6 @@ msgstr ""
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
 msgstr "Saatavilla Google Playsta"
-
-# Change hl=en to your language, and make sure the url works
-msgctxt "android_app_link"
-msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en"
-msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=fi"
 
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
@@ -586,11 +580,11 @@ msgstr "Jäljitettävyyskoodit"
 
 msgctxt "emb_code_s"
 msgid "Traceability code"
-msgstr ""
+msgstr "Jäljitettävyyskoodi"
 
 msgctxt "emb_codes"
 msgid "Traceability code"
-msgstr ""
+msgstr "Jäljitettävyyskoodi"
 
 msgctxt "emb_codes_p"
 msgid "traceability codes"
@@ -667,7 +661,7 @@ msgstr "Käyttäjätunnuksessa on oltava vain tarkemerkittömiä kirjaimia, nume
 
 msgctxt "error_username_too_long"
 msgid "The user name is too long (maximum 40 characters)."
-msgstr ""
+msgstr "Käyttäjänimi on liian pitkä (enintään 40 merkkiä)."
 
 msgctxt "error_name_too_long"
 msgid "The name is too long (maximum 60 characters)."
@@ -733,10 +727,6 @@ msgctxt "facebook_locale"
 msgid "en_US"
 msgstr "fi_FI"
 
-msgctxt "facebook_page"
-msgid "https://www.facebook.com/OpenFoodFacts"
-msgstr "https://www.facebook.com/OpenFoodFacts"
-
 msgctxt "fixme_product"
 msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
 msgstr "Jos tiedot ovat puutteellisia tai virheellisiä, voit täydentää tai korjata niitä muokkaamalla tätä sivua."
@@ -761,7 +751,7 @@ msgstr "Käyttäytymissäännöt"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_code_of_conduct_link"
 msgid "/code-of-conduct"
-msgstr ""
+msgstr "/code-of-conduct"
 
 msgctxt "footer_data"
 msgid "Data, API and SDKs"
@@ -823,6 +813,15 @@ msgctxt "footer_legal_link"
 msgid "/legal"
 msgstr "/legal"
 
+msgctxt "footer_privacy"
+msgid "Privacy"
+msgstr "Yksityisyys"
+
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
+msgctxt "footer_privacy_link"
+msgid "/privacy"
+msgstr "/privacy"
+
 msgctxt "footer_press"
 msgid "Press"
 msgstr "Lehdistö"
@@ -832,10 +831,6 @@ msgctxt "footer_press_link"
 msgid "/press"
 msgstr "/press"
 
-msgctxt "footer_tagline"
-msgid "A collaborative, free and open database of food products from around the world."
-msgstr "Yhteistyöhön perustuva, vapaa ja avoin tietokanta elintarvikkeista ympäri maailmaa."
-
 msgctxt "footer_terms"
 msgid "Terms of use"
 msgstr "Käyttöehdot"
@@ -843,7 +838,7 @@ msgstr "Käyttöehdot"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_terms_link"
 msgid "/terms-of-use"
-msgstr ""
+msgstr "/terms-of-use"
 
 msgctxt "footer_who_we_are"
 msgid "Who we are"
@@ -852,7 +847,7 @@ msgstr "Keitä olemme"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_who_we_are_link"
 msgid "/who-we-are"
-msgstr ""
+msgstr "/who-we-are"
 
 msgctxt "footer_wiki"
 msgid "<<site_name>> wiki (en)"
@@ -871,6 +866,10 @@ msgstr "Open Beauty Facts - Kosmetiikka"
 msgctxt "footer_obf_link"
 msgid "https://world.openbeautyfacts.org"
 msgstr "https://world-fi.openbeautyfacts.org"
+
+msgctxt "footer_pro"
+msgid "Open Food Facts for Producers"
+msgstr "Open Food Facts Tuottajille"
 
 msgctxt "for"
 msgid "for"
@@ -1111,10 +1110,6 @@ msgctxt "ios_app_icon_alt_text"
 msgid "Download on the App Store"
 msgstr "Saatavilla App Storesta"
 
-msgctxt "ios_app_link"
-msgid "https://apps.apple.com/app/open-food-facts/id588797948"
-msgstr ""
-
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
 msgstr "tunnetut ravintoaineet"
@@ -1308,7 +1303,7 @@ msgstr "Lisää tuote"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_add_a_product_link"
 msgid "/add-a-product"
-msgstr ""
+msgstr "/add-a-product"
 
 msgctxt "menu_contribute"
 msgid "Contribute"
@@ -1443,7 +1438,7 @@ msgstr "Ravintoainepitoisuudet per 100 g"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "nutrient_levels_link"
 msgid "/nutrient-levels"
-msgstr ""
+msgstr "/nutrient-levels"
 
 msgctxt "nutrient_levels_p"
 msgid "nutrient levels"
@@ -1569,7 +1564,7 @@ msgstr "Ravintoarvosana"
 # Make sure the translated link works (eg that the image already exists in your language)
 msgctxt "og_image_url"
 msgid "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
-msgstr ""
+msgstr "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
 
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
@@ -2076,8 +2071,8 @@ msgid "Select products with specific brands, categories, labels, origins of ingr
 msgstr "Valitse tuotteet, joilla on tietyt tuotemerkit, luokat, merkit, ainesosien alkuperä, valmistuspaikat jne."
 
 msgctxt "search_description_opensearch"
-msgid "Open Food Facts product search"
-msgstr "Open Food Facts -tuotehaku"
+msgid "Product search"
+msgstr "Tuotehaku"
 
 msgctxt "search_does_not_contain"
 msgid "does not contain"
@@ -2368,18 +2363,6 @@ msgctxt "signout"
 msgid "Sign-out"
 msgstr "Kirjaudu ulos"
 
-msgctxt "site_description"
-msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
-msgstr "Yhteistyöhön perustuva, vapaa ja avoin tietokanta aineosista, ravintoarvoista ja tiedoista elintarvikkeista joka puolelta maailmaa"
-
-msgctxt "site_name"
-msgid "Open Food Facts"
-msgstr "Open Food Facts"
-
-msgctxt "logo_site_name"
-msgid "Open Food Facts logo"
-msgstr "Open Food Facts -logo"
-
 msgctxt "sort_by"
 msgid "Sort by"
 msgstr "Lajittelujärjestys"
@@ -2493,10 +2476,6 @@ msgctxt "twitter"
 msgid "Twitter username (optional)"
 msgstr "Twitter-käyttäjätunnus (valinnainen)"
 
-msgctxt "twitter_account"
-msgid "OpenFoodFacts"
-msgstr "OpenFoodFacts"
-
 msgctxt "unknown"
 msgid "Unknown"
 msgstr "Tuntematon"
@@ -2573,6 +2552,10 @@ msgctxt "view"
 msgid "view"
 msgstr "katso"
 
+msgctxt "view_this_revision"
+msgid "View this revision"
+msgstr "Näytä tämä versio"
+
 msgctxt "view_list_for_products_from_the_entire_world"
 msgid "View the list for matching products from the entire world"
 msgstr "Katso lista vastaavista tuotteista koko maailmasta"
@@ -2594,20 +2577,6 @@ msgstr "Tietojen ja datan on oltava peräisin tuotepakkauksesta ja etiketistä (
 msgctxt "website"
 msgid "Site or blog address"
 msgstr "Sivuston tai blogin osoite"
-
-# Please change English.svg to French.svg or German.svg… Check the url https://static.openfoodfacts.org/images/misc/microsoft/XXXX.svg
-msgctxt "windows_phone_app_icon_url"
-msgid "/images/misc/microsoft/English.svg"
-msgstr "/images/misc/microsoft/Finnish.svg"
-
-msgctxt "windows_phone_app_icon_alt_text"
-msgid "Get it from Microsoft"
-msgstr "Hanki Microsoft Storesta"
-
-# Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
-msgctxt "windows_phone_app_link"
-msgid "https://apps.microsoft.com/store/detail/open-food-facts-scan-to-get-nutriscore-ecoscore-and-more/XP8LT18SRPKLRG"
-msgstr ""
 
 msgctxt "you_are_connected_as_x"
 msgid "You are connected as %s."
@@ -2833,7 +2802,7 @@ msgstr "Kumppanit"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_partners_link"
 msgid "/partners"
-msgstr ""
+msgstr "/partners"
 
 msgctxt "adults"
 msgid "Adults"
@@ -3305,7 +3274,7 @@ msgstr "ainesosa-analyysit"
 
 msgctxt "ingredients_analysis"
 msgid "Ingredients analysis"
-msgstr "Ainesosa-analyysi"
+msgstr "Ainesosien analyysi"
 
 msgctxt "ingredients_analysis_disclaimer"
 msgid "The analysis is based solely on the ingredients listed and does not take into account processing methods."
@@ -3733,7 +3702,7 @@ msgstr "mahdolliset parannukset"
 # Do not translate
 msgctxt "import_products_link"
 msgid "/import-products"
-msgstr ""
+msgstr "/import-products"
 
 msgctxt "add_or_update_products"
 msgid "Add or update products"
@@ -4215,7 +4184,7 @@ msgstr "Poista kaikki tuotteet"
 
 msgctxt "remove_user"
 msgid "Remove user"
-msgstr ""
+msgstr "Poista käyttäjä"
 
 msgctxt "remove_products_from_producers_platform"
 msgid "Remove all your products from the platform for producers"
@@ -4783,7 +4752,7 @@ msgstr "Vähäinen ympäristövaikutus (Eco-Score)"
 
 msgctxt "attribute_ecoscore_setting_note"
 msgid "The Eco-Score is an environmental score (ecoscore) from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr ""
+msgstr "Eco-Score on ympäristöpistemäärä (ekoscore) A:sta E:hen, jonka avulla on helppo vertailla elintarvikkeiden ympäristövaikutuksia."
 
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_ecoscore_grade_title"
@@ -6133,7 +6102,7 @@ msgstr "Poista kuvan valinta"
 
 msgctxt "nutriscore_learn_more"
 msgid "Learn more about the Nutri-Score"
-msgstr "Opi lisää Nutri-Scoresta"
+msgstr "Kiitos"
 
 msgctxt "ecoscore_learn_more"
 msgid "Learn more about the Eco-Score"
@@ -6212,6 +6181,10 @@ msgstr "Ota valokuva lajitteluohjeista"
 msgctxt "action_add_packaging_components"
 msgid "Add packaging components"
 msgstr "Lisää pakkauksen osat"
+
+msgctxt "action_add_quantity"
+msgid "Add quantity of the product"
+msgstr "Lisää tuotteen määrä"
 
 # this is not used yet
 msgctxt "action_add_basic_details"
@@ -6573,10 +6546,6 @@ msgctxt "faq_for_producers"
 msgid "FAQ for producers"
 msgstr "UKK tuottajille"
 
-msgctxt "join_the_next_pros_meet_up"
-msgid "Join the next Pros' Meet-up"
-msgstr "Liity seuraavaan ammattilaisten tapaamiseen"
-
 # variable names between { } must not be translated
 msgctxt "product_js_enter_value_between_0_and_max"
 msgid "Please enter a value between 0 and {max}."
@@ -6624,7 +6593,7 @@ msgstr "% materiaalia sisältävistä tuotteista"
 
 msgctxt "packaging_material_products_percent_main"
 msgid "% of products containing mostly the material"
-msgstr ""
+msgstr "% materiaalia pääosin sisältävistä tuotteista"
 
 msgctxt "relative_to_products_containing_the_material"
 msgid "for products that contain the material"
@@ -6632,7 +6601,7 @@ msgstr "materiaalia sisältäville tuotteille"
 
 msgctxt "relative_to_products_containing_mostly_the_material"
 msgid "for products that contain mostly the material"
-msgstr ""
+msgstr "tuotteille, jotka sisältävät pääosin materiaalia"
 
 msgctxt "relative_to_all_products"
 msgid "relative to all products"
@@ -6644,11 +6613,11 @@ msgstr "Ensisijainen kieli"
 
 msgctxt "packagings_n_p"
 msgid "Numbers of packaging components"
-msgstr ""
+msgstr "Pakkauskomponenttien lukumäärät"
 
 msgctxt "packagings_n_s"
 msgid "Number of packaging components"
-msgstr ""
+msgstr "Pakkauskomponenttien lukumäärä"
 
 msgctxt "packagings_materials_all"
 msgid "All materials"
@@ -6665,4 +6634,280 @@ msgstr "Massa per 100 grammaa"
 msgctxt "weight_percent"
 msgid "Weight percent"
 msgstr "Massaprosentti"
+
+msgctxt "nutriscore_component_energy"
+msgid "Energy"
+msgstr "Energia"
+
+msgctxt "nutriscore_component_energy_from_saturated_fat"
+msgid "Energy from saturated fat"
+msgstr "Energiaa tyydyttyneistä rasvoista"
+
+msgctxt "nutriscore_component_sugars"
+msgid "Sugars"
+msgstr "Sokerit"
+
+msgctxt "nutriscore_component_saturated_fat"
+msgid "Saturated fat"
+msgstr "Tyydyttynyt rasva"
+
+msgctxt "nutriscore_component_saturated_fat_ratio"
+msgid "Saturated fat / fat"
+msgstr "Tyydyttynyt rasva / rasva"
+
+msgctxt "nutriscore_component_salt"
+msgid "Salt"
+msgstr "Suola"
+
+msgctxt "nutriscore_component_non_nutritive_sweeteners"
+msgid "Non-nutritive sweeteners"
+msgstr "Ei-ravitsevat makeutusaineet"
+
+msgctxt "nutriscore_component_fruits_vegetables_legumes"
+msgid "Fruits, vegetables and legumes"
+msgstr "Hedelmät, vihannekset ja palkokasvit"
+
+msgctxt "nutriscore_component_fiber"
+msgid "Fiber"
+msgstr "Kuitu"
+
+msgctxt "nutriscore_component_proteins"
+msgid "Proteins"
+msgstr "Proteiinit"
+
+msgctxt "presence"
+msgid "Presence"
+msgstr "Läsnäolo"
+
+msgctxt "absence"
+msgid "Absence"
+msgstr "Poissaolo"
+
+msgctxt "nutriscore_is_water"
+msgid "This product is considered to be water for the calculation of the Nutri-Score."
+msgstr "Tämän tuotteen katsotaan olevan vettä laskettaessa Nutri-Scorea."
+
+msgctxt "nutriscore_is_fat_oil_nuts_seeds"
+msgid "This product is considered to be fat, oil, nuts or seeds for the calculation of the Nutri-Score."
+msgstr "Tämän tuotteen katsotaan olevan rasvaa, öljyä, pähkinöitä tai siemeniä Nutri-Scorea laskettaessa."
+
+msgctxt "nutriscore_is_cheese"
+msgid "This product is considered to be cheese for the calculation of the Nutri-Score."
+msgstr "Tämän tuotteen katsotaan olevan juustoa Nutri-Scorea laskettaessa."
+
+msgctxt "nutriscore_is_red_meat_product"
+msgid "This product is considered to be a red meat product for the calculation of the Nutri-Score."
+msgstr "Tämän tuotteen katsotaan olevan punaisen lihan tuote Nutri-Scorea laskettaessa."
+
+msgctxt "nutriscore_count_proteins_reason_beverage"
+msgid "Points for proteins are counted because the product is considered to be a beverage."
+msgstr "Proteiinipisteet lasketaan, koska tuotetta pidetään juomana."
+
+msgctxt "nutriscore_count_proteins_reason_cheese"
+msgid "Points for proteins are counted because the product is considered to be cheese."
+msgstr "Proteiinipisteet lasketaan, koska tuotetta pidetään juustona."
+
+msgctxt "nutriscore_count_proteins_reason_negative_points_less_than_7"
+msgid "Points for proteins are counted because the negative points are less than 7."
+msgstr "Proteiinipisteet lasketaan, koska negatiiviset pisteet ovat alle 7."
+
+msgctxt "nutriscore_count_proteins_reason_negative_points_less_than_11"
+msgid "Points for proteins are counted because the negative points are less than 11."
+msgstr "Proteiinipisteet lasketaan, koska negatiiviset pisteet ovat alle 11."
+
+msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_to_7"
+msgid "Points for proteins are not counted because the negative points greater than or equal to 7."
+msgstr "Proteiinipisteitä ei lasketa, koska negatiiviset pisteet ovat suurempia tai yhtä suuria kuin 7."
+
+msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_to_11"
+msgid "Points for proteins are not counted because the negative points greater than or equal to 11."
+msgstr "Proteiinipisteitä ei lasketa, koska negatiiviset pisteet ovat suurempia tai yhtä suuria kuin 11."
+
+msgctxt "nutriscore_explanation_what_it_is"
+msgid "The Nutri-Score is a logo on the overall nutritional quality of products."
+msgstr "Nutri-Score on logo tuotteiden yleisestä ravintoarvosta."
+
+msgctxt "nutriscore_explanation_what_it_takes_into_account"
+msgid "The score from A to E is calculated based on nutrients and foods to favor (proteins, fiber, fruits, vegetables and legumes ...) and nutrients to limit (calories, saturated fat, sugars, salt)."
+msgstr "Pisteet A:sta E:hen lasketaan suositeltavien ravintoaineiden ja elintarvikkeiden (proteiinit, kuidut, hedelmät, vihannekset ja palkokasvit...) ja rajoitettavien ravintoaineiden (kalorit, tyydyttyneet rasvat, sokerit, suola) perusteella."
+
+msgctxt "nutriscore_explanation_where_the_data_comes_from"
+msgid "The score is calculated from the data of the nutrition facts table and the composition data (fruits, vegetables and legumes)."
+msgstr "Pistemäärä lasketaan ravitsemustietotaulukon tiedoista ja koostumustiedoista (hedelmät, vihannekset ja palkokasvit)."
+
+msgctxt "nutriscore_explanation_recommended_by_public_health_authorities"
+msgid "The display of this logo is recommended by public health authorities without obligation for companies."
+msgstr "Terveysviranomaiset suosittelevat tämän logon näyttämistä ilman velvollisuutta yrityksille."
+
+msgctxt "nutriscore_explanation_title"
+msgid "What is the Nutri-Score?"
+msgstr "Mikä on Nutri-Score?"
+
+msgctxt "nutrient_info_energy_risk"
+msgid "Energy intakes above energy requirements are associated with increased risks of weight gain, overweight, obesity, and consequently risk of diet-related chronic diseases."
+msgstr "Energiantarpeen ylittävä energiansaanti liittyy lisääntyneeseen painonnousun, ylipainon, liikalihavuuden ja siten ruokavalioon liittyvien kroonisten sairauksien riskiin."
+
+msgctxt "nutrient_info_saturated_fat_risk"
+msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
+msgstr "Runsas rasvojen kulutus, erityisesti tyydyttyneiden rasvojen, voi nostaa kolesterolia, mikä lisää sydänsairauksien riskiä."
+
+msgctxt "nutrient_info_saturated_fat_ratio_risk"
+msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
+msgstr "Runsas rasvojen kulutus, erityisesti tyydyttyneiden rasvojen, voi nostaa kolesterolia, mikä lisää sydänsairauksien riskiä."
+
+msgctxt "nutrient_info_energy_from_saturated_fat_risk"
+msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
+msgstr "Runsas rasvojen kulutus, erityisesti tyydyttyneiden rasvojen, voi nostaa kolesterolia, mikä lisää sydänsairauksien riskiä."
+
+msgctxt "nutrient_info_non_nutritive_sweeteners_risk"
+msgid "Non-nutritive sweeteners may not confer any long-term benefit in reducing body fat in adults or children. There may be potential undesirable effects from long-term use of non-nutritive sweeteners, such as an increased risk of type 2 diabetes and cardiovascular diseases in adults."
+msgstr "Ei-ravitsemukselliset makeutusaineet eivät välttämättä anna pitkäaikaista hyötyä kehon rasvan vähentämisessä aikuisilla tai lapsilla. Ei-ravitsevien makeutusaineiden pitkäaikaisella käytöllä voi olla mahdollisia haittavaikutuksia, kuten lisääntynyt tyypin 2 diabeteksen ja sydän- ja verisuonitautien riski aikuisilla."
+
+msgctxt "nutrient_info_fiber_benefit"
+msgid "Consuming foods rich in fiber (especially whole grain foods) reduces the risks of aerodigestive cancers, cardiovascular diseases, obesity and diabetes."
+msgstr "Kuitupitoisten ruokien (erityisesti täysjyväviljatuotteiden) nauttiminen vähentää ruoansulatuskanavan syöpien, sydän- ja verisuonitautien, liikalihavuuden ja diabeteksen riskiä."
+
+msgctxt "nutrient_info_fruits_vegetables_legumes_benefit"
+msgid "Consuming foods rich in fruits, vegetables and legumes reduces the risks of aerodigestive cancers, cardiovascular diseases, obesity and diabetes."
+msgstr "Hedelmiä, vihanneksia ja palkokasveja sisältävien ruokien nauttiminen vähentää ruoansulatuskanavan syöpien, sydän- ja verisuonitautien, liikalihavuuden ja diabeteksen riskiä."
+
+msgctxt "nutrient_info_proteins_benefit"
+msgid "Foods that are rich in proteins are usually rich in calcium or iron which are essential minerals with numerous health benefits."
+msgstr "Ruoat, jotka sisältävät runsaasti proteiineja, sisältävät yleensä runsaasti kalsiumia tai rautaa, jotka ovat tärkeitä kivennäisaineita, joilla on lukuisia terveyshyötyjä."
+
+msgctxt "revert"
+msgid "Revert to this revision"
+msgstr "Palaa tähän versioon"
+
+msgctxt "product_js_product_revert_confirm"
+msgid "Revert to this product revision?"
+msgstr "Palataanko tähän tuoteversioon?"
+
+msgctxt "api_status_success"
+msgid "Success"
+msgstr "Onnistui"
+
+msgctxt "api_status_failure"
+msgid "Failure"
+msgstr "Virhe"
+
+msgctxt "api_result_product_reverted"
+msgid "Product reverted to the specified revision"
+msgstr "Tuote palautettiin määritettyyn versioon"
+
+msgctxt "api_result_product_not_reverted"
+msgid "Product not reverted to the specified revision"
+msgstr "Tuotetta ei palautettu määritettyyn versioon"
+
+# sweeteners (additives), plural
+msgctxt "sweeteners"
+msgid "sweeteners"
+msgstr "makeutusaineet"
+
+# sweetener (additive), singular
+msgctxt "sweetener"
+msgid "sweetener"
+msgstr "makeutusaine"
+
+msgctxt "action_edit_product"
+msgid "Complete or correct product information"
+msgstr "Viimeistele tai korjaa tuotetietoja"
+
+msgctxt "report_problem_panel_title"
+msgid "Report a problem"
+msgstr "Ilmoita ongelmasta"
+
+msgctxt "incomplete_or_incorrect_data_title"
+msgid "Incomplete or incorrect information?"
+msgstr "Puutteellisia tai virheellisiä tietoja?"
+
+msgctxt "incomplete_or_incorrect_data_subtitle_off"
+msgid "Category, labels, ingredients, allergens, nutritional information, photos etc."
+msgstr "Luokka, etiketit, ainesosat, allergeenit, ravitsemustiedot, valokuvat jne."
+
+msgctxt "incomplete_or_incorrect_data_content_correct"
+msgid "If the information does not match the information on the packaging, you can complete or correct it. Thank you!"
+msgstr "Jos tiedot eivät vastaa pakkauksessa olevia tietoja, voit täydentää tai korjata niitä. Kiitos!"
+
+msgctxt "incomplete_or_incorrect_data_content_correct_off"
+msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
+msgstr "Open Food Facts on yhteistyötietokanta, ja jokainen panos on hyödyllinen kaikille."
+
+msgctxt "description"
+msgid "Description"
+msgstr "Kuvaus"
+
+msgctxt "site_description_off"
+msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
+msgstr "Yhteistyössä toimiva, ilmainen ja avoin tietokanta ainesosista, ravitsemustiedoista ja elintarviketuotteista ympäri maailmaa"
+
+msgctxt "tagline_off"
+msgid "Open Food Facts gathers information and data on food products from around the world."
+msgstr "Open Food Facts kerää tietoja ja dataa elintarvikkeista ympäri maailmaa."
+
+msgctxt "footer_tagline_off"
+msgid "A collaborative, free and open database of food products from around the world."
+msgstr "Yhteistyöhön perustuva, vapaa ja avoin tietokanta elintarvikkeista ympäri maailmaa."
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_off"
+msgid "/open-food-facts-mobile-app"
+msgstr "/open-food-facts-mobile-app"
+
+msgctxt "site_description_obf"
+msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
+msgstr "Yhteistyöhön perustuva, vapaa ja avoin tietokanta aineosista ja tiedoista kosmetiikkatuotteista joka puolelta maailmaa"
+
+msgctxt "tagline_obf"
+msgid "Open Beauty Facts gathers information and data on cosmetic products from around the world."
+msgstr "Open Beauty Facts kerää tietoja ja dataa kosmetiikkatuotteista joka puolelta maailmaa."
+
+msgctxt "footer_tagline_obf"
+msgid "A collaborative, free and open database of cosmetic products from around the world."
+msgstr "Yhteistyöhön perustuva, vapaa ja avoin tietokanta kosmetiikkatuotteista joka puolelta maailmaa."
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_obf"
+msgid "/open-beauty-facts-mobile-app"
+msgstr "/open-beauty-facts-mobile-app"
+
+msgctxt "footer_and_the_facebook_group_obf"
+msgid "and the <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">Facebook group for contributors</a>"
+msgstr "ja <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">Facebook-ryhmä osallistujille</a>"
+
+msgctxt "search_description_opensearch_obf"
+msgid "Open Beauty Facts product search"
+msgstr "Open Beauty Facts -tuotehaku"
+
+msgctxt "warning_not_complete_obf"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
+msgstr "Tämä tuotesivu ei ole valmis. Voit auttaa sen täydentämisessä muokkaamalla sitä, ja lisäämällä lisätietoja valokuvistamme, tai ottamalla lisää valokuvia <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=fi\">Android</a> tai <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone / iPad</a> -sovelluksella. Kiitos!"
+
+msgctxt "brands_example_beauty"
+msgid "Nivea, Nivea Men"
+msgstr "Nivea, Nivea Men"
+
+msgctxt "categories_example_beauty"
+msgid "Anti-dandruff shampoo, Whitening toothpaste"
+msgstr "Hilseshampoo, Valkaiseva hammastahna"
+
+msgctxt "emb_codes_example_beauty"
+msgid "EMB 53062"
+msgstr "EMB 53062"
+
+msgctxt "generic_name_example_beauty"
+msgid "Anti-dandruff shampoo"
+msgstr "Hilseshampoo"
+
+msgctxt "product_name_example_beauty"
+msgid "Anti-Perspirant Stress Protect"
+msgstr "Anti-Perspirant Stress Protect"
+
+msgctxt "ingredients_text_example_beauty"
+msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
+msgstr "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
+
+msgctxt "report_problem_navigation"
+msgid "Report a problem"
+msgstr "Ilmoita ongelmasta"
 

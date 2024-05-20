@@ -4,8 +4,8 @@ x-stoplight:
 info:
   title: Open Food Facts Open API V3 - under development
   description: |
-    As a developer, the Open Food Facts API allows you to get information 
-    and contribute to the products database. You can create great apps to 
+    As a developer, the Open Food Facts API allows you to get information
+    and contribute to the products database. You can create great apps to
     help people make better food choices and also provide data to enhance the database.
   termsOfService: 'https://openweathermap.org/terms'
   contact:
@@ -38,16 +38,8 @@ paths:
           schema:
             type: string
             example: '3017620422003'
-        - schema:
-            type: string
-          in: query
-          name: lc
-          description: '2 letter code of the language of the interface. Used for localizing some fields in returned values (e.g. knowledge panels). If not passed, the language may be inferred by the country of the user (passed through the cc field or inferred by the IP address).'
-        - schema:
-            type: string
-          in: query
-          name: cc
-          description: '2 letter code of the country of the user. Used for localizing some fields in returned values (e.g. knowledge panels). If not passed, the country may be inferred by the IP address of the request.'
+        - $ref: '#/components/parameters/cc'
+        - $ref: '#/components/parameters/lc'
         - schema:
             type: string
           in: query
@@ -58,12 +50,12 @@ paths:
           in: query
           name: fields
           description: |-
-            Comma separated list of fields requested in the response. 
+            Comma separated list of fields requested in the response.
 
-            Special values: 
+            Special values:
             * "none": returns no fields
             * "raw": returns all fields as stored internally in the database
-            * "all": returns all fields except generated fields that need to be explicitly requested such as "knowledge_panels". 
+            * "all": returns all fields except generated fields that need to be explicitly requested such as "knowledge_panels".
 
             Defaults to "all" for READ requests. The "all" value can also be combined with fields like "attribute_groups" and "knowledge_panels".'
       responses:
@@ -247,6 +239,14 @@ paths:
                         description: Array of sorted strings suggestions in the language requested in the "lc" field.
                         items:
                           type: string
+                      matched_synonyms:
+                        type: object
+                        description: |                      
+                            Dictionary of strings associating canonical names (as seen in suggestions field) with the synonym that best matches the query. An entry is present for all suggestions, even when the synonym is the same with the canonical name.
+                            
+                            This value is present only if get_synonyms parameter is present.
+                        additional_properties:
+                          type: string
       operationId: get-api-v3-taxonomy_suggestions-taxonomy
       description: |-
         Open Food Facts uses multilingual [taxonomies](https://wiki.openfoodfacts.org/Global_taxonomies) to normalize entries for categories, labels, ingredients, packaging shapes / materials / recycling instructions and many more fields.
@@ -265,23 +265,14 @@ paths:
         If a string is passed, an additional sort is done to put first suggestions that start with the string, followed by suggestions with a word that start with the string, and then suggestions that contain the string anywhere.
       parameters:
         - $ref: ./api.yml#/components/parameters/tagtype
-        - schema:
-            type: string
-            example: en
-          in: query
-          name: lc
-          description: 2 letter code of the language used for suggestions and for matching the input string
+        - $ref: '#/components/parameters/cc'
+        - $ref: '#/components/parameters/lc'
         - schema:
             type: string
             example: pe
           in: query
           name: string
           description: 'Optional string used to filter suggestions (useful for autocomplete).  If passed, suggestions starting with the string will be returned first, followed by suggestions matching the string at the beginning of a word, and suggestions matching the string inside a word.'
-        - schema:
-            type: string
-          in: query
-          name: cc
-          description: '2 letter country code, used to return popular packaging shapes and materials for products sold in the country'
         - schema:
             type: string
             example: yougurts
@@ -302,10 +293,17 @@ paths:
         - schema:
             type: string
           in: query
+          name: get_synonyms
+          description: 'Whether or not to include "matched_synonyms" in the response. Set to 1 to include.'
+        - schema:
+            type: string
+          in: query
           name: term
           description: Alias for the "string" parameter provided for backward compatibility. "string" takes precedence.
   '/api/v3/tag/{tagtype}/{tag_or_tagid}':
     parameters:
+      - $ref: '#/components/parameters/cc'
+      - $ref: '#/components/parameters/lc'    
       - schema:
           type: string
           example: categories
@@ -364,6 +362,65 @@ paths:
 
         Categories:
         - Packaging stats for a category
+  /api/v3/product_revert:
+    parameters: []
+    post:
+      summary: Revert a product to a previous revision
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: ./responses/response-status/response_status.yaml
+      operationId: post-api-v3-product_revert
+      description: |-
+        For moderators only, revert a product to a previous revision.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: ./requestBodies/fields_tags_lc.yaml
+                - type: object
+                  properties:
+                    code:
+                      type: string
+                      description: Barcode of the product
+                    rev:
+                      type: integer
+                      description: Revision number to revert to
+        description: |
+          The code and rev fields are mandatory.
+      parameters: []
+components:
+  parameters:
+    cc:
+      schema:
+        type: string
+        example: 'us'
+      in: query
+      name: cc
+      required: false
+      description: '2 letter code of the country of the user. Used for localizing some fields in returned values (e.g. knowledge panels). If not passed, the country may be inferred by the IP address of the request.'
+    lc:
+      schema:
+        type: string
+        example: 'fr'
+      in: query
+      name: lc
+      required: false
+      description: '2 letter code of the language of the user. Used for localizing some fields in returned values (e.g. knowledge panels). If not passed, the language may be inferred by the Accept-Language header of the request.'
+    code:
+      schema:
+        type: string
+        example: '4251105501381'
+      in: query
+      name: code
+      description: Barcode of the product
+      required: true
 tags:
   - name: Read Requests
   - name: Write Requests

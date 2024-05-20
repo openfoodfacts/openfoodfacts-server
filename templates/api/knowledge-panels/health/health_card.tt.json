@@ -5,7 +5,7 @@
         "health"
     ],
     "title_element": {
-        "title": "[% lang('health') %]",
+        "title": "[% edq(lang('health')) %]",
     },    
     "elements": [
         [% IF panels.recommendation_health.defined %]
@@ -20,11 +20,15 @@
         [% IF options.knowledge_panels_client == 'web' %]
 
             [% INCLUDE "api/knowledge-panels/health/ingredients_panels.tt.json" %]
-            [% INCLUDE "api/knowledge-panels/health/nutrition_panels.tt.json" %]
+            [% IF product_type == 'food' || product_type == 'pet_food' %]
+                [% INCLUDE "api/knowledge-panels/health/nutrition_panels.tt.json" %]
+            [% END %]
 
         [% ELSE %]
 
-            [% INCLUDE "api/knowledge-panels/health/nutrition_panels.tt.json" %]
+            [% IF product_type == 'food' || product_type == 'pet_food' %]
+                [% INCLUDE "api/knowledge-panels/health/nutrition_panels.tt.json" %]
+            [% END %]
             [% INCLUDE "api/knowledge-panels/health/ingredients_panels.tt.json" %]
 
         [% END %]

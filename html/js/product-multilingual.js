@@ -535,23 +535,41 @@ function initializeTagifyInputs() {
         forEach((input) => initializeTagifyInput(input));
 }
 
-const maximumRecentEntriesPerTag = 3;
+const maximumRecentEntriesPerTag = 10;
 
 function initializeTagifyInput(el) {
     const input = new Tagify(el, {
         autocomplete: true,
         whitelist: get_recents(el.id) || [],
         dropdown: {
-            enabled: 0
+            highlightFirst: false,
+            enabled: 0,
+            maxItems: 100
         }
     });
 
     let abortController;
     let debounceTimer;
     const timeoutWait = 300;
+    let value = "";
 
-    input.on("input", function (event) {
-        const value = event.detail.value;
+    function updateSuggestions(show) {
+        if (value) {
+            const lc = (/^\w\w:/).exec(value);
+            const term = lc ? value.substring(lc[0].length) : value;
+            if (show) {
+                input.dropdown.show(term);
+            }
+        } else {
+            input.whitelist = get_recents(el.id) || [];
+            if (show) {
+                input.dropdown.show();
+            }
+        }
+    }
+
+    function autocompleteWithSearch(newValue) {
+        value = newValue;
         input.whitelist = null; // reset the whitelist
 
         if (el.dataset.autocomplete && el.dataset.autocomplete !== "") {
@@ -565,16 +583,69 @@ function initializeTagifyInput(el) {
 
                 abortController = new AbortController();
 
-                fetch(el.dataset.autocomplete + "&string=" + value, {
+                fetch(el.dataset.autocomplete + "&string=" + value + "&get_synonyms=1", {
                     signal: abortController.signal
                 }).
                     then((RES) => RES.json()).
                     then(function (json) {
-                        input.whitelist = json.suggestions;
-                        input.dropdown.show(value); // render the suggestions dropdown
+                        const lc = (/^\w\w:/).exec(value);
+                        let whitelist = json.suggestions;
+                        if (lc) {
+                            whitelist = whitelist.map(function (e) {
+                                return {"value": lc + e, "searchBy": e};
+                            });
+                        }
+                        const synonymMap = Object.create(null);
+                        // eslint-disable-next-line guard-for-in
+                        for (const k in json.matched_synonyms) {
+                            synonymMap[json.matched_synonyms[k]] = k;
+                        }
+                        input.synonymMap = synonymMap;
+                        input.whitelist = whitelist;
+                        updateSuggestions(true); // render the suggestions dropdown
                     });
             }, timeoutWait);
         }
+        updateSuggestions(true);
+    }
+
+    input.on("input", function (event) {
+        autocompleteWithSearch(event.detail.value);
+    });
+
+    input.on("edit:input", function (event) {
+        autocompleteWithSearch(event.detail.data.newValue);
+    });
+
+    input.on("edit:start", function (event) {
+        autocompleteWithSearch(event.detail.data.value);
+    });
+
+    input.on("change", function () {
+        value = "";
+        updateSuggestions(false);
+    });
+
+    input.on("edit:updated", function () {
+        value = "";
+        updateSuggestions(false);
+    });
+
+    input.on("dropdown:show", function() {
+        if (!input.synonymMap) {
+            return;
+        }
+        $(input.DOM.dropdown).find("div.tagify__dropdown__item").each(function(_,e) {
+            let synonymName = e.getAttribute("value");
+            const lc = (/^\w\w:/).exec(synonymName);
+            if (lc) {
+                synonymName = synonymName.substring(3);
+            }
+            const canonicalName = input.synonymMap[synonymName];
+            if (canonicalName && canonicalName !== synonymName) {
+                e.innerHTML += " (&rarr; <i>" + canonicalName + "</i>)";
+            }
+        });
     });
 
     input.on("add", function (event) {
@@ -594,11 +665,7 @@ function initializeTagifyInput(el) {
             obj[el.id] = [tag];
         } else if (obj[el.id] === null || !Array.isArray(obj[el.id])) {
             obj[el.id] = [tag];
-        } else {
-            if (obj[el.id].indexOf(tag) != -1) {
-                return;
-            }
-
+        } else if (obj[el.id].indexOf(tag) == -1) {
             if (obj[el.id].length >= maximumRecentEntriesPerTag) {
                 obj[el.id].pop();
             }
@@ -614,7 +681,18 @@ function initializeTagifyInput(el) {
             }
         }
 
-        input.settings.whitelist = obj[el.id]; // reset the whitelist
+        value = "";
+        updateSuggestions(false);
+    });
+
+    input.on("focus", function () {
+        value = "";
+        updateSuggestions(false);
+    });
+
+    input.on("blur", function () {
+        value = "";
+        updateSuggestions(false);
     });
 
     document.
@@ -1258,3 +1336,147 @@ $("#move_images").click({}, function (event) {
     }
 
 });
+
+// Nutrition facts
+
+$(function () {
+    $('#nutrition_data').change(function() {
+        if ($(this).prop('checked')) {
+            $('#nutrition_data_instructions').show();
+            $('.nutriment_col').show();
+        } else {
+            $('#nutrition_data_instructions').hide();
+            $('.nutriment_col').hide();
+            $('.nutriment_value_as_sold').val('');
+        }
+        update_nutrition_image_copy();
+        $(document).foundation('equalizer', 'reflow');
+    });
+
+    $('input[name=nutrition_data_per]').change(function() {
+        if ($('input[name=nutrition_data_per]:checked').val() == '100g') {
+            $('#nutrition_data_100g').show();
+            $('#nutrition_data_serving').hide();
+        } else {
+            $('#nutrition_data_100g').hide();
+            $('#nutrition_data_serving').show();
+        }
+        update_nutrition_image_copy();
+        $(document).foundation('equalizer', 'reflow');
+    });
+
+    $('#nutrition_data_prepared').change(function() {
+        if ($(this).prop('checked')) {
+            $('#nutrition_data_prepared_instructions').show();
+            $('.nutriment_col_prepared').show();
+        } else {
+            $('#nutrition_data_prepared_instructions').hide();
+            $('.nutriment_col_prepared').hide();
+            $('.nutriment_value_prepared').val('');
+        }
+        update_nutrition_image_copy();
+        $(document).foundation('equalizer', 'reflow');
+    });
+
+    $('input[name=nutrition_data_prepared_per]').change(function() {
+        if ($('input[name=nutrition_data_prepared_per]:checked').val() == '100g') {
+            $('#nutrition_data_prepared_100g').show();
+            $('#nutrition_data_prepared_serving').hide();
+        } else {
+            $('#nutrition_data_prepared_100g').hide();
+            $('#nutrition_data_prepared_serving').show();
+        }
+        update_nutrition_image_copy();
+        $(document).foundation('equalizer', 'reflow');
+    });
+
+    $('#no_nutrition_data').change(function() {
+        if ($(this).prop('checked')) {
+            $('#nutrition_data_div').hide();
+        } else {
+            $('#nutrition_data_div').show();
+        }
+    });
+
+});
+
+function show_warning(should_show, nutrient_id, warning_message){
+    if(should_show) {
+        $('#nutriment_'+nutrient_id).css("background-color", "rgb(255 237 235)");
+        $('#nutriment_question_mark_'+nutrient_id).css("display", "inline-table");
+        $('#nutriment_sugars_warning_'+nutrient_id).text(warning_message);
+    }
+    // clear the warning only if the warning message we don't show is the same as the existing warning
+    // so that we don't remove a warning on sugars > 100g if we change carbohydrates
+    else if (warning_message == $('#nutriment_sugars_warning_'+nutrient_id).text()) {
+        $('#nutriment_'+nutrient_id).css("background-color", "white");
+        $('#nutriment_question_mark_'+nutrient_id).css("display", "none");
+    }
+}
+
+function check_nutrient(nutrient_id) {
+    // check the changed nutrient value
+    const nutrient_value = $('#nutriment_' + nutrient_id).val().replace(',','.').replace(/^(<|>|~)/, '');
+    const nutrient_unit = $('#nutriment_' + nutrient_id + '_unit').val();
+
+    // define the max valid value
+    let max;
+    let percent;
+
+    if (nutrient_id == 'energy-kj') {
+        max = 3800;
+    }
+    else if (nutrient_id == 'energy-kcal') {
+        max = 900;
+    }
+    else if (nutrient_id == 'alcohol') {
+        max = 100;
+        percent = true;
+    }
+    else if (nutrient_unit == 'g') {
+        max = 100;
+    }
+    else if (nutrient_unit == 'mg') {
+        max = 100 * 1000;
+    }
+    else if (nutrient_unit == 'µg') {
+        max = 100 * 1000 * 1000;
+    }
+
+    let is_above_or_below_max;
+    if (max) {
+        is_above_or_below_max = (isNaN(nutrient_value) && nutrient_value != '-') || nutrient_value < 0 || nutrient_value > max;
+        // if the nutrition facts are indicated per serving, the value can be above 100
+        if ((nutrient_value > max) && ($('#nutrition_data_per_serving').is(':checked')) && !percent) {
+            is_above_or_below_max = false;
+        }
+        show_warning(is_above_or_below_max, nutrient_id, lang().product_js_enter_value_between_0_and_max.replace('{max}', max));
+    }
+
+    // check that nutrients are sound (e.g. sugars is not above carbohydrates)
+    // but only if the changed nutrient does not have a warning
+    // otherwise we may clear the sugars or saturated-fat warning
+    if (! is_above_or_below_max) {
+        const fat_value = $('#nutriment_fat').val().replace(',','.');
+        const carbohydrates_value = $('#nutriment_carbohydrates').val().replace(',','.');
+        const sugars_value = $('#nutriment_sugars').val().replace(',','.');
+        const saturated_fats_value = $('#nutriment_saturated-fat').val().replace(',','.');
+
+        const is_sugars_above_carbohydrates = parseFloat(carbohydrates_value) < parseFloat(sugars_value);
+        show_warning(is_sugars_above_carbohydrates, 'sugars', lang().product_js_sugars_warning);
+
+        const is_fat_above_saturated_fats = parseFloat(fat_value) < parseFloat(saturated_fats_value);
+        show_warning(is_fat_above_saturated_fats, 'saturated-fat', lang().product_js_saturated_fat_warning);
+    }
+}
+
+$(function () {
+    $('.nutriment_value_as_sold').each(function () {
+        const nutrient_id = this.id.replace('nutriment_', '');
+        this.oninput = function() {
+            check_nutrient(nutrient_id);
+        };
+        check_nutrient(nutrient_id);
+    });
+    }
+);

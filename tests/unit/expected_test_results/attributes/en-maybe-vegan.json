@@ -1,7 +1,5 @@
 {
    "additives_n" : 0,
-   "additives_old_n" : 0,
-   "additives_old_tags" : [],
    "additives_original_tags" : [],
    "additives_tags" : [],
    "allergens" : "",
@@ -17,11 +15,11 @@
                "description" : "",
                "description_short" : "Missing data to compute the Nutri-Score",
                "grade" : "unknown",
-               "icon_url" : "https://server_domain/images/attributes/dist/nutriscore-unknown.svg",
+               "icon_url" : "https://server_domain/images/attributes/dist/nutriscore-unknown-new-en.svg",
                "id" : "nutriscore",
                "match" : 0,
                "name" : "Nutri-Score",
-               "panel_id" : "nutriscore",
+               "panel_id" : "nutriscore_2023",
                "status" : "unknown",
                "title" : "Nutri-Score unknown"
             },
@@ -627,7 +625,9 @@
    "food_groups_tags" : [],
    "ingredients" : [
       {
+         "ciqual_proxy_food_code" : "9510",
          "id" : "en:tapioca",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 66.6666666666667,
          "percent_max" : 100,
          "percent_min" : 33.3333333333333,
@@ -639,6 +639,7 @@
          "ciqual_food_code" : "16129",
          "from_palm_oil" : "yes",
          "id" : "en:palm-oil",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 16.6666666666667,
          "percent_max" : 50,
          "percent_min" : 0,
@@ -648,6 +649,7 @@
       },
       {
          "id" : "en:enzyme",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 16.6666666666667,
          "percent_max" : 33.3333333333333,
          "percent_min" : 0,
@@ -672,9 +674,6 @@
       "en:maybe-vegan",
       "en:maybe-vegetarian"
    ],
-   "ingredients_from_or_that_may_be_from_palm_oil_n" : 0,
-   "ingredients_from_palm_oil_n" : 0,
-   "ingredients_from_palm_oil_tags" : [],
    "ingredients_hierarchy" : [
       "en:tapioca",
       "en:starch",
@@ -690,12 +689,14 @@
       "3",
       "1-10"
    ],
+   "ingredients_non_nutritive_sweeteners_n" : 0,
    "ingredients_original_tags" : [
       "en:tapioca",
       "en:palm-oil",
       "en:enzyme"
    ],
    "ingredients_percent_analysis" : 1,
+   "ingredients_sweeteners_n" : 0,
    "ingredients_tags" : [
       "en:tapioca",
       "en:starch",
@@ -706,17 +707,14 @@
       "en:enzyme"
    ],
    "ingredients_text" : "tapioca starch, palm oil, enzyme",
-   "ingredients_that_may_be_from_palm_oil_n" : 0,
-   "ingredients_that_may_be_from_palm_oil_tags" : [],
    "ingredients_with_specified_percent_n" : 0,
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 3,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
-      "en:enzyme",
-      "en:tapioca"
+      "en:enzyme"
    ],
-   "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ciqual_codes_n" : 1,
    "known_ingredients_n" : 7,
    "languages" : {},
    "languages_codes" : {},
@@ -727,24 +725,24 @@
    "lc" : "en",
    "minerals_tags" : [],
    "misc_tags" : [
-      "en:nutrition-not-enough-data-to-compute-nutrition-score",
+      "en:ecoscore-extended-data-not-computed",
+      "en:ecoscore-not-computed",
       "en:nutriscore-missing-nutrition-data",
       "en:nutriscore-missing-nutrition-data-energy",
       "en:nutriscore-missing-nutrition-data-fat",
-      "en:nutriscore-missing-nutrition-data-saturated-fat",
-      "en:nutriscore-missing-nutrition-data-sugars",
-      "en:nutriscore-missing-nutrition-data-sodium",
       "en:nutriscore-missing-nutrition-data-proteins",
-      "en:nutrition-no-fiber",
+      "en:nutriscore-missing-nutrition-data-saturated-fat",
+      "en:nutriscore-missing-nutrition-data-sodium",
+      "en:nutriscore-missing-nutrition-data-sugars",
       "en:nutriscore-not-computed",
-      "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
-      "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
       "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
-      "en:packagings-number-of-components-0",
-      "en:packagings-not-complete",
+      "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
+      "en:nutrition-no-fiber",
+      "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
+      "en:nutrition-not-enough-data-to-compute-nutrition-score",
       "en:packagings-empty",
-      "en:ecoscore-extended-data-not-computed",
-      "en:ecoscore-not-computed"
+      "en:packagings-not-complete",
+      "en:packagings-number-of-components-0"
    ],
    "nova_group" : 3,
    "nova_group_debug" : "",
@@ -801,7 +799,7 @@
          "category_available" : 1,
          "data" : {
             "energy" : null,
-            "fiber" : 0,
+            "fiber" : null,
             "fruits_vegetables_legumes" : 0,
             "is_beverage" : 0,
             "is_cheese" : 0,

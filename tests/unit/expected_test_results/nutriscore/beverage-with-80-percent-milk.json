@@ -1,12 +1,20 @@
 {
    "additives_n" : 0,
-   "additives_old_n" : 0,
-   "additives_old_tags" : [],
    "additives_original_tags" : [],
    "additives_tags" : [],
+   "allergens" : "",
+   "allergens_from_ingredients" : "en:milk",
+   "allergens_from_user" : "(en) ",
+   "allergens_hierarchy" : [
+      "en:milk"
+   ],
+   "allergens_tags" : [
+      "en:milk"
+   ],
    "amino_acids_tags" : [],
    "categories" : "beverages",
    "categories_hierarchy" : [
+      "en:beverages-and-beverages-preparations",
       "en:beverages"
    ],
    "categories_lc" : "en",
@@ -20,6 +28,7 @@
       "agribalyse-unknown"
    ],
    "categories_tags" : [
+      "en:beverages-and-beverages-preparations",
       "en:beverages"
    ],
    "food_groups_tags" : [],
@@ -27,6 +36,7 @@
       {
          "ciqual_proxy_food_code" : "19051",
          "id" : "en:fresh-milk",
+         "is_in_taxonomy" : 1,
          "percent" : 80,
          "percent_estimate" : 80,
          "percent_max" : 80,
@@ -38,6 +48,7 @@
       {
          "ciqual_proxy_food_code" : "31016",
          "id" : "en:sugar",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 20,
          "percent_max" : 20,
          "percent_min" : 20,
@@ -56,9 +67,6 @@
       "en:non-vegan",
       "en:vegetarian"
    ],
-   "ingredients_from_or_that_may_be_from_palm_oil_n" : 0,
-   "ingredients_from_palm_oil_n" : 0,
-   "ingredients_from_palm_oil_tags" : [],
    "ingredients_hierarchy" : [
       "en:fresh-milk",
       "en:dairy",
@@ -67,16 +75,19 @@
       "en:added-sugar",
       "en:disaccharide"
    ],
+   "ingredients_lc" : "en",
    "ingredients_n" : 2,
    "ingredients_n_tags" : [
       "2",
       "1-10"
    ],
+   "ingredients_non_nutritive_sweeteners_n" : 0,
    "ingredients_original_tags" : [
       "en:fresh-milk",
       "en:sugar"
    ],
    "ingredients_percent_analysis" : 1,
+   "ingredients_sweeteners_n" : 0,
    "ingredients_tags" : [
       "en:fresh-milk",
       "en:dairy",
@@ -86,8 +97,6 @@
       "en:disaccharide"
    ],
    "ingredients_text" : "Fresh milk 80%, sugar",
-   "ingredients_that_may_be_from_palm_oil_n" : 0,
-   "ingredients_that_may_be_from_palm_oil_tags" : [],
    "ingredients_with_specified_percent_n" : 1,
    "ingredients_with_specified_percent_sum" : 80,
    "ingredients_with_unspecified_percent_n" : 1,
@@ -107,26 +116,55 @@
       "en:nutriscore-2021-better-than-2023",
       "en:nutriscore-2021-d-2023-e"
    ],
+   "nova_group" : 3,
+   "nova_group_debug" : "",
+   "nova_groups" : "3",
+   "nova_groups_markers" : {
+      "3" : [
+         [
+            "ingredients",
+            "en:sugar"
+         ]
+      ]
+   },
+   "nova_groups_tags" : [
+      "en:3-processed-foods"
+   ],
    "nucleotides_tags" : [],
+   "nutrient_levels" : {
+      "fat" : "moderate",
+      "salt" : "low",
+      "saturated-fat" : "high",
+      "sugars" : "high"
+   },
+   "nutrient_levels_tags" : [
+      "en:fat-in-moderate-quantity",
+      "en:saturated-fat-in-high-quantity",
+      "en:sugars-in-high-quantity",
+      "en:salt-in-low-quantity"
+   ],
    "nutriments" : {
       "energy_100g" : 3378,
-      "fat_100g" : 10,
+      "fat_100g" : "10",
       "fiber_100g" : 2,
       "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
       "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0,
+      "nova-group" : 3,
+      "nova-group_100g" : 3,
+      "nova-group_serving" : 3,
       "nutrition-score-fr" : 16,
       "nutrition-score-fr_100g" : 16,
       "proteins_100g" : 5,
       "salt" : 0,
-      "salt_100g" : 0,
+      "salt_100g" : "0",
       "salt_unit" : "g",
       "salt_value" : 0,
-      "saturated-fat_100g" : 5,
+      "saturated-fat_100g" : "5",
       "sodium_100g" : 0,
       "sodium_value" : "0",
-      "sugars_100g" : 20
+      "sugars_100g" : "20"
    },
    "nutriments_estimated" : {
       "alcohol_100g" : 0,
@@ -216,42 +254,99 @@
       "2023" : {
          "category_available" : 1,
          "data" : {
+            "components" : {
+               "negative" : [
+                  {
+                     "id" : "energy",
+                     "new_grade" : "e",
+                     "new_score" : 17,
+                     "new_value" : 3350,
+                     "points" : 10,
+                     "points_max" : 10,
+                     "unit" : "kJ",
+                     "value" : 3378
+                  },
+                  {
+                     "id" : "sugars",
+                     "new_grade" : "e",
+                     "new_score" : 17,
+                     "new_value" : 17,
+                     "points" : 10,
+                     "points_max" : 10,
+                     "unit" : "g",
+                     "value" : 20
+                  },
+                  {
+                     "id" : "saturated_fat",
+                     "new_grade" : "e",
+                     "new_score" : 16,
+                     "new_value" : 4,
+                     "points" : 4,
+                     "points_max" : 10,
+                     "unit" : "g",
+                     "value" : 5
+                  },
+                  {
+                     "id" : "salt",
+                     "points" : 0,
+                     "points_max" : 20,
+                     "unit" : "g",
+                     "value" : 0
+                  },
+                  {
+                     "id" : "non_nutritive_sweeteners",
+                     "points" : 0,
+                     "points_max" : 4,
+                     "unit" : "number",
+                     "value" : 0
+                  }
+               ],
+               "positive" : [
+                  {
+                     "id" : "proteins",
+                     "new_grade" : "e",
+                     "new_score" : 17,
+                     "new_value" : 7.3,
+                     "points" : 7,
+                     "points_max" : 7,
+                     "unit" : "g",
+                     "value" : 5
+                  },
+                  {
+                     "id" : "fiber",
+                     "new_grade" : "e",
+                     "new_score" : 16,
+                     "new_value" : 3.1,
+                     "points" : 0,
+                     "points_max" : 5,
+                     "unit" : "g",
+                     "value" : 2
+                  },
+                  {
+                     "id" : "fruits_vegetables_legumes",
+                     "points" : 0,
+                     "points_max" : 6,
+                     "unit" : "%",
+                     "value" : 0
+                  }
+               ]
+            },
             "count_proteins" : 1,
             "count_proteins_reason" : "beverage",
-            "energy" : 3378,
-            "energy_points" : 10,
-            "fiber" : 2,
-            "fiber_points" : 0,
-            "fruits_vegetables_legumes" : 0,
-            "fruits_vegetables_legumes_points" : 0,
             "is_beverage" : 1,
             "is_cheese" : 0,
             "is_fat_oil_nuts_seeds" : 0,
             "is_red_meat_product" : 0,
             "is_water" : 0,
-            "negative_nutrients" : [
-               "energy",
-               "sugars",
-               "saturated_fat",
-               "salt",
-               "non_nutritive_sweeteners"
-            ],
             "negative_points" : 24,
-            "non_nutritive_sweeteners_points" : 0,
+            "negative_points_max" : 54,
             "positive_nutrients" : [
-               "fruits_vegetables_legumes",
+               "proteins",
                "fiber",
-               "proteins"
+               "fruits_vegetables_legumes"
             ],
             "positive_points" : 7,
-            "proteins" : 5,
-            "proteins_points" : 7,
-            "salt" : 0,
-            "salt_points" : 0,
-            "saturated_fat" : 5,
-            "saturated_fat_points" : 4,
-            "sugars" : 20,
-            "sugars_points" : 10
+            "positive_points_max" : 18
          },
          "grade" : "e",
          "nutrients_available" : 1,
@@ -328,6 +423,12 @@
       "unknown",
       "missing-association"
    ],
+   "traces" : "",
+   "traces_from_ingredients" : "",
+   "traces_from_user" : "(en) ",
+   "traces_hierarchy" : [],
+   "traces_tags" : [],
    "unknown_ingredients_n" : 0,
+   "unknown_nutrients_tags" : [],
    "vitamins_tags" : []
 }

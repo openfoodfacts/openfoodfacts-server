@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2024 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -18,6 +18,8 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+## no critic (RequireFilenameMatchesPackage);
+
 package ProductOpener::Config;
 
 use utf8;
@@ -25,17 +27,20 @@ use Modern::Perl '2017';
 use Exporter qw< import >;
 
 BEGIN {
+
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
+		$flavor
+
 		%string_normalization_for_lang
 		%admins
-		%moderators
 
 		$server_domain
 		@ssl_subdomains
 		$conf_root
 		$data_root
 		$www_root
+		$sftp_root
 		$geolite2_path
 		$reference_timezone
 		$contact_email
@@ -48,11 +53,15 @@ BEGIN {
 		$crowdin_project_identifier
 		$crowdin_project_key
 
+		$log_emails
 		$robotoff_url
 		$query_url
 		$events_url
 		$events_username
 		$events_password
+
+		$facets_kp_url
+		$redis_url
 
 		$mongodb
 		$mongodb_host
@@ -88,12 +97,15 @@ BEGIN {
 
 		@edit_rules
 
+		$build_cache_repo
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 use vars @EXPORT_OK;    # no 'my' keyword for these
 
 use ProductOpener::Config2;
+
+$flavor = 'obf';
 
 # define the normalization applied to change a string to a tag id (in particular for taxonomies)
 # tag ids are also used in URLs.
@@ -104,6 +116,8 @@ use ProductOpener::Config2;
 # - dangerous if different words (in the same context like ingredients or category names) have the same unaccented form
 # lowercase:
 # - useful when the same word appears in lowercase, with a first capital letter, or in all caps.
+
+# IMPORTANT: if you change it, you need to change $BUILD_TAGS_VERSION in Tags.pm
 
 %string_normalization_for_lang = (
 	# no_language is used for strings that are not in a specific language (e.g. user names)
@@ -148,38 +162,28 @@ use ProductOpener::Config2;
 );
 
 %admins = map {$_ => 1} qw(
-	agamitsudo
-	aleene
-	bcatelin
-	bojackhorseman
+	alex-off
+	cha-delh
 	charlesnepote
+	gala-nafikova
 	hangy
-	javichu
-	kyzh
-	lafel
-	lucaa
-	mbe
-	moon-rabbit
+	manoncorneille
 	raphael0202
-	sebleouf
-	segundo
 	stephane
 	tacinte
-	tacite
 	teolemon
-	twoflower
-
-	jniderkorn
-	desan
-	cedagaesse
-	m-etchebarne
 );
 
-%moderators = map {$_ => 1} qw(
-
+%options = (
+	site_name => "Open Beauty Facts",
+	product_type => "beauty",
+	og_image_url => "https://world.openbeautyfacts.org/images/misc/openbeautyfacts-logo-en.png",
+	android_apk_app_link => "https://world.openbeautyfacts.org/images/apps/obf.apk",
+	android_app_link => "https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner",
+	ios_app_link => "https://apps.apple.com/app/open-beauty-facts/id1122926380",
+	facebook_page_url => "https://www.facebook.com/openbeautyfacts",
+	twitter_account => "OpenBeautyFacts",
 );
-
-$options{product_type} = "beauty";
 
 @edit_rules = ();
 
@@ -219,6 +223,8 @@ $events_password = $ProductOpener::Config2::events_password;
 
 %server_options = %ProductOpener::Config2::server_options;
 
+$build_cache_repo = $ProductOpener::Config2::build_cache_repo;
+
 $reference_timezone = 'Europe/Paris';
 
 $contact_email = 'contact@openbeautyfacts.org';
@@ -242,7 +248,7 @@ HTML
 # fields for which we will load taxonomies
 
 @taxonomy_fields
-	= qw(units states countries languages labels categories additives allergens traces nutrient_levels ingredients periods_after_opening inci_functions);
+	= qw(units states countries languages labels categories additives additives_classes allergens traces nutrient_levels ingredients periods_after_opening inci_functions);
 
 # tag types (=facets) that should be indexed by web crawlers, all other tag types are not indexable
 @index_tag_types = qw(brands categories labels additives products);
@@ -417,5 +423,8 @@ $options{other_servers} = {
 };
 
 $options{no_nutrition_table} = 1;
+
+# Name of the Redis stream to which product updates are published
+$options{redis_stream_name} = "product_updates_obf";
 
 1;

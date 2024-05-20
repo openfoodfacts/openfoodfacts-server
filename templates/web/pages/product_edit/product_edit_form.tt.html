@@ -1,5 +1,4 @@
 <!-- start templates/[% template.name %] -->
-
 [% IF type == "search_or_add" %]
 
     [% IF code.defined %]
@@ -38,7 +37,7 @@
                         </label>
                     </div>
                 </div>
-                <input type="submit" name=".submit" value="[% lang('login_register_title') %]" class="button small" />
+                <input type="submit" name=".submit" value="[% edq(lang('login_register_title')) %]" class="button small" />
                 <input type="hidden" name="code" value="[% code %]" />
                 <input type="hidden" name="next_action" value="product_[% type %]" />
                 <button type="submit" formaction="/cgi/user.pl" method ="get" class="button small">[% lang('login_create_your_account') %]</button>

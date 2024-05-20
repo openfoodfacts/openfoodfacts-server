@@ -629,27 +629,42 @@ zh-TW:完成包裝
 zh-HK:完成包裝
 
 en:Quantity completed
+bg:Завършено количество
+bs:Količina završena
 ca:Quantitat completa
 cs:Informace o množství jsou hotové
+da:Mængde udfyldt
 de:Menge ausgefüllt
 el:Η ποσότητα συμπληρώθηκε
 es:Cantidad completada
+et:Kogus täidetud
 fi:Määrä täytetty
 fr:Quantité complétée
 he:כמות הושלמה
+hr:Količina dovršena
 hu:Mennyiség megadva
 it:Quantità completata
 ja:数量完了
-nl:Hoeveelheid klaar
-pl:Ilość uzupełniona
-pt:Quantidade completada
-ru:Количество указано
-sv:Mängd fullständigt
-vi:Số lượng hoàn thành
-zh:完成数量
 zh-CN:完成数量
 zh-TW:完成數量
 zh-HK:完成數量
+lt:Kiekis užpildytas
+lv:Daudzums aizpildīts
+mk:Количина завршена
+nl:Hoeveelheid klaar
+no:Mengde fullført
+pl:Ilość uzupełniona
+pt:Quantidade completada
+ro:Cantitate completată
+ru:Количество указано
+sl:Količina dokončana
+sq:Sasia e plotësuar
+sr:Količina završena
+sv:Mängd fullständigt
+tr:Miktar tamamlandı
+uk:Кількість вказана
+vi:Số lượng hoàn thành
+zh:完成数量
 
 en:Product name completed
 ca:Nom del producte complet
@@ -712,15 +727,31 @@ vi:Mã đóng gói đã hoàn thành
 zh:包装代码已完成
 
 en:Front photo selected
+bs:Prednja fotografija odabrana
 ca:Foto frontal seleccionada
 de:Frontfoto ausgewählt
+el:Επιλέχθηκε φωτογραφία μπροστά
 es:Foto frontal seleccionada
 fi:Etukuva valittu
 fr:Photo de face sélectionnée
 he:נבחרה תמונת חזית
+hr:Prednja fotografija odabrana
 hu:Borító fotó kiválasztva
 it:Foto frontale selezionata
+lt:Išrinktas priekinis nuotraukos
+mk:Избрана предна фотографија
+nl:Voorfoto geselecteerd
+no:Framsidebilde valgt
+pl:Wybrano zdjęcie przedniej części
 pt:Imagem frontal selecionada
+ro:Fotografie frontală selectată
+ru:Выбрано фото спереди
+sq:Fotografia e përparme është zgjedhur
+sr:Изабрана предња фотографија
+sv:Främre foto valt
+tr:Ön fotoğraf seçildi
+uk:Обрано фото спереду
+zh:已选择前照片
 
 en:Front photo to be selected
 ca:Falta seleccionar la foto frontal, Falta triar la foto frontal
@@ -733,6 +764,14 @@ hu:Borító fotó kiválasztandó
 it:Foto frontale da selezionare
 nl:Foto van de voorkant geselecteerd
 pt:Imagem frontal a selecionar
+ru:Необходимо выбрать фронтальное фото
+sv:Främre foto att välja
+tr:Ön fotoğraf seçilmeli
+vi:Ảnh mặt trước cần chọn
+zh:需要选择前照片
+zh-CN:需要选择前照片
+zh-TW:需要選擇前照片
+zh-HK:需要選擇前照片
 
 en:Ingredients photo selected
 ca:Foto dels ingredients seleccionada
@@ -745,6 +784,14 @@ hu:Összetevők fotó kiválasztva
 it:Foto degli ingredienti selezionata
 nl:Foto van de ingrediënten geselecteerd
 pt:Imagem dos ingredientes selecionada
+ru:Фото ингредиентов выбрано
+sv:Ingrediensfoto vald
+tr:İçerik fotoğrafı seçildi
+vi:Ảnh thành phần đã chọn
+zh:已选择成分照片
+zh-CN:已选择成分照片
+zh-TW:已選擇成分照片
+zh-HK:已選擇成分照片
 
 en:Ingredients photo to be selected
 ca:Foto dels ingredients a seleccionar, Foto dels ingredients a triar, Falta triar la foto dels ingredients, Falta seleccionar la foto dels ingredients
@@ -757,6 +804,12 @@ hu:Összetevők fotó kiválasztandó
 it:Foto degli ingredienti da selezionare
 nl:Ingrediëntenfoto moet worden geselecteerd
 pt:Imagem dos ingredientes a selecionar
+sv:Ingrediensfoto att välja
+vi:Ảnh thành phần cần chọn
+zh:需要选择成分照片
+zh-CN:需要选择成分照片
+zh-TW:需要選擇成分照片
+zh-HK:需要選擇成分照片
 
 en:Nutrition photo selected
 ca:Foto d'informació nutricional seleccionada
@@ -769,6 +822,13 @@ hu:Tápérték fotó kiválasztva
 it:Foto delle informazioni nutrizionali selezionata
 nl:Foto van de voedingswaarden geselecteerd
 pt:Imagem das informações nutricionais selecionada
+ru:Выбрано фото с информацией о питательности
+sv:Näringsfoto vald
+tr:Beslenme fotoğrafı seçildi
+zh:已选择营养照片
+zh-CN:已选择营养照片
+zh-TW:已選擇營養照片
+zh-HK:已選擇營養照片
 
 en:Nutrition photo to be selected
 ca:Foto d'informació nutricional a seleccionar, Foto d'informació nutricional a triar
@@ -780,7 +840,12 @@ he:יש לבחור בתמונת ערכים תזונתיים
 hu:Tápérték fotó kiválasztandó
 it:Foto delle informazioni nutrizionali da selezionare
 nl:Foto van voedingswaarden moet worden geselecteerd
+pl:Zdjęcie informacji o wartościach odżywczych do wyboru
 pt:Imagem das informações nutricionais a selecionar
+ru:Выбрать фото пищевой ценности
+sv:Näringsfotot måste väljas
+tr:Beslenme fotoğrafı seçilmeli
+zh:待选择营养照片
 
 en:Packaging photo selected
 ca:Foto de l'embalatge seleccionada
@@ -791,10 +856,16 @@ fr:Photo de l'emballage sélectionnée
 hu:Csomagolás fotó kiválasztva
 it:Foto dell'imballaggio selezionata
 nl:Verpakkingsfoto geselecteerd
+pl:Zdjęcie opakowania wybrane
 pt:Imagem da embalagem selecionada
+ru:Выбрано фото упаковки
+sv:Förpackningsfoto vald
+tr:Paketleme fotoğrafı seçildi
+zh:已选择包装照片
 
 en:Packaging photo to be selected
 ca:Foto de l'embalatge a triar, Foto de l'embalatge a seleccionar, Seleccionar foto de l'embalatge, Triar foto de l'embalatge
+da:Vælg emballagefoto
 de:Verpackungsfoto muss ausgewählt werden
 es:Foto de embalaje a seleccionar
 fi:Pakkauskuva valitsematta
@@ -802,20 +873,30 @@ fr:Photo de l'emballage non sélectionnée
 he:יש לבחור בתמונת אריזה
 hu:Csomgaolás fotó kiválasztandó
 it:Foto dell'imballaggio da selezionare
+ja:パッケージ写真を選択してください
+ko:포장 사진을 선택하세요
 nl:Verpakkingsfoto moet worden geselecteerd
+no:Velg emballasjebilde
 pt:Imagem da embalagem a selecionar
+sv:Förpackningsfoto att välja
+tr:Paketleme fotoğrafı seçilmeli
+zh:需要选择包装照片
 
 en:Origins completed
+ca:Orígens completats
+da:Oprindelse fuldført
 de:Herkunft ausgefüllt
+es:Orígenes completados
+fi:Alkuperä täydennetty
 fr:Origines complétées
 hu:Származás kitöltve
 it:Origine degli ingredienti completata
+ja:起源が完了しました
+ko:기원이 완료되었습니다
 nl:Oorsprong vervolledigd
+no:Opprinnelse fullført
 pl:Pochodzenie uzupełnione
 pt:Origens dos ingredientes completas
-es:Orígenes completados
-fi:Alkuperä täydennetty
-ca:Orígens completats
 ru:Происхождение заполнено
 sv:Ursprung slutfört
 tr:Kökenler tamamlandı
@@ -839,3 +920,4 @@ ru:Происхождение для заполнения
 sv:Ursprung att slutföra
 tr:Tamamlanacak kökenler
 zh:待完成的起源
+

@@ -48,10 +48,10 @@ BEGIN {
 }
 
 use ProductOpener::Config qw(:all);
-use ProductOpener::Store qw(:all);
+use ProductOpener::Store qw(get_string_id_for_lang);
 use ProductOpener::Tags qw(:all);
-use ProductOpener::Food qw(:all);
-use ProductOpener::Ecoscore qw(:all);
+use ProductOpener::Food qw(%categories_nutriments_per_country);
+use ProductOpener::Ecoscore qw(is_ecoscore_extended_data_more_precise_than_agribalyse);
 use ProductOpener::Units qw(extract_standard_unit);
 
 use Data::DeepAccess qw(deep_exists);
@@ -1091,7 +1091,7 @@ sub check_nutrition_data ($product_ref) {
 			}
 		}
 
-		foreach my $nid (keys %{$product_ref->{nutriments}}) {
+		foreach my $nid (sort keys %{$product_ref->{nutriments}}) {
 			$log->debug("nid: " . $nid . ": " . $product_ref->{nutriments}{$nid}) if $log->is_debug();
 
 			if ($nid =~ /_prepared_100g$/ && $product_ref->{nutriments}{$nid} > 0) {
@@ -1104,17 +1104,33 @@ sub check_nutrition_data ($product_ref) {
 				$nid2 =~ s/_/-/g;
 
 				if (($nid !~ /energy/) and ($nid !~ /footprint/) and ($product_ref->{nutriments}{$nid} > 105)) {
-
-					push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-value-over-105-$nid2";
+					# product opener / ingredients analysis issue (See issue #10064)
+					if ($nid =~ /estimate/) {
+						push @{$product_ref->{data_quality_warnings_tags}}, "en:nutrition-value-over-105-$nid2";
+					}
+					else {
+						push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-value-over-105-$nid2";
+					}
 				}
 
 				if (($nid !~ /energy/) and ($nid !~ /footprint/) and ($product_ref->{nutriments}{$nid} > 1000)) {
-
-					push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-value-over-1000-$nid2";
+					# product opener / ingredients analysis issue (See issue #10064)
+					if ($nid =~ /estimate/) {
+						push @{$product_ref->{data_quality_warnings_tags}}, "en:nutrition-value-over-1000-$nid2";
+					}
+					else {
+						push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-value-over-1000-$nid2";
+					}
 				}
 
 				if (($product_ref->{nutriments}{$nid} < 0) and (index($nid, "nutrition-score") == -1)) {
-					push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-value-negative-$nid2";
+					# product opener / ingredients analysis issue (See issue #10064)
+					if ($nid =~ /estimate/) {
+						push @{$product_ref->{data_quality_warnings_tags}}, "en:nutrition-value-negative-$nid2";
+					}
+					else {
+						push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-value-negative-$nid2";
+					}
 				}
 			}
 
@@ -1164,21 +1180,25 @@ sub check_nutrition_data ($product_ref) {
 		}
 		# raise error if
 		# all values are identical
+		# and values (check first value only) are above 1 (see issue #9572)
 		#  OR
 		# all values but one - because sodium and salt can be automatically calculated one depending on the value of the other - are identical
-		# and values (check first value only) are above 1 (see issue #9572)
+		# and values (check salt (should not check sodium which could be lower)) are above 1 (see issue #9572)
 		# and at least 4 values are input by contributors (see issue #9572)
 		if (
 			(
-				($nutriments_values_occurences_max_value == scalar @major_nutriments_values)
+				(
+					$nutriments_values_occurences_max_value == scalar @major_nutriments_values
+					and ($major_nutriments_values[0] > 1)
+				)
 				or (
 					($nutriments_values_occurences_max_value >= scalar @major_nutriments_values - 1)
 					and (   (defined $nutriments_values{'salt_100g'})
-						and ($nutriments_values{'sodium_100g'})
-						and ($nutriments_values{'salt_100g'} != $nutriments_values{'sodium_100g'}))
+						and (defined $nutriments_values{'sodium_100g'})
+						and ($nutriments_values{'salt_100g'} != $nutriments_values{'sodium_100g'})
+						and ($nutriments_values{'salt_100g'} > 1))
 				)
 			)
-			and (@major_nutriments_values[0] > 1)
 			and (scalar @major_nutriments_values > 3)
 			)
 		{
@@ -1296,6 +1316,28 @@ sub check_nutrition_data ($product_ref) {
 
 			push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-saturated-fat-greater-than-fat";
 
+		}
+
+		# sum of nutriments that compose fiber can not be greater than the value of fiber
+		if (
+			(defined $product_ref->{nutriments}{fiber_100g})
+			and (
+				(
+					(
+						(defined $product_ref->{nutriments}{'soluble-fiber_100g'})
+						? $product_ref->{nutriments}{'soluble-fiber_100g'}
+						: 0
+					) + (
+						(defined $product_ref->{nutriments}{'insoluble-fiber_100g'})
+						? $product_ref->{nutriments}{'insoluble-fiber_100g'}
+						: 0
+					)
+				) > ($product_ref->{nutriments}{fiber_100g}) + 0.001
+			)
+			)
+		{
+			push @{$product_ref->{data_quality_errors_tags}},
+				"en:nutrition-soluble-fiber-plus-insoluble-fiber-greater-than-fiber";
 		}
 
 		# Too small salt value? (e.g. g entered in mg)
@@ -1619,6 +1661,10 @@ sub check_ingredients ($product_ref) {
 						"en:ingredients-" . $display_lc . "-unexpected-chars-question-mark";
 				}
 
+				if ($product_ref->{$ingredients_text_lc} =~ /http/i) {
+					add_tag($product_ref, "data_quality_errors", "en:ingredients-" . $display_lc . "-unexpected-url");
+				}
+
 				# French specific
 				#if ($display_lc eq 'fr') {
 
@@ -1812,10 +1858,21 @@ sub check_labels ($product_ref) {
 					unshift @ingredients, @{$ingredient_ref->{ingredients}};
 				}
 
-				# some additives_classes (like thickener, for example) do not have the key-value vegan and vegetarian
-				# it can be additives_classes that contain only vegan/vegetarian additives.
-				# to avoid false-positive - instead of raising a warning (else below) we ignore additives_classes
-				if (!exists_taxonomy_tag("additives_classes", $ingredientid)) {
+				# - some additives_classes (like thickener, for example) do not have the key-value vegan and vegetarian
+				#   it can be additives_classes that contain only vegan/vegetarian additives.
+				# - also we cannot tell if a compound ingredient (preparation) is vegan or vegetarian
+				# to handle both cases we ignore the ingredient having vegan/vegatarian "maybe" and if it contains sub-ingredients
+				my $ignore_vegan_vegetarian_facet = 0;
+				if (
+					(defined $ingredient_ref->{ingredients})
+					and (  ((defined $ingredient_ref->{"vegan"}) and ($ingredient_ref->{"vegan"} ne 'no'))
+						or ((defined $ingredient_ref->{"vegetarian"}) and ($ingredient_ref->{"vegetarian"} ne 'no')))
+					)
+				{
+					$ignore_vegan_vegetarian_facet = 1;
+				}
+
+				if (not $ignore_vegan_vegetarian_facet) {
 					if (has_tag($product_ref, "labels", "en:vegan")) {
 						# vegan
 						if (defined $ingredient_ref->{"vegan"}) {
@@ -2169,8 +2226,8 @@ sub check_labels ($product_ref) {
 			(
 				(       (defined $product_ref->{nutriments}{sodium_100g})
 					and ($product_ref->{nutriments}{sodium_100g} > 0.005))
-				or
-				((defined $product_ref->{nutriments}{salt_100g}) and ($product_ref->{nutriments}{salt_100g} > 0.0125))
+				or (    (defined $product_ref->{nutriments}{salt_100g})
+					and ($product_ref->{nutriments}{salt_100g} > 0.0125))
 			)
 			and (has_tag($product_ref, "labels", "en:no-sodium") or has_tag($product_ref, "labels", "en:no-salt"))
 			)
@@ -2410,47 +2467,50 @@ sub check_labels ($product_ref) {
 		= get_inherited_property_from_categories_tags($product_ref, "expected_minimal_amount_specific_ingredients:en");
 
 	# convert as a list, in case there are more than a countries having regulations
-	my @expected_minimal_amount_specific_ingredients_list = split /;/, $expected_minimal_amount_specific_ingredients;
-	foreach
-		my $expected_minimal_amount_specific_ingredients_element (@expected_minimal_amount_specific_ingredients_list)
-	{
-		# split on ", " to extract ingredient id, quantity in g and country
-		my ($specific_ingredient_id, $quantity_threshold, $country) = split /, /,
-			$expected_minimal_amount_specific_ingredients_element;
-
-		if (
-				(defined $specific_ingredient_id)
-			and (defined $quantity_threshold)
-			and (defined $country)
-			and
-			((($country eq "en:eu") and ($european_product == 1)) or (has_tag(($product_ref, "countries", $country))))
-			)
+	if (defined $expected_minimal_amount_specific_ingredients) {
+		my @expected_minimal_amount_specific_ingredients_list = split /;/,
+			$expected_minimal_amount_specific_ingredients;
+		foreach my $expected_minimal_amount_specific_ingredients_element (
+			@expected_minimal_amount_specific_ingredients_list)
 		{
-			my $specific_ingredient_quantity;
-			if (defined $product_ref->{specific_ingredients}) {
-				foreach my $specific_ingredient ($product_ref->{specific_ingredients}[0]) {
-					if (    (defined $specific_ingredient->{id})
-						and (defined $specific_ingredient->{quantity_g})
-						and ($specific_ingredient->{id} eq $specific_ingredient_id))
-					{
-						$specific_ingredient_quantity = $specific_ingredient->{quantity_g};
+			# split on ", " to extract ingredient id, quantity in g and country
+			my ($specific_ingredient_id, $quantity_threshold, $country) = split /, /,
+				$expected_minimal_amount_specific_ingredients_element;
+
+			if (
+					(defined $specific_ingredient_id)
+				and (defined $quantity_threshold)
+				and (defined $country)
+				and (  (($country eq "en:eu") and ($european_product == 1))
+					or (has_tag(($product_ref, "countries", $country))))
+				)
+			{
+				my $specific_ingredient_quantity;
+				if (defined $product_ref->{specific_ingredients}) {
+					foreach my $specific_ingredient ($product_ref->{specific_ingredients}[0]) {
+						if (    (defined $specific_ingredient->{id})
+							and (defined $specific_ingredient->{quantity_g})
+							and ($specific_ingredient->{id} eq $specific_ingredient_id))
+						{
+							$specific_ingredient_quantity = $specific_ingredient->{quantity_g};
+						}
 					}
 				}
-			}
 
-			if (defined $specific_ingredient_quantity) {
-				if ($specific_ingredient_quantity < $quantity_threshold) {
-					add_tag($product_ref, "data_quality_errors",
-							  "en:specific-ingredient-"
-							. substr($specific_ingredient_id, 3)
-							. "-quantity-is-below-the-minimum-value-of-$quantity_threshold-for-category-"
-							. substr($category_id, 3));
+				if (defined $specific_ingredient_quantity) {
+					if ($specific_ingredient_quantity < $quantity_threshold) {
+						add_tag($product_ref, "data_quality_errors",
+								  "en:specific-ingredient-"
+								. substr($specific_ingredient_id, 3)
+								. "-quantity-is-below-the-minimum-value-of-$quantity_threshold-for-category-"
+								. substr($category_id, 3));
+					}
 				}
-			}
-			else {
-				add_tag($product_ref, "data_quality_info", "en:missing-specific-ingredient-for-this-category");
-			}
+				else {
+					add_tag($product_ref, "data_quality_info", "en:missing-specific-ingredient-for-this-category");
+				}
 
+			}
 		}
 	}
 	return;

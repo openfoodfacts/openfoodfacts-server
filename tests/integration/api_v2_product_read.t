@@ -2,10 +2,10 @@
 
 use ProductOpener::PerlStandards;
 
-use Test::More;
-use ProductOpener::APITest qw/:all/;
-use ProductOpener::Test qw/:all/;
-use ProductOpener::TestDefaults qw/:all/;
+use Test2::V0;
+use ProductOpener::APITest qw/create_user edit_product execute_api_tests new_client wait_application_ready/;
+use ProductOpener::Test qw/remove_all_products remove_all_users/;
+use ProductOpener::TestDefaults qw/%default_product_form %default_user_form/;
 
 use File::Basename "dirname";
 
@@ -52,6 +52,13 @@ my $tests_ref = [
 	{
 		test_case => 'get-unexisting-product',
 		method => 'GET',
+		path => '/api/v2/product/12345678',
+		expected_status_code => 404,
+	},
+	{
+		test_case => 'get-unexisting-product-jqm',
+		method => 'GET',
+		query_string => '?jqm=1',
 		path => '/api/v2/product/12345678',
 		expected_status_code => 404,
 	},

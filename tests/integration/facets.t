@@ -2,10 +2,10 @@
 
 use ProductOpener::PerlStandards;
 
-use Test::More;
-use ProductOpener::APITest qw/:all/;
-use ProductOpener::Test qw/:all/;
-use ProductOpener::TestDefaults qw/:all/;
+use Test2::V0;
+use ProductOpener::APITest qw/create_user edit_product execute_api_tests new_client wait_application_ready/;
+use ProductOpener::Test qw/remove_all_products remove_all_users/;
+use ProductOpener::TestDefaults qw/%default_user_form %empty_product_form/;
 
 use File::Basename "dirname";
 
@@ -147,7 +147,7 @@ my @products = (
 		(
 			code => '200000000011',
 			product_name => "Apples - Organic - France, Belgium, Canada",
-			categories => "en:apples",
+			categories => "en:apples,en:vitamins",
 			labels => "en:organic",
 			origins => "en:france,en:belgium,en:canada",
 		),
@@ -160,6 +160,8 @@ my @products = (
 			categories => "en:chocolate",
 			labels => "en:organic,en:fair-trade",
 			origins => "en:martinique",
+			lc => "en",
+			ingredients_text_en => "Cocoa, sugar, vanilla, vitamiun C",
 		),
 	},
 	# German product with accents in labels
@@ -322,12 +324,29 @@ my $tests_ref = [
 		expected_status_code => 200,
 		sort_products_by => 'product_name',
 	},
+	# contributor + another facet
+	{
+		test_case => 'contributor-alice-label_organic',
+		method => 'GET',
+		path => '/contributor/alice/label/organic.json?fields=product_name',
+		expected_status_code => 200,
+		sort_products_by => 'product_name',
+	},
 	# accented facet value in German
 	{
 		test_case => 'de-accented-cafe-label',
 		method => 'GET',
 		subdomain => 'world-de',
 		path => '/label/café-label.json?fields=product_name,labels_tags',
+		expected_status_code => 200,
+		sort_products_by => 'product_name',
+	},
+	# facet name that is the same as a facet type
+	# https://github.com/openfoodfacts/openfoodfacts-server/issues/9708
+	{
+		test_case => 'category-vitamins',
+		method => 'GET',
+		path => '/category/vitamins.json?fields=product_name,labels_tags',
 		expected_status_code => 200,
 		sort_products_by => 'product_name',
 	},

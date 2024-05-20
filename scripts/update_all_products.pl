@@ -38,6 +38,7 @@ it is likely that the MongoDB cursor of products to be updated will expire, and 
 --just-print-codes	do not do any processing, just print the barcodes
 --query some_field=some_value (e.g. categories_tags=en:beers)	filter the products
 --query some_field=-some_value	match products that don't have some_value for some_field
+--analyze-and-enrich-product-data	run all the analysis and enrichments
 --process-ingredients	compute allergens, additives detection
 --clean-ingredients	remove nutrition facts, conservation conditions etc.
 --compute-nutriscore	nutriscore
@@ -56,28 +57,29 @@ TXT
 	;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
+use ProductOpener::Store qw/retrieve store/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Users qw/:all/;
-use ProductOpener::Images qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Users qw/$User_id %User/;
+use ProductOpener::Images qw/process_image_crop/;
+use ProductOpener::Lang qw/$lc/;
 use ProductOpener::Mail qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
-use ProductOpener::DataQuality qw/:all/;
-use ProductOpener::Data qw/:all/;
-use ProductOpener::Ecoscore qw(:all);
-use ProductOpener::Packaging qw(:all);
-use ProductOpener::ForestFootprint qw(:all);
-use ProductOpener::MainCountries qw(:all);
-use ProductOpener::PackagerCodes qw/:all/;
-use ProductOpener::API qw/:all/;
-use ProductOpener::LoadData qw/:all/;
+use ProductOpener::DataQuality qw/check_quality/;
+use ProductOpener::Data qw/get_products_collection/;
+use ProductOpener::Ecoscore qw(compute_ecoscore);
+use ProductOpener::Packaging
+	qw(analyze_and_combine_packaging_data guess_language_of_packaging_text init_packaging_taxonomies_regexps);
+use ProductOpener::ForestFootprint qw(compute_forest_footprint);
+use ProductOpener::MainCountries qw(compute_main_countries);
+use ProductOpener::PackagerCodes qw/normalize_packager_codes/;
+use ProductOpener::API qw/get_initialized_response/;
+use ProductOpener::LoadData qw/load_data/;
 use ProductOpener::Redis qw/push_to_redis_stream/;
 
 use CGI qw/:cgi :form escapeHTML/;
@@ -96,7 +98,9 @@ my @fields_to_update = ();
 my $key;
 my $index = '';
 my $count = '';
-my $just_print_codes = '', my $pretend = '';
+my $just_print_codes = '';
+my $pretend = '';
+my $analyze_and_enrich_product_data = '';
 my $process_ingredients = '';
 my $process_packagings = '';
 my $clean_ingredients = '';
@@ -139,6 +143,8 @@ my $fix_nutrition_data = '';
 my $compute_main_countries = '';
 my $prefix_packaging_tags_with_language = '';
 my $fix_non_string_ids = '';
+my $fix_non_string_codes = '';
+my $fix_string_last_modified_t = '';
 my $assign_ciqual_codes = '';
 my $obsolete = 0;
 my $fix_obsolete;
@@ -154,6 +160,7 @@ GetOptions(
 	"fields=s" => \@fields_to_update,
 	"index" => \$index,
 	"pretend" => \$pretend,
+	"analyze-and-enrich-product-data" => \$analyze_and_enrich_product_data,
 	"clean-ingredients" => \$clean_ingredients,
 	"process-ingredients" => \$process_ingredients,
 	"process-packagings" => \$process_packagings,
@@ -175,6 +182,8 @@ GetOptions(
 	"fix-zulu-lang" => \$fix_zulu_lang,
 	"fix-rev-not-incremented" => \$fix_rev_not_incremented,
 	"fix-non-string-ids" => \$fix_non_string_ids,
+	"fix-non-string-codes" => \$fix_non_string_codes,
+	"fix-string-last-modified-t" => \$fix_string_last_modified_t,
 	"user-id=s" => \$User_id,
 	"comment=s" => \$comment,
 	"run-ocr" => \$run_ocr,
@@ -252,6 +261,8 @@ if (    (not $process_ingredients)
 	and (not $fix_nutrition_data_per)
 	and (not $fix_nutrition_data)
 	and (not $fix_non_string_ids)
+	and (not $fix_non_string_codes)
+	and (not $fix_string_last_modified_t)
 	and (not $compute_sort_key)
 	and (not $remove_team)
 	and (not $remove_category)
@@ -332,6 +343,16 @@ foreach my $field (sort keys %{$query_ref}) {
 # Query products that have the _id field stored as a number
 if ($fix_non_string_ids) {
 	$query_ref->{_id} = {'$type' => "long"};
+}
+
+# Query products that have the _id field stored as a number
+if ($fix_non_string_codes) {
+	$query_ref->{code} = {'$type' => "long"};
+}
+
+# Query products that have the last_modified_t field stored as a number
+if ($fix_string_last_modified_t) {
+	$query_ref->{last_modified_t} = {'$type' => "string"};
 }
 
 # On the producers platform, require --query owners_tags to be set, or the --all-owners field to be set.
@@ -633,7 +654,7 @@ while (my $product_ref = $cursor->next) {
 						}
 						$product_values_changed = 1;
 						extract_ingredients_from_text($product_ref);
-						extract_ingredients_classes_from_text($product_ref);
+						extract_additives_from_text($product_ref);
 						compute_nova_group($product_ref);
 						compute_languages($product_ref);    # need languages for allergens detection
 						detect_allergens_from_text($product_ref);
@@ -743,9 +764,15 @@ while (my $product_ref = $cursor->next) {
 				my $current_last_modified_t = $product_ref->{last_modified_t} // 0;
 				if ($current_last_modified_t != $change_last_modified_t) {
 					print STDERR "-> fixing last_modified_t from $current_last_modified_t to $change_last_modified_t";
-					$product_ref->{last_modified_t} = $change_last_modified_t;
+					# print statement above makes $change_last_modified_t a a string
+					$product_ref->{last_modified_t} = $change_last_modified_t + 0;
 				}
 			}
+		}
+
+		if ($fix_string_last_modified_t) {
+			# Make sure last_modified_t is stored as a number
+			$product_ref->{last_modified_t} += 0;
 		}
 
 		# Fix zulu lang, bug https://github.com/openfoodfacts/openfoodfacts-server/issues/2063
@@ -895,7 +922,7 @@ while (my $product_ref = $cursor->next) {
 				if ($product_ref->{nutrition_data_per} eq "100g") {
 					print STDERR "code $code deleting serving size " . $product_ref->{serving_size} . "\n";
 					delete $product_ref->{serving_size};
-					ProductOpener::Food::compute_serving_size_data($product_ref);
+					ProductOpener::Food::compute_nutrition_data_per_100g_and_per_serving($product_ref);
 					$product_values_changed = 1;
 				}
 
@@ -909,7 +936,7 @@ while (my $product_ref = $cursor->next) {
 					print STDERR "code $code changing " . $product_ref->{serving_size} . "\n";
 					$product_ref->{serving_size} =~ s/(\d)\s?(mg)\b/$1 ml/i;
 					print STDERR "code $code changed to " . $product_ref->{serving_size} . "\n";
-					ProductOpener::Food::compute_serving_size_data($product_ref);
+					ProductOpener::Food::compute_nutrition_data_per_100g_and_per_serving($product_ref);
 					$product_values_changed = 1;
 				}
 			}
@@ -991,14 +1018,14 @@ while (my $product_ref = $cursor->next) {
 						and (defined $product_ref->{images}{$imgid}{orientation})
 						and ($product_ref->{images}{$imgid}{orientation} != 0)
 						# only rotate images that have not been manually cropped
-						and
-						((not defined $product_ref->{images}{$imgid}{x1}) or ($product_ref->{images}{$imgid}{x1} <= 0))
-						and
-						((not defined $product_ref->{images}{$imgid}{y1}) or ($product_ref->{images}{$imgid}{y1} <= 0))
-						and
-						((not defined $product_ref->{images}{$imgid}{x2}) or ($product_ref->{images}{$imgid}{x2} <= 0))
-						and
-						((not defined $product_ref->{images}{$imgid}{y2}) or ($product_ref->{images}{$imgid}{y2} <= 0))
+						and (  (not defined $product_ref->{images}{$imgid}{x1})
+							or ($product_ref->{images}{$imgid}{x1} <= 0))
+						and (  (not defined $product_ref->{images}{$imgid}{y1})
+							or ($product_ref->{images}{$imgid}{y1} <= 0))
+						and (  (not defined $product_ref->{images}{$imgid}{x2})
+							or ($product_ref->{images}{$imgid}{x2} <= 0))
+						and (  (not defined $product_ref->{images}{$imgid}{y2})
+							or ($product_ref->{images}{$imgid}{y2} <= 0))
 						)
 					{
 						print STDERR "rotating image $imgid by "
@@ -1060,12 +1087,13 @@ while (my $product_ref = $cursor->next) {
 			}
 		}
 
-		if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
-			ProductOpener::Food::special_process_product($product_ref);
+		# This option runs all the data enrichment functions
+		if ($analyze_and_enrich_product_data) {
+			analyze_and_enrich_product_data($product_ref);
 		}
-		if ($assign_categories_properties) {
-			# assign_categories_properties_to_product() is already called by special_process_product
-		}
+
+		# Many of the options below are included in the analyze_and_enrich_product_data option
+		# they are kept to be able to run only a specific part of the analysis (e.g. computing the Nutri-Score after an update to the formula)
 
 		if (    (defined $product_ref->{nutriments}{"carbon-footprint"})
 			and ($product_ref->{nutriments}{"carbon-footprint"} ne ''))
@@ -1081,7 +1109,7 @@ while (my $product_ref = $cursor->next) {
 		if ($process_ingredients) {
 			# Ingredients classes
 			extract_ingredients_from_text($product_ref);
-			extract_ingredients_classes_from_text($product_ref);
+			extract_additives_from_text($product_ref);
 			compute_nova_group($product_ref);
 			compute_languages($product_ref);    # need languages for allergens detection
 			detect_allergens_from_text($product_ref);
@@ -1102,7 +1130,6 @@ while (my $product_ref = $cursor->next) {
 		}
 
 		if ($compute_nutriscore) {
-			$product_ref->{misc_tags} = [];
 			fix_salt_equivalent($product_ref);
 			compute_nutriscore($product_ref);
 			compute_nutrient_levels($product_ref);
@@ -1115,7 +1142,7 @@ while (my $product_ref = $cursor->next) {
 		if ($compute_carbon) {
 			compute_carbon_footprint_from_ingredients($product_ref);
 			compute_carbon_footprint_from_meat_or_fish($product_ref);
-			compute_serving_size_data($product_ref);
+			compute_nutrition_data_per_100g_and_per_serving($product_ref);
 			delete $product_ref->{environment_infocard};
 			delete $product_ref->{environment_infocard_en};
 			delete $product_ref->{environment_infocard_fr};
@@ -1142,11 +1169,11 @@ while (my $product_ref = $cursor->next) {
 					);
 				}
 			}
-			ProductOpener::Food::compute_serving_size_data($product_ref);
+			ProductOpener::Food::compute_nutrition_data_per_100g_and_per_serving($product_ref);
 		}
 
 		if ($compute_serving_size) {
-			ProductOpener::Food::compute_serving_size_data($product_ref);
+			ProductOpener::Food::compute_nutrition_data_per_100g_and_per_serving($product_ref);
 		}
 
 		if ($check_quality) {
@@ -1222,7 +1249,7 @@ while (my $product_ref = $cursor->next) {
 						$salt, $product_ref->{nutriments}{'salt_unit'});
 
 					fix_salt_equivalent($product_ref);
-					compute_serving_size_data($product_ref);
+					compute_nutrition_data_per_100g_and_per_serving($product_ref);
 					compute_nutriscore($product_ref);
 					compute_nutrient_levels($product_ref);
 					$product_values_changed = 1;
@@ -1245,7 +1272,7 @@ while (my $product_ref = $cursor->next) {
 					$salt, $product_ref->{nutriments}{'salt_unit'});
 
 				fix_salt_equivalent($product_ref);
-				compute_serving_size_data($product_ref);
+				compute_nutrition_data_per_100g_and_per_serving($product_ref);
 				compute_nutriscore($product_ref);
 				compute_nutrient_levels($product_ref);
 			}
@@ -1405,9 +1432,6 @@ while (my $product_ref = $cursor->next) {
 				# In all cases (even if the product data did not change),
 				# we store the product with the new update_key in the .sto file and the mongodb collection
 
-				# make sure nutrient values are numbers
-				ProductOpener::Products::make_sure_numbers_are_stored_as_numbers($product_ref);
-
 				# Set last modified time if something was changed
 				if ($any_change) {
 					$product_ref->{last_updated_t} = time() + 0;
@@ -1418,6 +1442,9 @@ while (my $product_ref = $cursor->next) {
 						$product_ref->{last_updated_t} = $product_ref->{last_modified_t};
 					}
 				}
+
+				# make sure nutrient values are numbers
+				ProductOpener::Products::make_sure_numbers_are_stored_as_numbers($product_ref);
 
 				if (!$mongodb_to_mongodb) {
 					# Store data to .sto file

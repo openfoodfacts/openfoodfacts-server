@@ -41,6 +41,7 @@ BEGIN {
 		&remove_insignificant_digits
 		&convert_string_to_number
 		$number_regexp
+		&round_to_max_decimal_places
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -151,6 +152,27 @@ sub convert_string_to_number ($value) {
 	$value += 0;
 
 	return $value;
+}
+
+=head2 round_to_max_decimal_places($value, $max_decimal_places)
+
+Round a number to a maximum number of decimal places.
+
+Return undef if passed an undefined value.
+
+=cut
+
+sub round_to_max_decimal_places ($value, $max_decimal_places) {
+
+	my $return_value = undef;
+
+	if (defined $value) {
+
+		# Round to the maximum number of decimal places
+		$return_value = sprintf("%.${max_decimal_places}f", $value) + 0;
+	}
+
+	return $return_value;
 }
 
 1;
