@@ -620,7 +620,8 @@ sub init_request ($request_ref = {}) {
 	# If deny_all_robots_txt=1, serve a version of robots.txt where all agents are denied access (Disallow: /)
 	$request_ref->{deny_all_robots_txt} = 0;
 
-	if (0 and $request_ref->{is_denied_crawl_bot}) {
+	# For denied crawl bots, also send Disallow: / in robots.txt
+	if ($request_ref->{is_denied_crawl_bot}) {
 		$log->info("init_request - denied crawl bot", {user_agent => $request_ref->{user_agent}}) if $log->is_info();
 		$request_ref->{no_index} = 1;
 		$request_ref->{deny_all_robots_txt} = 1;
