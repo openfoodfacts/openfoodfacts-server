@@ -25,11 +25,11 @@ use CGI::Carp qw(fatalsToBrowser);
 use Modern::Perl '2017';
 use utf8;
 
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Lang qw/%Lang lang/;
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
-use ProductOpener::Store qw/:all/;
-use ProductOpener::Tags qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die/;
+use ProductOpener::Store qw/store/;
+use ProductOpener::Tags qw/%Languages init_languages retrieve_tags_taxonomy/;
 use ProductOpener::Food qw/:all/;
 
 print STDERR "Build \%Lang - data_root: $data_root - server_domain: $server_domain\n";

@@ -2,11 +2,11 @@
 
 use ProductOpener::PerlStandards;
 
-use Test::More;
+use Test2::V0;
 use ProductOpener::Test qw/:all/;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Data qw/:all/;
+use ProductOpener::Data qw/get_collection remove_documents_by_ids/;
 
 # index in mongo
 my $test_collection = get_collection($mongodb, 'test_coll');

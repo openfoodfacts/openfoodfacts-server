@@ -28,13 +28,15 @@ binmode(STDERR, ":encoding(UTF-8)");
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Display qw/:all/;
+use ProductOpener::Display qw/init_request/;
 use ProductOpener::Users qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Lang qw/lang/;
 use ProductOpener::Mail qw/:all/;
-use ProductOpener::Producers qw/:all/;
-use ProductOpener::Tags qw/:all/;
-use ProductOpener::Food qw/:all/;
+use ProductOpener::Producers qw/generate_import_export_columns_groups_for_select2/;
+use ProductOpener::Tags qw/%language_fields %tags_fields display_taxonomy_tag/;
+use ProductOpener::Food qw/default_unit_for_nid/;
+use ProductOpener::TaxonomySuggestions qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -48,12 +50,15 @@ my $request_ref = ProductOpener::Display::init_request();
 my $r = Apache2::RequestUtil->request();
 
 $r->headers_out->set("Content-type" => "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
-$r->headers_out->set("Content-disposition" => "attachment;filename=openfoodfacts_import_template_$lc.xlsx");
+$r->headers_out->set(
+	"Content-disposition" => "attachment;filename=openfoodfacts_import_template_" . $request_ref->{lc} . ".xlsx");
 
 print "Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\r\n\r\n";
 
 my $workbook = Excel::Writer::XLSX->new(\*STDOUT);
 my $worksheet = $workbook->add_worksheet();
+my $worksheet_categories = $workbook->add_worksheet(lang("categories"));
+
 my %formats = (
 	normal => $workbook->add_format(border => 1, bold => 1),
 	mandatory => $workbook->add_format(
@@ -85,7 +90,7 @@ my %formats = (
 );
 
 # Re-use the structure used to output select2 options in import_file_select_format.pl
-my $select2_options_ref = generate_import_export_columns_groups_for_select2([$lc]);
+my $select2_options_ref = generate_import_export_columns_groups_for_select2([$request_ref->{lc}]);
 
 my $headers_row = 0;
 
@@ -98,10 +103,10 @@ my $field_id;
 my $comment;
 
 my $example = lang("example");
-my $example_tsv_file = 'conf/pro-platform/Import template - Example translations - Import sheet.tsv';
+my $example_tsv_file = $BASE_DIRS{CONF} . '/pro-platform/Import template - Example translations - Import sheet.tsv';
 my %example_values_by_language_and_header;
 
-open(my $example_fh, '<', $example_tsv_file) or die "Cannot open $example_tsv_file: $!";
+open(my $example_fh, "<:encoding(UTF-8)", $example_tsv_file) or die "Cannot open $example_tsv_file: $!";
 my $header_line = <$example_fh>;
 chomp($header_line);
 my @headers = split("\t", $header_line);
@@ -118,6 +123,8 @@ while (my $line = <$example_fh>) {
 close($example_fh);
 
 $worksheet->set_row(0, 70);
+$worksheet->set_row(1, 200);
+$worksheet->set_row(2, 30);
 $worksheet->set_column('A:ZZ', 30);
 $worksheet->set_column('A:A', 30);
 $worksheet->write($description_row, 0, $description, $formats{'description'});
@@ -247,6 +254,14 @@ foreach my $group_ref (@$select2_options_ref) {
 		$log->debug("field - comment", {group_id => $group_id, field_id => $field_id, comment => $comment})
 			if $log->is_debug();
 	}
+}
+
+my $tagtype = "categories";
+my @category_entries
+	= ProductOpener::TaxonomySuggestions::generate_sorted_list_of_taxonomy_entries($tagtype, $request_ref->{lc}, {});
+foreach my $i (0 .. $#category_entries) {
+	my $category_entry = display_taxonomy_tag($request_ref->{lc}, $tagtype, $category_entries[$i]);
+	$worksheet_categories->write($i, 0, $category_entry);
 }
 
 exit(0);

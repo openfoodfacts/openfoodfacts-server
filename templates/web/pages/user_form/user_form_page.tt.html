@@ -10,22 +10,22 @@
     // remove everything after @ so that we don't end up with
     // email addresses as usernames.
 
-    value = value.replace(new RegExp("\@.*"),"");
+    value = value.replace(/@.*/,"");
 
-    value = value.replace(new RegExp(" ", 'g'),"-");
-    value = value.replace(new RegExp("[àáâãäå]", 'g'),"a");
-    value = value.replace(new RegExp("æ", 'g'),"ae");
-    value = value.replace(new RegExp("ç", 'g'),"c");
-    value = value.replace(new RegExp("[èéêë]", 'g'),"e");
-    value = value.replace(new RegExp("[ìíîï]", 'g'),"i");
-    value = value.replace(new RegExp("ñ", 'g'),"n");
-    value = value.replace(new RegExp("[òóôõö]", 'g'),"o");
-    value = value.replace(new RegExp("œ", 'g'),"oe");
-    value = value.replace(new RegExp("[ùúûü]", 'g'),"u");
-    value = value.replace(new RegExp("[ýÿ]", 'g'),"y");
-    value = value.replace(new RegExp("[^a-zA-Z0-9-]", 'g'),"-");
-    value = value.replace(new RegExp("-+", 'g'),"-");
-    value = value.replace(new RegExp("^-"),"");
+    value = value.replace(/ /g,"-");
+    value = value.replace(/[àáâãäå]/g,"a");
+    value = value.replace(/æ/g,"ae");
+    value = value.replace(/ç/g,"c");
+    value = value.replace(/[èéêë]/g,"e");
+    value = value.replace(/[ìíîï]/g,"i");
+    value = value.replace(/ñ/g,"n");
+    value = value.replace(/[òóôõö]/g,"o");
+    value = value.replace(/œ/g,"oe");
+    value = value.replace(/[ùúûü]/g,"u");
+    value = value.replace(/[ýÿ]/g,"y");
+    value = value.replace(/[^a-zA-Z0-9-]/g,"-");
+    value = value.replace(/-+/g,"-");
+    value = value.replace(/^-/,"");
 
     inputfield.value = value;
     }
@@ -47,7 +47,7 @@
     <!-- Start form -->
 
     <form method="post" action="/cgi/user.pl" enctype="multipart/form-data" id="user_form">
-		[% FOREACH section IN sections %]
+        [% FOREACH section IN sections %]
 
             [% IF section.name %]
                 <fieldset id="[% section.id %]_section">
@@ -63,8 +63,8 @@
             [% END %]
             <div class="form-wrapper">
                 <div class="form-container" style="width: 80%;margin-right: 20px;">
-                   [% FOREACH field IN section.fields %]
-                       [% IF field.field == 'userid' %]
+                [% FOREACH field IN section.fields %]
+                    [% IF field.field == 'userid' %]
                             [% IF type == 'edit' %]
                                 <label for="[% field.field %]"> [% field.label %]</label>
                                 <p id="userid"><a href="/editor/[% field.value %]">[% field.value %]</a></p>
@@ -73,9 +73,9 @@
                                 <input type="text" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]" autocomplete="username" onkeyup="normalize_string_value(this)" />
                             [% END %]
                         [% ELSIF field.type == 'text' %]
-                              <div [% IF section.id == "professional" %] class="pro_org_display" [% END %]>
-                                  <label for="[% field.field %]">[% field.label %]</label>
-                                  <input type="text" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]" [% IF section.id == "teams" %] onkeyup="normalize_string_value(this)" [% END %]/>
+                            <div [% IF section.id == "professional" %] class="pro_org_display" [% END %]>
+                                <label for="[% field.field %]">[% field.label %]</label>
+                                <input type="text" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]" [% IF section.id == "teams" %] onkeyup="normalize_string_value(this)" [% END %]/>
                                 </div>
                         [% ELSIF field.type == 'password' %]
                             <label for="[% field.field %]">[% lang(field.label) %]</label>
@@ -105,7 +105,7 @@
                             [% ELSE %]
                                 <label for="[% field.field %]">
                                     <input type="checkbox" id="[% field.field %]" name="[% field.field %]" [% IF field.value == 'on' %]checked="checked"[% END %] />
-                                     [% field.label %]
+                                    [% field.label %]
                                 </label>
                             [% END %]
                         [% ELSIF field.type == 'honeypot' %]
@@ -133,7 +133,7 @@
                     </div>
                 [% END %]
             </div>
-			[% IF section.id == "professional" %]
+            [% IF section.id == "professional" %]
             <div class="pro_org_display">
                 [% IF requested_org_ref.defined %]
                     <div id="existing_org_warning">
@@ -151,7 +151,7 @@
                 </fieldset>
             [% END %]
 
-		[% END %]
+        [% END %]
 
         <!--newsletter subscription-->
         [% IF type == 'add' %]

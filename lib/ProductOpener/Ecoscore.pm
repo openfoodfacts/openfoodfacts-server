@@ -56,11 +56,6 @@ BEGIN {
 
 		&is_ecoscore_extended_data_more_precise_than_agribalyse
 
-		%ecoscore_countries
-		@ecoscore_countries_sorted
-		%ecoscore_countries_enabled
-		@ecoscore_countries_enabled_sorted
-
 		%agribalyse
 
 	);    # symbols to export on request
@@ -70,15 +65,18 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Store qw/get_string_id_for_lang/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Packaging qw/:all/;
-use ProductOpener::Ingredients qw/:all/;
+use ProductOpener::Ingredients qw/has_specific_ingredient_property/;
 
 use Storable qw(dclone freeze);
 use Text::CSV();
 use Math::Round;
 use Data::DeepAccess qw(deep_get deep_exists);
+
+my $agribalyse_data_loaded = 0;
+my $ecoscore_data_loaded = 0;
 
 %agribalyse = ();
 
@@ -96,7 +94,8 @@ so this list will be overrode when we load the Eco-Score data.
 
 =cut
 
-@ecoscore_countries_enabled_sorted = qw(be ch de es fr ie it lu nl uk);
+my @ecoscore_countries_enabled_sorted = qw(be ch de es fr ie it lu nl uk);
+my %ecoscore_countries_enabled;
 
 foreach my $country (@ecoscore_countries_enabled_sorted) {
 	$ecoscore_countries_enabled{$country} = 1;
@@ -111,6 +110,7 @@ Loads the AgriBalyse database.
 =cut
 
 sub load_agribalyse_data() {
+
 	my $agribalyse_details_by_step_csv_file = $data_root . "/external-data/ecoscore/agribalyse/AGRIBALYSE_vf.csv.2";
 
 	my $rows_ref = [];
@@ -169,12 +169,15 @@ sub load_agribalyse_data() {
 	else {
 		die("Could not open agribalyse CSV $agribalyse_details_by_step_csv_file: $!");
 	}
+
+	$agribalyse_data_loaded = 1;
+
 	return;
 }
 
 my %ecoscore_data = (origins => {},);
 
-%ecoscore_countries = ();
+my %ecoscore_countries = ();
 
 =head2 load_ecoscore_data_origins_of_ingredients_distances ( $product_ref )
 
@@ -211,7 +214,7 @@ sub load_ecoscore_data_origins_of_ingredients_distances() {
 			# Score 0 for unknown origin
 			$ecoscore_data{origins}{"en:unknown"}{"transportation_score_" . $countries[$i]} = 0;
 		}
-		@ecoscore_countries_sorted = sort keys %ecoscore_countries;
+		my @ecoscore_countries_sorted = sort keys %ecoscore_countries;
 
 		%ecoscore_countries_enabled = %ecoscore_countries;
 		@ecoscore_countries_enabled_sorted = @ecoscore_countries_sorted;
@@ -616,7 +619,11 @@ sub load_ecoscore_data_packaging() {
 
 			$log->debug(
 				"ecoscore shapes CSV file - row",
-				{shape => $shape, shape_id => $shape_id, ecoscore_data => $ecoscore_data{packaging_shapes}{$shape_id}}
+				{
+					shape => $shape,
+					shape_id => $shape_id,
+					ecoscore_data => $ecoscore_data{packaging_shapes}{$shape_id}
+				}
 			) if $log->is_debug();
 		}
 
@@ -665,6 +672,8 @@ sub load_ecoscore_data() {
 
 	load_ecoscore_data_origins_of_ingredients();
 	load_ecoscore_data_packaging();
+
+	$ecoscore_data_loaded = 1;
 	return;
 }
 
@@ -689,6 +698,15 @@ Returned values:
 =cut
 
 sub compute_ecoscore ($product_ref) {
+
+	# Some test cases do not load the Eco-Score data (e.g. food.t) as they don't test the Eco-Score
+	# but compute_ecoscore() is still called by specific_processes_for_food_product($product_ref);
+	# So we check if the data is loaded, and do not compute the Eco-Score if not loaded
+	if (not($ecoscore_data_loaded and $agribalyse_data_loaded)) {
+		$log->warn("Eco-Score data not loaded, cannot compute Eco-Score") if $log->is_warn();
+		return;
+	}
+
 	my $old_ecoscore_data = $product_ref->{ecoscore_data};
 	my $old_agribalyse = $old_ecoscore_data->{agribalyse};
 	my $old_ecoscore_grade = $old_ecoscore_data->{grade};
@@ -1169,7 +1187,10 @@ sub compute_ecoscore_production_system_adjustment ($product_ref) {
 			# Don't count the points for en:eu-organic if we already have fr:ab-agriculture-biologique
 			# and for ASC if we already have MSC
 			if (
-				(($label ne "en:eu-organic") or not(has_tag($product_ref, "labels", "fr:ab-agriculture-biologique")))
+				(
+					($label ne "en:eu-organic")
+					or not(has_tag($product_ref, "labels", "fr:ab-agriculture-biologique"))
+				)
 				and (($label ne "en:sustainable-seafood-msc")
 					or not(has_tag($product_ref, "labels", "en:sustainable-fishing-method")))
 				and (
