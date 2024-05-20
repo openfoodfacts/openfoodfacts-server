@@ -4,5 +4,5 @@
 * We ask contributors to provide a proof of the price, in the form of a photo of the price tag or receipt. This is to make it easier to ensure data quality.
 
 ### Links
-* Please read the FAQ at https://prices.openfoodfacts.org/
-* The API is located at https://prices.openfoodfacts.org/api/docs
+* Please read the FAQ at [https://prices.openfoodfacts.org/]([https://prices.openfoodfacts.org/)
+* The API is located at [https://prices.openfoodfacts.org/api/docs](https://prices.openfoodfacts.org/api/docs)
