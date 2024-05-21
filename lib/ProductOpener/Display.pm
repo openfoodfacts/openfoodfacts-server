@@ -1596,7 +1596,8 @@ sub set_cache_results ($key, $results) {
 	# $max_memcached_object_size is defined is Cache.pm
 	if ($result_size >= $max_memcached_object_size) {
 		$mongodb_log->info(
-			"set_cache_results - skipping - setting value - key: $key (total_size: $result_size > max size)");
+			"set_cache_results - skipping - setting value - key: $key (total_size: $result_size > max size ($max_memcached_object_size))"
+		);
 		return;
 	}
 
@@ -5145,13 +5146,23 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 			"abbreviated_product_name" => 1,
 			"abbreviated_product_name_$lc" => 1,
 			"brands" => 1,
+			# Note: the images structure is very long (especially for popular products with lots of images)
+			# Ideally we should restructure how we store images and selected images,
+			# so that we can retrieve the currently selected front image only (in a specific target language)
+			# In the mean time, we could continue to compute the selected image on the fly, remove the images field,
+			# and then cache the result (instead of caching the MongoDB result as is)
 			"images" => 1,
 			"quantity" => 1,
 			# fields necessary for personal search
 			"additives_n" => 1,
 			"allergens_tags" => 1,
 			"categories_tags" => 1,
-			"ecoscore_data" => 1,
+			# Get only the ecoscore_data needed to compute attributes
+			# with the target country
+			"ecoscore_data.status" => 1,
+			("ecoscore_data.scores." . $request_ref->{cc}) => 1,
+			("ecoscore_data.grades." . $request_ref->{cc}) => 1,
+			"ecoscore_data.ecoscore_not_applicable_for_category" => 1,
 			"ecoscore_grade" => 1,
 			"ecoscore_score" => 1,
 			"forest_footprint_data" => 1,
@@ -5160,8 +5171,24 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 			"labels_tags" => 1,
 			"nova_group" => 1,
 			"nutrient_levels" => 1,
-			"nutriments" => 1,
-			"nutriscore" => 1,
+			# Only the nutrients needed for the nutrient levels
+			"nutriments.salt_100g" => 1,
+			"nutriments.salt_prepared_100g" => 1,
+			"nutriments.sugar_100g" => 1,
+			"nutriments.sugar_prepared_100g" => 1,
+			"nutriments.fat_100g" => 1,
+			"nutriments.fat_prepared_100g" => 1,
+			"nutriments.saturated-fat_100g" => 1,
+			"nutriments.saturated-fat_prepared_100g" => 1,
+			# Get only the Nutri-Score fields needed to compute attributes
+			"nutriscore.2021.score" => 1,
+			"nutriscore.2021.grade" => 1,
+			"nutriscore.2021.data.is_beverage" => 1,
+			"nutriscore.2021.data.is_water" => 1,
+			"nutriscore.2023.score" => 1,
+			"nutriscore.2023.grade" => 1,
+			"nutriscore.2023.data.is_beverage" => 1,
+			"nutriscore.2023.data.is_water" => 1,
 			"nutriscore_grade" => 1,
 			"nutrition_grades" => 1,
 			"traces_tags" => 1,
