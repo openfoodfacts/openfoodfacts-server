@@ -227,12 +227,14 @@ sub load_csv_or_excel_file ($file) {    # path and file name
 				}
 			}
 			# Remove rows with a value for only one column, and do not use that value for non empty columns
+			# Those can be "comment" rows added at the top of the file
 			if ($non_empty_values >= 2) {
 				push @original_rows, $row_ref;
 
 				for (my $i = 0; $i < scalar(@$row_ref); $i++) {
 					if ((defined $row_ref->[$i]) and ($row_ref->[$i] ne "")) {
-						$non_empty_columns[$i] = 1;
+						not defined $non_empty_columns[$i] and $non_empty_columns[$i] = 0;
+						$non_empty_columns[$i]++;
 					}
 				}
 			}
@@ -242,21 +244,38 @@ sub load_csv_or_excel_file ($file) {    # path and file name
 			{number_of_original_rows => scalar(@original_rows), non_empty_columns => \@non_empty_columns})
 			if $log->is_debug();
 
+		# Check if the file contains a "Description" row and a header "Row"
+		# in that case, the first column contains an empty cell, then "Description:" and "Example:" (possibly translated)
+		my $has_description_and_example_rows = 0;
+		if (    ($original_rows[0][0] eq "")
+			and ($non_empty_columns[0] == 2)
+			and ($original_rows[1][0] ne "")
+			and ($original_rows[2][0] ne ""))
+		{
+			$has_description_and_example_rows = 1;
+		}
+
 		# Copy non empty columns and rows
 
 		my $seen_header = 0;
 
 		foreach my $row_ref (@original_rows) {
+			# If we have a description and example row, skip rows that have a value only in the first column (description and example title)
+			if (($has_description_and_example_rows) and ($row_ref->[0] ne "")) {
+				next;
+			}
+
 			my @new_row = ();
 			for (my $i = 0; $i < scalar(@$row_ref); $i++) {
-				if ($non_empty_columns[$i]) {
+				# Skip empty columns + the first column if there are description and example rows
+				if (($non_empty_columns[$i]) and not(($i == 0) and $has_description_and_example_rows)) {
 					push @new_row, $row_ref->[$i];
 				}
 			}
 
 			$log->debug("new_row", {new_row => \@new_row}) if $log->is_debug();
 
-			# Is it a header? (column 1 or 2 should not be empty)
+			# Is it a header? (column 1 and 2 should not be empty)
 			if (not $seen_header) {
 
 				if ((defined $new_row[0]) and ($new_row[0] ne "") and (defined $new_row[1]) and ($new_row[1] ne "")) {
