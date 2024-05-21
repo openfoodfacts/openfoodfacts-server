@@ -7,20 +7,11 @@ msgstr ""
 "Project-Id-Version: openfoodfacts\n"
 "Language-Team: Slovenian\n"
 "Last-Translator: \n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3;\n"
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: sl\n"
 "X-Crowdin-File-ID: 3127\n"
-
-msgctxt "tagline"
-msgid "Open Food Facts gathers information and data on food products from around the world."
-msgstr "Open Food Facts zbirajo informacije in podatke o živilih iz vsega sveta."
-
-#. make sure the text file exists for your language, otherwise ask @teolemon 
-msgctxt "get_the_app_link"
-msgid "/open-food-facts-mobile-app"
-msgstr ""
 
 msgctxt "tagline_2019_nutriscore"
 msgid "Discover the Nutri-Score"

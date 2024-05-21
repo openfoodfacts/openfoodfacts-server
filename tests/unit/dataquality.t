@@ -3,10 +3,12 @@
 use Modern::Perl '2017';
 use utf8;
 
-use Test::More;
+use Test2::V0;
+use Data::Dumper;
+$Data::Dumper::Terse = 1;
 
-use ProductOpener::DataQuality qw/:all/;
-use ProductOpener::Tags qw/:all/;
+use ProductOpener::DataQuality qw/check_quality/;
+use ProductOpener::Tags qw/has_tag/;
 
 sub check_quality_and_test_product_has_quality_tag($$$$) {
 	my $product_ref = shift;
@@ -15,10 +17,10 @@ sub check_quality_and_test_product_has_quality_tag($$$$) {
 	my $yesno = shift;
 	ProductOpener::DataQuality::check_quality($product_ref);
 	if ($yesno) {
-		ok(has_tag($product_ref, 'data_quality', $tag), $reason) or diag explain $product_ref;
+		ok(has_tag($product_ref, 'data_quality', $tag), $reason) or diag Dumper $product_ref;
 	}
 	else {
-		ok(!has_tag($product_ref, 'data_quality', $tag), $reason) or diag explain $product_ref;
+		ok(!has_tag($product_ref, 'data_quality', $tag), $reason) or diag Dumper $product_ref;
 	}
 
 	return;

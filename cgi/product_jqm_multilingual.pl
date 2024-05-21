@@ -37,27 +37,27 @@ use ProductOpener::PerlStandards;
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::HTTP qw/:all/;
-use ProductOpener::Tags qw/:all/;
-use ProductOpener::Users qw/:all/;
+use ProductOpener::HTTP qw/write_cors_headers/;
+use ProductOpener::Tags qw/%language_fields %tags_fields add_tags_to_field compute_field_tags/;
+use ProductOpener::Users qw/$Org_id $Owner_id $User_id %User/;
 use ProductOpener::Images qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Lang qw/$lc %lang_lc/;
 use ProductOpener::Mail qw/:all/;
 use ProductOpener::Products qw/:all/;
-use ProductOpener::Food qw/:all/;
+use ProductOpener::Food qw/assign_nutriments_values_from_request_parameters/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::DataQuality qw/:all/;
 use ProductOpener::Ecoscore qw/:all/;
 use ProductOpener::Packaging qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
-use ProductOpener::Text qw/:all/;
-use ProductOpener::API qw/:all/;
-use ProductOpener::APIProductWrite qw/:all/;
+use ProductOpener::Text qw/remove_tags_and_quote/;
+use ProductOpener::API qw/get_initialized_response/;
+use ProductOpener::APIProductWrite qw/skip_protected_field/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -99,7 +99,7 @@ my $original_code = $code;
 
 $code = normalize_code($code);
 
-if ($code !~ /^\d{4,24}$/) {
+if (not is_valid_code($code)) {
 
 	$log->info("invalid code", {code => $code, original_code => $original_code}) if $log->is_info();
 	$response{status} = 0;
@@ -140,7 +140,7 @@ else {
 	my @errors = ();
 
 	# Store parameters for debug purposes
-	ensure_dir_created($BASE_DIRS{CACHE_DEBUG}) or display_error_and_exit("Missing path", 503);
+	ensure_dir_created($BASE_DIRS{CACHE_DEBUG}) or display_error_and_exit($request_ref, "Missing path", 503);
 	open(my $out, ">", "$BASE_DIRS{CACHE_DEBUG}/product_jqm_multilingual." . time() . "." . $code);
 	print $out encode_json(Vars());
 	close $out;

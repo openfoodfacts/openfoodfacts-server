@@ -1,9 +1,9 @@
 use ProductOpener::PerlStandards;
 
-use Test::More;
+use Test2::V0;
 use Log::Any::Adapter 'TAP';
 
-use ProductOpener::Test qw/:all/;
+use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
 
 use ProductOpener::Ingredients qw/parse_origins_from_text init_origins_regexps/;
 

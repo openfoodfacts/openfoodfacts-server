@@ -29,7 +29,7 @@ use JSON::PP;
 use Digest::SHA1 qw(sha1_hex);
 
 use ProductOpener::Display qw/single_param/;
-use ProductOpener::Paths qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
 
 # this script is used by howmuchsugar to log user answers to sugar questions
 

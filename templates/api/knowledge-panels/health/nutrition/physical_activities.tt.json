@@ -6,8 +6,8 @@
     "expanded": false,
     "evaluation": "[% panel.evaluation %]",
     "title_element": {
-        "title": "[% f_lang('f_energy_per_100g', { 'kj' => panel.energy }) %]",
-        "subtitle": "[% f_lang('f_equal_to_walking_minutes_or_steps',  { 'minutes' => round(panel.walking_minutes), 'steps' => round(panel.walking_steps) } ) %]",
+        "title": "[% edq(f_lang('f_energy_per_100g', { 'kj' => panel.energy })) %]",
+        "subtitle": "[% edq(f_lang('f_equal_to_walking_minutes_or_steps',  { 'minutes' => round(panel.walking_minutes), 'steps' => round(panel.walking_steps) } )) %]",
         "icon_url": "[% static_subdomain %]/images/icons/dist/activity-walking.svg",
         "icon_color_from_evaluation": true,
     },    

@@ -6,8 +6,8 @@
     "title_element": {
         "icon_url": "[% static_subdomain %]/images/icons/dist/info.svg",
         "icon_size": "small",
-        "title": "[% lang("nutriscore_calculation_details") %]",
-        "type": "info",
+        "title":  "[% edq(lang('nutriscore_calculation_details')) %]",
+        "type": "info"
     },
     "elements": [
         // Display warnings

@@ -9,18 +9,18 @@ synonyms:fr:fruit de la passion, fruits de la passion, maracuja, passion
 en:yogurts, yoghurts
 fr:yaourts, yoghourts, yogourts
 nl:yoghurts
+color:en: white
 description:en: a yogurts of whatever type
 description:fr: un yaourt de n'importe quel type
-color:en: white
 flavour:en: undef
 
 <en:yogurts
 en:banana yogurts
 fr:yaourts à la banane
 nl:bananenyoghurt
+color:en: yellow
 description:en: a banana yogurt
 description:fr: un yaourt à la banane
-color:en: yellow
 flavour:en: banana
 
 <en:yogurts
@@ -37,19 +37,19 @@ fr:yaourts allégés
 en:lemon yogurts
 fr:yaourts au citron
 nl:yoghurts met citroen
+color:en: yellow
 description:en: a yogurts with lemon inside
 description:fr: un yaourt avec du citron
-color:en: yellow
 flavour:en: lemon
 
-<fr:yaourts fruit de la passion
 <fr:yaourts allégés
+<fr:yaourts fruit de la passion
 fr:yaourts au fruit de la passion allégés
 nl:magere yoghurts met passievrucht
 
 
-<fr:yaourts au citron
 <fr:yaourts allégés
+<fr:yaourts au citron
 fr:yaourts au citron allégés
 nl:magere citroenyoghurt
 description:en: for light yogurts with lemon
@@ -61,8 +61,8 @@ flavour:en: blueberry
 flavour:fr: myrtille
 
 en:meat
-vegan:en:no
 carbon_footprint_fr_foodges_value:fr:10
+vegan:en:no
 
 <en:meat
 en:beef
@@ -73,14 +73,14 @@ en:roast-beef
 
 <en:meat
 en:fake-meat
-vegan:en:yes
 # undef will stop parents from transmitting a value
 carbon_footprint_fr_foodges_value:fr:undef
+vegan:en:yes
 
 en:fake-stuff
 
-<en:fake-stuff
 <en:fake-meat
+<en:fake-stuff
 en:fake-duck-meat
 
 en:vegetable
@@ -124,3 +124,4 @@ sv:Ä-märket
 xx:Ä-märket
 
 en:Entry with (parentheses) and some *!#{}@$ characters, synonym with *%@$(]% chars
+

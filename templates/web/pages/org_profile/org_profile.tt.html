@@ -3,7 +3,7 @@
 [% IF edit_profile %]
 	<!-- Edit product page -->
 	<div class="edit_button">
-		<a href="/cgi/org.pl?orgid=[% orgid %]" class="button small" title="[% lang("edit_org_profile") %]">
+		<a href="/cgi/org.pl?orgid=[% orgid %]" class="button small" title= "[% edq(lang('edit_org_profile')) %]">
 			[% display_icon('edit') %]
 			<span class="show-for-large-up">[% lang("edit_org_profile") %]</span>
 		</a>

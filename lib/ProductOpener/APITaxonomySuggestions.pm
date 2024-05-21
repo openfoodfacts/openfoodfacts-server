@@ -44,11 +44,12 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Display qw/:all/;
-use ProductOpener::Tags qw/:all/;
+use ProductOpener::Display qw/request_param/;
+use ProductOpener::Tags qw/%taxonomy_fields/;
 use ProductOpener::Lang qw/:all/;
-use ProductOpener::TaxonomySuggestions qw/:all/;
-use ProductOpener::API qw/:all/;
+use ProductOpener::TaxonomySuggestions qw/get_taxonomy_suggestions_with_synonyms/;
+use ProductOpener::API qw/add_error/;
+use Tie::IxHash;
 
 use Encode;
 
@@ -91,7 +92,10 @@ sub taxonomy_suggestions_api ($request_ref) {
 	};
 
 	# Options define how many suggestions should be returned, in which format etc.
-	my $options_ref = {limit => request_param($request_ref, 'limit')};
+	my $options_ref = {
+		limit => request_param($request_ref, 'limit'),
+		get_synonyms => request_param($request_ref, 'get_synonyms')
+	};
 
 	# Validate input parameters
 
@@ -122,9 +126,23 @@ sub taxonomy_suggestions_api ($request_ref) {
 	}
 	# Generate suggestions
 	else {
-
-		$response_ref->{suggestions}
-			= [get_taxonomy_suggestions($tagtype, $search_lc, $string, $context_ref, $options_ref)];
+		my @suggestions
+			= get_taxonomy_suggestions_with_synonyms($tagtype, $search_lc, $string, $context_ref, $options_ref);
+		$log->debug("taxonomy_suggestions_api", @suggestions) if $log->is_debug();
+		$response_ref->{suggestions} = [map {$_->{tag}} @suggestions];
+		if ($options_ref->{get_synonyms}) {
+			# We need a tie hash so that the keys are ordered by insertion order when returned as JSON
+			my %matched_synonyms;
+			tie(%matched_synonyms, 'Tie::IxHash');
+			foreach (@suggestions) {
+				$matched_synonyms{$_->{tag}} = ucfirst($_->{matched_synonym});
+			}
+			$response_ref->{matched_synonyms} = \%matched_synonyms;
+			# Note: this does not seem to work with JSON::PP, even though the "canonical" option
+			# should preserve the order of the keys of tied hashes.
+			# As JSON hashes are unordered, we will use the "suggestions" array on the client side to get the right order.
+			# It would have been nice to order the matched synonyms anyway, but it is not a huge issue.
+		}
 	}
 
 	$log->debug("taxonomy_suggestions_api - stop", {request => $request_ref}) if $log->is_debug();

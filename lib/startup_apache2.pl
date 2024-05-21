@@ -96,6 +96,7 @@ use ProductOpener::PackagerCodes qw/:all/;
 use ProductOpener::API qw/:all/;
 use ProductOpener::APIProductRead qw/:all/;
 use ProductOpener::APIProductWrite qw/:all/;
+use ProductOpener::APIProductRevert qw/:all/;
 use ProductOpener::APITaxonomySuggestions qw/:all/;
 use ProductOpener::TaxonomySuggestions qw/:all/;
 use ProductOpener::Routing qw/:all/;

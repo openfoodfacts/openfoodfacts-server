@@ -7,6 +7,7 @@
             {
                "ciqual_proxy_food_code" : "19051",
                "id" : "en:pasteurised-cow-s-milk",
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 43.75,
                "percent_max" : 100,
                "percent_min" : 12.5,
@@ -17,6 +18,7 @@
             {
                "ciqual_food_code" : "11058",
                "id" : "en:salt",
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 15.625,
                "percent_max" : 50,
                "percent_min" : 0,
@@ -26,6 +28,7 @@
             },
             {
                "id" : "en:lactic-ferments",
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 7.8125,
                "percent_max" : 33.3333333333333,
                "percent_min" : 0,
@@ -35,6 +38,7 @@
             },
             {
                "id" : "en:rennet",
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 7.8125,
                "percent_max" : 25,
                "percent_min" : 0,
@@ -43,6 +47,7 @@
                "vegetarian" : "maybe"
             }
          ],
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 75,
          "percent_max" : 100,
          "percent_min" : 50,
@@ -55,6 +60,7 @@
          "ingredients" : [
             {
                "id" : "en:e460",
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 25,
                "percent_max" : 50,
                "percent_min" : 0,
@@ -63,6 +69,7 @@
                "vegetarian" : "yes"
             }
          ],
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 25,
          "percent_max" : 50,
          "percent_min" : 0,

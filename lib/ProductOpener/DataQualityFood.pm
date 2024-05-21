@@ -48,10 +48,10 @@ BEGIN {
 }
 
 use ProductOpener::Config qw(:all);
-use ProductOpener::Store qw(:all);
+use ProductOpener::Store qw(get_string_id_for_lang);
 use ProductOpener::Tags qw(:all);
-use ProductOpener::Food qw(:all);
-use ProductOpener::Ecoscore qw(:all);
+use ProductOpener::Food qw(%categories_nutriments_per_country);
+use ProductOpener::Ecoscore qw(is_ecoscore_extended_data_more_precise_than_agribalyse);
 use ProductOpener::Units qw(extract_standard_unit);
 
 use Data::DeepAccess qw(deep_exists);
@@ -1104,17 +1104,33 @@ sub check_nutrition_data ($product_ref) {
 				$nid2 =~ s/_/-/g;
 
 				if (($nid !~ /energy/) and ($nid !~ /footprint/) and ($product_ref->{nutriments}{$nid} > 105)) {
-
-					push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-value-over-105-$nid2";
+					# product opener / ingredients analysis issue (See issue #10064)
+					if ($nid =~ /estimate/) {
+						push @{$product_ref->{data_quality_warnings_tags}}, "en:nutrition-value-over-105-$nid2";
+					}
+					else {
+						push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-value-over-105-$nid2";
+					}
 				}
 
 				if (($nid !~ /energy/) and ($nid !~ /footprint/) and ($product_ref->{nutriments}{$nid} > 1000)) {
-
-					push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-value-over-1000-$nid2";
+					# product opener / ingredients analysis issue (See issue #10064)
+					if ($nid =~ /estimate/) {
+						push @{$product_ref->{data_quality_warnings_tags}}, "en:nutrition-value-over-1000-$nid2";
+					}
+					else {
+						push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-value-over-1000-$nid2";
+					}
 				}
 
 				if (($product_ref->{nutriments}{$nid} < 0) and (index($nid, "nutrition-score") == -1)) {
-					push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-value-negative-$nid2";
+					# product opener / ingredients analysis issue (See issue #10064)
+					if ($nid =~ /estimate/) {
+						push @{$product_ref->{data_quality_warnings_tags}}, "en:nutrition-value-negative-$nid2";
+					}
+					else {
+						push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-value-negative-$nid2";
+					}
 				}
 			}
 
@@ -1300,6 +1316,28 @@ sub check_nutrition_data ($product_ref) {
 
 			push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-saturated-fat-greater-than-fat";
 
+		}
+
+		# sum of nutriments that compose fiber can not be greater than the value of fiber
+		if (
+			(defined $product_ref->{nutriments}{fiber_100g})
+			and (
+				(
+					(
+						(defined $product_ref->{nutriments}{'soluble-fiber_100g'})
+						? $product_ref->{nutriments}{'soluble-fiber_100g'}
+						: 0
+					) + (
+						(defined $product_ref->{nutriments}{'insoluble-fiber_100g'})
+						? $product_ref->{nutriments}{'insoluble-fiber_100g'}
+						: 0
+					)
+				) > ($product_ref->{nutriments}{fiber_100g}) + 0.001
+			)
+			)
+		{
+			push @{$product_ref->{data_quality_errors_tags}},
+				"en:nutrition-soluble-fiber-plus-insoluble-fiber-greater-than-fiber";
 		}
 
 		# Too small salt value? (e.g. g entered in mg)
@@ -2188,8 +2226,8 @@ sub check_labels ($product_ref) {
 			(
 				(       (defined $product_ref->{nutriments}{sodium_100g})
 					and ($product_ref->{nutriments}{sodium_100g} > 0.005))
-				or
-				((defined $product_ref->{nutriments}{salt_100g}) and ($product_ref->{nutriments}{salt_100g} > 0.0125))
+				or (    (defined $product_ref->{nutriments}{salt_100g})
+					and ($product_ref->{nutriments}{salt_100g} > 0.0125))
 			)
 			and (has_tag($product_ref, "labels", "en:no-sodium") or has_tag($product_ref, "labels", "en:no-salt"))
 			)

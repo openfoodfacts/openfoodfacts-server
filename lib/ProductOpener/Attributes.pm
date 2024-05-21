@@ -18,6 +18,8 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+=encoding UTF-8
+
 =head1 NAME
 
 ProductOpener::Attributes - Generate product attributes that can be requested through the API
@@ -49,14 +51,7 @@ BEGIN {
 	@EXPORT_OK = qw(
 
 		&list_attributes
-		&initialize_attribute_group
-		&initialize_attribute
-		&override_general_value
-		&add_attribute_to_group
 		&compute_attributes
-		&compute_attribute_nutriscore
-		&compute_attribute_nova
-		&compute_attribute_has_tag
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -66,12 +61,12 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Tags qw/:all/;
+use ProductOpener::Tags qw/%level display_taxonomy_tag display_taxonomy_tag_name has_tag/;
 use ProductOpener::Products qw/:all/;
-use ProductOpener::Food qw/:all/;
+use ProductOpener::Food qw/@nutrient_levels/;
 use ProductOpener::Ingredients qw/:all/;
-use ProductOpener::Lang qw/:all/;
-use ProductOpener::Display qw/:all/;
+use ProductOpener::Lang qw/f_lang_in_lc lang lang_in_other_lc/;
+use ProductOpener::Display qw/$static_subdomain/;
 use ProductOpener::Ecoscore qw/:all/;
 
 use Data::DeepAccess qw(deep_get);
@@ -412,7 +407,7 @@ sub override_general_value ($attribute_ref, $target_lc, $field, $stringid) {
 	return;
 }
 
-=head2 compute_attribute_nutriscore ( $product_ref, $target_lc )
+=head2 compute_attribute_nutriscore ( $product_ref, $target_lc, $target_cc )
 
 Computes a nutritional quality attribute based on the Nutri-Score.
 
@@ -426,6 +421,11 @@ Loaded from the MongoDB database, Storable files, or the OFF API.
 
 Returned attributes contain both data and strings intended to be displayed to users.
 This parameter sets the desired language for the user facing strings.
+
+=head4 country code $target_cc
+
+Different countries can have different versions of the Nutri-Score at a given time.
+e.g. in early 2024, France does not use the new Nutri-Score 2023 yet, while other countries do.
 
 =head3 Return value
 
@@ -441,10 +441,15 @@ that is used to define the Nutri-Score grade from A to E.
 
 =cut
 
-sub compute_attribute_nutriscore ($product_ref, $target_lc) {
+sub compute_attribute_nutriscore ($product_ref, $target_lc, $target_cc) {
+
+	my $version = "2023";
+	if ($target_cc eq "fr") {
+		$version = "2021";
+	}
 
 	$log->debug("compute nutriscore attribute",
-		{code => $product_ref->{code}, nutriscore_data => $product_ref->{nutriscore_data}})
+		{code => $product_ref->{code}, version => $version, nutriscore => $product_ref->{nutriscore}{$version}})
 		if $log->is_debug();
 
 	my $attribute_id = "nutriscore";
@@ -455,11 +460,12 @@ sub compute_attribute_nutriscore ($product_ref, $target_lc) {
 	if ((defined $product_ref->{nutriscore_grade}) and ($product_ref->{nutriscore_grade} =~ /^[a-e]$/)) {
 		$attribute_ref->{status} = "known";
 
-		my $nutriscore_data_ref = $product_ref->{nutriscore_data};
-		my $is_beverage = $nutriscore_data_ref->{is_beverage};
-		my $is_water = $nutriscore_data_ref->{is_water};
-		my $nutrition_score = $nutriscore_data_ref->{score};
-		my $grade = $nutriscore_data_ref->{grade};
+		my $nutriscore_ref = $product_ref->{nutriscore}{$version};
+
+		my $is_beverage = $nutriscore_ref->{data}{is_beverage};
+		my $is_water = $nutriscore_ref->{data}{is_water};
+		my $nutrition_score = $nutriscore_ref->{score};
+		my $grade = $nutriscore_ref->{grade};
 
 		$log->debug(
 			"compute nutriscore attribute - known",
@@ -573,6 +579,17 @@ sub compute_attribute_nutriscore ($product_ref, $target_lc) {
 			$attribute_ref->{description_short}
 				= lang_in_other_lc($target_lc, "attribute_nutriscore_unknown_description_short");
 		}
+	}
+
+	# Show the temporary "new calculation" icon
+	# and link to the new Nutri-Score 2023 panel
+	if ($version eq "2023") {
+		my $logo_lc = "en";
+		if ($target_lc =~ /^de|fr|lb|nl$/) {
+			$logo_lc = $target_lc;
+		}
+		$attribute_ref->{icon_url} =~ s/\.svg$/-new-${logo_lc}.svg/;
+		$attribute_ref->{panel_id} = "nutriscore_2023";
 	}
 
 	return $attribute_ref;
@@ -1088,6 +1105,7 @@ e.g. "salt", "sugars", "fat", "saturated-fat"
 The return value is a reference to the resulting attribute data structure.
 
 =head4 % Match
+
 For "low" levels:
 
 - 100% if the nutrient quantity is 0%
@@ -1388,6 +1406,7 @@ vegan, non-vegan, maybe-vegan, vegan-status-unknown
 The return value is a reference to the resulting attribute data structure.
 
 =head4 % Match
+
 For "low" levels:
 
 - 100% if the property matches
@@ -1637,7 +1656,7 @@ sub compute_attributes ($product_ref, $target_lc, $target_cc, $options_ref) {
 
 	# Nutritional quality
 
-	$attribute_ref = compute_attribute_nutriscore($product_ref, $target_lc);
+	$attribute_ref = compute_attribute_nutriscore($product_ref, $target_lc, $target_cc);
 	add_attribute_to_group($product_ref, $target_lc, "nutritional_quality", $attribute_ref);
 
 	foreach my $nutrient ("salt", "fat", "sugars", "saturated-fat") {

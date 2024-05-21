@@ -41,16 +41,13 @@ use Exporter qw< import >;
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
-		$lang
 		$lc
-		$text_direction
 
 		%tag_type_singular
 		%tag_type_from_singular
 		%tag_type_plural
 		%tag_type_from_plural
 		%Lang
-		%CanonicalLang
 		%Langs
 		@Langs
 
@@ -68,9 +65,9 @@ BEGIN {
 
 use vars @EXPORT_OK;
 use ProductOpener::I18N;
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Store qw/get_string_id_for_lang retrieve/;
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die/;
 
 use DateTime;
 use DateTime::Locale;
@@ -78,6 +75,9 @@ use Encode;
 use JSON::PP;
 
 use Log::Any qw($log);
+
+# Default values for $lc
+$lc = "en";
 
 =head1 FUNCTIONS
 
@@ -106,7 +106,7 @@ sub separator_before_colon ($l) {
 
 =head2 lang( $stringid )
 
-Returns a translation for a specific string id in the language defined in the $lang global variable.
+Returns a translation for a specific string id in the language defined in the $lc global variable.
 
 If a translation is not available, the function returns English.
 
@@ -119,32 +119,13 @@ In the .po translation files, we use the msgctxt field for the string id.
 =cut
 
 sub lang ($stringid) {
-
-	my $short_l = undef;
-	if ($lang =~ /_/) {
-		$short_l = $`;    # pt_pt
-	}
-
-	# English values have been copied to languages that do not have defined values
-
-	if (not defined $Lang{$stringid}) {
-		return '';
-	}
-	elsif (defined $Lang{$stringid}{$lang}) {
-		return $Lang{$stringid}{$lang};
-	}
-	elsif ((defined $short_l) and (defined $Lang{$stringid}{$short_l}) and ($Lang{$stringid}{$short_l} ne '')) {
-		return $Lang{$stringid}{$short_l};
-	}
-	else {
-		return '';
-	}
+	return lang_in_other_lc($lc, $stringid);
 }
 
 =head2 f_lang( $stringid, $variables_ref )
 
 Returns a translation for a specific string id with specific arguments
-in the language defined in the $lang global variable.
+in the language defined in the $lc global variable.
 
 The translation is stored using Python's f-string format with
 named parameters between { }.
@@ -266,8 +247,14 @@ if (-e $path) {
 	$log->info("Loaded \%Lang", {path => $path}) if $log->is_info();
 
 	# Initialize @Langs and $lang_lc
-	@Langs = sort keys %{$Lang{site_name}}
-		;    # any existing key can be used, as %Lang should contain values for all languages for all keys
+	# any existing key can be used, as %Lang should contain values for all languages for all keys
+	my $msgctxt = "add";
+	if (not defined $Lang{$msgctxt}) {
+		$log->error("Language translation file does not contain the 'add' key, \%Lang will be empty.", {path => $path})
+			if $log->is_error();
+		die("Language translation file does not contain the 'add' key, \%Lang will be empty.");
+	}
+	@Langs = sort keys %{$Lang{$msgctxt}};
 	%Langs = ();
 	%lang_lc = ();
 	foreach my $l (@Langs) {
@@ -443,31 +430,10 @@ sub build_lang ($Languages_ref) {
 	# print $fh "Lang.pm - %Lang\n\n" . eDumper(\%Lang) . "\n";
 	# close $fh;
 
-	# Load site specific overrides
-	# the site-specific directory can be a symlink to openfoodfacts or openbeautyfacts
-	my $overrides_path = "$data_root/po/site-specific/";
-	if (-e $overrides_path) {
-
-		# Load overrides from %SiteLang
-		# %SiteLang overrides the general %Lang in Lang.pm
-
-		$log->info("Loading site-specific overrides", {path => $overrides_path});
-
-		my %SiteLang = %{ProductOpener::I18N::read_po_files("$data_root/po/site-specific/")};
-
-		foreach my $key (keys %SiteLang) {
-			next if $key =~ /^:/;    # :langname, :langtag
-			$log->debug("Using site specific string", {key => $key}) if $log->is_debug();
-
-			$Lang{$key} = {};
-			foreach my $l (keys %{$SiteLang{$key}}) {
-				$Lang{$key}{$l} = $SiteLang{$key}{$l};
-			}
-		}
-	}
+	my $missing_english_translations = 0;
 
 	foreach my $key (keys %Lang) {
-		if ((defined $Lang{$key}{fr}) or (defined $Lang{$key}{en})) {
+		if ((defined $Lang{$key}{en}) and ($Lang{$key}{en} ne '')) {
 			foreach my $l (@Langs) {
 
 				my $short_l = undef;
@@ -490,24 +456,27 @@ sub build_lang ($Languages_ref) {
 				my $tagid = get_string_id_for_lang($l, $Lang{$key}{$l});
 			}
 		}
+		elsif ($key !~ /\__/) {
+			$log->error("No English translation for $key") if $log->is_error();
+			print STDERR "No English translation for $key\n";
+			$missing_english_translations++;
+		}
 	}
 
-	my @special_fields = ("site_name");
+	if ($missing_english_translations) {
+		$log->error("Missing English translations: $missing_english_translations") if $log->is_error();
+		die("$missing_english_translations English translations are missing, please fix them in the .po files");
+	}
 
-	foreach my $special_field (@special_fields) {
+	# Some translations have <<site_name>> in them, replace it with the site name
+	my $site_name = $options{site_name};
 
-		foreach my $l (@Langs) {
-			my $value = $Lang{$special_field}{$l};
-			if (not(defined $value)) {
+	foreach my $l (@Langs) {
+		foreach my $key (keys %Lang) {
+			if (not defined $Lang{$key}{$l}) {
 				next;
 			}
-
-			foreach my $key (keys %Lang) {
-				if (not defined $Lang{$key}{$l}) {
-					next;
-				}
-				$Lang{$key}{$l} =~ s/\<\<$special_field\>\>/$value/g;
-			}
+			$Lang{$key}{$l} =~ s/\<\<site_name\>\>/$site_name/g;
 		}
 	}
 
@@ -572,9 +541,6 @@ sub build_json {
 			}
 			elsif ((defined $Lang{$s}{en}) and ($Lang{$s}{en} ne '')) {
 				$value = $Lang{$s}{en};
-			}
-			elsif (defined $Lang{$s}{fr}) {
-				$value = $Lang{$s}{fr};
 			}
 
 			$result{$s} = $value if $value;
