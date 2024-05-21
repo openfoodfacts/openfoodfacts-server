@@ -1421,7 +1421,7 @@ CSS
 				$supports_iu = "true";
 			}
 
-			my $other_nutriment_unit = get_property("nutrients", "zz:$nid", "unit:en") || 'g';
+			my $other_nutriment_unit = get_property("nutrients", "zz:$nid", "unit:en") || '';
 			$other_nutriments
 				.= '{ "value" : "'
 				. $other_nutriment_value

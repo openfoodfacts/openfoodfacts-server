@@ -8786,7 +8786,7 @@ sub display_nutriscore_calculation_details_2021 ($product_ref) {
 
 	my $version = "2021";
 	my $nutriscore_grade = deep_get($product_ref, "nutriscore", $version, "grade");
-	my $nutriscore_score = deep_get($product_ref, "nutriscore", $version, "grade");
+	my $nutriscore_score = deep_get($product_ref, "nutriscore", $version, "score");
 	my $nutriscore_data_ref = deep_get($product_ref, "nutriscore", $version, "data");
 
 	my $beverage_view;
