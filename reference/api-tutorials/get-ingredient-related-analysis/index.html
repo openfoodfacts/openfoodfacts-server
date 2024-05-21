@@ -1803,7 +1803,7 @@
 <li>allergens</li>
 <li>additives</li>
 </ul>
-<p><strong>Important!</strong> Parsing might not be perfect and the ingredient detection might have issues in some languages. For more information on how you can help improve it, see: <a href="https://github.com/openfoodfacts/openfoodfacts-server/blob/master/taxonomies/ingredients.txt">https://github.com/openfoodfacts/openfoodfacts-server/blob/master/taxonomies/ingredients.txt</a></p>
+<p><strong>Important!</strong> Parsing might not be perfect and the ingredient detection might have issues in some languages. For more information on how you can help improve it, read: <a href="https://github.com/openfoodfacts/openfoodfacts-server/blob/master/taxonomies/ingredients.txt">https://github.com/openfoodfacts/openfoodfacts-server/blob/master/taxonomies/ingredients.txt</a></p>
 <h2 id="introduction-introduction">Introduction {#introduction}<a class="headerlink" href="#introduction-introduction" title="Permanent link">#</a></h2>
 <ul>
 <li>If you can't get the information on a specific product, you can get your user to send photos and data, that will then be processed by Open Food Facts AI and contributors to get the computed result you want to show them.</li>
@@ -1839,10 +1839,10 @@ then &quot;Add ingredients to see the level of food processing and potential add
 </ul>
 <h3 id="upload-ingredient-photo">Upload ingredient photo<a class="headerlink" href="#upload-ingredient-photo" title="Permanent link">#</a></h3>
 <ul>
-<li>Please follow our dedicated tutorial on photo upload: https://openfoodfacts.github.io/openfoodfacts-server/api/tutorial-uploading-photo-to-a-product/</li>
+<li><a href="https://openfoodfacts.github.io/openfoodfacts-server/api/tutorial-uploading-photo-to-a-product/">Please follow our dedicated tutorial on photo upload</a></li>
 <li>The DART SDK is offering support for photo upload, and we encourage you to implement it in one of the official Open Food Facts SDKs if it's not supported yet.</li>
 <li>Ensure that your users crop language by language, or take all languages at once, but you perform server side cropping on one specific language before performing the OCR</li>
-<li>We're working on a ML solution to detect languages and performing auto-crops per language (reuse@openfoodfacts.org to learn more)</li>
+<li>We're working on a ML solution to detect languages and performing auto-crops per language (<a href="mailto:reuse@openfoodfacts.org">reuse@openfoodfacts.org</a> to learn more)</li>
 <li>If you want to skip the next step, try to get rotation, cropping right at this stage</li>
 </ul>
 <h3 id="adjusting-the-photo-selecting-rotating-and-cropping">Adjusting the photo (Selecting, Rotating and Cropping)<a class="headerlink" href="#adjusting-the-photo-selecting-rotating-and-cropping" title="Permanent link">#</a></h3>
@@ -1854,20 +1854,20 @@ then &quot;Add ingredients to see the level of food processing and potential add
 </ul>
 <h4 id="selecting-photos">Selecting photos<a class="headerlink" href="#selecting-photos" title="Permanent link">#</a></h4>
 <ul>
-<li>Please look at the reference located at: https://openfoodfacts.github.io/openfoodfacts-server/api/tutorial-uploading-photo-to-a-product/</li>
+<li><a href="https://openfoodfacts.github.io/openfoodfacts-server/api/tutorial-uploading-photo-to-a-product/">Please look at the reference</a></li>
 </ul>
 <h4 id="rotating-a-photo">Rotating a photo<a class="headerlink" href="#rotating-a-photo" title="Permanent link">#</a></h4>
 <ul>
-<li>Please look at the reference located at: https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#get-/cgi/product_image_crop.pl</li>
+<li><a href="https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#get-/cgi/product_image_crop.pl">Please look at the reference</a></li>
 </ul>
 <h4 id="cropping-photos">Cropping Photos<a class="headerlink" href="#cropping-photos" title="Permanent link">#</a></h4>
 <p><strong>Note</strong>: Cropping is only relevant for editing already selected images. You need to upload it first to the system, select it, retrieve its id, and then crop it.
 This is a non destructive crop. If there's an issue with the image, you should report it using the dedicated NutriPatrol API. 
 Moderators will either perform a destructive crop, or more likely delete the image.
-* Please look at the reference located at: https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#post-/cgi/product_image_crop.pl</p>
+* <a href="https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#post-/cgi/product_image_crop.pl">Please look at the reference</a></p>
 <h4 id="unselecting-photos">Unselecting photos<a class="headerlink" href="#unselecting-photos" title="Permanent link">#</a></h4>
 <ul>
-<li>Please look at the reference located at: https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#post-/cgi/product_image_unselect.pl</li>
+<li><a href="https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#post-/cgi/product_image_unselect.pl">Please look at the reference</a></li>
 </ul>
 <h3 id="get-the-optical-character-recognition-ocr-output-of-the-ingredients-photo">Get the Optical Character Recognition (OCR) output of the ingredients photo<a class="headerlink" href="#get-the-optical-character-recognition-ocr-output-of-the-ingredients-photo" title="Permanent link">#</a></h3>
 <p>Open Food Facts uses optical character recognition (OCR) to retrieve ingredient data and other information (using Robotoff) from the photos of the product labels.
@@ -1879,7 +1879,7 @@ Moderators will either perform a destructive crop, or more likely delete the ima
 </ul>
 <h4 id="api-solution">API solution<a class="headerlink" href="#api-solution" title="Permanent link">#</a></h4>
 <ul>
-<li>Please look at the reference located at: https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#get-/cgi/ingredients.pl</li>
+<li><a href="https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#get-/cgi/ingredients.pl">Please look at the reference</a></li>
 </ul>
 <h4 id="dart-sdk-solution">Dart SDK solution<a class="headerlink" href="#dart-sdk-solution" title="Permanent link">#</a></h4>
 <ul>
@@ -1895,12 +1895,12 @@ Moderators will either perform a destructive crop, or more likely delete the ima
 </ul>
 <h3 id="send-the-ingredients">Send the ingredients<a class="headerlink" href="#send-the-ingredients" title="Permanent link">#</a></h3>
 <ul>
-<li>Please look at the reference located at: https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#post-/cgi/product_jqm2.pl</li>
+<li><a href="https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#post-/cgi/product_jqm2.pl">Please look at the reference located</a></li>
 </ul>
 <h3 id="refresh-product-to-display-the-result-to-your-user">Refresh product to display the result to your user<a class="headerlink" href="#refresh-product-to-display-the-result-to-your-user" title="Permanent link">#</a></h3>
 <ul>
-<li>Please look at the reference located at: https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v3/#get-/api/v3/product/-barcode-
-<img alt="alt_text" src="images/image1.png" title="image_tooltip" /></li>
+<li><a href="https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v3/#get-/api/v3/product/-barcode-
+![alt_text](images/image1.png" title="image_tooltip">Please look at the reference</a></li>
 </ul>
 
 
