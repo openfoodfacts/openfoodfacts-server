@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.31.1](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.31.0...v2.31.1) (2024-05-17)
+
+
+### Bug Fixes
+
+* alt tags for images on list of products  ([#10309](https://github.com/openfoodfacts/openfoodfacts-server/issues/10309)) ([4bfb24b](https://github.com/openfoodfacts/openfoodfacts-server/commit/4bfb24b15cd367356e4b37f202b97ba42b390196))
+* journeys ([#10301](https://github.com/openfoodfacts/openfoodfacts-server/issues/10301)) ([0585e0f](https://github.com/openfoodfacts/openfoodfacts-server/commit/0585e0f75a289d3ef08b460422f073c08ce2c490))
+* update list of detected bots ([#10302](https://github.com/openfoodfacts/openfoodfacts-server/issues/10302)) ([42465a0](https://github.com/openfoodfacts/openfoodfacts-server/commit/42465a0b41af2f7665f884511c32c7ebb660b4eb))
+
 ## [2.31.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.30.1...v2.31.0) (2024-05-16)
 
 

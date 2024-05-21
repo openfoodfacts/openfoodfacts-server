@@ -622,6 +622,13 @@ sub init_request ($request_ref = {}) {
 	# If deny_all_robots_txt=1, serve a version of robots.txt where all agents are denied access (Disallow: /)
 	$request_ref->{deny_all_robots_txt} = 0;
 
+	# For denied crawl bots, also send Disallow: / in robots.txt
+	if ($request_ref->{is_denied_crawl_bot}) {
+		$log->info("init_request - denied crawl bot", {user_agent => $request_ref->{user_agent}}) if $log->is_info();
+		$request_ref->{no_index} = 1;
+		$request_ref->{deny_all_robots_txt} = 1;
+	}
+
 	# TODO: global variables should be moved to $request_ref
 	$styles = '';
 	$scripts = '';
@@ -994,12 +1001,12 @@ sub set_user_agent_request_ref_attributes ($request_ref) {
 	my $is_crawl_bot = 0;
 	my $is_denied_crawl_bot = 0;
 	if ($user_agent_str
-		=~ /\b(Googlebot|Googlebot-Image|Google-InspectionTool|bingbot|Applebot|Yandex|DuckDuck|DotBot|Seekport|Ahrefs|DataForSeo|Seznam|ZoomBot|Mojeek|QRbot|Qwant|facebookexternalhit|Bytespider|GPTBot|SEOkicks|Searchmetrics|MJ12|SurveyBot|SEOdiver|wotbox|Cliqz|Paracrawl|Scrapy|VelenPublicWebCrawler|Semrush|MegaIndex\.ru|Amazon|aiohttp|python-request)/i
+		=~ /\b(Googlebot|Googlebot-Image|Google-InspectionTool|bingbot|Applebot|Yandex|DuckDuck|DotBot|Seekport|Ahrefs|DataForSeo|Seznam|ZoomBot|Mojeek|QRbot|Qwant|facebookexternalhit|Bytespider|GPTBot|ClaudeBot|SEOkicks|Searchmetrics|MJ12|SurveyBot|SEOdiver|wotbox|Cliqz|Paracrawl|Scrapy|VelenPublicWebCrawler|Semrush|MegaIndex\.ru|Amazon|aiohttp|python-request)/i
 		)
 	{
 		$is_crawl_bot = 1;
 		if ($user_agent_str
-			=~ /\b(bingbot|Seekport|Ahrefs|DataForSeo|Seznam|ZoomBot|Mojeek|QRbot|Bytespider|SEOkicks|Searchmetrics|MJ12|SurveyBot|SEOdiver|wotbox|Cliqz|Paracrawl|Scrapy|VelenPublicWebCrawler|Semrush|MegaIndex\.ru|YandexMarket|Amazon)/
+			=~ /\b(bingbot|Seekport|Ahrefs|DataForSeo|Seznam|ZoomBot|Mojeek|QRbot|Bytespider|SEOkicks|Searchmetrics|MJ12|SurveyBot|SEOdiver|wotbox|Cliqz|Paracrawl|Scrapy|VelenPublicWebCrawler|Semrush|MegaIndex\.ru|YandexMarket|Amazon|ClaudeBot)/
 			)
 		{
 			$is_denied_crawl_bot = 1;
@@ -1007,6 +1014,14 @@ sub set_user_agent_request_ref_attributes ($request_ref) {
 	}
 	$request_ref->{is_crawl_bot} = $is_crawl_bot;
 	$request_ref->{is_denied_crawl_bot} = $is_denied_crawl_bot;
+	$log->debug(
+		"set_user_agent_request_ref_attributes",
+		{
+			user_agent => $user_agent_str,
+			is_crawl_bot => $is_crawl_bot,
+			is_denied_crawl_bot => $is_denied_crawl_bot
+		}
+	) if $log->is_debug();
 	return;
 }
 
@@ -3914,6 +3929,15 @@ HTML
 				if ($packager_codes{$canon_tagid}{cc} eq 'ch') {
 					$description .= <<HTML
 <p>$packager_codes{$canon_tagid}{full_address}</p>
+HTML
+						;
+				}
+
+				if ($packager_codes{$canon_tagid}{cc} eq 'cy') {
+					$description .= <<HTML
+<p>$packager_codes{$canon_tagid}{name}<br>
+$packager_codes{$canon_tagid}{address} (Cyprus)
+</p>
 HTML
 						;
 				}
@@ -10208,7 +10232,10 @@ sub display_product_api ($request_ref) {
 
 	my $product_ref;
 
+	my @app_fields = qw(product_name brands quantity);
+
 	my $request_lc = $request_ref->{lc};
+
 	my $rev = single_param("rev");
 	local $log->context->{rev} = $rev;
 	if (defined $rev) {
@@ -10231,55 +10258,18 @@ sub display_product_api ($request_ref) {
 		}
 		$response{status} = 0;
 		$response{status_verbose} = 'product not found';
+
 		if (single_param("jqm")) {
-			$response{jqm} = <<HTML
-$Lang{app_please_take_pictures}{$request_lc}
-<button onclick="captureImage();" data-icon="off-camera">$Lang{app_take_a_picture}{$request_lc}</button>
-<div id="upload_image_result"></div>
-<p>$Lang{app_take_a_picture_note}{$request_lc}</p>
-HTML
-				;
-			if ($request_ref->{api_version} >= 0.1) {
-
-				my @app_fields = qw(product_name brands quantity);
-
-				my $html = <<HTML
-<form id="product_fields" action="javascript:void(0);">
-<div data-role="fieldcontain" class="ui-hide-label" style="border-bottom-width: 0;">
-HTML
-					;
-				foreach my $field (@app_fields) {
-
-					# placeholder in value
-					my $value = $Lang{$field}{$request_lc};
-
-					$html .= <<HTML
-<label for="$field">$Lang{$field}{$request_lc}</label>
-<input type="text" name="$field" id="$field" value="" placeholder="$value">
-HTML
-						;
-				}
-
-				$html .= <<HTML
-</div>
-<div id="save_button">
-<input type="submit" id="save" name="save" value="$Lang{save}{$request_lc}">
-</div>
-<div id="saving" style="display:none">
-<img src="loading2.gif" style="margin-right:10px"> $Lang{saving}{$request_lc}
-</div>
-<div id="saved" style="display:none">
-$Lang{saved}{$request_lc}
-</div>
-<div id="not_saved" style="display:none">
-$Lang{not_saved}{$request_lc}
-</div>
-</form>
-HTML
-					;
-				$response{jqm} .= $html;
-
-			}
+			my $template_data_ref = {
+				api_version => $request_ref->{api_version},
+				app_fields => \@app_fields,
+				request_lc => $request_lc,
+				Lang => \%Lang,
+			};
+			my $html;
+			process_template('web/common/includes/display_product_api.tt.html', $template_data_ref, \$html)
+				|| return "template error: " . $tt->error();
+			$response{jqm} .= $html;
 		}
 	}
 	else {
