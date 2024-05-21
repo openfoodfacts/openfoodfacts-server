@@ -29,6 +29,10 @@ x-backend-conf: &backend-conf
     - LOG_LEVEL_MONGODB
     - INFLUXDB_HOST
     - BUILD_CACHE_REPO
+    - ODOO_CRM_URL
+    - ODOO_CRM_DB
+    - ODOO_CRM_USER
+    - ODOO_CRM_PASSWORD
   depends_on:
     - memcached
   volumes:
