@@ -67,12 +67,10 @@ use Log::Any qw($log);
 use File::Copy qw(move);
 use Data::Dumper;
 
-my $request_ref = ProductOpener::Display::init_request();
-
 # Function to display a form to add a product with a specific barcode (either typed in a field, or extracted from a barcode photo)
 # or without a barcode
 
-sub display_search_or_add_form() {
+sub display_search_or_add_form($request_ref) {
 
 	# Producer platform and no org or not admin: do not offer to add products
 	if (($server_options{producers_platform})
@@ -167,6 +165,8 @@ sub create_packaging_components_from_request_parameters ($product_ref) {
 	return;
 }
 
+my $request_ref = ProductOpener::Display::init_request();
+
 if ($User_id eq 'unwanted-user-french') {
 	display_error_and_exit(
 		$request_ref,
@@ -209,7 +209,7 @@ if ($type eq 'search_or_add') {
 
 		my $title = lang("add_product");
 
-		$html = display_search_or_add_form();
+		$html = display_search_or_add_form($request_ref);
 
 		$request_ref->{title} = lang('add_product');
 		$request_ref->{content_ref} = \$html;
@@ -956,26 +956,27 @@ CSS
 				}
 
 				$display_tab_ref->{fields} = \@fields_arr;
-			}
 
-			# For moderators, add a checkbox to move all data and photos to the main language
-			# this needs to be below the "add (language name) in all field labels" above, so that it does not change this label.
-			if (($User{moderator}) and ($tabsid eq "front_image")) {
+				# For moderators, add a checkbox to move all data and photos to the main language
+				# this needs to be below the "add (language name) in all field labels" above, so that it does not change this label.
+				if (($User{moderator}) and ($tabsid eq "front_image")) {
 
-				my $msg = f_lang(
-					"f_move_data_and_photos_to_main_language",
-					{
-						language => '<span class="tab_language">' . $language . '</span>',
-						main_language => '<span class="main_language">'
-							. lang("lang_" . $product_ref->{lc})
-							. '</span>'
-					}
-				);
+					my $msg = f_lang(
+						"f_move_data_and_photos_to_main_language",
+						{
+							language => '<span class="tab_language">' . $language . '</span>',
+							main_language => '<span class="main_language">'
+								. lang("lang_" . $product_ref->{lc})
+								. '</span>'
+						}
+					);
 
-				my $moveid = "move_" . $tabid . "_data_and_images_to_main_language";
+					my $moveid = "move_" . $tabid . "_data_and_images_to_main_language";
 
-				$display_tab_ref->{moveid} = $moveid;
-				$display_tab_ref->{msg} = $msg;
+					$display_tab_ref->{moveid} = $moveid;
+					$display_tab_ref->{msg} = $msg;
+				}
+
 			}
 
 			push(@display_tabs, $display_tab_ref);
@@ -1197,9 +1198,8 @@ CSS
 		# They may be prefixed with a ! to indicate that the nutrient is always shown when displaying the nutrition facts table
 		if (($shown) and ($nutriment =~ /^!?-/)) {
 			$class = 'sub';
-			$prefix = $Lang{nutrition_data_table_sub}{$lc} . " ";
 			if ($nutriment =~ /^--/) {
-				$prefix = "&nbsp; " . $prefix;
+				$prefix = "&nbsp; ";
 			}
 		}
 
@@ -1421,7 +1421,7 @@ CSS
 				$supports_iu = "true";
 			}
 
-			my $other_nutriment_unit = get_property("nutrients", "zz:$nid", "unit:en");
+			my $other_nutriment_unit = get_property("nutrients", "zz:$nid", "unit:en") || 'g';
 			$other_nutriments
 				.= '{ "value" : "'
 				. $other_nutriment_value

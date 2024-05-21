@@ -123,7 +123,7 @@ my $nutriscore_data_ref = {
 	'saturated_fat_points' => 3
 };
 
-my $nutriscore_calculation_detail = display_nutriscore_calculation_details($nutriscore_data_ref);
+my $nutriscore_calculation_detail = display_nutriscore_calculation_details_2021($nutriscore_data_ref);
 like($nutriscore_calculation_detail, qr/Nutritional score: 6/);
 like($nutriscore_calculation_detail, qr/Proteins:\n2&nbsp;<\/strong>\/&nbsp;5/);
 like($nutriscore_calculation_detail, qr/Positive points: 2/);

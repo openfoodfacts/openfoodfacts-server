@@ -714,7 +714,10 @@ elsif ($action eq 'process') {
 	my $download = single_param("download") || '';
 
 	open(my $OUT, ">>:encoding(UTF-8)", "$BASE_DIRS{LOGS}/search_log_debug");
-	print $OUT remote_addr() . "\t" . time() . "\t" . decode utf8 => single_param('search_terms') . " - map: $map
+	print $OUT remote_addr() . "\t"
+		. time() . "\t"
+		. (decode utf8 => single_param('search_terms') || "no_search_terms")
+		. " - map: $map
 	 - graph: $graph - download: $download - page: $page\n";
 	close($OUT);
 
