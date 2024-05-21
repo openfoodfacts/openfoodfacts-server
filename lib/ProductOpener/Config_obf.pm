@@ -60,6 +60,7 @@ BEGIN {
 		$events_username
 		$events_password
 
+		$rate_limiter_blocking_enabled
 		$facets_kp_url
 		$redis_url
 
@@ -218,6 +219,10 @@ $query_url = $ProductOpener::Config2::query_url;
 $events_url = $ProductOpener::Config2::events_url;
 $events_username = $ProductOpener::Config2::events_username;
 $events_password = $ProductOpener::Config2::events_password;
+
+# If $rate_limiter_blocking_enabled is set to 1, the rate limiter will block requests
+# by returning a 429 error code instead of a 200 code
+$rate_limiter_blocking_enabled = $ProductOpener::Config2::rate_limiter_blocking_enabled;
 
 # server options
 
