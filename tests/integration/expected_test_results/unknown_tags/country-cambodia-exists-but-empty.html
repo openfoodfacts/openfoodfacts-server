@@ -76,29 +76,29 @@
 					<ul class="left">
 
 						<li class="has-dropdown">
-							<a id="menu_link">
+							<a id="menu_link" role="button">
 								<span class="material-icons">
 									menu
 								</span>
 							</a>
-							<ul class="dropdown">				
+							<ul class="dropdown" role="menu">				
 								
-									<li><a href="/discover">Discover</a></li>
-									<li><a href="/contribute">Contribute</a></li>
-									<li class="divider"></li>
+									<li><a role="menuitem" href="/discover">Discover</a></li>
+									<li><a role="menuitem" href="/contribute">Contribute</a></li>
+									<li role="separator" class="divider"></li>
 									<li><label>Add products</label></li>
-									<li><a href="/open-food-facts-mobile-app?utm_source=off&utf_medium=web&utm_campaign=pro_platform_install_the_app_to_add_products_en">Install the app to add products</a></li>
-									<li><a href="/cgi/product.pl?type=search_or_add&action=display">Add a product</a></li>
+									<li><a role="menuitem" href="/open-food-facts-mobile-app?utm_source=off&utf_medium=web&utm_campaign=pro_platform_install_the_app_to_add_products_en">Install the app to add products</a></li>
+									<li><a role="menuitem" href="/cgi/product.pl?type=search_or_add&action=display">Add a product</a></li>
 								
 
-								<li class="divider"></li>
+								<li role="separator" class="divider"></li>
 								<li><label>Search and analyze products</label></li>
 
 								<li>
-									<a href="/cgi/search.pl">Advanced search</a>
+									<a role="menuitem" href="/cgi/search.pl">Advanced search</a>
 								</li>
 								<li>
-									<a href="/cgi/search.pl?graph=1">Graphs and maps</a>
+									<a role="menuitem" href="/cgi/search.pl?graph=1">Graphs and maps</a>
 								</li>
 							</ul>
 						</li>
@@ -162,11 +162,11 @@
 						<ul class="left small-4" style="margin-right:2rem;">
 							<li class="search-li">
 							
-								<form action="/cgi/search.pl">
+								<form action="/cgi/search.pl" role="search">
 								<div class="row"><div class="small-12">
 								<div class="row collapse postfix-round">
 									<div class="columns">
-									<input type="text" placeholder="Search for a product" name="search_terms" value="" style="background-color:white">
+									<input type="text" placeholder="Search for a product" name="search_terms" value="" style="background-color:white" aria-label="Search">
 									<input name="search_simple" value="1" type="hidden">
 									<input name="action" value="process" type="hidden">
 									</div>
@@ -260,7 +260,7 @@
   </div>
   <div class="donation-banner__image" role="img" aria-label="Photo of the project team"></div>
   <div class="donation-banner__close">
-    <button id="hide-donate-banner" class="material-icons modest" onclick="DonationButton();" onkeypress="DonationButton();">close</button>
+    <button id="hide-donate-banner" class="material-icons modest" onclick="DonationButton();" onkeypress="DonationButton();" role="button" aria-controls="donation-banner-top">close</button>
   </div>
 </section>
 
@@ -466,7 +466,7 @@
 								<div id="footer_install_the_app">
 									Install the app!
 								</div>
-								Scan your <span id="everyday">everyday</span> <span id="foods">foods</span>
+								Scan your <span role="heading" id="everyday">everyday</span> <span role="heading" id="foods">foods</span>
 							</div>
 						</div>
 						<div class="cell small-100 medium-100 large-50 flex-grid v-align-center direction-row">

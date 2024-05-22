@@ -6351,11 +6351,11 @@ msgctxt "footer_install_the_app_exclamation_mark"
 msgid "Install the app!"
 msgstr "Instale a aplicação!"
 
-# HTML tags must not be translated, keep <span id=\"everyday\"> and <span id=\"foods\"> and put them around the corresponding words in the translation
-# e.g. in French: Scannez les <span id=\"foods\">aliments</span> de votre <span id=\"everyday\">quotidien</span>
+# HTML tags must not be translated, keep <span role="heading" id=\"everyday\"> and <span role="heading" id=\"foods\"> and put them around the corresponding words in the translation
+# e.g. in French: Scannez les <span role="heading" id=\"foods\">aliments</span> de votre <span role="heading" id=\"everyday\">quotidien</span>
 msgctxt "footer_scan_your_everyday_foods"
-msgid "Scan your <span id=\"everyday\">everyday</span> <span id=\"foods\">foods</span>"
-msgstr "Digitalize os seus <span id=\"foods\">alimentos</span> <span id=\"everyday\">diários</span>"
+msgid "Scan your <span role="heading" id=\"everyday\">everyday</span> <span role="heading" id=\"foods\">foods</span>"
+msgstr "Digitalize os seus <span role="heading" id=\"foods\">alimentos</span> <span role="heading" id=\"everyday\">diários</span>"
 
 msgctxt "nutrition"
 msgid "Nutrition"

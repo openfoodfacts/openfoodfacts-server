@@ -87,29 +87,29 @@
 					<ul class="left">
 
 						<li class="has-dropdown">
-							<a id="menu_link">
+							<a id="menu_link" role="button">
 								<span class="material-icons">
 									menu
 								</span>
 							</a>
-							<ul class="dropdown">				
+							<ul class="dropdown" role="menu">				
 								
-									<li><a href="/decouvrir">Découvrir</a></li>
-									<li><a href="/contribuer">Contribuer</a></li>
-									<li class="divider"></li>
+									<li><a role="menuitem" href="/decouvrir">Découvrir</a></li>
+									<li><a role="menuitem" href="/contribuer">Contribuer</a></li>
+									<li role="separator" class="divider"></li>
 									<li><label>Ajouter des produits</label></li>
-									<li><a href="/application-mobile-open-food-facts?utm_source=off&utf_medium=web&utm_campaign=pro_platform_install_the_app_to_add_products_fr">Installez l'application pour ajouter des produits</a></li>
-									<li><a href="/cgi/product.pl?type=search_or_add&action=display">Ajouter un produit</a></li>
+									<li><a role="menuitem" href="/application-mobile-open-food-facts?utm_source=off&utf_medium=web&utm_campaign=pro_platform_install_the_app_to_add_products_fr">Installez l'application pour ajouter des produits</a></li>
+									<li><a role="menuitem" href="/cgi/product.pl?type=search_or_add&action=display">Ajouter un produit</a></li>
 								
 
-								<li class="divider"></li>
+								<li role="separator" class="divider"></li>
 								<li><label>Rechercher et analyser des produits</label></li>
 
 								<li>
-									<a href="/cgi/search.pl">Recherche avancée</a>
+									<a role="menuitem" href="/cgi/search.pl">Recherche avancée</a>
 								</li>
 								<li>
-									<a href="/cgi/search.pl?graph=1">Graphiques et cartes</a>
+									<a role="menuitem" href="/cgi/search.pl?graph=1">Graphiques et cartes</a>
 								</li>
 							</ul>
 						</li>
@@ -173,11 +173,11 @@
 						<ul class="left small-4" style="margin-right:2rem;">
 							<li class="search-li">
 							
-								<form action="/cgi/search.pl">
+								<form action="/cgi/search.pl" role="search">
 								<div class="row"><div class="small-12">
 								<div class="row collapse postfix-round">
 									<div class="columns">
-									<input type="text" placeholder="Chercher un produit" name="search_terms" value="" style="background-color:white">
+									<input type="text" placeholder="Chercher un produit" name="search_terms" value="" style="background-color:white" aria-label="Search">
 									<input name="search_simple" value="1" type="hidden">
 									<input name="action" value="process" type="hidden">
 									</div>
@@ -271,7 +271,7 @@
   </div>
   <div class="donation-banner__image" role="img" aria-label="Photo of the project team"></div>
   <div class="donation-banner__close">
-    <button id="hide-donate-banner" class="material-icons modest" onclick="DonationButton();" onkeypress="DonationButton();">close</button>
+    <button id="hide-donate-banner" class="material-icons modest" onclick="DonationButton();" onkeypress="DonationButton();" role="button" aria-controls="donation-banner-top">close</button>
   </div>
 </section>
 
@@ -3762,7 +3762,7 @@ un outil de la Direction générale de la concurrence, de la consommation et de 
 								<div id="footer_install_the_app">
 									Installer l'app!
 								</div>
-								Scannez les <span id="foods">aliments</span> de votre <span id="everyday">quotidien</span>
+								Scannez les <span role="heading" id="foods">aliments</span> de votre <span role="heading" id="everyday">quotidien</span>
 							</div>
 						</div>
 						<div class="cell small-100 medium-100 large-50 flex-grid v-align-center direction-row">
