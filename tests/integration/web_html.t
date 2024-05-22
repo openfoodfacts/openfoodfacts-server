@@ -9,6 +9,9 @@ use Test2::V0;
 use ProductOpener::APITest qw/:all/;
 use ProductOpener::Test qw/:all/;
 use ProductOpener::TestDefaults qw/:all/;
+use ProductOpener::Cache qw/$memd/;
+# We need to flush memcached so that cached queries from other tests (e.g. unknown_tags.t) don't interfere with this test
+$memd->flush_all;
 
 use File::Basename "dirname";
 
