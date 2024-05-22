@@ -23,23 +23,24 @@
 use Modern::Perl '2017';
 use utf8;
 
-# This file is used to change the old valid_org (''/on) field 
+# This file is used to change the old valid_org (''/on) field
 # to a 3 state field: unreviewed, accepted, rejected
 
 use ProductOpener::Store qw/store/;
 use ProductOpener::Orgs qw/list_org_ids retrieve_org/;
 
 foreach my $org_id (list_org_ids()) {
-    my $org = retrieve_org($org_id);
-    print "org_id: $org_id, is: $org->{valid_org}\n";
-    if (exists $org->{valid_org} and defined $org->{valid_org}) {
-        if ($org->{valid_org} eq '') {
-            $org->{valid_org} = 'unreviewed';
-        } else {
-            $org->{valid_org} = 'accepted';
-        }
-        # bypass store_org to avoid triggering the odoo sync
-        store("$BASE_DIRS{ORGS}/" . $org_ref->{org_id} . ".sto", $org_ref); 
-    }
+	my $org = retrieve_org($org_id);
+	print "org_id: $org_id, is: $org->{valid_org}\n";
+	if (exists $org->{valid_org} and defined $org->{valid_org}) {
+		if ($org->{valid_org} eq '') {
+			$org->{valid_org} = 'unreviewed';
+		}
+		else {
+			$org->{valid_org} = 'accepted';
+		}
+		# bypass store_org to avoid triggering the odoo sync
+		store("$BASE_DIRS{ORGS}/" . $org_ref->{org_id} . ".sto", $org_ref);
+	}
 }
 

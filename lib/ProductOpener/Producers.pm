@@ -1829,7 +1829,7 @@ sub export_and_import_to_public_database ($args_ref) {
 	my $export_id = $started_t;
 
 	# sync CRM
-
+	update_last_export_date($Org_id, $started_t);
 
 	my $exports_ref = retrieve("$BASE_DIRS{EXPORT_FILES}/${Owner_id}/exports.sto");
 	if (not defined $exports_ref) {

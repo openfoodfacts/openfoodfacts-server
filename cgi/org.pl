@@ -399,7 +399,8 @@ elsif ($action eq 'process') {
 			# check that the main contact is a member of the organization
 			if (not is_user_in_org_group($org_ref, $main_contact, 'members')) {
 				$template_data_ref->{result} = lang('error_unknown_member');
-			} else {
+			}
+			else {
 				$org_ref->{main_contact} = $main_contact;
 				store_org($org_ref);
 				$template_data_ref->{result} = lang('main_contact_updated');

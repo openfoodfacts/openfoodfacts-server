@@ -162,21 +162,22 @@ sub store_org ($org_ref) {
 	# retrieve eventual previous values
 	my $previous_org_ref = retrieve("$BASE_DIRS{ORGS}/" . $org_ref->{org_id} . ".sto");
 
-	if ((defined $previous_org_ref) 
-		&& $previous_org_ref->{valid_org} ne 'accepted' 
-		&& $org_ref->{valid_org} eq 'accepted') {
+	if (   (defined $previous_org_ref)
+		&& $previous_org_ref->{valid_org} ne 'accepted'
+		&& $org_ref->{valid_org} eq 'accepted')
+	{
 
 		# We switched to validated, update CRM
 		my $main_contact_user = $org_ref->{main_contact};
 		my $user_ref = retrieve_user($main_contact_user);
 
 		eval {
-			my $contact_id =  find_or_create_contact($user_ref);
+			my $contact_id = find_or_create_contact($user_ref);
 			defined $contact_id or die "Failed to get contact";
 			$user_ref->{crm_user_id} = $contact_id;
 			store_user($user_ref);
 
-			my $company_id =  find_or_create_company($org_ref, $contact_id);
+			my $company_id = find_or_create_company($org_ref, $contact_id);
 			defined $company_id or die "Failed to get company";
 
 			defined add_contact_to_company($contact_id, $company_id) or die "Failed to add contact to company";
@@ -193,7 +194,7 @@ sub store_org ($org_ref) {
 		};
 		# also, add the other members to the CRM, in the company
 		foreach my $user_id (keys %{$org_ref->{members}}) {
-			if($user_id ne $org_ref->{creator}) {
+			if ($user_id ne $org_ref->{creator}) {
 				add_user_to_company($user_id, $org_ref->{crm_org_id});
 			}
 		}
@@ -201,10 +202,10 @@ sub store_org ($org_ref) {
 
 	if ($previous_org_ref->{valid_org} eq 'accepted') {
 		# update main contact in CRM if changed
-		if(exists $org_ref->{main_contact} and $org_ref->{main_contact} ne $previous_org_ref->{main_contact}) {
+		if (exists $org_ref->{main_contact} and $org_ref->{main_contact} ne $previous_org_ref->{main_contact}) {
 			if (not change_company_main_contact($previous_org_ref, $org_ref->{main_contact})) {
 				$org_ref->{main_contact} = $previous_org_ref->{main_contact};
-			}	
+			}
 		}
 	}
 
