@@ -257,7 +257,7 @@ sub link_org_with_company($org_ref, $company_id) {
 			{
 				x_off_org_id => $org_ref->{org_id},
 				category_id => [[4, $odoo_tags{Producter}]],
-				x_main_contact => $user_ref->{crm_user_id}
+				x_off_main_contact => $user_ref->{crm_user_id}
 			}
 		]
 	);
@@ -349,7 +349,7 @@ sub create_company ($org_ref) {
 		category_id => [$odoo_tags{Producter}],    # "Producter" category id in odoo
 		is_company => 1,
 		x_off_org_id => $org_ref->{org_id},
-		x_main_contact => $main_contact_user_ref->{crm_user_id},
+		x_off_main_contact => $main_contact_user_ref->{crm_user_id},
 	};
 	my $company_id = odoo('res.partner', 'create', [{%$company}]);
 	$log->debug("create_company", {company_id => $company_id, company => $company}) if $log->is_debug();
@@ -480,7 +480,7 @@ sub change_company_main_contact($org_ref, $user_id) {
 	return $req_opportunity if not $req_opportunity;
 
 	my $req_company
-		= odoo('res.partner', 'write', [[$org_ref->{crm_org_id}], {x_main_contact => $user_ref->{crm_user_id}}]);
+		= odoo('res.partner', 'write', [[$org_ref->{crm_org_id}], {x_off_main_contact => $user_ref->{crm_user_id}}]);
 	return $req_company if not $req_company;
 
 	$log->debug("change_company_main_contact", {org_id => $org_ref->{org_id}, userid => $user_id}) if $log->is_debug();
@@ -488,11 +488,11 @@ sub change_company_main_contact($org_ref, $user_id) {
 }
 
 sub update_last_import_date($org_id, $time) {
-	return update_company_last_action_date($org_id, $time, 'x_last_import_date');
+	return update_company_last_action_date($org_id, $time, 'x_off_last_import_date');
 }
 
 sub update_last_export_date($org_id, $time) {
-	return update_company_last_action_date($org_id, $time, 'x_last_export_date');
+	return update_company_last_action_date($org_id, $time, 'x_off_last_export_date');
 }
 
 sub update_company_last_action_date($org_id, $time, $field) {
