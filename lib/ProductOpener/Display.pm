@@ -1630,6 +1630,8 @@ sub generate_query_cache_key ($name, $context_ref, $request_ref) {
 	if (scalar request_param($request_ref, "obsolete")) {
 		$name .= '_obsolete';
 	}
+	# Change the version number if we change the cached results format
+	$name .= '_version20240522';
 	return generate_cache_key($name, $context_ref);
 }
 
@@ -5294,7 +5296,8 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 					# and then remove the source fields that are not needed anymore
 					if ($request_ref->{user_preferences}) {
 						# Compute the product_name and URL in the target language
-						$product_ref->{product_display_name} = remove_tags_and_quote(product_name_brand_quantity($product_ref));
+						$product_ref->{product_display_name}
+							= remove_tags_and_quote(product_name_brand_quantity($product_ref));
 						$product_ref->{product_url_path} = $url_path;
 
 						# Remove fields that were used to compute images and the product name / url, but are not needed anymore
