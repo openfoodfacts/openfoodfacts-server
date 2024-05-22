@@ -5135,8 +5135,11 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		# by Attributes.pm to compute attributes.
 		# This list should be updated if new attributes are added.
 		$fields_ref = {
+			# we do not need the _id tag (it currently contains the barcode, same as "code" field)
+			"_id" => 0,
 			# generic fields
 			"owner" => 1,    # needed on pro platform to generate the images urls
+			"obsolete" => 1,    # obsolete products are displayed differently
 			"lc" => 1,
 			"code" => 1,
 			"product_name" => 1,
@@ -5165,7 +5168,8 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 			"ecoscore_data.ecoscore_not_applicable_for_category" => 1,
 			"ecoscore_grade" => 1,
 			"ecoscore_score" => 1,
-			"forest_footprint_data" => 1,
+			"forest_footprint_data.grade" => 1,
+			"forest_footprint_data.footprint_per_kg" => 1,
 			"ingredients_analysis_tags" => 1,
 			"ingredients_n" => 1,
 			"labels_tags" => 1,
@@ -5264,6 +5268,12 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 			$log->info("MongoDB query ok", {error => $@}) if $log->is_info();
 
 			while (my $product_ref = $cursor->next) {
+				# Compute the selected images urls now, so that we can remove the huge "images" structure
+				# before we cache the results
+				# Note that the images urls depend on the target language, so the language must be included in the cache key
+				add_images_urls_to_product($product_ref, $lc, "front");
+				$product_ref->{image_front_small_html} = display_image_thumb($product_ref, 'front');
+				delete $product_ref->{images};
 				push @{$request_ref->{structured_response}{products}}, $product_ref;
 				$page_count++;
 			}
@@ -5282,6 +5292,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 			# Don't set the cache if no_count was set
 			if (not single_param('no_count') and $cache_results_flag) {
 				set_cache_results($key, $request_ref->{structured_response});
+				ProductOpener::Store::store($BASE_DIRS{CACHE_DEBUG} . "/structured_response.sto", $request_ref->{structured_response});
 			}
 		}
 	}
@@ -5394,10 +5405,8 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		$template_data_ref->{jqm_loadmore} = $request_ref->{jqm_loadmore};
 
 		for my $product_ref (@{$request_ref->{structured_response}{products}}) {
-			my $img_url;
 
 			my $code = $product_ref->{code};
-			my $img = display_image_thumb($product_ref, 'front');
 
 			my $product_name = remove_tags_and_quote(product_name_brand_quantity($product_ref));
 
@@ -5407,15 +5416,13 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 			my $url = product_url($product_ref);
 			$product_ref->{url} = $formatted_subdomain . $url;
 
-			add_images_urls_to_product($product_ref, $lc);
-
 			my $jqm = single_param("jqm");    # Assigning to a scalar to make sure we get a scalar
 
 			push @{$template_data_ref->{structured_response_products}},
 				{
 				code => $code,
 				product_name => $product_name,
-				img => $img,
+				img => $product_ref->{image_front_small_html},
 				jqm => $jqm,
 				url => $url,
 				};
