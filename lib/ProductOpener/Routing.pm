@@ -61,6 +61,10 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Log::Any qw($log);
 
+# Specific logger to track rate-limiter operations
+our $ratelimiter_log = Log::Log4perl->get_logger('ratelimiter');
+
+
 =head2 sub extract_tagtype_and_tag_value_pairs_from_components($request_ref, $components_ref)
 
 Extract tag type / tag value pairs and store them in an array $request_ref->{tags}
@@ -647,7 +651,7 @@ sub set_rate_limit_attributes ($request_ref, $ip) {
 			# Rate-limit blocking is disabled, we just log a warning
 			$block_message = "Rate-limiter blocking is disabled, but the user has reached the rate-limit";
 		}
-		$log->info(
+		$ratelimiter_log->info(
 			$block_message,
 			{
 				ip => $ip,
@@ -655,7 +659,7 @@ sub set_rate_limit_attributes ($request_ref, $ip) {
 				user_requests => $request_ref->{rate_limiter_user_requests},
 				limit => $limit
 			}
-		) if $log->is_info();
+		) if $ratelimiter_log->is_info();
 	}
 	return;
 }
