@@ -46,7 +46,7 @@ my $redis_client;
 our $sent_warning_about_missing_redis_url = 0;
 
 # Specific logger to track rate-limiter operations
-our $ratelimiter_log = Log::Log4perl->get_logger('ratelimiter');
+our $ratelimiter_log = Log::Any->get_logger(category => 'ratelimiter');
 
 
 =head2 init_redis($is_reconnect=0)

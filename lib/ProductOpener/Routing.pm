@@ -62,8 +62,7 @@ use URI::Escape::XS;
 use Log::Any qw($log);
 
 # Specific logger to track rate-limiter operations
-our $ratelimiter_log = Log::Log4perl->get_logger('ratelimiter');
-
+our $ratelimiter_log = Log::Any->get_logger(category => 'ratelimiter');
 
 =head2 sub extract_tagtype_and_tag_value_pairs_from_components($request_ref, $components_ref)
 
