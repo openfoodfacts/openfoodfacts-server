@@ -5294,10 +5294,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 					# and then remove the source fields that are not needed anymore
 					if ($request_ref->{user_preferences}) {
 						# Compute the product_name and URL in the target language
-						my $product_display_name = remove_tags_and_quote(product_name_brand_quantity($product_ref));
-						# Prevent the quantity "750 g" to be split on two lines
-						$product_display_name =~ s/(.*) (.*?)/$1\&nbsp;$2/;
-						$product_ref->{product_display_name} = $product_display_name;
+						$product_ref->{product_display_name} = remove_tags_and_quote(product_name_brand_quantity($product_ref));
 						$product_ref->{product_url_path} = $url_path;
 
 						# Remove fields that were used to compute images and the product name / url, but are not needed anymore
@@ -5448,10 +5445,14 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 
 		for my $product_ref (@{$request_ref->{structured_response}{products}}) {
 
+			my $product_display_name = $product_ref->{product_display_name};
+			# Prevent the quantity "750 g" to be split on two lines
+			$product_display_name =~ s/(.*) (.*?)/$1\&nbsp;$2/;
+
 			push @{$template_data_ref->{structured_response_products}},
 				{
 				code => $product_ref->{code},
-				product_name => $product_ref->{product_display_name},
+				product_name => $product_display_name,
 				img => $product_ref->{image_front_small_html},
 				jqm => $jqm,
 				url => $product_ref->{product_url_path},
