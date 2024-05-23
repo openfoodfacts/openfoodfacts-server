@@ -1624,4 +1624,9 @@ $options{rate_limit_search} = 10;
 # Number of requests per minutes for the product API
 $options{rate_limit_product} = 100;
 
+# Rate limit allow list
+$options{rate_limit_allow_list} = {
+	'51.210.154.203' => 1,    # OVH2
+};
+
 1;

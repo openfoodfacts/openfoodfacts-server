@@ -206,7 +206,7 @@ use Tie::IxHash;
 use Log::Any '$log', default_adapter => 'Stderr';
 
 # special logger to make it easy to measure memcached hit and miss rates
-our $mongodb_log = Log::Log4perl->get_logger('mongodb');
+our $mongodb_log = Log::Any->get_logger(category => 'mongodb');
 $mongodb_log->info("start") if $mongodb_log->is_info();
 
 use Apache2::RequestUtil ();
