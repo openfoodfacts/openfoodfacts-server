@@ -644,7 +644,16 @@ sub set_rate_limit_attributes ($request_ref, $ip) {
 		my $block_message = "Rate-limiter blocking: the user has reached the rate-limit";
 		# Check if rate-limit blocking is enabled
 		if ($rate_limiter_blocking_enabled) {
-			$request_ref->{rate_limiter_blocking} = 1;
+			# Check that the IP address is not in the allow list
+			if (not defined $options{rate_limit_allow_list}{$ip}) {
+				# The user has reached the rate-limit, we block the request
+				$request_ref->{rate_limiter_blocking} = 1;
+			}
+			else {
+				# The IP address is in the allow list, we don't block the request
+				$block_message
+					= "Rate-limiter blocking is disabled for the user, but the user has reached the rate-limit";
+			}
 		}
 		else {
 			# Rate-limit blocking is disabled, we just log a warning
