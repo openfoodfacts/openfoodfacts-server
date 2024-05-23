@@ -135,7 +135,7 @@ BEGIN {
 		$attributes_options_ref
 		$knowledge_panels_options_ref
 
-		&display_nutriscore_calculation_details
+		&display_nutriscore_calculation_details_2021
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -5493,7 +5493,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 
 		# 2021-02-25: we now store only nested ingredients, flatten them if the API is <= 1
 
-		if ($request_ref->{api_version} <= 1) {
+		if ((defined $request_ref->{api_version}) and ($request_ref->{api_version} <= 1)) {
 
 			for my $product_ref (@{$request_ref->{structured_response}{products}}) {
 				if (defined $product_ref->{ingredients}) {
@@ -5676,8 +5676,6 @@ sub display_pagination ($request_ref, $count, $limit, $page) {
 	if (defined $request_ref->{groupby_tagtype}) {
 		$nofollow = ' nofollow';
 	}
-
-	print STDERR "zzz lc: $lc - request_ref->lc: $request_ref->{lc}\n";
 
 	if ((($nb_pages > 1) and (defined $current_link)) and (not defined $request_ref->{product_changes_saved})) {
 
@@ -8864,7 +8862,9 @@ HTML
 	return;
 }
 
-=head2 display_nutriscore_calculation_details( $nutriscore_data_ref, $version = "2021" )
+=head2 display_nutriscore_calculation_details_2021 ( $product_ref )
+
+Warning: This function only works with Nutri-Score 2021.
 
 Generates HTML code with information on how the Nutri-Score was computed for a particular product.
 
@@ -8873,7 +8873,12 @@ the rounded value according to the Nutri-Score rules, and the corresponding poin
 
 =cut
 
-sub display_nutriscore_calculation_details ($nutriscore_data_ref, $version = "2021") {
+sub display_nutriscore_calculation_details_2021 ($product_ref) {
+
+	my $version = "2021";
+	my $nutriscore_grade = deep_get($product_ref, "nutriscore", $version, "grade");
+	my $nutriscore_score = deep_get($product_ref, "nutriscore", $version, "score");
+	my $nutriscore_data_ref = deep_get($product_ref, "nutriscore", $version, "data");
 
 	my $beverage_view;
 
@@ -8918,8 +8923,8 @@ sub display_nutriscore_calculation_details ($nutriscore_data_ref, $version = "20
 
 		nutriscore_protein_info => $nutriscore_protein_info,
 
-		score => $nutriscore_data_ref->{score},
-		grade => uc($nutriscore_data_ref->{grade}),
+		score => $nutriscore_score,
+		grade => uc($nutriscore_grade),
 		positive_points => $nutriscore_data_ref->{positive_points},
 		negative_points => $nutriscore_data_ref->{negative_points},
 
@@ -9207,9 +9212,13 @@ sub data_to_display_nutriscore ($product_ref, $version = "2021") {
 		$result_data_ref->{nutriscore_warnings} = \@nutriscore_warnings;
 	}
 
-	# Display the details of the computation of the Nutri-Score if we computed one
-	if ((defined $product_ref->{nutriscore_grade}) and ($product_ref->{nutriscore_grade} =~ /^[a-e]$/)) {
-		$result_data_ref->{nutriscore_details} = display_nutriscore_calculation_details($nutriscore_data_ref, $version);
+	# Generate HTML for the details of the computation of the Nutri-Score if we computed one
+	# only for version 2021
+	if (    ($version eq "2021")
+		and (defined $product_ref->{nutriscore_grade})
+		and ($product_ref->{nutriscore_grade} =~ /^[a-e]$/))
+	{
+		$result_data_ref->{nutriscore_details} = display_nutriscore_calculation_details_2021($product_ref);
 	}
 
 	return $result_data_ref;

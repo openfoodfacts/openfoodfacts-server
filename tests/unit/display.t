@@ -14,6 +14,7 @@ use ProductOpener::Lang qw/$lc lang separator_before_colon/;
 
 # date tests
 my $t = 1472292529;
+$cc = 'world';
 $lc = 'en';
 is(display_date($t), 'August 27, 2016, 12:08:49 PM CEST');
 is(display_date_tag($t), '<time datetime="2016-08-27T12:08:49">August 27, 2016, 12:08:49 PM CEST</time>');
@@ -88,42 +89,48 @@ is($request_ref->{structured_response}[3]{id}, 'mandatory');
 is($request_ref->{structured_response}[3]{factor}, 4);
 is($request_ref->{structured_response}[3]{minimum_match}, 20);
 
-my $nutriscore_data_ref = {
-	'negative_points' => 8,
-	'proteins_points' => 2,
-	'proteins' => '3.9',
-	'sodium_points' => 1,
-	'sugars_value' => 15,
-	'positive_points' => 2,
-	'is_water' => 0,
-	'fruits_vegetables_nuts_colza_walnut_olive_oils_points' => 0,
-	'fruits_vegetables_nuts_colza_walnut_olive_oils' => 0,
-	'energy_points' => 1,
-	'fruits_vegetables_nuts_colza_walnut_olive_oils_value' => 0,
-	'fiber_value' => 0,
-	'sugars' => 15,
-	'is_fat' => 0,
-	'proteins_value' => '3.9',
-	'is_beverage' => 0,
-	'sodium' => 160,
-	'score' => 6,
-	'saturated_fat_ratio' => 70,
-	'energy' => 573,
-	'fiber' => 0,
-	'saturated_fat' => '3.5',
-	'grade' => 'c',
-	'saturated_fat_ratio_value' => 70,
-	'saturated_fat_value' => '3.5',
-	'sugars_points' => 3,
-	'sodium_value' => 160,
-	'fiber_points' => 0,
-	'is_cheese' => 0,
-	'energy_value' => 573,
-	'saturated_fat_ratio_points' => 10,
-	'saturated_fat_points' => 3
+my $product_nutriscore_data_ref = {
+	nutriscore => {
+		"2021" => {
+			'score' => 6,
+			'grade' => 'c',
+			data => {
+				'negative_points' => 8,
+				'proteins_points' => 2,
+				'proteins' => '3.9',
+				'sodium_points' => 1,
+				'sugars_value' => 15,
+				'positive_points' => 2,
+				'is_water' => 0,
+				'fruits_vegetables_nuts_colza_walnut_olive_oils_points' => 0,
+				'fruits_vegetables_nuts_colza_walnut_olive_oils' => 0,
+				'energy_points' => 1,
+				'fruits_vegetables_nuts_colza_walnut_olive_oils_value' => 0,
+				'fiber_value' => 0,
+				'sugars' => 15,
+				'is_fat' => 0,
+				'proteins_value' => '3.9',
+				'is_beverage' => 0,
+				'sodium' => 160,
+				'saturated_fat_ratio' => 70,
+				'energy' => 573,
+				'fiber' => 0,
+				'saturated_fat' => '3.5',
+				'saturated_fat_ratio_value' => 70,
+				'saturated_fat_value' => '3.5',
+				'sugars_points' => 3,
+				'sodium_value' => 160,
+				'fiber_points' => 0,
+				'is_cheese' => 0,
+				'energy_value' => 573,
+				'saturated_fat_ratio_points' => 10,
+				'saturated_fat_points' => 3
+			}
+		}
+	}
 };
 
-my $nutriscore_calculation_detail = display_nutriscore_calculation_details($nutriscore_data_ref);
+my $nutriscore_calculation_detail = display_nutriscore_calculation_details_2021($product_nutriscore_data_ref);
 like($nutriscore_calculation_detail, qr/Nutritional score: 6/);
 like($nutriscore_calculation_detail, qr/Proteins:\n2&nbsp;<\/strong>\/&nbsp;5/);
 like($nutriscore_calculation_detail, qr/Positive points: 2/);
