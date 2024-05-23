@@ -28,6 +28,7 @@ use utf8;
 
 use ProductOpener::Store qw/store/;
 use ProductOpener::Orgs qw/list_org_ids retrieve_org/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
 
 foreach my $org_id (list_org_ids()) {
 	my $org = retrieve_org($org_id);

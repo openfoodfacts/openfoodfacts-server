@@ -66,7 +66,7 @@ use ProductOpener::Orgs qw/retrieve_org is_user_in_org_group/;
 use XML::RPC;
 use Log::Any qw($log);
 
-my %Odoo_tags = (Producter => '10',);
+my %Odoo_tags = (Producer => '10',);
 
 our @api_credentials;
 our $xmlrpc;
@@ -116,7 +116,7 @@ Set the off_username field of a contact to the user_id
 
 sub link_user_with_contact($user_ref, $contact_id) {
 	my $req = Odoo('res.partner', 'write',
-		[[$contact_id], {x_off_username => $user_ref->{userid}, category_id => [[4, $Odoo_tags{Producter}]]}]);
+		[[$contact_id], {x_off_username => $user_ref->{userid}, category_id => [[4, $Odoo_tags{Producer}]]}]);
 	$log->debug("link_user_with_contact", {user_id => $user_ref->{userid}, res => $req}) if $log->is_debug();
 	return $req;
 }
@@ -175,7 +175,7 @@ sub create_contact ($user_ref) {
 		x_off_username => $user_ref->{userid},
 		email => $user_ref->{email},
 		phone => $user_ref->{phone},
-		category_id => [$Odoo_tags{Producter}],
+		category_id => [$Odoo_tags{Producer}],
 	};
 
 	# find country code id in Odoo
@@ -256,7 +256,7 @@ sub link_org_with_company($org_ref, $company_id) {
 			[$company_id],
 			{
 				x_off_org_id => $org_ref->{org_id},
-				category_id => [[4, $Odoo_tags{Producter}]],
+				category_id => [[4, $Odoo_tags{Producer}]],
 				x_off_main_contact => $user_ref->{crm_user_id}
 			}
 		]
@@ -346,7 +346,7 @@ sub create_company ($org_ref) {
 		phone => $org_ref->{phone},
 		email => $org_ref->{email},
 		website => $org_ref->{website},
-		category_id => [$Odoo_tags{Producter}],    # "Producter" category id in Odoo
+		category_id => [$Odoo_tags{Producer}],    # "Producer" category id in Odoo
 		is_company => 1,
 		x_off_org_id => $org_ref->{org_id},
 		x_off_main_contact => $main_contact_user_ref->{crm_user_id},
