@@ -31,16 +31,16 @@ use ProductOpener::Orgs qw/list_org_ids retrieve_org/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 
 foreach my $org_id (list_org_ids()) {
-	my $org = retrieve_org($org_id);
-	print "org_id: $org_id, is: $org->{valid_org}\n";
-	if (exists $org->{valid_org} and defined $org->{valid_org}) {
-		if ($org->{valid_org} eq '') {
-			$org->{valid_org} = 'unreviewed';
+	my $org_ref = retrieve_org($org_id);
+	# print "org_id: $org_id, is: $org->{valid_org}\n";
+	if (exists $org_ref->{valid_org} and defined $org_ref->{valid_org}) {
+		if ($org_ref->{valid_org} eq 'on') {
+			$org_ref->{valid_org} = 'accepted';
 		}
 		else {
-			$org->{valid_org} = 'accepted';
+			$org_ref->{valid_org} = 'unreviewed';
 		}
-		# bypass store_org to avoid triggering the odoo sync
+		# not using store_org to avoid triggering the odoo sync
 		store("$BASE_DIRS{ORGS}/" . $org_ref->{org_id} . ".sto", $org_ref);
 	}
 }
