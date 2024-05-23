@@ -170,6 +170,7 @@ function display_user_product_preferences(target_selected, target_selection_form
             attribute_groups = data;
             display_user_product_preferences(target_selected, target_selection_form, change);
         });
+        return;
     }
 
     if (!preferences) {
@@ -179,6 +180,7 @@ function display_user_product_preferences(target_selected, target_selection_form
             preferences = data;
             display_user_product_preferences(target_selected, target_selection_form, change);
         });
+        return;
     }
 
     if (attribute_groups && preferences && !displayed_user_product_preferences) {
