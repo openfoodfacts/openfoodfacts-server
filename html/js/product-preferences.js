@@ -170,6 +170,7 @@ function display_user_product_preferences(target_selected, target_selection_form
             attribute_groups = data;
             display_user_product_preferences(target_selected, target_selection_form, change);
         });
+
         return;
     }
 
@@ -180,6 +181,7 @@ function display_user_product_preferences(target_selected, target_selection_form
             preferences = data;
             display_user_product_preferences(target_selected, target_selection_form, change);
         });
+        
         return;
     }
 
