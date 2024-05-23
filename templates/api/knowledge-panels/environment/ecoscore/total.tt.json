@@ -1,4 +1,27 @@
-[% SET sum_of_bonuses_and_maluses = product.ecoscore_data.adjustments.production_system.value + product.ecoscore_data.adjustments.packaging.value + product.ecoscore_data.adjustments.threatened_species.value + product.ecoscore_data.adjustments.origins_of_ingredients.value %]
+[% USE sum_of_bonuses_and_maluses = 0;
+   USE value;
+   IF (defined product.ecoscore_data.adjustments.production_system.value && product.ecoscore_data.adjustments.production_system.value =~ /^-?\d+(\.\d+)?$/) {
+       value = product.ecoscore_data.adjustments.production_system.value;
+   }
+   sum_of_bonuses_and_maluses += value;
+
+   IF (defined product.ecoscore_data.adjustments.packaging.value && product.ecoscore_data.adjustments.packaging.value =~ /^-?\d+(\.\d+)?$/) {
+       value = product.ecoscore_data.adjustments.packaging.value;
+   }
+   sum_of_bonuses_and_maluses += value;
+
+   IF (defined product.ecoscore_data.adjustments.threatened_species.value && product.ecoscore_data.adjustments.threatened_species.value =~ /^-?\d+(\.\d+)?$/) {
+       value = product.ecoscore_data.adjustments.threatened_species.value;
+   }
+   sum_of_bonuses_and_maluses += value;
+
+   IF (defined product.ecoscore_data.adjustments.origins_of_ingredients.value && product.ecoscore_data.adjustments.origins_of_ingredients.value =~ /^-?\d+(\.\d+)?$/) {
+       value = product.ecoscore_data.adjustments.origins_of_ingredients.value;
+   }
+   sum_of_bonuses_and_maluses += value;
+%]
+
+
 {
     "level": "info",
     "topics": [
