@@ -38,6 +38,7 @@ use ProductOpener::Tags qw/:all/;
 use ProductOpener::PackagerCodes qw/normalize_packager_codes/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::Lang qw/$lc %Lang %tag_type_singular lang/;
+use ProductOpener::Routing qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -67,6 +68,17 @@ if (user_agent() =~ /apps-spreadsheets/) {
 }
 
 $request_ref->{search} = 1;
+# api_action is required for `check_and_update_rate_limits`
+$request_ref->{api_action} = 'search';
+
+check_and_update_rate_limits($request_ref);
+
+if ($request_ref->{rate_limiter_blocking}) {
+	# The request is blocked by the rate limiter:
+	# return directly a "too many requests" empty HTML page
+	display_too_many_requests_page_and_exit();
+	return Apache2::Const::OK;
+}
 
 my $action = single_param('action') || 'display';
 

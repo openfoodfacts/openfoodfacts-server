@@ -733,7 +733,10 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 		}
 
 		if ($field eq "product_display_name") {
-			$customized_product_ref->{$field} = remove_tags_and_quote(product_name_brand_quantity($product_ref));
+			# For web search queries, we may already have a product_display_name field computed and stored in the query cache
+			# and the product name / brands / quantity fields have been removed in that case, so we use it as-is.
+			$customized_product_ref->{$field} = $product_ref->{product_display_name}
+				|| remove_tags_and_quote(product_name_brand_quantity($product_ref));
 			next;
 		}
 
