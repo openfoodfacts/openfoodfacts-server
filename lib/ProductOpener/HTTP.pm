@@ -46,6 +46,8 @@ BEGIN {
 	@EXPORT_OK = qw(
 		&get_cors_headers
 		&write_cors_headers
+		&set_http_response_header
+		&write_http_response_headers
 	);    #the fucntions which are called outside this file
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -147,7 +149,49 @@ sub write_cors_headers ($allow_credentials = 0, $sub_domain_only = 0) {
 	my $headers_ref = get_cors_headers($allow_credentials, $sub_domain_only);
 	my $r = Apache2::RequestUtil->request();
 	# write them
-	while (my ($header_name, $header_value) = each %$headers_ref) {
+	foreach my $header_name (sort keys %$headers_ref) {
+		my $header_value = $headers_ref->{$header_name};
+		$r->err_headers_out->set($header_name, $header_value);
+	}
+	return;
+}
+
+=head2 set_http_response_header($request_ref, $header_name, $header_value)
+
+This function sets a header in the response.
+
+=head3 Parameters
+
+=head4 $request_ref - Reference to the request object.
+
+=head4 $header_name - Name of the header.
+
+=head4 $header_value - Value of the header.
+
+=cut
+
+sub set_http_response_header($request_ref, $header_name, $header_value) {
+	not defined $request_ref->{http_response_headers} and $request_ref->{http_response_headers} = {};
+	$request_ref->{http_response_headers}{$header_name} = $header_value;
+	return;
+}
+
+=head2 write_http_response_headers($http_response_headers_ref)
+
+This function writes the headers in the response.
+
+=head3 Parameters
+
+=head4 $http_response_headers_ref - Reference to a hash with headers.
+
+=cut
+
+sub write_http_response_headers($request_ref) {
+	my $http_response_headers_ref = $request_ref->{http_response_headers};
+	return unless $http_response_headers_ref;
+	my $r = Apache2::RequestUtil->request();
+	foreach my $header_name (sort keys %$http_response_headers_ref) {
+		my $header_value = $http_response_headers_ref->{$header_name};
 		$r->err_headers_out->set($header_name, $header_value);
 	}
 	return;

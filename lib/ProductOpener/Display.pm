@@ -142,7 +142,7 @@ BEGIN {
 
 use vars @EXPORT_OK;
 
-use ProductOpener::HTTP qw(write_cors_headers);
+use ProductOpener::HTTP qw(write_cors_headers set_http_response_header write_http_response_headers);
 use ProductOpener::Store qw(get_string_id_for_lang retrieve);
 use ProductOpener::Config qw(:all);
 use ProductOpener::Paths qw/%BASE_DIRS/;
@@ -10193,6 +10193,8 @@ sub display_preferences_api ($request_ref, $target_lc) {
 		push @{$request_ref->{structured_response}}, $preference_ref;
 	}
 
+	set_http_response_header($request_ref, "Cache-Control", "public, max-age=86400");
+
 	display_structured_response($request_ref);
 
 	return;
@@ -10239,6 +10241,8 @@ sub display_attribute_groups_api ($request_ref, $target_lc) {
 	}
 
 	$request_ref->{structured_response} = $attribute_groups_ref;
+
+	set_http_response_header($request_ref, "Cache-Control", "public, max-age=86400");
 
 	display_structured_response($request_ref);
 
@@ -10539,6 +10543,8 @@ sub display_product_history ($request_ref, $code, $product_ref) {
 sub display_structured_response ($request_ref) {
 	# directly serve structured data from $request_ref->{structured_response}
 
+	write_http_response_headers($request_ref);
+
 	$log->debug(
 		"Displaying structured response",
 		{
@@ -10619,9 +10625,7 @@ sub display_structured_response ($request_ref) {
 				. $data . ");";
 		}
 		else {
-			$log->warning("XXXXXXXXXXXXXXXXXXXXXX");
 			write_cors_headers();
-			$log->warning("YYYYYYYYYYYYYYYY");
 			print header(
 				-status => $status_code,
 				-type => 'application/json',
