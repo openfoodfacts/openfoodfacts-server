@@ -66,7 +66,7 @@ use ProductOpener::Orgs qw/retrieve_org is_user_in_org_group/;
 use XML::RPC;
 use Log::Any qw($log);
 
-my %odoo_tags = (Producter => '10',);
+my %Odoo_tags = (Producter => '10',);
 
 our @api_credentials;
 our $xmlrpc;
@@ -83,14 +83,14 @@ the user to which a 'contact' in the CRM should be linked
 
 =head3 Return values
 
-the id of the contact, or undef if an error occured
+the id of the contact, or undef if an error occur
 
 =cut
 
 sub find_or_create_contact($user_ref) {
 	my $contact_id = find_contact($user_ref);
 	if (defined $contact_id) {
-		return undef if not link_user_with_contact($user_ref, $contact_id);
+		return if not link_user_with_contact($user_ref, $contact_id);
 	}
 	else {
 		$contact_id = create_contact($user_ref);
@@ -115,8 +115,8 @@ Set the off_username field of a contact to the user_id
 =cut
 
 sub link_user_with_contact($user_ref, $contact_id) {
-	my $req = odoo('res.partner', 'write',
-		[[$contact_id], {x_off_username => $user_ref->{userid}, category_id => [[4, $odoo_tags{Producter}]]}]);
+	my $req = Odoo('res.partner', 'write',
+		[[$contact_id], {x_off_username => $user_ref->{userid}, category_id => [[4, $Odoo_tags{Producter}]]}]);
 	$log->debug("link_user_with_contact", {user_id => $user_ref->{userid}, res => $req}) if $log->is_debug();
 	return $req;
 }
@@ -137,7 +137,7 @@ the contact id or undef
 
 sub find_contact($user_ref) {
 	# find the contact with the same user_id OR email, by date of creation (oldest first)
-	my $req = odoo(
+	my $req = Odoo(
 		'res.partner',
 		'search_read',
 		[
@@ -157,7 +157,7 @@ sub find_contact($user_ref) {
 
 =head2 create_contact ($user_ref)
 
-Creates a new contact in odoo from a user
+Creates a new contact in Odoo from a user
 
 =head3 Arguments
 
@@ -175,27 +175,27 @@ sub create_contact ($user_ref) {
 		x_off_username => $user_ref->{userid},
 		email => $user_ref->{email},
 		phone => $user_ref->{phone},
-		category_id => [$odoo_tags{Producter}],
+		category_id => [$Odoo_tags{Producter}],
 	};
 
-	# find country code id in odoo
+	# find country code id in Odoo
 	my $user_country_code = uc($country_codes_reverse{$user_ref->{country}}) || 'EN';
 	my $country_id
-		= odoo('res.country', 'search_read', [[['code', '=', $user_country_code]]], {fields => ['code', 'id']});
+		= Odoo('res.country', 'search_read', [[['code', '=', $user_country_code]]], {fields => ['code', 'id']});
 	$contact->{country_id} = $country_id->[0]{id};
 
 	# find spoken language's code in Odoo
 	# 'lang' are actived languages in Odoo
-	my $odoo_lang
-		= odoo('res.lang', 'search_read', [[['iso_code', '=', $user_ref->{preferred_language}]]], {fields => ['code']});
-	my $found_lang = $odoo_lang->[0];
+	my $Odoo_lang
+		= Odoo('res.lang', 'search_read', [[['iso_code', '=', $user_ref->{preferred_language}]]], {fields => ['code']});
+	my $found_lang = $Odoo_lang->[0];
 	$contact->{lang} = $found_lang->{code} // 'en_US';    # default to english
 	if (defined $found_lang->{id}) {
 		$contact->{x_off_languages} = [$found_lang->{id}];
 	}
 
 	# create new contact with linked organization
-	my $contact_id = odoo('res.partner', 'create', [{%$contact}]);
+	my $contact_id = Odoo('res.partner', 'create', [{%$contact}]);
 	$log->debug("create_contact", {contact_id => $contact_id}) if $log->is_debug();
 	return $contact_id;
 }
@@ -212,18 +212,18 @@ the organization to which a 'company' in the CRM should be linked
 
 =head4 $contact_id 
 
-helps the strategy to find the company
+Helps the strategy to find the company
 
 =head3 Return values
 
-the id of the contact, or undef if an error occured
+The id of the contact, or undef if an error occurred
 
 =cut
 
 sub find_or_create_company($org_ref, $contact_id = undef) {
 	my $company_id = find_company($org_ref, $contact_id);
 	if (defined $company_id) {
-		return undef if not link_org_with_company($org_ref, $company_id);
+		return if not link_org_with_company($org_ref, $company_id);
 	}
 	else {
 		$company_id = create_company($org_ref);
@@ -249,14 +249,14 @@ Set the off_org field of a contact to the org_id
 
 sub link_org_with_company($org_ref, $company_id) {
 	my $user_ref = retrieve_user($org_ref->{main_contact});
-	my $req = odoo(
+	my $req = Odoo(
 		'res.partner',
 		'write',
 		[
 			[$company_id],
 			{
 				x_off_org_id => $org_ref->{org_id},
-				category_id => [[4, $odoo_tags{Producter}]],
+				category_id => [[4, $Odoo_tags{Producter}]],
 				x_off_main_contact => $user_ref->{crm_user_id}
 			}
 		]
@@ -286,7 +286,7 @@ the company if found, undef otherwise
 
 sub find_company($org_ref, $contact_id = undef) {
 	# 1. & 3. merged in one query
-	my $companies = odoo(
+	my $companies = Odoo(
 		'res.partner',
 		'search_read',
 		[
@@ -307,13 +307,13 @@ sub find_company($org_ref, $contact_id = undef) {
 		and $company->{x_off_org_id} ne $org_ref->{org_id})
 	{
 		# find the company of the contact
-		my $req = odoo('res.partner', 'read', [$contact_id], {fields => ['name', 'id', 'parent_id']});
+		my $req = Odoo('res.partner', 'read', [$contact_id], {fields => ['name', 'id', 'parent_id']});
 		# check if the company has no off_org_id
 		my $contact = $req->[0];
 
 		if (defined $contact && $contact->{parent_id} ne '0') {
 			my $req
-				= odoo('res.partner', 'read', [$company->{parent_id}->[0]], {fields => ['name', 'id', 'x_off_org_id']});
+				= Odoo('res.partner', 'read', [$company->{parent_id}->[0]], {fields => ['name', 'id', 'x_off_org_id']});
 			my $contact_company = $req->[0];
 			if (defined $contact_company and $company->{x_off_org_id} eq '0') {
 				# 2.
@@ -327,7 +327,7 @@ sub find_company($org_ref, $contact_id = undef) {
 
 =head2 create_company ($org_ref)
 
-Creates a new company in odoo from an org
+Creates a new company in Odoo from an org
 
 =head3 Arguments
 
@@ -346,19 +346,19 @@ sub create_company ($org_ref) {
 		phone => $org_ref->{phone},
 		email => $org_ref->{email},
 		website => $org_ref->{website},
-		category_id => [$odoo_tags{Producter}],    # "Producter" category id in odoo
+		category_id => [$Odoo_tags{Producter}],    # "Producter" category id in Odoo
 		is_company => 1,
 		x_off_org_id => $org_ref->{org_id},
 		x_off_main_contact => $main_contact_user_ref->{crm_user_id},
 	};
-	my $company_id = odoo('res.partner', 'create', [{%$company}]);
+	my $company_id = Odoo('res.partner', 'create', [{%$company}]);
 	$log->debug("create_company", {company_id => $company_id, company => $company}) if $log->is_debug();
 	return $company_id;
 }
 
 =head2 add_contact_to_company ($org_ref)
 
-Add a contact to a company in odoo
+Add a contact to a company in Odoo
 
 =head3 Arguments
 
@@ -375,9 +375,9 @@ Add a contact to a company in odoo
 sub add_contact_to_company($contact_id, $company_id) {
 	# set contact in children of company
 	# 4 means add an existing record
-	odoo('res.partner', 'write', [[$company_id], {child_ids => [[4, $contact_id]]}]);
+	Odoo('res.partner', 'write', [[$company_id], {child_ids => [[4, $contact_id]]}]);
 	# set company of the contact
-	my $result = odoo('res.partner', 'write', [[$contact_id], {parent_id => $company_id}]);
+	my $result = Odoo('res.partner', 'write', [[$contact_id], {parent_id => $company_id}]);
 	$log->debug("add_contact_to_company", {company_id => $company_id, contact_id => $contact_id}) if $log->is_debug();
 	return $result;
 }
@@ -405,15 +405,15 @@ the id of the created opportunity
 =cut
 
 sub create_opportunity ($name, $partner_id) {
-	my $opportunity_id = odoo('crm.lead', 'create', [{name => $name, partner_id => $partner_id}]);
+	my $opportunity_id = Odoo('crm.lead', 'create', [{name => $name, partner_id => $partner_id}]);
 	$log->debug("create_opportunity", {opportunity_id => $opportunity_id}) if $log->is_debug();
 	return $opportunity_id;
 }
 
 =head2 add_user_to_company ($user_id, $company_id)
 
-Add a user to a company in odoo.
-Attemps to find the contact, create it if it doesn't exist, and add it to the company.
+Add a user to a company in Odoo.
+Attempts to find the contact, create it if it doesn't exist, and add it to the company.
 
 side effect: update user_ref with the corresponding CRM contact_id
 
@@ -425,7 +425,7 @@ side effect: update user_ref with the corresponding CRM contact_id
 
 =head3 Return values
 
-the contact_id, undef if an error occured while getting the contact_id
+the contact_id, undef if an error occurred while getting the contact_id
 
 =cut
 
@@ -476,11 +476,11 @@ sub change_company_main_contact($org_ref, $user_id) {
 	my $user_ref = retrieve_user($user_id);
 
 	my $req_opportunity
-		= odoo('crm.lead', 'write', [[$org_ref->{crm_opportunity_id}], {partner_id => $user_ref->{crm_user_id}}]);
+		= Odoo('crm.lead', 'write', [[$org_ref->{crm_opportunity_id}], {partner_id => $user_ref->{crm_user_id}}]);
 	return $req_opportunity if not $req_opportunity;
 
 	my $req_company
-		= odoo('res.partner', 'write', [[$org_ref->{crm_org_id}], {x_off_main_contact => $user_ref->{crm_user_id}}]);
+		= Odoo('res.partner', 'write', [[$org_ref->{crm_org_id}], {x_off_main_contact => $user_ref->{crm_user_id}}]);
 	return $req_company if not $req_company;
 
 	$log->debug("change_company_main_contact", {org_id => $org_ref->{org_id}, userid => $user_id}) if $log->is_debug();
@@ -506,20 +506,20 @@ sub update_company_last_action_date($org_id, $time, $field) {
 	my $date_string = sprintf("%04d-%02d-%02d", $year, $mon, $mday);
 	$log->debug("update_last_company_action_date", {org_id => $org_id, date => $date_string, field => $field})
 		if $log->is_debug();
-	return odoo('res.partner', 'write', [[$org_ref->{crm_org_id}], {$field => $date_string}]);
+	return Odoo('res.partner', 'write', [[$org_ref->{crm_org_id}], {$field => $date_string}]);
 }
 
-=head2 odoo (@params)
+=head2 Odoo (@params)
 
-Calls odoo's API with the given parameters
+Calls Odoo's API with the given parameters
 
 =head3 Return values
 
-the response or undef if an error occured
+the response or undef if an error occurred
 
 =cut
 
-sub odoo(@params) {
+sub Odoo(@params) {
 	if (not defined $ProductOpener::Config2::crm_api_url) {
 		# Odoo CRM is not configured
 		return;
@@ -533,7 +533,7 @@ sub odoo(@params) {
 
 		eval {$xmlrpc = XML::RPC->new($api_url . 'common');};
 		if ($@) {
-			$log->error("odoo", {error => $@, reason => "Could not connect to Odoo CRM"}) if $log->is_error();
+			$log->error("Odoo", {error => $@, reason => "Could not connect to Odoo CRM"}) if $log->is_error();
 			$xmlrpc = undef;
 			return;
 		}
@@ -541,7 +541,7 @@ sub odoo(@params) {
 		my $uid;
 		eval {$uid = $xmlrpc->call('authenticate', $db, $username, $pwd, {});};
 		if ($@) {
-			$log->error("odoo", {error => $@, reason => "Could not authenticate to Odoo CRM"}) if $log->is_error();
+			$log->error("Odoo", {error => $@, reason => "Could not authenticate to Odoo CRM"}) if $log->is_error();
 			$xmlrpc = undef;
 			return;
 		}
@@ -552,14 +552,14 @@ sub odoo(@params) {
 	my $result;
 	eval {$result = $xmlrpc->call('execute_kw', (@api_credentials, @params));};
 	if ($@) {
-		$log->error("odoo", {error => $@, params => \@params, reason => "Could not call Odoo"}) if $log->is_error();
+		$log->error("Odoo", {error => $@, params => \@params, reason => "Could not call Odoo"}) if $log->is_error();
 		$xmlrpc = undef;
 		return;
 	}
 
 	# Check if the result is an error
 	if (ref($result) eq 'HASH' && exists $result->{faultCode}) {
-		$log->error("odoo",
+		$log->error("Odoo",
 			{error => $result->{faultString}, params => \@params, reason => "Odoo call returned an error"})
 			if $log->is_error();
 		return;
