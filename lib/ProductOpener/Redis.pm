@@ -48,7 +48,6 @@ our $sent_warning_about_missing_redis_url = 0;
 # Specific logger to track rate-limiter operations
 our $ratelimiter_log = Log::Any->get_logger(category => 'ratelimiter');
 
-
 =head2 init_redis($is_reconnect=0)
 
 init $redis_client or re-init it if we where disconnected
@@ -259,7 +258,8 @@ sub increment_rate_limit_requests ($ip, $api_action) {
 		init_redis();
 	}
 	if (defined $redis_client) {
-		$ratelimiter_log->debug("Incrementing rate-limit requests", {ip => $ip, api_action => $api_action}) if $ratelimiter_log->is_debug();
+		$ratelimiter_log->debug("Incrementing rate-limit requests", {ip => $ip, api_action => $api_action})
+			if $ratelimiter_log->is_debug();
 		my $current_minute = int(time() / 60);
 		eval {
 			# Use a MULTI/EXEC block to increment the counter and set the expiration atomically
@@ -280,7 +280,8 @@ sub increment_rate_limit_requests ($ip, $api_action) {
 		$redis_client = undef;
 	}
 	else {
-		$ratelimiter_log->debug("Incremented number of requests from Redis rate-limiter", {ip => $ip, api_action => $api_action})
+		$ratelimiter_log->debug("Incremented number of requests from Redis rate-limiter",
+			{ip => $ip, api_action => $api_action})
 			if $ratelimiter_log->is_debug();
 	}
 
