@@ -76,16 +76,18 @@
 					<ul class="left">
 
 						<li class="has-dropdown">
-							<a id="menu_link" role="button" role="menu">
+							<a id="menu_link" aria-haspopup="true" aria-controls="dropdown-leftmenu">
 								<span class="material-icons">
 									menu
 								</span>
 							</a>
-							<ul class="dropdown">				
+							<ul class="dropdown" id="dropdown-leftmenu">				
 								
 									<li><a href="/decouvrir">Découvrir</a></li>
 									<li><a href="/contribuer">Contribuer</a></li>
+									
 									<li class="divider"></li>
+
 									<li><label>Ajouter des produits</label></li>
 									<li><a href="/application-mobile-open-food-facts?utm_source=off&utf_medium=web&utm_campaign=pro_platform_install_the_app_to_add_products_fr">Installez l'application pour ajouter des produits</a></li>
 									<li><a href="/cgi/product.pl?type=search_or_add&action=display">Ajouter un produit</a></li>
@@ -127,7 +129,7 @@
 					<ul class="right">
 						
 							<li class="h-space-tiny has-form">
-								<a href="/cgi/session.pl" class="round button secondary">
+								<a href="/cgi/session.pl" class="round button secondary" aria-haspopup="true" aria-controls="dropdown-rightmenu">
 									<span class="material-icons material-symbols-button">account_circle</span>
 									Se connecter
 								</a>
@@ -166,7 +168,7 @@
 								<div class="row"><div class="small-12">
 								<div class="row collapse postfix-round">
 									<div class="columns">
-									<input type="text" placeholder="Chercher un produit" name="search_terms" value="tarte" style="background-color:white">
+									<input type="text" placeholder="Chercher un produit" name="search_terms" value="tarte" style="background-color:white" aria-label="Search">
 									<input name="search_simple" value="1" type="hidden">
 									<input name="action" value="process" type="hidden">
 									</div>
@@ -232,7 +234,7 @@
 							
 							
 								
-          						<!-- start templates/web/common/includes/donate_banner.tt.html -->
+								<!-- start templates/web/common/includes/donate_banner.tt.html -->
 
 
 
@@ -260,7 +262,7 @@
   </div>
   <div class="donation-banner__image" role="img" aria-label="Photo of the project team"></div>
   <div class="donation-banner__close">
-    <button id="hide-donate-banner" class="material-icons modest" onclick="DonationButton();" onkeypress="DonationButton();" role="button" aria-controls="donation-banner-top">close</button>
+    <button id="hide-donate-banner" class="material-icons modest" onclick="DonationButton();" onkeypress="DonationButton();" aria-controls="donation-banner-top" aria-label="Close">close</button>
   </div>
 </section>
 
@@ -478,7 +480,7 @@
 								<div id="footer_install_the_app">
 									Installer l'app!
 								</div>
-								Scannez les <span id="foods">aliments</span> de votre <span id="everyday">quotidien</span>
+								Scannez les <span role="heading" id="foods">aliments</span> de votre <span role="heading" id="everyday">quotidien</span>
 							</div>
 						</div>
 						<div class="cell small-100 medium-100 large-50 flex-grid v-align-center direction-row">

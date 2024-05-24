@@ -95,29 +95,31 @@
 					<ul class="left">
 
 						<li class="has-dropdown">
-							<a id="menu_link" role="button" role="menu">
+							<a id="menu_link" aria-haspopup="true" aria-controls="dropdown-leftmenu">
 								<span class="material-icons">
 									menu
 								</span>
 							</a>
-							<ul class="dropdown">				
+							<ul class="dropdown" id="dropdown-leftmenu">				
 								
-									<li><a role="menuitem" href="/discover">Discover</a></li>
-									<li><a role="menuitem" href="/contribute">Contribute</a></li>
-									<li role="separator" class="divider"></li>
+									<li><a href="/discover">Discover</a></li>
+									<li><a href="/contribute">Contribute</a></li>
+									
+									<li class="divider"></li>
+
 									<li><label>Add products</label></li>
-									<li><a role="menuitem" href="/open-food-facts-mobile-app?utm_source=off&utf_medium=web&utm_campaign=pro_platform_install_the_app_to_add_products_en">Install the app to add products</a></li>
-									<li><a role="menuitem" href="/cgi/product.pl?type=search_or_add&action=display">Add a product</a></li>
+									<li><a href="/open-food-facts-mobile-app?utm_source=off&utf_medium=web&utm_campaign=pro_platform_install_the_app_to_add_products_en">Install the app to add products</a></li>
+									<li><a href="/cgi/product.pl?type=search_or_add&action=display">Add a product</a></li>
 								
 
-								<li role="separator" class="divider"></li>
+								<li class="divider"></li>
 								<li><label>Search and analyze products</label></li>
 
 								<li>
-									<a role="menuitem" href="/cgi/search.pl">Advanced search</a>
+									<a href="/cgi/search.pl">Advanced search</a>
 								</li>
 								<li>
-									<a role="menuitem" href="/cgi/search.pl?graph=1">Graphs and maps</a>
+									<a href="/cgi/search.pl?graph=1">Graphs and maps</a>
 								</li>
 							</ul>
 						</li>
@@ -146,13 +148,13 @@
 					<ul class="right">
 						
 							<li class="has-dropdown">
-								<a href="#" class="userlink h-space-tiny">
+								<a href="#" class="userlink h-space-tiny" aria-haspopup="true" aria-controls="dropdown-rightmenu">
 									<span class="material-icons">
 										account_circle
 									</span>
 									Test
 								</a>
-								<ul class="dropdown">
+								<ul class="dropdown" id="dropdown-rightmenu">
 									<li><a href="/cgi/user.pl?type=edit&userid=tests"><span class="material-icons">settings</span> Account parameters</a></li>
 
 									
@@ -274,7 +276,7 @@
 							
 							
 								
-          						<!-- start templates/web/common/includes/donate_banner.tt.html -->
+								<!-- start templates/web/common/includes/donate_banner.tt.html -->
 
 
 
@@ -302,7 +304,7 @@
   </div>
   <div class="donation-banner__image" role="img" aria-label="Photo of the project team"></div>
   <div class="donation-banner__close">
-    <button id="hide-donate-banner" class="material-icons modest" onclick="DonationButton();" onkeypress="DonationButton();" role="button" aria-controls="donation-banner-top">close</button>
+    <button id="hide-donate-banner" class="material-icons modest" onclick="DonationButton();" onkeypress="DonationButton();" aria-controls="donation-banner-top" aria-label="Close">close</button>
   </div>
 </section>
 
