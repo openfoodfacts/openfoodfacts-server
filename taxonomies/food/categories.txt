@@ -83876,11 +83876,15 @@ protected_name_type:en: pgi
 
 <en:Chickens
 en:Hen meat and skin
-fr:viande de poulet avec peau
+fr:viande de poule avec peau
 agribalyse_food_code:en:36000
 ciqual_food_code:en:36000
 ciqual_food_name:en:Hen, meat and skin, raw
 ciqual_food_name:fr:Poule, viande et peau, crue
+
+<en:Hen meat and skin
+en:Frozen Hen
+fr:Poule surgelée
 
 <en:Chickens
 en:Hen meat
@@ -84067,6 +84071,9 @@ ciqual_food_name:en:Chicken, nugget, breaded croquette
 intake24_category_code:en:MFGR
 wikidata:en:Q1072190
 
+<en:Chicken nuggets
+en:Frozen chicken nuggets
+fr:Nuggets de poulet surgelés
 
 <en:Breaded products
 <en:Meat preparations
@@ -84886,6 +84893,10 @@ ciqual_food_code:en:36033
 ciqual_food_name:en:Chicken, wing, meat and skin, roasted/baked
 ciqual_food_name:fr:Poulet, aile, viande et peau, rôti/cuit au four
 
+<en:Chicken wings
+en:Frozen chicken wings
+fr:Ailes de poulet surgelées, aile de poulet surgelée
+
 <en:Chickens
 en:Chicken thighs, chicken legs
 bg:Пилешки бутчета
@@ -85013,6 +85024,18 @@ it:Pollo arrosto
 nl:Gegrilde kip
 zh:烤鸡
 wikidata:en:Q899640
+
+<en:Chickens
+en:Chicken carcass
+fr:Carcasse de poulet
+
+<en:Chickens
+en:Chicken feet
+fr:Pattes de poulets
+
+<en:Chickens
+en:Frozen chickens
+fr:Poulets surgelés
 
 # TODO - Add proxy
 
@@ -110517,6 +110540,10 @@ fr:Langues, langue
 en:Cooked tongues, cooked tongue
 fr:Langues cuites, langue cuite
 
+<en:Offals
+en:Chicken offals
+fr:Abats de poulets, Abats de poulet
+
 <en:Fish and meat and eggs
 en:Foies gras
 ca:Foie-gras
@@ -114009,6 +114036,10 @@ agribalyse_food_code:en:36014
 ciqual_food_code:en:36014
 ciqual_food_name:en:Chicken, stewing, leg, raw
 ciqual_food_name:fr:Poule, cuisse, crue
+
+<en:Chicken stewing leg raw
+en:Chicken stewing leg frozen
+fr:Poule cuisse surgelée
 
 <en:chickens
 en:Chicken breast without skin raw
