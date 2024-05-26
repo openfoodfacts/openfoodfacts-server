@@ -2338,7 +2338,7 @@ sub compute_product_history_and_completeness ($product_data_root, $current_produ
 					my $number_of_units = $packagings_ref->{number_of_units};
 					my $weight_measured = $packagings_ref->{weight_measured};
 
-					$packagings_data_signature .= "number_of_units:" . $number_of_units . ',';
+					$packagings_data_signature .= "number_of_units:" . ($number_of_units || '') . ',';
 					foreach my $property (qw(shape material recycling quantity_per_unit)) {
 						$packagings_data_signature .= $property . ":" . ($packagings_ref->{$property} || '') . ',';
 					}
@@ -3527,7 +3527,7 @@ sub remove_fields ($product_ref, $fields_ref) {
 	return;
 }
 
-=head2 add_images_urls_to_product ($product_ref, $target_lc)
+=head2 add_images_urls_to_product ($product_ref, $target_lc, $specific_imagetype = undef)
 
 Add fields like image_[front|ingredients|nutrition|packaging]_[url|small_url|thumb_url] to a product object.
 
@@ -3544,15 +3544,28 @@ Reference to a complete product a subfield.
 
 2 language code of the preferred language for the product images.
 
+=head4 $specific_imagetype
+
+Optional parameter to specify the type of image to add. Default is to add all types.
+
 =cut
 
-sub add_images_urls_to_product ($product_ref, $target_lc) {
+sub add_images_urls_to_product ($product_ref, $target_lc, $specific_imagetype = undef) {
 
 	my $images_subdomain = format_subdomain('images');
 
 	my $path = product_path($product_ref);
 
-	foreach my $imagetype ('front', 'ingredients', 'nutrition', 'packaging') {
+	# If $imagetype is specified (e.g. "front" when we display a list of products), only compute the image for this type
+	my @imagetypes;
+	if (defined $specific_imagetype) {
+		@imagetypes = ($specific_imagetype);
+	}
+	else {
+		@imagetypes = ('front', 'ingredients', 'nutrition', 'packaging');
+	}
+
+	foreach my $imagetype (@imagetypes) {
 
 		my $size = $display_size;
 

@@ -135,14 +135,14 @@ BEGIN {
 		$attributes_options_ref
 		$knowledge_panels_options_ref
 
-		&display_nutriscore_calculation_details
+		&display_nutriscore_calculation_details_2021
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
 use vars @EXPORT_OK;
 
-use ProductOpener::HTTP qw(write_cors_headers);
+use ProductOpener::HTTP qw(write_cors_headers set_http_response_header write_http_response_headers);
 use ProductOpener::Store qw(get_string_id_for_lang retrieve);
 use ProductOpener::Config qw(:all);
 use ProductOpener::Paths qw/%BASE_DIRS/;
@@ -206,7 +206,7 @@ use Tie::IxHash;
 use Log::Any '$log', default_adapter => 'Stderr';
 
 # special logger to make it easy to measure memcached hit and miss rates
-our $mongodb_log = Log::Log4perl->get_logger('mongodb');
+our $mongodb_log = Log::Any->get_logger(category => 'mongodb');
 $mongodb_log->info("start") if $mongodb_log->is_info();
 
 use Apache2::RequestUtil ();
@@ -1594,22 +1594,27 @@ sub set_cache_results ($key, $results) {
 	my $result_size = total_size($results);
 
 	# $max_memcached_object_size is defined is Cache.pm
-	if ($result_size >= $max_memcached_object_size) {
+	# we assume that compression will reduce the size by at least 50%
+	my $factor = 2;
+	if ($result_size >= $max_memcached_object_size * $factor) {
 		$mongodb_log->info(
-			"set_cache_results - skipping - setting value - key: $key (total_size: $result_size > max size)");
+			"set_cache_results - skipping - setting value - key: $key (uncompressed total_size: $result_size > max size * $factor ($max_memcached_object_size * $factor))"
+		);
 		return;
 	}
 
 	if ($mongodb_log->is_debug()) {
-		$mongodb_log->debug("set_cache_results - setting value - key: $key - total_size: $result_size");
+		$mongodb_log->debug("set_cache_results - setting value - key: $key - uncompressed total_size: $result_size");
 	}
 
 	if ($memd->set($key, $results, 3600)) {
-		$mongodb_log->info("set_cache_results - updated - key: $key") if $mongodb_log->is_info();
+		$mongodb_log->info("set_cache_results - updated - key: $key - uncompressed total_size: $result_size")
+			if $mongodb_log->is_info();
 	}
 	else {
 		$log->debug("Could not set value for MongoDB query key", {key => $key});
-		$mongodb_log->info("set_cache_results - error - key: $key") if $mongodb_log->is_info();
+		$mongodb_log->info("set_cache_results - error - key: $key - uncompressed total_size: $result_size")
+			if $mongodb_log->is_info();
 	}
 
 	return;
@@ -1625,6 +1630,8 @@ sub generate_query_cache_key ($name, $context_ref, $request_ref) {
 	if (scalar request_param($request_ref, "obsolete")) {
 		$name .= '_obsolete';
 	}
+	# Change the version number if we change the cached results format
+	$name .= '_version20240522';
 	return generate_cache_key($name, $context_ref);
 }
 
@@ -5128,25 +5135,33 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 	my $page_count = 0;
 
 	my $fields_ref;
+	my $api = 0;
 
 	# - for API (json, xml, rss,...), display all fields
 	if (   single_param("json")
 		or single_param("jsonp")
 		or single_param("xml")
 		or single_param("jqm")
+		or single_param("fields")
 		or $request_ref->{rss})
 	{
 		$fields_ref = {};
+		$api = 1;
 	}
 	elsif ($request_ref->{user_preferences}) {
-		# we restrict the fields that are queried to MongoDB, and use the basic ones and those necessary
+		# Personal search on the web (currently for food products only)
+		# We restrict the fields that are queried to MongoDB, and use the basic ones and those necessary
 		# by Attributes.pm to compute attributes.
 		# This list should be updated if new attributes are added.
 		$fields_ref = {
+			# we do not need the _id tag (it currently contains the barcode, same as "code" field)
+			"_id" => 0,
 			# generic fields
 			"owner" => 1,    # needed on pro platform to generate the images urls
+			"obsolete" => 1,    # obsolete products are displayed differently
 			"lc" => 1,
 			"code" => 1,
+			# Fields that are necessary to compute the product name displayed and associated URL
 			"product_name" => 1,
 			"product_name_$lc" => 1,
 			"generic_name" => 1,
@@ -5154,23 +5169,50 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 			"abbreviated_product_name" => 1,
 			"abbreviated_product_name_$lc" => 1,
 			"brands" => 1,
-			"images" => 1,
 			"quantity" => 1,
+			# Note: the images structure is very long (especially for popular products with lots of images)
+			# Ideally we should restructure how we store images and selected images,
+			# so that we can retrieve the currently selected front image only (in a specific target language)
+			# In the mean time, we could continue to compute the selected image on the fly, remove the images field,
+			# and then cache the result (instead of caching the MongoDB result as is)
+			"images" => 1,
 			# fields necessary for personal search
 			"additives_n" => 1,
 			"allergens_tags" => 1,
 			"categories_tags" => 1,
-			"ecoscore_data" => 1,
+			# Get only the ecoscore_data needed to compute attributes
+			# with the target country
+			"ecoscore_data.status" => 1,
+			("ecoscore_data.scores." . $request_ref->{cc}) => 1,
+			("ecoscore_data.grades." . $request_ref->{cc}) => 1,
+			"ecoscore_data.ecoscore_not_applicable_for_category" => 1,
 			"ecoscore_grade" => 1,
 			"ecoscore_score" => 1,
-			"forest_footprint_data" => 1,
+			"forest_footprint_data.grade" => 1,
+			"forest_footprint_data.footprint_per_kg" => 1,
 			"ingredients_analysis_tags" => 1,
 			"ingredients_n" => 1,
 			"labels_tags" => 1,
 			"nova_group" => 1,
 			"nutrient_levels" => 1,
-			"nutriments" => 1,
-			"nutriscore" => 1,
+			# Only the nutrients needed for the nutrient levels
+			"nutriments.salt_100g" => 1,
+			"nutriments.salt_prepared_100g" => 1,
+			"nutriments.sugar_100g" => 1,
+			"nutriments.sugar_prepared_100g" => 1,
+			"nutriments.fat_100g" => 1,
+			"nutriments.fat_prepared_100g" => 1,
+			"nutriments.saturated-fat_100g" => 1,
+			"nutriments.saturated-fat_prepared_100g" => 1,
+			# Get only the Nutri-Score fields needed to compute attributes
+			"nutriscore.2021.score" => 1,
+			"nutriscore.2021.grade" => 1,
+			"nutriscore.2021.data.is_beverage" => 1,
+			"nutriscore.2021.data.is_water" => 1,
+			"nutriscore.2023.score" => 1,
+			"nutriscore.2023.grade" => 1,
+			"nutriscore.2023.data.is_beverage" => 1,
+			"nutriscore.2023.data.is_water" => 1,
 			"nutriscore_grade" => 1,
 			"nutrition_grades" => 1,
 			"traces_tags" => 1,
@@ -5178,7 +5220,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		};
 	}
 	else {
-		#for HTML, limit the fields we retrieve from MongoDB
+		# For HTML, limit the fields we retrieve from MongoDB
 		$fields_ref = {
 			"lc" => 1,
 			"code" => 1,
@@ -5246,6 +5288,39 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 			$log->info("MongoDB query ok", {error => $@}) if $log->is_info();
 
 			while (my $product_ref = $cursor->next) {
+				# Compute the selected images urls now, so that we can remove the huge "images" structure
+				# before we cache the results
+				# Note that the images urls depend on the target language, so the language must be included in the cache key
+				add_images_urls_to_product($product_ref, $lc, "front");
+
+				# Add a url field to the product, with the subdomain and path
+				my $url_path = product_url($product_ref);
+				$product_ref->{url} = $formatted_subdomain . $url_path;
+
+				# Compute HTML to display the small front image, currently embedded in the HTML of web queries
+				if (not $api) {
+					$product_ref->{image_front_small_html} = display_image_thumb($product_ref, 'front');
+
+					# For web queries with personal search, we can compute some generated fields we need
+					# and then remove the source fields that are not needed anymore
+					if ($request_ref->{user_preferences}) {
+						# Compute the product_name and URL in the target language
+						$product_ref->{product_display_name}
+							= remove_tags_and_quote(product_name_brand_quantity($product_ref));
+						$product_ref->{product_url_path} = $url_path;
+
+						# Remove fields that were used to compute images and the product name / url, but are not needed anymore
+						delete $product_ref->{"images"};
+						delete $product_ref->{"product_name_$lc"};
+						delete $product_ref->{"generic_name"};
+						delete $product_ref->{"generic_name_$lc"};
+						delete $product_ref->{"abbreviated_product_name"};
+						delete $product_ref->{"abbreviated_product_name_$lc"};
+						delete $product_ref->{"brands"};
+						delete $product_ref->{"quantity"};
+					}
+				}
+
 				push @{$request_ref->{structured_response}{products}}, $product_ref;
 				$page_count++;
 			}
@@ -5264,6 +5339,9 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 			# Don't set the cache if no_count was set
 			if (not single_param('no_count') and $cache_results_flag) {
 				set_cache_results($key, $request_ref->{structured_response});
+				# For debugging, it can be useful to examine the structured response
+				#ProductOpener::Store::store($BASE_DIRS{CACHE_DEBUG} . "/structured_response.sto",
+				#	$request_ref->{structured_response});
 			}
 		}
 	}
@@ -5375,31 +5453,21 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		$template_data_ref->{separator_before_colon} = separator_before_colon($lc);
 		$template_data_ref->{jqm_loadmore} = $request_ref->{jqm_loadmore};
 
+		my $jqm = single_param("jqm");    # Assigning to a scalar to make sure we get a scalar
+
 		for my $product_ref (@{$request_ref->{structured_response}{products}}) {
-			my $img_url;
 
-			my $code = $product_ref->{code};
-			my $img = display_image_thumb($product_ref, 'front');
-
-			my $product_name = remove_tags_and_quote(product_name_brand_quantity($product_ref));
-
+			my $product_display_name = $product_ref->{product_display_name};
 			# Prevent the quantity "750 g" to be split on two lines
-			$product_name =~ s/(.*) (.*?)/$1\&nbsp;$2/;
-
-			my $url = product_url($product_ref);
-			$product_ref->{url} = $formatted_subdomain . $url;
-
-			add_images_urls_to_product($product_ref, $lc);
-
-			my $jqm = single_param("jqm");    # Assigning to a scalar to make sure we get a scalar
+			$product_display_name =~ s/(.*) (.*?)/$1\&nbsp;$2/;
 
 			push @{$template_data_ref->{structured_response_products}},
 				{
-				code => $code,
-				product_name => $product_name,
-				img => $img,
+				code => $product_ref->{code},
+				product_name => $product_display_name,
+				img => $product_ref->{image_front_small_html},
 				jqm => $jqm,
-				url => $url,
+				url => $product_ref->{product_url_path},
 				};
 
 			# remove some debug info
@@ -5434,7 +5502,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 
 		# 2021-02-25: we now store only nested ingredients, flatten them if the API is <= 1
 
-		if ($request_ref->{api_version} <= 1) {
+		if ((defined $request_ref->{api_version}) and ($request_ref->{api_version} <= 1)) {
 
 			for my $product_ref (@{$request_ref->{structured_response}{products}}) {
 				if (defined $product_ref->{ingredients}) {
@@ -5617,8 +5685,6 @@ sub display_pagination ($request_ref, $count, $limit, $page) {
 	if (defined $request_ref->{groupby_tagtype}) {
 		$nofollow = ' nofollow';
 	}
-
-	print STDERR "zzz lc: $lc - request_ref->lc: $request_ref->{lc}\n";
 
 	if ((($nb_pages > 1) and (defined $current_link)) and (not defined $request_ref->{product_changes_saved})) {
 
@@ -8805,7 +8871,9 @@ HTML
 	return;
 }
 
-=head2 display_nutriscore_calculation_details( $nutriscore_data_ref, $version = "2021" )
+=head2 display_nutriscore_calculation_details_2021 ( $product_ref )
+
+Warning: This function only works with Nutri-Score 2021.
 
 Generates HTML code with information on how the Nutri-Score was computed for a particular product.
 
@@ -8814,7 +8882,12 @@ the rounded value according to the Nutri-Score rules, and the corresponding poin
 
 =cut
 
-sub display_nutriscore_calculation_details ($nutriscore_data_ref, $version = "2021") {
+sub display_nutriscore_calculation_details_2021 ($product_ref) {
+
+	my $version = "2021";
+	my $nutriscore_grade = deep_get($product_ref, "nutriscore", $version, "grade");
+	my $nutriscore_score = deep_get($product_ref, "nutriscore", $version, "score");
+	my $nutriscore_data_ref = deep_get($product_ref, "nutriscore", $version, "data");
 
 	my $beverage_view;
 
@@ -8859,8 +8932,8 @@ sub display_nutriscore_calculation_details ($nutriscore_data_ref, $version = "20
 
 		nutriscore_protein_info => $nutriscore_protein_info,
 
-		score => $nutriscore_data_ref->{score},
-		grade => uc($nutriscore_data_ref->{grade}),
+		score => $nutriscore_score,
+		grade => uc($nutriscore_grade),
 		positive_points => $nutriscore_data_ref->{positive_points},
 		negative_points => $nutriscore_data_ref->{negative_points},
 
@@ -9148,9 +9221,13 @@ sub data_to_display_nutriscore ($product_ref, $version = "2021") {
 		$result_data_ref->{nutriscore_warnings} = \@nutriscore_warnings;
 	}
 
-	# Display the details of the computation of the Nutri-Score if we computed one
-	if ((defined $product_ref->{nutriscore_grade}) and ($product_ref->{nutriscore_grade} =~ /^[a-e]$/)) {
-		$result_data_ref->{nutriscore_details} = display_nutriscore_calculation_details($nutriscore_data_ref, $version);
+	# Generate HTML for the details of the computation of the Nutri-Score if we computed one
+	# only for version 2021
+	if (    ($version eq "2021")
+		and (defined $product_ref->{nutriscore_grade})
+		and ($product_ref->{nutriscore_grade} =~ /^[a-e]$/))
+	{
+		$result_data_ref->{nutriscore_details} = display_nutriscore_calculation_details_2021($product_ref);
 	}
 
 	return $result_data_ref;
@@ -10125,6 +10202,8 @@ sub display_preferences_api ($request_ref, $target_lc) {
 		push @{$request_ref->{structured_response}}, $preference_ref;
 	}
 
+	set_http_response_header($request_ref, "Cache-Control", "public, max-age=86400");
+
 	display_structured_response($request_ref);
 
 	return;
@@ -10171,6 +10250,8 @@ sub display_attribute_groups_api ($request_ref, $target_lc) {
 	}
 
 	$request_ref->{structured_response} = $attribute_groups_ref;
+
+	set_http_response_header($request_ref, "Cache-Control", "public, max-age=86400");
 
 	display_structured_response($request_ref);
 
@@ -10471,6 +10552,8 @@ sub display_product_history ($request_ref, $code, $product_ref) {
 sub display_structured_response ($request_ref) {
 	# directly serve structured data from $request_ref->{structured_response}
 
+	write_http_response_headers($request_ref);
+
 	$log->debug(
 		"Displaying structured response",
 		{
@@ -10551,9 +10634,7 @@ sub display_structured_response ($request_ref) {
 				. $data . ");";
 		}
 		else {
-			$log->warning("XXXXXXXXXXXXXXXXXXXXXX");
 			write_cors_headers();
-			$log->warning("YYYYYYYYYYYYYYYY");
 			print header(
 				-status => $status_code,
 				-type => 'application/json',
