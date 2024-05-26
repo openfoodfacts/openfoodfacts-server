@@ -65,7 +65,7 @@ msgstr "คุณสามารถมีส่วนร่วมกับโค
 
 msgctxt "add_user_join_us_on_slack"
 msgid "We use a discussion system called Slack where all project participants can exchange and collaborate. Please join! We would be happy to know you!"
-msgstr ""
+msgstr "เราใช้ระบบ Slack เพื่อติดต่อกัน เรายินดีรับฟังความเห็นของคุณ"
 
 msgctxt "add_user_you_can_edit_pro"
 msgid "You can now easily import your product data and photos."
@@ -896,7 +896,7 @@ msgstr ""
 
 msgctxt "graph_title"
 msgid "Graph title"
-msgstr ""
+msgstr "ระบุชื่อกราฟ"
 
 msgctxt "graphs_and_maps"
 msgid "Graphs and maps"
@@ -954,11 +954,11 @@ msgstr "ไม่พบบาร์โค้ดในภาพ"
 
 msgctxt "image_upload_error_no_barcode_specified_or_found"
 msgid "No barcode specified or found in the image or filename."
-msgstr ""
+msgstr "ระบบไม่พบรหัสบาร์โค้ดในภาพ"
 
 msgctxt "image_upload_error_could_not_read_image"
 msgid "The image could not be read."
-msgstr ""
+msgstr "ไม่สามารถอ่านไฟล์รูปภาพได้"
 
 msgctxt "image_upload_error_no_barcode_found_in_text"
 msgid "You must enter the characters of the barcode or send a product image when the barcode is visible."
@@ -1082,7 +1082,7 @@ msgstr "ส่วนประกอบอาหารเรียงลำดั
 
 msgctxt "ingredients_text_example"
 msgid "Cereals 85.5% (_wheat_ flour, whole-_wheat_ flour 11%), malt extract, cocoa 4,8%, ascorbic acid"
-msgstr ""
+msgstr "ธัญพืช 85.5% (แป้ง _ข้าวสาลี_, แป้ง_ข้าวสาลี_ทั้งหมด 11%), สารสกัดมอลต์, โกโก้ 4.8%, กรดแอสคอร์บิก"
 
 msgctxt "ingredients_text_note"
 msgid "Keep the order, indicate the % when specified, separate with a comma or - , use ( ) for ingredients of an ingredient, surround allergens with _ e.g. _milk_"
@@ -1093,11 +1093,11 @@ msgstr "1). เรียงส่วนประกอบอาหารตา�
 
 msgctxt "ingredients_that_may_be_from_palm_oil_p"
 msgid "ingredients that may be from palm oil"
-msgstr ""
+msgstr "อาจมีส่วนผสมที่มาจากน้ำมันปาล์ม"
 
 msgctxt "ingredients_that_may_be_from_palm_oil_s"
 msgid "ingredient that may be from palm oil"
-msgstr ""
+msgstr "อาจมีส่วนผสมที่มาจากน้ำมันปาล์ม"
 
 msgctxt "ingredients_without_products"
 msgid "Products that do not contain the ingredient %s"
@@ -1166,7 +1166,7 @@ msgstr ""
 
 msgctxt "languages_p"
 msgid "languages"
-msgstr ""
+msgstr "ภาษา"
 
 msgctxt "languages_s"
 msgid "language"
@@ -1174,19 +1174,19 @@ msgstr "ภาษา"
 
 msgctxt "last_edit_dates_p"
 msgid "Last edit dates"
-msgstr ""
+msgstr "วันที่แก้ไขล่าสุด"
 
 msgctxt "last_edit_dates_s"
 msgid "Last edit date"
-msgstr ""
+msgstr "วันที่แก้ไขล่าสุด"
 
 msgctxt "last_image_dates_p"
 msgid "Last picture dates"
-msgstr ""
+msgstr "วันที่ถ่ายรูปล่าสุด"
 
 msgctxt "last_image_dates_s"
 msgid "Last picture date"
-msgstr ""
+msgstr "วันที่ถ่ายรูปล่าสุด"
 
 msgctxt "licence_accept"
 msgid "By adding information, data and/or images, you accept to place irrevocably your contribution under the <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents Licence 1.0</a> licence\n"
@@ -1204,11 +1204,11 @@ msgstr "รายการ %s"
 
 msgctxt "loadmore"
 msgid "Load more results"
-msgstr ""
+msgstr "โหลดผลลัพธ์เพิ่มเติม"
 
 msgctxt "login_and_add_product"
 msgid "Sign-in and add the product"
-msgstr ""
+msgstr "เข้าสู่ระบบและเพิ่มผลิตภัณฑ์"
 
 msgctxt "login_and_edit_product"
 msgid "Sign-in and edit the product"
@@ -1233,7 +1233,8 @@ msgstr "ลงชื่อเข้าใช้เพื่อเพิ่มห
 msgctxt "login_to_add_products"
 msgid "<p>Please sign-in to add or edit a product.</p>\n\n"
 "<p>If you do not yet have an account on <<site_name>>, you can <a href=\"/cgi/user.pl\">register in 30 seconds</a>.</p>\n"
-msgstr ""
+msgstr "<p>โปรดเข้าสู่ระบบเพื่อเพิ่มหรือแก้ไขผลิตภัณฑ์</p>\n\n"
+"<p>หากคุณยังไม่มีบัญชีใน <<site_name>>, คุณสามารถ <a href=\"/cgi/user.pl\">ลงทะเบียนเสร็จในเวลา 30 วินาที</a></p>\n"
 
 msgctxt "login_username_email"
 msgid "Username or e-mail address:"
@@ -1241,11 +1242,11 @@ msgstr "ชื่อผู้ใช้หรืออีเมลที่อย
 
 msgctxt "low"
 msgid "low"
-msgstr ""
+msgstr "ระดับต่ำ"
 
 msgctxt "low_quantity"
 msgid "low quantity"
-msgstr ""
+msgstr "มีปริมาณน้อย"
 
 msgctxt "manage_images"
 msgid "Manage images"
@@ -1546,11 +1547,11 @@ msgstr "ข้อมูลโภชนาการ"
 msgctxt "nutrition_data_table_note"
 msgid "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
 "by typing the first letters of their name in the last row of the table."
-msgstr ""
+msgstr "ตารางนี้อิงจากสารอาหารที่มักระบุในฉลากโภชนาการ ถ้าไม่มีข้อมูลระบุไว้ให้เว้นว่างเท่านั้น ถ้าระบุเป็น 0 ต้องใส่ 0 <br/>สามารถเพิ่มสารอาหารอื่นๆ (วิตามิน แร่ธาตุ โคเลสเตอรอล เป็นต้น) โดยพิมพ์ชื่อสารอาหารในช่อง \"เพิ่มสารอาหารอื่น\" ระบบจะแสดงตัวเลือกให้โดยอัตโนมัติ"
 
 msgctxt "nutrition_data_table_asterisk"
 msgid "Essential nutrients to calculate the Nutri-Score."
-msgstr ""
+msgstr "สารอาหารที่จำเป็นในการคำนวณ Nutri-Score"
 
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
@@ -1590,7 +1591,7 @@ msgstr "แหล่งที่มาของวัตถุดิบ"
 
 msgctxt "origins_example"
 msgid "California, USA"
-msgstr ""
+msgstr "น้ำพุแม่ริม เชียงใหม่"
 
 msgctxt "origins_note_xxx"
 msgid "Indicate the origin of ingredients"
@@ -1790,7 +1791,7 @@ msgstr "ภาพถ่ายที่มีบาร์โค้ด:"
 
 msgctxt "product_js_current_image"
 msgid "Current image:"
-msgstr ""
+msgstr "ส่วนของภาพที่เลือกไว้ในปัจจุบัน:"
 
 msgctxt "product_js_deleting_images"
 msgid "Deleting images"
@@ -1814,7 +1815,7 @@ msgstr ""
 
 msgctxt "product_js_image_normalize"
 msgid "Normalize colors"
-msgstr ""
+msgstr "ปรับสีให้เป็นธรรมชาติ"
 
 msgctxt "product_js_image_open_full_size_image"
 msgid "Open the picture in original size in a new windows"
@@ -1842,7 +1843,7 @@ msgstr "ตรวจสอบส่วนของภาพที่เลือ
 
 msgctxt "product_js_image_saved"
 msgid "Image saved"
-msgstr ""
+msgstr "บันทึกรูปภาพแล้ว"
 
 msgctxt "product_js_image_saving"
 msgid "Saving image"
@@ -1854,7 +1855,7 @@ msgstr ""
 
 msgctxt "product_js_image_white_magic"
 msgid "Photo on white background: try to remove the background"
-msgstr ""
+msgstr "ลองลบพื้นหลังออก เมื่อรูปถ่ายมีพื้นหลังสีขาว"
 
 msgctxt "product_js_images_delete_error"
 msgid "Errors while deleting images"
@@ -2574,23 +2575,23 @@ msgstr ""
 
 msgctxt "product_js_unselect_image"
 msgid "Unselect image"
-msgstr ""
+msgstr "ยกเลิกการเลือกรูปภาพ"
 
 msgctxt "product_js_unselecting_image"
 msgid "Unselecting image."
-msgstr ""
+msgstr "ยกเลิกการเลือกรูปภาพ"
 
 msgctxt "product_js_unselected_image_ok"
 msgid "Unselected image."
-msgstr ""
+msgstr "ยกเลิกการเลือกรูปภาพ"
 
 msgctxt "product_js_unselected_image_nok"
 msgid "Error while unselecting image."
-msgstr ""
+msgstr "ข้อผิดพลาดขณะยกเลิกการเลือกรูปภาพ"
 
 msgctxt "product_js_zoom_on_wheel"
 msgid "Enable zooming with the mouse wheel."
-msgstr ""
+msgstr "ใช้งานการซูมด้วยล้อของเมาส์"
 
 msgctxt "product_js_use_low_res_images"
 msgid "Load lower resolution images (for slow connections)"
@@ -2602,7 +2603,7 @@ msgstr ""
 
 msgctxt "nutrition_grade_fr_nutriments_estimated_warning"
 msgid "Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients."
-msgstr ""
+msgstr "ข้อควรระวัง: เนื่องจากไม่มีฉลากโภชนาการ ข้อมูลสารอาหารนี้จะคำนวณจากรายการส่วนประกอบ"
 
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
@@ -4680,7 +4681,7 @@ msgstr ""
 
 msgctxt "image_packaging"
 msgid "Recycling instructions and/or packaging information picture"
-msgstr ""
+msgstr "คำแนะนำการรีไซเคิลและ/หรือข้อมูลบรรจุภัณฑ์จากรูปภาพ"
 
 msgctxt "image_packaging_url"
 msgid "Link to recycling instructions and/or packaging information photo"
