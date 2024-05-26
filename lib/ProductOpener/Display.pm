@@ -9043,8 +9043,8 @@ sub data_to_display_nutrient_levels ($product_ref) {
 			if ((defined $product_ref->{nutrient_levels}) and (defined $product_ref->{nutrient_levels}{$nid})) {
 
 				my $nutriment_value = $product_ref->{nutriments}{$nid . $prepared . "_100g"};
-				my $formatted_value = defined $nutriment_value
-					&& $nutriment_value =~ /^-?\d+(\.\d+)?$/ ? sprintf("%.2e", $nutriment_value + 0.0) : '';
+				my $formatted_value = $nutriment_value
+					// '' =~ /^-?\d+(\.\d+)?$/ ? sprintf("%.2e", $nutriment_value + 0.0) : '';
 
 				push @{$result_data_ref->{nutrient_levels}}, {
 					nid => $nid,

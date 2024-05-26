@@ -2340,14 +2340,12 @@ sub compute_product_history_and_completeness ($product_data_root, $current_produ
 					my $number_of_units = $packagings_ref->{number_of_units};
 					my $weight_measured = $packagings_ref->{weight_measured};
 
-					$packagings_data_signature
-						.= "number_of_units:" . ($number_of_units // '') . ',';
+					$packagings_data_signature .= "number_of_units:" . ($number_of_units // '') . ',';
 					foreach my $property (qw(shape material recycling quantity_per_unit)) {
-						$packagings_data_signature .= $property . ":"
-							. (defined $packagings_ref->{$property} ? $packagings_ref->{$property} : '') . ',';
+						$packagings_data_signature .= $property . ":" . ($packagings_ref->{$property} // '') . ',';
 					}
 					$packagings_data_signature .= "\n";
-					$packagings_weights_signature .= (defined $weight_measured ? $weight_measured : '') . "\n";
+					$packagings_weights_signature .= ($weight_measured // '') . "\n";
 				}
 				# If the signature is empty or contains only line feeds, we don't have data
 				if ($packagings_data_signature !~ /^\s*$/) {

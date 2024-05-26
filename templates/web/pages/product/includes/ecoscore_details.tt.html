@@ -120,7 +120,7 @@
 		 <div class="panel ecoscore_panel" id="ecoscore_panel_production_system" data-equalizer-watch="ecoscore1">
 	<h4>[% display_icon('agriculture') %] [% lang('ecoscore_production_system') %]</h4>
 	
-	[% IF defined adjustments.production_system.value && adjustments.production_system.value > 0 %]
+	[% IF adjustments.production_system.value.defined && adjustments.production_system.value > 0 %]
 		
 		<ul>
 		[% FOREACH label IN adjustments.production_system.labels %]
@@ -164,8 +164,8 @@
 	[% END %]
 
 	<p>
-		<strong>[% lang('ecoscore_environmental_policy') %][% sep %]: [% IF defined adjustments.origins_of_ingredients.epi_value && adjustments.origins_of_ingredients.epi_value > 0 %]+[% END %][% round(adjustments.origins_of_ingredients.epi_value) %]</strong><br>
-		<strong>[% lang('ecoscore_transportation') %][% sep %]: [% IF defined adjustments.origins_of_ingredients.epi_value && adjustments.origins_of_ingredients.transportation_value > 0 %]+[% END %][% round(adjustments.origins_of_ingredients.transportation_value) %]</strong><br>
+		<strong>[% lang('ecoscore_environmental_policy') %][% sep %]: [% IF adjustments.origins_of_ingredients.epi_value.defined && adjustments.origins_of_ingredients.epi_value > 0 %]+[% END %][% round(adjustments.origins_of_ingredients.epi_value) %]</strong><br>
+		<strong>[% lang('ecoscore_transportation') %][% sep %]: [% IF adjustments.origins_of_ingredients.epi_value.defined && adjustments.origins_of_ingredients.transportation_value > 0 %]+[% END %][% round(adjustments.origins_of_ingredients.transportation_value) %]</strong><br>
 	</p>
 	</div>
 	</div>
@@ -233,7 +233,7 @@
 		<p>[% lang('ecoscore_score_of_all_components') %][% sep %]: [% adjustments.packaging.score %]</p>	
 	[% END %]
 
-	<p><strong>[% lang('ecoscore_packaging') %][% sep %]: [% IF defined adjustments.packaging.value && adjustments.packaging.value > 0 %]+[% END %][% adjustments.packaging.value %]</strong></p>
+	<p><strong>[% lang('ecoscore_packaging') %][% sep %]: [% IF adjustments.packaging.value.defined && adjustments.packaging.value > 0 %]+[% END %][% adjustments.packaging.value %]</strong></p>
 	
 	</div>
 	</div>
