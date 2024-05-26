@@ -2341,7 +2341,7 @@ sub compute_product_history_and_completeness ($product_data_root, $current_produ
 					my $weight_measured = $packagings_ref->{weight_measured};
 
 					$packagings_data_signature
-						.= "number_of_units:" . (defined $number_of_units ? $number_of_units : '') . ',';
+						.= "number_of_units:" . ($number_of_units // '') . ',';
 					foreach my $property (qw(shape material recycling quantity_per_unit)) {
 						$packagings_data_signature .= $property . ":"
 							. (defined $packagings_ref->{$property} ? $packagings_ref->{$property} : '') . ',';

@@ -1527,7 +1527,7 @@ sub display_text_content ($request_ref, $textid, $text_lc, $file) {
 
 	if ((defined $request_ref->{page}) and ($request_ref->{page} > 1)) {
 		$request_ref->{title}
-			= (defined $title ? $title : '') . lang("title_separator") . sprintf(lang("page_x"), $request_ref->{page});
+			= ($title // '') . lang("title_separator") . sprintf(lang("page_x"), $request_ref->{page});
 	}
 	else {
 		$request_ref->{title} = $title;
