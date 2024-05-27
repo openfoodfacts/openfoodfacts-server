@@ -21,7 +21,8 @@ server {
 	listen [::]:80;
 
 	# Product Opener needs a root domain + a wildcard for all subdomains
-	server_name openbeautyfacts.org *.openbeautyfacts.org;
+	# openbeautyfacts.com is also used for testing
+	server_name openbeautyfacts.org *.openbeautyfacts.org openbeautyfacts.com *.openbeautyfacts.com;
 
 	root /srv/obf/html;
 
