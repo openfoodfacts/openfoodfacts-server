@@ -248,62 +248,174 @@ $google_analytics = <<HTML
 HTML
 	;
 
-#@product_image_fields = qw(front ingredients);
-
 # fields for which we will load taxonomies
+# note: taxonomies that are used as properties of other taxonomies must be loaded first
+# (e.g. additives_classes are referenced in additives)
+# Below is a list of all of the taxonomies with other taxonomies that reference them
+# If there are entries in () these are other taxonomies that are combined into this one
+#
+# additives
+# additives_classes: additives, minerals
+# allergens: ingredients, traces
+# amino_acids
+# categories
+# countries:
+# data_quality
+# data_quality_bugs (data_quality)
+# data_quality_errors (data_quality)
+# data_quality_errors_producers (data_quality)
+# data_quality_info (data_quality)
+# data_quality_warnings (data_quality)
+# data_quality_warnings_producers (data_quality)
+# food_groups: categories
+# improvements
+# ingredients_analysis
+# ingredients_processing:
+# ingredients (additives_classes, additives, minerals, vitamins, nucleotides, other_nutritional_substances): labels
+# labels: categories
+# languages:
+# minerals
+# misc
+# nova_groups
+# nucleotides
+# nutrient_levels
+# nutrients
+# origins (countries): categories, ingredients, labels
+# other_nutritional_substances
+# packaging_materials: packaging_recycling, packaging_shapes
+# packaging_recycling
+# packaging_shapes: packaging_materials, packaging_recycling
+# packaging (packaging_materials, packaging_shapes, packaging_recycling, preservation): labels
+# periods_after_opening:
+# states:
+# traces (allergens)
+# vitamins
 
-@taxonomy_fields
-	= qw(units states countries languages labels categories additives additives_classes allergens traces nutrient_levels ingredients periods_after_opening inci_functions);
+@taxonomy_fields = qw(
+	units
+	languages states countries
+	allergens origins additives_classes ingredients
+	packaging_shapes packaging_materials packaging_recycling packaging
+	labels food_groups categories
+	ingredients_processing
+	additives vitamins minerals amino_acids nucleotides other_nutritional_substances traces
+	ingredients_analysis
+	nutrients nutrient_levels misc nova_groups
+	periods_after_opening
+	data_quality data_quality_bugs data_quality_info data_quality_warnings data_quality_errors data_quality_warnings_producers data_quality_errors_producers
+	improvements
+	inci_functions
+);
 
 # tag types (=facets) that should be indexed by web crawlers, all other tag types are not indexable
-@index_tag_types = qw(brands categories labels additives products);
+@index_tag_types = qw(brands categories labels additives nova_groups ecoscore nutrition_grades products);
 
 # fields in product edit form, above ingredients and nutrition facts
 
-#@product_fields = qw(product_name generic_name quantity packaging brands categories labels origins manufacturing_places emb_codes link periods_after_opening expiration_date purchase_places stores countries  );
-@product_fields
-	= qw(quantity packaging brands categories labels origins manufacturing_places emb_codes link periods_after_opening expiration_date purchase_places stores countries  );
+@product_fields = qw(quantity packaging brands categories labels origins manufacturing_places
+	emb_codes link expiration_date purchase_places stores countries  );
 
 # fields currently not shown in the default edit form, can be used in imports or advanced edit forms
 
 @product_other_fields = qw(
+	producer_product_id
 	producer_version_id
-	net_weight_value net_weight_unit drained_weight_value drained_weight_unit volume_value volume_unit
-	other_information conservation_conditions recycling_instructions_to_recycle recycling_instructions_to_discard
+	brand_owner
+	quantity_value
+	quantity_unit
+	serving_size_value
+	serving_size_unit
+	net_weight_value
+	net_weight_unit
+	drained_weight_value
+	drained_weight_unit
+	volume_value
+	volume_unit
+	other_information
+	conservation_conditions
+	recycling_instructions_to_recycle
+	recycling_instructions_to_discard
+	nutrition_grade_fr_producer
+	nutriscore_score_producer
+	nutriscore_grade_producer
+	recipe_idea
+	origin
+	customer_service
+	producer
+	preparation
+	warning
+	data_sources
+	obsolete
+	obsolete_since_date
+	periods_after_opening
 );
 
 # fields shown on product page
 # do not show purchase_places
 
-@display_fields
-	= qw(generic_name quantity packaging brands categories labels origins manufacturing_places emb_codes link periods_after_opening stores countries);
+@display_fields = qw(
+	generic_name
+	quantity
+	packaging
+	brands
+	brand_owner
+	categories
+	labels
+	origin
+	origins
+	producer
+	manufacturing_places
+	emb_codes
+	link stores
+	countries
+);
 
 # fields displayed in a new section after the nutrition facts
 
-@display_other_fields
-	= qw(other_information conservation_conditions recycling_instructions_to_recycle recycling_instructions_to_discard);
+@display_other_fields = qw(
+	other_information
+	preparation
+	recipe_idea
+	warning
+	conservation_conditions
+	periods_after_opening
+	recycling_instructions_to_recycle
+	recycling_instructions_to_discard
+	customer_service
+);
 
 # fields for drilldown facet navigation
+# If adding to this list ensure that the tables are being replicated to Postgres in the openfoodfacts-query repo
 
 @drilldown_fields = qw(
+	nutrition_grades
+	nova_groups
+	ecoscore
 	brands
 	categories
 	labels
 	packaging
-	periods_after_opening
 	origins
 	manufacturing_places
 	emb_codes
 	ingredients
-	ingredients_n
 	additives
+	vitamins
+	minerals
+	amino_acids
+	nucleotides
+	other_nutritional_substances
 	allergens
 	traces
+	misc
 	languages
 	users
 	states
+	data_sources
 	entry_dates
 	last_edit_dates
+	last_check_dates
+	teams
 );
 
 @export_fields = qw(
@@ -311,11 +423,14 @@ HTML
 	creator
 	created_t
 	last_modified_t
+	last_modified_by
+	last_updated_t
 	product_name
+	abbreviated_product_name
 	generic_name
 	quantity
 	packaging
-	periods_after_opening
+	packaging_text
 	brands
 	categories
 	origins
@@ -327,17 +442,33 @@ HTML
 	stores
 	countries
 	ingredients_text
+	ingredients_tags
+	ingredients_analysis_tags
 	allergens
 	traces
 	serving_size
 	serving_quantity
+	no_nutrition_data
 	additives_n
 	additives
-	ingredients_from_palm_oil_n
-	ingredients_from_palm_oil
-	ingredients_that_may_be_from_palm_oil_n
-	ingredients_that_may_be_from_palm_oil
+	nutriscore_score
+	nutriscore_grade
+	nova_group
+	pnns_groups_1
+	pnns_groups_2
+	food_groups
 	states
+	brand_owner
+	ecoscore_score
+	ecoscore_grade
+	nutrient_levels_tags
+	product_quantity
+	owner
+	data_quality_errors_tags
+	unique_scans_n
+	popularity_tags
+	completeness
+	last_image_t
 );
 
 # for ingredients OCR, we use tesseract-ocr
