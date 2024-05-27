@@ -1,4 +1,9 @@
 {
+   "allergens" : "",
+   "allergens_from_ingredients" : "",
+   "allergens_from_user" : "(en) ",
+   "allergens_hierarchy" : [],
+   "allergens_tags" : [],
    "categories" : "flavoured spring water",
    "categories_hierarchy" : [
       "en:beverages-and-beverages-preparations",
@@ -35,6 +40,7 @@
       "en:beverages",
       "en:waters-and-flavored-waters"
    ],
+   "ingredients_lc" : "en",
    "lc" : "en",
    "misc_tags" : [
       "en:nutrition-not-enough-data-to-compute-nutrition-score",
@@ -50,6 +56,13 @@
       "en:nutrition-no-fruits-vegetables-nuts",
       "en:nutrition-no-fiber-or-fruits-vegetables-nuts"
    ],
+   "nova_group_debug" : "no nova group when the product does not have ingredients",
+   "nova_group_error" : "missing_ingredients",
+   "nova_groups_tags" : [
+      "unknown"
+   ],
+   "nutrient_levels" : {},
+   "nutrient_levels_tags" : [],
    "nutriments" : {},
    "nutriscore" : {
       "2021" : {
@@ -126,5 +139,11 @@
    "pnns_groups_2_tags" : [
       "waters-and-flavored-waters",
       "known"
-   ]
+   ],
+   "traces" : "",
+   "traces_from_ingredients" : "",
+   "traces_from_user" : "(en) ",
+   "traces_hierarchy" : [],
+   "traces_tags" : [],
+   "unknown_nutrients_tags" : []
 }

@@ -60,6 +60,7 @@ BEGIN {
 		$events_username
 		$events_password
 
+		$rate_limiter_blocking_enabled
 		$facets_kp_url
 		$redis_url
 
@@ -219,6 +220,10 @@ $events_url = $ProductOpener::Config2::events_url;
 $events_username = $ProductOpener::Config2::events_username;
 $events_password = $ProductOpener::Config2::events_password;
 
+# If $rate_limiter_blocking_enabled is set to 1, the rate limiter will block requests
+# by returning a 429 error code instead of a 200 code
+$rate_limiter_blocking_enabled = $ProductOpener::Config2::rate_limiter_blocking_enabled;
+
 # server options
 
 %server_options = %ProductOpener::Config2::server_options;
@@ -248,7 +253,7 @@ HTML
 # fields for which we will load taxonomies
 
 @taxonomy_fields
-	= qw(units states countries languages labels categories additives allergens traces nutrient_levels ingredients periods_after_opening inci_functions);
+	= qw(units states countries languages labels categories additives additives_classes allergens traces nutrient_levels ingredients periods_after_opening inci_functions);
 
 # tag types (=facets) that should be indexed by web crawlers, all other tag types are not indexable
 @index_tag_types = qw(brands categories labels additives products);

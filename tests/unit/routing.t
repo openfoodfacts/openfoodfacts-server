@@ -38,7 +38,10 @@ my @tests = (
 			'page' => 1,
 			'query_string' => 'api/v0/attribute_groups',
 			'no_index' => '0',
-			'is_crawl_bot' => '1'
+			'is_crawl_bot' => '1',
+			'rate_limiter_blocking' => 0,
+			'rate_limiter_limit' => undef,
+			'rate_limiter_user_requests' => undef,
 		},
 	},
 	{
@@ -108,7 +111,10 @@ my @tests = (
 				},
 			],
 			'no_index' => '0',
-			'is_crawl_bot' => '1'
+			'is_crawl_bot' => '1',
+			'rate_limiter_blocking' => 0,
+			'rate_limiter_limit' => undef,
+			'rate_limiter_user_requests' => undef,
 		},
 	},
 	{
@@ -176,7 +182,10 @@ my @tests = (
 				},
 			],
 			'no_index' => '0',
-			'is_crawl_bot' => '0'
+			'is_crawl_bot' => '0',
+			'rate_limiter_blocking' => 0,
+			'rate_limiter_limit' => undef,
+			'rate_limiter_user_requests' => undef,
 		},
 	},
 	{
@@ -201,7 +210,10 @@ my @tests = (
 			'code' => '03564703999971',
 			'page' => '1',
 			'no_index' => '0',
-			'is_crawl_bot' => '0'
+			'is_crawl_bot' => '0',
+			'rate_limiter_blocking' => 0,
+			'rate_limiter_limit' => 100,
+			'rate_limiter_user_requests' => undef,
 		},
 	},
 	{
@@ -229,7 +241,10 @@ my @tests = (
 			'code' => 'https://id.gs1.org/01/03564703999971/10/ABC/21/123456?17=211200',
 			'page' => '1',
 			'no_index' => '0',
-			'is_crawl_bot' => '0'
+			'is_crawl_bot' => '0',
+			'rate_limiter_blocking' => 0,
+			'rate_limiter_limit' => 100,
+			'rate_limiter_user_requests' => undef,
 		},
 	},
 );

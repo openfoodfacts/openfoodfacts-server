@@ -3,6 +3,7 @@
 -   If you can't get the information on a specific product, you can get your user to send photos and data, that will then be processed by Open Food Facts AI and contributors to get the computed result you want to show them.
 -   You can implement the complete flow below so that they get immediately the result with some effort on their side.
 -   That will ensure user satisfaction
+-   Please refer to the [product addition tutorial](https://openfoodfacts.github.io/openfoodfacts-server/reference/api-tutorials/adding-missing-products/) for the technical way to do the required operations (such as nutrition input), and to the high level workflow below for all the cases you have to handle.
 
 ### Display Nutri-Score knowledge panels - All the logic below in 5 lines of code !
 - The Knowledge Panels are already implemented in the Dart package
@@ -11,12 +12,12 @@
 
 ### Using the official visual assets of the Nutri-Score
 
-use the official assets to display de nutriscore. You can get v1 logos here: [NutriScore variants](https://drive.google.com/drive/u/1/folders/13SL2hgqYHSLMhYjMze9nYXV9GOdGMBgc)
+Please use only the official assets to display the Nutri-Score. You can get v1 logos here: [NutriScore variants](https://drive.google.com/drive/u/1/folders/13SL2hgqYHSLMhYjMze9nYXV9GOdGMBgc)
 
 ### Getting ready for Nutri-Score V2
 - Nutri-Score V2 has a new computation method, which now requires the ingredient list, a category, and of course the nutrition table
 - It also has a transition period new logo, to indicate you are using the new computation. It is not compulsory to use it, but it will save you from a lot of questions from your users ("Do you have the new formula ?")
-- You can get the new assets by contacting reuse@openfoodfacts.org. We will make them public as soon as possible.
+- You can get the new assets by contacting reuse@openfoodfacts.org. We will make them public as soon as possible. Make sure you use v2 assets when showing v2 values.
 
 ### Manual version: Getting the Nutri-Score v1 value (we don't recommand the manual way anymore, especially with v2 around the corner)
 

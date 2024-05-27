@@ -8,6 +8,7 @@ use utf8;
 use Test2::V0;
 use Data::Dumper;
 $Data::Dumper::Terse = 1;
+$Data::Dumper::Sortkeys = 1;
 use Log::Any::Adapter 'TAP';
 
 use JSON::PP;
@@ -234,6 +235,7 @@ foreach my $test_ref (@tests) {
 
 		local $/;    #Enable 'slurp' mode
 		my $expected_product_ref = $json->decode(<$expected_result>);
+		print STDERR "testid: $testid\n";
 		is($product_ref, $expected_product_ref) or diag Dumper $product_ref;
 	}
 	else {

@@ -1,4 +1,9 @@
 {
+   "allergens" : "",
+   "allergens_from_ingredients" : "",
+   "allergens_from_user" : "(en) ",
+   "allergens_hierarchy" : [],
+   "allergens_tags" : [],
    "categories" : "colza oils",
    "categories_hierarchy" : [
       "en:plant-based-foods-and-beverages",
@@ -37,6 +42,7 @@
       "en:fats-and-sauces",
       "en:fats"
    ],
+   "ingredients_lc" : "en",
    "lc" : "en",
    "misc_tags" : [
       "en:nutriscore-computed",
@@ -47,21 +53,50 @@
       "en:nutriscore-2021-worse-than-2023",
       "en:nutriscore-2021-c-2023-b"
    ],
+   "nova_group" : 2,
+   "nova_group_debug" : "",
+   "nova_groups" : "2",
+   "nova_groups_markers" : {
+      "2" : [
+         [
+            "categories",
+            "en:fats"
+         ]
+      ]
+   },
+   "nova_groups_tags" : [
+      "en:2-processed-culinary-ingredients"
+   ],
+   "nutrient_levels" : {
+      "fat" : "high",
+      "salt" : "low",
+      "saturated-fat" : "high",
+      "sugars" : "low"
+   },
+   "nutrient_levels_tags" : [
+      "en:fat-in-high-quantity",
+      "en:saturated-fat-in-high-quantity",
+      "en:sugars-in-low-quantity",
+      "en:salt-in-low-quantity"
+   ],
    "nutriments" : {
       "energy_100g" : 3760,
-      "fat_100g" : 100,
+      "fat_100g" : "100",
       "fiber_100g" : 0,
+      "nova-group" : 2,
+      "nova-group_100g" : 2,
+      "nova-group_serving" : 2,
       "nutrition-score-fr" : 5,
       "nutrition-score-fr_100g" : 5,
       "proteins_100g" : 0,
       "salt" : 0,
-      "salt_100g" : 0,
+      "salt_100g" : "0",
       "salt_unit" : "g",
       "salt_value" : 0,
-      "saturated-fat_100g" : 7,
+      "saturated-fat_100g" : "7",
       "sodium_100g" : 0,
       "sodium_value" : "0",
-      "sugars_100g" : 0
+      "sugars_100g" : "0"
    },
    "nutriscore" : {
       "2021" : {
@@ -110,6 +145,9 @@
                "negative" : [
                   {
                      "id" : "energy_from_saturated_fat",
+                     "new_grade" : "b",
+                     "new_score" : 1,
+                     "new_value" : 240,
                      "points" : 2,
                      "points_max" : 10,
                      "unit" : "kJ",
@@ -251,5 +289,11 @@
    "pnns_groups_2_tags" : [
       "fats",
       "known"
-   ]
+   ],
+   "traces" : "",
+   "traces_from_ingredients" : "",
+   "traces_from_user" : "(en) ",
+   "traces_hierarchy" : [],
+   "traces_tags" : [],
+   "unknown_nutrients_tags" : []
 }

@@ -2,6 +2,11 @@
    "additives_n" : 0,
    "additives_original_tags" : [],
    "additives_tags" : [],
+   "allergens" : "",
+   "allergens_from_ingredients" : "",
+   "allergens_from_user" : "(fr) ",
+   "allergens_hierarchy" : [],
+   "allergens_tags" : [],
    "amino_acids_tags" : [],
    "categories" : "huile végétale",
    "categories_hierarchy" : [
@@ -35,6 +40,19 @@
    "food_groups_tags" : [
       "en:fats-and-sauces",
       "en:fats"
+   ],
+   "improvements_data" : {
+      "en:better-nutri-score-with-slightly-less-energy_from_saturated_fat" : {
+         "current_nutriscore_grade" : "c",
+         "current_value" : 362.6,
+         "difference_percent" : 0.717043574186438,
+         "new_nutriscore_grade" : "b",
+         "new_value" : 360,
+         "nutrient" : "energy_from_saturated_fat"
+      }
+   },
+   "improvements_tags" : [
+      "en:better-nutri-score-with-slightly-less-energy_from_saturated_fat"
    ],
    "ingredients" : [
       {
@@ -124,6 +142,7 @@
       "en:linseed-oil",
       "en:vitamin-d"
    ],
+   "ingredients_lc" : "fr",
    "ingredients_n" : 5,
    "ingredients_n_tags" : [
       "5",
@@ -173,26 +192,55 @@
       "en:nutriscore-2021-same-as-2023",
       "en:nutriscore-2021-c-2023-c"
    ],
+   "nova_group" : 2,
+   "nova_group_debug" : "",
+   "nova_groups" : "2",
+   "nova_groups_markers" : {
+      "2" : [
+         [
+            "categories",
+            "en:fats"
+         ]
+      ]
+   },
+   "nova_groups_tags" : [
+      "en:2-processed-culinary-ingredients"
+   ],
    "nucleotides_tags" : [],
+   "nutrient_levels" : {
+      "fat" : "high",
+      "salt" : "low",
+      "saturated-fat" : "high",
+      "sugars" : "low"
+   },
+   "nutrient_levels_tags" : [
+      "en:fat-in-high-quantity",
+      "en:saturated-fat-in-high-quantity",
+      "en:sugars-in-low-quantity",
+      "en:salt-in-low-quantity"
+   ],
    "nutriments" : {
       "energy_100g" : 3700,
-      "fat_100g" : 100,
+      "fat_100g" : "100",
       "fiber_100g" : 0,
       "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
       "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 65,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 65,
+      "nova-group" : 2,
+      "nova-group_100g" : 2,
+      "nova-group_serving" : 2,
       "nutrition-score-fr" : 8,
       "nutrition-score-fr_100g" : 8,
       "proteins_100g" : 0,
-      "salt_100g" : 0,
+      "salt_100g" : "0",
       "salt_value" : "0",
       "saturated-fat_100g" : 9.8,
       "sodium" : 0,
       "sodium_100g" : 0,
       "sodium_unit" : "g",
       "sodium_value" : 0,
-      "sugars_100g" : 0
+      "sugars_100g" : "0"
    },
    "nutriments_estimated" : {
       "alcohol_100g" : 0,
@@ -287,7 +335,12 @@
             "components" : {
                "negative" : [
                   {
+                     "current_grade" : "c",
+                     "current_score" : 3,
                      "id" : "energy_from_saturated_fat",
+                     "new_grade" : "b",
+                     "new_score" : 2,
+                     "new_value" : 360,
                      "points" : 3,
                      "points_max" : 10,
                      "unit" : "kJ",
@@ -433,7 +486,13 @@
       "fats",
       "known"
    ],
+   "traces" : "",
+   "traces_from_ingredients" : "",
+   "traces_from_user" : "(fr) ",
+   "traces_hierarchy" : [],
+   "traces_tags" : [],
    "unknown_ingredients_n" : 0,
+   "unknown_nutrients_tags" : [],
    "vitamins_tags" : [
       "en:vitamin-d"
    ]
