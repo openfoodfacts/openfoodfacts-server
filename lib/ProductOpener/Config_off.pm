@@ -59,6 +59,8 @@ BEGIN {
 		$events_username
 		$events_password
 
+		$rate_limiter_blocking_enabled
+
 		$facets_kp_url
 		$redis_url
 
@@ -198,7 +200,9 @@ $flavor = 'off';
 	android_app_link => "https://world.openfoodfacts.org/files/off.apk",
 	ios_app_link => "https://apps.apple.com/app/open-food-facts/id588797948",
 	facebook_page_url => "https://www.facebook.com/OpenFoodFacts",
+	facebook_page_url_fr => "https://www.facebook.com/OpenFoodFacts.fr",
 	twitter_account => "OpenFoodFacts",
+	twitter_account_fr => "OpenFoodFactsFr",
 );
 
 $options{export_limit} = 10000;
@@ -430,6 +434,10 @@ $redis_url = $ProductOpener::Config2::redis_url;
 
 # Facets knowledge panels url
 $facets_kp_url = $ProductOpener::Config2::facets_kp_url;
+
+# If $rate_limiter_blocking_enabled is set to 1, the rate limiter will block requests
+# by returning a 429 error code instead of a 200 code
+$rate_limiter_blocking_enabled = $ProductOpener::Config2::rate_limiter_blocking_enabled;
 
 # server options
 
@@ -1608,5 +1616,17 @@ $options{sample_product_code} = "093270067481501";    # A good product for you -
 #$options{sample_product_code_country_uk} = "5060042641000"; # Tyrrell's lighty salted chips
 #$options{sample_product_code_language_de} = "20884680"; # Waffeln Sondey
 #$options{sample_product_code_country_at_language_de} = "5411188119098"; # Natur miss kokosnuss Alpro
+
+## Rate limiting ##
+
+# Number of requests per minutes for the search API
+$options{rate_limit_search} = 10;
+# Number of requests per minutes for the product API
+$options{rate_limit_product} = 100;
+
+# Rate limit allow list
+$options{rate_limit_allow_list} = {
+	'51.210.154.203' => 1,    # OVH2
+};
 
 1;

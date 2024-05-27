@@ -292,6 +292,30 @@ You need to remove the directory where you cloned the project, and clone the pro
 # replace my-user-id with your user id if you forked the repository, otherwise use openfoodfacts
 git clone -c core.symlinks=true git@github.com:my-user-id/openfoodfacts-server.git
 ```
+### make dev error: open /.docker/buildx/current: permission denied
+On macOS
+When running `make dev`:
+```console
+docker compose --env-file=.env  build   2>&1
+open /.docker/buildx/current: permission denied
+make: *** [build] Error 1
+openfoodfacts-server % 
+```
+
+**Solution:**
+Check for permissions by
+```console
+ls -la /.docker/buildx
+```
+If there is a file that is not owned by user with root instead of USER:
+```console
+-rw-------   1 root    staff   48 Apr 28 17:04 current
+```
+Then Run 
+```console
+sudo chown -R USER:USER /Users/USER/.docker/buildx
+```
+Replacing USER with current user
 
 ### 'rm' is not recognized as an internal or external command
 

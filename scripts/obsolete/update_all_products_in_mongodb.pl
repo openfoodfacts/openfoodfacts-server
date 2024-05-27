@@ -64,7 +64,7 @@ my $cursor = $products_collection->query({})->fields({ code => 1 });
 		if ((defined $product_ref) and ($code ne '')) {
 		
 		# Update
-		#extract_ingredients_classes_from_text($product_ref);
+		#extract_additives_from_text($product_ref);
 
 		# Store
 		#my $path = product_path($code);

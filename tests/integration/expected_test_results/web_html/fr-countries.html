@@ -65,6 +65,7 @@
 
 </head>
 <body class="list_of_tags_page">
+	<div class="skip"><a href="#content" tabindex="0">Aller au contenu</a></div>
 
 	<div id="page">
 		<div class="upper-nav contain-to-grid"  id="upNav">
@@ -248,7 +249,7 @@
   <span class="donation-banner__hand"></span>
   <div class="donation-banner__content">
     <p class="donation-banner__main-text">
-        <span>Aidez-nous à faire de la transparence alimentaire la norme !</span>
+        <span role="heading">Aidez-nous à faire de la transparence alimentaire la norme !</span>
     </p>
     <div class="donation-banner__aside">
       <div>
@@ -258,9 +259,9 @@
       <a class="donation-banner__donate" href="//fr.openfoodfacts.org/faire-un-don-a-open-food-facts?utm_source=off&utf_medium=web&utm_campaign=donate-2023-a&utm_term=en-text-button">Faire un don</a>
     </div>
   </div>
-  <div class="donation-banner__image"></div>
+  <div class="donation-banner__image" role="img" aria-label="Photo of the project team"></div>
   <div class="donation-banner__close">
-    <span id="hide-donate-banner" class="material-icons" onclick="DonationButton();">close</span>
+    <button id="hide-donate-banner" class="material-icons modest" onclick="DonationButton();" onkeypress="DonationButton();">close</button>
   </div>
 </section>
 
@@ -341,11 +342,11 @@
 <thead><tr><th>Pays</th><th>Produits</th><th>*</th></tr></thead>
 <tbody>
 <tr><td><a href="/pays/france" class="tag known">France</a></td>
-<td style="text-align:right"><a href="/pays/france" class="tag known">6</a></td><td></td></tr>
+<td style="text-align:right"><a href="/pays/france" class="tag known">7</a></td><td></td></tr>
 <tr><td><a href="/pays/allemagne" class="tag known">Allemagne</a></td>
-<td style="text-align:right"><a href="/pays/allemagne" class="tag known">4</a></td><td></td></tr>
+<td style="text-align:right"><a href="/pays/allemagne" class="tag known">5</a></td><td></td></tr>
 <tr><td><a href="/pays/royaume-uni" class="tag known">Royaume-Uni</a></td>
-<td style="text-align:right"><a href="/pays/royaume-uni" class="tag known">3</a></td><td></td></tr>
+<td style="text-align:right"><a href="/pays/royaume-uni" class="tag known">4</a></td><td></td></tr>
 <tr><td><a href="/pays/italie" class="tag known">Italie</a></td>
 <td style="text-align:right"><a href="/pays/italie" class="tag known">2</a></td><td></td></tr>
 <tr><td><a href="/pays/belgique" class="tag known">Belgique</a></td>
@@ -413,7 +414,7 @@
       <a class="donation-banner-footer__donate" href="//fr.openfoodfacts.org/faire-un-don-a-open-food-facts?utm_source=off&utf_medium=web&utm_campaign=donate-2023-a&utm_term=en-text-button">Faire un don</a>
     </div>
   </div>
-  <div class="donation-banner-footer__image"></div>
+  <div class="donation-banner-footer__image" role="img" aria-label="Photo of the project team"></div>
 </section>
 
 
@@ -427,8 +428,8 @@
 						<p>Rejoignez-nous sur <a href="//slack.openfoodfacts.org">Slack</a></p>
 						<p><a href="//forum.openfoodfacts.org/">Forum</a></p>
 						<p id="footer_social_icons">Suivez-nous : 
-							<a href="//twitter.com/openfoodfacts"><img src="/images/icons/dist/twitter.svg" class="footer_social_icon" alt="Twitter"></a>
-							<a href="//www.facebook.com/OpenFoodFacts"><img src="/images/icons/dist/facebook.svg" class="footer_social_icon" alt="Facebook"></a>
+							<a href="//twitter.com/OpenFoodFactsFr"><img src="/images/icons/dist/twitter.svg" class="footer_social_icon" alt="Twitter"></a>
+							<a href="//www.facebook.com/OpenFoodFacts.fr"><img src="/images/icons/dist/facebook.svg" class="footer_social_icon" alt="Facebook"></a>
 							<a href="//www.instagram.com/open.food.facts/"><img src="/images/icons/dist/instagram.svg" class="footer_social_icon" alt="Instagram"></a>
 							
 						</p>
@@ -462,11 +463,11 @@
 							<div class="small-12 text-center v-space-short h-space-large">
 								<a href="/" style="font-size:1rem;"><img id="logo" src="//static.openfoodfacts.localhost/images/logos/off-logo-horizontal-mono-white.svg" alt="Open Food Facts" style="margin:8px;height:48px;width:auto;"></a>
 
-								<p>A collaborative, free and open database of food products from around the world.</p>
+								<p>Une base de données collaborative, libre et ouverte des produits alimentaires du monde entier.</p>
 								
 								<ul class="inline-list text-center text-small">
 									<li><a href="/mentions-legales">Mentions légales</a></li>
-									<li><a href="/privacy">Privacy</a></li>
+									<li><a href="/privacy">Confidentialité</a></li>
 									<li><a href="/conditions-d-utilisation">Conditions d'utilisation</a></li>
 									<li><a href="/data">Données, API et SDK</a></li>
 									<li><a href="//fr.openfoodfacts.org/faire-un-don-a-open-food-facts">Faire un don à l'association Open Food Facts</a></li>
@@ -494,7 +495,7 @@
 
 <script>
 $(function() {
-var countries_map_data=JSON.parse("{\"BE\":1,\"CH\":1,\"DE\":4,\"ES\":1,\"FR\":6,\"GB\":3,\"IT\":2}");var countries_map_links=JSON.parse("{\"BE\":\"/pays/belgique\",\"CH\":\"/pays/suisse\",\"DE\":\"/pays/allemagne\",\"ES\":\"/pays/espagne\",\"FR\":\"/pays/france\",\"GB\":\"/pays/royaume-uni\",\"IT\":\"/pays/italie\"}");var countries_map_names=JSON.parse("{\"BE\":\"Belgique\",\"CH\":\"Suisse\",\"DE\":\"Allemagne\",\"ES\":\"Espagne\",\"FR\":\"France\",\"GB\":\"Royaume-Uni\",\"IT\":\"Italie\"}");displayWorldMap('#world-map', { 'data': countries_map_data, 'links': countries_map_links, 'names': countries_map_names });
+var countries_map_data=JSON.parse("{\"BE\":1,\"CH\":1,\"DE\":5,\"ES\":1,\"FR\":7,\"GB\":4,\"IT\":2}");var countries_map_links=JSON.parse("{\"BE\":\"/pays/belgique\",\"CH\":\"/pays/suisse\",\"DE\":\"/pays/allemagne\",\"ES\":\"/pays/espagne\",\"FR\":\"/pays/france\",\"GB\":\"/pays/royaume-uni\",\"IT\":\"/pays/italie\"}");var countries_map_names=JSON.parse("{\"BE\":\"Belgique\",\"CH\":\"Suisse\",\"DE\":\"Allemagne\",\"ES\":\"Espagne\",\"FR\":\"France\",\"GB\":\"Royaume-Uni\",\"IT\":\"Italie\"}");displayWorldMap('#world-map', { 'data': countries_map_data, 'links': countries_map_links, 'names': countries_map_names });
 let oTable = $('#tagstable').DataTable({
 	language: {
 		search: "Recherche :",
@@ -556,7 +557,7 @@ $(document).foundation({
 	"url": "//fr.openfoodfacts.localhost",
 	"logo": "//static.openfoodfacts.localhost/images/logos/off-logo-vertical-light.svg",
 	"name": "Open Food Facts",
-	"sameAs" : [  "//www.facebook.com/OpenFoodFacts.fr", "//twitter.com/OpenFoodFactsFR"]
+	"sameAs" : ["//www.facebook.com/OpenFoodFacts.fr", "//twitter.com/OpenFoodFactsFr"]
 }
 </script>
 

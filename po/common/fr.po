@@ -204,11 +204,6 @@ msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
 msgstr "APK Android"
 
-# DO NOT TRANSLATE
-msgctxt "android_apk_app_link"
-msgid "https://world.openfoodfacts.org/files/off.apk"
-msgstr "https://world-fr.openfoodfacts.org/files/off.apk"
-
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
 msgctxt "android_app_icon_url"
 msgid "/images/misc/playstore/img/en_get.svg"
@@ -217,11 +212,6 @@ msgstr "/images/misc/playstore/img/fr_get.svg"
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
 msgstr "Disponible sur Google Play"
-
-# Change hl=en to your language, and make sure the url works
-msgctxt "android_app_link"
-msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en"
-msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=fr"
 
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
@@ -739,10 +729,6 @@ msgctxt "facebook_locale"
 msgid "en_US"
 msgstr "fr_FR"
 
-msgctxt "facebook_page"
-msgid "https://www.facebook.com/OpenFoodFacts"
-msgstr "https://www.facebook.com/OpenFoodFacts.fr"
-
 msgctxt "fixme_product"
 msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
 msgstr "Si les informations sont incomplètes ou incorrectes, vous pouvez les complèter ou les corriger en modifiant cette fiche."
@@ -829,6 +815,15 @@ msgctxt "footer_legal_link"
 msgid "/legal"
 msgstr "/mentions-legales"
 
+msgctxt "footer_privacy"
+msgid "Privacy"
+msgstr "Confidentialité"
+
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
+msgctxt "footer_privacy_link"
+msgid "/privacy"
+msgstr "/privacy"
+
 msgctxt "footer_press"
 msgid "Press"
 msgstr "Presse"
@@ -837,10 +832,6 @@ msgstr "Presse"
 msgctxt "footer_press_link"
 msgid "/press"
 msgstr "/presse"
-
-msgctxt "footer_tagline"
-msgid "A collaborative, free and open database of food products from around the world."
-msgstr "Une base de données collaborative, libre et ouverte des produits alimentaires du monde entier."
 
 msgctxt "footer_terms"
 msgid "Terms of use"
@@ -1120,10 +1111,6 @@ msgstr "/images/misc/appstore/black/appstore_FR.svg"
 msgctxt "ios_app_icon_alt_text"
 msgid "Download on the App Store"
 msgstr "Disponible sur l'App Store"
-
-msgctxt "ios_app_link"
-msgid "https://apps.apple.com/app/open-food-facts/id588797948"
-msgstr ""
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
@@ -1786,7 +1773,7 @@ msgstr "Vous venez de contribuer à améliorer la plus grande base de données o
 
 msgctxt "product_edit_thank_you"
 msgid "Thank you so much for joining us in our journey to data transparency!"
-msgstr "Merci beaucoup de nous avoir rejoints dans notre voyage vers la transparence des données !"
+msgstr "Merci beaucoup de nous avoir rejoints dans notre voyage vers la transparence des données !"
 
 msgctxt "product_characteristics"
 msgid "Product characteristics"
@@ -2038,7 +2025,7 @@ msgstr "Risques"
 
 msgctxt "risk_level_0"
 msgid "To be completed"
-msgstr "A renseigner"
+msgstr "À compléter"
 
 msgctxt "risk_level_1"
 msgid "Low risks"
@@ -2089,8 +2076,8 @@ msgid "Select products with specific brands, categories, labels, origins of ingr
 msgstr "Sélectionner les produits suivant leur marque, catégories, labels, origines des ingrédients, lieux de fabrication etc."
 
 msgctxt "search_description_opensearch"
-msgid "Open Food Facts product search"
-msgstr "Recherche de produit Open Food Facts"
+msgid "Product search"
+msgstr ""
 
 msgctxt "search_does_not_contain"
 msgid "does not contain"
@@ -2382,18 +2369,6 @@ msgctxt "signout"
 msgid "Sign-out"
 msgstr "Se déconnecter"
 
-msgctxt "site_description"
-msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
-msgstr "Une base de données collaborative, gratuite et ouverte d'ingrédients, de valeurs nutritionnelles et d'informations sur les produits alimentaires du monde entier."
-
-msgctxt "site_name"
-msgid "Open Food Facts"
-msgstr "Open Food Facts"
-
-msgctxt "logo_site_name"
-msgid "Open Food Facts logo"
-msgstr "Logo Open Food Facts"
-
 msgctxt "sort_by"
 msgid "Sort by"
 msgstr "Trier par"
@@ -2507,10 +2482,6 @@ msgctxt "twitter"
 msgid "Twitter username (optional)"
 msgstr "Nom d'utilisateur Twitter (optionel)"
 
-msgctxt "twitter_account"
-msgid "OpenFoodFacts"
-msgstr "OpenFoodFactsFR"
-
 msgctxt "unknown"
 msgid "Unknown"
 msgstr "Inconnu"
@@ -2587,6 +2558,10 @@ msgctxt "view"
 msgid "view"
 msgstr "voir"
 
+msgctxt "view_this_revision"
+msgid "View this revision"
+msgstr ""
+
 msgctxt "view_list_for_products_from_the_entire_world"
 msgid "View the list for matching products from the entire world"
 msgstr "Voir la liste pour les produits correspondants du monde entier"
@@ -2608,20 +2583,6 @@ msgstr "Les informations et les données doivent provenir de l'emballage et de l
 msgctxt "website"
 msgid "Site or blog address"
 msgstr "Adresse de blog ou de site web"
-
-# Please change English.svg to French.svg or German.svg… Check the url https://static.openfoodfacts.org/images/misc/microsoft/XXXX.svg
-msgctxt "windows_phone_app_icon_url"
-msgid "/images/misc/microsoft/English.svg"
-msgstr "/images/misc/microsoft/French.svg"
-
-msgctxt "windows_phone_app_icon_alt_text"
-msgid "Get it from Microsoft"
-msgstr "Disponible sur Windows Phone"
-
-# Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
-msgctxt "windows_phone_app_link"
-msgid "https://apps.microsoft.com/store/detail/open-food-facts-scan-to-get-nutriscore-ecoscore-and-more/XP8LT18SRPKLRG"
-msgstr "https://apps.microsoft.com/store/detail/open-food-facts-scan-to-get-nutriscore-ecoscore-and-more/XP8LT18SRPKLRG"
 
 msgctxt "you_are_connected_as_x"
 msgid "You are connected as %s."
@@ -2661,15 +2622,15 @@ msgstr "Attention : les valeurs nutritionnelles ne sont pas précisées. Elles o
 
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
-msgstr "Avertissement : Le taux de fibres n'étant pas renseigné, leur éventuelle contribution positive à la note n'a pas pu être prise en compte."
+msgstr "Avertissement : Le taux de fibres n'étant pas indiqué, leur éventuelle contribution positive à la note n'a pas pu être prise en compte."
 
 msgctxt "nutrition_grade_fr_fiber_and_fruits_vegetables_nuts_warning"
 msgid "Warning: the amounts of fiber and of fruits, vegetables and nuts are not specified, their possible positive contribution to the grade could not be taken into account."
-msgstr "Avertissement : Les taux de fibres et de fruits, légumes et noix n'étant pas renseigné, leurs éventuelle contribution positive à la note n'a pas pu être prise en compte."
+msgstr "Avertissement : Les taux de fibres et de fruits, légumes et noix n'étant pas indiqué, leur éventuelle contribution positive à la note n'a pas pu être prise en compte."
 
 msgctxt "nutrition_grade_fr_no_fruits_vegetables_nuts_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified, their possible positive contribution to the grade could not be taken into account."
-msgstr "Avertissement : Le taux de fruits, légumes et noix n'étant pas renseigné, leur éventuelle contribution positive à la note n'a pas pu être prise en compte."
+msgstr "Avertissement : Le taux de fruits, légumes et noix n'étant pas indiqué, leur éventuelle contribution positive à la note n'a pas pu être prise en compte."
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was manually estimated from the list of ingredients: %d"
@@ -3786,7 +3747,7 @@ msgstr "Les données des produits ont été reçues et seront importées sur la 
 
 msgctxt "import_file_status"
 msgid "Status"
-msgstr "État "
+msgstr "État "
 
 msgctxt "job_status_inactive"
 msgid "Scheduled"
@@ -3967,11 +3928,11 @@ msgstr "Sucres"
 
 msgctxt "nutriscore_points_for_saturated_fat"
 msgid "Saturated fat"
-msgstr "Graisses saturées"
+msgstr "Acides gras saturés"
 
 msgctxt "nutriscore_points_for_saturated_fat_ratio"
 msgid "Saturated fat / fat ratio"
-msgstr "Ratio matières grasses saturées / matières grasses"
+msgstr "Ratio acides gras saturés / matières grasses"
 
 msgctxt "nutriscore_points_for_sodium"
 msgid "Sodium"
@@ -4266,7 +4227,7 @@ msgstr "Certains ingrédients n'ont pas été identifiés."
 # variable names between { } must not be translated
 msgctxt "f_move_data_and_photos_to_main_language"
 msgid "Move all data and selected photos in {language} to the main language of the product: {main_language}"
-msgstr "Déplacez toutes les données et les photos sélectionnées en {language} vers la langue principale du produit : {main_language}"
+msgstr "Déplacez toutes les données et les photos sélectionnées en {language} vers la langue principale du produit : {main_language}"
 
 msgctxt "move_data_and_photos_to_main_language_replace"
 msgid "Replace existing values and selected photos"
@@ -4586,7 +4547,7 @@ msgstr "Non applicable pour la catégorie"
 # variable names between { } must not be translated
 msgctxt "f_attribute_nutriscore_not_applicable_description"
 msgid "Not-applicable for the category: {category}"
-msgstr "Non applicable pour la catégorie : {category}"
+msgstr "Non applicable pour la catégorie : {category}"
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
@@ -4687,7 +4648,7 @@ msgstr "Le taux de graisse est pris en compte par le Nutri-Score. Utilisez ce pa
 
 msgctxt "attribute_low_saturated_fat_setting_note"
 msgid "The saturated fat level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low saturated fat diet."
-msgstr "Le taux de graisses saturées est pris en compte par le Nutri-Score. Utilisez ce paramètre uniquement si vous suivez un régime alimentaire faible en graisses saturées."
+msgstr "Le taux d'acides gras saturés est pris en compte par le Nutri-Score. Utilisez ce paramètre uniquement si vous suivez un régime alimentaire faible en acides gras saturés."
 
 msgctxt "attribute_group_allergens_name"
 msgid "Allergens"
@@ -5338,7 +5299,7 @@ msgstr "Pas encore applicable pour la catégorie"
 # variable names between { } must not be translated
 msgctxt "f_attribute_ecoscore_not_applicable_description"
 msgid "Not yet applicable for the category: {category}"
-msgstr "Pas encore applicable pour la catégorie : {category}"
+msgstr "Pas encore applicable pour la catégorie : {category}"
 
 msgctxt "ecoscore_not_applicable_coming_soon"
 msgid "The Eco-Score is not yet applicable for this category, but we are working on adding support for it."
@@ -5354,7 +5315,7 @@ msgstr "Impact environnemental inconnu"
 
 msgctxt "ecoscore_unknown_call_to_help"
 msgid "We could not compute the Eco-Score of this product as it is missing some data, could you help complete it?"
-msgstr "Nous n'avons pas pu calculer l'Eco-Score de ce produit car il manque certaines données, pourriez-vous nous aider à le compléter ?"
+msgstr "Nous n'avons pas pu calculer l'Eco-Score de ce produit car il manque certaines données, pourriez-vous nous aider à le compléter ?"
 
 msgctxt "org_list_of_gs1_gln_description"
 msgid "GS1 data is automatically associated with an OFF organization identifier that corresponds to the GS1 partyName field. To change the OFF organization identifier, you can directly assign 1 or more GS1 GLN identifiers."
@@ -5496,7 +5457,7 @@ msgstr "Si vous êtes le fabricant de ce produit, vous pouvez nous transmettre l
 
 msgctxt "ecoscore_warning_missing_information"
 msgid "Warning: some information necessary to calculate the Eco-Score with precision is not provided (see the details of the calculation below)."
-msgstr "Avertissement : certaines informations nécessaires pour calculer l'Eco-Score avec précision ne sont pas renseignées (voir le détail du calcul ci-dessous)."
+msgstr "Avertissement : certaines informations nécessaires pour calculer l'Eco-Score avec précision ne sont pas indiquées (voir le détail du calcul ci-dessous)."
 
 msgctxt "ecoscore_add_missing_information"
 msgid "You can edit the product to add the missing information."
@@ -5602,7 +5563,7 @@ msgstr "Origines des ingrédients"
 
 msgctxt "ecoscore_ingredients_not_indicated"
 msgid "The origins of the ingredients of this product are not indicated."
-msgstr "Les origines des ingrédients de ce produit ne sont pas renseignées."
+msgstr "Les origines des ingrédients de ce produit ne sont pas indiquées."
 
 msgctxt "ecoscore_please_add_the_ingredients"
 msgid "If they are indicated on the packaging, you can modify the product sheet and add them."
@@ -5626,7 +5587,7 @@ msgstr "Aucun ingrédient qui menace une espèce"
 
 msgctxt "ecoscore_ingredients_unknown"
 msgid "The information on the ingredients of this product has not been given."
-msgstr "Les informations sur les ingrédients de ce produit ne sont pas renseignées."
+msgstr "Les informations sur les ingrédients de ce produit ne sont pas indiquées."
 
 msgctxt "ecoscore_edit_for_more_precise_ecoscore"
 msgid "For a more precise calculation of the Eco-Score, you can edit the product page and add them."
@@ -5646,7 +5607,7 @@ msgstr "Score de tous les composants"
 
 msgctxt "ecoscore_no_packaging_information"
 msgid "The information about the packaging of this product is not filled in."
-msgstr "Les informations sur l'emballage de ce produit ne sont pas renseignées."
+msgstr "Les informations sur l'emballage de ce produit ne sont pas indiquées."
 
 msgctxt "ecoscore_unprecise_packaging_information"
 msgid "The information about the packaging of this product is not sufficiently precise (exact shapes and materials of all components of the packaging)."
@@ -6226,6 +6187,10 @@ msgctxt "action_add_packaging_components"
 msgid "Add packaging components"
 msgstr "Ajouter des composants d'emballage"
 
+msgctxt "action_add_quantity"
+msgid "Add quantity of the product"
+msgstr "Ajouter la quantité du produit"
+
 # this is not used yet
 msgctxt "action_add_basic_details"
 msgid "Add basic details"
@@ -6332,15 +6297,15 @@ msgstr "Choisissez des produits à faible teneur en sucre et réduisez la consom
 
 msgctxt "nutrient_info_fat_and_saturated_fat_risk"
 msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
-msgstr "Une consommation élevée de graisses, en particulier de graisses saturées, peut augmenter le cholestérol, ce qui augmente le risque de maladies cardiaques."
+msgstr "Une consommation élevée de matières grasses, en particulier d'acides gras saturés, peut augmenter le cholestérol, ce qui augmente le risque de maladies cardiaques."
 
 msgctxt "nutrient_recommendation_fat_and_saturated_fat_title"
 msgid "Reduce the consumption of fat and saturated fat"
-msgstr "Réduire la consommation de graisses et de graisses saturées"
+msgstr "Réduire la consommation de matières grasses et d'acides gras saturés"
 
 msgctxt "nutrient_recommendation_fat_and_saturated_fat"
 msgid "Choose products with lower fat and saturated fat content."
-msgstr "Choisissez des produits à faible teneur en graisses et en graisses saturées."
+msgstr "Choisissez des produits à faible teneur en matières grasses et en acides gras saturés."
 
 msgctxt "sign_in"
 msgid "Sign in"
@@ -6460,11 +6425,11 @@ msgstr "Type invalide : doit être un tableau"
 
 msgctxt "api_message_invalid_type_must_be_integer"
 msgid "Invalid type: must be an integer"
-msgstr "Type non valide : doit être un entier"
+msgstr "Type non valide : doit être un entier"
 
 msgctxt "api_message_invalid_type_must_be_number"
 msgid "Invalid type: must be a number"
-msgstr "Type non valide : doit être un entier"
+msgstr "Type non valide : doit être un entier"
 
 msgctxt "api_message_missing_field"
 msgid "Missing field"
@@ -6605,7 +6570,7 @@ msgstr "Les sucres ne doivent pas être supérieurs aux glucides."
 
 msgctxt "product_js_saturated_fat_warning"
 msgid "Saturated fat should not be higher than fat."
-msgstr "Les graisses saturées ne doivent pas être plus élevées que les graisses."
+msgstr "Les acides gras saturés ne doivent pas être plus élevées que les matières grasses."
 
 msgctxt "packaging_materials"
 msgid "Packaging materials"
@@ -6681,7 +6646,7 @@ msgstr "Énergie"
 
 msgctxt "nutriscore_component_energy_from_saturated_fat"
 msgid "Energy from saturated fat"
-msgstr "Energie provenant des graisses saturées"
+msgstr "Energie provenant des acides gras saturés"
 
 msgctxt "nutriscore_component_sugars"
 msgid "Sugars"
@@ -6689,11 +6654,11 @@ msgstr "Sucres"
 
 msgctxt "nutriscore_component_saturated_fat"
 msgid "Saturated fat"
-msgstr "Graisses saturées"
+msgstr "Acides gras saturés"
 
 msgctxt "nutriscore_component_saturated_fat_ratio"
 msgid "Saturated fat / fat"
-msgstr "Matières grasses saturées / matières grasses"
+msgstr "Acides gras saturés / matières grasses"
 
 msgctxt "nutriscore_component_salt"
 msgid "Salt"
@@ -6705,7 +6670,7 @@ msgstr "Edulcorants non-nutritifs"
 
 msgctxt "nutriscore_component_fruits_vegetables_legumes"
 msgid "Fruits, vegetables and legumes"
-msgstr "Fruits, légumes et légumineuses"
+msgstr "Fruits, légumes et légumes secs"
 
 msgctxt "nutriscore_component_fiber"
 msgid "Fiber"
@@ -6789,15 +6754,15 @@ msgstr "Les apports énergétiques supérieurs aux besoins énergétiques sont a
 
 msgctxt "nutrient_info_saturated_fat_risk"
 msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
-msgstr "Une consommation élevée de graisses, en particulier de graisses saturées, peut augmenter le cholestérol, ce qui augmente le risque de maladies cardiaques."
+msgstr "Une consommation élevée de matières grasses, en particulier d'acides gras saturés, peut augmenter le cholestérol, ce qui augmente le risque de maladies cardiaques."
 
 msgctxt "nutrient_info_saturated_fat_ratio_risk"
 msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
-msgstr "Une consommation élevée de graisses, en particulier de graisses saturées, peut augmenter le cholestérol, ce qui augmente le risque de maladies cardiaques."
+msgstr "Une consommation élevée de matières grasses, en particulier d'acides gras saturés, peut augmenter le cholestérol, ce qui augmente le risque de maladies cardiaques."
 
 msgctxt "nutrient_info_energy_from_saturated_fat_risk"
 msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
-msgstr "Une consommation élevée de graisses, en particulier de graisses saturées, peut augmenter le cholestérol, ce qui augmente le risque de maladies cardiaques."
+msgstr "Une consommation élevée de matières grasses, en particulier d'acides gras saturés, peut augmenter le cholestérol, ce qui augmente le risque de maladies cardiaques."
 
 msgctxt "nutrient_info_non_nutritive_sweeteners_risk"
 msgid "Non-nutritive sweeteners may not confer any long-term benefit in reducing body fat in adults or children. There may be potential undesirable effects from long-term use of non-nutritive sweeteners, such as an increased risk of type 2 diabetes and cardiovascular diseases in adults."
@@ -6809,11 +6774,35 @@ msgstr "Consommer des aliments riches en fibres (notamment les aliments à grain
 
 msgctxt "nutrient_info_fruits_vegetables_legumes_benefit"
 msgid "Consuming foods rich in fruits, vegetables and legumes reduces the risks of aerodigestive cancers, cardiovascular diseases, obesity and diabetes."
-msgstr "Consommer des aliments riches en fruits, légumes et légumineuses réduit les risques de cancers aérodigestifs, de maladies cardiovasculaires, d’obésité et de diabète."
+msgstr "Consommer des aliments riches en fruits, légumes et légumes secs réduit les risques de cancers aérodigestifs, de maladies cardiovasculaires, d’obésité et de diabète."
 
 msgctxt "nutrient_info_proteins_benefit"
 msgid "Foods that are rich in proteins are usually rich in calcium or iron which are essential minerals with numerous health benefits."
 msgstr "Les aliments riches en protéines sont généralement riches en calcium ou en fer, des minéraux essentiels aux nombreux bienfaits pour la santé."
+
+msgctxt "revert"
+msgid "Revert to this revision"
+msgstr "Revenir à cette révision"
+
+msgctxt "product_js_product_revert_confirm"
+msgid "Revert to this product revision?"
+msgstr "Revenir à cette révision du produit ?"
+
+msgctxt "api_status_success"
+msgid "Success"
+msgstr "Succès"
+
+msgctxt "api_status_failure"
+msgid "Failure"
+msgstr "Échec"
+
+msgctxt "api_result_product_reverted"
+msgid "Product reverted to the specified revision"
+msgstr "Produit rétabli à la révision spécifiée"
+
+msgctxt "api_result_product_not_reverted"
+msgid "Product not reverted to the specified revision"
+msgstr "Produit non rétabli à la révision spécifiée"
 
 # sweeteners (additives), plural
 msgctxt "sweeteners"
@@ -6825,9 +6814,9 @@ msgctxt "sweetener"
 msgid "sweetener"
 msgstr "édulcorant"
 
-msgctxt "api_result_product_reverted"
-msgid "Product reverted to the specified revision"
-msgstr "Produit rétabli à la version spécifiée"
+msgctxt "skip_to_content"
+msgid "Skip to Content"
+msgstr "Aller au contenu"
 
 #. make sure the text file exists for your language, otherwise ask @teolemon 
 msgctxt "get_the_app_link_off"
@@ -6848,16 +6837,86 @@ msgstr "Informations incomplètes ou incorrectes ?"
 
 msgctxt "incomplete_or_incorrect_data_subtitle_off"
 msgid "Category, labels, ingredients, allergens, nutritional information, photos etc."
-msgstr "Catégorie, labels, ingrédients, allergènes, informations nutritionnelles, photos etc."
+msgstr "Catégorie, étiquettes, ingrédients, allergènes, informations nutritionnelles, photos etc."
 
 msgctxt "incomplete_or_incorrect_data_content_correct"
 msgid "If the information does not match the information on the packaging, you can complete or correct it. Thank you!"
-msgstr "Si les informations ne correspondent pas aux informations présentes sur l'emballage, vous pouvez les compléter ou de les corriger. Merci !"
+msgstr "Si les informations ne correspondent pas à celles figurant sur l'emballage, vous pouvez les compléter ou les corriger. Merci!"
 
 msgctxt "incomplete_or_incorrect_data_content_correct_off"
 msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
-msgstr "Open Food Facts est une base de données collaborative, et chaque contribution est utile à tous."
+msgstr "Open Food Facts est une base de données collaborative, et chaque contribution est utile pour tous."
+
+msgctxt "description"
+msgid "Description"
+msgstr "Description"
+
+msgctxt "site_description_off"
+msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
+msgstr ""
+
+msgctxt "tagline_off"
+msgid "Open Food Facts gathers information and data on food products from around the world."
+msgstr "Open Food Facts répertorie les produits alimentaires du monde entier."
+
+msgctxt "footer_tagline_off"
+msgid "A collaborative, free and open database of food products from around the world."
+msgstr "Une base de données collaborative, libre et ouverte des produits alimentaires du monde entier."
+
+msgctxt "site_description_obf"
+msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
+msgstr "Une base de données collaborative, gratuite et ouverte sur les ingrédients, et des informations sur les produits cosmétiques du monde entier"
+
+msgctxt "tagline_obf"
+msgid "Open Beauty Facts gathers information and data on cosmetic products from around the world."
+msgstr "Open Beauty Facts rassemble des informations et des données sur les produits cosmétiques à travers le monde."
+
+msgctxt "footer_tagline_obf"
+msgid "A collaborative, free and open database of cosmetic products from around the world."
+msgstr "Une base de données collaborative, libre et ouverte des produits cosmétiques du monde entier."
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_obf"
+msgid "/open-beauty-facts-mobile-app"
+msgstr "/application-mobile-open-beauty-facts"
+
+msgctxt "footer_and_the_facebook_group_obf"
+msgid "and the <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">Facebook group for contributors</a>"
+msgstr "et le <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">groupe Facebook des contributeurs</a>"
+
+msgctxt "search_description_opensearch_obf"
+msgid "Open Beauty Facts product search"
+msgstr "Recherche de produit Open Beauty Facts"
+
+msgctxt "warning_not_complete_obf"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
+msgstr "La page de ce produit n'est pas complète. Vous pouvez aider à la compléter en l'éditant et en ajoutant plus de données à partir des photos que nous avons, ou en prenant plus de photos à l'aide de l'application pour <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> ou <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone / iPad</a>. Merci!"
+
+msgctxt "brands_example_beauty"
+msgid "Nivea, Nivea Men"
+msgstr "Nivea, Nivea Hommes"
+
+msgctxt "categories_example_beauty"
+msgid "Anti-dandruff shampoo, Whitening toothpaste"
+msgstr "Shampooing anti-pelliculaire, dentifrice blanchissant"
+
+msgctxt "emb_codes_example_beauty"
+msgid "EMB 53062"
+msgstr "EMB 53062"
+
+msgctxt "generic_name_example_beauty"
+msgid "Anti-dandruff shampoo"
+msgstr "Shampooing anti-pelliculaire"
+
+msgctxt "product_name_example_beauty"
+msgid "Anti-Perspirant Stress Protect"
+msgstr "Protection anti transpirante et anti stress"
+
+msgctxt "ingredients_text_example_beauty"
+msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
+msgstr "AQUA / EAU, LAURETH SULFATE DE SODIUM, COCOAMPHODIACETATE DISODIQUE, DISTEARATE DE GLYCOL, COCAMIDE MEA"
 
 msgctxt "report_problem_navigation"
 msgid "Signaler un problème"
 msgstr "Signaler un problème"
+

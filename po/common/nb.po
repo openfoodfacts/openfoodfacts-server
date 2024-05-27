@@ -204,11 +204,6 @@ msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
 msgstr "Android-APK"
 
-# DO NOT TRANSLATE
-msgctxt "android_apk_app_link"
-msgid "https://world.openfoodfacts.org/files/off.apk"
-msgstr "https://world.openfoodfacts.org/files/off.apk"
-
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
 msgctxt "android_app_icon_url"
 msgid "/images/misc/playstore/img/en_get.svg"
@@ -217,11 +212,6 @@ msgstr ""
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
 msgstr "Få den på Google Play"
-
-# Change hl=en to your language, and make sure the url works
-msgctxt "android_app_link"
-msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en"
-msgstr ""
 
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
@@ -738,10 +728,6 @@ msgctxt "facebook_locale"
 msgid "en_US"
 msgstr "nb_NO"
 
-msgctxt "facebook_page"
-msgid "https://www.facebook.com/OpenFoodFacts"
-msgstr "https://www.facebook.com/OpenFoodFacts"
-
 msgctxt "fixme_product"
 msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
 msgstr "Hvis dataene er ufullstendig eller feil, kan du fullføre eller korrigere dem ved å endre denne siden."
@@ -828,6 +814,15 @@ msgctxt "footer_legal_link"
 msgid "/legal"
 msgstr "/legal"
 
+msgctxt "footer_privacy"
+msgid "Privacy"
+msgstr "Personvern"
+
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
+msgctxt "footer_privacy_link"
+msgid "/privacy"
+msgstr ""
+
 msgctxt "footer_press"
 msgid "Press"
 msgstr "Presse"
@@ -836,10 +831,6 @@ msgstr "Presse"
 msgctxt "footer_press_link"
 msgid "/press"
 msgstr "/presse"
-
-msgctxt "footer_tagline"
-msgid "A collaborative, free and open database of food products from around the world."
-msgstr "En felles, gratis og åpen database med matvarer fra hele verden."
 
 msgctxt "footer_terms"
 msgid "Terms of use"
@@ -879,7 +870,7 @@ msgstr "https://world.openbeautyfacts.org"
 
 msgctxt "footer_pro"
 msgid "Open Food Facts for Producers"
-msgstr ""
+msgstr "Open Food Facts for produsenter"
 
 msgctxt "for"
 msgid "for"
@@ -1119,10 +1110,6 @@ msgstr "/images/misc/appstore/black/appstore_US.svg"
 msgctxt "ios_app_icon_alt_text"
 msgid "Download on the App Store"
 msgstr "Last ned fra App Store"
-
-msgctxt "ios_app_link"
-msgid "https://apps.apple.com/app/open-food-facts/id588797948"
-msgstr ""
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
@@ -2084,8 +2071,8 @@ msgid "Select products with specific brands, categories, labels, origins of ingr
 msgstr "Velg produkter med spesifikke merker, kategorier, etiketter, opprinnelse til ingredienser, produksjonssteder osv."
 
 msgctxt "search_description_opensearch"
-msgid "Open Food Facts product search"
-msgstr "Open Food Facts produktsøk"
+msgid "Product search"
+msgstr ""
 
 msgctxt "search_does_not_contain"
 msgid "does not contain"
@@ -2376,18 +2363,6 @@ msgctxt "signout"
 msgid "Sign-out"
 msgstr "Logg ut"
 
-msgctxt "site_description"
-msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
-msgstr "En kollaborativ, gratis og åpen database for ingredienser, næringsfakta og informasjon om matprodukter fra hele verden"
-
-msgctxt "site_name"
-msgid "Open Food Facts"
-msgstr "Open Food Facts"
-
-msgctxt "logo_site_name"
-msgid "Open Food Facts logo"
-msgstr ""
-
 msgctxt "sort_by"
 msgid "Sort by"
 msgstr "Sorter etter"
@@ -2462,7 +2437,7 @@ msgstr "Tilhører:"
 
 msgctxt "tag_contains"
 msgid "Contains:"
-msgstr ""
+msgstr "Inneholder:"
 
 msgctxt "tag_weblinks"
 msgid "Weblinks"
@@ -2500,10 +2475,6 @@ msgstr "spor"
 msgctxt "twitter"
 msgid "Twitter username (optional)"
 msgstr "Twitter-brukernavn (valgfritt)"
-
-msgctxt "twitter_account"
-msgid "OpenFoodFacts"
-msgstr "OpenFoodFacts"
 
 msgctxt "unknown"
 msgid "Unknown"
@@ -2581,6 +2552,10 @@ msgctxt "view"
 msgid "view"
 msgstr "vis"
 
+msgctxt "view_this_revision"
+msgid "View this revision"
+msgstr ""
+
 msgctxt "view_list_for_products_from_the_entire_world"
 msgid "View the list for matching products from the entire world"
 msgstr "Se lista over samsvarende produkter fra hele verden"
@@ -2602,20 +2577,6 @@ msgstr "Informasjon og data må komme fra produktets innpakning og etiketten (og
 msgctxt "website"
 msgid "Site or blog address"
 msgstr "Nettsted eller bloggadresse"
-
-# Please change English.svg to French.svg or German.svg… Check the url https://static.openfoodfacts.org/images/misc/microsoft/XXXX.svg
-msgctxt "windows_phone_app_icon_url"
-msgid "/images/misc/microsoft/English.svg"
-msgstr "/images/misc/microsoft/English.svg"
-
-msgctxt "windows_phone_app_icon_alt_text"
-msgid "Get it from Microsoft"
-msgstr "Få den fra Microsoft"
-
-# Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
-msgctxt "windows_phone_app_link"
-msgid "https://apps.microsoft.com/store/detail/open-food-facts-scan-to-get-nutriscore-ecoscore-and-more/XP8LT18SRPKLRG"
-msgstr "https://apps.microsoft.com/store/detail/open-food-facts-scan-to-get-nutriscore-ecoscore-and-more/XP8LT18SRPKLRG"
 
 msgctxt "you_are_connected_as_x"
 msgid "You are connected as %s."
@@ -4003,7 +3964,7 @@ msgstr "Nutri-Score"
 # This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not Nutri-Score.
 msgctxt "nutriscore_score_producer"
 msgid "Nutri-Score score"
-msgstr "Nutri-Score-skår"
+msgstr "Nutri-Score-verdi"
 
 # Do not translate
 msgctxt "nutriscore_grade_producer"
@@ -4183,19 +4144,19 @@ msgstr "Importer kategoriene"
 
 msgctxt "nutri_score_score_from_producer"
 msgid "Nutri-Score score from producer"
-msgstr "Nutri-Score fra produsent"
+msgstr "Nutri-Score-verdi fra produsent"
 
 msgctxt "nutri_score_score_calculated"
 msgid "Calculated Nutri-Score score"
-msgstr "Beregnet Nutri-Score verdi"
+msgstr "Beregnet Nutri-Score-verdi"
 
 msgctxt "nutri_score_grade_from_producer"
 msgid "Nutri-Score grade from producer"
-msgstr "Nutri-Score-grad fra produsent"
+msgstr "Nutri-Score-verdi fra produsent"
 
 msgctxt "nutri_score_grade_calculated"
 msgid "Calculated Nutri-Score grade"
-msgstr "Beregnet Nutri-Score-grad"
+msgstr "Beregnet Nutri-Score-verdi"
 
 msgctxt "scanned_code"
 msgid "Scanned code"
@@ -4440,15 +4401,15 @@ msgstr "Nutri-Score fra A til E vist på produktetiketten"
 
 msgctxt "nutriscore_grade_producer_import_note"
 msgid "Open Food Facts computes the Nutri-Score grade based on the information provided (nutrition facts and category). If the grade we compute is different from the grade you provide, you will get a private notification on the producers platform so that the difference can be resolved."
-msgstr "Open Food Facts beregner Nutri-Score-graden basert på den framlagte informasjonen (næringsfakta og kategori). Hvis graden vi beregner er forskjellig fra graden som du gir, vil du få en privat notifikasjon på produsentplattformen slik at forskjellen kan løses."
+msgstr "Open Food Facts beregner Nutri-Score-verdien basert på den framlagte informasjonen (næringsfakta og kategori). Hvis verdien vi beregner er forskjellig fra verdien du oppgir, vil du få en privat henvendelse på produsentplattformen slik at forskjellen kan løses."
 
 msgctxt "nutriscore_score_producer_note"
 msgid "Nutri-Score score (numeric value from which the A to E grade is derived)"
-msgstr "Nutri-Score-poengsum (numerisk verdi som A til E er avledet fra)"
+msgstr "Nutri-Score-verdi (numerisk verdi som A til E er avledet fra)"
 
 msgctxt "nutriscore_score_producer_import_note"
 msgid "Open Food Facts computes the Nutri-Score score based on the information provided (nutrition facts and category). If the score we compute is different from the score you provide, you will get a private notification on the producers platform so that the difference can be resolved."
-msgstr "Open Food Facts beregner Nutri-Score-poengsummen basert på den framlagte informasjonen (næringsfakta og kategori). Hvis poengsummen vi beregner er forskjellig fra den som du gir, vil du få en privat notifikasjon på produsentplattformen slik at forskjellen kan løses."
+msgstr "Open Food Facts beregner Nutri-Score-verdien basert på den framlagte informasjonen (næringsfakta og kategori). Hvis verdien vi beregner er forskjellig fra den du oppgir, vil du få en privat henvendelse på produsentplattformen slik at forskjellen kan løses."
 
 msgctxt "mandatory_field"
 msgid "Mandatory field"
@@ -4584,7 +4545,7 @@ msgstr "Ikke anvendelig for kategorien: {category}"
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
-msgstr ""
+msgstr "Meget god ernæringskvalitet"
 
 msgctxt "attribute_nutriscore_b_description_short"
 msgid "Good nutritional quality"
@@ -4803,7 +4764,7 @@ msgstr "Veldig lavt miljøavtrykk"
 
 msgctxt "attribute_ecoscore_b_description_short"
 msgid "Low environmental impact"
-msgstr ""
+msgstr "Lav miljøbelastning"
 
 msgctxt "attribute_ecoscore_c_description_short"
 msgid "Moderate environmental impact"
@@ -5188,7 +5149,7 @@ msgstr "Plattformen gir også detaljert analyse av produktene."
 # It = the platform
 msgctxt "product_edits_by_producers_indicators"
 msgid "It computes indicators such as the Nutri-Score, NOVA, and the Eco-score, and automatically identifies suggestions to improve them (for instance all products that would get a better Nutri-Score grade with a slight composition change)."
-msgstr "Den beregner indikatorer som Nutri-Score, NOVA, og Eco-score, og identifiserer forslag til å forbedre dem automatisk (for eksempel alle produkter som ville fått en bedre Nutri-Score-grad med små endringer i sammensetningen)."
+msgstr "Den beregner indikatorer som Nutri-Score, NOVA, og Eco-score, og identifiserer forslag til å forbedre dem automatisk (for eksempel alle produkter som ville fått en bedre Nutri-Score-verdi med små endringer i sammensetningen)."
 
 msgctxt "attribute_forest_footprint_name"
 msgid "Forest footprint"
@@ -5608,7 +5569,7 @@ msgstr "Miljøpolicy"
 
 msgctxt "ecoscore_threatened_species"
 msgid "Threatened species"
-msgstr ""
+msgstr "Truede arter"
 
 msgctxt "ecoscore_ingredients_whose_cultivation_threatens_species"
 msgid "Ingredients that threatens species"
@@ -5831,7 +5792,7 @@ msgstr "Produkt slettet."
 
 msgctxt "carbon_footprint"
 msgid "Carbon footprint"
-msgstr ""
+msgstr "Karbonutslipp"
 
 # variable names between { } must not be translated
 msgctxt "f_carbon_footprint_per_100g_of_product"
@@ -6140,7 +6101,7 @@ msgstr ""
 
 msgctxt "nutriscore_learn_more"
 msgid "Learn more about the Nutri-Score"
-msgstr "Lær mer om Nutri-Score"
+msgstr "Tusen takk"
 
 msgctxt "ecoscore_learn_more"
 msgid "Learn more about the Eco-Score"
@@ -6219,6 +6180,10 @@ msgstr "Ta et bilde av resirkuleringsinformasjonen"
 msgctxt "action_add_packaging_components"
 msgid "Add packaging components"
 msgstr "Legg til emballasjedeler"
+
+msgctxt "action_add_quantity"
+msgid "Add quantity of the product"
+msgstr "Legg til mengde av produktet"
 
 # this is not used yet
 msgctxt "action_add_basic_details"
@@ -6474,7 +6439,7 @@ msgstr "Ukjent verdi"
 
 msgctxt "api_impact_none"
 msgid "None"
-msgstr ""
+msgstr "Ingen"
 
 msgctxt "api_impact_warning"
 msgid "Warning"
@@ -6675,7 +6640,7 @@ msgstr "Energi"
 
 msgctxt "nutriscore_component_energy_from_saturated_fat"
 msgid "Energy from saturated fat"
-msgstr ""
+msgstr "Energi fra mettet fett"
 
 msgctxt "nutriscore_component_sugars"
 msgid "Sugars"
@@ -6687,7 +6652,7 @@ msgstr "Mettet fett"
 
 msgctxt "nutriscore_component_saturated_fat_ratio"
 msgid "Saturated fat / fat"
-msgstr ""
+msgstr "Mettet fett/fett"
 
 msgctxt "nutriscore_component_salt"
 msgid "Salt"
@@ -6699,7 +6664,7 @@ msgstr ""
 
 msgctxt "nutriscore_component_fruits_vegetables_legumes"
 msgid "Fruits, vegetables and legumes"
-msgstr ""
+msgstr "Frukt, grønnsaker og belgfrukter"
 
 msgctxt "nutriscore_component_fiber"
 msgid "Fiber"
@@ -6711,63 +6676,63 @@ msgstr "Protein"
 
 msgctxt "presence"
 msgid "Presence"
-msgstr ""
+msgstr "Tilstedeværelse"
 
 msgctxt "absence"
 msgid "Absence"
-msgstr ""
+msgstr "Fravær"
 
 msgctxt "nutriscore_is_water"
 msgid "This product is considered to be water for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "Dette produktet anses for å være vann ved beregningen av Nutri-score."
 
 msgctxt "nutriscore_is_fat_oil_nuts_seeds"
 msgid "This product is considered to be fat, oil, nuts or seeds for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "Dette produktet anses for å være fett, olje, nøtter eller frø ved beregningen av Nutri-Score."
 
 msgctxt "nutriscore_is_cheese"
 msgid "This product is considered to be cheese for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "Dette produktet anses for å være ost ved beregningen av Nutri-Score."
 
 msgctxt "nutriscore_is_red_meat_product"
 msgid "This product is considered to be a red meat product for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "Dette produktet anses for å være et rødt kjøttprodukt ved beregningen av Nutri-Score."
 
 msgctxt "nutriscore_count_proteins_reason_beverage"
 msgid "Points for proteins are counted because the product is considered to be a beverage."
-msgstr ""
+msgstr "Poeng for proteiner telles fordi produktet anses å være en drikk."
 
 msgctxt "nutriscore_count_proteins_reason_cheese"
 msgid "Points for proteins are counted because the product is considered to be cheese."
-msgstr ""
+msgstr "Poeng for proteiner telles fordi produktet anses å være ost."
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_less_than_7"
 msgid "Points for proteins are counted because the negative points are less than 7."
-msgstr ""
+msgstr "Poeng for proteiner telles fordi de negative poengene er mindre enn 7."
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_less_than_11"
 msgid "Points for proteins are counted because the negative points are less than 11."
-msgstr ""
+msgstr "Poeng for proteiner telles fordi de negative poengene er mindre enn 11."
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_to_7"
 msgid "Points for proteins are not counted because the negative points greater than or equal to 7."
-msgstr ""
+msgstr "Poeng for proteiner telles ikke fordi de negative poengene er større enn eller lik 7."
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_to_11"
 msgid "Points for proteins are not counted because the negative points greater than or equal to 11."
-msgstr ""
+msgstr "Poeng for proteiner telles ikke fordi de negative poengene er større enn eller lik 11."
 
 msgctxt "nutriscore_explanation_what_it_is"
 msgid "The Nutri-Score is a logo on the overall nutritional quality of products."
-msgstr ""
+msgstr "Nutri-Score er en merkeordning som angir sunnhetsgraden til ulike matvarer."
 
 msgctxt "nutriscore_explanation_what_it_takes_into_account"
 msgid "The score from A to E is calculated based on nutrients and foods to favor (proteins, fiber, fruits, vegetables and legumes ...) and nutrients to limit (calories, saturated fat, sugars, salt)."
-msgstr ""
+msgstr "Skåren fra A til E beregnes utfra næringsstoffer og matvarer som er anbefalt (proteiner, fiber, frukt, grønnsaker og belgfrukter ...) og næringsstoffer som bør begrenses (kalorier, mettet fett, sukker, salt)."
 
 msgctxt "nutriscore_explanation_where_the_data_comes_from"
 msgid "The score is calculated from the data of the nutrition facts table and the composition data (fruits, vegetables and legumes)."
-msgstr ""
+msgstr "Skåren beregnes fra dataene i ernæringsfaktatabellen og sammensetningsdataene (frukt, grønnsaker og belgfrukter)."
 
 msgctxt "nutriscore_explanation_recommended_by_public_health_authorities"
 msgid "The display of this logo is recommended by public health authorities without obligation for companies."
@@ -6775,7 +6740,7 @@ msgstr ""
 
 msgctxt "nutriscore_explanation_title"
 msgid "What is the Nutri-Score?"
-msgstr ""
+msgstr "Hva er Nutri-Score?"
 
 msgctxt "nutrient_info_energy_risk"
 msgid "Energy intakes above energy requirements are associated with increased risks of weight gain, overweight, obesity, and consequently risk of diet-related chronic diseases."
@@ -6807,5 +6772,141 @@ msgstr ""
 
 msgctxt "nutrient_info_proteins_benefit"
 msgid "Foods that are rich in proteins are usually rich in calcium or iron which are essential minerals with numerous health benefits."
+msgstr ""
+
+msgctxt "revert"
+msgid "Revert to this revision"
+msgstr ""
+
+msgctxt "product_js_product_revert_confirm"
+msgid "Revert to this product revision?"
+msgstr ""
+
+msgctxt "api_status_success"
+msgid "Success"
+msgstr ""
+
+msgctxt "api_status_failure"
+msgid "Failure"
+msgstr "Feil"
+
+msgctxt "api_result_product_reverted"
+msgid "Product reverted to the specified revision"
+msgstr ""
+
+msgctxt "api_result_product_not_reverted"
+msgid "Product not reverted to the specified revision"
+msgstr ""
+
+# sweeteners (additives), plural
+msgctxt "sweeteners"
+msgid "sweeteners"
+msgstr "søtningsmidler"
+
+# sweetener (additive), singular
+msgctxt "sweetener"
+msgid "sweetener"
+msgstr "søtningsmiddel"
+
+msgctxt "action_edit_product"
+msgid "Complete or correct product information"
+msgstr ""
+
+msgctxt "report_problem_panel_title"
+msgid "Report a problem"
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_title"
+msgid "Incomplete or incorrect information?"
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_subtitle_off"
+msgid "Category, labels, ingredients, allergens, nutritional information, photos etc."
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_content_correct"
+msgid "If the information does not match the information on the packaging, you can complete or correct it. Thank you!"
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_content_correct_off"
+msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
+msgstr ""
+
+msgctxt "description"
+msgid "Description"
+msgstr ""
+
+msgctxt "site_description_off"
+msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
+msgstr ""
+
+msgctxt "tagline_off"
+msgid "Open Food Facts gathers information and data on food products from around the world."
+msgstr "Open Food Facts samler informasjon og data om matprodukter fra hele verden."
+
+msgctxt "footer_tagline_off"
+msgid "A collaborative, free and open database of food products from around the world."
+msgstr "En felles, gratis og åpen database med matvarer fra hele verden."
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_off"
+msgid "/open-food-facts-mobile-app"
+msgstr "/open-food-facts-mobile-app"
+
+msgctxt "site_description_obf"
+msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
+msgstr ""
+
+msgctxt "tagline_obf"
+msgid "Open Beauty Facts gathers information and data on cosmetic products from around the world."
+msgstr "Open Beauty Facts samler infomasjon og data om skjønnhetsprodukter fra hele verden."
+
+msgctxt "footer_tagline_obf"
+msgid "A collaborative, free and open database of cosmetic products from around the world."
+msgstr ""
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_obf"
+msgid "/open-beauty-facts-mobile-app"
+msgstr ""
+
+msgctxt "footer_and_the_facebook_group_obf"
+msgid "and the <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">Facebook group for contributors</a>"
+msgstr ""
+
+msgctxt "search_description_opensearch_obf"
+msgid "Open Beauty Facts product search"
+msgstr ""
+
+msgctxt "warning_not_complete_obf"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
+msgstr ""
+
+msgctxt "brands_example_beauty"
+msgid "Nivea, Nivea Men"
+msgstr "Nivea, Nivea Men"
+
+msgctxt "categories_example_beauty"
+msgid "Anti-dandruff shampoo, Whitening toothpaste"
+msgstr ""
+
+msgctxt "emb_codes_example_beauty"
+msgid "EMB 53062"
+msgstr "EMB 53062"
+
+msgctxt "generic_name_example_beauty"
+msgid "Anti-dandruff shampoo"
+msgstr "Anti-flass sjampo"
+
+msgctxt "product_name_example_beauty"
+msgid "Anti-Perspirant Stress Protect"
+msgstr ""
+
+msgctxt "ingredients_text_example_beauty"
+msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
+msgstr ""
+
+msgctxt "report_problem_navigation"
+msgid "Report a problem"
 msgstr ""
 

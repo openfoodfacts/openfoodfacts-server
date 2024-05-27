@@ -184,6 +184,8 @@ sub normalize_packager_codes ($codes) {
 }
 
 my %local_ec = (
+	AT => "EG",
+	CY => "EK",
 	DE => "EG",
 	EE => "EÜ",
 	ES => "CE",
@@ -194,6 +196,7 @@ my %local_ec = (
 	NL => "EG",
 	PL => "WE",
 	PT => "CE",
+	SI => "ES",
 	UK => "EC",
 );
 

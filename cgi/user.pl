@@ -420,7 +420,8 @@ elsif ($action eq 'process') {
 		$template_data_ref->{add_user_pro_url} = sprintf(lang("add_user_you_can_edit_pro_promo"), $pro_url);
 
 		$template_data_ref->{add_user_you_can_edit} = sprintf(lang("add_user_you_can_edit"), lang("get_the_app_link"));
-		$template_data_ref->{add_user_join_the_project} = sprintf(lang("add_user_join_the_project"), lang("site_name"));
+		$template_data_ref->{add_user_join_the_project}
+			= sprintf(lang("add_user_join_the_project"), $options{site_name});
 	}
 
 }

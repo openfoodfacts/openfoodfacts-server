@@ -90,8 +90,10 @@ sub normalize_code {
 
 	my $arg = do {
 		given ($cc) {
+			"$code" when 'at';
 			"BE $code EC" when 'be';
 			"CH-$code" when 'ch';
+			"$code" when 'cy';
 			"DE $code EC" when 'de';
 			"EE $code EC" when 'ee';
 			"ES $code CE" when 'es';
@@ -106,6 +108,7 @@ sub normalize_code {
 			"$code EC" when 'rs';
 			"SE $code EC" when 'se';
 			"SK $code EC" when 'sk';
+			"$code ES" when 'si';
 			"UK $code EC" when 'uk';
 			join q{  }, uc($cc), $code, 'EC';
 		}
@@ -160,8 +163,10 @@ sub normalize_local_authority {
 my $sep_set = [q{;}, qq{\t}];
 
 my %approval_key = (
+	at => 'code',
 	be => 'no_agrement',
 	ch => 'bew_nr',
+	cy => 'code',
 	de => 'code',
 	ee => 'tunnusnumber',
 	es => 'n_rgseaa',
@@ -175,6 +180,7 @@ my %approval_key = (
 	pl => 'code',
 	rs => 'approval_number',
 	se => 'nr',
+	si => 'code',
 	sk => 'schvaľovacie_čislo',
 	uk => 'approval_number',
 );
