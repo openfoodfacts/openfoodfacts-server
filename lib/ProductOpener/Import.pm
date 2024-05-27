@@ -103,6 +103,7 @@ use ProductOpener::Ecoscore qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::PackagerCodes qw/normalize_packager_codes/;
 use ProductOpener::API qw/get_initialized_response/;
+use ProductOpener::CRM qw/update_last_import_date/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -2751,6 +2752,11 @@ sub import_csv_file ($args_ref) {
 		undef $product_ref;
 	}
 
+	# sync CRM
+	foreach my $org_id (keys %{$stats_ref->{orgs_existing}}) {
+		update_last_import_date($org_id, $time);
+	}
+
 	$log->debug(
 		"import done",
 		{
@@ -2779,6 +2785,8 @@ sub import_csv_file ($args_ref) {
 	print STDERR ((scalar keys %edited) . " products with edited fields or nutrients\n");
 
 	print STDERR ((scalar @edited) . " products updated\n");
+
+	
 
 	return $stats_ref;
 }

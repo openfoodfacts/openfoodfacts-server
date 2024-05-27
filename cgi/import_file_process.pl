@@ -126,8 +126,6 @@ defined $import_files_ref->{$file_id}{imports} or $import_files_ref->{$file_id}{
 
 my $started_t = time();
 my $import_id = $started_t;
-# sync CRM
-update_last_import_date($Org_id, $started_t);
 
 my $columns_fields_file = "$file.import.$import_id.columns_fields.sto";
 my $converted_file = "$file.import.$import_id.converted.csv";
