@@ -33,15 +33,18 @@ use ProductOpener::Paths qw/%BASE_DIRS/;
 foreach my $org_id (list_org_ids()) {
 	my $org_ref = retrieve_org($org_id);
 	# print "org_id: $org_id, is: $org->{valid_org}\n";
-	if (exists $org_ref->{valid_org} and defined $org_ref->{valid_org}) {
+	if (exists $org_ref->{valid_org}) {
 		if ($org_ref->{valid_org} eq 'on') {
 			$org_ref->{valid_org} = 'accepted';
 		}
-		else {
+		elsif ($org_ref->{valid_org} eq '') {
 			$org_ref->{valid_org} = 'unreviewed';
 		}
-		# not using store_org to avoid triggering the odoo sync
-		store("$BASE_DIRS{ORGS}/" . $org_ref->{org_id} . ".sto", $org_ref);
 	}
+	if (not exists $org->{main_contact}) {
+		$org_ref->{main_contact} = $org_ref->{creator};
+	}
+	# not using store_org to avoid triggering the odoo sync
+	store("$BASE_DIRS{ORGS}/" . $org_ref->{org_id} . ".sto", $org_ref);
 }
 

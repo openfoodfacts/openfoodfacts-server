@@ -172,6 +172,11 @@ if ($action eq 'process') {
 			}
 		}
 	}
+	elsif ($type eq 'user_delete') {
+		if (single_param('user_id') eq $org_ref->{main_contact}) {
+			push @errors, $Lang{cant_delete_main_contact}{$lc};
+		}
+	}
 
 	if ($#errors >= 0) {
 
@@ -375,6 +380,7 @@ elsif ($action eq 'process') {
 		if (is_user_in_org_group($org_ref, $User_id, "admins") or $admin or $User{pro_moderator}) {
 			remove_user_by_org_admin(single_param('orgid'), single_param('user_id'));
 			$template_data_ref->{result} = lang("edit_org_result");
+
 		}
 		else {
 			display_error_and_exit($request_ref, $Lang{error_no_permission}{$lc}, 403);
@@ -460,9 +466,6 @@ $template_data_ref->{org_members} = \@org_members;
 $template_data_ref->{user_is_admin} = \%user_is_admin;
 $template_data_ref->{current_user_id} = $User_id;
 
-# If org doesn't have a main contact, then it has been manually created in CRM, before CRM integration.
-# We don't have a migration process and have no plans to do so at present.
-$template_data_ref->{has_main_contact} = exists $org_ref->{main_contact};
 $template_data_ref->{main_contact} = $org_ref->{main_contact};
 
 process_template('web/pages/org_form/org_form.tt.html', $template_data_ref, \$html)
