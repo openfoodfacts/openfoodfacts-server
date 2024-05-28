@@ -2786,8 +2786,6 @@ sub import_csv_file ($args_ref) {
 
 	print STDERR ((scalar @edited) . " products updated\n");
 
-	
-
 	return $stats_ref;
 }
 

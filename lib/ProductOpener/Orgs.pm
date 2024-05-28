@@ -182,7 +182,8 @@ sub store_org ($org_ref) {
 
 			defined add_contact_to_company($contact_id, $company_id) or die "Failed to add contact to company";
 
-			my $opportunity_id = create_opportunity("$org_ref->{name} - new", $user_ref->{crm_user_id});
+			my $opportunity_id
+				= create_onboarding_opportunity("$org_ref->{name} - new", $company_id, $user_ref->{crm_user_id});
 			defined $opportunity_id or die "Failed to create opportunity";
 
 			$org_ref->{crm_org_id} = $company_id;
@@ -437,6 +438,9 @@ sub remove_user_from_org ($org_id_or_ref, $user_id, $groups_ref) {
 
 	foreach my $group (@{$groups_ref}) {
 		if (defined $org_ref->{$group}) {
+			if ($group eq "members") {
+				remove_user_from_company($user_id, $org_ref->{crm_org_id});
+			}
 			delete $org_ref->{$group}{$user_id};
 		}
 	}

@@ -35,6 +35,9 @@ For clarity:
 			contact => Odoo partner is an 'individual'
 	  		company => Odoo partner is a 'company'
 
+	- tags => crm.tag
+	- category => res.partner.category
+
 =cut
 
 package ProductOpener::CRM;
@@ -45,11 +48,13 @@ use Exporter qw< import >;
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
+		&init_crm_data
 		&find_or_create_contact
 		&find_or_create_company
 		&add_contact_to_company
-		&create_opportunity
+		&create_onboarding_opportunity
 		&add_user_to_company
+		&remove_user_from_company
 		&change_company_main_contact
 		&update_last_import_date
 		&update_last_export_date
@@ -63,14 +68,19 @@ use ProductOpener::Config2;
 use ProductOpener::Tags qw/%country_codes_reverse/;
 use ProductOpener::Users qw/retrieve_user store_user/;
 use ProductOpener::Orgs qw/retrieve_org is_user_in_org_group/;
+use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created/;
+use ProductOpener::Store qw/retrieve store/;
 use XML::RPC;
 use Log::Any qw($log);
+use Data::Dumper;
 
-# Tags (aka res.partner.category) must be defined in Odoo
+my $crm_data;
+# Tags (crm.tag) must be defined in Odoo
 # CRM > Configuration > Tags
 # Get the ids with :
 # odoo('res.partner.category', 'search_read', [[]], { 'fields' => ['name', 'id']});
-my %Odoo_tags = (Producer => '10',);
+my @required_tags = qw(onboarding);
+my @required_categories = qw(Producer);
 
 # special commands to manipulate Odoo relation One2Many and Many2Many
 # see https://www.odoo.com/documentation/15.0/developer/reference/backend/orm.html#odoo.fields.Command
@@ -128,7 +138,7 @@ sub link_user_with_contact($user_ref, $contact_id) {
 		'write',
 		[
 			[$contact_id],
-			{x_off_username => $user_ref->{userid}, category_id => [[$commands{link}, $Odoo_tags{Producer}]]}
+			{x_off_username => $user_ref->{userid}, category_id => [[$commands{link}, $crm_data->{tags}{Producer}]]}
 		]
 	);
 	$log->debug("link_user_with_contact", {user_id => $user_ref->{userid}, res => $req}) if $log->is_debug();
@@ -164,8 +174,10 @@ sub find_contact($user_ref) {
 		],
 		{fields => ['name', 'id', 'parent_id'], order => 'create_date ASC', limit => 1}
 	);
+	return if not defined $req;
 	my $contact = $req->[0];
 	$log->debug("find_matching_contact", {contact => $contact}) if $log->is_debug();
+	return if not defined $contact;
 	return $contact->{id};
 }
 
@@ -184,12 +196,15 @@ the id of the created contact
 =cut
 
 sub create_contact ($user_ref) {
+
+	$log->debug("create_contact", {crm_data => $crm_data}) if $log->is_debug();
+
 	my $contact = {
 		name => $user_ref->{name},
 		x_off_username => $user_ref->{userid},
 		email => $user_ref->{email},
 		phone => $user_ref->{phone},
-		category_id => [$Odoo_tags{Producer}],
+		category_id => [$crm_data->{tags}{Producer}],
 	};
 
 	# find country code id in Odoo
@@ -276,7 +291,7 @@ sub link_org_with_company($org_ref, $company_id) {
 			[$company_id],
 			{
 				x_off_org_id => $org_ref->{org_id},
-				category_id => [[$commands{link}, $Odoo_tags{Producer}]],
+				category_id => [[$commands{link}, $crm_data->{tags}{Producer}]],
 				x_off_main_contact => $user_ref->{crm_user_id}
 			}
 		]
@@ -305,6 +320,8 @@ the company if found, undef otherwise
 =cut
 
 sub find_company($org_ref, $contact_id = undef) {
+	# escape % and _ in org name, because of the ilike operator
+	my $org_name =~ s/([%_])/\\$1/g;
 	# 1. & 3. merged in one query
 	my $companies = make_odoo_request(
 		'res.partner',
@@ -314,12 +331,13 @@ sub find_company($org_ref, $contact_id = undef) {
 				'&', ['is_company', '=', 1],
 				'|', ['x_off_org_id', '=', $org_ref->{org_id}],
 				'&',
-				['name', '=', $org_ref->{name}],
+				['name', '=ilike', $org_name],
 				['x_off_org_id', 'like', '0']
 			]
 		],
 		{fields => ['name', 'id', 'x_off_org_id', 'is_company'], order => 'create_date ASC'}
 	);
+	return if not defined $companies;
 	my $company = $companies->[0];
 	# 1.
 	if (    defined $contact_id
@@ -328,6 +346,7 @@ sub find_company($org_ref, $contact_id = undef) {
 	{
 		# find the company of the contact
 		my $req = make_odoo_request('res.partner', 'read', [$contact_id], {fields => ['name', 'id', 'parent_id']});
+		return if not defined $req;
 		# check if the company has no off_org_id
 		my $contact = $req->[0];
 
@@ -369,7 +388,7 @@ sub create_company ($org_ref) {
 		phone => $org_ref->{phone},
 		email => $org_ref->{email},
 		website => $org_ref->{website},
-		category_id => [$Odoo_tags{Producer}],    # "Producer" category id in Odoo
+		category_id => [$crm_data->{tags}{Producer}],    # "Producer" category id in Odoo
 		is_company => 1,
 		x_off_org_id => $org_ref->{org_id},
 		x_off_main_contact => $main_contact_user_ref->{crm_user_id},
@@ -404,10 +423,9 @@ sub add_contact_to_company($contact_id, $company_id) {
 	return $result;
 }
 
-=head2 create_opportunity ($name, $partner_id)
+=head2 create_onboarding_opportunity ($name, $company_id, $contact_id)
 
-create an opportunity attached to a partner 
-and named after the organization
+create an opportunity attached to a 
 
 =head3 Arguments
 
@@ -426,8 +444,9 @@ the id of the created opportunity
 
 =cut
 
-sub create_opportunity ($name, $partner_id) {
-	my $opportunity_id = make_odoo_request('crm.lead', 'create', [{name => $name, partner_id => $partner_id}]);
+sub create_onboarding_opportunity ($name, $company_id, $contact_id) {
+	my $opportunity_id = make_odoo_request('crm.lead', 'create',
+		[{name => $name, partner_id => $contact_id, tag_ids => [[$commands{link}, $crm_data->{tags}{onboarding}]]}]);
 	$log->debug("create_opportunity", {opportunity_id => $opportunity_id}) if $log->is_debug();
 	return $opportunity_id;
 }
@@ -466,6 +485,14 @@ sub add_user_to_company($user_id, $company_id) {
 	return $contact_id;
 }
 
+sub remove_user_from_company($user_id, $company_id) {
+	my $user_ref = retrieve_user($user_id);
+	my $req = make_odoo_request('res.partner', 'write',
+		[[$company_id], {child_ids => [[$commands{unlink}, $user_ref->{crm_user_id}]]}]);
+	my $result = make_odoo_request('res.partner', 'write', [[$user_ref->{crm_user_id}], {parent_id => 0}]);
+	return $req;
+}
+
 =head2 change_company_main_contact ($org_ref, $user_id)
 
 Change the main contact of a company, 
@@ -500,15 +527,14 @@ sub change_company_main_contact($org_ref, $user_id) {
 	my $req_opportunity
 		= make_odoo_request('crm.lead', 'write',
 		[[$org_ref->{crm_opportunity_id}], {partner_id => $user_ref->{crm_user_id}}]);
-	return $req_opportunity if not $req_opportunity;
 
 	my $req_company
 		= make_odoo_request('res.partner', 'write',
 		[[$org_ref->{crm_org_id}], {x_off_main_contact => $user_ref->{crm_user_id}}]);
-	return $req_company if not $req_company;
+	return if not $req_company;
 
 	$log->debug("change_company_main_contact", {org_id => $org_ref->{org_id}, userid => $user_id}) if $log->is_debug();
-	return $req_opportunity;
+	return $req_company;
 }
 
 sub update_last_import_date($org_id, $time) {
@@ -590,6 +616,70 @@ sub make_odoo_request(@params) {
 	}
 
 	return $result;
+}
+
+sub init_crm_data() {
+	if (not defined $ProductOpener::Config2::crm_api_url) {
+		# Odoo CRM is not configured
+		return;
+	}
+
+	ensure_dir_created($BASE_DIRS{CACHE_TMP});
+
+	$crm_data = retrieve("$BASE_DIRS{CACHE_TMP}/crm_data.sto");
+
+	# get the tags from Odoo, oldest first
+	my $tags
+		= make_odoo_request('crm.tag', 'search_read', [[]], {fields => ['name', 'id'], order => 'create_date ASC'});
+
+	my @errors;
+	if (defined $tags) {
+		my %tags_hash;
+		foreach my $tag (@$tags) {
+			$tags_hash{$tag->{name}} = $tag->{id};
+			print STDERR "CRM - tag $tag->{name}\n";
+		}
+
+		print STDERR "CRM \n" . Dumper(%tags_hash) . "\n";
+
+		my %Odoo_tags_id;
+		foreach my $required_tag (@required_tags) {
+			if (not exists $tags_hash{$required_tag}) {
+				push @errors, "Tag `$required_tag` not found in CRM";
+				last;
+			}
+			$Odoo_tags_id{$required_tag} = $tags_hash{$required_tag};
+		}
+
+		if (scalar(@errors) == 0) {
+			$crm_data->{tags} = \%Odoo_tags_id;
+		}
+
+	}
+
+	if (not defined $tags
+		or scalar(@errors) > 0)
+	{
+		if (    not defined $crm_data
+			and not exists $crm_data->{tags}
+			and scalar(keys %{$crm_data->{tags}}) == 0)
+		{
+			die "Could not get tags from CRM and no cached data found";
+			return;
+		}
+		else {
+			die join("\n", @errors);
+			return;
+		}
+
+		$log->debug("cached data loaded", {data => $crm_data}) if $log->is_debug();
+	}
+
+	print STDERR "CRM \n" . Dumper($crm_data) . "\n";
+
+	store("$BASE_DIRS{CACHE_TMP}/crm_data.sto", $crm_data);
+
+	return;
 }
 
 1;
