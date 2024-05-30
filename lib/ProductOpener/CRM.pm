@@ -501,6 +501,8 @@ Change the main contact of a company,
 based on the associated company and contact in the CRM of the given org and user.
 Will also update the main contact of the opportunity associated with the org.
 
+If the user is not linked to a contact in the CRM, it will try to find or create it.
+
 =head3 Arguments
 
 =head4 $org_ref
@@ -526,16 +528,24 @@ sub change_company_main_contact($org_ref, $user_id) {
 
 	my $user_ref = retrieve_user($user_id);
 
-	my $req_opportunity
-		= make_odoo_request('crm.lead', 'write',
-		[[$org_ref->{crm_opportunity_id}], {partner_id => $user_ref->{crm_user_id}}]);
+	# find or create contact
+	if (not defined $user_ref->{crm_user_id}) {
+		defined add_user_to_company($user_id, $org_ref->{crm_org_id}) or return;
+		$user_ref = retrieve_user($user_id);
+	}
 
-	my $req_company
-		= make_odoo_request('res.partner', 'write',
+	# change opportunity main contact
+	if (defined $org_ref->{crm_opportunity_id}) {
+		my $req_opportunity = make_odoo_request('crm.lead', 'write',
+			[[$org_ref->{crm_opportunity_id}], {partner_id => $user_ref->{crm_user_id}}]);
+	}
+
+	# change company main contact
+	my $req_company = make_odoo_request('res.partner', 'write',
 		[[$org_ref->{crm_org_id}], {x_off_main_contact => $user_ref->{crm_user_id}}]);
-	return if not $req_company;
 
-	$log->debug("change_company_main_contact", {org_id => $org_ref->{org_id}, userid => $user_id}) if $log->is_debug();
+	$log->debug("change_company_main_contact", {org_id => $org_ref->{org_id}, userid => $user_id})
+		if $log->is_debug();
 	return $req_company;
 }
 

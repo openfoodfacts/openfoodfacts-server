@@ -23,9 +23,11 @@
 use Modern::Perl '2017';
 use utf8;
 
-# This file is used to change the old valid_org (''/on) field
-# to a 3 state field: unreviewed, accepted, rejected
-# and to add a main_contact field if it does not exist
+# This file is used
+# - to change the old valid_org (''/on) field
+#   into a field that can have one of these 3 states: unreviewed, accepted, rejected
+# - to add a main_contact field if it does not exist
+# - to add a crm_opportunity_id field if it does not exist
 
 use ProductOpener::Store qw/store/;
 use ProductOpener::Orgs qw/list_org_ids retrieve_org/;
@@ -43,6 +45,9 @@ foreach my $org_id (list_org_ids()) {
 	}
 	if (not exists $org_ref->{main_contact}) {
 		$org_ref->{main_contact} = $org_ref->{creator};
+	}
+	if (not exists $org_ref->{crm_opportunity_id}) {
+		$org_ref->{crm_opportunity_id} = undef;
 	}
 	# not using store_org to avoid triggering the odoo sync
 	store("$BASE_DIRS{ORGS}/" . $org_ref->{org_id} . ".sto", $org_ref);
