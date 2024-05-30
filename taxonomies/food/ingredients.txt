@@ -22517,7 +22517,7 @@ sv:bourbon-vaniljarom
 
 <en:natural vanilla flavouring
 en:Bourbon vanilla natural flavouring
-de:natürliches Bourbon Vanille-Aroma, naturliches Bourbon Vanille Aroma
+de:natürliches Bourbon Vanille-Aroma, naturliches Bourbon Vanille Aroma, natürliches Bourbon-Vanillearoma
 fi:luontainen Bourbon vanilja-aromi, luontainen bourbonvaniljaaromi
 fr:arôme naturel de vanille bourbon
 hr:prirodna aroma bourbon vanilije
@@ -28827,7 +28827,7 @@ pl:mini kolby kukurydzy, kukurydza baby
 en:corn fiber
 bg:царевични фибри, царевични влакнини
 cs:kukuřičná vláknina
-de:Maisfaser
+de:Maisfaser, Maisfasern
 es:fibra de maiz
 fr:Fibre de maïs
 hr:kukuruzna vlakna
@@ -41342,6 +41342,11 @@ nl:gesuikerde citroenpuree
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-citron-sucrée
 # 41 products @2018-10-01
 
+<en:lemon
+en:lemon cells
+de:Zitronenzellen
+fr:cellules de citron
+
 <en:vegetable fiber
 en:lemon fibre
 de:Zitronenfaser
@@ -41508,7 +41513,7 @@ en:lemon juice from concentrate
 bg:лимонов сок от концентрат, сок от лимон от концентрат
 cs:Citronová šťáva z koncetrátu
 da:Citronsaftkoncentrat
-de:Zitronensaft aus Zitronensaftkonzentrat
+de:Zitronensaft aus Zitronensaftkonzentrat, Zitronensaft aus Fruchtsaftkonzentrat
 es:zumo de limón a partir de concentrado, jugo de limón procedente de concentrado
 fi:sitruunamehu tiivisteestä, sitruunatäysmehu tiivisteestä, tiivisteestä valmistettu sitruunatäysmehu
 fr:jus de citron à base de concentré, jus de citron reconstitué, jus de citron à partir de concentré, jus de citron à base de jus concentré, jus de citron reconstitué à base de concentré
@@ -46580,7 +46585,7 @@ pl:koncentrat soku truskawkowego, zagęszczony sok z truskawki
 <en:strawberry juice concentrate
 en:strawberry juice from concentrate
 bg:сок от ягода от концентрат
-de:Erdbeersaft aus Konzentrat, erdbeersaft aus erdbeersaftkonzentrat
+de:Erdbeersaft aus Konzentrat, Erdbeersaft aus Erdbeersaftkonzentrat, Erdbeersaft aus Fruchtsaftkonzentrat
 fi:mansikkamehu tiivisteestä, tiivisteestä valmistettu mansikkatäysmehu
 fr:jus de fraise à base de concentré
 nl:geconcentreerd aardbeiensap
@@ -85368,6 +85373,9 @@ fr:concentré colorant
 # <en:compound
 de:färbende Frucht- und Pflanzenkonzentrate
 
+# <en:compound
+de:färbende Gemüsekonzentrate
+
 # description:en:CONCENTRATE is the form of substance which has had the majority of its base component (in the case of a liquid: the solvent) removed
 
 # <en:part
@@ -85675,6 +85683,11 @@ nl:erwtenvezel, erwtvezel
 pl:błonnik grochowy, błonnik grochu
 ro:fibre de mazare
 # ingredient/fr:fibre-de-pois has 173 products in 7 languages @2019-04-21
+
+<en:vegetable fiber
+en:chickpea fiber
+de:Kichererbsenfaser, Kichererbsenfasern
+fr:fibre de pois chiche, fibres de pois chiche
 
 <en:vegetable fiber
 en:sugar beet fibre, sugar beet fiber
