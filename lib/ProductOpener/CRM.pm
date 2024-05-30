@@ -139,7 +139,10 @@ sub link_user_with_contact($user_ref, $contact_id) {
 		'write',
 		[
 			[$contact_id],
-			{x_off_username => $user_ref->{userid}, category_id => [[$commands{link}, $crm_data->{tags}{Producer}]]}
+			{
+				x_off_username => $user_ref->{userid},
+				category_id => [[$commands{link}, $crm_data->{category}{Producer}]]
+			}
 		]
 	);
 	$log->debug("link_user_with_contact", {user_id => $user_ref->{userid}, res => $req}) if $log->is_debug();
@@ -198,14 +201,12 @@ the id of the created contact
 
 sub create_contact ($user_ref) {
 
-	$log->debug("create_contact", {crm_data => $crm_data}) if $log->is_debug();
-
 	my $contact = {
 		name => $user_ref->{name},
 		x_off_username => $user_ref->{userid},
 		email => $user_ref->{email},
 		phone => $user_ref->{phone},
-		category_id => [$crm_data->{tags}{Producer}],
+		category_id => [$crm_data->{category}{Producer}],
 	};
 
 	# find country code id in Odoo
@@ -292,7 +293,7 @@ sub link_org_with_company($org_ref, $company_id) {
 			[$company_id],
 			{
 				x_off_org_id => $org_ref->{org_id},
-				category_id => [[$commands{link}, $crm_data->{tags}{Producer}]],
+				category_id => [[$commands{link}, $crm_data->{category}{Producer}]],
 				x_off_main_contact => $user_ref->{crm_user_id}
 			}
 		]
@@ -389,7 +390,7 @@ sub create_company ($org_ref) {
 		phone => $org_ref->{phone},
 		email => $org_ref->{email},
 		website => $org_ref->{website},
-		category_id => [$crm_data->{tags}{Producer}],    # "Producer" category id in Odoo
+		category_id => [$crm_data->{category}{Producer}],    # "Producer" category id in Odoo
 		is_company => 1,
 		x_off_org_id => $org_ref->{org_id},
 		x_off_main_contact => $main_contact_user_ref->{crm_user_id},
@@ -447,7 +448,7 @@ the id of the created opportunity
 
 sub create_onboarding_opportunity ($name, $company_id, $contact_id) {
 	my $opportunity_id = make_odoo_request('crm.lead', 'create',
-		[{name => $name, partner_id => $contact_id, tag_ids => [[$commands{link}, $crm_data->{tags}{onboarding}]]}]);
+		[{name => $name, partner_id => $contact_id, tag_ids => [[$commands{link}, $crm_data->{tag}{onboarding}]]}]);
 	$log->debug("create_opportunity", {opportunity_id => $opportunity_id}) if $log->is_debug();
 	return $opportunity_id;
 }
@@ -624,9 +625,9 @@ sub make_odoo_request(@params) {
 Initialize the CRM data from Odoo.
 It is called by lib/startup_apache.pl startup script
 
-=head4 die if some taxonomies cannot be loaded $die_if_some_taxonomies_cannot_be_loaded
+=head4 die if CRM data cannot be loaded
 
-# Die if CRM env vars are set and required data cannot be loaded from cache or fetched from CRM
+# Die if CRM environment variables are set and required data cannot be loaded from cache or fetched from CRM
 
 =cut
 
@@ -637,58 +638,36 @@ sub init_crm_data() {
 	}
 
 	ensure_dir_created($BASE_DIRS{CACHE_TMP});
-
 	$crm_data = retrieve("$BASE_DIRS{CACHE_TMP}/crm_data.sto");
 
-	my $tmp_crm_data = {};
 	eval {
-		# Tag
-		my $tags
-			= make_odoo_request('crm.tag', 'search_read', [[]], {fields => ['name', 'id'], order => 'create_date ASC'});
-		defined $tags or die "CRM did not return tags";
-
-		my %odoo_tag_id;
-		foreach my $tag (@$tags) {
-			$odoo_tag_id{$tag->{name}} = $tag->{id};
-		}
-
-		foreach my $tag_label (@required_tag_labels) {
-			if (not exists $odoo_tag_id{$tag_label}) {
-				die "Tag `$tag_label` not found in CRM";
-			}
-			$tmp_crm_data->{tags}{$tag_label} = $odoo_tag_id{$tag_label};
-		}
-
-		# Category
-		my $categories = make_odoo_request('res.partner.category', 'search_read', [[]],
-			{fields => ['name', 'id'], order => 'create_date ASC'});
-		defined $categories or die "CRM did not return categories";
-
-		my %odoo_category_id;
-		foreach my $category (@$categories) {
-			$odoo_category_id{$category->{name}} = $category->{id};
-		}
-
-		my %required_category_id;
-		foreach my $category_label (@required_category_labels) {
-			if (not exists $odoo_category_id{$category_label}) {
-				die "Category `$category_label` not found in CRM";
-			}
-			$tmp_crm_data->{category}{$category_label} = $odoo_category_id{$category_label};
-		}
-
+		my $tmp_crm_data = {};
+		$tmp_crm_data->{tag} = _load_crm_data('crm.tag', \@required_tag_labels);
+		$tmp_crm_data->{category} = _load_crm_data('res.partner.category', \@required_category_labels);
 		$crm_data = $tmp_crm_data;
 	} or do {
-		print STDERR "Failed to load CRM data from Odoo: $@\n";
-		if (not defined $crm_data) {
-			die "Could not load CRM data from cache";
-		}
-		print STDERR "CRM data loaded from cache\n";
+		$log->error("Failed to load CRM data from Odoo: $@");
+		die "Could not load CRM data from cache" if not defined $crm_data;
+		$log->warn("CRM data loaded from cache");
 	};
 
 	store("$BASE_DIRS{CACHE_TMP}/crm_data.sto", $crm_data);
 
 	return;
+}
+
+sub _load_crm_data($model, $required_labels) {
+
+	my $records
+		= make_odoo_request($model, 'search_read', [[]], {fields => ['name', 'id'], order => 'create_date ASC'});
+	die "CRM did not return records for $model" if not defined $records;
+
+	my %record_id = map {$_->{name} => $_->{id}} @$records;
+	foreach my $label (@$required_labels) {
+		die "Label `$label` not found in CRM for $model" if not exists $record_id{$label};
+	}
+
+	return {map {$_ => $record_id{$_}} @$required_labels};
 }
 
 1;

@@ -41,7 +41,7 @@ foreach my $org_id (list_org_ids()) {
 			$org_ref->{valid_org} = 'unreviewed';
 		}
 	}
-	if (not exists $org->{main_contact}) {
+	if (not exists $org_ref->{main_contact}) {
 		$org_ref->{main_contact} = $org_ref->{creator};
 	}
 	# not using store_org to avoid triggering the odoo sync
