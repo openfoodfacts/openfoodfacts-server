@@ -38,6 +38,9 @@ For clarity:
 	- tags => crm.tag
 	- category => res.partner.category
 
+Requirements before enabling CRM sync:
+	- check required_tag_labels and required_category_labels
+
 =cut
 
 package ProductOpener::CRM;
@@ -72,15 +75,13 @@ use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created/;
 use ProductOpener::Store qw/retrieve store/;
 use XML::RPC;
 use Log::Any qw($log);
-use Data::Dumper;
 
 my $crm_data;
-# Tags (crm.tag) must be defined in Odoo
-# CRM > Configuration > Tags
-# Get the ids with :
-# odoo('res.partner.category', 'search_read', [[]], { 'fields' => ['name', 'id']});
-my @required_tags = qw(onboarding);
-my @required_categories = qw(Producer);
+# Tags (crm.tag) must be defined in Odoo: CRM > Configuration > Tags
+my @required_tag_labels = qw(onboarding);
+# Category (res.partner.category) must be defined in Odoo :
+# Contact > contact (individual or company) form > Tags field > "Search More"
+my @required_category_labels = qw(Producer);
 
 # special commands to manipulate Odoo relation One2Many and Many2Many
 # see https://www.odoo.com/documentation/15.0/developer/reference/backend/orm.html#odoo.fields.Command
@@ -618,6 +619,17 @@ sub make_odoo_request(@params) {
 	return $result;
 }
 
+=head2 init_crm_data()
+
+Initialize the CRM data from Odoo.
+It is called by lib/startup_apache.pl startup script
+
+=head4 die if some taxonomies cannot be loaded $die_if_some_taxonomies_cannot_be_loaded
+
+# Die if CRM env vars are set and required data cannot be loaded from cache or fetched from CRM
+
+=cut
+
 sub init_crm_data() {
 	if (not defined $ProductOpener::Config2::crm_api_url) {
 		# Odoo CRM is not configured
@@ -628,54 +640,51 @@ sub init_crm_data() {
 
 	$crm_data = retrieve("$BASE_DIRS{CACHE_TMP}/crm_data.sto");
 
-	# get the tags from Odoo, oldest first
-	my $tags
-		= make_odoo_request('crm.tag', 'search_read', [[]], {fields => ['name', 'id'], order => 'create_date ASC'});
+	my $tmp_crm_data = {};
+	eval {
+		# Tag
+		my $tags
+			= make_odoo_request('crm.tag', 'search_read', [[]], {fields => ['name', 'id'], order => 'create_date ASC'});
+		defined $tags or die "CRM did not return tags";
 
-	my @errors;
-	if (defined $tags) {
-		my %tags_hash;
+		my %odoo_tag_id;
 		foreach my $tag (@$tags) {
-			$tags_hash{$tag->{name}} = $tag->{id};
-			print STDERR "CRM - tag $tag->{name}\n";
+			$odoo_tag_id{$tag->{name}} = $tag->{id};
 		}
 
-		print STDERR "CRM \n" . Dumper(%tags_hash) . "\n";
-
-		my %Odoo_tags_id;
-		foreach my $required_tag (@required_tags) {
-			if (not exists $tags_hash{$required_tag}) {
-				push @errors, "Tag `$required_tag` not found in CRM";
-				last;
+		foreach my $tag_label (@required_tag_labels) {
+			if (not exists $odoo_tag_id{$tag_label}) {
+				die "Tag `$tag_label` not found in CRM";
 			}
-			$Odoo_tags_id{$required_tag} = $tags_hash{$required_tag};
+			$tmp_crm_data->{tags}{$tag_label} = $odoo_tag_id{$tag_label};
 		}
 
-		if (scalar(@errors) == 0) {
-			$crm_data->{tags} = \%Odoo_tags_id;
+		# Category
+		my $categories = make_odoo_request('res.partner.category', 'search_read', [[]],
+			{fields => ['name', 'id'], order => 'create_date ASC'});
+		defined $categories or die "CRM did not return categories";
+
+		my %odoo_category_id;
+		foreach my $category (@$categories) {
+			$odoo_category_id{$category->{name}} = $category->{id};
 		}
 
-	}
-
-	if (not defined $tags
-		or scalar(@errors) > 0)
-	{
-		if (    not defined $crm_data
-			and not exists $crm_data->{tags}
-			and scalar(keys %{$crm_data->{tags}}) == 0)
-		{
-			die "Could not get tags from CRM and no cached data found";
-			return;
-		}
-		else {
-			die join("\n", @errors);
-			return;
+		my %required_category_id;
+		foreach my $category_label (@required_category_labels) {
+			if (not exists $odoo_category_id{$category_label}) {
+				die "Category `$category_label` not found in CRM";
+			}
+			$tmp_crm_data->{category}{$category_label} = $odoo_category_id{$category_label};
 		}
 
-		$log->debug("cached data loaded", {data => $crm_data}) if $log->is_debug();
-	}
-
-	print STDERR "CRM \n" . Dumper($crm_data) . "\n";
+		$crm_data = $tmp_crm_data;
+	} or do {
+		print STDERR "Failed to load CRM data from Odoo: $@\n";
+		if (not defined $crm_data) {
+			die "Could not load CRM data from cache";
+		}
+		print STDERR "CRM data loaded from cache\n";
+	};
 
 	store("$BASE_DIRS{CACHE_TMP}/crm_data.sto", $crm_data);
 

@@ -76,13 +76,13 @@ sub load_data() {
 	$log->debug("loading data - start") if $log->is_debug();
 	print STDERR "load_data - start\n";
 
+	init_crm_data();    # Die if CRM is configured and, required data cannot be loaded from cache or fetched from CRM
 	init_taxonomies(1);    # Die if some taxonomies cannot be loaded
 	init_emb_codes();
 	init_packager_codes();
 	init_geocode_addresses();
 	init_packaging_taxonomies_regexps();
 	load_scans_data();
-	init_crm_data();
 
 	if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
 		load_agribalyse_data();

@@ -25,6 +25,7 @@ use utf8;
 
 # This file is used to change the old valid_org (''/on) field
 # to a 3 state field: unreviewed, accepted, rejected
+# and to add a main_contact field if it does not exist
 
 use ProductOpener::Store qw/store/;
 use ProductOpener::Orgs qw/list_org_ids retrieve_org/;
@@ -32,7 +33,6 @@ use ProductOpener::Paths qw/%BASE_DIRS/;
 
 foreach my $org_id (list_org_ids()) {
 	my $org_ref = retrieve_org($org_id);
-	# print "org_id: $org_id, is: $org->{valid_org}\n";
 	if (exists $org_ref->{valid_org}) {
 		if ($org_ref->{valid_org} eq 'on') {
 			$org_ref->{valid_org} = 'accepted';
