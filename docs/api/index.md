@@ -91,7 +91,7 @@ We however ask that you send the `app_name`, `app_version` and `app_uuid` parame
 
 > Production and staging have different account databases, so **the account you create in the production environment will only work for production requests**. If you want to query (WRITE requests) the staging environment, you'll need to create another account there too.
 
-> Note: we're currently moving to a modern Auth system (Keycloak), so we will other new Auth options, hopefully this year.
+> Note: we're currently moving to a modern Auth system (Keycloak), so we will have new Auth options, hopefully this year.
 
 ## Reference Documentation (OpenAPI)
 
