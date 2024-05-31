@@ -200,13 +200,11 @@ sub store_org ($org_ref) {
 			}
 		}
 	}
-
-	if ($previous_org_ref->{valid_org} eq 'accepted') {
-		# update main contact in CRM if changed
-		if (exists $org_ref->{main_contact} and $org_ref->{main_contact} ne $previous_org_ref->{main_contact}) {
-			if (not change_company_main_contact($previous_org_ref, $org_ref->{main_contact})) {
-				$org_ref->{main_contact} = $previous_org_ref->{main_contact};
-			}
+	
+	if (exists $org_ref->{main_contact} and $org_ref->{main_contact} ne $previous_org_ref->{main_contact}) {
+		# so we don't lose sync with CRM if main contact cannot be changed
+		if (not change_company_main_contact($previous_org_ref, $org_ref->{main_contact})) { 
+			$org_ref->{main_contact} = $previous_org_ref->{main_contact};
 		}
 	}
 
