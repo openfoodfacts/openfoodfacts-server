@@ -3808,7 +3808,7 @@ sub display_tag ($request_ref) {
 
 	my $weblinks_html = '';
 	my @wikidata_objects = ();
-	if (    ($tagtype ne 'additives')
+	if (    (defined $tagtype && $tagtype ne 'additives')
 		and (not defined $request_ref->{groupby_tagtype}))
 	{
 		my @weblinks = ();
