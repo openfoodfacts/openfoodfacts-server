@@ -497,8 +497,7 @@ sub remove_user_from_company($user_id, $company_id) {
 
 =head2 change_company_main_contact ($org_ref, $user_id)
 
-Change the main contact of a company, 
-based on the associated company and contact in the CRM of the given org and user.
+Change the main contact of a company
 Will also update the main contact of the opportunity associated with the org.
 
 If the user is not linked to a contact in the CRM, it will try to find or create it.
@@ -506,6 +505,8 @@ If the user is not linked to a contact in the CRM, it will try to find or create
 =head3 Arguments
 
 =head4 $org_ref
+
+The given organization must have a crm_org_id
 
 =head4 $user_id 
 
@@ -656,9 +657,9 @@ sub init_crm_data() {
 		$tmp_crm_data->{category} = _load_crm_data('res.partner.category', \@required_category_labels);
 		$crm_data = $tmp_crm_data;
 	} or do {
-		$log->error("Failed to load CRM data from Odoo: $@");
+		print STDERR "Failed to load CRM data from Odoo: $@\n";
 		die "Could not load CRM data from cache" if not defined $crm_data;
-		$log->warn("CRM data loaded from cache");
+		print STDERR "CRM data loaded from cache";
 	};
 
 	store("$BASE_DIRS{CACHE_TMP}/crm_data.sto", $crm_data);

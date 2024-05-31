@@ -46,9 +46,6 @@ foreach my $org_id (list_org_ids()) {
 	if (not exists $org_ref->{main_contact}) {
 		$org_ref->{main_contact} = $org_ref->{creator};
 	}
-	if (not exists $org_ref->{crm_opportunity_id}) {
-		$org_ref->{crm_opportunity_id} = undef;
-	}
 	# not using store_org to avoid triggering the odoo sync
 	store("$BASE_DIRS{ORGS}/" . $org_ref->{org_id} . ".sto", $org_ref);
 }
