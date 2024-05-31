@@ -200,12 +200,12 @@ sub store_org ($org_ref) {
 			}
 		}
 	}
-	
-	if (defined $org_ref->{crm_org_id} 
-		and exists $org_ref->{main_contact} 
+
+	if (    defined $org_ref->{crm_org_id}
+		and exists $org_ref->{main_contact}
 		and $org_ref->{main_contact} ne $previous_org_ref->{main_contact}
-		and not change_company_main_contact($previous_org_ref, $org_ref->{main_contact})
-		) {
+		and not change_company_main_contact($previous_org_ref, $org_ref->{main_contact}))
+	{
 		# so we don't lose sync with CRM if main contact cannot be changed
 		$org_ref->{main_contact} = $previous_org_ref->{main_contact};
 	}
