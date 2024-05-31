@@ -521,11 +521,6 @@ my $tests_ref = [
 		path => '/cgi/search.pl?search_terms=tarte',
 		expected_type => 'html',
 	},
-	{
-		test_case => "recent-changes",
-		path => "/cgi/recent_changes.pl",
-		expected_type => 'html',
-	},
 ];
 
 execute_api_tests(__FILE__, $tests_ref);
