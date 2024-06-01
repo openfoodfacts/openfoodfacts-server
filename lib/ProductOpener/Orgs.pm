@@ -69,9 +69,8 @@ use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created/;
 use ProductOpener::Mail qw/:all/;
 use ProductOpener::Lang qw/lang/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::Tags qw/:all/;
-use ProductOpener::Data qw/:all/;
 use ProductOpener::Tags qw/canonicalize_tag_link/;
+use ProductOpener::Data qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
