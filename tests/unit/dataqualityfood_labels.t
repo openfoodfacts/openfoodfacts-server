@@ -810,4 +810,17 @@ check_quality_and_test_product_has_quality_tag(
 	'label should not be triggered for waters category', 0
 );
 
+# check opposites labels, labels that should not appear at the same time on the same product
+$product_ref = {labels_tags => ["en:pasteurized", "en:unpasteurized", "en:vegetarian"],};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:mutually-exclusive-labels-en:non-vegetarian-and-en:vegetarian',
+	'having these labels should NOT trigger facet', 0
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:mutually-exclusive-labels-en:pasteurized-and-en:unpasteurized',
+	'having these two labels should trigger facet', 1
+);
+
 done_testing();

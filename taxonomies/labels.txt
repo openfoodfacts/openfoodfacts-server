@@ -9,6 +9,14 @@
 # Note: ingredients:en: should list only 1 ingredient, while origins:en: can list multiple origins.
 # Supporting multiple ingredients is doable but would require code changes.
 
+# if two labels oppose from each other, they can be assined the property 'opposite:en:'
+# for example 
+# en:No GMOs
+# etc.
+# opposite:en: en:contains-gmos
+# Careful: it should be the same main tag, not a synonym
+# Remark: add the property to the highest parent
+
 stopwords:en:ingredients, agricultural, from, with, of, by, the, verified, certified, approved, 100%, pure, guaranty, guaranteed, product guaranteed, product certified, standard, during, period, phase, label, mark, logo
 stopwords:bg:съставки, земеделие, от, с, контролиран, сертифициран, 100%, натурален, гарантиран, продуктheart
 
@@ -4016,7 +4024,7 @@ pt:Sem aditivos, sem aditivo
 th:ไม่มีสารเติมแต่ง
 tr:Katkı Maddesi yok
 label_categories:en: en:Health, en:Additives
-opposite:en: en:With additives
+opposite:en: en:with-additives
 
 en:With additives
 bg:С добавки
@@ -4030,7 +4038,7 @@ nl:Met toevoegingen
 pl:Z dodatkami
 pt:Com aditivos
 ru:С добавками
-opposite:en: en:No additives
+opposite:en: en:no-additives
 
 #instruction:en:Do NOT change the english key.
 en:No artificial additives
@@ -4071,7 +4079,7 @@ nl:Alcoholvrij, Zonder alchohol
 pl:Bez alkoholu
 pt:Sem álcool, 0% álcool
 th:ไม่มีแอลกอฮอล์
-opposite:en: en:contains alcohol
+opposite:en: en:contains-alcohol
 
 en:Contains alcohol
 bg:Съдържа алкохол
@@ -4598,7 +4606,7 @@ pt:Sem OGM, Sem Organismos Geneticamente Modificados
 ru:Без ГМО, Без использования ГМО, Не содержит ГМО
 th:ไม่มีจีเอ็มโอ
 label_categories:en: en:Health, en:Environment
-opposite:en: en:Contains GMOs
+opposite:en: en:contains-gmos
 
 en:Contains GMOs, with GMOs
 bg:Съдържа ГМО, с ГМО
@@ -4613,7 +4621,7 @@ pl:Zawiera GMO, z GMO
 pt:Contém OGMs, com OGMs, contém OGM, com OGM, Com Organismos Geneticamente Modificados, Contém Organismos Geneticamente Modificados, feito Organismos Geneticamente Modificados, feito com OGM
 th:มีส่วนผสมจีเอ็มโอ
 label_categories:en: en:Health, en:Environment
-opposite:en: en:No GMOs
+opposite:en: en:no-gmos
 
 <en:No GMOs
 en:Non GMO project
@@ -19630,6 +19638,7 @@ description:fr:Le végétarisme est une pratique alimentaire qui exclut la conso
 description:nl:Vegetarisme is de voedingswijze waarbij men geen vlees eet (inclusief gevogelte, vis, schaaldieren en insecten). Bijproducten van geslachte dieren, zoals dierlijk stremsel in kaas en gelatine in snoep en pudding, wordt door sommigen eveneens uit de voeding weggelaten.
 description:pt:O vegetarianismo é um regime alimentar que tem como princípio deixar de consimur qualquer tipo de carne ou pescado ou derivados destes como ovos e leite de vaca.
 descrption:it:Il vegetarianismo designa, nell'ambito della nutrizione umana, un insieme di diverse pratiche alimentari, accomunate dalla limitazione o dall'esclusione di parte o del totale degli alimenti di origine animale, che danno luogo a diete basate in prevalenza su alimenti di origine vegetale.
+opposite:en: en:non-vegetarian
 wikidata:en:Q638022
 wikipedia:en:Vegetarianism
 
@@ -22588,7 +22597,7 @@ en:Unfiltered, cloudy
 bg:Нефилтрирано
 de:Trüb, Naturtrüb
 es:Sin filtrar, turbia
-opposite:en: en:Filtered
+opposite:en: en:filtered
 
 en:Filtered
 bg:Филтрирано

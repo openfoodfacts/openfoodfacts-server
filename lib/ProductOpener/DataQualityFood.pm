@@ -2696,6 +2696,49 @@ sub check_food_groups ($product_ref) {
 	return;
 }
 
+=head2 check_opposite_tags( PRODUCT_REF )
+
+Checks if 2 opposite tags are assigned to the product
+
+To include more tags to this check, 
+add the property "opposite:en" 
+at the end of code block in the taxonomy
+
+Example:
+en:Non-fair trade, Not fair trade
+fr:Non issu du commerce équitable
+opposite:en: en:fair-trade
+
+=cut
+
+sub check_opposite_tags ($product_ref) {
+
+	# list of tags having 'opposite' properties
+	my @tags_to_check = ("labels", "categories");
+
+	foreach my $tag_to_check (@tags_to_check) {
+
+		my $opposites_hash = get_all_tags_having_property($product_ref, $tag_to_check, "opposite:en");
+
+		foreach my $key (keys %{$opposites_hash}) {
+			foreach my $value (values %{$opposites_hash}) {
+				if ($value eq $key) {
+					# sort in alphabetical order to avoid facet a-b and facet b-a
+					my @opposite_tags = sort ($opposites_hash->{$key}, $key);
+
+					my $tag_a = substr($opposite_tags[0], 3);
+					my $tag_b = substr($opposite_tags[1], 3);
+
+					add_tag($product_ref, "data_quality_warnings",
+						"en:mutually-exclusive-$tag_to_check-$tag_a-and-$tag_b");
+				}
+			}
+		}
+	}
+
+	return;
+}
+
 =head2 check_quality_food( PRODUCT_REF )
 
 Run all quality checks defined in the module.
@@ -2719,6 +2762,7 @@ sub check_quality_food ($product_ref) {
 	compare_nutriscore_with_value_from_producer($product_ref);
 	check_ecoscore_data($product_ref);
 	check_food_groups($product_ref);
+	check_opposite_tags($product_ref);
 
 	return;
 }
