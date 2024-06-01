@@ -857,17 +857,16 @@ is(get_knowledge_content("additives", "en:e100", "en", "world"), undef);
 
 # get_all_tags_having_property
 $product_ref = {
-	'labels_tags' =>
-		['en:fair-trade', 'en:non-fair-trade',],
+	'labels_tags' => ['en:fair-trade', 'en:non-fair-trade',],
 	lc => 'en',
 	lang => 'en',
 };
 is(
-    get_all_tags_having_property($product_ref, "labels", "opposite:en"), 
-    {
+	get_all_tags_having_property($product_ref, "labels", "opposite:en"),
+	{
 		'en:fair-trade' => 'en:non-fair-trade',
 		'en:non-fair-trade' => 'en:fair-trade',
-	});
-
+	}
+);
 
 done_testing();
