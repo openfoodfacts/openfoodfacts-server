@@ -168,10 +168,10 @@ sub store_org ($org_ref) {
 	}
 
 	# Store to MongoDB
-    my $orgs_collection = get_orgs_collection();
-    $orgs_collection->replace_one({"org_id" => $org_ref->{org_id}}, $org_ref, {upsert => 1});
+	my $orgs_collection = get_orgs_collection();
+	$orgs_collection->replace_one({"org_id" => $org_ref->{org_id}}, $org_ref, {upsert => 1});
 
-	# Store to file	
+	# Store to file
 	store("$BASE_DIRS{ORGS}/" . $org_ref->{org_id} . ".sto", $org_ref);
 
 	return;
