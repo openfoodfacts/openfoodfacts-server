@@ -25,11 +25,11 @@ use ProductOpener::PerlStandards;
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Products qw/:all/;
-use ProductOpener::Display qw/:all/;
-use ProductOpener::Users qw/:all/;
+use ProductOpener::Products qw/normalize_code product_id_for_owner product_path_from_id/;
+use ProductOpener::Display qw/init_request single_param/;
+use ProductOpener::Users qw/$Owner_id/;
 
 use Apache2::Const qw(OK HTTP_BAD_REQUEST HTTP_NOT_FOUND HTTP_INTERNAL_SERVER_ERROR);
 use CGI qw/:cgi :form escapeHTML/;

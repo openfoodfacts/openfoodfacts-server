@@ -3,10 +3,10 @@
 use Modern::Perl '2017';
 use utf8;
 
-use Test::More;
+use Test2::V0;
 use Log::Any::Adapter 'TAP';
 
-use ProductOpener::Text qw/:all/;
+use ProductOpener::Text qw/normalize_percentages remove_email/;
 
 # Patterns according to Unicode CDLR v29
 # Pattern	# Locales using it

@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2024 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -18,6 +18,8 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+## no critic (RequireFilenameMatchesPackage);
+
 package ProductOpener::Config;
 
 use utf8;
@@ -27,6 +29,8 @@ use Exporter qw< import >;
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
+		$flavor
+
 		%string_normalization_for_lang
 		%admins
 
@@ -55,6 +59,8 @@ BEGIN {
 		$events_username
 		$events_password
 
+		$rate_limiter_blocking_enabled
+
 		$facets_kp_url
 		$redis_url
 
@@ -71,8 +77,6 @@ BEGIN {
 		$small_size
 		$display_size
 		$zoom_size
-
-		$page_size
 
 		%options
 		%server_options
@@ -100,6 +104,8 @@ use vars @EXPORT_OK;    # no 'my' keyword for these
 
 use ProductOpener::Config2;
 
+$flavor = 'off';
+
 # define the normalization applied to change a string to a tag id (in particular for taxonomies)
 # tag ids are also used in URLs.
 
@@ -109,6 +115,8 @@ use ProductOpener::Config2;
 # - dangerous if different words (in the same context like ingredients or category names) have the same unaccented form
 # lowercase:
 # - useful when the same word appears in lowercase, with a first capital letter, or in all caps.
+
+# IMPORTANT: if you change it, you need to change $BUILD_TAGS_VERSION in Tags.pm
 
 %string_normalization_for_lang = (
 	# no_language is used for strings that are not in a specific language (e.g. user names)
@@ -182,7 +190,33 @@ use ProductOpener::Config2;
 	teolemon
 );
 
+%options = (
+	site_name => "Open Food Facts",
+	product_type => "food",
+	og_image_url => "https://static.openfoodfacts.org/images/logos/off-logo-vertical-white-social-media-preview.png",
+	android_apk_app_link => "https://world.openfoodfacts.org/files/off.apk",
+	android_app_link => "https://world.openfoodfacts.org/files/off.apk",
+	ios_app_link => "https://apps.apple.com/app/open-food-facts/id588797948",
+	facebook_page_url => "https://www.facebook.com/OpenFoodFacts",
+	facebook_page_url_fr => "https://www.facebook.com/OpenFoodFacts.fr",
+	twitter_account => "OpenFoodFacts",
+	twitter_account_fr => "OpenFoodFactsFr",
+);
+
 $options{export_limit} = 10000;
+
+# Recent changes limits
+$options{default_recent_changes_page_size} = 20;
+$options{max_recent_changes_page_size} = 1000;
+
+# List of products limits
+$options{default_api_products_page_size} = 20;
+$options{default_web_products_page_size} = 50;
+$options{max_products_page_size} = 100;
+
+# List of tags limits
+$options{default_tags_page_size} = 100;
+$options{max_tags_page_size} = 1000;
 
 $options{users_who_can_upload_small_images} = {
 	map {$_ => 1}
@@ -193,8 +227,6 @@ $options{users_who_can_upload_small_images} = {
 		teolemon
 		)
 };
-
-$options{product_type} = "food";
 
 # edit rules
 # see ProductOpener::Products::process_product_edit_rules for documentation
@@ -414,6 +446,10 @@ $redis_url = $ProductOpener::Config2::redis_url;
 # Facets knowledge panels url
 $facets_kp_url = $ProductOpener::Config2::facets_kp_url;
 
+# If $rate_limiter_blocking_enabled is set to 1, the rate limiter will block requests
+# by returning a 429 error code instead of a 200 code
+$rate_limiter_blocking_enabled = $ProductOpener::Config2::rate_limiter_blocking_enabled;
+
 # server options
 
 %server_options = %ProductOpener::Config2::server_options;
@@ -431,8 +467,6 @@ $crop_size = 400;
 $small_size = 200;
 $display_size = 400;
 $zoom_size = 800;
-
-$page_size = 24;
 
 $google_analytics = <<HTML
 <!-- Matomo -->
@@ -1591,5 +1625,17 @@ $options{sample_product_code} = "093270067481501";    # A good product for you -
 #$options{sample_product_code_country_uk} = "5060042641000"; # Tyrrell's lighty salted chips
 #$options{sample_product_code_language_de} = "20884680"; # Waffeln Sondey
 #$options{sample_product_code_country_at_language_de} = "5411188119098"; # Natur miss kokosnuss Alpro
+
+## Rate limiting ##
+
+# Number of requests per minutes for the search API
+$options{rate_limit_search} = 10;
+# Number of requests per minutes for the product API
+$options{rate_limit_product} = 100;
+
+# Rate limit allow list
+$options{rate_limit_allow_list} = {
+	'51.210.154.203' => 1,    # OVH2
+};
 
 1;

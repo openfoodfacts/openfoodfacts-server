@@ -204,11 +204,6 @@ msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
 msgstr "APK за Android"
 
-# DO NOT TRANSLATE
-msgctxt "android_apk_app_link"
-msgid "https://world.openfoodfacts.org/files/off.apk"
-msgstr "https://world.openfoodfacts.org/files/off.apk"
-
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
 msgctxt "android_app_icon_url"
 msgid "/images/misc/playstore/img/en_get.svg"
@@ -217,11 +212,6 @@ msgstr ""
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
 msgstr "Предлага се в Google Play"
-
-# Change hl=en to your language, and make sure the url works
-msgctxt "android_app_link"
-msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en"
-msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=bg"
 
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
@@ -739,10 +729,6 @@ msgctxt "facebook_locale"
 msgid "en_US"
 msgstr "bg_BG"
 
-msgctxt "facebook_page"
-msgid "https://www.facebook.com/OpenFoodFacts"
-msgstr "https://www.facebook.com/OpenFoodFacts"
-
 msgctxt "fixme_product"
 msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
 msgstr "Ако данните са непълни или неверни, можеш да ги попълниш или коригираш, като редактираш тази страница."
@@ -829,6 +815,15 @@ msgctxt "footer_legal_link"
 msgid "/legal"
 msgstr "/legal"
 
+msgctxt "footer_privacy"
+msgid "Privacy"
+msgstr ""
+
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
+msgctxt "footer_privacy_link"
+msgid "/privacy"
+msgstr ""
+
 msgctxt "footer_press"
 msgid "Press"
 msgstr "Преса"
@@ -837,10 +832,6 @@ msgstr "Преса"
 msgctxt "footer_press_link"
 msgid "/press"
 msgstr "/press"
-
-msgctxt "footer_tagline"
-msgid "A collaborative, free and open database of food products from around the world."
-msgstr "Съвместна, безплатна и отворена база данни за съставки и информация за хранителни продукти от света."
 
 msgctxt "footer_terms"
 msgid "Terms of use"
@@ -1120,10 +1111,6 @@ msgstr "/images/misc/appstore/black/appstore_BG.svg"
 msgctxt "ios_app_icon_alt_text"
 msgid "Download on the App Store"
 msgstr "Изтегли от App Store"
-
-msgctxt "ios_app_link"
-msgid "https://apps.apple.com/app/open-food-facts/id588797948"
-msgstr ""
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
@@ -2087,8 +2074,8 @@ msgid "Select products with specific brands, categories, labels, origins of ingr
 msgstr "Избери продукти с конкретни марки, категории, етикети, произход на съставките, места на производство и т. н."
 
 msgctxt "search_description_opensearch"
-msgid "Open Food Facts product search"
-msgstr "Търсене на Open Food Facts продукт"
+msgid "Product search"
+msgstr ""
 
 msgctxt "search_does_not_contain"
 msgid "does not contain"
@@ -2380,18 +2367,6 @@ msgctxt "signout"
 msgid "Sign-out"
 msgstr "Изход"
 
-msgctxt "site_description"
-msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
-msgstr "Съвместна, безплатна и отворена база данни със съставки, хранителни стойности и информация за хранителни продукти от цял свят"
-
-msgctxt "site_name"
-msgid "Open Food Facts"
-msgstr "Open Food Facts"
-
-msgctxt "logo_site_name"
-msgid "Open Food Facts logo"
-msgstr "Open Food Facts лого"
-
 msgctxt "sort_by"
 msgid "Sort by"
 msgstr "Сортирай по"
@@ -2505,10 +2480,6 @@ msgctxt "twitter"
 msgid "Twitter username (optional)"
 msgstr "Потребителско име в Twitter (по избор)"
 
-msgctxt "twitter_account"
-msgid "OpenFoodFacts"
-msgstr "OpenFoodFactsBG"
-
 msgctxt "unknown"
 msgid "Unknown"
 msgstr "Неизвестно"
@@ -2585,6 +2556,10 @@ msgctxt "view"
 msgid "view"
 msgstr "изглед"
 
+msgctxt "view_this_revision"
+msgid "View this revision"
+msgstr ""
+
 msgctxt "view_list_for_products_from_the_entire_world"
 msgid "View the list for matching products from the entire world"
 msgstr "Вижте списъка със съвпадащи продукти от целия свят"
@@ -2606,20 +2581,6 @@ msgstr "Информацията и данните трябва да идват 
 msgctxt "website"
 msgid "Site or blog address"
 msgstr "Адрес на уебсайт или блог"
-
-# Please change English.svg to French.svg or German.svg… Check the url https://static.openfoodfacts.org/images/misc/microsoft/XXXX.svg
-msgctxt "windows_phone_app_icon_url"
-msgid "/images/misc/microsoft/English.svg"
-msgstr "/images/misc/microsoft/Bulgarian.svg"
-
-msgctxt "windows_phone_app_icon_alt_text"
-msgid "Get it from Microsoft"
-msgstr "Вземете го от Microsoft"
-
-# Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
-msgctxt "windows_phone_app_link"
-msgid "https://apps.microsoft.com/store/detail/open-food-facts-scan-to-get-nutriscore-ecoscore-and-more/XP8LT18SRPKLRG"
-msgstr ""
 
 msgctxt "you_are_connected_as_x"
 msgid "You are connected as %s."
@@ -6144,7 +6105,7 @@ msgstr "Премахнете избора на изображение"
 
 msgctxt "nutriscore_learn_more"
 msgid "Learn more about the Nutri-Score"
-msgstr "Научи повече за Nutri-Score"
+msgstr "Благодаря ти"
 
 msgctxt "ecoscore_learn_more"
 msgid "Learn more about the Eco-Score"
@@ -6223,6 +6184,10 @@ msgstr "Направи снимка на инструкциите за реци�
 msgctxt "action_add_packaging_components"
 msgid "Add packaging components"
 msgstr "Добави компоненти от опаковката"
+
+msgctxt "action_add_quantity"
+msgid "Add quantity of the product"
+msgstr ""
 
 # this is not used yet
 msgctxt "action_add_basic_details"
@@ -6584,10 +6549,6 @@ msgctxt "faq_for_producers"
 msgid "FAQ for producers"
 msgstr "ЧЗВ за производителите"
 
-msgctxt "join_the_next_pros_meet_up"
-msgid "Join the next Pros' Meet-up"
-msgstr ""
-
 # variable names between { } must not be translated
 msgctxt "product_js_enter_value_between_0_and_max"
 msgid "Please enter a value between 0 and {max}."
@@ -6815,5 +6776,141 @@ msgstr ""
 
 msgctxt "nutrient_info_proteins_benefit"
 msgid "Foods that are rich in proteins are usually rich in calcium or iron which are essential minerals with numerous health benefits."
+msgstr ""
+
+msgctxt "revert"
+msgid "Revert to this revision"
+msgstr ""
+
+msgctxt "product_js_product_revert_confirm"
+msgid "Revert to this product revision?"
+msgstr ""
+
+msgctxt "api_status_success"
+msgid "Success"
+msgstr ""
+
+msgctxt "api_status_failure"
+msgid "Failure"
+msgstr "Грешка"
+
+msgctxt "api_result_product_reverted"
+msgid "Product reverted to the specified revision"
+msgstr ""
+
+msgctxt "api_result_product_not_reverted"
+msgid "Product not reverted to the specified revision"
+msgstr ""
+
+# sweeteners (additives), plural
+msgctxt "sweeteners"
+msgid "sweeteners"
+msgstr "подсладители"
+
+# sweetener (additive), singular
+msgctxt "sweetener"
+msgid "sweetener"
+msgstr "подсладител"
+
+msgctxt "action_edit_product"
+msgid "Complete or correct product information"
+msgstr ""
+
+msgctxt "report_problem_panel_title"
+msgid "Report a problem"
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_title"
+msgid "Incomplete or incorrect information?"
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_subtitle_off"
+msgid "Category, labels, ingredients, allergens, nutritional information, photos etc."
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_content_correct"
+msgid "If the information does not match the information on the packaging, you can complete or correct it. Thank you!"
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_content_correct_off"
+msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
+msgstr ""
+
+msgctxt "description"
+msgid "Description"
+msgstr ""
+
+msgctxt "site_description_off"
+msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
+msgstr ""
+
+msgctxt "tagline_off"
+msgid "Open Food Facts gathers information and data on food products from around the world."
+msgstr "Open Food Facts събира информация и данни за хранителни продукти от цял свят."
+
+msgctxt "footer_tagline_off"
+msgid "A collaborative, free and open database of food products from around the world."
+msgstr "Съвместна, безплатна и отворена база данни за съставки и информация за хранителни продукти от света."
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_off"
+msgid "/open-food-facts-mobile-app"
+msgstr "/open-food-facts-mobile-app"
+
+msgctxt "site_description_obf"
+msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
+msgstr "Съвместна, безплатна и отворена база данни за съставки и информация за козметични продукти от света"
+
+msgctxt "tagline_obf"
+msgid "Open Beauty Facts gathers information and data on cosmetic products from around the world."
+msgstr "Open Beauty Facts събира информация и данни за козметични продукти от цял свят."
+
+msgctxt "footer_tagline_obf"
+msgid "A collaborative, free and open database of cosmetic products from around the world."
+msgstr "Съвместна, безплатна и отворена база данни за съставки и информация за козметични продукти от света."
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_obf"
+msgid "/open-beauty-facts-mobile-app"
+msgstr "/open-beauty-facts-mobile-app"
+
+msgctxt "footer_and_the_facebook_group_obf"
+msgid "and the <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">Facebook group for contributors</a>"
+msgstr "и <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">Facebook групата за сътрудници</a>"
+
+msgctxt "search_description_opensearch_obf"
+msgid "Open Beauty Facts product search"
+msgstr "Open Beauty Facts търсачка за продукти"
+
+msgctxt "warning_not_complete_obf"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
+msgstr "Тази продуктова страница не е пълна. Можеш да помогнеш, като я редактираш и добавиш повече данни от снимките, които имаме, или като направиш още снимки с помощта на приложението за <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> или <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Благодаря ти!"
+
+msgctxt "brands_example_beauty"
+msgid "Nivea, Nivea Men"
+msgstr "Nivea, Nivea Men"
+
+msgctxt "categories_example_beauty"
+msgid "Anti-dandruff shampoo, Whitening toothpaste"
+msgstr "Шампоан против пърхот, избелваща паста за зъби"
+
+msgctxt "emb_codes_example_beauty"
+msgid "EMB 53062"
+msgstr "EMB 53062"
+
+msgctxt "generic_name_example_beauty"
+msgid "Anti-dandruff shampoo"
+msgstr "Шампоан против пърхот"
+
+msgctxt "product_name_example_beauty"
+msgid "Anti-Perspirant Stress Protect"
+msgstr "Защита против стрес"
+
+msgctxt "ingredients_text_example_beauty"
+msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
+msgstr "ВОДА, НАТРИЕВ ЛАУРЕТ СУЛФАТ, ДИНАТРИЕВ КОКОАМФОДИАЦЕТАТ, ГЛИКОЛ ДИСТЕАРАТ, КОКАМИД МЕА"
+
+msgctxt "report_problem_navigation"
+msgid "Report a problem"
 msgstr ""
 

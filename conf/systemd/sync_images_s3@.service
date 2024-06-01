@@ -8,6 +8,5 @@ OnFailure=email-failures@sync_images_s3__%i.service
 Type=oneshot
 User=off
 Group=off
-WorkingDirectory=/srv/%i/scripts/sync-s3-images
-ExecStart=.venv/bin/python3 sync_s3_images.py /mnt/%i/images/products
+ExecStart=/srv/%i/scripts/sync-s3-images/.venv/bin/python3 /srv/%i/scripts/sync-s3-images/sync_s3_images.py /mnt/%i/images/products
 KillMode=process

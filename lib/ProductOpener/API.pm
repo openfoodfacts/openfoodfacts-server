@@ -61,25 +61,25 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::HTTP qw/:all/;
+use ProductOpener::HTTP qw/write_cors_headers/;
 use ProductOpener::Users qw/:all/;
-use ProductOpener::Lang qw/:all/;
-use ProductOpener::Products qw/:all/;
+use ProductOpener::Lang qw/$lc lang_in_other_lc/;
+use ProductOpener::Products qw/normalize_code_with_gs1_ai product_name_brand_quantity/;
 use ProductOpener::Export qw/:all/;
-use ProductOpener::Tags qw/:all/;
-use ProductOpener::Text qw/:all/;
-use ProductOpener::Attributes qw/:all/;
-use ProductOpener::KnowledgePanels qw/:all/;
+use ProductOpener::Tags qw/%language_fields display_taxonomy_tag/;
+use ProductOpener::Text qw/remove_tags_and_quote/;
+use ProductOpener::Attributes qw/compute_attributes/;
+use ProductOpener::KnowledgePanels qw/create_knowledge_panels initialize_knowledge_panels_options/;
 use ProductOpener::Ecoscore qw/localize_ecoscore/;
-use ProductOpener::Packaging qw/:all/;
-use ProductOpener::Permissions qw/:all/;
+use ProductOpener::Packaging qw/%packaging_taxonomies/;
+use ProductOpener::Permissions qw/has_permission/;
 
-use ProductOpener::APIProductRead qw/:all/;
-use ProductOpener::APIProductWrite qw/:all/;
-use ProductOpener::APIProductRevert qw/:all/;
-use ProductOpener::APIProductServices qw/:all/;
-use ProductOpener::APITagRead qw/:all/;
-use ProductOpener::APITaxonomySuggestions qw/:all/;
+use ProductOpener::APIProductRead qw/read_product_api/;
+use ProductOpener::APIProductWrite qw/write_product_api/;
+use ProductOpener::APIProductRevert qw/revert_product_api/;
+use ProductOpener::APIProductServices qw/product_services_api/;
+use ProductOpener::APITagRead qw/read_tag_api/;
+use ProductOpener::APITaxonomySuggestions qw/taxonomy_suggestions_api/;
 
 use CGI qw(header);
 use Apache2::RequestIO();
@@ -620,7 +620,7 @@ sub customize_packagings ($request_ref, $product_ref) {
 
 			my $customized_packaging_ref = dclone($packaging_ref);
 
-			if ($request_ref->{api_version} >= 3) {
+			if ((defined $request_ref->{api_version}) and ($request_ref->{api_version} >= 3)) {
 				# Shape, material and recycling are localized
 				foreach my $property ("shape", "material", "recycling") {
 					if (defined $packaging_ref->{$property}) {
@@ -733,7 +733,10 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 		}
 
 		if ($field eq "product_display_name") {
-			$customized_product_ref->{$field} = remove_tags_and_quote(product_name_brand_quantity($product_ref));
+			# For web search queries, we may already have a product_display_name field computed and stored in the query cache
+			# and the product name / brands / quantity fields have been removed in that case, so we use it as-is.
+			$customized_product_ref->{$field} = $product_ref->{product_display_name}
+				|| remove_tags_and_quote(product_name_brand_quantity($product_ref));
 			next;
 		}
 

@@ -27,7 +27,7 @@ binmode(STDOUT, ":encoding(UTF-8)");
 binmode(STDERR, ":encoding(UTF-8)");
 
 use ProductOpener::Import qw/:all/;
-use ProductOpener::Producers qw/:all/;
+use ProductOpener::Producers qw/load_csv_or_excel_file/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;

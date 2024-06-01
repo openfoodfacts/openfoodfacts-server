@@ -21,6 +21,7 @@
 =head1 NAME
 
 ProductOpener::APIProductRevert - implementation of API to revert a product to a specific revision
+
 =head1 DESCRIPTION
 
 =cut
@@ -43,14 +44,14 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Display qw/:all/;
-use ProductOpener::Users qw/:all/;
+use ProductOpener::Display qw/request_param/;
+use ProductOpener::Users qw/$Owner_id $User_id/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Products qw/:all/;
-use ProductOpener::API qw/:all/;
+use ProductOpener::API qw/add_error check_user_permission customize_response_for_product normalize_requested_code/;
 use ProductOpener::Text qw/:all/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Mail qw/:all/;
+use ProductOpener::Mail qw/send_email_to_admin/;
 
 use Encode;
 

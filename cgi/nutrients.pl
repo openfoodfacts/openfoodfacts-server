@@ -25,11 +25,11 @@ use ProductOpener::PerlStandards;
 use CGI::Carp qw(fatalsToBrowser);
 use CGI qw/:cgi :form escapeHTML/;
 
-use ProductOpener::Lang qw/:all/;
-use ProductOpener::Display qw/:all/;
-use ProductOpener::HTTP qw/:all/;
-use ProductOpener::Food qw/:all/;
-use ProductOpener::Tags qw/:all/;
+use ProductOpener::Lang qw/$lc/;
+use ProductOpener::Display qw/$nutriment_table init_request/;
+use ProductOpener::HTTP qw/write_cors_headers/;
+use ProductOpener::Food qw/%nutriments_tables get_nutrient_unit/;
+use ProductOpener::Tags qw/display_taxonomy_tag get_property/;
 
 use Log::Any qw($log);
 use CGI qw/:cgi :form escapeHTML/;
@@ -63,7 +63,7 @@ foreach (@{$nutriments_tables{$nutriment_table}}) {
 	if (defined $name) {
 		$current_ref->{name} = $name;
 	}
-	my $unit = get_property("nutrients", "zz:$onid", "unit:en") // 'g';
+	my $unit = get_nutrient_unit($onid);
 	if (defined $unit) {
 		$current_ref->{unit} = $unit;
 	}

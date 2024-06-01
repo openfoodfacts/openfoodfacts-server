@@ -3,11 +3,13 @@
 use Modern::Perl '2017';
 use utf8;
 
-use Test::More;
+use Test2::V0;
+use Data::Dumper;
+$Data::Dumper::Terse = 1;
 use Log::Any::Adapter 'TAP';
 
-use ProductOpener::Routing qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Routing qw/analyze_request/;
+use ProductOpener::Lang qw/$lc /;
 
 # TODO: create a test case array and use the update_test_results system to
 # store and compare the returned $request object
@@ -36,7 +38,10 @@ my @tests = (
 			'page' => 1,
 			'query_string' => 'api/v0/attribute_groups',
 			'no_index' => '0',
-			'is_crawl_bot' => '1'
+			'is_crawl_bot' => '1',
+			'rate_limiter_blocking' => 0,
+			'rate_limiter_limit' => undef,
+			'rate_limiter_user_requests' => undef,
 		},
 	},
 	{
@@ -106,7 +111,10 @@ my @tests = (
 				},
 			],
 			'no_index' => '0',
-			'is_crawl_bot' => '1'
+			'is_crawl_bot' => '1',
+			'rate_limiter_blocking' => 0,
+			'rate_limiter_limit' => undef,
+			'rate_limiter_user_requests' => undef,
 		},
 	},
 	{
@@ -174,7 +182,10 @@ my @tests = (
 				},
 			],
 			'no_index' => '0',
-			'is_crawl_bot' => '0'
+			'is_crawl_bot' => '0',
+			'rate_limiter_blocking' => 0,
+			'rate_limiter_limit' => undef,
+			'rate_limiter_user_requests' => undef,
 		},
 	},
 	{
@@ -199,7 +210,10 @@ my @tests = (
 			'code' => '03564703999971',
 			'page' => '1',
 			'no_index' => '0',
-			'is_crawl_bot' => '0'
+			'is_crawl_bot' => '0',
+			'rate_limiter_blocking' => 0,
+			'rate_limiter_limit' => 100,
+			'rate_limiter_user_requests' => undef,
 		},
 	},
 	{
@@ -227,7 +241,10 @@ my @tests = (
 			'code' => 'https://id.gs1.org/01/03564703999971/10/ABC/21/123456?17=211200',
 			'page' => '1',
 			'no_index' => '0',
-			'is_crawl_bot' => '0'
+			'is_crawl_bot' => '0',
+			'rate_limiter_blocking' => 0,
+			'rate_limiter_limit' => 100,
+			'rate_limiter_user_requests' => undef,
 		},
 	},
 );
@@ -238,7 +255,7 @@ foreach my $test_ref (@tests) {
 	$lc = $test_ref->{input_request}{lc};
 	analyze_request($test_ref->{input_request});
 
-	is_deeply($test_ref->{input_request}, $test_ref->{expected_output_request}) or diag explain $test_ref;
+	is($test_ref->{input_request}, $test_ref->{expected_output_request}) or diag Dumper $test_ref;
 }
 
 done_testing();

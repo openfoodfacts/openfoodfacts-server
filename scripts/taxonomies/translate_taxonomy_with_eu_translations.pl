@@ -24,13 +24,14 @@ use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Store qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Config qw/:all/;
 
 # tmx files contain translations from the EU laws
 
 my @tmx_files = (
-	"$data_root/taxonomies/off/nutritional-substances/32013R0609.tmx",
-	"$data_root/taxonomies/off/nutritional-substances/32006R1925.tmx"
+	"$BASE_DIRS{TAXONOMIES_SRC}/old/off/nutritional-substances/32013R0609.tmx",
+	"$BASE_DIRS{TAXONOMIES_SRC}/old/off/nutritional-substances/32006R1925.tmx"
 );
 
 my %translations = ();

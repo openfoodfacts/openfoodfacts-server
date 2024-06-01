@@ -2,11 +2,11 @@
 
 use ProductOpener::PerlStandards;
 
-use Test::More;
+use Test2::V0;
 use ProductOpener::APITest qw/:all/;
-use ProductOpener::Products qw/:all/;
-use ProductOpener::Test qw/:all/;
-use ProductOpener::TestDefaults qw/:all/;
+use ProductOpener::Products qw/retrieve_product store_product/;
+use ProductOpener::Test qw/remove_all_products remove_all_users/;
+use ProductOpener::TestDefaults qw/%admin_user_form %default_product_form %default_user_form %moderator_user_form/;
 
 use File::Basename "dirname";
 

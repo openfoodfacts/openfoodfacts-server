@@ -9,27 +9,27 @@
 # The 3 following entries are to be able to easily find products that don't have a food group entry at a given level
 
 en:Unknown food group 1
-fr:Groupe alimentaire de niveau 1 inconnu
 es:Grupo de alimentos desconocido 1
+fr:Groupe alimentaire de niveau 1 inconnu
 nl:Onbekende voedselgroep 1
 
 en:Unknown food group 2
-fr:Groupe alimentaire de niveau 2 inconnu
 es:Grupo de alimentos desconocido 2
+fr:Groupe alimentaire de niveau 2 inconnu
 nl:Onbekende voedselgroep 2
 
 en:Unknown food group 3
-fr:Groupe alimentaire de niveau 3 inconnu
 es:Grupo de alimentos desconocido 3
+fr:Groupe alimentaire de niveau 3 inconnu
 nl:Onbekende voedselgroep 3
 
 # Food groups:
 
 en:Fruits and vegetables
+es:Frutas y verduras
+fr:Fruits et légumes
 ja:果物と野菜
 nl:Groenten en fruit
-fr:Fruits et légumes
-es:Frutas y verduras
 
 <en:Fruits and vegetables
 en:Fruits
@@ -38,9 +38,9 @@ nl:Fruit
 
 <en:Fruits and vegetables
 en:Dried fruits
-nl:Gedroogde vruchten, gedroogd fruit
-fr:Fruits secs
 es:Frutas secas
+fr:Fruits secs
+nl:Gedroogde vruchten, gedroogd fruit
 
 <en:Fruits and vegetables
 en:Vegetables
@@ -49,16 +49,16 @@ nl:Groenten
 
 <en:Fruits and vegetables
 en:Soups
+es:Sopas
+fr:Soupes
 ja:スープ
 nl:Soepen
-fr:Soupes
-es:Sopas
 
 <en:Fruits and vegetables
 en:Dehydrated Soups
-nl:Gedroogde soepen
-fr:Soupes déshydratées
 es:Sopas deshidratadas
+fr:Soupes déshydratées
+nl:Gedroogde soepen
 
 <en:Fruits and vegetables
 en:Fresh soups
@@ -223,11 +223,11 @@ nl:Pure chocolade
 
 <en:Chocolate products
 en:Milk chocolate
-ja:ミルクチョコレート
-nl:Melkchocolade
-fr:Chocolat au lait
 de:Vollmilchschokolade
 es:Chocolate con leche
+fr:Chocolat au lait
+ja:ミルクチョコレート
+nl:Melkchocolade
 
 <en:Chocolate products
 en:White chocolate
@@ -247,10 +247,10 @@ en:Biscuits and cakes
 en:Pastries
 
 en:Salty snacks
-nl:Zoute snacks
-fr:Snacks salés
 de:Salzige Snacks
 es:Snacks salados
+fr:Snacks salés
+nl:Zoute snacks
 
 <en:Salty snacks
 en:Nuts
@@ -353,3 +353,4 @@ en:Plant-based milk substitutes
 # we will deal with it in the code
 en:Alcoholic beverages
 ja:酒, さけ
+

@@ -37,10 +37,10 @@ This scripts tries to check and fix this.
 use ProductOpener::PerlStandards;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
-use ProductOpener::Data qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
+use ProductOpener::Data qw/get_products_collection remove_documents_by_ids/;
 use ProductOpener::Products qw/:all/;
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Store qw/retrieve sto_iter store/;
 use Getopt::Long;
 
 # how many operations in bulk write

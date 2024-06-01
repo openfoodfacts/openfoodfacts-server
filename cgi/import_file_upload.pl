@@ -28,12 +28,12 @@ binmode(STDERR, ":encoding(UTF-8)");
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created/;
+use ProductOpener::Store qw/get_string_id_for_lang retrieve store/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::Users qw/:all/;
+use ProductOpener::Users qw/$Owner_id/;
 use ProductOpener::Images qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Lang qw/lang/;
 use ProductOpener::Mail qw/:all/;
 
 use Apache2::RequestRec ();
@@ -59,7 +59,7 @@ local $log->context->{type} = $type;
 local $log->context->{action} = $action;
 
 if (not defined $Owner_id) {
-	display_error_and_exit(lang("no_owner_defined"), 200);
+	display_error_and_exit($request_ref, lang("no_owner_defined"), 200);
 }
 
 if ($action eq "process") {
@@ -81,7 +81,8 @@ if ($action eq "process") {
 		$log->debug("processing upload form", {filename => $filename, file_id => $file_id, extension => $extension})
 			if $log->is_debug();
 
-		ensure_dir_created("$BASE_DIRS{IMPORT_FILES}/${Owner_id}") or display_error_and_exit("Missing path", 503);
+		ensure_dir_created("$BASE_DIRS{IMPORT_FILES}/${Owner_id}")
+			or display_error_and_exit($request_ref, "Missing path", 503);
 
 		open(my $out, ">", "$BASE_DIRS{IMPORT_FILES}/${Owner_id}/$file_id.$extension");
 		while (my $chunk = <$file>) {
@@ -131,8 +132,8 @@ else {
 		url => "/cgi/import_file_upload.pl",
 	};
 
-	$tt->process('web/pages/import_file_upload/import_file_upload.tt.html', $template_data_ref, \$html);
-	$tt->process('web/pages/import_file_upload/import_file_upload.tt.js', $template_data_ref, \$js);
+	process_template('web/pages/import_file_upload/import_file_upload.tt.html', $template_data_ref, \$html);
+	process_template('web/pages/import_file_upload/import_file_upload.tt.js', $template_data_ref, \$js);
 
 	$initjs .= $js;
 

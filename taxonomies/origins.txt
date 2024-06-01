@@ -3803,6 +3803,7 @@ wikidata:en:Q47896
 
 <en:Japan
 en:Kyushu
+xx:Kyushu
 af:Kioesjoe
 ar:كيوشو
 az:Kyuşu
@@ -3891,6 +3892,7 @@ wikidata:en:Q13987
 
 <en:Japan
 en:Sanriku
+xx:Sanriku
 eo:Sanriku
 es:Sanriku
 et:Sanriku
@@ -3981,6 +3983,14 @@ bg:Аквитания
 fr:Aquitaine
 
 <en:france
+fr:Gascogne
+
+<en:france
+fr:Gatinais
+
+fr:Pays-Basque
+
+<en:france
 en:Burgundy
 bg:Бургундия
 fr:Bourgogne
@@ -4009,7 +4019,11 @@ fr:Corse
 hu:Korzika
 
 <en:france
+fr:Hauts-de-France
+
+<en:france
 en:Morbihan
+xx:Morbihan
 fr:Morbihan
 
 <en:france
@@ -4024,6 +4038,7 @@ pl:Kraj Loary
 
 <en:france
 en:Auvergne
+xx:Auvergne
 bg:Оверн
 fr:Auvergne
 
@@ -4080,6 +4095,15 @@ en:Loué
 fr:Loué
 
 <en:France
+fr:Béarn
+
+<en:France
+fr:Champagne
+
+<en:France
+fr:Beaujolais
+
+<en:France
 en:Rhône-Alpes
 fr:Rhône-Alpes
 
@@ -4127,6 +4151,9 @@ en:Languedoc-Roussillon
 fr:Languedoc-Roussillon
 
 <en:France
+en:Languedoc
+
+<en:France
 en:Pyrénées-Atlantiques
 fr:Pyrénées-Atlantiques
 
@@ -4146,6 +4173,54 @@ fr:Manche
 en:Drôme
 fr:Drôme
 
+<en:France
+fr:Calvados
+
+<en:France
+fr:Maine
+
+<en:France
+fr:Jura français
+
+<en:France
+fr:Marne
+
+<en:France
+fr:Bresse
+
+<en:France
+fr:Cévennes
+
+<en:France
+fr:Charolais
+
+<en:France
+fr:Sarthe
+xx:Sarthe
+
+<en:France
+fr:Limousin
+xx:Limousin
+
+<en:France
+fr:Val de Sèvres
+
+<en:France
+fr:île de Ré
+
+<en:France
+fr:Nyons
+
+<en:France
+fr:Jura français
+
+<en:France
+fr:Pays-Basque
+
+<en:France
+fr:Maine (France)
+
+
 # Disabling as parent because it can skew the Eco-Score
 #<en:France
 en:Guadeloupe
@@ -4156,6 +4231,9 @@ fr:Île de la Réunion
 
 en:Antilles
 fr:Antilles
+
+# Canada regions
+fr:Québec
 
 # Germany regions
 
@@ -4174,88 +4252,88 @@ pl:Bawaria
 
 <en:germany
 en:Berlin
+xx:Berlin
 bg:Берлин
 de:Berlin
-xx:Berlin
 
 <en:germany
 en:Brandenburg
+xx:Brandenburg
 bg:Бранденбург
 de:Brandenburg
 pl:Brandenburgia
-xx:Brandenburg
 
 <en:germany
 en:Bremen
+xx:Bremen
 bg:Бремен
 de:Bremen
 pl:Brema
-xx:Bremen
 
 <en:germany
 en:Hamburg
+xx:Hamburg
 bg:Хамбург
 de:Hamburg
-xx:Hamburg
 
 <en:germany
 en:Hesse, Hessen
-de:Hessen
 xx:Hessen
+de:Hessen
 
 <en:germany
 en:Mecklenburg-Vorpommern
+xx:Mecklenburg-Vorpommern
 de:Mecklenburg-Vorpommern
 pl:Meklemburgia-Pomorze Przednie
-xx:Mecklenburg-Vorpommern
 
 <en:germany
 en:Lower Saxony, Niedersachsen
+xx:Niedersachsen
 de:Niedersachsen
 pl:Dolna Saksonia
-xx:Niedersachsen
 
 <en:germany
 en:North Rhine-Westphalia, Nordrhein-Westfalen
+xx:Nordrhein-Westfalen
 de:Nordrhein-Westfalen
 pl:Nadrenia Północna-Westfalia
-xx:Nordrhein-Westfalen
 
 <en:germany
 en:Rheinland-Pfalz
+xx:Rheinland-Pfalz
 de:Rheinland-Pfalz
 pl:Nadrenia-Palatynat
-xx:Rheinland-Pfalz
 
 <en:germany
 en:Saarland
+xx:Saarland
 de:Saarland
 pl:Saara
-xx:Saarland
 
 <en:germany
 en:Saxony, Sachsen
+xx:Sachsen
 de:Sachsen
 pl:Saksonia
-xx:Sachsen
 
 <en:germany
 en:Sachsen-Anhalt
+xx:Sachsen-Anhalt
 de:Sachsen-Anhalt
 pl:Saksonia-Anhalt
-xx:Sachsen-Anhalt
 
 <en:germany
 en:Schleswig-Holstein
+xx:Schleswig-Holstein
 de:Schleswig-Holstein
 pl:Szlezwik-Holsztyn
-xx:Schleswig-Holstein
 
 <en:germany
 en:Thuringia, Thüringen
+xx:Thüringen
 de:Thüringen
 pl:Turyngia
-xx:Thüringen
 
 # Italy regions
 
@@ -4326,6 +4404,12 @@ bg:Уелс
 fr:Pays de Galles
 nl:Wales
 
+<en:great-britain
+en:Cornwall
+
+<en:great-britain
+en:Yorkshire
+
 <en:united-kingdom
 en:Northern Ireland
 bg:Северна Ирландия
@@ -4370,6 +4454,8 @@ nl:Gazastrook
 # Marine zones
 
 en:FAO fishing areas, FAO major fishing areas, FAO inland waters
+sv:FAO:s Fiskeregioner
+xx:FAO major fishing areas
 bg:Главните Риболовни Зони ФАО
 cs:Hlavních Rybolovných Oblastí FAO
 da:Overordnede FAO-Fiskeriområder
@@ -4392,8 +4478,6 @@ pt:Zonas principais de pesca FAO
 ro:Principalele Zone de Pescuit FAO
 sk:FAO Hlavných Oblastí Rybolovu
 sl:Glavnih Ribolovnih Območij FAO
-sv:FAO:s Fiskeregioner
-xx:FAO major fishing areas
 description:en:European Union, FAO major fishing areas
 website:en:https://fish-commercial-names.ec.europa.eu/fish-names/fishing-areas_en#marine-areas
 wikidata:en:Q2783377
@@ -4413,8 +4497,8 @@ xx:FAO 3, FAO 03
 
 <en:FAO fishing areas
 en:FAO 4, FAO 04, FAO inland waters 4
-fr:FAO 4, FAO 04, FAO n°04
 xx:FAO 4, FAO 04
+fr:FAO 4, FAO 04, FAO n°04
 
 <en:FAO fishing areas
 en:FAO 5, FAO 05, FAO inland waters 5
@@ -4436,15 +4520,15 @@ en:Atlantic Ocean, Atlantic
 bg:Атлантически океан
 cs:Atlantský oceán, Atlantik
 de:Atlantischer Ozean, Atlantik
-fr:Océan Atlantique, Atlantique
-hu:Atlanti-óceán
-it:Oceano Atlantico, Atlantico
-nl:Atlantische Oceaan
 es:Océano Atlántico, Atlántico
 fi:Atlantin valtameri, Atlantti
+fr:Océan Atlantique, Atlantique
 hr:Atlantski ocean, Atlantik
+hu:Atlanti-óceán
+it:Oceano Atlantico, Atlantico
 lt:Atlanto vandenynas, Atlantas
 lv:Atlantijas okeāns, Atlantiskais okeāns
+nl:Atlantische Oceaan
 pl:Ocean Atlantycki, Atlantyk
 pt:Oceano Atlântico, Atlântico
 ro:Oceanul Atlantic, Atlantic
@@ -4494,24 +4578,26 @@ wikidata:en:Q1482804
 
 <en:Atlantic Ocean
 en:Northwest Atlantic Ocean
-fr:Océan Atlantique Nord-Ouest, Atlantique Nord-Ouest
 xx:FAO 21
+fr:Océan Atlantique Nord-Ouest, Atlantique Nord-Ouest
 
 <en:Atlantic Ocean
 en:North-East Atlantic Ocean, North-East Atlantic, Northeast Atlantic
+xx:FAO 27
 bg:Североизточните части на Атлантическият океан
 cs:Severovýchodní Atlantik
 da:Nordøstlige Atlanterhav
 de:Nordostatlantik
-et:Atlandi Ookeani Kirdeosa
 el:Βορειο-ανατολικος Ατλαντικος
 es:Atlántico Nororiental
+et:Atlandi Ookeani Kirdeosa
+fi:Koillis-atlanti
 fr:Océan Atlantique Nord-Est, Atlantique Nord-Est, FAO 27, FAO N°27, zone FAO 27, Atlantique Du Nord-est
 hr:Sjeveroistočni Atlantik
-it:Atlantico Nord-orientale
-lv:Atlantijas Okeāna Ziemeļaustrumu Daļa
-lt:Šiaurės Rytų Atlantas
 hu:Atlanti-óceán Északkeleti Része
+it:Atlantico Nord-orientale
+lt:Šiaurės Rytų Atlantas
+lv:Atlantijas Okeāna Ziemeļaustrumu Daļa
 mt:Grigal Tal-atlantiku
 nl:Noordoostelijke Atlantische Oceaan
 pl:Atlantyk Północno-wschodni
@@ -4519,17 +4605,13 @@ pt:Atlântico Nordeste
 ro:Atlanticul De Nord-est
 sk:Severovýchodný Atlantik
 sl:Severovzhodni Atlantik
-fi:Koillis-atlanti
 sv:Nordostatlanten
-xx:FAO 27
 
 <xx:FAO 27
 en:Barents sea
-bg:Баренцово море
-fr:Mer de Barents
-hu:Barents-tenger
-nl:Barentszzee
+xx:FAO 27.1, FAO zone 27-1, FAO subarea 27-1
 ar:بحر بارنتس
+bg:Баренцово море
 cs:Barentsovo moře
 da:Barentshavet
 de:Barentssee
@@ -4537,9 +4619,11 @@ el:Θάλασσα του Μπάρεντς
 es:Mar de Barents
 et:Barentsi meri
 fi:Barentsinmeri
+fr:Mer de Barents
 he:ים ברנטס
 hi:बारेंट्स सागर
 hr:Barentsovo more
+hu:Barents-tenger
 id:Laut Barents
 it:Mar di Barents
 ja:バレンツ海
@@ -4547,6 +4631,7 @@ ko:바렌츠해
 lt:Barentso jūra
 lv:Barentsa jūra
 ms:Laut Barents
+nl:Barentszzee
 no:Barentshavet
 pl:Morze Barentsa
 pt:Mar de Barents
@@ -4561,7 +4646,6 @@ tr:Barents Denizi
 uk:Баренцеве море
 vi:Biển Barents
 zh:巴伦支海
-xx:FAO 27.1, FAO zone 27-1, FAO subarea 27-1
 wikidata:en:Q45823
 
 <xx:FAO 27
@@ -4573,6 +4657,7 @@ xx:FAO 27.1.b
 # Norwegian Sea, Spitzbergen, and Bear Island (Subarea 27.2)
 <xx:FAO 27
 en:Norwegian Sea
+xx:FAO 27.2, FAO zone 27-2, FAO subarea 27-2
 ar:بحر النرويج
 bg:Норвежко море
 cs:Norské moře
@@ -4610,7 +4695,6 @@ tr:Norveç Denizi
 uk:Норвезьке море
 vi:Biển Na Uy
 zh:挪威海
-xx:FAO 27.2, FAO zone 27-2, FAO subarea 27-2
 wikidata:en:Q47545
 
 <xx:FAO 27.2
@@ -4647,20 +4731,21 @@ xx:FAO 27.3.d
 
 <xx:FAO 27
 en:North Sea
-bg:Северно море
-de:Nordsee
-fr:Mer du Nord
-hu:Északi-tenger
+xx:FAO 27.4, FAO zone 27-4, FAO subarea 27-4, FAO 27 sub area iv
 ar:البحر الشمالي
+bg:Северно море
 cs:Severní moře
 da:Nordsøen
+de:Nordsee
 el:Βόρειο Πέλαγος
 es:Mar del Norte
 et:Põhjameri
 fi:Pohjanmeri
+fr:Mer du Nord
 he:ים הצפון
 hi:उत्तर सागर
 hr:Sjeverno more
+hu:Északi-tenger
 id:Laut Utara
 it:Mar del Nord
 ja:北海
@@ -4684,7 +4769,6 @@ tr:Kuzey Denizi
 uk:Північне море
 vi:Biển Bắc
 zh:北海
-xx:FAO 27.4, FAO zone 27-4, FAO subarea 27-4, FAO 27 sub area iv
 wikidata:en:Q1693
 
 <xx:FAO 27.4
@@ -4831,10 +4915,10 @@ xx:FAO 31
 
 <en:Atlantic Ocean
 en:Central-East Atlantic Ocean
+xx:FAO 34
 fr:Océan Atlantique Centre-Est, FAO 34, FAO N°34
 hr:ribolovno područje FAO 34
 sl:FAO ribolovno območje 34
-xx:FAO 34
 
 <en:Atlantic Ocean
 en:Southwest Atlantic Ocean
@@ -4884,8 +4968,8 @@ xx:FAO 41.3.3
 
 <en:Atlantic Ocean
 en:Southeast Atlantic Ocean
-fr:Océan Atlantique Sud-Est, FAO 47, FAO N°47
 xx:FAO 47
+fr:Océan Atlantique Sud-Est, FAO 47, FAO N°47
 
 <en:Atlantic Ocean
 en:Antartic Atlantic Ocean
@@ -4903,8 +4987,8 @@ wikidata:en:Q1239
 
 <en:Indian Ocean
 en:Western Indian Ocean
-fr:Océan Indien Ouest, zone de pêche FAO N051, Zone FAO N051, Océan Indien Occidental
 xx:FAO 51
+fr:Océan Indien Ouest, zone de pêche FAO N051, Zone FAO N051, Océan Indien Occidental
 
 <en:Western Indian Ocean
 xx:FAO 51.1
@@ -4934,11 +5018,12 @@ xx:FAO 51.8
 
 <en:Indian Ocean
 en:Eastern Indian Ocean
+xx:FAO 57
 es:Océano Índico Oriental, Este del Océano Índico
 fr:Océan Indien Est
-xx:FAO 57
 
 en:Antartic and Southern Indian Ocean
+xx:FAO 58
 bg:Антарктически и Южен Индийски океан
 ca:Antàrtida i Oceà Índic Meridional
 de:Antarktis und Südlicher Indischer Ozean
@@ -4953,7 +5038,6 @@ ro:Antarctica și Oceanul Indian de Sud
 ru:Антарктика и Южный Индийский океан
 tr:Antarktika ve Güney Hint Okyanusu
 uk:Антарктика і Південний Індійський океан
-xx:FAO 58
 
 en:Pacific Ocean
 bg:Тихи океан
@@ -4992,26 +5076,26 @@ wikidata:en:Q12353254
 
 <en:Pacific Ocean
 en:Northwest Pacific Ocean
+xx:FAO 61
 fr:Océan Pacifique Nord-Ouest, FAO 61, FAO N°61
 hu:Északnyugat-Csendes-óceán
 pl:Północno-zachodni Ocean Spokojny, Północno-zachodni Pacyfik
-xx:FAO 61
 wikidata:en:Q34765253
 
 <en:Pacific Ocean
 en:Northeast Pacific Ocean
+xx:FAO 67
 de:Nordostpazifik
 fr:Océan Pacifique Nord-Est, FAO 67, FAO N°67
 hu:Északkelet-Csendes-óceán
 pl:Północno-wschodni Ocean Spokojny, Północno-wschodni Pacyfik
-xx:FAO 67
 wikidata:en:Q63860551
 
 <en:Pacific Ocean
 en:West Central Pacific Ocean, fao area 71
+xx:FAO 71
 ca:Oceà Pacífic central-oest
 fr:Océan Pacifique Centre-Ouest, FAO 71, FAO N°71
-xx:FAO 71
 
 <en:Pacific Ocean
 en:Eastern Central Pacific Ocean
@@ -5024,15 +5108,15 @@ wikidata:en:Q12355425
 
 <en:Southern Pacific Ocean
 en:Southwest Pacific Ocean
+xx:FAO 81
 ca:Oceà Pacífic Sud-oest
 es:Océano Pacífico suroeste
 fr:Océan Pacifique Sud-Ouest, FAO 81, FAO N°81
-xx:FAO 81
 
 <en:Southern Pacific Ocean
 en:Southeast Pacific Ocean, FAO 87
-fr:Océan Pacifique Sud-Est, FAO 87, FAO N°87
 xx:FAO 87
+fr:Océan Pacifique Sud-Est, FAO 87, FAO N°87
 
 <xx:FAO 87
 xx:FAO 87.1
@@ -5081,3 +5165,4 @@ xx:FAO 87.3.2
 
 <xx:FAO 87.3
 xx:FAO 87.3.3
+
