@@ -2696,6 +2696,8 @@ sub check_food_groups ($product_ref) {
 	return;
 }
 
+=encoding utf8
+
 =head2 check_opposite_tags( PRODUCT_REF )
 
 Checks if 2 opposite tags are assigned to the product
