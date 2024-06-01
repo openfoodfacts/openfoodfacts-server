@@ -71,6 +71,7 @@ use ProductOpener::Mail qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Tags qw/:all/;
+use ProductOpener::Data qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
@@ -166,6 +167,11 @@ sub store_org ($org_ref) {
 		# TODO: create org and its users in Odoo CRM
 	}
 
+	# Store to MongoDB
+    my $orgs_collection = get_orgs_collection();
+    $orgs_collection->replace_one({"org_id" => $org_ref->{org_id}}, $org_ref, {upsert => 1});
+
+	# Store to file	
 	store("$BASE_DIRS{ORGS}/" . $org_ref->{org_id} . ".sto", $org_ref);
 
 	return;
