@@ -287,9 +287,6 @@ foreach my $file (sort keys %file_timestamps) {
 # On demand exports can be very big, limit the number of products
 my $export_limit = 10000;
 
-# TODO: explain why such a high number
-my $tags_page_size = 10000;
-
 if (defined $options{export_limit}) {
 	$export_limit = $options{export_limit};
 }
@@ -1674,12 +1671,17 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 	{
 		$limit = 999999999999;
 	}
-	elsif (defined $request_ref->{tags_page_size}) {
-		$limit = $request_ref->{tags_page_size};
+	elsif (defined $request_ref->{page_size}) {
+		$limit = $request_ref->{page_size};
+		if ($limit > $options{max_tags_page_size}) {
+			$limit = $options{max_tags_page_size};
+		}
 	}
 	else {
-		$limit = $tags_page_size;
+		$limit = $options{default_tags_page_size};
 	}
+
+	$request_ref->{page_size} = $limit;
 
 	my $skip = 0;
 	if (defined $page) {
@@ -2299,16 +2301,20 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 		}
 
 		$html .= "</tbody></table></div>";
-		# if there are more than $tags_page_size lines, add pagination. Except for ?stats=1 and ?filter display
+		# if there are more lines than the limit, add pagination. Except for ?stats=1 and ?filter display
 		$log->info("PAGINATION: BEFORE\n");
-		if (    $request_ref->{structured_response}{count} >= $tags_page_size
+		if (    $request_ref->{structured_response}{count} >= $request_ref->{page_size}
 			and not(defined single_param("stats"))
 			and not(defined single_param("filter")))
 		{
 			$log->info("PAGINATION: CALLING\n");
 			$html .= "\n<hr>"
-				. display_pagination($request_ref, $request_ref->{structured_response}{count},
-				$tags_page_size, $request_ref->{page});
+				. display_pagination(
+				$request_ref,
+				$request_ref->{structured_response}{count},
+				$request_ref->{page_size},
+				$request_ref->{page}
+				);
 		}
 
 		if ((defined single_param("stats")) and (single_param("stats"))) {
@@ -3808,7 +3814,7 @@ sub display_tag ($request_ref) {
 
 	my $weblinks_html = '';
 	my @wikidata_objects = ();
-	if (    ($tagtype ne 'additives')
+	if (    (defined $tagtype && $tagtype ne 'additives')
 		and (not defined $request_ref->{groupby_tagtype}))
 	{
 		my @weblinks = ();
@@ -4437,7 +4443,7 @@ sub display_search_results ($request_ref) {
 		my $search_api_url = $formatted_subdomain . "/api/v0" . $current_link;
 		$search_api_url =~ s/(\&|\?)(page|page_size|limit)=(\d+)//;
 		$search_api_url .= "&fields=code,product_display_name,url,image_front_small_url,attribute_groups";
-		$search_api_url .= "&page_size=100";
+		$search_api_url .= "&page_size=" . $options{default_web_products_page_size};
 		if ($search_api_url !~ /\?/) {
 			$search_api_url =~ s/\&/\?/;
 		}
@@ -4971,13 +4977,20 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 	elsif (defined $request_ref->{page_size}) {
 		$limit = $request_ref->{page_size};
 	}
-	# If user preferences are turned on, return 100 products per page
+	# If user preferences are turned on, return 50 products per page
 	elsif (not defined $request_ref->{api}) {
-		$limit = 100;
+		$limit = $options{default_web_products_page_size};
 	}
 	else {
-		$limit = $page_size;
+		$limit = $options{default_api_products_page_size};
 	}
+
+	# Make sure we are not over the limit
+	if ($limit > $options{max_products_page_size}) {
+		$limit = $options{max_products_page_size};
+	}
+
+	$request_ref->{page_size} = $limit;
 
 	my $skip = 0;
 	if (defined $page) {
@@ -10726,8 +10739,14 @@ sub display_recent_changes ($request_ref, $query_ref, $limit, $page) {
 		$limit = $request_ref->{page_size};
 	}
 	else {
-		$limit = $page_size;
+		$limit = $options{default_recent_changes_page_size};
 	}
+
+	if ($limit > $options{max_recent_changes_page_size}) {
+		$limit = $options{max_recent_changes_page_size};
+	}
+
+	$request_ref->{page_size} = $limit;
 
 	my $skip = 0;
 	if (defined $page) {
