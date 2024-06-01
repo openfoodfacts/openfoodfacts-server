@@ -25,7 +25,7 @@ use Modern::Perl '2017';
 use Exporter qw< import >;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
 
 use LWP::UserAgent;
 use JSON::PP;

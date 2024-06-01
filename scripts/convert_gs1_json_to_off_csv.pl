@@ -33,7 +33,8 @@ use Getopt::Long;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/:all/;
-use ProductOpener::GS1 qw/:all/;
+use ProductOpener::GS1
+	qw/generate_gs1_confirmation_message init_csv_fields print_unknown_entries_in_gs1_maps read_gs1_json_file write_off_csv_file/;
 use ProductOpener::Food qw/:all/;
 
 my $usage = <<TXT

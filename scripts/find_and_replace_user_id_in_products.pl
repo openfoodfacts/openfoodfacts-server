@@ -36,7 +36,7 @@ TXT
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Lang qw/:all/;
-use ProductOpener::Products qw/:all/;
+use ProductOpener::Products qw/find_and_replace_user_id_in_products/;
 
 use Log::Any::Adapter 'TAP';
 #use Log::Any::Adapter 'TAP', filter => "none";

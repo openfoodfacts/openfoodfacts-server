@@ -1,6 +1,7 @@
 [
    {
       "id" : "en:peach",
+      "is_in_taxonomy" : 1,
       "percent" : 50,
       "percent_estimate" : 50,
       "percent_max" : 50,
@@ -9,6 +10,7 @@
    },
    {
       "id" : "en:sugar",
+      "is_in_taxonomy" : 1,
       "percent_estimate" : 29.1666666666667,
       "percent_max" : 50,
       "percent_min" : 8.33333333333333,
@@ -19,12 +21,14 @@
       "ingredients" : [
          {
             "id" : "en:citrus-pectin",
+            "is_in_taxonomy" : 1,
             "percent_estimate" : 10.4166666666667,
             "percent_max" : 33.3333333333333,
             "percent_min" : 0,
             "text" : "citruspectine"
          }
       ],
+      "is_in_taxonomy" : 1,
       "percent_estimate" : 10.4166666666667,
       "percent_max" : 33.3333333333333,
       "percent_min" : 0,
@@ -32,6 +36,7 @@
    },
    {
       "id" : "en:lemon-juice-from-concentrate",
+      "is_in_taxonomy" : 1,
       "percent_estimate" : 5.20833333333333,
       "percent_max" : 20.8333333333333,
       "percent_min" : 0,
@@ -42,12 +47,14 @@
       "ingredients" : [
          {
             "id" : "en:e202",
+            "is_in_taxonomy" : 1,
             "percent_estimate" : 2.60416666666666,
             "percent_max" : 13.8888888888889,
             "percent_min" : 0,
             "text" : "kaliumsorbaat"
          }
       ],
+      "is_in_taxonomy" : 1,
       "percent_estimate" : 2.60416666666666,
       "percent_max" : 13.8888888888889,
       "percent_min" : 0,
@@ -58,12 +65,14 @@
       "ingredients" : [
          {
             "id" : "en:e300",
+            "is_in_taxonomy" : 1,
             "percent_estimate" : 1.30208333333333,
             "percent_max" : 10.4166666666667,
             "percent_min" : 0,
             "text" : "ascorbinezuur"
          }
       ],
+      "is_in_taxonomy" : 1,
       "percent_estimate" : 1.30208333333333,
       "percent_max" : 10.4166666666667,
       "percent_min" : 0,
@@ -74,12 +83,14 @@
       "ingredients" : [
          {
             "id" : "en:e960",
+            "is_in_taxonomy" : 1,
             "percent_estimate" : 1.30208333333333,
             "percent_max" : 8.33333333333333,
             "percent_min" : 0,
             "text" : "steviolglycosiden"
          }
       ],
+      "is_in_taxonomy" : 1,
       "percent_estimate" : 1.30208333333333,
       "percent_max" : 8.33333333333333,
       "percent_min" : 0,

@@ -44,13 +44,15 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
-use ProductOpener::Display qw/:all/;
-use ProductOpener::Users qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
+use ProductOpener::Display qw/request_param single_param/;
+use ProductOpener::Users qw/$Owner_id/;
+use ProductOpener::Lang qw/$lc/;
 use ProductOpener::Products qw/:all/;
-use ProductOpener::Ingredients qw/:all/;
-use ProductOpener::API qw/:all/;
+use ProductOpener::Ingredients qw/flatten_sub_ingredients/;
+use ProductOpener::API qw/add_error customize_response_for_product normalize_requested_code/;
+
+my $cc;
 
 =head2 read_product_api ( $request_ref )
 

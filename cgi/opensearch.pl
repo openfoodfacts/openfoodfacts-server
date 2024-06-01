@@ -28,13 +28,13 @@ use CGI qw/:cgi :form escapeHTML/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
-use ProductOpener::Display qw/:all/;
-use ProductOpener::HTTP qw/:all/;
+use ProductOpener::Display qw/$cc $subdomain init_request/;
+use ProductOpener::HTTP qw/write_cors_headers/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::URL qw/:all/;
+use ProductOpener::URL qw/format_subdomain/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -42,13 +42,13 @@ use Storable qw/dclone/;
 use Encode;
 use JSON::PP;
 
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Lang qw/$lc lang/;
 
 my $request_ref = ProductOpener::Display::init_request();
 
 # https://developer.mozilla.org/en-US/Add-ons/Creating_OpenSearch_plugins_for_Firefox
 # Maximum of 16 characters
-my $short_name = lang("site_name");
+my $short_name = $options{site_name};
 # Maximum of 48 characters
 my $long_name = $short_name;
 if ($cc eq 'world') {
