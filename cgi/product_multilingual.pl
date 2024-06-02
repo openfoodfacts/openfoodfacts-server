@@ -37,7 +37,7 @@ use ProductOpener::Lang qw/:all/;
 use ProductOpener::Mail qw/send_email_to_admin/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Food
-	qw/%nutriments_tables %other_nutriments_lists assign_nutriments_values_from_request_parameters compute_serving_size_data get_nutrient_unit/;
+	qw/%nutriments_tables %other_nutriments_lists assign_nutriments_values_from_request_parameters compute_nutrition_data_per_100g_and_per_serving get_nutrient_unit/;
 use ProductOpener::Units qw/g_to_unit mmoll_to_unit/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
@@ -67,12 +67,10 @@ use Log::Any qw($log);
 use File::Copy qw(move);
 use Data::Dumper;
 
-my $request_ref = ProductOpener::Display::init_request();
-
 # Function to display a form to add a product with a specific barcode (either typed in a field, or extracted from a barcode photo)
 # or without a barcode
 
-sub display_search_or_add_form() {
+sub display_search_or_add_form($request_ref) {
 
 	# Producer platform and no org or not admin: do not offer to add products
 	if (($server_options{producers_platform})
@@ -167,6 +165,8 @@ sub create_packaging_components_from_request_parameters ($product_ref) {
 	return;
 }
 
+my $request_ref = ProductOpener::Display::init_request();
+
 if ($User_id eq 'unwanted-user-french') {
 	display_error_and_exit(
 		$request_ref,
@@ -209,7 +209,7 @@ if ($type eq 'search_or_add') {
 
 		my $title = lang("add_product");
 
-		$html = display_search_or_add_form();
+		$html = display_search_or_add_form($request_ref);
 
 		$request_ref->{title} = lang('add_product');
 		$request_ref->{content_ref} = \$html;
@@ -740,14 +740,18 @@ sub display_input_field ($product_ref, $field, $language) {
 
 	$template_data_ref_field->{field_notes} = \@field_notes;
 
-	if (defined $Lang{$fieldtype . "_example"}{$lc}) {
+	# We can have product type specific examples (e.g. for OBF)
+	my $field_type_examples
+		= $Lang{$fieldtype . "_example" . "_" . $options{product_type}}{$lc} || $Lang{$fieldtype . "_example"}{$lc};
+
+	if ($field_type_examples) {
 
 		my $examples = $Lang{example}{$lc};
 		if ($Lang{$fieldtype . "_example"}{$lc} =~ /,/) {
 			$examples = $Lang{examples}{$lc};
 		}
 		$template_data_ref_field->{examples} = $examples;
-		$template_data_ref_field->{field_type_examples} = $Lang{$fieldtype . "_example"}{$lc};
+		$template_data_ref_field->{field_type_examples} = $field_type_examples;
 	}
 
 	process_template('web/pages/product_edit/display_input_field.tt.html', $template_data_ref_field, \$html_field)
@@ -759,7 +763,7 @@ sub display_input_field ($product_ref, $field, $language) {
 if (($action eq 'display') and (($type eq 'add') or ($type eq 'edit'))) {
 
 	# Populate the energy-kcal or energy-kj field from the energy field if it exists
-	compute_serving_size_data($product_ref);
+	compute_nutrition_data_per_100g_and_per_serving($product_ref);
 
 	my $template_data_ref_display = {};
 
@@ -783,7 +787,7 @@ HTML
 <script type="text/javascript" src="$static_subdomain/js/dist/cropper.js"></script>
 <script type="text/javascript" src="$static_subdomain/js/dist/jquery-cropper.js"></script>
 <script type="text/javascript" src="$static_subdomain/js/dist/jquery.form.js"></script>
-<script type="text/javascript" src="$static_subdomain/js/dist/tagify.min.js"></script>
+<script type="text/javascript" src="$static_subdomain/js/dist/tagify.js"></script>
 <script type="text/javascript" src="$static_subdomain/js/dist/jquery.iframe-transport.js"></script>
 <script type="text/javascript" src="$static_subdomain/js/dist/jquery.fileupload.js"></script>
 <script type="text/javascript" src="$static_subdomain/js/dist/load-image.all.min.js"></script>
@@ -952,26 +956,27 @@ CSS
 				}
 
 				$display_tab_ref->{fields} = \@fields_arr;
-			}
 
-			# For moderators, add a checkbox to move all data and photos to the main language
-			# this needs to be below the "add (language name) in all field labels" above, so that it does not change this label.
-			if (($User{moderator}) and ($tabsid eq "front_image")) {
+				# For moderators, add a checkbox to move all data and photos to the main language
+				# this needs to be below the "add (language name) in all field labels" above, so that it does not change this label.
+				if (($User{moderator}) and ($tabsid eq "front_image")) {
 
-				my $msg = f_lang(
-					"f_move_data_and_photos_to_main_language",
-					{
-						language => '<span class="tab_language">' . $language . '</span>',
-						main_language => '<span class="main_language">'
-							. lang("lang_" . $product_ref->{lc})
-							. '</span>'
-					}
-				);
+					my $msg = f_lang(
+						"f_move_data_and_photos_to_main_language",
+						{
+							language => '<span class="tab_language">' . $language . '</span>',
+							main_language => '<span class="main_language">'
+								. lang("lang_" . $product_ref->{lc})
+								. '</span>'
+						}
+					);
 
-				my $moveid = "move_" . $tabid . "_data_and_images_to_main_language";
+					my $moveid = "move_" . $tabid . "_data_and_images_to_main_language";
 
-				$display_tab_ref->{moveid} = $moveid;
-				$display_tab_ref->{msg} = $msg;
+					$display_tab_ref->{moveid} = $moveid;
+					$display_tab_ref->{msg} = $msg;
+				}
+
 			}
 
 			push(@display_tabs, $display_tab_ref);
@@ -1193,9 +1198,8 @@ CSS
 		# They may be prefixed with a ! to indicate that the nutrient is always shown when displaying the nutrition facts table
 		if (($shown) and ($nutriment =~ /^!?-/)) {
 			$class = 'sub';
-			$prefix = $Lang{nutrition_data_table_sub}{$lc} . " ";
 			if ($nutriment =~ /^--/) {
-				$prefix = "&nbsp; " . $prefix;
+				$prefix = "&nbsp; ";
 			}
 		}
 
@@ -1417,7 +1421,7 @@ CSS
 				$supports_iu = "true";
 			}
 
-			my $other_nutriment_unit = get_property("nutrients", "zz:$nid", "unit:en");
+			my $other_nutriment_unit = get_property("nutrients", "zz:$nid", "unit:en") || '';
 			$other_nutriments
 				.= '{ "value" : "'
 				. $other_nutriment_value

@@ -70,7 +70,7 @@ export function copyJs() {
     "./node_modules/blueimp-load-image/js/load-image.all.min.js",
     "./node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.js",
     "./node_modules/blueimp-file-upload/js/*.js",
-    "./node_modules/@yaireo/tagify/dist/tagify.min.js",
+    "./node_modules/@yaireo/tagify/dist/tagify.js",
     "./node_modules/cropperjs/dist/cropper.js",
     "./node_modules/jquery-cropper/dist/jquery-cropper.js",
     "./node_modules/jquery-form/src/jquery.form.js",
