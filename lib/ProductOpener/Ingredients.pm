@@ -5507,7 +5507,8 @@ my %ingredients_categories_and_types = (
 			# categories
 			categories => ["oil", "vegetable oil", "vegetal oil",],
 			# types
-			types => ["avocado", "coconut", "colza", "cottonseed", "olive", "palm", "rapeseed", "safflower", "sunflower",],
+			types =>
+				["avocado", "coconut", "colza", "cottonseed", "olive", "palm", "rapeseed", "safflower", "sunflower",],
 		},
 	],
 
@@ -5515,7 +5516,8 @@ my %ingredients_categories_and_types = (
 		# oil and fat
 		{
 			categories => ["pflanzliches Fett", "pflanzliche Öle", "pflanzliche Öle und Fette", "Fett", "Öle"],
-			types => ["Avocado", "Baumwolle", "Distel", "Kokosnuss", "Palm", "Palmkern", "Raps", "Shea", "Sonnenblumen",],
+			types =>
+				["Avocado", "Baumwolle", "Distel", "Kokosnuss", "Palm", "Palmkern", "Raps", "Shea", "Sonnenblumen",],
 			# Kokosnussöl, Sonnenblumenfett
 			alternate_names => ["<type>fett", "<type>öl"],
 		},
@@ -5547,13 +5549,13 @@ my %ingredients_categories_and_types = (
 				"graisses végétales",
 			],
 			types => [
-				"arachide", "avocat", "carthame", "chanvre", "coco",
-				"colza", "coton", "illipe", "karité", "lin",
-				"mangue", "noisette", "noix", "noyaux de mangue",
-				"olive", "olive extra", "olive vierge", "olive extra vierge",
-				"olive vierge extra", "palme", "palmiste", "pépins de raisin",
-				"sal", "sésame", "soja", "tournesol",
-				"tournesol oléique",
+				"arachide", "avocat", "carthame", "chanvre",
+				"coco", "colza", "coton", "illipe",
+				"karité", "lin", "mangue", "noisette",
+				"noix", "noyaux de mangue", "olive", "olive extra",
+				"olive vierge", "olive extra vierge", "olive vierge extra", "palme",
+				"palmiste", "pépins de raisin", "sal", "sésame",
+				"soja", "tournesol", "tournesol oléique",
 			]
 		},
 		# (natural) extract
