@@ -77,8 +77,6 @@ BEGIN {
 		$display_size
 		$zoom_size
 
-		$page_size
-
 		%options
 		%server_options
 
@@ -174,7 +172,31 @@ $flavor = "opf";
 	teolemon
 );
 
-$options{product_type} = "product";
+%options = (
+	site_name => "Open Products Facts",
+	product_type => "products",
+	og_image_url => "https://world.openproductsfacts.org/images/misc/openproductsfacts-logo-en.png",
+	#android_apk_app_link => "https://world.openbeautyfacts.org/images/apps/obf.apk",
+	#android_app_link => "https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner",
+	#ios_app_link => "https://apps.apple.com/app/open-beauty-facts/id1122926380",
+	#facebook_page_url => "https://www.facebook.com/openbeautyfacts",
+	#twitter_account => "OpenBeautyFacts",
+);
+
+$options{export_limit} = 10000;
+
+# Recent changes limits
+$options{default_recent_changes_page_size} = 20;
+$options{max_recent_changes_page_size} = 1000;
+
+# List of products limits
+$options{default_api_products_page_size} = 20;
+$options{default_web_products_page_size} = 50;
+$options{max_products_page_size} = 100;
+
+# List of tags limits
+$options{default_tags_page_size} = 100;
+$options{max_tags_page_size} = 1000;
 
 @edit_rules = ();
 
@@ -231,8 +253,6 @@ $crop_size = 400;
 $small_size = 200;
 $display_size = 400;
 $zoom_size = 800;
-
-$page_size = 20;
 
 $google_analytics = <<HTML
 HTML
