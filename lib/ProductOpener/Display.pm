@@ -3964,6 +3964,15 @@ HTML
 						;
 				}
 
+				if ($packager_codes{$canon_tagid}{cc} eq 'dk') {
+					$description .= <<HTML
+<p>$packager_codes{$canon_tagid}{name}<br>
+$packager_codes{$canon_tagid}{address} (Denmark)
+</p>
+HTML
+						;
+				}
+
 				if ($packager_codes{$canon_tagid}{cc} eq 'es') {
 					# Razón Social;Provincia/Localidad
 					$description .= <<HTML
