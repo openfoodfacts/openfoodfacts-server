@@ -51,6 +51,7 @@ BEGIN {
 		&get_emb_codes_collection
 		&get_recent_changes_collection
 		&remove_documents_by_ids
+		&get_orgs_collection
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -200,6 +201,10 @@ sub get_emb_codes_collection ($timeout = undef) {
 
 sub get_recent_changes_collection ($timeout = undef) {
 	return get_collection($mongodb, 'recent_changes', $timeout);
+}
+
+sub get_orgs_collection ($timeout = undef) {
+	return get_collection($mongodb, 'orgs', $timeout);
 }
 
 sub get_collection ($database, $collection, $timeout = undef) {
