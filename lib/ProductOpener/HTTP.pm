@@ -202,7 +202,7 @@ sub get_http_request_header($header_name) {
 	my $r = Apache2::RequestUtil->request();
 	# we need to check if the request object is defined and has headers
 	# as this function may be called outside of mod_perl (e.g. in unit tests)
-	if (not $r->can('headers_in')) {
+	if (not(defined $r) and (blessed $r) and ($r->can('headers_in'))) {
 		$log->error("get_http_request_header: request object does not have headers_in method (not in mod_perl?)");
 		return;
 	}
