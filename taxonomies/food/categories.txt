@@ -33225,6 +33225,12 @@ pnns_group_2:en:Biscuits and cakes
 # <en:compound
 
 <en:Biscuits and cakes
+en:Cake with almond flavoured filling
+de:Kuchen met Marzipangeschmak-Füllung
+fr:Gäteau fourré goût amande
+nl:Gevulde Koeken
+
+<en:Biscuits and cakes
 en:Biscuits, biscuit, cookies, cookie
 ar:بسكويت
 az:Biskvit
@@ -33384,7 +33390,7 @@ en:Sprits biscuits, Sprits, spritz biscuits
 de:Spritzgebäck
 fr:Biscuits sprits, Sprits, biscuits spritz
 hr:Špric keksi
-nl:Sprits
+nl:Spritsen, Sprits
 
 <en:Sprits biscuits
 en:Plain sprits biscuits
@@ -33526,7 +33532,7 @@ fr:Biscuits fourrés
 hr:Filovani keks
 it:Biscotti ripieni
 lt:Įdaryti sausainiai
-nl:Gevulde koekjes
+nl:Gevulde biscuits
 pt:Biscoitos recheados
 ro:Biscuiți umpluți
 
@@ -82577,7 +82583,7 @@ lt:Jautienos ruošiniai
 nl:Rundvleesproducten
 pt:Preparados de bife
 
-<en:Beef preparations
+<en:Ground beef preparations
 nl:Filet Americain
 
 <en:Beef preparations
@@ -82934,7 +82940,7 @@ gpc_category_name:en:Pork - Prepared/Processed
 en:Pork preparations
 fr:Préparations au porc
 lt:Kiaulienos gaminiai
-nl:Varkensbereidingen
+nl:Varkensvleesbereidingen, Varkensbereidingen
 intake24_category_code:en:PDSH
 
 <en:Pork preparations
@@ -103256,6 +103262,7 @@ season_in_country_fr:en: 5,6,7,8,9
 en:Romaine lettuce, cos, romaine lettuce
 fr:Laitue romaine, Laitue romaine
 ja:ロメインレタス, コスレタス
+nl:Romainesla
 agribalyse_food_code:en:20171
 ciqual_food_code:en:20171
 ciqual_food_name:en:Cos or romaine lettuce, raw
@@ -104436,6 +104443,7 @@ ciqual_food_name:en:Spinach, young leaves, raw
 ciqual_food_name:fr:Épinard, jeunes pousses pour salades, cru
 
 <en:Cereals and potatoes
+<en:Fresh vegetables
 en:Sweet potatoes
 bg:Сладки картофи
 de:Süßkartoffeln
@@ -104650,6 +104658,9 @@ season_in_country_fr:en: 6,7,8,9
 
 <en:Tomatoes
 fr:Tomate olivette, Tomates olivettes
+
+<en:Tomatoes
+fr:Tomates allongées
 
 <en:Tomatoes
 en:Cherry tomatoes
@@ -111191,10 +111202,11 @@ ciqual_food_name:fr:Biscuit apéritif, crackers, nature
 en:Salty canistrelli
 fr:Canistrelli salés
 
+
 <en:Crackers
-en:Salty palmiers
-fr:Palmiers salés
-nl:Gezouten vlinders, Gezouten palmiers
+en:Cheese puff pastries
+fr:Biscuits Feuilletés auf fromage
+nl:Kaasvlinders
 
 <en:Crackers
 fr:Crêpes dentelle salées, Crêpes dentelles salées
@@ -111272,18 +111284,19 @@ wikidata:en:Q160525
 fr:mélange Sticks et Bretzels
 
 <en:Crackers
-en:Salty snacks puff pastry
-fr:Biscuit apéritif feuilleté
+en:Puffed salty snacks, Salty snacks puff pastry, Salty palmiers
+fr:Biscuit apéritif feuilleté, Palmiers salés
+nl:Gezouten vlinders, Gezouten palmiers
 agribalyse_food_code:en:38407
 ciqual_food_code:en:38407
 ciqual_food_name:en:Salty snacks, puff pastry
 ciqual_food_name:fr:Biscuit apéritif feuilleté
 
 <en:Crackers
-en:Puffed salty snacks
-de:Gepuffte salzige Snacks
-fr:Biscuits apéritifs soufflés, Gâteaux apéritifs soufflés
-nl:Gepofte zoutjes
+en:Puffed salty snacks (potato/soy based)
+de:Gepuffte salzige Snacks (Kartoffel/Soja)
+fr:Biscuits apéritifs soufflés (à base de pomme de terre/soja), Gâteaux apéritifs soufflés
+nl:Gepofte zoutjes (aardappel/soja basis)
 ro:Pufuleți
 agribalyse_proxy_food_code:en:38108
 agribalyse_proxy_food_name:en:Puffed salty snacks, made from potato and soy
@@ -111293,7 +111306,7 @@ gpc_category_description:en:Definition: Includes any products that can be descri
 gpc_category_name:en:Doodles/ Puffs
 #wikidata:en:Q9191304
 
-<en:Puffed salty snacks
+<en:Puffed salty snacks (potato/soy based)
 en:Cheese doodles
 nl:Kaasflips
 ro:Pufuleți cu brânză
