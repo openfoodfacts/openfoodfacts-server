@@ -513,13 +513,36 @@ my $tests_ref = [
 		path => '/cgi/search.pl?search_terms=tarte',
 		expected_type => 'html',
 	},
+	# Add an image to one product to test caching and no-cache
+	{
+		test_case => 'post-product-image-2',
+		method => 'POST',
+		path => '/cgi/product_image_upload.pl',
+		form => {
+			code => "3300000000002",
+			imagefield => "front_fr",
+			imgupload_front_fr => ["$sample_products_images_path/1.jpg", '1.jpg'],
+		},
+		expected_status_code => 200,
+	},
 	# Request the same results a second time, to test the MongoDB cache
-	# The resulting HTML should be exactly the same
+	# The resulting HTML should be exactly the same, without the new image
 	{
 		test_case => 'fr-search-results-cached',
 		subdomain => 'fr',
 		path => '/cgi/search.pl?search_terms=tarte',
 		expected_type => 'html',
+	},
+	# Request the same results a third time, to test the MongoDB cache with Cache-Control: no-cache
+	# The resulting HTML should have the new image image
+	{
+		test_case => 'fr-search-results-no-cache',
+		subdomain => 'fr',
+		path => '/cgi/search.pl?search_terms=tarte',
+		expected_type => 'html',
+		headers_in => {
+			'Cache-Control' => 'no-cache',
+		},
 	},
 ];
 
