@@ -9053,16 +9053,16 @@ sub data_to_display_nutrient_levels ($product_ref) {
 		foreach my $nutrient_level_ref (@nutrient_levels) {
 			my ($nid, $low, $high) = @{$nutrient_level_ref};
 
-			if ((defined $product_ref->{nutrient_levels}) and (defined $product_ref->{nutrient_levels}{$nid})) {
-
-				my $nutriment_value = $product_ref->{nutriments}{$nid . $prepared . "_100g"};
-				my $formatted_value = $nutriment_value
-					// '' =~ /^-?\d+(\.\d+)?$/ ? sprintf("%.2e", $nutriment_value + 0.0) : '';
+			if (    (defined $product_ref->{nutrient_levels})
+				and (defined $product_ref->{nutrient_levels}{$nid})
+				and (defined $product_ref->{nutriments}{$nid . $prepared . "_100g"}))
+			{
 
 				push @{$result_data_ref->{nutrient_levels}}, {
 					nid => $nid,
 					nutrient_level => $product_ref->{nutrient_levels}{$nid},
-					nutrient_quantity_in_grams => $formatted_value,
+					nutrient_quantity_in_grams =>
+						sprintf("%.2e", $product_ref->{nutriments}{$nid . $prepared . "_100g"}) + 0.0,
 					nutrient_in_quantity => sprintf(
 						lang("nutrient_in_quantity"),
 						display_taxonomy_tag($lc, "nutrients", "zz:$nid"),

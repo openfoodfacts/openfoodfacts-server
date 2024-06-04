@@ -1339,11 +1339,7 @@ sub create_ingredients_panel ($product_ref, $target_lc, $target_cc, $options_ref
 		title => $title,
 		ingredients_text => $ingredients_text,
 		ingredients_text_with_allergens => $ingredients_text_with_allergens,
-		ingredients_text_lc => (
-			defined $ingredients_text_lc
-			? display_taxonomy_tag($target_lc, 'languages', $language_codes{$ingredients_text_lc})
-			: ''
-		),
+		ingredients_text_lc => $ingredients_text_lc,
 		ingredients_text_language =>
 			display_taxonomy_tag($target_lc, 'languages', $language_codes{$ingredients_text_lc}),
 	};
