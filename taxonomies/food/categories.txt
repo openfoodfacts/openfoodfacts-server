@@ -12962,6 +12962,12 @@ fr:Vin d'Alsace
 origins:en: en:france
 #wikidata:en:
 
+<fr:Vin d'Alsace
+fr:Alsace Pinot gris
+
+<fr:Vin d'Alsace
+fr:Alsace Riesling, Riesling d'Alsace
+
 <en:Wines from France
 fr:Anjou, Anjou Val de Loire
 origins:en: en:france, en:loire-valley
@@ -13129,6 +13135,10 @@ protected_name_type:en: pgi
 fr:Bandol, Vin de Bandol
 origins:en: en:france
 #wikidata:en:
+
+<fr:Bandol
+<en:White wines
+fr:Bandol blanc
 
 <en:Bordeaux wines
 <en:Dessert wines
@@ -15493,6 +15503,10 @@ fr:Châteauneuf-du-Pape
 origins:en: en:france
 wikidata:en:Q2914687
 
+<fr:Châteauneuf-du-Pape
+<en:White wines
+fr:Châteauneuf-du-Pape blanc
+
 <en:Wines from France
 fr:Châtillon-en-Diois
 origins:en: en:france
@@ -16187,6 +16201,12 @@ origins:en: en:france
 protected_name_file_number:en: PDO-FR-A0664
 protected_name_type:en: pdo
 #wikidata:en:
+
+<en:Wines from France
+fr:Châteauneuf-du-Pape
+protected_name_file_number:en: PDO-FR-A0144
+protected_name_type:en: pdo
+origins:en: en:france
 
 <en:Wines from France
 fr:Côtes du Roussillon
@@ -21306,6 +21326,10 @@ protected_name_type:en: pgi
 fr:Saint-Joseph
 origins:en: en:france
 #wikidata:en:
+
+<fr:Saint-Joseph
+<en:White wines
+fr:Saint-Joseph blanc
 
 <en:Medoc wines
 fr:Saint-Julien
@@ -83858,11 +83882,15 @@ protected_name_type:en: pgi
 
 <en:Chickens
 en:Hen meat and skin
-fr:viande de poulet avec peau
+fr:viande de poule avec peau
 agribalyse_food_code:en:36000
 ciqual_food_code:en:36000
 ciqual_food_name:en:Hen, meat and skin, raw
 ciqual_food_name:fr:Poule, viande et peau, crue
+
+<en:Hen meat and skin
+en:Frozen Hen
+fr:Poule surgelée
 
 <en:Chickens
 en:Hen meat
@@ -84049,12 +84077,19 @@ ciqual_food_name:en:Chicken, nugget, breaded croquette
 intake24_category_code:en:MFGR
 wikidata:en:Q1072190
 
+<en:Chicken nuggets
+en:Frozen chicken nuggets
+fr:Nuggets de poulet surgelés
 
 <en:Breaded products
 <en:Meat preparations
 en:Breaded meat cutlets
 de:Schnitzel
 fr:Escalopes de viande panées
+
+<en:Breaded meat cutlets
+en:Frozen breaded meat cutlets
+fr:Escalopes de viande panées surgelées
 
 <en:Breaded meat cutlets
 <en:Pork preparations
@@ -84772,9 +84807,6 @@ wikidata:en:Q780
 wikipedia:en:https://en.wikipedia.org/wiki/Chicken_as_food
 
 <en:Chickens
-fr:Poulets fermiers
-
-<en:Chickens
 en:Whole chickens
 fr:Poulets entiers
 
@@ -84868,6 +84900,10 @@ ciqual_food_code:en:36033
 ciqual_food_name:en:Chicken, wing, meat and skin, roasted/baked
 ciqual_food_name:fr:Poulet, aile, viande et peau, rôti/cuit au four
 
+<en:Chicken wings
+en:Frozen chicken wings
+fr:Ailes de poulet surgelées, aile de poulet surgelée
+
 <en:Chickens
 en:Chicken thighs, chicken legs
 bg:Пилешки бутчета
@@ -84938,7 +84974,7 @@ da:Kyllingebryst
 de:Hähnchenbrustfilet, Hühnerbrust
 es:Pechugas de pollo
 fi:kanan rinnat
-fr:Filets de poulet, Filet de poulet, Filets de poulet fermier
+fr:Filets de poulet, Filet de poulet
 he:חזה עוף
 hu:Csirkemellek
 it:Petti di pollo
@@ -84950,6 +84986,12 @@ zh:鸡胸
 agribalyse_proxy_food_code:en:36018
 agribalyse_proxy_food_name:en:Chicken, breast, without skin, cooked
 agribalyse_proxy_food_name:fr:Poulet, filet, sans peau, cuit
+
+<fr:Poulet fermier viande et peau cru
+fr:Filets de poulet fermier
+agribalyse_proxy_food_code:en:36017
+agribalyse_proxy_food_name:en:Chicken, breast, without skin, raw
+agribalyse_proxy_food_name:fr:Poulet, filet, sans peau, cru
 
 <en:Chicken breasts
 <en:Cooked chicken
@@ -84995,6 +85037,18 @@ it:Pollo arrosto
 nl:Gegrilde kip
 zh:烤鸡
 wikidata:en:Q899640
+
+<en:Chickens
+en:Chicken carcass
+fr:Carcasse de poulet
+
+<en:Chickens
+en:Chicken feet
+fr:Pattes de poulets
+
+<en:Chickens
+en:Frozen chickens
+fr:Poulets surgelés
 
 # TODO - Add proxy
 
@@ -95476,6 +95530,10 @@ pl:Paluszki rybne
 intake24_category_code:en:FPCS
 wikidata:en:Q1420441
 
+<en:Fish fingers
+en:Frozen fish fingers
+fr:Batonnets de poisson surgelés
+
 <en:Pollocks
 en:Alaska pollock
 fr:Lieu d'Alaska cru, Colin d'Alaska
@@ -97794,6 +97852,10 @@ wikidata:en:Q110263027
 
 <en:Oysters
 fr:Huîtres spéciales
+
+<fr:Huîtres spéciales
+<fr:Huîtres Marennes Oléron
+fr:Huîtres spéciales Marennes Oléron
 
 <en:Mollusc
 en:Cuttlefish
@@ -110504,6 +110566,10 @@ fr:Langues, langue
 en:Cooked tongues, cooked tongue
 fr:Langues cuites, langue cuite
 
+<en:Offals
+en:Chicken offals
+fr:Abats de poulets, Abats de poulet
+
 <en:Fish and meat and eggs
 en:Foies gras
 ca:Foie-gras
@@ -113985,7 +114051,7 @@ ciqual_food_name:fr:Poulet (var. blanc), viande et peau, cru
 
 <en:chickens
 en:Chicken free-range meat and skin raw
-fr:Poulet fermier viande et peau cru
+fr:Poulets fermiers, Poulet fermier viande et peau cru
 agribalyse_food_code:en:36008
 ciqual_food_code:en:36008
 ciqual_food_name:en:Chicken, free-range, meat and skin, raw
@@ -113998,6 +114064,10 @@ agribalyse_food_code:en:36014
 ciqual_food_code:en:36014
 ciqual_food_name:en:Chicken, stewing, leg, raw
 ciqual_food_name:fr:Poule, cuisse, crue
+
+<en:Chicken stewing leg raw
+en:Chicken stewing leg frozen
+fr:Poule cuisse surgelée
 
 <en:chickens
 en:Chicken breast without skin raw
