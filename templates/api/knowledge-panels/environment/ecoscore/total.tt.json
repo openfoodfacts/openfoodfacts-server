@@ -1,4 +1,5 @@
-[% SET sum_of_bonuses_and_maluses = product.ecoscore_data.adjustments.production_system.value + product.ecoscore_data.adjustments.packaging.value + product.ecoscore_data.adjustments.threatened_species.value + product.ecoscore_data.adjustments.origins_of_ingredients.value %]
+[% SET sum_of_bonuses_and_maluses = (product.ecoscore_data.adjustments.production_system.value || 0) + (product.ecoscore_data.adjustments.packaging.value || 0) + (product.ecoscore_data.adjustments.threatened_species.value || 0) + (product.ecoscore_data.adjustments.origins_of_ingredients.value || 0) %]
+
 {
     "level": "info",
     "topics": [
