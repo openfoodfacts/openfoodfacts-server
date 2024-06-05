@@ -435,6 +435,10 @@ _clean_old_external_volumes:
 	( docker volume inspect ${COMPOSE_PROJECT_NAME}_products|grep /rpool/off/clones && docker volume rm ${COMPOSE_PROJECT_NAME}_products ) || true
 	( docker volume inspect ${COMPOSE_PROJECT_NAME}_product_images|grep /rpool/off/clones && docker volume rm ${COMPOSE_PROJECT_NAME}_product_images ) || true
 
+save_orgs_to_mongodb:
+	@echo "🥫 Saving exsiting orgs into MongoDB …"
+	${DOCKER_COMPOSE} run --rm backend perl -I/opt/product-opener/lib /opt/product-opener/scripts/save_existing_orgs_to_mongodb.pl "/mnt/podata/orgs"
+
 #------------#
 # Production #
 #------------#
