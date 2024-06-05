@@ -65,6 +65,7 @@
 
 </head>
 <body class="list_of_tags_page">
+	<div class="skip"><a href="#content" tabindex="0">Skip to Content</a></div>
 
 	<div id="page">
 		<div class="upper-nav contain-to-grid"  id="upNav">
@@ -248,7 +249,7 @@
   <span class="donation-banner__hand"></span>
   <div class="donation-banner__content">
     <p class="donation-banner__main-text">
-        <span>Help us make food transparency the norm!</span>
+        <span role="heading">Help us make food transparency the norm!</span>
     </p>
     <div class="donation-banner__aside">
       <div>
@@ -258,9 +259,9 @@
       <a class="donation-banner__donate" href="//world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utf_medium=web&utm_campaign=donate-2023-a&utm_term=en-text-button">Donate</a>
     </div>
   </div>
-  <div class="donation-banner__image"></div>
+  <div class="donation-banner__image" role="img" aria-label="Photo of the project team"></div>
   <div class="donation-banner__close">
-    <span id="hide-donate-banner" class="material-icons" onclick="DonationButton();">close</span>
+    <button id="hide-donate-banner" class="material-icons modest" onclick="DonationButton();" onkeypress="DonationButton();">close</button>
   </div>
 </section>
 
@@ -335,9 +336,9 @@
 <thead><tr><th>Label</th><th>Products</th><th>*</th></tr></thead>
 <tbody>
 <tr><td><a href="/label/fair-trade" class="tag known">Fair trade</a></td>
-<td style="text-align:right"><a href="/label/fair-trade" class="tag known">5</a></td><td></td></tr>
+<td style="text-align:right"><a href="/label/fair-trade" class="tag known">6</a></td><td></td></tr>
 <tr><td><a href="/label/organic" class="tag known">Organic</a></td>
-<td style="text-align:right"><a href="/label/organic" class="tag known">4</a></td><td></td></tr>
+<td style="text-align:right"><a href="/label/organic" class="tag known">5</a></td><td></td></tr>
 <tr><td><a href="/label/free-range-duck" class="tag user_defined">free-range-duck</a></td>
 <td style="text-align:right"><a href="/label/free-range-duck" class="tag user_defined">1</a></td><td style="text-align:center">*</td></tr>
 <tr><td><a href="/label/no-palm-oil" class="tag known">No palm oil</a></td>
@@ -411,7 +412,7 @@
       <a class="donation-banner-footer__donate" href="//world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utf_medium=web&utm_campaign=donate-2023-a&utm_term=en-text-button">Donate</a>
     </div>
   </div>
-  <div class="donation-banner-footer__image"></div>
+  <div class="donation-banner-footer__image" role="img" aria-label="Photo of the project team"></div>
 </section>
 
 

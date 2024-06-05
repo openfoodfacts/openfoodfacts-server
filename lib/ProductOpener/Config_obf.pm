@@ -60,6 +60,7 @@ BEGIN {
 		$events_username
 		$events_password
 
+		$rate_limiter_blocking_enabled
 		$facets_kp_url
 		$redis_url
 
@@ -76,8 +77,6 @@ BEGIN {
 		$small_size
 		$display_size
 		$zoom_size
-
-		$page_size
 
 		%options
 		%server_options
@@ -185,6 +184,21 @@ $flavor = 'obf';
 	twitter_account => "OpenBeautyFacts",
 );
 
+$options{export_limit} = 10000;
+
+# Recent changes limits
+$options{default_recent_changes_page_size} = 20;
+$options{max_recent_changes_page_size} = 1000;
+
+# List of products limits
+$options{default_api_products_page_size} = 20;
+$options{default_web_products_page_size} = 50;
+$options{max_products_page_size} = 100;
+
+# List of tags limits
+$options{default_tags_page_size} = 100;
+$options{max_tags_page_size} = 1000;
+
 @edit_rules = ();
 
 # server constants
@@ -219,6 +233,10 @@ $events_url = $ProductOpener::Config2::events_url;
 $events_username = $ProductOpener::Config2::events_username;
 $events_password = $ProductOpener::Config2::events_password;
 
+# If $rate_limiter_blocking_enabled is set to 1, the rate limiter will block requests
+# by returning a 429 error code instead of a 200 code
+$rate_limiter_blocking_enabled = $ProductOpener::Config2::rate_limiter_blocking_enabled;
+
 # server options
 
 %server_options = %ProductOpener::Config2::server_options;
@@ -237,8 +255,6 @@ $small_size = 200;
 $display_size = 400;
 $zoom_size = 800;
 
-$page_size = 20;
-
 $google_analytics = <<HTML
 HTML
 	;
@@ -248,7 +264,7 @@ HTML
 # fields for which we will load taxonomies
 
 @taxonomy_fields
-	= qw(units states countries languages labels categories additives allergens traces nutrient_levels ingredients periods_after_opening inci_functions);
+	= qw(units states countries languages labels categories additives additives_classes allergens traces nutrient_levels ingredients periods_after_opening inci_functions);
 
 # tag types (=facets) that should be indexed by web crawlers, all other tag types are not indexable
 @index_tag_types = qw(brands categories labels additives products);

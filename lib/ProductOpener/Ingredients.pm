@@ -39,7 +39,7 @@ ingredients (is the product vegetarian, vegan, does it contain palm oil etc.)
 
 	extract_ingredients_from_text($product_ref);
 
-	extract_ingredients_classes_from_text($product_ref);
+	extract_additives_from_text($product_ref);
 
 	detect_allergens_from_text($product_ref);
 
@@ -77,7 +77,7 @@ BEGIN {
 		&normalize_a_of_b
 		&normalize_enumeration
 
-		&extract_ingredients_classes_from_text
+		&extract_additives_from_text
 		&extract_ingredients_from_text
 		&preparse_ingredients_text
 
@@ -1238,53 +1238,57 @@ sub match_ingredient_origin ($ingredients_lc, $text_ref, $matched_ingredient_ref
 
 	# Strawberries: Spain, Italy and Portugal
 	# Strawberries from Spain, Italy and Portugal
-	if ($$text_ref
-		=~ /\s*([^,.;:]+)(?::|$from)\s*((?:$origins_regexp)(?:(?:,|$and_or)(?:\s?)(?:$origins_regexp))*)\s*(?:,|;|\.| - |$)/i
-		)
-	{
-		# Note: the regexp above does not currently match multiple origins with commas (e.g. "Origins of milk: UK, UE")
-		# in order to not overmatch something like "Origin of milk: UK, some other mention."
-		# In the future, we could try to be smarter and match more if we can recognize the next words exist in the origins taxonomy.
-
-		$matched_ingredient_ref->{ingredient} = $1;
-		$matched_ingredient_ref->{origins} = $2;
-		$matched_ingredient_ref->{matched_text} = $&;
-
-		# Remove the matched text
-		$$text_ref = $` . ' ' . $';
-
-		return 1;
-	}
-	# Try to match without a "from" marker (e.g. "Strawberry France")
-	elsif ($$text_ref
-		=~ /\s*([^,.;:]+)\s+((?:$origins_regexp)(?:(?:,|$and_or)(?:\s?)(?:$origins_regexp))*)\s*(?:,|;|\.| - |$)/i)
-	{
-		# Note: the regexp above does not currently match multiple origins with commas (e.g. "Origins of milk: UK, UE")
-		# in order to not overmatch something like "Origin of milk: UK, some other mention."
-		# In the future, we could try to be smarter and match more if we can recognize the next words exist in the origins taxonomy.
-
-		$matched_ingredient_ref->{ingredient} = $1;
-		$matched_ingredient_ref->{origins} = $2;
-		$matched_ingredient_ref->{matched_text} = $&;
-
-		# keep the matched ingredient only if it is a known ingredient in the taxonomy, in order to avoid false positives
-		# e.g. "something made in France" should not be turned into ingredient "something made in" + origin "France"
-		if (
-			not(
-				exists_taxonomy_tag(
-					"ingredients",
-					canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $matched_ingredient_ref->{ingredient})
-				)
-			)
+	if (defined $origins_regexp) {
+		if ($$text_ref
+			=~ /\s*([^,.;:]+)(?::|$from)\s*((?:$origins_regexp)(?:(?:,|$and_or)(?:\s?)(?:$origins_regexp))*)\s*(?:,|;|\.| - |$)/i
 			)
 		{
-			$matched_ingredient_ref = {};
-		}
-		else {
+			# Note: the regexp above does not currently match multiple origins with commas (e.g. "Origins of milk: UK, UE")
+			# in order to not overmatch something like "Origin of milk: UK, some other mention."
+			# In the future, we could try to be smarter and match more if we can recognize the next words exist in the origins taxonomy.
+
+			$matched_ingredient_ref->{ingredient} = $1;
+			$matched_ingredient_ref->{origins} = $2;
+			$matched_ingredient_ref->{matched_text} = $&;
+
 			# Remove the matched text
 			$$text_ref = $` . ' ' . $';
 
 			return 1;
+		}
+		# Try to match without a "from" marker (e.g. "Strawberry France")
+		elsif ($$text_ref
+			=~ /\s*([^,.;:]+)\s+((?:$origins_regexp)(?:(?:,|$and_or)(?:\s?)(?:$origins_regexp))*)\s*(?:,|;|\.| - |$)/i)
+		{
+			# Note: the regexp above does not currently match multiple origins with commas (e.g. "Origins of milk: UK, UE")
+			# in order to not overmatch something like "Origin of milk: UK, some other mention."
+			# In the future, we could try to be smarter and match more if we can recognize the next words exist in the origins taxonomy.
+
+			$matched_ingredient_ref->{ingredient} = $1;
+			$matched_ingredient_ref->{origins} = $2;
+			$matched_ingredient_ref->{matched_text} = $&;
+
+			# keep the matched ingredient only if it is a known ingredient in the taxonomy, in order to avoid false positives
+			# e.g. "something made in France" should not be turned into ingredient "something made in" + origin "France"
+			if (
+				not(
+					exists_taxonomy_tag(
+						"ingredients",
+						canonicalize_taxonomy_tag(
+							$ingredients_lc, "ingredients", $matched_ingredient_ref->{ingredient}
+						)
+					)
+				)
+				)
+			{
+				$matched_ingredient_ref = {};
+			}
+			else {
+				# Remove the matched text
+				$$text_ref = $` . ' ' . $';
+
+				return 1;
+			}
 		}
 	}
 	return 0;
@@ -5475,7 +5479,7 @@ like "Kokosnussöl" or "Sonnenblumenfett":
 	de => [
 		{
 			categories => ["pflanzliches Fett", "pflanzliche Öle", "pflanzliche Öle und Fette", "Fett", "Öle"],
-			types => ["Kokosnuss", "Palm", "Palmkern", "Raps", "Shea", "Sonnenblumen",],
+			types => ["Avocado", "Baumwolle", "Distel", "Kokosnuss", "Palm", "Palmkern", "Raps", "Shea", "Sonnenblumen",],
 			# Kokosnussöl, Sonnenblumenfett
 			alternate_names => ["<type>fett", "<type>öl"],
 		},
@@ -5503,7 +5507,8 @@ my %ingredients_categories_and_types = (
 			# categories
 			categories => ["oil", "vegetable oil", "vegetal oil",],
 			# types
-			types => ["colza", "olive", "palm", "rapeseed", "sunflower",],
+			types =>
+				["avocado", "coconut", "colza", "cottonseed", "olive", "palm", "rapeseed", "safflower", "sunflower",],
 		},
 	],
 
@@ -5511,7 +5516,8 @@ my %ingredients_categories_and_types = (
 		# oil and fat
 		{
 			categories => ["pflanzliches Fett", "pflanzliche Öle", "pflanzliche Öle und Fette", "Fett", "Öle"],
-			types => ["Kokosnuss", "Palm", "Palmkern", "Raps", "Shea", "Sonnenblumen",],
+			types =>
+				["Avocado", "Baumwolle", "Distel", "Kokosnuss", "Palm", "Palmkern", "Raps", "Shea", "Sonnenblumen",],
 			# Kokosnussöl, Sonnenblumenfett
 			alternate_names => ["<type>fett", "<type>öl"],
 		},
@@ -5543,13 +5549,13 @@ my %ingredients_categories_and_types = (
 				"graisses végétales",
 			],
 			types => [
-				"arachide", "avocat", "chanvre", "coco",
-				"colza", "illipe", "karité", "lin",
-				"mangue", "noisette", "noix", "noyaux de mangue",
-				"olive", "olive extra", "olive vierge", "olive extra vierge",
-				"olive vierge extra", "palme", "palmiste", "pépins de raisin",
-				"sal", "sésame", "soja", "tournesol",
-				"tournesol oléique",
+				"arachide", "avocat", "carthame", "chanvre",
+				"coco", "colza", "coton", "illipe",
+				"karité", "lin", "mangue", "noisette",
+				"noix", "noyaux de mangue", "olive", "olive extra",
+				"olive vierge", "olive extra vierge", "olive vierge extra", "palme",
+				"palmiste", "pépins de raisin", "sal", "sésame",
+				"soja", "tournesol", "tournesol oléique",
 			]
 		},
 		# (natural) extract
@@ -6405,7 +6411,39 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	return $text;
 }
 
-sub extract_ingredients_classes_from_text ($product_ref) {
+=head2 extract_additives_from_text ($product_ref) - extract additives from the ingredients text
+
+This function extracts additives from the ingredients text and adds them to the product_ref in the additives_tags array.
+
+=head3 Arguments
+
+=head4 Product reference
+
+=cut
+
+sub extract_additives_from_text ($product_ref) {
+
+	# delete additive fields (including some old debug fields)
+
+	foreach
+		my $tagtype ('additives', 'additives_prev', 'additives_next', 'additives_old', 'old_additives', 'new_additives')
+	{
+
+		delete $product_ref->{$tagtype};
+		delete $product_ref->{$tagtype . "_debug"};
+		delete $product_ref->{$tagtype . "_n"};
+		delete $product_ref->{$tagtype . "_tags"};
+		delete $product_ref->{$tagtype . "_original_tags"};
+		delete $product_ref->{$tagtype . "_debug_tags"};
+	}
+
+	# Delete old fields, can be removed once all products have been reprocessed
+	delete $product_ref->{with_sweeteners};
+	delete $product_ref->{without_non_nutritive_sweeteners};
+
+	# Sweeteners fields will be added by count_sweeteners_and_non_nutritive_sweeteners() if we have an ingredient list
+	delete $product_ref->{ingredients_sweeteners_n};
+	delete $product_ref->{ingredients_non_nutritive_sweeteners_n};
 
 	if (not defined $product_ref->{ingredients_text}) {
 		return;
@@ -6465,18 +6503,6 @@ sub extract_ingredients_classes_from_text ($product_ref) {
 	my %all_seen = ();    # used to not tag "huile végétale" if we have seen "huile de palme" already
 
 	# Additives using new global taxonomy
-
-	# delete old additive fields
-
-	foreach my $tagtype ('additives', 'additives_prev', 'additives_next', 'old_additives', 'new_additives') {
-
-		delete $product_ref->{$tagtype};
-		delete $product_ref->{$tagtype . "_prev"};
-		delete $product_ref->{$tagtype . "_prev_n"};
-		delete $product_ref->{$tagtype . "_tags"};
-	}
-
-	delete $product_ref->{new_additives_debug};
 
 	foreach my $tagtype ('additives', 'additives_prev', 'additives_next') {
 

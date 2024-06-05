@@ -73,6 +73,7 @@ sub load_data() {
 	return if ($ENV{PO_NO_LOAD_DATA});
 
 	$log->debug("loading data - start") if $log->is_debug();
+	print STDERR "load_data - start\n";
 
 	init_taxonomies(1);    # Die if some taxonomies cannot be loaded
 	init_emb_codes();
@@ -89,6 +90,7 @@ sub load_data() {
 	}
 
 	$log->debug("loading data - done") if $log->is_debug();
+	print STDERR "load_data - done\n";
 
 	return;
 }
