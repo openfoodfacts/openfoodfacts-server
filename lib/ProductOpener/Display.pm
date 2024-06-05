@@ -135,14 +135,15 @@ BEGIN {
 		$attributes_options_ref
 		$knowledge_panels_options_ref
 
-		&display_nutriscore_calculation_details
+		&display_nutriscore_calculation_details_2021
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
 use vars @EXPORT_OK;
 
-use ProductOpener::HTTP qw(write_cors_headers);
+use ProductOpener::HTTP
+	qw(write_cors_headers set_http_response_header write_http_response_headers get_http_request_header);
 use ProductOpener::Store qw(get_string_id_for_lang retrieve);
 use ProductOpener::Config qw(:all);
 use ProductOpener::Paths qw/%BASE_DIRS/;
@@ -286,9 +287,6 @@ foreach my $file (sort keys %file_timestamps) {
 
 # On demand exports can be very big, limit the number of products
 my $export_limit = 10000;
-
-# TODO: explain why such a high number
-my $tags_page_size = 10000;
 
 if (defined $options{export_limit}) {
 	$export_limit = $options{export_limit};
@@ -1526,7 +1524,8 @@ sub display_text_content ($request_ref, $textid, $text_lc, $file) {
 	}
 
 	if ((defined $request_ref->{page}) and ($request_ref->{page} > 1)) {
-		$request_ref->{title} = $title . lang("title_separator") . sprintf(lang("page_x"), $request_ref->{page});
+		$request_ref->{title}
+			= ($title // '') . lang("title_separator") . sprintf(lang("page_x"), $request_ref->{page});
 	}
 	else {
 		$request_ref->{title} = $title;
@@ -1562,18 +1561,22 @@ sub get_cache_results ($key, $request_ref) {
 	$log->debug("MongoDB hashed query key", {key => $key}) if $log->is_debug();
 
 	# disable caching if ?no_cache=1
-	# or if the user is logged in and no_cache is different from 0
+	# or if we are sent the HTTP hader Cache-Control: no-cache
 	my $param_no_cache = single_param("no_cache");
-	if (   ($param_no_cache)
-		or ((defined $User_id) and not((defined $param_no_cache) and ($param_no_cache == 0))))
-	{
-
+	if (not defined $param_no_cache) {
+		my $cache_control = get_http_request_header("Cache-Control");
+		if ((defined $cache_control) and ($cache_control =~ /no-cache/)) {
+			$log->debug("get_cache_results - HTTP Cache-Control no-cache header, skip caching", {key => $key})
+				if $log->is_debug();
+			$param_no_cache = 1;
+		}
+	}
+	if ($param_no_cache) {
 		$log->debug("MongoDB no_cache parameter, skip caching", {key => $key}) if $log->is_debug();
 		$mongodb_log->info("get_cache_results - skip - key: $key") if $mongodb_log->is_info();
 
 	}
 	else {
-
 		$log->debug("Retrieving value for MongoDB query key", {key => $key}) if $log->is_debug();
 		$results = $memd->get($key);
 		if (not defined $results) {
@@ -1674,12 +1677,17 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 	{
 		$limit = 999999999999;
 	}
-	elsif (defined $request_ref->{tags_page_size}) {
-		$limit = $request_ref->{tags_page_size};
+	elsif (defined $request_ref->{page_size}) {
+		$limit = $request_ref->{page_size};
+		if ($limit > $options{max_tags_page_size}) {
+			$limit = $options{max_tags_page_size};
+		}
 	}
 	else {
-		$limit = $tags_page_size;
+		$limit = $options{default_tags_page_size};
 	}
+
+	$request_ref->{page_size} = $limit;
 
 	my $skip = 0;
 	if (defined $page) {
@@ -2299,16 +2307,20 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 		}
 
 		$html .= "</tbody></table></div>";
-		# if there are more than $tags_page_size lines, add pagination. Except for ?stats=1 and ?filter display
+		# if there are more lines than the limit, add pagination. Except for ?stats=1 and ?filter display
 		$log->info("PAGINATION: BEFORE\n");
-		if (    $request_ref->{structured_response}{count} >= $tags_page_size
+		if (    $request_ref->{structured_response}{count} >= $request_ref->{page_size}
 			and not(defined single_param("stats"))
 			and not(defined single_param("filter")))
 		{
 			$log->info("PAGINATION: CALLING\n");
 			$html .= "\n<hr>"
-				. display_pagination($request_ref, $request_ref->{structured_response}{count},
-				$tags_page_size, $request_ref->{page});
+				. display_pagination(
+				$request_ref,
+				$request_ref->{structured_response}{count},
+				$request_ref->{page_size},
+				$request_ref->{page}
+				);
 		}
 
 		if ((defined single_param("stats")) and (single_param("stats"))) {
@@ -3808,7 +3820,7 @@ sub display_tag ($request_ref) {
 
 	my $weblinks_html = '';
 	my @wikidata_objects = ();
-	if (    ($tagtype ne 'additives')
+	if (    (defined $tagtype && $tagtype ne 'additives')
 		and (not defined $request_ref->{groupby_tagtype}))
 	{
 		my @weblinks = ();
@@ -3944,6 +3956,15 @@ HTML
 					$description .= <<HTML
 <p>$packager_codes{$canon_tagid}{name}<br>
 $packager_codes{$canon_tagid}{address} (Cyprus)
+</p>
+HTML
+						;
+				}
+
+				if ($packager_codes{$canon_tagid}{cc} eq 'cz') {
+					$description .= <<HTML
+<p>$packager_codes{$canon_tagid}{name}<br>
+$packager_codes{$canon_tagid}{address} (Czech)
 </p>
 HTML
 						;
@@ -4437,7 +4458,7 @@ sub display_search_results ($request_ref) {
 		my $search_api_url = $formatted_subdomain . "/api/v0" . $current_link;
 		$search_api_url =~ s/(\&|\?)(page|page_size|limit)=(\d+)//;
 		$search_api_url .= "&fields=code,product_display_name,url,image_front_small_url,attribute_groups";
-		$search_api_url .= "&page_size=100";
+		$search_api_url .= "&page_size=" . $options{default_web_products_page_size};
 		if ($search_api_url !~ /\?/) {
 			$search_api_url =~ s/\&/\?/;
 		}
@@ -4971,13 +4992,20 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 	elsif (defined $request_ref->{page_size}) {
 		$limit = $request_ref->{page_size};
 	}
-	# If user preferences are turned on, return 100 products per page
+	# If user preferences are turned on, return 50 products per page
 	elsif (not defined $request_ref->{api}) {
-		$limit = 100;
+		$limit = $options{default_web_products_page_size};
 	}
 	else {
-		$limit = $page_size;
+		$limit = $options{default_api_products_page_size};
 	}
+
+	# Make sure we are not over the limit
+	if ($limit > $options{max_products_page_size}) {
+		$limit = $options{max_products_page_size};
+	}
+
+	$request_ref->{page_size} = $limit;
 
 	my $skip = 0;
 	if (defined $page) {
@@ -5493,7 +5521,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 
 		# 2021-02-25: we now store only nested ingredients, flatten them if the API is <= 1
 
-		if ($request_ref->{api_version} <= 1) {
+		if ((defined $request_ref->{api_version}) and ($request_ref->{api_version} <= 1)) {
 
 			for my $product_ref (@{$request_ref->{structured_response}{products}}) {
 				if (defined $product_ref->{ingredients}) {
@@ -5676,8 +5704,6 @@ sub display_pagination ($request_ref, $count, $limit, $page) {
 	if (defined $request_ref->{groupby_tagtype}) {
 		$nofollow = ' nofollow';
 	}
-
-	print STDERR "zzz lc: $lc - request_ref->lc: $request_ref->{lc}\n";
 
 	if ((($nb_pages > 1) and (defined $current_link)) and (not defined $request_ref->{product_changes_saved})) {
 
@@ -8864,7 +8890,9 @@ HTML
 	return;
 }
 
-=head2 display_nutriscore_calculation_details( $nutriscore_data_ref, $version = "2021" )
+=head2 display_nutriscore_calculation_details_2021 ( $product_ref )
+
+Warning: This function only works with Nutri-Score 2021.
 
 Generates HTML code with information on how the Nutri-Score was computed for a particular product.
 
@@ -8873,7 +8901,12 @@ the rounded value according to the Nutri-Score rules, and the corresponding poin
 
 =cut
 
-sub display_nutriscore_calculation_details ($nutriscore_data_ref, $version = "2021") {
+sub display_nutriscore_calculation_details_2021 ($product_ref) {
+
+	my $version = "2021";
+	my $nutriscore_grade = deep_get($product_ref, "nutriscore", $version, "grade");
+	my $nutriscore_score = deep_get($product_ref, "nutriscore", $version, "score");
+	my $nutriscore_data_ref = deep_get($product_ref, "nutriscore", $version, "data");
 
 	my $beverage_view;
 
@@ -8918,8 +8951,8 @@ sub display_nutriscore_calculation_details ($nutriscore_data_ref, $version = "20
 
 		nutriscore_protein_info => $nutriscore_protein_info,
 
-		score => $nutriscore_data_ref->{score},
-		grade => uc($nutriscore_data_ref->{grade}),
+		score => $nutriscore_score,
+		grade => uc($nutriscore_grade),
 		positive_points => $nutriscore_data_ref->{positive_points},
 		negative_points => $nutriscore_data_ref->{negative_points},
 
@@ -9034,7 +9067,10 @@ sub data_to_display_nutrient_levels ($product_ref) {
 		foreach my $nutrient_level_ref (@nutrient_levels) {
 			my ($nid, $low, $high) = @{$nutrient_level_ref};
 
-			if ((defined $product_ref->{nutrient_levels}) and (defined $product_ref->{nutrient_levels}{$nid})) {
+			if (    (defined $product_ref->{nutrient_levels})
+				and (defined $product_ref->{nutrient_levels}{$nid})
+				and (defined $product_ref->{nutriments}{$nid . $prepared . "_100g"}))
+			{
 
 				push @{$result_data_ref->{nutrient_levels}}, {
 					nid => $nid,
@@ -9207,9 +9243,13 @@ sub data_to_display_nutriscore ($product_ref, $version = "2021") {
 		$result_data_ref->{nutriscore_warnings} = \@nutriscore_warnings;
 	}
 
-	# Display the details of the computation of the Nutri-Score if we computed one
-	if ((defined $product_ref->{nutriscore_grade}) and ($product_ref->{nutriscore_grade} =~ /^[a-e]$/)) {
-		$result_data_ref->{nutriscore_details} = display_nutriscore_calculation_details($nutriscore_data_ref, $version);
+	# Generate HTML for the details of the computation of the Nutri-Score if we computed one
+	# only for version 2021
+	if (    ($version eq "2021")
+		and (defined $product_ref->{nutriscore_grade})
+		and ($product_ref->{nutriscore_grade} =~ /^[a-e]$/))
+	{
+		$result_data_ref->{nutriscore_details} = display_nutriscore_calculation_details_2021($product_ref);
 	}
 
 	return $result_data_ref;
@@ -10184,6 +10224,8 @@ sub display_preferences_api ($request_ref, $target_lc) {
 		push @{$request_ref->{structured_response}}, $preference_ref;
 	}
 
+	set_http_response_header($request_ref, "Cache-Control", "public, max-age=86400");
+
 	display_structured_response($request_ref);
 
 	return;
@@ -10230,6 +10272,8 @@ sub display_attribute_groups_api ($request_ref, $target_lc) {
 	}
 
 	$request_ref->{structured_response} = $attribute_groups_ref;
+
+	set_http_response_header($request_ref, "Cache-Control", "public, max-age=86400");
 
 	display_structured_response($request_ref);
 
@@ -10530,6 +10574,8 @@ sub display_product_history ($request_ref, $code, $product_ref) {
 sub display_structured_response ($request_ref) {
 	# directly serve structured data from $request_ref->{structured_response}
 
+	write_http_response_headers($request_ref);
+
 	$log->debug(
 		"Displaying structured response",
 		{
@@ -10610,9 +10656,7 @@ sub display_structured_response ($request_ref) {
 				. $data . ");";
 		}
 		else {
-			$log->warning("XXXXXXXXXXXXXXXXXXXXXX");
 			write_cors_headers();
-			$log->warning("YYYYYYYYYYYYYYYY");
 			print header(
 				-status => $status_code,
 				-type => 'application/json',
@@ -10713,8 +10757,14 @@ sub display_recent_changes ($request_ref, $query_ref, $limit, $page) {
 		$limit = $request_ref->{page_size};
 	}
 	else {
-		$limit = $page_size;
+		$limit = $options{default_recent_changes_page_size};
 	}
+
+	if ($limit > $options{max_recent_changes_page_size}) {
+		$limit = $options{max_recent_changes_page_size};
+	}
+
+	$request_ref->{page_size} = $limit;
 
 	my $skip = 0;
 	if (defined $page) {

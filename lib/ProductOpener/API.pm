@@ -620,7 +620,7 @@ sub customize_packagings ($request_ref, $product_ref) {
 
 			my $customized_packaging_ref = dclone($packaging_ref);
 
-			if ($request_ref->{api_version} >= 3) {
+			if ((defined $request_ref->{api_version}) and ($request_ref->{api_version} >= 3)) {
 				# Shape, material and recycling are localized
 				foreach my $property ("shape", "material", "recycling") {
 					if (defined $packaging_ref->{$property}) {

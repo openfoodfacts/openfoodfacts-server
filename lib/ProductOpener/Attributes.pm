@@ -1177,15 +1177,15 @@ sub compute_attribute_nutrient_level ($product_ref, $target_lc, $level, $nid) {
 
 			my $match;
 
-			if ($value < $low) {
+			if (defined $value and $value < $low) {
 				$match = 80 + 20 * ($low - $value) / $low;
 				$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/nutrient-level-$nid-low.svg";
 			}
-			elsif ($value <= $high) {
+			elsif (defined $value and $value <= $high) {
 				$match = 20 + 60 * ($high - $value) / ($high - $low);
 				$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/nutrient-level-$nid-medium.svg";
 			}
-			elsif ($value < $high * 2) {
+			elsif (defined $value and $value < $high * 2) {
 				$match = 20 * ($high * 2 - $value) / $high;
 				$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/nutrient-level-$nid-high.svg";
 			}
@@ -1202,10 +1202,10 @@ sub compute_attribute_nutrient_level ($product_ref, $target_lc, $level, $nid) {
 					display_taxonomy_tag($target_lc, "nutrients", "zz:$nid"),
 					lang_in_other_lc($target_lc, $product_ref->{nutrient_levels}{$nid} . "_quantity")
 				);
-				$attribute_ref->{description_short} = sprintf(
-					lang_in_other_lc($target_lc, 'g_per_100g'),
-					(sprintf('%.2e', $product_ref->{nutriments}{$nid . $prepared . '_100g'}) + 0.0)
-				);
+				if (defined $value) {
+					$attribute_ref->{description_short}
+						= sprintf(lang_in_other_lc($target_lc, 'g_per_100g'), (sprintf('%.2e', $value) + 0.0));
+				}
 			}
 		}
 	}

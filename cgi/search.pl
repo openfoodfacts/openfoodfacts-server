@@ -227,9 +227,9 @@ if (    ($sort_by ne 'created_t')
 	$sort_by = 'unique_scans_n';
 }
 
-my $limit = 0 + (single_param('page_size') || $page_size);
-if (($limit < 2) or ($limit > 1000)) {
-	$limit = $page_size;
+my $limit = 0 + (single_param('page_size') || $options{default_web_products_page_size});
+if ($limit > $options{max_products_page_size}) {
+	$limit = $options{max_products_page_size};
 }
 
 my $graph_ref = {graph_title => remove_tags_and_quote(decode utf8 => single_param("graph_title"))};
@@ -726,7 +726,10 @@ elsif ($action eq 'process') {
 	my $download = single_param("download") || '';
 
 	open(my $OUT, ">>:encoding(UTF-8)", "$BASE_DIRS{LOGS}/search_log_debug");
-	print $OUT remote_addr() . "\t" . time() . "\t" . decode utf8 => single_param('search_terms') . " - map: $map
+	print $OUT remote_addr() . "\t"
+		. time() . "\t"
+		. (decode utf8 => single_param('search_terms') || "no_search_terms")
+		. " - map: $map
 	 - graph: $graph - download: $download - page: $page\n";
 	close($OUT);
 

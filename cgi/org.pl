@@ -53,7 +53,7 @@ my $request_ref = ProductOpener::Display::init_request();
 my $orgid = $Org_id;
 
 if (defined single_param('orgid')) {
-	$orgid = get_fileid(single_param('orgid'), 1);
+	$orgid = remove_tags_and_quote(decode utf8 => single_param('orgid'));
 }
 
 $log->debug("org profile form - start", {type => $type, action => $action, orgid => $orgid, User_id => $User_id})
