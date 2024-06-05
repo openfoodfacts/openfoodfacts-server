@@ -19,10 +19,10 @@ rm /mnt/podata/data/categories_stats/*.*
 # Unit tests
 
 # all tests use init_expected_results function
-#for FILE in $(grep -l init_expected_results unit/*.t);
-#do
-#    perl $FILE --update-expected-results
-#done
+for FILE in $(grep -l init_expected_results unit/*.t);
+do
+    perl $FILE --update-expected-results
+done
 
 # Integration tests
 
