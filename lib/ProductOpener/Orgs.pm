@@ -56,6 +56,8 @@ BEGIN {
 		&set_org_gs1_gln
 
 		&org_name
+		&update_import_date
+		&update_export_date
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -489,6 +491,22 @@ sub org_name ($org_ref) {
 sub org_url ($org_ref) {
 
 	return canonicalize_tag_link("orgs", $org_ref->{org_id});
+}
+
+sub update_import_date($org_id, $time) {
+	my $org_ref = retrieve_org($org_id);
+	$org_ref->{last_import_t} = $time;
+	store_org($org_ref);
+	update_last_import_date($org_id, $time);
+	return;
+}
+
+sub update_export_date($org_id, $time) {
+	my $org_ref = retrieve_org($org_id);
+	$org_ref->{last_export_t} = $time;
+	store_org($org_ref);
+	update_last_export_date($org_id, $time);
+	return;
 }
 
 1;

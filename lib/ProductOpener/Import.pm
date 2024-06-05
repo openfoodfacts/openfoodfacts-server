@@ -95,7 +95,7 @@ use ProductOpener::DataQuality qw/check_quality/;
 use ProductOpener::Data qw/get_products_collection/;
 use ProductOpener::ImportConvert qw/$empty_regexp $not_applicable_regexp $unknown_regexp clean_fields/;
 use ProductOpener::Users qw/$Org_id $Owner_id $User_id/;
-use ProductOpener::Orgs qw/create_org retrieve_org set_org_gs1_gln store_org/;
+use ProductOpener::Orgs qw/create_org retrieve_org set_org_gs1_gln store_org update_import_date/;
 use ProductOpener::Data qw/:all/;
 use ProductOpener::Packaging
 	qw/add_or_combine_packaging_component_data get_checked_and_taxonomized_packaging_component_data/;
@@ -103,7 +103,6 @@ use ProductOpener::Ecoscore qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::PackagerCodes qw/normalize_packager_codes/;
 use ProductOpener::API qw/get_initialized_response/;
-use ProductOpener::CRM qw/update_last_import_date/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -2754,7 +2753,7 @@ sub import_csv_file ($args_ref) {
 
 	# sync CRM
 	foreach my $org_id (keys %{$stats_ref->{orgs_existing}}) {
-		update_last_import_date($org_id, $time);
+		update_import_date($org_id, $time);
 	}
 
 	$log->debug(

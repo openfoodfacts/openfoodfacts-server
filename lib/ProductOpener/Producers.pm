@@ -83,7 +83,7 @@ use ProductOpener::Import
 	qw/$IMPORT_MAX_PACKAGING_COMPONENTS import_csv_file import_products_categories_from_public_database/;
 use ProductOpener::ImportConvert qw/clean_fields/;
 use ProductOpener::Users qw/$Org_id $Owner_id $User_id %User/;
-use ProductOpener::CRM qw/update_last_export_date/;
+use ProductOpener::Orgs qw/update_export_date/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -1829,7 +1829,7 @@ sub export_and_import_to_public_database ($args_ref) {
 	my $export_id = $started_t;
 
 	# sync CRM
-	update_last_export_date($Org_id, $started_t);
+	update_export_date($Org_id, $started_t);
 
 	my $exports_ref = retrieve("$BASE_DIRS{EXPORT_FILES}/${Owner_id}/exports.sto");
 	if (not defined $exports_ref) {
