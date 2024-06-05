@@ -3002,7 +3002,13 @@ sub assign_nutriments_values_from_request_parameters ($product_ref, $nutriment_t
 	foreach my $checkbox ("no_nutrition_data", "nutrition_data", "nutrition_data_prepared") {
 
 		if (defined single_param($checkbox)) {
-			$product_ref->{$checkbox} = remove_tags_and_quote(decode utf8 => single_param($checkbox));
+			my $checkbox_value = remove_tags_and_quote(decode utf8 => single_param($checkbox));
+			if (($checkbox_value == 1) or ($checkbox_value eq "on")) {
+				$product_ref->{$checkbox} = "on";
+			}
+			else {
+				$product_ref->{$checkbox} = "";
+			}
 		}
 		elsif (defined single_param($checkbox . "_displayed")) {
 			$product_ref->{$checkbox} = "";
