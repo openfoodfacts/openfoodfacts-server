@@ -10,7 +10,7 @@ NGINX:
 - changed-files:
   - any-glob-to-any-file: 'conf/nginx/**/*'
   - any-glob-to-any-file: 'conf/nginx-docker/**'
-
+  - any-glob-to-any-file: 'conf/systemd/nginx.service.d/override.conf'
 # We have 2 mongodb collections: one for current products, and one for obsolete products
 MongoDB:
 - changed-files:
@@ -1269,7 +1269,7 @@ file import:
   - any-glob-to-any-file: 'conf/​systemd/​apache2.service.d/​override.conf'
   - any-glob-to-any-file: 'conf/​apache-2.4/​sites-available/​foodbattle.conf'
   - any-glob-to-any-file: 'conf/etc-default/prometheus-apache-exporter'
-
+  - any-glob-to-any-file: 'conf/systemd/apache2.service.d/override.conf'
 # Half of our new logo is a search icon. We want to improve the search experience since it helps consumers and producers find better products for them and the planet.
 # Please look at search-a-licious project for the future of Open Food Facts search
 # Search-a-licious API and backend: https://github.com/openfoodfacts/search-a-licious
@@ -1359,7 +1359,9 @@ systemd:
 - changed-files:
   - any-glob-to-any-file: 'conf/systemd/gen_feeds_daily@.service'
   - any-glob-to-any-file: 'conf/systemd/gen_feeds@.service'
-
+  - any-glob-to-any-file: 'conf/systemd/apache2.service.d/override.conf'
+  - any-glob-to-any-file: 'conf/systemd/nginx.service.d/override.conf'
+  
 # See prices.openfoodfacts.org
 💸 Prices:
 - changed-files:
