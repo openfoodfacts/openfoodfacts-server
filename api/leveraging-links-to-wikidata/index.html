@@ -8,25 +8,25 @@
       
       
       
-        <link rel="canonical" href="https://openfoodfacts.github.io/openfoodfacts-server/api/">
+        <link rel="canonical" href="https://openfoodfacts.github.io/openfoodfacts-server/api/leveraging-links-to-wikidata/">
       
       
-        <link rel="prev" href="..">
+        <link rel="prev" href="../aws-images-dataset/">
       
       
-        <link rel="next" href="intro-robotoff/">
+        <link rel="next" href="../../dev/">
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.26">
     
     
       
-        <title>Introduction to Open Food Facts API documentation - Product Opener (Open Food Facts Server)</title>
+        <title>Leveraging links to wikidata - Product Opener (Open Food Facts Server)</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.6543a935.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6543a935.min.css">
       
       
 
@@ -45,7 +45,7 @@
       
     
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#introduction-to-open-food-facts-api-documentation" class="md-skip">
+        <a href="#how-to-leverage-links-to-wikidata-and-wikipedia-link_to_wikipedia_and_wikidata" class="md-skip">
           Skip to content
         </a>
       
@@ -80,7 +80,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="Product Opener (Open Food Facts Server)" class="md-header__button md-logo" aria-label="Product Opener (Open Food Facts Server)" data-md-component="logo">
+    <a href="../.." title="Product Opener (Open Food Facts Server)" class="md-header__button md-logo" aria-label="Product Opener (Open Food Facts Server)" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Introduction to Open Food Facts API documentation
+              Leveraging links to wikidata
             
           </span>
         </div>
@@ -187,7 +187,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Product Opener (Open Food Facts Server)" class="md-nav__button md-logo" aria-label="Product Opener (Open Food Facts Server)" data-md-component="logo">
+    <a href="../.." title="Product Opener (Open Food Facts Server)" class="md-nav__button md-logo" aria-label="Product Opener (Open Food Facts Server)" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -217,7 +217,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -271,30 +271,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Introduction to Open Food Facts API documentation
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -303,149 +283,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      Overview
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#before-you-start" class="md-nav__link">
-    <span class="md-ellipsis">
-      Before You Start
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-to-best-use-the-api" class="md-nav__link">
-    <span class="md-ellipsis">
-      How to Best Use the API
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How to Best Use the API">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#general-principles" class="md-nav__link">
-    <span class="md-ellipsis">
-      General principles
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#rate-limits" class="md-nav__link">
-    <span class="md-ellipsis">
-      Rate limits
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#if-your-users-do-not-expect-a-result-immediately-eg-inventory-apps" class="md-nav__link">
-    <span class="md-ellipsis">
-      If your users do not expect a result immediately (e.g., Inventory apps)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#if-your-users-expect-a-result-immediately-eg-nutrition-apps" class="md-nav__link">
-    <span class="md-ellipsis">
-      If your users expect a result immediately (e.g., Nutrition apps)
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#api-deployments" class="md-nav__link">
-    <span class="md-ellipsis">
-      API Deployments
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#authentication" class="md-nav__link">
-    <span class="md-ellipsis">
-      Authentication
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#reference-documentation-openapi" class="md-nav__link">
-    <span class="md-ellipsis">
-      Reference Documentation (OpenAPI)
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tutorials" class="md-nav__link">
-    <span class="md-ellipsis">
-      Tutorials
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#help" class="md-nav__link">
-    <span class="md-ellipsis">
-      Help
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#sdks" class="md-nav__link">
-    <span class="md-ellipsis">
-      SDKs
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -458,7 +295,7 @@
   
   
     <li class="md-nav__item">
-      <a href="intro-robotoff/" class="md-nav__link">
+      <a href="../intro-robotoff/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -479,7 +316,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorial-dev-journey/" class="md-nav__link">
+      <a href="../tutorial-dev-journey/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -500,7 +337,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorial-off-api/" class="md-nav__link">
+      <a href="../tutorial-off-api/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -521,7 +358,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorial-uploading-photo-to-a-product/" class="md-nav__link">
+      <a href="../tutorial-uploading-photo-to-a-product/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -542,7 +379,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to-download-images/" class="md-nav__link">
+      <a href="../how-to-download-images/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -563,7 +400,7 @@
   
   
     <li class="md-nav__item">
-      <a href="explain-knowledge-panels/" class="md-nav__link">
+      <a href="../explain-knowledge-panels/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -584,7 +421,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ref-cheatsheet/" class="md-nav__link">
+      <a href="../ref-cheatsheet/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -605,7 +442,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ref-v2/" class="md-nav__link">
+      <a href="../ref-v2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -626,7 +463,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ref-v3/" class="md-nav__link">
+      <a href="../ref-v3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -647,7 +484,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aws-images-dataset/" class="md-nav__link">
+      <a href="../aws-images-dataset/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -665,10 +502,28 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="leveraging-links-to-wikidata/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Leveraging links to wikidata
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -677,6 +532,66 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-leverage-links-to-wikidata-and-wikipedia-link_to_wikipedia_and_wikidata" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to leverage links to Wikidata (and Wikipedia) {#link_to_wikipedia_and_wikidata}
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How to leverage links to Wikidata (and Wikipedia) {#link_to_wikipedia_and_wikidata}">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#retrieving-info-from-wikipedia-and-wikidata-retrieving_info_from_wikipedia_and_wikidata" class="md-nav__link">
+    <span class="md-ellipsis">
+      Retrieving info from Wikipedia and Wikidata {#retrieving_info_from_wikipedia_and_wikidata}
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples-of-things-you-can-do-examples_of_things_you_can_do" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examples of things you can do {#examples_of_things_you_can_do}
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -731,7 +646,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../dev/" class="md-nav__link">
+      <a href="../../dev/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -752,7 +667,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../dev/how-to-deploy/" class="md-nav__link">
+      <a href="../../dev/how-to-deploy/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -773,7 +688,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../dev/how-to-develop-producer-platform/" class="md-nav__link">
+      <a href="../../dev/how-to-develop-producer-platform/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -794,7 +709,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../dev/how-to-develop-using-docker/" class="md-nav__link">
+      <a href="../../dev/how-to-develop-using-docker/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -815,7 +730,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../dev/how-to-learn-perl/" class="md-nav__link">
+      <a href="../../dev/how-to-learn-perl/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -836,7 +751,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../dev/how-to-quick-start-guide/" class="md-nav__link">
+      <a href="../../dev/how-to-quick-start-guide/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -857,7 +772,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../dev/how-to-update-agribalyse-ecoscore/" class="md-nav__link">
+      <a href="../../dev/how-to-update-agribalyse-ecoscore/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -878,7 +793,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../dev/how-to-use-direnv/" class="md-nav__link">
+      <a href="../../dev/how-to-use-direnv/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -899,7 +814,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../dev/how-to-use-gitpod/" class="md-nav__link">
+      <a href="../../dev/how-to-use-gitpod/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -920,7 +835,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../dev/how-to-use-pages-from-openfoodfacts-web/" class="md-nav__link">
+      <a href="../../dev/how-to-use-pages-from-openfoodfacts-web/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -941,7 +856,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../dev/how-to-use-repl/" class="md-nav__link">
+      <a href="../../dev/how-to-use-repl/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -962,7 +877,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../dev/how-to-use-vscode/" class="md-nav__link">
+      <a href="../../dev/how-to-use-vscode/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -983,7 +898,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../dev/how-to-write-and-run-tests/" class="md-nav__link">
+      <a href="../../dev/how-to-write-and-run-tests/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1004,7 +919,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../dev/explain-nutrition-data/" class="md-nav__link">
+      <a href="../../dev/explain-nutrition-data/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1025,7 +940,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../dev/explain-packaging-data/" class="md-nav__link">
+      <a href="../../dev/explain-packaging-data/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1046,7 +961,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../dev/explain-personal-search/" class="md-nav__link">
+      <a href="../../dev/explain-personal-search/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1067,7 +982,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../dev/explain-pro-dev-setup/" class="md-nav__link">
+      <a href="../../dev/explain-pro-dev-setup/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1088,7 +1003,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../dev/explain-taxonomy-build-cache/" class="md-nav__link">
+      <a href="../../dev/explain-taxonomy-build-cache/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1109,7 +1024,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../dev/ref-docker-commands/" class="md-nav__link">
+      <a href="../../dev/ref-docker-commands/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1130,7 +1045,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../dev/ref-perl-pod/" class="md-nav__link">
+      <a href="../../dev/ref-perl-pod/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1151,7 +1066,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../dev/ref-perl/" class="md-nav__link">
+      <a href="../../dev/ref-perl/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1249,7 +1164,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/api-tutorials/adding-missing-products/" class="md-nav__link">
+      <a href="../../reference/api-tutorials/adding-missing-products/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1270,7 +1185,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/api-tutorials/comparing-sodas/" class="md-nav__link">
+      <a href="../../reference/api-tutorials/comparing-sodas/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1291,7 +1206,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/api-tutorials/creating-a-local-cache-of-open-food-facts-data/" class="md-nav__link">
+      <a href="../../reference/api-tutorials/creating-a-local-cache-of-open-food-facts-data/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1312,7 +1227,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/api-tutorials/finding-healthy-cereals/" class="md-nav__link">
+      <a href="../../reference/api-tutorials/finding-healthy-cereals/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1333,7 +1248,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/api-tutorials/folksonomy-engine/" class="md-nav__link">
+      <a href="../../reference/api-tutorials/folksonomy-engine/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1354,7 +1269,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/api-tutorials/get-in-touch-with-openfoodfacts/" class="md-nav__link">
+      <a href="../../reference/api-tutorials/get-in-touch-with-openfoodfacts/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1375,7 +1290,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/api-tutorials/get-ingredient-related-analysis/" class="md-nav__link">
+      <a href="../../reference/api-tutorials/get-ingredient-related-analysis/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1396,7 +1311,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/api-tutorials/get-the-ecoscore/" class="md-nav__link">
+      <a href="../../reference/api-tutorials/get-the-ecoscore/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1417,7 +1332,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/api-tutorials/get-the-nutriscore/" class="md-nav__link">
+      <a href="../../reference/api-tutorials/get-the-nutriscore/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1438,7 +1353,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/api-tutorials/how-to-create-data-quality-controls-in-your-app/" class="md-nav__link">
+      <a href="../../reference/api-tutorials/how-to-create-data-quality-controls-in-your-app/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1459,7 +1374,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/api-tutorials/license-be-on-the-legal-side/" class="md-nav__link">
+      <a href="../../reference/api-tutorials/license-be-on-the-legal-side/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1480,7 +1395,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/api-tutorials/product-prices/" class="md-nav__link">
+      <a href="../../reference/api-tutorials/product-prices/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1501,7 +1416,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/api-tutorials/reporting-issues-with-nutripatrol/" class="md-nav__link">
+      <a href="../../reference/api-tutorials/reporting-issues-with-nutripatrol/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1522,7 +1437,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/api-tutorials/scanning-cosmetics-pet-food-and-other-products/" class="md-nav__link">
+      <a href="../../reference/api-tutorials/scanning-cosmetics-pet-food-and-other-products/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1543,7 +1458,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/api-tutorials/working-with-facets/" class="md-nav__link">
+      <a href="../../reference/api-tutorials/working-with-facets/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1589,8 +1504,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1599,64 +1512,19 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
+  <a href="#how-to-leverage-links-to-wikidata-and-wikipedia-link_to_wikipedia_and_wikidata" class="md-nav__link">
     <span class="md-ellipsis">
-      Overview
+      How to leverage links to Wikidata (and Wikipedia) {#link_to_wikipedia_and_wikidata}
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#before-you-start" class="md-nav__link">
-    <span class="md-ellipsis">
-      Before You Start
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-to-best-use-the-api" class="md-nav__link">
-    <span class="md-ellipsis">
-      How to Best Use the API
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How to Best Use the API">
+    <nav class="md-nav" aria-label="How to leverage links to Wikidata (and Wikipedia) {#link_to_wikipedia_and_wikidata}">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#general-principles" class="md-nav__link">
+  <a href="#example" class="md-nav__link">
     <span class="md-ellipsis">
-      General principles
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#rate-limits" class="md-nav__link">
-    <span class="md-ellipsis">
-      Rate limits
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#if-your-users-do-not-expect-a-result-immediately-eg-inventory-apps" class="md-nav__link">
-    <span class="md-ellipsis">
-      If your users do not expect a result immediately (e.g., Inventory apps)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#if-your-users-expect-a-result-immediately-eg-nutrition-apps" class="md-nav__link">
-    <span class="md-ellipsis">
-      If your users expect a result immediately (e.g., Nutrition apps)
+      Example
     </span>
   </a>
   
@@ -1668,54 +1536,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#api-deployments" class="md-nav__link">
+  <a href="#retrieving-info-from-wikipedia-and-wikidata-retrieving_info_from_wikipedia_and_wikidata" class="md-nav__link">
     <span class="md-ellipsis">
-      API Deployments
+      Retrieving info from Wikipedia and Wikidata {#retrieving_info_from_wikipedia_and_wikidata}
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#authentication" class="md-nav__link">
+  <a href="#examples-of-things-you-can-do-examples_of_things_you_can_do" class="md-nav__link">
     <span class="md-ellipsis">
-      Authentication
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#reference-documentation-openapi" class="md-nav__link">
-    <span class="md-ellipsis">
-      Reference Documentation (OpenAPI)
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tutorials" class="md-nav__link">
-    <span class="md-ellipsis">
-      Tutorials
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#help" class="md-nav__link">
-    <span class="md-ellipsis">
-      Help
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#sdks" class="md-nav__link">
-    <span class="md-ellipsis">
-      SDKs
+      Examples of things you can do {#examples_of_things_you_can_do}
     </span>
   </a>
   
@@ -1739,127 +1571,30 @@
   
 
 
-<h1 id="introduction-to-open-food-facts-api-documentation">Introduction to Open Food Facts API documentation<a class="headerlink" href="#introduction-to-open-food-facts-api-documentation" title="Permanent link">#</a></h1>
-<p>Everything you need to know about Open Food Facts API.</p>
-<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h2>
-<p>Open Food Facts is a food products database made by everyone, for everyone, that can help you make better choices about what you eat. Being open data, anyone can reuse it for any purpose.</p>
-<p>The Open Food Facts API enables developers to get information like ingredients and nutritional values of products, and even add more <em>facts</em> to the products database. You can use the API to build applications that allow users to contribute to the database and make healthier food choices.</p>
-<p><strong>The current version of the API is <code>2</code>.</strong></p>
-<blockquote>
-<p>Data in the Open Food Facts database is provided voluntarily by users who want to support the program. As a result, there are no assurances that the data is accurate, complete, or reliable. The user assumes the entire risk of using the data.</p>
-</blockquote>
-<h2 id="before-you-start">Before You Start<a class="headerlink" href="#before-you-start" title="Permanent link">#</a></h2>
+  <h1>Leveraging links to wikidata</h1>
+
+<h4 id="how-to-leverage-links-to-wikidata-and-wikipedia-link_to_wikipedia_and_wikidata">How to leverage links to Wikidata (and Wikipedia) {#link_to_wikipedia_and_wikidata}<a class="headerlink" href="#how-to-leverage-links-to-wikidata-and-wikipedia-link_to_wikipedia_and_wikidata" title="Permanent link">#</a></h4>
 <ul>
-<li>The Open Food Facts database is available under the <a href="https://opendatacommons.org/licenses/odbl/1.0/">Open Database License</a>.</li>
-<li>The individual contents of the database are available under the <a href="https://opendatacommons.org/licenses/dbcl/1.0/">Database Contents License</a>.</li>
-<li>Product images are available under the <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.en">Creative Commons Attribution ShareAlike</a> license. They may contain graphical elements subject to copyright or other rights that may, in some cases, be reproduced (quotation rights or fair use).</li>
+<li>You may have spotted things like https://www.wikidata.org/wiki/Q40050 in API outputs, especially those related to Taxonomies</li>
+<li>Whenever possible, Open Food Facts entities are linked to Wikidata,and in turn to Wikipedia. What this means is that you get access to a trove of additional encyclopedic knowledge about food. You can for instance get: Wikipedia articles about Camembert, the translation of salt in many languages, the molecular structure of a cosmetic ingredient...\</li>
+<li>We provide the Wikidata QID, which is an unambiguous, stable and reliable identifier for a concept that will be useful to actually retrieve info from Wikipedia and Wikidata.</li>
 </ul>
-<p>Please read the <a href="https://world.openfoodfacts.org/terms-of-use">Terms and conditions of use and reuse</a> before reusing the data.</p>
-<p>We like learning what the Open Food Facts data is used for. It is not mandatory, but we would appreciate it if you would <a href="mailto:contact@openfoodfacts.org">tell us about your use case</a> so that we can share them with the Open Food Facts community.</p>
-<h2 id="how-to-best-use-the-api">How to Best Use the API<a class="headerlink" href="#how-to-best-use-the-api" title="Permanent link">#</a></h2>
-<h3 id="general-principles">General principles<a class="headerlink" href="#general-principles" title="Permanent link">#</a></h3>
+<h5 id="example">Example<a class="headerlink" href="#example" title="Permanent link">#</a></h5>
+<p><a href="https://world.openfoodfacts.org/categories.json">https://world.openfoodfacts.org/categories.json</a>
+{"linkeddata":{"wikidata:en":"Q40050"},"url":"https://world.openfoodfacts.net/category/beverages","name":"Beverages","id":"en:beverages","products":14196}
+Beverages &gt;&gt; <a href="https://world.openfoodfacts.org/category/beverages">https://world.openfoodfacts.org/category/beverages</a> &gt;&gt; Q40050 &gt;&gt; <a href="https://www.wikidata.org/wiki/Q40050">https://www.wikidata.org/wiki/Q40050</a>\
+As you see, you\'ll get a beautiful image, information about the Quality label... As Wikidata is a Wiki, the knowledge you\'ll be able to retrieve will increase over time.</p>
+<h4 id="retrieving-info-from-wikipedia-and-wikidata-retrieving_info_from_wikipedia_and_wikidata">Retrieving info from Wikipedia and Wikidata {#retrieving_info_from_wikipedia_and_wikidata}<a class="headerlink" href="#retrieving-info-from-wikipedia-and-wikidata-retrieving_info_from_wikipedia_and_wikidata" title="Permanent link">#</a></h4>
+<p>You can use the Wikipedia and Wikidata APIs to get the information you want\
+* <a href="https://www.wikidata.org/wiki/Wikidata:Data_access">https://www.wikidata.org/wiki/Wikidata:Data_access</a></p>
 <ul>
-<li>You can search for product information, including many useful computed values.</li>
-<li>Suppose we don't have the information you need on a specific product. In that case, you (or your users) can upload the product photos, and the backend (and our AI algorithms!) will process them, generating helpful info. The photos will also be available for the users of Open Food Facts and every other API user.</li>
-<li>You could also ask your user to enter some of the information about the product (like name, category, and weight) so that they immediately get the computed info.</li>
+<li><a href="https://en.wikipedia.org/w/api.php">https://en.wikipedia.org/w/api.php</a></li>
 </ul>
-<blockquote>
-<p>Generally, the more information we have about a product, the more we can compute.</p>
-</blockquote>
-<h3 id="rate-limits">Rate limits<a class="headerlink" href="#rate-limits" title="Permanent link">#</a></h3>
-<p>To protect our infrastructure, we enforce rate-limits on the API and the website. The following limits apply:</p>
+<h4 id="examples-of-things-you-can-do-examples_of_things_you_can_do">Examples of things you can do {#examples_of_things_you_can_do}<a class="headerlink" href="#examples-of-things-you-can-do-examples_of_things_you_can_do" title="Permanent link">#</a></h4>
 <ul>
-<li>100 req/min for all read product queries (<code>GET /api/v*/product</code> requests or product page). There is no limit on product write queries.</li>
-<li>10 req/min for all search queries (<code>GET /api/v*/search</code> or <code>GET /cgi/search.pl</code> requests)</li>
+<li>Provide more context and more information about a specific Product, a Category of products, a Quality label, a Geography, a Brand, a Packaging material, an ingredient...</li>
 </ul>
-<p>If these limits are reached, we reserve the right to deny you access to the website and the API through IP address ban. If your IP has been banned, feel free to <a href="mailto:reuse@openfoodfacts.org">email us to explain why you reached the limits</a>: reverting the ban is possible.</p>
-<p>If your requests come from your users directly (ex: mobile app), the rate limits apply per user.</p>
-<p>If you need to fetch a significant fraction of the database, we recommend <a href="https://world.openfoodfacts.org/data">downloading the data as a CSV or JSONL file directly</a>. If you need to download images in bulk, we <a href="how-to-download-images/">have a guide for that</a>.</p>
-<h3 id="if-your-users-do-not-expect-a-result-immediately-eg-inventory-apps">If your users do not expect a result immediately (e.g., Inventory apps)<a class="headerlink" href="#if-your-users-do-not-expect-a-result-immediately-eg-inventory-apps" title="Permanent link">#</a></h3>
-<ul>
-<li>Submit photos (front packaging/nutrition values/ingredients): the most painless thing for your users.</li>
-<li>The backend (Product Opener) and Open Food Facts AI (Robotoff) will generate some derived data from the photos.</li>
-<li>Over time, other apps and the Open Food Facts community will fill the data gaps.</li>
-</ul>
-<h3 id="if-your-users-expect-a-result-immediately-eg-nutrition-apps">If your users expect a result immediately (e.g., Nutrition apps)<a class="headerlink" href="#if-your-users-expect-a-result-immediately-eg-nutrition-apps" title="Permanent link">#</a></h3>
-<ul>
-<li>If you submit the product's <strong>nutritional values</strong> and <strong>category</strong>, you'll get the <strong>Nutri-Score</strong>.</li>
-<li>If you submit the product <strong>ingredients</strong>, you'll get the <strong>NOVA group</strong> (about food ultra-processing), <strong>additives</strong>, <strong>allergens</strong>, <strong>normalized ingredients</strong>, <strong>vegan</strong>, <strong>vegetarian</strong>…</li>
-<li>If you submit the product's  <strong>category</strong> and <strong>labels</strong>, you'll get the <strong>Eco-Score</strong> (a rating of the product's environmental impact)</li>
-</ul>
-<h2 id="api-deployments">API Deployments<a class="headerlink" href="#api-deployments" title="Permanent link">#</a></h2>
-<p>The OpenFoodFacts API has two deployments.</p>
-<ul>
-<li>Production: <a href="https://world.openfoodfacts.org">https://world.openfoodfacts.org</a></li>
-<li>Staging: <a href="https://world.openfoodfacts.net">https://world.openfoodfacts.net</a></li>
-</ul>
-<p>Consider using the <a href="https://world.openfoodfacts.net">staging environment</a> if you are not in a production scenario.</p>
-<p>While testing your applications, <strong>make all API requests to the staging environment</strong>. This way, we can ensure the product database is safe.</p>
-<h2 id="authentication">Authentication<a class="headerlink" href="#authentication" title="Permanent link">#</a></h2>
-<p>We ask you to <strong>always use a custom User-Agent to identify you</strong> (to not risk being identified as a bot). The User-Agent should be in the form of <code>AppName/Version (ContactEmail)</code>. For example,
-<code>MyApp/1.0 (myapp@example.com)</code>.</p>
-<ul>
-<li>READ operations (getting info about a product, etc...) do not require authentication other than the custom User-Agent.</li>
-</ul>
-<ul>
-<li>WRITE operations (Editing an Existing Product, Uploading images…) <strong>require authentication</strong>. We do this as another layer of protection against spam.</li>
-</ul>
-<p>Create an account on the <a href="https://world.openfoodfacts.org/">Open Food Facts app</a>. From there, you have two options:</p>
-<ul>
-<li><strong>The preferred one</strong>:
-  Use the login API to get a session cookie and use this cookie for authentication in your subsequent requests. However, the session must always be used from the same IP address, and there's a limit on sessions per user (currently 10) with older sessions being automatically logged out to stay within the limit.</li>
-<li>If session conditions are too restrictive for your use case, include your account credentials as parameters for authenticated requests where <code>user_id</code> is your username and <code>password</code> is your password (do this on POST / PUT / DELETE requests, not on GET).</li>
-</ul>
-<p>You can create a global account to allow your app users to contribute without registering individual accounts on the Open Food Facts website. This way, we know that these contributions came from your application.</p>
-<blockquote>
-<p>Production and staging have different account databases, so <strong>the account you create in the production environment will only work for production requests</strong>. If you want to query (WRITE requests) the staging environment, you'll need to create another account there too.</p>
-</blockquote>
-<h2 id="reference-documentation-openapi">Reference Documentation (OpenAPI)<a class="headerlink" href="#reference-documentation-openapi" title="Permanent link">#</a></h2>
-<p>We are building a complete OpenAPI reference. Here is a list of the current API documentation available:</p>
-<ul>
-<li><a href="ref-v2/">OpenAPI documentation (v2)</a></li>
-<li><a href="ref-v3/">OpenAPI documentation for v3</a> (for packaging components only)</li>
-<li>A <a href="ref-cheatsheet/">cheatsheet</a> listing some common patterns.</li>
-</ul>
-<h2 id="tutorials">Tutorials<a class="headerlink" href="#tutorials" title="Permanent link">#</a></h2>
-<ul>
-<li>A comprehensive introduction to <a href="tutorial-off-api/">Using the Open Food Facts API</a>.</li>
-<li><a href="tutorial-uploading-photo-to-a-product/">Uploading images to the Open Food Facts API</a></li>
-</ul>
-<h2 id="help">Help<a class="headerlink" href="#help" title="Permanent link">#</a></h2>
-<ul>
-<li>Try the <a href="https://support.openfoodfacts.org/help/en-gb/12-api">FAQ</a> - to answer most of your questions.</li>
-<li>Didn't get what you wanted? Contact the Team on the <a href="https://slack.openfoodfacts.org/">#api Slack Channel</a>.</li>
-<li><a href="https://github.com/openfoodfacts/openfoodfacts-server/issues/new/choose">Report Bugs</a> on the Open Food Facts GitHub repository.</li>
-<li>Do you have an issue or feature request? You can submit it <a href="https://github.com/openfoodfacts/openfoodfacts-server/issues/new">on GitHub</a> too.</li>
-<li>Are you interested in contributing to this project? See our <a href="https://github.com/openfoodfacts/openfoodfacts-server/blob/main/CONTRIBUTING.md">Contribution Guidelines</a>.
- <!-- Embed contribution guideline link.-->
-</li>
-</ul>
-<h2 id="sdks">SDKs<a class="headerlink" href="#sdks" title="Permanent link">#</a></h2>
-<p>SDKs are available for specific languages for easier use of the API. We may have a wrapper for your favourite programming language. If we do, you can use it and improve it. However, If we don't, you can help us create it!</p>
-<p>They will let you consume data and let your users contribute new data.
-Open-source contributors develop our SDKs, and more contributions are welcome to improve these SDKs. You can start by checking the existing issues in their respective repositories.</p>
-<blockquote>
-<p><strong>Warning</strong>: Before exploring any SDK, please read the <a href="#before-you-start">Before You Start section</a>.</p>
-<p>Also, remember to check the <a href="https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/">API Reference Documentation</a> first to verify if the problem is in SDK implementation or in the API itself.</p>
-</blockquote>
-<ul>
-<li>Cordova: <a href="https://github.com/openfoodfacts/openfoodfacts-cordova-app">GitHub (old Open Food Facts official app)</a></li>
-<li>DART: <a href="https://github.com/openfoodfacts/openfoodfacts-dart">GitHub</a> - <a href="https://pub.dev/packages/openfoodfacts">Package on pub.dev</a></li>
-<li>Elixir: <a href="https://github.com/openfoodfacts/openfoodfacts-elixir">GitHub</a> - <a href="https://app.slack.com/client/T02KVRT1Q/C758AFX0S">Discussion channel</a></li>
-<li>Go: <a href="https://github.com/openfoodfacts/openfoodfacts-go">GitHub</a> - <a href="https://app.slack.com/client/T02KVRT1Q/C14LGGCUV">Discussion channel</a></li>
-<li>Java: <a href="https://github.com/openfoodfacts/openfoodfacts-java">GitHub</a> - <a href="https://app.slack.com/client/T02KVRT1Q/C1G3J5RT3">Discussion channel</a></li>
-<li>Kotlin: <a href="https://github.com/openfoodfacts/openfoodfacts-kotlin">GitHub</a> - <a href="https://app.slack.com/client/T02KVRT1Q/C045VU7NXS9">Discussion channel</a></li>
-<li>NodeJS: <a href="https://github.com/openfoodfacts/openfoodfacts-nodejs">GitHub</a> - <a href="https://app.slack.com/client/T02KVRT1Q/C1JQQ28P8">Discussion channel</a></li>
-<li>PHP: <a href="https://github.com/openfoodfacts/openfoodfacts-php">GitHub</a> - <a href="https://app.slack.com/client/T02KVRT1Q/C1G3GTJNM">Discussion channel</a></li>
-<li>PHP (Laravel): <a href="https://github.com/openfoodfacts/openfoodfacts-laravel">GitHub</a> - <a href="https://app.slack.com/client/T02KVRT1Q/C1G3GTJNM">Discussion channel</a></li>
-<li>Python: <a href="https://github.com/openfoodfacts/openfoodfacts-python">GitHub</a>, published on <a href="https://pypi.org/project/openfoodfacts/">pypi</a> - <a href="https://app.slack.com/client/T02KVRT1Q/C13993JDD">Discussion channel</a></li>
-<li>React Native: <a href="https://github.com/openfoodfacts/openfoodfacts-react-native">GitHub</a> - <a href="https://app.slack.com/client/T02KVRT1Q/CL29QEBPY">Discussion channel</a></li>
-<li>Ruby: <a href="https://github.com/openfoodfacts/openfoodfacts-ruby">GitHub</a> - <a href="https://app.slack.com/client/T02KVRT1Q/C0ZALLH61">Discussion channel</a></li>
-<li>Rust: <a href="https://github.com/openfoodfacts/openfoodfacts-rust">GitHub</a> - <a href="https://app.slack.com/client/T02KVRT1Q/C010J616CKV">Discussion channel</a></li>
-<li>R: <a href="https://github.com/openfoodfacts/r-dashboard">GitHub</a></li>
-</ul>
+<p>* Perform checks or computations by mixing Wikidata information and Open Food Facts information (and possibly other APIs)</p>
 
 
 
@@ -1906,10 +1641,10 @@ Open-source contributors develop our SDKs, and more contributions are welcome to
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.ad660dcc.min.js"></script>
+      <script src="../../assets/javascripts/bundle.ad660dcc.min.js"></script>
       
     
   </body>
