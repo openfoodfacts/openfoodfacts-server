@@ -85,7 +85,7 @@ stopwords:da:av, af, blandt andet, bl a, inklusive, heraf, indeholder, tilsat
 stopwords:de:und, mit, von, aus, enthält, enthalten, mindestens, in veränderlichen gewichtsanteilen, wenig, min, max
 stopwords:el:περιέχει
 # example: "artificial flavouring substances", "natural and nature identical flavouring substances"
-stopwords:en:added to enhance freshness, added to maintain flavor and freshness, assorted, contains, contain, edible, from, including, inter alia, less than 1% of:, minimum, produced with, with, with added, in varying proportions, substances
+stopwords:en:and,or,added to enhance freshness, added to maintain flavor and freshness, assorted, contains, contain, edible, from, including, inter alia, less than 1% of:, minimum, produced with, with, with added, in varying proportions, substances
 stopwords:es:contiene,de,del,la,el,las,los,con,y,e,en,minimo,maximo,puede,contener,por,categoria,calibre,minimo,min,vereidad,variedad,de cultivo,origen,nota,produccion,controlada,equivalente,equivale
 stopwords:fi:sisältää,muun muassa,valio, koskenlaskija, snellmanin, jossa, noin, käymisen aikana muodostuva
 stopwords:fr:aux,au,de,le,du,la,a,et,avec,ou,en,proportion,variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets, pour souleves,dont,avec,autres,d'autres,d', avec ajout, sachet, marquants, demeter, minimum
@@ -61725,8 +61725,10 @@ hr:pasta od indijskih oraščića
 #
 ###################################################################################################
 
+# chesnut is an obsolete spelling of chestnut
+
 <en:tree nut
-en:chestnut, chestnuts
+en:chestnut, chestnuts, chesnut, chesnuts
 ar:كستنة؛أبو فروة
 bg:кестен, кестени
 ca:castanya

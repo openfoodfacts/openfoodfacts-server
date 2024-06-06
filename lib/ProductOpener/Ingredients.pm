@@ -2286,6 +2286,7 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 		my @ingredients = ();
 
 		# 2 known ingredients separated by "and" ?
+		# or only 1 known ingredient separated by "and"?
 		if ($before =~ /$and/i) {
 
 			my $ingredient = $before;
@@ -2318,14 +2319,14 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 
 					$ingredients_recognized += $is_recognized;
 				}
-				if ($ingredients_recognized == 2) {
+				# Did we recognize at least one ingredient?
+				if ($ingredients_recognized >= 1) {
 
 					push @ingredients, ($ingredient1_orig, $ingredient2_orig);
 				}
 				else {
 					$debug_ingredients
-						and $log->debug(
-						"parse_ingredient_text - and - one or both ingredient(s) of >$before< is/are unknown")
+						and $log->debug("parse_ingredient_text - and - both ingredients of >$before< are unknown")
 						if $log->is_debug();
 				}
 			}

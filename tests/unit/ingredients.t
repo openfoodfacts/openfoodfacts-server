@@ -851,6 +851,14 @@ puffed orange and caramelized unknown_fruit4.",
 			ingredients_text => "sugar, salt, and pepper",
 		}
 	],
+	# some unknown ingredient and a known one
+	[
+		"en-some-unknown-ingredient-and-salt",
+		{
+			lc => "en",
+			ingredients_text => "some unknown ingredient and salt",
+		}
+	],
 );
 
 foreach my $test_ref (@tests) {

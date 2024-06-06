@@ -23,36 +23,30 @@
          "vegetarian" : "yes"
       },
       {
-         "id" : "en:and-pepper",
-         "is_in_taxonomy" : 0,
+         "ciqual_proxy_food_code" : "11015",
+         "id" : "en:pepper",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 16.6666666666667,
          "percent_max" : 33.3333333333333,
          "percent_min" : 0,
-         "text" : "and pepper"
+         "text" : "and pepper",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
       }
    ],
-   "ingredients_analysis" : {
-      "en:palm-oil-content-unknown" : [
-         "en:and-pepper"
-      ],
-      "en:vegan-status-unknown" : [
-         "en:and-pepper"
-      ],
-      "en:vegetarian-status-unknown" : [
-         "en:and-pepper"
-      ]
-   },
+   "ingredients_analysis" : {},
    "ingredients_analysis_tags" : [
-      "en:palm-oil-content-unknown",
-      "en:vegan-status-unknown",
-      "en:vegetarian-status-unknown"
+      "en:palm-oil-free",
+      "en:vegan",
+      "en:vegetarian"
    ],
    "ingredients_hierarchy" : [
       "en:sugar",
       "en:added-sugar",
       "en:disaccharide",
       "en:salt",
-      "en:and-pepper"
+      "en:pepper",
+      "en:seed"
    ],
    "ingredients_n" : 3,
    "ingredients_n_tags" : [
@@ -62,7 +56,7 @@
    "ingredients_original_tags" : [
       "en:sugar",
       "en:salt",
-      "en:and-pepper"
+      "en:pepper"
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
@@ -70,18 +64,17 @@
       "en:added-sugar",
       "en:disaccharide",
       "en:salt",
-      "en:and-pepper"
+      "en:pepper",
+      "en:seed"
    ],
    "ingredients_text" : "sugar, salt, and pepper",
    "ingredients_with_specified_percent_n" : 0,
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 3,
    "ingredients_with_unspecified_percent_sum" : 100,
-   "ingredients_without_ciqual_codes" : [
-      "en:and-pepper"
-   ],
-   "ingredients_without_ciqual_codes_n" : 1,
-   "known_ingredients_n" : 4,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
+   "known_ingredients_n" : 6,
    "lc" : "en",
    "nutriments" : {
       "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
@@ -89,5 +82,5 @@
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
    },
-   "unknown_ingredients_n" : 1
+   "unknown_ingredients_n" : 0
 }
