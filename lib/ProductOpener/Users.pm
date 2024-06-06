@@ -725,7 +725,8 @@ sub check_edit_owner ($user_ref, $errors_ref) {
 
 	# temporarily use the org passed as parameter
 	$user_ref->{pro_moderator_owner}
-		= get_string_id_for_lang("no_language", remove_tags_and_quote(single_param('pro_moderator_owner')));
+		= get_string_id_for_lang("no_language",
+		remove_tags_and_quote(decode utf8 => single_param('pro_moderator_owner')));
 
 	# If the owner id looks like a GLN, see if we have a corresponding org
 

@@ -286,7 +286,8 @@ if (    (not $process_ingredients)
 	and (not $prefix_packaging_tags_with_language)
 	and (not $assign_ciqual_codes)
 	and (not $fix_obsolete)
-	and (not $fix_last_modified_t))
+	and (not $fix_last_modified_t)
+	and (not $analyze_and_enrich_product_data))
 {
 	die("Missing fields to update or --count option:\n$usage");
 }
@@ -1089,7 +1090,7 @@ while (my $product_ref = $cursor->next) {
 
 		# This option runs all the data enrichment functions
 		if ($analyze_and_enrich_product_data) {
-			analyze_and_enrich_product_data($product_ref);
+			analyze_and_enrich_product_data($product_ref, {});
 		}
 
 		# Many of the options below are included in the analyze_and_enrich_product_data option
@@ -1474,9 +1475,15 @@ while (my $product_ref = $cursor->next) {
 
 				# Push to redis stream only if the product was changed (apart from its update_key)
 				if ($any_change) {
-					$products_pushed_to_redis++;
-					print STDERR ". Pushed to Redis stream";
-					push_to_redis_stream('update_all_products', $product_ref, "updated", $comment, {});
+					# On producers platform, do not push to Redis
+					if ((defined $server_options{private_products}) and ($server_options{private_products})) {
+						print STDERR ". Not pushed to Redis stream (on producers platform)";
+					}
+					else {
+						$products_pushed_to_redis++;
+						print STDERR ". Pushed to Redis stream";
+						push_to_redis_stream('update_all_products', $product_ref, "updated", $comment, {});
+					}
 				}
 				else {
 					print STDERR ". Not pushed to Redis stream";
