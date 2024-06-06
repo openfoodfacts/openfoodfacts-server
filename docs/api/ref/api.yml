@@ -273,7 +273,7 @@ paths:
         Please use it as much as possible to avoid overloading the servers.
 
         The search use pagination, see `page` and `page_size` parameters.
-        
+
         **Beware:** the `page_count` data in item is a bit counter intuitive…, read the description.
 
         ### Conditions on tags
@@ -382,6 +382,49 @@ paths:
         - $ref: '#/components/parameters/lc'
       description: |
         Used to display the nutrition facts table of a product, or to display a form to input those nutrition facts.
+  /api/v2/attribute_groups:
+    get:
+      summary: Get the list of attributes available for personal search.
+      description: |
+        Attributes are at the heart of personal search.
+        They score the products according to different criterias,
+        which could then be matched to a user's preferences.
+
+        This API helps you list attributes and display them in your application,
+        for the user to choose the importance of each criteria.
+
+        note: /api/v2/attribute_groups_{lc} is also a valid route, but consider it deprecated
+      tags:
+        - Read Requests
+        - Personal search
+      operationId: get-attribute-groups
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ./responses/get_attribute_groups.yaml
+      parameters:
+      - $ref: '#/components/parameters/lc'
+  /api/v2/preferences:
+    get:
+      summary: |
+        Get the weights corresponding to attributes preferences
+        to compute personal product
+      tags:
+        - Read Requests
+        - Personal search
+      operationId: get-preferences
+      parameters:
+        - $ref: '#/components/parameters/lc'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ./responses/get_preferences.yaml
 components:
   schemas:
     "Product-Base":
@@ -404,6 +447,8 @@ components:
       $ref: ./schemas/product_quality.yaml
     "Product-Knowledge-Panels":
       $ref: ./schemas/product_knowledge_panels.yaml
+    "Product-Attribute-Groups":
+      $ref: './schemas/product_attribute_groups.yaml'
     Product:
       $ref: ./schemas/product.yaml
   parameters:
@@ -429,7 +474,11 @@ components:
       in: query
       name: lc
       required: false
-      description: '2 letter code of the language of the user. Used for localizing some fields in returned values (e.g. knowledge panels). If not passed, the language may be inferred by the Accept-Language header of the request.'
+      description: |
+        2 letter code of the language of the user.
+        Used for localizing some fields in returned values (e.g. knowledge panels).
+        If not passed, the language may be inferred by the Accept-Language header of the request,
+        or from the domain name prefix.
     code:
       schema:
         type: string
