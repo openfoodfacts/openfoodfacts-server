@@ -25,18 +25,17 @@ use utf8;
 use Storable qw(lock_retrieve);
 use MongoDB;
 use Encode;
+use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created/;
 
 my $database = "off";
 my $collection = "orgs";
 
 my $orgs_collection = MongoDB::MongoClient->new->get_database($database)->get_collection($collection);
 
-my $start_dir = $ARGV[0];
+my @orgs = ();
 
-if (not defined $start_dir) {
-    print STDERR "Pass the root of the organization directory as the first argument.\n";
-    exit();
-}
+my $start_dir = "$BASE_DIRS{ORGS}/";
+ensure_dir_created($BASE_DIRS{ORGS});
 
 sub retrieve {
     my $file = shift;
@@ -48,8 +47,6 @@ sub retrieve {
     return $return;
 }
 
-my @orgs = ();
-
 sub find_orgs {
     my ($dir, $code) = @_;
     my $dh;
@@ -57,7 +54,7 @@ sub find_orgs {
     opendir $dh, "$dir" or die "could not open $dir directory: $!\n";
     foreach my $file (sort readdir($dh)) {
         chomp($file);
-        if ($file =~ /^(([0-9]+))\.sto/) {
+        if ($file =~ /^([a-zA-Z_][a-zA-Z0-9_]*)\.sto/) {
             push @orgs, [$code, $1];
         } else {
             next if $file =~ /\./;
@@ -81,16 +78,10 @@ sub main {
     foreach my $code_rev_ref (@orgs) {
         my ($code, $rev) = @$code_rev_ref;
 
-        my $path = $code;
-        if ($code =~ /^(...)(...)(...)(.*)$/) {
-            $path = "$1/$2/$3/$4";
-        }
-
-        my $org_ref = retrieve("$start_dir/$path/$rev.sto") or print "not defined $start_dir/$path/$rev.sto\n";
+        my $org_ref = retrieve("$start_dir/$rev.sto") or print "not defined $start_dir/$rev.sto\n";
 
         if (defined $org_ref) {
             next if (defined $org_ref->{deleted} && $org_ref->{deleted} eq 'on');
-            print STDERR "updating org code $code -- rev $rev -- " . $org_ref->{code} . "\n";
 
             $org_ref->{_id} = $code . "." . $rev;
 

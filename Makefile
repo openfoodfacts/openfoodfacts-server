@@ -437,7 +437,7 @@ _clean_old_external_volumes:
 
 save_orgs_to_mongodb:
 	@echo "🥫 Saving exsiting orgs into MongoDB …"
-	${DOCKER_COMPOSE} run --rm backend perl -I/opt/product-opener/lib /opt/product-opener/scripts/save_existing_orgs_to_mongodb.pl "/mnt/podata/orgs"
+	${DOCKER_COMPOSE} run --rm backend perl -I/opt/product-opener/lib /opt/product-opener/scripts/migrations/2024_06_save_existing_orgs_to_mongodb.pl "/mnt/podata/orgs"
 
 #------------#
 # Production #
