@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://openfoodfacts.github.io/openfoodfacts-server/dev/how-to-develop-producer-platform/">
+        <link rel="canonical" href="https://openfoodfacts.github.io/openfoodfacts-server/dev/explain-personal-search/">
       
       
-        <link rel="prev" href="../how-to-deploy/">
+        <link rel="prev" href="../explain-packaging-data/">
       
       
-        <link rel="next" href="../how-to-develop-using-docker/">
+        <link rel="next" href="../explain-pro-dev-setup/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>How to develop on the producers platform - Product Opener (Open Food Facts Server)</title>
+        <title>Explain personal search - Product Opener (Open Food Facts Server)</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#how-to-develop-on-the-producers-platform" class="md-skip">
+        <a href="#explain-personal-search" class="md-skip">
           Skip to content
         </a>
       
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              How to develop on the producers platform
+              Explain personal search
             
           </span>
         </div>
@@ -586,30 +586,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    How to develop on the producers platform
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../how-to-develop-producer-platform/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -618,77 +598,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
-    <span class="md-ellipsis">
-      Prerequisites:
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#shell-setup" class="md-nav__link">
-    <span class="md-ellipsis">
-      Shell Setup:
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#development-workflow" class="md-nav__link">
-    <span class="md-ellipsis">
-      Development Workflow:
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#working-with-product-importexport-and-interacting-with-the-public-platform" class="md-nav__link">
-    <span class="md-ellipsis">
-      Working with Product Import/Export and Interacting with the Public Platform:
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Working with Product Import/Export and Interacting with the Public Platform:">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#note-the-setup-does-not-currently-support-running-the-http-server-for-both-public-and-pro-platform-at-the-same-time-therefore-to-access-the-public-platform-you-need-to-follow-these-steps" class="md-nav__link">
-    <span class="md-ellipsis">
-      Note: The setup does not currently support running the http server for both public and pro platform at the same time. Therefore, to access the public platform, you need to follow these steps:
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -950,10 +859,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../explain-personal-search/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Explain personal search
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -962,6 +891,77 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#preferences" class="md-nav__link">
+    <span class="md-ellipsis">
+      Preferences
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scoring
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scoring">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#computing-product-match-for-each-attribute" class="md-nav__link">
+    <span class="md-ellipsis">
+      Computing product match for each attribute
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#computing-product-match-according-to-user-preferences" class="md-nav__link">
+    <span class="md-ellipsis">
+      Computing product match according to user preferences
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ranking" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ranking
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1506,46 +1506,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
+  <a href="#preferences" class="md-nav__link">
     <span class="md-ellipsis">
-      Prerequisites:
+      Preferences
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#shell-setup" class="md-nav__link">
+  <a href="#scoring" class="md-nav__link">
     <span class="md-ellipsis">
-      Shell Setup:
+      Scoring
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#development-workflow" class="md-nav__link">
-    <span class="md-ellipsis">
-      Development Workflow:
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#working-with-product-importexport-and-interacting-with-the-public-platform" class="md-nav__link">
-    <span class="md-ellipsis">
-      Working with Product Import/Export and Interacting with the Public Platform:
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Working with Product Import/Export and Interacting with the Public Platform:">
+    <nav class="md-nav" aria-label="Scoring">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#note-the-setup-does-not-currently-support-running-the-http-server-for-both-public-and-pro-platform-at-the-same-time-therefore-to-access-the-public-platform-you-need-to-follow-these-steps" class="md-nav__link">
+  <a href="#computing-product-match-for-each-attribute" class="md-nav__link">
     <span class="md-ellipsis">
-      Note: The setup does not currently support running the http server for both public and pro platform at the same time. Therefore, to access the public platform, you need to follow these steps:
+      Computing product match for each attribute
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#computing-product-match-according-to-user-preferences" class="md-nav__link">
+    <span class="md-ellipsis">
+      Computing product match according to user preferences
     </span>
   </a>
   
@@ -1553,6 +1544,15 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ranking" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ranking
+    </span>
+  </a>
   
 </li>
       
@@ -1574,63 +1574,84 @@
   
 
 
-<h1 id="how-to-develop-on-the-producers-platform">How to develop on the producers platform<a class="headerlink" href="#how-to-develop-on-the-producers-platform" title="Permanent link">#</a></h1>
-<p>Here is how to develop for the producers platform using docker.</p>
-<h3 id="prerequisites">Prerequisites:<a class="headerlink" href="#prerequisites" title="Permanent link">#</a></h3>
+<h1 id="explain-personal-search">Explain personal search<a class="headerlink" href="#explain-personal-search" title="Permanent link">#</a></h1>
+<p>Personal search is a feature to enable users
+to rank and score products according to their preferences.</p>
+<p>It can be applied on the website and the mobile.</p>
+<p>This is a very distinctive feature of Open Food Facts
+and close to our value to enable personalized usage of the data.</p>
+<p>Bear in mind that user preferences for food is a sensitive information that must not be exposed.</p>
+<h2 id="preferences">Preferences<a class="headerlink" href="#preferences" title="Permanent link">#</a></h2>
+<p>The configuration of preferences happens client side and is stored in browser or app local storage.</p>
+<p>The user can tell for different attributes
+what is the importance of each according to his preferences.</p>
+<p>Attributes are grouped by sections (called groups).</p>
+<p>The attributes are accessible in at <code>/api/v1/attribute_groups_&lt;language_code&gt;[^attributes_code]</code>,
+eg https://world.openfoodfacts.org/api/v1/attribute_groups_en</p>
+<p>A panel is generated in the web page using javascript to enable users to set their preferences<sup id="fnref:prefsjs"><a class="footnote-ref" href="#fn:prefsjs">1</a></sup></p>
+<h2 id="scoring">Scoring<a class="headerlink" href="#scoring" title="Permanent link">#</a></h2>
+<h3 id="computing-product-match-for-each-attribute">Computing product match for each attribute<a class="headerlink" href="#computing-product-match-for-each-attribute" title="Permanent link">#</a></h3>
+<p>On a product, for each attribute, we compute a match score for each product.</p>
+<p>This matching might take into account the country and, maybe, some other data,
+for example for environmental impact.</p>
+<p>Each attribute as a specific computation and specific way to compute the matching score.</p>
+<p>The Attributes.pm module contains functions to compute those attributes.
+It is exposed in the API in the <code>attribute_groups</code> properties
+(not returned by default, you have to explicitly ask for it).</p>
+<p>See also: https://wiki.openfoodfacts.org/Product_Attributes</p>
+<h3 id="computing-product-match-according-to-user-preferences">Computing product match according to user preferences<a class="headerlink" href="#computing-product-match-according-to-user-preferences" title="Permanent link">#</a></h3>
+<p>We first compute a numerical score as follow:</p>
 <ul>
-<li>Docker should already be <a href="../how-to-quick-start-guide/">set up for development</a>.</li>
-</ul>
-<h3 id="shell-setup">Shell Setup:<a class="headerlink" href="#shell-setup" title="Permanent link">#</a></h3>
-<p>You will need two types of shells:</p>
-<ul>
-<li>Shell for OpenFoodFacts:<ul>
-<li>Use this shell for general development on the OpenFoodFacts platform.</li>
+<li>all "not important" attributes according to user preferences, are dismissed</li>
+<li>for each attributes:<ul>
+<li>else we take the weight based upon users preferences (2 for mandatory and very important, 1 for important)</li>
+<li>we take the "match" score of the product for this attributes</li>
 </ul>
 </li>
-<li>Shell for OpenFoodFacts-Pro: Use this shell when working on the OpenFoodFacts-Pro platform.<ul>
-<li>To set up the shell, run the command: <code>. env/setenv.sh off-pro</code> (this simply sets some environment variables that will override the ones in <code>.env</code>).</li>
-<li>Once the shell is set up, your prompt will show <code>(pro)</code> to indicate that you are in the producers environment.</li>
+<li>the score is the ponderated mean of attributes, it is between 0 and 100 (as match)</li>
+<li>we also keep track of weights of unknown attributes vs weights of all attributes</li>
 </ul>
+<p>The final match status is computed as follow:</p>
+<ul>
+<li>very_good_match   score &gt;= 75</li>
+<li>good_match        score &gt;= 50</li>
+<li>poor_match        score &lt; 50</li>
+<li>unknown_match     at least one mandatory attribute is unknown, or unknown attributes weights more than 50% of the total weights</li>
+<li>may_not_match     at least one mandatory attribute score is &lt;= 50 (e.g. may contain traces of an allergen)</li>
+<li>does_not_match    at least one mandatory attribute score is &lt;= 10 (e.g. contains an allergen, is not vegan)</li>
+</ul>
+<p>For the web, this is implemented in <code>product-search.js</code>, in function <code>match_product_to_preferences</code></p>
+<p>Note: Currently, preferences_factors are hardcoded in <code>product-search.js</code>,
+  while we have a preference api /api/v2/preferences which should be used
+  but does not seem up to date.
+  See issue <a href="https://github.com/openfoodfacts/openfoodfacts-server/issues/10406">#10406</a></p>
+<p>When personal search is activated,
+the match status is displayed on products pages, and on search, for each item.</p>
+<h2 id="ranking">Ranking<a class="headerlink" href="#ranking" title="Permanent link">#</a></h2>
+<p>On the website main search page, in the website users can sort products of the current page
+according to their preferences. This is done by javascript.</p>
+<p>In the mobile, this is possible on lists.</p>
+<p>The comparison is not based upon match status, but upon computed score,
+with an extra malus for does_not_match.</p>
+<p>We have the guarantee to have this order:</p>
+<ol>
+<li>very_good_match</li>
+<li>good_match</li>
+<li>poor_match</li>
+<li>does_not_match</li>
+</ol>
+<p>But unknown_match and may_not_match may be in-between those values.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:prefsjs">
+<p>see product-preferences.js&#160;<a class="footnote-backref" href="#fnref:prefsjs" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
-</ul>
-<h3 id="development-workflow">Development Workflow:<a class="headerlink" href="#development-workflow" title="Permanent link">#</a></h3>
-<p>To develop on the producers platform, follow these steps:</p>
-<ul>
-<li>Open a shell for OpenFoodFacts-Pro.</li>
-<li>Run the command <code>make dev</code> to start the development environment. This command functions as usual.<ul>
-<li>If you encounter any issues with CSS not showing up, you can run <code>make build_lang</code> in the <em>pro</em> shell.</li>
-</ul>
+<li id="fn:rank_products">
+<p>See <code>product-search.js</code> function <code>rank_products</code>&#160;<a class="footnote-backref" href="#fnref:rank_products" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
-</ul>
-<h3 id="working-with-product-importexport-and-interacting-with-the-public-platform">Working with Product Import/Export and Interacting with the Public Platform:<a class="headerlink" href="#working-with-product-importexport-and-interacting-with-the-public-platform" title="Permanent link">#</a></h3>
-<p>If you need to work on product import/export or interact with the public platform, you must start the following services: <code>PostgreSQL</code>, <code>MongoDB</code>, and the <code>Minion</code>. Here's how:</p>
-<ul>
-<li>In a <em>non-pro</em> shell (OpenFoodFacts shell), run the command <code>docker compose up postgres minion mongodb</code>.<ul>
-<li>This command starts the necessary services in the background.</li>
-</ul>
-</li>
-</ul>
-<h4 id="note-the-setup-does-not-currently-support-running-the-http-server-for-both-public-and-pro-platform-at-the-same-time-therefore-to-access-the-public-platform-you-need-to-follow-these-steps">Note: The setup does not currently support running the http server for both public and pro platform at the same time. Therefore, to access the public platform, you need to follow these steps:<a class="headerlink" href="#note-the-setup-does-not-currently-support-running-the-http-server-for-both-public-and-pro-platform-at-the-same-time-therefore-to-access-the-public-platform-you-need-to-follow-these-steps" title="Permanent link">#</a></h4>
-<ul>
-<li>in your <em>pro shell</em>, run a <code>docker compose stop frontend</code></li>
-<li>in your <em>non pro shell</em>, run a <code>docker compose up frontend</code>
-Now, the public database can be accessed at <code>openfoodfacts.localhost</code>.If you need to access the <em>pro</em> HTTP server, reverse these steps.</li>
-</ul>
-<p>Note that if you <a href="../how-to-use-direnv/">use direnv</a>, the setup should work seamlessly without redefining the variables set by <code>setenv.sh</code>.</p>
-<p>An explanation of the setup can be found at <a href="../explain-pro-dev-setup/">explain-pro-dev-setup.md</a></p>
-<ul>
-<li>If you want to see the state of tasks, you can run:</li>
-</ul>
-<p><div class="highlight"><pre><span></span><code>docker compose exec minion /opt/product-opener/scripts/minion_producers.pl  minion job
-</code></pre></div>
-(add --help to see all options), or refer to https://docs.mojolicious.org/Minion/Command/minion/job</p>
-<ul>
-<li>You may also inspect the database by running:
-<div class="highlight"><pre><span></span><code>docker compose exec  postgres psql -U productopener -W minion
-</code></pre></div>
-The password is given by the <code>POSTGRES_PASSWORD</code> variable in the <code>.env</code> file and defaults to <code>productopener</code>. 
-Inspecting the minion table can be helpful in understanding the database structure and contents.</li>
-</ul>
+</ol>
+</div>
 
 
 
