@@ -26,11 +26,12 @@ use Storable qw(lock_retrieve);
 use MongoDB;
 use Encode;
 use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created/;
+use ProductOpener::Data qw/:all/;
 
 my $database = "off";
 my $collection = "orgs";
 
-my $orgs_collection = MongoDB::MongoClient->new->get_database($database)->get_collection($collection);
+my $orgs_collection = get_orgs_collection();
 
 my @orgs = ();
 
@@ -83,9 +84,11 @@ sub main {
         if (defined $org_ref) {
             next if (defined $org_ref->{deleted} && $org_ref->{deleted} eq 'on');
 
-            $org_ref->{_id} = $code . "." . $rev;
+            $org_ref->{org_id} = $code . "." . $rev;
 
-            my $return = $orgs_collection->replace_one({"_id" => $org_ref->{_id}}, $org_ref, {upsert => 1});
+
+            my $return = $orgs_collection->replace_one({"org_id" => $org_ref->{org_id}}, $org_ref, {upsert => 1});
+
             print STDERR "return $return\n";
             $i++;
             $codes{$code} = 1;
