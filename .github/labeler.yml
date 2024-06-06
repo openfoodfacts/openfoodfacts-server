@@ -777,6 +777,11 @@ Redis:
 - changed-files:
   - any-glob-to-any-file: 'taxonomies/improvements.txt'
 
+🏭 Producers Platform - Odoo:
+- changed-files:
+  - any-glob-to-any-file: 'lib/ProductOpener/CRM.pm'
+
+
 # https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Store.html
 Store:
 - changed-files:
