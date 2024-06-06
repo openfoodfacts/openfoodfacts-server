@@ -42,6 +42,8 @@ The Attributes.pm module contains functions to compute those attributes.
 It is exposed in the API in the `attribute_groups` properties
 (not returned by default, you have to explicitly ask for it).
 
+See also: https://wiki.openfoodfacts.org/Product_Attributes
+
 ### Computing product match according to user preferences
 
 We first compute a numerical score as follow:
