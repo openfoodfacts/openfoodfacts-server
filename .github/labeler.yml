@@ -772,6 +772,11 @@ Redis:
   - any-glob-to-any-file: 'tests/unit/expected_test_results/import_gs1/equadis_unilever_obf_signal.off.json'
   - any-glob-to-any-file: 'tests/unit/expected_test_results/import_gs1/equadis_unilever_obf_signal.json'
 
+
+🏭 Producer platform - improvement opportunities:
+- changed-files:
+  - any-glob-to-any-file: 'taxonomies/improvements.txt'
+
 # https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Store.html
 Store:
 - changed-files:
