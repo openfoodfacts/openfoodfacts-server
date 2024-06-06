@@ -37,7 +37,7 @@ use ProductOpener::Lang qw/:all/;
 use ProductOpener::Mail qw/send_email_to_admin/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Food
-	qw/%nutriments_tables %other_nutriments_lists assign_nutriments_values_from_request_parameters compute_nutrition_data_per_100g_and_per_serving get_nutrient_unit/;
+	qw/%nutriments_tables %other_nutriments_lists assign_nutriments_values_from_request_parameters compute_nutrition_data_per_100g_and_per_serving get_nutrient_unit has_category_that_should_have_prepared_nutrition_data/;
 use ProductOpener::Units qw/g_to_unit mmoll_to_unit/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
