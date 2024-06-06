@@ -1329,8 +1329,13 @@ CSS
 
 	if (not defined $product_ref->{nutrition_data_prepared}) {
 		# by default, do not display the nutrition data entry column for the prepared product
-
-		$product_ref->{nutrition_data_prepared} = "";
+		# unless if it is in a category that should have prepared data
+		if (has_category_that_should_have_prepared_nutrition_data($product_ref)) {
+			$product_ref->{nutrition_data_prepared} = "on";
+		}
+		else {
+			$product_ref->{nutrition_data_prepared} = "";
+		}
 	}
 
 	# In all cases, if we have data, we will check the checkbox.

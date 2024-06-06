@@ -65,6 +65,7 @@ BEGIN {
 		&is_fat_oil_nuts_seeds_for_nutrition_score
 		&is_water_for_nutrition_score
 
+		&has_category_that_should_have_prepared_nutrition_data
 		&check_availability_of_nutrients_needed_for_nutriscore
 		&compute_nutriscore_data
 		&compute_nutriscore
@@ -1831,6 +1832,38 @@ sub is_nutriscore_applicable_to_the_product_categories ($product_ref) {
 	return ($category_available, $nutriscore_applicable, $not_applicable_category);
 }
 
+=head2 has_category_that_should_have_prepared_nutrition_data($product_ref)
+
+Check if the product should have prepared nutrition data, based on its categories.
+
+=head3 Arguments
+
+=head4 $product_ref - ref to the product
+
+=head3 Return values
+
+=head4 $category_tag - undef or category tag
+
+Return the product category tag that should have prepared nutrition data, or undef if none.
+
+=cut
+
+sub has_category_that_should_have_prepared_nutrition_data($product_ref) {
+
+	foreach my $category_tag (
+		"en:dried-products-to-be-rehydrated", "en:cocoa-and-chocolate-powders",
+		"en:dessert-mixes", "en:flavoured-syrups",
+		"en:instant-beverages", "en:beverage-preparations"
+		)
+	{
+
+		if (has_tag($product_ref, "categories", $category_tag)) {
+			return $category_tag;
+		}
+	}
+	return;
+}
+
 =head2 check_availability_of_nutrients_needed_for_nutriscore ($product_ref)
 
 Check that we know or can estimate the nutrients needed to compute the Nutri-Score of the product.
@@ -1859,29 +1892,22 @@ sub check_availability_of_nutrients_needed_for_nutriscore ($product_ref) {
 
 	my $prepared = '';
 
-	foreach my $category_tag (
-		"en:dried-products-to-be-rehydrated", "en:cocoa-and-chocolate-powders",
-		"en:dessert-mixes", "en:flavoured-syrups",
-		"en:instant-beverages", "en:beverage-preparations"
-		)
-	{
+	my $category_tag = has_category_that_should_have_prepared_nutrition_data($product_ref);
 
-		if (has_tag($product_ref, "categories", $category_tag)) {
+	if (defined $category_tag) {
 
-			if ((defined $product_ref->{nutriments}{"energy_prepared_100g"})) {
-				$product_ref->{nutrition_score_debug}
-					= "using prepared product data for category $category_tag" . " - ";
-				$prepared = '_prepared';
-				add_tag($product_ref, "misc", "en:nutrition-grade-computed-for-prepared-product");
-			}
-			else {
-				$product_ref->{"nutrition_grades_tags"} = ["unknown"];
-				$product_ref->{nutrition_score_debug}
-					= "no score for category $category_tag without data for prepared product" . " - ";
-				add_tag($product_ref, "misc", "en:nutriscore-missing-prepared-nutrition-data");
-				$nutrients_available = 0;
-			}
-			last;
+		$prepared = '_prepared';
+
+		if ((defined $product_ref->{nutriments}{"energy_prepared_100g"})) {
+			$product_ref->{nutrition_score_debug} = "using prepared product data for category $category_tag" . " - ";
+			add_tag($product_ref, "misc", "en:nutrition-grade-computed-for-prepared-product");
+		}
+		else {
+			$product_ref->{"nutrition_grades_tags"} = ["unknown"];
+			$product_ref->{nutrition_score_debug}
+				= "no score for category $category_tag without data for prepared product" . " - ";
+			add_tag($product_ref, "misc", "en:nutriscore-missing-prepared-nutrition-data");
+			$nutrients_available = 0;
 		}
 	}
 
