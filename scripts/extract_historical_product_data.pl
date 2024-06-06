@@ -29,7 +29,7 @@ The corresponding data is output in a tab-separated format, with the product cod
 
 Usage:
 
-extract_historical_product_data.pl --field [direct_field or some_tags_field=en:some_prefix] --min-year 2017 --max-year 2024 [--recompute-taxonomies] [--analyze-and-enrich-product-data] [--query some_field=some_value] [--codes-file some_file]
+extract_historical_product_data.pl --field [direct_field or some_tags_field=en:some_prefix] --min-year 2017 --max-year 2024 [--recompute-taxonomies] [--analyze-and-enrich-product-data] [--query some_field=some_value] [--codes-file some_file] [--omit-prefix]
 
 Examples:
 
@@ -48,6 +48,8 @@ it is likely that the MongoDB cursor of products to be updated will expire, and 
 --query some_field=-some_value	match products that don't have some_value for some_field
 --codes-file some_file		read the list of product codes from a file
 --field field_name		field to extract data for
+--field some_tags_field=en:some_prefix		extract the value of a tag field that has a specific prefix (e.g. labels_tags=en:nutriscore-)
+--omit-prefix        do not output the prefix in the extracted values
 --min-year year		minimum year to extract data for
 --max-year year		maximum year to extract data for
 --recompute-taxonomies	recompute tag fields like categories and labels with the current taxonomies
@@ -84,6 +86,7 @@ my $field_to_extract;
 my $min_year;
 my $max_year;
 my $recompute_taxonomies;
+my $omit_prefix;
 
 my $query_ref = {};    # filters for mongodb query
 
@@ -92,6 +95,7 @@ GetOptions(
 	"query=s%" => $query_ref,    # filters for mongodb query
 	"codes-file=s" => \$codes_file,    # file with product codes to extract data for
 	"field=s" => \$field_to_extract,
+    "omit-prefix" => \$omit_prefix,
 	"recompute-taxonomies" =>
 		\$recompute_taxonomies,    # Recompute tag fields like categories and labels with the current taxonomies
 	"analyze-and-enrich-product-data" => \$analyze_and_enrich_product_data,
@@ -106,6 +110,7 @@ if (defined $codes_file) {
 	open(my $fh, '<', $codes_file) or die("Could not open file '$codes_file' $!");
 	while (my $row = <$fh>) {
 		chomp $row;
+		$row =~ s/\t.*//;    # Assume codes are in the first column; remove the rest
 		push @codes, $row;
 	}
 	close $fh;
@@ -183,104 +188,131 @@ if ($analyze_and_enrich_product_data) {
 	load_data();
 }
 
+# Print the header
+my $years = "";
+for (my $year = $min_year; $year <= $max_year; $year++) {
+	$years .= "\t" . $year;
+}
+
+print "code" . "\t" . "found" . "\t" . "url" . $years . "\n";
+
 # Go through all products
+my $products = 0;
+my $found_products = 0;
+
 foreach my $code (@codes) {
+
+	$products++;
 
 	my $productid = $code;
 	my $path = product_path_from_id($productid);
-
-	# Go through all product revisions
-
-	my $changes_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/changes.sto");
-	if (not defined $changes_ref) {
-		$changes_ref = [];
-	}
+	my $found = 0;
 
 	# We will go through revision one by one, and for the requested field, we will
 	# store the value we have at the beginning of each year
 	my %value_per_year = ();
+	my $url = "";
 
-	# Go through all revisions, keep the latest value of all fields
+	# Go through all product revisions
+	my $changes_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/changes.sto");
 
-	my %deleted_values = ();
-	my $previous_product_ref = {};
-	my $revs = 0;
+	# If we don't have a changes.sto file, the product is not in the database
+	if (defined $changes_ref) {
+		$found = 1;
+		$found_products++;
 
-	foreach my $change_ref (@{$changes_ref}) {
-		$revs++;
-		my $rev = $change_ref->{rev};
-		if (not defined $rev) {
-			$rev = $revs;    # was not set before June 2012
+		# Go through all revisions, keep the latest value of all fields
+
+		my %deleted_values = ();
+		my $previous_product_ref = {};
+		my $revs = 0;
+
+		foreach my $change_ref (@{$changes_ref}) {
+			$revs++;
+			my $rev = $change_ref->{rev};
+			if (not defined $rev) {
+				$rev = $revs;    # was not set before June 2012
+			}
+
+			my $product_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/$rev.sto");
+
+			if (defined $product_ref) {
+
+				my $value;
+
+				# Make sure we have a lc field
+				if ((not defined $product_ref->{lc}) and (defined $product_ref->{lang})) {
+					$product_ref->{lc} = $product_ref->{lang};
+				}
+
+				# Determine the year of the revision, using the UNIX timestamp last_modified_t
+				my $year = (localtime($product_ref->{last_modified_t}))[5] + 1900;
+
+				# This option runs all the data enrichment functions
+				if ($analyze_and_enrich_product_data) {
+					analyze_and_enrich_product_data($product_ref, {});
+				}
+
+				# Value of a tag field that has a specific prefix
+				# e.g. labels_tags=en:nutriscore-
+				# We will take the value of the first tag that has the prefix
+
+				if ($field_to_extract =~ /^(.+)_tags=(.+)$/) {
+					my $tagtype = $1;
+					my $prefix = $2;
+					# *_tags fields may contain old canonical tags, we can recompute tag fields with the newest taxonomy
+					if (($recompute_taxonomies) and (defined $taxonomy_fields{$tagtype})) {
+						# if the field was previously not taxonomized, the $field_hierarchy field does not exist
+						# assume the $field value is in the main language of the product
+						if (
+
+							defined $product_ref->{$tagtype . "_hierarchy"}
+							)
+						{
+							# we do not know the language of the current value of $product_ref->{$tagtype}
+							# so regenerate it in the main language of the product
+
+							$product_ref->{$tagtype}
+								= list_taxonomy_tags_in_language("en", $tagtype,
+								$product_ref->{$tagtype . "_hierarchy"});
+						}
+
+						compute_field_tags($product_ref, "en", $tagtype);
+					}
+					foreach my $tag (@{$product_ref->{$tagtype . "_tags"}}) {
+						if ($tag =~ /^$prefix/) {
+                            if ($omit_prefix) {
+                                $value = $';
+                            }
+                            else {
+                                $value = $tag;
+                            }
+							last;
+						}
+					}
+				}
+				else {
+					# Access any field in the product
+					# e.g. nutriments.energy_100g
+					$value = deep_get($product_ref, split(/\./, $field_to_extract));
+				}
+
+				# We consider the value at the beginning of the year
+				# So the last value of the previous year is the value for the current year
+				if ($value) {
+					$value_per_year{$year + 1} = $value;
+				}
+				else {
+					delete($value_per_year{$year + 1});
+				}
+
+				# Keep a reference to the previous rev, if we want to compute changes between revisions
+				$previous_product_ref = $product_ref;
+			}
 		}
 
-		my $product_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/$rev.sto");
-
-		if (defined $product_ref) {
-
-			my $value;
-
-			# Make sure we have a lc field
-			if ((not defined $product_ref->{lc}) and (defined $product_ref->{lang})) {
-				$product_ref->{lc} = $product_ref->{lang};
-			}
-
-			# Determine the year of the revision, using the UNIX timestamp last_modified_t
-			my $year = (localtime($product_ref->{last_modified_t}))[5] + 1900;
-
-			# This option runs all the data enrichment functions
-			if ($analyze_and_enrich_product_data) {
-				analyze_and_enrich_product_data($product_ref, {});
-			}
-
-			# Value of a tag field that has a specific prefix
-			# e.g. labels_tags=en:nutriscore-
-			# We will take the value of the first tag that has the prefix
-
-			if ($field_to_extract =~ /^(.+)_tags=(.+)$/) {
-				my $tagtype = $1;
-				my $prefix = $2;
-				# *_tags fields may contain old canonical tags, we can recompute tag fields with the newest taxonomy
-				if (($recompute_taxonomies) and (defined $taxonomy_fields{$tagtype})) {
-					# if the field was previously not taxonomized, the $field_hierarchy field does not exist
-					# assume the $field value is in the main language of the product
-					if (
-
-						defined $product_ref->{$tagtype . "_hierarchy"}
-						)
-					{
-						# we do not know the language of the current value of $product_ref->{$tagtype}
-						# so regenerate it in the main language of the product
-
-						$product_ref->{$tagtype}
-							= list_taxonomy_tags_in_language("en", $tagtype, $product_ref->{$tagtype . "_hierarchy"});
-					}
-
-					compute_field_tags($product_ref, "en", $tagtype);
-				}
-				foreach my $tag (@{$product_ref->{$tagtype . "_tags"}}) {
-					if ($tag =~ /^$prefix/) {
-						$value = $tag;
-						last;
-					}
-				}
-			}
-			else {
-				# Access any field in the product
-				# e.g. nutriments.energy_100g
-				$value = deep_get($product_ref, split(/\./, $field_to_extract));
-			}
-
-			# We consider the value at the beginning of the year
-			# So the last value of the previous year is the value for the current year
-			if ($value) {
-				$value_per_year{$year + 1} = $value;
-			}
-			else {
-				delete($value_per_year{$year + 1});
-			}
-
-			# Keep a reference to the previous rev, if we want to compute changes between revisions
-			$previous_product_ref = $product_ref;
+		if ($previous_product_ref) {
+			$url = "https://world.$server_domain" . product_url($previous_product_ref);
 		}
 	}
 
@@ -294,7 +326,10 @@ foreach my $code (@codes) {
 			$values .= "\t" . ($value_per_year{$year} || '');
 		}
 	}
-	print $code . $values . "\n";
+
+	print $code . "\t" . $found . "\t" . $url . $values . "\n";
 }
+
+print STDERR "$products products processed, $found_products products found in the database\n";
 
 exit(0);
