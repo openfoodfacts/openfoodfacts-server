@@ -772,6 +772,11 @@ Redis:
   - any-glob-to-any-file: 'tests/unit/expected_test_results/import_gs1/equadis_unilever_obf_signal.off.json'
   - any-glob-to-any-file: 'tests/unit/expected_test_results/import_gs1/equadis_unilever_obf_signal.json'
 
+
+🏭 Producer platform - improvement opportunities:
+- changed-files:
+  - any-glob-to-any-file: 'taxonomies/improvements.txt'
+
 # https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Store.html
 Store:
 - changed-files:
@@ -1243,7 +1248,6 @@ file import:
 - changed-files:
   - any-glob-to-any-file: 'lib/startup_apache2.pl'
   - any-glob-to-any-file: 'conf/​apache-2.4'
-  - any-glob-to-any-file: 'Go to folder'
   - any-glob-to-any-file: 'conf/​apache2-docker'
   - any-glob-to-any-file: 'conf/​logrotate/​apache2'
   - any-glob-to-any-file: 'conf/​apache-2.4/​README.md'
@@ -1264,6 +1268,7 @@ file import:
   - any-glob-to-any-file: 'conf/​apache-2.4/​sites-available/​off-pro.conf'
   - any-glob-to-any-file: 'conf/​systemd/​apache2.service.d/​override.conf'
   - any-glob-to-any-file: 'conf/​apache-2.4/​sites-available/​foodbattle.conf'
+  - any-glob-to-any-file: 'conf/etc-default/prometheus-apache-exporter'
 
 # Half of our new logo is a search icon. We want to improve the search experience since it helps consumers and producers find better products for them and the planet.
 # Please look at search-a-licious project for the future of Open Food Facts search
