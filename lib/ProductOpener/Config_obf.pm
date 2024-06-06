@@ -194,6 +194,7 @@ $options{max_recent_changes_page_size} = 1000;
 $options{default_api_products_page_size} = 20;
 $options{default_web_products_page_size} = 50;
 $options{max_products_page_size} = 100;
+$options{max_products_page_size_for_logged_in_users} = 1000;
 
 # List of tags limits
 $options{default_tags_page_size} = 100;
