@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2024 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -24,35 +24,35 @@ use Modern::Perl '2017';
 use utf8;
 
 my $usage = <<TXT
-update_all_products.pl is a script that updates the latest version of products in the file system and on MongoDB.
-It is used in particular to re-run tags generation when taxonomies have been updated.
+extract_historical_product_data.pl iterates over all the revisions of specific products and extracts the value of a specific field for each year.
+The corresponding data is output in a tab-separated format, with the product code followed by the values for each year.
 
 Usage:
 
-update_all_products.pl --key some_string_value --fields categories,labels --index
+extract_historical_product_data.pl --field [direct_field or some_tags_field=en:some_prefix] --min-year 2017 --max-year 2024 [--recompute-taxonomies] [--analyze-and-enrich-product-data] [--query some_field=some_value] [--codes-file some_file]
+
+Examples:
+
+Extract the Nutri-Score label printed on the packaging for all products from 2017 to 2024 (we recompute taxonomies in order to canonicalize the Nutri-Score labels):
+./scripts/extract_historical_product_data.pl --field labels_tags=en:nutriscore- --recompute-taxonomies --min 2017 --max 2024
+
+Compute and extract the Nutri-Score based on product data:
+./scripts/extract_historical_product_data.pl --field nutriscore_grade --recompute-taxonomies --analyze-and-enrich-product-data --min 2017 --max 2024
+
+
 
 The key is used to keep track of which products have been updated. If there are many products and field to updates,
 it is likely that the MongoDB cursor of products to be updated will expire, and the script will have to be re-run.
 
---count		do not do any processing, just count the number of products matching the --query options
---just-print-codes	do not do any processing, just print the barcodes
 --query some_field=some_value (e.g. categories_tags=en:beers)	filter the products
 --query some_field=-some_value	match products that don't have some_value for some_field
+--codes-file some_file		read the list of product codes from a file
+--field field_name		field to extract data for
+--min-year year		minimum year to extract data for
+--max-year year		maximum year to extract data for
+--recompute-taxonomies	recompute tag fields like categories and labels with the current taxonomies
 --analyze-and-enrich-product-data	run all the analysis and enrichments
---process-ingredients	compute allergens, additives detection
---clean-ingredients	remove nutrition facts, conservation conditions etc.
---compute-nutriscore	nutriscore
---compute-serving-size	compute serving size values
---compute-history	compute history and completeness
---check-quality	run quality checks
---compute-codes
---fix-serving-size-mg-to-ml
---index		specifies that the keywords used by the free text search function (name, brand etc.) need to be reindexed. -- TBD
---user		create a separate .sto file and log the change in the product history, with the corresponding user
---team		optional team for the user that is credited with the change
---comment	comment for change in product history
---pretend	do not actually update products
---mongodb-to-mongodb	do not use the .sto files at all, and only read from and write to mongodb
+
 TXT
 	;
 
@@ -62,25 +62,10 @@ use ProductOpener::Store qw/retrieve store/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Users qw/$User_id %User/;
-use ProductOpener::Images qw/process_image_crop/;
-use ProductOpener::Lang qw/$lc/;
-use ProductOpener::Mail qw/:all/;
 use ProductOpener::Products qw/:all/;
-use ProductOpener::Food qw/:all/;
-use ProductOpener::Ingredients qw/:all/;
-use ProductOpener::Images qw/:all/;
-use ProductOpener::DataQuality qw/check_quality/;
 use ProductOpener::Data qw/get_products_collection/;
 use ProductOpener::Ecoscore qw(compute_ecoscore);
-use ProductOpener::Packaging
-	qw(analyze_and_combine_packaging_data guess_language_of_packaging_text init_packaging_taxonomies_regexps);
-use ProductOpener::ForestFootprint qw(compute_forest_footprint);
-use ProductOpener::MainCountries qw(compute_main_countries);
-use ProductOpener::PackagerCodes qw/normalize_packager_codes/;
-use ProductOpener::API qw/get_initialized_response/;
 use ProductOpener::LoadData qw/load_data/;
-use ProductOpener::Redis qw/push_to_redis_stream/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -88,7 +73,6 @@ use Storable qw/dclone/;
 use Encode;
 use JSON::PP;
 use Data::DeepAccess qw(deep_get deep_exists deep_set);
-use Data::Compare;
 
 use Log::Any::Adapter 'TAP';
 
@@ -245,7 +229,7 @@ foreach my $code (@codes) {
 
 			# This option runs all the data enrichment functions
 			if ($analyze_and_enrich_product_data) {
-				analyze_and_enrich_product_data($product_ref);
+				analyze_and_enrich_product_data($product_ref, {});
 			}
 
 			# Value of a tag field that has a specific prefix
@@ -268,10 +252,10 @@ foreach my $code (@codes) {
 						# so regenerate it in the main language of the product
 
 						$product_ref->{$tagtype}
-							= list_taxonomy_tags_in_language($lc, $tagtype, $product_ref->{$tagtype . "_hierarchy"});
+							= list_taxonomy_tags_in_language("en", $tagtype, $product_ref->{$tagtype . "_hierarchy"});
 					}
 
-					compute_field_tags($product_ref, $lc, $tagtype);
+					compute_field_tags($product_ref, "en", $tagtype);
 				}
 				foreach my $tag (@{$product_ref->{$tagtype . "_tags"}}) {
 					if ($tag =~ /^$prefix/) {
