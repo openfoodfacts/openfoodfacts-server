@@ -17,7 +17,7 @@
 // 		- very_good_match	score >= 75
 //		- good_match		score >= 50
 //		- poor_match		score < 50
-//		- unknown_match		at least one mandatory attribute is unknown, or unknown attributes weights more than 50% of the total weights
+//		- unknown_match		at least one mandatory attribute is unknown, or sum of unknown attributes weights represent more than 50% of the total weights
 //		- may_not_match		at least one mandatory attribute score is <= 50 (e.g. may contain traces of an allergen)
 //		- does_not_match	at least one mandatory attribute score is <= 10 (e.g. contains an allergen, is not vegan)
 //

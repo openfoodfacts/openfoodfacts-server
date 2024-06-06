@@ -35,7 +35,7 @@ items:
           default:
             type: string
             enum:
-            - "mandator"
+            - "mandatory"
             - "very_important"
             - "important"
             - "not_important"

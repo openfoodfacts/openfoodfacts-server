@@ -65,8 +65,10 @@ The final match status is computed as follow:
 
 For the web, this is implemented in `product-search.js`, in function `match_product_to_preferences`
 
-FIXME: why are preferences_factors hardcoded in product-search.js, while we have a preference api
-with different criterias ?
+Note: Currently, preferences_factors are hardcoded in `product-search.js`,
+  while we have a preference api /api/v2/preferences which should be used
+  but does not seem up to date.
+  See issue [#10406](https://github.com/openfoodfacts/openfoodfacts-server/issues/10406)
 
 When personal search is activated,
 the match status is displayed on products pages, and on search, for each item.

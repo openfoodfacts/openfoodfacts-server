@@ -35,7 +35,7 @@ properties:
         grade:
           description: every attribute as a grade for a to e
           type: string
-          enum: ['a', 'b', 'c', 'd', 'e']
+          enum: ['unknown', 'a', 'b', 'c', 'd', 'e']
         name:
           type: string
           description: The name of attribute, for eventual display
