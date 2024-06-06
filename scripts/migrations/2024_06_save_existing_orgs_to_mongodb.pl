@@ -22,81 +22,25 @@
 
 use Modern::Perl '2017';
 use utf8;
-use Storable qw(lock_retrieve);
-use MongoDB;
-use Encode;
-use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created/;
 use ProductOpener::Data qw/:all/;
-
-my $database = "off";
-my $collection = "orgs";
+use ProductOpener::Orgs qw/list_org_ids retrieve_org/;
 
 my $orgs_collection = get_orgs_collection();
 
-my @orgs = ();
-
-my $start_dir = "$BASE_DIRS{ORGS}/";
-ensure_dir_created($BASE_DIRS{ORGS});
-
-sub retrieve {
-    my $file = shift;
-    if (!-e $file) {
-        return;
-    }
-    my $return = undef;
-    eval { $return = lock_retrieve($file); };
-    return $return;
-}
-
-sub find_orgs {
-    my ($dir, $code) = @_;
-    my $dh;
-
-    opendir $dh, "$dir" or die "could not open $dir directory: $!\n";
-    foreach my $file (sort readdir($dh)) {
-        chomp($file);
-        if ($file =~ /^([a-zA-Z_][a-zA-Z0-9_]*)\.sto/) {
-            push @orgs, [$code, $1];
-        } else {
-            next if $file =~ /\./;
-            if (-d "$dir/$file") {
-                find_orgs("$dir/$file", "$code$file");
-            }
-        }
-    }
-    closedir $dh or print "could not close $dir dir: $!\n";
-}
-
 sub main {
-    find_orgs($start_dir, '');
-
+    my @orgs = list_org_ids();
     my $count = scalar @orgs;
     my $i = 0;
-    my %codes = ();
 
-    print STDERR "$count organizations to update\n";
-
-    foreach my $code_rev_ref (@orgs) {
-        my ($code, $rev) = @$code_rev_ref;
-
-        my $org_ref = retrieve("$start_dir/$rev.sto") or print "not defined $start_dir/$rev.sto\n";
-
-        if (defined $org_ref) {
-            next if (defined $org_ref->{deleted} && $org_ref->{deleted} eq 'on');
-
-            $org_ref->{org_id} = $code . "." . $rev;
-
-
-            my $return = $orgs_collection->replace_one({"org_id" => $org_ref->{org_id}}, $org_ref, {upsert => 1});
-
-            print STDERR "return $return\n";
-            $i++;
-            $codes{$code} = 1;
-        }
+    foreach my $org_id (@orgs) {
+        my $org_ref = retrieve_org($org_id);
+        next if not defined $org_ref;
+        my $return = $orgs_collection->replace_one({"org_id" => $org_ref->{org_id}}, $org_ref, {upsert => 1});
+        print STDERR "return $return\n";
+        $i++;
     }
 
     print STDERR "$count organizations to update - $i organizations not empty or deleted\n";
-    print STDERR "scalar keys codes: " . (scalar keys %codes) . "\n";
 }
 
 main();
