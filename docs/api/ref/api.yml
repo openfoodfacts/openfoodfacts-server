@@ -382,6 +382,40 @@ paths:
         - $ref: '#/components/parameters/lc'
       description: |
         Used to display the nutrition facts table of a product, or to display a form to input those nutrition facts.
+  /api/v2/attribute_groups_{lc}:
+    get:
+      summary: Get the list of attributes available for personal search in a specific language
+      tags:
+        - Read Requests
+        - Personal search
+      operationId: get-attribute-groups-lc
+      parameters:
+        - $ref: '#/components/parameters/lc_in_path'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ./responses/get_attribute_groups.yaml
+  /api/v2/preferences:
+    get:
+      summary: |
+        Get the weights corresponding to attributes preferences
+        to compute personal product
+      tags:
+        - Read Requests
+        - Personal search
+      operationId: get-preferences
+      parameters:
+        - $ref: '#/components/parameters/lc'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ./responses/get_preferences.yaml
 components:
   schemas:
     "Product-Base":
@@ -404,6 +438,8 @@ components:
       $ref: ./schemas/product_quality.yaml
     "Product-Knowledge-Panels":
       $ref: ./schemas/product_knowledge_panels.yaml
+    "Product-Attribute-Groups":
+      $ref: './schemas/product_attribute_groups.yaml'
     Product:
       $ref: ./schemas/product.yaml
   parameters:
@@ -430,6 +466,16 @@ components:
       name: lc
       required: false
       description: '2 letter code of the language of the user. Used for localizing some fields in returned values (e.g. knowledge panels). If not passed, the language may be inferred by the Accept-Language header of the request.'
+    # same as lc above but within a path (using path template)
+    lc_in_path:
+      schema:
+        type: string
+        example: 'fr'
+      in: path
+      name: lc
+      required: true
+      description: '2 letter code of the language of the user. Used for localizing some fields in returned values (e.g. knowledge panels). If not passed, the language may be inferred by the Accept-Language header of the request.'
+
     code:
       schema:
         type: string

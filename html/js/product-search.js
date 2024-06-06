@@ -17,12 +17,14 @@
 // 		- very_good_match	score >= 75
 //		- good_match		score >= 50
 //		- poor_match		score < 50
-//		- unknown_match		at least one mandatory attribute is unknown, or unknown attributes weight more than 50% of the score
+//		- unknown_match		at least one mandatory attribute is unknown, or unknown attributes weights more than 50% of the total weights
 //		- may_not_match		at least one mandatory attribute score is <= 50 (e.g. may contain traces of an allergen)
 //		- does_not_match	at least one mandatory attribute score is <= 10 (e.g. contains an allergen, is not vegan)
 //
 // - match_attributes: array of arrays of attributes corresponding to the product and
 // each set of preferences: mandatory, very_important, important
+//
+// IMPORTANT: update explain-personal-search.md if you change this algorithm / file
 
 function match_product_to_preferences(product, product_preferences) {
 
@@ -183,6 +185,7 @@ function rank_products(products, product_preferences, use_user_product_preferenc
 	if (use_user_product_preferences_for_ranking) {
 
 		// Rank all products
+		// IMPORTANT: if you change that, modify explain-personal-search.md
 
 		products.sort(function (a, b) {
 			return (b.match_score - a.match_score)  // Highest score first
