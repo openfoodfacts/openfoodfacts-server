@@ -54,6 +54,7 @@ use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::Events qw/send_event/;
 use ProductOpener::API qw/get_initialized_response/;
 use ProductOpener::APIProductWrite qw/skip_protected_field/;
+use ProductOpener::ProductsFeatures qw/feature_enabled/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();

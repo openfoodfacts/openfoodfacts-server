@@ -177,6 +177,7 @@ use ProductOpener::API qw(add_error customize_response_for_product process_api_r
 use ProductOpener::Units qw/g_to_unit/;
 use ProductOpener::Cache qw/$max_memcached_object_size $memd generate_cache_key/;
 use ProductOpener::Permissions qw/has_permission/;
+use ProductOpener::ProductsFeatures qw(feature_enabled);
 
 use Encode;
 use URI::Escape::XS;
@@ -384,6 +385,9 @@ Add some functions and variables needed by many templates and process the templa
 sub process_template ($template_filename, $template_data_ref, $result_content_ref) {
 
 	# Add functions and values that are passed to all templates
+
+	# Features for each product type
+	$template_data_ref->{feature_enabled} = \&feature_enabled;
 
 	$template_data_ref->{server_options_private_products} = $server_options{private_products};
 	$template_data_ref->{server_options_producers_platform} = $server_options{producers_platform};
@@ -934,28 +938,23 @@ CSS
 
 	# Enable or disable user food preferences: used to compute attributes and to display
 	# personalized product scores and search results
-	if (((defined $options{product_type}) and ($options{product_type} eq "food"))) {
+	if (feature_enabled("user_preferences")) {
 		$request_ref->{user_preferences} = 1;
 	}
 	else {
 		$request_ref->{user_preferences} = 0;
 	}
 
-	if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
-		$show_ecoscore = 1;
-		$attributes_options_ref = {};
-		$knowledge_panels_options_ref = {};
+	$attributes_options_ref = {};
+	$knowledge_panels_options_ref = {};
+
+	if (not feature_enabled("ecoscore")) {
+		$attributes_options_ref->{skip_ecoscore} = 1;
+		$knowledge_panels_options_ref->{skip_ecoscore} = 1;
 	}
-	else {
-		$show_ecoscore = 0;
-		$attributes_options_ref = {
-			skip_ecoscore => 1,
-			skip_forest_footprint => 1,
-		};
-		$knowledge_panels_options_ref = {
-			skip_ecoscore => 1,
-			skip_forest_footprint => 1,
-		};
+	if (not feature_enabled("forest_footprint")) {
+		$attributes_options_ref->{skip_forest_footprint} = 1;
+		$knowledge_panels_options_ref->{skip_forest_footprint} = 1;
 	}
 
 	if ($request_ref->{admin}) {
@@ -4168,8 +4167,7 @@ HTML
 			}
 		}
 
-		if (    (defined $options{product_type})
-			and ($options{product_type} eq "food")
+		if (    (feature_enabled("nutrition"))
 			and ($tagtype eq 'categories'))
 		{
 
@@ -5028,7 +5026,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		)
 	{
 
-		if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
+		if (feature_enabled("popularity")) {
 			$sort_by = 'popularity_key';
 		}
 		else {
@@ -5083,7 +5081,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 
 	# Nutri-Score and Eco-Score are only for food products
 	# and currently scan data is only loaded for Open Food Facts
-	if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
+	if (feature_enabled("popularity")) {
 
 		push @{$template_data_ref->{sort_options}},
 			{
@@ -5091,22 +5089,23 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 			link => $request_ref->{current_link} . "?sort_by=popularity",
 			name => lang("sort_by_popularity")
 			};
+	}
+	if (feature_enabled("nutriscore")) {
 		push @{$template_data_ref->{sort_options}},
 			{
 			value => "nutriscore_score",
 			link => $request_ref->{current_link} . "?sort_by=nutriscore_score",
 			name => lang("sort_by_nutriscore_score")
 			};
-
-		# Show Eco-score sort only for some countries, or for moderators
-		if ($show_ecoscore) {
-			push @{$template_data_ref->{sort_options}},
-				{
-				value => "ecoscore_score",
-				link => $request_ref->{current_link} . "?sort_by=ecoscore_score",
-				name => lang("sort_by_ecoscore_score")
-				};
-		}
+	}
+	# Show Eco-score sort only for some countries, or for moderators
+	if (feature_enabled("ecoscore")) {
+		push @{$template_data_ref->{sort_options}},
+			{
+			value => "ecoscore_score",
+			link => $request_ref->{current_link} . "?sort_by=ecoscore_score",
+			name => lang("sort_by_ecoscore_score")
+			};
 	}
 
 	push @{$template_data_ref->{sort_options}},
@@ -5428,7 +5427,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 				# Eco-score: currently only for moderators
 
 				if ($newtagtype eq 'ecoscore') {
-					next if not($show_ecoscore);
+					next if not(feature_enabled("ecoscore"));
 				}
 
 				push @{$template_data_ref->{current_drilldown_fields}},
@@ -7769,7 +7768,7 @@ JS
 
 	# Note: the Eco-Score data needs to be localized before we create the knowledge panels.
 
-	if (($show_ecoscore) and (defined $product_ref->{ecoscore_data})) {
+	if ((feature_enabled("ecoscore")) and (defined $product_ref->{ecoscore_data})) {
 
 		localize_ecoscore($cc, $product_ref);
 
@@ -8142,8 +8141,7 @@ JS
 
 	# NOVA groups
 
-	if (    (defined $options{product_type})
-		and ($options{product_type} eq "food")
+	if (feature_enabled("nova")
 		and (exists $product_ref->{nova_group}))
 	{
 		$template_data_ref->{product_nova_group} = 'exists';
