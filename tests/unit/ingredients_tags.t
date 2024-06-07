@@ -319,6 +319,12 @@ my @tests = (
 		["en:sunflower-oil", "en:soya-oil", "en:palm-oil"]
 	],
 	[{lc => "fr", ingredients_text => "Banane coupée et cuite au naturel"}, ["en:banana"],],
+	[
+		{lc => "fr", ingredients_text => "Ingrédient inconnu coupée et cuite au naturel"},
+		["fr:ingredient-inconnu-coupee-et-cuite-au-naturel"],
+	],
+	[{lc => "fr", ingredients_text => "Ingrédient inconnu et sel"}, ["fr:ingredient-inconnu", "en:salt"],],
+	[{lc => "fr", ingredients_text => "Sel et ingrédient inconnu"}, ["en:salt", "fr:ingredient-inconnu"],],
 
 );
 
