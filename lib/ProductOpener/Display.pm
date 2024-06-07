@@ -61,6 +61,7 @@ BEGIN {
 		&display_robots_txt_and_exit
 		&display_page
 		&display_text
+		&display_org_profile
 		&display_stats
 		&display_points
 		&display_mission
@@ -179,9 +180,18 @@ use ProductOpener::Units qw/g_to_unit/;
 use ProductOpener::Cache qw/$max_memcached_object_size $memd generate_cache_key/;
 use ProductOpener::Permissions qw/has_permission/;
 
+use ProductOpener::Index qw/:all/;
+use ProductOpener::Display qw/:all/;
+use ProductOpener::Users qw/:all/;
+use ProductOpener::Lang qw/$lc %Lang lang/;
+use ProductOpener::Orgs qw/:all/;
+use ProductOpener::Tags qw/canonicalize_tag_link/;
+use ProductOpener::Text qw/remove_tags_and_quote/;
+
 use Encode;
 use URI::Escape::XS;
-use CGI qw(:cgi :cgi-lib :form escapeHTML');
+use CGI::Carp qw(fatalsToBrowser);
+use CGI qw(:cgi :cgi-lib :form escapeHTML charset);
 use HTML::Entities;
 use DateTime;
 use DateTime::Locale;
@@ -203,6 +213,12 @@ use Data::DeepAccess qw(deep_get deep_set);
 use Log::Log4perl;
 use LWP::UserAgent;
 use Tie::IxHash;
+
+
+
+
+
+
 
 use Log::Any '$log', default_adapter => 'Stderr';
 
@@ -11546,6 +11562,413 @@ sub data_to_display_image ($product_ref, $imagetype, $target_lc) {
 	}
 
 	return $image_ref;
+}
+
+sub display_org_profile($request_ref) {
+
+	my @org_members;
+	my %user_is_admin;
+	my $type = single_param('type') || 'edit';
+	my $action = single_param('action') || 'display';
+
+	# Passing values to the template
+	my $template_data_ref = {lang => \&lang,};
+
+	my $orgid = $Org_id;
+
+	if (defined single_param('orgid')) {
+		$orgid = remove_tags_and_quote(decode utf8 => single_param('orgid'));
+	}
+
+	$log->debug("org profile form - start", {type => $type, action => $action, orgid => $orgid, User_id => $User_id})
+		if $log->is_debug();
+
+	my $html = '';
+
+	my $org_ref = retrieve_org($orgid);
+
+	# Does the org exist?
+
+	if (not defined $org_ref) {
+		$log->debug("org does not exist", {orgid => $orgid}) if $log->is_debug();
+
+		if ($admin or $User{pro_moderator}) {
+			$template_data_ref->{org_does_not_exist} = 1;
+		}
+		else {
+			display_error_and_exit($request_ref, $Lang{error_org_does_not_exist}{$lc}, 404);
+		}
+	}
+
+	# Does the user have permission to edit the org profile?
+
+	if (not(is_user_in_org_group($org_ref, $User_id, "admins") or $admin or $User{pro_moderator})) {
+		$log->debug("user does not have permission to edit org",
+			{orgid => $orgid, org_admins => $org_ref->{admins}, User_id => $User_id})
+			if $log->is_debug();
+		display_error_and_exit($request_ref, $Lang{error_no_permission}{$lc}, 403);
+	}
+
+	my @errors = ();
+
+	if ($action eq 'process') {
+
+		if ($type eq 'edit') {
+			if (single_param('delete') eq 'on') {
+				if ($admin) {
+					$type = 'delete';
+				}
+				else {
+					display_error_and_exit($request_ref, $Lang{error_no_permission}{$lc}, 403);
+				}
+			}
+			else {
+
+				# Administrator fields
+
+				if ($admin or $User{pro_moderator}) {
+
+					# If the org does not exist yet, create it
+					if (not defined $org_ref) {
+						$org_ref = create_org($User_id, $orgid);
+					}
+
+					my @admin_fields = ();
+
+					push(
+						@admin_fields,
+						(
+							"valid_org",
+							"enable_manual_export_to_public_platform",
+							"activate_automated_daily_export_to_public_platform",
+							"protect_data",
+							"do_not_import_codeonline",
+							"gs1_product_name_is_abbreviated",
+							"gs1_nutrients_are_unprepared",
+						)
+					);
+
+					if (defined $options{import_sources}) {
+						foreach my $source_id (sort keys %{$options{import_sources}}) {
+							push(@admin_fields, "import_source_" . $source_id);
+						}
+					}
+
+					foreach my $field (@admin_fields) {
+						$org_ref->{$field} = remove_tags_and_quote(decode utf8 => single_param($field));
+					}
+
+					# Set the list of org GLNs
+					set_org_gs1_gln($org_ref, remove_tags_and_quote(decode utf8 => single_param("list_of_gs1_gln")));
+				}
+
+				# Other fields
+
+				foreach my $field ("name", "link") {
+					$org_ref->{$field} = remove_tags_and_quote(decode utf8 => single_param($field));
+					if ($org_ref->{$field} eq "") {
+						delete $org_ref->{$field};
+					}
+				}
+
+				if (not defined $org_ref->{name}) {
+					push @errors, $Lang{error_missing_org_name}{$lc};
+				}
+
+				# Contact sections
+
+				foreach my $contact ("customer_service", "commercial_service") {
+
+					$org_ref->{$contact} = {};
+
+					foreach my $field ("name", "address", "email", "phone", "link", "info") {
+
+						$org_ref->{$contact}{$field}
+							= remove_tags_and_quote(decode utf8 => single_param($contact . "_" . $field));
+						if ($org_ref->{$contact}{$field} eq "") {
+							delete $org_ref->{$contact}{$field};
+						}
+					}
+
+					if (scalar keys %{$org_ref->{$contact}} == 0) {
+						delete $org_ref->{$contact};
+					}
+				}
+			}
+		}
+
+		if ($#errors >= 0) {
+
+			$action = 'display';
+		}
+	}
+
+	$template_data_ref->{action} = $action;
+	$template_data_ref->{errors} = \@errors;
+
+	$log->debug("org form - before display / process", {type => $type, action => $action, orgid => $orgid})
+		if $log->is_debug();
+
+	if ($action eq 'display') {
+
+		$template_data_ref->{admin} = $admin;
+
+		# Create the list of sections and fields
+
+		$template_data_ref->{sections} = [];
+
+		# Admin
+
+		if ($admin or $User{pro_moderator}) {
+
+			my $admin_fields_ref = [];
+
+			push(
+				@$admin_fields_ref,
+				(
+					{
+						field => "valid_org",
+						type => "checkbox",
+					},
+					{
+						field => "enable_manual_export_to_public_platform",
+						type => "checkbox",
+					},
+					{
+						field => "activate_automated_daily_export_to_public_platform",
+						type => "checkbox",
+					},
+					{
+						field => "protect_data",
+						type => "checkbox",
+					},
+					{
+						field => "crm_org_id",
+						label => lang("crm_org_id"),
+					}
+				)
+			);
+
+			if (defined $options{import_sources}) {
+				foreach my $source_id (sort keys %{$options{import_sources}}) {
+					push(
+						@$admin_fields_ref,
+						{
+							field => "import_source_" . $source_id,
+							type => "checkbox",
+							label => sprintf(lang("import_source_string"), $options{import_sources}{$source_id}),
+						},
+					);
+				}
+			}
+
+			push(
+				@$admin_fields_ref,
+				(
+					{
+						field => "list_of_gs1_gln",
+					},
+					{
+						field => "gs1_product_name_is_abbreviated",
+						type => "checkbox",
+					},
+					{
+						field => "gs1_nutrients_are_unprepared",
+						type => "checkbox",
+					},
+				)
+			);
+
+			push @{$template_data_ref->{sections}},
+				{
+				id => "admin",
+				fields => $admin_fields_ref,
+				};
+		}
+
+		# Name and information of the organization
+
+		push @{$template_data_ref->{sections}},
+			{
+			fields => [
+				{
+					field => "name",
+				},
+				{
+					field => "link",
+				},
+			]
+			};
+
+		# Contact information
+
+		foreach my $contact ("customer_service", "commercial_service") {
+
+			push @{$template_data_ref->{sections}},
+				{
+				id => $contact,
+				fields => [
+					{field => $contact . "_name"},
+					{field => $contact . "_address", type => "textarea"},
+					{field => $contact . "_email"},
+					{field => $contact . "_link"},
+					{field => $contact . "_phone"},
+					{field => $contact . "_info", type => "textarea"},
+				],
+				};
+		}
+
+		# Add labels, types, descriptions, notes and existing values for all fields
+
+		foreach my $section_ref (@{$template_data_ref->{sections}}) {
+
+			# Descriptions and notes for sections
+			if (defined $section_ref->{id}) {
+				if (lang("org_" . $section_ref->{id})) {
+					$section_ref->{name} = lang("org_" . $section_ref->{id});
+				}
+				if (lang("org_" . $section_ref->{id} . "_description")) {
+					$section_ref->{description} = lang("org_" . $section_ref->{id} . "_description");
+				}
+				if (lang("org_" . $section_ref->{id} . "_note")) {
+					$section_ref->{note} = lang("org_" . $section_ref->{id} . "_note");
+				}
+			}
+
+			foreach my $field_ref (@{$section_ref->{fields}}) {
+
+				my $field = $field_ref->{field};
+
+				# Default to text field
+				if (not defined $field_ref->{type}) {
+					$field_ref->{type} = "text";
+				}
+
+				# id to use for lang() strings
+				my $field_lang_id = $field;
+
+				# Existing value
+
+				if ($field =~ /^(customer_service|commercial_service)_(.*)$/) {
+
+					# Field names for phone etc.
+					$field_lang_id = "contact_" . $2;
+
+					if ((defined $org_ref->{$1}) and (defined $org_ref->{$1}{$2})) {
+						$field_ref->{value} = $org_ref->{$1}{$2};
+					}
+				}
+				else {
+					$field_ref->{value} = $org_ref->{$field};
+
+					$field_lang_id = "org_" . $field;
+				}
+
+				# Label if it has not been set already
+				if (not defined $field_ref->{label}) {
+					$field_ref->{label} = lang($field_lang_id);
+				}
+
+				# Descriptions and notes for fields
+				if (lang($field_lang_id . "_description")) {
+					$field_ref->{description} = lang($field_lang_id . "_description");
+				}
+				if (lang($field_lang_id . "_note")) {
+					$field_ref->{note} = lang($field_lang_id . "_note");
+				}
+			}
+		}
+	}
+	elsif ($action eq 'process') {
+
+		if ($type eq "edit") {
+
+			store_org($org_ref);
+			$template_data_ref->{result} = lang("edit_org_result");
+		}
+		elsif ($type eq 'user_delete') {
+
+			if (is_user_in_org_group($org_ref, $User_id, "admins") or $admin or $User{pro_moderator}) {
+				remove_user_by_org_admin(single_param('org_id'), single_param('user_id'));
+				$template_data_ref->{result} = lang("edit_org_result");
+			}
+			else {
+				display_error_and_exit($request_ref, $Lang{error_no_permission}{$lc}, 403);
+			}
+
+		}
+		elsif ($type eq 'add_users') {
+			if (is_user_in_org_group($org_ref, $User_id, "admins") or $admin or $User{pro_moderator}) {
+				my $email_list = remove_tags_and_quote(single_param('email_list'));
+				my $email_ref = add_users_to_org_by_admin($orgid, $email_list);
+
+				# Set the template data for display
+				$template_data_ref->{email_ref} = {
+					added => \@{$email_ref->{added}},
+					invited => \@{$email_ref->{invited}},
+				};
+			}
+		}
+
+		elsif ($type eq 'admin_status') {
+			# verify right to change status
+			if (is_user_in_org_group($org_ref, $User_id, "admins") or $admin or $User{pro_moderator}) {
+				# inputs are in the form admin_status_<user_id>, get them among param and extract the user_id
+				my @user_ids = sort map {$_ =~ /^admin_status_/ ? $' : ()} param();
+				my @existing_admins = sort grep {is_user_in_org_group($org_ref, $_, "admins")} keys %{$org_ref->{members}};
+				my $diff = Array::Diff->diff(\@existing_admins, \@user_ids);
+
+				$log->debug("my user ids", {user_ids => @user_ids, difference => $diff})
+					if $log->is_debug();
+
+				foreach my $user_id (@{$diff->added}) {
+					add_user_to_org($org_ref, $user_id, ["admins"]);
+				}
+
+				foreach my $user_id (@{$diff->deleted}) {
+					# never remove current user from admin list
+					next if ($user_id eq $User_id);
+					remove_user_from_org($org_ref, $user_id, ["admins"]);
+				}
+
+				store_org($org_ref);
+				$template_data_ref->{result} = lang("admin_status_updated");
+			}
+		}
+		$template_data_ref->{profile_url} = canonicalize_tag_link("editors", "org-" . $orgid);
+		$template_data_ref->{profile_name} = sprintf(lang('user_s_page'), $org_ref->{name});
+	}
+
+	$template_data_ref->{orgid} = $orgid;
+	$template_data_ref->{type} = $type;
+
+	my $title = lang($type . '_org_title');
+
+	$log->debug("org form - template data", {template_data_ref => $template_data_ref}) if $log->is_debug();
+
+	# allow org admins to view the list of users associated with their org
+
+	foreach my $member_id (sort keys %{$org_ref->{members}}) {
+		if (is_user_in_org_group($org_ref, $member_id, "admins")) {
+			$user_is_admin{$member_id} = 1;
+		}
+		else {
+			$user_is_admin{$member_id} = 0;
+		}
+		my $member_user_ref = retrieve_user($member_id);
+		push @org_members, $member_user_ref;
+	}
+	$template_data_ref->{org_members} = \@org_members;
+	$template_data_ref->{user_is_admin} = \%user_is_admin;
+	$template_data_ref->{current_user_id} = $User_id;
+
+	process_template('web/pages/org_form/org_form.tt.html', $template_data_ref, \$html)
+		or $html = "<p>template error: " . $tt->error() . "</p>";
+
+	$request_ref->{title} = $title;
+	$request_ref->{content_ref} = \$html;
+	display_page($request_ref);
+	return;
 }
 
 1;

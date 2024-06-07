@@ -164,6 +164,154 @@ sub extract_tagtype_and_tag_value_pairs_from_components ($request_ref, $componen
 	return;
 }
 
+=head2 is_no_index_page ($request_ref)
+
+Return 1 if the page should not be indexed by web crawlers based on analyzed request, 0 otherwise.
+
+=cut
+
+sub is_no_index_page ($request_ref) {
+	return scalar(
+		($request_ref->{is_crawl_bot}) and (
+			# if is_denied_crawl_bot == 1, we don't accept any request from this bot
+			($request_ref->{is_denied_crawl_bot})
+			# All list of tags pages should be non-indexable
+			or (defined $request_ref->{groupby_tagtype})
+			or (
+				(
+					defined $request_ref->{tagtype} and (
+						# Only allow indexation of a selected number of facets
+						# Ingredients were left out because of the number of possible ingredients (1.2M)
+						(not exists($index_tag_types_set{$request_ref->{tagtype}}))
+						# Don't index facet pages with page number > 1 (we want only 1 index page per facet value)
+						or ((defined $request_ref->{page}) and ($request_ref->{page} >= 2))
+						# Don't index web pages with 2 nested tags: as an example, there are billions of combinations for
+						# category x ingredient alone
+						or (defined $request_ref->{tagtype2})
+					)
+				)
+			)
+		)
+	);
+}
+
+# component was specified as en:product, fr:produit etc.
+sub _component_is_singular_tag_in_specific_lc ($component, $tag) {
+
+	my $component_lc;
+	if ($component =~ /^(\w\w):/) {
+		$component_lc = $1;
+		$component = $';
+	}
+	else {
+		return 0;
+	}
+
+	my $match = $tag_type_singular{$tag}{$component_lc};
+	if ((defined $match) and ($match eq $component)) {
+		return 1;
+	}
+	else {
+		return 0;
+	}
+}
+
+=head2 set_rate_limit_attributes ($request_ref, $ip)
+
+Set attributes related to rate-limiting in the request object:
+
+- rate_limiter_user_requests: the number of requests performed by the user for the current minute
+- rate_limiter_limit: the maximum number of requests allowed for the current minute
+- rate_limiter_blocking: 1 if the user has reached the rate-limit, 0 otherwise
+
+
+=cut
+
+sub set_rate_limit_attributes ($request_ref, $ip) {
+	$request_ref->{rate_limiter_user_requests} = undef;
+	$request_ref->{rate_limiter_limit} = undef;
+	$request_ref->{rate_limiter_blocking} = 0;
+
+	my $api_action = $request_ref->{api_action};
+	if (not defined $api_action) {
+		# The request is not an API request, we don't need to check the rate-limiter
+		return;
+	}
+	$request_ref->{rate_limiter_user_requests} = get_rate_limit_user_requests($ip, $api_action);
+
+	my $limit;
+	if (($api_action eq "search") or ($request_ref->{search})) {
+		$limit = $options{rate_limit_search};
+	}
+	elsif ($api_action eq "product") {
+		$limit = $options{rate_limit_product};
+	}
+	else {
+		# No rate-limit is defined for this API action
+		return;
+	}
+	$request_ref->{rate_limiter_limit} = $limit;
+
+	if (
+		# if $limit is not defined, the rate-limiter is disabled for this API action
+		defined $limit
+		and defined $request_ref->{rate_limiter_user_requests}
+		and $request_ref->{rate_limiter_user_requests} >= $limit
+		)
+	{
+		my $block_message = "Rate-limiter blocking: the user has reached the rate-limit";
+		# Check if rate-limit blocking is enabled
+		if ($rate_limiter_blocking_enabled) {
+			# Check that the ip is not local (e.g. integration tests)
+			if ($ip eq "127.0.0.1") {
+				# The IP address is local, we don't block the request
+				$block_message
+					= "Rate-limiter blocking is disabled for local IP addresses, but the user has reached the rate-limit";
+			}
+			# Check that the IP address is not in the allow list
+			elsif (defined $options{rate_limit_allow_list}{$ip}) {
+				# The IP address is in the allow list, we don't block the request
+				$block_message
+					= "Rate-limiter blocking is disabled for the user, but the user has reached the rate-limit";
+			}
+			else {
+				# The user has reached the rate-limit, we block the request
+				$request_ref->{rate_limiter_blocking} = 1;
+			}
+		}
+		else {
+			# Rate-limit blocking is disabled, we just log a warning
+			$block_message = "Rate-limiter blocking is disabled, but the user has reached the rate-limit";
+		}
+		$ratelimiter_log->info(
+			$block_message,
+			{
+				ip => $ip,
+				api_action => $api_action,
+				user_requests => $request_ref->{rate_limiter_user_requests},
+				limit => $limit
+			}
+		) if $ratelimiter_log->is_info();
+	}
+	return;
+}
+
+sub check_and_update_rate_limits($request_ref) {
+	# There is no need to check the rate-limiter if we return a no-index page
+	if (not $request_ref->{no_index}) {
+		my $ip_address = remote_addr();
+		# Set rate-limiter related request attributes
+		set_rate_limit_attributes($request_ref, $ip_address);
+		my $api_action = $request_ref->{api_action};
+
+		if (defined $api_action) {
+			# Increment the number of requests performed by the user for the current minute
+			increment_rate_limit_requests($ip_address, $api_action);
+		}
+	}
+	return;
+}
+
 =head2 analyze_request ( $request_ref )
 
 Analyze request parameters and decide which method to call.
@@ -192,8 +340,13 @@ Sometimes we modify request parameters (param) to correspond to request_ref:
 
 =cut
 
-sub analyze_request ($request_ref) {
+sub analyze_request($request_ref) {
+	sanitize_request($request_ref);
+	my @components = @{$request_ref->{components}};
+	_analyze_request_impl($request_ref, @components);
+}
 
+sub sanitize_request($request_ref) {
 	my $target_lc = $request_ref->{lc};
 
 	$request_ref->{query_string} = $request_ref->{original_query_string};
@@ -268,6 +421,8 @@ sub analyze_request ($request_ref) {
 		push(@components, decode("utf8", URI::Escape::XS::decodeURIComponent($component)));
 	}
 
+	$request_ref->{components} = \@components;
+
 	$log->debug("analyzing query_string, step 4 - components split and UTF8 decoded", {components => \@components})
 		if $log->is_debug();
 
@@ -278,112 +433,38 @@ sub analyze_request ($request_ref) {
 	if ((defined single_param('json')) or (defined single_param('jsonp')) or (defined single_param('xml'))) {
 		$request_ref->{api} = 'v0';
 	}
+}
 
-	# Root, ex: https://world.openfoodfacts.org/
-	if ($#components < 0) {
-		$request_ref->{text} = 'index';
-		$request_ref->{current_link} = '';
-	}
-	# Root + page number, ex: https://world.openfoodfacts.org/2
-	elsif (($#components == 0) and ($components[-1] =~ /^\d+$/)) {
-		$request_ref->{page} = pop @components;
-		$request_ref->{current_link} = '';
-		$request_ref->{text} = 'index';
-	}
+sub _analyze_request_impl($request_ref, @components) {
+	my $routes = {
+		'org' => \&org_endpoint,
+		'api' => \&api_endpoint,
+		'search' => \&search_endpoint,
+		'taxonomy' => \&taxonomy_endpoint,
+		'properties' => \&properties_endpoint,
+		'property' => \&properties_endpoint,
+		'products' => \&products_endpoint,
+	};
 
-	# Api access
-	# /api/v0/product/[code]
-	# /api/v0/search
-	elsif ($components[0] eq 'api') {
+	$log->debug("route", {components => \@components}) if $log->is_debug();
 
-		# Set version, method, action and code
-		$request_ref->{api} = $components[1];
-		if ($request_ref->{api} =~ /v(.*)/) {
-			$request_ref->{api_version} = $1;
-		}
-		else {
-			$request_ref->{api_version} = 0;
-		}
-
-		$request_ref->{api_action} = $components[2];
-
-		# Also support "products" in order not to break apps that were using it
-		if ($request_ref->{api_action} eq 'products') {
-			$request_ref->{api_action} = 'product';
-		}
-
-		# If the api_action is different than "search", check if it is the local path for "product"
-		# so that urls like https://fr.openfoodfacts.org/api/v3/produit/4324232423 work (produit instead of product)
-		# this is so that we can quickly add /api/v3/ to get the API
-
-		if (    ($request_ref->{api_action} ne 'search')
-			and ($request_ref->{api_action} eq $tag_type_singular{products}{$target_lc}))
-		{
-			$request_ref->{api_action} = 'product';
-		}
-
-		# some API actions have an associated object
-		if ($request_ref->{api_action} eq "product") {    # /api/v3/product/[code]
-			param("code", $components[3]);
-			$request_ref->{code} = $components[3];
-		}
-		elsif ($request_ref->{api_action} eq "tag") {    # /api/v3/[tagtype]/[tagid]
-			param("tagtype", $components[3]);
-			$request_ref->{tagtype} = $components[3];
-			param("tagid", $components[4]);
-			$request_ref->{tagid} = $components[4];
-		}
-
-		$request_ref->{api_method} = $request_ref->{method};
-
-		# If return format is not xml or jqm or jsonp, default to json
-		if (    (not defined single_param("xml"))
-			and (not defined single_param("jqm"))
-			and (not defined single_param("jsonp")))
-		{
-			param("json", 1);
-		}
-
-		$log->debug(
-			"got API request",
-			{
-				api => $request_ref->{api},
-				api_version => $request_ref->{api_version},
-				api_action => $request_ref->{api_action},
-				api_method => $request_ref->{api_method},
-				code => $request_ref->{code},
-				jqm => single_param("jqm"),
-				json => single_param("json"),
-				xml => single_param("xml")
-			}
-		) if $log->is_debug();
+	if ($#components < 0 or ($#components == 0) && ($components[-1] =~ /^\d+$/)) {
+		index_endpoint($request_ref, @components);
+		return;
 	}
 
-	# /search search endpoint, parameters will be parsed by CGI.pm param()
-	elsif ($components[0] eq "search") {
-		$request_ref->{search} = 1;
+	if (exists $routes->{$components[0]}) {
+		my $component = shift @components;
+		my $endpoint = $routes->{$component};
+		$endpoint->($request_ref, @components);
+		return;
 	}
 
-	# /taxonomy API endpoint
-	# e.g. /api/v2/taxonomy?type=categories&tags=en:fruits,en:vegetables&fields=name,description,parents,children,vegan:en,inherited:vegetarian:en&lc=en,fr&include_children=1
-	elsif ($components[0] eq "taxonomy") {
-		$request_ref->{taxonomy} = 1;
-	}
-
-	# Folksonomy engine properties endpoint
-	elsif (($components[0] eq "properties") or ($components[0] eq "property")) {
-		$request_ref->{properties} = 1;
-	}
-
-	# /products endpoint (e.g. /products/8024884500403+3263855093192 )
-	# assign the codes to the code parameter
-	elsif ($components[0] eq "products") {
-		$request_ref->{search} = 1;
-		param("code", $components[1]);
-	}
+	# More complex dynamic routing
+	my $target_lc = $request_ref->{lc};
 
 	# Renamed text?
-	elsif ((defined $options{redirect_texts}) and (defined $options{redirect_texts}{$target_lc . "/" . $components[0]}))
+	if ((defined $options{redirect_texts}) and (defined $options{redirect_texts}{$target_lc . "/" . $components[0]}))
 	{
 		$request_ref->{redirect}
 			= $formatted_subdomain . "/" . $options{redirect_texts}{$target_lc . "/" . $components[0]};
@@ -546,152 +627,152 @@ sub analyze_request ($request_ref) {
 	return 1;
 }
 
-=head2 is_no_index_page ($request_ref)
+##### ROUTES ##### 
 
-Return 1 if the page should not be indexed by web crawlers based on analyzed request, 0 otherwise.
+# /
+# /[page number]
+sub index_endpoint($request_ref, @components) {
 
-=cut
-
-sub is_no_index_page ($request_ref) {
-	return scalar(
-		($request_ref->{is_crawl_bot}) and (
-			# if is_denied_crawl_bot == 1, we don't accept any request from this bot
-			($request_ref->{is_denied_crawl_bot})
-			# All list of tags pages should be non-indexable
-			or (defined $request_ref->{groupby_tagtype})
-			or (
-				(
-					defined $request_ref->{tagtype} and (
-						# Only allow indexation of a selected number of facets
-						# Ingredients were left out because of the number of possible ingredients (1.2M)
-						(not exists($index_tag_types_set{$request_ref->{tagtype}}))
-						# Don't index facet pages with page number > 1 (we want only 1 index page per facet value)
-						or ((defined $request_ref->{page}) and ($request_ref->{page} >= 2))
-						# Don't index web pages with 2 nested tags: as an example, there are billions of combinations for
-						# category x ingredient alone
-						or (defined $request_ref->{tagtype2})
-					)
-				)
-			)
-		)
-	);
-}
-
-# component was specified as en:product, fr:produit etc.
-sub _component_is_singular_tag_in_specific_lc ($component, $tag) {
-
-	my $component_lc;
-	if ($component =~ /^(\w\w):/) {
-		$component_lc = $1;
-		$component = $';
-	}
-	else {
-		return 0;
+	# Root, ex: https://world.openfoodfacts.org/
+	$request_ref->{text} = 'index';
+	$request_ref->{current_link} = '';
+	
+	# Root + page number, ex: https://world.openfoodfacts.org/2
+	if (($#components == 0) and ($components[-1] =~ /^\d+$/)) {
+		$request_ref->{page} = pop @components;
 	}
 
-	my $match = $tag_type_singular{$tag}{$component_lc};
-	if ((defined $match) and ($match eq $component)) {
-		return 1;
-	}
-	else {
-		return 0;
-	}
-}
-
-=head2 set_rate_limit_attributes ($request_ref, $ip)
-
-Set attributes related to rate-limiting in the request object:
-
-- rate_limiter_user_requests: the number of requests performed by the user for the current minute
-- rate_limiter_limit: the maximum number of requests allowed for the current minute
-- rate_limiter_blocking: 1 if the user has reached the rate-limit, 0 otherwise
-
-
-=cut
-
-sub set_rate_limit_attributes ($request_ref, $ip) {
-	$request_ref->{rate_limiter_user_requests} = undef;
-	$request_ref->{rate_limiter_limit} = undef;
-	$request_ref->{rate_limiter_blocking} = 0;
-
-	my $api_action = $request_ref->{api_action};
-	if (not defined $api_action) {
-		# The request is not an API request, we don't need to check the rate-limiter
-		return;
-	}
-	$request_ref->{rate_limiter_user_requests} = get_rate_limit_user_requests($ip, $api_action);
-
-	my $limit;
-	if (($api_action eq "search") or ($request_ref->{search})) {
-		$limit = $options{rate_limit_search};
-	}
-	elsif ($api_action eq "product") {
-		$limit = $options{rate_limit_product};
-	}
-	else {
-		# No rate-limit is defined for this API action
-		return;
-	}
-	$request_ref->{rate_limiter_limit} = $limit;
-
-	if (
-		# if $limit is not defined, the rate-limiter is disabled for this API action
-		defined $limit
-		and defined $request_ref->{rate_limiter_user_requests}
-		and $request_ref->{rate_limiter_user_requests} >= $limit
-		)
+	# Index page on producers platform
+	if (    (defined $request_ref->{text})
+		and ($request_ref->{text} eq "index")
+		and (defined $server_options{private_products})
+		and ($server_options{private_products}))
 	{
-		my $block_message = "Rate-limiter blocking: the user has reached the rate-limit";
-		# Check if rate-limit blocking is enabled
-		if ($rate_limiter_blocking_enabled) {
-			# Check that the ip is not local (e.g. integration tests)
-			if ($ip eq "127.0.0.1") {
-				# The IP address is local, we don't block the request
-				$block_message
-					= "Rate-limiter blocking is disabled for local IP addresses, but the user has reached the rate-limit";
-			}
-			# Check that the IP address is not in the allow list
-			elsif (defined $options{rate_limit_allow_list}{$ip}) {
-				# The IP address is in the allow list, we don't block the request
-				$block_message
-					= "Rate-limiter blocking is disabled for the user, but the user has reached the rate-limit";
-			}
-			else {
-				# The user has reached the rate-limit, we block the request
-				$request_ref->{rate_limiter_blocking} = 1;
-			}
-		}
-		else {
-			# Rate-limit blocking is disabled, we just log a warning
-			$block_message = "Rate-limiter blocking is disabled, but the user has reached the rate-limit";
-		}
-		$ratelimiter_log->info(
-			$block_message,
-			{
-				ip => $ip,
-				api_action => $api_action,
-				user_requests => $request_ref->{rate_limiter_user_requests},
-				limit => $limit
-			}
-		) if $ratelimiter_log->is_info();
+		$request_ref->{text} = 'index-pro';
 	}
-	return;
+
 }
 
-sub check_and_update_rate_limits($request_ref) {
-	# There is no need to check the rate-limiter if we return a no-index page
-	if (not $request_ref->{no_index}) {
-		my $ip_address = remote_addr();
-		# Set rate-limiter related request attributes
-		set_rate_limit_attributes($request_ref, $ip_address);
-		my $api_action = $request_ref->{api_action};
+# org:
+# 		/[orgid]
+# 		/[orgid]/profile
+sub org_endpoint($request_ref, @components) {
 
-		if (defined $api_action) {
-			# Increment the number of requests performed by the user for the current minute
-			increment_rate_limit_requests($ip_address, $api_action);
-		}
+	$request_ref->{owner} = 1;
+	my $ownerid = shift @components;
+	if (undef $ownerid) {
+		$request_ref->{status_code} = 404;
+		$request_ref->{error_message} = lang("error_invalid_address");
+		return;
 	}
-	return;
+	$request_ref->{ownerid} = $ownerid;
+
+
+	# /owner/[ownerid]/profile
+	if ($components[0] eq 'profile') {
+		$request_ref->{org_profile} = 1;
+		return;
+	}
+
+	# /owner/[ownerid]/search
+	# /owner/[ownerid]/product/[code]
+	_analyze_request_impl($request_ref, @components);
+}
+
+# api:
+# 		v0/product/[code]
+# 		v0/search
+sub api_endpoint($request_ref, @components) {
+	my $api = $components[0]; 		 # v0
+	my $api_action = $components[1]; # product
+
+	my $api_version = $api;
+	($api_version) = $api =~ /v(\d+)/;
+	$api_version //= 0;
+
+	# Also support "products" in order not to break apps that were using it
+	if ($api_action eq 'products') {
+		$api_action = 'product';
+	}
+
+	# If the api_action is different than "search", check if it is the local path for "product"
+	# so that urls like https://fr.openfoodfacts.org/api/v3/produit/4324232423 work (produit instead of product)
+	# this is so that we can quickly add /api/v3/ to get the API
+
+
+	my $target_lc = $request_ref->{lc};
+	if (    ($api_action ne 'search')
+		and ($api_action eq $tag_type_singular{products}{$target_lc}))
+	{
+		$api_action = 'product';
+	}
+
+	# some API actions have an associated object
+	if ($api_action eq "product") {    # v3/product/[code]
+		param("code", $components[2]);
+		$request_ref->{code} = $components[2];
+	}
+	elsif ($api_action eq "tag") {    # v3/[tag]/[type]/[tagid]
+		param("tagtype", $components[2]);
+		$request_ref->{tagtype} = $components[2];
+		param("tagid", $components[3]);
+		$request_ref->{tagid} = $components[3];
+	}
+
+	# If return format is not xml or jqm or jsonp, default to json
+	if (    (not defined single_param("xml"))
+		and (not defined single_param("jqm"))
+		and (not defined single_param("jsonp")))
+	{
+		param("json", 1);
+	}
+
+	$request_ref->{api} = $api;
+	$request_ref->{api_action} = $api_action;
+	$request_ref->{api_version} = $api_version;
+	$request_ref->{api_method} = $request_ref->{method};
+
+	$log->debug(
+		"got API request",
+		{
+			api => $request_ref->{api},
+			api_version => $request_ref->{api_version},
+			api_action => $request_ref->{api_action},
+			api_method => $request_ref->{api_method},
+			code => $request_ref->{code},
+			jqm => single_param("jqm"),
+			json => single_param("json"),
+			xml => single_param("xml")
+		}
+	) if $log->is_debug();
+}
+
+# search :
+#		
+sub search_endpoint($request_ref, @components) {
+	$request_ref->{search} = 1;
+}
+
+# taxonomy:
+# 		
+# e.g. taxonomy?type=categories&tags=en:fruits,en:vegetables&fields=name,description,parents,children,vegan:en,inherited:vegetarian:en&lc=en,fr&include_children=1
+sub taxonomy_endpoint($request_ref, @components) {
+	$request_ref->{taxonomy} = 1;
+}
+
+# properties:
+#
+# Folksonomy engine properties endpoint
+sub properties_endpoint($request_ref, @components) {
+	$request_ref->{properties} = 1;
+}
+
+# products:
+#		/[code](+[code])*
+# e.g. /8024884500403+3263855093192
+sub products_endpoint($request_ref, @components) {
+	$request_ref->{search} = 1;
+	param("code", $components[1]);
 }
 
 1;
