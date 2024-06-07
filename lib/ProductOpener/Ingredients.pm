@@ -2950,7 +2950,7 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 							# e.g. "salt and acid (acid citric)" -> salt + acid
 							# the sub ingredients only apply to the last ingredient
 
-							if ($i == $#ingredients) {
+							if ((scalar @ingredients) == 0) {
 								$ingredient{ingredients} = [];
 								$analyze_ingredients_self->(
 									$analyze_ingredients_self, $ingredient{ingredients},
