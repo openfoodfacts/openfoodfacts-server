@@ -95,7 +95,7 @@ GetOptions(
 	"query=s%" => $query_ref,    # filters for mongodb query
 	"codes-file=s" => \$codes_file,    # file with product codes to extract data for
 	"field=s" => \$field_to_extract,
-    "omit-prefix" => \$omit_prefix,
+	"omit-prefix" => \$omit_prefix,
 	"recompute-taxonomies" =>
 		\$recompute_taxonomies,    # Recompute tag fields like categories and labels with the current taxonomies
 	"analyze-and-enrich-product-data" => \$analyze_and_enrich_product_data,
@@ -281,12 +281,12 @@ foreach my $code (@codes) {
 					}
 					foreach my $tag (@{$product_ref->{$tagtype . "_tags"}}) {
 						if ($tag =~ /^$prefix/) {
-                            if ($omit_prefix) {
-                                $value = $';
-                            }
-                            else {
-                                $value = $tag;
-                            }
+							if ($omit_prefix) {
+								$value = $';
+							}
+							else {
+								$value = $tag;
+							}
 							last;
 						}
 					}
