@@ -25,11 +25,11 @@
             }
         }, 
 [% ELSE %]
-    [% IF product.ecoscore_data.adjustments.origins_of_ingredients.value <= 0 %]
+    [% IF product.ecoscore_data.adjustments.origins_of_ingredients.value.defined && product.ecoscore_data.adjustments.origins_of_ingredients.value <= 0 %]
     "evaluation": "bad",
     "title_element": {
         "title": "[% edq(lang('ecoscore_origins_of_ingredients_impact_high')) %]",
-    [% ELSIF product.ecoscore_data.adjustments.origins_of_ingredients.value <= 15 %]
+    [% ELSIF product.ecoscore_data.adjustments.origins_of_ingredients.value.defined && product.ecoscore_data.adjustments.origins_of_ingredients.value <= 15 %]
     "evaluation": "average",
     "title_element": {
         "title": "[% edq(lang('ecoscore_origins_of_ingredients_impact_medium')) %]",    
@@ -38,7 +38,7 @@
     "title_element": {
         "title": "[% edq(lang('ecoscore_origins_of_ingredients_impact_low')) %]",
     [% END %]
-        [% IF product.ecoscore_data.adjustments.origins_of_ingredients.value > 0 %]
+        [% IF product.ecoscore_data.adjustments.origins_of_ingredients.value.defined && product.ecoscore_data.adjustments.origins_of_ingredients.value > 0 %]
             "subtitle": "[% edq(lang('bonus')) %][% sep %]: +[% product.ecoscore_data.adjustments.origins_of_ingredients.value %]",
         [% ELSE %]
             "subtitle": "[% edq(lang('malus')) %][% sep %]: [% product.ecoscore_data.adjustments.origins_of_ingredients.value %]",
@@ -89,7 +89,9 @@
                                 "percent": [% round(origin.percent) %],
                                 // EPI bonus goes from -5 to 5 with the formula bonus = epi_score / 10 - 5
                                 // Transportation bonus goes from 0 to 15 with the formula bonus = transportation_score * 0.15
-                                [% SET score = origin.epi_score / 10 - 5 + origin.transportation_score * 0.15 %]
+                                [% SET epi_score = origin.epi_score.defined ? origin.epi_score : 0 %]
+                                [% SET transportation_score = origin.transportation_score.defined ? origin.transportation_score : 0 %]
+                                [% SET score = epi_score / 10 - 5 + transportation_score * 0.15 %]
                                 [% IF score >= 15 %]
                                     "evaluation": "good",
                                 [% ELSIF score <= 0 %]

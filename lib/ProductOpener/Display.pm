@@ -142,7 +142,8 @@ BEGIN {
 
 use vars @EXPORT_OK;
 
-use ProductOpener::HTTP qw(write_cors_headers set_http_response_header write_http_response_headers);
+use ProductOpener::HTTP
+	qw(write_cors_headers set_http_response_header write_http_response_headers get_http_request_header);
 use ProductOpener::Store qw(get_string_id_for_lang retrieve);
 use ProductOpener::Config qw(:all);
 use ProductOpener::Paths qw/%BASE_DIRS/;
@@ -877,6 +878,8 @@ sub init_request ($request_ref = {}) {
 		}
 	}
 
+	$request_ref->{user_id} = $User_id;
+
 	# %admin is defined in Config.pm
 	# admins can change permissions for all users
 	if (is_admin_user($User_id)) {
@@ -1523,7 +1526,8 @@ sub display_text_content ($request_ref, $textid, $text_lc, $file) {
 	}
 
 	if ((defined $request_ref->{page}) and ($request_ref->{page} > 1)) {
-		$request_ref->{title} = $title . lang("title_separator") . sprintf(lang("page_x"), $request_ref->{page});
+		$request_ref->{title}
+			= ($title // '') . lang("title_separator") . sprintf(lang("page_x"), $request_ref->{page});
 	}
 	else {
 		$request_ref->{title} = $title;
@@ -1559,18 +1563,22 @@ sub get_cache_results ($key, $request_ref) {
 	$log->debug("MongoDB hashed query key", {key => $key}) if $log->is_debug();
 
 	# disable caching if ?no_cache=1
-	# or if the user is logged in and no_cache is different from 0
+	# or if we are sent the HTTP hader Cache-Control: no-cache
 	my $param_no_cache = single_param("no_cache");
-	if (   ($param_no_cache)
-		or ((defined $User_id) and not((defined $param_no_cache) and ($param_no_cache == 0))))
-	{
-
+	if (not defined $param_no_cache) {
+		my $cache_control = get_http_request_header("Cache-Control");
+		if ((defined $cache_control) and ($cache_control =~ /no-cache/)) {
+			$log->debug("get_cache_results - HTTP Cache-Control no-cache header, skip caching", {key => $key})
+				if $log->is_debug();
+			$param_no_cache = 1;
+		}
+	}
+	if ($param_no_cache) {
 		$log->debug("MongoDB no_cache parameter, skip caching", {key => $key}) if $log->is_debug();
 		$mongodb_log->info("get_cache_results - skip - key: $key") if $mongodb_log->is_info();
 
 	}
 	else {
-
 		$log->debug("Retrieving value for MongoDB query key", {key => $key}) if $log->is_debug();
 		$results = $memd->get($key);
 		if (not defined $results) {
@@ -3955,6 +3963,15 @@ HTML
 						;
 				}
 
+				if ($packager_codes{$canon_tagid}{cc} eq 'cz') {
+					$description .= <<HTML
+<p>$packager_codes{$canon_tagid}{name}<br>
+$packager_codes{$canon_tagid}{address} (Czech)
+</p>
+HTML
+						;
+				}
+
 				if ($packager_codes{$canon_tagid}{cc} eq 'es') {
 					# Razón Social;Provincia/Localidad
 					$description .= <<HTML
@@ -4986,7 +5003,12 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 	}
 
 	# Make sure we are not over the limit
-	if ($limit > $options{max_products_page_size}) {
+	if (defined $request_ref->{user_id}) {
+		if ($limit > $options{max_products_page_size_for_logged_in_users}) {
+			$limit = $options{max_products_page_size_for_logged_in_users};
+		}
+	}
+	elsif ($limit > $options{max_products_page_size}) {
 		$limit = $options{max_products_page_size};
 	}
 
@@ -9052,7 +9074,10 @@ sub data_to_display_nutrient_levels ($product_ref) {
 		foreach my $nutrient_level_ref (@nutrient_levels) {
 			my ($nid, $low, $high) = @{$nutrient_level_ref};
 
-			if ((defined $product_ref->{nutrient_levels}) and (defined $product_ref->{nutrient_levels}{$nid})) {
+			if (    (defined $product_ref->{nutrient_levels})
+				and (defined $product_ref->{nutrient_levels}{$nid})
+				and (defined $product_ref->{nutriments}{$nid . $prepared . "_100g"}))
+			{
 
 				push @{$result_data_ref->{nutrient_levels}}, {
 					nid => $nid,

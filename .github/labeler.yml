@@ -79,6 +79,7 @@ WikiData:
   - any-glob-to-any-file: 'scripts/build_countries_taxonomy_from_wikidata.pl'
   - any-glob-to-any-file: 'scripts/build_languages_taxonomy_from_wikidata.pl'
   - any-glob-to-any-file: 'scripts/create_wikipedia_properties_for_taxonomy.pl'
+  - any-glob-to-any-file: 'docs/api/leveraging-links-to-wikidata.md'
 
 # Tracking issue: 
 🥜 Allergens:
@@ -771,6 +772,11 @@ Redis:
   - any-glob-to-any-file: 'scripts/equadis-import/run_equadis_import.sh'
   - any-glob-to-any-file: 'tests/unit/expected_test_results/import_gs1/equadis_unilever_obf_signal.off.json'
   - any-glob-to-any-file: 'tests/unit/expected_test_results/import_gs1/equadis_unilever_obf_signal.json'
+
+
+🏭 Producer platform - improvement opportunities:
+- changed-files:
+  - any-glob-to-any-file: 'taxonomies/improvements.txt'
 
 # https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Store.html
 Store:
