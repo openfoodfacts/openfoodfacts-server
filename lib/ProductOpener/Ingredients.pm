@@ -1753,7 +1753,7 @@ reference to a hash of product fields that have been created or updated
 
 sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 
-	my $debug_ingredients = 1;
+	my $debug_ingredients = 0;
 
 	delete $product_ref->{ingredients};
 
@@ -2864,7 +2864,6 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 								$ingredient = $ingredient1_orig;
 								$ingredient_id = canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $ingredient);
 								unshift @ingredients, "$ingredient2_orig";
-								$ingredient_recognized = 1;
 							}
 							else {
 								$debug_ingredients

@@ -325,6 +325,7 @@ my @tests = (
 	],
 	[{lc => "fr", ingredients_text => "Ingrédient inconnu et sel"}, ["fr:ingredient-inconnu", "en:salt"],],
 	[{lc => "fr", ingredients_text => "Sel et ingrédient inconnu"}, ["en:salt", "fr:ingredient-inconnu"],],
+	[{lc => "en", ingredients_text => "Toasted mango and unknown fruit"}, ["en:mango", "en:unknown-fruit"],],
 
 );
 
