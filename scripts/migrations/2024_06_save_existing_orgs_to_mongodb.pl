@@ -41,6 +41,8 @@ sub main {
 	}
 
 	print STDERR "$count organizations to update - $i organizations not empty or deleted\n";
+
+ 	return;
 }
 
 main();
