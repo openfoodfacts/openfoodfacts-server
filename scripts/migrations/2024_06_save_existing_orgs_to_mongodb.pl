@@ -28,19 +28,19 @@ use ProductOpener::Orgs qw/list_org_ids retrieve_org/;
 my $orgs_collection = get_orgs_collection();
 
 sub main {
-    my @orgs = list_org_ids();
-    my $count = scalar @orgs;
-    my $i = 0;
+	my @orgs = list_org_ids();
+	my $count = scalar @orgs;
+	my $i = 0;
 
-    foreach my $org_id (@orgs) {
-        my $org_ref = retrieve_org($org_id);
-        next if not defined $org_ref;
-        my $return = $orgs_collection->replace_one({"org_id" => $org_ref->{org_id}}, $org_ref, {upsert => 1});
-        print STDERR "return $return\n";
-        $i++;
-    }
+	foreach my $org_id (@orgs) {
+		my $org_ref = retrieve_org($org_id);
+		next if not defined $org_ref;
+		my $return = $orgs_collection->replace_one({"org_id" => $org_ref->{org_id}}, $org_ref, {upsert => 1});
+		print STDERR "return $return\n";
+		$i++;
+	}
 
-    print STDERR "$count organizations to update - $i organizations not empty or deleted\n";
+	print STDERR "$count organizations to update - $i organizations not empty or deleted\n";
 }
 
 main();
