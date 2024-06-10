@@ -6330,6 +6330,9 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	# Traces de lait, d'oeufs et de soja.
 	# Contains: milk and soy.
 
+	# TODO: we should use the allergens:en: property from the ingredients.txt taxonomy instead of relying
+	# on having extensive "non synonyms" (like fish species) in allergens.txt
+
 	foreach my $allergens_type ("allergens", "traces") {
 
 		if (defined $contains_or_may_contain_regexps{$allergens_type}{$ingredients_lc}) {
