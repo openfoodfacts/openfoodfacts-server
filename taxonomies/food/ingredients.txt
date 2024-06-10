@@ -1,5 +1,50 @@
-# properties vegan:en, vegetarian:en and from_palm_oil:en can have values yes, no, maybe
-# in the case of maybe, if the ingredient has sub-ingredients, then only its sub-ingredients are considered
+### Properties for ingredients
+
+## Description
+
+# description:en:SOYBEAN OIL is a vegetable oil extracted from the seeds of the soybean (Glycine max).
+
+## Allergens
+
+# allergens:en: en:soybeans
+# The value must be the main value from the allergens.txt taxonomy
+
+## NOVA groups markers
+
+# nova:en           NOVA group marker (e.g. value "4" means that the ingredient is a marker for NOVA 4)
+
+## Ingredients analysis properties
+
+# vegan:en          can have values yes, no, maybe - in the case of maybe, if the ingredient has sub-ingredients, then only its sub-ingredients are considered
+# vegetarian:en     can have values yes, no, maybe - in the case of maybe, if the ingredient has sub-ingredients, then only its sub-ingredients are considered
+# from_palm_oil:en  can have values yes, no, maybe - in the case of maybe, if the ingredient has sub-ingredients, then only its sub-ingredients are considered
+
+## Eurocode properties
+
+# e.g. for palm heart
+# under "version 99/1"
+# it corresponds to "Main group 8: Vegetables and vegetable products"
+# eurocode_2_group_1:en: 8
+# eurocode_2_group_1:en: 8
+# eurocode_2_group_2:en: 8.25
+# eurocode_2_group_3:en: 8.25.50
+# are from https://web.archive.org/web/20170621070633/http://www.ianunwin.demon.co.uk/eurocode/docmn/classpad.htm
+
+# Links to other databases
+
+# wikidata:en:Q421576
+# wikipedia:en:https://en.wikipedia.org/wiki/Enilconazole
+
+# proxy indicates that the match is not perfect, but corresponding values could be used 
+
+# ciqual_food_code:en:42200
+# ciqual_food_name:en:Soy lecithin
+# ciqual_food_name:fr:Lécithine de soja
+
+# ciqual_proxy_food_code:en:16400
+# ciqual_proxy_food_name:en:Butter, 82% fat, unsalted
+# ciqual_proxy_food_name:fr:Beurre à 82% MG, doux
+
 
 #comment:en:These are synonyms of ingredients
 
@@ -116,15 +161,7 @@ stopwords:sl:vsebuje, sestavine
 stopwords:sv:av, från, med, innehåller, inklusive, bl a, bland annat, minimum, maximum, varav, certifierad, tillsatt, valio
 stopwords:zh::配料
 
-# Eurocode properties
-# e.g. for palm heart
-# under "version 99/1"
-# it corresponds to "Main group 8: Vegetables and vegetable products"
-# eurocode_2_group_1:en: 8
-# eurocode_2_group_1:en: 8
-# eurocode_2_group_2:en: 8.25
-# eurocode_2_group_3:en: 8.25.50
-# are from https://web.archive.org/web/20170621070633/http://www.ianunwin.demon.co.uk/eurocode/docmn/classpad.htm
+
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -81705,8 +81742,8 @@ fr:Crevettes entières crues
 # ingredient/fr:Crevettes-entières-crues has 5 products @2019-01-13
 
 <en:shrimp
-en:Pink shrimps
-fr:crevettes roses
+en:pink shrimps, pink schrimp
+fr:crevette rose, crevettes roses
 # ingredient/fr:crevettes-roses has 13 products @2019-01-06
 ciqual_food_code:en:10059
 ciqual_food_name:en:deep water pink shrimp, raw
@@ -81842,7 +81879,7 @@ de:Nordseegarnele, Crangon crangon
 eu:Izkira zuri, Crangon crangon
 fa:میگوی قهوه‌ای, Crangon crangon
 fi:Hietakatkarapu, Crangon crangon
-fr:crevettes grises, Crevette grise européenne, Crangon crangon
+fr:crevette grise, crevettes grises, Crevette grise européenne, Crangon crangon
 ga:Ribe róibéis, Crangon crangon
 hr:sivi škampi
 io:Kreveto, Crangon crangon
