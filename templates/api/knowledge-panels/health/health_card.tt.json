@@ -17,7 +17,7 @@
         },
         [% END %]
 
-        [% IF knowledge_panels_options.knowledge_panels_client == 'web' %]
+        [% IF knowledge_panels_options.knowledge_panels_client == 'disabled-web' %]
 
             [% IF feature_enabled("ingredients") %]
                 [% INCLUDE "api/knowledge-panels/health/ingredients_panels.tt.json" %]
