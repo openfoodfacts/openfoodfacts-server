@@ -2285,7 +2285,9 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 
 		my @ingredients = ();
 
-		# 2 known ingredients separated by "and" ?
+		# 2 known ingredients separated by "and" ? -> split them in 2 ingredients
+		# We do not split if we found only 1 ingredient, as the "and" could be part of the processing
+		# e.g. "cut and fried potatoes" should not be split to "cut" + "fried potatoes"
 		if ($before =~ /$and/i) {
 
 			my $ingredient = $before;
@@ -2318,14 +2320,14 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 
 					$ingredients_recognized += $is_recognized;
 				}
+				# Did we recognize the two ingredients?
 				if ($ingredients_recognized == 2) {
 
 					push @ingredients, ($ingredient1_orig, $ingredient2_orig);
 				}
 				else {
 					$debug_ingredients
-						and $log->debug(
-						"parse_ingredient_text - and - one or both ingredient(s) of >$before< is/are unknown")
+						and $log->debug("parse_ingredient_text - and - at least one ingredient of >$before< is unknown")
 						if $log->is_debug();
 				}
 			}
@@ -2356,8 +2358,14 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 
 		my $i = 0;    # Counter for ingredients, used to know if it is the last ingredient
 
-		foreach my $ingredient (@ingredients) {
+		# Note: we use a while loop instead of a foreach as we may modify the array @ingredients when we split ingredients
+		$debug_ingredients
+			and
+			$log->debug("initial number of ingredients", {count => scalar @ingredients, ingredients => \@ingredients})
+			if $log->is_debug();
+		while (@ingredients) {
 
+			my $ingredient = shift @ingredients;
 			chomp($ingredient);
 
 			$debug_ingredients and $log->debug("analyzing ingredient", {ingredient => $ingredient})
@@ -2437,9 +2445,9 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 					# start with uncomposed labels first, so that we decompose "fair-trade organic" into "fair-trade, organic"
 					foreach my $labelid (reverse @labels) {
 						my $regexp = $labels_regexps{$ingredients_lc}{$labelid};
-						$debug_ingredients and $log->trace("checking labels regexps",
-							{ingredient => $ingredient, labelid => $labelid, regexp => $regexp})
-							if $log->is_trace();
+						#$debug_ingredients and $log->trace("checking labels regexps",
+						#	{ingredient => $ingredient, labelid => $labelid, regexp => $regexp})
+						#	if $log->is_trace();
 						if ((defined $regexp) and ($ingredient =~ /\b($regexp)\b/i)) {
 
 							my $label = $1;
@@ -2816,6 +2824,56 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 							}
 						}
 					}
+
+					if (not $ingredient_recognized) {
+						# 2 ingredients separated by "and" ? -> split them in 2 ingredients
+						# We split if we find at least 1 known ingredient
+						# We might have some false positives as "and" could be part of processing
+						if ($ingredient =~ /$and/i) {
+
+							my $ingredient1 = $`;
+							my $ingredient2 = $';
+
+							$debug_ingredients
+								and $log->debug(
+								"parse_ingredient_text - and - whole ingredient >$ingredient< containing 'and' is still an unknown ingredient"
+								) if $log->is_debug();
+
+							# Create a copy of $ingredients1 and $ingredients2, as we will remove percents to $ingredientX,
+							# but we will push $ingredientX_orig if it is a known ingredient after we remove the processing
+							my $ingredient1_orig = $ingredient1;
+							my $ingredient2_orig = $ingredient2;
+
+							my $ingredients_recognized = 0;
+
+							foreach ($ingredient1, $ingredient2) {
+								# Remove percent
+								$_ =~ s/\s$percent_or_quantity_regexp$//i;
+
+								# Check if we recognize the ingredient
+								(undef, undef, undef, my $is_recognized)
+									= parse_processing_from_ingredient($ingredients_lc, $_);
+
+								$ingredients_recognized += $is_recognized;
+							}
+							# Did we recognize one of the two ingredients?
+							if ($ingredients_recognized >= 1) {
+								$debug_ingredients
+									and $log->debug("parse_ingredient_text - split $ingredient1 - $ingredient2")
+									if $log->is_debug();
+								$ingredient = $ingredient1_orig;
+								$ingredient_id = canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $ingredient);
+								unshift @ingredients, "$ingredient2_orig";
+							}
+							else {
+								$debug_ingredients
+									and $log->debug(
+									"parse_ingredient_text - and - both ingredients of >$before< are unknown")
+									if $log->is_debug();
+
+							}
+						}
+					}
 				}
 			}
 
@@ -2891,7 +2949,7 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 							# e.g. "salt and acid (acid citric)" -> salt + acid
 							# the sub ingredients only apply to the last ingredient
 
-							if ($i == $#ingredients) {
+							if ((scalar @ingredients) == 0) {
 								$ingredient{ingredients} = [];
 								$analyze_ingredients_self->(
 									$analyze_ingredients_self, $ingredient{ingredients},
