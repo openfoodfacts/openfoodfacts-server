@@ -899,11 +899,13 @@ Nutrient levels:
   - any-glob-to-any-file: 'templates/web/pages/product/includes/nutrient_levels.tt.html'
 
 # https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Version.html
+# In the future, we'd like to be able to see the evolution of products at large scale. This might be conveniently done on the Robotoff side, detecting information from all historical picture in chronological time.
 Product history:
 - changed-files:
   - any-glob-to-any-file: 'templates/web/pages/product/includes/display_rev_info.tt.html'
   - any-glob-to-any-file: 'templates/web/pages/product/includes/edit_history.tt.html'
   - any-glob-to-any-file: 'lib/ProductOpener/Version.pm'
+  - any-glob-to-any-file: 'scripts/extract_historical_product_data.pl'
 
 # https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Tags.html
 Tags:
