@@ -228,7 +228,7 @@ my @tests = (
 			allergens => "gluten, monkfish",
 			traces => "white lupin, strange ingredient, grey shrimp",
 		},
-		['en:eggs', 'en:gluten', 'en;milk', 'en:fish'],
+		['en:eggs', 'en:gluten', 'en:milk', 'en:fish'],
 		['en:crustaceans', 'en:strange-ingredient', "en:lupin"],
 	],
 

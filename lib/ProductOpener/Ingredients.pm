@@ -7212,7 +7212,7 @@ but that are in the ingredients taxonomy and have an inherited allergens:en prop
 (e.g. the allergens taxonomy has an en:fish entry, but users may indicate specific fish species)
 
 This function tries to match the ingredient with an allergen in the allergens taxonomy,
-and otherwise return the taxonomyid for the original ingredient.
+and otherwise return the taxonomy id for the original ingredient.
 
 =head3 Parameters
 
@@ -7223,6 +7223,10 @@ The language code of $ingredient_or_allergen.
 =head4 $ingredient_or_allergen
 
 The ingredient or allergen to match. Can also be an ingredient id or allergens id prefixed with a language code.
+
+=head3 Return value
+
+The taxonomy id for the allergen, or the original ingredient if no allergen was found.
 
 =cut
 
