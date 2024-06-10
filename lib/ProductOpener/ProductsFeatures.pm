@@ -66,7 +66,7 @@ my %product_type_features = (
 		ecoscore => 1,
 		forest_footprint => 1,
 		user_preferences => 1,
-		popularity => 1,	# indicates if we have computed popularity from scan data
+		popularity => 1,    # indicates if we have computed popularity from scan data
 	},
 	pet_food => {
 		health_card => 1,
@@ -80,7 +80,7 @@ my %product_type_features = (
 		ingredients => 1,
 	},
 	products => {
-	
+
 	},
 );
 
@@ -108,7 +108,8 @@ Currently not used, may be used later to determine features based on product fie
 
 sub feature_enabled($feature, $product_ref = undef) {
 	my $enabled = deep_get(\%product_type_features, $options{product_type}, $feature);
-	$log->debug("feature_enabled", {feature => $feature, product_type => $options{product_type}, enabled => $enabled}) if $log->is_debug();
+	$log->debug("feature_enabled", {feature => $feature, product_type => $options{product_type}, enabled => $enabled})
+		if $log->is_debug();
 	return $enabled;
 }
 
