@@ -45,7 +45,7 @@ use vars @EXPORT_OK;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/:all/;
 use ProductOpener::Display
-	qw/$formatted_subdomain %index_tag_types_set display_robots_txt_and_exit init_request redirect_to_url single_param/;
+	qw/$formatted_subdomain $admin %index_tag_types_set display_robots_txt_and_exit init_request redirect_to_url single_param/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/%tag_type_from_plural %tag_type_from_singular %tag_type_plural %tag_type_singular lang/;
 use ProductOpener::API qw/:all/;
@@ -436,35 +436,45 @@ sub sanitize_request($request_ref) {
 }
 
 sub _analyze_request_impl($request_ref, @components) {
-	my $routes = {
-		'org' => \&org_endpoint,
-		'api' => \&api_endpoint,
-		'search' => \&search_endpoint,
-		'taxonomy' => \&taxonomy_endpoint,
-		'properties' => \&properties_endpoint,
-		'property' => \&properties_endpoint,
-		'products' => \&products_endpoint,
-	};
-
-	$log->debug("route", {components => \@components}) if $log->is_debug();
-
-	if ($#components < 0 or ($#components == 0) && ($components[-1] =~ /^\d+$/)) {
-		index_endpoint($request_ref, @components);
-		return;
-	}
-
-	if (exists $routes->{$components[0]}) {
-		my $component = shift @components;
-		my $endpoint = $routes->{$component};
-		$endpoint->($request_ref, @components);
-		return;
-	}
-
-	# More complex dynamic routing
 	my $target_lc = $request_ref->{lc};
+	# Here O(1). But should we use regex instead?
+	my %routes = (
+		'org' => \&org_route,
+		'api' => \&api_route,
+		'search' => \&search_route,
+		'taxonomy' => \&taxonomy_route,
+		'properties' => \&properties_route,
+		'property' => \&properties_route,
+		'products' => \&products_route,
+	);
+
+	my $mission_route_path = $tag_type_singular{missions}{$target_lc};
+	$routes{$mission_route_path} = \&mission_route;
+
+	# try language from $target_lc, and English, so that /product/ always work
+	my $product_route_default_path = $tag_type_singular{products}{"en"};
+	my $product_route_path = $tag_type_singular{products}{$target_lc};
+	$routes{$product_route_default_path} = \&product_route;
+	$routes{$product_route_path} = \&product_route;
+
+	my @aa = keys %routes;
+	$log->debug("route", {components => \@components, routes => \@aa}) if $log->is_debug();
+
+	# Simple routing #
+	
+	if ($#components < 0 or ($#components == 0) && ($components[-1] =~ /^\d+$/)) {
+		index_route($request_ref, @components);
+	}
+	elsif (exists $routes{$components[0]}) {
+		my $component = shift @components;
+		my $route = $routes{$component};
+		$route->($request_ref, @components);
+	}
+
+	# More complex routing #
 
 	# Renamed text?
-	if ((defined $options{redirect_texts}) and (defined $options{redirect_texts}{$target_lc . "/" . $components[0]}))
+	elsif ((defined $options{redirect_texts}) and (defined $options{redirect_texts}{$target_lc . "/" . $components[0]}))
 	{
 		$request_ref->{redirect}
 			= $formatted_subdomain . "/" . $options{redirect_texts}{$target_lc . "/" . $components[0]};
@@ -493,39 +503,6 @@ sub _analyze_request_impl($request_ref, @components) {
 			$request_ref->{status_code} = 404;
 			$request_ref->{error_message} = lang("error_invalid_address");
 		}
-	}
-
-	# Product?
-	# try language from $target_lc, and English, so that /product/ always work
-	elsif (($components[0] eq $tag_type_singular{products}{$target_lc})
-		or ($components[0] eq $tag_type_singular{products}{en}))
-	{
-
-		# Check if the product code is a number, else show 404
-		if ($components[1] =~ /^\d/) {
-			$request_ref->{product} = 1;
-			$request_ref->{code} = $components[1];
-			if (defined $components[2]) {
-				$request_ref->{titleid} = $components[2];
-			}
-			else {
-				$request_ref->{titleid} = '';
-			}
-		}
-		else {
-			$request_ref->{status_code} = 404;
-			$request_ref->{error_message} = lang("error_invalid_address");
-		}
-	}
-
-	# Mission?
-	elsif ($components[0] eq $tag_type_singular{missions}{$target_lc}) {
-		$request_ref->{mission} = 1;
-		$request_ref->{missionid} = $components[1];
-	}
-
-	elsif ($#components == -1) {
-		# Main site
 	}
 
 	# Known tag type?
@@ -605,15 +582,6 @@ sub _analyze_request_impl($request_ref, @components) {
 		$request_ref->{canon_rel_url} .= $canon_rel_url_suffix;
 	}
 
-	# Index page on producers platform
-	if (    (defined $request_ref->{text})
-		and ($request_ref->{text} eq "index")
-		and (defined $server_options{private_products})
-		and ($server_options{private_products}))
-	{
-		$request_ref->{text} = 'index-pro';
-	}
-
 	# Return noindex empty HTML page for web crawlers that crawl specific facet pages
 	if (is_no_index_page($request_ref)) {
 		# $request_ref->{no_index} is set to 0 by default in init_request()
@@ -631,7 +599,7 @@ sub _analyze_request_impl($request_ref, @components) {
 
 # /
 # /[page number]
-sub index_endpoint($request_ref, @components) {
+sub index_route($request_ref, @components) {
 
 	# Root, ex: https://world.openfoodfacts.org/
 	$request_ref->{text} = 'index';
@@ -650,39 +618,56 @@ sub index_endpoint($request_ref, @components) {
 	{
 		$request_ref->{text} = 'index-pro';
 	}
-
 }
 
 # org:
 # 		/[orgid]
-# 		/[orgid]/profile
-sub org_endpoint($request_ref, @components) {
+# 		/[orgid]/*
+sub org_route($request_ref, @components) {
 
-	$request_ref->{owner} = 1;
-	my $ownerid = shift @components;
-	if (undef $ownerid) {
+	$request_ref->{org} = 1;
+	my $orgid = shift @components;
+	if (not defined $orgid
+		# not on pro plaform
+		or not defined $server_options{private_products} 
+		or not $server_options{private_products}
+	) {
 		$request_ref->{status_code} = 404;
 		$request_ref->{error_message} = lang("error_invalid_address");
 		return;
 	}
-	$request_ref->{ownerid} = $ownerid;
 
-
-	# /owner/[ownerid]/profile
-	if ($components[0] eq 'profile') {
-		$request_ref->{org_profile} = 1;
-		return;
+	$request_ref->{orgid} = $orgid;
+	$request_ref->{ownerid} = $orgid;
+	
+	# only admin and pro moderators can change organization freely
+	if($orgid ne $Org_id) {
+		$log->debug("checking edit owner", {orgid => $orgid, ownerid => $Owner_id}) if $log->is_debug();
+		my @errors = ();
+		if ($admin or $User{pro_moderator}) {
+			ProductOpener::Users::check_edit_owner(\%User, \@errors, $orgid);
+		} else {
+			$request_ref->{status_code} = 404;
+			$request_ref->{error_message} = lang("error_invalid_address");
+			return;
+		}
+		if (scalar @errors eq 0) {
+			set_owner_id();
+		}
+		# or sub brand ?
 	}
 
-	# /owner/[ownerid]/search
-	# /owner/[ownerid]/product/[code]
+
+	# /org/[orgid]/search
+	# /org/[orgid]/product/[code]
+
 	_analyze_request_impl($request_ref, @components);
 }
 
 # api:
-# 		v0/product/[code]
+# 		v0/product(s)/[code]
 # 		v0/search
-sub api_endpoint($request_ref, @components) {
+sub api_route($request_ref, @components) {
 	my $api = $components[0]; 		 # v0
 	my $api_action = $components[1]; # product
 
@@ -749,30 +734,58 @@ sub api_endpoint($request_ref, @components) {
 
 # search :
 #		
-sub search_endpoint($request_ref, @components) {
+sub search_route($request_ref, @components) {
 	$request_ref->{search} = 1;
 }
 
 # taxonomy:
 # 		
 # e.g. taxonomy?type=categories&tags=en:fruits,en:vegetables&fields=name,description,parents,children,vegan:en,inherited:vegetarian:en&lc=en,fr&include_children=1
-sub taxonomy_endpoint($request_ref, @components) {
+sub taxonomy_route($request_ref, @components) {
 	$request_ref->{taxonomy} = 1;
 }
 
 # properties:
 #
 # Folksonomy engine properties endpoint
-sub properties_endpoint($request_ref, @components) {
+sub properties_route($request_ref, @components) {
 	$request_ref->{properties} = 1;
 }
 
 # products:
 #		/[code](+[code])*
 # e.g. /8024884500403+3263855093192
-sub products_endpoint($request_ref, @components) {
+sub products_route($request_ref, @components) {
 	$request_ref->{search} = 1;
-	param("code", $components[1]);
+	param("code", $components[0]);
+}
+
+# mission:
+#		/[missionid]
+sub mission_route($request_ref, @components) {
+	$request_ref->{mission} = 1;
+	$request_ref->{missionid} = $components[1];
+}
+
+# product:
+#		/[code]
+#		/[code]/[titleid]
+sub product_route($request_ref, @components) {
+	# Check if the product code is a number, else show 404
+	if ($components[0] =~ /^\d/) {
+		$request_ref->{product} = 1;
+		$request_ref->{code} = $components[0];
+		if (defined $components[2]) {
+			$request_ref->{titleid} = $components[1];
+		}
+		else {
+			$request_ref->{titleid} = '';
+		}
+	}
+	else {
+		$request_ref->{status_code} = 404;
+		$request_ref->{error_message} = lang("error_invalid_address");
+	}
 }
 
 1;

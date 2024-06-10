@@ -200,11 +200,6 @@ elsif (defined $request_ref->{text}) {
 		display_text($request_ref);
 	}
 }
-elsif (defined $request_ref->{owner}) {
-	if(defined $request_ref->{org_profile}) {
-		display_org_profile($request_ref);
-	}
-}
 elsif (defined $request_ref->{mission}) {
 	display_mission($request_ref);
 }
