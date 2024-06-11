@@ -136,6 +136,8 @@ BEGIN {
 		$knowledge_panels_options_ref
 
 		&display_nutriscore_calculation_details_2021
+		&get_org_id_pretty_path
+
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -212,12 +214,6 @@ use Data::DeepAccess qw(deep_get deep_set);
 use Log::Log4perl;
 use LWP::UserAgent;
 use Tie::IxHash;
-
-
-
-
-
-
 
 use Log::Any '$log', default_adapter => 'Stderr';
 
@@ -1305,6 +1301,7 @@ sub display_index_for_producer ($request_ref) {
 	# Display a message if some product updates have not been published yet
 	# Updates can also be on obsolete products
 
+	$template_data_ref->{org_id_pretty_path} = get_org_id_pretty_path();
 	$template_data_ref->{count_to_be_exported} = count_products({}, {states_tags => "en:to-be-exported"});
 	$template_data_ref->{count_obsolete_to_be_exported} = count_products({}, {states_tags => "en:to-be-exported"}, 1);
 
@@ -5336,8 +5333,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 
 				# Add a url field to the product, with the subdomain and path
 				my $url_path = product_url($product_ref);
-				my $org_prefix = $server_options{producers_platform} ? "/org/$Org_id" : "";
-				$product_ref->{url} = $formatted_subdomain . $org_prefix . $url_path;
+				$product_ref->{url} = $formatted_subdomain . get_org_id_pretty_path() . $url_path;
 				# Compute HTML to display the small front image, currently embedded in the HTML of web queries
 				if (not $api) {
 					$product_ref->{image_front_small_html} = display_image_thumb($product_ref, 'front');
@@ -5483,7 +5479,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 
 				push @{$template_data_ref->{current_drilldown_fields}},
 					{
-					current_link => $request_ref->{current_link},
+					current_link => get_org_id_pretty_path() . $request_ref->{current_link},
 					tag_type_plural => $tag_type_plural{$newtagtype}{$lc},
 					nofollow => $nofollow,
 					tagtype => $newtagtype,
@@ -11561,6 +11557,19 @@ sub data_to_display_image ($product_ref, $imagetype, $target_lc) {
 	}
 
 	return $image_ref;
+}
+
+=head2 get_org_id_pretty_path ()
+
+Returns the pretty path for the organization page 
+or an empty string if not on the producers platform.
+
+/org/[orgid]
+
+=cut
+
+sub get_org_id_pretty_path () {
+	return $server_options{producers_platform} ? "/org/$Org_id" : "";
 }
 
 1;

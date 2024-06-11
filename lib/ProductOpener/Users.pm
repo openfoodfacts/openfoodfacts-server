@@ -722,10 +722,11 @@ is acting on the pro platform as part of a specific company.
 
 =cut
 
-sub check_edit_owner ($user_ref, $errors_ref, $owner = undef) {
+sub check_edit_owner ($user_ref, $errors_ref, $ownerid = undef) {
 
 	# temporarily use the org passed as parameter
-	$user_ref->{pro_moderator_owner} = $owner // get_string_id_for_lang("no_language", remove_tags_and_quote(decode utf8 => single_param('pro_moderator_owner')));
+	$user_ref->{pro_moderator_owner} = $ownerid // get_string_id_for_lang("no_language",
+		remove_tags_and_quote(decode utf8 => single_param('pro_moderator_owner')));
 
 	# If the owner id looks like a GLN, see if we have a corresponding org
 
@@ -1345,6 +1346,8 @@ sub set_owner_id () {
 	else {
 		$Owner_id = undef;
 	}
+
+	return;
 }
 
 =head2 is_ip_known_or_whitelisted ()
