@@ -63,6 +63,7 @@ use Log::Any qw($log);
 
 # Specific logger to track rate-limiter operations
 our $ratelimiter_log = Log::Any->get_logger(category => 'ratelimiter');
+my %routes = ();
 
 =head2 sub extract_tagtype_and_tag_value_pairs_from_components($request_ref, $components_ref)
 
@@ -343,7 +344,7 @@ Sometimes we modify request parameters (param) to correspond to request_ref:
 sub analyze_request($request_ref) {
 	sanitize_request($request_ref);
 	my @components = @{$request_ref->{components}};
-	_analyze_request_impl($request_ref, @components);
+	return _analyze_request_impl($request_ref, @components);
 }
 
 sub sanitize_request($request_ref) {
@@ -433,12 +434,21 @@ sub sanitize_request($request_ref) {
 	if ((defined single_param('json')) or (defined single_param('jsonp')) or (defined single_param('xml'))) {
 		$request_ref->{api} = 'v0';
 	}
+	return;
 }
 
-sub _analyze_request_impl($request_ref, @components) {
-	my $target_lc = $request_ref->{lc};
-	# Here O(1). But should we use regex instead?
-	my %routes = (
+=head2 load_routes()
+
+Load all routes for the application.
+
+=cut
+
+sub load_routes() {
+	# Here it's O(1). But should we use regex instead ?
+	# like :
+	# index/(\d+)?
+	# org/{id}/(search|product/{code})?
+	%routes = (
 		'org' => \&org_route,
 		'api' => \&api_route,
 		'search' => \&search_route,
@@ -447,32 +457,39 @@ sub _analyze_request_impl($request_ref, @components) {
 		'property' => \&properties_route,
 		'products' => \&products_route,
 	);
+	# all translations for route "missions/" (e.g. missioni/, misiones/, missões ...)
+	my %missions_route = (map {($_ => \&mission_route)} values %{$tag_type_singular{missions}});
+	# all translations for route /product/
+	my %product_route = (map {($_ => \&product_route)} values %{$tag_type_singular{products}});
 
-	my $mission_route_path = $tag_type_singular{missions}{$target_lc};
-	$routes{$mission_route_path} = \&mission_route;
+	%routes = (%routes, %missions_route, %product_route);
 
-	# try language from $target_lc, and English, so that /product/ always work
-	my $product_route_default_path = $tag_type_singular{products}{"en"};
-	my $product_route_path = $tag_type_singular{products}{$target_lc};
-	$routes{$product_route_default_path} = \&product_route;
-	$routes{$product_route_path} = \&product_route;
+	return 0;
+}
 
-	my @aa = keys %routes;
-	$log->debug("route", {components => \@components, routes => \@aa}) if $log->is_debug();
+sub _analyze_request_impl($request_ref, @components) {
 
-	# Simple routing #
-	
-	if ($#components < 0 or ($#components == 0) && ($components[-1] =~ /^\d+$/)) {
+	$log->debug("route", {components => \@components,}) if $log->is_debug();
+
+	if (keys %routes == 0) {
+		load_routes();
+	}
+
+	my $target_lc = $request_ref->{lc};
+
+	if ($#components < 0 || ($#components == 0) && ($components[-1] =~ /^\d+$/)) {
 		index_route($request_ref, @components);
 	}
-	elsif (exists $routes{$components[0]}) {
+
+	# Simple routing with pattern matching #
+	if (exists $routes{$components[0]}) {
 		my $component = shift @components;
+		$log->debug("routing to component", {component => $component}) if $log->is_debug();
 		my $route = $routes{$component};
 		$route->($request_ref, @components);
 	}
 
 	# More complex routing #
-
 	# Renamed text?
 	elsif ((defined $options{redirect_texts}) and (defined $options{redirect_texts}{$target_lc . "/" . $components[0]}))
 	{
@@ -595,7 +612,7 @@ sub _analyze_request_impl($request_ref, @components) {
 	return 1;
 }
 
-##### ROUTES ##### 
+##### ROUTES #####
 
 # /
 # /[page number]
@@ -604,7 +621,7 @@ sub index_route($request_ref, @components) {
 	# Root, ex: https://world.openfoodfacts.org/
 	$request_ref->{text} = 'index';
 	$request_ref->{current_link} = '';
-	
+
 	# Root + page number, ex: https://world.openfoodfacts.org/2
 	if (($#components == 0) and ($components[-1] =~ /^\d+$/)) {
 		$request_ref->{page} = pop @components;
@@ -618,6 +635,8 @@ sub index_route($request_ref, @components) {
 	{
 		$request_ref->{text} = 'index-pro';
 	}
+
+	return;
 }
 
 # org:
@@ -627,11 +646,12 @@ sub org_route($request_ref, @components) {
 
 	$request_ref->{org} = 1;
 	my $orgid = shift @components;
-	if (not defined $orgid
+	if (
+		not defined $orgid
 		# not on pro plaform
-		or not defined $server_options{private_products} 
-		or not $server_options{private_products}
-	) {
+		or not defined $server_options{private_products} or not $server_options{private_products}
+		)
+	{
 		$request_ref->{status_code} = 404;
 		$request_ref->{error_message} = lang("error_invalid_address");
 		return;
@@ -639,37 +659,40 @@ sub org_route($request_ref, @components) {
 
 	$request_ref->{orgid} = $orgid;
 	$request_ref->{ownerid} = $orgid;
-	
+
 	# only admin and pro moderators can change organization freely
-	if($orgid ne $Org_id) {
+	if ($orgid ne $Org_id) {
 		$log->debug("checking edit owner", {orgid => $orgid, ownerid => $Owner_id}) if $log->is_debug();
 		my @errors = ();
 		if ($admin or $User{pro_moderator}) {
 			ProductOpener::Users::check_edit_owner(\%User, \@errors, $orgid);
-		} else {
+		}
+		else {
 			$request_ref->{status_code} = 404;
 			$request_ref->{error_message} = lang("error_invalid_address");
 			return;
 		}
 		if (scalar @errors eq 0) {
 			set_owner_id();
+		} else {
+			$request_ref->{status_code} = 404;
+			$request_ref->{error_message} = shift @errors;
 		}
 		# or sub brand ?
 	}
 
-
 	# /org/[orgid]/search
 	# /org/[orgid]/product/[code]
-
 	_analyze_request_impl($request_ref, @components);
+	return;
 }
 
 # api:
 # 		v0/product(s)/[code]
 # 		v0/search
 sub api_route($request_ref, @components) {
-	my $api = $components[0]; 		 # v0
-	my $api_action = $components[1]; # product
+	my $api = $components[0];    # v0
+	my $api_action = $components[1];    # product
 
 	my $api_version = $api;
 	($api_version) = $api =~ /v(\d+)/;
@@ -683,7 +706,6 @@ sub api_route($request_ref, @components) {
 	# If the api_action is different than "search", check if it is the local path for "product"
 	# so that urls like https://fr.openfoodfacts.org/api/v3/produit/4324232423 work (produit instead of product)
 	# this is so that we can quickly add /api/v3/ to get the API
-
 
 	my $target_lc = $request_ref->{lc};
 	if (    ($api_action ne 'search')
@@ -730,19 +752,23 @@ sub api_route($request_ref, @components) {
 			xml => single_param("xml")
 		}
 	) if $log->is_debug();
+
+	return;
 }
 
 # search :
-#		
+#
 sub search_route($request_ref, @components) {
 	$request_ref->{search} = 1;
+	return;
 }
 
 # taxonomy:
-# 		
+#
 # e.g. taxonomy?type=categories&tags=en:fruits,en:vegetables&fields=name,description,parents,children,vegan:en,inherited:vegetarian:en&lc=en,fr&include_children=1
 sub taxonomy_route($request_ref, @components) {
 	$request_ref->{taxonomy} = 1;
+	return;
 }
 
 # properties:
@@ -750,42 +776,40 @@ sub taxonomy_route($request_ref, @components) {
 # Folksonomy engine properties endpoint
 sub properties_route($request_ref, @components) {
 	$request_ref->{properties} = 1;
+	return;
 }
 
 # products:
 #		/[code](+[code])*
 # e.g. /8024884500403+3263855093192
 sub products_route($request_ref, @components) {
-	$request_ref->{search} = 1;
 	param("code", $components[0]);
+	$request_ref->{search} = 1;
+	return;
 }
 
 # mission:
 #		/[missionid]
 sub mission_route($request_ref, @components) {
-	$request_ref->{mission} = 1;
 	$request_ref->{missionid} = $components[1];
+	$request_ref->{mission} = 1;
+	return;
 }
 
 # product:
 #		/[code]
 #		/[code]/[titleid]
 sub product_route($request_ref, @components) {
-	# Check if the product code is a number, else show 404
 	if ($components[0] =~ /^\d/) {
 		$request_ref->{product} = 1;
 		$request_ref->{code} = $components[0];
-		if (defined $components[2]) {
-			$request_ref->{titleid} = $components[1];
-		}
-		else {
-			$request_ref->{titleid} = '';
-		}
+		$request_ref->{titleid} = $components[1] // '';
 	}
 	else {
 		$request_ref->{status_code} = 404;
 		$request_ref->{error_message} = lang("error_invalid_address");
 	}
+	return;
 }
 
 1;
