@@ -29,10 +29,21 @@ use ProductOpener::Lang qw/:all/;
 use ProductOpener::Data qw/:all/;
 use Log::Any qw($log);
 
+use POSIX qw(strftime);
+
+sub format_date {
+    my ($timestamp) = @_;
+    return strftime("%Y-%m-%d %H:%M:%S", localtime($timestamp));
+}
+
 my $request_ref = ProductOpener::Display::init_request();
 
 my $orgs_collection = get_orgs_collection();
 my @orgs = $orgs_collection->find->all;
+
+foreach my $org (@orgs) {
+    $org->{created_t_readable} = format_date($org->{created_t});
+}
 
 my $template_data_ref = {lang => \&lang, orgs => \@orgs};
 

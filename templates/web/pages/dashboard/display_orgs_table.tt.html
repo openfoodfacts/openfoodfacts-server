@@ -8,6 +8,8 @@
                 <th>[% lang("name") %]</th>
                 <th>[% lang("creator") %]</th>
                 <th>[% lang("org_id") %]</th>
+                <th>[% lang("verified_status") %]</th>
+                <th>[% lang("creation_date") %]</th>
             </tr>
         </thead>
         <tbody>
@@ -18,6 +20,8 @@
                 <td>[% org.name %]</td>
                 <td>[% org.creator %]</td>
                 <td>[% org.org_id %]</td>
+                <td>[% IF org.validated == 0 %]false[% ELSE %]true[% END %]</td>
+                <td>[% org.created_t_readable %]</td>
             </tr>
             [% SET count = count + 1 %]
         [% END %]
