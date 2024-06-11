@@ -34,12 +34,12 @@ my $request_ref = ProductOpener::Display::init_request();
 my $orgs_collection = get_orgs_collection();
 my @orgs = $orgs_collection->find->all;
 
-my $template_data_ref = { lang => \&lang, orgs => \@orgs };
+my $template_data_ref = {lang => \&lang, orgs => \@orgs};
 
 my $html;
 process_template('web/pages/dashboard/display_orgs_table.tt.html', $template_data_ref, \$html) or $html = '';
 if ($tt->error()) {
-    $html .= '<p>' . $tt->error() . '</p>';
+	$html .= '<p>' . $tt->error() . '</p>';
 }
 
 $request_ref->{title} = "Organization List";
