@@ -208,7 +208,7 @@ use Log::Any '$log', default_adapter => 'Stderr';
 
 # special logger to make it easy to measure memcached hit and miss rates
 our $mongodb_log = Log::Any->get_logger(category => 'mongodb');
-$mongodb_log->info("start") if $mongodb_log->is_debug();
+$mongodb_log->info("start") if $mongodb_log->is_info();
 
 use Apache2::RequestUtil ();
 use Apache2::RequestRec ();
@@ -1575,7 +1575,7 @@ sub get_cache_results ($key, $request_ref) {
 	}
 	if ($param_no_cache) {
 		$log->debug("MongoDB no_cache parameter, skip caching", {key => $key}) if $log->is_debug();
-		$mongodb_log->info("get_cache_results - skip - key: $key") if $mongodb_log->is_debug();
+		$mongodb_log->info("get_cache_results - skip - key: $key") if $mongodb_log->is_info();
 
 	}
 	else {
@@ -1583,11 +1583,11 @@ sub get_cache_results ($key, $request_ref) {
 		$results = $memd->get($key);
 		if (not defined $results) {
 			$log->debug("Did not find a value for MongoDB query key", {key => $key}) if $log->is_debug();
-			$mongodb_log->info("get_cache_results - miss - key: $key") if $mongodb_log->is_debug();
+			$mongodb_log->info("get_cache_results - miss - key: $key") if $mongodb_log->is_info();
 		}
 		else {
 			$log->debug("Found a value for MongoDB query key", {key => $key}) if $log->is_debug();
-			$mongodb_log->info("get_cache_results - hit - key: $key") if $mongodb_log->is_debug();
+			$mongodb_log->info("get_cache_results - hit - key: $key") if $mongodb_log->is_info();
 		}
 	}
 	return $results;
@@ -1608,18 +1608,18 @@ sub set_cache_results ($key, $results) {
 		return;
 	}
 
-	if ($mongodb_log->is_debug()) {
-		$mongodb_log->debug("set_cache_results - setting value - key: $key - uncompressed total_size: $result_size");
+	if ($mongodb_log->is_info()) {
+		$mongodb_log->info("set_cache_results - setting value - key: $key - uncompressed total_size: $result_size");
 	}
 
 	if ($memd->set($key, $results, 3600)) {
 		$mongodb_log->info("set_cache_results - updated - key: $key - uncompressed total_size: $result_size")
-			if $mongodb_log->is_debug();
+			if $mongodb_log->is_info();
 	}
 	else {
 		$log->debug("Could not set value for MongoDB query key", {key => $key});
 		$mongodb_log->info("set_cache_results - error - key: $key - uncompressed total_size: $result_size")
-			if $mongodb_log->is_debug();
+			if $mongodb_log->is_info();
 	}
 
 	return;
