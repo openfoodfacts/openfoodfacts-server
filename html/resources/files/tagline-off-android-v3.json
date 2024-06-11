@@ -1,0 +1,89 @@
+{
+   "news":{
+      "nutriscore_v2":{
+         "start_date":"2024-06-08 00:00:00",
+         "end_date":"2024-06-30 23:59:59",
+         "url":"https://openfoodfacts.org/guide/nutriscore-v2",
+         "translations":{
+            "default":{
+               "title":"It's new!",
+               "message":"The **New Calculation** of the NutriScore is available in the application",
+               "button_label":"Learn more",
+               "image":{
+                  "url":"https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-en.svg",
+                  "width":0.2
+               }
+            },
+            "en_us":{
+               "title":"It's brand new!"
+            },
+            "fr":{
+               "title":"C’est tout nouveau !",
+               "message":"Le **Nouveau Calcul** du NutriScore est disponible dans l’application",
+               "button_label":"En savoir plus",
+               "image":{
+                  "url":"https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-fr.svg",
+                  "width":0.2,
+                  "alt":"Le logo du NutriScore A"
+               }
+            }
+         }
+      },
+      "demo":{
+         "start_date":"",
+         "end_date":"",
+         "url":"https://translate.openfoodfacts.org/project/openfoodfacts/af",
+         "style":{
+            "title_background":"#000000",
+            "title_text_color":"#FFFFFF",
+            "title_indicator_color":"#EB5757",
+            "message_background":"#000000",
+            "message_text_color":"#FFFFFF",
+            "button_background":"#000000",
+            "button_text_color":"#FFFFFF",
+            "content_background_color":"#219653"
+         },
+         "translations":{
+            "default":{
+               "url":"https://translate.openfoodfacts.org/project/openfoodfacts/en",
+               "title":"My title",
+               "message":"My message",
+               "button_label":"My button",
+               "image":{
+                  "url":"https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-en.svg",
+                  "width":0.2
+               }
+            },
+            "fr":{
+               "url":"https://translate.openfoodfacts.org/project/openfoodfacts/fr",
+               "title":"C’est tout nouveau !",
+               "message":"Le **Nouveau Calcul** du NutriScore est disponible dans l’application",
+               "button_label":"En savoir plus",
+               "image":{
+                  "url":"https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-fr.svg",
+                  "width":0.2
+               }
+            }
+         }
+      }
+   },
+   "tagline_feed":{
+      "default":{
+         "news":[
+            {
+               "id":"nutriscore_v2"
+            }
+         ]
+      },
+      "fr":{
+         "news":[
+            {
+               "id":"nutriscore_v2",
+               "override":{
+                  "start_date":"2024-06-12 10:00:00"
+               }
+            }
+         ]
+      }
+   }
+}
