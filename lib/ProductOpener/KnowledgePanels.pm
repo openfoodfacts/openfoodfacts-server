@@ -1340,9 +1340,12 @@ sub create_ingredients_panel ($product_ref, $target_lc, $target_cc, $options_ref
 		ingredients_text => $ingredients_text,
 		ingredients_text_with_allergens => $ingredients_text_with_allergens,
 		ingredients_text_lc => $ingredients_text_lc,
-		ingredients_text_language =>
-			display_taxonomy_tag($target_lc, 'languages', $language_codes{$ingredients_text_lc}),
 	};
+
+	if (defined $ingredients_text_lc) {
+		$panel_data_ref->{ingredients_text_language} = display_taxonomy_tag($target_lc, 'languages',
+			$language_codes{$ingredients_text_lc});
+	}
 
 	create_panel_from_json_template("ingredients", "api/knowledge-panels/health/ingredients/ingredients.tt.json",
 		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
