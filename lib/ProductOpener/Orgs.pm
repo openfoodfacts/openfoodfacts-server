@@ -58,6 +58,7 @@ BEGIN {
 		&org_name
 		&update_import_date
 		&update_export_date
+		&update_last_member_login_time
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -209,7 +210,7 @@ sub store_org ($org_ref) {
 		and $org_ref->{main_contact} ne $previous_org_ref->{main_contact}
 		and not change_company_main_contact($previous_org_ref, $org_ref->{main_contact}))
 	{
-		# so we don't lose sync with CRM if main contact cannot be changed
+		# fail -> revert main contact, so we don't lose sync with CRM if main contact cannot be changed
 		$org_ref->{main_contact} = $previous_org_ref->{main_contact};
 	}
 
@@ -512,6 +513,21 @@ sub update_export_date($org_id, $time) {
 	$org_ref->{last_export_t} = $time;
 	store_org($org_ref);
 	update_last_export_date($org_id, $time);
+	return;
+}
+
+sub update_last_member_login_time($org_id, $user_ref) {
+
+	my $org_ref = retrieve_org($org_id);
+	return if not defined $org_ref;
+
+	$org_ref->{last_logged_member_t} = $user_ref->{last_login_t};
+	$org_ref->{last_logged_member} = $user_ref->{userid};
+
+	if (defined $org_ref->{crm_org_id}) {
+		update_company_last_contact_login_date($org_ref, $user_ref);
+	}
+
 	return;
 }
 

@@ -61,6 +61,7 @@ BEGIN {
 		&change_company_main_contact
 		&update_last_import_date
 		&update_last_export_date
+		&add_category_to_company
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 
@@ -81,7 +82,7 @@ my $crm_data;
 my @required_tag_labels = qw(onboarding);
 # Category (res.partner.category) must be defined in Odoo :
 # Contact > contact (individual or company) form > Tags field > "Search More"
-my @required_category_labels = qw(Producer);
+my @required_category_labels = ('Producer', 'AGENA3000', 'EQUADIS', 'CSV', 'Manual import',);
 
 # special commands to manipulate Odoo relation One2Many and Many2Many
 # see https://www.odoo.com/documentation/15.0/developer/reference/backend/orm.html#odoo.fields.Command
@@ -550,26 +551,125 @@ sub change_company_main_contact($org_ref, $user_id) {
 	return $req_company;
 }
 
+
+=head2 update_last_import_date ($org_id, $time)
+
+Update the last import date of a company in Odoo, associeted to the given org
+
+=cut
+
 sub update_last_import_date($org_id, $time) {
-	return update_company_last_action_date($org_id, $time, 'x_off_last_import_date');
+	return _update_company_last_action_date($org_id, $time, 'x_off_last_import_date');
 }
+
+=head2 update_last_export_date ($org_id, $time)
+
+Update the last export date of a company in Odoo, associeted to the given org
+
+=cut
 
 sub update_last_export_date($org_id, $time) {
-	return update_company_last_action_date($org_id, $time, 'x_off_last_export_date');
+	return _update_company_last_action_date($org_id, $time, 'x_off_last_export_date');
 }
 
-sub update_company_last_action_date($org_id, $time, $field) {
+sub _update_company_last_action_date($org_id, $time, $field) {
 	my $org_ref = retrieve_org($org_id);
 	if (not defined $org_ref->{crm_org_id}) {
 		return;
 	}
-	my ($sec, $min, $hour, $mday, $mon, $year) = localtime($time);
-	$year += 1900;
-	$mon += 1;
-	my $date_string = sprintf("%04d-%02d-%02d", $year, $mon, $mday);
+	my $date_string = _time_to_odoo_date_str($time);
 	$log->debug("update_last_company_action_date", {org_id => $org_id, date => $date_string, field => $field})
 		if $log->is_debug();
 	return make_odoo_request('res.partner', 'write', [[$org_ref->{crm_org_id}], {$field => $date_string}]);
+}
+
+
+=head2 update_company_last_contact_login_date ($org_ref, $user_ref)
+
+Update the last contact login date of a company in Odoo
+
+=head3 Arguments
+
+=head4 $org_ref
+
+=head4 $user_ref
+
+=head3 Return values
+
+1 if success, undef otherwise
+
+=cut
+
+sub update_company_last_contact_login_date($org_ref, $user_ref) {
+
+	my $date = _time_to_odoo_date_str($user_ref->{last_login_t});
+
+	$log->debug("update_company_last_contact_login_date",
+		{org_id => $org_ref->{org_id}, user_id => $user_ref->{userid}, date => $date})
+		if $log->is_debug();
+
+	return make_odoo_request(
+		'res.partner',
+		'write',
+		[
+			[$org_ref->{crm_org_id}],
+			{
+				x_off_last_logged_org_contact_date => $date,
+				x_off_last_logged_org_contact => $user_ref->{crm_user_id}
+			}
+		]
+	);
+}
+
+=head2 add_category_to_company ($org_id, $label)
+
+Add a category to a company in Odoo
+
+=head3 Arguments
+
+=head4 $org_id
+
+=head4 $label
+
+=head3 Return values
+
+1 if success, undef otherwise
+
+=cut
+
+sub add_category_to_company($org_id, $label) {
+	my $org_ref = retrieve_org($org_id);
+	return if not defined $org_ref->{crm_org_id};
+
+	my $category_id = $crm_data->{category}{$label};
+	return if not defined $category_id;
+	if (not defined $category_id) {
+		$log->debug("add_category_to_company", {error => "Category `$label` not found in CRM"})
+			if $log->is_debug();
+		return;
+	}
+	$log->debug("add_category_to_company", {org_id => $org_id, label => $label, category_id => $category_id})
+		if $log->is_debug();
+	return make_odoo_request('res.partner', 'write',
+		[[$org_ref->{crm_org_id}], {category_id => [[$commands{link}, $category_id]]}]);
+}
+
+sub update_template_download_date ($org_id) {
+	my $org_ref = retrieve_org($org_id);
+	return if not defined $org_ref->{crm_org_id};
+
+	my $date_string = _time_to_odoo_date_str(time());
+	$log->debug("update_template_download_date", {org_id => $org_id, date => $date_string})
+		if $log->is_debug();
+	return make_odoo_request('res.partner', 'write',
+		[[$org_ref->{crm_org_id}], {x_off_last_template_download_date => $date_string}]);
+}
+
+sub _time_to_odoo_date_str($time) {
+	my ($sec, $min, $hour, $mday, $mon, $year) = localtime($time);
+	$year += 1900;
+	$mon += 1;
+	return sprintf("%04d-%02d-%02d", $year, $mon, $mday);
 }
 
 =head2 make_odoo_request (@params)
@@ -658,8 +758,8 @@ sub init_crm_data() {
 		$crm_data = $tmp_crm_data;
 	} or do {
 		print STDERR "Failed to load CRM data from Odoo: $@\n";
-		die "Could not load CRM data from cache" if not defined $crm_data;
-		print STDERR "CRM data loaded from cache";
+		die "Could not load CRM data from cache\n" if not defined $crm_data;
+		print STDERR "CRM data loaded from cache\n";
 	};
 
 	store("$BASE_DIRS{CACHE_TMP}/crm_data.sto", $crm_data);

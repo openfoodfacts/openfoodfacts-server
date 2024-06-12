@@ -36,7 +36,7 @@ use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/$lc lang/;
 use ProductOpener::Mail qw/:all/;
 use ProductOpener::Producers qw/convert_file get_minion load_csv_or_excel_file normalize_column_name/;
-use ProductOpener::CRM qw/update_last_import_date/;
+use ProductOpener::CRM qw/add_category_to_company/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -201,6 +201,8 @@ my $job_id = get_minion()->enqueue(import_csv_file => [$args_ref] => {queue => $
 $import_files_ref->{$file_id}{imports}{$import_id}{job_id} = $job_id;
 
 store("$BASE_DIRS{IMPORT_FILES}/${Owner_id}/import_files.sto", $import_files_ref);
+
+add_category_to_company($Org_id, 'CSV');
 
 $template_data_ref->{process_file_id} = $file_id;
 $template_data_ref->{process_import_id} = $import_id;

@@ -103,6 +103,7 @@ use ProductOpener::Ecoscore qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::PackagerCodes qw/normalize_packager_codes/;
 use ProductOpener::API qw/get_initialized_response/;
+use ProductOpener::CRM qw/add_category_to_company/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -2754,6 +2755,11 @@ sub import_csv_file ($args_ref) {
 	# sync CRM
 	foreach my $org_id (keys %{$stats_ref->{orgs_existing}}) {
 		update_import_date($org_id, $time);
+		if ($args_ref->{source_id} eq 'agena3000') {
+			add_category_to_company($org_id, 'AGENA3000');
+		} elsif ($args_ref->{source_id} eq 'equadis') {
+			add_category_to_company($org_id, 'EQUADIS');
+		}
 	}
 
 	$log->debug(
