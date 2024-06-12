@@ -725,7 +725,7 @@ elsif ($action eq 'process') {
 	my $graph = single_param("graph") || '';
 	my $download = single_param("download") || '';
 
-	open(my $OUT, ">>:encoding(UTF-8)", "$BASE_DIRS{LOGS}/search_log_debug");
+	open(my $OUT, ">>:encoding(UTF-8)", "$BASE_DIRS{LOGS}/search_log");
 	print $OUT remote_addr() . "\t"
 		. time() . "\t"
 		. (decode utf8 => single_param('search_terms') || "no_search_terms")
@@ -839,15 +839,6 @@ HTML
 
 			write_cors_headers();
 			print "Content-Type: application/json; charset=UTF-8\r\n\r\n" . $data;
-		}
-
-		if (single_param('search_terms')) {
-			open(my $OUT, ">>:encoding(UTF-8)", "$BASE_DIRS{LOGS}/search_log");
-			print $OUT remote_addr() . "\t"
-				. time() . "\t"
-				. decode utf8 => single_param('search_terms')
-				. "\tpage: $page\n";
-			close($OUT);
 		}
 	}
 }

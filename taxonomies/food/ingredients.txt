@@ -1,5 +1,50 @@
-# properties vegan:en, vegetarian:en and from_palm_oil:en can have values yes, no, maybe
-# in the case of maybe, if the ingredient has sub-ingredients, then only its sub-ingredients are considered
+### Properties for ingredients
+
+## Description
+
+# description:en:SOYBEAN OIL is a vegetable oil extracted from the seeds of the soybean (Glycine max).
+
+## Allergens
+
+# allergens:en: en:soybeans
+# The value must be the main value from the allergens.txt taxonomy
+
+## NOVA groups markers
+
+# nova:en           NOVA group marker (e.g. value "4" means that the ingredient is a marker for NOVA 4)
+
+## Ingredients analysis properties
+
+# vegan:en          can have values yes, no, maybe - in the case of maybe, if the ingredient has sub-ingredients, then only its sub-ingredients are considered
+# vegetarian:en     can have values yes, no, maybe - in the case of maybe, if the ingredient has sub-ingredients, then only its sub-ingredients are considered
+# from_palm_oil:en  can have values yes, no, maybe - in the case of maybe, if the ingredient has sub-ingredients, then only its sub-ingredients are considered
+
+## Eurocode properties
+
+# e.g. for palm heart
+# under "version 99/1"
+# it corresponds to "Main group 8: Vegetables and vegetable products"
+# eurocode_2_group_1:en: 8
+# eurocode_2_group_1:en: 8
+# eurocode_2_group_2:en: 8.25
+# eurocode_2_group_3:en: 8.25.50
+# are from https://web.archive.org/web/20170621070633/http://www.ianunwin.demon.co.uk/eurocode/docmn/classpad.htm
+
+# Links to other databases
+
+# wikidata:en:Q421576
+# wikipedia:en:https://en.wikipedia.org/wiki/Enilconazole
+
+# proxy indicates that the match is not perfect, but corresponding values could be used 
+
+# ciqual_food_code:en:42200
+# ciqual_food_name:en:Soy lecithin
+# ciqual_food_name:fr:Lécithine de soja
+
+# ciqual_proxy_food_code:en:16400
+# ciqual_proxy_food_name:en:Butter, 82% fat, unsalted
+# ciqual_proxy_food_name:fr:Beurre à 82% MG, doux
+
 
 #comment:en:These are synonyms of ingredients
 
@@ -85,10 +130,10 @@ stopwords:da:av, af, blandt andet, bl a, inklusive, heraf, indeholder, tilsat
 stopwords:de:und, mit, von, aus, enthält, enthalten, mindestens, in veränderlichen gewichtsanteilen, wenig, min, max
 stopwords:el:περιέχει
 # example: "artificial flavouring substances", "natural and nature identical flavouring substances"
-stopwords:en:and,or,added to enhance freshness, added to maintain flavor and freshness, assorted, contains, contain, edible, from, including, inter alia, less than 1% of:, minimum, produced with, with, with added, in varying proportions, substances
+stopwords:en:and,or,added to enhance freshness, added to maintain flavor and freshness, assorted, contains, contain, edible, from, including, inter alia, less than 1% of:, minimum, produced with, with, with added, in varying proportions, substances, based
 stopwords:es:contiene,de,del,la,el,las,los,con,y,e,en,minimo,maximo,puede,contener,por,categoria,calibre,minimo,min,vereidad,variedad,de cultivo,origen,nota,produccion,controlada,equivalente,equivale
 stopwords:fi:sisältää,muun muassa,valio, koskenlaskija, snellmanin, jossa, noin, käymisen aikana muodostuva
-stopwords:fr:aux,au,de,le,du,la,a,et,avec,ou,en,proportion,variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets, pour souleves,dont,avec,autres,d'autres,d', avec ajout, sachet, marquants, demeter, minimum
+stopwords:fr:aux,au,de,le,du,la,a,et,avec,ou,en,proportion,variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets, pour souleves,dont,avec,autres,d'autres,d', avec ajout, sachet, marquants, demeter, minimum, base
 # example: grašak u prahu BOGAT BJELANČEVINAMA
 # example: KLASIČNA MJEŠAVINA arabica i robusta kave
 # example: luk u prahu (OD ČEGA mladi luk 0,06 %)
@@ -116,15 +161,7 @@ stopwords:sl:vsebuje, sestavine
 stopwords:sv:av, från, med, innehåller, inklusive, bl a, bland annat, minimum, maximum, varav, certifierad, tillsatt, valio
 stopwords:zh::配料
 
-# Eurocode properties
-# e.g. for palm heart
-# under "version 99/1"
-# it corresponds to "Main group 8: Vegetables and vegetable products"
-# eurocode_2_group_1:en: 8
-# eurocode_2_group_1:en: 8
-# eurocode_2_group_2:en: 8.25
-# eurocode_2_group_3:en: 8.25.50
-# are from https://web.archive.org/web/20170621070633/http://www.ianunwin.demon.co.uk/eurocode/docmn/classpad.htm
+
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -1134,7 +1171,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Microbiological_culture
 
 <en:microbial culture
 en:lactic ferments, lactic starters, lactic cultures, live yoghurt bacteria cultures, live yoghurt cultures, culture of acid-lactic bacteria, lactic acid bacteria, yogurt lactic ferment, cheese culture, cheese cultures, yogurt ferments
-bg:Млечни ферментации, млечна закваска, млечни закваски, млечни култури, закваски за кисело мляко, закваска за кисело мляко
+bg:Млечни ферментации, млечна закваска, млечни закваски, млечни култури, закваски за кисело мляко, закваска за кисело мляко, млечни ферменти
 ca:Ferments làctics
 cs:Mléčné ferminty
 da:yoghurtkultur, starterkultur, mælkesyrekultur, ostekulturer
@@ -2731,6 +2768,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Milk
 
 <en:milk
 en:milk enriched with cream
+de:Milch angereichert mit Rahm
 fr:lait enrichi de crème
 hr:mlijeko obogaćeno vrhnjem
 
@@ -2825,14 +2863,16 @@ bg:мляко без лактоза, безлактозно мляко
 ca:llet sense lactosa
 de:laktosefreie Milch
 es:leche sin lactosa
+fr:lait sans lactose
 hr:mlijeko bez laktoze
 it:latte delattosato
 nl:lactosevrije melk
 
 <en:lactose-free milk
-en:whole lactose-free milk
+en:whole lactose-free milk, lactose-free whole milk
 de:Laktosefreie Vollmilch
 es:Leche entera sin lactosa
+fr:lait entier sans lactose, lait sans lactose entier
 hr:punomasno mlijeko bez laktoze
 
 en:Follow-on milk
@@ -3027,8 +3067,14 @@ hr:obrano mlijeko s 0.5% mliječne masti
 
 <en:lactose-free milk
 <en:skimmed milk
-en:lactose-free skimmed milk
+en:lactose-free skimmed milk, skimmed lactose-free milk
+fr:lait sans lactose écrémé, lait écrémé sans lactose
 hr:obrano mlijeko bez laktoze
+
+<en:lactose-free-milk
+en:semi-skimmed lactose-free milk, lactose-free semi-skimmed milk
+fr:lait sans lactose demi-écrémé, lait demi-écrémé sans lactose
+
 
 ################################# SEMI-SKIMMED MILK ############################
 
@@ -3042,7 +3088,7 @@ da:letmælk
 de:teilentrahmte milch
 es:leche parcialmente desnatada, leche semidesnatada, Leche semidescremada, leche parcialmente descremada
 fi:kevytmaito
-fr:lait demi-écrémé, lait partiellement écrémé, Lait à 15.5 g/l de matière grasse
+fr:lait demi-écrémé, lait partiellement écrémé, lait semi-écrémé, Lait à 15.5 g/l de matière grasse
 hr:djelomično obrano mlijeko, djelimično obrano mlijeko
 hu:zsírszegény tej, félzsíros tej
 is:léttmjólk
@@ -4615,7 +4661,7 @@ da:Yoghurt
 de:Joghurt, Jogurt
 es:Yogur
 fi:jogurtti, jukurtti, jugurtti
-fr:yaourt
+fr:yaourt, yogourt, yahout, yoghourt
 hr:jogurt
 hu:joghurt
 it:yogurt
@@ -10770,7 +10816,7 @@ hr:sitna morska sol nejodirana
 # <en:compound
 en:iodised salt, iodized salt
 ar:ملح معالج باليود
-bg:йодирана сол
+bg:йодирана сол, сол йодирана
 ca:sal iodada
 cs:Jodidovaná sůl
 da:salt tilsat jod
@@ -11988,6 +12034,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Rabbit
 # category:en en:rabbit-meat
 <en:rabbit
 en:rabbit meat
+bg:заешко месо, заешко, месо от заек
 ca:carn de conill
 cs:králičí maso
 de:Hasenfleisch, Kaninchenfleisch
@@ -13846,6 +13893,7 @@ hr:svinjska noga
 it:coscia di suino, coscia suina
 
 <en:pork meat
+bg:свинско месо от врат
 fr:gorge de porc
 
 <en:pork meat
@@ -14757,7 +14805,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Starch
 <en:starch
 en:modified starch, modified starches, modified food starch, modified food starches, food starch modified, processed starch
 ar:نشا معدل
-bg:Модифицирано нишесте, модифицирани нишестета, модифицирана скорбяла
+bg:Модифицирано нишесте, модифицирани нишестета, модифицирана скорбяла, преработено нишесте
 ca:Midó modificat, Midons modificats, Fècula modificada, fècules modificades
 cs:Modifikovaný škrob
 da:modificeret stivelse
@@ -16505,6 +16553,7 @@ ro:ulei de palmier parţial hidrogenat
 
 <en:palm kernel oil and fat
 en:palm kernel oil, palm kernel, palm kernel vegetable oil
+bg:масло от палмови ядки
 bs:Ulje palminog jezgra
 ca:palmist, Oli de palmist, oli vegetal de palmist
 cs:Palmojádrový olej
@@ -21440,7 +21489,7 @@ sv:smakberedning
 
 <en:flavouring
 en:natural flavouring, natural flavour, natural flavor, natural flavoring, natural flavourings, natural flavorings, natural flavours, natural flavors, natural aroma, natural aromas
-bg:натурален аромат, натурални ароматизанти, натурален ароматизант, естествен ароматизант, естествени ароматизанти, натурални аромати, натурален ароматизатор, естествени овкусители
+bg:натурален аромат, натурални ароматизанти, натурален ароматизант, естествен ароматизант, естествени ароматизанти, натурални аромати, натурален ароматизатор, естествени овкусители, натурални овкусители
 ca:Aroma natural, aromes naturals
 cs:přírodní aroma, přírod aroma
 da:naturlig aroma, naturlige smagsstoffer, naturlige aromaer
@@ -30189,6 +30238,7 @@ pt:flocos de arroz
 
 <en:rice
 en:extruded rice
+bg:екструдиран ориз
 ca:extrudit d'arròs
 de:Reis extrudiert, extrudierter Reis
 es:arroz extruido
@@ -55865,7 +55915,7 @@ am:ባዚንጀን
 ar:باذنجان
 az:Badımcan
 be:Баклажан
-bg:патладжан
+bg:патладжан, патладжани
 bi:Obesin
 bn:বেগুন
 bo:རྡོ་ལུ་མ།
@@ -58276,7 +58326,7 @@ ciqual_food_name:fr:Tomate, concentré, appertisé
 
 <en:tomato concentrate
 en:double concentrated tomato
-bg:двойно концентрирано доматено пюре
+bg:двойно концентрирано доматено пюре, двойноконцентрирано доматено пюре
 da:dobbelt tomatkoncentrat, dobbelt koncentreret tomatpuré
 de:Tomatenkonzentrat zweifach konzentriert, Tomatenmark 2fach konzentriert, Tomatenmark doppelt konzentriert
 es:tomate doble concentrado, concentrado doble de tomate
@@ -66195,6 +66245,7 @@ hr:pasta od đumbira
 #processing:en: en:extract
 <en:ginger
 en:ginger extract
+bg:екстракт от джинджифил
 #de:Ingwer-Extrakt
 #es:extracto de jengibre, extracto de kión, extracto de kion
 #fi:inkivääriuute
@@ -66484,6 +66535,7 @@ nl:sterke mosterd
 
 <en:mustard
 fr:moutarde à l'ancienne
+bg:еднозърнеста горчица
 nl:ambachtelijke mosterd
 sv:gammaldags senap
 # 389 in 5 @2021-09-10
@@ -71752,6 +71804,7 @@ de:Vanilleschotenpulver
 
 <en:vanilla pod
 en:ground vanilla beans, vanilla bean pieces
+bg:Ванилени зрънца
 da:formalede vaniljestænger
 de:Vanilleschoten gemahlen, Vannileschoten gemahlen, vermahlene Vanilleschoten
 fi:vaniljatangon palat, vaniljakodat
@@ -72510,6 +72563,7 @@ la:Palmaria palmata
 #<en:seaweed
 #<en:e407a
 #en:processed euchema algae
+#bg:преработени euchema водорасли
 #de:verarbeitete euchema algae
 #fr:algues euchema transformées
 #it:alghe euchema lavorate
@@ -73384,7 +73438,7 @@ eurocode_2_group_3:en: 8.50.10
 en:champignon, button mushrooms, cultivated mushrooms, Agaricus bisporus, cup mushroom
 af:Sampioen
 ar:غاريقون ثنائي البوغ
-bg:култивирана печурка
+bg:култивирана печурка, печурки
 ca:xampinyó,bolet cultivat
 cs:pečárka dvouvýtrusá
 cy:Madarch meithrin
@@ -77383,7 +77437,7 @@ af:sardyn
 ar:سردين
 az:sardina
 be:сардзіны
-bg:сардина, сардини
+bg:сардина, сардини, риба сардина
 br:sardin
 ca:sardina, sardines
 cs:sardinka obecná
@@ -81707,8 +81761,8 @@ fr:Crevettes entières crues
 # ingredient/fr:Crevettes-entières-crues has 5 products @2019-01-13
 
 <en:shrimp
-en:Pink shrimps
-fr:crevettes roses
+en:pink shrimps, pink schrimp
+fr:crevette rose, crevettes roses
 # ingredient/fr:crevettes-roses has 13 products @2019-01-06
 ciqual_food_code:en:10059
 ciqual_food_name:en:deep water pink shrimp, raw
@@ -81844,7 +81898,7 @@ de:Nordseegarnele, Crangon crangon
 eu:Izkira zuri, Crangon crangon
 fa:میگوی قهوه‌ای, Crangon crangon
 fi:Hietakatkarapu, Crangon crangon
-fr:crevettes grises, Crevette grise européenne, Crangon crangon
+fr:crevette grise, crevettes grises, Crevette grise européenne, Crangon crangon
 ga:Ribe róibéis, Crangon crangon
 hr:sivi škampi
 io:Kreveto, Crangon crangon
@@ -83636,14 +83690,6 @@ nl:Braziliaanse arabica koffie
 fr:café Arabica de Colombie en poudre
 
 <en:arabica coffee
-en:freshly brewed Arabica coffee
-de:frisch gebrühter Arabica-Kaffee
-fr:café arabica fraîchement préparé
-hr:svježe kuhana arabica kava
-nl:vers gezette Arabica-koffie
-# ingredient/fr:café-arabica-fraîchement-préparé has 10 products in 4 languages @2018-11-30
-
-<en:arabica coffee
 fr:café moulu pur arabica, café moulu arabica, café moulu 100 arabica
 # ingredient/fr:café-moulu-pur-arabica has 35 products in 4 languages @2018-11-30
 
@@ -85336,6 +85382,7 @@ pl:mechanicznie oddzielone mięso z indyka, mięso oddzielone mechanicznie z ind
 
 <en:turkey meat
 en:turkey thigh, turkey leg, turkey drumstick
+bg:пуешко бутче, пуешки бут
 de:Putenoberkeulen, Putenkeule, Putenschenkel
 es:muslo de pavo, contramuslo de pavo
 fr:cuisse de dinde
@@ -85347,7 +85394,7 @@ carbon_footprint_fr_foodges_value:fr:6.6
 <en:turkey meat
 <en:turkey thigh
 en:turkey thigh meat
-bg:пуешко месо от бут
+bg:пуешко месо от бут, пуешко месо от бутче
 de:putenoberkeulenfleisch
 fr:viande de cuisse de dinde
 hr:meso purećeg zabatka
@@ -85358,6 +85405,7 @@ pl:mięso z uda indyka
 <en:poultry skin
 <en:turkey
 en:turkey skin
+bg:пуешка кожа
 de:Truthahn-Haut
 fi:kalkkunan nahka
 fr:peau de dinde
