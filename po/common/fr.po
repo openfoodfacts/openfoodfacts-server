@@ -1773,7 +1773,7 @@ msgstr "Vous venez de contribuer à améliorer la plus grande base de données o
 
 msgctxt "product_edit_thank_you"
 msgid "Thank you so much for joining us in our journey to data transparency!"
-msgstr "Merci beaucoup de nous avoir rejoints dans notre voyage vers la transparence des données !"
+msgstr "Merci beaucoup de nous avoir rejoints dans notre voyage vers la transparence des données !"
 
 msgctxt "product_characteristics"
 msgid "Product characteristics"
@@ -2077,7 +2077,7 @@ msgstr "Sélectionner les produits suivant leur marque, catégories, labels, ori
 
 msgctxt "search_description_opensearch"
 msgid "Product search"
-msgstr ""
+msgstr "Recherche de produits"
 
 msgctxt "search_does_not_contain"
 msgid "does not contain"
@@ -2560,7 +2560,7 @@ msgstr "voir"
 
 msgctxt "view_this_revision"
 msgid "View this revision"
-msgstr ""
+msgstr "Voir cette révision"
 
 msgctxt "view_list_for_products_from_the_entire_world"
 msgid "View the list for matching products from the entire world"
@@ -2686,7 +2686,7 @@ msgstr "Certaines informations et/ou photos de ce produit proviennent de ces sou
 
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
-msgstr "La page de ce produit n'est pas complète. Vous pouvez aider à la compléter en l'éditant et en ajoutant plus de données à partir des photos que nous avons, ou en prenant plus de photos à l'aide de l'application pour <a href=\"https://android.openfoodfacts.org\">Android</a> ou <a href=\"https://ios.openfoodfacts.org\">iPhone / iPad</a>. Merci!"
+msgstr "La page de ce produit n'est pas complète. Vous pouvez aider à la compléter en l'éditant et en ajoutant plus de données à partir des photos que nous avons, ou en prenant plus de photos à l'aide de l'application pour <a href=\"https://android.openfoodfacts.org\">Android</a> ou <a href=\"https://ios.openfoodfacts.org\">iPhone / iPad</a>. Merci !"
 
 msgctxt "title_separator"
 msgid " - "
@@ -3747,7 +3747,7 @@ msgstr "Les données des produits ont été reçues et seront importées sur la 
 
 msgctxt "import_file_status"
 msgid "Status"
-msgstr "État "
+msgstr "État "
 
 msgctxt "job_status_inactive"
 msgid "Scheduled"
@@ -3916,7 +3916,7 @@ msgstr "Les points pour les protéines sont comptés car le produit appartient �
 
 msgctxt "nutriscore_proteins_is_added_fat"
 msgid "The product is in the fats category, the points for saturated fat are replaced by the points for the saturated fat / fat ratio."
-msgstr "Le produit est dans la catégorie des matières grasses, les points pour les matières grasses saturées sont remplacés par les points pour le rapport entre les matières grasses saturées et les matières grasses."
+msgstr "Le produit est dans la catégorie des matières grasses, les points pour les acides gras saturés sont remplacés par les points pour le rapport entre les acides gras saturés et les matières grasses."
 
 msgctxt "nutriscore_points_for_energy"
 msgid "Energy"
@@ -4227,7 +4227,7 @@ msgstr "Certains ingrédients n'ont pas été identifiés."
 # variable names between { } must not be translated
 msgctxt "f_move_data_and_photos_to_main_language"
 msgid "Move all data and selected photos in {language} to the main language of the product: {main_language}"
-msgstr "Déplacez toutes les données et les photos sélectionnées en {language} vers la langue principale du produit : {main_language}"
+msgstr "Déplacez toutes les données et les photos sélectionnées en {language} vers la langue principale du produit : {main_language}"
 
 msgctxt "move_data_and_photos_to_main_language_replace"
 msgid "Replace existing values and selected photos"
@@ -4547,7 +4547,7 @@ msgstr "Non applicable pour la catégorie"
 # variable names between { } must not be translated
 msgctxt "f_attribute_nutriscore_not_applicable_description"
 msgid "Not-applicable for the category: {category}"
-msgstr "Non applicable pour la catégorie : {category}"
+msgstr "Non applicable pour la catégorie : {category}"
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
@@ -5299,7 +5299,7 @@ msgstr "Pas encore applicable pour la catégorie"
 # variable names between { } must not be translated
 msgctxt "f_attribute_ecoscore_not_applicable_description"
 msgid "Not yet applicable for the category: {category}"
-msgstr "Pas encore applicable pour la catégorie : {category}"
+msgstr "Pas encore applicable pour la catégorie : {category}"
 
 msgctxt "ecoscore_not_applicable_coming_soon"
 msgid "The Eco-Score is not yet applicable for this category, but we are working on adding support for it."
@@ -5315,7 +5315,7 @@ msgstr "Impact environnemental inconnu"
 
 msgctxt "ecoscore_unknown_call_to_help"
 msgid "We could not compute the Eco-Score of this product as it is missing some data, could you help complete it?"
-msgstr "Nous n'avons pas pu calculer l'Eco-Score de ce produit car il manque certaines données, pourriez-vous nous aider à le compléter ?"
+msgstr "Nous n'avons pas pu calculer l'Eco-Score de ce produit car il manque certaines données, pourriez-vous nous aider à le compléter ?"
 
 msgctxt "org_list_of_gs1_gln_description"
 msgid "GS1 data is automatically associated with an OFF organization identifier that corresponds to the GS1 partyName field. To change the OFF organization identifier, you can directly assign 1 or more GS1 GLN identifiers."
@@ -6305,7 +6305,7 @@ msgstr "Réduire la consommation de matières grasses et d'acides gras saturés"
 
 msgctxt "nutrient_recommendation_fat_and_saturated_fat"
 msgid "Choose products with lower fat and saturated fat content."
-msgstr "Choisissez des produits à faible teneur en matières grasses et en acides gras saturés."
+msgstr "Choisissez des produits à faible teneur en matières grasses et acides gras saturés."
 
 msgctxt "sign_in"
 msgid "Sign in"
@@ -6425,11 +6425,11 @@ msgstr "Type invalide : doit être un tableau"
 
 msgctxt "api_message_invalid_type_must_be_integer"
 msgid "Invalid type: must be an integer"
-msgstr "Type non valide : doit être un entier"
+msgstr "Type non valide : doit être un entier"
 
 msgctxt "api_message_invalid_type_must_be_number"
 msgid "Invalid type: must be a number"
-msgstr "Type non valide : doit être un entier"
+msgstr "Type non valide : doit être un entier"
 
 msgctxt "api_message_missing_field"
 msgid "Missing field"
@@ -6734,7 +6734,7 @@ msgstr "Le Nutri-Score est un logo sur la qualité nutritionnelle globale des pr
 
 msgctxt "nutriscore_explanation_what_it_takes_into_account"
 msgid "The score from A to E is calculated based on nutrients and foods to favor (proteins, fiber, fruits, vegetables and legumes ...) and nutrients to limit (calories, saturated fat, sugars, salt)."
-msgstr "Le score de A à E est calculé en fonction des nutriments et aliments à favoriser (protéines, fibres, fruits et légumes, légumes secs…) et des nutriments à limiter (calories, matières grasses saturées, sucres, sel)."
+msgstr "Le score de A à E est calculé en fonction des nutriments et aliments à favoriser (protéines, fibres, fruits et légumes, légumes secs…) et des nutriments à limiter (calories, acides gras saturés, sucres, sel)."
 
 msgctxt "nutriscore_explanation_where_the_data_comes_from"
 msgid "The score is calculated from the data of the nutrition facts table and the composition data (fruits, vegetables and legumes)."
@@ -6814,15 +6814,6 @@ msgctxt "sweetener"
 msgid "sweetener"
 msgstr "édulcorant"
 
-msgctxt "skip_to_content"
-msgid "Skip to Content"
-msgstr "Aller au contenu"
-
-#. make sure the text file exists for your language, otherwise ask @teolemon 
-msgctxt "get_the_app_link_off"
-msgid "/open-food-facts-mobile-app"
-msgstr "/application-mobile-open-food-facts"
-
 msgctxt "action_edit_product"
 msgid "Complete or correct product information"
 msgstr "Compléter ou corriger les informations du produit"
@@ -6841,7 +6832,7 @@ msgstr "Catégorie, étiquettes, ingrédients, allergènes, informations nutriti
 
 msgctxt "incomplete_or_incorrect_data_content_correct"
 msgid "If the information does not match the information on the packaging, you can complete or correct it. Thank you!"
-msgstr "Si les informations ne correspondent pas à celles figurant sur l'emballage, vous pouvez les compléter ou les corriger. Merci!"
+msgstr "Si les informations ne correspondent pas à celles figurant sur l'emballage, vous pouvez les compléter ou les corriger. Merci !"
 
 msgctxt "incomplete_or_incorrect_data_content_correct_off"
 msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
@@ -6850,6 +6841,10 @@ msgstr "Open Food Facts est une base de données collaborative, et chaque contri
 msgctxt "description"
 msgid "Description"
 msgstr "Description"
+
+msgctxt "skip_to_content"
+msgid "Skip to Content"
+msgstr "Aller au contenu"
 
 msgctxt "site_description_off"
 msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
@@ -6862,6 +6857,11 @@ msgstr "Open Food Facts répertorie les produits alimentaires du monde entier."
 msgctxt "footer_tagline_off"
 msgid "A collaborative, free and open database of food products from around the world."
 msgstr "Une base de données collaborative, libre et ouverte des produits alimentaires du monde entier."
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_off"
+msgid "/open-food-facts-mobile-app"
+msgstr "/application-mobile-open-food-facts"
 
 msgctxt "site_description_obf"
 msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
@@ -6917,6 +6917,6 @@ msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL D
 msgstr "AQUA / EAU, LAURETH SULFATE DE SODIUM, COCOAMPHODIACETATE DISODIQUE, DISTEARATE DE GLYCOL, COCAMIDE MEA"
 
 msgctxt "report_problem_navigation"
-msgid "Signaler un problème"
+msgid "Report a problem"
 msgstr "Signaler un problème"
 
