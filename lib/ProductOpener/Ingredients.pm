@@ -73,6 +73,7 @@ BEGIN {
 		&select_ingredients_lc
 
 		&detect_allergens_from_text
+		&get_allergens_taxonomyid
 
 		&normalize_a_of_b
 		&normalize_enumeration
@@ -6387,6 +6388,9 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	# Traces de lait, d'oeufs et de soja.
 	# Contains: milk and soy.
 
+	# TODO: we should use the allergens:en: property from the ingredients.txt taxonomy instead of relying
+	# on having extensive "non synonyms" (like fish species) in allergens.txt
+
 	foreach my $allergens_type ("allergens", "traces") {
 
 		if (defined $contains_or_may_contain_regexps{$allergens_type}{$ingredients_lc}) {
@@ -7259,6 +7263,62 @@ sub detect_allergens_from_ingredients ($product_ref) {
 	return;
 }
 
+=head2 get_allergens_taxonomyid ( $ingredients_lc, $ingredient_or_allergen )
+
+In the allergens provided by users, we may get ingredients that are not in the allergens taxonomy,
+but that are in the ingredients taxonomy and have an inherited allergens:en property.
+(e.g. the allergens taxonomy has an en:fish entry, but users may indicate specific fish species)
+
+This function tries to match the ingredient with an allergen in the allergens taxonomy,
+and otherwise return the taxonomy id for the original ingredient.
+
+=head3 Parameters
+
+=head4 $ingredients_lc
+
+The language code of $ingredient_or_allergen.
+
+=head4 $ingredient_or_allergen
+
+The ingredient or allergen to match. Can also be an ingredient id or allergens id prefixed with a language code.
+
+=head3 Return value
+
+The taxonomy id for the allergen, or the original ingredient if no allergen was found.
+
+=cut
+
+sub get_allergens_taxonomyid($ingredients_lc, $ingredient_or_allergen) {
+
+	# Check if $ingredient_or_allergen is in the allergen taxonomy
+	my $allergenid = canonicalize_taxonomy_tag($ingredients_lc, "allergens", $ingredient_or_allergen);
+	if (exists_taxonomy_tag("allergens", $allergenid)) {
+		return $allergenid;
+	}
+	else {
+		# Check if $ingredient_or_allergen is in the ingredients taxonomy and has an inherited allergens:en: property
+		my $ingredient_id = canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $ingredient_or_allergen);
+		my $allergens = get_inherited_property("ingredients", $ingredient_id, "allergens:en");
+		if (defined $allergens) {
+			if ($allergens =~ /,/) {
+				# Currently we support only 1 allergen for a single ingredient
+				$log->warn(
+					"get_allergens_taxonomyid - multiple allergens for ingredient",
+					{ingredient_or_allergen => $ingredient_or_allergen, allergens => $allergens}
+				);
+				$allergens = $`;
+			}
+			$allergenid = canonicalize_taxonomy_tag($ingredients_lc, "allergens", $allergens);
+			if (exists_taxonomy_tag("allergens", $allergenid)) {
+				return $allergenid;
+			}
+		}
+	}
+
+	# If we did not recognize the allergen, return the taxonomy id for the original tag
+	return get_taxonomyid($ingredients_lc, $ingredient_or_allergen);
+}
+
 =head2 detect_allergens_from_text ( $product_ref )
 
 This function:
@@ -7429,7 +7489,7 @@ sub detect_allergens_from_text ($product_ref) {
 		$product_ref->{$field . "_tags"} = [];
 		# print STDERR "result for $field : ";
 		foreach my $tag (@{$product_ref->{$field . "_hierarchy"}}) {
-			push @{$product_ref->{$field . "_tags"}}, get_taxonomyid($ingredients_lc, $tag);
+			push @{$product_ref->{$field . "_tags"}}, get_allergens_taxonomyid($ingredients_lc, $tag);
 			# print STDERR " - $tag";
 		}
 		# print STDERR "\n";
