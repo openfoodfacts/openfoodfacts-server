@@ -336,7 +336,8 @@ sub org_route($request_ref, @components) {
 		}
 		if (scalar @errors eq 0) {
 			set_owner_id();
-		} else {
+		}
+		else {
 			$request_ref->{status_code} = 404;
 			$request_ref->{error_message} = shift @errors;
 		}

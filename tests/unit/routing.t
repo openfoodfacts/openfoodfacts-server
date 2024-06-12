@@ -42,6 +42,7 @@ my @tests = (
 			'rate_limiter_blocking' => 0,
 			'rate_limiter_limit' => undef,
 			'rate_limiter_user_requests' => undef,
+			'components' => ['api', 'v0', 'attribute_groups'],
 		},
 	},
 	{
@@ -77,7 +78,8 @@ my @tests = (
 				},
 			],
 			'no_index' => '0',
-			'is_crawl_bot' => '0'
+			'is_crawl_bot' => '0',
+			'components' => ['category', 'breads', 'no-nutrition-data'],
 		},
 	},
 	{
@@ -115,6 +117,7 @@ my @tests = (
 			'rate_limiter_blocking' => 0,
 			'rate_limiter_limit' => undef,
 			'rate_limiter_user_requests' => undef,
+			'components' => ['category', 'breads'],
 		},
 	},
 	{
@@ -148,7 +151,8 @@ my @tests = (
 				},
 			],
 			'no_index' => '1',
-			'is_crawl_bot' => '1'
+			'is_crawl_bot' => '1',
+			'components' => ['category', 'breads', '4'],
 		},
 	},
 	{
@@ -186,6 +190,7 @@ my @tests = (
 			'rate_limiter_blocking' => 0,
 			'rate_limiter_limit' => undef,
 			'rate_limiter_user_requests' => undef,
+			'components' => ['category', 'bread', '4'],
 		},
 	},
 	{
@@ -214,6 +219,7 @@ my @tests = (
 			'rate_limiter_blocking' => 0,
 			'rate_limiter_limit' => 100,
 			'rate_limiter_user_requests' => undef,
+			'components' => ['api', 'v3', 'product', '03564703999971'],
 		},
 	},
 	{
@@ -245,6 +251,12 @@ my @tests = (
 			'rate_limiter_blocking' => 0,
 			'rate_limiter_limit' => 100,
 			'rate_limiter_user_requests' => undef,
+			'components' => [
+				'api', 
+				'v3',
+				'product',
+				'https://id.gs1.org/01/03564703999971/10/ABC/21/123456?17=211200'
+			],
 		},
 	},
 );
