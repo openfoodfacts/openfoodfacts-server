@@ -1,4 +1,4 @@
-#/usr/bin/env -S perl -w
+#!/usr/bin/env -S perl -w
 
 # This file is part of Product Opener.
 #
