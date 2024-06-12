@@ -5693,7 +5693,7 @@ sub display_pagination ($request_ref, $count, $limit, $page) {
 	if (not defined $current_link) {
 		$current_link = $request_ref->{world_current_link};
 	}
-	$log->debug("PAGINATION: READY\n");
+	$log->debug("PAGINATION: READY\n") if $log->is_debug();
 	my $canon_rel_url = $request_ref->{canon_rel_url} // "UNDEF";
 	$log->debug("PAGINATION: current_link: $current_link - canon_rel_url: $canon_rel_url\n");
 
