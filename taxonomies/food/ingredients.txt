@@ -130,10 +130,10 @@ stopwords:da:av, af, blandt andet, bl a, inklusive, heraf, indeholder, tilsat
 stopwords:de:und, mit, von, aus, enthält, enthalten, mindestens, in veränderlichen gewichtsanteilen, wenig, min, max
 stopwords:el:περιέχει
 # example: "artificial flavouring substances", "natural and nature identical flavouring substances"
-stopwords:en:and,or,added to enhance freshness, added to maintain flavor and freshness, assorted, contains, contain, edible, from, including, inter alia, less than 1% of:, minimum, produced with, with, with added, in varying proportions, substances
+stopwords:en:and,or,added to enhance freshness, added to maintain flavor and freshness, assorted, contains, contain, edible, from, including, inter alia, less than 1% of:, minimum, produced with, with, with added, in varying proportions, substances, based
 stopwords:es:contiene,de,del,la,el,las,los,con,y,e,en,minimo,maximo,puede,contener,por,categoria,calibre,minimo,min,vereidad,variedad,de cultivo,origen,nota,produccion,controlada,equivalente,equivale
 stopwords:fi:sisältää,muun muassa,valio, koskenlaskija, snellmanin, jossa, noin, käymisen aikana muodostuva
-stopwords:fr:aux,au,de,le,du,la,a,et,avec,ou,en,proportion,variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets, pour souleves,dont,avec,autres,d'autres,d', avec ajout, sachet, marquants, demeter, minimum
+stopwords:fr:aux,au,de,le,du,la,a,et,avec,ou,en,proportion,variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets, pour souleves,dont,avec,autres,d'autres,d', avec ajout, sachet, marquants, demeter, minimum, base
 # example: grašak u prahu BOGAT BJELANČEVINAMA
 # example: KLASIČNA MJEŠAVINA arabica i robusta kave
 # example: luk u prahu (OD ČEGA mladi luk 0,06 %)
@@ -2768,6 +2768,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Milk
 
 <en:milk
 en:milk enriched with cream
+de:Milch angereichert mit Rahm
 fr:lait enrichi de crème
 hr:mlijeko obogaćeno vrhnjem
 
@@ -2862,14 +2863,16 @@ bg:мляко без лактоза, безлактозно мляко
 ca:llet sense lactosa
 de:laktosefreie Milch
 es:leche sin lactosa
+fr:lait sans lactose
 hr:mlijeko bez laktoze
 it:latte delattosato
 nl:lactosevrije melk
 
 <en:lactose-free milk
-en:whole lactose-free milk
+en:whole lactose-free milk, lactose-free whole milk
 de:Laktosefreie Vollmilch
 es:Leche entera sin lactosa
+fr:lait entier sans lactose, lait sans lactose entier
 hr:punomasno mlijeko bez laktoze
 
 en:Follow-on milk
@@ -3064,8 +3067,14 @@ hr:obrano mlijeko s 0.5% mliječne masti
 
 <en:lactose-free milk
 <en:skimmed milk
-en:lactose-free skimmed milk
+en:lactose-free skimmed milk, skimmed lactose-free milk
+fr:lait sans lactose écrémé, lait écrémé sans lactose
 hr:obrano mlijeko bez laktoze
+
+<en:lactose-free-milk
+en:semi-skimmed lactose-free milk, lactose-free semi-skimmed milk
+fr:lait sans lactose demi-écrémé, lait demi-écrémé sans lactose
+
 
 ################################# SEMI-SKIMMED MILK ############################
 
@@ -3079,7 +3088,7 @@ da:letmælk
 de:teilentrahmte milch
 es:leche parcialmente desnatada, leche semidesnatada, Leche semidescremada, leche parcialmente descremada
 fi:kevytmaito
-fr:lait demi-écrémé, lait partiellement écrémé, Lait à 15.5 g/l de matière grasse
+fr:lait demi-écrémé, lait partiellement écrémé, lait semi-écrémé, Lait à 15.5 g/l de matière grasse
 hr:djelomično obrano mlijeko, djelimično obrano mlijeko
 hu:zsírszegény tej, félzsíros tej
 is:léttmjólk
@@ -4652,7 +4661,7 @@ da:Yoghurt
 de:Joghurt, Jogurt
 es:Yogur
 fi:jogurtti, jukurtti, jugurtti
-fr:yaourt
+fr:yaourt, yogourt, yahout, yoghourt
 hr:jogurt
 hu:joghurt
 it:yogurt
@@ -83679,14 +83688,6 @@ nl:Braziliaanse arabica koffie
 
 <en:arabica coffee
 fr:café Arabica de Colombie en poudre
-
-<en:arabica coffee
-en:freshly brewed Arabica coffee
-de:frisch gebrühter Arabica-Kaffee
-fr:café arabica fraîchement préparé
-hr:svježe kuhana arabica kava
-nl:vers gezette Arabica-koffie
-# ingredient/fr:café-arabica-fraîchement-préparé has 10 products in 4 languages @2018-11-30
 
 <en:arabica coffee
 fr:café moulu pur arabica, café moulu arabica, café moulu 100 arabica
