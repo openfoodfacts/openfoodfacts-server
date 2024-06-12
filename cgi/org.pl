@@ -53,7 +53,7 @@ my $request_ref = ProductOpener::Display::init_request();
 my $orgid = $Org_id;
 
 if (defined single_param('orgid')) {
-	$orgid = get_fileid(single_param('orgid'), 1);
+	$orgid = remove_tags_and_quote(decode utf8 => single_param('orgid'));
 }
 
 $log->debug("org profile form - start", {type => $type, action => $action, orgid => $orgid, User_id => $User_id})
@@ -172,6 +172,11 @@ if ($action eq 'process') {
 			}
 		}
 	}
+	elsif ($type eq 'user_delete') {
+		if (single_param('user_id') eq $org_ref->{main_contact}) {
+			push @errors, $Lang{cant_delete_main_contact}{$lc};
+		}
+	}
 
 	if ($#errors >= 0) {
 
@@ -204,7 +209,15 @@ if ($action eq 'display') {
 			(
 				{
 					field => "valid_org",
-					type => "checkbox",
+					type => "select",
+					selected => $org_ref->{valid_org},
+					description => lang("org_valid_org"),
+					required => 1,
+					options => [
+						{value => "unreviewed", label => "Unreviewed"},
+						{value => "accepted", label => "Accepted"},
+						{value => "rejected", label => "Rejected"},
+					],
 				},
 				{
 					field => "enable_manual_export_to_public_platform",
@@ -365,8 +378,9 @@ elsif ($action eq 'process') {
 	elsif ($type eq 'user_delete') {
 
 		if (is_user_in_org_group($org_ref, $User_id, "admins") or $admin or $User{pro_moderator}) {
-			remove_user_by_org_admin(single_param('org_id'), single_param('user_id'));
+			remove_user_by_org_admin(single_param('orgid'), single_param('user_id'));
 			$template_data_ref->{result} = lang("edit_org_result");
+
 		}
 		else {
 			display_error_and_exit($request_ref, $Lang{error_no_permission}{$lc}, 403);
@@ -383,6 +397,20 @@ elsif ($action eq 'process') {
 				added => \@{$email_ref->{added}},
 				invited => \@{$email_ref->{invited}},
 			};
+		}
+	}
+	elsif ($type eq 'change_main_contact') {
+		if (is_user_in_org_group($org_ref, $User_id, "admins") or $admin or $User{pro_moderator}) {
+			my $main_contact = remove_tags_and_quote(single_param('main_contact'));
+			# check that the main contact is a member of the organization
+			if (not is_user_in_org_group($org_ref, $main_contact, 'members')) {
+				$template_data_ref->{result} = lang('error_unknown_member');
+			}
+			else {
+				$org_ref->{main_contact} = $main_contact;
+				store_org($org_ref);
+				$template_data_ref->{result} = lang('main_contact_updated');
+			}
 		}
 	}
 
@@ -437,6 +465,8 @@ foreach my $member_id (sort keys %{$org_ref->{members}}) {
 $template_data_ref->{org_members} = \@org_members;
 $template_data_ref->{user_is_admin} = \%user_is_admin;
 $template_data_ref->{current_user_id} = $User_id;
+
+$template_data_ref->{main_contact} = $org_ref->{main_contact};
 
 process_template('web/pages/org_form/org_form.tt.html', $template_data_ref, \$html)
 	or $html = "<p>template error: " . $tt->error() . "</p>";

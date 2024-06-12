@@ -59,6 +59,10 @@ BEGIN {
 		%server_options
 		$build_cache_repo
 		$rate_limiter_blocking_enabled
+		$crm_api_url
+		$crm_username
+		$crm_db
+		$crm_pwd
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -146,5 +150,11 @@ $redis_url = $ENV{REDIS_URL};
 $build_cache_repo = $ENV{BUILD_CACHE_REPO};
 
 $rate_limiter_blocking_enabled = $ENV{RATE_LIMITER_BLOCKING_ENABLED} // "0";
+
+# Odoo CRM
+$crm_api_url = $ENV{ODOO_CRM_URL} . '//xmlrpc/2/' if $ENV{ODOO_CRM_URL};
+$crm_username = $ENV{ODOO_CRM_USER};
+$crm_db = $ENV{ODOO_CRM_DB};
+$crm_pwd = $ENV{ODOO_CRM_PASSWORD};
 
 1;

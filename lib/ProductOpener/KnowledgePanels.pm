@@ -717,10 +717,13 @@ sub create_environment_card_panel ($product_ref, $target_lc, $target_cc, $option
 	if ($options{product_type} eq "food") {
 		create_ecoscore_panel($product_ref, $target_lc, $target_cc, $options_ref);
 
-		if (    (defined $product_ref->{ecoscore_data})
+		if (
+				(defined $product_ref->{ecoscore_data})
 			and (defined $product_ref->{ecoscore_data}{adjustments})
 			and (defined $product_ref->{ecoscore_data}{adjustments}{threatened_species})
-			and ($product_ref->{ecoscore_data}{adjustments}{threatened_species}{value} != 0))
+			and (defined $product_ref->{ecoscore_data}{adjustments}{threatened_species}{value}
+				&& $product_ref->{ecoscore_data}{adjustments}{threatened_species}{value} != 0)
+			)
 		{
 
 			create_panel_from_json_template("palm_oil", "api/knowledge-panels/environment/palm_oil.tt.json",
@@ -1154,7 +1157,9 @@ sub create_serving_size_panel ($product_ref, $target_lc, $target_cc, $options_re
 	# Generate a panel only for food products that have a serving size
 	if (defined $product_ref->{serving_size}) {
 		my $serving_warning = undef;
-		if (($product_ref->{serving_quantity} <= 5) and ($product_ref->{nutrition_data_per} eq 'serving')) {
+		if (    (defined $product_ref->{serving_quantity} && $product_ref->{serving_quantity} <= 5)
+			and ($product_ref->{nutrition_data_per} eq 'serving'))
+		{
 			$serving_warning = lang_in_other_lc($target_lc, "serving_too_small_for_nutrition_analysis");
 		}
 		my $panel_data_ref = {"serving_warning" => $serving_warning,};
@@ -1334,9 +1339,12 @@ sub create_ingredients_panel ($product_ref, $target_lc, $target_cc, $options_ref
 		ingredients_text => $ingredients_text,
 		ingredients_text_with_allergens => $ingredients_text_with_allergens,
 		ingredients_text_lc => $ingredients_text_lc,
-		ingredients_text_language =>
-			display_taxonomy_tag($target_lc, 'languages', $language_codes{$ingredients_text_lc}),
 	};
+
+	if (defined $ingredients_text_lc) {
+		$panel_data_ref->{ingredients_text_language}
+			= display_taxonomy_tag($target_lc, 'languages', $language_codes{$ingredients_text_lc});
+	}
 
 	create_panel_from_json_template("ingredients", "api/knowledge-panels/health/ingredients/ingredients.tt.json",
 		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
