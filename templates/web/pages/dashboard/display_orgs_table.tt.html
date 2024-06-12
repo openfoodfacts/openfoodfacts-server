@@ -21,7 +21,7 @@
                 <td>[% org.creator %]</td>
                 <td>[% org.org_id %]</td>
                 <td>[% IF org.validated == 0 %]false[% ELSE %]true[% END %]</td>
-                <td>[% org.created_t_readable %]</td>
+                <td>[% display_date_tag(org.created_t) %]</td>
             </tr>
             [% SET count = count + 1 %]
         [% END %]

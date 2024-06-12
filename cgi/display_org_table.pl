@@ -27,25 +27,27 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Data qw/:all/;
+use ProductOpener::Users qw/$User_id %User/;
 use Log::Any qw($log);
 
-use POSIX qw(strftime);
-
-sub format_date {
-    my ($timestamp) = @_;
-    return strftime("%Y-%m-%d %H:%M:%S", localtime($timestamp));
-}
+my %user_is_admin;
 
 my $request_ref = ProductOpener::Display::init_request();
 
 my $orgs_collection = get_orgs_collection();
 my @orgs = $orgs_collection->find->all;
 
-foreach my $org (@orgs) {
-    $org->{created_t_readable} = format_date($org->{created_t});
+my $template_data_ref = {orgs => \@orgs};
+
+if ((not defined $User_id)) {
+	$log->debug("undefined user", {User_id => $User_id}) if $log->is_debug();
+	display_error_and_exit($request_ref, $Lang{error_no_permission}{$lc}, 401);
 }
 
-my $template_data_ref = {lang => \&lang, orgs => \@orgs};
+if ((not $admin) or (not $User{pro_moderator})) {
+	$log->debug("user does not have permission to view organisation list", {User_id => $User_id}) if $log->is_debug();
+	display_error_and_exit($request_ref, $Lang{error_no_permission}{$lc}, 403);
+}
 
 my $html;
 process_template('web/pages/dashboard/display_orgs_table.tt.html', $template_data_ref, \$html) or $html = '';
