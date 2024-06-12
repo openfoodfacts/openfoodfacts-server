@@ -251,12 +251,7 @@ my @tests = (
 			'rate_limiter_blocking' => 0,
 			'rate_limiter_limit' => 100,
 			'rate_limiter_user_requests' => undef,
-			'components' => [
-				'api', 
-				'v3',
-				'product',
-				'https://id.gs1.org/01/03564703999971/10/ABC/21/123456?17=211200'
-			],
+			'components' => ['api', 'v3', 'product', 'https://id.gs1.org/01/03564703999971/10/ABC/21/123456?17=211200'],
 		},
 	},
 );
