@@ -98,6 +98,8 @@ BEGIN {
 		&parse_origins_from_text
 
 		&assign_ciqual_codes
+
+		&get_ingredients_with_property_value
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -7911,6 +7913,31 @@ should be applied in the Nutri-Score 2023 algorithm.
 sub estimate_nutriscore_2023_red_meat_percent_from_ingredients ($product_ref) {
 
 	return estimate_ingredients_matching_function($product_ref, \&is_red_meat);
+}
+
+=head2 sub get_ingredients_with_property_value ($ingredients_ref, $property, $value)
+
+Returns a list of ingredients that have a specific property value.
+
+=cut
+
+sub get_ingredients_with_property_value ($ingredients_ref, $property, $value) {
+
+	my @matching_ingredients = ();
+
+	foreach my $ingredient_ref (@{$ingredients_ref}) {
+
+		my ($property_value, $matching_ingredient_id) = get_inherited_property_and_matching_tag ("ingredients", $ingredient_ref->{id}, $property);
+		if ((defined $property_value) and ($property_value eq $value)) {
+			push @matching_ingredients, $matching_ingredient_id;
+		}
+
+		if (defined $ingredient_ref->{ingredients}) {
+			push @matching_ingredients, get_ingredients_with_property_value($ingredient_ref->{ingredients}, $property, $value);
+		}
+	}
+
+	return @matching_ingredients;
 }
 
 1;
