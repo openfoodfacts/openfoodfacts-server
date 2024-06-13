@@ -54,6 +54,7 @@ use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::Events qw/send_event/;
 use ProductOpener::API qw/get_initialized_response/;
 use ProductOpener::APIProductWrite qw/skip_protected_field/;
+use ProductOpener::Orgs qw/update_import_date/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -270,6 +271,11 @@ if ($type eq 'search_or_add') {
 				$product_ref = init_product($User_id, $Org_id, $code, $country);
 				$product_ref->{interface_version_created} = $interface_version;
 				store_product($User_id, $product_ref, 'product_created');
+
+				# sync crm
+				if (defined $Org_id) {
+					update_import_date($Org_id, $product_ref->{created_t});
+				}
 
 				$type = 'add';
 				$action = 'display';

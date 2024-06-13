@@ -31,6 +31,10 @@ x-backend-conf: &backend-conf
     - INFLUXDB_HOST
     - BUILD_CACHE_REPO
     - RATE_LIMITER_BLOCKING_ENABLED
+    - ODOO_CRM_URL
+    - ODOO_CRM_DB
+    - ODOO_CRM_USER
+    - ODOO_CRM_PASSWORD
   depends_on:
     - memcached
   volumes:
