@@ -548,6 +548,7 @@ sub send_org_rejection_email($org_ref) {
 		send_html_email($user_ref, $subject, $email);
 	}
 	$log->debug("store_org", {path => $path, email => $email, res => $res}) if $log->is_debug();
+	return;
 }
 
 1;
