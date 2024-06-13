@@ -212,7 +212,7 @@ sub store_org ($org_ref) {
 		}
 	}
 
-	elsif ( defined $previous_org_ref
+	elsif (defined $previous_org_ref
 		&& $previous_org_ref->{valid_org} ne 'rejected'
 		&& $org_ref->{valid_org} eq 'rejected')
 	{
