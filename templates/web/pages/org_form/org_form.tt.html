@@ -126,9 +126,8 @@
 					[% END %]								
 
 					[% IF field.field == 'crm_org_id' AND crm_company_url != "" %]
-						
 						<label for="[% field.field %]">[% field.label %]</label>
-						<div id="[% field.field %]">
+						<div class="open-in-crm">
 							<input type="text" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]"/>
 							<a type="button" class="button" id="crm_button" href="[% crm_company_url %]" target="_blank">[% lang("open_in_crm") %]</a> 
 						</div>

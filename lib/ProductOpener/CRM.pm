@@ -62,6 +62,7 @@ BEGIN {
 		&update_last_import_date
 		&update_last_export_date
 		&get_company_url
+		&get_contact_url
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 
@@ -573,6 +574,36 @@ sub update_company_last_action_date($org_id, $time, $field) {
 	return make_odoo_request('res.partner', 'write', [[$org_ref->{crm_org_id}], {$field => $date_string}]);
 }
 
+=head2 get_company_url ($org_ref)
+
+Returns the URL of the company in the CRM
+
+=head3 Arguments
+
+=head4 $org_ref
+
+=head3 Return values
+
+the URL of the company in the CRM or undef if the company is not linked to the CRM
+
+=cut
+
+sub get_company_url($org_ref) {
+	if ($ProductOpener::Config2::crm_url and defined $org_ref->{crm_org_id}) {
+		return $ProductOpener::Config2::crm_url
+			. "/web#id=$org_ref->{crm_org_id}&menu_id=111&action=139&model=res.partner&view_type=form";
+	}
+	return;
+}
+
+sub get_contact_url($user_ref) {
+	if ($ProductOpener::Config2::crm_url and defined $user_ref->{crm_user_id}) {
+		return $ProductOpener::Config2::crm_url
+			. "/web#id=$user_ref->{crm_user_id}&menu_id=111&action=139&model=res.partner&view_type=form";
+	}
+	return;
+}
+
 =head2 make_odoo_request (@params)
 
 Calls Odoo's API with the given parameters
@@ -630,28 +661,6 @@ sub make_odoo_request(@params) {
 	}
 
 	return $result;
-}
-
-=head2 get_company_url ($org_ref)
-
-Returns the URL of the company in the CRM
-
-=head3 Arguments
-
-=head4 $org_ref
-
-=head3 Return values
-
-the URL of the company in the CRM or undef if the company is not linked to the CRM
-
-=cut
-
-sub get_company_url($org_ref) {
-	if ($ProductOpener::Config2::crm_url and $org_ref->{crm_org_id}) {
-		return $ProductOpener::Config2::crm_url
-			. "/web#id=$org_ref->{crm_org_id}&menu_id=111&action=139&model=res.partner&view_type=form";
-	}
-	return;
 }
 
 =head2 init_crm_data()
