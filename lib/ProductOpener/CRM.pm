@@ -553,7 +553,6 @@ sub change_company_main_contact($org_ref, $user_id) {
 	return $req_company;
 }
 
-
 =head2 update_last_import_date ($org_id, $time)
 
 Update the last import date of a company in Odoo, associeted to the given org
@@ -584,7 +583,6 @@ sub _update_company_last_action_date($org_id, $time, $field) {
 		if $log->is_debug();
 	return make_odoo_request('res.partner', 'write', [[$org_ref->{crm_org_id}], {$field => $date_string}]);
 }
-
 
 =head2 update_company_last_contact_login_date ($org_ref, $user_ref)
 

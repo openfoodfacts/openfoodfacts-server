@@ -2757,7 +2757,8 @@ sub import_csv_file ($args_ref) {
 		update_import_date($org_id, $time);
 		if ($args_ref->{source_id} eq 'agena3000') {
 			add_category_to_company($org_id, 'AGENA3000');
-		} elsif ($args_ref->{source_id} eq 'equadis') {
+		}
+		elsif ($args_ref->{source_id} eq 'equadis') {
 			add_category_to_company($org_id, 'EQUADIS');
 		}
 	}
