@@ -702,7 +702,10 @@ sub make_odoo_request(@params) {
 		}
 
 		my $uid;
-		eval {$uid = $xmlrpc->call('authenticate', $db, $username, $pwd, {});};
+		eval {
+			$uid = $xmlrpc->call('authenticate', $db, $username, $pwd, {});
+			die "uid from Odoo auth. is 0, your credentials may be wrong." if $uid eq '0';
+		};
 		if ($@) {
 			$log->error("Odoo", {error => $@, reason => "Could not authenticate to Odoo CRM"}) if $log->is_error();
 			$xmlrpc = undef;
@@ -738,7 +741,8 @@ It is called by lib/startup_apache.pl startup script
 
 =head4 die if CRM data cannot be loaded
 
-# Die if CRM environment variables are set and required data cannot be loaded from cache or fetched from CRM
+Die if CRM environment variables are set but required 
+data can't be fetched from CRM nor be loaded from cache
 
 =cut
 
