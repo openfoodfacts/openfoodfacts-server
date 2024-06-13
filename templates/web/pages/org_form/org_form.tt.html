@@ -129,7 +129,7 @@
 						<label for="[% field.field %]">[% field.label %]</label>
 						<div class="open-in-crm">
 							<input type="text" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]"/>
-							<a type="button" class="button" id="crm_button" href="[% crm_company_url %]" target="_blank">[% lang("open_in_crm") %]</a> 
+							<a type="button" class="button" id="crm_button" href="[% crm_company_url %]" target="_blank" rel="noopener">[% lang("open_in_crm") %]</a> 
 						</div>
 					[% ELSIF field.type == 'text' %]
 						<label for="[% field.field %]">[% field.label %]</label>
