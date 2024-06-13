@@ -555,7 +555,7 @@ sub change_company_main_contact($org_ref, $user_id) {
 
 =head2 update_last_import_date ($org_id, $time)
 
-Update the last import date of a company in Odoo, associeted to the given org
+Update the last import date of a company in Odoo, associated to the given org
 
 =cut
 
@@ -565,7 +565,7 @@ sub update_last_import_date($org_id, $time) {
 
 =head2 update_last_export_date ($org_id, $time)
 
-Update the last export date of a company in Odoo, associeted to the given org
+Update the last export date of a company in Odoo, associated to the given org
 
 =cut
 
