@@ -30,8 +30,6 @@ use ProductOpener::Data qw/:all/;
 use ProductOpener::Users qw/$User_id %User/;
 use Log::Any qw($log);
 
-my %user_is_admin;
-
 my $request_ref = ProductOpener::Display::init_request();
 
 my $orgs_collection = get_orgs_collection();
