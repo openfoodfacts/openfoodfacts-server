@@ -61,6 +61,7 @@ BEGIN {
 		&change_company_main_contact
 		&update_last_import_date
 		&update_last_export_date
+		&get_company_url
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 
@@ -629,6 +630,28 @@ sub make_odoo_request(@params) {
 	}
 
 	return $result;
+}
+
+=head2 get_company_url ($org_ref)
+
+Returns the URL of the company in the CRM
+
+=head3 Arguments
+
+=head4 $org_ref
+
+=head3 Return values
+
+the URL of the company in the CRM or undef if the company is not linked to the CRM
+
+=cut
+
+sub get_company_url($org_ref) {
+	if ($ProductOpener::Config2::crm_url and $org_ref->{crm_org_id}) {
+		return $ProductOpener::Config2::crm_url
+			. "/web#id=$org_ref->{crm_org_id}&menu_id=111&action=139&model=res.partner&view_type=form";
+	}
+	return;
 }
 
 =head2 init_crm_data()
