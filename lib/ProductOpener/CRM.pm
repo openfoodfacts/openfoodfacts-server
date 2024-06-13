@@ -61,7 +61,9 @@ BEGIN {
 		&change_company_main_contact
 		&update_last_import_date
 		&update_last_export_date
+		&update_company_last_contact_login_date
 		&add_category_to_company
+		&update_template_download_date
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 
