@@ -227,6 +227,8 @@ if (    ($sort_by ne 'created_t')
 	$sort_by = 'unique_scans_n';
 }
 
+my $limit = 0 + (single_param('page_size') || $options{default_web_products_page_size});
+
 if (defined $request_ref->{user_id}) {
 	if ($limit > $options{max_products_page_size_for_logged_in_users}) {
 		$limit = $options{max_products_page_size_for_logged_in_users};
