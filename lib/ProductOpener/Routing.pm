@@ -89,10 +89,16 @@ sub load_routes() {
 	my %missions_route = (map {($_ => \&mission_route)} values %{$tag_type_singular{missions}});
 	# all translations for route /product/
 	my %product_route = (map {($_ => \&product_route)} values %{$tag_type_singular{products}});
+	
+	# Renamed text?
+	my %redirect_text_route = ();
+	if ((defined $options{redirect_texts})
+		%redirect_text_route = (map {($_ => \&redirect_text_route)} keys %{$options{redirect_texts}});
+	}
 
-	%routes = (%routes, %missions_route, %product_route);
+	%routes = (%routes, %missions_route, %product_route, %redirect_text_route);
 
-	return 0;
+	return 1;
 }
 
 =head2 analyze_request ( $request_ref )
@@ -133,17 +139,13 @@ sub _analyze_request_impl($request_ref, @components) {
 
 	$log->debug("route", {components => \@components,}) if $log->is_debug();
 
-	if (keys %routes == 0) {
-		load_routes();
-	}
-
 	my $target_lc = $request_ref->{lc};
 
 	if ($#components < 0 || ($#components == 0) && ($components[-1] =~ /^\d+$/)) {
 		index_route($request_ref, @components);
 	}
 
-	# Simple routing with pattern matching #
+	# Simple routing with hash key match #
 	if (exists $routes{$components[0]}) {
 		my $component = shift @components;
 		$log->debug("routing to component", {component => $component}) if $log->is_debug();
@@ -152,18 +154,9 @@ sub _analyze_request_impl($request_ref, @components) {
 	}
 
 	# More complex routing #
-	# Renamed text?
-	elsif ((defined $options{redirect_texts}) and (defined $options{redirect_texts}{$target_lc . "/" . $components[0]}))
-	{
-		$request_ref->{redirect}
-			= $formatted_subdomain . "/" . $options{redirect_texts}{$target_lc . "/" . $components[0]};
-		$log->info("renamed text, redirecting", {textid => $components[0], redirect => $request_ref->{redirect}})
-			if $log->is_info();
-		redirect_to_url($request_ref, 302, $request_ref->{redirect});
-	}
-
+	# 
 	# First check if the request is for a text
-	elsif ( (defined $texts{$components[0]})
+	if ( (defined $texts{$components[0]})
 		and ((defined $texts{$components[0]}{$target_lc}) or (defined $texts{$components[0]}{en}))
 		and (not defined $components[1]))
 	{
@@ -471,6 +464,15 @@ sub product_route($request_ref, @components) {
 		$request_ref->{status_code} = 404;
 		$request_ref->{error_message} = lang("error_invalid_address");
 	}
+	return;
+}
+
+sub redirect_text_route($request_ref, @components) {
+	my $frst_component = $request_ref->{components}[0];
+	$request_ref->{redirect} = $formatted_subdomain . "/" . $options{redirect_texts}{$request_ref->{lc} . "/" . $frst_component};
+	$log->info("renamed text, redirecting", {textid => $frst_component, redirect => $request_ref->{redirect}})
+		if $log->is_info();
+	redirect_to_url($request_ref, 302, $request_ref->{redirect});
 	return;
 }
 

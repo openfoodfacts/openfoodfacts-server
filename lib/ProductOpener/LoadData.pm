@@ -81,6 +81,7 @@ sub load_data() {
 	init_geocode_addresses();
 	init_packaging_taxonomies_regexps();
 	load_scans_data();
+	load_routes();
 
 	if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
 		load_agribalyse_data();
