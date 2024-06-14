@@ -58,7 +58,7 @@ BEGIN {
 		&org_name
 		&update_import_date
 		&update_export_date
-		&update_last_member_login_time
+		&update_last_logged_in_member
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -516,7 +516,7 @@ sub update_export_date($org_id, $time) {
 	return;
 }
 
-sub update_last_member_login_time($user_ref) {
+sub update_last_logged_in_member($user_ref) {
 
 	my $org_id = $user_ref->{org_id} // $user_ref->{requested_org_id};
 	return if not defined $org_id;
@@ -525,7 +525,6 @@ sub update_last_member_login_time($user_ref) {
 	return if not defined $org_ref;
 	is_user_in_org_group($org_ref, $user_ref->{userid}, "members") or return;
 
-	$org_ref->{last_logged_member_t} = $user_ref->{last_login_t};
 	$org_ref->{last_logged_member} = $user_ref->{userid};
 
 	if (defined $org_ref->{crm_org_id}) {

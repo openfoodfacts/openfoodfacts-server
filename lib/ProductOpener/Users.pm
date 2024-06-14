@@ -90,10 +90,11 @@ use ProductOpener::Mail qw/get_html_email_content send_email_to_admin send_email
 use ProductOpener::Lang qw/$lc  %Lang lang/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Orgs
-	qw/add_user_to_org create_org remove_user_from_org retrieve_or_create_org retrieve_org update_last_member_login_time/;
+	qw/add_user_to_org create_org remove_user_from_org retrieve_or_create_org retrieve_org update_last_logged_in_member/;
 use ProductOpener::Products qw/find_and_replace_user_id_in_products/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::Brevo qw/add_contact_to_list/;
+use ProductOpener::CRM qw/update_contact_last_login/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
@@ -1429,7 +1430,8 @@ sub check_session ($user_id, $user_session) {
 sub update_login_time ($user_ref) {
 	$user_ref->{last_login_t} = time();
 	store_user($user_ref);
-	update_last_member_login_time($user_ref);
+	update_contact_last_login($user_ref);
+	update_last_logged_in_member($user_ref);
 	return;
 }
 

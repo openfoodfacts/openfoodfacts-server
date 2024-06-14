@@ -64,6 +64,7 @@ BEGIN {
 		&update_company_last_contact_login_date
 		&add_category_to_company
 		&update_template_download_date
+		&update_contact_last_login
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 
@@ -584,6 +585,15 @@ sub _update_company_last_action_date($org_id, $time, $field) {
 	return make_odoo_request('res.partner', 'write', [[$org_ref->{crm_org_id}], {$field => $date_string}]);
 }
 
+sub update_contact_last_login ($user_ref) {
+	return if not defined $user_ref->{crm_user_id};
+	my $date_string = _time_to_odoo_date_str($user_ref->{last_login_t});
+	$log->debug("update_contact_last_login", {user_id => $user_ref->{userid}, date => $date_string})
+		if $log->is_debug();
+	return make_odoo_request('res.partner', 'write',
+		[[$user_ref->{crm_user_id}], {x_off_user_login_date => $date_string}]);
+}
+
 =head2 update_company_last_contact_login_date ($org_ref, $user_ref)
 
 Update the last contact login date of a company in Odoo
@@ -614,7 +624,6 @@ sub update_company_last_contact_login_date($org_ref, $user_ref) {
 		[
 			[$org_ref->{crm_org_id}],
 			{
-				x_off_last_logged_org_contact_date => $date,
 				x_off_last_logged_org_contact => $user_ref->{crm_user_id}
 			}
 		]
