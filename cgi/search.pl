@@ -228,9 +228,17 @@ if (    ($sort_by ne 'created_t')
 }
 
 my $limit = 0 + (single_param('page_size') || $options{default_web_products_page_size});
-if ($limit > $options{max_products_page_size}) {
+
+if (defined $request_ref->{user_id}) {
+	if ($limit > $options{max_products_page_size_for_logged_in_users}) {
+		$limit = $options{max_products_page_size_for_logged_in_users};
+	}
+}
+elsif ($limit > $options{max_products_page_size}) {
 	$limit = $options{max_products_page_size};
 }
+
+$request_ref->{page_size} = $limit;
 
 my $graph_ref = {graph_title => remove_tags_and_quote(decode utf8 => single_param("graph_title"))};
 my $map_title = remove_tags_and_quote(decode utf8 => single_param("map_title"));
