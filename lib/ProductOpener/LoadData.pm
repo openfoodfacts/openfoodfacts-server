@@ -55,6 +55,7 @@ use ProductOpener::ForestFootprint qw/load_forest_footprint_data/;
 use ProductOpener::Ecoscore qw(load_agribalyse_data load_ecoscore_data);
 use ProductOpener::MainCountries qw(load_scans_data);
 use ProductOpener::NutritionCiqual qw(load_ciqual_data);
+use ProductOpener::Routing qw(load_routes);
 
 =head1 FUNCTIONS
 

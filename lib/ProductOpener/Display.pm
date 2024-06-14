@@ -5338,7 +5338,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 				if (not $api) {
 					$product_ref->{image_front_small_html} = display_image_thumb($product_ref, 'front');
 
-					# For web queries with personal search, we can compute some generated fields we ne<ed
+					# For web queries with personal search, we can compute some generated fields we need
 					# and then remove the source fields that are not needed anymore
 					if ($request_ref->{user_preferences}) {
 						# Compute the product_name and URL in the target language
