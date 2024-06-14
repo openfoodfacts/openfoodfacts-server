@@ -61,7 +61,7 @@ BEGIN {
 		&change_company_main_contact
 		&update_last_import_date
 		&update_last_export_date
-		&update_company_last_contact_login_date
+		&update_company_last_logged_in_contact
 		&add_category_to_company
 		&update_template_download_date
 		&update_contact_last_login
@@ -554,80 +554,45 @@ sub change_company_main_contact($org_ref, $user_id) {
 	return $req_company;
 }
 
-=head2 update_last_import_date ($org_id, $time)
-
-Update the last import date of a company in Odoo, associated to the given org
-
-=cut
-
 sub update_last_import_date($org_id, $time) {
-	return _update_company_last_action_date($org_id, $time, 'x_off_last_import_date');
+	return _update_company_last_action_date(retrieve_org($org_id), _time_to_odoo_date_str($time),
+		'x_off_last_import_date');
 }
-
-=head2 update_last_export_date ($org_id, $time)
-
-Update the last export date of a company in Odoo, associated to the given org
-
-=cut
 
 sub update_last_export_date($org_id, $time) {
-	return _update_company_last_action_date($org_id, $time, 'x_off_last_export_date');
-}
-
-sub _update_company_last_action_date($org_id, $time, $field) {
-	my $org_ref = retrieve_org($org_id);
-	if (not defined $org_ref->{crm_org_id}) {
-		return;
-	}
-	my $date_string = _time_to_odoo_date_str($time);
-	$log->debug("update_last_company_action_date", {org_id => $org_id, date => $date_string, field => $field})
-		if $log->is_debug();
-	return make_odoo_request('res.partner', 'write', [[$org_ref->{crm_org_id}], {$field => $date_string}]);
+	return _update_company_last_action_date(retrieve_org($org_id), _time_to_odoo_date_str($time),
+		'x_off_last_export_date');
 }
 
 sub update_contact_last_login ($user_ref) {
 	return if not defined $user_ref->{crm_user_id};
-	my $date_string = _time_to_odoo_date_str($user_ref->{last_login_t});
-	$log->debug("update_contact_last_login", {user_id => $user_ref->{userid}, date => $date_string})
-		if $log->is_debug();
-	return make_odoo_request('res.partner', 'write',
-		[[$user_ref->{crm_user_id}], {x_off_user_login_date => $date_string}]);
+	return _update_partner_field($user_ref, 'x_off_user_login_date', _time_to_odoo_date_str($user_ref->{last_login_t}));
 }
 
-=head2 update_company_last_contact_login_date ($org_ref, $user_ref)
+sub update_template_download_date ($org_id) {
+	my $org_ref = retrieve_org($org_id);
+	return _update_partner_field($org_ref, 'x_off_last_template_download_date', _time_to_odoo_date_str(time()));
+}
 
-Update the last contact login date of a company in Odoo
+sub update_company_last_logged_in_contact($org_ref, $user_ref) {
+	return _update_partner_field($org_ref, 'x_off_last_logged_org_contact', $user_ref->{crm_user_id});
+}
 
-=head3 Arguments
+sub _update_partner_field($user_or_org, $field, $value) {
+	my $partner_id = $user_or_org->{crm_user_id} // $user_or_org->{crm_org_id};
+	return if not defined $partner_id;
 
-=head4 $org_ref
-
-=head4 $user_ref
-
-=head3 Return values
-
-1 if success, undef otherwise
-
-=cut
-
-sub update_company_last_contact_login_date($org_ref, $user_ref) {
-
-	my $date = _time_to_odoo_date_str($user_ref->{last_login_t});
-
-	$log->debug("update_company_last_contact_login_date",
-		{org_id => $org_ref->{org_id}, user_id => $user_ref->{userid}, date => $date})
+	$log->debug("update_partner_field", {partner_id => $partner_id, field => $field, value => $value})
 		if $log->is_debug();
 
-	return make_odoo_request(
-		'res.partner',
-		'write',
-		[
-			[$org_ref->{crm_org_id}],
-			{
-				x_off_last_logged_org_contact => $user_ref->{crm_user_id}
-			}
-		]
-	);
+	return make_odoo_request('res.partner', 'write', [[$partner_id], {$field => $value}]);
+}
+
+sub _time_to_odoo_date_str($time) {
+	my ($sec, $min, $hour, $mday, $mon, $year) = localtime($time);
+	$year += 1900;
+	$mon += 1;
+	return sprintf("%04d-%02d-%02d", $year, $mon, $mday);
 }
 
 =head2 add_category_to_company ($org_id, $label)
@@ -661,24 +626,6 @@ sub add_category_to_company($org_id, $label) {
 		if $log->is_debug();
 	return make_odoo_request('res.partner', 'write',
 		[[$org_ref->{crm_org_id}], {category_id => [[$commands{link}, $category_id]]}]);
-}
-
-sub update_template_download_date ($org_id) {
-	my $org_ref = retrieve_org($org_id);
-	return if not defined $org_ref->{crm_org_id};
-
-	my $date_string = _time_to_odoo_date_str(time());
-	$log->debug("update_template_download_date", {org_id => $org_id, date => $date_string})
-		if $log->is_debug();
-	return make_odoo_request('res.partner', 'write',
-		[[$org_ref->{crm_org_id}], {x_off_last_template_download_date => $date_string}]);
-}
-
-sub _time_to_odoo_date_str($time) {
-	my ($sec, $min, $hour, $mday, $mon, $year) = localtime($time);
-	$year += 1900;
-	$mon += 1;
-	return sprintf("%04d-%02d-%02d", $year, $mon, $mday);
 }
 
 =head2 make_odoo_request (@params)

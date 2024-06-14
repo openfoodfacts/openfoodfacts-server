@@ -528,7 +528,7 @@ sub update_last_logged_in_member($user_ref) {
 	$org_ref->{last_logged_member} = $user_ref->{userid};
 
 	if (defined $org_ref->{crm_org_id}) {
-		update_company_last_contact_login_date($org_ref, $user_ref);
+		update_company_last_logged_in_contact($org_ref, $user_ref);
 	}
 
 	return;
