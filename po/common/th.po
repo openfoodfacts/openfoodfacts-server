@@ -962,19 +962,19 @@ msgstr "ไม่สามารถอ่านไฟล์รูปภาพไ
 
 msgctxt "image_upload_error_no_barcode_found_in_text"
 msgid "You must enter the characters of the barcode or send a product image when the barcode is visible."
-msgstr ""
+msgstr "กรุณากรอกเลขบาร์โค้ด หรือ ส่งรูปภาพบาร์โค้ด ของผลิตภัณฑ์"
 
 msgctxt "image_full_size"
 msgid "Full size"
-msgstr ""
+msgstr "ภาพขนาดเต็ม"
 
 msgctxt "image_attribution_creativecommons"
 msgid "This file was uploaded to product %s and is licensed under the %s license."
-msgstr ""
+msgstr "ไฟล์นี้ถูกอัปโหลดไปยังหน้าผลิตภัณฑ์ %s และได้รับอนุญาตภายใต้ใบอนุญาต %s โดยปริยาย"
 
 msgctxt "image_attribution_photographer"
 msgid "Attribution: Photo by %s per %s"
-msgstr ""
+msgstr "แสดงที่มา: รูปถ่ายโดย %s ต่อ %s"
 
 msgctxt "image_attribution_photographer_editor"
 msgid "Attribution: Photo by %s with additional modifications by %s per %s"
@@ -982,7 +982,7 @@ msgstr ""
 
 msgctxt "image_original_link_text"
 msgid "(Original Image)"
-msgstr ""
+msgstr "(ภาพต้นฉบับ)"
 
 msgctxt "image_attribution_link_title"
 msgid "Photo detail and attribution information"
@@ -1014,7 +1014,7 @@ msgstr "ส่วนประกอบอาหารไม่ครบถ้ว
 
 msgctxt "one_ingredient"
 msgid "1 ingredient"
-msgstr ""
+msgstr "มีส่วนประกอบ 1 อย่าง"
 
 msgctxt "f_ingredients_with_number"
 msgid "{number} ingredients"
@@ -1393,7 +1393,7 @@ msgstr "ถัดไป"
 
 msgctxt "no_barcode"
 msgid "Product without barcode"
-msgstr "สินค้าโดยไม่มีบาร์โค้ด"
+msgstr "สินค้าที่ไม่มีบาร์โค้ด"
 
 msgctxt "no_nutrition_data"
 msgid "Nutrition facts are not specified on the product."
@@ -1409,11 +1409,11 @@ msgstr "ใส่ข้อมูลโภชนาการสำหรับผ
 
 msgctxt "no_product_for_barcode"
 msgid "No product listed for barcode %s."
-msgstr ""
+msgstr "ยังไม่มีรายการผลิตภัณฑ์สำหรับบาร์โค้ด %s"
 
 msgctxt "no_products"
 msgid "No products."
-msgstr ""
+msgstr "ไม่พบผลิตภัณฑ์"
 
 msgctxt "not_saved"
 msgid "Error while saving, please retry."
@@ -1482,7 +1482,7 @@ msgstr ""
 
 msgctxt "nutrition_data_compare_value"
 msgid "value for 100 g / 100 ml"
-msgstr ""
+msgstr "สำหรับ 100 กรัม / 100 มล."
 
 msgctxt "nutrition_data_comparison_with_categories"
 msgid "Comparison to average values of products in the same category:"
@@ -1522,15 +1522,15 @@ msgstr ""
 
 msgctxt "nutrition_data_per_max"
 msgid "Maximum"
-msgstr ""
+msgstr "ค่ามากที่สุด"
 
 msgctxt "nutrition_data_per_mean"
 msgid "Mean"
-msgstr ""
+msgstr "ค่าเฉลี่ย"
 
 msgctxt "nutrition_data_per_min"
 msgid "Minimum"
-msgstr ""
+msgstr "ค่าน้อยที่สุด"
 
 msgctxt "nutrition_data_per_serving"
 msgid "per serving"
@@ -1755,31 +1755,31 @@ msgstr "เพิ่มสารอาหารอื่นๆ"
 
 msgctxt "product_added"
 msgid "Product added on"
-msgstr "สินค้าเข้ามาเมื่อ"
+msgstr "ผลิตภัณฑ์เข้าในระบบเมื่อ"
 
 msgctxt "product_changes_saved"
 msgid "Changes saved."
-msgstr ""
+msgstr "บันทึกการเปลี่ยนแปลงแล้ว"
 
 msgctxt "product_edit_you_contributed"
 msgid "You just helped to improve the world largest open data database."
-msgstr ""
+msgstr "คุณเพิ่งช่วยปรับปรุงฐานข้อมูลเปิดที่ใหญ่ทีสุดในโลก"
 
 msgctxt "product_edit_thank_you"
 msgid "Thank you so much for joining us in our journey to data transparency!"
-msgstr ""
+msgstr "ขอบคุณส่วนร่วมในการ สร้างความโปร่งใสของข้อมูลผลิตภัณฑ์อาหาร กับเรา!"
 
 msgctxt "product_characteristics"
 msgid "Product characteristics"
-msgstr "ลักษณะสินค้า"
+msgstr "ลักษณะผลิตภัณฑ์"
 
 msgctxt "product_created"
 msgid "Product created"
-msgstr ""
+msgstr "สร้างผลิตภัณฑ์แล้ว"
 
 msgctxt "product_description"
 msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
-msgstr ""
+msgstr "ส่วนประกอบ สารก่อภูมิแพ้ สารเติมแต่ง ข้อมูลโภชนาการ ตราสัญญลักษณ์ แหล่งที่มาของส่วนผสม และข้อมูลเกี่ยวกับผลิตภัณฑ์ %s"
 
 msgctxt "product_image"
 msgid "Product picture"
@@ -1847,11 +1847,11 @@ msgstr "บันทึกรูปภาพแล้ว"
 
 msgctxt "product_js_image_saving"
 msgid "Saving image"
-msgstr ""
+msgstr "กำลังบันทึกรูปภาพ"
 
 msgctxt "product_js_image_upload_error"
 msgid "Error while uploading image"
-msgstr ""
+msgstr "เกิดข้อผิดพลาดขณะอัปโหลดรูปภาพ"
 
 msgctxt "product_js_image_white_magic"
 msgid "Photo on white background: try to remove the background"
@@ -1891,7 +1891,7 @@ msgstr "ภาพที่อัพโหลด"
 
 msgctxt "product_last_edited"
 msgid "Last edit of product page on"
-msgstr ""
+msgstr "แก้ไขหน้าผลิตภัณฑ์ครั้งล่าสุดเมื่อ"
 
 msgctxt "product_name"
 msgid "Product name"
@@ -1919,7 +1919,7 @@ msgstr "ผลิตภัณฑ์"
 
 msgctxt "products_with_nutriments"
 msgid "with nutrition facts"
-msgstr ""
+msgstr "พร้อมข้อมูลโภชนาการ"
 
 msgctxt "products_you_edited"
 msgid "Products you added or edited"
@@ -1935,7 +1935,7 @@ msgstr "ระบุสถานที่ที่คุณซื้อหรื
 
 msgctxt "purchase_places_p"
 msgid "purchase places"
-msgstr ""
+msgstr "สถานที่ซื้อ"
 
 msgctxt "purchase_places_products"
 msgid "Products sold in %s"
@@ -1943,7 +1943,7 @@ msgstr "ผลิตภัณฑ์ที่ขายใน %s"
 
 msgctxt "purchase_places_s"
 msgid "purchase place"
-msgstr ""
+msgstr "สถานที่ซื้อ"
 
 msgctxt "purchase_places_tagsinput"
 msgid "add a place"
@@ -1963,11 +1963,11 @@ msgstr "2 l, 250 g, 1 kg, 25 cl, 6 fl oz, 1 pound (ระบบรองรั�
 
 msgctxt "remember_me"
 msgid "Remember me"
-msgstr "จำข้อมูลไว้"
+msgstr "จำการเข้าระบบของฉันไว้"
 
 msgctxt "remember_purchase_places_and_stores"
 msgid "Remember the place of purchase and store for the next product adds"
-msgstr ""
+msgstr "จำสถานที่ซื้อและเก็บไว้สำหรับการเพิ่มสินค้าครั้งถัดไป"
 
 msgctxt "reset_password"
 msgid "Reset password"
@@ -2011,7 +2011,7 @@ msgstr ""
 
 msgctxt "risk_level_0"
 msgid "To be completed"
-msgstr ""
+msgstr "ที่ต้องทำให้เสร็จ"
 
 msgctxt "risk_level_1"
 msgid "Low risks"
@@ -2755,11 +2755,11 @@ msgstr ""
 
 msgctxt "product_as_sold"
 msgid "As sold"
-msgstr ""
+msgstr "ในรูปแบบที่ขาย"
 
 msgctxt "prepared_product"
 msgid "Prepared"
-msgstr ""
+msgstr "ในรูปแบบที่พร้อมกิน"
 
 msgctxt "unit"
 msgid "Unit"
@@ -2861,7 +2861,7 @@ msgstr ""
 
 msgctxt "infants_age"
 msgid "< 1"
-msgstr ""
+msgstr "< 1"
 
 msgctxt "infants_description"
 msgid "From more than 12 weeks up to and including 11 months of age"
@@ -3001,15 +3001,15 @@ msgstr ""
 
 msgctxt "net_weight"
 msgid "Net weight"
-msgstr ""
+msgstr "น้ำหนักสุทธิ"
 
 msgctxt "drained_weight"
 msgid "Drained weight"
-msgstr ""
+msgstr "น้ำหนักเนื้อ"
 
 msgctxt "volume"
 msgid "Volume"
-msgstr ""
+msgstr "ปริมาตร"
 
 msgctxt "other_information"
 msgid "Other information"
@@ -3025,7 +3025,7 @@ msgstr ""
 
 msgctxt "preparation"
 msgid "Preparation"
-msgstr ""
+msgstr "ขั้นตอนการปรุง"
 
 msgctxt "recipe_idea"
 msgid "Recipe idea"
@@ -5767,7 +5767,7 @@ msgstr ""
 # statistical mean
 msgctxt "mean"
 msgid "Mean"
-msgstr ""
+msgstr "ค่าเฉลี่ย"
 
 msgctxt "recipes_ingredients_statistics"
 msgid "Ingredients statistics for all products"
@@ -6242,7 +6242,7 @@ msgstr ""
 
 msgctxt "nutrient_info_salt_risk"
 msgid "A high consumption of salt (or sodium) can cause raised blood pressure, which can increase the risk of heart disease and stroke."
-msgstr ""
+msgstr "การบริโภคเกลือ (หรือโซเดียม) ในปริมาณมากอาจทำให้ความดันโลหิตสูงขึ้น ซึ่งอาจเพิ่มความเสี่ยงต่อโรคหัวใจและโรคหลอดเลือดสมองได้"
 
 msgctxt "nutrient_info_salt_high_blood_pressure"
 msgid "Many people who have high blood pressure do not know it, as there are often no symptoms."
