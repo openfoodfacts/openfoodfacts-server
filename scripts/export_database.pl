@@ -276,6 +276,7 @@ XML
 
 	my $count = 0;
 	my %ingredients = ();
+	my %exported_products = ();
 
 	foreach my $collection (@collections) {
 
@@ -297,6 +298,12 @@ XML
 			my $csv = '';
 			my $url = "http://world-$lc.$server_domain" . product_url($product_ref);
 			my $code = ($product_ref->{code} // '');
+
+			if ($product_ref->{obsolete}) {
+				if ($exported_products{$code}) {
+					next;
+				}
+			}
 
 			$code eq '' and next;
 			$code < 1 and next;
@@ -338,6 +345,13 @@ XML
 				if ($field_value ne '') {
 					$field_value = sanitize_field_content($field_value, $BAD, "$code barcode -> field $field:");
 				}
+
+				#Obsolete field
+				if ($field eq "obsolete") {
+					$field_value = $product_ref->{obsolete} ? 1 : 0;
+				}
+
+				$field_value //= "";
 
 				# Add field value to CSV file
 				$csv .= $field_value . "\t";
@@ -509,6 +523,7 @@ XML
 
 			print $OUT $csv;
 			print $RDF $rdf;
+			$exported_products{$code} = 1;
 		}
 	}
 
