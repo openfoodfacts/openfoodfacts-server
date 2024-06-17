@@ -33,6 +33,7 @@ use ProductOpener::Lang qw/$lc %Lang lang/;
 use ProductOpener::Orgs qw/:all/;
 use ProductOpener::Tags qw/canonicalize_tag_link/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
+use ProductOpener::CRM qw/get_company_url/;
 
 use CGI qw/:cgi :form escapeHTML charset/;
 use URI::Escape::XS;
@@ -467,6 +468,7 @@ $template_data_ref->{user_is_admin} = \%user_is_admin;
 $template_data_ref->{current_user_id} = $User_id;
 
 $template_data_ref->{main_contact} = $org_ref->{main_contact};
+$template_data_ref->{crm_company_url} = get_company_url($org_ref);
 
 process_template('web/pages/org_form/org_form.tt.html', $template_data_ref, \$html)
 	or $html = "<p>template error: " . $tt->error() . "</p>";
