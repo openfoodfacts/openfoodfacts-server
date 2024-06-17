@@ -555,13 +555,11 @@ sub change_company_main_contact($org_ref, $user_id) {
 }
 
 sub update_last_import_date($org_id, $time) {
-	return _update_company_last_action_date(retrieve_org($org_id), _time_to_odoo_date_str($time),
-		'x_off_last_import_date');
+	return _update_partner_field(retrieve_org($org_id), 'x_off_last_import_date', _time_to_odoo_date_str($time));
 }
 
 sub update_last_export_date($org_id, $time) {
-	return _update_company_last_action_date(retrieve_org($org_id), _time_to_odoo_date_str($time),
-		'x_off_last_export_date');
+	return _update_partner_field(retrieve_org($org_id), 'x_off_last_export_date', _time_to_odoo_date_str($time));
 }
 
 sub update_contact_last_login ($user_ref) {
