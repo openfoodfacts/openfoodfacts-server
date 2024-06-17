@@ -36,6 +36,7 @@ use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/$lc lang/;
 use ProductOpener::Mail qw/:all/;
 use ProductOpener::Producers qw/convert_file get_minion load_csv_or_excel_file normalize_column_name/;
+use ProductOpener::CRM qw/update_last_import_date/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();

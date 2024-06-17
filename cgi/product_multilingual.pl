@@ -37,7 +37,7 @@ use ProductOpener::Lang qw/:all/;
 use ProductOpener::Mail qw/send_email_to_admin/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Food
-	qw/%nutriments_tables %other_nutriments_lists assign_nutriments_values_from_request_parameters compute_nutrition_data_per_100g_and_per_serving get_nutrient_unit/;
+	qw/%nutriments_tables %other_nutriments_lists assign_nutriments_values_from_request_parameters compute_nutrition_data_per_100g_and_per_serving get_nutrient_unit has_category_that_should_have_prepared_nutrition_data/;
 use ProductOpener::Units qw/g_to_unit mmoll_to_unit/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
@@ -54,6 +54,8 @@ use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::Events qw/send_event/;
 use ProductOpener::API qw/get_initialized_response/;
 use ProductOpener::APIProductWrite qw/skip_protected_field/;
+use ProductOpener::ProductsFeatures qw/feature_enabled/;
+use ProductOpener::Orgs qw/update_import_date/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -270,6 +272,11 @@ if ($type eq 'search_or_add') {
 				$product_ref = init_product($User_id, $Org_id, $code, $country);
 				$product_ref->{interface_version_created} = $interface_version;
 				store_product($User_id, $product_ref, 'product_created');
+
+				# sync crm
+				if (defined $Org_id) {
+					update_import_date($Org_id, $product_ref->{created_t});
+				}
 
 				$type = 'add';
 				$action = 'display';
@@ -1040,102 +1047,8 @@ CSS
 
 	#<p class="note">&rarr; $Lang{nutrition_data_table_note}{$lc}</p>
 
-	# Display 2 checkbox to indicate the nutrition values present on the product
-
-	if (not defined $product_ref->{nutrition_data}) {
-		# by default, display the nutrition data entry column for the product as sold
-		$product_ref->{nutrition_data} = "on";
-	}
-	if (not defined $product_ref->{nutrition_data_prepared}) {
-		# by default, do not display the nutrition data entry column for the prepared product
-		$product_ref->{nutrition_data_prepared} = "";
-	}
-
-	my %column_display_style = ();
-	my %nutrition_data_per_display_style = ();
-
-	# We can display 2 nutrition facts columns, one for the product as sold, and one for the prepared product
-	my @nutrition_product_types = ();
-
-	# keep existing field ids for the product as sold, and append _prepared_product for the product after it has been prepared
-	foreach my $product_type ("", "_prepared") {
-
-		my $nutrition_data = "nutrition_data" . $product_type;
-		my $nutrition_data_exists = "nutrition_data" . $product_type . "_exists";
-		my $nutrition_data_instructions = "nutrition_data" . $product_type . "_instructions";
-
-		my $checked = '';
-		$column_display_style{$nutrition_data} = '';
-		my $hidden = '';
-		if (($product_ref->{$nutrition_data} eq 'on')) {
-			$checked = 'checked="checked"';
-		}
-		else {
-			$column_display_style{$nutrition_data} = 'style="display:none"';
-			$hidden = 'style="display:none"';
-		}
-
-		my $checked_per_serving = '';
-		my $checked_per_100g = 'checked="checked"';
-		$nutrition_data_per_display_style{$nutrition_data . "_serving"} = ' style="display:none"';
-		$nutrition_data_per_display_style{$nutrition_data . "_100g"} = '';
-
-		my $nutrition_data_per = "nutrition_data" . $product_type . "_per";
-
-		if (
-			($product_ref->{$nutrition_data_per} eq 'serving')
-			# display by serving by default for the prepared product
-			or (($product_type eq '_prepared') and (not defined $product_ref->{nutrition_data_prepared_per}))
-			)
-		{
-			$checked_per_serving = 'checked="checked"';
-			$checked_per_100g = '';
-			$nutrition_data_per_display_style{$nutrition_data . "_serving"} = '';
-			$nutrition_data_per_display_style{$nutrition_data . "_100g"} = ' style="display:none"';
-		}
-
-		my $nutriment_col_class = "nutriment_col" . $product_type;
-
-		my $product_type_as_sold_or_prepared = "as_sold";
-		if ($product_type eq "_prepared") {
-			$product_type_as_sold_or_prepared = "prepared";
-		}
-
-		push(
-			@nutrition_product_types,
-			{
-				checked => $checked,
-				nutrition_data => $nutrition_data,
-				nutrition_data_exists => $Lang{$nutrition_data_exists}{$lc},
-				nutrition_data_per => $nutrition_data_per,
-				checked_per_100g => $checked_per_100g,
-				checked_per_serving => $checked_per_serving,
-				nutrition_data_instructions => $nutrition_data_instructions,
-				nutrition_data_instructions_check => $Lang{$nutrition_data_instructions},
-				nutrition_data_instructions_lang => $Lang{$nutrition_data_instructions}{$lc},
-				hidden => $hidden,
-				nutriment_col_class => $nutriment_col_class,
-				product_type_as_sold_or_prepared => $product_type_as_sold_or_prepared,
-				checkmate => $product_ref->{$nutrition_data_per},
-			}
-		);
-
-	}
-
-	$template_data_ref_display->{nutrition_product_types} = \@nutrition_product_types;
-
-	$template_data_ref_display->{column_display_style_nutrition_data} = $column_display_style{"nutrition_data"};
-	$template_data_ref_display->{column_display_style_nutrition_data_prepared}
-		= $column_display_style{"nutrition_data_prepared"};
-	$template_data_ref_display->{nutrition_data_100g_style} = $nutrition_data_per_display_style{"nutrition_data_100g"};
-	$template_data_ref_display->{nutrition_data_serving_style}
-		= $nutrition_data_per_display_style{"nutrition_data_serving"};
-	$template_data_ref_display->{nutrition_data_prepared_100g_style}
-		= $nutrition_data_per_display_style{"nutrition_data_prepared_100g"};
-	$template_data_ref_display->{nutrition_data_prepared_serving_style}
-		= $nutrition_data_per_display_style{"nutrition_data_prepared_serving"};
-
-	$template_data_ref_display->{tablestyle} = $tablestyle;
+	# We first go through all nutrients, so that we can see the ones for which we have data
+	# as we will check the nutrition_data checkbox if we have data for at least one nutrient
 
 	defined $product_ref->{nutriments} or $product_ref->{nutriments} = {};
 
@@ -1158,6 +1071,9 @@ CSS
 		}
 	}
 
+	# Go through all nutrients
+
+	my %nutrition_data_exists = ();
 	my @nutriments;
 	foreach my $nutriment (@{$nutriments_tables{$nutriment_table}}, @unknown_nutriments, 'new_0', 'new_1') {
 
@@ -1258,6 +1174,14 @@ CSS
 			if (defined $product_ref->{nutriments}{$nidp . "_value"}) {
 				$valuep = $product_ref->{nutriments}{$nidp . "_value"};
 			}
+		}
+
+		# Record that we have a value for at least one nutrient for the product as sold or prepared
+		if (defined $value) {
+			$nutrition_data_exists{""} = 1;
+		}
+		if (defined $valuep) {
+			$nutrition_data_exists{"_prepared"} = 1;
 		}
 
 		# Add modifiers
@@ -1401,6 +1325,119 @@ CSS
 	}
 
 	$template_data_ref_display->{nutriments} = \@nutriments;
+
+	# Display 2 checkbox to indicate the nutrition values present on the product
+
+	if (not defined $product_ref->{nutrition_data}) {
+		# by default, display the nutrition data entry column for the product as sold
+
+		$product_ref->{nutrition_data} = "on";
+	}
+
+	if (not defined $product_ref->{nutrition_data_prepared}) {
+		# by default, do not display the nutrition data entry column for the prepared product
+		# unless if it is in a category that should have prepared data
+		if (has_category_that_should_have_prepared_nutrition_data($product_ref)) {
+			$product_ref->{nutrition_data_prepared} = "on";
+		}
+		else {
+			$product_ref->{nutrition_data_prepared} = "";
+		}
+	}
+
+	# In all cases, if we have data, we will check the checkbox.
+	if ($nutrition_data_exists{""}) {
+		$product_ref->{nutrition_data} = "on";
+	}
+
+	if ($nutrition_data_exists{"_prepared"}) {
+		$product_ref->{nutrition_data_prepared} = "on";
+	}
+
+	my %column_display_style = ();
+	my %nutrition_data_per_display_style = ();
+
+	# We can display 2 nutrition facts columns, one for the product as sold, and one for the prepared product
+	my @nutrition_product_types = ();
+
+	# keep existing field ids for the product as sold, and append _prepared_product for the product after it has been prepared
+	foreach my $product_type ("", "_prepared") {
+
+		my $nutrition_data = "nutrition_data" . $product_type;
+		my $nutrition_data_exists = "nutrition_data" . $product_type . "_exists";
+		my $nutrition_data_instructions = "nutrition_data" . $product_type . "_instructions";
+
+		my $checked = '';
+		$column_display_style{$nutrition_data} = '';
+		my $hidden = '';
+		if (($product_ref->{$nutrition_data} eq 'on')) {
+			$checked = 'checked="checked"';
+		}
+		else {
+			$column_display_style{$nutrition_data} = 'style="display:none"';
+			$hidden = 'style="display:none"';
+		}
+
+		my $checked_per_serving = '';
+		my $checked_per_100g = 'checked="checked"';
+		$nutrition_data_per_display_style{$nutrition_data . "_serving"} = ' style="display:none"';
+		$nutrition_data_per_display_style{$nutrition_data . "_100g"} = '';
+
+		my $nutrition_data_per = "nutrition_data" . $product_type . "_per";
+
+		if (
+			($product_ref->{$nutrition_data_per} eq 'serving')
+			# display by serving by default for the prepared product
+			or (($product_type eq '_prepared') and (not defined $product_ref->{nutrition_data_prepared_per}))
+			)
+		{
+			$checked_per_serving = 'checked="checked"';
+			$checked_per_100g = '';
+			$nutrition_data_per_display_style{$nutrition_data . "_serving"} = '';
+			$nutrition_data_per_display_style{$nutrition_data . "_100g"} = ' style="display:none"';
+		}
+
+		my $nutriment_col_class = "nutriment_col" . $product_type;
+
+		my $product_type_as_sold_or_prepared = "as_sold";
+		if ($product_type eq "_prepared") {
+			$product_type_as_sold_or_prepared = "prepared";
+		}
+
+		push(
+			@nutrition_product_types,
+			{
+				checked => $checked,
+				nutrition_data => $nutrition_data,
+				nutrition_data_exists => $Lang{$nutrition_data_exists}{$lc},
+				nutrition_data_per => $nutrition_data_per,
+				checked_per_100g => $checked_per_100g,
+				checked_per_serving => $checked_per_serving,
+				nutrition_data_instructions => $nutrition_data_instructions,
+				nutrition_data_instructions_check => $Lang{$nutrition_data_instructions},
+				nutrition_data_instructions_lang => $Lang{$nutrition_data_instructions}{$lc},
+				hidden => $hidden,
+				nutriment_col_class => $nutriment_col_class,
+				product_type_as_sold_or_prepared => $product_type_as_sold_or_prepared,
+				checkmate => $product_ref->{$nutrition_data_per},
+			}
+		);
+	}
+
+	$template_data_ref_display->{nutrition_product_types} = \@nutrition_product_types;
+
+	$template_data_ref_display->{column_display_style_nutrition_data} = $column_display_style{"nutrition_data"};
+	$template_data_ref_display->{column_display_style_nutrition_data_prepared}
+		= $column_display_style{"nutrition_data_prepared"};
+	$template_data_ref_display->{nutrition_data_100g_style} = $nutrition_data_per_display_style{"nutrition_data_100g"};
+	$template_data_ref_display->{nutrition_data_serving_style}
+		= $nutrition_data_per_display_style{"nutrition_data_serving"};
+	$template_data_ref_display->{nutrition_data_prepared_100g_style}
+		= $nutrition_data_per_display_style{"nutrition_data_prepared_100g"};
+	$template_data_ref_display->{nutrition_data_prepared_serving_style}
+		= $nutrition_data_per_display_style{"nutrition_data_prepared_serving"};
+
+	$template_data_ref_display->{tablestyle} = $tablestyle;
 
 	# Compute a list of nutrients that will not be displayed in the nutrition facts table in the product edit form
 	# because they are not set for the product, and are not displayed by default in the user's country.

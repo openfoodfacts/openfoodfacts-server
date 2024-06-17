@@ -221,6 +221,17 @@ my @tests = (
 		["en:gluten",],    # allergens
 		[],    # traces
 	],
+	# allergens that are in the ingredients taxonomy with the allergens:en: property
+	[
+		{
+			lc => "en",
+			ingredients_text => "avocado, mango, cheese, eggs",
+			allergens => "gluten, monkfish",
+			traces => "white lupin, strange ingredient, grey shrimp",
+		},
+		['en:eggs', 'en:gluten', 'en:milk', 'en:fish'],
+		['en:crustaceans', 'en:strange-ingredient', "en:lupin"],
+	],
 
 );
 

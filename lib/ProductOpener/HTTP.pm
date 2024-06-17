@@ -46,6 +46,7 @@ BEGIN {
 	@EXPORT_OK = qw(
 		&get_cors_headers
 		&write_cors_headers
+		&get_http_request_header
 		&set_http_response_header
 		&write_http_response_headers
 	);    #the fucntions which are called outside this file
@@ -194,6 +195,18 @@ sub write_http_response_headers($request_ref) {
 		my $header_value = $http_response_headers_ref->{$header_name};
 		$r->err_headers_out->set($header_name, $header_value);
 	}
+	return;
+}
+
+sub get_http_request_header($header_name) {
+	my $r = Apache2::RequestUtil->request();
+	# we need to check if the request object is defined and has headers
+	# as this function may be called outside of mod_perl (e.g. in unit tests)
+	if ((defined $r) and ($r->can('headers_in'))) {
+		return ($r->headers_in->{$header_name});
+
+	}
+	$log->error("get_http_request_header: request object does not have headers_in method (not in mod_perl?)");
 	return;
 }
 
