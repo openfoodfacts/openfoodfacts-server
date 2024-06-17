@@ -1,4 +1,4 @@
-<html><head><title>ProductOpener::APIProductRead</title>
+<html><head><title>ProductOpener::ProductsFeatures</title>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" >
 <link rel="stylesheet" title="simple.min" type="text/css" href="../simple.min.css" media="all" >
 
@@ -26,12 +26,14 @@
   <li class='indexItem indexItem1'><a href='#NAME'>NAME</a>
   <li class='indexItem indexItem1'><a href='#DESCRIPTION'>DESCRIPTION</a>
   <ul   class='indexList indexList2'>
-    <li class='indexItem indexItem2'><a href='#read_product_api_(_%24request_ref_)'>read_product_api ( $request_ref )</a>
+    <li class='indexItem indexItem2'><a href='#features(%24feature%2C_%24product_ref)'>features($feature, $product_ref)</a>
     <ul   class='indexList indexList3'>
       <li class='indexItem indexItem3'><a href='#Parameters'>Parameters</a>
       <ul   class='indexList indexList4'>
-        <li class='indexItem indexItem4'><a href='#%24request_ref_(input)'>$request_ref (input)</a>
+        <li class='indexItem indexItem4'><a href='#%24feature_(input)'>$feature (input)</a>
+        <li class='indexItem indexItem4'><a href='#%24product_ref_(input%2C_optional)'>$product_ref (input, optional)</a>
       </ul>
+      <li class='indexItem indexItem3'><a href='#Return_value'>Return value</a>
     </ul>
   </ul>
 </ul>
@@ -41,32 +43,59 @@
 name="NAME"
 >NAME</a></h1>
 
-<p>ProductOpener::APIProductRead - implementation of READ API for accessing product data</p>
+<p>ProductOpener::ProductsFeatures - Specify which features (e.g.
+ingredient list,
+Nutri-Score) are available for a specific product</p>
 
 <h1><a class='u' href='#___top' title='click to go to top of document'
 name="DESCRIPTION"
 >DESCRIPTION</a></h1>
 
+<p><code>ProductOpener::ProductsFeatures</code> is used to turn on or off specific features for a product.</p>
+
+<p>Currently,
+product features are determined using the product type (e.g.
+food,
+pet food,
+beauty products).</p>
+
+<p>In the future,
+we may have features that depend on other attributes of the product (for instance its category)</p>
+
 <h2><a class='u' href='#___top' title='click to go to top of document'
-name="read_product_api_(_$request_ref_)"
->read_product_api ( $request_ref )</a></h2>
+name="features($feature,_$product_ref)"
+>features($feature,
+$product_ref)</a></h2>
 
-<p>Process API V3 READ product requests.</p>
-
-<p>TODO: v0 / v1 / v2 READ product requests are still handled by Display::display_product_api () which contains similar code.
-Internally,
-we should be able to upgrade those requests to v3,
-and then customize the response to make it return the v2 expected response.</p>
+<p>Returns whether a specific feature is available for a product.</p>
 
 <h3><a class='u' href='#___top' title='click to go to top of document'
 name="Parameters"
 >Parameters</a></h3>
 
 <h4><a class='u' href='#___top' title='click to go to top of document'
-name="$request_ref_(input)"
->$request_ref (input)</a></h4>
+name="$feature_(input)"
+>$feature (input)</a></h4>
 
-<p>Reference to the request object.</p>
+<p>The feature to check.</p>
+
+<h4><a class='u' href='#___top' title='click to go to top of document'
+name="$product_ref_(input,_optional)"
+>$product_ref (input,
+optional)</a></h4>
+
+<p>Reference to the product hash.</p>
+
+<p>Currently not used,
+may be used later to determine features based on product fields (e.g.
+category).</p>
+
+<h3><a class='u' href='#___top' title='click to go to top of document'
+name="Return_value"
+>Return value</a></h3>
+
+<p>1 if the feature is available,
+undef or 0 otherwise.</p>
 <p class="backlinkbottom"><b><a name="___bottom" href="../index.html" title="All Documents">&lt;&lt;</a></b></p>
 
 <!-- end doc -->
