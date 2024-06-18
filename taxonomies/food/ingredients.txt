@@ -24468,10 +24468,6 @@ fr:blé tendre
 hr:meka pšenica
 it:grano tenero
 
-<en:wheat
-en:rivet wheat
-la:triticum turgidum
-
 ##################################################################################
 #
 #                        Durum wheat
@@ -24758,8 +24754,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Freekeh
 #fr:freekeh cuit
 
 # (Triticum turgidum L. subsp. turgidum),
-<en:wheat
-en:poulard wheat
+<en:rivet wheat
+en:poulard wheat, rivet wheat, cone wheat
 fr:blé poulard
 hr:pularna pšenica
 rare_crop:en:yes
@@ -60198,7 +60194,7 @@ eurocode_2_group_3:en: 8.45.20
 # zh-tw:蠶豆
 wikidata:en:Q131342
 wikipedia:en:https://en.wikipedia.org/wiki/Vicia_faba
-
+rare_crop:en:yes
 
 <en:broad bean
 <en:pulse
