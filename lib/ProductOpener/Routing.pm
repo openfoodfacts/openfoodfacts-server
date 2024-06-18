@@ -128,10 +128,6 @@ sub load_routes() {
 	}
 	push(@$routes, @missions_route, @product_route, @text_route, @lc_product_route, @redirect_text_route,);
 
-	# get all route pattern
-	my @route_patterns = map {$_->[0]} @$routes;
-	# print STDERR "route patterns: @route_patterns\n";
-
 	register_route($routes);
 
 	return 1;
