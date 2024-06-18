@@ -539,6 +539,7 @@ Each array should contain 3 elements:
 	- regex: if present then the pattern is considered as a true regex pattern 
 		   and the default and limited one won't be used
 	}
+
 =cut
 
 sub register_route($routes_to_register) {
@@ -551,7 +552,7 @@ sub register_route($routes_to_register) {
 			if ($pattern !~ /\[.*\]/ and $pattern ne '') {
 				# its a simple route, use a hash key for fast match
 				$routes{$pattern} = $handler;
-				print STDERR "route: $pattern\n";
+				#print STDERR "route: $pattern\n";
 				next;
 			}
 
