@@ -73,6 +73,7 @@ BEGIN {
 		&select_ingredients_lc
 
 		&detect_allergens_from_text
+		&get_allergens_taxonomyid
 
 		&normalize_a_of_b
 		&normalize_enumeration
@@ -2285,7 +2286,9 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 
 		my @ingredients = ();
 
-		# 2 known ingredients separated by "and" ?
+		# 2 known ingredients separated by "and" ? -> split them in 2 ingredients
+		# We do not split if we found only 1 ingredient, as the "and" could be part of the processing
+		# e.g. "cut and fried potatoes" should not be split to "cut" + "fried potatoes"
 		if ($before =~ /$and/i) {
 
 			my $ingredient = $before;
@@ -2318,14 +2321,14 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 
 					$ingredients_recognized += $is_recognized;
 				}
+				# Did we recognize the two ingredients?
 				if ($ingredients_recognized == 2) {
 
 					push @ingredients, ($ingredient1_orig, $ingredient2_orig);
 				}
 				else {
 					$debug_ingredients
-						and $log->debug(
-						"parse_ingredient_text - and - one or both ingredient(s) of >$before< is/are unknown")
+						and $log->debug("parse_ingredient_text - and - at least one ingredient of >$before< is unknown")
 						if $log->is_debug();
 				}
 			}
@@ -2356,8 +2359,14 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 
 		my $i = 0;    # Counter for ingredients, used to know if it is the last ingredient
 
-		foreach my $ingredient (@ingredients) {
+		# Note: we use a while loop instead of a foreach as we may modify the array @ingredients when we split ingredients
+		$debug_ingredients
+			and
+			$log->debug("initial number of ingredients", {count => scalar @ingredients, ingredients => \@ingredients})
+			if $log->is_debug();
+		while (@ingredients) {
 
+			my $ingredient = shift @ingredients;
 			chomp($ingredient);
 
 			$debug_ingredients and $log->debug("analyzing ingredient", {ingredient => $ingredient})
@@ -2437,9 +2446,9 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 					# start with uncomposed labels first, so that we decompose "fair-trade organic" into "fair-trade, organic"
 					foreach my $labelid (reverse @labels) {
 						my $regexp = $labels_regexps{$ingredients_lc}{$labelid};
-						$debug_ingredients and $log->trace("checking labels regexps",
-							{ingredient => $ingredient, labelid => $labelid, regexp => $regexp})
-							if $log->is_trace();
+						#$debug_ingredients and $log->trace("checking labels regexps",
+						#	{ingredient => $ingredient, labelid => $labelid, regexp => $regexp})
+						#	if $log->is_trace();
 						if ((defined $regexp) and ($ingredient =~ /\b($regexp)\b/i)) {
 
 							my $label = $1;
@@ -2816,6 +2825,56 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 							}
 						}
 					}
+
+					if (not $ingredient_recognized) {
+						# 2 ingredients separated by "and" ? -> split them in 2 ingredients
+						# We split if we find at least 1 known ingredient
+						# We might have some false positives as "and" could be part of processing
+						if ($ingredient =~ /$and/i) {
+
+							my $ingredient1 = $`;
+							my $ingredient2 = $';
+
+							$debug_ingredients
+								and $log->debug(
+								"parse_ingredient_text - and - whole ingredient >$ingredient< containing 'and' is still an unknown ingredient"
+								) if $log->is_debug();
+
+							# Create a copy of $ingredients1 and $ingredients2, as we will remove percents to $ingredientX,
+							# but we will push $ingredientX_orig if it is a known ingredient after we remove the processing
+							my $ingredient1_orig = $ingredient1;
+							my $ingredient2_orig = $ingredient2;
+
+							my $ingredients_recognized = 0;
+
+							foreach ($ingredient1, $ingredient2) {
+								# Remove percent
+								$_ =~ s/\s$percent_or_quantity_regexp$//i;
+
+								# Check if we recognize the ingredient
+								(undef, undef, undef, my $is_recognized)
+									= parse_processing_from_ingredient($ingredients_lc, $_);
+
+								$ingredients_recognized += $is_recognized;
+							}
+							# Did we recognize one of the two ingredients?
+							if ($ingredients_recognized >= 1) {
+								$debug_ingredients
+									and $log->debug("parse_ingredient_text - split $ingredient1 - $ingredient2")
+									if $log->is_debug();
+								$ingredient = $ingredient1_orig;
+								$ingredient_id = canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $ingredient);
+								unshift @ingredients, "$ingredient2_orig";
+							}
+							else {
+								$debug_ingredients
+									and $log->debug(
+									"parse_ingredient_text - and - both ingredients of >$before< are unknown")
+									if $log->is_debug();
+
+							}
+						}
+					}
 				}
 			}
 
@@ -2891,7 +2950,7 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 							# e.g. "salt and acid (acid citric)" -> salt + acid
 							# the sub ingredients only apply to the last ingredient
 
-							if ($i == $#ingredients) {
+							if ((scalar @ingredients) == 0) {
 								$ingredient{ingredients} = [];
 								$analyze_ingredients_self->(
 									$analyze_ingredients_self, $ingredient{ingredients},
@@ -6329,6 +6388,9 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	# Traces de lait, d'oeufs et de soja.
 	# Contains: milk and soy.
 
+	# TODO: we should use the allergens:en: property from the ingredients.txt taxonomy instead of relying
+	# on having extensive "non synonyms" (like fish species) in allergens.txt
+
 	foreach my $allergens_type ("allergens", "traces") {
 
 		if (defined $contains_or_may_contain_regexps{$allergens_type}{$ingredients_lc}) {
@@ -7193,12 +7255,68 @@ sub detect_allergens_from_ingredients ($product_ref) {
 		) if $log->is_debug();
 
 		if (defined $allergens) {
-			$product_ref->{"allergens_from_ingredients"} = $allergens . ', ';
+			$product_ref->{"allergens_from_ingredients"} .= $allergens . ', ';
 			$log->debug("detect_allergens_from_ingredients -- found allergen", {allergens => $allergens})
 				if $log->is_debug();
 		}
 	}
 	return;
+}
+
+=head2 get_allergens_taxonomyid ( $ingredients_lc, $ingredient_or_allergen )
+
+In the allergens provided by users, we may get ingredients that are not in the allergens taxonomy,
+but that are in the ingredients taxonomy and have an inherited allergens:en property.
+(e.g. the allergens taxonomy has an en:fish entry, but users may indicate specific fish species)
+
+This function tries to match the ingredient with an allergen in the allergens taxonomy,
+and otherwise return the taxonomy id for the original ingredient.
+
+=head3 Parameters
+
+=head4 $ingredients_lc
+
+The language code of $ingredient_or_allergen.
+
+=head4 $ingredient_or_allergen
+
+The ingredient or allergen to match. Can also be an ingredient id or allergens id prefixed with a language code.
+
+=head3 Return value
+
+The taxonomy id for the allergen, or the original ingredient if no allergen was found.
+
+=cut
+
+sub get_allergens_taxonomyid($ingredients_lc, $ingredient_or_allergen) {
+
+	# Check if $ingredient_or_allergen is in the allergen taxonomy
+	my $allergenid = canonicalize_taxonomy_tag($ingredients_lc, "allergens", $ingredient_or_allergen);
+	if (exists_taxonomy_tag("allergens", $allergenid)) {
+		return $allergenid;
+	}
+	else {
+		# Check if $ingredient_or_allergen is in the ingredients taxonomy and has an inherited allergens:en: property
+		my $ingredient_id = canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $ingredient_or_allergen);
+		my $allergens = get_inherited_property("ingredients", $ingredient_id, "allergens:en");
+		if (defined $allergens) {
+			if ($allergens =~ /,/) {
+				# Currently we support only 1 allergen for a single ingredient
+				$log->warn(
+					"get_allergens_taxonomyid - multiple allergens for ingredient",
+					{ingredient_or_allergen => $ingredient_or_allergen, allergens => $allergens}
+				);
+				$allergens = $`;
+			}
+			$allergenid = canonicalize_taxonomy_tag($ingredients_lc, "allergens", $allergens);
+			if (exists_taxonomy_tag("allergens", $allergenid)) {
+				return $allergenid;
+			}
+		}
+	}
+
+	# If we did not recognize the allergen, return the taxonomy id for the original tag
+	return get_taxonomyid($ingredients_lc, $ingredient_or_allergen);
 }
 
 =head2 detect_allergens_from_text ( $product_ref )
@@ -7371,7 +7489,7 @@ sub detect_allergens_from_text ($product_ref) {
 		$product_ref->{$field . "_tags"} = [];
 		# print STDERR "result for $field : ";
 		foreach my $tag (@{$product_ref->{$field . "_hierarchy"}}) {
-			push @{$product_ref->{$field . "_tags"}}, get_taxonomyid($ingredients_lc, $tag);
+			push @{$product_ref->{$field . "_tags"}}, get_allergens_taxonomyid($ingredients_lc, $tag);
 			# print STDERR " - $tag";
 		}
 		# print STDERR "\n";
