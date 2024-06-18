@@ -1304,6 +1304,7 @@ sub create_ingredients_rare_crops_panel ($product_ref, $target_lc, $target_cc, $
 			"api/knowledge-panels/health/ingredients/ingredients_rare_crops.tt.json",
 			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
 	}
+	return;
 }
 
 =head2 create_ingredients_panel ( $product_ref, $target_lc, $target_cc, $options_ref )
