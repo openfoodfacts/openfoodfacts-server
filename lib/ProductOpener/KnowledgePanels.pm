@@ -1291,15 +1291,18 @@ sub create_physical_activities_panel ($product_ref, $target_lc, $target_cc, $opt
 sub create_ingredients_rare_crops_panel ($product_ref, $target_lc, $target_cc, $options_ref) {
 
 	# Go through the ingredients structure, and check if they have the rare_crop:en:yes property
-	my @rare_crops_ingredients = get_ingredients_with_property_value($product_ref->{ingredients}, "en:rare_crop", "yes");
+	my @rare_crops_ingredients
+		= get_ingredients_with_property_value($product_ref->{ingredients}, "rare_crop:en", "yes");
+
+	$log->debug("rare crops", {rare_crops_ingredients => \@rare_crops_ingredients}) if $log->is_debug();
+
 	if ($#rare_crops_ingredients >= 0) {
 
-	my $panel_data_ref = {
-		ingredients_rare_crops => \@rare_crops_ingredients,
-	};
+		my $panel_data_ref = {ingredients_rare_crops => \@rare_crops_ingredients,};
 
-	create_panel_from_json_template("ingredients", "api/knowledge-panels/health/ingredients/ingredients_rare_crops.tt.json",
-		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
+		create_panel_from_json_template("ingredients_rare_crops",
+			"api/knowledge-panels/health/ingredients/ingredients_rare_crops.tt.json",
+			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
 	}
 }
 

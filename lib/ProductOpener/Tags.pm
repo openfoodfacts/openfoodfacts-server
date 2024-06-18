@@ -67,6 +67,7 @@ BEGIN {
 		&get_property_with_fallbacks
 		&get_inherited_property
 		&get_property_from_tags
+		&get_inherited_property_and_matching_tag
 		&get_inherited_property_from_tags
 		&get_matching_regexp_property_from_tags
 		&get_inherited_property_from_categories_tags

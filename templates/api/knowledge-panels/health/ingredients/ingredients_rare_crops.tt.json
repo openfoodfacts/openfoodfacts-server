@@ -6,10 +6,9 @@
     "expanded": false,
     "evaluation": "good",
     "title_element": {
-        "title":"Good for agricultural biodiversity",
-        "subtitle": "Contains neglected or underutilized crops: ",
-        "icon_url": "[% static_subdomain %]/images/icons/dist/ingredients.svg",
-        "icon_color_from_evaluation": true,
+        "title":"[% lang("knowledge_panels_ingredients_rare_crops_title") %]",
+        "subtitle": "[% lang("knowledge_panels_ingredients_rare_crops_subtitle") %] [% display_taxonomy_tags_list("ingredients", panel.ingredients_rare_crops) %]",
+        "icon_url": "[% static_subdomain %]/images/panels/divinfood/divinfood.png",
     },
     "elements": [
         {
@@ -17,31 +16,12 @@
             "text_element": {
                 "html":
                 `
-                Title: Good for agricultural biodiversity
-                Subtitle: Contains a neglected or underutilized crop : grass pea
-                Did you know?
-                Since 1900, 75% of plant diversity has been lost as farmers around the world have abandoned local varieties for high-yielding varieties adapted to mass industrial processing. As a result, 60 % of human energy intake in the world comes from 3 species: wheat, rice and corn.
-                https://www.fao.org/4/y5609e/y5609e02.htm 
-                What you can do
-                Consuming diverse cereals, legumes, vegetables and fruits contributes to:
-                preserving neglected and underutilized species
-                rural development and support of local farmers and companies
-                preserving of diversified landscapes
-                food security
-                and your health!
-                <b>[% lang("knowledge_panels_facts") %]</b>
-<ul>
-<li>[% lang('nutrient_info_salt_risk') %]</li>
-<li>[% lang('nutrient_info_salt_high_blood_pressure') %]</li>
-<li>[% lang('nutrient_info_salt_high_consumption') %]</li>
-</ul>
+<b>[% lang("knowledge_panels_did_you_know") %]</b>
+<p>[% lang("knowledge_panels_ingredients_rare_crops_did_you_know") %]</p>
+<b>[% lang("knowledge_panels_what_you_can_do") %]</b>
+[% lang("knowledge_panels_ingredients_rare_crops_what_you_can_do") %]
 <br>
-<b>[% lang("knowledge_panels_recommendation") %]</b>[% sep %]:
-<b>[% lang('nutrient_recommendation_salt_title') %]</b>
-<ul>
-<li>[% lang('nutrient_recommendation_salt_cooking_and_table') %]</li>
-<li>[% lang('nutrient_recommendation_salt_limit_salty_snacks') %]</li>
-</ul>
+<p>[% lang("knowledge_panels_ingredients_rare_crops_divinfood") %]</p>
                 `,    
             },
         },

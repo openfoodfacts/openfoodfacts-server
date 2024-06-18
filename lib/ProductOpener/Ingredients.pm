@@ -7927,13 +7927,15 @@ sub get_ingredients_with_property_value ($ingredients_ref, $property, $value) {
 
 	foreach my $ingredient_ref (@{$ingredients_ref}) {
 
-		my ($property_value, $matching_ingredient_id) = get_inherited_property_and_matching_tag ("ingredients", $ingredient_ref->{id}, $property);
+		my ($property_value, $matching_ingredient_id)
+			= get_inherited_property_and_matching_tag("ingredients", $ingredient_ref->{id}, $property);
 		if ((defined $property_value) and ($property_value eq $value)) {
 			push @matching_ingredients, $matching_ingredient_id;
 		}
 
 		if (defined $ingredient_ref->{ingredients}) {
-			push @matching_ingredients, get_ingredients_with_property_value($ingredient_ref->{ingredients}, $property, $value);
+			push @matching_ingredients,
+				get_ingredients_with_property_value($ingredient_ref->{ingredients}, $property, $value);
 		}
 	}
 
