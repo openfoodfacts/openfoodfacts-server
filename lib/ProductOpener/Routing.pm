@@ -69,112 +69,72 @@ my @regex_routes = ();
 
 =head2 load_routes()
 
-Load basic endpoints that are fixed and loaded one time and does not required conditions.
+Load OFF routes
+
+=pod
+
+a route is registered with:
+	- Pattern:
+		- a simple string (e.g. "api") without '/'':
+			when you simply want to route with the first component of the path e.g.
+			 product/1234 -> product_route
+			 No regex is involved. It uses a hash key
+
+		- Or a pattern that capture arguments (e.g. "org/[orgid]"):
+			- The value of the orgid param will be stored in $request_ref->{param}{orgid}
+			- Ending the pattern with a / means that it can be followed by anything
+			! Mind the priority of the routes, the first one that matches will be used
+		
+	- Handler (sub)
+	- (optional) Options : {
+		- name
+		- regex: 1 if the pattern is a true regex, 0 by default. 
+		  When you don't want to use the default limited one
+		}
+
+non regex routes will be matched first, then regex routes
 
 =cut
 
 sub load_routes() {
-	# Simple routes
-	%routes = (
-		#'org' => \&org_route,
-		'api' => \&api_route,
-		'search' => \&search_route,
-		'taxonomy' => \&taxonomy_route,
-		'properties' => \&properties_route,
-		'property' => \&properties_route,
-		'products' => \&products_route,
-	);
-	# all translations for route "missions/" (e.g. missioni/, missões/ ...)
-	my %missions_route = (map {($_ => \&mission_route)} values %{$tag_type_singular{missions}});
-	# all translations for route product/ (e.g. produit/, producto/ ...)
-	my %product_route = (map {($_ => \&product_route)} values %{$tag_type_singular{products}});
-	# all translations for route "en:product/" (e.g. fr:produit/, es:producto/ ...)
-	my %lc_product_route
-		= (map {("$_:$tag_type_singular{products}{$_}" => \&product_route)} keys %{$tag_type_singular{products}});
+	my $routes = [
+		# no priority
+		['api', \&api_route],
+		['search', \&search_route],
+		['taxonomy', \&taxonomy_route],
+		['properties', \&properties_route],
+		['property', \&properties_route],
+		['products', \&products_route],
+		# with priority
+		['', \&index_route],
+		['[page]', \&index_route],
+		['org/[orgid]/', \&org_route],
+	];
 
-	# Renamed text?
-	my %redirect_text_route = ();
+	# all translations for route 'missions' (e.g. missioni, missões ...)
+	my @missions_route = (map {[$_, \&mission_route]} values %{$tag_type_singular{missions}});
+	# all translations for route 'product' (e.g. produit, producto ...)
+	my @product_route = (map {[$_, => \&product_route]} values %{$tag_type_singular{products}});
+	# all translations for route 'en:product' (e.g. fr:produit, es:producto ...)
+	my @lc_product_route
+		= (map {["$_:$tag_type_singular{products}{$_}", \&product_route]} keys %{$tag_type_singular{products}});
+	# text route : index, index-pro, ...
+	my @text_route = (map {[$_, \&text_route]} keys %texts);
+	# Renamed text : en/nova-groups-for-food-processing -> nova, ...
+	my @redirect_text_route = ();
 	if (defined $options{redirect_texts}) {
-		%redirect_text_route = (map {($_ => \&redirect_text_route)} keys %{$options{redirect_texts}});
+		# we use a custome regex to exactly match "en/nova-groups-for-food-processing"
+		@redirect_text_route = (map {["\^$_\$", \&redirect_text_route, {regex => 1}]} keys %{$options{redirect_texts}});
 	}
+	push(@$routes, @missions_route, @product_route, @text_route, @lc_product_route, @redirect_text_route,);
 
-	# text route : index/, index-pro/, ...
-	my %text_route = (map {($_ => \&text_route)} keys %texts);
+	# get all route pattern
+	my @route_patterns = map {$_->[0]} @$routes;
+	# print STDERR "route patterns: @route_patterns\n";
 
-	%routes = (%routes, %missions_route, %product_route, %lc_product_route, %redirect_text_route, %text_route);
-
-	# Regex routes
-
-	@regex_routes = (
-		# index route
-		{name => 'index', pattern => qr{^(?<page>\d+)$}, route => \&index_route}, 
-		{name => 'index', pattern => qr{^$}, route => \&index_route},
-
-		# Add more routes here
-	);
-
-	
-	routes([
-		['org/[orgid]', \&org_route,'org'],
-	]);
+	register_route($routes);
 
 	return 1;
-}
-
-use Data::Dumper;
-
-sub routes($routes_to_register) {
-	# $routes_to_register is an array of routes to register
-	foreach my $route (@$routes_to_register) {
-		register_route($route->[0], $route->[1], $route->[2]);
-	}
-
-}
-
-sub register_route($pattern, $route_handler, $route_name = undef) {
-	# the pattern is a string that users can give to define routes with simple, limited, pattern description
-	# to defines args he wants to capture.
-	# this is done with [arg_name:int|str] syntax
-
-	# 1) check if the pattern is a simple string with no '/'
-	# if so, we cache it directly in the routes hash
-	if($pattern !~ /\//) {
-		$routes{$pattern} = $route_handler;
-		return 1;
-	}
-	# 2) if the pattern contains '/', we cache it in the regex_routes array
-	# [arg_name:int|str] syntax is replaced by a regex pattern
-	# [arg_name:int] will match only digits
-	# [arg_name:str] will match anything
-	# by default, it will match anything
-	my $int_pattern = qr/\[([a-zA-Z_]+):int\]/;
-    my $string_pattern = qr/\[([a-zA-Z_]+):string\]/;
-	my $default_pattern = qr/\[([a-zA-Z_]+)\]/;
-
-	my $regex_pattern = $pattern;
-	$regex_pattern =~ s#$int_pattern#(?<$1>\\d+)#g;
-	$regex_pattern =~ s#$string_pattern#(?<$1>.+)#g;
-	$regex_pattern =~ s#$default_pattern#(?<$1>.+)#g;
-	push @regex_routes, {pattern => qr{^$regex_pattern$}, route => $route_handler, name => $route_name};
-	print STDERR "registering route Dump: " . Dumper(@regex_routes) . "\n";
-
-}
-
-sub match_regex_route ($request_ref, @components) {
-	# because @components can be gradually ate by handlers
-	# we can't rely on the query string sanitized at the begining
-	$log->debug("matching regex route", {components => \@components, routes => \@regex_routes}) if $log->is_debug();
-	my $tmp_query_string = join("/", @components);
-	foreach my $route (@regex_routes) {
-		if($tmp_query_string =~ $route->{pattern}) {
-			$log->debug("regex route matched", {pattern => $route->{pattern}, query_string => $tmp_query_string}) if $log->is_debug();
-			my %matches = %+;
-			$request_ref->{query_args} = \%matches;
-			$route->{route}->($request_ref, @components);
-			return 1;
-		}
-	}
-	return 0;
 }
 
 =head2 analyze_request ( $request_ref )
@@ -213,21 +173,10 @@ sub analyze_request($request_ref) {
 
 sub _analyze_request_impl($request_ref, @components) {
 
-	my @a = keys %routes; 
-	$log->debug("route", {components => \@components, aa =>\@a}) if $log->is_debug();
+	$log->debug("analyze_request", {components => \@components,}) if $log->is_debug();
 
-	my $target_lc = $request_ref->{lc};
-
-	# Simple routing with hash key match #
-	if (exists $routes{$components[0]}) {
-		my $component = shift @components;
-		$log->debug("routing to component", {component => $component}) if $log->is_debug();
-		my $route = $routes{$component};
-		$route->($request_ref, @components);
-	}
-	elsif (match_regex_route($request_ref, @components)) {
+	if (match_route($request_ref, @components)) {
 		# done
-		$log->debug("routing to regex route") if $log->is_debug();
 	}
 	# Known tag type?
 	else {
@@ -242,7 +191,7 @@ sub _analyze_request_impl($request_ref, @components) {
 
 	check_and_update_rate_limits($request_ref);
 
-	$log->debug("request analyzed", {lc => $target_lc, request_ref => $request_ref}) if $log->is_debug();
+	$log->debug("request analyzed", {lc => $request_ref->{lc}, request_ref => $request_ref}) if $log->is_debug();
 
 	return 1;
 }
@@ -250,7 +199,7 @@ sub _analyze_request_impl($request_ref, @components) {
 ##### ROUTES #####
 
 # /
-# /[page number]
+# /[page]
 sub index_route($request_ref, @components) {
 
 	# Root, ex: https://world.openfoodfacts.org/
@@ -258,8 +207,8 @@ sub index_route($request_ref, @components) {
 	$request_ref->{current_link} = '';
 
 	# Root + page number, ex: https://world.openfoodfacts.org/2
-	if (exists $request_ref->{query_args}{page}) {
-		$request_ref->{page} = $request_ref->{query_args}{page};
+	if (exists $request_ref->{param}{page}) {
+		$request_ref->{page} = $request_ref->{param}{page};
 	}
 
 	# Index page on producers platform
@@ -271,17 +220,16 @@ sub index_route($request_ref, @components) {
 		$request_ref->{text} = 'index-pro';
 	}
 
-	return;
+	return 1;
 }
 
-# org:
-# 		/[orgid]
-# 		/[orgid]/*
+# org/[orgid]
+# org/[orgid]/*
 sub org_route($request_ref, @components) {
 
 	$log->debug("request looks like an organization", {components => \@components}) if $log->is_debug();
 	$request_ref->{org} = 1;
-	my $orgid = $request_ref->{query_args}{orgid};
+	my $orgid = $request_ref->{param}{orgid};
 	if (
 		not defined $orgid
 		# not on pro plaform
@@ -295,6 +243,7 @@ sub org_route($request_ref, @components) {
 
 	$request_ref->{orgid} = $orgid;
 	$request_ref->{ownerid} = $orgid;
+	$request_ref->{canon_rel_url} = "/org/$orgid";
 
 	# only admin and pro moderators can change organization freely
 	if ($orgid ne $Org_id) {
@@ -320,18 +269,17 @@ sub org_route($request_ref, @components) {
 
 	shift @components;
 	shift @components;
+	$log->debug("org route", {orgid => $orgid, components => \@components}) if $log->is_debug();
 	# /search
 	# /product/[code]
-	_analyze_request_impl($request_ref, @components);
-	return;
+	return _analyze_request_impl($request_ref, @components);
 }
 
-# api:
-# 		v0/product(s)/[code]
-# 		v0/search
+# api/v0/product(s)/[code]
+# api/v0/search
 sub api_route($request_ref, @components) {
-	my $api = $components[0];    # v0
-	my $api_action = $components[1];    # product
+	my $api = $components[1];    # v0
+	my $api_action = $components[2];    # product
 
 	my $api_version = $api;
 	($api_version) = $api =~ /v(\d+)/;
@@ -353,15 +301,15 @@ sub api_route($request_ref, @components) {
 	}
 
 	# some API actions have an associated object
-	if ($api_action eq "product") {    # v3/product/[code]
-		param("code", $components[2]);
-		$request_ref->{code} = $components[2];
+	if ($api_action eq "product") {    # api/v3/product/[code]
+		param("code", $components[3]);
+		$request_ref->{code} = $components[3];
 	}
-	elsif ($api_action eq "tag") {    # v3/[tag]/[type]/[tagid]
-		param("tagtype", $components[2]);
-		$request_ref->{tagtype} = $components[2];
-		param("tagid", $components[3]);
-		$request_ref->{tagid} = $components[3];
+	elsif ($api_action eq "tag") {    # api/v3/[tag]/[type]/[tagid]
+		param("tagtype", $components[3]);
+		$request_ref->{tagtype} = $components[3];
+		param("tagid", $components[4]);
+		$request_ref->{tagid} = $components[5];
 	}
 
 	# If return format is not xml or jqm or jsonp, default to json
@@ -391,14 +339,14 @@ sub api_route($request_ref, @components) {
 		}
 	) if $log->is_debug();
 
-	return;
+	return 1;
 }
 
 # search :
 #
 sub search_route($request_ref, @components) {
 	$request_ref->{search} = 1;
-	return;
+	return 1;
 }
 
 # taxonomy:
@@ -406,7 +354,7 @@ sub search_route($request_ref, @components) {
 # e.g. taxonomy?type=categories&tags=en:fruits,en:vegetables&fields=name,description,parents,children,vegan:en,inherited:vegetarian:en&lc=en,fr&include_children=1
 sub taxonomy_route($request_ref, @components) {
 	$request_ref->{taxonomy} = 1;
-	return;
+	return 1;
 }
 
 # properties:
@@ -414,74 +362,48 @@ sub taxonomy_route($request_ref, @components) {
 # Folksonomy engine properties endpoint
 sub properties_route($request_ref, @components) {
 	$request_ref->{properties} = 1;
-	return;
+	return 1;
 }
 
-# products:
-#		/[code](+[code])*
+# products/[code](+[code])*
 # e.g. /8024884500403+3263855093192
 sub products_route($request_ref, @components) {
 	param("code", $components[0]);
 	$request_ref->{search} = 1;
-	return;
+	return 1;
 }
 
-# mission:
-#		/[missionid]
+# mission/[missionid]
 sub mission_route($request_ref, @components) {
 	$request_ref->{missionid} = $components[1];
 	$request_ref->{mission} = 1;
-	return;
+	return 1;
 }
 
-# product:
-#		/[code]
-#		/[code]/[titleid]
+# product/[code]
+# product/[code]/[titleid]
 sub product_route($request_ref, @components) {
-	if ($components[0] =~ /^\d/) {
+	$log->debug("request looks like a product", {components => \@components}) if $log->is_debug();
+
+	if ($components[1] =~ /^\d/) {
 		$request_ref->{product} = 1;
-		$request_ref->{code} = $components[0];
-		$request_ref->{titleid} = $components[1] // '';
+		$request_ref->{code} = $components[1];
+		$request_ref->{titleid} = $components[2] // '';
 	}
 	else {
 		$request_ref->{status_code} = 404;
 		$request_ref->{error_message} = lang("error_invalid_address");
 	}
-	return;
+	return 1;
 }
 
-# 'lc:product':
-#		/[code]
-sub lc_product_route($request_ref, @components) {
-	# check the product code looks like a number
-	if ($components[0] =~ /^\d/) {
-		$request_ref->{redirect}
-			= $formatted_subdomain . '/' . $tag_type_singular{products}{$request_ref->{lc}} . '/' . $components[0];
-		redirect_to_url($request_ref, 302, $request_ref->{redirect});
-	}
-	else {
-		$request_ref->{status_code} = 404;
-		$request_ref->{error_message} = lang("error_invalid_address");
-	}
-}
-
-sub redirect_text_route($request_ref, @components) {
-	my $frst_component = $request_ref->{components}[0];
-	$request_ref->{redirect}
-		= $formatted_subdomain . "/" . $options{redirect_texts}{$request_ref->{lc} . "/" . $frst_component};
-	$log->info("renamed text, redirecting", {textid => $frst_component, redirect => $request_ref->{redirect}})
-		if $log->is_info();
-	redirect_to_url($request_ref, 302, $request_ref->{redirect});
-	return;
-}
-
+# index, index-pro, ...
 sub text_route($request_ref, @components) {
-	$log->debug("request looks like a text", {textid => \%texts}) if $log->is_debug();
+	my $text = $components[0];
 
-	my $text = $request_ref->{components}[0];
+	$log->debug("text_route", {textid => \%texts, text => $text}) if $log->is_debug();
 
-
-	if(not defined $texts{$text}{$request_ref->{lc}} || not defined $texts{$text}{'en'}) {
+	if (defined $texts{$text}{$request_ref->{lc}} || defined $texts{$text}{'en'}) {
 		$request_ref->{text} = $text;
 		$request_ref->{canon_rel_url} = "/" . $text;
 	}
@@ -489,15 +411,47 @@ sub text_route($request_ref, @components) {
 		$request_ref->{status_code} = 404;
 		$request_ref->{error_message} = lang("error_invalid_address");
 	}
-	
-	return;
+
+	return 1;
+}
+
+# en/nova-groups-for-food-processing -> nova, ...
+sub redirect_text_route($request_ref, @components) {
+	$log->debug("redirect_text_route", {request_ref => $request_ref}) if $log->is_debug();
+
+	$request_ref->{redirect}
+		= $formatted_subdomain
+		. $request_ref->{canon_rel_url} . '/'
+		. $options{redirect_texts}{$request_ref->{lc} . '/' . $components[1]};
+	$log->info('redirect_text_route', {textid => $components[1], redirect => $request_ref->{redirect}})
+		if $log->is_info();
+	redirect_to_url($request_ref, 302, $request_ref->{redirect});
+	return 1;
+}
+
+# lc:product/[code]
+sub lc_product_route($request_ref, @components) {
+	# check the product code looks like a number
+	if ($components[1] =~ /^\d/) {
+		$request_ref->{redirect}
+			= $formatted_subdomain
+			. $request_ref->{canon_rel_url} . '/'
+			. $tag_type_singular{products}{$request_ref->{lc}} . '/'
+			. $components[1];
+		redirect_to_url($request_ref, 302, $request_ref->{redirect});
+	}
+	else {
+		$request_ref->{status_code} = 404;
+		$request_ref->{error_message} = lang("error_invalid_address");
+	}
+	return 1;
 }
 
 sub handle_other_tag_types_in_route($request_ref, @components) {
+
 	my $target_lc = $request_ref->{lc};
 	$request_ref->{canon_rel_url} = '';
 	my $canon_rel_url_suffix = '';
-
 
 	# We may have a page number
 	if ($#components >= 0) {
@@ -532,11 +486,12 @@ sub handle_other_tag_types_in_route($request_ref, @components) {
 
 	# if we have at least one component, check if the last component is a plural of a tagtype -> list of tags
 	if (defined $components[-1]) {
-		
+
 		my $lc;
 		if (defined $tag_type_from_plural{$target_lc}{$components[-1]}) {
 			$lc = $target_lc;
-		} else {
+		}
+		else {
 			$lc = undef if not defined $tag_type_from_plural{'en'}{$components[-1]};
 		}
 
@@ -544,8 +499,7 @@ sub handle_other_tag_types_in_route($request_ref, @components) {
 			$request_ref->{groupby_tagtype} = $tag_type_from_plural{$lc}{pop @components};
 			# use $target_lc for canon url
 			$canon_rel_url_suffix .= "/" . $tag_type_plural{$request_ref->{groupby_tagtype}}{$target_lc};
-			$log->debug("request looks like a list of tags",
-				{groupby => $request_ref->{groupby_tagtype}, lc => $lc})
+			$log->debug("request looks like a list of tags", {groupby => $request_ref->{groupby_tagtype}, lc => $lc})
 				if $log->is_debug();
 		}
 	}
@@ -566,9 +520,104 @@ sub handle_other_tag_types_in_route($request_ref, @components) {
 	}
 
 	$request_ref->{canon_rel_url} .= $canon_rel_url_suffix;
+	return 1;
 }
 
 ##### END ROUTES #####
+
+=head2 register_route($routes_to_register)
+
+Register routes in the routes hash and regex_routes array.
+
+=head3 Parameters
+
+=head4 $routes_to_register
+
+Array of arrays.
+
+Each array should contain 3 elements:
+- the pattern
+- the route handler (sub)
+- (optional) options {
+	- route_name
+	- regex: if present then the pattern is considered as a true regex pattern 
+		   and the default and limited one won't be used
+	}
+=cut
+
+sub register_route($routes_to_register) {
+
+	foreach my $route (@$routes_to_register) {
+		my ($pattern, $handler, $opt) = @$route;
+
+		if (not exists $opt->{regex}) {
+			# check if we catch an arg
+			if ($pattern !~ /\[.*\]/ and $pattern ne '') {
+				# its a simple route, use a hash key for fast match
+				$routes{$pattern} = $handler;
+				print STDERR "route: $pattern\n";
+				next;
+			}
+
+			# if pattern ends with a /, we remove it
+			# and it means it can be followed by anything
+			my $anypath = '';
+			if ($pattern =~ /\/$/) {
+				$pattern =~ s/\/$//;
+				$anypath = '(/.*)?';
+			}
+
+			$pattern =~ s#\[(\w+)\]#'(?<' . $1 . '>[^/]+)'#ge;
+			$pattern = "\^$pattern$anypath\$";
+		}
+
+		# print STDERR "route: $pattern\n";
+		push @regex_routes, {pattern => qr/$pattern/, handler => $handler, opt => $opt};
+	}
+	return 1;
+}
+
+=head2 match_route($request_ref, @components)
+
+Match a route based on the components of the request.
+
+=cut
+
+sub match_route ($request_ref, @components) {
+	$log->debug("matching route", {components => \@components, query => $request_ref->{query_string}})
+		if $log->is_debug();
+
+	# Simple routing with fast hash key match with first component #
+	# api -> api_route
+	if (exists $routes{$components[0]}) {
+		$log->debug("route matched", {route => $components[0]}) if $log->is_debug();
+		$routes{$components[0]}->($request_ref, @components);
+		return 1;
+	}
+
+	my $tmp_query_string = join("/", @components);
+	# Routing with regex #
+	# @components can be gradually eaten by handlers when processing the route recursively is needed
+	# so we can't rely on the full query string sanitized at the begining.
+	# e.g.
+	# (_analyze_request_impl)
+	# 	-> (match_route) 'org/[orgid]/product/1234'
+	#	 -> org_route -> (_analyze_request_impl)
+	#     -> (match_route) 'product/1234'
+	#      -> product_route
+
+	foreach my $route (@regex_routes) {
+		if ($tmp_query_string =~ $route->{pattern}) {
+			$log->debug("regex route matched", {pattern => $route->{pattern}, query_string => $tmp_query_string})
+				if $log->is_debug();
+			my %matches = %+;
+			$request_ref->{param} = \%matches;
+			$route->{handler}($request_ref, @components);
+			return 1;
+		}
+	}
+	return;
+}
 
 sub sanitize_request($request_ref) {
 	my $target_lc = $request_ref->{lc};
