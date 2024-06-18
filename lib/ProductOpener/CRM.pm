@@ -62,6 +62,7 @@ BEGIN {
 		&update_last_import_date
 		&update_last_export_date
 		&update_company_last_logged_in_contact
+		&update_company_last_import_type
 		&add_category_to_company
 		&update_template_download_date
 		&update_contact_last_login
@@ -626,6 +627,15 @@ sub add_category_to_company($org_id, $label) {
 		if $log->is_debug();
 	return make_odoo_request('res.partner', 'write',
 		[[$org_ref->{crm_org_id}], {category_id => [[$commands{link}, $category_id]]}]);
+}
+
+sub update_company_last_import_type($org_id, $label) {
+	my $org_ref = retrieve_org($org_id);
+	return if not defined $org_ref->{crm_org_id};
+	my $category_id = $crm_data->{category}{$label};
+	add_category_to_company($org_id, $label);
+	return make_odoo_request('res.partner', 'write',
+		[[$org_ref->{crm_org_id}], {x_off_last_import_type => $category_id}]);
 }
 
 =head2 get_company_url ($org_ref)
