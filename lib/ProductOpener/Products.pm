@@ -3732,12 +3732,13 @@ Return 1 if the field value was provided by the owner (producer) and the field i
 
 sub is_owner_field ($product_ref, $field) {
 
-	if (    (defined $product_ref->{owner_fields})
+	if (
+			(defined $product_ref->{owner_fields})
 		and (defined $product_ref->{owner_fields}{$field})
 		# Even if the producer sent a tag field value, it was merged with existing values,
 		# and may have been updated by a contributor (e.g. to add a more precise category)
 		# So we don't consider them to be owner fields
-		and (defined $tags_fields{$field})
+		and (not defined $tags_fields{$field})
 		)
 	{
 		return 1;

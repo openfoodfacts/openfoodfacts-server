@@ -86,6 +86,17 @@
              <a href="#" class="close">&times;</a>
         </div>
 
+        [% IF product.owner %]
+        <div data-alert class="alert-box secondary" id="warning_protected_fields">
+            <p>
+                <span class="material-icons size-20" title="[% edq(lang("information_provided_by_the_manufacturer")) %]">check</span>
+                <span>
+                    [% lang("information_provided_by_the_manufacturer_edit_form") %]
+                </span>
+            <a href="#" class="close">&times;</a>
+        </div>
+        [% END %]
+
         [% IF moderator %]
             <ul id="manage_images_accordion" class="accordion" data-accordion>
                 <li class="accordion-navigation">
