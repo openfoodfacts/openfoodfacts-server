@@ -1893,3 +1893,14 @@ a.panel_title {
   visibility: visible;
 }
 
+div.open-in-crm {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+
+  & > input {
+    width:auto; 
+    flex-grow: 1;
+    margin: 0 1em 0 0;
+  }
+}

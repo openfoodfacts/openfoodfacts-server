@@ -9,13 +9,19 @@
       "en:e120"
    ],
    "allergens" : "",
-   "allergens_from_ingredients" : "en:gluten",
+   "allergens_from_ingredients" : "en:milk, en:nuts, en:eggs, en:gluten",
    "allergens_from_user" : "(en) ",
    "allergens_hierarchy" : [
-      "en:gluten"
+      "en:eggs",
+      "en:gluten",
+      "en:milk",
+      "en:nuts"
    ],
    "allergens_tags" : [
-      "en:gluten"
+      "en:eggs",
+      "en:gluten",
+      "en:milk",
+      "en:nuts"
    ],
    "amino_acids_tags" : [],
    "attribute_groups_en" : [
@@ -90,34 +96,34 @@
                "title" : "Contains: Gluten"
             },
             {
-               "debug" : "11 ingredients (0 unknown)",
-               "grade" : "a",
-               "icon_url" : "https://server_domain/images/attributes/dist/no-milk.svg",
+               "debug" : "en:milk in allergens",
+               "grade" : "e",
+               "icon_url" : "https://server_domain/images/attributes/dist/contains-milk.svg",
                "id" : "allergens_no_milk",
-               "match" : 100,
+               "match" : 0,
                "name" : "Milk",
                "status" : "known",
-               "title" : "Does not contain: Milk"
+               "title" : "Contains: Milk"
             },
             {
-               "debug" : "11 ingredients (0 unknown)",
-               "grade" : "a",
-               "icon_url" : "https://server_domain/images/attributes/dist/no-eggs.svg",
+               "debug" : "en:eggs in allergens",
+               "grade" : "e",
+               "icon_url" : "https://server_domain/images/attributes/dist/contains-eggs.svg",
                "id" : "allergens_no_eggs",
-               "match" : 100,
+               "match" : 0,
                "name" : "Eggs",
                "status" : "known",
-               "title" : "Does not contain: Eggs"
+               "title" : "Contains: Eggs"
             },
             {
-               "debug" : "11 ingredients (0 unknown)",
-               "grade" : "a",
-               "icon_url" : "https://server_domain/images/attributes/dist/no-nuts.svg",
+               "debug" : "en:nuts in allergens",
+               "grade" : "e",
+               "icon_url" : "https://server_domain/images/attributes/dist/contains-nuts.svg",
                "id" : "allergens_no_nuts",
-               "match" : 100,
+               "match" : 0,
                "name" : "Nuts",
                "status" : "known",
-               "title" : "Does not contain: Nuts"
+               "title" : "Contains: Nuts"
             },
             {
                "debug" : "11 ingredients (0 unknown)",
