@@ -73,7 +73,7 @@ use ProductOpener::Lang qw/lang/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Tags qw/canonicalize_tag_link/;
 use ProductOpener::CRM qw/:all/;
-use ProductOpener::Users qw/retrieve_user store_user/;
+use ProductOpener::Users qw/retrieve_user store_user $User_id %User/;
 use ProductOpener::Data qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
@@ -185,8 +185,15 @@ sub store_org ($org_ref) {
 
 			defined add_contact_to_company($contact_id, $company_id) or die "Failed to add contact to company";
 
-			my $opportunity_id
-				= create_onboarding_opportunity("$org_ref->{name} - new", $company_id, $user_ref->{crm_user_id});
+			# admin validates the org used to link the salesperson
+			my $my_admin = retrieve_user($User_id);
+			$log->debug("store_org", {myuser => $my_admin}) if $log->is_debug();
+
+			my $opportunity_id = create_onboarding_opportunity(
+				"$org_ref->{name} - new",
+				$company_id, $user_ref->{crm_user_id},
+				$my_admin->{email}
+			);
 			defined $opportunity_id or die "Failed to create opportunity";
 
 			$org_ref->{crm_org_id} = $company_id;
