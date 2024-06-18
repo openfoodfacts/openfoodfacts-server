@@ -721,6 +721,9 @@ sub display_input_field ($product_ref, $field, $language) {
 	$template_data_ref_field->{display_lc} = $display_lc;
 	$template_data_ref_field->{autocomplete} = $autocomplete;
 	$template_data_ref_field->{fieldtype} = $Lang{$fieldtype}{$lc};
+	$template_data_ref_field->{owner_field} = is_owner_field($product_ref, $field);
+	$template_data_ref_field->{protected_field} = skip_protected_field($product_ref, $field, $User{moderator});
+	$template_data_ref_field->{protected_field} = skip_protected_field($product_ref, $field, 0);
 
 	my $html_field = '';
 
