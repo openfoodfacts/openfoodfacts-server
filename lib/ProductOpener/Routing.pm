@@ -89,7 +89,8 @@ a route is registered with:
 	- (optional) Options : {
 		- name
 		- regex: 1 if the pattern is a true regex, 0 by default. 
-		  When you don't want to use the default limited one
+		  When you don't want to use the default limited one.
+		  Use named captures to store the arguments in $request_ref->{param}
 		}
 
 non regex routes will be matched first, then regex routes
@@ -107,7 +108,7 @@ sub load_routes() {
 		['products', \&products_route],
 		# with priority
 		['', \&index_route],
-		['[page]', \&index_route],
+		['^(?<page>\d+)$', \&index_route, {regex => 1}],
 		['org/[orgid]/', \&org_route],
 	];
 
@@ -176,6 +177,8 @@ sub _analyze_request_impl($request_ref, @components) {
 	}
 	# Known tag type?
 	else {
+		$log->debug("PASSING BY!", {components => \@components})
+			if $log->is_debug();
 		handle_other_tag_types_in_route($request_ref, @components);
 	}
 
