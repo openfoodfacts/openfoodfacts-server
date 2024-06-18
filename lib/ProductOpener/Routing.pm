@@ -115,7 +115,7 @@ sub load_routes() {
 	# all translations for route 'missions' (e.g. missioni, missões ...)
 	my @missions_route = (map {[$_, \&mission_route]} values %{$tag_type_singular{missions}});
 	# all translations for route 'product' (e.g. produit, producto ...)
-	my @product_route = (map {[$_, => \&product_route]} values %{$tag_type_singular{products}});
+	my @product_route = (map {[$_, \&product_route]} values %{$tag_type_singular{products}});
 	# all translations for route 'en:product' (e.g. fr:produit, es:producto ...)
 	my @lc_product_route
 		= (map {["$_:$tag_type_singular{products}{$_}", \&product_route]} keys %{$tag_type_singular{products}});
