@@ -177,8 +177,6 @@ sub _analyze_request_impl($request_ref, @components) {
 	}
 	# Known tag type?
 	else {
-		$log->debug("PASSING BY!", {components => \@components})
-			if $log->is_debug();
 		handle_other_tag_types_in_route($request_ref, @components);
 	}
 
