@@ -576,6 +576,7 @@ sub register_route($routes_to_register) {
 =head2 match_route($request_ref, @components)
 
 Match a route based on the components of the request.
+non regex routes are matched first, then regex routes
 
 =cut
 
