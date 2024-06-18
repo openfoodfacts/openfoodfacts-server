@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.35.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.34.0...v2.35.0) (2024-06-18)
+
+
+### Features
+
+* add a button to open the CRM page of the company / contact ([#10441](https://github.com/openfoodfacts/openfoodfacts-server/issues/10441)) ([687cbbb](https://github.com/openfoodfacts/openfoodfacts-server/commit/687cbbbfa12267c911188b7c16219e25b6ab83d7))
+
+
+### Bug Fixes
+
+* detect_allergens_from_ingredients typo ([#10437](https://github.com/openfoodfacts/openfoodfacts-server/issues/10437)) ([d41d42b](https://github.com/openfoodfacts/openfoodfacts-server/commit/d41d42b79b3ee39dfa23d99c8c5b2c61eabe7cf8))
+* raise search page size limit for logged in users ([#10444](https://github.com/openfoodfacts/openfoodfacts-server/issues/10444)) ([716517a](https://github.com/openfoodfacts/openfoodfacts-server/commit/716517abd4e9ea722ea40a8985c8078cf83b5fa5))
+
 ## [2.34.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.33.1...v2.34.0) (2024-06-12)
 
 
