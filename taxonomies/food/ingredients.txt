@@ -5059,13 +5059,13 @@ tl:Lagnaw
 tr:Peynir altı suyu
 uk:Сироватка, Сиро́ватка моло́чна
 zh:乳清
-vegan:en:no
-vegetarian:en:maybe
 # als:Schotte, Sirte, Sirmende, Chääsmilch
 # ckb:پاڵاوتەی شیر
 # nds-nl:Wui
 # sco:Whey, milk serum
 nova:en:4
+vegan:en:no
+vegetarian:en:maybe
 wikipedia:en:https://en.wikipedia.org/wiki/Whey
 # whey can be made from animal rennet
 
@@ -24748,16 +24748,12 @@ ciqual_food_name:fr:Frik (blé dur immature concassé), cru
 wikidata:en:Q771079
 wikipedia:en:https://en.wikipedia.org/wiki/Freekeh
 
-#processing:en: en:cooked
-#<en:freekeh
-#en:cooked freekeh
-#fr:freekeh cuit
-
 # (Triticum turgidum L. subsp. turgidum),
-<en:rivet wheat
+<en:wheat
 en:poulard wheat, rivet wheat, cone wheat
 fr:blé poulard
 hr:pularna pšenica
+la:Triticum turgidum L. subsp. turgidu
 rare_crop:en:yes
 
 <en:poulard wheat
@@ -24771,7 +24767,6 @@ rare_crop:en:yes
 <en:poulard wheat
 fr:pétanielle noire de Nice
 rare_crop:en:yes
-
 
 
 ##################################################################################
@@ -31965,11 +31960,11 @@ tr:glikoz şurubu, glukoz şurubu, glükoz şurubu
 ciqual_proxy_food_code:en:31016
 ciqual_proxy_food_name:en:Sugar, white
 ciqual_proxy_food_name:fr:Sucre blanc
-wikidata:en:Q14770547
 # ast:Almíbar
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/glucose-syrup
 # 32467 products in 29 languages @2018-09-24
 nova:en:4
+wikidata:en:Q14770547
 wikipedia:en:https://en.wikipedia.org/wiki/Glucose_syrup
 
 <en:glucose syrup
@@ -60018,10 +60013,10 @@ ciqual_food_name:en:lupin grain, raw
 ciqual_food_name:fr:Lupin, graine crue
 # 957 in 12 @2021-10-01
 eurocode_2_group_3:en: 7.10.xx
+rare_crop:en:yes
 #plant:wikidata:en:Q156811
 wikidata:en:Q13582643
 wikipedia:en:https://en.wikipedia.org/wiki/Lupin_bean
-rare_crop:en:yes
 
 <en:lupin
 en:white lupin
@@ -60158,6 +60153,7 @@ ciqual_food_name:fr:Fève, sèche
 #eurocode 8.45.20 is for fresh broad beans
 #eurocode_2_group_3:en: 7.10.20 is for dried broad beans
 eurocode_2_group_3:en: 8.45.20
+rare_crop:en:yes
 # aeb-arab:فول
 # arz:فول
 # azb:آت پاخلاسی
@@ -60194,7 +60190,6 @@ eurocode_2_group_3:en: 8.45.20
 # zh-tw:蠶豆
 wikidata:en:Q131342
 wikipedia:en:https://en.wikipedia.org/wiki/Vicia_faba
-rare_crop:en:yes
 
 <en:broad bean
 <en:pulse
@@ -74442,8 +74437,8 @@ es:rhizopus
 hr:rizopus
 wikipedia:en:https://en.wikipedia.org/wiki/Rhizopus
 
-<en:rhizopus
 <en:ferment
+<en:rhizopus
 en:rhizopus culture
 de:Rhizopuskultur
 
