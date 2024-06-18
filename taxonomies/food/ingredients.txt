@@ -24424,6 +24424,7 @@ la:Triticum monococcum
 nl:eenkoren,eenkoorn,einkorn
 pt:einkorn
 sv:enkornsvete
+rare_crop:en:yes
 wikidata:en:Q161397
 wikipedia:en:https://en.wikipedia.org/wiki/Einkorn_wheat
 
@@ -24467,6 +24468,10 @@ fr:blé tendre
 hr:meka pšenica
 it:grano tenero
 
+<en:wheat
+en:rivet wheat
+la:triticum turgidum
+
 ##################################################################################
 #
 #                        Durum wheat
@@ -24502,7 +24507,7 @@ ja:デュラムコムギ
 ka:მაგარი ხორბალი
 ko:듀럼밀
 ky:катуу буудай
-la:Triticum durum
+la:Triticum durum, Triticum turgidum subsp. durum
 lt:kietasis kvietys
 lv:cietais kviesis
 ms:durum
@@ -24757,6 +24762,20 @@ wikipedia:en:https://en.wikipedia.org/wiki/Freekeh
 en:poulard wheat
 fr:blé poulard
 hr:pularna pšenica
+rare_crop:en:yes
+
+<en:poulard wheat
+fr:pulard d'Auvergne, blé poulard d'Auvergne
+rare_crop:en:yes
+
+<en:poulard wheat
+fr:poulard d'Australie, blé poulard d'Australie
+rare_crop:en:yes
+
+<en:poulard wheat
+fr:pétanielle noire de Nice
+rare_crop:en:yes
+
 
 
 ##################################################################################
@@ -27351,12 +27370,12 @@ el:σιτηρό kamut
 es:kamut, trigo de Jorasán Kamut
 et:kamut
 fi:kamut
-fr:kamut
+fr:blé khorasan, kamut
 ga:camut
 hr:horasanska pšenica
 hu:kamut
 it:kamut
-la:triticum turgidum, triticum turgidum polonicum
+la:Triticum turgidum subsp. turanicum, Triticum turanicum
 lt:kamutas
 mt:kamut
 nl:kamut
@@ -59597,7 +59616,7 @@ da:hvide bønner
 de:weiße Bohnen
 es:Alubias blancas, judia blanca
 fi:valkoinen papu, valkoiset pavut
-fr:haricots blancs, lingots blancs, haricots lingots, cocos blancs, haricots blancs lingots, haricots coco blancs, haricots cocos blancs, haricots coco, haricots cocos, lingots, haricots blancs dits mogette, haricot plat coco
+fr:haricots blancs, haricot blanc, cocos blancs,  haricots coco blancs, haricots cocos blancs, haricots coco, haricots cocos, haricots blancs dits mogette, haricot plat coco
 hr:grah bijeli
 it:Fagioli bianchi
 nb:hvite bønner
@@ -59609,6 +59628,15 @@ sv:vit böna, vita bönor
 eurocode_2_group_3:en: 7.10.30
 eurocode_2_group_4:en: 7.10.30.10
 
+
+<en:white beans
+en:lingot beans, white lingot beans
+fr:lingots blancs, lingo blanc, haricots lingots blancs, haricots blancs lingots, lingot, lingots, lingots blancs
+rare_crop:en:yes
+
+<en:lingot beans
+en:Castelnaudary lingot beans
+fr:Lingots de Castelnaudary
 
 <en:pulse
 fr:haricots coco roses, haricots cocos roses
@@ -60003,6 +60031,7 @@ en:white lupin
 fr:lupin blanc, lupin blanc doux
 hr:bijela lupina
 la:lupinus albus
+rare_crop:en:yes
 
 <en:lupin
 en:blue lupine
@@ -60202,6 +60231,7 @@ nl:tuinbooneiwit
 <en:pulse
 en:meat bean
 fr:haricot viande, haricots viande
+rare_crop:en:yes
 
 <en:pulse
 en:Adzuki bean, azuki bean
@@ -60874,14 +60904,21 @@ sv:gråärtan
 <en:pea
 en:grass pea, grass peas, cicerchia, blue sweet pea, chickling pea
 de:Saat-Platterbse
-es:almorta, chicharo
+es:almorta, Chícharo, chicharo
 fi:peltonätkelmä
-fr:pois carré, gesse
+fr:pois carré, pois carrés, gesse
 hr:trava grašak
 it:cicerchia
 la:lathyrus sativus
 pt:chícharo
 sv:plattvial
+rare_crop:en:yes
+
+<en:grass pea
+en:grass pea from Alvaiázere,  grass peas from Alvaiázere
+es:Chícharo de Alvaiázere, Chícharos de Alvaiázere
+fr:pois carrés d'Alvaiázere
+rare_crop:en:yes
 
 # description:en:The lentil (Lens culinaris or Lens esculenta) is an edible legume. Lentils are consumed in many ways. They can be eaten soaked, germinated, boiled, fried and baked.
 # comment:en:The wikidata entry is more about the plant, so translations can be wrong.
