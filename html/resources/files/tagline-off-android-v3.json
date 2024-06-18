@@ -79,6 +79,10 @@
             }
          }
       },
+      "translate_openfoodfacts":{
+         "start_date":"2024-06-08 00:00:00",
+         "end_date":"2024-06-30 23:59:59",
+         "url":"https://translate.openfoodfacts.org/project/openfoodfacts/en",
       "translations":{
          "default":{
             "url":"https://translate.openfoodfacts.org/project/openfoodfacts/en",
@@ -321,6 +325,7 @@
             }
          }
       }
+          }
    },
    "tagline_feed":{
       "default":{
