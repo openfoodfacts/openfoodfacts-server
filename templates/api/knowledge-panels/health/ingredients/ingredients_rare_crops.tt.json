@@ -1,0 +1,38 @@
+{
+    "level": "info",
+    "topics": [
+        "health"
+    ],
+    "expanded": false,
+    "evaluation": "good",
+    "title_element": {
+        "title":"[% lang("knowledge_panels_ingredients_rare_crops_title") %]",
+        "subtitle": "[% lang("knowledge_panels_ingredients_rare_crops_subtitle") %] [% display_taxonomy_tags_list("ingredients", panel.ingredients_rare_crops) %]",
+        "icon_url": "[% static_subdomain %]/images/panels/divinfood/divinfood.png",
+    },
+    "elements": [
+        {
+            "element_type": "text",
+            "text_element": {
+                "html":
+                `
+<b>[% lang("knowledge_panels_did_you_know") %]</b>
+<p>[% lang("knowledge_panels_ingredients_rare_crops_did_you_know") %]</p>
+<b>[% lang("knowledge_panels_why_it_matters") %]</b>
+<p>[% lang("knowledge_panels_ingredients_rare_crops_why_it_matters") %]</p>
+<b>[% lang("knowledge_panels_what_you_can_do") %]</b>
+<p>[% lang("knowledge_panels_ingredients_rare_crops_what_you_can_do") %]</p>
+<ul>
+    <li>[% lang("knowledge_panels_ingredients_rare_crops_what_you_can_do_list_1") %]</li>
+    <li>[% lang("knowledge_panels_ingredients_rare_crops_what_you_can_do_list_2") %]</li>
+    <li>[% lang("knowledge_panels_ingredients_rare_crops_what_you_can_do_list_3") %]</li>
+    <li>[% lang("knowledge_panels_ingredients_rare_crops_what_you_can_do_list_4") %]</li>
+    <li>[% lang("knowledge_panels_ingredients_rare_crops_what_you_can_do_list_5") %]</li>
+</ul>
+<br>
+<p>[% lang("knowledge_panels_ingredients_rare_crops_divinfood") %]</p>
+                `,    
+            },
+        },
+    ]
+}
