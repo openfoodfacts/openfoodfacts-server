@@ -1494,13 +1494,14 @@ sub import_csv_file ($args_ref) {
 		my @images_ids;
 
 		# Determine the org_id for the product
+		my $gln = $imported_product_ref->{"sources_fields:org-gs1:gln"};
 
 		$log->debug(
 			"org for product - start",
 			{
 				org_name => $imported_product_ref->{org_name},
 				org_id => $org_id,
-				gln => $imported_product_ref->{"sources_fields:org-gs1:gln"}
+				gln => $gln
 			}
 		) if $log->is_debug();
 
@@ -1522,12 +1523,11 @@ sub import_csv_file ($args_ref) {
 				if $log->is_debug();
 		}
 		# if the GLN corresponds to a GLN stored inside organization profiles (loaded in $glns_ref), use it
-		elsif ( (defined $imported_product_ref->{"sources_fields:org-gs1:gln"})
-			and ($glns_ref->{$imported_product_ref->{"sources_fields:org-gs1:gln"}}))
+		elsif ( (defined $gln)
+			and ($glns_ref->{$gln}))
 		{
-			$org_id = $glns_ref->{$imported_product_ref->{"sources_fields:org-gs1:gln"}};
-			$log->debug("org_id from gln",
-				{org_id => $org_id, gln => $imported_product_ref->{"sources_fields:org-gs1:gln"}})
+			$org_id = $glns_ref->{$gln};
+			$log->debug("org_id from gln", {org_id => $org_id, gln => $gln})
 				if $log->is_debug();
 		}
 		# Otherwise, if the CSV includes an org_name (e.g. from GS1 partyName field)
@@ -1544,11 +1544,11 @@ sub import_csv_file ($args_ref) {
 				$log->debug(
 					"skipping product with no org_id specified",
 					{
-						gln => $imported_product_ref->{"sources_fields:org-gs1:gln"},
+						gln => $gln,
 						imported_product_ref => $imported_product_ref
 					}
 				) if $log->is_debug();
-				$stats_ref->{orgs_with_gln_but_no_party_name}{$imported_product_ref->{"sources_fields:org-gs1:gln"}}++;
+				$stats_ref->{orgs_with_gln_but_no_party_name}{$gln}++;
 				next;
 			}
 		}
@@ -1558,11 +1558,11 @@ sub import_csv_file ($args_ref) {
 			{
 				org_name => $imported_product_ref->{org_name},
 				org_id => $org_id,
-				gln => $imported_product_ref->{"sources_fields:org-gs1:gln"}
+				gln => $gln
 			}
 		) if $log->is_debug();
 
-		my $gln = $imported_product_ref->{"sources_fields:org-gs1:gln"};
+		# Keep track of GLNs used by each org
 		if ((defined $gln) and (defined $org_id)) {
 			if (not defined $stats_ref->{orgs_glns}{$org_id}) {
 				$stats_ref->{orgs_glns}{$org_id} = $gln;
@@ -1696,17 +1696,17 @@ sub import_csv_file ($args_ref) {
 					$org_ref->{"activate_automated_daily_export_to_public_platform"} = "on";
 				}
 
-				if (defined $imported_product_ref->{"sources_fields:org-gs1:gln"}) {
+				if (defined $gln) {
 					$org_ref->{sources_field} = {
 						"org-gs1" => {
-							gln => $imported_product_ref->{"sources_fields:org-gs1:gln"}
+							gln => $gln
 						}
 					};
 					if (defined $imported_product_ref->{"sources_fields:org-gs1:partyName"}) {
 						$org_ref->{sources_field}{"org-gs1"}{"partyName"}
 							= $imported_product_ref->{"sources_fields:org-gs1:partyName"};
 					}
-					set_org_gs1_gln($org_ref, $imported_product_ref->{"sources_fields:org-gs1:gln"});
+					set_org_gs1_gln($org_ref, $gln);
 					$glns_ref = retrieve("$BASE_DIRS{ORGS}/orgs_glns.sto");
 				}
 
