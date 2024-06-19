@@ -1313,6 +1313,12 @@ CSS
 
 		}
 
+		# Determine which field has a value from the manufacturer and if it is protected
+		$nutriment_ref->{owner_field} = is_owner_field($product_ref, $nid);
+		$nutriment_ref->{protected_field} = skip_protected_field($product_ref, $nid, $User{moderator});
+		$nutriment_ref->{protected_field_prepared}
+			= skip_protected_field($product_ref, $nid . "_prepared", $User{moderator});
+
 		$nutriment_ref->{shown} = $shown;
 		$nutriment_ref->{enid} = $enid;
 		$nutriment_ref->{enidp} = $enidp;
