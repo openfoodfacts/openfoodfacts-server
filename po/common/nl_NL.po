@@ -1732,7 +1732,7 @@ msgstr "Pagina %d van %d."
 
 msgctxt "pages"
 msgid "Pages:"
-msgstr "Pagina's"
+msgstr "Pagina's:"
 
 msgctxt "password"
 msgid "Password"
@@ -1744,7 +1744,7 @@ msgstr "Nieuw wachtwoord"
 
 msgctxt "password_confirm"
 msgid "Confirm password"
-msgstr "Bevestig wachtwoord"
+msgstr "Wachtwoord bevestigen"
 
 msgctxt "periods_after_opening"
 msgid "Period of time after opening"
@@ -1864,15 +1864,15 @@ msgstr "Foto van het product met barcode"
 
 msgctxt "product_js_current_image"
 msgid "Current image:"
-msgstr "Huidige foto:"
+msgstr "Huidige afbeelding:"
 
 msgctxt "product_js_deleting_images"
 msgid "Deleting images"
-msgstr "Foto's aan het verwijderen"
+msgstr "Afbeeldingen verwijderen"
 
 msgctxt "product_js_extract_ingredients"
 msgid "Extract the ingredients from the picture"
-msgstr "Detecteer de ingrediënten op de foto"
+msgstr "Haal de ingrediënten uit de afbeelding"
 
 msgctxt "product_js_extracted_ingredients_nok"
 msgid "Ingredients text could not be extracted. Try with a sharper image, with higher resolution or a better framing of the text."
@@ -1892,15 +1892,15 @@ msgstr "Kleurbalans corrigeren"
 
 msgctxt "product_js_image_open_full_size_image"
 msgid "Open the picture in original size in a new windows"
-msgstr "De foto in het groot in een nieuw venster bekijken"
+msgstr "Open de afbeelding in het origineel formaat in een nieuw venster"
 
 msgctxt "product_js_image_received"
 msgid "Image received"
-msgstr "Foto ontvangen"
+msgstr "Afbeelding ontvangen"
 
 msgctxt "product_js_image_rotate_and_crop"
 msgid "Rotate the image if necessary, then click and drag to select the interesting zone:"
-msgstr "Draai indien nodig de foto, klik en sleep om de beoogde zone te selecteren:"
+msgstr "Draai de afbeelding indien nodig, klik en sleep om de interessante zone te selecteren:"
 
 msgctxt "product_js_image_rotate_left"
 msgid "Rotate left"
@@ -1924,7 +1924,7 @@ msgstr "De foto wordt opgeslagen"
 
 msgctxt "product_js_image_upload_error"
 msgid "Error while uploading image"
-msgstr "Fout tijdens het uploaden van de foto"
+msgstr "Fout tijdens het uploaden van de afbeelding"
 
 msgctxt "product_js_image_white_magic"
 msgid "Photo on white background: try to remove the background"
@@ -1932,27 +1932,27 @@ msgstr "Foto op een witte achtergrond: probeer de achtergrond te verwijderen"
 
 msgctxt "product_js_images_delete_error"
 msgid "Errors while deleting images"
-msgstr "Fouten tijdens verwijderen foto's"
+msgstr "Fouten tijdens het verwijderen van afbeeldingen"
 
 msgctxt "product_js_images_deleted"
 msgid "Images deleted"
-msgstr "Foto's verwijderd"
+msgstr "Afbeeldingen verwijderd"
 
 msgctxt "product_js_images_move_error"
 msgid "Errors while moving images"
-msgstr "Fouten tijdens het verplaatsen foto's"
+msgstr "Fouten tijdens het verplaatsen van afbeeldingen"
 
 msgctxt "product_js_images_moved"
 msgid "Images moved"
-msgstr "Foto's verplaatst"
+msgstr "Afbeeldingen verplaatst"
 
 msgctxt "product_js_moving_images"
 msgid "Moving images"
-msgstr "Foto's aan het verplaatsen"
+msgstr "Afbeeldingen verplaatsen"
 
 msgctxt "product_js_upload_image"
 msgid "Add a picture"
-msgstr "Voeg een foto toe"
+msgstr "Voeg een afbeelding toe"
 
 msgctxt "product_js_upload_image_note"
 msgid "→ With Chrome, Firefox and Safari, you can select multiple pictures (product, ingredients, nutrition facts etc.) by clicking them while holding the Ctrl key pressed to add them all in one shot."
@@ -1964,7 +1964,7 @@ msgstr "Afbeelding uploaden"
 
 msgctxt "product_last_edited"
 msgid "Last edit of product page on"
-msgstr "Laatste wijziging productpagina op"
+msgstr "Laatste bewerking van de productpagina op"
 
 msgctxt "product_name"
 msgid "Product name"
@@ -2000,7 +2000,7 @@ msgstr "De producten die je toegevoegd of aangepast hebt"
 
 msgctxt "purchase_places"
 msgid "City, state and country where purchased"
-msgstr "Stad en land van aankoop"
+msgstr "Stad, staat en land van aankoop"
 
 msgctxt "purchase_places_note"
 msgid "Indicate where you bought or saw the product (at least the country)"
@@ -2068,7 +2068,7 @@ msgstr "Hallo <NAME>,\n\n"
 
 msgctxt "reset_password_email_subject"
 msgid "Reset of your password on <<site_name>>"
-msgstr "Wijziging van je wachtwoord op <<site_name>>"
+msgstr "Reset uw wachtwoord op <<site_name>>"
 
 msgctxt "reset_password_reset"
 msgid "Your password has been changed. You can now log-in with this password."
@@ -2088,7 +2088,7 @@ msgstr "Indien je je paswoord vergeten bent, vul dan je gebruikersnaam of e-mail
 
 msgctxt "risk_level"
 msgid "Risk"
-msgstr "Risico's"
+msgstr "Risico"
 
 msgctxt "risk_level_0"
 msgid "To be completed"
@@ -2116,11 +2116,11 @@ msgstr "Opslaan"
 
 msgctxt "saved"
 msgid "Saved."
-msgstr "De gegevens werden opgeslagen."
+msgstr "Opgeslagen."
 
 msgctxt "saving"
 msgid "Saving."
-msgstr "De gegevens worden opgeslagen."
+msgstr "Opslaan."
 
 msgctxt "search"
 msgid "Search"
@@ -2140,7 +2140,7 @@ msgstr "bevat"
 
 msgctxt "search_criteria"
 msgid "Select products with specific brands, categories, labels, origins of ingredients, manufacturing places etc."
-msgstr "Kies producten met specifieke merken, categorieën, labels, de herkomst van de ingrediënten, productie plaatsen etc."
+msgstr "Selecteer producten met specifieke merken, categorieën, labels, oorsprong van ingrediënten, productielocaties, enz."
 
 msgctxt "search_description_opensearch"
 msgid "Product search"
@@ -2184,11 +2184,11 @@ msgstr "Wijzig de zoekcriteria"
 
 msgctxt "search_generate_graph"
 msgid "Generate graph"
-msgstr "De grafiek maken"
+msgstr "Grafiek genereren"
 
 msgctxt "search_generate_map"
 msgid "Generate the map"
-msgstr "De kaart maken"
+msgstr "Genereer de kaart"
 
 msgctxt "search_graph"
 msgid "Graph"
@@ -2204,7 +2204,7 @@ msgstr "<p>→ leer meer over <<site_name>> grafieken: <a href=\"/graphs-in-3-cl
 
 msgctxt "search_graph_choice"
 msgid "Results on a graph"
-msgstr "Resultatengrafiek"
+msgstr "Resultaten op een grafiek"
 
 msgctxt "search_graph_instructions"
 msgid "Select what you want to graph on the horizontal axis to obtain a histogram, or select two axis to\n"
@@ -2305,7 +2305,7 @@ msgstr "fair-trade"
 
 msgctxt "search_series_nutrition_grades"
 msgid "Use nutrition grades colors"
-msgstr "Gebruik voedingsgraadkleuren"
+msgstr "Gebruik kleuren van voedingskwaliteit"
 
 msgctxt "search_series_organic"
 msgid "Organic"
@@ -2313,7 +2313,7 @@ msgstr "Bio"
 
 msgctxt "search_series_organic_label"
 msgid "organic"
-msgstr "bio"
+msgstr "biologisch"
 
 msgctxt "search_series_with_sweeteners"
 msgid "With sweeteners"
@@ -2381,7 +2381,7 @@ msgstr "Taal"
 
 msgctxt "send_image"
 msgid "Send a picture..."
-msgstr "Foto uploaden..."
+msgstr "Afbeelding verzenden..."
 
 msgctxt "send_image_error"
 msgid "Upload error"
@@ -2389,7 +2389,7 @@ msgstr "Fout bij het uploaden"
 
 msgctxt "sending_image"
 msgid "Sending image"
-msgstr "Foto wordt geupload"
+msgstr "Afbeelding verzenden"
 
 msgctxt "serving_size"
 msgid "Serving size"
@@ -2534,7 +2534,7 @@ msgstr "Melk, Gluten, Noten"
 
 msgctxt "traces_note"
 msgid "Indicate ingredients from mentions like \"May contain traces of\", \"Made in a factory that also uses\" etc."
-msgstr "Geef de ingrediënten met de vermelding \"Kan sporen bevatten van\", \"Geproduceerd in een fabriek waar ook X verwerkt wordt"
+msgstr "Geef de ingrediënten met de vermelding \"Kan sporen bevatten van\", \"Geproduceerd in een fabriek waar ook X verwerkt wordt\"."
 
 msgctxt "traces_p"
 msgid "traces"
@@ -2664,7 +2664,7 @@ msgstr "Afbeelding deselecteren."
 
 msgctxt "product_js_unselected_image_ok"
 msgid "Unselected image."
-msgstr "Niet geselecteerde afbeelding."
+msgstr "Niet-geselecteerde afbeelding."
 
 msgctxt "product_js_unselected_image_nok"
 msgid "Error while unselecting image."
@@ -2688,7 +2688,7 @@ msgstr "Waarschuwing: de voedingswaarden zijn niet opgegeven. Ze zijn geschat ui
 
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
-msgstr "Waarschuwing: de hoeveelheid vezels is niet gespecificeerd, hun mogelijke positieve bijdrage aan de klasse kan niet in aanmerking worden genomen."
+msgstr "Waarschuwing: de hoeveelheid vezels is niet gespecificeerd, er kon geen rekening worden gehouden met hun mogelijke positieve bijdrage aan de score."
 
 msgctxt "nutrition_grade_fr_fiber_and_fruits_vegetables_nuts_warning"
 msgid "Warning: the amounts of fiber and of fruits, vegetables and nuts are not specified, their possible positive contribution to the grade could not be taken into account."
@@ -2696,7 +2696,7 @@ msgstr "Waarschuwing: de hoeveelheid vezels, fruit, groenten en noten is niet ge
 
 msgctxt "nutrition_grade_fr_no_fruits_vegetables_nuts_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified, their possible positive contribution to the grade could not be taken into account."
-msgstr "Waarschuwing: de hoeveelheid fruit, groenten en noten is niet gespecificeerd. De mogelijke positieve bijdrage aan het sorteren kon niet worden overwogen."
+msgstr "Waarschuwing: de hoeveelheid fruit, groenten en noten is niet gespecificeerd, hun mogelijke positieve bijdrage aan de beoordeling kon niet in aanmerking worden genomen."
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was manually estimated from the list of ingredients: %d"
@@ -2716,7 +2716,7 @@ msgstr "Nutri-Score kleur voedingswaarde"
 
 msgctxt "nutrition_grade_fr_formula"
 msgid "How the color nutrition grade is computed"
-msgstr "Hoe de kleuren te berekenen voor de voedingswaarde"
+msgstr "Hoe de kleur van de voedingswaarde wordt berekend"
 
 msgctxt "nutrition_grade_fr_alt"
 msgid "NutriScore nutrition grade"
@@ -2740,7 +2740,7 @@ msgstr "Weet u zeker dat u de pagina van dit product wilt verwijderen?"
 
 msgctxt "delete_user"
 msgid "Delete the user"
-msgstr "Gebruiker verwijderen"
+msgstr "De gebruiker verwijderen"
 
 msgctxt "sources_manufacturer"
 msgid "Some of the data for this product has been provided directly by the manufacturer %s."
@@ -3246,11 +3246,11 @@ msgstr "Milieu impactniveau"
 
 msgctxt "environment_impact_level_example"
 msgid "en:low, en:medium or en:high"
-msgstr "nl:laag, nl:midden of nl:hoog"
+msgstr "nl:laag, nl:gemiddeld of nl:hoog"
 
 msgctxt "carbon_impact_from_meat_or_fish"
 msgid "Carbon impact from meat or fish"
-msgstr "Carbon impact van vlees of vis"
+msgstr "Koolstofimpact van vlees of vis"
 
 msgctxt "of_carbon_impact_from_meat_or_fish_for_whole_product"
 msgid "of carbon emission from meat or fish for the whole product"
@@ -3358,7 +3358,7 @@ msgstr "Je bekijkt een oude versie van deze productpagina!"
 
 msgctxt "rev_number"
 msgid "Revision number: "
-msgstr "Revisie nummer: "
+msgstr "Revisienummer: "
 
 msgctxt "rev_contributor"
 msgid "Edited by: "
@@ -4750,7 +4750,7 @@ msgstr "Belangrijk"
 
 msgctxt "preference_very_important"
 msgid "Very important"
-msgstr "Heel erg belangrijk"
+msgstr "Zeer belangrijk"
 
 msgctxt "preference_mandatory"
 msgid "Mandatory"
@@ -6108,7 +6108,7 @@ msgstr "Geen niet-vegetarische ingrediënten gevonden"
 
 msgctxt "maybe_vegetarian_ingredients"
 msgid "Ingredients that may not be vegetarian"
-msgstr "Ingrediënten die niet vegetarisch mogen zijn"
+msgstr "Ingrediënten die mogelijks niet vegetarisch zijn"
 
 msgctxt "attribute_vegetarian_setting_note"
 msgid "To determine whether a product is vegetarian, we only rely on the list of ingredients."
