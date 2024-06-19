@@ -1412,6 +1412,8 @@ sub import_csv_file ($args_ref) {
 		'orgs_existing' => {},
 		'orgs_in_file' => {},
 		'orgs_with_gln_but_no_party_name' => {},
+		# Keep track of GLNs used by each org
+		'orgs_glns' => {},
 	};
 
 	my $csv = Text::CSV->new(
@@ -1559,6 +1561,16 @@ sub import_csv_file ($args_ref) {
 				gln => $imported_product_ref->{"sources_fields:org-gs1:gln"}
 			}
 		) if $log->is_debug();
+
+		my $gln = $imported_product_ref->{"sources_fields:org-gs1:gln"};
+		if ((defined $gln) and (defined $org_id)) {
+			if (not defined $stats_ref->{orgs_glns}{$org_id}) {
+				$stats_ref->{orgs_glns}{$org_id} = $gln;
+			}
+			elsif ($stats_ref->{orgs_glns}{$org_id} !~ /\b$gln\b/) {
+				$stats_ref->{orgs_glns}{$org_id} .= " " . $gln;
+			}
+		}
 
 		if ((defined $org_id) and ($org_id ne "")) {
 			# Re-assign some organizations
