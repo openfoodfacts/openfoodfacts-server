@@ -8,13 +8,15 @@ use Data::Dumper;
 $Data::Dumper::Terse = 1;
 use Log::Any::Adapter 'TAP';
 
-use ProductOpener::Routing qw/analyze_request/;
+use ProductOpener::Routing qw/analyze_request load_routes/;
 use ProductOpener::Lang qw/$lc /;
 
 # TODO: create a test case array and use the update_test_results system to
 # store and compare the returned $request object
 
 # TODO: add tests for all routes
+
+load_routes();
 
 my @tests = (
 	{
