@@ -57,8 +57,6 @@ if (defined single_param('orgid')) {
 	$orgid = remove_tags_and_quote(decode utf8 => single_param('orgid'));
 }
 
-$admin = 1;
-
 $log->debug("org profile form - start", {type => $type, action => $action, orgid => $orgid, User_id => $User_id})
 	if $log->is_debug();
 

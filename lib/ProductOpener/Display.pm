@@ -887,7 +887,6 @@ sub init_request ($request_ref = {}) {
 	# %admin is defined in Config.pm
 	# admins can change permissions for all users
 	if (is_admin_user($User_id)) {
-		# $admin = 1;
 		$request_ref->{admin} = 1;
 	}
 

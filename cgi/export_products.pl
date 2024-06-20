@@ -118,7 +118,7 @@ if ($action eq "display") {
 		$template_data_ref->{allow_submit} = 1;
 	}
 
-	process_template('web/pages/export_products/export_products.tt.html', $template_data_ref, \$html)
+	process_template('web/pages/export_products/export_products.tt.html', $template_data_ref, \$html, $request_ref)
 		|| ($html .= 'template error: ' . $tt->error());
 }
 
@@ -150,7 +150,7 @@ elsif (($action eq "process") and $allow_submit) {
 		$args_ref->{query}{states_tags} = 'en:to-be-exported';
 	}
 
-	if ($admin) {
+	if ($request_ref->{admin}) {
 		if ((defined single_param("overwrite_owner")) and (single_param("overwrite_owner"))) {
 			$args_ref->{overwrite_owner} = 1;
 		}
@@ -296,7 +296,7 @@ EMAIL
 	send_email_to_producers_admin("Export to public database requested: user: $User_id - org: $Org_id",
 		$admin_mail_body);
 
-	process_template('web/pages/export_products_results/export_products_results.tt.html', $template_data_ref2, \$html)
+	process_template('web/pages/export_products_results/export_products_results.tt.html', $template_data_ref2, \$html, $request_ref)
 		|| ($html .= 'template error: ' . $tt->error());
 
 }
