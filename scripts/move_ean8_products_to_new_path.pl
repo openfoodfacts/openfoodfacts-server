@@ -57,6 +57,12 @@ use Data::Dumper;
 # This script includes a new_split_code() function so that we can run it even if Products.pm split_code() is old
 # This is useful in particular for preparations before the move, e.g. to see which products would be affected
 
+sub is_valid_code ($code) {
+	# Return an empty string if $code is undef
+	return '' if !defined $code;
+	return $code =~ /^\d{4,24}$/;
+}
+
 sub new_split_code ($code) {
 
 	# Require at least 4 digits (some stores use very short internal barcodes, they are likely to be conflicting)
