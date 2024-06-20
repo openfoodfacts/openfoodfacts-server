@@ -721,6 +721,8 @@ sub display_input_field ($product_ref, $field, $language) {
 	$template_data_ref_field->{display_lc} = $display_lc;
 	$template_data_ref_field->{autocomplete} = $autocomplete;
 	$template_data_ref_field->{fieldtype} = $Lang{$fieldtype}{$lc};
+	$template_data_ref_field->{owner_field} = is_owner_field($product_ref, $field);
+	$template_data_ref_field->{protected_field} = skip_protected_field($product_ref, $field, $User{moderator});
 
 	my $html_field = '';
 
@@ -1310,6 +1312,12 @@ CSS
 			$nutriment_ref->{units_arr} = \@units_arr;
 
 		}
+
+		# Determine which field has a value from the manufacturer and if it is protected
+		$nutriment_ref->{owner_field} = is_owner_field($product_ref, $nid);
+		$nutriment_ref->{protected_field} = skip_protected_field($product_ref, $nid, $User{moderator});
+		$nutriment_ref->{protected_field_prepared}
+			= skip_protected_field($product_ref, $nid . "_prepared", $User{moderator});
 
 		$nutriment_ref->{shown} = $shown;
 		$nutriment_ref->{enid} = $enid;

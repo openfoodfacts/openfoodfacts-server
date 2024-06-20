@@ -963,7 +963,14 @@ sub import_nutrients (
 					and ($Owner_id !~ /^org-database-/)
 					and ($Owner_id !~ /^org-label-/))
 				{
-					$product_ref->{owner_fields}{$nid} = $time;
+					$product_ref->{owner_fields}{$nid . $type} = $time;
+					# salt and sodium are linked
+					if ($nid eq "salt") {
+						$product_ref->{owner_fields}{"sodium" . $type} = $time;
+					}
+					elsif ($nid eq "sodium") {
+						$product_ref->{owner_fields}{"salt" . $type} = $time;
+					}
 				}
 			}
 		}
