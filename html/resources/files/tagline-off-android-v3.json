@@ -325,7 +325,35 @@
             }
          }
       }
+          },
+      "product_prices": { 
+      "start_date": "2024-06-20 00:00:00",  
+      "end_date": "2024-07-20 23:59:59", 
+      "url": "https://prices.openfoodfacts.org/", 
+      "translations": {
+        "default": {
+          "title": "Prices arrive on Open Food Facts",
+          "message": "Contribute prices and view their evolution across space and time, right from the product page.",
+          "button_label": "Learn about Open Prices",
+          "image": {
+            "url": "https://static.openfoodfacts.org/images/prices.png", 
+            "width": 0.2
           }
+        },
+        "en_us": {
+          "title": "Track Prices Over Time" 
+        },
+        "fr": {
+          "title": "Suivez l'évolution des prix",
+          "message": "Contribuez aux prix et visualisez leur évolution dans l'espace et le temps.",
+          "button_label": "Explorer les prix"
+        },
+        "de": {
+          "title": "Verfolgen Sie die Preisentwicklung",
+          "message": "Tragen Sie Preise bei und sehen Sie deren Entwicklung über Raum und Zeit.",
+          "button_label": "Preise erkunden"
+        },
+        // ... (add more translations as needed)
    },
    "tagline_feed":{
       "default":{
