@@ -48,6 +48,8 @@ endif
 HOSTS=127.0.0.1 world.productopener.localhost fr.productopener.localhost static.productopener.localhost ssl-api.productopener.localhost fr-en.productopener.localhost
 # commands aliases
 DOCKER_COMPOSE=docker compose --env-file=${ENV_FILE} ${LOAD_EXTRA_ENV_FILE}
+# Ensure shared_network is referenced when running locally
+DOCKER_COMPOSE_RUN=COMPOSE_FILE="${COMPOSE_FILE};docker/run.yml" ${DOCKER_COMPOSE}
 # we run tests in a specific project name to be separated from dev instances
 # keep web-default for web contents
 # we also publish mongodb on a separate port to avoid conflicts
@@ -121,7 +123,7 @@ build:
 
 _up: deps
 	@echo "🥫 Starting containers …"
-	COMPOSE_FILE="${COMPOSE_FILE};docker/run.yml" ${DOCKER_COMPOSE} up -d 2>&1
+	${DOCKER_COMPOSE_RUN} up -d 2>&1
 	@echo "🥫 started service at http://openfoodfacts.localhost"
 
 up: build create_folders _up
@@ -198,7 +200,7 @@ init_backend: build_taxonomies build_lang
 
 create_mongodb_indexes: deps
 	@echo "🥫 Creating MongoDB indexes …"
-	${DOCKER_COMPOSE} run --rm backend perl /opt/product-opener/scripts/create_mongodb_indexes.pl
+	${DOCKER_COMPOSE_RUN} run --rm backend perl /opt/product-opener/scripts/create_mongodb_indexes.pl
 
 refresh_product_tags:
 	@echo "🥫 Refreshing product data cached in Postgres …"
@@ -207,18 +209,18 @@ refresh_product_tags:
 import_sample_data: deps
 	@ if [[ "${PRODUCT_OPENER_FLAVOR_SHORT}" = "off" &&  "${PRODUCERS_PLATFORM}" != "1" ]]; then \
    		echo "🥫 Importing sample data (~200 products) into MongoDB …"; \
-		${DOCKER_COMPOSE} run --rm backend bash /opt/product-opener/scripts/import_sample_data.sh; \
+		${DOCKER_COMPOSE_RUN} run --rm backend bash /opt/product-opener/scripts/import_sample_data.sh; \
 	else \
 	 	echo "🥫 Not importing sample data into MongoDB (only for po_off project)"; \
 	fi
 	
 import_more_sample_data: deps
 	@echo "🥫 Importing sample data (~2000 products) into MongoDB …"
-	${DOCKER_COMPOSE} run --rm backend bash /opt/product-opener/scripts/import_more_sample_data.sh
+	${DOCKER_COMPOSE_RUN} run --rm backend bash /opt/product-opener/scripts/import_more_sample_data.sh
 
 refresh_mongodb: deps
 	@echo "🥫 Refreshing mongoDB from product files …"
-	${DOCKER_COMPOSE} run --rm backend perl /opt/product-opener/scripts/update_all_products_from_dir_in_mongodb.pl
+	${DOCKER_COMPOSE_RUN} run --rm backend perl /opt/product-opener/scripts/update_all_products_from_dir_in_mongodb.pl
 
 # this command is used to import data on the mongodb used on staging environment
 # TODO: This will move into shared-services
