@@ -42,50 +42,57 @@ sub add_index {
 my $indexes = get_products_collection()->indexes;
 
 foreach my $tag (
-	'additives_tags', 'allergens_tags',
+	'_keywords',
+	'additives_tags', 'allergens_tags', 'amino_acids_tags',
 	'brands_tags', 'categories_properties_tags',
 	'categories_tags', 'checkers_tags',
 	'cities_tags', 'codes_tags',
 	'correctors_tags', 'countries_tags',
-	'creator', 'creator_tags',
+	'creator',    # Not in production 'creator_tags',
 	'data_quality_bugs_tags', 'data_quality_errors_tags',
 	'data_quality_info_tags', 'data_quality_tags',
 	'data_quality_warnings_tags', 'data_sources_tags',
+	'debug_tags',
 	'ecoscore_tags', 'editors_tags',
 	'emb_codes_tags', 'entry_dates_tags',
 	'food_groups_tags', 'informers_tags',
 	'ingredients_analysis_tags', 'ingredients_from_palm_oil_tags',
-	'ingredients_n_tags', 'ingredients_tags',
-	'ingredients_that_may_be_from_palm_oil_tags', '_keywords',
+	# not in production 'ingredients_n_tags', 
+	'ingredients_tags',
+	# not in production 'ingredients_that_may_be_from_palm_oil_tags',
 	'labels_tags', 'languages_tags',
-	'last_edit_dates_tags', 'last_image_dates_tags',
+	'last_edit_dates_tags', # not in production 'last_image_dates_tags',
 	'manufacturing_places_tags', 'minerals_tags',
 	'misc_tags', 'nova_groups_tags',
-	'nucleotides_tags', 'nutrient_levels_tags',
+	'nucleotides_tags', # not in production 'nutrient_levels_tags',
 	'nutrition_grades_tags', 'origins_tags',
-	'owners_tags', 'packaging_tags',
-	'photographers_tags', 'pnns_groups_1_tags',
-	'pnns_groups_2_tags', 'popularity_tags',
+	'other_nutritional_substances_tags', 'owners_tags', 'packaging_tags',
+	'photographers_tags', # not in production 'pnns_groups_1_tags',
+	# not in production 'pnns_groups_2_tags',
+	'popularity_tags',
 	'purchase_places_tags', 'states_tags',
 	'stores_tags', 'teams_tags',
-	'traces_tags', 'unknown_nutrients_tags'
+	'traces_tags', # not in production 'unknown_nutrients_tags',
+	'users_tags', 'vitamins_tags'
 	)
 {
 	add_index($tag, 1, 'last_modified_t', -1);
 }
 
-# Note that 'vitamins_tags' index wasn't being created before due to hitting the limit so have removed for now
-
+add_index('_keywords', 1, 'unique_scans_n', -1);
 add_index('code', 1);
-add_index('created_t', -1);
+add_index('countries_tags', 1, 'created_t', -1);
+add_index('created_t', 1);
 add_index('ecoscore_score', -1);
 add_index('last_modified_t', -1);
+add_index('lc', 1);
 add_index('nutriscore_score_opposite', -1);
 add_index('popularity_key', -1);
-add_index('countries_tags', 1, 'created_t', -1);
-add_index('countries_tags', 1, 'popularity_key', -1);
-add_index('owner', 1, 'countries_tags', 1, 'last_modified_t', -1);
+add_index('unique_scans_n', -1);
+
+# not in production add_index('countries_tags', 1, 'popularity_key', -1);
+# not in production add_index('owner', 1, 'countries_tags', 1, 'last_modified_t', -1);
+
 $indexes->create_many(@index_list);
 
 exit(0);
-
