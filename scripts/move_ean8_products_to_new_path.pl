@@ -40,7 +40,6 @@ use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Data qw/:all/;
 
-
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
@@ -49,16 +48,14 @@ use JSON::PP;
 
 use Data::Dumper;
 
-
 # Get a list of all products
 
 use Getopt::Long;
 
 my @products = ();
 
-
-GetOptions ( 'products=s' => \@products);
-@products = split(/,/,join(',',@products));
+GetOptions('products=s' => \@products);
+@products = split(/,/, join(',', @products));
 
 my $d = 0;
 
@@ -70,19 +67,17 @@ if (scalar $#products < 0) {
 	opendir $dh, "$data_root/products" or die "could not open $data_root/products directory: $!\n";
 	foreach my $dir (sort readdir($dh)) {
 		chomp($dir);
-		
+
 		next if ($dir =~ /^\d\d\d$/);
-		
+
 		if (-e "$data_root/products/$dir/product.sto") {
 			push @products, $dir;
 			$d++;
-			(($d % 1000) == 1 ) and print STDERR "$d products - $dir\n";
+			(($d % 1000) == 1) and print STDERR "$d products - $dir\n";
 		}
 	}
-	closedir $dh;	
+	closedir $dh;
 }
-
-
 
 my $count = $#products;
 my $i = 0;
@@ -100,42 +95,67 @@ my $not_moved = 0;
 foreach my $code (@products) {
 
 	my $product_id = product_id_for_owner(undef, $code);
-	
-	my $path_old = $code;
-	my $path_new = product_path_from_id($product_id);
-	
-	if ($path_new eq "invalid") {
+
+	my $old_path = $code;
+	my $path = product_path_from_id($product_id);
+
+	if ($path eq "invalid") {
 		$invalid++;
-		print STDERR "invalid path: $invalid\n";
+		print STDERR "invalid path for code $code\n";
 	}
-	elsif ($path_new ne $path_old) {
-	
-		if (not -e "$data_root/products/$path_new") {
-			print STDERR "$path_new does not exist, moving $path_old\n";
+	elsif ($path ne $old_path) {
+
+		if (not -e "$data_root/products/$path") {
+			print STDERR "$path does not exist, moving $old_path\n";
 			$moved++;
-		}
-		else {
-			print STDERR "$path_new exist, not moving $path_old\n";
-			$not_moved++;
-		}
-		
-		if (0) {
-			my $product_ref = retrieve("$data_root/products/$path_new/product.sto") or print "not defined $data_root/products/$path_new/product.sto\n";
 
-			if ((defined $product_ref)) {
+			if (0) {
 
-				if ((defined $product_ref) and ($code ne '')) {
-										
-					next if ((defined $product_ref->{empty}) and ($product_ref->{empty} == 1));
-					next if ((defined $product_ref->{deleted}) and ($product_ref->{deleted} eq 'on'));
-					print STDERR "updating product $code -- " . $product_ref->{code} . " \n";
-					my $return = $products_collection->replace_one({"_id" => $product_ref->{_id}}, $product_ref, { upsert => 1 });
-					print STDERR "return $return\n";
-					$i++;
-					$codes{$code} = 1;
+				my $prefix_path = $path;
+				$prefix_path =~ s/\/[^\/]+$//;    # remove the last subdir: we'll move it
+				ensure_dir_created_or_die("$data_root/products/$prefix_path");
+				ensure_dir_created_or_die("$www_root/images/products/$prefix_path");
+
+				if (    (!-e "data_root/products/$path")
+					and (!-e "$www_root/images/products/$path"))
+				{
+					# File::Copy move() is intended to move files, not
+					# directories. It does work on directories if the
+					# source and target are on the same file system
+					# (in which case the directory is just renamed),
+					# but fails otherwise.
+					# An alternative is to use File::Copy::Recursive
+					# but then it will do a copy even if it is the same
+					# file system...
+					# Another option is to call the system mv command.
+					#
+					# use File::Copy;
+
+					File::Copy::Recursive->import(qw( dirmove ));
+
+					print STDERR ("moving product data $data_root/products/$old_path to $data_root/products/$path\n");
+
+					dirmove("$data_root/products/$old_path", "$data_root/products/$path")
+						or print STDERR ("could not move product data: $!\n");
+
+					print STDERR (
+						"moving product images $www_root/images/products/$old_path to $www_root/images/products/$path\n"
+					);
+
+					dirmove("$www_root/images/products/$old_path", "$www_root/images/products/$path")
+						or print STDERR ("could not move product images: $!\n");
+
 				}
 			}
 		}
+		else {
+			print STDERR "$path exist, not moving $old_path\n";
+			$not_moved++;
+		}
+	}
+	else {
+		print STDERR "new $path is the same as old $old_path\n";
+		die;
 	}
 }
 

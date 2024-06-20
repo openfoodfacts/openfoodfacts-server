@@ -440,7 +440,7 @@ sub split_code ($code) {
 		$log->info("invalid code", {code => $code}) if $log->is_info();
 		return "invalid";
 	}
-	
+
 	# Pad code with 0s if it has less than 13 digits
 	while (length($code) < 13) {
 		$code = "0" . $code;
