@@ -22,8 +22,7 @@
 
 use CGI::Carp qw(fatalsToBrowser);
 
-use Modern::Perl '2017';
-use utf8;
+use ProductOpener::PerlStandards;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
@@ -47,6 +46,46 @@ use Encode;
 use JSON::PP;
 
 use Data::Dumper;
+
+# This script includes a new_split_code() function so that we can run it even if Products.pm split_code() is old
+# This is useful in particular for preparations before the move, e.g. to see which products would be affected
+
+sub new_split_code ($code) {
+
+	# Require at least 4 digits (some stores use very short internal barcodes, they are likely to be conflicting)
+	if (not is_valid_code($code)) {
+		return "invalid";
+	}
+
+	# Pad code with 0s if it has less than 13 digits
+	while (length($code) < 13) {
+		$code = "0" . $code;
+	}
+
+	# First splits into 3 sections of 3 numbers and the ast section with the remaining numbers
+	my $path = $code;
+	if ($code =~ /^(.{3})(.{3})(.{3})(.*)$/) {
+		$path = "$1/$2/$3/$4";
+	}
+	return $path;
+}
+
+sub new_product_path_from_id ($product_id) {
+
+	my $product_id_without_server = $product_id;
+	$product_id_without_server =~ s/(.*)://;
+
+	if (    (defined $server_options{private_products})
+		and ($server_options{private_products})
+		and ($product_id_without_server =~ /\//))
+	{
+		return $` . "/" . new_split_code($');
+	}
+	else {
+		return new_split_code($product_id_without_server);
+	}
+
+}
 
 # Get a list of all products
 
@@ -97,7 +136,7 @@ foreach my $code (@products) {
 	my $product_id = product_id_for_owner(undef, $code);
 
 	my $old_path = $code;
-	my $path = product_path_from_id($product_id);
+	my $path = new_product_path_from_id($product_id);
 
 	if ($path eq "invalid") {
 		$invalid++;
