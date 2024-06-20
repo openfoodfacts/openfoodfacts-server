@@ -116,7 +116,6 @@ BEGIN {
 		$producers_platform_url
 		$test
 		@lcs
-		$cc
 		$country
 		$tt
 
@@ -414,7 +413,7 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	$template_data_ref->{edq} = sub {escape_char(@_, '"')};    # edq as escape_double_quote
 	$template_data_ref->{lang_sprintf} = \&lang_sprintf;
 	$template_data_ref->{lc} = $lc;
-	$template_data_ref->{cc} = $cc;
+	$template_data_ref->{cc} = $request_ref->{cc};
 	$template_data_ref->{display_icon} = \&display_icon;
 	$template_data_ref->{time_t} = time();
 	$template_data_ref->{display_date_without_time} = \&display_date_without_time;
@@ -635,7 +634,7 @@ sub init_request ($request_ref = {}) {
 	my $r = Apache2::RequestUtil->request();
 	$request_ref->{method} = $r->method();
 
-	$cc = 'world';
+	my $cc = 'world';
 	$lc = 'en';
 	@lcs = ();
 	$country = 'en:world';
@@ -1320,7 +1319,7 @@ sub display_text ($request_ref) {
 sub display_stats ($request_ref) {
 	my $textid = $request_ref->{text};
 	my $stats_dir = "$BASE_DIRS{PUBLIC_DATA}/products_stats/" . $request_ref->{lc};
-	my $file = "$stats_dir/products_stats_$cc.html";
+	my $file = "$stats_dir/products_stats_$request_ref->{cc}.html";
 	display_text_content($request_ref, $textid, $request_ref->{lc}, $file);
 	return;
 }
@@ -1335,7 +1334,7 @@ sub display_text_content ($request_ref, $textid, $text_lc, $file) {
 
 	my $country_name = display_taxonomy_tag($lc, "countries", $country);
 
-	$html =~ s/<cc>/$cc/g;
+	$html =~ s/<cc>/$request_ref->{cc}/g;
 	$html =~ s/<country_name>/$country_name/g;
 
 	my $title = undef;
@@ -1360,7 +1359,7 @@ sub display_text_content ($request_ref, $textid, $text_lc, $file) {
 	}
 
 	$log->debug("displaying text from file",
-		{cc => $cc, lc => $lc, textid => $textid, text_lc => $text_lc, file => $file})
+		{cc => $request_ref->{cc}, lc => $lc, textid => $textid, text_lc => $text_lc, file => $file})
 		if $log->is_debug();
 
 	# if page number is higher than 1, then keep only the h1 header
@@ -1925,7 +1924,7 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 
 		my $th_nutriments = '';
 
-		my $categories_nutriments_ref = $categories_nutriments_per_country{$cc};
+		my $categories_nutriments_ref = $categories_nutriments_per_country{$request_ref->{cc}};
 		my @cols = ();
 
 		if ($tagtype eq 'categories') {
@@ -3090,7 +3089,7 @@ sub display_points ($request_ref) {
 		}
 	}
 
-	if ($cc ne 'world') {
+	if ($request_ref->{cc} ne 'world') {
 		$tagtype = 'countries';
 		$tagid = $country;
 		$title = display_taxonomy_tag($lc, $tagtype, $tagid);
@@ -4186,10 +4185,10 @@ HTML
 			and ($tagtype eq 'categories'))
 		{
 
-			my $categories_nutriments_ref = $categories_nutriments_per_country{$cc};
+			my $categories_nutriments_ref = $categories_nutriments_per_country{$request_ref->{cc}};
 
 			$log->debug("checking if this category has stored statistics",
-				{cc => $cc, tagtype => $tagtype, tagid => $tagid})
+				{cc => $request_ref->{cc}, tagtype => $tagtype, tagid => $tagid})
 				if $log->is_debug();
 			if (    (defined $categories_nutriments_ref)
 				and (defined $categories_nutriments_ref->{$canon_tagid})
@@ -4197,7 +4196,7 @@ HTML
 			{
 				$log->debug(
 					"statistics found for the tag, addind stats to description",
-					{cc => $cc, tagtype => $tagtype, tagid => $tagid}
+					{cc => $request_ref->{cc}, tagtype => $tagtype, tagid => $tagid}
 				) if $log->is_debug();
 
 				$description
@@ -4258,7 +4257,7 @@ HTML
 				initialize_knowledge_panels_options($knowledge_panels_options_ref, $request_ref);
 				my $tag_ref = {};    # Object to store the knowledge panels
 				my $panels_created
-					= create_tag_knowledge_panels($tag_ref, $lc, $cc, $knowledge_panels_options_ref, $tagtype,
+					= create_tag_knowledge_panels($tag_ref, $lc, $request_ref->{cc}, $knowledge_panels_options_ref, $tagtype,
 					$canon_tagid);
 				if ($panels_created) {
 					$tag_template_data_ref->{tag_panels}
@@ -4269,7 +4268,7 @@ HTML
 	}    # end of if (defined $tagtype)
 
 	$tag_template_data_ref->{country} = $country;
-	$tag_template_data_ref->{country_code} = $cc;
+	$tag_template_data_ref->{country_code} = $request_ref->{cc};
 	$tag_template_data_ref->{facets_kp_url} = $facets_kp_url;
 
 	if ($country ne 'en:world') {
@@ -5827,7 +5826,7 @@ sub search_and_export_products ($request_ref, $query_ref, $sort_by) {
 	}
 
 	my $args_ref = {
-		cc => $cc,    # used to localize Eco-Score fields
+		cc => $request_ref->{cc},    # used to localize Eco-Score fields
 		format => $format,
 		filehandle => \*STDOUT,
 		filename => "openfoodfacts_export." . $format,
@@ -7328,7 +7327,7 @@ sub display_page ($request_ref) {
 	my $langs = '';
 	my $selected_lang = '';
 
-	foreach my $olc (@{$country_languages{$cc}}, 'en') {
+	foreach my $olc (@{$country_languages{$request_ref->{cc}}}, 'en') {
 		if ($olc eq 'en') {
 			if ($en) {
 				next;
@@ -7338,9 +7337,9 @@ sub display_page ($request_ref) {
 			}
 		}
 		if (exists $Langs{$olc}) {
-			my $osubdomain = "$cc-$olc";
-			if ($olc eq $country_languages{$cc}[0]) {
-				$osubdomain = $cc;
+			my $osubdomain = "$request_ref->{cc}-$olc";
+			if ($olc eq $country_languages{$request_ref->{cc}}[0]) {
+				$osubdomain = $request_ref->{cc};
 			}
 			if (($olc eq $lc)) {
 				$selected_lang = "<a href=\"" . format_subdomain($osubdomain) . "/\">$Langs{$olc}</a>\n";
@@ -7797,20 +7796,20 @@ JS
 
 	if ((feature_enabled("ecoscore")) and (defined $product_ref->{ecoscore_data})) {
 
-		localize_ecoscore($cc, $product_ref);
+		localize_ecoscore($request_ref->{cc}, $product_ref);
 
 		$template_data_ref->{ecoscore_grade} = uc($product_ref->{ecoscore_data}{"grade"});
 		$template_data_ref->{ecoscore_grade_lc} = $product_ref->{ecoscore_data}{"grade"};
 		$template_data_ref->{ecoscore_score} = $product_ref->{ecoscore_data}{"score"};
 		$template_data_ref->{ecoscore_data} = $product_ref->{ecoscore_data};
 		$template_data_ref->{ecoscore_calculation_details}
-			= display_ecoscore_calculation_details($cc, $product_ref->{ecoscore_data});
+			= display_ecoscore_calculation_details($request_ref->{cc}, $product_ref->{ecoscore_data});
 	}
 
 	# Activate knowledge panels for all users
 
 	initialize_knowledge_panels_options($knowledge_panels_options_ref, $request_ref);
-	create_knowledge_panels($product_ref, $lc, $cc, $knowledge_panels_options_ref, $request_ref);
+	create_knowledge_panels($product_ref, $lc, $request_ref->{cc}, $knowledge_panels_options_ref, $request_ref);
 	$template_data_ref->{environment_card_panel}
 		= display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "environment_card");
 	$template_data_ref->{health_card_panel}
@@ -8220,7 +8219,7 @@ JS
 			$template_data_ref->{no_nutrition_data} = 'on';
 		}
 
-		my $comparisons_ref = compare_product_nutrition_facts_to_categories($product_ref, $cc, undef);
+		my $comparisons_ref = compare_product_nutrition_facts_to_categories($product_ref, $request_ref->{cc}, undef);
 
 		$template_data_ref->{display_nutrition_table} = display_nutrition_table($product_ref, $comparisons_ref, $request_ref);
 		$template_data_ref->{nutrition_image} = display_image_box($product_ref, 'nutrition', \$minheight, $request_ref);
@@ -8261,7 +8260,7 @@ JS
 	# Forest footprint
 	# 2020-12-07 - We currently display the forest footprint in France
 	# and for moderators so that we can extend it to other countries
-	if (($cc eq "fr") or ($User{moderator})) {
+	if (($request_ref->{cc} eq "fr") or ($User{moderator})) {
 		# Forest footprint data structure
 		$template_data_ref->{forest_footprint_data} = $product_ref->{forest_footprint_data};
 	}
@@ -8418,7 +8417,7 @@ HTML
 
 		# A result summary will be computed according to user preferences on the client side
 
-		compute_attributes($product_ref, $lc, $cc, $attributes_options_ref);
+		compute_attributes($product_ref, $lc, $request_ref->{cc}, $attributes_options_ref);
 
 		my $product_attribute_groups_json
 			= $json->encode({"attribute_groups" => $product_ref->{"attribute_groups_" . $lc}});
@@ -9347,7 +9346,7 @@ sub compute_stats_for_products ($stats_ref, $nutriments_ref, $count, $n, $min_pr
 			= sprintf("%.2e", $values[int(($nutriments_ref->{"${nid}_n"}) * 0.50)]) + 0.0;
 
 		#print STDERR "-> lc: lc -category $tagid - count: $count - n: nutriments: " . $nn . "$n \n";
-		#print "categories stats - cc: $cc - n: $n- values for category $id: " . join(", ", @values) . "\n";
+		#print "categories stats - cc: $request_ref->{cc} - n: $n- values for category $id: " . join(", ", @values) . "\n";
 		#print "tagid: $id - nid: $nid - 100g: " .  $stats_ref->{nutriments}{"${nid}_100g"}  . " min: " . $stats_ref->{nutriments}{"${nid}_min"} . " - max: " . $stats_ref->{nutriments}{"${nid}_max"} .
 		#	"mean: " . $stats_ref->{nutriments}{"${nid}_mean"} . " - median: " . $stats_ref->{nutriments}{"${nid}_50"} . "\n";
 
@@ -9716,7 +9715,7 @@ CSS
 
 		if ($nid =~ /^nutrition-score-(.*)$/) {
 			# Always show the FR score and Nutri-Score
-			if (($cc ne $1) and (not($1 eq 'fr'))) {
+			if (($request_ref->{cc} ne $1) and (not($1 eq 'fr'))) {
 				$shown = 0;
 			}
 
@@ -10317,6 +10316,8 @@ sub display_taxonomy_api ($request_ref) {
 
 sub display_product_api ($request_ref) {
 
+	my $cc = $request_ref->{cc};
+	
 	# Is a sample product requested?
 	if ((defined $request_ref->{code}) and ($request_ref->{code} eq "example")) {
 
@@ -10450,7 +10451,7 @@ sub display_product_api ($request_ref) {
 
 			display_product_jqm($request_ref);
 			$response{jqm} = $request_ref->{jqm_content};
-			$response{jqm} =~ s/(href|src)=("\/)/$1="https:\/\/$cc.${server_domain}\//g;
+			$response{jqm} =~ s/(href|src)=("\/)/$1="https:\/\/$request_ref->{cc}.${server_domain}\//g;
 			$response{title} = $request_ref->{title};
 		}
 	}
@@ -10675,11 +10676,11 @@ sub display_structured_response_opensearch_rss ($request_ref) {
 
 	my $short_name = $options{site_name};
 	my $long_name = $short_name;
-	if ($cc eq 'world') {
+	if ($request_ref->{cc} eq 'world') {
 		$long_name .= " " . uc($lc);
 	}
 	else {
-		$long_name .= " " . uc($cc) . "/" . uc($lc);
+		$long_name .= " " . uc($request_ref->{cc}) . "/" . uc($lc);
 	}
 
 	$long_name = $xs->escape_value(encode_utf8($long_name));
@@ -11280,13 +11281,13 @@ sub _format_comment ($comment) {
 	return $comment;
 }
 
-=head2 display_ecoscore_calculation_details( $cc, $ecoscore_data_ref )
+=head2 display_ecoscore_calculation_details( $ecoscore_cc, $ecoscore_data_ref )
 
 Generates HTML code with information on how the Eco-score was computed for a particular product.
 
 =head3 Parameters
 
-=head4 country code $cc
+=head4 country code $ecoscore_cc
 
 =head4 ecoscore data $ecoscore_data_ref
 
@@ -11447,7 +11448,7 @@ sub search_and_analyze_recipes ($request_ref, $query_ref) {
 	return $html;
 }
 
-=head2 display_properties( $cc, $ecoscore_data_ref )
+=head2 display_properties ($request_ref)
 
 Load the Folksonomy Engine properties script
 

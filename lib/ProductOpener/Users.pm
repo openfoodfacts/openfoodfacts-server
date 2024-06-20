@@ -438,7 +438,7 @@ sub check_user_form ($request_ref, $type, $user_ref, $errors_ref) {
 		$user_ref->{discussion} = remove_tags_and_quote(single_param('discussion'));
 		$user_ref->{ip} = remote_addr();
 		$user_ref->{initial_lc} = $lc;
-		$user_ref->{initial_cc} = $cc;
+		$user_ref->{initial_cc} = $request_ref->{cc};
 		$user_ref->{initial_user_agent} = user_agent();
 	}
 
@@ -531,13 +531,14 @@ Is the org newly created ?
 
 =cut
 
-sub notify_user_requested_org ($user_ref, $org_created) {
+sub notify_user_requested_org ($user_ref, $org_created, $request_ref) {
 
 	# the template for the email, we will build it gradually
 	my $template_data_ref = {
 		userid => $user_ref->{userid},
 		user => $user_ref,
 		requested_org => $user_ref->{requested_org_id},
+		cc => $request_ref->{cc},
 	};
 
 	# construct first part of the mail about new pro account
@@ -603,7 +604,7 @@ Process it.
 
 =cut
 
-sub process_user_requested_org ($user_ref) {
+sub process_user_requested_org ($user_ref, $request_ref) {
 
 	(defined $user_ref->{requested_org_id}) or return 1;
 
@@ -625,7 +626,7 @@ sub process_user_requested_org ($user_ref) {
 		$org_created = 1;
 	}
 	# send a notification to admins
-	notify_user_requested_org($user_ref, $org_created);
+	notify_user_requested_org($user_ref, $org_created, $request_ref);
 	return 1;
 }
 
@@ -655,7 +656,7 @@ sub process_user_form ($type, $user_ref, $request_ref) {
 	$log->debug("process_user_form", {type => $type, user_ref => $user_ref}) if $log->is_debug();
 
 	# Professional account with a requested org (existing or new)
-	process_user_requested_org($user_ref);
+	process_user_requested_org($user_ref, $request_ref);
 
 	# save user
 	store_user($user_ref);

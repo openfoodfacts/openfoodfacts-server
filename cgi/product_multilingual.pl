@@ -1139,7 +1139,7 @@ CSS
 		if (exists_taxonomy_tag("nutrients", "zz:$nid")) {
 			$nutriment_ref->{name} = display_taxonomy_tag($lc, "nutrients", "zz:$nid");
 			# We may have a unit specific to the country (e.g. US nutrition facts table using the International Unit for this nutrient, and Europe using mg)
-			$unit = get_nutrient_unit($nid, $cc);
+			$unit = get_nutrient_unit($nid, $request_ref->{cc});
 		}
 		else {
 			if (defined $product_ref->{nutriments}{$nid . "_unit"}) {
@@ -1624,7 +1624,7 @@ MAIL
 		$knowledge_panels_options_ref = {};
 		initialize_knowledge_panels_options($knowledge_panels_options_ref, $request_ref);
 		$knowledge_panels_options_ref->{knowledge_panels_client} = "web";
-		create_contribution_card_panel($product_ref, $lc, $cc, $knowledge_panels_options_ref);
+		create_contribution_card_panel($product_ref, $lc, $request_ref->{cc}, $knowledge_panels_options_ref);
 		$template_data_ref_process->{contribution_card_panel}
 			= display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "contribution_card");
 	}

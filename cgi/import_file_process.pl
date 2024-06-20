@@ -143,7 +143,7 @@ store("$BASE_DIRS{IMPORT_FILES}/${Owner_id}/all_columns_fields.sto", $all_column
 # Default values: use the language and country of the interface
 my $default_values_ref = {
 	lc => $lc,
-	countries => $cc,
+	countries => $request_ref->{cc},
 };
 
 $results_ref = convert_file($default_values_ref, $file, $columns_fields_file, $converted_file);

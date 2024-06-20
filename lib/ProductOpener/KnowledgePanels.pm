@@ -203,7 +203,7 @@ sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref,
 		$has_health_card = create_health_card_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 	}
 
-	create_environment_card_panel($product_ref, $target_lc, $target_cc, $options_ref);
+	create_environment_card_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 
 	my $has_report_problem_card;
 	if (not $options_ref->{producers_platform}) {
@@ -506,10 +506,12 @@ The Eco-Score depends on the country of the consumer (as the transport bonus/mal
 
 =cut
 
-sub create_ecoscore_panel ($product_ref, $target_lc, $target_cc, $options_ref) {
+sub create_ecoscore_panel ($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
 
 	$log->debug("create ecoscore panel", {code => $product_ref->{code}, ecoscore_data => $product_ref->{ecoscore_data}})
 		if $log->is_debug();
+
+	my $cc = $request_ref->{cc};
 
 	if ((defined $product_ref->{ecoscore_data}) and ($product_ref->{ecoscore_data}{status} eq "known")) {
 
@@ -707,7 +709,7 @@ The Eco-Score depends on the country of the consumer (as the transport bonus/mal
 
 =cut
 
-sub create_environment_card_panel ($product_ref, $target_lc, $target_cc, $options_ref) {
+sub create_environment_card_panel ($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
 
 	$log->debug("create environment card panel", {code => $product_ref->{code}}) if $log->is_debug();
 
@@ -715,7 +717,7 @@ sub create_environment_card_panel ($product_ref, $target_lc, $target_cc, $option
 
 	# Create Eco-Score related panels
 	if ($options{product_type} eq "food") {
-		create_ecoscore_panel($product_ref, $target_lc, $target_cc, $options_ref);
+		create_ecoscore_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 
 		if (
 				(defined $product_ref->{ecoscore_data})
