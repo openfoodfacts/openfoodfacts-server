@@ -52,7 +52,7 @@ DOCKER_COMPOSE=docker compose --env-file=${ENV_FILE} ${LOAD_EXTRA_ENV_FILE}
 # keep web-default for web contents
 # we also publish mongodb on a separate port to avoid conflicts
 # we also enable the possibility to fake services in po_test_runner
-DOCKER_COMPOSE_TEST=WEB_RESOURCES_PATH=./web-default ROBOTOFF_URL="http://backend:8881/" GOOGLE_CLOUD_VISION_API_URL="http://backend:8881/" COMPOSE_PROJECT_NAME=${COMPOSE_PROJECT_NAME}_test PO_COMMON_PREFIX=test_ MONGO_EXPOSE_PORT=27027 ODOO_CRM_URL= docker compose --env-file=${ENV_FILE}
+DOCKER_COMPOSE_TEST=WEB_RESOURCES_PATH=./web-default ROBOTOFF_URL="http://backend:8881/" GOOGLE_CLOUD_VISION_API_URL="http://backend:8881/" COMPOSE_PROJECT_NAME=${COMPOSE_PROJECT_NAME}_test COMPOSE_FILE="${COMPOSE_FILE};docker/test.yml" PO_COMMON_PREFIX=test_ MONGO_EXPOSE_PORT=27027 ODOO_CRM_URL= docker compose --env-file=${ENV_FILE}
 # Enable Redis only for integration tests
 DOCKER_COMPOSE_INT_TEST=REDIS_URL="redis:6379" ${DOCKER_COMPOSE_TEST}
 TEST_CMD ?= yath test -PProductOpener::LoadData
@@ -119,7 +119,7 @@ build:
 	@echo "🥫 Building containers …"
 	${DOCKER_COMPOSE} build ${args} ${container} 2>&1
 
-_up:
+_up: deps
 	@echo "🥫 Starting containers …"
 	${DOCKER_COMPOSE} up -d 2>&1
 	@echo "🥫 started service at http://openfoodfacts.localhost"
@@ -196,29 +196,32 @@ reset_owner:
 
 init_backend: build_taxonomies build_lang
 
-create_mongodb_indexes:
+create_mongodb_indexes: deps
 	@echo "🥫 Creating MongoDB indexes …"
-	${DOCKER_COMPOSE} up -d mongodb
 	${DOCKER_COMPOSE} run --rm backend perl /opt/product-opener/scripts/create_mongodb_indexes.pl
 
 refresh_product_tags:
 	@echo "🥫 Refreshing product data cached in Postgres …"
 	${DOCKER_COMPOSE} run --rm backend perl /opt/product-opener/scripts/refresh_postgres.pl ${from}
 
-import_sample_data:
+import_sample_data: deps
 	@ if [[ "${PRODUCT_OPENER_FLAVOR_SHORT}" = "off" &&  "${PRODUCERS_PLATFORM}" != "1" ]]; then \
    		echo "🥫 Importing sample data (~200 products) into MongoDB …"; \
-		${DOCKER_COMPOSE} up -d mongodb
 		${DOCKER_COMPOSE} run --rm backend bash /opt/product-opener/scripts/import_sample_data.sh; \
 	else \
 	 	echo "🥫 Not importing sample data into MongoDB (only for po_off project)"; \
 	fi
 	
-import_more_sample_data:
+import_more_sample_data: deps
 	@echo "🥫 Importing sample data (~2000 products) into MongoDB …"
 	${DOCKER_COMPOSE} run --rm backend bash /opt/product-opener/scripts/import_more_sample_data.sh
 
+refresh_mongodb: deps
+	@echo "🥫 Refreshing mongoDB from product files …"
+	${DOCKER_COMPOSE} run --rm backend perl /opt/product-opener/scripts/update_all_products_from_dir_in_mongodb.pl
+
 # this command is used to import data on the mongodb used on staging environment
+# TODO: This will move into shared-services
 import_prod_data:
 	@echo "🥫 Importing production data (~2M products) into MongoDB …"
 	@echo "🥫 This might take up to 10 mn, so feel free to grab a coffee!"
@@ -488,6 +491,16 @@ clean_logs:
 
 
 clean: goodbye hdown prune prune_cache clean_folders
+
+# Load dependent projects
+deps:
+	@for dep in "openfoodfacts-shared-services" ; do \
+		if [ ! -d ../$$dep ]; then \
+			git clone --filter=blob:none --sparse \
+				https://github.com/openfoodfacts/$$dep.git ../$$dep; \
+		fi; \
+		cd ../$$dep && make -e run; \
+	done
 
 #-----------#
 # Utilities #

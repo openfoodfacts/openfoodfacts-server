@@ -34,6 +34,8 @@ x-minion-db-network: &minion-db-network
     # see also docs/dev/explain-pro-dev-setup.md
     minion_db:
     default:
+    # Needed to access MongoDB and Redis
+    shared_network:
 
 
 services:
@@ -91,15 +93,6 @@ services:
             - world.openfoodfacts.localhost
             - static.openfoodfacts.localhost
             - images.openfoodfacts.localhost
-  mongodb:
-    # Note: keep it as close a possible to mongodb.yml
-    image: mongo:4.4
-    command: mongod --wiredTigerCacheSizeGB ${MONGODB_CACHE_SIZE}
-    volumes:
-      - dbdata:/data/db
-      - ./html/data:/import
-    ports:
-      - "127.0.0.1:${MONGO_EXPOSE_PORT:-27017}:27017"
 
 volumes:
   product_images:
@@ -116,9 +109,12 @@ volumes:
   export_files:
     name: ${PO_COMMON_PREFIX:-}po_export_files
   podata:
-  dbdata:
 
 networks:
   # this is a specific network to enable pro platform to join the postgres db
   minion_db:
     name: ${PO_COMMON_PREFIX:-}minion_db
+  # This network allows access to shared services like MongoDB and Redis
+  shared_network:
+    name: shared_network
+    external: true
