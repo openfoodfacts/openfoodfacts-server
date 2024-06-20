@@ -34,9 +34,6 @@ x-minion-db-network: &minion-db-network
     # see also docs/dev/explain-pro-dev-setup.md
     minion_db:
     default:
-    # Needed to access MongoDB and Redis
-    shared_network:
-
 
 services:
   postgres:
@@ -114,7 +111,3 @@ networks:
   # this is a specific network to enable pro platform to join the postgres db
   minion_db:
     name: ${PO_COMMON_PREFIX:-}minion_db
-  # This network allows access to shared services like MongoDB and Redis
-  shared_network:
-    name: shared_network
-    external: true

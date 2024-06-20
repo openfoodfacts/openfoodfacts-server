@@ -121,7 +121,7 @@ build:
 
 _up: deps
 	@echo "🥫 Starting containers …"
-	${DOCKER_COMPOSE} up -d 2>&1
+	COMPOSE_FILE="${COMPOSE_FILE};docker/run.yml" ${DOCKER_COMPOSE} up -d 2>&1
 	@echo "🥫 started service at http://openfoodfacts.localhost"
 
 up: build create_folders _up
