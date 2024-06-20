@@ -296,7 +296,8 @@ EMAIL
 	send_email_to_producers_admin("Export to public database requested: user: $User_id - org: $Org_id",
 		$admin_mail_body);
 
-	process_template('web/pages/export_products_results/export_products_results.tt.html', $template_data_ref2, \$html, $request_ref)
+	process_template('web/pages/export_products_results/export_products_results.tt.html',
+		$template_data_ref2, \$html, $request_ref)
 		|| ($html .= 'template error: ' . $tt->error());
 
 }

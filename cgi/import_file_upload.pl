@@ -132,7 +132,8 @@ else {
 		url => "/cgi/import_file_upload.pl",
 	};
 
-	process_template('web/pages/import_file_upload/import_file_upload.tt.html', $template_data_ref, \$html, $request_ref);
+	process_template('web/pages/import_file_upload/import_file_upload.tt.html',
+		$template_data_ref, \$html, $request_ref);
 	process_template('web/pages/import_file_upload/import_file_upload.tt.js', $template_data_ref, \$js, $request_ref);
 
 	$request_ref->{initjs} .= $js;

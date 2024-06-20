@@ -85,7 +85,8 @@ sub display_search_or_add_form($request_ref) {
 	my $template_data_ref_content = {};
 
 	$template_data_ref_content->{display_search_image_form} = display_search_image_form("block_side", $request_ref);
-	process_template('web/common/includes/display_product_search_or_add.tt.html', $template_data_ref_content, \$html, $request_ref)
+	process_template('web/common/includes/display_product_search_or_add.tt.html',
+		$template_data_ref_content, \$html, $request_ref)
 		|| ($html = "template error: " . $tt->error());
 
 	# Producers platform: display an addition import products block
@@ -761,7 +762,8 @@ sub display_input_field ($product_ref, $field, $language, $request_ref) {
 		$template_data_ref_field->{field_type_examples} = $field_type_examples;
 	}
 
-	process_template('web/pages/product_edit/display_input_field.tt.html', $template_data_ref_field, \$html_field, $request_ref)
+	process_template('web/pages/product_edit/display_input_field.tt.html',
+		$template_data_ref_field, \$html_field, $request_ref)
 		or $html_field = "<p>" . $tt->error() . "</p>";
 
 	return $html_field;
@@ -892,7 +894,9 @@ CSS
 
 	$template_data_ref_display->{product_ref_sorted_langs} = join(',', @{$product_ref->{sorted_langs}});
 
-	sub display_input_tabs ($product_ref, $tabsid, $tabsids_array_ref, $tabsids_hash_ref, $fields_array_ref, $request_ref) {
+	sub display_input_tabs ($product_ref, $tabsid, $tabsids_array_ref, $tabsids_hash_ref, $fields_array_ref,
+		$request_ref)
+	{
 
 		my $template_data_ref_tab = {};
 		my @display_tabs;
@@ -944,12 +948,14 @@ CSS
 					}
 					elsif ($field eq 'ingredients_text') {
 						$image_full_id = "ingredients_" . ${display_lc} . "_image_full";
-						$display_div = display_input_field($product_ref, $field . "_" . $display_lc, $language, $request_ref);
+						$display_div
+							= display_input_field($product_ref, $field . "_" . $display_lc, $language, $request_ref);
 					}
 					else {
 						$log->debug("display_field", {field_name => $field, field_value => $product_ref->{$field}})
 							if $log->is_debug();
-						$display_div = display_input_field($product_ref, $field . "_" . $display_lc, $language, $request_ref);
+						$display_div
+							= display_input_field($product_ref, $field . "_" . $display_lc, $language, $request_ref);
 					}
 
 					push(
@@ -996,14 +1002,16 @@ CSS
 		$template_data_ref_tab->{display_tabs} = \@display_tabs;
 
 		my $html_tab = '';
-		process_template('web/pages/product_edit/display_input_tabs.tt.html', $template_data_ref_tab, \$html_tab, $request_ref)
+		process_template('web/pages/product_edit/display_input_tabs.tt.html',
+			$template_data_ref_tab, \$html_tab, $request_ref)
 			or $html_tab = "<p>" . $tt->error() . "</p>";
 
 		return $html_tab;
 	}
 
 	$template_data_ref_display->{display_tab_product_picture}
-		= display_input_tabs($product_ref, "front_image", $product_ref->{sorted_langs}, \%Langs, ["front_image"], $request_ref);
+		= display_input_tabs($product_ref, "front_image", $product_ref->{sorted_langs},
+		\%Langs, ["front_image"], $request_ref);
 	$template_data_ref_display->{display_tab_product_characteristics}
 		= display_input_tabs($product_ref, "product", $product_ref->{sorted_langs},
 		\%Langs, ["product_name", "generic_name"], $request_ref);
@@ -1033,13 +1041,17 @@ CSS
 	$template_data_ref_display->{display_tab_ingredients_image}
 		= display_input_tabs($product_ref, "ingredients_image", $product_ref->{sorted_langs},
 		\%Langs, \@ingredients_fields, $request_ref);
-	$template_data_ref_display->{display_field_allergens} = display_input_field($product_ref, "allergens", undef, $request_ref);
-	$template_data_ref_display->{display_field_traces} = display_input_field($product_ref, "traces", undef, $request_ref);
-	$template_data_ref_display->{display_field_origins} = display_input_field($product_ref, "origins", undef, $request_ref);
+	$template_data_ref_display->{display_field_allergens}
+		= display_input_field($product_ref, "allergens", undef, $request_ref);
+	$template_data_ref_display->{display_field_traces}
+		= display_input_field($product_ref, "traces", undef, $request_ref);
+	$template_data_ref_display->{display_field_origins}
+		= display_input_field($product_ref, "origins", undef, $request_ref);
 	$template_data_ref_display->{display_tab_nutrition_image}
-		= display_input_tabs($product_ref, "nutrition_image", $product_ref->{sorted_langs}, \%Langs,
-		["nutrition_image"], $request_ref);
-	$template_data_ref_display->{display_field_serving_size} = display_input_field($product_ref, "serving_size", undef, $request_ref);
+		= display_input_tabs($product_ref, "nutrition_image", $product_ref->{sorted_langs},
+		\%Langs, ["nutrition_image"], $request_ref);
+	$template_data_ref_display->{display_field_serving_size}
+		= display_input_field($product_ref, "serving_size", undef, $request_ref);
 
 	$request_ref->{initjs} .= display_select_crop_init($product_ref);
 
@@ -1490,8 +1502,8 @@ HTML
 	my @packaging_fields = ("packaging_image", "packaging_text");
 
 	$template_data_ref_display->{display_tab_packaging}
-		= display_input_tabs($product_ref, "packaging_image", $product_ref->{sorted_langs}, \%Langs,
-		\@packaging_fields, $request_ref);
+		= display_input_tabs($product_ref, "packaging_image", $product_ref->{sorted_langs},
+		\%Langs, \@packaging_fields, $request_ref);
 
 	# Add an empty packaging element to the form, that will be hidden and duplicated when the user adds new packaging items,
 	# and another empty packaging element at the end
@@ -1527,7 +1539,8 @@ HTML
 	$template_data_ref_display->{display_product_history} = display_product_history($request_ref, $code, $product_ref);
 	$template_data_ref_display->{product} = $product_ref;
 
-	process_template('web/pages/product_edit/product_edit_form_display.tt.html', $template_data_ref_display, \$html, $request_ref)
+	process_template('web/pages/product_edit/product_edit_form_display.tt.html',
+		$template_data_ref_display, \$html, $request_ref)
 		or $html = "<p>" . $tt->error() . "</p>";
 
 	$request_ref->{page_type} = "product_edit";
@@ -1629,7 +1642,8 @@ MAIL
 			= display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "contribution_card");
 	}
 	$template_data_ref_process->{code} = $product_ref->{code};
-	process_template('web/pages/product_edit/product_edit_form_process.tt.html', $template_data_ref_process, \$html, $request_ref)
+	process_template('web/pages/product_edit/product_edit_form_process.tt.html',
+		$template_data_ref_process, \$html, $request_ref)
 		or $html = "<p>" . $tt->error() . "</p>";
 
 }

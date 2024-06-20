@@ -750,7 +750,8 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 		if ($field eq "ecoscore_details_simple_html") {
 			if ((1 or $show_ecoscore) and (defined $product_ref->{ecoscore_data})) {
 				$customized_product_ref->{$field}
-					= display_ecoscore_calculation_details_simple_html($request_ref->{cc}, $product_ref->{ecoscore_data});
+					= display_ecoscore_calculation_details_simple_html($request_ref->{cc},
+					$product_ref->{ecoscore_data});
 			}
 			next;
 		}

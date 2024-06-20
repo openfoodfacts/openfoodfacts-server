@@ -502,7 +502,8 @@ var select2_options = {
 JS
 		;
 
-	process_template('web/pages/search_form/search_form.tt.html', $template_data_ref, \$html, $request_ref) or $html = '';
+	process_template('web/pages/search_form/search_form.tt.html', $template_data_ref, \$html, $request_ref)
+		or $html = '';
 	$html .= "<p>" . $tt->error() . "</p>";
 
 	${$request_ref->{content_ref}} .= $html;

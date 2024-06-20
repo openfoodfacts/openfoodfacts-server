@@ -176,9 +176,11 @@ else {
 JS
 		;
 
-	process_template('web/pages/import_photos_upload/import_photos_upload.tt.html', $template_data_ref, \$html, $request_ref)
+	process_template('web/pages/import_photos_upload/import_photos_upload.tt.html',
+		$template_data_ref, \$html, $request_ref)
 		or $html = "<p>" . $tt->error() . "</p>";
-	process_template('web/pages/import_photos_upload/import_photos_upload.tt.js', $template_data_ref, \$js, $request_ref)
+	process_template('web/pages/import_photos_upload/import_photos_upload.tt.js',
+		$template_data_ref, \$js, $request_ref)
 		or $html = "<p>" . $tt->error() . "</p>";
 
 	$request_ref->{initjs} .= $js;

@@ -1285,7 +1285,8 @@ sub display_index_for_producer ($request_ref) {
 
 	my $html;
 
-	process_template('web/common/includes/producers_platform_front_page.tt.html', $template_data_ref, \$html, $request_ref)
+	process_template('web/common/includes/producers_platform_front_page.tt.html',
+		$template_data_ref, \$html, $request_ref)
 		|| return "template error: " . $tt->error();
 
 	return $html;
@@ -2495,7 +2496,8 @@ HTML
 
 		# countries map?
 		if (keys %{$countries_map_data} > 0) {
-			$request_ref->{initjs} .= 'var countries_map_data=JSON.parse(' . $json->encode($json->encode($countries_map_data)) . ');'
+			$request_ref->{initjs}
+				.= 'var countries_map_data=JSON.parse(' . $json->encode($json->encode($countries_map_data)) . ');'
 				.= 'var countries_map_links=JSON.parse(' . $json->encode($json->encode($countries_map_links)) . ');'
 				.= 'var countries_map_names=JSON.parse(' . $json->encode($json->encode($countries_map_names)) . ');'
 				.= <<"JS";
@@ -2867,9 +2869,11 @@ HEADER
 
 	$log->debug("end", {}) if $log->is_debug();
 
-	process_template('web/common/includes/display_list_of_tags_translate.tt.html',
-		$template_data_ref_tags_translate, \$html, $request_ref)
-		|| return "template error: " . $tt->error();
+	process_template(
+		'web/common/includes/display_list_of_tags_translate.tt.html',
+		$template_data_ref_tags_translate,
+		\$html, $request_ref
+	) || return "template error: " . $tt->error();
 
 	return $html;
 }
@@ -3871,7 +3875,8 @@ sub display_tag ($request_ref) {
 
 		if (exists $options{"display_tag_" . $tagtype}) {
 
-			$description = generate_description_from_display_tag_options($tagtype, $tagid, $display_tag, $canon_tagid, $request_ref);
+			$description = generate_description_from_display_tag_options($tagtype, $tagid, $display_tag, $canon_tagid,
+				$request_ref);
 		}
 		else {
 			# Do we have a description for the tag in the taxonomy?
@@ -4257,8 +4262,8 @@ HTML
 				initialize_knowledge_panels_options($knowledge_panels_options_ref, $request_ref);
 				my $tag_ref = {};    # Object to store the knowledge panels
 				my $panels_created
-					= create_tag_knowledge_panels($tag_ref, $lc, $request_ref->{cc}, $knowledge_panels_options_ref, $tagtype,
-					$canon_tagid);
+					= create_tag_knowledge_panels($tag_ref, $lc, $request_ref->{cc}, $knowledge_panels_options_ref,
+					$tagtype, $canon_tagid);
 				if ($panels_created) {
 					$tag_template_data_ref->{tag_panels}
 						= display_knowledge_panel($tag_ref, $tag_ref->{"knowledge_panels_" . $lc}, "root");
@@ -8221,7 +8226,8 @@ JS
 
 		my $comparisons_ref = compare_product_nutrition_facts_to_categories($product_ref, $request_ref->{cc}, undef);
 
-		$template_data_ref->{display_nutrition_table} = display_nutrition_table($product_ref, $comparisons_ref, $request_ref);
+		$template_data_ref->{display_nutrition_table}
+			= display_nutrition_table($product_ref, $comparisons_ref, $request_ref);
 		$template_data_ref->{nutrition_image} = display_image_box($product_ref, 'nutrition', \$minheight, $request_ref);
 
 		if (has_tag($product_ref, "categories", "en:alcoholic-beverages")) {
@@ -10168,7 +10174,8 @@ sub display_nutrition_table ($product_ref, $comparisons_ref, $request_ref) {
 
 	my $template_data_ref = data_to_display_nutrition_table($product_ref, $comparisons_ref, $request_ref);
 
-	process_template('web/pages/product/includes/nutrition_facts_table.tt.html', $template_data_ref, \$html, $request_ref)
+	process_template('web/pages/product/includes/nutrition_facts_table.tt.html',
+		$template_data_ref, \$html, $request_ref)
 		|| return "template error: " . $tt->error();
 
 	return $html;
@@ -10317,7 +10324,7 @@ sub display_taxonomy_api ($request_ref) {
 sub display_product_api ($request_ref) {
 
 	my $cc = $request_ref->{cc};
-	
+
 	# Is a sample product requested?
 	if ((defined $request_ref->{code}) and ($request_ref->{code} eq "example")) {
 
@@ -10377,7 +10384,8 @@ sub display_product_api ($request_ref) {
 				Lang => \%Lang,
 			};
 			my $html;
-			process_template('web/common/includes/display_product_api.tt.html', $template_data_ref, \$html, $request_ref)
+			process_template('web/common/includes/display_product_api.tt.html',
+				$template_data_ref, \$html, $request_ref)
 				|| return "template error: " . $tt->error();
 			$response{jqm} .= $html;
 		}
@@ -10869,7 +10877,8 @@ sub display_recent_changes ($request_ref, $query_ref, $limit, $page) {
 
 	$template_data_ref_changes->{changes} = \@changes;
 	$template_data_ref_changes->{display_pagination} = display_pagination($request_ref, $count, $limit, $page);
-	process_template('web/common/includes/display_recent_changes.tt.html', $template_data_ref_changes, \$html, $request_ref)
+	process_template('web/common/includes/display_recent_changes.tt.html',
+		$template_data_ref_changes, \$html, $request_ref)
 		|| ($html .= 'template error: ' . $tt->error());
 
 	${$request_ref->{content_ref}} .= $html;

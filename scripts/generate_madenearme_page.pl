@@ -145,7 +145,6 @@ $html = get_initial_html($cc);
 
 my %map_options = (uk => "map.setView(new L.LatLng(54.0617609,-3.4433238),6);",);
 
-
 my $graph_ref = {};
 
 $log->info("finding products", {lc => $lc, cc => $cc, country => $country}) if $log->is_info();
