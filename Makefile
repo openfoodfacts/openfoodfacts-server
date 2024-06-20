@@ -121,7 +121,7 @@ build:
 	@echo "🥫 Building containers …"
 	${DOCKER_COMPOSE} build ${args} ${container} 2>&1
 
-_up: deps
+_up:load_deps
 	@echo "🥫 Starting containers …"
 	${DOCKER_COMPOSE_RUN} up -d 2>&1
 	@echo "🥫 started service at http://openfoodfacts.localhost"
@@ -198,7 +198,7 @@ reset_owner:
 
 init_backend: build_taxonomies build_lang
 
-create_mongodb_indexes: deps
+create_mongodb_indexes:load_deps
 	@echo "🥫 Creating MongoDB indexes …"
 	${DOCKER_COMPOSE_RUN} run --rm backend perl /opt/product-opener/scripts/create_mongodb_indexes.pl
 
@@ -206,7 +206,7 @@ refresh_product_tags:
 	@echo "🥫 Refreshing product data cached in Postgres …"
 	${DOCKER_COMPOSE} run --rm backend perl /opt/product-opener/scripts/refresh_postgres.pl ${from}
 
-import_sample_data: deps
+import_sample_data:load_deps
 	@ if [[ "${PRODUCT_OPENER_FLAVOR_SHORT}" = "off" &&  "${PRODUCERS_PLATFORM}" != "1" ]]; then \
    		echo "🥫 Importing sample data (~200 products) into MongoDB …"; \
 		${DOCKER_COMPOSE_RUN} run --rm backend bash /opt/product-opener/scripts/import_sample_data.sh; \
@@ -214,11 +214,11 @@ import_sample_data: deps
 	 	echo "🥫 Not importing sample data into MongoDB (only for po_off project)"; \
 	fi
 	
-import_more_sample_data: deps
+import_more_sample_data:load_deps
 	@echo "🥫 Importing sample data (~2000 products) into MongoDB …"
 	${DOCKER_COMPOSE_RUN} run --rm backend bash /opt/product-opener/scripts/import_more_sample_data.sh
 
-refresh_mongodb: deps
+refresh_mongodb:load_deps
 	@echo "🥫 Refreshing mongoDB from product files …"
 	${DOCKER_COMPOSE_RUN} run --rm backend perl /opt/product-opener/scripts/update_all_products_from_dir_in_mongodb.pl
 
@@ -495,13 +495,17 @@ clean_logs:
 clean: goodbye hdown prune prune_cache clean_folders
 
 # Load dependent projects
-deps:
-	@for dep in "openfoodfacts-shared-services" ; do \
-		if [ ! -d ../$$dep ]; then \
+load_deps:
+	@if [ -z "$$DEPS_DIR" ]; then export DEPS_DIR=$$PWD/deps; fi; \
+	mkdir -p $$DEPS_DIR; \
+	for dep in "openfoodfacts-shared-services" ; do \
+		if [ ! -d $$DEPS_DIR/$$dep ]; then \
 			git clone --filter=blob:none --sparse \
-				https://github.com/openfoodfacts/$$dep.git ../$$dep; \
+				https://github.com/openfoodfacts/$$dep.git $$DEPS_DIR/$$dep; \
+		else \
+			cd $$DEPS_DIR/$$dep && git pull; \
 		fi; \
-		cd ../$$dep && make -e run; \
+		cd $$DEPS_DIR/$$dep && make -e run; \
 	done
 
 #-----------#
