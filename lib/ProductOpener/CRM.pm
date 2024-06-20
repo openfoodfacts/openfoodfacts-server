@@ -442,16 +442,31 @@ The name of the opportunity
 The id of the partner to attach the opportunity to.
 It can be a contact or a company
 
+=head4 $salesperson_id
+
+The id of the salesperson to assign the opportunity to
+
 =head3 Return values
 
 the id of the created opportunity
 
 =cut
 
-sub create_onboarding_opportunity ($name, $company_id, $contact_id) {
-	my $opportunity_id = make_odoo_request('crm.lead', 'create',
-		[{name => $name, partner_id => $contact_id, tag_ids => [[$commands{link}, $crm_data->{tag}{onboarding}]]}]);
-	$log->debug("create_opportunity", {opportunity_id => $opportunity_id}) if $log->is_debug();
+sub create_onboarding_opportunity ($name, $company_id, $contact_id, $salesperson_email = undef) {
+
+	my $query_params
+		= {name => $name, partner_id => $contact_id, tag_ids => [[$commands{link}, $crm_data->{tag}{onboarding}]]};
+	if (defined $salesperson_email) {
+		my $user = grep {$_->{email} eq $salesperson_email} @{$crm_data->{users}};
+		$user = $crm_data->{users}[0];
+		if (defined $user) {
+			$query_params->{user_id} = $user->{id};
+		}
+	}
+	my $opportunity_id = make_odoo_request('crm.lead', 'create', [$query_params]);
+	$log->debug("create_onboarding_opportunity",
+		{opportunity_id => $opportunity_id, salesperson => $query_params->{user_id}})
+		if $log->is_debug();
 	return $opportunity_id;
 }
 
@@ -674,6 +689,8 @@ It is called by lib/startup_apache.pl startup script
 
 =cut
 
+use Data::Dumper;
+
 sub init_crm_data() {
 	if (not defined $ProductOpener::Config2::crm_api_url) {
 		# Odoo CRM is not configured
@@ -687,6 +704,7 @@ sub init_crm_data() {
 		my $tmp_crm_data = {};
 		$tmp_crm_data->{tag} = _load_crm_data('crm.tag', \@required_tag_labels);
 		$tmp_crm_data->{category} = _load_crm_data('res.partner.category', \@required_category_labels);
+		$tmp_crm_data->{users} = make_odoo_request('res.users', 'search_read', [[]], {fields => ['email', 'id']});
 		$crm_data = $tmp_crm_data;
 	} or do {
 		print STDERR "Failed to load CRM data from Odoo: $@\n";
