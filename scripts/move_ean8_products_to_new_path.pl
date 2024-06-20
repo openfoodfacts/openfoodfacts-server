@@ -105,8 +105,9 @@ sub new_product_path_from_id ($product_id) {
 use Getopt::Long;
 
 my @products = ();
+my $move = 0;
 
-GetOptions('products=s' => \@products);
+GetOptions('products=s' => \@products, 'move' => \$move);
 @products = split(/,/, join(',', @products));
 
 my $d = 0;
@@ -134,8 +135,6 @@ if (scalar $#products < 0) {
 my $count = $#products;
 my $i = 0;
 
-my %codes = ();
-
 print STDERR "$count products to update\n";
 
 my $products_collection = get_products_collection();
@@ -143,6 +142,7 @@ my $products_collection = get_products_collection();
 my $invalid = 0;
 my $moved = 0;
 my $not_moved = 0;
+my $same_path = 0;
 
 foreach my $code (@products) {
 
@@ -161,7 +161,7 @@ foreach my $code (@products) {
 			print STDERR "$path does not exist, moving $old_path\n";
 			$moved++;
 
-			if (0) {
+			if ($move) {
 
 				my $prefix_path = $path;
 				$prefix_path =~ s/\/[^\/]+$//;    # remove the last subdir: we'll move it
@@ -207,16 +207,15 @@ foreach my $code (@products) {
 	}
 	else {
 		print STDERR "new $path is the same as old $old_path\n";
-		die;
+		$same_path++;
 	}
 }
 
-print STDERR "$count products to update - $i products not empty or deleted\n";
-print STDERR "scalar keys codes : " . (scalar keys %codes) . "\n";
-
-print STDERR "invalid: $invalid\n";
+print STDERR "$count products at the root - $i products not empty or deleted\n";
+print STDERR "invalid code: $invalid\n";
 print STDERR "moved: $moved\n";
 print STDERR "not moved: $not_moved\n";
+print STDERR "same path: $same_path\n";
 
 exit(0);
 
