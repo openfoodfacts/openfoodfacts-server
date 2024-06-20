@@ -229,25 +229,8 @@ refresh_mongodb:run_deps
 	${DOCKER_COMPOSE_RUN} run --rm backend perl /opt/product-opener/scripts/update_all_products_from_dir_in_mongodb.pl
 
 # this command is used to import data on the mongodb used on staging environment
-# TODO: This will move into shared-services
-import_prod_data:
-	@echo "🥫 Importing production data (~2M products) into MongoDB …"
-	@echo "🥫 This might take up to 10 mn, so feel free to grab a coffee!"
-	@echo "🥫 Removing old archive in case you have one"
-	( rm -f ./html/data/openfoodfacts-mongodbdump.gz || true ) && ( rm -f ./html/data/gz-sha256sum || true )
-	@echo "🥫 Downloading full MongoDB dump from production …"
-# verify we got sufficient space, NEEDED is in octet, LEFT in ko, we normalize to MB and NEEDED is multiplied by two (because it also will be imported)
-	NEEDED=$$(curl -s --head https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.gz|grep -i content-length: |cut -d ":" -f 2|tr -d " \r\n\t"); \
-	  LEFT=$$(df . -k --output=avail |tail -n 1); \
-	  NEEDED=$$(($$NEEDED/1048576 * 2)); \
-	  LEFT=$$(($$LEFT/1024)); \
-	  if [[ $$LEFT -lt $$NEEDED ]]; then >&2 echo "NOT ENOUGH SPACE LEFT ON DEVICE: $$NEEDED MB > $$LEFT MB"; exit 1; fi
-	wget --no-verbose https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.gz -P ./html/data
-	wget --no-verbose https://static.openfoodfacts.org/data/gz-sha256sum -P ./html/data
-	cd ./html/data && sha256sum --check gz-sha256sum
-	@echo "🥫 Restoring the MongoDB dump …"
-	${DOCKER_COMPOSE} exec -T mongodb //bin/sh -c "cd /data/db && mongorestore --quiet --drop --gzip --archive=/import/openfoodfacts-mongodbdump.gz"
-	rm html/data/openfoodfacts-mongodbdump.gz && rm html/data/gz-sha256sum
+import_prod_data: run_deps
+	@cd ${DEPS_DIR}/openfoodfacts-shared-services && $(MAKE) -e import_prod_data
 
 #--------#
 # Checks #
@@ -468,7 +451,7 @@ create_external_volumes: _clean_old_external_volumes
 	docker volume create --driver=local -o type=none -o o=bind -o device=${DOCKER_LOCAL_DATA}/podata ${COMPOSE_PROJECT_NAME}_podata
 # note for this one, it should be shared with pro instance in the future
 	docker volume create --driver=local -o type=none -o o=bind -o device=${DOCKER_LOCAL_DATA}/export_files ${COMPOSE_PROJECT_NAME}_export_files
-# Create Redis volume
+# Create Redis volume - TODO this needs to move
 	docker volume create --driver=local -o type=none -o o=bind -o device=${DOCKER_LOCAL_DATA}/redis ${COMPOSE_PROJECT_NAME}_redisdata
 
 create_external_networks:
@@ -503,7 +486,7 @@ clean: goodbye hdown prune prune_cache clean_folders
 # Run dependent projects
 run_deps: clone_deps
 	@for dep in ${DEPS} ; do \
-		cd ${DEPS_DIR}/$$dep && make -e run; \
+		cd ${DEPS_DIR}/$$dep && $(MAKE) -e run; \
 	done
 
 # Clone dependent projects without running them (used to pull in yml for tests)
