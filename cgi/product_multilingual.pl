@@ -85,7 +85,7 @@ sub display_search_or_add_form($request_ref) {
 	my $template_data_ref_content = {};
 
 	$template_data_ref_content->{display_search_image_form} = display_search_image_form("block_side");
-	process_template('web/common/includes/display_product_search_or_add.tt.html', $template_data_ref_content, \$html)
+	process_template('web/common/includes/display_product_search_or_add.tt.html', $template_data_ref_content, \$html, $request_ref)
 		|| ($html = "template error: " . $tt->error());
 
 	# Producers platform: display an addition import products block
@@ -97,7 +97,7 @@ sub display_search_or_add_form($request_ref) {
 		process_template(
 			'web/common/includes/display_product_search_or_add_producer.tt.html',
 			$template_data_ref_content_producer,
-			\$html_producer
+			\$html_producer, $request_ref
 		) || ($html_producer = "template error: " . $tt->error());
 
 		$html .= $html_producer;
@@ -365,7 +365,7 @@ if (($type eq 'add') or ($type eq 'edit') or ($type eq 'delete')) {
 
 $template_data_ref->{user_id} = $User_id;
 $template_data_ref->{code} = $code;
-process_template('web/pages/product_edit/product_edit_form.tt.html', $template_data_ref, \$html)
+process_template('web/pages/product_edit/product_edit_form.tt.html', $template_data_ref, \$html, $request_ref)
 	or $html = "<p>" . $tt->error() . "</p>";
 
 my @fields = @ProductOpener::Config::product_fields;
@@ -810,7 +810,7 @@ HTML
 
 	my $thumb_selectable_size = $thumb_size + 20;
 
-	$styles .= <<CSS
+	$request_ref->{styles} .= <<CSS
 .ui-selectable li {
 	margin: 3px;
 	padding: 0px;
@@ -1527,7 +1527,7 @@ HTML
 	$template_data_ref_display->{display_product_history} = display_product_history($request_ref, $code, $product_ref);
 	$template_data_ref_display->{product} = $product_ref;
 
-	process_template('web/pages/product_edit/product_edit_form_display.tt.html', $template_data_ref_display, \$html)
+	process_template('web/pages/product_edit/product_edit_form_display.tt.html', $template_data_ref_display, \$html, $request_ref)
 		or $html = "<p>" . $tt->error() . "</p>";
 
 	$request_ref->{page_type} = "product_edit";

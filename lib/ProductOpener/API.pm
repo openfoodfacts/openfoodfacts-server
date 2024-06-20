@@ -742,7 +742,7 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 
 		# Allow apps to request a HTML nutrition table by passing &fields=nutrition_table_html
 		if ($field eq "nutrition_table_html") {
-			$customized_product_ref->{$field} = display_nutrition_table($product_ref, undef);
+			$customized_product_ref->{$field} = display_nutrition_table($product_ref, undef, $request_ref);
 			next;
 		}
 
@@ -843,7 +843,7 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 		# Knowledge panels in the $lc language
 		if ($field eq "knowledge_panels") {
 			initialize_knowledge_panels_options($knowledge_panels_options_ref, $request_ref);
-			create_knowledge_panels($product_ref, $lc, $cc, $knowledge_panels_options_ref);
+			create_knowledge_panels($product_ref, $lc, $cc, $knowledge_panels_options_ref, $request_ref);
 			$customized_product_ref->{$field} = $product_ref->{"knowledge_panels_" . $lc};
 			next;
 		}

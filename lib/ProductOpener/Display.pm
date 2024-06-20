@@ -110,7 +110,7 @@ BEGIN {
 
 		$scripts
 		$initjs
-		$styles
+		
 		$header
 
 		$original_subdomain
@@ -372,7 +372,7 @@ sub url_for_text ($textid) {
 	}
 }
 
-=head2 process_template ( $template_filename , $template_data_ref , $result_content_ref )
+=head2 process_template ( $template_filename , $template_data_ref , $result_content_ref, $request_ref = {} )
 
 Add some functions and variables needed by many templates and process the template with template toolkit.
 
@@ -627,7 +627,7 @@ sub init_request ($request_ref = {}) {
 	}
 
 	# TODO: global variables should be moved to $request_ref
-	$styles = '';
+	$request_ref->{styles} = '';
 	$scripts = '';
 	$initjs = '';
 	$header = '';
@@ -893,13 +893,13 @@ sub init_request ($request_ref = {}) {
 	if (($server_options{producers_platform})
 		and not((defined $Owner_id) and (($Owner_id =~ /^org-/) or ($User{moderator}) or $User{pro_moderator})))
 	{
-		$styles .= <<CSS
+		$request_ref->{styles} .= <<CSS
 .hide-when-no-access-to-producers-platform {display:none}
 CSS
 			;
 	}
 	else {
-		$styles .= <<CSS
+		$request_ref->{styles} .= <<CSS
 .show-when-no-access-to-producers-platform {display:none}
 CSS
 			;
@@ -908,13 +908,13 @@ CSS
 	# Not logged in users
 
 	if (defined $User_id) {
-		$styles .= <<CSS
+		$request_ref->{styles} .= <<CSS
 .hide-when-logged-in {display:none}
 CSS
 			;
 	}
 	else {
-		$styles .= <<CSS
+		$request_ref->{styles} .= <<CSS
 .show-when-logged-in {display:none}
 CSS
 			;
@@ -1287,7 +1287,7 @@ sub display_index_for_producer ($request_ref) {
 
 	my $html;
 
-	process_template('web/common/includes/producers_platform_front_page.tt.html', $template_data_ref, \$html)
+	process_template('web/common/includes/producers_platform_front_page.tt.html', $template_data_ref, \$html, $request_ref)
 		|| return "template error: " . $tt->error();
 
 	return $html;
@@ -1509,7 +1509,7 @@ sub display_text_content ($request_ref, $textid, $text_lc, $file) {
 
 	if ($html =~ /<styles>(.*)<\/styles>/s) {
 		$html = $` . $';
-		$styles .= $1;
+		$request_ref->{styles} .= $1;
 	}
 
 	if ($html =~ /<header>(.*)<\/header>/s) {
@@ -2870,7 +2870,7 @@ HEADER
 	$log->debug("end", {}) if $log->is_debug();
 
 	process_template('web/common/includes/display_list_of_tags_translate.tt.html',
-		$template_data_ref_tags_translate, \$html)
+		$template_data_ref_tags_translate, \$html, $request_ref)
 		|| return "template error: " . $tt->error();
 
 	return $html;
@@ -3267,7 +3267,7 @@ It is in maintenance mode, and should be reimplemented as facets knowledge panel
 
 =cut
 
-sub generate_description_from_display_tag_options ($tagtype, $tagid, $display_tag, $canon_tagid) {
+sub generate_description_from_display_tag_options ($tagtype, $tagid, $display_tag, $canon_tagid, $request_ref) {
 
 	my $description = "";
 
@@ -3349,7 +3349,7 @@ sub generate_description_from_display_tag_options ($tagtype, $tagid, $display_ta
 					}
 				}
 
-				$styles .= <<CSS
+				$request_ref->{styles} .= <<CSS
 .exposure_table {
 
 }
@@ -3873,7 +3873,7 @@ sub display_tag ($request_ref) {
 
 		if (exists $options{"display_tag_" . $tagtype}) {
 
-			$description = generate_description_from_display_tag_options($tagtype, $tagid, $display_tag, $canon_tagid);
+			$description = generate_description_from_display_tag_options($tagtype, $tagid, $display_tag, $canon_tagid, $request_ref);
 		}
 		else {
 			# Do we have a description for the tag in the taxonomy?
@@ -4056,7 +4056,7 @@ HTML
 				wikidata => \@wikidata_objects,
 				pointers => \@markers
 			};
-			process_template('web/pages/tags_map/map_of_tags.tt.html', $map_template_data_ref, \$map_html)
+			process_template('web/pages/tags_map/map_of_tags.tt.html', $map_template_data_ref, \$map_html, $request_ref)
 				|| ($map_html .= 'template error: ' . $tt->error());
 		}
 
@@ -4141,7 +4141,7 @@ HTML
 					}
 
 					process_template('web/pages/org_profile/org_profile.tt.html',
-						$user_template_data_ref, \$profile_html)
+						$user_template_data_ref, \$profile_html, $request_ref)
 						or $profile_html
 						= "<p>web/pages/org_profile/org_profile.tt.html template error: " . $tt->error() . "</p>";
 				}
@@ -4210,7 +4210,7 @@ HTML
 					$display_tag, $categories_nutriments_ref->{$canon_tagid}{count}
 					)
 					. "</p>"
-					. display_nutrition_table($categories_nutriments_ref->{$canon_tagid}, undef);
+					. display_nutrition_table($categories_nutriments_ref->{$canon_tagid}, undef, $request_ref);
 			}
 		}
 
@@ -6005,7 +6005,7 @@ List of search results from search_and_graph_products()
 
 =cut
 
-sub display_scatter_plot ($graph_ref, $products_ref) {
+sub display_scatter_plot ($graph_ref, $products_ref, $request_ref) {
 
 	my @products = @{$products_ref};
 	my $count = scalar @products;
@@ -6337,7 +6337,7 @@ HTML
 
 	compute_stats_for_products($stats_ref, \%nutriments, $count, $i, 5, 'search');
 
-	$html .= display_nutrition_table($stats_ref, undef);
+	$html .= display_nutrition_table($stats_ref, undef, $request_ref);
 
 	$html .= "<p>&nbsp;</p>";
 
@@ -6817,7 +6817,7 @@ sub search_and_graph_products ($request_ref, $query_ref, $graph_ref) {
 			$html .= display_histogram($graph_ref, \@products);
 		}
 		else {
-			$html .= display_scatter_plot($graph_ref, \@products);
+			$html .= display_scatter_plot($graph_ref, \@products, $request_ref);
 		}
 
 		if (defined $request_ref->{current_link}) {
@@ -7320,7 +7320,7 @@ sub display_page ($request_ref) {
 		$google_analytics = $server_options{google_analytics};
 	}
 
-	$template_data_ref->{styles} = $styles;
+	$template_data_ref->{styles} = $request_ref->{styles};
 	$template_data_ref->{google_analytics} = $google_analytics;
 	$template_data_ref->{bodyabout} = $bodyabout;
 	$template_data_ref->{site_name} = $site_name;
@@ -7811,7 +7811,7 @@ JS
 	# Activate knowledge panels for all users
 
 	initialize_knowledge_panels_options($knowledge_panels_options_ref, $request_ref);
-	create_knowledge_panels($product_ref, $lc, $cc, $knowledge_panels_options_ref);
+	create_knowledge_panels($product_ref, $lc, $cc, $knowledge_panels_options_ref, $request_ref);
 	$template_data_ref->{environment_card_panel}
 		= display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "environment_card");
 	$template_data_ref->{health_card_panel}
@@ -8223,7 +8223,7 @@ JS
 
 		my $comparisons_ref = compare_product_nutrition_facts_to_categories($product_ref, $cc, undef);
 
-		$template_data_ref->{display_nutrition_table} = display_nutrition_table($product_ref, $comparisons_ref);
+		$template_data_ref->{display_nutrition_table} = display_nutrition_table($product_ref, $comparisons_ref, $request_ref);
 		$template_data_ref->{nutrition_image} = display_image_box($product_ref, 'nutrition', \$minheight);
 
 		if (has_tag($product_ref, "categories", "en:alcoholic-beverages")) {
@@ -9454,7 +9454,7 @@ Reference to a data structure with needed data to display.
 
 =cut
 
-sub data_to_display_nutrition_table ($product_ref, $comparisons_ref) {
+sub data_to_display_nutrition_table ($product_ref, $comparisons_ref, $request_ref) {
 
 	# This function populates a data structure that is used by the template to display the nutrition facts table
 	my $template_data_ref = {
@@ -9585,7 +9585,7 @@ sub data_to_display_nutrition_table ($product_ref, $comparisons_ref) {
 				$checked = 1;
 			}
 			else {
-				$styles .= <<CSS
+				$request_ref->{styles} .= <<CSS
 .$col_id { display:none }
 CSS
 					;
@@ -10164,13 +10164,13 @@ HTML for the nutrition table.
 
 =cut
 
-sub display_nutrition_table ($product_ref, $comparisons_ref) {
+sub display_nutrition_table ($product_ref, $comparisons_ref, $request_ref) {
 
 	my $html = '';
 
-	my $template_data_ref = data_to_display_nutrition_table($product_ref, $comparisons_ref);
+	my $template_data_ref = data_to_display_nutrition_table($product_ref, $comparisons_ref, $request_ref);
 
-	process_template('web/pages/product/includes/nutrition_facts_table.tt.html', $template_data_ref, \$html)
+	process_template('web/pages/product/includes/nutrition_facts_table.tt.html', $template_data_ref, \$html, $request_ref)
 		|| return "template error: " . $tt->error();
 
 	return $html;
@@ -10377,7 +10377,7 @@ sub display_product_api ($request_ref) {
 				Lang => \%Lang,
 			};
 			my $html;
-			process_template('web/common/includes/display_product_api.tt.html', $template_data_ref, \$html)
+			process_template('web/common/includes/display_product_api.tt.html', $template_data_ref, \$html, $request_ref)
 				|| return "template error: " . $tt->error();
 			$response{jqm} .= $html;
 		}
@@ -10563,7 +10563,7 @@ sub display_product_history ($request_ref, $code, $product_ref) {
 	};
 
 	my $html;
-	process_template('web/pages/product/includes/edit_history.tt.html', $template_data_ref, \$html)
+	process_template('web/pages/product/includes/edit_history.tt.html', $template_data_ref, \$html, $request_ref)
 		|| return 'template error: ' . $tt->error();
 	return $html;
 
@@ -10869,7 +10869,7 @@ sub display_recent_changes ($request_ref, $query_ref, $limit, $page) {
 
 	$template_data_ref_changes->{changes} = \@changes;
 	$template_data_ref_changes->{display_pagination} = display_pagination($request_ref, $count, $limit, $page);
-	process_template('web/common/includes/display_recent_changes.tt.html', $template_data_ref_changes, \$html)
+	process_template('web/common/includes/display_recent_changes.tt.html', $template_data_ref_changes, \$html, $request_ref)
 		|| ($html .= 'template error: ' . $tt->error());
 
 	${$request_ref->{content_ref}} .= $html;
@@ -11440,7 +11440,7 @@ sub search_and_analyze_recipes ($request_ref, $query_ref) {
 			debug => $debug,
 		};
 
-		process_template('web/pages/recipes/recipes.tt.html', $template_data_ref, \$html)
+		process_template('web/pages/recipes/recipes.tt.html', $template_data_ref, \$html, $request_ref)
 			or $html = "template error: " . $tt->error();
 
 	}
@@ -11457,7 +11457,7 @@ Load the Folksonomy Engine properties script
 sub display_properties ($request_ref) {
 
 	my $html;
-	process_template('web/common/includes/folksonomy_script.tt.html', {}, \$html)
+	process_template('web/common/includes/folksonomy_script.tt.html', {}, \$html, $request_ref)
 		|| return "template error: " . $tt->error();
 
 	$request_ref->{content_ref} = \$html;

@@ -176,9 +176,9 @@ else {
 JS
 		;
 
-	process_template('web/pages/import_photos_upload/import_photos_upload.tt.html', $template_data_ref, \$html)
+	process_template('web/pages/import_photos_upload/import_photos_upload.tt.html', $template_data_ref, \$html, $request_ref)
 		or $html = "<p>" . $tt->error() . "</p>";
-	process_template('web/pages/import_photos_upload/import_photos_upload.tt.js', $template_data_ref, \$js)
+	process_template('web/pages/import_photos_upload/import_photos_upload.tt.js', $template_data_ref, \$js, $request_ref)
 		or $html = "<p>" . $tt->error() . "</p>";
 
 	$initjs .= $js;
@@ -340,7 +340,7 @@ var images_processed = 0;
 JS
 		;
 
-	$styles .= <<CSS
+	$request_ref->{styles} .= <<CSS
 
     <!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
 

@@ -112,7 +112,7 @@ sub initialize_knowledge_panels_options ($knowledge_panels_options_ref, $request
 	return;
 }
 
-=head2 create_knowledge_panels( $product_ref, $target_lc, $target_cc, $options_ref )
+=head2 create_knowledge_panels( $product_ref, $target_lc, $target_cc, $options_ref, $request_ref)
 
 Create all knowledge panels for a product, with strings (descriptions, recommendations etc.)
 in a specific language, and return them in an array of panels.
@@ -148,7 +148,7 @@ passed as input.
 
 =cut
 
-sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref) {
+sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
 
 	$log->debug("create knowledge panels for product", {code => $product_ref->{code}, target_lc => $target_lc})
 		if $log->is_debug();
@@ -200,7 +200,7 @@ sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref)
 
 	my $has_health_card;
 	if (feature_enabled("health_card")) {
-		$has_health_card = create_health_card_panel($product_ref, $target_lc, $target_cc, $options_ref);
+		$has_health_card = create_health_card_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 	}
 
 	create_environment_card_panel($product_ref, $target_lc, $target_cc, $options_ref);
@@ -840,7 +840,7 @@ We may display country specific recommendations from health authorities, or coun
 
 =cut
 
-sub create_health_card_panel ($product_ref, $target_lc, $target_cc, $options_ref) {
+sub create_health_card_panel ($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
 
 	$log->debug("create health card panel", {code => $product_ref->{code}}) if $log->is_debug();
 
@@ -884,7 +884,7 @@ sub create_health_card_panel ($product_ref, $target_lc, $target_cc, $options_ref
 	# Nutrition facts for food and pet food
 	if (feature_enabled("nutrition")) {
 		create_serving_size_panel($product_ref, $target_lc, $target_cc, $options_ref);
-		create_nutrition_facts_table_panel($product_ref, $target_lc, $target_cc, $options_ref);
+		create_nutrition_facts_table_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 	}
 
 	my $panel_data_ref = {
@@ -1107,7 +1107,7 @@ This parameter sets the desired language for the user facing strings.
 
 =cut
 
-sub create_nutrition_facts_table_panel ($product_ref, $target_lc, $target_cc, $options_ref) {
+sub create_nutrition_facts_table_panel ($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
 
 	$log->debug("create nutrition facts panel",
 		{code => $product_ref->{code}, nutriscore_data => $product_ref->{nutriscore_data}})
@@ -1120,7 +1120,7 @@ sub create_nutrition_facts_table_panel ($product_ref, $target_lc, $target_cc, $o
 
 		# Compare the product nutrition facts to the most specific category
 		my $comparisons_ref = compare_product_nutrition_facts_to_categories($product_ref, $target_cc, 1);
-		my $panel_data_ref = data_to_display_nutrition_table($product_ref, $comparisons_ref);
+		my $panel_data_ref = data_to_display_nutrition_table($product_ref, $comparisons_ref, $request_ref);
 
 		create_panel_from_json_template("nutrition_facts_table",
 			"api/knowledge-panels/health/nutrition/nutrition_facts_table.tt.json",
