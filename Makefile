@@ -62,7 +62,7 @@ TEST_CMD ?= yath test -PProductOpener::LoadData
 # Space delimited list of dependant projects
 DEPS=openfoodfacts-shared-services
 ifndef DEPS_DIR
-	DEPS_DIR=${PWD}/deps
+	export DEPS_DIR=${PWD}/deps
 endif
 
 .DEFAULT_GOAL := usage
@@ -148,10 +148,6 @@ restart:
 	@echo "🥫 Restarting frontend & backend containers …"
 	${DOCKER_COMPOSE} restart backend frontend
 	@echo "🥫  started service at http://openfoodfacts.localhost"
-
-restart_db:
-	@echo "🥫 Restarting MongoDB database …"
-	${DOCKER_COMPOSE} restart mongodb
 
 status:
 	@echo "🥫 Getting container status …"
