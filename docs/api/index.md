@@ -141,3 +141,4 @@ Open-source contributors develop our SDKs, and more contributions are welcome to
 *   Ruby: [GitHub](https://github.com/openfoodfacts/openfoodfacts-ruby) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C0ZALLH61)
 *   Rust: [GitHub](https://github.com/openfoodfacts/openfoodfacts-rust) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C010J616CKV)
 *   R: [GitHub](https://github.com/openfoodfacts/r-dashboard)
+*   .NET: [GitHub](https://github.com/openfoodfacts/openfoodfacts-csharp) - 
