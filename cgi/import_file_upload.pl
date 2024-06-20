@@ -135,7 +135,7 @@ else {
 	process_template('web/pages/import_file_upload/import_file_upload.tt.html', $template_data_ref, \$html, $request_ref);
 	process_template('web/pages/import_file_upload/import_file_upload.tt.js', $template_data_ref, \$js, $request_ref);
 
-	$initjs .= $js;
+	$request_ref->{initjs} .= $js;
 
 	$request_ref->{scripts} .= <<HTML
 <script type="text/javascript" src="/js/dist/jquery.iframe-transport.js"></script>

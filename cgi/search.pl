@@ -486,7 +486,7 @@ CSS
 HTML
 		;
 
-	$initjs .= <<JS
+	$request_ref->{initjs} .= <<JS
 var select2_options = {
 		placeholder: "$Lang{select_a_field}{$lc}",
 		allowClear: true

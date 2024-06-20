@@ -424,7 +424,7 @@ JS
 
 	}
 
-	$initjs .= <<JS
+	$request_ref->{initjs} .= <<JS
 
 \/\/ start off canvas blocks for small screens
 

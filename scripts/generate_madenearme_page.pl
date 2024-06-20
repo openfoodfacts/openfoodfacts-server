@@ -116,12 +116,13 @@ my $usage = "Usage: $0 <country code (or world)> <language code> [--verbose]\n";
 my $verbose = undef;
 GetOptions("verbose" => \$verbose) or die($usage);
 
+my $request_ref = {};
 $cc = $ARGV[0];
 $lc = $ARGV[1];
 $subdomain = $cc;
 $formatted_subdomain = format_subdomain($subdomain);
 $header = "";
-$initjs = "";
+$request_ref->{initjs} = "";
 
 if ((not defined $cc) or (not defined $lc)) {
 	die("$usage\nError: Pass country code (or world) and language code as arguments.\n");
@@ -143,7 +144,7 @@ $html = get_initial_html($cc);
 
 my %map_options = (uk => "map.setView(new L.LatLng(54.0617609,-3.4433238),6);",);
 
-my $request_ref = {};
+
 my $graph_ref = {};
 
 $log->info("finding products", {lc => $lc, cc => $cc, country => $country}) if $log->is_info();
@@ -155,7 +156,7 @@ $request_ref->{map_options} = $map_options{$cc} || "";
 my $map_html = map_of_products($products_iter, $request_ref, $graph_ref);
 
 $html =~ s/<HEADER>/$header/;
-$html =~ s/<INITJS>/$initjs/;
+$html =~ s/<INITJS>/$request_ref->{initjs}/;
 $html =~ s/<CONTENT>/$map_html/;
 
 binmode(STDOUT, ":encoding(UTF-8)");

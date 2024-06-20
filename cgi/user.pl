@@ -447,7 +447,7 @@ else {
 		or $html = "<p>" . $tt->error() . "</p>";
 	process_template('web/pages/user_form/user_form.tt.js', $template_data_ref, \$js, $request_ref);
 
-	$initjs .= $js;
+	$request_ref->{initjs} .= $js;
 
 	$request_ref->{title} = lang($type . '_user_' . $action);
 	$request_ref->{content_ref} = \$html;

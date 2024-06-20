@@ -171,7 +171,7 @@ elsif (($action eq "process") and $allow_submit) {
 	$html .= "<p>" . lang("export_job_import") . " - <span id=\"result2\"></span></p>";
 	$html .= "<p>" . lang("export_job_status_update") . " - <span id=\"result3\"></span></p>";
 
-	$initjs .= <<JS
+	$request_ref->{initjs} .= <<JS
 	
 var minion_status = {
 	"inactive" : "$Lang{minion_status_inactive}{$lc}",

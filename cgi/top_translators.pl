@@ -92,7 +92,7 @@ my $js = <<JS
 	});
 JS
 	;
-$initjs .= $js;
+$request_ref->{initjs} .= $js;
 
 my $html;
 process_template('web/pages/top_translators/top_translators.tt.html', $template_data_ref, \$html) or $html = '';

@@ -107,8 +107,6 @@ BEGIN {
 		&process_template
 
 		@search_series
-
-		$initjs
 		
 		$header
 
@@ -432,6 +430,9 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 		return has_permission($request_ref, $permission);
 	};
 
+	$template_data_ref->{scripts} = $request_ref->{scripts};
+	$template_data_ref->{initjs} = $request_ref->{initjs};
+
 	# Return a link to one taxonomy entry in the target language
 	$template_data_ref->{canonicalize_taxonomy_tag_link} = sub ($tagtype, $tag) {
 		return canonicalize_taxonomy_tag_link($lc, $tagtype, $tag);
@@ -628,7 +629,7 @@ sub init_request ($request_ref = {}) {
 	# TODO: global variables should be moved to $request_ref
 	$request_ref->{styles} = '';
 	$request_ref->{scripts} = '';
-	$initjs = '';
+	$request_ref->{initjs} = '';
 	$header = '';
 	$bodyabout = '';
 
@@ -1409,12 +1410,12 @@ sub display_text_content ($request_ref, $textid, $text_lc, $file) {
 
 	while ($html =~ /<scripts>(.*?)<\/scripts>/s) {
 		$html = $` . $';
-		$$request_ref->{scripts} .= $1;
+		$request_ref->{scripts} .= $1;
 	}
 
 	while ($html =~ /<initjs>(.*?)<\/initjs>/s) {
 		$html = $` . $';
-		$initjs .= $1;
+		$request_ref->{initjs} .= $1;
 	}
 
 	# wikipedia style links [url text]
@@ -2479,7 +2480,7 @@ HTML
 			});
 JS
 				;
-			$initjs .= $js;
+			$request_ref->{initjs} .= $js;
 
 			$request_ref->{scripts} .= <<SCRIPTS
 <script src="$static_subdomain/js/dist/highcharts.js"></script>
@@ -2496,7 +2497,7 @@ HTML
 
 		# countries map?
 		if (keys %{$countries_map_data} > 0) {
-			$initjs .= 'var countries_map_data=JSON.parse(' . $json->encode($json->encode($countries_map_data)) . ');'
+			$request_ref->{initjs} .= 'var countries_map_data=JSON.parse(' . $json->encode($json->encode($countries_map_data)) . ');'
 				.= 'var countries_map_links=JSON.parse(' . $json->encode($json->encode($countries_map_links)) . ');'
 				.= 'var countries_map_names=JSON.parse(' . $json->encode($json->encode($countries_map_names)) . ');'
 				.= <<"JS";
@@ -2529,7 +2530,7 @@ HTML
 			$extra_column_searchable .= ', {"searchable": false}';
 		}
 
-		$initjs .= <<JS
+		$request_ref->{initjs} .= <<JS
 let oTable = \$('#tagstable').DataTable({
 	language: {
 		search: "$tagstable_search",
@@ -2798,7 +2799,7 @@ sub display_list_of_tags_translate ($request_ref, $query_ref) {
 		my $tagstable_search = lang_in_other_lc($request_lc, "tagstable_search");
 		my $tagstable_filtered = lang_in_other_lc($request_lc, "tagstable_filtered");
 
-		$initjs .= <<JS
+		$request_ref->{initjs} .= <<JS
 let oTable = \$('#tagstable').DataTable({
 	language: {
 		search: "$tagstable_search",
@@ -2875,7 +2876,7 @@ HEADER
 	return $html;
 }
 
-sub display_points_ranking ($tagtype, $tagid) {
+sub display_points_ranking ($tagtype, $tagid, $request_ref) {
 
 	local $log->context->{tagtype} = $tagtype;
 	local $log->context->{tagid} = $tagid;
@@ -2969,7 +2970,7 @@ sub display_points_ranking ($tagtype, $tagid) {
 	my $tagstable_search = lang_in_other_lc($lc, "tagstable_search");
 	my $tagstable_filtered = lang_in_other_lc($lc, "tagstable_filtered");
 
-	$initjs .= <<JS
+	$request_ref->{initjs} .= <<JS
 ${tagtype}Table = \$('#${tagtype}table').DataTable({
 	language: {
 		search: "$tagstable_search",
@@ -3101,13 +3102,13 @@ sub display_points ($request_ref) {
 	}
 
 	if (defined $tagtype) {
-		$html .= display_points_ranking($tagtype, $tagid);
+		$html .= display_points_ranking($tagtype, $tagid, $request_ref);
 		$request_ref->{title}
 			= "Open Food Hunt" . lang("title_separator") . lang("points_ranking") . lang("title_separator") . $title;
 	}
 	else {
-		$html .= display_points_ranking("users", "_all_");
-		$html .= display_points_ranking("countries", "_all_");
+		$html .= display_points_ranking("users", "_all_", $request_ref);
+		$html .= display_points_ranking("countries", "_all_", $request_ref);
 		$request_ref->{title} = "Open Food Hunt" . lang("title_separator") . lang("points_ranking_users_and_countries");
 	}
 
@@ -4480,7 +4481,7 @@ JS
 JS
 			;
 
-		$initjs .= <<JS
+		$request_ref->{initjs} .= <<JS
 display_user_product_preferences("#preferences_selected", "#preferences_selection_form", function () {
 	rank_and_display_products("#search_results", products, contributor_prefs);
 });
@@ -5582,7 +5583,7 @@ JS
 JS
 		;
 
-	$initjs .= <<JS
+	$request_ref->{initjs} .= <<JS
 display_user_product_preferences("#preferences_selected", "#preferences_selection_form", function () {
 	rank_and_display_products("#search_results", products, contributor_prefs);
 });
@@ -6314,7 +6315,7 @@ JS
         });
 JS
 		;
-	$initjs .= $js;
+	$request_ref->{initjs} .= $js;
 
 	my $count_string = sprintf(lang("graph_count"), $count, $i);
 
@@ -6695,7 +6696,7 @@ JS
         });
 JS
 		;
-	$initjs .= $js;
+	$request_ref->{initjs} .= $js;
 
 	my $count_string = sprintf(lang("graph_count"), $count, $i);
 
@@ -7045,7 +7046,7 @@ sub map_of_products ($products_iter, $request_ref, $graph_ref) {
 		pointers => \@pointers,
 		current_link => $request_ref->{current_link},
 	};
-	process_template('web/pages/products_map/map_of_products.tt.html', $map_template_data_ref, \$html)
+	process_template('web/pages/products_map/map_of_products.tt.html', $map_template_data_ref, \$html, $request_ref)
 		|| ($html .= 'template error: ' . $tt->error());
 
 	return $html;
@@ -7442,7 +7443,7 @@ sub display_page ($request_ref) {
 
 	while ($$content_ref =~ /<initjs>(.*?)<\/initjs>/s) {
 		$$content_ref = $` . $';
-		$initjs .= $1;
+		$request_ref->{initjs} .= $1;
 	}
 	while ($$content_ref =~ /<scripts>(.*?)<\/scripts>/s) {
 		$$content_ref = $` . $';
@@ -7459,7 +7460,7 @@ sub display_page ($request_ref) {
 	# init javascript code
 
 	$template_data_ref->{scripts} = $request_ref->{scripts};
-	$template_data_ref->{initjs} = $initjs;
+	$template_data_ref->{initjs} = $request_ref->{initjs};
 	$template_data_ref->{request} = $request_ref;
 
 	my $html;
@@ -7517,7 +7518,7 @@ sub display_page ($request_ref) {
 	return;
 }
 
-sub display_image_box ($product_ref, $id, $minheight_ref) {
+sub display_image_box ($product_ref, $id, $minheight_ref, $request_ref) {
 
 	my $img = display_image($product_ref, $id, $small_size);
 	if ($img ne '') {
@@ -7584,7 +7585,7 @@ HTML
 
 			$img .= $html;
 
-			$initjs .= <<JS
+			$request_ref->{initjs} .= <<JS
 	\$(".unselectbutton_$idlc").click({imagefield:"$idlc"},function(event) {
 		event.stopPropagation();
 		event.preventDefault();
@@ -7699,7 +7700,7 @@ SCRIPTS
 		;
 
 	# call equalizer when dropdown content is shown
-	$initjs .= <<JS
+	$request_ref->{initjs} .= <<JS
 \$('.f-dropdown').on('opened.fndtn.dropdown', function() {
    \$(document).foundation('equalizer', 'reflow');
 });
@@ -7983,7 +7984,7 @@ JS
 	}
 
 	my $minheight = 0;
-	my $front_image = display_image_box($product_ref, 'front', \$minheight);
+	my $front_image = display_image_box($product_ref, 'front', \$minheight, $request_ref);
 	$front_image =~ s/ width="/ itemprop="image" width="/;
 
 	# Take the last (biggest) image
@@ -8039,7 +8040,7 @@ JS
 			= " (" . display_taxonomy_tag($lc, 'languages', $language_codes{$ingredients_text_lang}) . ")";
 	}
 
-	$template_data_ref->{ingredients_image} = display_image_box($product_ref, 'ingredients', \$minheight);
+	$template_data_ref->{ingredients_image} = display_image_box($product_ref, 'ingredients', \$minheight, $request_ref);
 	$template_data_ref->{ingredients_text_lang} = $ingredients_text_lang;
 	$template_data_ref->{ingredients_text} = $ingredients_text;
 
@@ -8049,7 +8050,7 @@ JS
 		my $ilc = $ingredients_text_lang;
 		$template_data_ref->{ilc} = $ingredients_text_lang;
 
-		$initjs .= <<JS
+		$request_ref->{initjs} .= <<JS
 
 	var editableText;
 
@@ -8223,7 +8224,7 @@ JS
 		my $comparisons_ref = compare_product_nutrition_facts_to_categories($product_ref, $cc, undef);
 
 		$template_data_ref->{display_nutrition_table} = display_nutrition_table($product_ref, $comparisons_ref, $request_ref);
-		$template_data_ref->{nutrition_image} = display_image_box($product_ref, 'nutrition', \$minheight);
+		$template_data_ref->{nutrition_image} = display_image_box($product_ref, 'nutrition', \$minheight, $request_ref);
 
 		if (has_tag($product_ref, "categories", "en:alcoholic-beverages")) {
 			$template_data_ref->{has_tag} = 'categories-en:alcoholic-beverages';
@@ -8232,7 +8233,7 @@ JS
 
 	# Packaging
 
-	$template_data_ref->{packaging_image} = display_image_box($product_ref, 'packaging', \$minheight);
+	$template_data_ref->{packaging_image} = display_image_box($product_ref, 'packaging', \$minheight, $request_ref);
 
 	# try to display packaging in the local language if available
 
@@ -8436,7 +8437,7 @@ var product = $product_attribute_groups_json;
 JS
 			;
 
-		$initjs .= <<JS
+		$request_ref->{initjs} .= <<JS
 display_user_product_preferences("#preferences_selected", "#preferences_selection_form", function () { display_product_summary("#product_summary", product); });
 display_product_summary("#product_summary", product);
 JS
@@ -8619,7 +8620,7 @@ HTML
 
 	my $minheight = 0;
 	$product_ref->{jqm} = 1;
-	my $html_image = display_image_box($product_ref, 'front', \$minheight);
+	my $html_image = display_image_box($product_ref, 'front', \$minheight, $request_ref);
 	$html .= <<HTML
         <div data-role="deactivated-collapsible-set" data-theme="" data-content-theme="">
             <div data-role="deactivated-collapsible">
@@ -8634,7 +8635,7 @@ HTML
 		$html .= display_field($product_ref, $field);
 	}
 
-	$html_image = display_image_box($product_ref, 'ingredients', \$minheight);
+	$html_image = display_image_box($product_ref, 'ingredients', \$minheight, $request_ref);
 
 	# try to display ingredients in the local language
 
@@ -8753,7 +8754,7 @@ HTML
 
 	}
 
-	$html_image = display_image_box($product_ref, 'nutrition', \$minheight);
+	$html_image = display_image_box($product_ref, 'nutrition', \$minheight, $request_ref);
 
 	$html .= "</div>";
 

@@ -1041,7 +1041,7 @@ CSS
 		["nutrition_image"], $request_ref);
 	$template_data_ref_display->{display_field_serving_size} = display_input_field($product_ref, "serving_size", undef, $request_ref);
 
-	$initjs .= display_select_crop_init($product_ref);
+	$request_ref->{initjs} .= display_select_crop_init($product_ref);
 
 	my $hidden_inputs = '';
 

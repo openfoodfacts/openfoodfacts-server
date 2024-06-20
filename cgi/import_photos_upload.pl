@@ -181,7 +181,7 @@ JS
 	process_template('web/pages/import_photos_upload/import_photos_upload.tt.js', $template_data_ref, \$js, $request_ref)
 		or $html = "<p>" . $tt->error() . "</p>";
 
-	$initjs .= $js;
+	$request_ref->{initjs} .= $js;
 
 	$header .= <<HTML
 <script>
@@ -214,7 +214,7 @@ function waitForPreviousUpload(submitIndex, callback) {
 HTML
 		;
 
-	$initjs .= <<JS
+	$request_ref->{initjs} .= <<JS
 
 /*
  * jQuery File Upload Demo
