@@ -363,11 +363,11 @@ msgstr "ไม่ใช่ผลิตภัณฑ์จาก %s"
 
 msgctxt "brand_owner"
 msgid "Brand owner"
-msgstr ""
+msgstr "เจ้าของแบรนด์"
 
 msgctxt "brand_owner_example"
 msgid "The Coca Cola Company"
-msgstr ""
+msgstr "บริษัทโคคาโคล่า"
 
 msgctxt "by"
 msgid "by"
@@ -603,7 +603,7 @@ msgstr ""
 
 msgctxt "edit_profile_confirm"
 msgid "Changes to your public profile have been saved."
-msgstr ""
+msgstr "บันทึกการเปลี่ยนแปลงโปรไฟล์สาธารณะของคุณแล้ว"
 
 msgctxt "edit_profile_msg"
 msgid "Information below is visible in your public profile."
@@ -1512,7 +1512,7 @@ msgstr ""
 
 msgctxt "nutrient_levels_p"
 msgid "nutrient levels"
-msgstr ""
+msgstr "ปริมาณสารอาหาร"
 
 msgctxt "nutrient_levels_s"
 msgid "nutrient level"
@@ -1837,7 +1837,7 @@ msgstr "คุณเพิ่งช่วยปรับปรุงฐานข
 
 msgctxt "product_edit_thank_you"
 msgid "Thank you so much for joining us in our journey to data transparency!"
-msgstr "ขอบคุณส่วนร่วมในการ สร้างความโปร่งใสของข้อมูลผลิตภัณฑ์อาหาร กับเรา!"
+msgstr "ขอบคุณที่มีส่วนร่วมในการสร้างความโปร่งใสของข้อมูลผลิตภัณฑ์อาหาร"
 
 msgctxt "product_characteristics"
 msgid "Product characteristics"
@@ -2358,7 +2358,7 @@ msgstr "ดูหน้าสินค้า"
 
 msgctxt "re_edit_product_page"
 msgid "Edit the product again"
-msgstr ""
+msgstr "แก้ไขผลิตภัณฑ์นี้อีกครั้ง"
 
 msgctxt "select_country"
 msgid "Country"
@@ -3275,7 +3275,7 @@ msgstr ""
 
 msgctxt "error_too_many_products_to_export"
 msgid "Too many products (%d products, the limit is %d) to export, please download the <a href=\"/data\">complete database export</a> instead."
-msgstr ""
+msgstr "คุณ export ข้อมูลมากเกินไป (%d ผลิตภัณฑ์ ขีดจำกัดคือ %d) โปรดดาวน์โหลด <a href=\"/data\">complete database</a> แทน"
 
 msgctxt "translate_taxonomy_to"
 msgid "Help translate the %s to %s"
@@ -3935,43 +3935,43 @@ msgstr ""
 
 msgctxt "nutriscore_calculation_details"
 msgid "Details of the calculation of the Nutri-Score"
-msgstr ""
+msgstr "รายละเอียดการคำนวณ Nutri-Score"
 
 msgctxt "nutriscore_is_beverage"
 msgid "This product is considered a beverage for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "ผลิตภัณฑ์นี้จัดเป็นหมวดหมู่เครื่องดื่มสำหรับคำนวณค่า Nutri-Score"
 
 msgctxt "nutriscore_is_not_beverage"
 msgid "This product is not considered a beverage for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "ผลิตภัณฑ์นี้ไม่จัดเป็นหมวดหมู่เครื่องดื่มสำหรับคำนวณค่า Nutri-Score"
 
 msgctxt "nutriscore_positive_points"
 msgid "Positive points"
-msgstr ""
+msgstr "คะแนนคุณภาพด้านบวก"
 
 msgctxt "nutriscore_negative_points"
 msgid "Negative points"
-msgstr ""
+msgstr "คะแนนคุณภาพด้านลบ"
 
 msgctxt "nutriscore_proteins_negative_points_less_than_11"
 msgid "The points for proteins are counted because the negative points are less than 11."
-msgstr ""
+msgstr "นับรวมคะแนนสําหรับโปรตีนเนื่องจากคะแนนคุณภาพด้านลบน้อยกว่า 11"
 
 msgctxt "nutriscore_proteins_negative_points_greater_or_equal_to_11"
 msgid "The points for proteins are not counted because the negative points are greater or equal to 11."
-msgstr ""
+msgstr "ไม่นับรวมคะแนนสําหรับโปรตีนเนื่องจากคะแนนคุณภาพด้านลบมากกว่า 11"
 
 msgctxt "nutriscore_proteins_maximum_fruits_points"
 msgid "The points for proteins are counted because the points for the fruits, vegetables, nuts and colza/walnut/olive oils are at the maximum."
-msgstr ""
+msgstr "นับรวมคะแนนสําหรับโปรตีนเนื่องจากคะแนนคุณภาพสำหรับหมวดหมู่ ผัก ผลไม้ ถั่วต่างๆ และน้ำมันพืช ได้คะแนนเต็มแล้ว"
 
 msgctxt "nutriscore_proteins_is_cheese"
 msgid "The points for proteins are counted because the product is in the cheeses category."
-msgstr ""
+msgstr "นับรวมคะแนนสําหรับโปรตีนเนื่องจากผลิตภัณฑ์นี้จัดอยู่ในหมวดหมู่ของชีส"
 
 msgctxt "nutriscore_proteins_is_added_fat"
 msgid "The product is in the fats category, the points for saturated fat are replaced by the points for the saturated fat / fat ratio."
-msgstr ""
+msgstr "ผลิตภัณฑ์อยู่ในหมวดหมู่ไขมัน จึงคิดคะแนนจากอัตราส่วนของไขมันอิ่มตัวต่อปริมาณไขมันทั้งหมด"
 
 msgctxt "nutriscore_points_for_energy"
 msgid "Energy"
@@ -3987,7 +3987,7 @@ msgstr "ไขมันอิ่มตัว"
 
 msgctxt "nutriscore_points_for_saturated_fat_ratio"
 msgid "Saturated fat / fat ratio"
-msgstr ""
+msgstr "อัตราส่วนไขมันอิ่มตัว / ไขมันทั้งหมด"
 
 msgctxt "nutriscore_points_for_sodium"
 msgid "Sodium"
@@ -3995,11 +3995,11 @@ msgstr "โซเดียม"
 
 msgctxt "nutriscore_points_for_fruits_vegetables_nuts_colza_walnut_olive_oils"
 msgid "Fruits, vegetables, nuts, and colza/walnut/olive oils"
-msgstr ""
+msgstr "ผลไม้ ผัก ถั่ว และโคลซ่า/วอลนัท/น้ำมันมะกอก"
 
 msgctxt "nutriscore_points_for_fiber"
 msgid "Fiber"
-msgstr ""
+msgstr "ใยอาหาร"
 
 msgctxt "nutriscore_points_for_proteins"
 msgid "Proteins"
@@ -4572,7 +4572,7 @@ msgstr ""
 
 msgctxt "attribute_nutriscore_setting_name"
 msgid "Good nutritional quality (Nutri-Score)"
-msgstr ""
+msgstr "คุณภาพทางโภชนาการ (Nutri-Score)"
 
 msgctxt "attribute_nutriscore_setting_note"
 msgid "The Nutri-Score is computed and can be taken into account for all products, even if is not displayed on the packaging."
@@ -4610,19 +4610,19 @@ msgstr ""
 
 msgctxt "attribute_nutriscore_b_description_short"
 msgid "Good nutritional quality"
-msgstr ""
+msgstr "คุณภาพทางโภชนาการระดับดี"
 
 msgctxt "attribute_nutriscore_c_description_short"
 msgid "Average nutritional quality"
-msgstr ""
+msgstr "คุณภาพทางโภชนาการระดับปานกลาง"
 
 msgctxt "attribute_nutriscore_d_description_short"
 msgid "Poor nutritional quality"
-msgstr ""
+msgstr "คุณภาพทางโภชนาการระดับไม่ดี"
 
 msgctxt "attribute_nutriscore_e_description_short"
 msgid "Bad nutritional quality"
-msgstr ""
+msgstr "คุณภาพทางโภชนาการระดับแย่"
 
 msgctxt "attribute_group_processing_name"
 msgid "Food processing"
@@ -5975,24 +5975,24 @@ msgstr "คุณสามารถช่วยแก้ไขข้อมูล
 
 msgctxt "data_quality_warnings_panel_title"
 msgid "Potential issues"
-msgstr ""
+msgstr "ข้อควรระวัง"
 
 msgctxt "data_quality_warnings_panel_subtitle"
 msgid "We have detected some potential issues or potential improvements, could you check if some apply ?"
-msgstr ""
+msgstr "ระบบตรวจพบปัญหาด้านคุณภาพของข้อมูลในประเด็นดังนี้ คุณต้องการตรวจสอบและแก้ไขหรือไม่ ?"
 
 msgctxt "data_quality_info_panel_title"
 msgid "Data Quality infos"
-msgstr ""
+msgstr "คุณภาพของข้อมูล"
 
 msgctxt "data_quality_info_panel_subtitle"
 msgid "Some infos about data quality on this product"
-msgstr ""
+msgstr "ข้อมูลการตรวจสอบในด้านคุณภาพของข้อมูลผลิตภัณฑ์"
 
 # will be followed by : and a value. e.g. "Compared to: bananas"
 msgctxt "compared_to"
 msgid "Compared to"
-msgstr ""
+msgstr "เปรียบเทียบกับ"
 
 # name of an activity / a sport
 msgctxt "activity_walking"
@@ -6304,11 +6304,11 @@ msgstr "ถ่ายภาพรหัสตรวจสอบย้อนกล
 # Used as a header for key facts
 msgctxt "knowledge_panels_facts"
 msgid "What you need to know"
-msgstr ""
+msgstr "สิ่งที่คุณควรรู้"
 
 msgctxt "knowledge_panels_recommendation"
 msgid "Recommendation"
-msgstr ""
+msgstr "คำแนะนำ"
 
 msgctxt "nutrient_info_salt_risk"
 msgid "A high consumption of salt (or sodium) can cause raised blood pressure, which can increase the risk of heart disease and stroke."
@@ -6324,7 +6324,7 @@ msgstr ""
 
 msgctxt "nutrient_recommendation_salt_title"
 msgid "Limit the consumption of salt and salted food"
-msgstr ""
+msgstr "จำกัดการบริโภคเกลือและอาหารรสเค็ม"
 
 msgctxt "nutrient_recommendation_salt_cooking_and_table"
 msgid "Reduce the quantity of salt used when cooking, and don't salt again at the table."
@@ -6332,7 +6332,7 @@ msgstr ""
 
 msgctxt "nutrient_recommendation_salt_limit_salty_snacks"
 msgid "Limit the consumption of salty snacks and choose products with lower salt content."
-msgstr ""
+msgstr "เลือกผลิตภัณฑ์ที่มีปริมาณเกลือโซเดียมน้อยเป็นประจำ"
 
 msgctxt "nutrient_info_sugars_risk"
 msgid "A high consumption of sugar can cause weight gain and tooth decay. It also augments the risk of type 2 diabetes and cardio-vascular diseases."
@@ -6340,7 +6340,7 @@ msgstr ""
 
 msgctxt "nutrient_recommendation_sugars_title"
 msgid "Limit the consumption of sugar and sugary drinks"
-msgstr ""
+msgstr "จำกัดการบริโภคน้ำตาลและเครื่องดื่มที่มีน้ำตาล"
 
 msgctxt "nutrient_recommendation_sugars_drinks"
 msgid "Sugary drinks (such as sodas, fruit beverages, and fruit juices and nectars) should be limited as much as possible (no more than 1 glass a day)."
@@ -6352,7 +6352,7 @@ msgstr ""
 
 msgctxt "nutrient_info_fat_and_saturated_fat_risk"
 msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
-msgstr ""
+msgstr "การบริโภคไขมันในปริมาณมาก โดยเฉพาะไขมันอิ่มตัว นั้นเพิ่มคอเลสเตอรอล ซึ่งเพิ่มความเสี่ยงต่อการเกิดโรคหลอดเลือดทั้งหัวใจและสมอง"
 
 msgctxt "nutrient_recommendation_fat_and_saturated_fat_title"
 msgid "Reduce the consumption of fat and saturated fat"
@@ -6389,7 +6389,7 @@ msgstr ""
 # result of the matching with the user preferences: should ne a noun, not a verb
 msgctxt "matching_with_your_preferences"
 msgid "Matching with your preferences"
-msgstr ""
+msgstr "เปรียบเทียบกับความต้องการ (preferences) ของคุณ"
 
 # HTML tags and variable names between { } must not be translated
 msgctxt "f_join_us_on_slack"
@@ -6621,7 +6621,7 @@ msgstr ""
 
 msgctxt "product_js_sugars_warning"
 msgid "Sugars should not be higher than carbohydrates."
-msgstr ""
+msgstr "ปริมาณน้ำตาลไม่ควรมีมากกว่าคาร์โบไฮเดรตทั้งหมด"
 
 msgctxt "product_js_saturated_fat_warning"
 msgid "Saturated fat should not be higher than fat."
@@ -6729,7 +6729,7 @@ msgstr ""
 
 msgctxt "nutriscore_component_fiber"
 msgid "Fiber"
-msgstr ""
+msgstr "ใยอาหาร"
 
 msgctxt "nutriscore_component_proteins"
 msgid "Proteins"
@@ -6761,35 +6761,35 @@ msgstr ""
 
 msgctxt "nutriscore_count_proteins_reason_beverage"
 msgid "Points for proteins are counted because the product is considered to be a beverage."
-msgstr ""
+msgstr "นับรวมคะแนนสําหรับโปรตีนเนื่องจากผลิตภัณฑ์นี้จัดอยู่ในหมวดหมู่เครื่องดื่ม"
 
 msgctxt "nutriscore_count_proteins_reason_cheese"
 msgid "Points for proteins are counted because the product is considered to be cheese."
-msgstr ""
+msgstr "นับรวมคะแนนสําหรับโปรตีนเนื่องจากผลิตภัณฑ์นี้จัดอยู่ในหมวดหมู่ของชีส"
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_less_than_7"
 msgid "Points for proteins are counted because the negative points are less than 7."
-msgstr ""
+msgstr "นับรวมคะแนนสําหรับโปรตีนเนื่องจากคะแนนคุณภาพด้านลบน้อยกว่า 7"
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_less_than_11"
 msgid "Points for proteins are counted because the negative points are less than 11."
-msgstr ""
+msgstr "นับรวมคะแนนสําหรับโปรตีนเนื่องจากคะแนนคุณภาพด้านลบน้อยกว่า 11"
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_to_7"
 msgid "Points for proteins are not counted because the negative points greater than or equal to 7."
-msgstr ""
+msgstr "ไม่นับรวมคะแนนสําหรับโปรตีนเนื่องจากคะแนนคุณภาพด้านลบมากกว่าหรือเท่ากับ 7"
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_to_11"
 msgid "Points for proteins are not counted because the negative points greater than or equal to 11."
-msgstr ""
+msgstr "ไม่นับรวมคะแนนสําหรับโปรตีนเนื่องจากคะแนนคุณภาพด้านลบมากกว่าหรือเท่ากับ 11"
 
 msgctxt "nutriscore_explanation_what_it_is"
 msgid "The Nutri-Score is a logo on the overall nutritional quality of products."
-msgstr ""
+msgstr "Nutri-Score เป็นโลโก้ที่แสดงคุณภาพโภชนาการโดยรวมของผลิตภัณฑ์"
 
 msgctxt "nutriscore_explanation_what_it_takes_into_account"
 msgid "The score from A to E is calculated based on nutrients and foods to favor (proteins, fiber, fruits, vegetables and legumes ...) and nutrients to limit (calories, saturated fat, sugars, salt)."
-msgstr ""
+msgstr "ดัชนีคุณภาพของคุณค่าทางโภชนาการ มีระดับตั้งแต่ A ถึง E การให้คะแนนขึ้นอยู่กับปริมาณสารอาหารที่เป็นประโยชน์ (เช่น โปรตีน, ใยอาหาร, ผลไม้, ผัก และถั่ว) และสารอาหารที่ควรลดลง (เช่น พลังงาน, ไขมันอิ่มตัว, น้ำตาล, เกลือ) แต่ไม่เหมาะจะใช้อ้างอิงสำหรับผู้มีโรคประจำตัว ควรได้รับคำแนะนำเพิ่มเติมจากแพทย์ และนักกำหนดอาหาร"
 
 msgctxt "nutriscore_explanation_where_the_data_comes_from"
 msgid "The score is calculated from the data of the nutrition facts table and the composition data (fruits, vegetables and legumes)."
@@ -6801,7 +6801,7 @@ msgstr ""
 
 msgctxt "nutriscore_explanation_title"
 msgid "What is the Nutri-Score?"
-msgstr ""
+msgstr "อธิบายเพิ่มเติมเกี่ยวกับ Nutri-Score"
 
 msgctxt "nutrient_info_energy_risk"
 msgid "Energy intakes above energy requirements are associated with increased risks of weight gain, overweight, obesity, and consequently risk of diet-related chronic diseases."
@@ -6809,15 +6809,15 @@ msgstr ""
 
 msgctxt "nutrient_info_saturated_fat_risk"
 msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
-msgstr ""
+msgstr "การบริโภคไขมันในปริมาณมาก โดยเฉพาะไขมันอิ่มตัว นั้นเพิ่มคอเลสเตอรอล ซึ่งเพิ่มความเสี่ยงต่อการเกิดโรคหลอดเลือดทั้งหัวใจและสมอง"
 
 msgctxt "nutrient_info_saturated_fat_ratio_risk"
 msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
-msgstr ""
+msgstr "การบริโภคไขมันในปริมาณมาก โดยเฉพาะไขมันอิ่มตัว นั้นเพิ่มคอเลสเตอรอล ซึ่งเพิ่มความเสี่ยงต่อการเกิดโรคหลอดเลือดทั้งหัวใจและสมอง"
 
 msgctxt "nutrient_info_energy_from_saturated_fat_risk"
 msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
-msgstr ""
+msgstr "การบริโภคไขมันในปริมาณมาก โดยเฉพาะไขมันอิ่มตัว นั้นเพิ่มคอเลสเตอรอล ซึ่งเพิ่มความเสี่ยงต่อการเกิดโรคหลอดเลือดทั้งหัวใจและสมอง"
 
 msgctxt "nutrient_info_non_nutritive_sweeteners_risk"
 msgid "Non-nutritive sweeteners may not confer any long-term benefit in reducing body fat in adults or children. There may be potential undesirable effects from long-term use of non-nutritive sweeteners, such as an increased risk of type 2 diabetes and cardiovascular diseases in adults."
