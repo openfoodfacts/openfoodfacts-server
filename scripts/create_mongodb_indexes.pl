@@ -31,8 +31,8 @@ sub add_index {
 	my $t = tie %index_def, 'Tie::IxHash';
 
 	while (@_) {
-        my $field = shift;
-        my $direction = shift;
+		my $field = shift;
+		my $direction = shift;
 		$index_def{$field} = $direction;
 	}
 	push(@index_list, {keys => $t, options => {background => 1}});
