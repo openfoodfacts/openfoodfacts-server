@@ -121,7 +121,7 @@ $cc = $ARGV[0];
 $lc = $ARGV[1];
 $subdomain = $cc;
 $formatted_subdomain = format_subdomain($subdomain);
-$header = "";
+$request_ref->{header} = "";
 $request_ref->{initjs} = "";
 
 if ((not defined $cc) or (not defined $lc)) {
@@ -155,7 +155,7 @@ my $products_iter = iter_products_from_jsonl($jsonl_path, $country, $verbose);
 $request_ref->{map_options} = $map_options{$cc} || "";
 my $map_html = map_of_products($products_iter, $request_ref, $graph_ref);
 
-$html =~ s/<HEADER>/$header/;
+$html =~ s/<HEADER>/$request_ref->{header}/;
 $html =~ s/<INITJS>/$request_ref->{initjs}/;
 $html =~ s/<CONTENT>/$map_html/;
 

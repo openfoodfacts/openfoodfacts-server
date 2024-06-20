@@ -44,7 +44,7 @@ $request_ref->{scripts} .= <<SCRIPTS
 SCRIPTS
 	;
 
-$header .= <<HEADER
+$request_ref->{header} .= <<HEADER
 <link rel="stylesheet" href="/js/datatables.min.css" />
 HEADER
 	;

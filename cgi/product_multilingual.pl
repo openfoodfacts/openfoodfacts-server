@@ -783,7 +783,7 @@ if (($action eq 'display') and (($type eq 'add') or ($type eq 'edit'))) {
 		$moderator = 1;
 	}
 
-	$header .= <<HTML
+	$request_ref->{header} .= <<HTML
 <link rel="stylesheet" type="text/css" href="/css/dist/cropper.css" />
 <link rel="stylesheet" type="text/css" href="/css/dist/tagify.css" />
 HTML

@@ -107,8 +107,6 @@ BEGIN {
 		&process_template
 
 		@search_series
-		
-		$header
 
 		$original_subdomain
 		$subdomain
@@ -432,6 +430,7 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 
 	$template_data_ref->{scripts} = $request_ref->{scripts};
 	$template_data_ref->{initjs} = $request_ref->{initjs};
+	$template_data_ref->{header} = $request_ref->{header};
 
 	# Return a link to one taxonomy entry in the target language
 	$template_data_ref->{canonicalize_taxonomy_tag_link} = sub ($tagtype, $tag) {
@@ -630,7 +629,7 @@ sub init_request ($request_ref = {}) {
 	$request_ref->{styles} = '';
 	$request_ref->{scripts} = '';
 	$request_ref->{initjs} = '';
-	$header = '';
+	$request_ref->{header} = '';
 	$bodyabout = '';
 
 	my $r = Apache2::RequestUtil->request();
@@ -1514,7 +1513,7 @@ sub display_text_content ($request_ref, $textid, $text_lc, $file) {
 
 	if ($html =~ /<header>(.*)<\/header>/s) {
 		$html = $` . $';
-		$header .= $1;
+		$request_ref->{header} .= $1;
 	}
 
 	if ((defined $request_ref->{page}) and ($request_ref->{page} > 1)) {
@@ -1651,7 +1650,7 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 		and ($groupby_tagtype =~ /^(users|correctors|editors|informers|correctors|photographers|checkers)$/))
 	{
 
-		$header .= '<meta name="robots" content="noindex">' . "\n";
+		$request_ref->{header} .= '<meta name="robots" content="noindex">' . "\n";
 	}
 
 	# support for returning json / xml results
@@ -2552,7 +2551,7 @@ JS
 SCRIPTS
 			;
 
-		$header .= <<HEADER
+		$request_ref->{header} .= <<HEADER
 <link rel="stylesheet" href="$static_subdomain/js/datatables.min.css">
 HEADER
 			;
@@ -2860,7 +2859,7 @@ JS
 SCRIPTS
 			;
 
-		$header .= <<HEADER
+		$request_ref->{header} .= <<HEADER
 <link rel="stylesheet" href="$static_subdomain/js/datatables.min.css">
 HEADER
 			;
@@ -3119,7 +3118,7 @@ sub display_points ($request_ref) {
 SCRIPTS
 		;
 
-	$header .= <<HEADER
+	$request_ref->{header} .= <<HEADER
 <link rel="stylesheet" href="$static_subdomain/js/datatables.min.css">
 <meta property="og:image" content="https://world.openfoodfacts.org/images/misc/open-food-hunt-2015.1304x893.png">
 HEADER
@@ -3230,7 +3229,7 @@ sub canonicalize_request_tags_and_redirect_to_canonical_url ($request_ref) {
 
 	# Ask search engines to not index the page if it is related to a user
 	if ($header_meta_noindex) {
-		$header .= '<meta name="robots" content="noindex">' . "\n";
+		$request_ref->{header} .= '<meta name="robots" content="noindex">' . "\n";
 	}
 
 	return;
@@ -7300,7 +7299,7 @@ sub display_page ($request_ref) {
 	$template_data_ref->{formatted_subdomain} = $formatted_subdomain;
 	$template_data_ref->{css_timestamp}
 		= $file_timestamps{'css/dist/app-' . lang_in_other_lc($request_lc, 'text_direction') . '.css'};
-	$template_data_ref->{header} = $header;
+	$template_data_ref->{header} = $request_ref->{header};
 	$template_data_ref->{page_type} = $request_ref->{page_type} // "other";
 	$template_data_ref->{page_format} = $request_ref->{page_format} // "normal";
 
@@ -7723,7 +7722,7 @@ JS
 	if (defined $rev) {
 		$log->debug("displaying product revision") if $log->is_debug();
 		$product_ref = retrieve_product_rev($product_id, $rev);
-		$header .= '<meta name="robots" content="noindex,follow">';
+		$request_ref->{header} .= '<meta name="robots" content="noindex,follow">';
 	}
 	else {
 		$product_ref = retrieve_product($product_id);
@@ -8377,7 +8376,7 @@ HTML
 			;
 	}
 
-	$header .= <<HTML
+	$request_ref->{header} .= <<HTML
 <meta name="twitter:card" content="product">
 <meta name="twitter:site" content="@<twitter_account>">
 <meta name="twitter:creator" content="@<twitter_account>">
@@ -8389,7 +8388,7 @@ HTML
 	if (defined $product_ref->{brands}) {
 		# print only first brand if multiple exist.
 		my @brands = split(',', $product_ref->{brands});
-		$header .= <<HTML
+		$request_ref->{header} .= <<HTML
 <meta name="twitter:label1" content="$Lang{brands_s}{$lc}">
 <meta name="twitter:data1" content="$brands[0]">
 HTML
@@ -8399,14 +8398,14 @@ HTML
 	# get most specific category (the last one)
 	my $data2 = display_taxonomy_tag($lc, "categories", $product_ref->{categories_tags}[-1]);
 	if ($data2) {
-		$header .= <<HTML
+		$request_ref->{header} .= <<HTML
 <meta name="twitter:label2" content="$Lang{categories_s}{$lc}">
 <meta name="twitter:data2" content="$data2">
 HTML
 			;
 	}
 
-	$header .= <<HTML
+	$request_ref->{header} .= <<HTML
 $meta_product_image_url
 
 HTML

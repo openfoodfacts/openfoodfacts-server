@@ -183,7 +183,7 @@ JS
 
 	$request_ref->{initjs} .= $js;
 
-	$header .= <<HTML
+	$request_ref->{header} .= <<HTML
 <script>
 // Keep track of codes that we have seen so that we can submit field values only once
 var codes = {};
