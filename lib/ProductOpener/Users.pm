@@ -442,7 +442,7 @@ sub check_user_form ($request_ref, $type, $user_ref, $errors_ref) {
 		$user_ref->{initial_user_agent} = user_agent();
 	}
 
-	if ($admin) {
+	if ($request_ref->{admin}) {
 
 		# Org
 		check_user_org($user_ref, remove_tags_and_quote(decode utf8 => single_param('org')));

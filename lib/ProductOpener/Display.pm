@@ -380,7 +380,7 @@ Add some functions and variables needed by many templates and process the templa
 
 =cut
 
-sub process_template ($template_filename, $template_data_ref, $result_content_ref) {
+sub process_template ($template_filename, $template_data_ref, $result_content_ref, $request_ref = {}) {
 
 	# Add functions and values that are passed to all templates
 
@@ -401,7 +401,7 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	$template_data_ref->{flavor} = $flavor;
 	$template_data_ref->{options} = \%options;
 	$template_data_ref->{product_type} = $options{product_type};
-	$template_data_ref->{admin} = $admin;
+	$template_data_ref->{admin} = $request_ref->{admin} // $admin;
 	$template_data_ref->{moderator} = $User{moderator};
 	$template_data_ref->{pro_moderator} = $User{pro_moderator};
 	$template_data_ref->{sep} = separator_before_colon($lc);
@@ -434,7 +434,7 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	$template_data_ref->{has_permission} = sub ($permission) {
 		# Note: we pass a fake $request_ref object with only the fields admin, moderator and pro_moderator
 		# an alternative would be to pass the $request_ref object to process_template() calls
-		return has_permission({admin => $admin, moderator => $User{moderator}, pro_moderator => $User{pro_moderator}},
+		return has_permission({admin => $request_ref->{admin}, moderator => $User{moderator}, pro_moderator => $User{pro_moderator}},
 			$permission);
 	};
 
@@ -637,7 +637,6 @@ sub init_request ($request_ref = {}) {
 	$initjs = '';
 	$header = '';
 	$bodyabout = '';
-	$admin = 0;
 
 	my $r = Apache2::RequestUtil->request();
 	$request_ref->{method} = $r->method();
@@ -884,13 +883,13 @@ sub init_request ($request_ref = {}) {
 
 	$request_ref->{user_id} = $User_id;
 
+	$request_ref->{admin} = 0;
 	# %admin is defined in Config.pm
 	# admins can change permissions for all users
 	if (is_admin_user($User_id)) {
-		$admin = 1;
+		# $admin = 1;
+		$request_ref->{admin} = 1;
 	}
-	$request_ref->{admin} = $admin;
-	# TODO: remove the $admin global variable, and use $request_ref->{admin} instead.
 
 	$request_ref->{moderator} = $User{moderator};
 	$request_ref->{pro_moderator} = $User{pro_moderator};
@@ -4142,7 +4141,7 @@ HTML
 
 					# Display the organization profile
 
-					if (is_user_in_org_group($user_or_org_ref, $User_id, "admins") or $admin) {
+					if (is_user_in_org_group($user_or_org_ref, $User_id, "admins") or $request_ref->{admin}) {
 						$user_template_data_ref->{edit_profile} = 1;
 						$user_template_data_ref->{orgid} = $orgid;
 					}
@@ -4156,7 +4155,7 @@ HTML
 
 					# Display the user profile
 
-					if (($tagid eq $User_id) or $admin) {
+					if (($tagid eq $User_id) or $request_ref->{admin}) {
 						$user_template_data_ref->{edit_profile} = 1;
 						$user_template_data_ref->{userid} = $tagid;
 					}
@@ -5830,7 +5829,7 @@ sub search_and_export_products ($request_ref, $query_ref, $sort_by) {
 	my $max_count = $export_limit;
 
 	# Allow admins to change the export limit
-	if (($admin) and (defined single_param("export_limit"))) {
+	if (($request_ref->{admin}) and (defined single_param("export_limit"))) {
 		$max_count = single_param("export_limit");
 	}
 
@@ -6733,7 +6732,7 @@ sub search_and_graph_products ($request_ref, $query_ref, $graph_ref) {
 
 	$log->debug("retrieving products from MongoDB to display them in a graph") if $log->is_debug();
 
-	if ($admin) {
+	if ($request_ref->{admin}) {
 		$log->debug("Executing MongoDB query", {query => $query_ref}) if $log->is_debug();
 	}
 
@@ -7471,7 +7470,7 @@ sub display_page ($request_ref) {
 	$template_data_ref->{request} = $request_ref;
 
 	my $html;
-	process_template('web/common/site_layout.tt.html', $template_data_ref, \$html)
+	process_template('web/common/site_layout.tt.html', $template_data_ref, \$html, $request_ref)
 		|| ($html = "template error: " . $tt->error());
 
 	# disable equalizer
@@ -8286,7 +8285,7 @@ JS
 		$template_data_ref->{other_fields} = $other_fields;
 	}
 
-	$template_data_ref->{admin} = $admin;
+	$template_data_ref->{admin} = $request_ref->{admin};
 
 	# Platform for producers: data quality issues and improvements opportunities
 
@@ -10833,7 +10832,7 @@ sub display_recent_changes ($request_ref, $query_ref, $limit, $page) {
 		my $changes_ref = {};
 
 		# security: Do not expose IP addresses to non-admin or anonymous users.
-		delete $change_hash->{ip} unless $admin;
+		delete $change_hash->{ip} unless $request_ref->{admin};
 
 		push @{$request_ref->{structured_response}{changes}}, $change_hash;
 		my $diffs = compute_changes_diff_text($change_ref);
@@ -11352,7 +11351,7 @@ sub search_and_analyze_recipes ($request_ref, $query_ref) {
 
 	$log->debug("retrieving products from MongoDB to analyze their recipes") if $log->is_debug();
 
-	if ($admin) {
+	if ($request_ref->{admin}) {
 		$log->debug("Executing MongoDB query", {query => $query_ref}) if $log->is_debug();
 	}
 

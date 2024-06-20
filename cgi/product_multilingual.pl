@@ -370,7 +370,7 @@ process_template('web/pages/product_edit/product_edit_form.tt.html', $template_d
 
 my @fields = @ProductOpener::Config::product_fields;
 
-if ($admin) {
+if ($request_ref->{admin}) {
 
 	# Let admins edit any other fields
 	if (defined single_param("fields")) {
@@ -590,7 +590,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 			}
 			else {
 				# infocards set by admins can contain HTML
-				if (($admin) and ($field =~ /infocard/)) {
+				if (($request_ref->{admin}) and ($field =~ /infocard/)) {
 					$product_ref->{$field} = decode utf8 => single_param($field);
 				}
 				else {
@@ -1545,7 +1545,7 @@ elsif (($action eq 'display') and ($type eq 'delete') and ($User{moderator})) {
 	$template_data_ref_moderator->{code} = $code;
 
 	process_template('web/pages/product_edit/product_edit_form_display_user-moderator.tt.html',
-		$template_data_ref_moderator, \$html)
+		$template_data_ref_moderator, \$html, $request_ref)
 		or $html = "<p>" . $tt->error() . "</p>";
 
 }
@@ -1629,7 +1629,7 @@ MAIL
 			= display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "contribution_card");
 	}
 	$template_data_ref_process->{code} = $product_ref->{code};
-	process_template('web/pages/product_edit/product_edit_form_process.tt.html', $template_data_ref_process, \$html)
+	process_template('web/pages/product_edit/product_edit_form_process.tt.html', $template_data_ref_process, \$html, $request_ref)
 		or $html = "<p>" . $tt->error() . "</p>";
 
 }
