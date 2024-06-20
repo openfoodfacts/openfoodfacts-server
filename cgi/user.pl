@@ -32,6 +32,7 @@ use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/$lc  %Lang lang/;
 use ProductOpener::Orgs qw/org_name retrieve_org/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
+use ProductOpener::CRM qw/get_contact_url/;
 
 use CGI qw/:cgi :form escapeHTML charset/;
 use URI::Escape::XS;
@@ -429,6 +430,7 @@ elsif ($action eq 'process') {
 $template_data_ref->{debug} = $debug;
 $template_data_ref->{userid} = $userid;
 $template_data_ref->{type} = $type;
+$template_data_ref->{crm_contact_url} = get_contact_url($user_ref);
 
 if (($type eq "edit_owner") and ($action eq "process")) {
 	$log->info("redirecting to / after changing owner", {}) if $log->is_info();
