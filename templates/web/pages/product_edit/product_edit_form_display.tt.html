@@ -89,7 +89,7 @@
         [% IF product.owner %]
         <div data-alert class="alert-box secondary" id="warning_protected_fields">
             <p>
-                <span class="material-icons size-20" title="[% edq(lang("information_provided_by_the_manufacturer")) %]">check</span>
+                <span class="material-icons size-20" title="[% edq(lang("information_provided_by_the_manufacturer")) %]">factory</span>
                 <span>
                     [% lang("information_provided_by_the_manufacturer_edit_form") %]
                 </span>
@@ -229,7 +229,7 @@
                                                 *
                                                 [% END %]
                                                 [% IF nutriment.owner_field %]
-                                                    <span class="material-icons size-20" title="[% edq(lang("information_provided_by_the_manufacturer")) %]">check</span>
+                                                    <span class="material-icons size-20" title="[% edq(lang("information_provided_by_the_manufacturer")) %]">factory</span>
                                                 [% END %]
                                             </label>
                                         [% ELSIF nutriment.label_value.defined %]
