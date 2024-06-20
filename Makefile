@@ -198,8 +198,8 @@ init_backend: build_taxonomies build_lang
 
 create_mongodb_indexes:
 	@echo "🥫 Creating MongoDB indexes …"
-	docker cp conf/mongodb/create_indexes.js $(shell docker compose ps -q mongodb):/data/db
-	${DOCKER_COMPOSE} exec -T mongodb //bin/sh -c "mongo off /data/db/create_indexes.js"
+	${DOCKER_COMPOSE} up -d mongodb
+	${DOCKER_COMPOSE} run --rm backend perl /opt/product-opener/scripts/create_mongodb_indexes.pl
 
 refresh_product_tags:
 	@echo "🥫 Refreshing product data cached in Postgres …"
@@ -208,6 +208,7 @@ refresh_product_tags:
 import_sample_data:
 	@ if [[ "${PRODUCT_OPENER_FLAVOR_SHORT}" = "off" &&  "${PRODUCERS_PLATFORM}" != "1" ]]; then \
    		echo "🥫 Importing sample data (~200 products) into MongoDB …"; \
+		${DOCKER_COMPOSE} up -d mongodb
 		${DOCKER_COMPOSE} run --rm backend bash /opt/product-opener/scripts/import_sample_data.sh; \
 	else \
 	 	echo "🥫 Not importing sample data into MongoDB (only for po_off project)"; \
