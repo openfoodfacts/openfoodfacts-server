@@ -54,10 +54,16 @@ DOCKER_COMPOSE_RUN=COMPOSE_FILE="${COMPOSE_FILE};docker/run.yml" ${DOCKER_COMPOS
 # keep web-default for web contents
 # we also publish mongodb on a separate port to avoid conflicts
 # we also enable the possibility to fake services in po_test_runner
-DOCKER_COMPOSE_TEST=WEB_RESOURCES_PATH=./web-default ROBOTOFF_URL="http://backend:8881/" GOOGLE_CLOUD_VISION_API_URL="http://backend:8881/" COMPOSE_PROJECT_NAME=${COMPOSE_PROJECT_NAME}_test COMPOSE_FILE="${COMPOSE_FILE};docker/test.yml" PO_COMMON_PREFIX=test_ MONGO_EXPOSE_PORT=27027 ODOO_CRM_URL= docker compose --env-file=${ENV_FILE}
+DOCKER_COMPOSE_TEST=WEB_RESOURCES_PATH=./web-default ROBOTOFF_URL="http://backend:8881/" GOOGLE_CLOUD_VISION_API_URL="http://backend:8881/" COMPOSE_PROJECT_NAME=${COMPOSE_PROJECT_NAME}_test COMPOSE_FILE="${COMPOSE_FILE};${DEPS_DIR}/openfoodfacts-shared-services/docker-compose.yml" PO_COMMON_PREFIX=test_ MONGO_EXPOSE_PORT=27027 MONGODB_CACHE_SIZE=4 ODOO_CRM_URL= docker compose --env-file=${ENV_FILE}
 # Enable Redis only for integration tests
 DOCKER_COMPOSE_INT_TEST=REDIS_URL="redis:6379" ${DOCKER_COMPOSE_TEST}
 TEST_CMD ?= yath test -PProductOpener::LoadData
+
+# Space delimited list of dependant projects
+DEPS=openfoodfacts-shared-services
+ifndef DEPS_DIR
+	DEPS_DIR=${PWD}/deps
+endif
 
 .DEFAULT_GOAL := usage
 
@@ -95,7 +101,7 @@ dev: hello build init_backend _up import_sample_data create_mongodb_indexes refr
 edit_etc_hosts:
 	@grep -qxF -- "${HOSTS}" /etc/hosts || echo "${HOSTS}" >> /etc/hosts
 
-create_folders:
+create_folders: clone_deps
 # create some folders to avoid having them owned by root (when created by docker compose)
 	@echo "🥫 Creating folders before docker compose use them."
 	mkdir -p logs/apache2 logs/nginx debug html/data sftp || ( whoami; ls -l . ; false )
@@ -121,7 +127,7 @@ build:
 	@echo "🥫 Building containers …"
 	${DOCKER_COMPOSE} build ${args} ${container} 2>&1
 
-_up:load_deps
+_up:run_deps
 	@echo "🥫 Starting containers …"
 	${DOCKER_COMPOSE_RUN} up -d 2>&1
 	@echo "🥫 started service at http://openfoodfacts.localhost"
@@ -198,7 +204,7 @@ reset_owner:
 
 init_backend: build_taxonomies build_lang
 
-create_mongodb_indexes:load_deps
+create_mongodb_indexes:run_deps
 	@echo "🥫 Creating MongoDB indexes …"
 	${DOCKER_COMPOSE_RUN} run --rm backend perl /opt/product-opener/scripts/create_mongodb_indexes.pl
 
@@ -206,7 +212,7 @@ refresh_product_tags:
 	@echo "🥫 Refreshing product data cached in Postgres …"
 	${DOCKER_COMPOSE} run --rm backend perl /opt/product-opener/scripts/refresh_postgres.pl ${from}
 
-import_sample_data:load_deps
+import_sample_data:run_deps
 	@ if [[ "${PRODUCT_OPENER_FLAVOR_SHORT}" = "off" &&  "${PRODUCERS_PLATFORM}" != "1" ]]; then \
    		echo "🥫 Importing sample data (~200 products) into MongoDB …"; \
 		${DOCKER_COMPOSE_RUN} run --rm backend bash /opt/product-opener/scripts/import_sample_data.sh; \
@@ -214,11 +220,11 @@ import_sample_data:load_deps
 	 	echo "🥫 Not importing sample data into MongoDB (only for po_off project)"; \
 	fi
 	
-import_more_sample_data:load_deps
+import_more_sample_data:run_deps
 	@echo "🥫 Importing sample data (~2000 products) into MongoDB …"
 	${DOCKER_COMPOSE_RUN} run --rm backend bash /opt/product-opener/scripts/import_more_sample_data.sh
 
-refresh_mongodb:load_deps
+refresh_mongodb:run_deps
 	@echo "🥫 Refreshing mongoDB from product files …"
 	${DOCKER_COMPOSE_RUN} run --rm backend perl /opt/product-opener/scripts/update_all_products_from_dir_in_mongodb.pl
 
@@ -494,18 +500,23 @@ clean_logs:
 
 clean: goodbye hdown prune prune_cache clean_folders
 
-# Load dependent projects
-load_deps:
-	@if [ -z "$$DEPS_DIR" ]; then export DEPS_DIR=$$PWD/deps; fi; \
-	mkdir -p $$DEPS_DIR; \
-	for dep in "openfoodfacts-shared-services" ; do \
-		if [ ! -d $$DEPS_DIR/$$dep ]; then \
+# Run dependent projects
+run_deps: clone_deps
+	@for dep in ${DEPS} ; do \
+		cd ${DEPS_DIR}/$$dep && make -e run; \
+	done
+
+# Clone dependent projects without running them (used to pull in yml for tests)
+clone_deps:
+	@mkdir -p ${DEPS_DIR}; \
+	for dep in ${DEPS} ; do \
+		echo $$dep; \
+		if [ ! -d ${DEPS_DIR}/$$dep ]; then \
 			git clone --filter=blob:none --sparse \
-				https://github.com/openfoodfacts/$$dep.git $$DEPS_DIR/$$dep; \
+				https://github.com/openfoodfacts/$$dep.git ${DEPS_DIR}/$$dep; \
 		else \
-			cd $$DEPS_DIR/$$dep && git pull; \
+			cd ${DEPS_DIR}/$$dep && git pull; \
 		fi; \
-		cd $$DEPS_DIR/$$dep && make -e run; \
 	done
 
 #-----------#
