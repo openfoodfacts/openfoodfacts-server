@@ -87,7 +87,7 @@ else {
 	$template_data_ref->{i} = $i;
 	$template_data_ref->{add_fields_options} = \@add_fields_options;
 
-	$scripts .= <<JS
+	$request_ref->{scripts} .= <<JS
     <!-- The template to display files available for upload -->
     <script id="template-upload" type="text/x-tmpl">
       {\% for (var i=0, file; file=o.files[i]; i++) { \%}

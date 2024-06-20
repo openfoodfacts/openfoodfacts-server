@@ -38,7 +38,7 @@ my $request_ref = ProductOpener::Display::init_request();
 # Passing values to the template
 my $template_data_ref = {};
 
-$scripts .= <<SCRIPTS
+$request_ref->{scripts} .= <<SCRIPTS
 <script src="$static_subdomain/js/datatables.min.js"></script>
 <script src="$static_subdomain/js/dist/papaparse.js"></script>
 SCRIPTS

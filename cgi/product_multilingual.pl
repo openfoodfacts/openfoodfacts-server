@@ -84,7 +84,7 @@ sub display_search_or_add_form($request_ref) {
 	my $html = '';
 	my $template_data_ref_content = {};
 
-	$template_data_ref_content->{display_search_image_form} = display_search_image_form("block_side");
+	$template_data_ref_content->{display_search_image_form} = display_search_image_form("block_side", $request_ref);
 	process_template('web/common/includes/display_product_search_or_add.tt.html', $template_data_ref_content, \$html, $request_ref)
 		|| ($html = "template error: " . $tt->error());
 
@@ -789,7 +789,7 @@ if (($action eq 'display') and (($type eq 'add') or ($type eq 'edit'))) {
 HTML
 		;
 
-	$scripts .= <<HTML
+	$request_ref->{scripts} .= <<HTML
 <script type="text/javascript" src="$static_subdomain/js/dist/webcomponentsjs/webcomponents-loader.js"></script>
 <script type="text/javascript" src="$static_subdomain/js/dist/cropper.js"></script>
 <script type="text/javascript" src="$static_subdomain/js/dist/jquery-cropper.js"></script>
@@ -1472,7 +1472,7 @@ CSS
 	$nutriments =~ s/,\n$//s;
 	$other_nutriments =~ s/,\n$//s;
 
-	$scripts .= <<HTML
+	$request_ref->{scripts} .= <<HTML
 <script type="text/javascript">
 var nutriments = {
 $nutriments

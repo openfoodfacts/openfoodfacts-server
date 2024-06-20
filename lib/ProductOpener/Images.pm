@@ -398,7 +398,7 @@ sub scan_code ($file) {
 	return $code;
 }
 
-sub display_search_image_form ($id) {
+sub display_search_image_form ($id, $request_ref) {
 
 	my $html = '';
 
@@ -412,9 +412,9 @@ sub display_search_image_form ($id) {
 
 	# Do not load jquery file upload twice, if it was loaded by another form
 
-	if ($scripts !~ /jquery.fileupload.js/) {
+	if ($request_ref->{scripts} !~ /jquery.fileupload.js/) {
 
-		$scripts .= <<JS
+		$request_ref->{scripts} .= <<JS
 <script type="text/javascript" src="/js/dist/jquery.iframe-transport.js"></script>
 <script type="text/javascript" src="/js/dist/jquery.fileupload.js"></script>
 <script type="text/javascript" src="/js/dist/load-image.all.min.js"></script>
@@ -483,7 +483,7 @@ JS
 JS
 		;
 
-	process_template('web/common/includes/display_search_image_form.tt.html', $template_data_ref, \$html)
+	process_template('web/common/includes/display_search_image_form.tt.html', $template_data_ref, \$html, $request_ref)
 		|| return "template error: " . $tt->error();
 
 	return $html;

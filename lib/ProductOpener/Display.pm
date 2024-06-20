@@ -108,7 +108,6 @@ BEGIN {
 
 		@search_series
 
-		$scripts
 		$initjs
 		
 		$header
@@ -246,7 +245,7 @@ in order to make sure the browser will not serve an old cached version.
 
 =head3 Synopsis
 
-    $scripts .= <<HTML
+    $$request_ref->{scripts} .= <<HTML
         <script type="text/javascript" src="/js/dist/product-multilingual.js?v=$file_timestamps{"js/dist/product-multilingual.js"}"></script>
     HTML
     ;
@@ -628,7 +627,7 @@ sub init_request ($request_ref = {}) {
 
 	# TODO: global variables should be moved to $request_ref
 	$request_ref->{styles} = '';
-	$scripts = '';
+	$request_ref->{scripts} = '';
 	$initjs = '';
 	$header = '';
 	$bodyabout = '';
@@ -1410,7 +1409,7 @@ sub display_text_content ($request_ref, $textid, $text_lc, $file) {
 
 	while ($html =~ /<scripts>(.*?)<\/scripts>/s) {
 		$html = $` . $';
-		$scripts .= $1;
+		$$request_ref->{scripts} .= $1;
 	}
 
 	while ($html =~ /<initjs>(.*?)<\/initjs>/s) {
@@ -2482,7 +2481,7 @@ JS
 				;
 			$initjs .= $js;
 
-			$scripts .= <<SCRIPTS
+			$request_ref->{scripts} .= <<SCRIPTS
 <script src="$static_subdomain/js/dist/highcharts.js"></script>
 SCRIPTS
 				;
@@ -2503,7 +2502,7 @@ HTML
 				.= <<"JS";
 displayWorldMap('#world-map', { 'data': countries_map_data, 'links': countries_map_links, 'names': countries_map_names });
 JS
-			$scripts .= <<SCRIPTS
+			$request_ref->{scripts} .= <<SCRIPTS
 <script src="$static_subdomain/js/dist/jsvectormap.js"></script>
 <script src="$static_subdomain/js/dist/world-merc.js"></script>
 <script src="$static_subdomain/js/dist/display-list-of-tags.js"></script>
@@ -2547,7 +2546,7 @@ let oTable = \$('#tagstable').DataTable({
 JS
 			;
 
-		$scripts .= <<SCRIPTS
+		$request_ref->{scripts} .= <<SCRIPTS
 <script src="$static_subdomain/js/datatables.min.js"></script>
 SCRIPTS
 			;
@@ -2855,7 +2854,7 @@ var jqxhr = \$.post( "/cgi/translate_taxonomy.pl", { tagtype: tagtype, from: fro
 JS
 			;
 
-		$scripts .= <<SCRIPTS
+		$request_ref->{scripts} .= <<SCRIPTS
 <script src="$static_subdomain/js/datatables.min.js"></script>
 SCRIPTS
 			;
@@ -3114,7 +3113,7 @@ sub display_points ($request_ref) {
 
 	$request_ref->{content_ref} = \$html;
 
-	$scripts .= <<SCRIPTS
+	$request_ref->{scripts} .= <<SCRIPTS
 <script src="$static_subdomain/js/datatables.min.js"></script>
 SCRIPTS
 		;
@@ -4465,7 +4464,7 @@ sub display_search_results ($request_ref) {
 
 		my $preferences_text = lang("classify_products_according_to_your_preferences");
 
-		$scripts .= <<JS
+		$request_ref->{scripts} .= <<JS
 <script type="text/javascript">
 var page_type = "products";
 var preferences_text = "$preferences_text";
@@ -4475,7 +4474,7 @@ var products = [];
 JS
 			;
 
-		$scripts .= <<JS
+		$request_ref->{scripts} .= <<JS
 <script src="$static_subdomain/js/product-preferences.js"></script>
 <script src="$static_subdomain/js/product-search.js"></script>
 JS
@@ -5567,7 +5566,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		}
 	);
 
-	$scripts .= <<JS
+	$request_ref->{scripts} .= <<JS
 <script type="text/javascript">
 var page_type = "products";
 var preferences_text = "$preferences_text";
@@ -5577,7 +5576,7 @@ var products = $products_json;
 JS
 		;
 
-	$scripts .= <<JS
+	$request_ref->{scripts} .= <<JS
 <script src="$static_subdomain/js/product-preferences.js"></script>
 <script src="$static_subdomain/js/product-search.js"></script>
 JS
@@ -6319,7 +6318,7 @@ JS
 
 	my $count_string = sprintf(lang("graph_count"), $count, $i);
 
-	$scripts .= <<SCRIPTS
+	$request_ref->{scripts} .= <<SCRIPTS
 <script src="$static_subdomain/js/dist/highcharts.js"></script>
 SCRIPTS
 		;
@@ -6345,7 +6344,7 @@ HTML
 
 }
 
-=head2 display_histogram ($graph_ref, $products_ref)
+=head2 display_histogram ($graph_ref, $products_ref, $request_ref)
 
 Called by search_and_graph_products() to display an histogram of products on 1 axis
 
@@ -6361,7 +6360,7 @@ List of search results from search_and_graph_products()
 
 =cut
 
-sub display_histogram ($graph_ref, $products_ref) {
+sub display_histogram ($graph_ref, $products_ref, $request_ref) {
 
 	my @products = @{$products_ref};
 	my $count = @products;
@@ -6700,7 +6699,7 @@ JS
 
 	my $count_string = sprintf(lang("graph_count"), $count, $i);
 
-	$scripts .= <<SCRIPTS
+	$request_ref->{scripts} .= <<SCRIPTS
 <script src="$static_subdomain/js/dist/highcharts.js"></script>
 SCRIPTS
 		;
@@ -6814,7 +6813,7 @@ sub search_and_graph_products ($request_ref, $query_ref, $graph_ref) {
 			or ($graph_ref->{axis_y} eq "")
 			or ($graph_ref->{axis_y} eq 'products_n'))
 		{
-			$html .= display_histogram($graph_ref, \@products);
+			$html .= display_histogram($graph_ref, \@products, $request_ref);
 		}
 		else {
 			$html .= display_scatter_plot($graph_ref, \@products, $request_ref);
@@ -7447,7 +7446,7 @@ sub display_page ($request_ref) {
 	}
 	while ($$content_ref =~ /<scripts>(.*?)<\/scripts>/s) {
 		$$content_ref = $` . $';
-		$scripts .= $1;
+		$request_ref->{scripts} .= $1;
 	}
 
 	$template_data_ref->{search_terms} = ${search_terms};
@@ -7459,7 +7458,7 @@ sub display_page ($request_ref) {
 
 	# init javascript code
 
-	$template_data_ref->{scripts} = $scripts;
+	$template_data_ref->{scripts} = $request_ref->{scripts};
 	$template_data_ref->{initjs} = $initjs;
 	$template_data_ref->{request} = $request_ref;
 
@@ -7692,7 +7691,7 @@ sub display_product ($request_ref) {
 
 	my $template_data_ref = {request_ref => $request_ref,};
 
-	$scripts .= <<SCRIPTS
+	$request_ref->{scripts} .= <<SCRIPTS
 <script src="$static_subdomain/js/dist/webcomponentsjs/webcomponents-loader.js"></script>
 <script src="$static_subdomain/js/dist/display-product.js"></script>
 <script src="$static_subdomain/js/dist/product-history.js"></script>
@@ -8425,7 +8424,7 @@ HTML
 			= $json->encode({"attribute_groups" => $product_ref->{"attribute_groups_" . $lc}});
 		my $preferences_text = lang("classify_products_according_to_your_preferences");
 
-		$scripts .= <<JS
+		$request_ref->{scripts} .= <<JS
 <script type="text/javascript">
 var page_type = "product";
 var preferences_text = "$preferences_text";
@@ -8445,7 +8444,7 @@ JS
 	}
 
 	my $html_display_product;
-	process_template('web/pages/product/product_page.tt.html', $template_data_ref, \$html_display_product)
+	process_template('web/pages/product/product_page.tt.html', $template_data_ref, \$html_display_product, $request_ref)
 		|| ($html_display_product = "template error: " . $tt->error());
 	$html .= $html_display_product;
 
@@ -8534,12 +8533,12 @@ sub display_product_jqm ($request_ref) {    # jquerymobile
 		process_template(
 			'web/pages/product/includes/nutriscore.tt.html',
 			$template_data_nutriscore_and_nutrient_levels_ref,
-			\$nutriscore_html
+			\$nutriscore_html, $request_ref
 		) || return "template error: " . $tt->error();
 		process_template(
 			'web/pages/product/includes/nutrient_levels.tt.html',
 			$template_data_nutriscore_and_nutrient_levels_ref,
-			\$nutrient_levels_html
+			\$nutrient_levels_html, $request_ref
 		) || return "template error: " . $tt->error();
 	}
 

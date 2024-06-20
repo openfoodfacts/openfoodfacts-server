@@ -481,7 +481,7 @@ if ($action eq 'display') {
 CSS
 		;
 
-	$scripts .= <<HTML
+	$request_ref->{scripts} .= <<HTML
 <script type="text/javascript" src="/js/dist/search.js"></script>
 HTML
 		;

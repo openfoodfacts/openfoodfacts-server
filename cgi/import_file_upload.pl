@@ -132,12 +132,12 @@ else {
 		url => "/cgi/import_file_upload.pl",
 	};
 
-	process_template('web/pages/import_file_upload/import_file_upload.tt.html', $template_data_ref, \$html);
-	process_template('web/pages/import_file_upload/import_file_upload.tt.js', $template_data_ref, \$js);
+	process_template('web/pages/import_file_upload/import_file_upload.tt.html', $template_data_ref, \$html, $request_ref);
+	process_template('web/pages/import_file_upload/import_file_upload.tt.js', $template_data_ref, \$js, $request_ref);
 
 	$initjs .= $js;
 
-	$scripts .= <<HTML
+	$request_ref->{scripts} .= <<HTML
 <script type="text/javascript" src="/js/dist/jquery.iframe-transport.js"></script>
 <script type="text/javascript" src="/js/dist/jquery.fileupload.js"></script>
 HTML
