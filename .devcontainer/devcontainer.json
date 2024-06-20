@@ -3,23 +3,48 @@
   "dockerComposeFile": [
     "../docker-compose.yml",
     "../docker/dev.yml",
-    "../docker/admin-uis.yml",
-    "../docker/vscode.yml"
+    "../docker/devcontainer.yml"
+  ],
+  "containerUser": "root",
+  "capAdd": [
+    "SYS_PTRACE"
+  ],
+  "securityOpt": [
+    "seccomp=unconfined"
   ],
   "service": "backend",
+  "runServices": [
+    "memcached",
+    "postgres",
+    "mongodb",
+    "dynamicfront",
+    "frontend",
+    "incron",
+    "minion",
+    "redis"
+  ],
   "workspaceFolder": "/opt/product-opener",
-  "settings": {
-    "terminal.integrated.shell.linux": "/bin/bash"
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+      },
+      "extensions": [
+        "richterger.perl",
+        "d9705996.perl-toolbox",
+        "redhat.vscode-yaml",
+        "dbaeumer.vscode-eslint",
+        "stylelint.vscode-stylelint",
+        "syler.sass-indented",
+        "mrorz.language-gettext"
+      ]
+    }
   },
-  "runArgs": ["-u", "vscode", "--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined"],
-  "extensions": [
-    "mortenhenriksen.perl-debug",
-    "d9705996.perl-toolbox",
-    "redhat.vscode-yaml",
-    "dbaeumer.vscode-eslint",
-    "stylelint.vscode-stylelint",
-    "syler.sass-indented",
-    "mrorz.language-gettext",
-    "eg2.vscode-npm-script"
-  ]
+  "features": {
+    "ghcr.io/devcontainers/features/git:1":{},
+    "ghcr.io/devcontainers/features/github-cli:1":{},
+    "ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
+      "packages": "libterm-readline-gnu-perl"
+    }
+  }
 }

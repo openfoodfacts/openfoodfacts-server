@@ -25,9 +25,9 @@ use utf8;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Export qw/:all/;
-use ProductOpener::Display qw/:all/;
-use ProductOpener::Lang qw/:all/;
-use ProductOpener::Food qw/:all/;
+use ProductOpener::Display qw/$cc $nutriment_table $subdomain search_and_export_products/;
+use ProductOpener::Lang qw/$lc/;
+use ProductOpener::Food qw/%cc_nutriment_table/;
 
 use URI::Escape::XS;
 use Storable qw/dclone/;

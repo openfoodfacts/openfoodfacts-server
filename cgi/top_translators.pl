@@ -26,8 +26,8 @@ use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::Lang qw/:all/;
-use ProductOpener::URL qw/:all/;
+use ProductOpener::Lang qw/lang/;
+use ProductOpener::URL qw/format_subdomain/;
 
 use CGI qw/:cgi :form escapeHTML charset/;
 use URI::Escape::XS;
@@ -39,8 +39,8 @@ my $request_ref = ProductOpener::Display::init_request();
 my $template_data_ref = {};
 
 $scripts .= <<SCRIPTS
-<script src="/js/datatables.min.js"></script>
-<script src="/js/dist/papaparse.js"></script>
+<script src="$static_subdomain/js/datatables.min.js"></script>
+<script src="$static_subdomain/js/dist/papaparse.js"></script>
 SCRIPTS
 	;
 

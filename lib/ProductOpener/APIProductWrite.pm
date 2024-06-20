@@ -45,14 +45,15 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Display qw/:all/;
-use ProductOpener::Users qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Display qw/$country request_param single_param/;
+use ProductOpener::Users qw/$Org_id $Owner_id $User_id/;
+use ProductOpener::Lang qw/$lc/;
 use ProductOpener::Products qw/:all/;
-use ProductOpener::API qw/:all/;
-use ProductOpener::Packaging qw/:all/;
-use ProductOpener::Text qw/:all/;
-use ProductOpener::Tags qw/:all/;
+use ProductOpener::API qw/add_error add_warning customize_response_for_product normalize_requested_code/;
+use ProductOpener::Packaging
+	qw/add_or_combine_packaging_component_data get_checked_and_taxonomized_packaging_component_data/;
+use ProductOpener::Text qw/remove_tags_and_quote/;
+use ProductOpener::Tags qw/%language_fields %writable_tags_fields add_tags_to_field compute_field_tags/;
 
 use Encode;
 
@@ -105,7 +106,8 @@ sub update_field_with_0_or_1_value ($request_ref, $product_ref, $field, $value) 
 				message => {id => "invalid_value_must_be_0_or_1"},
 				field => {id => $field},
 				impact => {id => "field_ignored"},
-			}
+			},
+			200
 		);
 	}
 	else {
@@ -132,7 +134,8 @@ sub update_packagings ($request_ref, $product_ref, $field, $add_to_existing_comp
 				message => {id => "invalid_type_must_be_array"},
 				field => {id => $field},
 				impact => {id => "field_ignored"},
-			}
+			},
+			200
 		);
 	}
 	else {
@@ -163,7 +166,8 @@ sub update_packagings ($request_ref, $product_ref, $field, $add_to_existing_comp
 								message => {id => "invalid_type_must_be_object"},
 								field => {id => $property},
 								impact => {id => "field_ignored"},
-							}
+							},
+							200
 						);
 					}
 				}
@@ -205,7 +209,8 @@ sub update_tags_fields ($request_ref, $product_ref, $field, $add_to_existing_tag
 				message => {id => "invalid_type_must_be_array"},
 				field => {id => $field},
 				impact => {id => "field_ignored"},
-			}
+			},
+			200
 		);
 	}
 	else {
@@ -323,7 +328,8 @@ sub update_product_fields ($request_ref, $product_ref, $response_ref) {
 						message => {id => "invalid_language_code"},
 						field => {id => $field},
 						impact => {id => "field_ignored"},
-					}
+					},
+					200
 				);
 
 			}
@@ -455,7 +461,8 @@ sub write_product_api ($request_ref) {
 					message => {id => "edit_against_edit_rules"},
 					field => {id => "product"},
 					impact => {id => "failure"},
-				}
+				},
+				403
 			);
 		}
 		else {

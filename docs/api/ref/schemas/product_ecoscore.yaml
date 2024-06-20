@@ -1,10 +1,14 @@
 type: object
-description: Fields related to Eco-Score for a product
+description: |
+  Fields related to Eco-Score for a product.
+
+  See also: `ecoscore_score`, `ecoscore_grade` and `ecoscore_tags`.
+  
 properties:
   ecoscore_data:
     type: object
     description: |
-      An object about a lot of details about data needed for nutriscore computation 
+      An object about a lot of details about data needed for Eco-Score computation 
       and complementary data of interest.
     properties:
       adjustments:

@@ -25,10 +25,11 @@ use ProductOpener::PerlStandards;
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::Users qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Users qw/$User_id check_password_hash retrieve_user/;
+use ProductOpener::Lang qw/lang/;
 
 use Apache2::Const -compile => qw(OK);
 use CGI qw/:cgi :form escapeHTML/;
@@ -56,8 +57,7 @@ if (defined $User_id) {
 my @errors = ();
 
 if ($ENV{'REQUEST_METHOD'} eq 'POST') {
-	my $user_file = "$data_root/users/" . get_string_id_for_lang('no_language', $User_id) . '.sto';
-	my $user_ref = retrieve($user_file);
+	my $user_ref = retrieve_user($User_id);
 	if (not(defined $user_ref)) {
 		push @errors, 'undefined user';
 		$template_data_ref->{success} = 0;

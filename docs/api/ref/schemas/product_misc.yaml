@@ -90,6 +90,11 @@ properties:
       Normalized version of serving_size.
       Note that this is NOT the number of servings by product.
       <small>(in perl, see `normalize_serving_size`)</small>
+  serving_quantity_unit:
+    type: string
+    description: |
+      The unit (either g or ml) for the correponding serving_quantity.
+    example: "g"
   serving_size:
     type: string
     description: |

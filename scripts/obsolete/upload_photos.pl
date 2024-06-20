@@ -2,10 +2,10 @@
 
 use CGI::Carp qw(fatalsToBrowser);
 
-use strict;
-use utf8;
+use ProductOpener::PerlStandards;
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
@@ -128,7 +128,7 @@ $lc = $global_values{lc};
 
 my $time = time();
 
-if (opendir (DH, "$images_dir")) {
+if (opendir (DH, $images_dir)) {
 	foreach my $file (sort readdir(DH)) {
 
 		#next if $file gt "2013-07-13 11.02.07";

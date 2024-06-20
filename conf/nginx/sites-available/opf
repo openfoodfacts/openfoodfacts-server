@@ -32,6 +32,8 @@ server {
 		return 301 https://world.openproductsfacts.org$request_uri;
 }
 
+include /etc/nginx/snippets/expires-no-json-xml.conf;
+
 server {
 	#listen 80 default_server;
 	#listen [::]:80 default_server;
@@ -52,10 +54,10 @@ server {
 	# Don't use them in a production server!
 	#
 	# include snippets/snakeoil.conf;
-		#listen [::]:443 ssl default_server;
-		#listen [::]:443 ssl;
-		include snippets/ssl.openproductsfacts.org;
-		include snippets/ssl-params.conf;
+	#listen [::]:443 ssl default_server;
+	#listen [::]:443 ssl;
+	include snippets/ssl.openproductsfacts.org;
+	include snippets/ssl-params.conf;
 
 
 	root /srv/opf/html;
@@ -103,6 +105,7 @@ server {
 	location ~ ^/images/products/ {
 		add_header Link "<http://creativecommons.org/licenses/by-sa/3.0/>; rel='license'; title='CC-BY-SA 3.0'";
 		include snippets/off.cors-headers.include;
+		include snippets/expiry-headers.include;
 		# optimize gzip compressed content (like OCR .json stored next to .jpg files)
 		gzip_static always;
 		gunzip on;
@@ -116,6 +119,7 @@ server {
 
 	location ~ ^/(.well-known|images|fonts|css|js|rss|files|resources|foundation|bower_components)/ {
 		include snippets/off.cors-headers.include;
+		include snippets/expiry-headers.include;
 		# First attempt to serve request as file, then
 		# as directory, then fall back to displaying a 404.
 		try_files $uri $uri/ =404;
@@ -125,6 +129,7 @@ server {
 	# and much less when caching headers are sent
 	location = /.well-known/assetlinks.json {
                 include snippets/off.cors-headers.include;
+		include snippets/expiry-headers.include;
                 expires 1d;
                 try_files $uri $uri/ =404;
         }
@@ -150,6 +155,4 @@ server {
 	#location ~ /\.ht {
 	#       deny all;
 	#}
-
-	include /etc/nginx/expires-no-json-xml.conf;
 }

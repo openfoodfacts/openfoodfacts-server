@@ -51,6 +51,7 @@ BEGIN {
 		&get_emb_codes_collection
 		&get_recent_changes_collection
 		&remove_documents_by_ids
+		&get_orgs_collection
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -63,7 +64,6 @@ use experimental 'smartmatch';
 use ProductOpener::Config qw/:all/;
 
 use MongoDB;
-use Tie::IxHash;
 use JSON::PP;
 use CGI ':cgi-lib';
 use Log::Any qw($log);
@@ -203,6 +203,10 @@ sub get_recent_changes_collection ($timeout = undef) {
 	return get_collection($mongodb, 'recent_changes', $timeout);
 }
 
+sub get_orgs_collection ($timeout = undef) {
+	return get_collection($mongodb, 'orgs', $timeout);
+}
+
 sub get_collection ($database, $collection, $timeout = undef) {
 	return get_mongodb_client($timeout)->get_database($database)->get_collection($collection);
 }
@@ -273,12 +277,14 @@ correspond to the _id field
 =head3 Return values
 
 Returns a hash with:
-<dl>
-  <dt>removed</dt>
-  <dd>int - number of effectively removed items</dd>
-  <dt>errors</dt>
-  <dd>ref to a list of errors</dd>
-</dl>
+
+	<dl>
+	  <dt>removed</dt>
+	  <dd>int - number of effectively removed items</dd>
+	  <dt>errors</dt>
+	  <dd>ref to a list of errors</dd>
+	</dl>
+
 =cut
 
 sub remove_documents_by_ids ($ids_to_remove_ref, $coll, $bulk_write_size = 100) {

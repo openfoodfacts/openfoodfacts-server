@@ -27,14 +27,15 @@ use ProductOpener::PerlStandards
 	binmode(STDOUT, ":encoding(UTF-8)");
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Images qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
+use ProductOpener::Images qw/@CLOUD_VISION_FEATURES_FULL send_image_to_cloud_vision send_image_to_robotoff/;
 
 use AnyEvent::Inotify::Simple;
 use Log::Any qw($log);
 use Log::Any::Adapter 'TAP';
 use EV;
 
-open(my $LOG, ">>", "$data_root/logs/run_cloud_vision_ocr.log");
+open(my $LOG, ">>", "$BASE_DIRS{LOGS}/run_cloud_vision_ocr.log");
 
 sub send_file_to_ocr ($file) {
 	my $destination = readlink $file;
@@ -72,7 +73,7 @@ sub send_file_to_ocr ($file) {
 	$json_file .= ".json.gz";
 
 	print $LOG "file: $file destination: $destination code: $code image_url: $image_url json_file: $json_file\n";
-	open(my $gv_logs, ">>:encoding(UTF-8)", "$data_root/logs/cloud_vision.log");
+	open(my $gv_logs, ">>:encoding(UTF-8)", "$BASE_DIRS{LOGS}/cloud_vision.log");
 
 	my $cloudvision_ref = send_image_to_cloud_vision($file, $json_file, \@CLOUD_VISION_FEATURES_FULL, $gv_logs);
 

@@ -3,13 +3,14 @@
 use Modern::Perl '2017';
 use utf8;
 
-use Test::More;
+use Test2::V0;
+use Data::Dumper;
+$Data::Dumper::Terse = 1;
 use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::TagsEntries qw/:all/;
-use ProductOpener::Ingredients qw/:all/;
-use ProductOpener::Food qw/:all/;
+use ProductOpener::Ingredients qw/clean_ingredients_text extract_additives_from_text extract_ingredients_from_text/;
+use ProductOpener::Food qw/compute_nova_group/;
 
 # dummy product for testing
 
@@ -48,6 +49,9 @@ my @tests = (
 	[{lc => "en", categories_tags => ["en:waters"]}, 1],
 	[{lc => "en", categories_tags => ["en:flavoured-waters"]}, undef],
 
+	# allergens in parenthesis should not change the nova score but should appear in allergens
+	[{lc => "hr", ingredients_text_hr => "Krupica od durum pšenice (gluten), voda."}, 1],
+
 );
 
 foreach my $test_ref (@tests) {
@@ -61,11 +65,11 @@ foreach my $test_ref (@tests) {
 	$product_ref->{ingredients_text} = $product_ref->{"ingredients_text_" . $product_ref->{lc}};
 	clean_ingredients_text($product_ref);
 	extract_ingredients_from_text($product_ref);
-	extract_ingredients_classes_from_text($product_ref);
+	extract_additives_from_text($product_ref);
 	compute_nova_group($product_ref);
 
-	is_deeply($product_ref->{nova_group}, $nova)
-		or diag explain $product_ref;
+	is($product_ref->{nova_group}, $nova)
+		or diag Dumper $product_ref;
 }
 
 done_testing();

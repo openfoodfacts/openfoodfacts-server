@@ -56,7 +56,8 @@ BEGIN {
 		&set_org_gs1_gln
 
 		&org_name
-		&org_url
+		&update_import_date
+		&update_export_date
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -64,12 +65,16 @@ BEGIN {
 
 use vars @EXPORT_OK;
 
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Store qw/get_string_id_for_lang retrieve store/;
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created/;
 use ProductOpener::Mail qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Lang qw/lang/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::Tags qw/:all/;
+use ProductOpener::Tags qw/canonicalize_tag_link/;
+use ProductOpener::CRM qw/:all/;
+use ProductOpener::Users qw/retrieve_user store_user/;
+use ProductOpener::Data qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
@@ -78,16 +83,12 @@ use Log::Any qw($log);
 
 =head1 DATA
 
-Organization profile data is kept in files in the $data_root/orgs directory.
+Organization profile data is kept in files in the $BASE_DIRS{ORGS} directory.
 If it does not exist yet, the directory is created when the module is initialized.
 
 =cut
 
-if (!-e "$data_root/orgs") {
-	mkdir("$data_root/orgs", 0755)
-		or $log->warn("Could not create orgs dir", {dir => "$data_root/orgs", error => $!})
-		if $log->is_warn();
-}
+ensure_dir_created($BASE_DIRS{ORGS});
 
 =head1 FUNCTIONS
 
@@ -112,8 +113,7 @@ sub retrieve_org ($org_id_or_name) {
 	$log->debug("retrieve_org", {org_id_or_name => $org_id_or_name, org_id => $org_id}) if $log->is_debug();
 
 	if (defined $org_id and $org_id ne "") {
-
-		my $org_ref = retrieve("$data_root/orgs/$org_id.sto");
+		my $org_ref = retrieve("$BASE_DIRS{ORGS}/$org_id.sto");
 		return $org_ref;
 	}
 
@@ -132,7 +132,7 @@ This function returns an array of all existing org ids
 
 sub list_org_ids () {
 	# all .sto but orgs_glns
-	my @org_files = glob("$data_root/orgs/*.sto");
+	my @org_files = glob("$BASE_DIRS{ORGS}/*.sto");
 	# id is the filename without .sto
 	my @org_ids = map {$_ =~ /\/([^\/]+).sto/;} @org_files;
 	# remove "orgs_glns"
@@ -163,14 +163,62 @@ sub store_org ($org_ref) {
 	defined $org_ref->{org_id} or die("Missing org_id");
 
 	# retrieve eventual previous values
-	my $previous_org_ref = retrieve("$data_root/orgs/" . $org_ref->{org_id} . ".sto");
+	my $previous_org_ref = retrieve("$BASE_DIRS{ORGS}/" . $org_ref->{org_id} . ".sto");
 
-	if ((defined $previous_org_ref) && !$previous_org_ref->{validated} && $org_ref->{validated}) {
-		# we switched on validated
-		# TODO: create org and its users in Odoo CRM
+	if (   (defined $previous_org_ref)
+		&& $previous_org_ref->{valid_org} ne 'accepted'
+		&& $org_ref->{valid_org} eq 'accepted')
+	{
+
+		# We switched to validated, update CRM
+		my $main_contact_user = $org_ref->{main_contact};
+		my $user_ref = retrieve_user($main_contact_user);
+
+		eval {
+			my $contact_id = find_or_create_contact($user_ref);
+			defined $contact_id or die "Failed to get contact";
+			$user_ref->{crm_user_id} = $contact_id;
+			store_user($user_ref);
+
+			my $company_id = find_or_create_company($org_ref, $contact_id);
+			defined $company_id or die "Failed to get company";
+
+			defined add_contact_to_company($contact_id, $company_id) or die "Failed to add contact to company";
+
+			my $opportunity_id
+				= create_onboarding_opportunity("$org_ref->{name} - new", $company_id, $user_ref->{crm_user_id});
+			defined $opportunity_id or die "Failed to create opportunity";
+
+			$org_ref->{crm_org_id} = $company_id;
+			$org_ref->{crm_opportunity_id} = $opportunity_id;
+			1;
+		} or do {
+			$org_ref->{valid_org} = 'unreviewed';
+			$log->error("store_org", {error => $@}) if $log->is_error();
+		};
+		# also, add the other members to the CRM, in the company
+		foreach my $user_id (keys %{$org_ref->{members}}) {
+			if ($user_id ne $org_ref->{creator}) {
+				add_user_to_company($user_id, $org_ref->{crm_org_id});
+			}
+		}
 	}
 
-	store("$data_root/orgs/" . $org_ref->{org_id} . ".sto", $org_ref);
+	if (    defined $org_ref->{crm_org_id}
+		and exists $org_ref->{main_contact}
+		and $org_ref->{main_contact} ne $previous_org_ref->{main_contact}
+		and not change_company_main_contact($previous_org_ref, $org_ref->{main_contact}))
+	{
+		# so we don't lose sync with CRM if main contact cannot be changed
+		$org_ref->{main_contact} = $previous_org_ref->{main_contact};
+	}
+
+	# Store to MongoDB
+	my $orgs_collection = get_orgs_collection();
+	$orgs_collection->replace_one({"org_id" => $org_ref->{org_id}}, $org_ref, {upsert => 1});
+
+	# Store to file
+	store("$BASE_DIRS{ORGS}/" . $org_ref->{org_id} . ".sto", $org_ref);
 
 	return;
 }
@@ -190,17 +238,13 @@ or an admin that creates an org by assigning an user to it).
 
 Identifier for the org (without the "org-" prefix), or org name.
 
-=head4 boolean $validated
-
-Indicate if the org should be considered validated
-
 =head3 Return values
 
 This function returns a hash ref for the org.
 
 =cut
 
-sub create_org ($creator, $org_id_or_name, $validated = 0) {
+sub create_org ($creator, $org_id_or_name) {
 
 	my $org_id = get_string_id_for_lang("no_language", $org_id_or_name);
 
@@ -211,13 +255,13 @@ sub create_org ($creator, $org_id_or_name, $validated = 0) {
 		creator => $creator,
 		org_id => $org_id,
 		name => $org_id_or_name,
-		# indicates if the org was manually validated
-		validated => $validated,
+		valid_org => 'unreviewed',
 		# by default an org has its data protected
 		# we will remove this only if appears later not to be fair-play
 		protect_data => "on",
 		admins => {},
 		members => {},
+		main_contact => $creator,
 	};
 
 	store_org($org_ref);
@@ -285,7 +329,7 @@ This function returns a hash ref for the org.
 sub set_org_gs1_gln ($org_ref, $list_of_gs1_gln) {
 
 	# Remove existing GLNs
-	my $glns_ref = retrieve("$data_root/orgs/orgs_glns.sto");
+	my $glns_ref = retrieve("$BASE_DIRS{ORGS}/orgs_glns.sto");
 	not defined $glns_ref and $glns_ref = {};
 	if (defined $org_ref->{list_of_gs1_gln}) {
 		foreach my $gln (split(/,| /, $org_ref->{list_of_gs1_gln})) {
@@ -305,7 +349,7 @@ sub set_org_gs1_gln ($org_ref, $list_of_gs1_gln) {
 			}
 		}
 	}
-	store("$data_root/orgs/orgs_glns.sto", $glns_ref);
+	store("$BASE_DIRS{ORGS}/orgs_glns.sto", $glns_ref);
 	return;
 }
 
@@ -350,6 +394,11 @@ sub add_user_to_org ($org_id_or_ref, $user_id, $groups_ref) {
 	foreach my $group (@{$groups_ref}) {
 		(defined $org_ref->{$group}) or $org_ref->{$group} = {};
 		$org_ref->{$group}{$user_id} = 1;
+	}
+
+	# sync CRM
+	if ($org_ref->{valid_org} eq 'accepted') {
+		add_user_to_company($user_id, $org_ref->{crm_org_id});
 	}
 
 	store_org($org_ref);
@@ -397,6 +446,9 @@ sub remove_user_from_org ($org_id_or_ref, $user_id, $groups_ref) {
 
 	foreach my $group (@{$groups_ref}) {
 		if (defined $org_ref->{$group}) {
+			if ($group eq "members") {
+				remove_user_from_company($user_id, $org_ref->{crm_org_id});
+			}
 			delete $org_ref->{$group}{$user_id};
 		}
 	}
@@ -445,6 +497,22 @@ sub org_name ($org_ref) {
 sub org_url ($org_ref) {
 
 	return canonicalize_tag_link("orgs", $org_ref->{org_id});
+}
+
+sub update_import_date($org_id, $time) {
+	my $org_ref = retrieve_org($org_id);
+	$org_ref->{last_import_t} = $time;
+	store_org($org_ref);
+	update_last_import_date($org_id, $time);
+	return;
+}
+
+sub update_export_date($org_id, $time) {
+	my $org_ref = retrieve_org($org_id);
+	$org_ref->{last_export_t} = $time;
+	store_org($org_ref);
+	update_last_export_date($org_id, $time);
+	return;
 }
 
 1;

@@ -11,8 +11,10 @@
 # symbol:en:µg
 # This is needed because µg in the xx: entry (xx:µg) would be canonicalized to xx:g
 
-xx:g, gr, grs
+xx:g, gr, grs, grm
+en:gram, grams
 ar:جرام, جرامات
+bg:г, грам, грама
 bn:গ্রাম, গ্রামগুলি
 bs:gram, grama
 ca:gram, grams
@@ -20,7 +22,6 @@ cs:gram, gramů
 da:gram, gram
 de:Gramm, Gramm
 el:γραμμάριο, γραμμάρια
-en:gram, grams
 es:gramo, gramos
 et:gramm, grammi
 fa:گرم, گرم‌ها
@@ -50,7 +51,7 @@ ne:ग्राम, ग्रामहरू
 nl:gram, gram
 no:gram, gram
 pl:gram, gramy
-pt:grama, gramas
+pt:grama, gramas, gm
 ro:gram, grame
 ru:грамм, граммы, г
 sk:gram, gramov
@@ -71,7 +72,9 @@ conversion_factor:en:1
 standard_unit:en:g
 
 xx:kg, kgs, kgr
+en:kilogram, kilograms
 ar:كيلوغرام, كيلوغرامات
+bg:кг, килограм, килограма
 bn:কেজি, কেজি
 bs:kilogram, kilograma
 ca:kilogram, quilograms
@@ -79,7 +82,6 @@ cs:kilogram, kilogramů
 da:kilogram, kilogram
 de:Kilogramm, Kilogramm
 el:κιλό, κιλά
-en:kilogram, kilograms
 es:kilogramo, kilogramos
 et:kilogramm, kilogrammi
 fa:کیلوگرم, کیلوگرم‌ها
@@ -131,7 +133,9 @@ standard_unit:en:g
 
 # Milligrams
 xx:mg, mgs
+en:milligram, milligrams
 ar:ملغ, ملغ
+bg:мг, милиграм, милиграма
 bn:মিলিগ্রাম, মিলিগ্রাম
 bs:Miligram, Miligrama
 ca:Mil·ligram, mil·ligrams
@@ -139,7 +143,6 @@ cs:Miligram, miligramů
 da:milligram, milligram
 de:Milligramm, Milligramm
 el:χιλιοστόγραμμο, χιλιοστόγραμμα
-en:milligram, milligrams
 es:miligramo, miligramos
 et:milligramm, milligrammi
 fa:میلی‌گرم, میلی‌گرم‌ها
@@ -191,9 +194,9 @@ standard_unit:en:g
 
 # Micrograms
 xx:mcg, mcgs
-symbol:en:µg
 en:microgram, micrograms
 ar:ميكروغرام, ميكروغرام
+bg:микрограм, микрограма
 bn:মাইক্রোগ্রাম, মাইক্রোগ্রাম
 bs:Mikrogram, Mikrograma
 ca:Micrògram, micrògrams
@@ -249,18 +252,19 @@ vi:Microgam, microgam
 zh:微克, 微克
 conversion_factor:en:0.000001
 standard_unit:en:g
+symbol:en:µg
 
 # Pounds
 xx:lb, lbs
+en:pound, pounds
 ar:رطل, رطل
-bg:паунд, паундове
+bg:паунд, паунда
 bn:পাউন্ড, পাউন্ড
 cs:libra, liber
 cy:punt, pwysau
 da:pund, pund
 de:Pfund, Pfund
 el:λίβρα, λίβρες
-en:pound, pounds
 es:libra, libras
 et:nael, naela
 fa:پوند, پوند
@@ -320,7 +324,7 @@ standard_unit:en:g
 
 
 # Ounces
-xx:oz, ozs
+xx:oz, ozs, onz
 ar:أونصة, أونصات
 bg:унция, унции
 bn:ঔঞ্জ, ঔঞ্জ
@@ -381,7 +385,9 @@ standard_unit:en:g
 
 # Liters
 xx:l, ls
+en:liter, liters
 ar:لتر, لترات
+bg:л, литър, литра
 bn:লিটার, লিটার
 bs:Litar, Litara
 ca:Litre, litres
@@ -389,7 +395,6 @@ cs:Litr, litrů
 da:liter, liter
 de:Liter, Liter
 el:λίτρο, λίτρα
-en:liter, liters
 es:litro, litros
 et:liiter, liitrit
 fa:لیتر, لیترها
@@ -442,7 +447,7 @@ standard_unit:en:ml
 xx:dl, dls
 en:deciliter, deciliters
 ar:ديسيلتر, ديسيلترات
-bg:децилитър, децилитри
+bg:децилитър, децилитри, децилитра
 bn:ডেসিলিটার, ডেসিলিটার
 cs:decilitr, decilitry
 cy:deciliter, decilitrau
@@ -498,7 +503,7 @@ standard_unit:en:ml
 xx:cl, cls
 en:centiliter, centiliters
 ar:سنتيلتر, سنتيلترات
-bg:центилитър, центилитри
+bg:центилитър, центилитри, центилитра
 bn:সেন্টিলিটার, সেন্টিলিটার
 cs:centilitr, centilitry
 cy:centiliter, centilitrau
@@ -558,7 +563,7 @@ standard_unit:en:ml
 xx:ml, mls
 en:milliliter, milliliters
 ar:ملليلتر, ملليلترات
-bg:милилитър, милилитри
+bg:мл, милилитър, милилитри, милилитра
 bn:মিলিলিটার, মিলিলিটার
 cs:mililitr, mililitry
 cy:milliliter, millilitrau
@@ -615,8 +620,13 @@ zh:毫升, 毫升, 毫升
 conversion_factor:en:1
 standard_unit:en:ml
 
+# Metric teaspoon
+en:metric teaspoon
+conversion_factor:en:5
+standard_unit:en:ml
+
 # Fluid ounces
-xx:fl oz, floz, fl.oz, fl. oz, fl. oz., fl.oz.
+xx:fl oz, floz, fl.oz, fl. oz, fl. oz., fl.oz., OZA
 en:fluid ounce, fluid ounces
 ar:أونصة سائلة, أونصات سائلة
 bg:у. унция, у. унции
@@ -680,7 +690,7 @@ standard_unit:en:ml
 xx:gal, gals
 en:gallon, gallons
 ar:غالون, غالونات
-bg:галон, галони
+bg:галон, галони, галона
 bn:গ্যালন, গ্যালন
 cs:galon, galony
 cy:galon, galwyn
@@ -742,7 +752,7 @@ standard_unit:en:ml
 xx:kcal, kcals, kilocalories, Cal, Cals, Calories
 en:kilocalorie, kilocalories, Calorie, Calories
 ar:سعرة حرارية، سعرة حرارية، سعرة حرارية، سعرة حرارية
-bg:килокалория, килокалории, калория, калории
+bg:ккал, килокалория, килокалории, калория, калории
 bn:কিলোক্যালোরি, কিলোক্যালোরি, ক্যালোরি, ক্যালোরি
 cs:kilokalorie, kilokalorie, kalorie, kalorie
 cy:cilcalori, cilcaloriau, calori, caloriau
@@ -803,7 +813,7 @@ standard_unit:en:kj
 xx:kJ, kJs
 en:kilojoule, kilojoules
 ar:كيلوجول, كيلوجولات
-bg:килоюл, килоюла
+bg:килоджаул, килоджаула
 bn:কিলোজুল, কিলোজুল
 cs:kilojoule, kilojouly
 cy:ciljouls, ciljoulo
@@ -1107,6 +1117,7 @@ conversion_factor:en:0.00001
 standard_unit:en:mmol/l
 
 xx:mval/l
+en:milivals per liter
 ar:مليفولت/لتر
 bg:милливал на литър
 bn:মিলিভাল প্রতি লিটার
@@ -1115,7 +1126,6 @@ cy:millifoltdyddiau y llif
 da:milival pr. liter
 de:Millival pro Liter
 el:χιλιοστά βαλ/λίτρο
-en:milivals per liter
 es:milivales por litro
 et:milivali liitri kohta
 fa:میلی ولت بر لیتر
@@ -1166,6 +1176,7 @@ conversion_factor:en:0.5
 standard_unit:en:mmol/l
 
 xx:gpg
+en:grams of calcium carbonate per gallon
 ar:جرام كربونات الكالسيوم في الجالون
 bg:грама въглеродатен калций на галон
 bn:প্রতি গ্যালনে ক্যালসিয়াম কার্বোনেটের গ্রাম
@@ -1174,7 +1185,6 @@ cy:gramau carbonad calchfwrdd ym mhob galwyn
 da:gram kalciumkarbonat pr. gallon
 de:Gramm Calciumcarbonat pro Gallone
 el:γραμμάρια ανθρακικού ασβεστίου ανά γαλόνι
-en:grams of calcium carbonate per gallon
 es:gramos de carbonato de calcio por galón
 et:grammi kaltsiumkarbonaati galloni kohta
 fa:گرم کربنات کلسیم در گالن
@@ -1242,19 +1252,19 @@ conversion_factor:en:0.025
 standard_unit:en:mmol/l
 
 xx:percent vol
-symbol:en:% vol
 conversion_factor:en:1
 standard_unit:en:% vol
+symbol:en:% vol
 
 xx:percent vol (alcohol)
-symbol:en:% vol (alcohol)
 conversion_factor:en:1
 standard_unit:en:% vol (alcohol)
+symbol:en:% vol (alcohol)
 
 xx:percent
-symbol:en:%
 conversion_factor:en:1
 standard_unit:en:%
+symbol:en:%
 
 xx:pH
 conversion_factor:en:1
@@ -1262,13 +1272,14 @@ standard_unit:en:pH
 
 # % DV - % Daily Value
 xx:percent dv
-symbol:en:% dv
 conversion_factor:en:1
 standard_unit:en:% dv
+symbol:en:% dv
 
 
 # International unit
 xx:iu
+en:international unit
 ar:وحدة دولية
 bg:международна единица
 bn:আন্তর্জাতিক একক
@@ -1277,7 +1288,6 @@ cy:uned ryngwladol
 da:international enhed
 de:Internationale Einheit
 el:διεθνής μονάδα
-en:international unit
 es:unidad internacional
 et:rahvusvaheline ühik
 fa:واحد بین‌المللی
@@ -1327,3 +1337,4 @@ vi:đơn vị quốc tế
 zh:国际单位
 conversion_factor:en:1
 standard_unit:en:iu
+

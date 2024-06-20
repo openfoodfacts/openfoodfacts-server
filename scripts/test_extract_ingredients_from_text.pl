@@ -36,7 +36,7 @@ use ProductOpener::Lang qw/:all/;
 use ProductOpener::Mail qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
-use ProductOpener::Ingredients qw/:all/;
+use ProductOpener::Ingredients qw/extract_ingredients_from_text/;
 use ProductOpener::Images qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;

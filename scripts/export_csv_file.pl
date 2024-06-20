@@ -24,8 +24,8 @@ use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Export qw/:all/;
-use ProductOpener::Display qw/:all/;
+use ProductOpener::Export qw/export_csv/;
+use ProductOpener::Display qw/add_params_to_query/;
 
 use URI::Escape::XS;
 use Storable qw/dclone/;
