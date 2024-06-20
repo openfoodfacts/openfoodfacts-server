@@ -112,7 +112,7 @@ my @search_fields
 	= qw(brands categories packaging labels origins manufacturing_places emb_codes purchase_places stores countries
 	ingredients additives allergens traces nutrition_grades nova_groups ecoscore languages creator editors states);
 
-$admin and push @search_fields, "lang";
+$request_ref->{admin} and push @search_fields, "lang";
 
 my %search_tags_fields = (
 	packaging => 1,
@@ -502,7 +502,7 @@ var select2_options = {
 JS
 		;
 
-	process_template('web/pages/search_form/search_form.tt.html', $template_data_ref, \$html) or $html = '';
+	process_template('web/pages/search_form/search_form.tt.html', $template_data_ref, \$html, $request_ref) or $html = '';
 	$html .= "<p>" . $tt->error() . "</p>";
 
 	${$request_ref->{content_ref}} .= $html;

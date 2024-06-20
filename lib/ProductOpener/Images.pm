@@ -176,7 +176,7 @@ HTML
 	return $html;
 }
 
-sub display_select_crop ($object_ref, $id_lc, $language) {
+sub display_select_crop ($object_ref, $id_lc, $language, $request_ref) {
 
 	# $id_lc = shift  ->  id_lc = [front|ingredients|nutrition|packaging]_[new_]?[lc]
 	my $id = $id_lc;
@@ -197,7 +197,7 @@ sub display_select_crop ($object_ref, $id_lc, $language) {
 	my $label = $Lang{"image_" . $imagetype}{$lc};
 
 	my $html = '';
-	if (is_protected_image($object_ref, $id_lc) and (not $User{moderator}) and (not $admin)) {
+	if (is_protected_image($object_ref, $id_lc) and (not $User{moderator}) and (not $request_ref->{admin})) {
 		$html .= <<HTML;
 <p>$message</p>
 <label for="$id">$label (<span class="tab_language">$language</span>)</label>

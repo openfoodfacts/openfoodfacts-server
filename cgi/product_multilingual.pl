@@ -674,7 +674,7 @@ my %remember_fields = ('purchase_places' => 1, 'stores' => 1);
 
 # Display each field
 
-sub display_input_field ($product_ref, $field, $language) {
+sub display_input_field ($product_ref, $field, $language, $request_ref) {
 	# $field can be in %language_fields and suffixed by _[lc]
 
 	my $fieldtype = $field;
@@ -761,7 +761,7 @@ sub display_input_field ($product_ref, $field, $language) {
 		$template_data_ref_field->{field_type_examples} = $field_type_examples;
 	}
 
-	process_template('web/pages/product_edit/display_input_field.tt.html', $template_data_ref_field, \$html_field)
+	process_template('web/pages/product_edit/display_input_field.tt.html', $template_data_ref_field, \$html_field, $request_ref)
 		or $html_field = "<p>" . $tt->error() . "</p>";
 
 	return $html_field;
@@ -862,7 +862,7 @@ CSS
 
 		$template_data_ref_display->{obsolete_checked} = $checked;
 		$template_data_ref_display->{display_field_obsolete}
-			= display_input_field($product_ref, "obsolete_since_date", undef);
+			= display_input_field($product_ref, "obsolete_since_date", undef, $request_ref);
 
 	}
 
@@ -892,7 +892,7 @@ CSS
 
 	$template_data_ref_display->{product_ref_sorted_langs} = join(',', @{$product_ref->{sorted_langs}});
 
-	sub display_input_tabs ($product_ref, $tabsid, $tabsids_array_ref, $tabsids_hash_ref, $fields_array_ref) {
+	sub display_input_tabs ($product_ref, $tabsid, $tabsids_array_ref, $tabsids_hash_ref, $fields_array_ref, $request_ref) {
 
 		my $template_data_ref_tab = {};
 		my @display_tabs;
@@ -940,16 +940,16 @@ CSS
 					if ($field =~ /^(.*)_image/) {
 
 						my $image_field = $1 . "_" . $display_lc;
-						$display_div = display_select_crop($product_ref, $image_field, $language);
+						$display_div = display_select_crop($product_ref, $image_field, $language, $request_ref);
 					}
 					elsif ($field eq 'ingredients_text') {
 						$image_full_id = "ingredients_" . ${display_lc} . "_image_full";
-						$display_div = display_input_field($product_ref, $field . "_" . $display_lc, $language);
+						$display_div = display_input_field($product_ref, $field . "_" . $display_lc, $language, $request_ref);
 					}
 					else {
 						$log->debug("display_field", {field_name => $field, field_value => $product_ref->{$field}})
 							if $log->is_debug();
-						$display_div = display_input_field($product_ref, $field . "_" . $display_lc, $language);
+						$display_div = display_input_field($product_ref, $field . "_" . $display_lc, $language, $request_ref);
 					}
 
 					push(
@@ -996,24 +996,24 @@ CSS
 		$template_data_ref_tab->{display_tabs} = \@display_tabs;
 
 		my $html_tab = '';
-		process_template('web/pages/product_edit/display_input_tabs.tt.html', $template_data_ref_tab, \$html_tab)
+		process_template('web/pages/product_edit/display_input_tabs.tt.html', $template_data_ref_tab, \$html_tab, $request_ref)
 			or $html_tab = "<p>" . $tt->error() . "</p>";
 
 		return $html_tab;
 	}
 
 	$template_data_ref_display->{display_tab_product_picture}
-		= display_input_tabs($product_ref, "front_image", $product_ref->{sorted_langs}, \%Langs, ["front_image"]);
+		= display_input_tabs($product_ref, "front_image", $product_ref->{sorted_langs}, \%Langs, ["front_image"], $request_ref);
 	$template_data_ref_display->{display_tab_product_characteristics}
 		= display_input_tabs($product_ref, "product", $product_ref->{sorted_langs},
-		\%Langs, ["product_name", "generic_name"]);
+		\%Langs, ["product_name", "generic_name"], $request_ref);
 
 	my @display_fields_arr;
 	foreach my $field (@fields) {
 		# hide packaging field & origins are now displayed below allergens and traces in the ingredients section
 		next if $field eq "origins" || $field eq "packaging";
 		$log->debug("display_field", {field_name => $field, field_value => $product_ref->{$field}}) if $log->is_debug();
-		my $display_field = display_input_field($product_ref, $field, undef);
+		my $display_field = display_input_field($product_ref, $field, undef, $request_ref);
 		push(@display_fields_arr, $display_field);
 	}
 
@@ -1032,14 +1032,14 @@ CSS
 	$template_data_ref_display->{nutrition_checked} = $checked;
 	$template_data_ref_display->{display_tab_ingredients_image}
 		= display_input_tabs($product_ref, "ingredients_image", $product_ref->{sorted_langs},
-		\%Langs, \@ingredients_fields);
-	$template_data_ref_display->{display_field_allergens} = display_input_field($product_ref, "allergens", undef);
-	$template_data_ref_display->{display_field_traces} = display_input_field($product_ref, "traces", undef);
-	$template_data_ref_display->{display_field_origins} = display_input_field($product_ref, "origins", undef);
+		\%Langs, \@ingredients_fields, $request_ref);
+	$template_data_ref_display->{display_field_allergens} = display_input_field($product_ref, "allergens", undef, $request_ref);
+	$template_data_ref_display->{display_field_traces} = display_input_field($product_ref, "traces", undef, $request_ref);
+	$template_data_ref_display->{display_field_origins} = display_input_field($product_ref, "origins", undef, $request_ref);
 	$template_data_ref_display->{display_tab_nutrition_image}
 		= display_input_tabs($product_ref, "nutrition_image", $product_ref->{sorted_langs}, \%Langs,
-		["nutrition_image"]);
-	$template_data_ref_display->{display_field_serving_size} = display_input_field($product_ref, "serving_size", undef);
+		["nutrition_image"], $request_ref);
+	$template_data_ref_display->{display_field_serving_size} = display_input_field($product_ref, "serving_size", undef, $request_ref);
 
 	$initjs .= display_select_crop_init($product_ref);
 
@@ -1491,7 +1491,7 @@ HTML
 
 	$template_data_ref_display->{display_tab_packaging}
 		= display_input_tabs($product_ref, "packaging_image", $product_ref->{sorted_langs}, \%Langs,
-		\@packaging_fields);
+		\@packaging_fields, $request_ref);
 
 	# Add an empty packaging element to the form, that will be hidden and duplicated when the user adds new packaging items,
 	# and another empty packaging element at the end

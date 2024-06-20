@@ -108,8 +108,6 @@ BEGIN {
 
 		@search_series
 
-		$admin
-
 		$scripts
 		$initjs
 		$styles
@@ -401,7 +399,7 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	$template_data_ref->{flavor} = $flavor;
 	$template_data_ref->{options} = \%options;
 	$template_data_ref->{product_type} = $options{product_type};
-	$template_data_ref->{admin} = $request_ref->{admin} // $admin;
+	$template_data_ref->{admin} = $request_ref->{admin};
 	$template_data_ref->{moderator} = $User{moderator};
 	$template_data_ref->{pro_moderator} = $User{pro_moderator};
 	$template_data_ref->{sep} = separator_before_colon($lc);
@@ -432,10 +430,7 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	$template_data_ref->{product_action_url} = \&product_action_url;
 	$template_data_ref->{product_name_brand_quantity} = \&product_name_brand_quantity;
 	$template_data_ref->{has_permission} = sub ($permission) {
-		# Note: we pass a fake $request_ref object with only the fields admin, moderator and pro_moderator
-		# an alternative would be to pass the $request_ref object to process_template() calls
-		return has_permission({admin => $request_ref->{admin}, moderator => $User{moderator}, pro_moderator => $User{pro_moderator}},
-			$permission);
+		return has_permission($request_ref, $permission);
 	};
 
 	# Return a link to one taxonomy entry in the target language
