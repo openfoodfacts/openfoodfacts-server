@@ -271,6 +271,7 @@ if ($type eq 'search_or_add') {
 					if $log->is_info();
 				$product_ref = init_product($User_id, $Org_id, $code, $country);
 				$product_ref->{interface_version_created} = $interface_version;
+				$product_ref->{owner} = $Owner_id;
 				store_product($User_id, $product_ref, 'product_created');
 
 				# sync crm
