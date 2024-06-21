@@ -28,6 +28,8 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Data qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created/;
 use ProductOpener::Users qw/$Owner_id/;
+use ProductOpener::Orgs qw/retrieve_org/;
+use Storable qw(store);
 
 # This script is run daily to gather organisation data 
 # such as number of products, number of products with errors etc,
@@ -59,23 +61,29 @@ sub update_org_data {
     };
 
     $orgs_collection->update_one(
-        { 'org-id' => $org_id },
+        { 'org_id' => $org_id },
         { '$set' => { 'data' => $data } },
         { 'upsert' => 1 }
     );
 
-    my $backup_file = "$BASE_DIRS{ORGS}/$org_id.sto";
-    open my $fh, '>', $backup_file or die "Could not open file '$backup_file' $!";
-    print $fh encode_json($data);
-    close $fh;
+    my $org_file_path = "$BASE_DIRS{ORGS}/$org_id.sto";
+    my $org_ref = retrieve_org($org_id);
+
+    $org_ref->{'data'} = $data;
+
+    store($org_ref, $org_file_path);
 }
 
 sub gather_org_data {
-    my $org_ids = $products_collection->distinct("owner");
-	$products_collection->delete_many({"owner" => $Owner_id});
- 
-    foreach my $org_id (@$org_ids) {
+    my @orgs = $orgs_collection->find()->all();
+	my $count = scalar @orgs;
+	my $i = 0;
+
+    foreach my $org (@orgs) {
+        my $org_id = $org->{'org_id'};
+        print "Processing organization $i/$count: $org_id\n";
         update_org_data($org_id);
+        $i++;
     }
 }
 
