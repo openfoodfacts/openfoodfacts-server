@@ -317,7 +317,8 @@ sub create_panel_from_json_template ($panel_id, $panel_template, $panel_data_ref
 				product => $product_ref,
 				knowledge_panels_options => $options_ref,
 			},
-			\$panel_json
+			\$panel_json, 
+			{cc => $target_cc}
 		)
 		)
 	{
