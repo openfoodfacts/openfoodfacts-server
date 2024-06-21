@@ -560,7 +560,8 @@ sub notify_user_requested_org ($user_ref, $org_created, $request_ref) {
 		# The requested org already exists
 		# build second part of the mail about it and alter the subject
 		$mail = '';
-		process_template("emails/user_new_pro_account_org_request_validated.tt.txt", $template_data_ref, \$mail, $request_ref);
+		process_template("emails/user_new_pro_account_org_request_validated.tt.txt",
+			$template_data_ref, \$mail, $request_ref);
 		if ($mail =~ /^\s*Subject:\s*(.*)\n/im) {
 			my $subject = $1;
 			my $body = $';
@@ -579,7 +580,8 @@ sub notify_user_requested_org ($user_ref, $org_created, $request_ref) {
 
 	# Send an e-mail notification to admins, with links to the organization
 	$mail = '';
-	process_template("emails/user_new_pro_account_admin_notification.tt.html", $template_data_ref, \$mail, $request_ref);
+	process_template("emails/user_new_pro_account_admin_notification.tt.html", $template_data_ref, \$mail,
+		$request_ref);
 	if ($mail =~ /^\s*Subject:\s*(.*)\n/im) {
 		my $subject = $1;
 		my $body = $';
