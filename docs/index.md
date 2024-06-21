@@ -14,7 +14,7 @@ Do not hesitate to contribute to this documentation, this is highly appreciated.
 
 ## documentation organization
 
-The documentation is splet between API documentation (for re-users, third party developpers) and Developper documentation (for contributors).
+The documentation is split between API documentation (for re-users, third party developers) and Developer documentation (for contributors).
 
 The documentation follows the [Diátaxis framework](https://diataxis.fr/).
 
