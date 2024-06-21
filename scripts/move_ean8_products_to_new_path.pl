@@ -58,7 +58,7 @@ sub normalize_code_zeroes($code) {
 
 	# Remove leading zeroes
 	$code =~ s/^0+//;
-	
+
 	# Add leading zeroes to have at least 13 digits
 	while (length($code) < 13) {
 		$code = "0" . $code;
@@ -67,7 +67,7 @@ sub normalize_code_zeroes($code) {
 	# Remove leading zeroes for EAN8s
 	if ((length($code) eq 13) and ($code =~ /^00000/)) {
 		$code = $';
-	}	
+	}
 
 	return $code;
 }
@@ -261,6 +261,19 @@ foreach my $old_path (@products) {
 					dirmove("$www_root/images/products/$old_path", "$www_root/images/products/$path")
 						or print STDERR ("could not move product images: $!\n");
 
+					# If the code changed, need to update the product .sto file and to remove the old code from MongoDB and to add the new code in MongoDB
+					if ($new_code ne $code) {
+						my $product_ref = retrieve_product($product_id);
+						$product_ref->{code} = $new_code . '';
+						$product_ref->{id} = $product_ref->{code} . '';    # treat id as string;
+						$product_ref->{_id} = $product_ref->{code} . '';    # treat id as string;
+						store_product($product_ref);
+						$products_collection->delete_one({code => $code});
+						$products_collection->insert_one($product_ref);
+						$products_collection->replace_one({"_id" => $product_ref->{_id}},
+							$product_ref, {upsert => 1});
+					}
+
 				}
 			}
 		}
@@ -269,10 +282,10 @@ foreach my $old_path (@products) {
 			$not_moved++;
 		}
 
-	if ($new_code ne $code) {
-		$changed_code++;
-		print STDERR "changed code from $code to $new_code\n";
-	}
+		if ($new_code ne $code) {
+			$changed_code++;
+			print STDERR "changed code from $code to $new_code\n";
+		}
 
 	}
 	else {
