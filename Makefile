@@ -61,7 +61,8 @@ TEST_CMD ?= yath test -PProductOpener::LoadData
 
 # Space delimited list of dependant projects
 DEPS=openfoodfacts-shared-services
-ifndef DEPS_DIR
+# Set the DEPS_DIR if it hasn't been set already
+ifeq (${DEPS_DIR},)
 	export DEPS_DIR=${PWD}/deps
 endif
 
@@ -133,6 +134,11 @@ _up:run_deps
 	@echo "🥫 started service at http://openfoodfacts.localhost"
 
 up: build create_folders _up
+
+# Used by staging so that shared services are not created
+prod_up: build create_folders
+	@echo "🥫 Starting containers …"
+	${DOCKER_COMPOSE} up -d 2>&1
 
 down:
 	@echo "🥫 Bringing down containers …"
@@ -480,7 +486,7 @@ clean: goodbye hdown prune prune_cache clean_folders
 # Run dependent projects
 run_deps: clone_deps
 	@for dep in ${DEPS} ; do \
-		cd ${DEPS_DIR}/$$dep && $(MAKE) -e run; \
+		cd ${DEPS_DIR}/$$dep && $(MAKE) run; \
 	done
 
 # Clone dependent projects without running them (used to pull in yml for tests)
