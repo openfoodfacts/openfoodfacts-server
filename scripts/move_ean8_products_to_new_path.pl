@@ -75,7 +75,7 @@ sub new_split_code ($code) {
 		$code = "0" . $code;
 	}
 
-	# First splits into 3 sections of 3 numbers and the ast section with the remaining numbers
+	# First splits into 3 sections of 3 numbers and the last section with the remaining numbers
 	my $path = $code;
 	if ($code =~ /^(.{3})(.{3})(.{3})(.*)$/) {
 		$path = "$1/$2/$3/$4";
@@ -121,12 +121,52 @@ if (scalar $#products < 0) {
 	foreach my $dir (sort readdir($dh)) {
 		chomp($dir);
 
-		next if ($dir =~ /^\d\d\d$/);
+		if ($dir =~ /^\d\d\d$/) {
 
-		if (-e "$data_root/products/$dir/product.sto") {
-			push @products, $dir;
-			$d++;
-			(($d % 1000) == 1) and print STDERR "$d products - $dir\n";
+			# We can have products with 9 to 12 digits that have a split path but that were not padded with 0s
+			# e.g. 000/001/112/22/ should be moved to 000/000/011/1222/
+			opendir my $dh2, "$data_root/products/$dir"
+				or die "could not open $data_root/products/$dir directory: $!\n";
+			foreach my $dir2 (sort readdir($dh2)) {
+				chomp($dir2);
+				if ($dir2 =~ /^\d\d\d$/) {
+					opendir my $dh3, "$data_root/products/$dir/$dir2"
+						or die "could not open $data_root/products/$dir/$dir2 directory: $!\n";
+					foreach my $dir3 (sort readdir($dh3)) {
+						chomp($dir3);
+						if ($dir3 =~ /^\d\d\d$/) {
+							opendir my $dh4, "$data_root/products/$dir/$dir2/$dir3"
+								or die "could not open $data_root/products/$dir/$dir2/$dir3 directory: $!\n";
+							foreach my $dir4 (sort readdir($dh4)) {
+								chomp($dir4);
+								# We should have 4 digits or more (for codes with more than 13 digits)
+								if (($dir4 =~ /\d/) and ($dir4 !~ /^\d\d\d\d/)) {
+
+									if (-e "$data_root/products/$dir/$dir2/$dir3/$dir4/product.sto") {
+										push @products, "$dir/$dir2/$dir3/$dir4";
+										print "nested dir with less than 13 digits: $dir/$dir2/$dir3/$dir4\n";
+										$d++;
+										(($d % 1000) == 1) and print STDERR "$d products - $dir/$dir2/$dir3/$dir4\n";
+									}
+								}
+							}
+							closedir $dh4;
+						}
+
+					}
+					closedir $dh3;
+				}
+			}
+			closedir $dh2;
+
+		}
+		else {
+			# Product directories at the root, with a different number than 3 digits
+			if (-e "$data_root/products/$dir/product.sto") {
+				push @products, $dir;
+				$d++;
+				(($d % 1000) == 1) and print STDERR "$d products - $dir\n";
+			}
 		}
 	}
 	closedir $dh;
@@ -144,7 +184,11 @@ my $moved = 0;
 my $not_moved = 0;
 my $same_path = 0;
 
-foreach my $code (@products) {
+foreach my $old_path (@products) {
+
+	my $code = $old_path;
+	# remove / if any
+	$code =~ s/\///g;
 
 	my $product_id = product_id_for_owner(undef, $code);
 
@@ -153,7 +197,7 @@ foreach my $code (@products) {
 
 	if ($path eq "invalid") {
 		$invalid++;
-		print STDERR "invalid path for code $code\n";
+		print STDERR "invalid path for code $code (old path: $old_path)\n";
 	}
 	elsif ($path ne $old_path) {
 
