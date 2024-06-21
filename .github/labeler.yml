@@ -10,7 +10,7 @@ NGINX:
 - changed-files:
   - any-glob-to-any-file: 'conf/nginx/**/*'
   - any-glob-to-any-file: 'conf/nginx-docker/**'
-
+  - any-glob-to-any-file: 'conf/systemd/nginx.service.d/override.conf'
 # We have 2 mongodb collections: one for current products, and one for obsolete products
 MongoDB:
 - changed-files:
@@ -79,6 +79,7 @@ WikiData:
   - any-glob-to-any-file: 'scripts/build_countries_taxonomy_from_wikidata.pl'
   - any-glob-to-any-file: 'scripts/build_languages_taxonomy_from_wikidata.pl'
   - any-glob-to-any-file: 'scripts/create_wikipedia_properties_for_taxonomy.pl'
+  - any-glob-to-any-file: 'docs/api/leveraging-links-to-wikidata.md'
 
 # Tracking issue: 
 🥜 Allergens:
@@ -772,6 +773,16 @@ Redis:
   - any-glob-to-any-file: 'tests/unit/expected_test_results/import_gs1/equadis_unilever_obf_signal.off.json'
   - any-glob-to-any-file: 'tests/unit/expected_test_results/import_gs1/equadis_unilever_obf_signal.json'
 
+
+🏭 Producer platform - improvement opportunities:
+- changed-files:
+  - any-glob-to-any-file: 'taxonomies/improvements.txt'
+
+🏭 Producers Platform - Odoo:
+- changed-files:
+  - any-glob-to-any-file: 'lib/ProductOpener/CRM.pm'
+
+
 # https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Store.html
 Store:
 - changed-files:
@@ -889,11 +900,13 @@ Nutrient levels:
   - any-glob-to-any-file: 'templates/web/pages/product/includes/nutrient_levels.tt.html'
 
 # https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Version.html
+# In the future, we'd like to be able to see the evolution of products at large scale. This might be conveniently done on the Robotoff side, detecting information from all historical picture in chronological time.
 Product history:
 - changed-files:
   - any-glob-to-any-file: 'templates/web/pages/product/includes/display_rev_info.tt.html'
   - any-glob-to-any-file: 'templates/web/pages/product/includes/edit_history.tt.html'
   - any-glob-to-any-file: 'lib/ProductOpener/Version.pm'
+  - any-glob-to-any-file: 'scripts/extract_historical_product_data.pl'
 
 # https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Tags.html
 Tags:
@@ -1243,7 +1256,6 @@ file import:
 - changed-files:
   - any-glob-to-any-file: 'lib/startup_apache2.pl'
   - any-glob-to-any-file: 'conf/​apache-2.4'
-  - any-glob-to-any-file: 'Go to folder'
   - any-glob-to-any-file: 'conf/​apache2-docker'
   - any-glob-to-any-file: 'conf/​logrotate/​apache2'
   - any-glob-to-any-file: 'conf/​apache-2.4/​README.md'
@@ -1264,7 +1276,8 @@ file import:
   - any-glob-to-any-file: 'conf/​apache-2.4/​sites-available/​off-pro.conf'
   - any-glob-to-any-file: 'conf/​systemd/​apache2.service.d/​override.conf'
   - any-glob-to-any-file: 'conf/​apache-2.4/​sites-available/​foodbattle.conf'
-
+  - any-glob-to-any-file: 'conf/etc-default/prometheus-apache-exporter'
+  - any-glob-to-any-file: 'conf/systemd/apache2.service.d/override.conf'
 # Half of our new logo is a search icon. We want to improve the search experience since it helps consumers and producers find better products for them and the planet.
 # Please look at search-a-licious project for the future of Open Food Facts search
 # Search-a-licious API and backend: https://github.com/openfoodfacts/search-a-licious
@@ -1354,7 +1367,9 @@ systemd:
 - changed-files:
   - any-glob-to-any-file: 'conf/systemd/gen_feeds_daily@.service'
   - any-glob-to-any-file: 'conf/systemd/gen_feeds@.service'
-
+  - any-glob-to-any-file: 'conf/systemd/apache2.service.d/override.conf'
+  - any-glob-to-any-file: 'conf/systemd/nginx.service.d/override.conf'
+  
 # See prices.openfoodfacts.org
 💸 Prices:
 - changed-files:

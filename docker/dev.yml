@@ -38,7 +38,6 @@ x-minion-db-network: &minion-db-network
     minion_db:
     default:
 
-
 services:
   postgres:
     # only turn on for off profile
@@ -104,15 +103,6 @@ services:
             - fr.pro.${PRODUCT_OPENER_DOMAIN}
             - world.pro.${PRODUCT_OPENER_DOMAIN}
             - auth.${PRODUCT_OPENER_DOMAIN}
-  mongodb:
-    # Note: keep it as close a possible to mongodb.yml
-    image: mongo:4.4
-    command: mongod --wiredTigerCacheSizeGB ${MONGODB_CACHE_SIZE}
-    volumes:
-      - dbdata:/data/db
-      - ./html/data:/import
-    ports:
-      - "127.0.0.1:${MONGO_EXPOSE_PORT:-27017}:27017"
 
 volumes:
   product_images:
@@ -129,7 +119,6 @@ volumes:
   export_files:
     name: ${PO_COMMON_PREFIX:-}po_export_files
   podata:
-  dbdata:
 
 networks:
   # this is a specific network to enable pro platform to join the postgres db

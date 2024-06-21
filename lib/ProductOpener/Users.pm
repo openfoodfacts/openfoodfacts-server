@@ -74,6 +74,7 @@ BEGIN {
 		&open_user_session
 
 		&generate_token
+		&update_login_time
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -87,10 +88,12 @@ use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Mail qw/get_html_email_content send_email_to_admin send_email_to_producers_admin send_html_email/;
 use ProductOpener::Lang qw/$lc  %Lang lang/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::Orgs qw/add_user_to_org create_org remove_user_from_org retrieve_or_create_org retrieve_org/;
+use ProductOpener::Orgs
+	qw/add_user_to_org create_org remove_user_from_org retrieve_or_create_org retrieve_org update_last_logged_in_member/;
 use ProductOpener::Products qw/find_and_replace_user_id_in_products/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::Brevo qw/add_contact_to_list/;
+use ProductOpener::CRM qw/update_contact_last_login/;
 use ProductOpener::Auth qw/:all/;
 use ProductOpener::Keycloak qw/:all/;
 use ProductOpener::URL qw/:all/;
@@ -623,7 +626,8 @@ sub check_edit_owner ($user_ref, $errors_ref) {
 
 	# temporarily use the org passed as parameter
 	$user_ref->{pro_moderator_owner}
-		= get_string_id_for_lang("no_language", remove_tags_and_quote(single_param('pro_moderator_owner')));
+		= get_string_id_for_lang("no_language",
+		remove_tags_and_quote(decode utf8 => single_param('pro_moderator_owner')));
 
 	# If the owner id looks like a GLN, see if we have a corresponding org
 
@@ -1127,6 +1131,7 @@ sub init_user ($request_ref) {
 
 					open_user_session($user_ref, $refresh_token, $refresh_expires_at,
 						$access_token, $access_expires_at, $id_token, $request_ref);
+					update_login_time($user_ref);
 				}
 			}
 			else {
@@ -1387,6 +1392,14 @@ sub check_session ($user_id, $user_session) {
 	$results_ref->{user_id} = $user_id;
 
 	return $results_ref;
+}
+
+sub update_login_time ($user_ref) {
+	$user_ref->{last_login_t} = time();
+	store_user($user_ref);
+	update_contact_last_login($user_ref);
+	update_last_logged_in_member($user_ref);
+	return;
 }
 
 1;

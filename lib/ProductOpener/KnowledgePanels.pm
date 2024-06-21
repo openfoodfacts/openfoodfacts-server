@@ -68,6 +68,7 @@ use ProductOpener::Ecoscore qw/is_ecoscore_extended_data_more_precise_than_agrib
 use ProductOpener::PackagerCodes qw/%packager_codes/;
 use ProductOpener::KnowledgePanelsContribution qw/create_contribution_card_panel/;
 use ProductOpener::KnowledgePanelsReportProblem qw/create_report_problem_card_panel/;
+use ProductOpener::ProductsFeatures qw/feature_enabled/;
 
 use JSON::PP;
 use Encode;
@@ -193,15 +194,12 @@ sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref)
 	}
 
 	# Create recommendation panels first, as they will be included in cards such has the health card and environment card
-	if ($options{product_type} eq "food") {
+	if (feature_enabled("food_recommendations")) {
 		create_recommendation_panels($product_ref, $target_lc, $target_cc, $options_ref);
 	}
 
 	my $has_health_card;
-	if (   ($options{product_type} eq "food")
-		or ($options{product_type} eq "pet_food")
-		or ($options{product_type} eq "beauty"))
-	{
+	if (feature_enabled("health_card")) {
 		$has_health_card = create_health_card_panel($product_ref, $target_lc, $target_cc, $options_ref);
 	}
 
@@ -317,7 +315,7 @@ sub create_panel_from_json_template ($panel_id, $panel_template, $panel_data_ref
 				panel => $panel_data_ref,
 				panels => $product_ref->{"knowledge_panels_" . $target_lc},
 				product => $product_ref,
-				options => $options_ref,
+				knowledge_panels_options => $options_ref,
 			},
 			\$panel_json
 		)
@@ -719,10 +717,13 @@ sub create_environment_card_panel ($product_ref, $target_lc, $target_cc, $option
 	if ($options{product_type} eq "food") {
 		create_ecoscore_panel($product_ref, $target_lc, $target_cc, $options_ref);
 
-		if (    (defined $product_ref->{ecoscore_data})
+		if (
+				(defined $product_ref->{ecoscore_data})
 			and (defined $product_ref->{ecoscore_data}{adjustments})
 			and (defined $product_ref->{ecoscore_data}{adjustments}{threatened_species})
-			and ($product_ref->{ecoscore_data}{adjustments}{threatened_species}{value} != 0))
+			and (defined $product_ref->{ecoscore_data}{adjustments}{threatened_species}{value}
+				&& $product_ref->{ecoscore_data}{adjustments}{threatened_species}{value} != 0)
+			)
 		{
 
 			create_panel_from_json_template("palm_oil", "api/knowledge-panels/environment/palm_oil.tt.json",
@@ -847,16 +848,19 @@ sub create_health_card_panel ($product_ref, $target_lc, $target_cc, $options_ref
 	create_ingredients_panel($product_ref, $target_lc, $target_cc, $options_ref);
 
 	# Show additives only for food and pet food
-	if (($options{product_type} eq "food") or ($options{product_type} eq "pet_food")) {
+	if (feature_enabled("additives")) {
 		create_additives_panel($product_ref, $target_lc, $target_cc, $options_ref);
 	}
 
 	create_ingredients_analysis_panel($product_ref, $target_lc, $target_cc, $options_ref);
 
-	# Scores for food products
-	if ($options{product_type} eq "food") {
-		create_nova_panel($product_ref, $target_lc, $target_cc, $options_ref);
+	create_ingredients_rare_crops_panel($product_ref, $target_lc, $target_cc, $options_ref);
 
+	# Scores for food products
+	if (feature_enabled("nova")) {
+		create_nova_panel($product_ref, $target_lc, $target_cc, $options_ref);
+	}
+	if (feature_enabled("nutriscore")) {
 		if (   $target_cc eq "fr"
 			|| $options_ref->{admin}
 			|| $options_ref->{moderator}
@@ -880,7 +884,7 @@ sub create_health_card_panel ($product_ref, $target_lc, $target_cc, $options_ref
 	}
 
 	# Nutrition facts for food and pet food
-	if (($options{product_type} eq "food") or ($options{product_type} eq "pet_food")) {
+	if (feature_enabled("nutrition")) {
 		create_serving_size_panel($product_ref, $target_lc, $target_cc, $options_ref);
 		create_nutrition_facts_table_panel($product_ref, $target_lc, $target_cc, $options_ref);
 	}
@@ -1155,7 +1159,9 @@ sub create_serving_size_panel ($product_ref, $target_lc, $target_cc, $options_re
 	# Generate a panel only for food products that have a serving size
 	if (defined $product_ref->{serving_size}) {
 		my $serving_warning = undef;
-		if (($product_ref->{serving_quantity} <= 5) and ($product_ref->{nutrition_data_per} eq 'serving')) {
+		if (    (defined $product_ref->{serving_quantity} && $product_ref->{serving_quantity} <= 5)
+			and ($product_ref->{nutrition_data_per} eq 'serving'))
+		{
 			$serving_warning = lang_in_other_lc($target_lc, "serving_too_small_for_nutrition_analysis");
 		}
 		my $panel_data_ref = {"serving_warning" => $serving_warning,};
@@ -1282,6 +1288,25 @@ sub create_physical_activities_panel ($product_ref, $target_lc, $target_cc, $opt
 	return;
 }
 
+sub create_ingredients_rare_crops_panel ($product_ref, $target_lc, $target_cc, $options_ref) {
+
+	# Go through the ingredients structure, and check if they have the rare_crop:en:yes property
+	my @rare_crops_ingredients
+		= get_ingredients_with_property_value($product_ref->{ingredients}, "rare_crop:en", "yes");
+
+	$log->debug("rare crops", {rare_crops_ingredients => \@rare_crops_ingredients}) if $log->is_debug();
+
+	if ($#rare_crops_ingredients >= 0) {
+
+		my $panel_data_ref = {ingredients_rare_crops => \@rare_crops_ingredients,};
+
+		create_panel_from_json_template("ingredients_rare_crops",
+			"api/knowledge-panels/health/ingredients/ingredients_rare_crops.tt.json",
+			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
+	}
+	return;
+}
+
 =head2 create_ingredients_panel ( $product_ref, $target_lc, $target_cc, $options_ref )
 
 Creates a knowledge panel with the list of ingredients.
@@ -1335,9 +1360,12 @@ sub create_ingredients_panel ($product_ref, $target_lc, $target_cc, $options_ref
 		ingredients_text => $ingredients_text,
 		ingredients_text_with_allergens => $ingredients_text_with_allergens,
 		ingredients_text_lc => $ingredients_text_lc,
-		ingredients_text_language =>
-			display_taxonomy_tag($target_lc, 'languages', $language_codes{$ingredients_text_lc}),
 	};
+
+	if (defined $ingredients_text_lc) {
+		$panel_data_ref->{ingredients_text_language}
+			= display_taxonomy_tag($target_lc, 'languages', $language_codes{$ingredients_text_lc});
+	}
 
 	create_panel_from_json_template("ingredients", "api/knowledge-panels/health/ingredients/ingredients.tt.json",
 		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
@@ -1639,7 +1667,7 @@ sub create_nova_panel ($product_ref, $target_lc, $target_cc, $options_ref) {
 	my $panel_data_ref = {};
 
 	# Do not display the NOVA panel if it is not applicable
-	if (    ($options{product_type} eq "food")
+	if (    (feature_enabled("nova"))
 		and (exists $product_ref->{nova_groups_tags})
 		and (not $product_ref->{nova_groups_tags}[0] eq "not-applicable"))
 	{

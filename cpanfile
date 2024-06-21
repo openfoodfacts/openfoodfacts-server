@@ -35,6 +35,7 @@ requires 'Excel::Writer::XLSX', '>= 1.09'; # libexcel-writer-xlsx-perl
 requires 'Pod::Simple::HTMLBatch'; # libpod-simple-perl
 requires 'GeoIP2', '>= 2.006002, < 3.0'; # libgeoip2-perl, deps: libdata-validate-ip-perl libio-compress-perl libjson-maybexs-perl liblist-someutils-perl, libdata-dumper-concise-perl, libdata-printer-perl
 requires 'Path::Tiny', '>= 0.118'; # libpath-tiny-perl
+requires 'XML::RPC', '== 2'; # libxml-rpc-fast-perl
 requires 'AnyEvent::RipeRedis'; # libanyevent-redis-perl
 
 # Probably not available as Debian/Ubuntu packages

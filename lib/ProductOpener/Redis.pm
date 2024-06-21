@@ -239,7 +239,7 @@ sub push_to_redis_stream ($user_id, $product_ref, $action, $comment, $diffs) {
 	my $error = "";
 	if (!defined $redis_client) {
 		# we were disconnected, try again
-		$log->info("Trying to reconnect to Redis");
+		$log->debug("Trying to reconnect to Redis") if $log->is_debug();
 		init_redis();
 	}
 	if (defined $redis_client) {
@@ -332,7 +332,7 @@ sub get_rate_limit_user_requests ($ip, $api_action) {
 	my $error = "";
 	if (!defined $redis_client) {
 		# we were disconnected, try again
-		$ratelimiter_log->info("Trying to reconnect to Redis");
+		$ratelimiter_log->debug("Trying to reconnect to Redis") if $ratelimiter_log->is_debug();
 		init_redis();
 	}
 	my $resp;
@@ -398,7 +398,7 @@ sub increment_rate_limit_requests ($ip, $api_action) {
 	my $error = "";
 	if (!defined $redis_client) {
 		# we were disconnected, try again
-		$ratelimiter_log->info("Trying to reconnect to Redis");
+		$ratelimiter_log->debug("Trying to reconnect to Redis") if $ratelimiter_log->is_debug();
 		init_redis();
 	}
 	if (defined $redis_client) {

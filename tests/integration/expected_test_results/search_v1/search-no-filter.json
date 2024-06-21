@@ -2,7 +2,7 @@
    "count" : 6,
    "page" : 1,
    "page_count" : 6,
-   "page_size" : 24,
+   "page_size" : 50,
    "products" : [
       {
          "_id" : "200000000034",
@@ -16,7 +16,7 @@
          "additives_original_tags" : [],
          "additives_tags" : [],
          "allergens" : "",
-         "allergens_from_ingredients" : "en:milk, apple, milk, eggs",
+         "allergens_from_ingredients" : "en:eggs, en:milk, apple, milk, eggs",
          "allergens_from_user" : "(en) ",
          "allergens_hierarchy" : [
             "en:apple",
@@ -1553,7 +1553,7 @@
          "additives_original_tags" : [],
          "additives_tags" : [],
          "allergens" : "",
-         "allergens_from_ingredients" : "en:milk, apple, milk, eggs",
+         "allergens_from_ingredients" : "en:eggs, en:milk, apple, milk, eggs",
          "allergens_from_user" : "(en) ",
          "allergens_hierarchy" : [
             "en:apple",

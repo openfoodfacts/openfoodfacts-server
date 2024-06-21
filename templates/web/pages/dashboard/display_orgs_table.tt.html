@@ -1,0 +1,32 @@
+<!-- start templates/[% template.name %] -->
+
+<div style="position:relative">
+    <table>
+        <thead>
+            <tr>
+                <th>[% lang("serial_no") %]</th>
+                <th>[% lang("name") %]</th>
+                <th>[% lang("created_by") %]</th>
+                <th>[% lang("org_id") %]</th>
+                <th>[% lang("verified_status") %]</th>
+                <th>[% lang("creation_date") %]</th>
+            </tr>
+        </thead>
+        <tbody>
+        [% SET count = 1 %]
+        [% FOREACH org IN orgs %]
+            <tr>
+                <td>[% count %].</td>
+                <td>[% org.name %]</td>
+                <td>[% org.creator %]</td>
+                <td>[% org.org_id %]</td>
+                <td>[% IF org.validated == 0 %]false[% ELSE %]true[% END %]</td>
+                <td>[% display_date_tag(org.created_t) %]</td>
+            </tr>
+            [% SET count = count + 1 %]
+        [% END %]
+        </tbody>
+    </table>
+</div>
+
+<!-- end templates/[% template.name %] -->

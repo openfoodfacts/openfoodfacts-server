@@ -78,8 +78,6 @@ BEGIN {
 		$display_size
 		$zoom_size
 
-		$page_size
-
 		%options
 		%server_options
 		%oidc_options
@@ -207,6 +205,20 @@ $flavor = 'off';
 );
 
 $options{export_limit} = 10000;
+
+# Recent changes limits
+$options{default_recent_changes_page_size} = 20;
+$options{max_recent_changes_page_size} = 1000;
+
+# List of products limits
+$options{default_api_products_page_size} = 20;
+$options{default_web_products_page_size} = 50;
+$options{max_products_page_size} = 100;
+$options{max_products_page_size_for_logged_in_users} = 1000;
+
+# List of tags limits
+$options{default_tags_page_size} = 100;
+$options{max_tags_page_size} = 1000;
 
 $options{users_who_can_upload_small_images} = {
 	map {$_ => 1}
@@ -458,8 +470,6 @@ $crop_size = 400;
 $small_size = 200;
 $display_size = 400;
 $zoom_size = 800;
-
-$page_size = 24;
 
 $google_analytics = <<HTML
 <!-- Matomo -->
