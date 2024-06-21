@@ -118,6 +118,30 @@ sub new_product_path_from_id ($product_id) {
 
 }
 
+sub ensure_dir_created_or_die ($path, $mode = oct(755)) {
+	# search base directory
+	my $prefix;
+	my $suffix;
+	my @base_dirs = ($data_root, $www_root);
+	foreach my $prefix_candidate (@base_dirs) {
+		if ($path =~ /^$prefix_candidate/) {
+			$prefix = $prefix_candidate;
+			$suffix = $';
+			last;
+		}
+	}
+	if (!defined $prefix) {
+		die("Could not create $path, no corresponding base directory found in " . join(":", @base_dirs));
+		return;
+	}
+	# ensure the rest of the path
+	foreach my $component (split(/\//, $suffix)) {
+		$prefix .= "/$component";
+		(-e $prefix) or mkdir($prefix);
+	}
+	return (-e $path);
+}
+
 # Get a list of all products
 
 use Getopt::Long;
@@ -129,6 +153,9 @@ GetOptions('products=s' => \@products, 'move' => \$move);
 @products = split(/,/, join(',', @products));
 
 my $d = 0;
+
+open(my $log, ">>", "$data_root/logs/move_ean8_products_to_new_path.log");
+print $log "move_ean8_products_to_new_path.pl started at " . localtime() . "\n";
 
 if (scalar $#products < 0) {
 	# Look for products with EAN8 codes directly in the product root
@@ -162,7 +189,8 @@ if (scalar $#products < 0) {
 
 									if (-e "$data_root/products/$dir/$dir2/$dir3/$dir4/product.sto") {
 										push @products, "$dir/$dir2/$dir3/$dir4";
-										print "nested dir with less than 13 digits: $dir/$dir2/$dir3/$dir4\n";
+										print STDERR "nested dir with less than 13 digits: $dir/$dir2/$dir3/$dir4\n";
+										print $log "nested dir with less than 13 digits: $dir/$dir2/$dir3/$dir4\n";
 										$d++;
 										(($d % 1000) == 1) and print STDERR "$d products - $dir/$dir2/$dir3/$dir4\n";
 									}
@@ -218,11 +246,13 @@ foreach my $old_path (@products) {
 	if ($path eq "invalid") {
 		$invalid++;
 		print STDERR "invalid path for code $code (old path: $old_path)\n";
+		print $log "invalid path for code $code (old path: $old_path)\n";
 	}
 	elsif ($path ne $old_path) {
 
 		if (not -e "$data_root/products/$path") {
 			print STDERR "$path does not exist, moving $old_path\n";
+			print $log "$path does not exist, moving $old_path\n";
 			$moved++;
 
 			if ($move) {
@@ -250,16 +280,25 @@ foreach my $old_path (@products) {
 					File::Copy::Recursive->import(qw( dirmove ));
 
 					print STDERR ("moving product data $data_root/products/$old_path to $data_root/products/$path\n");
+					print $log ("moving product data $data_root/products/$old_path to $data_root/products/$path\n");
 
-					dirmove("$data_root/products/$old_path", "$data_root/products/$path")
-						or print STDERR ("could not move product data: $!\n");
+					if (not dirmove("$data_root/products/$old_path", "$data_root/products/$path")) {
+						print STDERR ("could not move product data: $!\n");
+						print $log ("could not move product data: $!\n");
+					}
 
 					print STDERR (
 						"moving product images $www_root/images/products/$old_path to $www_root/images/products/$path\n"
 					);
 
-					dirmove("$www_root/images/products/$old_path", "$www_root/images/products/$path")
-						or print STDERR ("could not move product images: $!\n");
+					print $log (
+						"moving product images $www_root/images/products/$old_path to $www_root/images/products/$path\n"
+					);
+
+					if (not dirmove("$www_root/images/products/$old_path", "$www_root/images/products/$path")) {
+						print STDERR ("could not move product images: $!\n");
+						print $log ("could not move product images: $!\n");
+					}
 
 					# If the code changed, need to update the product .sto file and to remove the old code from MongoDB and to add the new code in MongoDB
 					if ($new_code ne $code) {
@@ -267,11 +306,11 @@ foreach my $old_path (@products) {
 						$product_ref->{code} = $new_code . '';
 						$product_ref->{id} = $product_ref->{code} . '';    # treat id as string;
 						$product_ref->{_id} = $product_ref->{code} . '';    # treat id as string;
-						store_product($product_ref);
+						store_product("fix-code-bot", $product_ref, "changed code from $code to $new_code");
 						$products_collection->delete_one({code => $code});
-						$products_collection->insert_one($product_ref);
-						$products_collection->replace_one({"_id" => $product_ref->{_id}},
-							$product_ref, {upsert => 1});
+						$products_collection->replace_one({"_id" => $product_ref->{_id}}, $product_ref, {upsert => 1});
+						print STDERR "updated code from $code to $new_code in .sto file and MongoDB\n";
+						print $log "updated code from $code to $new_code in .sto file and MongoDB\n";
 					}
 
 				}
@@ -279,17 +318,20 @@ foreach my $old_path (@products) {
 		}
 		else {
 			print STDERR "$path exist, not moving $old_path\n";
+			print $log "$path exist, not moving $old_path\n";
 			$not_moved++;
 		}
 
 		if ($new_code ne $code) {
 			$changed_code++;
 			print STDERR "changed code from $code to $new_code\n";
+			print $log "changed code from $code to $new_code\n";
 		}
 
 	}
 	else {
 		print STDERR "new $path is the same as old $old_path\n";
+		print $log "new $path is the same as old $old_path\n";
 		$same_path++;
 	}
 }

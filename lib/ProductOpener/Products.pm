@@ -288,11 +288,42 @@ sub normalize_code ($code) {
 
 	if (defined $code) {
 		($code, my $gs1_ai_data_str) = &normalize_code_with_gs1_ai($code);
+		$code = normalize_code_zeroes($code);
 	}
 	return $code;
 }
 
-=head2 normalize_code_with_gs1_ai()
+=head2 normalize_code_zeroes($code)
+
+On disk, we store product files and images in directories named after the product code, and we add leading 0s to the paths.
+So we need to normalize the number of leading 0s of product codes, so that we don't have 2 products for codes that differ only by leading 0s.
+
+This function normalizes the product code by:
+- removing leading zeroes,
+- adding leading zeroes to have at least 13 digits,
+- removing leading zeroes for EAN8s to keep only 8 digits
+
+=cut
+
+sub normalize_code_zeroes($code) {
+
+	# Remove leading zeroes
+	$code =~ s/^0+//;
+
+	# Add leading zeroes to have at least 13 digits
+	while (length($code) < 13) {
+		$code = "0" . $code;
+	}
+
+	# Remove leading zeroes for EAN8s to keep only 8 digits
+	if ((length($code) eq 13) and ($code =~ /^00000/)) {
+		$code = $';
+	}
+
+	return $code;
+}
+
+=head2 normalize_code_with_gs1_ai($code)
 
 C<normalize_code_with_gs1_ai()> this function normalizes the product code by:
 - running the given code through normalization method provided by GS1 to format a GS1 data string, or data URI to a GTIN,
@@ -321,26 +352,6 @@ sub normalize_code_with_gs1_ai ($code) {
 
 		# Keep only digits, remove spaces, dashes and everything else
 		$code =~ s/\D//g;
-
-		# Add a leading 0 to valid UPC-12 codes
-		# invalid 12 digit codes may be EAN-13s with a missing number
-		if ((length($code) eq 12) and ($ean_check->is_valid('0' . $code))) {
-			$code = '0' . $code;
-		}
-
-		# Remove leading 0 for codes with 14 digits
-		if ((length($code) eq 14) and ($code =~ /^0/)) {
-			$code = $';
-		}
-
-		# Remove 5 or 6 leading 0s for EAN8
-		# 00000080050100 (from Ferrero)
-		if ((length($code) eq 14) and ($code =~ /^000000/)) {
-			$code = $';
-		}
-		if ((length($code) eq 13) and ($code =~ /^00000/)) {
-			$code = $';
-		}
 	}
 	return ($code, $ai_data_str);
 }
@@ -446,7 +457,7 @@ sub split_code ($code) {
 		$code = "0" . $code;
 	}
 
-	# First splits into 3 sections of 3 numbers and the ast section with the remaining numbers
+	# First splits into 3 sections of 3 numbers and the last section with the remaining numbers
 	my $path = $code;
 	if ($code =~ /^(.{3})(.{3})(.{3})(.*)$/) {
 		$path = "$1/$2/$3/$4";
