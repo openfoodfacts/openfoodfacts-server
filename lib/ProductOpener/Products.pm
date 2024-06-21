@@ -323,15 +323,6 @@ sub normalize_code_zeroes($code) {
 	return $code;
 }
 
-sub old_normalize_code ($code) {
-
-	if (defined $code) {
-		($code, my $gs1_ai_data_str) = &normalize_code_with_gs1_ai($code);
-		$code = normalize_code_zeroes($code);
-	}
-	return $code;
-}
-
 =head2 normalize_code_with_gs1_ai($code)
 
 C<normalize_code_with_gs1_ai()> this function normalizes the product code by:
