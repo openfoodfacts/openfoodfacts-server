@@ -18,7 +18,7 @@ The documentation is split between API documentation (for re-users, third party
 
 The documentation follows the [Diátaxis framework](https://diataxis.fr/).
 
-Pages title should start with:
+Page titles should start with:
 * *tutorial on* - tutorials aimed at learning
 * *how to…* - how to guides to reach a specific goal
 * *explain…* - explanation to understand a topic
