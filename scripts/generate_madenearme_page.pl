@@ -117,7 +117,7 @@ my $verbose = undef;
 GetOptions("verbose" => \$verbose) or die($usage);
 
 my $request_ref = {};
-$cc = $ARGV[0];
+my $cc = $ARGV[0];
 $lc = $ARGV[1];
 $subdomain = $cc;
 $formatted_subdomain = format_subdomain($subdomain);
