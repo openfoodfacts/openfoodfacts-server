@@ -12,7 +12,7 @@ The repository for the project is at https://github.com/openfoodfacts/openfoodfa
 
 Do not hesitate to contribute to this documentation, this is highly appreciated.
 
-## document organization:
+## documentation organization
 
 The documentation is splet between API documentation (for re-users, third party developpers) and Developper documentation (for contributors).
 
