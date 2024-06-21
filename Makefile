@@ -487,7 +487,7 @@ clean: goodbye hdown prune prune_cache clean_folders
 # Run dependent projects
 run_deps: clone_deps
 	@for dep in ${DEPS} ; do \
-		cd ${DEPS_DIR}/$$dep && $(MAKE) -e run; \
+		cd ${DEPS_DIR}/$$dep && $(MAKE) run; \
 	done
 
 # Clone dependent projects without running them (used to pull in yml for tests)
