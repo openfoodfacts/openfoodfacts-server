@@ -54,6 +54,24 @@ use JSON::PP;
 
 use Data::Dumper;
 
+sub normalize_code_zeroes($code) {
+
+	# Remove leading zeroes
+	$code =~ s/^0+//;
+	
+	# Add leading zeroes to have at least 13 digits
+	while (length($code) < 13) {
+		$code = "0" . $code;
+	}
+
+	# Remove leading zeroes for EAN8s
+	if ((length($code) eq 13) and ($code =~ /^00000/)) {
+		$code = $';
+	}	
+
+	return $code;
+}
+
 # This script includes a new_split_code() function so that we can run it even if Products.pm split_code() is old
 # This is useful in particular for preparations before the move, e.g. to see which products would be affected
 
@@ -183,6 +201,7 @@ my $invalid = 0;
 my $moved = 0;
 my $not_moved = 0;
 my $same_path = 0;
+my $changed_code = 0;
 
 foreach my $old_path (@products) {
 
@@ -190,9 +209,10 @@ foreach my $old_path (@products) {
 	# remove / if any
 	$code =~ s/\///g;
 
-	my $product_id = product_id_for_owner(undef, $code);
+	my $new_code = normalize_code_zeroes($code);
 
-	my $old_path = $code;
+	my $product_id = product_id_for_owner(undef, $new_code);
+
 	my $path = new_product_path_from_id($product_id);
 
 	if ($path eq "invalid") {
@@ -248,6 +268,12 @@ foreach my $old_path (@products) {
 			print STDERR "$path exist, not moving $old_path\n";
 			$not_moved++;
 		}
+
+	if ($new_code ne $code) {
+		$changed_code++;
+		print STDERR "changed code from $code to $new_code\n";
+	}
+
 	}
 	else {
 		print STDERR "new $path is the same as old $old_path\n";
@@ -260,6 +286,7 @@ print STDERR "invalid code: $invalid\n";
 print STDERR "moved: $moved\n";
 print STDERR "not moved: $not_moved\n";
 print STDERR "same path: $same_path\n";
+print STDERR "changed code: $changed_code\n";
 
 exit(0);
 
