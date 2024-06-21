@@ -209,8 +209,6 @@ use Apache2::Const qw(:http :common);
 
 use URI::Find;
 
-my $bodyabout;
-
 my $uri_finder = URI::Find->new(
 	sub ($uri, $orig_uri) {
 		if ($uri =~ /\http/) {
@@ -430,6 +428,8 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	$template_data_ref->{scripts} = $request_ref->{scripts};
 	$template_data_ref->{initjs} = $request_ref->{initjs};
 	$template_data_ref->{header} = $request_ref->{header};
+	$template_data_ref->{styles} = $request_ref->{styles};
+	$template_data_ref->{bodyabout} = $request_ref->{bodyabout};
 
 	# Return a link to one taxonomy entry in the target language
 	$template_data_ref->{canonicalize_taxonomy_tag_link} = sub ($tagtype, $tag) {
@@ -629,7 +629,7 @@ sub init_request ($request_ref = {}) {
 	$request_ref->{scripts} = '';
 	$request_ref->{initjs} = '';
 	$request_ref->{header} = '';
-	$bodyabout = '';
+	$request_ref->{bodyabout} = '';
 
 	my $r = Apache2::RequestUtil->request();
 	$request_ref->{method} = $r->method();
@@ -7325,7 +7325,7 @@ sub display_page ($request_ref) {
 
 	$template_data_ref->{styles} = $request_ref->{styles};
 	$template_data_ref->{google_analytics} = $google_analytics;
-	$template_data_ref->{bodyabout} = $bodyabout;
+	$template_data_ref->{bodyabout} = $request_ref->{bodyabout};
 	$template_data_ref->{site_name} = $site_name;
 
 	my $en = 0;
@@ -7859,7 +7859,7 @@ JS
 	# my @fields = qw(generic_name quantity packaging br brands br categories br labels origins br manufacturing_places br emb_codes link purchase_places stores countries);
 	my @fields = @ProductOpener::Config::display_fields;
 
-	$bodyabout = " about=\"" . product_url($product_ref) . "\" typeof=\"food:foodProduct\"";
+	$request_ref->{bodyabout} = " about=\"" . product_url($product_ref) . "\" typeof=\"food:foodProduct\"";
 
 	$template_data_ref->{user_id} = $User_id;
 	$template_data_ref->{robotoff_url} = $robotoff_url;
