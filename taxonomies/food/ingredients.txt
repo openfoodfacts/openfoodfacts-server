@@ -2544,6 +2544,7 @@ nl:melkerijboter
 
 <en:butter
 en:reconstituted butter
+bg:възобновена сметана
 ca:mantega deshidratada reconstituïda
 de:rekonstituierte Butter
 es:mantequilla deshidratada reconstituida
@@ -2876,6 +2877,7 @@ nl:lactosevrije melk
 
 <en:lactose-free milk
 en:whole lactose-free milk, lactose-free whole milk
+bg:пълномаслено мляко без лактоза
 de:Laktosefreie Vollmilch
 es:Leche entera sin lactosa
 fr:lait entier sans lactose, lait sans lactose entier
@@ -3074,11 +3076,13 @@ hr:obrano mlijeko s 0.5% mliječne masti
 <en:lactose-free milk
 <en:skimmed milk
 en:lactose-free skimmed milk, skimmed lactose-free milk
+bg:обезмаслено мляко без лактоза
 fr:lait sans lactose écrémé, lait écrémé sans lactose
 hr:obrano mlijeko bez laktoze
 
 <en:lactose-free-milk
 en:semi-skimmed lactose-free milk, lactose-free semi-skimmed milk
+bg:полуобезмаслено мляко без лактоза
 fr:lait sans lactose demi-écrémé, lait demi-écrémé sans lactose
 
 
@@ -4347,7 +4351,7 @@ hr:karamelizirano obrano mlijeko u prahu
 
 <en:milk powder
 en:whole milk powder, dried whole milk, powdered whole milk, whole powdered milk, whole dry milk, dry whole milk
-bg:пълномаслено мляко на прах, пълномаслено сухо мляко
+bg:пълномаслено мляко на прах, пълномаслено сухо мляко, сухо пълномаслено мляко
 ca:Llet sencera en pols, llet en pols sencera
 cs:sušené plnotučné mléko
 da:sødmælkspulver
@@ -4393,6 +4397,7 @@ ru:молоко сухое цельное и обезжиренноё
 
 <en:whole milk powder
 en:reconstituted milk powder
+bg:възстановено мляко на прах
 ca:llet en pols reconstituida
 es:leche en polvo reconstituida
 hr:rekonstituirano mlijeko u prahu
@@ -4404,6 +4409,7 @@ nl:gereconstitueerde melk
 
 <en:skimmed milk
 en:reconstituted skimmed milk
+bg:възтановено обезмаслено мляко
 ca:llet desnatada reconstituida, llet desnatada rehidratada, llet descremada rehidratada, llet descremada reconstituida
 de:rekonstituierte Magermilch
 es:leche desnatada reconstituida, leche desnatada rehidratada, leche descremada rehidratada, leche descremada reconstituida
@@ -5078,7 +5084,7 @@ vegetarian:en:yes
 
 <en:whey
 en:whey powder, powdered whey,milk whey powder
-bg:суроватка на прах, млечна суроватка на прах, млечна суха суроватка
+bg:суроватка на прах, млечна суроватка на прах, млечна суха суроватка, суха млечна суроватка
 ca:Xerigot en pols, sèrum en pols, sèrum làctic en pols
 cs:sušená syrovátka
 da:Vallepulver, vallepulver af mælk
@@ -9109,7 +9115,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Taleggio_cheese
 
 <en:cheese
 en:tilsit
-bg:Тилзитер
+bg:Тилзитер, Тилзит, сирене Тилзит
 cs:Tilsiter
 de:Tilsiter
 eo:Tilziter
@@ -15728,7 +15734,7 @@ hr:govedi loj, goveđi loj, goveđi loja
 <en:dairy
 <en:fat
 en:milkfat, milk fat
-bg:млечна мазнина
+bg:млечна мазнина, млечни мазнини
 bs:mlečna mast
 cs:mléčný tuk
 da:mælkefedt
@@ -17485,6 +17491,7 @@ hr:mast sjemenki pamuka
 
 <en:vegetable oil
 en:avocado oil
+bg:авокадово масло, авокадово олио
 de:Avocadoöl
 es:Aceite de aguacate
 fi:avokadoöljy
@@ -18285,7 +18292,7 @@ it:girasole alto oleico
 
 <en:sunflower oil
 en:high oleic sunflower oil
-bg:високоолеиново слънчогледово масло
+bg:високоолеиново слънчогледово масло, високо олеиново слънчогледово олио
 ca:oli refinat de gira-sol alt oleic, oli de gira-sol alt oleic, oli vegetal de gira-sol alt oleic
 de:High Oleic-Sonnenblumenöl, High-Oleic-Sonnenblumenöl, Sonnenblumenöl mit hohem Fettsäureanteil, Sonnenblumenöl hoch erhitzbar
 es:aceite de girasol alto oleico,aceite refinado de girasol alto oleico
@@ -25547,6 +25554,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Malt
 
 <en:malt
 en:malt extract
+bg:малцов екстракт
 ca:extracte de malta
 da:maltekstrakt
 de:Malzextrakt
@@ -27673,7 +27681,7 @@ fr:farines de graines et céréales
 <en:wheat
 en:wheat flour, wheatflour
 ar:طحين القمح
-bg:пшенично брашно
+bg:пшенично брашно, пшеничено брашно
 bs:pšenično brašno
 ca:Farina de ble
 cs:pšeničná mouka
@@ -63496,7 +63504,7 @@ sv:vallmo
 en:poppyseed, poppy seed, poppy seeds
 af:Papawersaad
 ar:بذور خشخاش
-bg:маково семе
+bg:маково семе, макови семена
 ca:rosella, Llavors de rosella
 da:birkes
 de:Mohnsamen, Mohnsaat
@@ -71694,7 +71702,7 @@ fr:Vanille pure
 
 <en:vanilla
 en:Bourbon vanilla
-bg:бурбонска ванилия
+bg:Бурбонска ванилия
 de:Bourbon Vanille, Bourbon-Vanille
 es:Vainilla Bourbon
 fi:bourbon-vanilja
@@ -71728,6 +71736,7 @@ sv:vaniljpulver
 <en:Bourbon vanilla
 <en:vanilla powder
 en:Bourbon vanilla powder
+bg:Бурбонска ванилия на прах
 de:Bourbon Vanille gemahlen, Bourbon-Vanillepulver, Bourbonvanilleschotenpulver
 fr:poudre de vanille Bourbon
 hr:bourbon vanilija u prahu
