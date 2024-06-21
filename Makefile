@@ -75,7 +75,6 @@ _FORCE:
 # Info #
 #------#
 info:
-	@echo ${DEPS_DIR}
 	@echo "${NAME} version: ${VERSION}"
 
 usage:
