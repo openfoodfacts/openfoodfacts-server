@@ -323,6 +323,15 @@ sub normalize_code_zeroes($code) {
 	return $code;
 }
 
+sub old_normalize_code ($code) {
+
+	if (defined $code) {
+		($code, my $gs1_ai_data_str) = &normalize_code_with_gs1_ai($code);
+		$code = normalize_code_zeroes($code);
+	}
+	return $code;
+}
+
 =head2 normalize_code_with_gs1_ai($code)
 
 C<normalize_code_with_gs1_ai()> this function normalizes the product code by:
@@ -443,7 +452,33 @@ Example: 1234567890123  :-  123/456/789/0123
 
 =cut
 
+# We temporarily keep the old split_code() so that during the migration,
+# we can check if the old path exists (in which case we use it) and if not, we use the new path.
+sub old_split_code ($code) {
+
+	# Require at least 4 digits (some stores use very short internal barcodes, they are likely to be conflicting)
+	if (not is_valid_code($code)) {
+
+		$log->info("invalid code", {code => $code}) if $log->is_info();
+		return "invalid";
+	}
+
+	# First splits into 3 sections of 3 numbers and the last section with the remaining numbers
+	my $path = $code;
+	if ($code =~ /^(.{3})(.{3})(.{3})(.*)$/) {
+		$path = "$1/$2/$3/$4";
+	}
+	return $path;
+}
+
 sub split_code ($code) {
+
+	# TODO: remove old_split_code() once all products have been migrated to the new path
+	my $old_path = old_split_code($code);
+	# If the old path exists, the product has not been migrated yet, so we use the old path
+	if (-e "$BASE_DIRS{PRODUCTS}/$old_path/product.sto") {
+		return $old_path;
+	}
 
 	# Require at least 4 digits (some stores use very short internal barcodes, they are likely to be conflicting)
 	if (not is_valid_code($code)) {
