@@ -61,7 +61,8 @@ TEST_CMD ?= yath test -PProductOpener::LoadData
 
 # Space delimited list of dependant projects
 DEPS=openfoodfacts-shared-services
-ifndef DEPS_DIR
+# Set the DEPS_DIR if it hasn't been set already
+ifeq (${DEPS_DIR},)
 	export DEPS_DIR=${PWD}/deps
 endif
 
@@ -74,6 +75,7 @@ _FORCE:
 # Info #
 #------#
 info:
+	@echo ${DEPS_DIR}
 	@echo "${NAME} version: ${VERSION}"
 
 usage:
@@ -133,6 +135,11 @@ _up:run_deps
 	@echo "🥫 started service at http://openfoodfacts.localhost"
 
 up: build create_folders _up
+
+# Used by staging so that shared services are not created
+prod_up: build create_folders
+	@echo "🥫 Starting containers …"
+	${DOCKER_COMPOSE} up -d 2>&1
 
 down:
 	@echo "🥫 Bringing down containers …"
