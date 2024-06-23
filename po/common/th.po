@@ -2845,16 +2845,16 @@ msgstr "ข้อมูลโภชนาการระบุไว้สำห
 
 msgctxt "nova_groups_s"
 msgid "NOVA group"
-msgstr ""
+msgstr "NOVA group"
 
 msgctxt "nova_groups_p"
 msgid "NOVA groups"
-msgstr ""
+msgstr "NOVA groups"
 
 # Title for the link to the explanation of what a NOVA Group is
 msgctxt "nova_groups_info"
 msgid "NOVA groups for food processing"
-msgstr ""
+msgstr "NOVA groups สำหรับระดับการแปรรูปอาหาร"
 
 msgctxt "footer_partners"
 msgid "Partners"
@@ -4630,11 +4630,11 @@ msgstr "ระดับการแปรรูปอาหาร"
 
 msgctxt "attribute_nova_name"
 msgid "NOVA group"
-msgstr ""
+msgstr "NOVA group"
 
 msgctxt "attribute_nova_unknown_title"
 msgid "NOVA not computed"
-msgstr ""
+msgstr "ไม่ได้คำนวณ NOVA groups"
 
 msgctxt "attribute_nova_unknown_description_short"
 msgid "Food processing level unknown"
@@ -4642,28 +4642,28 @@ msgstr ""
 
 msgctxt "attribute_nova_setting_name"
 msgid "No or little food processing (NOVA group)"
-msgstr ""
+msgstr "ไม่มีหรือแปรรูปอาหารน้อย (NOVA group)"
 
 # keep %s, it will be replaced by the group 1, 2, 3 or 4
 msgctxt "attribute_nova_group_title"
 msgid "NOVA %s"
-msgstr ""
+msgstr "NOVA %s"
 
 msgctxt "attribute_nova_1_description_short"
 msgid "Unprocessed or minimally processed foods"
-msgstr ""
+msgstr "อาหารที่ไม่แปรรูปหรือแปรรูปน้อยที่สุด"
 
 msgctxt "attribute_nova_2_description_short"
 msgid "Processed culinary ingredients"
-msgstr ""
+msgstr "เครื่องปรุงอาหารที่ผ่านการแปรรูป"
 
 msgctxt "attribute_nova_3_description_short"
 msgid "Processed foods"
-msgstr ""
+msgstr "อาหารแปรรูป"
 
 msgctxt "attribute_nova_4_description_short"
 msgid "Ultra processed foods"
-msgstr ""
+msgstr "ผลิตภัณฑ์อาหารที่ผ่านการแปรรูประดับสูง"
 
 msgctxt "export_product_page"
 msgid "Export product to public database"
@@ -4679,7 +4679,7 @@ msgstr ""
 
 msgctxt "nova_group_producer"
 msgid "NOVA group"
-msgstr ""
+msgstr "NOVA group"
 
 msgctxt "error_unknown_org"
 msgid "Unknown organization."
@@ -4723,7 +4723,7 @@ msgstr ""
 
 msgctxt "attribute_additives_setting_note"
 msgid "Additives are markers of food processing, and excess consumption of some of them have undesirable health impacts."
-msgstr ""
+msgstr "สารเติมแต่งและวัตถุเจือปนอาหาร สามารถใช้เป็นตัวบ่งบอกถึงระดับการแปรรูปอาหารได้ การบริโภคสารเติมแต่งและวัตถุเจือปนอาหารมากเกินไปนั้นส่งผลกระทบต่อสุขภาพได้"
 
 msgctxt "attribute_additives_unknown_title"
 msgid "Additives not computed"
@@ -5210,7 +5210,7 @@ msgstr ""
 # It = the platform
 msgctxt "product_edits_by_producers_indicators"
 msgid "It computes indicators such as the Nutri-Score, NOVA, and the Eco-score, and automatically identifies suggestions to improve them (for instance all products that would get a better Nutri-Score grade with a slight composition change)."
-msgstr ""
+msgstr "โดยจะคำนวณตัวชี้วัดต่างๆ เช่น คะแนนโภชนาการ NOVA และคะแนน Eco และระบุคำแนะนำเพื่อปรับปรุงตัวชี้วัดเหล่านั้นโดยอัตโนมัติ (เช่น ผลิตภัณฑ์ทั้งหมดที่จะได้รับเกรด Nutri-Score ที่ดีขึ้นโดยมีการเปลี่ยนแปลงองค์ประกอบเล็กน้อย)"
 
 msgctxt "attribute_forest_footprint_name"
 msgid "Forest footprint"
@@ -6125,36 +6125,36 @@ msgstr ""
 
 msgctxt "nova_1_unprocessed_ingredients"
 msgid "The product contains only unprocessed or minimally processed ingredients."
-msgstr ""
+msgstr "ผลิตภัณฑ์ประกอบด้วยส่วนประกอบที่ยังไม่ผ่านกระบวนการแปรรูป หรือผ่านการแปรรูปน้อยที่สุดเท่านั้น"
 
 # variable names between { } must not be translated
 msgctxt "f_nova_markers_for_nova_group"
 msgid "Elements that indicate the product is in the {nova_group} group"
-msgstr ""
+msgstr "ส่วนประกอบที่ระบุว่าผลิตภัณฑ์นี้อยู่ในกลุ่ม {nova_group}"
 
 msgctxt "nova_classification_description"
 msgid "Food products are classified into 4 groups according to their degree of processing:"
-msgstr ""
+msgstr "ผลิตภัณฑ์อาหารถูกแบ่งออกเป็น 4 กลุ่มตามระดับการแปรรูปอาหาร:"
 
 msgctxt "nova_classification_how"
 msgid "The determination of the group is based on the category of the product and on the ingredients it contains."
-msgstr ""
+msgstr "การกำหนดกลุ่ม NOVA ขึ้นอยู่กับหมวดหมู่และส่วนประกอบของผลิตภัณฑ์นั้นๆ"
 
 msgctxt "nova_classification_learn_more"
 msgid "Learn more about the NOVA classification"
-msgstr ""
+msgstr "ดูข้อมูลเพิ่มเติมเกี่ยวกับการจำแนกประเภทตาม NOVA group"
 
 msgctxt "nova_group_missing_category"
 msgid "The category of the product must be specified in order to determine the NOVA group."
-msgstr ""
+msgstr "ต้องระบุหมวดหมู่ของผลิตภัณฑ์เพื่อใช้กำหนด NOVA group"
 
 msgctxt "nova_group_missing_ingredients"
 msgid "The ingredients of the product must be specified in order to determine the NOVA group."
-msgstr ""
+msgstr "ต้องระบุส่วนประกอบของผลิตภัณฑ์เพื่อใช้กำหนด NOVA group"
 
 msgctxt "nova_group_too_many_unknown_ingredient"
 msgid "We could not recognize some of the ingredients and determine the NOVA group."
-msgstr ""
+msgstr "ระบบไม่รู้จักส่วนประกอบอาหารบางอย่าง จึงไม่สามารถกำหนด NOVA group ได้"
 
 msgctxt "unselect_image"
 msgid "Unselect Image"
@@ -6204,7 +6204,7 @@ msgstr ""
 
 msgctxt "reset_preferences_details"
 msgid "Nutri-Score, Eco-Score and food processing level (NOVA)"
-msgstr ""
+msgstr "Nutri-Score, Eco-Score และระดับการแปรรูปอาหาร (NOVA)"
 
 msgctxt "actions_add_ingredients"
 msgid "Could you add the ingredients list?"
@@ -7035,7 +7035,7 @@ msgstr ""
 
 msgctxt "knowledge_panels_ingredients_rare_crops_divinfood"
 msgid "Open Food Facts participates in the European project <a href=\"https://divinfood.eu/\">DIVINFOOD</a> (funded from European Union’s Horizon 2020 research and innovation programme). DIVINFOOD aims to develop food chains that value under-utilised agrobiodiversity in order to act against the decline of biodiversity and to meet the growing expectations of consumers for healthy, local products that contribute to sustainable food systems."
-msgstr ""
+msgstr "Open Food Facts เข้าร่วมโครงการ <a href=\"https://divinfood.eu/\">DIVINFOOD</a> (ซึ่งเป็นทุนจากโครงการวิจัยและนวัตกรรมของสหภาพยุโรป Horizon 2020) โดย DIVINFOOD มีเป้าหมายที่จะพัฒนาโซ่อาหาร (Food chain) ที่ให้ความคุ้มค่ากับความหลากหลายทางชีวภาพที่นำมาใช้น้อยไปจนถึงการต่อต้านการลดลงของความหลากหลายทางชีวภาพและการตอบสนองต่อความคาดหวังที่เพิ่มขึ้นของผู้บริโภคสำหรับผลิตภัณฑ์ที่เป็นอย่างดีต่อสุขภาพ ผลิตภัณฑ์ท้องถิ่นที่มีส่วนร่วมในระบบอาหารที่ยั่งยืน"
 
 msgctxt "open_in_crm"
 msgid "Open in CRM"
