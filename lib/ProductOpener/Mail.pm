@@ -335,9 +335,10 @@ sub send_email_template($template_name, $template_data_ref, $user_ref, $lang) {
 	if ($email =~ s/^\s*Subject:\s*(.*)\n//i) {
 		my $subject = $1;
 		$email =~ s/^.*?\n//s;
-		send_html_email($user_ref, $subject, $email);
+		return send_html_email($user_ref, $subject, $email);
 	}
 	$log->debug("store_org", {path => $path, email => $email, res => $res}) if $log->is_debug();
+	return;
 }
 
 1;
