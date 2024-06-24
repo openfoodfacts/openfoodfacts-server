@@ -96,6 +96,7 @@ sub normalize_code {
 			"$code" when 'cy';
 			"$code" when 'cz';
 			"DE $code EC" when 'de';
+			"$code" when 'dk';
 			"EE $code EC" when 'ee';
 			"ES $code CE" when 'es';
 			"FI $code EC" when 'fi';
@@ -170,6 +171,7 @@ my %approval_key = (
 	cy => 'code',
 	cz => 'code',
 	de => 'code',
+	dk => 'code',
 	ee => 'tunnusnumber',
 	es => 'n_rgseaa',
 	fi => 'numero',

@@ -861,6 +861,8 @@ sub create_health_card_panel ($product_ref, $target_lc, $target_cc, $options_ref
 
 	create_ingredients_analysis_panel($product_ref, $target_lc, $target_cc, $options_ref);
 
+	create_ingredients_rare_crops_panel($product_ref, $target_lc, $target_cc, $options_ref);
+
 	# Scores for food products
 	if (feature_enabled("nova")) {
 		create_nova_panel($product_ref, $target_lc, $target_cc, $options_ref);
@@ -1288,6 +1290,25 @@ sub create_physical_activities_panel ($product_ref, $target_lc, $target_cc, $opt
 
 		create_panel_from_json_template("physical_activities",
 			"api/knowledge-panels/health/nutrition/physical_activities.tt.json",
+			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
+	}
+	return;
+}
+
+sub create_ingredients_rare_crops_panel ($product_ref, $target_lc, $target_cc, $options_ref) {
+
+	# Go through the ingredients structure, and check if they have the rare_crop:en:yes property
+	my @rare_crops_ingredients
+		= get_ingredients_with_property_value($product_ref->{ingredients}, "rare_crop:en", "yes");
+
+	$log->debug("rare crops", {rare_crops_ingredients => \@rare_crops_ingredients}) if $log->is_debug();
+
+	if ($#rare_crops_ingredients >= 0) {
+
+		my $panel_data_ref = {ingredients_rare_crops => \@rare_crops_ingredients,};
+
+		create_panel_from_json_template("ingredients_rare_crops",
+			"api/knowledge-panels/health/ingredients/ingredients_rare_crops.tt.json",
 			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
 	}
 	return;
