@@ -164,7 +164,7 @@ sub extract_tagtype_and_tag_value_pairs_from_components ($request_ref, $componen
 	return;
 }
 
-=head2 analyze_request ( $request_ref )
+=head2 analyze_request ($request_ref)
 
 Analyze request parameters and decide which method to call.
 

@@ -3259,7 +3259,7 @@ sub generate_title_from_request_tags ($tags_ref) {
 	return $title;
 }
 
-=head2 generate_description_from_display_tag_options ($tagtype, $tagid, $display_tag, $canon_tagid)
+=head2 generate_description_from_display_tag_options ($tagtype, $tagid, $display_tag, $canon_tagid, $request_ref)
 
 Generate a description for some tag types, like additives, if there is a template set in the Config.pm file.
 
@@ -3763,7 +3763,7 @@ HTML
 	return $description;
 }
 
-=head2 display_tag ( $request_ref )
+=head2 display_tag ($request_ref)
 
 This function is called to display either:
 

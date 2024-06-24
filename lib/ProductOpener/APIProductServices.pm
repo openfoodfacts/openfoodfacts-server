@@ -170,7 +170,7 @@ sub check_product_services_api_input ($request_ref) {
 	return $error;
 }
 
-=head2 product_services_api()
+=head2 product_services_api($request_ref)
 
 Process API v3 product services requests.
 

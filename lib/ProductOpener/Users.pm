@@ -517,7 +517,7 @@ sub check_user_form ($request_ref, $type, $user_ref, $errors_ref) {
 	return;
 }
 
-=head2 notify_user_requested_org($user_ref, $org_created)
+=head2 notify_user_requested_org($user_ref, $org_created, $request_ref)
 
 Notify admin that a user requested to be part of an org
 
@@ -528,6 +528,10 @@ Notify admin that a user requested to be part of an org
 =head4 boolean $org_created
 
 Is the org newly created ?
+
+=head4 Request object $request_ref
+
+the request object
 
 =cut
 
