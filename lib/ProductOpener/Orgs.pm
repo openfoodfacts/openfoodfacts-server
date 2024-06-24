@@ -549,31 +549,21 @@ sub update_last_logged_in_member($user_ref) {
 }
 
 sub send_org_rejection_email($org_ref) {
+
+	my $template_name = "org_rejected.tt.html";
+
 	# send org rejection email to main contact
 	my $main_contact_user = $org_ref->{main_contact};
 	my $user_ref = retrieve_user($main_contact_user);
-
-	my $language = $user_ref->{preferred_language} || $user_ref->{initial_lc};
-	my $template_name = "org_rejected.tt.html";
-	# if template does not exist in the requested language, use English
-	my $template_path = "emails/$language/$template_name";
-	my $default_path = "emails/en/$template_name";
-	my $path = -e "$data_root/templates/$template_path" ? $template_path : $default_path;
 
 	my $template_data_ref = {
 		user => $user_ref,
 		org => $org_ref,
 	};
 
-	my $email = '';
-	my $res = process_template($path, $template_data_ref, \$email);
-	if ($email =~ /^\s*Subject:\s*(.*)\n/i) {
-		my $subject = $1;
-		my $body = $';
-		$body =~ s/^\n+//;
-		send_html_email($user_ref, $subject, $email);
-	}
-	$log->debug("store_org", {path => $path, email => $email, res => $res}) if $log->is_debug();
+	my $language = $user_ref->{preferred_language} || $user_ref->{initial_lc};
+
+	send_email_template($template_name, $template_data_ref, $user_ref, $language);
 	return;
 }
 

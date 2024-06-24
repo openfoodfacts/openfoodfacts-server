@@ -86,7 +86,8 @@ use vars @EXPORT_OK;
 use ProductOpener::Store qw/get_string_id_for_lang retrieve store/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
-use ProductOpener::Mail qw/get_html_email_content send_email_to_admin send_email_to_producers_admin send_html_email/;
+use ProductOpener::Mail
+	qw/get_html_email_content send_email_to_admin send_email_to_producers_admin send_html_email send_email_template/;
 use ProductOpener::Lang qw/$lc  %Lang lang/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Orgs
@@ -1062,6 +1063,8 @@ sub add_users_to_org_by_admin ($org_id, $email_list) {
 	my @emails_added;
 	my @emails_invited;
 
+	my $org_ref = retrieve_org($org_id);
+
 	# Convert the email_list into an array of email addresses
 	my @emails = split(/,\s*/, $email_list);
 
@@ -1073,6 +1076,19 @@ sub add_users_to_org_by_admin ($org_id, $email_list) {
 			# Add the user to the organization
 			add_user_to_org($org_id, $user_id, ["members"]);
 			push @emails_added, $email;
+
+			# send user an email
+			my $user_ref = retrieve_user($user_id);
+			my $template_name = "user_added_to_org.tt.html";
+			my $template_data_ref = {
+				user => $user_ref,
+				org => $org_ref,
+				server_domain => $server_domain,
+			};
+
+			my $language = $user_ref->{preferred_language} || $user_ref->{initial_lc};
+
+			send_email_template($template_name, $template_data_ref, $user_ref, $language);
 		}
 		else {
 

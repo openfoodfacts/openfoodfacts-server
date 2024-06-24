@@ -52,6 +52,7 @@ BEGIN {
 		&send_email_to_admin
 		&send_email_to_producers_admin
 		&get_html_email_content
+		&send_email_template
 
 		$LOG_EMAIL_START
 		$LOG_EMAIL_END
@@ -66,6 +67,7 @@ use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Lang qw/$lc lang/;
+use ProductOpener::Display qw/process_template/;
 use Email::Stuffer;
 use Log::Any qw($log);
 
@@ -291,6 +293,51 @@ sub send_email_to_producers_admin ($subject, $text) {
 		->to($options{site_name} . " <$producers_email>")->subject($subject)->text_body($text)->html_body($text);
 
 	return _send_email($mail);
+}
+
+=head2 send_email_template($template, $template_data_ref, $lang)
+
+C<send_email_template()> sends an email template to the give mail
+
+=head3 Arguments
+
+=head4 $template
+
+The email template name
+
+=head4 $template_data_ref
+
+The hash reference containing the email data
+
+=head4 $user_ref
+
+The hash reference containing the user data
+
+=head4 $lang
+
+The 2-letter language code. The default English version is used 
+if the requested language is not available.
+
+=cut
+
+sub send_email_template($template_name, $template_data_ref, $user_ref, $lang) {
+	# if template does not exist in the requested language, use English
+	my $template_path = "emails/$lang/$template_name";
+	my $default_path = "emails/en/$template_name";
+	my $path = -e "$data_root/templates/$template_path" ? $template_path : $default_path;
+	if (!-e "$data_root/templates/$path") {
+		$log->error("Template $path does not exist");
+		return;
+	}
+
+	my $email = '';
+	my $res = process_template($path, $template_data_ref, \$email);
+	if ($email =~ s/^\s*Subject:\s*(.*)\n//i) {
+		my $subject = $1;
+		$email =~ s/^.*?\n//s;
+		send_html_email($user_ref, $subject, $email);
+	}
+	$log->debug("store_org", {path => $path, email => $email, res => $res}) if $log->is_debug();
 }
 
 1;
