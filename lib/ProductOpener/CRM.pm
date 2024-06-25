@@ -646,8 +646,6 @@ sub add_category_to_company($org_id, $label) {
 		[[$org_ref->{crm_org_id}], {category_id => [[$commands{link}, $category_id]]}]);
 }
 
-
-
 =head2 update_company_last_import_type ($org_id, $data_source)
 
 Update the last import type of a company in Odoo
