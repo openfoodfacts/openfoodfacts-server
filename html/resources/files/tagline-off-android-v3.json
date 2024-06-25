@@ -14,6 +14,26 @@
             "width": 0.2
           }
         },
+        "de": {
+          "title": "Es ist neu!",
+          "message": "Die **Neue Berechnung** des Nutri-Scores ist in der App verfügbar",
+          "button_label": "Mehr erfahren",
+          "image": {
+            "url": "https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-de.svg",
+            "width": 0.2,
+            "alt": "Das Nutri-Score A Logo"
+          }
+        },
+        "es": {
+          "title": "¡Es nuevo!",
+          "message": "El **Nuevo Cálculo** del Nutri-Score está disponible en la aplicación",
+          "button_label": "Más información",
+          "image": {
+            "url": "https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-en.svg",
+            "width": 0.2,
+            "alt": "El logo de Nutri-Score A"
+          }
+        },
         "fr": {
           "title": "C’est tout nouveau !",
           "message": "Le **Nouveau Calcul** du NutriScore est disponible dans l’application",
@@ -24,14 +44,14 @@
             "alt": "Le logo du NutriScore A"
           }
         },
-        "de": {
-          "title": "Es ist neu!",
-          "message": "Die **Neue Berechnung** des Nutri-Scores ist in der App verfügbar",
-          "button_label": "Mehr erfahren",
+        "it": {
+          "title": "È nuovo!",
+          "message": "Il **Nuovo Calcolo** del NutriScore è disponibile nell'app",
+          "button_label": "Scopri di più",
           "image": {
-            "url": "https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-de.svg",
+            "url": "https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-en.svg",
             "width": 0.2,
-            "alt": "Das Nutri-Score A Logo"
+            "alt": "Il logo NutriScore A"
           }
         },
         "nl": {
@@ -53,26 +73,6 @@
             "width": 0.2,
             "alt": "O logotipo Nutri-Score A"
           }
-        },
-        "it": {
-          "title": "È nuovo!",
-          "message": "Il **Nuovo Calcolo** del NutriScore è disponibile nell'app",
-          "button_label": "Scopri di più",
-          "image": {
-            "url": "https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-en.svg",
-            "width": 0.2,
-            "alt": "Il logo NutriScore A"
-          }
-        },
-        "es": {
-          "title": "¡Es nuevo!",
-          "message": "El **Nuevo Cálculo** del Nutri-Score está disponible en la aplicación",
-          "button_label": "Más información",
-          "image": {
-            "url": "https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-en.svg",
-            "width": 0.2,
-            "alt": "El logo de Nutri-Score A"
-          }
         }
       }
     },
@@ -91,20 +91,20 @@
             "width": 0.2
           }
         },
-        "fr": {
-          "url": "https://translate.openfoodfacts.org/project/openfoodfacts/fr",
-          "title": "Rendez la transparence alimentaire accessible dans votre langue",
-          "message": "Traduisez l'application, le site web et plus encore pour aider les autres à faire des choix alimentaires éclairés",
-          "button_label": "Rejoindre l'équipe de traducteurs",
+        "ar": {
+          "url": "https://translate.openfoodfacts.org/project/openfoodfacts/ar",
+          "title": "اجعل شفافية الغذاء تصل إلى لغتك",
+          "message": "ترجم التطبيق والموقع الإلكتروني والمزيد لمساعدة الآخرين على اتخاذ خيارات غذائية مستنيرة",
+          "button_label": "انضم إلى فريق المترجمين",
           "image": {
             "url": "https://world.openfoodfacts.org/images/misc/tagline-images/worldwide.png"
           }
         },
-        "es": {
-          "url": "https://translate.openfoodfacts.org/project/openfoodfacts/es",
-          "title": "Haz que la transparencia alimentaria llegue a tu idioma",
-          "message": "Traduce la aplicación, el sitio web y más para ayudar a otros a tomar decisiones alimentarias informadas",
-          "button_label": "Únete al equipo de traductores",
+        "bn": {
+          "url": "https://translate.openfoodfacts.org/project/openfoodfacts/bn",
+          "title": "আপনার ভাষায় খাদ্য স্বচ্ছতা আনুন",
+          "message": "অন্যদের তথ্যবহুল খাদ্য পছন্দ করতে সাহায্য করার জন্য অ্যাপ, ওয়েবসাইট এবং আরও অনেক কিছু অনুবাদ করুন",
+          "button_label": "অনুবাদক দলে যোগ দিন",
           "image": {
             "url": "https://world.openfoodfacts.org/images/misc/tagline-images/worldwide.png"
           }
@@ -118,20 +118,29 @@
             "url": "https://world.openfoodfacts.org/images/misc/tagline-images/worldwide.png"
           }
         },
-        "zh": {
-          "url": "https://translate.openfoodfacts.org/project/openfoodfacts/zh",
-          "title": "将食品透明度带到您的语言",
-          "message": "翻译应用程序、网站等，帮助他人做出明智的食品选择",
-          "button_label": "加入翻译团队",
+        "el": {
+          "url": "https://translate.openfoodfacts.org/project/openfoodfacts/el",
+          "title": "Φέρτε τη διαφάνεια τροφίμων στη γλώσσα σας",
+          "message": "Μεταφράστε την εφαρμογή, τον ιστότοπο και άλλα για να βοηθήσετε άλλους να κάνουν ενημερωμένες επιλογές τροφίμων",
+          "button_label": "Γίνετε μέλος της ομάδας μεταφραστών",
           "image": {
             "url": "https://world.openfoodfacts.org/images/misc/tagline-images/worldwide.png"
           }
         },
-        "ar": {
-          "url": "https://translate.openfoodfacts.org/project/openfoodfacts/ar",
-          "title": "اجعل شفافية الغذاء تصل إلى لغتك",
-          "message": "ترجم التطبيق والموقع الإلكتروني والمزيد لمساعدة الآخرين على اتخاذ خيارات غذائية مستنيرة",
-          "button_label": "انضم إلى فريق المترجمين",
+        "es": {
+          "url": "https://translate.openfoodfacts.org/project/openfoodfacts/es",
+          "title": "Haz que la transparencia alimentaria llegue a tu idioma",
+          "message": "Traduce la aplicación, el sitio web y más para ayudar a otros a tomar decisiones alimentarias informadas",
+          "button_label": "Únete al equipo de traductores",
+          "image": {
+            "url": "https://world.openfoodfacts.org/images/misc/tagline-images/worldwide.png"
+          }
+        },
+        "fr": {
+          "url": "https://translate.openfoodfacts.org/project/openfoodfacts/fr",
+          "title": "Rendez la transparence alimentaire accessible dans votre langue",
+          "message": "Traduisez l'application, le site web et plus encore pour aider les autres à faire des choix alimentaires éclairés",
+          "button_label": "Rejoindre l'équipe de traducteurs",
           "image": {
             "url": "https://world.openfoodfacts.org/images/misc/tagline-images/worldwide.png"
           }
@@ -154,11 +163,11 @@
             "url": "https://world.openfoodfacts.org/images/misc/tagline-images/worldwide.png"
           }
         },
-        "ru": {
-          "url": "https://translate.openfoodfacts.org/project/openfoodfacts/ru",
-          "title": "Обеспечьте прозрачность пищевых продуктов на вашем языке",
-          "message": "Переведите приложение, веб-сайт и многое другое, чтобы помочь другим сделать осознанный выбор продуктов питания",
-          "button_label": "Присоединиться к команде переводчиков",
+        "it": {
+          "url": "https://translate.openfoodfacts.org/project/openfoodfacts/it",
+          "title": "Porta la trasparenza alimentare nella tua lingua",
+          "message": "Traduci l'app, il sito web e altro ancora per aiutare gli altri a fare scelte alimentari informate",
+          "button_label": "Unisciti al team di traduttori",
           "image": {
             "url": "https://world.openfoodfacts.org/images/misc/tagline-images/worldwide.png"
           }
@@ -181,15 +190,6 @@
             "url": "https://world.openfoodfacts.org/images/misc/tagline-images/worldwide.png"
           }
         },
-        "it": {
-          "url": "https://translate.openfoodfacts.org/project/openfoodfacts/it",
-          "title": "Porta la trasparenza alimentare nella tua lingua",
-          "message": "Traduci l'app, il sito web e altro ancora per aiutare gli altri a fare scelte alimentari informate",
-          "button_label": "Unisciti al team di traduttori",
-          "image": {
-            "url": "https://world.openfoodfacts.org/images/misc/tagline-images/worldwide.png"
-          }
-        },
         "nl": {
           "url": "https://translate.openfoodfacts.org/project/openfoodfacts/nl",
           "title": "Breng voedseltransparantie naar uw taal",
@@ -204,6 +204,15 @@
           "title": "Przynieś przejrzystość żywności do swojego języka",
           "message": "Przetłumacz aplikację, stronę internetową i wiele więcej, aby pomóc innym w podejmowaniu świadomych wyborów żywieniowych",
           "button_label": "Dołącz do zespołu tłumaczy",
+          "image": {
+            "url": "https://world.openfoodfacts.org/images/misc/tagline-images/worldwide.png"
+          }
+        },
+        "ru": {
+          "url": "https://translate.openfoodfacts.org/project/openfoodfacts/ru",
+          "title": "Обеспечьте прозрачность пищевых продуктов на вашем языке",
+          "message": "Переведите приложение, веб-сайт и многое другое, чтобы помочь другим сделать осознанный выбор продуктов питания",
+          "button_label": "Присоединиться к команде переводчиков",
           "image": {
             "url": "https://world.openfoodfacts.org/images/misc/tagline-images/worldwide.png"
           }
@@ -244,6 +253,15 @@
             "url": "https://world.openfoodfacts.org/images/misc/tagline-images/worldwide.png"
           }
         },
+        "zh": {
+          "url": "https://translate.openfoodfacts.org/project/openfoodfacts/zh",
+          "title": "将食品透明度带到您的语言",
+          "message": "翻译应用程序、网站等，帮助他人做出明智的食品选择",
+          "button_label": "加入翻译团队",
+          "image": {
+            "url": "https://world.openfoodfacts.org/images/misc/tagline-images/worldwide.png"
+          }
+        },
         "id": {
           "url": "https://translate.openfoodfacts.org/project/openfoodfacts/id",
           "title": "Hadirkan transparansi makanan dalam bahasa Anda",
@@ -267,24 +285,6 @@
           "title": "นำความโปร่งใสด้านอาหารมาสู่ภาษาของคุณ",
           "message": "แปลแอป เว็บไซต์ และอื่นๆ เพื่อช่วยให้ผู้อื่นตัดสินใจเลือกอาหารได้อย่างชาญฉลาด",
           "button_label": "เข้าร่วมทีมนักแปล",
-          "image": {
-            "url": "https://world.openfoodfacts.org/images/misc/tagline-images/worldwide.png"
-          }
-        },
-        "bn": {
-          "url": "https://translate.openfoodfacts.org/project/openfoodfacts/bn",
-          "title": "আপনার ভাষায় খাদ্য স্বচ্ছতা আনুন",
-          "message": "অন্যদের তথ্যবহুল খাদ্য পছন্দ করতে সাহায্য করার জন্য অ্যাপ, ওয়েবসাইট এবং আরও অনেক কিছু অনুবাদ করুন",
-          "button_label": "অনুবাদক দলে যোগ দিন",
-          "image": {
-            "url": "https://world.openfoodfacts.org/images/misc/tagline-images/worldwide.png"
-          }
-        },
-        "el": {
-          "url": "https://translate.openfoodfacts.org/project/openfoodfacts/el",
-          "title": "Φέρτε τη διαφάνεια τροφίμων στη γλώσσα σας",
-          "message": "Μεταφράστε την εφαρμογή, τον ιστότοπο και άλλα για να βοηθήσετε άλλους να κάνουν ενημερωμένες επιλογές τροφίμων",
-          "button_label": "Γίνετε μέλος της ομάδας μεταφραστών",
           "image": {
             "url": "https://world.openfoodfacts.org/images/misc/tagline-images/worldwide.png"
           }
