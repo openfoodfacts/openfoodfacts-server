@@ -55,8 +55,7 @@ use ProductOpener::Events qw/send_event/;
 use ProductOpener::API qw/get_initialized_response/;
 use ProductOpener::APIProductWrite qw/skip_protected_field/;
 use ProductOpener::ProductsFeatures qw/feature_enabled/;
-use ProductOpener::Orgs qw/update_import_date/;
-use ProductOpener::CRM qw/update_company_last_import_type/;
+use ProductOpener::Orgs qw/update_import_date update_last_import_type/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -277,7 +276,7 @@ if ($type eq 'search_or_add') {
 				# sync crm
 				if (defined $Org_id) {
 					update_import_date($Org_id, $product_ref->{created_t});
-					update_company_last_import_type($Org_id, 'Manual import');
+					update_last_import_type($Org_id, 'Manual import');
 				}
 
 				$type = 'add';
