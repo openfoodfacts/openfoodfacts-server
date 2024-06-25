@@ -548,7 +548,7 @@ sub update_last_logged_in_member($user_ref) {
 
 =head2 update_last_import_type($orgid, $data_source)
 
-Update the last_import_type field of the org with the current time
+Update the last import type for an organization.
 
 =head3 Arguments
 
