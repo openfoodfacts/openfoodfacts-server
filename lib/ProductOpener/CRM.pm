@@ -47,6 +47,7 @@ package ProductOpener::CRM;
 
 use ProductOpener::PerlStandards;
 use Exporter qw< import >;
+use experimental 'smartmatch';
 
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
@@ -88,7 +89,8 @@ my $crm_data;
 my @required_tag_labels = qw(onboarding);
 # Category (res.partner.category) must be defined in Odoo :
 # Contact > contact (individual or company) form > Tags field > "Search More"
-my @required_category_labels = ('Producer', 'AGENA3000', 'EQUADIS', 'CSV', 'Manual import',);
+my @data_source = ('AGENA3000', 'EQUADIS', 'CSV', 'Manual import',);
+my @required_category_labels = ('Producer', @data_source);
 
 # special commands to manipulate Odoo relation One2Many and Many2Many
 # see https://www.odoo.com/documentation/15.0/developer/reference/backend/orm.html#odoo.fields.Command
@@ -644,9 +646,22 @@ sub add_category_to_company($org_id, $label) {
 		[[$org_ref->{crm_org_id}], {category_id => [[$commands{link}, $category_id]]}]);
 }
 
+
+
+=head2 update_company_last_import_type ($org_id, $data_source)
+
+Update the last import type of a company in Odoo
+
+=head4 $data_source
+
+must match one of the values in CRM.pm @data_source
+
+=cut
+
 sub update_company_last_import_type($org_id, $label) {
 	my $org_ref = retrieve_org($org_id);
 	return if not defined $org_ref->{crm_org_id};
+	return if $label ~~ @data_source;
 	my $category_id = $crm_data->{category}{$label};
 	add_category_to_company($org_id, $label);
 	return make_odoo_request('res.partner', 'write',

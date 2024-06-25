@@ -59,6 +59,7 @@ BEGIN {
 		&update_import_date
 		&update_export_date
 		&update_last_logged_in_member
+		&update_last_import_type
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -199,17 +200,19 @@ sub store_org ($org_ref) {
 
 			$org_ref->{crm_org_id} = $company_id;
 			$org_ref->{crm_opportunity_id} = $opportunity_id;
+
+			# also, add the other members to the CRM, in the company
+			foreach my $user_id (keys %{$org_ref->{members}}) {
+				if ($user_id ne $main_contact_user) {
+					add_user_to_company($user_id, $org_ref->{crm_org_id});
+				}
+			}
 			1;
 		} or do {
 			$org_ref->{valid_org} = 'unreviewed';
 			$log->error("store_org", {error => $@}) if $log->is_error();
 		};
-		# also, add the other members to the CRM, in the company
-		foreach my $user_id (keys %{$org_ref->{members}}) {
-			if ($user_id ne $org_ref->{creator}) {
-				add_user_to_company($user_id, $org_ref->{crm_org_id});
-			}
-		}
+
 	}
 
 	if (    defined $org_ref->{crm_org_id}
@@ -533,11 +536,31 @@ sub update_last_logged_in_member($user_ref) {
 	is_user_in_org_group($org_ref, $user_ref->{userid}, "members") or return;
 
 	$org_ref->{last_logged_member} = $user_ref->{userid};
+	$org_ref->{last_logged_member_t} = time();
 
 	if (defined $org_ref->{crm_org_id}) {
 		update_company_last_logged_in_contact($org_ref, $user_ref);
 	}
 
+	store_org($org_ref);
+	return;
+}
+
+=head2 update_last_import_type($orgid, $data_source)
+
+Update the last_import_type field of the org with the current time
+
+=head3 Arguments
+
+=head4 $orgid
+
+=cut
+
+sub update_last_import_type ($org_id, $data_source) {
+	my $org_ref = retrieve_org($org_id);
+	$org_ref->{last_import_type} = $data_source;
+	update_company_last_import_type($org_id, $data_source);
+	store_org($org_ref);
 	return;
 }
 
