@@ -60,7 +60,7 @@ DOCKER_COMPOSE_INT_TEST=REDIS_URL="redis:6379" ${DOCKER_COMPOSE_TEST}
 TEST_CMD ?= yath test -PProductOpener::LoadData
 
 # Space delimited list of dependant projects
-DEPS=openfoodfacts-shared-services
+DEPS=openfoodfacts-shared-services openfoodfacts-auth 
 # Set the DEPS_DIR if it hasn't been set already
 ifeq (${DEPS_DIR},)
 	export DEPS_DIR=${PWD}/deps
@@ -511,13 +511,3 @@ guard-%: # guard clause for targets that require an environment variable (usuall
    		echo "Environment variable '$*' is not set"; \
    		exit 1; \
 	fi;
-
-# Load dependent projects
-deps:
-	@for dep in "openfoodfacts-auth" ; do \
-		if [ ! -d ../$$dep ]; then \
-			git clone --filter=blob:none --sparse \
-				https://github.com/openfoodfacts/$$dep.git ../$$dep; \
-		fi; \
-		cd ../$$dep && make -e run; \
-	done
