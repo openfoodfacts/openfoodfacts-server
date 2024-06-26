@@ -10,6 +10,9 @@
                 <th>[% lang("org_id") %]</th>
                 <th>[% lang("verified_status") %]</th>
                 <th>[% lang("creation_date") %]</th>
+                <th>[% lang("last_login") %]</th>
+                <th>[% lang("last_import") %]</th>
+                <th>[% lang("data_sources_p") %]</th>
             </tr>
         </thead>
         <tbody>
@@ -20,8 +23,11 @@
                 <td>[% org.name %]</td>
                 <td>[% org.creator %]</td>
                 <td>[% org.org_id %]</td>
-                <td>[% IF org.validated == 0 %]false[% ELSE %]true[% END %]</td>
+                <td>[% org.valid_org %]</td>
                 <td>[% display_date_tag(org.created_t) %]</td>
+                <td>[% display_date_tag(org.last_logged_member_t) %]</td>
+                <td>[% org.last_import_type %]</td>
+                <td>[% org.creator %]</td>
             </tr>
             [% SET count = count + 1 %]
         [% END %]
