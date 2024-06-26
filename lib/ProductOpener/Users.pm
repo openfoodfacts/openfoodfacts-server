@@ -90,7 +90,7 @@ use ProductOpener::Mail qw/get_html_email_content send_email_to_admin send_email
 use ProductOpener::Lang qw/$lc  %Lang lang/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Orgs
-	qw/add_user_to_org create_org remove_user_from_org retrieve_or_create_org retrieve_org update_last_logged_in_member/;
+	qw/add_user_to_org create_org remove_user_from_org retrieve_or_create_org retrieve_org update_last_logged_in_member /;
 use ProductOpener::Products qw/find_and_replace_user_id_in_products/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::Brevo qw/add_contact_to_list/;
@@ -627,6 +627,17 @@ sub process_user_requested_org ($user_ref) {
 
 		$org_created = 1;
 	}
+	else {
+		my $previous_requested_org_ref = retrieve_org($user_ref->{requested_org_id});
+		if (defined $previous_requested_org_ref) {
+			# Remove user from previous requested org
+			remove_user_by_org_admin($previous_requested_org_ref, $userid);
+		}
+		# The requested org exists
+		# The user waits for approval by an off admin or an org admin
+		add_user_to_org($requested_org_ref, $userid, ["pending"]);
+
+	}
 	# send a notification to admins
 	notify_user_requested_org($user_ref, $org_created);
 	return 1;
@@ -1046,7 +1057,7 @@ sub is_email_has_off_account ($email) {
 }
 
 sub remove_user_by_org_admin ($orgid, $user_id) {
-	my $groups_ref = ['admins', 'members'];
+	my $groups_ref = ['admins', 'members', 'pending'];
 	remove_user_from_org($orgid, $user_id, $groups_ref);
 
 	# Reset the 'org' field of the user
