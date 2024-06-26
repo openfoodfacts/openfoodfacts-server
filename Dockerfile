@@ -78,7 +78,8 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
         liblog-log4perl-perl \
         liblog-any-adapter-log4perl-perl \
         # NB: not available in ubuntu 1804 LTS:
-        libgeoip2-perl
+        libgeoip2-perl \
+        libemail-valid-perl
 RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
     apt install -y \
         #
