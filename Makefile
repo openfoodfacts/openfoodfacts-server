@@ -55,7 +55,7 @@ DOCKER_COMPOSE_RUN=COMPOSE_FILE="${COMPOSE_FILE};docker/run.yml" ${DOCKER_COMPOS
 # we also publish mongodb on a separate port to avoid conflicts
 # we also enable the possibility to fake services in po_test_runner
 DOCKER_COMPOSE_TEST=WEB_RESOURCES_PATH=./web-default ROBOTOFF_URL="http://backend:8881/" GOOGLE_CLOUD_VISION_API_URL="http://backend:8881/" COMPOSE_PROJECT_NAME=${COMPOSE_PROJECT_NAME}_test COMPOSE_FILE="${COMPOSE_FILE};${DEPS_DIR}/openfoodfacts-shared-services/docker-compose.yml;${DEPS_DIR}/openfoodfacts-auth/docker-compose.yml" PO_COMMON_PREFIX=test_ MONGODB_CACHE_SIZE=4 ODOO_CRM_URL= KEYCLOAK_BASE_URL=http://keycloak:8080 PRODUCT_OPENER_OIDC_DISCOVERY_ENDPOINT=http://keycloak:8080/realms/open-products-facts/.well-known/openid-configuration docker compose --env-file=${ENV_FILE}
-# Enable Redis only for integration tests
+# Enable Redis only for integration tests. TODO: Currently using dev tag for keycloak - need to switch to main
 DOCKER_COMPOSE_INT_TEST=REDIS_URL="redis:6379" KEYCLOAK_TAG=dev KEYCLOAK_ADMIN=test KEYCLOAK_ADMIN_PASSWORD=test ${DOCKER_COMPOSE_TEST}
 
 TEST_CMD ?= yath test -PProductOpener::LoadData
@@ -308,11 +308,11 @@ clean_tests:
 
 update_tests_results: build_taxonomies_test build_lang_test
 	@echo "🥫 Updated expected test results with actuals for easy Git diff"
-	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb backend dynamicfront incron keycloak redis redis-listener
-	${DOCKER_COMPOSE_TEST} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl ${name}
-	${DOCKER_COMPOSE_TEST} run --rm backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
-	${DOCKER_COMPOSE_TEST} exec -T -w /opt/product-opener/tests backend bash update_tests_results.sh
-	${DOCKER_COMPOSE_TEST} stop
+	${DOCKER_COMPOSE_INT_TEST} up -d memcached postgres mongodb backend dynamicfront incron keycloak redis redis-listener
+	${DOCKER_COMPOSE_INT_TEST} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl ${name}
+	${DOCKER_COMPOSE_INT_TEST} run --rm backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
+	${DOCKER_COMPOSE_INT_TEST} exec -T -w /opt/product-opener/tests backend bash update_tests_results.sh
+	${DOCKER_COMPOSE_INT_TEST} stop
 
 bash:
 	@echo "🥫 Open a bash shell in the backend container"
