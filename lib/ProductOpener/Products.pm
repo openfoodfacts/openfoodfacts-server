@@ -116,6 +116,8 @@ BEGIN {
 
 		&analyze_and_enrich_product_data
 
+		&is_owner_field
+
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -410,6 +412,8 @@ Boolean value indicating if the code is valid or not.
 =cut
 
 sub is_valid_code ($code) {
+	# Return an empty string if $code is undef
+	return '' if !defined $code;
 	return $code =~ /^\d{4,24}$/;
 }
 
@@ -2338,12 +2342,12 @@ sub compute_product_history_and_completeness ($product_data_root, $current_produ
 					my $number_of_units = $packagings_ref->{number_of_units};
 					my $weight_measured = $packagings_ref->{weight_measured};
 
-					$packagings_data_signature .= "number_of_units:" . ($number_of_units || '') . ',';
+					$packagings_data_signature .= "number_of_units:" . ($number_of_units // '') . ',';
 					foreach my $property (qw(shape material recycling quantity_per_unit)) {
-						$packagings_data_signature .= $property . ":" . ($packagings_ref->{$property} || '') . ',';
+						$packagings_data_signature .= $property . ":" . ($packagings_ref->{$property} // '') . ',';
 					}
 					$packagings_data_signature .= "\n";
-					$packagings_weights_signature .= ($weight_measured || '') . "\n";
+					$packagings_weights_signature .= ($weight_measured // '') . "\n";
 				}
 				# If the signature is empty or contains only line feeds, we don't have data
 				if ($packagings_data_signature !~ /^\s*$/) {
@@ -3718,4 +3722,31 @@ sub analyze_and_enrich_product_data ($product_ref, $response_ref) {
 	}
 
 	return;
+}
+
+=head2 is_owner_field($product_ref, $field)
+
+Return 1 if the field value was provided by the owner (producer) and the field is not a tag field.
+
+=cut
+
+sub is_owner_field ($product_ref, $field) {
+
+	if (
+		(defined $product_ref->{owner_fields})
+		and (
+			(defined $product_ref->{owner_fields}{$field})
+			# If the producer sent a field value for salt or sodium, the other value was automatically computed
+			or (($field =~ /^salt/) and (defined $product_ref->{owner_fields}{"sodium" . $'}))
+			or (($field =~ /^sodium/) and (defined $product_ref->{owner_fields}{"salt" . $'}))
+		)
+		# Even if the producer sent a tag field value, it was merged with existing values,
+		# and may have been updated by a contributor (e.g. to add a more precise category)
+		# So we don't consider them to be owner fields
+		and (not defined $tags_fields{$field})
+		)
+	{
+		return 1;
+	}
+	return 0;
 }

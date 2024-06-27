@@ -14,7 +14,7 @@
       "additives_original_tags" : [],
       "additives_tags" : [],
       "allergens" : "",
-      "allergens_from_ingredients" : "en:milk, apple, milk, eggs",
+      "allergens_from_ingredients" : "en:eggs, en:milk, apple, milk, eggs",
       "allergens_from_user" : "(en) ",
       "allergens_hierarchy" : [
          "en:apple",
@@ -102,7 +102,7 @@
             "origins_of_ingredients" : {
                "aggregated_origins" : [
                   {
-                     "epi_score" : 0,
+                     "epi_score" : "0",
                      "origin" : "en:unknown",
                      "percent" : 100,
                      "transportation_score" : null

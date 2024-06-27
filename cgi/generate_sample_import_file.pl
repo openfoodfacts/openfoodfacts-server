@@ -28,7 +28,7 @@ binmode(STDERR, ":encoding(UTF-8)");
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Display qw/init_request/;
+use ProductOpener::Display qw/init_request $admin/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/lang/;
 use ProductOpener::Mail qw/:all/;
@@ -37,6 +37,7 @@ use ProductOpener::Tags qw/%language_fields %tags_fields display_taxonomy_tag/;
 use ProductOpener::Food qw/default_unit_for_nid/;
 use ProductOpener::TaxonomySuggestions qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
+use ProductOpener::CRM qw/update_template_download_date/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -46,6 +47,11 @@ use Log::Any qw($log);
 use Excel::Writer::XLSX;
 
 my $request_ref = ProductOpener::Display::init_request();
+
+# sync CRM
+if (defined $Org_id and not $admin and not $User{moderator} and not $User{pro_moderator}) {
+	update_template_download_date($Org_id);
+}
 
 my $r = Apache2::RequestUtil->request();
 

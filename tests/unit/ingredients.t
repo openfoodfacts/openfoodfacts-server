@@ -843,6 +843,22 @@ puffed orange and caramelized unknown_fruit4.",
 				"Sucre, LAIT* entier en poudre 25%, graisse végétale (palme, palmiste), beurre de cacao1, pâte de cacao1, LAIT* écrémé en poudre 3%, huile de tournesol, émulsifiant: lécithines, arômes de vanille. Traces éventuelles de fruits à coque et de céréales contenant du gluten. Cacao: 30% minimum dans le chocolat au lait. *Lait: origine UE et/ou non UE (Royaume-Uni)",
 		}
 	],
+	# , and salt
+	[
+		"en-comma-and-pepper",
+		{
+			lc => "en",
+			ingredients_text => "sugar, salt, and pepper",
+		}
+	],
+	# some unknown ingredient and a known one
+	[
+		"en-some-unknown-ingredient-and-salt",
+		{
+			lc => "en",
+			ingredients_text => "some unknown ingredient and salt",
+		}
+	],
 );
 
 foreach my $test_ref (@tests) {
