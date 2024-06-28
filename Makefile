@@ -274,11 +274,6 @@ integration_test: create_folders
 	${DOCKER_COMPOSE_INT_TEST} stop
 	@echo "🥫 integration tests success"
 
-# stop all tests dockers
-test-stop:
-	@echo "🥫 Stopping test dockers"
-	${DOCKER_COMPOSE_TEST} stop
-
 # usage:  make test-unit test=test-name.t
 # you can use TEST_CMD to change test command, like TEST_CMD="perl -d" to debug a test
 # you can also add args= to pass more options to your test command
@@ -296,11 +291,11 @@ test-int: guard-test create_folders
 	${DOCKER_COMPOSE_INT_TEST} up -d backend
 	${DOCKER_COMPOSE_INT_TEST} exec -e PO_EAGER_LOAD_DATA=1 backend ${TEST_CMD} ${args} tests/integration/${test}
 # better shutdown, for if we do a modification of the code, we need a restart
-	${DOCKER_COMPOSE_INT_TEST} stop backend
+	${DOCKER_COMPOSE_INT_TEST} stop
 
 # stop all docker tests containers
 stop_tests:
-	${DOCKER_COMPOSE_TEST} stop
+	${DOCKER_COMPOSE_INT_TEST} stop
 
 # clean tests, remove containers and volume (useful if you changed env variables, etc.)
 clean_tests:
