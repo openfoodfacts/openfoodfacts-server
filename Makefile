@@ -54,9 +54,10 @@ DOCKER_COMPOSE_RUN=COMPOSE_FILE="${COMPOSE_FILE};docker/run.yml" ${DOCKER_COMPOS
 # keep web-default for web contents
 # we also publish mongodb on a separate port to avoid conflicts
 # we also enable the possibility to fake services in po_test_runner
-DOCKER_COMPOSE_TEST=WEB_RESOURCES_PATH=./web-default ROBOTOFF_URL="http://backend:8881/" GOOGLE_CLOUD_VISION_API_URL="http://backend:8881/" COMPOSE_PROJECT_NAME=${COMPOSE_PROJECT_NAME}_test COMPOSE_FILE="${COMPOSE_FILE};${DEPS_DIR}/openfoodfacts-shared-services/docker-compose.yml;${DEPS_DIR}/openfoodfacts-auth/docker-compose.yml" PO_COMMON_PREFIX=test_ MONGODB_CACHE_SIZE=4 ODOO_CRM_URL= KEYCLOAK_BASE_URL=http://keycloak:8080 PRODUCT_OPENER_OIDC_DISCOVERY_ENDPOINT=http://keycloak:8080/realms/open-products-facts/.well-known/openid-configuration docker compose --env-file=${ENV_FILE}
+DOCKER_COMPOSE_TEST_BASE=WEB_RESOURCES_PATH=./web-default ROBOTOFF_URL="http://backend:8881/" GOOGLE_CLOUD_VISION_API_URL="http://backend:8881/" COMPOSE_PROJECT_NAME=${COMPOSE_PROJECT_NAME}_test PO_COMMON_PREFIX=test_ MONGODB_CACHE_SIZE=4 ODOO_CRM_URL= docker compose --env-file=${ENV_FILE}
+DOCKER_COMPOSE_TEST=COMPOSE_FILE="${COMPOSE_FILE};${DEPS_DIR}/openfoodfacts-shared-services/docker-compose.yml" ${DOCKER_COMPOSE_TEST_BASE}
 # Enable Redis only for integration tests. TODO: Currently using dev tag for keycloak - need to switch to main
-DOCKER_COMPOSE_INT_TEST=REDIS_URL="redis:6379" KEYCLOAK_TAG=dev KEYCLOAK_ADMIN=test KEYCLOAK_ADMIN_PASSWORD=test ${DOCKER_COMPOSE_TEST}
+DOCKER_COMPOSE_INT_TEST=COMPOSE_FILE="${COMPOSE_FILE};docker/integration-test.yml" REDIS_URL="redis:6379" KEYCLOAK_BASE_URL=http://keycloak:8080 PRODUCT_OPENER_OIDC_DISCOVERY_ENDPOINT=http://keycloak:8080/realms/open-products-facts/.well-known/openid-configuration KEYCLOAK_TAG=dev KEYCLOAK_ADMIN=test KEYCLOAK_ADMIN_PASSWORD=test KC_DB_USERNAME=test KC_DB_PASSWORD=test ${DOCKER_COMPOSE_TEST_BASE}
 
 TEST_CMD ?= yath test -PProductOpener::LoadData
 
@@ -265,10 +266,9 @@ unit_test: create_folders
 
 integration_test: create_folders
 	@echo "🥫 Running integration tests …"
-# we launch the server and run tests within same container
-# we also need dynamicfront for some assets to exists
+# we launch the server and run tests within same container. Dependendies are listed in integration-test.yml
 # this is the place where variables are important
-	${DOCKER_COMPOSE_INT_TEST} up -d memcached postgres mongodb backend dynamicfront incron minion keycloak redis redis-listener
+	${DOCKER_COMPOSE_INT_TEST} up -d backend
 # note: we need the -T option for ci (non tty environment)
 	${DOCKER_COMPOSE_INT_TEST} exec ${COVER_OPTS} -e PO_EAGER_LOAD_DATA=1 -T backend yath -PProductOpener::LoadData tests/integration
 	${DOCKER_COMPOSE_INT_TEST} stop
@@ -293,7 +293,7 @@ test-unit: guard-test create_folders
 # you can also add args= to pass more options to your test command
 test-int: guard-test create_folders
 	@echo "🥫 Running test: 'tests/integration/${test}' …"
-	${DOCKER_COMPOSE_INT_TEST} up -d memcached postgres mongodb backend dynamicfront incron minion keycloak redis redis-listener
+	${DOCKER_COMPOSE_INT_TEST} up -d backend
 	${DOCKER_COMPOSE_INT_TEST} exec -e PO_EAGER_LOAD_DATA=1 backend ${TEST_CMD} ${args} tests/integration/${test}
 # better shutdown, for if we do a modification of the code, we need a restart
 	${DOCKER_COMPOSE_INT_TEST} stop backend
