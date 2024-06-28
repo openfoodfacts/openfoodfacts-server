@@ -246,10 +246,10 @@ sub delete_user_task ($job, $args_ref) {
 	$log->info("delete_user", {userid => $userid, new_userid => $new_userid}) if $log->is_info();
 
 	# Remove the user
-	remove_user($args_ref);
-
-	#  re-assign product edits to anonymous-[random number]
-	find_and_replace_user_id_in_products($userid, $new_userid);
+	if (remove_user($args_ref)) {
+		#  re-assign product edits to anonymous-[random number]
+		find_and_replace_user_id_in_products($userid, $new_userid);
+	}
 
 	$job->finish("done");
 
@@ -1001,6 +1001,20 @@ sub store_user ($user_ref) {
 # This does the actual user deletion
 sub remove_user ($user_ref) {
 	my $userid = $user_ref->{userid};
+
+	my $org_ref = $user_ref->{org} ? retrieve_org($user_ref->{org}) : undef;
+	# Remove the user from the org
+	if (defined $org_ref) {
+		if ($org_ref->{main_contact} eq $userid
+			or (is_user_in_org_group($org_ref, $userid, 'admins') and scalar(keys %{$org_ref->{admins}}) == 1))
+		{
+			return 0;
+		}
+		else {
+			remove_user_by_org_admin($user_ref->{org}, $userid);
+		}
+	}
+
 	my $user_file = "$BASE_DIRS{USERS}/" . get_string_id_for_lang("no_language", $userid) . ".sto";
 
 	# Remove the user file
@@ -1017,7 +1031,7 @@ sub remove_user ($user_ref) {
 		}
 	}
 
-	return;
+	return 1;
 }
 
 sub retrieve_userids() {

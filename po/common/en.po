@@ -6962,6 +6962,14 @@ msgctxt "cant_delete_main_contact"
 msgid "You cannot remove the main contact. Change it first."
 msgstr "You cannot remove the main contact. Change it first."
 
+msgctxt "cant_delete_user_main_contact"
+msgid "This is user can't be deleted, he is the main of his organization"
+msgstr "This is user can't be deleted, he is the main of his organization"
+
+msgctxt "cant_delete_user_last_admin"
+msgid "This is user can't be deleted, he is the unique admin of his organization"
+msgstr "This is user can't be deleted, he is the unique admin of his organization"
+
 msgctxt "open_in_crm"
 msgid "Open in CRM"
 msgstr "Open in CRM"

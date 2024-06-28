@@ -30,7 +30,7 @@ use ProductOpener::Display qw/:all/;
 use ProductOpener::Web qw/get_countries_options_list get_languages_options_list/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/$lc  %Lang lang/;
-use ProductOpener::Orgs qw/org_name retrieve_org/;
+use ProductOpener::Orgs qw/org_name retrieve_org is_user_in_org_group/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::CRM qw/get_contact_url/;
 
@@ -107,6 +107,18 @@ if ($action eq 'process') {
 
 	if ($type eq 'edit') {
 		if (single_param('delete') eq 'on') {
+
+			# check if the user is not the last admin or the main_contact of its organization
+			my $org_ref = $user_ref->{org} ? retrieve_org($user_ref->{org}) : undef;
+			if (defined $org_ref) {
+				if ($org_ref->{main_contact} eq $userid) {
+					push @errors, lang("cant_delete_user_main_contact");
+				}
+				if (is_user_in_org_group($org_ref, $userid, 'admins') and scalar(keys %{$org_ref->{admins}}) == 1) {
+					push @errors, lang("cant_delete_user_last_admin");
+				}
+			}
+
 			$type = 'delete';
 		}
 	}
