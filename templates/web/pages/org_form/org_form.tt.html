@@ -87,7 +87,8 @@
 		<input type="submit" id="invite_button" name=".submit" class="button" value= "[% edq(lang('invite_user')) %]" disabled />
 	</form>
 
-	[% IF (admin OR user_is_admin.$current_user_id) AND pending_users %] 
+	<!-- pending users -->
+	[% IF (admin OR user_is_admin.$current_user_id) AND pending_users AND org_is_accepted %] 
 	<p>[% lang("users_requested_to_join_org") %]</p>
 	<table>
 		<thead>

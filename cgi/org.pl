@@ -474,6 +474,7 @@ $template_data_ref->{current_user_id} = $User_id;
 
 $template_data_ref->{main_contact} = $org_ref->{main_contact};
 $template_data_ref->{crm_company_url} = get_company_url($org_ref);
+$template_data_ref->{org_is_accepted} = $org_ref->{valid_org} eq 'accepted' ? 1 : 0;
 
 process_template('web/pages/org_form/org_form.tt.html', $template_data_ref, \$html)
 	or $html = "<p>template error: " . $tt->error() . "</p>";
