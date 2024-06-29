@@ -378,6 +378,7 @@
       "en:code-missing",
       "en:created-missing"
    ],
+   "data_quality_errors_producers_tags" : [],
    "data_quality_errors_tags" : [],
    "data_quality_info_tags" : [
       "en:packaging-data-incomplete",
@@ -400,6 +401,7 @@
       "en:ecoscore-packaging-unspecified-material",
       "en:ecoscore-production-system-no-label"
    ],
+   "data_quality_warnings_producers_tags" : [],
    "data_quality_warnings_tags" : [
       "en:ecoscore-packaging-unspecified-material",
       "en:ecoscore-production-system-no-label"
@@ -848,6 +850,8 @@
          }
       ]
    },
+   "improvements_data" : {},
+   "improvements_tags" : [],
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "9410",
@@ -1282,6 +1286,9 @@
                "negative" : [
                   {
                      "id" : "energy",
+                     "new_grade" : "d",
+                     "new_score" : 12,
+                     "new_value" : 670,
                      "points" : 2,
                      "points_max" : 10,
                      "unit" : "kJ",
@@ -1289,6 +1296,9 @@
                   },
                   {
                      "id" : "sugars",
+                     "new_grade" : "d",
+                     "new_score" : 12,
+                     "new_value" : 24,
                      "points" : 7,
                      "points_max" : 15,
                      "unit" : "g",
@@ -1296,6 +1306,9 @@
                   },
                   {
                      "id" : "saturated_fat",
+                     "new_grade" : "d",
+                     "new_score" : 12,
+                     "new_value" : 3,
                      "points" : 3,
                      "points_max" : 10,
                      "unit" : "g",
@@ -1303,6 +1316,9 @@
                   },
                   {
                      "id" : "salt",
+                     "new_grade" : "d",
+                     "new_score" : 12,
+                     "new_value" : 0.2,
                      "points" : 1,
                      "points_max" : 20,
                      "unit" : "g",
@@ -1312,6 +1328,9 @@
                "positive" : [
                   {
                      "id" : "fiber",
+                     "new_grade" : "d",
+                     "new_score" : 11,
+                     "new_value" : 4.2,
                      "points" : 0,
                      "points_max" : 5,
                      "unit" : "g",
@@ -1319,6 +1338,9 @@
                   },
                   {
                      "id" : "fruits_vegetables_legumes",
+                     "new_grade" : "d",
+                     "new_score" : 12,
+                     "new_value" : 41,
                      "points" : 0,
                      "points_max" : 5,
                      "unit" : "%",

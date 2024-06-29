@@ -351,6 +351,7 @@
       "en:code-missing",
       "en:created-missing"
    ],
+   "data_quality_errors_producers_tags" : [],
    "data_quality_errors_tags" : [],
    "data_quality_info_tags" : [
       "en:no-packaging-data",
@@ -378,6 +379,7 @@
       "en:ecoscore-packaging-packaging-data-missing",
       "en:ecoscore-production-system-no-label"
    ],
+   "data_quality_warnings_producers_tags" : [],
    "data_quality_warnings_tags" : [
       "en:ingredients-unknown-score-above-0",
       "en:ingredients-100-percent-unknown",
@@ -786,6 +788,8 @@
       "en:milk-and-dairy-products",
       "en:cheese"
    ],
+   "improvements_data" : {},
+   "improvements_tags" : [],
    "ingredients" : [
       {
          "id" : "en:some-ingredient-that-we-do-not-recognize",
