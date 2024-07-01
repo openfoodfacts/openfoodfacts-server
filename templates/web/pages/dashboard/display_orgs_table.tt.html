@@ -26,8 +26,8 @@
                 <td>[% org.valid_org %]</td>
                 <td>[% display_date_tag(org.created_t) %]</td>
                 <td>[% display_date_tag(org.last_logged_member_t) %]</td>
+                <td>[% display_date_tag(org.last_import_t) %]</td>
                 <td>[% org.last_import_type %]</td>
-                <td>[% org.creator %]</td>
             </tr>
             [% SET count = count + 1 %]
         [% END %]
