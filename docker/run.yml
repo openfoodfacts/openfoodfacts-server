@@ -1,0 +1,17 @@
+# Referenced when running locally
+
+services:
+  backend:
+    networks:
+      # Needed to access MongoDB and Redis
+      shared_network:
+  minion:
+    networks:
+      # Needed to access MongoDB and Redis
+      shared_network:
+
+networks:
+  # This network allows access to shared services like MongoDB and Redis
+  shared_network:
+    name: ${COMMON_NET_NAME}
+    external: true

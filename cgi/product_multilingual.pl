@@ -55,7 +55,7 @@ use ProductOpener::Events qw/send_event/;
 use ProductOpener::API qw/get_initialized_response/;
 use ProductOpener::APIProductWrite qw/skip_protected_field/;
 use ProductOpener::ProductsFeatures qw/feature_enabled/;
-use ProductOpener::Orgs qw/update_import_date/;
+use ProductOpener::Orgs qw/update_import_date update_last_import_type/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -276,6 +276,7 @@ if ($type eq 'search_or_add') {
 				# sync crm
 				if (defined $Org_id) {
 					update_import_date($Org_id, $product_ref->{created_t});
+					update_last_import_type($Org_id, 'Manual import');
 				}
 
 				$type = 'add';
@@ -721,6 +722,8 @@ sub display_input_field ($product_ref, $field, $language) {
 	$template_data_ref_field->{display_lc} = $display_lc;
 	$template_data_ref_field->{autocomplete} = $autocomplete;
 	$template_data_ref_field->{fieldtype} = $Lang{$fieldtype}{$lc};
+	$template_data_ref_field->{owner_field} = is_owner_field($product_ref, $field);
+	$template_data_ref_field->{protected_field} = skip_protected_field($product_ref, $field, $User{moderator});
 
 	my $html_field = '';
 
@@ -1310,6 +1313,12 @@ CSS
 			$nutriment_ref->{units_arr} = \@units_arr;
 
 		}
+
+		# Determine which field has a value from the manufacturer and if it is protected
+		$nutriment_ref->{owner_field} = is_owner_field($product_ref, $nid);
+		$nutriment_ref->{protected_field} = skip_protected_field($product_ref, $nid, $User{moderator});
+		$nutriment_ref->{protected_field_prepared}
+			= skip_protected_field($product_ref, $nid . "_prepared", $User{moderator});
 
 		$nutriment_ref->{shown} = $shown;
 		$nutriment_ref->{enid} = $enid;
