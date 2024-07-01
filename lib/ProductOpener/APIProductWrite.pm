@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2024 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -54,6 +54,7 @@ use ProductOpener::Packaging
 	qw/add_or_combine_packaging_component_data get_checked_and_taxonomized_packaging_component_data/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::Tags qw/%language_fields %writable_tags_fields add_tags_to_field compute_field_tags/;
+use ProductOpener::Auth qw/get_azp/;
 
 use Encode;
 
@@ -427,7 +428,7 @@ sub write_product_api ($request_ref) {
 
 		# The product does not exist yet, or the requested code is "test"
 		if (not defined $product_ref) {
-			$product_ref = init_product($User_id, $Org_id, $code, $country);
+			$product_ref = init_product($User_id, $Org_id, $code, $country, get_azp($request_ref->{access_token}));
 			$product_ref->{interface_version_created} = "20221102/api/v3";
 		}
 
@@ -474,7 +475,7 @@ sub write_product_api ($request_ref) {
 			# Save the product
 			if ($code ne "test") {
 				my $comment = $request_body_ref->{comment} || "API v3";
-				store_product($User_id, $product_ref, $comment);
+				store_product($User_id, $product_ref, $comment, get_azp($request_ref->{access_token}));
 			}
 
 			# Select / compute only the fields requested by the caller, default to updated fields

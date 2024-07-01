@@ -1,12 +1,13 @@
 
 =head1 NAME
 
-ProductOpener::Redis - functions to push information to redis
+ProductOpener::Redis - functions to integrate with redis
 
 =head1 DESCRIPTION
 
 C<ProductOpener::Redis> is handling pushing info to Redis
-to communicate updates to all services, including search-a-licious.
+to communicate updates to all services, including search-a-licious,
+as well as receiving updates from other services like Keycloak.
 
 =cut
 
@@ -16,13 +17,14 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::PerlStandards;
 use Exporter qw< import >;
 use Encode;
-use JSON::PP;
+use JSON;
 
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		&get_rate_limit_user_requests
 		&increment_rate_limit_requests
+		&subscribe_to_redis_streams
 		&push_to_redis_stream
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -32,7 +34,8 @@ use vars @EXPORT_OK;
 
 use Log::Any qw/$log/;
 use ProductOpener::Config qw/$redis_url/;
-use Redis;
+use AnyEvent;
+use AnyEvent::RipeRedis;
 
 =head2 $redis_client
 
@@ -60,11 +63,26 @@ sub init_redis() {
 	$log->debug("init_redis", {redis_url => $redis_url})
 		if $log->is_debug();
 	eval {
-		$redis_client = Redis->new(
-			server => $redis_url,
+		my ($host, $port) = split /:/, $redis_url;
+		$redis_client = AnyEvent::RipeRedis->new(
+			host => $host,
+			port => $port,
 			# we don't want to sacrifice too much performance for redis problems
 			cnx_timeout => 1,
 			write_timeout => 1,
+			on_connect => sub {
+				$log->info("Connected to Redis") if $log->is_info();
+			},
+
+			on_disconnect => sub {
+				$log->info("Disconnected from Redis") if $log->is_info();
+			},
+
+			on_error => sub {
+				my $err = shift;
+
+				$log->warn("Error from Redis", {error => $err}) if $log->is_warn();
+			},
 		);
 	};
 	if ($@) {
@@ -72,6 +90,110 @@ sub init_redis() {
 		$redis_client = undef;    # this ask for eventual reconnection
 	}
 	return;
+}
+
+=head2 subscribe_to_redis_streams ()
+
+Subscribe to redis stream to be informed about user deletions.
+
+=cut
+
+sub subscribe_to_redis_streams () {
+	if (!$redis_url) {
+		# No Redis URL provided, we can't push to Redis
+		if (!$sent_warning_about_missing_redis_url) {
+			$log->warn("Redis URL not provided for streaming") if $log->is_warn();
+			$sent_warning_about_missing_redis_url = 1;
+		}
+		return;
+	}
+
+	if (!defined $redis_client) {
+		# we where deconnected, try again
+		$log->info("Trying to reconnect to Redis") if $log->is_info();
+		init_redis();
+	}
+
+	if (!defined $redis_client) {
+		$log->warn("Can't connect to Redis") if $log->is_warn();
+		return;
+	}
+
+	_read_user_deleted_stream('$');
+
+	return;
+}
+
+sub _read_user_deleted_stream($search_from) {
+	$log->info("Reading from Redis", {stream => 'user-deleted', search_from => $search_from}) if $log->is_info();
+	$redis_client->xread(
+		'BLOCK' => 0,
+		'STREAMS' => 'user-deleted',
+		$search_from,
+		sub {
+			my ($reply_ref, $err) = @_;
+			if ($err) {
+				$log->warn("Error reading from Redis", {error => $err}) if $log->is_warn();
+				return;
+			}
+
+			if ($reply_ref) {
+				my $last_processed_message_id = _process_xread_stream_reply($reply_ref);
+				if ($last_processed_message_id) {
+					$search_from = $last_processed_message_id;
+				}
+			}
+
+			_read_user_deleted_stream($search_from);
+			return;
+		}
+	);
+
+	return;
+}
+
+sub _process_xread_stream_reply($reply_ref) {
+	my $last_processed_message_id;
+	require ProductOpener::Producers;
+
+	my @streams = @{$reply_ref};
+	foreach my $stream_ref (@streams) {
+		my @stream = @{$stream_ref};
+		if (not($stream[0] eq 'user-deleted')) {
+			return;
+		}
+
+		$last_processed_message_id = _process_deleted_users_stream($stream[1]);
+	}
+
+	return $last_processed_message_id,;
+}
+
+sub _process_deleted_users_stream ($stream_values_ref) {
+	my $last_processed_message_id;
+
+	foreach my $outer_ref (@{$stream_values_ref}) {
+		my @outer = @{$outer_ref};
+		my $message_id = $outer[0];
+		my @values = @{$outer[1]};
+
+		my %message_hash;
+		for (my $i = 0; $i < scalar(@values); $i += 2) {
+			my $key = $values[$i];
+			my $value = $values[$i + 1];
+			$message_hash{$key} = $value;
+		}
+
+		$log->info("User deleted", {user_id => $message_hash{'userName'}}) if $log->is_info();
+
+		my $args_ref = {userid => $message_hash{'userName'}};
+		ProductOpener::Producers::queue_job(
+			delete_user => [$args_ref] => {queue => $server_options{minion_local_queue}});
+
+		$last_processed_message_id = $message_id;
+	}
+
+	return $last_processed_message_id;
 }
 
 =head2 push_to_redis_stream ($user_id, $product_ref, $action, $comment, $diffs)
@@ -123,6 +245,7 @@ sub push_to_redis_stream ($user_id, $product_ref, $action, $comment, $diffs) {
 	if (defined $redis_client) {
 		$log->debug("Pushing product update to Redis", {product_code => $product_ref->{code}}) if $log->is_debug();
 		eval {
+			my $cv = AE::cv;
 			$redis_client->xadd(
 				# name of the Redis stream
 				$options{redis_stream_name},
@@ -131,11 +254,32 @@ sub push_to_redis_stream ($user_id, $product_ref, $action, $comment, $diffs) {
 				# We let Redis generate the id
 				'*',
 				# fields
-				'code', Encode::encode_utf8($product_ref->{code}),
-				'flavor', Encode::encode_utf8($options{current_server}),
-				'user_id', Encode::encode_utf8($user_id), 'action', Encode::encode_utf8($action),
-				'comment', Encode::encode_utf8($comment), 'diffs', encode_json($diffs)
+				'code',
+				Encode::encode_utf8($product_ref->{code}),
+				'flavor',
+				Encode::encode_utf8($options{current_server}),
+				'user_id',
+				Encode::encode_utf8($user_id),
+				'action',
+				Encode::encode_utf8($action),
+				'comment',
+				Encode::encode_utf8($comment),
+				'diffs',
+				encode_json($diffs),
+				sub {
+					my ($reply, $err) = @_;
+					if (defined $err) {
+						$log->warn("Error adding data to stream", {error => $err}) if $log->is_warn();
+					}
+					else {
+						$log->info("Data added to stream with ID", {reply => $reply}) if $log->is_info();
+					}
+
+					$cv->send;
+					return;
+				}
 			);
+			$cv->recv;
 		};
 		$error = $@;
 	}

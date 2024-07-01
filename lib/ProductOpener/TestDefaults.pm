@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2024 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -50,7 +50,7 @@ The default test password
 
 =cut
 
-my $test_password = "testtest";
+my $test_password = "!!!TestTest1!!!";
 
 =head2 %default_user_form
 

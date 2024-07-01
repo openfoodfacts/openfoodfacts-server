@@ -1,0 +1,24 @@
+include:
+  - ${DEPS_DIR}/openfoodfacts-shared-services/docker-compose.yml
+  - ${DEPS_DIR}/openfoodfacts-auth/docker-compose.yml
+
+services:
+  backend:
+    depends_on:
+      postgres:
+        condition: service_started
+      mongodb:
+        condition: service_started
+      dynamicfront:
+        condition: service_started
+      incron:
+        condition: service_started
+      minion:
+        condition: service_started
+      redis:
+        condition: service_started
+      redis-listener:
+        condition: service_started
+      keycloak:
+        # Keycloak takes a while to start so need to wait until it is healthy
+        condition: service_healthy

@@ -54,13 +54,15 @@ DOCKER_COMPOSE_RUN=COMPOSE_FILE="${COMPOSE_FILE};docker/run.yml" ${DOCKER_COMPOS
 # keep web-default for web contents
 # we also publish mongodb on a separate port to avoid conflicts
 # we also enable the possibility to fake services in po_test_runner
-DOCKER_COMPOSE_TEST=WEB_RESOURCES_PATH=./web-default ROBOTOFF_URL="http://backend:8881/" GOOGLE_CLOUD_VISION_API_URL="http://backend:8881/" COMPOSE_PROJECT_NAME=${COMPOSE_PROJECT_NAME}_test COMPOSE_FILE="${COMPOSE_FILE};${DEPS_DIR}/openfoodfacts-shared-services/docker-compose.yml" PO_COMMON_PREFIX=test_ MONGO_EXPOSE_PORT=27027 MONGODB_CACHE_SIZE=4 ODOO_CRM_URL= docker compose --env-file=${ENV_FILE}
-# Enable Redis only for integration tests
-DOCKER_COMPOSE_INT_TEST=REDIS_URL="redis:6379" ${DOCKER_COMPOSE_TEST}
+DOCKER_COMPOSE_TEST_BASE=WEB_RESOURCES_PATH=./web-default ROBOTOFF_URL="http://backend:8881/" GOOGLE_CLOUD_VISION_API_URL="http://backend:8881/" COMPOSE_PROJECT_NAME=${COMPOSE_PROJECT_NAME}_test PO_COMMON_PREFIX=test_ MONGODB_CACHE_SIZE=4 ODOO_CRM_URL= docker compose --env-file=${ENV_FILE}
+DOCKER_COMPOSE_TEST=COMPOSE_FILE="${COMPOSE_FILE};${DEPS_DIR}/openfoodfacts-shared-services/docker-compose.yml" ${DOCKER_COMPOSE_TEST_BASE}
+# Enable Redis only for integration tests. TODO: Currently using dev tag for keycloak - need to switch to main
+DOCKER_COMPOSE_INT_TEST=COMPOSE_FILE="${COMPOSE_FILE};docker/integration-test.yml" REDIS_URL="redis:6379" KEYCLOAK_BASE_URL=http://keycloak:8080 PRODUCT_OPENER_OIDC_DISCOVERY_ENDPOINT=http://keycloak:8080/realms/open-products-facts/.well-known/openid-configuration KEYCLOAK_TAG=dev KEYCLOAK_ADMIN=test KEYCLOAK_ADMIN_PASSWORD=test KC_DB_USERNAME=test KC_DB_PASSWORD=test ${DOCKER_COMPOSE_TEST_BASE}
+
 TEST_CMD ?= yath test -PProductOpener::LoadData
 
 # Space delimited list of dependant projects
-DEPS=openfoodfacts-shared-services
+DEPS=openfoodfacts-shared-services openfoodfacts-auth 
 # Set the DEPS_DIR if it hasn't been set already
 ifeq (${DEPS_DIR},)
 	export DEPS_DIR=${PWD}/deps
@@ -128,7 +130,7 @@ build:
 	@echo "🥫 Building containers …"
 	${DOCKER_COMPOSE} build ${args} ${container} 2>&1
 
-_up:run_deps
+_up: run_deps
 	@echo "🥫 Starting containers …"
 	${DOCKER_COMPOSE_RUN} up -d 2>&1
 	@echo "🥫 started service at http://openfoodfacts.localhost"
@@ -142,7 +144,7 @@ prod_up: build create_folders
 
 down:
 	@echo "🥫 Bringing down containers …"
-	${DOCKER_COMPOSE} down
+	${DOCKER_COMPOSE} down --remove-orphans
 
 hdown:
 	@echo "🥫 Bringing down containers and associated volumes …"
@@ -264,19 +266,13 @@ unit_test: create_folders
 
 integration_test: create_folders
 	@echo "🥫 Running integration tests …"
-# we launch the server and run tests within same container
-# we also need dynamicfront for some assets to exists
+# we launch the server and run tests within same container. Dependendies are listed in integration-test.yml
 # this is the place where variables are important
-	${DOCKER_COMPOSE_INT_TEST} up -d memcached postgres mongodb backend dynamicfront incron minion redis
+	${DOCKER_COMPOSE_INT_TEST} up -d backend
 # note: we need the -T option for ci (non tty environment)
 	${DOCKER_COMPOSE_INT_TEST} exec ${COVER_OPTS} -e PO_EAGER_LOAD_DATA=1 -T backend yath -PProductOpener::LoadData tests/integration
 	${DOCKER_COMPOSE_INT_TEST} stop
 	@echo "🥫 integration tests success"
-
-# stop all tests dockers
-test-stop:
-	@echo "🥫 Stopping test dockers"
-	${DOCKER_COMPOSE_TEST} stop
 
 # usage:  make test-unit test=test-name.t
 # you can use TEST_CMD to change test command, like TEST_CMD="perl -d" to debug a test
@@ -292,14 +288,14 @@ test-unit: guard-test create_folders
 # you can also add args= to pass more options to your test command
 test-int: guard-test create_folders
 	@echo "🥫 Running test: 'tests/integration/${test}' …"
-	${DOCKER_COMPOSE_INT_TEST} up -d memcached postgres mongodb backend dynamicfront incron minion redis
+	${DOCKER_COMPOSE_INT_TEST} up -d backend
 	${DOCKER_COMPOSE_INT_TEST} exec -e PO_EAGER_LOAD_DATA=1 backend ${TEST_CMD} ${args} tests/integration/${test}
 # better shutdown, for if we do a modification of the code, we need a restart
-	${DOCKER_COMPOSE_INT_TEST} stop backend
+	${DOCKER_COMPOSE_INT_TEST} stop
 
 # stop all docker tests containers
 stop_tests:
-	${DOCKER_COMPOSE_TEST} stop
+	${DOCKER_COMPOSE_INT_TEST} stop
 
 # clean tests, remove containers and volume (useful if you changed env variables, etc.)
 clean_tests:
@@ -307,11 +303,9 @@ clean_tests:
 
 update_tests_results: build_taxonomies_test build_lang_test
 	@echo "🥫 Updated expected test results with actuals for easy Git diff"
-	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb backend dynamicfront incron
-	${DOCKER_COMPOSE_TEST} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl ${name}
-	${DOCKER_COMPOSE_TEST} run --rm backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
-	${DOCKER_COMPOSE_TEST} exec -T -w /opt/product-opener/tests backend bash update_tests_results.sh
-	${DOCKER_COMPOSE_TEST} stop
+	${DOCKER_COMPOSE_INT_TEST} up -d backend
+	${DOCKER_COMPOSE_INT_TEST} exec -T -w /opt/product-opener/tests backend bash update_tests_results.sh
+	${DOCKER_COMPOSE_INT_TEST} stop
 
 bash:
 	@echo "🥫 Open a bash shell in the backend container"
@@ -511,4 +505,3 @@ guard-%: # guard clause for targets that require an environment variable (usuall
    		echo "Environment variable '$*' is not set"; \
    		exit 1; \
 	fi;
-
