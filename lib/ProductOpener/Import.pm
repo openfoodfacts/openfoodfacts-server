@@ -2775,7 +2775,6 @@ sub import_csv_file ($args_ref) {
 	my @csv_from_sftp_dir = qw(
 		https://www.carrefour.fr
 		https://www.intermarche.com/
-		https://bayard.com/
 	);
 
 	foreach my $org_id (keys %{$stats_ref->{orgs_existing}}) {
