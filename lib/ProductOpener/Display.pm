@@ -182,14 +182,6 @@ use ProductOpener::Cache qw/$max_memcached_object_size $memd generate_cache_key/
 use ProductOpener::Permissions qw/has_permission/;
 use ProductOpener::ProductsFeatures qw(feature_enabled);
 
-use ProductOpener::Index qw/:all/;
-use ProductOpener::Display qw/:all/;
-use ProductOpener::Users qw/:all/;
-use ProductOpener::Lang qw/$lc %Lang lang/;
-use ProductOpener::Orgs qw/:all/;
-use ProductOpener::Tags qw/canonicalize_tag_link/;
-use ProductOpener::Text qw/remove_tags_and_quote/;
-
 use Encode;
 use URI::Escape::XS;
 use CGI::Carp qw(fatalsToBrowser);

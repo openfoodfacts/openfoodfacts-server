@@ -124,7 +124,7 @@ sub load_routes() {
 	# Renamed text : en/nova-groups-for-food-processing -> nova, ...
 	my @redirect_text_route = ();
 	if (defined $options{redirect_texts}) {
-		# we use a custome regex to exactly match "en/nova-groups-for-food-processing"
+		# we use a custom regex to exactly match "en/nova-groups-for-food-processing"
 		@redirect_text_route = (map {["\^$_\$", \&redirect_text_route, {regex => 1}]} keys %{$options{redirect_texts}});
 	}
 	push(@$routes, @missions_route, @product_route, @text_route, @lc_product_route, @redirect_text_route,);
@@ -302,7 +302,7 @@ sub api_route($request_ref, @components) {
 		param("code", $components[3]);
 		$request_ref->{code} = $components[3];
 	}
-	elsif ($api_action eq "tag") {    # api/v3/[tag]/[type]/[tagid]
+	elsif ($api_action eq "tag") {    # api/v3/tag/[type]/[tagid]
 		param("tagtype", $components[3]);
 		$request_ref->{tagtype} = $components[3];
 		param("tagid", $components[4]);
@@ -444,7 +444,7 @@ sub lc_product_route($request_ref, @components) {
 	return 1;
 }
 
-sub handle_other_tag_types_in_route($request_ref, @components) {
+sub facets_route($request_ref, @components) {
 
 	my $target_lc = $request_ref->{lc};
 	$request_ref->{canon_rel_url} = '';
