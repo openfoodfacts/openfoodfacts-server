@@ -25,9 +25,6 @@
 # The result is saved in a csv file in the cwd.
 # Last columns may be filled by hand and used for later processing.
 
-binmode(STDOUT, ":encoding(UTF-8)");
-binmode(STDERR, ":encoding(UTF-8)");
-
 use ProductOpener::PerlStandards;
 use Modern::Perl '2017';
 use utf8;
@@ -38,6 +35,10 @@ use ProductOpener::Users qw/retrieve_user/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::CRM qw/:all/;
 use Encode;
+
+
+binmode(STDOUT, ":encoding(UTF-8)");
+binmode(STDERR, ":encoding(UTF-8)");
 
 my $matches = [];
 
