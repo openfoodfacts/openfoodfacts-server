@@ -36,7 +36,6 @@ use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::CRM qw/:all/;
 use Encode;
 
-
 binmode(STDOUT, ":encoding(UTF-8)");
 binmode(STDERR, ":encoding(UTF-8)");
 
