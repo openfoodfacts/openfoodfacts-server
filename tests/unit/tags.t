@@ -619,6 +619,43 @@ is(
 	}
 ) or diag Dumper $tag_ref;
 
+# Test remove_tags_from_fields
+
+# removing 2 tags in a list of 4
+$product_ref = {
+	lc => "fr",
+	categories => "pommes, bananes, en:pears, fr:fraises",
+};
+
+remove_tags_from_field($product_ref, "fr", "categories", ("bananes", "fr:fraises"));
+is($product_ref->{categories}, "pommes, en:pears");
+
+# removing values that are not in the list
+$product_ref = {
+	lc => "fr",
+	categories => "pommes, bananes",
+};
+
+remove_tags_from_field($product_ref, "fr", "categories", ("fraises", "oranges"));
+is($product_ref->{categories}, "pommes, bananes");
+
+# empty list of tags to remove
+$product_ref = {
+	lc => "fr",
+	categories => "pommes, bananes",
+};
+
+remove_tags_from_field($product_ref, "fr", "categories", ());
+is($product_ref->{categories}, "pommes, bananes");
+
+# removing all tags
+$product_ref->{lc => "fr",
+	categories => "pommes, bananes",
+};
+
+remove_tags_from_field($product_ref, "fr", "categories", ("pommes", "bananes"));
+is($product_ref->{categories}, "");
+
 # check that %tags_texts is populated on demand
 ProductOpener::Tags::init_tags_texts();
 # Assumes we will always have french additive texts for E100.
