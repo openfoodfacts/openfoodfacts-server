@@ -1,23 +1,30 @@
 #footer_block_image_banner_outside {
-  background: no-repeat top left url(/images/illustrations/footer-planet.svg)
+  background: no-repeat top left url(/images/illustrations/footer-planet.svg);
 }
 
 #footer_block_image_banner_outside2 {
-  background: no-repeat bottom right url(/images/illustrations/footer-orange.svg)
+  background: no-repeat bottom right
+    url(/images/illustrations/footer-orange.svg);
 }
 
 #footer_block_image_banner_inside {
-//  @media only screen and (max-width: 100rem) {margin-left:140px;}
+  //  @media only screen and (max-width: 100rem) {margin-left:140px;}
 }
 
 .tags_links {
-    a {
-        margin-bottom: $inline-list-default-float-list-margin !important;
-    }
+  a {
+    margin-bottom: $inline-list-default-float-list-margin !important;
+  }
 }
 
 #footer_block {
-    ul {
-        display: inline-block;
-    }
+  ul {
+    display: inline-block;
+  }
+}
+
+@media #{$small-only} {
+  #contribute_and_discover_links_block {
+    padding: 1rem;
+  }
 }
