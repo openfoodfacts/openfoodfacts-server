@@ -335,7 +335,7 @@ the company if found, undef otherwise
 =cut
 
 sub find_company($org_ref, $contact_id = undef) {
-	my $org_name = $org_ref->{name}; 
+	my $org_name = $org_ref->{name};
 	# escape % and _ in org name, because of the ilike operator
 	$org_name =~ s/([%_])/\\$1/g;
 	# 1. & 3. merged in one query
