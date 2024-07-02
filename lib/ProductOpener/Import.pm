@@ -2780,7 +2780,7 @@ sub import_csv_file ($args_ref) {
 		agena3000
 		equadis
 		bayard
-	); 
+	);
 
 	foreach my $org_id (keys %{$stats_ref->{orgs_existing}}) {
 		update_import_date($org_id, $time);
@@ -2788,7 +2788,7 @@ sub import_csv_file ($args_ref) {
 		if (exists $args_ref->{source_id}) {
 			my $source = $args_ref->{source_id};
 
-			if (grep {$_ eq $source}  @catalogs) {
+			if (grep {$_ eq $source} @catalogs) {
 				update_last_import_type($org_id, uc($source));
 			}
 			elsif (grep {$_ eq $args_ref->{source_url}} @csv_from_sftp_dir) {
