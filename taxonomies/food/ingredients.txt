@@ -764,6 +764,8 @@ nl:koosjere gelatine
 pl:koszerna żelatyna
 pt:gelatina kosher
 
+<en:E440
+de:flüssiges pektin
 
 <en:E440
 en:fruit pectin
@@ -782,7 +784,6 @@ nl:vruchtenpectine, fruitpectine
 pl:pektyna owocowa, pektyna z owoców
 # fr:pectine-de-fruit has 1579 products in 6 languages @2018-11-03
 
-<en:apple
 <en:fruit pectin
 en:apple pectin
 bg:ябълков пектин
@@ -796,7 +797,6 @@ nl:appelpectine
 
 # description:en:Modified citrus pectin (also known as CITRUS PECTIN, Pecta-Sol and MCP) is a modified, more digestible form of pectin. It is obtained from the peels, seeds and pulp of citrus fruits using a chemical extraction process.
 
-<en:citrus
 <en:fruit pectin
 en:citrus pectin, modified citrus pectin, citric pectin
 bg:цитрусов пектин
@@ -1218,6 +1218,7 @@ de:Tempeh-Kultur
 
 <en:lactic ferments
 en:yogurt cultures
+es:fermentos del yogur
 fr:cultures de yaourt
 hr:jogurtna kultura, jogurtne kulture, jogurtna baza
 
@@ -2452,6 +2453,10 @@ hu:félig sózott kevert vaj
 it:burro di baratte semi-salato
 nl:halfgezouten gekarnde boter
 pt:manteiga de baratte meio salgada
+
+<en:churned butter
+en:unsalted churned butter
+fr:beurre doux de baratte, beurre de baratte doux
 
 # description:en:PASTEURIZED BUTTER is butter created from pasteurized milk
 
@@ -4428,6 +4433,7 @@ ca:llet desnatada en pols reconstituida, llet desnatada en pols rehidratada
 es:leche desnatada en polvo reconstituida, leche desnatada en polvo rehidratada
 
 fr:matière grasse de lait anhydre
+it:grasso di latte anidro
 
 <en:milk
 fr:lait écrémé en poudre reconstitué, lait écrémé en poudre réhydraté
@@ -27319,7 +27325,7 @@ de:Dinkelmehl Type 630
 de:Dinkelmehl Type 812
 
 <en:spelt flour
-fr:farine de blé semi-complète type 80, farine de blé semi-complète t80
+fr:farine de blé semi-complète type 80, farine de blé semi-complète t80, farine de blé type 80
 
 <en:spelt flour
 fr:farine d'épeautre type 110, Farine de blé d'épeautre T110
@@ -29347,7 +29353,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Rice
 en:rice protein, rice proteins
 bg:оризов протеин
 da:risprotein, ris protein
-de:Reisprotein
+de:Reiseiweiß, Reisprotein
 es:proteinas de arroz
 fi:riisiproteiini
 fr:protéine de riz, protéines de riz
@@ -33109,7 +33115,7 @@ bg:растителен протеин, растителни протеини
 ca:Proteïna vegetal
 cs:rostlinné proteiny, rostlinné bílkoviny
 da:vegetabilsk protein
-de:pflanzliches Eiweiß, Pflanzenprotein, Pflanzenproteine
+de:pflanzliches Eiweiß, Pflanzenprotein, Pflanzenproteine, Pflanzliche Protein
 es:proteína vegetal
 fi:kasviproteiini
 fr:protéines végétales, protéine végétale
@@ -33571,7 +33577,7 @@ bs:mliječne bjelančevina
 ca:Proteina de la llet,proteines de la llet,proteïnes làcties
 cs:mléčnou bílkovinu
 da:mælkeprotein
-de:Milcheiweiß, Milchprotein, Milcheiweißerzeugnis, Milcheiweisserzeugnis, Magermilchpulverzusatz, Milcheiweiss, Milchproteine
+de:Milcheiweiß, Milcheiweib, Milchprotein, Milcheiweißerzeugnis, Milcheiweisserzeugnis, Magermilchpulverzusatz, Milcheiweiss, Milchproteine
 es:proteína de leche,proteinas lacteas
 fi:maitoproteiini, maitoproteiinit
 fr:protéine de lait, protéines de lait, protéines du lait, protéines laitières, protéines lactiques, protéine lactique, lactoprotéine, lactoprotéines
@@ -33819,6 +33825,11 @@ it:Caseinato di calcio
 nl:Calcium caseïnaat
 wikidata:en:Q522243
 wikipedia:en:https://en.wikipedia.org/wiki/Calcium_caseinate
+
+<en:plant protein
+en:sunflower protein
+fr:protéine de tournesol
+de:Sonnenblumeneiweiß, Sonnenblumenprotein
 
 <en:plant protein
 en:rapeseed protein
@@ -52636,7 +52647,7 @@ es:fibra de la raíz de achicoria,fibra de achicoria
 fi:sikurikuitu, sikurijuurikuitu
 fr:fibre de chicorée, fibres de chicorée, fibre de racine de chicorée, fibres de racine de chicorée, fibres de racines de chicorée
 hr:vlakna iz korijena cikorije
-it:Fibre di cicoria
+it:Fibre di cicoria, fibra di radice di cicoria
 nl:chichoreivezel, chichoreiwortelvezel
 pl:błonnik z cykorii, błonnik z korzenia cykorii, włókna z korzenia cykorii
 sk:vláknina z koreňa čakanky
@@ -52963,7 +52974,7 @@ es:Fibra de bambú
 fi:bambukuitu
 fr:fibre de bambou, fibres de bambou
 hr:vlakna bambusa
-it:fibre di bambù
+it:fibra di bambù, fibre di bambù
 nl:bamboevezel, bamboevezels
 pl:błonnik bambusowy, błonnik roślinny bambusowy
 sv:bambufiber
@@ -61072,6 +61083,7 @@ pl:soczewica gotowana
 # ingredient/fr:lentilles-précuites has 57 products @2019-06-02
 
 <en:lentils
+de:gelbe Linsen, Linsen gelb
 fr:lentilles blondes
 hr:leća žuta
 
@@ -62076,6 +62088,24 @@ wikidata:en:Q578307
 wikipedia:en:https://en.wikipedia.org/wiki/Hazelnut
 
 <en:hazelnut
+en:Piedmont hazelnut, PGI Piedmont hazelnut
+fr:noisette du Piémont, noisettes du Piémont
+it:nocciola Piemonte
+protected_name_type:en: en:pgi
+
+<en:Piedmont hazelnut
+<en:ground hazelnuts
+en:ground Piedmont hazelnut
+fr:noisette du Piémont en poudre
+it:polvere di nocciola Piemonte
+
+<en:Piedmont hazelnut
+<en:hazelnut paste
+en:Piedmont hazelnut paste
+fr:pâte de noisette du Piémont
+it:pasta di nocciola Piemonte
+
+<en:hazelnut
 fr:noisettes avec peau
 
 #processing:en: en:toasted
@@ -62169,7 +62199,7 @@ it:nocciole a scaglie
 
 # éclats de noisettes caramélisés is a compound producte, i.e. (noisettes, sucre de canne)
 
-<fr:éclats de noisettes
+#<en:compound
 fr:éclats de noisettes caramélisés
 fi:karamellisoidut hasselpähkinät
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:éclats-de-noisettes-caramélisés
@@ -62198,8 +62228,7 @@ sv:hasselnötsmassa, hasselnötspasta
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/hazelnut-paste
 # 965 products in 14 languages @2018-10-06
 
-<en:biscuit
-<en:hazelnut paste
+#<en:compound
 en:hazelnut paste with pieces of biscuits
 es:pasta de avellana con trozos de galletas
 fr:pâte à la noisette avec des morceaux de biscuits
@@ -62208,7 +62237,6 @@ it:pasta di nocciole con pezzi di biscotti
 nl:hazelnootpasta met stukjes koekjes
 
 <en:filling
-<en:hazelnut
 en:hazelnut filling
 es:relleno de avellana
 fr:garniture à la noisette
@@ -62218,7 +62246,7 @@ nl:hazelnootvulling
 
 # hazelnut praline is a compound product i.e.:(hazelnut, sugar)
 
-<en:hazelnut
+#<en:compound
 en:hazelnut praline
 de:Haselnuss-Praline
 fi:hasselpähkinäpraliini
@@ -64223,12 +64251,12 @@ fr:sésame complet
 <en:sesame
 en:sesame paste, sesame seed paste
 bg:паста от сусам
-de:Sesampaste
+de:Sesampaste, Sesammus
 es:pasta de sésamo
 fi:seesamitahna, sesamtahna
 fr:pâte de sésame, pâte de graines de sésame
 hr:pasta od sezama
-it:pasta di sesamo
+it:pasta di sesamo, crema di sesamo
 ja:胡麻ペスト
 nl:sesampasta
 pl:pasta sezamowa
@@ -70613,7 +70641,7 @@ bg:цвят хибискус
 ca:rosa de Jamaica
 cs:ibišek súdánský
 da:hibiskusblomst
-de:Karkadeblüten, Roselle, Hibiskus, Hibiskusblüten
+de:Karkadeblüten, Roselle, Hibiskus, Hibiskusblüte, Hibiskusblüten
 eo:Sabdarifo
 es:Flor Roselle, hibisco
 fa:روزل
@@ -71863,7 +71891,7 @@ de:Vanilleschoten gemahlen, Vannileschoten gemahlen, vermahlene Vanilleschoten
 fi:vaniljatangon palat, vaniljakodat
 fr:gousses de vanille moulues, gousses de vanille broyées
 hr:mljevene mahune vanilije
-it:semi di vaniglia macinat
+it:semi di vaniglia macinat, vaniglia in bacche macinata
 pl:kawałki wanilii, laska wanilii w proszku, mielona laska wanilii
 sv:mald vaniljstång, vaniljstångbitar
 # ingredient/fr:gousses-de-vanille-moulues has 45 products in 4 languages @2019-02-24
