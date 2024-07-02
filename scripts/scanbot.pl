@@ -33,7 +33,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die/;
 use ProductOpener::Store qw/retrieve_json store store_json/;
 use ProductOpener::Index qw/:all/;
-use ProductOpener::Display qw/$cc $country/;
+use ProductOpener::Display qw/$country/;
 use ProductOpener::Tags qw/add_tags_to_field canonicalize_taxonomy_tag/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Images qw/:all/;

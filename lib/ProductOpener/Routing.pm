@@ -46,7 +46,7 @@ use vars @EXPORT_OK;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/:all/;
 use ProductOpener::Display
-	qw/$formatted_subdomain $admin %index_tag_types_set display_robots_txt_and_exit init_request redirect_to_url single_param/;
+	qw/$formatted_subdomain %index_tag_types_set display_robots_txt_and_exit init_request redirect_to_url single_param/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/%tag_type_from_plural %tag_type_from_singular %tag_type_plural %tag_type_singular lang/;
 use ProductOpener::API qw/:all/;
@@ -242,7 +242,7 @@ sub org_route($request_ref, @components) {
 	if ($orgid ne $Org_id) {
 		$log->debug("checking edit owner", {orgid => $orgid, ownerid => $Owner_id}) if $log->is_debug();
 		my @errors = ();
-		if ($admin or $User{pro_moderator}) {
+		if ($request_ref->{admin} or $User{pro_moderator}) {
 			ProductOpener::Users::check_edit_owner(\%User, \@errors, $orgid);
 		}
 		else {

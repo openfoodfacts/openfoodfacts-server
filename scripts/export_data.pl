@@ -25,7 +25,7 @@ use utf8;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Export qw/:all/;
-use ProductOpener::Display qw/$cc $nutriment_table $subdomain search_and_export_products/;
+use ProductOpener::Display qw/$nutriment_table $subdomain search_and_export_products/;
 use ProductOpener::Lang qw/$lc/;
 use ProductOpener::Food qw/%cc_nutriment_table/;
 
@@ -70,7 +70,7 @@ my $separator = ",";
 my $include_images_paths;
 my $query_codes_from_file;
 my $format = "csv";
-$cc = "world";
+my $cc = "world";
 $lc = "en";
 
 GetOptions(
@@ -100,6 +100,7 @@ my $query_ref = {};
 my $request_ref = {};
 $request_ref->{skip_http_headers} = 1;
 $request_ref->{batch} = 1;
+$request_ref->{cc} = $cc;
 
 foreach my $field (sort keys %query_fields_values) {
 	print STDERR "-- $field: $query_fields_values{$field}\n";
