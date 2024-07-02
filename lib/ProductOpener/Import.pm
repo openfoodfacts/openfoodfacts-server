@@ -2776,15 +2776,20 @@ sub import_csv_file ($args_ref) {
 		https://www.carrefour.fr
 		https://www.intermarche.com/
 	);
+	my @catalogs = qw(
+		agena3000
+		equadis
+		bayard
+	); 
 
 	foreach my $org_id (keys %{$stats_ref->{orgs_existing}}) {
 		update_import_date($org_id, $time);
+
 		if (exists $args_ref->{source_id}) {
-			if ($args_ref->{source_id} eq 'agena3000') {
-				update_last_import_type($org_id, 'AGENA3000');
-			}
-			elsif ($args_ref->{source_id} eq 'equadis') {
-				update_last_import_type($org_id, 'EQUADIS');
+			my $source = $args_ref->{source_id};
+
+			if (grep {$_ eq $source}  @catalogs) {
+				update_last_import_type($org_id, uc($source));
 			}
 			elsif (grep {$_ eq $args_ref->{source_url}} @csv_from_sftp_dir) {
 				update_last_import_type($org_id, 'SFTP');

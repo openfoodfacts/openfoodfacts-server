@@ -89,7 +89,7 @@ my $crm_data;
 my @required_tag_labels = qw(onboarding);
 # Category (res.partner.category) must be defined in Odoo :
 # Contact > contact (individual or company) form > Tags field > "Search More"
-my @data_source = ('AGENA3000', 'EQUADIS', 'CSV', 'Manual import', 'SFTP');
+my @data_source = ('AGENA3000', 'EQUADIS', 'CSV', 'Manual import', 'SFTP', 'BAYARD');
 my @required_category_labels = ('Producer', @data_source);
 
 # special commands to manipulate Odoo relation One2Many and Many2Many
