@@ -2,6 +2,11 @@
    "additives_n" : 0,
    "additives_original_tags" : [],
    "additives_tags" : [],
+   "allergens" : "",
+   "allergens_from_ingredients" : "",
+   "allergens_from_user" : "(fr) ",
+   "allergens_hierarchy" : [],
+   "allergens_tags" : [],
    "amino_acids_tags" : [],
    "categories" : "meals",
    "categories_hierarchy" : [
@@ -70,6 +75,7 @@
       "en:pleurotus",
       "fr:chapelure-de-mais"
    ],
+   "ingredients_lc" : "fr",
    "ingredients_n" : 2,
    "ingredients_n_tags" : [
       "2",
@@ -109,7 +115,33 @@
       "en:nutriscore-2021-same-as-2023",
       "en:nutriscore-2021-a-2023-a"
    ],
+   "nova_group" : 3,
+   "nova_group_debug" : "",
+   "nova_groups" : "3",
+   "nova_groups_markers" : {
+      "3" : [
+         [
+            "categories",
+            "en:meals"
+         ]
+      ]
+   },
+   "nova_groups_tags" : [
+      "en:3-processed-foods"
+   ],
    "nucleotides_tags" : [],
+   "nutrient_levels" : {
+      "fat" : "moderate",
+      "salt" : "moderate",
+      "saturated-fat" : "low",
+      "sugars" : "low"
+   },
+   "nutrient_levels_tags" : [
+      "en:fat-in-moderate-quantity",
+      "en:saturated-fat-in-low-quantity",
+      "en:sugars-in-low-quantity",
+      "en:salt-in-moderate-quantity"
+   ],
    "nutriments" : {
       "energy_100g" : 667,
       "fat_100g" : 8.4,
@@ -118,11 +150,14 @@
       "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 69,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 69,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 69,
+      "nova-group" : 3,
+      "nova-group_100g" : 3,
+      "nova-group_serving" : 3,
       "nutrition-score-fr" : -2,
       "nutrition-score-fr_100g" : -2,
       "proteins_100g" : 2.4,
       "salt" : 1,
-      "salt_100g" : 1,
+      "salt_100g" : "1",
       "salt_unit" : "g",
       "salt_value" : 1,
       "saturated-fat_100g" : 1.2,
@@ -333,6 +368,12 @@
       "one-dish-meals",
       "known"
    ],
+   "traces" : "",
+   "traces_from_ingredients" : "",
+   "traces_from_user" : "(fr) ",
+   "traces_hierarchy" : [],
+   "traces_tags" : [],
    "unknown_ingredients_n" : 1,
+   "unknown_nutrients_tags" : [],
    "vitamins_tags" : []
 }

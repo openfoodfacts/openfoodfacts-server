@@ -9,13 +9,19 @@
       "en:e120"
    ],
    "allergens" : "",
-   "allergens_from_ingredients" : "en:gluten",
+   "allergens_from_ingredients" : "en:milk, en:nuts, en:eggs, en:gluten",
    "allergens_from_user" : "(en) ",
    "allergens_hierarchy" : [
-      "en:gluten"
+      "en:eggs",
+      "en:gluten",
+      "en:milk",
+      "en:nuts"
    ],
    "allergens_tags" : [
-      "en:gluten"
+      "en:eggs",
+      "en:gluten",
+      "en:milk",
+      "en:nuts"
    ],
    "amino_acids_tags" : [],
    "attribute_groups_en" : [
@@ -23,15 +29,15 @@
          "attributes" : [
             {
                "description" : "",
-               "description_short" : "Average nutritional quality",
-               "grade" : "c",
-               "icon_url" : "https://server_domain/images/attributes/dist/nutriscore-c.svg",
+               "description_short" : "Poor nutritional quality",
+               "grade" : "d",
+               "icon_url" : "https://server_domain/images/attributes/dist/nutriscore-d-new-en.svg",
                "id" : "nutriscore",
-               "match" : 47.3333333333333,
+               "match" : 33.6666666666667,
                "name" : "Nutri-Score",
-               "panel_id" : "nutriscore",
+               "panel_id" : "nutriscore_2023",
                "status" : "known",
-               "title" : "Nutri-Score C"
+               "title" : "Nutri-Score D"
             },
             {
                "description_short" : "0.25 g / 100 g",
@@ -90,34 +96,34 @@
                "title" : "Contains: Gluten"
             },
             {
-               "debug" : "11 ingredients (0 unknown)",
-               "grade" : "a",
-               "icon_url" : "https://server_domain/images/attributes/dist/no-milk.svg",
+               "debug" : "en:milk in allergens",
+               "grade" : "e",
+               "icon_url" : "https://server_domain/images/attributes/dist/contains-milk.svg",
                "id" : "allergens_no_milk",
-               "match" : 100,
+               "match" : 0,
                "name" : "Milk",
                "status" : "known",
-               "title" : "Does not contain: Milk"
+               "title" : "Contains: Milk"
             },
             {
-               "debug" : "11 ingredients (0 unknown)",
-               "grade" : "a",
-               "icon_url" : "https://server_domain/images/attributes/dist/no-eggs.svg",
+               "debug" : "en:eggs in allergens",
+               "grade" : "e",
+               "icon_url" : "https://server_domain/images/attributes/dist/contains-eggs.svg",
                "id" : "allergens_no_eggs",
-               "match" : 100,
+               "match" : 0,
                "name" : "Eggs",
                "status" : "known",
-               "title" : "Does not contain: Eggs"
+               "title" : "Contains: Eggs"
             },
             {
-               "debug" : "11 ingredients (0 unknown)",
-               "grade" : "a",
-               "icon_url" : "https://server_domain/images/attributes/dist/no-nuts.svg",
+               "debug" : "en:nuts in allergens",
+               "grade" : "e",
+               "icon_url" : "https://server_domain/images/attributes/dist/contains-nuts.svg",
                "id" : "allergens_no_nuts",
-               "match" : 100,
+               "match" : 0,
                "name" : "Nuts",
                "status" : "known",
-               "title" : "Does not contain: Nuts"
+               "title" : "Contains: Nuts"
             },
             {
                "debug" : "11 ingredients (0 unknown)",
@@ -1091,26 +1097,26 @@
    "lc" : "en",
    "minerals_tags" : [],
    "misc_tags" : [
-      "en:nutriscore-computed",
-      "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
-      "en:nutrition-all-nutriscore-values-known",
-      "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
-      "en:nutriscore-2021-different-from-2023",
-      "en:nutriscore-2021-better-than-2023",
-      "en:nutriscore-2021-c-2023-d",
-      "en:packagings-number-of-components-2",
-      "en:packagings-not-complete",
-      "en:packagings-not-empty-but-not-complete",
-      "en:packagings-not-empty",
+      "en:ecoscore-changed",
+      "en:ecoscore-computed",
       "en:ecoscore-extended-data-not-computed",
-      "en:ecoscore-missing-data-warning",
+      "en:ecoscore-grade-changed",
       "en:ecoscore-missing-data-labels",
       "en:ecoscore-missing-data-packagings",
-      "en:ecoscore-computed",
-      "en:ecoscore-changed",
-      "en:ecoscore-grade-changed",
+      "en:ecoscore-missing-data-warning",
+      "en:forest-footprint-a",
       "en:forest-footprint-computed",
-      "en:forest-footprint-a"
+      "en:nutriscore-2021-better-than-2023",
+      "en:nutriscore-2021-c-2023-d",
+      "en:nutriscore-2021-different-from-2023",
+      "en:nutriscore-computed",
+      "en:nutrition-all-nutriscore-values-known",
+      "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
+      "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
+      "en:packagings-not-complete",
+      "en:packagings-not-empty",
+      "en:packagings-not-empty-but-not-complete",
+      "en:packagings-number-of-components-2"
    ],
    "nova_group" : 4,
    "nova_group_debug" : "",

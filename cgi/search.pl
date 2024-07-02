@@ -38,6 +38,7 @@ use ProductOpener::Tags qw/:all/;
 use ProductOpener::PackagerCodes qw/normalize_packager_codes/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::Lang qw/$lc %Lang %tag_type_singular lang/;
+use ProductOpener::Routing qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -67,6 +68,17 @@ if (user_agent() =~ /apps-spreadsheets/) {
 }
 
 $request_ref->{search} = 1;
+# api_action is required for `check_and_update_rate_limits`
+$request_ref->{api_action} = 'search';
+
+check_and_update_rate_limits($request_ref);
+
+if ($request_ref->{rate_limiter_blocking}) {
+	# The request is blocked by the rate limiter:
+	# return directly a "too many requests" empty HTML page
+	display_too_many_requests_page_and_exit();
+	return Apache2::Const::OK;
+}
 
 my $action = single_param('action') || 'display';
 
@@ -215,10 +227,18 @@ if (    ($sort_by ne 'created_t')
 	$sort_by = 'unique_scans_n';
 }
 
-my $limit = 0 + (single_param('page_size') || $page_size);
-if (($limit < 2) or ($limit > 1000)) {
-	$limit = $page_size;
+my $limit = 0 + (single_param('page_size') || $options{default_web_products_page_size});
+
+if (defined $request_ref->{user_id}) {
+	if ($limit > $options{max_products_page_size_for_logged_in_users}) {
+		$limit = $options{max_products_page_size_for_logged_in_users};
+	}
 }
+elsif ($limit > $options{max_products_page_size}) {
+	$limit = $options{max_products_page_size};
+}
+
+$request_ref->{page_size} = $limit;
 
 my $graph_ref = {graph_title => remove_tags_and_quote(decode utf8 => single_param("graph_title"))};
 my $map_title = remove_tags_and_quote(decode utf8 => single_param("map_title"));
@@ -713,8 +733,11 @@ elsif ($action eq 'process') {
 	my $graph = single_param("graph") || '';
 	my $download = single_param("download") || '';
 
-	open(my $OUT, ">>:encoding(UTF-8)", "$BASE_DIRS{LOGS}/search_log_debug");
-	print $OUT remote_addr() . "\t" . time() . "\t" . decode utf8 => single_param('search_terms') . " - map: $map
+	open(my $OUT, ">>:encoding(UTF-8)", "$BASE_DIRS{LOGS}/search_log");
+	print $OUT remote_addr() . "\t"
+		. time() . "\t"
+		. (decode utf8 => single_param('search_terms') || "no_search_terms")
+		. " - map: $map
 	 - graph: $graph - download: $download - page: $page\n";
 	close($OUT);
 
@@ -824,15 +847,6 @@ HTML
 
 			write_cors_headers();
 			print "Content-Type: application/json; charset=UTF-8\r\n\r\n" . $data;
-		}
-
-		if (single_param('search_terms')) {
-			open(my $OUT, ">>:encoding(UTF-8)", "$BASE_DIRS{LOGS}/search_log");
-			print $OUT remote_addr() . "\t"
-				. time() . "\t"
-				. decode utf8 => single_param('search_terms')
-				. "\tpage: $page\n";
-			close($OUT);
 		}
 	}
 }

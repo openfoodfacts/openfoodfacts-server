@@ -55,6 +55,8 @@ BEGIN {
 		&get_packager_code_coordinates
 		&display_icon
 
+		&display_structured_response
+		&display_too_many_requests_page_and_exit
 		&display_no_index_page_and_exit
 		&display_robots_txt_and_exit
 		&display_page
@@ -133,14 +135,15 @@ BEGIN {
 		$attributes_options_ref
 		$knowledge_panels_options_ref
 
-		&display_nutriscore_calculation_details
+		&display_nutriscore_calculation_details_2021
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
 use vars @EXPORT_OK;
 
-use ProductOpener::HTTP qw(write_cors_headers);
+use ProductOpener::HTTP
+	qw(write_cors_headers set_http_response_header write_http_response_headers get_http_request_header);
 use ProductOpener::Store qw(get_string_id_for_lang retrieve);
 use ProductOpener::Config qw(:all);
 use ProductOpener::Paths qw/%BASE_DIRS/;
@@ -175,6 +178,7 @@ use ProductOpener::API qw(add_error customize_response_for_product process_api_r
 use ProductOpener::Units qw/g_to_unit/;
 use ProductOpener::Cache qw/$max_memcached_object_size $memd generate_cache_key/;
 use ProductOpener::Permissions qw/has_permission/;
+use ProductOpener::ProductsFeatures qw(feature_enabled);
 
 use Encode;
 use URI::Escape::XS;
@@ -204,7 +208,7 @@ use Tie::IxHash;
 use Log::Any '$log', default_adapter => 'Stderr';
 
 # special logger to make it easy to measure memcached hit and miss rates
-our $mongodb_log = Log::Log4perl->get_logger('mongodb');
+our $mongodb_log = Log::Any->get_logger(category => 'mongodb');
 $mongodb_log->info("start") if $mongodb_log->is_info();
 
 use Apache2::RequestUtil ();
@@ -284,9 +288,6 @@ foreach my $file (sort keys %file_timestamps) {
 
 # On demand exports can be very big, limit the number of products
 my $export_limit = 10000;
-
-# TODO: explain why such a high number
-my $tags_page_size = 10000;
 
 if (defined $options{export_limit}) {
 	$export_limit = $options{export_limit};
@@ -382,6 +383,9 @@ Add some functions and variables needed by many templates and process the templa
 sub process_template ($template_filename, $template_data_ref, $result_content_ref) {
 
 	# Add functions and values that are passed to all templates
+
+	# Features for each product type
+	$template_data_ref->{feature_enabled} = \&feature_enabled;
 
 	$template_data_ref->{server_options_private_products} = $server_options{private_products};
 	$template_data_ref->{server_options_producers_platform} = $server_options{producers_platform};
@@ -620,6 +624,13 @@ sub init_request ($request_ref = {}) {
 	# If deny_all_robots_txt=1, serve a version of robots.txt where all agents are denied access (Disallow: /)
 	$request_ref->{deny_all_robots_txt} = 0;
 
+	# For denied crawl bots, also send Disallow: / in robots.txt
+	if ($request_ref->{is_denied_crawl_bot}) {
+		$log->debug("init_request - denied crawl bot", {user_agent => $request_ref->{user_agent}}) if $log->is_debug();
+		$request_ref->{no_index} = 1;
+		$request_ref->{deny_all_robots_txt} = 1;
+	}
+
 	# TODO: global variables should be moved to $request_ref
 	$styles = '';
 	$scripts = '';
@@ -723,9 +734,9 @@ sub init_request ($request_ref = {}) {
 			= get_world_subdomain()
 			. ($request_ref->{script_name} ? $request_ref->{script_name} . "?" : '/')
 			. $request_ref->{original_query_string};
-		$log->info("request could not be matched to a known country, redirecting to world",
+		$log->debug("request could not be matched to a known country, redirecting to world",
 			{subdomain => $subdomain, lc => $lc, cc => $cc, country => $country, redirect => $redirect_url})
-			if $log->is_info();
+			if $log->is_debug();
 		redirect_to_url($request_ref, 302, $redirect_url);
 	}
 
@@ -752,10 +763,10 @@ sub init_request ($request_ref = {}) {
 			= $ccdom
 			. ($request_ref->{script_name} ? $request_ref->{script_name} . "?" : '/')
 			. $request_ref->{original_query_string};
-		$log->info(
+		$log->debug(
 			"lc is equal to first lc of the country, redirecting to countries main domain",
 			{subdomain => $subdomain, lc => $lc, cc => $cc, country => $country, redirect => $redirect_url}
-		) if $log->is_info();
+		) if $log->is_debug();
 		redirect_to_url($request_ref, 302, $redirect_url);
 	}
 
@@ -808,7 +819,7 @@ sub init_request ($request_ref = {}) {
 		# Use robots.txt with disallow: / for all agents
 		$request_ref->{deny_all_robots_txt} = 1;
 
-		if ($request_ref->{is_crawl_bot} eq 1) {
+		if ($request_ref->{is_crawl_bot}) {
 			$request_ref->{no_index} = 1;
 		}
 	}
@@ -871,6 +882,8 @@ sub init_request ($request_ref = {}) {
 		}
 	}
 
+	$request_ref->{user_id} = $User_id;
+
 	# %admin is defined in Config.pm
 	# admins can change permissions for all users
 	if (is_admin_user($User_id)) {
@@ -925,28 +938,23 @@ CSS
 
 	# Enable or disable user food preferences: used to compute attributes and to display
 	# personalized product scores and search results
-	if (((defined $options{product_type}) and ($options{product_type} eq "food"))) {
+	if (feature_enabled("user_preferences")) {
 		$request_ref->{user_preferences} = 1;
 	}
 	else {
 		$request_ref->{user_preferences} = 0;
 	}
 
-	if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
-		$show_ecoscore = 1;
-		$attributes_options_ref = {};
-		$knowledge_panels_options_ref = {};
+	$attributes_options_ref = {};
+	$knowledge_panels_options_ref = {};
+
+	if (not feature_enabled("ecoscore")) {
+		$attributes_options_ref->{skip_ecoscore} = 1;
+		$knowledge_panels_options_ref->{skip_ecoscore} = 1;
 	}
-	else {
-		$show_ecoscore = 0;
-		$attributes_options_ref = {
-			skip_ecoscore => 1,
-			skip_forest_footprint => 1,
-		};
-		$knowledge_panels_options_ref = {
-			skip_ecoscore => 1,
-			skip_forest_footprint => 1,
-		};
+	if (not feature_enabled("forest_footprint")) {
+		$attributes_options_ref->{skip_forest_footprint} = 1;
+		$knowledge_panels_options_ref->{skip_forest_footprint} = 1;
 	}
 
 	if ($request_ref->{admin}) {
@@ -992,12 +1000,12 @@ sub set_user_agent_request_ref_attributes ($request_ref) {
 	my $is_crawl_bot = 0;
 	my $is_denied_crawl_bot = 0;
 	if ($user_agent_str
-		=~ /\b(Googlebot|Googlebot-Image|Google-InspectionTool|bingbot|Applebot|Yandex|DuckDuck|DotBot|Seekport|Ahrefs|DataForSeo|Seznam|ZoomBot|Mojeek|QRbot|Qwant|facebookexternalhit|Bytespider|GPTBot|SEOkicks|Searchmetrics|MJ12|SurveyBot|SEOdiver|wotbox|Cliqz|Paracrawl|Scrapy|VelenPublicWebCrawler|Semrush|MegaIndex\.ru|Amazon|aiohttp|python-request)/i
+		=~ /\b(Googlebot|Googlebot-Image|Google-InspectionTool|bingbot|Applebot|Yandex|DuckDuck|DotBot|Seekport|Ahrefs|DataForSeo|Seznam|ZoomBot|Mojeek|QRbot|Qwant|facebookexternalhit|Bytespider|GPTBot|ClaudeBot|SEOkicks|Searchmetrics|MJ12|SurveyBot|SEOdiver|wotbox|Cliqz|Paracrawl|Scrapy|VelenPublicWebCrawler|Semrush|MegaIndex\.ru|Amazon|aiohttp|python-request)/i
 		)
 	{
 		$is_crawl_bot = 1;
 		if ($user_agent_str
-			=~ /\b(bingbot|Seekport|Ahrefs|DataForSeo|Seznam|ZoomBot|Mojeek|QRbot|Bytespider|SEOkicks|Searchmetrics|MJ12|SurveyBot|SEOdiver|wotbox|Cliqz|Paracrawl|Scrapy|VelenPublicWebCrawler|Semrush|MegaIndex\.ru|YandexMarket|Amazon)/
+			=~ /\b(bingbot|Seekport|Ahrefs|DataForSeo|Seznam|ZoomBot|Mojeek|QRbot|Bytespider|SEOkicks|Searchmetrics|MJ12|SurveyBot|SEOdiver|wotbox|Cliqz|Paracrawl|Scrapy|VelenPublicWebCrawler|Semrush|MegaIndex\.ru|YandexMarket|Amazon|ClaudeBot)/
 			)
 		{
 			$is_denied_crawl_bot = 1;
@@ -1005,6 +1013,14 @@ sub set_user_agent_request_ref_attributes ($request_ref) {
 	}
 	$request_ref->{is_crawl_bot} = $is_crawl_bot;
 	$request_ref->{is_denied_crawl_bot} = $is_denied_crawl_bot;
+	$log->debug(
+		"set_user_agent_request_ref_attributes",
+		{
+			user_agent => $user_agent_str,
+			is_crawl_bot => $is_crawl_bot,
+			is_denied_crawl_bot => $is_denied_crawl_bot
+		}
+	) if $log->is_debug();
 	return;
 }
 
@@ -1171,6 +1187,27 @@ sub display_no_index_page_and_exit () {
 	exit();
 }
 
+=head2 display_too_many_requests_page_and_exit ()
+
+Return a page with a 429 status code and a message explaining that the user is sending too many requests.
+
+=cut
+
+sub display_too_many_requests_page_and_exit() {
+	my $http_headers_ref = {
+		'-status' => 429,
+		'-charset' => 'UTF-8',
+	};
+	print header(%$http_headers_ref);
+	my $html
+		= '<!DOCTYPE html><html><head><meta name="robots" content="noindex"></head><body><h1>TOO MANY REQUESTS</h1><p>You are sending too many requests to our servers.</p><p>To know more about the rate limits we enforce, please refer to the <a href="https://openfoodfacts.github.io/openfoodfacts-server/api/#rate-limits">rate-limit section in our documentation</a>.</p><p>If you need to download data about a large number of products, it\'s preferable to <a href="https://world.openfoodfacts.org/data">download a data dump</a>. If this is unexpected, contact us on Slack or write us an email at <a href="mailto:contact@openfoodfacts.org">contact@openfoodfacts.org</a>.</p></body></html>';
+
+	my $r = Apache2::RequestUtil->request();
+	$r->rflush;
+	$r->custom_response(429, $html);
+	exit();
+}
+
 =head2 display_robots_txt_and_exit ($request_ref)
 
 Return robots.txt page and exit.
@@ -1330,9 +1367,9 @@ sub display_text_content ($request_ref, $textid, $text_lc, $file) {
 		$html =~ s/<\/h1>/ - $owner_user_or_org<\/h1>/;
 	}
 
-	$log->info("displaying text from file",
+	$log->debug("displaying text from file",
 		{cc => $cc, lc => $lc, textid => $textid, text_lc => $text_lc, file => $file})
-		if $log->is_info();
+		if $log->is_debug();
 
 	# if page number is higher than 1, then keep only the h1 header
 	# e.g. index page
@@ -1488,7 +1525,8 @@ sub display_text_content ($request_ref, $textid, $text_lc, $file) {
 	}
 
 	if ((defined $request_ref->{page}) and ($request_ref->{page} > 1)) {
-		$request_ref->{title} = $title . lang("title_separator") . sprintf(lang("page_x"), $request_ref->{page});
+		$request_ref->{title}
+			= ($title // '') . lang("title_separator") . sprintf(lang("page_x"), $request_ref->{page});
 	}
 	else {
 		$request_ref->{title} = $title;
@@ -1524,18 +1562,22 @@ sub get_cache_results ($key, $request_ref) {
 	$log->debug("MongoDB hashed query key", {key => $key}) if $log->is_debug();
 
 	# disable caching if ?no_cache=1
-	# or if the user is logged in and no_cache is different from 0
+	# or if we are sent the HTTP hader Cache-Control: no-cache
 	my $param_no_cache = single_param("no_cache");
-	if (   ($param_no_cache)
-		or ((defined $User_id) and not((defined $param_no_cache) and ($param_no_cache == 0))))
-	{
-
+	if (not defined $param_no_cache) {
+		my $cache_control = get_http_request_header("Cache-Control");
+		if ((defined $cache_control) and ($cache_control =~ /no-cache/)) {
+			$log->debug("get_cache_results - HTTP Cache-Control no-cache header, skip caching", {key => $key})
+				if $log->is_debug();
+			$param_no_cache = 1;
+		}
+	}
+	if ($param_no_cache) {
 		$log->debug("MongoDB no_cache parameter, skip caching", {key => $key}) if $log->is_debug();
 		$mongodb_log->info("get_cache_results - skip - key: $key") if $mongodb_log->is_info();
 
 	}
 	else {
-
 		$log->debug("Retrieving value for MongoDB query key", {key => $key}) if $log->is_debug();
 		$results = $memd->get($key);
 		if (not defined $results) {
@@ -1556,22 +1598,27 @@ sub set_cache_results ($key, $results) {
 	my $result_size = total_size($results);
 
 	# $max_memcached_object_size is defined is Cache.pm
-	if ($result_size >= $max_memcached_object_size) {
+	# we assume that compression will reduce the size by at least 50%
+	my $factor = 2;
+	if ($result_size >= $max_memcached_object_size * $factor) {
 		$mongodb_log->info(
-			"set_cache_results - skipping - setting value - key: $key (total_size: $result_size > max size)");
+			"set_cache_results - skipping - setting value - key: $key (uncompressed total_size: $result_size > max size * $factor ($max_memcached_object_size * $factor))"
+		);
 		return;
 	}
 
-	if ($mongodb_log->is_debug()) {
-		$mongodb_log->debug("set_cache_results - setting value - key: $key - total_size: $result_size");
+	if ($mongodb_log->is_info()) {
+		$mongodb_log->info("set_cache_results - setting value - key: $key - uncompressed total_size: $result_size");
 	}
 
 	if ($memd->set($key, $results, 3600)) {
-		$mongodb_log->info("set_cache_results - updated - key: $key") if $mongodb_log->is_info();
+		$mongodb_log->info("set_cache_results - updated - key: $key - uncompressed total_size: $result_size")
+			if $mongodb_log->is_info();
 	}
 	else {
 		$log->debug("Could not set value for MongoDB query key", {key => $key});
-		$mongodb_log->info("set_cache_results - error - key: $key") if $mongodb_log->is_info();
+		$mongodb_log->info("set_cache_results - error - key: $key - uncompressed total_size: $result_size")
+			if $mongodb_log->is_info();
 	}
 
 	return;
@@ -1587,6 +1634,8 @@ sub generate_query_cache_key ($name, $context_ref, $request_ref) {
 	if (scalar request_param($request_ref, "obsolete")) {
 		$name .= '_obsolete';
 	}
+	# Change the version number if we change the cached results format
+	$name .= '_version20240522';
 	return generate_cache_key($name, $context_ref);
 }
 
@@ -1629,12 +1678,17 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 	{
 		$limit = 999999999999;
 	}
-	elsif (defined $request_ref->{tags_page_size}) {
-		$limit = $request_ref->{tags_page_size};
+	elsif (defined $request_ref->{page_size}) {
+		$limit = $request_ref->{page_size};
+		if ($limit > $options{max_tags_page_size}) {
+			$limit = $options{max_tags_page_size};
+		}
 	}
 	else {
-		$limit = $tags_page_size;
+		$limit = $options{default_tags_page_size};
 	}
+
+	$request_ref->{page_size} = $limit;
 
 	my $skip = 0;
 	if (defined $page) {
@@ -1730,7 +1784,7 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 				$log->warn("MongoDB error", {error => $err}) if $log->is_warn();
 			}
 			else {
-				$log->info("MongoDB query ok", {error => $err}) if $log->is_info();
+				$log->debug("MongoDB query ok", {error => $err}) if $log->is_debug();
 			}
 
 			$log->debug("MongoDB query done", {error => $err}) if $log->is_debug();
@@ -2254,16 +2308,20 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 		}
 
 		$html .= "</tbody></table></div>";
-		# if there are more than $tags_page_size lines, add pagination. Except for ?stats=1 and ?filter display
-		$log->info("PAGINATION: BEFORE\n");
-		if (    $request_ref->{structured_response}{count} >= $tags_page_size
+		# if there are more lines than the limit, add pagination. Except for ?stats=1 and ?filter display
+		$log->debug("PAGINATION: BEFORE\n");
+		if (    $request_ref->{structured_response}{count} >= $request_ref->{page_size}
 			and not(defined single_param("stats"))
 			and not(defined single_param("filter")))
 		{
-			$log->info("PAGINATION: CALLING\n");
+			$log->debug("PAGINATION: CALLING\n");
 			$html .= "\n<hr>"
-				. display_pagination($request_ref, $request_ref->{structured_response}{count},
-				$tags_page_size, $request_ref->{page});
+				. display_pagination(
+				$request_ref,
+				$request_ref->{structured_response}{count},
+				$request_ref->{page_size},
+				$request_ref->{page}
+				);
 		}
 
 		if ((defined single_param("stats")) and (single_param("stats"))) {
@@ -2830,7 +2888,7 @@ sub display_points_ranking ($tagtype, $tagid) {
 	local $log->context->{tagtype} = $tagtype;
 	local $log->context->{tagid} = $tagid;
 
-	$log->info("displaying points ranking") if $log->is_info();
+	$log->debug("displaying points ranking") if $log->is_debug();
 
 	my $ranktype = "users";
 	if ($tagtype eq "users") {
@@ -2979,7 +3037,7 @@ sub display_points ($request_ref) {
 	local $log->context->{tagtype} = $tagtype;
 	local $log->context->{tagid} = $tagid;
 
-	$log->info("displaying points") if $log->is_info();
+	$log->debug("displaying points") if $log->is_debug();
 
 	if (defined $tagid) {
 		if (defined $taxonomy_fields{$tagtype}) {
@@ -3022,10 +3080,10 @@ sub display_points ($request_ref) {
 
 	if ((defined $tagid) and ($new_tagid ne $tagid)) {
 		$request_ref->{redirect} = $formatted_subdomain . $request_ref->{current_link};
-		$log->info(
+		$log->debug(
 			"new_tagid does not equal the original tagid, redirecting",
 			{new_tagid => $new_tagid, redirect => $request_ref->{redirect}}
-		) if $log->is_info();
+		) if $log->is_debug();
 		redirect_to_url($request_ref, 302, $request_ref->{redirect});
 	}
 
@@ -3116,8 +3174,8 @@ sub canonicalize_request_tags_and_redirect_to_canonical_url ($request_ref) {
 			$canon_tagid = canonicalize_taxonomy_tag($lc, $tagtype, $tagid);
 			$display_tag = display_taxonomy_tag($lc, $tagtype, $canon_tagid);
 			$new_tagid = get_taxonomyid($lc, $display_tag);
-			$log->info("displaying taxonomy tag", {canon_tagid => $canon_tagid, new_tagid => $new_tagid})
-				if $log->is_info();
+			$log->debug("displaying taxonomy tag", {canon_tagid => $canon_tagid, new_tagid => $new_tagid})
+				if $log->is_debug();
 			if ($new_tagid !~ /^(\w\w):/) {
 				$new_tagid = $lc . ':' . $new_tagid;
 			}
@@ -3141,8 +3199,8 @@ sub canonicalize_request_tags_and_redirect_to_canonical_url ($request_ref) {
 			$lc = 'en';
 			$request_ref->{world_current_link} .= canonicalize_tag_link($tagtype, $new_tagid, $tag_prefix);
 			$lc = $current_lc;
-			$log->info("displaying normal tag", {canon_tagid => $canon_tagid, new_tagid => $new_tagid})
-				if $log->is_info();
+			$log->debug("displaying normal tag", {canon_tagid => $canon_tagid, new_tagid => $new_tagid})
+				if $log->is_debug();
 		}
 
 		$tag_ref->{canon_tagid} = $canon_tagid;
@@ -3172,8 +3230,8 @@ sub canonicalize_request_tags_and_redirect_to_canonical_url ($request_ref) {
 		$request_ref->{redirect} .= '.jsonp' if single_param("jsonp");
 		$request_ref->{redirect} .= '.xml' if single_param("xml");
 		$request_ref->{redirect} .= '.jqm' if single_param("jqm");
-		$log->info("one or more tagids mismatch, redirecting to correct url", {redirect => $request_ref->{redirect}})
-			if $log->is_info();
+		$log->debug("one or more tagids mismatch, redirecting to correct url", {redirect => $request_ref->{redirect}})
+			if $log->is_debug();
 		redirect_to_url($request_ref, 302, $request_ref->{redirect});
 	}
 
@@ -3763,7 +3821,7 @@ sub display_tag ($request_ref) {
 
 	my $weblinks_html = '';
 	my @wikidata_objects = ();
-	if (    ($tagtype ne 'additives')
+	if (    (defined $tagtype && $tagtype ne 'additives')
 		and (not defined $request_ref->{groupby_tagtype}))
 	{
 		my @weblinks = ();
@@ -3879,9 +3937,45 @@ sub display_tag ($request_ref) {
 					push @markers, \@geo;
 				}
 
+				if ($packager_codes{$canon_tagid}{cc} eq 'at') {
+					$description .= <<HTML
+<p>$packager_codes{$canon_tagid}{name}<br>
+$packager_codes{$canon_tagid}{address} (Österreich)
+</p>
+HTML
+						;
+				}
+
 				if ($packager_codes{$canon_tagid}{cc} eq 'ch') {
 					$description .= <<HTML
 <p>$packager_codes{$canon_tagid}{full_address}</p>
+HTML
+						;
+				}
+
+				if ($packager_codes{$canon_tagid}{cc} eq 'cy') {
+					$description .= <<HTML
+<p>$packager_codes{$canon_tagid}{name}<br>
+$packager_codes{$canon_tagid}{address} (Cyprus)
+</p>
+HTML
+						;
+				}
+
+				if ($packager_codes{$canon_tagid}{cc} eq 'cz') {
+					$description .= <<HTML
+<p>$packager_codes{$canon_tagid}{name}<br>
+$packager_codes{$canon_tagid}{address} (Czech)
+</p>
+HTML
+						;
+				}
+
+				if ($packager_codes{$canon_tagid}{cc} eq 'dk') {
+					$description .= <<HTML
+<p>$packager_codes{$canon_tagid}{name}<br>
+$packager_codes{$canon_tagid}{address} (Denmark)
+</p>
 HTML
 						;
 				}
@@ -4105,8 +4199,7 @@ HTML
 			}
 		}
 
-		if (    (defined $options{product_type})
-			and ($options{product_type} eq "food")
+		if (    (feature_enabled("nutrition"))
 			and ($tagtype eq 'categories'))
 		{
 
@@ -4367,15 +4460,14 @@ sub display_search_results ($request_ref) {
 	$current_link =~ s/^\&/\?/;
 	$current_link = "/search" . $current_link;
 
-	if ((defined single_param("user_preferences")) and (single_param("user_preferences")) and not($request_ref->{api}))
-	{
+	if (not($request_ref->{api})) {
 
 		# The results will be filtered and ranked on the client side
 
 		my $search_api_url = $formatted_subdomain . "/api/v0" . $current_link;
 		$search_api_url =~ s/(\&|\?)(page|page_size|limit)=(\d+)//;
 		$search_api_url .= "&fields=code,product_display_name,url,image_front_small_url,attribute_groups";
-		$search_api_url .= "&page_size=100";
+		$search_api_url .= "&page_size=" . $options{default_web_products_page_size};
 		if ($search_api_url !~ /\?/) {
 			$search_api_url =~ s/\&/\?/;
 		}
@@ -4909,13 +5001,25 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 	elsif (defined $request_ref->{page_size}) {
 		$limit = $request_ref->{page_size};
 	}
-	# If user preferences are turned on, return 100 products per page
-	elsif ((not defined $request_ref->{api}) and ($request_ref->{user_preferences})) {
-		$limit = 100;
+	# If user preferences are turned on, return 50 products per page
+	elsif (not defined $request_ref->{api}) {
+		$limit = $options{default_web_products_page_size};
 	}
 	else {
-		$limit = $page_size;
+		$limit = $options{default_api_products_page_size};
 	}
+
+	# Make sure we are not over the limit
+	if (defined $request_ref->{user_id}) {
+		if ($limit > $options{max_products_page_size_for_logged_in_users}) {
+			$limit = $options{max_products_page_size_for_logged_in_users};
+		}
+	}
+	elsif ($limit > $options{max_products_page_size}) {
+		$limit = $options{max_products_page_size};
+	}
+
+	$request_ref->{page_size} = $limit;
 
 	my $skip = 0;
 	if (defined $page) {
@@ -4966,7 +5070,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		)
 	{
 
-		if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
+		if (feature_enabled("popularity")) {
 			$sort_by = 'popularity_key';
 		}
 		else {
@@ -5021,7 +5125,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 
 	# Nutri-Score and Eco-Score are only for food products
 	# and currently scan data is only loaded for Open Food Facts
-	if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
+	if (feature_enabled("popularity")) {
 
 		push @{$template_data_ref->{sort_options}},
 			{
@@ -5029,22 +5133,23 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 			link => $request_ref->{current_link} . "?sort_by=popularity",
 			name => lang("sort_by_popularity")
 			};
+	}
+	if (feature_enabled("nutriscore")) {
 		push @{$template_data_ref->{sort_options}},
 			{
 			value => "nutriscore_score",
 			link => $request_ref->{current_link} . "?sort_by=nutriscore_score",
 			name => lang("sort_by_nutriscore_score")
 			};
-
-		# Show Eco-score sort only for some countries, or for moderators
-		if ($show_ecoscore) {
-			push @{$template_data_ref->{sort_options}},
-				{
-				value => "ecoscore_score",
-				link => $request_ref->{current_link} . "?sort_by=ecoscore_score",
-				name => lang("sort_by_ecoscore_score")
-				};
-		}
+	}
+	# Show Eco-score sort only for some countries, or for moderators
+	if (feature_enabled("ecoscore")) {
+		push @{$template_data_ref->{sort_options}},
+			{
+			value => "ecoscore_score",
+			link => $request_ref->{current_link} . "?sort_by=ecoscore_score",
+			name => lang("sort_by_ecoscore_score")
+			};
 	}
 
 	push @{$template_data_ref->{sort_options}},
@@ -5064,26 +5169,33 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 	my $page_count = 0;
 
 	my $fields_ref;
+	my $api = 0;
 
 	# - for API (json, xml, rss,...), display all fields
 	if (   single_param("json")
 		or single_param("jsonp")
 		or single_param("xml")
 		or single_param("jqm")
+		or single_param("fields")
 		or $request_ref->{rss})
 	{
 		$fields_ref = {};
+		$api = 1;
 	}
-	# - if we use user preferences, we need a lot of fields to compute product attributes: load them all
 	elsif ($request_ref->{user_preferences}) {
-		# we restrict the fields that are queried to MongoDB, and use the basic ones and those necessary
+		# Personal search on the web (currently for food products only)
+		# We restrict the fields that are queried to MongoDB, and use the basic ones and those necessary
 		# by Attributes.pm to compute attributes.
 		# This list should be updated if new attributes are added.
 		$fields_ref = {
+			# we do not need the _id tag (it currently contains the barcode, same as "code" field)
+			"_id" => 0,
 			# generic fields
 			"owner" => 1,    # needed on pro platform to generate the images urls
+			"obsolete" => 1,    # obsolete products are displayed differently
 			"lc" => 1,
 			"code" => 1,
+			# Fields that are necessary to compute the product name displayed and associated URL
 			"product_name" => 1,
 			"product_name_$lc" => 1,
 			"generic_name" => 1,
@@ -5091,23 +5203,50 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 			"abbreviated_product_name" => 1,
 			"abbreviated_product_name_$lc" => 1,
 			"brands" => 1,
-			"images" => 1,
 			"quantity" => 1,
+			# Note: the images structure is very long (especially for popular products with lots of images)
+			# Ideally we should restructure how we store images and selected images,
+			# so that we can retrieve the currently selected front image only (in a specific target language)
+			# In the mean time, we could continue to compute the selected image on the fly, remove the images field,
+			# and then cache the result (instead of caching the MongoDB result as is)
+			"images" => 1,
 			# fields necessary for personal search
 			"additives_n" => 1,
 			"allergens_tags" => 1,
 			"categories_tags" => 1,
-			"ecoscore_data" => 1,
+			# Get only the ecoscore_data needed to compute attributes
+			# with the target country
+			"ecoscore_data.status" => 1,
+			("ecoscore_data.scores." . $request_ref->{cc}) => 1,
+			("ecoscore_data.grades." . $request_ref->{cc}) => 1,
+			"ecoscore_data.ecoscore_not_applicable_for_category" => 1,
 			"ecoscore_grade" => 1,
 			"ecoscore_score" => 1,
-			"forest_footprint_data" => 1,
+			"forest_footprint_data.grade" => 1,
+			"forest_footprint_data.footprint_per_kg" => 1,
 			"ingredients_analysis_tags" => 1,
 			"ingredients_n" => 1,
 			"labels_tags" => 1,
 			"nova_group" => 1,
 			"nutrient_levels" => 1,
-			"nutriments" => 1,
-			"nutriscore_data" => 1,
+			# Only the nutrients needed for the nutrient levels
+			"nutriments.salt_100g" => 1,
+			"nutriments.salt_prepared_100g" => 1,
+			"nutriments.sugar_100g" => 1,
+			"nutriments.sugar_prepared_100g" => 1,
+			"nutriments.fat_100g" => 1,
+			"nutriments.fat_prepared_100g" => 1,
+			"nutriments.saturated-fat_100g" => 1,
+			"nutriments.saturated-fat_prepared_100g" => 1,
+			# Get only the Nutri-Score fields needed to compute attributes
+			"nutriscore.2021.score" => 1,
+			"nutriscore.2021.grade" => 1,
+			"nutriscore.2021.data.is_beverage" => 1,
+			"nutriscore.2021.data.is_water" => 1,
+			"nutriscore.2023.score" => 1,
+			"nutriscore.2023.grade" => 1,
+			"nutriscore.2023.data.is_beverage" => 1,
+			"nutriscore.2023.data.is_water" => 1,
 			"nutriscore_grade" => 1,
 			"nutrition_grades" => 1,
 			"traces_tags" => 1,
@@ -5115,7 +5254,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		};
 	}
 	else {
-		#for HTML, limit the fields we retrieve from MongoDB
+		# For HTML, limit the fields we retrieve from MongoDB
 		$fields_ref = {
 			"lc" => 1,
 			"code" => 1,
@@ -5174,15 +5313,48 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 						->query($query_ref)->fields($fields_ref)->sort($sort_ref)->limit($limit)->skip($skip);
 				}
 			);
-			$log->info("MongoDB query ok", {error => $@}) if $log->is_info();
+			$log->debug("MongoDB query ok", {error => $@}) if $log->is_debug();
 		};
 		if ($@) {
 			$log->warn("MongoDB error", {error => $@}) if $log->is_warn();
 		}
 		else {
-			$log->info("MongoDB query ok", {error => $@}) if $log->is_info();
+			$log->debug("MongoDB query ok", {error => $@}) if $log->is_debug();
 
 			while (my $product_ref = $cursor->next) {
+				# Compute the selected images urls now, so that we can remove the huge "images" structure
+				# before we cache the results
+				# Note that the images urls depend on the target language, so the language must be included in the cache key
+				add_images_urls_to_product($product_ref, $lc, "front");
+
+				# Add a url field to the product, with the subdomain and path
+				my $url_path = product_url($product_ref);
+				$product_ref->{url} = $formatted_subdomain . $url_path;
+
+				# Compute HTML to display the small front image, currently embedded in the HTML of web queries
+				if (not $api) {
+					$product_ref->{image_front_small_html} = display_image_thumb($product_ref, 'front');
+
+					# For web queries with personal search, we can compute some generated fields we need
+					# and then remove the source fields that are not needed anymore
+					if ($request_ref->{user_preferences}) {
+						# Compute the product_name and URL in the target language
+						$product_ref->{product_display_name}
+							= remove_tags_and_quote(product_name_brand_quantity($product_ref));
+						$product_ref->{product_url_path} = $url_path;
+
+						# Remove fields that were used to compute images and the product name / url, but are not needed anymore
+						delete $product_ref->{"images"};
+						delete $product_ref->{"product_name_$lc"};
+						delete $product_ref->{"generic_name"};
+						delete $product_ref->{"generic_name_$lc"};
+						delete $product_ref->{"abbreviated_product_name"};
+						delete $product_ref->{"abbreviated_product_name_$lc"};
+						delete $product_ref->{"brands"};
+						delete $product_ref->{"quantity"};
+					}
+				}
+
 				push @{$request_ref->{structured_response}{products}}, $product_ref;
 				$page_count++;
 			}
@@ -5201,6 +5373,9 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 			# Don't set the cache if no_count was set
 			if (not single_param('no_count') and $cache_results_flag) {
 				set_cache_results($key, $request_ref->{structured_response});
+				# For debugging, it can be useful to examine the structured response
+				#ProductOpener::Store::store($BASE_DIRS{CACHE_DEBUG} . "/structured_response.sto",
+				#	$request_ref->{structured_response});
 			}
 		}
 	}
@@ -5296,7 +5471,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 				# Eco-score: currently only for moderators
 
 				if ($newtagtype eq 'ecoscore') {
-					next if not($show_ecoscore);
+					next if not(feature_enabled("ecoscore"));
 				}
 
 				push @{$template_data_ref->{current_drilldown_fields}},
@@ -5312,31 +5487,21 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		$template_data_ref->{separator_before_colon} = separator_before_colon($lc);
 		$template_data_ref->{jqm_loadmore} = $request_ref->{jqm_loadmore};
 
+		my $jqm = single_param("jqm");    # Assigning to a scalar to make sure we get a scalar
+
 		for my $product_ref (@{$request_ref->{structured_response}{products}}) {
-			my $img_url;
 
-			my $code = $product_ref->{code};
-			my $img = display_image_thumb($product_ref, 'front');
-
-			my $product_name = remove_tags_and_quote(product_name_brand_quantity($product_ref));
-
+			my $product_display_name = $product_ref->{product_display_name};
 			# Prevent the quantity "750 g" to be split on two lines
-			$product_name =~ s/(.*) (.*?)/$1\&nbsp;$2/;
-
-			my $url = product_url($product_ref);
-			$product_ref->{url} = $formatted_subdomain . $url;
-
-			add_images_urls_to_product($product_ref, $lc);
-
-			my $jqm = single_param("jqm");    # Assigning to a scalar to make sure we get a scalar
+			$product_display_name =~ s/(.*) (.*?)/$1\&nbsp;$2/;
 
 			push @{$template_data_ref->{structured_response_products}},
 				{
-				code => $code,
-				product_name => $product_name,
-				img => $img,
+				code => $product_ref->{code},
+				product_name => $product_display_name,
+				img => $product_ref->{image_front_small_html},
 				jqm => $jqm,
-				url => $url,
+				url => $product_ref->{product_url_path},
 				};
 
 			# remove some debug info
@@ -5349,7 +5514,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		# For non API queries with user preferences, we need to add attributes
 		# For non API queries, we need to compute attributes for personal search
 		my $fields;
-		if ((not defined $request_ref->{api}) and ($request_ref->{user_preferences})) {
+		if (not defined $request_ref->{api}) {
 			$fields = "code,product_display_name,url,image_front_small_url,attribute_groups";
 		}
 		else {
@@ -5371,7 +5536,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 
 		# 2021-02-25: we now store only nested ingredients, flatten them if the API is <= 1
 
-		if ($request_ref->{api_version} <= 1) {
+		if ((defined $request_ref->{api_version}) and ($request_ref->{api_version} <= 1)) {
 
 			for my $product_ref (@{$request_ref->{structured_response}{products}}) {
 				if (defined $product_ref->{ingredients}) {
@@ -5403,25 +5568,22 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		$html =~ s/(href|src)=("\/)/$1="$formatted_subdomain\//g;
 	}
 
-	if ($request_ref->{user_preferences}) {
+	my $preferences_text = sprintf(lang("classify_the_d_products_below_according_to_your_preferences"), $page_count);
 
-		my $preferences_text
-			= sprintf(lang("classify_the_d_products_below_according_to_your_preferences"), $page_count);
+	my $products_json = '[]';
 
-		my $products_json = '[]';
+	if (defined $request_ref->{structured_response}{products}) {
+		$products_json = $json->encode($request_ref->{structured_response}{products});
+	}
 
-		if (defined $request_ref->{structured_response}{products}) {
-			$products_json = $json->encode($request_ref->{structured_response}{products});
+	my $contributor_prefs_json = $json->encode(
+		{
+			display_barcode => $User{display_barcode},
+			edit_link => $User{edit_link},
 		}
+	);
 
-		my $contributor_prefs_json = $json->encode(
-			{
-				display_barcode => $User{display_barcode},
-				edit_link => $User{edit_link},
-			}
-		);
-
-		$scripts .= <<JS
+	$scripts .= <<JS
 <script type="text/javascript">
 var page_type = "products";
 var preferences_text = "$preferences_text";
@@ -5429,23 +5591,21 @@ var contributor_prefs = $contributor_prefs_json;
 var products = $products_json;
 </script>
 JS
-			;
+		;
 
-		$scripts .= <<JS
+	$scripts .= <<JS
 <script src="$static_subdomain/js/product-preferences.js"></script>
 <script src="$static_subdomain/js/product-search.js"></script>
 JS
-			;
+		;
 
-		$initjs .= <<JS
+	$initjs .= <<JS
 display_user_product_preferences("#preferences_selected", "#preferences_selection_form", function () {
 	rank_and_display_products("#search_results", products, contributor_prefs);
 });
 rank_and_display_products("#search_results", products, contributor_prefs);
 JS
-			;
-
-	}
+		;
 
 	process_template('web/common/includes/list_of_products.tt.html', $template_data_ref, \$html)
 		|| return "template error: " . $tt->error();
@@ -5516,7 +5676,7 @@ sub estimate_result_count ($request_ref, $query_ref, $cache_results_flag) {
 		);
 		$err = $@;
 	}
-	$log->info("Count query done", {error => $err, count => $count}) if $log->is_info();
+	$log->debug("Count query done", {error => $err, count => $count}) if $log->is_debug();
 
 	return $count;
 }
@@ -5541,11 +5701,11 @@ sub display_pagination ($request_ref, $count, $limit, $page) {
 	if (not defined $current_link) {
 		$current_link = $request_ref->{world_current_link};
 	}
-	$log->info("PAGINATION: READY\n");
+	$log->debug("PAGINATION: READY\n") if $log->is_debug();
 	my $canon_rel_url = $request_ref->{canon_rel_url} // "UNDEF";
-	$log->info("PAGINATION: current_link: $current_link - canon_rel_url: $canon_rel_url\n");
+	$log->debug("PAGINATION: current_link: $current_link - canon_rel_url: $canon_rel_url\n") if $log->is_debug();
 
-	$log->info("current link", {current_link => $current_link}) if $log->is_info();
+	$log->debug("current link", {current_link => $current_link}) if $log->is_debug();
 
 	if (single_param("jqm")) {
 		$current_link .= "&jqm=1";
@@ -5559,8 +5719,6 @@ sub display_pagination ($request_ref, $count, $limit, $page) {
 	if (defined $request_ref->{groupby_tagtype}) {
 		$nofollow = ' nofollow';
 	}
-
-	print STDERR "zzz lc: $lc - request_ref->lc: $request_ref->{lc}\n";
 
 	if ((($nb_pages > 1) and (defined $current_link)) and (not defined $request_ref->{product_changes_saved})) {
 
@@ -5603,7 +5761,7 @@ sub display_pagination ($request_ref, $count, $limit, $page) {
 						# issue 2010: the limit, aka page_size is not persisted through the navigation links from some workflows,
 						# so it is lost on subsequent pages
 						if (defined $limit && $link !~ /page_size/) {
-							$log->info("Using limit " . $limit) if $log->is_info();
+							$log->debug("Using limit " . $limit) if $log->is_debug();
 							$link .= "&page_size=" . $limit;
 						}
 						if (defined $request_ref->{sort_by}) {
@@ -6582,7 +6740,7 @@ sub search_and_graph_products ($request_ref, $query_ref, $graph_ref) {
 
 	my $cursor;
 
-	$log->info("retrieving products from MongoDB to display them in a graph") if $log->is_info();
+	$log->debug("retrieving products from MongoDB to display them in a graph") if $log->is_debug();
 
 	if ($admin) {
 		$log->debug("Executing MongoDB query", {query => $query_ref}) if $log->is_debug();
@@ -6636,10 +6794,10 @@ sub search_and_graph_products ($request_ref, $query_ref, $graph_ref) {
 		$log->warn("MongoDB error", {error => $@}) if $log->is_warn();
 	}
 	else {
-		$log->info("MongoDB query ok", {error => $@}) if $log->is_info();
+		$log->debug("MongoDB query ok", {error => $@}) if $log->is_debug();
 	}
 
-	$log->info("retrieved products from MongoDB to display them in a graph") if $log->is_info();
+	$log->debug("retrieved products from MongoDB to display them in a graph") if $log->is_debug();
 
 	my @products = $cursor->all;
 	my $count = @products;
@@ -6878,7 +7036,7 @@ sub map_of_products ($products_iter, $request_ref, $graph_ref) {
 		return $html;
 	}
 
-	$log->info(
+	$log->debug(
 		"rendering map for matching products",
 		{
 			count => $matching_products,
@@ -6934,7 +7092,7 @@ sub search_products_for_map ($request_ref, $query_ref) {
 
 	my $cursor;
 
-	$log->info("retrieving products from MongoDB to display them in a map") if $log->is_info();
+	$log->debug("retrieving products from MongoDB to display them in a map") if $log->is_debug();
 
 	eval {
 		$cursor = execute_query(
@@ -6960,10 +7118,10 @@ sub search_products_for_map ($request_ref, $query_ref) {
 		$log->warn("MongoDB error", {error => $@}) if $log->is_warn();
 	}
 	else {
-		$log->info("MongoDB query ok", {error => $@}) if $log->is_info();
+		$log->debug("MongoDB query ok", {error => $@}) if $log->is_debug();
 	}
 
-	$log->info("retrieved products from MongoDB to display them in a map") if $log->is_info();
+	$log->debug("retrieved products from MongoDB to display them in a map") if $log->is_debug();
 	$cursor->immortal(1);
 	return $cursor;
 }
@@ -7570,7 +7728,7 @@ JS
 
 	# Check that the product exist, is published, is not deleted, and has not moved to a new url
 
-	$log->info("displaying product", {request_code => $request_code, product_id => $product_id}) if $log->is_info();
+	$log->debug("displaying product", {request_code => $request_code, product_id => $product_id}) if $log->is_debug();
 
 	$title = $code;
 
@@ -7579,7 +7737,7 @@ JS
 	my $rev = single_param("rev");
 	local $log->context->{rev} = $rev;
 	if (defined $rev) {
-		$log->info("displaying product revision") if $log->is_info();
+		$log->debug("displaying product revision") if $log->is_debug();
 		$product_ref = retrieve_product_rev($product_id, $rev);
 		$header .= '<meta name="robots" content="noindex,follow">';
 	}
@@ -7613,10 +7771,10 @@ JS
 	# Old UPC-12 in url? Redirect to EAN-13 url
 	if ($request_code ne $code) {
 		$request_ref->{redirect} = $request_ref->{canon_url};
-		$log->info(
+		$log->debug(
 			"302 redirecting user because request_code does not match code",
 			{redirect => $request_ref->{redirect}, lc => $lc, request_code => $code}
-		) if $log->is_info();
+		) if $log->is_debug();
 		redirect_to_url($request_ref, 302, $request_ref->{redirect});
 	}
 
@@ -7629,7 +7787,7 @@ JS
 		)
 	{
 		$request_ref->{redirect} = $request_ref->{canon_url};
-		$log->info(
+		$log->debug(
 			"302 redirecting user because titleid is incorrect",
 			{
 				redirect => $request_ref->{redirect},
@@ -7638,7 +7796,7 @@ JS
 				titleid => $titleid,
 				request_titleid => $request_ref->{titleid}
 			}
-		) if $log->is_info();
+		) if $log->is_debug();
 		redirect_to_url($request_ref, 302, $request_ref->{redirect});
 	}
 
@@ -7654,7 +7812,7 @@ JS
 
 	# Note: the Eco-Score data needs to be localized before we create the knowledge panels.
 
-	if (($show_ecoscore) and (defined $product_ref->{ecoscore_data})) {
+	if ((feature_enabled("ecoscore")) and (defined $product_ref->{ecoscore_data})) {
 
 		localize_ecoscore($cc, $product_ref);
 
@@ -7680,6 +7838,9 @@ JS
 		$template_data_ref->{contribution_card_panel}
 			= display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "contribution_card");
 	}
+
+	# User preferences
+	$template_data_ref->{user_preferences} = $request_ref->{user_preferences};
 
 	# The front product image is rendered with the same template as the ingredients, nutrition and packaging images
 	# that are displayed directly through the knowledge panels
@@ -8024,8 +8185,7 @@ JS
 
 	# NOVA groups
 
-	if (    (defined $options{product_type})
-		and ($options{product_type} eq "food")
+	if (feature_enabled("nova")
 		and (exists $product_ref->{nova_group}))
 	{
 		$template_data_ref->{product_nova_group} = 'exists';
@@ -8336,7 +8496,7 @@ sub display_product_jqm ($request_ref) {    # jquerymobile
 
 	# Check that the product exist, is published, is not deleted, and has not moved to a new url
 
-	$log->info("displaying product jquery mobile") if $log->is_info();
+	$log->debug("displaying product jquery mobile") if $log->is_debug();
 
 	$title = $code;
 
@@ -8345,7 +8505,7 @@ sub display_product_jqm ($request_ref) {    # jquerymobile
 	my $rev = single_param("rev");
 	local $log->context->{rev} = $rev;
 	if (defined $rev) {
-		$log->info("displaying product revision on jquery mobile") if $log->is_info();
+		$log->debug("displaying product revision on jquery mobile") if $log->is_debug();
 		$product_ref = retrieve_product_rev($product_id, $rev);
 	}
 	else {
@@ -8744,7 +8904,9 @@ HTML
 	return;
 }
 
-=head2 display_nutriscore_calculation_details( $nutriscore_data_ref, $version = "2021" )
+=head2 display_nutriscore_calculation_details_2021 ( $product_ref )
+
+Warning: This function only works with Nutri-Score 2021.
 
 Generates HTML code with information on how the Nutri-Score was computed for a particular product.
 
@@ -8753,7 +8915,12 @@ the rounded value according to the Nutri-Score rules, and the corresponding poin
 
 =cut
 
-sub display_nutriscore_calculation_details ($nutriscore_data_ref, $version = "2021") {
+sub display_nutriscore_calculation_details_2021 ($product_ref) {
+
+	my $version = "2021";
+	my $nutriscore_grade = deep_get($product_ref, "nutriscore", $version, "grade");
+	my $nutriscore_score = deep_get($product_ref, "nutriscore", $version, "score");
+	my $nutriscore_data_ref = deep_get($product_ref, "nutriscore", $version, "data");
 
 	my $beverage_view;
 
@@ -8798,8 +8965,8 @@ sub display_nutriscore_calculation_details ($nutriscore_data_ref, $version = "20
 
 		nutriscore_protein_info => $nutriscore_protein_info,
 
-		score => $nutriscore_data_ref->{score},
-		grade => uc($nutriscore_data_ref->{grade}),
+		score => $nutriscore_score,
+		grade => uc($nutriscore_grade),
 		positive_points => $nutriscore_data_ref->{positive_points},
 		negative_points => $nutriscore_data_ref->{negative_points},
 
@@ -8914,7 +9081,10 @@ sub data_to_display_nutrient_levels ($product_ref) {
 		foreach my $nutrient_level_ref (@nutrient_levels) {
 			my ($nid, $low, $high) = @{$nutrient_level_ref};
 
-			if ((defined $product_ref->{nutrient_levels}) and (defined $product_ref->{nutrient_levels}{$nid})) {
+			if (    (defined $product_ref->{nutrient_levels})
+				and (defined $product_ref->{nutrient_levels}{$nid})
+				and (defined $product_ref->{nutriments}{$nid . $prepared . "_100g"}))
+			{
 
 				push @{$result_data_ref->{nutrient_levels}}, {
 					nid => $nid,
@@ -9087,9 +9257,13 @@ sub data_to_display_nutriscore ($product_ref, $version = "2021") {
 		$result_data_ref->{nutriscore_warnings} = \@nutriscore_warnings;
 	}
 
-	# Display the details of the computation of the Nutri-Score if we computed one
-	if ((defined $product_ref->{nutriscore_grade}) and ($product_ref->{nutriscore_grade} =~ /^[a-e]$/)) {
-		$result_data_ref->{nutriscore_details} = display_nutriscore_calculation_details($nutriscore_data_ref, $version);
+	# Generate HTML for the details of the computation of the Nutri-Score if we computed one
+	# only for version 2021
+	if (    ($version eq "2021")
+		and (defined $product_ref->{nutriscore_grade})
+		and ($product_ref->{nutriscore_grade} =~ /^[a-e]$/))
+	{
+		$result_data_ref->{nutriscore_details} = display_nutriscore_calculation_details_2021($product_ref);
 	}
 
 	return $result_data_ref;
@@ -10064,6 +10238,8 @@ sub display_preferences_api ($request_ref, $target_lc) {
 		push @{$request_ref->{structured_response}}, $preference_ref;
 	}
 
+	set_http_response_header($request_ref, "Cache-Control", "public, max-age=86400");
+
 	display_structured_response($request_ref);
 
 	return;
@@ -10110,6 +10286,8 @@ sub display_attribute_groups_api ($request_ref, $target_lc) {
 	}
 
 	$request_ref->{structured_response} = $attribute_groups_ref;
+
+	set_http_response_header($request_ref, "Cache-Control", "public, max-age=86400");
 
 	display_structured_response($request_ref);
 
@@ -10180,11 +10358,14 @@ sub display_product_api ($request_ref) {
 
 	my $product_ref;
 
+	my @app_fields = qw(product_name brands quantity);
+
 	my $request_lc = $request_ref->{lc};
+
 	my $rev = single_param("rev");
 	local $log->context->{rev} = $rev;
 	if (defined $rev) {
-		$log->info("displaying product revision") if $log->is_info();
+		$log->debug("displaying product revision") if $log->is_debug();
 		$product_ref = retrieve_product_rev($product_id, $rev);
 	}
 	else {
@@ -10193,7 +10374,7 @@ sub display_product_api ($request_ref) {
 
 	if (not is_valid_code($code)) {
 
-		$log->info("invalid code", {code => $code, original_code => $request_ref->{code}}) if $log->is_info();
+		$log->debug("invalid code", {code => $code, original_code => $request_ref->{code}}) if $log->is_debug();
 		$response{status} = 0;
 		$response{status_verbose} = 'no code or invalid code';
 	}
@@ -10203,55 +10384,18 @@ sub display_product_api ($request_ref) {
 		}
 		$response{status} = 0;
 		$response{status_verbose} = 'product not found';
+
 		if (single_param("jqm")) {
-			$response{jqm} = <<HTML
-$Lang{app_please_take_pictures}{$request_lc}
-<button onclick="captureImage();" data-icon="off-camera">$Lang{app_take_a_picture}{$request_lc}</button>
-<div id="upload_image_result"></div>
-<p>$Lang{app_take_a_picture_note}{$request_lc}</p>
-HTML
-				;
-			if ($request_ref->{api_version} >= 0.1) {
-
-				my @app_fields = qw(product_name brands quantity);
-
-				my $html = <<HTML
-<form id="product_fields" action="javascript:void(0);">
-<div data-role="fieldcontain" class="ui-hide-label" style="border-bottom-width: 0;">
-HTML
-					;
-				foreach my $field (@app_fields) {
-
-					# placeholder in value
-					my $value = $Lang{$field}{$request_lc};
-
-					$html .= <<HTML
-<label for="$field">$Lang{$field}{$request_lc}</label>
-<input type="text" name="$field" id="$field" value="" placeholder="$value">
-HTML
-						;
-				}
-
-				$html .= <<HTML
-</div>
-<div id="save_button">
-<input type="submit" id="save" name="save" value="$Lang{save}{$request_lc}">
-</div>
-<div id="saving" style="display:none">
-<img src="loading2.gif" style="margin-right:10px"> $Lang{saving}{$request_lc}
-</div>
-<div id="saved" style="display:none">
-$Lang{saved}{$request_lc}
-</div>
-<div id="not_saved" style="display:none">
-$Lang{not_saved}{$request_lc}
-</div>
-</form>
-HTML
-					;
-				$response{jqm} .= $html;
-
-			}
+			my $template_data_ref = {
+				api_version => $request_ref->{api_version},
+				app_fields => \@app_fields,
+				request_lc => $request_lc,
+				Lang => \%Lang,
+			};
+			my $html;
+			process_template('web/common/includes/display_product_api.tt.html', $template_data_ref, \$html)
+				|| return "template error: " . $tt->error();
+			$response{jqm} .= $html;
 		}
 	}
 	else {
@@ -10400,6 +10544,7 @@ sub display_product_history ($request_ref, $code, $product_ref) {
 
 		my $userid = get_change_userid_or_uuid($change_ref);
 		my $uuid = $change_ref->{app_uuid};
+		my $app_version = $change_ref->{app_version};
 		my $comment = _format_comment($change_ref->{comment});
 
 		my $change_rev = $change_ref->{rev};
@@ -10416,6 +10561,7 @@ sub display_product_history ($request_ref, $code, $product_ref) {
 			date => display_date_tag($change_ref->{t}),
 			userid => $userid,
 			uuid => $uuid,
+			app_version => $app_version,
 			diffs => compute_changes_diff_text($change_ref),
 			comment => $comment
 			};
@@ -10441,6 +10587,8 @@ sub display_product_history ($request_ref, $code, $product_ref) {
 
 sub display_structured_response ($request_ref) {
 	# directly serve structured data from $request_ref->{structured_response}
+
+	write_http_response_headers($request_ref);
 
 	$log->debug(
 		"Displaying structured response",
@@ -10522,9 +10670,7 @@ sub display_structured_response ($request_ref) {
 				. $data . ");";
 		}
 		else {
-			$log->warning("XXXXXXXXXXXXXXXXXXXXXX");
 			write_cors_headers();
-			$log->warning("YYYYYYYYYYYYYYYY");
 			print header(
 				-status => $status_code,
 				-type => 'application/json',
@@ -10625,8 +10771,14 @@ sub display_recent_changes ($request_ref, $query_ref, $limit, $page) {
 		$limit = $request_ref->{page_size};
 	}
 	else {
-		$limit = $page_size;
+		$limit = $options{default_recent_changes_page_size};
 	}
+
+	if ($limit > $options{max_recent_changes_page_size}) {
+		$limit = $options{max_recent_changes_page_size};
+	}
+
+	$request_ref->{page_size} = $limit;
 
 	my $skip = 0;
 	if (defined $page) {
@@ -10658,7 +10810,7 @@ sub display_recent_changes ($request_ref, $query_ref, $limit, $page) {
 			return get_recent_changes_collection()->count_documents($query_ref);
 		}
 	);
-	$log->info("MongoDB count query ok", {error => $@, count => $count}) if $log->is_info();
+	$log->debug("MongoDB count query ok", {error => $@, count => $count}) if $log->is_debug();
 
 	$log->debug("Executing MongoDB query", {query => $query_ref}) if $log->is_debug();
 	my $cursor = execute_query(
@@ -10666,7 +10818,7 @@ sub display_recent_changes ($request_ref, $query_ref, $limit, $page) {
 			return get_recent_changes_collection()->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
 		}
 	);
-	$log->info("MongoDB query ok", {error => $@}) if $log->is_info();
+	$log->debug("MongoDB query ok", {error => $@}) if $log->is_debug();
 
 	my $html = '';
 	my $last_change_ref = undef;
@@ -11207,7 +11359,7 @@ sub search_and_analyze_recipes ($request_ref, $query_ref) {
 
 	my $cursor;
 
-	$log->info("retrieving products from MongoDB to analyze their recipes") if $log->is_info();
+	$log->debug("retrieving products from MongoDB to analyze their recipes") if $log->is_debug();
 
 	if ($admin) {
 		$log->debug("Executing MongoDB query", {query => $query_ref}) if $log->is_debug();
@@ -11243,10 +11395,10 @@ sub search_and_analyze_recipes ($request_ref, $query_ref) {
 		$log->warn("MongoDB error", {error => $@}) if $log->is_warn();
 	}
 	else {
-		$log->info("MongoDB query ok", {error => $@}) if $log->is_info();
+		$log->debug("MongoDB query ok", {error => $@}) if $log->is_debug();
 	}
 
-	$log->info("retrieved products from MongoDB to analyze their recipes") if $log->is_info();
+	$log->debug("retrieved products from MongoDB to analyze their recipes") if $log->is_debug();
 
 	my @products = $cursor->all;
 	my $count = @products;

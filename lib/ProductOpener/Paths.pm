@@ -114,6 +114,14 @@ Directory containing txt taxonomies
 
 $BASE_DIRS{TAXONOMIES_SRC} = _source_dir() . "/taxonomies";
 
+=head2 $BASE_DIRS{CONF}
+
+Directory containing configuration files
+
+=cut
+
+$BASE_DIRS{CONF} = _source_dir() . "/conf";
+
 =head2 $BASE_DIRS{PRIVATE_DATA}
 
 Directory for private data
