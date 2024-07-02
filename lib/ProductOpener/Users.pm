@@ -57,6 +57,7 @@ BEGIN {
 		&check_user_form
 		&process_user_form
 		&check_edit_owner
+		&set_owner_id
 
 		&init_user
 
@@ -731,11 +732,10 @@ is acting on the pro platform as part of a specific company.
 
 =cut
 
-sub check_edit_owner ($user_ref, $errors_ref) {
+sub check_edit_owner ($user_ref, $errors_ref, $ownerid = undef) {
 
 	# temporarily use the org passed as parameter
-	$user_ref->{pro_moderator_owner}
-		= get_string_id_for_lang("no_language",
+	$user_ref->{pro_moderator_owner} = $ownerid // get_string_id_for_lang("no_language",
 		remove_tags_and_quote(decode utf8 => single_param('pro_moderator_owner')));
 
 	# If the owner id looks like a GLN, see if we have a corresponding org
@@ -1315,6 +1315,12 @@ sub init_user ($request_ref) {
 		%Org = ();
 	}
 
+	set_owner_id();
+
+	return 0;
+}
+
+sub set_owner_id () {
 	# if products are private, select the owner used to restrict the product set with the owners_tags field
 	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
 
@@ -1352,7 +1358,7 @@ sub init_user ($request_ref) {
 		$Owner_id = undef;
 	}
 
-	return 0;
+	return;
 }
 
 =head2 is_ip_known_or_whitelisted ()

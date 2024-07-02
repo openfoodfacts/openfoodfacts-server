@@ -2772,10 +2772,31 @@ sub import_csv_file ($args_ref) {
 	}
 
 	# sync CRM
+	my @csv_from_sftp_dir = qw(
+		https://www.carrefour.fr
+		https://www.intermarche.com/
+	);
+	my @catalogs = qw(
+		agena3000
+		equadis
+		bayard
+	);
+
 	foreach my $org_id (keys %{$stats_ref->{orgs_existing}}) {
 		update_import_date($org_id, $time);
+
 		if (exists $args_ref->{source_id}) {
-			update_last_import_type($org_id, uc($args_ref->{source_id}));
+			my $source = $args_ref->{source_id};
+
+			if (grep {$_ eq $source} @catalogs) {
+				update_last_import_type($org_id, uc($source));
+			}
+			elsif (grep {$_ eq $args_ref->{source_url}} @csv_from_sftp_dir) {
+				update_last_import_type($org_id, 'SFTP');
+			}
+			else {
+				update_last_import_type($org_id, 'CSV');
+			}
 		}
 	}
 
