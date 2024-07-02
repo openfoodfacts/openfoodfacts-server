@@ -17,6 +17,7 @@ my $EXPECTED_BASE_PATHS = {
 	CACHE_DEBUG => "$data_root/debug",
 	CACHE_NEW_IMAGES => "$data_root/new_images",
 	CACHE_TMP => "$data_root/tmp",
+	CONF => "$src_root/conf",
 	DELETED_IMAGES => "$data_root/deleted.images",
 	DELETED_PRIVATE_PRODUCTS => "$data_root/deleted_private_products",
 	DELETED_PRODUCTS => "$data_root/deleted_products",
