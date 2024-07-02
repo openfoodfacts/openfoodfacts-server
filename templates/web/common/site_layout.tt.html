@@ -40,16 +40,18 @@
 					<ul class="left">
 
 						<li class="has-dropdown">
-							<a id="menu_link">
+							<a id="menu_link" aria-haspopup="true" aria-controls="dropdown-leftmenu">
 								<span class="material-icons">
 									menu
 								</span>
 							</a>
-							<ul class="dropdown">				
+							<ul class="dropdown" id="dropdown-leftmenu">				
 								[% IF !(server_options_producers_platform) %]
 									<li><a href="[% edq(lang('menu_discover_link')) %]">[% lang('menu_discover') %]</a></li>
 									<li><a href="[% edq(lang('menu_contribute_link')) %]">[% lang('menu_contribute') %]</a></li>
+									
 									<li class="divider"></li>
+
 									<li><label>[% lang("add_products") %]</label></li>
 									<li><a href="[% edq(lang_flavor('get_the_app_link')) %]?utm_source=off&utf_medium=web&utm_campaign=pro_platform_install_the_app_to_add_products_[% language %]">[% lang('install_the_app_to_add_products') %]</a></li>
 									<li><a href="/cgi/product.pl?type=search_or_add&action=display">[% lang('add_product') %]</a></li>
@@ -102,20 +104,20 @@
 					<ul class="right">
 						[% IF not user_id.defined %]
 							<li class="h-space-tiny has-form">
-								<a href="/cgi/session.pl" class="round button secondary">
+								<a href="/cgi/session.pl" class="round button secondary" aria-haspopup="true" aria-controls="dropdown-rightmenu">
 									<span class="material-icons material-symbols-button">account_circle</span>
 									[% lang('sign_in') %]
 								</a>
 							</li>
 						[% ELSE %]
 							<li class="has-dropdown">
-								<a href="#" class="userlink h-space-tiny">
+								<a href="#" class="userlink h-space-tiny" aria-haspopup="true" aria-controls="dropdown-rightmenu">
 									<span class="material-icons">
 										account_circle
 									</span>
 									[% user.name %]
 								</a>
-								<ul class="dropdown">
+								<ul class="dropdown" id="dropdown-rightmenu">
 									<li><a href="/cgi/user.pl?type=edit&userid=[% user_id %]"><span class="material-icons">settings</span> [% lang('edit_user') %]</a></li>
 
 									[% IF org_id %]
@@ -177,11 +179,11 @@
 						<ul class="left small-4" style="margin-right:2rem;">
 							<li class="search-li">
 							
-								<form action="/cgi/search.pl">
+								<form action="/cgi/search.pl" role="search">
 								<div class="row"><div class="small-12">
 								<div class="row collapse postfix-round">
 									<div class="columns">
-									<input type="text" placeholder="[% edq(lang('search_a_product_placeholder')) %]" name="search_terms" value="[% search_terms %]" style="background-color:white">
+									<input type="text" placeholder="[% edq(lang('search_a_product_placeholder')) %]" name="search_terms" value="[% search_terms %]" style="background-color:white" aria-label="Search">
 									<input name="search_simple" value="1" type="hidden">
 									<input name="action" value="process" type="hidden">
 									</div>
@@ -271,7 +273,7 @@
 								[% INCLUDE 'web/common/includes/packagings_banner.tt.html' %]
 							[% ELSE %]
 								[%# we keep the old code so that we can easily put back the donation banner %]
-          						[% PROCESS 'web/common/includes/donate_banner.tt.html' %]
+								[% PROCESS 'web/common/includes/donate_banner.tt.html' %]
 								[% banner_main %]
 							[% END %]
 						[% END %]
