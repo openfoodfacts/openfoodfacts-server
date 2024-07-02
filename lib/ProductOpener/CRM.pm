@@ -53,7 +53,9 @@ BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		&init_crm_data
+		&find_contact
 		&find_or_create_contact
+		&find_company
 		&find_or_create_company
 		&add_contact_to_company
 		&create_onboarding_opportunity
@@ -69,6 +71,7 @@ BEGIN {
 		&update_contact_last_login
 		&get_company_url
 		&get_contact_url
+		&make_odoo_request
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 
@@ -83,6 +86,7 @@ use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created/;
 use ProductOpener::Store qw/retrieve store/;
 use XML::RPC;
 use Log::Any qw($log);
+use Encode;
 
 my $crm_data;
 # Tags (crm.tag) must be defined in Odoo: CRM > Configuration > Tags
@@ -331,8 +335,9 @@ the company if found, undef otherwise
 =cut
 
 sub find_company($org_ref, $contact_id = undef) {
+	my $org_name = $org_ref->{name}; 
 	# escape % and _ in org name, because of the ilike operator
-	my $org_name =~ s/([%_])/\\$1/g;
+	$org_name =~ s/([%_])/\\$1/g;
 	# 1. & 3. merged in one query
 	my $companies = make_odoo_request(
 		'res.partner',
