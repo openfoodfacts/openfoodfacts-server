@@ -79,6 +79,7 @@ my @tests = (
 					'tagtype' => 'categories'
 				},
 			],
+			'param' => {},
 			'no_index' => '0',
 			'is_crawl_bot' => '0',
 			'components' => ['category', 'breads', 'no-nutrition-data'],
@@ -117,6 +118,7 @@ my @tests = (
 					'tagtype' => 'categories'
 				},
 			],
+			'param' => {},
 			'no_index' => '0',
 			'is_crawl_bot' => '1',
 			'rate_limiter_blocking' => 0,
@@ -155,6 +157,7 @@ my @tests = (
 					'tagtype' => 'categories'
 				},
 			],
+			'param' => {},
 			'no_index' => '1',
 			'is_crawl_bot' => '1',
 			'components' => ['category', 'breads', '4'],
@@ -190,6 +193,7 @@ my @tests = (
 					'tagtype' => 'categories'
 				},
 			],
+			'param' =>  {},
 			'no_index' => '0',
 			'is_crawl_bot' => '0',
 			'rate_limiter_blocking' => 0,
