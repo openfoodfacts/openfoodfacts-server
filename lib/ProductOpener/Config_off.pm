@@ -188,6 +188,7 @@ $flavor = 'off';
 	stephane
 	tacinte
 	teolemon
+ 	himanshi-154
 );
 
 %options = (
