@@ -356,7 +356,6 @@
       "en:code-missing",
       "en:created-missing"
    ],
-   "data_quality_errors_producers_tags" : [],
    "data_quality_errors_tags" : [],
    "data_quality_info_tags" : [
       "en:no-packaging-data",
@@ -384,7 +383,6 @@
       "en:ecoscore-packaging-packaging-data-missing",
       "en:ecoscore-production-system-no-label"
    ],
-   "data_quality_warnings_producers_tags" : [],
    "data_quality_warnings_tags" : [
       "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
       "en:ecoscore-packaging-packaging-data-missing",
@@ -787,8 +785,6 @@
       "c"
    ],
    "food_groups_tags" : [],
-   "improvements_data" : {},
-   "improvements_tags" : [],
    "ingredients" : [
       {
          "id" : "en:fruit",
@@ -951,9 +947,6 @@
                "negative" : [
                   {
                      "id" : "energy",
-                     "new_grade" : "c",
-                     "new_score" : 8,
-                     "new_value" : 2345,
                      "points" : 7,
                      "points_max" : 10,
                      "unit" : "kJ",
@@ -961,9 +954,6 @@
                   },
                   {
                      "id" : "sugars",
-                     "new_grade" : "c",
-                     "new_score" : 8,
-                     "new_value" : 3.4,
                      "points" : 1,
                      "points_max" : 15,
                      "unit" : "g",
@@ -971,9 +961,6 @@
                   },
                   {
                      "id" : "saturated_fat",
-                     "new_grade" : "c",
-                     "new_score" : 8,
-                     "new_value" : 9,
                      "points" : 9,
                      "points_max" : 10,
                      "unit" : "g",
@@ -990,9 +977,6 @@
                "positive" : [
                   {
                      "id" : "fiber",
-                     "new_grade" : "c",
-                     "new_score" : 8,
-                     "new_value" : 6.4,
                      "points" : 3,
                      "points_max" : 5,
                      "unit" : "g",
