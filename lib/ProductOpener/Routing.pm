@@ -110,6 +110,8 @@ sub load_routes() {
 		['', \&index_route],
 		['^(?<page>\d+)$', \&index_route, {regex => 1}],
 		['org/[orgid]/', \&org_route],
+		# Known tag type? Catch all if no route matched
+		['.*', \&facets_route, {regex => 1}],
 	];
 
 	# all translations for route 'missions' (e.g. missioni, missões ...)
@@ -172,20 +174,14 @@ sub _analyze_request_impl($request_ref, @components) {
 
 	$log->debug("analyze_request", {components => \@components,}) if $log->is_debug();
 
-	if (match_route($request_ref, @components)) {
-		# done
-	}
-	# Known tag type?
-	else {
-		handle_other_tag_types_in_route($request_ref, @components);
-	}
+	match_route($request_ref, @components);
 
 	# Return noindex empty HTML page for web crawlers that crawl specific facet pages
 	if (is_no_index_page($request_ref)) {
 		# $request_ref->{no_index} is set to 0 by default in init_request()
 		$request_ref->{no_index} = 1;
 	}
-
+	
 	check_and_update_rate_limits($request_ref);
 
 	$log->debug("request analyzed", {lc => $request_ref->{lc}, request_ref => $request_ref}) if $log->is_debug();
