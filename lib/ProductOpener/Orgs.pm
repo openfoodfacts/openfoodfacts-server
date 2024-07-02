@@ -187,7 +187,7 @@ sub store_org ($org_ref) {
 
 			defined add_contact_to_company($contact_id, $company_id) or die "Failed to add contact to company";
 
-			# admin validates the org used to link the salesperson
+			# admin validates the org, used to link the right salesperson
 			my $my_admin = retrieve_user($User_id);
 			$log->debug("store_org", {myuser => $my_admin}) if $log->is_debug();
 

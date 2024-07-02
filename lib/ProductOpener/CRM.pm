@@ -93,7 +93,7 @@ my $crm_data;
 my @required_tag_labels = qw(onboarding);
 # Category (res.partner.category) must be defined in Odoo :
 # Contact > contact (individual or company) form > Tags field > "Search More"
-my @data_source = ('AGENA3000', 'EQUADIS', 'CSV', 'Manual import',);
+my @data_source = ('AGENA3000', 'EQUADIS', 'CSV', 'Manual import', 'SFTP', 'BAYARD');
 my @required_category_labels = ('Producer', @data_source);
 
 # special commands to manipulate Odoo relation One2Many and Many2Many
@@ -469,15 +469,14 @@ sub create_onboarding_opportunity ($name, $company_id, $contact_id, $salesperson
 	my $query_params
 		= {name => $name, partner_id => $contact_id, tag_ids => [[$commands{link}, $crm_data->{tag}{onboarding}]]};
 	if (defined $salesperson_email) {
-		my $user = grep {$_->{email} eq $salesperson_email} @{$crm_data->{users}};
-		$user = $crm_data->{users}[0];
+		my $user = (grep {$_->{email} eq $salesperson_email} @{$crm_data->{users}})[0];
 		if (defined $user) {
 			$query_params->{user_id} = $user->{id};
 		}
 	}
 	my $opportunity_id = make_odoo_request('crm.lead', 'create', [$query_params]);
 	$log->debug("create_onboarding_opportunity",
-		{opportunity_id => $opportunity_id, salesperson => $query_params->{user_id}})
+		{opportunity_id => $opportunity_id, salesperson => $query_params->{user_id}, users => $crm_data->{users}})
 		if $log->is_debug();
 	return $opportunity_id;
 }
@@ -664,7 +663,6 @@ must match one of the values in CRM.pm @data_source
 sub update_company_last_import_type($org_id, $label) {
 	my $org_ref = retrieve_org($org_id);
 	return if not defined $org_ref->{crm_org_id};
-	return if $label ~~ @data_source;
 	my $category_id = $crm_data->{category}{$label};
 	add_category_to_company($org_id, $label);
 	return make_odoo_request('res.partner', 'write',
