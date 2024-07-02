@@ -4828,6 +4828,9 @@ sub add_params_to_query ($request_ref, $query_ref) {
 						if $log->is_debug();
 
 					# if the value is "unknown", we need to add a condition on the field being empty
+
+					my @tagtype_allowing_unknown_as_value
+						= qw(nutrition_grades nova_groups ecoscore pnns_groups_1 pnns_groups_2 food_groups);
 					# warning: unknown is a value for pnns_groups_1 and 2
 					if (
 						(
@@ -4839,8 +4842,7 @@ sub add_params_to_query ($request_ref, $query_ref) {
 								)
 							)
 						)
-						and ($tagtype !~ /^pnns_groups_/)
-						and ($tagtype ne "creator")
+						and not(grep {$_ eq $tagtype} @tagtype_allowing_unknown_as_value)
 						)
 					{
 						if ($not) {
@@ -4853,6 +4855,10 @@ sub add_params_to_query ($request_ref, $query_ref) {
 					}
 					# Normal single value (not unknown)
 					else {
+						if ($tagtype eq 'nova_groups') {
+							# Remove language code. e.g. for nova_groups : en:not-applicable -> not-applicable
+							$tagid =~ s/^[a-z]{2}://;
+						}
 						if ($not) {
 							$query_ref->{$tagtype . $suffix} = {'$ne' => $tagid};
 						}
