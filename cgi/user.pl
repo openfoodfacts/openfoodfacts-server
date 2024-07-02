@@ -436,7 +436,7 @@ if (($type eq "edit_owner") and ($action eq "process")) {
 	$log->info("redirecting to / after changing owner", {}) if $log->is_info();
 
 	my $r = shift;
-	$r->headers_out->set(Location => "/");
+	$r->headers_out->set(Location => "/org/$User{pro_moderator_owner}");
 	$r->status(302);
 	return 302;
 }

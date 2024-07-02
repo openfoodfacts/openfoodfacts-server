@@ -1623,7 +1623,8 @@ MAIL
 		display_product(\%request);
 	}
 
-	$template_data_ref_process->{edited_product_url} = $url_prefix . product_url($product_ref);
+	$template_data_ref_process->{edited_product_url}
+		= $url_prefix . get_org_id_pretty_path() . product_url($product_ref);
 	$template_data_ref_process->{edit_product_url} = $url_prefix . product_action_url($product_ref->{code}, "");
 
 	if ($type ne 'delete') {
