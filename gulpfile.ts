@@ -78,6 +78,7 @@ export function copyJs() {
     "./node_modules/jsvectormap/dist/js/jsvectormap.js",
     "./node_modules/jsvectormap/dist/maps/world-merc.js",
     "./node_modules/select2/dist/js/select2.min.js",
+    "./node_modules/jsbarcode/dist/JsBarcode.all.min.js",
   ]).
     pipe(init()).
     pipe(terser()).
