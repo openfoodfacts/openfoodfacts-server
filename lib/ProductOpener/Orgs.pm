@@ -215,6 +215,13 @@ sub store_org ($org_ref) {
 
 	}
 
+	elsif (defined $previous_org_ref
+		&& $previous_org_ref->{valid_org} ne 'rejected'
+		&& $org_ref->{valid_org} eq 'rejected')
+	{
+		send_org_rejection_email($org_ref);
+	}
+
 	if (    defined $org_ref->{crm_org_id}
 		and exists $org_ref->{main_contact}
 		and $org_ref->{main_contact} ne $previous_org_ref->{main_contact}
@@ -561,6 +568,25 @@ sub update_last_import_type ($org_id, $data_source) {
 	$org_ref->{last_import_type} = $data_source;
 	update_company_last_import_type($org_id, $data_source);
 	store_org($org_ref);
+	return;
+}
+
+sub send_org_rejection_email($org_ref) {
+
+	my $template_name = "org_rejected.tt.html";
+
+	# send org rejection email to main contact
+	my $main_contact_user = $org_ref->{main_contact};
+	my $user_ref = retrieve_user($main_contact_user);
+
+	my $template_data_ref = {
+		user => $user_ref,
+		org => $org_ref,
+	};
+
+	my $language = $user_ref->{preferred_language} || $user_ref->{initial_lc};
+
+	send_email_template($template_name, $template_data_ref, $user_ref, $language);
 	return;
 }
 
