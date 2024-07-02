@@ -193,7 +193,7 @@ my @tests = (
 					'tagtype' => 'categories'
 				},
 			],
-			'param' =>  {},
+			'param' => {},
 			'no_index' => '0',
 			'is_crawl_bot' => '0',
 			'rate_limiter_blocking' => 0,

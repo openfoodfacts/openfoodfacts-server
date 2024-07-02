@@ -181,7 +181,7 @@ sub _analyze_request_impl($request_ref, @components) {
 		# $request_ref->{no_index} is set to 0 by default in init_request()
 		$request_ref->{no_index} = 1;
 	}
-	
+
 	check_and_update_rate_limits($request_ref);
 
 	$log->debug("request analyzed", {lc => $request_ref->{lc}, request_ref => $request_ref}) if $log->is_debug();
