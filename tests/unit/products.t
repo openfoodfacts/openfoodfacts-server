@@ -350,4 +350,6 @@ is(preprocess_product_field('packaging', 'Aluminium, Can, abc@gmail.com'), 'Alum
 is(preprocess_product_field('labels', 'email@example.com, Green Dot'), ', Green Dot');
 is(preprocess_product_field('stores', 'Carrefour, abc@gmail.com'), 'Carrefour, ');
 
+is(split_code("26153689"), "000/002/615/3689");
+
 done_testing();
