@@ -1212,6 +1212,10 @@ en:kombucha culture, kombuncha cultures
 fr:culture de kombucha
 hr:kombucha kultura
 
+<en:microbial culture
+en:tempeh culture
+de:Tempeh-Kultur
+
 <en:lactic ferments
 en:yogurt cultures
 fr:cultures de yaourt
@@ -2150,6 +2154,7 @@ ko:발효유
 lv:Skābpiena produkti
 ru:Кисломолочные продукты
 uk:Кисломолочний продукт
+# nova:en:4 should be set by children
 vegan:en:no
 vegetarian:en:maybe
 wikidata:en:Q3506176
@@ -2165,6 +2170,7 @@ es:producto lácteo en polvo, producto a base de leche en polvo, productos láct
 #fr:produits laitiers en poudre
 hr:mliječni proizvodi u prahu
 hu:tejpor alapú termékek
+nova:en:4
 
 en:First age baby milk powder, First milk powder, First infant milk formula in powder
 fr:Lait 1er âge en poudre soluble, Lait premier âge en poudre soluble, Préparation pour nourrissons en poudre soluble
@@ -2538,6 +2544,7 @@ nl:melkerijboter
 
 <en:butter
 en:reconstituted butter
+bg:възобновена сметана
 ca:mantega deshidratada reconstituïda
 de:rekonstituierte Butter
 es:mantequilla deshidratada reconstituida
@@ -2870,6 +2877,7 @@ nl:lactosevrije melk
 
 <en:lactose-free milk
 en:whole lactose-free milk, lactose-free whole milk
+bg:пълномаслено мляко без лактоза
 de:Laktosefreie Vollmilch
 es:Leche entera sin lactosa
 fr:lait entier sans lactose, lait sans lactose entier
@@ -3068,11 +3076,13 @@ hr:obrano mlijeko s 0.5% mliječne masti
 <en:lactose-free milk
 <en:skimmed milk
 en:lactose-free skimmed milk, skimmed lactose-free milk
+bg:обезмаслено мляко без лактоза
 fr:lait sans lactose écrémé, lait écrémé sans lactose
 hr:obrano mlijeko bez laktoze
 
 <en:lactose-free-milk
 en:semi-skimmed lactose-free milk, lactose-free semi-skimmed milk
+bg:полуобезмаслено мляко без лактоза
 fr:lait sans lactose demi-écrémé, lait demi-écrémé sans lactose
 
 
@@ -4341,7 +4351,7 @@ hr:karamelizirano obrano mlijeko u prahu
 
 <en:milk powder
 en:whole milk powder, dried whole milk, powdered whole milk, whole powdered milk, whole dry milk, dry whole milk
-bg:пълномаслено мляко на прах, пълномаслено сухо мляко
+bg:пълномаслено мляко на прах, пълномаслено сухо мляко, сухо пълномаслено мляко
 ca:Llet sencera en pols, llet en pols sencera
 cs:sušené plnotučné mléko
 da:sødmælkspulver
@@ -4387,6 +4397,7 @@ ru:молоко сухое цельное и обезжиренноё
 
 <en:whole milk powder
 en:reconstituted milk powder
+bg:възстановено мляко на прах
 ca:llet en pols reconstituida
 es:leche en polvo reconstituida
 hr:rekonstituirano mlijeko u prahu
@@ -4398,6 +4409,7 @@ nl:gereconstitueerde melk
 
 <en:skimmed milk
 en:reconstituted skimmed milk
+bg:възтановено обезмаслено мляко
 ca:llet desnatada reconstituida, llet desnatada rehidratada, llet descremada rehidratada, llet descremada reconstituida
 de:rekonstituierte Magermilch
 es:leche desnatada reconstituida, leche desnatada rehidratada, leche descremada rehidratada, leche descremada reconstituida
@@ -4845,6 +4857,7 @@ hr:blagi punomasni jogurt
 
 <en:yogurt
 de:Joghurterzeugnis
+# nova:en:4 what is this?
 
 <en:yogurt
 en:british yogurt
@@ -4998,7 +5011,7 @@ hr:blagi kefir
 
 # nova:en:whey
 <en:dairy
-en:whey,milk whey
+en:whey, milk whey
 an:Siero de leit
 ar:مصل اللبن
 be:Сыроватка
@@ -5052,12 +5065,13 @@ tl:Lagnaw
 tr:Peynir altı suyu
 uk:Сироватка, Сиро́ватка моло́чна
 zh:乳清
-vegan:en:no
-vegetarian:en:maybe
 # als:Schotte, Sirte, Sirmende, Chääsmilch
 # ckb:پاڵاوتەی شیر
 # nds-nl:Wui
 # sco:Whey, milk serum
+nova:en:4
+vegan:en:no
+vegetarian:en:maybe
 wikipedia:en:https://en.wikipedia.org/wiki/Whey
 # whey can be made from animal rennet
 
@@ -5070,7 +5084,7 @@ vegetarian:en:yes
 
 <en:whey
 en:whey powder, powdered whey,milk whey powder
-bg:суроватка на прах, млечна суроватка на прах, млечна суха суроватка
+bg:суроватка на прах, млечна суроватка на прах, млечна суха суроватка, суха млечна суроватка
 ca:Xerigot en pols, sèrum en pols, sèrum làctic en pols
 cs:sušená syrovátka
 da:Vallepulver, vallepulver af mælk
@@ -5218,6 +5232,7 @@ it:derivati del siero di latte, la preparazione del siero di latte
 nl:Wei
 pl:produkt serwatkowy
 sv:vassleprodukt
+nova:en:4
 # ingredient/fr:produit-de-lactosérum has 22 products in 4 languages @2019-02-07
 # ingredient/fr:préparation-à-base-de-lactosérum has 34 products @2019-03-18
 
@@ -9100,7 +9115,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Taleggio_cheese
 
 <en:cheese
 en:tilsit
-bg:Тилзитер
+bg:Тилзитер, Тилзит, сирене Тилзит
 cs:Tilsiter
 de:Tilsiter
 eo:Tilziter
@@ -14834,6 +14849,7 @@ sk:Modifikovaný škrob
 sl:modificiran skrob, modificirani škrob
 sv:modifierad stärkelse
 zh:化製澱粉
+nova:en:4
 wikidata:en:Q415766
 wikipedia:en:https://en.wikipedia.org/wiki/Modified_starch
 
@@ -15587,7 +15603,7 @@ it:grassi idrogenati
 nl:gehydrogeneerd vet
 pl:tłuszcz uwodorniony, tłuszcze uwodornione
 # ingredient/hydrogenated-fat has 277 products in 8 languages @2019-07-10
-vegan:en:no
+vegan:en:maybe
 vegetarian:en:maybe
 
 <en:hydrogenated fat
@@ -15718,7 +15734,7 @@ hr:govedi loj, goveđi loj, goveđi loja
 <en:dairy
 <en:fat
 en:milkfat, milk fat
-bg:млечна мазнина
+bg:млечна мазнина, млечни мазнини
 bs:mlečna mast
 cs:mléčný tuk
 da:mælkefedt
@@ -17475,6 +17491,7 @@ hr:mast sjemenki pamuka
 
 <en:vegetable oil
 en:avocado oil
+bg:авокадово масло, авокадово олио
 de:Avocadoöl
 es:Aceite de aguacate
 fi:avokadoöljy
@@ -18275,7 +18292,7 @@ it:girasole alto oleico
 
 <en:sunflower oil
 en:high oleic sunflower oil
-bg:високоолеиново слънчогледово масло
+bg:високоолеиново слънчогледово масло, високо олеиново слънчогледово олио
 ca:oli refinat de gira-sol alt oleic, oli de gira-sol alt oleic, oli vegetal de gira-sol alt oleic
 de:High Oleic-Sonnenblumenöl, High-Oleic-Sonnenblumenöl, Sonnenblumenöl mit hohem Fettsäureanteil, Sonnenblumenöl hoch erhitzbar
 es:aceite de girasol alto oleico,aceite refinado de girasol alto oleico
@@ -22859,7 +22876,7 @@ fi:karamelliaromi, toffeearomi
 fr:arôme caramel
 hr:aroma karamele
 hu:karamella aroma, karamell aroma
-nl:caramelaroma
+nl:karamel aroma, caramelaroma
 pt:aroma de caramelo
 sv:kolaarom
 
@@ -22872,7 +22889,7 @@ fr:arôme naturel de porc
 hr:prirodna aroma svinjetine
 hu:természetes sertéshús aroma
 it:aroma naturale di maiale
-nl:natuurlijk varkensvleesaroma
+nl:natuurlijk karamel aroma, natuurlijk varkensvleesaroma
 pt:sabor natural de porco
 ro:aromă naturală de porc
 sv:naturlig fläskarom
@@ -24414,6 +24431,7 @@ la:Triticum monococcum
 nl:eenkoren,eenkoorn,einkorn
 pt:einkorn
 sv:enkornsvete
+rare_crop:en:yes
 wikidata:en:Q161397
 wikipedia:en:https://en.wikipedia.org/wiki/Einkorn_wheat
 
@@ -24492,7 +24510,7 @@ ja:デュラムコムギ
 ka:მაგარი ხორბალი
 ko:듀럼밀
 ky:катуу буудай
-la:Triticum durum
+la:Triticum durum, Triticum turgidum subsp. durum
 lt:kietasis kvietys
 lv:cietais kviesis
 ms:durum
@@ -24737,16 +24755,25 @@ ciqual_food_name:fr:Frik (blé dur immature concassé), cru
 wikidata:en:Q771079
 wikipedia:en:https://en.wikipedia.org/wiki/Freekeh
 
-#processing:en: en:cooked
-#<en:freekeh
-#en:cooked freekeh
-#fr:freekeh cuit
-
 # (Triticum turgidum L. subsp. turgidum),
 <en:wheat
-en:poulard wheat
+en:poulard wheat, rivet wheat, cone wheat
 fr:blé poulard
 hr:pularna pšenica
+la:Triticum turgidum L. subsp. turgidu
+rare_crop:en:yes
+
+<en:poulard wheat
+fr:pulard d'Auvergne, blé poulard d'Auvergne
+rare_crop:en:yes
+
+<en:poulard wheat
+fr:poulard d'Australie, blé poulard d'Australie
+rare_crop:en:yes
+
+<en:poulard wheat
+fr:pétanielle noire de Nice
+rare_crop:en:yes
 
 
 ##################################################################################
@@ -25527,6 +25554,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Malt
 
 <en:malt
 en:malt extract
+bg:малцов екстракт
 ca:extracte de malta
 da:maltekstrakt
 de:Malzextrakt
@@ -27341,12 +27369,12 @@ el:σιτηρό kamut
 es:kamut, trigo de Jorasán Kamut
 et:kamut
 fi:kamut
-fr:kamut
+fr:blé khorasan, kamut
 ga:camut
 hr:horasanska pšenica
 hu:kamut
 it:kamut
-la:triticum turgidum, triticum turgidum polonicum
+la:Triticum turgidum subsp. turanicum, Triticum turanicum
 lt:kamutas
 mt:kamut
 nl:kamut
@@ -27653,7 +27681,7 @@ fr:farines de graines et céréales
 <en:wheat
 en:wheat flour, wheatflour
 ar:طحين القمح
-bg:пшенично брашно
+bg:пшенично брашно, пшеничено брашно
 bs:pšenično brašno
 ca:Farina de ble
 cs:pšeničná mouka
@@ -31940,10 +31968,11 @@ tr:glikoz şurubu, glukoz şurubu, glükoz şurubu
 ciqual_proxy_food_code:en:31016
 ciqual_proxy_food_name:en:Sugar, white
 ciqual_proxy_food_name:fr:Sucre blanc
-wikidata:en:Q14770547
 # ast:Almíbar
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/glucose-syrup
 # 32467 products in 29 languages @2018-09-24
+nova:en:4
+wikidata:en:Q14770547
 wikipedia:en:https://en.wikipedia.org/wiki/Glucose_syrup
 
 <en:glucose syrup
@@ -32234,6 +32263,7 @@ hr:glukoza-fruktoza
 it:Glucosio-fruttosio
 nl:glucose-fructose
 sv:Glukos-Fruktos
+nova:en:4
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/glucose-fructose
 # 19 products in 3 languages @2018-09-24
 
@@ -33664,6 +33694,7 @@ hu:sűrített savófehérje, sűrített tejsavófehérje
 it:Proteine del siero concentrate
 pl:koncentrat białek serwatkowych, koncentrat białka serwatkowego, koncentrat białek serwatki
 sv:vassleproteinkoncentrat
+nova:en:4
 
 <en:whey protein
 en:whey protein isolate, whey isolate
@@ -34026,7 +34057,7 @@ ky:майдаланган какао
 lt:kakavos masė
 lv:kakavos masė
 nb:kakaomasse
-nl:cacaomassa
+nl:cacaomassa, cacao massa
 pl:miazga kakaowa, masa kakaowa
 pt:pasta de cacau, massa de cacau
 ro:masă de cacao, masa de cacao, masă cacao, masa cacao, pastă de cacao, pasta de cacao
@@ -39067,8 +39098,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Cranberry
 
 <en:cranberry
 <en:fruit juice
-fr:jus de cranberry à base de concentré
+cs:šťáva z klikvy velkoplodé z koncentrátu
 de:Cranberrysaft (Moosbeerensaft) aus Cranberrysaftkonzentrat
+fr:jus de cranberry à base de concentré
 it:succo di mirtillo rosso da concentrato
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-cranberry-à-base-de-concentré
 # 32 products in 3 languages @2018-10-02
@@ -39085,7 +39117,7 @@ wikidata:en:Q26897677
 # description:en:Vaccinium macrocarpon (also called large cranberry, American cranberry and bearberry) is a North American species of cranberry of the subgenus Oxycoccus and genus Vaccinium.
 <en:cranberry
 en:american cranberry
-cs:klikva velkoplodá
+cs:klikva velkoplodá, klikvy velkoplodé
 cy:llygaeren america
 da:storfrugtet tranebær
 de:großfrüchtige moosbeere
@@ -44094,7 +44126,7 @@ ar:أرونية
 az:Aroniya
 bg:Арония
 ca:Aronia
-cs:temnoplodec, arónie
+cs:temnoplodec, arónie, aronie
 cy:Llwyn aeron tagu coch
 da:Surbær
 de:Aronia, Apfelbeer, Apfelbeeren
@@ -44152,6 +44184,7 @@ zh:野櫻莓
 <en:chokeberry
 <en:fruit juice
 en:chokeberry juice
+cs:šťáva z aronie
 da:aroniasaft, aronia saft
 de:Aroniasaft
 fi:marja-aroniamehu
@@ -56988,7 +57021,7 @@ it:insalata mista
 # do not make pepper a synonym of bell pepper
 
 <en:fruit vegetable
-en:bell pepper, sweet pepper
+en:bell pepper, sweet pepper, capsicum
 af:soetrissie
 an:pimiento
 ar:فلفل حلو
@@ -57075,7 +57108,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Bell_pepper
 # "yellow pepper" can probably be safely assumed to be a synonym for "yellow bell pepper"
 
 <en:bell pepper
-en:yellow bell pepper, yellow pepper
+en:yellow bell pepper, yellow pepper, yellow capsicum
 bg:жълта чушка, жълти чушки
 ca:pebrot groc
 cs:žlutá paprika
@@ -57126,7 +57159,7 @@ en:italian bell pepper
 es:pimiento italiano
 
 <en:bell pepper
-en:red bell pepper, red pepper
+en:red bell pepper, red pepper, red capsicum
 ar:فلفل أحمر
 bg:червена чушка, червени чушки, червена капия
 ca:pebrot vermell, pebrot roig, pebrot vermell dolç, pebrots vermells dolços
@@ -57159,7 +57192,7 @@ ciqual_food_name:fr:Poivron rouge, cru
 # 17432 in 13 languages @2021-10-12
 
 <en:red bell pepper
-en:red grilled pepper
+en:red grilled pepper, red grilled capsicum
 hr:crvena pečena paprika
 
 <en:sweet pepper
@@ -59584,7 +59617,7 @@ da:hvide bønner
 de:weiße Bohnen
 es:Alubias blancas, judia blanca
 fi:valkoinen papu, valkoiset pavut
-fr:haricots blancs, lingots blancs, haricots lingots, cocos blancs, haricots blancs lingots, haricots coco blancs, haricots cocos blancs, haricots coco, haricots cocos, lingots, haricots blancs dits mogette, haricot plat coco
+fr:haricots blancs, haricot blanc, cocos blancs,  haricots coco blancs, haricots cocos blancs, haricots coco, haricots cocos, haricots blancs dits mogette, haricot plat coco
 hr:grah bijeli
 it:Fagioli bianchi
 nb:hvite bønner
@@ -59596,6 +59629,15 @@ sv:vit böna, vita bönor
 eurocode_2_group_3:en: 7.10.30
 eurocode_2_group_4:en: 7.10.30.10
 
+
+<en:white beans
+en:lingot beans, white lingot beans
+fr:lingots blancs, lingo blanc, haricots lingots blancs, haricots blancs lingots, lingot, lingots, lingots blancs
+rare_crop:en:yes
+
+<en:lingot beans
+en:Castelnaudary lingot beans
+fr:Lingots de Castelnaudary
 
 <en:pulse
 fr:haricots coco roses, haricots cocos roses
@@ -59981,6 +60023,7 @@ ciqual_food_name:en:lupin grain, raw
 ciqual_food_name:fr:Lupin, graine crue
 # 957 in 12 @2021-10-01
 eurocode_2_group_3:en: 7.10.xx
+rare_crop:en:yes
 #plant:wikidata:en:Q156811
 wikidata:en:Q13582643
 wikipedia:en:https://en.wikipedia.org/wiki/Lupin_bean
@@ -59990,6 +60033,7 @@ en:white lupin
 fr:lupin blanc, lupin blanc doux
 hr:bijela lupina
 la:lupinus albus
+rare_crop:en:yes
 
 <en:lupin
 en:blue lupine
@@ -60119,6 +60163,7 @@ ciqual_food_name:fr:Fève, sèche
 #eurocode 8.45.20 is for fresh broad beans
 #eurocode_2_group_3:en: 7.10.20 is for dried broad beans
 eurocode_2_group_3:en: 8.45.20
+rare_crop:en:yes
 # aeb-arab:فول
 # arz:فول
 # azb:آت پاخلاسی
@@ -60156,7 +60201,6 @@ eurocode_2_group_3:en: 8.45.20
 wikidata:en:Q131342
 wikipedia:en:https://en.wikipedia.org/wiki/Vicia_faba
 
-
 <en:broad bean
 <en:pulse
 en:dried broad bean
@@ -60189,6 +60233,7 @@ nl:tuinbooneiwit
 <en:pulse
 en:meat bean
 fr:haricot viande, haricots viande
+rare_crop:en:yes
 
 <en:pulse
 en:Adzuki bean, azuki bean
@@ -60861,14 +60906,21 @@ sv:gråärtan
 <en:pea
 en:grass pea, grass peas, cicerchia, blue sweet pea, chickling pea
 de:Saat-Platterbse
-es:almorta, chicharo
+es:almorta, Chícharo, chicharo
 fi:peltonätkelmä
-fr:pois carré, gesse
+fr:pois carré, pois carrés, gesse
 hr:trava grašak
 it:cicerchia
 la:lathyrus sativus
 pt:chícharo
 sv:plattvial
+rare_crop:en:yes
+
+<en:grass pea
+en:grass pea from Alvaiázere,  grass peas from Alvaiázere
+es:Chícharo de Alvaiázere, Chícharos de Alvaiázere
+fr:pois carrés d'Alvaiázere
+rare_crop:en:yes
 
 # description:en:The lentil (Lens culinaris or Lens esculenta) is an edible legume. Lentils are consumed in many ways. They can be eaten soaked, germinated, boiled, fried and baked.
 # comment:en:The wikidata entry is more about the plant, so translations can be wrong.
@@ -62554,7 +62606,7 @@ es:pecanas caramelizadas
 fi:karamellisoidut pekaanipähkinät
 fr:noix de pécan caramélisées
 hr:karamelizirani pekan orasi
-nl:gekaramelliseerde pecannoten, gekaramelliseerde stukjes pecannoten
+nl:gekaramelliseerde pecannoten, gekaramelliseerde stukjes pecannoten, gekarameliseerde pecanstukjes
 sv:karamelliserade pekannötter
 # ingredient/caramelized-pecan-nuts 48 in 8 @2021-08-21
 
@@ -63454,7 +63506,7 @@ sv:vallmo
 en:poppyseed, poppy seed, poppy seeds
 af:Papawersaad
 ar:بذور خشخاش
-bg:маково семе
+bg:маково семе, макови семена
 ca:rosella, Llavors de rosella
 da:birkes
 de:Mohnsamen, Mohnsaat
@@ -71652,7 +71704,7 @@ fr:Vanille pure
 
 <en:vanilla
 en:Bourbon vanilla
-bg:бурбонска ванилия
+bg:Бурбонска ванилия
 de:Bourbon Vanille, Bourbon-Vanille
 es:Vainilla Bourbon
 fi:bourbon-vanilja
@@ -71686,6 +71738,7 @@ sv:vaniljpulver
 <en:Bourbon vanilla
 <en:vanilla powder
 en:Bourbon vanilla powder
+bg:Бурбонска ванилия на прах
 de:Bourbon Vanille gemahlen, Bourbon-Vanillepulver, Bourbonvanilleschotenpulver
 fr:poudre de vanille Bourbon
 hr:bourbon vanilija u prahu
@@ -74388,12 +74441,17 @@ fr:chanterelles
 wikipedia:fr:https://fr.wikipedia.org/wiki/Chanterelle
 # ingredient/fr:chanterelles has 51 products @2019-04-06
 
-<en:mushroom
+# <en:fungus
 en:rhizopus
 de:Rhizopus
 es:rhizopus
 hr:rizopus
 wikipedia:en:https://en.wikipedia.org/wiki/Rhizopus
+
+<en:ferment
+<en:rhizopus
+en:rhizopus culture
+de:Rhizopuskultur
 
 # description:en:Penicilliumn ascomycetous fungi are of major importance in the natural environment as well as food and drug production.
 
@@ -86952,6 +87010,13 @@ fr:fibre de canne à sucre, fibres de canne à sucre
 hr:vlakna šećerne trske
 pl:błonnik z trzciny cukrowej
 
+<en:fiber
+en:betaglucan, β-glucane
+de:Beta-Glucane, β-Glucane
+es:beta glucano, β-glucano
+fr:bêta-glucane, betaglucane, β-glucane
+
+
 # description:en:INULINS are a group of naturally occurring polysaccharides produced by many types of plants, industrially most often extracted from chicory. Chicory root is the main source of extraction for commercial production of inulin. It can be used to replace sugar, fat, and flour.
 
 # fodmap:en:yes
@@ -90093,6 +90158,12 @@ vegetarian:en:yes
 wikidata:en:Q177378
 wikipedia:en:https://en.wikipedia.org/wiki/Tofu
 
+# <en:compound
+en:tempeh
+de:Tempeh
+fr:tempeh
+allergens:en: en:soybeans
+
 # mainIngredient:en:sugar
 fr:Décor orange
 # usage:fr:Décor orange: confiserie: sucre,beurre de cacao, poudre de lait entier,émulsifiant : lécithine de soja ,colorant : extrait de paprika, arôme
@@ -90100,9 +90171,6 @@ fr:Décor orange
 # mainIngredient:en:sugar
 fr:confiserie
 # usage:fr:confiserie: sucre, beurre de cacao, poudre de lait entier, émulsifiant : lécithine de soja , colorant : extrait de paprika, arôme
-
-
-
 
 # description:en:FONDANT icing, also commonly referred to simply as fondant, is an icing used to decorate or sculpt cakes and pastries.
 
@@ -90894,6 +90962,7 @@ nl:sojabereiding
 pt:preparado à base de soja
 sv:sojabönsberedning
 allergens:en: en:soybeans
+nova:en:4
 
 <en:soy preparation
 # mainIngredient:en:water

@@ -55,7 +55,7 @@ use ProductOpener::Mail qw/send_email_to_admin/;
 
 use Encode;
 
-=head2 revert_product_api()
+=head2 revert_product_api($request_ref)
 
 Process API v3 requests to revert a product to a specific revision.
 

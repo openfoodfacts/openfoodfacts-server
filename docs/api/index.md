@@ -140,4 +140,6 @@ Open-source contributors develop our SDKs, and more contributions are welcome to
 *   React Native: [GitHub](https://github.com/openfoodfacts/openfoodfacts-react-native) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/CL29QEBPY)
 *   Ruby: [GitHub](https://github.com/openfoodfacts/openfoodfacts-ruby) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C0ZALLH61)
 *   Rust: [GitHub](https://github.com/openfoodfacts/openfoodfacts-rust) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C010J616CKV)
-*   R: [GitHub](https://github.com/openfoodfacts/r-dashboard)
+*   R: [GitHub](https://github.com/openfoodfacts/r-dashboard) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C2CR356NR)
+*   Swift: [GitHub](https://github.com/openfoodfacts/openfoodfacts-swift) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/CE2A1E7MH)
+*   .NET/C#: [GitHub](https://github.com/openfoodfacts/openfoodfacts-csharp) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C1JHT98HJ)

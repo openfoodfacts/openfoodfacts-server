@@ -33,6 +33,7 @@ use ProductOpener::Lang qw/$lc %Lang lang/;
 use ProductOpener::Orgs qw/:all/;
 use ProductOpener::Tags qw/canonicalize_tag_link/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
+use ProductOpener::CRM qw/get_company_url/;
 
 use CGI qw/:cgi :form escapeHTML charset/;
 use URI::Escape::XS;
@@ -68,7 +69,7 @@ my $org_ref = retrieve_org($orgid);
 if (not defined $org_ref) {
 	$log->debug("org does not exist", {orgid => $orgid}) if $log->is_debug();
 
-	if ($admin or $User{pro_moderator}) {
+	if ($request_ref->{admin} or $request_ref->{pro_moderator}) {
 		$template_data_ref->{org_does_not_exist} = 1;
 	}
 	else {
@@ -78,7 +79,7 @@ if (not defined $org_ref) {
 
 # Does the user have permission to edit the org profile?
 
-if (not(is_user_in_org_group($org_ref, $User_id, "admins") or $admin or $User{pro_moderator})) {
+if (not(is_user_in_org_group($org_ref, $User_id, "admins") or $request_ref->{admin} or $request_ref->{pro_moderator})) {
 	$log->debug("user does not have permission to edit org",
 		{orgid => $orgid, org_admins => $org_ref->{admins}, User_id => $User_id})
 		if $log->is_debug();
@@ -91,7 +92,7 @@ if ($action eq 'process') {
 
 	if ($type eq 'edit') {
 		if (single_param('delete') eq 'on') {
-			if ($admin) {
+			if ($request_ref->{admin}) {
 				$type = 'delete';
 			}
 			else {
@@ -102,7 +103,7 @@ if ($action eq 'process') {
 
 			# Administrator fields
 
-			if ($admin or $User{pro_moderator}) {
+			if ($request_ref->{admin} or $User{pro_moderator}) {
 
 				# If the org does not exist yet, create it
 				if (not defined $org_ref) {
@@ -192,7 +193,7 @@ $log->debug("org form - before display / process", {type => $type, action => $ac
 
 if ($action eq 'display') {
 
-	$template_data_ref->{admin} = $admin;
+	$template_data_ref->{admin} = $request_ref->{admin};
 
 	# Create the list of sections and fields
 
@@ -200,7 +201,7 @@ if ($action eq 'display') {
 
 	# Admin
 
-	if ($admin or $User{pro_moderator}) {
+	if ($request_ref->{admin} or $User{pro_moderator}) {
 
 		my $admin_fields_ref = [];
 
@@ -377,7 +378,7 @@ elsif ($action eq 'process') {
 	}
 	elsif ($type eq 'user_delete') {
 
-		if (is_user_in_org_group($org_ref, $User_id, "admins") or $admin or $User{pro_moderator}) {
+		if (is_user_in_org_group($org_ref, $User_id, "admins") or $request_ref->{admin} or $User{pro_moderator}) {
 			remove_user_by_org_admin(single_param('orgid'), single_param('user_id'));
 			$template_data_ref->{result} = lang("edit_org_result");
 
@@ -388,7 +389,7 @@ elsif ($action eq 'process') {
 
 	}
 	elsif ($type eq 'add_users') {
-		if (is_user_in_org_group($org_ref, $User_id, "admins") or $admin or $User{pro_moderator}) {
+		if (is_user_in_org_group($org_ref, $User_id, "admins") or $request_ref->{admin} or $User{pro_moderator}) {
 			my $email_list = remove_tags_and_quote(single_param('email_list'));
 			my $email_ref = add_users_to_org_by_admin($orgid, $email_list);
 
@@ -400,7 +401,7 @@ elsif ($action eq 'process') {
 		}
 	}
 	elsif ($type eq 'change_main_contact') {
-		if (is_user_in_org_group($org_ref, $User_id, "admins") or $admin or $User{pro_moderator}) {
+		if (is_user_in_org_group($org_ref, $User_id, "admins") or $request_ref->{admin} or $User{pro_moderator}) {
 			my $main_contact = remove_tags_and_quote(single_param('main_contact'));
 			# check that the main contact is a member of the organization
 			if (not is_user_in_org_group($org_ref, $main_contact, 'members')) {
@@ -416,7 +417,7 @@ elsif ($action eq 'process') {
 
 	elsif ($type eq 'admin_status') {
 		# verify right to change status
-		if (is_user_in_org_group($org_ref, $User_id, "admins") or $admin or $User{pro_moderator}) {
+		if (is_user_in_org_group($org_ref, $User_id, "admins") or $request_ref->{admin} or $User{pro_moderator}) {
 			# inputs are in the form admin_status_<user_id>, get them among param and extract the user_id
 			my @user_ids = sort map {$_ =~ /^admin_status_/ ? $' : ()} param();
 			my @existing_admins = sort grep {is_user_in_org_group($org_ref, $_, "admins")} keys %{$org_ref->{members}};
@@ -467,8 +468,9 @@ $template_data_ref->{user_is_admin} = \%user_is_admin;
 $template_data_ref->{current_user_id} = $User_id;
 
 $template_data_ref->{main_contact} = $org_ref->{main_contact};
+$template_data_ref->{crm_company_url} = get_company_url($org_ref);
 
-process_template('web/pages/org_form/org_form.tt.html', $template_data_ref, \$html)
+process_template('web/pages/org_form/org_form.tt.html', $template_data_ref, \$html, $request_ref)
 	or $html = "<p>template error: " . $tt->error() . "</p>";
 
 $request_ref->{title} = $title;
