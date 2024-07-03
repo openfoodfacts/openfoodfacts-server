@@ -32,11 +32,6 @@ use Log::Any qw($log);
 
 my $request_ref = ProductOpener::Display::init_request();
 
-my $orgs_collection = get_orgs_collection();
-my @orgs = $orgs_collection->find->all;
-
-my $template_data_ref = {orgs => \@orgs};
-
 if ((not defined $User_id)) {
 	$log->debug("undefined user", {User_id => $User_id}) if $log->is_debug();
 	display_error_and_exit($request_ref, $Lang{error_no_permission}{$lc}, 401);
@@ -46,6 +41,25 @@ if ((not $request_ref->{admin}) or (not $User{pro_moderator})) {
 	$log->debug("user does not have permission to view organisation list", {User_id => $User_id}) if $log->is_debug();
 	display_error_and_exit($request_ref, $Lang{error_no_permission}{$lc}, 403);
 }
+
+my $orgs_collection = get_orgs_collection();
+my @orgs;
+
+
+my $name = single_param('name');
+my $valid_org = single_param('valid_org'); 
+
+my $query_ref = {};
+my $template_data_ref = {};
+
+$query_ref->{name} = qr/\Q$name\E/i if defined $name;
+$query_ref->{valid_org} = $valid_org if defined $valid_org;
+
+$template_data_ref->{query_filters} = [] unless defined $template_data_ref->{query_filters};
+
+@orgs = $orgs_collection->find($query_ref)->all;
+
+$template_data_ref = {orgs => \@orgs};
 
 my $html;
 process_template('web/pages/dashboard/display_orgs_table.tt.html', $template_data_ref, \$html) or $html = '';
