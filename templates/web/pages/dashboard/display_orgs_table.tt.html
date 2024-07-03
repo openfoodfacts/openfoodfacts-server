@@ -4,8 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://static.openfoodfacts.org/js/datatables.min.css">
+    <style>
+        form {
+            margin-bottom: 30px;
+        }
+    </style>
 </head>
 <body>
+    <form method="GET" action="/cgi/display_org_table.pl">
+        <label for="name">[% lang("name") %]:</label>
+        <input type="text" id="name" name="name" value="[% name | html %]">
+        
+        <label for="valid_org">[% lang("verified_status") %]:</label>
+        <input type="text" id="valid_org" name="valid_org" value="[% valid_org | html %]">
+        
+        <button type="submit">[% lang("search") %]</button>
+    </form>
+
     <table id="tagstable">
         <thead>
             <tr>

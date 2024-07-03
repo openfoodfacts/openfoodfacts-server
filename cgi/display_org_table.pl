@@ -52,8 +52,8 @@ my $valid_org = single_param('valid_org');
 my $query_ref = {};
 my $template_data_ref = {};
 
-$query_ref->{name} = qr/\Q$name\E/i if defined $name;
-$query_ref->{valid_org} = $valid_org if defined $valid_org;
+$query_ref->{name} = qr/\Q$name\E/i if defined $name && $name ne '';
+$query_ref->{valid_org} = $valid_org if defined $valid_org && $valid_org ne '';
 
 $template_data_ref->{query_filters} = [] unless defined $template_data_ref->{query_filters};
 
