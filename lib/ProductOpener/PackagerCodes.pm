@@ -194,6 +194,7 @@ my %local_ec = (
 	FI => "EY",
 	FR => "CE",
 	HR => "EU",
+	HU => "ES",
 	IT => "CE",
 	NL => "EG",
 	PL => "WE",
