@@ -1,7 +1,12 @@
 <!-- start templates/[% template.name %] -->
-
-<div style="position:relative">
-    <table>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://static.openfoodfacts.org/js/datatables.min.css">
+</head>
+<body>
+    <table id="tagstable">
         <thead>
             <tr>
                 <th>[% lang("serial_no") %]</th>
@@ -16,23 +21,45 @@
             </tr>
         </thead>
         <tbody>
-        [% SET count = 1 %]
-        [% FOREACH org IN orgs %]
-            <tr>
-                <td>[% count %].</td>
-                <td>[% org.name %]</td>
-                <td>[% org.creator %]</td>
-                <td>[% org.org_id %]</td>
-                <td>[% org.valid_org %]</td>
-                <td>[% display_date_tag(org.created_t) %]</td>
-                <td>[% display_date_tag(org.last_logged_member_t) %]</td>
-                <td>[% display_date_tag(org.last_import_t) %]</td>
-                <td>[% org.last_import_type %]</td>
-            </tr>
-            [% SET count = count + 1 %]
-        [% END %]
+            [% SET count = 1 %]
+            [% FOREACH org IN orgs %]
+                <tr>
+                    <td>[% count %].</td>
+                    <td>[% org.name %]</td>
+                    <td>[% org.creator %]</td>
+                    <td>[% org.org_id %]</td>
+                    <td>[% org.valid_org %]</td>
+                    <td>[% display_date_tag(org.created_t) %]</td>
+                    <td>[% display_date_tag(org.last_logged_member_t) %]</td>
+                    <td>[% display_date_tag(org.last_import_t) %]</td>
+                    <td>[% org.last_import_type %]</td>
+                </tr>
+                [% SET count = count + 1 %]
+            [% END %]
         </tbody>
     </table>
-</div>
+
+    <script src="https://static.openfoodfacts.org/js/jquery.min.js"></script>
+    <script src="https://static.openfoodfacts.org/js/datatables.min.js"></script>
+    <script>
+        $(function() {
+            $('#tagstable').DataTable({
+                language: {
+                    search: "Search:",
+                    info: "_TOTAL_ labels",
+                    infoFiltered: " - out of _MAX_"
+                },
+                paging: false,
+                order: [[ 1, "desc" ]],
+                columns: [
+                    null,
+                    { "searchable": false },
+                    { "searchable": false }
+                ]
+            });
+        });
+    </script>
+</body>
+</html>
 
 <!-- end templates/[% template.name %] -->
