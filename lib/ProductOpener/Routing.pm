@@ -94,7 +94,8 @@ a route is registered with:
 		  Use named captures to store the arguments in $request_ref->{param}
 
 		- onlyif: a sub($request_ref, @components) that will be called to check if the route should be used
-			Its a dynamic routing, using context of the request
+			Its a dynamic routing, using context of the request.
+			Results is used as a boolean to decide if the route should be used.
 		}
 
 non regex routes will be matched first, then regex routes
@@ -128,13 +129,13 @@ sub load_routes() {
 	
 	# text route : index, index-pro, ...
 	my @text_route;
-	foreach my $key (keys %texts) {
+	foreach my $text (keys %texts) {
 		push @text_route, [
-			$key,
+			$text,
 			\&text_route,
 			{
 				onlyif => sub ($request_ref, @components) {
-					return $texts{$key}{$request_ref->{lc}} || defined $texts{$key}{'en'};
+					return $texts{$text}{$request_ref->{lc}} || defined $texts{$text}{'en'};
 				}
 			}
 		];
