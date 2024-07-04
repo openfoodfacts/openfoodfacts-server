@@ -57,6 +57,7 @@ BEGIN {
 		&check_user_form
 		&process_user_form
 		&check_edit_owner
+		&set_owner_id
 
 		&init_user
 
@@ -441,11 +442,11 @@ sub check_user_form ($request_ref, $type, $user_ref, $errors_ref) {
 		$user_ref->{discussion} = remove_tags_and_quote(single_param('discussion'));
 		$user_ref->{ip} = remote_addr();
 		$user_ref->{initial_lc} = $lc;
-		$user_ref->{initial_cc} = $cc;
+		$user_ref->{initial_cc} = $request_ref->{cc};
 		$user_ref->{initial_user_agent} = user_agent();
 	}
 
-	if ($admin) {
+	if ($request_ref->{admin}) {
 
 		# Org
 		check_user_org($user_ref, remove_tags_and_quote(decode utf8 => single_param('org')));
@@ -520,7 +521,7 @@ sub check_user_form ($request_ref, $type, $user_ref, $errors_ref) {
 	return;
 }
 
-=head2 notify_user_requested_org($user_ref, $org_created)
+=head2 notify_user_requested_org($user_ref, $org_created, $request_ref)
 
 Notify admin that a user requested to be part of an org
 
@@ -532,20 +533,25 @@ Notify admin that a user requested to be part of an org
 
 Is the org newly created ?
 
+=head4 Request object $request_ref
+
+the request object
+
 =cut
 
-sub notify_user_requested_org ($user_ref, $org_created) {
+sub notify_user_requested_org ($user_ref, $org_created, $request_ref) {
 
 	# the template for the email, we will build it gradually
 	my $template_data_ref = {
 		userid => $user_ref->{userid},
 		user => $user_ref,
 		requested_org => $user_ref->{requested_org_id},
+		cc => $request_ref->{cc},
 	};
 
 	# construct first part of the mail about new pro account
 	my $mail = '';
-	process_template("emails/user_new_pro_account.tt.txt", $template_data_ref, \$mail);
+	process_template("emails/user_new_pro_account.tt.txt", $template_data_ref, \$mail, $request_ref);
 	if ($mail =~ /^\s*Subject:\s*(.*)\n/im) {
 		my $subject = $1;
 		my $body = $';
@@ -562,7 +568,8 @@ sub notify_user_requested_org ($user_ref, $org_created) {
 		# The requested org already exists
 		# build second part of the mail about it and alter the subject
 		$mail = '';
-		process_template("emails/user_new_pro_account_org_request_validated.tt.txt", $template_data_ref, \$mail);
+		process_template("emails/user_new_pro_account_org_request_validated.tt.txt",
+			$template_data_ref, \$mail, $request_ref);
 		if ($mail =~ /^\s*Subject:\s*(.*)\n/im) {
 			my $subject = $1;
 			my $body = $';
@@ -581,7 +588,8 @@ sub notify_user_requested_org ($user_ref, $org_created) {
 
 	# Send an e-mail notification to admins, with links to the organization
 	$mail = '';
-	process_template("emails/user_new_pro_account_admin_notification.tt.html", $template_data_ref, \$mail);
+	process_template("emails/user_new_pro_account_admin_notification.tt.html", $template_data_ref, \$mail,
+		$request_ref);
 	if ($mail =~ /^\s*Subject:\s*(.*)\n/im) {
 		my $subject = $1;
 		my $body = $';
@@ -606,7 +614,7 @@ Process it.
 
 =cut
 
-sub process_user_requested_org ($user_ref) {
+sub process_user_requested_org ($user_ref, $request_ref) {
 
 	(defined $user_ref->{requested_org_id}) or return 1;
 
@@ -639,7 +647,7 @@ sub process_user_requested_org ($user_ref) {
 
 	}
 	# send a notification to admins
-	notify_user_requested_org($user_ref, $org_created);
+	notify_user_requested_org($user_ref, $org_created, $request_ref);
 	return 1;
 }
 
@@ -669,7 +677,7 @@ sub process_user_form ($type, $user_ref, $request_ref) {
 	$log->debug("process_user_form", {type => $type, user_ref => $user_ref}) if $log->is_debug();
 
 	# Professional account with a requested org (existing or new)
-	process_user_requested_org($user_ref);
+	process_user_requested_org($user_ref, $request_ref);
 
 	# save user
 	store_user($user_ref);
@@ -735,11 +743,10 @@ is acting on the pro platform as part of a specific company.
 
 =cut
 
-sub check_edit_owner ($user_ref, $errors_ref) {
+sub check_edit_owner ($user_ref, $errors_ref, $ownerid = undef) {
 
 	# temporarily use the org passed as parameter
-	$user_ref->{pro_moderator_owner}
-		= get_string_id_for_lang("no_language",
+	$user_ref->{pro_moderator_owner} = $ownerid // get_string_id_for_lang("no_language",
 		remove_tags_and_quote(decode utf8 => single_param('pro_moderator_owner')));
 
 	# If the owner id looks like a GLN, see if we have a corresponding org
@@ -1319,6 +1326,12 @@ sub init_user ($request_ref) {
 		%Org = ();
 	}
 
+	set_owner_id();
+
+	return 0;
+}
+
+sub set_owner_id () {
 	# if products are private, select the owner used to restrict the product set with the owners_tags field
 	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
 
@@ -1356,7 +1369,7 @@ sub init_user ($request_ref) {
 		$Owner_id = undef;
 	}
 
-	return 0;
+	return;
 }
 
 =head2 is_ip_known_or_whitelisted ()

@@ -69,7 +69,7 @@ my $org_ref = retrieve_org($orgid);
 if (not defined $org_ref) {
 	$log->debug("org does not exist", {orgid => $orgid}) if $log->is_debug();
 
-	if ($admin or $User{pro_moderator}) {
+	if ($request_ref->{admin} or $request_ref->{pro_moderator}) {
 		$template_data_ref->{org_does_not_exist} = 1;
 	}
 	else {
@@ -79,7 +79,7 @@ if (not defined $org_ref) {
 
 # Does the user have permission to edit the org profile?
 
-if (not(is_user_in_org_group($org_ref, $User_id, "admins") or $admin or $User{pro_moderator})) {
+if (not(is_user_in_org_group($org_ref, $User_id, "admins") or $request_ref->{admin} or $request_ref->{pro_moderator})) {
 	$log->debug("user does not have permission to edit org",
 		{orgid => $orgid, org_admins => $org_ref->{admins}, User_id => $User_id})
 		if $log->is_debug();
@@ -92,7 +92,7 @@ if ($action eq 'process') {
 
 	if ($type eq 'edit') {
 		if (single_param('delete') eq 'on') {
-			if ($admin) {
+			if ($request_ref->{admin}) {
 				$type = 'delete';
 			}
 			else {
@@ -103,7 +103,7 @@ if ($action eq 'process') {
 
 			# Administrator fields
 
-			if ($admin or $User{pro_moderator}) {
+			if ($request_ref->{admin} or $User{pro_moderator}) {
 
 				# If the org does not exist yet, create it
 				if (not defined $org_ref) {
@@ -193,7 +193,7 @@ $log->debug("org form - before display / process", {type => $type, action => $ac
 
 if ($action eq 'display') {
 
-	$template_data_ref->{admin} = $admin;
+	$template_data_ref->{admin} = $request_ref->{admin};
 
 	# Create the list of sections and fields
 
@@ -201,7 +201,7 @@ if ($action eq 'display') {
 
 	# Admin
 
-	if ($admin or $User{pro_moderator}) {
+	if ($request_ref->{admin} or $User{pro_moderator}) {
 
 		my $admin_fields_ref = [];
 
@@ -376,7 +376,7 @@ elsif ($action eq 'process') {
 		store_org($org_ref);
 		$template_data_ref->{result} = lang("edit_org_result");
 	}
-	elsif (is_user_in_org_group($org_ref, $User_id, "admins") or $admin or $User{pro_moderator}) {
+  elsif (is_user_in_org_group($org_ref, $User_id, "admins") or $request_ref->{admin} or $User{pro_moderator}) {
 		if ($type eq 'user_delete') {
 			remove_user_by_org_admin(single_param('orgid'), single_param('user_id'));
 			$template_data_ref->{result} = lang("edit_org_result");
@@ -443,6 +443,7 @@ elsif ($action eq 'process') {
 		display_error_and_exit($request_ref, $Lang{error_no_permission}{$lc}, 403);
 	}
 
+
 	$template_data_ref->{profile_url} = canonicalize_tag_link("editors", "org-" . $orgid);
 	$template_data_ref->{profile_name} = sprintf(lang('user_s_page'), $org_ref->{name});
 }
@@ -476,7 +477,7 @@ $template_data_ref->{main_contact} = $org_ref->{main_contact};
 $template_data_ref->{crm_company_url} = get_company_url($org_ref);
 $template_data_ref->{org_is_accepted} = $org_ref->{valid_org} eq 'accepted' ? 1 : 0;
 
-process_template('web/pages/org_form/org_form.tt.html', $template_data_ref, \$html)
+process_template('web/pages/org_form/org_form.tt.html', $template_data_ref, \$html, $request_ref)
 	or $html = "<p>template error: " . $tt->error() . "</p>";
 
 $request_ref->{title} = $title;

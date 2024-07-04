@@ -42,7 +42,7 @@ if ((not defined $User_id)) {
 	display_error_and_exit($request_ref, $Lang{error_no_permission}{$lc}, 401);
 }
 
-if ((not $admin) or (not $User{pro_moderator})) {
+if ((not $request_ref->{admin}) or (not $User{pro_moderator})) {
 	$log->debug("user does not have permission to view organisation list", {User_id => $User_id}) if $log->is_debug();
 	display_error_and_exit($request_ref, $Lang{error_no_permission}{$lc}, 403);
 }

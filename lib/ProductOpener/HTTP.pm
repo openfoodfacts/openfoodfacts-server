@@ -177,13 +177,13 @@ sub set_http_response_header($request_ref, $header_name, $header_value) {
 	return;
 }
 
-=head2 write_http_response_headers($http_response_headers_ref)
+=head2 write_http_response_headers($request_ref)
 
 This function writes the headers in the response.
 
 =head3 Parameters
 
-=head4 $http_response_headers_ref - Reference to a hash with headers.
+=head4 $request_ref - Reference to the request object.
 
 =cut
 
