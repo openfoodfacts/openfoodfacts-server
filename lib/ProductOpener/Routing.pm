@@ -88,9 +88,13 @@ a route is registered with:
 	- Handler (sub)
 	- (optional) Options : {
 		- name
+
 		- regex: 1 if the pattern is a true regex, 0 by default. 
 		  When you don't want to use the default limited one.
 		  Use named captures to store the arguments in $request_ref->{param}
+
+		- onlyif: a sub($request_ref, @components) that will be called to check if the route should be used
+			Its a dynamic routing, using context of the request
 		}
 
 non regex routes will be matched first, then regex routes
@@ -121,8 +125,21 @@ sub load_routes() {
 	# all translations for route 'en:product' (e.g. fr:produit, es:producto ...)
 	my @lc_product_route
 		= (map {["$_:$tag_type_singular{products}{$_}", \&product_route]} keys %{$tag_type_singular{products}});
+	
 	# text route : index, index-pro, ...
-	my @text_route = (map {[$_, \&text_route]} keys %texts);
+	my @text_route;
+	foreach my $key (keys %texts) {
+		push @text_route, [
+			$key,
+			\&text_route,
+			{
+				onlyif => sub ($request_ref, @components) {
+					return $texts{$key}{$request_ref->{lc}} || defined $texts{$key}{'en'};
+				}
+			}
+		];
+	}
+
 	# Renamed text : en/nova-groups-for-food-processing -> nova, ...
 	my @redirect_text_route = ();
 	if (defined $options{redirect_texts}) {
@@ -548,7 +565,7 @@ sub register_route($routes_to_register) {
 			# check if we catch an arg
 			if ($pattern !~ /\[.*\]/ and $pattern ne '') {
 				# its a simple route, use a hash key for fast match
-				$routes{$pattern} = $handler;
+				$routes{$pattern} = {handler => $handler, opt => $opt};
 				#print STDERR "route: $pattern\n";
 				next;
 			}
@@ -585,9 +602,14 @@ sub match_route ($request_ref, @components) {
 	# Simple routing with fast hash key match with first component #
 	# api -> api_route
 	if (exists $routes{$components[0]}) {
+		my $route = $routes{$components[0]};
 		$log->debug("route matched", {route => $components[0]}) if $log->is_debug();
-		$routes{$components[0]}->($request_ref, @components);
-		return 1;
+		if ((defined $route->{opt}{onlyif} and $route->{opt}{onlyif}($request_ref, @components))
+			or 1)
+		{
+			$route->{handler}($request_ref, @components);
+			return 1;
+		}
 	}
 
 	my $tmp_query_string = join("/", @components);
@@ -607,8 +629,12 @@ sub match_route ($request_ref, @components) {
 				if $log->is_debug();
 			my %matches = %+;
 			$request_ref->{param} = \%matches;
-			$route->{handler}($request_ref, @components);
-			return 1;
+			if ((defined $route->{opt}{onlyif} and $route->{opt}{onlyif}($request_ref, @components))
+				or 1)
+			{
+				$route->{handler}($request_ref, @components);
+				return 1;
+			}
 		}
 	}
 	return;
