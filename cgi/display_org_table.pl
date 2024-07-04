@@ -45,9 +45,8 @@ if ((not $request_ref->{admin}) or (not $User{pro_moderator})) {
 my $orgs_collection = get_orgs_collection();
 my @orgs;
 
-
 my $name = single_param('name');
-my $valid_org = single_param('valid_org'); 
+my $valid_org = single_param('valid_org');
 
 my $query_ref = {};
 my $template_data_ref = {};
@@ -59,13 +58,36 @@ $template_data_ref->{query_filters} = [] unless defined $template_data_ref->{que
 
 @orgs = $orgs_collection->find($query_ref)->all;
 
-$template_data_ref = {orgs => \@orgs};
+$template_data_ref = {orgs => \@orgs, has_orgs => scalar @orgs > 0};
 
 my $html;
 process_template('web/pages/dashboard/display_orgs_table.tt.html', $template_data_ref, \$html) or $html = '';
 if ($tt->error()) {
 	$html .= '<p>' . $tt->error() . '</p>';
 }
+
+$request_ref->{initjs} .= <<JS
+let oTable = \$('#tagstable').DataTable({
+	language: {
+		search: "Search:",
+		info: "_TOTAL_ labels",
+		infoFiltered: " - out of _MAX_"
+    },
+	paging: false,
+	order: [[ 1, "desc" ]],
+});
+JS
+	;
+
+$request_ref->{scripts} .= <<SCRIPTS
+<script src="https://static.openfoodfacts.org/js/datatables.min.js"></script>
+SCRIPTS
+	;
+
+$request_ref->{header} .= <<HEADER
+<link rel="stylesheet" href="https://static.openfoodfacts.org/js/datatables.min.css">
+HEADER
+	;
 
 $request_ref->{title} = "Organization List";
 $request_ref->{content_ref} = \$html;
