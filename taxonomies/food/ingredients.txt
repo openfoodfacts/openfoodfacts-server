@@ -12500,16 +12500,22 @@ sv:renbog
 #                                Boar
 #
 ###################################################################################################
+
 <en:game animal
-en:wild boar
+en:wild boar, boar
+fr:sanglier
 hr:divlji vepar
 pl:dzik, dzika
 ciqual_food_code:en:14002
 ciqual_food_name:en:Wild boar, raw
+nutriscore_red_meat:en:yes
+vegan:en:no
+vegetarian:en:no
 wikidata:en:Q58697
 
 <en:wild boar
 en:wild boar meat
+fr:viande de sanglier
 hr:meso divlje svinje
 pl:mięso z dzika
 
@@ -93038,16 +93044,6 @@ vegetarian:en:no
 en:camel meat
 fr:viande de chameau
 
-<en:animal
-en:wild boar, boar
-fr:sanglier
-nutriscore_red_meat:en:yes
-vegan:en:no
-vegetarian:en:no
-
-<en:wild boar
-en:wild board meat
-fr:viande de sanglier
 
 <en:animal
 en:bull
