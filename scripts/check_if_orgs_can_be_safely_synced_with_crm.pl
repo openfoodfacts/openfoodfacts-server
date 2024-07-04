@@ -85,7 +85,6 @@ my $orgs = decode_json($content)->{tags};
 my $org_by_id = {};
 foreach my $org (@{$orgs}) {
 	$org_by_id->{$org->{id}} = $org->{products};
-	say "$org->{id} => $org->{products}";
 }
 
 my $csv
