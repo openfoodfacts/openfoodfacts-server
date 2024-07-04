@@ -126,7 +126,7 @@ sub load_routes() {
 	# all translations for route 'en:product' (e.g. fr:produit, es:producto ...)
 	my @lc_product_route
 		= (map {["$_:$tag_type_singular{products}{$_}", \&product_route]} keys %{$tag_type_singular{products}});
-	
+
 	# text route : index, index-pro, ...
 	my @text_route;
 	foreach my $text (keys %texts) {
