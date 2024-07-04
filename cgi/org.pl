@@ -376,7 +376,7 @@ elsif ($action eq 'process') {
 		store_org($org_ref);
 		$template_data_ref->{result} = lang("edit_org_result");
 	}
-  elsif (is_user_in_org_group($org_ref, $User_id, "admins") or $request_ref->{admin} or $User{pro_moderator}) {
+	elsif (is_user_in_org_group($org_ref, $User_id, "admins") or $request_ref->{admin} or $User{pro_moderator}) {
 		if ($type eq 'user_delete') {
 			remove_user_by_org_admin(single_param('orgid'), single_param('user_id'));
 			$template_data_ref->{result} = lang("edit_org_result");
@@ -442,7 +442,6 @@ elsif ($action eq 'process') {
 	else {
 		display_error_and_exit($request_ref, $Lang{error_no_permission}{$lc}, 403);
 	}
-
 
 	$template_data_ref->{profile_url} = canonicalize_tag_link("editors", "org-" . $orgid);
 	$template_data_ref->{profile_name} = sprintf(lang('user_s_page'), $org_ref->{name});
