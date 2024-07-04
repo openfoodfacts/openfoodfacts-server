@@ -95,7 +95,8 @@ use ProductOpener::DataQuality qw/check_quality/;
 use ProductOpener::Data qw/get_products_collection/;
 use ProductOpener::ImportConvert qw/$empty_regexp $not_applicable_regexp $unknown_regexp clean_fields/;
 use ProductOpener::Users qw/$Org_id $Owner_id $User_id/;
-use ProductOpener::Orgs qw/create_org retrieve_org set_org_gs1_gln store_org update_import_date/;
+use ProductOpener::Orgs
+	qw/create_org retrieve_org set_org_gs1_gln store_org update_import_date update_last_import_type/;
 use ProductOpener::Data qw/:all/;
 use ProductOpener::Packaging
 	qw/add_or_combine_packaging_component_data get_checked_and_taxonomized_packaging_component_data/;
@@ -2771,8 +2772,32 @@ sub import_csv_file ($args_ref) {
 	}
 
 	# sync CRM
+	my @csv_from_sftp_dir = qw(
+		https://www.carrefour.fr
+		https://www.intermarche.com/
+	);
+	my @catalogs = qw(
+		agena3000
+		equadis
+		bayard
+	);
+
 	foreach my $org_id (keys %{$stats_ref->{orgs_existing}}) {
 		update_import_date($org_id, $time);
+
+		if (exists $args_ref->{source_id}) {
+			my $source = $args_ref->{source_id};
+
+			if (grep {$_ eq $source} @catalogs) {
+				update_last_import_type($org_id, uc($source));
+			}
+			elsif (grep {$_ eq $args_ref->{source_url}} @csv_from_sftp_dir) {
+				update_last_import_type($org_id, 'SFTP');
+			}
+			else {
+				update_last_import_type($org_id, 'CSV');
+			}
+		}
 	}
 
 	$log->debug(

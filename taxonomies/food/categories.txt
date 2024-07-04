@@ -38199,6 +38199,10 @@ hr:Bijele čokolade s lješnjacima
 lt:Balti šokoladai su lazdyno riešutais
 nl:Witte chocola met hazelnoten
 
+<en:White chocolates
+en:White chocolates with rice crisps
+nl:Witte chocoladen met ricecrisps
+
 <en:Chocolates with almonds
 <en:White chocolates
 en:White chocolates with almonds
@@ -39861,6 +39865,7 @@ zh:黑牛扎糖
 <en:Candies
 <en:Confectioneries
 en:Marshmallows, Marshmallow, Marshmallow candies, Marshmallow candy
+bg:Маршмелоу
 da:Marshmallows
 de:Marshmallows, Mäusespeck
 es:Malvavisco
@@ -39935,6 +39940,7 @@ wikidata:en:Q182339
 
 <en:Festive foods
 en:Easter food, Easter chocolates
+bg:Великденска храна
 de:Osterschokoladen
 es:Comida de Pascua
 fi:Pääsiäisruoat
@@ -50107,6 +50113,7 @@ nl:Kruidenboters, Knoflookboters
 
 <en:Butters
 en:Spanish butters
+bg:Испанско масло
 fr:Graisses espagnoles
 hr:Španjolski maslaci
 lt:Ispaniški sviestai
@@ -50153,6 +50160,7 @@ agribalyse_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, nature
 <en:Fermented dairy desserts with fruits
 <en:Skyr
 en:Fruit skyrs, Fruit skyr
+bg:Скир с плодове
 fr:Skyrs aux fruits, Skyr aux fruits
 hr:Voće skyrs
 nl:Skyrs met vruchten
@@ -50473,6 +50481,7 @@ gpc_category_name:en:Milk (Perishable)
 
 <en:Milks
 en:Milks from Austria, Austrian milks
+bg:Австрийско мляко
 fr:Laits autrichiens
 hr:Mlijeko iz austrije
 lt:Austriški pienas
@@ -50491,6 +50500,7 @@ it:Latte fieno
 
 <en:Milks
 en:Spanish milks, Milks from Spain
+bg:Испанско мляко
 fr:Laits espagnols
 hr:Španjolska mlijeka
 lt:Ispaniški pienas
@@ -52389,7 +52399,7 @@ hr:voćni jogurti, voćni jogurt
 hu:Gyümölcsjoghurtok, Joghurt gyümölccsel
 it:Yogurt alla frutta
 lt:Jogurtai su vaisiais, Vaisiniai jogurtai
-nl:Vruchtenyoghurts
+nl:Vruchtenyoghurts, Fruityoghurts
 pl:Jogurty owocowe, Jogurty z owocami
 pt:Iogurtes de fruta, iogurtes com fruta
 ro:Iaurturi cu fructe, Iaurt cu fructe
@@ -52472,6 +52482,10 @@ it:Yogurt multifrutti, yogurt multi-frutta
 nl:Multifruityoghurts
 pt:Iogurtes multifrutas, iogurtes de várias frutas
 ro:Iaurturi multifructe, iaurturi cu mai multe fructe
+
+<en:Multifruit yoghurts
+en:Red fruit yoghurts
+nl:Rood fruit yoghurts
 
 #should contain only yogurt with real lemon, yogurt with lemon oil, extract or aroma should be in Flavoured yogurts
 <en:Fruit yogurts
@@ -58244,6 +58258,7 @@ zh:水果和水果籽油
 
 <en:Fruit and fruit seed oils
 en:Avocado oils
+bg:Авокадово масло
 de:Avocadoöle
 es:Aceites de aguacate
 fi:Avokadoöljyt
@@ -69053,6 +69068,7 @@ ciqual_food_name:fr:Banane, pulpe, sèche
 
 <en:Dried fruits
 en:Dried strawberries
+bg:Сушени ягоди
 fr:Fraises séchées
 hr:Suhe jagode
 lt:Džiovintos braškės
@@ -69069,6 +69085,7 @@ nl:Gedroogde bosbessen
 
 <en:Dried fruits
 en:Dried cranberries
+bg:Сушени червени боровинки
 de:Getrocknete Moosbeere
 es:Arándanos secos
 fi:kuivatut karpalot
@@ -78147,6 +78164,9 @@ hr:Jela od ovaca
 lt:Avienos mėsos patiekalai
 nl:Schapenvleesmaaltijden
 
+<en:Sheep dishes
+en:Lamb cottage pies, Lamb shepherd's pies
+
 <en:sheep dishes
 en:Tripoux, Tripous
 fr:Tripoux, Tripous
@@ -78199,8 +78219,9 @@ wikidata:en:Q1133209
 <en:Beef dishes
 en:Beef Wellington
 
+# cottage pie is the first synonyme because more products are called cottage pie than sheperd's pie
 <en:Beef dishes
-en:Shepherd's pie, Cottage pie with meat
+en:Beef cottage pies, Shepherd's pie, Cottage pie with meat
 fr:Hachis parmentier, parmentiers de bœuf, Hachis Parmentier au boeuf
 hr:Pastirska pita
 it:Shepherd's pie
@@ -82224,13 +82245,19 @@ hr:Salata od tjestenine s piletinom
 lt:Makaronų salotos su vištiena
 
 <en:Pies
-en:Two-crust Pies, 2 crust pies
+en:Double crust pies, Two-crust pies, 2 crust pies
 fr:Tourtes, Tourte
 hr:Pite s dvije kore
 nl:Pies, pie
 wikidata:en:Q13360264
 
-<en:Meats and their products
+<en:Double crust pies
+<en:Salted pies
+en:Vegetarian double crust pies
+fr:Tourtes végétariennes
+
+<en:Double crust pies
+<en:Salted pies
 en:Meat pies
 fr:Tourtes à la viande
 hr:Pite od mesa
@@ -82238,8 +82265,13 @@ ja:ミートパイ
 lt:Pyragai su mėsa, Mėsos pyragai
 wikidata:en:Q5367573
 
-<en:meat pies
-<en:salted pies
+<en:Meat pies
+<en:Beef dishes
+en:Beef pies
+fr:Tourtes au bœuf, tourtes au boeuf
+
+<en:Meat pies
+<en:Pork meals
 en:Pork pies
 lt:Pyragai su kiauliena
 wikidata:en:Q3304394
@@ -82273,7 +82305,7 @@ nl:Kippenpaddestoelentaarten
 wikidata:en:Q5096289
 
 <en:salted pies
-<en:two-crust pies
+<en:Double crust pies
 en:Mushroom pies
 fr:Tourtes aux champignons
 hr:Pite od gljiva
@@ -82281,7 +82313,7 @@ ja:きのこパイ
 lt:Pyragai su grybais
 nl:Champignontaarten
 
-<en:two-crust pies
+<en:Double crust pies
 en:Squid and spicy tomato sauce pie
 fr:Tielles Sétoises, tielles, tielle, tielle sétoise, tielle à la sétoise, tielles à la sétoise
 hr:Pita s lignjama i pikantnim umakom od rajčice
@@ -84971,6 +85003,7 @@ ciqual_food_name:fr:Poitrine de porc demi-sel
 
 <en:Pork
 en:Pork loin
+bg:Свинско филе
 es:Lomo de cerdo
 fr:Longe de porc
 hr:Lungić
@@ -86484,6 +86517,7 @@ ciqual_food_name:fr:Poulet, aile, viande et peau, rôti/cuit au four
 
 <en:Chicken wings
 en:Frozen chicken wings
+bg:Замразени пилешки крилца
 fr:Ailes de poulet surgelées, aile de poulet surgelée
 
 <en:Chickens
@@ -109489,6 +109523,7 @@ intake24_category_code:en:SCNS
 #Normally these are thick (1cm or more)
 <en:Pastries
 en:Waffles
+bg:Гофрети
 de:Waffeln
 es:Gofres
 fi:Paksuja vohveleita
@@ -111963,8 +111998,9 @@ ciqual_food_name:fr:Croissant, sans précision
 wikidata:en:Q207832
 
 <en:Croissants
-en:Croissant from bakery
-fr:Croissant artisanal
+en:Bakery Croissants, Croissant from bakery
+fr:Croissants artisanal
+nl:Bakkercroissants
 agribalyse_food_code:en:7615
 ciqual_food_code:en:7615
 ciqual_food_name:en:Croissant, ordinary, from bakery
@@ -112024,12 +112060,20 @@ it:Cornetti farciti con confettura
 nl:Croissants met jam
 
 <en:Croissants
-en:Croissant with almonds from bakery, Almond croissant
+en:Croissant with almonds from bakery
 fr:Croissant aux amandes artisanal
 agribalyse_food_code:en:7650
 ciqual_food_code:en:7650
 ciqual_food_name:en:Croissant w almonds, from bakery
 ciqual_food_name:fr:Croissant aux amandes, artisanal
+
+<en:Croissants
+en:Croissant with almonds, Almond croissant
+fr:Croissants aux amandes
+
+<en:Croissants
+en:Croissants with almonds and pistachio
+fr:Croissants aux amandes et pistache
 
 <en:Viennoiseries
 en:Chouquettes, Sugar coated chou pastry
@@ -112093,9 +112137,9 @@ en:Chocolate croissant prepacked
 de:Schokoladen-Croissant verpackt
 es:Croissant de chocolate envasado
 fi:Suklaavoisarvi valmiiksi pakattu
-fr:Pain au chocolat préemballé
+fr:Pains au chocolat préemballé
 it:Croissant al cioccolato confezionato
-nl:Chocolade croissant voorverpakt
+nl:Chocolade croissants voorverpakt
 tr:Paketlenmiş çikolatalı kruvasan
 agribalyse_food_code:en:7733
 ciqual_food_code:en:7733
@@ -113352,6 +113396,7 @@ ciqual_food_name:fr:Crackers de table au froment
 
 <en:Crackers
 en:Rice crackers
+bg:Оризови крекери
 fr:Biscuits apéritifs au riz
 
 <en:Crackers
@@ -113390,7 +113435,7 @@ en:Pretzel, Mini pretzels
 ar:عقدية,:مخبوزات
 az:Bretzel
 be:Брэцаль
-bg:Брецел
+bg:Брецел, солети
 br:Bretzel
 ca:Pretzel
 cs:Preclík
@@ -114477,12 +114522,14 @@ wikidata:en:Q3518776
 <en:Meats and their products
 <en:Terrines
 en:Pork terrines
+bg:Свински терин
 fr:Terrines de porc
 #wikidata:en:
 
 <en:Prepared meats
 <en:Terrines
 en:Rabbit terrines
+bg:Заешки терин
 fi:kaniterriinit
 fr:Terrines de lapin
 it:Terrine di coniglio
