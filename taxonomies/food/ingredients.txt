@@ -44249,7 +44249,7 @@ ml:തേങ്ങ
 nb:kokos, kokosnøtt
 nl:kokosnoot, kokos
 nn:kokosnøtt
-pl:kokos, kokosowy, kokosowa, kokosowe, kokosowego, kokosa
+pl:kokos, kokosa, orzecha kokosowego, kokosowy, kokosowa, kokosowe
 pt:cocos
 ro:nucă de cocos, nuca de cocos
 ru:кокос
@@ -44269,6 +44269,9 @@ wikidata:en:Q3342808
 # jbo:rutrkoko
 # pt-br:coco
 wikipedia:fr:https://fr.wikipedia.org/wiki/Noix_de_coco
+# The term "coconut" can refer to the whole coconut palm, the seed, or the fruit, which botanically is a drupe, not a nut.
+# NOTE the oil and fat of a coconut can be found under the fats section
+# When coconut is listed as ingredient, probably the white stuff is meant. The watery stuff is probably never used? I.e. coco versus coconut
 
 #<en:compound
 en:coconut cream
@@ -49323,53 +49326,6 @@ hr:organski sok od nara
 <en:pomegranate
 fr:écorces de grenade
 
-# The term "coconut" can refer to the whole coconut palm, the seed, or the fruit, which botanically is a drupe, not a nut.
-
-# NOTE the oil and fat of a coconut can be found under the fats section
-
-# When coconut is listed as ingredient, probably the white stuff is meant. The watery stuff is probably never used? I.e. coco versus coconut
-
-<en:fruit
-en:coconut
-ak:kube
-ar:نارجيل
-bg:Кокосов орех
-ca:coco
-cs:kokosový ořech
-da:kokos, kokosnød
-de:Kokos, Kokosnuss
-ee:Eneh
-el:καρύδα
-eo:kokosnukso
-es:coco
-et:Kookospähkel
-eu:koko
-fi:kookos, kookospähkinä
-fr:noix de coco, coco
-gl:Coco
-hr:kokos
-hu:kókuszdió
-it:cocco, noce di cocco
-ml:തേങ്ങ
-nb:kokosnøtt
-nl:kokosnoot, kokos
-nn:kokosnøtt
-pl:Kokos, kokosa, orzecha kokosowego, kokosowy, kokosowa, kokosowe
-pt:cocos
-ru:кокос
-sa:नारिकेलम्
-sq:Arra e kokosit
-sr:kokos
-sv:Kokosnöt, Kokos
-za:Makyehswj
-zh:椰子
-wikidata:en:Q3342808
-# ast:Cocu
-# jbo:rutrkoko
-# pt-br:coco
-wikipedia:fr:https://fr.wikipedia.org/wiki/Noix_de_coco
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix-de-coco
-# 1209 products in 11 languages @2018-10-03
 
 <en:coconut
 en:coconut cream
