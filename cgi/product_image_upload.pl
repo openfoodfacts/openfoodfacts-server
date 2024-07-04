@@ -73,7 +73,7 @@ $log->debug(
 		code => $code,
 		previous_code => $previous_code,
 		previous_imgid => $previous_imgid,
-		cc => $cc,
+		cc => $request_ref->{cc},
 		lc => $lc,
 		imagefield => $imagefield,
 		ip => remote_addr()

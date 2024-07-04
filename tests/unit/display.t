@@ -14,7 +14,6 @@ use ProductOpener::Lang qw/$lc lang separator_before_colon/;
 
 # date tests
 my $t = 1472292529;
-$cc = 'world';
 $lc = 'en';
 is(display_date($t), 'August 27, 2016, 12:08:49 PM CEST');
 is(display_date_tag($t), '<time datetime="2016-08-27T12:08:49">August 27, 2016, 12:08:49 PM CEST</time>');
@@ -52,6 +51,7 @@ $lc = 'en';
 my $request_ref = {
 	lc => "en",
 	current_link => '/cgi/search.pl?action=process&sort_by=unique_scans_n&page_size=24',
+	cc => 'world',
 };
 
 my $count = 25;
