@@ -3,8 +3,8 @@
    "errors" : [
       {
          "field" : {
-            "id" : "code",
-            "value" : "1234567890100"
+            "id" : "rev",
+            "value" : 5
          },
          "impact" : {
             "id" : "failure",
@@ -12,7 +12,7 @@
             "name" : "Failure"
          },
          "message" : {
-            "id" : "product_not_found",
+            "id" : "revision_not_found",
             "lc_name" : "",
             "name" : ""
          }
