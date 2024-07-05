@@ -6780,19 +6780,19 @@ msgstr "因为蛋白质的负面分值低于7，所以蛋白质含量可以接�
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_less_than_11"
 msgid "Points for proteins are counted because the negative points are less than 11."
-msgstr ""
+msgstr "因为蛋白质的负面分值低于11，所以蛋白质含量可以接受。"
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_to_7"
 msgid "Points for proteins are not counted because the negative points greater than or equal to 7."
-msgstr ""
+msgstr "因为蛋白质的负面分值大于等于7，所以蛋白质含量不被接受。"
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_to_11"
 msgid "Points for proteins are not counted because the negative points greater than or equal to 11."
-msgstr ""
+msgstr "因为蛋白质的负面分值大于等于7，所以蛋白质含量不被接受。"
 
 msgctxt "nutriscore_explanation_what_it_is"
 msgid "The Nutri-Score is a logo on the overall nutritional quality of products."
-msgstr ""
+msgstr "营养信息（Nutri-Score）是一种产品全部营养成分的标识。"
 
 msgctxt "nutriscore_explanation_what_it_takes_into_account"
 msgid "The score from A to E is calculated based on nutrients and foods to favor (proteins, fiber, fruits, vegetables and legumes ...) and nutrients to limit (calories, saturated fat, sugars, salt)."
@@ -7046,6 +7046,14 @@ msgstr ""
 
 msgctxt "open_in_crm"
 msgid "Open in CRM"
+msgstr ""
+
+msgctxt "deny"
+msgid "Deny"
+msgstr ""
+
+msgctxt "users_requested_to_join_org"
+msgid "These users have requested to join the organization:"
 msgstr ""
 
 msgctxt "last_login"
