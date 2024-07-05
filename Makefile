@@ -57,7 +57,7 @@ DOCKER_COMPOSE_RUN=COMPOSE_FILE="${COMPOSE_FILE};docker/run.yml" ${DOCKER_COMPOS
 DOCKER_COMPOSE_TEST_BASE=WEB_RESOURCES_PATH=./web-default ROBOTOFF_URL="http://backend:8881/" GOOGLE_CLOUD_VISION_API_URL="http://backend:8881/" COMPOSE_PROJECT_NAME=${COMPOSE_PROJECT_NAME}_test PO_COMMON_PREFIX=test_ MONGODB_CACHE_SIZE=4 ODOO_CRM_URL= docker compose --env-file=${ENV_FILE}
 DOCKER_COMPOSE_TEST=COMPOSE_FILE="${COMPOSE_FILE};${DEPS_DIR}/openfoodfacts-shared-services/docker-compose.yml" ${DOCKER_COMPOSE_TEST_BASE}
 # Enable Redis only for integration tests. TODO: Currently using dev tag for keycloak - need to switch to main
-DOCKER_COMPOSE_INT_TEST=COMPOSE_FILE="${COMPOSE_FILE};docker/integration-test.yml" REDIS_URL="redis:6379" KEYCLOAK_BASE_URL=http://keycloak:8080 PRODUCT_OPENER_OIDC_DISCOVERY_ENDPOINT=http://keycloak:8080/realms/open-products-facts/.well-known/openid-configuration KEYCLOAK_TAG=dev KEYCLOAK_ADMIN=test KEYCLOAK_ADMIN_PASSWORD=test KC_DB_USERNAME=test KC_DB_PASSWORD=test ${DOCKER_COMPOSE_TEST_BASE}
+DOCKER_COMPOSE_INT_TEST=COMPOSE_FILE="${COMPOSE_FILE};docker/integration-test.yml" REDIS_URL="redis:6379" KEYCLOAK_BASE_URL=http://keycloak:8080 PRODUCT_OPENER_OIDC_DISCOVERY_ENDPOINT=http://keycloak:8080/realms/open-products-facts/.well-known/openid-configuration KEYCLOAK_ADMIN=test KEYCLOAK_ADMIN_PASSWORD=test ${DOCKER_COMPOSE_TEST_BASE}
 
 TEST_CMD ?= yath test -PProductOpener::LoadData
 
