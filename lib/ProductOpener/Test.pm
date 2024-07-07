@@ -829,7 +829,7 @@ We remove time dependent fields, password (which encryption use salt) and sort s
 =cut
 
 sub normalize_org_for_test_comparison ($org_ref) {
-	my %specification = (fields_ignore_content => ["created_t"],);
+	my %specification = (fields_ignore_content => ["created_t", "last_logged_member_t"],);
 
 	normalize_object_for_test_comparison($org_ref, \%specification);
 	return;

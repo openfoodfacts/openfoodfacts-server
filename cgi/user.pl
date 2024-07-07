@@ -71,7 +71,7 @@ if (defined single_param('userid')) {
 	$userid = single_param('userid');
 
 	# The userid looks like an e-mail
-	if ($admin and ($userid =~ /\@/)) {
+	if ($request_ref->{admin} and ($userid =~ /\@/)) {
 		my $mail_based_userid = is_email_has_off_account($userid);
 		if (defined $mail_based_userid) {
 			$userid = $mail_based_userid;
@@ -97,7 +97,7 @@ else {
 	$type = 'add';
 }
 
-if (($type =~ /^edit/) and ($User_id ne $userid) and not $admin) {
+if (($type =~ /^edit/) and ($User_id ne $userid) and not $request_ref->{admin}) {
 	display_error_and_exit($request_ref, $Lang{error_no_permission}{$lc}, 403);
 }
 
@@ -109,7 +109,7 @@ if ($action eq 'process') {
 	# change organization
 	if ($type eq 'edit_owner') {
 		# only admin and pro moderators can change organization freely
-		if ($admin or $User{pro_moderator}) {
+		if ($request_ref->{admin} or $User{pro_moderator}) {
 			ProductOpener::Users::check_edit_owner($user_ref, \@errors);
 		}
 		else {
@@ -263,7 +263,7 @@ if ($action eq 'display') {
 		push @{$template_data_ref->{sections}}, {%$contributor_section_ref};
 
 		# Admin section
-		if ($admin) {
+		if ($request_ref->{admin}) {
 			my $administrator_section_ref = {
 				id => "administrator",
 				name => "Administrator fields",
@@ -390,18 +390,18 @@ if (($type eq "edit_owner") and ($action eq "process")) {
 	$log->info("redirecting to / after changing owner", {}) if $log->is_info();
 
 	my $r = shift;
-	$r->headers_out->set(Location => "/");
+	$r->headers_out->set(Location => "/org/$User{pro_moderator_owner}");
 	$r->status(302);
 	return 302;
 }
 else {
 	$log->debug("user form - template data", {template_data_ref => $template_data_ref}) if $log->is_debug();
 
-	process_template('web/pages/user_form/user_form_page.tt.html', $template_data_ref, \$html)
+	process_template('web/pages/user_form/user_form_page.tt.html', $template_data_ref, \$html, $request_ref)
 		or $html = "<p>" . $tt->error() . "</p>";
-	process_template('web/pages/user_form/user_form.tt.js', $template_data_ref, \$js);
+	process_template('web/pages/user_form/user_form.tt.js', $template_data_ref, \$js, $request_ref);
 
-	$initjs .= $js;
+	$request_ref->{initjs} .= $js;
 
 	$request_ref->{title} = lang($type . '_user_' . $action);
 	$request_ref->{content_ref} = \$html;
