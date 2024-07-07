@@ -56,6 +56,7 @@ use Log::Any qw($log);
 use Encode;
 use JSON::PP;
 use LWP::UserAgent;
+use OpenTelemetry::Integration 'LWP::UserAgent';
 use HTTP::Request::Common;
 
 use ProductOpener::Config qw/:all/;

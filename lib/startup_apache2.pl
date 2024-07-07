@@ -44,6 +44,7 @@ use Fcntl qw/:mode/;
 use Storable ();
 use LWP::Simple ();
 use LWP::UserAgent ();
+use OpenTelemetry::Integration 'LWP::UserAgent';
 use Image::Magick ();
 use File::Copy ();
 use XML::Encoding ();

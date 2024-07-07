@@ -71,6 +71,9 @@ use Log::Any qw($log);
 use Action::CircuitBreaker;
 use Action::Retry;
 
+use LWP::UserAgent;
+use OpenTelemetry::Integration 'LWP::UserAgent';
+
 my $client;
 my $action = Action::CircuitBreaker->new();
 

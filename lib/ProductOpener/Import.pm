@@ -117,6 +117,7 @@ use DateTime::Format::ISO8601;
 use URI;
 use Digest::MD5 qw(md5_hex);
 use LWP::UserAgent;
+use OpenTelemetry::Integration 'LWP::UserAgent';
 use Data::Difference qw(data_diff);
 
 $IMPORT_MAX_PACKAGING_COMPONENTS = 10;
