@@ -107,6 +107,11 @@ requires 'Imager::File::WEBP';
 # To dynamically load Config_*.pm modules
 requires 'Module::Load';
 
+# OpenTelemetry
+requires 'OpenTelemetry', '>= 0.023';
+requires 'OpenTelemetry::SDK', '>= 0.022';
+requires 'OpenTelemetry::Exporter::OTLP', '>= 0.016';
+
 on 'test' => sub {
   requires 'Test2::V0';
   requires 'Mock::Quick';
