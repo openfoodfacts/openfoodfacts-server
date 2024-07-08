@@ -1,6 +1,5 @@
 <!-- start templates/[% template.name %] -->
 
-[% IF has_orgs %]
 <form method="GET" action="/cgi/display_org_table.pl">
     <label for="name">[% lang("name") %]:</label>
     <input type="text" id="name" name="name" value="[% name | html %]">
@@ -15,6 +14,7 @@
     <button type="submit">[% lang("search") %]</button>
 </form>
 
+[% IF has_orgs %]
 <table id="tagstable">
     <thead>
         <tr>
@@ -60,7 +60,7 @@
     </tbody>
 </table>
 [% ELSE %]
-<p style="font-size: 1.2rem;">No organizations found</p>
+<p style="font-size: 2rem; padding-top: 40px;">No organizations found.</p>
 [% END %]
 
 <!-- end templates/[% template.name %] -->
