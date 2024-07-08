@@ -11,7 +11,6 @@
         <option value="accepted" [% IF valid_org == 'accepted' %]selected[% END %]>Accepted</option>
         <option value="rejected" [% IF valid_org == 'rejected' %]selected[% END %]>Rejected</option>
     </select>
-    <input type="text" id="valid_org" name="valid_org" value="[% valid_org | html %]">
     
     <button type="submit">[% lang("search") %]</button>
 </form>
@@ -33,30 +32,30 @@
     <tbody>
         [% SET count = 1 %]
         [% FOREACH org IN orgs %]
-            <tr>
-                <td>[% count %].</td>
-                <td>[% org.name %]</td>
-                <td>[% org.creator %]</td>
-                <td>[% org.org_id %]</td>
-                <td>[% org.valid_org %]</td>
-                <td>[% display_date_tag(org.created_t) %]</td>
-                <td>
-                    [% IF org.last_logged_member_t %]
-                        [% display_date_tag(org.last_logged_member_t) %]
-                    [% ELSE %]
-                        &nbsp;
-                    [% END %]
-                </td>
-                <td>
-                    [% IF org.last_import_t %]
-                        [% display_date_tag(org.last_import_t) %]
-                    [% ELSE %]
-                        &nbsp;
-                    [% END %]
-                </td>
-                <td>[% org.last_import_type %]</td>
-            </tr>
-            [% SET count = count + 1 %]
+        <tr>
+            <td>[% count %].</td>
+            <td>[% org.name %]</td>
+            <td>[% org.creator %]</td>
+            <td>[% org.org_id %]</td>
+            <td>[% org.valid_org %]</td>
+            <td>[% display_date_tag(org.created_t) %]</td>
+            <td>
+                [% IF org.last_logged_member_t %]
+                    [% display_date_tag(org.last_logged_member_t) %]
+                [% ELSE %]
+                    &nbsp;
+                [% END %]
+            </td>
+            <td>
+                [% IF org.last_import_t %]
+                    [% display_date_tag(org.last_import_t) %]
+                [% ELSE %]
+                    &nbsp;
+                [% END %]
+            </td>
+            <td>[% org.last_import_type %]</td>
+        </tr>
+        [% SET count = count + 1 %]
         [% END %]
     </tbody>
 </table>
