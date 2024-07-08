@@ -4,8 +4,13 @@
 <form method="GET" action="/cgi/display_org_table.pl">
     <label for="name">[% lang("name") %]:</label>
     <input type="text" id="name" name="name" value="[% name | html %]">
-    
+
     <label for="valid_org">[% lang("verified_status") %]:</label>
+    <select id="valid_org" name="valid_org">
+        <option value="unreviewed" [% IF valid_org == 'unreviewed' %]selected[% END %]>Unreviewed</option>
+        <option value="accepted" [% IF valid_org == 'accepted' %]selected[% END %]>Accepted</option>
+        <option value="rejected" [% IF valid_org == 'rejected' %]selected[% END %]>Rejected</option>
+    </select>
     <input type="text" id="valid_org" name="valid_org" value="[% valid_org | html %]">
     
     <button type="submit">[% lang("search") %]</button>
