@@ -24,19 +24,12 @@ use ProductOpener::PerlStandards;
 use Modern::Perl '2017';
 use utf8;
 
-use ProductOpener::Config qw/$server_domain %options/;
+use ProductOpener::Config qw/%options/;
 use ProductOpener::Store qw/store retrieve/;
-use ProductOpener::Orgs qw/list_org_ids retrieve_org/;
-use ProductOpener::Users qw/retrieve_user/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
-use ProductOpener::CRM qw/:all/;
-use ProductOpener::Products qw/:all/;
-use ProductOpener::Data qw/:all/;
+use ProductOpener::Redis qw/push_to_redis_stream/;
 use Path::Tiny;
-use Encode;
 use JSON;
-use LWP::Simple;
-use Data::Dumper;
 
 # This script recursively visits all product.sto files from the root of the products directory
 # and process its changes to generate a JSONL file of historical events
@@ -51,7 +44,7 @@ sub process_file {
 	my ($path) = @_;
 	$total++;
 
-	if ($total % 100 == 0) {
+	if ($total % 1000 == 0) {
 		print STDERR "$total processed\n";
 	}
 
@@ -61,7 +54,6 @@ sub process_file {
 	# JSONL
 	my $rev = 0;    # some $change don't have a 'rev'
 	foreach my $change (@{$changes}) {
-
 		$rev++;
 
 		my $action = 'updated';
@@ -83,9 +75,20 @@ sub process_file {
 				comment => $change->{comment},
 				flavor => $options{current_server},
 				action => $action,
+				diffs => $change->{diffs}
 			}
 		) . "\n";
 	}
+
+	# push_to_redis_stream(
+	# 	$change->{userid},
+	# 	$product,
+	# 	$action,
+	# 	$change->{comment}
+	# 	$change->{diffs},
+	# 	$change->{t}
+	# );
+	
 	return 1;
 }
 
