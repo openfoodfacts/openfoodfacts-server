@@ -64,15 +64,15 @@ sub process_file {
 
 		$rev++;
 
-		my $action = 'modification';
+		my $action = 'updated';
 		if ($rev eq 1) {
-			$action = 'creation';
+			$action = 'created';
 		}
-		elsif ( $rev eq $product->{rev}
+		elsif ( $rev == $product->{rev}
 			and exists $product->{deleted}
 			and $product->{deleted} eq 'on')
 		{
-			$action = 'removal';
+			$action = 'deleted';
 		}
 
 		print $file encode_json(
@@ -81,11 +81,12 @@ sub process_file {
 				barcode => $product->{code},
 				userid => $change->{userid},
 				comment => $change->{comment},
-				flavor => $options{product_type},
+				flavor => $options{current_server},
 				action => $action,
 			}
 		) . "\n";
 	}
+	return 1;
 }
 
 # because getting products from mongodb won't give 'deleted' ones
