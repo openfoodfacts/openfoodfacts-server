@@ -722,14 +722,14 @@ sub get_tags_grouped_by_property ($tagtype, $tagids_ref, $prop_name, $props_ref,
 =head2 get_all_tags_having_property ($product_ref, $tagtype, $prop_name)
 
 For each tag of a given field ($tagtype, can be "labels" or "categories", for example),
-and a given property ($prop_name, without last column (:). Can be "opposite:en", for example),
+and a given property ($prop_name, without last column (:). Can be "incompatible_with:en", for example),
 return a hash of tagid <-> property_value
 
 =head3 Return
 
 A hash, where keys are tagid and values are property_value
 
-=head4 Example, get_all_tags_having_property($product_ref, "labels", "opposite:en")
+=head4 Example, get_all_tags_having_property($product_ref, "labels", "incompatible_with:en")
 
 
 =cut

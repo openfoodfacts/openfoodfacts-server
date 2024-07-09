@@ -9,11 +9,11 @@
 # Note: ingredients:en: should list only 1 ingredient, while origins:en: can list multiple origins.
 # Supporting multiple ingredients is doable but would require code changes.
 
-# if two labels oppose from each other, they can be assined the property 'opposite:en:'
+# if two labels are not compatible, they can be assigned the property 'incompatible_with:en:'
 # for example 
 # en:No GMOs
 # etc.
-# opposite:en: en:contains-gmos
+# incompatible_with:en: labels:en:contains-gmos
 # Careful: it should be the same main tag, not a synonym
 # Remark: add the property to the highest parent
 
@@ -1032,6 +1032,7 @@ description:fr:Le commerce équitable est un système d'échange dont l'objectif
 description:hu:A méltányos kereskedelem olyan irányított kereskedelem, amely hangsúlyt helyez arra, hogy a harmadik világbeli termelő megkapja az őt megillető pénzt a terményéért.
 description:nl:Eerlijke handel is internationale handel die gericht is op duurzame ontwikkeling in ontwikkelingslanden, met name bij de export van zulke landen naar rijkere westerse landen. Fair trade duidt op een streven om boeren voor hun exportproducten een prijs te geven die in verhouding staat tot de werkelijke productiekosten, en niet een prijs die wordt bepaald door de verhoudingen op de internationale markt.
 description:pt:O comércio justo é um acordo concebido para ajudar os produtores em países em desenvolvimento a alcançarem relações comerciais sustentáveis e justas.
+incompatible_with:en: labels:en:non-fair-trade
 label_categories:en: en:Social responsibility
 opposite:en: en:non-fair-trade
 wikidata:en:Q188485
@@ -1039,6 +1040,7 @@ wikidata:en:Q188485
 
 en:Non-fair trade, Not fair trade
 fr:Non issu du commerce équitable
+incompatible_with:en: labels:en:fair-trade
 opposite:en: en:fair-trade
 
 # Should not be translated, "Fairtrade International" is a label
@@ -1318,6 +1320,7 @@ sv:Glutenfri
 th:ไม่มีกลูเตน
 uk:Не містить глютену
 zh:无麸质
+incompatible_with:en: labels:en:contains-gluten
 opposite:en: en:contains-gluten
 wikidata:en:Q2632776
 
@@ -1378,6 +1381,7 @@ it:Contiene glutine
 nl:Bevat gluten
 pl:Zawiera gluten
 pt:Contém glúten
+incompatible_with:en: labels:en:no-gluten
 label_categories:en: en:Allergens
 opposite:en: en:no-gluten
 
@@ -4048,6 +4052,7 @@ pl:Bez dodatków, Brak dodatków
 pt:Sem aditivos, sem aditivo
 th:ไม่มีสารเติมแต่ง
 tr:Katkı Maddesi yok
+incompatible_with:en: labels:en:with-additives
 label_categories:en: en:Health, en:Additives
 opposite:en: en:with-additives
 
@@ -4063,6 +4068,7 @@ nl:Met toevoegingen
 pl:Z dodatkami
 pt:Com aditivos
 ru:С добавками
+incompatible_with:en: labels:en:no-additives
 opposite:en: en:no-additives
 
 #instruction:en:Do NOT change the english key.
@@ -4104,6 +4110,7 @@ nl:Alcoholvrij, Zonder alchohol
 pl:Bez alkoholu
 pt:Sem álcool, 0% álcool
 th:ไม่มีแอลกอฮอล์
+incompatible_with:en: labels:en:contains-alcohol
 opposite:en: en:contains-alcohol
 
 en:Contains alcohol
@@ -4117,6 +4124,7 @@ nl:Bevat alcohol
 pl:Zawiera alkohol
 pt:Contém álcool
 ru:Содержит алкоголь
+incompatible_with:en: labels:en:no-alcohol
 opposite:en: en:no-alcohol
 
 en:without allergens
@@ -4630,6 +4638,7 @@ pl:bez GMO
 pt:Sem OGM, Sem Organismos Geneticamente Modificados
 ru:Без ГМО, Без использования ГМО, Не содержит ГМО
 th:ไม่มีจีเอ็มโอ
+incompatible_with:en: labels:en:contains-gmos
 label_categories:en: en:Health, en:Environment
 opposite:en: en:contains-gmos
 
@@ -4645,6 +4654,7 @@ it:Contiene OGM
 pl:Zawiera GMO, z GMO
 pt:Contém OGMs, com OGMs, contém OGM, com OGM, Com Organismos Geneticamente Modificados, Contém Organismos Geneticamente Modificados, feito Organismos Geneticamente Modificados, feito com OGM
 th:มีส่วนผสมจีเอ็มโอ
+incompatible_with:en: labels:en:no-gmos
 label_categories:en: en:Health, en:Environment
 opposite:en: en:no-gmos
 
@@ -4707,6 +4717,7 @@ sk:Bez laktozy
 sv:Laktosfri, Laktosfritt
 th:ไม่มีแลคโตส
 tr:Laktozsuz
+incompatible_with:en: labels:en:contains-lactose
 opposite:en: en:contains-lactose
 
 en:Contains lactose
@@ -4722,6 +4733,7 @@ nl:Bevat melkeiwit, Bevat lactose
 pl:Zawiera laktozę
 pt:Contém lactose
 ru:Содержит лактозу
+incompatible_with:en: labels:en:no-lactose
 opposite:en: en:no-lactose
 
 #instruction:en:Do NOT change the english key.
@@ -4884,6 +4896,7 @@ pl:Bez soi, Nie zawiera soi
 pt:Sem soja, livre de soja, 0% soja
 ru:Не содержит сои
 th:ไม่มีส่วนผสมของถั่วเหลือง
+incompatible_with:en: labels:en:contains-soy
 label_categories:en: en:Environment, en:Health, en:Soy, en:Allergens
 opposite:en: en:contains-soy
 
@@ -4900,6 +4913,7 @@ it:Contiene soia
 nl:bevat soya
 pl:Zawiera soję
 pt:Contém soja, com soja
+incompatible_with:en: labels:en:no-soy
 label_categories:en: en:Environment, en:Soy, en:Allergens
 opposite:en: en:no-soy
 
@@ -5053,6 +5067,7 @@ hu:Nem vegetáriánus
 it:Non vegetariano, non adatto ai vegetariani
 nl:niet geschikt voor vegetariërs
 pt:Não-vegetariano, não vegetariano, não adequado para vegetarianos 
+incompatible_with:en: labels:en:vegetarian
 label_categories:en: en:Specific diets
 opposite:en: en:vegetarian
 
@@ -5215,6 +5230,7 @@ environmental_benefits:sl:Ekološko kmetijstvo prispeva k ohranjanju biotske raz
 environmental_benefits:sv:Ekologiskt jordbruk bidrar till att bevara biologisk mångfald, klimat, vattenkvalitet och markfruktbarhet.
 environmental_benefits:tr:Organik tarım, biyolojik çeşitlilik, iklim, su kalitesi ve toprak verimliliğini korumaya katkıda bulunur.
 environmental_benefits:zh:有机农业有助于保护生物多样性、气候、水质和土壤肥力。
+incompatible_with:en: labels:en:non-organic
 label_categories:en: en:Environnement
 opposite:en: en:non-organic
 wikidata:en:Q380778
@@ -5226,6 +5242,7 @@ fr:Non-bio
 hu:Nem bio
 it:Non organico
 pt:Não-orgânico, não orgânico
+incompatible_with:en: labels:en:organic
 opposite:en: en:organic
 
 <en:Organic
@@ -18505,6 +18522,7 @@ ru:Без пальмового масла
 sv:Utan palmolja
 th:ไม่ใช้น้ำมันปาล์ม
 zh:不含棕榈油
+incompatible_with:en: labels:en:contains-palm-oil
 opposite:en: en:contains-palm-oil
 
 en:Contains palm oil
@@ -18514,6 +18532,7 @@ it:Contiene olio di palma
 nl:Bevat palmolie
 pl:Zawiera olej palmowy, Z olejem palmowym
 pt:Contém óleo de ppalma, com óleo de palma
+incompatible_with:en: labels:en:no-palm-oil
 opposite:en: en:no-palm-oil
 
 en:PDO, P.D.O., Protected Designation of Origin
@@ -19663,6 +19682,7 @@ description:fr:Le végétarisme est une pratique alimentaire qui exclut la conso
 description:nl:Vegetarisme is de voedingswijze waarbij men geen vlees eet (inclusief gevogelte, vis, schaaldieren en insecten). Bijproducten van geslachte dieren, zoals dierlijk stremsel in kaas en gelatine in snoep en pudding, wordt door sommigen eveneens uit de voeding weggelaten.
 description:pt:O vegetarianismo é um regime alimentar que tem como princípio deixar de consimur qualquer tipo de carne ou pescado ou derivados destes como ovos e leite de vaca.
 descrption:it:Il vegetarianismo designa, nell'ambito della nutrizione umana, un insieme di diverse pratiche alimentari, accomunate dalla limitazione o dall'esclusione di parte o del totale degli alimenti di origine animale, che danno luogo a diete basate in prevalenza su alimenti di origine vegetale.
+incompatible_with:en: labels:en:non-vegetarian
 opposite:en: en:non-vegetarian
 wikidata:en:Q638022
 wikipedia:en:Vegetarianism
@@ -19704,6 +19724,7 @@ description:de:Veganismus ist eine aus dem Vegetarismus hervorgegangene Einstell
 description:es:El veganismo o vegetarianismo estricto es la abstención del uso de productos y servicios de origen animal, ya sea para alimentación, vestimenta, medicamentos, cosméticos, transporte, experimentación, ayuda en el trabajo o entretenimiento, a excepción en este último caso de los animales de compañía.
 descrption:fr:Le véganisme, dit également végétalisme intégral, est un mode de vie qui consiste à ne consommer aucun produit d'origine animale. Au-delà de l'adoption d'une pratique alimentaire végétalienne, le véganisme exclut également la consommation de tout autre produit issu des animaux, de leur exploitation ou testé sur eux.
 descrption:nl:Veganisme is een levenswijze waarin gestreefd wordt naar het vermijden van het gebruik van dierlijke producten. Als zodanig gelden ten eerste delen van het dierenlichaam of producten die daarvan vervaardigd zijn en ten tweede door dieren voortgebrachte producten.
+incompatible_with:en: labels:en:non-vegan
 opposite:en: en:non-vegan
 wikidata:en:Q7918273
 wikipedia:en:Veganism
@@ -19713,6 +19734,7 @@ fr:Non-végétalien, non-végan, non-végétal, ne convient pas aux végétalien
 hr:nije vegansko
 pl:Niewegańskie, niewegański
 pt:Não-vegan, não vegan, não adequado a vegans, não adequado a uma dieta vegan
+incompatible_with:en: labels:en:vegan
 opposite:en: en:vegan
 
 <en:Vegan
@@ -22680,6 +22702,7 @@ it:Prodotto pastorizzato
 nb:Pasteurisert
 nl:gepasteuriseerd, gepasteuriseerd product
 pt:Produto pasteurizado
+incompatible_with:en: labels:en:unpasteurized
 opposite:en: en:unpasteurized
 
 <en:Pasteurized
@@ -22694,6 +22717,7 @@ es:No pasteurizado
 fr:Non pasteurisé
 it:Non pastorizzato
 nl:Ongepasteuriseerd
+incompatible_with:en: labels:en:pasteurized
 opposite:en: en:pasteurized
 
 en:Cold pressed
@@ -22705,6 +22729,7 @@ en:Unfiltered, cloudy
 bg:Нефилтрирано
 de:Trüb, Naturtrüb
 es:Sin filtrar, turbia
+incompatible_with:en: labels:en:filtered
 opposite:en: en:filtered
 
 en:Filtered
@@ -22712,6 +22737,7 @@ bg:Филтрирано
 de:Klar
 es:Filtrada, filtrado
 fr:Non filtrée, Clair
+incompatible_with:en: labels:en:unfiltered
 opposite:en: en:unfiltered
 
 fr:Haute Valeur Environnementale, HVE

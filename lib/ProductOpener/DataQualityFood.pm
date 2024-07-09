@@ -2698,42 +2698,46 @@ sub check_food_groups ($product_ref) {
 
 =encoding utf8
 
-=head2 check_opposite_tags( PRODUCT_REF )
+=head2 check_incompatible_tags( PRODUCT_REF )
 
-Checks if 2 opposite tags are assigned to the product
+Checks if 2 incompatible tags are assigned to the product
 
 To include more tags to this check, 
-add the property "opposite:en" 
+add the property "incompatible:en" 
 at the end of code block in the taxonomy
 
 Example:
 en:Non-fair trade, Not fair trade
 fr:Non issu du commerce équitable
-opposite:en: en:fair-trade
+incompatible_with:en: en:fair-trade
 
 =cut
 
-sub check_opposite_tags ($product_ref) {
+sub check_incompatible_tags ($product_ref) {
 
-	# list of tags having 'opposite' properties
-	my @tags_to_check = ("labels", "categories");
+	# list of tags having 'incompatible_with' properties
+	my @tags_to_check = ("categories", "labels");
 
 	foreach my $tag_to_check (@tags_to_check) {
+		$log->debug("check_incompatible_tags: tag_to_check $tag_to_check") if $log->debug();
 
-		my $opposites_hash = get_all_tags_having_property($product_ref, $tag_to_check, "opposite:en");
+		my $incompatible_with_hash = get_all_tags_having_property($product_ref, $tag_to_check, "incompatible_with:en");
 
-		foreach my $key (keys %{$opposites_hash}) {
-			foreach my $value (values %{$opposites_hash}) {
-				if ($value eq $key) {
-					# sort in alphabetical order to avoid facet a-b and facet b-a
-					my @opposite_tags = sort ($opposites_hash->{$key}, $key);
+		foreach my $key (keys %{$incompatible_with_hash}) {
+			my $value = %{$incompatible_with_hash}{$key};
 
-					my $tag_a = substr($opposite_tags[0], 3);
-					my $tag_b = substr($opposite_tags[1], 3);
+			$log->debug("check_incompatible_tags: key: " . $key . ", value: " . $value) if $log->debug();
 
-					add_tag($product_ref, "data_quality_warnings",
-						"en:mutually-exclusive-$tag_to_check-$tag_a-and-$tag_b");
-				}
+			# split by ":" and produce 2 element list
+			# for example, labels:en:contains-gluten -> (labels, en:contains-gluten)
+			my ($tagtype, $tagid) = split(/:/, $value, 2);
+
+			if (has_tag($product_ref, $tagtype, $tagid)) {
+				# sort in alphabetical order to avoid facet a-b and facet b-a
+				my @opposite_tags = sort ($tag_to_check . ":" . $key, $value);
+
+				add_tag($product_ref, "data_quality_errors",
+					"en:mutually-exclusive-$opposite_tags[0]-and-$opposite_tags[1]");
 			}
 		}
 	}
@@ -2764,7 +2768,7 @@ sub check_quality_food ($product_ref) {
 	compare_nutriscore_with_value_from_producer($product_ref);
 	check_ecoscore_data($product_ref);
 	check_food_groups($product_ref);
-	check_opposite_tags($product_ref);
+	check_incompatible_tags($product_ref);
 
 	return;
 }
