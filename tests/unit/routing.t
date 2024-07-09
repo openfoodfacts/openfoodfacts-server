@@ -8,13 +8,15 @@ use Data::Dumper;
 $Data::Dumper::Terse = 1;
 use Log::Any::Adapter 'TAP';
 
-use ProductOpener::Routing qw/analyze_request/;
+use ProductOpener::Routing qw/analyze_request load_routes/;
 use ProductOpener::Lang qw/$lc /;
 
 # TODO: create a test case array and use the update_test_results system to
 # store and compare the returned $request object
 
 # TODO: add tests for all routes
+
+load_routes();
 
 my @tests = (
 	{
@@ -42,6 +44,7 @@ my @tests = (
 			'rate_limiter_blocking' => 0,
 			'rate_limiter_limit' => undef,
 			'rate_limiter_user_requests' => undef,
+			'components' => ['api', 'v0', 'attribute_groups'],
 		},
 	},
 	{
@@ -76,8 +79,13 @@ my @tests = (
 					'tagtype' => 'categories'
 				},
 			],
+			'param' => {},
 			'no_index' => '0',
-			'is_crawl_bot' => '0'
+			'is_crawl_bot' => '0',
+			'components' => ['category', 'breads', 'no-nutrition-data'],
+			'rate_limiter_blocking' => 0,
+			'rate_limiter_limit' => undef,
+			'rate_limiter_user_requests' => undef,
 		},
 	},
 	{
@@ -110,11 +118,13 @@ my @tests = (
 					'tagtype' => 'categories'
 				},
 			],
+			'param' => {},
 			'no_index' => '0',
 			'is_crawl_bot' => '1',
 			'rate_limiter_blocking' => 0,
 			'rate_limiter_limit' => undef,
 			'rate_limiter_user_requests' => undef,
+			'components' => ['category', 'breads'],
 		},
 	},
 	{
@@ -147,8 +157,10 @@ my @tests = (
 					'tagtype' => 'categories'
 				},
 			],
+			'param' => {},
 			'no_index' => '1',
-			'is_crawl_bot' => '1'
+			'is_crawl_bot' => '1',
+			'components' => ['category', 'breads', '4'],
 		},
 	},
 	{
@@ -181,11 +193,13 @@ my @tests = (
 					'tagtype' => 'categories'
 				},
 			],
+			'param' => {},
 			'no_index' => '0',
 			'is_crawl_bot' => '0',
 			'rate_limiter_blocking' => 0,
 			'rate_limiter_limit' => undef,
 			'rate_limiter_user_requests' => undef,
+			'components' => ['category', 'bread', '4'],
 		},
 	},
 	{
@@ -214,6 +228,7 @@ my @tests = (
 			'rate_limiter_blocking' => 0,
 			'rate_limiter_limit' => 100,
 			'rate_limiter_user_requests' => undef,
+			'components' => ['api', 'v3', 'product', '03564703999971'],
 		},
 	},
 	{
@@ -245,6 +260,7 @@ my @tests = (
 			'rate_limiter_blocking' => 0,
 			'rate_limiter_limit' => 100,
 			'rate_limiter_user_requests' => undef,
+			'components' => ['api', 'v3', 'product', 'https://id.gs1.org/01/03564703999971/10/ABC/21/123456?17=211200'],
 		},
 	},
 );

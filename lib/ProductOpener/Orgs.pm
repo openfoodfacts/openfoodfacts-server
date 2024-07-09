@@ -60,6 +60,7 @@ BEGIN {
 		&update_export_date
 		&update_last_logged_in_member
 		&update_last_import_type
+		&accept_pending_user_in_org
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -187,7 +188,7 @@ sub store_org ($org_ref) {
 
 			defined add_contact_to_company($contact_id, $company_id) or die "Failed to add contact to company";
 
-			# admin validates the org used to link the salesperson
+			# admin validates the org, used to link the right salesperson
 			my $my_admin = retrieve_user($User_id);
 			$log->debug("store_org", {myuser => $my_admin}) if $log->is_debug();
 
@@ -561,6 +562,20 @@ sub update_last_import_type ($org_id, $data_source) {
 	$org_ref->{last_import_type} = $data_source;
 	update_company_last_import_type($org_id, $data_source);
 	store_org($org_ref);
+	return;
+}
+
+sub accept_pending_user_in_org ($org_ref, $user_id) {
+	return if not is_user_in_org_group($org_ref, $user_id, "pending");
+	remove_user_from_org($org_ref, $user_id, ["pending"]);
+	add_user_to_org($org_ref, $user_id, ["members"]);
+
+	my $user_ref = retrieve_user($user_id);
+	$user_ref->{org} = $org_ref->{org_id};
+	$user_ref->{org_id} = $org_ref->{org_id};
+	delete $user_ref->{requested_org};
+	delete $user_ref->{requested_org_id};
+	store_user($user_ref);
 	return;
 }
 

@@ -102,7 +102,7 @@ sub normalize_code {
 			"FI $code EC" when 'fi';
 			"FR $code CE" when 'fr';
 			"HR $code EU" when 'hr';
-			"$code EC" when 'hu';
+			"$code" when 'hu';
 			"$code EC" when 'it';
 			"LT $code EC" when 'lt';
 			"LU $code EC" when 'lu';

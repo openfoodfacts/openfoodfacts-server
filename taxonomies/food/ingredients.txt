@@ -764,6 +764,8 @@ nl:koosjere gelatine
 pl:koszerna żelatyna
 pt:gelatina kosher
 
+<en:E440
+de:flüssiges pektin
 
 <en:E440
 en:fruit pectin
@@ -782,7 +784,6 @@ nl:vruchtenpectine, fruitpectine
 pl:pektyna owocowa, pektyna z owoców
 # fr:pectine-de-fruit has 1579 products in 6 languages @2018-11-03
 
-<en:apple
 <en:fruit pectin
 en:apple pectin
 bg:ябълков пектин
@@ -796,7 +797,6 @@ nl:appelpectine
 
 # description:en:Modified citrus pectin (also known as CITRUS PECTIN, Pecta-Sol and MCP) is a modified, more digestible form of pectin. It is obtained from the peels, seeds and pulp of citrus fruits using a chemical extraction process.
 
-<en:citrus
 <en:fruit pectin
 en:citrus pectin, modified citrus pectin, citric pectin
 bg:цитрусов пектин
@@ -1218,6 +1218,7 @@ de:Tempeh-Kultur
 
 <en:lactic ferments
 en:yogurt cultures
+es:fermentos del yogur
 fr:cultures de yaourt
 hr:jogurtna kultura, jogurtne kulture, jogurtna baza
 
@@ -2453,6 +2454,10 @@ it:burro di baratte semi-salato
 nl:halfgezouten gekarnde boter
 pt:manteiga de baratte meio salgada
 
+<en:churned butter
+en:unsalted churned butter
+fr:beurre doux de baratte, beurre de baratte doux
+
 # description:en:PASTEURIZED BUTTER is butter created from pasteurized milk
 
 <en:butter
@@ -2544,6 +2549,7 @@ nl:melkerijboter
 
 <en:butter
 en:reconstituted butter
+bg:възобновена сметана
 ca:mantega deshidratada reconstituïda
 de:rekonstituierte Butter
 es:mantequilla deshidratada reconstituida
@@ -2876,6 +2882,7 @@ nl:lactosevrije melk
 
 <en:lactose-free milk
 en:whole lactose-free milk, lactose-free whole milk
+bg:пълномаслено мляко без лактоза
 de:Laktosefreie Vollmilch
 es:Leche entera sin lactosa
 fr:lait entier sans lactose, lait sans lactose entier
@@ -3074,11 +3081,13 @@ hr:obrano mlijeko s 0.5% mliječne masti
 <en:lactose-free milk
 <en:skimmed milk
 en:lactose-free skimmed milk, skimmed lactose-free milk
+bg:обезмаслено мляко без лактоза
 fr:lait sans lactose écrémé, lait écrémé sans lactose
 hr:obrano mlijeko bez laktoze
 
 <en:lactose-free-milk
 en:semi-skimmed lactose-free milk, lactose-free semi-skimmed milk
+bg:полуобезмаслено мляко без лактоза
 fr:lait sans lactose demi-écrémé, lait demi-écrémé sans lactose
 
 
@@ -3471,10 +3480,6 @@ tr:inek sütü
 uk:Коров'яче молоко
 zh:牛奶
 wikipedia:fr:https://fr.wikipedia.org/wiki/Lait_de_vache
-
-<en:milk
-en:milk with 1.0% milk fat
-hr:mlijeko s 1.0% mliječne masti, mlijeko s 1% mliječne masti
 
 # description:en:RAW COW MILK - milk produced by female cows before any treatment
 
@@ -4347,7 +4352,7 @@ hr:karamelizirano obrano mlijeko u prahu
 
 <en:milk powder
 en:whole milk powder, dried whole milk, powdered whole milk, whole powdered milk, whole dry milk, dry whole milk
-bg:пълномаслено мляко на прах, пълномаслено сухо мляко
+bg:пълномаслено мляко на прах, пълномаслено сухо мляко, сухо пълномаслено мляко
 ca:Llet sencera en pols, llet en pols sencera
 cs:sušené plnotučné mléko
 da:sødmælkspulver
@@ -4393,6 +4398,7 @@ ru:молоко сухое цельное и обезжиренноё
 
 <en:whole milk powder
 en:reconstituted milk powder
+bg:възстановено мляко на прах
 ca:llet en pols reconstituida
 es:leche en polvo reconstituida
 hr:rekonstituirano mlijeko u prahu
@@ -4404,6 +4410,7 @@ nl:gereconstitueerde melk
 
 <en:skimmed milk
 en:reconstituted skimmed milk
+bg:възтановено обезмаслено мляко
 ca:llet desnatada reconstituida, llet desnatada rehidratada, llet descremada rehidratada, llet descremada reconstituida
 de:rekonstituierte Magermilch
 es:leche desnatada reconstituida, leche desnatada rehidratada, leche descremada rehidratada, leche descremada reconstituida
@@ -4422,6 +4429,7 @@ ca:llet desnatada en pols reconstituida, llet desnatada en pols rehidratada
 es:leche desnatada en polvo reconstituida, leche desnatada en polvo rehidratada
 
 fr:matière grasse de lait anhydre
+it:grasso di latte anidro
 
 <en:milk
 fr:lait écrémé en poudre reconstitué, lait écrémé en poudre réhydraté
@@ -5078,7 +5086,7 @@ vegetarian:en:yes
 
 <en:whey
 en:whey powder, powdered whey,milk whey powder
-bg:суроватка на прах, млечна суроватка на прах, млечна суха суроватка
+bg:суроватка на прах, млечна суроватка на прах, млечна суха суроватка, суха млечна суроватка
 ca:Xerigot en pols, sèrum en pols, sèrum làctic en pols
 cs:sušená syrovátka
 da:Vallepulver, vallepulver af mælk
@@ -9109,7 +9117,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Taleggio_cheese
 
 <en:cheese
 en:tilsit
-bg:Тилзитер
+bg:Тилзитер, Тилзит, сирене Тилзит
 cs:Tilsiter
 de:Tilsiter
 eo:Tilziter
@@ -12492,43 +12500,24 @@ sv:renbog
 #                                Boar
 #
 ###################################################################################################
+
 <en:game animal
-en:wild boar
+en:wild boar, boar
+fr:sanglier
 hr:divlji vepar
 pl:dzik, dzika
 ciqual_food_code:en:14002
 ciqual_food_name:en:Wild boar, raw
+nutriscore_red_meat:en:yes
+vegan:en:no
+vegetarian:en:no
 wikidata:en:Q58697
 
 <en:wild boar
 en:wild boar meat
+fr:viande de sanglier
 hr:meso divlje svinje
 pl:mięso z dzika
-
-# description:en:Merguez is a red, spicy mutton- or beef-based fresh sausage from Maghrebi cuisine.
-
-<en:meat
-en:merguez, Merguez sausage
-xx:merguez
-ar:مرقاز
-eo:Mergezo
-fr:merguez
-he:מרגז
-ja:メルゲーズ
-uk:Мергези
-ciqual_food_code:en:30150
-ciqual_food_name:en:Merguez sausage, raw
-ciqual_food_name:fr:Merguez, crue
-wikipedia:en:https://en.wikipedia.org/wiki/Merguez
-# ingredient/fr:merguez has 63 products in french @2019-03–22
-
-<en:merguez
-en:raw Merguez sausage
-fr:Merguez crue
-hr:sirova merguez kobasica
-ciqual_food_code:en:30150
-ciqual_food_name:en:Merguez sausage, raw
-ciqual_food_name:fr:Merguez, crue
 
 
 ###################################################################################################
@@ -14464,6 +14453,32 @@ en:sausage, sausages
 hr:kobasica
 pl:kiełbasa, kiełbasy
 
+
+# description:en:Merguez is a red, spicy mutton- or beef-based fresh sausage from Maghrebi cuisine.
+
+<en:sausage
+en:merguez, Merguez sausage
+xx:merguez
+ar:مرقاز
+eo:Mergezo
+fr:merguez
+he:מרגז
+ja:メルゲーズ
+uk:Мергези
+ciqual_food_code:en:30150
+ciqual_food_name:en:Merguez sausage, raw
+ciqual_food_name:fr:Merguez, crue
+wikipedia:en:https://en.wikipedia.org/wiki/Merguez
+# ingredient/fr:merguez has 63 products in french @2019-03–22
+
+<en:merguez
+en:raw Merguez sausage
+fr:Merguez crue
+hr:sirova merguez kobasica
+ciqual_food_code:en:30150
+ciqual_food_name:en:Merguez sausage, raw
+ciqual_food_name:fr:Merguez, crue
+
 # <en:compound
 <en:meat
 en:botifarra
@@ -15728,7 +15743,7 @@ hr:govedi loj, goveđi loj, goveđi loja
 <en:dairy
 <en:fat
 en:milkfat, milk fat
-bg:млечна мазнина
+bg:млечна мазнина, млечни мазнини
 bs:mlečna mast
 cs:mléčný tuk
 da:mælkefedt
@@ -17168,6 +17183,7 @@ pl:rafinowany olej rzepakowy, olej rzepakowy rafinowany
 
 <en:rapeseed oil
 en:british rapeseed oil
+de:Britisches Rapsöl
 hr:britanskog repičinog ulja
 
 <en:rapeseed oil
@@ -17206,38 +17222,12 @@ wikipedia:en:https://en.wikipedia.org/wiki/Canola_oil
 #fi:kokonaan kovetettu rypsiöljy
 #sv:fullhärdad rypsolja
 
-#fi:rypsiöljy, rypsiöljyä
-
-<en:rapeseed oil
-en:colza oil
-bg:рапично олио
-ca:Oli de colza
-de:Kolzaöl
-el:κραμβέλαιο
-es:aceite de colza
-fr:huile de colza, huile végétale de colza, huile colza, graisses végétales de colza, graisses vegetales de colza
-hr:ulje ragice
-hu:Repceolaj
-it:olio di colza, olio vegetale di colza
-nb:rapsolje
-nl:koolzaadolie, plantaardige koolzaadolie
-pt:óleo de colza
-carbon_footprint_fr_foodges_ingredient:fr:Huile de colza
-carbon_footprint_fr_foodges_value:fr:2.2
-ciqual_food_code:en:17130
-ciqual_food_name:fr:Huile de colza
-wikidata:en:Q697248
-wikipedia:en:https://en.wikipedia.org/wiki/Colza_oil
 
 <en:rapeseed oil
 en:low erucic acid rapeseed oil
 de:eurucasäurearmes Rapsöl, LEAR
 hr:ulje repice s niskim sadržajem eruka kiseline
 
-<en:rapeseed oil
-en:british rapeseed oil
-de:Britisches Rapsöl
-hr:britanskog repičinog ulja
 
 # Canola oil, or canola for short, originally known as low erucic acid rapeseed, is a vegetable oil derived from a variety of rapeseed that is low in erucic acid, as opposed to colza oil.
 # The confusion between colza and rapeseed is also present in the wikipedia translations. It seems to be a us/eu difference.
@@ -17281,7 +17271,9 @@ es:aceite de colza
 fi:rypsiöljy
 fr:huile de colza, huile végétale de colza, huile colza, graisses végétales de colza, graisses vegetales de colza, huiles végétales de colza
 hr:uljana repica, uljane repice, ulje uljane repice, ulje repice
+hu:Repceolaj
 it:olio di colza, olio vegetale di colza
+nb:rapsolje
 nl:koolzaadolie, plantaardige koolzaadolie
 pt:óleo de colza
 carbon_footprint_fr_foodges_ingredient:fr:Huile de colza
@@ -17485,6 +17477,7 @@ hr:mast sjemenki pamuka
 
 <en:vegetable oil
 en:avocado oil
+bg:авокадово масло, авокадово олио
 de:Avocadoöl
 es:Aceite de aguacate
 fi:avokadoöljy
@@ -18285,7 +18278,7 @@ it:girasole alto oleico
 
 <en:sunflower oil
 en:high oleic sunflower oil
-bg:високоолеиново слънчогледово масло
+bg:високоолеиново слънчогледово масло, високо олеиново слънчогледово олио
 ca:oli refinat de gira-sol alt oleic, oli de gira-sol alt oleic, oli vegetal de gira-sol alt oleic
 de:High Oleic-Sonnenblumenöl, High-Oleic-Sonnenblumenöl, Sonnenblumenöl mit hohem Fettsäureanteil, Sonnenblumenöl hoch erhitzbar
 es:aceite de girasol alto oleico,aceite refinado de girasol alto oleico
@@ -22724,15 +22717,15 @@ sv:mintsmak
 
 <en:mint flavouring
 <en:natural flavouring
-en:natural mint flavouring
+en:natural mint flavouring, natural mint flavours, natural mints flavor
 bg:естествен аромат мента
 de:natürliches Minzaroma
-es:sabor natural a menta
-fi:luontainen minttuaromi
-fr:arôme naturel de menthe
+es:sabor natural a menta, aroma natural de menta
+fi:luontainen minttuaromi, luontaisia minttuaromeja, luontaiset minttuaromit
+fr:arômes naturels de menthe, arôme naturel de menthe, arôme naturel de menthes
 hr:prirodna aroma mente
 hu:természetes menta aroma
-it:aroma naturale di menta
+it:aroma naturale di menta, aroma di menta naturale
 nl:natuurlijk muntsmaak
 pl:naturalny aromat mięty
 pt:sabor natural de menta
@@ -22770,18 +22763,6 @@ hr:prirodne arome mente s drugim prirodnim aromama
 sv:naturlig pepparmintsarom med andra naturliga aromer
 # ingredient/sv:naturlig-pepparmintsarom-med-andra-naturliga-aromer has 1 product in 1 language @2020-05-25
 
-<en:mint flavouring
-<en:natural flavouring
-en:natural mint flavouring, natural mint flavours, natural mints flavor
-de:natürliches Minzaroma
-es:aroma natural de menta
-fi:luontainen minttuaromi, luontaisia minttuaromeja, luontaiset minttuaromit
-fr:arômes naturels de menthe, arôme naturel de menthe, arôme naturel de menthes
-hr:prirodna aroma mentola
-hu:természetes menta aroma
-it:Aroma di menta naturale
-nl:natuurlijk muntaroma
-sv:naturlig mintsmak
 
 <en:natural citrus flavouring
 <en:natural mint flavouring
@@ -25547,6 +25528,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Malt
 
 <en:malt
 en:malt extract
+bg:малцов екстракт
 ca:extracte de malta
 da:maltekstrakt
 de:Malzextrakt
@@ -27311,7 +27293,7 @@ de:Dinkelmehl Type 630
 de:Dinkelmehl Type 812
 
 <en:spelt flour
-fr:farine de blé semi-complète type 80, farine de blé semi-complète t80
+fr:farine de blé semi-complète type 80, farine de blé semi-complète t80, farine de blé type 80
 
 <en:spelt flour
 fr:farine d'épeautre type 110, Farine de blé d'épeautre T110
@@ -27673,7 +27655,7 @@ fr:farines de graines et céréales
 <en:wheat
 en:wheat flour, wheatflour
 ar:طحين القمح
-bg:пшенично брашно
+bg:пшенично брашно, пшеничено брашно
 bs:pšenično brašno
 ca:Farina de ble
 cs:pšeničná mouka
@@ -29339,7 +29321,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Rice
 en:rice protein, rice proteins
 bg:оризов протеин
 da:risprotein, ris protein
-de:Reisprotein
+de:Reiseiweiß, Reisprotein
 es:proteinas de arroz
 fi:riisiproteiini
 fr:protéine de riz, protéines de riz
@@ -33101,7 +33083,7 @@ bg:растителен протеин, растителни протеини
 ca:Proteïna vegetal
 cs:rostlinné proteiny, rostlinné bílkoviny
 da:vegetabilsk protein
-de:pflanzliches Eiweiß, Pflanzenprotein, Pflanzenproteine
+de:pflanzliches Eiweiß, Pflanzenprotein, Pflanzenproteine, Pflanzliche Protein
 es:proteína vegetal
 fi:kasviproteiini
 fr:protéines végétales, protéine végétale
@@ -33179,7 +33161,7 @@ sv:rehydrerat ärtprotein
 
 <en:plant protein
 en:broad bean protein
-de:Ackerbohnenprotein
+de:Ackerbohnenprotein, Ackerbohneneiweiß
 fi:härkäpapuproteiini
 fr:protéine de fèves, protéines de fèves
 hr:proteina boba
@@ -33563,7 +33545,7 @@ bs:mliječne bjelančevina
 ca:Proteina de la llet,proteines de la llet,proteïnes làcties
 cs:mléčnou bílkovinu
 da:mælkeprotein
-de:Milcheiweiß, Milchprotein, Milcheiweißerzeugnis, Milcheiweisserzeugnis, Magermilchpulverzusatz, Milcheiweiss, Milchproteine
+de:Milcheiweiß, Milcheiweib, Milchprotein, Milcheiweißerzeugnis, Milcheiweisserzeugnis, Magermilchpulverzusatz, Milcheiweiss, Milchproteine
 es:proteína de leche,proteinas lacteas
 fi:maitoproteiini, maitoproteiinit
 fr:protéine de lait, protéines de lait, protéines du lait, protéines laitières, protéines lactiques, protéine lactique, lactoprotéine, lactoprotéines
@@ -33811,6 +33793,11 @@ it:Caseinato di calcio
 nl:Calcium caseïnaat
 wikidata:en:Q522243
 wikipedia:en:https://en.wikipedia.org/wiki/Calcium_caseinate
+
+<en:plant protein
+en:sunflower protein
+fr:protéine de tournesol
+de:Sonnenblumeneiweiß, Sonnenblumenprotein
 
 <en:plant protein
 en:rapeseed protein
@@ -43009,19 +42996,21 @@ nl:acaisap
 #
 ###################################################################################################
 <en:fruit
-en:acerola
+en:acerola, acerola cherry, acerola cherries, west indian cherry, west indian cherries, Barbados cherry, Barbados cherries
 xx:acerola
 bg:ацерола
 ca:acerola, cirera acerola
 de:Acerola, Acerolakirschen, Acerola Kirsch
 es:acerola, cerecita, manzanita, semeruco
-fi:akerola
-fr:acérola
+fi:akerola, acerola
+fr:acérola, cerise des Antilles, cerises des Antilles, cerise de la Barbade, cerises de la Barbade
 hr:acerola, acerole
 pl:acerola, aceroli
 ru:Ацерола
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/acerola
 # 133 products in 4 languages @2018-10-03
+eurocode_2_group_2:en: 9.25
+eurocode_2_group_3:en: 9.25.48
 
 <en:acerola
 <en:fruit juice
@@ -44231,7 +44220,7 @@ ml:തേങ്ങ
 nb:kokos, kokosnøtt
 nl:kokosnoot, kokos
 nn:kokosnøtt
-pl:kokos, kokosowy, kokosowa, kokosowe, kokosowego, kokosa
+pl:kokos, kokosa, orzecha kokosowego, kokosowy, kokosowa, kokosowe
 pt:cocos
 ro:nucă de cocos, nuca de cocos
 ru:кокос
@@ -44251,6 +44240,9 @@ wikidata:en:Q3342808
 # jbo:rutrkoko
 # pt-br:coco
 wikipedia:fr:https://fr.wikipedia.org/wiki/Noix_de_coco
+# The term "coconut" can refer to the whole coconut palm, the seed, or the fruit, which botanically is a drupe, not a nut.
+# NOTE the oil and fat of a coconut can be found under the fats section
+# When coconut is listed as ingredient, probably the white stuff is meant. The watery stuff is probably never used? I.e. coco versus coconut
 
 #<en:compound
 en:coconut cream
@@ -47842,15 +47834,12 @@ th:จากนำองุ่นเข้มข้น
 en:grape juice from concentrate
 bg:гроздов сок от концентрат
 de:Traubensaft aus Traubensaftkonzentrat
+es:jugo de uva concentrado reconstituido
 fr:jus de raisin à base de concentré, jus de raisins à base de concentré
 hr:sok od grožđa iz koncentrata
 
 <en:concentrated grape juice
 fr:jus de raisin concentré rectifié
-
-<en:grape juice
-en:grape juice from concentrate
-es:jugo de uva concentrado reconstituido
 
 <en:grape juice from concentrate
 <en:white grape juice
@@ -48838,362 +48827,6 @@ wikidata:en:Q223701
 wikipedia:en:https://en.wikipedia.org/wiki/Pinot_noir
 # fr:pinot-noir has 20 products in 1 language @2018-10-29
 
-# Poulsard (also Ploussard) is a red French wine grape variety from the Jura wine region.
-
-<en:varietal
-en:Poulsard
-cy:Poulsard
-de:Poulsard
-es:Poulsard
-fi:poulsard
-fr:Poulsard
-hr:poulsard
-nl:Poulsard Blanc
-wikidata:en:Q1409433
-wikipedia:en:https://en.wikipedia.org/wiki/Poulsard
-# ingredient/fr:Poulsard has no products @2019-01-20
-
-
-# Sciacarello (or sciaccarello) is a red Italian wine grape variety that is grown primarily in Corsica.
-
-<en:varietal
-en:Sciacarello
-de:Sciacarello
-fi:sciacarello
-fr:Sciaccarellu, Sciacarello
-hr:sciacarello
-wikidata:en:Q1527364
-wikipedia:en:https://en.wikipedia.org/wiki/Sciacarello
-# ingredient/fr:Sciaccarellu has 1 product @2019-01-20
-
-
-# Sémillon is a golden-skinned grape used to make dry and sweet white wines, mostly in France and Australia.
-
-<en:varietal
-en:Sémillon
-bg:Семийон
-ca:Sémillon
-cs:Sémillon
-cv:Семильон
-de:Sémillon
-es:Sémillon
-et:Sémillon
-fi:Sémillon
-fr:Sémillon
-hr:sémillon
-it:Sémillon
-ja:セミヨン
-nl:Sémillon
-pt:Sémillon
-ru:Семильон
-sr:Семијон
-sv:Sémillon
-uk:Семільйон
-zh:賽美蓉
-# sr-ec:Семијон
-# sr-el:Semijon
-wikidata:en:Q391558
-wikipedia:en:https://en.wikipedia.org/wiki/Sémillon
-# ingredient/fr:Sémillon has 5 products @2019-01-20
-
-
-# Sylvaner or Silvaner is a variety of white wine grape grown primarily in Alsace and Germany, where its official name is Grüner Silvaner.
-
-<en:varietal
-en:sylvaner
-bg:Силванер
-cs:Sylvánské zelené
-cv:Сильванер
-da:sylvaner
-de:sylvaner
-eo:sylvaner
-es:sylvaner
-et:sylvaner
-eu:sylvaner
-fi:sylvaner
-fr:sylvaner
-hr:silvanac zeleni
-hy:սիլվաներ
-it:sylvaner
-ja:シルヴァーナー
-lb:sylvaner
-nl:sylvaner
-pl:sylvaner
-ru:Сильванер
-sl:Zeleni silvanec
-sv:sylvaner
-# gsw:sylvaner
-# zh-cn:西万尼
-# zh-hans:西万尼
-# zh-hant:西萬尼
-wikidata:en:Q1133517
-wikipedia:en:https://en.wikipedia.org/wiki/Silvaner
-# ingredient/fr:sylvaner has 1 product in french @2019-01-18
-
-
-# Syrah, also known as Shiraz, is a dark-skinned grape variety grown throughout the world and used primarily to produce red wine.
-
-<en:varietal
-en:syrah
-bg:Сира
-ca:sirà
-cs:syrah
-cv:Сира
-da:syrah
-de:Syrah
-es:syrah
-et:syrah
-fa:شیراز
-fi:syrah
-fr:Syrah
-gl:syrah
-hr:syrah
-hu:syrah
-hy:Սիրա
-is:syrah
-it:syrah
-ja:シラー
-ko:시라
-nb:syrah
-nl:syrah
-pl:syrah
-pt:syrah
-ro:Shiraz, syrah
-ru:Сира
-sr:Сира
-sv:Syrah
-tr:Şiraz üzümü
-uk:Сіра
-zh:西拉葡萄
-# ceb:syrah
-# zh-cn:西拉葡萄
-# zh-hans:西拉葡萄
-# zh-hant:西拉葡萄
-# zh-hk:西拉葡萄
-# zh-sg:西拉葡萄
-# zh-tw:西拉葡萄
-wikidata:en:Q332720
-wikipedia:en:https://en.wikipedia.org/wiki/Syrah
-# ingredient/fr:Syrah has 47 products @2019-01-18
-
-
-# Trousseau or Trousseau Noir, also known as Bastardo, is an old variety of red wine grape originating in eastern France.
-
-<en:varietal
-en:Bastardo
-de:Trousseau
-es:Bastardo
-fi:trousseau
-fr:Trousseau
-hr:kopile
-ja:バスタルド
-nb:Bastardo
-nl:Bastardo
-ru:Бастардо
-sv:Bastardo
-wikidata:en:Q63319
-wikipedia:en:https://en.wikipedia.org/wiki/Trousseau_(grape)
-# ingredient/fr:Trousseau has no products @2019-01-20
-
-
-<en:fruit
-en:pomegranate
-am:ሩማን
-bg:нар
-bo:སེ་འབྲུ།
-ca:magrana
-cs:granátové jablko
-de:Granatapfel
-el:ρόδι
-eo:granato
-es:granada
-et:Granaatõun
-fi:granaattiomena
-fr:grenade
-ga:Pomagrainít
-gl:milgranda
-gu:દાડમ
-hi:अनार
-hr:nar
-ht:Grenad
-it:melagrana
-ks:دٲن
-mr:डाळिंब
-my:တလည်း
-ne:दारिम
-nl:granaatappel
-pa:ਅਨਾਰ
-pl:granat
-ps:انار
-ro:rodie
-ru:гранатина
-sd:ڏاڙهون
-sk:granátové jablko
-sq:shegë
-tg:Анор
-ug:ئانار
-uk:Гранатове дерево
-ur:انار
-uz:Ahop
-za:Maksigloux
-# bho:अनार
-# ckb:ھەنار
-# hak:Sa̍k-liù
-# hif:Anaar
-# kaa:Anar
-# lak:Сунув
-# mzn:انار
-# pnb:انار
-# vro:Granaatupin
-wikidata:en:Q13222088
-wikipedia:fr:https://fr.wikipedia.org/wiki/Grenade_(fruit)
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:grenade
-# 53 products in 3 languages @2018-10-03
-
-<en:pomegranate
-fr:graines de grenade
-de:Granatapfelkerne
-fi:granaattiomenan siemen, granaattiomenan siemenet
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graines-de-grenade
-# 4 products in 3 languages @2018-10-03
-
-<en:fruit juice
-<en:pomegranate
-en:pomegranate juice
-de:Granatapfelsaft
-es:zumo de granada
-fi:granaattiomenamehu
-fr:jus de grenade
-hr:sok od nara
-it:succo di melagrana
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-grenade
-# 61 products in 3 languages @2018-10-03
-
-<en:pomegranate juice
-fr:pur jus de grenade
-
-<en:pomegranate juice
-en:organic pomegranate juice
-fi:luomugranaattiomenamehu, luomu granaattiomenamehu
-fr:Jus de Grenade issu de l'agriculture biologique
-hr:organski sok od nara
-
-<en:pomegranate
-fr:écorces de grenade
-
-<en:fruit
-en:acerola, acerola cherry, acerola cherries, west indian cherry, west indian cherries, Barbados cherry, Barbados cherries
-de:Acerolakirschen
-es:acerola
-fi:akerola, acerola
-fr:acérola, cerise des Antilles, cerises des Antilles, cerise de la Barbade, cerises de la Barbade
-hr:acerola
-it:acerola
-nl:acerola
-pl:Acerola, acerola
-ru:Ацерола
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/acerola
-# 133 products in 4 languages @2018-10-03
-eurocode_2_group_2:en: 9.25
-eurocode_2_group_3:en: 9.25.48
-
-<en:acerola
-<en:fruit juice
-en:acerola juice
-de:Acerolaextrakt
-es:zumo de acerola
-fi:akerola-uute, acerola-uute
-fr:extrait d'acérola, jus concentré d'acérola, extrait sec d'acérola
-hr:sok od acerole
-it:estratto d'acerola
-nl:acerola-extract
-pl:Sok z aceroli, sok z aceroli
-ru:Сок ацеролы
-# ingredient/acerola-juice has 18 products in 2 languages @2018-10-03
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-concentré-d'acérola
-# 3 products in 1 language @2018-10-03
-# ingredient/fr:extrait-d'acérola has 215 products in 4 languages @2018-10-03
-
-<en:acerola
-en:acerola powder
-#en:processing:en:powder
-#de:Acerolapulver
-#fi:akerola-jauhe, acerola-jauhe
-#fr:poudre d'acérola
-#it:acerola in polvere
-#nl:acerolapoeder
-# ingredient/fr:poudre-d'acérola has 37 products @2018-10-03
-
-<en:acerola powder
-en:acerola powder on manioc starch
-#en:processing:en:powder
-de:Acerolapulver auf Maniokstärke
-fr:poudre d'acérola avec fécule de manioc, poudre d'acérola sur fécule de manioc
-hr:prah acerole na škrobu manioke
-it:acerola in polvere con fecola di manioca, acerola in polvere con amido di manioca
-# ingredient/fr:poudre-d'acérola-avec-fécule-de-manioc has 38 products @2018-10-03
-
-# The term "coconut" can refer to the whole coconut palm, the seed, or the fruit, which botanically is a drupe, not a nut.
-
-# NOTE the oil and fat of a coconut can be found under the fats section
-
-# When coconut is listed as ingredient, probably the white stuff is meant. The watery stuff is probably never used? I.e. coco versus coconut
-
-<en:fruit
-en:coconut
-ak:kube
-ar:نارجيل
-bg:Кокосов орех
-ca:coco
-cs:kokosový ořech
-da:kokos, kokosnød
-de:Kokos, Kokosnuss
-ee:Eneh
-el:καρύδα
-eo:kokosnukso
-es:coco
-et:Kookospähkel
-eu:koko
-fi:kookos, kookospähkinä
-fr:noix de coco, coco
-gl:Coco
-hr:kokos
-hu:kókuszdió
-it:cocco, noce di cocco
-ml:തേങ്ങ
-nb:kokosnøtt
-nl:kokosnoot, kokos
-nn:kokosnøtt
-pl:Kokos, kokosa, orzecha kokosowego, kokosowy, kokosowa, kokosowe
-pt:cocos
-ru:кокос
-sa:नारिकेलम्
-sq:Arra e kokosit
-sr:kokos
-sv:Kokosnöt, Kokos
-za:Makyehswj
-zh:椰子
-wikidata:en:Q3342808
-# ast:Cocu
-# jbo:rutrkoko
-# pt-br:coco
-wikipedia:fr:https://fr.wikipedia.org/wiki/Noix_de_coco
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix-de-coco
-# 1209 products in 11 languages @2018-10-03
-
-<en:coconut
-en:coconut cream
-de:Kokosnusscreme
-es:Crema de coco
-fi:kookoskerma
-fr:crème de noix de coco, crème de coco
-hr:vrhnje od kokosa
-it:Crema di noce di cocco
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:crème-de-noix-de-coco
-# 33 products @2018-10-03
-nutriscore_fruits_vegetables_nuts:en:no
-
-
 # description:en:Plavac Mali (Croatian pronunciation: [plǎːʋat͡s mǎli]), a cross between Crljenak Kaštelanski (ancestral Zinfandel) and Dobričić grapes, is the primary red wine grape grown along the Dalmatian coast of Croatia.
 
 <en:varietal
@@ -49219,9 +48852,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Plavac_Mali
 en:plavina, brajda mala, brajdica, bratkovina, jurkovica, marasovka, modrulj, plavac plavina, plavinac, plavina mala, plavina sitnah, plavina velka, plavka, plavka mala, velika plavka
 hr:plavina, brajda mala, brajdica, bratkovina, jurkovica, marasovka, modrulj, plavac plavina, plavinac, plavina mala, plavina sitnah, plavina velka, plavka, plavka mala, velika plavka
 
-
-# description:en:Poulsard (also Ploussard) is a red French wine grape variety from the Jura wine region.
-
 <en:varietal
 en:Poulsard
 cy:Poulsard
@@ -49231,12 +48861,12 @@ fi:poulsard
 fr:Poulsard
 hr:poulsard
 nl:Poulsard Blanc
+description:en:Poulsard (also Ploussard) is a red French wine grape variety from the Jura wine region.
 wikidata:en:Q1409433
 wikipedia:en:https://en.wikipedia.org/wiki/Poulsard
 # ingredient/fr:Poulsard has no products @2019-01-20
 
 
-# description:en:Pošip is an autochthonous white wine grape that is primarily grown in the Dalmatian region of Croatia on the island of Korčula, although small amounts are also being grown on the Pelješac Peninsula.
 
 <en:varietal
 en:Pošip
@@ -49249,6 +48879,7 @@ ru:Пошип
 sh:Pošip
 sr:Пошип
 uk:Пошип
+description:en:Pošip is an autochthonous white wine grape that is primarily grown in the Dalmatian region of Croatia on the island of Korčula, although small amounts are also being grown on the Pelješac Peninsula.
 wikidata:en:Q832738
 wikipedia:en:https://en.wikipedia.org/wiki/Po%C5%A1ip
 
@@ -49258,10 +48889,14 @@ hr:rizling, rizling rajnski
 wikidata:en:Q456471
 wikipedia:en:https://en.wikipedia.org/wiki/Riesling
 
-
 <en:varietal
 en:Rkatsiteli
 hr:r'kaciteli
+
+# Sciacarello (or sciaccarello) is a red Italian wine grape variety that is grown primarily in Corsica.
+
+
+
 
 # description:en:Sciacarello (or sciaccarello) is a red Italian wine grape variety that is grown primarily in Corsica.
 
@@ -49275,8 +48910,6 @@ wikidata:en:Q1527364
 wikipedia:en:https://en.wikipedia.org/wiki/Sciacarello
 # ingredient/fr:Sciaccarellu has 1 product @2019-01-20
 
-
-# description:en:Sémillon is a golden-skinned grape used to make dry and sweet white wines, mostly in France and Australia.
 
 <en:varietal
 en:Sémillon
@@ -49301,11 +48934,10 @@ uk:Семільйон
 zh:賽美蓉
 # sr-ec:Семијон
 # sr-el:Semijon
+description:en:Sémillon is a golden-skinned grape used to make dry and sweet white wines, mostly in France and Australia.
 wikidata:en:Q391558
 wikipedia:en:https://en.wikipedia.org/wiki/Sémillon
 # ingredient/fr:Sémillon has 5 products @2019-01-20
-
-
 
 # description:en:Susac Crni is a native red wine grape in the Kvarner region of Croatia.
 
@@ -49314,72 +48946,40 @@ en:Susac Crni
 wikidata:en:Q7647464
 wikipedia:en:https://en.wikipedia.org/wiki/Susac_Crni
 
-
-# description:en:Sylvaner or Silvaner is a variety of white wine grape grown primarily in Alsace and Germany, where its official name is Grüner Silvaner.
-
 <en:varietal
 en:sylvaner
+xx:sylvaner
 bg:Силванер
 cs:Sylvánské zelené
 cv:Сильванер
-da:sylvaner
-de:sylvaner
-eo:sylvaner
-es:sylvaner
-et:sylvaner
-eu:sylvaner
-fi:sylvaner
-fr:sylvaner
 hr:silvanac zeleni
 hy:սիլվաներ
-it:sylvaner
 ja:シルヴァーナー
-lb:sylvaner
-nl:sylvaner
-pl:sylvaner
 ru:Сильванер
 sl:Zeleni silvanec
-sv:sylvaner
 # gsw:sylvaner
 # zh-cn:西万尼
 # zh-hans:西万尼
 # zh-hant:西萬尼
+description:en:Sylvaner or Silvaner is a variety of white wine grape grown primarily in Alsace and Germany, where its official name is Grüner Silvaner.
 wikidata:en:Q1133517
 wikipedia:en:https://en.wikipedia.org/wiki/Silvaner
 # ingredient/fr:sylvaner has 1 product in french @2019-01-18
 
-
-# description:en:Syrah, also known as Shiraz, is a dark-skinned grape variety grown throughout the world and used primarily to produce red wine.
-
 <en:varietal
 en:syrah
+xx:syrah
 bg:Сира
 ca:sirà
 cs:syrah
 cv:Сира
-da:syrah
-de:Syrah
-es:syrah
-et:syrah
 fa:شیراز
-fi:syrah
-fr:Syrah
-gl:syrah
-hr:syrah
-hu:syrah
 hy:Սիրա
-is:syrah
-it:syrah
 ja:シラー
 ko:시라
-nb:syrah
-nl:syrah
-pl:syrah
-pt:syrah
 ro:Shiraz, syrah
 ru:Сира
 sr:Сира
-sv:Syrah
 tr:Şiraz üzümü
 uk:Сіра
 zh:西拉葡萄
@@ -49390,23 +48990,22 @@ zh:西拉葡萄
 # zh-hk:西拉葡萄
 # zh-sg:西拉葡萄
 # zh-tw:西拉葡萄
+description:en:Syrah, also known as Shiraz, is a dark-skinned grape variety grown throughout the world and used primarily to produce red wine.
 wikidata:en:Q332720
 wikipedia:en:https://en.wikipedia.org/wiki/Syrah
 # ingredient/fr:Syrah has 47 products @2019-01-18
 
-
-# description:en:Teran grape is a variety of red grape from Istria, Croatia.
 
 <en:varietal
 en:teran
 de:terrano
 hr:teran, vino teran
 sv:terrano
+description:en:Teran grape is a variety of red grape from Istria, Croatia.
 wikidata:en:Q1437894
 wikipedia:en:https://en.wikipedia.org/wiki/Teran_grape
 
 
-# description:en:Trousseau or Trousseau Noir, also known as Bastardo, is an old variety of red wine grape originating in eastern France.
 
 <en:varietal
 en:Bastardo
@@ -49420,6 +49019,7 @@ nb:Bastardo
 nl:Bastardo
 ru:Бастардо
 sv:Bastardo
+description:en:Trousseau or Trousseau Noir, also known as Bastardo, is an old variety of red wine grape originating in eastern France.
 wikidata:en:Q63319
 wikipedia:en:https://en.wikipedia.org/wiki/Trousseau_(grape)
 # ingredient/fr:Trousseau has no products @2019-01-20
@@ -49497,6 +49097,18 @@ en:žlahtina
 hr:žlahtina
 wikidata:en:Q394231
 wikipedia:hr:https://hr.wikipedia.org/wiki/%C5%BDlahtina
+
+<en:coconut
+en:coconut cream
+de:Kokosnusscreme
+es:Crema de coco
+fi:kookoskerma
+fr:crème de noix de coco, crème de coco
+hr:vrhnje od kokosa
+it:Crema di noce di cocco
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:crème-de-noix-de-coco
+# 33 products @2018-10-03
+nutriscore_fruits_vegetables_nuts:en:no
 
 ###################################################################################################
 #
@@ -52628,7 +52240,7 @@ es:fibra de la raíz de achicoria,fibra de achicoria
 fi:sikurikuitu, sikurijuurikuitu
 fr:fibre de chicorée, fibres de chicorée, fibre de racine de chicorée, fibres de racine de chicorée, fibres de racines de chicorée
 hr:vlakna iz korijena cikorije
-it:Fibre di cicoria
+it:Fibre di cicoria, fibra di radice di cicoria
 nl:chichoreivezel, chichoreiwortelvezel
 pl:błonnik z cykorii, błonnik z korzenia cykorii, włókna z korzenia cykorii
 sk:vláknina z koreňa čakanky
@@ -52955,7 +52567,7 @@ es:Fibra de bambú
 fi:bambukuitu
 fr:fibre de bambou, fibres de bambou
 hr:vlakna bambusa
-it:fibre di bambù
+it:fibra di bambù, fibre di bambù
 nl:bamboevezel, bamboevezels
 pl:błonnik bambusowy, błonnik roślinny bambusowy
 sv:bambufiber
@@ -60215,11 +59827,6 @@ eurocode_2_group_3:en: 8.45.20
 en:horse bean
 fr:féverole, féverolle
 
-<en:plant protein
-en:broad bean protein
-de:Ackerbohneneiweiß
-hr:proteina boba
-nl:tuinbooneiwit
 
 # rare bean from the Lyon region in France
 <en:pulse
@@ -60326,6 +59933,7 @@ wikidata:en:Q498940
 # comment:en:The wikidata translations are not clear between seed name, plant name and latin name.
 
 <en:legume
+<en:pod and seed vegetable
 en:pea, peas
 am:ኣተር
 ar:بازلاء
@@ -60375,6 +59983,7 @@ km:مَٹَر
 kn:ಬಟಾಣಿ
 ko:완두
 ku:Baqilê xatûnî
+la:pisum sativum
 li:ert
 ln:Wandu
 lt:Žirnis
@@ -60454,9 +60063,11 @@ zh:豌豆
 # zea:Erten
 # zh-tw:豌豆
 # wikidata:en:Q29472543 (seems more the vegetable)
+eurocode_2_group_3:en: 8.45.10
 wikipedia:en:https://en.wikipedia.org/wiki/Pea
 # ingredient/fr:pois has 259 products in 7 languages @2019-05-10
 # usage:fr:amidon (blé, pomme de terre, pois, maïs)
+
 
 # <en:pea
 # fr:extrait de pois # see ingredients_processing.txt
@@ -60715,12 +60326,6 @@ en:besan
 en:pod and seed vegetable
 eurocode_2_group_2:en: 8.45
 
-<en:pod and seed vegetable
-en:pea, peas
-fr:pois
-hr:grašak
-la:pisum sativum
-eurocode_2_group_3:en: 8.45.10
 
 <en:pea
 en:green peas
@@ -61064,6 +60669,7 @@ pl:soczewica gotowana
 # ingredient/fr:lentilles-précuites has 57 products @2019-06-02
 
 <en:lentils
+de:gelbe Linsen, Linsen gelb
 fr:lentilles blondes
 hr:leća žuta
 
@@ -62068,6 +61674,24 @@ wikidata:en:Q578307
 wikipedia:en:https://en.wikipedia.org/wiki/Hazelnut
 
 <en:hazelnut
+en:Piedmont hazelnut, PGI Piedmont hazelnut
+fr:noisette du Piémont, noisettes du Piémont
+it:nocciola Piemonte
+protected_name_type:en: en:pgi
+
+<en:Piedmont hazelnut
+<en:ground hazelnuts
+en:ground Piedmont hazelnut
+fr:noisette du Piémont en poudre
+it:polvere di nocciola Piemonte
+
+<en:Piedmont hazelnut
+<en:hazelnut paste
+en:Piedmont hazelnut paste
+fr:pâte de noisette du Piémont
+it:pasta di nocciola Piemonte
+
+<en:hazelnut
 fr:noisettes avec peau
 
 #processing:en: en:toasted
@@ -62161,7 +61785,7 @@ it:nocciole a scaglie
 
 # éclats de noisettes caramélisés is a compound producte, i.e. (noisettes, sucre de canne)
 
-<fr:éclats de noisettes
+#<en:compound
 fr:éclats de noisettes caramélisés
 fi:karamellisoidut hasselpähkinät
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:éclats-de-noisettes-caramélisés
@@ -62190,8 +61814,7 @@ sv:hasselnötsmassa, hasselnötspasta
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/hazelnut-paste
 # 965 products in 14 languages @2018-10-06
 
-<en:biscuit
-<en:hazelnut paste
+#<en:compound
 en:hazelnut paste with pieces of biscuits
 es:pasta de avellana con trozos de galletas
 fr:pâte à la noisette avec des morceaux de biscuits
@@ -62200,7 +61823,6 @@ it:pasta di nocciole con pezzi di biscotti
 nl:hazelnootpasta met stukjes koekjes
 
 <en:filling
-<en:hazelnut
 en:hazelnut filling
 es:relleno de avellana
 fr:garniture à la noisette
@@ -62210,7 +61832,7 @@ nl:hazelnootvulling
 
 # hazelnut praline is a compound product i.e.:(hazelnut, sugar)
 
-<en:hazelnut
+#<en:compound
 en:hazelnut praline
 de:Haselnuss-Praline
 fi:hasselpähkinäpraliini
@@ -63498,7 +63120,7 @@ sv:vallmo
 en:poppyseed, poppy seed, poppy seeds
 af:Papawersaad
 ar:بذور خشخاش
-bg:маково семе
+bg:маково семе, макови семена
 ca:rosella, Llavors de rosella
 da:birkes
 de:Mohnsamen, Mohnsaat
@@ -64215,12 +63837,12 @@ fr:sésame complet
 <en:sesame
 en:sesame paste, sesame seed paste
 bg:паста от сусам
-de:Sesampaste
+de:Sesampaste, Sesammus
 es:pasta de sésamo
 fi:seesamitahna, sesamtahna
 fr:pâte de sésame, pâte de graines de sésame
 hr:pasta od sezama
-it:pasta di sesamo
+it:pasta di sesamo, crema di sesamo
 ja:胡麻ペスト
 nl:sesampasta
 pl:pasta sezamowa
@@ -70605,7 +70227,7 @@ bg:цвят хибискус
 ca:rosa de Jamaica
 cs:ibišek súdánský
 da:hibiskusblomst
-de:Karkadeblüten, Roselle, Hibiskus, Hibiskusblüten
+de:Karkadeblüten, Roselle, Hibiskus, Hibiskusblüte, Hibiskusblüten
 eo:Sabdarifo
 es:Flor Roselle, hibisco
 fa:روزل
@@ -71696,7 +71318,7 @@ fr:Vanille pure
 
 <en:vanilla
 en:Bourbon vanilla
-bg:бурбонска ванилия
+bg:Бурбонска ванилия
 de:Bourbon Vanille, Bourbon-Vanille
 es:Vainilla Bourbon
 fi:bourbon-vanilja
@@ -71730,6 +71352,7 @@ sv:vaniljpulver
 <en:Bourbon vanilla
 <en:vanilla powder
 en:Bourbon vanilla powder
+bg:Бурбонска ванилия на прах
 de:Bourbon Vanille gemahlen, Bourbon-Vanillepulver, Bourbonvanilleschotenpulver
 fr:poudre de vanille Bourbon
 hr:bourbon vanilija u prahu
@@ -71854,7 +71477,7 @@ de:Vanilleschoten gemahlen, Vannileschoten gemahlen, vermahlene Vanilleschoten
 fi:vaniljatangon palat, vaniljakodat
 fr:gousses de vanille moulues, gousses de vanille broyées
 hr:mljevene mahune vanilije
-it:semi di vaniglia macinat
+it:semi di vaniglia macinat, vaniglia in bacche macinata
 pl:kawałki wanilii, laska wanilii w proszku, mielona laska wanilii
 sv:mald vaniljstång, vaniljstångbitar
 # ingredient/fr:gousses-de-vanille-moulues has 45 products in 4 languages @2019-02-24
@@ -74013,13 +73636,13 @@ cs:kukmák sklepní
 de:Dunkelstreifiger Scheidling
 fa:قارچ کاه
 fi:Viljelytuppisieni
-fr:Volvaire volvacée, Volvaire, Volvaire cultivée, Volvaire asiatique
+fr:Volvaire volvacée, Volvaire, Volvaire cultivée, Volvaire asiatique, 
 hi:पुआल मशरूम
 hr:slamnata gljiva
 id:Jamur merang
 ja:フクロタケ
 jv:Jamur merang
-la:Volvariella Volvacea, Agaricus volvaceus, Volvaria volvacea
+la:Volvariella Volvacea, Agaricus volvaceus, Volvaria volvacea, volvaria volvaria
 nl:tropische beurszwam
 or:ପାଳ ଛତୁ
 pl:Pochwiak wielkopochwowy, pochwiak pochwiasty, grzyb słomkowy, grzyby słomkowe
@@ -74030,6 +73653,7 @@ zh:草菇
 # hak:Chhó-kû
 # yue:草菇
 # zh-tw:草菇
+eurocode_2_group_3:en: 8.50.60
 wikidata:en:Q641656
 wikipedia:en:https://en.wikipedia.org/wiki/Volvariella_volvacea
 # https://world.openfoodfacts.org/ingredient/fr:Volvaire has 2 products @2019-01-22
@@ -74106,10 +73730,6 @@ sv:rekonstituerad svart champinjon
 <en:shiitake
 en:shiitake extract
 
-<en:mushroom
-en:straw mushroom
-la:volvaria volvaria
-eurocode_2_group_3:en: 8.50.60
 
 # description:en:PLEUROTUS is a genus of mushrooms popular in cooking
 
@@ -80329,20 +79949,14 @@ ciqual_food_name:en:Scallop, without coral, raw
 
 <en:scallop
 en:scallop with coral
-fr:Coquilles Saint-Jacques avec noix et corail
-ciqual_food_code:en:10003
-ciqual_food_name:en:Scallop, with coral, raw
-ciqual_food_name:fr:Coquille Saint-Jacques, noix et corail, crue
-
-<en:scallop
-en:scallop with coral
 de:Jakobsmuschel mit Koralle
 es:Vieira con coral
-fr:Coquilles Saint-Jacques avec noix
-hr:jakobova kapica s koraljima
+fr:Coquilles Saint-Jacques avec noix et corail
+hr:jakobova kapica s koraljimaciqual_food_code:en:10003
 it:Capasanta con corallo
 ciqual_food_code:en:10003
 ciqual_food_name:en:Scallop, with coral, raw
+ciqual_food_name:fr:Coquille Saint-Jacques, noix et corail, crue
 
 
 # en:description:Argopecten irradians, formerly classified as Aequipecten irradians, common names Atlantic bay scallop or bay scallop, is an edible species of saltwater clam, a scallop
@@ -82552,7 +82166,7 @@ fr:miel de citronnier
 #fr:miel de citronnier biologique, miel de citronnier bio
 
 <fr:miel de citronnier
-en:honey from Spain
+<en:honey from Spain
 fr:miel de citronnier d'Espagne
 # ingredient/fr:miel-de-citronnier-d-espagne has 3 products @2019-05-28
 
@@ -87860,15 +87474,6 @@ fr:pâtes fraîches cuites
 hr:kuhana svježa tjestenina
 # ingredient/fr:pâtes-fraîches-cuites has 19 products in french @2018-12-10
 
-<en:fresh pasta
-en:fresh egg pasta
-de:frische Eiernudeln
-es:pasta alimenticia fresca compuesta al huevo
-fr:pâtes fraîches aux œufs
-hr:tjestenina od svježih jaja
-it:pasta fresca all'uovo
-nl:verse eierpasta
-
 <en:pasta
 fr:pâtes alimentaires aux oeufs cuites
 
@@ -88337,7 +87942,8 @@ fr:pâtes aux œufs aux épinards
 #kept for french and italian and ciqual
 <en:fresh pasta
 en:fresh egg pasta
-de:frische Eierteigwaren
+de:frische Eierteigwaren, frische Eiernudeln
+es:pasta alimenticia fresca compuesta al huevo
 fr:pâtes fraîches aux oeufs
 hr:tjestenina od svježih jaja
 it:pasta fresca all'uovo
@@ -93437,16 +93043,6 @@ vegetarian:en:no
 en:camel meat
 fr:viande de chameau
 
-<en:animal
-en:wild boar, boar
-fr:sanglier
-nutriscore_red_meat:en:yes
-vegan:en:no
-vegetarian:en:no
-
-<en:wild boar
-en:wild board meat
-fr:viande de sanglier
 
 <en:animal
 en:bull

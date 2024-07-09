@@ -83,7 +83,7 @@
                     }
 
                     // Adding language code to get translated data
-                    params += "&lang_code=[% lc %]&country=[% cc %]";
+                    params += "&lang_code=[% lc %]&country=[% country_code %]";
 
                     fetch(facet_kp + params)
                         .then((response) => {

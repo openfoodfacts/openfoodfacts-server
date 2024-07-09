@@ -53,7 +53,9 @@ BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		&init_crm_data
+		&find_contact
 		&find_or_create_contact
+		&find_company
 		&find_or_create_company
 		&add_contact_to_company
 		&create_onboarding_opportunity
@@ -69,6 +71,7 @@ BEGIN {
 		&update_contact_last_login
 		&get_company_url
 		&get_contact_url
+		&make_odoo_request
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 
@@ -83,13 +86,14 @@ use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created/;
 use ProductOpener::Store qw/retrieve store/;
 use XML::RPC;
 use Log::Any qw($log);
+use Encode;
 
 my $crm_data;
 # Tags (crm.tag) must be defined in Odoo: CRM > Configuration > Tags
 my @required_tag_labels = qw(onboarding);
 # Category (res.partner.category) must be defined in Odoo :
 # Contact > contact (individual or company) form > Tags field > "Search More"
-my @data_source = ('AGENA3000', 'EQUADIS', 'CSV', 'Manual import',);
+my @data_source = ('AGENA3000', 'EQUADIS', 'CSV', 'Manual import', 'SFTP', 'BAYARD');
 my @required_category_labels = ('Producer', @data_source);
 
 # special commands to manipulate Odoo relation One2Many and Many2Many
@@ -331,8 +335,9 @@ the company if found, undef otherwise
 =cut
 
 sub find_company($org_ref, $contact_id = undef) {
+	my $org_name = $org_ref->{name};
 	# escape % and _ in org name, because of the ilike operator
-	my $org_name =~ s/([%_])/\\$1/g;
+	$org_name =~ s/([%_])/\\$1/g;
 	# 1. & 3. merged in one query
 	my $companies = make_odoo_request(
 		'res.partner',
@@ -464,15 +469,14 @@ sub create_onboarding_opportunity ($name, $company_id, $contact_id, $salesperson
 	my $query_params
 		= {name => $name, partner_id => $contact_id, tag_ids => [[$commands{link}, $crm_data->{tag}{onboarding}]]};
 	if (defined $salesperson_email) {
-		my $user = grep {$_->{email} eq $salesperson_email} @{$crm_data->{users}};
-		$user = $crm_data->{users}[0];
+		my $user = (grep {$_->{email} eq $salesperson_email} @{$crm_data->{users}})[0];
 		if (defined $user) {
 			$query_params->{user_id} = $user->{id};
 		}
 	}
 	my $opportunity_id = make_odoo_request('crm.lead', 'create', [$query_params]);
 	$log->debug("create_onboarding_opportunity",
-		{opportunity_id => $opportunity_id, salesperson => $query_params->{user_id}})
+		{opportunity_id => $opportunity_id, salesperson => $query_params->{user_id}, users => $crm_data->{users}})
 		if $log->is_debug();
 	return $opportunity_id;
 }
@@ -659,7 +663,6 @@ must match one of the values in CRM.pm @data_source
 sub update_company_last_import_type($org_id, $label) {
 	my $org_ref = retrieve_org($org_id);
 	return if not defined $org_ref->{crm_org_id};
-	return if $label ~~ @data_source;
 	my $category_id = $crm_data->{category}{$label};
 	add_category_to_company($org_id, $label);
 	return make_odoo_request('res.partner', 'write',
