@@ -32,52 +32,71 @@ use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::CRM qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Data qw/:all/;
+use Path::Tiny;
 use Encode;
 use JSON;
 use LWP::Simple;
 use Data::Dumper;
 
-my $query_ref = {};
-$query_ref->{'empty'} = {"\$ne" => 1};
-$query_ref->{'obsolete'} = {"\$ne" => 1};
+# This script recursively visits all product.sto files from the root of the products directory
+# and process its changes to generate a JSONL file of historical events
 
-# fields to retrieve
-my $fields_ref = {
-    code => 1,
-};
-
-my $socket_timeout_ms = 6000 ; # 3 * 60 * 60 * 60000;    # 3 hours
-my $products_collection = get_products_collection({timeout => $socket_timeout_ms});
-my $products_count = $products_collection->count_documents($query_ref);
-my $cursor = $products_collection->query($query_ref)->sort({created_t => 1})->fields($fields_ref);
-$cursor->immortal(1);
+# JSONL
+my $filename = 'historical_events.jsonl';
+open(my $file, '>:encoding(UTF-8)', $filename) or die "Could not open file '$filename' $!";
 
 my $total = 0;
 
-while (my $product_ref = $cursor->next and $total < 1) {
-    $total++;
+sub process_file {
+	my ($path) = @_;
+	$total++;
 
-    my $product_id = $product_ref->{code};
-    my $path = product_path_from_id($product_id);
-    if ($total % 1 == 0) {
-        print STDERR "$total / $products_count processed\n\n";
-    }
+	if ($total % 100 == 0) {
+		print STDERR "$total processed\n";
+	}
 
-    my $product = retrieve_product($product_id);
-    my $changes = retrieve("$BASE_DIRS{PRODUCTS}/$path/changes.sto");
+	my $product = retrieve($path);
+	my $changes = retrieve($path->parent . "/changes.sto");
 
-    say Dumper $changes;
-    # print Dumper $fst_rev;
-    
-    # JSONL
-    foreach my $change (@{$changes}) {
-        print encode_json({
-            ts => $change->{t},
-            barcode => $product_id,
-            userid => $change->{userid},
-            comment => $change->{comment},
-            flavor => $options{product_type},
+	# JSONL
+	my $rev = 0;    # some $change don't have a 'rev'
+	foreach my $change (@{$changes}) {
 
-        }) . "\n";
-    }
+		$rev++;
+
+		my $action = 'modification';
+		if ($rev eq 1) {
+			$action = 'creation';
+		}
+		elsif ( $rev eq $product->{rev}
+			and exists $product->{deleted}
+			and $product->{deleted} eq 'on')
+		{
+			$action = 'removal';
+		}
+
+		print $file encode_json(
+			{
+				ts => $change->{t},
+				barcode => $product->{code},
+				userid => $change->{userid},
+				comment => $change->{comment},
+				flavor => $options{product_type},
+				action => $action,
+			}
+		) . "\n";
+	}
 }
+
+# because getting products from mongodb won't give 'deleted' ones
+path($BASE_DIRS{PRODUCTS})->visit(
+	sub {
+		my ($path, $state) = @_;
+		if ($path->is_file && $path->basename eq 'product.sto') {
+			process_file($path);
+		}
+	},
+	{recurse => 1}
+);
+
+close $file;
