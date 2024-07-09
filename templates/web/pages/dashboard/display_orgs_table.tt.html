@@ -6,6 +6,7 @@
 
     <label for="valid_org">[% lang("verified_status") %]:</label>
     <select id="valid_org" name="valid_org">
+        <option value="" [% IF !valid_org %]selected[% END %]>-- Select status --</option>
         <option value="unreviewed" [% IF valid_org == 'unreviewed' %]selected[% END %]>Unreviewed</option>
         <option value="accepted" [% IF valid_org == 'accepted' %]selected[% END %]>Accepted</option>
         <option value="rejected" [% IF valid_org == 'rejected' %]selected[% END %]>Rejected</option>
