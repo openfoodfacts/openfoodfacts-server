@@ -1501,12 +1501,20 @@ sub store_product ($user_id, $product_ref, $comment) {
 
 	$log->debug("store_product - done", {code => $code, product_id => $product_id}) if $log->is_debug();
 
-	my $update_type = $product_ref->{deleted} ? "deleted" : "updated";
+	my $action = "updated";
+
+	if ($product_ref->{deleted}) {
+		$action = "deleted";
+	}
+	elsif ($rev == 1) {
+		$action = defined $product_ref->{owner} ? "imported" : "created";
+	}
+
 	# Publish information about update on Redis stream
-	push_to_redis_stream($user_id, $product_ref, $update_type, $comment, $diffs);
+	push_to_redis_stream($user_id, $product_ref, $action, $comment, $diffs);
 
 	# Notify Robotoff
-	send_notification_for_product_change($user_id, $product_ref, $update_type, $comment, $diffs);
+	send_notification_for_product_change($user_id, $product_ref, $action, $comment, $diffs);
 
 	return 1;
 }
