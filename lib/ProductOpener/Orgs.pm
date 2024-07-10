@@ -175,28 +175,30 @@ sub store_org ($org_ref) {
 
 		# We switched to validated, update CRM
 		my $main_contact_user = $org_ref->{main_contact};
-		my $user_ref = retrieve_user($main_contact_user);
 
 		eval {
-			my $contact_id = find_or_create_contact($user_ref);
-			defined $contact_id or die "Failed to get contact";
-			$user_ref->{crm_user_id} = $contact_id;
-			store_user($user_ref);
+			my $partner_id;
+			if (defined $main_contact_user) {
+				my $user_ref = retrieve_user($main_contact_user);
+				$partner_id = find_or_create_contact($user_ref);
+				defined $partner_id or die "Failed to get contact";
+				$user_ref->{crm_user_id} = $partner_id;
+				store_user($user_ref);
+			}
 
-			my $company_id = find_or_create_company($org_ref, $contact_id);
+			my $company_id = find_or_create_company($org_ref, $partner_id);
 			defined $company_id or die "Failed to get company";
 
-			defined add_contact_to_company($contact_id, $company_id) or die "Failed to add contact to company";
+			if (defined $partner_id) {
+				defined add_contact_to_company($partner_id, $company_id) or die "Failed to add contact to company";
+			}
 
-			# admin validates the org, used to link the right salesperson
+			# The off admin who validates the org is the salesperson in crm
 			my $my_admin = retrieve_user($User_id);
 			$log->debug("store_org", {myuser => $my_admin}) if $log->is_debug();
 
-			my $opportunity_id = create_onboarding_opportunity(
-				"$org_ref->{name} - new",
-				$company_id, $user_ref->{crm_user_id},
-				$my_admin->{email}
-			);
+			my $opportunity_id
+				= create_onboarding_opportunity("$org_ref->{name} - new", $company_id, $partner_id, $my_admin->{email});
 			defined $opportunity_id or die "Failed to create opportunity";
 
 			$org_ref->{crm_org_id} = $company_id;
@@ -273,7 +275,7 @@ sub create_org ($creator, $org_id_or_name) {
 		protect_data => "on",
 		admins => {},
 		members => {},
-		main_contact => $creator,
+		main_contact => undef,
 	};
 
 	store_org($org_ref);
@@ -406,6 +408,13 @@ sub add_user_to_org ($org_id_or_ref, $user_id, $groups_ref) {
 	foreach my $group (@{$groups_ref}) {
 		(defined $org_ref->{$group}) or $org_ref->{$group} = {};
 		$org_ref->{$group}{$user_id} = 1;
+
+		# the first admin is main contact
+		if ($group eq "admins"
+			and (not exists $org_ref->{main_contact} or $org_ref->{main_contact} eq ''))
+		{
+			$org_ref->{main_contact} = $user_id;
+		}
 	}
 
 	# sync CRM
