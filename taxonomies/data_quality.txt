@@ -939,6 +939,59 @@ description:it:Questo prodotto ha un'etichetta vegetariana ma contiene ingredien
 description:nl:Dit product heeft een vegetarisch label maar bevat niet-vegetarische ingrediënten.
 description:pt:Este produto tem um rótulo vegetariano, mas contém ingredientes não vegetarianos.
 
+# mutually exclusive labels
+# labels appear in alphabetical order
+<en:Data quality errors
+en:mutually exclusive labels contains-alcohol and labels no-alcohol
+description:en:These two labels cannot both appear on the same product.
+
+<en:Data quality errors
+en:mutually exclusive labels contains-gluten and labels no-gluten
+description:en:These two labels cannot both appear on the same product.
+
+<en:Data quality errors
+en:mutually exclusive labels contains-gmos and labels no-gmos
+description:en:These two labels cannot both appear on the same product.
+
+<en:Data quality errors
+en:mutually exclusive labels contains-lactose and labels no-lactose
+description:en:These two labels cannot both appear on the same product.
+
+<en:Data quality errors
+en:mutually exclusive labels contains-palm-oil and labels no-palm-oil
+description:en:These two labels cannot both appear on the same product.
+
+<en:Data quality errors
+en:mutually exclusive labels contains-soy and labels no-soy
+description:en:These two labels cannot both appear on the same product.
+
+<en:Data quality errors
+en:mutually exclusive labels fair-trade and labels non-fair-trade
+description:en:These two labels cannot both appear on the same product.
+
+<en:Data quality errors
+en:mutually exclusive labels filtered and labels unfiltered
+description:en:These two labels cannot both appear on the same product.
+
+<en:Data quality errors
+en:mutually exclusive labels no-additives and labels with-additives
+description:en:These two labels cannot both appear on the same product.
+
+<en:Data quality errors
+en:mutually exclusive labels non-organic and labels organic
+description:en:These two labels cannot both appear on the same product.
+
+<en:Data quality errors
+en:mutually exclusive labels non-vegan and labels vegan
+description:en:These two labels cannot both appear on the same product.
+
+<en:Data quality errors
+en:mutually exclusive labels non-vegetarian and labels vegetarian
+description:en:These two labels cannot both appear on the same product.
+
+<en:Data quality errors
+en:mutually exclusive labels pasteurized and labels unpasteurized
+description:en:These two labels cannot both appear on the same product.
 
 ### Categories
 
@@ -1006,13 +1059,63 @@ description:en:Quantity of fruit for Sea-buckthorn jellies should be above 25 pe
 en:specific ingredient fruit quantity is below the minimum value of 38 for category chestnut spreads
 description:en:Quantity of fruit for chestnut purée should be above 38 per 100g in EU. See: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32001L0113
 
+# mutually exclusive categories
+# categories appear in alphabetical order
+<en:Data quality errors
+en:mutually exclusive categories alcoholic beverages and categories non-alcoholic beverages
+description:en:These two categories cannot both appear on the same product.
 
+<en:Data quality errors
+en:mutually exclusive categories beverages and beverages preparations and categories meals
+description:en:These two categories cannot both appear on the same product.
 
+<en:Data quality errors
+en:mutually exclusive categories dairies and categories dairy substitutes
+description:en:These two categories cannot both appear on the same product.
 
+<en:Data quality errors
+en:mutually exclusive categories fruits and categories vegetables
+description:en:These two categories cannot both appear on the same product.
 
+<en:Data quality errors
+en:mutually exclusive categories ground peppers and categories peppercorns
+description:en:These two categories cannot both appear on the same product.
 
+<en:Data quality errors
+en:mutually exclusive categories hard cheeses and categories soft cheeses
+description:en:These two categories cannot both appear on the same product.
 
+<en:Data quality errors
+en:mutually exclusive categories long grain rices and categories medium grain rices
+description:en:These two categories cannot both appear on the same product.
 
+<en:Data quality errors
+en:mutually exclusive categories long grain rices and categories short grain rices
+description:en:These two categories cannot both appear on the same product.
+
+<en:Data quality errors
+en:mutually exclusive categories meat and categories meat analogues
+description:en:These two categories cannot both appear on the same product.
+
+<en:Data quality errors
+en:mutually exclusive categories medium grain rices and categories short grain rices 
+description:en:These two categories cannot both appear on the same product.
+
+<en:Data quality errors
+en:mutually exclusive categories pasteurised products and categories unpasteurised products
+description:en:These two categories cannot both appear on the same product.
+
+<en:Data quality errors
+en:mutually exclusive categories salty snacks and categories sweet snacks
+description:en:These two categories cannot both appear on the same product.
+
+<en:Data quality errors
+en:mutually exclusive categories semi-skimmed-milks and categories whole milks
+description:en:These two categories cannot both appear on the same product.
+
+<en:Data quality errors
+en:mutually exclusive categories skimmed milks and categories whole milks
+description:en:These two categories cannot both appear on the same product.
 
 
 ## --------------- Then data quality warnings
@@ -3605,58 +3708,4 @@ description:en:In EU, a claim that a food is high in polyunsaturated fat may onl
 <en:Data quality warnings
 en:rich in unsaturated fatty acids label claim but unsaturated fat under limitation
 description:en:In EU, a claim that a food is high in unsaturated fat may only be made where at least 70 % of the fatty acids present in the product derive from unsaturated fat under the condition that unsaturated fat provides more than 20 % of energy of the product. See: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
-
-# opposites labels
-# labels appear in alphabetical order
-<en:Data quality warnings
-en:mutually exclusive labels contains-alcohol and no-alcohol
-description:en:These two labels cannot appear on the same product because they are opposite from each other.
-
-<en:Data quality warnings
-en:mutually exclusive labels contains-gluten and no-gluten
-description:en:These two labels cannot appear on the same product because they are opposite from each other.
-
-<en:Data quality warnings
-en:mutually exclusive labels contains-gmos and no-gmos
-description:en:These two labels cannot appear on the same product because they are opposite from each other.
-
-<en:Data quality warnings
-en:mutually exclusive labels contains-lactose and no-lactose
-description:en:These two labels cannot appear on the same product because they are opposite from each other.
-
-<en:Data quality warnings
-en:mutually exclusive labels contains-palm-oil and no-palm-oil
-description:en:These two labels cannot appear on the same product because they are opposite from each other.
-
-<en:Data quality warnings
-en:mutually exclusive labels contains-soy and no-soy
-description:en:These two labels cannot appear on the same product because they are opposite from each other.
-
-<en:Data quality warnings
-en:mutually exclusive labels fair-trade and non-fair-trade
-description:en:These two labels cannot appear on the same product because they are opposite from each other.
-
-<en:Data quality warnings
-en:mutually exclusive labels filtered and unfiltered
-description:en:These two labels cannot appear on the same product because they are opposite from each other.
-
-<en:Data quality warnings
-en:mutually exclusive labels no-additives and with-additives
-description:en:These two labels cannot appear on the same product because they are opposite from each other.
-
-<en:Data quality warnings
-en:mutually exclusive labels non-organic and organic
-description:en:These two labels cannot appear on the same product because they are opposite from each other.
-
-<en:Data quality warnings
-en:mutually exclusive labels non-vegan and vegan
-description:en:These two labels cannot appear on the same product because they are opposite from each other.
-
-<en:Data quality warnings
-en:mutually exclusive labels non-vegetarian and vegetarian
-description:en:These two labels cannot appear on the same product because they are opposite from each other.
-
-<en:Data quality warnings
-en:mutually exclusive labels pasteurized and unpasteurized
-description:en:These two labels cannot appear on the same product because they are opposite from each other.
 

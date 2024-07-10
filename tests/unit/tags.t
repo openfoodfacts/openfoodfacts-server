@@ -862,10 +862,10 @@ $product_ref = {
 	lang => 'en',
 };
 is(
-	get_all_tags_having_property($product_ref, "labels", "opposite:en"),
+	get_all_tags_having_property($product_ref, "labels", "incompatible_with:en"),
 	{
-		'en:fair-trade' => 'en:non-fair-trade',
-		'en:non-fair-trade' => 'en:fair-trade',
+		'en:fair-trade' => 'labels:en:non-fair-trade',
+		'en:non-fair-trade' => 'labels:en:fair-trade',
 	}
 );
 

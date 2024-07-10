@@ -2728,16 +2728,27 @@ sub check_incompatible_tags ($product_ref) {
 
 			$log->debug("check_incompatible_tags: key: " . $key . ", value: " . $value) if $log->debug();
 
-			# split by ":" and produce 2 element list
-			# for example, labels:en:contains-gluten -> (labels, en:contains-gluten)
-			my ($tagtype, $tagid) = split(/:/, $value, 2);
+			# there can be more than a single value (comma (followed or not-followed by space (space is converted as hyphen) ) separated):
+			#   categories:en:short-grain-rices, categories:en:medium-grain-rices
+			my @all_incompatible_tags = split(/,-*/, $value);
 
-			if (has_tag($product_ref, $tagtype, $tagid)) {
-				# sort in alphabetical order to avoid facet a-b and facet b-a
-				my @opposite_tags = sort ($tag_to_check . ":" . $key, $value);
+			foreach my $incompatible_tag (@all_incompatible_tags) {
+				$log->debug("check_incompatible_tags: incompatible_tag: " . $incompatible_tag) if $log->debug();
 
-				add_tag($product_ref, "data_quality_errors",
-					"en:mutually-exclusive-$opposite_tags[0]-and-$opposite_tags[1]");
+				# split by ":" and produce 2 element list
+				#   for example, labels:en:contains-gluten -> (labels, en:contains-gluten)
+				my ($tagtype, $tagid) = split(/:/, $incompatible_tag, 2);
+
+				if (has_tag($product_ref, $tagtype, $tagid)) {
+					# column (:) prevents formating of the data quality facet on the website
+					$key =~ s/en://g;
+					$incompatible_tag =~ s/:en:/-/g;
+
+					# sort in alphabetical order to avoid facet a-b and facet b-a
+					my @incompatible_tags = sort ($tag_to_check . "-" . $key, $incompatible_tag);
+
+					add_tag($product_ref, "data_quality_errors", "en:mutually-exclusive-$incompatible_tags[0]-and-$incompatible_tags[1]");
+				}
 			}
 		}
 	}

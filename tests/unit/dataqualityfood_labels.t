@@ -814,12 +814,12 @@ check_quality_and_test_product_has_quality_tag(
 $product_ref = {labels_tags => ["en:pasteurized", "en:unpasteurized", "en:vegetarian"],};
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:mutually-exclusive-labels-non-vegetarian-and-vegetarian',
+	'en:mutually-exclusive-labels-non-vegetarian-and-labels-vegetarian',
 	'having these labels should NOT trigger facet', 0
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:mutually-exclusive-labels-pasteurized-and-unpasteurized',
+	'en:mutually-exclusive-labels-pasteurized-and-labels-unpasteurized',
 	'having these two labels should trigger facet', 1
 );
 
