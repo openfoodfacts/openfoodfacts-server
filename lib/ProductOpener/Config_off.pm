@@ -195,7 +195,7 @@ $flavor = 'off';
 	product_type => "food",
 	og_image_url => "https://static.openfoodfacts.org/images/logos/off-logo-vertical-white-social-media-preview.png",
 	android_apk_app_link => "https://world.openfoodfacts.org/files/off.apk",
-	android_app_link => "https://world.openfoodfacts.org/files/off.apk",
+	android_app_link => "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
 	ios_app_link => "https://apps.apple.com/app/open-food-facts/id588797948",
 	facebook_page_url => "https://www.facebook.com/OpenFoodFacts",
 	facebook_page_url_fr => "https://www.facebook.com/OpenFoodFacts.fr",
@@ -213,6 +213,7 @@ $options{max_recent_changes_page_size} = 1000;
 $options{default_api_products_page_size} = 20;
 $options{default_web_products_page_size} = 50;
 $options{max_products_page_size} = 100;
+$options{max_products_page_size_for_logged_in_users} = 1000;
 
 # List of tags limits
 $options{default_tags_page_size} = 100;
