@@ -1503,11 +1503,16 @@ sub store_product ($user_id, $product_ref, $comment) {
 
 	my $action = "updated";
 
-	if ($product_ref->{deleted}) {
-		$action = "deleted";
+	if (exists $product_ref->{obsolete}
+		and $product_ref->{obsolete} eq "on")
+	{
+		$action = "archived";
 	}
-	elsif ($rev == 1) {
+	if ($rev == 1) {
 		$action = defined $product_ref->{owner} ? "imported" : "created";
+	}
+	elsif ($product_ref->{deleted}) {
+		$action = "deleted";
 	}
 
 	# Publish information about update on Redis stream
