@@ -47,16 +47,34 @@ sub update_org_data {
         { '$group' => {
             '_id' => '$owner',
             'number_of_products' => { '$sum' => 1 },
-            'number_of_products_with_errors' => { 
-                '$sum' => { '$cond' => [{ '$gt' => ['$errors', 0] }, 1, 0] }
+            'number_of_data_quality_errors' => {
+                '$sum' => { '$size' => '$data_quality_errors_tags' }
             },
+            'number_of_data_quality_warnings' => {
+                '$sum' => { '$size' => '$data_quality_warnings_tags' }
+            },
+            'number_of_products_without_nutriscore' => { 
+                '$sum' => { 
+                    '$cond' => [
+                        { '$in' => ['en:nutriscore-not-computed', '$misc_tags'] }, 
+                        1, 
+                        0 
+                    ] 
+                }
+            }
         }}
     ])->next;
+
+    my $number_of_products_with_nutriscore = $org_data->{number_of_products} - ($org_data->{number_of_products_without_nutriscore} // 0);
+    my $percentage_of_products_with_nutriscore = $org_data->{number_of_products} > 0 ? ($number_of_products_with_nutriscore / $org_data->{number_of_products}) * 100 : 0;
 
     my $data = {
         'products' => {
             'number_of_products' => $org_data->{number_of_products} // 0,
-            'number_of_products_with_errors' => $org_data->{number_of_products_with_errors} // 0,
+            'number_of_data_quality_errors' => $org_data->{number_of_data_quality_errors} // 0,
+            'number_of_data_quality_warnings' => $org_data->{number_of_data_quality_warnings} // 0,
+            'number_of_products_without_nutriscore' => $org_data->{number_of_products_without_nutriscore} // 0,
+            'percentage_of_products_with_nutriscore' => $percentage_of_products_with_nutriscore
         },
     };
 
