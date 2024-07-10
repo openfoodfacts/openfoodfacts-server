@@ -31,7 +31,7 @@ use ProductOpener::Store qw/store/;
 use ProductOpener::Orgs qw/list_org_ids retrieve_org/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 
-my $not_users = qw(agena3000 equadis codeonline bayard database-usda countrybot);
+my @not_users = qw(agena3000 equadis codeonline bayard database-usda countrybot);
 
 foreach my $org_id (list_org_ids()) {
 	my $org_ref = retrieve_org($org_id);
