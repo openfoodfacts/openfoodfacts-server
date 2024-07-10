@@ -103,7 +103,7 @@ a hashref of the differences between the previous and new revision of the produc
 
 =cut
 
-sub push_to_redis_stream ($user_id, $product_ref, $action, $comment, $diffs, $timestamp) {
+sub push_to_redis_stream ($user_id, $product_ref, $action, $comment, $diffs, $timestamp = time()) {
 
 	if (!$redis_url) {
 		# No Redis URL provided, we can't push to Redis
@@ -131,7 +131,7 @@ sub push_to_redis_stream ($user_id, $product_ref, $action, $comment, $diffs, $ti
 				# We let Redis generate the id
 				'*',
 				# fields
-				'ts', $timestamp // time(),
+				'ts', $timestamp,
 				'code', Encode::encode_utf8($product_ref->{code}),
 				'flavor', Encode::encode_utf8($options{current_server}),
 				'user_id', Encode::encode_utf8($user_id), 'action', Encode::encode_utf8($action),
