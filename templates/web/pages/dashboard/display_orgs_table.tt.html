@@ -28,6 +28,11 @@
             <th>[% lang("last_login") %]</th>
             <th>[% lang("last_import") %]</th>
             <th>[% lang("data_sources_p") %]</th>
+            <th>[% lang("number_of_products") %]</th>
+            <th>[% lang("data_quality_errors_p") %]</th>
+            <th>[% lang("data_quality_warnings_p") %]</th>
+            <th>[% lang("number_of_products_without_nutriscore") %]</th>
+            <th>[% lang("percent_of_products_with_nutriscore") %]</th>
         </tr>
     </thead>
     <tbody>
@@ -55,6 +60,11 @@
                 [% END %]
             </td>
             <td>[% org.last_import_type %]</td>
+            <td>[% org.data.products.number_of_products %]</td>
+            <td>[% org.data.products.number_of_data_quality_errors %]</td>
+            <td>[% org.data.products.number_of_data_quality_warnings %]</td>
+            <td>[% org.data.products.number_of_products_without_nutriscore %]</td>
+            <td>[% org.data.products.percentage_of_products_with_nutriscore %]</td>
         </tr>
         [% SET count = count + 1 %]
         [% END %]
