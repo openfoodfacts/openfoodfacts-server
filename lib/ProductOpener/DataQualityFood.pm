@@ -2747,7 +2747,8 @@ sub check_incompatible_tags ($product_ref) {
 					# sort in alphabetical order to avoid facet a-b and facet b-a
 					my @incompatible_tags = sort ($tag_to_check . "-" . $key, $incompatible_tag);
 
-					add_tag($product_ref, "data_quality_errors", "en:mutually-exclusive-$incompatible_tags[0]-and-$incompatible_tags[1]");
+					add_tag($product_ref, "data_quality_errors",
+						"en:mutually-exclusive-$incompatible_tags[0]-and-$incompatible_tags[1]");
 				}
 			}
 		}
