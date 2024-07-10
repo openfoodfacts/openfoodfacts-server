@@ -439,7 +439,7 @@ sub add_contact_to_company($contact_id, $company_id) {
 	return $result;
 }
 
-=head2 create_onboarding_opportunity ($name, $company_id, $contact_id)
+=head2 create_onboarding_opportunity ($name, $company_id, $partner_id, salesperson_email = undef)
 
 create an opportunity attached to a 
 
@@ -454,9 +454,9 @@ The name of the opportunity
 The id of the partner to attach the opportunity to.
 It can be a contact or a company
 
-=head4 $salesperson_id
+=head4 $salesperson_email
 
-The id of the salesperson to assign the opportunity to
+The email of the salesperson to attach to the opportunity
 
 =head3 Return values
 
@@ -464,10 +464,10 @@ the id of the created opportunity
 
 =cut
 
-sub create_onboarding_opportunity ($name, $company_id, $contact_id, $salesperson_email = undef) {
+sub create_onboarding_opportunity ($name, $company_id, $partner_id, $salesperson_email = undef) {
 
 	my $query_params
-		= {name => $name, partner_id => $contact_id, tag_ids => [[$commands{link}, $crm_data->{tag}{onboarding}]]};
+		= {name => $name, partner_id => $partner_id, tag_ids => [[$commands{link}, $crm_data->{tag}{onboarding}]]};
 	if (defined $salesperson_email) {
 		my $user = (grep {$_->{email} eq $salesperson_email} @{$crm_data->{users}})[0];
 		if (defined $user) {

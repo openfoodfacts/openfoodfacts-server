@@ -31,20 +31,22 @@ use ProductOpener::Store qw/store/;
 use ProductOpener::Orgs qw/list_org_ids retrieve_org/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 
-
 my $not_users = qw(agena3000 equadis codeonline bayard database-usda countrybot);
 
 foreach my $org_id (list_org_ids()) {
 	my $org_ref = retrieve_org($org_id);
-    
-	# if main_contact is empty, blank or contains multiple blank or invisble characters or is equal to one of the bad contacts, set it to empty
-    if (not defined $org_ref->{main_contact}          # undefined
-        or $org_ref->{main_contact} =~ /^\s*$/        # empty or only whitespace
-        or $org_ref->{main_contact} =~ /[\p{Z}\p{C}]/ # contains unicode whitespace or control characters
-        or grep { $org_ref->{main_contact} eq $_ } @not_users) {
 
-        $org_ref->{main_contact} = undef;
-    }
+	# if main_contact is empty, blank or contains multiple blank or invisble characters or is equal to one of the bad contacts, set it to empty
+	if (
+		not defined $org_ref->{main_contact}    # undefined
+		or $org_ref->{main_contact} =~ /^\s*$/    # empty or only whitespace
+		or $org_ref->{main_contact} =~ /[\p{Z}\p{C}]/    # contains unicode whitespace or control characters
+		or grep {$org_ref->{main_contact} eq $_} @not_users
+		)
+	{
+
+		$org_ref->{main_contact} = undef;
+	}
 
 	# not using store_org to avoid triggering the odoo sync
 	store("$BASE_DIRS{ORGS}/" . $org_ref->{org_id} . ".sto", $org_ref);
