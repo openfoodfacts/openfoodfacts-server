@@ -189,8 +189,7 @@ foreach my $orgid (list_org_ids()) {
 	my $crm_opportunity_id = $org_ref->{crm_opportunity_id};
 	if (defined $crm_opportunity_id) {
 		if (exists $opportunities{$crm_opportunity_id}) {
-			$opportunity_url = $ENV{ODOO_CRM_URL}
-				. "/web#id=$crm_opportunity_id&cids=1&menu_id=133&action=191&model=crm.lead&view_type=form";
+			$opportunity_url = get_opportunity_url($crm_opportunity_id);
 		}
 		else {
 			push @warnings, 'opportunity id set but not found in CRM';
