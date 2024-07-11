@@ -180,7 +180,7 @@ sub store_org ($org_ref) {
 			my $partner_id;
 			if (defined $main_contact_user) {
 				my $user_ref = retrieve_user($main_contact_user);
-				$partner_id = find_or_create_contact($user_ref);
+				$partner_id = $user_ref->{crm_user_id} // find_or_create_contact($user_ref);
 				defined $partner_id or die "Failed to get contact";
 				$user_ref->{crm_user_id} = $partner_id;
 				store_user($user_ref);
