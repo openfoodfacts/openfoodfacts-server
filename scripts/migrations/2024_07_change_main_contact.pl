@@ -26,29 +26,58 @@ use utf8;
 # This file is used
 # to change the main_contact field of orgs that are not users
 # to an undef value
+# or to the first admin of the org if it exists
 
 use ProductOpener::Store qw/store/;
 use ProductOpener::Orgs qw/list_org_ids retrieve_org/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
+use ProductOpener::Config qw/%admins/;
+use Encode;
 
-my @not_users = qw(agena3000 equadis codeonline bayard database-usda countrybot);
+binmode(STDOUT, ":encoding(UTF-8)");
+binmode(STDERR, ":encoding(UTF-8)");
+
+my @not_users = qw(agena3000 equadis codeonline bayard database-usda countrybot );
+push @not_users, keys %admins;
 
 foreach my $org_id (list_org_ids()) {
+
+	$org_id = decode utf8 => $org_id;    # because of wide characters in org_id like greek letters
 	my $org_ref = retrieve_org($org_id);
 
-	# if main_contact is empty, blank or contains multiple blank or invisble characters or is equal to one of the bad contacts, set it to empty
 	if (
-		not defined $org_ref->{main_contact}    # undefined
-		or $org_ref->{main_contact} =~ /^\s*$/    # empty or only whitespace
-		or $org_ref->{main_contact} =~ /[\p{Z}\p{C}]/    # contains unicode whitespace or control characters
-		or grep {$org_ref->{main_contact} eq $_} @not_users
+		(defined $org_ref->{main_contact})
+		and (
+			($org_ref->{main_contact} =~ /^\s*$/)    # empty or only whitespace
+			or ($org_ref->{main_contact} =~ /[\p{Z}\p{C}]/)    # contains unicode whitespace or control characters
+			or (grep {$org_ref->{main_contact} eq $_} @not_users)
+		)    # shouldn't be a main contact
 		)
 	{
 
 		$org_ref->{main_contact} = undef;
+
+		# take the first admin as main contact if available
+		if (defined $org_ref->{admins} and @{$org_ref->{admins}}) {
+			# find the first admin that is not in the list of users that are not users
+			# and set it as main contact
+
+			my $admin = undef;
+			foreach my $admin_id (@{$org_ref->{admins}}) {
+				if (not grep {$admin_id eq $_} @not_users) {
+					$admin = $admin_id;
+					last;
+				}
+			}
+
+			print "main_contact of $org_id set to $org_ref->{main_contact}\n";
+		}
+		else {
+			print "main_contact of $org_id set to undef\n";
+		}
 	}
 
 	# not using store_org to avoid triggering the odoo sync
-	store("$BASE_DIRS{ORGS}/" . $org_ref->{org_id} . ".sto", $org_ref);
+	store("$BASE_DIRS{ORGS}/" . $org_id . ".sto", $org_ref);
 }
 
