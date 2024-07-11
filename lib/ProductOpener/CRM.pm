@@ -71,6 +71,7 @@ BEGIN {
 		&update_contact_last_login
 		&get_company_url
 		&get_contact_url
+		&get_opportunity_url
 		&make_odoo_request
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -695,6 +696,14 @@ sub get_contact_url($user_ref) {
 	if ($ProductOpener::Config2::crm_url and defined $user_ref->{crm_user_id}) {
 		return $ProductOpener::Config2::crm_url
 			. "/web#id=$user_ref->{crm_user_id}&menu_id=111&action=139&model=res.partner&view_type=form";
+	}
+	return;
+}
+
+sub get_opportunity_url($opportunity_id) {
+	if ($ProductOpener::Config2::crm_url and defined $opportunity_id) {
+		return $ProductOpener::Config2::crm_url
+			. "/web#id=$opportunity_id&cids=1&menu_id=133&action=191&model=crm.lead&view_type=form";
 	}
 	return;
 }
