@@ -11586,7 +11586,6 @@ or an empty string if not on the producers platform.
 =cut
 
 sub get_owner_pretty_path () {
-	$log->
 	return ($server_options{producers_platform} and defined $Owner_id) ? "/org/$Owner_id" : "";
 }
 
