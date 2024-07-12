@@ -1226,10 +1226,14 @@ $font-green: #008c8c;
     padding: 1rem;
   }
   &__close {
-    position: absolute;
-    top: .3rem;
-    right: .3rem;
-    cursor: pointer;
+    button {
+      position: absolute;
+      top: .3rem;
+      right: .3rem;
+      cursor: pointer;
+      background-color: transparent;
+      color: inherit;
+    }
   }
   &__hand {
     position: absolute;
@@ -1889,3 +1893,14 @@ a.panel_title {
   visibility: visible;
 }
 
+div.open-in-crm {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+
+  & > input {
+    width:auto; 
+    flex-grow: 1;
+    margin: 0 1em 0 0;
+  }
+}

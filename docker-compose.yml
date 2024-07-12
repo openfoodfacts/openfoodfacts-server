@@ -27,8 +27,14 @@ x-backend-conf: &backend-conf
     - GEOLITE2_PATH
     - LOG_LEVEL_ROOT
     - LOG_LEVEL_MONGODB
+    - LOG_LEVEL_RATE_LIMITER
     - INFLUXDB_HOST
     - BUILD_CACHE_REPO
+    - RATE_LIMITER_BLOCKING_ENABLED
+    - ODOO_CRM_URL
+    - ODOO_CRM_DB
+    - ODOO_CRM_USER
+    - ODOO_CRM_PASSWORD
   depends_on:
     - memcached
   volumes:
@@ -84,11 +90,6 @@ services:
       - POSTGRES_DB=minion
     volumes:
       - pgdata:/var/lib/postgresql/data
-  redis:
-    image: redis:7.2-alpine
-    command: redis-server --save 60 1 --loglevel warning
-    volumes:
-      - redisdata:/data
   backend: *backend-conf
   minion:
     <<: *backend-conf
@@ -153,4 +154,3 @@ volumes:
   # build_cache does not needs not be external, for wiping it will avoid keeping too much cached data
   build_cache:
   other_servers:
-  redisdata:

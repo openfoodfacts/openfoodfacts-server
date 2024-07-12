@@ -4,21 +4,20 @@ Helping your users get the Eco-Score for any product
 - That will then be processed by Open Food Facts to get the computed result you want to show them.
 - You can implement the complete flow so that they get immediately the result with some effort on their side.
 - That will ensure user satisfaction
-    
-Helping your users get the Eco-Score for any product - Tutorial stored on Google Docs
+- Please refer to the [product addition tutorial](https://openfoodfacts.github.io/openfoodfacts-server/reference/api-tutorials/adding-missing-products/) for the technical way to do the required operations (such as category input), and to the high level workflow below for all the cases you have to handle.
 
 ## Table of contents
 
-Getting your app ready for the Eco-Score
-Implementing the basic display of the score
-Displaying the Eco-Score outside France
-Ensuring a good user experience (even with data gaps)
-Adding disclaimers when we can't display the Eco-Score
-Adding disclaimers when the Eco-Score is computed with a data gap + Asking the users to photograph and/or complete missing information
-Adding value by explaining
-Product Attributes
-Additional ways to get ready
-Onboarding producers you know
+* Getting your app ready for the Eco-Score
+* Implementing the basic display of the score
+* Displaying the Eco-Score outside France
+* Ensuring a good user experience (even with data gaps)
+* Adding disclaimers when we can't display the Eco-Score
+* Adding disclaimers when the Eco-Score is computed with a data gap + Asking the users to photograph and/or complete missing information
+* Adding value by explaining
+* Product Attributes
+* Additional ways to get ready
+* Onboarding producers you know
 
 ### Implementing the basic display of the score
 
@@ -43,7 +42,7 @@ Onboarding producers you know
 
 #### Using the Attributes API
 
-The new Flutter app and the classic Android app (Android) use this one, which is less work but also less flexible (will display other data as well).
+The Open Food Facts official app use this one, which is less work but also less flexible (will display other data as well).
 
 
 ### Displaying the Eco-Score outside France
@@ -63,7 +62,7 @@ _We can compute the Eco-Score for most of the database, but we’re missing some
 * Adding disclaimers when we can’t display the Eco-Score
     * **<span style="text-decoration:underline;">Add a message if we have a category but no Eco-Score</span>**
         * _if “en:categories-completed” _in states_tags_ **<span style="text-decoration:underline;">AND</span>** ecoscore_grade=Null_
-            * We could not compute an Eco-Score for this product. It might be that the category is not specific enough or that we don't have supporting data for this category. If you believe this is an error, you can email [contact@thenameofyourapp.org](mailto:contact@thenameofyourapp.org)
+            * We could not compute an Eco-Score for this product. It might be that the category is not specific enough or that we don't have supporting data for this category. If you believe this is an error, you can email [contact@example.com](mailto:contact@example.com)
             * You can get states with [https://world.openfoodfacts.org/api/v0/product/3414280980209.json?fields=ecoscore_grade,states_tags ](https://world.openfoodfacts.org/api/v0/product/3414280980209.json?fields=ecoscore_grade,states_tags)
     * **<span style="text-decoration:underline;">Help the user add the category if it is missing</span>**
         * You can use our Robotoff API to get your users to validate a prediction
@@ -106,4 +105,4 @@ _We can compute the Eco-Score for most of the database, but we’re missing some
 ### Additional ways to get ready
 
 * Onboarding producers you know
-* You can ask any producer you know to get in touch with us at [producers@openfoodfacts.org](mailto:producers@openfoodfacts.org) so that their products are Eco-Score ready in terms of data (we have easy ways to import their data using the Producer Platform: [http://world.pro.openfoodfacts.org/](http://world.pro.openfoodfacts.org/) )
+* You can ask any producer you know to get in touch with us at [producers@openfoodfacts.org](mailto:producers@openfoodfacts.org) so that their products are Eco-Score ready in terms of data (we have easy ways to import their data using the Producer Platform: [https://world.pro.openfoodfacts.org/](https://world.pro.openfoodfacts.org/) )

@@ -28,6 +28,7 @@
     [% google_analytics %]
 </head>
 <body[% bodyabout %] class="[% page_type %]_page">
+	<div class="skip"><a href="#content" tabindex="0">[% lang('skip_to_content') %]</a></div>
 
 	<div id="page">
 		<div class="upper-nav contain-to-grid"  id="upNav">
@@ -159,7 +160,7 @@
 					<ul class="title-area">
 						<li class="name">
 							<div style="position:relative;max-width:292px;">
-								<a href="/">
+								<a href="/[% IF server_options_producers_platform %]org/[% org_id %][% END %]">
 								<img id="logo" src="[% static_subdomain %]/images/logos/[% flavor %]-logo-horizontal-light.svg" alt="[% options.site_name %]" style="margin:8px;height:48px;width:auto;">
 								[% IF server_options_producers_platform %]
 								<span id="professionals" style="position:absolute;bottom:2px;right:8px;line-height:1rem;font-size:1.2rem;">professionals</span>
@@ -346,10 +347,11 @@
 						<p>[% f_lang('f_join_us_on_slack', { url => "https://slack.openfoodfacts.org" } ) %]</p>
 						<p><a href="https://forum.openfoodfacts.org/">Forum</a></p>
 						<p id="footer_social_icons">[% f_lang('f_footer_follow_us_links', { links => '
-							<a href="https://twitter.com/openfoodfacts"><img src="/images/icons/dist/twitter.svg" class="footer_social_icon" alt="Twitter"></a>
-							<a href="https://www.facebook.com/OpenFoodFacts"><img src="/images/icons/dist/facebook.svg" class="footer_social_icon" alt="Facebook"></a>
+							<a href="https://twitter.com/' _ twitter_account _ '"><img src="/images/icons/dist/twitter.svg" class="footer_social_icon" alt="Twitter"></a>
+							<a href="' _ facebook_page_url _ '"><img src="/images/icons/dist/facebook.svg" class="footer_social_icon" alt="Facebook"></a>
 							<a href="https://www.instagram.com/open.food.facts/"><img src="/images/icons/dist/instagram.svg" class="footer_social_icon" alt="Instagram"></a>
-							'})
+							'
+							})
 							%]
 						</p>
 						<p><a href="https://link.openfoodfacts.org/newsletter-[% language %]">[% lang('subscribe_to_our_newsletter') %]</a></p>
@@ -468,7 +470,7 @@
 	"url": "[% formatted_subdomain %]",
 	"logo": "[% static_subdomain %]/images/logos/[% flavor %]-logo-vertical-light.svg",
 	"name": "[% options.site_name %]",
-	"sameAs" : [  "[% edq(lang('facebook_page')) %]", "https://twitter.com/[% twitter_account %]"]
+	"sameAs" : ["[% facebook_page_url %]", "https://twitter.com/[% twitter_account %]"]
 }
 </script>
 

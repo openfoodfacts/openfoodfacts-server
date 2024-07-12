@@ -2,6 +2,11 @@
    "additives_n" : 0,
    "additives_original_tags" : [],
    "additives_tags" : [],
+   "allergens" : "",
+   "allergens_from_ingredients" : "",
+   "allergens_from_user" : "(fr) ",
+   "allergens_hierarchy" : [],
+   "allergens_tags" : [],
    "amino_acids_tags" : [],
    "categories" : "huile de colza",
    "categories_hierarchy" : [
@@ -67,6 +72,7 @@
       "en:vegetable-oil-and-fat",
       "en:rapeseed-oil"
    ],
+   "ingredients_lc" : "fr",
    "ingredients_n" : 1,
    "ingredients_n_tags" : [
       "1",
@@ -103,26 +109,55 @@
       "en:nutriscore-2021-worse-than-2023",
       "en:nutriscore-2021-c-2023-b"
    ],
+   "nova_group" : 2,
+   "nova_group_debug" : "",
+   "nova_groups" : "2",
+   "nova_groups_markers" : {
+      "2" : [
+         [
+            "categories",
+            "en:fats"
+         ]
+      ]
+   },
+   "nova_groups_tags" : [
+      "en:2-processed-culinary-ingredients"
+   ],
    "nucleotides_tags" : [],
+   "nutrient_levels" : {
+      "fat" : "high",
+      "salt" : "low",
+      "saturated-fat" : "high",
+      "sugars" : "low"
+   },
+   "nutrient_levels_tags" : [
+      "en:fat-in-high-quantity",
+      "en:saturated-fat-in-high-quantity",
+      "en:sugars-in-low-quantity",
+      "en:salt-in-low-quantity"
+   ],
    "nutriments" : {
       "energy_100g" : 3400,
-      "fat_100g" : 92,
+      "fat_100g" : "92",
       "fiber_100g" : 0,
       "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
       "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 100,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 100,
+      "nova-group" : 2,
+      "nova-group_100g" : 2,
+      "nova-group_serving" : 2,
       "nutrition-score-fr" : 5,
       "nutrition-score-fr_100g" : 5,
       "proteins_100g" : 0,
-      "salt_100g" : 0,
+      "salt_100g" : "0",
       "salt_value" : "0",
       "saturated-fat_100g" : 7.3,
       "sodium" : 0,
       "sodium_100g" : 0,
       "sodium_unit" : "g",
       "sodium_value" : 0,
-      "sugars_100g" : 0
+      "sugars_100g" : "0"
    },
    "nutriments_estimated" : {
       "alcohol_100g" : 0,
@@ -218,6 +253,9 @@
                "negative" : [
                   {
                      "id" : "energy_from_saturated_fat",
+                     "new_grade" : "b",
+                     "new_score" : 1,
+                     "new_value" : 240,
                      "points" : 2,
                      "points_max" : 10,
                      "unit" : "kJ",
@@ -363,6 +401,12 @@
       "fats",
       "known"
    ],
+   "traces" : "",
+   "traces_from_ingredients" : "",
+   "traces_from_user" : "(fr) ",
+   "traces_hierarchy" : [],
+   "traces_tags" : [],
    "unknown_ingredients_n" : 0,
+   "unknown_nutrients_tags" : [],
    "vitamins_tags" : []
 }

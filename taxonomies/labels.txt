@@ -148,6 +148,10 @@ fr:1% pour la planète
 it:1% per il pianeta
 nl:1% voor de planeet
 pt:1% para o planeta, 1 porcento para o planeta, 1 por cento para o planeta, um por cento para o planeta, um porcento para o planeta
+description:en:Commit to donating at least 1% of annual sales to environmental organizations.
+image:en:1-for-the-planet.75x90.png
+label_categories:en: en:Environnment
+web:en:https://www.onepercentfortheplanet.org/
 
 en:100% natural
 bg:100% натурално
@@ -1642,6 +1646,7 @@ description:en:In EU, a claim that a food is high in unsaturated fat may only be
 
 en:Source of proteins, source of protein
 xx:Source of proteins
+bg:Източник на белтъчини
 ca:Font de proteïna
 de:proteinquelle
 es:Fuente de proteínas
@@ -1704,6 +1709,7 @@ description:en:In EU, claim that a food is a source of vitamins and/or minerals 
 
 en:magnesium source, source of magnesium
 xx:magnesium source
+bg:Източник на магнезий
 de:magnesiumquelle
 fr:source de magnésium
 hr:izvor magnezija
@@ -1960,6 +1966,7 @@ de:Natürliche Kalziumquelle
 es:Fuente de calcio natural
 fi:Luonnollinen kalsiumin lähde
 fr:Source naturelle de calcium
+hr:Prirodni izvor kalcija
 hu:Természetes Kalciumforrás
 it:Fonte naturale di calcio
 nl:Bron van natuurlijke Calcium
@@ -2017,6 +2024,7 @@ nl:verrijkt met mineralen
 pt:Enriquecido com minerais
 
 en:Rich in iron
+bg:Богато на желязо
 es:Rico en hierro
 fi:Rautapitoinen
 fr:Riche en fer
@@ -3104,6 +3112,24 @@ fr:Fabriqué en Bulgarie
 it:Prodotto in Bulgaria
 nl:Gemaakt in Bulgarije
 country:en:Bulgaria
+label_categories:en: en:Geographic label
+
+en:Made in Romania
+bg:Произведено в Румъния
+fr:Fabriqué en Roumanie
+country:en:Romania
+label_categories:en: en:Geographic label
+
+en:Made in Serbia
+bg:Произведено в Сърбия
+fr:Fabriqué en Serbie
+country:en:Serbia
+label_categories:en: en:Geographic label
+
+en:Made in Greece
+bg:Произведено в Гърция
+fr:Fabriqué en Grèce
+country:en:Greece
 label_categories:en: en:Geographic label
 
 # Croatia
@@ -4531,6 +4557,7 @@ ca:Producte natural
 de:Naturprodukt, Natürliches Produkt
 es:Producto natural
 fr:Produit naturel
+hr:prirodan proizvod, ovo je prirodan proizvod
 pt:Produto natural
 
 <en:Natural product
@@ -22040,6 +22067,89 @@ fr:Nutriscore E
 hr:Nutriscore oznaka E
 it:Nutriscore E
 nl:Nutriscore E
+label_categories:en: en:Nutrition Grades, en:Health
+
+<en:Nutriscore
+en:Nutriscore Grade A - New calculation
+xx:Nutriscore A - New calculation
+bg:Nutriscore A - Ново изчисление
+ca:Grau A Nutriscore - Nouveau calcul
+da:Nutriscore A - Ny beregning
+de:Nutriscore Note A - Neue Berechnung
+es:Nutriscore A - Nuevo cálculo
+fi:Nutriscore-arvosana A - Uusi laskenta
+fr:Nutriscore A - Nouveau calcul
+he:דירוג A ב־Nutriscore - New calculation
+hr:Nutriscore oznaka A - Novi izračun
+it:Nutriscore A - Nuovo calcolo
+nl:Nutriscore A - Nieuwe berekening
+pt:Nutri-Score grau A - Novo cálculo
+label_categories:en: en:Nutrition Grades, en:Health
+
+<en:Nutriscore
+en:Nutriscore Grade B - New calculation
+xx:Nutriscore B - New calculation
+bg:Nutriscore B - Ново изчисление
+ca:Grau B Nutriscore - Nouveau calcul
+da:Nutriscore B - Ny beregning
+de:Nutriscore B - Neue Berechnung
+es:Nutriscore B - Nuevo cálculo
+fi:Nutriscore-arvosana B - Uusi laskenta
+fr:Nutriscore B - Nouveau calcul
+he:דירוג B ב־Nutriscore - New calculation
+hr:Nutriscore oznaka B - Novi izračun
+it:Nutriscore B - Nuovo calcolo
+nl:Nutriscore B - Nieuwe berekening
+pt:Nutri-Score grau B - Novo cálculo
+label_categories:en: en:Nutrition Grades, en:Health
+
+<en:Nutriscore
+en:Nutriscore Grade C - New calculation
+xx:Nutriscore C - New calculation
+bg:Nutriscore C - Ново изчисление
+ca:Grau C Nutriscore - Nouveau calcul
+da:Nutriscore C - Ny beregning
+de:Nutriscore C - Neue Berechnung
+es:Nutriscore C - Nuevo cálculo
+fi:Nutriscore-arvosana C - Uusi laskenta
+fr:Nutriscore C - Nouveau calcul
+he:דירוג C ב־Nutriscore - New calculation
+hr:Nutriscore oznaka C - Novi izračun
+it:Nutriscore C - Nuovo calcolo
+nl:Nutriscore C - Nieuwe berekening
+pt:Nutri-Score grau C - Novo cálculo
+label_categories:en: en:Nutrition Grades, en:Health
+
+<en:Nutriscore
+en:Nutriscore Grade D - New calculation
+xx:Nutriscore D - New calculation
+bg:Nutriscore D - Ново изчисление
+ca:Grau D NutriScore - Nouveau calcul
+da:Nutriscore D - Ny beregning
+de:Nutriscore D - Neue Berechnung
+es:Nutriscore D - Nuevo cálculo
+fi:Nutriscore-arvosana D - Uusi laskenta
+fr:Nutriscore D - Nouveau calcul
+he:דירוג D ב־Nutriscore - New calculation
+hr:Nutriscore oznaka D - Novi izračun
+it:Nutriscore D - Nuovo calcolo
+nl:Nutriscore D - Nieuwe berekening
+pt:Nutri-Score grau D - Novo cálculo
+label_categories:en: en:Nutrition Grades, en:Health
+
+<en:Nutriscore
+en:Nutriscore Grade E - New calculation
+xx:Nutriscore E - New calculation
+bg:Nutriscore E - Ново изчисление
+ca:Grau E NutriScore - Nouveau calcul
+da:Nutriscore E - Ny beregning
+de:Nutriscore Note E - Neue Berechnung
+es:Nutriscore E - Nuevo cálculo
+fi:Nutriscore-arvosana E - Uusi laskenta
+fr:Nutriscore E - Nouveau calcul
+hr:Nutriscore oznaka E - Novi izračun
+it:Nutriscore E - Nuovo calcolo
+nl:Nutriscore E - Nieuwe berekening
 label_categories:en: en:Nutrition Grades, en:Health
 
 en:Nutri-Score A/B

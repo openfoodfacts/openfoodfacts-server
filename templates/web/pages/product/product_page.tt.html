@@ -83,10 +83,16 @@
                <nav id="navbar" class="navbar h-space-tiny">
                     <ul class="inline-list">
                         <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#product"><span>[% lang("product") %]</span></a></li>
-                        <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#match"><span>[% lang("your_criteria") %]</span></a></li>
-                        <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#health"><span>[% lang("health") %]</span></a></li>
+                        [% IF user_preferences %]
+                            <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#match"><span>[% lang("your_criteria") %]</span></a></li>
+                        [% END %]
+                        [% IF health_card_panel %]
+                            <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#health"><span>[% lang("health") %]</span></a></li>
+                        [% END %]
                         <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#environment"><span>[% lang("environment") %]</span></a></li>
+                        [% IF report_problem_card_panel %]
                         <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#report_problem"><span>[% lang("report_problem_navigation") %]</span></a></li>
+                        [% END %]
                         <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#contribution"><span>[% lang("contribution_navigation") %]</span></a></li>
                     </ul>
                 </nav><!-- .navbar -->
@@ -197,7 +203,7 @@
         </div>
     </section>
 
-
+[% IF user_preferences %]
     <!-- product summary -->
     <section class="row" id="match">
         <div class="large-12 column">
@@ -218,7 +224,9 @@
 
         </div>
     </section>
+[% END %]
 
+[% IF health_card_panel %]
     <section class="row" id="health">
         <div class="large-12 column">
             <div class="card">
@@ -228,6 +236,7 @@
             </div>
         </div>
     </section>
+[% END %]
 
     <section class="row" id="environment">
         <div class="large-12 column">

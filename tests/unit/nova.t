@@ -9,8 +9,7 @@ $Data::Dumper::Terse = 1;
 use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Ingredients
-	qw/clean_ingredients_text extract_ingredients_classes_from_text extract_ingredients_from_text/;
+use ProductOpener::Ingredients qw/clean_ingredients_text extract_additives_from_text extract_ingredients_from_text/;
 use ProductOpener::Food qw/compute_nova_group/;
 
 # dummy product for testing
@@ -66,7 +65,7 @@ foreach my $test_ref (@tests) {
 	$product_ref->{ingredients_text} = $product_ref->{"ingredients_text_" . $product_ref->{lc}};
 	clean_ingredients_text($product_ref);
 	extract_ingredients_from_text($product_ref);
-	extract_ingredients_classes_from_text($product_ref);
+	extract_additives_from_text($product_ref);
 	compute_nova_group($product_ref);
 
 	is($product_ref->{nova_group}, $nova)

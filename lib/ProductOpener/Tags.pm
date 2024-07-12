@@ -67,6 +67,7 @@ BEGIN {
 		&get_property_with_fallbacks
 		&get_inherited_property
 		&get_property_from_tags
+		&get_inherited_property_and_matching_tag
 		&get_inherited_property_from_tags
 		&get_matching_regexp_property_from_tags
 		&get_inherited_property_from_categories_tags
@@ -363,6 +364,12 @@ sub get_property_with_fallbacks ($tagtype, $tagid, $property, $fallback_lcs = ["
 
 sub get_inherited_property ($tagtype, $canon_tagid, $property) {
 
+	my ($value, $matching_tagid) = get_inherited_property_and_matching_tag($tagtype, $canon_tagid, $property);
+	return $value;
+}
+
+sub get_inherited_property_and_matching_tag ($tagtype, $canon_tagid, $property) {
+
 	my @parents = ($canon_tagid);
 	my %seen = ();
 
@@ -382,7 +389,7 @@ sub get_inherited_property ($tagtype, $canon_tagid, $property) {
 				}
 				else {
 					#Return only one occurence of the property if several are defined in ingredients.txt
-					return $property_value;
+					return ($property_value, $tagid);
 				}
 			}
 			elsif (exists $direct_parents{$tagtype}{$tagid}) {
@@ -391,7 +398,7 @@ sub get_inherited_property ($tagtype, $canon_tagid, $property) {
 			}
 		}
 	}
-	return;
+	return (undef, undef);
 }
 
 =head2 get_property_from_tags ($tagtype, $tags_ref, $property)
@@ -2638,7 +2645,7 @@ sub init_countries() {
 	%country_codes_reverse = ();
 	%country_languages = ();
 
-	foreach my $country (keys %{$properties{countries}}) {
+	foreach my $country (sort keys %{$properties{countries}}) {
 
 		my $cc = country_to_cc($country);
 		if (not(defined $cc)) {
@@ -2659,9 +2666,11 @@ sub init_countries() {
 				my $nameid = get_string_id_for_lang("no_language", $name);
 				if (not defined $country_names{$nameid}) {
 					$country_names{$nameid} = [$cc, $country, $language];
-					# print STDERR "country_names{$nameid} = [$cc, $country, $language]\n";
 				}
 			}
+		}
+		else {
+			$log->warn("No language_codes:en for country $country") if $log->is_warn();
 		}
 	}
 	return;
@@ -3168,8 +3177,9 @@ sub display_tags_list ($tagtype, $tags_list) {
 			if ($img =~ /\.(\d+)x(\d+)/) {
 				$size = " width=\"$1\" height=\"$2\"";
 			}
+			my $alt = display_taxonomy_tag_name($lc, $tagtype, $tag);
 			$images .= <<HTML
-<img src="/images/lang/$lc/$tagtype/$img"$size/ style="display:inline">
+<img src="/images/lang/$lc/$tagtype/$img"$size/ style="display:inline" alt="$alt">
 HTML
 				;
 		}
@@ -3282,9 +3292,9 @@ sub display_tags_hierarchy ($tagtype, $tags_ref) {
 					$size = " width=\"$1\" height=\"$2\"";
 				}
 				# print STDERR "abbio - lc: $lc - tagtype: $tagtype - tag: $tag - img: $img\n";
-
+				my $alt = display_taxonomy_tag_name($lc, $tagtype, $tag);
 				$images .= <<HTML
-<img src="/images/lang/$lc/$tagtype/$img"$size/ style="display:inline">
+<img src="/images/lang/$lc/$tagtype/$img"$size/ style="display:inline" atl="$alt">
 HTML
 					;
 			}
@@ -3381,8 +3391,10 @@ sub display_tags_hierarchy_taxonomy ($target_lc, $tagtype, $tags_ref) {
 				if ($img =~ /\.(\d+)x(\d+)/) {
 					$size = " width=\"$1\" height=\"$2\"";
 				}
+				my $alt = display_taxonomy_tag_name($target_lc, $tagtype, $tag);
+
 				$images .= <<HTML
-<img src="$img"$size/ style="display:inline">
+<img src="$img"$size/ style="display:inline" alt="$alt">
 HTML
 					;
 			}
@@ -3428,6 +3440,8 @@ sub list_taxonomy_tags_in_language ($target_lc, $tagtype, $tags_ref) {
 }
 
 sub canonicalize_tag2 ($tagtype, $tag) {
+	return $tag if !defined $tag;
+
 	#$tag = lc($tag);
 	my $canon_tag = $tag;
 	$canon_tag =~ s/^ //g;

@@ -620,7 +620,7 @@ sub customize_packagings ($request_ref, $product_ref) {
 
 			my $customized_packaging_ref = dclone($packaging_ref);
 
-			if ($request_ref->{api_version} >= 3) {
+			if ((defined $request_ref->{api_version}) and ($request_ref->{api_version} >= 3)) {
 				# Shape, material and recycling are localized
 				foreach my $property ("shape", "material", "recycling") {
 					if (defined $packaging_ref->{$property}) {
@@ -711,7 +711,7 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 	}
 
 	# Localize the Eco-Score fields that depend on the country of the request
-	localize_ecoscore($cc, $product_ref);
+	localize_ecoscore($request_ref->{cc}, $product_ref);
 
 	# lets compute each requested field
 	foreach my $field (@fields) {
@@ -733,13 +733,16 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 		}
 
 		if ($field eq "product_display_name") {
-			$customized_product_ref->{$field} = remove_tags_and_quote(product_name_brand_quantity($product_ref));
+			# For web search queries, we may already have a product_display_name field computed and stored in the query cache
+			# and the product name / brands / quantity fields have been removed in that case, so we use it as-is.
+			$customized_product_ref->{$field} = $product_ref->{product_display_name}
+				|| remove_tags_and_quote(product_name_brand_quantity($product_ref));
 			next;
 		}
 
 		# Allow apps to request a HTML nutrition table by passing &fields=nutrition_table_html
 		if ($field eq "nutrition_table_html") {
-			$customized_product_ref->{$field} = display_nutrition_table($product_ref, undef);
+			$customized_product_ref->{$field} = display_nutrition_table($product_ref, undef, $request_ref);
 			next;
 		}
 
@@ -747,7 +750,8 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 		if ($field eq "ecoscore_details_simple_html") {
 			if ((1 or $show_ecoscore) and (defined $product_ref->{ecoscore_data})) {
 				$customized_product_ref->{$field}
-					= display_ecoscore_calculation_details_simple_html($cc, $product_ref->{ecoscore_data});
+					= display_ecoscore_calculation_details_simple_html($request_ref->{cc},
+					$product_ref->{ecoscore_data});
 			}
 			next;
 		}
@@ -825,14 +829,14 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 		# Product attributes requested in a specific language (or data only)
 		if ($field =~ /^attribute_groups_([a-z]{2}|data)$/) {
 			my $target_lc = $1;
-			compute_attributes($product_ref, $target_lc, $cc, $attributes_options_ref);
+			compute_attributes($product_ref, $target_lc, $request_ref->{cc}, $attributes_options_ref);
 			$customized_product_ref->{$field} = $product_ref->{$field};
 			next;
 		}
 
 		# Product attributes in the $lc language
 		if ($field eq "attribute_groups") {
-			compute_attributes($product_ref, $lc, $cc, $attributes_options_ref);
+			compute_attributes($product_ref, $lc, $request_ref->{cc}, $attributes_options_ref);
 			$customized_product_ref->{$field} = $product_ref->{"attribute_groups_" . $lc};
 			next;
 		}
@@ -840,7 +844,7 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 		# Knowledge panels in the $lc language
 		if ($field eq "knowledge_panels") {
 			initialize_knowledge_panels_options($knowledge_panels_options_ref, $request_ref);
-			create_knowledge_panels($product_ref, $lc, $cc, $knowledge_panels_options_ref);
+			create_knowledge_panels($product_ref, $lc, $request_ref->{cc}, $knowledge_panels_options_ref, $request_ref);
 			$customized_product_ref->{$field} = $product_ref->{"knowledge_panels_" . $lc};
 			next;
 		}

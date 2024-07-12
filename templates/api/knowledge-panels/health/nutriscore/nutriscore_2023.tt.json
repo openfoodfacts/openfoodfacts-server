@@ -4,7 +4,7 @@
         "health"
     ],
     "title_element": {
-        "icon_url": "[% static_subdomain %]/images/attributes/dist/nutriscore-[% panel.nutriscore_grade %]-new-formula-[% IF lc == "fr" %][% lc %][% ELSE %]en[% END %].svg",
+        "icon_url": "[% static_subdomain %]/images/attributes/dist/nutriscore-[% panel.nutriscore_grade %]-new-[% IF lc == "fr" %][% lc %][% ELSE %]en[% END %].svg",
         "title": "[% panel.title %]",
         [% IF panel.subtitle %]
         "subtitle": "[% panel.subtitle %]",
