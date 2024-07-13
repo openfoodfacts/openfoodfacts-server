@@ -59,24 +59,16 @@ sub get_org_data ($org_id) {
 						}
 					},
 					'opportunities_to_improve_nutriscore' => {
-						'$sum' => { 
-							'$cond' => [
-								{ '$in' => ['possible-improvements', '$misc_tags'] }, 
-								1, 
-								0 
-							]
+						'$sum' => {
+							'$cond' => [{'$in' => ['possible-improvements', '$misc_tags']}, 1, 0]
 						}
 					},
 					'products_with_changes_since_last_export' => {
-						'$sum' => { 
-							'$cond' => [
-								{ '$regexMatch' => { input => '$states', regex => 'en:to-be-exported' } }, 
-								1, 
-								0 
-							]
+						'$sum' => {
+							'$cond' => [{'$regexMatch' => {input => '$states', regex => 'en:to-be-exported'}}, 1, 0]
 						}
 					},
-					'date_of_last_update' => { '$max' => '$last_modified_t' }
+					'date_of_last_update' => {'$max' => '$last_modified_t'}
 				}
 			}
 		]
@@ -96,7 +88,7 @@ sub get_org_data ($org_id) {
 			'number_of_products_without_nutriscore' => $number_of_products_without_nutriscore,
 			'percentage_of_products_with_nutriscore' => $percentage_of_products_with_nutriscore,
 			'opportunities_to_improve_nutriscore' => $org_data->{opportunities_to_improve_nutriscore} // 0,
-            'products_with_changes_since_last_export' => $org_data->{products_with_changes_since_last_export} // 0,
+			'products_with_changes_since_last_export' => $org_data->{products_with_changes_since_last_export} // 0,
 			'date_of_last_update' => $org_data->{date_of_last_update} // 0,
 		},
 	};
