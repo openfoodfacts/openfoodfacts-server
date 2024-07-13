@@ -82,7 +82,13 @@
             <td>[% org.data.products.percentage_of_products_with_nutriscore %]</td>
             <td>[% org.data.products.products_with_changes_since_last_export %]</td>
             <td>[% org.data.products.opportunities_to_improve_nutriscore %]</td>
-            <td>[% display_date_tag(org.data.products.date_of_last_update) %]</td>
+            <td>
+                [% IF org.data.products.date_of_last_update != 0 %]
+                    [% display_date_tag(org.data.products.date_of_last_update) %]
+                [% ELSE %]
+                    &nbsp;
+                [% END %]
+            </td>
         </tr>
         [% SET count = count + 1 %]
         [% END %]
