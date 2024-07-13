@@ -1,4 +1,16 @@
 <!-- start templates/[% template.name %] -->
+<style>
+    table#tagstable {
+        width: 100%;
+        table-layout: auto;
+        font-size: 0.9em;
+    }
+
+    table#tagstable th,
+    table#tagstable td {
+        padding: 3.5px;
+    }
+</style>
 
 <form method="GET" action="/cgi/display_org_table.pl">
     <label for="name">[% lang("name") %]:</label>
@@ -33,6 +45,9 @@
             <th>[% lang("data_quality_warnings_p") %]</th>
             <th>[% lang("number_of_products_without_nutriscore") %]</th>
             <th>[% lang("percent_of_products_with_nutriscore") %]</th>
+            <th>[% lang("products_with_changes_since_last_export") %]</th>
+            <th>[% lang("opportunities_to_improve_nutriscore") %]</th>
+            <th>[% lang("date_of_last_update") %]</th>
         </tr>
     </thead>
     <tbody>
@@ -65,6 +80,9 @@
             <td>[% org.data.products.number_of_data_quality_warnings %]</td>
             <td>[% org.data.products.number_of_products_without_nutriscore %]</td>
             <td>[% org.data.products.percentage_of_products_with_nutriscore %]</td>
+            <td>[% org.data.products.products_with_changes_since_last_export %]</td>
+            <td>[% org.data.products.opportunities_to_improve_nutriscore %]</td>
+            <td>[% display_date_tag(org.data.products.date_of_last_update) %]</td>
         </tr>
         [% SET count = count + 1 %]
         [% END %]
