@@ -35,6 +35,7 @@ x-backend-conf: &backend-conf
     - ODOO_CRM_DB
     - ODOO_CRM_USER
     - ODOO_CRM_PASSWORD
+    - OTEL_EXPORTER_OTLP_ENDPOINT
   depends_on:
     - memcached
   volumes:
@@ -112,6 +113,7 @@ services:
       - backend
     environment:
       - PRODUCT_OPENER_DOMAIN
+      - OTEL_EXPORTER_OTLP_ENDPOINT
     volumes:
       - product_images:/opt/product-opener/html/images/products:ro
       - html_data:/opt/product-opener/html/data:ro
@@ -142,6 +144,8 @@ services:
       - ./conf/nginx/snippets/expires-no-json-xml.conf:/etc/nginx/snippets/expires-no-json-xml.conf
       # some redirects
       - ./conf/nginx/snippets/off.locations-redirects.include:/etc/nginx/snippets/off.locations-redirects.include
+      # OTEL
+      - ./conf/nginx-docker/modules-enabled/otel.conf:/etc/nginx/snippets/otel.include
     ports:
       - ${PRODUCT_OPENER_EXPOSE}${PRODUCT_OPENER_PORT}:80
 
