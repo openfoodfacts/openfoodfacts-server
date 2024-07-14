@@ -37,9 +37,9 @@
     "win32"
   ],
   "dependencies": {
-    "@snyk/protect": "^1.1291.1",
+    "@snyk/protect": "^1.1292.1",
     "@webcomponents/webcomponentsjs": "2.8.0",
-    "@yaireo/tagify": ">=4.12.0 <4.27.0",
+    "@yaireo/tagify": ">=4.12.0 <4.28.0",
     "blueimp-file-upload": "^10.31.0",
     "cropperjs": "^1.6.1",
     "foundation-sites": "5.5.3",
@@ -53,10 +53,11 @@
     "osmtogeojson": "^3.0.0-beta.4",
     "papaparse": "^5.4.1",
     "select2": "~4.0",
-    "xml2json": "^0.12.0"
+    "xml2json": "^0.12.0",
+    "jsbarcode": "^3.11.6"
   },
   "devDependencies": {
-    "@babel/core": "^7.24.5",
+    "@babel/core": "^7.24.7",
     "@babel/preset-env": "^7.22.0",
     "@types/gulp": "^4.0.17",
     "@types/gulp-concat": "^0.0.37",
@@ -80,7 +81,7 @@
     "gulp-svgmin": "^4.1.0",
     "gulp-terser": "^2.1.0",
     "mocha": "^10.3.0",
-    "sass": "^1.77.1",
+    "sass": "^1.77.6",
     "stylelint": "^16.2.1",
     "stylelint-config-recommended": "^14.0.0",
     "stylelint-config-recommended-scss": "^14.0.0",
