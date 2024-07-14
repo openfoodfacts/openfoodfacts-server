@@ -32,7 +32,7 @@ COPY --chown=node:node .snyk /opt/product-opener/
 RUN find . -xtype l | xargs -I {} sh -c "origin=\$(readlink {} | tr '\\\\\\\\' '/') && ln -sf \$origin {}"
 RUN npm run build
 
-FROM nginx:stable
+FROM nginx:stable-otel
 WORKDIR /opt/product-opener
 ARG USER_UID
 ARG USER_GID
