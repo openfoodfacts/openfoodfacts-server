@@ -71,6 +71,7 @@ BEGIN {
 		&update_contact_last_login
 		&get_company_url
 		&get_contact_url
+		&get_opportunity_url
 		&make_odoo_request
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -439,7 +440,7 @@ sub add_contact_to_company($contact_id, $company_id) {
 	return $result;
 }
 
-=head2 create_onboarding_opportunity ($name, $company_id, $contact_id)
+=head2 create_onboarding_opportunity ($name, $company_id, $partner_id, salesperson_email = undef)
 
 create an opportunity attached to a 
 
@@ -454,9 +455,9 @@ The name of the opportunity
 The id of the partner to attach the opportunity to.
 It can be a contact or a company
 
-=head4 $salesperson_id
+=head4 $salesperson_email
 
-The id of the salesperson to assign the opportunity to
+The email of the salesperson to attach to the opportunity
 
 =head3 Return values
 
@@ -464,10 +465,10 @@ the id of the created opportunity
 
 =cut
 
-sub create_onboarding_opportunity ($name, $company_id, $contact_id, $salesperson_email = undef) {
+sub create_onboarding_opportunity ($name, $company_id, $partner_id, $salesperson_email = undef) {
 
 	my $query_params
-		= {name => $name, partner_id => $contact_id, tag_ids => [[$commands{link}, $crm_data->{tag}{onboarding}]]};
+		= {name => $name, partner_id => $partner_id, tag_ids => [[$commands{link}, $crm_data->{tag}{onboarding}]]};
 	if (defined $salesperson_email) {
 		my $user = (grep {$_->{email} eq $salesperson_email} @{$crm_data->{users}})[0];
 		if (defined $user) {
@@ -695,6 +696,14 @@ sub get_contact_url($user_ref) {
 	if ($ProductOpener::Config2::crm_url and defined $user_ref->{crm_user_id}) {
 		return $ProductOpener::Config2::crm_url
 			. "/web#id=$user_ref->{crm_user_id}&menu_id=111&action=139&model=res.partner&view_type=form";
+	}
+	return;
+}
+
+sub get_opportunity_url($opportunity_id) {
+	if ($ProductOpener::Config2::crm_url and defined $opportunity_id) {
+		return $ProductOpener::Config2::crm_url
+			. "/web#id=$opportunity_id&cids=1&menu_id=133&action=191&model=crm.lead&view_type=form";
 	}
 	return;
 }

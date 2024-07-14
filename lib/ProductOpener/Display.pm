@@ -1573,9 +1573,10 @@ sub get_cache_results ($key, $request_ref) {
 	$log->debug("MongoDB hashed query key", {key => $key}) if $log->is_debug();
 
 	# disable caching if ?no_cache=1
-	# or if we are sent the HTTP hader Cache-Control: no-cache
+	# or if we are on the producers platform
+	# or if we are sent the HTTP header Cache-Control: no-cache
 	my $param_no_cache = single_param("no_cache");
-	if (not defined $param_no_cache) {
+	if ((not $param_no_cache) and (not $server_options{producers_platform})) {
 		my $cache_control = get_http_request_header("Cache-Control");
 		if ((defined $cache_control) and ($cache_control =~ /no-cache/)) {
 			$log->debug("get_cache_results - HTTP Cache-Control no-cache header, skip caching", {key => $key})

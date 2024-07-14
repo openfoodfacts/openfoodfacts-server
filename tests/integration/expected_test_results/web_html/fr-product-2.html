@@ -320,7 +320,7 @@
 						
 							<!-- banner pages such as product, product edit form and landing pages have their own h1 title -->
 							<!-- start templates/web/pages/product/product_page.tt.html -->
-
+<script src="//static.openfoodfacts.localhost/js/dist/JsBarcode.all.min.js"></script>
 
 
 
@@ -426,9 +426,22 @@
                     
                     <!-- Display UPC code if the EAN starts with 0 -->
                         
-                            <p id="barcode_paragraph">
-                                Code-barres:  <span id="barcode" property="food:code" itemprop="gtin13" style="speak-as:digits;">3300000000002</span> (EAN / EAN-13)
-                            </p>
+                            <div id="barcode_div">
+                                <!-- Display only text of the code if mobile -->
+                                <div id="barcode_div_code">
+                                    <p id="barcode_paragraph">Code-barres: <br id="barcode_br"><span id="barcode" property="food:code" itemprop="gtin13" style="speak-as:digits;">3300000000002</span>(EAN / EAN-13)</p>
+                                </div>
+                                <!-- Display with SVG if not mobile -->
+                                <div id="barcode_div_svg">
+                                    <svg id="barcode_svg"
+                                        jsbarcode-format="auto"
+                                        jsbarcode-value="3300000000002"
+                                        jsbarcode-displayValue="false"
+                                        jsbarcode-height="40">
+                                    </svg>
+                                </div>
+                            </div>
+                            <script>if (screen && screen.width >= 600) JsBarcode("#barcode_svg").init()</script>
                             <div property="gr:hasEAN_UCC-13" content="3300000000002" datatype="xsd:string"></div>
                         
                         
@@ -3732,7 +3745,6 @@ un outil de la Direction générale de la concurrence, de la consommation et de 
 <!-- end templates/web/common/includes/folksonomy_script.tt.html -->
 
 <!-- end templates/web/pages/product/product_page.tt.html -->
-
 						
 					</div>
 				</div>
@@ -3867,6 +3879,7 @@ un outil de la Direction générale de la concurrence, de la consommation et de 
 <script src="//static.openfoodfacts.localhost/js/dist/display.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/stikelem.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/scrollNav.js"></script>
+  
 
 <script>
 $(function() {
