@@ -54,22 +54,24 @@ foreach my $org_id (list_org_ids()) {
 		)    # shouldn't be a main contact
 		)
 	{
+		print STDERR "previous main contact: " . $org_ref->{main_contact} . "\n";
 
 		$org_ref->{main_contact} = undef;
 
 		# take the first admin as main contact if available
-		if (defined $org_ref->{admins} and @{$org_ref->{admins}}) {
+		print STDERR $org_id . "\n";
+		if (defined $org_ref->{admins}) {
 			# find the first admin that is not in the list of users that are not users
 			# and set it as main contact
 
 			my $admin = undef;
-			foreach my $admin_id (@{$org_ref->{admins}}) {
+			foreach my $admin_id (sort keys %{$org_ref->{admins}}) {
 				if (not grep {$admin_id eq $_} @not_users) {
 					$admin = $admin_id;
+					$org_ref->{main_contact} = $admin;
 					last;
 				}
 			}
-
 			print "main_contact of $org_id set to $org_ref->{main_contact}\n";
 		}
 		else {
