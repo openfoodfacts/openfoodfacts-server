@@ -116,7 +116,9 @@ sub gather_org_data {
 	foreach my $org (@orgs) {
 		my $org_id = $org->{'org_id'};
 		print "Processing organization $i/$count: $org_id\n";
-		update_org_data($org_id);
+		eval { update_org_data($org_id) };
+        my $org_error = $@;
+        print(*STDERR "Error computing data for org $org_id: $org_error\n") if $org_error;
 		$i++;
 	}
 }
