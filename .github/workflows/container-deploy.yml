@@ -239,7 +239,7 @@ jobs:
           cd ${{ matrix.env }} && \
           make hdown && \
           make build_lang && \
-          make up
+          make prod_up
 
     - name: Check services are up
       uses: appleboy/ssh-action@master

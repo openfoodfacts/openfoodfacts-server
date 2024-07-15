@@ -116,6 +116,8 @@ BEGIN {
 
 		&analyze_and_enrich_product_data
 
+		&is_owner_field
+
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -3720,4 +3722,31 @@ sub analyze_and_enrich_product_data ($product_ref, $response_ref) {
 	}
 
 	return;
+}
+
+=head2 is_owner_field($product_ref, $field)
+
+Return 1 if the field value was provided by the owner (producer) and the field is not a tag field.
+
+=cut
+
+sub is_owner_field ($product_ref, $field) {
+
+	if (
+		(defined $product_ref->{owner_fields})
+		and (
+			(defined $product_ref->{owner_fields}{$field})
+			# If the producer sent a field value for salt or sodium, the other value was automatically computed
+			or (($field =~ /^salt/) and (defined $product_ref->{owner_fields}{"sodium" . $'}))
+			or (($field =~ /^sodium/) and (defined $product_ref->{owner_fields}{"salt" . $'}))
+		)
+		# Even if the producer sent a tag field value, it was merged with existing values,
+		# and may have been updated by a contributor (e.g. to add a more precise category)
+		# So we don't consider them to be owner fields
+		and (not defined $tags_fields{$field})
+		)
+	{
+		return 1;
+	}
+	return 0;
 }
