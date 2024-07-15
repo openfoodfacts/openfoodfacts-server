@@ -42,7 +42,7 @@ my $orgs_collection = get_orgs_collection();
 sub get_org_data ($org_id) {
 	my $org_data = $products_collection->aggregate(
 		[
-			{'$match' => {'owner' => $org_id}},
+			{'$match' => {'owner' => "org-" . $org_id}},
 			{
 				'$group' => {
 					'_id' => '$owner',
@@ -118,7 +118,7 @@ sub gather_org_data {
 		print "Processing organization $i/$count: $org_id\n";
 		eval { update_org_data($org_id) };
         my $org_error = $@;
-        print(*STDERR "Error computing data for org $org_id: $org_error\n") if $org_error;
+        print STDERR "Error computing data for org $org_id: $org_error\n" if $org_error;
 		$i++;
 	}
 }
