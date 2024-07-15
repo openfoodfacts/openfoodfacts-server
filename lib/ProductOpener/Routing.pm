@@ -46,7 +46,7 @@ use vars @EXPORT_OK;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/:all/;
 use ProductOpener::Display
-	qw/$formatted_subdomain %index_tag_types_set display_robots_txt_and_exit init_request redirect_to_url single_param/;
+	qw/$formatted_subdomain %index_tag_types_set display_robots_txt_and_exit init_request redirect_to_url single_param get_owner_pretty_path/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/%tag_type_from_plural %tag_type_from_singular %tag_type_plural %tag_type_singular lang/;
 use ProductOpener::API qw/:all/;
@@ -252,12 +252,8 @@ sub org_route($request_ref, @components) {
 		return;
 	}
 
-	$request_ref->{orgid} = $orgid;
-	$request_ref->{ownerid} = $orgid;
-	$request_ref->{canon_rel_url} = "/org/$orgid";
-
 	# only admin and pro moderators can change organization freely
-	if ($orgid ne $Org_id) {
+	if ($orgid ne $Owner_id) {
 		$log->debug("checking edit owner", {orgid => $orgid, ownerid => $Owner_id}) if $log->is_debug();
 		my @errors = ();
 		if ($request_ref->{admin} or $User{pro_moderator}) {
@@ -277,6 +273,9 @@ sub org_route($request_ref, @components) {
 		}
 		# or sub brand ?
 	}
+
+	$request_ref->{ownerid} = $Owner_id;
+	$request_ref->{canon_rel_url} = get_owner_pretty_path();
 
 	shift @components;
 	shift @components;

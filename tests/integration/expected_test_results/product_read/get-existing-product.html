@@ -318,7 +318,7 @@
 						
 							<!-- banner pages such as product, product edit form and landing pages have their own h1 title -->
 							<!-- start templates/web/pages/product/product_page.tt.html -->
-
+<script src="//static.openfoodfacts.localhost/js/dist/JsBarcode.all.min.js"></script>
 
 
 
@@ -382,7 +382,9 @@
                             <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#health"><span>Health</span></a></li>
                         
                         <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#environment"><span>Environment</span></a></li>
+                        
                         <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#report_problem"><span>Report a problem</span></a></li>
+                        
                         <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#contribution"><span>Contribution</span></a></li>
                     </ul>
                 </nav><!-- .navbar -->
@@ -422,7 +424,7 @@
                     
                     <!-- Display UPC code if the EAN starts with 0 -->
                         
-                          
+                         
                           <span id="barcode"  style="display: none;">200000000034</span>
                         
                         
@@ -4652,7 +4654,6 @@ The score is calculated from the data of the nutrition facts table and the compo
 <!-- end templates/web/common/includes/folksonomy_script.tt.html -->
 
 <!-- end templates/web/pages/product/product_page.tt.html -->
-
 						
 					</div>
 				</div>
@@ -4787,6 +4788,7 @@ The score is calculated from the data of the nutrition facts table and the compo
 <script src="//static.openfoodfacts.localhost/js/dist/display.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/stikelem.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/scrollNav.js"></script>
+  
 
 <script>
 $(function() {

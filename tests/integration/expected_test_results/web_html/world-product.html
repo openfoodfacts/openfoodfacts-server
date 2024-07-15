@@ -320,7 +320,7 @@
 						
 							<!-- banner pages such as product, product edit form and landing pages have their own h1 title -->
 							<!-- start templates/web/pages/product/product_page.tt.html -->
-
+<script src="//static.openfoodfacts.localhost/js/dist/JsBarcode.all.min.js"></script>
 
 
 
@@ -384,7 +384,9 @@
                             <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#health"><span>Health</span></a></li>
                         
                         <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#environment"><span>Environment</span></a></li>
+                        
                         <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#report_problem"><span>Report a problem</span></a></li>
+                        
                         <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#contribution"><span>Contribution</span></a></li>
                     </ul>
                 </nav><!-- .navbar -->
@@ -424,9 +426,22 @@
                     
                     <!-- Display UPC code if the EAN starts with 0 -->
                         
-                            <p id="barcode_paragraph">
-                                Barcode:  <span id="barcode" property="food:code" itemprop="gtin13" style="speak-as:digits;">3300000000001</span> (EAN / EAN-13)
-                            </p>
+                            <div id="barcode_div">
+                                <!-- Display only text of the code if mobile -->
+                                <div id="barcode_div_code">
+                                    <p id="barcode_paragraph">Barcode: <br id="barcode_br"><span id="barcode" property="food:code" itemprop="gtin13" style="speak-as:digits;">3300000000001</span>(EAN / EAN-13)</p>
+                                </div>
+                                <!-- Display with SVG if not mobile -->
+                                <div id="barcode_div_svg">
+                                    <svg id="barcode_svg"
+                                        jsbarcode-format="auto"
+                                        jsbarcode-value="3300000000001"
+                                        jsbarcode-displayValue="false"
+                                        jsbarcode-height="40">
+                                    </svg>
+                                </div>
+                            </div>
+                            <script>if (screen && screen.width >= 600) JsBarcode("#barcode_svg").init()</script>
                             <div property="gr:hasEAN_UCC-13" content="3300000000001" datatype="xsd:string"></div>
                         
                         
@@ -4207,7 +4222,6 @@ The score is calculated from the data of the nutrition facts table and the compo
 <!-- end templates/web/common/includes/folksonomy_script.tt.html -->
 
 <!-- end templates/web/pages/product/product_page.tt.html -->
-
 						
 					</div>
 				</div>
@@ -4342,6 +4356,7 @@ The score is calculated from the data of the nutrition facts table and the compo
 <script src="//static.openfoodfacts.localhost/js/dist/display.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/stikelem.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/scrollNav.js"></script>
+  
 
 <script>
 $(function() {
