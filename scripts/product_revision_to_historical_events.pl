@@ -69,11 +69,12 @@ sub process_file {
 
 		print $file encode_json(
 			{
-				ts => $change->{t},
+				timestamp => $change->{t},
 				barcode => $product->{code},
 				userid => $change->{userid},
 				comment => $change->{comment},
 				flavor => $options{current_server},
+				product_type => $options{product_type},
 				action => $action,
 				diffs => $change->{diffs}
 			}

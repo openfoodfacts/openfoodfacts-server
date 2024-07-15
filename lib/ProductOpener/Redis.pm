@@ -131,9 +131,10 @@ sub push_to_redis_stream ($user_id, $product_ref, $action, $comment, $diffs, $ti
 				# We let Redis generate the id
 				'*',
 				# fields
-				'ts', $timestamp,
+				'timestamp', $timestamp,
 				'code', Encode::encode_utf8($product_ref->{code}),
 				'flavor', Encode::encode_utf8($options{current_server}),
+				'product_type', Encode::encode_utf8($options{product_type}),
 				'user_id', Encode::encode_utf8($user_id), 'action', Encode::encode_utf8($action),
 				'comment', Encode::encode_utf8($comment), 'diffs', encode_json($diffs)
 			);
