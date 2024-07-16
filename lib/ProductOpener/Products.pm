@@ -1177,6 +1177,7 @@ sub store_product ($user_id, $product_ref, $comment) {
 	my $product_id = $product_ref->{_id};
 	my $path = product_path($product_ref);
 	my $rev = $product_ref->{rev};
+	my $action = "updated";
 
 	$log->debug(
 		"store_product - start",
@@ -1221,6 +1222,13 @@ sub store_product ($user_id, $product_ref, $comment) {
 			}
 		) if $log->is_debug();
 		$delete_from_previous_products_collection = 1;
+
+		if ($product_ref->{obsolete} eq 'on') {
+			$action = "archived";
+		}
+		else if($product_ref->{was_obsolete} eq 'on') {
+			$action = "unarchived";
+		}
 	}
 	delete $product_ref->{was_obsolete};
 
@@ -1501,17 +1509,8 @@ sub store_product ($user_id, $product_ref, $comment) {
 
 	$log->debug("store_product - done", {code => $code, product_id => $product_id}) if $log->is_debug();
 
-	my $action = "updated";
-
-	if (exists $product_ref->{obsolete}
-		and $product_ref->{obsolete} eq "on")
-	{
-		$action = "archived";
-	}
-	if ($rev == 1) {
-		$action = defined $product_ref->{owner} ? "imported" : "created";
-	}
-	elsif ($product_ref->{deleted}) {
+	
+	if ($product_ref->{deleted}) {
 		$action = "deleted";
 	}
 
