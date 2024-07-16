@@ -54,6 +54,7 @@ sub process_file {
 	# JSONL
 	my $rev = 0;    # some $change don't have a 'rev'
 	foreach my $change (@{$changes}) {
+
 		$rev++;
 
 		my $action = 'updated';
@@ -67,28 +68,38 @@ sub process_file {
 			$action = 'deleted';
 		}
 
+		if (exists $change->{diffs}{fields}{add}
+			and $change->{diffs}{fields}{add}[0] eq 'obsolete')
+		{
+			$action = 'archived';
+		}
+		if (exists $change->{diffs}{fields}{delete}
+			and $change->{diffs}{fields}{delete}[0] eq 'obsolete')
+		{
+			$action = 'unarchived';
+		}
+
 		print $file encode_json(
 			{
 				timestamp => $change->{t},
 				barcode => $product->{code},
 				userid => $change->{userid},
 				comment => $change->{comment},
-				flavor => $options{current_server},
 				product_type => $options{product_type},
 				action => $action,
 				diffs => $change->{diffs}
 			}
 		) . "\n";
-	}
 
-	# push_to_redis_stream(
-	# 	$change->{userid},
-	# 	$product,
-	# 	$action,
-	# 	$change->{comment}
-	# 	$change->{diffs},
-	# 	$change->{t}
-	# );
+		# push_to_redis_stream(
+		# 	$change->{userid},
+		# 	$product,
+		# 	$action,
+		# 	$change->{comment}
+		# 	$change->{diffs},
+		# 	$change->{t}
+		# );
+	}
 
 	return 1;
 }
