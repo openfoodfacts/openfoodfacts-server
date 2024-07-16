@@ -60,7 +60,7 @@ foreach my $org_id (list_org_ids()) {
 		$org_ref->{main_contact} = undef;
 
 		# take the first admin as main contact if available
-		print STDERR $org_id . "\n";
+		print $org_id . "\n";
 		if (defined $org_ref->{admins}) {
 			# find the first admin that is not in the list of users that are not users
 			# and set it as main contact
