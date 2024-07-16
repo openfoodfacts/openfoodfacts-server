@@ -33283,7 +33283,12 @@ fr:Gäteau fourré goût amande
 hr:Kolač s nadjevom s okusom badema
 nl:Gevulde Koeken
 
+en:Biscuits and crackers
+fr:Biscuits sucrés & biscuits apéritifs
+intake24_category_code:en:BSCT
+
 <en:Biscuits and cakes
+<en:Biscuits and crackers
 en:Biscuits, biscuit, cookies, cookie
 ar:بسكويت
 az:Biskvit
@@ -41794,6 +41799,7 @@ lt:Saldieji kukurūzai
 nl:Suikermais
 zh:甜玉米
 intake24_category_code:en:SWTC
+intake24_category_code:fr:SWTC
 wikidata:en:Q18966
 
 <en:Sweet Corn
@@ -46273,7 +46279,6 @@ ja:フレッシュチーズ
 lt:Švieži sūriai
 nl:Verse kazen
 pt:Queijos frescos
-intake24_category_code:en:FFRS
 wikidata:en:Q3323634
 
 <en:Fermented dairy desserts
@@ -46711,6 +46716,7 @@ hr:Fermentirani mliječni deserti
 lt:Rauginti pieno desertai
 nl:Gefermenteerde melkdesserts
 pl:Fermentowane desery mleczne
+intake24_category_code:en:FFRS
 
 <en:Fermented dairy desserts
 en:Plain fermented dairy desserts
@@ -46835,6 +46841,7 @@ ciqual_food_name:en:Drained soft fresh cheese, around 6% fat
 wikidata:en:Q3064619
 
 <en:Fermented dairy desserts
+<en:Fromages blancs - petit suisses and skyr
 fr:Fromages blancs, fromage blanc
 de:Weißer Käse
 agribalyse_proxy_food_code:en:19646
@@ -49330,7 +49337,12 @@ sk:korbacky
 <en:cow cheeses
 en:Kashkaval, Cașcaval
 
+en:Fromages blancs - petit suisses and skyr
+fr:Fromages blancs - petit suisses et skyr
+intake24_category_code:en:FFRS
+
 <en:Fermented dairy desserts
+<en:Fromages blancs - petit suisses and skyr
 en:Petits suisses
 xx:Petits suisses
 de:Milchdesserts
@@ -50166,6 +50178,7 @@ protected_name_type:en: pdo
 wikidata:en:Q11934902
 
 <en:Fermented dairy desserts
+<en:Fromages blancs - petit suisses and skyr
 en:Skyrs, Skyr
 xx:Skyrs, Skyr
 bg:Скир
@@ -50407,7 +50420,13 @@ gpc_category_description:en:Definition: Includes any products that can be descri
 gpc_category_name:en:Milk Substitutes (Shelf Stable)
 
 <en:Dairies
-en:Milks
+en:Milks (liquid and powder)
+fr:Laits (fluide et poudre)
+nl:Melk (vloeibaar en poeder)
+intake24_category_code:en:MILK
+
+<en:Milks (liquid and powder)
+en:Milks, Milk as a drink
 af:Melk
 am:ወተት
 an:Leit
@@ -50494,7 +50513,7 @@ agribalyse_proxy_food_code:en:19041
 agribalyse_proxy_food_name:en:Milk, semi-skimmed, UHT
 agribalyse_proxy_food_name:fr:Lait demi-écrémé, UHT
 food_groups:en: en:milk-and-yogurt
-intake24_category_code:en:MILK
+intake24_category_code:en:MDNK
 pnns_group_2:en:Milk and yogurt
 wikidata:en:Q8495
 
@@ -50512,7 +50531,6 @@ hr:Mlijeko iz austrije
 lt:Austriški pienas
 
 <en:Milks
-<en:Milks from Austria
 en:Haymilk
 de:Heumilch
 es:Leche de heno
@@ -50871,7 +50889,7 @@ ciqual_food_name:en:Sheep milk, whole
 ciqual_food_name:fr:Lait de brebis, entier
 wikidata:en:Q2736146
 
-<en:Milks from Austria
+#  <en:Milks from Austria
 <en:Sheep milks
 en:Sheep's Haymilk
 de:Schaf-Heumilch
@@ -50884,7 +50902,7 @@ it:Latte fieno di pecora
 #origins:en: en:Austria
 #wikidata:en:
 
-<en:milks
+<en:Milks
 en:Mare's milk
 fr:Lait de jument
 wikidata:en:Q2011964
@@ -50941,7 +50959,7 @@ ciqual_food_name:fr:Lait écrémé, pasteurisé
 
 <en:Dehydrated beverages
 <en:Dried products to be rehydrated
-<en:Milks
+<en:Milks (liquid and powder)
 en:Milk powders
 bg:Мляко на прах
 ca:Llet en pols
@@ -51872,6 +51890,7 @@ ciqual_proxy_food_code:en:18107
 ciqual_proxy_food_name:en:Almond drink
 ciqual_proxy_food_name:fr:Boisson à l'amande
 intake24_category_code:en:19NMLK
+intake24_category_code:fr:19NMLK
 #wikidata:en:
 
 <en:Nut-based drinks
@@ -52305,6 +52324,8 @@ food_groups:en: en:milk-and-yogurt
 gpc_category_code:en:10000278
 gpc_category_description:en:Definition: Includes any products that can be described/observed as a prepared food made from animal milk thickened by fermentation with lactic bacteria. These products must be refrigerated to extend their consumable life. This includes flavoured yogurts (e.g. flavoured with fruit, vanilla, nuts, honey) or yogurt packaged with a small amount of fruit preserve, nuts, or other accompaniment. Definition Excludes: Excludes products such as Drinking Yogurt, Frozen and Shelf Stable Yogurt and Yogurt Substitutes, Dairy and Dairy Substitute Drinks and Desserts.
 gpc_category_name:en:Yogurt (Perishable)
+intake24_category_code:en:YOGU
+intake24_category_code:fr:YOGU
 pnns_group_2:en:Milk and yogurt
 who_id:en:7
 wikidata:en:Q13317
@@ -52358,6 +52379,7 @@ agribalyse_proxy_food_code:en:19508
 agribalyse_proxy_food_name:en:Dairy drink or fermented milk or yogurt, flavoured, with sugar
 agribalyse_proxy_food_name:fr:Boisson lactée, lait fermenté ou yaourt à boire, aromatisé, sucré
 intake24_category_code:en:YOGD
+intake24_category_code:fr:YOGD
 
 <en:Drinkable yogurts
 en:Vanilla yogurt drinks
@@ -52442,6 +52464,7 @@ ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, w fruits or flavo
 ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aromatisé ou aux fruits (aliment moyen)
 #wikidata:en:
 intake24_category_code:en:FTYG
+intake24_category_code:fr:FTYG
 
 <en:Fruit yogurts
 en:Yogurts with fruits and sugar
@@ -52500,9 +52523,9 @@ pl:Jogurty owocowe z kawałkami owoców
 
 <en:Fruit yogurts
 en:Multifruit yoghurts
-fr:Yaourts multifruits, yaourts multi-fruits
 de:Mehrfruchtjoghurts, Mehrfruchtjoghurt
 es:Yogures multifrutas, yogures de varios frutas
+fr:Yaourts multifruits, yaourts multi-fruits
 it:Yogurt multifrutti, yogurt multi-frutta
 nl:Multifruityoghurts
 pt:Iogurtes multifrutas, iogurtes de várias frutas
@@ -52890,6 +52913,7 @@ pt:Iogurtes gregos
 ru:Греческий йогурт
 zh:希腊酸奶
 intake24_category_code:en:GRSY
+intake24_category_code:fr:GRSY
 #wikidata:en:
 
 <en:Greek-style yogurts
@@ -53132,6 +53156,7 @@ ciqual_food_name:fr:Yaourt ou spécialité laitière nature (aliment moyen)
 #ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, plain
 #ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, nature
 intake24_category_code:en:NTYG
+intake24_category_code:fr:NTYG
 
 <en:Yogurts
 en:Twin-pot yogurts
@@ -53872,6 +53897,7 @@ hr:Pjene od kestena
 lt:Kaštonų putėsiai
 
 <en:Dairy desserts
+<en:Entremets - mousses and creamy puddings
 <en:Sweet mousses
 en:Dairy Mousses
 fi:maitopohjaiset vaahdot
@@ -53883,6 +53909,12 @@ nl:Mousses op basis van melk
 intake24_category_code:en:MOUS
 
 <en:Dairy desserts
+en:Entremets - mousses and creamy puddings
+fr:Entremets - mousses et crème desserts
+intake24_category_code:fr:MOUS
+
+<en:Dairy desserts
+<en:Entremets - mousses and creamy puddings
 en:Creamy puddings, Dessert creams, Custard desserts
 ca:Postres cremoses
 de:Cremedesserts
@@ -54041,6 +54073,7 @@ nl:Plantaardige desserts, plantaardige toetjes
 pt:Sobremesas não lácteas
 food_groups:en: en:sweets
 intake24_category_code:en:LDFY
+intake24_category_code:fr:LDFY
 pnns_group_2:en:Sweets
 
 
@@ -54065,6 +54098,7 @@ ru:Молочные десерты, Десерты молочные
 zh:奶类甜品
 food_groups:en: en:dairy-desserts
 intake24_category_code:en:YGRT
+intake24_category_code:fr:YGRT
 pnns_group_2:en:Dairy desserts
 
 
@@ -58590,15 +58624,15 @@ en:Vegetable oil sprays
 <en:Vegetable oil sprays
 en:Olive oil sprays
 
-<en:Olive tree products
 <en:Flavoured oils
+<en:Olive tree products
 en:Flavoured olive oils
 fr:Huiles d'olive aromatisées
 hr:Aromatizirana maslinova ulja
 nl:Gearomatiseerde olijfolies
 
-<en:Flavoured olive oils
 <en:Citrus flavoured oils
+<en:Flavoured olive oils
 en:Citrus flavoured olive oils
 fr:Huiles d'olive aromatisées à la citron
 hr:Maslinova ulja s okusom citrusa
@@ -80210,6 +80244,7 @@ lt:Pupelių patiekalai
 pl:Dania z fasolą, Dania z fasoli
 ru:Блюда из бобов
 intake24_category_code:en:BNDS
+intake24_category_code:fr:BNDS
 
 <en:Bean dishes
 <en:Meals with meat
@@ -80432,6 +80467,7 @@ ciqual_food_code:en:26259
 ciqual_food_name:en:Coleslaw, w sauce, prepacked
 ciqual_food_name:fr:Salade de chou ou Coleslaw, avec sauce, préemballée
 intake24_category_code:en:COLE
+intake24_category_code:fr:COLE
 wikidata:en:Q945475
 
 <en:Appetizers
@@ -80592,8 +80628,7 @@ fr:Légumes farcis dans l'huile, légumes farcis à l'huile
 
 <en:Meals
 en:Vegetarian meals
-description:en:Should be distinghuished from vegetable meals, taht might contain meat
-intake24_category_code:en:VGDI
+description:en:Should be distinghuished from vegetable meals, that might contain meat
 
 <en:Meals
 en:Gratins
@@ -82369,7 +82404,8 @@ lt:Augaliniai patiekalai
 nl:Plantaardige kant-en-klaarmaaltijden
 pl:Posiłki roślinne, Dania roślinne
 pt:Refeições à base de plantas
-
+intake24_category_code:en:VGDI
+intake24_category_code:fr:VGDI
 
 <en:Dried products to be rehydrated
 en:Falafel mixes
@@ -95110,7 +95146,7 @@ ciqual_food_code:en:25416
 ciqual_food_name:en:Fish burger, fast foods restaurant
 ciqual_food_name:fr:Burger au poisson
 
-<en:Hamburgers
+<en:Meat alternatives
 en:Vegetarian hamburgers, Veggie burgers
 ca:Hamburgueses vegetals
 de:Vegetarische Hamburger
@@ -95122,6 +95158,7 @@ it:Hamburger vegetali
 nl:Vegetarische hamburgers
 agribalyse_food_code:en:25415_2
 intake24_category_code:en:19VEGB
+intake24_category_code:fr:19VEGB
 wikidata:en:Q1884503
 
 <en:Sandwiches
@@ -97253,6 +97290,7 @@ gpc_category_description:en:Definition: Includes any products that can be descri
 gpc_category_name:en:Fish - Prepared/Processed (Perishable)
 
 <en:Fish preparations
+en:Fish (shelf stable)
 gpc_category_code:en:10000018
 gpc_category_description:en:Definition: Includes any products that can be described/observed as any variety of fish or a combination of fish, that has gone through further manufacturing processes, such as reformed, cooked, dried and salted, however these products can also be coated, in sauce, stuffed or filled. Definition Excludes: Specifically excludes products that have added ingredients included such as rice, couscous and pasta. However products may contain a small quantity of vegetables such as those in a sauce or stuffing/filling. These products have been treated or packaged in such a way as to extend their consumable life. Excludes products such as Fish with additional vegetables, dough or grains, Frozen and Perishable Prepared and Processed Fish, all Unprepared and Unprocessed Fish.
 gpc_category_name:en:Fish - Prepared/Processed (Shelf Stable)
@@ -103738,8 +103776,6 @@ nl:Ingemaakte groentes
 pt:Pickles vegetais
 ru:Маринованые овощи
 tr:Sebze turşusu
-
-
 gpc_category_code:en:10000244
 gpc_category_description:en:Definition: Includes any products that can be described/observed as chopped or whole vegetables, preserved in vinegar, oil or brine, with added ingredients such as herbs, spices and mustard, commonly used as a condiment for meats, cheese and bread. Products include pickled tomatoes, gherkins, onions and capers. These products have been treated or packaged in such a way as to extend their consumable life. Definition Excludes: Excludes products such as Canned Vegetables and Vegetable Spreads, Chutneys, Relishes and Olives and Pickled Eggs.
 gpc_category_name:en:Pickled Vegetables
@@ -103818,6 +103854,7 @@ ciqual_proxy_food_code:en:11004
 ciqual_proxy_food_name:en:Gherkin, pickled in vinegar
 ciqual_proxy_food_name:fr:Cornichon, au vinaigre
 intake24_category_code:en:GHRK
+intake24_category_code:fr:GHRK
 wikidata:en:Q1365891
 
 # agribalyse_food_code:en:99999
@@ -104100,7 +104137,6 @@ ja:葉菜, 葉物, 葉野菜, 菜っ葉
 nl:Bladgroenten
 nl_be:Bladgewas
 ru:Листовые овощи
-intake24_category_code:en:C000
 wikidata_category:en:Q7469413
 
 <en:Vegetables
@@ -104567,6 +104603,7 @@ agribalyse_proxy_food_code:en:20091
 agribalyse_proxy_food_name:en:Beetroot, raw
 agribalyse_proxy_food_name:fr:Betterave rouge, crue
 intake24_category_code:en:BEET
+intake24_category_code:fr:BEET
 #TOCHECK:wikidata:en:Q99548274
 
 <en:Beet
@@ -106118,6 +106155,7 @@ ciqual_food_code:en:20041
 ciqual_food_name:en:Sweet pepper, green, yellow or red, raw
 ciqual_food_name:fr:Poivron, vert, jaune ou rouge, cru
 intake24_category_code:en:PPRS
+intake24_category_code:fr:PPRS
 
 <en:Fresh vegetables
 <en:Sweet peppers
@@ -107081,6 +107119,7 @@ ciqual_food_code:en:20059
 ciqual_food_name:en:Spinach, raw
 ciqual_food_name:fr:Épinard, cru
 intake24_category_code:en:SPNC
+intake24_category_code:fr:SPNC
 wikidata:en:Q81464
 
 <en:Prepared vegetables
@@ -107232,6 +107271,7 @@ zh:芜菁
 comment:en:Translations are not easy as one has to distinguish between turnip, swede and rutabaga. Sometimes they are all called turnip. Thus some translations might be wrong (taken from wikidata).
 description:en:The turnip (Brassica rapa subsp. rapa) is a root vegetable commonly grown in temperate climates worldwide for its white, fleshy taproot.
 intake24_category_code:en:TRNP
+intake24_category_code:fr:TRNP
 # azb:شلغم
 # bho:शलजम
 # cdo:Duâi-tàu-chái
@@ -107312,6 +107352,7 @@ ciqual_food_code:en:20047
 ciqual_food_name:en:Tomato, raw
 ciqual_food_name:fr:Tomate, crue
 intake24_category_code:en:TMTO
+intake24_category_code:fr:TMTO
 
 #agribalyse_food_code:en:20047_2
 #ciqual_food_code:en:20047
@@ -107534,6 +107575,8 @@ agribalyse_food_code:en:25604
 ciqual_food_code:en:25604
 ciqual_food_name:en:Green salad, raw, without seasoning
 ciqual_food_name:fr:Salade verte, crue, sans assaisonnement
+intake24_category_code:en:C000
+intake24_category_code:fr:C000
 
 <en:Vegetables
 it:Radicchio
@@ -113758,6 +113801,7 @@ gpc_category_code:en:10005824
 gpc_category_description:en:Definition: Includes all products which can be described/observed as a healthy food alternative to meat vegetable and egg proteins. These products are non animal based and an imitation of meat products, meant to simulate the taste and mouthfeel of real meat but are normally made from a combination of non animal based ingredients. Includes products such as soya, fungus, beans, lentils, peas and chickpeas based products. These products must be refrigerated to extend their consumable life. Definition Excludes: Excludes all meat-based products and any other protein rich products such as eggs and pulses that constitute the main recipe ingredients. Also excludes Meat Substitutes - Non Animal based frozen and shelf stable products and Meat Substitutes - Animal based frozen, perishable and shelf stable products.
 gpc_category_name:en:Meat Substitutes - Non Animal Based (Perishable)
 intake24_category_code:en:MTST
+intake24_category_code:fr:MTST
 opposite:en: en:meat
 wikidata:en:Q1343997
 
@@ -114285,6 +114329,7 @@ nl:Kamutwafels
 
 #Crackers are used a thin hard bread that need to be covered with something sweet or savoury
 <en:Appetizers
+<en:Biscuits and crackers
 en:Crackers
 bg:Крекери
 ca:Galetes salades
@@ -114341,7 +114386,6 @@ ciqual_food_name:fr:Biscuit apéritif, crackers, nature
 <en:Crackers
 en:Salty canistrelli
 fr:Canistrelli salés
-
 
 <en:Crackers
 en:Cheese puff pastries
@@ -115035,6 +115079,7 @@ hr:Pripravci od krumpira
 it:preparazioni a base di patate
 nl:Aardappelbereidingen
 pt:Preparados de batata
+intake24_category_code:en:WFFL
 
 <en:Potato preparations
 en:Rostis, Potatoes cakes, Potato cakes
@@ -116883,6 +116928,7 @@ ciqual_food_code:en:25556
 ciqual_food_name:en:Vegetable fritters
 ciqual_food_name:fr:Beignet de légumes
 intake24_category_code:en:19VFRIT
+intake24_category_code:fr:19VFRIT
 
 <en:Sweet snacks
 en:Sweet Fritters
