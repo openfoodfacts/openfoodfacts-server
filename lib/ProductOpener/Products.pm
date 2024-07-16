@@ -1226,7 +1226,7 @@ sub store_product ($user_id, $product_ref, $comment) {
 		if ($product_ref->{obsolete} eq 'on') {
 			$action = "archived";
 		}
-		else if($product_ref->{was_obsolete} eq 'on') {
+		elsif ($product_ref->{was_obsolete} eq 'on') {
 			$action = "unarchived";
 		}
 	}
@@ -1509,9 +1509,11 @@ sub store_product ($user_id, $product_ref, $comment) {
 
 	$log->debug("store_product - done", {code => $code, product_id => $product_id}) if $log->is_debug();
 
-	
 	if ($product_ref->{deleted}) {
 		$action = "deleted";
+	}
+	elsif ($rev == 1) {
+		$action = "created";
 	}
 
 	# Publish information about update on Redis stream
