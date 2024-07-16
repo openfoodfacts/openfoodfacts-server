@@ -173,6 +173,7 @@ use ProductOpener::Units qw/g_to_unit/;
 use ProductOpener::Cache qw/$max_memcached_object_size $memd generate_cache_key/;
 use ProductOpener::Permissions qw/has_permission/;
 use ProductOpener::ProductsFeatures qw(feature_enabled);
+use ProductOpener::RequestStats qw(:all);
 
 use Encode;
 use URI::Escape::XS;
@@ -507,6 +508,9 @@ sub redirect_to_url ($request_ref, $status_code, $redirect_url) {
 	}
 
 	$r->status($status_code);
+
+	log_request_stats($request_ref->{stats});
+
 	# note: under mod_perl, exit() will end the request without terminating the Apache mod_perl process
 	exit();
 }
@@ -591,6 +595,8 @@ Reference to request object.
 sub init_request ($request_ref = {}) {
 
 	$log->debug("init_request - start", {request_ref => $request_ref}) if $log->is_debug();
+
+	$request_ref->{stats} = init_request_stats();
 
 	# Clear the context
 	delete $log->context->{user_id};
@@ -971,6 +977,10 @@ CSS
 			org_id => $Org_id
 		}
 	) if $log->is_debug();
+
+	set_request_stats_value($request_ref->{stats}, "hostname", $hostname);
+	set_request_stats_value($request_ref->{stats}, "original_query_string", $request_ref->{original_query_string});
+	set_request_stats_value($request_ref->{stats}, "ip", remote_addr());
 
 	return $request_ref;
 }
@@ -1759,10 +1769,13 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 		# do not use the postgres cache if ?no_cache=1
 		# or if we are on the producers platform
 		if (can_use_query_cache()) {
+			set_request_stats_time_value($request_ref->{stats}, "off_query_aggregate_tags_query_start");
 			$results = execute_aggregate_tags_query($aggregate_parameters);
+			set_request_stats_time_value($request_ref->{stats}, "off_query_aggregate_tags_query_end");
 		}
 
 		if (not defined $results) {
+			set_request_stats_time_value($request_ref->{stats}, "mongodb_aggregate_query_start");
 			eval {
 				$log->debug("Executing MongoDB aggregate query on products collection",
 					{query => $aggregate_parameters})
@@ -1777,6 +1790,7 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 				# and v1.4.5 of the perl MongoDB module
 				$results = [$results->all] if defined $results;
 			};
+			set_request_stats_time_value($request_ref->{stats}, "mongodb_aggregate_query_end");
 			my $err = $@;
 			if ($err) {
 				$log->warn("MongoDB error", {error => $err}) if $log->is_warn();
@@ -1828,10 +1842,13 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 			# do not use the smaller postgres cache if ?no_cache=1
 			# or if we are on the producers platform
 			if (can_use_query_cache()) {
+				set_request_stats_time_value($request_ref->{stats}, "off_query_aggregate_tags_query_start");
 				$count_results = execute_aggregate_tags_query($aggregate_count_parameters);
+				set_request_stats_time_value($request_ref->{stats}, "off_query_aggregate_tags_query_end");
 			}
 
 			if (not defined $count_results) {
+				set_request_stats_time_value($request_ref->{stats}, "mongodb_aggregate_count_start");
 				eval {
 					$log->debug("Executing MongoDB aggregate count query on products collection",
 						{query => $aggregate_count_parameters})
@@ -1843,7 +1860,8 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 						}
 					);
 					$count_results = [$count_results->all]->[0] if defined $count_results;
-				}
+				};
+				set_request_stats_time_value($request_ref->{stats}, "mongodb_aggregate_count_end");
 			}
 
 			if (defined $count_results) {
@@ -4605,6 +4623,7 @@ sub count_products ($request_ref, $query_ref, $obsolete = 0) {
 
 	my $count;
 
+	set_request_stats_time_value($request_ref->{stats}, "mongodb_query_count_start");
 	eval {
 		$log->debug("Counting MongoDB documents for query", {query => $query_ref}) if $log->is_debug();
 		$count = execute_query(
@@ -4613,6 +4632,7 @@ sub count_products ($request_ref, $query_ref, $obsolete = 0) {
 			}
 		);
 	};
+	set_request_stats_time_value($request_ref->{stats}, "mongodb_query_count_end");
 
 	return $count;
 }
@@ -5318,12 +5338,15 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		};
 
 		my $cursor;
+
 		eval {
 			$count = estimate_result_count($request_ref, $query_ref, $cache_results_flag);
 
 			$log->debug("Executing MongoDB query",
 				{query => $query_ref, fields => $fields_ref, sort => $sort_ref, limit => $limit, skip => $skip})
 				if $log->is_debug();
+
+			set_request_stats_time_value($request_ref->{stats}, "mongodb_query_start");
 			$cursor = execute_query(
 				sub {
 					return get_products_collection(get_products_collection_request_parameters($request_ref))
@@ -5332,6 +5355,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 			);
 			$log->debug("MongoDB query ok", {error => $@}) if $log->is_debug();
 		};
+		set_request_stats_time_value($request_ref->{stats}, "mongodb_query_end");
 		if ($@) {
 			$log->warn("MongoDB error", {error => $@}) if $log->is_warn();
 		}
@@ -5650,10 +5674,13 @@ sub estimate_result_count ($request_ref, $query_ref, $cache_results_flag) {
 
 			# Count queries are very expensive, if possible, execute them on the postgres cache
 			if (can_use_query_cache()) {
+				set_request_stats_time_value($request_ref->{stats}, "off_query_count_tags_query_start");
 				$count = execute_count_tags_query($query_ref);
+				set_request_stats_time_value($request_ref->{stats}, "off_query_count_tags_query_end");
 			}
 
 			if (not defined $count) {
+				set_request_stats_time_value($request_ref->{stats}, "mongodb_query_count_start");
 				$count = execute_query(
 					sub {
 						$log->debug("count_documents on complete products collection", {key => $key_count})
@@ -5662,6 +5689,7 @@ sub estimate_result_count ($request_ref, $query_ref, $cache_results_flag) {
 							->count_documents($query_ref);
 					}
 				);
+				set_request_stats_time_value($request_ref->{stats}, "mongodb_query_count_end");
 				$err = $@;
 				if ($err) {
 					$log->warn("MongoDB error during count", {error => $err}) if $log->is_warn();
@@ -5682,6 +5710,7 @@ sub estimate_result_count ($request_ref, $query_ref, $cache_results_flag) {
 	}
 	else {
 		# if query_ref is empty (root URL world.openfoodfacts.org) use estimated_document_count for better performance
+		set_request_stats_time_value($request_ref->{stats}, "mongodb_estimated_document_count_start");
 		$count = execute_query(
 			sub {
 				$log->debug("empty query_ref, use estimated_document_count fot better performance", {})
@@ -5690,6 +5719,7 @@ sub estimate_result_count ($request_ref, $query_ref, $cache_results_flag) {
 					->estimated_document_count();
 			}
 		);
+		set_request_stats_time_value($request_ref->{stats}, "mongodb_estimated_document_count_end");
 		$err = $@;
 	}
 	$log->debug("Count query done", {error => $err, count => $count}) if $log->is_debug();
@@ -7547,6 +7577,9 @@ sub display_page ($request_ref) {
 		if $log->is_debug();
 
 	print $html;
+
+	log_request_stats($request_ref->{stats});
+
 	return;
 }
 
@@ -10704,6 +10737,7 @@ sub display_structured_response ($request_ref) {
 	$r->rflush;
 	$r->status(200);
 
+	log_request_stats($request_ref->{stats});
 	exit();
 }
 
