@@ -55,7 +55,9 @@ foreach my $org_id (list_org_ids()) {
 		or (not defined $org_ref->{main_contact})
 		)
 	{
-		print STDERR "previous main contact: " . $org_ref->{main_contact} . "\n";
+		if (defined $org_ref->{main_contact}) {
+			print "previous main contact: " . $org_ref->{main_contact} . "\n";
+		}
 
 		$org_ref->{main_contact} = undef;
 
@@ -73,7 +75,9 @@ foreach my $org_id (list_org_ids()) {
 					last;
 				}
 			}
-			print "main_contact of $org_id set to $org_ref->{main_contact}\n";
+			if (defined $org_ref->{main_contact}) {
+				print "main_contact of $org_id set to $org_ref->{main_contact}\n";
+			}
 		}
 		else {
 			print "main_contact of $org_id set to undef\n";
