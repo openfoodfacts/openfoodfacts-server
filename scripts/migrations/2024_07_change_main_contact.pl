@@ -52,6 +52,7 @@ foreach my $org_id (list_org_ids()) {
 			or ($org_ref->{main_contact} =~ /[\p{Z}\p{C}]/)    # contains unicode whitespace or control characters
 			or (grep {$org_ref->{main_contact} eq $_} @not_users)
 		)    # shouldn't be a main contact
+		or (not defined $org_ref->{main_contact})
 		)
 	{
 		print STDERR "previous main contact: " . $org_ref->{main_contact} . "\n";
