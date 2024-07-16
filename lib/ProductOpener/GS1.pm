@@ -1125,11 +1125,13 @@ sub gs1_to_off ($gs1_to_off_ref, $json_ref, $results_ref) {
 
 		$log->debug("gs1_to_off - source fields", {source_field => $source_field}) if $log->is_debug();
 
-		# Alnatura does not include the namespace, so we have foodAndBeverageIngredientModule 
+		# Alnatura does not include the namespace, so we have foodAndBeverageIngredientModule
 		# instead of food_and_beverage_ingredient:foodAndBeverageIngredientModule
 		# Try removing the namespace
-		if ((not defined $json_ref->{$source_field}) and ($source_field =~ /:/)
-				and (defined $json_ref->{$'})) {
+		if (    (not defined $json_ref->{$source_field})
+			and ($source_field =~ /:/)
+			and (defined $json_ref->{$'}))
+		{
 			$source_field = $';
 		}
 
