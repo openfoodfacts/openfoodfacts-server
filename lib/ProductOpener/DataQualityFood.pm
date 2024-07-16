@@ -2716,21 +2716,30 @@ incompatible_with:en: en:fair-trade
 sub check_incompatible_tags ($product_ref) {
 
 	# list of tags having 'incompatible_with' properties
-	my @tags_to_check = ("categories", "labels");
+	my @tagtypes_to_check = ("categories", "labels");
 
-	foreach my $tag_to_check (@tags_to_check) {
-		$log->debug("check_incompatible_tags: tag_to_check $tag_to_check") if $log->debug();
+	foreach my $tagtype_to_check (@tagtypes_to_check) {
+		$log->debug("check_incompatible_tags: tagtype_to_check $tagtype_to_check") if $log->debug();
 
-		my $incompatible_with_hash = get_all_tags_having_property($product_ref, $tag_to_check, "incompatible_with:en");
+		# we don't need to care about inherited properties
+		# as every tag parent is also in the _tags field
+		# thus, incompatibilities will pop-up
+		my $incompatible_with_hash
+			= get_all_tags_having_property($product_ref, $tagtype_to_check, "incompatible_with:en");
 
-		foreach my $key (keys %{$incompatible_with_hash}) {
-			my $value = %{$incompatible_with_hash}{$key};
+		foreach my $tags_having_property (keys %{$incompatible_with_hash}) {
+			my $incompatible_tags = %{$incompatible_with_hash}{$tags_having_property};
 
-			$log->debug("check_incompatible_tags: key: " . $key . ", value: " . $value) if $log->debug();
+			$log->debug("check_incompatible_tags: tags_having_property: "
+					. $tags_having_property
+					. ", incompatible_tags: "
+					. $incompatible_tags)
+				if $log->debug();
 
-			# there can be more than a single value (comma (followed or not-followed by space (space is converted as hyphen) ) separated):
+			# there can be more than a single incompatible_tags (comma (followed or
+			# not-followed by space (remember that spaces are converted as hyphen) ) separated):
 			#   categories:en:short-grain-rices, categories:en:medium-grain-rices
-			my @all_incompatible_tags = split(/,-*/, $value);
+			my @all_incompatible_tags = split(/,-*/, $incompatible_tags);
 
 			foreach my $incompatible_tag (@all_incompatible_tags) {
 				$log->debug("check_incompatible_tags: incompatible_tag: " . $incompatible_tag) if $log->debug();
@@ -2741,14 +2750,14 @@ sub check_incompatible_tags ($product_ref) {
 
 				if (has_tag($product_ref, $tagtype, $tagid)) {
 					# column (:) prevents formating of the data quality facet on the website
-					$key =~ s/en://g;
+					$tags_having_property =~ s/en://g;
 					$incompatible_tag =~ s/:en:/-/g;
 
 					# sort in alphabetical order to avoid facet a-b and facet b-a
-					my @incompatible_tags = sort ($tag_to_check . "-" . $key, $incompatible_tag);
+					my @incompatible_tags = sort ($tagtype_to_check . "-" . $tags_having_property, $incompatible_tag);
 
 					add_tag($product_ref, "data_quality_errors",
-						"en:mutually-exclusive-$incompatible_tags[0]-and-$incompatible_tags[1]");
+						"en:mutually-exclusive-tags-for-$incompatible_tags[0]-and-$incompatible_tags[1]");
 				}
 			}
 		}

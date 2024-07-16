@@ -82,57 +82,76 @@ if (not defined $content) {
 	die "Could not fetch $url";
 }
 my $orgs = decode_json($content)->{tags};
-my $org_by_id = {};
+my $nbr_products = {};
 foreach my $org (@{$orgs}) {
-	$org_by_id->{$org->{id}} = $org->{products};
+	if (not defined $org->{id}) {
+		next;
+	}
+	$nbr_products->{$org->{id}} = $org->{products};
 }
 
 my $csv
-	= "id;name;nbr of imported products;validation status;company id in crm (in .sto);url in crm;Opportunity;Company matched;Will the company be created ?;Contacts matched in crm;Contacts that will be created;Org seems already synced; Errors;salesperson (email); can be accepted (yes/no)\n";
+	= "id;name;nbr of imported products;validation status;company id in .sto;url in crm;opportunity id .sto; Opportunity url;Company matched;Will the company be created ?;Contacts matched in crm;Contacts that will be created;Org seems already synced; Infos; Warnings;salesperson (email); can be accepted (synced with CRM) (yes or empty)\n";
 
+my $org_count = 0;
 foreach my $orgid (list_org_ids()) {
-	my @errors = ();
+	$org_count++;
+	print "$org_count processed\n";
+
+	my @infos = ();
+	my @warnings = ();
 
 	$orgid = decode utf8 => $orgid;
 	my $org_ref = retrieve_org($orgid);
 
 	my $org_name = $org_ref->{name};
 	if (not defined $org_name) {
-		push @errors, 'org has no name';
+		push @warnings, 'org has no name';
 		$org_name = '! has no name !';
 	}
-	say "Processing org [$orgid] - $org_name";
 
-	my $validation_status = $org_ref->{valid_org} // 'unreviewed';
+	my $validation_status = $org_ref->{valid_org} // '';
 	my $crm_org_id = $org_ref->{crm_org_id} // '';
 
-	my $main_contact_user_ref = retrieve_user($org_ref->{main_contact});
-	my $matched_main_contact = find_contact($main_contact_user_ref);
-	$matched_main_contact = defined $matched_main_contact ? $contacts{$matched_main_contact} : undef;
-	if (not defined $org_ref->{main_contact}) {
-		push @errors, 'org has no main contact';
+	my $main_contact_user_ref;
+	my $matched_main_contact;
+	if (defined $org_ref->{main_contact}) {
+		$main_contact_user_ref = retrieve_user($org_ref->{main_contact});
+		$matched_main_contact = find_contact($main_contact_user_ref);
+	}
+	else {
+		push @infos, 'no main contact, company will be directly linked to the opportunity';
 	}
 
 	my $matched_company = find_company($org_ref, $matched_main_contact);
 	$matched_company = defined $matched_company ? $companies{$matched_company} : undef;
 	my $company_will_be_created = 'yes';
+	my $org_url = '';
 	if ($matched_company) {
 		$company_will_be_created = 'no';
 		if ($org_ref->{crm_org_id} and $org_ref->{crm_org_id} ne $matched_company->{id}) {
-			push @errors,
+			push @warnings,
 				"org has a crm_org_id ($org_ref->{crm_org_id}) but it does not match the company matched in the CRM ($matched_company->{id})";
 		}
+		$org_url = get_company_url({crm_org_id => $matched_company->{id}}) // '';
 		$matched_company = "($matched_company->{id}, $matched_company->{name})";
 	}
 	else {
 		$matched_company = '';
+		if ($crm_org_id ne '') {
+			push @warnings, "crm_org_id is set but doesn't exist in CRM";
+		}
 	}
+	$matched_main_contact //= '';
 
 	my $members_matched_in_crm = [];
 	my $members_not_matched_in_crm = [];
 
 	foreach my $userid (keys %{$org_ref->{members}}) {
-		if ($userid ne $main_contact_user_ref->{userid}) {
+		if (not defined $main_contact_user_ref
+			or $userid ne $main_contact_user_ref->{userid})
+		{
+
 			my $user_ref = retrieve_user($userid);
 			my $contact_id = find_contact($user_ref);
 			if ($contact_id) {
@@ -156,25 +175,27 @@ foreach my $orgid (list_org_ids()) {
 		$contacts_that_will_be_created = join(',', @not_matched_members);
 	}
 
-	if (defined $matched_main_contact) {
+	if ($matched_main_contact ne '') {
+		my $contact = $contacts{$matched_main_contact};
 		$contacts_matched_in_crm .= ($contacts_matched_in_crm ? ', ' : '')
-			. "($matched_main_contact->{id}, $matched_main_contact->{name}, is main contact, $matched_main_contact->{email})";
+			. "($contact->{id}, $contact->{name}, is main contact, $contact->{email})";
 	}
 	elsif (defined $org_ref->{main_contact}) {
 		$contacts_that_will_be_created
 			.= ($contacts_that_will_be_created ? ', ' : '') . '(' . $org_ref->{main_contact} . ', as main contact)';
 	}
 
-	my $org_url = get_company_url($org_ref) // '', my $opportunity_url = '';
-	if (defined $org_ref->{crm_opportunity_id}) {
-		if (exists $opportunities{$org_ref->{crm_opportunity_id}}) {
-			$opportunity_url = $ProductOpener::Config2::crm_url
-				. "/web#id=$org_ref->{crm_opportunity_id}&cids=1&menu_id=133&action=191&model=crm.lead&view_type=form";
+	my $opportunity_url = '';
+	my $crm_opportunity_id = $org_ref->{crm_opportunity_id};
+	if (defined $crm_opportunity_id) {
+		if (exists $opportunities{$crm_opportunity_id}) {
+			$opportunity_url = get_opportunity_url($crm_opportunity_id);
 		}
 		else {
-			push @errors, 'opportunity id set but not found in CRM';
+			push @warnings, 'opportunity id set but not found in CRM';
 		}
 	}
+	$crm_opportunity_id //= '';
 
 	my $org_seems_already_synced = '';
 	my $salesperson = '';
@@ -185,23 +206,29 @@ foreach my $orgid (list_org_ids()) {
 		and $org_ref->{crm_opportunity_id} ne '')
 	{
 		$org_seems_already_synced = 'yes';
-		$salesperson
-			= $org_seems_already_synced eq 'yes' ? 'already synced' . (@errors ? ' but look at the errors' : '') : '';
+		$salesperson = $org_seems_already_synced eq 'yes' ? 'seems already synced' : '';
 		$ok_accept = $org_seems_already_synced ? 'done' : '';
 	}
 
-	my $number_of_imported_products = '?';
-	if (exists $org_by_id->{$orgid}) {
-		$number_of_imported_products = $org_by_id->{$orgid}{products};
-	}
-	elsif (exists $org_by_id->{"org-$orgid"}) {
-		$number_of_imported_products = $org_by_id->{"org-$orgid"}{products};
+	if ($org_seems_already_synced eq '' and $validation_status eq 'accepted') {
+		push @warnings, 'org is accepted but not synced with CRM';
 	}
 
-	my $has_errors = @errors ? join(", ", @errors) : '';
+	my $number_of_imported_products = '';
+	if (exists $nbr_products->{$orgid}) {
+		$number_of_imported_products = $nbr_products->{$orgid};
+	}
+	elsif (exists $nbr_products->{"org-$orgid"}) {
+		$number_of_imported_products = $nbr_products->{"org-$orgid"};
+	}
+
+	my $warnings = @warnings ? join(", ", @warnings) : '';
+	my $infos = @infos ? join(", ", @infos) : '';
 
 	$csv
-		.= "$orgid;$org_name;$number_of_imported_products;$validation_status;$crm_org_id;$org_url;$opportunity_url;$matched_company;$company_will_be_created;$contacts_matched_in_crm;$contacts_that_will_be_created;$org_seems_already_synced;$has_errors;$salesperson;$ok_accept\n";
+		.= "$orgid;$org_name;$number_of_imported_products;$validation_status;$crm_org_id;"
+		. "$org_url;$crm_opportunity_id;$opportunity_url;$matched_company;$company_will_be_created;$contacts_matched_in_crm;"
+		. "$contacts_that_will_be_created;$org_seems_already_synced;$infos;$warnings;$salesperson;$ok_accept\n";
 
 }
 

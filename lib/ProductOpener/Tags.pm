@@ -724,6 +724,7 @@ sub get_tags_grouped_by_property ($tagtype, $tagids_ref, $prop_name, $props_ref,
 For each tag of a given field ($tagtype, can be "labels" or "categories", for example),
 and a given property ($prop_name, without last column (:). Can be "incompatible_with:en", for example),
 return a hash of tagid <-> property_value
+remark: this DOES NOT handle property inheritance
 
 =head3 Return
 
