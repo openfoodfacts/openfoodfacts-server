@@ -1,4 +1,6 @@
-#This file uses the following structure:
+# You can now edit taxonomies more easily using our Taxonomy Editor located at https://ui.taxonomy.openfoodfacts.org/
+# For documentation on the taxonomies, please look at https://wiki.openfoodfacts.org/Global_taxonomies
+# This file uses the following structure:
 #- A compliance set defines the rules for product cross sections. This can be allergen rules (gluten free), origin rules (sustainable palm free), religious rules (halal), etc. Each set can have multiple compliancy levels. There will always be a default compliancy level. Each compliancy set is preceded by a comment ("compliance set X section") for easy human reading. A compliancy set is defined by a tag, such as *gluten free compliant*  . A human understandable tag is preferred.
 #- A compliancy set should comprise of two or more levels. These levels are ordered, so that one level can be more compliant than the other. This order is indicated by an positive number (a higher number implies better compliance). Thus a compliancy level consists of a compliancy set tag and a number (*vegan compliant:en:level:en:3*).
 #- Each compliancy as a default compliancy level. The default simplifies the definition of a compliancy set. A product has a default compliancy level, unless one of the other levels is triggered. The default can be any of the levels of a compliancy set. The default is defined by for instance: *nova level compliant:en:default:en:yes* is added on a separate line.
