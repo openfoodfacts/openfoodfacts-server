@@ -4,8 +4,6 @@
 
 export PERL5LIB="lib:${PERL5LIB}"
 
-PRODUCERS=()
-
 filter_organizations_that_have_automated_export() {
     perl -e '
         use strict;
@@ -49,6 +47,7 @@ filter_organizations_that_have_automated_export() {
         print "$_\n" for keys %producers;
     '
 }
+
 PRODUCERS=$(filter_organizations_that_have_automated_export)
 
 for producer in ${PRODUCERS[@]}
