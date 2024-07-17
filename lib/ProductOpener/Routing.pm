@@ -256,8 +256,10 @@ sub org_route($request_ref, @components) {
 	if ($orgid ne $Owner_id) {
 		$log->debug("checking edit owner", {orgid => $orgid, ownerid => $Owner_id}) if $log->is_debug();
 		my @errors = ();
+		my $moderator;
 		if ($request_ref->{admin} or $User{pro_moderator}) {
-			ProductOpener::Users::check_edit_owner(\%User, \@errors, $orgid);
+			$moderator = retrieve_user($request_ref->{user_id});
+			ProductOpener::Users::check_edit_owner($moderator, \@errors, $orgid);
 		}
 		else {
 			$request_ref->{status_code} = 404;
@@ -266,6 +268,8 @@ sub org_route($request_ref, @components) {
 		}
 		if (scalar @errors eq 0) {
 			set_owner_id();
+			# will save the pro_moderator_owner field
+			store_user($moderator);
 		}
 		else {
 			$request_ref->{status_code} = 404;
