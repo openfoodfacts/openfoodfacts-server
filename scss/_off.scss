@@ -1212,10 +1212,11 @@ $font-green: #008c8c;
 
 .off-days-banner {
   background-color: $section-cyan;
-  height: 200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-image: url('/images/misc/banners/FR.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 300px;
 }
 
 .donation-banner,
