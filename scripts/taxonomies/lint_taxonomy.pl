@@ -392,7 +392,7 @@ sub normalize_spaces($line, $normalize_commas = 0) {
 		# in numbers
 		$line =~ s/(\d),(\d)/$1‚$2/g;
 		# escaped comma \,
-		$line =~ s/\\,/‚/g;
+		$line =~ s/\\,/\\‚/g;
 		# ensure space after commas
 		$line =~ s/,(\S)/, $1/g;
 		# put back lower comma
