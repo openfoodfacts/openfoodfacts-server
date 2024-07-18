@@ -1210,6 +1210,14 @@ $section-sand: #FFFAF1;
 $background-orange: #FF8714;
 $font-green: #008c8c;
 
+.off-days-banner {
+  background-color: $section-cyan;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .donation-banner,
 .donation-banner-footer {
   overflow: hidden;
