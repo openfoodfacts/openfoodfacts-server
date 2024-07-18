@@ -8,9 +8,9 @@ filter_organizations_that_have_automated_export() {
     perl -e '
         use strict;
         use warnings;
-        use ProductOpener::Orgs qw/list_org_ids retrieve_org/;
+        use ProductOpener::Data qw/get_orgs_collection/;
 
-        my %producers = qw(
+        my %producers = map { $_,1 } qw(
             org-barilla-france-sa
             org-ferrero-france-commerciale
             org-unilever-france-gms
@@ -33,24 +33,19 @@ filter_organizations_that_have_automated_export() {
             org-les-mousquetaires
         );
 
-        my @orgs = map { 
-            "org-" . $_->{"org_id"} 
-        }
-        grep { 
-            exists $_->{"activate_automated_daily_export_to_public_platform"} 
-            and $_->{"activate_automated_daily_export_to_public_platform"} eq "on"
-        } 
-        map { retrieve_org($_) } list_org_ids();
+        my @res = get_orgs_collection()
+                        ->find({ activate_automated_daily_export_to_public_platform => "on" })
+                        ->fields({ org_id => 1 })
+                        ->all;
 
-        $producers{$_} = undef for @orgs;
+        $producers{"org-" . $_->{org_id}} = undef for @res;
 
         print "$_\n" for keys %producers;
+
     '
 }
 
-PRODUCERS=$(filter_organizations_that_have_automated_export)
-
-for producer in ${PRODUCERS[@]}
+for producer in $(filter_organizations_that_have_automated_export)
 do
     scripts/export_and_import_to_public_database.pl --query states_tags=en:to-be-exported --owner $producer
 done
