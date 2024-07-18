@@ -186,7 +186,7 @@ sub iter_taxonomy_entries ($lines_iter) {
 			# synonym
 			elsif ($line =~ /^(\w+):[^:]*(,.*)*$/) {
 				if (!defined $entry_id_line) {
-					$entry_id_line = {line => $line, previous => [@previous_lines], lc => $1,, line_num => $line_num};
+					$entry_id_line = {line => $line, previous => [@previous_lines], lc => $1, line_num => $line_num};
 				}
 				else {
 					my $lc = $1;
@@ -213,7 +213,7 @@ sub iter_taxonomy_entries ($lines_iter) {
 						push @{$entries{$lc}{previous}}, @previous_lines;
 					}
 					else {
-						$entries{$lc} = {line => $line, previous => [@previous_lines],, line_num => $line_num};
+						$entries{$lc} = {line => $line, previous => [@previous_lines], line_num => $line_num};
 					}
 				}
 				@previous_lines = ();
@@ -360,22 +360,45 @@ sub lint_entry($entry_ref, $do_sort) {
 	# print parents, line id, synonyms, sorted props
 	for my $parent (@parents) {
 		push @output_lines, @{$parent->{previous}};
-		push @output_lines, $parent->{line};
+		push @output_lines, normalize_spaces($parent->{line});
 	}
 	if (defined $entry_id_line) {
 		push @output_lines, @{$entry_id_line->{previous}};
-		push @output_lines, $entry_id_line->{line};
+		push @output_lines, normalize_spaces($entry_id_line->{line});
 	}
 	for my $key (@sorted_entries) {
 		push @output_lines, @{$entries{$key}->{previous}};
-		push @output_lines, $entries{$key}->{line};
+		push @output_lines, normalize_spaces($entries{$key}->{line}, 1);
 	}
 	for my $key (@sorted_props) {
 		push @output_lines, @{$props{$key}->{previous}};
-		push @output_lines, $props{$key}->{line};
+		push @output_lines, normalize_spaces($props{$key}->{line});
 	}
 	push @output_lines, @tail_lines;
 	return join("", @output_lines);
+}
+
+# normalize spaces on a line
+sub normalize_spaces($line, $normalize_commas = 0) {
+	# remove trailing space at end of line
+	$line =~ s/ +$//g;
+	if ($normalize_commas) {
+		# remove multiple commas
+		$line =~ s/,+/,/g;
+		# remove trailing space and comma at end of line
+		$line =~ s/[ ,]+$//g;
+		# first replace special cases by a lower comma
+		# but if is escape or within a number
+		# in numbers
+		$line =~ s/(\d),(\d)/$1‚$2/g;
+		# escaped comma \,
+		$line =~ s/\\,/‚/g;
+		# ensure space after commas
+		$line =~ s/,(\S)/, $1/g;
+		# put back lower comma
+		$line =~ s/‚/,/g;
+	}
+	return $line;
 }
 
 # check that an entry is already sorted, compared to $sorted_output
