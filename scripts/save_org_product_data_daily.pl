@@ -48,10 +48,22 @@ sub get_org_data ($org_id) {
 					'_id' => '$owner',
 					'number_of_products' => {'$sum' => 1},
 					'number_of_data_quality_errors' => {
-						'$sum' => {'$size' => '$data_quality_errors_tags'}
+						'$sum' => {
+							'$cond' => {
+								'if' => {'$isArray' => '$data_quality_errors_tags'},
+								'then' => {'$size' => '$data_quality_errors_tags'},
+								'else' => 0
+							}
+						}
 					},
 					'number_of_data_quality_warnings' => {
-						'$sum' => {'$size' => '$data_quality_warnings_tags'}
+						'$sum' => {
+							'$cond' => {
+								'if' => {'$isArray' => '$data_quality_warnings_tags'},
+								'then' => {'$size' => '$data_quality_warnings_tags'},
+								'else' => 0
+							}
+						}
 					},
 					'number_of_products_without_nutriscore' => {
 						'$sum' => {
@@ -63,9 +75,14 @@ sub get_org_data ($org_id) {
 							'$cond' => [{'$in' => ['possible-improvements', '$misc_tags']}, 1, 0]
 						}
 					},
-					'products_with_changes_since_last_export' => {
+					'products_to_be_exported' => {
 						'$sum' => {
 							'$cond' => [{'$regexMatch' => {input => '$states', regex => 'en:to-be-exported'}}, 1, 0]
+						}
+					},
+					'products_exported' => {
+						'$sum' => {
+							'$cond' => [{'$regexMatch' => {input => '$states', regex => 'en:exported'}}, 1, 0]
 						}
 					},
 					'date_of_last_update' => {'$max' => '$last_modified_t'}
@@ -88,7 +105,8 @@ sub get_org_data ($org_id) {
 			'number_of_products_without_nutriscore' => $number_of_products_without_nutriscore,
 			'percentage_of_products_with_nutriscore' => $percentage_of_products_with_nutriscore,
 			'opportunities_to_improve_nutriscore' => $org_data->{opportunities_to_improve_nutriscore} // 0,
-			'products_with_changes_since_last_export' => $org_data->{products_with_changes_since_last_export} // 0,
+			'products_to_be_exported' => $org_data->{products_to_be_exported} // 0,
+			'products_exported' => $org_data->{products_exported} // 0,
 			'date_of_last_update' => $org_data->{date_of_last_update} // 0,
 		},
 	};
