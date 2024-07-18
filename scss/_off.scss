@@ -1213,10 +1213,16 @@ $font-green: #008c8c;
 .off-days-banner {
   background-color: $section-cyan;
   background-image: url('/images/misc/banners/FR.png');
-  background-size: cover;
+  background-size: contain;
+  height: 30vw;
   background-repeat: no-repeat;
   background-position: center;
   height: 300px;
+  @media #{$small-only} {
+    background-size: contain;
+    height: 25vw; ;
+  }
+  
 }
 
 .donation-banner,
