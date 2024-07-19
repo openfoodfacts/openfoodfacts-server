@@ -382,18 +382,18 @@ sub lint_entry($entry_ref, $do_sort) {
 sub normalized_line($entry) {
 	my $line = $entry->{line};
 	my $normalize_commas = ($entry->{type} eq "entry_lc") || ($entry->{type} eq "entry_id");
-	# remove trailing space at end of line
-	$line =~ s/ +$//g;
 	# insure exactly one space after line prefix
 	if ($entry->{type} eq "parent") {
-		$line =~ s/^<\s*/<: /;
+		$line =~ s/^< */< /;
 	} elsif (($entry->{type} eq "property") || ($entry->{type} eq "stopwords") || ($entry->{type} eq "synonyms")) {
 		# property_name:lang: or line_type:lang:
-		$line =~ s/^([^:]+):([^:]+):\s*/$1:$2: /;
+		$line =~ s/^([^:]+):([^:]+): */$1:$2: /;
 	} else {
 		# entry_id or entry_lc just have language
-		$line =~ s/^([^:]+):\s*/$1: /;
+		$line =~ s/^([^:]+): */$1: /;
 	}
+	# remove trailing space at end of line
+	$line =~ s/ +$//g;
 	if ($normalize_commas) {
 		# remove multiple commas
 		$line =~ s/,+/,/g;
@@ -406,7 +406,7 @@ sub normalized_line($entry) {
 		# escaped comma \,
 		$line =~ s/\\,/\\‚/g;
 		# ensure exactly one space after commas
-		$line =~ s/,(\s)*/, /g;
+		$line =~ s/,( )*/, /g;
 		# put back lower comma
 		$line =~ s/‚/,/g;
 	}
