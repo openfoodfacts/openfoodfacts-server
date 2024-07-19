@@ -149,7 +149,8 @@ sub iter_taxonomy_entries ($lines_iter) {
 				my $entry = {
 					type => $entry_type,
 					parents => [],
-					entry_id_line => {line => $line, previous => [@previous_lines], line_num => $line_num, type => $entry_type},
+					entry_id_line =>
+						{line => $line, previous => [@previous_lines], line_num => $line_num, type => $entry_type},
 					entries => {},
 					props => {},
 					original_lines => \@original_lines,
@@ -186,7 +187,13 @@ sub iter_taxonomy_entries ($lines_iter) {
 			# synonym
 			elsif ($line =~ /^(\w+):[^:]*(,.*)*$/) {
 				if (!defined $entry_id_line) {
-					$entry_id_line = {line => $line, previous => [@previous_lines], lc => $1, line_num => $line_num, type => "entry_id"};
+					$entry_id_line = {
+						line => $line,
+						previous => [@previous_lines],
+						lc => $1,
+						line_num => $line_num,
+						type => "entry_id"
+					};
 				}
 				else {
 					my $lc = $1;
@@ -213,7 +220,8 @@ sub iter_taxonomy_entries ($lines_iter) {
 						push @{$entries{$lc}{previous}}, @previous_lines;
 					}
 					else {
-						$entries{$lc} = {line => $line, previous => [@previous_lines], line_num => $line_num, type => "entry_lc"};
+						$entries{$lc}
+							= {line => $line, previous => [@previous_lines], line_num => $line_num, type => "entry_lc"};
 					}
 				}
 				@previous_lines = ();
@@ -238,7 +246,8 @@ sub iter_taxonomy_entries ($lines_iter) {
 					);
 				}
 				# override to continue
-				$props{"$prop:$lc"} = {line => $line, previous => [@previous_lines], line_num => $line_num, type => "property"};
+				$props{"$prop:$lc"}
+					= {line => $line, previous => [@previous_lines], line_num => $line_num, type => "property"};
 				@previous_lines = ();
 			}
 			# comments or undefined
@@ -385,10 +394,12 @@ sub normalized_line($entry) {
 	# insure exactly one space after line prefix
 	if ($entry->{type} eq "parent") {
 		$line =~ s/^< */< /;
-	} elsif (($entry->{type} eq "property") || ($entry->{type} eq "stopwords") || ($entry->{type} eq "synonyms")) {
+	}
+	elsif (($entry->{type} eq "property") || ($entry->{type} eq "stopwords") || ($entry->{type} eq "synonyms")) {
 		# property_name:lang: or line_type:lang:
 		$line =~ s/^([^:]+):([^:]+): */$1:$2: /;
-	} else {
+	}
+	else {
 		# entry_id or entry_lc just have language
 		$line =~ s/^([^:]+): */$1: /;
 	}
