@@ -79,6 +79,8 @@ sub process_file {
 			$action = 'unarchived';
 		}
 
+		$change->{diffs}{initial_import} = 1;
+
 		print $file encode_json(
 			{
 				timestamp => $change->{t},
