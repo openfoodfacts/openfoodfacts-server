@@ -106,7 +106,7 @@ sub normalize_code {
 			"$code" when 'ie';
 			"$code EC" when 'it';
 			"LT $code EC" when 'lt';
-			"LU $code EC" when 'lu';
+			"$code" when 'lu';
 			"PL $code EC" when 'pl';
 			"$code EC" when 'rs';
 			"SE $code EC" when 'se';
@@ -182,7 +182,7 @@ my %approval_key = (
 	ie => 'code',
 	it => 'approvalnumber',
 	lt => 'vet_approval_no',
-	lu => 'zulassungsnummer',
+	lu => 'code',
 	pl => 'code',
 	rs => 'approval_number',
 	se => 'nr',

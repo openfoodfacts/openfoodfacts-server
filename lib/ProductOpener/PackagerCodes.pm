@@ -197,6 +197,7 @@ my %local_ec = (
 	HU => "ES",
 	IE => "EC",
 	IT => "CE",
+    LU => "CE",
 	NL => "EG",
 	PL => "WE",
 	PT => "CE",
