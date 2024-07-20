@@ -35,8 +35,8 @@ use JSON;
 # and process its changes to generate a JSONL file of historical events
 
 # JSONL
-my $filename = 'historical_events.jsonl';
-open(my $file, '>:encoding(UTF-8)', $filename) or die "Could not open file '$filename' $!";
+# my $filename = 'historical_events.jsonl';
+# open(my $file, '>:encoding(UTF-8)', $filename) or die "Could not open file '$filename' $!";
 
 my $total = 0;
 
@@ -48,8 +48,8 @@ sub process_file {
 		print STDERR "$total processed\n";
 	}
 
-	my $product = retrieve($path);
-	my $changes = retrieve($path->parent . "/changes.sto");
+	my $product = retrieve($path. "/product.sto");
+	my $changes = retrieve($path . "/changes.sto");
 
 	# JSONL
 	my $rev = 0;    # some $change don't have a 'rev'
@@ -81,40 +81,55 @@ sub process_file {
 
 		$change->{diffs}{initial_import} = 1;
 
-		print $file encode_json(
-			{
-				timestamp => $change->{t},
-				barcode => $product->{code},
-				userid => $change->{userid},
-				comment => $change->{comment},
-				product_type => $options{product_type},
-				action => $action,
-				diffs => $change->{diffs}
-			}
-		) . "\n";
+		# print $file encode_json(
+		# 	{
+		# 		timestamp => $change->{t},
+		# 		barcode => $product->{code},
+		# 		userid => $change->{userid},
+		# 		comment => $change->{comment},
+		# 		product_type => $options{product_type},
+		# 		action => $action,
+		# 		diffs => $change->{diffs}
+		# 	}
+		# ) . "\n";
 
-		# push_to_redis_stream(
-		# 	$change->{userid},
-		# 	$product,
-		# 	$action,
-		# 	$change->{comment}
-		# 	$change->{diffs},
-		# 	$change->{t}
-		# );
+		push_to_redis_stream(
+			$change->{userid} // 'initial_import',
+			$product,
+			$action,
+			$change->{comment},
+			$change->{diffs},
+			$change->{t}
+		);
 	}
 
 	return 1;
 }
 
 # because getting products from mongodb won't give 'deleted' ones
-path($BASE_DIRS{PRODUCTS})->visit(
-	sub {
-		my ($path, $state) = @_;
-		if ($path->is_file && $path->basename eq 'product.sto') {
-			process_file($path);
-		}
-	},
-	{recurse => 1}
-);
+# found that path->visit was slow with full product volume
+sub find_products {
+	my $dir = shift;
+	my $code = shift;
 
-close $file;
+	opendir DH, "$dir" or die "could not open $dir directory: $!\n";
+	my @files = readdir(DH);
+	closedir DH;
+	foreach my $entry (@files) {
+		next if $entry =~ /^\.\.?$/;
+		my $file_path = "$dir/$entry";
+		if (-d $file_path) {
+			find_products($file_path,"$code$entry");
+			next;
+		}
+		if ($entry eq 'product.sto') {
+			process_file($dir);
+		} 
+	}
+
+	return;
+}
+
+find_products($BASE_DIRS{PRODUCTS},'');
+
+#close $file;
