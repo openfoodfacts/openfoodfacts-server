@@ -129,6 +129,7 @@ on 'test' => sub {
   requires 'Test::File::Contents';
   requires 'FindBin';
   requires 'Test::Pod';
+  requires 'UUID';
 };
 
 on 'develop' => sub {
