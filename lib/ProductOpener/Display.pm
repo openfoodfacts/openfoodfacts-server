@@ -128,7 +128,7 @@ BEGIN {
 		$knowledge_panels_options_ref
 
 		&display_nutriscore_calculation_details_2021
-		&get_org_id_pretty_path
+		&get_owner_pretty_path
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -390,6 +390,7 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	(not defined $template_data_ref->{user_id}) and $template_data_ref->{user_id} = $User_id;
 	(not defined $template_data_ref->{user}) and $template_data_ref->{user} = \%User;
 	(not defined $template_data_ref->{org_id}) and $template_data_ref->{org_id} = $Org_id;
+	$template_data_ref->{owner_pretty_path} = get_owner_pretty_path();
 
 	$template_data_ref->{flavor} = $flavor;
 	$template_data_ref->{options} = \%options;
@@ -1298,7 +1299,7 @@ sub display_index_for_producer ($request_ref) {
 	# Display a message if some product updates have not been published yet
 	# Updates can also be on obsolete products
 
-	$template_data_ref->{org_id_pretty_path} = get_org_id_pretty_path();
+	$template_data_ref->{owner_pretty_path} = get_owner_pretty_path();
 	$template_data_ref->{count_to_be_exported} = count_products({}, {states_tags => "en:to-be-exported"});
 	$template_data_ref->{count_obsolete_to_be_exported} = count_products({}, {states_tags => "en:to-be-exported"}, 1);
 
@@ -4034,6 +4035,15 @@ HTML
 						;
 				}
 
+				if ($packager_codes{$canon_tagid}{cc} eq 'ie') {
+					$description .= <<HTML
+<p>$packager_codes{$canon_tagid}{name}<br>
+$packager_codes{$canon_tagid}{address} (Ireland)
+</p>
+HTML
+						;
+				}
+
 				if ($packager_codes{$canon_tagid}{cc} eq 'si') {
 					$description .= <<HTML
 <p>$packager_codes{$canon_tagid}{name}<br>
@@ -5360,7 +5370,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 
 				# Add a url field to the product, with the subdomain and path
 				my $url_path = product_url($product_ref);
-				$product_ref->{url} = $formatted_subdomain . get_org_id_pretty_path() . $url_path;
+				$product_ref->{url} = $formatted_subdomain . get_owner_pretty_path() . $url_path;
 				# Compute HTML to display the small front image, currently embedded in the HTML of web queries
 				if (not $api) {
 					$product_ref->{image_front_small_html} = display_image_thumb($product_ref, 'front');
@@ -5506,7 +5516,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 
 				push @{$template_data_ref->{current_drilldown_fields}},
 					{
-					current_link => get_org_id_pretty_path() . $request_ref->{current_link},
+					current_link => get_owner_pretty_path() . $request_ref->{current_link},
 					tag_type_plural => $tag_type_plural{$newtagtype}{$lc},
 					nofollow => $nofollow,
 					tagtype => $newtagtype,
@@ -11592,7 +11602,7 @@ sub data_to_display_image ($product_ref, $imagetype, $target_lc) {
 	return $image_ref;
 }
 
-=head2 get_org_id_pretty_path ()
+=head2 get_owner_pretty_path ()
 
 Returns the pretty path for the organization page 
 or an empty string if not on the producers platform.
@@ -11601,8 +11611,8 @@ or an empty string if not on the producers platform.
 
 =cut
 
-sub get_org_id_pretty_path () {
-	return $server_options{producers_platform} ? "/org/$Org_id" : "";
+sub get_owner_pretty_path () {
+	return ($server_options{producers_platform} and defined $Owner_id) ? "/org/$Owner_id" : "";
 }
 
 1;
