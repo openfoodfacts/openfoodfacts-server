@@ -4,16 +4,12 @@ name: 🕹️ On demand PR action
 on:
   issue_comment:
     types: [created, edited]
-  # TO TEST
-  pull_request_target:
-    types:
-      - edited
 
 jobs:
   # Action to update test results by issuing /lint
   run_lint:
-# TO TEST
-#    if: ${{ github.event.issue.pull_request }} && github.event.comment.body == '/lint'
+    name: "On demand linting"
+    if: ${{ github.event.issue.pull_request }} && github.event.comment.body == '/lint'
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
@@ -21,18 +17,14 @@ jobs:
       with:
         fetch-depth: 1
         # grab the PR branch
-        # TEST 
-        ref: ${{ github.event.head.ref}}
-        # ref: ${{ github.event.pull_request.head.ref }}
+        ref: ${{ github.event.pull_request.head.ref }}
     - name: Run linting
       run: make lint front_lint
     - name: Push changes if needed
       uses: stefanzweifel/git-auto-commit-action@v5
       with:
         commit_message: "chore: Linting changes"
-        # TEST
-        branch: ${{ github.event.head.ref}}
-        # branch: ${{ github.event.pull_request.head.ref }}
+        branch: ${{ github.event.pull_request.head.ref }}
         commit_user_name: Open Food Facts Bot
         commit_user_email: contact@openfoodfacts.org
         commit_author: Open Food Facts Bot <contact@openfoodfacts.org>
@@ -43,8 +35,8 @@ jobs:
 
   # Action to update test results by issuing /update_tests_results
   update_test_results:
-    # TEST
-    # if: ${{ github.event.issue.pull_request }} && github.event.comment.body == '/update_tests_results'
+    name: "On demand Update Tests Results"
+    if: ${{ github.event.issue.pull_request }} && github.event.comment.body == '/update_tests_results'
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
@@ -52,18 +44,14 @@ jobs:
       with:
         fetch-depth: 1
         # grab the PR branch
-        # TEST 
-        ref: ${{ github.event.head.ref}}
-        # ref: ${{ github.event.pull_request.head.ref }}
+        ref: ${{ github.event.pull_request.head.ref }}
     - name: Run update tests results
       run: make update_tests_results
     - name: Push changes if needed
       uses: stefanzweifel/git-auto-commit-action@v5
       with:
         commit_message: "test: Update tests results"
-        # TEST
-        branch: ${{ github.event.head.ref}}
-        # branch: ${{ github.event.pull_request.head.ref }}
+        branch: ${{ github.event.pull_request.head.ref }}
         commit_user_name: Open Food Facts Bot
         commit_user_email: contact@openfoodfacts.org
         commit_author: Open Food Facts Bot <contact@openfoodfacts.org>
