@@ -19,7 +19,8 @@ BEGIN {
 	@EXPORT_OK = qw(
 		&init_request_stats
 		&set_request_stats_value
-		&set_request_stats_time_value
+		&set_request_stats_time_start
+		&set_request_stats_time_end
 		&log_request_stats
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -28,7 +29,7 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use Log::Any qw/$log/;
-use Time::HiRes;
+use Time::Monotonic qw(monotonic_time);
 
 # Specific logger to log request stats
 our $requeststats_log = Log::Any->get_logger(category => 'requeststats');
@@ -36,7 +37,7 @@ our $requeststats_log = Log::Any->get_logger(category => 'requeststats');
 sub init_request_stats() {
 
 	my $stats_ref = {};
-	set_request_stats_time_value($stats_ref, "request_start");
+	set_request_stats_time_start($stats_ref, "request");
 	return $stats_ref;
 }
 
@@ -45,14 +46,19 @@ sub set_request_stats_value($stats_ref, $key, $value) {
 	return;
 }
 
-sub set_request_stats_time_value($stats_ref, $key) {
-	$stats_ref->{$key} = Time::HiRes::time();
+sub set_request_stats_time_start($stats_ref, $key) {
+	$stats_ref->{$key . "_start"} = monotonic_time();
+	return;
+}
+
+sub set_request_stats_time_end($stats_ref, $key) {
+	$stats_ref->{$key . "_end"} = monotonic_time();
 	return;
 }
 
 sub log_request_stats($stats_ref) {
 
-	set_request_stats_time_value($stats_ref, "request_end");
+	set_request_stats_time_end($stats_ref, "request");
 
 	# Turn all keys ending with _start and _end to a key with the suffix _duration
 	foreach my $key (keys %$stats_ref) {
