@@ -59,23 +59,20 @@ sub log_request_stats($stats_ref) {
 		if ($key =~ /_start$/) {
 			my $duration_key = $key;
 			$duration_key =~ s/_start$/_duration/;
-				my $key_prefix = $key;
-				$key_prefix =~ s/_start$//;
-				if (defined $stats_ref->{$key_prefix . "_end"}) {
-					$stats_ref->{$duration_key} = $stats_ref->{$key_prefix . "_end"} - $stats_ref->{$key};
-				}
-				else {
-					$log->warn("No end key for start key $key in request stats");
-				}
+			my $key_prefix = $key;
+			$key_prefix =~ s/_start$//;
+			if (defined $stats_ref->{$key_prefix . "_end"}) {
+				$stats_ref->{$duration_key} = $stats_ref->{$key_prefix . "_end"} - $stats_ref->{$key};
+			}
+			else {
+				$log->warn("No end key for start key $key in request stats");
+			}
 			delete $stats_ref->{$key};
 			delete $stats_ref->{$key_prefix . "_end"};
 		}
 	}
 
-	$requeststats_log->info(
-			"request_stats",
-			$stats_ref
-		) if $requeststats_log->is_info();
+	$requeststats_log->info("request_stats", $stats_ref) if $requeststats_log->is_info();
 
 	return;
 }
