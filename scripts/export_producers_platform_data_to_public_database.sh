@@ -10,28 +10,7 @@ filter_organizations_that_have_automated_export() {
         use warnings;
         use ProductOpener::Data qw/get_orgs_collection/;
 
-        my %producers = map { $_,1 } qw(
-            org-barilla-france-sa
-            org-ferrero-france-commerciale
-            org-unilever-france-gms
-            org-unilever-france-rhd
-            org-nestle-france
-            org-panzani-sa
-            org-cristalco
-            org-materne
-            org-garofalo-france
-            org-brasseries-kronenbourg
-            org-carrefour
-            org-lustucru-frais
-            org-nestle-waters
-            org-kambly
-            org-kambly-france
-            org-saint-hubert
-            org-d-aucy
-            org-lea-nature
-            org-auchan-apaw
-            org-les-mousquetaires
-        );
+        my %producers = ();
 
         my @res = get_orgs_collection()
                         ->find({ activate_automated_daily_export_to_public_platform => "on" })
@@ -41,7 +20,6 @@ filter_organizations_that_have_automated_export() {
         $producers{"org-" . $_->{org_id}} = undef for @res;
 
         print "$_\n" for keys %producers;
-
     '
 }
 
