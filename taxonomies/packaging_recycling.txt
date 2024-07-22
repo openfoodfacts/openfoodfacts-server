@@ -35,10 +35,13 @@ pt:reciclável, a reciclar, para reciclar
 en:recycle in glass bin, recycle in glass container, recycle with glass, in glass bin, in glass container
 es:Contenedor verde, Al verde, Contenedor de vidrio, Recicla verde
 fr:recycler dans le conteneur à verre, recycler dans le bac à verre, recycler avec le verre, dans le conteneur à verre, avec le verre, tri verre, bac verre
-nl:recyclen in de glasbak, Glasbak, in de glasbak, in glasbak
+nl:recyclen in de glasbak
 pt:Ecoponto Verde, Recicla verde
 # comment:en:If the recycling instruction is to recycle in the glass bin, we can assume the material is glass
 packaging_materials:en: en:glass
+
+<en:recycle in glass bin
+nl:glasbak, in de glasbak, in glasbak
 
 <en:recycle
 en:recycle in paper bin, recycle in paper container, recycle with paper
@@ -69,19 +72,26 @@ fr:recycler avec le plastique
 nl:recycle bij plastic afval, bij plastic afval, plastic afval
 packaging_materials:en: en:plastic
 
-#packaging that is to be returned to the shop, in exchange for money, might be PET-bottles, meetal cans or glass bottles
+#packaging that is to be returned to the shop, in exchange for money, might be PET-bottles, metal cans or glass bottles
 <en:recycle
 en:return to store, deposit
 fr:consigné, consigne, rapporter au magasin, retourner au magasin
 # nl:recycle-als-statiegeld is already coer
 
-#In the Netherlands PET bottles must be returned in exchange for the deposit, when it has the statiegeldfles logo
 <en:return to store
 en:return PET bottle to store, PET deposit bottle
 fr:bouteille en PET consignée, rapporter la bouteille en PET au magasin
-nl:recycle als statiegeldfles, statiegeldfles
-packaging_materials:en: en:pet-1-polyethylene-terephthalate
+
+#In the Netherlands PET bottles must be returned in exchange for the deposit, when it has the statiegeldfles logo
+<en:return to store
+nl:statiegeldfles, recycle als statiegeldfles
+packaging_materials:en: en:pet-polyethylene-terephthalate
 packaging_shapes:en: en:bottle
+
+#In the Netherlands metal cans must be returned in exchange for the deposit, when it has the statiegeldblik logo
+<en:return to store
+nl:statiegeldblik, recycle als statiegeldblik
+packaging_shapes:en: en:can
 
 # In Croatia, there is a specific label for plastic and glass bottle with deposit
 <en:return to store
