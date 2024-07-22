@@ -4,12 +4,16 @@ name: 🕹️ On demand PR action
 on:
   issue_comment:
     types: [created, edited]
+  push:
+    branches:
+    - ci-pr-actions
 
 jobs:
   # Action to update test results by issuing /lint
   run_lint:
     name: "On demand linting"
-    if: ${{ github.event.issue.pull_request }} && github.event.comment.body == '/lint'
+    # TESTING
+    # if: ${{ github.event.issue.pull_request }} && github.event.comment.body == '/lint'
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
@@ -17,14 +21,18 @@ jobs:
       with:
         fetch-depth: 1
         # grab the PR branch
-        ref: ${{ github.event.pull_request.head.ref }}
+        # TESTING
+        ref: "ci-pr-actions"
+        # ref: ${{ github.event.pull_request.head.ref }}
     - name: Run linting
       run: make lint front_lint
     - name: Push changes if needed
       uses: stefanzweifel/git-auto-commit-action@v5
       with:
         commit_message: "chore: Linting changes"
-        branch: ${{ github.event.pull_request.head.ref }}
+        # TESTING
+        branch: "ci-pr-actions"
+        # branch: ${{ github.event.pull_request.head.ref }}
         commit_user_name: Open Food Facts Bot
         commit_user_email: contact@openfoodfacts.org
         commit_author: Open Food Facts Bot <contact@openfoodfacts.org>
@@ -44,14 +52,18 @@ jobs:
       with:
         fetch-depth: 1
         # grab the PR branch
-        ref: ${{ github.event.pull_request.head.ref }}
+        # TESTING
+        ref: "ci-pr-actions"
+        # ref: ${{ github.event.pull_request.head.ref }}
     - name: Run update tests results
       run: make update_tests_results
     - name: Push changes if needed
       uses: stefanzweifel/git-auto-commit-action@v5
       with:
         commit_message: "test: Update tests results"
-        branch: ${{ github.event.pull_request.head.ref }}
+        # TESTING
+        branch: "ci-pr-actions"
+        # branch: ${{ github.event.pull_request.head.ref }}
         commit_user_name: Open Food Facts Bot
         commit_user_email: contact@openfoodfacts.org
         commit_author: Open Food Facts Bot <contact@openfoodfacts.org>
