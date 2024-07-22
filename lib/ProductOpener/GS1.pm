@@ -1749,8 +1749,11 @@ sub convert_gs1_json_message_to_off_products_csv ($json_ref, $products_ref, $mes
 	gs1_to_off(\%gs1_product_to_off, $json_ref, $product_ref);
 
 	# assign the lang and lc fields
+	# we use the language with the most fields
+	# if several languages have the same number of fields, we use the first one in alphabetical order
+	# TODO: it might be good to also use the product target markets / countries to prioritize the main language
 	if (defined $product_ref->{languages}) {
-		my @sorted_languages = sort({$product_ref->{languages}{$b} <=> $product_ref->{languages}{$a}}
+		my @sorted_languages = sort({($product_ref->{languages}{$b} <=> $product_ref->{languages}{$a}) || ($a cmp $b)}
 			keys %{$product_ref->{languages}});
 		my $top_language = $sorted_languages[0];
 		$product_ref->{lc} = $top_language;
