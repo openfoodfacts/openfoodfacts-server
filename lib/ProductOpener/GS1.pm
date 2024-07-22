@@ -67,7 +67,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Tags qw/%language_fields canonicalize_taxonomy_tag exists_taxonomy_tag/;
 use ProductOpener::Display qw/$tt process_template display_date_iso/;
 
-use JSON::PP;
+use JSON::MaybeXS;
 use boolean;
 use Data::DeepAccess qw(deep_get);
 use XML::XML2JSON;
