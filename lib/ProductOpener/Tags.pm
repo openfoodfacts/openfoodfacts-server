@@ -1506,7 +1506,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 				}
 
 			}
-			elsif ($line =~ /^expected_nutriscore_grade:en:/) {
+			elsif ($line =~ /^expected_nutriscore_grade:en: */) {
 				# the line should be the nutriscore grade: a, b, c, d or e
 				my $nutriscore_grade = $';    # everything after the matched string
 

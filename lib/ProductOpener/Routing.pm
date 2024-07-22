@@ -56,6 +56,7 @@ use ProductOpener::Food qw/%nutriments_labels/;
 use ProductOpener::Index qw/%texts/;
 use ProductOpener::Store qw/get_string_id_for_lang/;
 use ProductOpener::Redis qw/:all/;
+use ProductOpener::RequestStats qw/:all/;
 
 use Encode;
 use CGI qw/:cgi :form escapeHTML/;
@@ -231,6 +232,8 @@ sub index_route($request_ref, @components) {
 		$request_ref->{text} = 'index-pro';
 	}
 
+	set_request_stats_value($request_ref->{stats}, "route", "index");
+
 	return 1;
 }
 
@@ -256,8 +259,10 @@ sub org_route($request_ref, @components) {
 	if ($orgid ne $Owner_id) {
 		$log->debug("checking edit owner", {orgid => $orgid, ownerid => $Owner_id}) if $log->is_debug();
 		my @errors = ();
+		my $moderator;
 		if ($request_ref->{admin} or $User{pro_moderator}) {
-			ProductOpener::Users::check_edit_owner(\%User, \@errors, $orgid);
+			$moderator = retrieve_user($request_ref->{user_id});
+			ProductOpener::Users::check_edit_owner($moderator, \@errors, $orgid);
 		}
 		else {
 			$request_ref->{status_code} = 404;
@@ -266,6 +271,8 @@ sub org_route($request_ref, @components) {
 		}
 		if (scalar @errors eq 0) {
 			set_owner_id();
+			# will save the pro_moderator_owner field
+			store_user($moderator);
 		}
 		else {
 			$request_ref->{status_code} = 404;
@@ -349,6 +356,9 @@ sub api_route($request_ref, @components) {
 		}
 	) if $log->is_debug();
 
+	set_request_stats_value($request_ref->{stats}, "route", "api");
+	set_request_stats_value($request_ref->{stats}, "api_action", $request_ref->{api_action});
+
 	return 1;
 }
 
@@ -356,6 +366,7 @@ sub api_route($request_ref, @components) {
 #
 sub search_route($request_ref, @components) {
 	$request_ref->{search} = 1;
+	set_request_stats_value($request_ref->{stats}, "route", "search");
 	return 1;
 }
 
@@ -364,6 +375,7 @@ sub search_route($request_ref, @components) {
 # e.g. taxonomy?type=categories&tags=en:fruits,en:vegetables&fields=name,description,parents,children,vegan:en,inherited:vegetarian:en&lc=en,fr&include_children=1
 sub taxonomy_route($request_ref, @components) {
 	$request_ref->{taxonomy} = 1;
+	set_request_stats_value($request_ref->{stats}, "route", "taxonomy");
 	return 1;
 }
 
@@ -380,6 +392,7 @@ sub properties_route($request_ref, @components) {
 sub products_route($request_ref, @components) {
 	param("code", $components[0]);
 	$request_ref->{search} = 1;
+	set_request_stats_value($request_ref->{stats}, "route", "search");
 	return 1;
 }
 
@@ -399,6 +412,7 @@ sub product_route($request_ref, @components) {
 		$request_ref->{product} = 1;
 		$request_ref->{code} = $components[1];
 		$request_ref->{titleid} = $components[2] // '';
+		set_request_stats_value($request_ref->{stats}, "route", "product");
 	}
 	else {
 		$request_ref->{status_code} = 404;
@@ -416,6 +430,7 @@ sub text_route($request_ref, @components) {
 	if (defined $texts{$text}{$request_ref->{lc}} || defined $texts{$text}{'en'}) {
 		$request_ref->{text} = $text;
 		$request_ref->{canon_rel_url} = "/" . $text;
+		set_request_stats_value($request_ref->{stats}, "route", "text");
 	}
 	else {
 		$request_ref->{status_code} = 404;
@@ -530,6 +545,15 @@ sub facets_route($request_ref, @components) {
 	}
 
 	$request_ref->{canon_rel_url} .= $canon_rel_url_suffix;
+
+	if (defined $request_ref->{groupby_tagtype}) {
+		set_request_stats_value($request_ref->{stats}, "route", "facets_tags");
+		set_request_stats_value($request_ref->{stats}, "groupby_tagtype", $request_ref->{groupby_tagtype});
+	}
+	else {
+		set_request_stats_value($request_ref->{stats}, "route", "facets_products");
+	}
+	set_request_stats_value($request_ref->{stats}, "facets_tags", (scalar @{$request_ref->{tags}}));
 	return 1;
 }
 
