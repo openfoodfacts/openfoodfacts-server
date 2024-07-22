@@ -5,9 +5,9 @@ on:
   issue_comment:
     types: [created, edited]
   # TO TEST
-  pull_request:
-    branches:
-      - ci-pr-actions
+  pull_request_target:
+    types:
+      - edited
 
 jobs:
   # Action to update test results by issuing /lint
