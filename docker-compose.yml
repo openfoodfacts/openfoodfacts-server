@@ -35,6 +35,8 @@ x-backend-conf: &backend-conf
     - ODOO_CRM_DB
     - ODOO_CRM_USER
     - ODOO_CRM_PASSWORD
+    - OTEL_COLLECTOR_HOST
+    - OTEL_COLLECTOR_PORT_GRPC
     - OTEL_EXPORTER_OTLP_ENDPOINT
   depends_on:
     - memcached
@@ -113,6 +115,8 @@ services:
       - backend
     environment:
       - PRODUCT_OPENER_DOMAIN
+      - OTEL_COLLECTOR_HOST
+      - OTEL_COLLECTOR_PORT_GRPC
       - OTEL_EXPORTER_OTLP_ENDPOINT
     volumes:
       - product_images:/opt/product-opener/html/images/products:ro
@@ -136,7 +140,8 @@ services:
       - ./logs/nginx/:/var/log/nginx/
 
       # Nginx, we use templates dir to be able to use environment vars
-      - ./conf/nginx-docker/nginx.conf:/etc/nginx/templates/default.conf.template
+      - ./conf/nginx-docker/nginx.conf:/etc/nginx/nginx.conf
+      - ./conf/nginx-docker/default.conf.template:/etc/nginx/templates/default.conf.template
       # cors headers definition as an include
       - ./conf/nginx/snippets/off.cors-headers.include:/etc/nginx/snippets/off.cors-headers.include
       - ./conf/nginx/snippets/expiry-headers.include:/etc/nginx/snippets/expiry-headers.include
@@ -144,8 +149,6 @@ services:
       - ./conf/nginx/snippets/expires-no-json-xml.conf:/etc/nginx/snippets/expires-no-json-xml.conf
       # some redirects
       - ./conf/nginx/snippets/off.locations-redirects.include:/etc/nginx/snippets/off.locations-redirects.include
-      # OTEL
-      - ./conf/nginx-docker/modules-enabled/otel.conf:/etc/nginx/snippets/otel.include
     ports:
       - ${PRODUCT_OPENER_EXPOSE}${PRODUCT_OPENER_PORT}:80
 
