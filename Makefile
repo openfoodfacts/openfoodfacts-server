@@ -495,8 +495,10 @@ clone_deps:
 	for dep in ${DEPS} ; do \
 		echo $$dep; \
 		if [ ! -d ${DEPS_DIR}/$$dep ]; then \
+			echo "Cloning $$dep"; \
 			git clone --filter=blob:none --sparse \
 				https://github.com/openfoodfacts/$$dep.git ${DEPS_DIR}/$$dep; \
+			echo "Cloned $$dep"; \
 		else \
 			cd ${DEPS_DIR}/$$dep && git pull; \
 		fi; \
