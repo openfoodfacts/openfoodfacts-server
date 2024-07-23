@@ -195,7 +195,7 @@ use LWP::UserAgent ();
 use Encode;
 
 use GraphViz2;
-use JSON::PP;
+use JSON::MaybeXS;
 
 use Data::DeepAccess qw(deep_get deep_exists);
 
