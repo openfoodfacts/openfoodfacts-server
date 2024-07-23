@@ -1212,7 +1212,7 @@ $font-green: #008c8c;
 
 .off-days-banner {
   background-color: $section-cyan;
-  background-image: url('/images/misc/banners/FR.png');
+  // background-image: url('/images/misc/banners/FR.png');
   background-size: contain;
   height: 30vw;
   background-repeat: no-repeat;
@@ -1222,7 +1222,12 @@ $font-green: #008c8c;
     background-size: contain;
     height: 25vw; ;
   }
-  
+  &__FR {
+    background-image: url('/images/misc/banners/FR.png');
+  }
+  &__ENG {
+    background-image: url('/images/misc/banners/ENG.png');
+  }
 }
 
 .donation-banner,
