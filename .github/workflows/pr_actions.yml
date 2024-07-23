@@ -40,6 +40,10 @@ jobs:
         status_options: '--untracked-files=no'
         skip_dirty_check: false
         create_branch: no
+        # We can't use GITHUB_TOKEN here because, github actions can't trigger actions
+        # see: https://docs.github.com/en/actions/security-guides/automatic-token-authentication#using-the-github_token-in-a-workflow
+        # So this is a personal access token
+        token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
 
   # Action to update test results by issuing /update_tests_results
   update_test_results:
@@ -72,3 +76,7 @@ jobs:
         status_options: '--untracked-files=no'
         skip_dirty_check: false
         create_branch: no
+        # We can't use GITHUB_TOKEN here because, github actions can't trigger actions
+        # see: https://docs.github.com/en/actions/security-guides/automatic-token-authentication#using-the-github_token-in-a-workflow
+        # So this is a personal access token
+        token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
