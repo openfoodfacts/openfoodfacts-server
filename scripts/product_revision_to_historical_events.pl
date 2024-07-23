@@ -34,11 +34,12 @@ use JSON;
 # This script recursively visits all product.sto files from the root of the products directory
 # and process its changes to generate a JSONL file of historical events
 
-my ($checkpoint_file, $last_processed_path) = open_checkpoint('checkpoint.tmp');
+my ($checkpoint_file, $last_processed_path, $last_processed_rev) = open_checkpoint('checkpoint.tmp');
+my $can_process = $last_processed_path ? 0 : 1;
 
 # JSONL
 my $filename = 'historical_events.jsonl';
-open(my $file, '>:encoding(UTF-8)', $filename) or die "Could not open file '$filename' $!";
+open(my $file, '>>:encoding(UTF-8)', $filename) or die "Could not open file '$filename' $!";
 
 my $total = 0;
 
@@ -46,8 +47,8 @@ sub process_file {
 	my ($path) = @_;
 	$total++;
 
-	if ($total % 1000 == 0) {
-		print STDERR "$total processed\n";
+	if ($can_process and $total % 1000 == 0) {
+		print "$total processed\n";
 	}
 
 	my $product = retrieve($path . "/product.sto");
@@ -59,6 +60,14 @@ sub process_file {
 
 	foreach my $change (@{$changes}) {
 		$rev++;
+
+		if (not $can_process and $rev == $last_processed_rev) {
+			$can_process = 1;
+			print "Resuming from '$last_processed_path' revision $last_processed_rev\n";
+		}
+
+		next if not $can_process;
+
 		my $action = 'updated';
 		if ($rev eq 1) {
 			$action = 'created';
@@ -103,6 +112,8 @@ sub process_file {
 		# 	$change->{diffs},
 		# 	$change->{t}
 		# );
+
+		update_checkpoint($checkpoint_file, $path, $rev);
 	}
 
 	return 1;
@@ -110,8 +121,6 @@ sub process_file {
 
 # because getting products from mongodb won't give 'deleted' ones
 # found that path->visit was slow with full product volume
-my $can_process = $last_processed_path ? 0 : 1;
-
 sub find_products {
 	my $dir = shift;
 	my $code = shift;
@@ -128,14 +137,8 @@ sub find_products {
 		}
 
 		if ($entry eq 'product.sto') {
-			if ($last_processed_path and $last_processed_path eq $dir) {
-				$can_process = 1;
-				print "Resuming from $dir\n";
-			}
-
-			if ($can_process) {
+			if ($can_process or ($last_processed_path and $last_processed_path eq $dir)) {
 				process_file($dir);
-				update_checkpoint($checkpoint_file, $dir);
 			}
 		}
 	}
@@ -150,15 +153,19 @@ sub open_checkpoint {
 	}
 	open(my $checkpoint_file, '+<', $filename) or die "Could not open file '$filename' $!";
 	seek($checkpoint_file, 0, 0);
-	my $last_processed_path = <$checkpoint_file>;
-	chomp $last_processed_path if $last_processed_path;
-	return ($checkpoint_file, $last_processed_path);
+	my $checkpoint = <$checkpoint_file>;
+	chomp $checkpoint if $checkpoint;
+	my ($last_processed_path, $rev);
+	if ($checkpoint) {
+		($last_processed_path, $rev) = split(',', $checkpoint);
+	}
+	return ($checkpoint_file, $last_processed_path, $rev);
 }
 
 sub update_checkpoint {
-	my ($checkpoint_file, $new_path) = @_;
+	my ($checkpoint_file, $dir, $revision) = @_;
 	seek($checkpoint_file, 0, 0);
-	print $checkpoint_file $new_path . "\n";
+	print $checkpoint_file "$dir,$revision";
 	truncate($checkpoint_file, tell($checkpoint_file));
 }
 
