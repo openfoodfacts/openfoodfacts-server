@@ -119,6 +119,9 @@ sub execute_count_tags_query ($query) {
 	return execute_tags_query('count', $query);
 }
 
+# $json has utf8 disabled: it encodes to Perl Unicode strings
+my $json = JSON::MaybeXS->new->utf8(0)->allow_nonref->canonical;
+
 sub execute_tags_query ($type, $query) {
 	if ((defined $query_url) and (length($query_url) > 0)) {
 		$query_url =~ s/^\s+|\s+$//g;
@@ -137,7 +140,7 @@ sub execute_tags_query ($type, $query) {
 			'Content-Type' => 'application/json; charset=utf-8'
 		);
 		if ($resp->is_success) {
-			return decode_json($resp->decoded_content);
+			return $json->decode($resp->decoded_content);
 		}
 		else {
 			$log->warn(
