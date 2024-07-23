@@ -78,6 +78,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
       with:
+        # we need origin/main to have comparison linting work !
         fetch-depth: 50
     - name: Download backend image from artifacts
       uses: ishworkh/docker-image-artifact-download@v1
