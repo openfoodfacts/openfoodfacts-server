@@ -167,6 +167,7 @@ sub update_checkpoint {
 	seek($checkpoint_file, 0, 0);
 	print $checkpoint_file "$dir,$revision";
 	truncate($checkpoint_file, tell($checkpoint_file));
+	return 1;
 }
 
 find_products($BASE_DIRS{PRODUCTS}, '');
