@@ -4,16 +4,12 @@ name: 🕹️ On demand PR action
 on:
   issue_comment:
     types: [created, edited]
-  push:
-    branches:
-    - ci-pr-actions
 
 jobs:
   # Action to update test results by issuing /lint
   run_lint:
     name: "On demand linting"
-    # TESTING
-    # if: ${{ github.event.issue.pull_request }} && github.event.comment.body == '/lint'
+    if: ${{ github.event.issue.pull_request }} && github.event.comment.body == '/lint'
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
@@ -21,9 +17,7 @@ jobs:
       with:
         fetch-depth: 1
         # grab the PR branch
-        # TESTING
-        ref: "ci-pr-actions"
-        # ref: ${{ github.event.pull_request.head.ref }}
+        ref: ${{ github.event.pull_request.head.ref }}
         # We can't use GITHUB_TOKEN here because, github actions can't trigger actions
         # see: https://docs.github.com/en/actions/security-guides/automatic-token-authentication#using-the-github_token-in-a-workflow
         # So this is a personal access token
@@ -37,9 +31,7 @@ jobs:
       uses: stefanzweifel/git-auto-commit-action@v5
       with:
         commit_message: "chore: Linting changes"
-        # TESTING
-        branch: "ci-pr-actions"
-        # branch: ${{ github.event.pull_request.head.ref }}
+        branch: ${{ github.event.pull_request.head.ref }}
         commit_user_name: Open Food Facts Bot
         commit_user_email: contact@openfoodfacts.org
         commit_author: Open Food Facts Bot <contact@openfoodfacts.org>
@@ -51,8 +43,7 @@ jobs:
   # Action to update test results by issuing /update_tests_results
   update_test_results:
     name: "On demand Update Tests Results"
-    # Testing
-    # if: ${{ github.event.issue.pull_request }} && github.event.comment.body == '/update_tests_results'
+    if: ${{ github.event.issue.pull_request }} && github.event.comment.body == '/update_tests_results'
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
@@ -60,9 +51,7 @@ jobs:
       with:
         fetch-depth: 1
         # grab the PR branch
-        # TESTING
-        ref: "ci-pr-actions"
-        # ref: ${{ github.event.pull_request.head.ref }}
+        ref: ${{ github.event.pull_request.head.ref }}
         # We can't use GITHUB_TOKEN here because, github actions can't trigger actions
         # see: https://docs.github.com/en/actions/security-guides/automatic-token-authentication#using-the-github_token-in-a-workflow
         # So this is a personal access token
@@ -73,9 +62,7 @@ jobs:
       uses: stefanzweifel/git-auto-commit-action@v5
       with:
         commit_message: "test: Update tests results"
-        # TESTING
-        branch: "ci-pr-actions"
-        # branch: ${{ github.event.pull_request.head.ref }}
+        branch: ${{ github.event.pull_request.head.ref }}
         commit_user_name: Open Food Facts Bot
         commit_user_email: contact@openfoodfacts.org
         commit_author: Open Food Facts Bot <contact@openfoodfacts.org>
