@@ -390,10 +390,11 @@ sub lint_entry($entry_ref, $do_sort) {
 # normalize spaces on a line
 sub normalized_line($entry) {
 	my $line = $entry->{line};
-	my $normalize_commas = (
-		($entry->{type} eq "entry_lc") || ($entry->{type} eq "entry_id") ||
-		($entry->{type} eq "synonyms") || ($entry->{type} eq "stopwords")
-	);
+	my $normalize_commas
+		= (    ($entry->{type} eq "entry_lc")
+			|| ($entry->{type} eq "entry_id")
+			|| ($entry->{type} eq "synonyms")
+			|| ($entry->{type} eq "stopwords"));
 	# insure exactly one space after line prefix
 	if ($entry->{type} eq "parent") {
 		$line =~ s/^< */< /;
