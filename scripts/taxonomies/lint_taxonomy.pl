@@ -379,8 +379,7 @@ sub lint_entry($entry_ref, $do_sort) {
 		push @output_lines, @{$entries{$key}->{previous}};
 		push @output_lines, normalized_line($entries{$key});
 	}
-	for my $key (@sorted_props)
-	{
+	for my $key (@sorted_props) {
 		push @output_lines, @{$props{$key}->{previous}};
 		push @output_lines, normalized_line($props{$key});
 	}
