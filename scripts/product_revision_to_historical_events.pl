@@ -28,6 +28,7 @@ use ProductOpener::Config qw/%options/;
 use ProductOpener::Store qw/store retrieve/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Redis qw/push_to_redis_stream/;
+use ProductOpener::Products qw/product_id_from_path/;
 use Path::Tiny;
 use JSON;
 
@@ -51,15 +52,17 @@ sub process_file {
 		print "$total processed\n";
 	}
 
-	my $product = retrieve($path . "/product.sto");
 	my $changes = retrieve($path . "/changes.sto");
 
 	# JSONL
+	my $code = product_id_from_path($path);
 	my $change_count = @$changes;    # some $product don't have a 'rev'
 	my $rev = 0;    # some $change don't have a 'rev'
 
 	foreach my $change (@{$changes}) {
 		$rev++;
+
+		my $bop = retrieve($path . "/$rev.sto");
 
 		if (not $can_process and $rev == $last_processed_rev) {
 			$can_process = 1;
@@ -73,8 +76,7 @@ sub process_file {
 			$action = 'created';
 		}
 		elsif ( $rev == $change_count
-			and exists $product->{deleted}
-			and $product->{deleted} eq 'on')
+			and $change->{comment} =~ /^Deleting product/)
 		{
 			$action = 'deleted';
 		}
@@ -95,7 +97,7 @@ sub process_file {
 		print $file encode_json(
 			{
 				timestamp => $change->{t},
-				barcode => $product->{code},
+				barcode => $code,
 				userid => $change->{userid} // 'initial_import',
 				comment => $change->{comment},
 				product_type => $options{product_type},
