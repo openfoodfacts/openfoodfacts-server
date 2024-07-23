@@ -48,8 +48,8 @@ sub process_file {
 	my ($path) = @_;
 	$total++;
 
-	if ($can_process and $total % 1000 == 0) {
-		print "$total processed\n";
+	if ($total % 1000 == 0) {
+		print "$total processed \n";
 	}
 
 	my $changes = retrieve($path . "/changes.sto");
@@ -62,11 +62,10 @@ sub process_file {
 	foreach my $change (@{$changes}) {
 		$rev++;
 
-		my $bop = retrieve($path . "/$rev.sto");
-
 		if (not $can_process and $rev == $last_processed_rev) {
 			$can_process = 1;
 			print "Resuming from '$last_processed_path' revision $last_processed_rev\n";
+			next;    # we don't want to process the revision again
 		}
 
 		next if not $can_process;
@@ -130,10 +129,11 @@ sub find_products {
 	opendir DH, "$dir" or die "could not open $dir directory: $!\n";
 	my @files = readdir(DH);
 	closedir DH;
-	foreach my $entry (@files) {
+	foreach my $entry (sort @files) {
 		next if $entry =~ /^\.\.?$/;
 		my $file_path = "$dir/$entry";
-		if (-d $file_path) {
+
+		if (-d $file_path and ($can_process or ($last_processed_path =~ m/^\Q$file_path/))) {
 			find_products($file_path, "$code$entry");
 			next;
 		}
