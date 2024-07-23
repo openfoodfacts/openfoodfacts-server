@@ -35,7 +35,7 @@ use ProductOpener::PackagerCodes
 
 use Term::ANSIColor;
 use Carp;
-use JSON::PP;
+use JSON::MaybeXS;
 use Text::CSV ();
 
 say {*STDERR} "loading geocoded addresses";

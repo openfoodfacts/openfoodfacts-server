@@ -16,7 +16,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::PerlStandards;
 use Exporter qw< import >;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);

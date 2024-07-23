@@ -64,7 +64,7 @@ use experimental 'smartmatch';
 use ProductOpener::Config qw/:all/;
 
 use MongoDB;
-use JSON::PP;
+use JSON::MaybeXS;
 use CGI ':cgi-lib';
 use Log::Any qw($log);
 
