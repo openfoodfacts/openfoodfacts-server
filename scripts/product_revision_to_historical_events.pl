@@ -34,9 +34,11 @@ use JSON;
 # This script recursively visits all product.sto files from the root of the products directory
 # and process its changes to generate a JSONL file of historical events
 
+my ($checkpoint_file, $last_processed_path) = open_checkpoint('checkpoint.tmp');
+
 # JSONL
-# my $filename = 'historical_events.jsonl';
-# open(my $file, '>:encoding(UTF-8)', $filename) or die "Could not open file '$filename' $!";
+my $filename = 'historical_events.jsonl';
+open(my $file, '>:encoding(UTF-8)', $filename) or die "Could not open file '$filename' $!";
 
 my $total = 0;
 
@@ -48,20 +50,20 @@ sub process_file {
 		print STDERR "$total processed\n";
 	}
 
-	my $product = retrieve($path. "/product.sto");
+	my $product = retrieve($path . "/product.sto");
 	my $changes = retrieve($path . "/changes.sto");
 
 	# JSONL
+	my $change_count = @$changes;    # some $product don't have a 'rev'
 	my $rev = 0;    # some $change don't have a 'rev'
+
 	foreach my $change (@{$changes}) {
-
 		$rev++;
-
 		my $action = 'updated';
 		if ($rev eq 1) {
 			$action = 'created';
 		}
-		elsif ( $rev == $product->{rev}
+		elsif ( $rev == $change_count
 			and exists $product->{deleted}
 			and $product->{deleted} eq 'on')
 		{
@@ -81,26 +83,26 @@ sub process_file {
 
 		$change->{diffs}{initial_import} = 1;
 
-		# print $file encode_json(
-		# 	{
-		# 		timestamp => $change->{t},
-		# 		barcode => $product->{code},
-		# 		userid => $change->{userid},
-		# 		comment => $change->{comment},
-		# 		product_type => $options{product_type},
-		# 		action => $action,
-		# 		diffs => $change->{diffs}
-		# 	}
-		# ) . "\n";
+		print $file encode_json(
+			{
+				timestamp => $change->{t},
+				barcode => $product->{code},
+				userid => $change->{userid} // 'initial_import',
+				comment => $change->{comment},
+				product_type => $options{product_type},
+				action => $action,
+				diffs => $change->{diffs}
+			}
+		) . "\n";
 
-		push_to_redis_stream(
-			$change->{userid} // 'initial_import',
-			$product,
-			$action,
-			$change->{comment},
-			$change->{diffs},
-			$change->{t}
-		);
+		# push_to_redis_stream(
+		# 	$change->{userid} // 'initial_import',
+		# 	$product,
+		# 	$action,
+		# 	$change->{comment},
+		# 	$change->{diffs},
+		# 	$change->{t}
+		# );
 	}
 
 	return 1;
@@ -108,6 +110,8 @@ sub process_file {
 
 # because getting products from mongodb won't give 'deleted' ones
 # found that path->visit was slow with full product volume
+my $can_process = $last_processed_path ? 0 : 1;
+
 sub find_products {
 	my $dir = shift;
 	my $code = shift;
@@ -119,17 +123,45 @@ sub find_products {
 		next if $entry =~ /^\.\.?$/;
 		my $file_path = "$dir/$entry";
 		if (-d $file_path) {
-			find_products($file_path,"$code$entry");
+			find_products($file_path, "$code$entry");
 			next;
 		}
+
 		if ($entry eq 'product.sto') {
-			process_file($dir);
-		} 
+			if ($last_processed_path and $last_processed_path eq $dir) {
+				$can_process = 1;
+				print "Resuming from $dir\n";
+			}
+
+			if ($can_process) {
+				process_file($dir);
+				update_checkpoint($checkpoint_file, $dir);
+			}
+		}
 	}
 
 	return;
 }
 
-find_products($BASE_DIRS{PRODUCTS},'');
+sub open_checkpoint {
+	my ($filename) = @_;
+	if (!-e $filename) {
+		`touch $filename`;
+	}
+	open(my $checkpoint_file, '+<', $filename) or die "Could not open file '$filename' $!";
+	seek($checkpoint_file, 0, 0);
+	my $last_processed_path = <$checkpoint_file>;
+	chomp $last_processed_path if $last_processed_path;
+	return ($checkpoint_file, $last_processed_path);
+}
 
-#close $file;
+sub update_checkpoint {
+	my ($checkpoint_file, $new_path) = @_;
+	seek($checkpoint_file, 0, 0);
+	print $checkpoint_file $new_path . "\n";
+	truncate($checkpoint_file, tell($checkpoint_file));
+}
+
+find_products($BASE_DIRS{PRODUCTS}, '');
+close $file;
+close $checkpoint_file;
