@@ -107,6 +107,9 @@ requires 'Imager::File::WEBP';
 # To dynamically load Config_*.pm modules
 requires 'Module::Load';
 
+# To measure the time taken by requests
+requires 'Time::Monotonic';
+
 on 'test' => sub {
   requires 'Test2::V0';
   requires 'Mock::Quick';
