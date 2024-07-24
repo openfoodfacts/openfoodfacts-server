@@ -82,7 +82,9 @@ jobs:
         fetch-depth: 1
     # we need origin/main to have comparison linting work !
     - name: Fetch origin/main
-      run: git fetch origin main --depth=1
+      run: |
+        git remote set-branches --add origin main
+        git fetch origin
     - name: Download backend image from artifacts
       uses: ishworkh/docker-image-artifact-download@v1
       with:
@@ -91,6 +93,8 @@ jobs:
       run: git fetch --no-tags --prune --progress --no-recurse-submodules --depth=5 origin  main
     - name: build taxonomies (should use cache)
       run: make build_taxonomies
+    - name: check taxonomies
+      run: make check_taxonomies
     - name: check perltidy
       run: make check_perltidy
     - name: check perlcritic
