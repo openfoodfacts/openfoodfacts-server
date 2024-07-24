@@ -191,6 +191,9 @@ elsif (defined $request_ref->{search}) {
 elsif (defined $request_ref->{properties}) {
 	display_properties($request_ref);
 }
+elsif (defined $request_ref->{content}) {
+	display_content($request_ref);
+}
 elsif (defined $request_ref->{text}) {
 	if ($request_ref->{text} =~ /^products_stats/) {
 		display_stats($request_ref);

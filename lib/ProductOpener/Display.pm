@@ -60,6 +60,7 @@ BEGIN {
 		&display_no_index_page_and_exit
 		&display_robots_txt_and_exit
 		&display_page
+		&display_content
 		&display_text
 		&display_stats
 		&display_points
@@ -1306,6 +1307,25 @@ sub display_index_for_producer ($request_ref) {
 
 	return $html;
 }
+
+
+sub display_content($request_ref) {
+
+
+	my $text_lc = $request_ref->{lc};
+    my $html = "";
+    $request_ref->{styles} .= '';
+    $request_ref->{header} .= '';
+    $request_ref->{title} = 'Test';
+    ${$request_ref->{content_ref}} = $html;
+    $request_ref->{canon_url} = "/bop";
+	
+
+
+    display_page($request_ref);
+    exit();
+}
+
 
 sub display_text ($request_ref) {
 

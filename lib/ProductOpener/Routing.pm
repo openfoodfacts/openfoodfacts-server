@@ -112,6 +112,7 @@ sub load_routes() {
 		['properties', \&properties_route],
 		['property', \&properties_route],
 		['products', \&products_route],
+		['content', \&content_route],
 		# with priority
 		['', \&index_route],
 		['^(?<page>\d+)$', \&index_route, {regex => 1}],
@@ -554,6 +555,11 @@ sub facets_route($request_ref, @components) {
 		set_request_stats_value($request_ref->{stats}, "route", "facets_products");
 	}
 	set_request_stats_value($request_ref->{stats}, "facets_tags", (scalar @{$request_ref->{tags}}));
+	return 1;
+}
+
+sub content_route($request_ref, @components) {
+	$request_ref->{content} = 1;
 	return 1;
 }
 
