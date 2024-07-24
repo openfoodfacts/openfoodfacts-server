@@ -56,6 +56,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
       with:
+        # needs depth to run git log below
         fetch-depth: 50
     - name: build
       run: make build container=backend
@@ -78,7 +79,10 @@ jobs:
     steps:
     - uses: actions/checkout@v4
       with:
-        fetch-depth: 50
+        fetch-depth: 1
+    # we need origin/main to have comparison linting work !
+    - name: Fetch origin/main
+      run: git fetch origin main --depth=1
     - name: Download backend image from artifacts
       uses: ishworkh/docker-image-artifact-download@v1
       with:
@@ -101,7 +105,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
       with:
-        fetch-depth: 50
+        fetch-depth: 1
     - name: Download backend image from artifacts
       uses: ishworkh/docker-image-artifact-download@v1
       with:
@@ -129,7 +133,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
       with:
-        fetch-depth: 50
+        fetch-depth: 1
     - name: Download backend image from artifacts
       uses: ishworkh/docker-image-artifact-download@v1
       with:
