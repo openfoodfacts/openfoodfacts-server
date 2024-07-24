@@ -12,6 +12,7 @@ use Storable qw/dclone/;
 use Log::Any qw($log);
 use Encode;
 use JSON;
+use LWP::Simple;
 
 my $wordpress_url = 'https://public-api.wordpress.com/wp/v2/sites/offcontent.wordpress.com';
 
@@ -21,24 +22,31 @@ sub wp_get_page {
     my $url = "$wordpress_url/pages/$page_id";
     my $response = get($url);
     my $json = decode_json($response);
-    return $url;
+    return $json;
 }
 
 # Passing values to the template
 my $template_data_ref = {};
 
 my $request_ref = ProductOpener::Display::init_request();
+my $content = wp_get_page('6');
 
 
 my $text_lc = $request_ref->{lc};
-my $html = "";
+
 $request_ref->{styles} .= '';
 $request_ref->{header} .= '';
-$request_ref->{title} = 'Test';
 
-my $content = wp_get_page('6');
+$request_ref->{title} = "$content->{title}->{rendered}";
 
-${$request_ref->{content_ref}} = "<pre>$content</pre>" ;
+
+# https://s0.wp.com/wp-content/plugins/gutenberg-core/v18.8.0/build/block-library/style.css?m=1721328021i&ver=18.8.0
+my $html = "";
+$html = '<link rel="stylesheet" href="'.$static_subdomain.'/css/wp.css"></style>';
+
+$html .= "<div class=\"entry-content wp-block-post-content has-global-padding is-layout-constrained wp-block-post-content-is-layout-constrained\">$content->{content}->{rendered}</div>";
+
+${$request_ref->{content_ref}} =  $html;
 $request_ref->{canon_url} = "/bop";
 
 
