@@ -64,7 +64,7 @@ use CGI qw/:cgi :form escapeHTML :cgi-lib/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 use Log::Any qw($log);
 use File::Copy qw(move);
 use Data::Dumper;
@@ -1637,7 +1637,7 @@ MAIL
 	}
 
 	$template_data_ref_process->{edited_product_url}
-		= $url_prefix . get_org_id_pretty_path() . product_url($product_ref);
+		= $url_prefix . get_owner_pretty_path() . product_url($product_ref);
 	$template_data_ref_process->{edit_product_url} = $url_prefix . product_action_url($product_ref->{code}, "");
 
 	if ($type ne 'delete') {

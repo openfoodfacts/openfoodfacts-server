@@ -128,7 +128,7 @@ BEGIN {
 		$knowledge_panels_options_ref
 
 		&display_nutriscore_calculation_details_2021
-		&get_org_id_pretty_path
+		&get_owner_pretty_path
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -173,6 +173,7 @@ use ProductOpener::Units qw/g_to_unit/;
 use ProductOpener::Cache qw/$max_memcached_object_size $memd generate_cache_key/;
 use ProductOpener::Permissions qw/has_permission/;
 use ProductOpener::ProductsFeatures qw(feature_enabled);
+use ProductOpener::RequestStats qw(:all);
 
 use Encode;
 use URI::Escape::XS;
@@ -184,7 +185,7 @@ use DateTime::Locale;
 use experimental 'smartmatch';
 use MongoDB;
 use Tie::IxHash;
-use JSON::PP;
+use JSON::MaybeXS;
 use Text::CSV;
 use XML::Simple;
 use CLDR::Number;
@@ -225,9 +226,9 @@ my $uri_finder = URI::Find->new(
 
 # Sort keys of JSON output
 # $json has utf8 disabled: it encodes to Perl Unicode strings
-my $json = JSON::PP->new->utf8(0)->allow_nonref->canonical;
+my $json = JSON::MaybeXS->new->utf8(0)->allow_nonref->canonical;
 # $json_utf8 has utf8 enabled: it encodes to UTF-8 bytes
-my $json_utf8 = JSON::PP->new->utf8(1)->allow_nonref->canonical;
+my $json_utf8 = JSON::MaybeXS->new->utf8(1)->allow_nonref->canonical;
 
 =head1 VARIABLES
 
@@ -390,6 +391,7 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	(not defined $template_data_ref->{user_id}) and $template_data_ref->{user_id} = $User_id;
 	(not defined $template_data_ref->{user}) and $template_data_ref->{user} = \%User;
 	(not defined $template_data_ref->{org_id}) and $template_data_ref->{org_id} = $Org_id;
+	$template_data_ref->{owner_pretty_path} = get_owner_pretty_path();
 
 	$template_data_ref->{flavor} = $flavor;
 	$template_data_ref->{options} = \%options;
@@ -506,6 +508,9 @@ sub redirect_to_url ($request_ref, $status_code, $redirect_url) {
 	}
 
 	$r->status($status_code);
+
+	log_request_stats($request_ref->{stats});
+
 	# note: under mod_perl, exit() will end the request without terminating the Apache mod_perl process
 	exit();
 }
@@ -590,6 +595,8 @@ Reference to request object.
 sub init_request ($request_ref = {}) {
 
 	$log->debug("init_request - start", {request_ref => $request_ref}) if $log->is_debug();
+
+	$request_ref->{stats} = init_request_stats();
 
 	# Clear the context
 	delete $log->context->{user_id};
@@ -971,6 +978,10 @@ CSS
 		}
 	) if $log->is_debug();
 
+	set_request_stats_value($request_ref->{stats}, "hostname", $hostname);
+	set_request_stats_value($request_ref->{stats}, "original_query_string", $request_ref->{original_query_string});
+	set_request_stats_value($request_ref->{stats}, "ip", remote_addr());
+
 	return $request_ref;
 }
 
@@ -1283,7 +1294,7 @@ sub display_index_for_producer ($request_ref) {
 	# Display a message if some product updates have not been published yet
 	# Updates can also be on obsolete products
 
-	$template_data_ref->{org_id_pretty_path} = get_org_id_pretty_path();
+	$template_data_ref->{owner_pretty_path} = get_owner_pretty_path();
 	$template_data_ref->{count_to_be_exported} = count_products({}, {states_tags => "en:to-be-exported"});
 	$template_data_ref->{count_obsolete_to_be_exported} = count_products({}, {states_tags => "en:to-be-exported"}, 1);
 
@@ -1558,9 +1569,10 @@ sub get_cache_results ($key, $request_ref) {
 	$log->debug("MongoDB hashed query key", {key => $key}) if $log->is_debug();
 
 	# disable caching if ?no_cache=1
-	# or if we are sent the HTTP hader Cache-Control: no-cache
+	# or if we are on the producers platform
+	# or if we are sent the HTTP header Cache-Control: no-cache
 	my $param_no_cache = single_param("no_cache");
-	if (not defined $param_no_cache) {
+	if ((not $param_no_cache) and (not $server_options{producers_platform})) {
 		my $cache_control = get_http_request_header("Cache-Control");
 		if ((defined $cache_control) and ($cache_control =~ /no-cache/)) {
 			$log->debug("get_cache_results - HTTP Cache-Control no-cache header, skip caching", {key => $key})
@@ -1757,10 +1769,13 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 		# do not use the postgres cache if ?no_cache=1
 		# or if we are on the producers platform
 		if (can_use_query_cache()) {
+			set_request_stats_time_start($request_ref->{stats}, "off_query_aggregate_tags_query");
 			$results = execute_aggregate_tags_query($aggregate_parameters);
+			set_request_stats_time_end($request_ref->{stats}, "off_query_aggregate_tags_query");
 		}
 
 		if (not defined $results) {
+			set_request_stats_time_start($request_ref->{stats}, "mongodb_aggregate_query");
 			eval {
 				$log->debug("Executing MongoDB aggregate query on products collection",
 					{query => $aggregate_parameters})
@@ -1775,6 +1790,7 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 				# and v1.4.5 of the perl MongoDB module
 				$results = [$results->all] if defined $results;
 			};
+			set_request_stats_time_end($request_ref->{stats}, "mongodb_aggregate_query");
 			my $err = $@;
 			if ($err) {
 				$log->warn("MongoDB error", {error => $err}) if $log->is_warn();
@@ -1826,10 +1842,13 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 			# do not use the smaller postgres cache if ?no_cache=1
 			# or if we are on the producers platform
 			if (can_use_query_cache()) {
+				set_request_stats_time_start($request_ref->{stats}, "off_query_aggregate_tags_query");
 				$count_results = execute_aggregate_tags_query($aggregate_count_parameters);
+				set_request_stats_time_end($request_ref->{stats}, "off_query_aggregate_tags_query");
 			}
 
 			if (not defined $count_results) {
+				set_request_stats_time_start($request_ref->{stats}, "mongodb_aggregate_count");
 				eval {
 					$log->debug("Executing MongoDB aggregate count query on products collection",
 						{query => $aggregate_count_parameters})
@@ -1841,7 +1860,8 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 						}
 					);
 					$count_results = [$count_results->all]->[0] if defined $count_results;
-				}
+				};
+				set_request_stats_time_end($request_ref->{stats}, "mongodb_aggregate_count");
 			}
 
 			if (defined $count_results) {
@@ -4018,6 +4038,15 @@ HTML
 						;
 				}
 
+				if ($packager_codes{$canon_tagid}{cc} eq 'ie') {
+					$description .= <<HTML
+<p>$packager_codes{$canon_tagid}{name}<br>
+$packager_codes{$canon_tagid}{address} (Ireland)
+</p>
+HTML
+						;
+				}
+
 				if ($packager_codes{$canon_tagid}{cc} eq 'si') {
 					$description .= <<HTML
 <p>$packager_codes{$canon_tagid}{name}<br>
@@ -4603,6 +4632,7 @@ sub count_products ($request_ref, $query_ref, $obsolete = 0) {
 
 	my $count;
 
+	set_request_stats_time_start($request_ref->{stats}, "mongodb_query_count");
 	eval {
 		$log->debug("Counting MongoDB documents for query", {query => $query_ref}) if $log->is_debug();
 		$count = execute_query(
@@ -4611,6 +4641,7 @@ sub count_products ($request_ref, $query_ref, $obsolete = 0) {
 			}
 		);
 	};
+	set_request_stats_time_end($request_ref->{stats}, "mongodb_query_count");
 
 	return $count;
 }
@@ -5290,7 +5321,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		}
 	}
 
-	# tied hashes can't be encoded directly by JSON::PP, freeze the sort tied hash
+	# tied hashes can't be encoded directly by JSON::MaybeXS, freeze the sort tied hash
 	my $mongodb_query_ref = [
 		lc => $lc,
 		query => $query_ref,
@@ -5316,12 +5347,15 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		};
 
 		my $cursor;
+
 		eval {
 			$count = estimate_result_count($request_ref, $query_ref, $cache_results_flag);
 
 			$log->debug("Executing MongoDB query",
 				{query => $query_ref, fields => $fields_ref, sort => $sort_ref, limit => $limit, skip => $skip})
 				if $log->is_debug();
+
+			set_request_stats_time_start($request_ref->{stats}, "mongodb_query");
 			$cursor = execute_query(
 				sub {
 					return get_products_collection(get_products_collection_request_parameters($request_ref))
@@ -5330,6 +5364,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 			);
 			$log->debug("MongoDB query ok", {error => $@}) if $log->is_debug();
 		};
+		set_request_stats_time_end($request_ref->{stats}, "mongodb_query");
 		if ($@) {
 			$log->warn("MongoDB error", {error => $@}) if $log->is_warn();
 		}
@@ -5344,7 +5379,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 
 				# Add a url field to the product, with the subdomain and path
 				my $url_path = product_url($product_ref);
-				$product_ref->{url} = $formatted_subdomain . get_org_id_pretty_path() . $url_path;
+				$product_ref->{url} = $formatted_subdomain . get_owner_pretty_path() . $url_path;
 				# Compute HTML to display the small front image, currently embedded in the HTML of web queries
 				if (not $api) {
 					$product_ref->{image_front_small_html} = display_image_thumb($product_ref, 'front');
@@ -5490,7 +5525,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 
 				push @{$template_data_ref->{current_drilldown_fields}},
 					{
-					current_link => get_org_id_pretty_path() . $request_ref->{current_link},
+					current_link => get_owner_pretty_path() . $request_ref->{current_link},
 					tag_type_plural => $tag_type_plural{$newtagtype}{$lc},
 					nofollow => $nofollow,
 					tagtype => $newtagtype,
@@ -5648,10 +5683,13 @@ sub estimate_result_count ($request_ref, $query_ref, $cache_results_flag) {
 
 			# Count queries are very expensive, if possible, execute them on the postgres cache
 			if (can_use_query_cache()) {
+				set_request_stats_time_start($request_ref->{stats}, "off_query_count_tags_query");
 				$count = execute_count_tags_query($query_ref);
+				set_request_stats_time_end($request_ref->{stats}, "off_query_count_tags_query");
 			}
 
 			if (not defined $count) {
+				set_request_stats_time_start($request_ref->{stats}, "mongodb_query_count");
 				$count = execute_query(
 					sub {
 						$log->debug("count_documents on complete products collection", {key => $key_count})
@@ -5660,6 +5698,7 @@ sub estimate_result_count ($request_ref, $query_ref, $cache_results_flag) {
 							->count_documents($query_ref);
 					}
 				);
+				set_request_stats_time_end($request_ref->{stats}, "mongodb_query_count");
 				$err = $@;
 				if ($err) {
 					$log->warn("MongoDB error during count", {error => $err}) if $log->is_warn();
@@ -5680,6 +5719,7 @@ sub estimate_result_count ($request_ref, $query_ref, $cache_results_flag) {
 	}
 	else {
 		# if query_ref is empty (root URL world.openfoodfacts.org) use estimated_document_count for better performance
+		set_request_stats_time_start($request_ref->{stats}, "mongodb_estimated_document_count");
 		$count = execute_query(
 			sub {
 				$log->debug("empty query_ref, use estimated_document_count fot better performance", {})
@@ -5688,6 +5728,7 @@ sub estimate_result_count ($request_ref, $query_ref, $cache_results_flag) {
 					->estimated_document_count();
 			}
 		);
+		set_request_stats_time_end($request_ref->{stats}, "mongodb_estimated_document_count");
 		$err = $@;
 	}
 	$log->debug("Count query done", {error => $err, count => $count}) if $log->is_debug();
@@ -6162,7 +6203,7 @@ sub display_scatter_plot ($graph_ref, $products_ref, $request_ref) {
 
 		# create data entry for series
 		defined $series{$seriesid} or $series{$seriesid} = '';
-		$series{$seriesid} .= JSON::PP->new->encode(\%data) . ',';
+		$series{$seriesid} .= JSON::MaybeXS->new->encode(\%data) . ',';
 		# count entries / series
 		defined $series_n{$seriesid} or $series_n{$seriesid} = 0;
 		$series_n{$seriesid}++;
@@ -7545,6 +7586,9 @@ sub display_page ($request_ref) {
 		if $log->is_debug();
 
 	print $html;
+
+	log_request_stats($request_ref->{stats});
+
 	return;
 }
 
@@ -10702,6 +10746,7 @@ sub display_structured_response ($request_ref) {
 	$r->rflush;
 	$r->status(200);
 
+	log_request_stats($request_ref->{stats});
 	exit();
 }
 
@@ -11460,10 +11505,10 @@ sub search_and_analyze_recipes ($request_ref, $query_ref) {
 			if (single_param("debug")) {
 				$debug
 					.= "product: "
-					. JSON::PP->new->utf8->canonical->encode($product_ref)
+					. JSON::MaybeXS->new->utf8->canonical->encode($product_ref)
 					. "<br><br>\n\n"
 					. "recipe: "
-					. JSON::PP->new->utf8->canonical->encode($recipe_ref)
+					. JSON::MaybeXS->new->utf8->canonical->encode($recipe_ref)
 					. "<br><br><br>\n\n\n";
 			}
 		}
@@ -11575,7 +11620,7 @@ sub data_to_display_image ($product_ref, $imagetype, $target_lc) {
 	return $image_ref;
 }
 
-=head2 get_org_id_pretty_path ()
+=head2 get_owner_pretty_path ()
 
 Returns the pretty path for the organization page 
 or an empty string if not on the producers platform.
@@ -11584,8 +11629,8 @@ or an empty string if not on the producers platform.
 
 =cut
 
-sub get_org_id_pretty_path () {
-	return $server_options{producers_platform} ? "/org/$Org_id" : "";
+sub get_owner_pretty_path () {
+	return ($server_options{producers_platform} and defined $Owner_id) ? "/org/$Owner_id" : "";
 }
 
 1;

@@ -146,7 +146,7 @@ use Data::DeepAccess qw(deep_get);
 use IO::Compress::Gzip qw(gzip $GzipError);
 use Log::Any qw($log);
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 use MIME::Base64;
 use LWP::UserAgent;
 use File::Copy;

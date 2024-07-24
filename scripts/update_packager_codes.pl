@@ -35,7 +35,7 @@ use ProductOpener::PackagerCodes
 
 use Term::ANSIColor;
 use Carp;
-use JSON::PP;
+use JSON::MaybeXS;
 use Text::CSV ();
 
 say {*STDERR} "loading geocoded addresses";
@@ -103,6 +103,7 @@ sub normalize_code {
 			"FR $code CE" when 'fr';
 			"HR $code EU" when 'hr';
 			"$code" when 'hu';
+			"$code" when 'ie';
 			"$code EC" when 'it';
 			"LT $code EC" when 'lt';
 			"LU $code EC" when 'lu';
@@ -178,6 +179,7 @@ my %approval_key = (
 	fr => 'numero_agrement',
 	hr => 'app_number',
 	hu => 'code',
+	ie => 'code',
 	it => 'approvalnumber',
 	lt => 'vet_approval_no',
 	lu => 'zulassungsnummer',
