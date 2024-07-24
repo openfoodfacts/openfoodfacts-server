@@ -592,17 +592,19 @@ sub register_route($routes_to_register) {
 				# its a simple route
 				$is_regex = undef;
 			}
+			else {
 
-			# if pattern ends with a /, we remove it
-			# and it means it can be followed by anything
-			my $anypath = '';
-			if ($pattern =~ /\/$/) {
-				$pattern =~ s/\/$//;
-				$anypath = '(/.*)?';
+				# if pattern ends with a /, we remove it
+				# and it means it can be followed by anything
+				my $anypath = '';
+				if ($pattern =~ /\/$/) {
+					$pattern =~ s/\/$//;
+					$anypath = '(/.*)?';
+				}
+
+				$pattern =~ s#\[(\w+)\]#'(?<' . $1 . '>[^/]+)'#ge;
+				$pattern = "\^$pattern$anypath\$";
 			}
-
-			$pattern =~ s#\[(\w+)\]#'(?<' . $1 . '>[^/]+)'#ge;
-			$pattern = "\^$pattern$anypath\$";
 		}
 
 		if ($is_regex) {
