@@ -9,7 +9,7 @@ jobs:
   # Action to update test results by issuing /lint
   run_lint:
     name: "On demand linting"
-    if: ${{ github.event.issue.pull_request }} && github.event.comment.body == '/lint'
+    if: ${{ github.event.issue.pull_request &&  github.event.comment.body == '/lint' }}
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
@@ -43,7 +43,7 @@ jobs:
   # Action to update test results by issuing /update_tests_results
   update_test_results:
     name: "On demand Update Tests Results"
-    if: ${{ github.event.issue.pull_request }} && github.event.comment.body == '/update_tests_results'
+    if: ${{ github.event.issue.pull_request &&  github.event.comment.body == '/update_tests_results' }}
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
