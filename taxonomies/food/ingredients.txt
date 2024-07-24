@@ -2,7 +2,7 @@
 
 ## Description
 
-# description:en:SOYBEAN OIL is a vegetable oil extracted from the seeds of the soybean (Glycine max).
+# description:en:SOYBEAN OIL is a vegetable oil extracted from the seeds of the soybean (Glycine max).
 
 ## Allergens
 
@@ -10450,6 +10450,7 @@ fr: concentré salin liquide
 < en:salt
 en: black salt
 bg: черна сол
+de: schwarzes Salz, Schwarzsalz, Kala Namak
 hr: crna sol
 nl: zwart zout
 pl: czarna sól, czarnej soli, kala namak, sól czarna himalajska, czarna sól himalajska
@@ -18697,7 +18698,7 @@ ar: دهن الدجاج
 bg: пилешка мазнина
 ca: greix de pollastre, greix de gallina
 da: Kyllingefedt
-de: Hühnerfett, Pouletfett
+de: Hähnchenfett, Hühnerfett, Hühnchenfett, Pouletfett
 el: λίπος κότας
 es: Grasa de pollo
 fi: kananrasva
@@ -23799,6 +23800,11 @@ en: cereal extrudate
 de: Getreideextrudat
 fr: extrudat de céréales
 
+< en:cereal
+en: cereal extrudate
+de: Getreideextrudat
+fr: extrudat de céréales
+
 #probably more for mixed cereals
 < en:cereal
 en: crunchy cereals
@@ -24443,7 +24449,6 @@ sv: vetekross
 az: Manna yarması
 pl: kasza manna, kasza manna z pszenicy
 sr: griz
-
 
 # Soft wheat
 
@@ -26565,6 +26570,12 @@ fr: fibre d'avoine sans gluten
 hr: zobena vlakna bez glutena
 nl: glutenvrije havervezels
 pl: błonnik owsiany bezglutenowy, bezglutenowy błonnik owsiany
+
+< en:oat
+< en:vegetable fibre
+en: oat husk fiber
+de: Haferspelzfaser, Haferspelzfasern
+fr: fibre de son d'avoine
 
 < en:oat
 en: oat bran, oatbran
@@ -33207,6 +33218,11 @@ pt: Proteína de batata
 ro: proteină de cartofi
 sv: potatisprotein
 # ingredient/fr:proteine-de-pomme-de-terre has 44 products in 4 languages @2020-05-25
+
+< en:plant protein
+en: almond protein
+de: Mandelprotein
+fr: protéine d'amande
 
 # description:en:HYDROLYZED VEGETABLE PROTEIN -  products are foodstuffs obtained by protein hydrolysis
 
@@ -71093,13 +71109,13 @@ wikipedia:en: https://en.wikipedia.org/wiki/Green_tea
 # ingredient/green-tea has 902 products in 14 languages @2019-04-21
 
 < en:green tea
-en: matcha, matcha green tea
+en: matcha, matcha green tea, matcha tea
 bg: матча
 ca: té matcha, té matcha verd
 da: matcha
 de: Matcha
 es: té matcha, té matcha verde
-fr: matcha, thé vert matcha
+fr: matcha, thé vert matcha, thé matcha
 hr: matcha, matcha zeleni čaj
 ja: 抹茶
 pl: matcha
@@ -84336,7 +84352,7 @@ wikidata:en: Q67210929
 < en:poultry skin
 en: chicken skin
 bg: пилешка кожа
-de: Poulethaut
+de: Hühnchenhaut
 es: piel de pollo
 fi: kanannahka
 fr: peau de poulet
