@@ -10448,7 +10448,7 @@ fr: concentré salin liquide
 # ingredient/fr:concentré-salin-liquide has 44 products in french @2019-03-30
 
 < en:salt
-en:black salt
+en: black salt
 bg: черна сол
 de: schwarzes Salz, Schwarzsalz, Kala Namak
 hr: crna sol
@@ -18698,7 +18698,7 @@ ar: دهن الدجاج
 bg: пилешка мазнина
 ca: greix de pollastre, greix de gallina
 da: Kyllingefedt
-de:Hähnchenfett, Hühnerfett, Hühnchenfett, Pouletfett
+de: Hähnchenfett, Hühnerfett, Hühnchenfett, Pouletfett
 el: λίπος κότας
 es: Grasa de pollo
 fi: kananrasva
@@ -23800,10 +23800,10 @@ en: cereal extrudate
 de: Getreideextrudat
 fr: extrudat de céréales
 
-<en:cereal
-en:cereal extrudate
-de:Getreideextrudat
-fr:extrudat de céréales
+< en:cereal
+en: cereal extrudate
+de: Getreideextrudat
+fr: extrudat de céréales
 
 #probably more for mixed cereals
 < en:cereal
@@ -26571,11 +26571,11 @@ hr: zobena vlakna bez glutena
 nl: glutenvrije havervezels
 pl: błonnik owsiany bezglutenowy, bezglutenowy błonnik owsiany
 
-<en:oat
-<en:vegetable fibre
-en:oat husk fiber
-de:Haferspelzfaser, Haferspelzfasern
-fr:fibre de son d'avoine
+< en:oat
+< en:vegetable fibre
+en: oat husk fiber
+de: Haferspelzfaser, Haferspelzfasern
+fr: fibre de son d'avoine
 
 < en:oat
 en: oat bran, oatbran
@@ -33219,10 +33219,10 @@ ro: proteină de cartofi
 sv: potatisprotein
 # ingredient/fr:proteine-de-pomme-de-terre has 44 products in 4 languages @2020-05-25
 
-<en:plant protein
-en:almond protein
-de:Mandelprotein
-fr:protéine d'amande
+< en:plant protein
+en: almond protein
+de: Mandelprotein
+fr: protéine d'amande
 
 # description:en:HYDROLYZED VEGETABLE PROTEIN -  products are foodstuffs obtained by protein hydrolysis
 
@@ -71108,19 +71108,19 @@ wikidata:en: Q484083
 wikipedia:en: https://en.wikipedia.org/wiki/Green_tea
 # ingredient/green-tea has 902 products in 14 languages @2019-04-21
 
-<en:green tea
-en:matcha, matcha green tea, matcha tea
-bg:матча
-ca:té matcha, té matcha verd
-da:matcha
-de:Matcha
-es:té matcha, té matcha verde
-fr:matcha, thé vert matcha, thé matcha
-hr:matcha, matcha zeleni čaj
-ja:抹茶
-pl:matcha
-wikidata:en:Q822331
-wikipedia:en:https://en.wikipedia.org/wiki/Matcha
+< en:green tea
+en: matcha, matcha green tea, matcha tea
+bg: матча
+ca: té matcha, té matcha verd
+da: matcha
+de: Matcha
+es: té matcha, té matcha verde
+fr: matcha, thé vert matcha, thé matcha
+hr: matcha, matcha zeleni čaj
+ja: 抹茶
+pl: matcha
+wikidata:en: Q822331
+wikipedia:en: https://en.wikipedia.org/wiki/Matcha
 
 < en:green tea
 en: sencha, sencha green tea
@@ -71494,7 +71494,7 @@ de: Vanilleschotenpulver
 en: ground vanilla beans, vanilla bean pieces
 bg: Ванилени зрънца
 da: formalede vaniljestænger
-de:gemahlene Vanilleschoten, Vanilleschoten gemahlen, Vannileschoten gemahlen, vermahlene Vanilleschoten
+de: gemahlene Vanilleschoten, Vanilleschoten gemahlen, Vannileschoten gemahlen, vermahlene Vanilleschoten
 fi: vaniljatangon palat, vaniljakodat
 fr: gousses de vanille moulues, gousses de vanille broyées
 hr: mljevene mahune vanilije
@@ -71536,8 +71536,8 @@ it: baccello di vaniglia Bourbon, bacche di vaniglia Bourbon, bourbon vanilla be
 fr: vanille bourbon naturelle en gousse
 # ingredient/fr:vanille-bourbon-naturelle-en-gousse has 27 products in french @2019-02-24
 
-<en:Bourbon vanilla beans
-de:gemahlene Bourbon-Vanilleschoten, Bourbon-Vanilleschote gemahlen
+< en:Bourbon vanilla beans
+de: gemahlene Bourbon-Vanilleschoten, Bourbon-Vanilleschote gemahlen
 # ingredient/de:Bourbon-Vanilleschote-gemahlen has 7 products in 4 languages @2019-02-24
 
 < en:Bourbon vanilla beans
@@ -84352,7 +84352,7 @@ wikidata:en: Q67210929
 < en:poultry skin
 en: chicken skin
 bg: пилешка кожа
-de:Hühnchenhaut
+de: Hühnchenhaut
 es: piel de pollo
 fi: kanannahka
 fr: peau de poulet
@@ -84384,7 +84384,7 @@ ja: 鶏肉
 nb: kyllingkjøtt
 nl: kippenvlees
 pl: Mięso z kurczaka, mięso kurczęce, mięso z kurcząt, mięso drobiowe z kurczaka, mięso kurze, mięso z kury, mięsa kurczaka, mięso kurczaka
-pt:carne de frango
+pt: carne de frango
 ro: carne de pui
 ru: куриное мясо
 sk: prsia kuracie
@@ -86164,7 +86164,7 @@ nl: scharreleigeel, vrije-uitloopeigeel, vrije uitloop eigeel
 
 < en:egg yolk
 en: chicken egg yolk
-de:Hühnereieigelb, Hühnereigelb, Hühnerei-Eigelb
+de: Hühnereieigelb, Hühnereigelb, Hühnerei-Eigelb
 es: yema de huevo de pollo
 fi: kananmunankeltuainen
 fr: jaune d’œuf de poules
