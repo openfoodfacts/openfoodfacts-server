@@ -17,7 +17,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::PerlStandards;
 use Exporter qw< import >;
 use Encode;
-use JSON;
+use JSON::MaybeXS;
 
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
@@ -256,8 +256,10 @@ sub push_to_redis_stream ($user_id, $product_ref, $action, $comment, $diffs) {
 				# fields
 				'code',
 				Encode::encode_utf8($product_ref->{code}),
+				# product_type should be used over flavor (kept for backward compatibility)
+				'product_type', $options{product_type},
 				'flavor',
-				Encode::encode_utf8($options{current_server}),
+				$options{current_server},
 				'user_id',
 				Encode::encode_utf8($user_id),
 				'action',

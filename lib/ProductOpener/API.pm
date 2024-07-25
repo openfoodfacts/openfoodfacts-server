@@ -88,7 +88,7 @@ use ProductOpener::APITaxonomySuggestions qw/taxonomy_suggestions_api/;
 use CGI qw/:cgi :form escapeHTML/;
 use Apache2::RequestIO();
 use Apache2::RequestRec();
-use JSON::PP;
+use JSON::MaybeXS;
 use Data::DeepAccess qw(deep_get);
 use Storable qw(dclone);
 use Encode;
@@ -350,7 +350,7 @@ sub send_api_response ($request_ref) {
 	my $status_code = $request_ref->{api_response}{status_code} || $request_ref->{status_code} || "200";
 	delete $request_ref->{api_response}{status_code};
 
-	my $json = JSON::PP->new->allow_nonref->canonical->utf8->encode($request_ref->{api_response});
+	my $json = JSON::MaybeXS->new->allow_nonref->canonical->utf8->encode($request_ref->{api_response});
 
 	# add headers
 	# We need to send the header Access-Control-Allow-Credentials=true so that websites

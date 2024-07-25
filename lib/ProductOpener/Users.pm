@@ -101,7 +101,7 @@ use ProductOpener::URL qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 
 use Math::Random::Secure qw(irand);
 use Log::Any qw($log);
