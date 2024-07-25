@@ -24,7 +24,9 @@ jobs:
         token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
     # we need origin/main to have comparison linting work !
     - name: Fetch origin/main
-      run: git fetch origin main --depth=1
+      run: |
+        git remote set-branches --add origin main
+        git fetch origin
     - name: Run linting
       run: make lint front_lint
     - name: Push changes if needed
