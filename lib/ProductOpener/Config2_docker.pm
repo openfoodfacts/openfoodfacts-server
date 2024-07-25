@@ -64,6 +64,7 @@ BEGIN {
 		$crm_username
 		$crm_db
 		$crm_pwd
+		$wordpress_url
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -158,5 +159,9 @@ $crm_api_url = $crm_url . '//xmlrpc/2/' if $crm_url;
 $crm_username = $ENV{ODOO_CRM_USER};
 $crm_db = $ENV{ODOO_CRM_DB};
 $crm_pwd = $ENV{ODOO_CRM_PASSWORD};
+
+$wordpress_url = $ENV{WORDPRESS_URL};
+$wordpress_user = $ENV{WORDPRESS_USER};
+$wordpress_password = $ENV{WORDPRESS_PASSWORD};
 
 1;

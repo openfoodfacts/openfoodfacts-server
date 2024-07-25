@@ -560,6 +560,9 @@ sub facets_route($request_ref, @components) {
 
 sub content_route($request_ref, @components) {
 	$request_ref->{content} = 1;
+	if (defined $components[1]) {
+		$request_ref->{content_name} = $components[1];
+	}
 	return 1;
 }
 

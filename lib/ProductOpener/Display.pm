@@ -175,6 +175,7 @@ use ProductOpener::Cache qw/$max_memcached_object_size $memd generate_cache_key/
 use ProductOpener::Permissions qw/has_permission/;
 use ProductOpener::ProductsFeatures qw(feature_enabled);
 use ProductOpener::RequestStats qw(:all);
+use ProductOpener::CMS qw/wp_list_pages/;
 
 use Encode;
 use URI::Escape::XS;
@@ -1311,16 +1312,19 @@ sub display_index_for_producer ($request_ref) {
 
 sub display_content($request_ref) {
 
-
 	my $text_lc = $request_ref->{lc};
     my $html = "";
     $request_ref->{styles} .= '';
     $request_ref->{header} .= '';
-    $request_ref->{title} = 'Test';
-    ${$request_ref->{content_ref}} = $html;
+    $request_ref->{title} = 'Pages';
+    $request_ref->{content_ref} = \$html;
     $request_ref->{canon_url} = "/bop";
 	
-
+	if (not defined $request_ref->{content_name}) {
+		foreach my $available_page ( sort { $a->{id} > $b->{id} } @{wp_list_pages()}) {
+			$html .= "<a href='$available_page->{link}'>$available_page->{title}->{rendered}</a><br>";
+		}
+	}
 
     display_page($request_ref);
     exit();
