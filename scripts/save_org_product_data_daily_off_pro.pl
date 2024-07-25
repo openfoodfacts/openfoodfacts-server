@@ -40,6 +40,7 @@ my $products_collection = get_products_collection();
 my $orgs_collection = get_orgs_collection();
 
 sub get_org_data ($org_id) {
+    # First query on the "off-pro" database
 	my $org_data = $products_collection->aggregate(
 		[
 			{'$match' => {'owner' => "org-" . $org_id}},
@@ -91,6 +92,20 @@ sub get_org_data ($org_id) {
 		]
 	)->next;
 
+    # Second query on the "off" database
+    my $off_products_collection = get_products_collection({database => "off"});
+    my $off_org_data = $off_products_collection->aggregate(
+        [
+            {'$match' => {'owner' => "org-" . $org_id}},
+            {
+                '$group' => {
+                    '_id' => '$owner',
+                    'number_of_products' => {'$sum' => 1}
+                }
+            }
+        ]
+    )->next;
+
 	my $number_of_products = $org_data->{number_of_products} // 0;
 	my $number_of_products_without_nutriscore = $org_data->{number_of_products_without_nutriscore} // 0;
 	my $number_of_products_with_nutriscore = $number_of_products - $number_of_products_without_nutriscore;
@@ -99,7 +114,8 @@ sub get_org_data ($org_id) {
 
 	return {
 		'products' => {
-			'number_of_products' => $number_of_products,
+			'number_of_products_on_public_platform' => $off_org_data->{number_of_products} // 0,
+			'number_of_products_on_producer_platform' => $number_of_products,
 			'number_of_data_quality_errors' => $org_data->{number_of_data_quality_errors} // 0,
 			'number_of_data_quality_warnings' => $org_data->{number_of_data_quality_warnings} // 0,
 			'number_of_products_without_nutriscore' => $number_of_products_without_nutriscore,
