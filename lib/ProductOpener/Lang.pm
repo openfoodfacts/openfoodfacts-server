@@ -72,7 +72,7 @@ use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die/;
 use DateTime;
 use DateTime::Locale;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 
 use Log::Any qw($log);
 

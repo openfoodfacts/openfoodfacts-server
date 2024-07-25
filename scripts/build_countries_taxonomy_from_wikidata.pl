@@ -34,7 +34,7 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 use LWP::Simple;
 
 # https://www.wikidata.org/w/api.php?action=wbgetentities&sites=enwiki&ids=Q39&format=json

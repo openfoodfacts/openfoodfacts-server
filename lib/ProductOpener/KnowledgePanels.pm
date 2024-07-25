@@ -70,7 +70,7 @@ use ProductOpener::KnowledgePanelsContribution qw/create_contribution_card_panel
 use ProductOpener::KnowledgePanelsReportProblem qw/create_report_problem_card_panel/;
 use ProductOpener::ProductsFeatures qw/feature_enabled/;
 
-use JSON::PP;
+use JSON::MaybeXS;
 use Encode;
 use Data::DeepAccess qw(deep_get);
 
