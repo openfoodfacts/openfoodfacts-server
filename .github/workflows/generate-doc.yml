@@ -19,6 +19,8 @@ jobs:
     steps:
       - name: Checkout sources
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
 
       # generating project documentation
       - name: Build documentation with MkDocs

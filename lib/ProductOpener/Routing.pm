@@ -126,7 +126,7 @@ sub load_routes() {
 	my @missions_route = (map {[$_, \&mission_route]} values %{$tag_type_singular{missions}});
 	# all translations for route 'product' (e.g. produit, producto ...)
 	my @product_route = (map {[$_, \&product_route]} values %{$tag_type_singular{products}});
-	# all translations for route 'en:product' (e.g. fr:produit, es:producto ...)
+	# all translations for route 'en:product' (e.g. fr:produit, es:producto ...)
 	my @lc_product_route
 		= (map {["$_:$tag_type_singular{products}{$_}", \&product_route]} keys %{$tag_type_singular{products}});
 
@@ -210,10 +210,10 @@ sub _analyze_request_impl($request_ref, @components) {
 	return 1;
 }
 
-##### ROUTES #####
+##### ROUTES #####
 
-# /
-# /[page]
+# /
+# /[page]
 sub index_route($request_ref, @components) {
 
 	# Root, ex: https://world.openfoodfacts.org/
@@ -289,13 +289,13 @@ sub org_route($request_ref, @components) {
 	shift @components;
 	shift @components;
 	$log->debug("org route", {orgid => $orgid, components => \@components}) if $log->is_debug();
-	# /search
-	# /product/[code]
+	# /search
+	# /product/[code]
 	return _analyze_request_impl($request_ref, @components);
 }
 
 # api/v0/product(s)/[code]
-# api/v0/search
+# api/v0/search
 sub api_route($request_ref, @components) {
 	my $api = $components[1];    # v0
 	my $api_action = $components[2];    # product
@@ -600,30 +600,36 @@ sub register_route($routes_to_register) {
 
 	foreach my $route (@$routes_to_register) {
 		my ($pattern, $handler, $opt) = @$route;
+		my $is_regex = 1;
 
 		if (not exists $opt->{regex}) {
 			# check if we catch an arg
 			if ($pattern !~ /\[.*\]/ and $pattern ne '') {
-				# its a simple route, use a hash key for fast match
-				$routes{$pattern} = {handler => $handler, opt => $opt};
-				#print STDERR "route: $pattern\n";
-				next;
+				# its a simple route
+				$is_regex = undef;
 			}
+			else {
 
-			# if pattern ends with a /, we remove it
-			# and it means it can be followed by anything
-			my $anypath = '';
-			if ($pattern =~ /\/$/) {
-				$pattern =~ s/\/$//;
-				$anypath = '(/.*)?';
+				# if pattern ends with a /, we remove it
+				# and it means it can be followed by anything
+				my $anypath = '';
+				if ($pattern =~ /\/$/) {
+					$pattern =~ s/\/$//;
+					$anypath = '(/.*)?';
+				}
+
+				$pattern =~ s#\[(\w+)\]#'(?<' . $1 . '>[^/]+)'#ge;
+				$pattern = "\^$pattern$anypath\$";
 			}
-
-			$pattern =~ s#\[(\w+)\]#'(?<' . $1 . '>[^/]+)'#ge;
-			$pattern = "\^$pattern$anypath\$";
 		}
 
-		# print STDERR "route: $pattern\n";
-		push @regex_routes, {pattern => qr/$pattern/, handler => $handler, opt => $opt};
+		if ($is_regex) {
+			push @regex_routes, {pattern => qr/$pattern/, handler => $handler, opt => $opt};
+		}
+		else {
+			# use a hash key for fast match
+			$routes{$pattern} = {handler => $handler, opt => $opt};
+		}
 	}
 	return 1;
 }
@@ -644,9 +650,7 @@ sub match_route ($request_ref, @components) {
 	if (exists $routes{$components[0]}) {
 		my $route = $routes{$components[0]};
 		$log->debug("route matched", {route => $components[0]}) if $log->is_debug();
-		if ((defined $route->{opt}{onlyif} and $route->{opt}{onlyif}($request_ref, @components))
-			or 1)
-		{
+		if ((not defined $route->{opt}{onlyif}) or ($route->{opt}{onlyif}($request_ref, @components))) {
 			$route->{handler}($request_ref, @components);
 			return 1;
 		}
@@ -669,9 +673,7 @@ sub match_route ($request_ref, @components) {
 				if $log->is_debug();
 			my %matches = %+;
 			$request_ref->{param} = \%matches;
-			if ((defined $route->{opt}{onlyif} and $route->{opt}{onlyif}($request_ref, @components))
-				or 1)
-			{
+			if ((not defined $route->{opt}{onlyif}) or ($route->{opt}{onlyif}($request_ref, @components))) {
 				$route->{handler}($request_ref, @components);
 				return 1;
 			}
