@@ -271,7 +271,7 @@ foreach my $test_ref (@tests) {
 	$lc = $test_ref->{input_request}{lc};
 	analyze_request($test_ref->{input_request});
 
-	is($test_ref->{input_request}, $test_ref->{expected_output_request}) or diag Dumper $test_ref;
+	is($test_ref->{input_request}, $test_ref->{expected_output_request}, $test_ref->{desc}) or diag Dumper $test_ref;
 }
 
 done_testing();
