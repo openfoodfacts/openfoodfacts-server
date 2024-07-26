@@ -12316,8 +12316,8 @@ wikipedia:en: https://en.wikipedia.org/wiki/Sheep
 # description:en:mutton is the meat of domestic sheep (species Ovis aries). The meat of an adult sheep is mutton, a term only used for the meat, not the living animals. Meat from sheep features prominently in several cuisines of the Mediterranean.
 # comment:en:Some wikidata translation seems to refer to lamb and not mutton.
 
-< en:sheeps fat
 < en:mutton
+< en:sheeps fat
 fr: viande et gras de mouton
 # ingredient/fr:viande-et-gras-de-mouton has 19 products in french @2019-04-16
 
@@ -16866,8 +16866,8 @@ sv: fullhärdat kokosfett
 # ingredient/fr:graisse-de-coco-totalement-hydrogenee has 21 products in 4 languages @2020-06-08
 
 
-< en:unhydrogenated coconut oil
 < en:non hydrogenated palm fat
+< en:unhydrogenated coconut oil
 en: unhydrogenated palm and coconut oil, unhydrogenated palm and coconut fat
 hr: nehidrogenirano palmino i kokosovo ulje
 nl: ongehard plantaardig palm en kokosvet
@@ -21586,8 +21586,8 @@ hr: prirodno identičan okus piletine
 
 # comment:en:Two parents due to and/or ingredient
 
-< en:with other natural flavouring
 < en:natural citrus flavouring
+< en:with other natural flavouring
 fr: arômes naturels d'agrumes avec autres arômes naturels
 da: naturlig citrusaroma med andre naturlige aromaer
 de: natürliches Citrus Aroma mit anderen natürlichen Aromen
@@ -29517,9 +29517,9 @@ wikidata:en: Q2674257
 #hhu:bio fehér rizs, bio fehérrizs
 # 2019-05-30
 
-< en:rice from Italy
 < en:parboiled rice
 < en:rice
+< en:rice from Italy
 en: Italian Black Parboiled Brown Rice
 de: Italienischer Schwarzer Parboiled Vollkornreis
 es: Arroz Integral Venere Vaporizado
@@ -30042,8 +30042,8 @@ fr: Riz thaï complet, riz complet thaï
 hr: tajlandska smeđa riža
 # ingredient/fr:riz-thai-complet has 7 products @2019-05-29
 
-< en:Thaï brown rice
 < en:Thai rice
+< en:Thaï brown rice
 < en:parboiled rice
 fr: Riz Thaï complet étuvé, riz thaï noir complet de Thailande
 
@@ -30480,8 +30480,8 @@ fr: farine de graines de caroube et farine de graines de guar
 
 # en:xanthan gum is listed under its E-number 415
 
-< en:guar gum
 < en:Xanthan gum
+< en:guar gum
 en: xanthan gum and guar gum
 bg: гума ксантан и гума гуар
 de: Xanthan und Guarkernmehl
@@ -31328,9 +31328,9 @@ pl: cukier gronowy, cukier winogronowy
 pt: Açúcar de uva
 sv: druvsocker
 
+< en:description:Vanillin is a phenolic aldehyde
 # description:en:Re vanilla sugar: "Cheaper vanilla sugar is also available, made only from sugar and vanillin."
 < en:sugar
-< en:description:Vanillin is a phenolic aldehyde
 fr: sucre vanilline
 de: Vanillinzucker
 fi: vanilliinisokeri
@@ -31986,10 +31986,10 @@ wikidata:en: Q3044475
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sirop-de-glucose-de-blé-en-poudre
 # 49 products in 3 languages @2018-09-24
 
-# < en:cereal-glucose-syrup
-< en:powdered glucose syrup
 < en:corn syrup
 < en:glucose
+# < en:cereal-glucose-syrup
+< en:powdered glucose syrup
 es: sirope de glucosa de maíz, glucosa de maíz
 fr: sirop de glucose de maïs
 pl: syrop glukozowy z kukurydzy, syrop glukozowy kukurydziany
@@ -34796,8 +34796,8 @@ fr: barre de chocolat au lait
 en: whole milk chocolate
 hr: čokolada-od-punomasnog-mlijeka
 
-< en:milk chocolate
 < en:Sweetener
+< en:milk chocolate
 en: milk chocolate with sweetener
 hr: mliječna čokolada sa sladilom
 
@@ -37312,8 +37312,8 @@ pt: estabilizante e450
 en: ferric pyrophosphate
 pl: dwufosforan żelazowy
 
-< en:diphosphates
 < en:E500
+< en:diphosphates
 en: diphosphates and sodium carbonates
 de: Diphosphate und Natriumcarbonate, E 450 und E 500, E450 und E500
 es: difosfatos y carbonatos de sodio
@@ -37502,8 +37502,8 @@ sv: Kalciumdivätedifosfat, Kalciumpyrofosfatsyra, e450vii
 # has no products @2018-11-04
 
 
-< en:disodium diphosphate
 < en:E500(ii)
+< en:disodium diphosphate
 bg: натриев хидроген карбонат
 ca: carbonat àcid de sodi i difosfat de disodi
 fr: diphosphate disodique et carbonate acide de sodium
@@ -37742,8 +37742,8 @@ hr: natrijev tripolifosfat
 ca: gasificant E503II
 sr: aditiv sredstvo za dizanje testa E503ii
 
-< en:E503
 < en:E500
+< en:E503
 en: ammonium and sodium carbonates
 da: ammonium - og natriumcarbonat
 de: Ammonium und Natriumcarbonat
@@ -38844,7 +38844,6 @@ wikidata:en: Q25243
 < en:fruit
 < en:fruit vegetable
 en: breadfruit
-La: Artocarpus Altilis
 af: broodvrugt
 az: Çörək ağacı
 bi: Bredfrut
@@ -38861,6 +38860,7 @@ hr: krušno drvo
 id: sukun
 ja: パンの実
 ko: 빵열매
+La: Artocarpus Altilis
 ms: sukun, ‏سوكون‎‎, kulur, كولور‎
 nl: broodvrucht
 pt: fruta-pão
@@ -44622,8 +44622,8 @@ sv: fläderbärsjuice
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-sureau
 # 52 products @2018-09-29
 
-< en:elderberry juice concentrate
 < en:elderberry juice
+< en:elderberry juice concentrate
 en: elderberry juice concentrate, concentrated elderberry juice, elderberry juice from concentrate
 bg: сок от бъз от концентрат
 de: konzentrierter Holundersaft, Holundersaft aus Konzentrat
@@ -47053,8 +47053,8 @@ pl: sok truskawkowy, sok z truskawki, sok z truskawek
 pt: Sumo de morango
 sv: jordgubbsjuice, jordgubbssaft
 
-< en:strawberry juice concentrate
 < en:strawberry juice
+< en:strawberry juice concentrate
 en: strawberry juice concentrate, concentrated strawberry juice, strawberry juice from concentrate
 bg: сок от ягода от концентрат
 de: erdbeersaftkonzentrat, Erdbeersaft aus Konzentrat, Erdbeersaft aus Erdbeersaftkonzentrat, Erdbeersaft aus Fruchtsaftkonzentrat
@@ -55872,8 +55872,8 @@ ro: konjac
 description:en: Konjac is a common name of the East and Southeast Asian plant Amorphophallus konjac (syn. A. rivieri), which has an edible corm (bulbo-tuber).
 wikidata:en: Q674443
 
-< en:flour
 < en:Konjac
+< en:flour
 en: konjac flour
 hr: konjac brašno
 
@@ -66102,8 +66102,8 @@ wikidata:en: Q204226
 wiktionary:en: Dijon_mustard
 # 3445 in 9 @2021-09-10
 
-< en:strong mustard
 < en:dijon mustard
+< en:strong mustard
 en: strong Dijon mustard
 fr: moutarde forte de dijon
 # 16 in fr @2021-09-10
@@ -81999,8 +81999,8 @@ nl: Acaciahoning uit Frankrijk
 fr: miel italien d'acacia
 # 1 product @2021-09-05
 
-< en:acacia honey
 < en:Blend of EU and non-EU honeys
+< en:acacia honey
 fr: Mélanges de miels d'Acacia originaires et non originaires de l'Union Européenne
 
 < en:acacia honey
@@ -83358,8 +83358,8 @@ fr: café moulu en dosettes filtre
 fr: Café moulu sous vide
 # 4@2019-06-05
 
-< en:ground coffee
 < en:decaffeinated coffee
+< en:ground coffee
 fr: café moulu décaféiné
 
 < en:coffee
@@ -92648,9 +92648,9 @@ ciqual_food_name:fr: Matière grasse végétale ou margarine, 80% MG, doux
 #pt:margarina vegetais nâo hidrogenada
 # ingredient/vegetable-margarine 786 in 7 @2021-08-21
 
+< en:Margarine
 #comment:en:should this be a part of en:margarine ?
 < en:dairy
-< en:Margarine
 es: oleomargarina bovina
 vegan:en: no
 vegetarian:en: no
