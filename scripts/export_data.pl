@@ -32,7 +32,7 @@ use ProductOpener::Food qw/%cc_nutriment_table/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 use Time::Local;
 use Data::Dumper;
 use Text::CSV;

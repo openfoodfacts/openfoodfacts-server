@@ -86,7 +86,7 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 use Data::DeepAccess qw(deep_get deep_exists deep_set);
 use Data::Compare;
 

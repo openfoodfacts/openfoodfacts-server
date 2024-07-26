@@ -32,7 +32,7 @@ use ProductOpener::Products qw/product_path_from_id/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 use Time::Local;
 use Data::Dumper;
 use Getopt::Long;
