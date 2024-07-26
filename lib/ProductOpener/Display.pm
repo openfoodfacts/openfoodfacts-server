@@ -175,7 +175,7 @@ use ProductOpener::Cache qw/$max_memcached_object_size $memd generate_cache_key/
 use ProductOpener::Permissions qw/has_permission/;
 use ProductOpener::ProductsFeatures qw(feature_enabled);
 use ProductOpener::RequestStats qw(:all);
-use ProductOpener::CMS qw/wp_list_pages/;
+use ProductOpener::CMS qw/:all/;
 
 use Encode;
 use URI::Escape::XS;
@@ -1309,27 +1309,40 @@ sub display_index_for_producer ($request_ref) {
 	return $html;
 }
 
-
 sub display_content($request_ref) {
 
-	my $text_lc = $request_ref->{lc};
-    my $html = "";
-    $request_ref->{styles} .= '';
-    $request_ref->{header} .= '';
-    $request_ref->{title} = 'Pages';
-    $request_ref->{content_ref} = \$html;
-    $request_ref->{canon_url} = "/bop";
-	
-	if (not defined $request_ref->{content_name}) {
-		foreach my $available_page ( sort { $a->{id} > $b->{id} } @{wp_list_pages()}) {
-			$html .= "<a href='$available_page->{link}'>$available_page->{title}->{rendered}</a><br>";
-		}
+	my $html = "";
+	my $template_data_ref = {};
+
+	if ($request_ref->{admin} or $request_ref->{moderator}) {
+		update_pages_metadata_cache(1)
+	}
+	if (not defined $request_ref->{content_slug}) {
+		# Display the list of available pages
+		my @sorted_pages = sort {$a->{id} > $b->{id}} wp_get_available_pages($request_ref->{content_lc});
+		$template_data_ref->{wp_available_pages} = \@sorted_pages;
+		process_template('web/pages/content/menu.tt.html', $template_data_ref, \$html)
+			|| return "template error: " . $tt->error();
+	}
+	else {
+		# Display the content of a specific page
+		my $page_data = wp_get_page_from_slug($request_ref->{content_lc}, $request_ref->{content_slug});
+		$template_data_ref->{wp_title} = $page_data->{title};
+		$template_data_ref->{wp_content} = $page_data->{content};
+
+		process_template('web/pages/content/wordpress_content.tt.html', $template_data_ref, \$html)
+			|| return "template error: " . $tt->error();
 	}
 
-    display_page($request_ref);
-    exit();
-}
+	$request_ref->{styles} .= '';
+	$request_ref->{header} .= '';
+	$request_ref->{title} .= '';
+	$request_ref->{canon_url} = "/bop";
+	$request_ref->{content_ref} = \$html;
+	display_page($request_ref);
 
+	exit();
+}
 
 sub display_text ($request_ref) {
 

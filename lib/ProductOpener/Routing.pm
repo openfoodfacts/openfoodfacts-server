@@ -113,10 +113,11 @@ sub load_routes() {
 		['property', \&properties_route],
 		['products', \&products_route],
 		['content', \&content_route],
+		#['content', \&content_route],
 		# with priority
 		['', \&index_route],
 		['^(?<page>\d+)$', \&index_route, {regex => 1}],
-		['org/[orgid]/', \&org_route],
+		['org/[orgid]/', \&org_route],		
 		# Known tag type? Catch all if no route matched
 		['.*', \&facets_route, {regex => 1}],
 	];
@@ -560,9 +561,15 @@ sub facets_route($request_ref, @components) {
 
 sub content_route($request_ref, @components) {
 	$request_ref->{content} = 1;
-	if (defined $components[1]) {
-		$request_ref->{content_name} = $components[1];
+	$request_ref->{content_lc} = $components[1] // 'en';
+
+	if (defined $components[2])
+	{
+		$request_ref->{content_slug} = $components[2];
+		$log->debug("content route", {lc => $request_ref->{content_lc}, slug => $request_ref->{content_slug}})
+			if $log->is_debug();
 	}
+
 	return 1;
 }
 

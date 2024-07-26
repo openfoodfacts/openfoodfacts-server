@@ -38,12 +38,12 @@ package ProductOpener::CMS;
 use ProductOpener::PerlStandards;
 use Exporter qw< import >;
 
-
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
-		&wp_list_pages
-        &wp_get_page_by_id
+		&wp_get_page_from_slug
+		&wp_get_available_pages
+		&wp_update_pages_metadata_cache
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 
@@ -56,41 +56,144 @@ use LWP::Simple;
 use Log::Any qw($log);
 use JSON;
 
-=head2 wp_list_pages
+my $last_cache_update_t = 0;
+my $cache_update_interval_s = 60 * 10;    # 10 minutes
+my $pages_metadata_cache_by_id = {};    # { 16 => { 'en' => page_metadata } }
+my $page_id_by_localized_slug = {};    # { en => { 'my-test-page' => 16 },
+                                       #   fr => { 'ma-page-test' => 16 } }
 
-Fetches the list of pages from the CMS
+=head2 get_page_from_slug($slug)
 
-=cut    
+Fetches a page from the CMS by its slug
 
-sub wp_list_pages() {
-    my $url = $ProductOpener::Config2::wordpress_url . '/wp-json/wp/v2/pages?';
-    $url .= "_fields[]= " . join('&_fields[]=', qw(id title modified_gmt link slug));
+=head3 Parameters
 
-    my $response = get($url);
-    my $json;
-    eval {
-        $json = decode_json($response);
-    };
-    return $json;
+=over
+
+=item $slug
+
+The slug of the page to fetch: 
+e.g. 'my-test-page' or 'journees-open-food-facts-2024-reviennent-en-septembre-a-paris'
+
+=back
+
+=cut 
+
+sub wp_get_page_from_slug($lc, $slug) {
+
+	wp_update_pages_metadata_cache();
+
+	my $page_id = $page_id_by_localized_slug->{$lc}{$slug};
+	if ($page_id) {
+		my $page_data = wp_get_page_by_id($page_id);
+		return {
+			title => $page_data->{title}{rendered},
+			content => $page_data->{content}{rendered},
+		};
+	}
+	return;
+}
+
+=head2  wp_get_available_pages($lc)
+
+Gets the list of available pages, given a language code.
+If the language code is not found, it defaults to 'en'
+
+=head3 Returns
+
+An array of pages:
+
+[
+    {
+        lc: 'en',
+        link: '/content/en/test-page',
+        title: 'Test Page'
+    },
+]
+
+=cut
+
+sub wp_get_available_pages($lc) {
+
+	wp_update_pages_metadata_cache();
+
+	my @available_translations;
+	foreach my $page_id (keys %{$pages_metadata_cache_by_id}) {
+		my $existing_lc = (exists $page_id_by_localized_slug->{$lc}{$page_id}) ? $lc : 'en';
+		my $page = $pages_metadata_cache_by_id->{$page_id}{$existing_lc};
+		my $aa = {
+			id => $page_id,
+			lc => $existing_lc,
+			link => "/content/$lc/$page->{slug}",
+			title => $page->{title}{rendered},
+		};
+		push @available_translations, $aa;
+	}
+
+	return @available_translations;
 }
 
 sub wp_get_page_by_id($page_id) {
-    my $url = $ProductOpener::Config2::wordpress_url . '/wp-json/wp/v2/pages/' . $page_id;
-    my $response = get($url);
-    my $json;
-    eval {
-        $json = decode_json($response);
-    };
-    return $json;
+	my $url = $ProductOpener::Config2::wordpress_url . '/wp-json/wp/v2/pages/' . $page_id;
+	return _get_json_from_url_and_decode($url);
 }
 
-sub wp_get_page_by_url($url) {
-    my $response = get($url);
-    my $json;
-    eval {
-        $json = decode_json($response);
-    };
-    return $json;
+=head2 _wp_list_pages()
+
+Fetches the list of pages from the CMS
+
+=head3 Returns
+
+An array of pages:
+
+[
+    {
+        "id": 16,
+        "title": {
+            "rendered": "Test Page"
+        },
+        "modified_gmt": "2021-09-29T14:00:00",
+        "link": "https://wordpress_url/test-page",
+        "slug": "test-page"
+    },
+]
+
+=cut   
+
+=head2 wp_update_pages_metadata_cache()
+
+Updates the caches of available pages
+if the cache is older than the cache_update_interval_s.
+
+=cut
+
+sub wp_update_pages_metadata_cache($force = 0) {
+	if ((time() - $last_cache_update_t) > $cache_update_interval_s or $force) {
+		$log->debug("cache", {}) if $log->is_debug();
+		$last_cache_update_t = time();
+		foreach my $page (@{_wp_list_pages()}) {
+			# TODO: change this to support for multiple languages when WPML is enabled
+			$pages_metadata_cache_by_id->{$page->{id}}{en} = $page;
+			$page_id_by_localized_slug->{en}{$page->{slug}} = $page->{id};
+		}
+	}
+	return 1;
+}
+
+sub _wp_list_pages() {
+	my $url = $ProductOpener::Config2::wordpress_url . '/wp-json/wp/v2/pages?';
+	$url .= "_fields[]= " . join('&_fields[]=', qw(id title modified_gmt link slug));
+	return _get_json_from_url_and_decode($url);
+}
+
+sub _get_json_from_url_and_decode($url) {
+	my $response = get($url);
+	my $json;
+	eval {$json = decode_json($response);};
+	if ($@) {
+		$log->debug("get_json_response", {error => $@, url => $url}) if $log->is_debug();
+	}
+	return $json;
 }
 
 1;
