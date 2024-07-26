@@ -161,7 +161,4 @@ $crm_db = $ENV{ODOO_CRM_DB};
 $crm_pwd = $ENV{ODOO_CRM_PASSWORD};
 
 $wordpress_url = $ENV{WORDPRESS_URL};
-$wordpress_user = $ENV{WORDPRESS_USER};
-$wordpress_password = $ENV{WORDPRESS_PASSWORD};
-
 1;
