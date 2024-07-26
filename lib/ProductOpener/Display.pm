@@ -1315,7 +1315,7 @@ sub display_content($request_ref) {
 	my $template_data_ref = {};
 
 	if ($request_ref->{admin} or $request_ref->{moderator}) {
-		update_pages_metadata_cache(1)
+		update_pages_metadata_cache(1);
 	}
 	if (not defined $request_ref->{content_slug}) {
 		# Display the list of available pages
