@@ -54,7 +54,6 @@ BEGIN {
 		&wait_for
 		&read_gzip_file
 		&check_ocr_result
-		&delete_user_from_keycloak
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -254,7 +253,7 @@ sub remove_all_users () {
 	my @users = get_users_from_keycloak();
 	foreach (@users) {
 		foreach (@{$_}) {
-			delete_user_from_keycloak($_);
+			_delete_user_from_keycloak($_);
 		}
 	}
 	return;
@@ -937,7 +936,7 @@ sub get_users_from_keycloak () {
 	return @users;
 }
 
-=head2 delete_user_from_keycloak($keycloak_user)
+=head2 _delete_user_from_keycloak($keycloak_user)
 
 Removes the given users from our Keycloak realm
 
@@ -949,7 +948,7 @@ The user that will be deleted from Keycloak
 
 =cut
 
-sub delete_user_from_keycloak ($user) {
+sub _delete_user_from_keycloak ($user) {
 	unless ((defined $oidc_options{keycloak_base_url}) and (defined $oidc_options{keycloak_realm_name})) {
 		confess('keycloak_base_url and keycloak_realm_name not configured');
 	}

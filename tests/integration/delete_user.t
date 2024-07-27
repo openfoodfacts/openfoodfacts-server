@@ -4,14 +4,13 @@ use ProductOpener::PerlStandards;
 
 use Test2::V0;
 use ProductOpener::APITest qw/:all/;
-use ProductOpener::Test qw/remove_all_users delete_user_from_keycloak/;
+use ProductOpener::Test qw/remove_all_users/;
 use ProductOpener::TestDefaults qw/%admin_user_form %default_product %default_user_form/;
 use ProductOpener::Users qw/:all/;
-use ProductOpener::Producers qw/:all/;
-use ProductOpener::Keycloak;
 use ProductOpener::Config qw/:all/;
 
 use Clone qw/clone/;
+use Minion::Job;
 
 wait_application_ready();
 remove_all_users();
@@ -38,20 +37,19 @@ create_user($admin, \%admin_user_form);
 edit_product($ua, \%default_product);
 
 my $url_userid = construct_test_url("/cgi/user.pl?type=edit&userid=tests", "world");
-my $keycloak = ProductOpener::Keycloak->new();
-my $keycloak_user = $keycloak->find_user_by_email('bob@test.com');
 
 #deleting the account
-my $before_delete_ts = time();
-delete_user_from_keycloak($keycloak_user);
-
-#waiting the deletion task to be done (weirdly enough it is not useful anymore..)
-my $max_time = 60;
-my $jobs_ref = get_minion_jobs("delete_user", $before_delete_ts, $max_time);
-
-is(scalar @{$jobs_ref}, 1, "One delete_user was triggered");
-my $delete_job_state = $jobs_ref->[0]{state};
-is($delete_job_state, "finished", "delete_user finished without errors");
+my $job_result;
+my $mocked_job = mock 'Minion::Job' => (
+	override => [
+		'finish' => sub {
+			my ($self, $result) = @_;
+			$job_result = $result;
+		}
+	],
+);
+delete_user_task(Minion::Job->new(), {userid => 'tests'});
+is($job_result, 'done', 'delete_user finished without errors');
 
 #user sign out of its account
 my %signout_form = (

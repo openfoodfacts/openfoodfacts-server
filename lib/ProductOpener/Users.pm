@@ -77,6 +77,8 @@ BEGIN {
 		&generate_token
 		&update_login_time
 
+		&delete_user_task
+
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
