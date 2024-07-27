@@ -44,6 +44,8 @@ BEGIN {
 		&increment_rate_limit_requests
 		&subscribe_to_redis_streams
 		&push_to_redis_stream
+
+		&process_xread_stream_reply
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -157,7 +159,7 @@ sub _read_user_deleted_stream($search_from) {
 			}
 
 			if ($reply_ref) {
-				my $last_processed_message_id = _process_xread_stream_reply($reply_ref);
+				my $last_processed_message_id = process_xread_stream_reply($reply_ref);
 				if ($last_processed_message_id) {
 					$search_from = $last_processed_message_id;
 				}
@@ -171,7 +173,7 @@ sub _read_user_deleted_stream($search_from) {
 	return;
 }
 
-sub _process_xread_stream_reply($reply_ref) {
+sub process_xread_stream_reply($reply_ref) {
 	my $last_processed_message_id;
 
 	my @streams = @{$reply_ref};
@@ -187,7 +189,7 @@ sub _process_xread_stream_reply($reply_ref) {
 	return $last_processed_message_id,;
 }
 
-sub _process_deleted_users_stream ($stream_values_ref) {
+sub _process_deleted_users_stream($stream_values_ref) {
 	my $last_processed_message_id;
 
 	foreach my $outer_ref (@{$stream_values_ref}) {
