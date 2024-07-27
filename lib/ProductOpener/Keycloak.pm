@@ -47,12 +47,15 @@ sub new($class) {
 	my $self = {};
 	bless $self, $class;
 
-	unless ((defined $oidc_options{keycloak_base_url}) and (defined $oidc_options{keycloak_realm_name})) {
-		die 'keycloak_base_url and keycloak_realm_name not configured';
+	unless ((defined $oidc_options{keycloak_base_url})
+		and (defined $oidc_options{keycloak_backchannel_base_url})
+		and (defined $oidc_options{keycloak_realm_name}))
+	{
+		die 'keycloak_base_url or keycloak_backchannel_base_url or keycloak_realm_name not configured';
 	}
 
 	$self->{users_endpoint}
-		= $oidc_options{keycloak_base_url}
+		= $oidc_options{keycloak_backchannel_base_url}
 		. '/admin/realms/'
 		. uri_escape($oidc_options{keycloak_realm_name})
 		. '/users';

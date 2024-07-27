@@ -101,6 +101,8 @@ $events_password = '';
 	discovery_endpoint => '',
 	# Keycloak specific: Base URL for the Keycloak server
 	keycloak_base_url => '',
+	# Keycloak specific: Base URL for the backchannel communcation: https://www.keycloak.org/server/hostname
+	keycloak_backchannel_base_url => '',
 	# Keycloak specific: Name of the realm
 	keycloak_realm_name => ''
 );

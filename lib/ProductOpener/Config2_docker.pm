@@ -134,6 +134,7 @@ $events_password = $ENV{EVENTS_PASSWORD};
 	# Keycloak specific endpoint used to create users. This is currently required for backwards compatibility with apps
 	# that create users by POSTing to /cgi/user.pl
 	keycloak_base_url => $ENV{KEYCLOAK_BASE_URL},
+	keycloak_backchannel_base_url => $ENV{KEYCLOAK_BACKCHANNEL_BASE_URL},
 	keycloak_realm_name => $ENV{KEYCLOAK_REALM_NAME}
 );
 

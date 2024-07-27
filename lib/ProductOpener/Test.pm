@@ -910,8 +910,8 @@ Returns an array of users in Keycloak.
 =cut
 
 sub get_users_from_keycloak () {
-	unless ((defined $oidc_options{keycloak_base_url}) and (defined $oidc_options{keycloak_realm_name})) {
-		confess('keycloak_base_url and keycloak_realm_name not configured');
+	unless ((defined $oidc_options{keycloak_backchannel_base_url}) and (defined $oidc_options{keycloak_realm_name})) {
+		confess('keycloak_backchannel_base_url and keycloak_realm_name not configured');
 	}
 
 	my $token = get_token_using_client_credentials();
@@ -920,7 +920,7 @@ sub get_users_from_keycloak () {
 	}
 
 	my $keycloak_users_endpoint
-		= $oidc_options{keycloak_base_url}
+		= $oidc_options{keycloak_backchannel_base_url}
 		. '/admin/realms/'
 		. uri_escape($oidc_options{keycloak_realm_name})
 		. '/users';
@@ -949,8 +949,8 @@ The user that will be deleted from Keycloak
 =cut
 
 sub _delete_user_from_keycloak ($user) {
-	unless ((defined $oidc_options{keycloak_base_url}) and (defined $oidc_options{keycloak_realm_name})) {
-		confess('keycloak_base_url and keycloak_realm_name not configured');
+	unless ((defined $oidc_options{keycloak_backchannel_base_url}) and (defined $oidc_options{keycloak_realm_name})) {
+		confess('keycloak_backchannel_base_url and keycloak_realm_name not configured');
 	}
 
 	my $token = get_token_using_client_credentials();
@@ -959,7 +959,7 @@ sub _delete_user_from_keycloak ($user) {
 	}
 
 	my $keycloak_users_endpoint
-		= $oidc_options{keycloak_base_url}
+		= $oidc_options{keycloak_backchannel_base_url}
 		. '/admin/realms/'
 		. uri_escape($oidc_options{keycloak_realm_name})
 		. '/users';

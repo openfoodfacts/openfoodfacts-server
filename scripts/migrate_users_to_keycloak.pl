@@ -39,7 +39,7 @@ use Log::Any '$log', default_adapter => 'Stderr';
 my $keycloak = ProductOpener::Keycloak->new();
 
 my $keycloak_partialimport_endpoint
-	= $oidc_options{keycloak_base_url}
+	= $oidc_options{keycloak_backchannel_base_url}
 	. '/admin/realms/'
 	. uri_escape($oidc_options{keycloak_realm_name})
 	. '/partialImport';
