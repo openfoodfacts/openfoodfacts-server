@@ -3906,19 +3906,11 @@ en: outside japan
 ja: 外国, 輸入
 
 en: Europe
+xx: Europa
 bg: Европа
-ca: Europa
-da: Europa
-de: Europa
-es: Europa
 fr: Europe
 hu: Európa
-nl: Europa
-pl: Europa
-pt: Europa
-ro: Europa
 ru: Европа
-sv: Europa
 uk: Європа
 
 en: European Union, EU
@@ -3966,18 +3958,90 @@ pl: Unia Europejska i spoza Unii Europejskiej
 
 # France regions
 
-< en:france
+< en: France
+fr: Provence-Alpes-Côte d'Azur, PACA
+xx: Provence-Alpes-Côte d'Azur, PACA
+insee:fr 93
+iso:en: FR-PAC
+nuts:en: FR8
+
+< fr: Provence-Alpes-Côte d'Azur
+fr:Alpes-de-Haute-Provence
+xx:Alpes-de-Haute-Provence
+insee:fr 04
+iso:en: FR-04
+nuts:en: FR821
+web:fr: https://www.maregionsud.fr
+wikipedia:en:https://en.wikipedia.org/wiki/Alpes-de-Haute-Provence
+
+< fr: Provence-Alpes-Côte d'Azur
+fr: Hautes-Alpes
+xx: Hautes-Alpes
+insee: fr 05
+iso:en: FR-05
+nuts:en: FR822
+web:fr: https://www.hautes-alpes.fr
+wikipedia:en: https://en.wikipedia.org/wiki/Hautes-Alpes
+
+< fr: Provence-Alpes-Côte d'Azur
+fr: Alpes-Maritimes
+xx: Alpes-Maritimes
+insee:fr 06
+iso:en: FR-06
+nuts:en: FR823
+web:fr: https://www.departement06.fr
+
+< fr: Provence-Alpes-Côte d'Azur
+fr: Bouches-du-Rhône
+xx: Bouches-du-Rhône
+insee:fr 13
+iso:en: FR-13
+nuts:en: FR823
+web:fr: https://www.departement13.fr
+wikipedia:en: https://en.wikipedia.org/wiki/Bouches-du-Rhône
+
+< fr: Provence-Alpes-Côte d'Azur
+fr: Var
+xx: Var
+insee:fr 83
+iso:en: FR-83
+# nuts:en: 
+web:fr: https://www.var.fr
+wikipedia:en: https://en.wikipedia.org/wiki/Var_(department)
+
+< fr: Provence-Alpes-Côte d'Azur
+fr: Vaucluse
+xx: Vaucluse
+insee:fr 84
+iso:en: FR-84
+# nuts:en: 
+web:fr: https://www.vaucluse.fr
+wikipedia:en: https://en.wikipedia.org/wiki/Vaucluse
+
+< fr: Provence-Alpes-Côte d'Azur
+en: Provence
+bg: Прованс
+fr: Provence
+hu: Provance
+pl: Prowansja
+wikipedia:en: https://en.wikipedia.org/wiki/Provence
+
+< en: Provence
+en: Haute Provence
+fr: Haute Provence
+
+< en: France
 en: Alsace
 bg: Елзас
 fr: Alsace
 pl: Alzacja
 
-< en:france
+< en:France
 en: Ardèche
 bg: Ардеш
 fr: Ardèche
 
-< en:france
+< en:France
 en: Aquitaine
 bg: Аквитания
 fr: Aquitaine
@@ -4058,16 +4122,6 @@ nl: Normandië
 pl: Normandia
 pt: Normandia
 
-< en:france
-en: Provence
-bg: Прованс
-fr: Provence
-hu: Provance
-pl: Prowansja
-
-< en:france
-en: Haute Provence
-fr: Haute Provence
 
 < en:france
 en: Savoy
