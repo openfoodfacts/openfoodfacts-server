@@ -358,6 +358,8 @@ sub api_route($request_ref, @components) {
 
 	set_request_stats_value($request_ref->{stats}, "route", "api");
 	set_request_stats_value($request_ref->{stats}, "api_action", $request_ref->{api_action});
+	set_request_stats_value($request_ref->{stats}, "api_method", $request_ref->{api_method});
+	set_request_stats_value($request_ref->{stats}, "api_version", $request_ref->{api_version});
 
 	return 1;
 }

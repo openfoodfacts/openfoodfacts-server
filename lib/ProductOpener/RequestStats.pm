@@ -38,6 +38,8 @@ sub init_request_stats() {
 
 	my $stats_ref = {};
 	set_request_stats_time_start($stats_ref, "request");
+	set_request_stats_value($stats_ref, "request_t", time());
+	set_request_stats_value($stats_ref, "pid", $$);
 	return $stats_ref;
 }
 
@@ -73,7 +75,7 @@ sub log_request_stats($stats_ref) {
 			else {
 				$log->warn("No end key for start key $key in request stats");
 			}
-			delete $stats_ref->{$key} unless $key eq "request_start";    # keep the request start timestamp
+			delete $stats_ref->{$key};
 			delete $stats_ref->{$key_prefix . "_end"};
 		}
 	}
