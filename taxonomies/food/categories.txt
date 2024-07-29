@@ -6104,6 +6104,10 @@ intake24_category_code:en: SOFT
 nova:en: 3
 wikidata:en: Q147538
 
+< en: Sodas
+en: Club sodas
+wikipedia:en: https://en.wikipedia.org/wiki/Club_soda
+description:en: Club soda is a form of carbonated water manufactured in North America with added minerals.
 
 < en:Carbonated drinks
 en: Carbonated soft drinks without fruit juice
@@ -8715,6 +8719,19 @@ la: Senna alexandrina, Cassia angustifolia, Senna angustifolia
 nl: Sennapeul
 pl: Senes ostrolistny, Kasja ostrolistna
 wikidata:en: Q132675
+
+< en: Herbal teas
+en: Maca, Maca powder, Peruvian ginseng
+xx: Maca
+la: Lepidium meyenii
+nl: Maca, Maca Poeder
+
+< en: Herbal teas
+en: Mongolian milkvetch
+fr: Astragale de Mongolie
+la: Astragalus mongholicus, Astragalus propinquus, Astragalus membranaceus
+mn: Хунчир
+zh: 黃芪
 
 < en:Herbal teas
 en: Boldo
@@ -46378,7 +46395,7 @@ nl: Zachte kazen
 pt: Queijos macios
 sv: Mjuka ostar
 intake24_category_code:en: SFTC
-opposite:en en:hard-cheeses
+opposite:en: en:hard-cheeses
 
 < en:Soft cheeses
 en: Soft cheeses with bloomy rind, white mold-rind cheese
@@ -46442,7 +46459,7 @@ ciqual_food_code:en: 12100
 ciqual_food_name:en: Hard cheese (average)
 ciqual_food_name:fr: Fromage à pâte pressée cuite (aliment moyen)
 intake24_category_code:en: HRDC
-opposite:en en:soft-cheeses
+opposite:en: en:soft-cheeses
 wikidata:en: Q3088330
 
 < en:Hard cheeses
@@ -47144,7 +47161,7 @@ ciqual_food_name:en: Cheese, from goat's milk, fresh, from pasteurised milk
 ciqual_food_name:fr: Fromage de chèvre frais, au lait pasteurisé (type bûchette fraîche)
 
 < en:Fresh goat cheese
-< enLUnpasteurised cheeses
+< en:Unpasteurised cheeses
 en: Cheese from goat's milk fresh from raw milk
 fr: Fromage de chèvre frais au lait cru, palet frais de chèvre au lait cru, crottin frais de chèvre au lait cru
 agribalyse_food_code:en: 12804
@@ -51038,21 +51055,20 @@ agribalyse_proxy_food_name:fr: Lait entier, pasteurisé
 opposite:en: en:semi-skimmed-milks, en:skimmed milks
 wikidata:en: Q3374445
 
-<en:Pasteurised milks
-<en:Whole milks
-en:Whole pasteurised milks
-bg:Пълномаслено пастьоризирано прясно мляко
-es:Leche entera esterilizada
-de:Vollmilch sterilisiert
-fr:Laits entiers pasteurisés
-hr:Punomasno pasterizirano mlijeko
-fr:Laits entiers stérilisés
-it:Latte intero sterilizzato
-nl:Gesteriliseerde volle melk
-agribalyse_food_code:en:19024
-ciqual_food_code:en:19024
-ciqual_food_name:en:Milk, whole, pasteurised
-ciqual_food_name:fr:Lait entier, pasteurisé
+< en:Pasteurised milks
+< en:Whole milks
+en: Whole pasteurised milks
+bg: Пълномаслено пастьоризирано прясно мляко
+de: Vollmilch sterilisiert
+es: Leche entera esterilizada
+fr: Laits entiers pasteurisés
+hr: Punomasno pasterizirano mlijeko
+it: Latte intero sterilizzato
+nl: Gesteriliseerde volle melk
+agribalyse_food_code:en: 19024
+ciqual_food_code:en: 19024
+ciqual_food_name:en: Milk, whole, pasteurised
+ciqual_food_name:fr: Lait entier, pasteurisé
 
 < en:UHT Milks
 < en:Whole milks
@@ -67042,6 +67058,12 @@ lt: Šviežios citrinos
 nl: Verse citroen
 season_in_country_fr:en: 1,2,11,12
 
+< en: Fresh lemons
+en: Verna lemons, Verna
+xx: Verna
+fr: Citrons Verna
+nl: Verna citroenen
+
 < en:Lemons
 en: Unwaxed lemons
 
@@ -72859,18 +72881,16 @@ lt: Žolelių ir prieskonių mišiniai
 nl: Kruiden/specerijenmengsel, Mengeling van aromatische kruiden en specerijen
 pl: Mieszanki ziół i przypraw
 
-< en:Mixtures of herbs and spices
+< en: Mixtures of herbs and spices
 es: Finas hierbas
 
-< en:Mixtures of herbs and spices
+< en: Mixtures of herbs and spices
 es: Polvo de cinco especias
 
-< en:Mixtures of herbs and spices
+< en: Mixtures of herbs and spices
 en: Ras el hanout
-es: Ras el hanut
+xx: Ras el hanout
 fr: Ras el hanout, Raz el hanout
-hr: Ras el hanout
-nl: Ras el hanoet
 wikidata:en: Q1067261
 
 < en:Mixtures of herbs and spices
@@ -82545,6 +82565,7 @@ hr: Odresci
 it: Bistecche
 lt: Kepsniai
 nl: Steaks
+pt: Bifes
 zh: 肉排
 intake24_category_code:en: STEK
 
@@ -83042,7 +83063,7 @@ ja: 牛肉, ビーフ, ぎゅうにく, ぎゅう肉, 牛にく
 lt: Jautiena, Jautienos mėsa
 nl: Rund, Rundervlees
 pl: Wołowina, mięso wołowe
-pt: Bife
+pt: Carnes de vaca
 ru: Говядина
 zh: 牛肉
 gpc_category_code:en: 10005767
@@ -83871,6 +83892,7 @@ lt: Ožkiena
 wco_hs_heading:en: 02.04
 wikidata:en: Q449506
 
+
 < en:Fresh meats
 < en:Goat meat
 en: Young goat
@@ -84166,6 +84188,7 @@ ja: 牛ステーキ
 lt: Jautienos kepsniai
 nl: Biefstukken
 pl: Stek wołowy
+pt: Bifes de vaca
 zh: 牛排
 agribalyse_food_code:en: 6201
 ciqual_food_code:en: 6201
