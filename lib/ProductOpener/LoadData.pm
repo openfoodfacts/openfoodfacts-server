@@ -55,6 +55,8 @@ use ProductOpener::ForestFootprint qw/load_forest_footprint_data/;
 use ProductOpener::Ecoscore qw(load_agribalyse_data load_ecoscore_data);
 use ProductOpener::MainCountries qw(load_scans_data);
 use ProductOpener::NutritionCiqual qw(load_ciqual_data);
+use ProductOpener::Routing qw(load_routes);
+use ProductOpener::CRM qw(init_crm_data);
 
 =head1 FUNCTIONS
 
@@ -73,13 +75,16 @@ sub load_data() {
 	return if ($ENV{PO_NO_LOAD_DATA});
 
 	$log->debug("loading data - start") if $log->is_debug();
+	print STDERR "load_data - start\n";
 
+	init_crm_data();    # Die if CRM is configured and, required data cannot be loaded from cache or fetched from CRM
 	init_taxonomies(1);    # Die if some taxonomies cannot be loaded
 	init_emb_codes();
 	init_packager_codes();
 	init_geocode_addresses();
 	init_packaging_taxonomies_regexps();
 	load_scans_data();
+	load_routes();
 
 	if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
 		load_agribalyse_data();
@@ -89,6 +94,7 @@ sub load_data() {
 	}
 
 	$log->debug("loading data - done") if $log->is_debug();
+	print STDERR "load_data - done\n";
 
 	return;
 }

@@ -8,11 +8,12 @@ use utf8;
 use Test2::V0;
 use Data::Dumper;
 $Data::Dumper::Terse = 1;
+$Data::Dumper::Sortkeys = 1;
 use Log::Any::Adapter 'TAP';
 
-use JSON::PP;
+use JSON::MaybeXS;
 
-my $json = JSON::PP->new->allow_nonref->canonical;
+my $json = JSON::MaybeXS->new->allow_nonref->canonical;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Tags qw/:all/;
@@ -234,6 +235,7 @@ foreach my $test_ref (@tests) {
 
 		local $/;    #Enable 'slurp' mode
 		my $expected_product_ref = $json->decode(<$expected_result>);
+		print STDERR "testid: $testid\n";
 		is($product_ref, $expected_product_ref) or diag Dumper $product_ref;
 	}
 	else {

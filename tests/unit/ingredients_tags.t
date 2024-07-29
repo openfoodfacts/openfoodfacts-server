@@ -199,10 +199,7 @@ my @tests = (
 		["en:unrefined-cane-sugar", "en:banana", "en:tomato", "en:unrefined-sugar"]
 	],
 
-	[
-		{lc => "en", ingredients_text => "vegetable oil (coconut & rapeseed)"},
-		["en:vegetable-oil", "en:coconut", "en:rapeseed"]
-	],
+	[{lc => "en", ingredients_text => "vegetable oil (coconut & rapeseed)"}, ["en:coconut-oil", "en:rapeseed-oil"]],
 
 	[{lc => "fr", ingredients_text => "amidon de blé. traces de _céleri_."}, ["en:wheat-starch"]],
 
@@ -322,6 +319,13 @@ my @tests = (
 		["en:sunflower-oil", "en:soya-oil", "en:palm-oil"]
 	],
 	[{lc => "fr", ingredients_text => "Banane coupée et cuite au naturel"}, ["en:banana"],],
+	[
+		{lc => "fr", ingredients_text => "Ingrédient inconnu coupée et cuite au naturel"},
+		["fr:ingredient-inconnu-coupee-et-cuite-au-naturel"],
+	],
+	[{lc => "fr", ingredients_text => "Ingrédient inconnu et sel"}, ["fr:ingredient-inconnu", "en:salt"],],
+	[{lc => "fr", ingredients_text => "Sel et ingrédient inconnu"}, ["en:salt", "fr:ingredient-inconnu"],],
+	[{lc => "en", ingredients_text => "Toasted mango and unknown fruit"}, ["en:mango", "en:unknown-fruit"],],
 
 );
 

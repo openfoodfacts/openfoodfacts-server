@@ -146,7 +146,7 @@ sub compute_pnns_groups ($product_ref) {
 	delete $product_ref->{pnns_groups_2};
 	delete $product_ref->{pnns_groups_2_tags};
 
-	if ((not defined $product_ref->{categories}) or ($product_ref->{categories} eq "")) {
+	if ((not defined $product_ref->{categories_tags}) or (scalar @{$product_ref->{categories_tags}} == 0)) {
 		$product_ref->{pnns_groups_2} = "unknown";
 		$product_ref->{pnns_groups_2_tags} = ["unknown", "missing-category"];
 		$product_ref->{pnns_groups_1} = "unknown";
@@ -373,7 +373,8 @@ sub temporarily_change_categories_for_food_groups_computation ($product_ref) {
 				}
 			}
 
-			if ($product_ref->{with_sweeteners}) {
+			# Check if the ingredient list contains sweeteners (additives with the sweetener:en:yes property)
+			if ($product_ref->{ingredients_sweeteners_n}) {
 				if (not has_tag($product_ref, "categories", "en:artificially-sweetened-beverages")) {
 					add_tag($product_ref, "categories", "en:artificially-sweetened-beverages");
 				}
@@ -382,44 +383,8 @@ sub temporarily_change_categories_for_food_groups_computation ($product_ref) {
 				}
 			}
 
-			# fix me: ingredients are now partly taxonomized
-
-			# All the conditions below for sugars will be replaced by only 1 condition on "en:added-sugar"
-			# once https://github.com/openfoodfacts/openfoodfacts-server/pull/6181 is deployed.
-
-			if (
-
-				(
-					   has_tag($product_ref, "ingredients", "sucre")
-					or has_tag($product_ref, "ingredients", "sucre-de-canne")
-					or has_tag($product_ref, "ingredients", "sucre-de-canne-roux")
-					or has_tag($product_ref, "ingredients", "sucre-caramelise")
-					or has_tag($product_ref, "ingredients", "sucre-de-canne-bio")
-					or has_tag($product_ref, "ingredients", "sucres")
-					or has_tag($product_ref, "ingredients", "pur-sucre-de-canne")
-					or has_tag($product_ref, "ingredients", "sirop-de-sucre-inverti")
-					or has_tag($product_ref, "ingredients", "sirop-de-sucre-de-canne")
-					or has_tag($product_ref, "ingredients", "sucre-bio")
-					or has_tag($product_ref, "ingredients", "sucre-de-canne-liquide")
-					or has_tag($product_ref, "ingredients", "sucre-de-betterave")
-					or has_tag($product_ref, "ingredients", "sucre-inverti")
-					or has_tag($product_ref, "ingredients", "canne-sucre")
-					or has_tag($product_ref, "ingredients", "sucre-glucose-fructose")
-					or has_tag($product_ref, "ingredients", "glucose-fructose-et-ou-sucre")
-					or has_tag($product_ref, "ingredients", "sirop-de-glucose")
-					or has_tag($product_ref, "ingredients", "glucose")
-					or has_tag($product_ref, "ingredients", "sirop-de-fructose")
-					or has_tag($product_ref, "ingredients", "saccharose")
-					or has_tag($product_ref, "ingredients", "sirop-de-fructose-glucose")
-					or has_tag($product_ref, "ingredients", "sirop-de-glucose-fructose-de-ble-et-ou-de-mais")
-					or has_tag($product_ref, "ingredients", "sugar")
-					or has_tag($product_ref, "ingredients", "sugars")
-					or has_tag($product_ref, "ingredients", "en:sugar")
-					or has_tag($product_ref, "ingredients", "en:glucose")
-					or has_tag($product_ref, "ingredients", "en:fructose")
-				)
-				)
-			{
+			# check for added sugar
+			if (has_tag($product_ref, "ingredients", "en:added-sugar")) {
 
 				if (not has_tag($product_ref, "categories", "en:sweetened-beverages")) {
 					add_tag($product_ref, "categories", "en:sweetened-beverages");
@@ -440,13 +405,10 @@ sub temporarily_change_categories_for_food_groups_computation ($product_ref) {
 					and (not has_tag($product_ref, "quality", "en:ingredients-70-percent-unknown"))
 					and (not has_tag($product_ref, "quality", "en:ingredients-60-percent-unknown"))
 					and (not has_tag($product_ref, "quality", "en:ingredients-50-percent-unknown"))
-					and
 
-					(($product_ref->{lc} eq 'en') or ($product_ref->{lc} eq 'fr'))
 					and ((defined $product_ref->{ingredients_text}) and (length($product_ref->{ingredients_text}) > 3))
 					)
 				{
-
 					if (not has_tag($product_ref, "categories", "en:unsweetened-beverages")) {
 						add_tag($product_ref, "categories", "en:unsweetened-beverages");
 					}
