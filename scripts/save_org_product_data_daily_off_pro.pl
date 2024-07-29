@@ -40,7 +40,7 @@ my $products_collection = get_products_collection();
 my $orgs_collection = get_orgs_collection();
 
 sub get_org_data ($org_id) {
-    # First query on the "off-pro" database
+	# First query on the "off-pro" database
 	my $org_data = $products_collection->aggregate(
 		[
 			{'$match' => {'owner' => "org-" . $org_id}},
@@ -92,19 +92,19 @@ sub get_org_data ($org_id) {
 		]
 	)->next;
 
-    # Second query on the "off" database
-    my $off_products_collection = get_products_collection({database => "off"});
-    my $off_org_data = $off_products_collection->aggregate(
-        [
-            {'$match' => {'owner' => "org-" . $org_id}},
-            {
-                '$group' => {
-                    '_id' => '$owner',
-                    'number_of_products' => {'$sum' => 1}
-                }
-            }
-        ]
-    )->next;
+	# Second query on the "off" database
+	my $off_products_collection = get_products_collection({database => "off"});
+	my $off_org_data = $off_products_collection->aggregate(
+		[
+			{'$match' => {'owner' => "org-" . $org_id}},
+			{
+				'$group' => {
+					'_id' => '$owner',
+					'number_of_products' => {'$sum' => 1}
+				}
+			}
+		]
+	)->next;
 
 	my $number_of_products = $org_data->{number_of_products} // 0;
 	my $number_of_products_without_nutriscore = $org_data->{number_of_products_without_nutriscore} // 0;
@@ -150,9 +150,9 @@ sub gather_org_data {
 	foreach my $org (@orgs) {
 		my $org_id = $org->{'org_id'};
 		print "Processing organization $i/$count: $org_id\n";
-		eval { update_org_data($org_id) };
-        my $org_error = $@;
-        print STDERR "Error computing data for org $org_id: $org_error\n" if $org_error;
+		eval {update_org_data($org_id)};
+		my $org_error = $@;
+		print STDERR "Error computing data for org $org_id: $org_error\n" if $org_error;
 		$i++;
 	}
 }
