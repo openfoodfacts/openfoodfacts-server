@@ -84370,7 +84370,8 @@ ciqual_food_code:en: 6551
 ciqual_food_name:en: Veal, roast, cooked
 ciqual_food_name:fr: Veau, rôti, cuit
 
-< en:Beef preparations
+#don't put in beef preparation, veal stock contain only few percent veal
+< en:Broths
 en: Veal stock
 de: Kalbsfond
 fr: Fond de veau
