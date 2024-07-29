@@ -195,7 +195,7 @@ use LWP::UserAgent ();
 use Encode;
 
 use GraphViz2;
-use JSON::PP;
+use JSON::MaybeXS;
 
 use Data::DeepAccess qw(deep_get deep_exists);
 
@@ -1521,7 +1521,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 					push(@taxonomy_errors, _taxonomy_error("ERROR", "unknown_nutriscore", $msg, $line_number));
 				}
 			}
-			elsif ($line =~ /^expected_ingredients:en:/) {
+			elsif ($line =~ /^expected_ingredients:en: */) {
 				# the line should contain a single ingredient
 				my $expected_ingredients = $';    # everything after the matched string
 

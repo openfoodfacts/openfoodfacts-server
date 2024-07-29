@@ -99,7 +99,7 @@ use ProductOpener::CRM qw/update_contact_last_login/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 
 use Email::Valid;
 use Crypt::PasswdMD5 qw(unix_md5_crypt);
