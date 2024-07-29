@@ -1948,3 +1948,18 @@ div.open-in-crm {
     margin-bottom: 1em;
   }
 }
+
+#content-menu {
+  & ul {
+    list-style-type: none;
+  }  
+
+  & li {
+    margin-bottom: 1em;
+  }
+}
+
+#breadcrumb {
+  margin: 1em 0px;
+  font-size: large;
+}

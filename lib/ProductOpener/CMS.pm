@@ -193,7 +193,7 @@ sub _get_json_from_url_and_decode($url) {
 	if ($@) {
 		$log->debug("get_json_response", {error => $@, url => $url}) if $log->is_debug();
 	}
-	return $json;
+	return $json // [];
 }
 
 1;

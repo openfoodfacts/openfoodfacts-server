@@ -1315,28 +1315,27 @@ sub display_content($request_ref) {
 	my $template_data_ref = {};
 
 	if ($request_ref->{admin} or $request_ref->{moderator}) {
-		update_pages_metadata_cache(1);
+		wp_update_pages_metadata_cache(1);
 	}
 	if (not defined $request_ref->{content_slug}) {
 		# Display the list of available pages
 		my @sorted_pages = sort {$a->{id} > $b->{id}} wp_get_available_pages($request_ref->{content_lc});
 		$template_data_ref->{wp_available_pages} = \@sorted_pages;
+		$request_ref->{title} = "Content";
 		process_template('web/pages/content/menu.tt.html', $template_data_ref, \$html)
 			|| return "template error: " . $tt->error();
 	}
 	else {
 		# Display the content of a specific page
 		my $page_data = wp_get_page_from_slug($request_ref->{content_lc}, $request_ref->{content_slug});
-		$template_data_ref->{wp_title} = $page_data->{title};
-		$template_data_ref->{wp_content} = $page_data->{content};
-
+		$template_data_ref->{wp_data} = $page_data;
+		
 		process_template('web/pages/content/wordpress_content.tt.html', $template_data_ref, \$html)
 			|| return "template error: " . $tt->error();
 	}
 
 	$request_ref->{styles} .= '';
 	$request_ref->{header} .= '';
-	$request_ref->{title} .= '';
 	$request_ref->{canon_url} = "/bop";
 	$request_ref->{content_ref} = \$html;
 	display_page($request_ref);

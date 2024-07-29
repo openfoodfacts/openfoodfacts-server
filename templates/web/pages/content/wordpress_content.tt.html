@@ -1,14 +1,18 @@
 
+<div id="breadcrumb"> 
+    <a href="/content">Content</a>
+    > [% wp_data.title %]
+</div>
 <link rel="stylesheet" href="[% static_subdomain %]/css/wp.css"></style>
 <div class="wp-block-group has-global-padding is-layout-constrained wp-block-group-is-layout-constrained">
     <div style="height:var(--wp--preset--spacing--50)" aria-hidden="true" class="wp-block-spacer"></div>
     <h1 class="has-text-align-center wp-block-post-title">
-        [% wp_title %]
+        [% wp_data.title %]
     </h1>
     <div style="margin-top:0;margin-bottom:0;height:var(--wp--preset--spacing--30)" aria-hidden="true" class="wp-block-spacer"></div>	
 </div>
 
 <h1 class="entry-title"></h1>
 <div class="entry-content wp-block-post-content has-global-padding is-layout-constrained wp-block-post-content-is-layout-constrained">
-    [% wp_content %]
+    [% wp_data.content %]
 </div>
