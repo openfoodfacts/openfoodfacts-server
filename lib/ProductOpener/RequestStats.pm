@@ -73,7 +73,7 @@ sub log_request_stats($stats_ref) {
 			else {
 				$log->warn("No end key for start key $key in request stats");
 			}
-			delete $stats_ref->{$key};
+			delete $stats_ref->{$key} unless $key eq "request_start";    # keep the request start timestamp
 			delete $stats_ref->{$key_prefix . "_end"};
 		}
 	}
