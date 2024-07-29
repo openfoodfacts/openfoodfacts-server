@@ -1329,7 +1329,7 @@ sub display_content($request_ref) {
 		# Display the content of a specific page
 		my $page_data = wp_get_page_from_slug($request_ref->{content_lc}, $request_ref->{content_slug});
 		$template_data_ref->{wp_data} = $page_data;
-		
+
 		process_template('web/pages/content/wordpress_content.tt.html', $template_data_ref, \$html)
 			|| return "template error: " . $tt->error();
 	}
