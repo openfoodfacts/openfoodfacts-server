@@ -1,5 +1,22 @@
 # Changelog
 
+## [2.39.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.38.1...v2.39.0) (2024-07-30)
+
+
+### Features
+
+* add improvement to product navbar ([#10599](https://github.com/openfoodfacts/openfoodfacts-server/issues/10599)) ([b812f72](https://github.com/openfoodfacts/openfoodfacts-server/commit/b812f72ac6f7c48d4441160a6f0d67912d17d08f))
+* Display off days banner if donation banner was hidden ([#10566](https://github.com/openfoodfacts/openfoodfacts-server/issues/10566)) ([5107f3e](https://github.com/openfoodfacts/openfoodfacts-server/commit/5107f3eb5ccd62c46fcb02adc008e04c51df34b5))
+* duplicate script for off database ([#10583](https://github.com/openfoodfacts/openfoodfacts-server/issues/10583)) ([de58db0](https://github.com/openfoodfacts/openfoodfacts-server/commit/de58db00b7550f32a015bd952055ee51672c5653))
+* packaging adds Luxembourg ([#10570](https://github.com/openfoodfacts/openfoodfacts-server/issues/10570)) ([bf87428](https://github.com/openfoodfacts/openfoodfacts-server/commit/bf8742876e9b38598ed3cac78d0d06910dfa0557)), closes [#331](https://github.com/openfoodfacts/openfoodfacts-server/issues/331)
+
+
+### Bug Fixes
+
+* disable log buffering and add more requests stats ([#10622](https://github.com/openfoodfacts/openfoodfacts-server/issues/10622)) ([000ead2](https://github.com/openfoodfacts/openfoodfacts-server/commit/000ead2080abb7ee2c166728cde3ef538ade76b6))
+* routing for group by tag in English (e.g es.openfoodfacts.org/in… ([#10618](https://github.com/openfoodfacts/openfoodfacts-server/issues/10618)) ([574d600](https://github.com/openfoodfacts/openfoodfacts-server/commit/574d6009f7a59cf3cb4642a001b22a6630d7ab3a))
+* utf8 decoding of off-query JSON ([#10617](https://github.com/openfoodfacts/openfoodfacts-server/issues/10617)) ([a68de92](https://github.com/openfoodfacts/openfoodfacts-server/commit/a68de92b2b0899802cf5306bacba4b25f30e10fd))
+
 ## [2.38.1](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.38.0...v2.38.1) (2024-07-24)
 
 
