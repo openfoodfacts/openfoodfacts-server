@@ -40,7 +40,8 @@
             <th>[% lang("last_login") %]</th>
             <th>[% lang("last_import") %]</th>
             <th>[% lang("data_sources_p") %]</th>
-            <th>[% lang("number_of_products") %]</th>
+            <th>[% lang("number_of_products_on_public_platform") %]</th>
+            <th>[% lang("number_of_products_on_producer_platform") %]</th>
             <th>[% lang("data_quality_errors_p") %]</th>
             <th>[% lang("data_quality_warnings_p") %]</th>
             <th>[% lang("number_of_products_without_nutriscore") %]</th>
@@ -48,6 +49,7 @@
             <th>[% lang("products_to_be_exported") %]</th>
             <th>[% lang("products_exported") %]</th>
             <th>[% lang("opportunities_to_improve_nutriscore") %]</th>
+            <th>[% lang("automated_daily_export_to_public_platform") %]</th>
             <th>[% lang("date_of_last_update") %]</th>
         </tr>
     </thead>
@@ -76,7 +78,8 @@
                 [% END %]
             </td>
             <td>[% org.last_import_type %]</td>
-            <td>[% org.data.products.number_of_products %]</td>
+            <td>[% org.data.products.number_of_products_on_public_platform %]</td>
+            <td>[% org.data.products.number_of_products_on_producer_platform %]</td>
             <td>[% org.data.products.number_of_data_quality_errors %]</td>
             <td>[% org.data.products.number_of_data_quality_warnings %]</td>
             <td>[% org.data.products.number_of_products_without_nutriscore %]</td>
@@ -84,6 +87,7 @@
             <td>[% org.data.products.products_to_be_exported %]</td>
             <td>[% org.data.products.products_exported %]</td>
             <td>[% org.data.products.opportunities_to_improve_nutriscore %]</td>
+            <td>[% org.activate_automated_daily_export_to_public_platform %]</td>
             <td>
                 [% IF org.data.products.date_of_last_update != 0 %]
                     [% display_date_tag(org.data.products.date_of_last_update) %]
