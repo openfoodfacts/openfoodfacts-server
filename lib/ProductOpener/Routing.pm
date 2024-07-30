@@ -74,7 +74,7 @@ Load OFF routes
 
 =pod
 
-a route is registered with:
+A route is registered with:
 	- Pattern:
 		- a simple string (e.g. "api") without '/'':
 			when you simply want to route with the first component of the path e.g.
@@ -94,12 +94,12 @@ a route is registered with:
 		  When you don't want to use the default limited one.
 		  Use named captures to store the arguments in $request_ref->{param}
 
-		- onlyif: a sub($request_ref, @components) that will be called to check if the route should be used
-			Its a dynamic routing, using context of the request.
-			Results is used as a boolean to decide if the route should be used.
+		- onlyif: a sub($request_ref, @components) that will be called to check if the route should be used.
+			Its a dynamic routing, using the context of the request.
+			The results is used as a boolean to decide if the route should be used.
 		}
 
-non regex routes will be matched first, then regex routes
+Non regex routes are matched first, then regex routes.
 
 =cut
 
@@ -113,7 +113,6 @@ sub load_routes() {
 		['property', \&properties_route],
 		['products', \&products_route],
 		['content', \&content_route],
-		#['content', \&content_route],
 		# with priority
 		['', \&index_route],
 		['^(?<page>\d+)$', \&index_route, {regex => 1}],
