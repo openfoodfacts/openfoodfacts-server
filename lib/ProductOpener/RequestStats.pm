@@ -38,6 +38,8 @@ sub init_request_stats() {
 
 	my $stats_ref = {};
 	set_request_stats_time_start($stats_ref, "request");
+	set_request_stats_value($stats_ref, "request_t", time());
+	set_request_stats_value($stats_ref, "pid", $$);
 	return $stats_ref;
 }
 
