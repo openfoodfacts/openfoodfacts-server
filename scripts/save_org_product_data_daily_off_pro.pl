@@ -140,6 +140,7 @@ sub update_org_data ($org_id) {
 	$org_ref->{'data'} = $data;
 
 	store($org_ref, $org_file_path);
+	return;
 }
 
 sub gather_org_data {
@@ -155,6 +156,7 @@ sub gather_org_data {
 		print STDERR "Error computing data for org $org_id: $org_error\n" if $org_error;
 		$i++;
 	}
+	return;
 }
 
 gather_org_data();
