@@ -104120,10 +104120,12 @@ fr: Topinambour frais
 season_in_country_fr:en: 1,2,11,12
 
 < en:Vegetables
+< en: Carrots and parsnips
 en: Parsnip
 fr: Panais
 hr: Pastrnjak
 ja: パースニップ
+nl: Pastinaak
 agribalyse_food_code:en: 20181
 ciqual_food_code:en: 20181
 ciqual_food_name:en: Parsnip, raw
@@ -104131,13 +104133,16 @@ ciqual_food_name:fr: Panais, cru
 
 < en:Fresh vegetables
 < en:Parsnip
+en: Fresh parsnip
 fr: Panais frais
+nl:Verse pastinaak
 season_in_country_fr:en: 1,2,3,10,11,12
 
 < en:Cooked vegetables
 < en:Parsnip
 en: Cooked parsnip
 fr: Panais cuits
+nl: Gekookte pastinaak
 agribalyse_food_code:en: 20133
 ciqual_food_code:en: 20133
 ciqual_food_name:en: Parsnip, cooked
@@ -105061,6 +105066,7 @@ ciqual_food_name:en: Cardoon, cooked
 ciqual_food_name:fr: Cardon, cuit
 
 < en:Vegetables
+< en: Carrots and parsnips
 en: Carrots
 bg: Моркови
 de: Karotten, Möhren
@@ -105080,7 +105086,11 @@ agribalyse_food_code:en: 20009
 ciqual_food_code:en: 20009
 ciqual_food_name:en: Carrot, raw
 ciqual_food_name:fr: Carotte, crue
+
+< en:Vegetables
+en: Carrots and parsnips
 intake24_category_code:en: CRTS
+intake24_category_code:fr: CRTS
 
 < en:Carrots
 < en:Cooked vegetables
