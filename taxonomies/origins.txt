@@ -3906,19 +3906,11 @@ en: outside japan
 ja: 外国, 輸入
 
 en: Europe
+xx: Europa
 bg: Европа
-ca: Europa
-da: Europa
-de: Europa
-es: Europa
 fr: Europe
 hu: Európa
-nl: Europa
-pl: Europa
-pt: Europa
-ro: Europa
 ru: Европа
-sv: Europa
 uk: Європа
 
 en: European Union, EU
@@ -3966,23 +3958,237 @@ pl: Unia Europejska i spoza Unii Europejskiej
 
 # France regions
 
-< en:france
+< en: France
+fr: Provence-Alpes-Côte d'Azur, PACA
+xx: Provence-Alpes-Côte d'Azur, PACA
+insee:fr: 93
+iso:en: FR-PAC
+nuts:en: FR8
+
+< fr: Provence-Alpes-Côte d'Azur
+fr: Alpes-de-Haute-Provence
+xx: Alpes-de-Haute-Provence
+insee:fr: 04
+iso:en: FR-04
+nuts:en: FR821
+web:fr: https://www.maregionsud.fr
+wikipedia:en: https://en.wikipedia.org/wiki/Alpes-de-Haute-Provence
+
+< fr: Provence-Alpes-Côte d'Azur
+fr: Hautes-Alpes
+xx: Hautes-Alpes
+insee:fr: 05
+iso:en: FR-05
+nuts:en: FR822
+web:fr: https://www.hautes-alpes.fr
+wikipedia:en: https://en.wikipedia.org/wiki/Hautes-Alpes
+
+< fr: Provence-Alpes-Côte d'Azur
+fr: Alpes-Maritimes
+xx: Alpes-Maritimes
+insee:fr: 06
+iso:en: FR-06
+nuts:en: FR823
+web:fr: https://www.departement06.fr
+
+< fr: Provence-Alpes-Côte d'Azur
+fr: Bouches-du-Rhône
+xx: Bouches-du-Rhône
+insee:fr: 13
+iso:en: FR-13
+nuts:en: FR823
+web:fr: https://www.departement13.fr
+wikipedia:en: https://en.wikipedia.org/wiki/Bouches-du-Rhône
+
+< fr: Bouches-du-Rhône
+en: Camargue
+bg: Камарг
+fr: Camargue
+pt: Camarga
+
+< fr: Provence-Alpes-Côte d'Azur
+fr: Var
+xx: Var
+insee:fr: 83
+iso:en: FR-83
+# nuts:en: 
+web:fr: https://www.var.fr
+wikipedia:en: https://en.wikipedia.org/wiki/Var_(department)
+
+< fr: Provence-Alpes-Côte d'Azur
+fr: Vaucluse
+xx: Vaucluse
+insee:fr: 84
+iso:en: FR-84
+# nuts:en: 
+web:fr: https://www.vaucluse.fr
+wikipedia:en: https://en.wikipedia.org/wiki/Vaucluse
+
+< fr: Vaucluse
+en: Roussillon
+fr: Roussillon
+
+< fr: Provence-Alpes-Côte d'Azur
+en: Provence
+bg: Прованс
+fr: Provence
+hu: Provance
+pl: Prowansja
+wikipedia:en: https://en.wikipedia.org/wiki/Provence
+
+< en: Provence
+en: Haute Provence
+fr: Haute Provence
+
+< en: France
+en: Occcitania
+xx: Occitanie
+fr: Occitanie
+insee:fr: 76
+iso:en: FR-OCC
+web:fr: https://www.laregion.fr
+wikipedia:en: https://en.wikipedia.org/wiki/Occitania_(administrative_region)
+
+< en: Occcitania
+fr: Ariège
+xx: Ariège
+insee:fr: 09
+iso:en: FR-09
+nuts:en: FR621
+web:fr: https://ariege.fr
+wikipedia:en: https://en.wikipedia.org/wiki/Ariège_(department)
+
+< en: Occcitania
+< fr: Languedoc-Roussillon
+fr: Aude
+xx: Aude
+insee:fr: 11
+iso:en: FR-11
+nuts:en: FR811
+web:fr: https://www.aude.fr
+wikipedia:en: https://en.wikipedia.org/wiki/Aude
+
+< en: Occcitania
+fr: Aveyron
+xx: Aveyron
+insee:fr: 12
+iso:en: FR-12
+nuts:en: FR622
+web:fr: https://www.aveyron.fr
+wikipedia:en: https://en.wikipedia.org/wiki/Aveyron
+
+< en: Occcitania
+< fr: Languedoc-Roussillon
+fr: Gard
+xx: Gard
+insee:fr: 31
+iso:en: FR-31
+nuts:en: FR623
+web:fr: https://www.haute-garonne.fr
+wikipedia:en: https://en.wikipedia.org/wiki/Gard
+
+< fr: Gard
+fr: Nîmes
+
+< en: Occcitania
+fr: Haute-Garonne
+xx: Haute-Garonne
+insee:fr: 30
+iso:en: FR-30
+nuts:en: FR812
+web:fr: https://www.gard.fr
+wikipedia:en: https://en.wikipedia.org/wiki/Haute-Garonne
+
+< en: Occcitania
+fr: Gers
+xx: Gers
+insee:fr: 32
+iso:en: FR-32
+nuts:en: FR624
+web:fr: https://www.gers.fr
+wikipedia:en: https://en.wikipedia.org/wiki/Gers
+
+< en: Occcitania
+< fr: Languedoc-Roussillon
+fr: Hérault
+xx: Hérault
+insee:fr: 34
+iso:en: FR-34
+nuts:en: FR813
+web:fr: https://herault.fr
+wikipedia:en: https://en.wikipedia.org/wiki/Hérault
+
+< en: Occcitania
+fr: Lot
+xx: Lot
+insee:fr: 46
+iso:en: FR-46
+nuts:en: FR625
+web:fr: https://www.lot.fr
+wikipedia:en: https://en.wikipedia.org/wiki/Lot_(department)
+
+< en: Occcitania
+< fr: Languedoc-Roussillon
+fr: Lozère
+xx: Lozère
+insee:fr: 48
+iso:en: FR-48
+web:fr: https://lozere.fr
+wikipedia:en: https://en.wikipedia.org/wiki/Lozère
+
+< en: Occcitania
+fr: Hautes-Pyrénées
+xx: Hautes-Pyrénées
+insee:fr: 65
+iso:en: FR-65
+web:fr: https://www.hautespyrenees.fr
+wikipedia:en: https://en.wikipedia.org/wiki/Hautes-Pyrénées
+
+< en: Occcitania
+< fr: Languedoc-Roussillon
+fr: Pyrénées-Orientales
+xx: Pyrénées-Orientales
+insee:fr: 66
+iso:en: FR-66
+web:fr: https://www.ledepartement66.fr
+wikipedia:en: https://en.wikipedia.org/wiki/Pyrénées-Orientales
+
+< en: Occcitania
+fr: Tarn
+xx: Tarn
+insee:fr: 81
+iso:en: FR-81
+web:fr: https://www.tarn.fr/
+wikipedia:en: https://en.wikipedia.org/wiki/Tarn_(department)
+
+< en: Occcitania
+fr: Languedoc-Roussillon
+xx: Languedoc-Roussillon
+
+< en: Occcitania
+fr: Tarn-et-Garonne
+xx: Tarn-et-Garonne
+insee:fr: 82
+iso:en: FR-82
+wikipedia:en: https://en.wikipedia.org/wiki/Tarn-et-Garonne
+
+< en: France
 en: Alsace
 bg: Елзас
 fr: Alsace
 pl: Alzacja
 
-< en:france
+< en:France
 en: Ardèche
 bg: Ардеш
 fr: Ardèche
 
-< en:france
+< en:France
 en: Aquitaine
 bg: Аквитания
 fr: Aquitaine
 
-< en:france
+< en: france
 fr: Gascogne
 
 < en:france
@@ -3990,13 +4196,13 @@ fr: Gatinais
 
 fr: Pays-Basque
 
-< en:france
+< en: france
 en: Burgundy
 bg: Бургундия
 fr: Bourgogne
 hu: Burgundia
 
-< en:france
+< en: france
 en: Brittany
 bg: Бретан
 ca: Bretanya
@@ -4006,48 +4212,42 @@ fr: Bretagne
 hu: Bretagne
 pl: Bretania
 
-< en:france
-en: Camargue
-bg: Камарг
-fr: Camargue
-pt: Camarga
-
-< en:france
+< en: france
 en: Corsica
 bg: Корсика
 fr: Corse
 hu: Korzika
 
-< en:france
+< en: france
 fr: Hauts-de-France
 
-< en:france
+< en: france
 en: Morbihan
 xx: Morbihan
 fr: Morbihan
 
-< en:france
+< en: france
 en: Loire-Atlantique
 fr: Loire-Atlantique
 pl: Loara Atlantycka
 
-< en:france
+< en: france
 en: Pays de la Loire
 fr: Pays de la Loire
 pl: Kraj Loary
 
-< en:france
+< en: france
 en: Auvergne
 xx: Auvergne
 bg: Оверн
 fr: Auvergne
 
-< en:france
+< en: france
 en: Franche-Comté
 fr: Franche-Comté
 pl: Franche-Comté
 
-< en:france
+< en: france
 en: Normandy
 bg: Нормандия
 ca: Normandia
@@ -4058,166 +4258,139 @@ nl: Normandië
 pl: Normandia
 pt: Normandia
 
-< en:france
-en: Provence
-bg: Прованс
-fr: Provence
-hu: Provance
-pl: Prowansja
 
-< en:france
-en: Haute Provence
-fr: Haute Provence
-
-< en:france
+< en: france
 en: Savoy
 fr: Savoie
 pl: Sabaudia
 
-< en:france
+< en: france
 en: South-western France, South-west of France
 de: Südwestfrankreich
 fr: Sud-ouest de la France, Sud-ouest français
 hu: Délnyugat-Franciaország
 nl: Zuid-Westen van Frankrijk, Zuid-West Frankrijk
 
-< en:france
+< en: france
 en: Loire valley
 fr: Val de Loire
 hu: Loire-völgy
 
-< en:France
-en: Gers
-fr: Gers
-
-< en:France
+< en: France
 en: Loué
 fr: Loué
 
-< en:France
+< en: France
 fr: Béarn
 
-< en:France
+< en: France
 fr: Champagne
 
 < en:France
 fr: Beaujolais
 
-< en:France
+< en: France
 en: Rhône-Alpes
 fr: Rhône-Alpes
 
-< en:France
+< en: France
 en: Lorraine
 fr: Lorraine
 pl: Lotaryngia
 
-< en:France
-en: Aveyron
-fr: Aveyron
-pl: Aveyron
-
-< en:France
+< en: France
 en: Vendée
 fr: Vendée
 
-< en:France
+< en: France
 en: Périgord
 fr: Périgord
 
-< en:France
+< en: France
 en: Dordogne
 fr: Dordogne
 pl: Dordogne
 
-< en:France
+< en: France
 en: Guérande
 fr: Guérande
 
-< en:France
+< en: France
 en: Île de France
 fr: Île de France
 
-< en:France
+< en: France
 en: Poitou-Charentes
 fr: Poitou-Charentes
 
-< en:France
-en: Roussillon
-fr: Roussillon
-
-< en:France
-en: Languedoc-Roussillon
-fr: Languedoc-Roussillon
-
-< en:France
+< en: France
 en: Languedoc
 
-< en:France
+< en: France
 en: Pyrénées-Atlantiques
 fr: Pyrénées-Atlantiques
 
-< en:France
+< en: France
 en: Picardy
 fr: Picardie
 
-< en:France
+< en: France
 en: Haute-Savoie
 fr: Haute-Savoie
 
-< en:France
+< en: France
 en: Manche
 fr: Manche
 
-< en:France
+< en: France
 en: Drôme
 fr: Drôme
 
-< en:France
+< en: France
 fr: Calvados
 
-< en:France
+< en: France
 fr: Maine
 
-< en:France
+< en: France
 fr: Jura français
 
-< en:France
+< en: France
 fr: Marne
 
-< en:France
+< en: France
 fr: Bresse
 
-< en:France
+< en: France
 fr: Cévennes
 
-< en:France
+< en: France
 fr: Charolais
 
-< en:France
+< en: France
 fr: Sarthe
 xx: Sarthe
 
-< en:France
+< en: France
 fr: Limousin
 xx: Limousin
 
-< en:France
+< en: France
 fr: Val de Sèvres
 
-< en:France
+< en: France
 fr: île de Ré
 
-< en:France
+< en: France
 fr: Nyons
 
-< en:France
+< en: France
 fr: Jura français
 
-< en:France
+< en: France
 fr: Pays-Basque
 
-< en:France
+< en: France
 fr: Maine (France)
 
 

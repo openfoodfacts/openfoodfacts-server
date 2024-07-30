@@ -93,6 +93,9 @@
                         [% IF report_problem_card_panel %]
                         <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#report_problem"><span>[% lang("report_problem_navigation") %]</span></a></li>
                         [% END %]
+                        [% IF display_data_quality_issues_and_improvement_opportunities %]
+                        <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#improvement"><span>[% lang("improvements_navigation") %]</span></a></li>
+                        [% END %]
                         <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#contribution"><span>[% lang("contribution_navigation") %]</span></a></li>
                     </ul>
                 </nav><!-- .navbar -->
@@ -283,7 +286,7 @@
 <!-- Platform for producers: data quality issues and improvements opportunities -->
 [% IF server_options_producers_platform %]
 
-    <section class="row" >
+    <section class="row" id="improvement">
         <div class="large-12 column">
             <div class="card">
                 <div class="card-section">
