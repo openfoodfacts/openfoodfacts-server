@@ -20,8 +20,8 @@
 
 
 # stopwords for matching more additives
-stopwords:en: of
-stopwords:fr: de, d, des, du, le, la, les, a, aux
+stopwords:en: of, for, added
+stopwords:fr: de, d, des, du, l, le, la, les, a, au, aux, pour
 
 # synonyms need to be separated with an empty line
 synonyms:en: FD&C, FD and C, FDC, FFDCA, FDCA
@@ -52,9 +52,9 @@ synonyms:en: no11, n11, 11
 
 synonyms:en: no12, n12, 12
 
-synonyms:en: colour, color
+synonyms:en: colour, color, colouring, coloring
 
-en: E100, Curcumin, Turmeric extract, curcuma extract
+en: E100, Curcumin, Turmeric extract, curcuma extract, turmeric color
 xx: E100
 ar: E100, كركومين
 bg: E100, куркумин
@@ -2274,8 +2274,8 @@ xx: E160b(ii)
 additives_classes:en: en:colour
 e_number:en: 160b
 
-
-en: E160c, Paprika extract, capsanthin, capsorubin, Paprika oleoresin
+# in English, we sometimes have "paprika color", in which case it is clearly the additive
+en: E160c, Paprika extract, capsanthin, capsorubin, Paprika oleoresin, oleoresin of paprika, oleoresin paprika, paprika color
 xx: E160c
 bg: E160c, Паприка екстракт, капсантин, капсорубин
 ca: E160c, Capsantina
