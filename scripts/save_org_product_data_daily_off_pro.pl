@@ -96,7 +96,7 @@ sub get_org_data ($org_id) {
 	my $off_products_collection = get_products_collection({database => "off"});
 	my $off_org_data = $off_products_collection->aggregate(
 		[
-			{'$match' => {'owner' => "org-" . $org_id}},
+			{'$match' => {'owners_tags' => "org-" . $org_id}},
 			{
 				'$group' => {
 					'_id' => '$owner',
