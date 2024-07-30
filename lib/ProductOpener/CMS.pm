@@ -20,7 +20,7 @@
 
 =head1 NAME
 
-ProductOpener::CMS - manages integration with the CMS
+ProductOpener::CMS - manages integration with the CMS. Currently WordPress.
 
 =head1 SYNOPSIS
 
@@ -62,7 +62,7 @@ my $pages_metadata_cache_by_id = {};    # { 16 => { 'en' => page_metadata } }
 my $page_id_by_localized_slug = {};    # { en => { 'my-test-page' => 16 },
                                        #   fr => { 'ma-page-test' => 16 } }
 
-=head2 get_page_from_slug($slug)
+=head2 get_page_from_slug($lc, $slug)
 
 Fetches a page from the CMS by its slug
 
@@ -85,7 +85,7 @@ sub wp_get_page_from_slug($lc, $slug) {
 
 	my $page_id = $page_id_by_localized_slug->{$lc}{$slug};
 	if ($page_id) {
-		my $page_data = wp_get_page_by_id($page_id);
+		my $page_data = _wp_get_page_by_id($page_id);
 		return {
 			title => $page_data->{title}{rendered},
 			content => $page_data->{content}{rendered},
@@ -97,7 +97,7 @@ sub wp_get_page_from_slug($lc, $slug) {
 =head2  wp_get_available_pages($lc)
 
 Gets the list of available pages, given a language code.
-If the language code is not found, it defaults to 'en'
+If the page isn't available in that language, it defaults to 'en'
 
 =head3 Returns
 
@@ -133,9 +133,24 @@ sub wp_get_available_pages($lc) {
 	return @available_translations;
 }
 
-sub wp_get_page_by_id($page_id) {
-	my $url = $ProductOpener::Config2::wordpress_url . '/wp-json/wp/v2/pages/' . $page_id;
-	return _get_json_from_url_and_decode($url);
+=head2 wp_update_pages_metadata_cache()
+
+Updates the caches of available pages
+if the cache is older than the cache_update_interval_s.
+
+=cut
+
+sub wp_update_pages_metadata_cache($force = 0) {
+	if ((time() - $last_cache_update_t) >= $cache_update_interval_s or $force) {
+		$log->debug("cache", {}) if $log->is_debug();
+		$last_cache_update_t = time();
+		foreach my $page (@{_wp_list_pages()}) {
+			# TODO: change this to support of multiple languages when WPML is enabled
+			$pages_metadata_cache_by_id->{$page->{id}}{en} = $page;
+			$page_id_by_localized_slug->{en}{$page->{slug}} = $page->{id};
+		}
+	}
+	return 1;
 }
 
 =head2 _wp_list_pages()
@@ -158,31 +173,16 @@ An array of pages:
     },
 ]
 
-=cut   
-
-=head2 wp_update_pages_metadata_cache()
-
-Updates the caches of available pages
-if the cache is older than the cache_update_interval_s.
-
-=cut
-
-sub wp_update_pages_metadata_cache($force = 0) {
-	if ((time() - $last_cache_update_t) > $cache_update_interval_s or $force) {
-		$log->debug("cache", {}) if $log->is_debug();
-		$last_cache_update_t = time();
-		foreach my $page (@{_wp_list_pages()}) {
-			# TODO: change this to support for multiple languages when WPML is enabled
-			$pages_metadata_cache_by_id->{$page->{id}}{en} = $page;
-			$page_id_by_localized_slug->{en}{$page->{slug}} = $page->{id};
-		}
-	}
-	return 1;
-}
+=cut  
 
 sub _wp_list_pages() {
 	my $url = $ProductOpener::Config2::wordpress_url . '/wp-json/wp/v2/pages?';
 	$url .= "_fields[]= " . join('&_fields[]=', qw(id title modified_gmt link slug));
+	return _get_json_from_url_and_decode($url);
+}
+
+sub _wp_get_page_by_id($page_id) {
+	my $url = $ProductOpener::Config2::wordpress_url . '/wp-json/wp/v2/pages/' . $page_id;
 	return _get_json_from_url_and_decode($url);
 }
 
@@ -191,7 +191,7 @@ sub _get_json_from_url_and_decode($url) {
 	my $json;
 	eval {$json = decode_json($response);};
 	if ($@) {
-		$log->debug("get_json_response", {error => $@, url => $url}) if $log->is_debug();
+		$log->debug("_get_json_from_url_and_decode", {error => $@, url => $url}) if $log->is_debug();
 	}
 	return $json // [];
 }
