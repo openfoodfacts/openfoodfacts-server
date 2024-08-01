@@ -3953,10 +3953,14 @@ hr: u/izvan EU
 hu: EU és Nem-EU, Európai Unió és nem Európai Unió
 pl: Unia Europejska i spoza Unii Europejskiej
 
+# ************************************************************
 
-# Country regions
+#                           Country regions
 
-# France regions
+# ************************************************************
+
+# ************************************************************
+#                             France regions
 
 < en: France
 en: Auvergne-Rhône-Alpes
@@ -4097,6 +4101,8 @@ xx: Rhône-Alpes
 < en: Auvergne-Rhône-Alpes
 fr: Bresse
 
+# ************************************************************
+
 < en: france
 en: Brittany
 xx: Bretagne
@@ -4146,6 +4152,8 @@ nuts:en: FR524
 web:fr: https://www.morbihan.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Morbihan
 
+# ************************************************************
+
 < en: France
 en: Corsica
 xx: Corsica
@@ -4171,16 +4179,118 @@ xx: Haute-Corse
 insee:fr: 2B
 iso:en: FR-HDF
 nuts:en: FRE
-wikipedia:en: https://en.wikipedia.org/wiki/Hauts-de-France
+wikipedia:en: https://en.wikipedia.org/wiki/Haute-Corse
+
+# ************************************************************
+
+< en: france
+fr: Grand Est
+xx: Grand Est
+insee:fr: 44
+iso:en: FR-GES
+nuts:en: FRF
+web:fr: https://www.grandest.fr
+wikipedia:en: https://en.wikipedia.org/wiki/Grand_Est
+
+< fr: Grand Est
+fr: Ardennes
+xx: Ardennes
+insee:fr: 08
+iso:en: FR-08
+nuts:en: FR211
+web:fr: https://www.cd08.fr
+wikipedia:en: https://en.wikipedia.org/wiki/Ardennes_(department)
+
+< fr: Grand Est
+fr: Aube
+xx: Aube
+insee:fr: 10
+iso:en: FR-10
+nuts:en: FR212
+web:fr: https://www.aube.fr
+wikipedia:en: https://en.wikipedia.org/wiki/Aube
+
+< fr: Grand Est
+fr: Marne
+xx: Marne
+insee:fr: 51
+iso:en: FR-51
+nuts:en: FR213
+web:fr: https://www.marne.fr
+wikipedia:en: https://en.wikipedia.org/wiki/Marne_(department)
+
+< fr: Grand Est
+fr: Haute-Marne
+xx: Haute-Marne
+insee:fr: 52
+iso:en: FR-52
+nuts:en: FR411
+web:fr: https://haute-marne.fr
+wikipedia:en: https://en.wikipedia.org/wiki/Haute-Marne
+
+< fr: Grand Est
+fr: Meurthe-et-Moselle
+xx: Meurthe-et-Moselle
+insee:fr: 54
+iso:en: FR-54
+nuts:en: FR214
+web:fr: https://www.meurthe-et-moselle.fr
+wikipedia:en: https://en.wikipedia.org/wiki/Meurthe-et-Moselle
+
+< en: Grand Est
+fr: Meuse
+xx: Meuse
+insee:fr: 55
+iso:en: FR-55
+nuts:en: FR412
+web:fr: https://www.meuse.fr
+wikipedia:en: https://en.wikipedia.org/wiki/Meuse_(department)
+
+< fr: Grand Est
+fr: Moselle
+xx: Moselle
+insee:fr: 57
+iso:en: FR-57
+nuts:en: FR413
+web:fr: https://www.moselle.fr
+wikipedia:en: https://en.wikipedia.org/wiki/Moselle_(department)
+
+< fr: Grand Est
+fr: Bas-Rhin
+xx: Bas-Rhin
+insee:fr: 67
+iso:en: FR-67
+nuts:en: FR421
+web:fr: https://www.bas-rhin.gouv.fr
+wikipedia:en: https://en.wikipedia.org/wiki/Bas-Rhin
+
+< fr: Grand Est
+fr: Haut-Rhin
+xx: Haut-Rhin
+insee:fr: 68
+iso:en: FR-68
+web:fr: https://www.haut-rhin.gouv.fr
+wikipedia:en: https://en.wikipedia.org/wiki/Haut-Rhin
+
+< fr: Grand Est
+fr: Vosges
+xx: Vosges
+insee:fr: 68
+iso:en: FR-68
+nuts:en: 414
+web:fr: https://www.vosges.fr
+wikipedia:en: https://en.wikipedia.org/wiki/Vosges_(department)
+
+# ************************************************************
 
 < en: france
 fr: Hauts-de-France
 xx: Hauts-de-France
-insee:fr: 02
-iso:en: FR-02
-nuts:en: FR221
+insee:fr: 32
+iso:en: FR-HDF
+nuts:en: FRE
 web:fr: https://www.hautsdefrance.fr
-wikipedia:en: https://www.aisne.com
+wikipedia:en: https://en.wikipedia.org/wiki/Hauts-de-France
 
 < fr: Hauts-de-France
 fr: Aisne
@@ -4230,6 +4340,8 @@ wikipedia:en: https://en.wikipedia.org/wiki/Somme_(department)
 en: Picardy
 xx: Picardie
 
+# ************************************************************
+
 < en: france
 en: Normandy
 xx: Normandia
@@ -4243,7 +4355,7 @@ nuts:en: FRD
 web:fr: https://www.normandie.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Normandy_(administrative_region)
 
-< en: France
+< en: Normandy
 fr: Calvados
 xx: Calvados
 insee:fr: 14
@@ -4252,7 +4364,7 @@ nuts:en: FR251
 web:fr: https://www.calvados.fr/
 wikipedia:en: https://en.wikipedia.org/wiki/Calvados_(department)
 
-< en: France
+< en: Normandy
 fr: Eure
 xx: Eure
 insee:fr: 27
@@ -4261,7 +4373,7 @@ nuts:en: FR231
 web:fr: https://eureennormandie.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Eure
 
-< en: France
+< en: Normandy
 fr: Manche
 xx: Manche
 insee:fr: 50
@@ -4270,7 +4382,7 @@ nuts:en: FR252
 web:fr: https://www.manche.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Manche
 
-< en: France
+< en: Normandy
 fr: Orne
 xx: Orne
 insee:fr: 61
@@ -4279,13 +4391,15 @@ nuts:en: FR253
 web:fr: https://www.orne.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Orne
 
-< en: France
+< en: Normandy
 fr: Seine-Maritime
 xx: Seine-Maritime
 insee:fr: 76
 iso:en: FR-76
 web:fr: https://www.seinemaritime.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Seine-Maritime
+
+# ************************************************************
 
 < en: France
 fr: Nouvelle-Aquitaine
@@ -4426,6 +4540,8 @@ hu: Délnyugat-Franciaország
 nl: Zuid-West Frankrijk, Zuid-Westen van Frankrijk
 wikipedia:en: https://en.wikipedia.org/wiki/South_West_France_(wine_region)
 
+# ************************************************************
+
 < en: france
 en: Pays de la Loire
 xx: Pays de la Loire
@@ -4479,6 +4595,8 @@ insee:fr: 85
 iso:en: FR-85
 web:fr: https://www.vendee.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Vendée
+
+# ************************************************************
 
 < en: France
 fr: Provence-Alpes-Côte d'Azur, PACA
