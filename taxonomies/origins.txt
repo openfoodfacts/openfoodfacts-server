@@ -4281,6 +4281,13 @@ nuts:en: 414
 web:fr: https://www.vosges.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Vosges_(department)
 
+< fr: Bas-Rhin
+< fr: Haut-Rhin
+en: Alsace
+bg: Елзас
+fr: Alsace
+pl: Alzacja
+
 # ************************************************************
 
 < en: france
@@ -4542,144 +4549,6 @@ wikipedia:en: https://en.wikipedia.org/wiki/South_West_France_(wine_region)
 
 # ************************************************************
 
-< en: france
-en: Pays de la Loire
-xx: Pays de la Loire
-pl: Kraj Loary
-insee:fr: 52
-iso:en: FR-PDL
-nuts:en: FR5
-web:fr: https://www.paysdelaloire.fr
-wikipedia:en: https://en.wikipedia.org/wiki/Pays_de_la_Loire
-
-< en: Pays de la Loire
-en: Loire-Atlantique
-xx: Loire-Atlantique
-pl: Loara Atlantycka
-insee:fr: 44
-iso:en: FR-44
-nuts:en: FR511
-web:fr: https://www.loire-atlantique.fr
-wikipedia:en: https://en.wikipedia.org/wiki/Loire-Atlantique
-
-< en: Pays de la Loire
-en: Maine-et-Loire
-xx: Maine-et-Loire
-insee:fr: 49
-iso:en: FR-49
-nuts:en: FR512
-web:fr: https://www.maine-et-loire.fr
-wikipedia:en: https://en.wikipedia.org/wiki/Maine-et-Loire
-
-< en: Pays de la Loire
-en: Mayenne
-xx: Mayenne
-insee:fr: 53
-iso:en: FR-53
-nuts:en: FR513
-web:fr: https://www.lamayenne.fr
-wikipedia:en: https://en.wikipedia.org/wiki/Mayenne
-
-< en: Pays de la Loire
-en: Sarthe
-xx: Sarthe
-insee:fr: 72
-iso:en: FR-72
-web:fr: https://www.sarthe.fr
-wikipedia:en: https://en.wikipedia.org/wiki/Sarthe
-
-< en: Pays de la Loire
-en: Vendée
-xx: Vendée
-insee:fr: 85
-iso:en: FR-85
-web:fr: https://www.vendee.fr
-wikipedia:en: https://en.wikipedia.org/wiki/Vendée
-
-# ************************************************************
-
-< en: France
-fr: Provence-Alpes-Côte d'Azur, PACA
-xx: Provence-Alpes-Côte d'Azur, PACA
-insee:fr: 93
-iso:en: FR-PAC
-nuts:en: FR8
-web:fr: https://www.maregionsud.fr
-
-< fr: Provence-Alpes-Côte d'Azur
-fr: Alpes-de-Haute-Provence
-xx: Alpes-de-Haute-Provence
-insee:fr: 04
-iso:en: FR-04
-nuts:en: FR821
-wikipedia:en: https://en.wikipedia.org/wiki/Alpes-de-Haute-Provence
-
-< fr: Provence-Alpes-Côte d'Azur
-fr: Hautes-Alpes
-xx: Hautes-Alpes
-insee:fr: 05
-iso:en: FR-05
-nuts:en: FR822
-web:fr: https://www.hautes-alpes.fr
-wikipedia:en: https://en.wikipedia.org/wiki/Hautes-Alpes
-
-< fr: Provence-Alpes-Côte d'Azur
-fr: Alpes-Maritimes
-xx: Alpes-Maritimes
-insee:fr: 06
-iso:en: FR-06
-nuts:en: FR823
-web:fr: https://www.departement06.fr
-
-< fr: Provence-Alpes-Côte d'Azur
-fr: Bouches-du-Rhône
-xx: Bouches-du-Rhône
-insee:fr: 13
-iso:en: FR-13
-nuts:en: FR823
-web:fr: https://www.departement13.fr
-wikipedia:en: https://en.wikipedia.org/wiki/Bouches-du-Rhône
-
-< fr: Bouches-du-Rhône
-en: Camargue
-bg: Камарг
-fr: Camargue
-pt: Camarga
-
-< fr: Provence-Alpes-Côte d'Azur
-fr: Var
-xx: Var
-insee:fr: 83
-iso:en: FR-83
-# nuts:en: 
-web:fr: https://www.var.fr
-wikipedia:en: https://en.wikipedia.org/wiki/Var_(department)
-
-< fr: Provence-Alpes-Côte d'Azur
-fr: Vaucluse
-xx: Vaucluse
-insee:fr: 84
-iso:en: FR-84
-# nuts:en: 
-web:fr: https://www.vaucluse.fr
-wikipedia:en: https://en.wikipedia.org/wiki/Vaucluse
-
-< fr: Vaucluse
-en: Roussillon
-fr: Roussillon
-
-< fr: Provence-Alpes-Côte d'Azur
-en: Provence
-bg: Прованс
-fr: Provence
-hu: Provance
-pl: Prowansja
-wikipedia:en: https://en.wikipedia.org/wiki/Provence
-
-< en: Provence
-en: Haute Provence
-fr: Haute Provence
-
 < en: France
 en: Occcitania
 xx: Occitanie
@@ -4820,11 +4689,146 @@ insee:fr: 82
 iso:en: FR-82
 wikipedia:en: https://en.wikipedia.org/wiki/Tarn-et-Garonne
 
+# ************************************************************
+
+< en: france
+en: Pays de la Loire
+xx: Pays de la Loire
+pl: Kraj Loary
+insee:fr: 52
+iso:en: FR-PDL
+nuts:en: FR5
+web:fr: https://www.paysdelaloire.fr
+wikipedia:en: https://en.wikipedia.org/wiki/Pays_de_la_Loire
+
+< en: Pays de la Loire
+en: Loire-Atlantique
+xx: Loire-Atlantique
+pl: Loara Atlantycka
+insee:fr: 44
+iso:en: FR-44
+nuts:en: FR511
+web:fr: https://www.loire-atlantique.fr
+wikipedia:en: https://en.wikipedia.org/wiki/Loire-Atlantique
+
+< en: Pays de la Loire
+en: Maine-et-Loire
+xx: Maine-et-Loire
+insee:fr: 49
+iso:en: FR-49
+nuts:en: FR512
+web:fr: https://www.maine-et-loire.fr
+wikipedia:en: https://en.wikipedia.org/wiki/Maine-et-Loire
+
+< en: Pays de la Loire
+en: Mayenne
+xx: Mayenne
+insee:fr: 53
+iso:en: FR-53
+nuts:en: FR513
+web:fr: https://www.lamayenne.fr
+wikipedia:en: https://en.wikipedia.org/wiki/Mayenne
+
+< en: Pays de la Loire
+en: Sarthe
+xx: Sarthe
+insee:fr: 72
+iso:en: FR-72
+web:fr: https://www.sarthe.fr
+wikipedia:en: https://en.wikipedia.org/wiki/Sarthe
+
+< en: Pays de la Loire
+en: Vendée
+xx: Vendée
+insee:fr: 85
+iso:en: FR-85
+web:fr: https://www.vendee.fr
+wikipedia:en: https://en.wikipedia.org/wiki/Vendée
+
+# ************************************************************
+
 < en: France
-en: Alsace
-bg: Елзас
-fr: Alsace
-pl: Alzacja
+fr: Provence-Alpes-Côte d'Azur, PACA
+xx: Provence-Alpes-Côte d'Azur, PACA
+insee:fr: 93
+iso:en: FR-PAC
+nuts:en: FR8
+web:fr: https://www.maregionsud.fr
+
+< fr: Provence-Alpes-Côte d'Azur
+fr: Alpes-de-Haute-Provence
+xx: Alpes-de-Haute-Provence
+insee:fr: 04
+iso:en: FR-04
+nuts:en: FR821
+wikipedia:en: https://en.wikipedia.org/wiki/Alpes-de-Haute-Provence
+
+< fr: Provence-Alpes-Côte d'Azur
+fr: Hautes-Alpes
+xx: Hautes-Alpes
+insee:fr: 05
+iso:en: FR-05
+nuts:en: FR822
+web:fr: https://www.hautes-alpes.fr
+wikipedia:en: https://en.wikipedia.org/wiki/Hautes-Alpes
+
+< fr: Provence-Alpes-Côte d'Azur
+fr: Alpes-Maritimes
+xx: Alpes-Maritimes
+insee:fr: 06
+iso:en: FR-06
+nuts:en: FR823
+web:fr: https://www.departement06.fr
+
+< fr: Provence-Alpes-Côte d'Azur
+fr: Bouches-du-Rhône
+xx: Bouches-du-Rhône
+insee:fr: 13
+iso:en: FR-13
+nuts:en: FR823
+web:fr: https://www.departement13.fr
+wikipedia:en: https://en.wikipedia.org/wiki/Bouches-du-Rhône
+
+< fr: Bouches-du-Rhône
+en: Camargue
+bg: Камарг
+fr: Camargue
+pt: Camarga
+
+< fr: Provence-Alpes-Côte d'Azur
+fr: Var
+xx: Var
+insee:fr: 83
+iso:en: FR-83
+# nuts:en: 
+web:fr: https://www.var.fr
+wikipedia:en: https://en.wikipedia.org/wiki/Var_(department)
+
+< fr: Provence-Alpes-Côte d'Azur
+fr: Vaucluse
+xx: Vaucluse
+insee:fr: 84
+iso:en: FR-84
+# nuts:en: 
+web:fr: https://www.vaucluse.fr
+wikipedia:en: https://en.wikipedia.org/wiki/Vaucluse
+
+< fr: Vaucluse
+en: Roussillon
+fr: Roussillon
+
+< fr: Provence-Alpes-Côte d'Azur
+en: Provence
+bg: Прованс
+fr: Provence
+hu: Provance
+pl: Prowansja
+wikipedia:en: https://en.wikipedia.org/wiki/Provence
+
+< en: Provence
+en: Haute Provence
+fr: Haute Provence
+
 
 
 < en:france
@@ -4889,10 +4893,6 @@ fr: Maine
 fr: Jura français
 
 < en: France
-fr: Marne
-
-
-< en: France
 fr: Charolais
 
 < en: France
@@ -4907,10 +4907,6 @@ fr: Jura français
 
 < en: France
 fr: Pays-Basque
-
-< en: France
-fr: Maine (France)
-
 
 # Disabling as parent because it can skew the Eco-Score
 #<en:France
