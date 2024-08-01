@@ -203,13 +203,6 @@ use OpenTelemetry::Integration 'LWP::UserAgent';
 
 use Log::Any '$log', default_adapter => 'Stderr';
 
-use OpenTelemetry::Context;
-use OpenTelemetry::Trace;
-use OpenTelemetry::Propagator::TraceContext;
-use OpenTelemetry::Propagator::TraceContext::TraceParent;
-use OpenTelemetry::Propagator::TraceContext::TraceState;
-use OpenTelemetry::Constants qw( SPAN_STATUS_ERROR SPAN_STATUS_OK );
-
 # special logger to make it easy to measure memcached hit and miss rates
 our $mongodb_log = Log::Any->get_logger(category => 'mongodb');
 $mongodb_log->info("start") if $mongodb_log->is_info();
@@ -604,39 +597,12 @@ sub init_request ($request_ref = {}) {
 	my $headers_in = $r->headers_in;
 	my $headers_out = $r->headers_out;
 
-	my $trace_context = OpenTelemetry::Propagator::TraceContext->new;
-	my $context = OpenTelemetry::Context->current // OpenTelemetry::Context->new();
-	my $traceparent_string = $headers_in->{'traceparent'};
-	if (defined $traceparent_string) {
-		# If traceparent header is available, extract context from headers
-		$context = $trace_context->extract(
-			$headers_in,
-			$context,
-			sub {
-				my ($carrier, $field) = @_;
-
-				return $carrier->{$field};
-			}
-		);
-	}
-	else {
-		# If traceparent header is not available, create a new context
-		$context = OpenTelemetry::Context->new();
-	}
-
 	# Clear the context
 	delete $log->context->{user_id};
 	delete $log->context->{user_session};
 	$log->context->{request} = generate_token(16);
 
 	# Initialize the request object
-	my $tracer = OpenTelemetry->tracer_provider->tracer;
-	my $span = $tracer->create_span(
-		name => 'request',
-		parent => $context,
-		attributes => {request => $log->context->{request}}
-	);
-	$request_ref->{span} = $span;
 	$request_ref->{referer} = referer();
 	$request_ref->{original_query_string} = $ENV{QUERY_STRING};
 	# Get the cgi script path if the URL was to a /cgi/ script
@@ -688,16 +654,6 @@ sub init_request ($request_ref = {}) {
 	$headers_out->set("X-Download-Options" => "noopen");
 	$headers_out->set("X-XSS-Protection" => "1; mode=block");
 	$headers_out->set("X-Request-ID" => $log->context->{request});
-
-	# Export OTEL trace context to the response headers
-	$trace_context->inject(
-		$headers_out,
-		$context,
-		sub {
-			my ($carrier, $field, $value) = @_;
-			$carrier->set("$field" => $value);
-		}
-	);
 
 	# sub-domain format:
 	#
@@ -1020,6 +976,7 @@ CSS
 		}
 	) if $log->is_debug();
 
+	#OTEL	$span->end();
 	return $request_ref;
 }
 
