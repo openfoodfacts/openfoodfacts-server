@@ -4113,6 +4113,7 @@ web:fr: https://www.bourgognefranchecomte.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Bourgogne-Franche-Comté
 
 < fr: Bourgogne-Franche-Comté
+< en: Burgundy
 fr: Côte-d'Or
 xx: Côte-d'Or
 insee:fr: 21
@@ -4146,6 +4147,7 @@ web:fr: https://www.jura.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Jura_(department)
 
 < fr: Bourgogne-Franche-Comté
+< en: Burgundy
 fr: Nièvre
 xx: Nièvre
 insee:fr: 58
@@ -4155,6 +4157,7 @@ web:fr: https://nievre.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Nièvre
 
 < fr: Bourgogne-Franche-Comté
+< en: Burgundy
 fr: Saône-et-Loire
 xx: Saône-et-Loire
 insee:fr: 71
@@ -4175,18 +4178,13 @@ web:fr: https://www.territoiredebelfort.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Territoire_de_Belfort
 
 < fr: Bourgogne-Franche-Comté
+< en: Burgundy
 fr: Yonne
 xx: Yonne
 insee:fr: 89
 iso:en: FR-89
 web:fr: https://www.yonne.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Yonne
-
-< fr: Bourgogne-Franche-Comté
-en: Burgundy
-xx: Bourgogne
-bg: Бургундия
-hu: Burgundia
 
 # ************************************************************
 
@@ -4996,6 +4994,12 @@ en: Alsace
 bg: Елзас
 fr: Alsace
 pl: Alzacja
+
+< fr: France
+en: Burgundy
+xx: Bourgogne
+bg: Бургундия
+hu: Burgundia
 
 < fr: France
 en: Poitou-Charentes
