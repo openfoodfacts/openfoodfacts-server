@@ -4328,6 +4328,7 @@ web:fr: https://haute-marne.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Haute-Marne
 
 < fr: Grand Est
+< en: Lorraine
 fr: Meurthe-et-Moselle
 xx: Meurthe-et-Moselle
 insee:fr: 54
@@ -4337,6 +4338,7 @@ web:fr: https://www.meurthe-et-moselle.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Meurthe-et-Moselle
 
 < fr: Grand Est
+< en: Lorraine
 fr: Meuse
 xx: Meuse
 insee:fr: 55
@@ -4346,6 +4348,7 @@ web:fr: https://www.meuse.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Meuse_(department)
 
 < fr: Grand Est
+< en: Lorraine
 fr: Moselle
 xx: Moselle
 insee:fr: 57
@@ -4374,6 +4377,7 @@ web:fr: https://www.haut-rhin.gouv.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Haut-Rhin
 
 < fr: Grand Est
+< en: Lorraine
 fr: Vosges
 xx: Vosges
 insee:fr: 68
@@ -4958,6 +4962,12 @@ bg: Бургундия
 hu: Burgundia
 
 < en: France
+en: Lorraine
+xx: Lorraine
+nl: Lotharingen, Lorraine
+pl: Lotaryngia
+
+< en: France
 en: Poitou-Charentes
 xx: Poitou-Charentes
 
@@ -4965,11 +4975,14 @@ xx: Poitou-Charentes
 en: Rhône-Alpes
 xx: Rhône-Alpes
 
-#< fr: Essone
-< fr: Loiret
-#< fr: Seine-et-Marne
-< fr: Yonne
-fr: Gatinais
+# ******************** Historic/popular regions in France *********************
+
+# still to digest
+
+< en: France
+en: Gatinais
+xx: Gatinais
+
 
 fr: Pays-Basque
 
@@ -4988,10 +5001,6 @@ fr: Champagne
 < en:France
 fr: Beaujolais
 
-< en: France
-en: Lorraine
-fr: Lorraine
-pl: Lotaryngia
 
 < en: France
 en: Guérande
