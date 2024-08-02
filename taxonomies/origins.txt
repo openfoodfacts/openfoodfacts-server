@@ -3920,9 +3920,10 @@ iso:en: FR-ARA
 web:fr: https://www.auvergnerhonealpes.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Auvergne-Rhône-Alpes
 
-< en: Rhône-Alpes
 < en: Auvergne-Rhône-Alpes
-fr: Ain
+< en: Bresse
+< en: Rhône-Alpes
+en: Ain
 xx: Ain
 insee:fr: 01
 iso:en: FR-01
@@ -3932,7 +3933,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Ain
 
 < en: Auvergne
 < en: Auvergne-Rhône-Alpes
-fr: Allier
+en: Allier
 xx: Allier
 insee:fr: 03
 iso:en: FR-03
@@ -3942,7 +3943,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Allier
 
 < en: Rhône-Alpes
 < en: Auvergne-Rhône-Alpes
-fr: Ardèche
+en: Ardèche
 xx: Ardèche
 bg: Ардеш
 insee:fr: 07
@@ -3953,7 +3954,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Ardèche
 
 < en: Auvergne
 < en: Auvergne-Rhône-Alpes
-fr: Cantal
+en: Cantal
 xx: Cantal
 insee:fr: 15
 iso:en: FR-15
@@ -3961,9 +3962,9 @@ nuts:en: FR722
 web:fr: https://www.cantal.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Cantal
 
-< en: Rhône-Alpes
 < en: Auvergne-Rhône-Alpes
-fr: Drôme
+< en: Rhône-Alpes
+en: Drôme
 xx: Drôme
 insee:fr: 26
 iso:en: FR-26
@@ -3971,13 +3972,13 @@ nuts:en: FR713
 web:fr: https://www.ladrome.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Drôme
 
-< fr: Drôme
-fr: Nyons
+< en: Drôme
+en: Nyons
 xx: Nyons
 
 < en: Rhône-Alpes
 < en: Auvergne-Rhône-Alpes
-fr: Isère
+en: Isère
 xx: Isère
 insee:fr: 38
 iso:en: FR-38
@@ -3987,7 +3988,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Isère
 
 < en: Rhône-Alpes
 < en: Auvergne-Rhône-Alpes
-fr: Loire
+en: Loire
 xx: Loire
 insee:fr: 42
 iso:en: FR-42
@@ -3997,7 +3998,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Loire_(department)
 
 < en: Auvergne
 < en: Auvergne-Rhône-Alpes
-fr: Haute-Loire
+en: Haute-Loire
 xx: Haute-Loire
 insee:fr: 43
 iso:en: FR-43
@@ -4014,9 +4015,9 @@ iso:en: FR-63
 web:fr: https://www.puy-de-dome.fr/
 wikipedia:en: https://en.wikipedia.org/wiki/Puy-de-Dôme
 
-< en: Rhône-Alpes
 < en: Auvergne-Rhône-Alpes
-fr: Rhône
+< en: Rhône-Alpes
+en: Rhône
 xx: Rhône
 insee:fr: 69D
 iso:en: FR-69
@@ -4024,13 +4025,13 @@ web:fr: https://www.rhone.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Rhône_(department)
 
 < en: Auvergne-Rhône-Alpes
-fr: Métropole de Lyon
+en: Métropole de Lyon
 xx: Métropole de Lyon
 insee:fr: 69M
 wikipedia:en: https://en.wikipedia.org/wiki/Metropolis_of_Lyon
 
-< en: Rhône-Alpes
 < en: Auvergne-Rhône-Alpes
+< en: Rhône-Alpes
 en: Savoy
 xx: Savoie
 pl: Sabaudia
@@ -4041,20 +4042,17 @@ wikipedia:en: https://en.wikipedia.org/wiki/Savoie
 
 < en: Rhône-Alpes
 < en: Auvergne-Rhône-Alpes
-fr: Haute-Savoie
+en: Haute-Savoie
 xx: Haute-Savoie
 insee:fr: 74
 iso:en: FR-73
 web:fr: https://hautesavoie.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Haute-Savoie
 
-< en: Auvergne-Rhône-Alpes
-fr: Bresse
-
 # ************************************************************
 
 < en: france
-fr: Bourgogne-Franche-Comté
+en: Bourgogne-Franche-Comté
 xx: Bourgogne-Franche-Comté
 insee:fr: 27
 iso:en: FR-BFC
@@ -4063,35 +4061,36 @@ web:fr: https://www.bourgognefranchecomte.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Bourgogne-Franche-Comté
 
 < en: Burgundy
-< fr: Bourgogne-Franche-Comté
-fr: Côte-d'Or
+< en: Bourgogne-Franche-Comté
+en: Côte-d'Or
 xx: Côte-d'Or
 insee:fr: 21
 iso:en: FR-21
 web:fr: https://www.cotedor.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Côte-d%27Or
 
-< fr: Bourgogne-Franche-Comté
+< en: Bourgogne-Franche-Comté
 < en: Franche-Comté
-fr: Doubs
+en: Doubs
 xx: Doubs
 insee:fr: 70
 iso:en: FR-70
 web:fr: https://www.doubs.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Doubs
 
-< fr: Bourgogne-Franche-Comté
+< en: Bourgogne-Franche-Comté
 < en: Franche-Comté
-fr: Haute-Saône
+en: Haute-Saône
 xx: Haute-Saône
 insee:fr: 25
 iso:en: FR-25
 web:fr: https://www.haute-saone.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Haute-Saône
 
-< fr: Bourgogne-Franche-Comté
+< en: Bourgogne-Franche-Comté
+< en: Bresse
 < en: Franche-Comté
-fr: Jura
+en: Jura
 xx: Jura
 insee:fr: 39
 iso:en: FR-39
@@ -4099,9 +4098,9 @@ nuts:en: FR432
 web:fr: https://www.jura.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Jura_(department)
 
+< en: Bourgogne-Franche-Comté
 < en: Burgundy
-< fr: Bourgogne-Franche-Comté
-fr: Nièvre
+en: Nièvre
 xx: Nièvre
 insee:fr: 58
 iso:en: FR-58
@@ -4109,21 +4108,22 @@ nuts:en: FR262
 web:fr: https://nievre.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Nièvre
 
+< en: Bourgogne-Franche-Comté
+< en: Bresse
 < en: Burgundy
-< fr: Bourgogne-Franche-Comté
-fr: Saône-et-Loire
+en: Saône-et-Loire
 xx: Saône-et-Loire
 insee:fr: 71
 iso:en: FR-71
 web:fr: https://www.saoneetloire.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Saône-et-Loire
 
-< fr: Saône-et-Loire
-fr: Charolais
+< en: Saône-et-Loire
+en: Charolais
 
-< fr: Bourgogne-Franche-Comté
 < en: Franche-Comté
-fr: Territoire de Belfort
+< en: Bourgogne-Franche-Comté
+en: Territoire de Belfort
 xx: Territoire de Belfort
 insee:fr: 90
 iso:en: FR-90
@@ -4131,9 +4131,9 @@ nuts:en: FR434
 web:fr: https://www.territoiredebelfort.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Territoire_de_Belfort
 
+< en: Bourgogne-Franche-Comté
 < en: Burgundy
-< fr: Bourgogne-Franche-Comté
-fr: Yonne
+en: Yonne
 xx: Yonne
 insee:fr: 89
 iso:en: FR-89
@@ -4287,7 +4287,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Haute-Corse
 # ************************************************************
 
 < en: france
-fr: Grand Est
+en: Grand Est
 xx: Grand Est
 insee:fr: 44
 iso:en: FR-GES
@@ -4295,8 +4295,9 @@ nuts:en: FRF
 web:fr: https://www.grandest.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Grand_Est
 
-< fr: Grand Est
-fr: Ardennes
+< en: Champagne
+< en: Grand Est
+en: Ardennes
 xx: Ardennes
 insee:fr: 08
 iso:en: FR-08
@@ -4304,8 +4305,9 @@ nuts:en: FR211
 web:fr: https://www.cd08.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Ardennes_(department)
 
-< fr: Grand Est
-fr: Aube
+< en: Champagne
+< en: Grand Est
+en: Aube
 xx: Aube
 insee:fr: 10
 iso:en: FR-10
@@ -4313,8 +4315,9 @@ nuts:en: FR212
 web:fr: https://www.aube.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Aube
 
-< fr: Grand Est
-fr: Marne
+< en: Champagne
+< en: Grand Est
+en: Marne
 xx: Marne
 insee:fr: 51
 iso:en: FR-51
@@ -4322,8 +4325,9 @@ nuts:en: FR213
 web:fr: https://www.marne.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Marne_(department)
 
-< fr: Grand Est
-fr: Haute-Marne
+< en: Champagne
+< en: Grand Est
+en: Haute-Marne
 xx: Haute-Marne
 insee:fr: 52
 iso:en: FR-52
@@ -4331,9 +4335,9 @@ nuts:en: FR411
 web:fr: https://haute-marne.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Haute-Marne
 
-< fr: Grand Est
+< en: Grand Est
 < en: Lorraine
-fr: Meurthe-et-Moselle
+en: Meurthe-et-Moselle
 xx: Meurthe-et-Moselle
 insee:fr: 54
 iso:en: FR-54
@@ -4341,9 +4345,9 @@ nuts:en: FR214
 web:fr: https://www.meurthe-et-moselle.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Meurthe-et-Moselle
 
-< fr: Grand Est
+< en: Grand Est
 < en: Lorraine
-fr: Meuse
+en: Meuse
 xx: Meuse
 insee:fr: 55
 iso:en: FR-55
@@ -4351,9 +4355,9 @@ nuts:en: FR412
 web:fr: https://www.meuse.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Meuse_(department)
 
-< fr: Grand Est
+< en: Grand Est
 < en: Lorraine
-fr: Moselle
+en: Moselle
 xx: Moselle
 insee:fr: 57
 iso:en: FR-57
@@ -4362,8 +4366,8 @@ web:fr: https://www.moselle.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Moselle_(department)
 
 < en: Alsace
-< fr: Grand Est
-fr: Bas-Rhin
+< en: Grand Est
+en: Bas-Rhin
 xx: Bas-Rhin
 insee:fr: 67
 iso:en: FR-67
@@ -4372,17 +4376,17 @@ web:fr: https://www.bas-rhin.gouv.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Bas-Rhin
 
 < en: Alsace
-< fr: Grand Est
-fr: Haut-Rhin
+< en: Grand Est
+en: Haut-Rhin
 xx: Haut-Rhin
 insee:fr: 68
 iso:en: FR-68
 web:fr: https://www.haut-rhin.gouv.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Haut-Rhin
 
-< fr: Grand Est
+< en: Grand Est
 < en: Lorraine
-fr: Vosges
+en: Vosges
 xx: Vosges
 insee:fr: 68
 iso:en: FR-68
@@ -4393,7 +4397,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Vosges_(department)
 # ************************************************************
 
 < en: france
-fr: Hauts-de-France
+en: Hauts-de-France
 xx: Hauts-de-France
 insee:fr: 32
 iso:en: FR-HDF
@@ -4401,8 +4405,8 @@ nuts:en: FRE
 web:fr: https://www.hautsdefrance.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Hauts-de-France
 
-< fr: Hauts-de-France
-fr: Aisne
+< en: Hauts-de-France
+en: Aisne
 xx: Aisne
 insee:fr: 22
 iso:en: FR-22
@@ -4410,8 +4414,8 @@ nuts:en: FR521
 web:fr: https://www.cotesdarmor.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Aisne
 
-< fr: Hauts-de-France
-fr: Nord
+< en: Hauts-de-France
+en: Nord
 xx: Nord
 insee:fr: 59
 iso:en: FR-59
@@ -4419,8 +4423,8 @@ nuts:en: FR301
 web:fr: https://lenord.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Nord_(French_department)
 
-< fr: Hauts-de-France
-fr: Oise
+< en: Hauts-de-France
+en: Oise
 xx: Oise
 insee:fr: 60
 iso:en: FR-60
@@ -4428,8 +4432,8 @@ nuts:en: FR222
 web:fr: https://www.oise.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Oise
 
-< fr: Hauts-de-France
-fr: Pas-de-Calais
+< en: Hauts-de-France
+en: Pas-de-Calais
 xx: Pas-de-Calais
 insee:fr: 62
 iso:en: FR-62
@@ -4437,17 +4441,99 @@ nuts:en: FR302
 web:fr: https://www.pasdecalais.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Pas-de-Calais
 
-< fr: Hauts-de-France
-fr: Somme
+< en: Hauts-de-France
+en: Somme
 xx: Somme
 insee:fr: 80
 iso:en: FR-80
 web:fr: https://www.somme.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Somme_(department)
 
-< fr: Hauts-de-France
+< en: Hauts-de-France
 en: Picardy
 xx: Picardie
+comment:en: Picardie does not correspond to specific departments
+wikipedia:en: https://en.wikipedia.org/wiki/Picardy
+
+# ************************************************************
+
+< en: france
+en: Île-de-France
+xx: Île-de-France
+insee:fr: 11
+iso:en: FR-IDF
+nuts:en: FR1
+web:fr: https://www.iledefrance.fr
+wikipedia:en: https://en.wikipedia.org/wiki/Île-de-France
+
+< en: Île-de-France
+en: Paris
+nl: Parijs
+xx: Paris
+insee:fr: 75
+iso:en: FR-75
+code_cummune:fr: 75056
+nuts:en: FR521
+web:fr: https://www.paris.fr
+wikipedia:en: https://en.wikipedia.org/wiki/Paris
+
+< en: Île-de-France
+en: Seine-et-Marne
+xx: Seine-et-Marne
+insee:fr: 77
+iso:en: FR-77
+nuts:en: FR102
+web:fr: https://www.seine-et-marne.fr/
+wikipedia:en: https://en.wikipedia.org/wiki/Seine-et-Marne
+
+< en: Île-de-France
+en: Yvelines
+xx: Yvelines
+insee:fr: 78
+iso:en: FR-78
+nuts:en: FR103
+web:fr: https://www.yvelines.fr
+wikipedia:en: https://en.wikipedia.org/wiki/Yvelines
+
+< en: Île-de-France
+en: Essonne
+xx: Essonne
+insee:fr: 91
+iso:en: FR-91
+web:fr: https://www.essonne.fr
+wikipedia:en: https://en.wikipedia.org/wiki/Essonne
+
+< en: Île-de-France
+en: Hauts-de-Seine
+xx: Hauts-de-Seine
+insee:fr: 92
+iso:en: FR-92
+web:fr: https://www.hauts-de-seine.fr
+wikipedia:en: https://en.wikipedia.org/wiki/Hauts-de-Seine
+
+< en: Île-de-France
+en: Seine-Saint-Denis
+xx: Seine-Saint-Denis
+insee:fr: 93
+iso:en: FR-93
+web:fr: https://seinesaintdenis.fr
+wikipedia:en: https://en.wikipedia.org/wiki/Seine-Saint-Denis
+
+< en: Île-de-France
+en: Val-de-Marne
+xx: Val-de-Marne
+insee:fr: 94
+iso:en: FR-94
+web:fr: https://www.valdemarne.fr
+wikipedia:en: https://en.wikipedia.org/wiki/Val-de-Marne
+
+< en: Île-de-France
+en: Val-d'Oise
+xx: Val-d'Oise
+insee:fr: 95
+iso:en: FR-95
+web:fr: https://www.valdoise.fr
+wikipedia:en: https://en.wikipedia.org/wiki/Val-d%27Oise
 
 # ************************************************************
 
@@ -4665,14 +4751,13 @@ wikipedia:en: https://en.wikipedia.org/wiki/South_West_France_(wine_region)
 < en: France
 en: Occcitania
 xx: Occitanie
-fr: Occitanie
 insee:fr: 76
 iso:en: FR-OCC
 web:fr: https://www.laregion.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Occitania_(administrative_region)
 
 < en: Occcitania
-fr: Ariège
+en: Ariège
 xx: Ariège
 insee:fr: 09
 iso:en: FR-09
@@ -4681,8 +4766,8 @@ web:fr: https://ariege.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Ariège_(department)
 
 < en: Occcitania
-< fr: Languedoc-Roussillon
-fr: Aude
+< en: Languedoc-Roussillon
+en: Aude
 xx: Aude
 insee:fr: 11
 iso:en: FR-11
@@ -4691,7 +4776,7 @@ web:fr: https://www.aude.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Aude
 
 < en: Occcitania
-fr: Aveyron
+en: Aveyron
 xx: Aveyron
 insee:fr: 12
 iso:en: FR-12
@@ -4700,8 +4785,8 @@ web:fr: https://www.aveyron.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Aveyron
 
 < en: Occcitania
-< fr: Languedoc-Roussillon
-fr: Gard
+< en: Languedoc-Roussillon
+en: Gard
 xx: Gard
 insee:fr: 31
 iso:en: FR-31
@@ -4709,11 +4794,11 @@ nuts:en: FR623
 web:fr: https://www.haute-garonne.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Gard
 
-< fr: Gard
-fr: Nîmes
+< en: Gard
+en: Nîmes
 
 < en: Occcitania
-fr: Haute-Garonne
+en: Haute-Garonne
 xx: Haute-Garonne
 insee:fr: 30
 iso:en: FR-30
@@ -4722,7 +4807,7 @@ web:fr: https://www.gard.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Haute-Garonne
 
 < en: Occcitania
-fr: Gers
+en: Gers
 xx: Gers
 insee:fr: 32
 iso:en: FR-32
@@ -4731,8 +4816,8 @@ web:fr: https://www.gers.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Gers
 
 < en: Occcitania
-< fr: Languedoc-Roussillon
-fr: Hérault
+< en: Languedoc-Roussillon
+en: Hérault
 xx: Hérault
 insee:fr: 34
 iso:en: FR-34
@@ -4741,7 +4826,7 @@ web:fr: https://herault.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Hérault
 
 < en: Occcitania
-fr: Lot
+en: Lot
 xx: Lot
 insee:fr: 46
 iso:en: FR-46
@@ -4750,8 +4835,8 @@ web:fr: https://www.lot.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Lot_(department)
 
 < en: Occcitania
-< fr: Languedoc-Roussillon
-fr: Lozère
+< en: Languedoc-Roussillon
+en: Lozère
 xx: Lozère
 insee:fr: 48
 iso:en: FR-48
@@ -4759,7 +4844,7 @@ web:fr: https://lozere.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Lozère
 
 < en: Occcitania
-fr: Hautes-Pyrénées
+en: Hautes-Pyrénées
 xx: Hautes-Pyrénées
 insee:fr: 65
 iso:en: FR-65
@@ -4767,16 +4852,21 @@ web:fr: https://www.hautespyrenees.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Hautes-Pyrénées
 
 < en: Occcitania
-< fr: Languedoc-Roussillon
-fr: Pyrénées-Orientales
+< en: Languedoc-Roussillon
+en: Pyrénées-Orientales
 xx: Pyrénées-Orientales
 insee:fr: 66
 iso:en: FR-66
 web:fr: https://www.ledepartement66.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Pyrénées-Orientales
 
+< en: Languedoc-Roussillon
+en: Roussillon
+xx: Roussillon
+wikipedia:en: https://en.wikipedia.org/wiki/Roussillon
+
 < en: Occcitania
-fr: Tarn
+en: Tarn
 xx: Tarn
 insee:fr: 81
 iso:en: FR-81
@@ -4784,19 +4874,11 @@ web:fr: https://www.tarn.fr/
 wikipedia:en: https://en.wikipedia.org/wiki/Tarn_(department)
 
 < en: Occcitania
-fr: Languedoc-Roussillon
+v: Languedoc-Roussillon
 xx: Languedoc-Roussillon
 
-< fr: Ardèche
-< fr: Gard
-< fr: Haute-Loire
-< fr: Lozère
-fr: Cévennes
-xx: Cévennes
-wikipedia:en: https://en.wikipedia.org/wiki/Cévennes
-
 < en: Occcitania
-fr: Tarn-et-Garonne
+en: Tarn-et-Garonne
 xx: Tarn-et-Garonne
 insee:fr: 82
 iso:en: FR-82
@@ -4871,23 +4953,25 @@ hu: Loire-völgy
 # ************************************************************
 
 < en: France
-fr: Provence-Alpes-Côte d'Azur, PACA
+en: Provence-Alpes-Côte d'Azur, PACA
 xx: Provence-Alpes-Côte d'Azur, PACA
 insee:fr: 93
 iso:en: FR-PAC
 nuts:en: FR8
 web:fr: https://www.maregionsud.fr
+wikipedia:en: https://en.wikipedia.org/wiki/Provence-Alpes-Côte_d%27Azur
 
-< fr: Provence-Alpes-Côte d'Azur
-fr: Alpes-de-Haute-Provence
+< en: Provence-Alpes-Côte d'Azur
+en: Alpes-de-Haute-Provence
 xx: Alpes-de-Haute-Provence
 insee:fr: 04
 iso:en: FR-04
 nuts:en: FR821
+web:fr: https://www.mondepartement04.fr/
 wikipedia:en: https://en.wikipedia.org/wiki/Alpes-de-Haute-Provence
 
-< fr: Provence-Alpes-Côte d'Azur
-fr: Hautes-Alpes
+< en: Provence-Alpes-Côte d'Azur
+en: Hautes-Alpes
 xx: Hautes-Alpes
 insee:fr: 05
 iso:en: FR-05
@@ -4895,16 +4979,17 @@ nuts:en: FR822
 web:fr: https://www.hautes-alpes.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Hautes-Alpes
 
-< fr: Provence-Alpes-Côte d'Azur
-fr: Alpes-Maritimes
+< en: Provence-Alpes-Côte d'Azur
+en: Alpes-Maritimes
 xx: Alpes-Maritimes
 insee:fr: 06
 iso:en: FR-06
 nuts:en: FR823
 web:fr: https://www.departement06.fr
+wikipedia:en: https://en.wikipedia.org/wiki/Alpes-Maritimes
 
-< fr: Provence-Alpes-Côte d'Azur
-fr: Bouches-du-Rhône
+< en: Provence-Alpes-Côte d'Azur
+en: Bouches-du-Rhône
 xx: Bouches-du-Rhône
 insee:fr: 13
 iso:en: FR-13
@@ -4912,14 +4997,15 @@ nuts:en: FR823
 web:fr: https://www.departement13.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Bouches-du-Rhône
 
-< fr: Bouches-du-Rhône
+< en: Bouches-du-Rhône
 en: Camargue
 bg: Камарг
-fr: Camargue
+xx: Camargue
 pt: Camarga
+wikipedia:en: https://en.wikipedia.org/wiki/Camargue
 
-< fr: Provence-Alpes-Côte d'Azur
-fr: Var
+< en: Provence-Alpes-Côte d'Azur
+en: Var
 xx: Var
 insee:fr: 83
 iso:en: FR-83
@@ -4927,8 +5013,8 @@ iso:en: FR-83
 web:fr: https://www.var.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Var_(department)
 
-< fr: Provence-Alpes-Côte d'Azur
-fr: Vaucluse
+< en: Provence-Alpes-Côte d'Azur
+en: Vaucluse
 xx: Vaucluse
 insee:fr: 84
 iso:en: FR-84
@@ -4936,11 +5022,7 @@ iso:en: FR-84
 web:fr: https://www.vaucluse.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Vaucluse
 
-< fr: Vaucluse
-en: Roussillon
-fr: Roussillon
-
-< fr: Provence-Alpes-Côte d'Azur
+< en: Provence-Alpes-Côte d'Azur
 en: Provence
 bg: Прованс
 fr: Provence
@@ -4998,6 +5080,20 @@ xx: Rhône-Alpes
 
 # ******************** Historic/popular regions in France *********************
 
+< en: France
+en: Bresse
+xx: Bresse
+wikipedia:fr: https://fr.wikipedia.org/wiki/Bresse
+
+
+< en: Ardèche
+< en: Gard
+< en: Haute-Loire
+< en: Lozère
+en: Cévennes
+xx: Cévennes
+wikipedia:en: https://en.wikipedia.org/wiki/Cévennes
+
 # still to digest
 
 < en: France
@@ -5009,7 +5105,9 @@ fr: Pays-Basque
 
 
 < en: France
-fr: Champagne
+en: Champagne
+xx: Champagne
+wikipedia:en: https://en.wikipedia.org/wiki/Champagne_(province)
 
 < en:France
 fr: Beaujolais
@@ -5028,9 +5126,6 @@ en: Languedoc
 
 < en: France
 fr: Maine
-
-< en: France
-fr: Jura français
 
 
 < en: France
