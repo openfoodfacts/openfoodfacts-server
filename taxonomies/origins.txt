@@ -4843,7 +4843,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Tarn-et-Garonne
 # ************************************************************
 
 < en: france
-en: Pays de la Loire
+fr: Pays de la Loire
 xx: Pays de la Loire
 pl: Kraj Loary
 insee:fr: 52
@@ -4852,8 +4852,8 @@ nuts:en: FR5
 web:fr: https://www.paysdelaloire.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Pays_de_la_Loire
 
-< en: Pays de la Loire
-en: Loire-Atlantique
+< fr: Pays de la Loire
+fr: Loire-Atlantique
 xx: Loire-Atlantique
 pl: Loara Atlantycka
 insee:fr: 44
@@ -4862,8 +4862,8 @@ nuts:en: FR511
 web:fr: https://www.loire-atlantique.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Loire-Atlantique
 
-< en: Pays de la Loire
-en: Maine-et-Loire
+< fr: Pays de la Loire
+fr: Maine-et-Loire
 xx: Maine-et-Loire
 insee:fr: 49
 iso:en: FR-49
@@ -4871,8 +4871,8 @@ nuts:en: FR512
 web:fr: https://www.maine-et-loire.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Maine-et-Loire
 
-< en: Pays de la Loire
-en: Mayenne
+< fr: Pays de la Loire
+fr: Mayenne
 xx: Mayenne
 insee:fr: 53
 iso:en: FR-53
@@ -4880,16 +4880,20 @@ nuts:en: FR513
 web:fr: https://www.lamayenne.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Mayenne
 
-< en: Pays de la Loire
-en: Sarthe
+< fr: Pays de la Loire
+fr: Sarthe
 xx: Sarthe
 insee:fr: 72
 iso:en: FR-72
 web:fr: https://www.sarthe.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Sarthe
 
-< en: Pays de la Loire
-en: Vendée
+< fr: Sarthe
+fr: Loué
+xx: Loué
+
+< fr: Pays de la Loire
+fr: Vendée
 xx: Vendée
 insee:fr: 85
 iso:en: FR-85
@@ -4999,9 +5003,6 @@ en: Franche-Comté
 fr: Franche-Comté
 pl: Franche-Comté
 
-< en: France
-en: Loué
-fr: Loué
 
 < en: France
 fr: Béarn
