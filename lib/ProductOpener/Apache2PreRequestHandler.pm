@@ -32,12 +32,13 @@ package ProductOpener::Apache2PreRequestHandler;
 
 use ProductOpener::PerlStandards;
 
+use Log::Any '$log', default_adapter => 'Stderr';
 use OpenTelemetry;
 use OpenTelemetry::Context;
 use OpenTelemetry::Propagator::TraceContext;
 use OpenTelemetry::Trace;
 use OpenTelemetry::SDK;
-use Log::Any '$log', default_adapter => 'Stderr';
+use ProductOpener::Version qw/$version/;
 
 # Obtain the current default tracer provider
 my $provider = OpenTelemetry->tracer_provider;
@@ -46,7 +47,7 @@ sub handler {
 	my ($r) = @_;
 
 	# Create a trace
-	my $tracer = $provider->tracer(name => 'ProductOpener', version => '1.0');
+	my $tracer = $provider->tracer(name => 'ProductOpener', version => $version);
 
 	# Extract trace context from HTTP headers
 	my $trace_context = OpenTelemetry::Propagator::TraceContext->new;

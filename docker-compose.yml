@@ -35,8 +35,6 @@ x-backend-conf: &backend-conf
     - ODOO_CRM_DB
     - ODOO_CRM_USER
     - ODOO_CRM_PASSWORD
-    - OTEL_COLLECTOR_HOST
-    - OTEL_COLLECTOR_PORT_GRPC
     - OTEL_EXPORTER_OTLP_ENDPOINT
   depends_on:
     - memcached
@@ -117,7 +115,6 @@ services:
       - PRODUCT_OPENER_DOMAIN
       - OTEL_COLLECTOR_HOST
       - OTEL_COLLECTOR_PORT_GRPC
-      - OTEL_EXPORTER_OTLP_ENDPOINT
     volumes:
       - product_images:/opt/product-opener/html/images/products:ro
       - html_data:/opt/product-opener/html/data:ro

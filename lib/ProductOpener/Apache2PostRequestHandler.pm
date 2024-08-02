@@ -32,8 +32,8 @@ package ProductOpener::Apache2PostRequestHandler;
 
 use ProductOpener::PerlStandards;
 
-use OpenTelemetry::Trace::Span;
 use Log::Any '$log', default_adapter => 'Stderr';
+use OpenTelemetry::Trace::Span;
 
 sub handler {
 	my $r = shift;
@@ -51,7 +51,7 @@ sub handler {
 			if $log->is_debug();
 	}
 
-	OpenTelemetry::Context->current = undef;
+	OpenTelemetry::Context->current = OpenTelemetry::Context->new();
 
 	return Apache2::Const::OK;
 }
