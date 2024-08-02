@@ -196,7 +196,7 @@ use OpenTelemetry::Integration 'LWP::UserAgent';
 use Encode;
 
 use GraphViz2;
-use JSON::PP;
+use JSON::MaybeXS;
 
 use Data::DeepAccess qw(deep_get deep_exists);
 
@@ -1507,7 +1507,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 				}
 
 			}
-			elsif ($line =~ /^expected_nutriscore_grade:en:/) {
+			elsif ($line =~ /^expected_nutriscore_grade:en: */) {
 				# the line should be the nutriscore grade: a, b, c, d or e
 				my $nutriscore_grade = $';    # everything after the matched string
 
@@ -1522,7 +1522,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 					push(@taxonomy_errors, _taxonomy_error("ERROR", "unknown_nutriscore", $msg, $line_number));
 				}
 			}
-			elsif ($line =~ /^expected_ingredients:en:/) {
+			elsif ($line =~ /^expected_ingredients:en: */) {
 				# the line should contain a single ingredient
 				my $expected_ingredients = $';    # everything after the matched string
 

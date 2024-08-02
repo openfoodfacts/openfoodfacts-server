@@ -1210,6 +1210,25 @@ $section-sand: #FFFAF1;
 $background-orange: #FF8714;
 $font-green: #008c8c;
 
+.off-days-banner {
+  background-color: $section-cyan;
+  // background-image: url('/images/misc/banners/FR.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 300px;
+  @media #{$small-only} {
+    background-size: contain;
+    height: 25vw; ;
+  }
+  &__FR {
+    background-image: url('/images/misc/banners/FR.png');
+  }
+  &__ENG {
+    background-image: url('/images/misc/banners/ENG.png');
+  }
+}
+
 .donation-banner,
 .donation-banner-footer {
   overflow: hidden;
@@ -1904,3 +1923,45 @@ div.open-in-crm {
     margin: 0 1em 0 0;
   }
 }
+/* Styling drag and drop panel on /cgi/import_file_upload.pl */
+.dragover {
+  border: 2px dashed #ff8614 !important;
+  background-color: #ffefef;
+
+  & #upload_icon {
+    color: #ffa753!important;
+  }
+
+  & [id^="file_input_button_"] {
+    background-color: color.scale($button-bg-color, $lightness: $button-function-factor * -0.5);
+    color: #fff;
+  }
+}
+
+.drop-zone {
+  border: 2px dashed black; 
+  border-radius: 5px;
+  background-color: #ece9e6; 
+  padding: 2em;
+
+  & > #upload_icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #c6c0b2;
+
+    svg { 
+      height: 2.8em;
+      width: auto;
+      margin-bottom: 0.5em;
+    }
+  }
+
+  & > #description {
+    text-align: center;
+    font-size: 1.2em;
+    color: #8c877c;
+    margin-bottom: 1em;
+  }
+}
+

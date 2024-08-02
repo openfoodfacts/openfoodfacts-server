@@ -73,7 +73,7 @@ use OpenTelemetry::Integration 'LWP::UserAgent';
 use HTTP::CookieJar::LWP;
 use HTTP::Request::Common;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 use Carp qw/confess/;
 use Clone qw/clone/;
 use File::Tail;

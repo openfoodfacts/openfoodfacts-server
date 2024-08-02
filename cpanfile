@@ -107,6 +107,9 @@ requires 'Imager::File::WEBP';
 # To dynamically load Config_*.pm modules
 requires 'Module::Load';
 
+# To measure the time taken by requests
+requires 'Time::Monotonic';
+
 # OpenTelemetry
 requires 'OpenTelemetry', '>= 0.023';
 requires 'OpenTelemetry::SDK', '>= 0.024';
@@ -131,6 +134,7 @@ on 'test' => sub {
   requires 'Test::File::Contents';
   requires 'FindBin';
   requires 'Test::Pod';
+  requires 'UUID';
 };
 
 on 'develop' => sub {

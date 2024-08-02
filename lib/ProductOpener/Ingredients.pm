@@ -124,7 +124,7 @@ use Clone qw(clone);
 use LWP::UserAgent;
 use OpenTelemetry::Integration 'LWP::UserAgent';
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 use Log::Any qw($log);
 use List::MoreUtils qw(uniq);
 use Data::DeepAccess qw(deep_get deep_exists);

@@ -263,6 +263,82 @@ my @tests = (
 			'components' => ['api', 'v3', 'product', 'https://id.gs1.org/01/03564703999971/10/ABC/21/123456?17=211200'],
 		},
 	},
+	{
+		desc => "Facet URL with a group-by",
+		lc => "en",
+		input_request => {
+			cc => "world",
+			lc => "en",
+			original_query_string => 'category/breads/ingredients',
+			no_index => '0',
+			is_crawl_bot => '1'
+		},
+		expected_output_request => {
+			'tag_prefix' => '',
+			'components' => ['category', 'breads', 'ingredients'],
+			'no_index' => 1,
+			'canon_rel_url' => '/category/en:breads/ingredients',
+			'api' => 'v0',
+			'query_string' => 'category/breads/ingredients',
+			'original_query_string' => 'category/breads/ingredients',
+			'tagid' => 'en:breads',
+			'tagtype' => 'categories',
+			'tag' => 'en:breads',
+			'lc' => 'en',
+			'cc' => 'world',
+			'page' => 1,
+			'tags' => [
+				{
+					'tag' => 'en:breads',
+					'tagtype' => 'categories',
+					'tagid' => 'en:breads',
+					'tag_prefix' => ''
+				}
+			],
+			'is_crawl_bot' => '1',
+			'param' => {},
+			'groupby_tagtype' => 'ingredients'
+		}
+
+	},
+	{
+		desc => "Facet URL with a group-by in English",
+		lc => "en",
+		input_request => {
+			cc => "world",
+			lc => "es",
+			original_query_string => 'category/breads/ingredients',
+			no_index => '0',
+			is_crawl_bot => '1'
+		},
+		expected_output_request => {
+			'components' => ['category', 'breads', 'ingredients'],
+			'groupby_tagtype' => 'ingredients',
+			'tags' => [
+				{
+					'tag' => 'es:breads',
+					'tagid' => 'es:breads',
+					'tag_prefix' => '',
+					'tagtype' => 'categories'
+				}
+			],
+			'is_crawl_bot' => '1',
+			'tag_prefix' => '',
+			'tagtype' => 'categories',
+			'canon_rel_url' => '/categoria/es:breads/ingredientes',
+			'cc' => 'world',
+			'query_string' => 'category/breads/ingredients',
+			'original_query_string' => 'category/breads/ingredients',
+			'tagid' => 'es:breads',
+			'tag' => 'es:breads',
+			'api' => 'v0',
+			'lc' => 'es',
+			'no_index' => 1,
+			'param' => {},
+			'page' => 1
+		},
+
+	},
 );
 
 foreach my $test_ref (@tests) {
@@ -271,7 +347,7 @@ foreach my $test_ref (@tests) {
 	$lc = $test_ref->{input_request}{lc};
 	analyze_request($test_ref->{input_request});
 
-	is($test_ref->{input_request}, $test_ref->{expected_output_request}) or diag Dumper $test_ref;
+	is($test_ref->{input_request}, $test_ref->{expected_output_request}, $test_ref->{desc}) or diag Dumper $test_ref;
 }
 
 done_testing();
