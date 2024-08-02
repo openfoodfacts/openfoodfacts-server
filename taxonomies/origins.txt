@@ -3929,6 +3929,7 @@ nuts:en: FR711
 web:fr: https://www.ain.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Ain
 
+< en: Auvergne
 < en: Auvergne-Rhône-Alpes
 fr: Allier
 xx: Allier
@@ -3948,6 +3949,7 @@ nuts:en: FR712
 web:fr: https://www.ardeche.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Ardèche
 
+< en: Auvergne
 < en: Auvergne-Rhône-Alpes
 fr: Cantal
 xx: Cantal
@@ -3988,6 +3990,7 @@ nuts:en: FR715
 web:fr: https://www.loire.fr/
 wikipedia:en: https://en.wikipedia.org/wiki/Loire_(department)
 
+< en: Auvergne
 < en: Auvergne-Rhône-Alpes
 fr: Haute-Loire
 xx: Haute-Loire
@@ -3997,6 +4000,7 @@ nuts:en: FR723
 web:fr: https://www.hauteloire.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Haute-Loire
 
+< en: Auvergne
 < en: Auvergne-Rhône-Alpes
 fr: Puy-de-Dôme
 xx: Puy-de-Dôme
@@ -4021,10 +4025,8 @@ wikipedia:en: https://en.wikipedia.org/wiki/Metropolis_of_Lyon
 
 < en: Auvergne-Rhône-Alpes
 en: Savoy
-fr: Savoie
-pl: Sabaudia
-
 xx: Savoie
+pl: Sabaudia
 insee:fr: 73
 iso:en: FR-73
 web:fr: https://www.savoie.fr
@@ -4037,16 +4039,6 @@ insee:fr: 74
 iso:en: FR-73
 web:fr: https://hautesavoie.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Haute-Savoie
-
-< en: Auvergne-Rhône-Alpes
-en: Auvergne
-xx: Auvergne
-bg: Оверн
-fr: Auvergne
-
-< en: Auvergne-Rhône-Alpes
-fr: Rhône-Alpes
-xx: Rhône-Alpes
 
 < en: Auvergne-Rhône-Alpes
 fr: Bresse
@@ -4939,21 +4931,31 @@ fr: Haute Provence
 
 # ******************** Former regions in France *********************
 
-< fr: France
+< en: France
 en: Alsace
 bg: Елзас
 fr: Alsace
 pl: Alzacja
 
-< fr: France
+< en: France
+en: Auvergne
+xx: Auvergne
+bg: Оверн
+fr: Auvergne
+
+< en: France
 en: Burgundy
 xx: Bourgogne
 bg: Бургундия
 hu: Burgundia
 
-< fr: France
+< en: France
 en: Poitou-Charentes
 xx: Poitou-Charentes
+
+< en: France
+fr: Rhône-Alpes
+xx: Rhône-Alpes
 
 #< fr: Essone
 < fr: Loiret
