@@ -109,8 +109,8 @@ requires 'Module::Load';
 
 # OpenTelemetry
 requires 'OpenTelemetry', '>= 0.023';
-requires 'OpenTelemetry::SDK', '>= 0.022';
-requires 'OpenTelemetry::Exporter::OTLP', '>= 0.016';
+requires 'OpenTelemetry::SDK', '>= 0.024';
+requires 'OpenTelemetry::Exporter::OTLP', '>= 0.017';
 
 on 'test' => sub {
   requires 'Test2::V0';
