@@ -4162,6 +4162,9 @@ iso:en: FR-71
 web:fr: https://www.saoneetloire.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Saône-et-Loire
 
+< fr: Saône-et-Loire
+fr: Charolais
+
 < fr: Bourgogne-Franche-Comté
 fr: Territoire de Belfort
 xx: Territoire de Belfort
@@ -4887,6 +4890,12 @@ iso:en: FR-85
 web:fr: https://www.vendee.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Vendée
 
+< fr: Centre-Val de Loire
+< fr: Pays de la Loire
+en: Loire valley
+fr: Val de Loire
+hu: Loire-völgy
+
 # ************************************************************
 
 < en: France
@@ -4971,9 +4980,10 @@ wikipedia:en: https://en.wikipedia.org/wiki/Provence
 en: Haute Provence
 fr: Haute Provence
 
-
-
-< en:france
+#< fr: Essone
+< fr: Loiret
+#< fr: Seine-et-Marne
+< fr: Yonne
 fr: Gatinais
 
 fr: Pays-Basque
@@ -4988,12 +4998,6 @@ hu: Burgundia
 en: Franche-Comté
 fr: Franche-Comté
 pl: Franche-Comté
-
-
-< en: france
-en: Loire valley
-fr: Val de Loire
-hu: Loire-völgy
 
 < en: France
 en: Loué
@@ -5034,8 +5038,6 @@ fr: Maine
 < en: France
 fr: Jura français
 
-< en: France
-fr: Charolais
 
 < en: France
 fr: Limousin
