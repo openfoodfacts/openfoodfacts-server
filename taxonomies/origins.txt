@@ -4062,8 +4062,8 @@ nuts:en: FR-BFC
 web:fr: https://www.bourgognefranchecomte.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Bourgogne-Franche-Comté
 
-< fr: Bourgogne-Franche-Comté
 < en: Burgundy
+< fr: Bourgogne-Franche-Comté
 fr: Côte-d'Or
 xx: Côte-d'Or
 insee:fr: 21
@@ -4099,8 +4099,8 @@ nuts:en: FR432
 web:fr: https://www.jura.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Jura_(department)
 
-< fr: Bourgogne-Franche-Comté
 < en: Burgundy
+< fr: Bourgogne-Franche-Comté
 fr: Nièvre
 xx: Nièvre
 insee:fr: 58
@@ -4109,8 +4109,8 @@ nuts:en: FR262
 web:fr: https://nievre.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Nièvre
 
-< fr: Bourgogne-Franche-Comté
 < en: Burgundy
+< fr: Bourgogne-Franche-Comté
 fr: Saône-et-Loire
 xx: Saône-et-Loire
 insee:fr: 71
@@ -4131,8 +4131,8 @@ nuts:en: FR434
 web:fr: https://www.territoiredebelfort.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Territoire_de_Belfort
 
-< fr: Bourgogne-Franche-Comté
 < en: Burgundy
+< fr: Bourgogne-Franche-Comté
 fr: Yonne
 xx: Yonne
 insee:fr: 89
@@ -4511,16 +4511,16 @@ wikipedia:en: https://en.wikipedia.org/wiki/Seine-Maritime
 # ************************************************************
 
 < en: France
-fr: Nouvelle-Aquitaine
+en: Nouvelle-Aquitaine
 xx: Nouvelle-Aquitaine
 insee:fr: 75
 iso:en: FR-NAQ
 web:fr: https://www.nouvelle-aquitaine.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Nouvelle-Aquitaine
 
-< fr: Nouvelle-Aquitaine
+< en: Nouvelle-Aquitaine
 < en: Poitou-Charentes
-fr: Charente
+en: Charente
 xx: Charente
 insee:fr: 16
 iso:en: FR-16
@@ -4528,9 +4528,9 @@ nuts:en: FR531
 web:fr: https://www.lacharente.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Charente
 
-< fr: Nouvelle-Aquitaine
+< en: Nouvelle-Aquitaine
 < en: Poitou-Charentes
-fr: Charente-Maritime
+en: Charente-Maritime
 xx: Charente-Maritime
 insee:fr: 16
 iso:en: FR-17
@@ -4538,11 +4538,13 @@ nuts:en: FR532
 web:fr: https://la.charente-maritime.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Charente-Maritime
 
-< fr: Charente-Maritime
-fr: île de Ré
+< en: Charente-Maritime
+en: île de Ré
+xx: île de Ré
+wikipedia:fr: https://fr.wikipedia.org/wiki/Île_de_Ré
 
-< fr: Nouvelle-Aquitaine
-fr: Corrèze
+< en: Nouvelle-Aquitaine
+en: Corrèze
 xx: Corrèze
 insee:fr: 19
 iso:en: FR-19
@@ -4550,8 +4552,8 @@ nuts:en: FR631
 web:fr: https://www.correze.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Corrèze
 
-< fr: Nouvelle-Aquitaine
-fr: Creuse
+< en: Nouvelle-Aquitaine
+en: Creuse
 xx: Creuse
 insee:fr: 23
 iso:en: FR-23
@@ -4559,8 +4561,8 @@ nuts:en: FR632
 web:fr: https://www.creuse.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Creuse
 
-< fr: Nouvelle-Aquitaine
-fr: Dordogne
+< en: Nouvelle-Aquitaine
+en: Dordogne
 xx: Dordogne
 insee:fr: 24
 iso:en: FR-24
@@ -4568,8 +4570,8 @@ nuts:en: FR611
 web:fr: https://www.dordogne.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Dordogne
 
-< fr: Nouvelle-Aquitaine
-fr: Gironde
+< en: Nouvelle-Aquitaine
+en: Gironde
 xx: Gironde
 insee:fr: 33
 iso:en: FR-33
@@ -4577,8 +4579,8 @@ nuts:en: FR612
 web:fr: https://www.gironde.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Gironde
 
-< fr: Nouvelle-Aquitaine
-fr: Landes
+< en: Nouvelle-Aquitaine
+en: Landes
 xx: Landes
 insee:fr: 40
 iso:en: FR-40
@@ -4586,8 +4588,8 @@ nuts:en: FR613
 web:fr: https://www.landes.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Landes_(department)
 
-< fr: Nouvelle-Aquitaine
-fr: Lot-et-Garonne
+< en: Nouvelle-Aquitaine
+en: Lot-et-Garonne
 xx: Lot-et-Garonne
 insee:fr: 47
 iso:en: FR-47
@@ -4595,57 +4597,62 @@ nuts:en: FR614
 web:fr: https://www.lotetgaronne.fr/
 wikipedia:en: https://en.wikipedia.org/wiki/Lot-et-Garonne
 
-< fr: Nouvelle-Aquitaine
-fr: Pyrénées-Atlantiques
+< en: Nouvelle-Aquitaine
+en: Pyrénées-Atlantiques
 xx: Pyrénées-Atlantiques
 insee:fr: 64
 iso:en: FR-64
 web:fr: https://www.le64.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Pyrénées-Atlantiques
 
-< fr: Nouvelle-Aquitaine
+< en: Pyrénées-Atlantiques
+en: Béarn
+xx: Béarn
+wikipedia:fr: https://fr.wikipedia.org/wiki/Béarn
+
+< en: Nouvelle-Aquitaine
 < en: Poitou-Charentes
-fr: Deux-Sèvres
+en: Deux-Sèvres
 xx: Deux-Sèvres
 insee:fr: 79
 iso:en: FR-79
 web:fr: https://www.deux-sevres.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Deux-Sèvres
 
-< fr: Nouvelle-Aquitaine
+< en: Nouvelle-Aquitaine
 < en: Poitou-Charentes
-fr: Vienne
+en: Vienne
 xx: Vienne
 insee:fr: 86
 iso:en: FR-86
 web:fr: https://www.lavienne86.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Vienne_(department)
 
-< fr: Nouvelle-Aquitaine
-fr: Haute-Vienne
+< en: Nouvelle-Aquitaine
+en: Haute-Vienne
 xx: Haute-Vienne
 insee:fr: 87
 iso:en: FR-87
 web:fr: https://www.haute-vienne.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Haute-Vienne
 
-< fr: Nouvelle-Aquitaine
-fr: Aquitaine
+< en: Nouvelle-Aquitaine
+en: Aquitaine
 xx: Aquitaine
 bg: Аквитания
 wikipedia:en: https://en.wikipedia.org/wiki/Aquitaine
 
-< fr: Nouvelle-Aquitaine
-fr: Gascogne
+< en: Nouvelle-Aquitaine
+en: Gascogne
 xx: Gascogne
 wikipedia:en: https://en.wikipedia.org/wiki/Gascony
 
-< fr: Nouvelle-Aquitaine
-fr: Périgord
+< en: Nouvelle-Aquitaine
+en: Périgord
 xx: Périgord
 wikipedia:en: https://en.wikipedia.org/wiki/Périgord
 
-< fr: Nouvelle-Aquitaine
+< en: Nouvelle-Aquitaine
 en: South-western France, South-west of France
 de: Südwestfrankreich
 fr: Sud-ouest de la France, Sud-ouest français
@@ -4952,18 +4959,22 @@ en: Alsace
 xx: Alsace
 bg: Елзас
 pl: Alzacja
+iso:en:FR-A
+wikipedia:fr: https://fr.wikipedia.org/wiki/Alsace_(ancienne_région_administrative)
 
 < en: France
 en: Auvergne
 xx: Auvergne
 bg: Оверн
 fr: Auvergne
+wikipedia:fr: https://fr.wikipedia.org/wiki/Auvergne_(ancienne_région_administrative)
 
 < en: France
 en: Burgundy
 xx: Bourgogne
 bg: Бургундия
 hu: Burgundia
+wikipedia:fr: https://fr.wikipedia.org/wiki/Bourgogne_(ancienne_région_administrative)
 
 < en: France
 en: Franche-Comté
@@ -4994,17 +5005,8 @@ en: Gatinais
 xx: Gatinais
 wikipedia:fr: https://fr.wikipedia.org/wiki/Gâtinais
 
-
 fr: Pays-Basque
 
-< en: france
-en: Franche-Comté
-fr: Franche-Comté
-pl: Franche-Comté
-
-
-< en: France
-fr: Béarn
 
 < en: France
 fr: Champagne
