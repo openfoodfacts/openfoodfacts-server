@@ -72891,6 +72891,7 @@ es: Polvo de cinco especias
 en: Ras el hanout
 xx: Ras el hanout
 fr: Ras el hanout, Raz el hanout
+nl: Ras el hanoet
 wikidata:en: Q1067261
 
 < en:Mixtures of herbs and spices
@@ -83892,7 +83893,6 @@ lt: Ožkiena
 wco_hs_heading:en: 02.04
 wikidata:en: Q449506
 
-
 < en:Fresh meats
 < en:Goat meat
 en: Young goat
@@ -84393,7 +84393,8 @@ ciqual_food_code:en: 6551
 ciqual_food_name:en: Veal, roast, cooked
 ciqual_food_name:fr: Veau, rôti, cuit
 
-< en:Beef preparations
+#don't put in beef preparation, veal stock contain only few percent veal
+< en:Broths
 en: Veal stock
 de: Kalbsfond
 fr: Fond de veau
@@ -84417,7 +84418,7 @@ pl: Steki mrożone
 zh: 冷冻肉排
 
 < en:Frozen foods
-< en:Meats and their products
+< en:Meat preparations
 en: Frozen meat preparations
 de: Gefrorene Fleischprodukte, Gefrorenes Fleisch
 es: Preparados de carne congelada
@@ -85632,8 +85633,8 @@ ciqual_food_code:en: 40108
 ciqual_food_name:en: Liver, poultry, raw
 ciqual_food_name:fr: Foie, volaille, cru
 
-< en:Poultries
-en: Poultry minced meat
+< en:Meat preparations
+en: Poultry minced preparations
 fr: Haché de volaille
 agribalyse_food_code:en: 28927
 ciqual_food_code:en: 28927
@@ -87012,17 +87013,41 @@ protected_name_file_number:en: PDO-FR-0992
 protected_name_type:en: pdo
 wikidata:en: Q21007645
 
+# don't put under sausages since it also exists in spread form
+# don't confused the "French" style and the "German" style liver sausages. The French ones are cured and the German ones are precooked and usually spreadable
 < en:Prepared meats
 xx: Liverwurst
 en: Liverwurst
-de: Leberwurst
+bg: Колбаси от черен дроб
+de: Leberwürste, Leberwurst
+fi: Maksamakkarat
+hr: Jetrene kobasice
+hu: Májkolbászok
+nl: Leverworsten
+wikidata:en: Q1570466
+agribalyse_food_code:en: 30176
+ciqual_food_code:en: 30176
+ciqual_food_name:en: Liver sausage
+ciqual_food_name:fr: Saucisse de foie
 
 < en:Liverwurst
 en: Liverwurst sausages
 
 < en:Liverwurst
 < en:Meat spreads
-en: Livewurst spreads
+en: Liverwurst spreads
+
+< en:Liverwurst
+< en:Pork preparations
+en: Pork liver sausages
+de: Schweineleberwürste, Schweineleberwurst
+fr: Saucisses de foie de porc
+hr: Kobasice od svinjske jetre
+it: Salsicce di fegato di suino
+nl: Varkensleverworsten
+
+< en:Liverwurst
+de: Geflügelleberwürste, Geflügelleberwurst
 
 < en:Prepared meats
 en: French meat products
@@ -88180,36 +88205,16 @@ hr: Kisele kobasice
 hu: Pácolt kolbász
 nl: Ingemaakte worst
 
-< en:Sausages
-en: Liver sausages
-bg: Колбаси от черен дроб
-de: Leberwürste
-fi: Maksamakkarat
-fr: Saucisses de foie
-hr: Jetrene kobasice
-hu: Májkolbászok
-nl: Leverworsten
-agribalyse_food_code:en: 30176
-ciqual_food_code:en: 30176
-ciqual_food_name:en: Liver sausage
-ciqual_food_name:fr: Saucisse de foie
-wikidata:en: Q1570466
+# Don't confused the "French" style and the "German" style liver sausages. The French ones are cured and the German ones are precooked and usually spreadable
+< en:Cured sausages
+en: Cured liver sausages, Liver sausages
+fr: Saucisses sèches de foie, Saucisses de foie
+wikidata:en: Q111211562
 
-< en:Liver sausages
-< en:Pork preparations
-en: Pork liver sausages
-de: Schweineleberwürste, Schweineleberwurst
-fr: Saucisses de foie de porc
-hr: Kobasice od svinjske jetre
-it: Salsicce di fegato di suino
-nl: Varkensleverworsten
-
-< en:Liver sausages
-de: Geflügelleberwürste, Geflügelleberwurst
-
-< en:Pork liver sausages
+< en:Pork sausages
+en: Pork and cabbage sausages
 hu: Sertés Májkolbászok
-fr: Saucisses aux choux, saucisses aux choux vaudoise
+fr: Saucisses de porc aux choux, Saucisses aux choux, saucisses aux choux vaudoise
 
 < en:Sausages
 en: French sausages, Sausages from France
@@ -88295,28 +88300,18 @@ wikidata:en: Q3267151
 < en:French sausages
 fr: Saucisses d'herbe
 
-< en:French sausages
-< en:Liver sausages
-en: Alsatian liver sausages
-fr: Saucisses de foie alsacienne
-
-< en:French sausages
-en: Smoked Alsatian sausage, Landjäger
-fr: Saucisse alsacienne fumée, Gendarme fumé
+< en:Cured liver sausages
+en: Landjäger sausages, Smoked Alsatian sausage
+fr: Saucisses gendarmes, Saucisse alsacienne fumée, Gendarme fumé
 agribalyse_food_code:en: 30125
 ciqual_food_code:en: 30125
 ciqual_food_name:en: Smoked Alsatian sausage or Landjäger
 
-< en:French sausages
-< en:Liver sausages
-en: Liver sausages from Ariége
-fr: Saucisses de foie ariégeoise
-
-< en:French sausages
 < en:Pork liver sausages
 fr: Figatellus
 wikidata:en: Q1411847
 
+< en:French sausages
 < fr:Figatellus
 fr: Figatelli de l'Ile de Beauté, Figatellu de l'Ile de Beauté
 origins:en: en:france
