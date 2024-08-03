@@ -83,10 +83,6 @@ requires 'Log::Any', '>= 1.710, < 2.0'; # liblog-any-perl has 1.707
 requires 'Log::Log4perl', '>= 1.54, < 2.0'; # liblog-log4perl-perl
 requires 'Log::Any::Adapter::Log4perl', '>= 0.09'; # liblog-any-adapter-log4perl-perl
 
-# Retry
-requires 'Action::CircuitBreaker';
-requires 'Action::Retry'; # deps: libmath-fibonacci-perl
-
 # AnyEvent
 requires 'AnyEvent';
 requires 'AnyEvent::Inotify::Simple';
@@ -114,6 +110,8 @@ requires 'Time::Monotonic';
 requires 'OpenTelemetry', '>= 0.023';
 requires 'OpenTelemetry::SDK', '>= 0.024';
 requires 'OpenTelemetry::Exporter::OTLP', '>= 0.017';
+requires 'Feature::Compat::Try', '0.05'; # For finally before 5.35
+requires 'Syntax::Keyword::Dynamically';
 
 on 'test' => sub {
   requires 'Test2::V0';

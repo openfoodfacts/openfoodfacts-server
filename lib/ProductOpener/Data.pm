@@ -68,14 +68,17 @@ use JSON::MaybeXS;
 use CGI ':cgi-lib';
 use Log::Any qw($log);
 
-use Action::CircuitBreaker;
-use Action::Retry;
+use Feature::Compat::Try;
+use Syntax::Keyword::Dynamically;
 
 use LWP::UserAgent;
-use OpenTelemetry::Integration 'LWP::UserAgent';
+use OpenTelemetry::Constants qw( SPAN_KIND_CLIENT SPAN_STATUS_ERROR );
+use OpenTelemetry::Context;
+use OpenTelemetry::Integration 'LWP::UsrAgent';
+use OpenTelemetry::Trace;
+use OpenTelemetry;
 
 my $client;
-my $action = Action::CircuitBreaker->new();
 
 =head1 FUNCTIONS
 
@@ -105,13 +108,34 @@ eval {
 
 sub execute_query ($sub) {
 
-	return Action::Retry->new(
-		attempt_code => sub {$action->run($sub)},
-		on_failure_code => sub {my ($error, $h) = @_; die $error;},    # by default Action::Retry would return undef
-			# If we didn't get results from MongoDB, the server is probably overloaded
-			# Do not retry the query, as it will make things worse
-		strategy => {Fibonacci => {max_retries_number => 0,}},
-	)->run();
+	my $span = OpenTelemetry->tracer_provider->tracer()->create_span(
+		name => 'find Products',
+		kind => SPAN_KIND_CLIENT,
+		attributes => {
+			# As per https://opentelemetry.io/docs/specs/semconv/database/mongodb/
+			'db.collection.name' => 'products',
+			'db.system' => 'mongodb',
+			'db.operation.name' => 'find',
+		},
+	);
+
+	dynamically OpenTelemetry::Context->current = OpenTelemetry::Trace->context_with_span($span);
+
+	try {
+		return $sub->(@_);
+	}
+	catch ($error) {
+		my ($description) = split /\n/, $error =~ s/^\s+|\s+$//gr, 2;
+		$description =~ s/ at \S+ line \d+\.$//a;
+
+		$span->record_exception($error);
+		$span->set_status(SPAN_STATUS_ERROR, $description);
+
+		die $error;
+	}
+	finally {
+		$span->end;
+	}
 }
 
 sub execute_aggregate_tags_query ($query) {
