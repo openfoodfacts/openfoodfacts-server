@@ -389,6 +389,9 @@ sub build_lang ($Languages_ref) {
 	$log->info("Loading common \%Lang", {path => $path});
 	%Lang = %{ProductOpener::I18N::read_po_files($path)};
 
+	# Load the .pot file
+	my %common_keys = %{ProductOpener::I18N::read_pot_file($path . "common.pot")};
+
 	# Initialize %Langs and @Langs and add language names to %Lang
 
 	%Langs = %{$Languages_ref};
@@ -432,7 +435,7 @@ sub build_lang ($Languages_ref) {
 
 	my $missing_english_translations = 0;
 
-	foreach my $key (keys %Lang) {
+	foreach my $key (sort keys %common_keys) {
 		if ((defined $Lang{$key}{en}) and ($Lang{$key}{en} ne '')) {
 			foreach my $l (@Langs) {
 
