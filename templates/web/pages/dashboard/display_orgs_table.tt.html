@@ -31,7 +31,7 @@
 <table id="tagstable">
     <thead>
         <tr>
-            <th>[% lang("serial_no") %]</th>
+            <th>#</th>
             <th>[% lang("name") %]</th>
             <th>[% lang("created_by") %]</th>
             <th>[% lang("org_id") %]</th>
@@ -39,11 +39,11 @@
             <th>[% lang("creation_date") %]</th>
             <th>[% lang("last_login") %]</th>
             <th>[% lang("last_import") %]</th>
-            <th>[% lang("data_sources_p") %]</th>
+            <th>[% ucfirst(lang("data_sources_p")) %]</th>
             <th>[% lang("number_of_products_on_public_platform") %]</th>
             <th>[% lang("number_of_products_on_producer_platform") %]</th>
-            <th>[% lang("data_quality_errors_p") %]</th>
-            <th>[% lang("data_quality_warnings_p") %]</th>
+            <th>[% ucfirst(lang("data_quality_errors_p")) %]</th>
+            <th>[% ucfirst(lang("data_quality_warnings_p")) %]</th>
             <th>[% lang("number_of_products_without_nutriscore") %]</th>
             <th>[% lang("percent_of_products_with_nutriscore") %]</th>
             <th>[% lang("products_to_be_exported") %]</th>
@@ -57,40 +57,45 @@
         [% SET count = 1 %]
         [% FOREACH org IN orgs %]
         <tr>
-            <td>[% count %].</td>
+            <td>[% count %]</td>
             <td>[% org.name %]</td>
             <td>[% org.creator %]</td>
-            <td>[% org.org_id %]</td>
+	    <td>
+		    <a href="/org/[% org.org_id %]">[% org.org_id %]</a>
+		    <a href="/cgi/org.pl?type=edit&orgid=[% org.org_id %]">
+			    <img src="/images/icons/dist/edit.svg" style="height:1em">
+		    </a>
+	    </td>
             <td>[% org.valid_org %]</td>
-            <td>[% display_date_tag(org.created_t) %]</td>
+            <td>[% display_date_ymd(org.created_t) %]</td>
             <td>
                 [% IF org.last_logged_member_t %]
-                    [% display_date_tag(org.last_logged_member_t) %]
+                    [% display_date_ymd(org.last_logged_member_t) %]
                 [% ELSE %]
                     &nbsp;
                 [% END %]
             </td>
             <td>
                 [% IF org.last_import_t %]
-                    [% display_date_tag(org.last_import_t) %]
+                    [% display_date_ymd(org.last_import_t) %]
                 [% ELSE %]
                     &nbsp;
                 [% END %]
             </td>
             <td>[% org.last_import_type %]</td>
-            <td>[% org.data.products.number_of_products_on_public_platform %]</td>
-            <td>[% org.data.products.number_of_products_on_producer_platform %]</td>
+	    <td><a href="https://world.openfoodfacts.org/org/[% org.org_id %]">[% org.data.products.number_of_products_on_public_platform %]</a></td>
+	    <td><a href="https://world.pro.openfoodfacts.org/org/[% org.org_id %]">[% org.data.products.number_of_products_on_producer_platform %]</a></td>
             <td>[% org.data.products.number_of_data_quality_errors %]</td>
             <td>[% org.data.products.number_of_data_quality_warnings %]</td>
             <td>[% org.data.products.number_of_products_without_nutriscore %]</td>
-            <td>[% org.data.products.percentage_of_products_with_nutriscore %]</td>
+            <td>[% round(org.data.products.percentage_of_products_with_nutriscore) %]%</td>
             <td>[% org.data.products.products_to_be_exported %]</td>
             <td>[% org.data.products.products_exported %]</td>
             <td>[% org.data.products.opportunities_to_improve_nutriscore %]</td>
-            <td>[% org.activate_automated_daily_export_to_public_platform %]</td>
+            <td>[% IF org.activate_automated_daily_export_to_public_platform %]automatic[% END %]</td>
             <td>
-                [% IF org.data.products.date_of_last_update != 0 %]
-                    [% display_date_tag(org.data.products.date_of_last_update) %]
+                [% IF org.data.products.date_of_last_update %]
+                    [% display_date_ymd(org.data.products.date_of_last_update) %]
                 [% ELSE %]
                     &nbsp;
                 [% END %]
