@@ -8,7 +8,17 @@
 </a>
 
 <script>
+    let offD = new Date();
     const offDaysBannerID = document.getElementById('off-days-2024-banner-top');
+    let getOffDomain = window.location.origin.split('.');
+
+    function setBannerCookie(bcname, bcval, bcexdays) {
+        d.setTime(d.getTime() + (bcexdays*60*60*24*1000));
+        let expires = 'expires=' + d.toUTCString();
+        // Apply cookie for every domain contains open...facts
+        let domain = 'domain=.' + getDomain.slice(1).join('.');
+        document.cookie = bcname + '=' + bcval + ';' + expires + ';' + domain + ';SameSite=None;Secure;path=/';
+    }
 
     function getBannerCookie(bcname) {
         const name = bcname + '=';
@@ -24,10 +34,14 @@
     }
 
     if (getBannerCookie('off_donation_banner_2023_a') !== '') {
-        console.log('cookie found');
-        offDaysBannerID.style.display = 'flex';
+        if (getBannerCookie('off_days_banner_2024_a') !== '') {
+            console.log('off_days_banner_2024_a cookie is set');
+            offDaysBannerID.style.display = 'none';
+        } else {
+            console.log('off_days_banner_2024_a cookie is not set');
+            offDaysBannerID.style.display = 'flex';
+        }
     } else {
-        console.log('cookie not found');
         offDaysBannerID.style.display = 'none';
     }
 </script>
