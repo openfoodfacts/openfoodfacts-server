@@ -189,6 +189,7 @@ $flavor = 'off';
 	tacinte
 	teolemon
  	g123k
+ 	valimp
 );
 
 %options = (
