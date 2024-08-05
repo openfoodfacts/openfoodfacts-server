@@ -285,7 +285,6 @@ sub org_route($request_ref) {
 
 	# remove the org/orgid
 	splice(@{$request_ref->{components}}, 0, 2);
-	$request_ref->{query_string} = join("/", @{$request_ref->{components}});
 
 	$log->debug("org route", {orgid => $orgid, components => $request_ref->{components}}) if $log->is_debug();
 	# /search
@@ -650,9 +649,8 @@ sub match_route ($request_ref) {
 	}
 
 	my $tmp_query_string = join("/", @{$request_ref->{components}});
-	# Routing with regex #
-	# @components can be gradually eaten by handlers when processing the route recursively is needed
-	# so we can't rely on the full query string sanitized at the begining.
+	# components can be gradually eaten by handlers recusively.
+	# We can't rely on the full query string sanitized at the begining.
 	# e.g.
 	# (_analyze_request_impl)
 	# 	-> (match_route) 'org/[orgid]/product/1234'
