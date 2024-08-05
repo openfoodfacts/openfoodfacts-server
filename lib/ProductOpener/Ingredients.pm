@@ -422,6 +422,7 @@ my %from = (
 	es => " de ",
 	fr => " de la | de | du | des | d'| de l'",
 	it => " dal | della | dalla | dagli | dall'",
+	nl => " uit ",
 	pl => " z | ze ",
 );
 
