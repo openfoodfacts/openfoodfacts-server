@@ -737,11 +737,13 @@ A hash, where keys are tagid and values are property_value
 
 sub get_all_tags_having_property ($product_ref, $tagtype, $prop_name) {
 	my %tag_property_hash = ();
-	foreach my $tagid (@{$product_ref->{$tagtype . "_tags"}}) {
-		my $property_value = get_property($tagtype, $tagid, $prop_name);
+	if (defined $product_ref->{$tagtype . "_tags"}) {
+		foreach my $tagid (@{$product_ref->{$tagtype . "_tags"}}) {
+			my $property_value = get_property($tagtype, $tagid, $prop_name);
 
-		if (defined $property_value) {
-			$tag_property_hash{$tagid} = lc($property_value =~ s/\s+/-/gr);
+			if (defined $property_value) {
+				$tag_property_hash{$tagid} = lc($property_value =~ s/\s+/-/gr);
+			}
 		}
 	}
 
