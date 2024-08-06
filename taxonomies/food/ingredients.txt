@@ -33294,6 +33294,11 @@ allergens:en: en:soybeans
 ciqual_food_code:en: 20591
 ciqual_food_name:en: Soy protein, textured, rehydrated
 
+en: soy protein product
+de: Sojaeiweißerzeugnis
+fr: produit à base de protéines de soja
+allergens:en: en:soybeans
+
 < en:vegetable fiber
 en: soy fiber
 de: Sojafaser
@@ -33314,12 +33319,6 @@ de: Rehydrierte Sojafaser, rehydrierte Sojafasern
 es: fibra de soja rehidratada
 fr: Fibre de soja réhydratée
 hr: rehidrirana sojina vlakna
-
-< en:soy protein
-de: Sojaeiweißkonzentrat, Sojaeiweisskonzentrat, Sojaproteinkonzentrat
-# fr:concentré de protéines de soja
-fi: soijaproteiini konsentraatti
-# pl:koncentrat białka sojowego
 
 < en:soy protein
 en: dehydrated soy protein
@@ -34166,7 +34165,7 @@ pt: cacau magro em pó
 ro: cacao pudra degresata, pudră de cacao cu conţinut redus de grăsime
 ru: какао порошок с пониженным содержанием жира
 sk: kakaový prášok so zníženým množstvom tuku
-sv: fettreducerat kakaopulver, fettreducerad kakaopulver, skummet kakaopulver, fettreduserat kakaopulver, avfettat kakaopulver, fettfattigt kakaopulver
+sv: fettreducerat kakaopulver, fettreducerad kakaopulver, skummet kakaopulver, fettreduserat kakaopulver, avfettat kakaopulver, fettfattigt kakaopulver, lågfett kakaopulver
 # ingredient/fr:poudre-de-cacao-maigre has 843 products in 8 languages @2019-05-25
 
 #<en:cocoa powder
@@ -44495,6 +44494,7 @@ fi: kookoslastu, kookoslastut
 fr: Chips de coco
 hr: kokos čips
 it: Scaglie di cocco
+sv: kokoschips
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:kookoslastu
 # 1 entry @ 2019-10-31
 
