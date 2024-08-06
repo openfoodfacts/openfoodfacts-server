@@ -28,14 +28,15 @@ binmode(STDERR, ":encoding(UTF-8)");
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
+use ProductOpener::Store qw/get_string_id_for_lang retrieve/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::Users qw/:all/;
+use ProductOpener::Users qw/$Owner_id/;
 use ProductOpener::Images qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Lang qw/$lc lang/;
 use ProductOpener::Mail qw/:all/;
-use ProductOpener::Producers qw/:all/;
+use ProductOpener::Producers
+	qw/generate_import_export_columns_groups_for_select2 init_columns_fields_match load_csv_or_excel_file/;
 use ProductOpener::Tags qw(%language_fields display_taxonomy_tag);
 use ProductOpener::Web qw(get_languages_options_list);
 
@@ -61,7 +62,7 @@ my $js = '';
 my $template_data_ref = {};
 
 if (not defined $Owner_id) {
-	display_error_and_exit(lang("no_owner_defined"), 200);
+	display_error_and_exit($request_ref, lang("no_owner_defined"), 200);
 }
 
 my $import_files_ref = retrieve("$BASE_DIRS{IMPORT_FILES}/${Owner_id}/import_files.sto");
@@ -83,7 +84,7 @@ if (defined $import_files_ref->{$file_id}) {
 }
 else {
 	$log->debug("File not found in import_files.sto", {file_id => $file_id}) if $log->is_debug();
-	display_error_and_exit("File not found.", 404);
+	display_error_and_exit($request_ref, "File not found.", 404);
 }
 
 $log->debug("File found in import_files.sto",
@@ -95,7 +96,7 @@ if ($action eq "display") {
 	my $results_ref = load_csv_or_excel_file($file);
 
 	if ($results_ref->{error}) {
-		display_error_and_exit($results_ref->{error}, 200);
+		display_error_and_exit($request_ref, $results_ref->{error}, 200);
 	}
 
 	my $headers_ref = $results_ref->{headers};
@@ -191,7 +192,7 @@ if ($action eq "display") {
 	process_template('web/pages/import_file_select_format/import_file_select_format.tt.html',
 		$template_data_ref, \$html);
 	process_template('web/pages/import_file_select_format/import_file_select_format.tt.js', $template_data_ref, \$js);
-	$initjs .= $js;
+	$request_ref->{initjs} .= $js;
 
 	$request_ref->{title} = $title;
 	$request_ref->{content_ref} = \$html;

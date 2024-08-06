@@ -3,16 +3,20 @@
 use Modern::Perl '2017';
 use utf8;
 
-use Test::More;
+use Test2::V0;
+use Data::Dumper;
+$Data::Dumper::Terse = 1;
 use Log::Any::Adapter 'TAP';
 
-use ProductOpener::Routing qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Routing qw/analyze_request load_routes/;
+use ProductOpener::Lang qw/$lc /;
 
 # TODO: create a test case array and use the update_test_results system to
 # store and compare the returned $request object
 
 # TODO: add tests for all routes
+
+load_routes();
 
 my @tests = (
 	{
@@ -36,7 +40,11 @@ my @tests = (
 			'page' => 1,
 			'query_string' => 'api/v0/attribute_groups',
 			'no_index' => '0',
-			'is_crawl_bot' => '1'
+			'is_crawl_bot' => '1',
+			'rate_limiter_blocking' => 0,
+			'rate_limiter_limit' => undef,
+			'rate_limiter_user_requests' => undef,
+			'components' => ['api', 'v0', 'attribute_groups'],
 		},
 	},
 	{
@@ -71,8 +79,13 @@ my @tests = (
 					'tagtype' => 'categories'
 				},
 			],
+			'param' => {},
 			'no_index' => '0',
-			'is_crawl_bot' => '0'
+			'is_crawl_bot' => '0',
+			'components' => ['no-nutrition-data'],
+			'rate_limiter_blocking' => 0,
+			'rate_limiter_limit' => undef,
+			'rate_limiter_user_requests' => undef,
 		},
 	},
 	{
@@ -105,8 +118,13 @@ my @tests = (
 					'tagtype' => 'categories'
 				},
 			],
+			'param' => {},
 			'no_index' => '0',
-			'is_crawl_bot' => '1'
+			'is_crawl_bot' => '1',
+			'rate_limiter_blocking' => 0,
+			'rate_limiter_limit' => undef,
+			'rate_limiter_user_requests' => undef,
+			'components' => [],
 		},
 	},
 	{
@@ -139,8 +157,10 @@ my @tests = (
 					'tagtype' => 'categories'
 				},
 			],
+			'param' => {},
 			'no_index' => '1',
-			'is_crawl_bot' => '1'
+			'is_crawl_bot' => '1',
+			'components' => [],
 		},
 	},
 	{
@@ -173,8 +193,13 @@ my @tests = (
 					'tagtype' => 'categories'
 				},
 			],
+			'param' => {},
 			'no_index' => '0',
-			'is_crawl_bot' => '0'
+			'is_crawl_bot' => '0',
+			'rate_limiter_blocking' => 0,
+			'rate_limiter_limit' => undef,
+			'rate_limiter_user_requests' => undef,
+			'components' => [],
 		},
 	},
 	{
@@ -199,7 +224,11 @@ my @tests = (
 			'code' => '03564703999971',
 			'page' => '1',
 			'no_index' => '0',
-			'is_crawl_bot' => '0'
+			'is_crawl_bot' => '0',
+			'rate_limiter_blocking' => 0,
+			'rate_limiter_limit' => 100,
+			'rate_limiter_user_requests' => undef,
+			'components' => ['api', 'v3', 'product', '03564703999971'],
 		},
 	},
 	{
@@ -227,8 +256,88 @@ my @tests = (
 			'code' => 'https://id.gs1.org/01/03564703999971/10/ABC/21/123456?17=211200',
 			'page' => '1',
 			'no_index' => '0',
-			'is_crawl_bot' => '0'
+			'is_crawl_bot' => '0',
+			'rate_limiter_blocking' => 0,
+			'rate_limiter_limit' => 100,
+			'rate_limiter_user_requests' => undef,
+			'components' => ['api', 'v3', 'product', 'https://id.gs1.org/01/03564703999971/10/ABC/21/123456?17=211200'],
 		},
+	},
+	{
+		desc => "Facet URL with a group-by",
+		lc => "en",
+		input_request => {
+			cc => "world",
+			lc => "en",
+			original_query_string => 'category/breads/ingredients',
+			no_index => '0',
+			is_crawl_bot => '1'
+		},
+		expected_output_request => {
+			'tag_prefix' => '',
+			'components' => [],
+			'no_index' => 1,
+			'canon_rel_url' => '/category/en:breads/ingredients',
+			'api' => 'v0',
+			'query_string' => 'category/breads/ingredients',
+			'original_query_string' => 'category/breads/ingredients',
+			'tagid' => 'en:breads',
+			'tagtype' => 'categories',
+			'tag' => 'en:breads',
+			'lc' => 'en',
+			'cc' => 'world',
+			'page' => 1,
+			'tags' => [
+				{
+					'tag' => 'en:breads',
+					'tagtype' => 'categories',
+					'tagid' => 'en:breads',
+					'tag_prefix' => ''
+				}
+			],
+			'is_crawl_bot' => '1',
+			'param' => {},
+			'groupby_tagtype' => 'ingredients'
+		}
+
+	},
+	{
+		desc => "Facet URL with a group-by in English",
+		lc => "en",
+		input_request => {
+			cc => "world",
+			lc => "es",
+			original_query_string => 'category/breads/ingredients',
+			no_index => '0',
+			is_crawl_bot => '1'
+		},
+		expected_output_request => {
+			'components' => [],
+			'groupby_tagtype' => 'ingredients',
+			'tags' => [
+				{
+					'tag' => 'es:breads',
+					'tagid' => 'es:breads',
+					'tag_prefix' => '',
+					'tagtype' => 'categories'
+				}
+			],
+			'is_crawl_bot' => '1',
+			'tag_prefix' => '',
+			'tagtype' => 'categories',
+			'canon_rel_url' => '/categoria/es:breads/ingredientes',
+			'cc' => 'world',
+			'query_string' => 'category/breads/ingredients',
+			'original_query_string' => 'category/breads/ingredients',
+			'tagid' => 'es:breads',
+			'tag' => 'es:breads',
+			'api' => 'v0',
+			'lc' => 'es',
+			'no_index' => 1,
+			'param' => {},
+			'page' => 1
+		},
+
 	},
 );
 
@@ -238,7 +347,7 @@ foreach my $test_ref (@tests) {
 	$lc = $test_ref->{input_request}{lc};
 	analyze_request($test_ref->{input_request});
 
-	is_deeply($test_ref->{input_request}, $test_ref->{expected_output_request}) or diag explain $test_ref;
+	is($test_ref->{input_request}, $test_ref->{expected_output_request}, $test_ref->{desc}) or diag Dumper $test_ref;
 }
 
 done_testing();

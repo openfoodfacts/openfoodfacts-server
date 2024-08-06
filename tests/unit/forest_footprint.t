@@ -3,17 +3,18 @@
 use Modern::Perl '2017';
 use utf8;
 
-use Test::More;
-use Test::Number::Delta relative => 1.001;
+use Test2::V0;
+use Data::Dumper;
+$Data::Dumper::Terse = 1;
 use Log::Any::Adapter 'TAP';
 
 use JSON;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Test qw/:all/;
-use ProductOpener::Ingredients qw/:all/;
-use ProductOpener::ForestFootprint qw/:all/;
+use ProductOpener::Test qw/init_expected_results/;
+use ProductOpener::Ingredients qw/extract_ingredients_from_text/;
+use ProductOpener::ForestFootprint qw/compute_forest_footprint load_forest_footprint_data/;
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
@@ -115,11 +116,11 @@ foreach my $test_ref (@tests) {
 
 		local $/;    #Enable 'slurp' mode
 		my $expected_product_ref = $json->decode(<$expected_result>);
-		is_deeply($product_ref, $expected_product_ref) or diag explain $product_ref;
+		is($product_ref, $expected_product_ref) or diag Dumper $product_ref;
 	}
 	else {
 		fail("could not load $expected_result_dir/$testid.json");
-		diag explain $product_ref;
+		diag Dumper $product_ref;
 	}
 }
 

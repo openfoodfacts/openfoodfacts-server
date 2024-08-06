@@ -3,17 +3,18 @@
 use Modern::Perl '2017';
 use utf8;
 
-use Test::More;
+use Test2::V0;
+use Data::Dumper;
+$Data::Dumper::Terse = 1;
 use Log::Any::Adapter 'TAP';
 
 use JSON;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Tags qw/:all/;
-use ProductOpener::TagsEntries qw/:all/;
-use ProductOpener::Test qw/:all/;
-use ProductOpener::Ingredients qw/:all/;
-use ProductOpener::Recipes qw/:all/;
+use ProductOpener::Tags qw/canonicalize_taxonomy_tag/;
+use ProductOpener::Test qw/init_expected_results/;
+use ProductOpener::Ingredients qw/extract_ingredients_from_text/;
+use ProductOpener::Recipes qw/add_product_recipe_to_set analyze_recipes compute_product_recipe/;
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
@@ -127,10 +128,10 @@ foreach my $recipes_test_ref (@recipes_tests) {
 
 			local $/;    #Enable 'slurp' mode
 			my $expected_product_ref = $json->decode(<$expected_result>);
-			is_deeply($product_ref, $expected_product_ref) or diag explain $product_ref;
+			is($product_ref, $expected_product_ref) or diag Dumper $product_ref;
 		}
 		else {
-			diag explain $product_ref;
+			diag Dumper $product_ref;
 			fail("could not load expected_test_results/$test_id/$recipes_testid.$testid.json");
 		}
 	}
@@ -152,10 +153,10 @@ foreach my $recipes_test_ref (@recipes_tests) {
 
 		local $/;    #Enable 'slurp' mode
 		my $expected_analysis_ref = $json->decode(<$expected_result>);
-		is_deeply($analysis_ref, $expected_analysis_ref) or diag explain $analysis_ref;
+		is($analysis_ref, $expected_analysis_ref) or diag Dumper $analysis_ref;
 	}
 	else {
-		diag explain $analysis_ref;
+		diag Dumper $analysis_ref;
 		fail("could not load expected_test_results/$test_id/$recipes_testid.json");
 	}
 }

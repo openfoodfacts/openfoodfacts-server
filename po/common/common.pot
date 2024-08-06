@@ -11,6 +11,84 @@ msgstr ""
 "POT-Creation-Date: \n"
 "X-Generator: Poedit 2.1\n"
 
+# Overrides by flavor (e.g. obf) or product type (e.g. beauty)
+
+# OFF
+
+msgctxt "site_description_off"
+msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
+msgstr "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
+
+msgctxt "tagline_off"
+msgid   "Open Food Facts gathers information and data on food products from around the world."
+msgstr  "Open Food Facts gathers information and data on food products from around the world."
+
+msgctxt "footer_tagline_off"
+msgid "A collaborative, free and open database of food products from around the world."
+msgstr "A collaborative, free and open database of food products from around the world."
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_off"
+msgid "/open-food-facts-mobile-app"
+msgstr "/open-food-facts-mobile-app"
+
+# OBF
+
+msgctxt "site_description_obf"
+msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
+msgstr "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
+
+msgctxt "tagline_obf"
+msgid "Open Beauty Facts gathers information and data on cosmetic products from around the world."
+msgstr "Open Beauty Facts gathers information and data on cosmetic products from around the world."
+
+msgctxt "footer_tagline_obf"
+msgid "A collaborative, free and open database of cosmetic products from around the world."
+msgstr "A collaborative, free and open database of cosmetic products from around the world."
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_obf"
+msgid "/open-beauty-facts-mobile-app"
+msgstr "/open-beauty-facts-mobile-app"
+
+msgctxt "footer_and_the_facebook_group_obf"
+msgid "and the <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">Facebook group for contributors</a>"
+msgstr "and the <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">Facebook group for contributors</a>"
+
+msgctxt "search_description_opensearch_obf"
+msgid "Open Beauty Facts product search"
+msgstr "Open Beauty Facts product search"
+
+msgctxt "warning_not_complete_obf"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
+msgstr "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
+
+msgctxt "brands_example_beauty"
+msgid "Nivea, Nivea Men"
+msgstr "Nivea, Nivea Men"
+
+msgctxt "categories_example_beauty"
+msgid "Anti-dandruff shampoo, Whitening toothpaste"
+msgstr "Anti-dandruff shampoo, Whitening toothpaste"
+
+msgctxt "emb_codes_example_beauty"
+msgid "EMB 53062"
+msgstr "EMB 53062"
+
+msgctxt "generic_name_example_beauty"
+msgid "Anti-dandruff shampoo"
+msgstr "Anti-dandruff shampoo"
+
+msgctxt "product_name_example_beauty"
+msgid "Anti-Perspirant Stress Protect"
+msgstr "Anti-Perspirant Stress Protect"
+
+msgctxt "ingredients_text_example_beauty"
+msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
+msgstr "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
+
+# End of overrides by flavor or product type
+
 msgctxt "1_product"
 msgid "1 product"
 msgstr ""
@@ -200,11 +278,6 @@ msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
 msgstr ""
 
-# DO NOT TRANSLATE
-msgctxt "android_apk_app_link"
-msgid "https://world.openfoodfacts.org/files/off.apk"
-msgstr ""
-
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
 msgctxt "android_app_icon_url"
 msgid "/images/misc/playstore/img/en_get.svg"
@@ -212,11 +285,6 @@ msgstr ""
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
-msgstr ""
-
-# Change hl=en to your language, and make sure the url works
-msgctxt "android_app_link"
-msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en"
 msgstr ""
 
 msgctxt "app_please_take_pictures"
@@ -733,10 +801,6 @@ msgctxt "facebook_locale"
 msgid "en_US"
 msgstr ""
 
-msgctxt "facebook_page"
-msgid "https://www.facebook.com/OpenFoodFacts"
-msgstr ""
-
 msgctxt "fixme_product"
 msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
 msgstr ""
@@ -837,10 +901,6 @@ msgstr ""
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_press_link"
 msgid "/press"
-msgstr ""
-
-msgctxt "footer_tagline"
-msgid "A collaborative, free and open database of food products from around the world."
 msgstr ""
 
 msgctxt "footer_terms"
@@ -1119,10 +1179,6 @@ msgstr ""
 
 msgctxt "ios_app_icon_alt_text"
 msgid "Download on the App Store"
-msgstr ""
-
-msgctxt "ios_app_link"
-msgid "https://apps.apple.com/app/open-food-facts/id588797948"
 msgstr ""
 
 msgctxt "known_nutrients_p"
@@ -2074,7 +2130,7 @@ msgid "Select products with specific brands, categories, labels, origins of ingr
 msgstr ""
 
 msgctxt "search_description_opensearch"
-msgid "Open Food Facts product search"
+msgid "Product search"
 msgstr ""
 
 msgctxt "search_does_not_contain"
@@ -2366,18 +2422,6 @@ msgctxt "signout"
 msgid "Sign-out"
 msgstr ""
 
-msgctxt "site_description"
-msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
-msgstr ""
-
-msgctxt "site_name"
-msgid "Open Food Facts"
-msgstr "Open Food Facts"
-
-msgctxt "logo_site_name"
-msgid "Open Food Facts logo"
-msgstr ""
-
 msgctxt "sort_by"
 msgid "Sort by"
 msgstr ""
@@ -2491,10 +2535,6 @@ msgctxt "twitter"
 msgid "Twitter username (optional)"
 msgstr ""
 
-msgctxt "twitter_account"
-msgid "OpenFoodFacts"
-msgstr ""
-
 msgctxt "unknown"
 msgid "Unknown"
 msgstr ""
@@ -2571,6 +2611,10 @@ msgctxt "view"
 msgid "view"
 msgstr ""
 
+msgctxt "view_this_revision"
+msgid "View this revision"
+msgstr ""
+
 msgctxt "view_list_for_products_from_the_entire_world"
 msgid "View the list for matching products from the entire world"
 msgstr ""
@@ -2590,20 +2634,6 @@ msgstr ""
 
 msgctxt "website"
 msgid "Site or blog address"
-msgstr ""
-
-# Please change English.svg to French.svg or German.svg… Check the url https://static.openfoodfacts.org/images/misc/microsoft/XXXX.svg
-msgctxt "windows_phone_app_icon_url"
-msgid "/images/misc/microsoft/English.svg"
-msgstr ""
-
-msgctxt "windows_phone_app_icon_alt_text"
-msgid "Get it from Microsoft"
-msgstr ""
-
-# Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
-msgctxt "windows_phone_app_link"
-msgid "https://apps.microsoft.com/store/detail/open-food-facts-scan-to-get-nutriscore-ecoscore-and-more/XP8LT18SRPKLRG"
 msgstr ""
 
 msgctxt "you_are_connected_as_x"
@@ -6573,10 +6603,6 @@ msgctxt "faq_for_producers"
 msgid "FAQ for producers"
 msgstr "FAQ for producers"
 
-msgctxt "join_the_next_pros_meet_up"
-msgid "Join the next Pros' Meet-up"
-msgstr "Join the next Pros' Meet-up"
-
 # variable names between { } must not be translated
 msgctxt "product_js_enter_value_between_0_and_max"
 msgid "Please enter a value between 0 and {max}."
@@ -6812,6 +6838,30 @@ msgctxt "nutrient_info_proteins_benefit"
 msgid "Foods that are rich in proteins are usually rich in calcium or iron which are essential minerals with numerous health benefits."
 msgstr "Foods that are rich in proteins are usually rich in calcium or iron which are essential minerals with numerous health benefits."
 
+msgctxt "revert"
+msgid "Revert to this revision"
+msgstr "Revert to this revision"
+
+msgctxt "product_js_product_revert_confirm"
+msgid "Revert to this product revision?"
+msgstr "Revert to this product revision?"
+
+msgctxt "api_status_success"
+msgid "Success"
+msgstr "Success"
+
+msgctxt "api_status_failure"
+msgid "Failure"
+msgstr "Failure"
+
+msgctxt "api_result_product_reverted"
+msgid "Product reverted to the specified revision"
+msgstr "Product reverted to the specified revision"
+
+msgctxt "api_result_product_not_reverted"
+msgid "Product not reverted to the specified revision"
+msgstr "Product not reverted to the specified revision"
+
 # sweeteners (additives), plural
 msgctxt "sweeteners"
 msgid "sweeteners"
@@ -6821,3 +6871,240 @@ msgstr ""
 msgctxt "sweetener"
 msgid "sweetener"
 msgstr ""
+
+msgctxt "action_edit_product"
+msgid "Complete or correct product information"
+msgstr "Complete or correct product information"
+
+msgctxt "report_problem_panel_title"
+msgid "Report a problem"
+msgstr "Report a problem"
+
+msgctxt "incomplete_or_incorrect_data_title"
+msgid "Incomplete or incorrect information?"
+msgstr "Incomplete or incorrect information?"
+
+msgctxt "incomplete_or_incorrect_data_subtitle_off"
+msgid "Category, labels, ingredients, allergens, nutritional information, photos etc."
+msgstr "Category, labels, ingredients, allergens, nutritional information, photos etc."
+
+msgctxt "incomplete_or_incorrect_data_content_correct"
+msgid "If the information does not match the information on the packaging, you can complete or correct it. Thank you!"
+msgstr "If the information does not match the information on the packaging, you can complete or correct it. Thank you!"
+
+msgctxt "incomplete_or_incorrect_data_content_correct_off"
+msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
+msgstr "Open Food Facts is a collaborative database, and every contribution is useful for all."
+
+msgctxt "description"
+msgid "Description"
+msgstr "Description"
+
+msgctxt "report_problem_navigation"
+msgid "Report a problem"
+msgstr "Report a problem"
+
+msgctxt "enter_main_contact_username"
+msgid "Enter main contact's username :"
+msgstr "Enter main contact's username :"
+
+msgctxt "change_main_contact"
+msgid "Change main contact"
+msgstr "Change main contact"
+
+msgctxt "main_contact_updated"
+msgid "Main contact updated"
+msgstr "Main contact updated"
+
+msgctxt "error_unknown_member"
+msgid "This user is not a member of the organization."
+msgstr "This user is not a member of the organization."
+
+msgctxt "skip_to_content"
+msgid "Skip to Content"
+msgstr "Skip to Content"
+
+msgctxt "cant_delete_main_contact"
+msgid "You cannot remove the main contact. Change it first."
+msgstr "You cannot remove the main contact. Change it first."
+
+msgctxt "open_in_crm"
+msgid "Open in CRM"
+msgstr "Open in CRM"
+
+msgctxt "information_provided_by_the_manufacturer"
+msgid "Information provided by the manufacturer"
+msgstr "Information provided by the manufacturer"
+
+msgctxt "information_provided_by_the_manufacturer_edit_form"
+msgid "Information identified by a factory icon has been provided by the manufacturer. It can be changed only by the manufacturer and moderators. If it is out of date or incorrect, please let us know."
+msgstr "Information identified by a factory icon has been provided by the manufacturer. It can be changed only by the manufacturer and moderators. If it is out of date or incorrect, please let us know."
+
+msgctxt "knowledge_panels_did_you_know"
+msgid "Did you know?"
+msgstr "Did you know?"
+
+msgctxt "knowledge_panels_why_it_matters"
+msgid "Why it matters"
+msgstr "Why it matters"
+
+msgctxt "knowledge_panels_what_you_can_do"
+msgid "What you can do"
+msgstr "What you can do"
+
+msgctxt "knowledge_panels_ingredients_rare_crops_title"
+msgid "Good for agricultural biodiversity"
+msgstr "Good for agricultural biodiversity"
+
+msgctxt "knowledge_panels_ingredients_rare_crops_subtitle"
+msgid "Contains neglected or underutilized crops:"
+msgstr "Contains neglected or underutilized crops:"
+
+msgctxt "knowledge_panels_ingredients_rare_crops_did_you_know"
+msgid "Since 1900, 75% of plant diversity has been lost as farmers around the world have abandoned local varieties for high-yielding varieties adapted to mass industrial processing. As a result, 60 % of human energy intake in the world comes from only 3 species: wheat, rice and corn."
+msgstr "Since 1900, 75% of plant diversity has been lost as farmers around the world have abandoned local varieties for high-yielding varieties adapted to mass industrial processing. As a result, 60 % of human energy intake in the world comes from only 3 species: wheat, rice and corn."
+
+msgctxt "knowledge_panels_ingredients_rare_crops_why_it_matters"
+msgid "The lack of variety of crops makes our food supply more vulnerable to pests, diseases and climate change."
+msgstr "The lack of variety of crops makes our food supply more vulnerable to pests, diseases and climate change."
+
+msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do"
+msgid "Consuming diverse cereals, legumes, vegetables and fruits contributes to:"
+msgstr "Consuming diverse cereals, legumes, vegetables and fruits contributes to:"
+
+msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_1"
+msgid "preserving neglected and underutilized species"
+msgstr "preserving neglected and underutilized species"
+
+msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_2"
+msgid "rural development and support of local farmers and companies"
+msgstr "rural development and support of local farmers and companies"
+
+msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_3"
+msgid "preserving of diversified landscapes"
+msgstr "preserving of diversified landscapes"
+
+msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_4"
+msgid "food security"
+msgstr "food security"
+
+msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_5"
+msgid "and your health!"
+msgstr "and your health!"
+
+msgctxt "brands_example_beauty"
+msgid "Nivea, Nivea Men"
+msgstr "Nivea, Nivea Men"
+
+msgctxt "categories_example_beauty"
+msgid "Anti-dandruff shampoo, Whitening toothpaste"
+msgstr "Anti-dandruff shampoo, Whitening toothpaste"
+
+msgctxt "emb_codes_example_beauty"
+msgid "EMB 53062"
+msgstr "EMB 53062"
+
+msgctxt "generic_name_example_beauty"
+msgid "Anti-dandruff shampoo"
+msgstr "Anti-dandruff shampoo"
+
+msgctxt "product_name_example_beauty"
+msgid "Anti-Perspirant Stress Protect"
+msgstr "Anti-Perspirant Stress Protect"
+
+msgctxt "ingredients_text_example_beauty"
+msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
+msgstr "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
+
+msgctxt "report_problem_navigation"
+msgid "Report a problem"
+msgstr "Report a problem"
+
+msgctxt "created_by"
+msgid "Created by"
+msgstr "Created by"
+
+msgctxt "org_id"
+msgid "Org id"
+msgstr "Org id"
+
+msgctxt "verified_status"
+msgid "Verified status"
+msgstr "Verified status"
+
+msgctxt "creation_date"
+msgid "Creation date"
+msgstr "Creation date"
+
+msgctxt "knowledge_panels_ingredients_rare_crops_divinfood"
+msgid "Open Food Facts participates in the European project <a href=\"https://divinfood.eu/\">DIVINFOOD</a> (funded from European Union’s Horizon 2020 research and innovation programme). DIVINFOOD aims to develop food chains that value under-utilised agrobiodiversity in order to act against the decline of biodiversity and to meet the growing expectations of consumers for healthy, local products that contribute to sustainable food systems."
+msgstr "Open Food Facts participates in the European project <a href=\"https://divinfood.eu/\">DIVINFOOD</a> (funded from European Union’s Horizon 2020 research and innovation programme). DIVINFOOD aims to develop food chains that value under-utilised agrobiodiversity in order to act against the decline of biodiversity and to meet the growing expectations of consumers for healthy, local products that contribute to sustainable food systems."
+
+msgctxt "open_in_crm"
+msgid "Open in CRM"
+msgstr "Open in CRM"
+
+msgctxt "deny"
+msgid "Deny"
+msgstr "Deny"
+
+msgctxt "users_requested_to_join_org"
+msgid "These users have requested to join the organization:"
+msgstr "These users have requested to join the organization :"
+
+msgctxt "last_login"
+msgid "Last login date"
+msgstr "Last login date"
+
+msgctxt "last_import"
+msgid "Last import date"
+msgstr "Last import date"
+
+msgctxt "drop_a_file"
+msgid "Drop"
+msgstr "Drop"
+
+msgctxt "select_product_data_file"
+msgid "Select a file with product data"
+msgstr "Select a file with product data"
+
+msgctxt "number_of_products_without_nutriscore"
+msgid "Number of products without Nutri-Score"
+msgstr "Number of products without Nutri-Score"
+
+msgctxt "percent_of_products_with_nutriscore"
+msgid "% of products where Nutri-Score is computed"
+msgstr "% of products where Nutri-Score is computed"
+
+msgctxt "products_to_be_exported"
+msgid "Products to be exported"
+msgstr "Products to be exported"
+
+msgctxt "products_exported"
+msgid "Products exported"
+msgstr "Products exported"
+
+msgctxt "opportunities_to_improve_nutriscore"
+msgid "Opp. for Nutri-Score improvements"
+msgstr "Opp. for Nutri-Score improvements"
+
+msgctxt "date_of_last_update"
+msgid "Date of last update"
+msgstr "Date of last update"
+
+msgctxt "number_of_products_on_public_platform"
+msgid "Number of products on public platform"
+msgstr "Number of products on public platform"
+
+msgctxt "number_of_products_on_producer_platform"
+msgid "Number of products on producer platform"
+msgstr "Number of products on producer platform"
+
+msgctxt "automated_daily_export_to_public_platform"
+msgid "Automatic daily export to public platform"
+msgstr "Automatic daily export to public platform"
+
+msgctxt "improvements_navigation"
+msgid "Improvements"
+msgstr "Improvements"
+

@@ -3,19 +3,20 @@
 use Modern::Perl '2017';
 use utf8;
 
-use Test::More;
-use Test::Number::Delta relative => 1.001;
+use Test2::V0;
+use Data::Dumper;
+$Data::Dumper::Terse = 1;
 use Log::Any::Adapter 'TAP';
 
 use JSON;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Tags qw/:all/;
-use ProductOpener::Test qw/:all/;
-use ProductOpener::Ingredients qw/:all/;
-use ProductOpener::Ecoscore qw/:all/;
-use ProductOpener::Packaging qw/:all/;
-use ProductOpener::API qw/:all/;
+use ProductOpener::Tags qw/canonicalize_taxonomy_tag compute_field_tags/;
+use ProductOpener::Test qw/init_expected_results/;
+use ProductOpener::Ingredients qw/extract_ingredients_from_text/;
+use ProductOpener::Ecoscore qw/compute_ecoscore load_agribalyse_data load_ecoscore_data/;
+use ProductOpener::Packaging qw/analyze_and_combine_packaging_data init_packaging_taxonomies_regexps/;
+use ProductOpener::API qw/get_initialized_response/;
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
@@ -708,11 +709,11 @@ foreach my $test_ref (@tests) {
 
 		local $/;    #Enable 'slurp' mode
 		my $expected_product_ref = $json->decode(<$expected_result>);
-		is_deeply($product_ref, $expected_product_ref) or diag explain $product_ref;
+		is($product_ref, $expected_product_ref) or diag Dumper $product_ref;
 	}
 	else {
 		fail("could not load $expected_result_dir/$testid.json");
-		diag explain $product_ref;
+		diag Dumper $product_ref;
 	}
 }
 

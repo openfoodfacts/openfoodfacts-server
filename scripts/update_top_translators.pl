@@ -25,10 +25,10 @@ use Modern::Perl '2017';
 use Exporter qw< import >;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
 
 use LWP::UserAgent;
-use JSON::PP;
+use JSON::MaybeXS;
 
 if ((not defined $crowdin_project_identifier) or ($crowdin_project_identifier eq '')) {
 	die('$ProductOpener::Config::crowdin_project_identifier not specified');

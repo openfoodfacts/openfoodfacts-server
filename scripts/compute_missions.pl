@@ -38,13 +38,13 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
-use ProductOpener::Missions qw/:all/;
+use ProductOpener::Missions qw/compute_missions gen_missions_html/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 
 ProductOpener::Missions::compute_missions();
 ProductOpener::Missions::gen_missions_html();

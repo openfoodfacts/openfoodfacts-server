@@ -93,7 +93,6 @@ BEGIN {
 
 		&get_code_and_imagefield_from_file_name
 		&get_imagefield_from_string
-		&get_selected_image_uploader
 		&is_protected_image
 		&process_image_upload
 		&process_image_move
@@ -123,33 +122,31 @@ BEGIN {
 
 use vars @EXPORT_OK;
 
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Store qw/get_string_id_for_lang retrieve store/;
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die/;
 use ProductOpener::Products qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 
 use Image::Magick;
-use Graphics::Color::RGB;
-use Graphics::Color::HSL;
 use Barcode::ZBar;
 use Imager;
 use Imager::zxing;
 use Image::OCR::Tesseract 'get_ocr';
 
 use ProductOpener::Products qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Lang qw/$lc  %Lang lang/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::URL qw/:all/;
-use ProductOpener::Users qw/:all/;
-use ProductOpener::Text qw/:all/;
+use ProductOpener::URL qw/format_subdomain/;
+use ProductOpener::Users qw/%User/;
+use ProductOpener::Text qw/remove_tags_and_quote/;
 use Data::DeepAccess qw(deep_get);
 
 use IO::Compress::Gzip qw(gzip $GzipError);
 use Log::Any qw($log);
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 use MIME::Base64;
 use LWP::UserAgent;
 use File::Copy;
@@ -179,11 +176,11 @@ HTML
 	return $html;
 }
 
-sub display_select_crop ($object_ref, $id_lc, $language) {
+sub display_select_crop ($object_ref, $id_lc, $language, $request_ref) {
 
 	# $id_lc = shift  ->  id_lc = [front|ingredients|nutrition|packaging]_[new_]?[lc]
 	my $id = $id_lc;
-	my $message = $Lang{"protected_image_message"}{$lang};
+	my $message = $Lang{"protected_image_message"}{$lc};
 	my $imagetype = $id_lc;
 	my $display_lc = $lc;
 
@@ -193,14 +190,14 @@ sub display_select_crop ($object_ref, $id_lc, $language) {
 	}
 
 	my $note = '';
-	if (defined $Lang{"image_" . $imagetype . "_note"}{$lang}) {
-		$note = "<p class=\"note\">&rarr; " . $Lang{"image_" . $imagetype . "_note"}{$lang} . "</p>";
+	if (defined $Lang{"image_" . $imagetype . "_note"}{$lc}) {
+		$note = "<p class=\"note\">&rarr; " . $Lang{"image_" . $imagetype . "_note"}{$lc} . "</p>";
 	}
 
-	my $label = $Lang{"image_" . $imagetype}{$lang};
+	my $label = $Lang{"image_" . $imagetype}{$lc};
 
 	my $html = '';
-	if (is_protected_image($object_ref, $id_lc) and (not $User{moderator}) and (not $admin)) {
+	if (is_protected_image($object_ref, $id_lc) and (not $User{moderator}) and (not $request_ref->{admin})) {
 		$html .= <<HTML;
 <p>$message</p>
 <label for="$id">$label (<span class="tab_language">$language</span>)</label>
@@ -401,11 +398,11 @@ sub scan_code ($file) {
 	return $code;
 }
 
-sub display_search_image_form ($id) {
+sub display_search_image_form ($id, $request_ref) {
 
 	my $html = '';
 
-	my $product_image_with_barcode = $Lang{product_image_with_barcode}{$lang};
+	my $product_image_with_barcode = $Lang{product_image_with_barcode}{$lc};
 	$product_image_with_barcode =~ s/( |\&nbsp;)?:$//;
 
 	my $template_data_ref = {
@@ -415,9 +412,9 @@ sub display_search_image_form ($id) {
 
 	# Do not load jquery file upload twice, if it was loaded by another form
 
-	if ($scripts !~ /jquery.fileupload.js/) {
+	if ($request_ref->{scripts} !~ /jquery.fileupload.js/) {
 
-		$scripts .= <<JS
+		$request_ref->{scripts} .= <<JS
 <script type="text/javascript" src="/js/dist/jquery.iframe-transport.js"></script>
 <script type="text/javascript" src="/js/dist/jquery.fileupload.js"></script>
 <script type="text/javascript" src="/js/dist/load-image.all.min.js"></script>
@@ -427,7 +424,7 @@ JS
 
 	}
 
-	$initjs .= <<JS
+	$request_ref->{initjs} .= <<JS
 
 \/\/ start off canvas blocks for small screens
 
@@ -486,7 +483,7 @@ JS
 JS
 		;
 
-	process_template('web/common/includes/display_search_image_form.tt.html', $template_data_ref, \$html)
+	process_template('web/common/includes/display_search_image_form.tt.html', $template_data_ref, \$html, $request_ref)
 		|| return "template error: " . $tt->error();
 
 	return $html;
@@ -1477,8 +1474,19 @@ sub process_image_crop ($user_id, $product_id, $id, $imgid, $angle, $normalize, 
 				($distance->(\@rgb, [$original->GetPixel(x => $x + 1, y => $y - 1)]) <= $max_distance)
 					and push @q, [$x + 1, $y - 1];
 				$i++;
-				($i % 10000) == 0 and $log->debug("white color detection",
-					{i => $i, x => $x, y => $y, r => $rgb[0], g => $rgb[1], b => $rgb[2], width => $w, height => $h});
+				($i % 10000) == 0 and $log->debug(
+					"white color detection",
+					{
+						i => $i,
+						x => $x,
+						y => $y,
+						r => $rgb[0],
+						g => $rgb[1],
+						b => $rgb[2],
+						width => $w,
+						height => $h
+					}
+				);
 			}
 		}
 
@@ -1771,7 +1779,7 @@ sub display_image_thumb ($product_ref, $id_lc) {
 
 			my $path = product_path($product_ref);
 			my $rev = $product_ref->{images}{$id}{rev};
-			my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $Lang{$imagetype . '_alt'}{$lang};
+			my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $Lang{$imagetype . '_alt'}{$lc};
 
 			$html .= <<HTML
 <img src="$images_subdomain/images/products/$path/$id.$rev.$thumb_size.jpg" width="$product_ref->{images}{$id}{sizes}{$thumb_size}{w}" height="$product_ref->{images}{$id}{sizes}{$thumb_size}{h}" srcset="$images_subdomain/images/products/$path/$id.$rev.$small_size.jpg 2x" alt="$alt" loading="lazy" $css/>
@@ -1831,17 +1839,17 @@ sub display_image ($product_ref, $id_lc, $size) {
 
 			my $path = product_path($product_ref);
 			my $rev = $product_ref->{images}{$id}{rev};
-			my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $Lang{$imagetype . '_alt'}{$lang};
+			my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $Lang{$imagetype . '_alt'}{$lc};
 			if ($id eq ($imagetype . "_" . $display_lc)) {
 				$alt
 					= remove_tags_and_quote($product_ref->{product_name}) . ' - '
-					. $Lang{$imagetype . '_alt'}{$lang} . ' - '
+					. $Lang{$imagetype . '_alt'}{$lc} . ' - '
 					. $display_lc;
 			}
 			elsif ($id eq ($imagetype . "_" . $product_ref->{lc})) {
 				$alt
 					= remove_tags_and_quote($product_ref->{product_name}) . ' - '
-					. $Lang{$imagetype . '_alt'}{$lang} . ' - '
+					. $Lang{$imagetype . '_alt'}{$lc} . ' - '
 					. $product_ref->{lc};
 			}
 

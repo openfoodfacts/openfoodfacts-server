@@ -27,19 +27,19 @@ use CGI::Carp qw(fatalsToBrowser);
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
-use ProductOpener::Display qw/:all/;
+use ProductOpener::Display qw/init_request single_param/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Users qw/:all/;
+use ProductOpener::Users qw/$Owner_id/;
 use ProductOpener::Images qw/:all/;
-use ProductOpener::Products qw/:all/;
-use ProductOpener::Food qw/:all/;
+use ProductOpener::Products qw/normalize_code product_id_for_owner retrieve_product/;
+use ProductOpener::Food qw/extract_nutrition_from_image/;
 use ProductOpener::Images qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 use Log::Any qw($log);
 
 my $request_ref = ProductOpener::Display::init_request();

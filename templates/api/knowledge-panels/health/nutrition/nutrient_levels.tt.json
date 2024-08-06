@@ -8,7 +8,7 @@
     "evaluation": "unknown",
     "title_element": {
         "icon_url": "[% static_subdomain %]/images/icons/dist/nutrition.svg",
-        "title": "[% lang('nutrient_levels_p') FILTER ucfirst %]",
+        "title": "[% edq(lang('nutrient_levels_p')) FILTER ucfirst %]",
         "icon_color_from_evaluation": true,        
     },    
     "elements": [

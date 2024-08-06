@@ -5,7 +5,7 @@
         "health"
     ],
     "title_element": {
-        "title": "[% lang('health') %]",
+        "title": "[% edq(lang('health')) %]",
     },    
     "elements": [
         [% IF panels.recommendation_health.defined %]
@@ -17,16 +17,23 @@
         },
         [% END %]
 
-        [% IF options.knowledge_panels_client == 'web' %]
+        [% IF knowledge_panels_options.knowledge_panels_client == 'disabled-web' %]
 
-            [% INCLUDE "api/knowledge-panels/health/ingredients_panels.tt.json" %]
-            [% INCLUDE "api/knowledge-panels/health/nutrition_panels.tt.json" %]
+            [% IF feature_enabled("ingredients") %]
+                [% INCLUDE "api/knowledge-panels/health/ingredients_panels.tt.json" %]
+            [% END %]
+            [% IF feature_enabled("nutrition") %]
+                [% INCLUDE "api/knowledge-panels/health/nutrition_panels.tt.json" %]
+            [% END %]
 
         [% ELSE %]
 
-            [% INCLUDE "api/knowledge-panels/health/nutrition_panels.tt.json" %]
-            [% INCLUDE "api/knowledge-panels/health/ingredients_panels.tt.json" %]
-
+            [% IF feature_enabled("nutrition") %]
+                [% INCLUDE "api/knowledge-panels/health/nutrition_panels.tt.json" %]
+            [% END %]
+            [% IF feature_enabled("ingredients") %]
+                [% INCLUDE "api/knowledge-panels/health/ingredients_panels.tt.json" %]
+            [% END %]
         [% END %]
     ],
 }

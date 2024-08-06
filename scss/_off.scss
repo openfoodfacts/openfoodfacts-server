@@ -481,9 +481,7 @@ details.recent {
 button.small,
 button.tiny,
 .button.tiny {
-  padding: 0.5rem;
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
+  padding: 0.5rem 0.75rem;
 }
 
 .postfix.button.small,
@@ -1212,6 +1210,25 @@ $section-sand: #FFFAF1;
 $background-orange: #FF8714;
 $font-green: #008c8c;
 
+.off-days-banner {
+  background-color: $section-cyan;
+  // background-image: url('/images/misc/banners/FR.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 300px;
+  @media #{$small-only} {
+    background-size: contain;
+    height: 25vw; ;
+  }
+  &__FR {
+    background-image: url('/images/misc/banners/FR.png');
+  }
+  &__ENG {
+    background-image: url('/images/misc/banners/ENG.png');
+  }
+}
+
 .donation-banner,
 .donation-banner-footer {
   overflow: hidden;
@@ -1228,10 +1245,14 @@ $font-green: #008c8c;
     padding: 1rem;
   }
   &__close {
-    position: absolute;
-    top: .3rem;
-    right: .3rem;
-    cursor: pointer;
+    button {
+      position: absolute;
+      top: .3rem;
+      right: .3rem;
+      cursor: pointer;
+      background-color: transparent;
+      color: inherit;
+    }
   }
   &__hand {
     position: absolute;
@@ -1852,3 +1873,95 @@ a.panel_title {
     }
   }
 }
+
+.button.tiny {
+  margin:0;
+  padding: 0.25rem 0.5rem;
+}
+
+.moderator-only {
+  background-color: #FFCC00;
+  border: 2px solid #FFA500;
+  padding-left: 40px;
+  position: relative;
+  cursor: help;
+}
+
+.moderator-only::before {
+  content: "\1F6E1";
+  font-family: "Segoe UI Emoji", "Noto Color Emoji", "Android Emoji", "EmojiSymbols", sans-serif;
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+}
+
+.moderator-only:hover::after {
+  content: "This feature is exclusive to moderators.";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: black;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  opacity: 1;
+  transition: opacity 0.3s, visibility 0.3s;
+  visibility: visible;
+}
+
+div.open-in-crm {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+
+  & > input {
+    width:auto; 
+    flex-grow: 1;
+    margin: 0 1em 0 0;
+  }
+}
+/* Styling drag and drop panel on /cgi/import_file_upload.pl */
+.dragover {
+  border: 2px dashed #ff8614 !important;
+  background-color: #ffefef;
+
+  & #upload_icon {
+    color: #ffa753!important;
+  }
+
+  & [id^="file_input_button_"] {
+    background-color: color.scale($button-bg-color, $lightness: $button-function-factor * -0.5);
+    color: #fff;
+  }
+}
+
+.drop-zone {
+  border: 2px dashed black; 
+  border-radius: 5px;
+  background-color: #ece9e6; 
+  padding: 2em;
+
+  & > #upload_icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #c6c0b2;
+
+    svg { 
+      height: 2.8em;
+      width: auto;
+      margin-bottom: 0.5em;
+    }
+  }
+
+  & > #description {
+    text-align: center;
+    font-size: 1.2em;
+    color: #8c877c;
+    margin-bottom: 1em;
+  }
+}
+

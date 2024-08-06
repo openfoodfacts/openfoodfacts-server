@@ -44,11 +44,12 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Display qw/:all/;
-use ProductOpener::Tags qw/:all/;
+use ProductOpener::Display qw/request_param/;
+use ProductOpener::Tags qw/%taxonomy_fields/;
 use ProductOpener::Lang qw/:all/;
-use ProductOpener::TaxonomySuggestions qw/:all/;
-use ProductOpener::API qw/:all/;
+use ProductOpener::TaxonomySuggestions qw/get_taxonomy_suggestions_with_synonyms/;
+use ProductOpener::API qw/add_error/;
+use Tie::IxHash;
 
 use Encode;
 
@@ -125,17 +126,22 @@ sub taxonomy_suggestions_api ($request_ref) {
 	}
 	# Generate suggestions
 	else {
-		my $options_relavant = {%$options_ref};
-		delete $options_relavant->{get_synonyms};
 		my @suggestions
-			= get_taxonomy_suggestions_with_synonyms($tagtype, $search_lc, $string, $context_ref, $options_relavant);
+			= get_taxonomy_suggestions_with_synonyms($tagtype, $search_lc, $string, $context_ref, $options_ref);
 		$log->debug("taxonomy_suggestions_api", @suggestions) if $log->is_debug();
 		$response_ref->{suggestions} = [map {$_->{tag}} @suggestions];
 		if ($options_ref->{get_synonyms}) {
-			$response_ref->{matched_synonyms} = {};
+			# We need a tie hash so that the keys are ordered by insertion order when returned as JSON
+			my %matched_synonyms;
+			tie(%matched_synonyms, 'Tie::IxHash');
 			foreach (@suggestions) {
-				$response_ref->{matched_synonyms}->{$_->{tag}} = ucfirst($_->{matched_synonym});
+				$matched_synonyms{$_->{tag}} = ucfirst($_->{matched_synonym});
 			}
+			$response_ref->{matched_synonyms} = \%matched_synonyms;
+			# Note: this does not seem to work with JSON::MaybeXS, even though the "canonical" option
+			# should preserve the order of the keys of tied hashes.
+			# As JSON hashes are unordered, we will use the "suggestions" array on the client side to get the right order.
+			# It would have been nice to order the matched synonyms anyway, but it is not a huge issue.
 		}
 	}
 

@@ -3,14 +3,17 @@
 use Modern::Perl '2017';
 use utf8;
 
-use Test::More;
+use Test2::V0;
+use Data::Dumper;
+$Data::Dumper::Terse = 1;
 use Log::Any::Adapter 'TAP', filter => "info";
 
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::ImportConvert qw/:all/;
+use ProductOpener::LoadData qw/load_data/;
 
-init_emb_codes();
+load_data();
 
 # dummy product for testing
 
@@ -21,7 +24,7 @@ my $product_ref = {
 
 clean_weights($product_ref);
 
-diag explain $product_ref;
+diag Dumper $product_ref;
 
 is($product_ref->{net_weight}, "480 g");
 
@@ -67,21 +70,21 @@ foreach my $test_ref (@assign_quantity_tests) {
 $product_ref = {"lc" => "fr", "product_name_fr" => "Soupe bio"};
 @fields = qw(product_name_fr);
 match_labels_in_product_name($product_ref);
-is($product_ref->{labels}, 'en:organic') or diag explain $product_ref;
+is($product_ref->{labels}, 'en:organic') or diag Dumper $product_ref;
 
 @fields = qw(quantity net_weight_value_unit);
 $product_ref = {"lc" => "fr", net_weight_value_unit => "250 gr", quantity => "10.11.2019"};
 clean_weights($product_ref);
-is($product_ref->{quantity}, "250 g") or diag explain $product_ref;
+is($product_ref->{quantity}, "250 g") or diag Dumper $product_ref;
 
 $product_ref = {"lc" => "fr", net_weight_value_unit => "250 gr", quantity => "2 tranches"};
 clean_weights($product_ref);
-is($product_ref->{quantity}, "2 tranches (250 g)") or diag explain $product_ref;
+is($product_ref->{quantity}, "2 tranches (250 g)") or diag Dumper $product_ref;
 
 $product_ref = {"lc" => "fr", emb_codes => "EMB 60282A - Gouvieux (Oise, France)"};
 @fields = ("emb_codes");
 clean_fields($product_ref);
-is($product_ref->{emb_codes}, "EMB 60282A") or diag explain $product_ref;
+is($product_ref->{emb_codes}, "EMB 60282A") or diag Dumper $product_ref;
 
 # Test extract_nutrition_facts_from_text
 
@@ -222,7 +225,7 @@ foreach my $test_ref (@tests) {
 	is($nutrition_data_per, $test_ref->[3]);
 	is($serving_size, $test_ref->[4]);
 
-	if (not is_deeply($nutrients_ref, $test_ref->[2])) {
+	if (not is($nutrients_ref, $test_ref->[2])) {
 		print STDERR "failed nutrients extraction for lc: $test_ref->[0] - text: $test_ref->[1]\n";
 		# display the results in a format we can easily copy to the test
 		my $results = "{";
@@ -379,7 +382,7 @@ foreach my $test_ref (@tests) {
 foreach my $test_ref (@tests) {
 
 	clean_fields($test_ref->[0]);
-	is_deeply($test_ref->[0], $test_ref->[1]) or diag explain $test_ref->[0];
+	is($test_ref->[0], $test_ref->[1]) or diag Dumper $test_ref->[0];
 
 }
 
@@ -389,7 +392,7 @@ $product_ref = {lc => "fr", product_name_fr => "NUGGETS DE POULET, poulet Ã©levÃ
 
 match_labels_in_product_name($product_ref);
 
-is($product_ref->{labels}, undef) or diag explain $product_ref->{labels};
+is($product_ref->{labels}, undef) or diag Dumper $product_ref->{labels};
 
 $product_ref = {
 	product_name => "Nutella 40 g",

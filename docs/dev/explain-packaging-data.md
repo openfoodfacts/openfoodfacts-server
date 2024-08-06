@@ -12,7 +12,7 @@ For each product, we aim to have a comprehensive list of all its packaging compo
 
 ### Data about packaging components
 
-For each packaging component, we want data for different attributes, like its shape (e.g. a bottle) and its size (e.g. plastic).
+For each packaging component, we want data for different attributes, like its shape (e.g. a bottle) and its material (e.g. plastic).
 
 There are many different attributes that can be interesting for specific uses. For instance, researchers in epidemiology are interested in knowing which packaging component is in contact with the food itself, and which one can be put in the microwave oven, so that they can study the long term effects of some plastics on health.
 
@@ -66,11 +66,11 @@ The structure is an array of packaging components. Each packaging component can 
 
 The "shape" and "material" fields are taxonomized using the packaging_shapes and packaging_materials taxonomies.
 
-### How the the resulting packagings data structure is created
+### How the resulting packagings data structure is created
 
 #### Extract attributes that relate to different packaging components
 
-The values for each input field ("packaging" tag field and "packaging_text_[language code]" packaging information text field) are analyzed[^parse_packaging_from_text_phrase] to recognize packaging components and their attributes. One product may have multiple "packaging_text_[language code]" values in different languages. Only the value for the main product of the language is currently analyzed.
+The values for each input field ("packaging" tag field and "packaging_text_[language code]" packaging information text field) are analyzed[^parse_packaging_from_text_phrase] to recognize packaging components and their attributes. One product may have multiple "packaging_text_[language code]" values in different languages. Only the value for the main language ("lang" field) of the product is currently analyzed.
 
 [^parse_packaging_from_text_phrase]: parse_packaging_from_text_phrase() function in [/lib/ProductOpener/Packagings.pm](https://github.com/openfoodfacts/openfoodfacts-server/blob/main/lib/ProductOpener/Packaging.pm)
 
@@ -142,7 +142,7 @@ We could have a way (e.g. a checkbox) that users could use to indicate all compo
 
 We could discard the existing "packaging" tags field, and replace it with an API to allow clients to add partial information about packaging components.
 
-For instance, if Robotoff detects that the product is in plastic bottle by analyzing a product photo, it could send {shape:"bottle", material:"en:plastic"} and it would be added / combined with the existing "packagings" data.
+For instance, if Robotoff detects that the product is in a plastic bottle by analyzing a product photo, it could send {shape:"bottle", material:"en:plastic"} and it would be added / combined with the existing "packagings" data.
 
 ### Keep the "packaging_text_[language code]" field
 
