@@ -42,7 +42,12 @@ use ProductOpener::PerlStandards;
 
 use File::Basename;
 use File::Find::Rule;
-use Locale::Maketext::Lexicon _auto => 0, _decode => 1, _style => "gettext", _disable_maketext_conversion => 1;
+use Locale::Maketext::Lexicon
+	_auto => 0,
+	_decode => 1,
+	_style => "gettext",
+	_disable_maketext_conversion => 1,
+	_allow_empty => 1;
 use Locale::Maketext::Lexicon::Getcontext;
 use Log::Any qw($log);
 
@@ -155,8 +160,6 @@ sub read_pot_file ($file) {
 	$log->debug("Reading pot file");
 
 	open my $fh, "<", $file or die $!;
-	# most entry in the .pot file have an empty value, so we need to allow empty values
-	use Locale::Maketext::Lexicon {_allow_empty => 1,};
 	my %Lexicon = %{Locale::Maketext::Lexicon::Getcontext->parse(<$fh>)};
 	close $fh;
 
