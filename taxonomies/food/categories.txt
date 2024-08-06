@@ -6112,6 +6112,10 @@ intake24_category_code:en: SOFT
 nova:en: 3
 wikidata:en: Q147538
 
+< en: Sodas
+en: Club sodas
+description:en: Club soda is a form of carbonated water manufactured in North America with added minerals.
+wikipedia:en: https://en.wikipedia.org/wiki/Club_soda
 
 < en:Carbonated drinks
 en: Carbonated soft drinks without fruit juice
@@ -8723,6 +8727,19 @@ la: Senna alexandrina, Cassia angustifolia, Senna angustifolia
 nl: Sennapeul
 pl: Senes ostrolistny, Kasja ostrolistna
 wikidata:en: Q132675
+
+< en: Herbal teas
+en: Maca, Maca powder, Peruvian ginseng
+xx: Maca
+la: Lepidium meyenii
+nl: Maca, Maca Poeder
+
+< en: Herbal teas
+en: Mongolian milkvetch
+fr: Astragale de Mongolie
+la: Astragalus mongholicus, Astragalus propinquus, Astragalus membranaceus
+mn: Хунчир
+zh: 黃芪
 
 < en:Herbal teas
 en: Boldo
@@ -46387,6 +46404,7 @@ pt: Queijos macios
 sv: Mjuka ostar
 incompatible_with:en en:hard-cheeses
 intake24_category_code:en: SFTC
+opposite:en: en:hard-cheeses
 
 < en:Soft cheeses
 en: Soft cheeses with bloomy rind, white mold-rind cheese
@@ -46451,6 +46469,7 @@ ciqual_food_name:en: Hard cheese (average)
 ciqual_food_name:fr: Fromage à pâte pressée cuite (aliment moyen)
 incompatible_with:en en:soft-cheeses
 intake24_category_code:en: HRDC
+opposite:en: en:soft-cheeses
 wikidata:en: Q3088330
 
 < en:Hard cheeses
@@ -47152,7 +47171,7 @@ ciqual_food_name:en: Cheese, from goat's milk, fresh, from pasteurised milk
 ciqual_food_name:fr: Fromage de chèvre frais, au lait pasteurisé (type bûchette fraîche)
 
 < en:Fresh goat cheese
-< enLUnpasteurised cheeses
+< en:Unpasteurised cheeses
 en: Cheese from goat's milk fresh from raw milk
 fr: Fromage de chèvre frais au lait cru, palet frais de chèvre au lait cru, crottin frais de chèvre au lait cru
 agribalyse_food_code:en: 12804
@@ -51052,7 +51071,7 @@ en: Whole pasteurised milks
 bg: Пълномаслено пастьоризирано прясно мляко
 de: Vollmilch sterilisiert
 es: Leche entera esterilizada
-fr: Laits entiers stérilisés
+fr: Laits entiers pasteurisés
 hr: Punomasno pasterizirano mlijeko
 it: Latte intero sterilizzato
 nl: Gesteriliseerde volle melk
@@ -58833,7 +58852,7 @@ en: Olive oil from Nîmes
 fr: Huile d'olive de Nîmes
 hr: Maslinovo ulje iz Nîmesa
 nl: Olijfoliën uit Nîmes, Olijfolies uit Nîmes
-origins:en: en:france, fr:Nîmes
+origins:en: en:france, fr:nimes
 protected_name_file_number:en: PDO-FR-0441
 protected_name_type:en: pdo
 
@@ -67049,6 +67068,12 @@ lt: Šviežios citrinos
 nl: Verse citroen
 season_in_country_fr:en: 1,2,11,12
 
+< en: Fresh lemons
+en: Verna lemons, Verna
+xx: Verna
+fr: Citrons Verna
+nl: Verna citroenen
+
 < en:Lemons
 en: Unwaxed lemons
 
@@ -72866,18 +72891,16 @@ lt: Žolelių ir prieskonių mišiniai
 nl: Kruiden/specerijenmengsel, Mengeling van aromatische kruiden en specerijen
 pl: Mieszanki ziół i przypraw
 
-< en:Mixtures of herbs and spices
+< en: Mixtures of herbs and spices
 es: Finas hierbas
 
-< en:Mixtures of herbs and spices
+< en: Mixtures of herbs and spices
 es: Polvo de cinco especias
 
-< en:Mixtures of herbs and spices
+< en: Mixtures of herbs and spices
 en: Ras el hanout
-es: Ras el hanut
+xx: Ras el hanout
 fr: Ras el hanout, Raz el hanout
-hr: Ras el hanout
-nl: Ras el hanoet
 wikidata:en: Q1067261
 
 < en:Mixtures of herbs and spices
@@ -82552,6 +82575,7 @@ hr: Odresci
 it: Bistecche
 lt: Kepsniai
 nl: Steaks
+pt: Bifes
 zh: 肉排
 intake24_category_code:en: STEK
 
@@ -83049,7 +83073,7 @@ ja: 牛肉, ビーフ, ぎゅうにく, ぎゅう肉, 牛にく
 lt: Jautiena, Jautienos mėsa
 nl: Rund, Rundervlees
 pl: Wołowina, mięso wołowe
-pt: Bife
+pt: Carnes de vaca
 ru: Говядина
 zh: 牛肉
 gpc_category_code:en: 10005767
@@ -83878,6 +83902,7 @@ lt: Ožkiena
 wco_hs_heading:en: 02.04
 wikidata:en: Q449506
 
+
 < en:Fresh meats
 < en:Goat meat
 en: Young goat
@@ -84173,6 +84198,7 @@ ja: 牛ステーキ
 lt: Jautienos kepsniai
 nl: Biefstukken
 pl: Stek wołowy
+pt: Bifes de vaca
 zh: 牛排
 agribalyse_food_code:en: 6201
 ciqual_food_code:en: 6201
@@ -85501,7 +85527,7 @@ protected_name_type:en: pgi
 < en:Chickens
 < fr:Volailles du Gers
 fr: Poulets du Gers
-origins:en: en:france, en:gers
+origins:en: en:france, fr:gers
 
 < en:Poultries
 fr: Volailles du Maine
@@ -110553,7 +110579,7 @@ gpc_category_name:en: Olives (Perishable)
 < en:French vegetables
 < en:Olives
 fr: Olive de Nîmes
-origins:en: en:france, fr:Nîmes
+origins:en: en:france, fr:nimes
 protected_name_file_number:en: PDO-FR-0568
 protected_name_type:en: pdo
 

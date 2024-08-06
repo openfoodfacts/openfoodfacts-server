@@ -82,7 +82,7 @@ my @tests = (
 			'param' => {},
 			'no_index' => '0',
 			'is_crawl_bot' => '0',
-			'components' => ['category', 'breads', 'no-nutrition-data'],
+			'components' => ['no-nutrition-data'],
 			'rate_limiter_blocking' => 0,
 			'rate_limiter_limit' => undef,
 			'rate_limiter_user_requests' => undef,
@@ -124,7 +124,7 @@ my @tests = (
 			'rate_limiter_blocking' => 0,
 			'rate_limiter_limit' => undef,
 			'rate_limiter_user_requests' => undef,
-			'components' => ['category', 'breads'],
+			'components' => [],
 		},
 	},
 	{
@@ -160,7 +160,7 @@ my @tests = (
 			'param' => {},
 			'no_index' => '1',
 			'is_crawl_bot' => '1',
-			'components' => ['category', 'breads', '4'],
+			'components' => [],
 		},
 	},
 	{
@@ -199,7 +199,7 @@ my @tests = (
 			'rate_limiter_blocking' => 0,
 			'rate_limiter_limit' => undef,
 			'rate_limiter_user_requests' => undef,
-			'components' => ['category', 'bread', '4'],
+			'components' => [],
 		},
 	},
 	{
@@ -262,6 +262,82 @@ my @tests = (
 			'rate_limiter_user_requests' => undef,
 			'components' => ['api', 'v3', 'product', 'https://id.gs1.org/01/03564703999971/10/ABC/21/123456?17=211200'],
 		},
+	},
+	{
+		desc => "Facet URL with a group-by",
+		lc => "en",
+		input_request => {
+			cc => "world",
+			lc => "en",
+			original_query_string => 'category/breads/ingredients',
+			no_index => '0',
+			is_crawl_bot => '1'
+		},
+		expected_output_request => {
+			'tag_prefix' => '',
+			'components' => [],
+			'no_index' => 1,
+			'canon_rel_url' => '/category/en:breads/ingredients',
+			'api' => 'v0',
+			'query_string' => 'category/breads/ingredients',
+			'original_query_string' => 'category/breads/ingredients',
+			'tagid' => 'en:breads',
+			'tagtype' => 'categories',
+			'tag' => 'en:breads',
+			'lc' => 'en',
+			'cc' => 'world',
+			'page' => 1,
+			'tags' => [
+				{
+					'tag' => 'en:breads',
+					'tagtype' => 'categories',
+					'tagid' => 'en:breads',
+					'tag_prefix' => ''
+				}
+			],
+			'is_crawl_bot' => '1',
+			'param' => {},
+			'groupby_tagtype' => 'ingredients'
+		}
+
+	},
+	{
+		desc => "Facet URL with a group-by in English",
+		lc => "en",
+		input_request => {
+			cc => "world",
+			lc => "es",
+			original_query_string => 'category/breads/ingredients',
+			no_index => '0',
+			is_crawl_bot => '1'
+		},
+		expected_output_request => {
+			'components' => [],
+			'groupby_tagtype' => 'ingredients',
+			'tags' => [
+				{
+					'tag' => 'es:breads',
+					'tagid' => 'es:breads',
+					'tag_prefix' => '',
+					'tagtype' => 'categories'
+				}
+			],
+			'is_crawl_bot' => '1',
+			'tag_prefix' => '',
+			'tagtype' => 'categories',
+			'canon_rel_url' => '/categoria/es:breads/ingredientes',
+			'cc' => 'world',
+			'query_string' => 'category/breads/ingredients',
+			'original_query_string' => 'category/breads/ingredients',
+			'tagid' => 'es:breads',
+			'tag' => 'es:breads',
+			'api' => 'v0',
+			'lc' => 'es',
+			'no_index' => 1,
+			'param' => {},
+			'page' => 1
+		},
+
 	},
 );
 

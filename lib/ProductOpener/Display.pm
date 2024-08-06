@@ -978,6 +978,8 @@ CSS
 		}
 	) if $log->is_debug();
 
+	set_request_stats_value($request_ref->{stats}, "cc", $request_ref->{cc});
+	set_request_stats_value($request_ref->{stats}, "lc", $request_ref->{lc});
 	set_request_stats_value($request_ref->{stats}, "hostname", $hostname);
 	set_request_stats_value($request_ref->{stats}, "original_query_string", $request_ref->{original_query_string});
 	set_request_stats_value($request_ref->{stats}, "ip", remote_addr());
@@ -4042,6 +4044,15 @@ HTML
 					$description .= <<HTML
 <p>$packager_codes{$canon_tagid}{name}<br>
 $packager_codes{$canon_tagid}{address} (Ireland)
+</p>
+HTML
+						;
+				}
+
+				if ($packager_codes{$canon_tagid}{cc} eq 'lu') {
+					$description .= <<HTML
+<p>$packager_codes{$canon_tagid}{name}<br>
+$packager_codes{$canon_tagid}{address} (Luxembourg)
 </p>
 HTML
 						;
