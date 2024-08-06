@@ -69,9 +69,9 @@ if ($env_query_string =~ /^\/?api\/v(3(\.\d+)?)\//) {
 		read_request_body($request_ref);
 		decode_json_request_body($request_ref);
 	}
-}
 
-if (($env_query_string !~ /^\/?api\/v(3(\.\d+)?)\//) or ($request_ref->{method} !~ /^(POST|PUT|PATCH)$/)) {
+}
+elsif ($request_ref->{method} !~ /^(POST|PUT|PATCH)$/) {
 	# Not an API v3 POST/PUT/PATCH request: we will use CGI.pm param() method to access query string or multipart/form-data parameters
 
 	# The nginx reverse proxy turns /somepath?someparam=somevalue to /cgi/display.pl?/somepath?someparam=somevalue
