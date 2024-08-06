@@ -327,7 +327,10 @@ sub api_route($request_ref) {
 		param("tagtype", $components[3]);
 		$request_ref->{tagtype} = $components[3];
 		param("tagid", $components[4]);
-		$request_ref->{tagid} = $components[5];
+		$request_ref->{tagid} = $components[4];
+	}
+	elsif ($api_action eq "geoip") {    # api/v3/geoip/[ip]
+		$request_ref->{ip} = $components[3];
 	}
 
 	# If return format is not xml or jqm or jsonp, default to json
