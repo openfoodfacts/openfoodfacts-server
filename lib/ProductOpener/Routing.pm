@@ -185,10 +185,6 @@ Sometimes we modify request parameters (param) to correspond to request_ref:
 
 sub analyze_request($request_ref) {
 	sanitize_request($request_ref);
-	return _analyze_request_impl($request_ref);
-}
-
-sub _analyze_request_impl($request_ref) {
 
 	$log->debug("analyze_request", {components => $request_ref->{components},}) if $log->is_debug();
 
@@ -289,7 +285,7 @@ sub org_route($request_ref) {
 	$log->debug("org route", {orgid => $orgid, components => $request_ref->{components}}) if $log->is_debug();
 	# /search
 	# /product/[code]
-	return _analyze_request_impl($request_ref);
+	return match_route($request_ref);
 }
 
 # api/v0/product(s)/[code]
@@ -297,16 +293,8 @@ sub org_route($request_ref) {
 sub api_route($request_ref) {
 	my @components = @{$request_ref->{components}};
 	my $api = $components[1];    # v0
+	my $api_version = $api =~ /v(\d+)/ ? $1 : 0;
 	my $api_action = $components[2];    # product
-
-	my $api_version = $api;
-	($api_version) = $api =~ /v(\d+)/;
-	$api_version //= 0;
-
-	# Also support "products" in order not to break apps that were using it
-	if ($api_action eq 'products') {
-		$api_action = 'product';
-	}
 
 	# If the api_action is different than "search", check if it is the local path for "product"
 	# so that urls like https://fr.openfoodfacts.org/api/v3/produit/4324232423 work (produit instead of product)
@@ -319,7 +307,9 @@ sub api_route($request_ref) {
 	}
 
 	# some API actions have an associated object
-	if ($api_action eq "product") {    # api/v3/product/[code]
+
+	# Also support "products" in order not to break apps that were using it
+	if ($api_action =~ /^products?/) {    # api/v3/product/[code]
 		param("code", $components[3]);
 		$request_ref->{code} = $components[3];
 	}
@@ -327,7 +317,10 @@ sub api_route($request_ref) {
 		param("tagtype", $components[3]);
 		$request_ref->{tagtype} = $components[3];
 		param("tagid", $components[4]);
-		$request_ref->{tagid} = $components[5];
+		$request_ref->{tagid} = $components[4];
+	}
+	elsif ($api_action eq "geoip") {    # api/v3/geoip/[ip]
+		$request_ref->{ip} = $components[3];
 	}
 
 	# If return format is not xml or jqm or jsonp, default to json
