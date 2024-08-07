@@ -138,6 +138,7 @@ sub wp_get_available_pages($lc) {
 Updates the caches of available pages
 if the cache is older than the cache_update_interval_s.
 
+At the end C<@pages_metadata_cache_by_id> associate id with the result of C<_wp_list_pages> 
 =cut
 
 sub wp_update_pages_metadata_cache($force = 0) {
