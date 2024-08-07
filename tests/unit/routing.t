@@ -4,9 +4,11 @@ use Modern::Perl '2017';
 use utf8;
 
 use Test2::V0;
+use Mock::Quick;
 use Data::Dumper;
 $Data::Dumper::Terse = 1;
 use Log::Any::Adapter 'TAP';
+
 
 use ProductOpener::Routing qw/analyze_request load_routes/;
 use ProductOpener::Lang qw/$lc /;
@@ -337,8 +339,73 @@ my @tests = (
 			'param' => {},
 			'page' => 1
 		},
-
 	},
+	{
+		test_case => 'geoip-get-country-from-ipv4-us',
+		input_request => {
+			cc => "world",
+			lc => "en",
+			original_query_string => 'api/v3/geopip/12.45.23.45',
+			no_index => '0',
+			is_crawl_bot => '0',
+		},
+		expected_output_request => {
+			'api_action' => 'geopip',
+			'lc' => 'en',
+			'cc' => 'world',
+			'rate_limiter_user_requests' => undef,
+			'api' => 'v3',
+			'rate_limiter_blocking' => 0,
+			'is_crawl_bot' => '0',
+			'no_index' => '0',
+			'api_version' => '3',
+			'page' => 1,
+			'api_method' => undef,
+			'components' => [
+								'api',
+								'v3',
+								'geopip',
+								'2001:ac8:25:3b::e01d'
+							],
+			'original_query_string' => 'api/v3/geopip/2001:ac8:25:3b::e01d',
+			'query_string' => 'api/v3/geopip/2001:ac8:25:3b::e01d',
+			'rate_limiter_limit' => undef
+		},
+    },
+    {
+        desc => 'geoip-get-country-from-ipv6-fr',
+		lc => "en",
+		input_request => {
+			cc => "world",
+			lc => "en",
+			original_query_string => 'api/v3/geopip/2001:ac8:25:3b::e01d',
+			no_index => '0',
+			is_crawl_bot => '0',
+			
+		},
+		expected_output_request => {
+			'api_action' => 'geopip',
+                       'lc' => 'en',
+                       'cc' => 'world',
+                       'rate_limiter_user_requests' => undef,
+                       'api' => 'v3',
+                       'rate_limiter_blocking' => 0,
+                       'is_crawl_bot' => '0',
+                       'no_index' => '0',
+                       'api_version' => '3',
+                       'page' => 1,
+                       'api_method' => undef,
+                       'components' => [
+                                         'api',
+                                         'v3',
+                                         'geopip',
+                                         '2001:ac8:25:3b::e01d'
+                                       ],
+                       'original_query_string' => 'api/v3/geopip/2001:ac8:25:3b::e01d',
+                       'query_string' => 'api/v3/geopip/2001:ac8:25:3b::e01d',
+                       'rate_limiter_limit' => undef
+		},
+    },
 );
 
 foreach my $test_ref (@tests) {
