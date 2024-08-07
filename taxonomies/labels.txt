@@ -1034,12 +1034,14 @@ description:nl: Eerlijke handel is internationale handel die gericht is op duurz
 description:pt: O comércio justo é um acordo concebido para ajudar os produtores em países em desenvolvimento a alcançarem relações comerciais sustentáveis e justas.
 incompatible_with:en: labels:en:non-fair-trade
 label_categories:en: en:Social responsibility
+opposite:en: en:non-fair-trade
 wikidata:en: Q188485
 #auth_url:en:http://www.fairtrade.net
 
 en: Non-fair trade, Not fair trade
 fr: Non issu du commerce équitable
 incompatible_with:en: labels:en:fair-trade
+opposite:en: en:fair-trade
 
 # Should not be translated, "Fairtrade International" is a label
 
@@ -1319,6 +1321,7 @@ th: ไม่มีกลูเตน
 uk: Не містить глютену
 zh: 无麸质
 incompatible_with:en: labels:en:contains-gluten
+opposite:en: en:contains-gluten
 wikidata:en: Q2632776
 
 < en:No gluten
@@ -1380,6 +1383,7 @@ pl: Zawiera gluten
 pt: Contém glúten
 incompatible_with:en: labels:en:no-gluten
 label_categories:en: en:Allergens
+opposite:en: en:no-gluten
 
 nl: Korst is niet eetbaar
 
@@ -4050,6 +4054,7 @@ th: ไม่มีสารเติมแต่ง
 tr: Katkı Maddesi yok
 incompatible_with:en: labels:en:with-additives
 label_categories:en: en:Health, en:Additives
+opposite:en: en:With additives
 
 en: With additives
 bg: С добавки
@@ -4064,6 +4069,7 @@ pl: Z dodatkami
 pt: Com aditivos
 ru: С добавками
 incompatible_with:en: labels:en:no-additives
+opposite:en: en:No additives
 
 #instruction:en:Do NOT change the english key.
 en: No artificial additives
@@ -4105,6 +4111,7 @@ pl: Bez alkoholu
 pt: Sem álcool, 0% álcool
 th: ไม่มีแอลกอฮอล์
 incompatible_with:en: labels:en:contains-alcohol
+opposite:en: en:contains alcohol
 
 en: Contains alcohol
 bg: Съдържа алкохол
@@ -4118,6 +4125,7 @@ pl: Zawiera alkohol
 pt: Contém álcool
 ru: Содержит алкоголь
 incompatible_with:en: labels:en:no-alcohol
+opposite:en: en:no-alcohol
 
 en: without allergens
 bg: без алергени
@@ -4632,6 +4640,7 @@ ru: Без ГМО, Без использования ГМО, Не содержи
 th: ไม่มีจีเอ็มโอ
 incompatible_with:en: labels:en:contains-gmos
 label_categories:en: en:Health, en:Environment
+opposite:en: en:Contains GMOs
 
 en: Contains GMOs, with GMOs
 bg: Съдържа ГМО, с ГМО
@@ -4647,6 +4656,7 @@ pt: Contém OGMs, com OGMs, contém OGM, com OGM, Com Organismos Geneticamente M
 th: มีส่วนผสมจีเอ็มโอ
 incompatible_with:en: labels:en:no-gmos
 label_categories:en: en:Health, en:Environment
+opposite:en: en:No GMOs
 
 < en:No GMOs
 en: Non GMO project
@@ -4708,6 +4718,7 @@ sv: Laktosfri, Laktosfritt
 th: ไม่มีแลคโตส
 tr: Laktozsuz
 incompatible_with:en: labels:en:contains-lactose
+opposite:en: en:contains-lactose
 
 en: Contains lactose
 bg: Съдържа лактоза
@@ -4723,6 +4734,7 @@ pl: Zawiera laktozę
 pt: Contém lactose
 ru: Содержит лактозу
 incompatible_with:en: labels:en:no-lactose
+opposite:en: en:no-lactose
 
 #instruction:en:Do NOT change the english key.
 en: No lecithine, lecithine-free
@@ -4886,6 +4898,7 @@ ru: Не содержит сои
 th: ไม่มีส่วนผสมของถั่วเหลือง
 incompatible_with:en: labels:en:contains-soy
 label_categories:en: en:Environment, en:Health, en:Soy, en:Allergens
+opposite:en: en:contains-soy
 
 #instruction:en:Do NOT change the english key.
 en: Contains soy
@@ -4902,6 +4915,7 @@ pl: Zawiera soję
 pt: Contém soja, com soja
 incompatible_with:en: labels:en:no-soy
 label_categories:en: en:Environment, en:Soy, en:Allergens
+opposite:en: en:no-soy
 
 #instruction:en:Do NOT change the english key.
 en: No garlic
@@ -5055,6 +5069,7 @@ nl: niet geschikt voor vegetariërs
 pt: Não-vegetariano, não vegetariano, não adequado para vegetarianos
 incompatible_with:en: labels:en:vegetarian
 label_categories:en: en:Specific diets
+opposite:en: en:vegetarian
 
 # Note: products that contain eggs are considered non vegetarian by the FSSAI
 # The brown dot is now a brown triangle
@@ -5217,6 +5232,7 @@ environmental_benefits:tr: Organik tarım, biyolojik çeşitlilik, iklim, su kal
 environmental_benefits:zh: 有机农业有助于保护生物多样性、气候、水质和土壤肥力。
 incompatible_with:en: labels:en:non-organic
 label_categories:en: en:Environnement
+opposite:en: en:non-organic
 wikidata:en: Q380778
 
 en: Non-organic, not organic
@@ -5227,6 +5243,7 @@ hu: Nem bio
 it: Non organico
 pt: Não-orgânico, não orgânico
 incompatible_with:en: labels:en:organic
+opposite:en: en:organic
 
 < en:Organic
 en: Farm Verified Organic
@@ -18506,6 +18523,7 @@ sv: Utan palmolja
 th: ไม่ใช้น้ำมันปาล์ม
 zh: 不含棕榈油
 incompatible_with:en: labels:en:contains-palm-oil
+opposite:en: en:contains-palm-oil
 
 en: Contains palm oil
 bg: Съдържа палмово масло
@@ -18515,6 +18533,7 @@ nl: Bevat palmolie
 pl: Zawiera olej palmowy, Z olejem palmowym
 pt: Contém óleo de ppalma, com óleo de palma
 incompatible_with:en: labels:en:no-palm-oil
+opposite:en: en:no-palm-oil
 
 en: PDO, P.D.O., Protected Designation of Origin
 bg: ЗНП, Защитено наименование за произход
@@ -19705,6 +19724,7 @@ description:es: El veganismo o vegetarianismo estricto es la abstención del uso
 descrption:fr: Le véganisme, dit également végétalisme intégral, est un mode de vie qui consiste à ne consommer aucun produit d'origine animale. Au-delà de l'adoption d'une pratique alimentaire végétalienne, le véganisme exclut également la consommation de tout autre produit issu des animaux, de leur exploitation ou testé sur eux.
 descrption:nl: Veganisme is een levenswijze waarin gestreefd wordt naar het vermijden van het gebruik van dierlijke producten. Als zodanig gelden ten eerste delen van het dierenlichaam of producten die daarvan vervaardigd zijn en ten tweede door dieren voortgebrachte producten.
 incompatible_with:en: labels:en:not vegan
+opposite:en: en:non-vegan
 wikidata:en: Q7918273
 wikipedia:en: Veganism
 
@@ -19714,6 +19734,7 @@ hr: nije vegansko
 pl: Niewegańskie, niewegański
 pt: Não-vegan, não vegan, não adequado a vegans, não adequado a uma dieta vegan
 incompatible_with:en: labels:en:vegan
+opposite:en: en:vegan
 
 < en:Vegan
 < en:organic
@@ -22681,6 +22702,7 @@ nb: Pasteurisert
 nl: gepasteuriseerd, gepasteuriseerd product
 pt: Produto pasteurizado
 incompatible_with:en: labels:en:unpasteurized
+opposite:en: en:unpasteurized
 
 < en:Pasteurized
 en: Flash pasteurized, Flash pasteurised
@@ -22695,6 +22717,7 @@ fr: Non pasteurisé
 it: Non pastorizzato
 nl: Ongepasteuriseerd
 incompatible_with:en: labels:en:pasteurized
+opposite:en: en:pasteurized
 
 en: Cold pressed
 es: Prensado en frío
@@ -22706,6 +22729,7 @@ bg: Нефилтрирано
 de: Trüb, Naturtrüb
 es: Sin filtrar, turbia
 incompatible_with:en: labels:en:filtered
+opposite:en: en:Filtered
 
 en: Filtered
 bg: Филтрирано
@@ -22713,6 +22737,7 @@ de: Klar
 es: Filtrada, filtrado
 fr: Non filtrée, Clair
 incompatible_with:en: labels:en:unfiltered
+opposite:en: en:unfiltered
 
 fr: Haute Valeur Environnementale, HVE
 xx: Haute Valeur Environnementale, HVE
