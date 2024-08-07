@@ -73,6 +73,7 @@ BEGIN {
 		&get_inherited_property_from_categories_tags
 		&get_inherited_properties
 		&get_tags_grouped_by_property
+		&get_all_tags_having_property
 
 		%tags_images
 		%tags_texts
@@ -716,6 +717,37 @@ sub get_tags_grouped_by_property ($tagtype, $tagids_ref, $prop_name, $props_ref,
 	}
 
 	return $grouped_tags;
+}
+
+=head2 get_all_tags_having_property ($product_ref, $tagtype, $prop_name)
+
+For each tag of a given field ($tagtype, can be "labels" or "categories", for example),
+and a given property ($prop_name, without last column (:). Can be "incompatible_with:en", for example),
+return a hash of tagid <-> property_value
+remark: this DOES NOT handle property inheritance
+
+=head3 Return
+
+A hash, where keys are tagid and values are property_value
+
+=head4 Example, get_all_tags_having_property($product_ref, "labels", "incompatible_with:en")
+
+
+=cut
+
+sub get_all_tags_having_property ($product_ref, $tagtype, $prop_name) {
+	my %tag_property_hash = ();
+	if (defined $product_ref->{$tagtype . "_tags"}) {
+		foreach my $tagid (@{$product_ref->{$tagtype . "_tags"}}) {
+			my $property_value = get_property($tagtype, $tagid, $prop_name);
+
+			if (defined $property_value) {
+				$tag_property_hash{$tagid} = lc($property_value =~ s/\s+/-/gr);
+			}
+		}
+	}
+
+	return \%tag_property_hash;
 }
 
 sub has_tag ($product_ref, $tagtype, $tagid) {

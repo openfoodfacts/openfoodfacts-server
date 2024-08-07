@@ -2706,6 +2706,33 @@ my @tests = (
 			}
 		]
 	],
+
+	# sojaeiweißkonzentrat
+	[
+		{lc => "de", ingredients_text => "Sojaeiweißkonzentrat, Sojaeiweisskonzentrat, Sojaproteinkonzentrat"},
+		[
+			{
+				'id' => 'en:soy-protein',
+				'is_in_taxonomy' => 1,
+				'text' => "Sojaeiwei\x{df}",
+				'processing' => 'en:concentrated'
+			},
+			{
+				'processing' => 'en:concentrated',
+				'text' => 'Sojaeiweiss',
+				'is_in_taxonomy' => 1,
+				'id' => 'en:soy-protein'
+			},
+			{
+				'id' => 'en:soy-protein',
+				'is_in_taxonomy' => 1,
+				'text' => 'Sojaprotein',
+				'processing' => 'en:concentrated'
+			}
+
+		]
+	],
+
 );
 
 foreach my $test_ref (@tests) {

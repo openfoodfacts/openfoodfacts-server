@@ -82,7 +82,7 @@ my @tests = (
 			'param' => {},
 			'no_index' => '0',
 			'is_crawl_bot' => '0',
-			'components' => ['category', 'breads', 'no-nutrition-data'],
+			'components' => ['no-nutrition-data'],
 			'rate_limiter_blocking' => 0,
 			'rate_limiter_limit' => undef,
 			'rate_limiter_user_requests' => undef,
@@ -124,7 +124,7 @@ my @tests = (
 			'rate_limiter_blocking' => 0,
 			'rate_limiter_limit' => undef,
 			'rate_limiter_user_requests' => undef,
-			'components' => ['category', 'breads'],
+			'components' => [],
 		},
 	},
 	{
@@ -160,7 +160,7 @@ my @tests = (
 			'param' => {},
 			'no_index' => '1',
 			'is_crawl_bot' => '1',
-			'components' => ['category', 'breads', '4'],
+			'components' => [],
 		},
 	},
 	{
@@ -199,7 +199,7 @@ my @tests = (
 			'rate_limiter_blocking' => 0,
 			'rate_limiter_limit' => undef,
 			'rate_limiter_user_requests' => undef,
-			'components' => ['category', 'bread', '4'],
+			'components' => [],
 		},
 	},
 	{
@@ -275,7 +275,7 @@ my @tests = (
 		},
 		expected_output_request => {
 			'tag_prefix' => '',
-			'components' => ['category', 'breads', 'ingredients'],
+			'components' => [],
 			'no_index' => 1,
 			'canon_rel_url' => '/category/en:breads/ingredients',
 			'api' => 'v0',
@@ -312,7 +312,7 @@ my @tests = (
 			is_crawl_bot => '1'
 		},
 		expected_output_request => {
-			'components' => ['category', 'breads', 'ingredients'],
+			'components' => [],
 			'groupby_tagtype' => 'ingredients',
 			'tags' => [
 				{

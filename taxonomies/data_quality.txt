@@ -939,6 +939,62 @@ description:it: Questo prodotto ha un'etichetta vegetariana ma contiene ingredie
 description:nl: Dit product heeft een vegetarisch label maar bevat niet-vegetarische ingrediënten.
 description:pt: Este produto tem um rótulo vegetariano, mas contém ingredientes não vegetarianos.
 
+# mutually exclusive tags for labels
+# labels appear in alphabetical order
+< en:Data quality errors
+en: Mutually exclusive tags
+
+< en:Mutually exclusive tags
+en: mutually exclusive tags for labels contains-alcohol and labels no-alcohol
+description:en: These two labels cannot both appear on the same product.
+
+< en:Mutually exclusive tags
+en: mutually exclusive tags for labels contains-gluten and labels no-gluten
+description:en: These two labels cannot both appear on the same product.
+
+< en:Mutually exclusive tags
+en: mutually exclusive tags for labels contains-gmos and labels no-gmos
+description:en: These two labels cannot both appear on the same product.
+
+< en:Mutually exclusive tags
+en: mutually exclusive tags for labels contains-lactose and labels no-lactose
+description:en: These two labels cannot both appear on the same product.
+
+< en:Mutually exclusive tags
+en: mutually exclusive tags for labels contains-palm-oil and labels no-palm-oil
+description:en: These two labels cannot both appear on the same product.
+
+< en:Mutually exclusive tags
+en: mutually exclusive tags for labels contains-soy and labels no-soy
+description:en: These two labels cannot both appear on the same product.
+
+< en:Mutually exclusive tags
+en: mutually exclusive tags for labels fair-trade and labels non-fair-trade
+description:en: These two labels cannot both appear on the same product.
+
+< en:Mutually exclusive tags
+en: mutually exclusive tags for labels filtered and labels unfiltered
+description:en: These two labels cannot both appear on the same product.
+
+< en:Mutually exclusive tags
+en: mutually exclusive tags for labels no-additives and labels with-additives
+description:en: These two labels cannot both appear on the same product.
+
+< en:Mutually exclusive tags
+en: mutually exclusive tags for labels non-organic and labels organic
+description:en: These two labels cannot both appear on the same product.
+
+< en:Mutually exclusive tags
+en: mutually exclusive tags for labels non-vegan and labels vegan
+description:en: These two labels cannot both appear on the same product.
+
+< en:Mutually exclusive tags
+en: mutually exclusive tags for labels non-vegetarian and labels vegetarian
+description:en: These two labels cannot both appear on the same product.
+
+< en:Mutually exclusive tags
+en: mutually exclusive tags for labels pasteurized and labels unpasteurized
+description:en: These two labels cannot both appear on the same product.
 
 ### Categories
 
@@ -1006,13 +1062,63 @@ description:en: Quantity of fruit for Sea-buckthorn jellies should be above 25 p
 en: specific ingredient fruit quantity is below the minimum value of 38 for category chestnut spreads
 description:en: Quantity of fruit for chestnut purée should be above 38 per 100g in EU. See: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32001L0113
 
+# mutually exclusive tags for categories
+# categories appear in alphabetical order
+< en:Mutually exclusive tags
+en: mutually exclusive tags for categories alcoholic beverages and categories non-alcoholic beverages
+description:en: These two categories cannot both appear on the same product.
 
+< en:Mutually exclusive tags
+en: mutually exclusive tags for categories beverages and beverages preparations and categories meals
+description:en: These two categories cannot both appear on the same product.
 
+< en:Mutually exclusive tags
+en: mutually exclusive tags for categories dairies and categories dairy substitutes
+description:en: These two categories cannot both appear on the same product.
 
+< en:Mutually exclusive tags
+en: mutually exclusive tags for categories fruits and categories vegetables
+description:en: These two categories cannot both appear on the same product.
 
+< en:Mutually exclusive tags
+en: mutually exclusive tags for categories ground peppers and categories peppercorns
+description:en: These two categories cannot both appear on the same product.
 
+< en:Mutually exclusive tags
+en: mutually exclusive tags for categories hard cheeses and categories soft cheeses
+description:en: These two categories cannot both appear on the same product.
 
+< en:Mutually exclusive tags
+en: mutually exclusive tags for categories long grain rices and categories medium grain rices
+description:en: These two categories cannot both appear on the same product.
 
+< en:Mutually exclusive tags
+en: mutually exclusive tags for categories long grain rices and categories short grain rices
+description:en: These two categories cannot both appear on the same product.
+
+< en:Mutually exclusive tags
+en: mutually exclusive tags for categories meat and categories meat analogues
+description:en: These two categories cannot both appear on the same product.
+
+< en:Mutually exclusive tags
+en: mutually exclusive tags for categories medium grain rices and categories short grain rices
+description:en: These two categories cannot both appear on the same product.
+
+< en:Mutually exclusive tags
+en: mutually exclusive tags for categories pasteurised products and categories unpasteurised products
+description:en: These two categories cannot both appear on the same product.
+
+< en:Mutually exclusive tags
+en: mutually exclusive tags for categories salty snacks and categories sweet snacks
+description:en: These two categories cannot both appear on the same product.
+
+< en:Mutually exclusive tags
+en: mutually exclusive tags for categories semi-skimmed-milks and categories whole milks
+description:en: These two categories cannot both appear on the same product.
+
+< en:Mutually exclusive tags
+en: mutually exclusive tags for categories skimmed milks and categories whole milks
+description:en: These two categories cannot both appear on the same product.
 
 
 ## --------------- Then data quality warnings

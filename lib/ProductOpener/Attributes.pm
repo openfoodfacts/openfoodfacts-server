@@ -1047,7 +1047,7 @@ sub compute_attribute_has_tag ($product_ref, $target_lc, $tagtype, $tagid) {
 
 	# If we don't have any tags for the tagtype, mark the status unknown (e.g. new products)
 
-	if ((not defined $product_ref->{$tagtype . "_tags"}) or ($product_ref->{$tagtype . "_tags"} == 0)) {
+	if ((not defined $product_ref->{$tagtype . "_tags"}) or (scalar(@{$product_ref->{$tagtype . "_tags"}} == 0))) {
 
 		$attribute_ref->{status} = "unknown";
 		$value = "unknown";
