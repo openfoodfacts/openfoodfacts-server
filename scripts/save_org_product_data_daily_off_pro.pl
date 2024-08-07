@@ -107,6 +107,13 @@ sub get_org_data ($org_id) {
 	)->next;
 
 	my $number_of_products = $org_data->{number_of_products} // 0;
+
+	# Using off-query to count products with a specific owners_tags seems very slow
+	# use Time::Monotonic qw(monotonic_time);
+	# my $start = monotonic_time();
+	# my $count = execute_count_tags_query({owners_tags => "org-" . $org_id});
+	# my $end = monotonic_time();
+	# print STDERR "$org_id\t$number_of_products\t$count\ttime: " . ($end - $start) . "\n";
 	my $number_of_products_without_nutriscore = $org_data->{number_of_products_without_nutriscore} // 0;
 	my $number_of_products_with_nutriscore = $number_of_products - $number_of_products_without_nutriscore;
 	my $percentage_of_products_with_nutriscore
