@@ -1210,6 +1210,25 @@ $section-sand: #FFFAF1;
 $background-orange: #FF8714;
 $font-green: #008c8c;
 
+.off-days-banner {
+  background-color: $section-cyan;
+  // background-image: url('/images/misc/banners/FR.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 300px;
+  @media #{$small-only} {
+    background-size: contain;
+    height: 25vw; ;
+  }
+  &__FR {
+    background-image: url('/images/misc/banners/FR.png');
+  }
+  &__ENG {
+    background-image: url('/images/misc/banners/ENG.png');
+  }
+}
+
 .donation-banner,
 .donation-banner-footer {
   overflow: hidden;
