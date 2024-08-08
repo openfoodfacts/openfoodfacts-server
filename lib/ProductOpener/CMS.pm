@@ -133,7 +133,7 @@ sub wp_get_available_pages($lc) {
 =head2 wp_update_pages_metadata_cache()
 
 Fill the cache with the metadata of pages published in WordPress.
-This function is called in LoadData.pm
+This function is called in L<ProductOpener::LoadData>
 
 At the end C<@page_metadata_cache_by_id> associate id with the result of C<_wp_list_pages> 
 =cut
