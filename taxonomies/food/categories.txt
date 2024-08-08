@@ -73,6 +73,14 @@ stopwords:de: und, mit, von
 # additional countries can be added separated by a semi colon (";"). Example for en:fruit, 35g, in EU and en:fruit, 35g in en:other-country:
 # expected_minimal_amount_specific_ingredients:en: en:fruit, 35, en:eu;  en:fruit, 35, en:other-country
 
+# if two labels are not compatible, they can be assigned the property 'incompatible_with:en:'
+# for example 
+# en:Pasteurised products
+# etc.
+# incompatible_with:en: categories:en:unpasteurised-products
+# Careful: it should be the same main tag, not a synonym
+# Remark: add the property to the highest parent
+
 en: Bulk
 fr: Vrac
 hr: Rasuti
@@ -117,7 +125,7 @@ nl: Gepasteuriseerde producten
 pl: Produkty pasteryzowane
 pt: Produtos pasteurizados
 sv: Pastöriserade produkter
-opposite:en: en:unpasteurised-products
+incompatible_with:en: categories:en:unpasteurised-products
 
 en: Unpasteurised products
 da: Upasteuriserede produkter
@@ -129,7 +137,7 @@ nl: Ongepasteuriseerde producten
 pl: Produkty niepasteryzowane
 pt: Produtos não pasteurizados
 sv: Opastöriserade produkter
-opposite:en: en:pasteurised-products
+incompatible_with:en: categories:en:pasteurised-products
 
 en: Baby foods
 bg: Бебешки храни
@@ -1164,7 +1172,7 @@ hr: Pića i pripravci za piće
 it: Bevande e preparati per bevande
 nl: Dranken en drankbereidingen
 description:en: This mixes ready to drink beverages and not-ready to drink beverages
-opposite:en: en:meals
+incompatible_with:en: categories:en:meals
 
 < en:Beverages and beverages preparations
 en: Beverage preparations
@@ -1430,9 +1438,9 @@ th: เครื่องดื่มแอลกอฮอล์
 tr: Alkollü içecekler
 zh: 酒, 酒水, 酒饮料
 food_groups:en: en:alcoholic-beverages
+incompatible_with:en: categories:en:non-alcoholic-beverages
 intake24_category_code:en: ALCL
 nova:en: 3
-opposite:en: non-alcoholic-beverages
 pnns_group_2:en: Alcoholic beverages
 wikidata:en: Q154
 
@@ -4306,7 +4314,7 @@ agribalyse_food_code:en: 1023
 ciqual_food_code:en: 1023
 ciqual_food_name:en: Spirit made from wine, armagnac or cognac type
 ciqual_food_name:fr: Eau de vie de vin, type armagnac, cognac
-origins:en: en:france, fr:gascogne
+origins:en: en:france, en:gascogne
 wikidata:en: Q503252
 wikipedia:en: https://en.wikipedia.org/wiki/Armagnac
 
@@ -4316,7 +4324,7 @@ xx: Armagnac-Ténarèze
 de: Armagnac aus dem Anbaugebiet Ténarèze
 fr: Armagnac-Ténarèze
 nl: Armagnac uit Ténarèze
-origins:en: en:france, fr:gascogne
+origins:en: en:france, en:gascogne
 wikidata:en: Q4792603
 wikipedia:en: https://en.wikipedia.org/wiki/Armagnac-T%C3%A9nar%C3%A8ze
 
@@ -4325,7 +4333,7 @@ en: Bas-Armagnac
 de: Armagnac aus dem Anbaugebiet Bas-Armagnac
 fr: Bas-Armagnac
 hr: Bas-armagnac
-origins:en: en:france, fr:gascogne
+origins:en: en:france, en:gascogne
 wikidata:en: Q2201024
 wikipedia:en: https://en.wikipedia.org/wiki/Bas-Armagnac
 
@@ -4350,7 +4358,7 @@ fr: Calvados
 hr: Kalvados
 nl: Calvados
 pl: Calvados
-origins:en: en:france, fr:calvados
+origins:en: en:france, en:calvados
 protected_name_file_number:en: PGI-FR-02033
 protected_name_type:en: gi
 wikidata:en: Q3268
@@ -4566,7 +4574,7 @@ protected_name_type:en: gi
 fr: Eau-de-vie des Charentes
 de: Branntwein aus Charente
 nl: Eau-de-vies uit de Charante
-origins:en: en:france, fr:Charentes
+origins:en: en:france, en:charente
 #wikidata:en:
 
 < en:Swiss Eaux-de-vie
@@ -6104,6 +6112,10 @@ intake24_category_code:en: SOFT
 nova:en: 3
 wikidata:en: Q147538
 
+< en: Sodas
+en: Club sodas
+description:en: Club soda is a form of carbonated water manufactured in North America with added minerals.
+wikipedia:en: https://en.wikipedia.org/wiki/Club_soda
 
 < en:Carbonated drinks
 en: Carbonated soft drinks without fruit juice
@@ -8716,6 +8728,19 @@ nl: Sennapeul
 pl: Senes ostrolistny, Kasja ostrolistna
 wikidata:en: Q132675
 
+< en: Herbal teas
+en: Maca, Maca powder, Peruvian ginseng
+xx: Maca
+la: Lepidium meyenii
+nl: Maca, Maca Poeder
+
+< en: Herbal teas
+en: Mongolian milkvetch
+fr: Astragale de Mongolie
+la: Astragalus mongholicus, Astragalus propinquus, Astragalus membranaceus
+mn: Хунчир
+zh: 黃芪
+
 < en:Herbal teas
 en: Boldo
 xx: Boldo
@@ -10030,7 +10055,7 @@ fr: Substituts de produits laitiers
 hr: Mliječne zamjene
 nl: Zuivelvervangers
 pl: Zastępniki nabiału, Substytuty nabiału
-opposite:en: en:dairies
+incompatible_with:en: categories:en:dairies
 
 < en:Dairy substitutes
 en: Mascarpone substitutes
@@ -11776,7 +11801,7 @@ zh: 无酒精饮料
 ciqual_food_code:en: 18029
 ciqual_food_name:en: Non-alcoholic beverage (average)
 ciqual_food_name:fr: Boisson rafraîchissante sans alcool (aliment moyen)
-opposite:en: en:alcoholic-beverages
+incompatible_with:en: categories:en:alcoholic-beverages
 
 < en:Instant beverages
 < en:Variety packs
@@ -15777,7 +15802,7 @@ wikidata:en: Q21427108
 
 < en:Wines from France
 fr: Coteaux champenois
-origins:en: en:france, fr:champagne
+origins:en: en:france, en:champagne
 wikidata:en: Q2998542
 
 < en:Bordeaux wines
@@ -20468,7 +20493,7 @@ origins:en: en:france
 
 < en:Wines from France
 fr: Rosé des Riceys
-origins:en: en:france, fr:champagne
+origins:en: en:france, en:champagne
 wikidata:en: Q2167983
 
 < en:Wines from France
@@ -37715,8 +37740,8 @@ ro: Gustări dulci
 ru: Сладкие закуски
 sv: Söta snacks, Söta tilltugg
 zh: 含糖零食
+incompatible_with:en: categories:en:salty-snacks
 nova:en: 3
-opposite:en: en:salty-snacks
 
 < en:Sweet snacks
 en: Confectioneries, confectionary, confectionery
@@ -42254,7 +42279,7 @@ it: Riso a grano lungo
 lt: Ilgagrūdžiai ryžiai
 nl: Langgraanrijst
 pt: Arrozes agulha
-opposite:en: en:short-grain-rices, en:medium-grain-rices
+incompatible_with:en: categories:en:short-grain-rices, categories:en:medium-grain-rices
 wikidata:en: Q67594028
 
 < en:Rices
@@ -42265,7 +42290,7 @@ fr: Riz à grain médium, Riz à grain moyen
 hr: Riže srednjeg zrna
 it: Risi di grano medio
 nl: Mediumgraanrijst
-opposite:en: en:short-grain-rices, en:long-grain-rices
+incompatible_with:en: categories:en:short-grain-rices, categories:en:long-grain-rices
 
 < en:Rices
 en: Short grain rices
@@ -42277,7 +42302,7 @@ hr: Riže kratkog zrna
 it: Riso a grano corto, Riso a grana corta
 lt: Trumpagrūdžiai ryžiai
 nl: Korrelrijst
-opposite:en: en:long-grain-rices, en:medium-grain-rices
+incompatible_with:en: categories:en:long-grain-rices, categories:en:medium-grain-rices
 
 < en:Rices
 en: Rices for paella
@@ -43637,7 +43662,7 @@ uz: Sut mahsulotlari
 vi: Chế phẩm sữa
 yi: מילכיגס
 zh: 乳製品, 奶制品
-opposite:en: en:dairy-substitutes
+incompatible_with:en: categories:en:dairy-substitutes
 wikidata:en: Q185217
 
 < en:Dairies
@@ -46377,8 +46402,8 @@ it: Formaggi molli
 nl: Zachte kazen
 pt: Queijos macios
 sv: Mjuka ostar
+incompatible_with:en categories:en:hard-cheeses
 intake24_category_code:en: SFTC
-opposite:en en:hard-cheeses
 
 < en:Soft cheeses
 en: Soft cheeses with bloomy rind, white mold-rind cheese
@@ -46441,8 +46466,8 @@ ru: Варёный спрессованный сыр
 ciqual_food_code:en: 12100
 ciqual_food_name:en: Hard cheese (average)
 ciqual_food_name:fr: Fromage à pâte pressée cuite (aliment moyen)
+incompatible_with:en categories:en:soft-cheeses
 intake24_category_code:en: HRDC
-opposite:en en:soft-cheeses
 wikidata:en: Q3088330
 
 < en:Hard cheeses
@@ -47144,7 +47169,7 @@ ciqual_food_name:en: Cheese, from goat's milk, fresh, from pasteurised milk
 ciqual_food_name:fr: Fromage de chèvre frais, au lait pasteurisé (type bûchette fraîche)
 
 < en:Fresh goat cheese
-< enLUnpasteurised cheeses
+< en:Unpasteurised cheeses
 en: Cheese from goat's milk fresh from raw milk
 fr: Fromage de chèvre frais au lait cru, palet frais de chèvre au lait cru, crottin frais de chèvre au lait cru
 agribalyse_food_code:en: 12804
@@ -50132,7 +50157,7 @@ origins:en: en:france
 
 < en:French butters
 fr: Beurre de Bresse
-origins:en: en:france, fr:bresse
+origins:en: en:france, en:bresse
 protected_name_file_number:en: PDO-FR-1045
 protected_name_type:en: pdo
 wikidata:en: Q3006043
@@ -50719,7 +50744,7 @@ tr: Yarım yağlı süt
 agribalyse_proxy_food_code:en: 19041
 agribalyse_proxy_food_name:en: Milk, semi-skimmed, UHT
 agribalyse_proxy_food_name:fr: Lait demi-écrémé, UHT
-opposite:en: en:skimmed-milks, en:whole-milks
+incompatible_with:en: categories:en:skimmed-milks, categories:en:whole-milks
 wikidata:en: Q10581201
 
 < en:Semi-skimmed milks
@@ -50933,7 +50958,7 @@ tr: Yağsız veya az yağlı süt
 agribalyse_proxy_food_code:en: 19050
 agribalyse_proxy_food_name:en: Milk, skimmed, UHT
 agribalyse_proxy_food_name:fr: Lait écrémé, UHT
-opposite:en: en:semi-skimmed-milks, en:whole-milks
+incompatible_with:en: categories:en:semi-skimmed-milks, categories:en:whole-milks
 wikidata:en: Q2352187
 
 < en:Skimmed milks
@@ -51035,24 +51060,23 @@ sv: Standardmjölk
 agribalyse_proxy_food_code:en: 19024
 agribalyse_proxy_food_name:en: Milk, whole, pasteurised
 agribalyse_proxy_food_name:fr: Lait entier, pasteurisé
-opposite:en: en:semi-skimmed-milks, en:skimmed milks
+incompatible_with:en: categories:en:semi-skimmed-milks, categories:en:skimmed milks
 wikidata:en: Q3374445
 
-<en:Pasteurised milks
-<en:Whole milks
-en:Whole pasteurised milks
-bg:Пълномаслено пастьоризирано прясно мляко
-es:Leche entera esterilizada
-de:Vollmilch sterilisiert
-fr:Laits entiers pasteurisés
-hr:Punomasno pasterizirano mlijeko
-fr:Laits entiers stérilisés
-it:Latte intero sterilizzato
-nl:Gesteriliseerde volle melk
-agribalyse_food_code:en:19024
-ciqual_food_code:en:19024
-ciqual_food_name:en:Milk, whole, pasteurised
-ciqual_food_name:fr:Lait entier, pasteurisé
+< en:Pasteurised milks
+< en:Whole milks
+en: Whole pasteurised milks
+bg: Пълномаслено пастьоризирано прясно мляко
+de: Vollmilch sterilisiert
+es: Leche entera esterilizada
+fr: Laits entiers pasteurisés
+hr: Punomasno pasterizirano mlijeko
+it: Latte intero sterilizzato
+nl: Gesteriliseerde volle melk
+agribalyse_food_code:en: 19024
+ciqual_food_code:en: 19024
+ciqual_food_name:en: Milk, whole, pasteurised
+ciqual_food_name:fr: Lait entier, pasteurisé
 
 < en:UHT Milks
 < en:Whole milks
@@ -54909,8 +54933,8 @@ ru: Солёные закуски
 sv: Salta snacks, Salta tilltugg
 tr: Tuzlu atıştırmalıklar
 zh: 咸味零食
+incompatible_with:en: categories:en:sweet-snacks
 nova:en: 3
-opposite:en: en:sweet-snacks
 
 < en:Salty snacks
 en: Shelf-stable prepared fruit nuts and seeds Mixes
@@ -56520,7 +56544,7 @@ nl: Acaciahoningen uit de Alsace
 
 < en:Honeys from France
 fr: Miel de Cévennes
-origins:en: en:france, fr:cevennes
+origins:en: en:france, en:cevennes
 protected_name_file_number:en: PGI-FR-1148
 protected_name_type:en: pgi
 
@@ -56611,7 +56635,7 @@ protected_name_type:en: pgi
 < en:Honeys from France
 fr: Miels de sapin des Vosges
 nl: Sparrenhoningen uit de Vogezen
-origins:en: en:france, fr:Vosges
+origins:en: en:france, en:vosges
 protected_name_file_number:en: PDO-FR-0204
 protected_name_type:en: pdo
 
@@ -56623,7 +56647,7 @@ origins:en: en:france, fr:Pays de Loire
 < en:Honeys from France
 fr: Miels du Gâtinais, Miel du Gätinais
 nl: Honingen van de Gatinais
-origins:en: en:france, fr:gatinais
+origins:en: en:france, en:gatinais
 
 < en:Honeys from France
 en: Honeys from Jura
@@ -58826,7 +58850,7 @@ en: Olive oil from Nîmes
 fr: Huile d'olive de Nîmes
 hr: Maslinovo ulje iz Nîmesa
 nl: Olijfoliën uit Nîmes, Olijfolies uit Nîmes
-origins:en: en:france, fr:Nîmes
+origins:en: en:france, en:nimes
 protected_name_file_number:en: PDO-FR-0441
 protected_name_type:en: pdo
 
@@ -58835,7 +58859,7 @@ en: Olive oil from Nyons
 fr: Huile d'olive de Nyons
 hr: Maslinovo ulje iz nyonsa
 nl: Olijfoliën uit Nyons, Olijfolies uit Nyons
-origins:en: en:france, fr:nyons
+origins:en: en:france, en:nyons
 protected_name_file_number:en: PDO-FR-0142
 protected_name_type:en: pdo
 #wikidata:en:
@@ -65553,8 +65577,8 @@ sv: Frukter
 th: ผลไม้
 tr: Meyveler
 zh: 水果
+incompatible_with:en: categories:en:vegetables
 intake24_category_code:en: FRTS
-opposite:en: en:vegetables
 wikidata:en: Q1364
 
 < en:Fruits
@@ -67042,6 +67066,12 @@ lt: Šviežios citrinos
 nl: Verse citroen
 season_in_country_fr:en: 1,2,11,12
 
+< en: Fresh lemons
+en: Verna lemons, Verna
+xx: Verna
+fr: Citrons Verna
+nl: Verna citroenen
+
 < en:Lemons
 en: Unwaxed lemons
 
@@ -67595,7 +67625,7 @@ en: Sungold Jumbo
 < en:French fruits
 < en:Kiwis
 fr: Kiwi de l'Adour
-origins:en: en:france, fr:gascogne
+origins:en: en:france, en:gascogne
 protected_name_file_number:en: PGI-FR-0538
 protected_name_type:en: pgi
 
@@ -72388,7 +72418,7 @@ it: Pepe macinato
 lt: Malti pipirai
 nl: Gemalen pepers
 pl: Pieprz mielony
-opposite:en: en:peppercorns
+incompatible_with:en: categories:en:peppercorns
 
 < en:Peppers
 en: Peppercorns
@@ -72401,7 +72431,7 @@ it: Grani di pepe
 lt: Pipirų žirneliai
 nl: Peperkorrels
 pl: Ziarna pieprzu
-opposite:en: en:ground-peppers
+incompatible_with:en: categories:en:ground-peppers
 
 < en:Peppers
 en: Black peppers
@@ -72859,17 +72889,16 @@ lt: Žolelių ir prieskonių mišiniai
 nl: Kruiden/specerijenmengsel, Mengeling van aromatische kruiden en specerijen
 pl: Mieszanki ziół i przypraw
 
-< en:Mixtures of herbs and spices
+< en: Mixtures of herbs and spices
 es: Finas hierbas
 
-< en:Mixtures of herbs and spices
+< en: Mixtures of herbs and spices
 es: Polvo de cinco especias
 
-< en:Mixtures of herbs and spices
+< en: Mixtures of herbs and spices
 en: Ras el hanout
-es: Ras el hanut
+xx: Ras el hanout
 fr: Ras el hanout, Raz el hanout
-hr: Ras el hanout
 nl: Ras el hanoet
 wikidata:en: Q1067261
 
@@ -76960,8 +76989,8 @@ th: อาหารพร้อมกิน
 tr: Hazır yemek
 zh: 菜肴
 food_groups:en: en:one-dish-meals
+incompatible_with:en: categories:en:beverages
 nova:en: 3
-opposite:en: en:beverages
 pnns_group_2:en: One-dish meals
 wikidata:en: Q3391775
 
@@ -82545,6 +82574,7 @@ hr: Odresci
 it: Bistecche
 lt: Kepsniai
 nl: Steaks
+pt: Bifes
 zh: 肉排
 intake24_category_code:en: STEK
 
@@ -83042,7 +83072,7 @@ ja: 牛肉, ビーフ, ぎゅうにく, ぎゅう肉, 牛にく
 lt: Jautiena, Jautienos mėsa
 nl: Rund, Rundervlees
 pl: Wołowina, mięso wołowe
-pt: Bife
+pt: Carnes de vaca
 ru: Говядина
 zh: 牛肉
 gpc_category_code:en: 10005767
@@ -84166,6 +84196,7 @@ ja: 牛ステーキ
 lt: Jautienos kepsniai
 nl: Biefstukken
 pl: Stek wołowy
+pt: Bifes de vaca
 zh: 牛排
 agribalyse_food_code:en: 6201
 ciqual_food_code:en: 6201
@@ -84370,7 +84401,8 @@ ciqual_food_code:en: 6551
 ciqual_food_name:en: Veal, roast, cooked
 ciqual_food_name:fr: Veau, rôti, cuit
 
-< en:Beef preparations
+#don't put in beef preparation, veal stock contain only few percent veal
+< en:Broths
 en: Veal stock
 de: Kalbsfond
 fr: Fond de veau
@@ -84394,7 +84426,7 @@ pl: Steki mrożone
 zh: 冷冻肉排
 
 < en:Frozen foods
-< en:Meats and their products
+< en:Meat preparations
 en: Frozen meat preparations
 de: Gefrorene Fleischprodukte, Gefrorenes Fleisch
 es: Preparados de carne congelada
@@ -84568,6 +84600,7 @@ fr: Porc et dérivés
 hr: Svinjetina i proizvodi od nje
 lt: Kiauliena ir jos produktai
 pl: Wieprzowina i jej produkty
+incompatible_with:en: labels:en:kosher
 
 < en:Pork and its products
 en: Pork (prepared)
@@ -84785,7 +84818,7 @@ ciqual_food_name:fr: Porc, filet mignon, cuit
 
 < en:Pork
 fr: Porc de la Sarthe
-origins:en: en:france, fr:sarthe
+origins:en: en:france, en:sarthe
 protected_name_file_number:en: PGI-FR-0184
 protected_name_type:en: pgi
 
@@ -85319,7 +85352,7 @@ protected_name_type:en: pgi
 
 < en:Poultries
 fr: Volaille de Gascogne
-origins:en: en:france, fr:gascogne
+origins:en: en:france, en:gascogne
 
 < en:Poultries
 fr: Volailles de Houdan
@@ -85342,7 +85375,7 @@ protected_name_type:en: pgi
 
 < en:Poultries
 fr: Volailles de Gascogne
-origins:en: en:france, fr:gascogne
+origins:en: en:france, en:gascogne
 protected_name_file_number:en: PGI-FR-0175
 protected_name_type:en: pgi
 
@@ -85355,7 +85388,7 @@ protected_name_type:en: pgi
 
 < en:Poultries
 fr: Volailles de la Champagne
-origins:en: en:france, fr:champagne
+origins:en: en:france, en:champagne
 protected_name_file_number:en: PGI-FR-0172
 protected_name_type:en: pgi
 
@@ -85367,7 +85400,7 @@ protected_name_type:en: pgi
 
 < en:Poultries
 fr: Volailles du Gatinais
-origins:en: en:france, fr:gatinais
+origins:en: en:france, en:gatinais
 protected_name_file_number:en: PGI-FR-0170
 protected_name_type:en: pgi
 
@@ -85433,7 +85466,7 @@ protected_name_type:en: pgi
 
 < en:Poultries
 fr: Volailles de l'Ain
-origins:en: en:france, fr:Ain
+origins:en: en:france, en:ain
 protected_name_file_number:en: PGI-FR-0146
 protected_name_type:en: pgi
 
@@ -85459,20 +85492,20 @@ protected_name_type:en: pgi
 
 < en:Poultries
 fr: Volailles des Landes
-origins:en: en:france, fr:Landes
+origins:en: en:france, en:landes
 protected_name_file_number:en: PGI-FR-0163
 protected_name_type:en: pgi
 #wikidata:en:
 
 < en:Poultries
 fr: Volailles du Béarn
-origins:en: en:france, fr:bearn
+origins:en: en:france, en:bearn
 protected_name_file_number:en: PGI-FR-0160
 protected_name_type:en: pgi
 
 < en:Poultries
 fr: Volailles du Charolais
-origins:en: en:france, fr:charolais
+origins:en: en:france, en:charolais
 protected_name_file_number:en: PGI-FR-0153
 protected_name_type:en: pgi
 
@@ -85609,8 +85642,8 @@ ciqual_food_code:en: 40108
 ciqual_food_name:en: Liver, poultry, raw
 ciqual_food_name:fr: Foie, volaille, cru
 
-< en:Poultries
-en: Poultry minced meat
+< en:Meat preparations
+en: Poultry minced preparations
 fr: Haché de volaille
 agribalyse_food_code:en: 28927
 ciqual_food_code:en: 28927
@@ -86989,17 +87022,41 @@ protected_name_file_number:en: PDO-FR-0992
 protected_name_type:en: pdo
 wikidata:en: Q21007645
 
+# don't put under sausages since it also exists in spread form
+# don't confused the "French" style and the "German" style liver sausages. The French ones are cured and the German ones are precooked and usually spreadable
 < en:Prepared meats
 xx: Liverwurst
 en: Liverwurst
-de: Leberwurst
+bg: Колбаси от черен дроб
+de: Leberwürste, Leberwurst
+fi: Maksamakkarat
+hr: Jetrene kobasice
+hu: Májkolbászok
+nl: Leverworsten
+agribalyse_food_code:en: 30176
+ciqual_food_code:en: 30176
+ciqual_food_name:en: Liver sausage
+ciqual_food_name:fr: Saucisse de foie
+wikidata:en: Q1570466
 
 < en:Liverwurst
 en: Liverwurst sausages
 
 < en:Liverwurst
 < en:Meat spreads
-en: Livewurst spreads
+en: Liverwurst spreads
+
+< en:Liverwurst
+< en:Pork preparations
+en: Pork liver sausages
+de: Schweineleberwürste, Schweineleberwurst
+fr: Saucisses de foie de porc
+hr: Kobasice od svinjske jetre
+it: Salsicce di fegato di suino
+nl: Varkensleverworsten
+
+< en:Liverwurst
+de: Geflügelleberwürste, Geflügelleberwurst
 
 < en:Prepared meats
 en: French meat products
@@ -88157,36 +88214,16 @@ hr: Kisele kobasice
 hu: Pácolt kolbász
 nl: Ingemaakte worst
 
-< en:Sausages
-en: Liver sausages
-bg: Колбаси от черен дроб
-de: Leberwürste
-fi: Maksamakkarat
-fr: Saucisses de foie
-hr: Jetrene kobasice
-hu: Májkolbászok
-nl: Leverworsten
-agribalyse_food_code:en: 30176
-ciqual_food_code:en: 30176
-ciqual_food_name:en: Liver sausage
-ciqual_food_name:fr: Saucisse de foie
-wikidata:en: Q1570466
+# Don't confused the "French" style and the "German" style liver sausages. The French ones are cured and the German ones are precooked and usually spreadable
+< en:Cured sausages
+en: Cured liver sausages, Liver sausages
+fr: Saucisses sèches de foie, Saucisses de foie
+wikidata:en: Q111211562
 
-< en:Liver sausages
-< en:Pork preparations
-en: Pork liver sausages
-de: Schweineleberwürste, Schweineleberwurst
-fr: Saucisses de foie de porc
-hr: Kobasice od svinjske jetre
-it: Salsicce di fegato di suino
-nl: Varkensleverworsten
-
-< en:Liver sausages
-de: Geflügelleberwürste, Geflügelleberwurst
-
-< en:Pork liver sausages
+< en:Pork sausages
+en: Pork and cabbage sausages
+fr: Saucisses de porc aux choux, Saucisses aux choux, saucisses aux choux vaudoise
 hu: Sertés Májkolbászok
-fr: Saucisses aux choux, saucisses aux choux vaudoise
 
 < en:Sausages
 en: French sausages, Sausages from France
@@ -88272,28 +88309,18 @@ wikidata:en: Q3267151
 < en:French sausages
 fr: Saucisses d'herbe
 
-< en:French sausages
-< en:Liver sausages
-en: Alsatian liver sausages
-fr: Saucisses de foie alsacienne
-
-< en:French sausages
-en: Smoked Alsatian sausage, Landjäger
-fr: Saucisse alsacienne fumée, Gendarme fumé
+< en:Cured liver sausages
+en: Landjäger sausages, Smoked Alsatian sausage
+fr: Saucisses gendarmes, Saucisse alsacienne fumée, Gendarme fumé
 agribalyse_food_code:en: 30125
 ciqual_food_code:en: 30125
 ciqual_food_name:en: Smoked Alsatian sausage or Landjäger
 
-< en:French sausages
-< en:Liver sausages
-en: Liver sausages from Ariége
-fr: Saucisses de foie ariégeoise
-
-< en:French sausages
 < en:Pork liver sausages
 fr: Figatellus
 wikidata:en: Q1411847
 
+< en:French sausages
 < fr:Figatellus
 fr: Figatelli de l'Ile de Beauté, Figatellu de l'Ile de Beauté
 origins:en: en:france
@@ -103356,8 +103383,8 @@ nl: Groenten, Groente
 pl: warzywa
 pt: Vegetais
 ru: Овощи
+incompatible_with:en: categories:en:fruits
 intake24_category_code:en: VTGB
-opposite:en: en:fruits
 
 < en:Vegetables
 en: Root vegetables, root vegetable
@@ -103490,7 +103517,7 @@ wikidata:en: Q3349932
 < en:French vegetables
 < en:Onions
 fr: Oignon doux des Cévennes
-origins:en: en:france, fr:cevennes
+origins:en: en:france, en:cevennes
 protected_name_file_number:en: PDO-FR-0314
 protected_name_type:en: pdo
 wikidata:en: Q1934523
@@ -104308,7 +104335,7 @@ wikidata:en: Q23041045
 < en:Asparagus
 < en:French vegetables
 fr: Asperge des sables des Landes
-origins:en: en:france, fr:Landes
+origins:en: en:france, en:landes
 protected_name_file_number:en: PGI-FR-0272
 protected_name_type:en: pgi
 wikidata:en: Q18578209
@@ -106616,7 +106643,7 @@ origins:en: en:france
 < en:Potatoes from France
 en: Potatoes from Île de Ré
 fr: Pommes de terre de l'île de Ré, Pomme de terre de l'île de Ré
-origins:en: en:france, fr:ile-de-re
+origins:en: en:france, en:ile-de-re
 protected_name_file_number:en: PDO-FR-0065
 protected_name_type:en: pdo
 wikidata:en: Q3395977
@@ -108927,7 +108954,7 @@ pl: Soczewica czerwona
 
 < en:Lentils
 fr: lentilles rosées de Champagne, lentillon de Champagne
-origins:en: en:france, fr:champagne
+origins:en: en:france, en:champagne
 
 < en:Pulses
 en: Lupin beans, Lupins, Lupini beans
@@ -110545,7 +110572,7 @@ gpc_category_name:en: Olives (Perishable)
 < en:French vegetables
 < en:Olives
 fr: Olive de Nîmes
-origins:en: en:france, fr:Nîmes
+origins:en: en:france, en:nimes
 protected_name_file_number:en: PDO-FR-0568
 protected_name_type:en: pdo
 
@@ -110577,7 +110604,7 @@ tr: Siyah zeytin
 < en:Black olives
 < en:French vegetables
 fr: Olives noires de Nyons
-origins:en: en:france, fr:nyons
+origins:en: en:france, en:nyons
 protected_name_file_number:en: PDO-FR-0374
 protected_name_type:en: pdo
 
@@ -113819,9 +113846,9 @@ ru: Мясозаменители
 gpc_category_code:en: 10005824
 gpc_category_description:en: Definition: Includes all products which can be described/observed as a healthy food alternative to meat vegetable and egg proteins. These products are non animal based and an imitation of meat products, meant to simulate the taste and mouthfeel of real meat but are normally made from a combination of non animal based ingredients. Includes products such as soya, fungus, beans, lentils, peas and chickpeas based products. These products must be refrigerated to extend their consumable life. Definition Excludes: Excludes all meat-based products and any other protein rich products such as eggs and pulses that constitute the main recipe ingredients. Also excludes Meat Substitutes - Non Animal based frozen and shelf stable products and Meat Substitutes - Animal based frozen, perishable and shelf stable products.
 gpc_category_name:en: Meat Substitutes - Non Animal Based (Perishable)
+incompatible_with:en: categories:en:meat
 intake24_category_code:en: MTST
 intake24_category_code:fr: MTST
-opposite:en: en:meat
 wikidata:en: Q1343997
 
 < en:Meat analogues
