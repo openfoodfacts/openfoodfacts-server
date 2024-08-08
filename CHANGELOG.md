@@ -1,5 +1,22 @@
 # Changelog
 
+## [2.40.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.39.0...v2.40.0) (2024-08-08)
+
+
+### Features
+
+* add more admins ([#10629](https://github.com/openfoodfacts/openfoodfacts-server/issues/10629)) ([d1e185a](https://github.com/openfoodfacts/openfoodfacts-server/commit/d1e185ab20b377881511233e999f611a814997ce))
+* added a geoip api endpoint ([#10648](https://github.com/openfoodfacts/openfoodfacts-server/issues/10648)) ([a0442af](https://github.com/openfoodfacts/openfoodfacts-server/commit/a0442af44586115a2938590516b1af943928b2d4))
+* dq new facet for opposite tags ([#10378](https://github.com/openfoodfacts/openfoodfacts-server/issues/10378)) ([8d32e29](https://github.com/openfoodfacts/openfoodfacts-server/commit/8d32e299bb683dfa5bbffaedb4eed4913e19b9a8))
+
+
+### Bug Fixes
+
+* add proper parent task ([#10650](https://github.com/openfoodfacts/openfoodfacts-server/issues/10650)) ([4712db1](https://github.com/openfoodfacts/openfoodfacts-server/commit/4712db190ade37d7b27392995b1e755acfe2b218))
+* dq new facet for opposite tags fix ([#10651](https://github.com/openfoodfacts/openfoodfacts-server/issues/10651)) ([35d4aa2](https://github.com/openfoodfacts/openfoodfacts-server/commit/35d4aa2159835fa31686b7c3ac0d3bacb5ccaf08))
+* intermarche import ([#10652](https://github.com/openfoodfacts/openfoodfacts-server/issues/10652)) ([c927873](https://github.com/openfoodfacts/openfoodfacts-server/commit/c927873e4239e64657a234c76939c60b36bf4a96))
+* use owners_tags indexed field in producers dashboard query ([#10624](https://github.com/openfoodfacts/openfoodfacts-server/issues/10624)) ([db94f7a](https://github.com/openfoodfacts/openfoodfacts-server/commit/db94f7a1d1f84db1ce2bbb57d1247f640703db55))
+
 ## [2.39.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.38.1...v2.39.0) (2024-07-30)
 
 
