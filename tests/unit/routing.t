@@ -3,11 +3,9 @@
 use Modern::Perl '2017';
 use utf8;
 
-
 use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
 use ProductOpener::Routing qw/analyze_request load_routes/;
 use ProductOpener::Lang qw/$lc /;
-
 
 use Test2::V0;
 use Mock::Quick;
@@ -139,10 +137,10 @@ my @tests = (
 			no_index => '0',
 			is_crawl_bot => '0',
 		}
-    },
-    {
+	},
+	{
 		id => 'geoip-get-country-from-ipv6-fr',
-        desc => 'geoip get country from ipv6 fr',
+		desc => 'geoip get country from ipv6 fr',
 		lc => "en",
 		input_request => {
 			cc => "world",
@@ -150,9 +148,9 @@ my @tests = (
 			original_query_string => 'api/v3/geopip/2001:ac8:25:3b::e01d',
 			no_index => '0',
 			is_crawl_bot => '0',
-			
+
 		},
-    },
+	},
 );
 
 foreach my $test_ref (@tests) {
@@ -160,7 +158,11 @@ foreach my $test_ref (@tests) {
 	# Set $lc global because currently analyze_request uses the global $lc
 	$lc = $test_ref->{input_request}{lc};
 	analyze_request($test_ref->{input_request});
-	compare_to_expected_results($test_ref->{input_request}, "$expected_result_dir/$test_ref->{id}.json", $update_expected_results, $test_ref);
+	compare_to_expected_results(
+		$test_ref->{input_request},
+		"$expected_result_dir/$test_ref->{id}.json",
+		$update_expected_results, $test_ref
+	);
 }
 
 done_testing();
