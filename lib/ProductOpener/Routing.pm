@@ -561,7 +561,9 @@ sub facets_route($request_ref) {
 	return 1;
 }
 
-sub content_route($request_ref, @components) {
+sub content_route($request_ref) {
+	my @components = @{$request_ref->{components}};
+
 	$request_ref->{content} = 1;
 	# # content/refresh
 	if (($components[1] eq 'refresh') and is_admin_user($request_ref->{user_id})) {
