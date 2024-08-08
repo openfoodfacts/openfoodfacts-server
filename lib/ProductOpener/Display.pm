@@ -1314,9 +1314,6 @@ sub display_content($request_ref) {
 	my $html = "";
 	my $template_data_ref = {};
 
-	if ($request_ref->{admin} or $request_ref->{moderator}) {
-		wp_update_pages_metadata_cache(1);
-	}
 	if (not defined $request_ref->{content_slug}) {
 		# Display the list of available pages
 		my @sorted_pages = sort {$a->{id} > $b->{id}} wp_get_available_pages($request_ref->{content_lc});
@@ -1328,7 +1325,11 @@ sub display_content($request_ref) {
 	else {
 		# Display the content of a specific page
 		my $page_data = wp_get_page_from_slug($request_ref->{content_lc}, $request_ref->{content_slug});
+		if (not defined $page_data) {
+			display_error_and_exit($request_ref, lang("error_invalid_address"), 404);
+		}
 		$template_data_ref->{wp_data} = $page_data;
+		$request_ref->{canon_url} = "/";
 
 		process_template('web/pages/content/wordpress_content.tt.html', $template_data_ref, \$html)
 			|| return "template error: " . $tt->error();
@@ -1336,7 +1337,6 @@ sub display_content($request_ref) {
 
 	$request_ref->{styles} .= '';
 	$request_ref->{header} .= '';
-	$request_ref->{canon_url} = "/bop";
 	$request_ref->{content_ref} = \$html;
 	display_page($request_ref);
 

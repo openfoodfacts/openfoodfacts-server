@@ -57,6 +57,7 @@ use ProductOpener::Index qw/%texts/;
 use ProductOpener::Store qw/get_string_id_for_lang/;
 use ProductOpener::Redis qw/:all/;
 use ProductOpener::RequestStats qw/:all/;
+use ProductOpener::CMS qw/load_cms_data/;
 
 use Encode;
 use CGI qw/:cgi :form escapeHTML/;
@@ -560,14 +561,20 @@ sub facets_route($request_ref, @components) {
 
 sub content_route($request_ref, @components) {
 	$request_ref->{content} = 1;
+	# # content/refresh
+	if (($components[1] eq 'refresh') and is_admin_user($request_ref->{user_id})) {
+		load_cms_data();
+		$log->debug("content_route", {what => 'refreshed available contents'}) if $log->is_debug();
+		redirect_to_url($request_ref, 302, '/content');
+		return 1;
+	}
+	# /content/[lc]/[slug]
 	$request_ref->{content_lc} = $components[1] // 'en';
-
 	if (defined $components[2]) {
 		$request_ref->{content_slug} = $components[2];
-		$log->debug("content route", {lc => $request_ref->{content_lc}, slug => $request_ref->{content_slug}})
+		$log->debug("content_route", {lc => $request_ref->{content_lc}, slug => $request_ref->{content_slug}})
 			if $log->is_debug();
 	}
-
 	return 1;
 }
 

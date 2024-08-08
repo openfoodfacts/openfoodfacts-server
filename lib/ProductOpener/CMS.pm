@@ -44,6 +44,7 @@ BEGIN {
 		&wp_get_page_from_slug
 		&wp_get_available_pages
 		&wp_update_pages_metadata_cache
+		&load_cms_data
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 
@@ -56,11 +57,9 @@ use LWP::Simple;
 use Log::Any qw($log);
 use JSON;
 
-my $last_cache_update_t = 0;
-my $cache_update_interval_s = 60 * 10;    # 10 minutes
-my $pages_metadata_cache_by_id = {};    # { 16 => { 'en' => page_metadata } }
-my $page_id_by_localized_slug = {};    # { en => { 'my-test-page' => 16 },
-                                       #   fr => { 'ma-page-test' => 16 } }
+my $page_metadata_cache_by_id = {};    # { 16 => { en => page_metadata } }
+my $page_id_by_localized_slug = {};    # { en => { my-test-page => 16 },
+                                       #   fr => { ma-page-test => 16 } }
 
 =head2 get_page_from_slug($lc, $slug)
 
@@ -81,14 +80,13 @@ e.g. 'my-test-page' or 'journees-open-food-facts-2024-reviennent-en-septembre-a-
 
 sub wp_get_page_from_slug($lc, $slug) {
 
-	wp_update_pages_metadata_cache();
-
 	my $page_id = $page_id_by_localized_slug->{$lc}{$slug};
 	if ($page_id) {
 		my $page_data = _wp_get_page_by_id($page_id);
 		return {
 			title => $page_data->{title}{rendered},
 			content => $page_data->{content}{rendered},
+			link => "/content/$lc/$page_data->{slug}",
 		};
 	}
 	return;
@@ -101,55 +99,57 @@ If the page isn't available in that language, it defaults to 'en'
 
 =head3 Returns
 
-An array of pages:
+An list of pages:
 
-[
+(
     {
+		id: '6'
         lc: 'en',
         link: '/content/en/test-page',
         title: 'Test Page'
     },
-]
+)
 
 =cut
 
 sub wp_get_available_pages($lc) {
-
-	wp_update_pages_metadata_cache();
-
 	my @available_translations;
-	foreach my $page_id (keys %{$pages_metadata_cache_by_id}) {
+	foreach my $page_id (keys %{$page_metadata_cache_by_id}) {
 		my $existing_lc = (exists $page_id_by_localized_slug->{$lc}{$page_id}) ? $lc : 'en';
-		my $page = $pages_metadata_cache_by_id->{$page_id}{$existing_lc};
-		my $aa = {
+		my $page = $page_metadata_cache_by_id->{$page_id}{$existing_lc};
+		$page = {
 			id => $page_id,
 			lc => $existing_lc,
-			link => "/content/$lc/$page->{slug}",
-			title => $page->{title}{rendered},
+			link => "/content/$existing_lc/$page->{slug}",
+			title => $page->{title},
 		};
-		push @available_translations, $aa;
+		push @available_translations, $page;
 	}
-
+	$log->debug("wp_get_available_pages", {lc => $lc, available_translations => \@available_translations})
+		if $log->is_debug();
 	return @available_translations;
 }
 
 =head2 wp_update_pages_metadata_cache()
 
-Updates the caches of available pages
-if the cache is older than the cache_update_interval_s.
+Fill the cache with the metadata of pages published in WordPress.
+This function is called in LoadData.pm
 
-At the end C<@pages_metadata_cache_by_id> associate id with the result of C<_wp_list_pages> 
+At the end C<@page_metadata_cache_by_id> associate id with the result of C<_wp_list_pages> 
 =cut
 
-sub wp_update_pages_metadata_cache($force = 0) {
-	if ((time() - $last_cache_update_t) >= $cache_update_interval_s or $force) {
-		$log->debug("cache", {}) if $log->is_debug();
-		$last_cache_update_t = time();
-		foreach my $page (@{_wp_list_pages()}) {
-			# TODO: change this to support of multiple languages when WPML is enabled
-			$pages_metadata_cache_by_id->{$page->{id}}{en} = $page;
-			$page_id_by_localized_slug->{en}{$page->{slug}} = $page->{id};
-		}
+sub load_cms_data() {
+	my @pages = _wp_list_pages();
+	if (!@pages) {
+		print STDERR "Couldn't get pages metadata from WordPress$@\n";
+		return 0;
+	}
+	foreach my $page (@pages) {
+		# TODO: change this to support multiple languages when WPML is enabled
+		$page->{title} = $page->{title}{rendered};
+		$page->{wp_url} = $page->{link};
+		$page_metadata_cache_by_id->{$page->{id}}{en} = $page;
+		$page_id_by_localized_slug->{en}{$page->{slug}} = $page->{id};
 	}
 	return 1;
 }
@@ -179,7 +179,7 @@ An array of pages:
 sub _wp_list_pages() {
 	my $url = $ProductOpener::Config2::wordpress_url . '/wp-json/wp/v2/pages?';
 	$url .= "_fields[]= " . join('&_fields[]=', qw(id title modified_gmt link slug));
-	return _get_json_from_url_and_decode($url);
+	return @{_get_json_from_url_and_decode($url)};
 }
 
 sub _wp_get_page_by_id($page_id) {
