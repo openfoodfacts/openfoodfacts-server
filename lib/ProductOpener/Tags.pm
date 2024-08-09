@@ -3646,6 +3646,11 @@ sub canonicalize_taxonomy_tag ($tag_lc, $tagtype, $tag, $exists_in_taxonomy_ref 
 		$tag = $';
 	}
 
+	# Language less taxonomies (e.g. brands): consider the input to be in the xx language
+	if ($tagtype eq "brands") {
+		$tag_lc = "xx";
+	}
+
 	$tag = normalize_percentages($tag, $tag_lc);
 	my $tagid = get_string_id_for_lang($tag_lc, $tag);
 
@@ -4280,7 +4285,13 @@ sub display_taxonomy_tag ($target_lc, $tagtype, $tag) {
 			$display = $tag;
 
 			if ($target_lc ne $tag_lc) {
-				$display = "$tag_lc:$display";
+				# If the tag language is xx:, we don't want to add the language code
+				# This happens for language less taxonomies (e.g. brands) when we don't have a taxonomized entry
+				# So if someone enters SomeUnknownBrand in the brands field, it is normalized to xx:SomeUnknownBrand
+				# and we display it as SomeUnknownBrand
+				if ($tag_lc ne 'xx') {
+					$display = "$tag_lc:$display";
+				}
 			}
 			else {
 				$display = ucfirst($display);
@@ -4712,6 +4723,11 @@ sub compute_field_tags ($product_ref, $tag_lc, $field) {
 	# fields that should not have a different normalization (accentuation etc.) based on language
 	if ($field eq "teams") {
 		$tag_lc = "no_language";
+	}
+
+	# brands are a language less taxonomy, the input tag_lc is not used, we use xx instead
+	if ($field eq "brands") {
+		$tag_lc = "xx";
 	}
 
 	init_emb_codes() unless %emb_codes_cities;
