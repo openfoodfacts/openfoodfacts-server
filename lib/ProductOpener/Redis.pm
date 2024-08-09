@@ -133,6 +133,7 @@ sub push_to_redis_stream ($user_id, $product_ref, $action, $comment, $diffs, $ti
 				# fields
 				'timestamp', $timestamp,
 				'code', Encode::encode_utf8($product_ref->{code}),
+				'rev', Encode::encode_utf8($product_ref->{rev}),
 				# product_type should be used over flavor (kept for backward compatibility)
 				'product_type', $options{product_type},
 				'flavor', $options{current_server},

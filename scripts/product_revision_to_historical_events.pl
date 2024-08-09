@@ -21,10 +21,9 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 use ProductOpener::PerlStandards;
-use Modern::Perl '2017';
 use utf8;
 
-use ProductOpener::Config qw/%options/;
+use ProductOpener::Config qw/%options $query_url/;
 use ProductOpener::Store qw/store retrieve/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Redis qw/push_to_redis_stream/;
@@ -34,6 +33,9 @@ use JSON;
 
 # This script recursively visits all product.sto files from the root of the products directory
 # and process its changes to generate a JSONL file of historical events
+my $start_from = $ARGV[0] // 0;
+my $end_before = $ARGV[1] // 9999999999;
+#perl scripts/product_revision_to_historical_events.pl 1704067200
 
 my ($checkpoint_file, $last_processed_path, $last_processed_rev) = open_checkpoint('checkpoint.tmp');
 my $can_process = $last_processed_path ? 0 : 1;
@@ -42,25 +44,34 @@ my $can_process = $last_processed_path ? 0 : 1;
 my $filename = 'historical_events.jsonl';
 open(my $file, '>>:encoding(UTF-8)', $filename) or die "Could not open file '$filename' $!";
 
-my $total = 0;
+my $product_count = 0;
+my $event_count = 0;
 
-sub process_file {
-	my ($path) = @_;
-	$total++;
+my @events = ();
 
-	if ($total % 1000 == 0) {
-		print "$total processed \n";
+$query_url =~ s/^\s+|\s+$//g;
+my $query_post_url = URI->new("$query_url/productupdates");
+my $ua = LWP::UserAgent->new();
+# Add a timeout to the HTTP query
+$ua->timeout(15);
+
+sub process_file($path, $code) {
+	$product_count++;
+
+	if ($product_count % 1000 == 0) {
+		print '[' . localtime() . "] $product_count products processed. Sent $event_count events \n";
 	}
 
 	my $changes = retrieve($path . "/changes.sto");
 
 	# JSONL
-	my $code = product_id_from_path($path);
+	#my $code = product_id_from_path($path);
 	my $change_count = @$changes;    # some $product don't have a 'rev'
 	my $rev = 0;    # some $change don't have a 'rev'
 
 	foreach my $change (@{$changes}) {
 		$rev++;
+		# my $product = retrieve($path . "/" . $rev . ".sto");
 
 		if (not $can_process and $rev == $last_processed_rev) {
 			$can_process = 1;
@@ -69,6 +80,9 @@ sub process_file {
 		}
 
 		next if not $can_process;
+
+		my $timestamp = $change->{t} // 0;
+		next if ($timestamp < $start_from or $timestamp >= $end_before);
 
 		my $action = 'updated';
 		if ($rev eq 1) {
@@ -81,51 +95,68 @@ sub process_file {
 		}
 
 		if (exists $change->{diffs}{fields}{add}
-			and $change->{diffs}{fields}{add}[0] eq 'obsolete')
+			and (grep {$_ eq 'obsolete'} @{$change->{diffs}{fields}{add}}))
 		{
 			$action = 'archived';
 		}
 		if (exists $change->{diffs}{fields}{delete}
-			and $change->{diffs}{fields}{delete}[0] eq 'obsolete')
+			and (grep {$_ eq 'obsolete'} @{$change->{diffs}{fields}{delete}}))
 		{
 			$action = 'unarchived';
 		}
 
-		$change->{diffs}{initial_import} = 1;
-
-		print $file encode_json(
-			{
-				timestamp => $change->{t},
-				barcode => $code,
-				userid => $change->{userid} // 'initial_import',
+		push(@events, {
+				timestamp => $timestamp,
+				code => $code,
+				rev => $rev + 0,
+				user_id => $change->{userid} // 'initial_import',
 				comment => $change->{comment},
 				product_type => $options{product_type},
 				action => $action,
 				diffs => $change->{diffs}
-			}
-		) . "\n";
+			});
 
-		# push_to_redis_stream(
-		# 	$change->{userid} // 'initial_import',
-		# 	$product,
-		# 	$action,
-		# 	$change->{comment},
-		# 	$change->{diffs},
-		# 	$change->{t}
-		# );
-
-		update_checkpoint($checkpoint_file, $path, $rev);
+		$event_count++;
+		if ($event_count % 1000 == 0) {
+			send_events();
+			update_checkpoint($checkpoint_file, $path, $rev);
+		}
 	}
 
 	return 1;
 }
 
+sub send_events() {
+	foreach my $event (@events) {
+		print $file encode_json($event) . "\n";
+	}
+
+	my $resp = $ua->post(
+		$query_post_url,
+		Content => encode_json(\@events),
+		'Content-Type' => 'application/json; charset=utf-8'
+	);
+	if (!$resp->is_success) {
+		print '[' . localtime() . "] query response not ok calling " . $query_post_url . " error: " . $resp->status_line . "\n";
+		die;
+	}
+
+	# Note pushing to redis will cause product to be reloaded
+	# push_to_redis_stream(
+	# 	$change->{userid} // 'initial_import',
+	# 	{code=>$code, rev=>$rev},
+	# 	$action,
+	# 	$change->{comment},
+	# 	$change->{diffs},
+	# 	$change->{t}
+	# );
+
+	@events = ();
+}
+
 # because getting products from mongodb won't give 'deleted' ones
 # found that path->visit was slow with full product volume
-sub find_products {
-	my $dir = shift;
-	my $code = shift;
-
+sub find_products($dir, $code) {
 	opendir DH, "$dir" or die "could not open $dir directory: $!\n";
 	my @files = readdir(DH);
 	closedir DH;
@@ -140,7 +171,7 @@ sub find_products {
 
 		if ($entry eq 'product.sto') {
 			if ($can_process or ($last_processed_path and $last_processed_path eq $dir)) {
-				process_file($dir);
+				process_file($dir, $code);
 			}
 		}
 	}
@@ -148,8 +179,7 @@ sub find_products {
 	return;
 }
 
-sub open_checkpoint {
-	my ($filename) = @_;
+sub open_checkpoint($filename) {
 	if (!-e $filename) {
 		`touch $filename`;
 	}
@@ -164,8 +194,7 @@ sub open_checkpoint {
 	return ($checkpoint_file, $last_processed_path, $rev);
 }
 
-sub update_checkpoint {
-	my ($checkpoint_file, $dir, $revision) = @_;
+sub update_checkpoint($checkpoint_file, $dir, $revision) {
 	seek($checkpoint_file, 0, 0);
 	print $checkpoint_file "$dir,$revision";
 	truncate($checkpoint_file, tell($checkpoint_file));
@@ -173,5 +202,10 @@ sub update_checkpoint {
 }
 
 find_products($BASE_DIRS{PRODUCTS}, '');
+
+if (scalar(@events)) {
+	send_events();
+}
+
 close $file;
 close $checkpoint_file;
