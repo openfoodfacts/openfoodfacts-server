@@ -160,6 +160,8 @@ sub send_events() {
 	# );
 
 	@events = ();
+
+	return 1;
 }
 
 # because getting products from mongodb won't give 'deleted' ones
