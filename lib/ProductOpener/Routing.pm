@@ -57,6 +57,7 @@ use ProductOpener::Index qw/%texts/;
 use ProductOpener::Store qw/get_string_id_for_lang/;
 use ProductOpener::Redis qw/:all/;
 use ProductOpener::RequestStats qw/:all/;
+use ProductOpener::CMS qw/load_cms_data/;
 
 use Encode;
 use CGI qw/:cgi :form escapeHTML/;
@@ -74,7 +75,7 @@ Load OFF routes
 
 =pod
 
-a route is registered with:
+A route is registered with:
 	- Pattern:
 		- a simple string (e.g. "api") without '/'':
 			when you simply want to route with the first component of the path e.g.
@@ -97,9 +98,10 @@ a route is registered with:
 		- onlyif: a sub($request_ref) that will be called to check if the route should be used
 			Its a dynamic routing, using context of the request.
 			Results is used as a boolean to decide if the route should be used.
+      
 		}
 
-non regex routes will be matched first, then regex routes
+Non regex routes are matched first, then regex routes.
 
 =cut
 
@@ -112,6 +114,7 @@ sub load_routes() {
 		['properties', \&properties_route],
 		['property', \&properties_route],
 		['products', \&products_route],
+		['content', \&content_route],
 		# with priority
 		['', \&index_route],
 		['^(?<page>\d+)$', \&index_route, {regex => 1}],
@@ -558,7 +561,28 @@ sub facets_route($request_ref) {
 	return 1;
 }
 
-##### END ROUTES #####
+sub content_route($request_ref) {
+	my @components = @{$request_ref->{components}};
+
+	$request_ref->{content} = 1;
+	# # content/refresh
+	if (($components[1] eq 'refresh') and is_admin_user($request_ref->{user_id})) {
+		load_cms_data();
+		$log->debug("content_route", {what => 'refreshed available contents'}) if $log->is_debug();
+		redirect_to_url($request_ref, 302, '/content');
+		return 1;
+	}
+	# /content/[lc]/[slug]
+	$request_ref->{content_lc} = $components[1] // 'en';
+	if (defined $components[2]) {
+		$request_ref->{content_slug} = $components[2];
+		$log->debug("content_route", {lc => $request_ref->{content_lc}, slug => $request_ref->{content_slug}})
+			if $log->is_debug();
+	}
+	return 1;
+}
+
+##### END ROUTES #####
 
 =head2 register_route($routes_to_register)
 

@@ -60,6 +60,7 @@ BEGIN {
 		&display_no_index_page_and_exit
 		&display_robots_txt_and_exit
 		&display_page
+		&display_content
 		&display_text
 		&display_stats
 		&display_points
@@ -174,6 +175,7 @@ use ProductOpener::Cache qw/$max_memcached_object_size $memd generate_cache_key/
 use ProductOpener::Permissions qw/has_permission/;
 use ProductOpener::ProductsFeatures qw(feature_enabled);
 use ProductOpener::RequestStats qw(:all);
+use ProductOpener::CMS qw/:all/;
 
 use Encode;
 use URI::Escape::XS;
@@ -1307,6 +1309,40 @@ sub display_index_for_producer ($request_ref) {
 		|| return "template error: " . $tt->error();
 
 	return $html;
+}
+
+sub display_content($request_ref) {
+
+	my $html = "";
+	my $template_data_ref = {};
+
+	if (not defined $request_ref->{content_slug}) {
+		# Display the list of available pages
+		my @sorted_pages = sort {$a->{id} > $b->{id}} wp_get_available_pages($request_ref->{content_lc});
+		$template_data_ref->{wp_available_pages} = \@sorted_pages;
+		$request_ref->{title} = "Content";
+		process_template('web/pages/content/menu.tt.html', $template_data_ref, \$html)
+			|| return "template error: " . $tt->error();
+	}
+	else {
+		# Display the content of a specific page
+		my $page_data = wp_get_page_from_slug($request_ref->{content_lc}, $request_ref->{content_slug});
+		if (not defined $page_data) {
+			display_error_and_exit($request_ref, lang("error_invalid_address"), 404);
+		}
+		$template_data_ref->{wp_data} = $page_data;
+		$request_ref->{canon_url} = "/";
+
+		process_template('web/pages/content/wordpress_content.tt.html', $template_data_ref, \$html)
+			|| return "template error: " . $tt->error();
+	}
+
+	$request_ref->{styles} .= '';
+	$request_ref->{header} .= '';
+	$request_ref->{content_ref} = \$html;
+	display_page($request_ref);
+
+	exit();
 }
 
 sub display_text ($request_ref) {
