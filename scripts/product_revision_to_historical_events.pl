@@ -105,7 +105,9 @@ sub process_file($path, $code) {
 			$action = 'unarchived';
 		}
 
-		push(@events, {
+		push(
+			@events,
+			{
 				timestamp => $timestamp,
 				code => $code,
 				rev => $rev + 0,
@@ -114,7 +116,8 @@ sub process_file($path, $code) {
 				product_type => $options{product_type},
 				action => $action,
 				diffs => $change->{diffs}
-			});
+			}
+		);
 
 		$event_count++;
 		if ($event_count % 1000 == 0) {
@@ -137,7 +140,12 @@ sub send_events() {
 		'Content-Type' => 'application/json; charset=utf-8'
 	);
 	if (!$resp->is_success) {
-		print '[' . localtime() . "] query response not ok calling " . $query_post_url . " error: " . $resp->status_line . "\n";
+		print '['
+			. localtime()
+			. "] query response not ok calling "
+			. $query_post_url
+			. " error: "
+			. $resp->status_line . "\n";
 		die;
 	}
 
