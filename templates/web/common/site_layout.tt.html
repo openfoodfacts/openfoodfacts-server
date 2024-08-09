@@ -245,7 +245,7 @@
 				
 				[% IF mobile %]
         <!-- For reference: mobile.link = https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner -->
-					<a href="[% mobile.link %]&utm_source=off&utm_medium=web&utm_campaign=mobile-app-top-banner-[% language %]" id="mobile-app-top-banner" class="button large expand success">
+					<a href="[% mobile.link %]&utm_campaign=mobile-app-top-banner-[% language %]" id="mobile-app-top-banner" class="button large expand success">
 					<div class="row collapse">
 						<div class="small-6 columns">
 							[% mobile.text %]
@@ -335,7 +335,7 @@
               <!-- msgid "https://apps.apple.com/app/open-beauty-facts/id1122926380" -->
 							<a class="cell small-50 medium-25 large-25 h-space-short v-align-center" href="[% options.ios_app_link %]?utm_source=off&utf_medium=web&utm_campaign=install_the_app_ios_footer_[% language %]"><img src="[% edq(lang('ios_app_icon_url')) %]" alt="[% edq(lang('ios_app_icon_alt_text')) %]"  loading="lazy" class="full-width"></a>
 							<!-- android_app_link - https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en -->
-              <a class="cell small-50 medium-25 large-25 h-space-short v-align-center" href="[% options.android_app_link %]&utm_source=off&utf_medium=web&utm_campaign=install_the_app_android_footer_[% language %]"><img src="https://static.openfoodfacts.org[% edq(lang('android_app_icon_url')) %]" alt="[% edq(lang('android_app_icon_alt_text')) %]" loading="lazy" class="full-width"></a>
+              <a class="cell small-50 medium-25 large-25 h-space-short v-align-center" href="[% options.android_app_link %]&utm_campaign=install_the_app_android_footer_[% language %]"><img src="https://static.openfoodfacts.org[% edq(lang('android_app_icon_url')) %]" alt="[% edq(lang('android_app_icon_alt_text')) %]" loading="lazy" class="full-width"></a>
               <!-- android_apk_app_link - https://world.openfoodfacts.org/images/apps/off.apk -->
 							<a class="cell small-50 medium-25 large-25 h-space-short v-align-center" href="[% options.android_apk_app_link %]?utm_source=off&utf_medium=web&utm_campaign=install_the_app_apk_footer_[% language %]"><img src="https://static.openfoodfacts.org[% edq(lang('android_apk_app_icon_url')) %]" alt="[% edq(lang('android_apk_app_icon_alt_text')) %]" loading="lazy" class="full-width"></a>
 						</div>
