@@ -1,0 +1,8 @@
+type: object
+properties:
+  status_verbose:
+    type: string
+    example: fields saved
+  status:
+    type: integer
+    example: 1
