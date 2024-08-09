@@ -878,6 +878,20 @@
          "nutriscore_2023" : {
             "elements" : [
                {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "Attention : les valeurs nutritionnelles ne sont pas précisées. Elles ont été estimées à partir de la liste des ingrédients.\n                    ",
+                     "type" : "warning"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "Avertissement : Le taux de fruits, légumes et noix n'est pas indiqué sur l'étiquette, il a été estimé en fonction de la liste des ingrédients : 62\n                    ",
+                     "type" : "warning"
+                  }
+               },
+               {
                   "element_type" : "panel",
                   "panel_element" : {
                      "panel_id" : "nutriscore_description"

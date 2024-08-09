@@ -285,10 +285,12 @@
     [% action_element.html %]
 
     [% FOREACH action IN action_element.actions %]
-        <a class="button small action-[% action %]"
-            href="[% product_action_url(product.code, action) %]">
-            [% lang("action_$action") %]
-        </a>
+        <div>
+            <a class="button small action-[% action %]"
+                href="[% product_action_url(product.code, action) %]">
+                [% lang("action_$action") %]
+            </a>
+        </div>
     [% END %]
 
     </div>

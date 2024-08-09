@@ -552,9 +552,10 @@
          "nutriscore_2023" : {
             "elements" : [
                {
-                  "element_type" : "panel",
-                  "panel_element" : {
-                     "panel_id" : "nutriscore_description"
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "The nutrition facts of the product must be specified in order to compute the Nutri-Score.<p>Missing nutrition facts: <b>Energy, Fat, Proteins, Saturated fat, Sodium, Sugars</b></p>\n                    ",
+                     "type" : "warning"
                   }
                },
                {
@@ -565,6 +566,12 @@
                      "html" : "Could you add the information needed to compute the Nutri-Score?"
                   },
                   "element_type" : "action"
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "nutriscore_description"
+                  }
                }
             ],
             "level" : "info",
