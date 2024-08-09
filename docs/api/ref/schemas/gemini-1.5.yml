@@ -1,0 +1,950 @@
+openapi: 3.0.0
+info:
+  title: Open Food Facts API
+  description: API for accessing Open Food Facts product data
+  version: 1.0.0
+servers:
+  - url: https://world.openfoodfacts.org/api/v0
+paths:
+  /product/{barcode}:
+    get:
+      summary: Get product information by barcode
+      parameters:
+        - name: barcode
+          in: path
+          required: true
+          description: Barcode of the product
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    description: Response code
+                  errors:
+                    type: array
+                    description: List of errors
+                    items:
+                      type: string
+                  product:
+                    type: object
+                    description: Product information
+                    properties:
+                      _id:
+                        type: string
+                        description: Product ID
+                      _keywords:
+                        type: array
+                        description: List of keywords
+                        items:
+                          type: string
+                      added_countries_tags:
+                        type: array
+                        description: List of added countries tags
+                        items:
+                          type: string
+                      additives_debug_tags:
+                        type: array
+                        description: List of additives debug tags
+                        items:
+                          type: string
+                      additives_n:
+                        type: integer
+                        description: Number of additives
+                      additives_old_n:
+                        type: integer
+                        description: Old number of additives
+                      additives_old_tags:
+                        type: array
+                        description: List of old additives tags
+                        items:
+                          type: string
+                      additives_original_tags:
+                        type: array
+                        description: List of original additives tags
+                        items:
+                          type: string
+                      additives_prev_original_tags:
+                        type: array
+                        description: List of previous original additives tags
+                        items:
+                          type: string
+                      additives_tags:
+                        type: array
+                        description: List of additives tags
+                        items:
+                          type: string
+                      allergens:
+                        type: string
+                        description: Allergens
+                      allergens_from_ingredients:
+                        type: string
+                        description: Allergens from ingredients
+                      allergens_from_user:
+                        type: string
+                        description: Allergens from user
+                      allergens_hierarchy:
+                        type: array
+                        description: List of allergens hierarchy
+                        items:
+                          type: string
+                      allergens_lc:
+                        type: string
+                        description: Allergens language code
+                      allergens_tags:
+                        type: array
+                        description: List of allergens tags
+                        items:
+                          type: string
+                      amino_acids_prev_tags:
+                        type: array
+                        description: List of previous amino acids tags
+                        items:
+                          type: string
+                      amino_acids_tags:
+                        type: array
+                        description: List of amino acids tags
+                        items:
+                          type: string
+                      brands:
+                        type: string
+                        description: Brands
+                      brands_tags:
+                        type: array
+                        description: List of brands tags
+                        items:
+                          type: string
+                      categories:
+                        type: string
+                        description: Categories
+                      categories_hierarchy:
+                        type: array
+                        description: List of categories hierarchy
+                        items:
+                          type: string
+                      categories_lc:
+                        type: string
+                        description: Categories language code
+                      categories_old:
+                        type: string
+                        description: Old categories
+                      categories_properties:
+                        type: object
+                        description: Categories properties
+                      categories_properties_tags:
+                        type: array
+                        description: List of categories properties tags
+                        items:
+                          type: string
+                      categories_tags:
+                        type: array
+                        description: List of categories tags
+                        items:
+                          type: string
+                      category_properties:
+                        type: object
+                        description: Category properties
+                      checkers_tags:
+                        type: array
+                        description: List of checkers tags
+                        items:
+                          type: string
+                      ciqual_food_name_tags:
+                        type: array
+                        description: List of CIQUAL food name tags
+                        items:
+                          type: string
+                      cities_tags:
+                        type: array
+                        description: List of cities tags
+                        items:
+                          type: string
+                      code:
+                        type: string
+                        description: Product code
+                      codes_tags:
+                        type: array
+                        description: List of codes tags
+                        items:
+                          type: string
+                      complete:
+                        type: integer
+                        description: Completeness flag
+                      completeness:
+                        type: number
+                        description: Completeness score
+                      correctors_tags:
+                        type: array
+                        description: List of correctors tags
+                        items:
+                          type: string
+                      countries:
+                        type: string
+                        description: Countries
+                      countries_hierarchy:
+                        type: array
+                        description: List of countries hierarchy
+                        items:
+                          type: string
+                      countries_lc:
+                        type: string
+                        description: Countries language code
+                      countries_tags:
+                        type: array
+                        description: List of countries tags
+                        items:
+                          type: string
+                      created_t:
+                        type: integer
+                        description: Creation timestamp
+                      creator:
+                        type: string
+                        description: Creator
+                      data_quality_bugs_tags:
+                        type: array
+                        description: List of data quality bugs tags
+                        items:
+                          type: string
+                      data_quality_errors_tags:
+                        type: array
+                        description: List of data quality errors tags
+                        items:
+                          type: string
+                      data_quality_info_tags:
+                        type: array
+                        description: List of data quality info tags
+                        items:
+                          type: string
+                      data_quality_tags:
+                        type: array
+                        description: List of data quality tags
+                        items:
+                          type: string
+                      data_quality_warnings_tags:
+                        type: array
+                        description: List of data quality warnings tags
+                        items:
+                          type: string
+                      data_sources:
+                        type: string
+                        description: Data sources
+                      data_sources_tags:
+                        type: array
+                        description: List of data sources tags
+                        items:
+                          type: string
+                      debug_param_sorted_langs:
+                        type: array
+                        description: List of debug parameter sorted languages
+                        items:
+                          type: string
+                      ecoscore_data:
+                        type: object
+                        description: Eco-Score data
+                      ecoscore_grade:
+                        type: string
+                        description: Eco-Score grade
+                      ecoscore_tags:
+                        type: array
+                        description: List of Eco-Score tags
+                        items:
+                          type: string
+                      editors_tags:
+                        type: array
+                        description: List of editors tags
+                        items:
+                          type: string
+                      emb_codes:
+                        type: string
+                        description: Emb codes
+                      emb_codes_tags:
+                        type: array
+                        description: List of emb codes tags
+                        items:
+                          type: string
+                      entry_dates_tags:
+                        type: array
+                        description: List of entry dates tags
+                        items:
+                          type: string
+                      expiration_date:
+                        type: string
+                        description: Expiration date
+                      food_groups_tags:
+                        type: array
+                        description: List of food groups tags
+                        items:
+                          type: string
+                      generic_name:
+                        type: string
+                        description: Generic name
+                      generic_name_fr:
+                        type: string
+                        description: Generic name in French
+                      id:
+                        type: string
+                        description: Product ID
+                      image_front_small_url:
+                        type: string
+                        description: URL of small front image
+                      image_front_thumb_url:
+                        type: string
+                        description: URL of thumbnail front image
+                      image_front_url:
+                        type: string
+                        description: URL of front image
+                      image_ingredients_small_url:
+                        type: string
+                        description: URL of small ingredients image
+                      image_ingredients_thumb_url:
+                        type: string
+                        description: URL of thumbnail ingredients image
+                      image_ingredients_url:
+                        type: string
+                        description: URL of ingredients image
+                      image_nutrition_small_url:
+                        type: string
+                        description: URL of small nutrition image
+                      image_nutrition_thumb_url:
+                        type: string
+                        description: URL of thumbnail nutrition image
+                      image_nutrition_url:
+                        type: string
+                        description: URL of nutrition image
+                      image_small_url:
+                        type: string
+                        description: URL of small image
+                      image_thumb_url:
+                        type: string
+                        description: URL of thumbnail image
+                      image_url:
+                        type: string
+                        description: URL of image
+                      images:
+                        type: object
+                        description: Images
+                      informers_tags:
+                        type: array
+                        description: List of informers tags
+                        items:
+                          type: string
+                      ingredients:
+                        type: array
+                        description: List of ingredients
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              description: Ingredient ID
+                            percent_estimate:
+                              type: number
+                              description: Percent estimate
+                            percent_max:
+                              type: number
+                              description: Maximum percent
+                            percent_min:
+                              type: number
+                              description: Minimum percent
+                            text:
+                              type: string
+                              description: Ingredient text
+                            vegan:
+                              type: string
+                              description: Vegan status
+                            vegetarian:
+                              type: string
+                              description: Vegetarian status
+                            ciqual_food_code:
+                              type: string
+                              description: CIQUAL food code
+                            ciqual_proxy_food_code:
+                              type: string
+                              description: CIQUAL proxy food code
+                            ingredients:
+                              type: array
+                              description: List of sub-ingredients
+                              items:
+                                type: object
+                                properties:
+                                  id:
+                                    type: string
+                                    description: Sub-ingredient ID
+                                  percent_estimate:
+                                    type: number
+                                    description: Percent estimate
+                                  percent_max:
+                                    type: number
+                                    description: Maximum percent
+                                  percent_min:
+                                    type: number
+                                    description: Minimum percent
+                                  text:
+                                    type: string
+                                    description: Sub-ingredient text
+                                  vegan:
+                                    type: string
+                                    description: Vegan status
+                                  vegetarian:
+                                    type: string
+                                    description: Vegetarian status
+                      ingredients_analysis:
+                        type: object
+                        description: Ingredients analysis
+                      ingredients_analysis_tags:
+                        type: array
+                        description: List of ingredients analysis tags
+                        items:
+                          type: string
+                      ingredients_debug:
+                        type: array
+                        description: List of ingredients debug
+                        items:
+                          type: string
+                      ingredients_from_or_that_may_be_from_palm_oil_n:
+                        type: integer
+                        description: Number of ingredients from or that may be from palm oil
+                      ingredients_from_palm_oil_n:
+                        type: integer
+                        description: Number of ingredients from palm oil
+                      ingredients_from_palm_oil_tags:
+                        type: array
+                        description: List of ingredients from palm oil tags
+                        items:
+                          type: string
+                      ingredients_hierarchy:
+                        type: array
+                        description: List of ingredients hierarchy
+                        items:
+                          type: string
+                      ingredients_ids_debug:
+                        type: array
+                        description: List of ingredients IDs debug
+                        items:
+                          type: string
+                      ingredients_lc:
+                        type: string
+                        description: Ingredients language code
+                      ingredients_n:
+                        type: integer
+                        description: Number of ingredients
+                      ingredients_n_tags:
+                        type: array
+                        description: List of ingredients number tags
+                        items:
+                          type: string
+                      ingredients_non_nutritive_sweeteners_n:
+                        type: integer
+                        description: Number of non-nutritive sweeteners
+                      ingredients_original_tags:
+                        type: array
+                        description: List of original ingredients tags
+                        items:
+                          type: string
+                      ingredients_percent_analysis:
+                        type: integer
+                        description: Ingredients percent analysis flag
+                      ingredients_sweeteners_n:
+                        type: integer
+                        description: Number of sweeteners
+                      ingredients_tags:
+                        type: array
+                        description: List of ingredients tags
+                        items:
+                          type: string
+                      ingredients_text:
+                        type: string
+                        description: Ingredients text
+                      ingredients_text_debug:
+                        type: string
+                        description: Ingredients text debug
+                      ingredients_text_debug_tags:
+                        type: array
+                        description: List of ingredients text debug tags
+                        items:
+                          type: string
+                      ingredients_text_fr:
+                        type: string
+                        description: Ingredients text in French
+                      ingredients_text_with_allergens:
+                        type: string
+                        description: Ingredients text with allergens highlighted
+                      ingredients_text_with_allergens_fr:
+                        type: string
+                        description: Ingredients text with allergens highlighted in French
+                      ingredients_that_may_be_from_palm_oil_n:
+                        type: integer
+                        description: Number of ingredients that may be from palm oil
+                      ingredients_that_may_be_from_palm_oil_tags:
+                        type: array
+                        description: List of ingredients that may be from palm oil tags
+                        items:
+                          type: string
+                      ingredients_with_specified_percent_n:
+                        type: integer
+                        description: Number of ingredients with specified percent
+                      ingredients_with_specified_percent_sum:
+                        type: integer
+                        description: Sum of ingredients with specified percent
+                      ingredients_with_unspecified_percent_n:
+                        type: integer
+                        description: Number of ingredients with unspecified percent
+                      ingredients_with_unspecified_percent_sum:
+                        type: integer
+                        description: Sum of ingredients with unspecified percent
+                      ingredients_without_ciqual_codes:
+                        type: array
+                        description: List of ingredients without CIQUAL codes
+                        items:
+                          type: string
+                      ingredients_without_ciqual_codes_n:
+                        type: integer
+                        description: Number of ingredients without CIQUAL codes
+                      interface_version_created:
+                        type: string
+                        description: Interface version created
+                      interface_version_modified:
+                        type: string
+                        description: Interface version modified
+                      known_ingredients_n:
+                        type: integer
+                        description: Number of known ingredients
+                      labels:
+                        type: string
+                        description: Labels
+                      labels_hierarchy:
+                        type: array
+                        description: List of labels hierarchy
+                        items:
+                          type: string
+                      labels_lc:
+                        type: string
+                        description: Labels language code
+                      labels_old:
+                        type: string
+                        description: Old labels
+                      labels_tags:
+                        type: array
+                        description: List of labels tags
+                        items:
+                          type: string
+                      lang:
+                        type: string
+                        description: Language
+                      languages:
+                        type: object
+                        description: Languages
+                      languages_codes:
+                        type: object
+                        description: Language codes
+                      languages_hierarchy:
+                        type: array
+                        description: List of languages hierarchy
+                        items:
+                          type: string
+                      languages_tags:
+                        type: array
+                        description: List of languages tags
+                        items:
+                          type: string
+                      last_edit_dates_tags:
+                        type: array
+                        description: List of last edit dates tags
+                        items:
+                          type: string
+                      last_editor:
+                        type: string
+                        description: Last editor
+                      last_image_dates_tags:
+                        type: array
+                        description: List of last image dates tags
+                        items:
+                          type: string
+                      last_image_t:
+                        type: integer
+                        description: Last image timestamp
+                      last_modified_by:
+                        type: string
+                        description: Last modified by
+                      last_modified_t:
+                        type: integer
+                        description: Last modified timestamp
+                      last_updated_t:
+                        type: integer
+                        description: Last updated timestamp
+                      lc:
+                        type: string
+                        description: Language code
+                      link:
+                        type: string
+                        description: Link
+                      main_countries_tags:
+                        type: array
+                        description: List of main countries tags
+                        items:
+                          type: string
+                      manufacturing_places:
+                        type: string
+                        description: Manufacturing places
+                      manufacturing_places_tags:
+                        type: array
+                        description: List of manufacturing places tags
+                        items:
+                          type: string
+                      max_imgid:
+                        type: integer
+                        description: Maximum image ID
+                      minerals_prev_tags:
+                        type: array
+                        description: List of previous minerals tags
+                        items:
+                          type: string
+                      minerals_tags:
+                        type: array
+                        description: List of minerals tags
+                        items:
+                          type: string
+                      misc_tags:
+                        type: array
+                        description: List of miscellaneous tags
+                        items:
+                          type: string
+                      no_nutrition_data:
+                        type: string
+                        description: No nutrition data flag
+                      nova_group:
+                        type: integer
+                        description: NOVA group
+                      nova_group_debug:
+                        type: string
+                        description: NOVA group debug
+                      nova_groups:
+                        type: string
+                        description: NOVA groups
+                      nova_groups_markers:
+                        type: object
+                        description: NOVA groups markers
+                      nova_groups_tags:
+                        type: array
+                        description: List of NOVA groups tags
+                        items:
+                          type: string
+                      nucleotides_prev_tags:
+                        type: array
+                        description: List of previous nucleotides tags
+                        items:
+                          type: string
+                      nucleotides_tags:
+                        type: array
+                        description: List of nucleotides tags
+                        items:
+                          type: string
+                      nutrient_levels:
+                        type: object
+                        description: Nutrient levels
+                      nutrient_levels_tags:
+                        type: array
+                        description: List of nutrient levels tags
+                        items:
+                          type: string
+                      nutriments:
+                        type: object
+                        description: Nutriments
+                      nutriscore:
+                        type: object
+                        description: Nutri-Score
+                      nutriscore_2021_tags:
+                        type: array
+                        description: List of Nutri-Score 2021 tags
+                        items:
+                          type: string
+                      nutriscore_2023_tags:
+                        type: array
+                        description: List of Nutri-Score 2023 tags
+                        items:
+                          type: string
+                      nutriscore_grade:
+                        type: string
+                        description: Nutri-Score grade
+                      nutriscore_tags:
+                        type: array
+                        description: List of Nutri-Score tags
+                        items:
+                          type: string
+                      nutriscore_version:
+                        type: string
+                        description: Nutri-Score version
+                      nutrition_data:
+                        type: string
+                        description: Nutrition data flag
+                      nutrition_data_per:
+                        type: string
+                        description: Nutrition data per
+                      nutrition_data_prepared:
+                        type: string
+                        description: Nutrition data prepared
+                      nutrition_data_prepared_per:
+                        type: string
+                        description: Nutrition data prepared per
+                      nutrition_grade_fr:
+                        type: string
+                        description: Nutrition grade in French
+                      nutrition_grades:
+                        type: string
+                        description: Nutrition grades
+                      nutrition_grades_tags:
+                        type: array
+                        description: List of nutrition grades tags
+                        items:
+                          type: string
+                      nutrition_score_beverage:
+                        type: integer
+                        description: Nutrition score for beverage
+                      nutrition_score_debug:
+                        type: string
+                        description: Nutrition score debug
+                      nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients:
+                        type: integer
+                        description: Nutrition score warning flag for fruits, vegetables, legumes estimate from ingredients
+                      nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value:
+                        type: integer
+                        description: Nutrition score warning value for fruits, vegetables, legumes estimate from ingredients
+                      nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients:
+                        type: integer
+                        description: Nutrition score warning flag for fruits, vegetables, nuts estimate from ingredients
+                      nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value:
+                        type: integer
+                        description: Nutrition score warning value for fruits, vegetables, nuts estimate from ingredients
+                      obsolete:
+                        type: string
+                        description: Obsolete flag
+                      obsolete_since_date:
+                        type: string
+                        description: Obsolete since date
+                      origin:
+                        type: string
+                        description: Origin
+                      origin_fr:
+                        type: string
+                        description: Origin in French
+                      origins:
+                        type: string
+                        description: Origins
+                      origins_hierarchy:
+                        type: array
+                        description: List of origins hierarchy
+                        items:
+                          type: string
+                      origins_lc:
+                        type: string
+                        description: Origins language code
+                      origins_tags:
+                        type: array
+                        description: List of origins tags
+                        items:
+                          type: string
+                      other_nutritional_substances_tags:
+                        type: array
+                        description: List of other nutritional substances tags
+                        items:
+                          type: string
+                      packaging_materials_tags:
+                        type: array
+                        description: List of packaging materials tags
+                        items:
+                          type: string
+                      packaging_recycling_tags:
+                        type: array
+                        description: List of packaging recycling tags
+                        items:
+                          type: string
+                      packaging_shapes_tags:
+                        type: array
+                        description: List of packaging shapes tags
+                        items:
+                          type: string
+                      packaging_text:
+                        type: string
+                        description: Packaging text
+                      packaging_text_fr:
+                        type: string
+                        description: Packaging text in French
+                      packagings:
+                        type: array
+                        description: List of packagings
+                        items:
+                          type: object
+                      packagings_complete:
+                        type: integer
+                        description: Packagings completeness flag
+                      packagings_materials:
+                        type: object
+                        description: Packaging materials
+                      photographers_tags:
+                        type: array
+                        description: List of photographers tags
+                        items:
+                          type: string
+                      pnns_groups_1:
+                        type: string
+                        description: PNNS groups 1
+                      pnns_groups_1_tags:
+                        type: array
+                        description: List of PNNS groups 1 tags
+                        items:
+                          type: string
+                      pnns_groups_2:
+                        type: string
+                        description: PNNS groups 2
+                      pnns_groups_2_tags:
+                        type: array
+                        description: List of PNNS groups 2 tags
+                        items:
+                          type: string
+                      popularity_key:
+                        type: integer
+                        description: Popularity key
+                      product_name:
+                        type: string
+                        description: Product name
+                      product_name_debug_tags:
+                        type: array
+                        description: List of product name debug tags
+                        items:
+                          type: string
+                      product_name_fr:
+                        type: string
+                        description: Product name in French
+                      purchase_places:
+                        type: string
+                        description: Purchase places
+                      purchase_places_tags:
+                        type: array
+                        description: List of purchase places tags
+                        items:
+                          type: string
+                      quantity:
+                        type: string
+                        description: Quantity
+                      removed_countries_tags:
+                        type: array
+                        description: List of removed countries tags
+                        items:
+                          type: string
+                      rev:
+                        type: integer
+                        description: Revision number
+                      selected_images:
+                        type: object
+                        description: Selected images
+                      sortkey:
+                        type: integer
+                        description: Sort key
+                      states:
+                        type: string
+                        description: States
+                      states_hierarchy:
+                        type: array
+                        description: List of states hierarchy
+                        items:
+                          type: string
+                      states_tags:
+                        type: array
+                        description: List of states tags
+                        items:
+                          type: string
+                      stores:
+                        type: string
+                        description: Stores
+                      stores_tags:
+                        type: array
+                        description: List of stores tags
+                        items:
+                          type: string
+                      teams:
+                        type: string
+                        description: Teams
+                      teams_tags:
+                        type: array
+                        description: List of teams tags
+                        items:
+                          type: string
+                      traces:
+                        type: string
+                        description: Traces
+                      traces_from_ingredients:
+                        type: string
+                        description: Traces from ingredients
+                      traces_from_user:
+                        type: string
+                        description: Traces from user
+                      traces_hierarchy:
+                        type: array
+                        description: List of traces hierarchy
+                        items:
+                          type: string
+                      traces_lc:
+                        type: string
+                        description: Traces language code
+                      traces_tags:
+                        type: array
+                        description: List of traces tags
+                        items:
+                          type: string
+                      unknown_ingredients_n:
+                        type: integer
+                        description: Number of unknown ingredients
+                      unknown_nutrients_tags:
+                        type: array
+                        description: List of unknown nutrients tags
+                        items:
+                          type: string
+                      update_key:
+                        type: string
+                        description: Update key
+                      vitamins_prev_tags:
+                        type: array
+                        description: List of previous vitamins tags
+                        items:
+                          type: string
+                      vitamins_tags:
+                        type: array
+                        description: List of vitamins tags
+                        items:
+                          type: string
+                      weighers_tags:
+                        type: array
+                        description: List of weighers tags
+                        items:
+                          type: string
+                  result:
+                    type: object
+                    description: Result information
+                    properties:
+                      id:
+                        type: string
+                        description: Result ID
+                      lc_name:
+                        type: string
+                        description: Result name in lowercase
+                      name:
+                        type: string
+                        description: Result name
+                  status:
+                    type: string
+                    description: Status
+                  warnings:
+                    type: array
+                    description: List of warnings
+                    items:
+                      type: string
+        '400':
+          description: Bad request
+        '404':
+          description: Product not found
