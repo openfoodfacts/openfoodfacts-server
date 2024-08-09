@@ -4,6 +4,8 @@
   <img height="48" src="https://static.openfoodfacts.org/images/logos/off-logo-horizontal-light.svg"/>
 </picture>
 
+[![OpenSSF Best Practices](https://www.bestpractices.dev/projects/9345/badge)](https://www.bestpractices.dev/projects/9345)
+
 ([Looking for the Open Food Facts API doc ?](https://openfoodfacts.github.io/openfoodfacts-server/api/))
 
 # Open Food Facts - Product Opener (Web Server)
