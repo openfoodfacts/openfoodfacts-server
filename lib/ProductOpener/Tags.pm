@@ -115,6 +115,7 @@ BEGIN {
 
 		&compute_field_tags
 		&add_tags_to_field
+		&remove_tags_from_field
 
 		&init_tags_texts
 		&get_knowledge_content
@@ -4702,6 +4703,49 @@ sub add_tags_to_field ($product_ref, $tag_lc, $field, $additional_fields) {
 
 		compute_field_tags($product_ref, $tag_lc, $field);
 	}
+
+	return;
+}
+
+sub remove_tags_from_field ($product_ref, $tag_lc, $field, @tags_to_remove) {
+
+	# Check if all tags should be removed
+	if (
+		scalar(@tags_to_remove) == scalar(split(/\s*,\s*/, $product_ref->{$field}))
+		&& scalar(
+			grep {
+				my $tag = $_;
+				!grep {$_ eq $tag} @tags_to_remove
+			} split(/\s*,\s*/, $product_ref->{$field})
+		) == 0
+		)
+	{
+		$product_ref->{$field} = "";
+	}
+	else {
+		# Retrieve the current tags from the specified field
+		my $current_tags = $product_ref->{$field};
+
+		# Split the current tags into an array
+		my @tags = split(/,/, $current_tags);
+
+		# Initialize an array to store the modified tags
+		my @modified_tags;
+
+		# Iterate through the tags and remove the specified tags
+		foreach my $tag (@tags) {
+			$tag =~ s/^\s+|\s+$//g;
+			unless (grep {$_ eq $tag} @tags_to_remove) {
+				push @modified_tags, $tag;
+			}
+		}
+
+		# Update the field with the modified tag list
+		$product_ref->{$field} = join(", ", @modified_tags);
+		$product_ref->{$field} =~ s/^,\s*//;    # Remove leading comma and whitespaces
+	}
+
+	compute_field_tags($product_ref, $tag_lc, $field);    # Recompute field tags if necessary
 
 	return;
 }
