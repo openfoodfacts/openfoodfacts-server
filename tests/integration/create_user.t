@@ -10,8 +10,8 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Users qw/retrieve_user/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 
-remove_all_users();
 wait_application_ready();
+remove_all_users();
 # we need to create spam user log to be able to tail on it
 open(my $log, ">>", "$BASE_DIRS{LOGS}/user_spam.log");
 close($log);
@@ -29,7 +29,7 @@ my $response = $ua->get($url);
 is($response->{_rc}, 200, "Status ok on creation");
 
 #checking whether the preference were well saved
-my @words = ('bob@test.com', $default_user_form{userid}, $default_user_form{name});
+my @words = ($default_user_form{userid}, $default_user_form{name});
 
 foreach my $word (@words) {
 	like($response->content, qr/\Q$word\E/i, "the word $word is in the page")

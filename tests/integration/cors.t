@@ -11,11 +11,11 @@ use File::Basename "dirname";
 
 use Storable qw(dclone);
 
+wait_application_ready();
+
 remove_all_users();
 
 remove_all_products();
-
-wait_application_ready();
 
 my $ua = new_client();
 
@@ -122,7 +122,7 @@ execute_api_tests(__FILE__, $tests_ref);
 create_user($ua, \%default_user_form);
 
 my $auth_ua = new_client();
-login($auth_ua, "tests", 'testtest');
+login($auth_ua, "tests", '!!!TestTest1!!!');
 
 $tests_ref = [
 	{

@@ -557,6 +557,15 @@ msgctxt "delete_confirmation"
 msgid "This will delete your user details and anonymise all of your contributions. Please re-enter your user name to confirm."
 msgstr "This will delete your user details and anonymise all of your contributions. Please re-enter your user name to confirm."
 
+msgctxt "keycloak_info"
+msgid "To edit more information, or to delete your account, please open the user center."
+msgstr "To edit more information, or to delete your account, please open the user center."
+
+# Link in button style to the Keycloak account page
+msgctxt "keycloak_account_button"
+msgid "User Center"
+msgstr "User Center"
+
 msgctxt "danger_zone"
 msgid "Danger Zone"
 msgstr "Danger Zone"
@@ -7094,3 +7103,7 @@ msgctxt "improvements_navigation"
 msgid "Improvements"
 msgstr "Improvements"
 
+
+msgctxt "oidc_signin_no_cookie"
+msgid "You need to enable cookies to sign in."
+msgstr "You need to enable cookies to sign in."

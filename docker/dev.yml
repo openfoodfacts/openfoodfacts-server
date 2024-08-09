@@ -27,6 +27,9 @@ x-backend-conf: &backend-conf
   # e.g. when developing with Robotoff or openfoodfacts-query
   extra_hosts:
     - "host.docker.internal:host-gateway"
+    - "auth.openfoodfacts.localhost:host-gateway"
+  networks:
+    default:
 
 x-minion-db-network: &minion-db-network
   networks:
@@ -42,6 +45,7 @@ services:
   backend:
     <<: [*backend-conf, *minion-db-network] 
   incron: *backend-conf
+  redis-listener: *backend-conf
   minion:
     <<: [*backend-conf, *minion-db-network]
   # in dev we want to use watch assets and recompile on the fly
@@ -87,9 +91,18 @@ services:
           aliases:
             # trick: make it possible for robotoff to reach it internally, 
             # using localhost domain
-            - world.openfoodfacts.localhost
-            - static.openfoodfacts.localhost
-            - images.openfoodfacts.localhost
+            - world.${PRODUCT_OPENER_DOMAIN}
+            - static.${PRODUCT_OPENER_DOMAIN}
+            - images.${PRODUCT_OPENER_DOMAIN}
+            - fr.${PRODUCT_OPENER_DOMAIN}
+            - world-de.${PRODUCT_OPENER_DOMAIN}
+            - world-it.${PRODUCT_OPENER_DOMAIN}
+            - es-it.${PRODUCT_OPENER_DOMAIN}
+            - ch-it.${PRODUCT_OPENER_DOMAIN}
+            - ssl-api.${PRODUCT_OPENER_DOMAIN}
+            - fr.pro.${PRODUCT_OPENER_DOMAIN}
+            - world.pro.${PRODUCT_OPENER_DOMAIN}
+            - auth.${PRODUCT_OPENER_DOMAIN}
 
 volumes:
   product_images:

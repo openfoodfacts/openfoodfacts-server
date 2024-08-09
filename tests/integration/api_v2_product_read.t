@@ -11,11 +11,11 @@ use File::Basename "dirname";
 
 use Storable qw(dclone);
 
+wait_application_ready();
+
 remove_all_users();
 
 remove_all_products();
-
-wait_application_ready();
 
 my $ua = new_client();
 
@@ -153,7 +153,7 @@ my $tests_ref = [
 		test_case => 'get-auth-good-password',
 		method => 'GET',
 		path => '/api/v2/product/200000000034',
-		query_string => '?fields=code,product_name&user_id=tests&password=testtest',
+		query_string => '?fields=code,product_name&user_id=tests&password=!!!TestTest1!!!',
 		expected_status_code => 200,
 	},
 	# When authentification fails for a v2 request, we return a HTML page

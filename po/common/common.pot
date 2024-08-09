@@ -556,6 +556,15 @@ msgctxt "danger_zone"
 msgid "Danger Zone"
 msgstr ""
 
+msgctxt "keycloak_info"
+msgid "To edit more information, or to delete your account, please open the user center."
+msgstr ""
+
+# Link in button style to the Keycloak account page
+msgctxt "keycloak_account_button"
+msgid "User Center"
+msgstr ""
+
 msgctxt "diff_add"
 msgid "Added:"
 msgstr ""
@@ -6919,6 +6928,11 @@ msgstr "This user is not a member of the organization."
 msgctxt "skip_to_content"
 msgid "Skip to Content"
 msgstr "Skip to Content"
+
+msgctxt "oidc_signin_no_cookie"
+msgid "You need to enable cookies to sign in."
+msgstr "You need to enable cookies to sign in."
+
 
 msgctxt "cant_delete_main_contact"
 msgid "You cannot remove the main contact. Change it first."
