@@ -123,7 +123,7 @@ use Clone qw(clone);
 
 use LWP::UserAgent;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 use Log::Any qw($log);
 use List::MoreUtils qw(uniq);
 use Data::DeepAccess qw(deep_get deep_exists);
@@ -418,11 +418,14 @@ my %of = (
 
 my %from = (
 	en => " from ",
+	da => " fra ",
 	de => " aus ",
 	es => " de ",
 	fr => " de la | de | du | des | d'| de l'",
 	it => " dal | della | dalla | dagli | dall'",
+	nl => " uit ",
 	pl => " z | ze ",
+	sv => " från ",
 );
 
 my %and = (

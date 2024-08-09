@@ -37,7 +37,7 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 
 my $request_ref = ProductOpener::Display::init_request();
 
@@ -64,7 +64,7 @@ my %manifest = (
 	start_url => format_subdomain($subdomain),
 	scope => '/',
 	display => 'standalone',
-	prefer_related_applications => $JSON::PP::true,
+	prefer_related_applications => $JSON::MaybeXS::true,
 );
 
 my @keys = qw(theme_color icons related_applications background_color);

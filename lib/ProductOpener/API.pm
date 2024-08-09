@@ -73,6 +73,7 @@ use ProductOpener::KnowledgePanels qw/create_knowledge_panels initialize_knowled
 use ProductOpener::Ecoscore qw/localize_ecoscore/;
 use ProductOpener::Packaging qw/%packaging_taxonomies/;
 use ProductOpener::Permissions qw/has_permission/;
+use ProductOpener::GeoIP qw/get_country_for_ip_api/;
 
 use ProductOpener::APIProductRead qw/read_product_api/;
 use ProductOpener::APIProductWrite qw/write_product_api/;
@@ -84,7 +85,7 @@ use ProductOpener::APITaxonomySuggestions qw/taxonomy_suggestions_api/;
 use CGI qw(header);
 use Apache2::RequestIO();
 use Apache2::RequestRec();
-use JSON::PP;
+use JSON::MaybeXS;
 use Data::DeepAccess qw(deep_get);
 use Storable qw(dclone);
 use Encode;
@@ -346,7 +347,7 @@ sub send_api_response ($request_ref) {
 	my $status_code = $request_ref->{api_response}{status_code} || $request_ref->{status_code} || "200";
 	delete $request_ref->{api_response}{status_code};
 
-	my $json = JSON::PP->new->allow_nonref->canonical->utf8->encode($request_ref->{api_response});
+	my $json = JSON::MaybeXS->new->allow_nonref->canonical->utf8->encode($request_ref->{api_response});
 
 	# add headers
 	# We need to send the header Access-Control-Allow-Credentials=true so that websites
@@ -384,6 +385,43 @@ Reference to the request object.
 
 =cut
 
+# Dipatch table for API actions
+my $dispatch_table = {
+	# Product read or write
+	product => {
+		GET => \&read_product_api,
+		HEAD => \&read_product_api,
+		OPTIONS => sub {return;},    # Just return CORS headers
+		PATCH => \&write_product_api,
+	},
+	# Product revert
+	product_revert => {
+		# Check that the method is POST (GET may be dangerous: it would allow to revert a product by just clicking or loading a link)
+		POST => \&revert_product_api,
+	},
+	# Product services
+	product_services => {
+		POST => \&product_services_api,
+		OPTIONS => sub {return;},    # Just return CORS headers
+	},
+	# Taxonomy suggestions
+	taxonomy_suggestions => {
+		GET => \&taxonomy_suggestions_api,
+		HEAD => \&taxonomy_suggestions_api,
+		OPTIONS => sub {return;},    # Just return CORS headers
+	},
+	# Tag read
+	tag => {
+		GET => \&read_tag_api,
+		HEAD => \&read_tag_api,
+		OPTIONS => sub {return;},    # Just return CORS headers
+	},
+	geoip => {
+		GET => \&get_country_for_ip_api,
+	}
+
+};
+
 sub process_api_request ($request_ref) {
 
 	$log->debug("process_api_request - start", {request => $request_ref}) if $log->is_debug();
@@ -396,70 +434,16 @@ sub process_api_request ($request_ref) {
 			if $log->is_warn();
 	}
 	else {
-
 		# Route the API request to the right processing function, based on API action (from path) and method
-
-		# Product read or write
-		if ($request_ref->{api_action} eq "product") {
-
-			if ($request_ref->{api_method} eq "OPTIONS") {
-				# Just return CORS headers
-			}
-			elsif ($request_ref->{api_method} eq "PATCH") {
-				write_product_api($request_ref);
-			}
-			elsif ($request_ref->{api_method} =~ /^(GET|HEAD)$/) {
-				read_product_api($request_ref);
+		if (exists $dispatch_table->{$request_ref->{api_action}}) {
+			my $action_dispatch_ref = $dispatch_table->{$request_ref->{api_action}};
+			if (exists $action_dispatch_ref->{$request_ref->{api_method}}) {
+				$action_dispatch_ref->{$request_ref->{api_method}}->($request_ref);
 			}
 			else {
 				add_invalid_method_error($response_ref, $request_ref);
 			}
 		}
-		# Product revert
-		elsif ($request_ref->{api_action} eq "product_revert") {
-
-			# Check that the method is POST (GET may be dangerous: it would allow to revert a product by just clicking or loading a link)
-			if ($request_ref->{api_method} eq "POST") {
-				revert_product_api($request_ref);
-			}
-			else {
-				add_invalid_method_error($response_ref, $request_ref);
-			}
-		}
-		# Product services
-		elsif ($request_ref->{api_action} eq "product_services") {
-
-			if ($request_ref->{api_method} eq "OPTIONS") {
-				# Just return CORS headers
-			}
-			elsif ($request_ref->{api_method} eq "POST") {
-				product_services_api($request_ref);
-			}
-			else {
-				add_invalid_method_error($response_ref, $request_ref);
-			}
-		}
-		# Taxonomy suggestions
-		elsif ($request_ref->{api_action} eq "taxonomy_suggestions") {
-
-			if ($request_ref->{api_method} =~ /^(GET|HEAD|OPTIONS)$/) {
-				taxonomy_suggestions_api($request_ref);
-			}
-			else {
-				add_invalid_method_error($response_ref, $request_ref);
-			}
-		}
-		# Tag read
-		elsif ($request_ref->{api_action} eq "tag") {
-
-			if ($request_ref->{api_method} =~ /^(GET|HEAD|OPTIONS)$/) {
-				read_tag_api($request_ref);
-			}
-			else {
-				add_invalid_method_error($response_ref, $request_ref);
-			}
-		}
-		# Unknown action
 		else {
 			$log->warn("process_api_request - unknown action", {request => $request_ref}) if $log->is_warn();
 			add_error(
@@ -474,9 +458,7 @@ sub process_api_request ($request_ref) {
 	}
 
 	determine_response_result($response_ref);
-
 	add_localized_messages_to_api_response($request_ref->{lc}, $response_ref);
-
 	send_api_response($request_ref);
 
 	$log->debug("process_api_request - stop", {request => $request_ref}) if $log->is_debug();

@@ -56,7 +56,7 @@ $query_ref->{valid_org} = $valid_org if defined $valid_org && $valid_org ne '';
 
 $template_data_ref->{query_filters} = [] unless defined $template_data_ref->{query_filters};
 
-@orgs = $orgs_collection->find($query_ref)->all;
+@orgs = $orgs_collection->find($query_ref)->sort({created_t => -1})->all;
 
 $template_data_ref = {orgs => \@orgs, has_orgs => scalar @orgs > 0};
 
@@ -74,7 +74,7 @@ let oTable = \$('#tagstable').DataTable({
 		infoFiltered: " - out of _MAX_"
     },
 	paging: false,
-	order: [[ 1, "desc" ]],
+	order: [[ 0, "asc" ]],
 });
 JS
 	;

@@ -46,7 +46,7 @@ use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
 use File::Path qw(mkpath);
-use JSON::PP;
+use JSON::MaybeXS;
 
 # Output will be in the $BASE_DIRS{PRIVATE_DATA} directory
 # data/index: data related to the Open Food Hunt operation (old): points for countries, users and ambassadors

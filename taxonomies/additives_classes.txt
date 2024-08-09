@@ -2,9 +2,9 @@
 # FAO reference: http://www.fao.org/gsfaonline/reference/techfuncs.html?lang=en
 
 # agent de blanchiment de la farine
-stopwords:en: a,an,for,added,to,as
-stopwords:fr: la,les,des,du,de,d,un,une,ajouté,ajoutés,ajoutée,ajoutées,pour
-stopwords:es: de,del,la,las,los,una
+stopwords:en: a, an, for, added, to, as, for, with, added
+stopwords:fr: l, la, les, des, du, de, d, un, une, ajouté, ajoutés, ajoutée, ajoutées, pour, avec
+stopwords:es: de, del, la, las, los, una
 
 en: Acid, Acidifier, Acidulant, tartness, provides tartness
 bg: Киселина
@@ -348,7 +348,7 @@ description:en: A food additive used to dissolve, dilute, disperse or otherwise 
 description:es: Aditivos alimentarios que se utilizan para disolver, diluir, dispersar o modificar de otras maneras un aditivo alimentario o nutriente sin alterar su función (y sin generar por sí mismos efecto tecnológico alguno) con el fin de facilitar la manipulación, la aplicación o uso del aditivo alimentario o nutriente.
 description:fr: Additif alimentaire utilisé pour dissoudre, diluer, disperser ou modifier physiquement de toute autre façon un additif alimentaire ou un nutriment sans altérer sa fonction (et sans produire lui-même d’effet technologique) afin de faciliter sa manipulation, son application ou son utilisationde l’additif alimentaire ou du nutriment.
 
-en: Colour, color, colouring, coloring, decorative pigment, surface colorant, for color, artificial color, artificial colour, color added, colors added, artificial color added, colorant, colours, colors, coloring food, colouring food, synthetic colour, colouring agent, coloring agent
+en: Colour, color, colouring, coloring, decorative pigment, surface colorant, for color, artificial color, artificial colour, color added, colors added, artificial color added, colorant, colours, colors, coloring food, colouring food, synthetic colour, colouring agent, coloring agent, colored, coloured
 bg: Оцветител, оцветители
 ca: Color, colors, colorant, colorants, pigment decoratiu
 cs: Barvivo
