@@ -44,7 +44,7 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 use Log::Any qw($log);
 
 my $request_ref = ProductOpener::Display::init_request();
@@ -112,7 +112,7 @@ my @search_fields
 	= qw(brands categories packaging labels origins manufacturing_places emb_codes purchase_places stores countries
 	ingredients additives allergens traces nutrition_grades nova_groups ecoscore languages creator editors states);
 
-$admin and push @search_fields, "lang";
+$request_ref->{admin} and push @search_fields, "lang";
 
 my %search_tags_fields = (
 	packaging => 1,
@@ -474,19 +474,19 @@ if ($action eq 'display') {
 
 	}
 
-	$styles .= <<CSS
+	$request_ref->{styles} .= <<CSS
 .select2-container--default .select2-results > .select2-results__options {
     max-height: 400px
 }
 CSS
 		;
 
-	$scripts .= <<HTML
+	$request_ref->{scripts} .= <<HTML
 <script type="text/javascript" src="/js/dist/search.js"></script>
 HTML
 		;
 
-	$initjs .= <<JS
+	$request_ref->{initjs} .= <<JS
 var select2_options = {
 		placeholder: "$Lang{select_a_field}{$lc}",
 		allowClear: true
@@ -502,7 +502,8 @@ var select2_options = {
 JS
 		;
 
-	process_template('web/pages/search_form/search_form.tt.html', $template_data_ref, \$html) or $html = '';
+	process_template('web/pages/search_form/search_form.tt.html', $template_data_ref, \$html, $request_ref)
+		or $html = '';
 	$html .= "<p>" . $tt->error() . "</p>";
 
 	${$request_ref->{content_ref}} .= $html;
