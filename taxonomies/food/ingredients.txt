@@ -17215,7 +17215,6 @@ description:es: El aceite de colza (aceite de nabina o de canola) es el extracto
 description:pt: Canola é um cultivo criado para ter baixo teor de ácido erúcico. O termo canola (Brassica napus L., Brassica rapa L., e Brassica juncea) se refere a variedades de plantas de três espécies da família das crucíferas, pertencentes ao gênero Brassica, que produzem um óleo comestível.
 wikipedia:en: https://en.wikipedia.org/wiki/Canola_oil
 
-
 #process:en: en:fully hydrogenated
 #<en:canola oil
 #en:fully hydrogenated canola oil
@@ -22838,10 +22837,15 @@ it: aroma naturale di mandorle
 pt: aroma natural de amêndoa
 
 < en:natural flavouring
-en: natural sour almond flavouring
+en: natural bitter almond flavouring
 de: natürliches Bittermandelaroma, natürliches Bittermandel-Aroma
 fr: arôme naturel d'amande amère
 hr: prirodna aroma kiselog badema
+
+< en:natural flavouring
+en: bitter almond extract
+de: Bittermandel-Extrakt
+fr: extrait d'amande amère
 
 < en:flavouring
 en: caramel flavouring
@@ -33129,6 +33133,11 @@ en: textured plant protein
 de: texturiertes Pflanzenprotein
 
 < en:plant protein
+en: almond protein
+de: Mandelprotein
+fr: protéine d'amande
+
+< en:plant protein
 en: pea protein
 bg: грахов протеин
 ca: Proteïna de pèsol
@@ -43229,7 +43238,7 @@ bg: касис
 ca: riber negre
 cs: černého rybízu
 da: solbær
-de: schwarze Johannisbeere, schwarze Johannisbeeren, schwarzen Johannisbeeren
+de: schwarze Johannisbeere, schwarze Johannisbeeren, schwarzen Johannisbeeren, schwarzer Johannisbeer
 el: φραγκοστάφυλο, μαύρα φραγκοστάφυλα
 es: grosella negra, grosellas negras
 et: must sõstar, mustsõstra
@@ -71526,6 +71535,10 @@ it: baccelli di vaniglia curati macinati
 nl: gemalen geëxtraheerde vanillestokjes
 # ingredient/fr:gousses-de-vanille-épuisées-broyées has 167 products in 9 languages @2019-02-24
 
+< en:exhausted ground vanilla pod
+en: exhausted ground Bourbon vanilla pod
+de: gemahlene extrahierte Bourbon Vanilleschoten
+fr: gousses de vanille Bourbon épuisées broyées
 
 < en:Bourbon vanilla
 < en:vanilla pod
@@ -71557,6 +71570,7 @@ hr: ekstrakt i sjemenke bourbon vanilije
 < en:vanilla
 en: vanilla seeds
 da: vaniljekorn
+de: Vanillesamen
 es: Semillas de vainilla
 fi: vaniljansiemen, vaniljan siemenet
 fr: graines de vanille
