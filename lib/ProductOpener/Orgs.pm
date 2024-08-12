@@ -168,6 +168,16 @@ sub store_org ($org_ref) {
 	# retrieve eventual previous values
 	my $previous_org_ref = retrieve("$BASE_DIRS{ORGS}/" . $org_ref->{org_id} . ".sto");
 
+	if (defined $org_ref->{creator}) {
+		my $creator_user_ref = retrieve_user($org_ref->{creator});
+		if (defined $creator_user_ref) {
+			my $creator_email = $creator_user_ref->{email};
+			if (defined $creator_email) {
+				$org_ref->{creator_email} = $creator_email;
+			}
+		}
+	}
+	
 	if (   (defined $previous_org_ref)
 		&& $previous_org_ref->{valid_org} ne 'accepted'
 		&& $org_ref->{valid_org} eq 'accepted')
