@@ -49460,6 +49460,11 @@ ciqual_food_code:en: 19666
 ciqual_food_name:en: Petit-Suisse like fresh cream cheese, plain, around 9% fat
 ciqual_food_name:fr: Fromage frais type petit suisse, nature, 10% MG environ
 
+# Half milk and half cream (or Half and half) is a common preparation in the USA which is used in coffee or with breakfast cereals
+< en:Dairies
+en: Half milk and half cream
+incompatible_with:en: categories:en:milks, categories:en:creams
+
 #this category is not made for vegan products but for dairy products used in replacement of cream
 < en:Dairies
 en: Compound dairy creams
@@ -49470,7 +49475,7 @@ incompatible_with:en: categories:en:creams
 
 < en:Compound dairy creams
 en: UHT compound dairy creams with 4 to 8% fat, Liquid light cream with 4 to 8% fat, Thick light cream with 4 to 8% fat
-fr: Spécialités à base de crème 4 à 8% de matières grasses UHT, Spécialité à base de crème légère fluide à 8% de matières grasses, Spécialité à base de crème légère épaisse à 8% de matières grasses
+fr: Spécialités à base de crème liquide 4 à 8% de matières grasses UHT, Spécialité à base de crème légère fluide à 8% de matières grasses, Spécialité à base de crème légère épaisse à 8% de matières grasses
 agribalyse_food_code:en: 19433
 ciqual_food_code:en: 19433
 ciqual_food_name:en: cream, light, 4 to 8% fat, liquid or thick
@@ -49507,7 +49512,7 @@ gpc_category_name:en: Cream (Shelf Stable)
 intake24_category_code:en: CREM
 pnns_group_2:en: Milk and yogurt
 wikidata:en: Q13228
-incompatible_with:en: categories:en:compound-dairy-creams
+incompatible_with:en: categories:en:compound-dairy-creams, categories:en:half-milk-and-half-cream
 
 < en:Creams
 en: Refrigerated creams
