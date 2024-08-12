@@ -547,6 +547,11 @@ sub send_org_rejection_email($org_ref) {
 	# send org rejection email to main contact
 	my $main_contact_user = $org_ref->{main_contact};
 	my $user_ref = retrieve_user($main_contact_user);
+	if (not defined $user_ref) {
+		$log->warning("send_org_rejection_email", {error => "main contact user not found", org_ref => $org_ref})
+			if $log->is_warning();
+		return;
+	}
 
 	my $language = $user_ref->{preferred_language} || $user_ref->{initial_lc};
 	my $template_name = "org_rejected.tt.html";
@@ -568,7 +573,7 @@ sub send_org_rejection_email($org_ref) {
 		$body =~ s/^\n+//;
 		send_html_email($user_ref, $subject, $email);
 	}
-	$log->debug("store_org", {path => $path, email => $email, res => $res}) if $log->is_debug();
+	$log->debug("send_org_rejection_email", {path => $path, email => $email, res => $res}) if $log->is_debug();
 	return;
 }
 
