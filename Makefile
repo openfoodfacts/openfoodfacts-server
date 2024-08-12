@@ -315,7 +315,7 @@ update_tests_results: build_taxonomies_test build_lang_test
 
 bash:
 	@echo "🥫 Open a bash shell in the backend container"
-	${DOCKER_COMPOSE} run --rm -w /opt/product-opener backend bash
+	${DOCKER_COMPOSE_RUN} run --rm -w /opt/product-opener backend bash
 
 bash_test:
 	@echo "🥫 Open a bash shell in the test container"
