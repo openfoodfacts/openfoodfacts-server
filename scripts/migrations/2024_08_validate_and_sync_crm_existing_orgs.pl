@@ -60,11 +60,10 @@ foreach my $org_id (list_org_ids()) {
 		$org_ref->{valid_org} = 'rejected';
 	}
 
-	store_org($org);
+	store_org($org_ref);
 	if ($org_is_valid) {
 		print "$org_id\n";
 	}
-	print "$org_id\n";
 }
 
 sub accepted_orgs {
