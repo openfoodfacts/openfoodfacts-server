@@ -76,6 +76,11 @@
 								<li>
 									<a href="/cgi/search.pl?graph=1">[% lang('graphs_and_maps') %]</a>
 								</li>
+								[% IF pro_moderator or admin %]
+									<li>
+										<a href="/cgi/display_org_table.pl">[% lang('organization_list') %]</a>
+									</li>
+								[% END %]
 							</ul>
 						</li>
 						

@@ -54,11 +54,14 @@ my $template_data_ref = {};
 $query_ref->{name} = qr/\Q$name\E/i if defined $name && $name ne '';
 $query_ref->{valid_org} = $valid_org if defined $valid_org && $valid_org ne '';
 
+$template_data_ref->{name} = $name;
+$template_data_ref->{valid_org} = $valid_org;
 $template_data_ref->{query_filters} = [] unless defined $template_data_ref->{query_filters};
 
 @orgs = $orgs_collection->find($query_ref)->sort({created_t => -1})->all;
 
-$template_data_ref = {orgs => \@orgs, has_orgs => scalar @orgs > 0};
+$template_data_ref->{orgs} = \@orgs;
+$template_data_ref->{has_orgs} = scalar @orgs > 0;
 
 my $html;
 process_template('web/pages/dashboard/display_orgs_table.tt.html', $template_data_ref, \$html) or $html = '';
@@ -73,22 +76,48 @@ let oTable = \$('#tagstable').DataTable({
 		info: "_TOTAL_ labels",
 		infoFiltered: " - out of _MAX_"
     },
-	paging: false,
+	paging: true,
 	order: [[ 0, "asc" ]],
+	scrollX: true,
+	dom: 'Bfrtip',
+	buttons: [
+        {
+            extend: 'colvis',
+            text: 'Column visibility',
+            columns: ':gt(1)'
+        }
+    ]
 });
 JS
 	;
 
 $request_ref->{scripts} .= <<SCRIPTS
 <script src="https://static.openfoodfacts.org/js/datatables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.3.6/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.colVis.min.js"></script>
 SCRIPTS
 	;
 
 $request_ref->{header} .= <<HEADER
 <link rel="stylesheet" href="https://static.openfoodfacts.org/js/datatables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.3.6/css/buttons.dataTables.min.css">
+<style>
+   /* Custom styling for the column visibility buttons */
+   .dt-button-collection .dt-button.active::before {
+       content: "✔";
+       display: inline-block;
+       margin-right: 6px;
+   }
+
+   .dt-button-collection .dt-button::before {
+       content: " ";
+       display: inline-block;
+       margin-right: 6px;
+   }
+</style>
 HEADER
 	;
 
-$request_ref->{title} = "Organization List";
+$request_ref->{title} = lang("organization_list");
 $request_ref->{content_ref} = \$html;
 display_page($request_ref);
