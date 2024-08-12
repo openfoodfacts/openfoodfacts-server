@@ -63,6 +63,10 @@ sub process_file($path, $code) {
 	}
 
 	my $changes = retrieve($path . "/changes.sto");
+	if (!defined $changes) {
+		print '[' . localtime() . "] Unable to open $path/changes.sto\n";
+		return;
+	}
 
 	# JSONL
 	#my $code = product_id_from_path($path);
@@ -120,6 +124,7 @@ sub process_file($path, $code) {
 		);
 
 		$event_count++;
+
 		if ($event_count % 1000 == 0) {
 			send_events();
 			update_checkpoint($checkpoint_file, $path, $rev);
