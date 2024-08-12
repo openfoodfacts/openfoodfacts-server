@@ -482,23 +482,23 @@ sub org_name ($org_ref) {
 	}
 }
 
-sub org_url ($org) {
+sub org_url ($org_ref) {
 	return canonicalize_tag_link("orgs", $org_ref->{org_id});
 }
 
-sub update_import_date($org, $time) {
-	my $org_ref = org_id_or_ref($org);
+sub update_import_date($org_id_or_ref, $time) {
+	my $org_ref = org_id_or_ref($org_id_or_ref);
 	$org_ref->{last_import_t} = $time;
 	store_org($org_ref);
-	update_last_import_date($org_id, $time);
+	update_last_import_date($org_ref, $time);
 	return;
 }
 
-sub update_export_date($org, $time) {
-	my $org_ref = org_id_or_ref($org);
+sub update_export_date($org_id_or_ref, $time) {
+	my $org_ref = org_id_or_ref($org_id_or_ref);
 	$org_ref->{last_export_t} = $time;
 	store_org($org_ref);
-	update_last_export_date($org_id, $time);
+	update_last_export_date($org_ref, $time);
 	return;
 }
 
@@ -532,10 +532,10 @@ Update the last import type for an organization.
 
 =cut
 
-sub update_last_import_type ($org, $data_source) {
-	my $org_ref = retrieve_org($org_id);
+sub update_last_import_type ($org_id_or_ref, $data_source) {
+	my $org_ref = retrieve_org($org_id_or_ref);
 	$org_ref->{last_import_type} = $data_source;
-	update_company_last_import_type($org_id, $data_source);
+	update_company_last_import_type($org_ref, $data_source);
 	store_org($org_ref);
 	return;
 }
