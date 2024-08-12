@@ -34,9 +34,9 @@
 			<tr>
 				<td>[% count %].</td>
 				<td>
-	[% SET userid = users.userid %]
-    [% SET user_in_admin_status = user_is_admin.$userid %]
-	<input form="admin_users_form" type="checkbox" name="admin_status_[% users.userid %]" value="1" class="admin-checkbox" [% IF user_in_admin_status %]checked[% END %] [% IF current_user_id == userid  %]disabled[% END %]>
+				[% SET userid = users.userid %]
+				[% SET user_in_admin_status = user_is_admin.$userid %]
+				<input form="admin_users_form" type="checkbox" name="admin_status_[% users.userid %]" value="1" class="admin-checkbox" [% IF user_in_admin_status %]checked[% END %] [% IF current_user_id == userid  %]disabled[% END %]>
 				</td>
 				<td>[% users.userid %]</td>
 				<td>[% users.name %]</td>
@@ -87,6 +87,44 @@
 		<input type="submit" id="invite_button" name=".submit" class="button" value= "[% edq(lang('invite_user')) %]" disabled />
 	</form>
 
+	<!-- pending users -->
+	[% IF (admin OR user_is_admin.$current_user_id) AND pending_users AND org_is_accepted %] 
+	<p>[% lang("users_requested_to_join_org") %]</p>
+	<table>
+		<thead>
+		<tr>
+			<th>[% lang("serial_no") %]</th>
+			<th>[% lang("username") %]</th>
+			<th>[% lang("name") %]</th>
+			<th>[% lang("email") %]</th>
+			<th></th>
+		</tr>
+		</thead>
+		<tbody>
+			[% SET count = 1 %]
+			[% FOREACH users IN pending_users %]
+			<tr>
+				<td>[% count %].</td>
+				<td>[% users.userid %]</td>
+				<td>[% users.name %]</td>
+				<td>[% users.email %]</td>
+				<td>
+					<form method="post" action="/cgi/org.pl">
+						<input type="hidden" name="action" value="process" />
+						<input type="hidden" name="type" value="pending_user" />
+						<input type="hidden" name="orgid" value="[% orgid %]">
+						<input type="hidden" name="user_id" value="[% users.userid %]">
+						<input type="submit" name="accept_user" class="button small" value="[% edq(lang('add')) %]"/>
+						<input type="submit" name="deny_user" class="button small warning" value="[% edq(lang('deny')) %]"/>
+					</form>
+				</td>
+			</tr>
+			[% SET count = count + 1 %]
+			[% END %]
+		</tbody>
+	</table>
+	[% END %]
+
     <!-- Start form -->
     
     <p>[% lang('org_profile_description') %]</p>
@@ -125,7 +163,13 @@
 						<p>[% field.description %]</p>
 					[% END %]								
 
-					[% IF field.type == 'text' %]
+					[% IF field.field == 'crm_org_id' AND crm_company_url != "" %]
+						<label for="[% field.field %]">[% field.label %]</label>
+						<div class="open-in-crm">
+							<input type="text" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]"/>
+							<a type="button" class="button" id="crm_button" href="[% crm_company_url %]" target="_blank" rel="noopener">[% lang("open_in_crm") %]</a> 
+						</div>
+					[% ELSIF field.type == 'text' %]
 						<label for="[% field.field %]">[% field.label %]</label>
 						<input type="text" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]" />
 					[% ELSIF field.type == 'textarea' %]

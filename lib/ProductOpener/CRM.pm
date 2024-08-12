@@ -47,12 +47,15 @@ package ProductOpener::CRM;
 
 use ProductOpener::PerlStandards;
 use Exporter qw< import >;
+use experimental 'smartmatch';
 
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		&init_crm_data
+		&find_contact
 		&find_or_create_contact
+		&find_company
 		&find_or_create_company
 		&add_contact_to_company
 		&create_onboarding_opportunity
@@ -61,6 +64,15 @@ BEGIN {
 		&change_company_main_contact
 		&update_last_import_date
 		&update_last_export_date
+		&update_company_last_logged_in_contact
+		&update_company_last_import_type
+		&add_category_to_company
+		&update_template_download_date
+		&update_contact_last_login
+		&get_company_url
+		&get_contact_url
+		&get_opportunity_url
+		&make_odoo_request
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 
@@ -75,13 +87,15 @@ use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created/;
 use ProductOpener::Store qw/retrieve store/;
 use XML::RPC;
 use Log::Any qw($log);
+use Encode;
 
 my $crm_data;
 # Tags (crm.tag) must be defined in Odoo: CRM > Configuration > Tags
 my @required_tag_labels = qw(onboarding);
 # Category (res.partner.category) must be defined in Odoo :
 # Contact > contact (individual or company) form > Tags field > "Search More"
-my @required_category_labels = qw(Producer);
+my @data_source = ('AGENA3000', 'EQUADIS', 'CSV', 'Manual import', 'SFTP', 'BAYARD');
+my @required_category_labels = ('Producer', @data_source);
 
 # special commands to manipulate Odoo relation One2Many and Many2Many
 # see https://www.odoo.com/documentation/15.0/developer/reference/backend/orm.html#odoo.fields.Command
@@ -322,8 +336,9 @@ the company if found, undef otherwise
 =cut
 
 sub find_company($org_ref, $contact_id = undef) {
+	my $org_name = $org_ref->{name};
 	# escape % and _ in org name, because of the ilike operator
-	my $org_name =~ s/([%_])/\\$1/g;
+	$org_name =~ s/([%_])/\\$1/g;
 	# 1. & 3. merged in one query
 	my $companies = make_odoo_request(
 		'res.partner',
@@ -425,7 +440,7 @@ sub add_contact_to_company($contact_id, $company_id) {
 	return $result;
 }
 
-=head2 create_onboarding_opportunity ($name, $company_id, $contact_id)
+=head2 create_onboarding_opportunity ($name, $company_id, $partner_id, salesperson_email = undef)
 
 create an opportunity attached to a 
 
@@ -440,16 +455,30 @@ The name of the opportunity
 The id of the partner to attach the opportunity to.
 It can be a contact or a company
 
+=head4 $salesperson_email
+
+The email of the salesperson to attach to the opportunity
+
 =head3 Return values
 
 the id of the created opportunity
 
 =cut
 
-sub create_onboarding_opportunity ($name, $company_id, $contact_id) {
-	my $opportunity_id = make_odoo_request('crm.lead', 'create',
-		[{name => $name, partner_id => $contact_id, tag_ids => [[$commands{link}, $crm_data->{tag}{onboarding}]]}]);
-	$log->debug("create_opportunity", {opportunity_id => $opportunity_id}) if $log->is_debug();
+sub create_onboarding_opportunity ($name, $company_id, $partner_id, $salesperson_email = undef) {
+
+	my $query_params
+		= {name => $name, partner_id => $partner_id, tag_ids => [[$commands{link}, $crm_data->{tag}{onboarding}]]};
+	if (defined $salesperson_email) {
+		my $user = (grep {$_->{email} eq $salesperson_email} @{$crm_data->{users}})[0];
+		if (defined $user) {
+			$query_params->{user_id} = $user->{id};
+		}
+	}
+	my $opportunity_id = make_odoo_request('crm.lead', 'create', [$query_params]);
+	$log->debug("create_onboarding_opportunity",
+		{opportunity_id => $opportunity_id, salesperson => $query_params->{user_id}, users => $crm_data->{users}})
+		if $log->is_debug();
 	return $opportunity_id;
 }
 
@@ -551,25 +580,132 @@ sub change_company_main_contact($org_ref, $user_id) {
 }
 
 sub update_last_import_date($org_id, $time) {
-	return update_company_last_action_date($org_id, $time, 'x_off_last_import_date');
+	return _update_partner_field(retrieve_org($org_id), 'x_off_last_import_date', _time_to_odoo_date_str($time));
 }
 
 sub update_last_export_date($org_id, $time) {
-	return update_company_last_action_date($org_id, $time, 'x_off_last_export_date');
+	return _update_partner_field(retrieve_org($org_id), 'x_off_last_export_date', _time_to_odoo_date_str($time));
 }
 
-sub update_company_last_action_date($org_id, $time, $field) {
+sub update_contact_last_login ($user_ref) {
+	return if not defined $user_ref->{crm_user_id};
+	return _update_partner_field($user_ref, 'x_off_user_login_date', _time_to_odoo_date_str($user_ref->{last_login_t}));
+}
+
+sub update_template_download_date ($org_id) {
 	my $org_ref = retrieve_org($org_id);
-	if (not defined $org_ref->{crm_org_id}) {
-		return;
-	}
+	return _update_partner_field($org_ref, 'x_off_last_template_download_date', _time_to_odoo_date_str(time()));
+}
+
+sub update_company_last_logged_in_contact($org_ref, $user_ref) {
+	return _update_partner_field($org_ref, 'x_off_last_logged_org_contact', $user_ref->{crm_user_id});
+}
+
+sub _update_partner_field($user_or_org, $field, $value) {
+	my $partner_id = $user_or_org->{crm_user_id} // $user_or_org->{crm_org_id};
+	return if not defined $partner_id;
+
+	$log->debug("update_partner_field", {partner_id => $partner_id, field => $field, value => $value})
+		if $log->is_debug();
+
+	return make_odoo_request('res.partner', 'write', [[$partner_id], {$field => $value}]);
+}
+
+sub _time_to_odoo_date_str($time) {
 	my ($sec, $min, $hour, $mday, $mon, $year) = localtime($time);
 	$year += 1900;
 	$mon += 1;
-	my $date_string = sprintf("%04d-%02d-%02d", $year, $mon, $mday);
-	$log->debug("update_last_company_action_date", {org_id => $org_id, date => $date_string, field => $field})
+	return sprintf("%04d-%02d-%02d", $year, $mon, $mday);
+}
+
+=head2 add_category_to_company ($org_id, $label)
+
+Add a category to a company in Odoo
+
+=head3 Arguments
+
+=head4 $org_id
+
+=head4 $label
+
+=head3 Return values
+
+1 if success, undef otherwise
+
+=cut
+
+sub add_category_to_company($org_id, $label) {
+	my $org_ref = retrieve_org($org_id);
+	return if not defined $org_ref->{crm_org_id};
+
+	my $category_id = $crm_data->{category}{$label};
+	return if not defined $category_id;
+	if (not defined $category_id) {
+		$log->debug("add_category_to_company", {error => "Category `$label` not found in CRM"})
+			if $log->is_debug();
+		return;
+	}
+	$log->debug("add_category_to_company", {org_id => $org_id, label => $label, category_id => $category_id})
 		if $log->is_debug();
-	return make_odoo_request('res.partner', 'write', [[$org_ref->{crm_org_id}], {$field => $date_string}]);
+	return make_odoo_request('res.partner', 'write',
+		[[$org_ref->{crm_org_id}], {category_id => [[$commands{link}, $category_id]]}]);
+}
+
+=head2 update_company_last_import_type ($org_id, $data_source)
+
+Update the last import type of a company in Odoo
+
+=head4 $data_source
+
+must match one of the values in CRM.pm @data_source
+
+=cut
+
+sub update_company_last_import_type($org_id, $label) {
+	my $org_ref = retrieve_org($org_id);
+	return if not defined $org_ref->{crm_org_id};
+	my $category_id = $crm_data->{category}{$label};
+	add_category_to_company($org_id, $label);
+	return make_odoo_request('res.partner', 'write',
+		[[$org_ref->{crm_org_id}], {x_off_last_import_type => $category_id}]);
+}
+
+=head2 get_company_url ($org_ref)
+
+Returns the URL of the company in the CRM
+
+=head3 Arguments
+
+=head4 $org_ref
+
+=head3 Return values
+
+the URL of the company in the CRM or undef if the company is not linked to the CRM
+
+=cut
+
+sub get_company_url($org_ref) {
+	if ($ProductOpener::Config2::crm_url and defined $org_ref->{crm_org_id}) {
+		return $ProductOpener::Config2::crm_url
+			. "/web#id=$org_ref->{crm_org_id}&menu_id=111&action=139&model=res.partner&view_type=form";
+	}
+	return;
+}
+
+sub get_contact_url($user_ref) {
+	if ($ProductOpener::Config2::crm_url and defined $user_ref->{crm_user_id}) {
+		return $ProductOpener::Config2::crm_url
+			. "/web#id=$user_ref->{crm_user_id}&menu_id=111&action=139&model=res.partner&view_type=form";
+	}
+	return;
+}
+
+sub get_opportunity_url($opportunity_id) {
+	if ($ProductOpener::Config2::crm_url and defined $opportunity_id) {
+		return $ProductOpener::Config2::crm_url
+			. "/web#id=$opportunity_id&cids=1&menu_id=133&action=191&model=crm.lead&view_type=form";
+	}
+	return;
 }
 
 =head2 make_odoo_request (@params)
@@ -602,7 +738,10 @@ sub make_odoo_request(@params) {
 		}
 
 		my $uid;
-		eval {$uid = $xmlrpc->call('authenticate', $db, $username, $pwd, {});};
+		eval {
+			$uid = $xmlrpc->call('authenticate', $db, $username, $pwd, {});
+			die "uid from Odoo auth. is 0, your credentials may be wrong." if $uid eq '0';
+		};
 		if ($@) {
 			$log->error("Odoo", {error => $@, reason => "Could not authenticate to Odoo CRM"}) if $log->is_error();
 			$xmlrpc = undef;
@@ -638,9 +777,12 @@ It is called by lib/startup_apache.pl startup script
 
 =head4 die if CRM data cannot be loaded
 
-# Die if CRM environment variables are set and required data cannot be loaded from cache or fetched from CRM
+Die if CRM environment variables are set but required 
+data can't be fetched from CRM nor be loaded from cache
 
 =cut
+
+use Data::Dumper;
 
 sub init_crm_data() {
 	if (not defined $ProductOpener::Config2::crm_api_url) {
@@ -655,11 +797,12 @@ sub init_crm_data() {
 		my $tmp_crm_data = {};
 		$tmp_crm_data->{tag} = _load_crm_data('crm.tag', \@required_tag_labels);
 		$tmp_crm_data->{category} = _load_crm_data('res.partner.category', \@required_category_labels);
+		$tmp_crm_data->{users} = make_odoo_request('res.users', 'search_read', [[]], {fields => ['email', 'id']});
 		$crm_data = $tmp_crm_data;
 	} or do {
 		print STDERR "Failed to load CRM data from Odoo: $@\n";
-		die "Could not load CRM data from cache" if not defined $crm_data;
-		print STDERR "CRM data loaded from cache";
+		die "Could not load CRM data from cache\n" if not defined $crm_data;
+		print STDERR "CRM data loaded from cache\n";
 	};
 
 	store("$BASE_DIRS{CACHE_TMP}/crm_data.sto", $crm_data);

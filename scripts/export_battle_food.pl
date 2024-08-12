@@ -46,7 +46,7 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 
 my @fields = qw(product_name generic_name quantity packaging brands categories origins labels emb_codes );
 my %tags_fields = (

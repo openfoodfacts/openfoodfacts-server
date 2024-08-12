@@ -116,6 +116,8 @@ BEGIN {
 
 		&analyze_and_enrich_product_data
 
+		&is_owner_field
+
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -1175,6 +1177,7 @@ sub store_product ($user_id, $product_ref, $comment) {
 	my $product_id = $product_ref->{_id};
 	my $path = product_path($product_ref);
 	my $rev = $product_ref->{rev};
+	my $action = "updated";
 
 	$log->debug(
 		"store_product - start",
@@ -1219,6 +1222,13 @@ sub store_product ($user_id, $product_ref, $comment) {
 			}
 		) if $log->is_debug();
 		$delete_from_previous_products_collection = 1;
+
+		if ($product_ref->{obsolete} eq 'on') {
+			$action = "archived";
+		}
+		elsif ($product_ref->{was_obsolete} eq 'on') {
+			$action = "unarchived";
+		}
 	}
 	delete $product_ref->{was_obsolete};
 
@@ -1499,12 +1509,18 @@ sub store_product ($user_id, $product_ref, $comment) {
 
 	$log->debug("store_product - done", {code => $code, product_id => $product_id}) if $log->is_debug();
 
-	my $update_type = $product_ref->{deleted} ? "deleted" : "updated";
+	if ($product_ref->{deleted}) {
+		$action = "deleted";
+	}
+	elsif ($rev == 1) {
+		$action = "created";
+	}
+
 	# Publish information about update on Redis stream
-	push_to_redis_stream($user_id, $product_ref, $update_type, $comment, $diffs);
+	push_to_redis_stream($user_id, $product_ref, $action, $comment, $diffs);
 
 	# Notify Robotoff
-	send_notification_for_product_change($user_id, $product_ref, $update_type, $comment, $diffs);
+	send_notification_for_product_change($user_id, $product_ref, $action, $comment, $diffs);
 
 	return 1;
 }
@@ -3720,4 +3736,31 @@ sub analyze_and_enrich_product_data ($product_ref, $response_ref) {
 	}
 
 	return;
+}
+
+=head2 is_owner_field($product_ref, $field)
+
+Return 1 if the field value was provided by the owner (producer) and the field is not a tag field.
+
+=cut
+
+sub is_owner_field ($product_ref, $field) {
+
+	if (
+		(defined $product_ref->{owner_fields})
+		and (
+			(defined $product_ref->{owner_fields}{$field})
+			# If the producer sent a field value for salt or sodium, the other value was automatically computed
+			or (($field =~ /^salt/) and (defined $product_ref->{owner_fields}{"sodium" . $'}))
+			or (($field =~ /^sodium/) and (defined $product_ref->{owner_fields}{"salt" . $'}))
+		)
+		# Even if the producer sent a tag field value, it was merged with existing values,
+		# and may have been updated by a contributor (e.g. to add a more precise category)
+		# So we don't consider them to be owner fields
+		and (not defined $tags_fields{$field})
+		)
+	{
+		return 1;
+	}
+	return 0;
 }

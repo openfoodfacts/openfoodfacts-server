@@ -98,6 +98,8 @@ BEGIN {
 		&parse_origins_from_text
 
 		&assign_ciqual_codes
+
+		&get_ingredients_with_property_value
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -121,7 +123,7 @@ use Clone qw(clone);
 
 use LWP::UserAgent;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 use Log::Any qw($log);
 use List::MoreUtils qw(uniq);
 use Data::DeepAccess qw(deep_get deep_exists);
@@ -416,11 +418,14 @@ my %of = (
 
 my %from = (
 	en => " from ",
+	da => " fra ",
 	de => " aus ",
 	es => " de ",
 	fr => " de la | de | du | des | d'| de l'",
 	it => " dal | della | dalla | dagli | dall'",
+	nl => " uit ",
 	pl => " z | ze ",
+	sv => " från ",
 );
 
 my %and = (
@@ -7255,7 +7260,7 @@ sub detect_allergens_from_ingredients ($product_ref) {
 		) if $log->is_debug();
 
 		if (defined $allergens) {
-			$product_ref->{"allergens_from_ingredients"} = $allergens . ', ';
+			$product_ref->{"allergens_from_ingredients"} .= $allergens . ', ';
 			$log->debug("detect_allergens_from_ingredients -- found allergen", {allergens => $allergens})
 				if $log->is_debug();
 		}
@@ -7911,6 +7916,33 @@ should be applied in the Nutri-Score 2023 algorithm.
 sub estimate_nutriscore_2023_red_meat_percent_from_ingredients ($product_ref) {
 
 	return estimate_ingredients_matching_function($product_ref, \&is_red_meat);
+}
+
+=head2 sub get_ingredients_with_property_value ($ingredients_ref, $property, $value)
+
+Returns a list of ingredients that have a specific property value.
+
+=cut
+
+sub get_ingredients_with_property_value ($ingredients_ref, $property, $value) {
+
+	my @matching_ingredients = ();
+
+	foreach my $ingredient_ref (@{$ingredients_ref}) {
+
+		my ($property_value, $matching_ingredient_id)
+			= get_inherited_property_and_matching_tag("ingredients", $ingredient_ref->{id}, $property);
+		if ((defined $property_value) and ($property_value eq $value)) {
+			push @matching_ingredients, $matching_ingredient_id;
+		}
+
+		if (defined $ingredient_ref->{ingredients}) {
+			push @matching_ingredients,
+				get_ingredients_with_property_value($ingredient_ref->{ingredients}, $property, $value);
+		}
+	}
+
+	return @matching_ingredients;
 }
 
 1;

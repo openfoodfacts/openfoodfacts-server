@@ -77,7 +77,7 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/%cc_nutriment_table %nutriments_tables/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Lang qw/$lc %Lang lang/;
-use ProductOpener::Display qw/$header $nutriment_table/;
+use ProductOpener::Display qw/$nutriment_table/;
 use ProductOpener::Export qw/export_csv/;
 use ProductOpener::Import
 	qw/$IMPORT_MAX_PACKAGING_COMPONENTS import_csv_file import_products_categories_from_public_database/;
@@ -89,7 +89,7 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 use Time::Local;
 use Data::Dumper;
 use Text::CSV();

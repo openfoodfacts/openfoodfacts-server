@@ -54,7 +54,8 @@ use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::Events qw/send_event/;
 use ProductOpener::API qw/get_initialized_response/;
 use ProductOpener::APIProductWrite qw/skip_protected_field/;
-use ProductOpener::Orgs qw/update_import_date/;
+use ProductOpener::ProductsFeatures qw/feature_enabled/;
+use ProductOpener::Orgs qw/update_import_date update_last_import_type/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -63,7 +64,7 @@ use CGI qw/:cgi :form escapeHTML :cgi-lib/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 use Log::Any qw($log);
 use File::Copy qw(move);
 use Data::Dumper;
@@ -83,8 +84,9 @@ sub display_search_or_add_form($request_ref) {
 	my $html = '';
 	my $template_data_ref_content = {};
 
-	$template_data_ref_content->{display_search_image_form} = display_search_image_form("block_side");
-	process_template('web/common/includes/display_product_search_or_add.tt.html', $template_data_ref_content, \$html)
+	$template_data_ref_content->{display_search_image_form} = display_search_image_form("block_side", $request_ref);
+	process_template('web/common/includes/display_product_search_or_add.tt.html',
+		$template_data_ref_content, \$html, $request_ref)
 		|| ($html = "template error: " . $tt->error());
 
 	# Producers platform: display an addition import products block
@@ -96,7 +98,7 @@ sub display_search_or_add_form($request_ref) {
 		process_template(
 			'web/common/includes/display_product_search_or_add_producer.tt.html',
 			$template_data_ref_content_producer,
-			\$html_producer
+			\$html_producer, $request_ref
 		) || ($html_producer = "template error: " . $tt->error());
 
 		$html .= $html_producer;
@@ -275,6 +277,7 @@ if ($type eq 'search_or_add') {
 				# sync crm
 				if (defined $Org_id) {
 					update_import_date($Org_id, $product_ref->{created_t});
+					update_last_import_type($Org_id, 'Manual import');
 				}
 
 				$type = 'add';
@@ -364,12 +367,12 @@ if (($type eq 'add') or ($type eq 'edit') or ($type eq 'delete')) {
 
 $template_data_ref->{user_id} = $User_id;
 $template_data_ref->{code} = $code;
-process_template('web/pages/product_edit/product_edit_form.tt.html', $template_data_ref, \$html)
+process_template('web/pages/product_edit/product_edit_form.tt.html', $template_data_ref, \$html, $request_ref)
 	or $html = "<p>" . $tt->error() . "</p>";
 
 my @fields = @ProductOpener::Config::product_fields;
 
-if ($admin) {
+if ($request_ref->{admin}) {
 
 	# Let admins edit any other fields
 	if (defined single_param("fields")) {
@@ -589,7 +592,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 			}
 			else {
 				# infocards set by admins can contain HTML
-				if (($admin) and ($field =~ /infocard/)) {
+				if (($request_ref->{admin}) and ($field =~ /infocard/)) {
 					$product_ref->{$field} = decode utf8 => single_param($field);
 				}
 				else {
@@ -673,7 +676,7 @@ my %remember_fields = ('purchase_places' => 1, 'stores' => 1);
 
 # Display each field
 
-sub display_input_field ($product_ref, $field, $language) {
+sub display_input_field ($product_ref, $field, $language, $request_ref) {
 	# $field can be in %language_fields and suffixed by _[lc]
 
 	my $fieldtype = $field;
@@ -720,6 +723,8 @@ sub display_input_field ($product_ref, $field, $language) {
 	$template_data_ref_field->{display_lc} = $display_lc;
 	$template_data_ref_field->{autocomplete} = $autocomplete;
 	$template_data_ref_field->{fieldtype} = $Lang{$fieldtype}{$lc};
+	$template_data_ref_field->{owner_field} = is_owner_field($product_ref, $field);
+	$template_data_ref_field->{protected_field} = skip_protected_field($product_ref, $field, $User{moderator});
 
 	my $html_field = '';
 
@@ -760,7 +765,8 @@ sub display_input_field ($product_ref, $field, $language) {
 		$template_data_ref_field->{field_type_examples} = $field_type_examples;
 	}
 
-	process_template('web/pages/product_edit/display_input_field.tt.html', $template_data_ref_field, \$html_field)
+	process_template('web/pages/product_edit/display_input_field.tt.html',
+		$template_data_ref_field, \$html_field, $request_ref)
 		or $html_field = "<p>" . $tt->error() . "</p>";
 
 	return $html_field;
@@ -782,13 +788,13 @@ if (($action eq 'display') and (($type eq 'add') or ($type eq 'edit'))) {
 		$moderator = 1;
 	}
 
-	$header .= <<HTML
+	$request_ref->{header} .= <<HTML
 <link rel="stylesheet" type="text/css" href="/css/dist/cropper.css" />
 <link rel="stylesheet" type="text/css" href="/css/dist/tagify.css" />
 HTML
 		;
 
-	$scripts .= <<HTML
+	$request_ref->{scripts} .= <<HTML
 <script type="text/javascript" src="$static_subdomain/js/dist/webcomponentsjs/webcomponents-loader.js"></script>
 <script type="text/javascript" src="$static_subdomain/js/dist/cropper.js"></script>
 <script type="text/javascript" src="$static_subdomain/js/dist/jquery-cropper.js"></script>
@@ -809,7 +815,7 @@ HTML
 
 	my $thumb_selectable_size = $thumb_size + 20;
 
-	$styles .= <<CSS
+	$request_ref->{styles} .= <<CSS
 .ui-selectable li {
 	margin: 3px;
 	padding: 0px;
@@ -861,7 +867,7 @@ CSS
 
 		$template_data_ref_display->{obsolete_checked} = $checked;
 		$template_data_ref_display->{display_field_obsolete}
-			= display_input_field($product_ref, "obsolete_since_date", undef);
+			= display_input_field($product_ref, "obsolete_since_date", undef, $request_ref);
 
 	}
 
@@ -891,7 +897,9 @@ CSS
 
 	$template_data_ref_display->{product_ref_sorted_langs} = join(',', @{$product_ref->{sorted_langs}});
 
-	sub display_input_tabs ($product_ref, $tabsid, $tabsids_array_ref, $tabsids_hash_ref, $fields_array_ref) {
+	sub display_input_tabs ($product_ref, $tabsid, $tabsids_array_ref, $tabsids_hash_ref, $fields_array_ref,
+		$request_ref)
+	{
 
 		my $template_data_ref_tab = {};
 		my @display_tabs;
@@ -939,16 +947,18 @@ CSS
 					if ($field =~ /^(.*)_image/) {
 
 						my $image_field = $1 . "_" . $display_lc;
-						$display_div = display_select_crop($product_ref, $image_field, $language);
+						$display_div = display_select_crop($product_ref, $image_field, $language, $request_ref);
 					}
 					elsif ($field eq 'ingredients_text') {
 						$image_full_id = "ingredients_" . ${display_lc} . "_image_full";
-						$display_div = display_input_field($product_ref, $field . "_" . $display_lc, $language);
+						$display_div
+							= display_input_field($product_ref, $field . "_" . $display_lc, $language, $request_ref);
 					}
 					else {
 						$log->debug("display_field", {field_name => $field, field_value => $product_ref->{$field}})
 							if $log->is_debug();
-						$display_div = display_input_field($product_ref, $field . "_" . $display_lc, $language);
+						$display_div
+							= display_input_field($product_ref, $field . "_" . $display_lc, $language, $request_ref);
 					}
 
 					push(
@@ -995,24 +1005,26 @@ CSS
 		$template_data_ref_tab->{display_tabs} = \@display_tabs;
 
 		my $html_tab = '';
-		process_template('web/pages/product_edit/display_input_tabs.tt.html', $template_data_ref_tab, \$html_tab)
+		process_template('web/pages/product_edit/display_input_tabs.tt.html',
+			$template_data_ref_tab, \$html_tab, $request_ref)
 			or $html_tab = "<p>" . $tt->error() . "</p>";
 
 		return $html_tab;
 	}
 
 	$template_data_ref_display->{display_tab_product_picture}
-		= display_input_tabs($product_ref, "front_image", $product_ref->{sorted_langs}, \%Langs, ["front_image"]);
+		= display_input_tabs($product_ref, "front_image", $product_ref->{sorted_langs},
+		\%Langs, ["front_image"], $request_ref);
 	$template_data_ref_display->{display_tab_product_characteristics}
 		= display_input_tabs($product_ref, "product", $product_ref->{sorted_langs},
-		\%Langs, ["product_name", "generic_name"]);
+		\%Langs, ["product_name", "generic_name"], $request_ref);
 
 	my @display_fields_arr;
 	foreach my $field (@fields) {
 		# hide packaging field & origins are now displayed below allergens and traces in the ingredients section
 		next if $field eq "origins" || $field eq "packaging";
 		$log->debug("display_field", {field_name => $field, field_value => $product_ref->{$field}}) if $log->is_debug();
-		my $display_field = display_input_field($product_ref, $field, undef);
+		my $display_field = display_input_field($product_ref, $field, undef, $request_ref);
 		push(@display_fields_arr, $display_field);
 	}
 
@@ -1031,16 +1043,20 @@ CSS
 	$template_data_ref_display->{nutrition_checked} = $checked;
 	$template_data_ref_display->{display_tab_ingredients_image}
 		= display_input_tabs($product_ref, "ingredients_image", $product_ref->{sorted_langs},
-		\%Langs, \@ingredients_fields);
-	$template_data_ref_display->{display_field_allergens} = display_input_field($product_ref, "allergens", undef);
-	$template_data_ref_display->{display_field_traces} = display_input_field($product_ref, "traces", undef);
-	$template_data_ref_display->{display_field_origins} = display_input_field($product_ref, "origins", undef);
+		\%Langs, \@ingredients_fields, $request_ref);
+	$template_data_ref_display->{display_field_allergens}
+		= display_input_field($product_ref, "allergens", undef, $request_ref);
+	$template_data_ref_display->{display_field_traces}
+		= display_input_field($product_ref, "traces", undef, $request_ref);
+	$template_data_ref_display->{display_field_origins}
+		= display_input_field($product_ref, "origins", undef, $request_ref);
 	$template_data_ref_display->{display_tab_nutrition_image}
-		= display_input_tabs($product_ref, "nutrition_image", $product_ref->{sorted_langs}, \%Langs,
-		["nutrition_image"]);
-	$template_data_ref_display->{display_field_serving_size} = display_input_field($product_ref, "serving_size", undef);
+		= display_input_tabs($product_ref, "nutrition_image", $product_ref->{sorted_langs},
+		\%Langs, ["nutrition_image"], $request_ref);
+	$template_data_ref_display->{display_field_serving_size}
+		= display_input_field($product_ref, "serving_size", undef, $request_ref);
 
-	$initjs .= display_select_crop_init($product_ref);
+	$request_ref->{initjs} .= display_select_crop_init($product_ref);
 
 	my $hidden_inputs = '';
 
@@ -1138,7 +1154,7 @@ CSS
 		if (exists_taxonomy_tag("nutrients", "zz:$nid")) {
 			$nutriment_ref->{name} = display_taxonomy_tag($lc, "nutrients", "zz:$nid");
 			# We may have a unit specific to the country (e.g. US nutrition facts table using the International Unit for this nutrient, and Europe using mg)
-			$unit = get_nutrient_unit($nid, $cc);
+			$unit = get_nutrient_unit($nid, $request_ref->{cc});
 		}
 		else {
 			if (defined $product_ref->{nutriments}{$nid . "_unit"}) {
@@ -1310,6 +1326,12 @@ CSS
 
 		}
 
+		# Determine which field has a value from the manufacturer and if it is protected
+		$nutriment_ref->{owner_field} = is_owner_field($product_ref, $nid);
+		$nutriment_ref->{protected_field} = skip_protected_field($product_ref, $nid, $User{moderator});
+		$nutriment_ref->{protected_field_prepared}
+			= skip_protected_field($product_ref, $nid . "_prepared", $User{moderator});
+
 		$nutriment_ref->{shown} = $shown;
 		$nutriment_ref->{enid} = $enid;
 		$nutriment_ref->{enidp} = $enidp;
@@ -1471,7 +1493,7 @@ CSS
 	$nutriments =~ s/,\n$//s;
 	$other_nutriments =~ s/,\n$//s;
 
-	$scripts .= <<HTML
+	$request_ref->{scripts} .= <<HTML
 <script type="text/javascript">
 var nutriments = {
 $nutriments
@@ -1489,8 +1511,8 @@ HTML
 	my @packaging_fields = ("packaging_image", "packaging_text");
 
 	$template_data_ref_display->{display_tab_packaging}
-		= display_input_tabs($product_ref, "packaging_image", $product_ref->{sorted_langs}, \%Langs,
-		\@packaging_fields);
+		= display_input_tabs($product_ref, "packaging_image", $product_ref->{sorted_langs},
+		\%Langs, \@packaging_fields, $request_ref);
 
 	# Add an empty packaging element to the form, that will be hidden and duplicated when the user adds new packaging items,
 	# and another empty packaging element at the end
@@ -1526,7 +1548,8 @@ HTML
 	$template_data_ref_display->{display_product_history} = display_product_history($request_ref, $code, $product_ref);
 	$template_data_ref_display->{product} = $product_ref;
 
-	process_template('web/pages/product_edit/product_edit_form_display.tt.html', $template_data_ref_display, \$html)
+	process_template('web/pages/product_edit/product_edit_form_display.tt.html',
+		$template_data_ref_display, \$html, $request_ref)
 		or $html = "<p>" . $tt->error() . "</p>";
 
 	$request_ref->{page_type} = "product_edit";
@@ -1544,7 +1567,7 @@ elsif (($action eq 'display') and ($type eq 'delete') and ($User{moderator})) {
 	$template_data_ref_moderator->{code} = $code;
 
 	process_template('web/pages/product_edit/product_edit_form_display_user-moderator.tt.html',
-		$template_data_ref_moderator, \$html)
+		$template_data_ref_moderator, \$html, $request_ref)
 		or $html = "<p>" . $tt->error() . "</p>";
 
 }
@@ -1613,7 +1636,8 @@ MAIL
 		display_product(\%request);
 	}
 
-	$template_data_ref_process->{edited_product_url} = $url_prefix . product_url($product_ref);
+	$template_data_ref_process->{edited_product_url}
+		= $url_prefix . get_owner_pretty_path() . product_url($product_ref);
 	$template_data_ref_process->{edit_product_url} = $url_prefix . product_action_url($product_ref->{code}, "");
 
 	if ($type ne 'delete') {
@@ -1623,12 +1647,13 @@ MAIL
 		$knowledge_panels_options_ref = {};
 		initialize_knowledge_panels_options($knowledge_panels_options_ref, $request_ref);
 		$knowledge_panels_options_ref->{knowledge_panels_client} = "web";
-		create_contribution_card_panel($product_ref, $lc, $cc, $knowledge_panels_options_ref);
+		create_contribution_card_panel($product_ref, $lc, $request_ref->{cc}, $knowledge_panels_options_ref);
 		$template_data_ref_process->{contribution_card_panel}
 			= display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "contribution_card");
 	}
 	$template_data_ref_process->{code} = $product_ref->{code};
-	process_template('web/pages/product_edit/product_edit_form_process.tt.html', $template_data_ref_process, \$html)
+	process_template('web/pages/product_edit/product_edit_form_process.tt.html',
+		$template_data_ref_process, \$html, $request_ref)
 		or $html = "<p>" . $tt->error() . "</p>";
 
 }
