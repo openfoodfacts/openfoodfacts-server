@@ -166,7 +166,7 @@ sub store_org ($org_ref) {
 	defined $org_ref->{org_id} or die("Missing org_id");
 
 	# retrieve eventual previous values
-	my $previous_org_ref = retrieve("$BASE_DIRS{ORGS}/" . $org_ref->{org_id} . ".sto");
+	my $previous_org_ref = retrieve("$BASE_DIRS{ORGS}/$org_ref->{org_id}.sto");
 
 	if (   (defined $previous_org_ref)
 		&& $previous_org_ref->{valid_org} ne 'accepted'
@@ -389,20 +389,9 @@ Reference to an array of group ids (e.g. ["admins", "members"])
 
 sub add_user_to_org ($org_id_or_ref, $user_id, $groups_ref) {
 
-	my $org_id;
-	my $org_ref;
+	my $org_ref = org_id_or_ref($org_id_or_ref);
 
-	if (ref($org_id_or_ref) eq "") {
-		$org_id = $org_id_or_ref;
-		$org_ref = retrieve_org($org_id);
-	}
-	else {
-		$org_ref = $org_id_or_ref;
-		$org_id = $org_ref->{org_id};
-	}
-
-	$log->debug("add_user_to_org",
-		{org_id => $org_id, org_ref => $org_ref, user_id => $user_id, groups_ref => $groups_ref})
+	$log->debug("add_user_to_org", {org_ref => $org_ref, user_id => $user_id, groups_ref => $groups_ref})
 		if $log->is_debug();
 
 	foreach my $group (@{$groups_ref}) {
@@ -449,20 +438,9 @@ Reference to an array of group ids (e.g. ["admins", "members"])
 
 sub remove_user_from_org ($org_id_or_ref, $user_id, $groups_ref) {
 
-	my $org_id;
-	my $org_ref;
+	my $org_ref = org_id_or_ref($org_id_or_ref);
 
-	if (ref($org_id_or_ref) eq "") {
-		$org_id = $org_id_or_ref;
-		$org_ref = retrieve_org($org_id);
-	}
-	else {
-		$org_ref = $org_id_or_ref;
-		$org_id = $org_ref->{org_id};
-	}
-
-	$log->debug("remove_user_from_org",
-		{org_id => $org_id, org_ref => $org_ref, user_id => $user_id, groups_ref => $groups_ref})
+	$log->debug("remove_user_from_org", {org_ref => $org_ref, user_id => $user_id, groups_ref => $groups_ref})
 		if $log->is_debug();
 
 	foreach my $group (@{$groups_ref}) {
@@ -481,17 +459,7 @@ sub remove_user_from_org ($org_id_or_ref, $user_id, $groups_ref) {
 
 sub is_user_in_org_group ($org_id_or_ref, $user_id, $group_id) {
 
-	my $org_id;
-	my $org_ref;
-
-	if (ref($org_id_or_ref) eq "") {
-		$org_id = $org_id_or_ref;
-		$org_ref = retrieve_org($org_id);
-	}
-	else {
-		$org_ref = $org_id_or_ref;
-		$org_id = $org_ref->{org_id};
-	}
+	my $org_ref = org_id_or_ref($org_id_or_ref);
 
 	if (    (defined $user_id)
 		and (defined $org_ref)
@@ -506,7 +474,6 @@ sub is_user_in_org_group ($org_id_or_ref, $user_id, $group_id) {
 }
 
 sub org_name ($org_ref) {
-
 	if ((defined $org_ref->{name}) and ($org_ref->{name} ne "")) {
 		return $org_ref->{name};
 	}
@@ -515,21 +482,20 @@ sub org_name ($org_ref) {
 	}
 }
 
-sub org_url ($org_ref) {
-
+sub org_url ($org) {
 	return canonicalize_tag_link("orgs", $org_ref->{org_id});
 }
 
-sub update_import_date($org_id, $time) {
-	my $org_ref = retrieve_org($org_id);
+sub update_import_date($org, $time) {
+	my $org_ref = org_id_or_ref($org);
 	$org_ref->{last_import_t} = $time;
 	store_org($org_ref);
 	update_last_import_date($org_id, $time);
 	return;
 }
 
-sub update_export_date($org_id, $time) {
-	my $org_ref = retrieve_org($org_id);
+sub update_export_date($org, $time) {
+	my $org_ref = org_id_or_ref($org);
 	$org_ref->{last_export_t} = $time;
 	store_org($org_ref);
 	update_last_export_date($org_id, $time);
@@ -566,7 +532,7 @@ Update the last import type for an organization.
 
 =cut
 
-sub update_last_import_type ($org_id, $data_source) {
+sub update_last_import_type ($org, $data_source) {
 	my $org_ref = retrieve_org($org_id);
 	$org_ref->{last_import_type} = $data_source;
 	update_company_last_import_type($org_id, $data_source);
@@ -586,6 +552,26 @@ sub accept_pending_user_in_org ($org_ref, $user_id) {
 	delete $user_ref->{requested_org_id};
 	store_user($user_ref);
 	return;
+}
+
+=head2 org_id_or_ref($org_id_or_ref)
+
+Systematically return the org_ref for a given org_id or org_ref.
+
+=cut
+
+sub org_id_or_ref ($org_id_or_ref) {
+	my $org_id;
+	my $org_ref;
+	if (ref($org_id_or_ref) eq "") {
+		$org_id = $org_id_or_ref;
+		$org_ref = retrieve_org($org_id);
+	}
+	else {
+		$org_ref = $org_id_or_ref;
+		$org_id = $org_ref->{org_id};
+	}
+	return $org_ref;
 }
 
 1;

@@ -66,6 +66,8 @@ BEGIN {
 		&update_last_export_date
 		&update_company_last_logged_in_contact
 		&update_company_last_import_type
+		&update_public_products
+		&update_pro_products
 		&add_category_to_company
 		&update_template_download_date
 		&update_contact_last_login
@@ -585,6 +587,14 @@ sub update_last_import_date($org_id, $time) {
 
 sub update_last_export_date($org_id, $time) {
 	return _update_partner_field(retrieve_org($org_id), 'x_off_last_export_date', _time_to_odoo_date_str($time));
+}
+
+sub update_public_products($org_ref, $number_of_products) {
+	return _update_partner_field($org_ref, 'x_off_public_products', $number_of_products);
+}
+
+sub update_pro_products($org_ref, $number_of_products) {
+	return _update_partner_field($org_ref, 'x_off_pro_products', $number_of_products);
 }
 
 sub update_contact_last_login ($user_ref) {
