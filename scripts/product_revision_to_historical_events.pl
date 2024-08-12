@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2024 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -29,7 +29,7 @@ use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Redis qw/push_to_redis_stream/;
 use ProductOpener::Products qw/product_id_from_path/;
 use Path::Tiny;
-use JSON;
+use JSON::MaybeXS;
 
 # This script recursively visits all product.sto files from the root of the products directory
 # and process its changes to generate a JSONL file of historical events
