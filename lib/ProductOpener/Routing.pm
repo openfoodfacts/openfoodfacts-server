@@ -386,7 +386,7 @@ sub properties_route($request_ref) {
 # products/[code](+[code])*
 # e.g. /8024884500403+3263855093192
 sub products_route($request_ref) {
-	param("code", $request_ref->{components}[0]);
+	param("code", $request_ref->{components}[1]);
 	$request_ref->{search} = 1;
 	set_request_stats_value($request_ref->{stats}, "route", "search");
 	return 1;
@@ -613,7 +613,13 @@ sub register_route($routes_to_register) {
 		}
 		else {
 			# use a hash key for fast match
-			$routes{$pattern} = {handler => $handler, opt => $opt};
+			# do not overwrite existing routes (e.g. a text route that matches a well known route)
+			if (exists $routes{$pattern}) {
+				$log->warn("route already exists", {pattern => $pattern}) if $log->is_warn();
+			}
+			else {
+				$routes{$pattern} = {handler => $handler, opt => $opt};
+			}
 		}
 	}
 	return 1;

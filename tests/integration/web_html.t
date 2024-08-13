@@ -544,6 +544,20 @@ my $tests_ref = [
 			'Cache-Control' => 'no-cache',
 		},
 	},
+	# request with a group_by tagtype in English
+	# e.g. https://es.openfoodfacts.org/ingredients
+	{
+		test_case => 'es-ingredients',
+		subdomain => 'es',
+		path => '/ingredients',
+		expected_type => 'html',
+	},
+	# /products with multiple products
+	{
+		test_case => 'world-products-multiple-codes',
+		path => '/products/3300000000001,3300000000002',
+		expected_type => 'html',
+	},
 ];
 
 execute_api_tests(__FILE__, $tests_ref);
