@@ -190,7 +190,6 @@ $flavor = 'off';
 	teolemon
 	g123k
 	valimp
-	antoine4321test
 );
 
 %options = (
