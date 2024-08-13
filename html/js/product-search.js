@@ -467,6 +467,7 @@ function rank_and_display_products(target, products, contributor_prefs) {
 
 /* exported search_products */
 
+/* eslint-disable max-params */
 function search_products(target, products, search_api_url, contributor_prefs) {
 
 	// Retrieve generic search results from the search API
