@@ -1121,7 +1121,7 @@ sub process_image_move ($user_id, $code, $imgids, $move_to, $ownerid) {
 	my @image_queue = split(/,/, $imgids);
 
 	while (@image_queue) {
-		
+
 		my $imgid = shift @image_queue;
 		next if ($imgid !~ /^\d+$/);
 
@@ -1217,7 +1217,7 @@ sub process_image_move ($user_id, $code, $imgids, $move_to, $ownerid) {
 					foreach my $related_img (keys %{$product_ref->{images}}) {
 						if ($product_ref->{images}{$related_img}{imgid} eq $imgid) {
 							_process_image_unselect($product_ref, $related_img);
-							push @image_queue, $related_img; # move related images to trash as well
+							push @image_queue, $related_img;    # move related images to trash as well
 							$log->debug("Image unselected because it was deleted: relatied: imgid: $imgid", {})
 								if $log->is_debug();
 						}
