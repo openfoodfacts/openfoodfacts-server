@@ -106,6 +106,19 @@ sub initialize_knowledge_panels_options ($knowledge_panels_options_ref, $request
 	}
 	$knowledge_panels_options_ref->{knowledge_panels_client} = $knowledge_panels_client;
 
+	my $included_panels = single_param('knowledge_panels_included') || '';
+	my %included_panels = map {$_ => 1} split(/,/, $included_panels);
+	my $excluded_panels = single_param('knowledge_panels_excluded') || '';
+	# excluded overrides included
+	$included_panels{$_} = 0 for split(/,/, $excluded_panels);
+	$knowledge_panels_options_ref->{knowledge_panels_includes} = sub {
+		my $panel_id = shift;
+		return (
+				   (exists $included_panels{$panel_id}) and ($included_panels{$panel_id} eq 1)
+				or (not(exists $included_panels{$panel_id}) and not $included_panels)
+		);
+	};
+
 	# some info about users
 	$knowledge_panels_options_ref->{user_logged_in} = defined $User_id;
 
@@ -197,23 +210,38 @@ sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref,
 		$product_ref->{"knowledge_panels_" . $target_lc}{"tags_brands_nutella_doyouknow"} = $test_panel_ref;
 	}
 
+	my $panel_is_requested = $options_ref->{knowledge_panels_includes};
+
 	# Create recommendation panels first, as they will be included in cards such has the health card and environment card
-	if (feature_enabled("food_recommendations")) {
+	if (    $panel_is_requested->('health_card')
+		and $panel_is_requested->('environment_card')
+		and feature_enabled('food_recommendations'))
+	{
 		create_recommendation_panels($product_ref, $target_lc, $target_cc, $options_ref);
 	}
 
 	my $has_health_card;
-	if (feature_enabled("health_card")) {
+	if ($panel_is_requested->('health_card')
+		and feature_enabled('health_card'))
+	{
 		$has_health_card = create_health_card_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 	}
 
-	create_environment_card_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+	my $has_environment_card;
+	if ($panel_is_requested->('environment_card')) {
+		$has_environment_card
+			= create_environment_card_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+	}
 
 	my $has_report_problem_card;
-	if (not $options_ref->{producers_platform}) {
+	if (not $options_ref->{producers_platform} and $panel_is_requested->('report_problem_card')) {
 		$has_report_problem_card = create_report_problem_card_panel($product_ref, $target_lc, $target_cc, $options_ref);
 	}
-	my $has_contribution_card = create_contribution_card_panel($product_ref, $target_lc, $target_cc, $options_ref);
+
+	my $has_contribution_card;
+	if ($panel_is_requested->('contribution_card')) {
+		$has_contribution_card = create_contribution_card_panel($product_ref, $target_lc, $target_cc, $options_ref);
+	}
 
 	# Create the root panel that contains the panels we want to show directly on the product page
 	create_panel_from_json_template(
@@ -222,7 +250,8 @@ sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref,
 		{
 			has_health_card => $has_health_card,
 			has_report_problem_card => $has_report_problem_card,
-			has_contribution_card => $has_contribution_card
+			has_contribution_card => $has_contribution_card,
+			has_environment_card => $has_environment_card,
 		},
 		$product_ref,
 		$target_lc,
@@ -766,7 +795,7 @@ sub create_environment_card_panel ($product_ref, $target_lc, $target_cc, $option
 	$panel_data_ref->{packaging_image} = data_to_display_image($product_ref, "packaging", $target_lc),
 		create_panel_from_json_template("environment_card", "api/knowledge-panels/environment/environment_card.tt.json",
 		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
-	return;
+	return 1;
 }
 
 =head2 create_manufacturing_place_panel ( $product_ref, $target_lc, $target_cc, $options_ref )
