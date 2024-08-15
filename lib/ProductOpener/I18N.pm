@@ -38,11 +38,16 @@ The functions used in this module take the directory to look for the .po files a
 
 package ProductOpener::I18N;
 
-use strict;
-use warnings;
+use ProductOpener::PerlStandards;
+
 use File::Basename;
 use File::Find::Rule;
-use Locale::Maketext::Lexicon _auto => 0, _decode => 1, _style => "gettext", _disable_maketext_conversion => 1;
+use Locale::Maketext::Lexicon
+	_auto => 0,
+	_decode => 1,
+	_style => "gettext",
+	_disable_maketext_conversion => 1,
+	_allow_empty => 1;
 use Locale::Maketext::Lexicon::Getcontext;
 use Log::Any qw($log);
 
@@ -91,8 +96,7 @@ Returns a reference to a hash on successful execution.
 
 =cut
 
-sub read_po_files {
-	my ($dir) = @_;
+sub read_po_files ($dir) {
 
 	local $log->context->{directory} = $dir;
 	$log->debug("Reading po files from disk");
@@ -148,6 +152,22 @@ sub read_po_files {
 	# close $fh;
 
 	return \%l10n;
+}
+
+sub read_pot_file ($file) {
+
+	local $log->context->{file} = basename($file);
+	$log->debug("Reading pot file");
+
+	open my $fh, "<", $file or die $!;
+	my %Lexicon = %{Locale::Maketext::Lexicon::Getcontext->parse(<$fh>)};
+	close $fh;
+
+	# clean up %Lexicon from gettext metadata
+	delete $Lexicon{""};
+	delete $Lexicon{$_} for @metadata_fields;
+
+	return \%Lexicon;
 }
 
 #

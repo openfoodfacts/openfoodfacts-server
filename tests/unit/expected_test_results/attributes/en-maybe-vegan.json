@@ -382,7 +382,7 @@
             "aggregated_origins" : [
                {
                   "origin" : "en:unknown",
-                  "percent" : 100
+                  "percent" : 100.0
                }
             ],
             "epi_score" : 0,
@@ -710,7 +710,7 @@
    "ingredients_with_specified_percent_n" : 0,
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 3,
-   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_with_unspecified_percent_sum" : 100.0,
    "ingredients_without_ciqual_codes" : [
       "en:enzyme"
    ],

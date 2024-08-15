@@ -5894,6 +5894,10 @@ msgctxt "nutriscore_missing_nutrition_data"
 msgid "The nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr "Les données nutritionnelles du produit doivent être spécifiées afin de calculer le Nutri-Score."
 
+msgctxt "nutriscore_missing_nutrition_data_details"
+msgid "Missing nutrition facts:"
+msgstr "Données nutritionnelles manquantes :"
+
 msgctxt "nutriscore_missing_category_and_nutrition_data"
 msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr "La catégorie et la valeur nutritionnelle du produit doivent être précisées afin de calculer le Nutri-Score."
@@ -6920,3 +6924,34 @@ msgctxt "report_problem_navigation"
 msgid "Signaler un problème"
 msgstr "Signaler un problème"
 
+msgctxt "created_by"
+msgid "Créé par"
+msgstr "Créé par"
+
+msgctxt "org_id"
+msgid "Org id"
+msgstr "Org id"
+
+msgctxt "verified_status"
+msgid "Statut vérifié"
+msgstr "Statut vérifié"
+
+msgctxt "creation_date"
+msgid "Date de création"
+msgstr "Date de création"
+
+msgctxt "last_login"
+msgid "Date de dernière connexion"
+msgstr "Date de dernière connexion"
+
+msgctxt "last_import"
+msgid "Dernière date d'importation"
+msgstr "Dernière date d'importation"
+
+msgctxt "drop_a_file"
+msgid "Drop"
+msgstr "Glissez"
+
+msgctxt "select_product_data_file"
+msgid "Select a file with product data"
+msgstr "Choisissez un fichier avec les données des produits"

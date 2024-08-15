@@ -232,7 +232,7 @@ paths:
             schema:
               AllOf:
               - $ref: ./requestBodies/add_or_edit_a_product.yaml
-              - $ref: ./responses/change_ref_properties.yaml
+              - $ref: ./requestBodies/change_ref_properties.yaml
       tags:
         - Write Requests
       description: |

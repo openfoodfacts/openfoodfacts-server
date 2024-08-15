@@ -77,18 +77,19 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/%cc_nutriment_table %nutriments_tables/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Lang qw/$lc %Lang lang/;
-use ProductOpener::Display qw/$header $nutriment_table/;
+use ProductOpener::Display qw/$nutriment_table/;
 use ProductOpener::Export qw/export_csv/;
 use ProductOpener::Import
 	qw/$IMPORT_MAX_PACKAGING_COMPONENTS import_csv_file import_products_categories_from_public_database/;
 use ProductOpener::ImportConvert qw/clean_fields/;
 use ProductOpener::Users qw/$Org_id $Owner_id $User_id %User/;
+use ProductOpener::Orgs qw/update_export_date/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 use Time::Local;
 use Data::Dumper;
 use Text::CSV();
@@ -1826,6 +1827,9 @@ sub export_and_import_to_public_database ($args_ref) {
 
 	my $started_t = time();
 	my $export_id = $started_t;
+
+	# sync CRM
+	update_export_date($Org_id, $started_t);
 
 	my $exports_ref = retrieve("$BASE_DIRS{EXPORT_FILES}/${Owner_id}/exports.sto");
 	if (not defined $exports_ref) {

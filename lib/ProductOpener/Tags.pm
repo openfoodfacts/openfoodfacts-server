@@ -67,11 +67,13 @@ BEGIN {
 		&get_property_with_fallbacks
 		&get_inherited_property
 		&get_property_from_tags
+		&get_inherited_property_and_matching_tag
 		&get_inherited_property_from_tags
 		&get_matching_regexp_property_from_tags
 		&get_inherited_property_from_categories_tags
 		&get_inherited_properties
 		&get_tags_grouped_by_property
+		&get_all_tags_having_property
 
 		%tags_images
 		%tags_texts
@@ -194,7 +196,7 @@ use LWP::UserAgent ();
 use Encode;
 
 use GraphViz2;
-use JSON::PP;
+use JSON::MaybeXS;
 
 use Data::DeepAccess qw(deep_get deep_exists);
 
@@ -363,6 +365,12 @@ sub get_property_with_fallbacks ($tagtype, $tagid, $property, $fallback_lcs = ["
 
 sub get_inherited_property ($tagtype, $canon_tagid, $property) {
 
+	my ($value, $matching_tagid) = get_inherited_property_and_matching_tag($tagtype, $canon_tagid, $property);
+	return $value;
+}
+
+sub get_inherited_property_and_matching_tag ($tagtype, $canon_tagid, $property) {
+
 	my @parents = ($canon_tagid);
 	my %seen = ();
 
@@ -382,7 +390,7 @@ sub get_inherited_property ($tagtype, $canon_tagid, $property) {
 				}
 				else {
 					#Return only one occurence of the property if several are defined in ingredients.txt
-					return $property_value;
+					return ($property_value, $tagid);
 				}
 			}
 			elsif (exists $direct_parents{$tagtype}{$tagid}) {
@@ -391,7 +399,7 @@ sub get_inherited_property ($tagtype, $canon_tagid, $property) {
 			}
 		}
 	}
-	return;
+	return (undef, undef);
 }
 
 =head2 get_property_from_tags ($tagtype, $tags_ref, $property)
@@ -709,6 +717,37 @@ sub get_tags_grouped_by_property ($tagtype, $tagids_ref, $prop_name, $props_ref,
 	}
 
 	return $grouped_tags;
+}
+
+=head2 get_all_tags_having_property ($product_ref, $tagtype, $prop_name)
+
+For each tag of a given field ($tagtype, can be "labels" or "categories", for example),
+and a given property ($prop_name, without last column (:). Can be "incompatible_with:en", for example),
+return a hash of tagid <-> property_value
+remark: this DOES NOT handle property inheritance
+
+=head3 Return
+
+A hash, where keys are tagid and values are property_value
+
+=head4 Example, get_all_tags_having_property($product_ref, "labels", "incompatible_with:en")
+
+
+=cut
+
+sub get_all_tags_having_property ($product_ref, $tagtype, $prop_name) {
+	my %tag_property_hash = ();
+	if (defined $product_ref->{$tagtype . "_tags"}) {
+		foreach my $tagid (@{$product_ref->{$tagtype . "_tags"}}) {
+			my $property_value = get_property($tagtype, $tagid, $prop_name);
+
+			if (defined $property_value) {
+				$tag_property_hash{$tagid} = lc($property_value =~ s/\s+/-/gr);
+			}
+		}
+	}
+
+	return \%tag_property_hash;
 }
 
 sub has_tag ($product_ref, $tagtype, $tagid) {
@@ -1499,7 +1538,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 				}
 
 			}
-			elsif ($line =~ /^expected_nutriscore_grade:en:/) {
+			elsif ($line =~ /^expected_nutriscore_grade:en: */) {
 				# the line should be the nutriscore grade: a, b, c, d or e
 				my $nutriscore_grade = $';    # everything after the matched string
 
@@ -1514,7 +1553,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 					push(@taxonomy_errors, _taxonomy_error("ERROR", "unknown_nutriscore", $msg, $line_number));
 				}
 			}
-			elsif ($line =~ /^expected_ingredients:en:/) {
+			elsif ($line =~ /^expected_ingredients:en: */) {
 				# the line should contain a single ingredient
 				my $expected_ingredients = $';    # everything after the matched string
 

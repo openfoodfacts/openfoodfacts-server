@@ -25,7 +25,7 @@ use ProductOpener::PerlStandards;
 use CGI::Carp qw(fatalsToBrowser);
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 use Digest::SHA1 qw(sha1_hex);
 
 use ProductOpener::Display qw/single_param/;
