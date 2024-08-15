@@ -39393,8 +39393,8 @@ ciqual_food_name:fr: Bonbons, tout type
 gpc_category_code:en: 10000047
 gpc_category_description:en: Definition: Includes any products that can be described/observed as a hard or soft confection made mostly from sugar, with added flavourings that may or may not contain gelatine. These products may be individually wrapped, packaged loose in a bag or container, or tightly packaged in a roll or tube. Products include toffees.Definition Excludes: Excludes products such as Sugar Candy Products covered in chocolate.
 gpc_category_name:en: Sugar Candy/Sugar Candy Substitutes Confectionery
-sales_format:en:package,weight
-wikidata:en:Q185583
+sales_format:en: package,weight
+wikidata:en: Q185583
 
 < en:Candies
 en: French candies
@@ -57123,7 +57123,7 @@ gpc_category_code:en: 10006202
 gpc_category_description:en: Definition: Includes any products that can be described/observed as an bird eggs in the shell that have not been sorted for quality. Definition Excludes: Specifically excludes checked and dirty eggs, table eggs, and individually cooked eggs.
 gpc_category_name:en: In-Shell Nest Run Eggs
 intake24_category_code:en: RWEG
-sales_format:package,item
+sales_format: package,item
 
 < en:Eggs
 en: Boiled eggs
@@ -61898,7 +61898,7 @@ ciqual_food_name:en: Oatmeal flakes
 ciqual_food_name:fr: Flocon d'avoine
 comment:en: The most common english appellation is rolled oats, the name of the category should stay "rolled oats" even if it doesn't match with the other category names
 wikidata:en: Q57656974
-sales_format:en:package,weight
+sales_format:en: package,weight
 
 < en:Oat flakes
 en: Pre-cooked oat flakes
@@ -65680,7 +65680,7 @@ lt: Švieži vaisiai
 nl: Vers fruit
 pt: Frutas frescas
 ru: Свежие фрукты
-sales_format:en:package,weight,item
+sales_format:en: package,weight,item
 who_id:en: 15
 
 < en:Fresh fruits
@@ -72279,7 +72279,7 @@ agribalyse_food_code:en: 11074
 ciqual_food_code:en: 11074
 ciqual_food_name:en: Ginger, raw
 ciqual_food_name:fr: Gingembre, racine crue
-sales_format:en:package,weight
+sales_format:en: package,weight
 
 < en:Ginger
 < en:Plant-based pickles
@@ -90890,8 +90890,8 @@ ciqual_food_code:en: 20010
 ciqual_food_name:en: Mushroom, all types, raw
 ciqual_food_name:fr: Champignon, tout type, cru
 intake24_category_code:en: MSRH
+sales_format:en: package,weight
 wikidata:en: Q654236
-sales_format:en:package,weight
 
 < en:Fresh vegetables
 < en:Mushrooms
@@ -104095,7 +104095,7 @@ zh: 新鲜蔬菜
 gpc_category_code:en: 10000006
 gpc_category_description:en: Definition: Includes any products that can be described/observed as any variety of vegetables, combination of vegetables or fruit vegetables, which may be whole, chopped, cleaned and trimmed, but has not gone through any further manufacturing processes, such as reformed, cooked, dried, salted or smoked, however these products can be coated, in sauce, stuffed or filled.Definition Excludes: Specifically excludes products that have added ingredients included such as rice, couscous and pasta. These products have been treated or packaged in such a way as to extend their consumable life. Excludes products such as Vegetables with additional dough or grains, Frozen and Fresh Unprepared and Unprocessed Vegetables, all Prepared and Processed Vegetables.
 gpc_category_name:en: Vegetables - Unprepared/Unprocessed (Shelf Stable)
-sales_format:en:package,item,weight
+sales_format:en: package,item,weight
 who_id:en: 15
 
 < en:Vegetables
@@ -106434,9 +106434,9 @@ agribalyse_proxy_food_code:en: 4008
 agribalyse_proxy_food_name:en: Potato, peeled, raw
 agribalyse_proxy_food_name:fr: Pomme de terre, sans peau, crue
 food_groups:en: en:potatoes
-intake24_category_code:en:POTS
-pnns_group_2:en:Potatoes
-sales_format:package,weight
+intake24_category_code:en: POTS
+pnns_group_2:en: Potatoes
+sales_format: package,weight
 
 #################### Potato harvest ####################
 
@@ -109915,7 +109915,7 @@ agribalyse_proxy_food_code:en: 20591_1
 agribalyse_proxy_food_name:en: Soy protein, textured, rehydrated, from soy flour
 agribalyse_proxy_food_name:fr: Protéine de soja texturée
 wikidata:en: Q2120234
-sales_format:en:package,weight
+sales_format:en: package,weight
 
 < en:Textured vegetable protein
 en: Textured soy protein, Soy protein textured rehydrated from soy flour
