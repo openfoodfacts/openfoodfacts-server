@@ -2628,7 +2628,7 @@ msgstr "просмотр"
 
 msgctxt "view_this_revision"
 msgid "View this revision"
-msgstr ""
+msgstr "Просмотреть эту версию"
 
 msgctxt "view_list_for_products_from_the_entire_world"
 msgid "View the list for matching products from the entire world"
@@ -2682,11 +2682,11 @@ msgstr "Загрузить изображения с меньшим разреш
 
 msgctxt "protected_image_message"
 msgid "An image has been sent by the manufacturer. If you think it is incorrect or not up-to-date, please contact us."
-msgstr ""
+msgstr "Изображение было отправлено производителем. Если вы считаете, что оно неверное или неактуальное, пожалуйста, свяжитесь с нами."
 
 msgctxt "nutrition_grade_fr_nutriments_estimated_warning"
 msgid "Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients."
-msgstr ""
+msgstr "Внимание: пищевая ценность не указана. Она была рассчитана на основе списка ингредиентов."
 
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
@@ -2702,15 +2702,15 @@ msgstr "Предупреждение: количество фруктов, ов�
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was manually estimated from the list of ingredients: %d"
-msgstr ""
+msgstr "Внимание: количество фруктов, овощей и орехов не указано на этикетке и рассчитывается вручную на основе списка ингредиентов: %d"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d"
-msgstr ""
+msgstr "Предупреждение: количество фруктов, овощей и орехов не указано на этикетке, оно рассчитано на основании категории (%s) продукта: %d"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_from_ingredients_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d"
-msgstr ""
+msgstr "Внимание: количество фруктов, овощей и орехов не указано на этикетке, оно было вычислено на основе списка ингредиентов: %d"
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
@@ -2960,11 +2960,11 @@ msgstr "Риск чрезмерного воздействия"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_high"
 msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a high risk of reaching or exceeding the Acceptable Daily Intake (ADI) for <tag>."
-msgstr ""
+msgstr "Европейское управление по безопасности продуктов питания (EFSA) установило, что некоторые группы населения имеют высокий риск достижения или превышения допустимой суточной нормы потребления (ADI) для <tag>."
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_moderate"
 msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a moderate risk of reaching or exceeding the Acceptable Daily Intake (ADI) for <tag>."
-msgstr ""
+msgstr "Европейское агентство по безопасности продуктов питания (EFSA) установило, что некоторые группы населения имеют умеренный риск достижения или превышения допустимой суточной нормы потребления (ADI) для <tag>."
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_description"
 msgid "To evaluate your exposure to the <tag> food additive, you can browse our list of products that contain it. See the list of <nb_products> products with <tag> below."
@@ -2992,11 +2992,11 @@ msgstr "Отсутствие или очень низкий риск чрезм�
 
 msgctxt "additives_efsa_evaluation_exposure_greater_than_adi"
 msgid "Risk of reaching or exceeding the acceptable daily intake (ADI)"
-msgstr ""
+msgstr "Риск достижения или превышения допустимой суточной нормы потребления (ADI)"
 
 msgctxt "additives_efsa_evaluation_exposure_greater_than_noael"
 msgid "Risk of reaching exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
-msgstr ""
+msgstr "Риск превышения максимальной дозы без нежелательных эффектов (уровень отсутствия наблюдаемых нежелательных эффектов)"
 
 msgctxt "additives_efsa_evaluation_exposure_mean_greater_than_adi"
 msgid "Groups with more than 50% of members exceeding the acceptable daily intake (ADI)"
@@ -3016,19 +3016,19 @@ msgstr "Группы с более чем 5% членов, превышающи�
 
 msgctxt "exposure_title_95th"
 msgid "Moderate risk"
-msgstr ""
+msgstr "Умеренный риск"
 
 msgctxt "exposure_description_95th"
 msgid "5% of people or more"
-msgstr ""
+msgstr "5% людей или более"
 
 msgctxt "exposure_title_mean"
 msgid "High risk"
-msgstr ""
+msgstr "Высокий риск"
 
 msgctxt "exposure_description_mean"
 msgid "50% of people or more"
-msgstr ""
+msgstr "50% людей или более"
 
 msgctxt "wikipedia"
 msgid "Wikipedia"
@@ -3248,7 +3248,7 @@ msgstr "Уровень воздействия на окружающую сред
 
 msgctxt "environment_impact_level_example"
 msgid "en:low, en:medium or en:high"
-msgstr ""
+msgstr "низкий, средний или высокий"
 
 msgctxt "carbon_impact_from_meat_or_fish"
 msgid "Carbon impact from meat or fish"
@@ -3386,7 +3386,7 @@ msgstr "Импортировать файл данных о продукте"
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_description"
 msgid "Upload a spreadsheet file (Excel file or a comma or tab separated UTF-8 encoded CSV file) with product data."
-msgstr ""
+msgstr "Загрузите файл электронной таблицы (файл Excel или CSV-файл в кодировке UTF-8, разделенный запятыми или табуляциями) с данными о продукте."
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_format"
@@ -4083,11 +4083,11 @@ msgstr "Платформа для производителей все еще н�
 
 msgctxt "crm_user_id"
 msgid "Id of corresponding contact in CRM"
-msgstr ""
+msgstr "Идентификатор соответствующего контакта в CRM"
 
 msgctxt "crm_org_id"
 msgid "Id of corresponding organization in CRM"
-msgstr ""
+msgstr "Идентификатор соответствующей организации в CRM"
 
 msgctxt "user_groups"
 msgid "Groups"
@@ -4176,7 +4176,7 @@ msgstr "Модерация платформы производителей"
 # variable names between { } must not be translated
 msgctxt "f_pro_moderator_owner_set"
 msgid "You are currently viewing products from {organization}."
-msgstr ""
+msgstr "В настоящее время Вы просматриваете продукты от {organization}."
 
 msgctxt "pro_moderator_owner_not_set"
 msgid "You are currently viewing your own products."
@@ -4189,7 +4189,7 @@ msgstr "Чтобы увидеть товары от конкретного по�
 # Action verb "Change" to put on a form button
 msgctxt "pro_moderator_edit_owner"
 msgid "Switch to another organization"
-msgstr ""
+msgstr "Переключиться на другую организацию"
 
 msgctxt "pro_moderator_edit_owner_placeholder"
 msgid "user-abc or org-xyz"
@@ -4258,7 +4258,7 @@ msgstr "Удалить все продукты"
 
 msgctxt "remove_user"
 msgid "Remove user"
-msgstr ""
+msgstr "Удалить пользователя"
 
 msgctxt "remove_products_from_producers_platform"
 msgid "Remove all your products from the platform for producers"
@@ -4295,7 +4295,7 @@ msgstr "Некоторые ингредиенты не могут быть ра�
 # variable names between { } must not be translated
 msgctxt "f_move_data_and_photos_to_main_language"
 msgid "Move all data and selected photos in {language} to the main language of the product: {main_language}"
-msgstr ""
+msgstr "Переместить все данные и выбранные фотографии в {language} на основной язык продукта: {main_language}"
 
 msgctxt "move_data_and_photos_to_main_language_replace"
 msgid "Replace existing values and selected photos"
@@ -4348,11 +4348,11 @@ msgstr "Участник"
 
 msgctxt "contributor_settings_description"
 msgid "Those settings allow you to personalize some aspects of the website"
-msgstr ""
+msgstr "Эти настройки позволяют вам персонализировать некоторые аспекты веб-сайта"
 
 msgctxt "display_barcode_in_search"
 msgid "Display barcode in search results"
-msgstr ""
+msgstr "Отображать штрих-код в результатах поиска"
 
 msgctxt "edit_link_in_search"
 msgid "Add an edit link in search results"
