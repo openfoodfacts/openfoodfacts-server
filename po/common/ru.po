@@ -17,7 +17,7 @@ msgstr ""
 
 msgctxt "site_description_off"
 msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
-msgstr ""
+msgstr "Совместная, открытая и свободная база данных об ингредиентах, пищевой ценности и прочей информации о продуктах питания со всего мира"
 
 msgctxt "tagline_off"
 msgid "Open Food Facts gathers information and data on food products from around the world."
@@ -155,15 +155,15 @@ msgstr "Ваш запрос на присоединение к организа�
 
 msgctxt "admin_status_updated"
 msgid "Admin Status Updated"
-msgstr ""
+msgstr "Статус администратора обновлен"
 
 msgctxt "admin_status"
 msgid "Admin Status"
-msgstr ""
+msgstr "Статус Администратора"
 
 msgctxt "grant_remove_admin_status"
 msgid "Grant/Remove Admin status"
-msgstr ""
+msgstr "Предоставить/удалить статус администратора"
 
 msgctxt "please_email_producers"
 msgid "Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> if you have any question."
@@ -199,7 +199,7 @@ msgstr "Пожалуйста, введите название вашей орг�
 
 msgctxt "enter_email_addresses_of_users"
 msgid "Enter email addresses of users to invite (comma-separated):"
-msgstr ""
+msgstr "Введите адреса электронной почты пользователей, которых вы хотите пригласить (через запятую):"
 
 msgctxt "f_this_is_a_pro_account_for_org"
 msgid "This account is a professional account associated with the producer or brand {org}. You have access to the Platform for Producers."
@@ -244,7 +244,7 @@ msgstr "Чрезмерное употребление вредно для здо
 
 msgctxt "email_warning"
 msgid "Please note that your Pro account will only be valid if you use your professional e-mail address. Our moderation team checks that the domain name is consistent with the organisation you wish to join."
-msgstr ""
+msgstr "Обратите внимание, что ваш Pro-аккаунт будет действителен только в том случае, если вы используете свой профессиональный адрес электронной почты. Наша команда модераторов проверяет, соответствует ли доменное имя организации, к которой вы хотите присоединиться."
 
 msgctxt "all_missions"
 msgid "All missions"
@@ -323,11 +323,11 @@ msgstr "Вы также можете помочь финансировать п�
 
 msgctxt "producers_administration_manual"
 msgid "Producers Admin manual"
-msgstr ""
+msgstr "Руководство администратора производителей"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr ""
+msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> создано некоммерческой организацией, независимой от индустрии. Наше приложение сделано всеми для всех и финансируется всеми. Вы можете поддержать наш труд<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">, отправляя денежные пожертвования Open Food Facts</a>, а также <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">используя поисковик Lilo</a>.<br/><b>Спасибо!</b></p>"
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
@@ -543,15 +543,15 @@ msgstr "Удалить изображения"
 
 msgctxt "delete_user"
 msgid "Delete a user"
-msgstr ""
+msgstr "Удалить пользователя"
 
 msgctxt "delete_confirmation"
 msgid "This will delete your user details and anonymise all of your contributions. Please re-enter your user name to confirm."
-msgstr ""
+msgstr "Это действие удалит ваши пользовательские данные и сделает все ваши пожертвования анонимными. Пожалуйста, введите свое имя пользователя еще раз, чтобы подтвердить действие."
 
 msgctxt "danger_zone"
 msgid "Danger Zone"
-msgstr ""
+msgstr "Опасная зона"
 
 msgctxt "diff_add"
 msgid "Added:"
@@ -643,7 +643,7 @@ msgstr "Адрес электронной почты"
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with traceability code %s"
-msgstr ""
+msgstr "Продукция упакована компанией с кодом отслеживания %s"
 
 msgctxt "emb_code_p"
 msgid "Traceability codes"
@@ -651,11 +651,11 @@ msgstr ""
 
 msgctxt "emb_code_s"
 msgid "Traceability code"
-msgstr ""
+msgstr "Код отслеживания продукта"
 
 msgctxt "emb_codes"
 msgid "Traceability code"
-msgstr ""
+msgstr "Код отслеживания продукта"
 
 msgctxt "emb_codes_p"
 msgid "traceability codes"
@@ -663,7 +663,7 @@ msgstr "Коды упаковщика"
 
 msgctxt "emb_codes_products"
 msgid "Products with the traceability code %s"
-msgstr ""
+msgstr "Продукты с кодом отслеживания %s"
 
 msgctxt "emb_codes_s"
 msgid "traceability code"
@@ -671,7 +671,7 @@ msgstr ""
 
 msgctxt "emb_codes_without_products"
 msgid "Products without the traceability code %s"
-msgstr ""
+msgstr "Продукты без кода отслеживания %s"
 
 # Those are country specific codes. For European countries, you can change FR 62.448.034 CE to DE BY 718 EG (for instance)
 msgctxt "emb_codes_example"
@@ -732,11 +732,11 @@ msgstr "Имя пользователя должно содержать толь
 
 msgctxt "error_username_too_long"
 msgid "The user name is too long (maximum 40 characters)."
-msgstr ""
+msgstr "Имя пользователя слишком длинное (максимум 40 символов)."
 
 msgctxt "error_name_too_long"
 msgid "The name is too long (maximum 60 characters)."
-msgstr ""
+msgstr "Имя слишком длинное (максимум 60 символов)."
 
 msgctxt "error_new_code_already_exists"
 msgid "A product already exists with the new code"
@@ -813,7 +813,7 @@ msgstr "<<site_name>> в блоге"
 # Do not translate
 msgctxt "footer_blog_link"
 msgid "https://blog.openfoodfacts.org/en/"
-msgstr ""
+msgstr "https://blog.openfoodfacts.org/en/"
 
 msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
@@ -886,12 +886,12 @@ msgstr "/legal"
 
 msgctxt "footer_privacy"
 msgid "Privacy"
-msgstr ""
+msgstr "Конфиденциальность"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_privacy_link"
 msgid "/privacy"
-msgstr ""
+msgstr "/privacy"
 
 msgctxt "footer_press"
 msgid "Press"
@@ -940,7 +940,7 @@ msgstr "https://world-ru.openbeautyfacts.org"
 
 msgctxt "footer_pro"
 msgid "Open Food Facts for Producers"
-msgstr ""
+msgstr "Open Food Facts для Производителей"
 
 msgctxt "for"
 msgid "for"
@@ -1062,7 +1062,7 @@ msgstr "Детали фото и информация о атрибуции"
 
 msgctxt "invite_user"
 msgid "Invite Users"
-msgstr ""
+msgstr "Пригласить пользователей"
 
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
@@ -1090,7 +1090,7 @@ msgstr "1 ингредиент"
 
 msgctxt "f_ingredients_with_number"
 msgid "{number} ingredients"
-msgstr ""
+msgstr "{number} ингредиентов"
 
 msgctxt "ingredients_alt"
 msgid "Ingredients"
@@ -1623,7 +1623,7 @@ msgstr "В таблице по умолчанию перечислены пит�
 
 msgctxt "nutrition_data_table_asterisk"
 msgid "Essential nutrients to calculate the Nutri-Score."
-msgstr ""
+msgstr "Основные питательные вещества для вычисления Nutri-Score."
 
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
@@ -1636,7 +1636,7 @@ msgstr "Уровень питательных веществ"
 # Make sure the translated link works (eg that the image already exists in your language)
 msgctxt "og_image_url"
 msgid "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
-msgstr ""
+msgstr "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
 
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
@@ -1837,11 +1837,11 @@ msgstr "Изменения сохранены."
 
 msgctxt "product_edit_you_contributed"
 msgid "You just helped to improve the world largest open data database."
-msgstr ""
+msgstr "Вы только что помогли улучшить крупнейшую в мире открытую базу данных."
 
 msgctxt "product_edit_thank_you"
 msgid "Thank you so much for joining us in our journey to data transparency!"
-msgstr ""
+msgstr "Большое спасибо, что присоединились к нам на нашем пути к прозрачности данных!"
 
 msgctxt "product_characteristics"
 msgid "Product characteristics"
@@ -2145,7 +2145,7 @@ msgstr "Выберите продукты с конкретных марок, к
 
 msgctxt "search_description_opensearch"
 msgid "Product search"
-msgstr ""
+msgstr "Поиск продукта"
 
 msgctxt "search_does_not_contain"
 msgid "does not contain"
@@ -2371,7 +2371,7 @@ msgstr "Смотрите страницу продукта"
 
 msgctxt "re_edit_product_page"
 msgid "Edit the product again"
-msgstr ""
+msgstr "Изменить продукт еще раз"
 
 msgctxt "select_country"
 msgid "Country"
@@ -2411,7 +2411,7 @@ msgstr "Если таблица пищевой ценности содержит
 
 msgctxt "serving_too_small_for_nutrition_analysis"
 msgid "Serving size is too small (5 g / 5 ml or less) to calculate 100 g / 100 ml values and perform any further nutritional analysis"
-msgstr ""
+msgstr "Размер порции слишком мал (5 г / 5 мл или меньше) для расчета значений 100 г / 100 мл и проведения дальнейшего анализа пищевой ценности"
 
 msgctxt "session_title"
 msgid "Sign-in"
@@ -2620,7 +2620,7 @@ msgstr "Продукты, добавленные не %s"
 
 msgctxt "video_tutorials"
 msgid "Video Tutorials"
-msgstr ""
+msgstr "Видеоуроки"
 
 msgctxt "view"
 msgid "view"
