@@ -384,7 +384,6 @@ $template_data_ref->{debug} = $debug;
 $template_data_ref->{userid} = $userid;
 $template_data_ref->{type} = $type;
 $template_data_ref->{crm_contact_url} = get_contact_url($user_ref);
-$template_data_ref->{keycloak_account_link} = ProductOpener::Keycloak->new()->get_account_link();
 
 if (($type eq "edit_owner") and ($action eq "process")) {
 	$log->info("redirecting to / after changing owner", {}) if $log->is_info();

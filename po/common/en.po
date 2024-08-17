@@ -557,15 +557,6 @@ msgctxt "delete_confirmation"
 msgid "This will delete your user details and anonymise all of your contributions. Please re-enter your user name to confirm."
 msgstr "This will delete your user details and anonymise all of your contributions. Please re-enter your user name to confirm."
 
-msgctxt "keycloak_info"
-msgid "To edit more information, or to delete your account, please open the user center."
-msgstr "To edit more information, or to delete your account, please open the user center."
-
-# Link in button style to the Keycloak account page
-msgctxt "keycloak_account_button"
-msgid "User Center"
-msgstr "User Center"
-
 msgctxt "danger_zone"
 msgid "Danger Zone"
 msgstr "Danger Zone"
@@ -631,20 +622,24 @@ msgid "Change your account parameters"
 msgstr "Change your account parameters"
 
 msgctxt "edit_user"
-msgid "Account parameters"
-msgstr "Account parameters"
+msgid "Preferences"
+msgstr "Preferences"
 
 msgctxt "edit_user_display"
-msgid "Account parameters"
-msgstr "Account parameters"
+msgid "Preferences"
+msgstr "Preferences"
 
 msgctxt "edit_user_process"
-msgid "Account parameters"
-msgstr "Account parameters"
+msgid "Preferences"
+msgstr "Preferences"
 
 msgctxt "edit_user_result"
-msgid "Your account parameters have been changed."
-msgstr "Your account parameters have been changed."
+msgid "Your preference shave been changed."
+msgstr "Your preference shave been changed."
+
+msgctxt "user_in_keycloak"
+msgid "Account parameters"
+msgstr "Account parameters"
 
 msgctxt "editors_p"
 msgid "editors"
@@ -4992,6 +4987,10 @@ msgstr "Organization Members"
 msgctxt "number_of_members"
 msgid "Number of Members"
 msgstr "Number of Members"
+
+msgctxt "serial_no"
+msgid "S.No"
+msgstr "S.No"
 
 msgctxt "contact_form"
 msgid "Contact form"

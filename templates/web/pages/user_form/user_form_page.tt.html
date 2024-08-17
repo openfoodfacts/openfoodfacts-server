@@ -171,10 +171,8 @@
         <input type="hidden" name="action" value="process" />
         <input type="hidden" name="type" value="[% type %]" />
         [% IF userid %]
-            <p>[% lang("keycloak_info") %]</p>
             <input type="hidden" name="userid" value="[% userid %]" />
             <input type="submit" name=".submit" class="button" value= "[% edq(lang('save')) %]" />
-            <a href="[% keycloak_account_link %]" class="button secondary">[% lang("keycloak_account_button") %]</a>
         [% ELSE %]
             <input type="submit" name=".submit" class="button" value= "[% edq(lang('add_user')) %]" />
         [% END %]

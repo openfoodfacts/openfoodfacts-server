@@ -556,15 +556,6 @@ msgctxt "danger_zone"
 msgid "Danger Zone"
 msgstr ""
 
-msgctxt "keycloak_info"
-msgid "To edit more information, or to delete your account, please open the user center."
-msgstr ""
-
-# Link in button style to the Keycloak account page
-msgctxt "keycloak_account_button"
-msgid "User Center"
-msgstr ""
-
 msgctxt "diff_add"
 msgid "Added:"
 msgstr ""
@@ -626,20 +617,24 @@ msgid "Change your account parameters"
 msgstr ""
 
 msgctxt "edit_user"
-msgid "Account parameters"
-msgstr "Account parameters"
+msgid "Preferences"
+msgstr ""
 
 msgctxt "edit_user_display"
-msgid "Account parameters"
-msgstr "Account parameters"
+msgid "Preferences"
+msgstr ""
 
 msgctxt "edit_user_process"
-msgid "Account parameters"
-msgstr "Account parameters"
+msgid "Preferences"
+msgstr ""
 
 msgctxt "edit_user_result"
-msgid "Your account parameters have been changed."
-msgstr "Your account parameters have been changed."
+msgid "Your preference shave been changed."
+msgstr ""
+
+msgctxt "user_in_keycloak"
+msgid "Account parameters"
+msgstr ""
 
 msgctxt "editors_p"
 msgid "editors"
@@ -4968,6 +4963,10 @@ msgstr "Organization Members"
 msgctxt "number_of_members"
 msgid "Number of Members"
 msgstr "Number of Members"
+
+msgctxt "serial_no"
+msgid "S.No"
+msgstr "S.No"
 
 msgctxt "contact_form"
 msgid "Contact form"
