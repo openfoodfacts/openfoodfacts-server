@@ -29,10 +29,13 @@ use ProductOpener::Data qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created/;
 use ProductOpener::Users qw/$Owner_id/;
 use ProductOpener::Orgs qw/retrieve_org/;
+use ProductOpener::CRM qw/update_public_products update_pro_products/;
 use Storable qw(store);
 
 # This script is run daily to gather organisation data
-# such as number of products, number of products with errors etc,
+# such as number of products, number of products with errors etc.
+# Some data such as number of products on the public platform and in the producer platform
+# are synced with the CRM.
 
 ensure_dir_created($BASE_DIRS{ORGS});
 
@@ -96,7 +99,7 @@ sub get_org_data ($org_id) {
 	my $off_products_collection = get_products_collection({database => "off"});
 	my $off_org_data = $off_products_collection->aggregate(
 		[
-			{'$match' => {'owner' => "org-" . $org_id}},
+			{'$match' => {'owners_tags' => "org-" . $org_id}},
 			{
 				'$group' => {
 					'_id' => '$owner',
@@ -107,6 +110,13 @@ sub get_org_data ($org_id) {
 	)->next;
 
 	my $number_of_products = $org_data->{number_of_products} // 0;
+
+	# Using off-query to count products with a specific owners_tags seems very slow
+	# use Time::Monotonic qw(monotonic_time);
+	# my $start = monotonic_time();
+	# my $count = execute_count_tags_query({owners_tags => "org-" . $org_id});
+	# my $end = monotonic_time();
+	# print STDERR "$org_id\t$number_of_products\t$count\ttime: " . ($end - $start) . "\n";
 	my $number_of_products_without_nutriscore = $org_data->{number_of_products_without_nutriscore} // 0;
 	my $number_of_products_with_nutriscore = $number_of_products - $number_of_products_without_nutriscore;
 	my $percentage_of_products_with_nutriscore
@@ -139,7 +149,12 @@ sub update_org_data ($org_id) {
 
 	$org_ref->{'data'} = $data;
 
+	# sync crm
+	update_public_products($org_ref, $org_ref->{data}{products}{number_of_products_on_public_platform});
+	update_pro_products($org_ref), $org_ref->{data}{products}{number_of_products_on_producer_platform};
+
 	store($org_ref, $org_file_path);
+	return;
 }
 
 sub gather_org_data {
@@ -155,6 +170,7 @@ sub gather_org_data {
 		print STDERR "Error computing data for org $org_id: $org_error\n" if $org_error;
 		$i++;
 	}
+	return;
 }
 
 gather_org_data();

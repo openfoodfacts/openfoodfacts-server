@@ -11,8 +11,7 @@ jobs:
     name: "On demand linting"
     if: |
       github.event.issue.pull_request &&
-      (github.event.comment.body == '/lint') &&
-      contains(fromJSON('["COLLABORATOR", "CONTRIBUTOR", "MEMBER", "OWNER"]'), github.event.comment.author_association)
+      (github.event.comment.body == '/lint')
     runs-on: ubuntu-latest
     steps:
     - name: Get branch name
@@ -58,8 +57,7 @@ jobs:
     name: "On demand Update Tests Results"
     if: |
       github.event.issue.pull_request &&
-      (github.event.comment.body == '/update_tests_results') &&
-      contains(fromJSON('["COLLABORATOR", "CONTRIBUTOR", "MEMBER", "OWNER"]'), github.event.comment.author_association)
+      (github.event.comment.body == '/update_tests_results')
     runs-on: ubuntu-latest
     steps:
     - name: Get branch name

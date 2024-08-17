@@ -4960,10 +4960,6 @@ msgctxt "number_of_members"
 msgid "Number of Members"
 msgstr "Number of Members"
 
-msgctxt "serial_no"
-msgid "S.No"
-msgstr "S.No"
-
 msgctxt "contact_form"
 msgid "Contact form"
 msgstr "Contact form"
@@ -5945,6 +5941,10 @@ msgstr "The category of the product must be specified in order to compute the Nu
 msgctxt "nutriscore_missing_nutrition_data"
 msgid "The nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr "The nutrition facts of the product must be specified in order to compute the Nutri-Score."
+
+msgctxt "nutriscore_missing_nutrition_data_details"
+msgid "Missing nutrition facts:"
+msgstr "Missing nutrition facts:"
 
 msgctxt "nutriscore_missing_category_and_nutrition_data"
 msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
@@ -7108,3 +7108,6 @@ msgctxt "improvements_navigation"
 msgid "Improvements"
 msgstr "Improvements"
 
+msgctxt "products_with_changes_since_last_export"
+msgid "Products with changes since last export"
+msgstr "Products with changes since last export"

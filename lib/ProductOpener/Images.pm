@@ -1119,8 +1119,11 @@ sub process_image_move ($user_id, $code, $imgids, $move_to, $ownerid) {
 
 	# iterate on each images
 
-	foreach my $imgid (split(/,/, $imgids)) {
+	my @image_queue = split(/,/, $imgids);
 
+	while (@image_queue) {
+
+		my $imgid = shift @image_queue;
 		next if ($imgid !~ /^\d+$/);
 
 		# check the imgid exists
@@ -1211,10 +1214,18 @@ sub process_image_move ($user_id, $code, $imgids, $move_to, $ownerid) {
 
 				delete $product_ref->{images}{$imgid};
 
+				if ($move_to eq 'trash') {
+					foreach my $related_img (keys %{$product_ref->{images}}) {
+						if ($product_ref->{images}{$related_img}{imgid} eq $imgid) {
+							_process_image_unselect($product_ref, $related_img);
+							push @image_queue, $related_img;    # move related images to trash as well
+							$log->debug("Image unselected because it was deleted: relatied: imgid: $imgid", {})
+								if $log->is_debug();
+						}
+					}
+				}
 			}
-
 		}
-
 	}
 
 	store_product($user_id, $product_ref, "Moved images $imgids to $move_to");
@@ -1675,16 +1686,20 @@ sub process_image_crop ($user_id, $product_id, $id, $imgid, $angle, $normalize, 
 }
 
 sub process_image_unselect ($user_id, $product_id, $id) {
-
 	my $path = product_path_from_id($product_id);
+	# Update the product image data
+	my $product_ref = retrieve_product($product_id);
+	_process_image_unselect($product_ref, $id);
+	store_product($user_id, $product_ref, "unselected image $id");
+	return $product_ref;
+}
 
-	local $log->context->{product_id} = $product_id;
+sub _process_image_unselect ($product_ref, $id) {
+	local $log->context->{product_id} = $product_ref->{product}{_id};
 	local $log->context->{id} = $id;
 
 	$log->info("unselecting image") if $log->is_info();
 
-	# Update the product image data
-	my $product_ref = retrieve_product($product_id);
 	defined $product_ref->{images} or $product_ref->{images} = {};
 	if (defined $product_ref->{images}{$id}) {
 		delete $product_ref->{images}{$id};
@@ -1703,10 +1718,8 @@ sub process_image_unselect ($user_id, $product_id, $id) {
 		}
 	}
 
-	store_product($user_id, $product_ref, "unselected image $id");
-
 	$log->debug("unselected image") if $log->is_debug();
-	return $product_ref;
+	return;
 }
 
 sub _set_magickal_options ($magick, $width) {

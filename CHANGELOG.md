@@ -1,5 +1,40 @@
 # Changelog
 
+## [2.41.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.40.0...v2.41.0) (2024-08-13)
+
+
+### Features
+
+* generate historical events from product revisions ([#10523](https://github.com/openfoodfacts/openfoodfacts-server/issues/10523)) ([42508e1](https://github.com/openfoodfacts/openfoodfacts-server/commit/42508e1e19263079fe1516c2e388df0052eb98fd))
+* sync number of product public/pro in CRM ([#10684](https://github.com/openfoodfacts/openfoodfacts-server/issues/10684)) ([026ff6a](https://github.com/openfoodfacts/openfoodfacts-server/commit/026ff6a56c709b88cb633c760b6eb0fcb1bbee7a))
+
+
+### Bug Fixes
+
+* 3 fixes to make /products/[code1],[code2] work again ([#10669](https://github.com/openfoodfacts/openfoodfacts-server/issues/10669)) ([7fc07fc](https://github.com/openfoodfacts/openfoodfacts-server/commit/7fc07fc864efa7ea13ce74932af7b4f8f2131dd5))
+* Automatically unselect images when source image is deleted ([#10692](https://github.com/openfoodfacts/openfoodfacts-server/issues/10692)) ([588897a](https://github.com/openfoodfacts/openfoodfacts-server/commit/588897aee5163c209b53e40ef3c03fafdcf71593))
+* **docs:** correct OpenAPI definition by fixing missing reference ([#10659](https://github.com/openfoodfacts/openfoodfacts-server/issues/10659)) ([4f0f10e](https://github.com/openfoodfacts/openfoodfacts-server/commit/4f0f10e2e6a36fa1f699eb22f2e371eb4951df07))
+* gen_users_emails.pl ([#10686](https://github.com/openfoodfacts/openfoodfacts-server/issues/10686)) ([00e4c26](https://github.com/openfoodfacts/openfoodfacts-server/commit/00e4c26b099e9523de59defa906be3eaa9fae558))
+* Show missing nutrients in Nutri-Score panel ([#10655](https://github.com/openfoodfacts/openfoodfacts-server/issues/10655)) ([a1b11eb](https://github.com/openfoodfacts/openfoodfacts-server/commit/a1b11eb76e02f041d6fa1f50035b9d8d595322a8))
+* UTM mobile ([#10665](https://github.com/openfoodfacts/openfoodfacts-server/issues/10665)) ([965041d](https://github.com/openfoodfacts/openfoodfacts-server/commit/965041d7328b1bcad154409db452ac1ffb6c3782))
+
+## [2.40.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.39.0...v2.40.0) (2024-08-08)
+
+
+### Features
+
+* add more admins ([#10629](https://github.com/openfoodfacts/openfoodfacts-server/issues/10629)) ([d1e185a](https://github.com/openfoodfacts/openfoodfacts-server/commit/d1e185ab20b377881511233e999f611a814997ce))
+* added a geoip api endpoint ([#10648](https://github.com/openfoodfacts/openfoodfacts-server/issues/10648)) ([a0442af](https://github.com/openfoodfacts/openfoodfacts-server/commit/a0442af44586115a2938590516b1af943928b2d4))
+* dq new facet for opposite tags ([#10378](https://github.com/openfoodfacts/openfoodfacts-server/issues/10378)) ([8d32e29](https://github.com/openfoodfacts/openfoodfacts-server/commit/8d32e299bb683dfa5bbffaedb4eed4913e19b9a8))
+
+
+### Bug Fixes
+
+* add proper parent task ([#10650](https://github.com/openfoodfacts/openfoodfacts-server/issues/10650)) ([4712db1](https://github.com/openfoodfacts/openfoodfacts-server/commit/4712db190ade37d7b27392995b1e755acfe2b218))
+* dq new facet for opposite tags fix ([#10651](https://github.com/openfoodfacts/openfoodfacts-server/issues/10651)) ([35d4aa2](https://github.com/openfoodfacts/openfoodfacts-server/commit/35d4aa2159835fa31686b7c3ac0d3bacb5ccaf08))
+* intermarche import ([#10652](https://github.com/openfoodfacts/openfoodfacts-server/issues/10652)) ([c927873](https://github.com/openfoodfacts/openfoodfacts-server/commit/c927873e4239e64657a234c76939c60b36bf4a96))
+* use owners_tags indexed field in producers dashboard query ([#10624](https://github.com/openfoodfacts/openfoodfacts-server/issues/10624)) ([db94f7a](https://github.com/openfoodfacts/openfoodfacts-server/commit/db94f7a1d1f84db1ce2bbb57d1247f640703db55))
+
 ## [2.39.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.38.1...v2.39.0) (2024-07-30)
 
 
