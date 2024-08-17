@@ -151,6 +151,32 @@ my @tests = (
 
 		},
 	},
+	# /products
+	{
+		id => 'products-code',
+		desc => 'products with a single barcode',
+		lc => "en",
+		input_request => {
+			cc => "world",
+			lc => "en",
+			original_query_string => 'products/3564703999971',
+			no_index => '0',
+			is_crawl_bot => '0',
+		}
+	},
+	# /products with multiple barcodes
+	{
+		id => 'products-codes',
+		desc => 'products with multiple barcodes',
+		lc => "en",
+		input_request => {
+			cc => "world",
+			lc => "en",
+			original_query_string => 'products/3564703999971,3564703999972',
+			no_index => '0',
+			is_crawl_bot => '0',
+		}
+	},
 );
 
 foreach my $test_ref (@tests) {

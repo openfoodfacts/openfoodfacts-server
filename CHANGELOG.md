@@ -1,5 +1,23 @@
 # Changelog
 
+## [2.41.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.40.0...v2.41.0) (2024-08-13)
+
+
+### Features
+
+* generate historical events from product revisions ([#10523](https://github.com/openfoodfacts/openfoodfacts-server/issues/10523)) ([42508e1](https://github.com/openfoodfacts/openfoodfacts-server/commit/42508e1e19263079fe1516c2e388df0052eb98fd))
+* sync number of product public/pro in CRM ([#10684](https://github.com/openfoodfacts/openfoodfacts-server/issues/10684)) ([026ff6a](https://github.com/openfoodfacts/openfoodfacts-server/commit/026ff6a56c709b88cb633c760b6eb0fcb1bbee7a))
+
+
+### Bug Fixes
+
+* 3 fixes to make /products/[code1],[code2] work again ([#10669](https://github.com/openfoodfacts/openfoodfacts-server/issues/10669)) ([7fc07fc](https://github.com/openfoodfacts/openfoodfacts-server/commit/7fc07fc864efa7ea13ce74932af7b4f8f2131dd5))
+* Automatically unselect images when source image is deleted ([#10692](https://github.com/openfoodfacts/openfoodfacts-server/issues/10692)) ([588897a](https://github.com/openfoodfacts/openfoodfacts-server/commit/588897aee5163c209b53e40ef3c03fafdcf71593))
+* **docs:** correct OpenAPI definition by fixing missing reference ([#10659](https://github.com/openfoodfacts/openfoodfacts-server/issues/10659)) ([4f0f10e](https://github.com/openfoodfacts/openfoodfacts-server/commit/4f0f10e2e6a36fa1f699eb22f2e371eb4951df07))
+* gen_users_emails.pl ([#10686](https://github.com/openfoodfacts/openfoodfacts-server/issues/10686)) ([00e4c26](https://github.com/openfoodfacts/openfoodfacts-server/commit/00e4c26b099e9523de59defa906be3eaa9fae558))
+* Show missing nutrients in Nutri-Score panel ([#10655](https://github.com/openfoodfacts/openfoodfacts-server/issues/10655)) ([a1b11eb](https://github.com/openfoodfacts/openfoodfacts-server/commit/a1b11eb76e02f041d6fa1f50035b9d8d595322a8))
+* UTM mobile ([#10665](https://github.com/openfoodfacts/openfoodfacts-server/issues/10665)) ([965041d](https://github.com/openfoodfacts/openfoodfacts-server/commit/965041d7328b1bcad154409db452ac1ffb6c3782))
+
 ## [2.40.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.39.0...v2.40.0) (2024-08-08)
 
 

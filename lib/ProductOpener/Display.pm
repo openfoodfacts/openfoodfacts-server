@@ -4569,7 +4569,7 @@ JS
 display_user_product_preferences("#preferences_selected", "#preferences_selection_form", function () {
 	rank_and_display_products("#search_results", products, contributor_prefs);
 });
-search_products("#search_results", products, "$search_api_url");
+search_products("#search_results", products, "$search_api_url", contributor_prefs);
 JS
 			;
 
@@ -5505,90 +5505,6 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 
 	if ($count > 0) {
 
-		# Show a download link only for search queries (and not for the home page of facets)
-
-		if ($request_ref->{search}) {
-			$request_ref->{current_link_query_download} = $request_ref->{current_link};
-			if ($request_ref->{current_link} =~ /\?/) {
-				$request_ref->{current_link_query_download} .= "&download=on";
-			}
-			else {
-				$request_ref->{current_link_query_download} .= "?download=on";
-			}
-		}
-
-		$template_data_ref->{current_link_query_download} = $request_ref->{current_link_query_download};
-		$template_data_ref->{export_limit} = $export_limit;
-
-		if ($log->is_debug()) {
-			my $debug_log = "search - count: $count";
-			defined $request_ref->{search} and $debug_log .= " - request_ref->{search}: " . $request_ref->{search};
-			defined $request_ref->{tagid2} and $debug_log .= " - tagid2 " . $request_ref->{tagid2};
-			$log->debug($debug_log);
-		}
-
-		if (    (not defined $request_ref->{search})
-			and ($count >= 5)
-			and (not defined $request_ref->{tagid2})
-			and (not defined $request_ref->{product_changes_saved}))
-		{
-			$template_data_ref->{explore_products} = 'true';
-			my $nofollow = '';
-			if (defined $request_ref->{tagid}) {
-				# Prevent crawlers from going too deep in facets #938:
-				# Make the 2nd facet level "nofollow"
-				$nofollow = ' rel="nofollow"';
-			}
-
-			my @current_drilldown_fields = @ProductOpener::Config::drilldown_fields;
-			if ($country eq 'en:world') {
-				unshift(@current_drilldown_fields, "countries");
-			}
-
-			foreach my $newtagtype (@current_drilldown_fields) {
-
-				# Eco-score: currently only for moderators
-
-				if ($newtagtype eq 'ecoscore') {
-					next if not(feature_enabled("ecoscore"));
-				}
-
-				push @{$template_data_ref->{current_drilldown_fields}},
-					{
-					current_link => get_owner_pretty_path() . $request_ref->{current_link},
-					tag_type_plural => $tag_type_plural{$newtagtype}{$lc},
-					nofollow => $nofollow,
-					tagtype => $newtagtype,
-					};
-			}
-		}
-
-		$template_data_ref->{separator_before_colon} = separator_before_colon($lc);
-		$template_data_ref->{jqm_loadmore} = $request_ref->{jqm_loadmore};
-
-		my $jqm = single_param("jqm");    # Assigning to a scalar to make sure we get a scalar
-
-		for my $product_ref (@{$request_ref->{structured_response}{products}}) {
-
-			my $product_display_name = $product_ref->{product_display_name};
-			# Prevent the quantity "750 g" to be split on two lines
-			$product_display_name =~ s/(.*) (.*?)/$1\&nbsp;$2/;
-
-			push @{$template_data_ref->{structured_response_products}},
-				{
-				code => $product_ref->{code},
-				product_name => $product_display_name,
-				img => $product_ref->{image_front_small_html},
-				jqm => $jqm,
-				url => $product_ref->{product_url_path},
-				};
-
-			# remove some debug info
-			delete $product_ref->{additives};
-			delete $product_ref->{additives_prev};
-			delete $product_ref->{additives_next};
-		}
-
 		# For API queries, if the request specified a value for the fields parameter, return only the fields listed
 		# For non API queries with user preferences, we need to add attributes
 		# For non API queries, we need to compute attributes for personal search
@@ -5602,7 +5518,30 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 
 		my $customized_products_ref = [];
 
+		my $jqm = single_param("jqm");    # Assigning to a scalar to make sure we get a scalar
+
 		for my $product_ref (@{$request_ref->{structured_response}{products}}) {
+
+			# remove some debug info
+			delete $product_ref->{additives};
+			delete $product_ref->{additives_prev};
+			delete $product_ref->{additives_next};
+
+			# For non API queries, we will display the products in a template (this is for SEO, before personal search products are displayed through Javascript)
+			if (not defined $request_ref->{api}) {
+				my $product_display_name = $product_ref->{product_display_name};
+				# Prevent the quantity "750 g" to be split on two lines
+				$product_display_name =~ s/(.*) (.*?)/$1\&nbsp;$2/;
+
+				push @{$template_data_ref->{structured_response_products}},
+					{
+					code => $product_ref->{code},
+					product_name => $product_display_name,
+					img => $product_ref->{image_front_small_html},
+					jqm => $jqm,
+					url => $product_ref->{product_url_path},
+					};
+			}
 
 			my $customized_product_ref = customize_response_for_product($request_ref, $product_ref, $fields);
 
@@ -5630,12 +5569,76 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 			}
 		}
 
-		$template_data_ref->{request} = $request_ref;
-		$template_data_ref->{page_count} = $page_count;
-		$template_data_ref->{page_limit} = $limit;
-		$template_data_ref->{page} = $page;
-		$template_data_ref->{current_link} = $request_ref->{current_link};
-		$template_data_ref->{pagination} = display_pagination($request_ref, $count, $limit, $page);
+		# Compute data needed for the template to display the search results
+		if (not defined $request_ref->{api}) {
+
+			# Show a download link only for search queries (and not for the home page of facets)
+
+			if ($request_ref->{search}) {
+				$request_ref->{current_link_query_download} = $request_ref->{current_link};
+				if ($request_ref->{current_link} =~ /\?/) {
+					$request_ref->{current_link_query_download} .= "&download=on";
+				}
+				else {
+					$request_ref->{current_link_query_download} .= "?download=on";
+				}
+			}
+
+			$template_data_ref->{current_link_query_download} = $request_ref->{current_link_query_download};
+			$template_data_ref->{export_limit} = $export_limit;
+
+			if ($log->is_debug()) {
+				my $debug_log = "search - count: $count";
+				defined $request_ref->{search} and $debug_log .= " - request_ref->{search}: " . $request_ref->{search};
+				defined $request_ref->{tagid2} and $debug_log .= " - tagid2 " . $request_ref->{tagid2};
+				$log->debug($debug_log);
+			}
+
+			if (    (not defined $request_ref->{search})
+				and ($count >= 5)
+				and (not defined $request_ref->{tagid2})
+				and (not defined $request_ref->{product_changes_saved}))
+			{
+				$template_data_ref->{explore_products} = 'true';
+				my $nofollow = '';
+				if (defined $request_ref->{tagid}) {
+					# Prevent crawlers from going too deep in facets #938:
+					# Make the 2nd facet level "nofollow"
+					$nofollow = ' rel="nofollow"';
+				}
+
+				my @current_drilldown_fields = @ProductOpener::Config::drilldown_fields;
+				if ($country eq 'en:world') {
+					unshift(@current_drilldown_fields, "countries");
+				}
+
+				foreach my $newtagtype (@current_drilldown_fields) {
+
+					# Eco-score: currently only for moderators
+
+					if ($newtagtype eq 'ecoscore') {
+						next if not(feature_enabled("ecoscore"));
+					}
+
+					push @{$template_data_ref->{current_drilldown_fields}},
+						{
+						current_link => get_owner_pretty_path() . $request_ref->{current_link},
+						tag_type_plural => $tag_type_plural{$newtagtype}{$lc},
+						nofollow => $nofollow,
+						tagtype => $newtagtype,
+						};
+				}
+			}
+
+			$template_data_ref->{separator_before_colon} = separator_before_colon($lc);
+			$template_data_ref->{jqm_loadmore} = $request_ref->{jqm_loadmore};
+			$template_data_ref->{request} = $request_ref;
+			$template_data_ref->{page_count} = $page_count;
+			$template_data_ref->{page_limit} = $limit;
+			$template_data_ref->{page} = $page;
+			$template_data_ref->{current_link} = $request_ref->{current_link};
+			$template_data_ref->{pagination} = display_pagination($request_ref, $count, $limit, $page);
+		}
 	}
 
 	# if cc and/or lc have been overridden, change the relative paths to absolute paths using the new subdomain
@@ -5779,6 +5782,8 @@ sub display_pagination ($request_ref, $count, $limit, $page) {
 
 	my $html = '';
 	my $html_pages = '';
+
+	$log->debug("PAGINATION: START\n", {count => $count, limit => $limit, page => $page}) if $log->is_debug();
 
 	my $nb_pages = int(($count - 1) / $limit) + 1;
 
@@ -9327,7 +9332,20 @@ sub data_to_display_nutriscore ($product_ref, $version = "2021") {
 
 			# Missing nutrition facts?
 			if (has_tag($product_ref, "misc", "en:nutriscore-missing-nutrition-data")) {
-				push @nutriscore_warnings, lang("nutriscore_missing_nutrition_data");
+
+				my $missing_nutrients = "";
+				foreach my $misc_tag (@{$product_ref->{misc_tags}}) {
+					if ($misc_tag =~ /^en:nutriscore-missing-nutrition-data-(.*)$/) {
+						$missing_nutrients .= display_taxonomy_tag_name($lc, "nutrients", $1) . ", ";
+					}
+				}
+				$missing_nutrients =~ s/, $//;
+
+				push @nutriscore_warnings,
+					  lang("nutriscore_missing_nutrition_data") . "<p>"
+					. lang("nutriscore_missing_nutrition_data_details") . " <b>"
+					. $missing_nutrients . "</b>" . "</p>";
+
 				if (not has_tag($product_ref, "misc", "en:nutriscore-missing-category")) {
 					$result_data_ref->{nutriscore_unknown_reason} = "missing_nutrition_data";
 					$result_data_ref->{nutriscore_unknown_reason_short}
