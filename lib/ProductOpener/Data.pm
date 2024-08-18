@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2024 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -72,11 +72,15 @@ use Feature::Compat::Try;
 use Syntax::Keyword::Dynamically;
 
 use LWP::UserAgent;
+
 use OpenTelemetry::Constants qw( SPAN_KIND_CLIENT SPAN_STATUS_ERROR );
 use OpenTelemetry::Context;
 use OpenTelemetry::Integration 'LWP::UsrAgent';
 use OpenTelemetry::Trace;
 use OpenTelemetry;
+
+# OTEL Span context for MongoDB queries
+my %spans = ();
 
 my $client;
 
@@ -107,35 +111,7 @@ eval {
 =cut
 
 sub execute_query ($sub) {
-
-	my $span = OpenTelemetry->tracer_provider->tracer()->create_span(
-		name => 'find Products',
-		kind => SPAN_KIND_CLIENT,
-		attributes => {
-			# As per https://opentelemetry.io/docs/specs/semconv/database/mongodb/
-			'db.collection.name' => 'products',
-			'db.system' => 'mongodb',
-			'db.operation.name' => 'find',
-		},
-	);
-
-	dynamically OpenTelemetry::Context->current = OpenTelemetry::Trace->context_with_span($span);
-
-	try {
-		return $sub->(@_);
-	}
-	catch ($error) {
-		my ($description) = split /\n/, $error =~ s/^\s+|\s+$//gr, 2;
-		$description =~ s/ at \S+ line \d+\.$//a;
-
-		$span->record_exception($error);
-		$span->set_status(SPAN_STATUS_ERROR, $description);
-
-		die $error;
-	}
-	finally {
-		$span->end;
-	}
+	return $sub->(@_);
 }
 
 sub execute_aggregate_tags_query ($query) {
@@ -277,6 +253,51 @@ sub get_mongodb_client ($timeout = undef) {
 		# https://metacpan.org/pod/MongoDB::MongoClient#socket_timeout_ms
 		# default is 30000 ms
 		socket_timeout_ms => $max_time_ms + 5000,
+
+		monitoring_callback => sub {
+			my ($event) = @_;
+			if (not(defined $event->{type})) {
+				return;
+			}
+
+			if ($event->{type} eq 'command_started') {
+				my $span = OpenTelemetry->tracer_provider->tracer()->create_span(
+					name => $event->{commandName} . ' ' . $event->{databaseName},
+					kind => SPAN_KIND_CLIENT,
+					attributes => {
+						# As per https://opentelemetry.io/docs/specs/semconv/database/mongodb/
+						'db.collection.name' => $event->{databaseName},
+						'db.system' => 'mongodb',
+						'db.operation.name' => $event->{commandName},
+						'server.address' => $event->{connectionId},
+					},
+				);
+
+				my $previous_context = OpenTelemetry::Context->current;
+				$spans{$event->{requestId}} = {
+					'span' => $span,
+					'previous_context' => $previous_context,
+				};
+				OpenTelemetry::Context->current = OpenTelemetry::Trace->context_with_span($span);
+			}
+			elsif ($event->{type} eq 'command_succeeded') {
+				my %span_and_context = %{delete $spans{$event->{requestId}}};
+				my $span = $span_and_context{'span'};
+				my $previous_context = $span_and_context{'previous_context'};
+				$span->end();
+				OpenTelemetry::Context->current = $previous_context;
+
+			}
+			elsif ($event->{type} eq 'command_failed') {
+				my %span_and_context = %{delete $spans{$event->{requestId}}};
+				my $span = $span_and_context{'span'};
+				my $previous_context = $span_and_context{'previous_context'};
+				$span->set_status(SPAN_STATUS_ERROR, $event->{failure}->{message});
+				$span->record_exception($event->{failure});
+				$span->end();
+				OpenTelemetry::Context->current = $previous_context;
+			}
+		}
 	);
 
 	if (!defined($client)) {
