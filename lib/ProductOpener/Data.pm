@@ -75,7 +75,7 @@ use LWP::UserAgent;
 
 use OpenTelemetry::Constants qw( SPAN_KIND_CLIENT SPAN_STATUS_ERROR );
 use OpenTelemetry::Context;
-use OpenTelemetry::Integration 'LWP::UsrAgent';
+use OpenTelemetry::Integration 'LWP::UserAgent';
 use OpenTelemetry::Trace;
 use OpenTelemetry;
 
@@ -261,14 +261,17 @@ sub get_mongodb_client ($timeout = undef) {
 			}
 
 			if ($event->{type} eq 'command_started') {
+				my $commandName = $event->{commandName};
+				my $collection = $event->{command}->{$commandName} // 'unknown';
 				my $span = OpenTelemetry->tracer_provider->tracer()->create_span(
-					name => $event->{commandName} . ' ' . $event->{databaseName},
+					name => $commandName . ' ' . $collection,
 					kind => SPAN_KIND_CLIENT,
 					attributes => {
 						# As per https://opentelemetry.io/docs/specs/semconv/database/mongodb/
-						'db.collection.name' => $event->{databaseName},
+						'db.namespace' => $event->{databaseName},
+						'db.collection.name' => $collection,
 						'db.system' => 'mongodb',
-						'db.operation.name' => $event->{commandName},
+						'db.operation.name' => $commandName,
 						'server.address' => $event->{connectionId},
 					},
 				);
@@ -286,7 +289,6 @@ sub get_mongodb_client ($timeout = undef) {
 				my $previous_context = $span_and_context{'previous_context'};
 				$span->end();
 				OpenTelemetry::Context->current = $previous_context;
-
 			}
 			elsif ($event->{type} eq 'command_failed') {
 				my %span_and_context = %{delete $spans{$event->{requestId}}};
