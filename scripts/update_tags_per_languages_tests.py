@@ -33,30 +33,42 @@ class TestUpdateTagsPerLanguages(unittest.TestCase):
         
 
     def test_unknown_tags_taxonomy_comparison_function(self):
-        all_tags_dict = {
-            "tags": [
-                {"id": "en:snacks", "known": 1, "name": "snacks"}, # known
-                {"id": "en:groceries", "known": 0, "name": "groceries"}, # possible_new_tags
-                {"id": "en:cured-hams", "known": 0, "name": "cured-hams"}, # already_referenced_tags
-                {"id": "en:chips", "known": 0, "name": "chips"}, # possible_wrong_language_tags
-            ],
-        }
-        file = os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..', f'taxonomies/categories.txt')) 
-        unknown_tags_taxonomy_comparison(all_tags_dict, file, "categories", False)
+        with open('update_tags_per_languages_categories', 'w') as create_test_file:
+            create_test_file.write("page;current tag")
+            # new
+            create_test_file.write("\n1;en:groceries")
+            # already_referenced_tags
+            create_test_file.write("\n3;en:cured-ham")
+            # exist
+            create_test_file.write("\n9;en:chips")
 
-        possible_wrong_language_tags = {}
-        with open('update_tags_per_languages_wrong_languages_detected_categories', 'r') as file:
+        unknown_tags_taxonomy_comparison("categories")
+
+        exist_tags = {}
+        with open('update_tags_per_languages_categories_exist', 'r') as file:
             # skip header
             file.readline()
             for line in file:
-                key, value = line.strip().split(',')
-                possible_wrong_language_tags[key] = value
+                key, value = line.strip().split(';')
+                exist_tags[key] = value
 
         # (result, expected)
-        self.assertEqual(possible_wrong_language_tags, {'en:chips': 'de:chips'})
+        self.assertEqual(exist_tags, {'en:chips': 'de:chips'})
 
-        os.remove("update_tags_per_languages_wrong_languages_detected_categories")
-        os.remove("update_tags_per_languages_possible_new_tags_categories")
+        new_tags = {}
+        with open('update_tags_per_languages_categories_new', 'r') as file:
+            # skip header
+            file.readline()
+            for line in file:
+                key, value = line.strip().split(';')
+                new_tags[key] = value
+
+        # (result, expected)
+        self.assertEqual(new_tags, {'en:groceries': ''})
+
+        os.remove("update_tags_per_languages_categories")
+        os.remove("update_tags_per_languages_categories_exist")
+        os.remove("update_tags_per_languages_categories_new")
 
 
     def test_update_tags_field(self):
@@ -64,10 +76,10 @@ class TestUpdateTagsPerLanguages(unittest.TestCase):
         self.assertEqual(updated_field_1, "fr:laits")
 
         updated_field_2 = update_tags_field("Dairies,Milks,Lait", "en", "en:lait", "fr:laits")
-        self.assertEqual(updated_field_2, "Dairies,Milks, fr:laits")
+        self.assertEqual(updated_field_2, "en:dairies,en:milks,fr:laits")
 
         updated_field_3 = update_tags_field("Snacks,Chips,Chips au paprika,Chips de pommes de terre,Chips de pommes de terre aromatisées,Chips et frites,Snacks salés", "en", "en:chips", "fr:chips")
-        self.assertEqual(updated_field_3, "Snacks, fr:chips,Chips au paprika,Chips de pommes de terre,Chips de pommes de terre aromatisées,Chips et frites,Snacks salés")
+        self.assertEqual(updated_field_3, "en:snacks,fr:chips,en:chips-au-paprika,en:chips-de-pommes-de-terre,en:chips-de-pommes-de-terre-aromatisées,en:chips-et-frites,en:snacks-salés")
 
 if __name__ == '__main__':
     unittest.main()
