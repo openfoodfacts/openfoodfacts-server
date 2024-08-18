@@ -200,6 +200,8 @@ use Data::DeepAccess qw(deep_get deep_set);
 use Log::Log4perl;
 use LWP::UserAgent;
 use Tie::IxHash;
+
+use OpenTelemetry::Context;
 use OpenTelemetry::Integration 'LWP::UserAgent';
 
 use Log::Any '$log', default_adapter => 'Stderr';
@@ -608,6 +610,11 @@ sub init_request ($request_ref = {}) {
 	delete $log->context->{user_session};
 	$log->context->{request} = generate_token(16);
 
+	my $span = $r->pnotes('OpenTelemetry::Span->current');
+	if (defined $span) {
+		$span->set_attribute('productopener.request', $log->context->{request});
+	}
+
 	# Initialize the request object
 	$request_ref->{referer} = referer();
 	$request_ref->{original_query_string} = $ENV{QUERY_STRING};
@@ -889,6 +896,9 @@ sub init_request ($request_ref = {}) {
 	}
 
 	$request_ref->{user_id} = $User_id;
+	if (defined $span) {
+		$span->set_attribute('user.id', $User_id);
+	}
 
 	$request_ref->{admin} = 0;
 	# %admin is defined in Config.pm
