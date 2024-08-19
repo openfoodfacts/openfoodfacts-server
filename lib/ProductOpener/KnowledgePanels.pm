@@ -110,7 +110,7 @@ sub initialize_knowledge_panels_options ($knowledge_panels_options_ref, $request
 	my %included_panels = map {$_ => 1} split(/,/, $included_panels);
 	my $excluded_panels = single_param('knowledge_panels_excluded') || '';
 	# excluded overrides included
-	$included_panels{$_} = 0 for split(/,/, $excluded_panels);
+	$included_panels{$_} = undef for split(/,/, $excluded_panels);
 	$knowledge_panels_options_ref->{knowledge_panels_includes} = sub {
 		my $panel_id = shift;
 		return (
