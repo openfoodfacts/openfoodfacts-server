@@ -114,8 +114,7 @@ sub initialize_knowledge_panels_options ($knowledge_panels_options_ref, $request
 	$knowledge_panels_options_ref->{knowledge_panels_includes} = sub {
 		my $panel_id = shift;
 		return (
-				   (exists $included_panels{$panel_id}) and ($included_panels{$panel_id} eq 1)
-				or (not(exists $included_panels{$panel_id}) and not $included_panels)
+					not $included_panels or (defined $included_panels{$panel_id})
 		);
 	};
 
