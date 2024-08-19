@@ -4360,15 +4360,15 @@ msgstr "Добавить ссылку редактирования в резул
 
 msgctxt "ciqual_food_name"
 msgid "CIQUAL food name"
-msgstr ""
+msgstr "CIQUAL название еды"
 
 msgctxt "ciqual_food_name_s"
 msgid "CIQUAL food name"
-msgstr ""
+msgstr "CIQUAL название еды"
 
 msgctxt "ciqual_food_name_p"
 msgid "CIQUAL food names"
-msgstr ""
+msgstr "CIQUAL названия еды"
 
 msgctxt "we_need_your_help"
 msgid "We need your help!"
@@ -4459,7 +4459,7 @@ msgstr "Указание категории очень важно: продук�
 
 msgctxt "labels_import_note"
 msgid "Some labels such as the organic label are used to filter and/or rank search results, so it is strongly recommended to specify them."
-msgstr ""
+msgstr "Некоторые этикетки, такие как органическая этикетка, используются для фильтрации и/или определения результатов поиска, поэтому настоятельно рекомендуется их указать."
 
 msgctxt "origins_import_note"
 msgid "This field must contain only a comma separated list of countries of origin of the ingredients"
@@ -4533,7 +4533,7 @@ msgstr "Не органический продукт"
 
 msgctxt "attribute_labels_organic_unknown_title"
 msgid "Missing information: organic product?"
-msgstr ""
+msgstr "Отсутствует информация: органический продукт?"
 
 msgctxt "attribute_labels_organic_yes_description_short"
 msgid "Promotes ecological sustainability and biodiversity."
@@ -4553,15 +4553,15 @@ msgstr "Справедливая торговля"
 
 msgctxt "attribute_labels_fair_trade_yes_title"
 msgid "Fair trade product"
-msgstr ""
+msgstr "Продукт «честной торговли»"
 
 msgctxt "attribute_labels_fair_trade_no_title"
 msgid "Not a fair trade product"
-msgstr ""
+msgstr "Не продукт «честной торговли»"
 
 msgctxt "attribute_labels_fair_trade_unknown_title"
 msgid "Missing information: fair trade product?"
-msgstr ""
+msgstr "Отсутствует информация: продукт «честной торговли»?"
 
 msgctxt "attribute_labels_fair_trade_yes_description_short"
 msgid "Helps producers in developing countries."
@@ -4573,7 +4573,7 @@ msgstr "Производство продуктов, основанное на �
 
 msgctxt "attribute_labels_fair_trade_description"
 msgid "When you buy fair trade products, producers in developing countries are paid an higher and fairer price, which helps them improve and sustain higher social and often environmental standards."
-msgstr ""
+msgstr "Когда вы приобретаете продукты «честной торговли», производители из развивающихся стран получают более высокий и справедливый доход, что позволяет им совершенствовать и поддерживать социальные, а зачастую и экологические стандарты в своих регионах."
 
 msgctxt "attribute_group_nutritional_quality_name"
 msgid "Nutritional quality"
@@ -4655,7 +4655,7 @@ msgstr "Степень обработки продуктов неизвестн�
 
 msgctxt "attribute_nova_setting_name"
 msgid "No or little food processing (NOVA group)"
-msgstr ""
+msgstr "Отсутствие или незначительная переработка пищевых продуктов (группа NOVA)"
 
 # keep %s, it will be replaced by the group 1, 2, 3 or 4
 msgctxt "attribute_nova_group_title"
@@ -4676,11 +4676,11 @@ msgstr "Обработанные пищевые продукты"
 
 msgctxt "attribute_nova_4_description_short"
 msgid "Ultra processed foods"
-msgstr ""
+msgstr "Ультраобработанные продукты"
 
 msgctxt "export_product_page"
 msgid "Export product to public database"
-msgstr ""
+msgstr "Экспорт продукта в публичную базу данных"
 
 msgctxt "no_products_to_export"
 msgid "No products to export."
@@ -4736,7 +4736,7 @@ msgstr "Нет или мало добавок"
 
 msgctxt "attribute_additives_setting_note"
 msgid "Additives are markers of food processing, and excess consumption of some of them have undesirable health impacts."
-msgstr ""
+msgstr "Добавки являются признаками переработки пищевых продуктов, а избыточное потребление некоторых из них оказывает негативное воздействие на здоровье."
 
 msgctxt "attribute_additives_unknown_title"
 msgid "Additives not computed"
@@ -4781,7 +4781,7 @@ msgstr "Инструкции по переработке и / или инфор�
 
 msgctxt "packaging_text_example"
 msgid "1 plastic film to discard, 1 FSC carboard box to recycle, 6 1.5L transparent PET plastic bottles to recycle, 6 colored opaque plastic caps, 12 33cl aluminium cans"
-msgstr ""
+msgstr "1 пластиковая пленка для утилизации, 1 картонная коробка FSC для переработки, 6 прозрачных пластиковых бутылок ПЭТ объемом 1,5 л для переработки, 6 цветных непрозрачных пластиковых крышек, 12 алюминиевых банок объемом 330 мл"
 
 msgctxt "packaging_text_note"
 msgid "List all packaging parts separated by a comma or line feed, with their amount (e.g. 1 or 6) type (e.g. bottle, box, can), material (e.g. plastic, metal, aluminium) and if available their size (e.g. 33cl) and recycling instructions."
@@ -4789,7 +4789,7 @@ msgstr "Укажите все части упаковки, разделив их
 
 msgctxt "packaging_text_note_2"
 msgid "Try to be as specific as possible. For plastic, please indicate if it is opaque or transparent, colored, PET or PEHD."
-msgstr ""
+msgstr "Постарайтесь максимально конкретизировать детали. Для пластика укажите, является он непрозрачным или прозрачным, цветным, ПЭТ или ПЭВП."
 
 msgctxt "packaging_text_note_3"
 msgid "Data from this field will be combined with any data provided for each packaging part. It is possible to provide one or the other, or both."
@@ -4970,11 +4970,11 @@ msgstr "Официальный сайт."
 
 msgctxt "organization_members"
 msgid "Organization Members"
-msgstr ""
+msgstr "Члены Организации"
 
 msgctxt "number_of_members"
 msgid "Number of Members"
-msgstr ""
+msgstr "Количество Участников"
 
 msgctxt "contact_form"
 msgid "Contact form"
@@ -5078,7 +5078,7 @@ msgstr "Форма"
 
 msgctxt "packaging_quantity"
 msgid "Quantity contained"
-msgstr ""
+msgstr "Количество, содержащееся"
 
 msgctxt "packaging_material"
 msgid "Material"
@@ -5142,11 +5142,11 @@ msgstr "Коэффициент обработки"
 
 msgctxt "soy_feed_factor"
 msgid "Soy feed factor"
-msgstr ""
+msgstr "Фактор кормления соей"
 
 msgctxt "soy_yield"
 msgid "Soy yield"
-msgstr ""
+msgstr "Урожайность сои"
 
 msgctxt "deforestation_risk"
 msgid "Deforestation risk"
@@ -5194,7 +5194,7 @@ msgstr "Количество продуктов с изменениями с м�
 
 msgctxt "number_of_products_withdrawn_from_the_market_since_last_export"
 msgid "Number of products withdrawn from the market since last export"
-msgstr ""
+msgstr "Количество продукции, изъятой с рынка с момента последнего экспорта"
 
 msgctxt "only_export_products_with_changes"
 msgid "Only export products with changes"
@@ -5231,7 +5231,7 @@ msgstr "Низкий риск вырубки лесов (Влияние на л�
 
 msgctxt "attribute_forest_footprint_setting_note"
 msgid "The forest footprint corresponds to the risk of deforestation associated with its ingredients."
-msgstr ""
+msgstr "Лесной след соответствует риску вырубки лесов, связанному с его компонентами."
 
 msgctxt "attribute_forest_footprint_a_title"
 msgid "Very small forest footprint"
@@ -5283,12 +5283,12 @@ msgstr "В настоящее время только для продуктов 
 
 msgctxt "classify_products_according_to_your_preferences"
 msgid "Classify products according to your preferences"
-msgstr ""
+msgstr "Классифицируйте продукты в соответствии с вашими предпочтениями"
 
 # %d will be replaced by the number of products
 msgctxt "classify_the_d_products_below_according_to_your_preferences"
 msgid "Classify the %d products below according to your preferences"
-msgstr ""
+msgstr "Классифицируйте %d продукты ниже в соответствии с вашими предпочтениями"
 
 msgctxt "sort_by_popularity"
 msgid "Most scanned products"
@@ -5346,11 +5346,11 @@ msgstr "Нам не удалось повторно инициализирова
 
 msgctxt "remove_all_nutrient_values"
 msgid "Remove all nutrient values"
-msgstr ""
+msgstr "Удалить все значения питательных веществ"
 
 msgctxt "delete_user_process"
 msgid "User is being deleted. This may take a few minutes."
-msgstr ""
+msgstr "Происходит удаление пользователя. Это может занять несколько минут."
 
 msgctxt "attribute_ecoscore_not_applicable_title"
 msgid "Eco-Score not yet applicable"
@@ -5395,11 +5395,11 @@ msgstr "Список идентификаторов GS1 GLN, разделенн�
 
 msgctxt "org_valid_org"
 msgid "Validate organization as a real producer."
-msgstr ""
+msgstr "Подтвердить организацию как действующего производителя."
 
 msgctxt "org_valid_org_note"
 msgid "The organization is verified as a real producer by a human, also creates entry in CRM."
-msgstr ""
+msgstr "Верификацию организации производит человек, также он создает запись в CRM."
 
 msgctxt "org_enable_manual_export_to_public_platform"
 msgid "Enable organization members to manually export product data and photos to the public database."
@@ -5492,7 +5492,7 @@ msgstr "Производители могут использовать <a href=\
 # variable names between { } must not be translated
 msgctxt "f_data_source_database_provider"
 msgid "The manufacturer {manufacturer} uses {provider} to automatically transmit data and photos for its products."
-msgstr ""
+msgstr "Производитель {manufacturer} использует {provider} для автоматической передачи данных и фотографий своих продуктов."
 
 msgctxt "image_other_type"
 msgid "Type of the product photo"
@@ -5607,7 +5607,7 @@ msgstr "Вы можете изменить страницу продукта, ч
 
 msgctxt "ecoscore_additional_bonuses_and_maluses"
 msgid "Additional bonuses and maluses"
-msgstr ""
+msgstr "Дополнительные бонусы и штрафы"
 
 msgctxt "ecoscore_production_system"
 msgid "Production mode"
