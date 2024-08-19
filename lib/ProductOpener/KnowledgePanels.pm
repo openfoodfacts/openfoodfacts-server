@@ -109,13 +109,12 @@ sub initialize_knowledge_panels_options ($knowledge_panels_options_ref, $request
 	my $included_panels = single_param('knowledge_panels_included') || '';
 	my %included_panels = map {$_ => 1} split(/,/, $included_panels);
 	my $excluded_panels = single_param('knowledge_panels_excluded') || '';
-	# excluded overrides included
-	$included_panels{$_} = undef for split(/,/, $excluded_panels);
+	my %excluded_panels = map {$_ => 1} split(/,/, $excluded_panels);
 	$knowledge_panels_options_ref->{knowledge_panels_includes} = sub {
 		my $panel_id = shift;
-		return (
-					not $included_panels or (defined $included_panels{$panel_id})
-		);
+		# excluded overrides included
+		return (    (not exists $excluded_panels{$panel_id})
+				and (not $included_panels or exists $included_panels{$panel_id}));
 	};
 
 	# some info about users
