@@ -319,8 +319,8 @@ sub api_route($request_ref) {
 		param("tagid", $components[4]);
 		$request_ref->{tagid} = $components[4];
 	}
-	elsif ($api_action eq "geoip") {    # api/v3/geoip/[ip]
-		$request_ref->{geoip_ip} = $components[3] // remote_addr();
+	elsif ($api_action eq "geoip") {    # api/v3/geoip/
+		$request_ref->{geoip_ip} = remote_addr();
 	}
 
 	# If return format is not xml or jqm or jsonp, default to json
