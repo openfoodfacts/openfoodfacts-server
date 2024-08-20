@@ -135,6 +135,9 @@ sub wp_get_available_pages ($lc) {
 	foreach my $page_id (keys %{$page_metadata_cache_by_id}) {
 		my $existing_lc = (exists $page_metadata_cache_by_id->{$page_id}{$lc}) ? $lc : $default_wp_language_code;
 		my $page = $page_metadata_cache_by_id->{$page_id}{$existing_lc};
+		if (!$page) {
+			next;
+		}
 		$page = {
 			id => $page->{id},
 			lc => $existing_lc,
@@ -160,6 +163,10 @@ At the end C<$page_metadata_cache_by_id> associate id with the result of C<_wp_l
 
 sub load_cms_data () {
 	my @pages = _wp_list_pages();
+	if (not $ProductOpener::Config2::wordpress_url) {
+		print STDERR "No WordPress URL defined in ProductOpener::Config2::wordpress_url\n";
+		return 0;
+	}
 	if (!@pages) {
 		print STDERR "Couldn't get pages metadata from WordPress$@\n";
 		return 0;
@@ -245,7 +252,6 @@ sub _wp_graphql_query ($query) {
 		else {
 			return $json->{data};
 		}
-
 	}
 	return $json // [];
 }
