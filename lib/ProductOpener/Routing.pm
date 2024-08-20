@@ -566,7 +566,7 @@ sub content_route($request_ref) {
 	my @components = @{$request_ref->{components}};
 
 	$request_ref->{content} = 1;
-	
+
 	my $op = $components[1] // '';
 
 	# # content/refresh
