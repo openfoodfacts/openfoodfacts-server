@@ -140,6 +140,7 @@ sub wp_get_available_pages ($lc) {
 			lc => $existing_lc,
 			link => "/content/$existing_lc/$page->{slug}",
 			title => $page->{title},
+			order => $page->{order},
 		};
 		push @available_translations, $page;
 	}
@@ -164,24 +165,22 @@ sub load_cms_data () {
 		return 0;
 	}
 
+	my $format_and_store = sub {
+		my ($page, $grouping_id) = @_;
+		$page->{order} = delete $page->{menuOrder} // 0;
+		$page->{id} = delete $page->{databaseId};
+		my $lc = $page->{languageCode};
+		$page_metadata_cache_by_id->{$grouping_id}{$lc} = $page;
+		$page_id_by_localized_slug->{$lc}{$page->{slug}} = $grouping_id;
+	};
+
 	foreach my $page (@pages) {
-		$page->{id} = $page->{databaseId};
-		delete $page->{databaseId};
-
-		foreach my $translation (@{$page->{translations}}) {
-			$translation->{id} = $translation->{databaseId};
-			delete $translation->{databaseId};
-
-			my $translation_lc = $translation->{languageCode};
-			$page_metadata_cache_by_id->{$page->{id}}{$translation_lc} = $translation;
-			$page_id_by_localized_slug->{$translation_lc}{$translation->{slug}} = $page->{id};
-		}
+		$format_and_store->($_, $page->{databaseId}) for (@{$page->{translations}});
+		# we flatten the available translations. We don't need to keep this redundant info
 		delete $page->{translations};
-
-		my $page_lc = $page->{languageCode};
-		$page_metadata_cache_by_id->{$page->{id}}{$page_lc} = $page;
-		$page_id_by_localized_slug->{$page_lc}{$page->{slug}} = $page->{id};
+		$format_and_store->($page, $page->{databaseId});
 	}
+
 	return 1;
 }
 
@@ -203,10 +202,12 @@ sub _wp_list_pages () {
           slug
           title
           languageCode
+		  menuOrder
           translations {
             databaseId
             slug
             title
+			menuOrder
             languageCode
           }
         }

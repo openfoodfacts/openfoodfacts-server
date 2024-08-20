@@ -1318,7 +1318,7 @@ sub display_content($request_ref) {
 
 	if (not defined $request_ref->{content_slug}) {
 		# Display the list of available pages
-		my @sorted_pages = sort {$a->{id} > $b->{id}} wp_get_available_pages($request_ref->{content_lc});
+		my @sorted_pages = sort {$a->{order} > $b->{order}} wp_get_available_pages($request_ref->{content_lc});
 		$template_data_ref->{wp_available_pages} = \@sorted_pages;
 		$request_ref->{title} = "Content";
 
