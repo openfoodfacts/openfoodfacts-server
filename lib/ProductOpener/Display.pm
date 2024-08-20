@@ -1321,6 +1321,7 @@ sub display_content($request_ref) {
 		my @sorted_pages = sort {$a->{id} > $b->{id}} wp_get_available_pages($request_ref->{content_lc});
 		$template_data_ref->{wp_available_pages} = \@sorted_pages;
 		$request_ref->{title} = "Content";
+
 		process_template('web/pages/content/menu.tt.html', $template_data_ref, \$html)
 			|| return "template error: " . $tt->error();
 	}

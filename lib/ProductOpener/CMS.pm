@@ -29,7 +29,18 @@ C<ProductOpener::CMS> contains functions that interact with the CMS
 
 =head1 DESCRIPTION
 
-Uses the WordPress API to fetch pages content
+Uses the WordPress API to fetch pages content.
+
+We use WPML to manage the translations of the pages on WordPress and get them 
+here from the /graphql endpoint (WPMLGraphQL plugin).
+
+=head2 DETAILS
+
+- Be aware that if a page is published, and the default translation has not been created (even if empty), 
+  it won't show up in the graphql response. 
+  Ex: You create a French page, publish it, then, at least, you have to create/start the 
+  	  English translation (let it empty for the moment if you want). After that you'll 
+	  be able to see the french page in Product Opener. As an admin do /content/refresh
 
 =cut
 
@@ -54,33 +65,40 @@ use vars @EXPORT_OK;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Config2 qw/:all/;
 use LWP::Simple;
+use HTTP::Tiny;
 use Log::Any qw($log);
 use JSON;
 
-my $page_metadata_cache_by_id = {};    # { 16 => { en => page_metadata } }
-my $page_id_by_localized_slug = {};    # { en => { my-test-page => 16 },
-                                       #   fr => { ma-page-test => 16 } }
+my $default_wp_language_code = 'en';
+# {
+#    // translations are stored with the id of the default page translation ('en')
+#    // but to get the actual content from WordPress (REST API) we use the 'id' (8 for en, 22 for fr)
+#   '8' => {
+#             'en' => {
+#                       'languageCode' => 'en',
+#                       'title' => 'Contribute to Open Food Facts',
+#                       'slug' => 'contribute',
+#                       'id' => 8
+#                     },
+#             'fr' => {
+#                       'slug' => 'contribuer',
+#                       'languageCode' => 'fr',
+#                       'id' => 22,
+#                       'title' => "Contribuer à Open Food Facts"
+#                     }
+#           }
+# }
+my $page_metadata_cache_by_id = {};
+#
+# {
+#   'fr' => { 'contribuer' => 8 },
+#   'en' => {'contribute' => 8 }
+# }
+my $page_id_by_localized_slug = {};
 
-=head2 get_page_from_slug($lc, $slug)
-
-Fetches a page from the CMS by its slug
-
-=head3 Parameters
-
-=over
-
-=item $slug
-
-The slug of the page to fetch: 
-e.g. 'my-test-page' or 'journees-open-food-facts-2024-reviennent-en-septembre-a-paris'
-
-=back
-
-=cut 
-
-sub wp_get_page_from_slug($lc, $slug) {
-
-	my $page_id = $page_id_by_localized_slug->{$lc}{$slug};
+sub wp_get_page_from_slug ($lc, $slug) {
+	my $default_translation_id = $page_id_by_localized_slug->{$lc}{$slug};
+	my $page_id = $page_metadata_cache_by_id->{$default_translation_id}{$lc}{id};
 	if ($page_id) {
 		my $page_data = _wp_get_page_by_id($page_id);
 		return {
@@ -95,7 +113,7 @@ sub wp_get_page_from_slug($lc, $slug) {
 =head2  wp_get_available_pages($lc)
 
 Gets the list of available pages, given a language code.
-If the page isn't available in that language, it defaults to 'en'
+If the page isn't available in that language, it defaults to C<$default_wp_language_code>
 
 =head3 Returns
 
@@ -103,22 +121,22 @@ An list of pages:
 
 (
     {
-		id: '6'
-        lc: 'en',
-        link: '/content/en/test-page',
-        title: 'Test Page'
+	  id: '6'
+      lc: 'en',
+      link: '/content/en/test-page',
+      title: 'Test Page'
     },
 )
 
 =cut
 
-sub wp_get_available_pages($lc) {
+sub wp_get_available_pages ($lc) {
 	my @available_translations;
 	foreach my $page_id (keys %{$page_metadata_cache_by_id}) {
-		my $existing_lc = (exists $page_id_by_localized_slug->{$lc}{$page_id}) ? $lc : 'en';
+		my $existing_lc = (exists $page_metadata_cache_by_id->{$page_id}{$lc}) ? $lc : $default_wp_language_code;
 		my $page = $page_metadata_cache_by_id->{$page_id}{$existing_lc};
 		$page = {
-			id => $page_id,
+			id => $page->{id},
 			lc => $existing_lc,
 			link => "/content/$existing_lc/$page->{slug}",
 			title => $page->{title},
@@ -135,60 +153,109 @@ sub wp_get_available_pages($lc) {
 Fill the cache with the metadata of pages published in WordPress.
 This function is called in L<ProductOpener::LoadData>
 
-At the end C<@page_metadata_cache_by_id> associate id with the result of C<_wp_list_pages> 
+At the end C<$page_metadata_cache_by_id> associate id with the result of C<_wp_list_pages> 
 
 =cut
 
-sub load_cms_data() {
+sub load_cms_data () {
 	my @pages = _wp_list_pages();
 	if (!@pages) {
 		print STDERR "Couldn't get pages metadata from WordPress$@\n";
 		return 0;
 	}
+
 	foreach my $page (@pages) {
-		# TODO: change this to support multiple languages when WPML is enabled
-		$page->{title} = $page->{title}{rendered};
-		$page->{wp_url} = $page->{link};
-		$page_metadata_cache_by_id->{$page->{id}}{en} = $page;
-		$page_id_by_localized_slug->{en}{$page->{slug}} = $page->{id};
+		$page->{id} = $page->{databaseId};
+		delete $page->{databaseId};
+
+		foreach my $translation (@{$page->{translations}}) {
+			$translation->{id} = $translation->{databaseId};
+			delete $translation->{databaseId};
+
+			my $translation_lc = $translation->{languageCode};
+			$page_metadata_cache_by_id->{$page->{id}}{$translation_lc} = $translation;
+			$page_id_by_localized_slug->{$translation_lc}{$translation->{slug}} = $page->{id};
+		}
+		delete $page->{translations};
+
+		my $page_lc = $page->{languageCode};
+		$page_metadata_cache_by_id->{$page->{id}}{$page_lc} = $page;
+		$page_id_by_localized_slug->{$page_lc}{$page->{slug}} = $page->{id};
 	}
 	return 1;
 }
 
-=head2 _wp_list_pages()
+=head2 _wp_list_pages ()
 
-Fetches the list of pages from the CMS
+Get the list of pages from the CMS
 
 =head3 Returns
 
-An array of pages:
-
-[
-    {
-        "id": 16,
-        "title": {
-            "rendered": "Test Page"
-        },
-        "modified_gmt": "2021-09-29T14:00:00",
-        "link": "https://wordpress_url/test-page",
-        "slug": "test-page"
-    },
-]
+An list of pages with their translations
 
 =cut  
 
-sub _wp_list_pages() {
-	my $url = $ProductOpener::Config2::wordpress_url . '/wp-json/wp/v2/pages?';
-	$url .= "_fields[]= " . join('&_fields[]=', qw(id title modified_gmt link slug));
-	return @{_get_json_from_url_and_decode($url)};
+sub _wp_list_pages () {
+	my $query = '{
+    pages {
+      nodes {
+          databaseId
+          slug
+          title
+          languageCode
+          translations {
+            databaseId
+            slug
+            title
+            languageCode
+          }
+        }
+    }
+  }';
+	my @pages;
+	my $response = _wp_graphql_query($query);
+	if ($response) {
+		return @{$response->{pages}{nodes}};
+	}
+	return ();
 }
 
-sub _wp_get_page_by_id($page_id) {
+=head2 _wp_graphql_query ($query)
+
+Query the WordPress using the GraphQL API (need plugins: WPGraphQL + WPMLGraphQL )
+
+=cut
+
+sub _wp_graphql_query ($query) {
+	my $http = HTTP::Tiny->new();
+	my $response = $http->post(
+		$ProductOpener::Config2::wordpress_url . '/graphql',
+		{
+			headers => {'Content-Type' => 'application/json'},
+			content => encode_json({query => $query}),
+		}
+	);
+	my $json;
+	if ($response->{success}) {
+		eval {$json = decode_json($response->{content});};
+		if ($@) {
+			$log->debug("_get_json_from_url_and_decode", {error => $@, query => $query}) if $log->is_debug();
+		}
+		else {
+			return $json->{data};
+		}
+
+	}
+	return $json // [];
+}
+
+sub _wp_get_page_by_id ($page_id) {
+	# we don't use graphql because it's more efficient to get the content from the REST API
 	my $url = $ProductOpener::Config2::wordpress_url . '/wp-json/wp/v2/pages/' . $page_id;
 	return _get_json_from_url_and_decode($url);
 }
 
-sub _get_json_from_url_and_decode($url) {
+sub _get_json_from_url_and_decode ($url) {
 	my $response = get($url);
 	my $json;
 	eval {$json = decode_json($response);};
