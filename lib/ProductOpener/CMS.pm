@@ -101,6 +101,7 @@ sub wp_get_page_from_slug ($lc, $slug) {
 	my $page_id = $page_metadata_cache_by_id->{$default_translation_id}{$lc}{id};
 	if ($page_id) {
 		my $page_data = _wp_get_page_by_id($page_id);
+		return if not $page_data;
 		return {
 			title => $page_data->{title}{rendered},
 			content => $page_data->{content}{rendered},
@@ -253,7 +254,7 @@ sub _wp_graphql_query ($query) {
 			return $json->{data};
 		}
 	}
-	return $json // [];
+	return $json;
 }
 
 sub _wp_get_page_by_id ($page_id) {

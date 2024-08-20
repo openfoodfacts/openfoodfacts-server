@@ -566,15 +566,18 @@ sub content_route($request_ref) {
 	my @components = @{$request_ref->{components}};
 
 	$request_ref->{content} = 1;
+	
+	my $op = $components[1] // '';
+
 	# # content/refresh
-	if (($components[1] eq 'refresh') and is_admin_user($request_ref->{user_id})) {
+	if (($op eq 'refresh') and is_admin_user($request_ref->{user_id})) {
 		load_cms_data();
 		$log->debug("content_route", {what => 'refreshed available contents'}) if $log->is_debug();
 		redirect_to_url($request_ref, 302, '/content');
 		return 1;
 	}
 	# /content/[lc]/[slug]
-	$request_ref->{content_lc} = $components[1] // $request_ref->{lc};
+	$request_ref->{content_lc} = $op // $request_ref->{lc};
 	if (defined $components[2]) {
 		$request_ref->{content_slug} = $components[2];
 		$log->debug("content_route", {content_lc => $request_ref->{content_lc}, slug => $request_ref->{content_slug}})
