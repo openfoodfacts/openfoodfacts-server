@@ -167,7 +167,7 @@ sub load_cms_data () {
 
 	my $format_and_store = sub {
 		my ($page, $grouping_id) = @_;
-		$page->{order} = delete $page->{menuOrder} // 0;
+		$page->{order} = scalar(delete $page->{menuOrder} // 0);
 		$page->{id} = delete $page->{databaseId};
 		my $lc = $page->{languageCode};
 		$page_metadata_cache_by_id->{$grouping_id}{$lc} = $page;
