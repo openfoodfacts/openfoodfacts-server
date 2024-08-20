@@ -277,13 +277,13 @@ https://s0.wp.com/wp-content/plugins/gutenberg-core/v18.8.0/build/block-library/
   --wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1),
     6px 6px rgba(0, 0, 0, 1);
   --wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);
-  background-color: var(--wp--preset--color--base);
+  /* background-color: var(--wp--preset--color--base);
   color: var(--wp--preset--color--contrast);
   font-family: var(--wp--preset--font-family--body);
   font-size: var(--wp--preset--font-size--medium);
   font-style: normal;
   font-weight: 400;
-  line-height: 1.55;
+  line-height: 1.55; */
   --wp--style--root--padding-top: 0px;
   --wp--style--root--padding-right: var(--wp--preset--spacing--50);
   --wp--style--root--padding-bottom: 0px;
