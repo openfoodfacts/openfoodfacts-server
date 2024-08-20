@@ -322,8 +322,8 @@ sub api_route($request_ref) {
 		param("tagid", $components[4]);
 		$request_ref->{tagid} = $components[4];
 	}
-	elsif ($api_action eq "geoip") {    # api/v3/geoip/[ip]
-		$request_ref->{ip} = $components[3];
+	elsif ($api_action eq "geoip") {    # api/v3/geoip/
+		$request_ref->{geoip_ip} = remote_addr();
 	}
 
 	# If return format is not xml or jqm or jsonp, default to json
@@ -358,6 +358,7 @@ sub api_route($request_ref) {
 	set_request_stats_value($request_ref->{stats}, "api_method", $request_ref->{api_method});
 	set_request_stats_value($request_ref->{stats}, "api_version", $request_ref->{api_version});
 
+	$log->debug("api_route", {request_ref => $request_ref}) if $log->is_debug();
 	return 1;
 }
 
@@ -389,7 +390,7 @@ sub properties_route($request_ref) {
 # products/[code](+[code])*
 # e.g. /8024884500403+3263855093192
 sub products_route($request_ref) {
-	param("code", $request_ref->{components}[0]);
+	param("code", $request_ref->{components}[1]);
 	$request_ref->{search} = 1;
 	set_request_stats_value($request_ref->{stats}, "route", "search");
 	return 1;
@@ -637,7 +638,13 @@ sub register_route($routes_to_register) {
 		}
 		else {
 			# use a hash key for fast match
-			$routes{$pattern} = {handler => $handler, opt => $opt};
+			# do not overwrite existing routes (e.g. a text route that matches a well known route)
+			if (exists $routes{$pattern}) {
+				$log->warn("route already exists", {pattern => $pattern}) if $log->is_warn();
+			}
+			else {
+				$routes{$pattern} = {handler => $handler, opt => $opt};
+			}
 		}
 	}
 	return 1;

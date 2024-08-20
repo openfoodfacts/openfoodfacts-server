@@ -18682,18 +18682,12 @@ pl: Wieprzowina bez domieszek
 pt: Carne de porco pura, Puro bife, 100% bife, bife puro, pura carne de porco, 100% carne de porco
 
 en: Rainforest Alliance
-bg: Rainforest Alliance
+xx: Rainforest Alliance
 ca: Aliança Tropical
-da: Rainforest Alliance
-de: Rainforest Alliance
 es: Rainforest Alliance, Alianza para Bosques
-fi: Rainforset Alliance
 fr: Rainforest Alliance, Vérifié Rainforest Alliance, Rainforest minimum 30% cacao, Certifié Rainforest Alliance
 hr: Rainforest Alliance, Certificirano Rainforest Alliance
 it: Alleanza della Foresta Pluviale
-nl: Rainforest Alliance
-pl: Rainforest Alliance
-pt: Rainforest Alliance
 auth_url:en: https://www.rainforest-alliance.org
 wikidata:en: Q2034373
 
@@ -18707,6 +18701,7 @@ en: Rainforest Alliance Cocoa
 xx: Rainforest Alliance Cocoa
 bg: Rainforest Alliance Какао
 de: Rainforest Alliance Kakao
+fr: Rainforest Alliance Cacao
 nl: Rainforest Alliance Cacao
 
 < en:Rainforest Alliance
@@ -22771,13 +22766,23 @@ en: Choices
 de: Bewusst Wählen
 label_categories:en: en:Health, en:Nutrition
 
-en: keyhole, the keyhole
-xx: keyhole, the keyhole
-da: keyhole, the keyhole, nøglehull, nøglehullet
-it: Keyhole
-no: keyhole, the keyhole, nøkkelhull, nøkkelhullet
-sv: keyhole, the keyhole, nyckelhål, nyckelhålet
+# Swedish (1989), Danish, Norwegian (2009), and Icelandic (2013) label
+en: Keyhole, the keyhole
+xx: Keyhole, the keyhole
+da: Nøglehullet, nøglehul, nøglehulsmærket
+is: Skráargatið
+no: Nøkkelhullet, nøkkelhull, nøkkelhullmerket
+sv: Nyckelhålet, nyckelhål, nyckelhålsmärke, nyckelhålsmärkning, nyckelmärkt
+auth_url:da: https://foedevarestyrelsen.dk/kost-og-foedevarer/alt-om-mad/gaa-efter-maerkningen/noeglehullet
+auth_url:is: https://island.is/skraargatid
+auth_url:no: https://www.nokkelhullsmerket.no/
+auth_url:sv: https://www.livsmedelsverket.se/nyckelhalet
+image:en: keyhole.90x90.svg
 label_categories:en: en:Health, en:Nutrition
+wikidata:en: Q3428561
+wikipedia:da: https://da.wikipedia.org/wiki/N%C3%B8glehulsm%C3%A6rket
+wikipedia:no: https://no.wikipedia.org/wiki/N%C3%B8kkelhullet
+wikipedia:sv: https://sv.wikipedia.org/wiki/Nyckelh%C3%A5lsm%C3%A4rkning
 
 < en:fair-trade
 en: Fair for Life

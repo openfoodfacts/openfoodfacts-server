@@ -42380,6 +42380,7 @@ hr: Crna riža
 it: Riso venere
 ja: 黒米
 lt: Juodieji ryžiai
+nl: Zwarte rijsten, zwarte rijst
 wikidata:en: Q3434002
 
 < en:Japonica rices
@@ -64520,22 +64521,15 @@ nl: Ijsjesassortimenten
 #description:en:A package with icecream bars with bars with different flavours
 
 < en:Ice cream bars
-en: Vanilla ice cream bars, Vanilla ice creams on a stick
-de: Vanilleeis am Stiel, Stieleis Vanille
-es: Helados de palo de vainilla, Polos de vainilla, Paletas de vainilla
-fi: Vaniljajäätelöpuikot
-fr: Bâtonnets glacés à la vanille, bâtonnets vanille, bâtonnet vanille, eskimo vanille, esquimau vanille
-hr: Štanglice sladoleda od vanilije
-it: Barrette al gelato alla vaniglia
-lt: Vaniliniai ledai ant pagaliuko
-nl: Vanille-ijsjes
+en: Ice cream bars coated with fruit sorbet
+fr: Bâtonnets glacés enrobés de sorbet aux fruits
 
 < en:Ice cream bars
-en: Chocolate ice cream bars, Chocolate ice creams on a stick, Ice cream on stick with chocolate coating
-de: Schokoladeneis am Stiel, Stieleis Schokolade
+en: Ice cream bars coated with chocolate, Chocolate ice cream bars, Chocolate ice creams on a stick, Ice cream on stick with chocolate coating
+de: Eis am Stiel überzogen mit Schokolade, Schokoladeneis am Stiel, Stieleis Schokolade
 es: Helados de palo de chocolate, Polos de chocolate, Paletas de chocolate
 fi: Suklaajäätelötikut
-fr: Bâtonnets glacés au chocolat, Bâtonnets au chocolat, Bâtonnet chocolat, Bâtonnets chocolat, Bâtonnet enrobé de crème glacée au chocolat, Bâtonnet enrobé de glace au chocolat
+fr: Bâtonnets glacés enrobés de chocolat, Bâtonnets glacés au chocolat, Bâtonnets au chocolat, Bâtonnet chocolat, Bâtonnets chocolat, Bâtonnet enrobé de crème glacée au chocolat, Bâtonnet enrobé de glace au chocolat
 hr: Štanglice sladoleda od čokolade
 it: Barrette al gelato al cioccolato
 lt: Šokoladiniai ledai ant pagaliuko
@@ -64544,6 +64538,31 @@ agribalyse_food_code:en: 39503
 ciqual_food_code:en: 39503
 ciqual_food_name:en: Ice cream on stick, with chocolate coating
 ciqual_food_name:fr: Glace ou crème glacée, bâtonnet, enrobé de chocolat
+
+< en: Ice cream bars coated with chocolate
+en: Vanilla ice cream bars coated with dark chocolate
+de: Vanilleeis am Stiel überzogen mit dunkle Schokolade
+fr: Bâtonnets glacés vanille enrobés de chocolat noir
+
+< en: Ice cream bars coated with chocolate
+en: Vanilla ice cream bars coated with milk chocolate
+de: Vanilleeis am Stiel überzogen mit Milchschokolade
+fr: Bâtonnets glacés vanille enrobés de chocolat au lait
+
+< en: Ice cream bars coated with chocolate
+en: Vanilla ice cream bars coated with milk chocolate and almonds
+de: Vanilleeis am Stiel überzogen mit Milchschokolade und Mandeln
+fr: Bâtonnets glacés vanille enrobés de chocolat au lait aux amandes
+
+< en: Ice cream bars coated with chocolate
+en: Vanilla ice cream bars coated with white chocolate
+de: Vanilleeis am Stiel überzogen mit weiße Schokolade
+fr: Bâtonnets glacés vanille enrobés de chocolat blanc
+
+< en: Ice cream bars coated with chocolate
+en: Vanilla ice cream bars coated with white chocolate and almonds
+de: Vanilleeis am Stiel überzogen mit weiße Schokolade und Mandeln
+fr: Bâtonnets glacés vanille enrobés de chocolat blanc aux amandes
 
 < en:Ice creams
 en: Ice cream cones, Ice cream cone
@@ -87046,18 +87065,6 @@ en: Liverwurst sausages
 < en:Meat spreads
 en: Liverwurst spreads
 
-< en:Liverwurst
-< en:Pork preparations
-en: Pork liver sausages
-de: Schweineleberwürste, Schweineleberwurst
-fr: Saucisses de foie de porc
-hr: Kobasice od svinjske jetre
-it: Salsicce di fegato di suino
-nl: Varkensleverworsten
-
-< en:Liverwurst
-de: Geflügelleberwürste, Geflügelleberwurst
-
 < en:Prepared meats
 en: French meat products
 fr: Produits carnés français
@@ -88219,6 +88226,18 @@ nl: Ingemaakte worst
 en: Cured liver sausages, Liver sausages
 fr: Saucisses sèches de foie, Saucisses de foie
 wikidata:en: Q111211562
+
+< en:Liver sausages
+< en:Pork preparations
+en: Pork liver sausages
+de: Schweineleberwürste, Schweineleberwurst
+fr: Saucisses de foie de porc
+hr: Kobasice od svinjske jetre
+it: Salsicce di fegato di suino
+nl: Varkensleverworsten
+
+< en:Liver sausages
+de: Geflügelleberwürste, Geflügelleberwurst
 
 < en:Pork sausages
 en: Pork and cabbage sausages

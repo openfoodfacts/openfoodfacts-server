@@ -66,6 +66,8 @@ BEGIN {
 		&update_last_export_date
 		&update_company_last_logged_in_contact
 		&update_company_last_import_type
+		&update_public_products
+		&update_pro_products
 		&add_category_to_company
 		&update_template_download_date
 		&update_contact_last_login
@@ -579,12 +581,20 @@ sub change_company_main_contact($org_ref, $user_id) {
 	return $req_company;
 }
 
-sub update_last_import_date($org_id, $time) {
-	return _update_partner_field(retrieve_org($org_id), 'x_off_last_import_date', _time_to_odoo_date_str($time));
+sub update_last_import_date($org_ref, $time) {
+	return _update_partner_field($org_ref, 'x_off_last_import_date', _time_to_odoo_date_str($time));
 }
 
-sub update_last_export_date($org_id, $time) {
-	return _update_partner_field(retrieve_org($org_id), 'x_off_last_export_date', _time_to_odoo_date_str($time));
+sub update_last_export_date($org_ref, $time) {
+	return _update_partner_field($org_ref, 'x_off_last_export_date', _time_to_odoo_date_str($time));
+}
+
+sub update_public_products($org_ref, $number_of_products) {
+	return _update_partner_field($org_ref, 'x_off_public_products', $number_of_products);
+}
+
+sub update_pro_products($org_ref, $number_of_products) {
+	return _update_partner_field($org_ref, 'x_off_pro_products', $number_of_products);
 }
 
 sub update_contact_last_login ($user_ref) {
@@ -634,8 +644,7 @@ Add a category to a company in Odoo
 
 =cut
 
-sub add_category_to_company($org_id, $label) {
-	my $org_ref = retrieve_org($org_id);
+sub add_category_to_company($org_ref, $label) {
 	return if not defined $org_ref->{crm_org_id};
 
 	my $category_id = $crm_data->{category}{$label};
@@ -645,7 +654,7 @@ sub add_category_to_company($org_id, $label) {
 			if $log->is_debug();
 		return;
 	}
-	$log->debug("add_category_to_company", {org_id => $org_id, label => $label, category_id => $category_id})
+	$log->debug("add_category_to_company", {org_id => $org_ref->{org_id}, label => $label, category_id => $category_id})
 		if $log->is_debug();
 	return make_odoo_request('res.partner', 'write',
 		[[$org_ref->{crm_org_id}], {category_id => [[$commands{link}, $category_id]]}]);
@@ -661,11 +670,10 @@ must match one of the values in CRM.pm @data_source
 
 =cut
 
-sub update_company_last_import_type($org_id, $label) {
-	my $org_ref = retrieve_org($org_id);
+sub update_company_last_import_type($org_ref, $label) {
 	return if not defined $org_ref->{crm_org_id};
 	my $category_id = $crm_data->{category}{$label};
-	add_category_to_company($org_id, $label);
+	add_category_to_company($org_ref, $label);
 	return make_odoo_request('res.partner', 'write',
 		[[$org_ref->{crm_org_id}], {x_off_last_import_type => $category_id}]);
 }
