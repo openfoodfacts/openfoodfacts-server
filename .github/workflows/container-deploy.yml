@@ -58,6 +58,23 @@ jobs:
         intervalSeconds: 10
         timeoutSeconds: 600 # 10m
 
+
+    - name: Check for an eventual NO_DEPLOY file to put deployment on hold
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ env.SSH_HOST }}
+        username: ${{ env.SSH_USERNAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        proxy_host: ${{ env.SSH_PROXY_HOST }}
+        proxy_username: ${{ env.SSH_USERNAME }}
+        proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script: |
+          if [[ -f /home/off/{{ matrix.env }}/NO_DEPLOY ]]
+          then
+            >2 echo "A NO_DEPLOY file exists (in /home/off/{{ matrix.env }}), failing !"
+            exit 1
+          fi
+
     - name: Wait for backend container build workflow
       uses: tomchv/wait-my-workflow@v1.1.0
       id: wait-build2
