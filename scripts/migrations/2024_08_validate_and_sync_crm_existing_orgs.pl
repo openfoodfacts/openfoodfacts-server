@@ -41,11 +41,8 @@ binmode(STDERR, ":encoding(UTF-8)");
 # Set Manon as the salesperson for the orgs
 $User_id = 'manoncorneille';
 
-# read the list of orgs to sync
-open my $orgs_to_accept, '<', "scripts/migrations/input/2024_08_orgs_to_accept_and_sync"
-	or die "Could not open file: $!";
-my %orgs_to_accept = map {chomp; $_ => 1} <$orgs_to_accept>;
-close $orgs_to_accept;
+# read the list of orgs to sync, one per line
+my %orgs_to_accept = map {chomp; $_ => 1} <>;
 
 # load checkpoint
 my $checkpoint_file = "$BASE_DIRS{CACHE_TMP}/orgs_synced.checkpoint";
