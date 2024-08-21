@@ -222,7 +222,7 @@ sub store_org ($org_ref) {
 		&& $previous_org_ref->{valid_org} ne 'rejected'
 		&& $org_ref->{valid_org} eq 'rejected')
 	{
-		send_org_rejection_email($org_ref);
+		send_rejection_email($org_ref);
 	}
 
 	if (    defined $org_ref->{crm_org_id}
@@ -509,12 +509,12 @@ sub update_export_date($org_id_or_ref, $time) {
 	return;
 }
 
-sub send_org_rejection_email($org_ref) {
+sub send_rejection_email ($org_ref) {
 	# send org rejection email to main contact
 	my $main_contact_user = $org_ref->{main_contact};
 	my $user_ref = retrieve_user($main_contact_user);
 	if (not defined $user_ref) {
-		$log->warning("send_org_rejection_email", {error => "main contact user not found", org_ref => $org_ref})
+		$log->warning("send_rejection_email", {error => "main contact user not found", org_ref => $org_ref})
 			if $log->is_warning();
 		return;
 	}
@@ -539,7 +539,7 @@ sub send_org_rejection_email($org_ref) {
 		$body =~ s/^\n+//;
 		send_html_email($user_ref, $subject, $email);
 	}
-	$log->debug("send_org_rejection_email", {path => $path, email => $email, res => $res}) if $log->is_debug();
+	$log->debug("send_rejection_email", {path => $path, email => $email, res => $res}) if $log->is_debug();
 	return;
 }
 
