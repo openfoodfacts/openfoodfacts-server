@@ -69,9 +69,9 @@ jobs:
         proxy_username: ${{ env.SSH_USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
-          if [[ -f /home/off/{{ matrix.env }}/NO_DEPLOY ]]
+          if [[ -f /home/off/${{ matrix.env }}/NO_DEPLOY ]]
           then
-            >2 echo "A NO_DEPLOY file exists (in /home/off/{{ matrix.env }}), failing !"
+            >2 echo "A NO_DEPLOY file exists (in /home/off/${{ matrix.env }}), failing !"
             exit 1
           fi
 
