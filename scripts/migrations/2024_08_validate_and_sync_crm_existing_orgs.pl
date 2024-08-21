@@ -27,7 +27,7 @@ use utf8;
 use ProductOpener::Config qw( $data_root );
 use ProductOpener::Paths qw( %BASE_DIRS );
 use ProductOpener::Users qw( $User_id );
-use ProductOpener::Orgs qw( list_org_ids retrieve_org store_org );
+use ProductOpener::Orgs qw( list_org_ids retrieve_org store_org send_rejection_email);
 use Encode;
 
 binmode(STDOUT, ":encoding(UTF-8)");
@@ -78,6 +78,7 @@ foreach my $org_id (list_org_ids()) {
 	}
 	else {
 		$org_ref->{valid_org} = 'rejected';
+		send_rejection_email($org_ref);
 	}
 
 	store_org($org_ref);

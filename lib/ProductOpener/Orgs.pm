@@ -61,6 +61,7 @@ BEGIN {
 		&update_last_logged_in_member
 		&update_last_import_type
 		&accept_pending_user_in_org
+		&send_rejection_email
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -216,13 +217,6 @@ sub store_org ($org_ref) {
 			$log->error("store_org", {error => $@}) if $log->is_error();
 		};
 
-	}
-
-	elsif (defined $previous_org_ref
-		&& $previous_org_ref->{valid_org} ne 'rejected'
-		&& $org_ref->{valid_org} eq 'rejected')
-	{
-		send_rejection_email($org_ref);
 	}
 
 	if (    defined $org_ref->{crm_org_id}
@@ -520,8 +514,8 @@ sub send_rejection_email ($org_ref) {
 	}
 
 	my $language = $user_ref->{preferred_language} || $user_ref->{initial_lc};
-	my $template_name = "org_rejected.tt.html";
 	# if template does not exist in the requested language, use English
+	my $template_name = "org_rejected.tt.html";
 	my $template_path = "emails/$language/$template_name";
 	my $default_path = "emails/en/$template_name";
 	my $path = -e "$data_root/templates/$template_path" ? $template_path : $default_path;
