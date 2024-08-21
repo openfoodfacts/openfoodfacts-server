@@ -43,21 +43,12 @@ jobs:
         echo "SSH_HOST=10.1.0.200" >> $GITHUB_ENV
         echo "SSH_PROXY_HOST=ovh1.openfoodfacts.org" >> $GITHUB_ENV
         echo "SSH_USERNAME=off" >> $GITHUB_ENV
+
     - name: Set various variable for prod (org) deployment
       if: matrix.env == 'off-org'
       run: |
         # FIXME: we do not deploy to prod currently
         false
-    - name: Wait for frontend container build workflow
-      uses: tomchv/wait-my-workflow@v1.1.0
-      id: wait-build
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        checkName: build (frontend)
-        ref: ${{ github.event.pull_request.head.sha || github.sha }}
-        intervalSeconds: 10
-        timeoutSeconds: 600 # 10m
-
 
     - name: Check for an eventual NO_DEPLOY file to put deployment on hold
       uses: appleboy/ssh-action@master
@@ -74,6 +65,16 @@ jobs:
             >2 echo "A NO_DEPLOY file exists (in /home/off/${{ matrix.env }}), failing !"
             exit 1
           fi
+
+    - name: Wait for frontend container build workflow
+      uses: tomchv/wait-my-workflow@v1.1.0
+      id: wait-build
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        checkName: build (frontend)
+        ref: ${{ github.event.pull_request.head.sha || github.sha }}
+        intervalSeconds: 10
+        timeoutSeconds: 600 # 10m
 
     - name: Wait for backend container build workflow
       uses: tomchv/wait-my-workflow@v1.1.0
