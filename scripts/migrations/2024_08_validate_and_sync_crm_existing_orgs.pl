@@ -26,7 +26,7 @@ use utf8;
 
 use ProductOpener::Config qw( $data_root );
 use ProductOpener::Paths qw( %BASE_DIRS );
-use ProductOpener::Users qw( $User_id );
+use ProductOpener::Users qw( $User_id retrieve_user );
 use ProductOpener::Orgs qw( list_org_ids retrieve_org store_org send_rejection_email);
 use Encode;
 
@@ -70,6 +70,11 @@ foreach my $org_id (list_org_ids()) {
 	my $org_name = $org_ref->{name};
 	if (not defined $org_name) {
 		$org_ref->{name} = $org_id =~ s/-/ /gr;
+	}
+
+	if (not exists $org_ref->{country} and exists $org_ref->{main_contact}) {
+		$user_ref = retrieve_user($org_ref->{main_contact});
+		$org_ref->{country} = $user_ref->{country} if $user_ref;
 	}
 
 	my $org_is_valid = exists $orgs_to_accept{$org_id};

@@ -277,6 +277,7 @@ sub create_org ($creator, $org_id_or_name) {
 		admins => {},
 		members => {},
 		main_contact => undef,
+		country => $country,
 	};
 
 	store_org($org_ref);
