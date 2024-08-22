@@ -61,6 +61,7 @@ BEGIN {
 		&update_last_logged_in_member
 		&update_last_import_type
 		&accept_pending_user_in_org
+		&send_rejection_email
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -276,6 +277,7 @@ sub create_org ($creator, $org_id_or_name) {
 		admins => {},
 		members => {},
 		main_contact => undef,
+		country => $country,
 	};
 
 	store_org($org_ref);
@@ -499,6 +501,40 @@ sub update_export_date($org_id_or_ref, $time) {
 	$org_ref->{last_export_t} = $time;
 	store_org($org_ref);
 	update_last_export_date($org_ref, $time);
+	return;
+}
+
+sub send_rejection_email ($org_ref) {
+	# send org rejection email to main contact
+	my $main_contact_user = $org_ref->{main_contact};
+	my $user_ref = retrieve_user($main_contact_user);
+	if (not defined $user_ref) {
+		$log->warning("send_rejection_email", {error => "main contact user not found", org_ref => $org_ref})
+			if $log->is_warning();
+		return;
+	}
+
+	my $language = $user_ref->{preferred_language} || $user_ref->{initial_lc};
+	# if template does not exist in the requested language, use English
+	my $template_name = "org_rejected.tt.html";
+	my $template_path = "emails/$language/$template_name";
+	my $default_path = "emails/en/$template_name";
+	my $path = -e "$data_root/templates/$template_path" ? $template_path : $default_path;
+
+	my $template_data_ref = {
+		user => $user_ref,
+		org => $org_ref,
+	};
+
+	my $email = '';
+	my $res = process_template($path, $template_data_ref, \$email);
+	if ($email =~ /^\s*Subject:\s*(.*)\n/i) {
+		my $subject = $1;
+		my $body = $';
+		$body =~ s/^\n+//;
+		send_html_email($user_ref, $subject, $email);
+	}
+	$log->debug("send_rejection_email", {path => $path, email => $email, res => $res}) if $log->is_debug();
 	return;
 }
 
