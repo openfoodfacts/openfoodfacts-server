@@ -49509,10 +49509,10 @@ food_groups:en: en:milk-and-yogurt
 gpc_category_code:en: 10000190
 gpc_category_description:en: Definition: Includes any products that can be described/observed as dairy cream (the fatty part of fresh milk that rises to the top if allowed to stand). These products have been treated or packaged in such a way as to extend their consumable life. Products include cream with added flavouring or ingredients, such as fruit and chocolate and frothy style beverage toppings Definition Excludes: Excludes products such as Frozen and Perishable Cream and all Cream Substitutes.
 gpc_category_name:en: Cream (Shelf Stable)
+incompatible_with:en: categories:en:compound-dairy-creams, categories:en:half-milk-and-half-cream
 intake24_category_code:en: CREM
 pnns_group_2:en: Milk and yogurt
 wikidata:en: Q13228
-incompatible_with:en: categories:en:compound-dairy-creams, categories:en:half-milk-and-half-cream
 
 < en:Creams
 en: Refrigerated creams
@@ -87073,14 +87073,14 @@ en: Liverwurst spreads
 
 < en:Prepared meats
 en: Teewurst
-de: Teewurst
 xx: Teewurst
+de: Teewurst
 
 < en:Teewurst
 en: Teewurst sausages
 
-< en:Teewurst
 < en:Meat spreads
+< en:Teewurst
 en: Teewurst spreads
 
 < en:Prepared meats
