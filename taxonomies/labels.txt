@@ -326,6 +326,7 @@ pt: Feito com ovos de galinhas criadas em liberdade, Feito com ovos de galinhas 
 #in Spanish eggshell is cascara de huevo. To avoid mis-interpretation in the processing (which could translate to peel) it's added here
 en: May contain eggshell, may contain egg shell
 es: Puede contener cáscara de huevo
+it: Può contenere guscio d'uovo, può contenere gusci di uova
 pt: Pode conter cascas de ovo, pode conter casca de ovo, pode conter vestígios de cascas de ovo, pode conter vestígios de casca de ovo
 
 < en:Free range
@@ -337,6 +338,7 @@ en: Free range pork
 de: Fleisch von Freilandschweinen
 fi: vapaana kasvanutta porsasta, vapaan porsaan liha, ulkoilevan porsaan liha, vapaan sian liha, ulkoilevan sian liha
 hu: Szabad tartású sertés
+it: Maiali allevati a terra
 pt: Porcos criados em liberdade, Porcos criados ao ar livre
 
 < en:Free range pork
@@ -356,6 +358,7 @@ en: Free range chicken
 de: Freilandhühnchen
 fi: ulkokana, vapaana elänyt kana
 hu: Szabad tartású csirke, Szabad tartású tyúk
+it: Polli allevati a terra
 pt: Galinhas criadas em liberdade, galinhas em liberdade, galinhas livres de gaiolas, galinhas criadas ao ar livre, galinhas ao ar livre
 
 < en:Free range
@@ -364,6 +367,7 @@ de: Freilandgeflügel
 fi: Vapaana kasvanut siipikarja
 he: תרנגולות חופש, תרנגול חופש, תרנגולת חופש
 hu: szabad tartású baromfi
+it: Pollame allevato a terra
 pt: Aves criadas em liberdade, aves em liberdade, aves livres de gaiolas, aves criadas ao ar livre
 
 < en:Free range poultry
@@ -438,6 +442,7 @@ ru: углерод компенсирующий продукт, углерод �
 en: CO2e neutral, CO2e compensated, CO2-equivalent neutral, CO2-equivalent compensated
 da: CO2e neutral, CO2e kompenseret
 de: CO2e neutral, CO2e kompensiert, CO2-Äquivalent neutral, CO2-Äquivalent kompensiert
+it: CO2e compensata, CO2 equivalente compensata
 pt: Neutro em CO2, neutro em CO2e, compensado em carbono, compensado em CO2e
 
 en: Carbon footprint, carbon emissions, product that specifies the carbon footprint, climate footprint
@@ -1076,19 +1081,24 @@ wikipedia:en: https://en.wikipedia.org/wiki/Fair_Trade_USA
 
 < en:Fairtrade International
 en: Fairtrade Australia and New Zealand
+it: Fairtrade Australia e Nuova Zelanda
 
 < en:Fairtrade International
 en: Fairtrade Austria
 de: Fairtrade Österreich
+it: Fairtrade Austria
 
 < en:Fairtrade International
 en: Fairtrade Belgium
+it: Fairtrade Belgio
 
 < en:Fairtrade International
 en: Fairtrade Canada
+it: Fairtrade Canada
 
 < en:Fairtrade International
 en: The Czech Fairtrade Association
+it: Fairtrade Repubblica Ceca, Fairtrade Cechia, Fairtrade Ceca
 
 < en:Fairtrade International
 en: Max Havelaar Denmark
@@ -1122,10 +1132,12 @@ nb: Fairtrade Max Havelaar Norge
 
 < en:Fairtrade International
 en: Fairtrade Sweden
+it: Fairtrade Svezia
 sv: Fairtrade Sverige
 
 < en:Fairtrade International
 en: The Fairtrade Foundation
+it: Fondazione Fairtrade
 
 < en:Fairtrade International
 en: Fairtrade Taiwan
@@ -1416,6 +1428,7 @@ es: Sin espesantes añadidos
 fi: ei lisättyjä sakeutusaineita, ei lisättyjä sakeuttimia
 fr: Sans épaississant ajouté, Sans epaissisant ajoute
 hu: hozzáadott sűrítőanyag nélkül, hozzáadott sűrítőanyagot nem tartalmaz
+it: Senza addensanti aggiunti
 pt: Sem adição de espessantes, sem adição de espessante
 ru: Без добавления загустителя
 
@@ -1616,6 +1629,7 @@ wikidata:en: Q191756
 < en:Omega-3
 en: source of omega-3, source of omega-3 fatty acids
 xx: source of omega-3
+it: sorgente di omega 3, sorgente di omega-3, sorgente di omega3
 description:en: In EU, a claim that a food is a source of omega-3 may only be made where the product contains at least 0,3 g alpha-linolenic acid per 100 g and per 100 kcal, or at least 40 mg of the sum of eicosapentaenoic acid and docosahexaenoic acid per 100 g and per 100 kcal. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
 < en:Omega-3
@@ -1630,7 +1644,7 @@ fr: Riche en Oméga-3, Riche en omega 3, Riche en acide gras omega 3
 he: עשיר באומגה 3
 hr: visoka vsebnost omega-3 maščob
 hu: Omega-3 zsírsavakban gazdag
-it: Alto contenuto di Omega 3
+it: Alto contenuto di Omega 3, ricco di omega 3
 nl: Rijk aan Omega 3
 pt: Rico em Ómega 3, Rico em Ómega-3
 ru: Обогащено омега-3 жирами
@@ -1733,10 +1747,12 @@ bg: Източник на магнезий
 de: magnesiumquelle
 fr: source de magnésium
 hr: izvor magnezija
+it: fonte di magnesio
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 en: zinc source, source of zinc
 xx: zinc source
+it: fonte di zinco
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 en: iodine source, source of iodine
@@ -1788,6 +1804,7 @@ fr: Source de vitamine B
 he: מקור לוויטמין B
 hr: izvor vitamina B
 hu: B-vitaminforrás
+it: fonte di vitamina B
 nl: Bron van Vitamine B
 pl: Źródło witaminy B
 pt: Fonte de vitamina B
@@ -1803,6 +1820,7 @@ fr: Source de vitamine B1
 he: מקור לוויטמין B1
 hr: izvor vitamina B1
 hu: B1-vitaminforrás
+it: fonte di vitamina B1
 nl: Bron van Vitamine B1
 pl: Źródło witaminy B1
 pt: Fonte de vitamina B1
@@ -1856,6 +1874,7 @@ fr: Source de vitamine B6
 he: מקור לוויטמין B6
 hr: izvor vitamina B6
 hu: B6-vitaminforrás
+it: fonte di vitamina B6
 nl: Bron van Vitamine B6
 pl: Źródło witaminy B6
 pt: Fonte de vitamina B6
@@ -1901,6 +1920,7 @@ description:en: In EU, claim that a food is a source of vitamins and/or minerals
 
 en: source of biotin, Vitamin B7 source
 xx: source of biotin
+it: fonte di biotina, fonte di vitamina B7
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 en: source of pantothenic acid, Vitamin B5 source
