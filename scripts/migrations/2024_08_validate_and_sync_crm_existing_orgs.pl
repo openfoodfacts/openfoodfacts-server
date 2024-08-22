@@ -73,7 +73,7 @@ foreach my $org_id (list_org_ids()) {
 	}
 
 	if (not exists $org_ref->{country} and exists $org_ref->{main_contact}) {
-		$user_ref = retrieve_user($org_ref->{main_contact});
+		my $user_ref = retrieve_user($org_ref->{main_contact});
 		$org_ref->{country} = $user_ref->{country} if $user_ref;
 	}
 
