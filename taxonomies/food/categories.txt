@@ -49461,16 +49461,22 @@ ciqual_food_code:en: 19666
 ciqual_food_name:en: Petit-Suisse like fresh cream cheese, plain, around 9% fat
 ciqual_food_name:fr: Fromage frais type petit suisse, nature, 10% MG environ
 
+# Half milk and half cream (or Half and half) is a common preparation in the USA which is used in coffee or with breakfast cereals
+< en:Dairies
+en: Half milk and half cream, half and half
+incompatible_with:en: categories:en:milks, categories:en:creams
+
 #this category is not made for vegan products but for dairy products used in replacement of cream
 < en:Dairies
 en: Compound dairy creams
 de: Sahne-Ersatz
 fr: Succédanés de la crème
 hr: Složene mliječne kreme
+incompatible_with:en: categories:en:creams
 
 < en:Compound dairy creams
-en: Liquid light cream with 4 to 8% fat, Thick light cream with 4 to 8% fat
-fr: Spécialité à base de crème légère fluide à 8% de matières grasses, Spécialité à base de crème légère épaisse à 8% de matières grasses
+en: UHT compound dairy creams with 4 to 8% fat, Liquid light cream with 4 to 8% fat, Thick light cream with 4 to 8% fat
+fr: Spécialités à base de crème liquide 4 à 8% de matières grasses UHT, Spécialité à base de crème légère fluide à 8% de matières grasses, Spécialité à base de crème légère épaisse à 8% de matières grasses
 agribalyse_food_code:en: 19433
 ciqual_food_code:en: 19433
 ciqual_food_name:en: cream, light, 4 to 8% fat, liquid or thick
@@ -49504,6 +49510,7 @@ food_groups:en: en:milk-and-yogurt
 gpc_category_code:en: 10000190
 gpc_category_description:en: Definition: Includes any products that can be described/observed as dairy cream (the fatty part of fresh milk that rises to the top if allowed to stand). These products have been treated or packaged in such a way as to extend their consumable life. Products include cream with added flavouring or ingredients, such as fruit and chocolate and frothy style beverage toppings Definition Excludes: Excludes products such as Frozen and Perishable Cream and all Cream Substitutes.
 gpc_category_name:en: Cream (Shelf Stable)
+incompatible_with:en: categories:en:compound-dairy-creams, categories:en:half-milk-and-half-cream
 intake24_category_code:en: CREM
 pnns_group_2:en: Milk and yogurt
 wikidata:en: Q13228
@@ -87083,6 +87090,18 @@ en: Liverwurst sausages
 en: Liverwurst spreads
 
 < en:Prepared meats
+en: Teewurst
+xx: Teewurst
+de: Teewurst
+
+< en:Teewurst
+en: Teewurst sausages
+
+< en:Meat spreads
+< en:Teewurst
+en: Teewurst spreads
+
+< en:Prepared meats
 en: French meat products
 fr: Produits carnés français
 origins:en: en:france
@@ -112887,7 +112906,7 @@ nl: IJsrepen
 
 < en:Bars
 < en:Ice creams
-en: Frozen candy chocolate bars, Chocolate coated ice cream
+en: Ice cream candy chocolate bars, Frozen candy chocolate bars, Chocolate coated ice cream
 fr: Barres chocolatées glacées, Barre glacée chocolatée
 hr: Smrznute bombone čokoladice
 ru: Мороженое в шоколаде
