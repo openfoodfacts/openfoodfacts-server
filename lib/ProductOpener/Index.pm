@@ -90,17 +90,33 @@ if (opendir DH2, $lang_dir) {
 		#$log->trace("reading texts", { lang => $langid }) if $log->is_trace();
 		next if ((length($langid) ne 2) and not($langid eq 'other'));
 
-		if (-e "$lang_dir/$langid/texts") {
-			opendir DH, "$lang_dir/$langid/texts" or die "Couldn't open $lang_dir/$langid/texts: $!";
+		my $lc_dir_path = "$lang_dir/$langid/texts";
+		if (-e $lc_dir_path) {
+			opendir DH, $lc_dir_path or die "Couldn't open $lc_dir_path: $!";
 			foreach my $textid (readdir(DH)) {
 				next if $textid eq '.';
 				next if $textid eq '..';
 				my $file = $textid;
+				my $file_path = "$lc_dir_path/$textid";
+
 				$textid =~ s/(\.foundation)?(\.$langid)?\.html//;
-				defined $texts{$textid} or $texts{$textid} = {};
-				# prefer the .foundation version
-				if ((not defined $texts{$textid}{$langid}) or (length($file) > length($texts{$textid}{$langid}))) {
-					$texts{$textid}{$langid} = $file;
+				$textid =~ s/\.redirect//;
+
+				# check if its a redirection
+				if ($file_path =~ m/.redirect$/) {
+					my $fh;
+					open($fh, "<$file_path") or die "Couldn't open $file_path: $!";
+					my $uri = <$fh>;
+					chomp($uri);
+					$texts{"$textid"}{redirect}{$langid} = $uri;
+					close($fh);
+				}
+				else {
+					defined $texts{$textid} or $texts{$textid} = {};
+					# prefer the .foundation version
+					if ((not defined $texts{$textid}{$langid}) or (length($file) > length($texts{$textid}{$langid}))) {
+						$texts{$textid}{$langid} = $file;
+					}
 				}
 
 				#$log->trace("text loaded", { langid => $langid, textid => $textid }) if $log->is_trace();

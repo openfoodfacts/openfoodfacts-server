@@ -139,7 +139,11 @@ sub load_routes() {
 			\&text_route,
 			{
 				onlyif => sub ($request_ref) {
-					return $texts{$text}{$request_ref->{lc}} || defined $texts{$text}{'en'};
+					return
+						   $texts{$text}{$request_ref->{lc}}
+						|| defined $texts{$text}{'en'}
+						|| defined $texts{$text}{redirect}{'fr'}
+						|| defined $texts{$text}{redirect}{'en'};
 				}
 			}
 		];
@@ -426,6 +430,17 @@ sub text_route($request_ref) {
 	my $text = $request_ref->{components}[0];
 
 	$log->debug("text_route", {textid => \%texts, text => $text}) if $log->is_debug();
+
+	my $redirection_uri = $texts{$text}{redirect}{$request_ref->{lc}} // $texts{$text}{redirect}{'en'};
+
+	if (defined $redirection_uri) {
+		$redirection_uri =~ s#^/##;
+		$request_ref->{redirect} = "$formatted_subdomain/$redirection_uri";
+		$log->info('text_route', {textid => $text, redirect => $request_ref->{redirect}})
+			if $log->is_info();
+		redirect_to_url($request_ref, 301, $request_ref->{redirect});
+		return 1;
+	}
 
 	if (defined $texts{$text}{$request_ref->{lc}} || defined $texts{$text}{'en'}) {
 		$request_ref->{text} = $text;
