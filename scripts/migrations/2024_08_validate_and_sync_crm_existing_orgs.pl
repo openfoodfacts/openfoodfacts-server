@@ -28,10 +28,14 @@ use ProductOpener::Config qw( $data_root );
 use ProductOpener::Paths qw( %BASE_DIRS );
 use ProductOpener::Users qw( $User_id retrieve_user );
 use ProductOpener::Orgs qw( list_org_ids retrieve_org store_org send_rejection_email);
+use ProductOpener::CRM qw( init_crm_data sync_org_with_crm );
+use ProductOpener::Store qw( retrieve store );
 use Encode;
 
 binmode(STDOUT, ":encoding(UTF-8)");
 binmode(STDERR, ":encoding(UTF-8)");
+
+init_crm_data();
 
 # This file is used to:
 # Set the validation status of existing orgs to 'accepted' for the ones in the list, and sync with the CRM.
@@ -40,55 +44,54 @@ binmode(STDERR, ":encoding(UTF-8)");
 
 # Set Manon as the salesperson for the orgs
 $User_id = 'manoncorneille';
+# the date the dump was made to review the orgs manually
+my $dump_t = 1721061880;    # 2024-07-15 16:40:00
 
-# read the list of orgs to sync, one per line
+# read the list of orgs to sync, one per line (stdin or file)
 my %orgs_to_accept = map {chomp; $_ => 1} <>;
 
 # load checkpoint
+# rm /mnt/podata/tmp/orgs_synced.checkpoint
 my $checkpoint_file = "$BASE_DIRS{CACHE_TMP}/orgs_synced.checkpoint";
 my $checkpoint;
 if (!-e $checkpoint_file) {
 	`touch $checkpoint_file`;
 }
 open($checkpoint, '+<:encoding(UTF-8)', $checkpoint_file) or die "Could not open file: $!";
-foreach my $org_id (<$checkpoint>) {
-	chomp $org_id;
-	delete $orgs_to_accept{$org_id};
-}
+my %orgs_processed = map {chomp; $_ => 1} <$checkpoint>;
 
-# if all orgs have been synced, exit
-if (scalar keys %orgs_to_accept == 0) {
-	print "All orgs have been synced\n";
-	close $checkpoint;
-	exit;
-}
+foreach my $org_id (keys %orgs_to_accept) {
 
-foreach my $org_id (list_org_ids()) {
 	$org_id = decode utf8 => $org_id;
 	my $org_ref = retrieve_org($org_id);
 
+	next if exists $orgs_processed{$org_id};
+	#next if $org_ref->{created_t} > $dump_t;
+
 	my $org_name = $org_ref->{name};
-	if (not defined $org_name) {
+	if (not $org_name) {
 		$org_ref->{name} = $org_id =~ s/-/ /gr;
 	}
 
 	if (not exists $org_ref->{country} and exists $org_ref->{main_contact}) {
 		my $user_ref = retrieve_user($org_ref->{main_contact});
-		$org_ref->{country} = $user_ref->{country} if $user_ref;
+		$org_ref->{country} = $user_ref->{country} || 'en:world';
 	}
 
 	my $org_is_valid = exists $orgs_to_accept{$org_id};
 	if ($org_is_valid) {
 		$org_ref->{valid_org} = 'accepted';
+		sync_org_with_crm($org_ref, $User_id);
+		print "$org_id synced\n";
 	}
-	else {
-		$org_ref->{valid_org} = 'rejected';
-		send_rejection_email($org_ref);
-	}
+	# else if ($org_ref->{valid_org} ne 'rejected'
+	# 	or $org_ref->{valid_org} ne 'accepted')
+	# {
+	# 	$org_ref->{valid_org} = 'rejected';
+	# 	#send_rejection_email($org_ref);
+	# }
 
-	store_org($org_ref);
-	if ($org_is_valid) {
-		print "$org_id\n";
-		print $checkpoint "$org_id\n";
-	}
+	store("$BASE_DIRS{ORGS}/" . $org_ref->{org_id} . ".sto", $org_ref);
+
+	#print $checkpoint "$org_id\n";
 }
