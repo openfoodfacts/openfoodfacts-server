@@ -149,8 +149,8 @@ sub sync_org_with_crm($org_ref, $salesperson_user_id) {
 	} or do {
 		$org_ref->{valid_org} = 'unreviewed';
 		$log->error("store_org", {error => $@}) if $log->is_error();
-		print STDERR "Failed to sync org with CRM: $@\n";
 	};
+	return;
 }
 
 =head2 find_or_create_contact ($user_ref)
@@ -882,7 +882,7 @@ data can't be fetched from CRM nor be loaded from cache
 use Data::Dumper;
 
 sub init_crm_data() {
-	if (not defined $ProductOpener::Config2::crm_url) {
+	if (not $ProductOpener::Config2::crm_url) {
 		# Odoo CRM is not configured
 		print STDERR "Odoo CRM is not configured\n";
 		return;
