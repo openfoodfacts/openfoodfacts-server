@@ -100,16 +100,10 @@ if (opendir DH2, $lang_dir) {
 				my $file_path = "$lc_dir_path/$textid";
 
 				$textid =~ s/(\.foundation)?(\.$langid)?\.html//;
-				$textid =~ s/\.redirect//;
 
 				# check if its a redirection
 				if ($file_path =~ m/.redirect$/) {
-					my $fh;
-					open($fh, "<$file_path") or die "Couldn't open $file_path: $!";
-					my $uri = <$fh>;
-					chomp($uri);
-					$texts{"$textid"}{redirect}{$langid} = $uri;
-					close($fh);
+					read_redirect_file($file_path, $langid, \%texts);
 				}
 				else {
 					defined $texts{$textid} or $texts{$textid} = {};
@@ -188,6 +182,19 @@ sub decode_html_entities ($string) {
 	}
 
 	return $utf8;
+}
+
+sub read_redirect_file ($file_path, $langid, $texts) {
+	my $fh;
+	open($fh, "<$file_path") or die "Couldn't open $file_path: $!";
+	while (my $line = <$fh>) {
+		chomp $line;
+		my ($textid, $uri) = split(/\s+/, $line);
+		print STDERR "textid: $textid, uri: $uri\n";
+		$texts->{$textid}{redirect}{$langid} = $uri;
+	}
+	close $fh;
+	return;
 }
 
 1;
