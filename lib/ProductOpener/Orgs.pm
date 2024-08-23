@@ -173,50 +173,7 @@ sub store_org ($org_ref) {
 		&& $previous_org_ref->{valid_org} ne 'accepted'
 		&& $org_ref->{valid_org} eq 'accepted')
 	{
-
-		# We switched to validated, update CRM
-		my $main_contact_user = $org_ref->{main_contact};
-
-		eval {
-			my $partner_id;
-			if (defined $main_contact_user) {
-				my $user_ref = retrieve_user($main_contact_user);
-				$partner_id = $user_ref->{crm_user_id} // find_or_create_contact($user_ref);
-				defined $partner_id or die "Failed to get contact";
-				$user_ref->{crm_user_id} = $partner_id;
-				store_user($user_ref);
-			}
-
-			my $company_id = find_or_create_company($org_ref, $partner_id);
-			defined $company_id or die "Failed to get company";
-
-			if (defined $partner_id) {
-				defined add_contact_to_company($partner_id, $company_id) or die "Failed to add contact to company";
-			}
-
-			# The off admin who validates the org is the salesperson in crm
-			my $my_admin = retrieve_user($User_id);
-			$log->debug("store_org", {myuser => $my_admin}) if $log->is_debug();
-
-			my $opportunity_id
-				= create_onboarding_opportunity("$org_ref->{name} - new", $company_id, $partner_id, $my_admin->{email});
-			defined $opportunity_id or die "Failed to create opportunity";
-
-			$org_ref->{crm_org_id} = $company_id;
-			$org_ref->{crm_opportunity_id} = $opportunity_id;
-
-			# also, add the other members to the CRM, in the company
-			foreach my $user_id (keys %{$org_ref->{members}}) {
-				if ($user_id ne $main_contact_user) {
-					add_user_to_company($user_id, $org_ref->{crm_org_id});
-				}
-			}
-			1;
-		} or do {
-			$org_ref->{valid_org} = 'unreviewed';
-			$log->error("store_org", {error => $@}) if $log->is_error();
-		};
-
+		sync_org_with_crm($org_ref, $User_id);
 	}
 
 	if (    defined $org_ref->{crm_org_id}
