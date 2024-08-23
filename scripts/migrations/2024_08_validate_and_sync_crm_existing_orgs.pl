@@ -84,9 +84,7 @@ foreach my $org_id (keys %orgs_to_accept) {
 		sync_org_with_crm($org_ref, $User_id);
 		print "$org_id synced\n";
 	}
-	elsif ($org_ref->{valid_org} ne 'rejected'
-		or $org_ref->{valid_org} ne 'accepted')
-	{
+	elsif ($org_ref->{valid_org} ne 'rejected' and $org_ref->{valid_org} ne 'accepted') {
 		$org_ref->{valid_org} = 'rejected';
 		send_rejection_email($org_ref);
 		print "$org_id rejected\n";
