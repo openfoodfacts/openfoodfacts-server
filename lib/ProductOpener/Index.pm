@@ -186,7 +186,7 @@ sub decode_html_entities ($string) {
 
 sub read_redirect_file ($file_path, $langid, $texts) {
 	my $fh;
-	open($fh, "<$file_path") or die "Couldn't open $file_path: $!";
+	open($fh, '<', $file_path) or die "Couldn't open $file_path: $!";
 	while (my $line = <$fh>) {
 		chomp $line;
 		my ($textid, $uri) = split(/\s+/, $line);
