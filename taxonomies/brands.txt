@@ -3,9 +3,11 @@
 
 # Adding brands in the taxonomy allows to:
 # - display proper capitalization and accentuation
-# - handle synonyms (missing or added separators like ' or spaces)
+# - handle variations using the synonyms (e.g. missing or added separators like ' or spaces, possibly missing 's)
 
-# The brands taxonomy should not be used to handle misspelings (do not add misspellings in the taxonomy as synonyms)
+# The brands taxonomy should not be used to:
+# - handle misspelings (do not add misspellings in the taxonomy as synonyms)
+# - handle parent / child brands (too much potential for errors and conflicts, especially in an international setting and with products from different types)
 
 
 xx: Albert Heijn
@@ -35,39 +37,32 @@ wikidata:en: Q714491
 xx: Marque Repère
 wikidata:en: Q3294723
 
-< xx: Marque Repère
+# Portuguese version of Marque Repère
+xx: Marca Guia
+
 xx: Bio Village
 
-< xx: Marque Repère
 xx: Chaque Jour Sans Gluten
 
-< xx: Marque Repère
 xx: Délisse
 
-< xx: Marque Repère
 xx: NAT&vie, NAT&vie veggie
 
-< xx: Marque Repère
 xx: Récoltons l'Avenir, Récoltons l'Avenir l'agriculture durable
 
-< xx: Marque Repère
 xx: Soutenons nos agriculteurs
 
-< xx: Marque Repère
 xx: Tokapi
 
-< xx: Marque Repère
 xx: Turini
 
 xx: Nestlé
 wikidata:en: Q160746
 
-< xx: Kellogg's
 xx: Rice Krispies
 
 xx: Sainsbury's, Sainsburys
 
-< Kellogg's
 xx: Special K
 
 xx: Trader Joe's
