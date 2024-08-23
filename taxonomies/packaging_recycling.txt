@@ -20,6 +20,7 @@ bg: използвай повторно, използвайте повторно
 de: wiederverwenden, wiederverwendbar, nachfüllbar, mehrfach verwendbar, zum Wiederverwenden
 fr: réutiliser, à réutiliser, réutilisable, usage multiple, réemployer, à réemployer, réemployable
 hu: újrafelhasználható, újrafelhasználásra, újrafelhasználni, többszörhasználatos, többszöri felhasználásra, többször felhasználható, újra felhasználható
+it: riusare
 pt: reutilizar, a reutilizar, para reutilizar, para ser reutilizado, a ser reutilizado, reutilizável, tornar a encher, para tornar a encher, reencher, tornar a reencher, para tornar a reencher, para reencher, a reencher
 
 en: recycle, to recycle, to be recycled, recyclable
@@ -27,14 +28,16 @@ bg: за рециклиране, рециклирай, да се рецикли�
 de: recyceln, zum Recyceln, recycelbar
 fr: recycler, à recycler, recyclable
 hu: újrahasznosítható, újrahasznosítandó, újrahasznosításra
+# associated_materials: en:glass, en:aluminium, en:steel
+it: riciclare, da riciclare, riciclabile
 nb: gjenvinnes
 pt: reciclável, a reciclar, para reciclar
-# associated_materials: en:glass, en:aluminium, en:steel
 
 < en:recycle
 en: recycle in glass bin, recycle in glass container, recycle with glass, in glass bin, in glass container
 es: Contenedor verde, Al verde, Contenedor de vidrio, Recicla verde
 fr: recycler dans le conteneur à verre, recycler dans le bac à verre, recycler avec le verre, dans le conteneur à verre, avec le verre, tri verre, bac verre
+it: vetro, raccolta vetro
 nl: recyclen in de glasbak, Glasbak, in de glasbak, in glasbak
 pt: Ecoponto Verde, Recicla verde
 # comment:en:If the recycling instruction is to recycle in the glass bin, we can assume the material is glass
@@ -44,9 +47,10 @@ packaging_materials:en: en:glass
 en: recycle in paper bin, recycle in paper container, recycle with paper
 es: Contenedor azul, Al azul, Contenedor de papel, Recicla azul
 fr: recycler dans le conteneur à papier, recycler dans le bac à papier, recycler avec le papier, dans le conteneur à papier, dans le bac à papier, avec le papier
+# comment:en:If the recycling instruction is to recycle in the paper bin, we can't assume the material is paper, it could also be cardboard
+it: carta, raccolta carta
 nl: recyclen bij oud papier, bij oud papier, in papierbak, in de papierbak, papierbak
 pt: Ecoponto azul, Recicla azul
-# comment:en:If the recycling instruction is to recycle in the paper bin, we can't assume the material is paper, it could also be cardboard
 
 # in the Netherlands for recycling of drink cartons
 < en:recycle
@@ -60,12 +64,14 @@ packaging_shapes:en: en:brick
 en: recycle with plastics - metal and bricks
 es: Contenedor amarillo, Al amarillo, Contenedor de envases, Recicla amarillo
 fr: recycler avec les plastiques - métal et briques
+it: raccolta plastica - metalli e latta
 nl: recycle bij Plastic - Metaal en Drankencartons, PMD, wel PMD
 pt: Ecoponto amarelo, Recicla amarillo
 
 < en:recycle
 en: recycle with plastics
 fr: recycler avec le plastique
+it: plastica, raccolta plastica
 nl: recycle bij plastic afval, bij plastic afval, plastic afval
 packaging_materials:en: en:plastic
 
@@ -74,6 +80,7 @@ packaging_materials:en: en:plastic
 en: return to store, deposit
 fr: consigné, consigne, rapporter au magasin, retourner au magasin
 # nl:recycle-als-statiegeld is already coer
+it: riconsegnare al negozio
 
 #In the Netherlands PET bottles must be returned in exchange for the deposit, when it has the statiegeldfles logo
 < en:return to store
@@ -93,6 +100,7 @@ hr: povratna naknada
 < en:recycle
 en: recycle as green waste, compost, green waste
 fr: compostable, à composter
+it: umido, raccolta umido, compost, compostabile
 nl: recycle als GFT, gft
 
 #sorting bin
@@ -104,6 +112,7 @@ en: discard, to discard, throw away, to throw away, non-recyclable, to be thrown
 de: wegwerfen, nicht recycelbar, zum Wegwerfen
 fr: jeter, à jeter, non-recyclable
 hu: eldobható, eldobandó, eldobni, kidobható, kidobni, kidobandó, nem újrahasznosítható, szemét
+it: non riciclabile
 nl: restafval, bij restafval, niet PMD
 pt: descartar, a descartar, para descartar, não-reciclável, não recicláel
 
