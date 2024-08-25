@@ -22,6 +22,7 @@ class TestUpdateTagsPerLanguages(unittest.TestCase):
              self.assertTrue("id" in all_tags["tags"][0])
              self.assertTrue("known" in all_tags["tags"][0])
              self.assertTrue("name" in all_tags["tags"][0])
+             self.assertTrue("products" in all_tags["tags"][0])
 
 
     def test_get_from_api_products_list(self):
@@ -34,13 +35,17 @@ class TestUpdateTagsPerLanguages(unittest.TestCase):
 
     def test_unknown_tags_taxonomy_comparison_function(self):
         with open('update_tags_per_languages_categories', 'w') as create_test_file:
-            create_test_file.write("page;current tag")
+            create_test_file.write("current tag;products")
             # new
-            create_test_file.write("\n1;en:groceries")
-            # already_referenced_tags
-            create_test_file.write("\n3;en:cured-ham")
+            create_test_file.write("\nen:groceries;100")
+            # already_referenced_tags, need to update
+            create_test_file.write("\nen:cured-ham;80")
             # exist
-            create_test_file.write("\n9;en:chips")
+            create_test_file.write("\nen:chips;60")
+            # synonym exists, need to update
+            create_test_file.write("\nen:fruit-jams;57")
+            # contains xx:, only print in screen, not in files
+            create_test_file.write("\nsv:tapas;55")
 
         unknown_tags_taxonomy_comparison("categories")
 
@@ -49,9 +54,8 @@ class TestUpdateTagsPerLanguages(unittest.TestCase):
             # skip header
             file.readline()
             for line in file:
-                key, value = line.strip().split(';')
+                key, value = line.strip().split(';')[0], line.strip().split(';')[1]
                 exist_tags[key] = value
-
         # (result, expected)
         self.assertEqual(exist_tags, {'en:chips': 'de:chips'})
 
@@ -60,15 +64,25 @@ class TestUpdateTagsPerLanguages(unittest.TestCase):
             # skip header
             file.readline()
             for line in file:
-                key, value = line.strip().split(';')
+                key, value = line.strip().split(';')[0], line.strip().split(';')[1]
                 new_tags[key] = value
-
         # (result, expected)
-        self.assertEqual(new_tags, {'en:groceries': ''})
+        self.assertEqual(new_tags, {'en:groceries': '100'})
+
+        to_update_tags = {}
+        with open('update_tags_per_languages_categories_to_update', 'r') as file:
+            # skip header
+            file.readline()
+            for line in file:
+                key, value = line.strip().split(';')[0], line.strip().split(';')[1]
+                to_update_tags[key] = value
+        # (result, expected)
+        self.assertEqual(to_update_tags, {'en:cured-ham': '80', 'en:fruit-jams': '57'})
 
         os.remove("update_tags_per_languages_categories")
         os.remove("update_tags_per_languages_categories_exist")
         os.remove("update_tags_per_languages_categories_new")
+        os.remove("update_tags_per_languages_categories_to_update")
 
 
     def test_update_tags_field(self):
