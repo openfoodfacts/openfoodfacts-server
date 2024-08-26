@@ -485,11 +485,11 @@ sub send_rejection_email ($org_ref) {
 
 	my $email = '';
 	my $res = process_template($path, $template_data_ref, \$email);
-	if ($email =~ /^\s*Subject:\s*(.*)\n/i) {
-		my $subject = $1;
-		my $body = $';
+	if ($email =~ s/^(\s*Subject:\s*(.*))\n//) {
+		my $subject = $2;
+		my $body = $email;
 		$body =~ s/^\n+//;
-		send_html_email($user_ref, $subject, $email);
+		send_html_email($user_ref, $subject, $body);
 	}
 	$log->debug("send_rejection_email", {path => $path, email => $email, res => $res}) if $log->is_debug();
 	return;
