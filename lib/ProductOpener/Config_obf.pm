@@ -484,6 +484,20 @@ HTML
 	last_image_t
 );
 
+# Used to generate the list of possible product attributes, which is
+# used to display the possible choices for user preferences
+$options{attribute_groups}
+	= [["ingredients_analysis", ["vegan", "palm_oil_free",]], ["labels", ["labels_organic", "labels_fair_trade"]],];
+
+# default preferences for attributes
+$options{attribute_default_preferences} = {
+	"labels_organic" => "important",
+	"labels_fair_trade" => "important",
+};
+
+use JSON::MaybeXS;
+$options{attribute_default_preferences_json} = encode_json($options{attribute_default_preferences});
+
 # for ingredients OCR, we use tesseract-ocr
 # on debian, dictionaries are in /usr/share/tesseract-ocr/tessdata
 # %tesseract_ocr_available_languages provides mapping between OFF 2 letter language codes

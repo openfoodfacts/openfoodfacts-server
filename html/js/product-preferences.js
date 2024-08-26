@@ -1,10 +1,10 @@
 /*global lang */
 /*global preferences_text*/ // depends on which type of page the preferences are shown on
+/*global default_preferences*/ // depends on flavor: OFF, OBF etc.
 
 var attribute_groups; // All supported attribute groups and attributes + translated strings
 var preferences; // All supported preferences + translated strings
 var use_user_product_preferences_for_ranking = JSON.parse(localStorage.getItem('use_user_product_preferences_for_ranking'));
-var default_preferences = { "nutriscore" : "very_important", "nova" : "important", "ecoscore" : "important" };
 
 function get_user_product_preferences() {
     // Retrieve user preferences from local storage

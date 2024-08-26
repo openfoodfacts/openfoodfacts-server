@@ -4533,6 +4533,7 @@ sub display_search_results ($request_ref) {
 		$request_ref->{scripts} .= <<JS
 <script type="text/javascript">
 var page_type = "products";
+var default_preferences = $options{attribute_default_preferences_json};
 var preferences_text = "$preferences_text";
 var contributor_prefs = $contributor_prefs_json;
 var products = [];
@@ -5649,6 +5650,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 	$request_ref->{scripts} .= <<JS
 <script type="text/javascript">
 var page_type = "products";
+var default_preferences = $options{attribute_default_preferences_json};
 var preferences_text = "$preferences_text";
 var contributor_prefs = $contributor_prefs_json;
 var products = $products_json;
@@ -8519,6 +8521,7 @@ HTML
 		$request_ref->{scripts} .= <<JS
 <script type="text/javascript">
 var page_type = "product";
+var default_preferences = $options{attribute_default_preferences_json};
 var preferences_text = "$preferences_text";
 var product = $product_attribute_groups_json;
 </script>

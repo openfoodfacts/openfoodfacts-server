@@ -993,6 +993,9 @@ $options{attribute_default_preferences} = {
 	"ecoscore" => "important",
 };
 
+use JSON::MaybeXS;
+$options{attribute_default_preferences_json} = encode_json($options{attribute_default_preferences});
+
 # Used to generate the sample import file for the producers platform
 # possible values: mandatory, recommended, optional.
 # when not specified, fields are considered optional

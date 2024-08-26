@@ -78,6 +78,7 @@ my %product_type_features = (
 	beauty => {
 		health_card => 1,
 		ingredients => 1,
+		user_preferences => 1,
 	},
 	products => {
 
