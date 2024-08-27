@@ -326,6 +326,7 @@ pt: Feito com ovos de galinhas criadas em liberdade, Feito com ovos de galinhas 
 #in Spanish eggshell is cascara de huevo. To avoid mis-interpretation in the processing (which could translate to peel) it's added here
 en: May contain eggshell, may contain egg shell
 es: Puede contener cáscara de huevo
+it: Può contenere guscio d'uovo, può contenere gusci di uova
 pt: Pode conter cascas de ovo, pode conter casca de ovo, pode conter vestígios de cascas de ovo, pode conter vestígios de casca de ovo
 
 < en:Free range
@@ -337,6 +338,7 @@ en: Free range pork
 de: Fleisch von Freilandschweinen
 fi: vapaana kasvanutta porsasta, vapaan porsaan liha, ulkoilevan porsaan liha, vapaan sian liha, ulkoilevan sian liha
 hu: Szabad tartású sertés
+it: Maiali allevati a terra
 pt: Porcos criados em liberdade, Porcos criados ao ar livre
 
 < en:Free range pork
@@ -356,6 +358,7 @@ en: Free range chicken
 de: Freilandhühnchen
 fi: ulkokana, vapaana elänyt kana
 hu: Szabad tartású csirke, Szabad tartású tyúk
+it: Polli allevati a terra
 pt: Galinhas criadas em liberdade, galinhas em liberdade, galinhas livres de gaiolas, galinhas criadas ao ar livre, galinhas ao ar livre
 
 < en:Free range
@@ -364,6 +367,7 @@ de: Freilandgeflügel
 fi: Vapaana kasvanut siipikarja
 he: תרנגולות חופש, תרנגול חופש, תרנגולת חופש
 hu: szabad tartású baromfi
+it: Pollame allevato a terra
 pt: Aves criadas em liberdade, aves em liberdade, aves livres de gaiolas, aves criadas ao ar livre
 
 < en:Free range poultry
@@ -438,6 +442,7 @@ ru: углерод компенсирующий продукт, углерод �
 en: CO2e neutral, CO2e compensated, CO2-equivalent neutral, CO2-equivalent compensated
 da: CO2e neutral, CO2e kompenseret
 de: CO2e neutral, CO2e kompensiert, CO2-Äquivalent neutral, CO2-Äquivalent kompensiert
+it: CO2e compensata, CO2 equivalente compensata
 pt: Neutro em CO2, neutro em CO2e, compensado em carbono, compensado em CO2e
 
 en: Carbon footprint, carbon emissions, product that specifies the carbon footprint, climate footprint
@@ -462,6 +467,14 @@ wikidata:en: Q310667
 < en:Carbon compensated product
 en: Climate Neutral Certified
 xx: Climate Neutral Certified
+
+< en:Carbon compensated product
+en: 100% Climate Compensated
+xx: 100% Climate Compensated, 100 % Climate Compensated
+# brand:sv: Risenta
+image:en: risenta_100pct_climate_compensated.90x90.jpg
+label_categories:en: en:Environnment
+website:sv: https://www.risenta.se/kvalitet-och-miljo/100-procent-klimatkompenserat/
 
 en: Climate Neutral product, Climate Partner
 de: Klimaneutral Produkt, Climate Partner
@@ -829,8 +842,8 @@ it: HACCP, Analisi dei rischi e controllo dei punti critici
 ja: HACCP
 ko: HACCP
 mk: HACCP
+nb: HACCP
 nl: HACCP
-no: HACCP
 pl: HACCP, Analiza zagrożeń i krytyczne punkty kontroli
 ps: HACCP
 pt: HACCP, Análise de Perigos e Pontos Críticos de Controle
@@ -1068,19 +1081,24 @@ wikipedia:en: https://en.wikipedia.org/wiki/Fair_Trade_USA
 
 < en:Fairtrade International
 en: Fairtrade Australia and New Zealand
+it: Fairtrade Australia e Nuova Zelanda
 
 < en:Fairtrade International
 en: Fairtrade Austria
 de: Fairtrade Österreich
+it: Fairtrade Austria
 
 < en:Fairtrade International
 en: Fairtrade Belgium
+it: Fairtrade Belgio
 
 < en:Fairtrade International
 en: Fairtrade Canada
+it: Fairtrade Canada
 
 < en:Fairtrade International
 en: The Czech Fairtrade Association
+it: Fairtrade Repubblica Ceca, Fairtrade Cechia, Fairtrade Ceca
 
 < en:Fairtrade International
 en: Max Havelaar Denmark
@@ -1114,10 +1132,12 @@ nb: Fairtrade Max Havelaar Norge
 
 < en:Fairtrade International
 en: Fairtrade Sweden
+it: Fairtrade Svezia
 sv: Fairtrade Sverige
 
 < en:Fairtrade International
 en: The Fairtrade Foundation
+it: Fondazione Fairtrade
 
 < en:Fairtrade International
 en: Fairtrade Taiwan
@@ -1218,20 +1238,35 @@ wikidata:en: Q2112204
 # associated_materials:en: en:paper, en:cardboard
 
 en: Green Dot, The Green Dot
+xx: Green Dot, The Green Dot
 bg: Зелена точка
+bs: Zelena tačka
 ca: Punt verd
 cs: Zelený bod
 de: Grüner Punkt, Grüne Punkt, Der Grüne Punkt
+el: Πράσινο Σήμα
 es: Punto Verde, El Punto Verde
+et: Roheline Punkt
 fi: vihreä piste
 fr: Point Vert, Le Point Vert
 he: נקודה ירוקה, הנקודה הירוקה
-hu: Zöld Pont, Green Dot
+hr: Zelena točka
+hu: Zöld Pont
 it: Punto Verde, Il Punto Verde
+lt: Žaliasis taškas
+lv: Zaļais punkts
 nb: Grønt Punkt
 nl: Groene Punt
-pt: Ponto Verde, Green Dot, The Green Dot
+pl: Zielony Punkt
+pt: Ponto Verde
+ro: Punctul Verde
+sk: Zelený bod
+sl: Zelena pika
+sr: Zelena tačka
+sv: Gröna Punkten
 th: กรีนดอท
+tr: Yeşil Nokta
+auth_url:en: https://www.pro-e.org/
 label_categories:en: en:Packaging
 wikidata:en: Q975485
 # en:comment:On packaging, the Green Dot means that for such packaging a financial contribution has been paid to a qualified national packaging recovery organization set up in accordance with the principles defined in European Packaging and Packaging Waste Directive 94/62 and the respective national law.
@@ -1408,6 +1443,7 @@ es: Sin espesantes añadidos
 fi: ei lisättyjä sakeutusaineita, ei lisättyjä sakeuttimia
 fr: Sans épaississant ajouté, Sans epaissisant ajoute
 hu: hozzáadott sűrítőanyag nélkül, hozzáadott sűrítőanyagot nem tartalmaz
+it: Senza addensanti aggiunti
 pt: Sem adição de espessantes, sem adição de espessante
 ru: Без добавления загустителя
 
@@ -1608,6 +1644,7 @@ wikidata:en: Q191756
 < en:Omega-3
 en: source of omega-3, source of omega-3 fatty acids
 xx: source of omega-3
+it: sorgente di omega 3, sorgente di omega-3, sorgente di omega3
 description:en: In EU, a claim that a food is a source of omega-3 may only be made where the product contains at least 0,3 g alpha-linolenic acid per 100 g and per 100 kcal, or at least 40 mg of the sum of eicosapentaenoic acid and docosahexaenoic acid per 100 g and per 100 kcal. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
 < en:Omega-3
@@ -1622,7 +1659,7 @@ fr: Riche en Oméga-3, Riche en omega 3, Riche en acide gras omega 3
 he: עשיר באומגה 3
 hr: visoka vsebnost omega-3 maščob
 hu: Omega-3 zsírsavakban gazdag
-it: Alto contenuto di Omega 3
+it: Alto contenuto di Omega 3, ricco di omega 3
 nl: Rijk aan Omega 3
 pt: Rico em Ómega 3, Rico em Ómega-3
 ru: Обогащено омега-3 жирами
@@ -1725,10 +1762,12 @@ bg: Източник на магнезий
 de: magnesiumquelle
 fr: source de magnésium
 hr: izvor magnezija
+it: fonte di magnesio
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 en: zinc source, source of zinc
 xx: zinc source
+it: fonte di zinco
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 en: iodine source, source of iodine
@@ -1780,6 +1819,7 @@ fr: Source de vitamine B
 he: מקור לוויטמין B
 hr: izvor vitamina B
 hu: B-vitaminforrás
+it: fonte di vitamina B
 nl: Bron van Vitamine B
 pl: Źródło witaminy B
 pt: Fonte de vitamina B
@@ -1795,6 +1835,7 @@ fr: Source de vitamine B1
 he: מקור לוויטמין B1
 hr: izvor vitamina B1
 hu: B1-vitaminforrás
+it: fonte di vitamina B1
 nl: Bron van Vitamine B1
 pl: Źródło witaminy B1
 pt: Fonte de vitamina B1
@@ -1848,6 +1889,7 @@ fr: Source de vitamine B6
 he: מקור לוויטמין B6
 hr: izvor vitamina B6
 hu: B6-vitaminforrás
+it: fonte di vitamina B6
 nl: Bron van Vitamine B6
 pl: Źródło witaminy B6
 pt: Fonte de vitamina B6
@@ -1893,6 +1935,7 @@ description:en: In EU, claim that a food is a source of vitamins and/or minerals
 
 en: source of biotin, Vitamin B7 source
 xx: source of biotin
+it: fonte di biotina, fonte di vitamina B7
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 en: source of pantothenic acid, Vitamin B5 source
@@ -5496,8 +5539,8 @@ it: Biologico UE
 ja: EUオーガニック, ヨーロッパオーガニック, ヨーロッパの葉, ヨーロッパのオーガニック葉, EUオーガニック農業
 ko: EU 유기농, 유럽 유기농, 유럽 잎, 유럽 유기농 잎, EU 유기농 농업
 lt: ES ekologiškas, Europos ekologiškas, europinis lapas, Europos ekologiškas lapas, ES ekologinis ūkininkavimas
+nb: EU-økologisk, Europeisk økologisk, Europeisk blad, Europeisk økologisk blad, EU økologisk landbruk
 nl: EU Organic
-no: EU-økologisk, Europeisk økologisk, Europeisk blad, Europeisk økologisk blad, EU økologisk landbruk
 pl: EU Organic, Europejski Organic, Europejski liść, Europejski organiczny liść, EU organiczne rolnictwo
 pt: Orgânico EU, Orgânico Europeu, Folha Europeia, Folha Orgânica Europeia
 ro: Organic UE, Organic european, Frunză europeană, Frunză organică europeană, Agricultură organică UE
@@ -18688,6 +18731,7 @@ es: Rainforest Alliance, Alianza para Bosques
 fr: Rainforest Alliance, Vérifié Rainforest Alliance, Rainforest minimum 30% cacao, Certifié Rainforest Alliance
 hr: Rainforest Alliance, Certificirano Rainforest Alliance
 it: Alleanza della Foresta Pluviale
+sv: Rainforest Alliance, Rainforest Alliance-certifierad
 auth_url:en: https://www.rainforest-alliance.org
 wikidata:en: Q2034373
 
@@ -18703,6 +18747,7 @@ bg: Rainforest Alliance Какао
 de: Rainforest Alliance Kakao
 fr: Rainforest Alliance Cacao
 nl: Rainforest Alliance Cacao
+sv: Rainforest Alliance Kakao
 
 < en:Rainforest Alliance
 en: Rainforest Alliance Cassave
@@ -22771,17 +22816,17 @@ en: Keyhole, the keyhole
 xx: Keyhole, the keyhole
 da: Nøglehullet, nøglehul, nøglehulsmærket
 is: Skráargatið
-no: Nøkkelhullet, nøkkelhull, nøkkelhullmerket
+nb: Nøkkelhullet, nøkkelhull, nøkkelhullmerket
 sv: Nyckelhålet, nyckelhål, nyckelhålsmärke, nyckelhålsmärkning, nyckelmärkt
 auth_url:da: https://foedevarestyrelsen.dk/kost-og-foedevarer/alt-om-mad/gaa-efter-maerkningen/noeglehullet
 auth_url:is: https://island.is/skraargatid
-auth_url:no: https://www.nokkelhullsmerket.no/
+auth_url:nb: https://www.nokkelhullsmerket.no/
 auth_url:sv: https://www.livsmedelsverket.se/nyckelhalet
 image:en: keyhole.90x90.svg
 label_categories:en: en:Health, en:Nutrition
 wikidata:en: Q3428561
 wikipedia:da: https://da.wikipedia.org/wiki/N%C3%B8glehulsm%C3%A6rket
-wikipedia:no: https://no.wikipedia.org/wiki/N%C3%B8kkelhullet
+wikipedia:nb: https://no.wikipedia.org/wiki/N%C3%B8kkelhullet
 wikipedia:sv: https://sv.wikipedia.org/wiki/Nyckelh%C3%A5lsm%C3%A4rkning
 
 < en:fair-trade
