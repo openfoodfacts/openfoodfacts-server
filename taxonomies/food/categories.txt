@@ -104142,6 +104142,7 @@ who_id:en: 15
 < en:Vegetables
 en: Sorrel
 fr: Oseille
+expected_ingredients:en: en:sorrel
 
 < en:Fresh vegetables
 < en: Sorrel
@@ -104151,7 +104152,7 @@ agribalyse_food_code:en: 20111
 ciqual_food_code:en: 20111
 ciqual_food_name:en: Sorrel, raw
 ciqual_food_name:fr: Oseille, crue
-comment:en: Assume that this is only so
+expected_ingredients:en: en:sorrel
 
 < en: Sorrel
 en: Canned sorrel
@@ -104159,6 +104160,7 @@ agribalyse_food_code:en: 20111
 agribalyse_proxy_food_code:en: 20111
 agribalyse_proxy_food_name:en: Sorrel, raw
 agribalyse_proxy_food_name:fr: Oseille, crue
+expected_ingredients:en: en:sorrel
 
 < en:Vegetables
 en: Chinese artichokes, Japanese artichokes
