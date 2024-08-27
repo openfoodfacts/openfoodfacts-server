@@ -551,13 +551,14 @@ sub facets_route($request_ref) {
 	}
 
 	$request_ref->{canon_rel_url} .= $canon_rel_url_suffix;
-	$request_ref->{rate_limiter_bucket} = "facet";
 
 	if (defined $request_ref->{groupby_tagtype}) {
+		$request_ref->{rate_limiter_bucket} = "facet_tags";
 		set_request_stats_value($request_ref->{stats}, "route", "facets_tags");
 		set_request_stats_value($request_ref->{stats}, "groupby_tagtype", $request_ref->{groupby_tagtype});
 	}
 	else {
+		$request_ref->{rate_limiter_bucket} = "facet_products";
 		set_request_stats_value($request_ref->{stats}, "route", "facets_products");
 	}
 	set_request_stats_value($request_ref->{stats}, "facets_tags", (scalar @{$request_ref->{tags}}));
@@ -965,15 +966,26 @@ sub set_rate_limit_attributes ($request_ref, $ip) {
 	elsif ($rate_limit_bucket eq "product") {
 		$limit = $options{rate_limit_product};
 	}
-	elsif ($rate_limit_bucket eq "facet") {
+	elsif ($rate_limit_bucket eq "facet_products") {
 		if ($request_ref->{is_crawl_bot}) {
-			$limit = $options{rate_limit_facet_crawl_bot};
+			$limit = $options{rate_limit_facet_products_crawl_bot};
 		}
 		elsif (defined $request_ref->{user_id}) {
-			$limit = $options{rate_limit_facet_registered};
+			$limit = $options{rate_limit_facet_products_registered};
 		}
 		else {
-			$limit = $options{rate_limit_facet_unregistered};
+			$limit = $options{rate_limit_facet_products_unregistered};
+		}
+	}
+	elsif ($rate_limit_bucket eq "facet_tags") {
+		if ($request_ref->{is_crawl_bot}) {
+			$limit = $options{rate_limit_facet_tags_crawl_bot};
+		}
+		elsif (defined $request_ref->{user_id}) {
+			$limit = $options{rate_limit_facet_tags_registered};
+		}
+		else {
+			$limit = $options{rate_limit_facet_tags_unregistered};
 		}
 	}
 	$request_ref->{rate_limiter_limit} = $limit;

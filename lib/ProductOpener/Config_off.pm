@@ -1635,12 +1635,15 @@ $options{sample_product_code} = "093270067481501";    # A good product for you -
 # Number of requests per minutes for the search API
 $options{rate_limit_search} = 10;
 # Number of requests per minutes for all facets for anonymous users
-$options{rate_limit_facet_unregistered} = 2;
-# Number of requests per minutes for all facets for registered users
-$options{rate_limit_facet_registered} = 10;
-# Number of requests per minutes for all facets for bots
-$options{rate_limit_facet_crawl_bot} = 10;
-# Number of requests per minutes for the product API
+$options{rate_limit_facet_products_unregistered} = 5;
+# Number of requests per minutes for facets for registered users
+$options{rate_limit_facet_products_registered} = 10;
+# Number of requests per minutes for facets for bots
+$options{rate_limit_facet_products_crawl_bot} = 10;
+# Number of requests per minutes for facet tags (list of tags with count) for anonymous users
+$options{rate_limit_facet_tags_unregistered} = 5;
+$options{rate_limit_facet_tags_registered} = 10;
+$options{rate_limit_facet_tags_crawl_bot} = 10;
 $options{rate_limit_product} = 100;
 
 # Rate limit allow list
