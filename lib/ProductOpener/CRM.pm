@@ -173,8 +173,6 @@ sub find_or_create_contact($user_ref) {
 	my $contact_id = find_contact($user_ref);
 	if (defined $contact_id) {
 		return if not link_user_with_contact($user_ref, $contact_id);
-		add_category_to_partner($user_ref, 'Producer');
-		update_partner_country($user_ref);
 	}
 	else {
 		$contact_id = create_contact($user_ref);
@@ -347,8 +345,6 @@ sub find_or_create_company($org_ref, $contact_id = undef) {
 	my $company_id = find_company($org_ref, $contact_id);
 	if (defined $company_id) {
 		return if not link_org_with_company($org_ref, $company_id);
-		add_category_to_partner($org_ref, 'Producer');
-		update_partner_country($org_ref);
 	}
 	else {
 		$company_id = create_company($org_ref);
