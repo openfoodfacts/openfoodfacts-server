@@ -889,6 +889,8 @@ sub retrieve_product ($product_id) {
 
 	my $product_ref = retrieve($full_product_path);
 
+	my $server = server_for_product_id($product_id);
+
 	if (not defined $product_ref) {
 		$log->debug("retrieve_product - product does not exist",
 			{product_id => $product_id, product_data_root => $product_data_root, path => $path, server => $server})
@@ -897,7 +899,6 @@ sub retrieve_product ($product_id) {
 	else {
 
 		# If the product is on another server, set the server field so that it will be saved in the other server if we save it
-		my $server = server_for_product_id($product_id);
 
 		if ($product_ref->{deleted}) {
 			$log->debug(
