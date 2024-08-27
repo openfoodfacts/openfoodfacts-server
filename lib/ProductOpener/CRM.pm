@@ -132,6 +132,7 @@ sub sync_org_with_crm($org_ref, $salesperson_user_id) {
 		my $my_admin = retrieve_user($salesperson_user_id);
 		$log->debug("store_org", {myuser => $my_admin}) if $log->is_debug();
 
+		$partner_id ||= $company_id;
 		my $opportunity_id
 			= create_onboarding_opportunity("$org_ref->{name} - new", $company_id, $partner_id, $my_admin->{email});
 		defined $opportunity_id or die "Failed to create opportunity";
