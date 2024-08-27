@@ -104162,23 +104162,24 @@ agribalyse_proxy_food_name:en: Sorrel, raw
 agribalyse_proxy_food_name:fr: Oseille, crue
 expected_ingredients:en: en:sorrel
 
-< en:Vegetables
-en: Chinese artichokes, Japanese artichokes
-fr: Crosnes
-hr: Kineske artičoke
-ja: チョロギ
-agribalyse_proxy_food_code:en: 20231
-agribalyse_proxy_food_name:en: Chinese or Japanese artichokes, frozen, raw
-agribalyse_proxy_food_name:fr: Crosne, surgelé, cru
+# no products @2024-08-27
+#< en:Vegetables
+#en: Chinese artichokes, Japanese artichokes
+#fr: Crosnes
+#hr: Kineske artičoke
+#ja: チョロギ
+#agribalyse_proxy_food_code:en: 20231
+#agribalyse_proxy_food_name:en: Chinese or Japanese artichokes, frozen, raw
+#agribalyse_proxy_food_name:fr: Crosne, surgelé, cru
 
-< en:Chinese artichokes
-< en:Frozen vegetables
-en: Frozen Chinese artichokes, Frozen Japanese artichokes
-fr: Crosnes surgelés
-agribalyse_food_code:en: 20231
-ciqual_food_code:en: 20231
-ciqual_food_name:en: Chinese or Japanese artichokes, frozen, raw
-ciqual_food_name:fr: Crosne, surgelé, cru
+#< en:Chinese artichokes
+#< en:Frozen vegetables
+#en: Frozen Chinese artichokes, Frozen Japanese artichokes
+#fr: Crosnes surgelés
+#agribalyse_food_code:en: 20231
+#ciqual_food_code:en: 20231
+#ciqual_food_name:en: Chinese or Japanese artichokes, frozen, raw
+#ciqual_food_name:fr: Crosne, surgelé, cru
 
 < en:Vegetables
 en: Jerusalem artichoke
