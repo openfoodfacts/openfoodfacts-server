@@ -104370,7 +104370,6 @@ wikidata:en: Q3658406
 
 < en:Artichokes
 < en:French vegetables
-xx: Artichaut du Roussillon
 fr: Artichaut du Roussillon
 origins:en: en: Pyrénées-Orientales
 protected_name_file_number:en: PGI-FR-1172
@@ -104392,6 +104391,7 @@ nl: Artisjokharten
 < en:Cooked vegetables
 en: Cooked globe artichoke
 fr: Artichaut cuit
+nl: Gekookte artisjok
 agribalyse_food_code:en: 20000
 ciqual_food_code:en: 20000
 ciqual_food_name:en: Artichoke, globe, cooked
@@ -104408,7 +104408,7 @@ season_in_country_fr:en: 5,6,7,8,9
 < en:Frozen vegetables
 en: Frozen artichoke bottom
 fr: Fonds d'artichaut surgelés
-nl: Diepvriesartisjokken
+nl: Diepvriesartisjokharten, Diepvriesartisjokbodems
 agribalyse_food_code:en: 20232
 ciqual_food_code:en: 20232
 ciqual_food_name:en: Artichoke base, frozen, raw
@@ -104434,12 +104434,13 @@ ru: Спаржа
 agribalyse_proxy_food_code:en: 20076
 agribalyse_proxy_food_name:en: Asparagus, canned, drained
 agribalyse_proxy_food_name:fr: Asperge, appertisée, égouttée
+expected_ingredients:en: en:asparagus
 wikidata:en: Q23041045
 
 < en:Asparagus
 < en:French vegetables
 fr: Asperge des sables des Landes
-origins:en: en:france, en:landes
+origins:en: en:landes
 protected_name_file_number:en: PGI-FR-0272
 protected_name_type:en: pgi
 wikidata:en: Q18578209
