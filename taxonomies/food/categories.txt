@@ -104254,6 +104254,7 @@ ciqual_food_name:fr: Haricot rouge, cuit
 
 < en: Common beans
 fr: Haricot tarbais
+comment:en: cooked or dried
 origins:en: en: Hautes-Pyrénées, en: Gers, en: Haute-Garonne, en: Pyrénées-Atlantiques
 protected_name_file_number:en: PGI-FR-0080
 protected_name_type:en: pgi
@@ -104286,18 +104287,24 @@ ru: Листовые овощи
 wikidata_category:en: Q7469413
 
 < en:Vegetables
-en: Salsifis
+en: Salsifis, Salsify
 fr: Salsifis
+nl: Schorseneren, Schorseneer
+expected_ingredients:en: en:salsify
 wikidata:en: Q941639
 
 < en:Salsifis
+< en:Fresh vegetables
+en: Fresh salsify
 fr: Salsifis frais
+nl: Verse schorseneren, Verse schorseneer
 season_in_country_fr:en: 1,2,11,12
 
 < en:Cooked vegetables
 < en:Salsifis
 en: Cooked salsify
 fr: Salsifis cuits
+nl: Gekookte schorseneren, Gekookte schorseneer
 agribalyse_food_code:en: 20046
 ciqual_food_code:en: 20046
 ciqual_food_name:en: Salsify, cooked
