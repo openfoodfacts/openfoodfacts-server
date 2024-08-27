@@ -67,9 +67,15 @@
                     
                     [% IF field.field == 'crm_user_id' AND crm_contact_url != "" %]
                         <label for="[% field.field %]">[% field.label %]</label>
-                        <div class="open-in-crm">
+                        <div class="form-field-with-btn">
                             <input type="text" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]"/>
                             <a type="button" class="button" id="crm_button" href="[% crm_contact_url %]" target="_blank" rel="noopener">[% lang("open_in_crm") %]</a> 
+                        </div>
+                    [% ELSIF field.field == 'org' AND org_url != "" %]
+                        <label for="[% field.field %]">[% field.label %]</label>
+                        <div class="form-field-with-btn">
+                            <input type="text" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]"/>
+                            <a type="button" class="button" id="" href="[% org_url %]" target="_blank" rel="noopener">[% lang("open_org") %]</a> 
                         </div>
 					[% ELSIF field.field == 'userid' %]
                         [% IF type == 'edit' %]
