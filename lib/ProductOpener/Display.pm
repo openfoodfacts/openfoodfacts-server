@@ -175,7 +175,7 @@ use ProductOpener::Cache qw/$max_memcached_object_size $memd generate_cache_key/
 use ProductOpener::Permissions qw/has_permission/;
 use ProductOpener::ProductsFeatures qw(feature_enabled);
 use ProductOpener::RequestStats qw(:all);
-use ProductOpener::CMS qw/:all/;
+use ProductOpener::CMS qw/content_path wp_get_available_pages wp_get_page_from_slug/;
 
 use Encode;
 use URI::Escape::XS;
@@ -403,6 +403,11 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	$template_data_ref->{pro_moderator} = $User{pro_moderator};
 	$template_data_ref->{sep} = separator_before_colon($lc);
 	$template_data_ref->{lang} = \&lang;
+	$template_data_ref->{content_path} = sub {
+		my $slug = shift;
+		return content_path($request_ref->{lc}, $slug);
+	};
+
 	# also provide lang_flavor() and lang_product_type() to provide translations specific
 	# to a flavor (e.g. off, obf) or product type (e.g. food, beauty)
 	$template_data_ref->{lang_flavor} = sub ($stringid) {
@@ -1318,7 +1323,7 @@ sub display_content($request_ref) {
 
 	if (not defined $request_ref->{content_slug}) {
 		# Display the list of available pages
-		my @sorted_pages = sort {$a->{order} > $b->{order}} wp_get_available_pages($request_ref->{content_lc});
+		my @sorted_pages = sort {$a->{title} cmp $b->{title}} wp_get_available_pages($request_ref->{content_lc});
 		$template_data_ref->{wp_available_pages} = \@sorted_pages;
 		$request_ref->{title} = "Content";
 
@@ -1326,7 +1331,7 @@ sub display_content($request_ref) {
 			|| return "template error: " . $tt->error();
 	}
 	else {
-		# Display the content of a specific page
+		# Display the content of a specific
 		my $page_data = wp_get_page_from_slug($request_ref->{content_lc}, $request_ref->{content_slug});
 		if (not defined $page_data) {
 			display_error_and_exit($request_ref, lang("error_invalid_address"), 404);

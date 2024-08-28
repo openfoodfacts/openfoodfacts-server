@@ -592,12 +592,14 @@ sub content_route($request_ref) {
 		return 1;
 	}
 	# /content/[lc]/[slug]
-	$request_ref->{content_lc} = $op // $request_ref->{lc};
+	$request_ref->{content_lc} = $op || $request_ref->{lc};
 	if (defined $components[2]) {
 		$request_ref->{content_slug} = $components[2];
 		$log->debug("content_route", {content_lc => $request_ref->{content_lc}, slug => $request_ref->{content_slug}})
 			if $log->is_debug();
 	}
+	$log->debug("content_route", {content_lc => $request_ref->{content_lc}, slug => $request_ref->{content_slug}})
+		if $log->is_debug();
 	return 1;
 }
 

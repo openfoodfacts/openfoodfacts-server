@@ -25,7 +25,7 @@ https://s0.wp.com/wp-content/plugins/gutenberg-core/v18.8.0/build/block-library/
   --wp--preset--color--pale-cyan-blue: #8ed1fc;
   --wp--preset--color--vivid-cyan-blue: #0693e3;
   --wp--preset--color--vivid-purple: #9b51e0;
-  --wp--preset--color--base: #f9f9f9;
+  --wp--preset--color--base: #f6f3f0; /*  #f9f9f9 - wordpress color*/
   --wp--preset--color--base-2: #ffffff;
   --wp--preset--color--contrast: #111111;
   --wp--preset--color--contrast-2: #636363;
@@ -3596,7 +3596,8 @@ h6.has-text-align-right[style*="writing-mode"]:where([style*="vertical-rl"]) {
   0% {
     transform: translate(
         calc(
-          (-100vw + var(--wp--lightbox-scrollbar-width)) / 2 + var(--wp--lightbox-initial-left-position)
+          (-100vw + var(--wp--lightbox-scrollbar-width)) / 2 +
+            var(--wp--lightbox-initial-left-position)
         ),
         calc(-50vh + var(--wp--lightbox-initial-top-position))
       )
@@ -3621,7 +3622,8 @@ h6.has-text-align-right[style*="writing-mode"]:where([style*="vertical-rl"]) {
   to {
     transform: translate(
         calc(
-          (-100vw + var(--wp--lightbox-scrollbar-width)) / 2 + var(--wp--lightbox-initial-left-position)
+          (-100vw + var(--wp--lightbox-scrollbar-width)) / 2 +
+            var(--wp--lightbox-initial-left-position)
         ),
         calc(-50vh + var(--wp--lightbox-initial-top-position))
       )

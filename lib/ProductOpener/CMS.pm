@@ -52,6 +52,7 @@ use Exporter qw< import >;
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
+		&content_path
 		&wp_get_page_from_slug
 		&wp_get_available_pages
 		&wp_update_pages_metadata_cache
@@ -70,6 +71,7 @@ use Log::Any qw($log);
 use JSON;
 
 my $default_wp_language_code = 'en';
+
 # {
 #    // translations are stored with the id of the default page translation ('en')
 #    // but to get the actual content from WordPress (REST API) we use the 'id' (8 for en, 22 for fr)
@@ -89,12 +91,47 @@ my $default_wp_language_code = 'en';
 #           }
 # }
 my $page_metadata_cache_by_id = {};
-#
+
 # {
 #   'fr' => { 'contribuer' => 8 },
 #   'en' => {'contribute' => 8 }
 # }
 my $page_id_by_localized_slug = {};
+
+=head2 content_path ($lc, $default_slug)
+
+Get the path of the content, knowing only the page slug in C<$default_wp_language_code>.
+If the page is not available in the requested language, it defaults to C<$default_wp_language_code>
+
+e.g: fr,who-we-are -> /content/fr/qui-sommes-nous
+
+=head3 Parameters
+
+=over
+
+=item * C<$lc> - language code to get the path of the translated content
+
+=item * C<$default_slug> - The slug of the page in the default language
+
+=back
+
+=cut
+
+sub content_path ($lc, $default_slug) {
+	$log->debug("content_path", {lc => $lc, default_slug => $default_slug}) if $log->is_debug();
+	my $page_id = $page_id_by_localized_slug->{$default_wp_language_code}{$default_slug};
+	my $page = wp_get_available_page_translation($lc, $page_id);
+	$log->debug("content_path", {page => $page}) if $log->is_debug();
+	return $page->{link} if $page;
+	return '';
+}
+
+=head2 wp_get_page_from_slug ($lc, $slug)
+
+Get the page content from the slug in the requested language.
+It requests the page content from the WordPress REST API.
+
+=cut
 
 sub wp_get_page_from_slug ($lc, $slug) {
 	my $default_translation_id = $page_id_by_localized_slug->{$lc}{$slug};
@@ -134,23 +171,27 @@ An list of pages:
 sub wp_get_available_pages ($lc) {
 	my @available_translations;
 	foreach my $page_id (keys %{$page_metadata_cache_by_id}) {
-		my $existing_lc = (exists $page_metadata_cache_by_id->{$page_id}{$lc}) ? $lc : $default_wp_language_code;
-		my $page = $page_metadata_cache_by_id->{$page_id}{$existing_lc};
-		if (!$page) {
-			next;
-		}
-		$page = {
-			id => $page->{id},
-			lc => $existing_lc,
-			link => "/content/$existing_lc/$page->{slug}",
-			title => $page->{title},
-			order => $page->{order},
-		};
+		my $page = wp_get_available_page_translation($lc, $page_id);
+		next if not $page;
 		push @available_translations, $page;
 	}
 	$log->debug("wp_get_available_pages", {lc => $lc, available_translations => \@available_translations})
 		if $log->is_debug();
 	return @available_translations;
+}
+
+sub wp_get_available_page_translation ($lc, $page_id) {
+	if (not exists $page_metadata_cache_by_id->{$page_id}{$lc}) {
+		$lc = $default_wp_language_code;
+	}
+	my $page = $page_metadata_cache_by_id->{$page_id}{$lc};
+	return if not $page;
+	return {
+		id => $page->{id},
+		lc => $lc,
+		link => "/content/$lc/$page->{slug}",
+		title => $page->{title},
+	};
 }
 
 =head2 wp_update_pages_metadata_cache()
@@ -175,7 +216,6 @@ sub load_cms_data () {
 
 	my $format_and_store = sub {
 		my ($page, $grouping_id) = @_;
-		$page->{order} = scalar(delete $page->{menuOrder} // 0);
 		$page->{id} = delete $page->{databaseId};
 		my $lc = $page->{languageCode};
 		$page_metadata_cache_by_id->{$grouping_id}{$lc} = $page;
@@ -202,29 +242,29 @@ An list of pages with their translations
 
 =cut  
 
+use Data::Dumper;
+
 sub _wp_list_pages () {
 	my $query = '{
-    pages {
-      nodes {
-          databaseId
-          slug
-          title
-          languageCode
-		  menuOrder
-          translations {
-            databaseId
-            slug
-            title
-			menuOrder
-            languageCode
-          }
-        }
-    }
-  }';
+		posts(where: {tag: "' . $options{current_server} . '"}) {
+			nodes {
+				databaseId
+				slug
+				title
+				languageCode
+				translations {
+					databaseId
+					slug
+					title
+					languageCode
+				}
+			}
+		}
+	}';
 	my @pages;
 	my $response = _wp_graphql_query($query);
 	if ($response) {
-		return @{$response->{pages}{nodes}};
+		return @{$response->{posts}{nodes}};
 	}
 	return ();
 }
@@ -254,12 +294,13 @@ sub _wp_graphql_query ($query) {
 			return $json->{data};
 		}
 	}
+	$log->debug("_wp_graphql_query", {error => $response->{content}, query => $query}) if $log->is_debug();
 	return $json;
 }
 
 sub _wp_get_page_by_id ($page_id) {
 	# we don't use graphql because it's more efficient to get the content from the REST API
-	my $url = $ProductOpener::Config2::wordpress_url . '/wp-json/wp/v2/pages/' . $page_id;
+	my $url = $ProductOpener::Config2::wordpress_url . '/wp-json/wp/v2/posts/' . $page_id;
 	return _get_json_from_url_and_decode($url);
 }
 

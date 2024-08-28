@@ -190,7 +190,6 @@ sub read_redirect_file ($file_path, $langid, $texts) {
 	while (my $line = <$fh>) {
 		chomp $line;
 		my ($textid, $uri) = split(/\s+/, $line);
-		print STDERR "textid: $textid, uri: $uri\n";
 		$texts->{$textid}{redirect}{$langid} = $uri;
 	}
 	close $fh;
