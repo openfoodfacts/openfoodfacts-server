@@ -1771,6 +1771,7 @@
 <ul>
 <li>100 req/min for all read product queries (<code>GET /api/v*/product</code> requests or product page). There is no limit on product write queries.</li>
 <li>10 req/min for all search queries (<code>GET /api/v*/search</code> or <code>GET /cgi/search.pl</code> requests)</li>
+<li>2 req/min for facet queries (such as <code>/categories</code>, <code>/label/organic</code>, <code>/ingredient/salt/category/breads</code>,...)</li>
 </ul>
 <p>If these limits are reached, we reserve the right to deny you access to the website and the API through IP address ban. If your IP has been banned, feel free to <a href="mailto:reuse@openfoodfacts.org">email us to explain why you reached the limits</a>: reverting the ban is possible.</p>
 <p>If your requests come from your users directly (ex: mobile app), the rate limits apply per user.</p>
