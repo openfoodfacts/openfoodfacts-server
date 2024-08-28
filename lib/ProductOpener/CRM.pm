@@ -148,10 +148,10 @@ sub sync_org_with_crm($org_ref, $salesperson_user_id) {
 		}
 		1;
 	} or do {
-		$org_ref->{valid_org} = 'unreviewed';
 		$log->error("store_org", {error => $@}) if $log->is_error();
+		return;
 	};
-	return;
+	return 1;
 }
 
 =head2 find_or_create_contact ($user_ref)
@@ -208,6 +208,8 @@ sub link_user_with_contact($user_ref, $contact_id) {
 			[$contact_id],
 			{
 				x_off_username => $user_ref->{userid},
+				email => $user_ref->{email},
+				phone => $user_ref->{phone},
 				category_id => [[$commands{link}, $crm_data->{category}{Producer}]],
 				$country_id ? (country_id => $country_id) : ()
 			}
@@ -380,6 +382,9 @@ sub link_org_with_company($org_ref, $company_id) {
 			{
 				x_off_org_id => $org_ref->{org_id},
 				category_id => [[$commands{link}, $crm_data->{category}{Producer}]],
+				phone => $org_ref->{commercial_service}{phone},
+				email => $org_ref->{commercial_service}{email},
+				website => $org_ref->{link},
 				x_off_main_contact => $user_ref->{crm_user_id},
 				$country_id ? (country_id => $country_id) : ()
 			}
@@ -477,9 +482,9 @@ sub create_company ($org_ref) {
 
 	my $company = {
 		name => $org_ref->{name},
-		phone => $org_ref->{phone},
-		email => $org_ref->{email},
-		website => $org_ref->{website},
+		phone => $org_ref->{commercial_service}{phone},
+		email => $org_ref->{commercial_service}{email},
+		website => $org_ref->{link},
 		category_id => [$crm_data->{category}{Producer}],    # "Producer" category id in Odoo
 		is_company => 1,
 		x_off_org_id => $org_ref->{org_id},
