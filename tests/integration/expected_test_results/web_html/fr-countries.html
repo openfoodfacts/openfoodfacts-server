@@ -537,10 +537,7 @@
 
 <script>
 $(function() {
-var countries_map_data=JSON.parse("{\n   \"BE\":1,\n   \"CH\":1,\n   \"DE\":5,\n   \"ES\":1,\n   \"FR\":7,\n   \"GB\":4,\n   \"IT\":2\n}\n"
-);var countries_map_links=JSON.parse("{\n   \"BE\":\"/pays/belgique\",\n   \"CH\":\"/pays/suisse\",\n   \"DE\":\"/pays/allemagne\",\n   \"ES\":\"/pays/espagne\",\n   \"FR\":\"/pays/france\",\n   \"GB\":\"/pays/royaume-uni\",\n   \"IT\":\"/pays/italie\"\n}\n"
-);var countries_map_names=JSON.parse("{\n   \"BE\":\"Belgique\",\n   \"CH\":\"Suisse\",\n   \"DE\":\"Allemagne\",\n   \"ES\":\"Espagne\",\n   \"FR\":\"France\",\n   \"GB\":\"Royaume-Uni\",\n   \"IT\":\"Italie\"\n}\n"
-);displayWorldMap('#world-map', { 'data': countries_map_data, 'links': countries_map_links, 'names': countries_map_names });
+var countries_map_data=JSON.parse("{\"BE\":1,\"CH\":1,\"DE\":5,\"ES\":1,\"FR\":7,\"GB\":4,\"IT\":2}");var countries_map_links=JSON.parse("{\"BE\":\"/pays/belgique\",\"CH\":\"/pays/suisse\",\"DE\":\"/pays/allemagne\",\"ES\":\"/pays/espagne\",\"FR\":\"/pays/france\",\"GB\":\"/pays/royaume-uni\",\"IT\":\"/pays/italie\"}");var countries_map_names=JSON.parse("{\"BE\":\"Belgique\",\"CH\":\"Suisse\",\"DE\":\"Allemagne\",\"ES\":\"Espagne\",\"FR\":\"France\",\"GB\":\"Royaume-Uni\",\"IT\":\"Italie\"}");displayWorldMap('#world-map', { 'data': countries_map_data, 'links': countries_map_links, 'names': countries_map_names });
 let oTable = $('#tagstable').DataTable({
 	language: {
 		search: "Recherche :",
