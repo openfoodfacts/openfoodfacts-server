@@ -397,7 +397,11 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    displayMap([], ["Q424"]);
+    displayMap([]
+, [
+   "Q424"
+]
+);
   });
 </script>
 
@@ -645,8 +649,13 @@ rank_and_display_products("#search_results", products, contributor_prefs);
 <script type="text/javascript">
 var page_type = "products";
 var preferences_text = "Classify the 0 products below according to your preferences";
-var contributor_prefs = {"display_barcode":null,"edit_link":null};
-var products = [];
+var contributor_prefs = {
+   "display_barcode":null,
+   "edit_link":null
+}
+;
+var products = []
+;
 </script>
 <script src="//static.openfoodfacts.localhost/js/product-preferences.js"></script>
 <script src="//static.openfoodfacts.localhost/js/product-search.js"></script>

@@ -5645,7 +5645,8 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 	my $products_json = '[]';
 
 	if (defined $request_ref->{structured_response}{products}) {
-		$products_json = $json->encode($request_ref->{structured_response}{products});
+		# We indent the JSON in the generated HTML so that we can easily see diffs in integration tests outputs
+		$products_json = $json->indent->encode($request_ref->{structured_response}{products});
 	}
 
 	my $contributor_prefs_json = $json->encode(
