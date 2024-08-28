@@ -634,6 +634,18 @@ sub init_request ($request_ref = {}) {
 		$request_ref->{deny_all_robots_txt} = 1;
 	}
 
+	# Rate-limiter specific settings
+	# Also see set_rate_limit_attributes in Routing.pm
+
+	# Each request is (possibly) associated with a rate limiter bucket
+	$request_ref->{rate_limiter_bucket} = undef;
+	# Number of requests the user did in the last minute
+	$request_ref->{rate_limiter_user_requests} = undef;
+	# Limit of requests for the specific bucket (and/or user)
+	$request_ref->{rate_limiter_limit} = undef;
+	# If the rate limiter is blocking the request
+	$request_ref->{rate_limiter_blocking} = 0;
+
 	# TODO: global variables should be moved to $request_ref
 	$request_ref->{styles} = '';
 	$request_ref->{scripts} = '';
