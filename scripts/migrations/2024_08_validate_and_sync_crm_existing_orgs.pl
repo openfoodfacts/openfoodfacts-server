@@ -62,7 +62,7 @@ if (!-e $checkpoint_file) {
 open($checkpoint, '+<:encoding(UTF-8)', $checkpoint_file) or die "Could not open file: $!";
 my %orgs_processed = map {chomp; $_ => 1} <$checkpoint>;
 
-foreach my $org_id (sort list_org_ids()) {
+foreach my $org_id (sort(list_org_ids())) {
 
 	$org_id = decode utf8 => $org_id;
 	my $org_ref = retrieve_org($org_id);
