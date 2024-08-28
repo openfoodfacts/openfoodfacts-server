@@ -362,6 +362,10 @@ sub api_route($request_ref) {
 	set_request_stats_value($request_ref->{stats}, "api_method", $request_ref->{api_method});
 	set_request_stats_value($request_ref->{stats}, "api_version", $request_ref->{api_version});
 
+	if ($api_action eq "product") {
+		$request_ref->{rate_limiter_bucket} = "product";
+	}
+
 	$log->debug("api_route", {request_ref => $request_ref}) if $log->is_debug();
 	return 1;
 }
@@ -371,6 +375,7 @@ sub api_route($request_ref) {
 sub search_route($request_ref) {
 	$request_ref->{search} = 1;
 	set_request_stats_value($request_ref->{stats}, "route", "search");
+	$request_ref->{rate_limiter_bucket} = "search";
 	return 1;
 }
 
@@ -416,6 +421,7 @@ sub product_route($request_ref) {
 		$request_ref->{product} = 1;
 		$request_ref->{code} = $request_ref->{components}[1];
 		$request_ref->{titleid} = $request_ref->{components}[2] // '';
+		$request_ref->{rate_limiter_bucket} = "product";
 		set_request_stats_value($request_ref->{stats}, "route", "product");
 	}
 	else {
@@ -565,10 +571,12 @@ sub facets_route($request_ref) {
 	$request_ref->{canon_rel_url} .= $canon_rel_url_suffix;
 
 	if (defined $request_ref->{groupby_tagtype}) {
+		$request_ref->{rate_limiter_bucket} = "facet_tags";
 		set_request_stats_value($request_ref->{stats}, "route", "facets_tags");
 		set_request_stats_value($request_ref->{stats}, "groupby_tagtype", $request_ref->{groupby_tagtype});
 	}
 	else {
+		$request_ref->{rate_limiter_bucket} = "facet_products";
 		set_request_stats_value($request_ref->{stats}, "route", "facets_products");
 	}
 	set_request_stats_value($request_ref->{stats}, "facets_tags", (scalar @{$request_ref->{tags}}));
@@ -987,28 +995,47 @@ sub set_rate_limit_attributes ($request_ref, $ip) {
 	$request_ref->{rate_limiter_limit} = undef;
 	$request_ref->{rate_limiter_blocking} = 0;
 
-	my $api_action = $request_ref->{api_action};
-	if (not defined $api_action) {
-		# The request is not an API request, we don't need to check the rate-limiter
+	my $rate_limit_bucket = $request_ref->{rate_limiter_bucket};
+
+	if (not defined $rate_limit_bucket) {
+		# The request is not rate-limited
 		return;
 	}
-	$request_ref->{rate_limiter_user_requests} = get_rate_limit_user_requests($ip, $api_action);
+	$request_ref->{rate_limiter_user_requests} = get_rate_limit_user_requests($ip, $rate_limit_bucket);
 
 	my $limit;
-	if (($api_action eq "search") or ($request_ref->{search})) {
+	if ($rate_limit_bucket eq "search") {
 		$limit = $options{rate_limit_search};
 	}
-	elsif ($api_action eq "product") {
+	elsif ($rate_limit_bucket eq "product") {
 		$limit = $options{rate_limit_product};
 	}
-	else {
-		# No rate-limit is defined for this API action
-		return;
+	elsif ($rate_limit_bucket eq "facet_products") {
+		if ($request_ref->{is_crawl_bot}) {
+			$limit = $options{rate_limit_facet_products_crawl_bot};
+		}
+		elsif (defined $request_ref->{user_id}) {
+			$limit = $options{rate_limit_facet_products_registered};
+		}
+		else {
+			$limit = $options{rate_limit_facet_products_unregistered};
+		}
+	}
+	elsif ($rate_limit_bucket eq "facet_tags") {
+		if ($request_ref->{is_crawl_bot}) {
+			$limit = $options{rate_limit_facet_tags_crawl_bot};
+		}
+		elsif (defined $request_ref->{user_id}) {
+			$limit = $options{rate_limit_facet_tags_registered};
+		}
+		else {
+			$limit = $options{rate_limit_facet_tags_unregistered};
+		}
 	}
 	$request_ref->{rate_limiter_limit} = $limit;
 
 	if (
-		# if $limit is not defined, the rate-limiter is disabled for this API action
+		# if $limit is not defined, the rate-limiter is disabled for this route and/or user
 		defined $limit
 		and defined $request_ref->{rate_limiter_user_requests}
 		and $request_ref->{rate_limiter_user_requests} >= $limit
@@ -1042,9 +1069,10 @@ sub set_rate_limit_attributes ($request_ref, $ip) {
 			$block_message,
 			{
 				ip => $ip,
-				api_action => $api_action,
+				rate_limit_bucket => $rate_limit_bucket,
 				user_requests => $request_ref->{rate_limiter_user_requests},
-				limit => $limit
+				limit => $limit,
+				user_agent => $request_ref->{user_agent},
 			}
 		) if $ratelimiter_log->is_info();
 	}
@@ -1057,11 +1085,10 @@ sub check_and_update_rate_limits($request_ref) {
 		my $ip_address = remote_addr();
 		# Set rate-limiter related request attributes
 		set_rate_limit_attributes($request_ref, $ip_address);
-		my $api_action = $request_ref->{api_action};
 
-		if (defined $api_action) {
+		if (defined $request_ref->{rate_limiter_bucket}) {
 			# Increment the number of requests performed by the user for the current minute
-			increment_rate_limit_requests($ip_address, $api_action);
+			increment_rate_limit_requests($ip_address, $request_ref->{rate_limiter_bucket});
 		}
 	}
 	return;
