@@ -1098,7 +1098,7 @@ sub get_file_from_cache ($source, $target) {
 # e.g. if the taxonomy building algorithm or configuration has changed
 # This needs to be done also when the unaccenting parameters for languages set in Config.pm are changed
 
-my $BUILD_TAGS_VERSION = "20240828 - new [tagtype].extended.json format with extended synonyms";
+my $BUILD_TAGS_VERSION = "20240828 - new [tagtype].extended.json format with normalized extended synonyms";
 
 sub get_from_cache ($tagtype, @files) {
 	# If the full set of cached files can't be found then returns the hash to be used
@@ -2185,14 +2185,15 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 					if (defined $synonyms_for{$tagtype}{$lc}{$lc_tagid}) {
 						(defined $taxonomy_full_json{$tagid}{synonyms}) or $taxonomy_full_json{$tagid}{synonyms} = {};
 						$taxonomy_full_json{$tagid}{synonyms}{$lc} = $synonyms_for{$tagtype}{$lc}{$lc_tagid};
-						$taxonomy_extended_json{$tagid}{synonyms}{$lc} = $synonyms_for{$tagtype}{$lc}{$lc_tagid};
+						$taxonomy_extended_json{$tagid}{normalized_synonyms}{$lc}
+							= [map {get_string_id_for_lang($lc, $_)} @{$synonyms_for{$tagtype}{$lc}{$lc_tagid}}];
 					}
 
 					# add extended synonyms to the extended taxonomy
 					if (defined $synonyms_for_extended{$tagtype}{$lc}{$lc_tagid}) {
 						(defined $taxonomy_extended_json{$tagid}{synonyms_extended})
 							or $taxonomy_extended_json{$tagid}{synonyms_extended} = {};
-						$taxonomy_extended_json{$tagid}{synonyms_extended}{$lc}
+						$taxonomy_extended_json{$tagid}{normalized_synonyms_extended}{$lc}
 							= [sort keys %{$synonyms_for_extended{$tagtype}{$lc}{$lc_tagid}}];
 					}
 				}
