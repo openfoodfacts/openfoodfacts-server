@@ -104135,41 +104135,58 @@ pt: Vegetais frescos
 ru: Свежие овощи
 zh: 新鲜蔬菜
 gpc_category_code:en: 10000006
-gpc_category_description:en: Definition: Includes any products that can be described/observed as any variety of vegetables, combination of vegetables or fruit vegetables, which may be whole, chopped, cleaned and trimmed, but has not gone through any further manufacturing processes, such as reformed, cooked, dried, salted or smoked, however these products can be coated, in sauce, stuffed or filled.Definition Excludes: Specifically excludes products that have added ingredients included such as rice, couscous and pasta. These products have been treated or packaged in such a way as to extend their consumable life. Excludes products such as Vegetables with additional dough or grains, Frozen and Fresh Unprepared and Unprocessed Vegetables, all Prepared and Processed Vegetables.
+gpc_category_description:en: Definition: Includes any products that can be described/observed as any variety of vegetables, combination of vegetables or fruit vegetables, which may be whole, chopped, cleaned and trimmed, but has not gone through any further manufacturing processes, such as reformed, cooked, dried, salted or smoked, however these products can be coated, in sauce, stuffed or filled. Definition Excludes: Specifically excludes products that have added ingredients included such as rice, couscous and pasta. These products have been treated or packaged in such a way as to extend their consumable life. Excludes products such as Vegetables with additional dough or grains, Frozen and Fresh Unprepared and Unprocessed Vegetables, all Prepared and Processed Vegetables.
 gpc_category_name:en: Vegetables - Unprepared/Unprocessed (Shelf Stable)
 who_id:en: 15
 
 < en:Vegetables
 en: Sorrel
 fr: Oseille
+expected_ingredients:en: en:sorrel
+
+< en: Fresh vegetables
+< en: Sorrel
+en: Fresh sorrel, Raw sorrel
+fr: Oseille crue
 agribalyse_food_code:en: 20111
 ciqual_food_code:en: 20111
 ciqual_food_name:en: Sorrel, raw
 ciqual_food_name:fr: Oseille, crue
+expected_ingredients:en: en:sorrel
 
-< en:Vegetables
-en: Chinese artichokes, Japanese artichokes
-fr: Crosnes
-hr: Kineske artičoke
-ja: チョロギ
-agribalyse_proxy_food_code:en: 20231
-agribalyse_proxy_food_name:en: Chinese or Japanese artichokes, frozen, raw
-agribalyse_proxy_food_name:fr: Crosne, surgelé, cru
+< en: Sorrel
+en: Canned sorrel
+agribalyse_food_code:en: 20111
+agribalyse_proxy_food_code:en: 20111
+agribalyse_proxy_food_name:en: Sorrel, raw
+agribalyse_proxy_food_name:fr: Oseille, crue
+expected_ingredients:en: en:sorrel
 
-< en:Chinese artichokes
-< en:Frozen vegetables
-en: Frozen Chinese artichokes, Frozen Japanese artichokes
-fr: Crosnes surgelés
-agribalyse_food_code:en: 20231
-ciqual_food_code:en: 20231
-ciqual_food_name:en: Chinese or Japanese artichokes, frozen, raw
-ciqual_food_name:fr: Crosne, surgelé, cru
+# no products @2024-08-27
+#< en:Vegetables
+#en: Chinese artichokes, Japanese artichokes
+#fr: Crosnes
+#hr: Kineske artičoke
+#ja: チョロギ
+#agribalyse_proxy_food_code:en: 20231
+#agribalyse_proxy_food_name:en: Chinese or Japanese artichokes, frozen, raw
+#agribalyse_proxy_food_name:fr: Crosne, surgelé, cru
+
+#< en:Chinese artichokes
+#< en:Frozen vegetables
+#en: Frozen Chinese artichokes, Frozen Japanese artichokes
+#fr: Crosnes surgelés
+#agribalyse_food_code:en: 20231
+#ciqual_food_code:en: 20231
+#ciqual_food_name:en: Chinese or Japanese artichokes, frozen, raw
+#ciqual_food_name:fr: Crosne, surgelé, cru
 
 < en:Vegetables
 en: Jerusalem artichoke
 fr: Topinambour
 hr: Jeruzalemska artičoka
 ja: キクイモ
+nl: Aardperen, Aardpeer
 agribalyse_food_code:en: 20196
 ciqual_food_code:en: 20196
 ciqual_food_name:en: Jerusalem artichoke, raw
@@ -104185,7 +104202,10 @@ ciqual_food_name:fr: Topinambour, cuit
 
 < en:Fresh vegetables
 < en:Jerusalem artichoke
+en: Fresh Jerusalem artichoke
 fr: Topinambour frais
+nl: Verse aardperen
+expected_ingredients:en: en:jerusalem-artichoke
 season_in_country_fr:en: 1,2,11,12
 
 < en:Vegetables
@@ -104193,6 +104213,7 @@ en: Parsnip
 fr: Panais
 hr: Pastrnjak
 ja: パースニップ
+nl: Pastinaken, Pastinaak
 agribalyse_food_code:en: 20181
 ciqual_food_code:en: 20181
 ciqual_food_name:en: Parsnip, raw
@@ -104200,13 +104221,17 @@ ciqual_food_name:fr: Panais, cru
 
 < en:Fresh vegetables
 < en:Parsnip
+en: Fresh parsnip
 fr: Panais frais
+nl: Verse pastinaken, Verse pastinaak
+expected_ingredients:en: en:parsnip
 season_in_country_fr:en: 1,2,3,10,11,12
 
 < en:Cooked vegetables
 < en:Parsnip
 en: Cooked parsnip
 fr: Panais cuits
+nl: Gekookte pastinaken
 agribalyse_food_code:en: 20133
 ciqual_food_code:en: 20133
 ciqual_food_name:en: Parsnip, cooked
@@ -104227,9 +104252,10 @@ ciqual_food_code:en: 20503
 ciqual_food_name:en: Red kidney bean, cooked
 ciqual_food_name:fr: Haricot rouge, cuit
 
-< en:Vegetables
+< en: Common beans
 fr: Haricot tarbais
-origins:en: en:france
+comment:en: cooked or dried
+origins:en: en:hautes-pyrenees, en:gers, en:haute-garonne, en:pyrenees-atlantiques
 protected_name_file_number:en: PGI-FR-0080
 protected_name_type:en: pgi
 wikidata:en: Q3127445
@@ -104261,18 +104287,24 @@ ru: Листовые овощи
 wikidata_category:en: Q7469413
 
 < en:Vegetables
-en: Salsifis
+en: Salsifis, Salsify
 fr: Salsifis
+nl: Schorseneren, Schorseneer
+expected_ingredients:en: en:salsify
 wikidata:en: Q941639
 
+< en:Fresh vegetables
 < en:Salsifis
+en: Fresh salsify
 fr: Salsifis frais
+nl: Verse schorseneren, Verse schorseneer
 season_in_country_fr:en: 1,2,11,12
 
 < en:Cooked vegetables
 < en:Salsifis
 en: Cooked salsify
 fr: Salsifis cuits
+nl: Gekookte schorseneren, Gekookte schorseneer
 agribalyse_food_code:en: 20046
 ciqual_food_code:en: 20046
 ciqual_food_name:en: Salsify, cooked
@@ -104306,6 +104338,7 @@ tr: Enginar
 agribalyse_food_code:en: 20052
 ciqual_food_code:en: 20052
 ciqual_food_name:en: Artichoke, globe, raw
+expected_ingredients:en: en:artichoke
 
 < en:Artichokes
 it: Carciofo Spinoso di Sardegna
@@ -104338,7 +104371,7 @@ wikidata:en: Q3658406
 < en:Artichokes
 < en:French vegetables
 fr: Artichaut du Roussillon
-origins:en: en:france
+origins:en: en:pyrenees-orientales
 protected_name_file_number:en: PGI-FR-1172
 protected_name_type:en: pgi
 wikidata:en: Q20754609
@@ -104358,6 +104391,7 @@ nl: Artisjokharten
 < en:Cooked vegetables
 en: Cooked globe artichoke
 fr: Artichaut cuit
+nl: Gekookte artisjok
 agribalyse_food_code:en: 20000
 ciqual_food_code:en: 20000
 ciqual_food_name:en: Artichoke, globe, cooked
@@ -104367,12 +104401,14 @@ ciqual_food_name:fr: Artichaut, cuit
 < en:Fresh vegetables
 en: Fresh artichokes, Artichoke globe
 fr: Artichauts frais
+nl: Verse artisjokken
 season_in_country_fr:en: 5,6,7,8,9
 
 < en:Artichokes
 < en:Frozen vegetables
 en: Frozen artichoke bottom
 fr: Fonds d'artichaut surgelés
+nl: Diepvriesartisjokharten, Diepvriesartisjokbodems
 agribalyse_food_code:en: 20232
 ciqual_food_code:en: 20232
 ciqual_food_name:en: Artichoke base, frozen, raw
@@ -104398,12 +104434,13 @@ ru: Спаржа
 agribalyse_proxy_food_code:en: 20076
 agribalyse_proxy_food_name:en: Asparagus, canned, drained
 agribalyse_proxy_food_name:fr: Asperge, appertisée, égouttée
+expected_ingredients:en: en:asparagus
 wikidata:en: Q23041045
 
 < en:Asparagus
 < en:French vegetables
 fr: Asperge des sables des Landes
-origins:en: en:france, en:landes
+origins:en: en:landes
 protected_name_file_number:en: PGI-FR-0272
 protected_name_type:en: pgi
 wikidata:en: Q18578209
