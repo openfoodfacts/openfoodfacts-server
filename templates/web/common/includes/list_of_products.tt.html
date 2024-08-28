@@ -113,20 +113,9 @@
             [% product.product_name %]
           </a>
         </li>
-      [% ELSE %]
-        <li>
-        [% IF product.product_name == '' %]
-          <a href="[% product.url %]" title="[% product.code %]">
-          [% ELSE %]
-          <a href="[% product.url %]" title="[% product.product_name %]">
-          [% END %]
-            <div>[% product.img %]</div>
-            <span>[% product.product_name %]</span>
-          </a>
-        </li>
-        [% END %]
       [% END %]
-      [% IF (jqm.defined) && !(jqm_loadmore.defined) %]
+    [% END %]
+    [% IF (jqm.defined) && !(jqm_loadmore.defined) %]
     </ul>
     [% ELSE %]
 		</ul>

@@ -227,6 +227,7 @@ my $uri_finder = URI::Find->new(
 # Sort keys of JSON output
 # $json has utf8 disabled: it encodes to Perl Unicode strings
 my $json = JSON::MaybeXS->new->utf8(0)->allow_nonref->canonical;
+my $json_indent = JSON::MaybeXS->new->indent(1)->utf8(0)->allow_nonref->canonical;
 # $json_utf8 has utf8 enabled: it encodes to UTF-8 bytes
 my $json_utf8 = JSON::MaybeXS->new->utf8(1)->allow_nonref->canonical;
 
@@ -5645,7 +5646,8 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 	my $products_json = '[]';
 
 	if (defined $request_ref->{structured_response}{products}) {
-		$products_json = $json->encode($request_ref->{structured_response}{products});
+		# We indent the JSON in the generated HTML so that we can easily see diffs in integration tests outputs
+		$products_json = $json_indent->encode($request_ref->{structured_response}{products});
 	}
 
 	my $contributor_prefs_json = $json->encode(
