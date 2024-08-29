@@ -61,6 +61,7 @@ BEGIN {
 		&update_last_logged_in_member
 		&update_last_import_type
 		&accept_pending_user_in_org
+		&send_rejection_email
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -172,50 +173,7 @@ sub store_org ($org_ref) {
 		&& $previous_org_ref->{valid_org} ne 'accepted'
 		&& $org_ref->{valid_org} eq 'accepted')
 	{
-
-		# We switched to validated, update CRM
-		my $main_contact_user = $org_ref->{main_contact};
-
-		eval {
-			my $partner_id;
-			if (defined $main_contact_user) {
-				my $user_ref = retrieve_user($main_contact_user);
-				$partner_id = $user_ref->{crm_user_id} // find_or_create_contact($user_ref);
-				defined $partner_id or die "Failed to get contact";
-				$user_ref->{crm_user_id} = $partner_id;
-				store_user($user_ref);
-			}
-
-			my $company_id = find_or_create_company($org_ref, $partner_id);
-			defined $company_id or die "Failed to get company";
-
-			if (defined $partner_id) {
-				defined add_contact_to_company($partner_id, $company_id) or die "Failed to add contact to company";
-			}
-
-			# The off admin who validates the org is the salesperson in crm
-			my $my_admin = retrieve_user($User_id);
-			$log->debug("store_org", {myuser => $my_admin}) if $log->is_debug();
-
-			my $opportunity_id
-				= create_onboarding_opportunity("$org_ref->{name} - new", $company_id, $partner_id, $my_admin->{email});
-			defined $opportunity_id or die "Failed to create opportunity";
-
-			$org_ref->{crm_org_id} = $company_id;
-			$org_ref->{crm_opportunity_id} = $opportunity_id;
-
-			# also, add the other members to the CRM, in the company
-			foreach my $user_id (keys %{$org_ref->{members}}) {
-				if ($user_id ne $main_contact_user) {
-					add_user_to_company($user_id, $org_ref->{crm_org_id});
-				}
-			}
-			1;
-		} or do {
-			$org_ref->{valid_org} = 'unreviewed';
-			$log->error("store_org", {error => $@}) if $log->is_error();
-		};
-
+		sync_org_with_crm($org_ref, $User_id);
 	}
 
 	if (    defined $org_ref->{crm_org_id}
@@ -276,6 +234,7 @@ sub create_org ($creator, $org_id_or_name) {
 		admins => {},
 		members => {},
 		main_contact => undef,
+		country => $country,
 	};
 
 	store_org($org_ref);
@@ -499,6 +458,40 @@ sub update_export_date($org_id_or_ref, $time) {
 	$org_ref->{last_export_t} = $time;
 	store_org($org_ref);
 	update_last_export_date($org_ref, $time);
+	return;
+}
+
+sub send_rejection_email ($org_ref) {
+	# send org rejection email to main contact
+	my $main_contact_user = $org_ref->{main_contact};
+	my $user_ref = retrieve_user($main_contact_user);
+	if (not defined $user_ref) {
+		$log->warning("send_rejection_email", {error => "main contact user not found", org_ref => $org_ref})
+			if $log->is_warning();
+		return;
+	}
+
+	my $language = $user_ref->{preferred_language} || $user_ref->{initial_lc};
+	# if template does not exist in the requested language, use English
+	my $template_name = "org_rejected.tt.html";
+	my $template_path = "emails/$language/$template_name";
+	my $default_path = "emails/en/$template_name";
+	my $path = -e "$data_root/templates/$template_path" ? $template_path : $default_path;
+
+	my $template_data_ref = {
+		user => $user_ref,
+		org => $org_ref,
+	};
+
+	my $email = '';
+	my $res = process_template($path, $template_data_ref, \$email);
+	if ($email =~ s/^(\s*Subject:\s*(.*))\n//) {
+		my $subject = $2;
+		my $body = $email;
+		$body =~ s/^\n+//;
+		send_html_email($user_ref, $subject, $body);
+	}
+	$log->debug("send_rejection_email", {path => $path, email => $email, res => $res}) if $log->is_debug();
 	return;
 }
 

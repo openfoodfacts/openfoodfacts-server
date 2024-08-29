@@ -147,6 +147,29 @@ my $tests_ref = [
 		query_string => '?fields=attribute_groups,all,knowledge_panels',
 		expected_status_code => 200,
 	},
+	{
+		test_case => 'get-fields-knowledge-panels-knowledge-panels_included-health_card-environment_card',
+		method => 'GET',
+		path => '/api/v2/product/200000000034',
+		query_string => '?fields=knowledge_panels&knowledge_panels_included=health_card,environment_card',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'get-fields-knowledge-panels-knowledge-panels_excluded-environment_card',
+		method => 'GET',
+		path => '/api/v2/product/200000000034',
+		query_string => '?fields=knowledge_panels&knowledge_panels_excluded=environment_card',
+		expected_status_code => 200,
+	},
+	{
+		test_case =>
+			'get-fields-knowledge-panels-knowledge-panels_included-health_card-environment_card-knowledge_panels_excluded-health_card',
+		method => 'GET',
+		path => '/api/v2/product/200000000034',
+		query_string =>
+			'?fields=knowledge_panels&knowledge_panels_included=health_card,environment_card&knowledge_panels_excluded=health_card',
+		expected_status_code => 200,
+	},
 	# Test authentication
 	# (currently not needed for READ requests, but it could in the future, for instance to get personalized results)
 	{

@@ -870,79 +870,6 @@ sub init_product ($userid, $orgid, $code, $countryid) {
 	return $product_ref;
 }
 
-=head2 send_notification_for_product_change ( $user_id, $product_ref, $action, $comment, $diffs )
-
-Notify Robotoff when products are updated or deleted.
-
-=head3 Parameters
-
-=head4 $user_id
-
-ID of the user that triggered the update/deletion (String, may be undefined)
-
-=head4 $product_ref
-
-Reference to the updated/deleted product.
-
-=head4 $action
-
-The action performed, either `deleted` or `updated` (String).
-
-=head4 $comment
-
-The update comment (String)
-
-=head4 $diffs
-
-The `diffs` of the update (Hash)
-
-=cut
-
-sub send_notification_for_product_change ($user_id, $product_ref, $action, $comment, $diffs) {
-
-	if ((defined $robotoff_url) and (length($robotoff_url) > 0)) {
-		my $ua = LWP::UserAgent->new();
-		my $endpoint = "$robotoff_url/api/v1/webhook/product";
-		$ua->timeout(2);
-		my $diffs_json_text = encode_json($diffs);
-
-		$log->debug(
-			"send_notif_robotoff_product_update",
-			{
-				endpoint => $endpoint,
-				barcode => $product_ref->{code},
-				action => $action,
-				server_domain => "api." . $server_domain,
-				user_id => $user_id,
-				comment => $comment,
-				diffs => $diffs_json_text
-			}
-		) if $log->is_debug();
-		my $response = $ua->post(
-			$endpoint,
-			{
-				'barcode' => $product_ref->{code},
-				'action' => $action,
-				'server_domain' => "api." . $server_domain,
-				'user_id' => $user_id,
-				'comment' => $comment,
-				'diffs' => $diffs_json_text
-			}
-		);
-		$log->debug(
-			"send_notif_robotoff_product_update",
-			{
-				endpoint => $endpoint,
-				is_success => $response->is_success,
-				code => $response->code,
-				status_line => $response->status_line
-			}
-		) if $log->is_debug();
-	}
-
-	return;
-}
-
 sub retrieve_product ($product_id) {
 
 	my $path = product_path_from_id($product_id);
@@ -1518,9 +1445,6 @@ sub store_product ($user_id, $product_ref, $comment) {
 
 	# Publish information about update on Redis stream
 	push_to_redis_stream($user_id, $product_ref, $action, $comment, $diffs);
-
-	# Notify Robotoff
-	send_notification_for_product_change($user_id, $product_ref, $action, $comment, $diffs);
 
 	return 1;
 }

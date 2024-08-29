@@ -447,6 +447,7 @@ sub check_user_form ($request_ref, $type, $user_ref, $errors_ref) {
 	}
 
 	if ($request_ref->{admin}) {
+		$user_ref->{crm_user_id} = remove_tags_and_quote(decode utf8 => single_param('crm_user_id')) || undef;
 
 		# Org
 		check_user_org($user_ref, remove_tags_and_quote(decode utf8 => single_param('org')));
