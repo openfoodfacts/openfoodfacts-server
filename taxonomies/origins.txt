@@ -5257,16 +5257,31 @@ fr: Jura français
 < en: France
 fr: Pays-Basque
 
-# Disabling as parent because it can skew the Eco-Score
-#<en:France
-en: Guadeloupe
-fr: Guadeloupe
+# Disabling France as parent because it can skew the Eco-Score
+en: France overseas
 
+< en: Central America
+< en: France overseas
+en: Guadeloupe
+xx: Guadeloupe
+
+< en: Africa
+< en: France overseas
 en: Réunion Island
+xx: Réunion Island
 fr: Île de la Réunion
 
-en: Antilles
-fr: Antilles
+< en: South America
+< en: France overseas
+en:French Guyana
+xx:French Guyana
+
+< en: Central America
+< en: France overseas
+en: French Antilles
+xx: French Antilles
+fr: Antilles françaises
+
 
 # Canada regions
 fr: Québec
@@ -5500,6 +5515,18 @@ fr: Irlande du Nord
 nl: Noord-Ierland
 
 # US states
+
+< en: China
+en: Jiangsu
+xx: Jiangsu
+zh: 江苏省
+wikipedia: https://en.wikipedia.org/wiki/Jiangsu
+
+< en: Jiangsu
+en: Yancheng
+xx: Yancheng
+zh: 盐城
+wikipedia:en: https://en.wikipedia.org/wiki/Yancheng
 
 < en:united-states
 en: California
