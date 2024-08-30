@@ -1072,6 +1072,7 @@ sub get_lc_tagid ($synonyms_ref, $lc, $tagtype, $tag, $warning) {
 
 sub get_file_from_cache ($source, $target) {
 	my $cache_root = "$BASE_DIRS{CACHE_BUILD}/taxonomies";
+	(-e $cache_root) or mkdir($cache_root, 0755);
 	my $local_cache_source = "$cache_root/$source";
 
 	# first, try to get it localy
