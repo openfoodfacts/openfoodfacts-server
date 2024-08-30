@@ -11,6 +11,7 @@ The most effective approach lies in prevention. Here's how your app's interface 
 
     -   Nutritional values: Implement checks that flag inconsistencies and prompt users to verify their entries.
     -   Ingredient language compatibility: Ensure users take legible photos of the ingredient list, and send them in the actual language they are written in.
+    -   Selfie detection: On-device libraries [like MLKit](https://developers.google.com/ml-kit/vision/face-detection/android) can detect whether the user is taking a selfie instead of a product, and can warn them about it. 
 -   **Data Quality Facets:** Utilize the data quality facets established by Open Food Facts and recode some (or all of) them within your app. These facets act as guidelines for your users to ensure comprehensive and accurate data collection.
 
 -   **Non-Food Item Prevention:** Implement functionalities that routes non-food items like cosmetics to the right database (just ask your users if it's a food or a cosmetic).
