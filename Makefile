@@ -232,7 +232,7 @@ refresh_mongodb:run_deps
 
 # this command is used to import data on the mongodb used on staging environment
 import_prod_data: run_deps
-	@cd ${DEPS_DIR}/openfoodfacts-shared-services && $(MAKE) -e import_prod_data
+	@cd ${DEPS_DIR}/openfoodfacts-shared-services && $(MAKE) import_prod_data
 
 #--------#
 # Checks #
