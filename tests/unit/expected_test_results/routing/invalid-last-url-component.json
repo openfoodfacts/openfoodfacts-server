@@ -14,6 +14,7 @@
    "param" : {},
    "query_string" : "category/breads/no-nutrition-data",
    "rate_limiter_blocking" : 0,
+   "rate_limiter_bucket" : null,
    "rate_limiter_limit" : null,
    "rate_limiter_user_requests" : null,
    "status_code" : 404,

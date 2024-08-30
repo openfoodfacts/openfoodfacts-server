@@ -1,5 +1,34 @@
 # Changelog
 
+## [2.43.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.42.0...v2.43.0) (2024-08-28)
+
+
+### Features
+
+* add rate-limiting on facet pages ([#10738](https://github.com/openfoodfacts/openfoodfacts-server/issues/10738)) ([9e9e321](https://github.com/openfoodfacts/openfoodfacts-server/commit/9e9e3210c057c115bfdb5ce4c1299e3ccfb3fa73))
+
+
+### Bug Fixes
+
+* ban more AI bots in robots.txt ([#10726](https://github.com/openfoodfacts/openfoodfacts-server/issues/10726)) ([4ce657e](https://github.com/openfoodfacts/openfoodfacts-server/commit/4ce657e197650f268ae8272c0f1d04bc86f166ac))
+* existing orgs migration script to crm ([#10727](https://github.com/openfoodfacts/openfoodfacts-server/issues/10727)) ([1e255d4](https://github.com/openfoodfacts/openfoodfacts-server/commit/1e255d4203798f87a2e15c2912b76bfc7ffce0b5))
+
+## [2.42.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.41.0...v2.42.0) (2024-08-22)
+
+
+### Features
+
+* geoip/ api use the remote address if ip not provided as param ([#10700](https://github.com/openfoodfacts/openfoodfacts-server/issues/10700)) ([7c1e3f2](https://github.com/openfoodfacts/openfoodfacts-server/commit/7c1e3f245659d0c07941938845155bcf67f2bf49)), closes [#10699](https://github.com/openfoodfacts/openfoodfacts-server/issues/10699)
+* knowledge API to specify which panels should be returned ([#10701](https://github.com/openfoodfacts/openfoodfacts-server/issues/10701)) ([384961a](https://github.com/openfoodfacts/openfoodfacts-server/commit/384961a462d092d3595cb2d90ad2053f7d9bd1ab))
+* migration script to batch import existing orgs in CRM ([#10683](https://github.com/openfoodfacts/openfoodfacts-server/issues/10683)) ([1801b48](https://github.com/openfoodfacts/openfoodfacts-server/commit/1801b481730a8393345614ee0d71efec110d4871))
+
+
+### Bug Fixes
+
+* remove robotoff webhook trigger ([#10723](https://github.com/openfoodfacts/openfoodfacts-server/issues/10723)) ([47e1174](https://github.com/openfoodfacts/openfoodfacts-server/commit/47e11741abe6328ca7f00d23d7096b717c7abb9e))
+* remove unused jquery-ui safe-active-element module ([#10708](https://github.com/openfoodfacts/openfoodfacts-server/issues/10708)) ([9407e86](https://github.com/openfoodfacts/openfoodfacts-server/commit/9407e860b96cf6be4543878509d7568ce90ad8a8))
+* Synonyms in taxonomized suggestions ([#10722](https://github.com/openfoodfacts/openfoodfacts-server/issues/10722)) ([3419a1e](https://github.com/openfoodfacts/openfoodfacts-server/commit/3419a1efd7600a6b5d0ed540fc443c06d7a910e3))
+
 ## [2.41.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.40.0...v2.41.0) (2024-08-13)
 
 
