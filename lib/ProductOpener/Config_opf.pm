@@ -174,7 +174,7 @@ $flavor = "opf";
 
 %options = (
 	site_name => "Open Products Facts",
-	product_type => "products",
+	product_type => "product",
 	og_image_url => "https://world.openproductsfacts.org/images/misc/openproductsfacts-logo-en.png",
 	#android_apk_app_link => "https://world.openbeautyfacts.org/images/apps/obf.apk?utm_source=opf&utf_medium=web",
 	#android_app_link => "https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&utm_source=opf&utf_medium=web",
