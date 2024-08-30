@@ -33,6 +33,7 @@ package ProductOpener::Apache2PreRequestHandler;
 use ProductOpener::PerlStandards;
 
 use Log::Any '$log', default_adapter => 'Stderr';
+use Apache2::Const qw(:common);
 use OpenTelemetry;
 use OpenTelemetry::Context;
 use OpenTelemetry::Propagator::TraceContext;
