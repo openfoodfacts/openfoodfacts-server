@@ -103,4 +103,10 @@ User-agent: Claude-Web
 Disallow: /
 User-agent: PerplexityBot
 Disallow: /
+User-agent: Diffbot
+Disallow: /
+User-agent: ImagesiftBot
+Disallow: /
+User-agent: ChatGPT-User
+Disallow: /
 [% END %]
