@@ -305,20 +305,17 @@ HTML
 @taxonomy_fields = qw(
 	units
 	languages states countries
-	allergens origins additives_classes ingredients
+	origins
 	packaging_shapes packaging_materials packaging_recycling packaging
-	labels food_groups categories
-	ingredients_processing
-	additives vitamins minerals amino_acids nucleotides other_nutritional_substances traces
-	ingredients_analysis
-	nutrients nutrient_levels misc nova_groups
+	labels categories
+	misc
 	periods_after_opening
 	data_quality data_quality_bugs data_quality_info data_quality_warnings data_quality_errors data_quality_warnings_producers data_quality_errors_producers
 	improvements
 );
 
 # tag types (=facets) that should be indexed by web crawlers, all other tag types are not indexable
-@index_tag_types = qw(brands categories labels additives nova_groups ecoscore nutrition_grades products);
+@index_tag_types = qw(brands categories labels products);
 
 # fields in product edit form, above ingredients and nutrition facts
 
