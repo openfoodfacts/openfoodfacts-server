@@ -104,9 +104,11 @@ mapping_languages_countries = {
     "is": "is",
     "it": "it",
     "ja": "jp",
+    "ko": "kr",
     "lt": "lt",
     "lv": "lv",
     "ms": "my",
+    "mt": "mt",
     "nb": "no",
     "no": "no",
     "nl": "nl",
@@ -232,6 +234,13 @@ def unknown_tags_taxonomy_comparison(tag_type: str) -> None:
     with open(taxonomy_file_location, "r") as taxonomy_file:
         taxonomy_file_content = taxonomy_file.read() \
             .lower().replace(" ", "-", -1)
+    # origins includes countries
+    if tag_type == "origins":
+        with open(os.path.abspath(os.path.join(os.path \
+            .dirname( __file__ ), '..', f'taxonomies/countries.txt'))) \
+            as country_taxonomy_file:
+            taxonomy_file_content += country_taxonomy_file.read() \
+            .lower().replace(" ", "-", -1)
         
     with open(file_unknown.format(plural=tag_type), 'r') as previous_file:
         _ = previous_file.readline()
@@ -311,7 +320,7 @@ def unknown_tags_taxonomy_comparison(tag_type: str) -> None:
             # xx: shows in api results as fr:, de:, en: etc. 
             # # However they are already known
             universal = [x for x in tag_regex_res if "xx:" in x]
-            # the tag already exists in the right langauge as a synonym
+            # the tag already exists in the right language as a synonym
             same_lc = [x for x in tag_regex_res if f"{tag_lc}:" in x]
             # "en" was not in the last put back first value in the list
             contains_en = [x for x in tag_regex_res if "en:" in x]
@@ -552,6 +561,8 @@ def update_tags_field(tags_field_string: str, tags_field_lc: str,
     tags_field_lower = [x for x in tags_field_lower if x != ""]
     # strip dots (en:noten. in 8718906699045)
     tags_field_lower = [x.strip(".") for x in tags_field_lower]
+    # remove duplicates
+    tags_field_lower = list(set(tags_field_lower))
 
     # current tag does not have accent but tag in field does
     tags_field_lower_no_accent = [
