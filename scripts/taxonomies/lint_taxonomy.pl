@@ -186,7 +186,7 @@ sub iter_taxonomy_entries ($lines_iter) {
 			# synonym
 			elsif ($line =~ /^(\w+):[^:]*(,.*)*$/) {
 				if (!defined $entry_id_line) {
-					$entry_id_line = {line => $line, previous => [@previous_lines], lc => $1,, line_num => $line_num};
+					$entry_id_line = {line => $line, previous => [@previous_lines], lc => $1, line_num => $line_num};
 				}
 				else {
 					my $lc = $1;
@@ -213,7 +213,7 @@ sub iter_taxonomy_entries ($lines_iter) {
 						push @{$entries{$lc}{previous}}, @previous_lines;
 					}
 					else {
-						$entries{$lc} = {line => $line, previous => [@previous_lines],, line_num => $line_num};
+						$entries{$lc} = {line => $line, previous => [@previous_lines], line_num => $line_num};
 					}
 				}
 				@previous_lines = ();
