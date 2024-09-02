@@ -4462,7 +4462,7 @@ origins:en: en:france
 fr: Eau-de-vie de Jura
 de: Branntwein aus dem Jura
 nl: Eau-devies uit de Jura
-origins:en: en:france, fr:jura-francais
+origins:en: en:france, en:jura-(france)
 
 < en:French Eaux-de-vie
 fr: Eau-de-vie de poiré de Bretagne
@@ -11425,7 +11425,7 @@ protected_name_type:en: gi
 
 < en:French grape marc spirit or grape marc
 fr: Marc du Jura
-origins:en: en:france, fr:jura-francais
+origins:en: en:france, en:jura-(france)
 protected_name_file_number:en: PGI-FR-02027
 protected_name_type:en: gi
 
@@ -13218,22 +13218,22 @@ origins:en: en:france
 < en:Wines from France
 fr: Beaujolais
 grape_variety:fr: gamay, chardonnay
-origins:en: en:france, fr:beaujolais
+origins:en: en:france, en:beaujolais
 
 < en:Wines from France
 fr: Beaujolais Villages
 grape_variety:fr: gamay, chardonnay
-origins:en: en:france, fr:beaujolais
+origins:en: en:france, en:beaujolais
 
 < en:Wines from France
 fr: Beaujolais Supérieur
 grape_variety:fr: gamay
-origins:en: en:france, fr:beaujolais
+origins:en: en:france, en:beaujolais
 
 < fr:Beaujolais
 fr: Beaujolais nouveau, Beaujolais primeur
 grape_variety:fr: gamay, chardonnay
-origins:en: en:france, fr:beaujolais
+origins:en: en:france, en:beaujolais
 
 < en:Burgundy wines
 fr: Beaune
@@ -14241,7 +14241,7 @@ wikidata:en: Q383602
 
 < en:Wines from France
 fr: Brouilly
-origins:en: en:france, fr:beaujolais
+origins:en: en:france, en:beaujolais
 wikidata:en: Q461400
 
 < en:Wines from France
@@ -15543,7 +15543,7 @@ wikidata:en: Q1090303
 < en:White wines
 < en:Wines from France
 fr: Château-Chalon
-origins:en: en:france, fr:jura-francais
+origins:en: en:france, en:jura-(france)
 wikidata:en: Q1090298
 
 < en:Wines from France
@@ -15567,7 +15567,7 @@ wikidata:en: Q1090846
 
 < en:Wines from France
 fr: Chenas, Chénas
-origins:en: en:france, fr:beaujolais
+origins:en: en:france, en:beaujolais
 wikidata:en: Q1090927
 
 < en:Burgundy wines
@@ -15592,7 +15592,7 @@ wikidata:en: Q2963789
 
 < en:Wines from France
 fr: Chiroubles
-origins:en: en:france, fr:beaujolais
+origins:en: en:france, en:beaujolais
 wikidata:en: Q1074779
 
 < en:Wines from France
@@ -15774,7 +15774,7 @@ wikidata:en: Q3010613
 
 < en:Wines from France
 fr: Côte de Brouilly
-origins:en: en:france, fr:beaujolais
+origins:en: en:france, en:beaujolais
 wikidata:en: Q461328
 
 < en:Burgundy wines
@@ -16495,7 +16495,7 @@ protected_name_type:en: pdo
 
 < en:Wines from France
 fr: Fleurie
-origins:en: en:france, fr:beaujolais
+origins:en: en:france, en:beaujolais
 protected_name_file_number:en: PDO-FR-A0930
 protected_name_type:en: pdo
 #wikidata:en:
@@ -17232,7 +17232,7 @@ origins:en: en:france
 
 < en:Wines from France
 fr: Juliénas
-origins:en: en:france, fr:beaujolais
+origins:en: en:france, en:beaujolais
 protected_name_file_number:en: PDO-FR-A1025
 protected_name_type:en: pdo
 #wikidata:en:
@@ -18987,7 +18987,7 @@ wikidata:en: Q42862923
 
 < en:Wines from France
 fr: Morgon
-origins:en: en:france, fr:beaujolais
+origins:en: en:france, en:beaujolais
 
 < en:Wines from France
 fr: Moselle
@@ -18998,7 +18998,7 @@ protected_name_type:en: pdo
 
 < en:Wines from France
 fr: Moulin-à-Vent
-origins:en: en:france, fr:beaujolais
+origins:en: en:france, en:beaujolais
 
 < en:Wines from France
 fr: Moulis, Moulis en Médoc, Moulis en Medoc, Moulis-en-Médoc, Moulis-en-Medoc
@@ -20425,7 +20425,7 @@ wikidata:en: Q42862538
 
 < en:Wines from France
 fr: Régnié
-origins:en: en:france, fr:beaujolais
+origins:en: en:france, en:beaujolais
 #wikidata:en:
 
 < en:Wines from France
@@ -20874,7 +20874,7 @@ wikidata:en: Q3460601
 
 < en:Wines from France
 fr: Saint-Amour
-origins:en: en:france, fr:beaujolais
+origins:en: en:france, en:beaujolais
 
 < en:Burgundy wines
 < en:Red wines
@@ -56563,7 +56563,7 @@ en: Acacia honeys from Jura
 fr: Miels d’acacia du Jura
 hr: Bagremovi medovi od jure
 nl: Acaciahoningen uit de Jura
-# Disabled for safety: origins:en: en:France, fr:Jura français
+# Disabled for safety: origins:en: en:France, en:jura (france)
 
 < en:Honeys from Alsace
 fr: Miels de châtaignier d'Alsace
@@ -56663,7 +56663,7 @@ en: Honeys from Jura
 fr: Miels du Jura
 hr: Medovi od jure
 nl: Honingen uit de Jura
-# Disabled for safety: origins:en: en:France, fr:Jura français
+# Disabled for safety: origins:en: en:France, en:jura-(france)
 
 < en:Honeys
 en: Honeys from Bulgaria, Bulgarian honeys
@@ -85605,7 +85605,7 @@ protected_name_type:en: pgi
 
 < en:Poultries
 fr: Volailles du Val de Sèvres
-origins:en: en:france, fr:val-de-sevres
+origins:en: en:france, en:val-de-sevres
 protected_name_file_number:en: PGI-FR-0166
 protected_name_type:en: pgi
 
