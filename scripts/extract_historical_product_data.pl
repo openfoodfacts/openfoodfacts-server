@@ -44,8 +44,10 @@ Compute and extract the Nutri-Score based on product data:
 The key is used to keep track of which products have been updated. If there are many products and field to updates,
 it is likely that the MongoDB cursor of products to be updated will expire, and the script will have to be re-run.
 
---query some_field=some_value (e.g. categories_tags=en:beers)	filter the products
+--query some_field=some_value (e.g. categories_tags=en:beers)	filter the products (--query parameters can be repeated to have multiple filters)
 --query some_field=-some_value	match products that don't have some_value for some_field
+--query some_field=value1,value2	match products that have value1 and value2 for some_field (must be a _tags field)
+--query some_field=value1\|value2	match products that have value1 or value2 for some_field (must be a _tags field)
 --codes-file some_file		read the list of product codes from a file
 --field field_name		field to extract data for
 --field some_tags_field=en:some_prefix		extract the value of a tag field that has a specific prefix (e.g. labels_tags=en:nutriscore-)
@@ -88,11 +90,11 @@ my $max_year;
 my $recompute_taxonomies;
 my $omit_prefix;
 
-my $query_ref = {};    # filters for mongodb query
+my $query_params_ref = {};    # filters for mongodb query
 
 GetOptions(
 	# We can extract data for products matching a specific query, or for a list of product codes
-	"query=s%" => $query_ref,    # filters for mongodb query
+	"query=s%" => $query_params_ref,    # filters for mongodb query
 	"codes-file=s" => \$codes_file,    # file with product codes to extract data for
 	"field=s" => \$field_to_extract,
 	"omit-prefix" => \$omit_prefix,
@@ -121,42 +123,10 @@ if (defined $codes_file) {
 else {
 	# Use query filters entered using --query categories_tags=en:plant-milks
 
-	use boolean;
+	# Build the mongodb query from the --query parameters
+	my $query_ref = {};
 
-	foreach my $field (sort keys %{$query_ref}) {
-
-		my $not = 0;
-
-		if ($query_ref->{$field} =~ /^-/) {
-			$query_ref->{$field} = $';
-			$not = 1;
-		}
-
-		if ($query_ref->{$field} eq 'null') {
-			# $query_ref->{$field} = { '$exists' => false };
-			$query_ref->{$field} = undef;
-		}
-		elsif ($query_ref->{$field} eq 'exists') {
-			$query_ref->{$field} = {'$exists' => true};
-		}
-		elsif ($field =~ /_t$/) {    # created_t, last_modified_t etc.
-			$query_ref->{$field} += 0;
-		}
-		# Multiple values separated by commas
-		elsif ($query_ref->{$field} =~ /,/) {
-			my @tagids = split(/,/, $query_ref->{$field});
-
-			if ($not) {
-				$query_ref->{$field} = {'$nin' => \@tagids};
-			}
-			else {
-				$query_ref->{$field} = {'$in' => \@tagids};
-			}
-		}
-		elsif ($not) {
-			$query_ref->{$field} = {'$ne' => $query_ref->{$field}};
-		}
-	}
+	add_params_to_query ($query_params_ref, $query_ref);
 
 	use Data::Dumper;
 	print STDERR "MongoDB query:\n" . Dumper($query_ref);
