@@ -13,6 +13,21 @@ server {
 	}
 }
 
+# map to decide if we go to the main (8004) or secondary service (8805)
+map $request_method$uri $apache_port {
+	default 8005;
+
+	# home pages
+	"~*GET/$" 8004;
+	# product read / write
+	"~*GET/(mountaj|məhsul|продукт|gynnyrch|produkt|product|product|product|produkto|producto|toode|produkto|produit|produto|termék|produk|製品|afaris|өнім|생성물|berhem|उत्पादन|produk|produkt|उत्पादन|product|product|product|produkt|produkt|produit|produto|produto|produto|продукт|product|proizvod|produkto|ürün|продукт|产品|產品|產品)/" 8004;
+	"~*GET/cgi/product.pl" 8004;
+	"~*POST/cgi/product.pl" 8004;
+	# product API read / write
+	"~*GET/api/v./product/" 8004;
+	"~*POST/api/v./product/" 8004;
+}
+
 # variables definitions for expiry headers are loaded from /etc/nginx/conf.d/expires-no-json-xml.conf
 
 server {
@@ -118,7 +133,7 @@ server {
 		access_log /var/log/nginx/proxy-off-access.log proxied_requests buffer=256K flush=1s;
 		error_log /var/log/nginx/proxy-off-error.log;
 
-		proxy_pass http://127.0.0.1:8004/cgi/display.pl?;
+		proxy_pass http://127.0.0.1:$apache_port/cgi/display.pl?;
 	}
 
 	location /cgi/ {
@@ -129,7 +144,7 @@ server {
 		access_log /var/log/nginx/proxy-off-access.log proxied_requests buffer=256K flush=1s;
 		error_log /var/log/nginx/proxy-off-error.log;
 
-		proxy_pass http://127.0.0.1:8004;
+		proxy_pass http://127.0.0.1:$apache_port;
 	}
 }
 
