@@ -4502,17 +4502,22 @@ sub display_search_results ($request_ref) {
 
 	my $current_link = '';
 
-	while (my ($field, $value) = each %{get_all_request_params($request_ref)}) {
+	my $params_ref = get_all_request_params($request_ref);
+
+	$log->debug("display_search_results - params", {params => $params_ref})
+		if $log->is_debug();
+
+	foreach my $field (sort keys %$params_ref) {
 		if (
-			   ($field eq "page")
-			or ($field eq "fields")
-			or ($field eq "keywords")    # returned by CGI.pm when there are not params: keywords=search
+			not(
+				   ($field eq "page")
+				or ($field eq "fields")
+				or ($field eq "keywords")    # returned by CGI.pm when there are not params: keywords=search
+			)
 			)
 		{
-			next;
+			$current_link .= "\&$field=" . URI::Escape::XS::encodeURIComponent($params_ref->{$field});
 		}
-
-		$current_link .= "\&$field=" . URI::Escape::XS::encodeURIComponent($value);
 	}
 
 	$current_link =~ s/^\&/\?/;
