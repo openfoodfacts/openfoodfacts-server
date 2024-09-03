@@ -13,7 +13,7 @@ server {
 	}
 }
 
-# map to decide if we go to the main (8004) or secondary service (8805)
+# map to decide if we go to the main (8004) or secondary service (8005)
 map $request_method$uri $apache_port {
 	default 8005;
 
