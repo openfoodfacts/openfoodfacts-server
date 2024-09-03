@@ -589,7 +589,7 @@ function initializeTagifyInput(el) {
                     then((RES) => RES.json()).
                     then(function (json) {
                         const lc = (/^\w\w:/).exec(value);
-                        let whitelist = json.suggestions;
+                        let whitelist = Object.values(json.matched_synonyms);
                         if (lc) {
                             whitelist = whitelist.map(function (e) {
                                 return {"value": lc + e, "searchBy": e};

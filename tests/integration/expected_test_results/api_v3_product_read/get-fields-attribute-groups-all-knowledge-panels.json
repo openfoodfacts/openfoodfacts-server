@@ -15,7 +15,7 @@
       "additives_original_tags" : [],
       "additives_tags" : [],
       "allergens" : "",
-      "allergens_from_ingredients" : "en:milk, apple, milk, eggs",
+      "allergens_from_ingredients" : "en:eggs, en:milk, apple, milk, eggs",
       "allergens_from_user" : "(en) ",
       "allergens_hierarchy" : [
          "en:apple",
@@ -681,6 +681,7 @@
          "en:snacks",
          "en:sweet-snacks",
          "en:biscuits-and-cakes",
+         "en:biscuits-and-crackers",
          "en:biscuits"
       ],
       "categories_lc" : "en",
@@ -701,6 +702,7 @@
          "en:snacks",
          "en:sweet-snacks",
          "en:biscuits-and-cakes",
+         "en:biscuits-and-crackers",
          "en:biscuits"
       ],
       "checkers_tags" : [],
@@ -752,7 +754,7 @@
             "origins_of_ingredients" : {
                "aggregated_origins" : [
                   {
-                     "epi_score" : 0,
+                     "epi_score" : "0",
                      "origin" : "en:unknown",
                      "percent" : 100,
                      "transportation_score" : null
@@ -2216,6 +2218,20 @@
          },
          "nutriscore_2023" : {
             "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients.\n                    ",
+                     "type" : "warning"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: 62\n                    ",
+                     "type" : "warning"
+                  }
+               },
                {
                   "element_type" : "panel",
                   "panel_element" : {

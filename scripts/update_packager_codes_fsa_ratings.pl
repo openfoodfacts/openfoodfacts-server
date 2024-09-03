@@ -33,7 +33,7 @@ use ProductOpener::PackagerCodes qw/%packager_codes normalize_packager_codes/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 use LWP::Simple;
 
 my $packager_codes_ref = retrieve("$data_root/packager-codes/packager_codes.sto");

@@ -88,7 +88,7 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 use Data::DeepAccess qw(deep_get deep_exists deep_set);
 use Data::Compare;
 
@@ -1452,7 +1452,7 @@ while (my $product_ref = $cursor->next) {
 					else {
 						$products_pushed_to_redis++;
 						print STDERR ". Pushed to Redis stream";
-						push_to_redis_stream('update_all_products', $product_ref, "updated", $comment, {});
+						push_to_redis_stream('update_all_products', $product_ref, "reprocessed", $comment, {});
 					}
 				}
 				else {
