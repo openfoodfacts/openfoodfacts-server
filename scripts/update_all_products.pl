@@ -309,7 +309,7 @@ load_data();
 # Build the mongodb query from the --query parameters
 my $query_ref = {};
 
-add_params_to_query ($query_params_ref, $query_ref);
+add_params_to_query($query_params_ref, $query_ref);
 
 # Query products that have the _id field stored as a number
 if ($fix_non_string_ids) {

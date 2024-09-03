@@ -126,7 +126,7 @@ else {
 	# Build the mongodb query from the --query parameters
 	my $query_ref = {};
 
-	add_params_to_query ($query_params_ref, $query_ref);
+	add_params_to_query($query_params_ref, $query_ref);
 
 	use Data::Dumper;
 	print STDERR "MongoDB query:\n" . Dumper($query_ref);
