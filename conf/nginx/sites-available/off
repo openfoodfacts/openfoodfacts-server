@@ -13,19 +13,19 @@ server {
 	}
 }
 
-# map to decide if we go to the main (8004) or secondary service (8005)
-map $request_method$uri $apache_port {
-	default 8005;
+# map to decide if we go to the priority (8002) or standard service (8801)
+map $uri $apache_port {
+	default 8001;
 
 	# home pages
-	"~*GET/$" 8004;
+	"~*/$" 8002;
 	# product read / write
-	"~*GET/(mountaj|məhsul|продукт|gynnyrch|produkt|product|product|product|produkto|producto|toode|produkto|produit|produto|termék|produk|製品|afaris|өнім|생성물|berhem|उत्पादन|produk|produkt|उत्पादन|product|product|product|produkt|produkt|produit|produto|produto|produto|продукт|product|proizvod|produkto|ürün|продукт|产品|產品|產品)/" 8004;
-	"~*GET/cgi/product.pl" 8004;
-	"~*POST/cgi/product.pl" 8004;
+	"~*/(mountaj|məhsul|продукт|gynnyrch|produkt|product|product|product|produkto|producto|toode|produkto|produit|produto|termék|produk|製品|afaris|өнім|생성물|berhem|उत्पादन|produk|produkt|उत्पादन|product|product|product|produkt|produkt|produit|produto|produto|produto|продукт|product|proizvod|produkto|ürün|продукт|产品|產品|產品)/" 8004;
+	"~*/cgi/product.pl" 8002;
+	"~*/cgi/product.pl" 8002;
 	# product API read / write
-	"~*GET/api/v./product/" 8004;
-	"~*POST/api/v./product/" 8004;
+	"~*/api/v./product/" 8002;
+	"~*/api/v./product/" 8002;
 }
 
 # variables definitions for expiry headers are loaded from /etc/nginx/conf.d/expires-no-json-xml.conf

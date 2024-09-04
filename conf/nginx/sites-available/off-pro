@@ -94,7 +94,7 @@ server {
 		access_log /var/log/nginx/proxy-off-access.log proxied_requests buffer=256K flush=1s;
 		error_log /var/log/nginx/proxy-off-error.log;
 
-		proxy_pass http://127.0.0.1:8014/cgi/display.pl?;
+		proxy_pass http://127.0.0.1:8001/cgi/display.pl?;
 	}
 
 	location /cgi/ {
@@ -105,7 +105,7 @@ server {
 		access_log /var/log/nginx/proxy-off-access.log proxied_requests buffer=256K flush=1s;
 		error_log /var/log/nginx/proxy-off-error.log;
 
-		proxy_pass http://127.0.0.1:8014;
+		proxy_pass http://127.0.0.1:8001;
 	}
 
 }
