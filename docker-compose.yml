@@ -35,6 +35,7 @@ x-backend-conf: &backend-conf
     - ODOO_CRM_DB
     - ODOO_CRM_USER
     - ODOO_CRM_PASSWORD
+    - WORDPRESS_URL
   depends_on:
     - memcached
   volumes:

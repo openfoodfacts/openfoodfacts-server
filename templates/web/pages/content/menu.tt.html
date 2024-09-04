@@ -1,0 +1,12 @@
+<h1></h1>
+<div id="content-menu">
+    <ul>
+        [% FOREACH page IN wp_available_pages %]
+            <li>
+                <a href="[% page.link %]" class="button small white-button radius">
+                    [% page.title %]
+                </a>
+            </li>
+        [% END %]
+    </ul>
+</div>

@@ -57,6 +57,7 @@ use ProductOpener::Index qw/%texts/;
 use ProductOpener::Store qw/get_string_id_for_lang/;
 use ProductOpener::Redis qw/:all/;
 use ProductOpener::RequestStats qw/:all/;
+use ProductOpener::CMS qw/load_cms_data/;
 
 use Encode;
 use CGI qw/:cgi :form escapeHTML/;
@@ -74,7 +75,7 @@ Load OFF routes
 
 =pod
 
-a route is registered with:
+A route is registered with:
 	- Pattern:
 		- a simple string (e.g. "api") without '/'':
 			when you simply want to route with the first component of the path e.g.
@@ -97,9 +98,10 @@ a route is registered with:
 		- onlyif: a sub($request_ref) that will be called to check if the route should be used
 			Its a dynamic routing, using context of the request.
 			Results is used as a boolean to decide if the route should be used.
+      
 		}
 
-non regex routes will be matched first, then regex routes
+Non regex routes are matched first, then regex routes.
 
 =cut
 
@@ -112,6 +114,7 @@ sub load_routes() {
 		['properties', \&properties_route],
 		['property', \&properties_route],
 		['products', \&products_route],
+		['content', \&content_route],
 		# with priority
 		['', \&index_route],
 		['^(?<page>\d+)$', \&index_route, {regex => 1}],
@@ -136,7 +139,11 @@ sub load_routes() {
 			\&text_route,
 			{
 				onlyif => sub ($request_ref) {
-					return $texts{$text}{$request_ref->{lc}} || defined $texts{$text}{'en'};
+					return
+						   $texts{$text}{$request_ref->{lc}}
+						|| defined $texts{$text}{'en'}
+						|| defined $texts{$text}{redirect}{'fr'}
+						|| defined $texts{$text}{redirect}{'en'};
 				}
 			}
 		];
@@ -430,6 +437,17 @@ sub text_route($request_ref) {
 
 	$log->debug("text_route", {textid => \%texts, text => $text}) if $log->is_debug();
 
+	my $redirection_uri = $texts{$text}{redirect}{$request_ref->{lc}} // $texts{$text}{redirect}{'en'};
+
+	if (defined $redirection_uri) {
+		$redirection_uri =~ s#^/##;
+		$request_ref->{redirect} = "$formatted_subdomain/$redirection_uri";
+		$log->info('text_route', {textid => $text, redirect => $request_ref->{redirect}})
+			if $log->is_info();
+		redirect_to_url($request_ref, 301, $request_ref->{redirect});
+		return 1;
+	}
+
 	if (defined $texts{$text}{$request_ref->{lc}} || defined $texts{$text}{'en'}) {
 		$request_ref->{text} = $text;
 		$request_ref->{canon_rel_url} = "/" . $text;
@@ -567,7 +585,33 @@ sub facets_route($request_ref) {
 	return 1;
 }
 
-##### END ROUTES #####
+sub content_route($request_ref) {
+	my @components = @{$request_ref->{components}};
+
+	$request_ref->{content} = 1;
+
+	my $op = $components[1] // '';
+
+	# # content/refresh
+	if (($op eq 'refresh') and is_admin_user($request_ref->{user_id})) {
+		load_cms_data();
+		$log->debug("content_route", {what => 'refreshed available contents'}) if $log->is_debug();
+		redirect_to_url($request_ref, 302, '/content');
+		return 1;
+	}
+	# /content/[lc]/[slug]
+	$request_ref->{content_lc} = $op || $request_ref->{lc};
+	if (defined $components[2]) {
+		$request_ref->{content_slug} = $components[2];
+		$log->debug("content_route", {content_lc => $request_ref->{content_lc}, slug => $request_ref->{content_slug}})
+			if $log->is_debug();
+	}
+	$log->debug("content_route", {content_lc => $request_ref->{content_lc}, slug => $request_ref->{content_slug}})
+		if $log->is_debug();
+	return 1;
+}
+
+##### END ROUTES #####
 
 =head2 register_route($routes_to_register)
 
