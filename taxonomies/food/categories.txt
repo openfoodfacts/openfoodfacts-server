@@ -106178,6 +106178,7 @@ ciqual_food_code:en: 20034
 ciqual_food_name:en: Onion, raw
 ciqual_food_name:fr: Oignon, cru
 description:en: The onion (Allium cepa L.), also known as the bulb onion or common onion, is a vegetable that is the most widely cultivated species of the genus Allium. They are usually served cooked, as a vegetable or part of a prepared savoury dish, but can also be eaten raw or used to make pickles or chutneys.
+expected_ingredients:en: en:onion
 intake24_category_code:en: ONIO
 # aeb-arab:راس بصل
 # ckb:پیاز
@@ -106216,8 +106217,14 @@ fi: Keltasipulit, keltasipuli, keltainen sipuli
 fr: Oignons jaunes, oignon jaune
 hr: Žuti luk
 nl: Gele uien
+expected_ingredients:en: en:yellow onion
 wikidata:en: Q8051898
 wikipedia:en: https://en.wikipedia.org/wiki/Yellow_onion
+
+< en: Yellow onions
+en: Fresh yellow onions
+nl: Verse gele uien
+expected_ingredients:en: en:yellow onion
 
 < en:Onions
 en: White onions, white onion
@@ -106226,6 +106233,7 @@ de: Weiße Zwiebeln
 fr: Oignons blancs, oignon blanc
 hr: Bijeli luk
 nl: Witte uien
+expected_ingredients:en: en:white onion
 wikidata:en: Q7995660
 wikipedia:en: https://en.wikipedia.org/wiki/White_onion
 
@@ -106235,6 +106243,7 @@ en: Fresh white onions
 fr: Oignons blancs frais
 hr: Svježi bijeli luk
 nl: Verse witte uien
+expected_ingredients:en: en:white onion
 
 < en:Onions
 en: Red onions, red onion, purple onions, Bombay onions
@@ -106245,6 +106254,7 @@ fr: Oignons rouges, oignon rouge
 hr: Crveni luk
 ja: 赤たまねぎ, 紫たまねぎ
 nl: Rode uien
+expected_ingredients:en: en:red onion
 wikidata:en: Q622350
 wikipedia:en: https://en.wikipedia.org/wiki/Red_onion
 
@@ -106254,6 +106264,7 @@ en: Fresh red onions
 fr: Oignons rouges frais
 hr: Svježi crveni luk
 nl: Verse rode uien
+expected_ingredients:en: en:red onion
 
 < en:Cooked vegetables
 < en:Onions
@@ -106280,6 +106291,7 @@ agribalyse_food_code:en: 20097
 ciqual_food_code:en: 20097
 ciqual_food_name:en: Shallot, raw
 ciqual_food_name:fr: Échalote, crue
+expected_ingredients:en: en:shallots
 wikidata:en: Q193498
 
 < en:Fresh vegetables
@@ -106288,6 +106300,7 @@ en: Fresh shallots
 fr: Échalotes fraîches
 hr: Svježa ljutika
 nl: Verse sjalotjes
+expected_ingredients:en: en:shallots
 season_in_country_fr:en: 10,11,12
 
 < en:Cooked vegetables
@@ -106305,6 +106318,7 @@ ciqual_food_name:fr: Échalote, cuite
 < en:Shallots
 fr: Echalote d'Anjou
 nl: Sjalotten uit Anjou
+expected_ingredients:en: en:shallots
 origins:en: en:france
 protected_name_file_number:en: PGI-FR-01253
 protected_name_type:en: pgi
@@ -106325,6 +106339,7 @@ agribalyse_food_code:en: 20041
 ciqual_food_code:en: 20041
 ciqual_food_name:en: Sweet pepper, green, yellow or red, raw
 ciqual_food_name:fr: Poivron, vert, jaune ou rouge, cru
+expected_ingredients:en: en:sweet pepper
 intake24_category_code:en: PPRS
 intake24_category_code:fr: PPRS
 
@@ -106335,6 +106350,7 @@ bg: Пресни чушки
 fr: Poivrons frais
 hr: Svježe slatke paprike
 nl: Verse paprikas
+expected_ingredients:en: en:sweet pepper
 season_in_country_fr:en: 6,7,8,9
 
 < en:Cooked vegetables
@@ -106384,6 +106400,9 @@ ciqual_food_code:en: 20168
 ciqual_food_name:en: Sweet pepper, yellow, raw
 ciqual_food_name:fr: Poivron jaune, cru
 
+< en: Yellow sweet peppers
+en: Fresh yellow sweet peppers
+nl: Verse gele paprikas
 
 < en:Cooked peppers
 < en:Red sweet peppers
