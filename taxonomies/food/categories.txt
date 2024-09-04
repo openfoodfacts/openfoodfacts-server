@@ -105731,6 +105731,7 @@ pl: Czosnek
 agribalyse_proxy_food_code:en: 11000
 agribalyse_proxy_food_name:en: Garlic, fresh
 agribalyse_proxy_food_name:fr: Ail, cru
+expected_ingredients:en: en:garlic
 gpc_category_code:en: 10006003
 gpc_category_description:en: Definition: Includes any product that can be described/observed as a fresh commercial variety of Garlic of varieties (cultivars) grown from Allium sativum L. to be supplied fresh to the consumer. Definition Excludes: Specifically excludes: Prepared/Processed or Unprepared/Unprocessed and Shelf Stable or Frozen Garlic.
 gpc_category_name:en: Garlic
@@ -105750,7 +105751,7 @@ protected_name_file_number:en: PDO-IT-0566
 protected_name_type:en: pdo
 #wikidata:en:
 
-< en:Garlic
+< en: Garlic and their products
 fr: Ail doux au piment
 
 < en:Fresh vegetables
@@ -105760,6 +105761,7 @@ bg: Пресен чесън
 de: Frischer Knoblauch
 fr: Ail frais, Ail cru
 hr: Svježi češnjak
+nl: Verse knoflook
 agribalyse_food_code:en: 11000
 ciqual_food_code:en: 11000
 ciqual_food_name:en: Garlic, fresh
@@ -105770,7 +105772,8 @@ season_in_country_fr:en: 7,8,9,10,11,12
 en: Allium neapolitanum
 de: Neapolitanischer Lauch
 fr: Ail Blanc
-hr: Napolitanski luk (alium neapolitanum).
+hr: Napolitanski luk
+nl: Witte knoflook
 wikidata:en: Q1817792
 
 < en:Garlic
@@ -105778,9 +105781,11 @@ en: Purple garlic
 ca: All morat
 es: Ajo morado
 hr: Ljubičasti češnjak
+nl: Paarse knoflook
 
 < en:Allium neapolitanum
 fr: Ail blanc de Lomagne
+xx: Ail blanc de Lomagne
 origins:en: en:france, fr:Lomagne
 protected_name_file_number:en: PGI-FR-0470
 protected_name_type:en: pgi
@@ -105788,6 +105793,7 @@ protected_name_type:en: pgi
 < en:French vegetables
 < en:Garlic
 fr: Ail rose de Lautrec
+xx: Ail rose de Lautrec
 origins:en: en:france, fr:Lautrec
 protected_name_file_number:en: PGI-FR-0193
 protected_name_type:en: pgi
@@ -105795,13 +105801,15 @@ protected_name_type:en: pgi
 < en:French vegetables
 < en:Garlic
 fr: Ail de la Drôme
-origins:en: en:france, en:drome
+xx: Ail de la Drôme
+origins:en: en:drome
 protected_name_file_number:en: PGI-FR-0537
 protected_name_type:en: pgi
 
 < en:French vegetables
 < en:Garlic
 fr: Ail fumé d'Arleux
+xx: Ail fumé d'Arleux
 origins:en: en:france, fr:Arleux
 protected_name_file_number:en: PGI-FR-0820
 protected_name_type:en: pgi
@@ -105809,6 +105817,7 @@ protected_name_type:en: pgi
 < en:French vegetables
 < en:Garlic
 fr: Ail violet de Cadours
+xx: Ail violet de Cadours
 origins:en: en:france
 protected_name_file_number:en: PDO-FR-02103-AM01, PDO-FR-02103
 protected_name_type:en: pdo
@@ -105820,7 +105829,7 @@ es: Ajos tiernos, Brotes de ajo
 fr: Aillets
 hr: Zeleni češnjak
 hu: Zöld foghagyma
-
+nl: Groene knoflook
 
 < en:Vegetable rods
 # <en:ingredient:en:vegetable
