@@ -632,7 +632,8 @@ sub create_ecoscore_panel ($product_ref, $target_lc, $target_cc, $options_ref, $
 		#     }
 		# }
 
-		create_panel_from_json_template("carbon_footprint", "api/knowledge-panels/environment/carbon_footprint.tt.json",
+		create_panel_from_json_template("carbon_footprint",
+			"api/knowledge-panels/environment/carbon_footprint_food.tt.json",
 			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
 
 		# Add panels for the different bonuses and maluses
@@ -765,6 +766,11 @@ sub create_environment_card_panel ($product_ref, $target_lc, $target_cc, $option
 		}
 	}
 
+	# Create panel for carbon footprint (non-food products, for food products, it is added by create_ecoscore_panel)
+	if ($options{product_type} ne "food") {
+		create_carbon_footprint_panel($product_ref, $target_lc, $target_cc, $options_ref);
+	}
+
 	# Create panel for packaging components, and packaging materials
 	create_panel_from_json_template("packaging_recycling",
 		"api/knowledge-panels/environment/packaging_recycling.tt.json",
@@ -794,6 +800,32 @@ sub create_environment_card_panel ($product_ref, $target_lc, $target_cc, $option
 		create_panel_from_json_template("environment_card", "api/knowledge-panels/environment/environment_card.tt.json",
 		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
 	return 1;
+}
+
+sub create_carbon_footprint_panel($product_ref, $target_lc, $target_cc, $options_ref) {
+
+	# Find the first category that has a carbon_impact_fr_impactco2:en: property
+	my ($value, $category_id)
+		= get_inherited_property_from_categories_tags($product_ref, "carbon_impact_fr_impactco2:en");
+
+	$log->debug("create carbon footprint panel",
+		{code => $product_ref->{code}, category_id => $category_id, value => $value})
+		if $log->is_debug();
+
+	if ($value) {
+
+		my $panel_data_ref = {
+			category_id => $category_id,
+			category_name => display_taxonomy_tag_name($target_lc, "categories", $category_id),
+			co2_kg_per_unit => $value,
+			unit_name => get_property_with_fallbacks("categories", $category_id, "unit_name:$target_lc"),
+			link => get_property("categories", $category_id, "carbon_impact_fr_impactco2_link:en"),
+		};
+
+		create_panel_from_json_template("carbon_footprint",
+			"api/knowledge-panels/environment/carbon_footprint_product.tt.json",
+			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
+	}
 }
 
 =head2 create_manufacturing_place_panel ( $product_ref, $target_lc, $target_cc, $options_ref )

@@ -5850,8 +5850,21 @@ msgstr "Carbon footprint"
 
 # variable names between { } must not be translated
 msgctxt "f_carbon_footprint_per_100g_of_product"
-msgid "{grams} g CO² per 100g of product"
-msgstr "{grams} g CO² per 100g of product"
+msgid "{grams} g CO₂e per 100g of product"
+msgstr "{grams} g CO₂e per 100g of product"
+
+# variable names between { } must not be translated
+msgctxt "f_carbon_footprint_per_unit"
+msgid "{kilograms} kg CO₂e per unit"
+msgstr "{kilograms} kg CO₂e per unit"
+
+msgctxt "average_for_the_category"
+msgid "average for the category"
+msgstr "average for the category"
+
+msgctxt "data_source_and_detailed_carbon_impact"
+msgid "Data source and detailed carbon impact"
+msgstr "Data source and detailed carbon impact"
 
 # variable names between { } must not be translated
 msgctxt "f_equal_to_driving_km_in_a_petrol_car"

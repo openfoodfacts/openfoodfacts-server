@@ -505,7 +505,8 @@ $options{attribute_default_preferences} = {
 };
 
 use JSON::MaybeXS;
-$options{attribute_default_preferences_json} = encode_json($options{attribute_default_preferences});
+$options{attribute_default_preferences_json}
+	= JSON->new->utf8->canonical->encode($options{attribute_default_preferences});
 
 # for ingredients OCR, we use tesseract-ocr
 # on debian, dictionaries are in /usr/share/tesseract-ocr/tessdata

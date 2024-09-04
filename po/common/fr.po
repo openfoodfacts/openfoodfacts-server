@@ -5802,8 +5802,21 @@ msgstr "Empreinte carbone"
 
 # variable names between { } must not be translated
 msgctxt "f_carbon_footprint_per_100g_of_product"
-msgid "{grams} g CO² per 100g of product"
-msgstr "{grams} g de CO² pour 100g de produit"
+msgid "{grams} g CO₂e per 100g of product"
+msgstr "{grams} g CO₂e pour 100g de produit"
+
+# variable names between { } must not be translated
+msgctxt "f_carbon_footprint_per_unit"
+msgid "{kilograms} kg CO₂e per unit"
+msgstr "{kilograms} kg CO₂e par unité"
+
+msgctxt "average_for_the_category"
+msgid "average for the category"
+msgstr "moyenne pour la catégorie"
+
+msgctxt "data_source_and_detailed_carbon_impact"
+msgid "Data source and detailed carbon impact"
+msgstr "Source des données et détail de l'impact carbone"
 
 # variable names between { } must not be translated
 msgctxt "f_equal_to_driving_km_in_a_petrol_car"
