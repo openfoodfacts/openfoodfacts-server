@@ -101159,6 +101159,10 @@ ciqual_food_name:fr: Confiture de cerise (extra ou classique)
 wikidata:en: Q47472139
 
 < en:Jams
+en: Rhubarb-strawberry jams
+nl: Rabarber-aardbeien jams
+
+< en:Jams
 en: Figs jams
 bg: Конфитюр от смокини
 de: Feigenkonfitüren
@@ -107199,6 +107203,7 @@ agribalyse_proxy_food_name:fr: Rhubarbe, tige, crue
 description:en: Rhubarb is a cultivated plant in the genus Rheum in the family Polygonaceae. Rhubarb is stewed with sugar or used in pies and desserts, but it can also be put into savoury dishes or pickled. Rhubarb can be dehydrated and infused with fruit juice.
 # ingredient/fr:rhubarbe has 191 products in 4 languages @2019-05-08
 # category/rhubarbs has 4 products 22019-05-22
+expected_ingredients:en: en:rhubarb
 season_in_country_fr:en: 4,5,6
 wikidata:en: Q20767168
 # plant:wikidata:en:Q7535
@@ -107209,6 +107214,7 @@ en: Fresh rhubarbs
 fr: Rhubarbes fraîches
 hr: Svježe rabarbare
 nl: Verse rabarber
+expected_ingredients:en: en:rhubarb
 
 < en:Vegetable rods
 en: Rhubarb stalk
@@ -107219,6 +107225,7 @@ agribalyse_food_code:en: 13047
 ciqual_food_code:en: 13047
 ciqual_food_name:en: Rhubarb, stalk, raw
 ciqual_food_name:fr: Rhubarbe, tige, crue
+expected_ingredients:en: en:rhubarb
 
 < en:Rhubarb stalk
 en: Rhubarb stalk cooked with sugar
@@ -107231,6 +107238,7 @@ ciqual_food_name:fr: Rhubarbe, tige, cuite, sucrée
 < en:Rhubarb stalk
 en: Frozen rhubarb stalk
 fr: Tiges de rhubarbe surgelées
+expected_ingredients:en: en:rhubarb
 
 < en:Leaf vegetables
 en: Romanesco, Romanesco broccoli, Romanesque cauliflower, romanesco cauliflower
