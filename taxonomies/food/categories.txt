@@ -107099,7 +107099,7 @@ hr: Daikon rotkvice
 ja: ダイコン, 大根, だいこん
 la: Raphanus sativus var. longipinnatus
 nl: Daikon radijs
-expected_ingredients:en: en:diakon radish
+expected_ingredients:en: en:daikon radish
 wikidata:en: Q7224757
 # Not sure what to do with ja: translation, 「ダイコン」 seems to have a complex relationship with "radish".
 
@@ -107109,16 +107109,23 @@ en: Fresh red cabbage
 es: Lombarda fresca
 fr: Choux rouges frais
 hr: Svježi crveni kupus
+expected_ingredients:en: en:taro
 
 < en:Vegetables
 en: Taro tubers
 fr: Tubercules de taro
+ja: タロイモ
+nl: Taro
+< en: Taro tubers
+en: Fresh taro tubers
+fr: Tubercules de taro fraiches
 hr: Taro gomolji
 ja: タロイモ
 agribalyse_food_code:en: 53200
 ciqual_food_code:en: 53200
 ciqual_food_name:en: Taro, tuber, raw
 ciqual_food_name:fr: Taro, tubercule, cru
+expected_ingredients:en: en:taro
 
 < en:Cooked vegetables
 < en:Taro tubers
@@ -107196,7 +107203,6 @@ wikidata:en: Q20767168
 # plant:wikidata:en:Q7535
 wikipedia:en: https://en.wikipedia.org/wiki/Rhubarb
 
-< en:Fresh fruits
 < en:Rhubarbs
 en: Fresh rhubarbs
 fr: Rhubarbes fraîches
