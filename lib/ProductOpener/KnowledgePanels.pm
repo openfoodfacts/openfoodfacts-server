@@ -241,6 +241,12 @@ sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref,
 		$has_contribution_card = create_contribution_card_panel($product_ref, $target_lc, $target_cc, $options_ref);
 	}
 
+	my $has_secondhand_card;
+	if ($panel_is_requested->('secondhand_card')) {
+		$has_secondhand_card
+			= create_secondhand_card_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+	}
+
 	# Create the root panel that contains the panels we want to show directly on the product page
 	create_panel_from_json_template(
 		"root",
@@ -250,6 +256,7 @@ sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref,
 			has_report_problem_card => $has_report_problem_card,
 			has_contribution_card => $has_contribution_card,
 			has_environment_card => $has_environment_card,
+			has_secondhand_card => $has_secondhand_card,
 		},
 		$product_ref,
 		$target_lc,
@@ -796,9 +803,72 @@ sub create_environment_card_panel ($product_ref, $target_lc, $target_cc, $option
 	}
 
 	# Create the environment_card panel
-	$panel_data_ref->{packaging_image} = data_to_display_image($product_ref, "packaging", $target_lc),
-		create_panel_from_json_template("environment_card", "api/knowledge-panels/environment/environment_card.tt.json",
+	$panel_data_ref->{packaging_image} = data_to_display_image($product_ref, "packaging", $target_lc);
+	create_panel_from_json_template("environment_card", "api/knowledge-panels/environment/environment_card.tt.json",
 		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
+	return 1;
+}
+
+=head2 create_secondhand_card_panel ( $product_ref, $target_lc, $target_cc, $options_ref )
+
+Creates a knowledge panel card that contains all knowledge panels related to the circular economy:
+- sharing, buying, selling etc.
+
+Created for products in specific categories, for users in specific countries.
+
+=head3 Arguments
+
+=head4 product reference $product_ref
+
+Loaded from the MongoDB database, Storable files, or the OFF API.
+
+=head4 language code $target_lc
+
+Returned attributes contain both data and strings intended to be displayed to users.
+This parameter sets the desired language for the user facing strings.
+
+=head4 country code $target_cc
+
+Used to select secondhand options (e.g. classified ads sites) that are relevant for the user.
+=cut
+
+sub create_secondhand_card_panel ($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
+
+	$log->debug("create secondhand card panel", {code => $product_ref->{code}}) if $log->is_debug();
+
+	my $panel_data_ref = {};
+
+	# Only available for the product_type "product"
+	if ($options{product_type} ne "product") {
+		return 0;
+	}
+
+	# Add the name of the most specific category (last in categories_hierarchy) to the panel data
+	my $category_id = $product_ref->{categories_hierarchy}[-1];
+	$panel_data_ref->{category_name} = display_taxonomy_tag_name($target_lc, "categories", $category_id);
+
+	# Create paneld for donations
+
+	create_panel_from_json_template("donated_products_fr_geev",
+		"api/knowledge-panels/secondhand/donated_products_fr_geev.tt.json",
+		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
+
+	create_panel_from_json_template("donated_products", "api/knowledge-panels/secondhand/donated_products.tt.json",
+		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
+
+	# Created panels for buying used products
+	create_panel_from_json_template("used_products_fr_backmarket",
+		"api/knowledge-panels/secondhand/used_products_fr_backmarket.tt.json",
+		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
+
+	create_panel_from_json_template("used_products", "api/knowledge-panels/secondhand/used_products.tt.json",
+		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
+
+	# Create the secondhand_card panel
+
+	create_panel_from_json_template("secondhand_card", "api/knowledge-panels/secondhand/secondhand_card.tt.json",
+		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
+
 	return 1;
 }
 

@@ -1,11 +1,13 @@
 # Properties:
 #
-# unit_name:en: Name of 1 product unit, e.g. for the category "Books" -> "book". Used in particular for carbon footprint equivalent: 1 smartphone = 85.9 kg CO2e
-# carbon_impact_fr_impactco2:en: co2 equivalent in kg per unit (1 product) from https://impactco2.fr/
-# carbon_impact_fr_impactco2_link:en: URL for the category on https://impactco2.fr/
+# - unit_name:en: Name of 1 product unit, e.g. for the category "Books" -> "book". Used in particular for carbon footprint equivalent: 1 smartphone = 85.9 kg CO2e
+#
+# - carbon_impact_fr_impactco2:en: co2 equivalent in kg per unit (1 product) from https://impactco2.fr/
+# - carbon_impact_fr_impactco2_link:en: URL for the category on https://impactco2.fr/
 
 en: Electronic products, electronics
 fr: Appareils électroniques
+secondhand_used:en: backmarket
 
 < en: electronic products
 en: Digital tablets
@@ -26,6 +28,15 @@ carbon_impact_fr_impactco2:en: 85.9
 carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/numerique/smartphone
 unit_name:xx: smartphone
 unit_name:en: smartphone
+
+< en: Smartphones
+en: Android smartphones
+fr: Smartphones Android
+
+< en: Smartphones
+en: iPhone smartphones
+xx: iPhone, iPhones
+fr: Smartphones iPhone
 
 en: Clothes
 fr: Vêtements
