@@ -68,8 +68,8 @@ if (user_agent() =~ /apps-spreadsheets/) {
 }
 
 $request_ref->{search} = 1;
-# api_action is required for `check_and_update_rate_limits`
-$request_ref->{api_action} = 'search';
+# rate_limiter_bucket is required for `check_and_update_rate_limits`
+$request_ref->{rate_limiter_bucket} = 'search';
 
 check_and_update_rate_limits($request_ref);
 

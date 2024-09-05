@@ -111,7 +111,6 @@ BEGIN {
 
 		&extract_text_from_image
 		&send_image_to_cloud_vision
-		&send_image_to_robotoff
 
 		@CLOUD_VISION_FEATURES_FULL
 		@CLOUD_VISION_FEATURES_TEXT
@@ -2247,56 +2246,6 @@ sub send_image_to_cloud_vision ($image_path, $json_file, $features_ref, $gv_logs
 	}
 	return $cloudvision_ref;
 
-}
-
-=head2 send_image_to_robotoff ($code, $image_url, $json_url, $api_server_domain)
-
-Send a notification about a new image (already gone through OCR) to Robotoff
-
-=head3 Arguments
-
-=head4 $code - product code
-
-=head4 $image_url - public url of the image
-
-=head4 $json_url - public url of OCR result as JSON
-
-=head4 $api_server_domain - the API url for this product opener instance
-
-=head3 Response
-
-Return Robotoff HTTP::Response object.
-
-=cut
-
-sub send_image_to_robotoff ($code, $image_url, $json_url, $api_server_domain) {
-
-	my $ua = LWP::UserAgent->new();
-
-	my $robotoff_response = $ua->post(
-		$robotoff_url . "/api/v1/images/import",
-		{
-			'barcode' => $code,
-			'image_url' => $image_url,
-			'ocr_url' => $json_url,
-			'server_domain' => $api_server_domain,
-		}
-	);
-
-	if ($robotoff_response->is_success) {
-		$log->info("request to robotoff was successful") if $log->is_info();
-	}
-	else {
-		$log->warn(
-			"robotoff request not successful",
-			{
-				code => $robotoff_response->code,
-				response => $robotoff_response->message,
-				status_line => $robotoff_response->status_line
-			}
-		) if $log->is_warn();
-	}
-	return $robotoff_response;
 }
 
 1;

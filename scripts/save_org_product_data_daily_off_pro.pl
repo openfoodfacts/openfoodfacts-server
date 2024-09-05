@@ -151,7 +151,7 @@ sub update_org_data ($org_id) {
 
 	# sync crm
 	update_public_products($org_ref, $org_ref->{data}{products}{number_of_products_on_public_platform});
-	update_pro_products($org_ref), $org_ref->{data}{products}{number_of_products_on_producer_platform};
+	update_pro_products($org_ref, $org_ref->{data}{products}{number_of_products_on_producer_platform});
 
 	store($org_ref, $org_file_path);
 	return;
