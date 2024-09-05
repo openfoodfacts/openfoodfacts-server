@@ -226,6 +226,8 @@ sub save_product_field_value_for_year($product_ref, $field_to_extract, $year, $v
 		$value = deep_get($product_ref, split(/\./, $field_to_extract));
 	}
 	$value_per_year_ref->{$year} = $value;
+
+	return;
 }
 
 foreach my $code (@codes) {
