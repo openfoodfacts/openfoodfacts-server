@@ -107188,7 +107188,7 @@ ciqual_food_name:en: Cassava or manioc, roots, cooked
 ciqual_food_name:fr: Manioc, racine cuite
 
 < en:Vegetable rods
-en: Rhubarbs, Rhubarb
+en: Rhubarb, Rhubarbs, Rhubarb stalk
 bg: Ревен
 cs: rebarbora
 da: Rabarber
@@ -107196,11 +107196,11 @@ de: Rhabarber
 es: Ruibarbos, Ruibarbo
 et: rabarber
 fi: raparperi
-fr: Rhubarbes, Rhubarbe
+fr: Rhubarbes, Rhubarbe, Tiges de rhubarbe
 ga: Biabhóg
-hr: Rabarbare, Rabarbara
+hr: Rabarbare, Rabarbara, Stabljika rabarbare
 it: rabarbaro
-ja: ルバーブ, ショクヨウダイオウ, 食用大黄
+ja: ルバーブ, ショクヨウダイオウ, 食用大黄, ルバーブの葉柄
 la: Rheum
 lt: Rabarbaras, Rabarbarai
 lv: rabarber
@@ -107223,24 +107223,18 @@ wikidata:en: Q20767168
 # plant:wikidata:en:Q7535
 wikipedia:en: https://en.wikipedia.org/wiki/Rhubarb
 
-< en:Rhubarbs
-en: Fresh rhubarbs
+< en:Rhubarb
+en: Fresh rhubarb, fresh rhubarbs
 fr: Rhubarbes fraîches
 hr: Svježe rabarbare
 nl: Verse rabarber
-
-< en:Vegetable rods
-en: Rhubarb stalk
-fr: Tiges de rhubarbe
-hr: Stabljika rabarbare
-ja: ルバーブの葉柄
 agribalyse_food_code:en: 13047
 ciqual_food_code:en: 13047
 ciqual_food_name:en: Rhubarb, stalk, raw
 ciqual_food_name:fr: Rhubarbe, tige, crue
 expected_ingredients:en: en:rhubarb
 
-#< en:Rhubarb stalk
+#< en:Rhubarb
 #en: Rhubarb stalk cooked with sugar
 #fr: Tiges de rhubarbe cuites sucrées
 #agribalyse_food_code:en: 13048
@@ -107251,7 +107245,7 @@ expected_ingredients:en: en:rhubarb
 # no products at 5 sep 2024
 
 < en:Frozen vegetables
-< en:Rhubarb stalk
+< en:Rhubarb
 en: Frozen rhubarb stalk
 fr: Tiges de rhubarbe surgelées
 nl: Diepvriesrabarber
