@@ -176,7 +176,7 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die get_file_for_taxonomy get_path_for_taxonomy/;
+use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die get_files_for_taxonomy get_path_for_taxonomy_file/;
 use ProductOpener::Lang qw/$lc  %Lang %tag_type_singular lang/;
 use ProductOpener::Text qw/normalize_percentages regexp_escape/;
 use ProductOpener::PackagerCodes qw/localize_packager_code normalize_packager_codes/;
@@ -1114,7 +1114,7 @@ sub get_from_cache ($tagtype, @files) {
 
 	foreach my $source_file (@files) {
 		# The source file can be prefixed by the product type
-		my $source_path = get_path_for_taxonomy($source_file, $options{product_type});
+		my $source_path = get_path_for_taxonomy_file($source_file);
 		open(my $IN, "<", $source_path)
 			or die("Cannot open $source_path (tagtype: $tagtype - product_type: $options{product_type}): $!\n");
 
@@ -1239,11 +1239,12 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 	my $result_dir = "$BASE_DIRS{CACHE_BUILD}/taxonomies-result/";
 	ensure_dir_created_or_die("$result_dir");
 
-	my @files = ($tagtype);
+	# Some taxonomy tag types include other tag types (e.g. origins includes countries)
+	my @tagtypes = ($tagtype);
 
 	# For the origins taxonomy, include the countries taxonomy
 	if ($tagtype eq "origins") {
-		@files = ("countries", "origins");
+		@tagtypes = ("countries", "origins");
 	}
 
 	# For the Open Food Facts ingredients taxonomy, concatenate additives, minerals, vitamins, nucleotides and other nutritional substances taxonomies
@@ -1251,7 +1252,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 		and (defined $options{product_type})
 		and (($options{product_type} eq "food") or ($options{product_type} eq "petfood")))
 	{
-		@files = (
+		@tagtypes = (
 			"additives_classes", "additives", "minerals", "vitamins",
 			"nucleotides", "other_nutritional_substances", "ingredients"
 		);
@@ -1259,14 +1260,27 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 
 	# Packaging
 	elsif (($tagtype eq "packaging")) {
-		@files = ("packaging_materials", "packaging_shapes", "packaging_recycling", "preservation");
+		@tagtypes = ("packaging_materials", "packaging_shapes", "packaging_recycling", "preservation");
 	}
 
 	# Traces - just a copy of allergens
 	elsif ($tagtype eq "traces") {
-		@files = ("allergens");
+		@tagtypes = ("allergens");
 	}
 
+	# List the individual taxonomy source files for all included tag types
+	# Each tag type can have a common and/or a product type specific source file.
+
+	my @files = ();
+	foreach my $tagtype (@tagtypes) {
+		my @tagtype_files = get_files_for_taxonomy($tagtype, $options{product_type});
+		if (scalar @tagtype_files == 0) {
+			die("No taxonomy file(s) found for $tagtype\n");
+		}
+		push @files, @tagtype_files;
+	}
+
+	# Check if we already have a cached version of the taxonomy
 	my $cache_prefix = get_from_cache($tagtype, @files);
 	if (!$cache_prefix) {
 		return;
@@ -1275,20 +1289,22 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 	print("building taxonomy for $tagtype - publish: $publish\n");
 
 	# Concatenate taxonomy files if needed
-	my $file = get_file_for_taxonomy($tagtype, $options{product_type});
-	my $file_path = get_path_for_taxonomy($tagtype, $options{product_type});
-	if ((scalar @files) > 1) {
-		$file = "$tagtype.all.txt";
-		$file_path = "$result_dir/$file";
+	my $file_path;
+	if ((scalar @files) == 1) {
+		# Only 1 file
+		$file_path = get_path_for_taxonomy_file($files[0]);
+	}
+	else {
+		# Multiple files
+		$file_path = "$result_dir/$tagtype.all.txt";
 
 		open(my $OUT, ">:encoding(UTF-8)", $file_path)
 			or die("Cannot write $file_path : $!\n");
 
-		foreach my $taxonomy (@files) {
-			my $taxonomy_file = get_file_for_taxonomy($taxonomy, $options{product_type});
-			my $taxonomy_path = get_path_for_taxonomy($taxonomy, $options{product_type});
+		foreach my $taxonomy_file (@files) {
+			my $taxonomy_path = get_path_for_taxonomy_file($taxonomy_file);
 			open(my $IN, "<:encoding(UTF-8)", $taxonomy_path)
-				or die("Missing $taxonomy_path\n");
+				or die("Cannot open $taxonomy_path: $!\n");
 
 			print $OUT "# $taxonomy_file\n\n";
 
