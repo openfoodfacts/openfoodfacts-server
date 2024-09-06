@@ -6,6 +6,7 @@ on:
       - labeled
       - opened
       - transferred
+      - edited
 
 jobs:
   add-to-projects:
