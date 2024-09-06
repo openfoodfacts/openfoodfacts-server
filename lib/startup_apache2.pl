@@ -64,7 +64,7 @@ use ProductOpener::Config qw/:all/;
 use Log::Any qw($log);
 use Log::Log4perl;
 # Init log4perl from a config file
-Log::Log4perl->init(ENV{LOG4PERL_CONF} // "$conf_root/log.conf");
+Log::Log4perl->init($ENV{LOG4PERL_CONF} // "$conf_root/log.conf");
 use Log::Any::Adapter;
 Log::Any::Adapter->set('Log4perl');    # Send all logs to Log::Log4perl
 
