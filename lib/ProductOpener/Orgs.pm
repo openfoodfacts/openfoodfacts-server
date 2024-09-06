@@ -170,9 +170,9 @@ sub store_org ($org_ref) {
 	my $previous_org_ref = retrieve("$BASE_DIRS{ORGS}/$org_ref->{org_id}.sto");
 
 	if (   (defined $previous_org_ref)
-		&& $previous_org_ref->{valid_org} ne 'accepted'
-		&& $org_ref->{valid_org} eq 'accepted'
-		&& not sync_org_with_crm($org_ref, $User_id))
+		&& ($previous_org_ref->{valid_org} ne 'accepted')
+		&& ($org_ref->{valid_org} eq 'accepted')
+		&& (not sync_org_with_crm($org_ref, $User_id)))
 	{
 		$org_ref->{valid_org} = 'unreviewed';
 	}
