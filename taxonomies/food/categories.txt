@@ -107359,16 +107359,17 @@ intake24_category_code:en: SPNC
 intake24_category_code:fr: SPNC
 wikidata:en: Q81464
 
-< en:Cooked vegetables
-< en:Spinachs
-en: Cooked spinach
-fr: Épinards cuits
-hr: Kuhani špinat
-pl: Szpinak gotowany
-agribalyse_food_code:en: 20027
-ciqual_food_code:en: 20027
-ciqual_food_name:en: Spinach, cooked
-ciqual_food_name:fr: Épinard, cuit
+#< en:Cooked vegetables
+#< en:Spinachs
+#en: Cooked spinach
+#fr: Épinards cuits
+#hr: Kuhani špinat
+#pl: Szpinak gotowany
+#agribalyse_food_code:en: 20027
+#ciqual_food_code:en: 20027
+#ciqual_food_name:en: Spinach, cooked
+#ciqual_food_name:fr: Épinard, cuit
+# no products on 7 sep 2024
 
 < en:Fresh vegetables
 < en:Spinachs
@@ -107381,15 +107382,19 @@ fr: Épinards frais
 hr: Svježi špinat
 nl: Verse spinazies
 pl: Szpinak świeży
+expected_ingredients:en: en:spinach
+opposite:en: en:frozen-spinachs
+sales_format:en: package, weight
 season_in_country_fr:en: 1,2,3,4,5,9,10,11,12
 
 < en:Spinachs
-en: Spinach young leaves
+en: Young spinach leaves, Spinach young leaves
 fr: Jeunes pousses d'épinards pour salades
 agribalyse_food_code:en: 20270
 ciqual_food_code:en: 20270
 ciqual_food_name:en: Spinach, young leaves, raw
 ciqual_food_name:fr: Épinard, jeunes pousses pour salades, cru
+expected_ingredients:en: en:spinach
 
 < en:Canned vegetables
 < en:Spinachs
@@ -107430,6 +107435,7 @@ agribalyse_food_code:en: 20083
 ciqual_food_code:en: 20083
 ciqual_food_name:en: Spinach, frozen, raw
 ciqual_food_name:fr: Épinard, surgelé, cru
+opposite:en: en:fresh-spinachs
 
 < en:Frozen spinachs
 en: Frozen chopped spinachs
@@ -107450,13 +107456,14 @@ hr: Smrznuto lišće špinata
 nl: Diepvries bladspinazies
 opposite:en: en:frozen-chopped-spinachs
 
-< en:Frozen spinachs
-en: Frozen cooked spinach
-fr: Épinards surgelés cuits
-agribalyse_food_code:en: 20121
-ciqual_food_code:en: 20121
-ciqual_food_name:en: Spinach, frozen, cooked
-ciqual_food_name:fr: Épinard, surgelé, cuit
+#< en:Frozen spinachs
+#en: Frozen cooked spinach
+#fr: Épinards surgelés cuits
+#agribalyse_food_code:en: 20121
+#ciqual_food_code:en: 20121
+#ciqual_food_name:en: Spinach, frozen, cooked
+#ciqual_food_name:fr: Épinard, surgelé, cuit
+# no products on 7 sep 2024
 
 < en:Prepared vegetables
 en: Prepared spinachs
