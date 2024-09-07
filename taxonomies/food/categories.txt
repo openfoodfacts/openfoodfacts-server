@@ -1235,6 +1235,7 @@ gpc_category_name:en: Beverages Variety Packs
 
 < en:Beverages
 en: Half iced tea and half lemonade
+incompatible_with:en: categories:en:Half milk and half cream
 
 en: Fermented foods
 ar: الأطعمة المخمرة
@@ -49469,7 +49470,7 @@ ciqual_food_name:fr: Fromage frais type petit suisse, nature, 10% MG environ
 # Half milk and half cream (or Half and half) is a common preparation in the USA which is used in coffee or with breakfast cereals
 < en:Dairies
 en: Half milk and half cream, half and half
-incompatible_with:en: categories:en:milks, categories:en:creams
+incompatible_with:en: categories:en:milks, categories:en:creams, categories:en:Half iced tea and half lemonade
 
 #this category is not made for vegan products but for dairy products used in replacement of cream
 < en:Dairies
