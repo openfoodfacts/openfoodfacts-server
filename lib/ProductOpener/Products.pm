@@ -116,6 +116,8 @@ BEGIN {
 
 		&analyze_and_enrich_product_data
 
+		&is_owner_field
+
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -410,6 +412,8 @@ Boolean value indicating if the code is valid or not.
 =cut
 
 sub is_valid_code ($code) {
+	# Return an empty string if $code is undef
+	return '' if !defined $code;
 	return $code =~ /^\d{4,24}$/;
 }
 
@@ -866,79 +870,6 @@ sub init_product ($userid, $orgid, $code, $countryid) {
 	return $product_ref;
 }
 
-=head2 send_notification_for_product_change ( $user_id, $product_ref, $action, $comment, $diffs )
-
-Notify Robotoff when products are updated or deleted.
-
-=head3 Parameters
-
-=head4 $user_id
-
-ID of the user that triggered the update/deletion (String, may be undefined)
-
-=head4 $product_ref
-
-Reference to the updated/deleted product.
-
-=head4 $action
-
-The action performed, either `deleted` or `updated` (String).
-
-=head4 $comment
-
-The update comment (String)
-
-=head4 $diffs
-
-The `diffs` of the update (Hash)
-
-=cut
-
-sub send_notification_for_product_change ($user_id, $product_ref, $action, $comment, $diffs) {
-
-	if ((defined $robotoff_url) and (length($robotoff_url) > 0)) {
-		my $ua = LWP::UserAgent->new();
-		my $endpoint = "$robotoff_url/api/v1/webhook/product";
-		$ua->timeout(2);
-		my $diffs_json_text = encode_json($diffs);
-
-		$log->debug(
-			"send_notif_robotoff_product_update",
-			{
-				endpoint => $endpoint,
-				barcode => $product_ref->{code},
-				action => $action,
-				server_domain => "api." . $server_domain,
-				user_id => $user_id,
-				comment => $comment,
-				diffs => $diffs_json_text
-			}
-		) if $log->is_debug();
-		my $response = $ua->post(
-			$endpoint,
-			{
-				'barcode' => $product_ref->{code},
-				'action' => $action,
-				'server_domain' => "api." . $server_domain,
-				'user_id' => $user_id,
-				'comment' => $comment,
-				'diffs' => $diffs_json_text
-			}
-		);
-		$log->debug(
-			"send_notif_robotoff_product_update",
-			{
-				endpoint => $endpoint,
-				is_success => $response->is_success,
-				code => $response->code,
-				status_line => $response->status_line
-			}
-		) if $log->is_debug();
-	}
-
-	return;
-}
-
 sub retrieve_product ($product_id) {
 
 	my $path = product_path_from_id($product_id);
@@ -1173,6 +1104,7 @@ sub store_product ($user_id, $product_ref, $comment) {
 	my $product_id = $product_ref->{_id};
 	my $path = product_path($product_ref);
 	my $rev = $product_ref->{rev};
+	my $action = "updated";
 
 	$log->debug(
 		"store_product - start",
@@ -1217,6 +1149,13 @@ sub store_product ($user_id, $product_ref, $comment) {
 			}
 		) if $log->is_debug();
 		$delete_from_previous_products_collection = 1;
+
+		if ($product_ref->{obsolete} eq 'on') {
+			$action = "archived";
+		}
+		elsif ($product_ref->{was_obsolete} eq 'on') {
+			$action = "unarchived";
+		}
 	}
 	delete $product_ref->{was_obsolete};
 
@@ -1497,12 +1436,15 @@ sub store_product ($user_id, $product_ref, $comment) {
 
 	$log->debug("store_product - done", {code => $code, product_id => $product_id}) if $log->is_debug();
 
-	my $update_type = $product_ref->{deleted} ? "deleted" : "updated";
-	# Publish information about update on Redis stream
-	push_to_redis_stream($user_id, $product_ref, $update_type, $comment, $diffs);
+	if ($product_ref->{deleted}) {
+		$action = "deleted";
+	}
+	elsif ($rev == 1) {
+		$action = "created";
+	}
 
-	# Notify Robotoff
-	send_notification_for_product_change($user_id, $product_ref, $update_type, $comment, $diffs);
+	# Publish information about update on Redis stream
+	push_to_redis_stream($user_id, $product_ref, $action, $comment, $diffs);
 
 	return 1;
 }
@@ -2338,12 +2280,12 @@ sub compute_product_history_and_completeness ($product_data_root, $current_produ
 					my $number_of_units = $packagings_ref->{number_of_units};
 					my $weight_measured = $packagings_ref->{weight_measured};
 
-					$packagings_data_signature .= "number_of_units:" . $number_of_units . ',';
+					$packagings_data_signature .= "number_of_units:" . ($number_of_units // '') . ',';
 					foreach my $property (qw(shape material recycling quantity_per_unit)) {
-						$packagings_data_signature .= $property . ":" . ($packagings_ref->{$property} || '') . ',';
+						$packagings_data_signature .= $property . ":" . ($packagings_ref->{$property} // '') . ',';
 					}
 					$packagings_data_signature .= "\n";
-					$packagings_weights_signature .= ($weight_measured || '') . "\n";
+					$packagings_weights_signature .= ($weight_measured // '') . "\n";
 				}
 				# If the signature is empty or contains only line feeds, we don't have data
 				if ($packagings_data_signature !~ /^\s*$/) {
@@ -3527,7 +3469,7 @@ sub remove_fields ($product_ref, $fields_ref) {
 	return;
 }
 
-=head2 add_images_urls_to_product ($product_ref, $target_lc)
+=head2 add_images_urls_to_product ($product_ref, $target_lc, $specific_imagetype = undef)
 
 Add fields like image_[front|ingredients|nutrition|packaging]_[url|small_url|thumb_url] to a product object.
 
@@ -3544,15 +3486,28 @@ Reference to a complete product a subfield.
 
 2 language code of the preferred language for the product images.
 
+=head4 $specific_imagetype
+
+Optional parameter to specify the type of image to add. Default is to add all types.
+
 =cut
 
-sub add_images_urls_to_product ($product_ref, $target_lc) {
+sub add_images_urls_to_product ($product_ref, $target_lc, $specific_imagetype = undef) {
 
 	my $images_subdomain = format_subdomain('images');
 
 	my $path = product_path($product_ref);
 
-	foreach my $imagetype ('front', 'ingredients', 'nutrition', 'packaging') {
+	# If $imagetype is specified (e.g. "front" when we display a list of products), only compute the image for this type
+	my @imagetypes;
+	if (defined $specific_imagetype) {
+		@imagetypes = ($specific_imagetype);
+	}
+	else {
+		@imagetypes = ('front', 'ingredients', 'nutrition', 'packaging');
+	}
+
+	foreach my $imagetype (@imagetypes) {
 
 		my $size = $display_size;
 
@@ -3705,4 +3660,31 @@ sub analyze_and_enrich_product_data ($product_ref, $response_ref) {
 	}
 
 	return;
+}
+
+=head2 is_owner_field($product_ref, $field)
+
+Return 1 if the field value was provided by the owner (producer) and the field is not a tag field.
+
+=cut
+
+sub is_owner_field ($product_ref, $field) {
+
+	if (
+		(defined $product_ref->{owner_fields})
+		and (
+			(defined $product_ref->{owner_fields}{$field})
+			# If the producer sent a field value for salt or sodium, the other value was automatically computed
+			or (($field =~ /^salt/) and (defined $product_ref->{owner_fields}{"sodium" . $'}))
+			or (($field =~ /^sodium/) and (defined $product_ref->{owner_fields}{"salt" . $'}))
+		)
+		# Even if the producer sent a tag field value, it was merged with existing values,
+		# and may have been updated by a contributor (e.g. to add a more precise category)
+		# So we don't consider them to be owner fields
+		and (not defined $tags_fields{$field})
+		)
+	{
+		return 1;
+	}
+	return 0;
 }

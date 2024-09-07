@@ -51,6 +51,7 @@ BEGIN {
 		&get_emb_codes_collection
 		&get_recent_changes_collection
 		&remove_documents_by_ids
+		&get_orgs_collection
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -63,7 +64,7 @@ use experimental 'smartmatch';
 use ProductOpener::Config qw/:all/;
 
 use MongoDB;
-use JSON::PP;
+use JSON::MaybeXS;
 use CGI ':cgi-lib';
 use Log::Any qw($log);
 
@@ -118,6 +119,9 @@ sub execute_count_tags_query ($query) {
 	return execute_tags_query('count', $query);
 }
 
+# $json_utf8 has utf8 enabled: it decodes UTF8 bytes
+my $json_utf8 = JSON::MaybeXS->new->utf8(1)->allow_nonref->canonical;
+
 sub execute_tags_query ($type, $query) {
 	if ((defined $query_url) and (length($query_url) > 0)) {
 		$query_url =~ s/^\s+|\s+$//g;
@@ -136,7 +140,7 @@ sub execute_tags_query ($type, $query) {
 			'Content-Type' => 'application/json; charset=utf-8'
 		);
 		if ($resp->is_success) {
-			return decode_json($resp->decoded_content);
+			return $json_utf8->decode($resp->decoded_content);
 		}
 		else {
 			$log->warn(
@@ -200,6 +204,10 @@ sub get_emb_codes_collection ($timeout = undef) {
 
 sub get_recent_changes_collection ($timeout = undef) {
 	return get_collection($mongodb, 'recent_changes', $timeout);
+}
+
+sub get_orgs_collection ($timeout = undef) {
+	return get_collection($mongodb, 'orgs', $timeout);
 }
 
 sub get_collection ($database, $collection, $timeout = undef) {

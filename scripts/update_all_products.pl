@@ -36,8 +36,10 @@ it is likely that the MongoDB cursor of products to be updated will expire, and 
 
 --count		do not do any processing, just count the number of products matching the --query options
 --just-print-codes	do not do any processing, just print the barcodes
---query some_field=some_value (e.g. categories_tags=en:beers)	filter the products
+--query some_field=some_value (e.g. categories_tags=en:beers)	filter the products (--query parameters can be repeated to have multiple filters)
 --query some_field=-some_value	match products that don't have some_value for some_field
+--query some_field=value1,value2	match products that have value1 and value2 for some_field (must be a _tags field)
+--query some_field=value1\|value2	match products that have value1 or value2 for some_field (must be a _tags field)
 --analyze-and-enrich-product-data	run all the analysis and enrichments
 --process-ingredients	compute allergens, additives detection
 --clean-ingredients	remove nutrition facts, conservation conditions etc.
@@ -86,7 +88,7 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 use Data::DeepAccess qw(deep_get deep_exists deep_set);
 use Data::Compare;
 
@@ -150,11 +152,11 @@ my $obsolete = 0;
 my $fix_obsolete;
 my $fix_last_modified_t;    # Will set the update key and ensure last_updated_t is initialised
 
-my $query_ref = {};    # filters for mongodb query
+my $query_params_ref = {};    # filters for mongodb query
 
 GetOptions(
 	"key=s" => \$key,    # string
-	"query=s%" => $query_ref,
+	"query=s%" => $query_params_ref,
 	"count" => \$count,
 	"just-print-codes" => \$just_print_codes,
 	"fields=s" => \@fields_to_update,
@@ -286,7 +288,8 @@ if (    (not $process_ingredients)
 	and (not $prefix_packaging_tags_with_language)
 	and (not $assign_ciqual_codes)
 	and (not $fix_obsolete)
-	and (not $fix_last_modified_t))
+	and (not $fix_last_modified_t)
+	and (not $analyze_and_enrich_product_data))
 {
 	die("Missing fields to update or --count option:\n$usage");
 }
@@ -303,42 +306,10 @@ load_data();
 # Get a list of all products not yet updated
 # Use query filters entered using --query categories_tags=en:plant-milks
 
-use boolean;
+# Build the mongodb query from the --query parameters
+my $query_ref = {};
 
-foreach my $field (sort keys %{$query_ref}) {
-
-	my $not = 0;
-
-	if ($query_ref->{$field} =~ /^-/) {
-		$query_ref->{$field} = $';
-		$not = 1;
-	}
-
-	if ($query_ref->{$field} eq 'null') {
-		# $query_ref->{$field} = { '$exists' => false };
-		$query_ref->{$field} = undef;
-	}
-	elsif ($query_ref->{$field} eq 'exists') {
-		$query_ref->{$field} = {'$exists' => true};
-	}
-	elsif ($field =~ /_t$/) {    # created_t, last_modified_t etc.
-		$query_ref->{$field} += 0;
-	}
-	# Multiple values separated by commas
-	elsif ($query_ref->{$field} =~ /,/) {
-		my @tagids = split(/,/, $query_ref->{$field});
-
-		if ($not) {
-			$query_ref->{$field} = {'$nin' => \@tagids};
-		}
-		else {
-			$query_ref->{$field} = {'$in' => \@tagids};
-		}
-	}
-	elsif ($not) {
-		$query_ref->{$field} = {'$ne' => $query_ref->{$field}};
-	}
-}
+add_params_to_query($query_params_ref, $query_ref);
 
 # Query products that have the _id field stored as a number
 if ($fix_non_string_ids) {
@@ -1089,7 +1060,7 @@ while (my $product_ref = $cursor->next) {
 
 		# This option runs all the data enrichment functions
 		if ($analyze_and_enrich_product_data) {
-			analyze_and_enrich_product_data($product_ref);
+			analyze_and_enrich_product_data($product_ref, {});
 		}
 
 		# Many of the options below are included in the analyze_and_enrich_product_data option
@@ -1474,9 +1445,15 @@ while (my $product_ref = $cursor->next) {
 
 				# Push to redis stream only if the product was changed (apart from its update_key)
 				if ($any_change) {
-					$products_pushed_to_redis++;
-					print STDERR ". Pushed to Redis stream";
-					push_to_redis_stream('update_all_products', $product_ref, "updated", $comment, {});
+					# On producers platform, do not push to Redis
+					if ((defined $server_options{private_products}) and ($server_options{private_products})) {
+						print STDERR ". Not pushed to Redis stream (on producers platform)";
+					}
+					else {
+						$products_pushed_to_redis++;
+						print STDERR ". Pushed to Redis stream";
+						push_to_redis_stream('update_all_products', $product_ref, "reprocessed", $comment, {});
+					}
 				}
 				else {
 					print STDERR ". Not pushed to Redis stream";
