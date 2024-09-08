@@ -218,7 +218,7 @@ Gets the link to the account service on Keycloak.
 
 =head3 Arguments
 
-None
+=head4 Canonical URL of the current site string $url
 
 =head3 Return values
 
@@ -226,8 +226,13 @@ Returns the URL.
 
 =cut
 
-sub get_account_link ($self) {
-	return $self->{account_service};
+sub get_account_link ($self, $url) {
+	return
+		  $self->{account_service}
+		. '?referrer='
+		. uri_escape($oidc_options{client_id})
+		. '&referrer_uri='
+		. uri_escape($url);
 }
 
 1;
