@@ -1,5 +1,25 @@
 # Changelog
 
+## [2.44.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.43.0...v2.44.0) (2024-09-09)
+
+
+### Features
+
+* 99 French "indice de durabilité" Label images ([#10734](https://github.com/openfoodfacts/openfoodfacts-server/issues/10734)) ([be46cf8](https://github.com/openfoodfacts/openfoodfacts-server/commit/be46cf8683c5823f3714f9cfc418c9af5f561e8a))
+* 99 indice de reparabilite logos ([#10748](https://github.com/openfoodfacts/openfoodfacts-server/issues/10748)) ([e2c302b](https://github.com/openfoodfacts/openfoodfacts-server/commit/e2c302b27ee347a1f1e105e7933d956ac7873057))
+* new [taxonomy].extended.json with extended synonyms ([#10744](https://github.com/openfoodfacts/openfoodfacts-server/issues/10744)) ([e1a485e](https://github.com/openfoodfacts/openfoodfacts-server/commit/e1a485e16baece15d372f676d13fb27ba68da296))
+* Open folksonomies for all connected users ([#10771](https://github.com/openfoodfacts/openfoodfacts-server/issues/10771)) ([160b792](https://github.com/openfoodfacts/openfoodfacts-server/commit/160b792a6f3c935f8ab4132bc37937201bae7195))
+* prepare folksonomy for multi-domain ([#10775](https://github.com/openfoodfacts/openfoodfacts-server/issues/10775)) ([6f8e772](https://github.com/openfoodfacts/openfoodfacts-server/commit/6f8e7729ff1896e2a1ca3ef76b04bfe374befde0))
+* script to extract historical data for a field (e.g. Nutri-Score) for a set of products ([#10408](https://github.com/openfoodfacts/openfoodfacts-server/issues/10408)) ([d40bcf6](https://github.com/openfoodfacts/openfoodfacts-server/commit/d40bcf67e8729449aca293d3a6a33a50b6720d26))
+
+
+### Bug Fixes
+
+* block more AI bots ([#10754](https://github.com/openfoodfacts/openfoodfacts-server/issues/10754)) ([852ca5f](https://github.com/openfoodfacts/openfoodfacts-server/commit/852ca5f978803287cc5e26f96cf0366a3dbe221c))
+* fix crm sync ([#10747](https://github.com/openfoodfacts/openfoodfacts-server/issues/10747)) ([336647f](https://github.com/openfoodfacts/openfoodfacts-server/commit/336647fa22707f003a74df2e90205c1e95aba453))
+* import_prod_data not working ([#10750](https://github.com/openfoodfacts/openfoodfacts-server/issues/10750)) ([a895cd3](https://github.com/openfoodfacts/openfoodfacts-server/commit/a895cd361c6fb135ff220357f5dfa6acbf2b3288)), closes [#10749](https://github.com/openfoodfacts/openfoodfacts-server/issues/10749)
+* remove non-JS list of products ([#10743](https://github.com/openfoodfacts/openfoodfacts-server/issues/10743)) ([6805b9f](https://github.com/openfoodfacts/openfoodfacts-server/commit/6805b9fec6898e072f1758c4844f1d4fe2ce20c3))
+
 ## [2.43.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.42.0...v2.43.0) (2024-08-28)
 
 
