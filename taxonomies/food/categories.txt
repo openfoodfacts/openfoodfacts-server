@@ -1232,6 +1232,11 @@ gpc_category_code:en: 10000623
 gpc_category_description:en: Definition: Includes any products that can be described/observed as two or more distinct Beverages sold together which exist within the schema but belong to different classes, that is two or more products contained within the same pack which cross classes within the Beverages Family. Includes products such as Gin with Tonic Water variety packs. Items that are received free with purchases should be removed from the classification decision-making process. Definition Excludes: Excludes products such as Still and Sparkling Wine variety packs and Wine and Chocolate variety packs.
 gpc_category_name:en: Beverages Variety Packs
 
+
+< en:Beverages
+en: Half iced tea and half lemonade
+incompatible_with:en: categories:en:Half milk and half cream
+
 en: Fermented foods
 ar: الأطعمة المخمرة
 as: পাকস্থলীয় খাদ্য
@@ -49464,7 +49469,7 @@ ciqual_food_name:fr: Fromage frais type petit suisse, nature, 10% MG environ
 # Half milk and half cream (or Half and half) is a common preparation in the USA which is used in coffee or with breakfast cereals
 < en:Dairies
 en: Half milk and half cream, half and half
-incompatible_with:en: categories:en:milks, categories:en:creams
+incompatible_with:en: categories:en:milks, categories:en:creams, categories:en:Half iced tea and half lemonade
 
 #this category is not made for vegan products but for dairy products used in replacement of cream
 < en:Dairies
@@ -49908,9 +49913,8 @@ fr: Substituts des œufs, substituts des oeufs
 hr: Zamjene za jaja
 pl: Zastępniki jaj, Substytuty jaj
 
-< en:Animal fats
-< en:Milkfat
-en: Dairy spread
+< en:Spreads
+en: Dairy spreads, Dairy spread
 bg: Млечни кремове
 de: Milchstreichfett
 es: La pasta de leche
@@ -49923,7 +49927,9 @@ lt: Pieno užtepėlės
 nl: Zuivelsmeersels
 pl: Tłuszcze mleczne do smarowania
 
+< en:Animal fats
 < en:Dairy spread
+< en:Milkfat
 en: Sheep butters
 bg: Овче масло
 fr: Beurres au lait de brebis
@@ -49931,7 +49937,9 @@ hr: Ovčji maslaci
 pl: Masło owcze
 #wikidata:en:
 
+< en:Animal fats
 < en:Dairy spread
+< en:Milkfat
 en: Goat butters
 bg: Козе масло
 fr: Beurres au lait de chèvre
