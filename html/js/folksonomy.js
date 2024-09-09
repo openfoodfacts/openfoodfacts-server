@@ -155,8 +155,10 @@ function displayFolksonomyPropertyValues() {
         '<h2>Personalized properties (<span data-tooltip aria-haspopup="true" class="has-tip" data-position="top" data-alignment="left" title="Be aware the data model might be modified. Use at your own risk.">beta</span>)</h2>' +
         '<p id="fe_login_info"></p>' +
         "<p>These properties are created and filed by users for any kind of usages. Feel free to add your own. " +
+        "The properties and values you create <strong>must be factual</strong>. " +
         "You can dive into <a href='/properties'>the list of properties already used by the community</a> " +
-        "or explore the <a href='https://wiki.openfoodfacts.org/Folksonomy/Property'>properties' documentation and its search engine</a>.</p>" +
+        "or explore the <a href='https://wiki.openfoodfacts.org/Folksonomy/Property'>properties' documentation and its search engine</a>. " +
+        "</p>" +
         "<p>Be aware the data model might be modified. Use at your own risk.</p>" +
         "<p>This is brought by the <a href='https://wiki.openfoodfacts.org/Folksonomy_Engine'>folksonomy engine project</a>. Don't hesitate to participate or give feedback.</p>" +
         '<form id="free_properties_form">' +
