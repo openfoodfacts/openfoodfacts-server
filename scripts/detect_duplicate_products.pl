@@ -30,7 +30,6 @@ use ProductOpener::Data qw/get_products_collection/;
 
 use Log::Any::Adapter 'TAP';
 
-
 my $socket_timeout_ms = 2 * 60000;    # 2 mins, instead of 30s default, to not die as easily if mongodb is busy.
 
 my %flavors = ();
@@ -47,8 +46,7 @@ foreach my $flavor ("off", "obf") {
 	}
 }
 
-
 foreach my $flavor (keys %flavors) {
 	print "Flavor $flavor\t" . scalar(keys %{$flavors{$flavor}}) . " products\n";
 }
-	
+
