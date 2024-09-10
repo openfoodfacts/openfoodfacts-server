@@ -480,28 +480,14 @@ HTML
 
 # Used to generate the list of possible product attributes, which is
 # used to display the possible choices for user preferences
-$options{attribute_groups} = [
-	["processing", ["nova", "additives"]],
-	[
-		"allergens",
-		[
-			"allergens_no_gluten", "allergens_no_milk",
-			"allergens_no_eggs", "allergens_no_nuts",
-			"allergens_no_peanuts", "allergens_no_sesame_seeds",
-			"allergens_no_soybeans", "allergens_no_celery",
-			"allergens_no_mustard", "allergens_no_lupin",
-			"allergens_no_fish", "allergens_no_crustaceans",
-			"allergens_no_molluscs", "allergens_no_sulphur_dioxide_and_sulphites",
-		],
-	],
-	["ingredients_analysis", ["vegan", "vegetarian", "palm_oil_free",]],
-	["labels", ["labels_organic", "labels_fair_trade"]],
-];
+$options{attribute_groups}
+	= [["labels", ["labels_organic", "labels_fair_trade"]], ["environment", ["repairability_index_france",]],];
 
 # default preferences for attributes
 $options{attribute_default_preferences} = {
 	"labels_organic" => "important",
 	"labels_fair_trade" => "important",
+	"repairability_index_france" => "important",
 };
 
 use JSON::MaybeXS;

@@ -6993,3 +6993,57 @@ msgstr "Produits d'occasion"
 msgctxt "used_products_subtitle"
 msgid "Buy this product used, or search for a similar used product"
 msgstr "Achetez ce produit d'occasion, ou recherchez un produit d'occasion similaire"
+
+msgctxt "attribute_repairability_index_france_name"
+msgid "Repairability index"
+msgstr "Indice de réparabilité"
+
+msgctxt "attribute_repairability_index_france_setting_name"
+msgid "Good repairability""
+msgstr "Bonne réparabilité"
+
+msgctxt "attribute_repairability_index_france_setting_note"
+msgid "Mandatory rating in France for certain products since 2021"
+msgstr "Note sur 10 obligatoire en France pour certains produits depuis 2021"
+
+# keep %s, it will be replaced by the letter A, B, C, D or E
+msgctxt "attribute_repairability_index_france_grade_title"
+msgid "Repairability index %s"
+msgstr "Indice de réparabilité %s"
+
+msgctxt "attribute_repairability_index_france_unknown_title"
+msgid "repairability index unknown"
+msgstr "Indice de réparabilité inconnu"
+
+msgctxt "attribute_repairability_index_france_not_applicable_title"
+msgid "Repairability index not-applicable"
+msgstr "Indice de réparabilité non applicable"
+
+msgctxt "attribute_repairability_index_france_not_applicable_description_short"
+msgid "Not-applicable for the category"
+msgstr "Non applicable pour la catégorie"
+
+# variable names between { } must not be translated
+msgctxt "f_attribute_repairability_index_france_not_applicable_description"
+msgid "Applicable only for categories: {categories}"
+msgstr "Applicable seulement aux catégories : {categories}"
+
+msgctxt "attribute_repairability_index_france_very_good_description_short"
+msgid "Very good repairability"
+msgstr "Très bonne réparabilité"
+
+msgctxt "attribute_repairability_index_france_good_description_short"
+msgid "Good repairability"
+msgstr "Bonne réparabilité"
+
+msgctxt "attribute_repairability_index_france_average_description_short"
+msgid "Average repairability"
+msgstr "Moyenne réparabilité"
+
+msgctxt "attribute_repairability_index_france_poor_description_short"
+msgid "Poor repairability"
+msgstr "Mauvaise réparabilité"
+
+msgctxt "attribute_repairability_index_france_bad_description_short"
+msgid "Bad repairability"
+msgstr "Très mauvaise réparabilité"

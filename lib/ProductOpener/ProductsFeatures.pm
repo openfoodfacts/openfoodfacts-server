@@ -74,14 +74,15 @@ my %product_type_features = (
 		additives => 1,
 		nova => 1,
 		nutrition => 1,
+		user_preferences => 1,
 	},
 	beauty => {
 		health_card => 1,
 		ingredients => 1,
 		user_preferences => 1,
 	},
-	products => {
-
+	product => {
+		user_preferences => 1,
 	},
 );
 
@@ -108,7 +109,13 @@ Currently not used, may be used later to determine features based on product fie
 =cut
 
 sub feature_enabled($feature, $product_ref = undef) {
-	my $enabled = deep_get(\%product_type_features, $options{product_type}, $feature);
+	# If we have a product reference, and the product type is set, use it
+	# otherwise use the product type of the site instance (e.g. "Open Food Facts" -> "food")
+	my $product_type
+		= ((defined $product_ref) and (defined $product_ref->{product_type}))
+		? $product_ref->{product_type}
+		: $options{product_type};
+	my $enabled = deep_get(\%product_type_features, $product_type, $feature);
 	$log->debug("feature_enabled", {feature => $feature, product_type => $options{product_type}, enabled => $enabled})
 		if $log->is_debug();
 	return $enabled;

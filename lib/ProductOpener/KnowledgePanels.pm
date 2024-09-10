@@ -793,10 +793,7 @@ sub create_environment_card_panel ($product_ref, $target_lc, $target_cc, $option
 	create_manufacturing_place_panel($product_ref, $target_lc, $target_cc, $options_ref);
 
 	# Origins of ingredients for the environment card, for food, pet food and beauty products
-	if (   ($options{product_type} eq "food")
-		or ($options{product_type} eq "pet_food")
-		or ($options{product_type} eq "beauty"))
-	{
+	if (feature_enabled("ingredients")) {
 		create_panel_from_json_template("origins_of_ingredients",
 			"api/knowledge-panels/environment/origins_of_ingredients.tt.json",
 			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);

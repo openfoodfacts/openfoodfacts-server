@@ -961,11 +961,9 @@ CSS
 	$knowledge_panels_options_ref = {};
 
 	if (not feature_enabled("ecoscore")) {
-		$attributes_options_ref->{skip_ecoscore} = 1;
 		$knowledge_panels_options_ref->{skip_ecoscore} = 1;
 	}
 	if (not feature_enabled("forest_footprint")) {
-		$attributes_options_ref->{skip_forest_footprint} = 1;
 		$knowledge_panels_options_ref->{skip_forest_footprint} = 1;
 	}
 

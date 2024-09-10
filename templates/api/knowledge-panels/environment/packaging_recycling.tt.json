@@ -3,7 +3,7 @@
     "topics": [
         "environment"
     ],
-[% IF NOT (product.packagings) %]
+[% IF NOT (product.packagings.size) %]
     "evaluation": "unknown",
     "title_element": {
         "title": "[% edq(lang('ecoscore_packaging_missing_information')) %]",
