@@ -39,7 +39,7 @@ properties:
           This represents an image uploaded for this product.
         $ref: ./image.yaml
       front:
-        description:
+        description: |
           This represents an image (or part of it) selected for a specific role on this product.
         type: object
         $ref: ./image_role.yaml
