@@ -3,7 +3,7 @@
     "topics": [
         "environment"
     ],
-[% IF NOT (product.ecoscore_data.adjustments.packaging.packagings AND product.ecoscore_data.adjustments.packaging.packagings.size) %]
+[% IF NOT (product.packagings) %]
     "evaluation": "unknown",
     "title_element": {
         "title": "[% edq(lang('ecoscore_packaging_missing_information')) %]",
@@ -31,8 +31,15 @@
             }
         },
     ],
-[% ELSE %]    
-    [% IF product.ecoscore_data.adjustments.packaging.value <= -15 %]
+[% ELSE %]
+    // Eco-Score currently computed only for food products
+    // no evaluation of packaging for other product types
+    // TODO: add evaluation for non-food products
+    [% IF NOT product.ecoscore_data.adjustments.packaging.value.defined %]
+    "evaluation": "unknown",
+    "title_element": {
+        "title": "[% edq(lang('packaging')) %]",
+    [% ELSIF product.ecoscore_data.adjustments.packaging.value <= -15 %]
     "evaluation": "bad",
     "title_element": {
         "title": "[% edq(lang('ecoscore_packaging_impact_high')) %]",
