@@ -70,7 +70,7 @@ use ProductOpener::KnowledgePanelsContribution qw/create_contribution_card_panel
 use ProductOpener::KnowledgePanelsReportProblem qw/create_report_problem_card_panel/;
 use ProductOpener::ProductsFeatures qw/feature_enabled/;
 
-use JSON::PP;
+use JSON::MaybeXS;
 use Encode;
 use Data::DeepAccess qw(deep_get);
 
@@ -106,13 +106,24 @@ sub initialize_knowledge_panels_options ($knowledge_panels_options_ref, $request
 	}
 	$knowledge_panels_options_ref->{knowledge_panels_client} = $knowledge_panels_client;
 
+	my $included_panels = single_param('knowledge_panels_included') || '';
+	my %included_panels = map {$_ => 1} split(/,/, $included_panels);
+	my $excluded_panels = single_param('knowledge_panels_excluded') || '';
+	my %excluded_panels = map {$_ => 1} split(/,/, $excluded_panels);
+	$knowledge_panels_options_ref->{knowledge_panels_includes} = sub {
+		my $panel_id = shift;
+		# excluded overrides included
+		return (    (not exists $excluded_panels{$panel_id})
+				and (not $included_panels or exists $included_panels{$panel_id}));
+	};
+
 	# some info about users
 	$knowledge_panels_options_ref->{user_logged_in} = defined $User_id;
 
 	return;
 }
 
-=head2 create_knowledge_panels( $product_ref, $target_lc, $target_cc, $options_ref )
+=head2 create_knowledge_panels( $product_ref, $target_lc, $target_cc, $options_ref, $request_ref)
 
 Create all knowledge panels for a product, with strings (descriptions, recommendations etc.)
 in a specific language, and return them in an array of panels.
@@ -141,6 +152,10 @@ Defines how some panels should be created (or not created)
 - deactivate_[panel_id] : do not create a default panel -- currently unimplemented
 - activate_[panel_id] : create an on demand panel -- currently only for physical_activities panel
 
+=head4 request reference $request_ref
+
+Contains the request parameters, including the API request parameters.
+
 =head3 Return values
 
 Panels are returned in the "knowledge_panels_[$target_lc]" hash of the product reference
@@ -148,7 +163,7 @@ passed as input.
 
 =cut
 
-sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref) {
+sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
 
 	$log->debug("create knowledge panels for product", {code => $product_ref->{code}, target_lc => $target_lc})
 		if $log->is_debug();
@@ -193,23 +208,38 @@ sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref)
 		$product_ref->{"knowledge_panels_" . $target_lc}{"tags_brands_nutella_doyouknow"} = $test_panel_ref;
 	}
 
+	my $panel_is_requested = $options_ref->{knowledge_panels_includes};
+
 	# Create recommendation panels first, as they will be included in cards such has the health card and environment card
-	if (feature_enabled("food_recommendations")) {
+	if (    $panel_is_requested->('health_card')
+		and $panel_is_requested->('environment_card')
+		and feature_enabled('food_recommendations'))
+	{
 		create_recommendation_panels($product_ref, $target_lc, $target_cc, $options_ref);
 	}
 
 	my $has_health_card;
-	if (feature_enabled("health_card")) {
-		$has_health_card = create_health_card_panel($product_ref, $target_lc, $target_cc, $options_ref);
+	if ($panel_is_requested->('health_card')
+		and feature_enabled('health_card'))
+	{
+		$has_health_card = create_health_card_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 	}
 
-	create_environment_card_panel($product_ref, $target_lc, $target_cc, $options_ref);
+	my $has_environment_card;
+	if ($panel_is_requested->('environment_card')) {
+		$has_environment_card
+			= create_environment_card_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+	}
 
 	my $has_report_problem_card;
-	if (not $options_ref->{producers_platform}) {
+	if (not $options_ref->{producers_platform} and $panel_is_requested->('report_problem_card')) {
 		$has_report_problem_card = create_report_problem_card_panel($product_ref, $target_lc, $target_cc, $options_ref);
 	}
-	my $has_contribution_card = create_contribution_card_panel($product_ref, $target_lc, $target_cc, $options_ref);
+
+	my $has_contribution_card;
+	if ($panel_is_requested->('contribution_card')) {
+		$has_contribution_card = create_contribution_card_panel($product_ref, $target_lc, $target_cc, $options_ref);
+	}
 
 	# Create the root panel that contains the panels we want to show directly on the product page
 	create_panel_from_json_template(
@@ -218,7 +248,8 @@ sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref)
 		{
 			has_health_card => $has_health_card,
 			has_report_problem_card => $has_report_problem_card,
-			has_contribution_card => $has_contribution_card
+			has_contribution_card => $has_contribution_card,
+			has_environment_card => $has_environment_card,
 		},
 		$product_ref,
 		$target_lc,
@@ -317,7 +348,8 @@ sub create_panel_from_json_template ($panel_id, $panel_template, $panel_data_ref
 				product => $product_ref,
 				knowledge_panels_options => $options_ref,
 			},
-			\$panel_json
+			\$panel_json,
+			{cc => $target_cc}
 		)
 		)
 	{
@@ -506,10 +538,12 @@ The Eco-Score depends on the country of the consumer (as the transport bonus/mal
 
 =cut
 
-sub create_ecoscore_panel ($product_ref, $target_lc, $target_cc, $options_ref) {
+sub create_ecoscore_panel ($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
 
 	$log->debug("create ecoscore panel", {code => $product_ref->{code}, ecoscore_data => $product_ref->{ecoscore_data}})
 		if $log->is_debug();
+
+	my $cc = $request_ref->{cc};
 
 	if ((defined $product_ref->{ecoscore_data}) and ($product_ref->{ecoscore_data}{status} eq "known")) {
 
@@ -707,7 +741,7 @@ The Eco-Score depends on the country of the consumer (as the transport bonus/mal
 
 =cut
 
-sub create_environment_card_panel ($product_ref, $target_lc, $target_cc, $options_ref) {
+sub create_environment_card_panel ($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
 
 	$log->debug("create environment card panel", {code => $product_ref->{code}}) if $log->is_debug();
 
@@ -715,7 +749,7 @@ sub create_environment_card_panel ($product_ref, $target_lc, $target_cc, $option
 
 	# Create Eco-Score related panels
 	if ($options{product_type} eq "food") {
-		create_ecoscore_panel($product_ref, $target_lc, $target_cc, $options_ref);
+		create_ecoscore_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 
 		if (
 				(defined $product_ref->{ecoscore_data})
@@ -759,7 +793,7 @@ sub create_environment_card_panel ($product_ref, $target_lc, $target_cc, $option
 	$panel_data_ref->{packaging_image} = data_to_display_image($product_ref, "packaging", $target_lc),
 		create_panel_from_json_template("environment_card", "api/knowledge-panels/environment/environment_card.tt.json",
 		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
-	return;
+	return 1;
 }
 
 =head2 create_manufacturing_place_panel ( $product_ref, $target_lc, $target_cc, $options_ref )
@@ -840,7 +874,7 @@ We may display country specific recommendations from health authorities, or coun
 
 =cut
 
-sub create_health_card_panel ($product_ref, $target_lc, $target_cc, $options_ref) {
+sub create_health_card_panel ($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
 
 	$log->debug("create health card panel", {code => $product_ref->{code}}) if $log->is_debug();
 
@@ -886,7 +920,7 @@ sub create_health_card_panel ($product_ref, $target_lc, $target_cc, $options_ref
 	# Nutrition facts for food and pet food
 	if (feature_enabled("nutrition")) {
 		create_serving_size_panel($product_ref, $target_lc, $target_cc, $options_ref);
-		create_nutrition_facts_table_panel($product_ref, $target_lc, $target_cc, $options_ref);
+		create_nutrition_facts_table_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 	}
 
 	my $panel_data_ref = {
@@ -1109,7 +1143,7 @@ This parameter sets the desired language for the user facing strings.
 
 =cut
 
-sub create_nutrition_facts_table_panel ($product_ref, $target_lc, $target_cc, $options_ref) {
+sub create_nutrition_facts_table_panel ($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
 
 	$log->debug("create nutrition facts panel",
 		{code => $product_ref->{code}, nutriscore_data => $product_ref->{nutriscore_data}})
@@ -1122,7 +1156,7 @@ sub create_nutrition_facts_table_panel ($product_ref, $target_lc, $target_cc, $o
 
 		# Compare the product nutrition facts to the most specific category
 		my $comparisons_ref = compare_product_nutrition_facts_to_categories($product_ref, $target_cc, 1);
-		my $panel_data_ref = data_to_display_nutrition_table($product_ref, $comparisons_ref);
+		my $panel_data_ref = data_to_display_nutrition_table($product_ref, $comparisons_ref, $request_ref);
 
 		create_panel_from_json_template("nutrition_facts_table",
 			"api/knowledge-panels/health/nutrition/nutrition_facts_table.tt.json",

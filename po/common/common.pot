@@ -4960,10 +4960,6 @@ msgctxt "number_of_members"
 msgid "Number of Members"
 msgstr "Number of Members"
 
-msgctxt "serial_no"
-msgid "S.No"
-msgstr "S.No"
-
 msgctxt "contact_form"
 msgid "Contact form"
 msgstr "Contact form"
@@ -5945,6 +5941,10 @@ msgstr "The category of the product must be specified in order to compute the Nu
 msgctxt "nutriscore_missing_nutrition_data"
 msgid "The nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr "The nutrition facts of the product must be specified in order to compute the Nutri-Score."
+
+msgctxt "nutriscore_missing_nutrition_data_details"
+msgid "Missing nutrition facts:"
+msgstr "Missing nutrition facts:"
 
 msgctxt "nutriscore_missing_category_and_nutrition_data"
 msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
@@ -7044,4 +7044,74 @@ msgctxt "open_in_crm"
 msgid "Open in CRM"
 msgstr "Open in CRM"
 
+msgctxt "deny"
+msgid "Deny"
+msgstr "Deny"
 
+msgctxt "users_requested_to_join_org"
+msgid "These users have requested to join the organization:"
+msgstr "These users have requested to join the organization :"
+
+msgctxt "last_login"
+msgid "Last login date"
+msgstr "Last login date"
+
+msgctxt "last_import"
+msgid "Last import date"
+msgstr "Last import date"
+
+msgctxt "drop_a_file"
+msgid "Drop"
+msgstr "Drop"
+
+msgctxt "select_product_data_file"
+msgid "Select a file with product data"
+msgstr "Select a file with product data"
+
+msgctxt "number_of_products_without_nutriscore"
+msgid "Number of products without Nutri-Score"
+msgstr "Number of products without Nutri-Score"
+
+msgctxt "percent_of_products_with_nutriscore"
+msgid "% of products where Nutri-Score is computed"
+msgstr "% of products where Nutri-Score is computed"
+
+msgctxt "products_to_be_exported"
+msgid "Products to be exported"
+msgstr "Products to be exported"
+
+msgctxt "products_exported"
+msgid "Products exported"
+msgstr "Products exported"
+
+msgctxt "opportunities_to_improve_nutriscore"
+msgid "Opp. for Nutri-Score improvements"
+msgstr "Opp. for Nutri-Score improvements"
+
+msgctxt "date_of_last_update"
+msgid "Date of last update"
+msgstr "Date of last update"
+
+msgctxt "number_of_products_on_public_platform"
+msgid "Number of products on public platform"
+msgstr "Number of products on public platform"
+
+msgctxt "number_of_products_on_producer_platform"
+msgid "Number of products on producer platform"
+msgstr "Number of products on producer platform"
+
+msgctxt "automated_daily_export_to_public_platform"
+msgid "Automatic daily export to public platform"
+msgstr "Automatic daily export to public platform"
+
+msgctxt "improvements_navigation"
+msgid "Improvements"
+msgstr "Improvements"
+
+msgctxt "products_with_changes_since_last_export"
+msgid "Products with changes since last export"
+msgstr "Products with changes since last export"
+
+msgctxt "open_org"
+msgid "Open org"
+msgstr "Open org"

@@ -3,8 +3,10 @@
    "admins" : {
       "tests" : 1
    },
+   "country" : "en:world",
    "created_t" : "--ignore--",
    "creator" : "tests",
+   "crm_org_id" : null,
    "do_not_import_codeonline" : "",
    "enable_manual_export_to_public_platform" : "",
    "gs1_nutrients_are_unprepared" : "",
@@ -13,6 +15,8 @@
    "import_source_codeonline" : "",
    "import_source_database-usda" : "",
    "import_source_equadis" : "",
+   "last_logged_member" : "tests",
+   "last_logged_member_t" : "--ignore--",
    "list_of_gs1_gln" : "",
    "main_contact" : "tests",
    "members" : {

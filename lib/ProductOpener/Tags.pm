@@ -73,6 +73,7 @@ BEGIN {
 		&get_inherited_property_from_categories_tags
 		&get_inherited_properties
 		&get_tags_grouped_by_property
+		&get_all_tags_having_property
 
 		%tags_images
 		%tags_texts
@@ -195,7 +196,7 @@ use LWP::UserAgent ();
 use Encode;
 
 use GraphViz2;
-use JSON::PP;
+use JSON::MaybeXS;
 
 use Data::DeepAccess qw(deep_get deep_exists);
 
@@ -718,6 +719,37 @@ sub get_tags_grouped_by_property ($tagtype, $tagids_ref, $prop_name, $props_ref,
 	return $grouped_tags;
 }
 
+=head2 get_all_tags_having_property ($product_ref, $tagtype, $prop_name)
+
+For each tag of a given field ($tagtype, can be "labels" or "categories", for example),
+and a given property ($prop_name, without last column (:). Can be "incompatible_with:en", for example),
+return a hash of tagid <-> property_value
+remark: this DOES NOT handle property inheritance
+
+=head3 Return
+
+A hash, where keys are tagid and values are property_value
+
+=head4 Example, get_all_tags_having_property($product_ref, "labels", "incompatible_with:en")
+
+
+=cut
+
+sub get_all_tags_having_property ($product_ref, $tagtype, $prop_name) {
+	my %tag_property_hash = ();
+	if (defined $product_ref->{$tagtype . "_tags"}) {
+		foreach my $tagid (@{$product_ref->{$tagtype . "_tags"}}) {
+			my $property_value = get_property($tagtype, $tagid, $prop_name);
+
+			if (defined $property_value) {
+				$tag_property_hash{$tagid} = lc($property_value =~ s/\s+/-/gr);
+			}
+		}
+	}
+
+	return \%tag_property_hash;
+}
+
 sub has_tag ($product_ref, $tagtype, $tagid) {
 
 	my $return = 0;
@@ -1066,8 +1098,7 @@ sub get_file_from_cache ($source, $target) {
 # e.g. if the taxonomy building algorithm or configuration has changed
 # This needs to be done also when the unaccenting parameters for languages set in Config.pm are changed
 
-my $BUILD_TAGS_VERSION
-	= "20240403 - fix issue with additives.properties.txt not loaded + circular_parent check + moved canonicalization of properties to linter";
+my $BUILD_TAGS_VERSION = "20240828 - new [tagtype].extended.json format with normalized extended synonyms";
 
 sub get_from_cache ($tagtype, @files) {
 	# If the full set of cached files can't be found then returns the hash to be used
@@ -1506,7 +1537,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 				}
 
 			}
-			elsif ($line =~ /^expected_nutriscore_grade:en:/) {
+			elsif ($line =~ /^expected_nutriscore_grade:en: */) {
 				# the line should be the nutriscore grade: a, b, c, d or e
 				my $nutriscore_grade = $';    # everything after the matched string
 
@@ -1521,7 +1552,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 					push(@taxonomy_errors, _taxonomy_error("ERROR", "unknown_nutriscore", $msg, $line_number));
 				}
 			}
-			elsif ($line =~ /^expected_ingredients:en:/) {
+			elsif ($line =~ /^expected_ingredients:en: */) {
 				# the line should contain a single ingredient
 				my $expected_ingredients = $';    # everything after the matched string
 
@@ -2060,6 +2091,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 		# data structure to export the taxonomy to json format
 		my %taxonomy_json = ();
 		my %taxonomy_full_json = ();    # including wikipedia abstracts
+		my %taxonomy_extended_json = ();    # with extended synonyms
 
 		foreach my $lc (sort keys %{$stopwords{$tagtype}}) {
 			next if $lc =~ /\./;    # .orig or .strings
@@ -2075,6 +2107,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 
 			$taxonomy_json{$tagid} = {name => {}};
 			$taxonomy_full_json{$tagid} = {name => {}};
+			$taxonomy_extended_json{$tagid} = {name => {}};
 
 			# print "taxonomy - compute all children - $tagid - level: $level{$tagtype}{$tagid} - longest: $longest_parent{$tagid} - syn: $just_synonyms{$tagtype}{$tagid} - sort_key: $sort_key_parents{$tagid} \n";
 			if (defined $direct_parents{$tagtype}{$tagid}) {
@@ -2128,6 +2161,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 
 				$taxonomy_json{$tagid}{name}{$lc} = $translations_to{$tagtype}{$tagid}{$lc};
 				$taxonomy_full_json{$tagid}{name}{$lc} = $translations_to{$tagtype}{$tagid}{$lc};
+				$taxonomy_extended_json{$tagid}{name}{$lc} = $translations_to{$tagtype}{$tagid}{$lc};
 
 				my $lc_tagid = get_string_id_for_lang($lc, $translations_to{$tagtype}{$tagid}{$lc});
 
@@ -2143,12 +2177,24 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 					{
 						$taxonomy_json{$tagid}{name}{$lc} .= " - " . $synonyms_for{$tagtype}{$lc}{$lc_tagid}[1];
 						$taxonomy_full_json{$tagid}{name}{$lc} .= " - " . $synonyms_for{$tagtype}{$lc}{$lc_tagid}[1];
+						$taxonomy_extended_json{$tagid}{name}{$lc}
+							.= " - " . $synonyms_for{$tagtype}{$lc}{$lc_tagid}[1];
 					}
 
 					# add synonyms to the full taxonomy
 					if (defined $synonyms_for{$tagtype}{$lc}{$lc_tagid}) {
 						(defined $taxonomy_full_json{$tagid}{synonyms}) or $taxonomy_full_json{$tagid}{synonyms} = {};
 						$taxonomy_full_json{$tagid}{synonyms}{$lc} = $synonyms_for{$tagtype}{$lc}{$lc_tagid};
+						$taxonomy_extended_json{$tagid}{normalized_synonyms}{$lc}
+							= [map {get_string_id_for_lang($lc, $_)} @{$synonyms_for{$tagtype}{$lc}{$lc_tagid}}];
+					}
+
+					# add extended synonyms to the extended taxonomy
+					if (defined $synonyms_for_extended{$tagtype}{$lc}{$lc_tagid}) {
+						(defined $taxonomy_extended_json{$tagid}{synonyms_extended})
+							or $taxonomy_extended_json{$tagid}{synonyms_extended} = {};
+						$taxonomy_extended_json{$tagid}{normalized_synonyms_extended}{$lc}
+							= [sort keys %{$synonyms_for_extended{$tagtype}{$lc}{$lc_tagid}}];
 					}
 				}
 			}
@@ -2203,27 +2249,24 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 
 		{
 			binmode STDOUT, ":encoding(UTF-8)";
-			if (open(my $OUT_JSON, ">", "$BASE_DIRS{PUBLIC_DATA}/taxonomies/$tagtype.json")) {
-				print $OUT_JSON encode_json(\%taxonomy_json);
-				close($OUT_JSON);
-			}
-			else {
-				print
-					"Cannot open $BASE_DIRS{PUBLIC_DATA}/taxonomies/$tagtype.json, skipping writing taxonomy to file.\n";
-			}
 
-			if (open(my $OUT_JSON_FULL, ">", "$BASE_DIRS{PUBLIC_DATA}/taxonomies/$tagtype.full.json")) {
-				print $OUT_JSON_FULL encode_json(\%taxonomy_full_json);
-				close($OUT_JSON_FULL);
+			foreach my $extension_taxonomy_ref (
+				["", \%taxonomy_json],
+				[".full", \%taxonomy_full_json],
+				[".extended", \%taxonomy_extended_json]
+				)
+			{
+				my ($extension, $taxonomy_ref) = @$extension_taxonomy_ref;
+				# Output the taxonomy in JSON format
+				if (open(my $OUT_JSON, ">", "$BASE_DIRS{PUBLIC_DATA}/taxonomies/$tagtype$extension.json")) {
+					print $OUT_JSON encode_json($taxonomy_ref);
+					close($OUT_JSON);
+				}
+				else {
+					print
+						"Cannot open $BASE_DIRS{PUBLIC_DATA}/taxonomies/$tagtype$extension.json, skipping writing taxonomy to file.\n";
+				}
 			}
-			else {
-				print
-					"Cannot open $BASE_DIRS{PUBLIC_DATA}/taxonomies/$tagtype.full.json, skipping writing taxonomy to file.\n";
-			}
-			# to serve pre-compressed files from Apache
-			# nginx : needs nginx_static module
-			# system("cp $BASE_DIRS{PUBLIC_DATA}/taxonomies/$tagtype.json $BASE_DIRS{PUBLIC_DATA}/taxonomies/$tagtype.json.json");
-			# system("gzip $BASE_DIRS{PUBLIC_DATA}/taxonomies/$tagtype.json");
 		}
 
 		$log->error("taxonomy errors", {errors => \@taxonomy_errors}) if $log->is_error();
