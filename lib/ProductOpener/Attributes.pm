@@ -1722,13 +1722,13 @@ sub compute_attributes ($product_ref, $target_lc, $target_cc, $options_ref) {
 
 	# Labels groups
 
-	if (defined $attributes{"labels_fair_trade"}) {
-		$attribute_ref = compute_attribute_has_tag($product_ref, $target_lc, "labels", "en:fair-trade");
+	if (defined $attributes{"labels_organic"}) {
+		$attribute_ref = compute_attribute_has_tag($product_ref, $target_lc, "labels", "en:organic");
 		add_attribute_to_group($product_ref, $target_lc, "labels", $attribute_ref);
 	}
 
-	if (defined $attributes{"labels_organic"}) {
-		$attribute_ref = compute_attribute_has_tag($product_ref, $target_lc, "labels", "en:organic");
+	if (defined $attributes{"labels_fair_trade"}) {
+		$attribute_ref = compute_attribute_has_tag($product_ref, $target_lc, "labels", "en:fair-trade");
 		add_attribute_to_group($product_ref, $target_lc, "labels", $attribute_ref);
 	}
 
