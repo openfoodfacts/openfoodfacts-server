@@ -89,17 +89,17 @@ sub process_file($path, $code) {
 		if ($rev eq 1) {
 			$action = 'created';
 		}
-		elsif ($isDeleted and !$deleted) {
+		elsif ($isDeleted && !$deleted) {
 			$action = 'deleted';
 		}
 		# Note we treat undeleted as "updated" for consitency with current behaviour
 		# elsif (!$isDeleted and $deleted) {
 		# 	$action = 'undeleted';
 		# }
-		elsif ($isObsolete and !$obsolete) {
+		elsif ($isObsolete && !$obsolete) {
 			$action = 'archived';
 		}
-		elsif (!$isObsolete and $obsolete) {
+		elsif (!$isObsolete && $obsolete) {
 			$action = 'unarchived';
 		}
 
