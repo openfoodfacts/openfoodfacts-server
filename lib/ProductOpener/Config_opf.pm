@@ -181,6 +181,19 @@ $flavor = "opf";
 	#ios_app_link => "https://apps.apple.com/app/open-beauty-facts/id1122926380?utm_source=opf&utf_medium=web",
 	#facebook_page_url => "https://www.facebook.com/openbeautyfacts?&utm_source=opf&utf_medium=web",
 	#twitter_account => "OpenBeautyFacts",
+	# favicon HTML and images generated with https://realfavicongenerator.net/ using the SVG icon
+	favicons => <<HTML
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/opf/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/opf/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/opf/favicon-16x16.png">
+<link rel="manifest" href="/images/favicon/opf/site.webmanifest">
+<link rel="mask-icon" href="/images/favicon/opf/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="/images/favicon/opf/favicon.ico">
+<meta name="msapplication-TileColor" content="#00aba9">
+<meta name="msapplication-config" content="/images/favicon/opf/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+HTML
+	,
 );
 
 $options{export_limit} = 10000;

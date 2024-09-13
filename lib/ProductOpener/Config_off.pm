@@ -204,6 +204,19 @@ $flavor = 'off';
 	facebook_page_url_fr => "https://www.facebook.com/OpenFoodFacts.fr",
 	twitter_account => "OpenFoodFacts",
 	twitter_account_fr => "OpenFoodFactsFr",
+	# favicon HTML and images generated with https://realfavicongenerator.net/ using the SVG icon
+	favicons => <<HTML
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/off/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/off/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/off/favicon-16x16.png">
+<link rel="manifest" href="/images/favicon/off/site.webmanifest">
+<link rel="mask-icon" href="/images/favicon/off/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="/images/favicon/off/favicon.ico">
+<meta name="msapplication-TileColor" content="#00aba9">
+<meta name="msapplication-config" content="/images/favicon/off/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+HTML
+	,
 );
 
 $options{export_limit} = 10000;
@@ -544,22 +557,6 @@ my $manifest = {
 $options{manifest} = $manifest;
 
 $options{display_random_sample_of_products_after_edits} = 0;    # from MongoDB 3.2 onward
-
-$options{favicons} = <<HTML
-<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
-<link rel="manifest" href="/images/favicon/site.webmanifest">
-<link rel="mask-icon" href="/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
-<link rel="shortcut icon" href="/images/favicon/favicon.ico">
-<meta name="msapplication-TileColor" content="#ffffff">
-<meta name="msapplication-config" content="/images/favicon/browserconfig.xml">
-<meta name="theme-color" content="#ffffff">
-
-<meta name="apple-itunes-app" content="app-id=588797948">
-<meta name="flattr:id" content="dw637l">
-HTML
-	;
 
 $options{opensearch_image} = <<XML
 <Image width="16" height="16" type="image/x-icon">https://static.$server_domain/images/favicon/favicon.ico</Image>
