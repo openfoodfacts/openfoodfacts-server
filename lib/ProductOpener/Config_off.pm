@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2024 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -18,6 +18,8 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+## no critic (RequireFilenameMatchesPackage);
+
 package ProductOpener::Config;
 
 use utf8;
@@ -27,6 +29,8 @@ use Exporter qw< import >;
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
+		$flavor
+
 		%string_normalization_for_lang
 		%admins
 
@@ -35,6 +39,7 @@ BEGIN {
 		$conf_root
 		$data_root
 		$www_root
+		$sftp_root
 		$geolite2_path
 		$reference_timezone
 		$contact_email
@@ -54,6 +59,8 @@ BEGIN {
 		$events_username
 		$events_password
 
+		$rate_limiter_blocking_enabled
+
 		$facets_kp_url
 		$redis_url
 
@@ -70,8 +77,6 @@ BEGIN {
 		$small_size
 		$display_size
 		$zoom_size
-
-		$page_size
 
 		%options
 		%server_options
@@ -99,6 +104,8 @@ use vars @EXPORT_OK;    # no 'my' keyword for these
 
 use ProductOpener::Config2;
 
+$flavor = 'off';
+
 # define the normalization applied to change a string to a tag id (in particular for taxonomies)
 # tag ids are also used in URLs.
 
@@ -108,6 +115,8 @@ use ProductOpener::Config2;
 # - dangerous if different words (in the same context like ingredients or category names) have the same unaccented form
 # lowercase:
 # - useful when the same word appears in lowercase, with a first capital letter, or in all caps.
+
+# IMPORTANT: if you change it, you need to change $BUILD_TAGS_VERSION in Tags.pm
 
 %string_normalization_for_lang = (
 	# no_language is used for strings that are not in a specific language (e.g. user names)
@@ -176,13 +185,42 @@ use ProductOpener::Config2;
 	hangy
 	manoncorneille
 	raphael0202
-	sarazine-ouattara
 	stephane
 	tacinte
 	teolemon
+	g123k
+	valimp
+);
+
+%options = (
+	site_name => "Open Food Facts",
+	product_type => "food",
+	og_image_url => "https://static.openfoodfacts.org/images/logos/off-logo-vertical-white-social-media-preview.png",
+	android_apk_app_link => "https://world.openfoodfacts.org/files/off.apk?utm_source=off&utf_medium=web",
+	android_app_link =>
+		"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&utm_source=off&utf_medium=web",
+	ios_app_link => "https://apps.apple.com/app/open-food-facts/id588797948?utm_source=off&utf_medium=web",
+	facebook_page_url => "https://www.facebook.com/OpenFoodFacts?utm_source=off&utf_medium=web",
+	facebook_page_url_fr => "https://www.facebook.com/OpenFoodFacts.fr",
+	twitter_account => "OpenFoodFacts",
+	twitter_account_fr => "OpenFoodFactsFr",
 );
 
 $options{export_limit} = 10000;
+
+# Recent changes limits
+$options{default_recent_changes_page_size} = 20;
+$options{max_recent_changes_page_size} = 1000;
+
+# List of products limits
+$options{default_api_products_page_size} = 20;
+$options{default_web_products_page_size} = 50;
+$options{max_products_page_size} = 100;
+$options{max_products_page_size_for_logged_in_users} = 1000;
+
+# List of tags limits
+$options{default_tags_page_size} = 100;
+$options{max_tags_page_size} = 1000;
 
 $options{users_who_can_upload_small_images} = {
 	map {$_ => 1}
@@ -193,8 +231,6 @@ $options{users_who_can_upload_small_images} = {
 		teolemon
 		)
 };
-
-$options{product_type} = "food";
 
 # edit rules
 # see ProductOpener::Products::process_product_edit_rules for documentation
@@ -329,6 +365,46 @@ $options{product_type} = "food";
 			)
 		],
 	},
+	{
+		name => "Vegan App Chakib",
+		conditions => [["user_id", "vegan-app-chakib"],],
+		actions => [["ignore"],],
+		notifications => [
+			qw (
+				slack_channel_edit-alert
+			)
+		],
+	},
+	{
+		name => "Vegetarian App Chakib",
+		conditions => [["user_id", "vegetarian-app-chakib"],],
+		actions => [["ignore"],],
+		notifications => [
+			qw (
+				slack_channel_edit-alert
+			)
+		],
+	},
+	{
+		name => "Allergies App Chakib",
+		conditions => [["user_id", "allergies-app-chakib"],],
+		actions => [["ignore"],],
+		notifications => [
+			qw (
+				slack_channel_edit-alert
+			)
+		],
+	},
+	{
+		name => "Additives App Chakib",
+		conditions => [["user_id", "additives-app-chakib"],],
+		actions => [["ignore"],],
+		notifications => [
+			qw (
+				slack_channel_edit-alert
+			)
+		],
+	},
 
 );
 
@@ -344,6 +420,7 @@ $memd_servers = $ProductOpener::Config2::memd_servers;
 $www_root = $ProductOpener::Config2::www_root;
 $data_root = $ProductOpener::Config2::data_root;
 $conf_root = $ProductOpener::Config2::conf_root;
+$sftp_root = $ProductOpener::Config2::sftp_root;    # might be undef
 
 $geolite2_path = $ProductOpener::Config2::geolite2_path;
 
@@ -373,6 +450,10 @@ $redis_url = $ProductOpener::Config2::redis_url;
 # Facets knowledge panels url
 $facets_kp_url = $ProductOpener::Config2::facets_kp_url;
 
+# If $rate_limiter_blocking_enabled is set to 1, the rate limiter will block requests
+# by returning a 429 error code instead of a 200 code
+$rate_limiter_blocking_enabled = $ProductOpener::Config2::rate_limiter_blocking_enabled;
+
 # server options
 
 %server_options = %ProductOpener::Config2::server_options;
@@ -390,8 +471,6 @@ $crop_size = 400;
 $small_size = 200;
 $display_size = 400;
 $zoom_size = 800;
-
-$page_size = 24;
 
 $google_analytics = <<HTML
 <!-- Matomo -->
@@ -767,6 +846,7 @@ $options{replace_existing_values_when_importing_those_tags_fields} = {
 	created_t
 	last_modified_t
 	last_modified_by
+	last_updated_t
 	product_name
 	abbreviated_product_name
 	generic_name
@@ -1023,6 +1103,9 @@ $options{other_servers} = {
 		domain => "openpetfoodfacts.org",
 	}
 };
+
+# Name of the Redis stream to which product updates are published
+$options{redis_stream_name} = "product_updates_off";
 
 # used to rename texts and to redirect to the new name
 $options{redirect_texts} = {
@@ -1546,5 +1629,27 @@ $options{sample_product_code} = "093270067481501";    # A good product for you -
 #$options{sample_product_code_country_uk} = "5060042641000"; # Tyrrell's lighty salted chips
 #$options{sample_product_code_language_de} = "20884680"; # Waffeln Sondey
 #$options{sample_product_code_country_at_language_de} = "5411188119098"; # Natur miss kokosnuss Alpro
+
+## Rate limiting ##
+
+# Number of requests per minutes for the search API
+$options{rate_limit_search} = 10;
+# Number of requests per minutes for all facets for anonymous users
+$options{rate_limit_facet_products_unregistered} = 5;
+# Number of requests per minutes for facets for registered users
+$options{rate_limit_facet_products_registered} = 10;
+# Number of requests per minutes for facets for bots
+$options{rate_limit_facet_products_crawl_bot} = 10;
+# Number of requests per minutes for facet tags (list of tags with count) for anonymous users
+$options{rate_limit_facet_tags_unregistered} = 5;
+$options{rate_limit_facet_tags_registered} = 10;
+$options{rate_limit_facet_tags_crawl_bot} = 10;
+$options{rate_limit_product} = 100;
+
+# Rate limit allow list
+$options{rate_limit_allow_list} = {
+	'51.210.154.203' => 1,    # OVH2
+	'45.147.209.254' => 1,    # Moji server (actually OSM proxy, Moji only has ipv6)
+};
 
 1;

@@ -1,8 +1,0 @@
-# commented out manual certificate
-ssl_certificate /etc/nginx/acme.sh/live/openfoodfacts.org/fullchain.pem;
-#ssl_certificate /home/acme-off/.acme.sh/openfoodfacts.org/fullchain.cer;
-ssl_certificate_key /etc/nginx/acme.sh/live/openfoodfacts.org/key.pem;
-#ssl_certificate_key /home/acme-off/.acme.sh/openfoodfacts.org/openfoodfacts.org.key;
-ssl_trusted_certificate /etc/nginx/acme.sh/live/openfoodfacts.org/ca.pem;
-#ssl_trusted_certificate /home/acme-off/.acme.sh/openfoodfacts.org/ca.cer;
-

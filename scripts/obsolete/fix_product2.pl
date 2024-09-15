@@ -26,6 +26,7 @@ use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
@@ -44,7 +45,7 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 
 
 # Get a list of all products
@@ -59,7 +60,7 @@ print STDERR "updating product $code\n";
 $product_ref = retrieve_product($code);
 $product_ref->{creator} = 'adeline';
 
-store( "$data_root/products/$path/product.sto", $product_ref );
+store( "$BASE_DIRS{PRODUCTS}/$path/product.sto", $product_ref );
 get_products_collection()->save($product_ref);
 
 exit(0);

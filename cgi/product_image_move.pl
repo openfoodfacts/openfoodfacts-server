@@ -28,17 +28,17 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Lang qw/$lc/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Users qw/:all/;
-use ProductOpener::Images qw/:all/;
+use ProductOpener::Users qw/$Org_id $Owner_id $User_id %User/;
+use ProductOpener::Images qw/process_image_move/;
 use ProductOpener::Products qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 use Log::Any qw($log);
 
 my $type = single_param('type') || 'add';
@@ -73,7 +73,7 @@ $log->debug("calling init()", {query_string => $env});
 
 my $request_ref = ProductOpener::Display::init_request();
 
-$log->debug("parsing code", {user => $User_id, code => $code, cc => $cc, lc => $lc, ip => remote_addr()})
+$log->debug("parsing code", {user => $User_id, code => $code, cc => $request_ref->{cc}, lc => $lc, ip => remote_addr()})
 	if $log->is_debug();
 
 if ((not defined $code) or ($code eq '')) {

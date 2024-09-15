@@ -25,9 +25,10 @@ use Modern::Perl '2017';
 use Exporter qw< import >;
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
 
 use LWP::UserAgent;
-use JSON::PP;
+use JSON::MaybeXS;
 
 if ((not defined $crowdin_project_identifier) or ($crowdin_project_identifier eq '')) {
 	die('$ProductOpener::Config::crowdin_project_identifier not specified');
@@ -87,7 +88,7 @@ sub download_export {
 		print STDERR "download_export: success\n";
 
 		my $csv_response = $res->decoded_content;
-		my $filename = "$www_root/data/top_translators.csv";
+		my $filename = "$BASE_DIRS{PUBLIC_DATA}/top_translators.csv";
 		print STDERR "download_export: saving response to $filename\n";
 
 		open(my $OUT, ">:encoding(UTF-8)", $filename);

@@ -1,7 +1,9 @@
 {
    "ingredients" : [
       {
+         "ciqual_food_code" : "19023",
          "id" : "en:pasteurised-whole-cow-s-milk",
+         "is_in_taxonomy" : 1,
          "labels" : "en:organic",
          "percent_estimate" : 75,
          "percent_max" : 100,
@@ -12,6 +14,7 @@
       },
       {
          "id" : "en:kefir-lactic-ferments",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 25,
          "percent_max" : 50,
          "percent_min" : 0,
@@ -72,10 +75,9 @@
    "ingredients_with_unspecified_percent_n" : 2,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
-      "en:kefir-lactic-ferments",
-      "en:pasteurised-whole-cow-s-milk"
+      "en:kefir-lactic-ferments"
    ],
-   "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ciqual_codes_n" : 1,
    "known_ingredients_n" : 11,
    "lc" : "es",
    "nutriments" : {

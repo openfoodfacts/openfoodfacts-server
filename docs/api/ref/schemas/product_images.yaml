@@ -5,6 +5,10 @@ description: |
   Images ensure the reliability of Open Food Facts data.
   It provides a primary source and proof of all the structured data.
   You may therefore want to display it along the structured information.
+
+  See also tutorials about images:
+  * [Getting images](https://openfoodfacts.github.io/openfoodfacts-server/api/how-to-download-images/)
+  * [Uploading images](https://openfoodfacts.github.io/openfoodfacts-server/api/tutorial-uploading-photo-to-a-product/)
 properties:
   image_front_small_url:
     type: string
@@ -35,7 +39,7 @@ properties:
           This represents an image uploaded for this product.
         $ref: ./image.yaml
       front:
-        description:
+        description: |
           This represents an image (or part of it) selected for a specific role on this product.
         type: object
         $ref: ./image_role.yaml

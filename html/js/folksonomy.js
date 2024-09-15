@@ -36,8 +36,10 @@
 //const corsProxy = "https://pure-63603.herokuapp.com/"; // For dev environment
 const corsProxy = "";                                        // For production
 
-const feAPI = corsProxy + "https://api.folksonomy.openfoodfacts.org";
-//const feAPI = corsProxy + "http://fr.openfoodfacts.localhost:8000"; // For dev environment
+// FE API depends on current domain name
+const docURL = new URL(document.URL);
+const feHost = "api.folksonomy." + docURL.hostname.split(".").slice(1).join(".");
+const feAPI = corsProxy + docURL.protocol + "//" + feHost;
 var feAPIProductURL, code, bearer, prop;
 const authrenewal = 1 * 5 * 60 * 60 * 1000;
 //folksonomy_engine_init();
@@ -146,15 +148,17 @@ function folskonomy_engine_init() {
  */
 function displayFolksonomyPropertyValues() {
     //$(".details").before(
-    $("div[itemtype='https://schema.org/Product']").append(
+    $("div#main-product").append(
         String('<!-- ---- Folksonomy Engine ----- -->' +
         '<div id="free_properties_1" class="feus row card ">' +
         '<div  class="column large-12 h-space-tiny ">' +
         '<h2>Personalized properties (<span data-tooltip aria-haspopup="true" class="has-tip" data-position="top" data-alignment="left" title="Be aware the data model might be modified. Use at your own risk.">beta</span>)</h2>' +
         '<p id="fe_login_info"></p>' +
         "<p>These properties are created and filed by users for any kind of usages. Feel free to add your own. " +
+        "The properties and values you create <strong>must be factual</strong>. " +
         "You can dive into <a href='/properties'>the list of properties already used by the community</a> " +
-        "or explore the <a href='https://wiki.openfoodfacts.org/Folksonomy/Property'>properties' documentation and its search engine</a>.</p>" +
+        "or explore the <a href='https://wiki.openfoodfacts.org/Folksonomy/Property'>properties' documentation and its search engine</a>. " +
+        "</p>" +
         "<p>Be aware the data model might be modified. Use at your own risk.</p>" +
         "<p>This is brought by the <a href='https://wiki.openfoodfacts.org/Folksonomy_Engine'>folksonomy engine project</a>. Don't hesitate to participate or give feedback.</p>" +
         '<form id="free_properties_form">' +

@@ -26,6 +26,7 @@ use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 
@@ -33,7 +34,7 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 use LWP::Simple;
 
 # https://www.wikidata.org/w/api.php?action=wbgetentities&sites=enwiki&ids=Q39&format=json
@@ -158,7 +159,7 @@ foreach my $language (keys %languages) {
 	}
 }
 
-open(my $OUT, ">:encoding(UTF-8)", "$data_root/taxonomies/countries.txt.temp");
+open(my $OUT, ">:encoding(UTF-8)", "$BASE_DIRS{TAXONOMIES_SRC}/countries.txt.temp");
 
 # loop through countries
 foreach my $qc (sort {$names{$a} cmp $names{$b}} keys %names) {

@@ -66,6 +66,14 @@ properties:
       type: string
   ingredients_percent_analysis:
     type: integer
+  ingredients_sweeteners_n:
+    type: integer
+    description: |
+      Number of sweeteners additives in the ingredients. Undefined if ingredients are not specified.
+  ingredients_non_nutritive_sweeteners_n:
+    type: integer
+    description: |
+      Number of non-nutritive sweeteners additives (as specified in the Nutri-Score formula) in the ingredients. Undefined if ingredients are not specified.
   ingredients_tags:
     type: array
     items:

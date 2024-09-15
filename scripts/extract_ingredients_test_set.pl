@@ -37,26 +37,27 @@ TXT
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Images qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Lang qw/$lc/;
 use ProductOpener::Mail qw/:all/;
-use ProductOpener::Products qw/:all/;
+use ProductOpener::Products qw/product_path_from_id retrieve_product/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
-use ProductOpener::Data qw/:all/;
+use ProductOpener::Data qw/get_products_collection/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
-use JSON::PP;
+use JSON::MaybeXS;
+use JSON::MaybeXS;
 use Text::CSV;
 
 use Getopt::Long;
@@ -133,7 +134,7 @@ while (my $product_ref = $cursor->next) {
 
 	if (defined $product_ref) {
 
-		my $dir = "$www_root/images/products/$path";
+		my $dir = "$BASE_DIRS{PRODUCTS_IMAGES}/$path";
 
 		next if !-e $dir;
 

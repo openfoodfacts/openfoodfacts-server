@@ -18,6 +18,8 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+=encoding UTF-8
+
 =head1 NAME
 
 ProductOpener::Web - contains display functions for the website.
@@ -39,12 +41,12 @@ use ProductOpener::PerlStandards;
 use Exporter qw(import);
 
 use ProductOpener::Store qw(:all);
-use ProductOpener::Display qw(:all);
+use ProductOpener::Display qw($country $tt display_possible_improvement_description process_template);
 use ProductOpener::Config qw(:all);
 use ProductOpener::Tags qw(:all);
 use ProductOpener::Users qw(:all);
 use ProductOpener::Orgs qw(:all);
-use ProductOpener::Lang qw(:all);
+use ProductOpener::Lang qw($lc @Langs lang);
 use ProductOpener::Images qw(:all);
 
 use Template;
@@ -56,7 +58,6 @@ BEGIN {
 	@EXPORT_OK = qw(
 		&display_field
 		&display_data_quality_issues_and_improvement_opportunities
-		&display_data_quality_description
 		&display_knowledge_panel
 		&get_languages_options_list
 		&get_countries_options_list
@@ -275,6 +276,11 @@ sub display_knowledge_panel ($product_ref, $panels_ref, $panel_id) {
 
 	my $html = '';
 
+	# Return undef if there is no panel with the given id
+	if (not defined $panels_ref->{$panel_id}) {
+		return;
+	}
+
 	my $template_data_ref = {
 		product => $product_ref,
 		panels => $panels_ref,
@@ -351,25 +357,30 @@ A reference to a list of hashes with every country code and their label in the $
 
 sub get_countries_options_list ($target_lc, $exclude_world = 1) {
 	# if already computed send it back
-	if (defined $countries_options_lists{$target_lc}) {
-		return $countries_options_lists{$target_lc};
-	}
-	# compute countries list
 	my @countries_list = ();
-	my @tags_list = get_all_taxonomy_entries("countries");
-	foreach my $tag (@tags_list) {
-		next if $exclude_world and ($tag eq 'en:world');
-		my $country = display_taxonomy_tag($target_lc, "countries", $tag);
-		# remove eventual language prefix
-		my $country_no_code = $country;
-		$country_no_code =~ s/^\w\w://;
-		# Adding to the list the modified string
-		push @countries_list, {value => $tag, label => $country_no_code, prefixed => $country};
+	if (defined $countries_options_lists{$target_lc}) {
+		@countries_list = @{$countries_options_lists{$target_lc}};
 	}
-	# sort by name
-	@countries_list = sort {$unicode_collate->cmp($a->{label}, $b->{label})} @countries_list;
-	# cache
-	$countries_options_lists{$target_lc} = \@countries_list;
+	else {
+		# compute countries list
+		my @tags_list = get_all_taxonomy_entries("countries");
+		foreach my $tag (@tags_list) {
+			my $country = display_taxonomy_tag($target_lc, "countries", $tag);
+			# remove eventual language prefix
+			my $country_no_code = $country;
+			$country_no_code =~ s/^\w\w://;
+			# Adding to the list the modified string
+			push @countries_list, {value => $tag, label => $country_no_code, prefixed => $country};
+		}
+		# sort by name
+		@countries_list = sort {$unicode_collate->cmp($a->{label}, $b->{label})} @countries_list;
+		# cache
+		$countries_options_lists{$target_lc} = \@countries_list;
+	}
+	if ($exclude_world) {
+		# remove world
+		@countries_list = grep {$_->{value} ne "world"} @countries_list;
+	}
 	return \@countries_list;
 }
 

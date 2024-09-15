@@ -64,20 +64,25 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
+use ProductOpener::Lang qw/$lc lang/;
 use Email::Stuffer;
 use Log::Any qw($log);
 
 =head1 CONSTANTS
 
 =head2 LOG_EMAIL_START
+
 Text used before logging an email
+
 =cut
 
 $LOG_EMAIL_START = "---- EMAIL START ----\n";
 
 =head2 LOG_EMAIL_END
+
 Text used after logging an email
+
 =cut
 
 $LOG_EMAIL_END = "\n---- EMAIL END ----\n";
@@ -157,7 +162,8 @@ sub send_email ($user_ref, $subject, $text) {
 	my $name = $user_ref->{name};
 
 	$text =~ s/<NAME>/$name/g;
-	my $mail = Email::Stuffer->from(lang("site_name") . " <$contact_email>")->to($name . " <$email>")->subject($subject)
+	my $mail
+		= Email::Stuffer->from($options{site_name} . " <$contact_email>")->to($name . " <$email>")->subject($subject)
 		->text_body($text);
 	return _send_email($mail);
 }
@@ -190,14 +196,15 @@ sub send_html_email ($user_ref, $subject, $html_content) {
 	my $email = $user_ref->{email};
 	my $name = $user_ref->{name};
 
-	my $mail = Email::Stuffer->from(lang("site_name") . " <$contact_email>")->to($name . " <$email>")->subject($subject)
+	my $mail
+		= Email::Stuffer->from($options{site_name} . " <$contact_email>")->to($name . " <$email>")->subject($subject)
 		->html_body($html_content);
 	return _send_email($mail);
 }
 
 =head2 get_html_email_content ($filename, $lang )
 
-Fetch the HTML email content in $DATA_ROOT/lang/emails. If a translation is available
+Fetch the HTML email content in $BASE_DIRS{LANG}/emails. If a translation is available
 for the requested language, we provide the translated version otherwise English is the default.
 
 
@@ -219,10 +226,10 @@ The HTML string or undef if the file does not exists or is not readable.
 
 sub get_html_email_content ($filename, $lang) {
 	# if an email does not exist in the local language, use the English version
-	my $file = "$data_root/lang/$lang/emails/$filename";
+	my $file = "$BASE_DIRS{LANG}/$lang/emails/$filename";
 
 	if (!-e $file) {
-		$file = "$data_root/lang/en/emails/$filename";
+		$file = "$BASE_DIRS{LANG}/en/emails/$filename";
 	}
 
 	open(my $IN, "<:encoding(UTF-8)", $file) or $log->error("Can't open $file for reading");
@@ -252,7 +259,8 @@ On the other hand, if there was no error, it returns 0 indicating that the email
 =cut
 
 sub send_email_to_admin ($subject, $text) {
-	my $mail = Email::Stuffer->from(lang("site_name") . " <$contact_email>")->to(lang("site_name") . " <$admin_email>")
+	my $mail
+		= Email::Stuffer->from($options{site_name} . " <$contact_email>")->to($options{site_name} . " <$admin_email>")
 		->subject($subject)->text_body($text);
 
 	return _send_email($mail);
@@ -279,8 +287,8 @@ On the other hand, if there was no error, it returns 1 indicating that email has
 
 sub send_email_to_producers_admin ($subject, $text) {
 	my $mail
-		= Email::Stuffer->from(lang("site_name") . " <$contact_email>")->to(lang("site_name") . " <$producers_email>")
-		->subject($subject)->text_body($text)->html_body($text);
+		= Email::Stuffer->from($options{site_name} . " <$contact_email>")
+		->to($options{site_name} . " <$producers_email>")->subject($subject)->text_body($text)->html_body($text);
 
 	return _send_email($mail);
 }

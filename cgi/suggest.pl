@@ -26,15 +26,15 @@ use CGI::Carp qw(fatalsToBrowser);
 use CGI qw/:cgi :form escapeHTML/;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Display qw/:all/;
-use ProductOpener::TaxonomySuggestions qw/:all/;
+use ProductOpener::Display qw/init_request request_param/;
+use ProductOpener::TaxonomySuggestions qw/get_taxonomy_suggestions/;
 use ProductOpener::Lang qw/:all/;
-use ProductOpener::HTTP qw/:all/;
+use ProductOpener::HTTP qw/write_cors_headers/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
-use JSON::PP;
+use JSON::MaybeXS;
 use Encode;
 
 my $request_ref = ProductOpener::Display::init_request();
@@ -47,7 +47,7 @@ my $tagtype = request_param($request_ref, "tagtype");
 # The API accepts a string input in the "string" field or "term" field.
 # - term is used by the jquery Autocomplete widget: https://api.jqueryui.com/autocomplete/
 # Use "string" only if both are present.
-my $string = decode("utf8", (request_param($request_ref, 'string') || request_param($request_ref, 'term')));
+my $string = request_param($request_ref, 'string') || request_param($request_ref, 'term');
 
 # /cgi/suggest.pl supports only limited context (use /api/v3/taxonomy_suggestions to use richer context)
 my $context_ref = {country => $request_ref->{country},};

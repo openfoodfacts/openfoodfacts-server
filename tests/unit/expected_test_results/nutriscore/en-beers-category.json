@@ -1,6 +1,12 @@
 {
+   "allergens" : "",
+   "allergens_from_ingredients" : "",
+   "allergens_from_user" : "(en) ",
+   "allergens_hierarchy" : [],
+   "allergens_tags" : [],
    "categories" : "beers",
    "categories_hierarchy" : [
+      "en:beverages-and-beverages-preparations",
       "en:beverages",
       "en:alcoholic-beverages",
       "en:beers"
@@ -20,6 +26,7 @@
       "agribalyse-5000"
    ],
    "categories_tags" : [
+      "en:beverages-and-beverages-preparations",
       "en:beverages",
       "en:alcoholic-beverages",
       "en:beers"
@@ -28,6 +35,7 @@
    "food_groups_tags" : [
       "en:alcoholic-beverages"
    ],
+   "ingredients_lc" : "en",
    "lc" : "en",
    "misc_tags" : [
       "en:nutriscore-not-applicable",
@@ -35,6 +43,13 @@
       "en:nutrition-no-fruits-vegetables-nuts",
       "en:nutrition-no-fiber-or-fruits-vegetables-nuts"
    ],
+   "nova_group_debug" : "no nova group when the product does not have ingredients",
+   "nova_group_error" : "missing_ingredients",
+   "nova_groups_tags" : [
+      "unknown"
+   ],
+   "nutrient_levels" : {},
+   "nutrient_levels_tags" : [],
    "nutriments" : {
       "energy_100g" : 182,
       "fat_100g" : 0,
@@ -82,6 +97,7 @@
             "is_fat_oil_nuts_seeds" : 0,
             "is_red_meat_product" : 0,
             "is_water" : 0,
+            "non_nutritive_sweeteners" : null,
             "proteins" : 0.2,
             "salt" : 0.5,
             "saturated_fat" : 0,
@@ -127,5 +143,11 @@
    "pnns_groups_2_tags" : [
       "alcoholic-beverages",
       "known"
-   ]
+   ],
+   "traces" : "",
+   "traces_from_ingredients" : "",
+   "traces_from_user" : "(en) ",
+   "traces_hierarchy" : [],
+   "traces_tags" : [],
+   "unknown_nutrients_tags" : []
 }

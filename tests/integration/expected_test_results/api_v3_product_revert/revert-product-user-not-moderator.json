@@ -1,0 +1,27 @@
+{
+   "errors" : [
+      {
+         "field" : {
+            "id" : "permission",
+            "value" : "product_revert"
+         },
+         "impact" : {
+            "id" : "failure",
+            "lc_name" : "Failure",
+            "name" : "Failure"
+         },
+         "message" : {
+            "id" : "no_permission",
+            "lc_name" : "",
+            "name" : ""
+         }
+      }
+   ],
+   "result" : {
+      "id" : "product_not_reverted",
+      "lc_name" : "Product not reverted to the specified revision",
+      "name" : "Product not reverted to the specified revision"
+   },
+   "status" : "failure",
+   "warnings" : []
+}

@@ -1,0 +1,12 @@
+[Unit]
+Description=Generates madenearme website using off data
+OnFailure=email-failures@madenearme_gen__%i.service
+
+[Service]
+Type=oneshot
+# service instance name "%i" is off / obf / opff / opf
+Environment=PERL5LIB=/srv/%i/lib/:/usr/local/share/perl/5.32.1/:/usr/lib/perl5
+WorkingDirectory=/srv/%i
+ExecStart=/srv/%i/scripts/gen_feeds_daily_%i.sh
+
+

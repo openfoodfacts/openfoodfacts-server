@@ -4,6 +4,7 @@
       "ingredients" : [
          {
             "id" : "en:apple",
+            "is_in_taxonomy" : 1,
             "percent" : 20,
             "percent_estimate" : 20,
             "percent_max" : 20,
@@ -12,6 +13,7 @@
          },
          {
             "id" : "en:pear",
+            "is_in_taxonomy" : 1,
             "percent" : 15,
             "percent_estimate" : 15,
             "percent_max" : 15,
@@ -20,6 +22,7 @@
          },
          {
             "id" : "en:cranberry",
+            "is_in_taxonomy" : 1,
             "percent_estimate" : 11.25,
             "percent_max" : 15,
             "percent_min" : 7.5,
@@ -27,12 +30,14 @@
          },
          {
             "id" : "en:lemon",
+            "is_in_taxonomy" : 1,
             "percent_estimate" : 3.75,
             "percent_max" : 7.5,
             "percent_min" : 0,
             "text" : "lemon"
          }
       ],
+      "is_in_taxonomy" : 1,
       "percent" : 50,
       "percent_estimate" : 50,
       "percent_max" : 50,
@@ -41,6 +46,7 @@
    },
    {
       "id" : "en:sugar",
+      "is_in_taxonomy" : 1,
       "percent_estimate" : 50,
       "percent_max" : 50,
       "percent_min" : 50,

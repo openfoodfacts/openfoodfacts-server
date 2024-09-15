@@ -1,0 +1,26 @@
+type: array
+description: |
+  Nutrients and sub-nutrients of a product, with their name and default unit.
+items:
+  type: object
+  properties:
+    id:
+      type: string
+      description: id of the nutrient
+    name:
+      type: string
+      description: Name of the nutrient in the requested language
+    important:
+      type: boolean
+      description: Indicates if the nutrient is always shown on the nutrition facts table
+    display_in_edit_form:
+      type: boolean
+      description: Indicates if the nutrient should be shown in the nutrition facts edit form
+    unit:
+      description: Default unit of the nutrient
+      $ref: "./nutrient_unit.yaml"
+    nutrients:
+      description: |
+        Sub-nutrients (e.g. saturated-fat is a sub-nutrient of fat).
+      # self recursive
+      $ref: "#/"
