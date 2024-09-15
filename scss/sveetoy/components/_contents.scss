@@ -1,0 +1,167 @@
+/*
+ *
+ * Various Specific styles for Sveetoy demo
+ *
+ */
+.text-family-overlock{
+    font-family: $font-family-overlock;
+}
+.text-family-roboto{
+    font-family: $font-family-roboto;
+}
+
+
+// "Fork me on github" badge
+.github-badge{
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 5000;
+}
+
+
+///
+/// Some styling for this JS component stuff (read more on 'js/jquery.currentmediaquery.js')
+///
+#watch-for-current-mquery{
+    padding: 0.0rem 0.5rem;
+    position: absolute;
+    top: 10px;
+    right: 35px;
+    font-size: 14px;
+    font-weight:bold;
+    line-height:1.4;
+    text-align: center;
+    text-transform: uppercase;
+    border: 2px solid $alert-color;
+    background-color: $white;
+    z-index: 9000;
+
+    small{
+        display: block;
+    }
+}
+
+
+///
+/// No bullet on sub-nav list
+///
+.sub-nav li {
+    list-style-type: none;
+}
+
+///
+/// Introduction header
+#introduction{
+    .logo{
+        font-size: 4.5rem;
+        font-family: $font-family-overlock;
+        text-align: center;
+        text-transform: uppercase;
+    }
+}
+
+///
+/// Component menu bar
+///
+#demo-menu{
+    .menu{
+        background-color: map-get($snow1-color-scheme, "background-color");
+
+        dd a{
+            color: map-get($snow1-color-scheme, "font-color");
+            text-transform: uppercase;
+
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+
+        &.fixed{
+            border-bottom: 1px solid $gray88;
+
+            dd.active a{
+                color: $white;
+
+                &:hover{
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
+
+///
+/// Specific demo layout
+///
+.demo-block{
+    border-top: 1px solid $gray88;
+
+    .demo-introduction{
+        margin-bottom: 3rem;
+    }
+
+    .demo-title{
+        font-family: $font-family-overlock;
+    }
+
+    .demo-result{
+        background:
+            linear-gradient(-90deg, $gray94 1px, transparent 1px),
+            linear-gradient($gray94 1px, transparent 1px),
+            linear-gradient(-90deg, $gray94 1px, transparent 1px),
+            linear-gradient($gray94 1px, transparent 1px),
+            linear-gradient(transparent 3px, transparent 3px, transparent 78px, transparent 78px),
+            linear-gradient(-90deg, transparent 1px, transparent 1px),
+            linear-gradient(-90deg, transparent 3px, transparent 3px, transparent 78px, transparent 78px),
+            linear-gradient(transparent 1px, transparent 1px), transparent;
+        background-size:
+            10px 10px,
+            10px 10px,
+            10px 10px,
+            10px 10px,
+            10px 10px,
+            10px 10px,
+            10px 10px,
+            10px 10px;
+        border: 1px solid $gray88;
+    }
+
+    .flex-grid.flex-demo{
+        .cell{
+            background-color: $gray82;
+
+            &:nth-child(2n) {
+                background-color: $gray88;
+            }
+        }
+
+        &.align-demo{
+            .cell{
+                min-height: 200px;
+            }
+        }
+    }
+}
+
+
+/// Simple code container
+.code-container{
+    margin-bottom: $paragraph-margin-bottom;
+    background-color: $code-background-color;
+    border-color: $code-border-color;
+    border-style: $code-border-style;
+    border-width: $code-border-size;
+    color: $code-color;
+    font-family: $code-font-family;
+    font-weight: $code-font-weight;
+    padding: 0.5rem;
+
+    p{
+        margin-bottom: 0;
+
+        &+p{
+            margin-top: 0.5rem;
+        }
+    }
+}

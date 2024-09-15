@@ -1,0 +1,4 @@
+ssl_certificate /etc/nginx/acme.sh/live/openfoodfacts.org/fullchain.pem;
+ssl_certificate_key /etc/nginx/acme.sh/live/openfoodfacts.org/key.pem;
+ssl_trusted_certificate /etc/nginx/acme.sh/live/openfoodfacts.org/ca.pem;
+

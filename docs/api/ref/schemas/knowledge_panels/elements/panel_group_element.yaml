@@ -1,0 +1,13 @@
+title: panel_group_element
+x-stoplight:
+  id: b7emlfrgiuue2
+type: object
+properties:
+  title:
+    type: string
+  panel_ids:
+    type: array
+    description: The ids of the panels to include. The ids are the keys of the panels in the panels object returned in the knowledge_panels field.
+    items:
+      type: string
+description: The panel group element is used to display an optional title followed by a number of sub-panels.

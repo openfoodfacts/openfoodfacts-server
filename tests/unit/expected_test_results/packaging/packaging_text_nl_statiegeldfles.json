@@ -1,0 +1,31 @@
+{
+   "lc" : "nl",
+   "misc_tags" : [
+      "en:packagings-number-of-components-1",
+      "en:packagings-not-complete",
+      "en:packagings-not-empty-but-not-complete",
+      "en:packagings-not-empty"
+   ],
+   "packaging_materials_tags" : [
+      "en:pet-1-polyethylene-terephthalate"
+   ],
+   "packaging_recycling_tags" : [
+      "en:return-pet-bottle-to-store"
+   ],
+   "packaging_shapes_tags" : [
+      "en:unknown"
+   ],
+   "packaging_text" : "statiegeldfles",
+   "packagings" : [
+      {
+         "material" : "en:pet-1-polyethylene-terephthalate",
+         "recycling" : "en:return-pet-bottle-to-store",
+         "shape" : "en:unknown"
+      }
+   ],
+   "packagings_materials" : {
+      "all" : {},
+      "en:plastic" : {}
+   },
+   "packagings_n" : 1
+}

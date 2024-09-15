@@ -1,0 +1,57 @@
+<!doctype html> <!-- Important: must specify -->
+<html>
+<head>
+  <meta charset="utf-8"> <!-- Important: rapi-doc uses utf8 characters -->
+  <script type="module" src="https://unpkg.com/rapidoc/dist/rapidoc-min.js"></script>
+  <style>
+    /* style for our menus */
+    .off-nav ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .off-nav ul {
+      margin: 16px 10px;
+    }
+    .off-nav li a {
+      color: inherit;
+      text-decoration: none;
+      padding: 16px 10px;
+      display: block;
+      font-weight: bold;
+    }
+    .off-nav li a::after {
+      content: " ↗";
+      font-size: .6em;
+    }
+    .off-nav li a:hover {
+      color: var(--nav-hover-text-color);
+      background-color: var(--nav-hover-bg-color);
+    }
+  </style>
+</head>
+<body>
+  <rapi-doc
+    spec-url="https://raw.githubusercontent.com/openfoodfacts/openfoodfacts-server/main/docs/api/ref/api.yml"
+    render-style="focus"
+    schema-expand-level="5"
+    default-schema-tab="schema"
+    show-components="true"
+    show-header="false"
+    info-description-headings-in-navbar="true"
+    default-api-server="https://world.openfoodfacts.net"
+  >
+  <img slot="logo" src="https://static.openfoodfacts.org/images/logos/off-logo-horizontal-light.svg" style="width:200px;"/>
+  <nav  slot="nav-logo" class="off-nav">
+    <ul>
+      <li><a href="https://openfoodfacts.github.io/openfoodfacts-server">General documentation</a></li>
+      <li><a href="https://openfoodfacts.github.io/openfoodfacts-server/api/">API Introduction</a></li>
+      <li><a href="https://openfoodfacts.github.io/openfoodfacts-server/api/#tutorials">API Tutorials</a></li>
+      <li><a href="https://openfoodfacts.github.io/openfoodfacts-server/api/ref-cheatsheet/">API Cheat sheet</a></li>
+      <li><a href="https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v3/">API v3</a></li>
+    </ul>
+  </nav>
+  </nav>
+</nav>
+  </rapi-doc>
+</body>
+</html>

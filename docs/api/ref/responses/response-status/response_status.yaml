@@ -1,0 +1,61 @@
+title: Response status
+x-stoplight:
+  id: 54bh0c5mejahn
+type: object
+description: 'A response object to describe if a READ or WRITE request was successful or not, and if there were errors or warnings, and what the impact of those errors or warnings was.'
+examples:
+  - status_id: success_with_errors
+    result:
+      id: product_updated
+      name: Product updated
+      lc_name: Produit mis à jour
+    errors:
+      - message:
+          id: sugars_higher_than_carbohydrates
+          name: Sugars higher than carbohydrates
+          lc_name: Sucres plus élevés que les glucides
+          description: Sugars (40g) are higher than carbohydrates (35g).
+          lc_description: Les sucres (40g) sont plus élévés que les glucdes.
+        field:
+          id: nutriment.sugars
+          value: '40'
+        impact:
+          id: nutrients_not_updated
+          name: Nutrients not updated
+          lc_name: Nutriments non mis à jour
+          description: The nutrients were not updated.
+          lc_description: Les nutriments n'ont pas été mis à jour.
+properties:
+  status_id:
+    type: string
+    enum:
+      - success
+      - success_with_warnings
+      - success_with_errors
+      - failure
+    description: 'Overall status of the request: whether it failed or succeeded, with or without warnings or errors.'
+  result:
+    type: object
+    description: |-
+      Overall result
+       of the request (e.g. a product has been created)
+    properties:
+      id:
+        type: string
+        description: Identifier of a response result entry
+      name:
+        type: string
+        description: Name of the response result entry in English.
+      lc_name:
+        type: string
+        description: 'Name of the response result entry in the language specified in tags_lc, if supplied.'
+  warnings:
+    type: array
+    description: 'List of warnings. Warnings are used to alert about something that may be wrong, but is not necessarily wrong (e.g. a nutrient value that is unexpectedly high).'
+    items:
+      $ref: ./warning-or-error.yaml
+  errors:
+    type: array
+    description: List of errors. Errors are used to alert about something that is definitely wrong (e.g. a nutrient value thaty is impossibly high).
+    items:
+      $ref: ./warning-or-error.yaml

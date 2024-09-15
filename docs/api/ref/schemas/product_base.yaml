@@ -1,0 +1,96 @@
+type: object
+description: |
+  Base product data
+properties:
+  abbreviated_product_name:
+    type: string
+    description: Abbreviated name in requested language
+  code:
+    type: string
+    description: |
+      barcode of the product (can be EAN-13 or internal codes for some food stores),
+      for products without a barcode,
+      Open Food Facts assigns a number starting with the 200 reserved prefix
+  codes_tags:
+    type: array
+    items:
+      type: string
+      description: |
+        A value which is the type of barcode "code-13" or "code-8"
+        and
+        A series of mask for the barcode
+        It helps retrieve barcodes starting by
+      example: |
+        ["code-13","3017620422xxx","301762042xxxx","30176204xxxxx","3017620xxxxxx","301762xxxxxxx","30176xxxxxxxx","3017xxxxxxxxx","301xxxxxxxxxx","30xxxxxxxxxxx","3xxxxxxxxxxxx"]
+  generic_name:
+    type: string
+    description: |
+      Legal name of the product as regulated
+      by the European authorities.
+  id:
+    description: |
+      internal identifier for the product, usually set to the value of `code`,
+      except on the producers platform where it is prefixed by the owner
+    type: string
+  lc:
+    type: string
+    description: |
+      Main language of the product.
+      This is a duplicate of `lang` property (for historical reasons).
+  lang:
+    type: string
+    description: |
+      Main language of the product.
+
+      This should be the main language of product packaging (if one is predominant).
+
+      Main language is also used to decide which ingredients list to parse.
+  nova_group:
+    type: integer
+    description: |
+      Nova group as an integer from 1 to 4. See https://world.openfoodfacts.org/nova
+  nova_groups:
+    type: string
+  obsolete:
+    type: string
+  obsolete_since_date:
+    description: |
+      A date at which the product was declared obsolete.
+      This means it's not produced any more.
+    type: string
+  product_name:
+    type: string
+    description: |
+      The name of the product
+  product_name_en:
+    type: string
+    description: |
+      The name of the product can also
+      be in many other languages like
+      product_name_fr (for French).
+  product_quantity:
+    type: string
+    description: |
+      The size in g or ml for the whole product.
+      It's a normalized version of the quantity field.
+    example: "500"
+  product_quantity_unit:
+    type: string
+    description: |
+      The unit (either g or ml) for the correponding product_quantity.
+    example: "g"
+  quantity:
+    type: string
+    description: |
+      Quantity and Unit.
+
+
+patternProperties:
+  abbreviated_product_name_(?<language_code>\w\w):
+    type: string
+    description: Abbreviated name in language `language_code`.
+  'generic_name_(?<language_code>\w\w)':
+    type: string
+    description: |
+      This can be returned in many other languages
+      like generic_name_fr (for French).

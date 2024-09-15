@@ -1,0 +1,443 @@
+openapi: 3.1.0
+x-stoplight:
+  id: 0x3135wk4xq0t
+info:
+  title: Open Food Facts Open API V3 - under development
+  description: |
+    As a developer, the Open Food Facts API allows you to get information
+    and contribute to the products database. You can create great apps to
+    help people make better food choices and also provide data to enhance the database.
+  termsOfService: "https://world.openfoodfacts.org/terms-of-use"
+  contact:
+    name: Open Food Facts
+    url: "https://slack.openfoodfacts.org/"
+    email: reuse@openfoodfacts.org
+  license:
+    name: "License (MIT, Apache 2.0, etc)"
+    url: "https://opendatacommons.org/licenses/odbl/summary/index.html"
+  version: "3"
+servers:
+  - url: "https://world.openfoodfacts.org"
+    description: prod
+  - description: dev
+    url: "https://world.openfoodfacts.net"
+paths:
+  "/api/v3/product/{barcode}":
+    get:
+      tags:
+        - Read Requests
+      summary: READ Product - Get information for a specific product by barcode (API V3)
+      parameters:
+        - name: barcode
+          in: path
+          description: |
+            The barcode of the product to be fetched
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: "3017620422003"
+        - $ref: "#/components/parameters/cc"
+        - $ref: "#/components/parameters/lc"
+        - schema:
+            type: string
+          in: query
+          name: tags_lc
+          description: "2 letter language code to request names of tags in a specific language.  For READ requests: if passed, all taxonomized tags of the response will include a `lc_name` property with the translation in the requested language, if available. Otherwise, the property value will contain the name in the original language, prefixed by the 2 language code and a colon."
+        - schema:
+            type: string
+          in: query
+          name: fields
+          description: |-
+            Comma separated list of fields requested in the response.
+
+            Special values:
+            * "none": returns no fields
+            * "raw": returns all fields as stored internally in the database
+            * "all": returns all fields except generated fields that need to be explicitly requested such as "knowledge_panels".
+
+            Defaults to "all" for READ requests. The "all" value can also be combined with fields like "attribute_groups" and "knowledge_panels".'
+        - schema:
+            type: string
+            example: "health_card, environment_card"
+          required: false
+          in: query
+          name: knowledge_panels_included
+          description: |-
+            When knowledge_panels are requested, you can specify which panels should be in the response. All the others will be excluded.
+        - schema:
+            type: string
+            example: "health_card, environment_card"
+          required: false
+          in: query
+          name: knowledge_panels_excluded
+          description: |-
+            When knowledge_panels are requested, you can specify which panels to exclude from the response. All the others will be included.
+            If a panel is both excluded and included (with the knowledge_panels_excluded parameter), it will be excluded.
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: ./responses/response-status/response_status.yaml
+                  - $ref: ./schemas/product.yaml
+      description: |-
+        Retrieve information for a product with a specific barcode.
+
+        The fields parameter allows to specify what fields to retrieve.
+      operationId: get-product-by-barcode
+    parameters:
+      - schema:
+          type: string
+        name: barcode
+        in: path
+        required: true
+        description: 'Barcode of the product to create or update, or "test" to analyze the product data sent without creating or updating a product'
+    patch:
+      summary: "WRITE Product - Create or update product, or analyze test product (API V3 - Implementation in progress)"
+      operationId: patch-api-v3-product-barcode
+      responses:
+        "200":
+          description: |-
+            The response will include a "product" structure. The fields returned in this structure will depend on the value of the "fields" input field:
+
+            - "updated" (default): all fields updated by the query will be returned, including fields that are directly generated from the updated fields. For instance, sending "packagings" or "packagings_add" will return the "packagings" field.
+
+            - "none": no fields are returned.
+
+            - "all": returns all fields except generated fields that need to be explicitly requested such as "knowledge_panels".
+
+            The "fields" values can also be concatenated: "all,knowledge_panels"
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: ./responses/response-status/response_status.yaml
+                  - type: object
+                    properties:
+                      product:
+                        $ref: ./schemas/product.yaml
+              examples:
+                Update of packagings:
+                  value:
+                    status: success_with_errors
+                    result:
+                      id: "en:product-updated"
+                      en_name: Product updated
+                      lc_name: Produit mis à jour
+                    errors:
+                      - message:
+                          id: "en:sugars-higher-than-carbohydrates"
+                          name: Sugars higher than carbohydrates
+                          lc_name: Sucres plus élevés que les glucides
+                          description: Sugars (40g) are higher than carbohydrates (35g).
+                          lc_description: Les sucres (40g) sont plus élévés que les glucdes.
+                        field:
+                          id: nutriment.sugars
+                          value: "40"
+                        impact:
+                          id: "en:nutrients-not-updated"
+                          name: Nutrients not updated
+                          lc_name: Nutriments non mis à jour
+                          description: The nutrients were not updated.
+                          lc_description: Les nutriments n'ont pas été mis à jour.
+                    product:
+                      packagings:
+                        - material: "en:pp-polypropylene"
+                          number: "2"
+                          recycling: "en:discard"
+                          shape: "en:lid"
+                        - material: "en:non-corrugated-cardboard"
+                          number: "1"
+                          recycling: "en:recycle"
+                          shape: "en:box"
+                          weight: 120
+                        - material: "en:paper-and-fibreboard-aluminium"
+                          number: "2"
+                          recycling: "en:recycle"
+                          shape: "en:seal"
+                        - material: "en:clear-glass"
+                          number: "2"
+                          recycling: "en:recycle"
+                          shape: "en:jar"
+                          quantity: 200 ML
+                          quantity_value: 200
+                          quantity_unit: ml
+                          weight: 80
+          headers: {}
+      description: |-
+        This API allows to create or update a product (if the product already exists, its data is updated, otherwise it is created), or to analyze a test product (in which case no product is created or updated). To analyze a product, the "barcode" path component needs to contain the value "test" instead of a barcode.
+
+        New API to send structured product data in a JSON format instead of in a flattened list of key / value pairs field as-in the current product add / edit API that relies on a multipart/form-data format.
+
+        Important: this new Product WRITE API is under development. The initial deployment will support only packaging fields.
+
+        This new API will be used in particular to send structured packaging data: https://openfoodfacts.github.io/openfoodfacts-server/dev/explain-packaging-data/
+
+        The new API can then be gradually extended to support other product fields.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: ./requestBodies/lc_cc.yaml
+                - $ref: ./requestBodies/fields_tags_lc.yaml
+                - type: object
+                  properties:
+                    user_id:
+                      type: string
+                    password:
+                      type: string
+                    product:
+                      $ref: ./schemas/product_update_api_v3.yaml
+            examples:
+              example-1:
+                value:
+                  lc: fr
+                  cc: fr
+                  fields: "product_name,packagings"
+                  tags_lc: fr
+                  userid: string
+                  password: string
+                  code: string
+                  product:
+                    packagings:
+                      - number_of_units: 6
+                        shape:
+                          id: "en:bottle"
+                        material:
+                          id: "en:plastic"
+                        recycling:
+                          id: "en:recycle"
+                        quantity_per_unit: 25 cl
+                        weight_measured: 10
+                    packagings_add:
+                      - number_of_units: 6
+                        shape:
+                          id: "en:bottle"
+                        material:
+                          id: "en:plastic"
+                        recycling:
+                          id: "en:recycle"
+                        quantity_per_unit: 25 cl
+                        weight_measured: 10
+          application/xml:
+            schema:
+              type: object
+              properties: {}
+        description: |
+          Structured data for the product is passed in the product field.
+
+          For complex structures such as the packagings object, it is possible to replace pre-existing data, or completing it:
+
+          - an object sent in the packagings field will replace any pre-existing data.
+          - an object sent in the field suffixed with _add (e.g. packagings_add) will be merged with any pre-existing data.
+      parameters: []
+  /api/v3/taxonomy_suggestions:
+    parameters: []
+    get:
+      summary: Get taxonomy entries suggestions
+      tags: []
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: ./responses/response-status/response_status.yaml
+                  - type: object
+                    properties:
+                      suggestions:
+                        type: array
+                        description: Array of sorted strings suggestions in the language requested in the "lc" field.
+                        items:
+                          type: string
+                      matched_synonyms:
+                        type: object
+                        description: |
+                          Dictionary of strings associating canonical names (as seen in suggestions field) with the synonym that best matches the query. An entry is present for all suggestions, even when the synonym is the same with the canonical name.
+
+                          This value is present only if get_synonyms parameter is present.
+                        additional_properties:
+                          type: string
+      operationId: get-api-v3-taxonomy_suggestions-taxonomy
+      description: |-
+        Open Food Facts uses multilingual [taxonomies](https://wiki.openfoodfacts.org/Global_taxonomies) to normalize entries for categories, labels, ingredients, packaging shapes / materials / recycling instructions and many more fields.
+
+        This API returns taxonomy entries suggestions that can be used in product edit forms, search forms etc. (for instance in autocomplete dropdowns using libraries like Tagify or select2 on the Web).
+
+        Suggestions filtering:
+
+        The string parameter allows to get only suggestions that contain a specific string (useful for autocomplete suggestions).
+
+        Suggestions ordering:
+
+        - For packaging shapes and materials, suggestions are ordered first by the number of packaging components they appear in (restricted by country, categories and shape (for materials) if they are passed as parameters).
+        - for all other taxonomies, results are ordered alphabetically
+
+        If a string is passed, an additional sort is done to put first suggestions that start with the string, followed by suggestions with a word that start with the string, and then suggestions that contain the string anywhere.
+      parameters:
+        - $ref: ./api.yml#/components/parameters/tagtype
+        - $ref: "#/components/parameters/cc"
+        - $ref: "#/components/parameters/lc"
+        - schema:
+            type: string
+            example: pe
+          in: query
+          name: string
+          description: "Optional string used to filter suggestions (useful for autocomplete).  If passed, suggestions starting with the string will be returned first, followed by suggestions matching the string at the beginning of a word, and suggestions matching the string inside a word."
+        - schema:
+            type: string
+            example: yougurts
+          in: query
+          name: categories
+          description: 'Comma separated list of categories tags (e.g. "en:fats,en:unsalted-butters" or categories names in the language indicated by the "lc" field (e.g. "graisses, beurres salés" in French)'
+        - schema:
+            type: string
+            example: bottle
+          in: query
+          name: shape
+          description: 'Shape of packaging component (tag identified in the packaging_shapes taxonomy, or plain text tag name in the language indicated by the "lc" field)'
+        - schema:
+            type: string
+          in: query
+          name: limit
+          description: "Maximum number of suggestions. Default is 25, max is 400."
+        - schema:
+            type: string
+          in: query
+          name: get_synonyms
+          description: 'Whether or not to include "matched_synonyms" in the response. Set to 1 to include.'
+        - schema:
+            type: string
+          in: query
+          name: term
+          description: Alias for the "string" parameter provided for backward compatibility. "string" takes precedence.
+  "/api/v3/tag/{tagtype}/{tag_or_tagid}":
+    parameters:
+      - $ref: "#/components/parameters/cc"
+      - $ref: "#/components/parameters/lc"
+      - schema:
+          type: string
+          example: categories
+        name: tagtype
+        in: path
+        required: true
+        description: Type of the tag
+      - schema:
+          type: string
+        name: tag_or_tagid
+        in: path
+        required: true
+        description: "Tag name (e.g. yogurts) or tag id (e.g. en:yogurts)"
+    get:
+      summary: Get knowledge panels for a tag
+      tags: []
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: ./responses/response-status/response_status.yaml
+                  - type: object
+                    properties:
+                      tagtype:
+                        type: string
+                        description: |
+                          Input tagtype
+                      tagid:
+                        type: string
+                        description: |
+                          Input tagid
+                      tag:
+                        type: object
+                        properties:
+                          tagid:
+                            type: string
+                            description: Canonicalized tagid corresponding to the input tag_or_tagid
+                          tagtype:
+                            type: string
+                            description: Canonicalized tagtype
+                          knowledge_panels:
+                            $ref: ./schemas/knowledge_panels/panels.yaml
+                            description: Knowledge panels for the tag
+            application/xml:
+              schema:
+                type: object
+                properties: {}
+      operationId: get-api-v3-tag-tagtype-tag_or_tagid
+      description: |-
+        Return knowledge panels for a tag.
+
+        Currently the knowledge panels returned are:
+
+        Categories:
+        - Packaging stats for a category
+  /api/v3/product_revert:
+    parameters: []
+    post:
+      summary: Revert a product to a previous revision
+      tags: []
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: ./responses/response-status/response_status.yaml
+      operationId: post-api-v3-product_revert
+      description: |-
+        For moderators only, revert a product to a previous revision.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: ./requestBodies/fields_tags_lc.yaml
+                - type: object
+                  properties:
+                    code:
+                      type: string
+                      description: Barcode of the product
+                    rev:
+                      type: integer
+                      description: Revision number to revert to
+        description: |
+          The code and rev fields are mandatory.
+      parameters: []
+components:
+  parameters:
+    cc:
+      schema:
+        type: string
+        example: "us"
+      in: query
+      name: cc
+      required: false
+      description: "2 letter code of the country of the user. Used for localizing some fields in returned values (e.g. knowledge panels). If not passed, the country may be inferred by the IP address of the request."
+    lc:
+      schema:
+        type: string
+        example: "fr"
+      in: query
+      name: lc
+      required: false
+      description: "2 letter code of the language of the user. Used for localizing some fields in returned values (e.g. knowledge panels). If not passed, the language may be inferred by the Accept-Language header of the request."
+    code:
+      schema:
+        type: string
+        example: "4251105501381"
+      in: query
+      name: code
+      description: Barcode of the product
+      required: true
+tags:
+  - name: Read Requests
+  - name: Write Requests

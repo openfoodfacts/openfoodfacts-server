@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -43,7 +43,7 @@ if (not defined $start_dir) {
 sub retrieve {
 	my $file = shift @_;
 	# If the file does not exist, return undef.
-	if (! -e $file) {
+	if (!-e $file) {
 		return;
 	}
 	my $return = undef;
@@ -70,9 +70,7 @@ sub get_path_from_code($) {
 	return $path;
 }
 
-
 my $d = 0;
-
 
 sub find_products($$) {
 
@@ -88,13 +86,13 @@ sub find_products($$) {
 		if ($file =~ /^(([0-9]+))\.sto/) {
 			push @products, [$code, $1];
 			$d++;
-			(($d % 1000) == 1 ) and print "$d products revisions - $code\n";
+			(($d % 1000) == 1) and print "$d products revisions - $code\n";
 			#print "code: $code\n";
 		}
 		else {
 			$file =~ /\./ and next;
 			if (-d "$dir/$file") {
-				find_products("$dir/$file","$code$file");
+				find_products("$dir/$file", "$code$file");
 			}
 		}
 		#last if $d > 100;
@@ -104,40 +102,38 @@ sub find_products($$) {
 	return;
 }
 
-
 if (scalar $#products < 0) {
-	find_products($start_dir,'');
+	find_products($start_dir, '');
 }
-
 
 my $count = $#products;
 my $i = 0;
 
 my %codes = ();
 
-	print STDERR "$count products revs to update\n";
+print STDERR "$count products revs to update\n";
 
-	foreach my $code_rev_ref (@products) {
-		
-		my ($code, $rev) = @$code_rev_ref;
+foreach my $code_rev_ref (@products) {
 
-		my $path = get_path_from_code($code);
+	my ($code, $rev) = @$code_rev_ref;
 
-		my $product_ref = retrieve("$start_dir/$path/$rev.sto") or print "not defined $start_dir/$path/$rev.sto\n";
+	my $path = get_path_from_code($code);
 
-		if ((defined $product_ref)) {
+	my $product_ref = retrieve("$start_dir/$path/$rev.sto") or print "not defined $start_dir/$path/$rev.sto\n";
 
-			next if ((defined $product_ref->{deleted}) and ($product_ref->{deleted} eq 'on'));
-			print STDERR "updating product code $code -- rev $rev -- " . $product_ref->{code} . " \n";
-			
-			$product_ref->{_id} = $code . "." . $rev;
-			
-			my $return = $products_collection->replace_one({"_id" => $product_ref->{_id}}, $product_ref, { upsert => 1 });
-			print STDERR "return $return\n";
-			$i++;
-			$codes{$code} = 1;
-		}
+	if ((defined $product_ref)) {
+
+		next if ((defined $product_ref->{deleted}) and ($product_ref->{deleted} eq 'on'));
+		print STDERR "updating product code $code -- rev $rev -- " . $product_ref->{code} . " \n";
+
+		$product_ref->{_id} = $code . "." . $rev;
+
+		my $return = $products_collection->replace_one({"_id" => $product_ref->{_id}}, $product_ref, {upsert => 1});
+		print STDERR "return $return\n";
+		$i++;
+		$codes{$code} = 1;
 	}
+}
 
 print STDERR "$count products revs to update - $i products revs not empty or deleted\n";
 print STDERR "scalar keys codes : " . (scalar keys %codes) . "\n";

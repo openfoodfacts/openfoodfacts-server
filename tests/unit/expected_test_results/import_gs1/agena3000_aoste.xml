@@ -1,0 +1,772 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalogue_item_notification:catalogueItemNotificationMessage xmlns:catalogue_item_notification="urn:gs1:gdsn:catalogue_item_notification:xsd:3"
+                                                            	xmlns:sh="http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader"
+                                                            	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                                            	xsi:schemaLocation="urn:gs1:gdsn:catalogue_item_notification:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/CatalogueItemNotification.xsd">
+	<sh:StandardBusinessDocumentHeader>
+		<sh:HeaderVersion>1.0</sh:HeaderVersion>
+		<sh:Sender>
+			<sh:Identifier Authority="GS1">3034012285008</sh:Identifier>
+		</sh:Sender>
+		<sh:Receiver>
+			<sh:Identifier Authority="GS1">3027000006006</sh:Identifier>
+		</sh:Receiver>
+		<sh:DocumentIdentification>
+			<sh:Standard>GS1</sh:Standard>
+			<sh:TypeVersion>3.1</sh:TypeVersion>
+			<sh:InstanceIdentifier>3034012285008_000014f973cfe5a5634f09a24dfc435463baf5445ec2e7a0e140238cc610</sh:InstanceIdentifier>
+			<sh:Type>catalogueItemNotification</sh:Type>
+			<sh:MultipleType>false</sh:MultipleType>
+			<sh:CreationDateAndTime>2022-03-24T14:16:11.00904+01:00</sh:CreationDateAndTime>
+		</sh:DocumentIdentification>
+	</sh:StandardBusinessDocumentHeader>
+	<transaction>
+		<transactionIdentification>
+			<entityIdentification>3034012285008_000014f973cfe5a5634f09a24dfc435463baf5445ec2e7a0e140238cc610</entityIdentification>
+			<contentOwner>
+				<gln>3014498600106</gln>
+			</contentOwner>
+		</transactionIdentification>
+		<documentCommand>
+			<documentCommandHeader type="CHANGE_BY_REFRESH">
+				<documentCommandIdentification>
+					<entityIdentification>3034012285008_000014f973cfe5a5634f09a24dfc435463baf5445ec2e7a0e140238cc61003</entityIdentification>
+					<contentOwner>
+						<gln>3014498600106</gln>
+					</contentOwner>
+				</documentCommandIdentification>
+			</documentCommandHeader>
+			<catalogue_item_notification:catalogueItemNotification>
+				<creationDateTime>2022-03-24T14:16:11.00904+01:00</creationDateTime>
+				<documentStatusCode>ORIGINAL</documentStatusCode>
+				<catalogueItemNotificationIdentification>
+					<entityIdentification>3034012285008_000014f973cfe5a5634f09a24dfc435463baf5445ec2e7a0e140238cc610</entityIdentification>
+					<contentOwner>
+						<gln>3014498600106</gln>
+					</contentOwner>
+				</catalogueItemNotificationIdentification>
+				<isReload>false</isReload>
+				<catalogueItem>
+					<dataRecipient>3020170000003</dataRecipient>
+					<sourceDataPool>3027000006006</sourceDataPool>
+					<catalogueItemState>
+						<catalogueItemStateCode>REGISTERED</catalogueItemStateCode>
+					</catalogueItemState>
+					<tradeItem>
+						<gtin>03449862093657</gtin>
+						<additionalTradeItemIdentification additionalTradeItemIdentificationTypeCode="SUPPLIER_ASSIGNED">35560</additionalTradeItemIdentification>
+						<isTradeItemABaseUnit>false</isTradeItemABaseUnit>
+						<isTradeItemAConsumerUnit>false</isTradeItemAConsumerUnit>
+						<isTradeItemADespatchUnit>true</isTradeItemADespatchUnit>
+						<isTradeItemAnInvoiceUnit>false</isTradeItemAnInvoiceUnit>
+						<isTradeItemAnOrderableUnit>false</isTradeItemAnOrderableUnit>
+						<isTradeItemAService>false</isTradeItemAService>
+						<preliminaryItemStatusCode>FINAL</preliminaryItemStatusCode>
+						<tradeItemUnitDescriptorCode>PALLET</tradeItemUnitDescriptorCode>
+						<brandOwner>
+							<gln>3014498600106</gln>
+							<partyName>AOSTE SNC</partyName>
+						</brandOwner>
+						<informationProviderOfTradeItem>
+							<gln>3014498600106</gln>
+							<partyName>AOSTE SNC</partyName>
+						</informationProviderOfTradeItem>
+						<gdsnTradeItemClassification>
+							<gpcCategoryCode>10005781</gpcCategoryCode>
+							<gpcCategoryName>Porc - Préparé/Transformé</gpcCategoryName>
+						</gdsnTradeItemClassification>
+						<nextLowerLevelTradeItemInformation>
+							<quantityOfChildren>1</quantityOfChildren>
+							<totalQuantityOfNextLowerLevelTradeItem>88</totalQuantityOfNextLowerLevelTradeItem>
+							<childTradeItem>
+								<gtin>03449862093640</gtin>
+								<quantityOfNextLowerLevelTradeItem>88</quantityOfNextLowerLevelTradeItem>
+							</childTradeItem>
+						</nextLowerLevelTradeItemInformation>
+						<targetMarket>
+							<targetMarketCountryCode>250</targetMarketCountryCode>
+						</targetMarket>
+						<tradeItemInformation>
+							<extension>
+								<delivery_purchasing_information:deliveryPurchasingInformationModule xmlns:delivery_purchasing_information="urn:gs1:gdsn:delivery_purchasing_information:xsd:3"
+                                                                   									xsi:schemaLocation="urn:gs1:gdsn:delivery_purchasing_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/DeliveryPurchasingInformationModule.xsd">
+									<deliveryPurchasingInformation>
+										<firstOrderDateTime>2021-07-29T00:00:00+02:00</firstOrderDateTime>
+										<isTradeItemReorderable>true</isTradeItemReorderable>
+										<orderingUnitOfMeasure>H87</orderingUnitOfMeasure>
+										<orderQuantityMinimum>1</orderQuantityMinimum>
+										<orderQuantityMultiple>1</orderQuantityMultiple>
+										<startAvailabilityDateTime>2021-07-29T00:00:00+02:00</startAvailabilityDateTime>
+										<orderableReturnableInformation>
+											<isNonSoldTradeItemReturnable>false</isNonSoldTradeItemReturnable>
+										</orderableReturnableInformation>
+									</deliveryPurchasingInformation>
+								</delivery_purchasing_information:deliveryPurchasingInformationModule>
+								<food_and_beverage_preparation_serving:foodAndBeveragePreparationServingModule xmlns:food_and_beverage_preparation_serving="urn:gs1:gdsn:food_and_beverage_preparation_serving:xsd:3"
+                                                                             									xsi:schemaLocation="urn:gs1:gdsn:food_and_beverage_preparation_serving:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/FoodAndBeveragePreparationServingModule.xsd"/>
+								<packaging_information:packagingInformationModule xmlns:packaging_information="urn:gs1:gdsn:packaging_information:xsd:3"
+                                                									xsi:schemaLocation="urn:gs1:gdsn:packaging_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PackagingInformationModule.xsd">
+									<packaging>
+										<packagingTypeCode>PX</packagingTypeCode>
+										<platformTermsAndConditionsCode>2</platformTermsAndConditionsCode>
+										<platformTypeCode>11</platformTypeCode>
+										<packagingTypeDescription languageCode="fr">Palette</packagingTypeDescription>
+									</packaging>
+								</packaging_information:packagingInformationModule>
+								<packaging_marking:packagingMarkingModule xmlns:packaging_marking="urn:gs1:gdsn:packaging_marking:xsd:3"
+                                        									xsi:schemaLocation="urn:gs1:gdsn:packaging_marking:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PackagingMarkingModule.xsd">
+									<packagingMarking>
+										<isPackagingMarkedReturnable>false</isPackagingMarkedReturnable>
+										<packagingMarkedLanguageCode>fr</packagingMarkedLanguageCode>
+									</packagingMarking>
+								</packaging_marking:packagingMarkingModule>
+								<promotional_item_information:promotionalItemInformationModule xmlns:promotional_item_information="urn:gs1:gdsn:promotional_item_information:xsd:3"
+                                                             									xsi:schemaLocation="urn:gs1:gdsn:promotional_item_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PromotionalItemInformationModule.xsd">
+									<isTradeItemAPromotionalUnit>false</isTradeItemAPromotionalUnit>
+								</promotional_item_information:promotionalItemInformationModule>
+								<trade_item_data_carrier_and_identification:tradeItemDataCarrierAndIdentificationModule xmlns:trade_item_data_carrier_and_identification="urn:gs1:gdsn:trade_item_data_carrier_and_identification:xsd:3"
+                                                                                      									xsi:schemaLocation="urn:gs1:gdsn:trade_item_data_carrier_and_identification:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemDataCarrierAndIdentificationModule.xsd">
+									<dataCarrier>
+										<dataCarrierFamilyTypeCode>GS1_128</dataCarrierFamilyTypeCode>
+										<dataCarrierTypeCode>GS1_128</dataCarrierTypeCode>
+									</dataCarrier>
+								</trade_item_data_carrier_and_identification:tradeItemDataCarrierAndIdentificationModule>
+								<trade_item_description:tradeItemDescriptionModule xmlns:trade_item_description="urn:gs1:gdsn:trade_item_description:xsd:3"
+                                                 									xsi:schemaLocation="urn:gs1:gdsn:trade_item_description:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemDescriptionModule.xsd">
+									<tradeItemDescriptionInformation>
+										<descriptionShort languageCode="fr">JBRI DUO SAUC EMMENTAL 170G C6P</descriptionShort>
+										<functionalName languageCode="fr">Saucisson</functionalName>
+										<invoiceName languageCode="fr">JBRI DUO SAUC EMMENTAL 170G</invoiceName>
+										<tradeItemDescription languageCode="fr">JBRI DUO SAUC EMMENTAL 170G C6P</tradeItemDescription>
+										<brandNameInformation>
+											<brandName>Justin Bridou</brandName>
+										</brandNameInformation>
+									</tradeItemDescriptionInformation>
+								</trade_item_description:tradeItemDescriptionModule>
+								<trade_item_handling:tradeItemHandlingModule xmlns:trade_item_handling="urn:gs1:gdsn:trade_item_handling:xsd:3"
+                                           									xsi:schemaLocation="urn:gs1:gdsn:trade_item_handling:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemHandlingModule.xsd">
+									<tradeItemHandlingInformation>
+										<tradeItemStacking>
+											<stackingFactor>1</stackingFactor>
+											<stackingFactorTypeCode>TRANSPORT_UNSPECIFIED</stackingFactorTypeCode>
+										</tradeItemStacking>
+									</tradeItemHandlingInformation>
+								</trade_item_handling:tradeItemHandlingModule>
+								<trade_item_hierarchy:tradeItemHierarchyModule xmlns:trade_item_hierarchy="urn:gs1:gdsn:trade_item_hierarchy:xsd:3"
+                                             									xsi:schemaLocation="urn:gs1:gdsn:trade_item_hierarchy:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemHierarchyModule.xsd">
+									<tradeItemHierarchy>
+										<quantityOfCompleteLayersContainedInATradeItem>11</quantityOfCompleteLayersContainedInATradeItem>
+										<quantityOfTradeItemsContainedInACompleteLayer>8</quantityOfTradeItemsContainedInACompleteLayer>
+									</tradeItemHierarchy>
+								</trade_item_hierarchy:tradeItemHierarchyModule>
+								<trade_item_measurements:tradeItemMeasurementsModule xmlns:trade_item_measurements="urn:gs1:gdsn:trade_item_measurements:xsd:3"
+                                                   									xsi:schemaLocation="urn:gs1:gdsn:trade_item_measurements:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemMeasurementsModule.xsd">
+									<tradeItemMeasurements>
+										<depth measurementUnitCode="MMT">1200</depth>
+										<height measurementUnitCode="MMT">947</height>
+										<width measurementUnitCode="MMT">800</width>
+										<tradeItemWeight>
+											<grossWeight measurementUnitCode="KGM">137.816</grossWeight>
+											<netWeight measurementUnitCode="KGM">89.76</netWeight>
+										</tradeItemWeight>
+									</tradeItemMeasurements>
+								</trade_item_measurements:tradeItemMeasurementsModule>
+								<variable_trade_item_information:variableTradeItemInformationModule xmlns:variable_trade_item_information="urn:gs1:gdsn:variable_trade_item_information:xsd:3"
+                                                                  									xsi:schemaLocation="urn:gs1:gdsn:variable_trade_item_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/VariableTradeItemInformationModule.xsd">
+									<variableTradeItemInformation>
+										<isTradeItemAVariableUnit>false</isTradeItemAVariableUnit>
+									</variableTradeItemInformation>
+								</variable_trade_item_information:variableTradeItemInformationModule>
+							</extension>
+						</tradeItemInformation>
+						<tradeItemSynchronisationDates>
+							<lastChangeDateTime>2022-03-24T14:16:11.00904+01:00</lastChangeDateTime>
+							<effectiveDateTime>2022-03-03T00:00:00+01:00</effectiveDateTime>
+							<publicationDateTime>2021-08-26T09:41:16.00419+02:00</publicationDateTime>
+						</tradeItemSynchronisationDates>
+						<avpList>
+							<stringAVP attributeName="isTradeItemAReturnableItem">false</stringAVP>
+						</avpList>
+					</tradeItem>
+					<catalogueItemChildItemLink>
+						<quantity>88</quantity>
+						<catalogueItem>
+							<dataRecipient>3020170000003</dataRecipient>
+							<sourceDataPool>3027000006006</sourceDataPool>
+							<catalogueItemState>
+								<catalogueItemStateCode>REGISTERED</catalogueItemStateCode>
+							</catalogueItemState>
+							<tradeItem>
+								<gtin>03449862093640</gtin>
+								<additionalTradeItemIdentification additionalTradeItemIdentificationTypeCode="SUPPLIER_ASSIGNED">35560</additionalTradeItemIdentification>
+								<isTradeItemABaseUnit>false</isTradeItemABaseUnit>
+								<isTradeItemAConsumerUnit>false</isTradeItemAConsumerUnit>
+								<isTradeItemADespatchUnit>true</isTradeItemADespatchUnit>
+								<isTradeItemAnInvoiceUnit>false</isTradeItemAnInvoiceUnit>
+								<isTradeItemAnOrderableUnit>true</isTradeItemAnOrderableUnit>
+								<isTradeItemAService>false</isTradeItemAService>
+								<preliminaryItemStatusCode>FINAL</preliminaryItemStatusCode>
+								<tradeItemUnitDescriptorCode>CASE</tradeItemUnitDescriptorCode>
+								<brandOwner>
+									<gln>3014498600106</gln>
+									<partyName>AOSTE SNC</partyName>
+								</brandOwner>
+								<informationProviderOfTradeItem>
+									<gln>3014498600106</gln>
+									<partyName>AOSTE SNC</partyName>
+								</informationProviderOfTradeItem>
+								<gdsnTradeItemClassification>
+									<gpcCategoryCode>10005781</gpcCategoryCode>
+									<gpcCategoryName>Porc - Préparé/Transformé</gpcCategoryName>
+								</gdsnTradeItemClassification>
+								<nextLowerLevelTradeItemInformation>
+									<quantityOfChildren>1</quantityOfChildren>
+									<totalQuantityOfNextLowerLevelTradeItem>6</totalQuantityOfNextLowerLevelTradeItem>
+									<childTradeItem>
+										<gtin>03449865355608</gtin>
+										<quantityOfNextLowerLevelTradeItem>6</quantityOfNextLowerLevelTradeItem>
+									</childTradeItem>
+								</nextLowerLevelTradeItemInformation>
+								<targetMarket>
+									<targetMarketCountryCode>250</targetMarketCountryCode>
+								</targetMarket>
+								<tradeItemInformation>
+									<extension>
+										<delivery_purchasing_information:deliveryPurchasingInformationModule xmlns:delivery_purchasing_information="urn:gs1:gdsn:delivery_purchasing_information:xsd:3"
+                                                                   											xsi:schemaLocation="urn:gs1:gdsn:delivery_purchasing_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/DeliveryPurchasingInformationModule.xsd">
+											<deliveryPurchasingInformation>
+												<firstOrderDateTime>2021-07-29T00:00:00+02:00</firstOrderDateTime>
+												<isTradeItemReorderable>true</isTradeItemReorderable>
+												<orderingUnitOfMeasure>H87</orderingUnitOfMeasure>
+												<orderQuantityMinimum>1</orderQuantityMinimum>
+												<orderQuantityMultiple>1</orderQuantityMultiple>
+												<startAvailabilityDateTime>2021-07-29T00:00:00+02:00</startAvailabilityDateTime>
+												<orderableReturnableInformation>
+													<isNonSoldTradeItemReturnable>false</isNonSoldTradeItemReturnable>
+												</orderableReturnableInformation>
+											</deliveryPurchasingInformation>
+										</delivery_purchasing_information:deliveryPurchasingInformationModule>
+										<food_and_beverage_preparation_serving:foodAndBeveragePreparationServingModule xmlns:food_and_beverage_preparation_serving="urn:gs1:gdsn:food_and_beverage_preparation_serving:xsd:3"
+                                                                             											xsi:schemaLocation="urn:gs1:gdsn:food_and_beverage_preparation_serving:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/FoodAndBeveragePreparationServingModule.xsd"/>
+										<packaging_information:packagingInformationModule xmlns:packaging_information="urn:gs1:gdsn:packaging_information:xsd:3"
+                                                											xsi:schemaLocation="urn:gs1:gdsn:packaging_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PackagingInformationModule.xsd">
+											<packaging>
+												<packagingTypeCode>CT</packagingTypeCode>
+												<packagingTypeDescription languageCode="fr">Carton</packagingTypeDescription>
+											</packaging>
+										</packaging_information:packagingInformationModule>
+										<packaging_marking:packagingMarkingModule xmlns:packaging_marking="urn:gs1:gdsn:packaging_marking:xsd:3"
+                                        											xsi:schemaLocation="urn:gs1:gdsn:packaging_marking:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PackagingMarkingModule.xsd">
+											<packagingMarking>
+												<isPackagingMarkedReturnable>false</isPackagingMarkedReturnable>
+												<packagingMarkedLanguageCode>fr</packagingMarkedLanguageCode>
+											</packagingMarking>
+										</packaging_marking:packagingMarkingModule>
+										<promotional_item_information:promotionalItemInformationModule xmlns:promotional_item_information="urn:gs1:gdsn:promotional_item_information:xsd:3"
+                                                             											xsi:schemaLocation="urn:gs1:gdsn:promotional_item_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PromotionalItemInformationModule.xsd">
+											<isTradeItemAPromotionalUnit>false</isTradeItemAPromotionalUnit>
+										</promotional_item_information:promotionalItemInformationModule>
+										<trade_item_data_carrier_and_identification:tradeItemDataCarrierAndIdentificationModule xmlns:trade_item_data_carrier_and_identification="urn:gs1:gdsn:trade_item_data_carrier_and_identification:xsd:3"
+                                                                                      											xsi:schemaLocation="urn:gs1:gdsn:trade_item_data_carrier_and_identification:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemDataCarrierAndIdentificationModule.xsd">
+											<dataCarrier>
+												<dataCarrierFamilyTypeCode>GS1_128</dataCarrierFamilyTypeCode>
+												<dataCarrierTypeCode>GS1_128</dataCarrierTypeCode>
+											</dataCarrier>
+										</trade_item_data_carrier_and_identification:tradeItemDataCarrierAndIdentificationModule>
+										<trade_item_description:tradeItemDescriptionModule xmlns:trade_item_description="urn:gs1:gdsn:trade_item_description:xsd:3"
+                                                 											xsi:schemaLocation="urn:gs1:gdsn:trade_item_description:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemDescriptionModule.xsd">
+											<tradeItemDescriptionInformation>
+												<descriptionShort languageCode="fr">JBRI DUO SAUC EMMENTAL 170G C6P</descriptionShort>
+												<functionalName languageCode="fr">Saucisson</functionalName>
+												<invoiceName languageCode="fr">JBRI DUO SAUC EMMENTAL 170G</invoiceName>
+												<tradeItemDescription languageCode="fr">JBRI DUO SAUC EMMENTAL 170G C6P</tradeItemDescription>
+												<brandNameInformation>
+													<brandName>Justin Bridou</brandName>
+												</brandNameInformation>
+											</tradeItemDescriptionInformation>
+										</trade_item_description:tradeItemDescriptionModule>
+										<trade_item_measurements:tradeItemMeasurementsModule xmlns:trade_item_measurements="urn:gs1:gdsn:trade_item_measurements:xsd:3"
+                                                   											xsi:schemaLocation="urn:gs1:gdsn:trade_item_measurements:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemMeasurementsModule.xsd">
+											<tradeItemMeasurements>
+												<depth measurementUnitCode="MMT">400</depth>
+												<height measurementUnitCode="MMT">73</height>
+												<width measurementUnitCode="MMT">283</width>
+												<tradeItemWeight>
+													<grossWeight measurementUnitCode="KGM">1.282</grossWeight>
+													<netWeight measurementUnitCode="KGM">1.02</netWeight>
+												</tradeItemWeight>
+											</tradeItemMeasurements>
+										</trade_item_measurements:tradeItemMeasurementsModule>
+										<variable_trade_item_information:variableTradeItemInformationModule xmlns:variable_trade_item_information="urn:gs1:gdsn:variable_trade_item_information:xsd:3"
+                                                                  											xsi:schemaLocation="urn:gs1:gdsn:variable_trade_item_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/VariableTradeItemInformationModule.xsd">
+											<variableTradeItemInformation>
+												<isTradeItemAVariableUnit>false</isTradeItemAVariableUnit>
+											</variableTradeItemInformation>
+										</variable_trade_item_information:variableTradeItemInformationModule>
+									</extension>
+								</tradeItemInformation>
+								<tradeItemSynchronisationDates>
+									<lastChangeDateTime>2022-03-24T14:16:11.00904+01:00</lastChangeDateTime>
+									<effectiveDateTime>2022-03-03T00:00:00+01:00</effectiveDateTime>
+									<publicationDateTime>2021-08-26T09:41:16.00419+02:00</publicationDateTime>
+								</tradeItemSynchronisationDates>
+								<avpList>
+									<stringAVP attributeName="isTradeItemAReturnableItem">false</stringAVP>
+								</avpList>
+							</tradeItem>
+							<catalogueItemChildItemLink>
+								<quantity>6</quantity>
+								<catalogueItem>
+									<dataRecipient>3020170000003</dataRecipient>
+									<sourceDataPool>3027000006006</sourceDataPool>
+									<catalogueItemState>
+										<catalogueItemStateCode>REGISTERED</catalogueItemStateCode>
+									</catalogueItemState>
+									<tradeItem>
+										<gtin>03449865355608</gtin>
+										<additionalTradeItemIdentification additionalTradeItemIdentificationTypeCode="SUPPLIER_ASSIGNED">35560</additionalTradeItemIdentification>
+										<isTradeItemABaseUnit>true</isTradeItemABaseUnit>
+										<isTradeItemAConsumerUnit>true</isTradeItemAConsumerUnit>
+										<isTradeItemADespatchUnit>false</isTradeItemADespatchUnit>
+										<isTradeItemAnInvoiceUnit>true</isTradeItemAnInvoiceUnit>
+										<isTradeItemAnOrderableUnit>true</isTradeItemAnOrderableUnit>
+										<isTradeItemAService>false</isTradeItemAService>
+										<preliminaryItemStatusCode>FINAL</preliminaryItemStatusCode>
+										<tradeItemUnitDescriptorCode>BASE_UNIT_OR_EACH</tradeItemUnitDescriptorCode>
+										<brandOwner>
+											<gln>3014498600106</gln>
+											<partyName>AOSTE SNC</partyName>
+										</brandOwner>
+										<informationProviderOfTradeItem>
+											<gln>3014498600106</gln>
+											<partyName>AOSTE SNC</partyName>
+										</informationProviderOfTradeItem>
+										<displayUnitInformation>
+											<isTradeItemADisplayUnit>FALSE</isTradeItemADisplayUnit>
+										</displayUnitInformation>
+										<gdsnTradeItemClassification>
+											<gpcCategoryCode>10005781</gpcCategoryCode>
+											<gpcCategoryName>Porc - Préparé/Transformé</gpcCategoryName>
+										</gdsnTradeItemClassification>
+										<targetMarket>
+											<targetMarketCountryCode>250</targetMarketCountryCode>
+										</targetMarket>
+										<tradeItemContactInformation>
+											<contactTypeCode>BZL</contactTypeCode>
+											<contactAddress>Hameau de Saint Didier - RD 592 - 38490 AOSTE</contactAddress>
+											<contactName>Aoste SNC</contactName>
+											<structuredAddress>
+												<streetAddress>Hameau de Saint Didier - RD 592 - 38490 AOSTE</streetAddress>
+											</structuredAddress>
+										</tradeItemContactInformation>
+										<tradeItemContactInformation>
+											<contactTypeCode>CXC</contactTypeCode>
+											<contactAddress>CS 50152 - 69792 Saint Priest Cedex</contactAddress>
+											<contactName>Service Consommateurs Justin Bridou</contactName>
+										</tradeItemContactInformation>
+										<tradeItemInformation>
+											<productionVariantDescription languageCode="fr">Création</productionVariantDescription>
+											<productionVariantEffectiveDateTime>9999-12-31T00:00:00+01:00</productionVariantEffectiveDateTime>
+											<extension>
+												<alcohol_information:alcoholInformationModule xmlns:alcohol_information="urn:gs1:gdsn:alcohol_information:xsd:3"
+                                            													xsi:schemaLocation="urn:gs1:gdsn:alcohol_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/AlcoholInformationModule.xsd">
+													<alcoholInformation>
+														<isTradeItemAQualityVintageAlcoholProduct>false</isTradeItemAQualityVintageAlcoholProduct>
+													</alcoholInformation>
+												</alcohol_information:alcoholInformationModule>
+												<allergen_information:allergenInformationModule xmlns:allergen_information="urn:gs1:gdsn:allergen_information:xsd:3"
+                                              													xsi:schemaLocation="urn:gs1:gdsn:allergen_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/AllergenInformationModule.xsd">
+													<allergenRelatedInformation>
+														<allergenSpecificationAgency>UE</allergenSpecificationAgency>
+														<allergenSpecificationName>1169/2011</allergenSpecificationName>
+														<allergenStatement languageCode="fr">Emmental (lait), lactose</allergenStatement>
+														<isAllergenRelevantDataProvided>true</isAllergenRelevantDataProvided>
+														<allergen>
+															<allergenTypeCode>AC</allergenTypeCode>
+															<levelOfContainmentCode>MAY_CONTAIN</levelOfContainmentCode>
+														</allergen>
+														<allergen>
+															<allergenTypeCode>AN</allergenTypeCode>
+															<levelOfContainmentCode>MAY_CONTAIN</levelOfContainmentCode>
+														</allergen>
+														<allergen>
+															<allergenTypeCode>BC</allergenTypeCode>
+															<levelOfContainmentCode>MAY_CONTAIN</levelOfContainmentCode>
+														</allergen>
+														<allergen>
+															<allergenTypeCode>AM</allergenTypeCode>
+															<levelOfContainmentCode>CONTAINS</levelOfContainmentCode>
+														</allergen>
+														<allergen>
+															<allergenTypeCode>AW</allergenTypeCode>
+															<levelOfContainmentCode>MAY_CONTAIN</levelOfContainmentCode>
+														</allergen>
+														<allergen>
+															<allergenTypeCode>UM</allergenTypeCode>
+															<levelOfContainmentCode>MAY_CONTAIN</levelOfContainmentCode>
+														</allergen>
+														<allergen>
+															<allergenTypeCode>AE</allergenTypeCode>
+															<levelOfContainmentCode>MAY_CONTAIN</levelOfContainmentCode>
+														</allergen>
+														<allergen>
+															<allergenTypeCode>BM</allergenTypeCode>
+															<levelOfContainmentCode>MAY_CONTAIN</levelOfContainmentCode>
+														</allergen>
+														<allergen>
+															<allergenTypeCode>AY</allergenTypeCode>
+															<levelOfContainmentCode>MAY_CONTAIN</levelOfContainmentCode>
+														</allergen>
+														<allergen>
+															<allergenTypeCode>AF</allergenTypeCode>
+															<levelOfContainmentCode>MAY_CONTAIN</levelOfContainmentCode>
+														</allergen>
+														<allergen>
+															<allergenTypeCode>AS</allergenTypeCode>
+															<levelOfContainmentCode>MAY_CONTAIN</levelOfContainmentCode>
+														</allergen>
+													</allergenRelatedInformation>
+												</allergen_information:allergenInformationModule>
+												<consumer_instructions:consumerInstructionsModule xmlns:consumer_instructions="urn:gs1:gdsn:consumer_instructions:xsd:3"
+                                                													xsi:schemaLocation="urn:gs1:gdsn:consumer_instructions:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/ConsumerInstructionsModule.xsd">
+													<consumerInstructions>
+														<consumerStorageInstructions languageCode="fr">À conserver entre 0°C et 4°C.</consumerStorageInstructions>
+														<consumerUsageInstructions languageCode="fr">A consommer immédiatement après ouverture.</consumerUsageInstructions>
+													</consumerInstructions>
+												</consumer_instructions:consumerInstructionsModule>
+												<delivery_purchasing_information:deliveryPurchasingInformationModule xmlns:delivery_purchasing_information="urn:gs1:gdsn:delivery_purchasing_information:xsd:3"
+                                                                   													xsi:schemaLocation="urn:gs1:gdsn:delivery_purchasing_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/DeliveryPurchasingInformationModule.xsd">
+													<deliveryPurchasingInformation>
+														<firstOrderDateTime>2021-07-29T00:00:00+02:00</firstOrderDateTime>
+														<isTradeItemReorderable>true</isTradeItemReorderable>
+														<orderingUnitOfMeasure>H87</orderingUnitOfMeasure>
+														<startAvailabilityDateTime>2021-07-29T00:00:00+02:00</startAvailabilityDateTime>
+														<orderableReturnableInformation>
+															<isNonSoldTradeItemReturnable>false</isNonSoldTradeItemReturnable>
+														</orderableReturnableInformation>
+													</deliveryPurchasingInformation>
+												</delivery_purchasing_information:deliveryPurchasingInformationModule>
+												<duty_fee_tax_information:dutyFeeTaxInformationModule xmlns:duty_fee_tax_information="urn:gs1:gdsn:duty_fee_tax_information:xsd:3"
+                                                    													xsi:schemaLocation="urn:gs1:gdsn:duty_fee_tax_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/DutyFeeTaxInformationModule.xsd">
+													<dutyFeeTaxInformation>
+														<dutyFeeTaxAgencyCode>65</dutyFeeTaxAgencyCode>
+														<dutyFeeTaxTypeCode>2G</dutyFeeTaxTypeCode>
+														<dutyFeeTaxTypeDescription languageCode="fr">TVA taux réduit</dutyFeeTaxTypeDescription>
+														<dutyFeeTax>
+															<dutyFeeTaxRate>5.5</dutyFeeTaxRate>
+														</dutyFeeTax>
+													</dutyFeeTaxInformation>
+												</duty_fee_tax_information:dutyFeeTaxInformationModule>
+												<farming_and_processing_information:farmingAndProcessingInformationModule xmlns:farming_and_processing_information="urn:gs1:gdsn:farming_and_processing_information:xsd:3"
+                                                                        													xsi:schemaLocation="urn:gs1:gdsn:farming_and_processing_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/FarmingAndProcessingInformationModule.xsd">
+													<rawMaterialIrradiatedCode>FALSE</rawMaterialIrradiatedCode>
+													<tradeItemFarmingAndProcessing>
+														<geneticallyModifiedDeclarationCode>FREE_FROM</geneticallyModifiedDeclarationCode>
+														<irradiatedCode>FALSE</irradiatedCode>
+													</tradeItemFarmingAndProcessing>
+												</farming_and_processing_information:farmingAndProcessingInformationModule>
+												<food_and_beverage_ingredient:foodAndBeverageIngredientModule xmlns:food_and_beverage_ingredient="urn:gs1:gdsn:food_and_beverage_ingredient:xsd:3"
+                                                            													xsi:schemaLocation="urn:gs1:gdsn:food_and_beverage_ingredient:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/FoodAndBeverageIngredientModule.xsd">
+													<ingredientStatement languageCode="fr">Ingrédients : EMMENTAL 52,9% (LAIT de vache pasteurisé (origine France), sel, ferments, coagulant), saucisson sec qualité supérieure 47,1% (viande de porc (origine France), sel, LACTOSE, dextrose, sucre, épices et plantes aromatiques, conservateur : nitrite de sodium, ferments, enveloppe : collagène).
+														Présence possible de gluten, crustacés, œuf, poisson, soja, fruits à coques, céleri, moutarde, sésame, mollusques.
+														187 g de viande utilisés pour la préparation de 100 g de saucisson sec.</ingredientStatement>
+													<isIngredientRelevantDataProvided>TRUE</isIngredientRelevantDataProvided>
+												</food_and_beverage_ingredient:foodAndBeverageIngredientModule>
+												<food_and_beverage_preparation_serving:foodAndBeveragePreparationServingModule xmlns:food_and_beverage_preparation_serving="urn:gs1:gdsn:food_and_beverage_preparation_serving:xsd:3"
+                                                                             													xsi:schemaLocation="urn:gs1:gdsn:food_and_beverage_preparation_serving:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/FoodAndBeveragePreparationServingModule.xsd"/>
+												<health_related_information:healthRelatedInformationModule xmlns:health_related_information="urn:gs1:gdsn:health_related_information:xsd:3"
+                                                         													xsi:schemaLocation="urn:gs1:gdsn:health_related_information:xsd:3 http://www.gdsregistry.org/3.1/schemas/gs1/gdsn/HealthRelatedInformationModule.xsd">
+													<healthRelatedInformation>
+														<compulsoryAdditiveLabelInformation languageCode="fr">Conditionné sous atmosphère protectrice.</compulsoryAdditiveLabelInformation>
+													</healthRelatedInformation>
+												</health_related_information:healthRelatedInformationModule>
+												<health_wellness_packaging_marking:healthWellnessPackagingMarkingModule xmlns:health_wellness_packaging_marking="urn:gs1:gdsn:health_wellness_packaging_marking:xsd:3"
+                                                                      													xsi:schemaLocation="urn:gs1:gdsn:health_wellness_packaging_marking:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/HealthWellnessPackagingMarkingModule.xsd">
+													<healthWellnessPackagingMarking>
+														<isPackagingMarkedWithIngredients>true</isPackagingMarkedWithIngredients>
+													</healthWellnessPackagingMarking>
+												</health_wellness_packaging_marking:healthWellnessPackagingMarkingModule>
+												<marketing_information:marketingInformationModule xmlns:marketing_information="urn:gs1:gdsn:marketing_information:xsd:3"
+                                                													xsi:schemaLocation="urn:gs1:gdsn:marketing_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/MarketingInformationModule.xsd">
+													<marketingInformation>
+														<tradeItemMarketingMessage languageCode="fr"
+                         															sequenceNumber="1">MARIAGE PARFAIT DE L'EMMENTAL &amp; DU SAUCISSON FRANÇAIS
+															BARQUETTE AVEC 70% DE MATIÈRE RECYCLÉE MINIMUM
+															FORMAT GÉNÉREUX pour régaler tous vos convives</tradeItemMarketingMessage>
+														<season>
+															<isTradeItemSeasonal>FALSE</isTradeItemSeasonal>
+														</season>
+													</marketingInformation>
+												</marketing_information:marketingInformationModule>
+												<nutritional_information:nutritionalInformationModule xmlns:nutritional_information="urn:gs1:gdsn:nutritional_information:xsd:3"
+                                                    													xsi:schemaLocation="urn:gs1:gdsn:nutritional_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/NutritionalInformationModule.xsd">
+													<nutritionalClaim languageCode="fr">Sans arômes.</nutritionalClaim>
+													<isNutrientRelevantDataProvided>true</isNutrientRelevantDataProvided>
+													<nutrientHeader>
+														<preparationStateCode>UNPREPARED</preparationStateCode>
+														<nutrientBasisQuantityTypeCode>BY_MEASURE</nutrientBasisQuantityTypeCode>
+														<nutrientBasisQuantity measurementUnitCode="GRM">100</nutrientBasisQuantity>
+														<servingSize measurementUnitCode="GRM">100</servingSize>
+														<nutrientDetail>
+															<nutrientTypeCode>ENER-</nutrientTypeCode>
+															<measurementPrecisionCode>APPROXIMATELY</measurementPrecisionCode>
+															<quantityContained measurementUnitCode="KJO">1737</quantityContained>
+															<quantityContained measurementUnitCode="E14">418</quantityContained>
+														</nutrientDetail>
+														<nutrientDetail>
+															<nutrientTypeCode>FAT</nutrientTypeCode>
+															<measurementPrecisionCode>APPROXIMATELY</measurementPrecisionCode>
+															<quantityContained measurementUnitCode="GRM">33</quantityContained>
+														</nutrientDetail>
+														<nutrientDetail>
+															<nutrientTypeCode>FASAT</nutrientTypeCode>
+															<measurementPrecisionCode>APPROXIMATELY</measurementPrecisionCode>
+															<quantityContained measurementUnitCode="GRM">17</quantityContained>
+														</nutrientDetail>
+														<nutrientDetail>
+															<nutrientTypeCode>CHOAVL</nutrientTypeCode>
+															<measurementPrecisionCode>APPROXIMATELY</measurementPrecisionCode>
+															<quantityContained measurementUnitCode="GRM">1.9</quantityContained>
+														</nutrientDetail>
+														<nutrientDetail>
+															<nutrientTypeCode>SUGAR-</nutrientTypeCode>
+															<measurementPrecisionCode>APPROXIMATELY</measurementPrecisionCode>
+															<quantityContained measurementUnitCode="GRM">1.9</quantityContained>
+														</nutrientDetail>
+														<nutrientDetail>
+															<nutrientTypeCode>PRO-</nutrientTypeCode>
+															<measurementPrecisionCode>APPROXIMATELY</measurementPrecisionCode>
+															<quantityContained measurementUnitCode="GRM">28</quantityContained>
+														</nutrientDetail>
+														<nutrientDetail>
+															<nutrientTypeCode>SALTEQ</nutrientTypeCode>
+															<measurementPrecisionCode>APPROXIMATELY</measurementPrecisionCode>
+															<quantityContained measurementUnitCode="GRM">2.5</quantityContained>
+														</nutrientDetail>
+													</nutrientHeader>
+												</nutritional_information:nutritionalInformationModule>
+												<packaging_information:packagingInformationModule xmlns:packaging_information="urn:gs1:gdsn:packaging_information:xsd:3"
+                                                													xsi:schemaLocation="urn:gs1:gdsn:packaging_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PackagingInformationModule.xsd">
+													<packaging>
+														<packagingTypeCode>PUG</packagingTypeCode>
+														<packagingTypeDescription languageCode="fr">Peel pack (GS1 France)</packagingTypeDescription>
+													</packaging>
+												</packaging_information:packagingInformationModule>
+												<packaging_marking:packagingMarkingModule xmlns:packaging_marking="urn:gs1:gdsn:packaging_marking:xsd:3"
+                                        													xsi:schemaLocation="urn:gs1:gdsn:packaging_marking:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PackagingMarkingModule.xsd">
+													<packagingMarking>
+														<hasBatchNumber>true</hasBatchNumber>
+														<isPackagingMarkedReturnable>false</isPackagingMarkedReturnable>
+														<isTradeItemMarkedAsRecyclable>false</isTradeItemMarkedAsRecyclable>
+														<packagingMarkedLanguageCode>fr</packagingMarkedLanguageCode>
+														<packagingDate>
+															<tradeItemDateOnPackagingTypeCode>EXPIRATION_DATE</tradeItemDateOnPackagingTypeCode>
+														</packagingDate>
+													</packagingMarking>
+												</packaging_marking:packagingMarkingModule>
+												<place_of_item_activity:placeOfItemActivityModule xmlns:place_of_item_activity="urn:gs1:gdsn:place_of_item_activity:xsd:3"
+                                                													xsi:schemaLocation="urn:gs1:gdsn:place_of_item_activity:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PlaceOfItemActivityModule.xsd">
+													<importClassification>
+														<importClassificationTypeCode>CUSTOMS_TARIFF_NUMBER</importClassificationTypeCode>
+														<importClassificationValue>1601009100</importClassificationValue>
+													</importClassification>
+													<placeOfProductActivity>
+														<countryOfOriginStatement languageCode="fr">Origine du produit fini « Saucisson sec qualité supérieure 47,1% et Emmental - fromage à pâte pressée cuite 52,9%. » : Belgique # Origine de l’ingrédient primaire « Viande de porc » : France # Origine de l’ingrédient primaire «  Lait de vache pasteurisé » : France</countryOfOriginStatement>
+														<provenanceStatement languageCode="fr">Origine du produit fini « Saucisson sec qualité supérieure 47,1% et Emmental - fromage à pâte pressée cuite 52,9%. » : Belgique # Origine de l’ingrédient primaire « Viande de porc » : France # Origine de l’ingrédient primaire «  Lait de vache pasteurisé » : France</provenanceStatement>
+														<countryOfOrigin>
+															<countryCode>056</countryCode>
+														</countryOfOrigin>
+														<productActivityDetails>
+															<productActivityTypeCode>REARING</productActivityTypeCode>
+															<countryOfActivity>
+																<countryCode>250</countryCode>
+															</countryOfActivity>
+														</productActivityDetails>
+														<productActivityDetails>
+															<productActivityTypeCode>SLAUGHTER</productActivityTypeCode>
+															<countryOfActivity>
+																<countryCode>250</countryCode>
+															</countryOfActivity>
+														</productActivityDetails>
+														<productActivityDetails>
+															<productActivityTypeCode>BIRTH</productActivityTypeCode>
+															<countryOfActivity>
+																<countryCode>250</countryCode>
+															</countryOfActivity>
+														</productActivityDetails>
+													</placeOfProductActivity>
+												</place_of_item_activity:placeOfItemActivityModule>
+												<promotional_item_information:promotionalItemInformationModule xmlns:promotional_item_information="urn:gs1:gdsn:promotional_item_information:xsd:3"
+                                                             													xsi:schemaLocation="urn:gs1:gdsn:promotional_item_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PromotionalItemInformationModule.xsd">
+													<isTradeItemAPromotionalUnit>false</isTradeItemAPromotionalUnit>
+												</promotional_item_information:promotionalItemInformationModule>
+												<referenced_file_detail_information:referencedFileDetailInformationModule xmlns:referenced_file_detail_information="urn:gs1:gdsn:referenced_file_detail_information:xsd:3"
+                                                                        													xsi:schemaLocation="urn:gs1:gdsn:referenced_file_detail_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/ReferencedFileDetailInformationModule.xsd">
+													<referencedFileHeader>
+														<referencedFileTypeCode>PRODUCT_IMAGE</referencedFileTypeCode>
+														<contentDescription languageCode="fr">produitVariantDescription : 10</contentDescription>
+														<fileEffectiveStartDateTime>2021-08-18T00:00:00+02:00</fileEffectiveStartDateTime>
+														<fileFormatName>PNG</fileFormatName>
+														<fileName>03449865355608_A7N1_s01.png</fileName>
+														<uniformResourceIdentifier>https://damgenfiprod.agena3000.com/images/v1/5/202986/document/bPe0AFTS/03449865355608_A7N1_s01.png</uniformResourceIdentifier>
+														<isPrimaryFile>FALSE</isPrimaryFile>
+														<referencedFileDetail>
+															<isFileBackgroundTransparent>TRUE</isFileBackgroundTransparent>
+															<fileContentInformation>
+																<verticalCameraAngleCode>PARALLEL</verticalCameraAngleCode>
+															</fileContentInformation>
+															<fileUsageInformation>
+																<canFilesBeEdited>FALSE</canFilesBeEdited>
+															</fileUsageInformation>
+														</referencedFileDetail>
+													</referencedFileHeader>
+													<referencedFileHeader>
+														<referencedFileTypeCode>PRODUCT_IMAGE</referencedFileTypeCode>
+														<contentDescription languageCode="fr">produitVariantDescription : 10</contentDescription>
+														<fileEffectiveStartDateTime>2021-08-18T00:00:00+02:00</fileEffectiveStartDateTime>
+														<fileFormatName>PNG</fileFormatName>
+														<fileName>03449865355608_A1N1_s01.png</fileName>
+														<uniformResourceIdentifier>https://damgenfiprod.agena3000.com/images/v1/5/202985/document/TbwxaCSg/03449865355608_A1N1_s01.png</uniformResourceIdentifier>
+														<isPrimaryFile>TRUE</isPrimaryFile>
+														<referencedFileDetail>
+															<isFileBackgroundTransparent>TRUE</isFileBackgroundTransparent>
+															<fileContentInformation>
+																<verticalCameraAngleCode>PARALLEL</verticalCameraAngleCode>
+															</fileContentInformation>
+															<fileUsageInformation>
+																<canFilesBeEdited>FALSE</canFilesBeEdited>
+															</fileUsageInformation>
+														</referencedFileDetail>
+													</referencedFileHeader>
+													<referencedFileHeader>
+														<referencedFileTypeCode>PRODUCT_IMAGE</referencedFileTypeCode>
+														<contentDescription languageCode="fr">produitVariantDescription : 10</contentDescription>
+														<fileEffectiveStartDateTime>2021-08-18T00:00:00+02:00</fileEffectiveStartDateTime>
+														<fileFormatName>PNG</fileFormatName>
+														<fileName>03449865355608_A1L1_s01.png</fileName>
+														<uniformResourceIdentifier>https://damgenfiprod.agena3000.com/images/v1/5/202984/document/sx2qujmh/03449865355608_A1L1_s01.png</uniformResourceIdentifier>
+														<isPrimaryFile>FALSE</isPrimaryFile>
+														<referencedFileDetail>
+															<isFileBackgroundTransparent>TRUE</isFileBackgroundTransparent>
+															<fileContentInformation>
+																<verticalCameraAngleCode>HIGH_ANGLE</verticalCameraAngleCode>
+															</fileContentInformation>
+															<fileUsageInformation>
+																<canFilesBeEdited>FALSE</canFilesBeEdited>
+															</fileUsageInformation>
+														</referencedFileDetail>
+													</referencedFileHeader>
+												</referenced_file_detail_information:referencedFileDetailInformationModule>
+												<regulated_trade_item:regulatedTradeItemModule xmlns:regulated_trade_item="urn:gs1:gdsn:regulated_trade_item:xsd:3"
+                                             													xsi:schemaLocation="urn:gs1:gdsn:regulated_trade_item:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/RegulatedTradeItemModule.xsd">
+													<regulatoryInformation>
+														<regulatoryAct>SANITARY_AGREEMENT_NUMBER</regulatoryAct>
+														<regulatoryAgency>SANITARY_AGREEMENT_NUMBER_AGENCY</regulatoryAgency>
+														<permitIdentification>
+															<regulatoryPermitIdentification>BE CO508 CE</regulatoryPermitIdentification>
+														</permitIdentification>
+														<permitIdentification>
+															<regulatoryPermitIdentification>BE B15 CE</regulatoryPermitIdentification>
+														</permitIdentification>
+													</regulatoryInformation>
+													<regulatoryInformation>
+														<regulationTypeCode>SCATTERED_POLLUTION_REGULATION</regulationTypeCode>
+													</regulatoryInformation>
+													<regulatoryInformation>
+														<regulationTypeCode>TREATED_WITH_BIOCIDE_REGULATION</regulationTypeCode>
+														<isTradeItemRegulationCompliant>FALSE</isTradeItemRegulationCompliant>
+													</regulatoryInformation>
+													<regulatoryInformation>
+														<regulationTypeCode>AGRICULTURE_PROTECTION_REGULATION</regulationTypeCode>
+														<isTradeItemRegulationCompliant>FALSE</isTradeItemRegulationCompliant>
+													</regulatoryInformation>
+												</regulated_trade_item:regulatedTradeItemModule>
+												<sales_information:salesInformationModule xmlns:sales_information="urn:gs1:gdsn:sales_information:xsd:3"
+                                        													xsi:schemaLocation="urn:gs1:gdsn:sales_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/SalesInformationModule.xsd">
+													<salesInformation>
+														<priceComparisonMeasurement measurementUnitCode="KGM">0.17</priceComparisonMeasurement>
+														<priceComparisonContentTypeCode>PER_KILOGRAM</priceComparisonContentTypeCode>
+													</salesInformation>
+												</sales_information:salesInformationModule>
+												<trade_item_data_carrier_and_identification:tradeItemDataCarrierAndIdentificationModule xmlns:trade_item_data_carrier_and_identification="urn:gs1:gdsn:trade_item_data_carrier_and_identification:xsd:3"
+                                                                                      													xsi:schemaLocation="urn:gs1:gdsn:trade_item_data_carrier_and_identification:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemDataCarrierAndIdentificationModule.xsd">
+													<dataCarrier>
+														<dataCarrierFamilyTypeCode>EAN_UPC</dataCarrierFamilyTypeCode>
+														<dataCarrierTypeCode>EAN_13</dataCarrierTypeCode>
+													</dataCarrier>
+												</trade_item_data_carrier_and_identification:tradeItemDataCarrierAndIdentificationModule>
+												<trade_item_description:tradeItemDescriptionModule xmlns:trade_item_description="urn:gs1:gdsn:trade_item_description:xsd:3"
+                                                 													xsi:schemaLocation="urn:gs1:gdsn:trade_item_description:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemDescriptionModule.xsd">
+													<tradeItemDescriptionInformation>
+														<descriptionShort languageCode="fr">JBRI DUO SAUC EMMENTAL 170G</descriptionShort>
+														<functionalName languageCode="fr">Saucisson</functionalName>
+														<invoiceName languageCode="fr">JBRI DUO SAUC EMMENTAL 170G</invoiceName>
+														<regulatedProductName languageCode="fr">Saucisson sec qualité supérieure 47,1% et Emmental - fromage à pâte pressée cuite 52,9%.</regulatedProductName>
+														<tradeItemDescription languageCode="fr">JBRI DUO SAUC EMMENTAL 170G</tradeItemDescription>
+														<brandNameInformation>
+															<brandName>Justin Bridou</brandName>
+														</brandNameInformation>
+													</tradeItemDescriptionInformation>
+												</trade_item_description:tradeItemDescriptionModule>
+												<trade_item_lifespan:tradeItemLifespanModule xmlns:trade_item_lifespan="urn:gs1:gdsn:trade_item_lifespan:xsd:3"
+                                           													xsi:schemaLocation="urn:gs1:gdsn:trade_item_lifespan:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemLifespanModule.xsd">
+													<tradeItemLifespan>
+														<minimumTradeItemLifespanFromTimeOfArrival>21</minimumTradeItemLifespanFromTimeOfArrival>
+														<minimumTradeItemLifespanFromTimeOfProduction>30</minimumTradeItemLifespanFromTimeOfProduction>
+													</tradeItemLifespan>
+												</trade_item_lifespan:tradeItemLifespanModule>
+												<trade_item_measurements:tradeItemMeasurementsModule xmlns:trade_item_measurements="urn:gs1:gdsn:trade_item_measurements:xsd:3"
+                                                   													xsi:schemaLocation="urn:gs1:gdsn:trade_item_measurements:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemMeasurementsModule.xsd">
+													<tradeItemMeasurements>
+														<depth measurementUnitCode="MMT">34</depth>
+														<height measurementUnitCode="MMT">137</height>
+														<netContent measurementUnitCode="KGM">0.17</netContent>
+														<width measurementUnitCode="MMT">187</width>
+														<netContentStatement languageCode="fr">170g</netContentStatement>
+														<tradeItemWeight>
+															<grossWeight measurementUnitCode="KGM">0.193</grossWeight>
+															<netWeight measurementUnitCode="KGM">0.17</netWeight>
+														</tradeItemWeight>
+													</tradeItemMeasurements>
+												</trade_item_measurements:tradeItemMeasurementsModule>
+												<trade_item_size:tradeItemSizeModule xmlns:trade_item_size="urn:gs1:gdsn:trade_item_size:xsd:3"
+                                   													xsi:schemaLocation="urn:gs1:gdsn:trade_item_size:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemSizeModule.xsd">
+													<size>
+														<descriptiveSize languageCode="fr">170g</descriptiveSize>
+													</size>
+												</trade_item_size:tradeItemSizeModule>
+												<trade_item_temperature_information:tradeItemTemperatureInformationModule xmlns:trade_item_temperature_information="urn:gs1:gdsn:trade_item_temperature_information:xsd:3"
+                                                                        													xsi:schemaLocation="urn:gs1:gdsn:trade_item_temperature_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemTemperatureInformationModule.xsd">
+													<tradeItemTemperatureInformation>
+														<maximumTemperature temperatureMeasurementUnitCode="CEL">4</maximumTemperature>
+														<minimumTemperature temperatureMeasurementUnitCode="CEL">0</minimumTemperature>
+														<temperatureQualifierCode>STORAGE_HANDLING</temperatureQualifierCode>
+													</tradeItemTemperatureInformation>
+												</trade_item_temperature_information:tradeItemTemperatureInformationModule>
+												<variable_trade_item_information:variableTradeItemInformationModule xmlns:variable_trade_item_information="urn:gs1:gdsn:variable_trade_item_information:xsd:3"
+                                                                  													xsi:schemaLocation="urn:gs1:gdsn:variable_trade_item_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/VariableTradeItemInformationModule.xsd">
+													<variableTradeItemInformation>
+														<isTradeItemAVariableUnit>false</isTradeItemAVariableUnit>
+													</variableTradeItemInformation>
+												</variable_trade_item_information:variableTradeItemInformationModule>
+											</extension>
+										</tradeItemInformation>
+										<tradeItemSynchronisationDates>
+											<lastChangeDateTime>2022-03-24T14:16:11.00904+01:00</lastChangeDateTime>
+											<effectiveDateTime>2022-03-03T00:00:00+01:00</effectiveDateTime>
+											<publicationDateTime>2021-08-26T09:41:16.00419+02:00</publicationDateTime>
+										</tradeItemSynchronisationDates>
+										<avpList>
+											<stringAVP attributeName="isCitesCertificateRequired">false</stringAVP>
+											<stringAVP attributeName="isTradeItemAReturnableItem">false</stringAVP>
+										</avpList>
+									</tradeItem>
+								</catalogueItem>
+							</catalogueItemChildItemLink>
+						</catalogueItem>
+					</catalogueItemChildItemLink>
+				</catalogueItem>
+			</catalogue_item_notification:catalogueItemNotification>
+		</documentCommand>
+	</transaction>
+</catalogue_item_notification:catalogueItemNotificationMessage>

@@ -1,0 +1,161 @@
+// Class prefix
+$classPrefix: jvm- !default;
+$border-color: #e5e7eb !default;
+$box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !default;
+
+// Tooltip
+$tooltip-shadow: 1px 2px 12px rgba(0, 0, 0, .2) !default;
+$tooltip-font-family: sans-serif, Verdana !default;
+$tooltip-bg-color: $primary-button-color !default;
+$tooltip-radius: 3px !default;
+$tooltip-font-size: smaller !default;
+$tooltip-padding: 3px 5px !default;
+
+// Zoom buttons
+$zoom-btns-bg-color: $primary-button-color !default;
+$zoom-btns-radius: 3px !default;
+$zoom-btns-height: 15px !default;
+$zoom-btns-padding: 3px !default;
+$zoom-btns-width: 15px !default;
+
+// Series
+$series-container-right: 15px !default;
+
+// Legends
+$legend-background-color: #FFF !default;
+$legend-radius: 0.25rem !default;
+$legend-margin-left: .75rem !default;
+$legend-padding: 0.6rem !default;
+
+// Legend title
+$legend-title-padding-bottom: 0.5rem !default;
+$legend-title-margin-bottom: 0.575rem !default;
+
+// Legend ticks
+$legend-tick-margin-top: .575rem !default;
+$legend-tick-sample-radius: 4px !default;
+$legend-tick-sample-height: 16px !default;
+$legend-tick-sample-width: 16px !default;
+$legend-tick-text-font-size: 12px !default;
+$legend-tick-text-margin-top: 3px !default;
+
+// Global resets
+svg { touch-action: none }
+image, text, .#{$classPrefix}zoomin, .#{$classPrefix}zoomout { user-select: none }
+
+// jsVectorMap container
+.#{$classPrefix}container {
+  touch-action: none;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+}
+
+// Tooltip
+.#{$classPrefix}tooltip {
+  border-radius: $tooltip-radius;
+  background-color: $tooltip-bg-color;
+  font-family: $tooltip-font-family;
+  font-size: $tooltip-font-size;
+  box-shadow: $tooltip-shadow;
+  padding: $tooltip-padding;
+  white-space: nowrap;
+  position: absolute;
+  display: none;
+  color: $text-color-dark;
+  &.active {
+    display: block;
+  }
+}
+
+// Zoom buttons
+.#{$classPrefix}zoom-btn {
+  border-radius: $zoom-btns-radius;
+  background-color: $zoom-btns-bg-color;
+  padding: $zoom-btns-padding;
+  box-sizing: border-box;
+  position: absolute;
+  line-height: 10px;
+  cursor: pointer;
+  color: #FFF;
+  height: 15px;
+  width: 15px;
+  left: 10px;
+
+  &.#{$classPrefix}zoomout {
+    top: 30px
+  }
+
+  &.#{$classPrefix}zoomin {
+    top: 10px
+  }
+}
+
+// Series
+.#{$classPrefix}series-container {
+  right: $series-container-right;
+  position: absolute;
+
+  // horizontal
+  &.#{$classPrefix}series-h { bottom: 15px }
+
+  // Vertical
+  &.#{$classPrefix}series-v { top: 15px }
+
+  // Legends
+  .#{$classPrefix}legend {
+    background-color: $legend-background-color;
+    border: 1px solid $border-color;
+    margin-left: $legend-margin-left;
+    border-radius: $legend-radius;
+    border-color: $border-color;
+    padding: $legend-padding;
+    box-shadow: $box-shadow;
+    float: left;
+
+    .#{$classPrefix}legend-title {
+      line-height: 1;
+      border-bottom: 1px solid $border-color;
+      padding-bottom: $legend-title-padding-bottom;
+      margin-bottom: $legend-title-margin-bottom;
+      text-align: left;
+    }
+
+    .#{$classPrefix}legend-inner {
+      overflow: hidden;
+
+      .#{$classPrefix}legend-tick {
+        overflow: hidden;
+        min-width: 40px;
+        &:not(:first-child) {
+          margin-top: $legend-tick-margin-top;
+        }
+
+        .#{$classPrefix}legend-tick-sample {
+          border-radius: $legend-tick-sample-radius;
+          margin-right: .65rem;
+          height: $legend-tick-sample-height;
+          width: $legend-tick-sample-width;
+          float: left;
+        }
+
+        .#{$classPrefix}legend-tick-text {
+          font-size: $legend-tick-text-font-size;
+          text-align: center;
+          float: left;
+        }
+      }
+    }
+  }
+}
+
+// Line animation
+.jvm-line[animation="true"] {
+  -webkit-animation: jvm-line-animation 10s linear forwards infinite;
+  animation: jvm-line-animation 10s linear forwards infinite;
+
+  @keyframes jvm-line-animation {
+    from { stroke-dashoffset: 250; }
+  }
+}

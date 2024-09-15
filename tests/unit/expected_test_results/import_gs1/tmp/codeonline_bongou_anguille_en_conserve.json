@@ -1,0 +1,323 @@
+{
+   "tradeItem" : {
+      "brandOwner" : {
+         "gln" : "3770009520010",
+         "partyName" : "LETSWORK GROUP"
+      },
+      "gdsnTradeItemClassification" : {
+         "gpcCategoryCode" : "10000018"
+      },
+      "gtin" : "03665902202616",
+      "informationProviderOfTradeItem" : {
+         "gln" : "3770009520010",
+         "partyName" : "LETSWORK GROUP"
+      },
+      "isTradeItemAConsumerUnit" : "true",
+      "targetMarket" : {
+         "targetMarketCountryCode" : "250"
+      },
+      "tradeItemContactInformation" : [
+         {
+            "contactName" : "BONGOU SARL",
+            "contactTypeCode" : "BZL"
+         }
+      ],
+      "tradeItemInformation" : {
+         "extension" : {
+            "alcohol_information:alcoholInformationModule" : {
+               "alcoholInformation" : {
+                  "percentageOfAlcoholByVolume" : "0"
+               }
+            },
+            "allergen_information:allergenInformationModule" : {
+               "allergenRelatedInformation" : [
+                  {
+                     "allergen" : [
+                        {
+                           "allergenTypeCode" : "AC",
+                           "levelOfContainmentCode" : "FREE_FROM"
+                        },
+                        {
+                           "allergenTypeCode" : "AE",
+                           "levelOfContainmentCode" : "FREE_FROM"
+                        },
+                        {
+                           "allergenTypeCode" : "AF",
+                           "levelOfContainmentCode" : "CONTAINS"
+                        },
+                        {
+                           "allergenTypeCode" : "AM",
+                           "levelOfContainmentCode" : "FREE_FROM"
+                        },
+                        {
+                           "allergenTypeCode" : "AP",
+                           "levelOfContainmentCode" : "MAY_CONTAIN"
+                        },
+                        {
+                           "allergenTypeCode" : "AS",
+                           "levelOfContainmentCode" : "FREE_FROM"
+                        },
+                        {
+                           "allergenTypeCode" : "AU",
+                           "levelOfContainmentCode" : "FREE_FROM"
+                        },
+                        {
+                           "allergenTypeCode" : "AW",
+                           "levelOfContainmentCode" : "FREE_FROM"
+                        },
+                        {
+                           "allergenTypeCode" : "AY",
+                           "levelOfContainmentCode" : "MAY_CONTAIN"
+                        },
+                        {
+                           "allergenTypeCode" : "BC",
+                           "levelOfContainmentCode" : "FREE_FROM"
+                        },
+                        {
+                           "allergenTypeCode" : "BM",
+                           "levelOfContainmentCode" : "FREE_FROM"
+                        },
+                        {
+                           "allergenTypeCode" : "NL",
+                           "levelOfContainmentCode" : "FREE_FROM"
+                        },
+                        {
+                           "allergenTypeCode" : "UM",
+                           "levelOfContainmentCode" : "FREE_FROM"
+                        },
+                        {
+                           "allergenTypeCode" : "AN",
+                           "levelOfContainmentCode" : "UNDECLARED"
+                        }
+                     ],
+                     "isAllergenRelevantDataProvided" : "true"
+                  }
+               ]
+            },
+            "consumer_instructions:consumerInstructionsModule" : {
+               "consumerInstructions" : {
+                  "consumerStorageInstructions" : {
+                     "#" : "A conserver à la température ambiante et sec",
+                     "@" : {
+                        "languageCode" : "fr"
+                     }
+                  },
+                  "consumerUsageInstructions" : {
+                     "#" : "A consommer de préference avant la date indiqué sur le fond de la boite",
+                     "@" : {
+                        "languageCode" : "fr"
+                     }
+                  }
+               }
+            },
+            "diet_information:dietInformationModule" : {
+               "dietInformation" : {
+                  "dietTypeInformation" : [
+                     {
+                        "dietTypeCode" : "WITHOUT_BEEF"
+                     },
+                     {
+                        "dietTypeCode" : "COELIAC"
+                     },
+                     {
+                        "dietTypeCode" : "DIETETIC"
+                     },
+                     {
+                        "dietTypeCode" : "FREE_FROM_GLUTEN"
+                     },
+                     {
+                        "dietTypeCode" : "DIABETIC"
+                     },
+                     {
+                        "dietTypeCode" : "WITHOUT_PORK"
+                     }
+                  ]
+               }
+            },
+            "food_and_beverage_ingredient:foodAndBeverageIngredientModule" : {
+               "ingredientStatement" : {
+                  "#" : "Ingrédients : <!--td {border: 1px solid #ccc;}br {mso-data-placement:same-cell;}Amalona (Anguille)Sel",
+                  "@" : {
+                     "languageCode" : "fr"
+                  }
+               },
+               "isIngredientRelevantDataProvided" : "TRUE"
+            },
+            "food_and_beverage_preparation_serving:foodAndBeveragePreparationServingModule" : {
+               "preparationServing" : {
+                  "preparationInstructions" : {
+                     "#" : "Après ouverture, prêt à consommer",
+                     "@" : {
+                        "languageCode" : "fr"
+                     }
+                  }
+               }
+            },
+            "nutritional_information:nutritionalInformationModule" : {
+               "isNutrientRelevantDataProvided" : "true",
+               "nutrientHeader" : [
+                  {
+                     "dailyValueIntakeReference" : {
+                        "#" : "Apport de référence pour un adulte-type (8400 kj/2000 kcal)",
+                        "@" : {
+                           "languageCode" : "fr"
+                        }
+                     },
+                     "nutrientDetail" : [
+                        {
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "ENER-",
+                           "quantityContained" : [
+                              {
+                                 "#" : "962.3",
+                                 "@" : {
+                                    "measurementUnitCode" : "KJO"
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "ENER-",
+                           "quantityContained" : [
+                              {
+                                 "#" : "230",
+                                 "@" : {
+                                    "measurementUnitCode" : "E14"
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "FAT",
+                           "quantityContained" : [
+                              {
+                                 "#" : "15",
+                                 "@" : {
+                                    "measurementUnitCode" : "GRM"
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "PRO-",
+                           "quantityContained" : [
+                              {
+                                 "#" : "24",
+                                 "@" : {
+                                    "measurementUnitCode" : "GRM"
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "SALTEQ",
+                           "quantityContained" : [
+                              {
+                                 "#" : "1.17",
+                                 "@" : {
+                                    "measurementUnitCode" : "GRM"
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "CHOAVL",
+                           "quantityContained" : [
+                              {
+                                 "#" : "0",
+                                 "@" : {
+                                    "measurementUnitCode" : "GRM"
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "SUGAR-",
+                           "quantityContained" : [
+                              {
+                                 "#" : "0",
+                                 "@" : {
+                                    "measurementUnitCode" : "GRM"
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "FASAT",
+                           "quantityContained" : [
+                              {
+                                 "#" : "0.5",
+                                 "@" : {
+                                    "measurementUnitCode" : "GRM"
+                                 }
+                              }
+                           ]
+                        }
+                     ],
+                     "preparationStateCode" : "UNPREPARED",
+                     "servingSize" : {
+                        "#" : "100",
+                        "@" : {
+                           "measurementUnitCode" : "GRM"
+                        }
+                     }
+                  }
+               ]
+            },
+            "place_of_item_activity:placeOfItemActivityModule" : {
+               "placeOfProductActivity" : {
+                  "countryOfOrigin" : {
+                     "countryCode" : "450"
+                  }
+               }
+            },
+            "trade_item_description:tradeItemDescriptionModule" : {
+               "tradeItemDescriptionInformation" : {
+                  "brandNameInformation" : {
+                     "brandName" : "BONGOU"
+                  },
+                  "descriptionShort" : {
+                     "#" : "Anguille en conserve 180G BONGOU",
+                     "@" : {
+                        "languageCode" : "fr"
+                     }
+                  },
+                  "regulatedProductName" : {
+                     "#" : "Amalona (Anguille)",
+                     "@" : {
+                        "languageCode" : "fr"
+                     }
+                  },
+                  "tradeItemDescription" : {
+                     "#" : "Anguille en conserve 180G BONGOU",
+                     "@" : {
+                        "languageCode" : "fr"
+                     }
+                  }
+               }
+            },
+            "trade_item_measurements:tradeItemMeasurementsModule" : {
+               "tradeItemMeasurements" : {
+                  "netContent" : {
+                     "#" : 180,
+                     "@" : {
+                        "measurementUnitCode" : "GRM"
+                     }
+                  }
+               }
+            }
+         }
+      },
+      "tradeItemSynchronisationDates" : {
+         "lastChangeDateTime" : "2020-05-26T13:03:58.363Z"
+      },
+      "tradeItemUnitDescriptorCode" : "BASE_UNIT_OR_EACH"
+   }
+}

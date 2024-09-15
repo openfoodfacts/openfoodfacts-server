@@ -1,0 +1,51 @@
+title: text_element
+x-stoplight:
+  id: vdwxlt73qnqfa
+type: object
+description: |-
+  A text in simple HTML format to display.
+
+  For some specific texts that correspond to a product field (e.g. a product name, the ingredients list of a product),the edit_field_* fields are used to indicate how to edit the field value.
+properties:
+  type:
+    type: string
+    description: |
+      the type of text, might influence the way you display it.
+    enum:
+      - summary
+      - warning
+      - notes
+  html:
+    type: string
+    description: Text to display in HTML format.
+  language:
+    type: string
+    description: 'Language of the text. The name of the language is returned in the language requested when making the API call. e.g. if the text is in Polish, and the requested language is French, the language field will contain "Polonais" (French for "Polish"). Only set for specific fields such as the list of ingredients of a product.'
+  lc:
+    type: string
+    description: 2 letter language code for the text. Only set for specific fields such as the list of ingredients of a product.
+  edit_field_id:
+    type: string
+    description: id of the field used to edit this text in the product edit API.
+  edit_field_type:
+    type: string
+    description: Type of the product field.
+  edit_field_value:
+    type: string
+    description: Current value of the product field. This may differ from the html field which can contain extra formating.
+  source_url:
+    type: string
+    description: Link to the source
+    example: https://en.wikipedia.org/wiki/Sodium acetate
+  source_text:
+    type: string
+    description: name of the source
+    example: Wikipedia
+  source_lc:
+    type: string
+    description: Source locale name
+    example: en
+  source_language:
+    type: string
+    description: Human readable source locale name
+    example: English

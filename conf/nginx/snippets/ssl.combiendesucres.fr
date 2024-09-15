@@ -1,0 +1,2 @@
+ssl_certificate /etc/letsencrypt/live/combiendesucres.fr/fullchain.pem;
+ssl_certificate_key /etc/letsencrypt/live/combiendesucres.fr/privkey.pem;

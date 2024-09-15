@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -32,11 +32,11 @@ Usage:
 update_all_products.pl --user-id user-id --new-user-id new-user-id
 
 TXT
-;
+	;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Lang qw/:all/;
-use ProductOpener::Products qw/:all/;
+use ProductOpener::Products qw/find_and_replace_user_id_in_products/;
 
 use Log::Any::Adapter 'TAP';
 #use Log::Any::Adapter 'TAP', filter => "none";

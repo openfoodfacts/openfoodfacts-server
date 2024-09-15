@@ -1,0 +1,21 @@
+description: |
+  The unit in which the nutrient for 100g or per serving is measured.
+
+  The possible values depends on the nutrient.
+
+  * `g` for grams
+  * `mg` for milligrams
+  * `μg` for micrograms
+  * `cl` for centiliters
+  * `ml` for mililiters
+  * `dv` for recommended daily intakes (aka [Dietary Reference Intake](https://en.wikipedia.org/wiki/Dietary_Reference_Intake))
+  * `% vol` for percentage per volume (e.g. alcohol vol per 100 ml)
+  * `%` for percentage
+
+  🤓 code: see the [Units module][units-module],
+  and [Food:default_unit_for_nid function][default-unit]
+
+  [units-module]: https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Units.html
+  [default-unit]: https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Food.html#default_unit_for_nid_(_%24nid)
+type: string
+enum: ['g','mg','μg','cl','ml','dv','% vol','%']

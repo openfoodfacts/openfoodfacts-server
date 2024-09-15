@@ -1,27 +1,26 @@
 #!/usr/bin/perl -w
 
 # This file is part of Product Opener.
-# 
+#
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
-# 
+#
 # Product Opener is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
 # published by the Free Software Foundation, either version 3 of the
 # License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU Affero General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2017';
-use utf8;
+use ProductOpener::PerlStandards;
 
 use CGI::Carp qw(fatalsToBrowser);
 use CGI qw/:cgi :form escapeHTML/;
@@ -29,32 +28,34 @@ use CGI qw/:cgi :form escapeHTML/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
-use ProductOpener::Display qw/:all/;
+use ProductOpener::Display qw/$subdomain init_request/;
+use ProductOpener::HTTP qw/write_cors_headers/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::URL qw/:all/;
+use ProductOpener::URL qw/format_subdomain/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 
-ProductOpener::Display::init();
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Lang qw/$lc lang/;
+
+my $request_ref = ProductOpener::Display::init_request();
 
 # https://developer.mozilla.org/en-US/Add-ons/Creating_OpenSearch_plugins_for_Firefox
 # Maximum of 16 characters
-my $short_name = lang("site_name");
+my $short_name = $options{site_name};
 # Maximum of 48 characters
 my $long_name = $short_name;
-if ($cc eq 'world') {
+if ($request_ref->{cc} eq 'world') {
 	$long_name .= " " . uc($lc);
 }
 else {
-	$long_name .= " " . uc($cc) . "/" . uc($lc);
+	$long_name .= " " . uc($request_ref->{cc}) . "/" . uc($lc);
 }
 
 my $description = lang("search_description_opensearch");
@@ -80,6 +81,11 @@ $image_tag
 <Url type="application/opensearchdescription+xml" rel="self" template="$uri/cgi/opensearch.pl" />
 </OpenSearchDescription>
 XML
-;
+	;
 
-print header( -type => 'application/opensearchdescription+xml', -charset => 'utf-8', -access_control_allow_origin => '*', -cache_control => 'public, max-age: 10080' ) . $xml;
+write_cors_headers();
+print header(
+	-type => 'application/opensearchdescription+xml',
+	-charset => 'utf-8',
+	-cache_control => 'public, max-age: 10080'
+) . $xml;

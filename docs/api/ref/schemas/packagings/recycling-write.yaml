@@ -1,0 +1,17 @@
+title: Packaging component recycling instruction (WRITE)
+x-stoplight:
+  id: 72oyv89xtgc2n
+description: The recycling property is canonicalized using the packaging_recycling taxonomy.
+examples:
+  - id: string
+  - lc_name: bouteille
+anyOf:
+  - properties:
+      id:
+        type: string
+        description: 'Canonical id of the entry in the taxonomy. If the value cannot be mapped to a taxonomy entry, the value must be the name of the entry in its original language prefixed by the language 2 letter code and a colon.'
+  - properties:
+      lc_name:
+        type: string
+        description: 'Name of the entry in the language specified in the tags_lc field of the request. If the translation is not available, the value must be the name of the entry in its original language prefixed by the language 2 letter code and a colon.'
+type: object

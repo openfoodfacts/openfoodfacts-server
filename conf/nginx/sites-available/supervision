@@ -1,0 +1,8 @@
+server {
+
+	listen 80;
+	listen [::]:80;
+        server_name  supervision1.openfoodfacts.org munin1.openfoodfacts.org supervision1.openfoodfacts.bu.gs;
+         root   /var/cache/munin/www;
+}
+
