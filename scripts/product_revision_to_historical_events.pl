@@ -72,11 +72,42 @@ sub process_file($path, $code) {
 	#my $code = product_id_from_path($path);
 	my $change_count = @$changes;    # some $product don't have a 'rev'
 	my $rev = 0;    # some $change don't have a 'rev'
-
+	my $obsolete = 0;
+	my $deleted = 0;
 	foreach my $change (@{$changes}) {
 		$rev++;
-		# my $product = retrieve($path . "/" . $rev . ".sto");
+		my $product = retrieve($path . "/" . $rev . ".sto");
+		if (!defined $product) {
+			print '[' . localtime() . "] Unable to open $path/$rev.sto\n";
+			next;
+		}
 
+		my $isDeleted = $product->{deleted};
+		my $isObsolete = $product->{obsolete};
+
+		my $action = 'updated';
+		if ($rev eq 1) {
+			$action = 'created';
+		}
+		elsif ($isDeleted && !$deleted) {
+			$action = 'deleted';
+		}
+		# Note we treat undeleted as "updated" for consitency with current behaviour
+		# elsif (!$isDeleted and $deleted) {
+		# 	$action = 'undeleted';
+		# }
+		elsif ($isObsolete && !$obsolete) {
+			$action = 'archived';
+		}
+		elsif (!$isObsolete && $obsolete) {
+			$action = 'unarchived';
+		}
+
+		$deleted = $isDeleted;
+		$obsolete = $isObsolete;
+
+		# Need to figure out action before testing checkpoint as we need the version history
+		# to know where we are
 		if (not $can_process and $rev == $last_processed_rev) {
 			$can_process = 1;
 			print "Resuming from '$last_processed_path' revision $last_processed_rev\n";
@@ -87,27 +118,6 @@ sub process_file($path, $code) {
 
 		my $timestamp = $change->{t} // 0;
 		next if ($timestamp < $start_from or $timestamp >= $end_before);
-
-		my $action = 'updated';
-		if ($rev eq 1) {
-			$action = 'created';
-		}
-		elsif ( $rev == $change_count
-			and $change->{comment} =~ /^Deleting product/)
-		{
-			$action = 'deleted';
-		}
-
-		if (exists $change->{diffs}{fields}{add}
-			and (grep {$_ eq 'obsolete'} @{$change->{diffs}{fields}{add}}))
-		{
-			$action = 'archived';
-		}
-		if (exists $change->{diffs}{fields}{delete}
-			and (grep {$_ eq 'obsolete'} @{$change->{diffs}{fields}{delete}}))
-		{
-			$action = 'unarchived';
-		}
 
 		push(
 			@events,
