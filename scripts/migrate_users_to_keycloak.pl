@@ -132,6 +132,8 @@ sub convert_to_keycloak_user ($user_file) {
 			name => [$user_ref->{name}],
 			locale => [$user_ref->{initial_lc}],
 			country => [$user_ref->{initial_cc}],
+			importTimestamp => time(),
+			importSourceChangedTimestamp => (stat($user_file))[9]
 		],
 		createdTimestamp => $user_ref->{registered_t} * 1000
 	};
