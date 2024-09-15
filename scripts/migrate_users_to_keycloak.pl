@@ -101,8 +101,8 @@ sub import_users_in_keycloak ($users_ref) {
 	return;
 }
 
-sub migrate_user ($user_file) {
-	my $keycloak_user_ref = convert_to_keycloak_user($user_file);
+sub migrate_user ($user_file, $anonymize) {
+	my $keycloak_user_ref = convert_to_keycloak_user($user_file, $anonymize);
 	if (not(defined $keycloak_user_ref)) {
 		$log->warn('unable to convert user_ref');
 		return;
@@ -113,23 +113,24 @@ sub migrate_user ($user_file) {
 	return;
 }
 
-sub convert_to_keycloak_user ($user_file) {
+sub convert_to_keycloak_user ($user_file, $anonymize) {
 	my $user_ref = retrieve($user_file);
 	if (not(defined $user_ref)) {
 		$log->warn('undefined $user_ref');
 		return;
 	}
 
-	my $credential = convert_scrypt_password_to_keycloak_credentials($user_ref->{'encrypted_password'}) // {};
+	my $credential
+		= $anonymize ? {} : convert_scrypt_password_to_keycloak_credentials($user_ref->{'encrypted_password'}) // {};
 	my $keycloak_user_ref = {
-		email => $user_ref->{email},
+		email => ($anonymize ? 'off.' . $user_ref->{userid} . '@example.org' : $user_ref->{email}),
 		# Currently, the assumption is that all users have verified their email address. This is not true, but it's better than forcing all existing users to verify their email address.
 		emailVerified => $JSON::PP::true,
 		enabled => $JSON::PP::true,
 		username => $user_ref->{userid},
 		credentials => [$credential],
 		attributes => [
-			name => [$user_ref->{name}],
+			name => [($anonymize ? $user_ref->{userid} : $user_ref->{name})],
 			locale => [$user_ref->{initial_lc}],
 			country => [$user_ref->{initial_cc}],
 			importTimestamp => time(),
@@ -183,6 +184,13 @@ if ((scalar @ARGV) > 0 and (length($ARGV[0]) > 0)) {
 	$importtype = $ARGV[0];
 }
 
+my $anonymize = 0;
+if ((scalar @ARGV) > 0 and ('anonymize' eq $ARGV[-1])) {
+	# Anonymize the user data by removing the email address, name, and password.
+	# This is useful for testing the migration script and for adding production data to the test server.
+	$anonymize = 1;
+}
+
 if ($importtype eq 'realm-batch') {
 	my @users = ();
 
@@ -190,7 +198,7 @@ if ($importtype eq 'realm-batch') {
 
 		foreach my $file (readdir($dh)) {
 			if (($file =~ /.+\.sto$/) and ($file ne 'users_emails.sto')) {
-				my $keycloak_user = convert_to_keycloak_user("$BASE_DIRS{USERS}/$file");
+				my $keycloak_user = convert_to_keycloak_user("$BASE_DIRS{USERS}/$file", $anonymize);
 				push(@users, $keycloak_user) if defined $keycloak_user;
 			}
 
@@ -211,7 +219,7 @@ elsif ($importtype eq 'api-multi') {
 	if (opendir(my $dh, "$BASE_DIRS{USERS}/")) {
 		foreach my $file (readdir($dh)) {
 			if (($file =~ /.+\.sto$/) and ($file ne 'users_emails.sto')) {
-				migrate_user("$BASE_DIRS{USERS}/$file");
+				migrate_user("$BASE_DIRS{USERS}/$file", $anonymize);
 			}
 		}
 
@@ -220,7 +228,7 @@ elsif ($importtype eq 'api-multi') {
 }
 elsif ($importtype eq 'api-single') {
 	if ((scalar @ARGV) == 2 and (length($ARGV[1]) > 0)) {
-		migrate_user($ARGV[1]);
+		migrate_user($ARGV[1], $anonymize);
 	}
 }
 else {
