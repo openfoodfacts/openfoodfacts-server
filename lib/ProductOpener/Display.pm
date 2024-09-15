@@ -102,6 +102,7 @@ BEGIN {
 
 		&count_products
 		&add_params_to_query
+		&add_params_and_filters_to_query
 
 		&url_for_text
 		&process_template
@@ -1037,12 +1038,12 @@ sub set_user_agent_request_ref_attributes ($request_ref) {
 	my $is_crawl_bot = 0;
 	my $is_denied_crawl_bot = 0;
 	if ($user_agent_str
-		=~ /\b(Googlebot|Googlebot-Image|Google-InspectionTool|bingbot|Applebot|Yandex|DuckDuck|DotBot|Seekport|Ahrefs|DataForSeo|Seznam|ZoomBot|Mojeek|QRbot|Qwant|facebookexternalhit|Bytespider|GPTBot|cohere-ai|anthropic-ai|PerplexityBot|ClaudeBot|Claude-Web|SEOkicks|Searchmetrics|MJ12|SurveyBot|SEOdiver|wotbox|Cliqz|Paracrawl|Scrapy|VelenPublicWebCrawler|Semrush|MegaIndex\.ru|Amazon|aiohttp|python-request)/i
+		=~ /\b(Googlebot|Googlebot-Image|Google-InspectionTool|bingbot|Applebot|Yandex|DuckDuck|DotBot|Seekport|Ahrefs|DataForSeo|Seznam|ZoomBot|Mojeek|QRbot|Qwant|facebookexternalhit|Bytespider|GPTBot|ChatGPT-User|cohere-ai|anthropic-ai|PerplexityBot|ClaudeBot|Claude-Web|SEOkicks|Searchmetrics|MJ12|SurveyBot|SEOdiver|wotbox|Cliqz|Paracrawl|Scrapy|VelenPublicWebCrawler|Semrush|MegaIndex\.ru|Amazon|aiohttp|python-request|ImagesiftBot|Diffbot)/i
 		)
 	{
 		$is_crawl_bot = 1;
 		if ($user_agent_str
-			=~ /\b(bingbot|Seekport|Ahrefs|DataForSeo|Seznam|ZoomBot|Mojeek|QRbot|Bytespider|SEOkicks|Searchmetrics|MJ12|SurveyBot|SEOdiver|wotbox|Cliqz|Paracrawl|Scrapy|VelenPublicWebCrawler|Semrush|MegaIndex\.ru|YandexMarket|Amazon|GPTBot|PerplexityBot|ClaudeBot|Claude-Web|cohere-ai|anthropic-ai)/i
+			=~ /\b(bingbot|Seekport|Ahrefs|DataForSeo|Seznam|ZoomBot|Mojeek|QRbot|Bytespider|SEOkicks|Searchmetrics|MJ12|SurveyBot|SEOdiver|wotbox|Cliqz|Paracrawl|Scrapy|VelenPublicWebCrawler|Semrush|MegaIndex\.ru|YandexMarket|Amazon|GPTBot|ChatGPT-User|PerplexityBot|ClaudeBot|Claude-Web|cohere-ai|anthropic-ai|ImagesiftBot|Diffbot)/i
 			)
 		{
 			$is_denied_crawl_bot = 1;
@@ -1681,9 +1682,7 @@ sub generate_query_cache_key ($name, $context_ref, $request_ref) {
 
 sub query_list_of_tags ($request_ref, $query_ref) {
 
-	add_params_to_query($request_ref, $query_ref);
-
-	add_country_and_owner_filters_to_query($request_ref, $query_ref);
+	add_params_and_filters_to_query($request_ref, $query_ref);
 
 	my $groupby_tagtype = $request_ref->{groupby_tagtype};
 
@@ -4477,23 +4476,23 @@ HTML
 	return;
 }
 
-=head2 list_all_request_params ( $request_ref, $query_ref )
+=head2 get_all_request_params ( $request_ref )
 
-Return an array of names of all request parameters.
+Return a reference to a hash of all request parameters (CGI params and JSON body) name and values.
 
 =cut
 
-sub list_all_request_params ($request_ref) {
+sub get_all_request_params ($request_ref) {
 
 	# CGI params (query string and POST body)
-	my @params = multi_param();
+	my %params = map {$_ => decode("utf8", single_param($_))} multi_param();
 
-	# Add params from the JSON body if any
+	# Add params from the JSON body if any (JSON body overwrites CGI params if there is a conflict)
 	if (defined $request_ref->{body_json}) {
-		push @params, keys %{$request_ref->{body_json}};
+		@params{keys %{$request_ref->{body_json}}} = values %{$request_ref->{body_json}};
 	}
 
-	return @params;
+	return \%params;
 }
 
 =head2 display_search_results ( $request_ref )
@@ -4523,17 +4522,22 @@ sub display_search_results ($request_ref) {
 
 	my $current_link = '';
 
-	foreach my $field (list_all_request_params($request_ref)) {
+	my $params_ref = get_all_request_params($request_ref);
+
+	$log->debug("display_search_results - params", {params => $params_ref})
+		if $log->is_debug();
+
+	foreach my $field (sort keys %$params_ref) {
 		if (
-			   ($field eq "page")
-			or ($field eq "fields")
-			or ($field eq "keywords")    # returned by CGI.pm when there are not params: keywords=search
+			not(
+				   ($field eq "page")
+				or ($field eq "fields")
+				or ($field eq "keywords")    # returned by CGI.pm when there are not params: keywords=search
+			)
 			)
 		{
-			next;
+			$current_link .= "\&$field=" . URI::Escape::XS::encodeURIComponent($params_ref->{$field});
 		}
-
-		$current_link .= "\&$field=" . URI::Escape::XS::encodeURIComponent(decode utf8 => single_param($field));
 	}
 
 	$current_link =~ s/^\&/\?/;
@@ -4726,20 +4730,22 @@ sub get_products_collection_request_parameters ($request_ref, $additional_parame
 	return $parameters_ref;
 }
 
-=head2 add_params_to_query ( $request_ref, $query_ref )
+=head2 add_params_and_filters_to_query ( $request_ref, $query_ref )
 
 This function is used to parse search query parameters that are passed
 to the API (/api/v?/search endpoint) or to the web site search (/search endpoint)
-either as query string parameters (e.g. ?labels_tags=en:organic) or
-POST parameters.
+either as query string parameters (e.g. ?labels_tags=en:organic),
+POST parameters, or POST JSON body parameters.
 
-The function adds the corresponding query filters in the MongoDB query.
+The function then adds the corresponding query filters in the MongoDB query.
+
+It also adds the country and owner filters to the query.
 
 =head3 Parameters
 
-=head4 $request_ref (output)
+=head4 $request_ref (input)
 
-Reference to the internal request object.
+Reference to the request object.
 
 =head4 $query_ref (output)
 
@@ -4770,6 +4776,57 @@ my %ignore_params = (
 	no_count => 1,
 );
 
+sub add_params_and_filters_to_query($request_ref, $query_ref) {
+
+	my $params_ref = get_all_request_params($request_ref);
+
+	# Filter out parameters that are not query filters
+	foreach my $field (keys %$params_ref) {
+
+		if (defined $ignore_params{$field}) {
+			delete $params_ref->{$field};
+		}
+		# Some parameters like page / page_size and sort_by are related to the query
+		# but not query filters, we set them at the request object level
+		elsif (($field eq "page") or ($field eq "page_size")) {
+			$request_ref->{$field} = $params_ref->{$field} + 0;    # Make sure we have a number
+			delete $params_ref->{$field};
+		}
+
+		elsif ($field eq "sort_by") {
+			$request_ref->{$field} = $params_ref->{$field};
+			delete $params_ref->{$field};
+		}
+	}
+
+	add_params_to_query($params_ref, $query_ref);
+
+	add_country_and_owner_filters_to_query($request_ref, $query_ref);
+
+	return;
+}
+
+=head2 add_params_to_query ( $params_ref, $query_ref )
+
+This function is used to parse search query parameters that are passed
+to the API (/api/v?/search endpoint) or to the web site search (/search endpoint)
+either as query string parameters (e.g. ?labels_tags=en:organic),
+POST parameters, or POST JSON body parameters.
+
+The function then adds the corresponding query filters in the MongoDB query.
+
+=head3 Parameters
+
+=head4 $params_ref (input)
+
+Reference to a hash of parameters (name and value).
+
+=head4 $query_ref (output)
+
+Reference to the MongoDB query object.
+
+=cut
+
 # Parameters that can be query filters passed as parameters
 # (GET query parameters, POST JSON body or from url facets),
 # in addition to tags fields.
@@ -4777,36 +4834,26 @@ my %ignore_params = (
 
 my %valid_params = (code => 1, creator => 1);
 
-sub add_params_to_query ($request_ref, $query_ref) {
+sub add_params_to_query ($params_ref, $query_ref) {
 
-	$log->debug("add_params_to_query", {params => {CGI::Vars()}}) if $log->is_debug();
+	$log->debug("add_params_to_query", {params => $params_ref}) if $log->is_debug();
 
 	# nocache was renamed to no_cache
-	if (defined single_param('nocache')) {
-		param('no_cache', single_param('nocache'));
+	if (defined $params_ref->{nocache}) {
+		$params_ref->{no_cache} = $params_ref->{nocache};
+		delete $params_ref->{nocache};
 	}
 
 	my $and = $query_ref->{"\$and"};
 
-	foreach my $field (list_all_request_params($request_ref)) {
+	foreach my $field (sort keys %$params_ref) {
 
 		$log->debug("add_params_to_query - field", {field => $field}) if $log->is_debug();
-
-		# skip params that are not query filters
-		next if (defined $ignore_params{$field});
-
-		if (($field eq "page") or ($field eq "page_size")) {
-			$request_ref->{$field} = single_param($field) + 0;    # Make sure we have a number
-		}
-
-		elsif ($field eq "sort_by") {
-			$request_ref->{$field} = single_param($field);
-		}
 
 		# Tags fields can be passed with taxonomy ids as values (e.g labels_tags=en:organic)
 		# or with values in a given language (e.g. labels_tags_fr=bio)
 
-		elsif ($field =~ /^(.*)_tags(_(\w\w))?/) {
+		if ($field =~ /^(.*)_tags(_(\w\w))?/) {
 			my $tagtype = $1;
 			my $tag_lc = $lc;
 			if (defined $3) {
@@ -4820,7 +4867,7 @@ sub add_params_to_query ($request_ref, $query_ref) {
 			# xyz_tags=-c	products without the c tag
 			# xyz_tags=a,b,-c,-d
 
-			my $values = remove_tags_and_quote(request_param($request_ref, $field));
+			my $values = remove_tags_and_quote($params_ref->{$field});
 
 			$log->debug("add_params_to_query - tags param",
 				{field => $field, lc => $lc, tag_lc => $tag_lc, values => $values})
@@ -4958,7 +5005,7 @@ sub add_params_to_query ($request_ref, $query_ref) {
 			# We can have multiple conditions, separated with a comma
 			# e.g. sugars_100g=>10,<=20
 
-			my $conditions = request_param($request_ref, $field);
+			my $conditions = $params_ref->{$field};
 
 			$log->debug("add_params_to_query - nutrient conditions", {field => $field, conditions => $conditions})
 				if $log->is_debug();
@@ -4976,7 +5023,7 @@ sub add_params_to_query ($request_ref, $query_ref) {
 				}
 				else {
 					$operator = '=';
-					$value = request_param($request_ref, $field);
+					$value = $params_ref->{$field};
 				}
 
 				$log->debug("add_params_to_query - nutrient condition",
@@ -5006,7 +5053,7 @@ sub add_params_to_query ($request_ref, $query_ref) {
 		# Exact match on a specific field (e.g. "code")
 		elsif (defined $valid_params{$field}) {
 
-			my $values = remove_tags_and_quote(request_param($request_ref, $field));
+			my $values = remove_tags_and_quote($params_ref->{$field});
 
 			# Possible values:
 			# xyz=a
@@ -5075,13 +5122,11 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 	my $cache_results_flag = scalar(not $request_ref->{is_crawl_bot});
 	my $template_data_ref = {};
 
-	add_params_to_query($request_ref, $query_ref);
-
 	$log->debug("search_and_display_products",
 		{request_ref => $request_ref, query_ref => $query_ref, sort_by => $sort_by})
 		if $log->is_debug();
 
-	add_country_and_owner_filters_to_query($request_ref, $query_ref);
+	add_params_and_filters_to_query($request_ref, $query_ref);
 
 	if (defined $limit) {
 	}
@@ -5931,9 +5976,7 @@ sub search_and_export_products ($request_ref, $query_ref, $sort_by) {
 		$format = $request_ref->{format};
 	}
 
-	add_params_to_query($request_ref, $query_ref);
-
-	add_country_and_owner_filters_to_query($request_ref, $query_ref);
+	add_params_and_filters_to_query($request_ref, $query_ref);
 
 	$log->debug("search_and_export_products - MongoDB query", {format => $format, query => $query_ref})
 		if $log->is_debug();
@@ -6836,9 +6879,7 @@ HTML
 
 sub search_and_graph_products ($request_ref, $query_ref, $graph_ref) {
 
-	add_params_to_query($request_ref, $query_ref);
-
-	add_country_and_owner_filters_to_query($request_ref, $query_ref);
+	add_params_and_filters_to_query($request_ref, $query_ref);
 
 	my $cursor;
 
@@ -7188,9 +7229,7 @@ Base query that will be modified to be able to build the map
 
 sub search_products_for_map ($request_ref, $query_ref) {
 
-	add_params_to_query($request_ref, $query_ref);
-
-	add_country_and_owner_filters_to_query($request_ref, $query_ref);
+	add_params_and_filters_to_query($request_ref, $query_ref);
 
 	my $cursor;
 
@@ -10886,9 +10925,7 @@ XML
 
 sub display_recent_changes ($request_ref, $query_ref, $limit, $page) {
 
-	add_params_to_query($request_ref, $query_ref);
-
-	add_country_and_owner_filters_to_query($request_ref, $query_ref);
+	add_params_and_filters_to_query($request_ref, $query_ref);
 
 	if (defined $limit) {
 	}
@@ -11479,9 +11516,7 @@ Analyze the distribution of selected parent ingredients in the searched products
 
 sub search_and_analyze_recipes ($request_ref, $query_ref) {
 
-	add_params_to_query($request_ref, $query_ref);
-
-	add_country_and_owner_filters_to_query($request_ref, $query_ref);
+	add_params_and_filters_to_query($request_ref, $query_ref);
 
 	my $cursor;
 

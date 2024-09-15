@@ -1651,6 +1651,7 @@ $options{rate_limit_product} = 100;
 # Rate limit allow list
 $options{rate_limit_allow_list} = {
 	'51.210.154.203' => 1,    # OVH2
+	'45.147.209.254' => 1,    # Moji server (actually OSM proxy, Moji only has ipv6)
 };
 
 1;

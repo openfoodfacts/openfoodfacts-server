@@ -1232,6 +1232,11 @@ gpc_category_code:en: 10000623
 gpc_category_description:en: Definition: Includes any products that can be described/observed as two or more distinct Beverages sold together which exist within the schema but belong to different classes, that is two or more products contained within the same pack which cross classes within the Beverages Family. Includes products such as Gin with Tonic Water variety packs. Items that are received free with purchases should be removed from the classification decision-making process. Definition Excludes: Excludes products such as Still and Sparkling Wine variety packs and Wine and Chocolate variety packs.
 gpc_category_name:en: Beverages Variety Packs
 
+
+< en:Beverages
+en: Half iced tea and half lemonade
+incompatible_with:en: categories:en:Half milk and half cream
+
 en: Fermented foods
 ar: الأطعمة المخمرة
 as: পাকস্থলীয় খাদ্য
@@ -4462,7 +4467,7 @@ origins:en: en:france
 fr: Eau-de-vie de Jura
 de: Branntwein aus dem Jura
 nl: Eau-devies uit de Jura
-origins:en: en:france, fr:jura-francais
+origins:en: en:france, en:jura-france
 
 < en:French Eaux-de-vie
 fr: Eau-de-vie de poiré de Bretagne
@@ -4496,7 +4501,7 @@ origins:en: en:france, en:burgundy
 < en:French Eaux-de-vie
 fr: Eau-de-vie de vin de la Marne
 de: Branntwein aus Marne, Branntwein aus dem Marne Tal
-origins:en: en:france, fr:maine-france
+origins:en: en:marne
 protected_name_file_number:en: PGI-FR-02029, en: PGI-FR-02029-AM01
 protected_name_type:en: gi
 #wikidata:en:
@@ -4549,7 +4554,7 @@ origins:en: en:france
 fr: Eau-de-vie de vin originaire du Bugey
 de: Branntwein aus dem Bugey
 nl: Wijn-eau-de-vies uit de Bugey
-origins:en: en:france, fr:Bugey
+origins:en: en:bugey
 protected_name_file_number:en: PGI-FR-02068
 protected_name_type:en: gi
 #wikidata:en:
@@ -4558,7 +4563,7 @@ protected_name_type:en: gi
 fr: Eau-de-vie de vin originaire du Centre-Est
 de: Branntwein aus Centre-Est
 nl: Wijn eau-de-vies uit de Centre-Est
-origins:en: en:france, en:northwest
+origins:en: en:france, en:center-east-france
 #wikidata:en:
 
 < en:French Eaux-de-vie
@@ -4843,7 +4848,7 @@ protected_name_type:en: gi
 
 < en:French rums
 fr: Rhum des Antilles françaises
-origins:en: en:france, fr:Antilles françaises
+origins:en: en:french-antilles
 protected_name_file_number:en: PGI-FR-01990
 protected_name_type:en: gi
 
@@ -4877,7 +4882,7 @@ protected_name_type:en: gi
 
 < en:French rums
 fr: Rhum de la Guyane
-origins:en: en:france, en:French Guyana
+origins:en: en:french-guyana
 protected_name_file_number:en: PGI-FR-02066
 protected_name_type:en: gi
 wikidata:en: Q110722095
@@ -5919,7 +5924,7 @@ fr: Crèmes de cassis françaises
 
 < en:French Crème de cassis
 fr: Cassis de Saintonge
-origins:en: en:france, fr:Saintonge
+origins:en: en:saintonge
 protected_name_file_number:en: PGI-FR-01986
 protected_name_type:en: gi
 #wikidata:en:
@@ -5933,7 +5938,7 @@ protected_name_type:en: gi
 
 < en:French Crème de cassis
 fr: Cassis de Dijon
-origins:en: en:france, fr:Dijon
+origins:en: en:dijon
 protected_name_file_number:en: PGI-FR-01991
 protected_name_type:en: gi
 #wikidata:en:
@@ -11425,7 +11430,7 @@ protected_name_type:en: gi
 
 < en:French grape marc spirit or grape marc
 fr: Marc du Jura
-origins:en: en:france, fr:jura-francais
+origins:en: en:france, en:jura-france
 protected_name_file_number:en: PGI-FR-02027
 protected_name_type:en: gi
 
@@ -11461,7 +11466,7 @@ protected_name_type:en: gi
 
 < en:French grape marc spirit or grape marc
 fr: Marc du Bugey
-origins:en: en:france, fr:Bugey
+origins:en: en:bugey
 protected_name_file_number:en: PGI-FR-02025
 protected_name_type:en: gi
 
@@ -13218,22 +13223,22 @@ origins:en: en:france
 < en:Wines from France
 fr: Beaujolais
 grape_variety:fr: gamay, chardonnay
-origins:en: en:france, fr:beaujolais
+origins:en: en:france, en:beaujolais
 
 < en:Wines from France
 fr: Beaujolais Villages
 grape_variety:fr: gamay, chardonnay
-origins:en: en:france, fr:beaujolais
+origins:en: en:france, en:beaujolais
 
 < en:Wines from France
 fr: Beaujolais Supérieur
 grape_variety:fr: gamay
-origins:en: en:france, fr:beaujolais
+origins:en: en:france, en:beaujolais
 
 < fr:Beaujolais
 fr: Beaujolais nouveau, Beaujolais primeur
 grape_variety:fr: gamay, chardonnay
-origins:en: en:france, fr:beaujolais
+origins:en: en:france, en:beaujolais
 
 < en:Burgundy wines
 fr: Beaune
@@ -14241,12 +14246,12 @@ wikidata:en: Q383602
 
 < en:Wines from France
 fr: Brouilly
-origins:en: en:france, fr:beaujolais
+origins:en: en:france, en:beaujolais
 wikidata:en: Q461400
 
 < en:Wines from France
 fr: Bugey, Vins du Bugey, Mousseux du Bugey, Pétillant du Bugey, Roussette du Bugey, Bugey Mousseux, Bugey Pétillant
-origins:en: en:france
+origins:en: en:bugey
 protected_name_file_number:en: PDO-FR-A0588
 protected_name_type:en: pdo
 wikidata:en: Q3443460
@@ -15543,7 +15548,7 @@ wikidata:en: Q1090303
 < en:White wines
 < en:Wines from France
 fr: Château-Chalon
-origins:en: en:france, fr:jura-francais
+origins:en: en:france, en:jura-france
 wikidata:en: Q1090298
 
 < en:Wines from France
@@ -15567,7 +15572,7 @@ wikidata:en: Q1090846
 
 < en:Wines from France
 fr: Chenas, Chénas
-origins:en: en:france, fr:beaujolais
+origins:en: en:france, en:beaujolais
 wikidata:en: Q1090927
 
 < en:Burgundy wines
@@ -15592,7 +15597,7 @@ wikidata:en: Q2963789
 
 < en:Wines from France
 fr: Chiroubles
-origins:en: en:france, fr:beaujolais
+origins:en: en:france, en:beaujolais
 wikidata:en: Q1074779
 
 < en:Wines from France
@@ -15774,7 +15779,7 @@ wikidata:en: Q3010613
 
 < en:Wines from France
 fr: Côte de Brouilly
-origins:en: en:france, fr:beaujolais
+origins:en: en:france, en:beaujolais
 wikidata:en: Q461328
 
 < en:Burgundy wines
@@ -16495,7 +16500,7 @@ protected_name_type:en: pdo
 
 < en:Wines from France
 fr: Fleurie
-origins:en: en:france, fr:beaujolais
+origins:en: en:france, en:beaujolais
 protected_name_file_number:en: PDO-FR-A0930
 protected_name_type:en: pdo
 #wikidata:en:
@@ -17232,7 +17237,7 @@ origins:en: en:france
 
 < en:Wines from France
 fr: Juliénas
-origins:en: en:france, fr:beaujolais
+origins:en: en:france, en:beaujolais
 protected_name_file_number:en: PDO-FR-A1025
 protected_name_type:en: pdo
 #wikidata:en:
@@ -18987,7 +18992,7 @@ wikidata:en: Q42862923
 
 < en:Wines from France
 fr: Morgon
-origins:en: en:france, fr:beaujolais
+origins:en: en:france, en:beaujolais
 
 < en:Wines from France
 fr: Moselle
@@ -18998,7 +19003,7 @@ protected_name_type:en: pdo
 
 < en:Wines from France
 fr: Moulin-à-Vent
-origins:en: en:france, fr:beaujolais
+origins:en: en:france, en:beaujolais
 
 < en:Wines from France
 fr: Moulis, Moulis en Médoc, Moulis en Medoc, Moulis-en-Médoc, Moulis-en-Medoc
@@ -20425,7 +20430,7 @@ wikidata:en: Q42862538
 
 < en:Wines from France
 fr: Régnié
-origins:en: en:france, fr:beaujolais
+origins:en: en:france, en:beaujolais
 #wikidata:en:
 
 < en:Wines from France
@@ -20874,7 +20879,7 @@ wikidata:en: Q3460601
 
 < en:Wines from France
 fr: Saint-Amour
-origins:en: en:france, fr:beaujolais
+origins:en: en:france, en:beaujolais
 
 < en:Burgundy wines
 < en:Red wines
@@ -33259,7 +33264,6 @@ ciqual_food_name:en: Potato flakes, dehydrated, with milk or cream
 ciqual_food_name:fr: Pomme de terre, flocons déshydratés, au lait ou à la crème
 
 < en:Mashed potatoes
-< en:Sweet potatoes
 en: Sweet potato puree cooked with cream
 fr: Purée de patates douces cuisinée à la crème, Purée de patate douce cuisinée à la crème
 agribalyse_food_code:en: 4103
@@ -37581,7 +37585,7 @@ wikidata:en: Q960635
 #ciqual_food_name:en:Biscuit (cookie), cat tongue type
 #ciqual_food_name:fr:Biscuit sec type langue de chat ou cigarette russe
 
-< en:Cakes
+< en:Pound cake
 en: Madeleines, Madeleines cakes, Madeleine biscuit
 xx: Madeleines
 ca: Magdalenes
@@ -45274,6 +45278,7 @@ fr: Blocs de feta
 
 < en:Cheeses
 en: Feta-type cheese
+nl: Witte kazen, witte kaas
 pl: Ser typu feta
 agribalyse_proxy_food_code:en: 12063
 agribalyse_proxy_food_name:en: Feta-type cheese from cow's milk, in oil and spices
@@ -49464,7 +49469,7 @@ ciqual_food_name:fr: Fromage frais type petit suisse, nature, 10% MG environ
 # Half milk and half cream (or Half and half) is a common preparation in the USA which is used in coffee or with breakfast cereals
 < en:Dairies
 en: Half milk and half cream, half and half
-incompatible_with:en: categories:en:milks, categories:en:creams
+incompatible_with:en: categories:en:milks, categories:en:creams, categories:en:Half iced tea and half lemonade
 
 #this category is not made for vegan products but for dairy products used in replacement of cream
 < en:Dairies
@@ -49908,9 +49913,8 @@ fr: Substituts des œufs, substituts des oeufs
 hr: Zamjene za jaja
 pl: Zastępniki jaj, Substytuty jaj
 
-< en:Animal fats
-< en:Milkfat
-en: Dairy spread
+< en:Spreads
+en: Dairy spreads, Dairy spread
 bg: Млечни кремове
 de: Milchstreichfett
 es: La pasta de leche
@@ -49923,7 +49927,9 @@ lt: Pieno užtepėlės
 nl: Zuivelsmeersels
 pl: Tłuszcze mleczne do smarowania
 
+< en:Animal fats
 < en:Dairy spread
+< en:Milkfat
 en: Sheep butters
 bg: Овче масло
 fr: Beurres au lait de brebis
@@ -49931,7 +49937,9 @@ hr: Ovčji maslaci
 pl: Masło owcze
 #wikidata:en:
 
+< en:Animal fats
 < en:Dairy spread
+< en:Milkfat
 en: Goat butters
 bg: Козе масло
 fr: Beurres au lait de chèvre
@@ -56562,7 +56570,7 @@ en: Acacia honeys from Jura
 fr: Miels d’acacia du Jura
 hr: Bagremovi medovi od jure
 nl: Acaciahoningen uit de Jura
-# Disabled for safety: origins:en: en:France, fr:Jura français
+# Disabled for safety: origins:en: en:France, en:jura (france)
 
 < en:Honeys from Alsace
 fr: Miels de châtaignier d'Alsace
@@ -56650,7 +56658,7 @@ protected_name_type:en: pdo
 < en:Honeys from France
 fr: Miels des Pays de Loire
 nl: Honingen uit de Loirestreek
-origins:en: en:france, fr:Pays de Loire
+origins:en: en:pays-de-la-loire
 
 < en:Honeys from France
 fr: Miels du Gâtinais, Miel du Gätinais
@@ -56662,7 +56670,7 @@ en: Honeys from Jura
 fr: Miels du Jura
 hr: Medovi od jure
 nl: Honingen uit de Jura
-# Disabled for safety: origins:en: en:France, fr:Jura français
+# Disabled for safety: origins:en: en:France, en:jura-france
 
 < en:Honeys
 en: Honeys from Bulgaria, Bulgarian honeys
@@ -58849,7 +58857,7 @@ en: Olive oils from Nice, Olive oil from Nice
 fr: Huiles d'olive de Nice
 hr: Maslinova ulja iz nice
 nl: Olijfoliën uit Nice, Olijfolies uit Nice
-origins:en: en:france, fr:Nice
+origins:en: en:nice
 protected_name_file_number:en: PDO-FR-0322
 protected_name_type:en: pdo
 
@@ -63382,6 +63390,17 @@ ciqual_food_code:en: 4090
 ciqual_food_name:en: Potato starch
 ciqual_food_name:fr: Fécule de pomme de terre
 
+< en: Starches
+en: Tapioca
+fr: Tapioca, Tapioca cru, Perles du Japon crues, Perles du Japon
+hr: Tapioka
+ja: タピオカ
+pt: Tapioca
+agribalyse_food_code:en: 4000
+ciqual_food_code:en: 4000
+ciqual_food_name:en: Tapioca, raw
+ciqual_food_name:fr: Tapioca ou Perles du Japon, cru
+
 < en:Cereals and their products
 < en:Starches
 en: Cereal starches
@@ -63433,6 +63452,18 @@ fr: Amidon de blé
 hr: Pšenični škrob
 lt: Kviečių krakmolas
 nl: Tarwezetmelen
+
+< en:Starches
+en: Tapioca
+fr: Tapioca, Tapioca cru, Perles du Japon crues, Perles du Japon
+hr: Tapioka
+ja: タピオカ
+pt: Tapioca
+agribalyse_food_code:en: 4000
+ciqual_food_code:en: 4000
+ciqual_food_name:en: Tapioca, raw
+ciqual_food_name:fr: Tapioca ou Perles du Japon, cru
+
 
 < en:Cereals and their products
 en: Groats
@@ -66507,7 +66538,7 @@ wikidata:en: Q1723442
 
 < en:Apples
 fr: Pomme du Limousin
-origins:en: en:france
+origins:en: en:limousin
 protected_name_file_number:en: PDO-FR-0442
 protected_name_type:en: pdo
 #wikidata:en:
@@ -69398,7 +69429,7 @@ ciqual_food_name:fr: Pruneau, sec
 < en:French fruits
 fr: Pruneaux d'Agen
 hr: Agen suhe šljive
-origins:en: en:france, fr:Agen
+origins:en: en:agen
 protected_name_file_number:en: PGI-FR-0149
 protected_name_type:en: pgi
 
@@ -71479,6 +71510,7 @@ hr: Himalajske soli
 it: Sale dell'Himalaya
 ja: ヒマラヤ岩塩
 lt: Himalajų druskos
+nl: Himalaya zouten
 pl: Sól himalajska
 wikidata:en: Q1790817
 # Not applying a proxy due to the distance
@@ -79148,6 +79180,10 @@ fr: Soupes de crevettes
 < en:Soups
 nl: Erwtensoepen
 
+< en:Soups
+en: Sweet potato soups
+nl: Zoete aardappelsoepen
+
 < en:Reheatable soups
 < en:Soups
 fr: Soupes de fruits de mer
@@ -81091,6 +81127,10 @@ ciqual_food_name:fr: Légume cuit (aliment moyen)
 < en:Prepared vegetables
 en: Prepared carrots
 
+< en:Prepared vegetables
+en: Prepared sweet potatoes
+nl: Geprepareerde zoete aardappelen
+
 < en:Carrots
 en: Grated carrots
 de: Geriebene Karotten, geraspelte Karotten
@@ -82035,6 +82075,7 @@ pl: Sałatki z mięsem
 en: Salads with fish
 hr: Salate s ribom
 lt: Salotos su žuvimi
+nl: Vissalades
 pl: Sałatki z rybami
 
 < en:Canned prepared salads
@@ -84871,7 +84912,7 @@ protected_name_type:en: pgi
 
 < en:Pork
 fr: Porc du Limousin
-origins:en: en:france, fr:limousin
+origins:en: en:limousin
 protected_name_file_number:en: PGI-FR-0188
 protected_name_type:en: pgi
 
@@ -85429,7 +85470,7 @@ protected_name_type:en: pgi
 < en:Poultries
 en: Poultries from Janzé
 fr: Volaille de Janzé, Volailles de Janzé
-origins:en: en:france, fr:Janzé
+origins:en: en:janze
 protected_name_file_number:en: PGI-FR-0168
 protected_name_type:en: pgi
 
@@ -85441,7 +85482,7 @@ protected_name_type:en: pgi
 
 < en:Poultries
 fr: Volailles du Berry
-origins:en: en:france, fr:Berry
+origins:en: en:berry
 protected_name_file_number:en: PGI-FR-0171
 protected_name_type:en: pgi
 
@@ -85591,7 +85632,7 @@ protected_name_type:en: pgi
 
 < en:Poultries
 fr: Volailles du Val de Sèvres
-origins:en: en:france, fr:val-de-sevres
+origins:en: en:france, en:val-de-sevres
 protected_name_file_number:en: PGI-FR-0166
 protected_name_type:en: pgi
 
@@ -87761,7 +87802,7 @@ fr: Rillettes de Tours
 agribalyse_food_code:en: 8010
 ciqual_food_code:en: 8010
 ciqual_food_name:en: Rillettes from Tours
-origins:en: en:france, fr:Tours
+origins:en: en:tours
 protected_name_file_number:en: PGI-FR-0845
 protected_name_type:en: pgi
 wikidata:en: Q16672807
@@ -88406,7 +88447,7 @@ nl: Worst uit Montbéliard
 agribalyse_food_code:en: 30105
 ciqual_food_code:en: 30105
 ciqual_food_name:en: Montbeliard sausage
-origins:en: en:france, fr:Montbéliard
+origins:en: en:montbeliard
 protected_name_file_number:en: PGI-FR-0869
 protected_name_type:en: pgi
 wikidata:en: Q3474158
@@ -93389,14 +93430,15 @@ nl: Tortellinis
 pl: Uszka, Tortellini
 wikidata:en: Q20057
 
-< en:Tortellini
-en: Tortellini ricotta & spinach
-fr: Tortellini ricotta & épinards
-hr: Tortellini ricotta & špinat
-it: Tortellini ricotta e spinaci
-agribalyse_proxy_food_code:en: 25219
-agribalyse_proxy_food_name:en: Lasagna or cannelloni with vegetables and goat cheese, cooked
-agribalyse_proxy_food_name:fr: Lasagnes ou canelloni aux légumes et au fromage de chèvre, cuits
+#< en:Tortellini
+#en: Tortellini ricotta & spinach
+#fr: Tortellini ricotta & épinards
+#hr: Tortellini ricotta & špinat
+#it: Tortellini ricotta e spinaci
+#agribalyse_proxy_food_code:en: 25219
+#agribalyse_proxy_food_name:en: Lasagna or cannelloni with vegetables and goat cheese, cooked
+#agribalyse_proxy_food_name:fr: Lasagnes ou canelloni aux légumes et au fromage de chèvre, cuits
+# no products 8 sep 2024
 
 < en:Pasta stuffed with cheese
 < en:Tortellini
@@ -96741,7 +96783,7 @@ protected_name_type:en: pgi
 < en:British sea products
 < en:Smoked haddock
 en: Arbroath Smokies
-origins:en: en:united-kingdom, en:scotland, en:Arbroath
+origins:en: en:arbroath
 protected_name_file_number:en: PGI-GB-0227
 protected_name_type:en: pgi
 wikidata:en: Q4784939
@@ -96789,7 +96831,7 @@ ciqual_food_name:fr: Langouste, bouillie/cuite à l'eau
 < en:Chinese sea products
 < en:Lobsters
 zh: 盐城龙虾, Yancheng Long Xia
-origins:en: en:china, en:Yancheng
+origins:en: en:yancheng
 protected_name_file_number:en: PGI-CN-0625
 protected_name_type:en: pgi
 
@@ -97137,7 +97179,7 @@ de: Nordseegarnele, Sandgarnele
 fr: Crevettes grises, Crangon crangon, Boucaut, Sauterelle, Garnote, Garnela nakrapiana
 hr: Smeđi škampi
 ja: ヨーロッパエビジャコ
-nl: Noorzeegarnalen, grijze garnalen, Gewone garnaal, Grijze garnaal, Noordzeegarnaal
+nl: Noordzeegarnalen, grijze garnalen, Gewone garnaal, Grijze garnaal, Noordzeegarnaal
 sq: Karkalec deti i kafenjtë
 sv: Hästräka
 
@@ -101147,6 +101189,11 @@ ciqual_food_name:fr: Confiture de cerise (extra ou classique)
 wikidata:en: Q47472139
 
 < en:Jams
+en: Rhubarb-strawberry jams
+fr: Confitures de fraise et de rhubarbe
+nl: Rabarber-aardbeien jams
+
+< en:Jams
 en: Figs jams
 bg: Конфитюр от смокини
 de: Feigenkonfitüren
@@ -102243,59 +102290,6 @@ hr: Vegetarijanske paštete od tofua
 nl: Plantaardige pastas op basis van tofu
 pl: Pasztety roślinne z tofu
 
-< en:Plant-based foods
-en: Pumpkin and Squash plant products, Pumpkin plant products, Squash plant products
-de: Kürbisprodukte, Produkte aus Kürbisgewächsen
-es: Productos de la planta de la calabaza
-fi: kurpitsatuotteet
-fr: Produits de la plante de courge
-hr: Biljni proizvodi od bundeve i tikve
-it: Prodotti di zucca
-la: Cucurbita
-nl: Pompoenproducten
-wikidata:en: Q5339301
-
-< en:Pumpkin and Squash plant products
-en: Pumpkin pulp
-fr: Pulpe de citrouille
-agribalyse_food_code:en: 20166
-ciqual_food_code:en: 20166
-ciqual_food_name:en: Pumpkin, pulp, raw
-ciqual_food_name:fr: Citrouille, pulpe, crue
-
-< en:Pumpkin and Squash plant products
-en: Squash pulp, Cucurbita moschata pulp
-fr: Courge musquée, Pulpe de courge musquée
-agribalyse_food_code:en: 20128
-ciqual_food_code:en: 20128
-ciqual_food_name:en: Pumpkin (cucurbita moschata), pulp, raw
-ciqual_food_name:fr: Courge musquée, pulpe, crue
-
-< en:Pumpkin and Squash plant products
-en: Red kuri squash
-es: Cucurbita maxima
-fr: Potimarron
-agribalyse_proxy_food_code:en: 20132
-ciqual_proxy_food_code:en: 20132
-ciqual_proxy_food_name:en: Red kuri squash, pulp, raw
-ciqual_proxy_food_name:fr: Potimarron, pulpe, cru
-
-< en:Red kuri squash
-en: Red kuri pulp
-fr: Pulpe de potimarron
-agribalyse_food_code:en: 20132
-ciqual_food_code:en: 20132
-ciqual_food_name:en: Red kuri squash, pulp, raw
-ciqual_food_name:fr: Potimarron, pulpe, cru
-
-< en:Pumpkin and Squash plant products
-en: Sweet green hokkaido squash, Sweet green hokkaido pulp
-fr: Pulpe de courge hokkaïdo
-agribalyse_food_code:en: 20134
-ciqual_food_code:en: 20134
-ciqual_food_name:en: Sweet green hokkaido squash, pulp, raw
-ciqual_food_name:fr: Courge hokkaïdo, pulpe, crue
-
 < en:Pumpkin and Squash plant products
 en: Pumpkin seeds and their products, Squash seeds and their products
 bg: Тиквени семки и продукти от тях
@@ -102308,35 +102302,17 @@ it: Semi di zucca e derivati
 nl: Pompoenzaden en afgeleiden
 pl: Pestki dyni i ich produkty
 
-< en:Pumpkin and Squash plant products
-en: Squash
-fr: Courge
-hr: Skvoš
-ja: スクワッシュ
-agribalyse_food_code:en: 20139
-ciqual_food_code:en: 20139
-ciqual_food_name:en: Squash, all types, raw
-ciqual_food_name:fr: Courge, crue
-
-< en:Squash
-en: Fresh squash
-fr: Courges fraîches, Courge fraîche
-
-< en:Pumpkin and Squash plant products
-en: Cooked spaghetti squash pulp
-fr: Pulpe de courge spaghetti cuite
-agribalyse_food_code:en: 20143
-ciqual_food_code:en: 20143
-ciqual_food_name:en: Squash, spaghetti, pulp, cooked
-ciqual_food_name:fr: Courge spaghetti, pulpe, cuite
-
-< en:Pumpkin and Squash plant products
-en: Spaghetti squash pulp
-fr: Pulpe de courge spaghetti
-agribalyse_food_code:en: 20145
-ciqual_food_code:en: 20145
-ciqual_food_name:en: Squash, spaghetti, pulp, raw
-ciqual_food_name:fr: Courge spaghetti, pulpe, crue
+< en:Plant-based foods
+en: Pumpkin and Squash plant products, Pumpkin plant products, Squash plant products
+de: Kürbisprodukte, Produkte aus Kürbisgewächsen
+es: Productos de la planta de la calabaza
+fi: kurpitsatuotteet
+fr: Produits de la plante de courge
+hr: Biljni proizvodi od bundeve i tikve
+it: Prodotti di zucca
+la: Cucurbita
+nl: Pompoenproducten
+wikidata:en: Q5339301
 
 < en:Cucurbitacea seeds
 < en:Pumpkin seeds and their products
@@ -103441,6 +103417,14 @@ pnns_group_2:en: Vegetables
 wikidata:en: Q11004
 
 < en:Vegetables based foods
+en: Leeks fondue, Slow-simmered leeks
+fr: Fondue de poireau
+agribalyse_food_code:en: 20135
+ciqual_food_code:en: 20135
+ciqual_food_name:en: Leeks fondue or slow-simmered leeks
+ciqual_food_name:fr: Fondue de poireau
+
+< en:Vegetables based foods
 en: Vegetables
 de: Gemüse
 es: Hortalizas, Vegetales, Verduras
@@ -103461,7 +103445,7 @@ wikidata:en: Q20136
 
 < en:Vegetables
 en: Vegetables from Germany, German vegetables
-fr: Fruits allemands
+fr: Légumes allemands
 hr: Povrće iz Njemačke
 lt: Vokiškos daržovės
 
@@ -103577,7 +103561,7 @@ hr: Francusko povrće
 < en:French vegetables
 < en:Onions
 fr: Oignon de Roscoff
-origins:en: en:france, fr:Roscoff
+origins:en: en:roscoff
 protected_name_file_number:en: PDO-FR-0812
 protected_name_type:en: pdo
 wikidata:en: Q3349932
@@ -103818,21 +103802,6 @@ ciqual_food_code:en: 20081
 ciqual_food_name:en: Salsify, canned, drained
 ciqual_food_name:fr: Salsifis, appertisé, égoutté
 
-< en:Canned vegetables
-< en:Spinachs
-en: Canned spinachs
-bg: Консервиран спанак
-de: Spinat in Dosen, Dosenspinat
-es: Espinacas en conserva
-fi: purkitetut pinaatit
-fr: Épinards en conserve, Épinards appertisés
-hr: Špinat iz konzerve
-it: Spinaci in scatola
-nl: Spinazie in blik/pot
-agribalyse_food_code:en: 20060
-ciqual_food_code:en: 20060
-ciqual_food_name:en: Spinach, canned, drained
-ciqual_food_name:fr: Épinard, appertisé, égoutté
 
 < en:Canned vegetables
 < en:Tomatoes
@@ -105731,6 +105700,7 @@ pl: Czosnek
 agribalyse_proxy_food_code:en: 11000
 agribalyse_proxy_food_name:en: Garlic, fresh
 agribalyse_proxy_food_name:fr: Ail, cru
+expected_ingredients:en: en:garlic
 gpc_category_code:en: 10006003
 gpc_category_description:en: Definition: Includes any product that can be described/observed as a fresh commercial variety of Garlic of varieties (cultivars) grown from Allium sativum L. to be supplied fresh to the consumer. Definition Excludes: Specifically excludes: Prepared/Processed or Unprepared/Unprocessed and Shelf Stable or Frozen Garlic.
 gpc_category_name:en: Garlic
@@ -105738,6 +105708,7 @@ wikidata:en: Q23400
 
 < en:Garlic
 it: Aglio di Voghiera
+xx: Aglio di Voghiera
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-0638
 protected_name_type:en: pdo
@@ -105745,12 +105716,13 @@ protected_name_type:en: pdo
 
 < en:Garlic
 it: Aglio Bianco Polesano
+xx: Aglio Bianco Polesano
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-0566
 protected_name_type:en: pdo
 #wikidata:en:
 
-< en:Garlic
+< en: Garlic and their products
 fr: Ail doux au piment
 
 < en:Fresh vegetables
@@ -105760,6 +105732,7 @@ bg: Пресен чесън
 de: Frischer Knoblauch
 fr: Ail frais, Ail cru
 hr: Svježi češnjak
+nl: Verse knoflook
 agribalyse_food_code:en: 11000
 ciqual_food_code:en: 11000
 ciqual_food_name:en: Garlic, fresh
@@ -105770,7 +105743,8 @@ season_in_country_fr:en: 7,8,9,10,11,12
 en: Allium neapolitanum
 de: Neapolitanischer Lauch
 fr: Ail Blanc
-hr: Napolitanski luk (alium neapolitanum).
+hr: Napolitanski luk
+nl: Witte knoflook
 wikidata:en: Q1817792
 
 < en:Garlic
@@ -105778,37 +105752,43 @@ en: Purple garlic
 ca: All morat
 es: Ajo morado
 hr: Ljubičasti češnjak
+nl: Paarse knoflook
 
 < en:Allium neapolitanum
 fr: Ail blanc de Lomagne
-origins:en: en:france, fr:Lomagne
+xx: Ail blanc de Lomagne
+origins:en: en:lomagne
 protected_name_file_number:en: PGI-FR-0470
 protected_name_type:en: pgi
 
 < en:French vegetables
 < en:Garlic
 fr: Ail rose de Lautrec
-origins:en: en:france, fr:Lautrec
+xx: Ail rose de Lautrec
+origins:en: en:lautrec
 protected_name_file_number:en: PGI-FR-0193
 protected_name_type:en: pgi
 
 < en:French vegetables
 < en:Garlic
 fr: Ail de la Drôme
-origins:en: en:france, en:drome
+xx: Ail de la Drôme
+origins:en: en:drome
 protected_name_file_number:en: PGI-FR-0537
 protected_name_type:en: pgi
 
 < en:French vegetables
 < en:Garlic
 fr: Ail fumé d'Arleux
-origins:en: en:france, fr:Arleux
+xx: Ail fumé d'Arleux
+origins:en: en:arleux
 protected_name_file_number:en: PGI-FR-0820
 protected_name_type:en: pgi
 
 < en:French vegetables
 < en:Garlic
 fr: Ail violet de Cadours
+xx: Ail violet de Cadours
 origins:en: en:france
 protected_name_file_number:en: PDO-FR-02103-AM01, PDO-FR-02103
 protected_name_type:en: pdo
@@ -105820,7 +105800,7 @@ es: Ajos tiernos, Brotes de ajo
 fr: Aillets
 hr: Zeleni češnjak
 hu: Zöld foghagyma
-
+nl: Groene knoflook
 
 < en:Vegetable rods
 # <en:ingredient:en:vegetable
@@ -105902,6 +105882,7 @@ ciqual_food_code:en: 20039
 ciqual_food_name:en: Leek, raw
 ciqual_food_name:fr: Poireau, cru
 description:en: The leek is a vegetable, a cultivar of Allium ampeloprasum, the broadleaf wild leek. Leeks have a mild, onion-like taste. In its raw state, the vegetable is crunchy and firm. The edible portions of the leek are the white base of the leaves (above the roots and stem base), the light green parts, and to a lesser extent the dark green parts of the leaves. Leeks are typically chopped into slices 5–10 mm thick. The slices have a tendency to fall apart, due to the layered structure of the leek. The different ways of preparing the vegetable are: boiling, frying or raw.
+expected_ingredients:en: en:leek
 intake24_category_code:en: LEEK
 # aeb-arab:كرّاث
 # frr:Gäärslook
@@ -105934,6 +105915,7 @@ en: Fresh leeks
 es: Puerro fresco
 fr: Poireaux frais
 hr: Svježi poriluk
+nl: Verse prei
 season_in_country_fr:en: 1,2,3,4,9,10,11,12
 
 < en:Leeks
@@ -105942,14 +105924,6 @@ origins:en: en:france
 protected_name_file_number:en: PGI-FR-0198
 protected_name_type:en: pgi
 #wikidata:en:
-
-< en:Leeks
-en: Leeks fondue, Slow-simmered leeks
-fr: Fondue de poireau
-agribalyse_food_code:en: 20135
-ciqual_food_code:en: 20135
-ciqual_food_name:en: Leeks fondue or slow-simmered leeks
-ciqual_food_name:fr: Fondue de poireau
 
 < en:Leaf vegetables
 en: Lettuces, lettuce
@@ -106165,6 +106139,7 @@ ciqual_food_code:en: 20034
 ciqual_food_name:en: Onion, raw
 ciqual_food_name:fr: Oignon, cru
 description:en: The onion (Allium cepa L.), also known as the bulb onion or common onion, is a vegetable that is the most widely cultivated species of the genus Allium. They are usually served cooked, as a vegetable or part of a prepared savoury dish, but can also be eaten raw or used to make pickles or chutneys.
+expected_ingredients:en: en:onion
 intake24_category_code:en: ONIO
 # aeb-arab:راس بصل
 # ckb:پیاز
@@ -106203,8 +106178,14 @@ fi: Keltasipulit, keltasipuli, keltainen sipuli
 fr: Oignons jaunes, oignon jaune
 hr: Žuti luk
 nl: Gele uien
+expected_ingredients:en: en:yellow onion
 wikidata:en: Q8051898
 wikipedia:en: https://en.wikipedia.org/wiki/Yellow_onion
+
+< en: Yellow onions
+en: Fresh yellow onions
+nl: Verse gele uien
+expected_ingredients:en: en:yellow onion
 
 < en:Onions
 en: White onions, white onion
@@ -106213,6 +106194,7 @@ de: Weiße Zwiebeln
 fr: Oignons blancs, oignon blanc
 hr: Bijeli luk
 nl: Witte uien
+expected_ingredients:en: en:white onion
 wikidata:en: Q7995660
 wikipedia:en: https://en.wikipedia.org/wiki/White_onion
 
@@ -106222,6 +106204,7 @@ en: Fresh white onions
 fr: Oignons blancs frais
 hr: Svježi bijeli luk
 nl: Verse witte uien
+expected_ingredients:en: en:white onion
 
 < en:Onions
 en: Red onions, red onion, purple onions, Bombay onions
@@ -106232,6 +106215,7 @@ fr: Oignons rouges, oignon rouge
 hr: Crveni luk
 ja: 赤たまねぎ, 紫たまねぎ
 nl: Rode uien
+expected_ingredients:en: en:red onion
 wikidata:en: Q622350
 wikipedia:en: https://en.wikipedia.org/wiki/Red_onion
 
@@ -106241,6 +106225,7 @@ en: Fresh red onions
 fr: Oignons rouges frais
 hr: Svježi crveni luk
 nl: Verse rode uien
+expected_ingredients:en: en:red onion
 
 < en:Cooked vegetables
 < en:Onions
@@ -106267,6 +106252,7 @@ agribalyse_food_code:en: 20097
 ciqual_food_code:en: 20097
 ciqual_food_name:en: Shallot, raw
 ciqual_food_name:fr: Échalote, crue
+expected_ingredients:en: en:shallots
 wikidata:en: Q193498
 
 < en:Fresh vegetables
@@ -106275,6 +106261,7 @@ en: Fresh shallots
 fr: Échalotes fraîches
 hr: Svježa ljutika
 nl: Verse sjalotjes
+expected_ingredients:en: en:shallots
 season_in_country_fr:en: 10,11,12
 
 < en:Cooked vegetables
@@ -106292,6 +106279,7 @@ ciqual_food_name:fr: Échalote, cuite
 < en:Shallots
 fr: Echalote d'Anjou
 nl: Sjalotten uit Anjou
+expected_ingredients:en: en:shallots
 origins:en: en:france
 protected_name_file_number:en: PGI-FR-01253
 protected_name_type:en: pgi
@@ -106312,6 +106300,7 @@ agribalyse_food_code:en: 20041
 ciqual_food_code:en: 20041
 ciqual_food_name:en: Sweet pepper, green, yellow or red, raw
 ciqual_food_name:fr: Poivron, vert, jaune ou rouge, cru
+expected_ingredients:en: en:sweet pepper
 intake24_category_code:en: PPRS
 intake24_category_code:fr: PPRS
 
@@ -106322,6 +106311,7 @@ bg: Пресни чушки
 fr: Poivrons frais
 hr: Svježe slatke paprike
 nl: Verse paprikas
+expected_ingredients:en: en:sweet pepper
 season_in_country_fr:en: 6,7,8,9
 
 < en:Cooked vegetables
@@ -106371,6 +106361,9 @@ ciqual_food_code:en: 20168
 ciqual_food_name:en: Sweet pepper, yellow, raw
 ciqual_food_name:fr: Poivron jaune, cru
 
+< en: Yellow sweet peppers
+en: Fresh yellow sweet peppers
+nl: Verse gele paprikas
 
 < en:Cooked peppers
 < en:Red sweet peppers
@@ -106764,7 +106757,7 @@ wikidata:en: Q3395977
 < en:Potatoes from France
 en: Potatoes from Noirmoutier
 fr: Pomme de terre de Noirmoutier
-origins:en: en:france, fr:Noirmoutier
+origins:en: en:noirmoutier
 protected_name_file_number:en: PGI-FR-02434
 protected_name_type:en: pgi
 
@@ -106789,11 +106782,82 @@ wikidata:en: Q2929377
 fr: Pommes de terre catégorie 1, Pommes de terre Cat. 1
 
 
+< en:Pumpkin and Squash plant products
+en: Squash
+fr: Courge
+hr: Skvoš
+ja: スクワッシュ
+agribalyse_food_code:en: 20139
+ciqual_food_code:en: 20139
+ciqual_food_name:en: Squash, all types, raw
+ciqual_food_name:fr: Courge, crue
+expected_ingredients:en: en:squash
 
+< en:Pumpkin and Squash plant products
+en: Squash pulp, Cucurbita moschata pulp
+fr: Pulpe de courge musquée, Courge musquée
+agribalyse_food_code:en: 20128
+ciqual_food_code:en: 20128
+ciqual_food_name:en: Pumpkin (cucurbita moschata), pulp, raw
+ciqual_food_name:fr: Courge musquée, pulpe, crue
 
+< en:Pumpkin and Squash plant products
+en: Pumpkin pulp
+fr: Pulpe de citrouille
+agribalyse_food_code:en: 20166
+ciqual_food_code:en: 20166
+ciqual_food_name:en: Pumpkin, pulp, raw
+ciqual_food_name:fr: Citrouille, pulpe, crue
 
-< en:Pumpkins and their products
-en: Pumpkins, Squashes
+< en:Squash pulp
+en: Red kuri squash
+es: Cucurbita maxima
+fr: Potimarron
+agribalyse_proxy_food_code:en: 20132
+ciqual_proxy_food_code:en: 20132
+ciqual_proxy_food_name:en: Red kuri squash, pulp, raw
+ciqual_proxy_food_name:fr: Potimarron, pulpe, cru
+
+< en:Red kuri squash
+en: Red kuri pulp, Red kuri squash pulp
+fr: Pulpe de potimarron
+agribalyse_food_code:en: 20132
+ciqual_food_code:en: 20132
+ciqual_food_name:en: Red kuri squash, pulp, raw
+ciqual_food_name:fr: Potimarron, pulpe, cru
+
+< en:Squash pulp
+en: Sweet green hokkaido pulp, Sweet green hokkaido squash
+fr: Pulpe de courge hokkaïdo
+agribalyse_food_code:en: 20134
+ciqual_food_code:en: 20134
+ciqual_food_name:en: Sweet green hokkaido squash, pulp, raw
+ciqual_food_name:fr: Courge hokkaïdo, pulpe, crue
+
+< en:Squash pulp
+en: Cooked spaghetti squash pulp
+fr: Pulpe de courge spaghetti cuite
+agribalyse_food_code:en: 20143
+ciqual_food_code:en: 20143
+ciqual_food_name:en: Squash, spaghetti, pulp, cooked
+ciqual_food_name:fr: Courge spaghetti, pulpe, cuite
+
+< en:Squash pulp
+en: Spaghetti squash pulp
+fr: Pulpe de courge spaghetti
+agribalyse_food_code:en: 20145
+ciqual_food_code:en: 20145
+ciqual_food_name:en: Squash, spaghetti, pulp, raw
+ciqual_food_name:fr: Courge spaghetti, pulpe, crue
+
+< en:Squash
+en: Fresh squash
+fr: Courges fraîches, Courge fraîche
+nl: Verse pompenen
+expected_ingredients:en: en:squash
+
+< en:Squash
+en: Pumpkins, Winter squashs
 bg: Тиква
 de: Kürbisse
 es: Calabazas
@@ -106807,10 +106871,8 @@ agribalyse_food_code:en: 20044
 ciqual_food_code:en: 20044
 ciqual_food_name:en: Pumpkin, raw
 ciqual_food_name:fr: Potiron, cru
-
-< en:Pumpkins
-fr: Potiron frais
-season_in_country_fr:en: 1,9,10,11,12
+comment:en: A pumpkin is a cultivated winter squash in the genus Cucurbita.
+expected_ingredients:en: en:pumpkin
 
 < en:Pumpkins
 en: Pulp of melonnette jaspée from Vendée, Squash of melonnette jaspée from Vendée
@@ -106822,7 +106884,7 @@ ciqual_food_name:fr: Courge melonnette, pulpe, crue
 
 < en:Pumpkins
 en: Pattypan squash
-de: Patissons
+xx: Patissons
 fr: Pâtissons, Patissons
 hr: Pattypan squash
 agribalyse_proxy_food_code:en: 20136
@@ -106849,7 +106911,11 @@ ciqual_food_name:fr: Potiron, appertisé, égoutté
 < en:Fresh vegetables
 < en:Pumpkins
 en: Fresh pumpkins
-fr: Citrouilles fraîches, citrouille fraîche
+fr: Courges fraîches Citrouilles fraîches, citrouille fraîche
+season_in_country_fr:en: 1,9,10,11,12
+
+< en:Fresh pumpkins
+fr: Potiron frais
 season_in_country_fr:en: 1,9,10,11,12
 
 < en:Pumpkins
@@ -106871,9 +106937,17 @@ es: Calabazas espagueti, Calabazas spaghetti
 fr: Courges spaghetti, courge spaghetti
 hr: Špageti tikve
 nl: Spaghettipompoenen
+expected_ingredients:en: en:spaghetti squash
 wikidata:en: Q2142043
 
-# <en:vegetable
+< en: Spaghetti squashes
+en: Fresh spaghetti squashes
+fr: Courges spaghetti fraîches
+comment:en: Usually these are sold as units, sometimes one can buy parts (by weight).
+expected_ingredients:en: en:spaghetti squash
+
+##############################
+
 < en:Vegetables
 en: Radishes, radish
 am: ፍጁል
@@ -107003,6 +107077,8 @@ wikipedia:en: https://en.wikipedia.org/wiki/Radish
 < en:Radishes
 en: Fresh radishes
 fr: Radis frais
+nl: Verse radijs
+expected_ingredients:en: en:radish
 season_in_country_fr:en: 3,4,5,6
 
 
@@ -107019,11 +107095,14 @@ agribalyse_food_code:en: 20045
 ciqual_food_code:en: 20045
 ciqual_food_name:en: Radish, raw
 ciqual_food_name:fr: Radis rouge, cru
+expected_ingredients:en: en:res radish
 wikidata:en: Q1057750
 
 < en:Red radishes
 en: Fresh red radishes
 fr: Radis roses frais, Radis rose frais
+nl: Verse rode radijs
+expected_ingredients:en: en:red radish
 
 < en:Radishes
 en: Black radishes, Black radish
@@ -107035,11 +107114,14 @@ agribalyse_food_code:en: 20089
 ciqual_food_code:en: 20089
 ciqual_food_name:en: Radish, black, raw
 ciqual_food_name:fr: Radis noir, cru
+expected_ingredients:en: en:black radish
 wikidata:en: Q159587
 
 < en:Black radishes
 en: Fresh black radishes, Fresh black radish
 fr: Radis noirs frais, Radis noir frais
+nl: Verse zwarte radijs
+expected_ingredients:en: en:black radish
 
 < en:Radishes
 en: Daikon radishes, Daikon, White radishes
@@ -107048,6 +107130,8 @@ fr: Radis blancs, radis blanc
 hr: Daikon rotkvice
 ja: ダイコン, 大根, だいこん
 la: Raphanus sativus var. longipinnatus
+nl: Daikon radijs
+expected_ingredients:en: en:daikon radish
 wikidata:en: Q7224757
 # Not sure what to do with ja: translation, 「ダイコン」 seems to have a complex relationship with "radish".
 
@@ -107057,16 +107141,24 @@ en: Fresh red cabbage
 es: Lombarda fresca
 fr: Choux rouges frais
 hr: Svježi crveni kupus
+expected_ingredients:en: en:taro
 
 < en:Vegetables
 en: Taro tubers
 fr: Tubercules de taro
+nl: Taro
+
+< en:Fresh vegetables
+< en:Taro tubers
+en: Fresh taro tubers
+fr: Tubercules de taro fraiches
 hr: Taro gomolji
 ja: タロイモ
 agribalyse_food_code:en: 53200
 ciqual_food_code:en: 53200
 ciqual_food_name:en: Taro, tuber, raw
 ciqual_food_name:fr: Taro, tubercule, cru
+expected_ingredients:en: en:taro
 
 < en:Cooked vegetables
 < en:Taro tubers
@@ -107096,21 +107188,8 @@ ciqual_food_code:en: 54034
 ciqual_food_name:en: Cassava or manioc, roots, cooked
 ciqual_food_name:fr: Manioc, racine cuite
 
-< en:Vegetables
-en: Tapioca
-fr: Tapioca, Tapioca cru, Perles du Japon crues, Perles du Japon
-hr: Tapioka
-ja: タピオカ
-pt: Tapioca
-agribalyse_food_code:en: 4000
-ciqual_food_code:en: 4000
-ciqual_food_name:en: Tapioca, raw
-ciqual_food_name:fr: Tapioca ou Perles du Japon, cru
-
-
-# <en:vegetable
 < en:Vegetable rods
-en: Rhubarbs, Rhubarb
+en: Rhubarb, Rhubarbs, Rhubarb stalk
 bg: Ревен
 cs: rebarbora
 da: Rabarber
@@ -107118,11 +107197,11 @@ de: Rhabarber
 es: Ruibarbos, Ruibarbo
 et: rabarber
 fi: raparperi
-fr: Rhubarbes, Rhubarbe
+fr: Rhubarbes, Rhubarbe, Tiges de rhubarbe
 ga: Biabhóg
-hr: Rabarbare, Rabarbara
+hr: Rabarbare, Rabarbara, Stabljika rabarbare
 it: rabarbaro
-ja: ルバーブ, ショクヨウダイオウ, 食用大黄
+ja: ルバーブ, ショクヨウダイオウ, 食用大黄, ルバーブの葉柄
 la: Rheum
 lt: Rabarbaras, Rabarbarai
 lv: rabarber
@@ -107139,39 +107218,40 @@ agribalyse_proxy_food_name:fr: Rhubarbe, tige, crue
 description:en: Rhubarb is a cultivated plant in the genus Rheum in the family Polygonaceae. Rhubarb is stewed with sugar or used in pies and desserts, but it can also be put into savoury dishes or pickled. Rhubarb can be dehydrated and infused with fruit juice.
 # ingredient/fr:rhubarbe has 191 products in 4 languages @2019-05-08
 # category/rhubarbs has 4 products 22019-05-22
+expected_ingredients:en: en:rhubarb
+sales_format:en: package, weight
 season_in_country_fr:en: 4,5,6
 wikidata:en: Q20767168
 # plant:wikidata:en:Q7535
 wikipedia:en: https://en.wikipedia.org/wiki/Rhubarb
 
-< en:Fresh fruits
-< en:Rhubarbs
-en: Fresh rhubarbs
+< en:Rhubarb
+en: Fresh rhubarb, fresh rhubarbs
 fr: Rhubarbes fraîches
 hr: Svježe rabarbare
 nl: Verse rabarber
-
-< en:Vegetable rods
-en: Rhubarb stalk
-fr: Tiges de rhubarbe
-hr: Stabljika rabarbare
-ja: ルバーブの葉柄
 agribalyse_food_code:en: 13047
 ciqual_food_code:en: 13047
 ciqual_food_name:en: Rhubarb, stalk, raw
 ciqual_food_name:fr: Rhubarbe, tige, crue
+expected_ingredients:en: en:rhubarb
 
-< en:Rhubarb stalk
-en: Rhubarb stalk cooked with sugar
-fr: Tiges de rhubarbe cuites sucrées
-agribalyse_food_code:en: 13048
-ciqual_food_code:en: 13048
-ciqual_food_name:en: Rhubarb, stalk, cooked, with sugar
-ciqual_food_name:fr: Rhubarbe, tige, cuite, sucrée
+#< en:Rhubarb
+#en: Rhubarb stalk cooked with sugar
+#fr: Tiges de rhubarbe cuites sucrées
+#agribalyse_food_code:en: 13048
+#ciqual_food_code:en: 13048
+#ciqual_food_name:en: Rhubarb, stalk, cooked, with sugar
+#ciqual_food_name:fr: Rhubarbe, tige, cuite, sucrée
+# expected_ingredients:en: en:rhubarb, en:sugar
+# no products at 5 sep 2024
 
-< en:Rhubarb stalk
+< en:Frozen vegetables
+< en:Rhubarb
 en: Frozen rhubarb stalk
 fr: Tiges de rhubarbe surgelées
+nl: Diepvriesrabarber
+expected_ingredients:en: en:rhubarb
 
 < en:Leaf vegetables
 en: Romanesco, Romanesco broccoli, Romanesque cauliflower, romanesco cauliflower
@@ -107280,34 +107360,25 @@ nl: Spinazie
 pl: Szpinak
 ru: Шпинат
 tr: Ispanak
-agribalyse_food_code:en: 20059
-ciqual_food_code:en: 20059
-ciqual_food_name:en: Spinach, raw
-ciqual_food_name:fr: Épinard, cru
+agribalyse_proxy_food_code:en: 20059
+ciqual_proxy_food_code:en: 20059
+ciqual_proxy_food_name:en: Spinach, raw
+ciqual_proxy_food_name:fr: Épinard, cru
 intake24_category_code:en: SPNC
 intake24_category_code:fr: SPNC
 wikidata:en: Q81464
 
-< en:Prepared vegetables
-en: Spinach with cream sauce
-fr: Épinards à la crème
-hr: Špinat s umakom od vrhnja
-nl: Spinazies met room
-agribalyse_food_code:en: 25026
-ciqual_food_code:en: 25026
-ciqual_food_name:en: Spinach w cream sauce
-ciqual_food_name:fr: Épinards à la crème
-
-< en:Cooked vegetables
-< en:Spinachs
-en: Cooked spinach
-fr: Épinards cuits
-hr: Kuhani špinat
-pl: Szpinak gotowany
-agribalyse_food_code:en: 20027
-ciqual_food_code:en: 20027
-ciqual_food_name:en: Spinach, cooked
-ciqual_food_name:fr: Épinard, cuit
+#< en:Cooked vegetables
+#< en:Spinachs
+#en: Cooked spinach
+#fr: Épinards cuits
+#hr: Kuhani špinat
+#pl: Szpinak gotowany
+#agribalyse_food_code:en: 20027
+#ciqual_food_code:en: 20027
+#ciqual_food_name:en: Spinach, cooked
+#ciqual_food_name:fr: Épinard, cuit
+# no products on 7 sep 2024
 
 < en:Fresh vegetables
 < en:Spinachs
@@ -107320,19 +107391,102 @@ fr: Épinards frais
 hr: Svježi špinat
 nl: Verse spinazies
 pl: Szpinak świeży
+agribalyse_food_code:en: 20059
+ciqual_food_code:en: 20059
+ciqual_food_name:en: Spinach, raw
+ciqual_food_name:fr: Épinard, cru
+expected_ingredients:en: en:spinach
+opposite:en: en:frozen-spinachs
+sales_format:en: package, weight
 season_in_country_fr:en: 1,2,3,4,5,9,10,11,12
 
 < en:Spinachs
-en: Spinach young leaves
+en: Young spinach leaves, Spinach young leaves
 fr: Jeunes pousses d'épinards pour salades
 agribalyse_food_code:en: 20270
 ciqual_food_code:en: 20270
 ciqual_food_name:en: Spinach, young leaves, raw
 ciqual_food_name:fr: Épinard, jeunes pousses pour salades, cru
+expected_ingredients:en: en:spinach
+
+< en:Canned vegetables
+< en:Spinachs
+en: Canned spinachs
+bg: Консервиран спанак
+de: Spinat in Dosen, Dosenspinat
+es: Espinacas en conserva
+fi: purkitetut pinaatit
+fr: Épinards en conserve, Épinards appertisés
+hr: Špinat iz konzerve
+it: Spinaci in scatola
+nl: Spinazie in blik/pot
+agribalyse_food_code:en: 20060
+ciqual_food_code:en: 20060
+ciqual_food_name:en: Spinach, canned, drained
+ciqual_food_name:fr: Épinard, appertisé, égoutté
+
+< en:Frozen vegetables
+< en:Spinachs
+en: Frozen spinachs, Frozen spinach
+bg: Замразен спанак
+de: Gefrorene Spinate
+es: Espinacas congeladas
+fi: pakastetut pinaatit
+fr: Épinards surgelés
+hr: Smrznuti špinat
+it: Spinaci surgelati
+nl: Diepvriesspinazies
+pl: Szpinak mrożony
+agribalyse_food_code:en: 20083
+ciqual_food_code:en: 20083
+ciqual_food_name:en: Spinach, frozen, raw
+ciqual_food_name:fr: Épinard, surgelé, cru
+opposite:en: en:fresh-spinachs
+
+< en:Frozen spinachs
+en: Frozen chopped spinachs
+de: Gefrorene gehackte Spinate
+es: Espinacas troceadas congeladas, Espinacas congeladas troceadas
+fr: Épinards hachés surgelés
+hr: Smrznuti nasjeckani špinat
+nl: Diepvries gehakte spinazies
+opposite:en: en:frozen-spinach-leaves
+
+< en:Frozen spinachs
+en: Frozen spinach leaves
+bg: Замразен спанак на листа
+de: Gefrorene Spinatblätter
+es: Espinacas en hojas congeladas, Espinacas congeladas en hojas
+fr: Feuilles d'épinard congelées
+hr: Smrznuto lišće špinata
+nl: Diepvries bladspinazies
+opposite:en: en:frozen-chopped-spinachs
+
+#< en:Frozen spinachs
+#en: Frozen cooked spinach
+#fr: Épinards surgelés cuits
+#agribalyse_food_code:en: 20121
+#ciqual_food_code:en: 20121
+#ciqual_food_name:en: Spinach, frozen, cooked
+#ciqual_food_name:fr: Épinard, surgelé, cuit
+# no products on 7 sep 2024
+
+< en:Prepared vegetables
+en: Prepared spinachs
+
+< en:Prepared spinachs
+en: Spinach with cream sauce
+fr: Épinards à la crème
+hr: Špinat s umakom od vrhnja
+nl: Spinazies met room
+agribalyse_food_code:en: 25026
+ciqual_food_code:en: 25026
+ciqual_food_name:en: Spinach w cream sauce
+ciqual_food_name:fr: Épinards à la crème
 
 < en:Cereals and potatoes
-< en:Fresh vegetables
-en: Sweet potatoes
+< en:Root vegetables
+en: Sweet potatoes, Sweet potato
 bg: Сладки картофи
 de: Süßkartoffeln
 es: Batatas, Boniatos
@@ -107344,26 +107498,56 @@ ja: サツマイモ, さつまいも, 薩摩芋
 la: Ipomoea batatas
 nl: Zoete aardappelen
 pl: Bataty, Słodkie ziemniaki, Ziemniaki słodkie
+agribalyse_proxy_food_code:en: 4101
+agribalyse_proxy_food_name:en: Sweet potato, raw
+agribalyse_proxy_food_name:fr: Patate douce, crue
+comment:en: The category Sweet Potatoes contains products that contain a single ingredient (Sweet Potatoes) and that have undergone minimal processing: unprocessed raw fresh potatoes, cleaned raw sweet potatoes, frozen cleaned raw sweet potatoes and cooked sweet potatoes. Products that have added ingredients should be put under en:Prepared sweet potatoes.
+expected_ingredients:en: en:sweet-potatoes
+food_groups:en: en:potatoes
+pnns_group_2:en: Potatoes
+sales_format:en: package, weight
+wikidata:en: Q37937
+
+< en:Fresh vegetables
+< en:Sweet potatoes
+en: Peeled sweet potatoes
+nl: Zoete aardappelen (schoongemaakt)
+agribalyse_proxy_food_code:en: 4101
+agribalyse_proxy_food_name:en: Sweet potato, raw
+agribalyse_proxy_food_name:fr: Patate douce, crue
+expected_ingredients:en: en:sweet-potatoes
+wikidata:en: Q37937
+
+< en:Fresh vegetables
+< en:Sweet potatoes
+en: Fresh sweet potatoes
+nl: Zoete aardappelen (vers)
 agribalyse_food_code:en: 4101
 ciqual_food_code:en: 4101
 ciqual_food_name:en: Sweet potato, raw
 ciqual_food_name:fr: Patate douce, crue
-food_groups:en: en:potatoes
-pnns_group_2:en: Potatoes
-wikidata:en: Q37937
+expected_ingredients:en: en:sweet-potatoes
+sales_format:en: package, weight
 
 < en:Cooked vegetables
 < en:Sweet potatoes
 en: Cooked sweet potatoes
 fr: Patates douces cuites
+nl: Zoete aardappelen (gekookt)
 agribalyse_food_code:en: 4102
 ciqual_food_code:en: 4102
 ciqual_food_name:en: Sweet potato, cooked
 ciqual_food_name:fr: Patate douce, cuite
+expected_ingredients:en: en:sweet-potatoes
 
 < en:Sweet potatoes
 en: Frozen sweet potatoes
 fr: Patates douces surgelées
+nl: Zoete aardappelen (diepvries)
+agribalyse_proxy_food_code:en: 4101
+agribalyse_proxy_food_name:en: Sweet potato, raw
+agribalyse_proxy_food_name:fr: Patate douce, crue
+expected_ingredients:en: en:sweet-potatoes
 
 < en:Vegetables
 en: Turnip, turnips
@@ -112423,48 +112607,6 @@ hr: Smrznuti romanesco
 nl: Diepvries Romanescos
 
 < en:Frozen vegetables
-< en:Spinachs
-en: Frozen spinachs, Frozen spinach
-bg: Замразен спанак
-de: Gefrorene Spinate
-es: Espinacas congeladas
-fi: pakastetut pinaatit
-fr: Épinards surgelés
-hr: Smrznuti špinat
-it: Spinaci surgelati
-nl: Diepvriesspinazies
-pl: Szpinak mrożony
-agribalyse_food_code:en: 20083
-ciqual_food_code:en: 20083
-ciqual_food_name:en: Spinach, frozen, raw
-ciqual_food_name:fr: Épinard, surgelé, cru
-
-< en:Frozen spinachs
-en: Frozen chopped spinachs
-de: Gefrorene gehackte Spinate
-es: Espinacas troceadas congeladas, Espinacas congeladas troceadas
-fr: Épinards hachés surgelés
-hr: Smrznuti nasjeckani špinat
-nl: Diepvries gehakte spinazies
-
-< en:Frozen spinachs
-en: Frozen spinach leaves
-bg: Замразен спанак на листа
-de: Gefrorene Spinatblätter
-es: Espinacas en hojas congeladas, Espinacas congeladas en hojas
-fr: Feuilles d'épinard congelées
-hr: Smrznuto lišće špinata
-nl: Diepvries bladspinazies
-
-< en:Frozen spinachs
-en: Frozen cooked spinach
-fr: Épinards surgelés cuits
-agribalyse_food_code:en: 20121
-ciqual_food_code:en: 20121
-ciqual_food_name:en: Spinach, frozen, cooked
-ciqual_food_name:fr: Épinard, surgelé, cuit
-
-< en:Frozen vegetables
 < en:Zucchini
 en: Frozen zucchini, Frozen courgettes
 de: Gefrorene Zucchini
@@ -114261,7 +114403,7 @@ fi: vegaanijuustot
 fr: Substituts du fromage, fromages végétaux
 hr: Zamjene za sir
 it: Formaggi vegani
-nl: Veganistische kazen, Kaasvervangers
+nl: Veganistische kazen, Kaasvervangers, Plantaardige kazen
 pl: Zastępniki sera
 gpc_category_code:en: 10006996
 gpc_category_description:en: Definition: Includes any products that can be described/observed as food made from non-dairy products, separated from the whey, sometimes fermented, and usually pressed, cooked, smoked, matured, or heated and mixed with artificial ingredients, such as emulsifiers, colourings and flavourings. These products must be refrigerated to extend their consumable life. These products can be with added ingredients, such as herbs and nuts, in blocks, rolls, slices, grated, cubes, spreadable and portions. Definition Excludes: Excludes products such as Frozen, Shelf Stable and Perishable Cheeses, and Shelf Stable and Frozen Cheese Substitutes and Cheese-Based/Flavoured Meals.
@@ -116138,6 +116280,9 @@ nl: Xanthaangom
 #Things you put on slices of bread during meals that consist mainly of bread
 en: Bread coverings
 nl: Broodbeleggen, Broodbeleg
+
+< nl: Broodbeleggen
+nl: Kokosbrood
 
 en: Food decorations
 es: Decoraciones alimentarias

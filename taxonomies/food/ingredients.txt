@@ -2628,6 +2628,11 @@ nl: boterpoeder
 # poudre au beurre (BEURRE, maltodextrines, protéines de LAIT, émulsifiant : E471)
 
 < en:butter
+en: irish butter mildly acidified
+de: Irische Butter mildgesäuert
+origin:en: en:ireland
+
+< en:butter
 en: goat butter
 hr: kozji maslac
 it: burro di capra
@@ -4891,8 +4896,7 @@ it: yogurt intero
 < en:yogurt
 en: mild yogurt
 ca: iogurt ensucrat
-de: Joghurt mild
-# es:yogur azucarado ? sugared yogurt?
+de: Joghurt mild, Joghmild
 fr: yaourt doux
 hr: blagi jogurt
 nl: milde yogurt
@@ -8722,38 +8726,22 @@ protected_name_type:en: en:pdo
 < en:cheese
 # <en:sheep's milk
 en: Pecorino, Pecorino cheese
-af: Pecorino
+xx: pecorino
 bg: Пекорино
-ca: Pecorino
-cs: Pecorino
 cv: Пекорино
-da: Pecorino
-de: Pecorino
+de: Pecorino, Pecorino Romano Käse g.U.
 el: Πεκορίνο
-eo: Pecorino
-es: Pecorino
-eu: Pecorino
-fi: Pecorino
 fr: pecorino, fromage pecorino
 he: פקורינו
 hr: pecorino
 hu: Pecorino, Pecorino sajt
 hy: Պեկորինո
-id: Pecorino
 it: Pecorino, formaggio pecorino
 ja: ペコリーノ
 ko: 페코리노
 la: Pecorinus
-lb: Pecorino
-nb: Pecorino
-nl: Pecorino
-pl: Pecorino
-pt: Pecorino
 ru: Пекорино
-sk: Pecorino
-sl: Pecorino
 sv: pecorino, pecorino-ost
-sw: Pecorino
 uk: Пекоріно
 zh: 義大利綿羊乾酪
 wikidata:en: Q677640
@@ -11600,6 +11588,18 @@ en: beef tripe
 de: Rinderkutteln, Rinder-Kutteln
 es: callos de vacuno
 hr: goveđi tripice
+
+< en:beef meat
+en: beef lung
+de: Rinderlunge
+
+< en:beef meat
+en: beef kidney
+de: Rindernieren
+
+< en:beef meat
+en: beef udder
+de: Rindereuter
 
 < en:beef
 en: bresaola
@@ -16429,6 +16429,7 @@ ru: Органическое пальмовое масло
 en: sustainable palm oil, sustainable palm fruit oil, sustainable palm
 fr: huile de palme issue de plantations durables et certifiées
 hr: održivo palmino ulje
+sv: hållbarhetscertifierad palmolja
 
 < en:palm oil
 en: fractionated palm oil
@@ -17062,7 +17063,8 @@ wikidata:en: Q93165
 # yue:橄欖油
 wikipedia:en: https://en.wikipedia.org/wiki/Olive_oil
 
-
+< en:olive oil
+fr: huile d'olive de catégorie supérieure
 
 < en:olive oil
 en: black olives oil, black olive oil
@@ -18766,7 +18768,7 @@ ar: دهن الدجاج
 bg: пилешка мазнина
 ca: greix de pollastre, greix de gallina
 da: Kyllingefedt
-de: Hähnchenfett, Hühnerfett, Hühnchenfett, Pouletfett
+de: Hähnchenfett, Hühnerfett, Hühnchenfett, Pouletfett, Huhnfett
 el: λίπος κότας
 es: Grasa de pollo
 fi: kananrasva
@@ -19177,11 +19179,12 @@ wikipedia:en: https://en.wikipedia.org/wiki/Balsamic_vinegar
 
 < en:balsamic vinegar
 en: balsamic vinegar of modena, modena balsamic vinegar
-de: Balsamessig aus Modena
+de: Balsamessig aus Modena, Balsamico-Essig aus Modena g.g.A., Aceto Balsamico di Modena I.G.P.
 es: vinagre balsamico de modena
 fr: vinaigre balsamique de modène
 hr: balzamski ocat iz modene, aceto balsamico di modena
 it: aceto balsamico di modena
+origin:en: en:italy
 wikidata:en: Q3604285
 wikipedia:en: https://en.wikipedia.org/wiki/Balsamic_vinegar_of_Modena
 
@@ -46166,6 +46169,9 @@ eurocode_2_group_3:en: 9.20.15
 #yue:桃駁李
 wikidata:en: Q841156
 
+< en:nectarine
+de: Nektarinenmark
+
 ###################################################################################################
 #
 #                                Papaya
@@ -47488,6 +47494,9 @@ fr: tamarillo
 hr: tamarillo
 wikidata:en: Q379747
 wikipedia:en: https://en.wikipedia.org/wiki/Tamarillo
+
+< en:fruit
+de: Mehrfruchtsaft aus Mehrfruchtsaftkonzentrat
 
 ###################################################################################################
 #
@@ -50248,13 +50257,6 @@ nl: Baby spinazie
 sv: babyspenat
 
 < en:spinach
-en: spinach leaves
-bg: спанак на листа
-fr: feuille d'épinards
-hr: lišće špinata
-nl: spinazieblad
-
-< en:spinach
 en: spinach powder
 #en:processing:en:powder
 #de:Spinatpulver
@@ -50284,10 +50286,13 @@ ciqual_food_name:en: Spinach, cooked
 ciqual_food_name:fr: Épinard, cuit
 
 < en:spinach
-fr: épinards en branches, épinards branches
+en: spinach leaves
+bg: спанак на листа
 de: Blattspinat
+fr: épinards en branches, épinards branches, feuille d'épinards
+hr: lišće špinata
 it: foglie di spinaci
-nl: bladspinazie
+nl: bladspinazie, spinazieblad
 # fr:épinards-en-branches in 3 languages 44 products @2018-10-14
 
 < en:spinach
@@ -52416,7 +52421,7 @@ pt: Espargos brancos
 < en:shoot vegetable
 en: chicory
 bg: цикория
-de: Chicoree, Zichorie
+de: Chicoree, Zichorie, Zichorien
 es: Achicoria
 fi: sikuri
 fr: Chicorée
@@ -58275,7 +58280,7 @@ fr: jus concentré de tomate
 < en:tomato
 < en:tomato juice
 en: tomatoes-in-tomato-juice
-de: Tomaten in Tomatensoße
+de: Tomaten in Tomatensoße, Tomaten in Tomatensaft
 es: tomates en zumo de tomate
 fr: Tomates pelées au jus
 hr: rajčice-u-soku-rajčice
@@ -84528,7 +84533,7 @@ pl: kość z kurczaka, kości z kurczaka
 < en:chicken
 en: chicken heart
 bg: пилешко сърце, пилешки сърца
-de: Hühnerherz
+de: Hühnerherz, Huhnherz
 es: corazón de pollo
 fr: Coeur de poulet
 hr: pileće srce
@@ -84546,7 +84551,7 @@ ciqual_food_name:fr: Coeur, poulet, cru
 < en:chicken
 en: chicken liver
 bg: пилешки черен дроб
-de: Pouletleber, Hühnerleber
+de: Pouletleber, Hühnerleber, Huhnleber
 es: Higado de pollo
 fi: kananmaksa
 fr: foie de poulet
@@ -84561,6 +84566,14 @@ ciqual_food_name:en: Liver, chicken, raw
 ciqual_food_name:fr: Foie, poulet, cru
 wikidata:en: Q67210929
 # 341 in 9 @2021-09-11
+
+< en:chicken
+en: chicken stomach
+de: Huhnmagen
+
+< en:chicken
+en: chicken neck
+de: Huhnhals
 
 < en:poultry skin
 en: chicken skin
@@ -84586,7 +84599,7 @@ en: chicken meat
 bg: пилешко месо
 ca: carn de pollastre, carn de gallina
 da: Kylling
-de: Pouletfleisch, Hühnerfleisch, Hühnchenfleisch
+de: Pouletfleisch, Hühnerfleisch, Hühnchenfleisch, Huhnfleisch
 es: Carne de pollo
 fi: kananliha
 fr: viande de poulet, viande de poule
@@ -85184,6 +85197,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Turkey_(bird)
 
 < en:turkey
 en: turkey heart
+de: Putenherz
 fr: Coeur de dinde
 hr: pureće srce
 pl: serca z indyka, serce indyka
@@ -90561,6 +90575,7 @@ ciqual_food_name:fr: Bouillon de boeuf, déshydraté
 
 < en:broth
 en: dehydrated broth, dehydrated stock
+de: Bouillon getrocknet
 fr: bouillon déshydraté
 # ingredient/fr:bouillon-déshydraté has 57 products in french @2019-02-25
 
