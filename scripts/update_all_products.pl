@@ -151,6 +151,7 @@ my $assign_ciqual_codes = '';
 my $obsolete = 0;
 my $fix_obsolete;
 my $fix_last_modified_t;    # Will set the update key and ensure last_updated_t is initialised
+my $add_product_type = '';    # Add product type to products that don't have it, based on off/opf/obf/opff flavor
 
 my $query_params_ref = {};    # filters for mongodb query
 
@@ -212,6 +213,7 @@ GetOptions(
 	"obsolete" => \$obsolete,
 	"fix-obsolete" => \$fix_obsolete,
 	"fix-last-modified-t" => \$fix_last_modified_t,
+	"add-product-type" => \$add_product_type,
 ) or die("Error in command line arguments:\n\n$usage");
 
 use Data::Dumper;
@@ -289,6 +291,7 @@ if (    (not $process_ingredients)
 	and (not $assign_ciqual_codes)
 	and (not $fix_obsolete)
 	and (not $fix_last_modified_t)
+	and (not $add_product_type)
 	and (not $analyze_and_enrich_product_data))
 {
 	die("Missing fields to update or --count option:\n$usage");
@@ -1363,6 +1366,13 @@ while (my $product_ref = $cursor->next) {
 				$product_ref->{obsolete_since_date} = $mark_as_obsolete_since_date;
 				$product_values_changed = 1;
 			}
+		}
+
+		# Add product type
+		if (($add_product_type) and (not defined $product_ref->{product_type})) {
+			$product_ref->{product_type} = $options{product_type};
+			# Silent update
+			# $product_values_changed = 1;
 		}
 
 		if ($assign_ciqual_codes) {

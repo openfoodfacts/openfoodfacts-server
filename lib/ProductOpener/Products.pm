@@ -772,6 +772,7 @@ sub init_product ($userid, $orgid, $code, $countryid) {
 		created_t => time(),
 		creator => $creator,
 		rev => 0,
+		product_type => $options{product_type},
 	};
 
 	if (defined $server) {
