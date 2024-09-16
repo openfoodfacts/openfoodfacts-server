@@ -6,7 +6,7 @@ endif
 
 
 # use bash everywhere !
-SHELL := /bin/bash
+SHELL := $(shell which bash)
 # some vars
 ENV_FILE ?= .env
 NAME = "ProductOpener"
