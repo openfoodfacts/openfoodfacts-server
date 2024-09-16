@@ -52,7 +52,7 @@ properties:
   states_tags:
     type: array
     items:
-      description:
+      description: |
         Each state describe something that is completed or is to be done or improved on the product.
 
         Refer to [states taxonomy](https://static.openfoodfacts.net/data/taxonomies/states.json)
