@@ -827,6 +827,7 @@ This parameter sets the desired language for the user facing strings.
 =head4 country code $target_cc
 
 Used to select secondhand options (e.g. classified ads sites) that are relevant for the user.
+
 =cut
 
 sub create_secondhand_card_panel ($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
