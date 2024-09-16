@@ -894,6 +894,8 @@ sub create_carbon_footprint_panel($product_ref, $target_lc, $target_cc, $options
 			"api/knowledge-panels/environment/carbon_footprint_product.tt.json",
 			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
 	}
+
+	return;
 }
 
 =head2 create_manufacturing_place_panel ( $product_ref, $target_lc, $target_cc, $options_ref )

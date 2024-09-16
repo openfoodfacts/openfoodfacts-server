@@ -89,6 +89,9 @@ test_logo_exists('logo2x');
 # Test that {variables} are kept in translations
 
 foreach my $stringid (sort keys %Lang) {
+	if (not defined $Lang{$stringid}{en}) {
+		next;
+	}
 	while ($Lang{$stringid}{en} =~ /\{([^}]+)\}/g) {
 		my $variable = $1;
 		foreach my $l (sort keys %{$Lang{$stringid}}) {
@@ -96,7 +99,9 @@ foreach my $stringid (sort keys %Lang) {
 			# Note: the if below is added so that we don't have thousands of tests reported in the output
 			# only non passing tests are tested with like() and reported.
 			if ($Lang{$stringid}{$l} !~ /\{$variable\}/) {
-				like($Lang{$stringid}{$l}, qr/\{$variable\}/, "$stringid translation in $l contains {$variable}");
+				like($Lang{$stringid}{$l}, qr/\{$variable\}/,
+					"$stringid translation in $l contains {$variable} -- English: $Lang{$stringid}{en} -- $l: $Lang{$stringid}{$l}"
+				);
 			}
 		}
 	}
@@ -121,6 +126,9 @@ my $words = join('|', @words_that_should_not_be_translated);
 my %failed_languages = ();
 
 foreach my $stringid (sort keys %Lang) {
+	if (not defined $Lang{$stringid}{en}) {
+		next;
+	}
 	while ($Lang{$stringid}{'en'} =~ /\b($words)\b/g) {
 		my $word = $1;
 		foreach my $l (sort keys %{$Lang{$stringid}}) {

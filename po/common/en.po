@@ -7166,8 +7166,8 @@ msgstr "Not-applicable for the category"
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_repairability_index_france_not_applicable_description"
-msgid "Not-applicable for the category: {category}"
-msgstr "Not-applicable for the category: {category}"
+msgid "Applicable only for categories: {categories}"
+msgstr "Applicable only for categories: {categories}"
 
 msgctxt "attribute_repairability_index_france_very_good_description_short"
 msgid "Very good repairability"
@@ -7188,3 +7188,8 @@ msgstr "Poor repairability"
 msgctxt "attribute_repairability_index_france_bad_description_short"
 msgid "Bad repairability"
 msgstr "Bad repairability"
+
+msgctxt "concerned_categories"
+msgid "Bad repairability"
+msgstr "Bad repairability"
+
