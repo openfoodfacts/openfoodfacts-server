@@ -15,6 +15,76 @@ msgstr ""
 "X-Crowdin-Language: fi\n"
 "X-Crowdin-File-ID: 3123\n"
 
+msgctxt "site_description_off"
+msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
+msgstr "Yhteistyöhön perustuva, ilmainen ja avoin tietokanta ainesosista, ravintosisällöistä ja elintarvikkeista eri puolilta maailmaa"
+
+msgctxt "tagline_off"
+msgid "Open Food Facts gathers information and data on food products from around the world."
+msgstr "Open Food Facts kerää tietoja ja dataa elintarvikkeista ympäri maailmaa."
+
+msgctxt "footer_tagline_off"
+msgid "A collaborative, free and open database of food products from around the world."
+msgstr "Yhteistyöhön perustuva, vapaa ja avoin tietokanta elintarvikkeista ympäri maailmaa."
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_off"
+msgid "/open-food-facts-mobile-app"
+msgstr "/open-food-facts-mobile-app"
+
+msgctxt "site_description_obf"
+msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
+msgstr "Yhteistyöhön perustuva, vapaa ja avoin tietokanta aineosista ja tiedoista kosmetiikkatuotteista joka puolelta maailmaa"
+
+msgctxt "tagline_obf"
+msgid "Open Beauty Facts gathers information and data on cosmetic products from around the world."
+msgstr "Open Beauty Facts kerää tietoja ja dataa kosmetiikkatuotteista joka puolelta maailmaa."
+
+msgctxt "footer_tagline_obf"
+msgid "A collaborative, free and open database of cosmetic products from around the world."
+msgstr "Yhteistyöhön perustuva, vapaa ja avoin tietokanta kosmetiikkatuotteista joka puolelta maailmaa."
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_obf"
+msgid "/open-beauty-facts-mobile-app"
+msgstr "/open-beauty-facts-mobile-app"
+
+msgctxt "footer_and_the_facebook_group_obf"
+msgid "and the <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">Facebook group for contributors</a>"
+msgstr "ja <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">Facebook-ryhmä osallistujille</a>"
+
+msgctxt "search_description_opensearch_obf"
+msgid "Open Beauty Facts product search"
+msgstr "Open Beauty Facts -tuotehaku"
+
+msgctxt "warning_not_complete_obf"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
+msgstr "Tämä tuotesivu ei ole valmis. Voit auttaa sen täydentämisessä muokkaamalla sitä, ja lisäämällä lisätietoja valokuvistamme, tai ottamalla lisää valokuvia <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=fi\">Android</a> tai <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone / iPad</a> -sovelluksella. Kiitos!"
+
+msgctxt "brands_example_beauty"
+msgid "Nivea, Nivea Men"
+msgstr "Nivea, Nivea Men"
+
+msgctxt "categories_example_beauty"
+msgid "Anti-dandruff shampoo, Whitening toothpaste"
+msgstr "Hilseshampoo, Valkaiseva hammastahna"
+
+msgctxt "emb_codes_example_beauty"
+msgid "EMB 53062"
+msgstr "EMB 53062"
+
+msgctxt "generic_name_example_beauty"
+msgid "Anti-dandruff shampoo"
+msgstr "Hilseshampoo"
+
+msgctxt "product_name_example_beauty"
+msgid "Anti-Perspirant Stress Protect"
+msgstr "Anti-Perspirant Stress Protect"
+
+msgctxt "ingredients_text_example_beauty"
+msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
+msgstr "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
+
 msgctxt "1_product"
 msgid "1 product"
 msgstr "1 tuote"
@@ -4903,10 +4973,6 @@ msgctxt "number_of_members"
 msgid "Number of Members"
 msgstr "Jäsenmäärä"
 
-msgctxt "serial_no"
-msgid "S.No"
-msgstr "Snro"
-
 msgctxt "contact_form"
 msgid "Contact form"
 msgstr "Yhteydenottolomake"
@@ -5889,6 +5955,10 @@ msgctxt "nutriscore_missing_nutrition_data"
 msgid "The nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr "Tuotteen ravintosisältö on määritettävä Nutri-Scoren laskemiseksi."
 
+msgctxt "nutriscore_missing_nutrition_data_details"
+msgid "Missing nutrition facts:"
+msgstr ""
+
 msgctxt "nutriscore_missing_category_and_nutrition_data"
 msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr "Tuotteen luokka ja ravintosisältö on määritettävä Nutri-Scoren laskemiseksi."
@@ -6837,51 +6907,97 @@ msgctxt "description"
 msgid "Description"
 msgstr "Kuvaus"
 
-msgctxt "site_description_off"
-msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
-msgstr "Yhteistyössä toimiva, ilmainen ja avoin tietokanta ainesosista, ravitsemustiedoista ja elintarviketuotteista ympäri maailmaa"
+msgctxt "report_problem_navigation"
+msgid "Report a problem"
+msgstr "Ilmoita ongelmasta"
 
-msgctxt "tagline_off"
-msgid "Open Food Facts gathers information and data on food products from around the world."
-msgstr "Open Food Facts kerää tietoja ja dataa elintarvikkeista ympäri maailmaa."
+msgctxt "enter_main_contact_username"
+msgid "Enter main contact's username :"
+msgstr "Anna pääkontaktin käyttäjätunnus:"
 
-msgctxt "footer_tagline_off"
-msgid "A collaborative, free and open database of food products from around the world."
-msgstr "Yhteistyöhön perustuva, vapaa ja avoin tietokanta elintarvikkeista ympäri maailmaa."
+msgctxt "change_main_contact"
+msgid "Change main contact"
+msgstr "Vaihda pääkontakti"
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
-msgctxt "get_the_app_link_off"
-msgid "/open-food-facts-mobile-app"
-msgstr "/open-food-facts-mobile-app"
+msgctxt "main_contact_updated"
+msgid "Main contact updated"
+msgstr "Pääkontakti päivitetty"
 
-msgctxt "site_description_obf"
-msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
-msgstr "Yhteistyöhön perustuva, vapaa ja avoin tietokanta aineosista ja tiedoista kosmetiikkatuotteista joka puolelta maailmaa"
+msgctxt "error_unknown_member"
+msgid "This user is not a member of the organization."
+msgstr "Tämä käyttäjä ei ole organisaation jäsen."
 
-msgctxt "tagline_obf"
-msgid "Open Beauty Facts gathers information and data on cosmetic products from around the world."
-msgstr "Open Beauty Facts kerää tietoja ja dataa kosmetiikkatuotteista joka puolelta maailmaa."
+msgctxt "skip_to_content"
+msgid "Skip to Content"
+msgstr "Siirry sisältöön"
 
-msgctxt "footer_tagline_obf"
-msgid "A collaborative, free and open database of cosmetic products from around the world."
-msgstr "Yhteistyöhön perustuva, vapaa ja avoin tietokanta kosmetiikkatuotteista joka puolelta maailmaa."
+msgctxt "cant_delete_main_contact"
+msgid "You cannot remove the main contact. Change it first."
+msgstr "Et voi poistaa pääkontaktia. Vaihda se ensin."
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
-msgctxt "get_the_app_link_obf"
-msgid "/open-beauty-facts-mobile-app"
-msgstr "/open-beauty-facts-mobile-app"
+msgctxt "open_in_crm"
+msgid "Open in CRM"
+msgstr "Avaa CRM:ssä"
 
-msgctxt "footer_and_the_facebook_group_obf"
-msgid "and the <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">Facebook group for contributors</a>"
-msgstr "ja <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">Facebook-ryhmä osallistujille</a>"
+msgctxt "information_provided_by_the_manufacturer"
+msgid "Information provided by the manufacturer"
+msgstr "Valmistajan antamat tiedot"
 
-msgctxt "search_description_opensearch_obf"
-msgid "Open Beauty Facts product search"
-msgstr "Open Beauty Facts -tuotehaku"
+msgctxt "information_provided_by_the_manufacturer_edit_form"
+msgid "Information identified by a factory icon has been provided by the manufacturer. It can be changed only by the manufacturer and moderators. If it is out of date or incorrect, please let us know."
+msgstr "Valmistaja on toimittanut tehdaskuvakkeesta tunnistettavat tiedot. Vain valmistaja ja moderaattorit voivat muuttaa sitä. Jos se on vanhentunut tai virheellinen, ilmoita siitä meille."
 
-msgctxt "warning_not_complete_obf"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
-msgstr "Tämä tuotesivu ei ole valmis. Voit auttaa sen täydentämisessä muokkaamalla sitä, ja lisäämällä lisätietoja valokuvistamme, tai ottamalla lisää valokuvia <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=fi\">Android</a> tai <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone / iPad</a> -sovelluksella. Kiitos!"
+msgctxt "knowledge_panels_did_you_know"
+msgid "Did you know?"
+msgstr "Tiesitkö?"
+
+msgctxt "knowledge_panels_why_it_matters"
+msgid "Why it matters"
+msgstr "Miksi sillä on merkitystä"
+
+msgctxt "knowledge_panels_what_you_can_do"
+msgid "What you can do"
+msgstr "Mitä voit tehdä"
+
+msgctxt "knowledge_panels_ingredients_rare_crops_title"
+msgid "Good for agricultural biodiversity"
+msgstr "Hyvä maatalouden biologiselle monimuotoisuudelle"
+
+msgctxt "knowledge_panels_ingredients_rare_crops_subtitle"
+msgid "Contains neglected or underutilized crops:"
+msgstr "Sisältää laiminlyötyjä tai vajaakäytössä olevia satoja:"
+
+msgctxt "knowledge_panels_ingredients_rare_crops_did_you_know"
+msgid "Since 1900, 75% of plant diversity has been lost as farmers around the world have abandoned local varieties for high-yielding varieties adapted to mass industrial processing. As a result, 60 % of human energy intake in the world comes from only 3 species: wheat, rice and corn."
+msgstr "Vuodesta 1900 lähtien 75 % kasvien monimuotoisuudesta on menetetty, kun maanviljelijät ympäri maailmaa ovat luopuneet paikallisista lajikkeista korkeatuottoisten lajikkeiden vuoksi, jotka on sovellettu massateolliseen jalostukseen. Tämän seurauksena 60 % ihmisen energiansaannista maailmassa tulee vain kolmesta lajista: vehnästä, riisistä ja maissista."
+
+msgctxt "knowledge_panels_ingredients_rare_crops_why_it_matters"
+msgid "The lack of variety of crops makes our food supply more vulnerable to pests, diseases and climate change."
+msgstr "Viljelykasvien puute tekee ruokatarjonnastamme alttiimpia tuholaisille, taudeille ja ilmastonmuutokselle."
+
+msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do"
+msgid "Consuming diverse cereals, legumes, vegetables and fruits contributes to:"
+msgstr "Erilaisten viljojen, palkokasvien, vihannesten ja hedelmien nauttiminen edistää:"
+
+msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_1"
+msgid "preserving neglected and underutilized species"
+msgstr "laiminlyötyjen ja vajaakäyttöisten lajien säilyttäminen"
+
+msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_2"
+msgid "rural development and support of local farmers and companies"
+msgstr "maaseudun kehittäminen ja paikallisten viljelijöiden ja yritysten tukeminen"
+
+msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_3"
+msgid "preserving of diversified landscapes"
+msgstr "monimuotoisten maisemien säilyttäminen"
+
+msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_4"
+msgid "food security"
+msgstr "elintarvikevarmuus"
+
+msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_5"
+msgid "and your health!"
+msgstr "ja terveytesi!"
 
 msgctxt "brands_example_beauty"
 msgid "Nivea, Nivea Men"
@@ -6910,4 +7026,100 @@ msgstr "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL 
 msgctxt "report_problem_navigation"
 msgid "Report a problem"
 msgstr "Ilmoita ongelmasta"
+
+msgctxt "created_by"
+msgid "Created by"
+msgstr "Tekijä"
+
+msgctxt "org_id"
+msgid "Org id"
+msgstr "Organisaatiotunnus"
+
+msgctxt "verified_status"
+msgid "Verified status"
+msgstr "Vahvistettu tila"
+
+msgctxt "creation_date"
+msgid "Creation date"
+msgstr "Luontipäivämäärä"
+
+msgctxt "knowledge_panels_ingredients_rare_crops_divinfood"
+msgid "Open Food Facts participates in the European project <a href=\"https://divinfood.eu/\">DIVINFOOD</a> (funded from European Union’s Horizon 2020 research and innovation programme). DIVINFOOD aims to develop food chains that value under-utilised agrobiodiversity in order to act against the decline of biodiversity and to meet the growing expectations of consumers for healthy, local products that contribute to sustainable food systems."
+msgstr "Open Food Facts osallistuu eurooppalaiseen hankkeeseen <a href=\"https://divinfood.eu/\">DIVINFOOD</a> (rahoitus Euroopan unionin Horizon 2020 tutkimus- ja innovaatio-ohjelmasta). DIVINFOODin tavoitteena on kehittää elintarvikeketjuja, jotka arvostavat alihyödynnettyä maatalouden biologista monimuotoisuutta, toimiakseen biologisen monimuotoisuuden vähenemistä vastaan ja vastatakseen kuluttajien kasvaviin odotuksiin terveellisistä, paikallisista tuotteista, jotka edistävät kestäviä ruokajärjestelmiä."
+
+msgctxt "open_in_crm"
+msgid "Open in CRM"
+msgstr "Avaa CRM:ssä"
+
+msgctxt "deny"
+msgid "Deny"
+msgstr ""
+
+msgctxt "users_requested_to_join_org"
+msgid "These users have requested to join the organization:"
+msgstr ""
+
+msgctxt "last_login"
+msgid "Last login date"
+msgstr ""
+
+msgctxt "last_import"
+msgid "Last import date"
+msgstr ""
+
+msgctxt "drop_a_file"
+msgid "Drop"
+msgstr ""
+
+msgctxt "select_product_data_file"
+msgid "Select a file with product data"
+msgstr ""
+
+msgctxt "number_of_products_without_nutriscore"
+msgid "Number of products without Nutri-Score"
+msgstr ""
+
+msgctxt "percent_of_products_with_nutriscore"
+msgid "% of products where Nutri-Score is computed"
+msgstr ""
+
+msgctxt "products_to_be_exported"
+msgid "Products to be exported"
+msgstr ""
+
+msgctxt "products_exported"
+msgid "Products exported"
+msgstr ""
+
+msgctxt "opportunities_to_improve_nutriscore"
+msgid "Opp. for Nutri-Score improvements"
+msgstr ""
+
+msgctxt "date_of_last_update"
+msgid "Date of last update"
+msgstr ""
+
+msgctxt "number_of_products_on_public_platform"
+msgid "Number of products on public platform"
+msgstr ""
+
+msgctxt "number_of_products_on_producer_platform"
+msgid "Number of products on producer platform"
+msgstr ""
+
+msgctxt "automated_daily_export_to_public_platform"
+msgid "Automatic daily export to public platform"
+msgstr ""
+
+msgctxt "improvements_navigation"
+msgid "Improvements"
+msgstr "Parannukset"
+
+msgctxt "products_with_changes_since_last_export"
+msgid "Products with changes since last export"
+msgstr ""
+
+msgctxt "open_org"
+msgid "Open org"
+msgstr ""
 
