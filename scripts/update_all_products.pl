@@ -1371,7 +1371,9 @@ while (my $product_ref = $cursor->next) {
 		# Add product type
 		if (($add_product_type) and (not defined $product_ref->{product_type})) {
 			$product_ref->{product_type} = $options{product_type};
-			# Silent update
+			# Silent update: we also change the original_product
+			# in order not to push the product to Redis
+			$original_product->{product_type} = $product_ref->{product_type};
 			# $product_values_changed = 1;
 		}
 
