@@ -28,7 +28,6 @@ use ProductOpener::Users qw/retrieve_user/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Store qw/:all/;
 
-
 my $orgs_collection = get_orgs_collection();
 
 sub main {
@@ -38,27 +37,25 @@ sub main {
 
 	foreach my $org_id (@orgs) {
 		my $org_ref = retrieve_org($org_id);
-        next if not defined $org_ref;
+		next if not defined $org_ref;
 
-        my $creator_username = $org_ref->{creator};
-        next if not defined $creator_username;
+		my $creator_username = $org_ref->{creator};
+		next if not defined $creator_username;
 
-        my $creator_user_ref = retrieve_user($creator_username);
-        next if not defined $creator_user_ref;
+		my $creator_user_ref = retrieve_user($creator_username);
+		next if not defined $creator_user_ref;
 
-        my $creator_email = $creator_user_ref->{email};
-        next if not defined $creator_email;
+		my $creator_email = $creator_user_ref->{email};
+		next if not defined $creator_email;
 
-        $org_ref->{creator_email} = $creator_email;
+		$org_ref->{creator_email} = $creator_email;
 
-        my $return = $orgs_collection->update_one(
-            {"org_id" => $org_ref->{org_id}},
-            {'$set' => {"creator_email" => $creator_email}}
-        );
+		my $return = $orgs_collection->update_one({"org_id" => $org_ref->{org_id}},
+			{'$set' => {"creator_email" => $creator_email}});
 		store("$BASE_DIRS{ORGS}/" . $org_ref->{org_id} . ".sto", $org_ref);
 
-        print STDERR "Updated organization $org_id with creator's email $creator_email. Return: $return\n";
-        $i++;
+		print STDERR "Updated organization $org_id with creator's email $creator_email. Return: $return\n";
+		$i++;
 	}
 
 	print STDERR "$count organizations to update - $i organizations not empty or deleted\n";

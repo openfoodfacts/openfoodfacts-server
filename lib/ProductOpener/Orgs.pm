@@ -178,7 +178,7 @@ sub store_org ($org_ref) {
 			}
 		}
 	}
-	
+
 	if (   (defined $previous_org_ref)
 		&& ($previous_org_ref->{valid_org} ne 'accepted')
 		&& ($org_ref->{valid_org} eq 'accepted')
