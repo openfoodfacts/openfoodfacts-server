@@ -232,7 +232,7 @@ refresh_mongodb:run_deps
 
 # this command is used to import data on the mongodb used on staging environment
 import_prod_data: run_deps
-	@cd ${DEPS_DIR}/openfoodfacts-shared-services && $(MAKE) -e import_prod_data
+	@cd ${DEPS_DIR}/openfoodfacts-shared-services && $(MAKE) import_prod_data
 
 #--------#
 # Checks #
@@ -315,7 +315,7 @@ update_tests_results: build_taxonomies_test build_lang_test
 
 bash:
 	@echo "🥫 Open a bash shell in the backend container"
-	${DOCKER_COMPOSE} run --rm -w /opt/product-opener backend bash
+	${DOCKER_COMPOSE_RUN} run --rm -w /opt/product-opener backend bash
 
 bash_test:
 	@echo "🥫 Open a bash shell in the test container"

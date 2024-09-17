@@ -5,28 +5,28 @@ info:
     As a developer, the Open Food Facts API allows you to get information
     and contribute to the products database. You can create great apps to
     help people make better food choices and also provide data to enhance the database.
-  termsOfService: 'https://world.openfoodfacts.org/terms-of-use'
+  termsOfService: "https://world.openfoodfacts.org/terms-of-use"
   contact:
     name: Open Food Facts
-    url: 'https://slack.openfoodfacts.org/'
-    email: contact@openfoodfacts.org
+    url: "https://slack.openfoodfacts.org/"
+    email: reuse@openfoodfacts.org
   license:
-    name: 'data: ODbL'
-    url: 'https://opendatacommons.org/licenses/odbl/summary/index.html'
+    name: "data: ODbL"
+    url: "https://opendatacommons.org/licenses/odbl/summary/index.html"
     # can't use url and identifier - use x-identifier
     x-identifier: "ODbL-1.0"
-  version: '2'
+  version: "2"
 externalDocs:
   description: |
     Please read the API introduction before using this API.
   url: https://openfoodfacts.github.io/openfoodfacts-server/api/
 servers:
   - description: dev
-    url: 'https://world.openfoodfacts.net'
-  - url: 'https://world.openfoodfacts.org'
+    url: "https://world.openfoodfacts.net"
+  - url: "https://world.openfoodfacts.org"
     description: prod
 paths:
-  '/api/v2/product/{barcode}':
+  "/api/v2/product/{barcode}":
     get:
       tags:
         - Read Requests
@@ -41,9 +41,9 @@ paths:
           explode: false
           schema:
             type: string
-            example: '3017620422003'
+            example: "3017620422003"
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -57,7 +57,7 @@ paths:
         A product can be fetched via its unique barcode.
         It returns all the details of that product response.
       operationId: get-product-by-barcode
-  '/api/v2/product/{barcode}?fields=knowledge_panels':
+  "/api/v2/product/{barcode}?fields=knowledge_panels":
     get:
       tags:
         - Read Requests
@@ -74,9 +74,9 @@ paths:
           explode: false
           schema:
             type: string
-            example: '3017620422003'
+            example: "3017620422003"
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -104,7 +104,7 @@ paths:
         The first photo uploaded for a product is
         auto-selected as the product’s “front” photo.'
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -115,14 +115,14 @@ paths:
           multipart/form-data:
             schema:
               $ref: ./requestBodies/add_photo_to_existing_product.yaml
-        description: ''
+        description: ""
   /cgi/ingredients.pl:
     parameters: []
     get:
       summary: Performing OCR on a Product
       operationId: get-cgi-ingredients.pl
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -131,10 +131,10 @@ paths:
       description: |
         Open Food Facts uses optical character recognition (OCR) to retrieve nutritional data and other information from the product labels.
       parameters:
-        - $ref: '#/components/parameters/id'
-        - $ref: '#/components/parameters/code'
-        - $ref: '#/components/parameters/process_image'
-        - $ref: '#/components/parameters/ocr_engine'
+        - $ref: "#/components/parameters/id"
+        - $ref: "#/components/parameters/code"
+        - $ref: "#/components/parameters/process_image"
+        - $ref: "#/components/parameters/ocr_engine"
       tags:
         - Read Requests
   /cgi/product_image_crop.pl:
@@ -142,7 +142,7 @@ paths:
       summary: Crop A Photo
       operationId: post-cgi-product_image_crop.pl
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -165,7 +165,7 @@ paths:
       summary: Rotate A Photo
       operationId: get-cgi-product_image_crop.pl
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -176,10 +176,10 @@ paths:
         the OFF API allows you to make api calls to automate this process.
         You can rotate existing photos by setting the angle to 90º, 180º, or 270º clockwise.
       parameters:
-        - $ref: '#/components/parameters/code'
-        - $ref: '#/components/parameters/id'
-        - $ref: '#/components/parameters/imgid'
-        - $ref: '#/components/parameters/angle'
+        - $ref: "#/components/parameters/code"
+        - $ref: "#/components/parameters/id"
+        - $ref: "#/components/parameters/imgid"
+        - $ref: "#/components/parameters/angle"
       tags:
         - Write Requests
   /cgi/product_image_unselect.pl:
@@ -191,7 +191,7 @@ paths:
             schema:
               $ref: ./requestBodies/unselect_a_photo.yaml
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -211,28 +211,27 @@ paths:
                     example: front_fr
                     description: image field that was unselected
 
-
   /cgi/product_jqm2.pl:
     post:
       summary: Add or Edit A Product
       operationId: post-cgi-product_jqm2.pl
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
               schema:
                 AllOf:
-                - $ref: ./responses/add_or_edit_a_product.yaml
-                - $ref: ./responses/change_ref_properties.yaml
+                  - $ref: ./responses/add_or_edit_a_product.yaml
+                  - $ref: ./responses/change_ref_properties.yaml
       parameters: []
       requestBody:
         content:
           multipart/form-data:
             schema:
               AllOf:
-              - $ref: ./requestBodies/add_or_edit_a_product.yaml
-              - $ref: ./requestBodies/change_ref_properties.yaml
+                - $ref: ./requestBodies/add_or_edit_a_product.yaml
+                - $ref: ./requestBodies/change_ref_properties.yaml
       tags:
         - Write Requests
       description: |
@@ -245,7 +244,7 @@ paths:
       tags:
         - Read Requests
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -319,29 +318,29 @@ paths:
 
       parameters:
         # all tags parameters
-        - $ref: './schemas/tags_parameters.yaml#/properties/additives_tags'
-        - $ref: './schemas/tags_parameters.yaml#/properties/allergens_tags'
-        - $ref: './schemas/tags_parameters.yaml#/properties/brands_tags'
-        - $ref: './schemas/tags_parameters.yaml#/properties/categories_tags'
-        - $ref: './schemas/tags_parameters.yaml#/properties/countries_tags'
-        - $ref: './schemas/tags_parameters.yaml#/properties/emb_codes_tags'
-        - $ref: './schemas/tags_parameters.yaml#/properties/labels_tags'
-        - $ref: './schemas/tags_parameters.yaml#/properties/manufacturing_places_tags'
-        - $ref: './schemas/tags_parameters.yaml#/properties/nutrition_grades_tags'
-        - $ref: './schemas/tags_parameters.yaml#/properties/origins_tags'
-        - $ref: './schemas/tags_parameters.yaml#/properties/packaging_tags'
-        - $ref: './schemas/tags_parameters.yaml#/properties/purchase_places_tags'
-        - $ref: './schemas/tags_parameters.yaml#/properties/states_tags'
-        - $ref: './schemas/tags_parameters.yaml#/properties/stores_tags'
-        - $ref: './schemas/tags_parameters.yaml#/properties/traces_tags'
-        - $ref: './schemas/tags_parameters.yaml#/properties/tag_name_with_language_code'
-        - $ref: './schemas/nutrition_search.yaml#/properties/nutrient_lower_than'
-        - $ref: './schemas/nutrition_search.yaml#/properties/nutrient_greater_than'
-        - $ref: './schemas/nutrition_search.yaml#/properties/nutrient_equal'
-        - $ref: '#/components/parameters/fields'
-        - $ref: '#/components/parameters/sort_by'
-        - $ref: '#/components/parameters/page'
-        - $ref: '#/components/parameters/page_size'
+        - $ref: "./schemas/tags_parameters.yaml#/properties/additives_tags"
+        - $ref: "./schemas/tags_parameters.yaml#/properties/allergens_tags"
+        - $ref: "./schemas/tags_parameters.yaml#/properties/brands_tags"
+        - $ref: "./schemas/tags_parameters.yaml#/properties/categories_tags"
+        - $ref: "./schemas/tags_parameters.yaml#/properties/countries_tags"
+        - $ref: "./schemas/tags_parameters.yaml#/properties/emb_codes_tags"
+        - $ref: "./schemas/tags_parameters.yaml#/properties/labels_tags"
+        - $ref: "./schemas/tags_parameters.yaml#/properties/manufacturing_places_tags"
+        - $ref: "./schemas/tags_parameters.yaml#/properties/nutrition_grades_tags"
+        - $ref: "./schemas/tags_parameters.yaml#/properties/origins_tags"
+        - $ref: "./schemas/tags_parameters.yaml#/properties/packaging_tags"
+        - $ref: "./schemas/tags_parameters.yaml#/properties/purchase_places_tags"
+        - $ref: "./schemas/tags_parameters.yaml#/properties/states_tags"
+        - $ref: "./schemas/tags_parameters.yaml#/properties/stores_tags"
+        - $ref: "./schemas/tags_parameters.yaml#/properties/traces_tags"
+        - $ref: "./schemas/tags_parameters.yaml#/properties/tag_name_with_language_code"
+        - $ref: "./schemas/nutrition_search.yaml#/properties/nutrient_lower_than"
+        - $ref: "./schemas/nutrition_search.yaml#/properties/nutrient_greater_than"
+        - $ref: "./schemas/nutrition_search.yaml#/properties/nutrient_equal"
+        - $ref: "#/components/parameters/fields"
+        - $ref: "#/components/parameters/sort_by"
+        - $ref: "#/components/parameters/page"
+        - $ref: "#/components/parameters/page_size"
     parameters: []
   /cgi/suggest.pl:
     get:
@@ -349,7 +348,7 @@ paths:
       tags:
         - Read Requests
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -357,8 +356,8 @@ paths:
                 type: array
       operationId: get-cgi-suggest.pl
       parameters:
-        - $ref: '#/components/parameters/tagtype'
-        - $ref: '#/components/parameters/term'
+        - $ref: "#/components/parameters/tagtype"
+        - $ref: "#/components/parameters/term"
       description: |
         For example , Dave is looking for packaging_shapes that contain the term "fe",
         all packaging_shapes containing "fe" will be returned.
@@ -370,7 +369,7 @@ paths:
       tags:
         - Read Requests
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -378,8 +377,8 @@ paths:
                 $ref: ./responses/get_nutrients.yaml
       operationId: get-cgi-nutrients.pl
       parameters:
-        - $ref: '#/components/parameters/cc'
-        - $ref: '#/components/parameters/lc'
+        - $ref: "#/components/parameters/cc"
+        - $ref: "#/components/parameters/lc"
       description: |
         Used to display the nutrition facts table of a product, or to display a form to input those nutrition facts.
   /api/v2/attribute_groups:
@@ -399,14 +398,14 @@ paths:
         - Personal search
       operationId: get-attribute-groups
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
               schema:
                 $ref: ./responses/get_attribute_groups.yaml
       parameters:
-      - $ref: '#/components/parameters/lc'
+        - $ref: "#/components/parameters/lc"
   /api/v2/preferences:
     get:
       summary: |
@@ -417,9 +416,9 @@ paths:
         - Personal search
       operationId: get-preferences
       parameters:
-        - $ref: '#/components/parameters/lc'
+        - $ref: "#/components/parameters/lc"
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -448,7 +447,7 @@ components:
     "Product-Knowledge-Panels":
       $ref: ./schemas/product_knowledge_panels.yaml
     "Product-Attribute-Groups":
-      $ref: './schemas/product_attribute_groups.yaml'
+      $ref: "./schemas/product_attribute_groups.yaml"
     Product:
       $ref: ./schemas/product.yaml
   parameters:
@@ -462,15 +461,15 @@ components:
     cc:
       schema:
         type: string
-        example: 'us'
+        example: "us"
       in: query
       name: cc
       required: false
-      description: '2 letter code of the country of the user. Used for localizing some fields in returned values (e.g. knowledge panels). If not passed, the country may be inferred by the IP address of the request.'
+      description: "2 letter code of the country of the user. Used for localizing some fields in returned values (e.g. knowledge panels). If not passed, the country may be inferred by the IP address of the request."
     lc:
       schema:
         type: string
-        example: 'fr'
+        example: "fr"
       in: query
       name: lc
       required: false
@@ -482,7 +481,7 @@ components:
     code:
       schema:
         type: string
-        example: '4251105501381'
+        example: "4251105501381"
       in: query
       name: code
       description: Barcode of the product
@@ -490,7 +489,7 @@ components:
     process_image:
       schema:
         type: string
-        example: '1'
+        example: "1"
       in: query
       name: process_image
       required: true
@@ -504,14 +503,14 @@ components:
     imgid:
       schema:
         type: string
-        example: '1'
+        example: "1"
       in: query
       name: imgid
       required: true
     angle:
       schema:
         type: string
-        example: '90'
+        example: "90"
       in: query
       name: angle
       required: true
@@ -560,12 +559,29 @@ components:
     fields:
       schema:
         type: string
-        example: 'code,product_name'
+        example: "code,product_name"
       in: query
       name: fields
       description: |
         The fields to be returned from the product object can also be limited.
         If not specified, it returns the entire product object response.
+    knowledge_panels_included:
+      schema:
+        type: string
+        example: "heatlh_card, environment_card"
+      in: query
+      name: knowledge_panels_included
+      description: |
+        When knowledge_panels are requested, you can specify which panels should be in the response. All the others will be excluded.
+    knowledge_panels_excluded:
+      schema:
+        type: string
+        example: "heatlh_card, environment_card"
+      in: query
+      name: knowledge_panels_excluded
+      description: |
+        When knowledge_panels are requested, you can specify which panels to exclude from the response. All the others will be included.
+        If a panel is both excluded and included (with the knowledge_panels_excluded parameter), it will be excluded.
     tagtype:
       schema:
         type: string

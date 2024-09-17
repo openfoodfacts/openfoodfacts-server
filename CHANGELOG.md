@@ -1,5 +1,72 @@
 # Changelog
 
+## [2.44.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.43.0...v2.44.0) (2024-09-09)
+
+
+### Features
+
+* 99 French "indice de durabilité" Label images ([#10734](https://github.com/openfoodfacts/openfoodfacts-server/issues/10734)) ([be46cf8](https://github.com/openfoodfacts/openfoodfacts-server/commit/be46cf8683c5823f3714f9cfc418c9af5f561e8a))
+* 99 indice de reparabilite logos ([#10748](https://github.com/openfoodfacts/openfoodfacts-server/issues/10748)) ([e2c302b](https://github.com/openfoodfacts/openfoodfacts-server/commit/e2c302b27ee347a1f1e105e7933d956ac7873057))
+* new [taxonomy].extended.json with extended synonyms ([#10744](https://github.com/openfoodfacts/openfoodfacts-server/issues/10744)) ([e1a485e](https://github.com/openfoodfacts/openfoodfacts-server/commit/e1a485e16baece15d372f676d13fb27ba68da296))
+* Open folksonomies for all connected users ([#10771](https://github.com/openfoodfacts/openfoodfacts-server/issues/10771)) ([160b792](https://github.com/openfoodfacts/openfoodfacts-server/commit/160b792a6f3c935f8ab4132bc37937201bae7195))
+* prepare folksonomy for multi-domain ([#10775](https://github.com/openfoodfacts/openfoodfacts-server/issues/10775)) ([6f8e772](https://github.com/openfoodfacts/openfoodfacts-server/commit/6f8e7729ff1896e2a1ca3ef76b04bfe374befde0))
+* script to extract historical data for a field (e.g. Nutri-Score) for a set of products ([#10408](https://github.com/openfoodfacts/openfoodfacts-server/issues/10408)) ([d40bcf6](https://github.com/openfoodfacts/openfoodfacts-server/commit/d40bcf67e8729449aca293d3a6a33a50b6720d26))
+
+
+### Bug Fixes
+
+* block more AI bots ([#10754](https://github.com/openfoodfacts/openfoodfacts-server/issues/10754)) ([852ca5f](https://github.com/openfoodfacts/openfoodfacts-server/commit/852ca5f978803287cc5e26f96cf0366a3dbe221c))
+* fix crm sync ([#10747](https://github.com/openfoodfacts/openfoodfacts-server/issues/10747)) ([336647f](https://github.com/openfoodfacts/openfoodfacts-server/commit/336647fa22707f003a74df2e90205c1e95aba453))
+* import_prod_data not working ([#10750](https://github.com/openfoodfacts/openfoodfacts-server/issues/10750)) ([a895cd3](https://github.com/openfoodfacts/openfoodfacts-server/commit/a895cd361c6fb135ff220357f5dfa6acbf2b3288)), closes [#10749](https://github.com/openfoodfacts/openfoodfacts-server/issues/10749)
+* remove non-JS list of products ([#10743](https://github.com/openfoodfacts/openfoodfacts-server/issues/10743)) ([6805b9f](https://github.com/openfoodfacts/openfoodfacts-server/commit/6805b9fec6898e072f1758c4844f1d4fe2ce20c3))
+
+## [2.43.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.42.0...v2.43.0) (2024-08-28)
+
+
+### Features
+
+* add rate-limiting on facet pages ([#10738](https://github.com/openfoodfacts/openfoodfacts-server/issues/10738)) ([9e9e321](https://github.com/openfoodfacts/openfoodfacts-server/commit/9e9e3210c057c115bfdb5ce4c1299e3ccfb3fa73))
+
+
+### Bug Fixes
+
+* ban more AI bots in robots.txt ([#10726](https://github.com/openfoodfacts/openfoodfacts-server/issues/10726)) ([4ce657e](https://github.com/openfoodfacts/openfoodfacts-server/commit/4ce657e197650f268ae8272c0f1d04bc86f166ac))
+* existing orgs migration script to crm ([#10727](https://github.com/openfoodfacts/openfoodfacts-server/issues/10727)) ([1e255d4](https://github.com/openfoodfacts/openfoodfacts-server/commit/1e255d4203798f87a2e15c2912b76bfc7ffce0b5))
+
+## [2.42.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.41.0...v2.42.0) (2024-08-22)
+
+
+### Features
+
+* geoip/ api use the remote address if ip not provided as param ([#10700](https://github.com/openfoodfacts/openfoodfacts-server/issues/10700)) ([7c1e3f2](https://github.com/openfoodfacts/openfoodfacts-server/commit/7c1e3f245659d0c07941938845155bcf67f2bf49)), closes [#10699](https://github.com/openfoodfacts/openfoodfacts-server/issues/10699)
+* knowledge API to specify which panels should be returned ([#10701](https://github.com/openfoodfacts/openfoodfacts-server/issues/10701)) ([384961a](https://github.com/openfoodfacts/openfoodfacts-server/commit/384961a462d092d3595cb2d90ad2053f7d9bd1ab))
+* migration script to batch import existing orgs in CRM ([#10683](https://github.com/openfoodfacts/openfoodfacts-server/issues/10683)) ([1801b48](https://github.com/openfoodfacts/openfoodfacts-server/commit/1801b481730a8393345614ee0d71efec110d4871))
+
+
+### Bug Fixes
+
+* remove robotoff webhook trigger ([#10723](https://github.com/openfoodfacts/openfoodfacts-server/issues/10723)) ([47e1174](https://github.com/openfoodfacts/openfoodfacts-server/commit/47e11741abe6328ca7f00d23d7096b717c7abb9e))
+* remove unused jquery-ui safe-active-element module ([#10708](https://github.com/openfoodfacts/openfoodfacts-server/issues/10708)) ([9407e86](https://github.com/openfoodfacts/openfoodfacts-server/commit/9407e860b96cf6be4543878509d7568ce90ad8a8))
+* Synonyms in taxonomized suggestions ([#10722](https://github.com/openfoodfacts/openfoodfacts-server/issues/10722)) ([3419a1e](https://github.com/openfoodfacts/openfoodfacts-server/commit/3419a1efd7600a6b5d0ed540fc443c06d7a910e3))
+
+## [2.41.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.40.0...v2.41.0) (2024-08-13)
+
+
+### Features
+
+* generate historical events from product revisions ([#10523](https://github.com/openfoodfacts/openfoodfacts-server/issues/10523)) ([42508e1](https://github.com/openfoodfacts/openfoodfacts-server/commit/42508e1e19263079fe1516c2e388df0052eb98fd))
+* sync number of product public/pro in CRM ([#10684](https://github.com/openfoodfacts/openfoodfacts-server/issues/10684)) ([026ff6a](https://github.com/openfoodfacts/openfoodfacts-server/commit/026ff6a56c709b88cb633c760b6eb0fcb1bbee7a))
+
+
+### Bug Fixes
+
+* 3 fixes to make /products/[code1],[code2] work again ([#10669](https://github.com/openfoodfacts/openfoodfacts-server/issues/10669)) ([7fc07fc](https://github.com/openfoodfacts/openfoodfacts-server/commit/7fc07fc864efa7ea13ce74932af7b4f8f2131dd5))
+* Automatically unselect images when source image is deleted ([#10692](https://github.com/openfoodfacts/openfoodfacts-server/issues/10692)) ([588897a](https://github.com/openfoodfacts/openfoodfacts-server/commit/588897aee5163c209b53e40ef3c03fafdcf71593))
+* **docs:** correct OpenAPI definition by fixing missing reference ([#10659](https://github.com/openfoodfacts/openfoodfacts-server/issues/10659)) ([4f0f10e](https://github.com/openfoodfacts/openfoodfacts-server/commit/4f0f10e2e6a36fa1f699eb22f2e371eb4951df07))
+* gen_users_emails.pl ([#10686](https://github.com/openfoodfacts/openfoodfacts-server/issues/10686)) ([00e4c26](https://github.com/openfoodfacts/openfoodfacts-server/commit/00e4c26b099e9523de59defa906be3eaa9fae558))
+* Show missing nutrients in Nutri-Score panel ([#10655](https://github.com/openfoodfacts/openfoodfacts-server/issues/10655)) ([a1b11eb](https://github.com/openfoodfacts/openfoodfacts-server/commit/a1b11eb76e02f041d6fa1f50035b9d8d595322a8))
+* UTM mobile ([#10665](https://github.com/openfoodfacts/openfoodfacts-server/issues/10665)) ([965041d](https://github.com/openfoodfacts/openfoodfacts-server/commit/965041d7328b1bcad154409db452ac1ffb6c3782))
+
 ## [2.40.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.39.0...v2.40.0) (2024-08-08)
 
 

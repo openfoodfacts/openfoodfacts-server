@@ -177,10 +177,11 @@ $flavor = 'obf';
 	site_name => "Open Beauty Facts",
 	product_type => "beauty",
 	og_image_url => "https://world.openbeautyfacts.org/images/misc/openbeautyfacts-logo-en.png",
-	android_apk_app_link => "https://world.openbeautyfacts.org/images/apps/obf.apk",
-	android_app_link => "https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner",
-	ios_app_link => "https://apps.apple.com/app/open-beauty-facts/id1122926380",
-	facebook_page_url => "https://www.facebook.com/openbeautyfacts",
+	android_apk_app_link => "https://world.openbeautyfacts.org/images/apps/obf.apk?utm_source=obf&utf_medium=web",
+	android_app_link =>
+		"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&utm_source=obf&utf_medium=web",
+	ios_app_link => "https://apps.apple.com/app/open-beauty-facts/id1122926380?utm_source=obf&utf_medium=web",
+	facebook_page_url => "https://www.facebook.com/openbeautyfacts?utm_source=obf&utf_medium=web",
 	twitter_account => "OpenBeautyFacts",
 );
 

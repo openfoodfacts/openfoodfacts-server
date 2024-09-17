@@ -102,6 +102,7 @@ BEGIN {
 
 		&count_products
 		&add_params_to_query
+		&add_params_and_filters_to_query
 
 		&url_for_text
 		&process_template
@@ -227,6 +228,7 @@ my $uri_finder = URI::Find->new(
 # Sort keys of JSON output
 # $json has utf8 disabled: it encodes to Perl Unicode strings
 my $json = JSON::MaybeXS->new->utf8(0)->allow_nonref->canonical;
+my $json_indent = JSON::MaybeXS->new->indent(1)->utf8(0)->allow_nonref->canonical;
 # $json_utf8 has utf8 enabled: it encodes to UTF-8 bytes
 my $json_utf8 = JSON::MaybeXS->new->utf8(1)->allow_nonref->canonical;
 
@@ -634,6 +636,18 @@ sub init_request ($request_ref = {}) {
 		$request_ref->{deny_all_robots_txt} = 1;
 	}
 
+	# Rate-limiter specific settings
+	# Also see set_rate_limit_attributes in Routing.pm
+
+	# Each request is (possibly) associated with a rate limiter bucket
+	$request_ref->{rate_limiter_bucket} = undef;
+	# Number of requests the user did in the last minute
+	$request_ref->{rate_limiter_user_requests} = undef;
+	# Limit of requests for the specific bucket (and/or user)
+	$request_ref->{rate_limiter_limit} = undef;
+	# If the rate limiter is blocking the request
+	$request_ref->{rate_limiter_blocking} = 0;
+
 	# TODO: global variables should be moved to $request_ref
 	$request_ref->{styles} = '';
 	$request_ref->{scripts} = '';
@@ -886,12 +900,9 @@ sub init_request ($request_ref = {}) {
 
 	$request_ref->{user_id} = $User_id;
 
-	$request_ref->{admin} = 0;
 	# %admin is defined in Config.pm
 	# admins can change permissions for all users
-	if (is_admin_user($User_id)) {
-		$request_ref->{admin} = 1;
-	}
+	$request_ref->{admin} = is_admin_user($User_id);
 
 	$request_ref->{moderator} = $User{moderator};
 	$request_ref->{pro_moderator} = $User{pro_moderator};
@@ -1007,12 +1018,12 @@ sub set_user_agent_request_ref_attributes ($request_ref) {
 	my $is_crawl_bot = 0;
 	my $is_denied_crawl_bot = 0;
 	if ($user_agent_str
-		=~ /\b(Googlebot|Googlebot-Image|Google-InspectionTool|bingbot|Applebot|Yandex|DuckDuck|DotBot|Seekport|Ahrefs|DataForSeo|Seznam|ZoomBot|Mojeek|QRbot|Qwant|facebookexternalhit|Bytespider|GPTBot|ClaudeBot|SEOkicks|Searchmetrics|MJ12|SurveyBot|SEOdiver|wotbox|Cliqz|Paracrawl|Scrapy|VelenPublicWebCrawler|Semrush|MegaIndex\.ru|Amazon|aiohttp|python-request)/i
+		=~ /\b(Googlebot|Googlebot-Image|Google-InspectionTool|bingbot|Applebot|Yandex|DuckDuck|DotBot|Seekport|Ahrefs|DataForSeo|Seznam|ZoomBot|Mojeek|QRbot|Qwant|facebookexternalhit|Bytespider|GPTBot|ChatGPT-User|cohere-ai|anthropic-ai|PerplexityBot|ClaudeBot|Claude-Web|SEOkicks|Searchmetrics|MJ12|SurveyBot|SEOdiver|wotbox|Cliqz|Paracrawl|Scrapy|VelenPublicWebCrawler|Semrush|MegaIndex\.ru|Amazon|aiohttp|python-request|ImagesiftBot|Diffbot)/i
 		)
 	{
 		$is_crawl_bot = 1;
 		if ($user_agent_str
-			=~ /\b(bingbot|Seekport|Ahrefs|DataForSeo|Seznam|ZoomBot|Mojeek|QRbot|Bytespider|SEOkicks|Searchmetrics|MJ12|SurveyBot|SEOdiver|wotbox|Cliqz|Paracrawl|Scrapy|VelenPublicWebCrawler|Semrush|MegaIndex\.ru|YandexMarket|Amazon|ClaudeBot)/
+			=~ /\b(bingbot|Seekport|Ahrefs|DataForSeo|Seznam|ZoomBot|Mojeek|QRbot|Bytespider|SEOkicks|Searchmetrics|MJ12|SurveyBot|SEOdiver|wotbox|Cliqz|Paracrawl|Scrapy|VelenPublicWebCrawler|Semrush|MegaIndex\.ru|YandexMarket|Amazon|GPTBot|ChatGPT-User|PerplexityBot|ClaudeBot|Claude-Web|cohere-ai|anthropic-ai|ImagesiftBot|Diffbot)/i
 			)
 		{
 			$is_denied_crawl_bot = 1;
@@ -1651,9 +1662,7 @@ sub generate_query_cache_key ($name, $context_ref, $request_ref) {
 
 sub query_list_of_tags ($request_ref, $query_ref) {
 
-	add_params_to_query($request_ref, $query_ref);
-
-	add_country_and_owner_filters_to_query($request_ref, $query_ref);
+	add_params_and_filters_to_query($request_ref, $query_ref);
 
 	my $groupby_tagtype = $request_ref->{groupby_tagtype};
 
@@ -4447,23 +4456,23 @@ HTML
 	return;
 }
 
-=head2 list_all_request_params ( $request_ref, $query_ref )
+=head2 get_all_request_params ( $request_ref )
 
-Return an array of names of all request parameters.
+Return a reference to a hash of all request parameters (CGI params and JSON body) name and values.
 
 =cut
 
-sub list_all_request_params ($request_ref) {
+sub get_all_request_params ($request_ref) {
 
 	# CGI params (query string and POST body)
-	my @params = multi_param();
+	my %params = map {$_ => decode("utf8", single_param($_))} multi_param();
 
-	# Add params from the JSON body if any
+	# Add params from the JSON body if any (JSON body overwrites CGI params if there is a conflict)
 	if (defined $request_ref->{body_json}) {
-		push @params, keys %{$request_ref->{body_json}};
+		@params{keys %{$request_ref->{body_json}}} = values %{$request_ref->{body_json}};
 	}
 
-	return @params;
+	return \%params;
 }
 
 =head2 display_search_results ( $request_ref )
@@ -4493,17 +4502,22 @@ sub display_search_results ($request_ref) {
 
 	my $current_link = '';
 
-	foreach my $field (list_all_request_params($request_ref)) {
+	my $params_ref = get_all_request_params($request_ref);
+
+	$log->debug("display_search_results - params", {params => $params_ref})
+		if $log->is_debug();
+
+	foreach my $field (sort keys %$params_ref) {
 		if (
-			   ($field eq "page")
-			or ($field eq "fields")
-			or ($field eq "keywords")    # returned by CGI.pm when there are not params: keywords=search
+			not(
+				   ($field eq "page")
+				or ($field eq "fields")
+				or ($field eq "keywords")    # returned by CGI.pm when there are not params: keywords=search
+			)
 			)
 		{
-			next;
+			$current_link .= "\&$field=" . URI::Escape::XS::encodeURIComponent($params_ref->{$field});
 		}
-
-		$current_link .= "\&$field=" . URI::Escape::XS::encodeURIComponent(decode utf8 => single_param($field));
 	}
 
 	$current_link =~ s/^\&/\?/;
@@ -4550,7 +4564,7 @@ JS
 display_user_product_preferences("#preferences_selected", "#preferences_selection_form", function () {
 	rank_and_display_products("#search_results", products, contributor_prefs);
 });
-search_products("#search_results", products, "$search_api_url");
+search_products("#search_results", products, "$search_api_url", contributor_prefs);
 JS
 			;
 
@@ -4696,20 +4710,22 @@ sub get_products_collection_request_parameters ($request_ref, $additional_parame
 	return $parameters_ref;
 }
 
-=head2 add_params_to_query ( $request_ref, $query_ref )
+=head2 add_params_and_filters_to_query ( $request_ref, $query_ref )
 
 This function is used to parse search query parameters that are passed
 to the API (/api/v?/search endpoint) or to the web site search (/search endpoint)
-either as query string parameters (e.g. ?labels_tags=en:organic) or
-POST parameters.
+either as query string parameters (e.g. ?labels_tags=en:organic),
+POST parameters, or POST JSON body parameters.
 
-The function adds the corresponding query filters in the MongoDB query.
+The function then adds the corresponding query filters in the MongoDB query.
+
+It also adds the country and owner filters to the query.
 
 =head3 Parameters
 
-=head4 $request_ref (output)
+=head4 $request_ref (input)
 
-Reference to the internal request object.
+Reference to the request object.
 
 =head4 $query_ref (output)
 
@@ -4740,6 +4756,57 @@ my %ignore_params = (
 	no_count => 1,
 );
 
+sub add_params_and_filters_to_query($request_ref, $query_ref) {
+
+	my $params_ref = get_all_request_params($request_ref);
+
+	# Filter out parameters that are not query filters
+	foreach my $field (keys %$params_ref) {
+
+		if (defined $ignore_params{$field}) {
+			delete $params_ref->{$field};
+		}
+		# Some parameters like page / page_size and sort_by are related to the query
+		# but not query filters, we set them at the request object level
+		elsif (($field eq "page") or ($field eq "page_size")) {
+			$request_ref->{$field} = $params_ref->{$field} + 0;    # Make sure we have a number
+			delete $params_ref->{$field};
+		}
+
+		elsif ($field eq "sort_by") {
+			$request_ref->{$field} = $params_ref->{$field};
+			delete $params_ref->{$field};
+		}
+	}
+
+	add_params_to_query($params_ref, $query_ref);
+
+	add_country_and_owner_filters_to_query($request_ref, $query_ref);
+
+	return;
+}
+
+=head2 add_params_to_query ( $params_ref, $query_ref )
+
+This function is used to parse search query parameters that are passed
+to the API (/api/v?/search endpoint) or to the web site search (/search endpoint)
+either as query string parameters (e.g. ?labels_tags=en:organic),
+POST parameters, or POST JSON body parameters.
+
+The function then adds the corresponding query filters in the MongoDB query.
+
+=head3 Parameters
+
+=head4 $params_ref (input)
+
+Reference to a hash of parameters (name and value).
+
+=head4 $query_ref (output)
+
+Reference to the MongoDB query object.
+
+=cut
+
 # Parameters that can be query filters passed as parameters
 # (GET query parameters, POST JSON body or from url facets),
 # in addition to tags fields.
@@ -4747,36 +4814,26 @@ my %ignore_params = (
 
 my %valid_params = (code => 1, creator => 1);
 
-sub add_params_to_query ($request_ref, $query_ref) {
+sub add_params_to_query ($params_ref, $query_ref) {
 
-	$log->debug("add_params_to_query", {params => {CGI::Vars()}}) if $log->is_debug();
+	$log->debug("add_params_to_query", {params => $params_ref}) if $log->is_debug();
 
 	# nocache was renamed to no_cache
-	if (defined single_param('nocache')) {
-		param('no_cache', single_param('nocache'));
+	if (defined $params_ref->{nocache}) {
+		$params_ref->{no_cache} = $params_ref->{nocache};
+		delete $params_ref->{nocache};
 	}
 
 	my $and = $query_ref->{"\$and"};
 
-	foreach my $field (list_all_request_params($request_ref)) {
+	foreach my $field (sort keys %$params_ref) {
 
 		$log->debug("add_params_to_query - field", {field => $field}) if $log->is_debug();
-
-		# skip params that are not query filters
-		next if (defined $ignore_params{$field});
-
-		if (($field eq "page") or ($field eq "page_size")) {
-			$request_ref->{$field} = single_param($field) + 0;    # Make sure we have a number
-		}
-
-		elsif ($field eq "sort_by") {
-			$request_ref->{$field} = single_param($field);
-		}
 
 		# Tags fields can be passed with taxonomy ids as values (e.g labels_tags=en:organic)
 		# or with values in a given language (e.g. labels_tags_fr=bio)
 
-		elsif ($field =~ /^(.*)_tags(_(\w\w))?/) {
+		if ($field =~ /^(.*)_tags(_(\w\w))?/) {
 			my $tagtype = $1;
 			my $tag_lc = $lc;
 			if (defined $3) {
@@ -4790,7 +4847,7 @@ sub add_params_to_query ($request_ref, $query_ref) {
 			# xyz_tags=-c	products without the c tag
 			# xyz_tags=a,b,-c,-d
 
-			my $values = remove_tags_and_quote(request_param($request_ref, $field));
+			my $values = remove_tags_and_quote($params_ref->{$field});
 
 			$log->debug("add_params_to_query - tags param",
 				{field => $field, lc => $lc, tag_lc => $tag_lc, values => $values})
@@ -4928,7 +4985,7 @@ sub add_params_to_query ($request_ref, $query_ref) {
 			# We can have multiple conditions, separated with a comma
 			# e.g. sugars_100g=>10,<=20
 
-			my $conditions = request_param($request_ref, $field);
+			my $conditions = $params_ref->{$field};
 
 			$log->debug("add_params_to_query - nutrient conditions", {field => $field, conditions => $conditions})
 				if $log->is_debug();
@@ -4946,7 +5003,7 @@ sub add_params_to_query ($request_ref, $query_ref) {
 				}
 				else {
 					$operator = '=';
-					$value = request_param($request_ref, $field);
+					$value = $params_ref->{$field};
 				}
 
 				$log->debug("add_params_to_query - nutrient condition",
@@ -4976,7 +5033,7 @@ sub add_params_to_query ($request_ref, $query_ref) {
 		# Exact match on a specific field (e.g. "code")
 		elsif (defined $valid_params{$field}) {
 
-			my $values = remove_tags_and_quote(request_param($request_ref, $field));
+			my $values = remove_tags_and_quote($params_ref->{$field});
 
 			# Possible values:
 			# xyz=a
@@ -5045,13 +5102,11 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 	my $cache_results_flag = scalar(not $request_ref->{is_crawl_bot});
 	my $template_data_ref = {};
 
-	add_params_to_query($request_ref, $query_ref);
-
 	$log->debug("search_and_display_products",
 		{request_ref => $request_ref, query_ref => $query_ref, sort_by => $sort_by})
 		if $log->is_debug();
 
-	add_country_and_owner_filters_to_query($request_ref, $query_ref);
+	add_params_and_filters_to_query($request_ref, $query_ref);
 
 	if (defined $limit) {
 	}
@@ -5486,90 +5541,6 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 
 	if ($count > 0) {
 
-		# Show a download link only for search queries (and not for the home page of facets)
-
-		if ($request_ref->{search}) {
-			$request_ref->{current_link_query_download} = $request_ref->{current_link};
-			if ($request_ref->{current_link} =~ /\?/) {
-				$request_ref->{current_link_query_download} .= "&download=on";
-			}
-			else {
-				$request_ref->{current_link_query_download} .= "?download=on";
-			}
-		}
-
-		$template_data_ref->{current_link_query_download} = $request_ref->{current_link_query_download};
-		$template_data_ref->{export_limit} = $export_limit;
-
-		if ($log->is_debug()) {
-			my $debug_log = "search - count: $count";
-			defined $request_ref->{search} and $debug_log .= " - request_ref->{search}: " . $request_ref->{search};
-			defined $request_ref->{tagid2} and $debug_log .= " - tagid2 " . $request_ref->{tagid2};
-			$log->debug($debug_log);
-		}
-
-		if (    (not defined $request_ref->{search})
-			and ($count >= 5)
-			and (not defined $request_ref->{tagid2})
-			and (not defined $request_ref->{product_changes_saved}))
-		{
-			$template_data_ref->{explore_products} = 'true';
-			my $nofollow = '';
-			if (defined $request_ref->{tagid}) {
-				# Prevent crawlers from going too deep in facets #938:
-				# Make the 2nd facet level "nofollow"
-				$nofollow = ' rel="nofollow"';
-			}
-
-			my @current_drilldown_fields = @ProductOpener::Config::drilldown_fields;
-			if ($country eq 'en:world') {
-				unshift(@current_drilldown_fields, "countries");
-			}
-
-			foreach my $newtagtype (@current_drilldown_fields) {
-
-				# Eco-score: currently only for moderators
-
-				if ($newtagtype eq 'ecoscore') {
-					next if not(feature_enabled("ecoscore"));
-				}
-
-				push @{$template_data_ref->{current_drilldown_fields}},
-					{
-					current_link => get_owner_pretty_path() . $request_ref->{current_link},
-					tag_type_plural => $tag_type_plural{$newtagtype}{$lc},
-					nofollow => $nofollow,
-					tagtype => $newtagtype,
-					};
-			}
-		}
-
-		$template_data_ref->{separator_before_colon} = separator_before_colon($lc);
-		$template_data_ref->{jqm_loadmore} = $request_ref->{jqm_loadmore};
-
-		my $jqm = single_param("jqm");    # Assigning to a scalar to make sure we get a scalar
-
-		for my $product_ref (@{$request_ref->{structured_response}{products}}) {
-
-			my $product_display_name = $product_ref->{product_display_name};
-			# Prevent the quantity "750 g" to be split on two lines
-			$product_display_name =~ s/(.*) (.*?)/$1\&nbsp;$2/;
-
-			push @{$template_data_ref->{structured_response_products}},
-				{
-				code => $product_ref->{code},
-				product_name => $product_display_name,
-				img => $product_ref->{image_front_small_html},
-				jqm => $jqm,
-				url => $product_ref->{product_url_path},
-				};
-
-			# remove some debug info
-			delete $product_ref->{additives};
-			delete $product_ref->{additives_prev};
-			delete $product_ref->{additives_next};
-		}
-
 		# For API queries, if the request specified a value for the fields parameter, return only the fields listed
 		# For non API queries with user preferences, we need to add attributes
 		# For non API queries, we need to compute attributes for personal search
@@ -5583,7 +5554,30 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 
 		my $customized_products_ref = [];
 
+		my $jqm = single_param("jqm");    # Assigning to a scalar to make sure we get a scalar
+
 		for my $product_ref (@{$request_ref->{structured_response}{products}}) {
+
+			# remove some debug info
+			delete $product_ref->{additives};
+			delete $product_ref->{additives_prev};
+			delete $product_ref->{additives_next};
+
+			# For non API queries, we will display the products in a template (this is for SEO, before personal search products are displayed through Javascript)
+			if (not defined $request_ref->{api}) {
+				my $product_display_name = $product_ref->{product_display_name};
+				# Prevent the quantity "750 g" to be split on two lines
+				$product_display_name =~ s/(.*) (.*?)/$1\&nbsp;$2/;
+
+				push @{$template_data_ref->{structured_response_products}},
+					{
+					code => $product_ref->{code},
+					product_name => $product_display_name,
+					img => $product_ref->{image_front_small_html},
+					jqm => $jqm,
+					url => $product_ref->{product_url_path},
+					};
+			}
 
 			my $customized_product_ref = customize_response_for_product($request_ref, $product_ref, $fields);
 
@@ -5611,12 +5605,76 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 			}
 		}
 
-		$template_data_ref->{request} = $request_ref;
-		$template_data_ref->{page_count} = $page_count;
-		$template_data_ref->{page_limit} = $limit;
-		$template_data_ref->{page} = $page;
-		$template_data_ref->{current_link} = $request_ref->{current_link};
-		$template_data_ref->{pagination} = display_pagination($request_ref, $count, $limit, $page);
+		# Compute data needed for the template to display the search results
+		if (not defined $request_ref->{api}) {
+
+			# Show a download link only for search queries (and not for the home page of facets)
+
+			if ($request_ref->{search}) {
+				$request_ref->{current_link_query_download} = $request_ref->{current_link};
+				if ($request_ref->{current_link} =~ /\?/) {
+					$request_ref->{current_link_query_download} .= "&download=on";
+				}
+				else {
+					$request_ref->{current_link_query_download} .= "?download=on";
+				}
+			}
+
+			$template_data_ref->{current_link_query_download} = $request_ref->{current_link_query_download};
+			$template_data_ref->{export_limit} = $export_limit;
+
+			if ($log->is_debug()) {
+				my $debug_log = "search - count: $count";
+				defined $request_ref->{search} and $debug_log .= " - request_ref->{search}: " . $request_ref->{search};
+				defined $request_ref->{tagid2} and $debug_log .= " - tagid2 " . $request_ref->{tagid2};
+				$log->debug($debug_log);
+			}
+
+			if (    (not defined $request_ref->{search})
+				and ($count >= 5)
+				and (not defined $request_ref->{tagid2})
+				and (not defined $request_ref->{product_changes_saved}))
+			{
+				$template_data_ref->{explore_products} = 'true';
+				my $nofollow = '';
+				if (defined $request_ref->{tagid}) {
+					# Prevent crawlers from going too deep in facets #938:
+					# Make the 2nd facet level "nofollow"
+					$nofollow = ' rel="nofollow"';
+				}
+
+				my @current_drilldown_fields = @ProductOpener::Config::drilldown_fields;
+				if ($country eq 'en:world') {
+					unshift(@current_drilldown_fields, "countries");
+				}
+
+				foreach my $newtagtype (@current_drilldown_fields) {
+
+					# Eco-score: currently only for moderators
+
+					if ($newtagtype eq 'ecoscore') {
+						next if not(feature_enabled("ecoscore"));
+					}
+
+					push @{$template_data_ref->{current_drilldown_fields}},
+						{
+						current_link => get_owner_pretty_path() . $request_ref->{current_link},
+						tag_type_plural => $tag_type_plural{$newtagtype}{$lc},
+						nofollow => $nofollow,
+						tagtype => $newtagtype,
+						};
+				}
+			}
+
+			$template_data_ref->{separator_before_colon} = separator_before_colon($lc);
+			$template_data_ref->{jqm_loadmore} = $request_ref->{jqm_loadmore};
+			$template_data_ref->{request} = $request_ref;
+			$template_data_ref->{page_count} = $page_count;
+			$template_data_ref->{page_limit} = $limit;
+			$template_data_ref->{page} = $page;
+			$template_data_ref->{current_link} = $request_ref->{current_link};
+			$template_data_ref->{pagination} = display_pagination($request_ref, $count, $limit, $page);
+		}
 	}
 
 	# if cc and/or lc have been overridden, change the relative paths to absolute paths using the new subdomain
@@ -5633,7 +5691,8 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 	my $products_json = '[]';
 
 	if (defined $request_ref->{structured_response}{products}) {
-		$products_json = $json->encode($request_ref->{structured_response}{products});
+		# We indent the JSON in the generated HTML so that we can easily see diffs in integration tests outputs
+		$products_json = $json_indent->encode($request_ref->{structured_response}{products});
 	}
 
 	my $contributor_prefs_json = $json->encode(
@@ -5760,6 +5819,8 @@ sub display_pagination ($request_ref, $count, $limit, $page) {
 
 	my $html = '';
 	my $html_pages = '';
+
+	$log->debug("PAGINATION: START\n", {count => $count, limit => $limit, page => $page}) if $log->is_debug();
 
 	my $nb_pages = int(($count - 1) / $limit) + 1;
 
@@ -5895,9 +5956,7 @@ sub search_and_export_products ($request_ref, $query_ref, $sort_by) {
 		$format = $request_ref->{format};
 	}
 
-	add_params_to_query($request_ref, $query_ref);
-
-	add_country_and_owner_filters_to_query($request_ref, $query_ref);
+	add_params_and_filters_to_query($request_ref, $query_ref);
 
 	$log->debug("search_and_export_products - MongoDB query", {format => $format, query => $query_ref})
 		if $log->is_debug();
@@ -6800,9 +6859,7 @@ HTML
 
 sub search_and_graph_products ($request_ref, $query_ref, $graph_ref) {
 
-	add_params_to_query($request_ref, $query_ref);
-
-	add_country_and_owner_filters_to_query($request_ref, $query_ref);
+	add_params_and_filters_to_query($request_ref, $query_ref);
 
 	my $cursor;
 
@@ -7152,9 +7209,7 @@ Base query that will be modified to be able to build the map
 
 sub search_products_for_map ($request_ref, $query_ref) {
 
-	add_params_to_query($request_ref, $query_ref);
-
-	add_country_and_owner_filters_to_query($request_ref, $query_ref);
+	add_params_and_filters_to_query($request_ref, $query_ref);
 
 	my $cursor;
 
@@ -9308,7 +9363,20 @@ sub data_to_display_nutriscore ($product_ref, $version = "2021") {
 
 			# Missing nutrition facts?
 			if (has_tag($product_ref, "misc", "en:nutriscore-missing-nutrition-data")) {
-				push @nutriscore_warnings, lang("nutriscore_missing_nutrition_data");
+
+				my $missing_nutrients = "";
+				foreach my $misc_tag (@{$product_ref->{misc_tags}}) {
+					if ($misc_tag =~ /^en:nutriscore-missing-nutrition-data-(.*)$/) {
+						$missing_nutrients .= display_taxonomy_tag_name($lc, "nutrients", $1) . ", ";
+					}
+				}
+				$missing_nutrients =~ s/, $//;
+
+				push @nutriscore_warnings,
+					  lang("nutriscore_missing_nutrition_data") . "<p>"
+					. lang("nutriscore_missing_nutrition_data_details") . " <b>"
+					. $missing_nutrients . "</b>" . "</p>";
+
 				if (not has_tag($product_ref, "misc", "en:nutriscore-missing-category")) {
 					$result_data_ref->{nutriscore_unknown_reason} = "missing_nutrition_data";
 					$result_data_ref->{nutriscore_unknown_reason_short}
@@ -10836,9 +10904,7 @@ XML
 
 sub display_recent_changes ($request_ref, $query_ref, $limit, $page) {
 
-	add_params_to_query($request_ref, $query_ref);
-
-	add_country_and_owner_filters_to_query($request_ref, $query_ref);
+	add_params_and_filters_to_query($request_ref, $query_ref);
 
 	if (defined $limit) {
 	}
@@ -11429,9 +11495,7 @@ Analyze the distribution of selected parent ingredients in the searched products
 
 sub search_and_analyze_recipes ($request_ref, $query_ref) {
 
-	add_params_to_query($request_ref, $query_ref);
-
-	add_country_and_owner_filters_to_query($request_ref, $query_ref);
+	add_params_and_filters_to_query($request_ref, $query_ref);
 
 	my $cursor;
 

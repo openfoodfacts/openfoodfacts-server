@@ -27,7 +27,11 @@ my @tests = (
 			lc => "en",
 			original_query_string => 'api/v0/attribute_groups',
 			no_index => '0',
-			is_crawl_bot => '1'
+			is_crawl_bot => '1',
+			rate_limiter_bucket => undef,
+			rate_limiter_blocking => 0,
+			rate_limiter_limit => undef,
+			rate_limiter_user_requests => undef
 		},
 	},
 	{
@@ -39,7 +43,11 @@ my @tests = (
 			lc => "en",
 			original_query_string => 'category/breads/no-nutrition-data',
 			no_index => '0',
-			is_crawl_bot => '0'
+			is_crawl_bot => '0',
+			rate_limiter_bucket => undef,
+			rate_limiter_blocking => 0,
+			rate_limiter_limit => undef,
+			rate_limiter_user_requests => undef
 		},
 	},
 	{
@@ -51,7 +59,11 @@ my @tests = (
 			lc => "en",
 			original_query_string => 'category/breads',
 			no_index => '0',
-			is_crawl_bot => '1'
+			is_crawl_bot => '1',
+			rate_limiter_bucket => undef,
+			rate_limiter_blocking => 0,
+			rate_limiter_limit => undef,
+			rate_limiter_user_requests => undef
 		},
 	},
 	{
@@ -63,7 +75,11 @@ my @tests = (
 			lc => "en",
 			original_query_string => 'category/breads/4',
 			no_index => '0',
-			is_crawl_bot => '1'
+			is_crawl_bot => '1',
+			rate_limiter_bucket => undef,
+			rate_limiter_blocking => 0,
+			rate_limiter_limit => undef,
+			rate_limiter_user_requests => undef
 		},
 	},
 	{
@@ -75,7 +91,11 @@ my @tests = (
 			lc => "en",
 			original_query_string => 'category/bread/4',
 			no_index => '0',
-			is_crawl_bot => '0'
+			is_crawl_bot => '0',
+			rate_limiter_bucket => undef,
+			rate_limiter_blocking => 0,
+			rate_limiter_limit => undef,
+			rate_limiter_user_requests => undef
 		},
 	},
 	{
@@ -87,7 +107,11 @@ my @tests = (
 			lc => "en",
 			original_query_string => 'api/v3/product/03564703999971',
 			no_index => '0',
-			is_crawl_bot => '0'
+			is_crawl_bot => '0',
+			rate_limiter_bucket => undef,
+			rate_limiter_blocking => 0,
+			rate_limiter_limit => undef,
+			rate_limiter_user_requests => undef
 		},
 	},
 	{
@@ -100,7 +124,11 @@ my @tests = (
 			original_query_string =>
 				'api/v3/product/https%3A%2F%2Fid.gs1.org%2F01%2F03564703999971%2F10%2FABC%2F21%2F123456%3F17%3D211200',
 			no_index => '0',
-			is_crawl_bot => '0'
+			is_crawl_bot => '0',
+			rate_limiter_bucket => undef,
+			rate_limiter_blocking => 0,
+			rate_limiter_limit => undef,
+			rate_limiter_user_requests => undef
 		},
 	},
 	{
@@ -112,7 +140,11 @@ my @tests = (
 			lc => "en",
 			original_query_string => 'category/breads/ingredients',
 			no_index => '0',
-			is_crawl_bot => '1'
+			is_crawl_bot => '1',
+			rate_limiter_bucket => undef,
+			rate_limiter_blocking => 0,
+			rate_limiter_limit => undef,
+			rate_limiter_user_requests => undef
 		},
 	},
 	{
@@ -124,7 +156,11 @@ my @tests = (
 			lc => "es",
 			original_query_string => 'category/breads/ingredients',
 			no_index => '0',
-			is_crawl_bot => '1'
+			is_crawl_bot => '1',
+			rate_limiter_bucket => undef,
+			rate_limiter_blocking => 0,
+			rate_limiter_limit => undef,
+			rate_limiter_user_requests => undef
 		},
 	},
 	{
@@ -136,6 +172,10 @@ my @tests = (
 			original_query_string => 'api/v3/geopip/12.45.23.45',
 			no_index => '0',
 			is_crawl_bot => '0',
+			rate_limiter_bucket => undef,
+			rate_limiter_blocking => 0,
+			rate_limiter_limit => undef,
+			rate_limiter_user_requests => undef
 		}
 	},
 	{
@@ -148,7 +188,63 @@ my @tests = (
 			original_query_string => 'api/v3/geopip/2001:ac8:25:3b::e01d',
 			no_index => '0',
 			is_crawl_bot => '0',
+			rate_limiter_bucket => undef,
+			rate_limiter_blocking => 0,
+			rate_limiter_limit => undef,
+			rate_limiter_user_requests => undef
 
+		},
+	},
+	# /products
+	{
+		id => 'products-code',
+		desc => 'products with a single barcode',
+		lc => "en",
+		input_request => {
+			cc => "world",
+			lc => "en",
+			original_query_string => 'products/3564703999971',
+			no_index => '0',
+			is_crawl_bot => '0',
+			rate_limiter_bucket => undef,
+			rate_limiter_blocking => 0,
+			rate_limiter_limit => undef,
+			rate_limiter_user_requests => undef
+		}
+	},
+	# /products with multiple barcodes
+	{
+		id => 'products-codes',
+		desc => 'products with multiple barcodes',
+		lc => "en",
+		input_request => {
+			cc => "world",
+			lc => "en",
+			original_query_string => 'products/3564703999971,3564703999972',
+			no_index => '0',
+			is_crawl_bot => '0',
+			rate_limiter_bucket => undef,
+			rate_limiter_blocking => 0,
+			rate_limiter_limit => undef,
+			rate_limiter_user_requests => undef
+		}
+	},
+	# Rate-limit tests
+	{
+		id => 'rate-limit-on-facet-registered-user',
+		desc => "Rate limit on facet for registered user",
+		lc => "en",
+		input_request => {
+			cc => "world",
+			lc => "en",
+			original_query_string => 'category/breads',
+			no_index => '0',
+			is_crawl_bot => '0',
+			user_id => "userid",
+			rate_limiter_bucket => undef,
+			rate_limiter_blocking => 0,
+			rate_limiter_limit => undef,
+			rate_limiter_user_requests => undef
 		},
 	},
 );

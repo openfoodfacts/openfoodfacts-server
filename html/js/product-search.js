@@ -467,7 +467,8 @@ function rank_and_display_products(target, products, contributor_prefs) {
 
 /* exported search_products */
 
-function search_products(target, products, search_api_url) {
+/* eslint-disable max-params */
+function search_products(target, products, search_api_url, contributor_prefs) {
 
 	// Retrieve generic search results from the search API
 
@@ -476,7 +477,7 @@ function search_products(target, products, search_api_url) {
 		if (data.products) {
 
 			Array.prototype.push.apply(products, data.products);
-			rank_and_display_products(target, products);
+			rank_and_display_products(target, products, contributor_prefs);
 		}
 	});
 }

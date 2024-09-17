@@ -144,12 +144,13 @@ sub get_country_for_ip_api ($request_ref) {
 
 	my $error_id;
 
-	if (not defined $request_ref->{ip}) {
+	my $ip = $request_ref->{geoip_ip};
+	if (not defined $ip) {
 		$error_id = "missing_field";
 	}
 	else {
-		$response_ref->{country} = get_country_for_ip($request_ref->{ip});
-		$response_ref->{cc} = get_country_code_for_ip($request_ref->{ip});
+		$response_ref->{country} = get_country_for_ip($ip);
+		$response_ref->{cc} = get_country_code_for_ip($ip);
 		if (not defined $response_ref->{country}) {
 			$error_id = "invalid_field";
 		}
