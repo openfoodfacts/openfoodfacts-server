@@ -92,12 +92,12 @@ JS
 	;
 
 $request_ref->{scripts} .= <<SCRIPTS
-<script src="https://static.openfoodfacts.org/js/datatables.min.js"></script>
+<script src="$static_subdomain/js/datatables.min.js"></script>
 SCRIPTS
 	;
 
 $request_ref->{header} .= <<HEADER
-<link rel="stylesheet" href="https://static.openfoodfacts.org/js/datatables.min.css">
+<link rel="stylesheet" href="$static_subdomain/js/datatables.min.css">
 <style>
    /* Custom styling for the column visibility buttons */
    .dt-button-collection .dt-button.active::before {
