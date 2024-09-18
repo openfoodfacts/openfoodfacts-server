@@ -5001,21 +5001,21 @@ msgctxt "ecoscore_information"
 msgid "Information about the Eco-score"
 msgstr "crwdns227495:0crwdne227495:0"
 
-msgctxt "preferences_edit_your_food_preferences"
-msgid "Edit your food preferences"
-msgstr "crwdns227497:0crwdne227497:0"
-
-msgctxt "preferences_your_preferences"
-msgid "Your food preferences"
-msgstr "crwdns227499:0crwdne227499:0"
-
 msgctxt "preferences_currently_selected_preferences"
 msgid "Currently selected preferences"
 msgstr "crwdns227501:0crwdne227501:0"
 
 msgctxt "preferences_locally_saved"
-msgid "Your food preferences are kept in your browser and never sent to Open Food Facts or anyone else."
-msgstr "crwdns227503:0crwdne227503:0"
+msgid "Your preferences are kept in your browser and never sent to Open Food Facts or anyone else."
+msgstr "crwdns249468:0crwdne249468:0"
+
+msgctxt "preferences_edit_your_preferences"
+msgid "Edit your preferences"
+msgstr "crwdns249470:0crwdne249470:0"
+
+msgctxt "preferences_your_preferences"
+msgid "Your preferences"
+msgstr "crwdns249472:0crwdne249472:0"
 
 # used in phrases like "salt in unknown quantity"
 msgctxt "unknown_quantity"
@@ -5846,8 +5846,21 @@ msgstr "crwdns227903:0crwdne227903:0"
 
 # variable names between { } must not be translated
 msgctxt "f_carbon_footprint_per_100g_of_product"
-msgid "{grams} g CO² per 100g of product"
-msgstr "crwdns227905:0{grams}crwdne227905:0"
+msgid "{grams} g CO₂e per 100g of product"
+msgstr "crwdns249474:0{grams}crwdne249474:0"
+
+# variable names between { } must not be translated
+msgctxt "f_carbon_footprint_per_unit"
+msgid "{kilograms} kg CO₂e per unit"
+msgstr "crwdns249476:0{kilograms}crwdne249476:0"
+
+msgctxt "average_for_the_category"
+msgid "average for the category"
+msgstr "crwdns249478:0crwdne249478:0"
+
+msgctxt "data_source_and_detailed_carbon_impact"
+msgid "Data source and detailed carbon impact"
+msgstr "crwdns249480:0crwdne249480:0"
 
 # variable names between { } must not be translated
 msgctxt "f_equal_to_driving_km_in_a_petrol_car"
@@ -7109,4 +7122,78 @@ msgstr "crwdns249442:0crwdne249442:0"
 msgctxt "open_org"
 msgid "Open org"
 msgstr "crwdns249360:0crwdne249360:0"
+
+msgctxt "secondhand"
+msgid "Secondhand"
+msgstr "crwdns249482:0crwdne249482:0"
+
+msgctxt "donated_products_title"
+msgid "Donations"
+msgstr "crwdns249484:0crwdne249484:0"
+
+msgctxt "donated_products_subtitle"
+msgid "Give this product, or search for a similar donated product"
+msgstr "crwdns249486:0crwdne249486:0"
+
+msgctxt "used_products_title"
+msgid "Used products"
+msgstr "crwdns249488:0crwdne249488:0"
+
+msgctxt "used_products_subtitle"
+msgid "Buy this product used, or search for a similar used product"
+msgstr "crwdns249490:0crwdne249490:0"
+
+msgctxt "attribute_repairability_index_france_name"
+msgid "Repairability index"
+msgstr "crwdns249492:0crwdne249492:0"
+
+msgctxt "attribute_repairability_index_france_setting_name"
+msgid "Good repairability"
+msgstr "crwdns249494:0crwdne249494:0"
+
+msgctxt "attribute_repairability_index_france_setting_note"
+msgid "Mandatory rating in France for certain products since 2021"
+msgstr "crwdns249496:0crwdne249496:0"
+
+# keep %s, it will be replaced by the letter A, B, C, D or E
+msgctxt "attribute_repairability_index_france_grade_title"
+msgid "Repairability index %s"
+msgstr "crwdns249498:0%scrwdne249498:0"
+
+msgctxt "attribute_repairability_index_france_unknown_title"
+msgid "Repairability index unknown"
+msgstr "crwdns249500:0crwdne249500:0"
+
+msgctxt "attribute_repairability_index_france_not_applicable_title"
+msgid "Repairability index not-applicable"
+msgstr "crwdns249502:0crwdne249502:0"
+
+msgctxt "attribute_repairability_index_france_not_applicable_description_short"
+msgid "Not-applicable for the category"
+msgstr "crwdns249504:0crwdne249504:0"
+
+# variable names between { } must not be translated
+msgctxt "f_attribute_repairability_index_france_not_applicable_description"
+msgid "Applicable only for categories: {categories}"
+msgstr "crwdns249506:0{categories}crwdne249506:0"
+
+msgctxt "attribute_repairability_index_france_very_good_description_short"
+msgid "Very good repairability"
+msgstr "crwdns249508:0crwdne249508:0"
+
+msgctxt "attribute_repairability_index_france_good_description_short"
+msgid "Good repairability"
+msgstr "crwdns249510:0crwdne249510:0"
+
+msgctxt "attribute_repairability_index_france_average_description_short"
+msgid "Average repairability"
+msgstr "crwdns249512:0crwdne249512:0"
+
+msgctxt "attribute_repairability_index_france_poor_description_short"
+msgid "Poor repairability"
+msgstr "crwdns249514:0crwdne249514:0"
+
+msgctxt "attribute_repairability_index_france_bad_description_short"
+msgid "Bad repairability"
+msgstr "crwdns249516:0crwdne249516:0"
 
