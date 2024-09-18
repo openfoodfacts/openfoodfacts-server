@@ -880,7 +880,7 @@ sub create_carbon_footprint_panel($product_ref, $target_lc, $target_cc, $options
 		{code => $product_ref->{code}, category_id => $category_id, value => $value})
 		if $log->is_debug();
 
-	if ($value) {
+	if (defined $value) {
 
 		my $panel_data_ref = {
 			category_id => $category_id,
