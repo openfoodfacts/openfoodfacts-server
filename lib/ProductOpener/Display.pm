@@ -961,11 +961,9 @@ CSS
 	$knowledge_panels_options_ref = {};
 
 	if (not feature_enabled("ecoscore")) {
-		$attributes_options_ref->{skip_ecoscore} = 1;
 		$knowledge_panels_options_ref->{skip_ecoscore} = 1;
 	}
 	if (not feature_enabled("forest_footprint")) {
-		$attributes_options_ref->{skip_forest_footprint} = 1;
 		$knowledge_panels_options_ref->{skip_forest_footprint} = 1;
 	}
 
@@ -1340,6 +1338,10 @@ sub display_text ($request_ref) {
 	}
 
 	my $file = "$BASE_DIRS{LANG}/$text_lc/texts/" . $texts{$textid}{$text_lc};
+	# Check if we have a flavor specific version
+	if (-e "$BASE_DIRS{LANG}/$flavor/$text_lc/texts/" . $texts{$textid}{$text_lc}) {
+		$file = "$BASE_DIRS{LANG}/$flavor/$text_lc/texts/" . $texts{$textid}{$text_lc};
+	}
 
 	display_text_content($request_ref, $textid, $text_lc, $file);
 	return;
@@ -4547,6 +4549,7 @@ sub display_search_results ($request_ref) {
 		$request_ref->{scripts} .= <<JS
 <script type="text/javascript">
 var page_type = "products";
+var default_preferences = $options{attribute_default_preferences_json};
 var preferences_text = "$preferences_text";
 var contributor_prefs = $contributor_prefs_json;
 var products = [];
@@ -5705,6 +5708,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 	$request_ref->{scripts} .= <<JS
 <script type="text/javascript">
 var page_type = "products";
+var default_preferences = $options{attribute_default_preferences_json};
 var preferences_text = "$preferences_text";
 var contributor_prefs = $contributor_prefs_json;
 var products = $products_json;
@@ -7956,6 +7960,10 @@ JS
 		= display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "environment_card");
 	$template_data_ref->{health_card_panel}
 		= display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "health_card");
+	if ($product_ref->{"knowledge_panels_" . $lc}{"secondhand_card"}) {
+		$template_data_ref->{secondhand_card_panel}
+			= display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "secondhand_card");
+	}
 	$template_data_ref->{report_problem_card_panel}
 		= display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "report_problem_card");
 	if ($product_ref->{"knowledge_panels_" . $lc}{"contribution_card"}) {
@@ -8569,6 +8577,7 @@ HTML
 		$request_ref->{scripts} .= <<JS
 <script type="text/javascript">
 var page_type = "product";
+var default_preferences = $options{attribute_default_preferences_json};
 var preferences_text = "$preferences_text";
 var product = $product_attribute_groups_json;
 </script>
