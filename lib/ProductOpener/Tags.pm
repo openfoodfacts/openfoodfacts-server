@@ -4572,6 +4572,7 @@ sub init_tags_texts {
 	return if (%tags_texts);
 
 	$log->info("loading tags texts") if $log->is_info();
+
 	if (opendir DH2, $lang_dir) {
 		foreach my $langid (readdir(DH2)) {
 			next if $langid eq '.';

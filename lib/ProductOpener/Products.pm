@@ -898,9 +898,6 @@ sub retrieve_product ($product_id) {
 			if $log->is_debug();
 	}
 	else {
-
-		# If the product is on another server, set the server field so that it will be saved in the other server if we save it
-
 		if ($product_ref->{deleted}) {
 			$log->debug(
 				"retrieve_product - deleted product",
@@ -913,6 +910,8 @@ sub retrieve_product ($product_id) {
 			) if $log->is_debug();
 			return;
 		}
+
+		# If the product is on another server, set the server field so that it will be saved in the other server if we save it
 
 		if (defined $server) {
 			$product_ref->{server} = $server;
@@ -929,9 +928,7 @@ sub retrieve_product ($product_id) {
 		else {
 			# If the product was moved previously, it may have a server field, remove it
 			delete $product_ref->{server};
-
 		}
-
 	}
 
 	return $product_ref;

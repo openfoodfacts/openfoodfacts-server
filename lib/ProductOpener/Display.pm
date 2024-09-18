@@ -1338,6 +1338,10 @@ sub display_text ($request_ref) {
 	}
 
 	my $file = "$BASE_DIRS{LANG}/$text_lc/texts/" . $texts{$textid}{$text_lc};
+	# Check if we have a flavor specific version
+	if (-e "$BASE_DIRS{LANG}/$flavor/$text_lc/texts/" . $texts{$textid}{$text_lc}) {
+		$file = "$BASE_DIRS{LANG}/$flavor/$text_lc/texts/" . $texts{$textid}{$text_lc};
+	}
 
 	display_text_content($request_ref, $textid, $text_lc, $file);
 	return;
