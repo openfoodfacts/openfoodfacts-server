@@ -21,7 +21,7 @@ server {
 	listen [::]:80;
 
 	# Product Opener needs a root domain + a wildcard for all subdomains
-	server_name *.new.openproductsfacts.org openproductsfacts.org *.openproductsfacts.org;
+	server_name openproductsfacts.org *.openproductsfacts.org;
 
 	root /srv/opf/html;
 
