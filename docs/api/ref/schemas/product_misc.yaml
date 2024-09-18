@@ -41,7 +41,7 @@ properties:
         type: string
         enum: ["low", "moderate", "high"]
       sugars:
-        type: string.
+        type: string
         enum: ["low", "moderate", "high"]
   packaging_text:
     type: string
