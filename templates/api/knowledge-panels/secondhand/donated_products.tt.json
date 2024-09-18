@@ -5,8 +5,8 @@
     ],
     "expand_for": "large",
     "title_element": {
-        "title": "[% lang('donated_products_title') %]",
-        "subtitle": "[% lang('donated_products_subtitle') %]",
+        "title": "[% edq(lang('donated_products_title')) %]",
+        "subtitle": "[% edq(lang('donated_products_subtitle')) %]",
         //"icon_url": "[% static_subdomain %]/images/panels/report_problem/signalconso.png",
     },
     "elements": [

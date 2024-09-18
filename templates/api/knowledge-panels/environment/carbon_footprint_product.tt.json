@@ -9,7 +9,7 @@
     "expanded": false,
     "title_element": {
         "title": "1 [% panel.unit_name %] = [% co2_kg_per_unit_rounded %] kg CO₂e",
-        "subtitle": "[% lang("average_for_the_category").ucfirst %][% sep %]: [% panel.category_name %]",
+        "subtitle": "[% edq(lang("average_for_the_category").ucfirst) %][% sep %]: [% panel.category_name %]",
         "icon_url": "[% static_subdomain %]/images/panels/fr-impact-co2/impact-co2.svg",
     },
     "elements": [
