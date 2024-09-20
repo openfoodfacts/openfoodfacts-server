@@ -78,6 +78,7 @@ use Clone qw/clone/;
 use File::Tail;
 use Test::Fake::HTTPD;
 use Minion;
+use List::Util qw(shuffle);
 
 no warnings qw(experimental::signatures);
 
@@ -356,7 +357,7 @@ sub origin_from_url ($url) {
 	return $url =~ /^(\w+:\/\/[^\/]+)\//;
 }
 
-=head2 execute_api_tests($file, $tests_ref, $ua=undef)
+=head2 execute_api_tests($file, $tests_ref, $ua=undef, $sequentially = 0)
 
 Initialize tests and execute them.
 
@@ -399,11 +400,15 @@ my $tests_ref = (
 
 =head4 $ua a web client (LWP::UserAgent) to use
 
-If undef we open a new client.
+If undef we open a new client for each passed test.
 
 You might need this to test with an authenticated user.
 
 Note: this setting can be overriden for each test case by specifying a "ua" field.
+
+=head4 $sequentially toggle to run tests in sequential order
+
+If undefined, tests are executed in random order to avoid side-effects from prior tests.
 
 =cut
 
@@ -634,15 +639,16 @@ sub check_request_response ($test_ref, $response, $test_id, $test_dir, $expected
 	return;
 }
 
-sub execute_api_tests ($file, $tests_ref, $ua = undef) {
+sub execute_api_tests ($file, $tests_ref, $ua = undef, $sequentially = 0) {
 
 	my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results($file));
 
-	$ua = $ua // LWP::UserAgent->new();
+	my @tests = $sequentially ? @$tests_ref : shuffle(@$tests_ref);
 
-	foreach my $test_ref (@$tests_ref) {
+	foreach my $test_ref (@tests) {
+		my $test_ua = $ua // new_client();
 
-		my $response = execute_request($test_ref, $ua);
+		my $response = execute_request($test_ref, $test_ua);
 
 		check_request_response($test_ref, $response, $test_id, $test_dir, $expected_result_dir,
 			$update_expected_results);
