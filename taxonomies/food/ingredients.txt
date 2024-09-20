@@ -22628,9 +22628,9 @@ it: aroma naturale di vaniglia di Madagascar
 nl: natuurlijk vanillearoma uit Madagaskar
 pt: aroma natural de baunilha de Madagascar
 
-# azb:وانیلین
-en: description:Vanillin is a phenolic aldehyde, which is an organic compound with the molecular formula C8H8O3.
+en: Vanillin
 ar: فانيلين
+# azb:وانیلین
 be: Ванілін
 bg: Ванилин
 ca: vanillina
@@ -22670,6 +22670,7 @@ uk: Ванілін
 uz: Vanilin
 zh: 香草醛
 comment:en: Note that the aroma's are found under the aroma section.
+description:en: Vanillin is a phenolic aldehyde, which is an organic compound with the molecular formula C8H8O3.
 wikidata:en: Q33495
 wikipedia:en: https://en.wikipedia.org/wiki/Vanillin
 # ingredient/fr:vanilline has 831 products in 10 languages @2018-12-12
@@ -29728,7 +29729,7 @@ fr: riz long semi complet
 
 < fr:riz long semi complet
 #<en:organic rice
-fr: riz long semi complet issu de l'agriculture-biologique:
+fr: riz long semi complet issu de l'agriculture-biologique
 
 < en:brown rice
 < en:long grain rice
@@ -31461,7 +31462,7 @@ sv: druvsocker
 
 # description:en:Re vanilla sugar: "Cheaper vanilla sugar is also available, made only from sugar and vanillin."
 < en:sugar
-< en:description:Vanillin is a phenolic aldehyde
+< en:vanillin
 fr: sucre vanilline
 de: Vanillinzucker
 fi: vanilliinisokeri
@@ -35705,8 +35706,6 @@ vi: Băng
 wa: Glaece
 zh: 冰
 zu: Iqhwa
-comment:en: Using wikipedia as translation is difficult, sometimes it is translated as soya, soybean or glycine max, note that soya is english and soy is american
-description:en: SOYA is used as a generic word to indicate it is made from soybeans
 # azb:بوز
 # be-tarask:лёд
 # bho:बरफ
@@ -35813,6 +35812,8 @@ zh: 黄豆, 大豆类制品
 # kbp:Soojaa
 # lfn:Soia
 # war:Soya
+comment:en: Using wikipedia as translation is difficult, sometimes it is translated as soya, soybean or glycine max, note that soya is english and soy is american
+description:en: SOYA is used as a generic word to indicate it is made from soybeans
 vegan:en: yes
 vegetarian:en: yes
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/soy
@@ -40877,7 +40878,8 @@ it: concentrato di succo di mele
 ja: 濃縮りんご果汁
 nl: appeldiksap, appelsap ingedikt tot stroop, geconcentreerd appelsap, appelsapconcentraat
 pl: zagęszczony sok jabłkowy, koncentrat soku jabłkowego
-pt: Sumo de maçã concentradoru:Концентрированный яблочный сок
+pt: Sumo de maçã concentrado
+ru: Концентрированный яблочный сок
 sv: äppeljuicekoncentrat
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/concentrated-apple-juice
 # 423 products in 5 languages @2018-10-04
@@ -42390,7 +42392,6 @@ en: squeezed tangerine juices
 es: zumo de mandarina exprimada
 
 < en:mandarin
-< en:mandarin peel
 en: mandarin peel, mandarin with peel
 bg: кора от мандарина
 cs: mandarinková kůra
@@ -46937,7 +46938,7 @@ nl: frambozenlikeur
 
 < en:sauce
 en: raspberry sauce
-de: Himbeersauce de:Himbeersoße
+de: Himbeersauce, Himbeersoße
 fr: sauce aux framboises, sauce à la framboise, sauce framboise
 hr: umak od malina
 
@@ -62878,7 +62879,7 @@ wikidata:en: Q27658833
 # ingredient/nl:biologisch-venkelzaad has 1 product @2019-05-24
 
 < en:seed
-en: description: SALVIA HISPANICA, commonly known as CHIA, is a species of flowering plant in the mint family, Lamiaceae
+en: Lamiaceae
 xx: chia
 bg: чиа
 es: chía negra
@@ -62886,12 +62887,13 @@ hr: biljke chia
 la: Salvia hispanica
 pl: szałwia hiszpańska, chia, salvia hispanica, szałwii hiszpańskiej
 # ingredient/chia has 430 products @2021-08-20
+description:en: SALVIA HISPANICA, commonly known as CHIA, is a species of flowering plant in the mint family
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q27688832
 
 
-< en:description: SALVIA HISPANICA
+< en:Lamiaceae
 < en:seed
 en: chia seed, chia seeds
 ar: بذرة الشيا
@@ -69486,7 +69488,8 @@ ku: Sûs
 la: Glycyrrhiza glabra
 lb: Séissholz
 lt: Paprastasis saldymedis
-lv: lakrica# mai:मुलेठी
+lv: lakrica
+# mai:मुलेठी
 ml: ഇരട്ടിമധുരം
 mr: ज्येष्ठमध
 ms: Akar manis
@@ -73407,7 +73410,7 @@ ru: Млечник
 sl: Mlečnica
 sv: Riskor
 tt: Гөреҗдә
-ud: Нингубиuk:Хрящ-молочник
+ud: Нингубиuk, Хрящ-молочник
 zh: 乳菇屬
 description:en: LACTARIUS is a genus of mushroom-producing, ectomycorrhizal fungi, containing several edible species.
 # myv:Пиче панго
@@ -76726,7 +76729,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Lutjanus_russellii
 
 #<en:fish
 < en:white fish
-en: description:The saithe (Pollachius virens) is a species of marine fish in the Pollachius genus.
+en: saithe, pollock
 bg: сайда
 bn: পোলক
 br: Levneg du
@@ -76768,6 +76771,7 @@ zh: 綠青鱈
 ciqual_food_code:en: 26134
 ciqual_food_name:en: Saithe, raw
 ciqual_food_name:fr: Lieu noir, cru
+description:en: The saithe (Pollachius virens) is a species of marine fish in the Pollachius genus.
 # ast:carboneru
 # en-gb:Saithe
 wikipedia:en: https://en.wikipedia.org/wiki/Pollachius_virens
@@ -76794,7 +76798,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Pollachius_virens
 #ciqual_food_name:en:Saithe, cooked
 #ciqual_food_name:fr:Lieu noir, cuit
 
-< en:description:The saithe (Pollachius virens) is a species of marine fish in the Pollachius genus.
+< en:saithe
 fr: filet de lieu noir
 fi: seitifilee
 nl: koolvisfilet
@@ -80089,7 +80093,7 @@ en: scallop with coral
 de: Jakobsmuschel mit Koralle
 es: Vieira con coral
 fr: Coquilles Saint-Jacques avec noix et corail
-hr: jakobova kapica s koraljimaciqual_food_code:en:10003
+hr: jakobova kapica s koraljima
 it: Capasanta con corallo
 ciqual_food_code:en: 10003
 ciqual_food_name:en: Scallop, with coral, raw
@@ -92756,7 +92760,8 @@ kn: ಮಾರ್ಗರೀನ್‌
 ko: 마가린
 lt: Margarinas
 mk: Маргарин
-ms: Marjerinnb:margarin
+ms: Marjerin
+nb: margarin
 ne: मार्गरिन
 nl: margarine
 oc: margarine
