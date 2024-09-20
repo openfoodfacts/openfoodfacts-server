@@ -22675,7 +22675,7 @@ wikidata:en: Q33495
 wikipedia:en: https://en.wikipedia.org/wiki/Vanillin
 # ingredient/fr:vanilline has 831 products in 10 languages @2018-12-12
 
-< en:description:Vanillin is a phenolic aldehyde
+< en:Vanillin
 en: ethylvanillin
 de: Ethylvanillin
 es: etilvainillina, etil vainillina
@@ -38277,7 +38277,6 @@ wikipedia:en: https://en.wikipedia.org/wiki/Juice
 # 1687 products in 6 languages @2018-10-04
 
 # don't put under fruit juice, because concentrate fruit juices that are not reconstituted to 100% of their initial volume don't count for the nutriscore
-< en:fruit juice concentrate
 en: fruit juice concentrate, fruit juice from concentrate, fruit juices from concentrate
 da: Frugtjuicekoncentrat
 de: Fruchtsaftkonzentrat, Fruchtsäfte Konzentrat, Fruchtsaft auf Konzentrat Basis, Fruchtsaft aus Fruchtsaftkonzentrat, Fruchtsaft aus Fruchtsaftkonzentraten, Fruchtsäfte aus Konzentraten
@@ -44803,8 +44802,7 @@ sv: fläderbärsjuice
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-sureau
 # 52 products @2018-09-29
 
-< en:elderberry juice
-< en:elderberry juice concentrate
+< en:fruit juice concentrate
 en: elderberry juice concentrate, concentrated elderberry juice, elderberry juice from concentrate
 bg: сок от бъз от концентрат
 de: konzentrierter Holundersaft, Holundersaft aus Konzentrat
@@ -47241,8 +47239,7 @@ pl: sok truskawkowy, sok z truskawki, sok z truskawek
 pt: Sumo de morango
 sv: jordgubbsjuice, jordgubbssaft
 
-< en:strawberry juice
-< en:strawberry juice concentrate
+< en:fruit juice concentrate
 en: strawberry juice concentrate, concentrated strawberry juice, strawberry juice from concentrate
 bg: сок от ягода от концентрат
 de: erdbeersaftkonzentrat, Erdbeersaft aus Konzentrat, Erdbeersaft aus Erdbeersaftkonzentrat, Erdbeersaft aus Fruchtsaftkonzentrat
@@ -80901,7 +80898,6 @@ fr: extrait de crustacé
 
 # description:en:Cancer pagurus, commonly known as the edible crab or brown crab, is a species of crab found in the North Sea, North Atlantic Ocean
 
-< en:crab
 < en:crustacean
 en: crab, edible crab, brown crab
 af: Krap
