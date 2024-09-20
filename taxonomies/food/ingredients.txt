@@ -294,8 +294,6 @@ fr: éclats de caramel au beurre salé
 # éclats de caramel au beurre salé (sucre, sirop de glucose, crème fraîche de Normandie, beurre salé , lait écrémé en poudre, fleur de sel de Guérande, caramel (sirop de glucose-fructose, eau))
 
 
-# description:en:Carotenoids are yellow, orange, and red organic pigments that are produced by plants and algae, as well as several bacteria and fungi. Carotenoids from the diet are stored in the fatty tissues of animals. There is insufficient evidence to state that carotenoids have an antioxidant function in humans or that carotenoid dietary supplements lower the risk of or prevent diseases.
-# comment:en:Translations mix carotene and carotenoids.
 
 en: carotenoids, cartenoids, tetraterpenoids
 ar: كاروتينات
@@ -355,6 +353,8 @@ zh: 類胡蘿蔔素
 # zh-hk:類胡蘿蔔素
 # zh-sg:类胡萝蔔素
 # zh-tw:類胡蘿蔔素
+comment:en: Translations mix carotene and carotenoids.
+description:en: Carotenoids are yellow, orange, and red organic pigments that are produced by plants and algae, as well as several bacteria and fungi. Carotenoids from the diet are stored in the fatty tissues of animals. There is insufficient evidence to state that carotenoids have an antioxidant function in humans or that carotenoid dietary supplements lower the risk of or prevent diseases.
 wikidata:en: Q191907
 wikipedia:en: https://en.wikipedia.org/wiki/Carotenoid
 # ingredient/fr:caroténoïde has 2195 products in 12 languages @2019-04-29
@@ -448,7 +448,6 @@ it: estratto naturale di paprica, estratto naturale di paprika
 lt: natūralus paprikos ekstraktas
 pt: extrato natural de pimentão, extrato natural de pimento
 
-# description:en:PAPRIKA OLEORESIN (also known as PAPRIKA EXTRACT and oleoresin paprika) is an oil-soluble extract from the fruits of Capsicum annuum or Capsicum frutescens, and is primarily used as a colouring and/or flavouring in food products.
 
 < en:paprika extract
 en: paprika oleoresin, capsanthin
@@ -463,6 +462,7 @@ hu: Paprika oleorezin
 # en:capsanthin 4 products @2018-10-15
 # http://www.fao.org/gsfaonline/additives/results.html?techFunction=10&searchBy=tf
 it: capsantina, oleoresina di paprica, oleoresina di paprika
+description:en: PAPRIKA OLEORESIN (also known as PAPRIKA EXTRACT and oleoresin paprika) is an oil-soluble extract from the fruits of Capsicum annuum or Capsicum frutescens, and is primarily used as a colouring and/or flavouring in food products.
 wikidata:en: Q425431
 wikipedia:en: https://en.wikipedia.org/wiki/Paprika_oleoresin
 
@@ -630,7 +630,6 @@ pt: emulsionante lecitinas
 
 
 
-# description:en:GLYCEROL MONOSTEARATE, commonly known as GMS, is a monoglyceride commonly used as an emulsifier in foods. GMS is a food additive used as a thickening, emulsifying, anticaking, and preservative agent; an emulsifying agent for oils, waxes, and solvents; a protective coating for hygroscopic powders; a solidifier and control release agent in pharmaceuticals; and a resin lubricant.
 # Has NO E-number!!!
 
 en: Glycerol monostearate
@@ -654,14 +653,14 @@ pt: monoestearato de glicerina
 sh: Glicerol monostearat
 sr: Glicerol monostearat
 zh: 单硬脂酸甘油酯
-# ingredient/fr:monostéarate-de-glycérol has 54 products in french @2019-03-28
-from_palm_oil:en: maybe
 # azb:قیسرول مونوستارات
 # en-ca:Glycerol monostearate
 # en-gb:Glycerol monostearate
+description:en: GLYCEROL MONOSTEARATE, commonly known as GMS, is a monoglyceride commonly used as an emulsifier in foods. GMS is a food additive used as a thickening, emulsifying, anticaking, and preservative agent; an emulsifying agent for oils, waxes, and solvents; a protective coating for hygroscopic powders; a solidifier and control release agent in pharmaceuticals; and a resin lubricant.
+# ingredient/fr:monostéarate-de-glycérol has 54 products in french @2019-03-28
+from_palm_oil:en: maybe
 wikipedia:en: https://en.wikipedia.org/wiki/Glycerol_monostearate
 
-# description:en:GELATIN or GELATINE is a translucent, colorless, brittle (when dry), flavorless food ingredient that is derived from collagen obtained from various animal body parts.
 
 # The E-numbers for gelatin are removed by the EU. It should now be noted as an ingredient.
 
@@ -672,8 +671,9 @@ hr: želatina
 it: gelatina
 ja: ゼラチン
 lt: želatina, želatinos
-vegan:en: no
 # ingredient/fr:gélatine has 1575 products in 12 languages @2019-02-10
+description:en: GELATIN or GELATINE is a translucent, colorless, brittle (when dry), flavorless food ingredient that is derived from collagen obtained from various animal body parts.
+vegan:en: no
 vegetarian:en: no
 wikipedia:en: https://en.wikipedia.org/wiki/Gelatin
 
@@ -84136,8 +84136,6 @@ ru: cолёные огурцы
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-# description:en: Poultry are domesticated birds kept by humans for their eggs, their meat or their feathers.
-
 # <en:animal
 en: poultry
 af: pluimvee
@@ -92142,7 +92140,6 @@ wikipedia:fr: https://fr.wikipedia.org/wiki/Nuoc-mâm
 # category:fr:sauces-nuoc-mam
 # 260 in 7 @2021-10-18
 
-# description:en: SOY SAUCE is a liquid condiment of Chinese origin, made from a fermented paste of soybeans, roasted grain, brine, and Aspergillus oryzae or Aspergillus sojae molds.
 
 #en:category:en:Soy sauces
 < en:sauce
