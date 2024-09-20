@@ -16703,18 +16703,30 @@ fr: Huile de palmiste fractionnée
 hr: frakcionirano ulje palminih koštica
 it: Olio di palmisti frazionato
 
+
 # The and/or ingredients, also used as a container
 
 < en:palm kernel oil
 < en:palm oil
-en: palm and palm kernel oil, palm or palm kernel oil, palm oil or palm kernel oil, palm or palm kernel
-de: Palm- und Palmkernöl, Palmöl und Palmkernöl, Palmöl oder Palmkernöl, Palm- oder Palmkernöl
+en: palm and palm kernel oil
+de: Palm- und Palmkernöl, Palmöl und Palmkernöl
 es: aceite de palma y palmiste
-fi: palmu- ja palmuydinöljy, palmu tai palmuydinöljy, palmuöljy tai palmuydinöljy, palmu tai palmuydin
-fr: huile de palme et de palmiste, huile de palme ou de palmiste, huile de palme ou huile de palmiste, palme ou palmiste
-hr: palma i ulje palminih koštica, palmino ulje ili ulje palminih koštica
-hu: pálma- és pálmamagolaj, pálmaolaj és pálmamagolaj, pálma- vagy pálmamagolaj, pálmaolaj vagy pálmamagolaj
-nl: palmolie en palmkernolie, palmolie of palmkernolie
+fi: palmu- ja palmuydinöljy
+fr: huile de palme et de palmiste
+hr: palma i ulje palminih koštica
+hu: pálma- és pálmamagolaj, pálmaolaj és pálmamagolaj
+nl: palmolie en palmkernolie
+
+< en:palm kernel oil
+< en:palm oil
+en: palm or palm kernel oil, palm oil or palm kernel oil, palm or palm kernel
+de: Palmöl oder Palmkernöl, Palm- oder Palmkernöl
+fi: palmu tai palmuydinöljy, palmuöljy tai palmuydinöljy, palmu tai palmuydin
+fr: huile de palme ou de palmiste, huile de palme ou huile de palmiste, palme ou palmiste
+hr: palmino ulje ili ulje palminih koštica
+hu: pálma- vagy pálmamagolaj, pálmaolaj vagy pálmamagolaj
+nl: palmolie of palmkernolie
+
 
 < en:vegetable oil
 en: cashew nut oil
@@ -38277,20 +38289,33 @@ wikipedia:en: https://en.wikipedia.org/wiki/Juice
 # 1687 products in 6 languages @2018-10-04
 
 # don't put under fruit juice, because concentrate fruit juices that are not reconstituted to 100% of their initial volume don't count for the nutriscore
-en: fruit juice concentrate, fruit juice from concentrate, fruit juices from concentrate
+en: fruit juice concentrate
 da: Frugtjuicekoncentrat
-de: Fruchtsaftkonzentrat, Fruchtsäfte Konzentrat, Fruchtsaft auf Konzentrat Basis, Fruchtsaft aus Fruchtsaftkonzentrat, Fruchtsaft aus Fruchtsaftkonzentraten, Fruchtsäfte aus Konzentraten
-es: Jugo de frutas concentrado, zumo de frutas a partir de concentrado, jugo de frutas procedente de concentrado
-fi: hedelmämehutiiviste, hedelmämehu tiivisteestä, hedelmämehut tiivisteestä, tiivisteestä valmistetut täysmehut
-fr: jus concentré de fruits, jus de fruits concentrés, jus de fruits à base de concentré, jus de fruits à base de concentrés, jus de fruits à base de jus concentrés
+de: Fruchtsaftkonzentrat, Fruchtsäfte Konzentrat
+es: Jugo de frutas concentrado
+fi: hedelmämehutiiviste
+fr: jus concentré de fruits, jus de fruits concentrés
 he: תרכיז מיץ פרות, תרכיז מיץ פירות, תרכיז מיצי פירות
-hr: koncentrirani voćni sok, vočni sok iz koncentrata, voćnog soka od koncentriranog soka, soka više vrsta voća od koncentriranog soka
-it: Concentrato di succo di frutta, succhi di frutta a base di concentrato, succhi di frutta a base di concentrati
-nl: vruchtensapconcentraat, vruchtsap van concentraat, vruchtensap uit concentraat
-pl: Koncentrat soku owocowego, zagęszczone soki owocowe, sok owocowy z koncentratu, soki owocowe z koncentratu, sok owocowy z koncentratu z, soki z soków zagęszczonych, soki z zagęszczonych soków, soki owocowe z zagęszczonych soków owocowych
+hr: koncentrirani voćni sok
+it: Concentrato di succo di frutta
+nl: vruchtensapconcentraat
+pl: Koncentrat soku owocowego, zagęszczone soki owocowe
 ru: Концентрат фруктового сока
-sv: fruktjuicekoncentrat, fruktjuice från koncentrat, juicer framställd av koncentrat, juice från koncentrat, frukt juice från koncentrat
+sv: fruktjuicekoncentrat
 nova:en: 4
+
+
+< en:fruit juice concentrate
+en: fruit juice from concentrate, fruit juices from concentrate
+de: Fruchtsaft auf Konzentrat Basis, Fruchtsaft aus Fruchtsaftkonzentrat, Fruchtsaft aus Fruchtsaftkonzentraten, Fruchtsäfte aus Konzentraten
+es: zumo de frutas a partir de concentrado, jugo de frutas procedente de concentrado
+fi: hedelmämehu tiivisteestä, hedelmämehut tiivisteestä, tiivisteestä valmistetut täysmehut
+fr: jus de fruits à base de concentré, jus de fruits à base de concentrés, jus de fruits à base de jus concentrés
+hr: vočni sok iz koncentrata, voćnog soka od koncentriranog soka, soka više vrsta voća od koncentriranog soka
+it: succhi di frutta a base di concentrato, succhi di frutta a base di concentrati
+nl: vruchtsap van concentraat, vruchtensap uit concentraat
+pl: sok owocowy z koncentratu, soki owocowe z koncentratu, sok owocowy z koncentratu z, soki z soków zagęszczonych, soki z zagęszczonych soków, soki owocowe z zagęszczonych soków owocowych
+sv: fruktjuice från koncentrat, juicer framställd av koncentrat, juice från koncentrat, frukt juice från koncentrat
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-fruits-à-base-de-concentré
 # 650 products in 7 languages @2018-10-04
 
