@@ -169,11 +169,22 @@ sub store_org ($org_ref) {
 	# retrieve eventual previous values
 	my $previous_org_ref = retrieve("$BASE_DIRS{ORGS}/$org_ref->{org_id}.sto");
 
+	if (defined $org_ref->{creator}) {
+		my $creator_user_ref = retrieve_user($org_ref->{creator});
+		if (defined $creator_user_ref) {
+			my $creator_email = $creator_user_ref->{email};
+			if (defined $creator_email) {
+				$org_ref->{creator_email} = $creator_email;
+			}
+		}
+	}
+
 	if (   (defined $previous_org_ref)
-		&& $previous_org_ref->{valid_org} ne 'accepted'
-		&& $org_ref->{valid_org} eq 'accepted')
+		&& ($previous_org_ref->{valid_org} ne 'accepted')
+		&& ($org_ref->{valid_org} eq 'accepted')
+		&& (not sync_org_with_crm($org_ref, $User_id)))
 	{
-		sync_org_with_crm($org_ref, $User_id);
+		$org_ref->{valid_org} = 'unreviewed';
 	}
 
 	if (    defined $org_ref->{crm_org_id}
@@ -185,12 +196,12 @@ sub store_org ($org_ref) {
 		$org_ref->{main_contact} = $previous_org_ref->{main_contact};
 	}
 
+	# Store to file
+	store("$BASE_DIRS{ORGS}/" . $org_ref->{org_id} . ".sto", $org_ref);
+
 	# Store to MongoDB
 	my $orgs_collection = get_orgs_collection();
 	$orgs_collection->replace_one({"org_id" => $org_ref->{org_id}}, $org_ref, {upsert => 1});
-
-	# Store to file
-	store("$BASE_DIRS{ORGS}/" . $org_ref->{org_id} . ".sto", $org_ref);
 
 	return;
 }
