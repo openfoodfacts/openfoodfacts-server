@@ -772,6 +772,7 @@ sub init_product ($userid, $orgid, $code, $countryid) {
 		created_t => time(),
 		creator => $creator,
 		rev => 0,
+		product_type => $options{product_type},
 	};
 
 	if (defined $server) {
@@ -889,7 +890,6 @@ sub retrieve_product ($product_id) {
 
 	my $product_ref = retrieve($full_product_path);
 
-	# If the product is on another server, set the server field so that it will be saved in the other server if we save it
 	my $server = server_for_product_id($product_id);
 
 	if (not defined $product_ref) {
@@ -898,6 +898,21 @@ sub retrieve_product ($product_id) {
 			if $log->is_debug();
 	}
 	else {
+		if ($product_ref->{deleted}) {
+			$log->debug(
+				"retrieve_product - deleted product",
+				{
+					product_id => $product_id,
+					product_data_root => $product_data_root,
+					path => $path,
+					server => $server
+				}
+			) if $log->is_debug();
+			return;
+		}
+
+		# If the product is on another server, set the server field so that it will be saved in the other server if we save it
+
 		if (defined $server) {
 			$product_ref->{server} = $server;
 			$log->debug(
@@ -910,18 +925,9 @@ sub retrieve_product ($product_id) {
 				}
 			) if $log->is_debug();
 		}
-
-		if ($product_ref->{deleted}) {
-			$log->debug(
-				"retrieve_product - deleted product",
-				{
-					product_id => $product_id,
-					product_data_root => $product_data_root,
-					path => $path,
-					server => $server
-				}
-			) if $log->is_debug();
-			return;
+		else {
+			# If the product was moved previously, it may have a server field, remove it
+			delete $product_ref->{server};
 		}
 	}
 
@@ -935,17 +941,23 @@ sub retrieve_product_or_deleted_product ($product_id, $deleted_ok = 1) {
 
 	my $product_ref = retrieve("$product_data_root/products/$path/product.sto");
 
-	# If the product is on another server, set the server field so that it will be saved in the other server if we save it
-	my $server = server_for_product_id($product_id);
-	if ((defined $product_ref) and (defined $server)) {
-		$product_ref->{server} = $server;
-	}
-
 	if (    (defined $product_ref)
 		and ($product_ref->{deleted})
 		and (not $deleted_ok))
 	{
 		return;
+	}
+
+	if (defined $product_ref) {
+		# If the product is on another server, set the server field so that it will be saved in the other server if we save it
+		my $server = server_for_product_id($product_id);
+		if (defined $server) {
+			$product_ref->{server} = $server;
+		}
+		else {
+			# If the product was moved previously, it may have a server field, remove it
+			delete $product_ref->{server};
+		}
 	}
 
 	return $product_ref;
@@ -962,14 +974,21 @@ sub retrieve_product_rev ($product_id, $rev) {
 
 	my $product_ref = retrieve("$product_data_root/products/$path/$rev.sto");
 
-	# If the product is on another server, set the server field so that it will be saved in the other server if we save it
-	my $server = server_for_product_id($product_id);
-	if ((defined $product_ref) and (defined $server)) {
-		$product_ref->{server} = $server;
-	}
+	if (defined $product_ref) {
 
-	if ((defined $product_ref) and ($product_ref->{deleted})) {
-		return;
+		if ($product_ref->{deleted}) {
+			return;
+		}
+
+		# If the product is on another server, set the server field so that it will be saved in the other server if we save it
+		my $server = server_for_product_id($product_id);
+		if (defined $server) {
+			$product_ref->{server} = $server;
+		}
+		else {
+			# If the product was moved previously, it may have a server field, remove it
+			delete $product_ref->{server};
+		}
 	}
 
 	return $product_ref;
