@@ -77,6 +77,7 @@ BEGIN {
 		&generate_token
 		&update_login_time
 
+		&welcome_user_task
 		&delete_user_task
 
 	);    # symbols to export on request
@@ -135,6 +136,88 @@ sub generate_token ($name_length) {
 }
 
 # we use user_init() now and not create_user()
+
+=head2 welcome_user_task ($job, $args_ref)
+
+C<welcome_user_task()> Background task that welcomes a user.
+This function sends a welcome mail to the user.
+
+=head3 Arguments
+
+Minion job arguments. $args_ref contains the userid and email
+
+=cut
+
+sub welcome_user_task ($job, $args_ref) {
+	return if not defined $job;
+
+	my $job_id = $job->{id};
+
+	my $log_message = "welcome_user_task - job: $job_id started - args: " . encode_json($args_ref) . "\n";
+	open(my $minion_log, ">>", "$BASE_DIRS{LOGS}/minion.log");
+	print $minion_log $log_message;
+	close($minion_log);
+
+	print STDERR $log_message;
+
+	my $userid = $args_ref->{userid};
+	my $user_ref = find_user_by_username($userid);
+
+	# Fetch the HTML mail template corresponding to the user language, english is the
+	# default if the translation is not available
+	my $language = $user_ref->{attributes}->{preferred_language};
+	my $email_content = get_html_email_content("user_welcome.html", $language);
+	my $user_name = $user_ref->{attributes}->{name} || $userid;
+	# Replace placeholders by user values
+	$email_content =~ s/\{\{USERID\}\}/$userid/g;
+	$email_content =~ s/\{\{NAME\}\}/$user_name/g;
+	$error = send_html_email($user_ref, lang("add_user_email_subject"), $email_content);
+
+	$job->finish("done");
+
+	return;
+}
+
+=head2 subscribe_user_newsletter_task ($job, $args_ref)
+
+C<subscribe_user_newsletter_task()> Background task that adds the user to Brevo.
+This function uses the Brevo API to add the user to the address.
+
+=head3 Arguments
+
+Minion job arguments. $args_ref contains the userid and email
+
+=cut
+
+sub subscribe_user_newsletter_task ($job, $args_ref) {
+	return if not defined $job;
+
+	my $job_id = $job->{id};
+
+	my $log_message = "subscribe_user_newsletter_task - job: $job_id started - args: " . encode_json($args_ref) . "\n";
+	open(my $minion_log, ">>", "$BASE_DIRS{LOGS}/minion.log");
+	print $minion_log $log_message;
+	close($minion_log);
+
+	print STDERR $log_message;
+
+	my $userid = $args_ref->{userid};
+	my $user_ref = find_user_by_username($userid);
+	if (not(defined $user_ref)) {
+		$job->fail({errors => ['User with id ' . $userid . ' not found in Keycloak.']});
+		return;
+	}
+
+	add_contact_to_list(
+		$user_ref->{email}, $user_ref->{username},
+		$user_ref->{attributes}->{country},
+		$user_ref->{attributes}->{preferred_language}
+	);
+
+	$job->finish("done");
+
+	return;
+}
 
 =head2 delete_user_task ($job, $args_ref)
 
@@ -583,49 +666,7 @@ sub process_user_form ($type, $user_ref, $request_ref) {
 	# save user
 	store_user($user_ref);
 
-	if ($type eq 'add') {
-
-		# Initialize the session to send a session cookie back
-		# so that newly created users do not have to login right after
-
-		param("user_id", $userid);
-		init_user($request_ref);
-
-		# Fetch the HTML mail template corresponding to the user language, english is the
-		# default if the translation is not available
-		my $language = $user_ref->{preferred_language} || $user_ref->{initial_lc};
-		my $email_content = get_html_email_content("user_welcome.html", $language);
-		my $user_name = $user_ref->{name};
-		# Replace placeholders by user values
-		$email_content =~ s/\{\{USERID\}\}/$userid/g;
-		$email_content =~ s/\{\{NAME\}\}/$user_name/g;
-		$error = send_html_email($user_ref, lang("add_user_email_subject"), $email_content);
-
-		my $admin_mail_body = <<EMAIL
-
-Bonjour,
-
-Inscription d'un utilisateur :
-
-name: $user_ref->{name}
-email: $user_ref->{email}
-twitter: https://twitter.com/$user_ref->{twitter}
-newsletter: $user_ref->{newsletter}
-discussion: $user_ref->{discussion}
-lc: $user_ref->{initial_lc}
-cc: $user_ref->{initial_cc}
-
-EMAIL
-			;
-		$error += send_email_to_admin("Inscription de $userid", $admin_mail_body);
-	}
-	# Check if the user subscribed to the newsletter
-	if ($user_ref->{newsletter}) {
-		add_contact_to_list($user_ref->{email}, $user_ref->{user_id}, $user_ref->{country},
-			$user_ref->{preferred_language});
-	}
-
-	return $error;
+	return;
 }
 
 =head2 check_edit_owner($user_ref, $errors_ref)

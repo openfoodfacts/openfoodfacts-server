@@ -175,6 +175,24 @@ sub create_user ($self, $user_ref, $password) {
 	return $created_users[0];
 }
 
+=head2 find_user_by_username ($username)
+
+Try to find a user in Keycloak by their username.
+
+=head3 Arguments
+
+=head4 User's username $username
+
+=head3 Return Value
+
+A hashmap reference with user information from Keycloak.
+
+=cut
+
+sub find_user_by_username ($self, $username) {
+	return _find_user_by_single_attribute_exact('username', $username);
+}
+
 =head2 find_user_by_email ($mail)
 
 Try to find a user in Keycloak by their mail address.
@@ -190,26 +208,7 @@ A hashmap reference with user information from Keycloak.
 =cut
 
 sub find_user_by_email ($self, $email) {
-	# use a special application authorization to handle search
-	my $token = $self->get_or_refresh_token();
-	unless ($token) {
-		display_error_and_exit('Could not get token to search users with keycloak_users_endpoint', 500);
-	}
-
-	# create request with right headers
-	my $search_uri = $self->{users_endpoint} . '?exact=true&email=' . uri_escape($email);
-	my $search_user_request = HTTP::Request->new(GET => $search_uri);
-	$search_user_request->header('Accept' => 'application/json');
-	$search_user_request->header('Authorization' => $token->{token_type} . ' ' . $token->{access_token});
-	# issue the request to keycloak
-	my $search_user_response = LWP::UserAgent::Plugin->new->request($search_user_request);
-	unless ($search_user_response->is_success) {
-		display_error_and_exit($search_user_response->content, 500);
-	}
-
-	my $json_response = $search_user_response->decoded_content(charset => 'UTF-8');
-	my $users = decode_json($json_response);
-	return $$users[0];
+	return _find_user_by_single_attribute_exact('email', $email);
 }
 
 =head2 get_account_link()
@@ -233,6 +232,47 @@ sub get_account_link ($self, $url) {
 		. uri_escape($oidc_options{client_id})
 		. '&referrer_uri='
 		. uri_escape($url);
+}
+
+=head2 _find_user_by_single_attribute_exact ($name, $value)
+
+Try to find a user in Keycloak by a single attribute key/value combo.
+
+This should only be used with unique attributes like email or username.
+
+=head3 Arguments
+
+=head4 Name of the attribute $name
+
+=head4 Value of the attribute $value
+
+=head3 Return Value
+
+A hashmap reference with user information from Keycloak.
+
+=cut
+
+sub _find_user_by_single_attribute_exact ($self, $name, $value) {
+	# use a special application authorization to handle search
+	my $token = $self->get_or_refresh_token();
+	unless ($token) {
+		display_error_and_exit('Could not get token to search users with keycloak_users_endpoint', 500);
+	}
+
+	# create request with right headers
+	my $search_uri = $self->{users_endpoint} . '?exact=true&' . uri_escape($name) . '=' . uri_escape($value);
+	my $search_user_request = HTTP::Request->new(GET => $search_uri);
+	$search_user_request->header('Accept' => 'application/json');
+	$search_user_request->header('Authorization' => $token->{token_type} . ' ' . $token->{access_token});
+	# issue the request to keycloak
+	my $search_user_response = LWP::UserAgent::Plugin->new->request($search_user_request);
+	unless ($search_user_response->is_success) {
+		display_error_and_exit($search_user_response->content, 500);
+	}
+
+	my $json_response = $search_user_response->decoded_content(charset => 'UTF-8');
+	my $users = decode_json($json_response);
+	return $$users[0];
 }
 
 1;

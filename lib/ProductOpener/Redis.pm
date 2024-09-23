@@ -140,16 +140,17 @@ sub subscribe_to_redis_streams () {
 		return;
 	}
 
-	_read_user_deleted_stream('$');
+	_read_user_streams('$');
 
 	return;
 }
 
-sub _read_user_deleted_stream($search_from) {
-	$log->info("Reading from Redis", {stream => 'user-deleted', search_from => $search_from}) if $log->is_info();
+sub _read_user_streams($search_from) {
+	my $streams = 'user-registered user-deleted';
+	$log->info("Reading from Redis", {stream => $streams, search_from => $search_from}) if $log->is_info();
 	$redis_client->xread(
 		'BLOCK' => 0,
-		'STREAMS' => 'user-deleted',
+		'STREAMS' => $streams,
 		$search_from,
 		sub {
 			my ($reply_ref, $err) = @_;
@@ -165,7 +166,7 @@ sub _read_user_deleted_stream($search_from) {
 				}
 			}
 
-			_read_user_deleted_stream($search_from);
+			_read_user_streams($search_from);
 			return;
 		}
 	);
@@ -179,14 +180,46 @@ sub process_xread_stream_reply($reply_ref) {
 	my @streams = @{$reply_ref};
 	foreach my $stream_ref (@streams) {
 		my @stream = @{$stream_ref};
-		if (not($stream[0] eq 'user-deleted')) {
-			return;
+		if ($stream[0] eq 'user-registerd') {
+			$last_processed_message_id = _process_registered_users_stream($stream[1]);
+		}
+		elsif ($stream[0] eq 'user-deleted') {
+			$last_processed_message_id = _process_deleted_users_stream($stream[1]);
 		}
 
-		$last_processed_message_id = _process_deleted_users_stream($stream[1]);
 	}
 
 	return $last_processed_message_id,;
+}
+
+sub _process_registered_users_stream($stream_values_ref) {
+	my $last_processed_message_id;
+
+	foreach my $outer_ref (@{$stream_values_ref}) {
+		my @outer = @{$outer_ref};
+		my $message_id = $outer[0];
+		my @values = @{$outer[1]};
+
+		my %message_hash;
+		for (my $i = 0; $i < scalar(@values); $i += 2) {
+			my $key = $values[$i];
+			my $value = $values[$i + 1];
+			$message_hash{$key} = $value;
+		}
+
+		$log->info("User registered", {user_id => $message_hash{'userName'}}) if $log->is_info();
+
+		my $args_ref = {userid => $message_hash{'userName'}};
+		queue_job(welcome_user => [$args_ref] => {queue => $server_options{minion_local_queue}});
+
+		if ($message_hash{'newsletter'} eq '1') {
+			queue_job(subscribe_user_newsletter => [$args_ref] => {queue => $server_options{minion_local_queue}});
+		}
+
+		$last_processed_message_id = $message_id;
+	}
+
+	return $last_processed_message_id;
 }
 
 sub _process_deleted_users_stream($stream_values_ref) {
