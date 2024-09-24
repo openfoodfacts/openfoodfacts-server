@@ -149,9 +149,10 @@ function folskonomy_engine_init() {
 function displayFolksonomyPropertyValues() {
     //$(".details").before(
     $("div#main-product").append(
-        String('<!-- ---- Folksonomy Engine ----- -->' +
+        String('<!-- ---- Folksonomy Engine panel ----- -->' +
+        '<section class="row">' +
         '<div id="free_properties_1" class="feus row card ">' +
-        '<div  class="column large-12 h-space-tiny ">' +
+        '<div class="column large-12 h-space-tiny ">' +
         '<h2>Personalized properties (<span data-tooltip aria-haspopup="true" class="has-tip" data-position="top" data-alignment="left" title="Be aware the data model might be modified. Use at your own risk.">beta</span>)</h2>' +
         '<p id="fe_login_info"></p>' +
         "<p>These properties are created and filed by users for any kind of usages. Feel free to add your own. " +
@@ -165,7 +166,7 @@ function displayFolksonomyPropertyValues() {
         '<table>' +
         '<tr>' +
         '<th> </th>' +
-        '<th class="prop_title">Property <a href="/properties">🔗</a></th>' +
+        '<th class="prop_title">Property <a href="https://wiki.openfoodfacts.org/Folksonomy/Property">🛈</a></th>' +
         '<th class="val_title">Value</th>' +
         '</tr>' +
         '<tbody id="free_prop_body">') +
@@ -173,6 +174,7 @@ function displayFolksonomyPropertyValues() {
         '<!-- ---- New row ---- -->' +
         '<tr id="fe_new_row">' +
         '<td><input type="hidden" name="owner"> </td>' +
+        '<td id="fe_form_new_property_doc"></td>' +
         '<td>' +
         '<input id="fe_form_new_property" name="property" class="text tagify-me" value="" lang="en" placeholder="Enter a property" ></input>' +
             '<small id="fe_prop_eg" >Example: color</small>' +
@@ -188,6 +190,7 @@ function displayFolksonomyPropertyValues() {
         '</form>' +
         '</div>' +
         '</div>' +
+        '</section>' +
         '<!-- ----- /Folksonomy Engine ----- -->');
 
 
@@ -324,10 +327,11 @@ function displayFolksonomyPropertyValues() {
         while (index--) {
             content += ('<tr>' +
                         '<td class="version" data-version="' + d[index].version + '"> </td>' +
+                        '<td><a href="https://wiki.openfoodfacts.org/Folksonomy/Property/'+d[index].k+'">🛈</a></td>' +
                         '<td class="property"><a href="/property/' + d[index].k + '">'                      + d[index].k + '</a></td>' +
                         '<td class="value"><a href="/property/' + d[index].k + '/value/' + d[index].v +'">' + d[index].v + '</a></td>' +
                         '<td>'+
-                        '<span class="button tiny fe_save_kv" style="display: none">save</span> '+
+                        '<span class="button tiny fe_save_kv" style="display: none">Save</span> '+
                         '<span class="button tiny fe_edit_kv">Edit</span> '+
                         '<span class="button tiny fe_del_kv">Delete</span>'+
                         '</td>' +
@@ -358,12 +362,12 @@ function displayProductsWithProperty(_property, _value) {
     */
     //$("#main_column p").remove();  // remove <p>Invalid address.</p>
     $("#main_column").append('<!-- display products with property ' + _property + (_value ? ": "+ _value : '') + ' -->' +
-                                '<h2 id="property_title">Property: '+ _property + (_value ? ": "+ _value : '') + '</h2>' +
-                                '<p>You should find a <a href="https://wiki.openfoodfacts.org/Folksonomy/Property/'+ _property + '">dedicated documentation</a>' +
-                                ' about this property on Open Food Facts wiki</p>' +
-                                '<p>List of products using this property:</p>' +
-                                '<div id="fe_infobox" style="float: right; border: solid black; width: 20%">Tip: you can also find the <a href="/properties">list of all properties</a>.</div>' +
-                                '<ul id="product_list"></ul>');
+                        '<h2 id="property_title">Folksonomy property: '+ _property + (_value ? ": "+ _value : '') + '</h2>' +
+                        '<p>You should find a <a href="https://wiki.openfoodfacts.org/Folksonomy/Property/'+ _property + '">dedicated documentation</a>' +
+                        ' about this property on Open Food Facts wiki</p>' +
+                        '<p>List of products using this property:</p>' +
+                        '<div id="fe_infobox" style="float: right; border: solid black; width: 20%">Tip: you can also find the <a href="/properties">list of all properties</a>.</div>' +
+                        '<ul id="product_list"></ul>');
     //$("#main_column h1").remove(); // remove <h1>Error</h1>
 
     console.log("FEUS - displayProductsWithProperty(_property) - GET " + feAPI + "/products?k=" + _property + (_value ? "&v="+ _value : ''));
@@ -376,8 +380,8 @@ function displayProductsWithProperty(_property, _value) {
         content +=
             '<table id="properties_list">' +
             '<tr>' +
-            '<th class="product_code">Code</th>' +
-            '<th class="values">Values</th>' +
+            '<th class="product_code">Product barcode</th>' +
+            '<th class="values">Corresponding value</th>' +
             '</tr>' +
             '<tbody id="free_prop_body">';
         while (index--) {
@@ -407,20 +411,26 @@ function displayAllProperties() {
     */
     // TODO: add owner filter?
     //$("#main_column p").remove(); // remove <p>Invalid address.</p>
+
+    // Display empty table
     $("#main_column").append(String('<h2 id="property_title">Properties</h2>' +
-                                '<p>List of all properties.</p>' +
-                                '<table id="properties_list">' +
-                                '<tr>' +
-                                '<th> </th>' +
-                                '<th class="property_name">Property</th>' +
-                                '<th class="count">Count</th>' +
-                                '<th class="values">Values</th>' +
-                                '<th class="doc">Documentation</th>' +
-                                '</tr>' +
-                                '<tbody id="free_prop_body">') +
-                                '</tbody>' +
-                                '</table>');
+                        "<p>Open Food Facts allows anyone to reuse contributed properties or create new ones " +
+                        "(see the <a href='https://wiki.openfoodfacts.org/Folksonomy_Engine'>Folksonomy Engine project</a>). " + 
+                        "Here's the list of all contributed properties.</p>" +
+                        '<table id="properties_list">' +
+                        '<tr>' +
+                        '<th> </th>' +
+                        '<th class="property_name">Property</th>' +
+                        '<th class="doc">Documentation</th>' +
+                        '<th class="count">Count</th>' +
+                        '<th class="values">Values</th>' +
+                        '</tr>' +
+                        '<tbody id="free_prop_body">') +
+                        '</tbody>' +
+                        '</table>');
     //$("#main_column h1").remove(); // remove <h1>Error</h1>
+
+    // Populate table
     console.log("FEUS - displayAllProperties(_owner) - GET " + feAPI + "/keys");
     $.getJSON(feAPI + "/keys", function(data) {
         console.log("FEUS - displayAllProperties() - " + JSON.stringify(data));
@@ -432,9 +442,9 @@ function displayAllProperties() {
             content += ('<tr class="property">' +
                         '<td> </td>' +
                         '<td><a href="/property/'+ d[index].k + '">' + d[index].k + '</a></td>' +
+                        '<td><a href="https://wiki.openfoodfacts.org/Folksonomy/Property/' + d[index].k + '">🛈</a></td>' +
                         '<td>' + d[index].count + '</td>' +
                         '<td>' + d[index].values + '</td>' +
-                        '<td><a href="https://wiki.openfoodfacts.org/Folksonomy/Property/' + d[index].k + '">🔗</a></td>' +
                         '</tr>');
         }
         $("#properties_list").append(content);
