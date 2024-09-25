@@ -35,7 +35,6 @@ BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		&capture_ouputs
-		&compare_arr
 		&ensure_expected_results_dir
 		&compare_file_to_expected_results
 		&compare_to_expected_results
@@ -46,11 +45,12 @@ BEGIN {
 		&normalize_org_for_test_comparison
 		&normalize_product_for_test_comparison
 		&normalize_products_for_test_comparison
+		&normalize_html_for_test_comparison
+		&sort_products_for_test_comparison
 		&normalize_user_for_test_comparison
 		&remove_all_products
 		&remove_all_users
 		&remove_all_orgs
-		&check_not_production
 		&wait_for
 		&read_gzip_file
 		&check_ocr_result
@@ -63,6 +63,7 @@ use vars @EXPORT_OK;
 use IO::Capture::Stdout::Extended;
 use IO::Capture::Stderr::Extended;
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Data qw/execute_query get_products_collection/;
 use ProductOpener::Store "store";
 
@@ -70,15 +71,19 @@ use Carp qw/confess/;
 use Data::DeepAccess qw(deep_exists deep_get deep_set);
 use Getopt::Long;
 use IO::Uncompress::AnyInflate qw(anyinflate $AnyInflateError);
-use Test::More;
+use Test2::V0;
+use Data::Dumper;
 use JSON "decode_json";
 use File::Basename "fileparse";
 use File::Path qw/make_path remove_tree/;
 use File::Copy;
 use Path::Tiny qw/path/;
 use Scalar::Util qw(looks_like_number);
+use Test::File::Contents qw/files_eq_or_diff/;
 
 use Log::Any qw($log);
+
+no warnings qw(experimental::signatures);
 
 =head2 read_gzip_file($filepath)
 
@@ -87,6 +92,7 @@ Read gzipped file and return binary content
 =head3 Parameters
 
 =head4 String $filepath
+
 The path of the gzipped file.
 
 =cut
@@ -107,6 +113,7 @@ Check that OCR result returned by Google Cloud Vision is as expected:
 =head3 Parameters
 
 =head4 String $ocr_result
+
 String of OCR result JSON as returned by Google Cloud Vision.
 
 =cut
@@ -132,6 +139,7 @@ There are two modes: one to update expected results, and one to test against the
 =head3 Parameters
 
 =head4 String $filepath
+
 The path of the file containing the test.
 Generally should be <pre>__FILE__</pre> within the test.
 
@@ -213,11 +221,11 @@ sub remove_all_products () {
 		}
 	);
 	# clean files
-	remove_tree("$data_root/products", {keep_root => 1, error => \my $err});
+	remove_tree($BASE_DIRS{PRODUCTS}, {keep_root => 1, error => \my $err});
 	if (@$err) {
 		confess("not able to remove some products directories: " . join(":", @$err));
 	}
-	remove_tree("$www_root/images/products", {keep_root => 1, error => \$err});
+	remove_tree($BASE_DIRS{PRODUCTS_IMAGES}, {keep_root => 1, error => \$err});
 	if (@$err) {
 		confess("not able to remove some products directories: " . join(":", @$err));
 	}
@@ -236,7 +244,7 @@ sub remove_all_users () {
 	check_not_production();
 	# clean files
 	# clean files
-	remove_tree("$data_root/users", {keep_root => 1, error => \my $err});
+	remove_tree($BASE_DIRS{USERS}, {keep_root => 1, error => \my $err});
 	if (@$err) {
 		confess("not able to remove some users directories: " . join(":", @$err));
 	}
@@ -254,7 +262,7 @@ sub remove_all_orgs () {
 	# Important: check we are not on a prod database
 	check_not_production();
 	# clean files
-	remove_tree("$data_root/orgs", {keep_root => 1, error => \my $err});
+	remove_tree($BASE_DIRS{ORGS}, {keep_root => 1, error => \my $err});
 	if (@$err) {
 		confess("not able to remove some orgs directories: " . join(":", @$err));
 	}
@@ -305,7 +313,7 @@ sub ensure_expected_results_dir ($expected_results_dir, $update_expected_results
 	if ($update_expected_results) {
 		# Reset the expected results dir
 		if (-e $expected_results_dir) {
-			remove_tree("$expected_results_dir", {error => \my $err});
+			remove_tree($expected_results_dir, {error => \my $err});
 			if (@$err) {
 				confess("not able to remove some result directories: " . join(":", @$err));
 			}
@@ -372,11 +380,11 @@ sub compare_to_expected_results ($object_ref, $expected_results_file, $update_ex
 				$title = $test_ref->{desc} // $test_ref->{test_case} // $test_ref->{id};
 				$title = undef unless $title;
 			}
-			is_deeply($object_ref, $expected_object_ref, $title) or diag(explain $test_ref, explain $object_ref);
+			is($object_ref, $expected_object_ref, $title) or diag(Dumper($test_ref), Dumper($object_ref));
 		}
 		else {
 			fail("could not load $expected_results_file");
-			diag(explain $test_ref, explain $object_ref);
+			diag(Dumper($test_ref), Dumper($object_ref));
 		}
 	}
 
@@ -385,7 +393,7 @@ sub compare_to_expected_results ($object_ref, $expected_results_file, $update_ex
 
 =head2 compare_file_to_expected_results($content_str, $expected_results_file, $update_expected_results, $test_ref = undef) {
 
-Compare an string (e.g. text or HTML file) to expected results.
+Compare a file (e.g. text or HTML file) to expected results.
 
 The expected result is stored as a plain text file.
 
@@ -415,6 +423,11 @@ sub compare_file_to_expected_results ($content_str, $expected_results_file, $upd
 		$desc = $test_ref->{desc} // $test_ref->{id};
 	}
 
+	# Normalize html
+	if ($expected_results_file =~ /\.html$/) {
+		normalize_html_for_test_comparison(\$content_str);
+	}
+
 	if ($update_expected_results) {
 		open(my $result, ">:encoding(UTF-8)", $expected_results_file)
 			or confess("Could not create $expected_results_file: $!");
@@ -431,11 +444,19 @@ sub compare_file_to_expected_results ($content_str, $expected_results_file, $upd
 				$title = $test_ref->{desc} // $test_ref->{test_case} // $test_ref->{id};
 				$title = undef unless $title;
 			}
-			is($content_str, $expected_result, $title);
+
+			my $results_file = $expected_results_file . ".test";
+			open(my $result, ">:encoding(UTF-8)", $results_file)
+				or confess("Could not create $results_file: $!");
+			print $result $content_str;
+			close($result);
+
+			files_eq_or_diff($expected_results_file, $results_file, $title);
+			unlink($results_file);
 		}
 		else {
 			fail("could not load $expected_results_file");
-			diag(explain $test_ref, explain $content_str);
+			diag(Dumper($test_ref), Dumper($content_str));
 		}
 	}
 
@@ -463,9 +484,11 @@ This is so that we can easily see diffs with git diffs:
 
 Tests will pass when this flag is passed, and the new expected results can be diffed / committed in GitHub.
 
+=head4 $test_name - name of test for failure display
+
 =cut
 
-sub compare_csv_file_to_expected_results ($csv_file, $expected_results_dir, $update_expected_results) {
+sub compare_csv_file_to_expected_results ($csv_file, $expected_results_dir, $update_expected_results, $test_name = "") {
 
 	# Read the CSV file
 
@@ -484,18 +507,19 @@ sub compare_csv_file_to_expected_results ($csv_file, $expected_results_dir, $upd
 			push @data, $product_ref;
 		}
 		close($io);
-		compare_array_to_expected_results(\@data, $expected_results_dir . "/rows", $update_expected_results);
+		compare_array_to_expected_results(\@data, $expected_results_dir . "/rows", $update_expected_results,
+			$test_name);
 
 		# If we update the expected results, copy the CSV file so that we can easily see line by line diffs
 		if ($update_expected_results) {
 			my $csv_filename = $csv_file;
 			$csv_filename =~ s/.*\///;
 			copy($csv_file, $expected_results_dir . '/' . $csv_filename)
-				or die "Copy of $csv_file to $expected_results_dir failed: $!";
+				or die "$test_name - Copy of $csv_file to $expected_results_dir failed: $!";
 		}
 	}
 	else {
-		fail("Could not open " . $csv_file . ": $!");
+		fail("$test_name - Could not open " . $csv_file . ": $!");
 	}
 
 	return 1;
@@ -523,9 +547,11 @@ This is so that we can easily see diffs with git diffs:
 Tests will always pass when this flag is passed,
 and the new expected results can be diffed / committed in GitHub.
 
+=head4 $test_name - name of the test for outputs
+
 =cut
 
-sub compare_array_to_expected_results ($array_ref, $expected_results_dir, $update_expected_results) {
+sub compare_array_to_expected_results ($array_ref, $expected_results_dir, $update_expected_results, $test_name = "") {
 
 	ensure_expected_results_dir($expected_results_dir, $update_expected_results);
 
@@ -552,10 +578,10 @@ sub compare_array_to_expected_results ($array_ref, $expected_results_dir, $updat
 
 			local $/;    #Enable 'slurp' mode
 			my $expected_product_ref = $json->decode(<$expected_result>);
-			is_deeply($product_ref, $expected_product_ref) or diag explain $product_ref;
+			is($product_ref, $expected_product_ref, "$test_name - $code") or diag Dumper($product_ref);
 		}
 		else {
-			diag explain $product_ref;
+			diag Dumper($product_ref);
 			fail("could not load $expected_results_dir/$code.json");
 		}
 	}
@@ -576,10 +602,10 @@ sub compare_array_to_expected_results ($array_ref, $expected_results_dir, $updat
 		}
 	}
 	if (@missed) {
-		fail("Products " . join(", ", @missed) . " not found in array");
+		fail("$test_name - Products " . join(", ", @missed) . " not found in array");
 	}
 	else {
-		pass("All products found in array");
+		pass("$test_name - All products found in array");
 	}
 
 	return 1;
@@ -712,7 +738,7 @@ sub normalize_product_for_test_comparison ($product_ref) {
 	my %specification = (
 		fields_ignore_content => [
 			qw(
-				last_modified_t created_t owner_fields
+				last_modified_t last_updated_t created_t owner_fields
 				entry_dates_tags last_edit_dates_tags
 				last_image_t last_image_dates_tags images.*.uploaded_t sources.*.import_t
 			)
@@ -743,6 +769,24 @@ sub normalize_products_for_test_comparison ($array_ref) {
 	return;
 }
 
+=head2 sort_products_for_test_comparison($array_ref, $sort_field)
+
+Sort products so that they are always in the same order
+
+=head3 Arguments
+
+=head4 array_ref
+
+Array of products
+
+=cut
+
+sub sort_products_for_test_comparison ($array_ref, $sort_field) {
+
+	@$array_ref = sort {$a->{$sort_field} cmp $b->{$sort_field}} @$array_ref;
+	return;
+}
+
 =head2 normalize_user_for_test_comparison($user_ref)
 
 Normalize a user to be able to compare them across tests runs.
@@ -756,7 +800,7 @@ We remove time dependent fields, password (which encryption use salt) and sort s
 =cut
 
 sub normalize_user_for_test_comparison ($user_ref) {
-	my %specification = (fields_ignore_content => [qw(registered_t user_sessions encrypted_password ip)],);
+	my %specification = (fields_ignore_content => [qw(registered_t last_login_t user_sessions encrypted_password ip)],);
 
 	normalize_object_for_test_comparison($user_ref, \%specification);
 	return;
@@ -775,13 +819,44 @@ We remove time dependent fields, password (which encryption use salt) and sort s
 =cut
 
 sub normalize_org_for_test_comparison ($org_ref) {
-	my %specification = (fields_ignore_content => ["created_t"],);
+	my %specification = (fields_ignore_content => ["created_t", "last_logged_member_t"],);
 
 	normalize_object_for_test_comparison($org_ref, \%specification);
 	return;
 }
 
+=head2 normalize_html_for_test_comparison ($html_ref)
+
+Normalize the HTML of a web page to be able to compare them across tests runs.
+
+We remove time dependent fields.
+
+We also normalize URLS to avoid the scheme prefix (so that we avoid false positives in CodeQL)
+
+=head3 Arguments
+
+=head4 product_ref - Hash ref containing product information
+
+=cut
+
+sub normalize_html_for_test_comparison ($html_ref) {
+
+	# Remove timestamps
+	# <link rel="stylesheet" href="http://static.openfoodfacts.localhost/css/dist/app-ltr.css?v=1711465499" data-base-layout="true">
+
+	$$html_ref =~ s/\?v=\d+/\?v=--ignore--/g;
+
+	# <time datetime="2024-03-26T18:43:45">26 mars 2024, 18:43:45 CET</time>
+	$$html_ref =~ s/<time datetime="[^"]+">[^<]+<\/time>/<time datetime="--ignore--">--ignore--<\/time>/g;
+
+	# normalize URLs be removing scheme to avoid false positive alerts on security
+	$$html_ref =~ s/https?:\/\//\/\//g;
+
+	return;
+}
+
 =head2 wait_for($code, $timeout=3, $poll_time=1)
+
 Wait for an event to happen, up to a certain amount of time
 
 =head3 parameters

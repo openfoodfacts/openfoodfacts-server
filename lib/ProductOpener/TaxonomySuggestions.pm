@@ -36,7 +36,9 @@ use Log::Any qw($log);
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
+		&get_taxonomy_suggestions_with_synonyms
 		&get_taxonomy_suggestions
+		&generate_sorted_list_of_taxonomy_entries
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -44,12 +46,13 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Store qw/:all/;
-use ProductOpener::Display qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
+use ProductOpener::Store qw/get_string_id_for_lang retrieve_json/;
+use ProductOpener::Display qw/$country/;
+use ProductOpener::Lang qw/lang/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::PackagerCodes qw/:all/;
-use ProductOpener::Cache qw/:all/;
+use ProductOpener::PackagerCodes qw/@sorted_packager_codes normalize_packager_codes/;
+use ProductOpener::Cache qw/$memd generate_cache_key/;
 
 use List::Util qw/min/;
 use Data::DeepAccess qw(deep_exists deep_get);
@@ -59,11 +62,12 @@ my $categories_packagings_stats_for_suggestions_ref;
 
 sub load_categories_packagings_stats_for_suggestions() {
 	if (not defined $categories_packagings_stats_for_suggestions_ref) {
-		my $file = "$data_root/data/categories_stats/categories_packagings_stats.all.popular.json";
+		my $file = "$BASE_DIRS{PRIVATE_DATA}/categories_stats/categories_packagings_stats.all.popular.json";
 		# In dev environments, we provide a sample stats file in the data-default directory
 		# so that we can run tests with meaningful and unchanging data
 		if (!-e $file) {
-			my $default_file = "$data_root/data-default/categories_stats/categories_packagings_stats.all.popular.json";
+			my $default_file
+				= "$BASE_DIRS{PRIVATE_DATA}-default/categories_stats/categories_packagings_stats.all.popular.json";
 			$log->debug("local packaging stats file does not exist, will use default",
 				{file => $file, default_file => $default_file})
 				if $log->is_debug();
@@ -78,9 +82,13 @@ sub load_categories_packagings_stats_for_suggestions() {
 	return $categories_packagings_stats_for_suggestions_ref;
 }
 
+=head2 get_taxonomy_suggestions_with_synonyms ($tagtype, $search_lc, $string, $context_ref, $options_ref )
+
+Generate taxonomy suggestions with matched synonyms information.
+
 =head2 get_taxonomy_suggestions ($tagtype, $search_lc, $string, $context_ref, $options_ref )
 
-Generate taxonomy suggestions.
+Generate taxonomy suggestions (without matched synonyms information).
 
 =head3 Parameters
 
@@ -105,7 +113,7 @@ Restart memcached if you want fresh results (e.g. when taxonomy are category sta
 
 =cut
 
-sub get_taxonomy_suggestions ($tagtype, $search_lc, $string, $context_ref, $options_ref) {
+sub get_taxonomy_suggestions_with_synonyms ($tagtype, $search_lc, $string, $context_ref, $options_ref) {
 
 	$log->debug(
 		"get_taxonomy_suggestions - start",
@@ -118,7 +126,7 @@ sub get_taxonomy_suggestions ($tagtype, $search_lc, $string, $context_ref, $opti
 		}
 	) if $log->is_debug();
 
-	# Check if we have cached suggestions
+	# Check if we have cached suggestions
 	my $key = generate_cache_key(
 		"get_taxonomy_suggestions",
 		{
@@ -137,7 +145,8 @@ sub get_taxonomy_suggestions ($tagtype, $search_lc, $string, $context_ref, $opti
 
 		my @tags = generate_sorted_list_of_taxonomy_entries($tagtype, $search_lc, $context_ref);
 
-		my @filtered_tags = filter_suggestions_matching_string(\@tags, $tagtype, $search_lc, $string, $options_ref);
+		my @filtered_tags
+			= filter_suggestions_matching_string_with_synonyms(\@tags, $tagtype, $search_lc, $string, $options_ref);
 		$results_ref = \@filtered_tags;
 
 		$log->debug("storing suggestions in cache", {key => $key}) if $log->is_debug();
@@ -148,6 +157,12 @@ sub get_taxonomy_suggestions ($tagtype, $search_lc, $string, $context_ref, $opti
 	}
 
 	return @$results_ref;
+}
+
+sub get_taxonomy_suggestions ($tagtype, $search_lc, $string, $context_ref, $options_ref) {
+	return
+		map {$_->{tag}}
+		get_taxonomy_suggestions_with_synonyms($tagtype, $search_lc, $string, $context_ref, $options_ref);
 }
 
 =head2 generate_sorted_list_of_taxonomy_entries($tagtype, $search_lc, $context_ref)
@@ -310,28 +325,39 @@ sub match_stringids ($stringid, $fuzzystringid, $synonymid) {
 
 # best_match is used to see how well matches the best matching synonym
 
-sub best_match ($stringid, $fuzzystringid, $synonyms_ids_ref) {
+sub best_match ($search_lc, $stringid, $fuzzystringid, $synonyms_ref) {
 
-	my $best_match = "none";
+	my $best_type = "none";
+	my $best_match = 0;
 
-	foreach my $synonymid (@$synonyms_ids_ref) {
+	foreach my $synonym (@$synonyms_ref) {
+		my $synonymid = get_string_id_for_lang($search_lc, $synonym);
 		my $match = match_stringids($stringid, $fuzzystringid, $synonymid);
+		# Prefer to use the earlier ones from the list for when the canonical name has the same match type as a synonym
+		next if $match eq "none" or $match eq $best_type;
 		if ($match eq "start") {
 			# Best match, we can return without looking at the other synonyms
-			return "start";
+			$best_type = $match;
+			$best_match = $synonym;
+			last;
 		}
 		elsif (($match eq "inside")
-			or (($match eq "fuzzy") and ($best_match eq "none")))
+			or (($match eq "fuzzy") and ($best_type eq "none")))
 		{
-			$best_match = $match;
+			$best_type = $match;
+			$best_match = $synonym;
 		}
 	}
-	return $best_match;
+	return {type => $best_type, match => $best_match};
 }
+
+=head2 filter_suggestions_matching_string_with_synonyms ($tags_ref, $tagtype, $search_lc, $string, $options_ref)
+
+Filter a list of potential taxonomy suggestions matching a string with matched synonyms information.
 
 =head2 filter_suggestions_matching_string ($tags_ref, $tagtype, $search_lc, $string, $options_ref)
 
-Filter a list of potential taxonomy suggestions matching a string.
+Filter a list of potential taxonomy suggestions matching a string (without matched synonyms information).
 
 By priority, the function returns:
 - taxonomy entries that match the input string at the beginning
@@ -353,9 +379,15 @@ By priority, the function returns:
 - limit: limit of number of results
 - format (not yet defined and implemented)
 
+=head3 Return value
+
+An array of suggestions hashes with the following fields:
+- tag: the tag to suggest
+- matched_synonym: the synonym that matched the input string
+
 =cut
 
-sub filter_suggestions_matching_string ($tags_ref, $tagtype, $search_lc, $string, $options_ref) {
+sub filter_suggestions_matching_string_with_synonyms ($tags_ref, $tagtype, $search_lc, $string, $options_ref) {
 
 	my $original_lc = $search_lc;
 
@@ -398,7 +430,12 @@ sub filter_suggestions_matching_string ($tags_ref, $tagtype, $search_lc, $string
 		my $stringid = get_string_id_for_lang("no_language", normalize_packager_codes($string));
 		foreach my $canon_tagid (@$tags_ref) {
 			next if $canon_tagid !~ /^$stringid/;
-			push @suggestions, normalize_packager_codes($canon_tagid);
+			my $normalized_tag = normalize_packager_codes($canon_tagid);
+			my $suggestion_ref = {
+				tag => $normalized_tag,
+				matched_synonym => $normalized_tag
+			};
+			push @suggestions, $suggestion_ref;
 			last if ++$suggestions_count >= $limit;
 		}
 	}
@@ -422,39 +459,43 @@ sub filter_suggestions_matching_string ($tags_ref, $tagtype, $search_lc, $string
 			my $tag_xx = display_taxonomy_tag("xx", $tagtype, $canon_tagid);
 
 			# Build a list of normalized synonyms in the search language and the wildcard xx: language
-			my @synonyms_ids = map {get_string_id_for_lang($search_lc, $_)} (
+			my @synonyms = (
 				@{deep_get(\%synonyms_for, $tagtype, $search_lc, get_string_id_for_lang($search_lc, $tag)) || []},
 				@{deep_get(\%synonyms_for, $tagtype, "xx", get_string_id_for_lang("xx", $tag_xx)) || []}
 			);
 
 			# check how well the synonyms match the input string
-			my $best_match = best_match($stringid, $fuzzystringid, \@synonyms_ids);
+			my $best_match = best_match($search_lc, $stringid, $fuzzystringid, \@synonyms);
 
 			$log->debug(
-				"synonyms_ids for canon_tagid",
+				"synonyms for canon_tagid",
 				{
 					tagtype => $tagtype,
 					canon_tagid => $canon_tagid,
 					tag => $tag,
-					synonym_ids => \@synonyms_ids,
+					synonyms => \@synonyms,
 					best_match => $best_match
 				}
 			) if $log->is_debug();
 
+			my $suggestion_ref = {
+				tag => $tag,
+				matched_synonym => $best_match->{match}
+			};
 			# matching at start, best matches
-			if ($best_match eq "start") {
-				push @suggestions, $tag;
+			if ($best_match->{type} eq "start") {
+				push @suggestions, $suggestion_ref;
 				# count matches at start so that we can return only if we have enough matches
 				$suggestions_count++;
 				last if $suggestions_count >= $limit;
 			}
 			# matching inside
-			elsif ($best_match eq "inside") {
-				push @suggestions_c, $tag;
+			elsif ($best_match->{type} eq "inside") {
+				push @suggestions_c, $suggestion_ref;
 			}
 			# fuzzy match
-			elsif ($best_match eq "fuzzy") {
-				push @suggestions_f, $tag;
+			elsif ($best_match->{type} eq "fuzzy") {
+				push @suggestions_f, $suggestion_ref;
 			}
 		}
 	}
@@ -471,6 +512,12 @@ sub filter_suggestions_matching_string ($tags_ref, $tagtype, $search_lc, $string
 	}
 
 	return @suggestions;
+}
+
+sub filter_suggestions_matching_string ($tags_ref, $tagtype, $search_lc, $string, $options_ref) {
+	return
+		map {$_->{tag}}
+		filter_suggestions_matching_string_with_synonyms($tags_ref, $tagtype, $search_lc, $string, $options_ref);
 }
 
 1;

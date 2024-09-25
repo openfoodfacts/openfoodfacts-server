@@ -2,8 +2,8 @@
 
 use ProductOpener::PerlStandards;
 
-use Test::More;
-use ProductOpener::APITest qw/:all/;
+use Test2::V0;
+use ProductOpener::APITest qw/execute_api_tests wait_application_ready/;
 use ProductOpener::Test qw/:all/;
 use ProductOpener::TestDefaults qw/:all/;
 
@@ -57,12 +57,14 @@ my $tests_ref = [
 			"services":["unknown"],
 			"product":{}
 		}',
+		expected_status_code => 400,
 	},
 	# echo service
 	{
 		test_case => 'service-no-body',
 		method => 'POST',
 		path => '/api/v3/product_services',
+		expected_status_code => 400,
 	},
 	{
 		test_case => 'echo-service-hazelnut-spread',

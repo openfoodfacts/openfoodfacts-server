@@ -26,37 +26,29 @@ use utf8;
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
+use ProductOpener::Users qw/retrieve_user retrieve_userids/;
 
 my @userids;
 
 if (scalar $#userids < 0) {
-	opendir DH, "$data_root/users" or die "Couldn't open the current directory: $!";
-	@userids = sort(readdir(DH));
-	closedir(DH);
+	@userids = retrieve_userids();
 }
+
+my $emails_ref = retrieve("$BASE_DIRS{USERS}/users_emails.sto");
 
 foreach my $userid (@userids) {
-	next if $userid eq "." or $userid eq "..";
-	next if $userid eq 'all';
-
-	my $user_ref = retrieve("$data_root/users/$userid");
-
-	my $first = '';
-	if (!exists $user_ref->{discussion}) {
-		$first = 'first';
-	}
-
-	# print $user_ref->{email} . "\tnews_$user_ref->{newsletter}$first\tdiscussion_$user_ref->{discussion}\n";
-
-	if ($user_ref->{newsletter}) {
-		print lc($user_ref->{email}) . "\n";
-	}
-
-	if ($user_ref->{twitter} ne '') {
-		#		print "\@" . $user_ref->{twitter} . " ";
+	my $user_ref = retrieve_user($userid);
+	if (defined $user_ref) {
+		my $email = $user_ref->{email};
+		if ((defined $email) and ($email =~ /\@/)) {
+			$emails_ref->{$email} = [$userid];
+		}
 	}
 }
+
+store("$BASE_DIRS{USERS}/users_emails.sto", $emails_ref);
 
 exit(0);
 

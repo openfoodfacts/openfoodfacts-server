@@ -1,7 +1,7 @@
 [% SET climate_change_ratio_to_category = panel.climate_change / panel.ecoscore_extended_data_for_category.climate_change %]
 
 
-    // "title": "[% f_lang('f_equal_to_driving_km_in_a_petrol_car',  { 'kilometers' => driving_100g_rounded } ) %]",
+    // "title": "[% edq(f_lang('f_equal_to_driving_km_in_a_petrol_car',  { 'kilometers' => driving_100g_rounded } )) %]",
 {
     "level" :"info",
     "topics": [
@@ -25,7 +25,7 @@
             [% SET climate_change_ratio_percent_less = sprintf('%d', (1 - climate_change_ratio_to_category) * 100) %]
             "title": "Environmental impact of ingredients [% climate_change_ratio_percent_less %]% smaller than similar products",
         [% END %]
-        "subtitle": "Compared to: [% lang('categories_s') FILTER ucfirst %][% sep %]: [% panel.agribalyse_category_name.dquote %]",
+        "subtitle": "Compared to: [% edq(lang('categories_s')) FILTER ucfirst %][% sep %]: [% panel.agribalyse_category_name.dquote %]",
         "type": "grade",
         "icon_url": "[% static_subdomain %]/images/icons/dist/scale-balance.svg",
         "icon_color_from_evaluation": true,        

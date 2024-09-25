@@ -26,9 +26,6 @@ use Exporter qw< import >;
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
-		&normalize
-		&decode_html
-		&decode_html_entities
 
 		&normalize
 
@@ -43,6 +40,7 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
 
 use CGI qw/:standard escape unescape/;
 use Time::Local;
@@ -73,48 +71,53 @@ use HTML::Entities qw(decode_entities);
 
 %texts = ();
 
-$lang_dir = "$data_root/lang";
+$lang_dir = $BASE_DIRS{LANG};
 
 if (not -e $lang_dir) {
-	$lang_dir = "$data_root/lang-default";
+	$lang_dir = "$BASE_DIRS{LANG}-default";
 	$log->warn(
-		"The $data_root/lang directory does not exist. It should be copied from the openfoodfacts-web repository. Using default texts from $lang_dir"
+		"The $BASE_DIRS{LANG} directory does not exist. It should be copied from the openfoodfacts-web repository. Using default texts from $lang_dir"
 	) if $log->is_warn();
 }
 
-if (opendir DH2, $lang_dir) {
+# Check both $lang_dir + flavor specific directory
 
-	$log->info("Reading texts from $lang_dir") if $log->is_info();
+foreach my $dir ($lang_dir, "$lang_dir/$flavor") {
 
-	foreach my $langid (readdir(DH2)) {
-		next if $langid eq '.';
-		next if $langid eq '..';
-		#$log->trace("reading texts", { lang => $langid }) if $log->is_trace();
-		next if ((length($langid) ne 2) and not($langid eq 'other'));
+	if (opendir DH2, $dir) {
 
-		if (-e "$lang_dir/$langid/texts") {
-			opendir DH, "$lang_dir/$langid/texts" or die "Couldn't open $lang_dir/$langid/texts: $!";
-			foreach my $textid (readdir(DH)) {
-				next if $textid eq '.';
-				next if $textid eq '..';
-				my $file = $textid;
-				$textid =~ s/(\.foundation)?(\.$langid)?\.html//;
-				defined $texts{$textid} or $texts{$textid} = {};
-				# prefer the .foundation version
-				if ((not defined $texts{$textid}{$langid}) or (length($file) > length($texts{$textid}{$langid}))) {
-					$texts{$textid}{$langid} = $file;
+		$log->info("Reading texts from $lang_dir") if $log->is_info();
+
+		foreach my $langid (readdir(DH2)) {
+			next if $langid eq '.';
+			next if $langid eq '..';
+			#$log->trace("reading texts", { lang => $langid }) if $log->is_trace();
+			next if ((length($langid) ne 2) and not($langid eq 'other'));
+
+			if (-e "$dir/$langid/texts") {
+				opendir DH, "$dir/$langid/texts" or die "Couldn't open $dir/$langid/texts: $!";
+				foreach my $textid (readdir(DH)) {
+					next if $textid eq '.';
+					next if $textid eq '..';
+					my $file = $textid;
+					$textid =~ s/(\.foundation)?(\.$langid)?\.html//;
+					defined $texts{$textid} or $texts{$textid} = {};
+					# prefer the .foundation version
+					if ((not defined $texts{$textid}{$langid}) or (length($file) > length($texts{$textid}{$langid}))) {
+						$texts{$textid}{$langid} = $file;
+					}
+
+					#$log->trace("text loaded", { langid => $langid, textid => $textid }) if $log->is_trace();
 				}
-
-				#$log->trace("text loaded", { langid => $langid, textid => $textid }) if $log->is_trace();
+				closedir(DH);
 			}
-			closedir(DH);
 		}
+		closedir(DH2);
 	}
-	closedir(DH2);
 }
-else {
+if (scalar keys %texts == 0) {
 	$log->error("Texts could not be loaded.") if $log->is_error();
-	die("Texts could not be loaded from $data_root/lang or $data_root/lang-default");
+	die("Texts could not be loaded from $BASE_DIRS{LANG} or $BASE_DIRS{LANG}-default");
 }
 
 # Initialize internal variables

@@ -44,13 +44,13 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Display qw/:all/;
+use ProductOpener::Display qw/$knowledge_panels_options_ref/;
 use ProductOpener::Users qw/:all/;
-use ProductOpener::Lang qw/:all/;
-use ProductOpener::API qw/:all/;
-use ProductOpener::KnowledgePanels qw/:all/;
-use ProductOpener::KnowledgePanelsTags qw/:all/;
-use ProductOpener::Tags qw/:all/;
+use ProductOpener::Lang qw/$lc lang/;
+use ProductOpener::API qw/add_error/;
+use ProductOpener::KnowledgePanels qw/initialize_knowledge_panels_options/;
+use ProductOpener::KnowledgePanelsTags qw/create_tag_knowledge_panels/;
+use ProductOpener::Tags qw/%taxonomy_fields canonicalize_tag2 canonicalize_taxonomy_tag/;
 
 =head2 read_tag_api ( $request_ref )
 
@@ -130,7 +130,8 @@ sub read_tag_api ($request_ref) {
 		initialize_knowledge_panels_options($knowledge_panels_options_ref, $request_ref);
 		my $tag_ref = {};    # Object to store the knowledge panels
 		my $panels_created
-			= create_tag_knowledge_panels($tag_ref, $lc, $cc, $knowledge_panels_options_ref, $tagtype, $canon_tagid);
+			= create_tag_knowledge_panels($tag_ref, $lc, $request_ref->{cc}, $knowledge_panels_options_ref, $tagtype,
+			$canon_tagid);
 
 		if ($panels_created) {
 			$response_ref->{tag}{knowledge_panels} = $tag_ref->{"knowledge_panels" . "_" . $lc};

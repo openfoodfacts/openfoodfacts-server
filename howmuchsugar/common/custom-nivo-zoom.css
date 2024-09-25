@@ -1,0 +1,33 @@
+/*
+ * Note: Include the nivo-zoom.css file that comes
+ * with the main download before including this file.
+ */
+ 
+a.nivoZoom {
+	border:0 !important;
+}
+a.nivoZoom img {
+	-moz-box-shadow:0px 0px 5px #000;
+	-webkit-box-shadow:0px 0px 5px #000;
+	box-shadow:0px 0px 5px #000;
+}
+a.nivoZoom img.nivoLarge {
+	-moz-box-shadow:0px 0px 10px #000;
+	-webkit-box-shadow:0px 0px 10px #000;
+	box-shadow:0px 0px 10px #000;
+}
+.nivoZoomHover {
+	background:url(zoom.png) no-repeat 50% 50%;
+}
+.nivoZoomHover.loading {
+	background:url(loading.gif) no-repeat 50% 50%;
+	border:4px solid #000;
+	width:16px;
+	height:16px;
+	top:43%;
+	left:43%;
+	opacity:0.8;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	border-radius:4px;
+}

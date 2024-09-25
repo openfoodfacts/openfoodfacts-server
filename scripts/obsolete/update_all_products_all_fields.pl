@@ -26,6 +26,7 @@ use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
@@ -44,7 +45,7 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 
 init_emb_codes();
 
@@ -133,7 +134,7 @@ my $cursor = $products_collection->query({})->fields({ code => 1 });
 		#$User_id = 'fieldbot';
 		#store_product($product_ref, "allow Unicode characters in normalized values of tag fields");
 
-		store("$data_root/products/$path/product.sto", $product_ref);
+		store("$BASE_DIRS{PRODUCTS}/$path/product.sto", $product_ref);
 		$products_collection->save($product_ref);
 
 		}

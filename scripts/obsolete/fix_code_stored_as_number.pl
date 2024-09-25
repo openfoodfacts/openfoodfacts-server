@@ -29,6 +29,7 @@ TXT
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
@@ -48,7 +49,7 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 
 use Getopt::Long;
 
@@ -159,7 +160,7 @@ while (my $product_ref = $cursor->next) {
 		if ($process_ingredients) {
 			# Ingredients classes
 			extract_ingredients_from_text($product_ref);
-			extract_ingredients_classes_from_text($product_ref);
+			extract_additives_from_text($product_ref);
 
 			compute_languages($product_ref); # need languages for allergens detection
 			detect_allergens_from_text($product_ref);
@@ -179,7 +180,7 @@ while (my $product_ref = $cursor->next) {
 
 		if (not $pretend) {
 			$product_ref->{update_key} = $key;
-			store("$data_root/products/$path/product.sto", $product_ref);
+			store("$BASE_DIRS{PRODUCTS}/$path/product.sto", $product_ref);
 
 			# Make sure product code is saved as string and not a number
 			# see bug #1077 - https://github.com/openfoodfacts/openfoodfacts-server/issues/1077

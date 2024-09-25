@@ -57,8 +57,8 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Tags qw/:all/;
-use ProductOpener::Numbers qw/:all/;
+use ProductOpener::Tags qw/canonicalize_taxonomy_tag/;
+use ProductOpener::Numbers qw/convert_string_to_number/;
 
 use Storable qw(dclone freeze);
 use Text::CSV();

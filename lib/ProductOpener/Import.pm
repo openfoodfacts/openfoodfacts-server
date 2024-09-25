@@ -79,34 +79,37 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created/;
+use ProductOpener::Store qw/get_string_id_for_lang retrieve store/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Images qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Images qw/get_imagefield_from_string process_image_crop process_image_upload/;
+use ProductOpener::Lang qw/$lc  lang/;
 use ProductOpener::Mail qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
-use ProductOpener::DataQuality qw/:all/;
+use ProductOpener::DataQuality qw/check_quality/;
+use ProductOpener::Data qw/get_products_collection/;
+use ProductOpener::ImportConvert qw/$empty_regexp $not_applicable_regexp $unknown_regexp clean_fields/;
+use ProductOpener::Users qw/$Org_id $Owner_id $User_id/;
+use ProductOpener::Orgs
+	qw/create_org retrieve_org set_org_gs1_gln store_org update_import_date update_last_import_type/;
 use ProductOpener::Data qw/:all/;
-use ProductOpener::ImportConvert qw/:all/;
-use ProductOpener::Users qw/:all/;
-use ProductOpener::Orgs qw/:all/;
-use ProductOpener::Data qw/:all/;
-use ProductOpener::Packaging qw/:all/;
+use ProductOpener::Packaging
+	qw/add_or_combine_packaging_component_data get_checked_and_taxonomized_packaging_component_data/;
 use ProductOpener::Ecoscore qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
-use ProductOpener::PackagerCodes qw/:all/;
-use ProductOpener::API qw/:all/;
+use ProductOpener::PackagerCodes qw/normalize_packager_codes/;
+use ProductOpener::API qw/get_initialized_response/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 use Time::Local;
 use Data::Dumper;
 use Text::CSV;
@@ -166,7 +169,7 @@ sub import_images_from_dir ($image_dir, $stats) {
 
 	$log->debug("opening images_dir", {images_dir => $image_dir}) if $log->is_debug();
 
-	if (opendir(DH, "$image_dir")) {
+	if (opendir(DH, $image_dir)) {
 		foreach my $file (sort {$a cmp $b} readdir(DH)) {
 
 			# apply image rules to the file name to assign front/ingredients/nutrition
@@ -961,7 +964,14 @@ sub import_nutrients (
 					and ($Owner_id !~ /^org-database-/)
 					and ($Owner_id !~ /^org-label-/))
 				{
-					$product_ref->{owner_fields}{$nid} = $time;
+					$product_ref->{owner_fields}{$nid . $type} = $time;
+					# salt and sodium are linked
+					if ($nid eq "salt") {
+						$product_ref->{owner_fields}{"sodium" . $type} = $time;
+					}
+					elsif ($nid eq "sodium") {
+						$product_ref->{owner_fields}{"salt" . $type} = $time;
+					}
 				}
 			}
 		}
@@ -1160,8 +1170,8 @@ sub import_packaging_components (
 				(defined $input_packaging_ref->{number_of_units})
 			and (defined $input_packaging_ref->{shape})
 			and (defined $input_packaging_ref->{material})
-			and
-			((defined $input_packaging_ref->{weight_specified}) or (defined $input_packaging_ref->{weight_measured}))
+			and (  (defined $input_packaging_ref->{weight_specified})
+				or (defined $input_packaging_ref->{weight_measured}))
 			)
 		{
 			$data_is_complete = 1;
@@ -1368,7 +1378,7 @@ sub import_csv_file ($args_ref) {
 		if $log->is_debug();
 
 	# Load GS1 GLNs so that we can map products to the owner orgs
-	my $glns_ref = retrieve("$data_root/orgs/orgs_glns.sto");
+	my $glns_ref = retrieve("$BASE_DIRS{ORGS}/orgs_glns.sto");
 	not defined $glns_ref and $glns_ref = {};
 
 	my %global_values = ();
@@ -1410,9 +1420,12 @@ sub import_csv_file ($args_ref) {
 		'orgs_existing' => {},
 		'orgs_in_file' => {},
 		'orgs_with_gln_but_no_party_name' => {},
+		# Keep track of GLNs used by each org
+		'orgs_glns' => {},
 	};
 
-	my $csv = Text::CSV->new({binary => 1, sep_char => "\t"})    # should set binary attribute.
+	my $csv = Text::CSV->new(
+		{binary => 1, sep_char => "\t", auto_diag => 1, diag_verbose => 1})    # should set binary attribute.
 		or die "Cannot use CSV: " . Text::CSV->error_diag();
 
 	my $time = time();
@@ -1423,16 +1436,29 @@ sub import_csv_file ($args_ref) {
 		$images_ref = import_images_from_dir($args_ref->{images_dir}, $stats_ref);
 	}
 
-	$log->debug("importing products", {}) if $log->is_debug();
+	$log->debug("importing products", {csv_file => $args_ref->{csv_file}}) if $log->is_debug();
 
 	my $io;
 	if (not open($io, '<:encoding(UTF-8)', $args_ref->{csv_file})) {
-		$stats_ref->{error} = "Could not open " . $args_ref->{csv_file} . ": $!";
+		$stats_ref->{error} = {error => "Could not open " . $args_ref->{csv_file} . ": $!"};
 		return $stats_ref;
 	}
 
 	# first line contains headers
+	# We use $csv->getline instead of $csv->header so that we can dedupe column names
+	# Unfortunately that means we can't autodetect the BOM using the detect_bom option
+	# of the header method: this will fail if there is a bom
 	my $columns_ref = $csv->getline($io);
+
+	# Check that we were able to read the file
+	if (not defined $columns_ref) {
+		$log->error("unable to read CSV file",
+			{csv_file => $args_ref->{csv_file}, error_input => $csv->error_input, error_diag => $csv->error_diag})
+			if $log->is_error();
+		$stats_ref->{error} = {error => "Could not read " . $args_ref->{csv_file} . ": $!"};
+		return $stats_ref;
+	}
+
 	$csv->column_names(@{deduped_colnames($columns_ref)});
 
 	my $i = 0;
@@ -1476,13 +1502,14 @@ sub import_csv_file ($args_ref) {
 		my @images_ids;
 
 		# Determine the org_id for the product
+		my $gln = $imported_product_ref->{"sources_fields:org-gs1:gln"};
 
 		$log->debug(
 			"org for product - start",
 			{
 				org_name => $imported_product_ref->{org_name},
 				org_id => $org_id,
-				gln => $imported_product_ref->{"sources_fields:org-gs1:gln"}
+				gln => $gln
 			}
 		) if $log->is_debug();
 
@@ -1504,12 +1531,11 @@ sub import_csv_file ($args_ref) {
 				if $log->is_debug();
 		}
 		# if the GLN corresponds to a GLN stored inside organization profiles (loaded in $glns_ref), use it
-		elsif ( (defined $imported_product_ref->{"sources_fields:org-gs1:gln"})
-			and ($glns_ref->{$imported_product_ref->{"sources_fields:org-gs1:gln"}}))
+		elsif ( (defined $gln)
+			and ($glns_ref->{$gln}))
 		{
-			$org_id = $glns_ref->{$imported_product_ref->{"sources_fields:org-gs1:gln"}};
-			$log->debug("org_id from gln",
-				{org_id => $org_id, gln => $imported_product_ref->{"sources_fields:org-gs1:gln"}})
+			$org_id = $glns_ref->{$gln};
+			$log->debug("org_id from gln", {org_id => $org_id, gln => $gln})
 				if $log->is_debug();
 		}
 		# Otherwise, if the CSV includes an org_name (e.g. from GS1 partyName field)
@@ -1526,11 +1552,11 @@ sub import_csv_file ($args_ref) {
 				$log->debug(
 					"skipping product with no org_id specified",
 					{
-						gln => $imported_product_ref->{"sources_fields:org-gs1:gln"},
+						gln => $gln,
 						imported_product_ref => $imported_product_ref
 					}
 				) if $log->is_debug();
-				$stats_ref->{orgs_with_gln_but_no_party_name}{$imported_product_ref->{"sources_fields:org-gs1:gln"}}++;
+				$stats_ref->{orgs_with_gln_but_no_party_name}{$gln}++;
 				next;
 			}
 		}
@@ -1540,9 +1566,19 @@ sub import_csv_file ($args_ref) {
 			{
 				org_name => $imported_product_ref->{org_name},
 				org_id => $org_id,
-				gln => $imported_product_ref->{"sources_fields:org-gs1:gln"}
+				gln => $gln
 			}
 		) if $log->is_debug();
+
+		# Keep track of GLNs used by each org
+		if ((defined $gln) and (defined $org_id)) {
+			if (not defined $stats_ref->{orgs_glns}{$org_id}) {
+				$stats_ref->{orgs_glns}{$org_id} = $gln;
+			}
+			elsif ($stats_ref->{orgs_glns}{$org_id} !~ /\b$gln\b/) {
+				$stats_ref->{orgs_glns}{$org_id} .= " " . $gln;
+			}
+		}
 
 		if ((defined $org_id) and ($org_id ne "")) {
 			# Re-assign some organizations
@@ -1567,7 +1603,9 @@ sub import_csv_file ($args_ref) {
 
 				# For files uploaded through the producers platform, the source_id is org-[id of org]
 
-				if ((defined $args_ref->{source_id}) and ($args_ref->{source_id} ne "org-${org_id}")) {
+				if (    (defined $args_ref->{source_id})
+					and (($args_ref->{source_id} ne $org_id) and ($args_ref->{source_id} ne "org-${org_id}")))
+				{
 					if (not $org_ref->{"import_source_" . $args_ref->{source_id}}) {
 						$log->debug(
 							"skipping import for org without authorization for the source",
@@ -1666,18 +1704,18 @@ sub import_csv_file ($args_ref) {
 					$org_ref->{"activate_automated_daily_export_to_public_platform"} = "on";
 				}
 
-				if (defined $imported_product_ref->{"sources_fields:org-gs1:gln"}) {
+				if (defined $gln) {
 					$org_ref->{sources_field} = {
 						"org-gs1" => {
-							gln => $imported_product_ref->{"sources_fields:org-gs1:gln"}
+							gln => $gln
 						}
 					};
 					if (defined $imported_product_ref->{"sources_fields:org-gs1:partyName"}) {
 						$org_ref->{sources_field}{"org-gs1"}{"partyName"}
 							= $imported_product_ref->{"sources_fields:org-gs1:partyName"};
 					}
-					set_org_gs1_gln($org_ref, $imported_product_ref->{"sources_fields:org-gs1:gln"});
-					$glns_ref = retrieve("$data_root/orgs/orgs_glns.sto");
+					set_org_gs1_gln($org_ref, $gln);
+					$glns_ref = retrieve("$BASE_DIRS{ORGS}/orgs_glns.sto");
 				}
 
 				store_org($org_ref);
@@ -2339,7 +2377,7 @@ sub import_csv_file ($args_ref) {
 						if (not -d $images_download_dir) {
 							$log->debug("Creating images_download_dir", {images_download_dir => $images_download_dir})
 								if $log->is_debug();
-							mkdir($images_download_dir, 0755)
+							ensure_dir_created($images_download_dir)
 								or $log->warn("Could not create images_download_dir",
 								{images_download_dir => $images_download_dir, error => $!})
 								if $log->is_warn();
@@ -2643,15 +2681,15 @@ sub import_csv_file ($args_ref) {
 										(not exists $product_ref->{images}{$imagefield_with_lc})
 										or (
 											(
-												   ($product_ref->{images}{$imagefield_with_lc}{imgid} != $imgid)
-												or
-												(($x1 > 1) and ($product_ref->{images}{$imagefield_with_lc}{x1} != $x1))
-												or
-												(($x2 > 1) and ($product_ref->{images}{$imagefield_with_lc}{x2} != $x2))
-												or
-												(($y1 > 1) and ($product_ref->{images}{$imagefield_with_lc}{y1} != $y1))
-												or
-												(($y2 > 1) and ($product_ref->{images}{$imagefield_with_lc}{y2} != $y2))
+												($product_ref->{images}{$imagefield_with_lc}{imgid} != $imgid)
+												or (    ($x1 > 1)
+													and ($product_ref->{images}{$imagefield_with_lc}{x1} != $x1))
+												or (    ($x2 > 1)
+													and ($product_ref->{images}{$imagefield_with_lc}{x2} != $x2))
+												or (    ($y1 > 1)
+													and ($product_ref->{images}{$imagefield_with_lc}{y1} != $y1))
+												or (    ($y2 > 1)
+													and ($product_ref->{images}{$imagefield_with_lc}{y2} != $y2))
 												or ($product_ref->{images}{$imagefield_with_lc}{angle} != $angle)
 											)
 										)
@@ -2731,6 +2769,35 @@ sub import_csv_file ($args_ref) {
 		}
 
 		undef $product_ref;
+	}
+
+	# sync CRM
+	my @csv_from_sftp_dir = qw(
+		https://www.carrefour.fr
+		https://www.intermarche.com/
+	);
+	my @catalogs = qw(
+		agena3000
+		equadis
+		bayard
+	);
+
+	foreach my $org_id (keys %{$stats_ref->{orgs_existing}}) {
+		update_import_date($org_id, $time);
+
+		if (exists $args_ref->{source_id}) {
+			my $source = $args_ref->{source_id};
+
+			if (grep {$_ eq $source} @catalogs) {
+				update_last_import_type($org_id, uc($source));
+			}
+			elsif (grep {$_ eq $args_ref->{source_url}} @csv_from_sftp_dir) {
+				update_last_import_type($org_id, 'SFTP');
+			}
+			else {
+				update_last_import_type($org_id, 'CSV');
+			}
+		}
 	}
 
 	$log->debug(
@@ -2888,7 +2955,7 @@ sub update_export_status_for_csv_file ($args_ref) {
 
 			# Update the product without creating a new revision
 			my $path = product_path($product_ref);
-			store("$data_root/products/$path/product.sto", $product_ref);
+			store("$BASE_DIRS{PRODUCTS}/$path/product.sto", $product_ref);
 			$product_ref->{code} = $product_ref->{code} . '';
 			# Use the obsolete collection if the product is obsolete
 			my $products_collection = get_products_collection({obsolete => $product_ref->{obsolete}});
@@ -3031,15 +3098,9 @@ sub import_products_categories_from_public_database ($args_ref) {
 					$log->debug("import_product_categories - new categories", {categories => $product_ref->{$field}})
 						if $log->is_debug();
 					compute_field_tags($product_ref, $product_ref->{lc}, $field);
-					if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
-						$log->debug("Food::special_process_product") if $log->is_debug();
-						ProductOpener::Food::special_process_product($product_ref);
-					}
-					compute_nutriscore($product_ref);
-					compute_nova_group($product_ref);
-					compute_nutrient_levels($product_ref);
-					compute_unknown_nutrients($product_ref);
-					ProductOpener::DataQuality::check_quality($product_ref);
+
+					analyze_and_enrich_product_data($product_ref);
+
 					store_product($user_id, $product_ref, "imported categories from public database");
 				}
 

@@ -28,7 +28,7 @@ C<ProductOpener::URL> is used to generate a URL of the product according to the 
 
 	use ProductOpener::URL qw/:all/;
 
-	my $image = "$www_root/images/products/$path/$filename.full.jpg";
+	my $image = "$BASE_DIRS{PRODUCTS_IMAGES}/$path/$filename.full.jpg";
 	my $image_url = format_subdomain('static') . "/images/products/$path/$filename.full.jpg";
 	
 	# subdomain format:
@@ -50,7 +50,6 @@ BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		&format_subdomain
-		&subdomain_supports_https
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -61,6 +60,7 @@ use vars @EXPORT_OK;
 use experimental 'smartmatch';
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
 
 =head1 FUNCTIONS
 

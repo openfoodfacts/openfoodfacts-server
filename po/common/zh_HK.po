@@ -25,7 +25,7 @@ msgstr "個人資料"
 
 msgctxt "add"
 msgid "Add"
-msgstr "加入產品"
+msgstr "加入产品"
 
 msgctxt "add_language"
 msgid "Add language"
@@ -45,7 +45,7 @@ msgstr "註冊"
 
 msgctxt "add_user_process"
 msgid "Welcome!"
-msgstr ""
+msgstr "欢迎!"
 
 msgctxt "add_user_result"
 msgid "Thank you for joining us!"
@@ -81,6 +81,18 @@ msgstr ""
 
 msgctxt "add_user_existing_org_pending"
 msgid "Your request to join the organization is pending approval of the organization administrator."
+msgstr ""
+
+msgctxt "admin_status_updated"
+msgid "Admin Status Updated"
+msgstr ""
+
+msgctxt "admin_status"
+msgid "Admin Status"
+msgstr ""
+
+msgctxt "grant_remove_admin_status"
+msgid "Grant/Remove Admin status"
 msgstr ""
 
 msgctxt "please_email_producers"
@@ -160,6 +172,10 @@ msgctxt "alcohol_warning"
 msgid "Excess drinking is harmful for health."
 msgstr "過量飲酒有害健康。"
 
+msgctxt "email_warning"
+msgid "Please note that your Pro account will only be valid if you use your professional e-mail address. Our moderation team checks that the domain name is consistent with the organisation you wish to join."
+msgstr ""
+
 msgctxt "all_missions"
 msgid "All missions"
 msgstr "所有任務"
@@ -188,24 +204,14 @@ msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
 msgstr ""
 
-# DO NOT TRANSLATE
-msgctxt "android_apk_app_link"
-msgid "https://world.openfoodfacts.org/files/off.apk"
-msgstr "https://world.openfoodfacts.org/files/off.apk"
-
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
 msgctxt "android_app_icon_url"
 msgid "/images/misc/playstore/img/en_get.svg"
-msgstr "/images/misc/playstore/img/zh-hk_get.svg"
+msgstr ""
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
 msgstr "Google Play立即下載"
-
-# Change hl=en to your language, and make sure the url works
-msgctxt "android_app_link"
-msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en"
-msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=zh-hk"
 
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
@@ -299,7 +305,7 @@ msgstr "由"
 
 msgctxt "categories"
 msgid "Categories"
-msgstr "分類"
+msgstr "類別"
 
 msgctxt "categories_example"
 msgid "Sardines in olive oil, Orange juice from concentrate"
@@ -571,7 +577,7 @@ msgstr ""
 
 msgctxt "emb_code_p"
 msgid "Traceability codes"
-msgstr ""
+msgstr "可追踪码"
 
 msgctxt "emb_code_s"
 msgid "Traceability code"
@@ -591,7 +597,7 @@ msgstr ""
 
 msgctxt "emb_codes_s"
 msgid "traceability code"
-msgstr ""
+msgstr "可追踪码"
 
 msgctxt "emb_codes_without_products"
 msgid "Products without the traceability code %s"
@@ -616,7 +622,7 @@ msgstr "輸入日期"
 
 msgctxt "error"
 msgid "Error"
-msgstr "錯誤"
+msgstr "错误"
 
 msgctxt "error_bad_login_password"
 msgid "Incorrect user name or password. <a href=\"/cgi/reset_password.pl\">Forgotten password?</a>"
@@ -655,7 +661,7 @@ msgid "The user name must contain only unaccented letters, digits and dashes."
 msgstr "使用者名稱只能有字母、數字及破折號。"
 
 msgctxt "error_username_too_long"
-msgid "The user name is too long (maximum 20 characters)."
+msgid "The user name is too long (maximum 40 characters)."
 msgstr ""
 
 msgctxt "error_name_too_long"
@@ -721,10 +727,6 @@ msgstr ""
 msgctxt "facebook_locale"
 msgid "en_US"
 msgstr "zh_HK"
-
-msgctxt "facebook_page"
-msgid "https://www.facebook.com/OpenFoodFacts"
-msgstr "https://www.facebook.com/OpenFoodFacts"
 
 msgctxt "fixme_product"
 msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
@@ -810,6 +812,15 @@ msgctxt "footer_legal_link"
 msgid "/legal"
 msgstr "/legal"
 
+msgctxt "footer_privacy"
+msgid "Privacy"
+msgstr ""
+
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
+msgctxt "footer_privacy_link"
+msgid "/privacy"
+msgstr ""
+
 msgctxt "footer_press"
 msgid "Press"
 msgstr "傳媒"
@@ -819,13 +830,9 @@ msgctxt "footer_press_link"
 msgid "/press"
 msgstr "/press"
 
-msgctxt "footer_tagline"
-msgid "A collaborative, free and open database of food products from around the world."
-msgstr "來自全世界共同協作、自由且開放的食品資料庫。"
-
 msgctxt "footer_terms"
 msgid "Terms of use"
-msgstr "使用條款"
+msgstr "使用条款"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_terms_link"
@@ -858,6 +865,10 @@ msgstr "Open Beauty Facts - 化妝品"
 msgctxt "footer_obf_link"
 msgid "https://world.openbeautyfacts.org"
 msgstr "https://world.openbeautyfacts.org"
+
+msgctxt "footer_pro"
+msgid "Open Food Facts for Producers"
+msgstr ""
 
 msgctxt "for"
 msgid "for"
@@ -1096,10 +1107,6 @@ msgstr ""
 
 msgctxt "ios_app_icon_alt_text"
 msgid "Download on the App Store"
-msgstr ""
-
-msgctxt "ios_app_link"
-msgid "https://apps.apple.com/app/open-food-facts/id588797948"
 msgstr ""
 
 msgctxt "known_nutrients_p"
@@ -1355,7 +1362,7 @@ msgstr "%s個產品"
 
 msgctxt "name"
 msgid "Name"
-msgstr "名稱"
+msgstr "名称"
 
 msgctxt "names"
 msgid "Names"
@@ -1456,11 +1463,11 @@ msgstr "產品不包含營養 %s"
 
 msgctxt "nutrition_alt"
 msgid "Nutrition facts"
-msgstr "營養素表"
+msgstr "營養成分"
 
 msgctxt "nutrition_data"
 msgid "Nutrition facts"
-msgstr "營養素表"
+msgstr "營養成分"
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
@@ -1524,7 +1531,7 @@ msgstr "最小值"
 
 msgctxt "nutrition_data_per_serving"
 msgid "per serving"
-msgstr "每個包含"
+msgstr "每份"
 
 msgctxt "nutrition_data_per_std"
 msgid "Standard deviation"
@@ -1532,7 +1539,7 @@ msgstr "標準差"
 
 msgctxt "nutrition_data_table"
 msgid "Nutrition facts"
-msgstr "營養素表"
+msgstr "營養成分"
 
 msgctxt "nutrition_data_table_note"
 msgid "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
@@ -1653,7 +1660,7 @@ msgstr "頁面："
 
 msgctxt "password"
 msgid "Password"
-msgstr "密碼"
+msgstr "密码"
 
 msgctxt "password_new"
 msgid "New password"
@@ -1741,7 +1748,7 @@ msgstr "前一頁"
 
 msgctxt "product_add_nutrient"
 msgid "Add a nutrient"
-msgstr "新增營養素"
+msgstr "添加营养"
 
 msgctxt "product_added"
 msgid "Product added on"
@@ -1905,7 +1912,7 @@ msgstr "完整資訊的產品"
 
 msgctxt "products_stats_created_t"
 msgid "Products"
-msgstr "產品"
+msgstr "产品"
 
 msgctxt "products_with_nutriments"
 msgid "with nutrition facts"
@@ -1945,7 +1952,7 @@ msgstr "不售於%s的產品"
 
 msgctxt "quantity"
 msgid "Quantity"
-msgstr "分量"
+msgstr "數量"
 
 msgctxt "quantity_example"
 msgid "2 l, 250 g, 1 kg, 25 cl, 6 fl oz, 1 pound"
@@ -1961,7 +1968,7 @@ msgstr "記住採購地點給以後的產品使用"
 
 msgctxt "reset_password"
 msgid "Reset password"
-msgstr "重設密碼"
+msgstr "重置密码"
 
 msgctxt "reset_password_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -2058,8 +2065,8 @@ msgid "Select products with specific brands, categories, labels, origins of ingr
 msgstr "選擇具體品牌、類別、標籤、配料來源、製造地點...等等的產品"
 
 msgctxt "search_description_opensearch"
-msgid "Open Food Facts product search"
-msgstr "Open Food Facts 產品搜尋"
+msgid "Product search"
+msgstr ""
 
 msgctxt "search_does_not_contain"
 msgid "does not contain"
@@ -2288,7 +2295,7 @@ msgstr ""
 
 msgctxt "select_country"
 msgid "Country"
-msgstr ""
+msgstr "地區"
 
 msgctxt "select_lang"
 msgid "Language"
@@ -2332,7 +2339,7 @@ msgstr "登入"
 
 msgctxt "share"
 msgid "Share"
-msgstr "分享"
+msgstr "推荐给好友"
 
 msgctxt "show_category_stats"
 msgid "Show detailed stats"
@@ -2349,18 +2356,6 @@ msgstr "若您已有帳號於 <SITE>，入在填寫此表前請先登入。"
 msgctxt "signout"
 msgid "Sign-out"
 msgstr "登出"
-
-msgctxt "site_description"
-msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
-msgstr "來自全球有關食品原料、營養成分、及其資訊的合作、自由且開放的資料庫。"
-
-msgctxt "site_name"
-msgid "Open Food Facts"
-msgstr "Open Food Facts"
-
-msgctxt "logo_site_name"
-msgid "Open Food Facts logo"
-msgstr "Open Food Facts標誌"
 
 msgctxt "sort_by"
 msgid "Sort by"
@@ -2475,13 +2470,9 @@ msgctxt "twitter"
 msgid "Twitter username (optional)"
 msgstr "Twitter用戶名（選填）"
 
-msgctxt "twitter_account"
-msgid "OpenFoodFacts"
-msgstr "OpenFoodFacts"
-
 msgctxt "unknown"
 msgid "Unknown"
-msgstr "不明"
+msgstr "未知"
 
 msgctxt "unknown_nutrients_p"
 msgid "unknown nutrients"
@@ -2555,6 +2546,10 @@ msgctxt "view"
 msgid "view"
 msgstr "檢視"
 
+msgctxt "view_this_revision"
+msgid "View this revision"
+msgstr ""
+
 msgctxt "view_list_for_products_from_the_entire_world"
 msgid "View the list for matching products from the entire world"
 msgstr "檢視藉由輸入文字所找出相符的產品清單"
@@ -2575,20 +2570,6 @@ msgstr ""
 msgctxt "website"
 msgid "Site or blog address"
 msgstr "網站或部落格地址"
-
-# Please change English.svg to French.svg or German.svg… Check the url https://static.openfoodfacts.org/images/misc/microsoft/XXXX.svg
-msgctxt "windows_phone_app_icon_url"
-msgid "/images/misc/microsoft/English.svg"
-msgstr ""
-
-msgctxt "windows_phone_app_icon_alt_text"
-msgid "Get it from Microsoft"
-msgstr ""
-
-# Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
-msgctxt "windows_phone_app_link"
-msgid "https://apps.microsoft.com/store/detail/open-food-facts-scan-to-get-nutriscore-ecoscore-and-more/XP8LT18SRPKLRG"
-msgstr ""
 
 msgctxt "you_are_connected_as_x"
 msgid "You are connected as %s."
@@ -2616,6 +2597,10 @@ msgstr ""
 
 msgctxt "product_js_use_low_res_images"
 msgid "Load lower resolution images (for slow connections)"
+msgstr ""
+
+msgctxt "protected_image_message"
+msgid "An image has been sent by the manufacturer. If you think it is incorrect or not up-to-date, please contact us."
 msgstr ""
 
 msgctxt "nutrition_grade_fr_nutriments_estimated_warning"
@@ -2712,7 +2697,7 @@ msgstr ""
 
 msgctxt "translators_column_name"
 msgid "Name"
-msgstr "名稱"
+msgstr "名称"
 
 msgctxt "translators_column_translated_words"
 msgid "Translated (Words)"
@@ -2805,7 +2790,7 @@ msgstr ""
 
 msgctxt "footer_partners"
 msgid "Partners"
-msgstr "夥伴"
+msgstr "合作伙伴"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_partners_link"
@@ -3262,15 +3247,15 @@ msgstr "否"
 
 msgctxt "button_caption_skip"
 msgid "Skip"
-msgstr ""
+msgstr "略過"
 
 msgctxt "popularity_s"
 msgid "popularity"
-msgstr ""
+msgstr "人氣"
 
 msgctxt "popularity_p"
 msgid "popularity"
-msgstr ""
+msgstr "人氣"
 
 msgctxt "ingredients_analysis_p"
 msgid "ingredients analysis"
@@ -3366,7 +3351,7 @@ msgstr "產品識別"
 
 msgctxt "fields_group_origins"
 msgid "Origins"
-msgstr "原產地"
+msgstr "起源"
 
 msgctxt "fields_group_ingredients"
 msgid "Ingredients"
@@ -3374,7 +3359,7 @@ msgstr "成分"
 
 msgctxt "fields_group_nutrition"
 msgid "Nutrition facts"
-msgstr "營養素表"
+msgstr "營養成分"
 
 msgctxt "fields_group_nutrition_other"
 msgid "Optional nutrition facts"
@@ -3477,7 +3462,7 @@ msgstr ""
 
 msgctxt "value"
 msgid "Value"
-msgstr "數值"
+msgstr "值"
 
 msgctxt "value_unit"
 msgid "Value + Unit"
@@ -3950,7 +3935,7 @@ msgstr ""
 
 msgctxt "nutriscore_points_for_proteins"
 msgid "Proteins"
-msgstr "蛋白质"
+msgstr "蛋白質"
 
 msgctxt "nutriscore_source_value"
 msgid "value"
@@ -3991,6 +3976,10 @@ msgstr "<a href=\"\">我們需要您的幫助和捐款</a>繼續發展此項目�
 
 msgctxt "thank_you"
 msgid "Thank you!"
+msgstr ""
+
+msgctxt "thank_you_very_much"
+msgid "Thank you very much!"
 msgstr ""
 
 msgctxt "value_for_the_product"
@@ -4186,6 +4175,10 @@ msgctxt "remove_products"
 msgid "Remove all the products"
 msgstr ""
 
+msgctxt "remove_user"
+msgid "Remove user"
+msgstr ""
+
 msgctxt "remove_products_from_producers_platform"
 msgid "Remove all your products from the platform for producers"
 msgstr ""
@@ -4233,7 +4226,7 @@ msgstr ""
 
 msgctxt "done_status"
 msgid "Done"
-msgstr ""
+msgstr "完成"
 
 msgctxt "to_do_status"
 msgid "To do"
@@ -4336,7 +4329,7 @@ msgstr ""
 
 msgctxt "invalid_barcode"
 msgid "Invalid barcode"
-msgstr ""
+msgstr "无效的条形码"
 
 # Either 'ltr' for left to right languages like English or 'rtl' for right to left languages like Arabic
 msgctxt "text_direction"
@@ -4577,7 +4570,7 @@ msgstr ""
 
 msgctxt "attribute_nova_unknown_description_short"
 msgid "Food processing level unknown"
-msgstr ""
+msgstr "食品加工水平未知"
 
 msgctxt "attribute_nova_setting_name"
 msgid "No or little food processing (NOVA group)"
@@ -4590,7 +4583,7 @@ msgstr ""
 
 msgctxt "attribute_nova_1_description_short"
 msgid "Unprocessed or minimally processed foods"
-msgstr "未加工或經少量加工食品"
+msgstr "第一類： 未加工或經少量加工食品"
 
 msgctxt "attribute_nova_2_description_short"
 msgid "Processed culinary ingredients"
@@ -4598,7 +4591,7 @@ msgstr "加工的烹飪用食品"
 
 msgctxt "attribute_nova_3_description_short"
 msgid "Processed foods"
-msgstr "加工食品"
+msgstr "第三類： 加工食品"
 
 msgctxt "attribute_nova_4_description_short"
 msgid "Ultra processed foods"
@@ -4816,7 +4809,7 @@ msgstr ""
 
 msgctxt "org_name"
 msgid "Name"
-msgstr "名稱"
+msgstr "名称"
 
 msgctxt "org_link"
 msgid "Link to the official web site"
@@ -4844,7 +4837,7 @@ msgstr ""
 
 msgctxt "contact_name"
 msgid "Name"
-msgstr "名稱"
+msgstr "名称"
 
 msgctxt "contact_address"
 msgid "Address"
@@ -4953,7 +4946,7 @@ msgstr ""
 
 msgctxt "preferences_edit_your_food_preferences"
 msgid "Edit your food preferences"
-msgstr ""
+msgstr "编辑您的食物偏好"
 
 msgctxt "preferences_your_preferences"
 msgid "Your food preferences"
@@ -5004,7 +4997,7 @@ msgstr ""
 
 msgctxt "packaging_shape"
 msgid "Shape"
-msgstr ""
+msgstr "形状"
 
 msgctxt "packaging_quantity"
 msgid "Quantity contained"
@@ -5012,7 +5005,7 @@ msgstr ""
 
 msgctxt "packaging_material"
 msgid "Material"
-msgstr ""
+msgstr "材料"
 
 msgctxt "packaging_recycling"
 msgid "Recycling"
@@ -5064,7 +5057,7 @@ msgstr ""
 
 msgctxt "type"
 msgid "Type"
-msgstr ""
+msgstr "類型"
 
 msgctxt "processing_factor"
 msgid "Processing factor"
@@ -5737,19 +5730,21 @@ msgctxt "donation_title"
 msgid "Important: we need your support!"
 msgstr ""
 
-# variable names between { } must not be translated, {number_of_employees} will be a number
-msgctxt "donation_body_employees"
-msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with {number_of_employees} employees."
+msgctxt "donation_text_2023_main"
+msgid "Help us make food transparency the norm!"
 msgstr ""
 
-# variable names between { } must not be translated, {year} will be the upcoming year
-msgctxt "donation_why_year"
-msgid "We need your donations to fund the Open Food Facts {year} budget and to continue to develop the project."
+msgctxt "donation_text_2023_secondary"
+msgid "As a non-profit organization, we depend on your donations to continue informing consumers around the world about what they eat."
+msgstr ""
+
+msgctxt "donation_text_2023_tertiary"
+msgid "The food revolution starts with you!"
 msgstr ""
 
 msgctxt "donation_cta"
 msgid "Donate"
-msgstr "捐款"
+msgstr "贊助/捐款"
 
 msgctxt "ecoscore_production_system_no_labels_with_environmental_benefits"
 msgid "No labels with environmental benefits"
@@ -6108,32 +6103,32 @@ msgstr ""
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_very_good_match"
 msgid "Very good match"
-msgstr ""
+msgstr "优秀的配对"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_good_match"
 msgid "Good match"
-msgstr ""
+msgstr "不错的配对"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_poor_match"
 msgid "Poor match"
-msgstr ""
+msgstr "较差的配对"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_unknown_match"
 msgid "Unknown match"
-msgstr ""
+msgstr "是否适合未知"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_may_not_match"
 msgid "May not match"
-msgstr ""
+msgstr "可能不匹配"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_does_not_match"
 msgid "Does not match"
-msgstr ""
+msgstr "不匹配"
 
 msgctxt "reset_preferences"
 msgid "Use default preferences"
@@ -6177,6 +6172,10 @@ msgstr ""
 
 msgctxt "action_add_packaging_components"
 msgid "Add packaging components"
+msgstr ""
+
+msgctxt "action_add_quantity"
+msgid "Add quantity of the product"
 msgstr ""
 
 # this is not used yet
@@ -6297,7 +6296,7 @@ msgstr ""
 
 msgctxt "sign_in"
 msgid "Sign in"
-msgstr "登入"
+msgstr "登录"
 
 msgctxt "sign_out"
 msgid "Sign out"
@@ -6352,7 +6351,7 @@ msgstr ""
 
 msgctxt "nutrition"
 msgid "Nutrition"
-msgstr "營養素"
+msgstr "营养"
 
 # Note: "criteria" is plural here. So in French for instance: "Vos critères"
 msgctxt "your_criteria"
@@ -6486,19 +6485,19 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units_description"
 msgid "Enter the number of packaging units of the same shape and material contained in the product."
-msgstr ""
+msgstr "输入产品中包含的相同形状和材料的包装单位数量。"
 
 msgctxt "packaging_shape_description"
 msgid "Enter the shape name listed in the recycling instructions if they are available, or select a shape."
-msgstr ""
+msgstr "输入回收说明中列出的形状名称（如果可用），或选择一个形状。"
 
 msgctxt "packaging_material_description"
 msgid "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure."
-msgstr ""
+msgstr "如果可以确定，请输入具体材料（三角形内的材料代码通常可以在包装部件上找到），如果您不确定，请输入通用材料（例如塑料或金属）。"
 
 msgctxt "packaging_recycling_description"
 msgid "Enter recycling instructions only if they are listed on the product."
-msgstr ""
+msgstr "只有在产品上列出的回收说明才可输入。"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight_description"
@@ -6508,7 +6507,7 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit_description"
 msgid "Enter the net weight or net volume and indicate the unit (for example g or ml)."
-msgstr ""
+msgstr "输入净重或净体积并注明单位（例如克 g 或毫升 ml）。"
 
 msgctxt "import_and_export_products"
 msgid "Import and export products"
@@ -6537,10 +6536,6 @@ msgstr ""
 
 msgctxt "faq_for_producers"
 msgid "FAQ for producers"
-msgstr ""
-
-msgctxt "join_the_next_pros_meet_up"
-msgid "Join the next Pros' Meet-up"
 msgstr ""
 
 # variable names between { } must not be translated
@@ -6604,6 +6599,10 @@ msgctxt "relative_to_all_products"
 msgid "relative to all products"
 msgstr ""
 
+msgctxt "preferred_language"
+msgid "Preferred Language"
+msgstr ""
+
 msgctxt "packagings_n_p"
 msgid "Numbers of packaging components"
 msgstr ""
@@ -6626,5 +6625,281 @@ msgstr ""
 
 msgctxt "weight_percent"
 msgid "Weight percent"
+msgstr ""
+
+msgctxt "nutriscore_component_energy"
+msgid "Energy"
+msgstr "能量"
+
+msgctxt "nutriscore_component_energy_from_saturated_fat"
+msgid "Energy from saturated fat"
+msgstr ""
+
+msgctxt "nutriscore_component_sugars"
+msgid "Sugars"
+msgstr "糖"
+
+msgctxt "nutriscore_component_saturated_fat"
+msgid "Saturated fat"
+msgstr "飽和脂肪"
+
+msgctxt "nutriscore_component_saturated_fat_ratio"
+msgid "Saturated fat / fat"
+msgstr ""
+
+msgctxt "nutriscore_component_salt"
+msgid "Salt"
+msgstr "鹽"
+
+msgctxt "nutriscore_component_non_nutritive_sweeteners"
+msgid "Non-nutritive sweeteners"
+msgstr ""
+
+msgctxt "nutriscore_component_fruits_vegetables_legumes"
+msgid "Fruits, vegetables and legumes"
+msgstr ""
+
+msgctxt "nutriscore_component_fiber"
+msgid "Fiber"
+msgstr ""
+
+msgctxt "nutriscore_component_proteins"
+msgid "Proteins"
+msgstr "蛋白質"
+
+msgctxt "presence"
+msgid "Presence"
+msgstr ""
+
+msgctxt "absence"
+msgid "Absence"
+msgstr ""
+
+msgctxt "nutriscore_is_water"
+msgid "This product is considered to be water for the calculation of the Nutri-Score."
+msgstr ""
+
+msgctxt "nutriscore_is_fat_oil_nuts_seeds"
+msgid "This product is considered to be fat, oil, nuts or seeds for the calculation of the Nutri-Score."
+msgstr ""
+
+msgctxt "nutriscore_is_cheese"
+msgid "This product is considered to be cheese for the calculation of the Nutri-Score."
+msgstr ""
+
+msgctxt "nutriscore_is_red_meat_product"
+msgid "This product is considered to be a red meat product for the calculation of the Nutri-Score."
+msgstr ""
+
+msgctxt "nutriscore_count_proteins_reason_beverage"
+msgid "Points for proteins are counted because the product is considered to be a beverage."
+msgstr ""
+
+msgctxt "nutriscore_count_proteins_reason_cheese"
+msgid "Points for proteins are counted because the product is considered to be cheese."
+msgstr ""
+
+msgctxt "nutriscore_count_proteins_reason_negative_points_less_than_7"
+msgid "Points for proteins are counted because the negative points are less than 7."
+msgstr ""
+
+msgctxt "nutriscore_count_proteins_reason_negative_points_less_than_11"
+msgid "Points for proteins are counted because the negative points are less than 11."
+msgstr ""
+
+msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_to_7"
+msgid "Points for proteins are not counted because the negative points greater than or equal to 7."
+msgstr ""
+
+msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_to_11"
+msgid "Points for proteins are not counted because the negative points greater than or equal to 11."
+msgstr ""
+
+msgctxt "nutriscore_explanation_what_it_is"
+msgid "The Nutri-Score is a logo on the overall nutritional quality of products."
+msgstr ""
+
+msgctxt "nutriscore_explanation_what_it_takes_into_account"
+msgid "The score from A to E is calculated based on nutrients and foods to favor (proteins, fiber, fruits, vegetables and legumes ...) and nutrients to limit (calories, saturated fat, sugars, salt)."
+msgstr ""
+
+msgctxt "nutriscore_explanation_where_the_data_comes_from"
+msgid "The score is calculated from the data of the nutrition facts table and the composition data (fruits, vegetables and legumes)."
+msgstr ""
+
+msgctxt "nutriscore_explanation_recommended_by_public_health_authorities"
+msgid "The display of this logo is recommended by public health authorities without obligation for companies."
+msgstr ""
+
+msgctxt "nutriscore_explanation_title"
+msgid "What is the Nutri-Score?"
+msgstr ""
+
+msgctxt "nutrient_info_energy_risk"
+msgid "Energy intakes above energy requirements are associated with increased risks of weight gain, overweight, obesity, and consequently risk of diet-related chronic diseases."
+msgstr ""
+
+msgctxt "nutrient_info_saturated_fat_risk"
+msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
+msgstr ""
+
+msgctxt "nutrient_info_saturated_fat_ratio_risk"
+msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
+msgstr ""
+
+msgctxt "nutrient_info_energy_from_saturated_fat_risk"
+msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
+msgstr ""
+
+msgctxt "nutrient_info_non_nutritive_sweeteners_risk"
+msgid "Non-nutritive sweeteners may not confer any long-term benefit in reducing body fat in adults or children. There may be potential undesirable effects from long-term use of non-nutritive sweeteners, such as an increased risk of type 2 diabetes and cardiovascular diseases in adults."
+msgstr ""
+
+msgctxt "nutrient_info_fiber_benefit"
+msgid "Consuming foods rich in fiber (especially whole grain foods) reduces the risks of aerodigestive cancers, cardiovascular diseases, obesity and diabetes."
+msgstr ""
+
+msgctxt "nutrient_info_fruits_vegetables_legumes_benefit"
+msgid "Consuming foods rich in fruits, vegetables and legumes reduces the risks of aerodigestive cancers, cardiovascular diseases, obesity and diabetes."
+msgstr ""
+
+msgctxt "nutrient_info_proteins_benefit"
+msgid "Foods that are rich in proteins are usually rich in calcium or iron which are essential minerals with numerous health benefits."
+msgstr ""
+
+msgctxt "revert"
+msgid "Revert to this revision"
+msgstr ""
+
+msgctxt "product_js_product_revert_confirm"
+msgid "Revert to this product revision?"
+msgstr ""
+
+msgctxt "api_status_success"
+msgid "Success"
+msgstr ""
+
+msgctxt "api_status_failure"
+msgid "Failure"
+msgstr ""
+
+msgctxt "api_result_product_reverted"
+msgid "Product reverted to the specified revision"
+msgstr ""
+
+msgctxt "api_result_product_not_reverted"
+msgid "Product not reverted to the specified revision"
+msgstr ""
+
+# sweeteners (additives), plural
+msgctxt "sweeteners"
+msgid "sweeteners"
+msgstr ""
+
+# sweetener (additive), singular
+msgctxt "sweetener"
+msgid "sweetener"
+msgstr "甜味劑"
+
+msgctxt "action_edit_product"
+msgid "Complete or correct product information"
+msgstr ""
+
+msgctxt "report_problem_panel_title"
+msgid "Report a problem"
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_title"
+msgid "Incomplete or incorrect information?"
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_subtitle_off"
+msgid "Category, labels, ingredients, allergens, nutritional information, photos etc."
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_content_correct"
+msgid "If the information does not match the information on the packaging, you can complete or correct it. Thank you!"
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_content_correct_off"
+msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
+msgstr ""
+
+msgctxt "description"
+msgid "Description"
+msgstr ""
+
+msgctxt "site_description_off"
+msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
+msgstr ""
+
+msgctxt "tagline_off"
+msgid "Open Food Facts gathers information and data on food products from around the world."
+msgstr "Open Food Facts收集世界各地的食品數據。"
+
+msgctxt "footer_tagline_off"
+msgid "A collaborative, free and open database of food products from around the world."
+msgstr "來自全世界共同協作、自由且開放的食品資料庫。"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_off"
+msgid "/open-food-facts-mobile-app"
+msgstr ""
+
+msgctxt "site_description_obf"
+msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
+msgstr "一個協作，免費，公開，有關全球美妝產品成分與資料的數據庫"
+
+msgctxt "tagline_obf"
+msgid "Open Beauty Facts gathers information and data on cosmetic products from around the world."
+msgstr "Open Beauty Facts 收集了世界各地美妝品的資訊與數據。"
+
+msgctxt "footer_tagline_obf"
+msgid "A collaborative, free and open database of cosmetic products from around the world."
+msgstr "一個集體，免費，公開，有關全球化妝產品的數據庫。"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_obf"
+msgid "/open-beauty-facts-mobile-app"
+msgstr ""
+
+msgctxt "footer_and_the_facebook_group_obf"
+msgid "and the <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">Facebook group for contributors</a>"
+msgstr ""
+
+msgctxt "search_description_opensearch_obf"
+msgid "Open Beauty Facts product search"
+msgstr ""
+
+msgctxt "warning_not_complete_obf"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
+msgstr ""
+
+msgctxt "brands_example_beauty"
+msgid "Nivea, Nivea Men"
+msgstr ""
+
+msgctxt "categories_example_beauty"
+msgid "Anti-dandruff shampoo, Whitening toothpaste"
+msgstr ""
+
+msgctxt "emb_codes_example_beauty"
+msgid "EMB 53062"
+msgstr ""
+
+msgctxt "generic_name_example_beauty"
+msgid "Anti-dandruff shampoo"
+msgstr "去屑洗髮露"
+
+msgctxt "product_name_example_beauty"
+msgid "Anti-Perspirant Stress Protect"
+msgstr ""
+
+msgctxt "ingredients_text_example_beauty"
+msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
+msgstr ""
+
+msgctxt "report_problem_navigation"
+msgid "Report a problem"
 msgstr ""
 

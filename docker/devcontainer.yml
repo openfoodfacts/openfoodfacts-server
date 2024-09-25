@@ -1,0 +1,6 @@
+version: "3.7"
+services:
+  backend:
+    build:
+      args:
+        CPANMOPTS: "${CPANMOPTS:---with-develop --with-feature=off_server_dev_tools}"

@@ -1,0 +1,29 @@
+[% Lang.app_please_take_pictures.$request_lc %]
+<button onclick="captureImage();" data-icon="off-camera">[% Lang.app_take_a_picture.$request_lc %]</button>
+<div id="upload_image_result"></div>
+<p>[% Lang.app_take_a_picture_note.$request_lc %]</p>
+
+[% IF api_version >= 0.1 %]
+    <form id="product_fields" action="javascript:void(0);">
+        <div data-role="fieldcontain" class="ui-hide-label" style="border-bottom-width: 0;">
+            [% FOREACH field IN app_fields %]
+                [% value = Lang.$field.$request_lc %]
+                <label for="[% field %]">[% Lang.$field.$request_lc %]</label>
+                <input type="text" name="[% field %]" id="[% field %]" value="" placeholder="[% value %]">
+            [% END %]
+        </div>
+
+        <div id="save_button">
+            <input type="submit" id="save" name="save" value="[% Lang.save.$request_lc %]">
+        </div>
+        <div id="saving" style="display:none">
+            <img src="loading2.gif" style="margin-right:10px"> [% Lang.saving.$request_lc %]
+        </div>
+        <div id="saved" style="display:none">
+            [% Lang.saved.$request_lc %]
+        </div>
+        <div id="not_saved" style="display:none">
+            [% Lang.not_saved.$request_lc %]
+        </div>
+    </form>
+[% END %]

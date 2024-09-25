@@ -28,13 +28,15 @@ binmode(STDERR, ":encoding(UTF-8)");
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
+use ProductOpener::Store qw/get_string_id_for_lang retrieve store/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::Users qw/:all/;
+use ProductOpener::Users qw/$Org_id $Owner_id $User_id/;
 use ProductOpener::Images qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Lang qw/$lc lang/;
 use ProductOpener::Mail qw/:all/;
-use ProductOpener::Producers qw/:all/;
+use ProductOpener::Producers qw/convert_file get_minion load_csv_or_excel_file normalize_column_name/;
+use ProductOpener::Orgs qw/update_last_import_type/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -56,10 +58,10 @@ my $js = '';
 my $template_data_ref;
 
 if (not defined $Owner_id) {
-	display_error_and_exit(lang("no_owner_defined"), 200);
+	display_error_and_exit($request_ref, lang("no_owner_defined"), 200);
 }
 
-my $import_files_ref = retrieve("$data_root/import_files/${Owner_id}/import_files.sto");
+my $import_files_ref = retrieve("$BASE_DIRS{IMPORT_FILES}/${Owner_id}/import_files.sto");
 if (not defined $import_files_ref) {
 	$import_files_ref = {};
 }
@@ -73,11 +75,11 @@ my $extension;
 
 if (defined $import_files_ref->{$file_id}) {
 	$extension = $import_files_ref->{$file_id}{extension};
-	$file = "$data_root/import_files/${Owner_id}/$file_id.$extension";
+	$file = "$BASE_DIRS{IMPORT_FILES}/${Owner_id}/$file_id.$extension";
 }
 else {
 	$log->debug("File not found in import_files.sto", {file_id => $file_id}) if $log->is_debug();
-	display_error_and_exit("File not found.", 404);
+	display_error_and_exit($request_ref, "File not found.", 404);
 }
 
 $log->debug("File found in import_files.sto",
@@ -86,7 +88,7 @@ $log->debug("File found in import_files.sto",
 
 # Store user columns to OFF fields matches so that they can be reused for the next imports
 
-my $all_columns_fields_ref = retrieve("$data_root/import_files/${Owner_id}/all_columns_fields.sto");
+my $all_columns_fields_ref = retrieve("$BASE_DIRS{IMPORT_FILES}/${Owner_id}/all_columns_fields.sto");
 if (not defined $all_columns_fields_ref) {
 	$all_columns_fields_ref = {};
 }
@@ -94,7 +96,7 @@ if (not defined $all_columns_fields_ref) {
 my $results_ref = load_csv_or_excel_file($file);
 
 if ($results_ref->{error}) {
-	display_error_and_exit($results_ref->{error}, 200);
+	display_error_and_exit($request_ref, $results_ref->{error}, 200);
 }
 
 my $headers_ref = $results_ref->{headers};
@@ -136,22 +138,22 @@ $import_files_ref->{$file_id}{imports}{$import_id} = {
 
 store($columns_fields_file, $columns_fields_ref);
 
-store("$data_root/import_files/${Owner_id}/all_columns_fields.sto", $all_columns_fields_ref);
+store("$BASE_DIRS{IMPORT_FILES}/${Owner_id}/all_columns_fields.sto", $all_columns_fields_ref);
 
 # Default values: use the language and country of the interface
 my $default_values_ref = {
 	lc => $lc,
-	countries => $cc,
+	countries => $request_ref->{cc},
 };
 
-my $results_ref = convert_file($default_values_ref, $file, $columns_fields_file, $converted_file);
+$results_ref = convert_file($default_values_ref, $file, $columns_fields_file, $converted_file);
 
 $import_files_ref->{$file_id}{imports}{$import_id}{converted_t} = time();
 
 if ($results_ref->{error}) {
 	$import_files_ref->{$file_id}{imports}{$import_id}{convert_error} = $results_ref->{error};
-	store("$data_root/import_files/${Owner_id}/import_files.sto", $import_files_ref);
-	display_error_and_exit($results_ref->{error}, 200);
+	store("$BASE_DIRS{IMPORT_FILES}/${Owner_id}/import_files.sto", $import_files_ref);
+	display_error_and_exit($request_ref, $results_ref->{error}, 200);
 }
 
 my $args_ref = {
@@ -162,7 +164,7 @@ my $args_ref = {
 	file_id => $file_id,
 	import_id => $import_id,
 	comment => "Import from producers platform",
-	images_download_dir => "$data_root/import_files/${Owner_id}/downloaded_images",
+	images_download_dir => "$BASE_DIRS{IMPORT_FILES}/${Owner_id}/downloaded_images",
 };
 
 if (defined $Org_id) {
@@ -198,18 +200,20 @@ my $job_id = get_minion()->enqueue(import_csv_file => [$args_ref] => {queue => $
 
 $import_files_ref->{$file_id}{imports}{$import_id}{job_id} = $job_id;
 
-store("$data_root/import_files/${Owner_id}/import_files.sto", $import_files_ref);
+store("$BASE_DIRS{IMPORT_FILES}/${Owner_id}/import_files.sto", $import_files_ref);
+
+update_last_import_type($Org_id, 'CSV');
 
 $template_data_ref->{process_file_id} = $file_id;
 $template_data_ref->{process_import_id} = $import_id;
 $template_data_ref->{link} = "/cgi/import_file_job_status.pl?file_id=$file_id&import_id=$import_id";
 
-process_template('web/pages/import_file_process/import_file_process.tt.html', $template_data_ref, \$html);
-process_template('web/pages/import_file_process/import_file_process.tt.js', $template_data_ref, \$js);
+process_template('web/pages/import_file_process/import_file_process.tt.html', $template_data_ref, \$html, $request_ref);
+process_template('web/pages/import_file_process/import_file_process.tt.js', $template_data_ref, \$js, $request_ref);
 
-$initjs .= $js;
+$request_ref->{initjs} .= $js;
 
-$scripts .= <<HTML
+$request_ref->{scripts} .= <<HTML
 <script type="text/javascript" src="/js/dist/jquery.iframe-transport.js"></script>
 <script type="text/javascript" src="/js/dist/jquery.fileupload.js"></script>
 HTML

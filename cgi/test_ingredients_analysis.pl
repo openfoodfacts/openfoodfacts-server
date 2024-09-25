@@ -29,16 +29,17 @@ use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Users qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Lang qw/$lc/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Ingredients qw/:all/;
-use ProductOpener::Text qw/:all/;
+use ProductOpener::Ingredients
+	qw/clean_ingredients_text extract_additives_from_text extract_ingredients_from_text preparse_ingredients_text/;
+use ProductOpener::Text qw/remove_tags_and_quote/;
 
 use CGI qw/:cgi :form escapeHTML charset/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 
 use Log::Any qw($log);
 
@@ -70,8 +71,8 @@ if ($action eq 'process') {
 	clean_ingredients_text($product_ref);
 	$log->debug("extract_ingredients_from_text") if $log->is_debug();
 	extract_ingredients_from_text($product_ref);
-	$log->debug("extract_ingredients_classes_from_text") if $log->is_debug();
-	extract_ingredients_classes_from_text($product_ref);
+	$log->debug("extract_additives_from_text") if $log->is_debug();
+	extract_additives_from_text($product_ref);
 
 	my $html_details = display_ingredients_analysis_details($product_ref);
 	$html_details =~ s/.*tabindex="-1">/<div>/;
@@ -82,7 +83,7 @@ if ($action eq 'process') {
 	$template_data_ref->{product_ref} = $product_ref;
 	$template_data_ref->{preparsed_ingredients_text} = preparse_ingredients_text($lc, $ingredients_text);
 
-	my $json = JSON::PP->new->pretty->encode($product_ref->{ingredients});
+	my $json = JSON::MaybeXS->new->pretty->encode($product_ref->{ingredients});
 	$template_data_ref->{json} = $json;
 }
 
