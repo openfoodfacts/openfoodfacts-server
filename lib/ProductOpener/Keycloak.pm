@@ -190,7 +190,7 @@ A hashmap reference with user information from Keycloak.
 =cut
 
 sub find_user_by_username ($self, $username) {
-	return _find_user_by_single_attribute_exact('username', $username);
+	return $self->_find_user_by_single_attribute_exact('username', $username);
 }
 
 =head2 find_user_by_email ($mail)
@@ -208,7 +208,7 @@ A hashmap reference with user information from Keycloak.
 =cut
 
 sub find_user_by_email ($self, $email) {
-	return _find_user_by_single_attribute_exact('email', $email);
+	return $self->_find_user_by_single_attribute_exact('email', $email);
 }
 
 =head2 get_account_link()

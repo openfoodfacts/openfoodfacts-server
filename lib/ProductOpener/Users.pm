@@ -171,7 +171,7 @@ sub welcome_user_task ($job, $args_ref) {
 	# Replace placeholders by user values
 	$email_content =~ s/\{\{USERID\}\}/$userid/g;
 	$email_content =~ s/\{\{NAME\}\}/$user_name/g;
-	$error = send_html_email($user_ref, lang("add_user_email_subject"), $email_content);
+	send_html_email($user_ref, lang("add_user_email_subject"), $email_content);
 
 	$job->finish("done");
 
@@ -650,7 +650,6 @@ edit / add / delete
 sub process_user_form ($type, $user_ref, $request_ref) {
 
 	my $userid = $user_ref->{userid};
-	my $error = 0;
 
 	$log->debug("process_user_form", {type => $type, user_ref => $user_ref}) if $log->is_debug();
 
