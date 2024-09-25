@@ -716,13 +716,22 @@ sub check_request_response ($test_ref, $response, $test_id, $test_dir, $expected
 	return;
 }
 
-sub execute_api_tests ($file, $tests_ref, $ua = undef) {
+sub execute_api_tests ($file, $tests_ref, $ua = undef, $reuse_ua = 1) {
+
+	if ((defined $ua) and (not($reuse_ua))) {
+		confess('Error in API test setup for ' . $file . ': $ua was passed but $reuse_ua was not set to 1');
+		return;
+	}
 
 	my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results($file));
 
-	$ua = $ua // LWP::UserAgent->new();
+	$ua = $ua // new_client();
 
 	foreach my $test_ref (@$tests_ref) {
+
+		if (not($reuse_ua)) {
+			$ua = new_client();
+		}
 
 		my $response = execute_request($test_ref, $ua);
 
