@@ -849,22 +849,29 @@ sub compute_ecoscore ($product_ref) {
 
 				$product_ref->{ecoscore_data}{"scores"}{$cc} += $bonus;
 
-				# Assign A to E grade
+				# Assign A+ to F grade
+				# SI(AO3>=90;"A+";SI(AO3>=75;"A";SI(AO3>=60;"B";SI(AO3>=45;"C";SI(AO3>=30;"D";SI(AO3>=15;"E";"F"))))));"")
 
-				if ($product_ref->{ecoscore_data}{"scores"}{$cc} >= 80) {
-					$product_ref->{ecoscore_data}{"grades"}{$cc} = "a";
+				if ($product_ref->{ecoscore_data}{"scores"}{$cc} >= 90) {
+					$product_ref->{ecoscore_data}{"grades"}{$cc} = "a+";
 				}
+				elsif ($product_ref->{ecoscore_data}{"scores"}{$cc} >= 75) {
+					$product_ref->{ecoscore_data}{"grades"}{$cc} = "a";
+				}				
 				elsif ($product_ref->{ecoscore_data}{"scores"}{$cc} >= 60) {
 					$product_ref->{ecoscore_data}{"grades"}{$cc} = "b";
 				}
-				elsif ($product_ref->{ecoscore_data}{"scores"}{$cc} >= 40) {
+				elsif ($product_ref->{ecoscore_data}{"scores"}{$cc} >= 45) {
 					$product_ref->{ecoscore_data}{"grades"}{$cc} = "c";
 				}
-				elsif ($product_ref->{ecoscore_data}{"scores"}{$cc} >= 20) {
+				elsif ($product_ref->{ecoscore_data}{"scores"}{$cc} >= 30) {
 					$product_ref->{ecoscore_data}{"grades"}{$cc} = "d";
 				}
-				else {
+				elsif ($product_ref->{ecoscore_data}{"scores"}{$cc} >= 15) {
 					$product_ref->{ecoscore_data}{"grades"}{$cc} = "e";
+				}				
+				else {
+					$product_ref->{ecoscore_data}{"grades"}{$cc} = "f";
 				}
 
 				$log->debug(
