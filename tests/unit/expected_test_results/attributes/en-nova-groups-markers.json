@@ -396,7 +396,7 @@
             "aggregated_origins" : [
                {
                   "origin" : "en:unknown",
-                  "percent" : 100
+                  "percent" : 100.0
                }
             ],
             "epi_score" : 0,
@@ -828,7 +828,7 @@
          "id" : "en:garlic-flavouring",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 2.5,
-         "percent_max" : "5",
+         "percent_max" : 5,
          "percent_min" : 0,
          "text" : "garlic flavouring",
          "vegan" : "maybe",
@@ -838,7 +838,7 @@
          "id" : "en:e412",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 2.5,
-         "percent_max" : "5",
+         "percent_max" : 5,
          "percent_min" : 0,
          "text" : "guar gum",
          "vegan" : "yes",
@@ -849,7 +849,7 @@
          "id" : "en:sugar",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 2.5,
-         "percent_max" : "5",
+         "percent_max" : 5,
          "percent_min" : 0,
          "text" : "sugar",
          "vegan" : "yes",
@@ -860,7 +860,7 @@
          "id" : "en:high-fructose-corn-syrup",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 3.21428571428572,
-         "percent_max" : "5",
+         "percent_max" : 5,
          "percent_min" : 0,
          "text" : "high fructose corn syrup",
          "vegan" : "yes",
@@ -943,7 +943,7 @@
    "ingredients_with_specified_percent_n" : 0,
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 7,
-   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_with_unspecified_percent_sum" : 100.0,
    "ingredients_without_ciqual_codes" : [
       "en:e412",
       "en:garlic-flavouring",
@@ -1024,6 +1024,10 @@
          [
             "ingredients",
             "en:high-fructose-corn-syrup"
+         ],
+         [
+            "ingredients",
+            "en:fructose"
          ]
       ]
    },

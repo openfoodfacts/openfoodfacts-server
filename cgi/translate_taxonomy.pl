@@ -35,7 +35,7 @@ use ProductOpener::Text qw/remove_tags_and_quote/;
 use Encode;
 use CGI qw/:cgi :form escapeHTML/;
 use Log::Any qw($log);
-use JSON::PP;
+use JSON::MaybeXS;
 
 my $request_ref = ProductOpener::Display::init_request();
 

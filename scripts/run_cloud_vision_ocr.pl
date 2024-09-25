@@ -28,7 +28,7 @@ use ProductOpener::PerlStandards
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
-use ProductOpener::Images qw/@CLOUD_VISION_FEATURES_FULL send_image_to_cloud_vision send_image_to_robotoff/;
+use ProductOpener::Images qw/@CLOUD_VISION_FEATURES_FULL send_image_to_cloud_vision/;
 
 use AnyEvent::Inotify::Simple;
 use Log::Any qw($log);
@@ -78,16 +78,6 @@ sub send_file_to_ocr ($file) {
 	my $cloudvision_ref = send_image_to_cloud_vision($file, $json_file, \@CLOUD_VISION_FEATURES_FULL, $gv_logs);
 
 	if (defined $cloudvision_ref) {
-
-		# Call robotoff to process the image and/or json from Cloud Vision
-		my $robotoff_response = send_image_to_robotoff($code, $image_url, $json_url, $auth . "api." . $server_domain);
-		if ($robotoff_response->is_success) {
-			print $LOG "--> robotoff success: " . $robotoff_response->decoded_content . "\n";
-		}
-		else {
-			print $LOG "--> robotoff error: " . $robotoff_response->status_line . "\n";
-		}
-
 		unlink($file);
 	}
 	return;

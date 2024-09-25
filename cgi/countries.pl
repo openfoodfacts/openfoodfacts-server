@@ -35,7 +35,7 @@ use ProductOpener::Web qw/get_countries_options_list/;
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 
 # This script returns a list of countries in the language of the interface in a JSON format
 # it is used to display the dropdown list of countries
