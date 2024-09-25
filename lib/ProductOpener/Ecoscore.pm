@@ -867,23 +867,6 @@ sub compute_ecoscore ($product_ref) {
 					$product_ref->{ecoscore_data}{"grades"}{$cc} = "e";
 				}
 
-				# If a product has the grade A and it contains a non-biodegradable and non-recyclable material, downgrade to B
-				if (
-					($product_ref->{ecoscore_data}{"grades"}{$cc} eq "a")
-					and ($product_ref->{ecoscore_data}{adjustments}{packaging}
-						{non_recyclable_and_non_biodegradable_materials} > 0)
-					)
-				{
-					$product_ref->{ecoscore_data}{"downgraded"} = "non_recyclable_and_non_biodegradable_materials";
-					# For France, save the original score
-					if ($cc eq 'fr') {
-						$product_ref->{ecoscore_data}{"scores"}{$cc . "_orig"}
-							= $product_ref->{ecoscore_data}{"scores"}{$cc};
-					}
-					$product_ref->{ecoscore_data}{"grades"}{$cc} = "b";
-					$product_ref->{ecoscore_data}{"scores"}{$cc} = 79;
-				}
-
 				$log->debug(
 					"compute_ecoscore - final score and grade",
 					{
@@ -1587,12 +1570,9 @@ sub compute_ecoscore_packaging_adjustment ($product_ref) {
 
 	my $warning;
 
-	# If we do not have packagings info, return the maximum malus, and indicate the product can contain non recyclable materials
+	# If we do not have packagings info, return the maximum malus
 	if ((not defined $product_ref->{packagings}) or (scalar @{$product_ref->{packagings}} == 0)) {
-		$product_ref->{ecoscore_data}{adjustments}{packaging} = {
-			value => -15,
-			non_recyclable_and_non_biodegradable_materials => 1,
-		};
+		$product_ref->{ecoscore_data}{adjustments}{packaging} = {value => -15,};
 		# indicate that we are missing key data
 		# this is to indicate to 3rd party that the computed Eco-Score should not be displayed without warnings
 		$product_ref->{ecoscore_data}{missing_key_data} = 1;

@@ -220,7 +220,6 @@
             }
          },
          "packaging" : {
-            "non_recyclable_and_non_biodegradable_materials" : 1,
             "value" : -15,
             "warning" : "packaging_data_missing"
          },
@@ -255,8 +254,7 @@
          "score" : 80,
          "version" : "3.1.1"
       },
-      "downgraded" : "non_recyclable_and_non_biodegradable_materials",
-      "grade" : "b",
+      "grade" : "a",
       "grades" : {
          "ad" : "b",
          "al" : "b",
@@ -276,7 +274,7 @@
          "es" : "b",
          "fi" : "b",
          "fo" : "b",
-         "fr" : "b",
+         "fr" : "a",
          "gg" : "b",
          "gi" : "b",
          "gr" : "b",
@@ -328,7 +326,7 @@
       },
       "missing_data_warning" : 1,
       "missing_key_data" : 1,
-      "score" : 79,
+      "score" : 81,
       "scores" : {
          "ad" : 76,
          "al" : 69,
@@ -348,8 +346,7 @@
          "es" : 74,
          "fi" : 77,
          "fo" : 76,
-         "fr" : 79,
-         "fr_orig" : 81,
+         "fr" : 81,
          "gg" : 78,
          "gi" : 71,
          "gr" : 75,
@@ -397,10 +394,10 @@
       },
       "status" : "known"
    },
-   "ecoscore_grade" : "b",
-   "ecoscore_score" : 79,
+   "ecoscore_grade" : "a",
+   "ecoscore_score" : 81,
    "ecoscore_tags" : [
-      "b"
+      "a"
    ],
    "ingredients" : [
       {
@@ -496,7 +493,6 @@
       "en:packagings-not-complete",
       "en:packagings-empty",
       "en:ecoscore-extended-data-not-computed",
-      "en:ecoscore-downgraded",
       "en:ecoscore-missing-data-warning",
       "en:ecoscore-missing-data-labels",
       "en:ecoscore-missing-data-packagings",
