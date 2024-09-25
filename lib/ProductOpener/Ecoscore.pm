@@ -1066,12 +1066,12 @@ sub compute_ecoscore_agribalyse ($product_ref) {
 				# Beverages case: score = -36*\ln(x+1)+150score=− 36 * ln(x+1) + 150
 				$product_ref->{ecoscore_data}{agribalyse}{is_beverage} = 1;
 				$product_ref->{ecoscore_data}{agribalyse}{score}
-					= round(-36 * log($agribalyse{$agb}{ef_total} * (1000 / 10) + 1) + 150);
+					= 0 + round(-36 * log($agribalyse{$agb}{ef_total} * (1000 / 10) + 1) + 150);
 			}
 			else {
 				# 2021-02-17: new updated formula: 100-(20 * ln(10*x+1))/ln(2+ 1/(100*x*x*x*x))  - with x in MPt / kg.
 				$product_ref->{ecoscore_data}{agribalyse}{is_beverage} = 0;
-				$product_ref->{ecoscore_data}{agribalyse}{score} = round(
+				$product_ref->{ecoscore_data}{agribalyse}{score} = 0 + round(
 					100 - 20 * log(10 * $agribalyse{$agb}{ef_total} + 1) / log(
 						2 + 1 / (
 								  100 * $agribalyse{$agb}{ef_total}
@@ -1523,7 +1523,7 @@ sub compute_ecoscore_origins_of_ingredients_adjustment ($product_ref) {
 		origins_from_categories => \@origins_from_categories,
 		aggregated_origins => \@aggregated_origins,
 		epi_score => 0 + $epi_score,
-		epi_value => round($epi_value),
+		epi_value => 0 + round($epi_value),
 	};
 
 	$product_ref->{ecoscore_data}{adjustments}{origins_of_ingredients}{"transportation_scores"}
@@ -1533,8 +1533,8 @@ sub compute_ecoscore_origins_of_ingredients_adjustment ($product_ref) {
 
 	foreach my $cc (@ecoscore_countries_enabled_sorted, "world") {
 		$product_ref->{ecoscore_data}{adjustments}{origins_of_ingredients}{"transportation_values"}{$cc}
-			= round($transportation_scores{$cc} / 6.66);
-		$product_ref->{ecoscore_data}{adjustments}{origins_of_ingredients}{"values"}{$cc} = round($epi_value)
+			= 0 + round($transportation_scores{$cc} / 6.66);
+		$product_ref->{ecoscore_data}{adjustments}{origins_of_ingredients}{"values"}{$cc} = 0 + round($epi_value)
 			+ $product_ref->{ecoscore_data}{adjustments}{origins_of_ingredients}{"transportation_values"}{$cc};
 	}
 
@@ -1712,7 +1712,7 @@ sub compute_ecoscore_packaging_adjustment ($product_ref) {
 
 		$packaging_score = 100 - $packaging_score;
 
-		my $value = round($packaging_score / 10 - 10);
+		my $value = 0 + round($packaging_score / 10 - 10);
 		if ($value < -15) {
 			$value = -15;
 		}

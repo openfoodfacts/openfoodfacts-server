@@ -116,7 +116,7 @@
             "title_element" : {
                "icon_color_from_evaluation" : true,
                "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/car.svg",
-               "subtitle" : "286 g de CO² pour 100g de produit",
+               "subtitle" : "286 g CO₂e pour 100g de produit",
                "title" : "Équivaut à parcourir 1.5 km dans une voiture à essence"
             },
             "topics" : [
@@ -876,6 +876,20 @@
          },
          "nutriscore_2023" : {
             "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "Attention : les valeurs nutritionnelles ne sont pas précisées. Elles ont été estimées à partir de la liste des ingrédients.\n                    ",
+                     "type" : "warning"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "Avertissement : Le taux de fruits, légumes et noix n'est pas indiqué sur l'étiquette, il a été estimé en fonction de la liste des ingrédients : 62\n                    ",
+                     "type" : "warning"
+                  }
+               },
                {
                   "element_type" : "panel",
                   "panel_element" : {

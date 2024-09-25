@@ -42,7 +42,7 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 use Log::Any qw($log);
 
 my $type = single_param('type') || 'add';
@@ -73,7 +73,7 @@ $log->debug(
 		code => $code,
 		previous_code => $previous_code,
 		previous_imgid => $previous_imgid,
-		cc => $cc,
+		cc => $request_ref->{cc},
 		lc => $lc,
 		imagefield => $imagefield,
 		ip => remote_addr()

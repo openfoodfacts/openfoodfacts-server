@@ -34,7 +34,7 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 use LWP::Simple;
 
 # get list of languages with a 2 letter iso code (Property P217)

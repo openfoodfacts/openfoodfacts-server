@@ -64,62 +64,75 @@
             <div class="form-wrapper">
                 <div class="form-container" style="width: 80%;margin-right: 20px;">
                 [% FOREACH field IN section.fields %]
-                    [% IF field.field == 'userid' %]
-                            [% IF type == 'edit' %]
-                                <label for="[% field.field %]"> [% field.label %]</label>
-                                <p id="userid"><a href="/editor/[% field.value %]">[% field.value %]</a></p>
-                            [% ELSE %]
-                                <label for="[% field.field %]">  [% lang(field.label) %] [% lang('username_info')  %]</label>
-                                <input type="text" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]" autocomplete="username" onkeyup="normalize_string_value(this)" />
-                            [% END %]
-                        [% ELSIF field.type == 'text' %]
-                            <div [% IF section.id == "professional" %] class="pro_org_display" [% END %]>
-                                <label for="[% field.field %]">[% field.label %]</label>
-                                <input type="text" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]" [% IF section.id == "teams" %] onkeyup="normalize_string_value(this)" [% END %]/>
-                                </div>
-                        [% ELSIF field.type == 'password' %]
-                            <label for="[% field.field %]">[% lang(field.label) %]</label>
-                            <div class="password-container">
-                                <input type="password" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]" autocomplete="new-password"/>
-                                <span class="toggle-password" onclick="togglePasswordVisibility('[% field.field %]')">
-                                    <span class="material-icons material-symbols-visibility">visibility_off</span>
-                                    </span>
-                                </div>
-                        [% ELSIF field.type == 'email' %]
-                            <label for="[% field.field %]">	[% field.label %]</label>
-                            <input type="email" id="[% field.field %]" name="[% field.field %]" value = "[% field.value %]" autocomplete="email"/>
-                            [% IF server_options_producers_platform %]
-                            <div style="color: red; font-weight: 600;">🚨 [% lang('email_warning') %]</div>
-                            [% END %]
-                        [% ELSIF field.type == 'select' %]
-                            <label for="[% field.field %]">	[% lang(field.label) %]</label>
-                            <select name="[% field.field %]" id="[% field.field %]-select">
-                                <option value=""></option>
-                                [% FOREACH item IN field.options %]
-                                    <option value="[% item.value %]" [% IF item.value == field.selected %]selected[% END %]> [% item.label %]</option>
-                                [% END %]
-                            </select>
-                        [% ELSIF field.type == 'checkbox' %]
-                            [% IF accepted_organization && section.id == "professional" %]
-                                <p>[% f_lang('f_this_is_a_pro_account_for_org', {'org' => accepted_organization}) %]</p>
-                            [% ELSE %]
-                                <label for="[% field.field %]">
-                                    <input type="checkbox" id="[% field.field %]" name="[% field.field %]" [% IF field.value == 'on' %]checked="checked"[% END %] />
-                                    [% field.label %]
-                                </label>
-                            [% END %]
-                        [% ELSIF field.type == 'honeypot' %]
-                            [%# this is a honey pot for spammers, it should be left empty %]
-                            <div style="display:none">
-                                <label for="[% field.field %]">[% field.label %]</label>
-                                <input type="text" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]"/>
+                    
+                    [% IF field.field == 'crm_user_id' AND crm_contact_url != "" %]
+                        <label for="[% field.field %]">[% field.label %]</label>
+                        <div class="form-field-with-btn">
+                            <input type="text" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]"/>
+                            <a type="button" class="button" id="crm_button" href="[% crm_contact_url %]" target="_blank" rel="noopener">[% lang("open_in_crm") %]</a> 
+                        </div>
+                    [% ELSIF field.field == 'org' AND org_url != "" %]
+                        <label for="[% field.field %]">[% field.label %]</label>
+                        <div class="form-field-with-btn">
+                            <input type="text" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]"/>
+                            <a type="button" class="button" id="" href="[% org_url %]" target="_blank" rel="noopener">[% lang("open_org") %]</a> 
+                        </div>
+					[% ELSIF field.field == 'userid' %]
+                        [% IF type == 'edit' %]
+                            <label for="[% field.field %]"> [% field.label %]</label>
+                            <p id="userid"><a href="/editor/[% field.value %]">[% field.value %]</a></p>
+                        [% ELSE %]
+                            <label for="[% field.field %]">  [% lang(field.label) %] [% lang('username_info')  %]</label>
+                            <input type="text" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]" autocomplete="username" onkeyup="normalize_string_value(this)" />
+                        [% END %]
+                    [% ELSIF field.type == 'text' %]
+                        <div [% IF section.id == "professional" %] class="pro_org_display" [% END %]>
+                            <label for="[% field.field %]">[% field.label %]</label>
+                            <input type="text" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]" [% IF section.id == "teams" %] onkeyup="normalize_string_value(this)" [% END %]/>
                             </div>
-                        [% ELSIF field.type == 'hidden' %]
-                            <label for="pro">
-                                <input type="hidden" name="[% field.field %]" value="[% field.value %]">
+                    [% ELSIF field.type == 'password' %]
+                        <label for="[% field.field %]">[% lang(field.label) %]</label>
+                        <div class="password-container">
+                            <input type="password" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]" autocomplete="new-password"/>
+                            <span class="toggle-password" onclick="togglePasswordVisibility('[% field.field %]')">
+                                <span class="material-icons material-symbols-visibility">visibility_off</span>
+                                </span>
+                            </div>
+                    [% ELSIF field.type == 'email' %]
+                        <label for="[% field.field %]">	[% field.label %]</label>
+                        <input type="email" id="[% field.field %]" name="[% field.field %]" value = "[% field.value %]" autocomplete="email"/>
+                        [% IF server_options_producers_platform %]
+                        <div style="color: red; font-weight: 600;">🚨 [% lang('email_warning') %]</div>
+                        [% END %]
+                    [% ELSIF field.type == 'select' %]
+                        <label for="[% field.field %]">	[% lang(field.label) %]</label>
+                        <select name="[% field.field %]" id="[% field.field %]-select">
+                            <option value=""></option>
+                            [% FOREACH item IN field.options %]
+                                <option value="[% item.value %]" [% IF item.value == field.selected %]selected[% END %]> [% item.label %]</option>
+                            [% END %]
+                        </select>
+                    [% ELSIF field.type == 'checkbox' %]
+                        [% IF accepted_organization && section.id == "professional" %]
+                            <p>[% f_lang('f_this_is_a_pro_account_for_org', {'org' => accepted_organization}) %]</p>
+                        [% ELSE %]
+                            <label for="[% field.field %]">
+                                <input type="checkbox" id="[% field.field %]" name="[% field.field %]" [% IF field.value == 'on' %]checked="checked"[% END %] />
+                                [% field.label %]
                             </label>
                         [% END %]
+                    [% ELSIF field.type == 'honeypot' %]
+                        [%# this is a honey pot for spammers, it should be left empty %]
+                        <div style="display:none">
+                            <label for="[% field.field %]">[% field.label %]</label>
+                            <input type="text" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]"/>
+                        </div>
+                    [% ELSIF field.type == 'hidden' %]
+                        <label for="pro">
+                            <input type="hidden" name="[% field.field %]" value="[% field.value %]">
+                        </label>
                     [% END %]
+                [% END %]
                 </div>
                 <!-- show video about account creation beside user form section-->
                 [% IF server_options_producers_platform AND section.id == "user" AND type != "edit" %]

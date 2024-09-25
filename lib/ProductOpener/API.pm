@@ -73,6 +73,7 @@ use ProductOpener::KnowledgePanels qw/create_knowledge_panels initialize_knowled
 use ProductOpener::Ecoscore qw/localize_ecoscore/;
 use ProductOpener::Packaging qw/%packaging_taxonomies/;
 use ProductOpener::Permissions qw/has_permission/;
+use ProductOpener::GeoIP qw/get_country_for_ip_api/;
 
 use ProductOpener::APIProductRead qw/read_product_api/;
 use ProductOpener::APIProductWrite qw/write_product_api/;
@@ -84,7 +85,7 @@ use ProductOpener::APITaxonomySuggestions qw/taxonomy_suggestions_api/;
 use CGI qw(header);
 use Apache2::RequestIO();
 use Apache2::RequestRec();
-use JSON::PP;
+use JSON::MaybeXS;
 use Data::DeepAccess qw(deep_get);
 use Storable qw(dclone);
 use Encode;
@@ -346,7 +347,7 @@ sub send_api_response ($request_ref) {
 	my $status_code = $request_ref->{api_response}{status_code} || $request_ref->{status_code} || "200";
 	delete $request_ref->{api_response}{status_code};
 
-	my $json = JSON::PP->new->allow_nonref->canonical->utf8->encode($request_ref->{api_response});
+	my $json = JSON::MaybeXS->new->allow_nonref->canonical->utf8->encode($request_ref->{api_response});
 
 	# add headers
 	# We need to send the header Access-Control-Allow-Credentials=true so that websites
@@ -384,6 +385,43 @@ Reference to the request object.
 
 =cut
 
+# Dipatch table for API actions
+my $dispatch_table = {
+	# Product read or write
+	product => {
+		GET => \&read_product_api,
+		HEAD => \&read_product_api,
+		OPTIONS => sub {return;},    # Just return CORS headers
+		PATCH => \&write_product_api,
+	},
+	# Product revert
+	product_revert => {
+		# Check that the method is POST (GET may be dangerous: it would allow to revert a product by just clicking or loading a link)
+		POST => \&revert_product_api,
+	},
+	# Product services
+	product_services => {
+		POST => \&product_services_api,
+		OPTIONS => sub {return;},    # Just return CORS headers
+	},
+	# Taxonomy suggestions
+	taxonomy_suggestions => {
+		GET => \&taxonomy_suggestions_api,
+		HEAD => \&taxonomy_suggestions_api,
+		OPTIONS => sub {return;},    # Just return CORS headers
+	},
+	# Tag read
+	tag => {
+		GET => \&read_tag_api,
+		HEAD => \&read_tag_api,
+		OPTIONS => sub {return;},    # Just return CORS headers
+	},
+	geoip => {
+		GET => \&get_country_for_ip_api,
+	}
+
+};
+
 sub process_api_request ($request_ref) {
 
 	$log->debug("process_api_request - start", {request => $request_ref}) if $log->is_debug();
@@ -396,70 +434,16 @@ sub process_api_request ($request_ref) {
 			if $log->is_warn();
 	}
 	else {
-
 		# Route the API request to the right processing function, based on API action (from path) and method
-
-		# Product read or write
-		if ($request_ref->{api_action} eq "product") {
-
-			if ($request_ref->{api_method} eq "OPTIONS") {
-				# Just return CORS headers
-			}
-			elsif ($request_ref->{api_method} eq "PATCH") {
-				write_product_api($request_ref);
-			}
-			elsif ($request_ref->{api_method} =~ /^(GET|HEAD)$/) {
-				read_product_api($request_ref);
+		if (exists $dispatch_table->{$request_ref->{api_action}}) {
+			my $action_dispatch_ref = $dispatch_table->{$request_ref->{api_action}};
+			if (exists $action_dispatch_ref->{$request_ref->{api_method}}) {
+				$action_dispatch_ref->{$request_ref->{api_method}}->($request_ref);
 			}
 			else {
 				add_invalid_method_error($response_ref, $request_ref);
 			}
 		}
-		# Product revert
-		elsif ($request_ref->{api_action} eq "product_revert") {
-
-			# Check that the method is POST (GET may be dangerous: it would allow to revert a product by just clicking or loading a link)
-			if ($request_ref->{api_method} eq "POST") {
-				revert_product_api($request_ref);
-			}
-			else {
-				add_invalid_method_error($response_ref, $request_ref);
-			}
-		}
-		# Product services
-		elsif ($request_ref->{api_action} eq "product_services") {
-
-			if ($request_ref->{api_method} eq "OPTIONS") {
-				# Just return CORS headers
-			}
-			elsif ($request_ref->{api_method} eq "POST") {
-				product_services_api($request_ref);
-			}
-			else {
-				add_invalid_method_error($response_ref, $request_ref);
-			}
-		}
-		# Taxonomy suggestions
-		elsif ($request_ref->{api_action} eq "taxonomy_suggestions") {
-
-			if ($request_ref->{api_method} =~ /^(GET|HEAD|OPTIONS)$/) {
-				taxonomy_suggestions_api($request_ref);
-			}
-			else {
-				add_invalid_method_error($response_ref, $request_ref);
-			}
-		}
-		# Tag read
-		elsif ($request_ref->{api_action} eq "tag") {
-
-			if ($request_ref->{api_method} =~ /^(GET|HEAD|OPTIONS)$/) {
-				read_tag_api($request_ref);
-			}
-			else {
-				add_invalid_method_error($response_ref, $request_ref);
-			}
-		}
-		# Unknown action
 		else {
 			$log->warn("process_api_request - unknown action", {request => $request_ref}) if $log->is_warn();
 			add_error(
@@ -474,9 +458,7 @@ sub process_api_request ($request_ref) {
 	}
 
 	determine_response_result($response_ref);
-
 	add_localized_messages_to_api_response($request_ref->{lc}, $response_ref);
-
 	send_api_response($request_ref);
 
 	$log->debug("process_api_request - stop", {request => $request_ref}) if $log->is_debug();
@@ -711,7 +693,7 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 	}
 
 	# Localize the Eco-Score fields that depend on the country of the request
-	localize_ecoscore($cc, $product_ref);
+	localize_ecoscore($request_ref->{cc}, $product_ref);
 
 	# lets compute each requested field
 	foreach my $field (@fields) {
@@ -742,7 +724,7 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 
 		# Allow apps to request a HTML nutrition table by passing &fields=nutrition_table_html
 		if ($field eq "nutrition_table_html") {
-			$customized_product_ref->{$field} = display_nutrition_table($product_ref, undef);
+			$customized_product_ref->{$field} = display_nutrition_table($product_ref, undef, $request_ref);
 			next;
 		}
 
@@ -750,7 +732,8 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 		if ($field eq "ecoscore_details_simple_html") {
 			if ((1 or $show_ecoscore) and (defined $product_ref->{ecoscore_data})) {
 				$customized_product_ref->{$field}
-					= display_ecoscore_calculation_details_simple_html($cc, $product_ref->{ecoscore_data});
+					= display_ecoscore_calculation_details_simple_html($request_ref->{cc},
+					$product_ref->{ecoscore_data});
 			}
 			next;
 		}
@@ -828,14 +811,14 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 		# Product attributes requested in a specific language (or data only)
 		if ($field =~ /^attribute_groups_([a-z]{2}|data)$/) {
 			my $target_lc = $1;
-			compute_attributes($product_ref, $target_lc, $cc, $attributes_options_ref);
+			compute_attributes($product_ref, $target_lc, $request_ref->{cc}, $attributes_options_ref);
 			$customized_product_ref->{$field} = $product_ref->{$field};
 			next;
 		}
 
 		# Product attributes in the $lc language
 		if ($field eq "attribute_groups") {
-			compute_attributes($product_ref, $lc, $cc, $attributes_options_ref);
+			compute_attributes($product_ref, $lc, $request_ref->{cc}, $attributes_options_ref);
 			$customized_product_ref->{$field} = $product_ref->{"attribute_groups_" . $lc};
 			next;
 		}
@@ -843,7 +826,7 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 		# Knowledge panels in the $lc language
 		if ($field eq "knowledge_panels") {
 			initialize_knowledge_panels_options($knowledge_panels_options_ref, $request_ref);
-			create_knowledge_panels($product_ref, $lc, $cc, $knowledge_panels_options_ref);
+			create_knowledge_panels($product_ref, $lc, $request_ref->{cc}, $knowledge_panels_options_ref, $request_ref);
 			$customized_product_ref->{$field} = $product_ref->{"knowledge_panels_" . $lc};
 			next;
 		}

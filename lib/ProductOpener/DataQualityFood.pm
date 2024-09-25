@@ -2696,6 +2696,76 @@ sub check_food_groups ($product_ref) {
 	return;
 }
 
+=encoding utf8
+
+=head2 check_incompatible_tags( PRODUCT_REF )
+
+Checks if 2 incompatible tags are assigned to the product
+
+To include more tags to this check, 
+add the property "incompatible:en" 
+at the end of code block in the taxonomy
+
+Example:
+en:Non-fair trade, Not fair trade
+fr:Non issu du commerce équitable
+incompatible_with:en: en:fair-trade
+
+=cut
+
+sub check_incompatible_tags ($product_ref) {
+
+	# list of tags having 'incompatible_with' properties
+	my @tagtypes_to_check = ("categories", "labels");
+
+	foreach my $tagtype_to_check (@tagtypes_to_check) {
+		$log->debug("check_incompatible_tags: tagtype_to_check $tagtype_to_check") if $log->debug();
+
+		# we don't need to care about inherited properties
+		# as every tag parent is also in the _tags field
+		# thus, incompatibilities will pop-up
+		my $incompatible_with_hash
+			= get_all_tags_having_property($product_ref, $tagtype_to_check, "incompatible_with:en");
+
+		foreach my $tags_having_property (keys %{$incompatible_with_hash}) {
+			my $incompatible_tags = %{$incompatible_with_hash}{$tags_having_property};
+
+			$log->debug("check_incompatible_tags: tags_having_property: "
+					. $tags_having_property
+					. ", incompatible_tags: "
+					. $incompatible_tags)
+				if $log->debug();
+
+			# there can be more than a single incompatible_tags (comma (followed or
+			# not-followed by space (remember that spaces are converted as hyphen) ) separated):
+			#   categories:en:short-grain-rices, categories:en:medium-grain-rices
+			my @all_incompatible_tags = split(/,-*/, $incompatible_tags);
+
+			foreach my $incompatible_tag (@all_incompatible_tags) {
+				$log->debug("check_incompatible_tags: incompatible_tag: " . $incompatible_tag) if $log->debug();
+
+				# split by ":" and produce 2 element list
+				#   for example, labels:en:contains-gluten -> (labels, en:contains-gluten)
+				my ($tagtype, $tagid) = split(/:/, $incompatible_tag, 2);
+
+				if (has_tag($product_ref, $tagtype, $tagid)) {
+					# column (:) prevents formating of the data quality facet on the website
+					$tags_having_property =~ s/en://g;
+					$incompatible_tag =~ s/:en:/-/g;
+
+					# sort in alphabetical order to avoid facet a-b and facet b-a
+					my @incompatible_tags = sort ($tagtype_to_check . "-" . $tags_having_property, $incompatible_tag);
+
+					add_tag($product_ref, "data_quality_errors",
+						"en:mutually-exclusive-tags-for-$incompatible_tags[0]-and-$incompatible_tags[1]");
+				}
+			}
+		}
+	}
+
+	return;
+}
+
 =head2 check_quality_food( PRODUCT_REF )
 
 Run all quality checks defined in the module.
@@ -2719,6 +2789,7 @@ sub check_quality_food ($product_ref) {
 	compare_nutriscore_with_value_from_producer($product_ref);
 	check_ecoscore_data($product_ref);
 	check_food_groups($product_ref);
+	check_incompatible_tags($product_ref);
 
 	return;
 }

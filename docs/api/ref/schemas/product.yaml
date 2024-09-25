@@ -14,6 +14,7 @@ description: |
   * [Product Metadata](#cmp--schemas-product-ecoscore): Metadata of a product (author, editors, etc.)
   * [Product Data Quality](#cmp--schemas-product-quality): fields related to data quality for a product
   * [Product Knowledge Panels](#cmp--schemas-product-knowledge-panels): Knowledge panels for a product
+  * [Product Attribute Groups](#cmp--schemas-product-attribute-groups): Attribute groups for personal product matching
 
 allOf:
   - $ref: './product_base.yaml'
@@ -27,3 +28,4 @@ allOf:
   - $ref: './product_extended.yaml'
   - $ref: './product_meta.yaml'
   - $ref: './product_knowledge_panels.yaml'
+  - $ref: './product_attribute_groups.yaml'
