@@ -1395,6 +1395,8 @@ $product_ref->{adjustments}{origins_of_ingredients} hash with:
 - transportation_value_[country code]
 - aggregated origins: sorted array of origin + percent to show the % of ingredients by country used in the computation
 
+Note: the country EPI is not taken into account if the product already has a bonus for the production system.
+
 =cut
 
 sub compute_ecoscore_origins_of_ingredients_adjustment ($product_ref) {
@@ -1517,6 +1519,13 @@ sub compute_ecoscore_origins_of_ingredients_adjustment ($product_ref) {
 	$log->debug("compute_ecoscore_origins_of_ingredients_adjustment - aggregated origins",
 		{aggregated_origins => \@aggregated_origins})
 		if $log->is_debug();
+
+	# EPI score is not counted if we already have a bonus for the production system
+	# In this case, we set the EPI score to 0
+	if ($product_ref->{ecoscore_data}{adjustments}{production_system}{value} > 0) {
+		$epi_score = 0;
+		$epi_value = 0;
+	}
 
 	$product_ref->{ecoscore_data}{adjustments}{origins_of_ingredients} = {
 		origins_from_origins_field => \@origins_from_origins_field,
