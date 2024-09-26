@@ -18,6 +18,13 @@
       }
    ],
    "product" : {
+      "brands" : "Some brand",
+      "brands_tags" : [
+         "some-brand"
+      ],
+      "brands_tags_en" : [
+         "Some-brand"
+      ],
       "categories" : "coffee",
       "categories_hierarchy" : [
          "en:plant-based-foods-and-beverages",
@@ -79,24 +86,6 @@
             "id" : "missing_field",
             "lc_name" : "Missing field",
             "name" : "Missing field"
-         }
-      },
-      {
-         "field" : {
-            "id" : "brands_tags",
-            "value" : [
-               "Some brand"
-            ]
-         },
-         "impact" : {
-            "id" : "warning",
-            "lc_name" : "Warning",
-            "name" : "Warning"
-         },
-         "message" : {
-            "id" : "unrecognized_field",
-            "lc_name" : "Unrecognized field",
-            "name" : "Unrecognized field"
          }
       },
       {

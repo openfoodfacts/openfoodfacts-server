@@ -1,6 +1,7 @@
 [
    {
       "id" : "en:milk",
+      "is_in_taxonomy" : 1,
       "percent" : 20,
       "percent_estimate" : 20,
       "quantity" : "10 g",
@@ -12,15 +13,18 @@
       "ingredients" : [
          {
             "id" : "en:apple",
+            "is_in_taxonomy" : 1,
             "percent_estimate" : 30,
             "text" : "apples"
          },
          {
             "id" : "en:pear",
+            "is_in_taxonomy" : 1,
             "percent_estimate" : 30,
             "text" : "pears"
          }
       ],
+      "is_in_taxonomy" : 1,
       "percent" : 60,
       "percent_estimate" : 60,
       "quantity" : "30 g",
@@ -29,6 +33,7 @@
    },
    {
       "id" : "en:lemon-flavouring",
+      "is_in_taxonomy" : 1,
       "percent" : 20,
       "percent_estimate" : 20,
       "quantity" : "10 g",

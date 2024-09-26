@@ -28,32 +28,32 @@ use CGI qw/:cgi :form escapeHTML/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
-use ProductOpener::Display qw/:all/;
+use ProductOpener::Display qw/$subdomain init_request/;
 use ProductOpener::Users qw/:all/;
-use ProductOpener::URL qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::URL qw/format_subdomain/;
+use ProductOpener::Lang qw/$lc lang/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 
 my $request_ref = ProductOpener::Display::init_request();
 
-my $short_name = lang("site_name");
+my $short_name = $options{site_name};
 my $long_name = $short_name;
 
 # https://stackoverflow.com/a/16533563/11963
 $short_name =~ s/\b([A-Z])[a-z]+(?=\s+[A-Z][a-z])|\G(?!^)\s+([A-Z])[a-z]+/$1$2/g;
 
-if ($cc eq 'world') {
+if ($request_ref->{cc} eq 'world') {
 	$long_name .= " " . uc($lc);
 	$short_name .= " " . uc($lc);
 }
 else {
-	$long_name .= " " . uc($cc) . "/" . uc($lc);
-	$short_name .= " " . uc($cc) . "/" . uc($lc);
+	$long_name .= " " . uc($request_ref->{cc}) . "/" . uc($lc);
+	$short_name .= " " . uc($request_ref->{cc}) . "/" . uc($lc);
 }
 
 my %manifest = (
@@ -64,7 +64,7 @@ my %manifest = (
 	start_url => format_subdomain($subdomain),
 	scope => '/',
 	display => 'standalone',
-	prefer_related_applications => $JSON::PP::true,
+	prefer_related_applications => $JSON::MaybeXS::true,
 );
 
 my @keys = qw(theme_color icons related_applications background_color);

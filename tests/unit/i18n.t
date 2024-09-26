@@ -3,7 +3,9 @@
 use Modern::Perl '2017';
 use utf8;
 
-use Test::More;
+use Test2::V0;
+use Data::Dumper;
+$Data::Dumper::Terse = 1;
 use Log::Any::Adapter 'TAP';
 
 use ProductOpener::I18N qw/:all/;
@@ -19,7 +21,7 @@ foreach my $dir ('common', 'openbeautyfacts', 'openfoodfacts', 'openpetfoodfacts
 	my %terms = %{ProductOpener::I18N::read_po_files($path)};
 
 	foreach my $key (keys %terms) {
-		#diag explain $terms{$key}{en};
+		#diag Dumper $terms{$key}{en};
 		if ((defined $terms{$key}{en}) and ($terms{$key}{en} =~ /$site_name_regex/)) {
 			foreach my $lang (keys %{$terms{$key}}) {
 				like($terms{$key}{$lang}, $site_name_regex, "$dir: '$key' in '$lang' should contain '<<site_name>>'");

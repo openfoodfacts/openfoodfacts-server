@@ -33,20 +33,20 @@ use utf8;
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
-use ProductOpener::Display qw/:all/;
+use ProductOpener::Display qw/search_and_export_products/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Images qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Lang qw/$lc  %lang_lc/;
 use ProductOpener::Mail qw/:all/;
-use ProductOpener::Products qw/:all/;
-use ProductOpener::Food qw/:all/;
+use ProductOpener::Products qw/add_images_urls_to_product product_url/;
+use ProductOpener::Food qw/%nutriments_tables/;
 use ProductOpener::Ingredients qw/:all/;
-use ProductOpener::Data qw/:all/;
-use ProductOpener::Text qw/:all/;
+use ProductOpener::Data qw/get_products_collection/;
+use ProductOpener::Text qw/xml_escape/;
 
 # for RDF export: replace xml_escape() with xml_escape_NFC()
 use Unicode::Normalize;
@@ -141,13 +141,12 @@ my $date = sprintf("%04d-%02d-%02d", $year + 1900, $mon + 1, $mday);
 foreach my $l ("en", "fr") {
 
 	$lc = $l;
-	$lang = $l;
 
 	$langs{$l} = 0;
 
-	my $csv_filename = "$BASE_DIRS{PUBLIC_DATA}/$lang.$server_domain.products.csv";
-	my $rdf_filename = "$BASE_DIRS{PUBLIC_DATA}/$lang.$server_domain.products.rdf";
-	my $log_filename = "$BASE_DIRS{PUBLIC_DATA}/$lang.$server_domain.products.bad-chars.log";
+	my $csv_filename = "$BASE_DIRS{PUBLIC_DATA}/$l.$server_domain.products.csv";
+	my $rdf_filename = "$BASE_DIRS{PUBLIC_DATA}/$l.$server_domain.products.rdf";
+	my $log_filename = "$BASE_DIRS{PUBLIC_DATA}/$l.$server_domain.products.bad-chars.log";
 
 	print STDERR "Write file: $csv_filename.temp\n";
 	print STDERR "Write file: $rdf_filename.temp\n";

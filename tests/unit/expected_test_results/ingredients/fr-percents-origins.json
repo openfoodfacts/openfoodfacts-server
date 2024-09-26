@@ -3,6 +3,7 @@
       {
          "ciqual_food_code" : "2074",
          "id" : "en:apple-juice",
+         "is_in_taxonomy" : 1,
          "labels" : "en:organic",
          "percent" : 80,
          "percent_estimate" : 80,
@@ -12,6 +13,7 @@
       },
       {
          "id" : "en:quince",
+         "is_in_taxonomy" : 1,
          "labels" : "en:organic",
          "percent" : 20,
          "percent_estimate" : 20,
@@ -22,6 +24,7 @@
       {
          "ciqual_food_code" : "11082",
          "id" : "en:sea-salt",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 0,
          "text" : "sel marin",
          "vegan" : "yes",
@@ -29,6 +32,7 @@
       },
       {
          "id" : "en:sodium-chloride",
+         "is_in_taxonomy" : 1,
          "origins" : "en:france,en:italy",
          "percent" : 98,
          "percent_estimate" : 0,

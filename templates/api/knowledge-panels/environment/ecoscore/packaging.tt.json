@@ -6,8 +6,8 @@
 [% IF not (product.ecoscore_data.adjustments.packaging.packagings && product.ecoscore_data.adjustments.packaging.packagings.size) %]
     "evaluation": "unknown",
     "title_element": {
-        "title": "[% lang('ecoscore_packaging_missing_information') %]",
-        "subtitle": "[% lang('malus') %][% sep %]: [% product.ecoscore_data.adjustments.packaging.value %]",
+        "title": "[% edq(lang('ecoscore_packaging_missing_information')) %]",
+        "subtitle": "[% edq(lang('malus')) %][% sep %]: [% product.ecoscore_data.adjustments.packaging.value %]",
         "icon_color_from_evaluation": true,
         "icon_url": "[% static_subdomain %]/images/icons/dist/packaging.svg",
         "icon_size": "small",
@@ -26,17 +26,17 @@
     [% IF product.ecoscore_data.adjustments.packaging.value <= -15 %]
     "evaluation": "bad",
     "title_element": {
-        "title": "[% lang('ecoscore_packaging_impact_high') %]",
+        "title": "[% edq(lang('ecoscore_packaging_impact_high')) %]",
     [% ELSIF product.ecoscore_data.adjustments.packaging.value <= -5 %]
     "evaluation": "average",
     "title_element": {
-        "title": "[% lang('ecoscore_packaging_impact_medium') %]",    
+        "title": "[% edq(lang('ecoscore_packaging_impact_medium')) %]",    
     [% ELSE %]
     "evaluation": "good",
     "title_element": {
-        "title": "[% lang('ecoscore_packaging_impact_low') %]",
+        "title": "[% edq(lang('ecoscore_packaging_impact_low')) %]",
     [% END %]
-        "subtitle": "[% lang('malus') %][% sep %]: [% product.ecoscore_data.adjustments.packaging.value %]",
+        "subtitle": "[% edq(lang('malus')) %][% sep %]: [% product.ecoscore_data.adjustments.packaging.value %]",
         "icon_color_from_evaluation": true,
         "icon_url": "[% static_subdomain %]/images/icons/dist/packaging.svg",
         "icon_size": "small",
@@ -46,22 +46,22 @@
             "element_type": "table",
             "table_element": {
                 "id": "ecoscore_packaging_components",
-                "title": "[% lang('packaging_parts') %]",
+                "title": "[% edq(lang('packaging_parts')) %]",
                 "columns": [
                     {
-                        "text": "[% lang('packaging_shape') %]",
+                        "text": "[% edq(lang('packaging_shape')) %]",
                         "type": "text",
                     },
                     { 
-                        "text": "[% lang('packaging_material') %]",
+                        "text": "[% edq(lang('packaging_material')) %]",
                         "type": "text",
                     },
                     { 
-                        "text": "[% lang('packaging_recycling') %]",
+                        "text": "[% edq(lang('packaging_recycling')) %]",
                         "type": "text",
                     },
                     { 
-                        "text": "[% lang('ecoscore_impact') %]",
+                        "text": "[% edq(lang('ecoscore_impact')) %]",
                         "type": "text",
                     }
                 ],
@@ -86,13 +86,13 @@
                             },
                             {
                             [% IF score >= 75 %]
-                                "text": "[% lang('low') FILTER ucfirst %]",
+                                "text": "[% edq(lang('low')) FILTER ucfirst %]",
                                 "evaluation": "good",
                             [% ELSIF score <= 25 %]
-                                "text": "[% lang('high') FILTER ucfirst %]",
+                                "text": "[% edq(lang('high')) FILTER ucfirst %]",
                                 "evaluation": "bad",
                             [% ELSE %]
-                                "text": "[% lang('medium') FILTER ucfirst %]",
+                                "text": "[% edq(lang('medium')) FILTER ucfirst %]",
                                 "evaluation": "neutral",
                             [% END %]
                             }

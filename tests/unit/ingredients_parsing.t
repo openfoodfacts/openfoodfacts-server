@@ -5,13 +5,13 @@
 use Modern::Perl '2017';
 use utf8;
 
-use Test::More;
+use Test2::V0;
 use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::TagsEntries qw/:all/;
-use ProductOpener::Ingredients qw/:all/;
+use ProductOpener::Ingredients
+	qw/normalize_a_of_b normalize_enumeration preparse_ingredients_text separate_additive_class/;
 
 #use Log::Any::Adapter 'TAP', filter => "none";
 
@@ -364,7 +364,7 @@ my @lists = (
 		"Sucre. Traces éventuelles : fruits à coques, Traces éventuelles : sésame."
 	],
 
-	["en", "vegetable oil (coconut & rapeseed)", "vegetable oil (coconut and rapeseed)"],
+	["en", "vegetable oil (coconut & rapeseed)", "coconut vegetable oil, rapeseed vegetable oil"],
 
 	[
 		"fr",
@@ -649,6 +649,8 @@ my @lists = (
 	["en", "Vegetal oil (sunflower, olive and palm)", "sunflower vegetal oil, olive vegetal oil, palm vegetal oil"],
 	["en", "vegetable oil (palm)", "palm vegetable oil"],
 	["en", "vegetable oil: palm", "palm vegetable oil"],
+	["fr", "protéines végétales (soja, blé)", "protéine de soja, protéine de blé"],
+	["de", "pflanzliche Proteine (Erbsen, Sonnenblumen)", "erbsenprotein, sonnenblumenprotein"],
 	# Should not develop the enumeration if it contains unknown types (like "sel" here)
 	["fr", "Piments (vert, rouge, jaune, sel)", "Piments (vert, rouge, jaune, sel)"],
 	["fr", "Huile de palme, noisettes et tournesol", "huile de palme, huile de noisettes, huile de tournesol"],

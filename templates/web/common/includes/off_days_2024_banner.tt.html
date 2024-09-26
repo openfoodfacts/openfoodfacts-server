@@ -1,0 +1,35 @@
+<!-- start templates/[% component.name %] -->
+
+[% banner_off_days_2024_top = BLOCK %]
+
+<a href="https://connect.openfoodfacts.org/[% IF lc == "fr" %]fr/[% END %]event/open-food-facts-days-2024-22/register">
+    <section id="off-days-2024-banner-top" class="off-days-banner off-days-banner__[% IF lc == "fr" %]FR[% ELSE %]ENG[% END %]">
+    </section>
+</a>
+
+<script>
+    const offDaysBannerID = document.getElementById('off-days-2024-banner-top');
+
+    function getBannerCookie(bcname) {
+        const name = bcname + '=';
+        const decodedCookies = decodeURIComponent(document.cookie);
+        const cookies = decodedCookies.split(';');
+        for (const cookie of cookies) {
+        let c = cookie;
+        while (c.charAt(0) == ' ') { c = c.substring(1); }
+        if (c.indexOf(name) == 0) { return c.substring(name.length, c.length); }
+        }
+        
+        return '';
+    }
+
+    if (getBannerCookie('off_donation_banner_2023_a') !== '') {
+        console.log('cookie found');
+        offDaysBannerID.style.display = 'flex';
+    } else {
+        console.log('cookie not found');
+        offDaysBannerID.style.display = 'none';
+    }
+</script>
+
+[% END %]

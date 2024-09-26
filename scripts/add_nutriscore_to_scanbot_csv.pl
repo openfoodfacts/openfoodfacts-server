@@ -38,7 +38,7 @@ use ProductOpener::Users qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Mail qw/:all/;
-use ProductOpener::Products qw/:all/;
+use ProductOpener::Products qw/retrieve_product/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
@@ -48,7 +48,7 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 
 my %total = ();
 
@@ -145,8 +145,7 @@ while (<STDIN>) {
 	print join("\t",
 		$code, $scans, $unique_scans, $found,
 		$source, $found_status, $found_scans, $found_unique_scans,
-		$nutriscore_status, $nutriscore_scans, $nutriscore_unique_scans)
-		. "\n";
+		$nutriscore_status, $nutriscore_scans, $nutriscore_unique_scans) . "\n";
 }
 
 my $found_products_percent = sprintf("%.2f", 100 * $total{found_products} / $total{products});

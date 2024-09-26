@@ -2,13 +2,13 @@
 
 use ProductOpener::PerlStandards;
 
-use Test::More;
+use Test2::V0;
 use ProductOpener::APITest qw/:all/;
-use ProductOpener::Test qw/:all/;
-use ProductOpener::TestDefaults qw/:all/;
+use ProductOpener::Test qw/remove_all_users/;
+use ProductOpener::TestDefaults qw/%default_user_form/;
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Users qw/:all/;
-use ProductOpener::Paths qw/:all/;
+use ProductOpener::Users qw/retrieve_user/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
 
 remove_all_users();
 wait_application_ready();

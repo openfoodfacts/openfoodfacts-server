@@ -172,6 +172,10 @@ msgctxt "alcohol_warning"
 msgid "Excess drinking is harmful for health."
 msgstr "Празмернае ўжыванне алкаголю шкодна для здароўя."
 
+msgctxt "email_warning"
+msgid "Please note that your Pro account will only be valid if you use your professional e-mail address. Our moderation team checks that the domain name is consistent with the organisation you wish to join."
+msgstr ""
+
 msgctxt "all_missions"
 msgid "All missions"
 msgstr "Усе заданні"
@@ -200,11 +204,6 @@ msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
 msgstr ""
 
-# DO NOT TRANSLATE
-msgctxt "android_apk_app_link"
-msgid "https://world.openfoodfacts.org/files/off.apk"
-msgstr "https://world.openfoodfacts.org/files/off.apk"
-
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
 msgctxt "android_app_icon_url"
 msgid "/images/misc/playstore/img/en_get.svg"
@@ -212,11 +211,6 @@ msgstr ""
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
-msgstr ""
-
-# Change hl=en to your language, and make sure the url works
-msgctxt "android_app_link"
-msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en"
 msgstr ""
 
 msgctxt "app_please_take_pictures"
@@ -734,10 +728,6 @@ msgctxt "facebook_locale"
 msgid "en_US"
 msgstr "be_BY"
 
-msgctxt "facebook_page"
-msgid "https://www.facebook.com/OpenFoodFacts"
-msgstr "https://www.facebook.com/OpenFoodFacts"
-
 msgctxt "fixme_product"
 msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
 msgstr "Калі даныя няпоўныя або няправільныя, вы можаце дапоўніць або выправіць іх, адрэдагаваўшы гэтую старонку."
@@ -824,6 +814,15 @@ msgctxt "footer_legal_link"
 msgid "/legal"
 msgstr "/legal"
 
+msgctxt "footer_privacy"
+msgid "Privacy"
+msgstr ""
+
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
+msgctxt "footer_privacy_link"
+msgid "/privacy"
+msgstr ""
+
 msgctxt "footer_press"
 msgid "Press"
 msgstr "Прэса"
@@ -832,10 +831,6 @@ msgstr "Прэса"
 msgctxt "footer_press_link"
 msgid "/press"
 msgstr "/press"
-
-msgctxt "footer_tagline"
-msgid "A collaborative, free and open database of food products from around the world."
-msgstr "Сумесная, бясплатная і адкрытая база даных прадуктаў харчавання з усяго свету."
 
 msgctxt "footer_terms"
 msgid "Terms of use"
@@ -872,6 +867,10 @@ msgstr "Open Beauty Facts — Касметыка"
 msgctxt "footer_obf_link"
 msgid "https://world.openbeautyfacts.org"
 msgstr "https://world.openbeautyfacts.org"
+
+msgctxt "footer_pro"
+msgid "Open Food Facts for Producers"
+msgstr ""
 
 msgctxt "for"
 msgid "for"
@@ -1110,10 +1109,6 @@ msgstr ""
 
 msgctxt "ios_app_icon_alt_text"
 msgid "Download on the App Store"
-msgstr ""
-
-msgctxt "ios_app_link"
-msgid "https://apps.apple.com/app/open-food-facts/id588797948"
 msgstr ""
 
 msgctxt "known_nutrients_p"
@@ -2065,7 +2060,7 @@ msgid "Select products with specific brands, categories, labels, origins of ingr
 msgstr ""
 
 msgctxt "search_description_opensearch"
-msgid "Open Food Facts product search"
+msgid "Product search"
 msgstr ""
 
 msgctxt "search_does_not_contain"
@@ -2357,18 +2352,6 @@ msgctxt "signout"
 msgid "Sign-out"
 msgstr "Выйсці"
 
-msgctxt "site_description"
-msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
-msgstr ""
-
-msgctxt "site_name"
-msgid "Open Food Facts"
-msgstr "Open Food Facts"
-
-msgctxt "logo_site_name"
-msgid "Open Food Facts logo"
-msgstr ""
-
 msgctxt "sort_by"
 msgid "Sort by"
 msgstr ""
@@ -2482,10 +2465,6 @@ msgctxt "twitter"
 msgid "Twitter username (optional)"
 msgstr ""
 
-msgctxt "twitter_account"
-msgid "OpenFoodFacts"
-msgstr ""
-
 msgctxt "unknown"
 msgid "Unknown"
 msgstr ""
@@ -2562,6 +2541,10 @@ msgctxt "view"
 msgid "view"
 msgstr ""
 
+msgctxt "view_this_revision"
+msgid "View this revision"
+msgstr ""
+
 msgctxt "view_list_for_products_from_the_entire_world"
 msgid "View the list for matching products from the entire world"
 msgstr ""
@@ -2581,20 +2564,6 @@ msgstr ""
 
 msgctxt "website"
 msgid "Site or blog address"
-msgstr ""
-
-# Please change English.svg to French.svg or German.svg… Check the url https://static.openfoodfacts.org/images/misc/microsoft/XXXX.svg
-msgctxt "windows_phone_app_icon_url"
-msgid "/images/misc/microsoft/English.svg"
-msgstr ""
-
-msgctxt "windows_phone_app_icon_alt_text"
-msgid "Get it from Microsoft"
-msgstr ""
-
-# Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
-msgctxt "windows_phone_app_link"
-msgid "https://apps.microsoft.com/store/detail/open-food-facts-scan-to-get-nutriscore-ecoscore-and-more/XP8LT18SRPKLRG"
 msgstr ""
 
 msgctxt "you_are_connected_as_x"
@@ -6200,6 +6169,10 @@ msgctxt "action_add_packaging_components"
 msgid "Add packaging components"
 msgstr ""
 
+msgctxt "action_add_quantity"
+msgid "Add quantity of the product"
+msgstr ""
+
 # this is not used yet
 msgctxt "action_add_basic_details"
 msgid "Add basic details"
@@ -6560,10 +6533,6 @@ msgctxt "faq_for_producers"
 msgid "FAQ for producers"
 msgstr ""
 
-msgctxt "join_the_next_pros_meet_up"
-msgid "Join the next Pros' Meet-up"
-msgstr ""
-
 # variable names between { } must not be translated
 msgctxt "product_js_enter_value_between_0_and_max"
 msgid "Please enter a value between 0 and {max}."
@@ -6651,5 +6620,281 @@ msgstr ""
 
 msgctxt "weight_percent"
 msgid "Weight percent"
+msgstr ""
+
+msgctxt "nutriscore_component_energy"
+msgid "Energy"
+msgstr ""
+
+msgctxt "nutriscore_component_energy_from_saturated_fat"
+msgid "Energy from saturated fat"
+msgstr ""
+
+msgctxt "nutriscore_component_sugars"
+msgid "Sugars"
+msgstr ""
+
+msgctxt "nutriscore_component_saturated_fat"
+msgid "Saturated fat"
+msgstr ""
+
+msgctxt "nutriscore_component_saturated_fat_ratio"
+msgid "Saturated fat / fat"
+msgstr ""
+
+msgctxt "nutriscore_component_salt"
+msgid "Salt"
+msgstr ""
+
+msgctxt "nutriscore_component_non_nutritive_sweeteners"
+msgid "Non-nutritive sweeteners"
+msgstr ""
+
+msgctxt "nutriscore_component_fruits_vegetables_legumes"
+msgid "Fruits, vegetables and legumes"
+msgstr ""
+
+msgctxt "nutriscore_component_fiber"
+msgid "Fiber"
+msgstr ""
+
+msgctxt "nutriscore_component_proteins"
+msgid "Proteins"
+msgstr ""
+
+msgctxt "presence"
+msgid "Presence"
+msgstr ""
+
+msgctxt "absence"
+msgid "Absence"
+msgstr ""
+
+msgctxt "nutriscore_is_water"
+msgid "This product is considered to be water for the calculation of the Nutri-Score."
+msgstr ""
+
+msgctxt "nutriscore_is_fat_oil_nuts_seeds"
+msgid "This product is considered to be fat, oil, nuts or seeds for the calculation of the Nutri-Score."
+msgstr ""
+
+msgctxt "nutriscore_is_cheese"
+msgid "This product is considered to be cheese for the calculation of the Nutri-Score."
+msgstr ""
+
+msgctxt "nutriscore_is_red_meat_product"
+msgid "This product is considered to be a red meat product for the calculation of the Nutri-Score."
+msgstr ""
+
+msgctxt "nutriscore_count_proteins_reason_beverage"
+msgid "Points for proteins are counted because the product is considered to be a beverage."
+msgstr ""
+
+msgctxt "nutriscore_count_proteins_reason_cheese"
+msgid "Points for proteins are counted because the product is considered to be cheese."
+msgstr ""
+
+msgctxt "nutriscore_count_proteins_reason_negative_points_less_than_7"
+msgid "Points for proteins are counted because the negative points are less than 7."
+msgstr ""
+
+msgctxt "nutriscore_count_proteins_reason_negative_points_less_than_11"
+msgid "Points for proteins are counted because the negative points are less than 11."
+msgstr ""
+
+msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_to_7"
+msgid "Points for proteins are not counted because the negative points greater than or equal to 7."
+msgstr ""
+
+msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_to_11"
+msgid "Points for proteins are not counted because the negative points greater than or equal to 11."
+msgstr ""
+
+msgctxt "nutriscore_explanation_what_it_is"
+msgid "The Nutri-Score is a logo on the overall nutritional quality of products."
+msgstr ""
+
+msgctxt "nutriscore_explanation_what_it_takes_into_account"
+msgid "The score from A to E is calculated based on nutrients and foods to favor (proteins, fiber, fruits, vegetables and legumes ...) and nutrients to limit (calories, saturated fat, sugars, salt)."
+msgstr ""
+
+msgctxt "nutriscore_explanation_where_the_data_comes_from"
+msgid "The score is calculated from the data of the nutrition facts table and the composition data (fruits, vegetables and legumes)."
+msgstr ""
+
+msgctxt "nutriscore_explanation_recommended_by_public_health_authorities"
+msgid "The display of this logo is recommended by public health authorities without obligation for companies."
+msgstr ""
+
+msgctxt "nutriscore_explanation_title"
+msgid "What is the Nutri-Score?"
+msgstr ""
+
+msgctxt "nutrient_info_energy_risk"
+msgid "Energy intakes above energy requirements are associated with increased risks of weight gain, overweight, obesity, and consequently risk of diet-related chronic diseases."
+msgstr ""
+
+msgctxt "nutrient_info_saturated_fat_risk"
+msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
+msgstr ""
+
+msgctxt "nutrient_info_saturated_fat_ratio_risk"
+msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
+msgstr ""
+
+msgctxt "nutrient_info_energy_from_saturated_fat_risk"
+msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
+msgstr ""
+
+msgctxt "nutrient_info_non_nutritive_sweeteners_risk"
+msgid "Non-nutritive sweeteners may not confer any long-term benefit in reducing body fat in adults or children. There may be potential undesirable effects from long-term use of non-nutritive sweeteners, such as an increased risk of type 2 diabetes and cardiovascular diseases in adults."
+msgstr ""
+
+msgctxt "nutrient_info_fiber_benefit"
+msgid "Consuming foods rich in fiber (especially whole grain foods) reduces the risks of aerodigestive cancers, cardiovascular diseases, obesity and diabetes."
+msgstr ""
+
+msgctxt "nutrient_info_fruits_vegetables_legumes_benefit"
+msgid "Consuming foods rich in fruits, vegetables and legumes reduces the risks of aerodigestive cancers, cardiovascular diseases, obesity and diabetes."
+msgstr ""
+
+msgctxt "nutrient_info_proteins_benefit"
+msgid "Foods that are rich in proteins are usually rich in calcium or iron which are essential minerals with numerous health benefits."
+msgstr ""
+
+msgctxt "revert"
+msgid "Revert to this revision"
+msgstr ""
+
+msgctxt "product_js_product_revert_confirm"
+msgid "Revert to this product revision?"
+msgstr ""
+
+msgctxt "api_status_success"
+msgid "Success"
+msgstr ""
+
+msgctxt "api_status_failure"
+msgid "Failure"
+msgstr ""
+
+msgctxt "api_result_product_reverted"
+msgid "Product reverted to the specified revision"
+msgstr ""
+
+msgctxt "api_result_product_not_reverted"
+msgid "Product not reverted to the specified revision"
+msgstr ""
+
+# sweeteners (additives), plural
+msgctxt "sweeteners"
+msgid "sweeteners"
+msgstr ""
+
+# sweetener (additive), singular
+msgctxt "sweetener"
+msgid "sweetener"
+msgstr ""
+
+msgctxt "action_edit_product"
+msgid "Complete or correct product information"
+msgstr ""
+
+msgctxt "report_problem_panel_title"
+msgid "Report a problem"
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_title"
+msgid "Incomplete or incorrect information?"
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_subtitle_off"
+msgid "Category, labels, ingredients, allergens, nutritional information, photos etc."
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_content_correct"
+msgid "If the information does not match the information on the packaging, you can complete or correct it. Thank you!"
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_content_correct_off"
+msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
+msgstr ""
+
+msgctxt "description"
+msgid "Description"
+msgstr ""
+
+msgctxt "site_description_off"
+msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
+msgstr ""
+
+msgctxt "tagline_off"
+msgid "Open Food Facts gathers information and data on food products from around the world."
+msgstr "Open Food Facts збірае інфармацыю і даныя аб прадуктах харчавання з усяго свету."
+
+msgctxt "footer_tagline_off"
+msgid "A collaborative, free and open database of food products from around the world."
+msgstr "Сумесная, бясплатная і адкрытая база даных прадуктаў харчавання з усяго свету."
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_off"
+msgid "/open-food-facts-mobile-app"
+msgstr "/open-food-facts-mobile-app"
+
+msgctxt "site_description_obf"
+msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
+msgstr "Сумесная, бясплатная і адкрытая база даных інгрэдыентаў і інфармацыя аб касметычных прадуктах з усяго свету"
+
+msgctxt "tagline_obf"
+msgid "Open Beauty Facts gathers information and data on cosmetic products from around the world."
+msgstr "Open Beauty Facts збірае інфармацыю і даныя аб касметычных прадуктах з усяго свету."
+
+msgctxt "footer_tagline_obf"
+msgid "A collaborative, free and open database of cosmetic products from around the world."
+msgstr "Сумесная, бясплатная і адкрытая база даных касметычных прадуктаў з усяго свету."
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_obf"
+msgid "/open-beauty-facts-mobile-app"
+msgstr "/open-beauty-facts-mobile-app"
+
+msgctxt "footer_and_the_facebook_group_obf"
+msgid "and the <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">Facebook group for contributors</a>"
+msgstr "і <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">суполка ў Facebook для ўдзельнікаў</a>"
+
+msgctxt "search_description_opensearch_obf"
+msgid "Open Beauty Facts product search"
+msgstr "Пошук продуктаў Open Beauty Facts"
+
+msgctxt "warning_not_complete_obf"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
+msgstr "Гэта старонка прадукту не запоўнена. Вы можаце дапамагчы запоўніць яе, адрэдагаваўшы прадукт і дадаўшы больш даных з фота, якія ў нас ёсць, або зрабіўшы дадатковыя фота з дапамогай праграмы для <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> або <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Дзякуй!"
+
+msgctxt "brands_example_beauty"
+msgid "Nivea, Nivea Men"
+msgstr "Nivea, Nivea Men"
+
+msgctxt "categories_example_beauty"
+msgid "Anti-dandruff shampoo, Whitening toothpaste"
+msgstr "Шампунь супраць перхаці, адбельвальная зубная паста"
+
+msgctxt "emb_codes_example_beauty"
+msgid "EMB 53062"
+msgstr "EMB 53062"
+
+msgctxt "generic_name_example_beauty"
+msgid "Anti-dandruff shampoo"
+msgstr "Шампунь супраць перхаці"
+
+msgctxt "product_name_example_beauty"
+msgid "Anti-Perspirant Stress Protect"
+msgstr "Дэзадарант Stress Protect"
+
+msgctxt "ingredients_text_example_beauty"
+msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
+msgstr "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
+
+msgctxt "report_problem_navigation"
+msgid "Report a problem"
 msgstr ""
 

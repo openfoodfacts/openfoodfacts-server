@@ -2,14 +2,16 @@
 
 use ProductOpener::PerlStandards;
 
-use Test::More;
+use Test2::V0;
+use Data::Dumper;
+$Data::Dumper::Terse = 1;
 #use Log::Any::Adapter 'TAP', filter => "none";
 
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Store qw/get_fileid get_string_id_for_lang/;
 # Display.pm is currently needed, as we need $lc to be defined for canonicalize_tag2
 use ProductOpener::Display qw/:all/;
-use ProductOpener::Test qw/:all/;
+use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
@@ -68,7 +70,7 @@ $product_ref = {lc => "fr",};
 
 add_tags_to_field($product_ref, "fr", "categories", "pommes, bananes");
 
-is_deeply(
+is(
 	$product_ref,
 	{
 		'categories' => 'pommes, bananes',
@@ -88,7 +90,7 @@ is_deeply(
 		],
 
 	}
-) or diag explain $product_ref;
+) or diag Dumper $product_ref;
 
 compute_field_tags($product_ref, "fr", "categories");
 
@@ -98,7 +100,7 @@ delete($product_ref->{categories_prev_tags});
 delete($product_ref->{categories_next_hierarchy});
 delete($product_ref->{categories_next_tags});
 
-is_deeply(
+is(
 	$product_ref,
 	{
 		'categories' => 'pommes, bananes',
@@ -118,7 +120,7 @@ is_deeply(
 		'lc' => 'fr'
 	}
 
-) or diag explain $product_ref;
+) or diag Dumper $product_ref;
 
 foreach my $tag (@{$product_ref->{categories_tags}}) {
 
@@ -139,7 +141,7 @@ add_tags_to_field($product_ref, "fr", "categories", "en:raspberries, en:plum");
 
 compute_field_tags($product_ref, "fr", "categories");
 
-is_deeply(
+is(
 	[sort @{$product_ref->{categories_tags}}],
 	[
 		sort('en:plant-based-foods-and-beverages', 'en:plant-based-foods', 'en:fruits-and-vegetables-based-foods',
@@ -149,12 +151,12 @@ is_deeply(
 		)
 	]
 
-) or diag explain $product_ref->{categories_tags};
+) or diag Dumper $product_ref->{categories_tags};
 
 add_tags_to_field($product_ref, "es", "categories", "naranjas, limones");
 compute_field_tags($product_ref, "es", "categories");
 
-is_deeply(
+is(
 	[sort @{$product_ref->{categories_tags}}],
 	[
 		sort('en:plant-based-foods-and-beverages', 'en:plant-based-foods', 'en:fruits-and-vegetables-based-foods',
@@ -165,7 +167,7 @@ is_deeply(
 		)
 	]
 
-) or diag explain $product_ref->{categories_tags};
+) or diag Dumper $product_ref->{categories_tags};
 
 is($product_ref->{categories},
 	"Alimentos y bebidas de origen vegetal, Alimentos de origen vegetal, Frutas y verduras y sus productos, Frutas y sus productos, Frutas, Frutas tropicales, Manzanas, Plátanos, Frutas del bosque, Ciruelas, Frambuesas, Fresas, naranjas, limones"
@@ -174,7 +176,7 @@ is($product_ref->{categories},
 add_tags_to_field($product_ref, "it", "categories", "bogus, mele");
 compute_field_tags($product_ref, "it", "categories");
 
-is_deeply(
+is(
 	[sort @{$product_ref->{categories_tags}}],
 	[
 		sort('en:plant-based-foods-and-beverages', 'en:plant-based-foods', 'en:fruits-and-vegetables-based-foods',
@@ -185,15 +187,15 @@ is_deeply(
 			'it:bogus')
 	]
 
-	#) or diag explain $product_ref->{categories_tags};
-) or diag explain $product_ref;
+	#) or diag Dumper $product_ref->{categories_tags};
+) or diag Dumper $product_ref;
 
 $product_ref = {lc => "fr",};
 
 add_tags_to_field($product_ref, "fr", "countries",
 	"france, en:spain, deutschland, fr:bolivie, italie, de:suisse, colombia, bidon");
 
-is_deeply(
+is(
 	$product_ref,
 	{
 		'countries' => 'france, en:spain, deutschland, fr:bolivie, italie, de:suisse, colombia, bidon',
@@ -209,30 +211,30 @@ is_deeply(
 		],
 
 	}
-) or diag explain($product_ref);
+) or diag Dumper($product_ref);
 
 compute_field_tags($product_ref, "fr", "countries");
 
-is_deeply($product_ref->{countries_tags},
+is($product_ref->{countries_tags},
 	['en:bolivia', 'en:colombia', 'en:france', 'en:italy', 'en:spain', 'en:switzerland', 'fr:bidon', 'fr:deutschland',])
-	or diag explain $product_ref->{countries_tags};
+	or diag Dumper $product_ref->{countries_tags};
 
 add_tags_to_field($product_ref, "es", "countries", "peru,bogus");
 compute_field_tags($product_ref, "es", "countries");
 
-is_deeply(
+is(
 	$product_ref->{countries_tags},
 	[
 		'en:bolivia', 'en:colombia', 'en:france', 'en:italy', 'en:peru', 'en:spain',
 		'en:switzerland', 'es:bogus', 'fr:bidon', 'fr:deutschland',
 	]
-) or diag explain $product_ref->{countries_tags};
+) or diag Dumper $product_ref->{countries_tags};
 
 $product_ref = {lc => "fr",};
 
 add_tags_to_field($product_ref, "fr", "brands", "Baba, Bobo");
 
-is_deeply(
+is(
 	$product_ref,
 	{
 		'brands' => 'Baba, Bobo',
@@ -240,17 +242,17 @@ is_deeply(
 
 		'lc' => 'fr'
 	}
-) or diag explain($product_ref);
+) or diag Dumper($product_ref);
 
 compute_field_tags($product_ref, "fr", "brands");
 
-is_deeply($product_ref->{brands_tags}, ['baba', 'bobo',]) or diag explain $product_ref->{brands_tags};
+is($product_ref->{brands_tags}, ['baba', 'bobo',]) or diag Dumper $product_ref->{brands_tags};
 
 add_tags_to_field($product_ref, "fr", "brands", "Bibi");
 
 delete $product_ref->{brands_debug_tags};
 
-is_deeply(
+is(
 	$product_ref,
 	{
 		'brands' => 'Baba, Bobo, Bibi',
@@ -258,13 +260,13 @@ is_deeply(
 
 		'lc' => 'fr'
 	}
-) or diag explain($product_ref);
+) or diag Dumper($product_ref);
 
 compute_field_tags($product_ref, "fr", "brands");
 
 delete $product_ref->{brands_debug_tags};
 
-is_deeply($product_ref->{brands_tags}, ['baba', 'bobo', 'bibi',]) or diag explain $product_ref->{brands_tags};
+is($product_ref->{brands_tags}, ['baba', 'bobo', 'bibi',]) or diag Dumper $product_ref->{brands_tags};
 
 my @tags = ();
 
@@ -280,14 +282,14 @@ my @tags = ();
 
 @tags = gen_tags_hierarchy_taxonomy("en", "ingredients", "en:concentrated-orange-juice, en:sugar, en:salt, en:orange");
 
-is_deeply(
+is(
 	\@tags,
 	[
 		'en:added-sugar', 'en:fruit', 'en:citrus-fruit', 'en:disaccharide',
 		'en:juice', 'en:sugar', 'en:fruit-juice', 'en:orange',
 		'en:salt', 'en:orange-juice', 'en:concentrated-orange-juice'
 	]
-) or diag explain(\@tags);
+) or diag Dumper(\@tags);
 
 foreach my $tag (@tags) {
 
@@ -296,14 +298,14 @@ foreach my $tag (@tags) {
 
 @tags = gen_ingredients_tags_hierarchy_taxonomy("en", "en:concentrated-orange-juice, en:sugar, en:salt, en:orange");
 
-is_deeply(
+is(
 	\@tags,
 	[
 		'en:concentrated-orange-juice', 'en:fruit', 'en:citrus-fruit', 'en:juice',
 		'en:fruit-juice', 'en:orange', 'en:orange-juice', 'en:sugar',
 		'en:added-sugar', 'en:disaccharide', 'en:salt'
 	]
-) or diag explain(\@tags);
+) or diag Dumper(\@tags);
 
 ProductOpener::Tags::retrieve_tags_taxonomy("test");
 
@@ -334,32 +336,28 @@ is(get_inherited_property("test", "en:fake-duck-meat", "carbon_footprint_fr_food
 
 is(get_inherited_property("test", "en:fake-duck-meat", "carbon_footprint_fr_foodges_value:fr"), undef);
 
-is_deeply(get_inherited_properties("test", "fr:yaourts-au-citron-alleges", []),
+is(get_inherited_properties("test", "fr:yaourts-au-citron-alleges", []),
 	{}, "Getting an empty list of property returns an empty hashmap");
-is_deeply(
-	get_inherited_properties("test", "en:fake-meat", ["vegan:en"]),
-	{"vegan:en" => "yes"},
-	"Getting only one property"
-);
-is_deeply(
+is(get_inherited_properties("test", "en:fake-meat", ["vegan:en"]), {"vegan:en" => "yes"}, "Getting only one property");
+is(
 	get_inherited_properties("test", "en:lemon-yogurts", ["color:en", "description:fr", "non-existing", "another:fr"]),
 	{"color:en" => "yellow", "description:fr" => "un yaourt avec du citron"},
 	"Getting multiple properties at once"
 );
-is_deeply(
+is(
 	get_inherited_properties("test", "fr:yaourts-au-citron-alleges", ["color:en", "description:fr"]),
 	{"color:en" => "yellow", "description:fr" => "for light yogurts with lemon"},
 	"Getting multiple properties with one inherited and one where we use language fallback"
 );
-is_deeply(
+is(
 	get_inherited_properties("test", "fr:yaourts-au-fruit-de-la-passion-alleges", ["color:en", "description:fr"]),
 	{"description:fr" => "un yaourt de n'importe quel type"},
 	"Getting multiple properties with one undef in the path and an inherited one"
 );
 
-is_deeply(get_tags_grouped_by_property("test", [], "color:en", ["description:fr"], ["flavour:en"]),
+is(get_tags_grouped_by_property("test", [], "color:en", ["description:fr"], ["flavour:en"]),
 	{}, "get_tags_grouped_by_property for no tagids gives empty hashmap");
-is_deeply(
+is(
 	get_tags_grouped_by_property(
 		"test", ["en:passion-fruit-yogurts", "fr:yaourts-au-citron-alleges"],
 		"color:en", [], []
@@ -374,7 +372,7 @@ is_deeply(
 	},
 	"get_tags_grouped_by_property with grouping on color:en, no additional property"
 );
-is_deeply(
+is(
 	get_tags_grouped_by_property(
 		"test",
 		["en:passion-fruit-yogurts", "fr:yaourts-a-la-myrtille", "fr:yaourts-au-citron-alleges", "en:lemon-yogurts"],
@@ -452,7 +450,7 @@ $product_ref = {
 
 compute_field_tags($product_ref, "de", "test");
 
-is_deeply(
+is(
 	$product_ref,
 	{
 		'lc' => 'de',
@@ -461,13 +459,13 @@ is_deeply(
 		'test_lc' => 'de',
 		'test_tags' => ['en:kale', "de:caf\x{e9}", 'de:test', "de:\x{e4}pfel"]
 	}
-) or diag explain $product_ref;
+) or diag Dumper $product_ref;
 
 $product_ref = {"stores" => "Intermarché"};
 compute_field_tags($product_ref, "fr", "stores");
-is_deeply($product_ref->{stores_tags}, ["intermarche"]);
+is($product_ref->{stores_tags}, ["intermarche"]);
 compute_field_tags($product_ref, "de", "stores");
-is_deeply($product_ref->{stores_tags}, ["intermarche"]);
+is($product_ref->{stores_tags}, ["intermarche"]);
 
 is(canonicalize_taxonomy_tag("en", "test", "kefir 2.5%"), "en:kefir-2-5");
 is(canonicalize_taxonomy_tag("en", "test", "kefir 2,5%"), "en:kefir-2-5");
@@ -488,7 +486,7 @@ is(ProductOpener::Tags::remove_stopwords("ingredients", "fr", "des-de-tomate"), 
 is(ProductOpener::Tags::remove_stopwords("ingredients", "en", "edible-vegetable-oil"), "vegetable-oil");
 
 my $tag_ref = get_taxonomy_tag_and_link_for_lang("fr", "categories", "en:strawberry-yogurts");
-is_deeply(
+is(
 	$tag_ref,
 	{
 		'css_class' => 'tag known ',
@@ -499,36 +497,35 @@ is_deeply(
 		'tagid' => 'en:strawberry-yogurts',
 		'tagurl' => 'yaourts-a-la-fraise'
 	}
-) or diag explain $tag_ref;
+) or diag Dumper $tag_ref;
 
 is(get_string_id_for_lang("fr", "Yaourts à la fraise"), "yaourts-a-la-fraise");
 
 @tags = gen_tags_hierarchy_taxonomy("en", "labels", "gmo free and organic");
 
-is_deeply(\@tags, ['en:organic', 'en:no-gmos',]) or diag explain(\@tags);
+is(\@tags, ['en:organic', 'en:no-gmos',]) or diag Dumper(\@tags);
 
 @tags = gen_tags_hierarchy_taxonomy("fr", "labels", "commerce équitable, label rouge et bio");
 
-is_deeply(\@tags, ['en:fair-trade', 'en:organic', 'fr:label-rouge',]) or diag explain(\@tags);
+is(\@tags, ['en:fair-trade', 'en:organic', 'fr:label-rouge',]) or diag Dumper(\@tags);
 
 @tags = gen_tags_hierarchy_taxonomy("fr", "labels", "Déconseillé aux enfants et aux femmes enceintes");
 
-is_deeply(\@tags, ['en:not-advised-for-specific-people', 'en:not-advised-for-children-and-pregnant-women'])
-	or diag explain(\@tags);
+is(\@tags, ['en:not-advised-for-specific-people', 'en:not-advised-for-children-and-pregnant-women'])
+	or diag Dumper(\@tags);
 
 @tags = gen_tags_hierarchy_taxonomy("fr", "traces", "MOUTARDE ET SULFITES");
 
-is_deeply(\@tags, ['en:mustard', 'en:sulphur-dioxide-and-sulphites']) or diag explain(\@tags);
+is(\@tags, ['en:mustard', 'en:sulphur-dioxide-and-sulphites']) or diag Dumper(\@tags);
 
-is_deeply(canonicalize_taxonomy_tag("fr", "test", "yaourts au maracuja"), "en:passion-fruit-yogurts");
-is_deeply(canonicalize_taxonomy_tag("fr", "test", "yaourt banane"), "en:banana-yogurts");
-is_deeply(canonicalize_taxonomy_tag("fr", "test", "yogourts à la banane"), "en:banana-yogurts");
-is_deeply(canonicalize_taxonomy_tag("fr", "labels", "european v-label vegetarian"),
-	"en:european-vegetarian-union-vegetarian");
+is(canonicalize_taxonomy_tag("fr", "test", "yaourts au maracuja"), "en:passion-fruit-yogurts");
+is(canonicalize_taxonomy_tag("fr", "test", "yaourt banane"), "en:banana-yogurts");
+is(canonicalize_taxonomy_tag("fr", "test", "yogourts à la banane"), "en:banana-yogurts");
+is(canonicalize_taxonomy_tag("fr", "labels", "european v-label vegetarian"), "en:european-vegetarian-union-vegetarian");
 
-is_deeply(canonicalize_taxonomy_tag("fr", "labels", "pur jus"), "en:pure-juice");
+is(canonicalize_taxonomy_tag("fr", "labels", "pur jus"), "en:pure-juice");
 # should not be matched to "pur jus" in French and return "en:pure-juice"
-is_deeply(canonicalize_taxonomy_tag("en", "labels", "au jus"), "en:au jus");
+is(canonicalize_taxonomy_tag("en", "labels", "au jus"), "en:au jus");
 
 # Test add_tags_to_field
 
@@ -549,7 +546,7 @@ compute_field_tags($product_ref, "en", "categories");
 add_tags_to_field($product_ref, "es", "categories", "en:peaches");
 compute_field_tags($product_ref, "es", "categories");
 
-is_deeply(
+is(
 	[sort @{$product_ref->{categories_tags}}],
 	[
 		sort('en:plant-based-foods-and-beverages', 'en:plant-based-foods', 'en:fruits-and-vegetables-based-foods',
@@ -557,7 +554,7 @@ is_deeply(
 			'en:apples', 'en:peaches', 'en:tropical-fruits',
 			'en:bananas', 'en:pears',)
 	],
-) or diag explain $product_ref;
+) or diag Dumper $product_ref;
 
 $product_ref = {
 	lc => "fr",
@@ -566,7 +563,7 @@ $product_ref = {
 
 compute_field_tags($product_ref, "fr", "categories");
 
-is_deeply(
+is(
 	[sort @{$product_ref->{categories_tags}}],
 	[
 		sort('en:plant-based-foods-and-beverages', 'en:plant-based-foods', 'en:fruits-and-vegetables-based-foods',
@@ -575,7 +572,7 @@ is_deeply(
 			'en:bananas', 'en:lemons', 'en:pears',
 			'en:strawberries')
 	]
-) or diag explain $product_ref;
+) or diag Dumper $product_ref;
 
 $product_ref = {
 	'categories' =>
@@ -590,12 +587,12 @@ $product_ref = {
 add_tags_to_field($product_ref, "en", "categories",
 	"Meals,Pasta dishes,Prepared lasagne,Meals with fish,Meals with salmon");
 
-is_deeply($product_ref->{categories_tags},
+is($product_ref->{categories_tags},
 	['en:meals', 'en:pasta-dishes', 'en:prepared-lasagne', 'en:meals-with-fish', 'en:meals-with-salmon',])
-	or diag explain $product_ref;
+	or diag Dumper $product_ref;
 
 $tag_ref = get_taxonomy_tag_and_link_for_lang("fr", "labels", "en:organic");
-is_deeply(
+is(
 	$tag_ref,
 	{
 		'css_class' => 'tag known ',
@@ -606,27 +603,59 @@ is_deeply(
 		'tagid' => 'en:organic',
 		'tagurl' => 'bio'
 	}
-) or diag explain $tag_ref;
+) or diag Dumper $tag_ref;
 
 $tag_ref = get_taxonomy_tag_and_link_for_lang("fr", "labels", "fr:some unknown label");
-is_deeply(
+is(
 	$tag_ref,
 	{
 		'css_class' => 'tag user_defined ',
-		'display' => 'some unknown label',
+		'display' => 'Some unknown label',
 		'display_lc' => 'fr',
 		'html_lang' => ' lang="fr"',
 		'known' => 0,
 		'tagid' => 'fr:some unknown label',
 		'tagurl' => 'some-unknown-label'
 	}
-) or diag explain $tag_ref;
+
+) or diag Dumper $tag_ref;
+
+# Test we have the right links for xx: entries
+$tag_ref = get_taxonomy_tag_and_link_for_lang("fr", "test", "en:smartphones");
+is(
+	$tag_ref,
+	{
+		'tagurl' => 'telephones-intelligents',
+		'tagid' => 'en:smartphones',
+		'display_lc' => 'fr',
+		'known' => 1,
+		'css_class' => 'tag known ',
+		'display' => "T\x{e9}l\x{e9}phones intelligents",
+		'html_lang' => ' lang="fr"'
+	}
+
+) or diag Dumper $tag_ref;
+
+$tag_ref = get_taxonomy_tag_and_link_for_lang("de", "test", "en:smartphones");
+is(
+	$tag_ref,
+	{
+		'display' => 'Smartphones',
+		'css_class' => 'tag known ',
+		'html_lang' => ' lang="de"',
+		'known' => 1,
+		'display_lc' => 'de',
+		'tagid' => 'en:smartphones',
+		'tagurl' => 'smartphones'
+	}
+
+) or diag Dumper $tag_ref;
 
 # check that %tags_texts is populated on demand
 ProductOpener::Tags::init_tags_texts();
 # Assumes we will always have french additive texts for E100.
 like($tags_texts{'fr'}{'additives'}{'e100'}, qr/curcumine/, 'e100 text contains "curcumine"')
-	or diag explain($tags_texts{'fr'}{'additives'}{'e100'});
+	or diag Dumper($tags_texts{'fr'}{'additives'}{'e100'});
 
 # Test default or language-less xx: values
 # see https://github.com/openfoodfacts/openfoodfacts-server/issues/3872
@@ -704,15 +733,14 @@ $value =~ s/<(([^>]|\n)*)>//g;
 $product_ref->{"test"} = $value;
 compute_field_tags($product_ref, "fr", "test");
 
-is_deeply($product_ref->{test_tags},
-	['fr:french-entry', 'fr:french-entry-with-default-value', 'xx:language-less-entry'])
-	or diag explain $product_ref->{test_tags};
+is($product_ref->{test_tags}, ['fr:french-entry', 'fr:french-entry-with-default-value', 'xx:language-less-entry'])
+	or diag Dumper $product_ref->{test_tags};
 
 # Double synonym: zumo/jugo and soja/soya
 is(canonicalize_taxonomy_tag('es', 'ingredients', 'jugo de soya'), 'en:soy-base');
 
 # check that properties are taxonomized if their name match a previously loaded taxonomy
-is(get_property("additives", "en:e170i", "additives_classes:en"), "en:colour,en:stabiliser");
+is(get_property("additives", "en:e170i", "additives_classes:en"), "en:colour, en:stabiliser");
 
 # test list_taxonomy_tags_in_language
 
@@ -819,7 +847,7 @@ is(canonicalize_taxonomy_tag('pl', 'ingredients', 'Lactobacillus bulgaricus'), "
 is(get_property_from_tags("test", undef, "vegan:en"), undef);
 is(get_property_from_tags("test", [], "vegan:en"), undef);
 is(get_property_from_tags("test", ["en:vegetable", "en:meat"], "vegan:en"), "yes");
-is_deeply([get_inherited_property_from_tags("test", ["en:something-unknown", "en:beef", "en:vegetable"], "vegan:en")],
+is([get_inherited_property_from_tags("test", ["en:something-unknown", "en:beef", "en:vegetable"], "vegan:en")],
 	["no", 'en:beef']);
 is(
 	get_matching_regexp_property_from_tags(
@@ -858,5 +886,19 @@ is(
 );
 # No content exists for en language, undef is expected
 is(get_knowledge_content("additives", "en:e100", "en", "world"), undef);
+
+# get_all_tags_having_property
+$product_ref = {
+	'labels_tags' => ['en:fair-trade', 'en:non-fair-trade',],
+	lc => 'en',
+	lang => 'en',
+};
+is(
+	get_all_tags_having_property($product_ref, "labels", "incompatible_with:en"),
+	{
+		'en:fair-trade' => 'labels:en:non-fair-trade',
+		'en:non-fair-trade' => 'labels:en:fair-trade',
+	}
+);
 
 done_testing();

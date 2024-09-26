@@ -1,14 +1,15 @@
 use ProductOpener::PerlStandards;
-use Test::More;
-use Test::MockModule;
+use Test2::V0;
 use HTTP::Response;
 use HTTP::Headers;
 use JSON;
 use Test::Fake::HTTPD qw/run_http_server/;
-use ProductOpener::Brevo qw/:all/;
+use ProductOpener::Brevo qw/$brevo_api_key $list_id add_contact_to_list/;
 use ProductOpener::APITest qw/:all/;
 use ProductOpener::Test qw/:all/;
 use File::Temp ();
+
+no warnings qw(experimental::signatures);
 
 # Stores what will be sent to the mocked Brevo API
 my $request_headers;
@@ -20,34 +21,35 @@ sub do_mock ($brevo_api_key, $list_id, $code, $msg, $response) {
 	$request_headers = undef;
 	$request_content = undef;
 	# Mock $ProductOpener::Brevo::get_brevo_api_key
-	my $mocked_brevo = Test::MockModule->new('ProductOpener::Brevo');
-	$mocked_brevo->mock(
-		'get_brevo_api_key' => sub {
-			return $brevo_api_key;
-		},
-		'get_list_id' => sub {
-			return $list_id;
-		},
+	my $mocked_brevo = mock 'ProductOpener::Brevo' => (
+		override => [
+			'get_brevo_api_key' => sub {
+				return $brevo_api_key;
+			},
+			'get_list_id' => sub {
+				return $list_id;
+			},
+		],
 	);
 
 	# Mock LWP::UserAgent to check our request parameters to brevo are correct and simulate a success
-	my $mocked_ua = Test::MockModule->new('LWP::UserAgent');
-	$mocked_ua->mock(
-		'request' => sub {
-
-			my ($self, $request) = @_;
-			# store sent request to verify it in test
-			$request_headers = $request->headers();
-			$request_content = $request->content;
-			return HTTP::Response->new($code, $msg, HTTP::Headers->new(), $response);
-		}
+	my $mocked_ua = mock 'LWP::UserAgent' => (
+		override => [
+			'request' => sub {
+				my ($self, $request) = @_;
+				# store sent request to verify it in test
+				$request_headers = $request->headers();
+				$request_content = $request->content;
+				return HTTP::Response->new($code, $msg, HTTP::Headers->new(), $response);
+			}
+		]
 	);
 	return ($mocked_ua, $mocked_brevo);
 }
 # unmocking
 sub do_unmock (@mocks) {
 	foreach my $mock (@mocks) {
-		$mock->unmock_all();
+		$mock = undef;
 	}
 	return;
 }
@@ -76,8 +78,8 @@ my $expected_content = {
 	is($result, 1, 'Contact added successfully');
 
 	# Verify what we have sent to Brevo
-	is_deeply($request_headers, $expected_headers, 'Verify request headers for good request');
-	is_deeply(decode_json($request_content), $expected_content, 'Verify request content for good request');
+	is($request_headers, $expected_headers, 'Verify request headers for good request');
+	is(decode_json($request_content), $expected_content, 'Verify request content for good request');
 
 	do_unmock(@mocks);
 
@@ -91,9 +93,9 @@ my $expected_content = {
 	my $result = add_contact_to_list('abc@example.com', 'elly', 'world', 'english');
 
 	is($result, 0, 'Contact not added due to bad response');
-	# Verify the sent data structures using is_deeply
-	is_deeply($request_headers, $expected_headers, 'Verify request headers for bad request');
-	is_deeply(decode_json($request_content), $expected_content, 'Verify request content for bad request');
+	# Verify the sent data structures using is
+	is($request_headers, $expected_headers, 'Verify request headers for bad request');
+	is(decode_json($request_content), $expected_content, 'Verify request content for bad request');
 
 	do_unmock(@mocks);
 }
@@ -106,7 +108,7 @@ my $expected_content = {
 	my $result = add_contact_to_list('abc@example.com', 'elly', 'world', 'english');
 
 	is($result, -1, 'API not called due to no key');
-	# Verify the sent data structures using is_deeply
+	# Verify the sent data structures using is
 	is($request_headers, undef, 'Verify no brevo call for no key');
 	is($request_content, undef, 'Verify no brevo call for no key (content)');
 

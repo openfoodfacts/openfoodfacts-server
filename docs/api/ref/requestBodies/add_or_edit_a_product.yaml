@@ -1,4 +1,6 @@
 type: object
+description: |
+   You can provide most of the properties defined in the product schema.
 properties:
   code:
     type: string
@@ -12,6 +14,10 @@ properties:
     type: string
     description: A valid corresponding password.
     example: mypassword
+  comment:
+    type: string
+    description: A comment for the change. It will be shown in product changes history.
+    example: new packaging from super-app
   brands:
     schema:
       type: array

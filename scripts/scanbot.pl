@@ -30,27 +30,27 @@ use utf8;
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die/;
+use ProductOpener::Store qw/retrieve_json store store_json/;
 use ProductOpener::Index qw/:all/;
-use ProductOpener::Display qw/:all/;
-use ProductOpener::Tags qw/:all/;
+use ProductOpener::Display qw/$country/;
+use ProductOpener::Tags qw/add_tags_to_field canonicalize_taxonomy_tag/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Mail qw/:all/;
-use ProductOpener::Products qw/:all/;
+use ProductOpener::Products qw/product_path product_path_from_id retrieve_product store_product/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
-use ProductOpener::Data qw/:all/;
+use ProductOpener::Data qw/get_products_collection/;
 use ProductOpener::GeoIP;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 use Getopt::Long;
 
 my $year;

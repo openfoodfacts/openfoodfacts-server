@@ -3,6 +3,7 @@
       {
          "ciqual_proxy_food_code" : "9410",
          "id" : "en:wheat-flour",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 75,
          "percent_max" : 100,
          "percent_min" : 50,
@@ -13,6 +14,7 @@
       {
          "ciqual_proxy_food_code" : "26140",
          "id" : "en:fish",
+         "is_in_taxonomy" : 1,
          "labels" : "en:sustainable-seafood-msc",
          "percent_estimate" : 25,
          "percent_max" : 50,

@@ -11,7 +11,7 @@ items:
       description: |
         Sub ingredients composing this ingredients.
       # self recursive
-      $ref: "#/"
+      $ref: "#"
     percent:
       type: integer
     percent_estimate:
