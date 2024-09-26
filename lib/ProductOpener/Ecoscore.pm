@@ -853,11 +853,11 @@ sub compute_ecoscore ($product_ref) {
 				# SI(AO3>=90;"A+";SI(AO3>=75;"A";SI(AO3>=60;"B";SI(AO3>=45;"C";SI(AO3>=30;"D";SI(AO3>=15;"E";"F"))))));"")
 
 				if ($product_ref->{ecoscore_data}{"scores"}{$cc} >= 90) {
-					$product_ref->{ecoscore_data}{"grades"}{$cc} = "a+";
+					$product_ref->{ecoscore_data}{"grades"}{$cc} = "a-plus";
 				}
 				elsif ($product_ref->{ecoscore_data}{"scores"}{$cc} >= 75) {
 					$product_ref->{ecoscore_data}{"grades"}{$cc} = "a";
-				}				
+				}
 				elsif ($product_ref->{ecoscore_data}{"scores"}{$cc} >= 60) {
 					$product_ref->{ecoscore_data}{"grades"}{$cc} = "b";
 				}
@@ -869,7 +869,7 @@ sub compute_ecoscore ($product_ref) {
 				}
 				elsif ($product_ref->{ecoscore_data}{"scores"}{$cc} >= 15) {
 					$product_ref->{ecoscore_data}{"grades"}{$cc} = "e";
-				}				
+				}
 				else {
 					$product_ref->{ecoscore_data}{"grades"}{$cc} = "f";
 				}
