@@ -2760,6 +2760,8 @@ carbon_footprint_fr_foodges_value:fr: 1.2
 ciqual_proxy_food_code:en: 19051
 ciqual_proxy_food_name:en: Milk, skimmed, pasteurised
 ciqual_proxy_food_name:fr: Lait écrémé, pasteurisé
+ecobalyse:en: milk
+ecobalyse_labels_en_organic:en: milk-organic
 vegan:en: no
 vegetarian:en: yes
 # als:Milch
@@ -11489,6 +11491,10 @@ pl: serca wołowe, serce wołowe
 ciqual_food_code:en: 40053
 ciqual_food_name:en: Heart, beef, cooked
 ciqual_food_name:fr: Coeur, boeuf, cuit
+ecobalyse:en: ground-beef-feedlot
+ecobalyse_labels_en_organic:en: ground-beef-organic
+ecobalyse_origins_en_france:en: ground-beef
+ecobalyse_labels_en_organic_origins_en_france:en: 
 vegan:en: no
 vegetarian:en: no
 wikidata:en: Q63327617
@@ -13817,6 +13823,9 @@ sv: kokt skinka
 
 < en:cooked ham
 fr: jambon cuit choix
+ecobalyse:en: cooked-ham
+ecobalyse_labels_en_organic:en: cooked-ham-organic
+ecobalyse_origins_en_france:en: cooked-ham-fr
 
 < fr:jambon cuit choix
 fr: jambon cuit choix fumé
@@ -13824,6 +13833,9 @@ fr: jambon cuit choix fumé
 
 < en:cooked ham
 fr: jambon cuit standard
+ecobalyse:en: cooked-ham
+ecobalyse_labels_en_organic:en: cooked-ham-organic
+ecobalyse_origins_en_france:en: cooked-ham-fr
 
 < en:cooked ham
 en: superior cooked ham
@@ -13833,6 +13845,9 @@ es: jamón cocido de calidad superior
 fi: Superior keittokinkku
 fr: jambon cuit supérieur
 hr: vrhunska kuhana šunka
+ecobalyse:en: cooked-ham
+ecobalyse_labels_en_organic:en: cooked-ham-organic
+ecobalyse_origins_en_france:en: cooked-ham-fr
 
 < en:superior cooked ham
 fr: jambon cuit de qualité supérieure avec couenne jambon de porc
@@ -17251,16 +17266,22 @@ en: refined rapeseed oil
 hr: rafinirano ulje repice
 lt: rafinuotas rapsų aliejus
 pl: rafinowany olej rzepakowy, olej rzepakowy rafinowany
+ecobalyse:en: rapeseed-oil
+ecobalyse_labels_en_organic:en: rapeseed-oil-organic
 
 < en:rapeseed oil
 en: british rapeseed oil
 de: Britisches Rapsöl
 hr: britanskog repičinog ulja
+ecobalyse:en: rapeseed-oil
+ecobalyse_labels_en_organic:en: rapeseed-oil-organic
 
 < en:rapeseed oil
 en: partially hydrogenated rapeseed oil
 hr: djelomično hidrogenirano ulje repice
 pl: olej rzepakowy częściowo uwodorniony, tłuszcz roślinny rzepakowy częściowo uwodorniony
+ecobalyse:en: rapeseed-oil
+ecobalyse_labels_en_organic:en: rapeseed-oil-organic
 
 # Use only the word canola in this ingredient, as it is only for the american variety of rapeseed
 < en:rapeseed oil
@@ -17284,6 +17305,8 @@ description:en: Canola oil, or canola for short, originally known as low erucic 
 description:es: El aceite de colza (aceite de nabina o de canola) es el extracto de la semilla de la colza, usado sobre todo en el norte de Europa como condimento y para el alumbrado.
 description:pt: Canola é um cultivo criado para ter baixo teor de ácido erúcico. O termo canola (Brassica napus L., Brassica rapa L., e Brassica juncea) se refere a variedades de plantas de três espécies da família das crucíferas, pertencentes ao gênero Brassica, que produzem um óleo comestível.
 wikipedia:en: https://en.wikipedia.org/wiki/Canola_oil
+ecobalyse:en: rapeseed-oil
+ecobalyse_labels_en_organic:en: rapeseed-oil-organic
 
 #process:en: en:fully hydrogenated
 #<en:canola oil
@@ -17297,6 +17320,8 @@ wikipedia:en: https://en.wikipedia.org/wiki/Canola_oil
 en: low erucic acid rapeseed oil
 de: eurucasäurearmes Rapsöl, LEAR
 hr: ulje repice s niskim sadržajem eruka kiseline
+ecobalyse:en: rapeseed-oil
+ecobalyse_labels_en_organic:en: rapeseed-oil-organic
 
 
 # Canola oil, or canola for short, originally known as low erucic acid rapeseed, is a vegetable oil derived from a variety of rapeseed that is low in erucic acid, as opposed to colza oil.
@@ -17359,6 +17384,8 @@ from_palm_oil:en: no
 nutriscore_fruits_vegetables_nuts:en: yes
 wikidata:en: Q697248
 wikipedia:en: https://en.wikipedia.org/wiki/Colza_oil
+ecobalyse:en: rapeseed-oil
+ecobalyse_labels_en_organic:en: rapeseed-oil-organic
 
 < en:rapeseed oil
 en: colza oil
@@ -17378,6 +17405,8 @@ from_palm_oil:en: no
 nutriscore_fruits_vegetables_nuts:en: yes
 wikidata:en: Q697248
 wikipedia:en: https://en.wikipedia.org/wiki/Colza_oil
+ecobalyse:en: rapeseed-oil
+ecobalyse_labels_en_organic:en: rapeseed-oil-organic
 
 < en:colza oil
 en: organic colza oil
@@ -27832,6 +27861,8 @@ carbon_footprint_fr_foodges_ingredient:fr: Farine de blé
 carbon_footprint_fr_foodges_value:fr: 1.2
 ciqual_proxy_food_code:en: 9410
 ciqual_proxy_food_name:fr: Farine de blé tendre ou froment T110
+ecobalyse:en: flour
+ecobalyse_labels_en_organic:en: flour-organic
 wikidata:en: Q2249305
 # ko:밀가루 translation issue with en:wheat
 # zh-min-nan:Mī-hún
@@ -54273,6 +54304,7 @@ carbon_footprint_fr_foodges_value:fr: 0.3
 ciqual_food_code:en: 20009
 ciqual_food_name:en: Carrot, raw
 ciqual_food_name:fr: Carotte, crue
+ecobalyse:en: carrot-organic
 eurocode_2_group_3:en: 8.38.10
 # zh-cn:胡萝卜
 # zh-hans:胡萝卜
@@ -63475,6 +63507,7 @@ zh: 葵花籽
 ciqual_food_code:en: 15011
 ciqual_food_name:en: Sunflower seed
 ciqual_food_name:fr: Tournesol, graine
+ecobalyse:en: sunflower-organic 
 # 7103 in 28 @2021-09-07
 nutriscore_fruits_vegetables_nuts:en: no
 wikidata:en: Q1076906
@@ -84876,6 +84909,8 @@ ciqual_food_name:fr: Poulet, filet, sans peau, sauté/poêlé
 < en:chicken breast
 en: british chicken breast
 de: Putenbrust
+ecobalyse:en: chicken-breast
+ecobalyse_labels_en_organic_origins_en_france:en: chicken-breast-fr-organic
 
 < en:chicken fillet
 en: chicken breast fillet
