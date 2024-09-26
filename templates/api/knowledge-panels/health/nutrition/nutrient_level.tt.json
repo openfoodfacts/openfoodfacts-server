@@ -4,6 +4,7 @@
         "health"
     ],
     "size": "small",
+    "half_width_on_mobile": true,
     "evaluation": "[% panel.evaluation %]",
     "title_element": {
         "name": "[% panel.nutrient_name %]",
