@@ -90,6 +90,9 @@
                             <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#health"><span>[% lang("health") %]</span></a></li>
                         [% END %]
                         <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#environment"><span>[% lang("environment") %]</span></a></li>
+                        [% IF secondhand_card_panel %]
+                        <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#secondhand"><span>[% lang("secondhand") %]</span></a></li>
+                        [% END %]                        
                         [% IF report_problem_card_panel %]
                         <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#report_problem"><span>[% lang("report_problem_navigation") %]</span></a></li>
                         [% END %]
@@ -264,6 +267,19 @@
                             [% other_fields %]
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+[% END %]
+
+
+[% IF secondhand_card_panel %]
+<section class="row" id="secondhand">
+        <div class="large-12 column">
+            <div class="card">
+                <div class="card-section">
+                        [% secondhand_card_panel %]
                 </div>
             </div>
         </div>

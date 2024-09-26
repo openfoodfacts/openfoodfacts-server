@@ -181,6 +181,21 @@ $flavor = "opff";
 	#ios_app_link => "https://apps.apple.com/app/open-beauty-facts/id1122926380?utm_source=opff&utf_medium=web",
 	#facebook_page_url => "https://www.facebook.com/openbeautyfacts?utm_source=opff&utf_medium=web",
 	#twitter_account => "OpenBeautyFacts",
+	default_preferences =>
+		'{ "nova" : "important", "labels_organic" : "important", "labels_fair_trade" : "important" }',
+	# favicon HTML and images generated with https://realfavicongenerator.net/ using the SVG icon
+	favicons => <<HTML
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/opff/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/opff/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/opff/favicon-16x16.png">
+<link rel="manifest" href="/images/favicon/opff/site.webmanifest">
+<link rel="mask-icon" href="/images/favicon/opff/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="/images/favicon/opff/favicon.ico">
+<meta name="msapplication-TileColor" content="#00aba9">
+<meta name="msapplication-config" content="/images/favicon/opff/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+HTML
+	,
 );
 
 $options{export_limit} = 10000;
@@ -509,6 +524,20 @@ XML
 	completeness
 	last_image_t
 );
+
+# Used to generate the list of possible product attributes, which is
+# used to display the possible choices for user preferences
+$options{attribute_groups} = [["labels", ["labels_organic", "labels_fair_trade"]],];
+
+# default preferences for attributes
+$options{attribute_default_preferences} = {
+	"labels_organic" => "important",
+	"labels_fair_trade" => "important",
+};
+
+use JSON::MaybeXS;
+$options{attribute_default_preferences_json}
+	= JSON->new->utf8->canonical->encode($options{attribute_default_preferences});
 
 # for ingredients OCR, we use tesseract-ocr
 # on debian, dictionaries are in /usr/share/tesseract-ocr/tessdata
