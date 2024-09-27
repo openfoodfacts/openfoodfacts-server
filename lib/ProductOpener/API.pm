@@ -81,6 +81,7 @@ use ProductOpener::APIProductRevert qw/revert_product_api/;
 use ProductOpener::APIProductServices qw/product_services_api/;
 use ProductOpener::APITagRead qw/read_tag_api/;
 use ProductOpener::APITaxonomySuggestions qw/taxonomy_suggestions_api/;
+use ProductOpener::ProductsFeatures qw(feature_enabled);
 
 use CGI qw(header);
 use Apache2::RequestIO();
@@ -693,7 +694,9 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 	}
 
 	# Localize the Eco-Score fields that depend on the country of the request
-	localize_ecoscore($request_ref->{cc}, $product_ref);
+	if (feature_enabled("ecoscore", $product_ref)) {
+		localize_ecoscore($request_ref->{cc}, $product_ref);
+	}
 
 	# lets compute each requested field
 	foreach my $field (@fields) {
