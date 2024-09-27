@@ -17247,10 +17247,10 @@ sv: Rapsolja, rybsolja, Rapsfett, rypsolja
 # 62.151 in 35 @2021-08-23
 ciqual_food_code:en: 17130
 ciqual_food_name:fr: Huile de colza
-ecobalyse:en: rapeseed-oil
-ecobalyse_labels_en_organic:en: rapeseed-oil-organic
 description:en: Rapeseed (Brassica napus), also known as rape, or oilseed rape, is a bright-yellow flowering member of the family Brassicaceae, cultivated mainly for its oil-rich seed, which naturally contains appreciable amounts of erucic acid. Rapeseed is the third-largest source of vegetable oil and the second-largest source of protein meal in the world.
 description:de: Rapsöl oder Rüböl (auch Rübsenöl, Kolzaöl und Kohlsaatöl genannt) ist ein pflanzliches Öl, welches aus den Samen vom Raps (Brassica napus), gewonnen wird.
+ecobalyse:en: rapeseed-oil
+ecobalyse_labels_en_organic:en: rapeseed-oil-organic
 from_palm_oil:en: no
 nutriscore_fruits_vegetables_nuts:en: yes
 wikipedia:en: Q1922338
@@ -45422,8 +45422,8 @@ ciqual_food_code:en: 13021
 ciqual_food_name:en: Kiwi fruit, pulp and seeds, raw
 ciqual_food_name:fr: Kiwi, pulpe et graines, cru
 ecobalyse:en: kiwi-non-eu
-ecobalyse_origins_en_france:en: kiwi-fr
 ecobalyse_origins_en_european_union:en: kiwi-eu
+ecobalyse_origins_en_france:en: kiwi-fr
 # ang:cīnisc gōsberige
 # arz:كيوي
 # atj:wamin ka kawisitc
@@ -63409,6 +63409,7 @@ cs: slunecnicová seminka, slunečnicová semínka
 cv: Хĕвелчамăш
 da: Solsikkekerner, solsikkefrø
 de: Sonnenblumenkerne
+ecobalyse_labels_en_organic: sunflower-organic
 el: ηλιόσπορος
 eo: sunflora semo
 es: semillas de girasol, pipas de girasol
@@ -63456,9 +63457,8 @@ ciqual_food_code:en: 15011
 ciqual_food_name:en: Sunflower seed
 ciqual_food_name:fr: Tournesol, graine
 ecobalyse:en: sunflower-non-eu
-ecobalyse_labels_en_organic: sunflower-organic
-ecobalyse_origins_en_france:en: sunflower-fr
 ecobalyse_origins_en_european_union:en: sunflower-eu
+ecobalyse_origins_en_france:en: sunflower-fr
 
 # 7103 in 28 @2021-09-07
 nutriscore_fruits_vegetables_nuts:en: no
