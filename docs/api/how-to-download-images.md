@@ -12,6 +12,8 @@ If you plan to download more images, you should instead
 [use the Open Food Facts images dataset hosted on
 AWS](./how-to-download-images.md#download-from-aws).
 
+**NOTE:** please avoid fetching full image if it is not needed, but use image in the right size.
+
 ## Download from AWS
 
 If you want to download many images, this is the recommended
@@ -30,12 +32,9 @@ But you have to build the right URL from the product info.
 
 When you request the API, you will get the url of some important images: front, ingredients, nutrition, packaging
 
-The fields are of the form `image_<type>_<size>_url`, where type is front, ingredients, etc. and size is thumb, small or nothing for full image.
+The field [`selected_images`](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#cmp--schemas-product-images) provides you with those images.
 
-The images you get depends on the `lc` parameter (language code).
-If no image exists for selected language, you get the image in the main product language, or none if no image exists.
-
-**NOTE:** please avoid fetching full image if it is not needed. `small` images are 400x400 images, intended for a product details page, `thumb` are 100x100 images, intended for a search page.
+The structure should be simple enough to read. You get different image type, and inside different image size, and inside the urls for the different languages.
 
 ## Computing images URL
 
