@@ -873,13 +873,17 @@
                   }
                }
             ],
-            "evaluation" : "",
+            "evaluation" : "average",
+            "half_width_on_mobile" : true,
             "level" : "info",
             "size" : "small",
             "title_element" : {
                "icon_size" : "small",
                "icon_url" : "http://static.openfoodfacts.localhost/images/misc/moderate.svg",
-               "title" : "Matières grasses en quantité modérée (8.5%)"
+               "name" : "Matières grasses",
+               "title" : "Matières grasses en quantité modérée (8.5%)",
+               "type" : "percentage",
+               "value" : 8.5
             },
             "topics" : [
                "health"
@@ -915,13 +919,17 @@
                   }
                }
             ],
-            "evaluation" : "",
+            "evaluation" : "good",
+            "half_width_on_mobile" : true,
             "level" : "info",
             "size" : "small",
             "title_element" : {
                "icon_size" : "small",
                "icon_url" : "http://static.openfoodfacts.localhost/images/misc/low.svg",
-               "title" : "Sel en faible quantité (0.0502%)"
+               "name" : "Sel",
+               "title" : "Sel en faible quantité (0.0502%)",
+               "type" : "percentage",
+               "value" : 0.0502
             },
             "topics" : [
                "health"
@@ -947,13 +955,17 @@
                   }
                }
             ],
-            "evaluation" : "",
+            "evaluation" : "bad",
+            "half_width_on_mobile" : true,
             "level" : "info",
             "size" : "small",
             "title_element" : {
                "icon_size" : "small",
                "icon_url" : "http://static.openfoodfacts.localhost/images/misc/high.svg",
-               "title" : "Acides gras saturés en quantité élevée (5.6%)"
+               "name" : "Acides gras saturés",
+               "title" : "Acides gras saturés en quantité élevée (5.6%)",
+               "type" : "percentage",
+               "value" : 5.6
             },
             "topics" : [
                "health"
@@ -979,13 +991,17 @@
                   }
                }
             ],
-            "evaluation" : "",
+            "evaluation" : "average",
+            "half_width_on_mobile" : true,
             "level" : "info",
             "size" : "small",
             "title_element" : {
                "icon_size" : "small",
                "icon_url" : "http://static.openfoodfacts.localhost/images/misc/moderate.svg",
-               "title" : "Sucres en quantité modérée (12.5%)"
+               "name" : "Sucres",
+               "title" : "Sucres en quantité modérée (12.5%)",
+               "type" : "percentage",
+               "value" : 12.5
             },
             "topics" : [
                "health"
