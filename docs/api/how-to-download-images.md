@@ -162,6 +162,7 @@ In the structure, selected images have additional fields:
 
 For selected images, the filename is the image key followed by the revision number and the resolution: `<image_name>.<rev>.<resolution>.jpg`.
 Resolution must always be specified, but you can use `full` keyword to get the full resolution image.
+`image_name` is the image type + language code (eg: `front_fr`).
 
 In our above example, the filename for the front image in french (`front_fr` key) is:
 * `front_fr.4.400.jpg` for 400 px version
