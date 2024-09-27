@@ -2334,6 +2334,8 @@ zh: 黄油, 黃油
 ciqual_proxy_food_code:en: 16400
 ciqual_proxy_food_name:en: Butter, 82% fat, unsalted
 ciqual_proxy_food_name:fr: Beurre à 82% MG, doux
+ecobalyse:en: butter
+ecobalyse_labels_en_organic:en: butter-organic
 vegan:en: no
 vegetarian:en: yes
 # als:Anke, Butter
@@ -7310,6 +7312,7 @@ description:fr: Comté est l'appellation d'origine d'un fromage français transf
 description:it: Il Comté è un formaggio francese a pasta pressata da latte crudo di vacca originario della Franca Contea.
 description:nl: De Comté (ook Gruyère de Comté) is een Franse kaas, afkomstig uit de Jura, uit de Franche-Comté.
 description:sv: Comté är en fransk ost gjord på opastöriserad komjölk från regionen Franche-Comté.
+ecobalyse:en: comte-aop
 origins:en: en:france
 protected_name_type:en: en:pdo
 wikidata:en: Q249310
@@ -7462,6 +7465,7 @@ description:es: El emmental es un queso suizo hecho de leche de vaca y con aguje
 description:fr: L’emmental ou emmentaler est un fromage d'origine suisse à pâte dure dont le nom provient de la vallée de l'Emme, une région à l'est du canton de Berne.
 description:it: Emmental e Emmentaler sono formaggi a pasta dura o semidura a base di latte vaccino, prodotti in Svizzera, Germania e Francia.
 description:nl: Emmental is een kaas uit het Emmental in Zwitserland. Hij wordt eveneens in het Franse Alpengebied, in het hele berggebied in het oosten van Frankrijk, in de Jura, in Savoie en in Beieren (Allgäu, Duitsland) geproduceerd.
+ecobalyse:en: emmental
 # en-ca:Emmental cheese
 # en-gb:Emmental cheese
 # gsw:Ämmedaaler
@@ -11401,6 +11405,9 @@ fr: viande hachée de bœuf, viande hachée de boeuf
 hr: mljeveno meso
 nl: gehakt rundvlees
 sv: nötfärs
+ecobalyse:en: ground-beef-feedlot
+ecobalyse_labels_en_organic:en: ground-beef-organic
+ecobalyse_origins_en_france:en: ground-beef
 
 < en:beef meat
 en: beef tongue, Raw beef tongue
@@ -13819,12 +13826,12 @@ it: prosciutto cotto
 nl: gekookte ham
 pt: fiambre cozinhado
 sv: kokt skinka
-
-< en:cooked ham
-fr: jambon cuit choix
 ecobalyse:en: cooked-ham
 ecobalyse_labels_en_organic:en: cooked-ham-organic
 ecobalyse_origins_en_france:en: cooked-ham-fr
+
+< en:cooked ham
+fr: jambon cuit choix
 
 < fr:jambon cuit choix
 fr: jambon cuit choix fumé
@@ -17138,6 +17145,7 @@ sv: extra jungfru olivolja, olivolja extra virgin, extra jungfruolja, extra fin 
 ciqual_food_code:en: 17270
 ciqual_food_name:en: Olive oil, extra virgin
 ciqual_food_name:fr: Huile d'olive vierge extra
+ecobalyse:en: extra-virgin-olive-oil
 
 < en:extra virgin olive oil
 es: aceite de oliva virgen extra de Lubrín
@@ -24633,6 +24641,9 @@ zh: 硬粒小麦
 ciqual_proxy_food_code:en: 9060
 ciqual_proxy_food_name:en: Durum wheat, whole, raw
 ciqual_proxy_food_name:fr: Blé dur entier, cru
+ecobalyse:en: durum-wheat-non-eu
+ecobalyse_origins_en_france:en: durum-wheat-fr
+ecobalyse_origins_en_european_union:en: durum-wheat-eu
 wikidata:en: Q618324
 # xmf:კიჭიბე ქობალკაკალი
 wikipedia:en: https://en.wikipedia.org/wiki/Durum
@@ -24748,6 +24759,7 @@ zh: 硬质粗粒小麦粉
 ciqual_food_code:en: 9610
 ciqual_food_name:en: Durum wheat semolina, raw
 ciqual_food_name:fr: Semoule de blé dur, crue
+ecobalyse:en: durum-wheat-semolina
 wikidata:en: Q95370124
 #13020 in 29 @2021-09-28
 
@@ -27709,9 +27721,6 @@ ciqual_proxy_food_code:en: 9410
 ciqual_proxy_food_name:fr: Farine de blé tendre ou froment T110
 ecobalyse:en: flour
 ecobalyse_labels_en_organic:en: flour-organic
-ecobalyse_origins_en_france:en: flour
-ecobalyse_origins_en_european_union:en: flour
-ecobalyse_labels_en_organic_origins_en_france:en: flour
 vegan:en: yes
 vegetarian:en: yes
 # arc:ܩܡܚܐ
@@ -34880,6 +34889,7 @@ carbon_footprint_fr_foodges_value:fr: 4.9
 ciqual_proxy_food_code:en: 31074
 ciqual_proxy_food_name:en: Dark chocolate bar, more than 70% cocoa
 description:en: DARK BLACK CHOCOLATE is a form of chocolate containing cocoa solids, cocoa butter and sugar, without the milk found in milk chocolate.
+ecobalyse:en: dark-chocolate
 # yue:黑朱古力
 wikidata:en: Q277628
 wikipedia:en: https://en.wikipedia.org/wiki/Dark_chocolate
@@ -38640,6 +38650,9 @@ carbon_footprint_fr_foodges_value:fr: 1.1
 ciqual_food_code:en: 13000
 ciqual_food_name:en: Apricot, pitted, raw
 ciqual_food_name:fr: Abricot, dénoyauté, cru
+ecobalyse:en: apricot-eu
+ecobalyse_labels_en_organic:en: apricot-organic
+ecobalyse_origins_en_france:en: apricot-fr
 # 5160 in 25 @2021-09-12
 eurocode_2_group_3:en: 9.20.10
 wikidata:en: Q3733836
@@ -38927,6 +38940,8 @@ carbon_footprint_fr_foodges_value:fr: 1.2
 ciqual_food_code:en: 13005
 ciqual_food_name:en: Banana, pulp, raw
 ciqual_food_name:fr: Banane, pulpe, crue
+ecobalyse:en: banana-non-eu
+ecobalyse_labels_en_organic:en: banana-organic
 wikidata:en: Q503
 # als:Banane
 # arz:موز
@@ -40505,6 +40520,8 @@ carbon_footprint_fr_foodges_value:fr: 1.3
 ciqual_food_code:en: 13050
 ciqual_food_name:en: Apple, pulp, raw
 ciqual_food_name:fr: Pomme, pulpe, crue
+ecobalyse:en: apple-fr
+ecobalyse_labels_en_organic:en: apple-organic
 # aeb-arab:كعبة تفّاح
 # aeb-latn:toffè7
 # ang:Æppel
@@ -41363,6 +41380,7 @@ zh: 克里曼丁红橘
 ciqual_food_code:en: 13082
 ciqual_food_name:en: Clementine, pulp, raw
 ciqual_food_name:fr: Clémentine, pulpe, crue
+ecobalyse:en: clementine-non-eu
 wikidata:en: Q460517
 # frr:Clementiin
 # koi:Клементин
@@ -43616,6 +43634,8 @@ vi: Việt quất đen
 zh: 山桑子
 ciqual_food_code:en: 13028
 ciqual_food_name:en: Blueberry, raw
+ecobalyse:en: blueberry-non-eu
+ecobalyse_labels_en_organic:en: blueberry-organic
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/blueberry
 # 943 producten in 13 languages @2018-10-01
 eurocode_2_group_3:en: 9.30.46
@@ -44057,6 +44077,9 @@ zh: 樱
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/cherry
 carbon_footprint_fr_foodges_ingredient:fr: Cerise
 carbon_footprint_fr_foodges_value:fr: 1.3
+ecobalyse:en: cherry-tr
+ecobalyse_labels_en_organic:en: cherry-organic
+ecobalyse_origins_en_france:en: cherry-fr
 # 969 products in 7 languages @2018-09-29
 ciqual_food_code:en: 13008
 ciqual_food_name:en: Cherry, pitted, raw
@@ -49728,6 +49751,9 @@ zh: 苦苣
 # wikidata:en:Q28604477 what is this?
 # category/endives has 8 products @2019-05-22
 # ingredient/endive has 125 products @2019-05-22
+ecobalyse:en: endive-eu
+ecobalyse_labels_en_organic:en: endive-organic
+ecobalyse_origins_en_france:en: endive-fr
 eurocode_2_group_3:en: 8.10.10
 # nds-nl:andievie
 # pcd:indife
@@ -51036,6 +51062,7 @@ carbon_footprint_fr_foodges_value:fr: 0.4
 ciqual_food_code:en: 20057
 ciqual_food_name:en: Broccoli, raw
 ciqual_food_name:fr: Brocoli, cru
+ecobalyse:en: broccoli-eu
 eurocode_2_group_3:en: 8.15.10
 # bho:ब्रोकली
 # ckb:برۆکڵی
@@ -51130,6 +51157,8 @@ carbon_footprint_fr_foodges_ingredient:fr: Chou-Fleur
 carbon_footprint_fr_foodges_value:fr: 0.5
 ciqual_food_code:en: 20016
 ciqual_food_name:en: Cauliflower, raw
+ecobalyse:en: cauliflower-fr
+ecobalyse_labels_en_organic:en: cauliflower-organic
 # en:cauliflower has 660 products in 5 languages @2018-10-17
 eurocode_2_group_3:en: 8.15.15
 wikidata:en: Q23900272
@@ -51429,6 +51458,8 @@ ciqual_food_name:en: Chinese cabbage (nappa cabbage or bok choy), raw
 ciqual_food_name:fr: Chou chinois ou pak-choi ou pé-tsai, cru
 # 200 @2021-09-29
 eurocode_2_group_3:en: 8.15.28
+ecobalyse:en: chinese-cabbage-fr
+ecobalyse_labels_en_organic:en: chinese-cabbage-organic
 #arz:ملفوف برند
 #lzh:菘
 #szy:mamumuway
@@ -51549,6 +51580,8 @@ zh: 抱子甘藍
 ciqual_food_code:en: 20058
 ciqual_food_name:en: Brussels sprout, raw
 ciqual_food_name:fr: Chou de Bruxelles, cru
+ecobalyse:en: brussels-sprout-fr
+ecobalyse_labels_en_organic:en: brussels-sprout-organic
 # fr:chou-de-Bruxelles has 41 products in 2 languages @2018-10-19
 eurocode_2_group_3:en: 8.15.40
 # hsb:pupkaty kał, pupak
@@ -51669,6 +51702,8 @@ zh: 羽衣甘藍
 ciqual_food_code:en: 20218
 ciqual_food_name:en: Curly kale, raw
 ciqual_food_name:fr: Chou frisé, cru
+ecobalyse:en: curly-kale-fr
+ecobalyse_labels_en_organic:en: curly-kale-organic
 # 2029 in 13 languages @2021-10-19
 eurocode_2_group_3:en: 8.15.55
 #arz:كرنب اجعد
@@ -51765,6 +51800,8 @@ zh: 野甘蓝
 ciqual_food_code:en: 20069
 ciqual_food_name:en: Green cabbage, raw
 ciqual_food_name:fr: Chou vert, cru
+ecobalyse:en: green-cabbage-fr
+ecobalyse_labels_en_organic:en: green-cabbage-organic
 # 256 @2021-09-29
 eurocode_2_group_3:en: 8.15.20
 #arz:ملفوف سافوى
@@ -52018,6 +52055,9 @@ carbon_footprint_fr_foodges_ingredient:fr: Céleri
 carbon_footprint_fr_foodges_value:fr: 0.8
 ciqual_proxy_food_code:en: 20055
 ciqual_proxy_food_name:fr: Céleri-rave, cru
+ecobalyse:en: celery-eu
+ecobalyse_labels_en_organic:en: celery-organic
+ecobalyse_origins_en_france:en: celery-fr
 description:en: CELERY (Apium graveolens) is a marshland plant in the family Apiaceae that has been cultivated as a vegetable since antiquity.
 eurocode_2_group_3:en: 8.20.10	
 wikidata:en: Q23012379
@@ -52213,6 +52253,8 @@ zh: 小茴香
 ciqual_food_code:en: 20028
 ciqual_food_name:en: Fennel, raw
 ciqual_food_name:fr: Fenouil, cru
+ecobalyse:en: fennel-eu
+ecobalyse_origins_en_france:en: fennel-fr
 # 2221 in20 @2021-10-09
 eurocode_2_group_3:en: 8.20.20
 wikidata:en: Q43511
@@ -52624,6 +52666,8 @@ description:fr: L’artichaut (Cynara cardunculus var. scolymus (L.) Benth.) est
 description:it: Il carciofo (Cynara cardunculus subsp. scolymus) è una pianta angiosperma dicotiledone della famiglia Asteraceae coltivata in Italia e in altri Paesi per uso alimentare.
 description:nl: De artisjok (Cynara scolymus) is een plant uit de composietenfamilie. De vlezige schutbladeren van het gesloten bloemhoofdje worden als groente gegeten.
 description:pt: Uma alcachofra (Cynara cardunculus subsp. scolymus) é uma planta com até um metro de altura, da família das compostas.
+ecobalyse_labels_en_organic:en: artichoke-fr
+ecobalyse_origins_en_france:en: artichoke-organic
 eurocode_2_group_3:en: 8.25.30
 # aeb-arab:قنّاريّة
 # aeb-latn:gannèriyya
@@ -54303,7 +54347,10 @@ carbon_footprint_fr_foodges_value:fr: 0.3
 ciqual_food_code:en: 20009
 ciqual_food_name:en: Carrot, raw
 ciqual_food_name:fr: Carotte, crue
-ecobalyse:en: carrot-eu
+ecobalyse:en: carrot-non-eu
+ecobalyse_labels_en_organic:en: carrot-organic
+ecobalyse_origins_en_france:en: carrot-fr
+ecobalyse_origins_en_european_union:en: carrot-eu
 eurocode_2_group_3:en: 8.38.10
 # zh-cn:胡萝卜
 # zh-hans:胡萝卜
@@ -54711,6 +54758,10 @@ allergens:en: en:celery
 ciqual_food_code:en: 20055
 ciqual_food_name:en: Celeriac, raw
 ciqual_food_name:fr: Céleri-rave, cru
+ecobalyse:en: celeriac-non-eu
+ecobalyse_labels_en_organic:en: celeriac-organic
+ecobalyse_origins_en_france:en: celeriac-fr
+ecobalyse_origins_en_european_union:en: celeriac-eu
 # fr:céleri-rave has 399 products in 4 languages @2018-10-20
 eurocode_2_group_3:en: 8.38.30
 wikidata:en: Q575174
@@ -55557,6 +55608,7 @@ description:es: Persea americana, llamado popularmente aguacate, palto o aguacat
 description:fr: L'avocatier (Persea americana) est une espèce d'arbres fruitiers de la famille des Lauracées, originaire du Mexique et d'Amérique centrale. Il est notamment cultivé pour ses fruits, les avocats, riches en lipides.
 description:it: L'avocado (Persea americana) è una specie arborea da frutto che appartiene alla famiglia delle Lauracee.
 description:nl: De avocado (Persea americana) is een boom uit Centraal-Amerika. Hij is bekend om zijn gelijknamige voor consumptie geschikte vrucht.
+ecobalyse:en: avocado-non-eu
 # 858 in 12 @2021-09-21
 eurocode_2_group_3:en: 8.40.60
 # nah:Āhuacatl
@@ -55925,6 +55977,8 @@ carbon_footprint_fr_foodges_value:fr: 6.2
 # en:aubergine has 733 products in 9 languages @2018-10-17
 ciqual_food_code:en: 20053
 ciqual_food_name:en: Eggplant, raw
+ecobalyse:en: eggplant-eu
+ecobalyse_origins_en_france:en: eggplant-fr
 eurocode_2_group_3:en: 8.40.15
 # ace:Truëng
 # ang:Ǣȝƿyrt
@@ -56090,6 +56144,8 @@ carbon_footprint_fr_foodges_value:fr: 0.2
 # en:beetroot has 319 products in 5 languages @2018-10-22
 ciqual_proxy_food_code:en: 20091
 ciqual_proxy_food_name:fr: Betterave rouge, crue
+ecobalyse:en: beetroot-fr
+ecobalyse_labels_en_organic:en: beetroot-organic
 eurocode_2_group_3:en: 8.38.55
 wikidata:en: Q99548274
 wikipedia:en: https://en.wikipedia.org/wiki/Beetroot
@@ -56958,6 +57014,7 @@ carbon_footprint_fr_foodges_value:fr: 0.9
 ciqual_food_code:en: 20041
 ciqual_food_name:en: Sweet pepper, green, yellow or red, raw
 ciqual_food_name:fr: Poivron, vert, jaune ou rouge, cru
+ecobalyse:en: bellpepper-unheated-greehouse
 # fr:poivron has 1581 products in 11 languages @2018-10-15
 eurocode_2_group_3:en: 8.40.20
 #arz:فلفل حلو
@@ -59176,6 +59233,9 @@ carbon_footprint_fr_foodges_value:fr: 0.7
 ciqual_food_code:en: 20061
 ciqual_food_name:en: French bean, raw
 ciqual_food_name:fr: Haricot vert, cru
+ecobalyse:en: french-bean-non-eu
+ecobalyse_origins_en_france:en: french-bean-fr
+ecobalyse_origins_en_european_union:en: french-bean-eu
 #4192 in 16 @2021-10-01
 eurocode_2_group_3:en: 8.45.30
 #arz:فاصوليا خضرا
@@ -59812,6 +59872,8 @@ hr: flažoleti
 # ingredient/fr:flageolets has 74 products in 2 languages @2019-02-25
 carbon_footprint_fr_foodges_ingredient:fr: Haricot blanc en conserve (type cassoulet)
 carbon_footprint_fr_foodges_value:fr: 2
+ecobalyse:en: flageolet-bean-eu
+ecobalyse_origins_en_france:en: flageolet-bean-fr
 eurocode_2_group_3:en: 7.10.30
 eurocode_2_group_4:en: 7.10.30.30
 
@@ -60043,6 +60105,8 @@ zh: 蚕豆
 ciqual_food_code:en: 20518
 ciqual_food_name:en: Broad bean, dried
 ciqual_food_name:fr: Fève, sèche
+ecobalyse:en: broad-beans-eu
+ecobalyse_origins_en_france:en: broad-beans-fr
 #eurocode 8.45.20 is for fresh broad beans
 #eurocode_2_group_3:en: 7.10.20 is for dried broad beans
 eurocode_2_group_3:en: 8.45.20
@@ -60444,6 +60508,8 @@ carbon_footprint_fr_foodges_value:fr: 1.5
 # ingredient/fr:pois-chiche has 700 products in 13 languages @2019-02-15
 ciqual_food_code:en: 20532
 ciqual_food_name:fr: Pois chiche, appertisé, égoutté
+ecobalyse:en: chickpea-fr
+ecobalyse_labels_en_organic:en: chickpea-organic
 eurocode_2_group_3:en: 7.10.15
 # aeb-arab:حمص
 # arc:ܚܪܛܘܡܢܐ
@@ -60651,6 +60717,9 @@ carbon_footprint_fr_foodges_value:fr: 1.5
 ciqual_food_code:en: 20072
 ciqual_food_name:en: Garden peas, raw
 ciqual_food_name:fr: Petits pois, crus
+ecobalyse:en: garden-peas-eu
+ecobalyse_labels_en_organic:en: garden-peas-organic
+ecobalyse_origins_en_france:en: garden-peas-fr
 #250 in 6 @2021-10-05
 
 < en:garden peas
@@ -61316,6 +61385,7 @@ description:es: Prunus dulcis, el almendro,1 es un árbol de la familia de las r
 description:fr: L'amandier (Prunus dulcis) est une espèce d'arbres de la famille des Rosaceae. Il produit un fruit charnu à noyau (ou drupe) dont la chair devient sèche à maturité et s’ouvre en deux valves, libérant un noyau contenant une amande comestible.
 description:nl: De amandelboom (Prunus dulcis) komt van de rozenfamilie en is een kleine loofboom met als vrucht de amandel.
 description:pt: Prunus dulcis, popularmente conhecida como amendoeira é uma espécie de árvores de folhas caducas da família Rosaceae. A semente do seu fruto é geralmente considerada como um fruto seco: a amêndoa.
+ecobalyse_labels_en_organic:en: almond-inshell-organic
 # ast:Almendra
 # ext:Cascavel
 # pcd:Aminte
@@ -61741,6 +61811,7 @@ ciqual_food_name:fr: Châtaigne, crue
 description:en: The chestnuts are a group of eight or nine species of deciduous trees and shrubs in the genus Castanea. The name also refers to the edible nuts they produce. The sweet chestnut produces an edible seed, the chestnut, which has been used in cooking since ancient times.
 description:fr: Le châtaignier commun (Castanea sativa) est un arbre à feuillage caduc, qui produit des fruits largement consommés par l'homme : les châtaignes.
 description:nl: Kastanje (Castanea) is een geslacht van loofbomen dat in België en Nederland niet autochtoon is. De vruchten van de tamme kastanje kunnen gegeten worden. Men kan de kastanjes rauw eten, poffen, roosteren of koken. Ook kan men gedroogde kastanjes verwerken in meel.
+ecobalyse:en: chestnut-husked-fr
 #kab:Idernen
 #pam:Kastanyas
 #pcd:Catin·nhe
@@ -61940,6 +62011,8 @@ zh: 榛子, 榛仁
 ciqual_food_code:en: 15004
 ciqual_food_name:en: Hazelnut
 ciqual_food_name:fr: Noisette
+ecobalyse:en: hazelnut-unshelled-non-eu
+ecobalyse_origins_en_european_union:en: hazelnut-unshelled-eu
 openfoodfacts:en: https://world.openfoodfacts.org/ingredient/hazelnuts
 # aeb-arab:بوفريوة
 # ast:Ablana
@@ -63855,6 +63928,7 @@ zh: 黑胡椒
 ciqual_food_code:en: 11015
 ciqual_food_name:en: Black pepper, powder
 ciqual_food_name:fr: Poivre noir, poudre
+ecobalyse:en: black-pepper
 # 17037 in 39 @2021-09-28
 
 
@@ -81652,6 +81726,7 @@ ciqual_food_code:en: 10021
 ciqual_food_name:en: Shrimp or prawn, raw
 ciqual_food_name:fr: Crevette, crue
 comment:en: The term shrimp is used to refer to some decapod crustaceans, although the exact animals covered can vary.
+ecobalyse:en: fresh-shrimps
 # ace:Udeuëng
 # chr:ᎽᏈ
 # chy:Hetótóhne
@@ -83408,6 +83483,7 @@ carbon_footprint_fr_foodges_value:fr: 15.7
 # ingredient/en:coffee has 1637 products in 10 languages @2018-11-30
 ciqual_proxy_food_code:en: 18003
 ciqual_proxy_food_name:en: Coffee, ground
+ecobalyse:en: coffee-ground
 vegan:en: yes
 vegetarian:en: yes
 # ang:Caffiȝ
@@ -84051,6 +84127,11 @@ description:fr: Le concombre (Cucumis sativus) est une plante potagère herbacé
 description:it: Il cetriolo (Cucumis sativus) è un ortaggio appartenente alla famiglia delle Cucurbitaceae.
 description:nl: De komkommer is een eenjarige plant uit de komkommerfamilie, waarvan de gelijknamige vrucht in Nederland en België vooral rauw als salade wordt gegeten.
 description:pt: O pepino é o fruto do pepineiro (Cucumis sativus), que se come geralmente em forma de salada.
+ecobalyse:en: cucumber-eu
+ecobalyse_labels_en_organic:en: 
+ecobalyse_origins_en_france:en: cucumber-fr-offseason
+ecobalyse_origins_en_european_union:en: 
+ecobalyse_labels_en_organic_origins_en_france:en: 
 # 6546 products in 22 @2021-09-02
 eurocode_2_group_3:en: 8.40.30
 # ang:hwerhwette
@@ -84908,6 +84989,9 @@ carbon_footprint_fr_foodges_ingredient:fr: Blanc de poulet
 carbon_footprint_fr_foodges_value:fr: 4.9
 ciqual_food_code:en: 36018
 ciqual_food_name:fr: Poulet, filet, sans peau, sauté/poêlé
+ecobalyse:en: chicken-breast-br-max
+ecobalyse_labels_en_organic:en: chicken-breast-fr-organic
+ecobalyse_origins_en_france:en: chicken-breast-fr
 
 < en:chicken breast
 en: british chicken breast
@@ -85585,6 +85669,8 @@ carbon_footprint_fr_foodges_value:fr: 2.6
 ciqual_food_code:en: 22000
 ciqual_food_name:en: Egg, raw
 ciqual_food_name:fr: Oeuf, cru
+ecobalyse:en: egg-indoor-code3
+ecobalyse_labels_en_organic:en: egg-organic-code0
 description:en: EGGS are laid by female animals of many different species, including birds, reptiles, amphibians, mammals, and fish. This ingredient comprises mainly chicken eggs.
 vegan:en: no
 vegetarian:en: yes
