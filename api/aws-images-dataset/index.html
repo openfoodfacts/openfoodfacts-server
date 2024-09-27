@@ -1487,6 +1487,22 @@ downloading the gzipped text file <code>s3://openfoodfacts-images/data/data_keys
 JSON) before downloading them. For example, to keep only 400px versions of all
 images:</p>
 <p><code>zcat data_keys.gz | grep '.400.jpg'</code></p>
+<p>For example, if you want to extract a sample of images, you can use the code snippet below:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Extract images from AWS</span>
+<span class="nv">n</span><span class="o">=</span><span class="m">1000</span>
+<span class="nv">images_dir</span><span class="o">=</span><span class="s2">&quot;images&quot;</span>
+<span class="nv">bucket_url</span><span class="o">=</span><span class="s2">&quot;https://openfoodfacts-images.s3.eu-west-3.amazonaws.com/&quot;</span>
+
+zcat<span class="w"> </span>data_keys.gz<span class="w"> </span><span class="p">|</span>
+grep<span class="w"> </span><span class="s1">&#39;.jpg&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="c1"># Filter</span>
+shuf<span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$n</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="c1"># Random sample</span>
+sed<span class="w"> </span><span class="s2">&quot;s|^|</span><span class="nv">$bucket_url</span><span class="s2">|&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="c1">#Add bucket_url: &quot;https://openfoodfacts-images.s3.eu-west-3.amazonaws.com/data/376/005/047/0099/1.jpg&quot;</span>
+<span class="k">while</span><span class="w"> </span><span class="nb">read</span><span class="w"> </span>-r<span class="w"> </span>url<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="nv">filename</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$url</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s2">&quot;s|</span><span class="nv">$bucket_url</span><span class="s2">||&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tr<span class="w"> </span><span class="s1">&#39;/&#39;</span><span class="w"> </span><span class="s1">&#39;_&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s1">&#39;s|data_||&#39;</span><span class="k">)</span><span class="w"> </span><span class="c1"># Filename as 376_005_047_0099_1.jpg</span>
+<span class="w">    </span>wget<span class="w"> </span>-O<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$images_dir</span><span class="s2">/</span><span class="nv">$filename</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$url</span><span class="s2">&quot;</span>
+<span class="k">done</span>
+</code></pre></div>
+<p>You can further refine the image extraction process by applying additional filters like <code>last_editor</code> or <code>last_edited_date</code>. This can be done by combining the Open Food Facts database <a href="https://world.openfoodfacts.org/data">dump</a> with <strong>DuckDB</strong> and the <code>data_keys.gz</code> file. For detailed instructions on using DuckDB to efficiently process the OFF database, refer to our <a href="https://medium.com/@jeremyarancio/duckdb-open-food-facts-the-largest-open-food-database-in-the-palm-of-your-hand-0d4ab30d0701">blog post</a>.</p>
 
 
 
