@@ -26,6 +26,21 @@ All images are hosted under the
 [https://images.openfoodfacts.org/images/products/](https://images.openfoodfacts.org/images/products/) folder. 
 But you have to build the right URL from the product info.
 
+## images URL directly available in product data
+
+When you request the API, you will get the url of some important images: front, ingredients, nutrition, packaging
+
+The fields are of the form `image_<type>_<size>_url`, where type is front, ingredients, etc. and size is thumb, small or nothing for full image.
+
+The images you get depends on the `lc` parameter (language code).
+If no image exists for selected language, you get the image in the main product language, or none if no image exists.
+
+**NOTE:** please avoid fetching full image if it is not needed. `small` images are 400x400 images, intended for a product details page, `thumb` are 100x100 images, intended for a search page.
+
+## Computing images URL
+
+In get you want to get an image which url is not directly present in product data, you need to compute the image url by yourself.
+
 ### Computing single product image folder
 
 Images of a product are stored in a single directory. The path of this
