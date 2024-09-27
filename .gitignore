@@ -109,3 +109,7 @@ taxonomies/*.all.txt
 # Shared services and other dependencies
 /deps
 /deps/*
+
+# SSL certificates
+/conf/nginx-docker/ssl/*
+!/conf/nginx-docker/ssl/README.md

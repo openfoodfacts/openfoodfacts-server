@@ -86,6 +86,10 @@ services:
       - ./scss:/opt/product-opener/scss
       - ./gulpfile.ts:/opt/product-opener/
       - ./snyk:/opt/product-opener/
+      # SSL configuration
+      - ./conf/nginx-docker/ssl:/etc/nginx/ssl
+    ports:
+      - ${PRODUCT_OPENER_EXPOSE}${PRODUCT_OPENER_SSL_PORT}:443
     networks:
         default:
           aliases:

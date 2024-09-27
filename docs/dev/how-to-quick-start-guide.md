@@ -140,6 +140,7 @@ The `.env` file contains ProductOpener default settings:
 | ----------------------------------------------------------------- | --- |
 | `PRODUCT_OPENER_DOMAIN`                                           | Can be set to different values based on which **OFF flavor** is run.|
 | `PRODUCT_OPENER_PORT`                                             | can be modified to run NGINX on a different port. Useful when running **multiple OFF flavors** on different ports on the same host. <br> Default port: `80`.|
+| `PRODUCT_OPENER_SSL_PORT`                                         | should also be changed if running **multiple OFF flavors** on different ports on the same host. <br> Default port: `443`.|
 | `PRODUCT_OPENER_FLAVOR`                                           | Can be modified to run different flavors of OpenFoodFacts, amongst `openfoodfacts` (default), `openbeautyfacts`, `openpetfoodfacts`, `openproductsfacts`.|
 | `PRODUCT_OPENER_FLAVOR_SHORT`                                     | can be modified to run different flavors of OpenFoodFacts, amongst `off` (default), `obf`, `oppf`, `opf`.|
 | `PRODUCERS_PLATFORM`                                              | can be set to `1` to build / run the **producer platform**.|
