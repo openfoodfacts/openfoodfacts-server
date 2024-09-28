@@ -52271,9 +52271,7 @@ nl: rabarbersap
 en: shoot vegetable
 eurocode_2_group_2:en: 8.25
 
-# description:en:Asparagus, or garden asparagus, folk name sparrow grass, scientific name Asparagus officinalis
-# is a spring vegetable, a flowering perennial plant species in the genus Asparagus
-
+# 
 < en:shoot vegetable
 en: asparagus
 af: Aspersie
@@ -52290,12 +52288,12 @@ da: Asparges
 de: Spargel, Gemüsespargel
 el: Σπαράγγι
 eo: Asparago, asparagi
-es: espárrago, espárragos
+es: espárrago, espárragos, tallos de espárragos
 et: spargel, asparaagus
 eu: Себен үләне
 fa: مارچوبه
 fi: Parsa
-fr: asperge, asperges
+fr: asperge, asperges, asperges pic-nic
 gl: Esparragueira
 gv: Asparag
 he: אספרג רפואי
@@ -52347,6 +52345,7 @@ yi: אספארגוס
 zh: 芦笋
 carbon_footprint_fr_foodges_ingredient:fr: Asperges en boite Chine
 carbon_footprint_fr_foodges_value:fr: 2.4
+description:en:Asparagus, or garden asparagus, folk name sparrow grass, scientific name Asparagus officinalis is a spring vegetable, a flowering perennial plant species in the genus Asparagus;
 # en:asparagus has 301 products in 6 languages @2018-11-11
 eurocode_2_group_3:en: 8.25.10
 #carbon_footprint_fr_foodges_ingredient:fr:Asperges saison France
@@ -52403,13 +52402,28 @@ bg: бяла аспержа, бели аспержи
 de: weisse Spargeln
 es: Espárrago blanco
 fi: valkoinen parsa
-fr: asperges blanches, asperge blanche
+fr: asperges blanches, asperge blanche, asperges blanches grosses, asperges blanches des sables des Landes IGP
 hr: bijele šparoge
 it: asparagi bianchi
 nl: witte asperges
 pl: białe szparagi, biały szparag, białych szparagów
 pt: Espargos brancos
 # fr:asperges blanches has 46 products in 4 languages @2018-11-11
+
+< en: white asparagus
+fr: asperges blanches coupées
+
+< en:asparagus 
+en: asparagus heads
+fr: pointes d'asperges moyennes
+
+< en:asparagus heads
+< en:green asparagus
+fr: pointes d'asperges vertes
+
+< en:asparagus heads
+< en:white asparagus
+es: vemas de espárragos blancos
 
 < en:shoot vegetable
 en: chicory
