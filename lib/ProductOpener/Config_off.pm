@@ -983,6 +983,29 @@ $options{attribute_groups} = [
 	["environment", ["ecoscore", "forest_footprint",]],
 ];
 
+# By default attributes have 4 possible values: mandatory, very_important, important, not_important
+# For some attributes, like allergens or vegan, we can limit to 2 values: mandatory, not_important
+$options{attribute_values_default} = ["mandatory", "very_important", "important", "not_important"];
+
+$options{attribute_values} = {
+	"allergens_no_gluten" => ["mandatory", "not_important"],
+	"allergens_no_milk" => ["mandatory", "not_important"],
+	"allergens_no_eggs" => ["mandatory", "not_important"],
+	"allergens_no_nuts" => ["mandatory", "not_important"],
+	"allergens_no_peanuts" => ["mandatory", "not_important"],
+	"allergens_no_sesame_seeds" => ["mandatory", "not_important"],
+	"allergens_no_soybeans" => ["mandatory", "not_important"],
+	"allergens_no_celery" => ["mandatory", "not_important"],
+	"allergens_no_mustard" => ["mandatory", "not_important"],
+	"allergens_no_lupin" => ["mandatory", "not_important"],
+	"allergens_no_fish" => ["mandatory", "not_important"],
+	"allergens_no_crustaceans" => ["mandatory", "not_important"],
+	"allergens_no_molluscs" => ["mandatory", "not_important"],
+	"allergens_no_sulphur_dioxide_and_sulphites" => ["mandatory", "not_important"],
+	"vegan" => ["mandatory", "not_important"],
+	"vegetarian" => ["mandatory", "not_important"],
+};
+
 # default preferences for attributes
 $options{attribute_default_preferences} = {
 	"nutriscore" => "very_important",
