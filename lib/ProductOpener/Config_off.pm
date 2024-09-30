@@ -983,27 +983,27 @@ $options{attribute_groups} = [
 	["environment", ["ecoscore", "forest_footprint",]],
 ];
 
-# By default attributes have 4 possible values: mandatory, very_important, important, not_important
-# For some attributes, like allergens or vegan, we can limit to 2 values: mandatory, not_important
-$options{attribute_values_default} = ["mandatory", "very_important", "important", "not_important"];
+# By default attributes have 4 possible values: not_important, important, very_important, mandatory
+# For some attributes, like allergens or vegan, we can limit to 2 values: not_important, mandatory
+$options{attribute_values_default} = ["not_important", "important", "very_important", "mandatory"];
 
 $options{attribute_values} = {
-	"allergens_no_gluten" => ["mandatory", "not_important"],
-	"allergens_no_milk" => ["mandatory", "not_important"],
-	"allergens_no_eggs" => ["mandatory", "not_important"],
-	"allergens_no_nuts" => ["mandatory", "not_important"],
-	"allergens_no_peanuts" => ["mandatory", "not_important"],
-	"allergens_no_sesame_seeds" => ["mandatory", "not_important"],
-	"allergens_no_soybeans" => ["mandatory", "not_important"],
-	"allergens_no_celery" => ["mandatory", "not_important"],
-	"allergens_no_mustard" => ["mandatory", "not_important"],
-	"allergens_no_lupin" => ["mandatory", "not_important"],
-	"allergens_no_fish" => ["mandatory", "not_important"],
-	"allergens_no_crustaceans" => ["mandatory", "not_important"],
-	"allergens_no_molluscs" => ["mandatory", "not_important"],
-	"allergens_no_sulphur_dioxide_and_sulphites" => ["mandatory", "not_important"],
-	"vegan" => ["mandatory", "not_important"],
-	"vegetarian" => ["mandatory", "not_important"],
+	"allergens_no_gluten" => ["not_important", "mandatory"],
+	"allergens_no_milk" => ["not_important", "mandatory"],
+	"allergens_no_eggs" => ["not_important", "mandatory"],
+	"allergens_no_nuts" => ["not_important", "mandatory"],
+	"allergens_no_peanuts" => ["not_important", "mandatory"],
+	"allergens_no_sesame_seeds" => ["not_important", "mandatory"],
+	"allergens_no_soybeans" => ["not_important", "mandatory"],
+	"allergens_no_celery" => ["not_important", "mandatory"],
+	"allergens_no_mustard" => ["not_important", "mandatory"],
+	"allergens_no_lupin" => ["not_important", "mandatory"],
+	"allergens_no_fish" => ["not_important", "mandatory"],
+	"allergens_no_crustaceans" => ["not_important", "mandatory"],
+	"allergens_no_molluscs" => ["not_important", "mandatory"],
+	"allergens_no_sulphur_dioxide_and_sulphites" => ["not_important", "mandatory"],
+	"vegan" => ["not_important", "mandatory"],
+	"vegetarian" => ["not_important", "mandatory"],
 };
 
 # default preferences for attributes
