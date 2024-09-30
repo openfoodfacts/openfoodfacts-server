@@ -17269,10 +17269,10 @@ sv: Rapsolja, rybsolja, Rapsfett, rypsolja
 # 62.151 in 35 @2021-08-23
 ciqual_food_code:en: 17130
 ciqual_food_name:fr: Huile de colza
-ecobalyse:en: rapeseed-oil
-ecobalyse_labels_en_organic:en: rapeseed-oil-organic
 description:en: Rapeseed (Brassica napus), also known as rape, or oilseed rape, is a bright-yellow flowering member of the family Brassicaceae, cultivated mainly for its oil-rich seed, which naturally contains appreciable amounts of erucic acid. Rapeseed is the third-largest source of vegetable oil and the second-largest source of protein meal in the world.
 description:de: Rapsöl oder Rüböl (auch Rübsenöl, Kolzaöl und Kohlsaatöl genannt) ist ein pflanzliches Öl, welches aus den Samen vom Raps (Brassica napus), gewonnen wird.
+ecobalyse:en: rapeseed-oil
+ecobalyse_labels_en_organic:en: rapeseed-oil-organic
 from_palm_oil:en: no
 nutriscore_fruits_vegetables_nuts:en: yes
 wikipedia:en: Q1922338
@@ -17955,8 +17955,8 @@ zh: 葡萄籽油
 ciqual_food_code:en: 17350
 ciqual_food_name:en: Grapeseed oil
 ciqual_food_name:fr: Huile de pépins de raisin
-ecobalyse:en: refined-grapeseed-oil
 description:en: GRAPE SEED OIL (also called grapeseed oil or grape oil) is pressed from the seeds of grapes, and is thus an abundant by-product of winemaking.
+ecobalyse:en: refined-grapeseed-oil
 from_palm_oil:en: no
 wikidata:en: Q898982
 wikipedia:en: https://en.wikipedia.org/wiki/Grape_seed_oil
@@ -24651,8 +24651,8 @@ ciqual_proxy_food_code:en: 9060
 ciqual_proxy_food_name:en: Durum wheat, whole, raw
 ciqual_proxy_food_name:fr: Blé dur entier, cru
 ecobalyse:en: durum-wheat-non-eu
-ecobalyse_origins_en_france:en: durum-wheat-fr
 ecobalyse_origins_en_european_union:en: durum-wheat-eu
+ecobalyse_origins_en_france:en: durum-wheat-fr
 wikidata:en: Q618324
 # xmf:კიჭიბე ქობალკაკალი
 wikipedia:en: https://en.wikipedia.org/wiki/Durum
@@ -42484,8 +42484,8 @@ agribalyse_proxy_food_code:en: 13090
 agribalyse_proxy_food_name:en: Mandarin, pulp, raw
 agribalyse_proxy_food_name:fr: Mandarine, pulpe, crue
 carbon_footprint_fr_foodges_ingredient:fr: Mandarine
-ecobalyse:en: mandarin-eu
 carbon_footprint_fr_foodges_value:fr: 1.3
+ecobalyse:en: mandarin-eu
 # aeb-arab:كعبة مدنين
 # arz:سفندى
 # eml:mandarëin
@@ -44102,13 +44102,13 @@ zh: 樱
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/cherry
 carbon_footprint_fr_foodges_ingredient:fr: Cerise
 carbon_footprint_fr_foodges_value:fr: 1.3
-ecobalyse:en: cherry-tr
-ecobalyse_labels_en_organic:en: cherry-organic
-ecobalyse_origins_en_france:en: cherry-fr
 # 969 products in 7 languages @2018-09-29
 ciqual_food_code:en: 13008
 ciqual_food_name:en: Cherry, pitted, raw
 ciqual_food_name:fr: Cerise, dénoyautée, crue
+ecobalyse:en: cherry-tr
+ecobalyse_labels_en_organic:en: cherry-organic
+ecobalyse_origins_en_france:en: cherry-fr
 wikidata:en: Q196
 # arz:كريز
 # ast:cereza
@@ -45523,8 +45523,8 @@ ciqual_food_code:en: 13021
 ciqual_food_name:en: Kiwi fruit, pulp and seeds, raw
 ciqual_food_name:fr: Kiwi, pulpe et graines, cru
 ecobalyse:en: kiwi-non-eu
-ecobalyse_origins_en_france:en: kiwi-fr
 ecobalyse_origins_en_european_union:en: kiwi-eu
+ecobalyse_origins_en_france:en: kiwi-fr
 # ang:cīnisc gōsberige
 # arz:كيوي
 # atj:wamin ka kawisitc
@@ -47368,8 +47368,8 @@ ciqual_food_code:en: 13014
 ciqual_food_name:en: Strawberry, raw
 ciqual_food_name:fr: Fraise, crue
 ecobalyse:en: strawberry-non-eu
-ecobalyse_origins_en_france:en: strawberry-fr-offseason
 ecobalyse_origins_en_european_union:en: strawberry-eu
+ecobalyse_origins_en_france:en: strawberry-fr-offseason
 eurocode_2_group_3:en: 9.30.15
 # aeb-arab:كعبة فراز
 # ary:لفريز
@@ -49984,8 +49984,8 @@ ciqual_food_name:en: Lettuce, raw
 ciqual_food_name:fr: Laitue, crue
 ecobalyse:en: lettuce-non-eu
 ecobalyse_labels_en_organic:en: lettuce-organic
-ecobalyse_origins_en_france:en: lettuce-fr
 ecobalyse_origins_en_european_union:en: lettuce-eu
+ecobalyse_origins_en_france:en: lettuce-fr
 # 2021 in 5 languages @2021-08-10
 eurocode_2_group_3:en: 8.10.12
 # aeb-arab:خسّ
@@ -51506,10 +51506,10 @@ zh: 大白菜
 ciqual_food_code:en: 20167
 ciqual_food_name:en: Chinese cabbage (nappa cabbage or bok choy), raw
 ciqual_food_name:fr: Chou chinois ou pak-choi ou pé-tsai, cru
-# 200 @2021-09-29
-eurocode_2_group_3:en: 8.15.28
 ecobalyse:en: chinese-cabbage-fr
 ecobalyse_labels_en_organic:en: chinese-cabbage-organic
+# 200 @2021-09-29
+eurocode_2_group_3:en: 8.15.28
 #arz:ملفوف برند
 #lzh:菘
 #szy:mamumuway
@@ -52105,10 +52105,10 @@ carbon_footprint_fr_foodges_ingredient:fr: Céleri
 carbon_footprint_fr_foodges_value:fr: 0.8
 ciqual_proxy_food_code:en: 20055
 ciqual_proxy_food_name:fr: Céleri-rave, cru
+description:en: CELERY (Apium graveolens) is a marshland plant in the family Apiaceae that has been cultivated as a vegetable since antiquity.
 ecobalyse:en: celery-eu
 ecobalyse_labels_en_organic:en: celery-organic
 ecobalyse_origins_en_france:en: celery-fr
-description:en: CELERY (Apium graveolens) is a marshland plant in the family Apiaceae that has been cultivated as a vegetable since antiquity.
 eurocode_2_group_3:en: 8.20.10	
 wikidata:en: Q23012379
 wikipedia:en: https://en.wikipedia.org/wiki/Celery
@@ -53044,8 +53044,8 @@ ciqual_food_name:en: Onion, raw
 ciqual_food_name:fr: Oignon, cru
 ecobalyse:en: onion-non-eu
 ecobalyse_labels_en_organic:en: onion-organic
-ecobalyse_origins_en_france:en: onion-fr
 ecobalyse_origins_en_european_union:en: onion-eu
+ecobalyse_origins_en_france:en: onion-fr
 eurocode_2_group_3:en: 8.30.10
 # aeb-arab:راس بصل
 # ckb:پیاز
@@ -54407,8 +54407,8 @@ ciqual_food_name:en: Carrot, raw
 ciqual_food_name:fr: Carotte, crue
 ecobalyse:en: carrot-non-eu
 ecobalyse_labels_en_organic:en: carrot-organic
-ecobalyse_origins_en_france:en: carrot-fr
 ecobalyse_origins_en_european_union:en: carrot-eu
+ecobalyse_origins_en_france:en: carrot-fr
 eurocode_2_group_3:en: 8.38.10
 # zh-cn:胡萝卜
 # zh-hans:胡萝卜
@@ -54818,8 +54818,8 @@ ciqual_food_name:en: Celeriac, raw
 ciqual_food_name:fr: Céleri-rave, cru
 ecobalyse:en: celeriac-non-eu
 ecobalyse_labels_en_organic:en: celeriac-organic
-ecobalyse_origins_en_france:en: celeriac-fr
 ecobalyse_origins_en_european_union:en: celeriac-eu
+ecobalyse_origins_en_france:en: celeriac-fr
 # fr:céleri-rave has 399 products in 4 languages @2018-10-20
 eurocode_2_group_3:en: 8.38.30
 wikidata:en: Q575174
@@ -57915,9 +57915,9 @@ ciqual_food_name:en: Tomato, raw
 ciqual_food_name:fr: Tomate, crue
 ecobalyse:en: tomato-heated-greenhouse-eu
 ecobalyse_labels_en_organic:en: tomato-organic
-ecobalyse_origins_en_france:en: tomato-greenhouse-fr
-ecobalyse_origins_en_european_union:en: tomato-greehouse-eu
 ecobalyse_labels_en_organic_origins_en_france:en: tomato-organic-fr
+ecobalyse_origins_en_european_union:en: tomato-greehouse-eu
+ecobalyse_origins_en_france:en: tomato-greenhouse-fr
 eurocode_2_group_3:en: 8.40.10
 # aeb-arab:كعبة طماطم
 # ang:Heortæppel
@@ -58597,8 +58597,8 @@ ciqual_food_name:en: Turnip, peeled, raw
 ciqual_food_name:fr: Navet, pelé, cru
 ecobalyse:en: turnip-non-eu
 ecobalyse_labels_en_organic:en: turnip-organic
-ecobalyse_origins_en_france:en: turnip-fr
 ecobalyse_origins_en_european_union:en: turnip-eu
+ecobalyse_origins_en_france:en: turnip-fr
 eurocode_2_group_3:en: 8.38.38
 # azb:شلغم
 # bho:शलजम
@@ -58965,11 +58965,11 @@ uk: гарбуз Хоккайдо
 ciqual_food_code:en: 20134
 ciqual_food_name:en: Sweet green hokkaido squash, pulp, raw
 ciqual_food_name:fr: Courge hokkaïdo, pulpe, crue
+# 176 in french @2021-12-03
+description:en: Red kuri squash (often spelled 'kari') (katakana:ウチキクリ) is thin skinned orange colored winter squash, that has the appearance of a small pumpkin without the ridges.
 ecobalyse:en: squash-eu
 ecobalyse_labels_en_organic:en: squash-organic
 ecobalyse_origins_en_france:en: squash-fr
-# 176 in french @2021-12-03
-description:en: Red kuri squash (often spelled 'kari') (katakana:ウチキクリ) is thin skinned orange colored winter squash, that has the appearance of a small pumpkin without the ridges.
 eurocode_2_group_3:en: 8.40.45
 # arz:قرع كورى احمر
 wikidata:en: Q645199
@@ -59124,8 +59124,8 @@ ro: rapiță
 sv: Raps, rapsfrön
 ecobalyse:en: rapeseed-non-eu
 ecobalyse_labels_en_organic:en: rapeseed-organic
-ecobalyse_origins_en_france:en: rapeseed-fr
 ecobalyse_origins_en_european_union:en: rapeseed-eu
+ecobalyse_origins_en_france:en: rapeseed-fr
 wikidata:en: Q177932
 wikipedia:en: https://en.wikipedia.org/wiki/Rapeseed
 
@@ -59325,8 +59325,8 @@ ciqual_food_code:en: 20061
 ciqual_food_name:en: French bean, raw
 ciqual_food_name:fr: Haricot vert, cru
 ecobalyse:en: french-bean-non-eu
-ecobalyse_origins_en_france:en: french-bean-fr
 ecobalyse_origins_en_european_union:en: french-bean-eu
+ecobalyse_origins_en_france:en: french-bean-fr
 #4192 in 16 @2021-10-01
 eurocode_2_group_3:en: 8.45.30
 #arz:فاصوليا خضرا
@@ -63677,7 +63677,7 @@ zh: 葵花籽
 ciqual_food_code:en: 15011
 ciqual_food_name:en: Sunflower seed
 ciqual_food_name:fr: Tournesol, graine
-ecobalyse:en: sunflower-organic 
+ecobalyse:en: sunflower-organic
 # 7103 in 28 @2021-09-07
 nutriscore_fruits_vegetables_nuts:en: no
 wikidata:en: Q1076906
@@ -71076,8 +71076,8 @@ zh: 向日葵屬
 # yue:向日葵屬
 ecobalyse:en: sunflower-non-eu
 ecobalyse_labels_en_organic:en: sunflower-organic
-ecobalyse_origins_en_france:en: sunflower-fr
 ecobalyse_origins_en_european_union:en: sunflower-eu
+ecobalyse_origins_en_france:en: sunflower-fr
 wikidata:en: Q26949
 wikipedia:en: https://en.wikipedia.org/wiki/Helianthus
 # en:sunflower has 16610 products @2018-10-15
@@ -84233,10 +84233,10 @@ description:it: Il cetriolo (Cucumis sativus) è un ortaggio appartenente alla f
 description:nl: De komkommer is een eenjarige plant uit de komkommerfamilie, waarvan de gelijknamige vrucht in Nederland en België vooral rauw als salade wordt gegeten.
 description:pt: O pepino é o fruto do pepineiro (Cucumis sativus), que se come geralmente em forma de salada.
 ecobalyse:en: cucumber-eu
-ecobalyse_labels_en_organic:en: 
+ecobalyse_labels_en_organic:en:
+ecobalyse_labels_en_organic_origins_en_france:en:
+ecobalyse_origins_en_european_union:en:
 ecobalyse_origins_en_france:en: cucumber-fr-offseason
-ecobalyse_origins_en_european_union:en: 
-ecobalyse_labels_en_organic_origins_en_france:en: 
 # 6546 products in 22 @2021-09-02
 eurocode_2_group_3:en: 8.40.30
 # ang:hwerhwette
@@ -85774,9 +85774,9 @@ carbon_footprint_fr_foodges_value:fr: 2.6
 ciqual_food_code:en: 22000
 ciqual_food_name:en: Egg, raw
 ciqual_food_name:fr: Oeuf, cru
+description:en: EGGS are laid by female animals of many different species, including birds, reptiles, amphibians, mammals, and fish. This ingredient comprises mainly chicken eggs.
 ecobalyse:en: egg-indoor-code3
 ecobalyse_labels_en_organic:en: egg-organic-code0
-description:en: EGGS are laid by female animals of many different species, including birds, reptiles, amphibians, mammals, and fish. This ingredient comprises mainly chicken eggs.
 vegan:en: no
 vegetarian:en: yes
 # aeb-arab:عضمة
