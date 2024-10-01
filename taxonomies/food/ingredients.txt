@@ -25002,7 +25002,7 @@ pl: mąka pszenna semolina
 
 < en:semolina
 < en:wheat
-en: wheat semolina
+en: wheat semolina, Suji, Sooji
 ar: سميد
 bg: пшеничен грис
 ca: semola de blat
@@ -26241,7 +26241,7 @@ en: foxtail millet
 hr: lisičji rep proso
 
 < en:millet
-en: finger millet
+en: finger millet, Ragi
 hr: prst proso
 
 < en:millet
@@ -28058,7 +28058,7 @@ it: farina semi-integrale
 
 < en:wheat flour
 < en:wholemeal flour
-en: whole wheat flour, wholewheat flour, wholemeal wheat flour
+en: whole wheat flour, wholewheat flour, wholemeal wheat flour, atta
 bg: пълнозърнесто пшенично брашно, брашно пшенично пълнозърнесто
 ca: farina integral de blat, farina de blat integral
 da: hvedefuldkornsmel, fuldkornshvedemel
@@ -31012,6 +31012,9 @@ de: Invertrohrzucker
 fr: sucre de canne inverti
 hr: invertni šećer od trske
 pt: açúcar de cana invertido
+
+< en:cane sugar
+en: jaggery, gud, gur, cane jaggery
 
 < en:invert sugar
 en: invert sugar solution
@@ -52385,11 +52388,9 @@ nl: rabarbersap
 en: shoot vegetable
 eurocode_2_group_2:en: 8.25
 
-# description:en:Asparagus, or garden asparagus, folk name sparrow grass, scientific name Asparagus officinalis
-# is a spring vegetable, a flowering perennial plant species in the genus Asparagus
-
+# 
 < en:shoot vegetable
-en: asparagus
+en: asparagus, asparagus spears
 af: Aspersie
 ar: هليون
 az: Qulançar, Dərman qulançarı
@@ -52401,15 +52402,15 @@ bs: Šparoga
 ca: Espàrrec
 cs: Chřest lékařský
 da: Asparges
-de: Spargel, Gemüsespargel
+de: Spargel, Gemüsespargel, Spargelstangen
 el: Σπαράγγι
 eo: Asparago, asparagi
-es: espárrago, espárragos
+es: espárrago, espárragos, tallos de espárragos
 et: spargel, asparaagus
 eu: Себен үләне
 fa: مارچوبه
 fi: Parsa
-fr: asperge, asperges
+fr: asperge, asperges, asperges pic-nic
 gl: Esparragueira
 gv: Asparag
 he: אספרג רפואי
@@ -52461,6 +52462,7 @@ yi: אספארגוס
 zh: 芦笋
 carbon_footprint_fr_foodges_ingredient:fr: Asperges en boite Chine
 carbon_footprint_fr_foodges_value:fr: 2.4
+description:en: Asparagus, or garden asparagus, folk name sparrow grass, scientific name Asparagus officinalis is a spring vegetable, a flowering perennial plant species in the genus Asparagus;
 # en:asparagus has 301 products in 6 languages @2018-11-11
 eurocode_2_group_3:en: 8.25.10
 #carbon_footprint_fr_foodges_ingredient:fr:Asperges saison France
@@ -52491,6 +52493,9 @@ wikidata:en: Q23041045
 wikipedia:en: https://en.wikipedia.org/wiki/Asparagus
 
 < en:asparagus
+fr: asperges fraîches
+
+< en:asparagus
 en: green asparagus
 bg: зелена аспержа, зелени аспержи
 de: grüner Spargel, Grüne Spargeln
@@ -52512,18 +52517,40 @@ wikidata:en: Q35075688
 es: Espárragos verdes sin pelar
 
 < en:asparagus
+en: violet asparagus
+fr: asperge violette
+
+< en:asparagus
 en: white asparagus
 bg: бяла аспержа, бели аспержи
-de: weisse Spargeln
+de: weisse Spargeln, weißer Spargel
 es: Espárrago blanco
 fi: valkoinen parsa
-fr: asperges blanches, asperge blanche
+fr: asperges blanches, asperge blanche, asperges blanches grosses, asperges blanches des sables des Landes IGP
 hr: bijele šparoge
 it: asparagi bianchi
 nl: witte asperges
 pl: białe szparagi, biały szparag, białych szparagów
 pt: Espargos brancos
 # fr:asperges blanches has 46 products in 4 languages @2018-11-11
+
+#< en:white asparagus
+#fr: asperges blanches coupées
+
+< en: asparagus
+en: asparagus heads
+fr: pointes d'asperges moyennes
+
+< en:asparagus heads
+< en:green asparagus
+en: green asparagus heads
+es: espárrago verde, espárrago verde tallos y puntas
+fr: pointes d'asperges vertes
+
+< en:asparagus heads
+< en:white asparagus
+en: white asparagus heads
+es: vemas de espárragos blancos
 
 < en:shoot vegetable
 en: chicory
@@ -52598,7 +52625,7 @@ pt: extrato de chicória, extracto de chicória
 # ingredient/extract-of-chicory has 31 products @2019-04-04
 
 < en:shoot vegetable
-en: Belgian endive
+en: belgian endive
 cs: čekanka
 da: julesalat
 de: Chicorée
@@ -59136,7 +59163,7 @@ wikipedia:fr: https://fr.wikipedia.org/wiki/Navette_(plante)
 
 < en:legume
 < en:pulse
-en: beans, common bean, bean
+en: beans, common bean, bean, Rajma, Rajmah
 am: ኣደንጓሬ
 ar: فاصولياء شائعة
 av: Лубия
@@ -59751,7 +59778,7 @@ wikidata:en: Q74663825
 #comment:en:Do not confuse these with mungo beans: Vigna mungo
 < en:legume
 < en:pulse
-en: mung bean, mungbean
+en: mung bean, mungbean, Mung dal, Moong dal
 ar: بقلة الماش
 bg: папуда, птичи боб, бебриджа
 bn: মুগ
@@ -59781,7 +59808,7 @@ jv: kacang ijo
 kn: ಹೆಸರು ಕಾಳು
 ko: 녹두
 ky: маш
-la: vigna radiata
+la: vigna radiata, Phaseolus aureus
 ml: ചെറുപയർ
 mn: ногоон шош
 mr: मूग
@@ -59826,10 +59853,10 @@ wikidata:en: Q484447
 wikipedia:en: https://en.wikipedia.org/wiki/Mung_bean
 
 < en:pulse
-en: black gram, urd bean, urd
+en: black gram, urd bean, urd, Urad bean, Mungo bean, Black matpe bean, Urad Dal
 fr: haricot urd, haricots urd, urd, haricot mungio à grain noir
 hr: crni gram
-la: vigna mungo
+la: vigna mungo, Phaseolus mungo
 eurocode_2_group_3:en: 7.10.42
 
 < en:mung bean
@@ -60484,7 +60511,7 @@ de: Palerbse, Palerbsen
 # description:en:The chickpea or chick pea (Cicer arietinum) is an annual legume of the family Fabaceae, subfamily Faboideae.
 # chickpea parent is NOT pea
 < en:pulse
-en: chickpea, chickpeas, garbanzo, garbanzo beans, chick pea, chick peas
+en: chickpea, chickpeas, garbanzo, garbanzo beans, chick pea, chick peas, Split Bengal gram, Chana dal
 af: kekerertjie
 am: ሽምብራ
 ar: حمص شائع
@@ -60933,7 +60960,7 @@ rare_crop:en: yes
 
 < en:legume
 < en:pulse
-en: lentils, lentil
+en: lentils, lentil, Masoor dal, Masur dal
 am: ምስ'ር
 ar: عدس
 av: ТIипало
@@ -64811,7 +64838,7 @@ fr: plantes aromatiques déshydratées
 fr: extraits naturels et aromates
 
 < en:spice
-en: asafoetida
+en: asafoetida, hing
 ar: حِلْتِيت‎
 de: Teufelsdreck
 es: asafétida
@@ -65470,7 +65497,7 @@ sv: muskotnöt
 # description:en:CARDAMOM, sometimes cardamon or cardamum, is a spice made from the seeds of several plants in the genera Elettaria and Amomum in the family Zingiberaceae. Both
 
 < en:spice
-en: cardamom, cardamon
+en: cardamom, cardamon, Elaichi
 af: kardamom
 ar: هال
 bg: кардамон
@@ -67159,7 +67186,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Cymbopogon
 # description:en:MENTHA (also known as mint) is a genus of plants in the family Lamiaceae (mint family).
 
 < en:herb
-en: mint
+en: mint, Pudina
 af: ment
 am: እባን
 ar: نعناع
@@ -72118,6 +72145,9 @@ pl: Miechunka peruwiańska, rodzynek brazylijski, jagoda inkaska, jagoda inków,
 eurocode_2_group_3:en: 9.30.58
 wikidata:en: Q165227
 wikipedia:en: https://en.wikipedia.org/wiki/Physalis_peruviana
+
+< en:berries
+en: Indian Gooseberry, Amla
 
 # Withania somnifera, known commonly as ASHWAGANDHA, Indian ginseng, poison gooseberry, or winter cherry, is a plant in the Solanaceae or nightshade family.
 
@@ -88541,7 +88571,7 @@ it: galletta
 # usage:fr:Galette: Eau, farine de blé noir, sel de Guérande
 
 # <en:compound
-en: vermicelli
+en: vermicelli, Semiya
 de: Fadennudeln
 fi: vermiselli
 fr: vermicelle, vermicelles
