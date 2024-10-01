@@ -52,6 +52,8 @@ use Storable qw/dclone/;
 use Encode;
 use JSON::PP;
 
+use File::Copy (qw/move/);
+
 use Data::Dumper;
 
 sub normalize_code_zeroes($code) {
@@ -219,7 +221,6 @@ if (scalar $#products < 0) {
 }
 
 my $count = $#products;
-my $i = 0;
 
 print STDERR "$count products to update\n";
 
@@ -250,7 +251,9 @@ foreach my $old_path (@products) {
 	}
 	elsif ($path ne $old_path) {
 
-		if (not -e "$data_root/products/$path") {
+		if (    (!-e "$data_root/products/$path")
+			and (!-e "$www_root/images/products/$path"))
+		{
 			print STDERR "$path does not exist, moving $old_path\n";
 			print $log "$path does not exist, moving $old_path\n";
 			$moved++;
@@ -262,7 +265,7 @@ foreach my $old_path (@products) {
 				ensure_dir_created_or_die("$data_root/products/$prefix_path");
 				ensure_dir_created_or_die("$www_root/images/products/$prefix_path");
 
-				if (    (!-e "data_root/products/$path")
+				if (    (!-e "$data_root/products/$path")
 					and (!-e "$www_root/images/products/$path"))
 				{
 					# File::Copy move() is intended to move files, not
@@ -274,15 +277,13 @@ foreach my $old_path (@products) {
 					# but then it will do a copy even if it is the same
 					# file system...
 					# Another option is to call the system mv command.
-					#
-					# use File::Copy;
 
-					File::Copy::Recursive->import(qw( dirmove ));
+					# In this script, we want to avoid creating copies as we are using zfs, so we use File::Copy move()
 
 					print STDERR ("moving product data $data_root/products/$old_path to $data_root/products/$path\n");
 					print $log ("moving product data $data_root/products/$old_path to $data_root/products/$path\n");
 
-					if (not dirmove("$data_root/products/$old_path", "$data_root/products/$path")) {
+					if (not move("$data_root/products/$old_path", "$data_root/products/$path")) {
 						print STDERR ("could not move product data: $!\n");
 						print $log ("could not move product data: $!\n");
 					}
@@ -295,7 +296,7 @@ foreach my $old_path (@products) {
 						"moving product images $www_root/images/products/$old_path to $www_root/images/products/$path\n"
 					);
 
-					if (not dirmove("$www_root/images/products/$old_path", "$www_root/images/products/$path")) {
+					if (not move("$www_root/images/products/$old_path", "$www_root/images/products/$path")) {
 						print STDERR ("could not move product images: $!\n");
 						print $log ("could not move product images: $!\n");
 					}
@@ -317,8 +318,8 @@ foreach my $old_path (@products) {
 			}
 		}
 		else {
-			print STDERR "$path exist, not moving $old_path\n";
-			print $log "$path exist, not moving $old_path\n";
+			print STDERR "new path exist, not moving $old_path to $path\n";
+			print $log "new path exist, not moving $old_path to $path\n";
 			$not_moved++;
 		}
 
@@ -336,7 +337,7 @@ foreach my $old_path (@products) {
 	}
 }
 
-print STDERR "$count products at the root - $i products not empty or deleted\n";
+print STDERR "$count products at the root\n";
 print STDERR "invalid code: $invalid\n";
 print STDERR "moved: $moved\n";
 print STDERR "not moved: $not_moved\n";
