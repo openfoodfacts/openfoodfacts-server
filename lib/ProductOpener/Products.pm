@@ -305,9 +305,16 @@ This function normalizes the product code by:
 - adding leading zeroes to have at least 13 digits,
 - removing leading zeroes for EAN8s to keep only 8 digits
 
+Note: this function adds leading 0s even if the GS1 code is not valid.
+
 =cut
 
 sub normalize_code_zeroes($code) {
+
+	# Return the code as-is if it is not all digits
+	if ($code !~ /^\d+$/) {
+		return $code;
+	}
 
 	# Remove leading zeroes
 	$code =~ s/^0+//;
