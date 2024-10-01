@@ -159,6 +159,8 @@ my $d = 0;
 open(my $log, ">>", "$data_root/logs/move_ean8_products_to_new_path.log");
 print $log "move_ean8_products_to_new_path.pl started at " . localtime() . "\n";
 
+open(my $csv, ">>", "$data_root/logs/move_ean8_products_to_new_path.csv");
+
 if (scalar $#products < 0) {
 	# Look for products with EAN8 codes directly in the product root
 
@@ -243,6 +245,8 @@ foreach my $old_path (@products) {
 	my $product_id = product_id_for_owner(undef, $new_code);
 
 	my $path = new_product_path_from_id($product_id);
+
+	print $csv "$code\t$new_code\t$old_path\t$path\n";
 
 	if ($path eq "invalid") {
 		$invalid++;
