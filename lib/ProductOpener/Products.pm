@@ -320,8 +320,8 @@ sub normalize_code_zeroes($code) {
 	$code =~ s/^0+//;
 
 	# Add leading zeroes to have at least 13 digits
-	while (length($code) < 13) {
-		$code = "0" . $code;
+	if (length($code) < 13) {
+		$code = "0" x (13 - length($code)) . $code;
 	}
 
 	# Remove leading zeroes for EAN8s to keep only 8 digits
@@ -488,8 +488,8 @@ sub split_code ($code) {
 	}
 
 	# Pad code with 0s if it has less than 13 digits
-	while (length($code) < 13) {
-		$code = "0" . $code;
+	if (length($code) < 13) {
+		$code = "0" x (13 - length($code)) . $code;
 	}
 
 	# First splits into 3 sections of 3 numbers and the last section with the remaining numbers

@@ -62,8 +62,8 @@ sub normalize_code_zeroes($code) {
 	$code =~ s/^0+//;
 
 	# Add leading zeroes to have at least 13 digits
-	while (length($code) < 13) {
-		$code = "0" . $code;
+	if (length($code) < 13) {
+		$code = "0" x (13 - length($code)) . $code;
 	}
 
 	# Remove leading zeroes for EAN8s
@@ -91,8 +91,8 @@ sub new_split_code ($code) {
 	}
 
 	# Pad code with 0s if it has less than 13 digits
-	while (length($code) < 13) {
-		$code = "0" . $code;
+	if (length($code) < 13) {
+		$code = "0" x (13 - length($code)) . $code;
 	}
 
 	# First splits into 3 sections of 3 numbers and the last section with the remaining numbers
@@ -161,7 +161,7 @@ print $log "move_ean8_products_to_new_path.pl started at " . localtime() . "\n";
 
 open(my $csv, ">>", "$data_root/logs/move_ean8_products_to_new_path.csv");
 
-if (scalar $#products < 0) {
+if ((scalar @products) == 0) {
 	# Look for products with EAN8 codes directly in the product root
 
 	my $dh;
@@ -222,7 +222,7 @@ if (scalar $#products < 0) {
 	closedir $dh;
 }
 
-my $count = $#products;
+my $count = scalar @products;
 
 print STDERR "$count products to update\n";
 
