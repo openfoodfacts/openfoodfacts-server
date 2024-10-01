@@ -74,7 +74,7 @@ stopwords:de: und, mit, von
 # expected_minimal_amount_specific_ingredients:en: en:fruit, 35, en:eu;  en:fruit, 35, en:other-country
 
 # if two labels are not compatible, they can be assigned the property 'incompatible_with:en:'
-# for example 
+# for example
 # en:Pasteurised products
 # etc.
 # incompatible_with:en: categories:en:unpasteurised-products
@@ -108363,7 +108363,6 @@ fi: kuivatut vihannekset
 fr: Légumes séchés
 hr: Sušeno povrće
 it: Ortaggi essiccati
-ja: 干しトマト, ドライトマト
 nl: Gedroogde groenten
 pl: Warzywa suszone
 who_id:en: 16
@@ -108378,6 +108377,7 @@ fi: kuivatut tomaatit
 fr: Tomates séchées, Tomate séchée
 hr: Sušene rajčice
 it: Pomodori essiccati
+ja: 干しトマト, ドライトマト
 nl: Gedroogde tomaten
 pl: Pomidory suszone
 agribalyse_food_code:en: 20189
