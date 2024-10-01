@@ -73,6 +73,8 @@ BEGIN {
 		&compute_nutrition_data_per_100g_and_per_serving
 		&compute_unknown_nutrients
 		&compute_nutrient_levels
+		&evaluate_nutrient_level
+		&compute_units_of_alcohol
 		&compute_estimated_nutrients
 
 		&compare_nutriments
@@ -2490,6 +2492,17 @@ sub compute_nutrient_levels ($product_ref) {
 	return;
 }
 
+my %nutrient_level_evaluation_table = (
+	low => "good",
+	moderate => "average",
+	high => "bad",
+);
+
+sub evaluate_nutrient_level ($nid, $nutrient_level) {
+	# Will need different tables if we add nutrients that are good for you
+	return $nutrient_level_evaluation_table{$nutrient_level} // 'unknown';
+}
+
 =head2 create_nutrients_level_taxonomy ()
 
 C<create_nutrients_level_taxonomy()> creates the source file for the nutrients level
@@ -3029,7 +3042,7 @@ sub assign_nutriments_values_from_request_parameters ($product_ref, $nutriment_t
 
 		if (defined single_param($checkbox)) {
 			my $checkbox_value = remove_tags_and_quote(decode utf8 => single_param($checkbox));
-			if (($checkbox_value == 1) or ($checkbox_value eq "on")) {
+			if (($checkbox_value eq '1') or ($checkbox_value eq "on")) {
 				$product_ref->{$checkbox} = "on";
 			}
 			else {
@@ -3109,18 +3122,19 @@ sub assign_nutriments_values_from_request_parameters ($product_ref, $nutriment_t
 
 		next if $nid =~ /^nutrition-score/;
 
-		# Only moderators can update values for fields sent by the producer
-		if (skip_protected_field($product_ref, $nid, $can_edit_owner_fields)) {
-			next;
-		}
-
 		# Unit and label are the same for as sold and prepared nutrition table
 		my $enid = encodeURIComponent($nid);
-		my $unit = remove_tags_and_quote(decode utf8 => single_param("nutriment_${enid}_unit"));
-		my $label = remove_tags_and_quote(decode utf8 => single_param("nutriment_${enid}_label"));
 
 		# We can have nutrient values for the product as sold, or prepared
 		foreach my $product_type ("", "_prepared") {
+
+			# Only moderators can update values for fields sent by the producer
+			if (skip_protected_field($product_ref, $nid . $product_type, $can_edit_owner_fields)) {
+				next;
+			}
+
+			my $unit = remove_tags_and_quote(decode utf8 => single_param("nutriment_${enid}_unit"));
+			my $label = remove_tags_and_quote(decode utf8 => single_param("nutriment_${enid}_label"));
 
 			# do not delete values if the nutriment is not provided
 			next if (not defined single_param("nutriment_${enid}${product_type}"));

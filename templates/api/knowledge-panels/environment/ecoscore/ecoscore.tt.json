@@ -4,10 +4,11 @@
         "environment"
     ],
     "title_element": {
+        "name": "[% panel.name %]",
         "icon_url": "[% static_subdomain %]/images/attributes/dist/ecoscore-[% panel.grade %].svg",
         "title": "[% panel.title %]",
         "type": "grade",
-        "grade": "[% panel.grade %]",
+        "grade": "[% panel.grade %]"
     },
     "elements": [
         [% IF panel.transportation_warning.defined %]

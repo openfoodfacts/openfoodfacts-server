@@ -32,7 +32,7 @@ use ProductOpener::Store qw/:all/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 use Text::CSV;
 
 use strict;

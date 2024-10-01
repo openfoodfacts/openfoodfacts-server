@@ -13,6 +13,15 @@ properties:
   expand_for:
     type: string
     description: 'If set to "large", the content of the panel should be expanded on large screens, but it should still be possible to unexpand it.'
+  evaluation:
+    type: string
+    description: A simple assessment of the panel value, typically used to format fonts, et.c e.g. bad = red
+    enum:
+      - good
+      - average
+      - neutral
+      - bad
+      - unknown
   title_element:
     $ref: ./elements/title_element.yaml
   elements:

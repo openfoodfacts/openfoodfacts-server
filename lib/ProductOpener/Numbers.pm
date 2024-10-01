@@ -169,7 +169,10 @@ sub round_to_max_decimal_places ($value, $max_decimal_places) {
 	if (defined $value) {
 
 		# Round to the maximum number of decimal places
-		$return_value = sprintf("%.${max_decimal_places}f", $value) + 0;
+		$return_value = sprintf("%.${max_decimal_places}f", $value);
+		# Necessary to remove trailing 0s, otherwise we get those trailing 0s in the JSON output of the API
+		$return_value =~ s/\.(0+$)//;
+		$return_value += 0;
 	}
 
 	return $return_value;

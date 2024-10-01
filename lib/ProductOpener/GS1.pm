@@ -67,7 +67,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Tags qw/%language_fields canonicalize_taxonomy_tag exists_taxonomy_tag/;
 use ProductOpener::Display qw/$tt process_template display_date_iso/;
 
-use JSON::PP;
+use JSON::MaybeXS;
 use boolean;
 use Data::DeepAccess qw(deep_get);
 use XML::XML2JSON;
@@ -1125,6 +1125,16 @@ sub gs1_to_off ($gs1_to_off_ref, $json_ref, $results_ref) {
 
 		$log->debug("gs1_to_off - source fields", {source_field => $source_field}) if $log->is_debug();
 
+		# Alnatura does not include the namespace, so we have foodAndBeverageIngredientModule
+		# instead of food_and_beverage_ingredient:foodAndBeverageIngredientModule
+		# Try removing the namespace
+		if (    (not defined $json_ref->{$source_field})
+			and ($source_field =~ /:/)
+			and (defined $json_ref->{$'}))
+		{
+			$source_field = $';
+		}
+
 		if (defined $json_ref->{$source_field}) {
 
 			$log->debug("gs1_to_off - existing source fields",
@@ -1667,7 +1677,7 @@ sub convert_gs1_json_message_to_off_products_csv ($json_ref, $products_ref, $mes
 	# catalogue_item_notification:catalogueItemNotificationMessage
 	# - transaction
 	# -- documentCommand
-	# --- catalogue_item_notification:catalogueItemNotification
+	# --- catalogue_item_notification:catalogueItemNotification : can be an array
 	# ---- catalogueItem
 	# ----- tradeItem
 
@@ -1692,6 +1702,18 @@ sub convert_gs1_json_message_to_off_products_csv ($json_ref, $products_ref, $mes
 		)
 	{
 		if (defined $json_ref->{$field}) {
+			print STDERR "removing encapsulating field $field\n";
+			# If it is an array (e.g. catalogue_item_notification:catalogueItemNotification is an array in Alnatura GmbH messages),
+			# call convert_gs1_json_message_to_off_products_csv() for every child
+			if (ref($json_ref->{$field}) eq 'ARRAY') {
+				my $i = 1;
+				foreach my $child_json_ref (@{$json_ref->{$field}}) {
+					print STDERR "child $i\n";
+					convert_gs1_json_message_to_off_products_csv($child_json_ref, $products_ref, $messages_ref);
+					$i++;
+				}
+				return;
+			}
 			$json_ref = $json_ref->{$field};
 			$log->debug("convert_gs1_json_to_off_csv - remove encapsulating field", {field => $field})
 				if $log->is_debug();
@@ -1727,8 +1749,11 @@ sub convert_gs1_json_message_to_off_products_csv ($json_ref, $products_ref, $mes
 	gs1_to_off(\%gs1_product_to_off, $json_ref, $product_ref);
 
 	# assign the lang and lc fields
+	# we use the language with the most fields
+	# if several languages have the same number of fields, we use the first one in alphabetical order
+	# TODO: it might be good to also use the product target markets / countries to prioritize the main language
 	if (defined $product_ref->{languages}) {
-		my @sorted_languages = sort({$product_ref->{languages}{$b} <=> $product_ref->{languages}{$a}}
+		my @sorted_languages = sort({($product_ref->{languages}{$b} <=> $product_ref->{languages}{$a}) || ($a cmp $b)}
 			keys %{$product_ref->{languages}});
 		my $top_language = $sorted_languages[0];
 		$product_ref->{lc} = $top_language;

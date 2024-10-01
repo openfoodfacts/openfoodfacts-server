@@ -34,7 +34,7 @@ use ProductOpener::HTTP qw/write_cors_headers/;
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
-use JSON::PP;
+use JSON::MaybeXS;
 use Encode;
 
 my $request_ref = ProductOpener::Display::init_request();

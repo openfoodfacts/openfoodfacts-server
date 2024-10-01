@@ -1,8 +1,6 @@
 
-\$(document).ready( function () {
-
-	\$('#pro').change(function() {
-	if (\$(this).prop('checked')) {
+function checkboxChange(checkbox) {
+	if (checkbox.checked) {
 		\$('.pro_org_display').show();
 		\$('#teams_section').hide();
 		if ( ! \$('#pro-email-warning').length ) {
@@ -13,12 +11,11 @@
 		\$('.pro_org_display').hide();
 		\$('#teams_section').show();
 	}
-	\$(document).foundation('equalizer', 'reflow');
-});
-
-if (\$('#pro').prop('checked')) {
-	\$('.pro_org_display').show();
-	\$('#teams_section').hide();
 }
 
+var proCheckbox = document.getElementById('pro');
+checkboxChange(proCheckbox);
+
+proCheckbox.addEventListener('change', function() {
+	checkboxChange(this);
 });

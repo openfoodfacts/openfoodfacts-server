@@ -39,7 +39,7 @@ use CGI qw/:cgi :form escapeHTML charset/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 
 use Log::Any qw($log);
 
@@ -83,7 +83,7 @@ if ($action eq 'process') {
 	$template_data_ref->{product_ref} = $product_ref;
 	$template_data_ref->{preparsed_ingredients_text} = preparse_ingredients_text($lc, $ingredients_text);
 
-	my $json = JSON::PP->new->pretty->encode($product_ref->{ingredients});
+	my $json = JSON::MaybeXS->new->pretty->encode($product_ref->{ingredients});
 	$template_data_ref->{json} = $json;
 }
 
