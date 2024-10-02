@@ -28,7 +28,7 @@ binmode(STDERR, ":encoding(UTF-8)");
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Display qw/init_request $admin/;
+use ProductOpener::Display qw/init_request/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/lang/;
 use ProductOpener::Mail qw/:all/;
@@ -49,7 +49,7 @@ use Excel::Writer::XLSX;
 my $request_ref = ProductOpener::Display::init_request();
 
 # sync CRM
-if (defined $Org_id and not $admin and not $User{moderator} and not $User{pro_moderator}) {
+if (defined $Org_id and not $request_ref->{admin} and not $User{moderator} and not $User{pro_moderator}) {
 	update_template_download_date($Org_id);
 }
 

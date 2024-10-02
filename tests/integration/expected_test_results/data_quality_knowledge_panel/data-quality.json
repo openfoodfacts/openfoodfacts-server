@@ -594,13 +594,17 @@
                   }
                }
             ],
-            "evaluation" : "",
+            "evaluation" : "bad",
+            "half_width_on_mobile" : true,
             "level" : "info",
             "size" : "small",
             "title_element" : {
                "icon_size" : "small",
                "icon_url" : "http://static.openfoodfacts.localhost/images/misc/high.svg",
-               "title" : "Salt in high quantity (120%)"
+               "name" : "Salt",
+               "title" : "Salt in high quantity (120%)",
+               "type" : "percentage",
+               "value" : 120
             },
             "topics" : [
                "health"
@@ -634,9 +638,10 @@
          "nutriscore_2023" : {
             "elements" : [
                {
-                  "element_type" : "panel",
-                  "panel_element" : {
-                     "panel_id" : "nutriscore_description"
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "The nutrition facts of the product must be specified in order to compute the Nutri-Score.<p>Missing nutrition facts: <b>Fat, Proteins, Saturated fat, Sugars</b></p>\n                    ",
+                     "type" : "warning"
                   }
                },
                {
@@ -647,6 +652,12 @@
                      "html" : "Could you add the information needed to compute the Nutri-Score?"
                   },
                   "element_type" : "action"
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "nutriscore_description"
+                  }
                }
             ],
             "level" : "info",

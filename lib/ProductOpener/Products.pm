@@ -772,6 +772,7 @@ sub init_product ($userid, $orgid, $code, $countryid) {
 		created_t => time(),
 		creator => $creator,
 		rev => 0,
+		product_type => $options{product_type},
 	};
 
 	if (defined $server) {
@@ -870,79 +871,6 @@ sub init_product ($userid, $orgid, $code, $countryid) {
 	return $product_ref;
 }
 
-=head2 send_notification_for_product_change ( $user_id, $product_ref, $action, $comment, $diffs )
-
-Notify Robotoff when products are updated or deleted.
-
-=head3 Parameters
-
-=head4 $user_id
-
-ID of the user that triggered the update/deletion (String, may be undefined)
-
-=head4 $product_ref
-
-Reference to the updated/deleted product.
-
-=head4 $action
-
-The action performed, either `deleted` or `updated` (String).
-
-=head4 $comment
-
-The update comment (String)
-
-=head4 $diffs
-
-The `diffs` of the update (Hash)
-
-=cut
-
-sub send_notification_for_product_change ($user_id, $product_ref, $action, $comment, $diffs) {
-
-	if ((defined $robotoff_url) and (length($robotoff_url) > 0)) {
-		my $ua = LWP::UserAgent->new();
-		my $endpoint = "$robotoff_url/api/v1/webhook/product";
-		$ua->timeout(2);
-		my $diffs_json_text = encode_json($diffs);
-
-		$log->debug(
-			"send_notif_robotoff_product_update",
-			{
-				endpoint => $endpoint,
-				barcode => $product_ref->{code},
-				action => $action,
-				server_domain => "api." . $server_domain,
-				user_id => $user_id,
-				comment => $comment,
-				diffs => $diffs_json_text
-			}
-		) if $log->is_debug();
-		my $response = $ua->post(
-			$endpoint,
-			{
-				'barcode' => $product_ref->{code},
-				'action' => $action,
-				'server_domain' => "api." . $server_domain,
-				'user_id' => $user_id,
-				'comment' => $comment,
-				'diffs' => $diffs_json_text
-			}
-		);
-		$log->debug(
-			"send_notif_robotoff_product_update",
-			{
-				endpoint => $endpoint,
-				is_success => $response->is_success,
-				code => $response->code,
-				status_line => $response->status_line
-			}
-		) if $log->is_debug();
-	}
-
-	return;
-}
-
 sub retrieve_product ($product_id) {
 
 	my $path = product_path_from_id($product_id);
@@ -962,7 +890,6 @@ sub retrieve_product ($product_id) {
 
 	my $product_ref = retrieve($full_product_path);
 
-	# If the product is on another server, set the server field so that it will be saved in the other server if we save it
 	my $server = server_for_product_id($product_id);
 
 	if (not defined $product_ref) {
@@ -971,6 +898,21 @@ sub retrieve_product ($product_id) {
 			if $log->is_debug();
 	}
 	else {
+		if ($product_ref->{deleted}) {
+			$log->debug(
+				"retrieve_product - deleted product",
+				{
+					product_id => $product_id,
+					product_data_root => $product_data_root,
+					path => $path,
+					server => $server
+				}
+			) if $log->is_debug();
+			return;
+		}
+
+		# If the product is on another server, set the server field so that it will be saved in the other server if we save it
+
 		if (defined $server) {
 			$product_ref->{server} = $server;
 			$log->debug(
@@ -983,18 +925,9 @@ sub retrieve_product ($product_id) {
 				}
 			) if $log->is_debug();
 		}
-
-		if ($product_ref->{deleted}) {
-			$log->debug(
-				"retrieve_product - deleted product",
-				{
-					product_id => $product_id,
-					product_data_root => $product_data_root,
-					path => $path,
-					server => $server
-				}
-			) if $log->is_debug();
-			return;
+		else {
+			# If the product was moved previously, it may have a server field, remove it
+			delete $product_ref->{server};
 		}
 	}
 
@@ -1008,17 +941,23 @@ sub retrieve_product_or_deleted_product ($product_id, $deleted_ok = 1) {
 
 	my $product_ref = retrieve("$product_data_root/products/$path/product.sto");
 
-	# If the product is on another server, set the server field so that it will be saved in the other server if we save it
-	my $server = server_for_product_id($product_id);
-	if ((defined $product_ref) and (defined $server)) {
-		$product_ref->{server} = $server;
-	}
-
 	if (    (defined $product_ref)
 		and ($product_ref->{deleted})
 		and (not $deleted_ok))
 	{
 		return;
+	}
+
+	if (defined $product_ref) {
+		# If the product is on another server, set the server field so that it will be saved in the other server if we save it
+		my $server = server_for_product_id($product_id);
+		if (defined $server) {
+			$product_ref->{server} = $server;
+		}
+		else {
+			# If the product was moved previously, it may have a server field, remove it
+			delete $product_ref->{server};
+		}
 	}
 
 	return $product_ref;
@@ -1035,14 +974,21 @@ sub retrieve_product_rev ($product_id, $rev) {
 
 	my $product_ref = retrieve("$product_data_root/products/$path/$rev.sto");
 
-	# If the product is on another server, set the server field so that it will be saved in the other server if we save it
-	my $server = server_for_product_id($product_id);
-	if ((defined $product_ref) and (defined $server)) {
-		$product_ref->{server} = $server;
-	}
+	if (defined $product_ref) {
 
-	if ((defined $product_ref) and ($product_ref->{deleted})) {
-		return;
+		if ($product_ref->{deleted}) {
+			return;
+		}
+
+		# If the product is on another server, set the server field so that it will be saved in the other server if we save it
+		my $server = server_for_product_id($product_id);
+		if (defined $server) {
+			$product_ref->{server} = $server;
+		}
+		else {
+			# If the product was moved previously, it may have a server field, remove it
+			delete $product_ref->{server};
+		}
 	}
 
 	return $product_ref;
@@ -1177,6 +1123,7 @@ sub store_product ($user_id, $product_ref, $comment) {
 	my $product_id = $product_ref->{_id};
 	my $path = product_path($product_ref);
 	my $rev = $product_ref->{rev};
+	my $action = "updated";
 
 	$log->debug(
 		"store_product - start",
@@ -1221,6 +1168,13 @@ sub store_product ($user_id, $product_ref, $comment) {
 			}
 		) if $log->is_debug();
 		$delete_from_previous_products_collection = 1;
+
+		if ($product_ref->{obsolete} eq 'on') {
+			$action = "archived";
+		}
+		elsif ($product_ref->{was_obsolete} eq 'on') {
+			$action = "unarchived";
+		}
 	}
 	delete $product_ref->{was_obsolete};
 
@@ -1501,12 +1455,15 @@ sub store_product ($user_id, $product_ref, $comment) {
 
 	$log->debug("store_product - done", {code => $code, product_id => $product_id}) if $log->is_debug();
 
-	my $update_type = $product_ref->{deleted} ? "deleted" : "updated";
-	# Publish information about update on Redis stream
-	push_to_redis_stream($user_id, $product_ref, $update_type, $comment, $diffs);
+	if ($product_ref->{deleted}) {
+		$action = "deleted";
+	}
+	elsif ($rev == 1) {
+		$action = "created";
+	}
 
-	# Notify Robotoff
-	send_notification_for_product_change($user_id, $product_ref, $update_type, $comment, $diffs);
+	# Publish information about update on Redis stream
+	push_to_redis_stream($user_id, $product_ref, $action, $comment, $diffs);
 
 	return 1;
 }

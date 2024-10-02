@@ -143,7 +143,7 @@ store("$BASE_DIRS{IMPORT_FILES}/${Owner_id}/all_columns_fields.sto", $all_column
 # Default values: use the language and country of the interface
 my $default_values_ref = {
 	lc => $lc,
-	countries => $cc,
+	countries => $request_ref->{cc},
 };
 
 $results_ref = convert_file($default_values_ref, $file, $columns_fields_file, $converted_file);
@@ -208,12 +208,12 @@ $template_data_ref->{process_file_id} = $file_id;
 $template_data_ref->{process_import_id} = $import_id;
 $template_data_ref->{link} = "/cgi/import_file_job_status.pl?file_id=$file_id&import_id=$import_id";
 
-process_template('web/pages/import_file_process/import_file_process.tt.html', $template_data_ref, \$html);
-process_template('web/pages/import_file_process/import_file_process.tt.js', $template_data_ref, \$js);
+process_template('web/pages/import_file_process/import_file_process.tt.html', $template_data_ref, \$html, $request_ref);
+process_template('web/pages/import_file_process/import_file_process.tt.js', $template_data_ref, \$js, $request_ref);
 
-$initjs .= $js;
+$request_ref->{initjs} .= $js;
 
-$scripts .= <<HTML
+$request_ref->{scripts} .= <<HTML
 <script type="text/javascript" src="/js/dist/jquery.iframe-transport.js"></script>
 <script type="text/javascript" src="/js/dist/jquery.fileupload.js"></script>
 HTML

@@ -33,7 +33,7 @@ use ProductOpener::Tags qw/display_taxonomy_tag get_property/;
 
 use Log::Any qw($log);
 use CGI qw/:cgi :form escapeHTML/;
-use JSON::PP;
+use JSON::MaybeXS;
 
 my $request_ref = ProductOpener::Display::init_request();
 
@@ -51,9 +51,9 @@ foreach (@{$nutriments_tables{$nutriment_table}}) {
 	my $nid = $_;    # Copy instead of alias
 
 	$nid =~ /^#/ and next;
-	my $important = ($nid =~ /^!/) ? JSON::PP::true : JSON::PP::false;
+	my $important = ($nid =~ /^!/) ? JSON::MaybeXS::true : JSON::MaybeXS::false;
 	$nid =~ s/!//g;
-	my $default_edit_form = $nid =~ /-$/ ? JSON::PP::false : JSON::PP::true;
+	my $default_edit_form = $nid =~ /-$/ ? JSON::MaybeXS::false : JSON::MaybeXS::true;
 	$nid =~ s/-$//g;
 
 	my $onid = $nid =~ s/^(\-+)//gr;

@@ -6,7 +6,7 @@ endif
 
 
 # use bash everywhere !
-SHELL := /bin/bash
+SHELL := $(shell which bash)
 # some vars
 ENV_FILE ?= .env
 NAME = "ProductOpener"
@@ -232,7 +232,7 @@ refresh_mongodb:run_deps
 
 # this command is used to import data on the mongodb used on staging environment
 import_prod_data: run_deps
-	@cd ${DEPS_DIR}/openfoodfacts-shared-services && $(MAKE) -e import_prod_data
+	@cd ${DEPS_DIR}/openfoodfacts-shared-services && $(MAKE) import_prod_data
 
 #--------#
 # Checks #
@@ -315,7 +315,7 @@ update_tests_results: build_taxonomies_test build_lang_test
 
 bash:
 	@echo "🥫 Open a bash shell in the backend container"
-	${DOCKER_COMPOSE} run --rm -w /opt/product-opener backend bash
+	${DOCKER_COMPOSE_RUN} run --rm -w /opt/product-opener backend bash
 
 bash_test:
 	@echo "🥫 Open a bash shell in the test container"
@@ -376,13 +376,13 @@ check_critic:
 	@echo "🥫 Checking with perlcritic"
 	test -z "${TO_CHECK}" || ${DOCKER_COMPOSE} run --rm --no-deps backend perlcritic ${TO_CHECK}
 
-TAXONOMIES_TO_CHECK := $(shell [ -x "`which git 2>/dev/null`" ] && git diff origin/main --name-only | grep  'taxonomies.*/.*\.txt$$' | grep -v '\.result.txt' | xargs ls -d 2>/dev/null | grep -v "^.$$")
+TAXONOMIES_TO_CHECK := $(shell [ -x "`which git 2>/dev/null`" ] && git diff origin/main --name-only | grep  -P 'taxonomies.*/.*\.txt$$' | grep -v '\.result.txt' | xargs ls -d 2>/dev/null | grep -v "^.$$")
 
 # TODO remove --no-sort as soon as we have sorted taxonomies
 check_taxonomies:
 	@echo "🥫 Checking taxonomies"
 	test -z "${TAXONOMIES_TO_CHECK}" || \
-	${DOCKER_COMPOSE} run --rm --no-deps backend scripts/taxonomies/lint_taxonomy.pl --verbose -check ${TAXONOMIES_TO_CHECK}
+	${DOCKER_COMPOSE} run --rm --no-deps backend scripts/taxonomies/lint_taxonomy.pl --verbose --check ${TAXONOMIES_TO_CHECK}
 
 lint_taxonomies:
 	@echo "🥫 Linting taxonomies"
@@ -495,8 +495,10 @@ clone_deps:
 	for dep in ${DEPS} ; do \
 		echo $$dep; \
 		if [ ! -d ${DEPS_DIR}/$$dep ]; then \
+			echo "Cloning $$dep"; \
 			git clone --filter=blob:none --sparse \
 				https://github.com/openfoodfacts/$$dep.git ${DEPS_DIR}/$$dep; \
+			echo "Cloned $$dep"; \
 		else \
 			cd ${DEPS_DIR}/$$dep && git pull; \
 		fi; \

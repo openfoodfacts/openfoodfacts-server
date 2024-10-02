@@ -50,11 +50,11 @@
   }
 
   function DonationButton() {
-    setBannerCookie('off-donation-banner-2023-a', 1, 180);
+    setBannerCookie('off_donation_banner_2023_a', 1, 180);
     bannerID.style.display = 'none';
   }
 
-  if (getBannerCookie('off-donation-banner-2023-a') !== '') {
+  if (getBannerCookie('off_donation_banner_2023_a') !== '') {
     bannerID.style.display = 'none';
   } else { 
     bannerID.style.display = 'flex';

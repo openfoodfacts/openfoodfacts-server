@@ -15,6 +15,8 @@ cd $DIR
 pushd data/ > /dev/null
 mongoexport --collection products --host $HOST --db $DB | gzip > new.$PREFIX-products.jsonl.gz && \
 mv new.$PREFIX-products.jsonl.gz $PREFIX-products.jsonl.gz
+mongoexport --collection products_obsolete --host $HOST --db $DB | gzip > new.$PREFIX-products_obsolete.jsonl.gz && \
+mv new.$PREFIX-products_obsolete.jsonl.gz $PREFIX-products_obsolete.jsonl.gz
 
 mongodump --collection products --host $HOST --db $DB --gzip --archive="new.${PREFIX}-mongodbdump.gz" && \
 sha256sum new.$PREFIX-mongodbdump.gz |sed -e 's/new\.//' > new.gz-sha256sum && \
@@ -22,6 +24,13 @@ md5sum new.$PREFIX-mongodbdump.gz |sed -e 's/new\.//' > new.gz-md5sum && \
 mv new.${PREFIX}-mongodbdump.gz ${PREFIX}-mongodbdump.gz && \
 mv new.gz-sha256sum gz-sha256sum && \
 mv new.gz-md5sum gz-md5sum
+
+mongodump --collection products_obsolete --host $HOST --db $DB --gzip --archive="new.${PREFIX}_obsolete-mongodbdump.gz" && \
+sha256sum new.${PREFIX}_obsolete-mongodbdump.gz |sed -e 's/new\.//' > new.obsolete.gz-sha256sum && \
+md5sum new.${PREFIX}_obsolete-mongodbdump.gz |sed -e 's/new\.//' > new.obsolete.gz-md5sum && \
+mv new.${PREFIX}_obsolete-mongodbdump.gz ${PREFIX}_obsolete-mongodbdump.gz && \
+mv new.obsolete.gz-sha256sum obsolete.gz-sha256sum && \
+mv new.obsolete.gz-md5sum obsolete.gz-md5sum
 
 # Export delta of products modified in the last 24h or since last run of the script
 mkdir -p delta

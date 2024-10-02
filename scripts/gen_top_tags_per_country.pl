@@ -27,7 +27,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die/;
 use ProductOpener::Store qw/get_string_id_for_lang store/;
 use ProductOpener::Index qw/:all/;
-use ProductOpener::Display qw/$cc $country $static_subdomain add_product_nutriment_to_stats compute_stats_for_products/;
+use ProductOpener::Display qw/$country $static_subdomain add_product_nutriment_to_stats compute_stats_for_products/;
 use ProductOpener::Tags
 	qw/%country_languages %properties canonicalize_taxonomy_tag_link display_taxonomy_tag exists_taxonomy_tag/;
 use ProductOpener::Users qw/:all/;
@@ -46,7 +46,7 @@ use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
 use File::Path qw(mkpath);
-use JSON::PP;
+use JSON::MaybeXS;
 
 # Output will be in the $BASE_DIRS{PRIVATE_DATA} directory
 # data/index: data related to the Open Food Hunt operation (old): points for countries, users and ambassadors

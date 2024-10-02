@@ -353,7 +353,7 @@ sub update_product_fields ($request_ref, $product_ref, $response_ref) {
 	return;
 }
 
-=head2 write_product_api()
+=head2 write_product_api($request_ref)
 
 Process API v3 WRITE product requests.
 

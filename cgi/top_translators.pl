@@ -38,13 +38,13 @@ my $request_ref = ProductOpener::Display::init_request();
 # Passing values to the template
 my $template_data_ref = {};
 
-$scripts .= <<SCRIPTS
+$request_ref->{scripts} .= <<SCRIPTS
 <script src="$static_subdomain/js/datatables.min.js"></script>
 <script src="$static_subdomain/js/dist/papaparse.js"></script>
 SCRIPTS
 	;
 
-$header .= <<HEADER
+$request_ref->{header} .= <<HEADER
 <link rel="stylesheet" href="/js/datatables.min.css" />
 HEADER
 	;
@@ -92,7 +92,7 @@ my $js = <<JS
 	});
 JS
 	;
-$initjs .= $js;
+$request_ref->{initjs} .= $js;
 
 my $html;
 process_template('web/pages/top_translators/top_translators.tt.html', $template_data_ref, \$html) or $html = '';
