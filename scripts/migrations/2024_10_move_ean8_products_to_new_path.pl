@@ -273,11 +273,12 @@ foreach my $old_path (@products) {
 
 	my $new_code = normalize_code_zeroes($code);
 
+	my $old_product_id = product_id_for_owner(undef, $code);
 	my $product_id = product_id_for_owner(undef, $new_code);
 
 	my $path = new_product_path_from_id($product_id);
 
-	my $product_ref = retrieve_product($product_id, "include_deleted");
+	my $product_ref = retrieve_product($old_product_id, "include_deleted");
 
 	my $deleted = $product_ref->{deleted} ? "deleted" : "";
 	my $obsolete = $product_ref->{obsolete} ? "obsolete" : "";
@@ -324,8 +325,12 @@ foreach my $old_path (@products) {
 					print $log ("moving product data $data_root/products/$old_path to $data_root/products/$path\n");
 
 					if (not move("$data_root/products/$old_path", "$data_root/products/$path")) {
-						print STDERR ("ERROR: could not move product data: $!\n");
-						print $log ("ERROR: could not move product data: $!\n");
+						print STDERR (
+							"ERROR: could not move product data from $data_root/products/$old_path to $data_root/products/$path : $!\n"
+						);
+						print $log (
+							"ERROR: could not move product data from $data_root/products/$old_path to $data_root/products/$path : $!\n"
+						);
 						$moved--;
 						$not_moved++;
 					}
@@ -340,8 +345,12 @@ foreach my $old_path (@products) {
 						);
 
 						if (not move("$www_root/images/products/$old_path", "$www_root/images/products/$path")) {
-							print STDERR ("ERROR: could not move product images: $!\n");
-							print $log ("ERROR: could not move product images: $!\n");
+							print STDERR (
+								"ERROR: could not move product images from $www_root/images/products/$old_path to $www_root/images/products/$path : $!\n"
+							);
+							print $log (
+								"ERROR: could not move product images from $www_root/images/products/$old_path to $www_root/images/products/$path : $!\n"
+							);
 						}
 
 						# If the code changed, need to update the product .sto file and to remove the old code from MongoDB and to add the new code in MongoDB
@@ -383,7 +392,7 @@ foreach my $old_path (@products) {
 	}
 }
 
-print STDERR "$count products at the root\n";
+print STDERR "$count products at the root or not split into a 4 component path\n";
 print STDERR "invalid code: $invalid\n";
 print STDERR "moved: $moved\n";
 print STDERR "not moved: $not_moved\n";

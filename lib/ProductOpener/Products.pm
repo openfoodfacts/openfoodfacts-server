@@ -464,6 +464,8 @@ sub old_split_code ($code) {
 
 	# First splits into 3 sections of 3 numbers and the last section with the remaining numbers
 	my $path = $code;
+	# Remove leading 0s that were added to normalize the code
+	$code =~ s/^0+//;
 	if ($code =~ /^(.{3})(.{3})(.{3})(.*)$/) {
 		$path = "$1/$2/$3/$4";
 	}
@@ -476,7 +478,12 @@ sub split_code ($code) {
 	my $old_path = old_split_code($code);
 	# If the old path exists, the product has not been migrated yet, so we use the old path
 	if (-e "$BASE_DIRS{PRODUCTS}/$old_path/product.sto") {
+		$log->debug("old_split_code path exists, using old path", {code => $code, old_path => $old_path})
+			if $log->is_debug();
 		return $old_path;
+	}
+	else {
+		$log->debug("old_split_code path does not exist", {code => $code, old_path => $old_path}) if $log->is_debug();
 	}
 
 	# Require at least 4 digits (some stores use very short internal barcodes, they are likely to be conflicting)

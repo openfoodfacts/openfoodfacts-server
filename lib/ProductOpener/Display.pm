@@ -7897,12 +7897,13 @@ JS
 	}
 
 	# Old UPC-12 in url? Redirect to EAN-13 url
-	if ($request_code ne $code) {
+	# TODO - 2024/10/02 - Temporarily disabled so that we can migrate short barcodes with digits not equal to 8 or greater or equal to 13
+	# Reenable after all products are migrated.
+	if (0 and ($request_code ne $code)) {
 		$request_ref->{redirect} = $request_ref->{canon_url};
-		$log->debug(
-			"302 redirecting user because request_code does not match code",
-			{redirect => $request_ref->{redirect}, lc => $lc, request_code => $code}
-		) if $log->is_debug();
+		$log->debug("302 redirecting user because request_code does not match code",
+			{redirect => $request_ref->{redirect}, lc => $lc, code => $code, request_code => $request_code})
+			if $log->is_debug();
 		redirect_to_url($request_ref, 302, $request_ref->{redirect});
 	}
 
