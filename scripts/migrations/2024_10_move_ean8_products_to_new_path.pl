@@ -257,6 +257,7 @@ my $count = scalar @products;
 print STDERR "$count products to update\n";
 
 my $products_collection = get_products_collection();
+my $obsolete_products_collection = get_products_collection({obsolete => 1});
 
 my $invalid = 0;
 my $moved = 0;
@@ -276,7 +277,12 @@ foreach my $old_path (@products) {
 
 	my $path = new_product_path_from_id($product_id);
 
-	print $csv "$code\t$new_code\t$old_path\t$path\n";
+	my $product_ref = retrieve_product($product_id);
+
+	my $deleted = $product_ref->{deleted} ? "deleted" : "";
+	my $obsolete = $product_ref->{obsolete} ? "obsolete" : "";
+
+	print $csv "$code\t$new_code\t$old_path\t$path\t$obsolete\t$deleted\n";
 
 	if ($path eq "invalid") {
 		$invalid++;
@@ -288,8 +294,8 @@ foreach my $old_path (@products) {
 		if (    (!-e "$data_root/products/$path")
 			and (!-e "$www_root/images/products/$path"))
 		{
-			print STDERR "$path does not exist, moving $old_path\n";
-			print $log "$path does not exist, moving $old_path\n";
+			print STDERR "$code - $obsolete - $deleted - $path does not exist, moving $old_path\n";
+			print $log "$code - $obsolete - $deleted - $path does not exist, moving $old_path\n";
 			$moved++;
 
 			if ($move) {
@@ -340,14 +346,15 @@ foreach my $old_path (@products) {
 
 						# If the code changed, need to update the product .sto file and to remove the old code from MongoDB and to add the new code in MongoDB
 						if ($new_code ne $code) {
-							my $product_ref = retrieve_product($product_id);
+
 							$product_ref->{code} = $new_code . '';
 							$product_ref->{id} = $product_ref->{code} . '';    # treat id as string;
 							$product_ref->{_id} = $product_ref->{code} . '';    # treat id as string;
-							store_product("fix-code-bot", $product_ref, "changed code from $code to $new_code");
+								# Delete the old code from MongoDB collections
 							$products_collection->delete_one({code => $code});
-							$products_collection->replace_one({"_id" => $product_ref->{_id}},
-								$product_ref, {upsert => 1});
+							$obsolete_products_collection->delete_one({code => $code});
+							# If the product is not deleted, store_product will add the new code to MongoDB
+							store_product("fix-code-bot", $product_ref, "changed code from $code to $new_code");
 							print STDERR "updated code from $code to $new_code in .sto file and MongoDB\n";
 							print $log "updated code from $code to $new_code in .sto file and MongoDB\n";
 						}
