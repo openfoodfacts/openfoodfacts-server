@@ -440,7 +440,25 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Download from Open Food Facts server">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#images-url-directly-available-in-product-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      images URL directly available in product data
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#computing-images-url" class="md-nav__link">
+    <span class="md-ellipsis">
+      Computing images URL
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Computing images URL">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1575,7 +1593,25 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Download from Open Food Facts server">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#images-url-directly-available-in-product-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      images URL directly available in product data
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#computing-images-url" class="md-nav__link">
+    <span class="md-ellipsis">
+      Computing images URL
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Computing images URL">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1671,6 +1707,7 @@ server</a>.</p>
 <p>If you plan to download more images, you should instead
 <a href="./#download-from-aws">use the Open Food Facts images dataset hosted on
 AWS</a>.</p>
+<p><strong>NOTE:</strong> please avoid fetching full image if it is not needed, but use image in the right size.</p>
 <h2 id="download-from-aws">Download from AWS<a class="headerlink" href="#download-from-aws" title="Permanent link">#</a></h2>
 <p>If you want to download many images, this is the recommended
 option, as AWS S3 is faster and allows concurrent download, unlike the
@@ -1681,6 +1718,12 @@ about how to download images from the AWS dataset.</p>
 <p>All images are hosted under the
 <a href="https://images.openfoodfacts.org/images/products/">https://images.openfoodfacts.org/images/products/</a> folder. 
 But you have to build the right URL from the product info.</p>
+<h2 id="images-url-directly-available-in-product-data">images URL directly available in product data<a class="headerlink" href="#images-url-directly-available-in-product-data" title="Permanent link">#</a></h2>
+<p>When you request the API, you will get the url of some important images: front, ingredients, nutrition, packaging</p>
+<p>The field <a href="https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#cmp--schemas-product-images"><code>selected_images</code></a> provides you with those images.</p>
+<p>The structure should be simple enough to read. You get different image type, and inside different image size, and inside the urls for the different languages.</p>
+<h2 id="computing-images-url">Computing images URL<a class="headerlink" href="#computing-images-url" title="Permanent link">#</a></h2>
+<p>In get you want to get an image which url is not directly present in product data, you need to compute the image url by yourself.</p>
 <h3 id="computing-single-product-image-folder">Computing single product image folder<a class="headerlink" href="#computing-single-product-image-folder" title="Permanent link">#</a></h3>
 <p>Images of a product are stored in a single directory. The path of this
 directory can be inferred easily from the product barcode.
@@ -1794,7 +1837,8 @@ the filename is very easy to compute: </p>
 <li><code>angle</code>, <code>x1</code>, <code>x2</code>, <code>y1</code>, <code>y2</code>: rotation angle and cropping coordinates (it's to be able to regenerate the image from the raw image)</li>
 </ul>
 <p>For selected images, the filename is the image key followed by the revision number and the resolution: <code>&lt;image_name&gt;.&lt;rev&gt;.&lt;resolution&gt;.jpg</code>.
-Resolution must always be specified, but you can use <code>full</code> keyword to get the full resolution image.</p>
+Resolution must always be specified, but you can use <code>full</code> keyword to get the full resolution image.
+<code>image_name</code> is the image type + language code (eg: <code>front_fr</code>).</p>
 <p>In our above example, the filename for the front image in french (<code>front_fr</code> key) is:</p>
 <ul>
 <li><code>front_fr.4.400.jpg</code> for 400 px version</li>
