@@ -144,12 +144,55 @@ sub ensure_dir_created_or_die ($path, $mode = oct(755)) {
 	return (-e $path);
 }
 
+sub product_dir_move($source, $target) {
+	# If the source does not contain directories, use move() to move it directly
+	# otherwise, create the target directory, go through all files in the source, and use move() to move them to the target, but do not move contained directories
+	# then remove the source directory
+
+	# First check if source contains directories
+	my $contains_directories = 0;
+	opendir my $dh, $source or die "could not open $source directory: $!\n";
+	foreach my $dir (sort readdir($dh)) {
+		chomp($dir);
+		if (-d "$source/$dir") {
+			$contains_directories = 1;
+			last;
+		}
+	}
+
+	# If source does not contain directories, use move() to move it directly
+	if (!$contains_directories) {
+		return move($source, $target);
+	}
+
+	print STDERR "source $source contains directories, moving files instead of directory\n";
+
+	# Otherwise, create the target directory
+	ensure_dir_created_or_die($target);
+
+	# Go through all files in the source
+	opendir my $dh, $source or die "could not open $source directory: $!\n";
+	foreach my $file (sort readdir($dh)) {
+		chomp($file);
+		# Move files and symbolic links
+		if (!-d "$source/$file") {
+			move("$source/$file", "$target/$file") or die "could not move $source/$file to $target/$file: $!\n";
+		}
+	}
+
+	# Remove the source directory
+	rmdir($source);
+
+	return 1;
+}
+
 # Get a list of all products
 
 use Getopt::Long;
 
 my @products = ();
 my $move = 0;
+my $product_paths_containing_other_products = 0;
 
 GetOptions('products=s' => \@products, 'move' => \$move);
 @products = split(/,/, join(',', @products));
@@ -224,10 +267,13 @@ if ((scalar @products) == 0) {
 										"nested dir with 9 digits: $dir/$dir2/$dir3 --> does not have level 4 dirs, ok to move level 3 dir\n";
 								}
 								else {
+									push @products, "$dir/$dir2/$dir3";
+									$d++;
 									print STDERR
-										"nested dir 9 with digits: $dir/$dir2/$dir3 --> has $level4_dirs level 4 dirs, cannot move level 3 dir\n";
+										"nested dir 9 with digits: $dir/$dir2/$dir3 --> has $level4_dirs level 4 dirs, need to move files instead of dir\n";
 									print $log
-										"nested dir with 9 digits: $dir/$dir2/$dir3 --> has $level4_dirs level 4 dirs, cannot move level 3 dir\n";
+										"nested dir with 9 digits: $dir/$dir2/$dir3 --> has $level4_dirs level 4 dirs, need to move files instead of dir\n";
+									$product_paths_containing_other_products++;
 								}
 								$d++;
 							}
@@ -240,7 +286,8 @@ if ((scalar @products) == 0) {
 			closedir $dh2;
 
 		}
-		else {
+		# Don't move dirs with 1 or 2 digits
+		elsif ($dir !~ /^\d\d?$/) {
 			# Product directories at the root, with a different number than 3 digits
 			if (-e "$data_root/products/$dir/product.sto") {
 				push @products, $dir;
@@ -324,7 +371,7 @@ foreach my $old_path (@products) {
 					print STDERR ("moving product data $data_root/products/$old_path to $data_root/products/$path\n");
 					print $log ("moving product data $data_root/products/$old_path to $data_root/products/$path\n");
 
-					if (not move("$data_root/products/$old_path", "$data_root/products/$path")) {
+					if (not product_dir_move("$data_root/products/$old_path", "$data_root/products/$path")) {
 						print STDERR (
 							"ERROR: could not move product data from $data_root/products/$old_path to $data_root/products/$path : $!\n"
 						);
@@ -344,7 +391,10 @@ foreach my $old_path (@products) {
 							"moving product images $www_root/images/products/$old_path to $www_root/images/products/$path\n"
 						);
 
-						if (not move("$www_root/images/products/$old_path", "$www_root/images/products/$path")) {
+						if (
+							not product_dir_move("$www_root/images/products/$old_path",
+								"$www_root/images/products/$path"))
+						{
 							print STDERR (
 								"ERROR: could not move product images from $www_root/images/products/$old_path to $www_root/images/products/$path : $!\n"
 							);
@@ -379,8 +429,8 @@ foreach my $old_path (@products) {
 			}
 		}
 		else {
-			print STDERR "new path exist, not moving $old_path to $path\n";
-			print $log "new path exist, not moving $old_path to $path\n";
+			print STDERR "new path exists, not moving $old_path to $path\n";
+			print $log "new path exists, not moving $old_path to $path\n";
 			$not_moved++;
 		}
 
@@ -393,6 +443,7 @@ foreach my $old_path (@products) {
 }
 
 print STDERR "$count products at the root or not split into a 4 component path\n";
+print STDERR "$product_paths_containing_other_products products paths containing other products\n";
 print STDERR "invalid code: $invalid\n";
 print STDERR "moved: $moved\n";
 print STDERR "not moved: $not_moved\n";
