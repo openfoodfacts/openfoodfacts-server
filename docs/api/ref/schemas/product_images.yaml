@@ -10,24 +10,6 @@ description: |
   * [Getting images](https://openfoodfacts.github.io/openfoodfacts-server/api/how-to-download-images/)
   * [Uploading images](https://openfoodfacts.github.io/openfoodfacts-server/api/tutorial-uploading-photo-to-a-product/)
 properties:
-  image_front_small_url:
-    type: string
-  image_front_thumb_url:
-    type: string
-  image_front_url:
-    type: string
-  image_nutrition_small_url:
-    type: string
-  image_nutrition_thumb_url:
-    type: string
-  image_nutrition_url:
-    type: string
-  image_small_url:
-    type: string
-  image_thumb_url:
-    type: string
-  image_url:
-    type: string
   images:
     description: |
       This contains properties for all images contained on the product.
@@ -60,10 +42,15 @@ properties:
     items:
       type: string
   last_image_t:
+    description: timestamp of last image upload (or update?)
     type: integer
 
   selected_images:
     type: object
+    description: |
+      URL for selected (important) images of the product.
+
+      This is very handy if you display the product to users.
     properties:
       front:
         type: object
@@ -90,3 +77,22 @@ properties:
           See property `front` to get the real type of those objects
           (Put this way because of a [bug in rapidoc](https://github.com/rapi-doc/RapiDoc/issues/880))
         type: string
+
+  image_small_url:
+    type: string
+  image_thumb_url:
+    type: string
+  image_url:
+    type: string
+
+  patternProperties:
+    'image(_(?<image_type>front|packaging|ingredients|nutrition|other))?(_(?<image_size>small|thumb))?_url':
+      description: |
+        the URL of image of type `image_type` in size `image_size` (or full size if not given).
+
+        The `image_type` tells which image the url correspond to. `image_type` is `front` if not provided.
+
+        The image is the one for current language (affected by `lc` parameter) if an image exists for this language, the image in main product language otherwise.
+
+        **IMPORTANT:** you should use `selected_images` field instead of this one.
+      type: string

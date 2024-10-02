@@ -1,5 +1,33 @@
 # Changelog
 
+## [2.45.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.44.0...v2.45.0) (2024-10-02)
+
+
+### Features
+
+* Add short name, value and evaluation to knowledge panels ([#9683](https://github.com/openfoodfacts/openfoodfacts-server/issues/9683)) ([bb5c3e2](https://github.com/openfoodfacts/openfoodfacts-server/commit/bb5c3e2e2a611945f813423a723b97d9af1ce84b))
+* enable attributes / personal search on OBF, OPF, OPFF, new config + logos for OPF & OPFF ([#10757](https://github.com/openfoodfacts/openfoodfacts-server/issues/10757)) ([7e25d9a](https://github.com/openfoodfacts/openfoodfacts-server/commit/7e25d9a2af99f49d2b3aae0ed567d78003c271b1))
+* make improvements to org table ([#10679](https://github.com/openfoodfacts/openfoodfacts-server/issues/10679)) ([b0cfea1](https://github.com/openfoodfacts/openfoodfacts-server/commit/b0cfea163e8dd610d184da6df9d829e823518327))
+* Small fixes + improvements ([#10818](https://github.com/openfoodfacts/openfoodfacts-server/issues/10818)) ([bd91419](https://github.com/openfoodfacts/openfoodfacts-server/commit/bd91419cb47c07ec4d125bbd543968d6dd911f48))
+
+
+### Bug Fixes
+
+* add Moji server IP to rate-limit allow-list ([#10785](https://github.com/openfoodfacts/openfoodfacts-server/issues/10785)) ([065e0ab](https://github.com/openfoodfacts/openfoodfacts-server/commit/065e0ab434842d71055a465ce8657be45195a345))
+* add more nutrients to test, to test more things ([#10834](https://github.com/openfoodfacts/openfoodfacts-server/issues/10834)) ([42b341d](https://github.com/openfoodfacts/openfoodfacts-server/commit/42b341d8b379ed00737232e9a67cd4a460b99998))
+* also check .pot GetText files in addition to .po files ([#10827](https://github.com/openfoodfacts/openfoodfacts-server/issues/10827)) ([bb87197](https://github.com/openfoodfacts/openfoodfacts-server/commit/bb8719789eb7caae3f753ee2c1809cdd96b12113))
+* Determine obsolete and deleted from the product revision ([#10791](https://github.com/openfoodfacts/openfoodfacts-server/issues/10791)) ([508d767](https://github.com/openfoodfacts/openfoodfacts-server/commit/508d7677a4c7259f992428ed505e1cc0669a20ae))
+* do not localize ecoscore on obf,opf,opff ([#10837](https://github.com/openfoodfacts/openfoodfacts-server/issues/10837)) ([2f93877](https://github.com/openfoodfacts/openfoodfacts-server/commit/2f938773a6ce659382823f592522069975322046))
+* docs Adding closing ) to generate proper internal link ([#10850](https://github.com/openfoodfacts/openfoodfacts-server/issues/10850)) ([492d6d9](https://github.com/openfoodfacts/openfoodfacts-server/commit/492d6d93a287b02eb803aa4650c539ebed0a80a1))
+* docs Fixed proper denomination of product in query ([#10853](https://github.com/openfoodfacts/openfoodfacts-server/issues/10853)) ([428dbb3](https://github.com/openfoodfacts/openfoodfacts-server/commit/428dbb380505a66136379ef310607b3155c50f25))
+* improve OCR JSON generation script ([#10802](https://github.com/openfoodfacts/openfoodfacts-server/issues/10802)) ([3e8fee7](https://github.com/openfoodfacts/openfoodfacts-server/commit/3e8fee7a39fd58c8804bfd8fd6fc80cc19898d81))
+* incorrect self-reference in ingredient.yaml ([#10786](https://github.com/openfoodfacts/openfoodfacts-server/issues/10786)) ([2757699](https://github.com/openfoodfacts/openfoodfacts-server/commit/2757699fd1f1bee7d3d2f43793f989b670dc2be0))
+* indicate some attributes have only mandatory / not_important options ([#10846](https://github.com/openfoodfacts/openfoodfacts-server/issues/10846)) ([258dc8f](https://github.com/openfoodfacts/openfoodfacts-server/commit/258dc8fc96a27a48694a64c001ad5a14847daf83))
+* invalid type in product_misc.yaml ([#10787](https://github.com/openfoodfacts/openfoodfacts-server/issues/10787)) ([21920a1](https://github.com/openfoodfacts/openfoodfacts-server/commit/21920a114493071db0efb0241a334284a4b75319))
+* new mongodb exports for obsolete products collection ([#10794](https://github.com/openfoodfacts/openfoodfacts-server/issues/10794)) ([c22fc42](https://github.com/openfoodfacts/openfoodfacts-server/commit/c22fc420b91d827b2f99ff23be34a2b45567c3d0))
+* permissions for check-translations.sh ([#10838](https://github.com/openfoodfacts/openfoodfacts-server/issues/10838)) ([62e12d6](https://github.com/openfoodfacts/openfoodfacts-server/commit/62e12d63b3dc888c0d6393a4ed5703956a24c97b))
+* YAML syntax in schema files. ([#10783](https://github.com/openfoodfacts/openfoodfacts-server/issues/10783)) ([959c74c](https://github.com/openfoodfacts/openfoodfacts-server/commit/959c74cf5de8218785b65ece003a93543ab95678))
+
 ## [2.44.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.43.0...v2.44.0) (2024-09-09)
 
 
