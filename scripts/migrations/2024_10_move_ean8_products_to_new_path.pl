@@ -194,6 +194,9 @@ my @products = ();
 my $move = 0;
 my $product_paths_containing_other_products = 0;
 
+my $products_collection = get_products_collection();
+my $obsolete_products_collection = get_products_collection({obsolete => 1});
+
 GetOptions('products=s' => \@products, 'move' => \$move);
 @products = split(/,/, join(',', @products));
 
@@ -204,6 +207,8 @@ print $log "move_ean8_products_to_new_path.pl started at " . localtime() . "\n";
 
 open(my $csv, ">>", "$data_root/logs/move_ean8_products_to_new_path.csv");
 
+ensure_dir_created_or_die("$data_root/products/invalid-codes");
+
 if ((scalar @products) == 0) {
 	# Look for products with EAN8 codes directly in the product root
 
@@ -212,6 +217,10 @@ if ((scalar @products) == 0) {
 	opendir $dh, "$data_root/products" or die "could not open $data_root/products directory: $!\n";
 	foreach my $dir (sort readdir($dh)) {
 		chomp($dir);
+
+		# Check it is a directory
+		next if not -d "$data_root/products/$dir";
+		next if ($dir eq "invalid-codes");
 
 		if ($dir =~ /^\d\d\d$/) {
 
@@ -295,6 +304,24 @@ if ((scalar @products) == 0) {
 				(($d % 1000) == 1) and print STDERR "$d products - $dir\n";
 			}
 		}
+		elsif ($dir !~ /^\.+$/) {
+			print STDERR "invalid code: $dir\n";
+			print $log "invalid code: $dir\n";
+			# Move the dir to $data_root/products/invalid-codes
+			if ($move) {
+				if (move("$data_root/products/$dir", "$data_root/products/invalid-codes/$dir")) {
+					print STDERR "moved invalid code $dir to $data_root/products/invalid-codes\n";
+					print $log "moved invalid code $dir to $data_root/products/invalid-codes\n";
+				}
+				else {
+					print STDERR "could not move invalid code $dir to $data_root/products/invalid-codes\n";
+					print $log "could not move invalid code $dir to $data_root/products/invalid-codes\n";
+				}
+				# Delete from mongodb
+				$products_collection->delete_one({code => $dir});
+				$obsolete_products_collection->delete_one({code => $dir});
+			}
+		}
 	}
 	closedir $dh;
 }
@@ -303,8 +330,7 @@ my $count = scalar @products;
 
 print STDERR "$count products to update\n";
 
-my $products_collection = get_products_collection();
-my $obsolete_products_collection = get_products_collection({obsolete => 1});
+
 
 my $invalid = 0;
 my $moved = 0;
