@@ -1770,7 +1770,7 @@
 <p>This basic tutorial shows you can get the Nutri-score of a product, for instance, to display it in a mobile app after scanning the product barcode. Let's use <a href="https://world.openfoodfacts.net/product/3017624010701/nutella-nutella-ferrero">Nutella Ferrero</a> as the product example for this tutorial.</p>
 <p>To get a product nutriscore, send a request to the <a href="https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#get-/api/v2/product/-barcode-">Get A Product By Barcode</a> endpoint.</p>
 <h3 id="authentication">Authentication<a class="headerlink" href="#authentication" title="Permanent link">#</a></h3>
-<p>Usually, no authentication is required to query Get A Product Nutri-score. However, there is a basic auth to avoid content indexation in the staging environment(which is used throughout this tutorial). For more details, visit the <a href="../#api-deployments">Open Food Facts API Environment</a>.</p>
+<p>Usually, no authentication is required to query Get A Product Nutri-score. However, there is a basic auth to avoid content indexation in the staging environment (which is used throughout this tutorial). For more details, visit the <a href="../#api-deployments">Open Food Facts API Environment</a>.</p>
 <h3 id="describing-the-get-request">Describing the Get Request<a class="headerlink" href="#describing-the-get-request" title="Permanent link">#</a></h3>
 <p>Make a <code>GET</code> request to the <code>Get A Product By Barcode</code> endpoint.</p>
 <div class="highlight"><pre><span></span><code>https://world.openfoodfacts.net/api/v2/product/{barcode}
@@ -1800,7 +1800,7 @@
 </code></pre></div>
 <h3 id="nutri-score-computation">Nutri-Score Computation<a class="headerlink" href="#nutri-score-computation" title="Permanent link">#</a></h3>
 <p>If you would like to be able to show how the score is computed, add some extra fields like <code>nutriscore_data</code> and <code>nutriments</code>.</p>
-<p>The request path to get the Nutri-Score computation for Nutella-Ferroro will be :</p>
+<p>The request path to get the Nutri-Score computation for Nutella-Ferrero will be :</p>
 <div class="highlight"><pre><span></span><code>https://world.openfoodfacts.net/api/v2/product/3017624010701?fields=product_name,nutriscore_data,nutriments,nutrition_grades
 </code></pre></div>
 <p>The <code>product</code> object in the response now contains the extra fields to show how the nutriscore was computed.</p>
@@ -1869,9 +1869,9 @@ Let's look at the <a href="https://world.openfoodfacts.net/api/v2/product/018041
 <span class="w">    </span><span class="nt">&quot;status_verbose&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;product found&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>The sample response above for 100% Real Orange Juice <code>misc_tags</code> shows that the Nutri-Score is missing category (<code>en:nutriscore-missing-category</code>) and sodium(salt) (<code>en:nutriscore-missing-nutrition-data-sodium</code>). Now you can write to the OFF API to provide these nutriment data (if you have them) so that the Nutri-Score can be computed.</p>
+<p>The sample response above for 100% Real Orange Juice <code>misc_tags</code> shows that the Nutri-Score is missing category (<code>en:nutriscore-missing-category</code>) and sodium (salt) (<code>en:nutriscore-missing-nutrition-data-sodium</code>). Now you can write to the OFF API to provide these nutriment data (if you have them) so that the Nutri-Score can be computed.</p>
 <h3 id="write-data-to-make-nutri-score-computation-possible">Write data to make Nutri-Score computation possible<a class="headerlink" href="#write-data-to-make-nutri-score-computation-possible" title="Permanent link">#</a></h3>
-<p>The WRITE operations in the OFF API require  authentication. Therefore you need a valid <code>user_id</code> and <code>password</code> to write the missing nutriment data to 100% Real Orange Juice.</p>
+<p>The WRITE operations in the OFF API require authentication. Therefore you need a valid <code>user_id</code> and <code>password</code> to write the missing nutriment data to 100% Real Orange Juice.</p>
 <blockquote>
 <p>Sign up on the <a href="https://world.openfoodfacts.net/">Open Food Facts App</a> to get your<code>user_id</code> and <code>password</code> if you don't have one.</p>
 </blockquote>
@@ -1879,7 +1879,7 @@ Let's look at the <a href="https://world.openfoodfacts.net/api/v2/product/018041
 <div class="highlight"><pre><span></span><code>https://world.openfoodfacts.net/cgi/product_jqm2.pl
 </code></pre></div>
 <p>Add your valid <code>user_id</code> and <code>password</code> as body parameters to your request for authentication. The <code>code</code> (barcode of the product to be added/edited), <code>user_id</code>, and <code>password</code> are required when adding or editing a product. Then, include other product data to be added in the request body.</p>
-<p>To write <code>sodium</code> and <code>category</code> to 100% Real Orange Juice so that the Nutri-Score can be computed, the request body should contain these fields :</p>
+<p>To write <code>sodium</code> and <code>category</code> to 100% Real Orange Juice so that the Nutri-Score can be computed, the request body should contain these fields:</p>
 <table>
 <thead>
 <tr>
@@ -1966,7 +1966,7 @@ Let's look at the <a href="https://world.openfoodfacts.net/api/v2/product/018041
 <!-- Include the link of the cheatsheet once it is published. -->
 
 <h2 id="search-for-a-product-by-nutri-score">Search for a Product by Nutri-score<a class="headerlink" href="#search-for-a-product-by-nutri-score" title="Permanent link">#</a></h2>
-<p>Using the Open Food Facts API, you can filter products based on different criteria.  To search for products in the Orange Juice category with a nutrition_grade of <code>c</code>, query the <a href="https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#get-/api/v2/search">Search for Products endpoint</a>.</p>
+<p>Using the Open Food Facts API, you can filter products based on different criteria. To search for products in the Orange Juice category with a nutrition_grade of <code>c</code>, query the <a href="https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#get-/api/v2/search">Search for Products endpoint</a>.</p>
 <p><strong>Note:</strong> we describe here the v2 search API, but beware that only <a href="https://wiki.openfoodfacts.org/API/Read/Search">v1 search API</a> supports full text search.</p>
 <h3 id="describing-the-search-request">Describing the Search Request<a class="headerlink" href="#describing-the-search-request" title="Permanent link">#</a></h3>
 <p>Make a <code>GET</code> request to the <code>Search for Products</code> endpoint.</p>
