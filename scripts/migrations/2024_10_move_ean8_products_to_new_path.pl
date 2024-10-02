@@ -287,7 +287,7 @@ if ((scalar @products) == 0) {
 
 		}
 		# Don't move dirs with 1 or 2 digits
-		elsif ($dir !~ /^\d\d?$/) {
+		elsif (($dir !~ /^\d\d?$/) and ($dir =~ /^\d+$/)) {
 			# Product directories at the root, with a different number than 3 digits
 			if (-e "$data_root/products/$dir/product.sto") {
 				push @products, $dir;
