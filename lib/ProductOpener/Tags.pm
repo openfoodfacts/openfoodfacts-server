@@ -176,7 +176,7 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die get_file_for_taxonomy get_path_for_taxonomy/;
+use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die get_files_for_taxonomy get_path_for_taxonomy_file/;
 use ProductOpener::Lang qw/$lc  %Lang %tag_type_singular lang/;
 use ProductOpener::Text qw/normalize_percentages regexp_escape/;
 use ProductOpener::PackagerCodes qw/localize_packager_code normalize_packager_codes/;
@@ -1072,6 +1072,7 @@ sub get_lc_tagid ($synonyms_ref, $lc, $tagtype, $tag, $warning) {
 
 sub get_file_from_cache ($source, $target) {
 	my $cache_root = "$BASE_DIRS{CACHE_BUILD}/taxonomies";
+	(-e $cache_root) or mkdir($cache_root, 0755);
 	my $local_cache_source = "$cache_root/$source";
 
 	# first, try to get it localy
@@ -1113,7 +1114,7 @@ sub get_from_cache ($tagtype, @files) {
 
 	foreach my $source_file (@files) {
 		# The source file can be prefixed by the product type
-		my $source_path = get_path_for_taxonomy($source_file, $options{product_type});
+		my $source_path = get_path_for_taxonomy_file($source_file);
 		open(my $IN, "<", $source_path)
 			or die("Cannot open $source_path (tagtype: $tagtype - product_type: $options{product_type}): $!\n");
 
@@ -1238,16 +1239,20 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 	my $result_dir = "$BASE_DIRS{CACHE_BUILD}/taxonomies-result/";
 	ensure_dir_created_or_die("$result_dir");
 
-	my @files = ($tagtype);
+	# Some taxonomy tag types include other tag types (e.g. origins includes countries)
+	my @tagtypes = ($tagtype);
 
 	# For the origins taxonomy, include the countries taxonomy
 	if ($tagtype eq "origins") {
-		@files = ("countries", "origins");
+		@tagtypes = ("countries", "origins");
 	}
 
 	# For the Open Food Facts ingredients taxonomy, concatenate additives, minerals, vitamins, nucleotides and other nutritional substances taxonomies
-	elsif (($tagtype eq "ingredients") and (defined $options{product_type}) and ($options{product_type} eq "food")) {
-		@files = (
+	elsif ( ($tagtype eq "ingredients")
+		and (defined $options{product_type})
+		and (($options{product_type} eq "food") or ($options{product_type} eq "petfood")))
+	{
+		@tagtypes = (
 			"additives_classes", "additives", "minerals", "vitamins",
 			"nucleotides", "other_nutritional_substances", "ingredients"
 		);
@@ -1255,14 +1260,27 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 
 	# Packaging
 	elsif (($tagtype eq "packaging")) {
-		@files = ("packaging_materials", "packaging_shapes", "packaging_recycling", "preservation");
+		@tagtypes = ("packaging_materials", "packaging_shapes", "packaging_recycling", "preservation");
 	}
 
 	# Traces - just a copy of allergens
 	elsif ($tagtype eq "traces") {
-		@files = ("allergens");
+		@tagtypes = ("allergens");
 	}
 
+	# List the individual taxonomy source files for all included tag types
+	# Each tag type can have a common and/or a product type specific source file.
+
+	my @files = ();
+	foreach my $tagtype (@tagtypes) {
+		my @tagtype_files = get_files_for_taxonomy($tagtype, $options{product_type});
+		if (scalar @tagtype_files == 0) {
+			die("No taxonomy file(s) found for $tagtype\n");
+		}
+		push @files, @tagtype_files;
+	}
+
+	# Check if we already have a cached version of the taxonomy
 	my $cache_prefix = get_from_cache($tagtype, @files);
 	if (!$cache_prefix) {
 		return;
@@ -1271,20 +1289,22 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 	print("building taxonomy for $tagtype - publish: $publish\n");
 
 	# Concatenate taxonomy files if needed
-	my $file = get_file_for_taxonomy($tagtype, $options{product_type});
-	my $file_path = get_path_for_taxonomy($tagtype, $options{product_type});
-	if ((scalar @files) > 1) {
-		$file = "$tagtype.all.txt";
-		$file_path = "$result_dir/$file";
+	my $file_path;
+	if ((scalar @files) == 1) {
+		# Only 1 file
+		$file_path = get_path_for_taxonomy_file($files[0]);
+	}
+	else {
+		# Multiple files
+		$file_path = "$result_dir/$tagtype.all.txt";
 
 		open(my $OUT, ">:encoding(UTF-8)", $file_path)
 			or die("Cannot write $file_path : $!\n");
 
-		foreach my $taxonomy (@files) {
-			my $taxonomy_file = get_file_for_taxonomy($taxonomy, $options{product_type});
-			my $taxonomy_path = get_path_for_taxonomy($taxonomy, $options{product_type});
+		foreach my $taxonomy_file (@files) {
+			my $taxonomy_path = get_path_for_taxonomy_file($taxonomy_file);
 			open(my $IN, "<:encoding(UTF-8)", $taxonomy_path)
-				or die("Missing $taxonomy_path\n");
+				or die("Cannot open $taxonomy_path: $!\n");
 
 			print $OUT "# $taxonomy_file\n\n";
 
@@ -3089,64 +3109,10 @@ sub get_taxonomy_tag_and_link_for_lang ($target_lc, $tagtype, $tagid) {
 
 	my $taxonomy = $taxonomy_fields{$tagtype};
 
-	my $tag_lc;
+	my $exists_in_taxonomy = exists_taxonomy_tag($tagtype, $tagid) || 0;
+	my $display = display_taxonomy_tag($target_lc, $tagtype, $tagid);
 
-	if ($tagid =~ /^(\w\w):/) {
-		$tag_lc = $1;
-	}
-
-	my $display = '';
-	my $display_lc = "en";    # Default to English
-	my $exists_in_taxonomy = 0;
-
-	if (    (defined $translations_to{$taxonomy})
-		and (defined $translations_to{$taxonomy}{$tagid})
-		and (defined $translations_to{$taxonomy}{$tagid}{$target_lc}))
-	{
-		# we have a translation for the target language
-		# print STDERR "display_taxonomy_tag - translation for the target language - translations_to{$taxonomy}{$tagid}{$target_lc} : $translations_to{$taxonomy}{$tagid}{$target_lc}\n";
-		$display = $translations_to{$taxonomy}{$tagid}{$target_lc};
-		$display_lc = $target_lc;
-		$exists_in_taxonomy = 1;
-	}
-	else {
-		# use tag language
-		if (    (defined $translations_to{$taxonomy})
-			and (defined $translations_to{$taxonomy}{$tagid})
-			and (defined $tag_lc)
-			and (defined $translations_to{$taxonomy}{$tagid}{$tag_lc}))
-		{
-			# we have a translation for the tag language
-			# print STDERR "display_taxonomy_tag - translation for the tag language - translations_to{$taxonomy}{$tagid}{$tag_lc} : $translations_to{$taxonomy}{$tagid}{$tag_lc}\n";
-
-			$display = "$tag_lc:" . $translations_to{$taxonomy}{$tagid}{$tag_lc};
-
-			$exists_in_taxonomy = 1;
-		}
-		else {
-			$display = $tagid;
-			if (defined $tag_lc) {
-				$display_lc = $tag_lc;
-			}
-
-			if ($target_lc eq $tag_lc) {
-				$display =~ s/^(\w\w)://;
-			}
-			# print STDERR "display_taxonomy_tag - no translation available for $taxonomy $tagid in target language $lc or tag language $tag_lc - result: $display\n";
-		}
-	}
-
-	# for additives, add the first synonym
-	if ($taxonomy =~ /^additives(|_prev|_next|_debug)$/) {
-		$tagid =~ s/.*://;
-		if (    (defined $synonyms_for{$taxonomy}{$target_lc})
-			and (defined $synonyms_for{$taxonomy}{$target_lc}{$tagid})
-			and (defined $synonyms_for{$taxonomy}{$target_lc}{$tagid}[1]))
-		{
-			$display .= " - " . ucfirst($synonyms_for{$taxonomy}{$target_lc}{$tagid}[1]);
-		}
-	}
-
+	my $display_lc = $target_lc;
 	my $display_lc_prefix = "";
 	my $display_tag = $display;
 
@@ -4606,6 +4572,7 @@ sub init_tags_texts {
 	return if (%tags_texts);
 
 	$log->info("loading tags texts") if $log->is_info();
+
 	if (opendir DH2, $lang_dir) {
 		foreach my $langid (readdir(DH2)) {
 			next if $langid eq '.';

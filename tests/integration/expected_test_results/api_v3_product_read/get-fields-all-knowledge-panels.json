@@ -810,7 +810,7 @@
             "title_element" : {
                "icon_color_from_evaluation" : true,
                "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/car.svg",
-               "subtitle" : "286 g CO² per 100g of product",
+               "subtitle" : "286 g CO₂e per 100g of product",
                "title" : "Equal to driving 1.5 km in a petrol car"
             },
             "topics" : [
@@ -879,6 +879,7 @@
             "title_element" : {
                "grade" : "c",
                "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/ecoscore-c.svg",
+               "name" : "Eco-Score",
                "title" : "Eco-Score C - Moderate environmental impact",
                "type" : "grade"
             },
@@ -2712,6 +2713,7 @@
       "product_name_en" : "Some product",
       "product_quantity" : "100",
       "product_quantity_unit" : "g",
+      "product_type" : "food",
       "quantity" : "100 g",
       "removed_countries_tags" : [],
       "rev" : 1,

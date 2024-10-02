@@ -4957,21 +4957,21 @@ msgctxt "ecoscore_information"
 msgid "Information about the Eco-score"
 msgstr "Information sur l'Eco-score"
 
-msgctxt "preferences_edit_your_food_preferences"
-msgid "Edit your food preferences"
-msgstr "Modifier vos préférences alimentaires"
-
-msgctxt "preferences_your_preferences"
-msgid "Your food preferences"
-msgstr "Vos préférences alimentaires"
-
 msgctxt "preferences_currently_selected_preferences"
 msgid "Currently selected preferences"
 msgstr "Préférences actuellement sélectionnées"
 
 msgctxt "preferences_locally_saved"
-msgid "Your food preferences are kept in your browser and never sent to Open Food Facts or anyone else."
-msgstr "Vos préférences alimentaires sont conservées dans votre navigateur et ne sont jamais envoyées à Open Food Facts ou à quiconque."
+msgid "Your preferences are kept in your browser and never sent to Open Food Facts or anyone else."
+msgstr "Vos préférences sont conservées dans votre navigateur et ne sont jamais envoyées à Open Food Facts ou à quiconque."
+
+msgctxt "preferences_edit_your_preferences"
+msgid "Edit your preferences"
+msgstr "Modifiez vos préférences"
+
+msgctxt "preferences_your_preferences"
+msgid "Your preferences"
+msgstr "Vos préférences"
 
 # used in phrases like "salt in unknown quantity"
 msgctxt "unknown_quantity"
@@ -5802,8 +5802,21 @@ msgstr "Empreinte carbone"
 
 # variable names between { } must not be translated
 msgctxt "f_carbon_footprint_per_100g_of_product"
-msgid "{grams} g CO² per 100g of product"
-msgstr "{grams} g de CO² pour 100g de produit"
+msgid "{grams} g CO₂e per 100g of product"
+msgstr "{grams} g CO₂e pour 100g de produit"
+
+# variable names between { } must not be translated
+msgctxt "f_carbon_footprint_per_unit"
+msgid "{kilograms} kg CO₂e per unit"
+msgstr "{kilograms} kg CO₂e par unité"
+
+msgctxt "average_for_the_category"
+msgid "average for the category"
+msgstr "moyenne pour la catégorie"
+
+msgctxt "data_source_and_detailed_carbon_impact"
+msgid "Data source and detailed carbon impact"
+msgstr "Source des données et détail de l'impact carbone"
 
 # variable names between { } must not be translated
 msgctxt "f_equal_to_driving_km_in_a_petrol_car"
@@ -6956,6 +6969,85 @@ msgctxt "select_product_data_file"
 msgid "Select a file with product data"
 msgstr "Choisissez un fichier avec les données des produits"
 
+msgctxt "organization_list"
+msgid "Organization list"
+msgstr "Liste des organisations"
+
 msgctxt "open_org"
 msgid "Open org"
 msgstr "Voir l'org."
+
+msgctxt "secondhand"
+msgid "Secondhand"
+msgstr "Deuxième main"
+
+msgctxt "donated_products_title"
+msgid "Donations"
+msgstr "Dons"
+
+msgctxt "donated_products_subtitle"
+msgid "Give this product, or search for a similar donated product"
+msgstr "Donnez ce produit, ou recherchez un produit similaire donné"
+
+msgctxt "used_products_title"
+msgid "Used products"
+msgstr "Produits d'occasion"
+
+msgctxt "used_products_subtitle"
+msgid "Buy this product used, or search for a similar used product"
+msgstr "Achetez ce produit d'occasion, ou recherchez un produit d'occasion similaire"
+
+msgctxt "attribute_repairability_index_france_name"
+msgid "Repairability index"
+msgstr "Indice de réparabilité"
+
+msgctxt "attribute_repairability_index_france_setting_name"
+msgid "Good repairability"
+msgstr "Bonne réparabilité"
+
+msgctxt "attribute_repairability_index_france_setting_note"
+msgid "Mandatory rating in France for certain products since 2021"
+msgstr "Note sur 10 obligatoire en France pour certains produits depuis 2021"
+
+# keep %s, it will be replaced by the letter A, B, C, D or E
+msgctxt "attribute_repairability_index_france_grade_title"
+msgid "Repairability index %s"
+msgstr "Indice de réparabilité %s"
+
+msgctxt "attribute_repairability_index_france_unknown_title"
+msgid "repairability index unknown"
+msgstr "Indice de réparabilité inconnu"
+
+msgctxt "attribute_repairability_index_france_not_applicable_title"
+msgid "Repairability index not-applicable"
+msgstr "Indice de réparabilité non applicable"
+
+msgctxt "attribute_repairability_index_france_not_applicable_description_short"
+msgid "Not-applicable for the category"
+msgstr "Non applicable pour la catégorie"
+
+# variable names between { } must not be translated
+msgctxt "f_attribute_repairability_index_france_not_applicable_description"
+msgid "Applicable only for categories: {categories}"
+msgstr "Applicable seulement aux catégories : {categories}"
+
+msgctxt "attribute_repairability_index_france_very_good_description_short"
+msgid "Very good repairability"
+msgstr "Très bonne réparabilité"
+
+msgctxt "attribute_repairability_index_france_good_description_short"
+msgid "Good repairability"
+msgstr "Bonne réparabilité"
+
+msgctxt "attribute_repairability_index_france_average_description_short"
+msgid "Average repairability"
+msgstr "Moyenne réparabilité"
+
+msgctxt "attribute_repairability_index_france_poor_description_short"
+msgid "Poor repairability"
+msgstr "Mauvaise réparabilité"
+
+msgctxt "attribute_repairability_index_france_bad_description_short"
+msgid "Bad repairability"
+msgstr "Très mauvaise réparabilité"
+
