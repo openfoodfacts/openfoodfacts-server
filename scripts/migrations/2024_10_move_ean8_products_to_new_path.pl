@@ -277,7 +277,7 @@ foreach my $old_path (@products) {
 
 	my $path = new_product_path_from_id($product_id);
 
-	my $product_ref = retrieve_product($product_id);
+	my $product_ref = retrieve_product($product_id, "include_deleted");
 
 	my $deleted = $product_ref->{deleted} ? "deleted" : "";
 	my $obsolete = $product_ref->{obsolete} ? "obsolete" : "";

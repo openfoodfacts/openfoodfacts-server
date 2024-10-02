@@ -338,7 +338,7 @@ else {
 			display_error_and_exit($request_ref, lang("no_owner_defined"), 200);
 		}
 		$product_id = product_id_for_owner($Owner_id, $code);
-		$product_ref = retrieve_product_or_deleted_product($product_id, $User{moderator});
+		$product_ref = retrieve_product($product_id, $User{moderator}, "include_deleted");
 		if (not defined $product_ref) {
 			display_error_and_exit($request_ref, sprintf(lang("no_product_for_barcode"), $code), 404);
 		}
