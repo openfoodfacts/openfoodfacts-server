@@ -156,7 +156,7 @@ sub product_dir_move($source, $target) {
 		chomp($dir);
 		next if $dir eq '.';
 		next if $dir eq '..';
-		next if $dir =~ /\.lock/;	# lingering lock files
+		next if $dir =~ /\.lock/;    # lingering lock files
 		if (-d "$source/$dir") {
 			$contains_directories = 1;
 			last;
@@ -195,12 +195,13 @@ use Getopt::Long;
 
 my @products = ();
 my $move = 0;
+my $move_conflicting_codes = 0;
 my $product_paths_containing_other_products = 0;
 
 my $products_collection = get_products_collection();
 my $obsolete_products_collection = get_products_collection({obsolete => 1});
 
-GetOptions('products=s' => \@products, 'move' => \$move);
+GetOptions('products=s' => \@products, 'move' => \$move, 'move-conflicting-codes' => \$move_conflicting_codes);
 @products = split(/,/, join(',', @products));
 
 my $d = 0;
@@ -210,7 +211,11 @@ print $log "move_ean8_products_to_new_path.pl started at " . localtime() . "\n";
 
 open(my $csv, ">>", "$data_root/logs/move_ean8_products_to_new_path.csv");
 
+# Directories to store invalid codes and conflicting products
 ensure_dir_created_or_die("$data_root/products/invalid-codes");
+ensure_dir_created_or_die("$data_root/products/conflicting-codes");
+ensure_dir_created_or_die("$www_root/images/products/invalid-codes");
+ensure_dir_created_or_die("$www_root/images/products/conflicting-codes");
 
 if ((scalar @products) == 0) {
 	# Look for products with EAN8 codes directly in the product root
@@ -224,6 +229,7 @@ if ((scalar @products) == 0) {
 		# Check it is a directory
 		next if not -d "$data_root/products/$dir";
 		next if ($dir eq "invalid-codes");
+		next if ($dir eq "conflicting-codes");
 
 		if ($dir =~ /^\d\d\d$/) {
 
@@ -323,6 +329,20 @@ if ((scalar @products) == 0) {
 				# Delete from mongodb
 				$products_collection->delete_one({code => $dir});
 				$obsolete_products_collection->delete_one({code => $dir});
+
+				# Also move the image dir if it exists
+				if (-e "$www_root/images/products/$dir") {
+					if (move("$www_root/images/products/$dir", "$www_root/images/products/invalid-codes/$dir")) {
+						print STDERR "moved invalid code $dir images to $www_root/images/products/invalid-codes\n";
+						print $log "moved invalid code $dir images to $www_root/images/products/invalid-codes\n";
+					}
+					else {
+						print STDERR
+							"could not move invalid code $dir images to $www_root/images/products/invalid-codes\n";
+						print $log
+							"could not move invalid code $dir images to $www_root/images/products/invalid-codes\n";
+					}
+				}
 			}
 		}
 	}
@@ -408,7 +428,7 @@ foreach my $old_path (@products) {
 						$moved--;
 						$not_moved++;
 					}
-					elsif (-e "$www_root/images/products/$old_path")	{
+					elsif (-e "$www_root/images/products/$old_path") {
 
 						print STDERR (
 							"moving product images $www_root/images/products/$old_path to $www_root/images/products/$path\n"
@@ -459,9 +479,54 @@ foreach my $old_path (@products) {
 			}
 		}
 		else {
-			print STDERR "new path exists, not moving $old_path to $path\n";
-			print $log "new path exists, not moving $old_path to $path\n";
-			$not_moved++;
+
+			if ($move_conflicting_codes) {
+				# Move product and images to conflicting-codes/$code
+				print STDERR "new path exists, moving $old_path to $data_root/products/conflicting-codes/$code\n";
+				print $log "new path exists, moving $old_path to $data_root/products/conflicting-codes/$code\n";
+
+				$moved++;
+
+				if (
+					not product_dir_move("$data_root/products/$old_path", "$data_root/products/conflicting-codes/$code")
+					)
+				{
+					print STDERR (
+						"ERROR: could not move product data from $data_root/products/$old_path to $data_root/products/conflicting-codes/$code : $!\n"
+					);
+					print $log (
+						"ERROR: could not move product data from $data_root/products/$old_path to $data_root/products/conflicting-codes/$code : $!\n"
+					);
+					$moved--;
+					$not_moved++;
+				}
+				elsif (-e "$www_root/images/products/$old_path") {
+					if (
+						not product_dir_move(
+							"$www_root/images/products/$old_path",
+							"$www_root/images/products/conflicting-codes/$code"
+						)
+						)
+					{
+						print STDERR (
+							"ERROR: could not move product images from $www_root/images/products/$old_path to $www_root/images/products/conflicting-codes/$code : $!\n"
+						);
+						print $log (
+							"ERROR: could not move product images from $www_root/images/products/$old_path to $www_root/images/products/conflicting-codes/$code : $!\n"
+						);
+					}
+				}
+
+				# Delete $code from mongodb collections
+				$products_collection->delete_one({code => $code});
+				$obsolete_products_collection->delete_one({code => $code});
+
+			}
+			else {
+				print STDERR "new path exists, not moving $old_path to $path\n";
+				print $log "new path exists, not moving $old_path to $path\n";
+				$not_moved++;
+			}
 		}
 
 	}
