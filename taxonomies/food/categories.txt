@@ -104698,18 +104698,36 @@ bg: Пресни патладжани
 de: Frische Auberginen
 fr: Aubergines fraîches
 hr: Svježi patlidžani
+nl: Verse aubergines
+expected_ingredients:en: en:aubergine
+opposite:en: en:frozen-aubergines
+sales_format:en: package, weight
 season_in_country_fr:en: 6,7,8,9
 
-< en:Aubergines
-en: Eggplant cooked
-fr: Aubergine cuite
-agribalyse_food_code:en: 20002
-ciqual_food_code:en: 20002
-ciqual_food_name:en: Eggplant, cooked
+<en: Aubergines
+< en:Frozen vegetables
+en: Frozen aubergines
+bg: Замразени патладжани
+de: Tiefkühl-Auberginen, Gefrohrene Aubergines
+es: Berenjenas congeladas
+fr: Aubergines surgelées
+hr: Smrznuti patlidžani
+nl: Diepvries aubergines
+opposite:en: en:fresh-aubergines
 
+#< en:Aubergines
+#en: Eggplant cooked
+#fr: Aubergine cuite
+#agribalyse_food_code:en: 20002
+#ciqual_food_code:en: 20002
+#ciqual_food_name:en: Eggplant, cooked
+# no products on 3-oct-2024
+
+< en:Frozen vegetables
 < en:Prepared vegetables
 en: Prepared eggplants
 fr: Aubergines préparées
+
 
 < en:Prepared eggplants
 en: Riste with eggplant and tomatoes and onions
@@ -112175,16 +112193,6 @@ es: Espárragos blancos congelados
 fr: Asperges blanches surgelés
 hr: Smrznute bijele šparoge
 nl: Witte diepvriesasperges
-
-< en:Aubergines
-< en:Frozen vegetables
-en: Frozen aubergines
-bg: Замразени патладжани
-de: Tiefkühl-Auberginen, Gefrohrene Aubergines
-es: Berenjenas congeladas
-fr: Aubergines surgelées
-hr: Smrznuti patlidžani
-nl: Diepvries aubergines
 
 < en:Broccoli
 < en:Frozen vegetables
