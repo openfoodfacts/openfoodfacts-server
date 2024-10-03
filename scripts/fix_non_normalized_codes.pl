@@ -149,7 +149,7 @@ sub fix_int_barcodes_sto ($int_ids_ref, $dry_run) {
 	foreach my $int_id (@$int_ids_ref) {
 		# load
 		my $str_code = "$int_id";
-		my $product_ref = retrieve_product_or_deleted_product($str_code, "include_deleted");
+		my $product_ref = retrieve_product($str_code, "include_deleted");
 		if (defined $product_ref) {
 			$product_ref->{_id} .= '';
 			$product_ref->{code} .= '';
