@@ -9,7 +9,7 @@ use ProductOpener::TestDefaults qw/%default_product %default_product_form/;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Data qw/get_products_collection/;
-use ProductOpener::Products qw/product_path product_path_from_id retrieve_product retrieve_product_or_deleted_product/;
+use ProductOpener::Products qw/product_path product_path_from_id retrieve_product/;
 use ProductOpener::Store qw/retrieve store/;
 
 no warnings qw(experimental::signatures);
@@ -134,7 +134,7 @@ is($product_ref, \%fixed_product);
 $product_ref = $products_collection->find_id(2000000000002);
 is($product_ref, undef);
 # product has no more int code even deleted
-$product_ref = retrieve_product_or_deleted_product("2000000000003");
+$product_ref = retrieve_product("2000000000003", "include_deleted");
 %fixed_product = (%product_int_code_deleted, code => "2000000000003", _id => "2000000000003");
 is($product_ref, \%fixed_product);
 # but not indexed
@@ -175,7 +175,7 @@ is($product_ref, \%product_normalized_existing);
 # while non normalize version is deleted and no more in mondo
 $product_ref = retrieve_product("0000012345670");
 is($product_ref, undef);
-$product_ref = retrieve_product_or_deleted_product("0000012345670");
+$product_ref = retrieve_product("0000012345670", "include_deleted");
 is($product_ref->{deleted}, "on");
 $product_ref = $products_collection->find_id("0000012345670");
 is($product_ref, undef);
