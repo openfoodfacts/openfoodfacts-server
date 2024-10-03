@@ -26,6 +26,16 @@ cd /srv/off/scripts
 
 ./mongodb_dump.sh /srv/off/html openfoodfacts 10.1.0.102 off
 
+# Copy CSV and RDF files to AWS S3 using MinIO client
+mc cp \
+    en.openfoodfacts.org.products.csv \
+    en.openfoodfacts.org.products.csv.gz \
+    en.openfoodfacts.org.products.rdf \
+    fr.openfoodfacts.org.products.csv \
+    fr.openfoodfacts.org.products.csv.gz \
+    fr.openfoodfacts.org.products.rdf \
+    s3/openfoodfacts-ds
+
 # Small products data and images export for Docker dev environments
 # for about 1/10000th of the products contained in production.
 ./export_products_data_and_images.pl --sample-mod 10000,0 \
