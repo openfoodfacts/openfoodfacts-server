@@ -1490,6 +1490,9 @@ sub store_product ($user_id, $product_ref, $comment) {
 	}
 
 	# Publish information about update on Redis stream
+	$log->debug("push_to_redis_stream",
+		{code => $code, product_id => $product_id, action => $action, comment => $comment, diffs => $diffs})
+		if $log->is_debug();
 	push_to_redis_stream($user_id, $product_ref, $action, $comment, $diffs);
 
 	return 1;
@@ -2189,12 +2192,13 @@ sub compute_product_history_and_completeness ($product_data_root, $current_produ
 	# Read all previous versions to see which fields have been added or edited
 
 	my @fields = (
-		'lang', 'product_name',
-		'generic_name', @ProductOpener::Config::product_fields,
-		@ProductOpener::Config::product_other_fields, 'no_nutrition_data',
-		'nutrition_data_per', 'nutrition_data_prepared_per',
-		'serving_size', 'allergens',
-		'traces', 'ingredients_text'
+		'code', 'lang',
+		'product_name', 'generic_name',
+		@ProductOpener::Config::product_fields, @ProductOpener::Config::product_other_fields,
+		'no_nutrition_data', 'nutrition_data_per',
+		'nutrition_data_prepared_per', 'serving_size',
+		'allergens', 'traces',
+		'ingredients_text'
 	);
 
 	my %previous = (uploaded_images => {}, selected_images => {}, fields => {}, nutriments => {});
