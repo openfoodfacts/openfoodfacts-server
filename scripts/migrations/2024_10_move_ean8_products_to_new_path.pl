@@ -333,8 +333,6 @@ my $count = scalar @products;
 
 print STDERR "$count products to update\n";
 
-
-
 my $invalid = 0;
 my $moved = 0;
 my $not_moved = 0;
