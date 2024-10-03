@@ -154,6 +154,9 @@ sub product_dir_move($source, $target) {
 	opendir my $dh, $source or die "could not open $source directory: $!\n";
 	foreach my $dir (sort readdir($dh)) {
 		chomp($dir);
+		next if $dir eq '.';
+		next if $dir eq '..';
+		next if $dir =~ /\.lock/;	# lingering lock files
 		if (-d "$source/$dir") {
 			$contains_directories = 1;
 			last;
@@ -430,6 +433,7 @@ foreach my $old_path (@products) {
 						# If the code changed, need to update the product .sto file and to remove the old code from MongoDB and to add the new code in MongoDB
 						if ($new_code ne $code) {
 
+							my $product_ref = retrieve_product($product_id, "include_deleted");
 							$product_ref->{code} = $new_code . '';
 							$product_ref->{id} = $product_ref->{code} . '';    # treat id as string;
 							$product_ref->{_id} = $product_ref->{code} . '';    # treat id as string;
@@ -444,6 +448,7 @@ foreach my $old_path (@products) {
 					}
 
 				}
+				#($moved % 10 == 0) and exit;
 			}
 
 			if ($new_code ne $code) {
