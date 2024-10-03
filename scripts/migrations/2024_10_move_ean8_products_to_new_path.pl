@@ -408,7 +408,7 @@ foreach my $old_path (@products) {
 						$moved--;
 						$not_moved++;
 					}
-					else {
+					elsif (-e "$www_root/images/products/$old_path")	{
 
 						print STDERR (
 							"moving product images $www_root/images/products/$old_path to $www_root/images/products/$path\n"
@@ -448,6 +448,7 @@ foreach my $old_path (@products) {
 					}
 
 				}
+				#exit;
 				#($moved % 10 == 0) and exit;
 			}
 
