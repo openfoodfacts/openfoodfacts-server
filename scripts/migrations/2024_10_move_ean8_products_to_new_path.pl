@@ -386,6 +386,46 @@ foreach my $old_path (@products) {
 	}
 	elsif ($path ne $old_path) {
 
+		# If the new path already exists, we assume it contains older data,
+		# so we move the new path to conflicting-codes first
+		# and then the old path to the new path
+		# EXCEPT if the old product is deleted, in which case we will delete the old path instead
+
+		if ((-e "$data_root/products/$path") and (not $deleted) and ($move) and ($move_conflicting_codes)) {
+			print STDERR
+				"$code - $obsolete - $deleted - new $path already exists, moving $path to conflicting-codes/$new_code\n";
+			print $log
+				"$code - $obsolete - $deleted - new $path already exists, moving $path to conflicting-codes/$new_code\n";
+			if ($move) {
+				if (move("$data_root/products/$path", "$data_root/products/conflicting-codes/$new_code")) {
+					print STDERR "moved $path to $data_root/products/conflicting-codes/$new_code\n";
+					print $log "moved $path to $data_root/products/conflicting-codes/$new_code\n";
+				}
+				else {
+					print STDERR "could not move $path to $data_root/products/conflicting-codes/$new_code\n";
+					print $log "could not move $path to $data_root/products/conflicting-codes/$new_code\n";
+				}
+				# Also move the image dir if it exists
+				if (-e "$www_root/images/products/$path") {
+					if (
+						move(
+							"$www_root/images/products/$path", "$www_root/images/products/conflicting-codes/$new_code"
+						)
+						)
+					{
+						print STDERR "moved $path images to $www_root/images/products/conflicting-codes/$new_code\n";
+						print $log "moved $path images to $www_root/images/products/conflicting-codes/$new_code\n";
+					}
+					else {
+						print STDERR
+							"could not move $path images to $www_root/images/products/conflicting-codes/$new_code\n";
+						print $log
+							"could not move $path images to $www_root/images/products/conflicting-codes/$new_code\n";
+					}
+				}
+			}
+		}
+
 		if (    (!-e "$data_root/products/$path")
 			and (!-e "$www_root/images/products/$path"))
 		{
