@@ -386,16 +386,23 @@ foreach my $old_path (@products) {
 	}
 	elsif ($path ne $old_path) {
 
-		# If the new path already exists, we assume it contains older data,
-		# so we move the new path to conflicting-codes first
-		# and then the old path to the new path
+		# If the new path already exists, we do not know if the conflicting product is better (more complete / more fresh) than the old product
+		# We check the size of the product.sto file to determine which product seems more complete
 		# EXCEPT if the old product is deleted, in which case we will delete the old path instead
 
-		if ((-e "$data_root/products/$path") and (not $deleted) and ($move) and ($move_conflicting_codes)) {
+		if (    (-e "$data_root/products/$path")
+			and (not $deleted)
+			and ($move)
+			and ($move_conflicting_codes)
+			and (-s "$data_root/products/$old_path/product.sto" > -s "$data_root/products/$path/product.sto"))
+		{
+			my $old_size = -s "$data_root/products/$old_path/product.sto";
+			my $new_size = -s "$data_root/products/$path/product.sto";
 			print STDERR
-				"$code - $obsolete - $deleted - new $path already exists, moving $path to conflicting-codes/$new_code\n";
+				"$code - $obsolete - $deleted - new $path (new size: $new_size) already exists, keeping old (old size: $old_size) moving new $path to conflicting-codes/$new_code\n";
 			print $log
-				"$code - $obsolete - $deleted - new $path already exists, moving $path to conflicting-codes/$new_code\n";
+				"$code - $obsolete - $deleted - new $path (new size: $new_size) already exists, keeping old (old size: $old_size) moving new $path to conflicting-codes/$new_code\n";
+
 			if ($move) {
 				if (move("$data_root/products/$path", "$data_root/products/conflicting-codes/$new_code")) {
 					print STDERR "moved $path to $data_root/products/conflicting-codes/$new_code\n";
@@ -429,8 +436,8 @@ foreach my $old_path (@products) {
 		if (    (!-e "$data_root/products/$path")
 			and (!-e "$www_root/images/products/$path"))
 		{
-			print STDERR "$code - $obsolete - $deleted - $path does not exist, moving $old_path\n";
-			print $log "$code - $obsolete - $deleted - $path does not exist, moving $old_path\n";
+			print STDERR "$code - $obsolete - $deleted - new $path does not exist, moving $old_path\n";
+			print $log "$code - $obsolete - $deleted - new $path does not exist, moving $old_path\n";
 			$moved++;
 
 			if ($move) {
@@ -522,8 +529,8 @@ foreach my $old_path (@products) {
 
 			if ($move_conflicting_codes) {
 				# Move product and images to conflicting-codes/$code
-				print STDERR "new path exists, moving $old_path to $data_root/products/conflicting-codes/$code\n";
-				print $log "new path exists, moving $old_path to $data_root/products/conflicting-codes/$code\n";
+				print STDERR "new path $path exists, moving $old_path to $data_root/products/conflicting-codes/$code\n";
+				print $log "new path $path exists, moving $old_path to $data_root/products/conflicting-codes/$code\n";
 
 				$moved++;
 
