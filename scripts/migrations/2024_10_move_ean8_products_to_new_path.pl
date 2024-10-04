@@ -45,6 +45,7 @@ use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Data qw/:all/;
+use ProductOpener::Orgs qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -229,7 +230,7 @@ open(my $csv, ">>", "$data_root/logs/move_ean8_products_to_new_path.csv");
 if (    (defined $server_options{private_products})
 	and ($server_options{private_products}))
 {
-
+	@orgids = list_org_ids();
 }
 else {
 	@orgids = (undef);
