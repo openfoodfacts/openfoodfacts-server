@@ -477,6 +477,7 @@ sub split_code ($code) {
 	# TODO: remove old_split_code() once all products have been migrated to the new path
 	my $old_path = old_split_code($code);
 	# If the old path exists, the product has not been migrated yet, so we use the old path
+	# Note: this does not work on the pro platform, as we are missing the org-id component of the path.
 	if (-e "$BASE_DIRS{PRODUCTS}/$old_path/product.sto") {
 		$log->debug("old_split_code path exists, using old path", {code => $code, old_path => $old_path})
 			if $log->is_debug();
