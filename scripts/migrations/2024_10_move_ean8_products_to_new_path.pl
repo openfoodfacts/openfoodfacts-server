@@ -229,7 +229,10 @@ open(my $csv, ">>", "$data_root/logs/move_ean8_products_to_new_path.csv");
 if (    (defined $server_options{private_products})
 	and ($server_options{private_products}))
 {
-	@orgids = list_org_ids();
+	if (scalar @orgids == 0) {
+		my @org_files = glob("$data_root/products/org-*");
+		@org_ids = map {$_ =~ /\/([^\/]+)$/;} @org_files;
+	}
 }
 else {
 	@orgids = (undef);
