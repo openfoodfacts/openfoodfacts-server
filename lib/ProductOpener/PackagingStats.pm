@@ -91,7 +91,7 @@ use ProductOpener::Packaging qw/get_parent_material/;
 use ProductOpener::Ecoscore qw/load_agribalyse_data %agribalyse/;
 
 use File::Path qw(mkpath);
-use JSON::PP;
+use JSON::MaybeXS;
 use Data::DeepAccess qw(deep_exists deep_get deep_set deep_val);
 use Text::CSV;
 

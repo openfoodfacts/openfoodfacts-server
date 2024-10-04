@@ -37,7 +37,7 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Encode;
 use Log::Any qw($log);
-use JSON::PP;
+use JSON::MaybeXS;
 
 $log->info('start') if $log->is_info();
 
@@ -84,7 +84,7 @@ else {
 	};
 }
 
-my $json = JSON::PP->new->allow_nonref->canonical->utf8->encode($response_ref);
+my $json = JSON::MaybeXS->new->allow_nonref->canonical->utf8->encode($response_ref);
 
 # We need to send the header Access-Control-Allow-Credentials=true so that websites
 # such has hunger.openfoodfacts.org that send a query to world.openfoodfacts.org/cgi/auth.pl

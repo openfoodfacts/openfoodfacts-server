@@ -364,7 +364,7 @@ my @lists = (
 		"Sucre. Traces éventuelles : fruits à coques, Traces éventuelles : sésame."
 	],
 
-	["en", "vegetable oil (coconut & rapeseed)", "vegetable oil (coconut and rapeseed)"],
+	["en", "vegetable oil (coconut & rapeseed)", "coconut vegetable oil, rapeseed vegetable oil"],
 
 	[
 		"fr",

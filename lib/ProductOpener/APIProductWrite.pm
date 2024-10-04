@@ -68,9 +68,8 @@ sub skip_protected_field ($product_ref, $field, $moderator = 0) {
 	# If we are on the public platform, and the field data has been imported from the producer platform
 	# ignore the field changes for non tag fields, unless made by a moderator
 	if (    (not $server_options{producers_platform})
-		and (defined $product_ref->{owner_fields})
-		and (defined $product_ref->{owner_fields}{$field})
-		and (not $moderator))
+		and (not $moderator)
+		and (is_owner_field($product_ref, $field)))
 	{
 		$log->debug(
 			"skipping field with a value set by the owner",
@@ -354,7 +353,7 @@ sub update_product_fields ($request_ref, $product_ref, $response_ref) {
 	return;
 }
 
-=head2 write_product_api()
+=head2 write_product_api($request_ref)
 
 Process API v3 WRITE product requests.
 

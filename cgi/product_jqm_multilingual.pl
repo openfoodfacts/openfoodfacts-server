@@ -66,7 +66,7 @@ use CGI qw/:cgi :form :cgi-lib escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 use Log::Any qw($log);
 
 my $request_ref = ProductOpener::Display::init_request();
@@ -243,11 +243,11 @@ else {
 		= qw(product_name generic_name quantity packaging brands categories labels origins manufacturing_places emb_codes link expiration_date purchase_places stores countries  );
 
 	# admin field to set a creator
-	if ($admin) {
+	if ($request_ref->{admin}) {
 		push @app_fields, "creator";
 	}
 
-	if ($admin or ($User_id eq "ecoscore-impact-estimator")) {
+	if ($request_ref->{admin} or ($User_id eq "ecoscore-impact-estimator")) {
 		push @app_fields, ("ecoscore_extended_data", "ecoscore_extended_data_version");
 	}
 

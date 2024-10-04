@@ -97,6 +97,6 @@ Open Food Facts uses optical character recognition (OCR) to retrieve ingredient 
 * [Please look at the reference located](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#post-/cgi/product_jqm2.pl)
 
 ### Refresh product to display the result to your user
-* [Please look at the reference](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v3/#get-/api/v3/product/-barcode-
+* [Please look at the reference](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v3/#get-/api/v3/product/-barcode-)
 ![alt_text](images/image1.png "image_tooltip")
 

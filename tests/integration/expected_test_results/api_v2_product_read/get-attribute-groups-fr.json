@@ -10,47 +10,51 @@
                   "grade" : "c",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutriscore-c-new-fr.svg",
                   "id" : "nutriscore",
-                  "match" : 53.6666666666667,
+                  "match" : 51.5555555555556,
                   "name" : "Nutri-Score",
                   "panel_id" : "nutriscore_2023",
                   "status" : "known",
                   "title" : "Nutri-Score C"
                },
                {
-                  "grade" : "unknown",
-                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-salt-unknown.svg",
+                  "description_short" : "0.0502 g / 100 g",
+                  "grade" : "a",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-salt-low.svg",
                   "id" : "low_salt",
-                  "missing" : "Données nutritionnelles manquantes",
+                  "match" : 96.6533333333333,
                   "name" : "Sel",
-                  "status" : "unknown",
-                  "title" : "Sel en quantité inconnue"
+                  "status" : "known",
+                  "title" : "Sel en faible quantité"
                },
                {
-                  "grade" : "unknown",
-                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-fat-unknown.svg",
+                  "description_short" : "8.5 g / 100 g",
+                  "grade" : "b",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-fat-medium.svg",
                   "id" : "low_fat",
-                  "missing" : "Données nutritionnelles manquantes",
+                  "match" : 60.5882352941176,
                   "name" : "Matières grasses",
-                  "status" : "unknown",
-                  "title" : "Matières grasses en quantité inconnue"
+                  "status" : "known",
+                  "title" : "Matières grasses en quantité modérée"
                },
                {
-                  "grade" : "unknown",
-                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-unknown.svg",
+                  "description_short" : "12.5 g / 100 g",
+                  "grade" : "e",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-medium.svg",
                   "id" : "low_sugars",
-                  "missing" : "Données nutritionnelles manquantes",
+                  "match" : 20,
                   "name" : "Sucres",
-                  "status" : "unknown",
-                  "title" : "Sucres en quantité inconnue"
+                  "status" : "known",
+                  "title" : "Sucres en quantité modérée"
                },
                {
-                  "grade" : "unknown",
-                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-saturated-fat-unknown.svg",
+                  "description_short" : "5.6 g / 100 g",
+                  "grade" : "e",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-saturated-fat-high.svg",
                   "id" : "low_saturated_fat",
-                  "missing" : "Données nutritionnelles manquantes",
+                  "match" : 17.6,
                   "name" : "Acides gras saturés",
-                  "status" : "unknown",
-                  "title" : "Acides gras saturés en quantité inconnue"
+                  "status" : "known",
+                  "title" : "Acides gras saturés en quantité élevée"
                }
             ],
             "id" : "nutritional_quality",

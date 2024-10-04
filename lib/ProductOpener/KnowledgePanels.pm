@@ -68,8 +68,9 @@ use ProductOpener::Ecoscore qw/is_ecoscore_extended_data_more_precise_than_agrib
 use ProductOpener::PackagerCodes qw/%packager_codes/;
 use ProductOpener::KnowledgePanelsContribution qw/create_contribution_card_panel/;
 use ProductOpener::KnowledgePanelsReportProblem qw/create_report_problem_card_panel/;
+use ProductOpener::ProductsFeatures qw/feature_enabled/;
 
-use JSON::PP;
+use JSON::MaybeXS;
 use Encode;
 use Data::DeepAccess qw(deep_get);
 
@@ -105,13 +106,24 @@ sub initialize_knowledge_panels_options ($knowledge_panels_options_ref, $request
 	}
 	$knowledge_panels_options_ref->{knowledge_panels_client} = $knowledge_panels_client;
 
+	my $included_panels = single_param('knowledge_panels_included') || '';
+	my %included_panels = map {$_ => 1} split(/,/, $included_panels);
+	my $excluded_panels = single_param('knowledge_panels_excluded') || '';
+	my %excluded_panels = map {$_ => 1} split(/,/, $excluded_panels);
+	$knowledge_panels_options_ref->{knowledge_panels_includes} = sub {
+		my $panel_id = shift;
+		# excluded overrides included
+		return (    (not exists $excluded_panels{$panel_id})
+				and (not $included_panels or exists $included_panels{$panel_id}));
+	};
+
 	# some info about users
 	$knowledge_panels_options_ref->{user_logged_in} = defined $User_id;
 
 	return;
 }
 
-=head2 create_knowledge_panels( $product_ref, $target_lc, $target_cc, $options_ref )
+=head2 create_knowledge_panels( $product_ref, $target_lc, $target_cc, $options_ref, $request_ref)
 
 Create all knowledge panels for a product, with strings (descriptions, recommendations etc.)
 in a specific language, and return them in an array of panels.
@@ -140,6 +152,10 @@ Defines how some panels should be created (or not created)
 - deactivate_[panel_id] : do not create a default panel -- currently unimplemented
 - activate_[panel_id] : create an on demand panel -- currently only for physical_activities panel
 
+=head4 request reference $request_ref
+
+Contains the request parameters, including the API request parameters.
+
 =head3 Return values
 
 Panels are returned in the "knowledge_panels_[$target_lc]" hash of the product reference
@@ -147,7 +163,7 @@ passed as input.
 
 =cut
 
-sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref) {
+sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
 
 	$log->debug("create knowledge panels for product", {code => $product_ref->{code}, target_lc => $target_lc})
 		if $log->is_debug();
@@ -192,26 +208,44 @@ sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref)
 		$product_ref->{"knowledge_panels_" . $target_lc}{"tags_brands_nutella_doyouknow"} = $test_panel_ref;
 	}
 
+	my $panel_is_requested = $options_ref->{knowledge_panels_includes};
+
 	# Create recommendation panels first, as they will be included in cards such has the health card and environment card
-	if ($options{product_type} eq "food") {
+	if (    $panel_is_requested->('health_card')
+		and $panel_is_requested->('environment_card')
+		and feature_enabled('food_recommendations'))
+	{
 		create_recommendation_panels($product_ref, $target_lc, $target_cc, $options_ref);
 	}
 
 	my $has_health_card;
-	if (   ($options{product_type} eq "food")
-		or ($options{product_type} eq "pet_food")
-		or ($options{product_type} eq "beauty"))
+	if ($panel_is_requested->('health_card')
+		and feature_enabled('health_card'))
 	{
-		$has_health_card = create_health_card_panel($product_ref, $target_lc, $target_cc, $options_ref);
+		$has_health_card = create_health_card_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 	}
 
-	create_environment_card_panel($product_ref, $target_lc, $target_cc, $options_ref);
+	my $has_environment_card;
+	if ($panel_is_requested->('environment_card')) {
+		$has_environment_card
+			= create_environment_card_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+	}
 
 	my $has_report_problem_card;
-	if (not $options_ref->{producers_platform}) {
+	if (not $options_ref->{producers_platform} and $panel_is_requested->('report_problem_card')) {
 		$has_report_problem_card = create_report_problem_card_panel($product_ref, $target_lc, $target_cc, $options_ref);
 	}
-	my $has_contribution_card = create_contribution_card_panel($product_ref, $target_lc, $target_cc, $options_ref);
+
+	my $has_contribution_card;
+	if ($panel_is_requested->('contribution_card')) {
+		$has_contribution_card = create_contribution_card_panel($product_ref, $target_lc, $target_cc, $options_ref);
+	}
+
+	my $has_secondhand_card;
+	if ($panel_is_requested->('secondhand_card')) {
+		$has_secondhand_card
+			= create_secondhand_card_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+	}
 
 	# Create the root panel that contains the panels we want to show directly on the product page
 	create_panel_from_json_template(
@@ -220,7 +254,9 @@ sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref)
 		{
 			has_health_card => $has_health_card,
 			has_report_problem_card => $has_report_problem_card,
-			has_contribution_card => $has_contribution_card
+			has_contribution_card => $has_contribution_card,
+			has_environment_card => $has_environment_card,
+			has_secondhand_card => $has_secondhand_card,
 		},
 		$product_ref,
 		$target_lc,
@@ -317,9 +353,10 @@ sub create_panel_from_json_template ($panel_id, $panel_template, $panel_data_ref
 				panel => $panel_data_ref,
 				panels => $product_ref->{"knowledge_panels_" . $target_lc},
 				product => $product_ref,
-				options => $options_ref,
+				knowledge_panels_options => $options_ref,
 			},
-			\$panel_json
+			\$panel_json,
+			{cc => $target_cc}
 		)
 		)
 	{
@@ -508,10 +545,12 @@ The Eco-Score depends on the country of the consumer (as the transport bonus/mal
 
 =cut
 
-sub create_ecoscore_panel ($product_ref, $target_lc, $target_cc, $options_ref) {
+sub create_ecoscore_panel ($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
 
 	$log->debug("create ecoscore panel", {code => $product_ref->{code}, ecoscore_data => $product_ref->{ecoscore_data}})
 		if $log->is_debug();
+
+	my $cc = $request_ref->{cc};
 
 	if ((defined $product_ref->{ecoscore_data}) and ($product_ref->{ecoscore_data}{status} eq "known")) {
 
@@ -568,6 +607,7 @@ sub create_ecoscore_panel ($product_ref, $target_lc, $target_cc, $options_ref) {
 			"agribalyse_category_name" => $agribalyse_category_name,
 			"agribalyse_score" => $agribalyse_score,
 			"agribalyse_grade" => $agribalyse_grade,
+			"name" => lang_in_other_lc($target_lc, "attribute_ecoscore_name"),
 			"score" => $score,
 			"grade" => $grade,
 			"title" => $title,
@@ -600,7 +640,8 @@ sub create_ecoscore_panel ($product_ref, $target_lc, $target_cc, $options_ref) {
 		#     }
 		# }
 
-		create_panel_from_json_template("carbon_footprint", "api/knowledge-panels/environment/carbon_footprint.tt.json",
+		create_panel_from_json_template("carbon_footprint",
+			"api/knowledge-panels/environment/carbon_footprint_food.tt.json",
 			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
 
 		# Add panels for the different bonuses and maluses
@@ -709,7 +750,7 @@ The Eco-Score depends on the country of the consumer (as the transport bonus/mal
 
 =cut
 
-sub create_environment_card_panel ($product_ref, $target_lc, $target_cc, $options_ref) {
+sub create_environment_card_panel ($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
 
 	$log->debug("create environment card panel", {code => $product_ref->{code}}) if $log->is_debug();
 
@@ -717,17 +758,25 @@ sub create_environment_card_panel ($product_ref, $target_lc, $target_cc, $option
 
 	# Create Eco-Score related panels
 	if ($options{product_type} eq "food") {
-		create_ecoscore_panel($product_ref, $target_lc, $target_cc, $options_ref);
+		create_ecoscore_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 
-		if (    (defined $product_ref->{ecoscore_data})
+		if (
+				(defined $product_ref->{ecoscore_data})
 			and (defined $product_ref->{ecoscore_data}{adjustments})
 			and (defined $product_ref->{ecoscore_data}{adjustments}{threatened_species})
-			and ($product_ref->{ecoscore_data}{adjustments}{threatened_species}{value} != 0))
+			and (defined $product_ref->{ecoscore_data}{adjustments}{threatened_species}{value}
+				&& $product_ref->{ecoscore_data}{adjustments}{threatened_species}{value} != 0)
+			)
 		{
 
 			create_panel_from_json_template("palm_oil", "api/knowledge-panels/environment/palm_oil.tt.json",
 				$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
 		}
+	}
+
+	# Create panel for carbon footprint (non-food products, for food products, it is added by create_ecoscore_panel)
+	if ($options{product_type} ne "food") {
+		create_carbon_footprint_panel($product_ref, $target_lc, $target_cc, $options_ref);
 	}
 
 	# Create panel for packaging components, and packaging materials
@@ -745,19 +794,108 @@ sub create_environment_card_panel ($product_ref, $target_lc, $target_cc, $option
 	create_manufacturing_place_panel($product_ref, $target_lc, $target_cc, $options_ref);
 
 	# Origins of ingredients for the environment card, for food, pet food and beauty products
-	if (   ($options{product_type} eq "food")
-		or ($options{product_type} eq "pet_food")
-		or ($options{product_type} eq "beauty"))
-	{
+	if (feature_enabled("ingredients")) {
 		create_panel_from_json_template("origins_of_ingredients",
 			"api/knowledge-panels/environment/origins_of_ingredients.tt.json",
 			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
 	}
 
 	# Create the environment_card panel
-	$panel_data_ref->{packaging_image} = data_to_display_image($product_ref, "packaging", $target_lc),
-		create_panel_from_json_template("environment_card", "api/knowledge-panels/environment/environment_card.tt.json",
+	$panel_data_ref->{packaging_image} = data_to_display_image($product_ref, "packaging", $target_lc);
+	create_panel_from_json_template("environment_card", "api/knowledge-panels/environment/environment_card.tt.json",
 		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
+	return 1;
+}
+
+=head2 create_secondhand_card_panel ( $product_ref, $target_lc, $target_cc, $options_ref )
+
+Creates a knowledge panel card that contains all knowledge panels related to the circular economy:
+- sharing, buying, selling etc.
+
+Created for products in specific categories, for users in specific countries.
+
+=head3 Arguments
+
+=head4 product reference $product_ref
+
+Loaded from the MongoDB database, Storable files, or the OFF API.
+
+=head4 language code $target_lc
+
+Returned attributes contain both data and strings intended to be displayed to users.
+This parameter sets the desired language for the user facing strings.
+
+=head4 country code $target_cc
+
+Used to select secondhand options (e.g. classified ads sites) that are relevant for the user.
+
+=cut
+
+sub create_secondhand_card_panel ($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
+
+	$log->debug("create secondhand card panel", {code => $product_ref->{code}}) if $log->is_debug();
+
+	my $panel_data_ref = {};
+
+	# Only available for the product_type "product"
+	if ($options{product_type} ne "product") {
+		return 0;
+	}
+
+	# Add the name of the most specific category (last in categories_hierarchy) to the panel data
+	my $category_id = $product_ref->{categories_hierarchy}[-1];
+	$panel_data_ref->{category_name} = display_taxonomy_tag_name($target_lc, "categories", $category_id);
+
+	# Create paneld for donations
+
+	create_panel_from_json_template("donated_products_fr_geev",
+		"api/knowledge-panels/secondhand/donated_products_fr_geev.tt.json",
+		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
+
+	create_panel_from_json_template("donated_products", "api/knowledge-panels/secondhand/donated_products.tt.json",
+		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
+
+	# Created panels for buying used products
+	create_panel_from_json_template("used_products_fr_backmarket",
+		"api/knowledge-panels/secondhand/used_products_fr_backmarket.tt.json",
+		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
+
+	create_panel_from_json_template("used_products", "api/knowledge-panels/secondhand/used_products.tt.json",
+		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
+
+	# Create the secondhand_card panel
+
+	create_panel_from_json_template("secondhand_card", "api/knowledge-panels/secondhand/secondhand_card.tt.json",
+		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
+
+	return 1;
+}
+
+sub create_carbon_footprint_panel($product_ref, $target_lc, $target_cc, $options_ref) {
+
+	# Find the first category that has a carbon_impact_fr_impactco2:en: property
+	my ($value, $category_id)
+		= get_inherited_property_from_categories_tags($product_ref, "carbon_impact_fr_impactco2:en");
+
+	$log->debug("create carbon footprint panel",
+		{code => $product_ref->{code}, category_id => $category_id, value => $value})
+		if $log->is_debug();
+
+	if (defined $value) {
+
+		my $panel_data_ref = {
+			category_id => $category_id,
+			category_name => display_taxonomy_tag_name($target_lc, "categories", $category_id),
+			co2_kg_per_unit => $value,
+			unit_name => get_property_with_fallbacks("categories", $category_id, "unit_name:$target_lc"),
+			link => get_property("categories", $category_id, "carbon_impact_fr_impactco2_link:en"),
+		};
+
+		create_panel_from_json_template("carbon_footprint",
+			"api/knowledge-panels/environment/carbon_footprint_product.tt.json",
+			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
+	}
+
 	return;
 }
 
@@ -839,7 +977,7 @@ We may display country specific recommendations from health authorities, or coun
 
 =cut
 
-sub create_health_card_panel ($product_ref, $target_lc, $target_cc, $options_ref) {
+sub create_health_card_panel ($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
 
 	$log->debug("create health card panel", {code => $product_ref->{code}}) if $log->is_debug();
 
@@ -847,16 +985,19 @@ sub create_health_card_panel ($product_ref, $target_lc, $target_cc, $options_ref
 	create_ingredients_panel($product_ref, $target_lc, $target_cc, $options_ref);
 
 	# Show additives only for food and pet food
-	if (($options{product_type} eq "food") or ($options{product_type} eq "pet_food")) {
+	if (feature_enabled("additives")) {
 		create_additives_panel($product_ref, $target_lc, $target_cc, $options_ref);
 	}
 
 	create_ingredients_analysis_panel($product_ref, $target_lc, $target_cc, $options_ref);
 
-	# Scores for food products
-	if ($options{product_type} eq "food") {
-		create_nova_panel($product_ref, $target_lc, $target_cc, $options_ref);
+	create_ingredients_rare_crops_panel($product_ref, $target_lc, $target_cc, $options_ref);
 
+	# Scores for food products
+	if (feature_enabled("nova")) {
+		create_nova_panel($product_ref, $target_lc, $target_cc, $options_ref);
+	}
+	if (feature_enabled("nutriscore")) {
 		if (   $target_cc eq "fr"
 			|| $options_ref->{admin}
 			|| $options_ref->{moderator}
@@ -880,9 +1021,9 @@ sub create_health_card_panel ($product_ref, $target_lc, $target_cc, $options_ref
 	}
 
 	# Nutrition facts for food and pet food
-	if (($options{product_type} eq "food") or ($options{product_type} eq "pet_food")) {
+	if (feature_enabled("nutrition")) {
 		create_serving_size_panel($product_ref, $target_lc, $target_cc, $options_ref);
-		create_nutrition_facts_table_panel($product_ref, $target_lc, $target_cc, $options_ref);
+		create_nutrition_facts_table_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 	}
 
 	my $panel_data_ref = {
@@ -932,6 +1073,7 @@ sub create_nutriscore_panel ($product_ref, $target_lc, $target_cc, $options_ref)
 		$panel_data_ref->{title} = lang_in_other_lc($target_lc,
 			"attribute_nutriscore_" . $panel_data_ref->{nutriscore_grade} . "_description_short");
 	}
+	$panel_data_ref->{name} = lang_in_other_lc($target_lc, "attribute_nutriscore_name");
 
 	# Nutri-Score panel: score + details
 	create_panel_from_json_template("nutriscore", "api/knowledge-panels/health/nutriscore/nutriscore.tt.json",
@@ -1105,7 +1247,7 @@ This parameter sets the desired language for the user facing strings.
 
 =cut
 
-sub create_nutrition_facts_table_panel ($product_ref, $target_lc, $target_cc, $options_ref) {
+sub create_nutrition_facts_table_panel ($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
 
 	$log->debug("create nutrition facts panel",
 		{code => $product_ref->{code}, nutriscore_data => $product_ref->{nutriscore_data}})
@@ -1118,7 +1260,7 @@ sub create_nutrition_facts_table_panel ($product_ref, $target_lc, $target_cc, $o
 
 		# Compare the product nutrition facts to the most specific category
 		my $comparisons_ref = compare_product_nutrition_facts_to_categories($product_ref, $target_cc, 1);
-		my $panel_data_ref = data_to_display_nutrition_table($product_ref, $comparisons_ref);
+		my $panel_data_ref = data_to_display_nutrition_table($product_ref, $comparisons_ref, $request_ref);
 
 		create_panel_from_json_template("nutrition_facts_table",
 			"api/knowledge-panels/health/nutrition/nutrition_facts_table.tt.json",
@@ -1155,7 +1297,9 @@ sub create_serving_size_panel ($product_ref, $target_lc, $target_cc, $options_re
 	# Generate a panel only for food products that have a serving size
 	if (defined $product_ref->{serving_size}) {
 		my $serving_warning = undef;
-		if (($product_ref->{serving_quantity} <= 5) and ($product_ref->{nutrition_data_per} eq 'serving')) {
+		if (    (defined $product_ref->{serving_quantity} && $product_ref->{serving_quantity} <= 5)
+			and ($product_ref->{nutrition_data_per} eq 'serving'))
+		{
 			$serving_warning = lang_in_other_lc($target_lc, "serving_too_small_for_nutrition_analysis");
 		}
 		my $panel_data_ref = {"serving_warning" => $serving_warning,};
@@ -1282,6 +1426,25 @@ sub create_physical_activities_panel ($product_ref, $target_lc, $target_cc, $opt
 	return;
 }
 
+sub create_ingredients_rare_crops_panel ($product_ref, $target_lc, $target_cc, $options_ref) {
+
+	# Go through the ingredients structure, and check if they have the rare_crop:en:yes property
+	my @rare_crops_ingredients
+		= get_ingredients_with_property_value($product_ref->{ingredients}, "rare_crop:en", "yes");
+
+	$log->debug("rare crops", {rare_crops_ingredients => \@rare_crops_ingredients}) if $log->is_debug();
+
+	if ($#rare_crops_ingredients >= 0) {
+
+		my $panel_data_ref = {ingredients_rare_crops => \@rare_crops_ingredients,};
+
+		create_panel_from_json_template("ingredients_rare_crops",
+			"api/knowledge-panels/health/ingredients/ingredients_rare_crops.tt.json",
+			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
+	}
+	return;
+}
+
 =head2 create_ingredients_panel ( $product_ref, $target_lc, $target_cc, $options_ref )
 
 Creates a knowledge panel with the list of ingredients.
@@ -1335,9 +1498,12 @@ sub create_ingredients_panel ($product_ref, $target_lc, $target_cc, $options_ref
 		ingredients_text => $ingredients_text,
 		ingredients_text_with_allergens => $ingredients_text_with_allergens,
 		ingredients_text_lc => $ingredients_text_lc,
-		ingredients_text_language =>
-			display_taxonomy_tag($target_lc, 'languages', $language_codes{$ingredients_text_lc}),
 	};
+
+	if (defined $ingredients_text_lc) {
+		$panel_data_ref->{ingredients_text_language}
+			= display_taxonomy_tag($target_lc, 'languages', $language_codes{$ingredients_text_lc});
+	}
 
 	create_panel_from_json_template("ingredients", "api/knowledge-panels/health/ingredients/ingredients.tt.json",
 		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
@@ -1639,7 +1805,7 @@ sub create_nova_panel ($product_ref, $target_lc, $target_cc, $options_ref) {
 	my $panel_data_ref = {};
 
 	# Do not display the NOVA panel if it is not applicable
-	if (    ($options{product_type} eq "food")
+	if (    (feature_enabled("nova"))
 		and (exists $product_ref->{nova_groups_tags})
 		and (not $product_ref->{nova_groups_tags}[0] eq "not-applicable"))
 	{

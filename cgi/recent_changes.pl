@@ -38,7 +38,7 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 
 use ProductOpener::Lang qw/:all/;
 
@@ -46,9 +46,9 @@ my $request_ref = ProductOpener::Display::init_request();
 
 my $query_ref = {};
 
-my $limit = 0 + (single_param('page_size') || $page_size);
-if (($limit < 2) or ($limit > 1000)) {
-	$limit = $page_size;
+my $limit = 0 + (single_param('page_size') || $options{default_recent_changes_page_size});
+if ($limit > $options{max_recent_changes_page_size}) {
+	$limit = $options{max_recent_changes_page_size};
 }
 
 my $page = 0 + (single_param('page') || 1);

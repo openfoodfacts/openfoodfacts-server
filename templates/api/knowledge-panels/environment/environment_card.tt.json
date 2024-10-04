@@ -46,16 +46,18 @@
             },
         },
         [% END %]
+        [% IF panels.manufacturing_place.defined OR panels.origins_of_ingredients.defined %]
         {
             "element_type": "panel_group",
             "panel_group_element": {
                 "title": "[% edq(lang('ecoscore_transportation')) %]",
                 "panel_ids": [
                     [% IF panels.manufacturing_place.defined %]"manufacturing_place",[% END %]
-                    "origins_of_ingredients",
+                    [% IF panels.origins_of_ingredients.defined %]"origins_of_ingredients",[% END %]
                 ],
             },
-        },         
+        },        
+        [% END %]
         [% IF panels.palm_oil.defined %]
         {
             "element_type": "panel_group",
