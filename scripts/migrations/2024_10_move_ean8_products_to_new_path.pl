@@ -120,6 +120,7 @@ sub new_product_path_from_id ($new_product_id) {
 
 }
 
+
 sub ensure_dir_created_or_die ($new_path, $mode = oct(755)) {
 	# search base directory
 	my $prefix;
@@ -236,7 +237,9 @@ else {
 
 foreach my $orgid (@orgids) {
 
-	my $org_path = $orgid ? $orgid . '/' : "";
+	my $org_path = $orgid ? '/' . $orgid : "";
+
+	print STDERR "org_path: $org_path\n";
 
 	# Directories to store invalid codes and conflicting products
 	ensure_dir_created_or_die("$data_root/products$org_path/invalid-codes");
@@ -253,6 +256,8 @@ foreach my $orgid (@orgids) {
 			or die "could not open $data_root/products$org_path directory: $!\n";
 		foreach my $dir (sort readdir($dh)) {
 			chomp($dir);
+
+			print STDERR "org_path: $org_path - dir: $dir\n";
 
 			# Check it is a directory
 			next if not -d "$data_root/products$org_path/$dir";
@@ -357,8 +362,10 @@ foreach my $orgid (@orgids) {
 						print $log "could not move invalid code $dir to $data_root/products$org_path/invalid-codes\n";
 					}
 					# Delete from mongodb
-					$products_collection->delete_one({code => $org_path . $dir});
-					$obsolete_products_collection->delete_one({code => $org_path . $dir});
+					my $id = $org_path . "/" . $dir;
+					$id =~ s/^\///;
+					$products_collection->delete_one({_id => $id});
+					$obsolete_products_collection->delete_one({_id => $id});
 
 					# Also move the image dir if it exists
 					if (-e "$www_root/images/products$org_path/$dir") {
@@ -394,6 +401,7 @@ foreach my $orgid (@orgids) {
 	foreach my $old_path (@products) {
 
 		my $code = $old_path;
+
 		# remove / if any
 		$code =~ s/\///g;
 
@@ -402,6 +410,8 @@ foreach my $orgid (@orgids) {
 		my $old_product_id = product_id_for_owner($orgid, $code);
 		my $new_product_id = product_id_for_owner($orgid, $new_code);
 
+		my $old_path = $org_path . '/' . $old_path;
+		$old_path =~ s/^\///;
 		my $new_path = new_product_path_from_id($new_product_id);
 
 		my $product_ref = retrieve_product($old_product_id, "include_deleted");
@@ -487,8 +497,8 @@ foreach my $orgid (@orgids) {
 
 					my $prefix_path = $new_path;
 					$prefix_path =~ s/\/[^\/]+$//;    # remove the last subdir: we'll move it
-					ensure_dir_created_or_die("$data_root/products$org_path/$prefix_path");
-					ensure_dir_created_or_die("$www_root/images/products$org_path/$prefix_path");
+					ensure_dir_created_or_die("$data_root/products/$prefix_path");
+					ensure_dir_created_or_die("$www_root/images/products/$prefix_path");
 
 					if (    (!-e "$data_root/products/$new_path")
 						and (!-e "$www_root/images/products/$new_path"))
@@ -553,8 +563,8 @@ foreach my $orgid (@orgids) {
 								$product_ref->{id} = $product_ref->{code} . '';    # treat id as string;
 								$product_ref->{_id} = $new_product_id . '';    # treat id as string;
 									# Delete the old code from MongoDB collections
-								$products_collection->delete_one({code => $old_product_id});
-								$obsolete_products_collection->delete_one({code => $old_product_id});
+								$products_collection->delete_one({_id => $old_product_id});
+								$obsolete_products_collection->delete_one({_id => $old_product_id});
 								# If the product is not deleted, store_product will add the new code to MongoDB
 								store_product("fix-code-bot", $product_ref, "changed code from $code to $new_code");
 								print STDERR "updated code from $code to $new_code in .sto file and MongoDB\n";
@@ -618,8 +628,8 @@ foreach my $orgid (@orgids) {
 					}
 
 					# Delete $code from mongodb collections
-					$products_collection->delete_one({code => $old_product_id});
-					$obsolete_products_collection->delete_one({code => $old_product_id});
+					$products_collection->delete_one({_id => $old_product_id});
+					$obsolete_products_collection->delete_one({_id => $old_product_id});
 
 				}
 				else {
