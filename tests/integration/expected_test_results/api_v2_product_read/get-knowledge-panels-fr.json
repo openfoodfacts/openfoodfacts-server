@@ -116,7 +116,7 @@
             "title_element" : {
                "icon_color_from_evaluation" : true,
                "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/car.svg",
-               "subtitle" : "286 g de CO² pour 100g de produit",
+               "subtitle" : "286 g CO₂e pour 100g de produit",
                "title" : "Équivaut à parcourir 1.5 km dans une voiture à essence"
             },
             "topics" : [
@@ -185,6 +185,7 @@
             "title_element" : {
                "grade" : "c",
                "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/ecoscore-c.svg",
+               "name" : "Eco-Score",
                "title" : "Eco-Score C - Impact modéré sur l'environnement",
                "type" : "grade"
             },
@@ -571,7 +572,8 @@
                   "panel_group_element" : {
                      "panel_group_id" : "nutrition",
                      "panel_ids" : [
-                        "nutriscore"
+                        "nutriscore_2023",
+                        "nutrient_levels"
                      ],
                      "title" : "Nutrition",
                      "type" : "subcard"
@@ -851,13 +853,172 @@
                "health"
             ]
          },
+         "nutrient_level_fat" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n<b>Ce que vous devez savoir</b>\n<ul>\n<li>Une consommation élevée de matières grasses, en particulier d'acides gras saturés, peut augmenter le cholestérol, ce qui augmente le risque de maladies cardiaques.</li>\n</ul>\n<br>\n<b>Recommandation</b> :\n<b>Réduire la consommation de matières grasses et d'acides gras saturés</b>\n<ul>\n<li>Choisissez des produits à faible teneur en matières grasses et en acides gras saturés.</li>\n</ul>\n",
+                     "type" : "summary"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n",
+                     "source_language" : "en",
+                     "source_text" : "National Health Service UK (NHS) - Fat: the facts",
+                     "source_url" : "https://www.nhs.uk/live-well/eat-well/food-types/different-fats-nutrition/",
+                     "type" : "summary"
+                  }
+               }
+            ],
+            "evaluation" : "average",
+            "half_width_on_mobile" : true,
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "icon_size" : "small",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/misc/moderate.svg",
+               "name" : "Matières grasses",
+               "title" : "Matières grasses en quantité modérée (8.5%)",
+               "type" : "percentage",
+               "value" : 8.5
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutrient_level_salt" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n<b>Ce que vous devez savoir</b>\n<ul>\n<li>Une forte consommation de sel (ou de sodium) peut entraîner une augmentation de la pression artérielle, ce qui peut augmenter le risque de maladie cardiaque et d'accident vasculaire cérébral.</li>\n<li>De nombreuses personnes souffrant d'hypertension ne le savent pas, car il n'y a souvent aucun symptôme.</li>\n<li>La plupart des gens consomment trop de sel (en moyenne 9 à 12 grammes par jour), soit environ le double de l'apport maximal recommandé.</li>\n</ul>\n<br>\n<b>Recommandation</b> :\n<b>Limiter la consommation de sel et d'aliments salés</b>\n<ul>\n<li>Réduisez la quantité de sel utilisée lors de la cuisson et ne salez plus à table.</li>\n<li>Limitez la consommation de collations salées et choisissez des produits à faible teneur en sel.</li>\n</ul>\n",
+                     "type" : "summary"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n",
+                     "source_language" : "en",
+                     "source_text" : "World Health Organization (WHO) - Fact sheet - Salt reduction",
+                     "source_url" : "https://www.who.int/news-room/fact-sheets/detail/salt-reduction",
+                     "type" : "summary"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n",
+                     "source_language" : "en",
+                     "source_text" : "National Health Service UK (NHS) - Salt: the facts",
+                     "source_url" : "https://www.nhs.uk/live-well/eat-well/food-types/salt-nutrition/",
+                     "type" : "summary"
+                  }
+               }
+            ],
+            "evaluation" : "good",
+            "half_width_on_mobile" : true,
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "icon_size" : "small",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/misc/low.svg",
+               "name" : "Sel",
+               "title" : "Sel en faible quantité (0.0502%)",
+               "type" : "percentage",
+               "value" : 0.0502
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutrient_level_saturated-fat" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n<b>Ce que vous devez savoir</b>\n<ul>\n<li>Une consommation élevée de matières grasses, en particulier d'acides gras saturés, peut augmenter le cholestérol, ce qui augmente le risque de maladies cardiaques.</li>\n</ul>\n<br>\n<b>Recommandation</b> :\n<b>Réduire la consommation de matières grasses et d'acides gras saturés</b>\n<ul>\n<li>Choisissez des produits à faible teneur en matières grasses et en acides gras saturés.</li>\n</ul>\n",
+                     "type" : "summary"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n",
+                     "source_language" : "en",
+                     "source_text" : "National Health Service UK (NHS) - Fat: the facts",
+                     "source_url" : "https://www.nhs.uk/live-well/eat-well/food-types/different-fats-nutrition/",
+                     "type" : "summary"
+                  }
+               }
+            ],
+            "evaluation" : "bad",
+            "half_width_on_mobile" : true,
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "icon_size" : "small",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/misc/high.svg",
+               "name" : "Acides gras saturés",
+               "title" : "Acides gras saturés en quantité élevée (5.6%)",
+               "type" : "percentage",
+               "value" : 5.6
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutrient_level_sugars" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n<b>Ce que vous devez savoir</b>\n<ul>\n<li>Une forte consommation de sucre peut entraîner une prise de poids et des caries dentaires. Il augmente également le risque de diabète de type 2 et de maladies cardio-vasculaires.</li>\n</ul>\n<br>\n<b>Recommandation</b> :\n<b>Limiter la consommation de sucre et de boissons sucrées</b>\n<ul>\n<li>Les boissons sucrées (comme les sodas, les boissons aux fruits, les jus et nectars de fruits) doivent être limitées au maximum (pas plus d'un verre par jour).</li>\n<li>Choisissez des produits à faible teneur en sucre et réduisez la consommation de produits avec des sucres ajoutés.</li>\n</ul>\n",
+                     "type" : "summary"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n",
+                     "source_language" : "en",
+                     "source_text" : "National Health Service UK (NHS) - Sugar: the facts",
+                     "source_url" : "https://www.nhs.uk/live-well/eat-well/food-types/how-does-sugar-in-our-diet-affect-our-health/",
+                     "type" : "summary"
+                  }
+               }
+            ],
+            "evaluation" : "average",
+            "half_width_on_mobile" : true,
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "icon_size" : "small",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/misc/moderate.svg",
+               "name" : "Sucres",
+               "title" : "Sucres en quantité modérée (12.5%)",
+               "type" : "percentage",
+               "value" : 12.5
+            },
+            "topics" : [
+               "health"
+            ]
+         },
          "nutrient_levels" : {
             "elements" : [
                {
                   "element_type" : "panel_group",
                   "panel_group_element" : {
                      "panel_group_id" : "nutrient_levels_group",
-                     "panel_ids" : []
+                     "panel_ids" : [
+                        "nutrient_level_fat",
+                        "nutrient_level_saturated-fat",
+                        "nutrient_level_sugars",
+                        "nutrient_level_salt"
+                     ]
                   }
                }
             ],
@@ -874,15 +1035,8 @@
                "health"
             ]
          },
-         "nutriscore" : {
+         "nutriscore_2023" : {
             "elements" : [
-               {
-                  "element_type" : "text",
-                  "text_element" : {
-                     "html" : "Attention : les valeurs nutritionnelles ne sont pas précisées. Elles ont été estimées à partir de la liste des ingrédients.\n                    ",
-                     "type" : "warning"
-                  }
-               },
                {
                   "element_type" : "text",
                   "text_element" : {
@@ -891,9 +1045,208 @@
                   }
                },
                {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "nutriscore_description"
+                  }
+               },
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "evaluation" : "bad",
+                     "icon_color_from_evaluation" : true,
+                     "icon_size" : "small",
+                     "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/circle-minus.svg",
+                     "panel_ids" : [
+                        "nutriscore_component_energy",
+                        "nutriscore_component_sugars",
+                        "nutriscore_component_saturated_fat",
+                        "nutriscore_component_salt"
+                     ],
+                     "title" : "Points négatifs : 9/55"
+                  }
+               },
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "evaluation" : "good",
+                     "icon_color_from_evaluation" : true,
+                     "icon_size" : "small",
+                     "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/circle-plus.svg",
+                     "panel_ids" : [
+                        "nutriscore_component_proteins",
+                        "nutriscore_component_fiber",
+                        "nutriscore_component_fruits_vegetables_legumes"
+                     ],
+                     "title" : "Points positifs : 3/17"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "nutriscore_details"
+                  }
+               }
+            ],
+            "level" : "info",
+            "title_element" : {
+               "grade" : "c",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutriscore-c-new-fr.svg",
+               "subtitle" : "Qualité nutritionnelle moyenne",
+               "title" : "Nutri-Score C",
+               "type" : "grade"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutriscore_component_energy" : {
+            "elements" : [
+               {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "<!-- start templates/web/pages/product/includes/nutriscore_details.tt.html -->\n\n<p>Ce produit n'est pas considéré comme une boisson pour le calcul du Nutri-Score.</p>\n\n\n\n\n\n  <p> \n    <strong>Points positifs : 3</strong> \n  </p>\n\n  <ul>\n    \n      <li>\n        <strong>Protéines :\n1&nbsp;</strong>/&nbsp;5\n(valeur : 1.974375, \n        valeur arrondie : 1.97)\n      </li>\n    \n      <li>\n        <strong>Fibre :\n0&nbsp;</strong>/&nbsp;5\n(valeur : 0.8125, \n        valeur arrondie : 0.81)\n      </li>\n    \n      <li>\n        <strong>Fruits, légumes, noix et huiles de colza / noix / olive :\n2&nbsp;</strong>/&nbsp;5\n(valeur : 62.5, \n        valeur arrondie : 62.5)\n      </li>\n    \n  </ul>\n\n\n\n  <p> \n    <strong>Points négatifs : 6</strong> \n  </p>\n\n  <ul>\n    \n      <li>\n        <strong>Énergie :\n1&nbsp;</strong>/&nbsp;10\n(valeur : 558.75, \n        valeur arrondie : 558.8)\n      </li>\n    \n      <li>\n        <strong>Sucres :\n1&nbsp;</strong>/&nbsp;10\n(valeur : 7.2621875, \n        valeur arrondie : 7.26)\n      </li>\n    \n      <li>\n        <strong>Graisses saturées :\n4&nbsp;</strong>/&nbsp;10\n(valeur : 4.903125, \n        valeur arrondie : 4.9)\n      </li>\n    \n      <li>\n        <strong>Sodium :\n0&nbsp;</strong>/&nbsp;10\n(valeur : 19.725, \n        valeur arrondie : 19.7)\n      </li>\n    \n  </ul>\n\n\n\n<p>Les points pour les protéines sont comptés car les points négatifs sont inférieurs à 11.</p>\n\n<p>\n  <strong>Score nutritionnel : </strong>\n  (6 - 3)\n</p>\n<p><strong>Nutri-Score : </strong></p>\n\n<!-- end templates/web/pages/product/includes/nutriscore_details.tt.html -->"
+                     "html" : "\n<p>\n    \n    Les apports énergétiques supérieurs aux besoins énergétiques sont associés à des risques accrus de prise de poids, de surpoids, d'obésité et, par conséquent, à un risque de maladies chroniques liées à l'alimentation.\n</p>\n                "
+                  }
+               }
+            ],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/points-negative-1-10.svg",
+               "subtitle" : "1/10 points (400kJ)",
+               "title" : "Énergie"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutriscore_component_fiber" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n<p>\n    Consommer des aliments riches en fibres (notamment les aliments à grains entiers) réduit les risques de cancers aérodigestifs, de maladies cardiovasculaires, d’obésité et de diabète.\n    \n</p>\n                "
+                  }
+               }
+            ],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/points-positive-0-5.svg",
+               "subtitle" : "0/5 points (2g)",
+               "title" : "Fibre"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutriscore_component_fruits_vegetables_legumes" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n<p>\n    Consommer des aliments riches en fruits, légumes et légumes secs réduit les risques de cancers aérodigestifs, de maladies cardiovasculaires, d’obésité et de diabète.\n    \n</p>\n                "
+                  }
+               }
+            ],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/points-positive-2-5.svg",
+               "subtitle" : "2/5 points (62.5%)",
+               "title" : "Fruits, légumes et légumes secs"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutriscore_component_proteins" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n<p>\n    Les aliments riches en protéines sont généralement riches en calcium ou en fer, des minéraux essentiels aux nombreux bienfaits pour la santé.\n    \n</p>\n                "
+                  }
+               }
+            ],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/points-positive-1-7.svg",
+               "subtitle" : "1/7 points (4.5g)",
+               "title" : "Protéines"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutriscore_component_salt" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n<p>\n    \n    Une forte consommation de sel (ou de sodium) peut entraîner une augmentation de la pression artérielle, ce qui peut augmenter le risque de maladie cardiaque et d'accident vasculaire cérébral.\n</p>\n                "
+                  }
+               }
+            ],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/points-negative-0-20.svg",
+               "subtitle" : "0/20 points (0.05g)",
+               "title" : "Sel"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutriscore_component_saturated_fat" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n<p>\n    \n    Une consommation élevée de matières grasses, en particulier d'acides gras saturés, peut augmenter le cholestérol, ce qui augmente le risque de maladies cardiaques.\n</p>\n                "
+                  }
+               }
+            ],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/points-negative-5-10.svg",
+               "subtitle" : "5/10 points (5.6g)",
+               "title" : "Acides gras saturés"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutriscore_component_sugars" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n<p>\n    \n    Une forte consommation de sucre peut entraîner une prise de poids et des caries dentaires. Il augmente également le risque de diabète de type 2 et de maladies cardio-vasculaires.\n</p>\n                "
+                  }
+               }
+            ],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/points-negative-3-15.svg",
+               "subtitle" : "3/15 points (12.5g)",
+               "title" : "Sucres"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutriscore_description" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<p>Le Nutri-Score est un logo sur la qualité nutritionnelle globale des produits.</p>\n<p>\nLe score de A à E est calculé en fonction des nutriments et aliments à favoriser (protéines, fibres, fruits et légumes, légumes secs…) et des nutriments à limiter (calories, matières grasses saturées, sucres, sel).\nLe score est calculé à partir des données du tableau de la déclaration nutritionnelle et des données de composition (fruits, légumes et légumes secs).\n</p>\n\n                ",
+                     "type" : "info"
                   }
                },
                {
@@ -905,10 +1258,37 @@
             ],
             "level" : "info",
             "title_element" : {
-               "grade" : "c",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutriscore-c.svg",
-               "title" : "Qualité nutritionnelle moyenne",
-               "type" : "grade"
+               "icon_size" : "small",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/info.svg",
+               "title" : "Qu'est ce que le Nutri-Score ?",
+               "type" : "info"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutriscore_details" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "Avertissement : Le taux de fruits, légumes et noix n'est pas indiqué sur l'étiquette, il a été estimé en fonction de la liste des ingrédients : 62\n                    ",
+                     "type" : "warning"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n\n    <p>Ce produit n'est pas considéré comme une boisson pour le calcul du Nutri-Score.</p>\n\n\n\n\n\n<p>Les points pour les protéines sont comptés car les points négatifs sont inférieurs à 11.</p>\n\n<p>\n  <strong>Score nutritionnel : 6</strong>\n  (9 - 3)\n</p>\n<p><strong>Nutri-Score : C</strong></p>                \n                "
+                  }
+               }
+            ],
+            "level" : "info",
+            "title_element" : {
+               "icon_size" : "small",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/info.svg",
+               "title" : "Détail du calcul du Nutri-Score",
+               "type" : "info"
             },
             "topics" : [
                "health"
@@ -947,13 +1327,28 @@
                               {
                                  "level" : 0,
                                  "style" : "max-width:15rem",
+                                 "text" : "Énergie"
+                              },
+                              {
+                                 "text" : "400 kj<br>(96 kcal)"
+                              },
+                              {
+                                 "text" : "40 kj<br>(10 kcal)"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
                                  "text" : "Matières grasses"
                               },
                               {
-                                 "text" : "?"
+                                 "text" : "8,5 g"
                               },
                               {
-                                 "text" : "?"
+                                 "text" : "0,85 g"
                               }
                            ]
                         },
@@ -965,10 +1360,10 @@
                                  "text" : "Acides gras saturés"
                               },
                               {
-                                 "text" : "?"
+                                 "text" : "5,6 g"
                               },
                               {
-                                 "text" : "?"
+                                 "text" : "0,56 g"
                               }
                            ]
                         },
@@ -980,10 +1375,10 @@
                                  "text" : "Glucides"
                               },
                               {
-                                 "text" : "?"
+                                 "text" : "10,5 g"
                               },
                               {
-                                 "text" : "?"
+                                 "text" : "1,05 g"
                               }
                            ]
                         },
@@ -995,10 +1390,10 @@
                                  "text" : "Sucres"
                               },
                               {
-                                 "text" : "?"
+                                 "text" : "12,5 g"
                               },
                               {
-                                 "text" : "?"
+                                 "text" : "1,25 g"
                               }
                            ]
                         },
@@ -1010,10 +1405,10 @@
                                  "text" : "Fibres alimentaires"
                               },
                               {
-                                 "text" : "?"
+                                 "text" : "2 g"
                               },
                               {
-                                 "text" : "?"
+                                 "text" : "0,2 g"
                               }
                            ]
                         },
@@ -1025,10 +1420,10 @@
                                  "text" : "Protéines"
                               },
                               {
-                                 "text" : "?"
+                                 "text" : "4,5 g"
                               },
                               {
-                                 "text" : "?"
+                                 "text" : "0,45 g"
                               }
                            ]
                         },
@@ -1040,10 +1435,10 @@
                                  "text" : "Sel"
                               },
                               {
-                                 "text" : "?"
+                                 "text" : "0,05 g"
                               },
                               {
-                                 "text" : "?"
+                                 "text" : "0,005 g"
                               }
                            ]
                         },

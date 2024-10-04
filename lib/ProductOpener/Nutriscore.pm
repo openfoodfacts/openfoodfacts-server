@@ -119,13 +119,11 @@ sub compute_nutriscore_score_and_grade ($nutriscore_data_ref, $version = "2021")
 
 # methods returning the 2021 version for now, to ease switch, later on.
 sub get_value_with_one_less_negative_point ($nutriscore_data_ref, $nutrient) {
-
-	return get_value_with_one_less_negative_point_2021($nutriscore_data_ref, $nutrient);
+	return get_value_with_one_less_negative_point_2023($nutriscore_data_ref, $nutrient);
 }
 
 sub get_value_with_one_more_positive_point ($nutriscore_data_ref, $nutrient) {
-
-	return get_value_with_one_more_positive_point_2021($nutriscore_data_ref, $nutrient);
+	return get_value_with_one_more_positive_point_2023($nutriscore_data_ref, $nutrient);
 }
 
 sub compute_nutriscore_grade ($nutrition_score, $is_beverage, $is_water, $version = "2021") {
@@ -336,7 +334,7 @@ sub compute_nutriscore_score_2021 ($nutriscore_data_ref) {
 
 	foreach my $nutrient ("energy", $saturated_fat, "sodium", "fruits_vegetables_nuts_colza_walnut_olive_oils") {
 		if (defined $nutriscore_data_ref->{$nutrient}) {
-			$nutriscore_data_ref->{$nutrient . "_value"} = int($nutriscore_data_ref->{$nutrient} * 10 + 0.5) / 10;
+			$nutriscore_data_ref->{$nutrient . "_value"} = 0 + int($nutriscore_data_ref->{$nutrient} * 10 + 0.5) / 10;
 		}
 		else {
 			$nutriscore_data_ref->{$nutrient . "_value"} = 0;
@@ -347,7 +345,7 @@ sub compute_nutriscore_score_2021 ($nutriscore_data_ref) {
 
 	foreach my $nutrient ("sugars", "fiber", "proteins") {
 		if (defined $nutriscore_data_ref->{$nutrient}) {
-			$nutriscore_data_ref->{$nutrient . "_value"} = int($nutriscore_data_ref->{$nutrient} * 100 + 0.5) / 100;
+			$nutriscore_data_ref->{$nutrient . "_value"} = 0 + int($nutriscore_data_ref->{$nutrient} * 100 + 0.5) / 100;
 		}
 		else {
 			$nutriscore_data_ref->{$nutrient . "_value"} = 0;
@@ -359,7 +357,7 @@ sub compute_nutriscore_score_2021 ($nutriscore_data_ref) {
 	if (   (($nutriscore_data_ref->{"sugars_value"} - int($nutriscore_data_ref->{"sugars_value"})) > 0.9)
 		or (($nutriscore_data_ref->{"sugars_value"} - int($nutriscore_data_ref->{"sugars_value"})) < 0.1))
 	{
-		$nutriscore_data_ref->{"sugars_value"} = int(($nutriscore_data_ref->{"sugars"} // 0) * 10 + 0.5) / 10;
+		$nutriscore_data_ref->{"sugars_value"} = 0 + int(($nutriscore_data_ref->{"sugars"} // 0) * 10 + 0.5) / 10;
 	}
 
 	# Compute the negative and positive points

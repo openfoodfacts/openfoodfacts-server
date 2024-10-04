@@ -11,6 +11,10 @@ use File::Basename "dirname";
 
 use Storable qw(dclone);
 
+use ProductOpener::Cache qw/$memd/;
+# We need to flush memcached so that cached queries from other tests (e.g. web_html.t) don't interfere with this test
+$memd->flush_all;
+
 remove_all_users();
 
 remove_all_products();

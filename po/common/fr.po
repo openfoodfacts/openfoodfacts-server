@@ -3928,11 +3928,11 @@ msgstr "Sucres"
 
 msgctxt "nutriscore_points_for_saturated_fat"
 msgid "Saturated fat"
-msgstr "Graisses saturées"
+msgstr "Acides gras saturés"
 
 msgctxt "nutriscore_points_for_saturated_fat_ratio"
 msgid "Saturated fat / fat ratio"
-msgstr "Ratio matières grasses saturées / matières grasses"
+msgstr "Ratio acides gras saturés / matières grasses"
 
 msgctxt "nutriscore_points_for_sodium"
 msgid "Sodium"
@@ -4648,7 +4648,7 @@ msgstr "Le taux de graisse est pris en compte par le Nutri-Score. Utilisez ce pa
 
 msgctxt "attribute_low_saturated_fat_setting_note"
 msgid "The saturated fat level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low saturated fat diet."
-msgstr "Le taux de graisses saturées est pris en compte par le Nutri-Score. Utilisez ce paramètre uniquement si vous suivez un régime alimentaire faible en graisses saturées."
+msgstr "Le taux d'acides gras saturés est pris en compte par le Nutri-Score. Utilisez ce paramètre uniquement si vous suivez un régime alimentaire faible en acides gras saturés."
 
 msgctxt "attribute_group_allergens_name"
 msgid "Allergens"
@@ -4957,21 +4957,21 @@ msgctxt "ecoscore_information"
 msgid "Information about the Eco-score"
 msgstr "Information sur l'Eco-score"
 
-msgctxt "preferences_edit_your_food_preferences"
-msgid "Edit your food preferences"
-msgstr "Modifier vos préférences alimentaires"
-
-msgctxt "preferences_your_preferences"
-msgid "Your food preferences"
-msgstr "Vos préférences alimentaires"
-
 msgctxt "preferences_currently_selected_preferences"
 msgid "Currently selected preferences"
 msgstr "Préférences actuellement sélectionnées"
 
 msgctxt "preferences_locally_saved"
-msgid "Your food preferences are kept in your browser and never sent to Open Food Facts or anyone else."
-msgstr "Vos préférences alimentaires sont conservées dans votre navigateur et ne sont jamais envoyées à Open Food Facts ou à quiconque."
+msgid "Your preferences are kept in your browser and never sent to Open Food Facts or anyone else."
+msgstr "Vos préférences sont conservées dans votre navigateur et ne sont jamais envoyées à Open Food Facts ou à quiconque."
+
+msgctxt "preferences_edit_your_preferences"
+msgid "Edit your preferences"
+msgstr "Modifiez vos préférences"
+
+msgctxt "preferences_your_preferences"
+msgid "Your preferences"
+msgstr "Vos préférences"
 
 # used in phrases like "salt in unknown quantity"
 msgctxt "unknown_quantity"
@@ -5802,8 +5802,21 @@ msgstr "Empreinte carbone"
 
 # variable names between { } must not be translated
 msgctxt "f_carbon_footprint_per_100g_of_product"
-msgid "{grams} g CO² per 100g of product"
-msgstr "{grams} g de CO² pour 100g de produit"
+msgid "{grams} g CO₂e per 100g of product"
+msgstr "{grams} g CO₂e pour 100g de produit"
+
+# variable names between { } must not be translated
+msgctxt "f_carbon_footprint_per_unit"
+msgid "{kilograms} kg CO₂e per unit"
+msgstr "{kilograms} kg CO₂e par unité"
+
+msgctxt "average_for_the_category"
+msgid "average for the category"
+msgstr "moyenne pour la catégorie"
+
+msgctxt "data_source_and_detailed_carbon_impact"
+msgid "Data source and detailed carbon impact"
+msgstr "Source des données et détail de l'impact carbone"
 
 # variable names between { } must not be translated
 msgctxt "f_equal_to_driving_km_in_a_petrol_car"
@@ -5893,6 +5906,10 @@ msgstr "La catégorie du produit doit être spécifiée afin de calculer le Nutr
 msgctxt "nutriscore_missing_nutrition_data"
 msgid "The nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr "Les données nutritionnelles du produit doivent être spécifiées afin de calculer le Nutri-Score."
+
+msgctxt "nutriscore_missing_nutrition_data_details"
+msgid "Missing nutrition facts:"
+msgstr "Données nutritionnelles manquantes :"
 
 msgctxt "nutriscore_missing_category_and_nutrition_data"
 msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
@@ -6297,15 +6314,15 @@ msgstr "Choisissez des produits à faible teneur en sucre et réduisez la consom
 
 msgctxt "nutrient_info_fat_and_saturated_fat_risk"
 msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
-msgstr "Une consommation élevée de graisses, en particulier de graisses saturées, peut augmenter le cholestérol, ce qui augmente le risque de maladies cardiaques."
+msgstr "Une consommation élevée de matières grasses, en particulier d'acides gras saturés, peut augmenter le cholestérol, ce qui augmente le risque de maladies cardiaques."
 
 msgctxt "nutrient_recommendation_fat_and_saturated_fat_title"
 msgid "Reduce the consumption of fat and saturated fat"
-msgstr "Réduire la consommation de graisses et de graisses saturées"
+msgstr "Réduire la consommation de matières grasses et d'acides gras saturés"
 
 msgctxt "nutrient_recommendation_fat_and_saturated_fat"
 msgid "Choose products with lower fat and saturated fat content."
-msgstr "Choisissez des produits à faible teneur en graisses et en graisses saturées."
+msgstr "Choisissez des produits à faible teneur en matières grasses et en acides gras saturés."
 
 msgctxt "sign_in"
 msgid "Sign in"
@@ -6570,7 +6587,7 @@ msgstr "Les sucres ne doivent pas être supérieurs aux glucides."
 
 msgctxt "product_js_saturated_fat_warning"
 msgid "Saturated fat should not be higher than fat."
-msgstr "Les graisses saturées ne doivent pas être plus élevées que les graisses."
+msgstr "Les acides gras saturés ne doivent pas être plus élevées que les matières grasses."
 
 msgctxt "packaging_materials"
 msgid "Packaging materials"
@@ -6646,7 +6663,7 @@ msgstr "Énergie"
 
 msgctxt "nutriscore_component_energy_from_saturated_fat"
 msgid "Energy from saturated fat"
-msgstr "Energie provenant des graisses saturées"
+msgstr "Energie provenant des acides gras saturés"
 
 msgctxt "nutriscore_component_sugars"
 msgid "Sugars"
@@ -6654,11 +6671,11 @@ msgstr "Sucres"
 
 msgctxt "nutriscore_component_saturated_fat"
 msgid "Saturated fat"
-msgstr "Graisses saturées"
+msgstr "Acides gras saturés"
 
 msgctxt "nutriscore_component_saturated_fat_ratio"
 msgid "Saturated fat / fat"
-msgstr "Matières grasses saturées / matières grasses"
+msgstr "Acides gras saturés / matières grasses"
 
 msgctxt "nutriscore_component_salt"
 msgid "Salt"
@@ -6670,7 +6687,7 @@ msgstr "Edulcorants non-nutritifs"
 
 msgctxt "nutriscore_component_fruits_vegetables_legumes"
 msgid "Fruits, vegetables and legumes"
-msgstr "Fruits, légumes et légumineuses"
+msgstr "Fruits, légumes et légumes secs"
 
 msgctxt "nutriscore_component_fiber"
 msgid "Fiber"
@@ -6754,15 +6771,15 @@ msgstr "Les apports énergétiques supérieurs aux besoins énergétiques sont a
 
 msgctxt "nutrient_info_saturated_fat_risk"
 msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
-msgstr "Une consommation élevée de graisses, en particulier de graisses saturées, peut augmenter le cholestérol, ce qui augmente le risque de maladies cardiaques."
+msgstr "Une consommation élevée de matières grasses, en particulier d'acides gras saturés, peut augmenter le cholestérol, ce qui augmente le risque de maladies cardiaques."
 
 msgctxt "nutrient_info_saturated_fat_ratio_risk"
 msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
-msgstr "Une consommation élevée de graisses, en particulier de graisses saturées, peut augmenter le cholestérol, ce qui augmente le risque de maladies cardiaques."
+msgstr "Une consommation élevée de matières grasses, en particulier d'acides gras saturés, peut augmenter le cholestérol, ce qui augmente le risque de maladies cardiaques."
 
 msgctxt "nutrient_info_energy_from_saturated_fat_risk"
 msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
-msgstr "Une consommation élevée de graisses, en particulier de graisses saturées, peut augmenter le cholestérol, ce qui augmente le risque de maladies cardiaques."
+msgstr "Une consommation élevée de matières grasses, en particulier d'acides gras saturés, peut augmenter le cholestérol, ce qui augmente le risque de maladies cardiaques."
 
 msgctxt "nutrient_info_non_nutritive_sweeteners_risk"
 msgid "Non-nutritive sweeteners may not confer any long-term benefit in reducing body fat in adults or children. There may be potential undesirable effects from long-term use of non-nutritive sweeteners, such as an increased risk of type 2 diabetes and cardiovascular diseases in adults."
@@ -6774,7 +6791,7 @@ msgstr "Consommer des aliments riches en fibres (notamment les aliments à grain
 
 msgctxt "nutrient_info_fruits_vegetables_legumes_benefit"
 msgid "Consuming foods rich in fruits, vegetables and legumes reduces the risks of aerodigestive cancers, cardiovascular diseases, obesity and diabetes."
-msgstr "Consommer des aliments riches en fruits, légumes et légumineuses réduit les risques de cancers aérodigestifs, de maladies cardiovasculaires, d’obésité et de diabète."
+msgstr "Consommer des aliments riches en fruits, légumes et légumes secs réduit les risques de cancers aérodigestifs, de maladies cardiovasculaires, d’obésité et de diabète."
 
 msgctxt "nutrient_info_proteins_benefit"
 msgid "Foods that are rich in proteins are usually rich in calcium or iron which are essential minerals with numerous health benefits."
@@ -6813,6 +6830,10 @@ msgstr "édulcorants"
 msgctxt "sweetener"
 msgid "sweetener"
 msgstr "édulcorant"
+
+msgctxt "skip_to_content"
+msgid "Skip to Content"
+msgstr "Aller au contenu"
 
 #. make sure the text file exists for your language, otherwise ask @teolemon 
 msgctxt "get_the_app_link_off"
@@ -6915,3 +6936,118 @@ msgstr "AQUA / EAU, LAURETH SULFATE DE SODIUM, COCOAMPHODIACETATE DISODIQUE, DIS
 msgctxt "report_problem_navigation"
 msgid "Signaler un problème"
 msgstr "Signaler un problème"
+
+msgctxt "created_by"
+msgid "Créé par"
+msgstr "Créé par"
+
+msgctxt "org_id"
+msgid "Org id"
+msgstr "Org id"
+
+msgctxt "verified_status"
+msgid "Statut vérifié"
+msgstr "Statut vérifié"
+
+msgctxt "creation_date"
+msgid "Date de création"
+msgstr "Date de création"
+
+msgctxt "last_login"
+msgid "Date de dernière connexion"
+msgstr "Date de dernière connexion"
+
+msgctxt "last_import"
+msgid "Dernière date d'importation"
+msgstr "Dernière date d'importation"
+
+msgctxt "drop_a_file"
+msgid "Drop"
+msgstr "Glissez"
+
+msgctxt "select_product_data_file"
+msgid "Select a file with product data"
+msgstr "Choisissez un fichier avec les données des produits"
+
+msgctxt "organization_list"
+msgid "Organization list"
+msgstr "Liste des organisations"
+
+msgctxt "open_org"
+msgid "Open org"
+msgstr "Voir l'org."
+
+msgctxt "secondhand"
+msgid "Secondhand"
+msgstr "Deuxième main"
+
+msgctxt "donated_products_title"
+msgid "Donations"
+msgstr "Dons"
+
+msgctxt "donated_products_subtitle"
+msgid "Give this product, or search for a similar donated product"
+msgstr "Donnez ce produit, ou recherchez un produit similaire donné"
+
+msgctxt "used_products_title"
+msgid "Used products"
+msgstr "Produits d'occasion"
+
+msgctxt "used_products_subtitle"
+msgid "Buy this product used, or search for a similar used product"
+msgstr "Achetez ce produit d'occasion, ou recherchez un produit d'occasion similaire"
+
+msgctxt "attribute_repairability_index_france_name"
+msgid "Repairability index"
+msgstr "Indice de réparabilité"
+
+msgctxt "attribute_repairability_index_france_setting_name"
+msgid "Good repairability"
+msgstr "Bonne réparabilité"
+
+msgctxt "attribute_repairability_index_france_setting_note"
+msgid "Mandatory rating in France for certain products since 2021"
+msgstr "Note sur 10 obligatoire en France pour certains produits depuis 2021"
+
+# keep %s, it will be replaced by the letter A, B, C, D or E
+msgctxt "attribute_repairability_index_france_grade_title"
+msgid "Repairability index %s"
+msgstr "Indice de réparabilité %s"
+
+msgctxt "attribute_repairability_index_france_unknown_title"
+msgid "repairability index unknown"
+msgstr "Indice de réparabilité inconnu"
+
+msgctxt "attribute_repairability_index_france_not_applicable_title"
+msgid "Repairability index not-applicable"
+msgstr "Indice de réparabilité non applicable"
+
+msgctxt "attribute_repairability_index_france_not_applicable_description_short"
+msgid "Not-applicable for the category"
+msgstr "Non applicable pour la catégorie"
+
+# variable names between { } must not be translated
+msgctxt "f_attribute_repairability_index_france_not_applicable_description"
+msgid "Applicable only for categories: {categories}"
+msgstr "Applicable seulement aux catégories : {categories}"
+
+msgctxt "attribute_repairability_index_france_very_good_description_short"
+msgid "Very good repairability"
+msgstr "Très bonne réparabilité"
+
+msgctxt "attribute_repairability_index_france_good_description_short"
+msgid "Good repairability"
+msgstr "Bonne réparabilité"
+
+msgctxt "attribute_repairability_index_france_average_description_short"
+msgid "Average repairability"
+msgstr "Moyenne réparabilité"
+
+msgctxt "attribute_repairability_index_france_poor_description_short"
+msgid "Poor repairability"
+msgstr "Mauvaise réparabilité"
+
+msgctxt "attribute_repairability_index_france_bad_description_short"
+msgid "Bad repairability"
+msgstr "Très mauvaise réparabilité"
+

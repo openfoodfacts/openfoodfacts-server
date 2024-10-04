@@ -36,22 +36,19 @@ my $image_dir = "$www_root/images/products/$product_code_path";
 dircopy("$sample_products_images_path/$product_code_path", $image_dir);
 # add an image
 fcopy($input_image_path, "$image_dir/2.jpg");
-# fake responses for OCR and robtoff
-my @responses = (
-	HTTP::Response->new("200", "OK", HTTP::Headers->new(), '{"responses": [{}]}'),
-	HTTP::Response->new("200", "OK", HTTP::Headers->new(), '{"robotoff": "success"}'),
-);
+# fake responses for OCR
+my @responses = (HTTP::Response->new("200", "OK", HTTP::Headers->new(), '{"responses": [{}]}'),);
 my $dump_path = File::Temp->newdir();
 # start fake server
 my $httpd = fake_http_server(8881, $dump_path, \@responses);
 # link image - this should trigger the script
 symlink("$image_dir/2.jpg", "$data_root/new_images/" . time() . "." . "3000000000001.other.2.jpg");
 # wait until we got a response or fail
-ok(wait_for(sub {return (-e "$dump_path/req-1.sto");}, 5), "OCR and robotoff called");
+ok(wait_for(sub {return (-e "$dump_path/req-0.sto");}, 5), "OCR called");
 $httpd = undef;    # stop server
 # verify it's done
 my @requests = glob("$dump_path/req-*.sto");
-is(scalar @requests, 2, "Two request issued");
+is(scalar @requests, 1, "One request issued");
 my $ocr_request = retrieve("$dump_path/req-0.sto");
 my $request_json_body = decode_json($ocr_request->content());
 compare_to_expected_results($request_json_body, "$expected_result_dir/ocr_request_body.json", $update_expected_results);
@@ -59,11 +56,6 @@ my $ocr_content = read_gzip_file("$image_dir/2.json.gz");
 ok($ocr_content, "OCR file is not empty");
 my $ocr_data = decode_json($ocr_content);
 check_ocr_result($ocr_data);
-my $robotoff_request = retrieve("$dump_path/req-1.sto");
-# we have url encoded parameters, and order might change --> convert to hash
-my $request_content = url_params_mixed($robotoff_request->content());
-compare_to_expected_results($request_content, "$expected_result_dir/robotoff_request_body.json",
-	$update_expected_results);
 
 done_testing();
 

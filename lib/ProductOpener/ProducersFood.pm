@@ -297,15 +297,17 @@ sub detect_possible_improvements_nutriscore_2023 ($product_ref) {
 					my $more_or_less = ($component_type eq "negative") ? "less" : "more";
 
 					my $improvements_tag;
+					my $nutrient_dashes = $nutrient;
+					$nutrient_dashes =~ s/_/-/g;
 
 					if ($difference_percent <= 5) {
-						$improvements_tag = "en:better-nutri-score-with-slightly-$more_or_less-" . $nutrient;
+						$improvements_tag = "en:better-nutri-score-with-slightly-$more_or_less-" . $nutrient_dashes;
 					}
 					elsif ($difference_percent <= 10) {
-						$improvements_tag = "en:better-nutri-score-with-$more_or_less-" . $nutrient;
+						$improvements_tag = "en:better-nutri-score-with-$more_or_less-" . $nutrient_dashes;
 					}
 					elsif ($difference_percent <= 20) {
-						$improvements_tag = "en:better-nutri-score-with-much-$more_or_less-" . $nutrient;
+						$improvements_tag = "en:better-nutri-score-with-much-$more_or_less-" . $nutrient_dashes;
 					}
 
 					if ($improvements_tag) {

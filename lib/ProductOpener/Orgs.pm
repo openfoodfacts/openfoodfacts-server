@@ -56,6 +56,12 @@ BEGIN {
 		&set_org_gs1_gln
 
 		&org_name
+		&update_import_date
+		&update_export_date
+		&update_last_logged_in_member
+		&update_last_import_type
+		&accept_pending_user_in_org
+		&send_rejection_email
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -70,6 +76,9 @@ use ProductOpener::Mail qw/:all/;
 use ProductOpener::Lang qw/lang/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Tags qw/canonicalize_tag_link/;
+use ProductOpener::CRM qw/:all/;
+use ProductOpener::Users qw/retrieve_user store_user $User_id %User/;
+use ProductOpener::Data qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
@@ -158,14 +167,41 @@ sub store_org ($org_ref) {
 	defined $org_ref->{org_id} or die("Missing org_id");
 
 	# retrieve eventual previous values
-	my $previous_org_ref = retrieve("$BASE_DIRS{ORGS}/" . $org_ref->{org_id} . ".sto");
+	my $previous_org_ref = retrieve("$BASE_DIRS{ORGS}/$org_ref->{org_id}.sto");
 
-	if ((defined $previous_org_ref) && !$previous_org_ref->{validated} && $org_ref->{validated}) {
-		# we switched on validated
-		# TODO: create org and its users in Odoo CRM
+	if (defined $org_ref->{creator}) {
+		my $creator_user_ref = retrieve_user($org_ref->{creator});
+		if (defined $creator_user_ref) {
+			my $creator_email = $creator_user_ref->{email};
+			if (defined $creator_email) {
+				$org_ref->{creator_email} = $creator_email;
+			}
+		}
 	}
 
+	if (   (defined $previous_org_ref)
+		&& ($previous_org_ref->{valid_org} ne 'accepted')
+		&& ($org_ref->{valid_org} eq 'accepted')
+		&& (not sync_org_with_crm($org_ref, $User_id)))
+	{
+		$org_ref->{valid_org} = 'unreviewed';
+	}
+
+	if (    defined $org_ref->{crm_org_id}
+		and exists $org_ref->{main_contact}
+		and $org_ref->{main_contact} ne $previous_org_ref->{main_contact}
+		and not change_company_main_contact($previous_org_ref, $org_ref->{main_contact}))
+	{
+		# fail -> revert main contact, so we don't lose sync with CRM if main contact cannot be changed
+		$org_ref->{main_contact} = $previous_org_ref->{main_contact};
+	}
+
+	# Store to file
 	store("$BASE_DIRS{ORGS}/" . $org_ref->{org_id} . ".sto", $org_ref);
+
+	# Store to MongoDB
+	my $orgs_collection = get_orgs_collection();
+	$orgs_collection->replace_one({"org_id" => $org_ref->{org_id}}, $org_ref, {upsert => 1});
 
 	return;
 }
@@ -185,17 +221,13 @@ or an admin that creates an org by assigning an user to it).
 
 Identifier for the org (without the "org-" prefix), or org name.
 
-=head4 boolean $validated
-
-Indicate if the org should be considered validated
-
 =head3 Return values
 
 This function returns a hash ref for the org.
 
 =cut
 
-sub create_org ($creator, $org_id_or_name, $validated = 0) {
+sub create_org ($creator, $org_id_or_name) {
 
 	my $org_id = get_string_id_for_lang("no_language", $org_id_or_name);
 
@@ -206,13 +238,14 @@ sub create_org ($creator, $org_id_or_name, $validated = 0) {
 		creator => $creator,
 		org_id => $org_id,
 		name => $org_id_or_name,
-		# indicates if the org was manually validated
-		validated => $validated,
+		valid_org => 'unreviewed',
 		# by default an org has its data protected
 		# we will remove this only if appears later not to be fair-play
 		protect_data => "on",
 		admins => {},
 		members => {},
+		main_contact => undef,
+		country => $country,
 	};
 
 	store_org($org_ref);
@@ -326,25 +359,26 @@ Reference to an array of group ids (e.g. ["admins", "members"])
 
 sub add_user_to_org ($org_id_or_ref, $user_id, $groups_ref) {
 
-	my $org_id;
-	my $org_ref;
+	my $org_ref = org_id_or_ref($org_id_or_ref);
 
-	if (ref($org_id_or_ref) eq "") {
-		$org_id = $org_id_or_ref;
-		$org_ref = retrieve_org($org_id);
-	}
-	else {
-		$org_ref = $org_id_or_ref;
-		$org_id = $org_ref->{org_id};
-	}
-
-	$log->debug("add_user_to_org",
-		{org_id => $org_id, org_ref => $org_ref, user_id => $user_id, groups_ref => $groups_ref})
+	$log->debug("add_user_to_org", {org_ref => $org_ref, user_id => $user_id, groups_ref => $groups_ref})
 		if $log->is_debug();
 
 	foreach my $group (@{$groups_ref}) {
 		(defined $org_ref->{$group}) or $org_ref->{$group} = {};
 		$org_ref->{$group}{$user_id} = 1;
+
+		# the first admin is main contact
+		if ($group eq "admins"
+			and (not exists $org_ref->{main_contact} or $org_ref->{main_contact} eq ''))
+		{
+			$org_ref->{main_contact} = $user_id;
+		}
+	}
+
+	# sync CRM
+	if ($org_ref->{valid_org} eq 'accepted') {
+		add_user_to_company($user_id, $org_ref->{crm_org_id});
 	}
 
 	store_org($org_ref);
@@ -374,24 +408,16 @@ Reference to an array of group ids (e.g. ["admins", "members"])
 
 sub remove_user_from_org ($org_id_or_ref, $user_id, $groups_ref) {
 
-	my $org_id;
-	my $org_ref;
+	my $org_ref = org_id_or_ref($org_id_or_ref);
 
-	if (ref($org_id_or_ref) eq "") {
-		$org_id = $org_id_or_ref;
-		$org_ref = retrieve_org($org_id);
-	}
-	else {
-		$org_ref = $org_id_or_ref;
-		$org_id = $org_ref->{org_id};
-	}
-
-	$log->debug("remove_user_from_org",
-		{org_id => $org_id, org_ref => $org_ref, user_id => $user_id, groups_ref => $groups_ref})
+	$log->debug("remove_user_from_org", {org_ref => $org_ref, user_id => $user_id, groups_ref => $groups_ref})
 		if $log->is_debug();
 
 	foreach my $group (@{$groups_ref}) {
 		if (defined $org_ref->{$group}) {
+			if ($group eq "members") {
+				remove_user_from_company($user_id, $org_ref->{crm_org_id});
+			}
 			delete $org_ref->{$group}{$user_id};
 		}
 	}
@@ -403,17 +429,7 @@ sub remove_user_from_org ($org_id_or_ref, $user_id, $groups_ref) {
 
 sub is_user_in_org_group ($org_id_or_ref, $user_id, $group_id) {
 
-	my $org_id;
-	my $org_ref;
-
-	if (ref($org_id_or_ref) eq "") {
-		$org_id = $org_id_or_ref;
-		$org_ref = retrieve_org($org_id);
-	}
-	else {
-		$org_ref = $org_id_or_ref;
-		$org_id = $org_ref->{org_id};
-	}
+	my $org_ref = org_id_or_ref($org_id_or_ref);
 
 	if (    (defined $user_id)
 		and (defined $org_ref)
@@ -428,7 +444,6 @@ sub is_user_in_org_group ($org_id_or_ref, $user_id, $group_id) {
 }
 
 sub org_name ($org_ref) {
-
 	if ((defined $org_ref->{name}) and ($org_ref->{name} ne "")) {
 		return $org_ref->{name};
 	}
@@ -438,8 +453,129 @@ sub org_name ($org_ref) {
 }
 
 sub org_url ($org_ref) {
-
 	return canonicalize_tag_link("orgs", $org_ref->{org_id});
+}
+
+sub update_import_date($org_id_or_ref, $time) {
+	my $org_ref = org_id_or_ref($org_id_or_ref);
+	$org_ref->{last_import_t} = $time;
+	store_org($org_ref);
+	update_last_import_date($org_ref, $time);
+	return;
+}
+
+sub update_export_date($org_id_or_ref, $time) {
+	my $org_ref = org_id_or_ref($org_id_or_ref);
+	$org_ref->{last_export_t} = $time;
+	store_org($org_ref);
+	update_last_export_date($org_ref, $time);
+	return;
+}
+
+sub send_rejection_email ($org_ref) {
+	# send org rejection email to main contact
+	my $main_contact_user = $org_ref->{main_contact};
+	my $user_ref = retrieve_user($main_contact_user);
+	if (not defined $user_ref) {
+		$log->warning("send_rejection_email", {error => "main contact user not found", org_ref => $org_ref})
+			if $log->is_warning();
+		return;
+	}
+
+	my $language = $user_ref->{preferred_language} || $user_ref->{initial_lc};
+	# if template does not exist in the requested language, use English
+	my $template_name = "org_rejected.tt.html";
+	my $template_path = "emails/$language/$template_name";
+	my $default_path = "emails/en/$template_name";
+	my $path = -e "$data_root/templates/$template_path" ? $template_path : $default_path;
+
+	my $template_data_ref = {
+		user => $user_ref,
+		org => $org_ref,
+	};
+
+	my $email = '';
+	my $res = process_template($path, $template_data_ref, \$email);
+	if ($email =~ s/^(\s*Subject:\s*(.*))\n//) {
+		my $subject = $2;
+		my $body = $email;
+		$body =~ s/^\n+//;
+		send_html_email($user_ref, $subject, $body);
+	}
+	$log->debug("send_rejection_email", {path => $path, email => $email, res => $res}) if $log->is_debug();
+	return;
+}
+
+sub update_last_logged_in_member($user_ref) {
+
+	my $org_id = $user_ref->{org_id} // $user_ref->{requested_org_id};
+	return if not defined $org_id;
+
+	my $org_ref = retrieve_org($org_id);
+	return if not defined $org_ref;
+	is_user_in_org_group($org_ref, $user_ref->{userid}, "members") or return;
+
+	$org_ref->{last_logged_member} = $user_ref->{userid};
+	$org_ref->{last_logged_member_t} = time();
+
+	if (defined $org_ref->{crm_org_id}) {
+		update_company_last_logged_in_contact($org_ref, $user_ref);
+	}
+
+	store_org($org_ref);
+	return;
+}
+
+=head2 update_last_import_type($orgid, $data_source)
+
+Update the last import type for an organization.
+
+=head3 Arguments
+
+=head4 $orgid
+
+=cut
+
+sub update_last_import_type ($org_id_or_ref, $data_source) {
+	my $org_ref = retrieve_org($org_id_or_ref);
+	$org_ref->{last_import_type} = $data_source;
+	update_company_last_import_type($org_ref, $data_source);
+	store_org($org_ref);
+	return;
+}
+
+sub accept_pending_user_in_org ($org_ref, $user_id) {
+	return if not is_user_in_org_group($org_ref, $user_id, "pending");
+	remove_user_from_org($org_ref, $user_id, ["pending"]);
+	add_user_to_org($org_ref, $user_id, ["members"]);
+
+	my $user_ref = retrieve_user($user_id);
+	$user_ref->{org} = $org_ref->{org_id};
+	$user_ref->{org_id} = $org_ref->{org_id};
+	delete $user_ref->{requested_org};
+	delete $user_ref->{requested_org_id};
+	store_user($user_ref);
+	return;
+}
+
+=head2 org_id_or_ref($org_id_or_ref)
+
+Systematically return the org_ref for a given org_id or org_ref.
+
+=cut
+
+sub org_id_or_ref ($org_id_or_ref) {
+	my $org_id;
+	my $org_ref;
+	if (ref($org_id_or_ref) eq "") {
+		$org_id = $org_id_or_ref;
+		$org_ref = retrieve_org($org_id);
+	}
+	else {
+		$org_ref = $org_id_or_ref;
+		$org_id = $org_ref->{org_id};
+	}
+	return $org_ref;
 }
 
 1;

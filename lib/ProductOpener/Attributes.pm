@@ -61,13 +61,15 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Tags qw/%level display_taxonomy_tag display_taxonomy_tag_name has_tag/;
+use ProductOpener::Tags
+	qw/%level display_taxonomy_tag display_taxonomy_tag_name has_tag get_inherited_property_from_tags/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/@nutrient_levels/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Lang qw/f_lang_in_lc lang lang_in_other_lc/;
 use ProductOpener::Display qw/$static_subdomain/;
 use ProductOpener::Ecoscore qw/:all/;
+use ProductOpener::ProductsFeatures qw/feature_enabled/;
 
 use Data::DeepAccess qw(deep_get);
 
@@ -96,9 +98,15 @@ $options{attribute_groups} = [
 # Build a hash of attribute groups to make it easier to retrieve all attributes of a specific group
 my %attribute_groups = ();
 
+# Build a hash of attributes to make it easier to retrieve all attributes
+my %attributes = ();
+
 if (defined $options{attribute_groups}) {
 	foreach my $attribute_group_ref (@{$options{attribute_groups}}) {
 		$attribute_groups{$attribute_group_ref->[0]} = $attribute_group_ref->[1];
+		foreach my $attribute_id (@{$attribute_group_ref->[1]}) {
+			$attributes{$attribute_id} = 1;
+		}
 	}
 }
 
@@ -158,6 +166,11 @@ sub list_attributes ($target_lc) {
 				foreach my $attribute_id (@{$attributes_ref}) {
 
 					my $attribute_ref = initialize_attribute($attribute_id, $target_lc);
+
+					# Add the possible values for the attribute
+					$attribute_ref->{values}
+						= deep_get(\%options, "attribute_values", $attribute_id) || $options{attribute_values_default};
+
 					push @{$group_ref->{attributes}}, $attribute_ref;
 				}
 
@@ -306,6 +319,9 @@ sub initialize_attribute ($attribute_id, $target_lc) {
 
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/${tag}.svg";
 	}
+	elsif ($attribute_id eq "repairability_index_france") {
+		$attribute_ref->{icon_url} = "$static_subdomain/images/lang/fr/labels/indice-de-reparabilite-10.152x90.svg";
+	}
 
 	# Initialize name and setting name if a language is requested
 
@@ -407,7 +423,7 @@ sub override_general_value ($attribute_ref, $target_lc, $field, $stringid) {
 	return;
 }
 
-=head2 compute_attribute_nutriscore ( $product_ref, $target_lc )
+=head2 compute_attribute_nutriscore ( $product_ref, $target_lc, $target_cc )
 
 Computes a nutritional quality attribute based on the Nutri-Score.
 
@@ -421,6 +437,11 @@ Loaded from the MongoDB database, Storable files, or the OFF API.
 
 Returned attributes contain both data and strings intended to be displayed to users.
 This parameter sets the desired language for the user facing strings.
+
+=head4 country code $target_cc
+
+Different countries can have different versions of the Nutri-Score at a given time.
+e.g. in early 2024, France does not use the new Nutri-Score 2023 yet, while other countries do.
 
 =head3 Return value
 
@@ -436,10 +457,15 @@ that is used to define the Nutri-Score grade from A to E.
 
 =cut
 
-sub compute_attribute_nutriscore ($product_ref, $target_lc) {
+sub compute_attribute_nutriscore ($product_ref, $target_lc, $target_cc) {
+
+	my $version = "2023";
+	if ($target_cc eq "fr") {
+		$version = "2021";
+	}
 
 	$log->debug("compute nutriscore attribute",
-		{code => $product_ref->{code}, nutriscore_data => $product_ref->{nutriscore_data}})
+		{code => $product_ref->{code}, version => $version, nutriscore => $product_ref->{nutriscore}{$version}})
 		if $log->is_debug();
 
 	my $attribute_id = "nutriscore";
@@ -450,11 +476,12 @@ sub compute_attribute_nutriscore ($product_ref, $target_lc) {
 	if ((defined $product_ref->{nutriscore_grade}) and ($product_ref->{nutriscore_grade} =~ /^[a-e]$/)) {
 		$attribute_ref->{status} = "known";
 
-		my $nutriscore_data_ref = $product_ref->{nutriscore_data};
-		my $is_beverage = $nutriscore_data_ref->{is_beverage};
-		my $is_water = $nutriscore_data_ref->{is_water};
-		my $nutrition_score = $nutriscore_data_ref->{score};
-		my $grade = $nutriscore_data_ref->{grade};
+		my $nutriscore_ref = $product_ref->{nutriscore}{$version};
+
+		my $is_beverage = $nutriscore_ref->{data}{is_beverage};
+		my $is_water = $nutriscore_ref->{data}{is_water};
+		my $nutrition_score = $nutriscore_ref->{score};
+		my $grade = $nutriscore_ref->{grade};
 
 		$log->debug(
 			"compute nutriscore attribute - known",
@@ -568,6 +595,17 @@ sub compute_attribute_nutriscore ($product_ref, $target_lc) {
 			$attribute_ref->{description_short}
 				= lang_in_other_lc($target_lc, "attribute_nutriscore_unknown_description_short");
 		}
+	}
+
+	# Show the temporary "new calculation" icon
+	# and link to the new Nutri-Score 2023 panel
+	if ($version eq "2023") {
+		my $logo_lc = "en";
+		if ($target_lc =~ /^de|fr|lb|nl$/) {
+			$logo_lc = $target_lc;
+		}
+		$attribute_ref->{icon_url} =~ s/\.svg$/-new-${logo_lc}.svg/;
+		$attribute_ref->{panel_id} = "nutriscore_2023";
 	}
 
 	return $attribute_ref;
@@ -1025,7 +1063,7 @@ sub compute_attribute_has_tag ($product_ref, $target_lc, $tagtype, $tagid) {
 
 	# If we don't have any tags for the tagtype, mark the status unknown (e.g. new products)
 
-	if ((not defined $product_ref->{$tagtype . "_tags"}) or ($product_ref->{$tagtype . "_tags"} == 0)) {
+	if ((not defined $product_ref->{$tagtype . "_tags"}) or (scalar(@{$product_ref->{$tagtype . "_tags"}} == 0))) {
 
 		$attribute_ref->{status} = "unknown";
 		$value = "unknown";
@@ -1155,15 +1193,15 @@ sub compute_attribute_nutrient_level ($product_ref, $target_lc, $level, $nid) {
 
 			my $match;
 
-			if ($value < $low) {
+			if (defined $value and $value < $low) {
 				$match = 80 + 20 * ($low - $value) / $low;
 				$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/nutrient-level-$nid-low.svg";
 			}
-			elsif ($value <= $high) {
+			elsif (defined $value and $value <= $high) {
 				$match = 20 + 60 * ($high - $value) / ($high - $low);
 				$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/nutrient-level-$nid-medium.svg";
 			}
-			elsif ($value < $high * 2) {
+			elsif (defined $value and $value < $high * 2) {
 				$match = 20 * ($high * 2 - $value) / $high;
 				$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/nutrient-level-$nid-high.svg";
 			}
@@ -1180,10 +1218,10 @@ sub compute_attribute_nutrient_level ($product_ref, $target_lc, $level, $nid) {
 					display_taxonomy_tag($target_lc, "nutrients", "zz:$nid"),
 					lang_in_other_lc($target_lc, $product_ref->{nutrient_levels}{$nid} . "_quantity")
 				);
-				$attribute_ref->{description_short} = sprintf(
-					lang_in_other_lc($target_lc, 'g_per_100g'),
-					(sprintf('%.2e', $product_ref->{nutriments}{$nid . $prepared . '_100g'}) + 0.0)
-				);
+				if (defined $value) {
+					$attribute_ref->{description_short}
+						= sprintf(lang_in_other_lc($target_lc, 'g_per_100g'), (sprintf('%.2e', $value) + 0.0));
+				}
 			}
 		}
 	}
@@ -1634,57 +1672,68 @@ sub compute_attributes ($product_ref, $target_lc, $target_cc, $options_ref) {
 
 	# Nutritional quality
 
-	$attribute_ref = compute_attribute_nutriscore($product_ref, $target_lc);
-	add_attribute_to_group($product_ref, $target_lc, "nutritional_quality", $attribute_ref);
-
-	foreach my $nutrient ("salt", "fat", "sugars", "saturated-fat") {
-		$attribute_ref = compute_attribute_nutrient_level($product_ref, $target_lc, "low", $nutrient);
+	if (defined $attribute_groups{"nutritional_quality"}) {
+		$attribute_ref = compute_attribute_nutriscore($product_ref, $target_lc, $target_cc);
 		add_attribute_to_group($product_ref, $target_lc, "nutritional_quality", $attribute_ref);
+
+		foreach my $nutrient ("salt", "fat", "sugars", "saturated-fat") {
+			$attribute_ref = compute_attribute_nutrient_level($product_ref, $target_lc, "low", $nutrient);
+			add_attribute_to_group($product_ref, $target_lc, "nutritional_quality", $attribute_ref);
+		}
 	}
 
 	# Allergens
-	foreach my $allergen_attribute_id (@{$attribute_groups{"allergens"}}) {
-		$attribute_ref = compute_attribute_allergen($product_ref, $target_lc, $allergen_attribute_id);
-		add_attribute_to_group($product_ref, $target_lc, "allergens", $attribute_ref);
+	if (defined $attribute_groups{"allergens"}) {
+		foreach my $allergen_attribute_id (@{$attribute_groups{"allergens"}}) {
+			$attribute_ref = compute_attribute_allergen($product_ref, $target_lc, $allergen_attribute_id);
+			add_attribute_to_group($product_ref, $target_lc, "allergens", $attribute_ref);
+		}
 	}
 
 	# Ingredients analysis
-	foreach my $analysis ("vegan", "vegetarian", "palm-oil-free") {
-		$attribute_ref = compute_attribute_ingredients_analysis($product_ref, $target_lc, $analysis);
-		add_attribute_to_group($product_ref, $target_lc, "ingredients_analysis", $attribute_ref);
+	if (defined $attribute_groups{"ingredients_analysis"}) {
+		foreach my $analysis ("vegan", "vegetarian", "palm-oil-free") {
+			$attribute_ref = compute_attribute_ingredients_analysis($product_ref, $target_lc, $analysis);
+			add_attribute_to_group($product_ref, $target_lc, "ingredients_analysis", $attribute_ref);
+		}
 	}
 
 	# Processing
 
-	$attribute_ref = compute_attribute_nova($product_ref, $target_lc);
-	add_attribute_to_group($product_ref, $target_lc, "processing", $attribute_ref);
+	if (defined $attribute_groups{"processing"}) {
+		$attribute_ref = compute_attribute_nova($product_ref, $target_lc);
+		add_attribute_to_group($product_ref, $target_lc, "processing", $attribute_ref);
 
-	$attribute_ref = compute_attribute_additives($product_ref, $target_lc);
-	add_attribute_to_group($product_ref, $target_lc, "processing", $attribute_ref);
+		$attribute_ref = compute_attribute_additives($product_ref, $target_lc);
+		add_attribute_to_group($product_ref, $target_lc, "processing", $attribute_ref);
+	}
 
 	# Environment
 
-	if (   (not defined $options_ref)
-		or (not defined $options_ref->{skip_ecoscore})
-		or (not $options_ref->{skip_ecoscore}))
-	{
+	if (feature_enabled("ecoscore")) {
 		$attribute_ref = compute_attribute_ecoscore($product_ref, $target_lc, $target_cc);
 		add_attribute_to_group($product_ref, $target_lc, "environment", $attribute_ref);
 	}
 
-	if (   (not defined $options_ref)
-		or (not defined $options_ref->{skip_forest_footprint})
-		or (not $options_ref->{skip_forest_footprint}))
-	{
+	if (feature_enabled("forest_footprint")) {
 		$attribute_ref = compute_attribute_forest_footprint($product_ref, $target_lc);
+		add_attribute_to_group($product_ref, $target_lc, "environment", $attribute_ref);
+	}
+
+	if (defined $attributes{"repairability_index_france"}) {
+		$attribute_ref = compute_attribute_repairability_index_france($product_ref, $target_lc, $target_cc);
 		add_attribute_to_group($product_ref, $target_lc, "environment", $attribute_ref);
 	}
 
 	# Labels groups
 
-	foreach my $label_id ("en:organic", "en:fair-trade") {
+	if (defined $attributes{"labels_organic"}) {
+		$attribute_ref = compute_attribute_has_tag($product_ref, $target_lc, "labels", "en:organic");
+		add_attribute_to_group($product_ref, $target_lc, "labels", $attribute_ref);
+	}
 
-		$attribute_ref = compute_attribute_has_tag($product_ref, $target_lc, "labels", $label_id);
+	if (defined $attributes{"labels_fair_trade"}) {
+		$attribute_ref = compute_attribute_has_tag($product_ref, $target_lc, "labels", "en:fair-trade");
 		add_attribute_to_group($product_ref, $target_lc, "labels", $attribute_ref);
 	}
 
@@ -1697,6 +1746,131 @@ sub compute_attributes ($product_ref, $target_lc, $target_cc, $options_ref) {
 		}
 	) if $log->is_debug();
 	return;
+}
+
+=head2 compute_attribute_repairability_index_france ( $product_ref, $target_lc, $target_cc )
+
+Compute the repairability index attribute for France.
+
+=head3 Arguments
+
+=head4 product reference $product_ref
+
+Loaded from the MongoDB database, Storable files, or the OFF API.
+
+=head4 language code $target_lc
+
+Returned attributes contain both data and strings intended to be displayed to users.
+
+=head4 country code $target_cc
+
+The repairability index is specific to France.
+
+=head3 Return value
+
+The return value is a reference to the resulting attribute data structure.
+
+=head4 % Match
+
+- 10x the repairability index value (from 0 to 10)
+- 0% if the product does not have a repairability index value
+
+=cut
+
+sub compute_attribute_repairability_index_france ($product_ref, $target_lc, $target_cc) {
+
+	$log->debug("compute repairability index attribute",
+		{code => $product_ref->{code}, ecoscore_data => $product_ref->{labels_tags}})
+		if $log->is_debug();
+
+	my $attribute_id = "repairability_index_france";
+
+	my $attribute_ref = initialize_attribute($attribute_id, $target_lc);
+
+	$attribute_ref->{status} = "unknown";
+
+	# Check if the product has a label indicating the repairability index
+	# with a repairability_index_france_value:en: property
+
+	my ($value, $label_tag)
+		= get_inherited_property_from_tags("labels", $product_ref->{labels_tags},
+		"repairability_index_france_value:en");
+	if (defined $value) {
+		$attribute_ref->{status} = "known";
+		my $value_dash = $value;
+		$value_dash =~ s/\./-/;
+		# Compute match based on the repairability index value (from 0 to 10)
+		$attribute_ref->{match} = $value * 10;
+		$attribute_ref->{icon_url}
+			= "$static_subdomain/images/lang/fr/labels/indice-de-reparabilite-$value_dash.152x90.svg";
+		if ($target_lc ne "data") {
+			$attribute_ref->{title} = display_taxonomy_tag($target_lc, "labels", $label_tag);
+			my $value_description = "bad";
+			if ($value >= 8) {
+				$value_description = "very_good";
+			}
+			elsif ($value >= 6) {
+				$value_description = "good";
+			}
+			elsif ($value >= 4) {
+				$value_description = "average";
+			}
+			elsif ($value >= 2) {
+				$value_description = "bad";
+			}
+			$attribute_ref->{description_short}
+				= lang_in_other_lc($target_lc,
+				"attribute_repairability_index_france_" . $value_description . "_description_short");
+
+		}
+	}
+	# Check if the product is in an applicable category
+	# (smartphones, laptops, electric lawn mowers, dishwashers, vacuum cleaners and high-pressure cleaners)
+	# https://www.ecologie.gouv.fr/politiques-publiques/indice-reparabilite#lobjectif-de-lindice-0
+	elsif (
+		not(
+			(defined $product_ref->{categories_tags}) and (
+				scalar(
+					grep {
+						$_
+							=~ /en:(smartphones|laptops|electric-lawn-mowers|dishwashers|vacuum-cleaners|high-pressure-cleaners)/
+					} @{$product_ref->{categories_tags}}
+				)
+			)
+		)
+		)
+	{
+		$attribute_ref->{icon_url}
+			= "$static_subdomain/images/lang/fr/labels/indice-de-reparabilite-non-applicable.152x90.svg";
+		if ($target_lc ne "data") {
+			$attribute_ref->{title}
+				= lang_in_other_lc($target_lc, "attribute_repairability_index_france_not_applicable_title");
+			$attribute_ref->{description_short}
+				= lang_in_other_lc($target_lc, "attribute_repairability_index_france_not_applicable_description_short");
+			$attribute_ref->{description} = f_lang_in_lc(
+				$target_lc,
+				"f_attribute_repairability_index_france_not_applicable_description",
+				{
+					categories => join(',',
+						map {display_taxonomy_tag($target_lc, "categories", $_)} "en:smartphones",
+						"en:laptops", "en:electric-lawn-mowers", "en:dishwashers",
+						"en:vacuum-cleaners", "en:high-pressure-cleaners")
+				}
+			);
+		}
+	}
+	else {
+		$attribute_ref->{icon_url}
+			= "$static_subdomain/images/lang/fr/labels/indice-de-reparabilite-inconnu.152x90.svg";
+		if ($target_lc ne "data") {
+			$attribute_ref->{title}
+				= lang_in_other_lc($target_lc, "attribute_repairability_index_france_unknown_title");
+			$attribute_ref->{description_short}
+				= lang_in_other_lc($target_lc, "attribute_repairability_index_france_unknown_description_short");
+		}
+	}
+
+	return $attribute_ref;
 }
 
 1;

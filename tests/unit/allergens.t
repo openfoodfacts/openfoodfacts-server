@@ -6,11 +6,12 @@ use utf8;
 use Test2::V0;
 use Data::Dumper;
 $Data::Dumper::Terse = 1;
+$Data::Dumper::Sortkeys = 1;
 use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Products qw/compute_languages/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Ingredients qw/detect_allergens_from_text/;
+use ProductOpener::Ingredients qw/detect_allergens_from_text get_allergens_taxonomyid/;
 
 # dummy product for testing
 
@@ -534,5 +535,18 @@ detect_allergens_from_text($product_ref);
 diag Dumper $product_ref->{allergens_tags};
 
 is($product_ref->{allergens_tags}, ['en:gluten', 'en:soybeans',]) || diag Dumper $product_ref->{allergens_tags};
+
+# Get an allergens id from the allergens taxonomy
+is(get_allergens_taxonomyid("en", "egg"), "en:eggs");
+is(get_allergens_taxonomyid("fr", "fromage"), "en:milk");
+is(get_allergens_taxonomyid("en", "tuna"), "en:fish");
+# Get an allergens id from the ingredients taxonomy, using the allergens:en: property
+is(get_allergens_taxonomyid("en", "monkfish"), "en:fish");
+is(get_allergens_taxonomyid("en", "en:monkfish"), "en:fish");
+is(get_allergens_taxonomyid("es", "en:monkfish"), "en:fish");
+# Ingredients that are not in the allergens taxonomy
+is(get_allergens_taxonomyid("en", "pineapple"), "pineapple");
+# Ingredients that are not the ingredients taxonomy
+is(get_allergens_taxonomyid("en", "some very strange ingredient"), "some-very-strange-ingredient");
 
 done_testing();

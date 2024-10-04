@@ -1,4 +1,9 @@
 {
+   "allergens" : "",
+   "allergens_from_ingredients" : "",
+   "allergens_from_user" : "(en) ",
+   "allergens_hierarchy" : [],
+   "allergens_tags" : [],
    "categories" : "spring water",
    "categories_hierarchy" : [
       "en:beverages-and-beverages-preparations",
@@ -33,6 +38,7 @@
       "en:beverages",
       "en:waters-and-flavored-waters"
    ],
+   "ingredients_lc" : "en",
    "lc" : "en",
    "misc_tags" : [
       "en:nutriscore-computed",
@@ -41,7 +47,19 @@
       "en:nutriscore-2021-same-as-2023",
       "en:nutriscore-2021-a-2023-a"
    ],
+   "nova_group" : 1,
+   "nova_group_debug" : "",
+   "nova_groups" : "1",
+   "nova_groups_markers" : {},
+   "nova_groups_tags" : [
+      "en:1-unprocessed-or-minimally-processed-foods"
+   ],
+   "nutrient_levels" : {},
+   "nutrient_levels_tags" : [],
    "nutriments" : {
+      "nova-group" : 1,
+      "nova-group_100g" : 1,
+      "nova-group_serving" : 1,
       "nutrition-score-fr" : 0,
       "nutrition-score-fr_100g" : 0
    },
@@ -235,5 +253,11 @@
    "pnns_groups_2_tags" : [
       "waters-and-flavored-waters",
       "known"
-   ]
+   ],
+   "traces" : "",
+   "traces_from_ingredients" : "",
+   "traces_from_user" : "(en) ",
+   "traces_hierarchy" : [],
+   "traces_tags" : [],
+   "unknown_nutrients_tags" : []
 }
