@@ -221,21 +221,21 @@ paths:
           content:
             application/json:
               schema:
-                AllOf:
-                  - $ref: ./responses/add_or_edit_a_product.yaml
-                  - $ref: ./responses/change_ref_properties.yaml
+                $ref: ./responses/add_or_edit_a_product.yaml
       parameters: []
       requestBody:
         content:
           multipart/form-data:
             schema:
-              AllOf:
+              allOf:
                 - $ref: ./requestBodies/add_or_edit_a_product.yaml
                 - $ref: ./requestBodies/change_ref_properties.yaml
       tags:
         - Write Requests
       description: |
-        If the barcode exists then you will be editing the existing product,
+        This updates a product.
+
+        Note: If the barcode exists then you will be editing the existing product,
         However if it doesn''t you will be creating a new product with that unique barcode,
         and adding properties to the product.
   /api/v2/search:
