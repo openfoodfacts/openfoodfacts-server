@@ -121,7 +121,6 @@ sub new_product_path_from_id ($new_product_id) {
 
 }
 
-
 sub ensure_dir_created_or_die ($new_path, $mode = oct(755)) {
 	# search base directory
 	my $prefix;
