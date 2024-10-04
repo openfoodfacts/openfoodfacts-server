@@ -82178,7 +82178,7 @@ lt: Salotos su lęšiais
 nl: Linzensalade
 
 < en:Prepared salads
-en: Beets salads
+en: Beets salads, Beetroot salads
 de: Rüben-Salate, Rübensalate
 fi: punajuurisalaatit
 fr: Salades de betteraves
@@ -103679,20 +103679,6 @@ ciqual_food_name:fr: Artichaut, fond, appertisé, égoutté
 en: Marinated canned artichokes
 nl: Gemarineerde artisjokken in blik/pot
 
-< en:Beet
-< en:Canned vegetables
-en: Canned beet, Canned beetroots
-bg: Консервирано цвекло
-de: Rote-Bete-Konserven
-es: Remolacha en conserva
-fi: purkitetut punajuuret
-fr: Betteraves en conserve
-hr: Konzervirana repa
-it: Barbabietole in scatola
-nl: Rode bieten in blik/pot
-ciqual_proxy_food_code:en: 20003
-ciqual_proxy_food_name:en: Beetroot, cooked
-ciqual_proxy_food_name:fr: Betterave rouge, cuite
 
 < en:Brussels sprouts
 < en:Canned vegetables
@@ -103909,13 +103895,15 @@ nl: Atjar tjampoer
 nl_be: Atjar tjampoer
 
 < en:Vegetable pickles
-en: Pickled beets
+en: Beetroot(pickled), Pickled beets
 de: Eingelegte rote Bete
 es: Remolacha encurtida
 fr: Betteraves marinées
 hr: Ukiseljena repa
 ja: ビーツのピクルス
-nl: Ingemaakte rode bieten
+nl: Ingemaakte rode bieten, Rode bieten op azijn
+comment:en: Cooked cut beetroot laid in vinegar.
+opposite:en: en:beetroot
 
 < en:Vegetable pickles
 en: Pickled carrots
@@ -104745,7 +104733,7 @@ fr: Aubergines à la provençale
 # Beet
 
 < en:Vegetables
-en: Beet, Beetroots
+en: Beetroot, Beet
 bg: Червено цвекло
 de: Rote Bete
 es: Remolachas
@@ -104762,18 +104750,11 @@ agribalyse_proxy_food_name:en: Beetroot, raw
 agribalyse_proxy_food_name:fr: Betterave rouge, crue
 intake24_category_code:en: BEET
 intake24_category_code:fr: BEET
+opposite:en: en:beetroot(pickled)
 #TOCHECK:wikidata:en:Q99548274
 
-< en:Beet
-< en:Fresh vegetables
-en: Fresh beet
-fr: Betteraves fraîches
-hr: Svježa repa
-lt: švieži burokėliai
-season_in_country_fr:en: 1,2,3,10,11,12
-
 < en:Vegetables
-en: Uncooked beetroots
+en: Beetroot(raw), Beet(raw), Beet(uncooked), Uncooked beet, Uncooked beetroots
 de: Ungekochte rote Beete
 fr: Betterave rouge crue
 hr: Nekuhana cikla
@@ -104782,10 +104763,37 @@ agribalyse_food_code:en: 20091
 ciqual_food_code:en: 20091
 ciqual_food_name:en: Beetroot, raw
 ciqual_food_name:fr: Betterave rouge, crue
+opposite:en: en:beetroot(cooked)
+
+< en:Beet
+< en:Canned vegetables
+en: Beetroot(canned), Beet(canned), Canned beetroots, Canned beet
+bg: Консервирано цвекло
+de: Rote-Bete-Konserven
+es: Remolacha en conserva
+fi: purkitetut punajuuret
+fr: Betteraves en conserve
+hr: Konzervirana repa
+it: Barbabietole in scatola
+nl: Rode bieten in blik/pot
+ciqual_proxy_food_code:en: 20003
+ciqual_proxy_food_name:en: Beetroot, cooked
+ciqual_proxy_food_name:fr: Betterave rouge, cuite
+opposite:en: en:beetroot(fresh)
+
+< en:Uncooked beet
+< en:Fresh vegetables
+en: Beetroot(fresh), Fresh beet, Fresh beetroot
+fr: Betteraves fraîches
+hr: Svježa repa
+lt: švieži burokėliai
+expected_ingredients:en: en:beetroot
+opposite:en: en:beetroot(canned), en:beetroot(vacuum-packed)
+season_in_country_fr:en: 1,2,3,10,11,12
 
 < en:Beet
 < en:Cooked vegetables
-en: Cooked beetroots
+en: Beetroot(cooked), Beet(cooked), Cooked beet, Cooked beetroots
 fr: Betteraves rouges cuites
 hr: Kuhana cikla
 lt: Virti burokėliai
@@ -104794,10 +104802,18 @@ agribalyse_food_code:en: 20003
 ciqual_food_code:en: 20003
 ciqual_food_name:en: Beetroot, cooked
 ciqual_food_name:fr: Betterave rouge, cuite
+opposite:en: en:beetroot(raw), en:beetroot(vacuum-packed)
 
-< en:Beet
+< en:Beet(cooked)
+en: Beetroot(vacuum-packed), Beet(vacuum-packed)
+de: Rüben(Vakuumverpackt)
+es: Remolachas envasadas al vacío
 fr: Betteraves sous vide
-
+it: Barbabietole sottovuoto
+nl: Bieten(Vacuümverpakt)
+pt: Beterraba embalada a vácuo
+expected_ingredients:en: en:beetroot
+opposite:en: en:beetroot(raw), en:beetroot(canned)
 
 < en:Vegetables
 # <en:ingredient:en:vegetable
