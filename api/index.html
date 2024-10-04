@@ -1797,23 +1797,28 @@
 <p>Consider using the <a href="https://world.openfoodfacts.net">staging environment</a> if you are not in a production scenario.</p>
 <p>While testing your applications, <strong>make all API requests to the staging environment</strong>. This way, we can ensure the product database is safe.</p>
 <h2 id="authentication">Authentication<a class="headerlink" href="#authentication" title="Permanent link">#</a></h2>
-<p>We ask you to <strong>always use a custom User-Agent to identify you</strong> (to not risk being identified as a bot). The User-Agent should be in the form of <code>AppName/Version (ContactEmail)</code>. For example,
+<p>We ask you to <strong>always use a custom User-Agent to identify your app</strong> (to not risk being identified as a bot). The User-Agent should be in the form of <code>AppName/Version (ContactEmail)</code>. For example,
 <code>MyApp/1.0 (myapp@example.com)</code>.</p>
 <ul>
 <li>READ operations (getting info about a product, etc...) do not require authentication other than the custom User-Agent.</li>
-</ul>
-<ul>
 <li>WRITE operations (Editing an Existing Product, Uploading images…) <strong>require authentication</strong>. We do this as another layer of protection against spam.</li>
 </ul>
-<p>Create an account on the <a href="https://world.openfoodfacts.org/">Open Food Facts app</a>. From there, you have two options:</p>
+<p>Create an account on the <a href="https://world.openfoodfacts.org/">Open Food Facts app</a> for your app (and notify reuse@openfoodfacts.org of the account name, so that we grant it special app privileges). From there, you have two options:</p>
 <ul>
 <li><strong>The preferred one</strong>:
   Use the login API to get a session cookie and use this cookie for authentication in your subsequent requests. However, the session must always be used from the same IP address, and there's a limit on sessions per user (currently 10) with older sessions being automatically logged out to stay within the limit.</li>
 <li>If session conditions are too restrictive for your use case, include your account credentials as parameters for authenticated requests where <code>user_id</code> is your username and <code>password</code> is your password (do this on POST / PUT / DELETE requests, not on GET).</li>
 </ul>
 <p>You can create a global account to allow your app users to contribute without registering individual accounts on the Open Food Facts website. This way, we know that these contributions came from your application.</p>
+<p>We however ask that you send the <a href="https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#post-/cgi/product_jqm2.pl"><code>app_name</code>, <code>app_version</code> and <code>app_uuid</code> parameters</a> in your write queries. </p>
+<ul>
+<li><code>app_name=MyApp</code> </li>
+<li><code>app_version=1.1</code> </li>
+<li><code>app_uuid=xxxx</code>: a salted random uuid for the user so that Open Food Facts moderators can selectively ban any problematic user without banning your whole app account.</li>
+</ul>
 <blockquote>
 <p>Production and staging have different account databases, so <strong>the account you create in the production environment will only work for production requests</strong>. If you want to query (WRITE requests) the staging environment, you'll need to create another account there too.</p>
+<p>Note: we're currently moving to a modern Auth system (Keycloak), so we will have new Auth options, hopefully this year.</p>
 </blockquote>
 <h2 id="reference-documentation-openapi">Reference Documentation (OpenAPI)<a class="headerlink" href="#reference-documentation-openapi" title="Permanent link">#</a></h2>
 <p>We are building a complete OpenAPI reference. Here is a list of the current API documentation available:</p>
