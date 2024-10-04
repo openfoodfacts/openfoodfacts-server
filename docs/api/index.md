@@ -87,7 +87,10 @@ Create an account on the [Open Food Facts app](https://world.openfoodfacts.org/)
 
 You can create a global account to allow your app users to contribute without registering individual accounts on the Open Food Facts website. This way, we know that these contributions came from your application.
 
-We however ask that you send the `app_name`, `app_version` and `app_uuid` parameters in your write queries. app_name=MyApp app_version=1.1 app_uuid=a salted random uuid for the user so that Open Food Facts moderators can selectively ban any problematic user without banning your whole app account.
+We however ask that you send the [`app_name`, `app_version` and `app_uuid` parameters](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#post-/cgi/product_jqm2.pl) in your write queries. 
+* `app_name=MyApp` 
+* `app_version=1.1` 
+* `app_uuid=xxxx`: a salted random uuid for the user so that Open Food Facts moderators can selectively ban any problematic user without banning your whole app account.
 
 > Production and staging have different account databases, so **the account you create in the production environment will only work for production requests**. If you want to query (WRITE requests) the staging environment, you'll need to create another account there too.
 
