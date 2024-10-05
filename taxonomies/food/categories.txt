@@ -104835,7 +104835,7 @@ opposite:en: en:beetroot(raw), en:beetroot(canned)
 < en:Vegetables
 # <en:ingredient:en:vegetable
 en: Broccoli
-af: Broccoli
+xx: Broccoli
 ar: قنبيط أخضر
 az: Brokkoli
 bg: Броколи
@@ -104845,7 +104845,6 @@ bs: Brokula
 ca: bròcoli
 cs: brokolice
 cy: Brocoli
-da: broccoli
 de: Brokkoli
 dv: ބުރޮކޯޅި
 el: Μπρόκολο
@@ -104866,7 +104865,6 @@ hu: Brokkoli
 hy: բրոկկոլի
 id: Brokoli
 is: Spergilkál
-it: broccoli
 ja: ブロッコリー
 jv: Brokoli
 kk: Брокколи
@@ -104881,21 +104879,18 @@ ml: ബ്രോക്കൊളി
 mr: ब्रोकली
 ms: Brokoli
 nb: brokkoli
-nl: broccoli
 nn: brokkoli
 nv: Chʼilzooł
 os: Брокколи
 pa: ਬਰੋਕਲੀ
 pl: brokuł
 pt: brócolos
-ro: Broccoli
 ru: брокколи
 sh: Brokula
 sk: Brokolica
 sl: Brokoli
 sr: броколи
 su: Brokoli
-sv: broccoli
 ta: புரோக்கோலி
 te: బ్రొక్కొలి
 th: บรอกโคลี
@@ -104917,7 +104912,6 @@ intake24_category_code:en: BRCL
 # bho:ब्रोकली
 # ckb:برۆکڵی
 # hsb:Brokoli
-# ilo:Broccoli
 # lij:Bròccolo
 # nan:Chheⁿ-hoe-chhài
 # nap:Vruoccole
@@ -104925,6 +104919,7 @@ intake24_category_code:en: BRCL
 # pt-br:brócolis
 # war:Brokoli
 # yue:西蘭花
+opposite:en: en:mashed-broccoli
 wikidata:en: Q47722
 wikipedia:en: https://en.wikipedia.org/wiki/Broccoli
 
@@ -104949,6 +104944,32 @@ agribalyse_food_code:en: 20006
 ciqual_food_code:en: 20006
 ciqual_food_name:en: Broccoli, cooked
 ciqual_food_name:fr: Brocoli, cuit
+
+< en:Broccoli
+< en:Frozen vegetables
+en: Frozen broccolis, Frozen broccoli florets, Frozen broccoli
+de: Tiefkühl-Brokkoli
+es: Brócolis congelados, Brócoli en floretes congelado, Brócoli congelado
+fi: pakastetut parsakaalinuput
+fr: Brocolis surgelés, Brocolis en fleurettes surgelés, Brocoli surgelé
+hr: Smrznuta brokula
+it: Broccoli surgelati, Cime di broccoli surgelate
+nl: Diepvries broccoli
+pl: Brokuł (różyczki) głęboko mrożony
+agribalyse_proxy_food_code:en: 20204
+agribalyse_proxy_food_name:en: Broccoli, frozen, raw
+agribalyse_proxy_food_name:fr: Brocoli, surgelé, cru
+ciqual_food_code:en: 20204
+ciqual_food_name:en: Broccoli, frozen, raw
+ciqual_food_name:fr: Brocoli, surgelé, cru
+
+< en:Frozen broccolis
+en: Frozen cooked broccoli
+fr: Brocoli surgelé cuit
+agribalyse_food_code:en: 20205
+ciqual_food_code:en: 20205
+ciqual_food_name:en: Broccoli, frozen, cooked
+ciqual_food_name:fr: Brocoli, surgelé, cuit
 
 < en:Vegetables
 en: Brussels sprouts
@@ -112228,31 +112249,6 @@ fr: Asperges blanches surgelés
 hr: Smrznute bijele šparoge
 nl: Witte diepvriesasperges
 
-< en:Broccoli
-< en:Frozen vegetables
-en: Frozen broccolis, Frozen broccoli florets, Frozen broccoli
-de: Tiefkühl-Brokkoli
-es: Brócolis congelados, Brócoli en floretes congelado, Brócoli congelado
-fi: pakastetut parsakaalinuput
-fr: Brocolis surgelés, Brocolis en fleurettes surgelés, Brocoli surgelé
-hr: Smrznuta brokula
-it: Broccoli surgelati, Cime di broccoli surgelate
-nl: Diepvries broccoli
-pl: Brokuł (różyczki) głęboko mrożony
-agribalyse_proxy_food_code:en: 20204
-agribalyse_proxy_food_name:en: Broccoli, frozen, raw
-agribalyse_proxy_food_name:fr: Brocoli, surgelé, cru
-ciqual_food_code:en: 20204
-ciqual_food_name:en: Broccoli, frozen, raw
-ciqual_food_name:fr: Brocoli, surgelé, cru
-
-< en:Frozen broccolis
-en: Frozen cooked broccoli
-fr: Brocoli surgelé cuit
-agribalyse_food_code:en: 20205
-ciqual_food_code:en: 20205
-ciqual_food_name:en: Broccoli, frozen, cooked
-ciqual_food_name:fr: Brocoli, surgelé, cuit
 
 < en:Brussels sprouts
 < en:Frozen vegetables
@@ -115535,6 +115531,7 @@ agribalyse_food_code:en: 20259
 ciqual_food_code:en: 20259
 ciqual_food_name:en: Broccoli, puree
 ciqual_food_name:fr: Brocoli, purée
+opposite:en: en:broccoli
 
 < en:Mashed vegetables
 en: Mashed spinachs, Spinach puree
