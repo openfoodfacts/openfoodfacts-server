@@ -7620,8 +7620,44 @@ tr: Portakal suyu
 zh: 橙子汁, 橙汁
 agribalyse_proxy_food_code:en: 2011
 agribalyse_proxy_food_name:en: Mixed fruits juice, orange based, multivitamin
+#expected_ingredients:en: en:orange
+opposite:en: en:orange-nectars
 wikidata:en: Q1781317
 # Note: do not put the Agribalyse for home made orange juice, it is not relevant for industrial orange juice.
+
+< en:Orange juices
+< en:Refrigerated squeezed juices
+en: Refrigerated squeezed orange juices
+de: Gekühlte Orangendirektsäfte
+es: Zumos de naranja exprimidos refrigerados
+fr: Jus d'orange frais, jus d'oranges frais
+hr: Ohlađeni sokovi od cijeđene naranče
+lt: Šaltai laikomos spaustos apelsinų sultys
+nl: Gekoelde verse sinaasappelsappen, Gekoelde verse sinaasappelsap
+
+< en:Orange juices
+< en:Squeezed fruit juices
+en: Squeezed orange juices, Non-refrigerated squeezed orange juices, Pure orange juices
+de: Orangendirektsäfte
+es: Zumos de naranja exprimidos no refrigerados, Zumos de naranja exprimidos, Zumos de naranja exprimidos ambiente
+fi: puristetut appelsiinimehut
+fr: Jus d'orange pur jus, jus d'orange 100% pur jus, Jus d'oranges 100% pur jus, 100% pur jus d'oranges, pur jus d'orange
+hr: Cijeđeni sokovi od naranče
+nl: Vers geperste sinaasappelsappen, Vers geperst sinaasappelsap
+pt: Sumos de laranja espremida
+ciqual_food_code:en: 2070
+ciqual_food_name:en: Orange juice, pure juice
+ciqual_food_name:fr: Jus d'orange, pur jus
+
+< en:orange-juices
+en: Orange juices (home-made), Orange juice home-made
+fr: Jus d'orange maison
+hr: Sok od naranče domaći
+nl: Sinaasappelsappen (zelfgeperst)
+agribalyse_food_code:en: 2013
+ciqual_food_code:en: 2013
+ciqual_food_name:en: Orange juice, home-made
+ciqual_food_name:fr: Jus d'orange, maison
 
 < en:Fruit juices from concentrate
 < en:Orange juices
@@ -7643,6 +7679,7 @@ ciqual_food_name:fr: Jus d'orange, à base de concentré
 < en:Orange juices
 en: Orange juices without pulp
 fr: Jus d'orange sans pulpe, Jus d'orange filtrés
+opposite:en: en:orange-juices-with-pulp
 
 < en:Orange juices
 en: Orange juices with pulp
@@ -7654,6 +7691,7 @@ it: Succo d'arancia con polpa
 lt: Apelsinų sultys su minkštimu
 nl: Sinaasappelsappen met vruchtvlees
 pl: Soki pomarańczowe z miąższem
+opposite:en: en:orange-juices-without-pulp
 
 < en:Orange juices
 en: Blood orange juices
@@ -7943,15 +7981,6 @@ gpc_category_description:en: Definition: Includes any products that can be descr
 gpc_category_name:en: Fruit Juice - Ready to Drink (Perishable)
 
 
-< en:Orange juices
-< en:Refrigerated squeezed juices
-en: Refrigerated squeezed orange juices
-de: Gekühlte Orangendirektsäfte
-es: Zumos de naranja exprimidos refrigerados
-fr: Jus d'orange frais, jus d'oranges frais
-hr: Ohlađeni sokovi od cijeđene naranče
-lt: Šaltai laikomos spaustos apelsinų sultys
-nl: Gekoelde verse sinaasappelsappen, Gekoelde verse sinaasappelsap
 
 < en:Fruit juices
 en: Squeezed fruit juices, squeezed juices, Non-refrigerated squeezed juices, Pure fruit juices
@@ -7973,20 +8002,6 @@ ciqual_food_code:en: 2072
 ciqual_food_name:en: Fruit juice, pure juice (average)
 ciqual_food_name:fr: Jus de fruits, pur jus (aliment moyen)
 incompatible_with:en: categories:en:Fruit juices from concentrate
-
-< en:Orange juices
-< en:Squeezed fruit juices
-en: Squeezed orange juices, Non-refrigerated squeezed orange juices, Pure orange juices
-de: Orangendirektsäfte
-es: Zumos de naranja exprimidos no refrigerados, Zumos de naranja exprimidos, Zumos de naranja exprimidos ambiente
-fi: puristetut appelsiinimehut
-fr: Jus d'orange pur jus, jus d'orange 100% pur jus, Jus d'oranges 100% pur jus, 100% pur jus d'oranges, pur jus d'orange
-hr: Cijeđeni sokovi od naranče
-nl: Vers geperste sinaasappelsappen, Vers geperst sinaasappelsap
-pt: Sumos de laranja espremida
-ciqual_food_code:en: 2070
-ciqual_food_name:en: Orange juice, pure juice
-ciqual_food_name:fr: Jus d'orange, pur jus
 
 < en:Fruit juices
 en: Tangerine juices
@@ -8306,6 +8321,8 @@ agribalyse_food_code:en: 2375
 ciqual_food_code:en: 2375
 ciqual_food_name:en: Orange nectar
 ciqual_food_name:fr: Nectar d'orange
+#expected_ingredients:en: en:orange
+opposite:en: en:orange juices
 #wikidata:en:
 
 < en:Fruit nectars
@@ -117435,17 +117452,6 @@ agribalyse_food_code:en: 0005
 ciqual_food_code:en: 0005
 ciqual_food_name:en: Dried deffated black soldier fly protein
 ciqual_food_name:fr: Insecte (Mouche Soldat Noir)
-
-
-< en:orange-juices
-en: Orange juice home-made
-fr: Jus d'orange maison
-hr: Sok od naranče domaći
-nl: Sinaasappelsappen (zelfgeperst)
-agribalyse_food_code:en: 2013
-ciqual_food_code:en: 2013
-ciqual_food_name:en: Orange juice, home-made
-ciqual_food_name:fr: Jus d'orange, maison
 
 < en:fruit-juices
 en: Fruit juice mixed - apple base standard
