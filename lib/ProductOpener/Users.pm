@@ -665,6 +665,12 @@ sub process_user_form ($type, $user_ref, $request_ref) {
 	# save user
 	store_user($user_ref);
 
+	# Initialize the session to send a session cookie back
+	# so that newly created users do not have to login right after
+
+	param("user_id", $userid);
+	init_user($request_ref);
+
 	return;
 }
 
