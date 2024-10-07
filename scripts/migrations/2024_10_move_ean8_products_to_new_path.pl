@@ -175,8 +175,8 @@ sub product_dir_move($source, $target) {
 	ensure_dir_created_or_die($target);
 
 	# Go through all files in the source
-	opendir my $dh, $source or die "could not open $source directory: $!\n";
-	foreach my $file (sort readdir($dh)) {
+	opendir my $dir_h, $source or die "could not open $source directory: $!\n";
+	foreach my $file (sort readdir($dir_h)) {
 		chomp($file);
 		# Move files and symbolic links
 		if (!-d "$source/$file") {
@@ -227,8 +227,12 @@ if (    (defined $server_options{private_products})
 	and ($server_options{private_products}))
 {
 	if (scalar @orgids == 0) {
-		my @org_files = glob("$data_root/products/org-*");
-		@org_ids = map {$_ =~ /\/([^\/]+)$/;} @org_files;
+		foreach my $file (sort glob("$data_root/products/*")) {
+			if ($file =~ /\/((user|org)-.*)$/) {
+				push @orgids, $1;
+				print "org: $1\n";
+			}
+		}
 	}
 }
 else {
