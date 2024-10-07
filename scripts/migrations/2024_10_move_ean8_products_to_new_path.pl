@@ -194,7 +194,6 @@ sub product_dir_move($source, $target) {
 
 use Getopt::Long;
 
-my @products = ();
 my $move = 0;
 my $move_conflicting_codes = 0;
 my $product_paths_containing_other_products = 0;
@@ -210,12 +209,10 @@ my $obsolete_products_collection = get_products_collection({obsolete => 1});
 my @orgids = ();
 
 GetOptions(
-	'products=s' => \@products,
 	'move' => \$move,
 	'move-conflicting-codes' => \$move_conflicting_codes,
 	'orgids=s' => \@orgids
 );
-@products = split(/,/, join(',', @products));
 @orgids = split(/,/, join(',', @orgids));
 
 my $d = 0;
@@ -250,152 +247,150 @@ foreach my $orgid (@orgids) {
 	ensure_dir_created_or_die("$www_root/images/products$org_path/invalid-codes");
 	ensure_dir_created_or_die("$www_root/images/products$org_path/conflicting-codes");
 
-	if ((scalar @products) == 0) {
-		# Look for products with EAN8 codes directly in the product root
+	my @products = ();
+	# Look for products with EAN8 codes directly in the product root
 
-		my $dh;
+	my $dh;
 
-		opendir $dh, "$data_root/products$org_path"
-			or die "could not open $data_root/products$org_path directory: $!\n";
-		foreach my $dir (sort readdir($dh)) {
-			chomp($dir);
+	opendir $dh, "$data_root/products$org_path"
+		or die "could not open $data_root/products$org_path directory: $!\n";
+	foreach my $dir (sort readdir($dh)) {
+		chomp($dir);
 
-			print STDERR "org_path: $org_path - dir: $dir\n";
+		print STDERR "org_path: $org_path - dir: $dir\n";
 
-			# Check it is a directory
-			next if not -d "$data_root/products$org_path/$dir";
-			next if ($dir eq "invalid-codes");
-			next if ($dir eq "conflicting-codes");
+		# Check it is a directory
+		next if not -d "$data_root/products$org_path/$dir";
+		next if ($dir eq "invalid-codes");
+		next if ($dir eq "conflicting-codes");
 
-			if ($dir =~ /^\d\d\d$/) {
+		if ($dir =~ /^\d\d\d$/) {
 
-				# We can have products with 9 to 12 digits that have a split path but that were not padded with 0s
-				# e.g. 000/001/112/22/ should be moved to 000/000/011/1222/
-				opendir my $dh2, "$data_root/products$org_path/$dir"
-					or die "ERROR: could not open $data_root/products$org_path/$dir directory: $!\n";
-				foreach my $dir2 (sort readdir($dh2)) {
-					chomp($dir2);
-					if ($dir2 =~ /^\d\d\d$/) {
-						opendir my $dh3, "$data_root/products$org_path/$dir/$dir2"
-							or die "ERROR: could not open $data_root/products$org_path/$dir/$dir2 directory: $!\n";
-						foreach my $dir3 (sort readdir($dh3)) {
-							chomp($dir3);
-							if ($dir3 =~ /^\d\d\d$/) {
-								opendir my $dh4, "$data_root/products$org_path/$dir/$dir2/$dir3"
-									or die
-									"ERROR: could not open $data_root/products$org_path/$dir/$dir2/$dir3 directory: $!\n";
-								my $level4_dirs = 0;
-								foreach my $dir4 (sort readdir($dh4)) {
-									chomp($dir4);
-									# We should have 4 digits or more (for codes with more than 13 digits)
-									if ($dir4 =~ /^\d+$/) {
-										if ($dir4 !~ /^\d\d\d\d/) {
+			# We can have products with 9 to 12 digits that have a split path but that were not padded with 0s
+			# e.g. 000/001/112/22/ should be moved to 000/000/011/1222/
+			opendir my $dh2, "$data_root/products$org_path/$dir"
+				or die "ERROR: could not open $data_root/products$org_path/$dir directory: $!\n";
+			foreach my $dir2 (sort readdir($dh2)) {
+				chomp($dir2);
+				if ($dir2 =~ /^\d\d\d$/) {
+					opendir my $dh3, "$data_root/products$org_path/$dir/$dir2"
+						or die "ERROR: could not open $data_root/products$org_path/$dir/$dir2 directory: $!\n";
+					foreach my $dir3 (sort readdir($dh3)) {
+						chomp($dir3);
+						if ($dir3 =~ /^\d\d\d$/) {
+							opendir my $dh4, "$data_root/products$org_path/$dir/$dir2/$dir3"
+								or die
+								"ERROR: could not open $data_root/products$org_path/$dir/$dir2/$dir3 directory: $!\n";
+							my $level4_dirs = 0;
+							foreach my $dir4 (sort readdir($dh4)) {
+								chomp($dir4);
+								# We should have 4 digits or more (for codes with more than 13 digits)
+								if ($dir4 =~ /^\d+$/) {
+									if ($dir4 !~ /^\d\d\d\d/) {
 
-											if (-e "$data_root/products$org_path/$dir/$dir2/$dir3/$dir4/product.sto") {
-												push @products, "$dir/$dir2/$dir3/$dir4";
-												print STDERR
-													"nested dir with less than 13 digits: $dir/$dir2/$dir3/$dir4\n";
-												print $log
-													"nested dir with less than 13 digits: $dir/$dir2/$dir3/$dir4\n";
-												$d++;
-												(($d % 1000) == 1)
-													and print STDERR "$d products - $dir/$dir2/$dir3/$dir4\n";
-											}
+										if (-e "$data_root/products$org_path/$dir/$dir2/$dir3/$dir4/product.sto") {
+											push @products, "$dir/$dir2/$dir3/$dir4";
+											print STDERR
+												"nested dir with less than 13 digits: $dir/$dir2/$dir3/$dir4\n";
+											print $log "nested dir with less than 13 digits: $dir/$dir2/$dir3/$dir4\n";
+											$d++;
+											(($d % 1000) == 1)
+												and print STDERR "$d products - $dir/$dir2/$dir3/$dir4\n";
 										}
-										$level4_dirs++;
 									}
-
+									$level4_dirs++;
 								}
-								closedir $dh4;
 
-								# Check if there is a product.sto file in the directory (happens when the barcode has 9 digits: the path is split, but there is no leftover)
-								if (-e "$data_root/products$org_path/$dir/$dir2/$dir3/product.sto") {
-
-									print STDERR "nested dir with 9 digits: $dir/$dir2/$dir3\n";
-									print $log "nested dir with 9 digits: $dir/$dir2/$dir3\n";
-
-									if ($level4_dirs == 0) {
-										push @products, "$dir/$dir2/$dir3";
-										$d++;
-										print STDERR
-											"nested dir with 9 digits: $dir/$dir2/$dir3 --> does not have level 4 dirs, ok to move level 3 dir\n";
-										print $log
-											"nested dir with 9 digits: $dir/$dir2/$dir3 --> does not have level 4 dirs, ok to move level 3 dir\n";
-									}
-									else {
-										push @products, "$dir/$dir2/$dir3";
-										$d++;
-										print STDERR
-											"nested dir 9 with digits: $dir/$dir2/$dir3 --> has $level4_dirs level 4 dirs, need to move files instead of dir\n";
-										print $log
-											"nested dir with 9 digits: $dir/$dir2/$dir3 --> has $level4_dirs level 4 dirs, need to move files instead of dir\n";
-										$product_paths_containing_other_products++;
-									}
-									$d++;
-								}
 							}
+							closedir $dh4;
 
+							# Check if there is a product.sto file in the directory (happens when the barcode has 9 digits: the path is split, but there is no leftover)
+							if (-e "$data_root/products$org_path/$dir/$dir2/$dir3/product.sto") {
+
+								print STDERR "nested dir with 9 digits: $dir/$dir2/$dir3\n";
+								print $log "nested dir with 9 digits: $dir/$dir2/$dir3\n";
+
+								if ($level4_dirs == 0) {
+									push @products, "$dir/$dir2/$dir3";
+									$d++;
+									print STDERR
+										"nested dir with 9 digits: $dir/$dir2/$dir3 --> does not have level 4 dirs, ok to move level 3 dir\n";
+									print $log
+										"nested dir with 9 digits: $dir/$dir2/$dir3 --> does not have level 4 dirs, ok to move level 3 dir\n";
+								}
+								else {
+									push @products, "$dir/$dir2/$dir3";
+									$d++;
+									print STDERR
+										"nested dir 9 with digits: $dir/$dir2/$dir3 --> has $level4_dirs level 4 dirs, need to move files instead of dir\n";
+									print $log
+										"nested dir with 9 digits: $dir/$dir2/$dir3 --> has $level4_dirs level 4 dirs, need to move files instead of dir\n";
+									$product_paths_containing_other_products++;
+								}
+								$d++;
+							}
 						}
-						closedir $dh3;
-					}
-				}
-				closedir $dh2;
 
-			}
-			# Don't move dirs with 1 or 2 digits
-			elsif (($dir !~ /^\d\d?$/) and ($dir =~ /^\d+$/)) {
-				# Product directories at the root, with a different number than 3 digits
-				if (-e "$data_root/products$org_path/$dir/product.sto") {
-					push @products, $dir;
-					$d++;
-					(($d % 1000) == 1) and print STDERR "$d products - $dir\n";
+					}
+					closedir $dh3;
 				}
 			}
-			elsif ($dir !~ /^\.+$/) {
-				print STDERR "invalid code: $dir\n";
-				print $log "invalid code: $dir\n";
-				# Move the dir to $data_root/products$org_path/invalid-codes
-				if ($move) {
-					if (move("$data_root/products$org_path/$dir", "$data_root/products$org_path/invalid-codes/$dir")) {
-						print STDERR "moved invalid code $dir to $data_root/products$org_path/invalid-codes\n";
-						print $log "moved invalid code $dir to $data_root/products$org_path/invalid-codes\n";
+			closedir $dh2;
+
+		}
+		# Don't move dirs with 1 or 2 digits
+		elsif (($dir !~ /^\d\d?$/) and ($dir =~ /^\d+$/)) {
+			# Product directories at the root, with a different number than 3 digits
+			if (-e "$data_root/products$org_path/$dir/product.sto") {
+				push @products, $dir;
+				$d++;
+				(($d % 1000) == 1) and print STDERR "$d products - $dir\n";
+			}
+		}
+		elsif ($dir !~ /^\.+$/) {
+			print STDERR "invalid code: $dir\n";
+			print $log "invalid code: $dir\n";
+			# Move the dir to $data_root/products$org_path/invalid-codes
+			if ($move) {
+				if (move("$data_root/products$org_path/$dir", "$data_root/products$org_path/invalid-codes/$dir")) {
+					print STDERR "moved invalid code $dir to $data_root/products$org_path/invalid-codes\n";
+					print $log "moved invalid code $dir to $data_root/products$org_path/invalid-codes\n";
+				}
+				else {
+					print STDERR "could not move invalid code $dir to $data_root/products$org_path/invalid-codes\n";
+					print $log "could not move invalid code $dir to $data_root/products$org_path/invalid-codes\n";
+				}
+				# Delete from mongodb
+				my $id = $org_path . "/" . $dir;
+				$id =~ s/^\///;
+				$products_collection->delete_one({_id => $id});
+				$obsolete_products_collection->delete_one({_id => $id});
+
+				# Also move the image dir if it exists
+				if (-e "$www_root/images/products$org_path/$dir") {
+					if (
+						move(
+							"$www_root/images/products$org_path/$dir",
+							"$www_root/images/products$org_path/invalid-codes/$dir"
+						)
+						)
+					{
+						print STDERR
+							"moved invalid code $dir images to $www_root/images/products$org_path/invalid-codes\n";
+						print $log
+							"moved invalid code $dir images to $www_root/images/products$org_path/invalid-codes\n";
 					}
 					else {
-						print STDERR "could not move invalid code $dir to $data_root/products$org_path/invalid-codes\n";
-						print $log "could not move invalid code $dir to $data_root/products$org_path/invalid-codes\n";
-					}
-					# Delete from mongodb
-					my $id = $org_path . "/" . $dir;
-					$id =~ s/^\///;
-					$products_collection->delete_one({_id => $id});
-					$obsolete_products_collection->delete_one({_id => $id});
-
-					# Also move the image dir if it exists
-					if (-e "$www_root/images/products$org_path/$dir") {
-						if (
-							move(
-								"$www_root/images/products$org_path/$dir",
-								"$www_root/images/products$org_path/invalid-codes/$dir"
-							)
-							)
-						{
-							print STDERR
-								"moved invalid code $dir images to $www_root/images/products$org_path/invalid-codes\n";
-							print $log
-								"moved invalid code $dir images to $www_root/images/products$org_path/invalid-codes\n";
-						}
-						else {
-							print STDERR
-								"could not move invalid code $dir images to $www_root/images/products$org_path/invalid-codes\n";
-							print $log
-								"could not move invalid code $dir images to $www_root/images/products$org_path/invalid-codes\n";
-						}
+						print STDERR
+							"could not move invalid code $dir images to $www_root/images/products$org_path/invalid-codes\n";
+						print $log
+							"could not move invalid code $dir images to $www_root/images/products$org_path/invalid-codes\n";
 					}
 				}
 			}
 		}
-		closedir $dh;
 	}
+	closedir $dh;
 
 	my $count = scalar @products;
 
