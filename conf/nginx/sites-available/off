@@ -62,6 +62,29 @@ server {
 		gunzip on;
 	}
 
+	# Add an HTTP 302 redirect to AWS S3 bucket for specific dump files
+	location = /data/openfoodfacts_recent_changes.jsonl.gz {
+		return 302 https://openfoodfacts-ds.s3.eu-west-3.amazonaws.com/openfoodfacts_recent_changes.jsonl.gz;
+	}
+	location = /data/openfoodfacts-mongodbdump.gz {
+		return 302 https://openfoodfacts-ds.s3.eu-west-3.amazonaws.com/openfoodfacts-mongodbdump.gz;
+	}
+	location = /data/openfoodfacts-products.jsonl.gz {
+		return 302 https://openfoodfacts-ds.s3.eu-west-3.amazonaws.com/openfoodfacts-products.jsonl.gz;
+	}
+	location = /data/en.openfoodfacts.org.products.csv {
+		return 302 https://openfoodfacts-ds.s3.eu-west-3.amazonaws.com/en.openfoodfacts.org.products.csv;
+	}
+	location = /data/en.openfoodfacts.org.products.csv.gz {
+		return 302 https://openfoodfacts-ds.s3.eu-west-3.amazonaws.com/en.openfoodfacts.org.products.csv.gz;
+	}
+	location = /data/fr.openfoodfacts.org.products.csv {
+		return 302 https://openfoodfacts-ds.s3.eu-west-3.amazonaws.com/fr.openfoodfacts.org.products.csv;
+	}
+	location = /data/fr.openfoodfacts.org.products.csv.gz {
+		return 302 https://openfoodfacts-ds.s3.eu-west-3.amazonaws.com/fr.openfoodfacts.org.products.csv.gz;
+	}
+
 	# the app requests /1.json to get the product count...
 	# the commented code below is to serve a static copy
 	# if there is a spike of installs

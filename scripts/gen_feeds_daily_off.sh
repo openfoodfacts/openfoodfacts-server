@@ -21,6 +21,16 @@ for export in en.openfoodfacts.org.products.csv fr.openfoodfacts.org.products.cs
    mv -f new.$export.gz $export.gz
 done
 
+# Copy CSV and RDF files to AWS S3 using MinIO client
+mc cp \
+    en.openfoodfacts.org.products.csv \
+    en.openfoodfacts.org.products.csv.gz \
+    en.openfoodfacts.org.products.rdf \
+    fr.openfoodfacts.org.products.csv \
+    fr.openfoodfacts.org.products.csv.gz \
+    fr.openfoodfacts.org.products.rdf \
+    s3/openfoodfacts-ds
+
 # Generate the MongoDB dumps and jsonl export
 cd /srv/off/scripts
 
