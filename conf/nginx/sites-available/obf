@@ -54,7 +54,7 @@ server {
         rewrite ^/images/products/(...)(....)/([^/]*)$ /images/products/000/000/$1/$2/$3 break;
         rewrite ^/images/products/(.)(...)(....)/([^/]*)$ /images/products/000/00$1/$2/$3/$4 break;
         rewrite ^/images/products/(..)(...)(....)/([^/]*)$ /images/products/000/0$1/$2/$3/$4 break;
-			
+
 		include snippets/off.cors-headers.include;
 		include snippets/expiry-headers.include;
 		add_header Link "<http://creativecommons.org/licenses/by-sa/3.0/>; rel='license'; title='CC-BY-SA 3.0'";
@@ -62,8 +62,6 @@ server {
 		gzip_static always;
 		gunzip on;
 	}
-
-	if ($http_referer ~* (jobothoniel.com) ) { return 403; } # blocked since 2021-07-13
 
 	# the app requests /1.json to get the product count...
 	# the commented code below is to serve a static copy

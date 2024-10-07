@@ -62,8 +62,6 @@ server {
 		gunzip on;
 	}
 
-	if ($http_referer ~* (jobothoniel.com) ) { return 403; } # blocked since 2021-07-13
-
 	# the app requests /1.json to get the product count...
 	# the commented code below is to serve a static copy
 	# if there is a spike of installs
