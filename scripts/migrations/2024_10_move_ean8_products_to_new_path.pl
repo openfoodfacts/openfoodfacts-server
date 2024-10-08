@@ -62,6 +62,9 @@ print $log "move_ean8_products_to_new_path.pl started at " . localtime() . "\n";
 
 open(my $csv, ">>", "$data_root/logs/move_ean8_products_to_new_path.csv");
 
+my $products_collection = get_products_collection();
+my $obsolete_products_collection = get_products_collection({obsolete => 1});
+
 sub normalize_code_zeroes($code) {
 
 	# Remove leading zeroes
@@ -241,8 +244,7 @@ my $not_moved = 0;
 my $same_path = 0;
 my $changed_code = 0;
 
-my $products_collection = get_products_collection();
-my $obsolete_products_collection = get_products_collection({obsolete => 1});
+
 my @orgids = ();
 
 GetOptions(
