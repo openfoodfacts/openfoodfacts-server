@@ -1492,6 +1492,7 @@ sub import_csv_file ($args_ref) {
 		# read code
 		my $code = $imported_product_ref->{code};
 		$code = normalize_code($code);
+		$imported_product_ref->{code} = $code;    # In case we added or removed leading 0s
 
 		my $modified = 0;
 
@@ -2918,6 +2919,7 @@ sub update_export_status_for_csv_file ($args_ref) {
 
 		my $code = $imported_product_ref->{code};
 		$code = normalize_code($code);
+		$imported_product_ref->{code} = $code;    # In case we added or removed leading 0s
 		my $product_id = product_id_for_owner($Owner_id, $code);
 
 		$log->debug("update export status for product", {i => $i, code => $code, product_id => $product_id})
