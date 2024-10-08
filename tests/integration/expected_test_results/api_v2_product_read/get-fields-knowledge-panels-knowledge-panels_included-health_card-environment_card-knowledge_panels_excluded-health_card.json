@@ -1,5 +1,5 @@
 {
-   "code" : "200000000034",
+   "code" : "0200000000034",
    "product" : {
       "knowledge_panels" : {
          "carbon_footprint" : {
@@ -185,6 +185,7 @@
             "title_element" : {
                "grade" : "c",
                "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/ecoscore-c.svg",
+               "name" : "Eco-Score",
                "title" : "Eco-Score C - Moderate environmental impact",
                "type" : "grade"
             },
