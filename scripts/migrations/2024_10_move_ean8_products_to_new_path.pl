@@ -190,6 +190,38 @@ sub product_dir_move($source, $target) {
 	return 1;
 }
 
+sub move_dir_to_invalid_codes($dir) {
+
+	if (move("$data_root/products$org_path/$dir", "$data_root/products$org_path/invalid-codes/$dir")) {
+		print STDERR "moved invalid code $dir to $data_root/products$org_path/invalid-codes\n";
+		print $log "moved invalid code $dir to $data_root/products$org_path/invalid-codes\n";
+	}
+	else {
+		print STDERR "could not move invalid code $dir to $data_root/products$org_path/invalid-codes\n";
+		print $log "could not move invalid code $dir to $data_root/products$org_path/invalid-codes\n";
+	}
+	# Delete from mongodb
+	my $id = $org_path . "/" . $dir;
+	$id =~ s/^\///;
+	$products_collection->delete_one({_id => $id});
+	$obsolete_products_collection->delete_one({_id => $id});
+
+	# Also move the image dir if it exists
+	if (-e "$www_root/images/products$org_path/$dir") {
+		if (move("$www_root/images/products$org_path/$dir", "$www_root/images/products$org_path/invalid-codes/$dir")) {
+			print STDERR "moved invalid code $dir images to $www_root/images/products$org_path/invalid-codes\n";
+			print $log "moved invalid code $dir images to $www_root/images/products$org_path/invalid-codes\n";
+		}
+		else {
+			print STDERR
+				"could not move invalid code $dir images to $www_root/images/products$org_path/invalid-codes\n";
+			print $log "could not move invalid code $dir images to $www_root/images/products$org_path/invalid-codes\n";
+		}
+	}
+
+	return;
+}
+
 # Get a list of all products
 
 use Getopt::Long;
@@ -370,41 +402,7 @@ foreach my $orgid (@orgids) {
 			print $log "invalid code: $dir\n";
 			# Move the dir to $data_root/products$org_path/invalid-codes
 			if ($move) {
-				if (move("$data_root/products$org_path/$dir", "$data_root/products$org_path/invalid-codes/$dir")) {
-					print STDERR "moved invalid code $dir to $data_root/products$org_path/invalid-codes\n";
-					print $log "moved invalid code $dir to $data_root/products$org_path/invalid-codes\n";
-				}
-				else {
-					print STDERR "could not move invalid code $dir to $data_root/products$org_path/invalid-codes\n";
-					print $log "could not move invalid code $dir to $data_root/products$org_path/invalid-codes\n";
-				}
-				# Delete from mongodb
-				my $id = $org_path . "/" . $dir;
-				$id =~ s/^\///;
-				$products_collection->delete_one({_id => $id});
-				$obsolete_products_collection->delete_one({_id => $id});
-
-				# Also move the image dir if it exists
-				if (-e "$www_root/images/products$org_path/$dir") {
-					if (
-						move(
-							"$www_root/images/products$org_path/$dir",
-							"$www_root/images/products$org_path/invalid-codes/$dir"
-						)
-						)
-					{
-						print STDERR
-							"moved invalid code $dir images to $www_root/images/products$org_path/invalid-codes\n";
-						print $log
-							"moved invalid code $dir images to $www_root/images/products$org_path/invalid-codes\n";
-					}
-					else {
-						print STDERR
-							"could not move invalid code $dir images to $www_root/images/products$org_path/invalid-codes\n";
-						print $log
-							"could not move invalid code $dir images to $www_root/images/products$org_path/invalid-codes\n";
-					}
-				}
+				move_dir_to_invalid_codes($dir);
 			}
 		}
 	}
@@ -441,6 +439,9 @@ foreach my $orgid (@orgids) {
 			$invalid++;
 			print STDERR "invalid path for code $code (old path: $old_path)\n";
 			print $log "invalid path for code $code (old path: $old_path)\n";
+			if ($move) {
+				move_dir_to_invalid_codes($old_path);
+			}
 		}
 		elsif ($new_path ne $old_path) {
 
