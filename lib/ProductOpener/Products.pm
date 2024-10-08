@@ -1220,7 +1220,8 @@ sub store_product ($user_id, $product_ref, $comment) {
 	if (defined $product_ref->{old_code}) {
 
 		my $old_code = $product_ref->{old_code};
-		my $old_path = product_path_from_id($old_code);
+		my $old_product_id = product_id_for_owner($Owner_id, $old_code);
+		my $old_path = product_path_from_id($old_product_id);
 
 		if (defined $product_ref->{new_server}) {
 			my $new_server = $product_ref->{new_server};
