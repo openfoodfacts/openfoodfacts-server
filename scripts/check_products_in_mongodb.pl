@@ -125,6 +125,7 @@ $cursor->immortal(1);
 my %codes_lengths = ();
 my $code_different_than_id = 0;
 my $not_normalized_code = 0;
+my $invalid = 0;
 
 while (my $product_ref = $cursor->next) {
 
@@ -144,7 +145,11 @@ while (my $product_ref = $cursor->next) {
 	}
 
 	my $normalized_code = normalize_code($code);
-	if ($code ne $normalized_code) {
+	if ($normalized_code eq 'invalid') {
+		$invalid++;
+		print STDERR "Invalid code: $code\n";
+	}
+	elsif ($code ne $normalized_code) {
 		$not_normalized_code++;
 		print STDERR "Not normalized code. code: $code - normalized: $normalized_code\n";
 	}

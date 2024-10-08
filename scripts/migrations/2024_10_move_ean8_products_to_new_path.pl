@@ -212,21 +212,30 @@ sub move_dir_to_invalid_codes($dir, $org_path = "") {
 		print $log "could not move invalid code $dir to $data_root/products$org_path/invalid-codes/$target_dir\n";
 	}
 	# Delete from mongodb
-	my $id = $org_path . "/" . $dir;
+	my $id = $org_path . "/" . $target_dir;
 	$id =~ s/^\///;
 	$products_collection->delete_one({_id => $id});
 	$obsolete_products_collection->delete_one({_id => $id});
 
 	# Also move the image dir if it exists
 	if (-e "$www_root/images/products$org_path/$dir") {
-		if (move("$www_root/images/products$org_path/$dir", "$www_root/images/products$org_path/invalid-codes/$target_dir")) {
-			print STDERR "moved invalid code $dir images to $www_root/images/products$org_path/invalid-codes/$target_dir\n";
-			print $log "moved invalid code $dir images to $www_root/images/products$org_path/invalid-codes/$target_dir\n";
+		if (
+			move(
+				"$www_root/images/products$org_path/$dir",
+				"$www_root/images/products$org_path/invalid-codes/$target_dir"
+			)
+			)
+		{
+			print STDERR
+				"moved invalid code $dir images to $www_root/images/products$org_path/invalid-codes/$target_dir\n";
+			print $log
+				"moved invalid code $dir images to $www_root/images/products$org_path/invalid-codes/$target_dir\n";
 		}
 		else {
 			print STDERR
 				"could not move invalid code $dir images to $www_root/images/products$org_path/invalid-codes/$target_dir\n";
-			print $log "could not move invalid code $dir images to $www_root/images/products$org_path/invalid-codes/$target_dir\n";
+			print $log
+				"could not move invalid code $dir images to $www_root/images/products$org_path/invalid-codes/$target_dir\n";
 		}
 	}
 
@@ -247,7 +256,6 @@ my $not_moved = 0;
 my $same_path = 0;
 my $changed_code = 0;
 
-
 my @orgids = ();
 
 GetOptions(
@@ -258,8 +266,6 @@ GetOptions(
 @orgids = split(/,/, join(',', @orgids));
 
 my $d = 0;
-
-
 
 # Loop on organizations if we are on the producers platform
 if (    (defined $server_options{private_products})
@@ -405,6 +411,7 @@ foreach my $orgid (@orgids) {
 			}
 		}
 		elsif ($dir !~ /^\.+$/) {
+			$invalid++;
 			print STDERR "invalid code: $dir\n";
 			print $log "invalid code: $dir\n";
 			# Move the dir to $data_root/products$org_path/invalid-codes
