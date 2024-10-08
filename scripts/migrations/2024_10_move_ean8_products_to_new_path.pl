@@ -204,12 +204,12 @@ sub move_dir_to_invalid_codes($dir, $org_path = "") {
 	$target_dir =~ s/[^0-9]//g;
 
 	if (move("$data_root/products$org_path/$dir", "$data_root/products$org_path/invalid-codes/$target_dir")) {
-		print STDERR "moved invalid code $dir to $data_root/products$org_path/invalid-codes\n";
-		print $log "moved invalid code $dir to $data_root/products$org_path/invalid-codes\n";
+		print STDERR "moved invalid code $dir to $data_root/products$org_path/invalid-codes/$target_dir\n";
+		print $log "moved invalid code $dir to $data_root/products$org_path/invalid-codes/$target_dir\n";
 	}
 	else {
-		print STDERR "could not move invalid code $dir to $data_root/products$org_path/invalid-codes\n";
-		print $log "could not move invalid code $dir to $data_root/products$org_path/invalid-codes\n";
+		print STDERR "could not move invalid code $dir to $data_root/products$org_path/invalid-codes/$target_dir\n";
+		print $log "could not move invalid code $dir to $data_root/products$org_path/invalid-codes/$target_dir\n";
 	}
 	# Delete from mongodb
 	my $id = $org_path . "/" . $dir;
@@ -219,14 +219,14 @@ sub move_dir_to_invalid_codes($dir, $org_path = "") {
 
 	# Also move the image dir if it exists
 	if (-e "$www_root/images/products$org_path/$dir") {
-		if (move("$www_root/images/products$org_path/$dir", "$www_root/images/products$org_path/invalid-codes/$dir")) {
-			print STDERR "moved invalid code $dir images to $www_root/images/products$org_path/invalid-codes\n";
-			print $log "moved invalid code $dir images to $www_root/images/products$org_path/invalid-codes\n";
+		if (move("$www_root/images/products$org_path/$dir", "$www_root/images/products$org_path/invalid-codes/$target_dir")) {
+			print STDERR "moved invalid code $dir images to $www_root/images/products$org_path/invalid-codes/$target_dir\n";
+			print $log "moved invalid code $dir images to $www_root/images/products$org_path/invalid-codes/$target_dir\n";
 		}
 		else {
 			print STDERR
-				"could not move invalid code $dir images to $www_root/images/products$org_path/invalid-codes\n";
-			print $log "could not move invalid code $dir images to $www_root/images/products$org_path/invalid-codes\n";
+				"could not move invalid code $dir images to $www_root/images/products$org_path/invalid-codes/$target_dir\n";
+			print $log "could not move invalid code $dir images to $www_root/images/products$org_path/invalid-codes/$target_dir\n";
 		}
 	}
 
