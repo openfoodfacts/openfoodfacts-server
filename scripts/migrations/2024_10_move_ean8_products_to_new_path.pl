@@ -200,7 +200,10 @@ sub product_dir_move($source, $target) {
 
 sub move_dir_to_invalid_codes($dir, $org_path = "") {
 
-	if (move("$data_root/products$org_path/$dir", "$data_root/products$org_path/invalid-codes/$dir")) {
+	my $target_dir = $dir;
+	$target_dir =~ s/[^0-9]//g;
+
+	if (move("$data_root/products$org_path/$dir", "$data_root/products$org_path/invalid-codes/$target_dir")) {
 		print STDERR "moved invalid code $dir to $data_root/products$org_path/invalid-codes\n";
 		print $log "moved invalid code $dir to $data_root/products$org_path/invalid-codes\n";
 	}
