@@ -190,7 +190,7 @@ sub product_dir_move($source, $target) {
 	return 1;
 }
 
-sub move_dir_to_invalid_codes($dir) {
+sub move_dir_to_invalid_codes($dir, $org_path = "") {
 
 	if (move("$data_root/products$org_path/$dir", "$data_root/products$org_path/invalid-codes/$dir")) {
 		print STDERR "moved invalid code $dir to $data_root/products$org_path/invalid-codes\n";
@@ -402,7 +402,7 @@ foreach my $orgid (@orgids) {
 			print $log "invalid code: $dir\n";
 			# Move the dir to $data_root/products$org_path/invalid-codes
 			if ($move) {
-				move_dir_to_invalid_codes($dir);
+				move_dir_to_invalid_codes($dir, $org_path);
 			}
 		}
 	}
@@ -440,7 +440,7 @@ foreach my $orgid (@orgids) {
 			print STDERR "invalid path for code $code (old path: $old_path)\n";
 			print $log "invalid path for code $code (old path: $old_path)\n";
 			if ($move) {
-				move_dir_to_invalid_codes($old_path);
+				move_dir_to_invalid_codes($old_path, $org_path);
 			}
 		}
 		elsif ($new_path ne $old_path) {
