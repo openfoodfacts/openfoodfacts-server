@@ -36684,6 +36684,7 @@ pt: Preparados para gelatina
 en: Mixes for kissel
 pl: Kisiel w proszku
 
+< en:Cereals and their products
 < en:Dessert mixes
 en: Pancake mixes, pancake mix
 es: Mezcla para tortitas
@@ -36693,10 +36694,20 @@ it: Preparato per pancake
 lt: Blynų miltų mišiniai, Blynų mišiniai, Miltų mišiniai blynams
 nl: Pancake mixes
 
+< en:Cereals and their products
 < en:Dessert mixes
 de: Pfannkuchenmischung
 fr: Préparations pour crêpes
 nl: Pannenkoekenmixes
+
+< en:Cereals and their products
+en: Dosa batter mixes
+
+< en:Cereals and their products
+en: Idly batter mixes, Idly batter, Idli batter
+
+< en:Dosa batter mixes
+en: Wet dosa batter mixes
 
 #There is two type of rosquillas in Spain. Some have the consistancy of doughnuts and the others are biscuits. This category regroups the doughnuts
 < en:Cakes
@@ -39334,6 +39345,13 @@ it: Ciliegie ricoperte di cioccolato
 lt: Vyšnios šokolade
 nl: Kersen met een chocolaag
 wikidata:en: Q1624200
+
+< en:Bonbons
+en: Chocolate covered nuts and fruits
+
+< en:Chocolate covered nuts and fruits
+en: Chocolate covered nuts and fruits mixes
+nl: Gemengde noten en fruit bedekt met chocolade
 
 < en:Bonbons
 en: Chocolate covered nuts, Chocolate confectionery filled with nuts
@@ -55048,7 +55066,7 @@ wikidata:en: Q11009
 < en:Nuts
 < en:Salty snacks
 en: Salted nuts
-de: gesalzene Nüsse
+de: Gesalzene Nüsse
 fr: Fruits à coque salés, fruits à coques salés
 hr: Slani orasi
 it: frutta a guscio salata
@@ -55056,6 +55074,20 @@ lt: Riešutai su druska, Sūdyti riešutai
 nl: Gezoute peulvruchten
 pt: Frutos secos com sal
 tr: Tuzlu çerezler
+opposite:en: en:Unsalted nuts
+
+< en:Nuts
+en: Unsalted nuts
+de: Ungesalzene Nüsse
+fr: Fruits à coque non-salés, fruits à coques non-salés
+it: frutta a guscio insalata
+nl: Ongezouten peulvruchten
+pt: Frutos secos sem sal
+opposite:en: en:Salted nuts
+
+< en:Nuts
+en: Mixed nuts
+nl: Notenmelanges, gemengde noten
 
 < en:Cashew nuts
 < en:Salted nuts
@@ -55067,6 +55099,7 @@ lt: Anakardžiai su druska, Sūdyti anakardžiai
 tr: Tuzlu Kaju
 
 < en:Cashew nuts
+< en:Unsalted nuts
 en: Unsalted cashews, Unsalted cashew nuts
 de: Ungesalzene Cashewnüsse, Ungesalzene Cashewkerne
 fr: Noix de cajou non-salées
@@ -55593,6 +55626,10 @@ wikipedia:nl: https://nl.wikipedia.org/wiki/Borrelnootje
 < en:Coated peanuts
 nl: Katjang pedis
 
+< en:Coated peanuts
+en: Wasabi coated peanuts
+nl: Wasabibollen
+
 < en:Peanuts
 en: Peanuts cooked in water with salt, Boiled peanuts with salt
 fr: Arachides bouillies salées, Arachides cuites à l'eau salée, Cacahuètes bouillies salées, Cacahuètes cuites à l'eau salée
@@ -56015,7 +56052,7 @@ hr: Brašna od kestena t110
 < en:Dried fruits
 < en:Nuts and their products
 en: Nuts and dried fruits
-nl: Studentenhavers
+nl: Noten en gedroogd fruit (gemengd), Studentenhavers
 
 < en:Nuts and their products
 < en:Oilseed purees
@@ -56142,8 +56179,7 @@ hr: Maslaci od kikirikija
 it: Burri di arachidi
 ja: ピーナッツバター
 lt: Žemės riešutų sviestai, žemės riešutų pastos
-nl: Pindakazen
-nl_be: Pindakazen
+nl: Pindakazen, Pindakaas
 pl: Masło z orzeszków ziemnych, Masło z orzeszków arachidowych
 pt: Manteigas de amendoim
 ru: Арахисовая паста, Арахисовые пасты
@@ -94245,7 +94281,7 @@ fr: Profiteroles, Profiterole, Profiterolles, Choux à la crème, Chou à la cr�
 hr: Krema od lisnatog
 it: Profiterole, Profiteroles
 ja: シュークリーム
-nl: Soesjes, Profiterole
+nl: Soesjes, Profiterole, Slagroomsoesjes
 agribalyse_food_code:en: 23455
 ciqual_food_code:en: 23455
 ciqual_food_name:en: Pastry cream puff
@@ -102039,15 +102075,14 @@ food_groups:en: en:salty-and-fatty-products
 intake24_category_code:en: PATE
 pnns_group_2:en: Salty and fatty products
 
-# This product is really popular in Belgium & Netherlands were it is called "Salade d'oeufs". Please don't put in the category "Prepared salads", because it is a spread not a meal
 < en:Salted spreads
 en: Egg salads, Egg spreads
 de: Eisalaten, Eisalat, Eiaufstriche, Eiersalat
 fr: Salades d'œufs, salades d'oeufs, Tartinades d'œufs, tartinades d'oeufs, tartinades aux oeufs
-hr: Salate od jaja
 lt: Salotos su kiaušiniais
 nl: Eisalades, Eiersalades
 pl: Sałatki jajeczne
+comment:en: This product is really popular in Belgium & Netherlands were it is called "Salade d'oeufs". Please don't put in the category "Prepared salads", because it is a spread not a meal
 
 < en:Salted spreads
 en: Yeast extract spreads
@@ -102063,6 +102098,9 @@ fr: Crèmes d'artichaut
 hr: Namazi od artičoke
 
 < en:Salted spreads
+nl: Mierikswortelspreads
+
+< en:Salted spreads
 en: Tapenades, tapenade, Puree of capers pitted black olives anchovy and herbs with olive oil and lemon juice
 bg: Маслинова паста
 ca: Tapenada
@@ -102072,7 +102110,6 @@ es: Tapenade
 fi: Tapenade
 fr: Tapenades, tapenade, ttapenades
 he: ממרח זיתים
-hr: Tapenade
 it: Tapenade
 ja: タプナード
 nl: Tapenades
@@ -104849,24 +104886,17 @@ intake24_category_code:en: BEET
 intake24_category_code:fr: BEET
 #TOCHECK:wikidata:en:Q99548274
 
-< en:Beet
-< en:Fresh vegetables
-en: Fresh beet
-fr: Betteraves fraîches
-hr: Svježa repa
-lt: švieži burokėliai
-season_in_country_fr:en: 1,2,3,10,11,12
-
 < en:Vegetables
-en: Uncooked beetroots
+en: Fresh beet, Uncooked beetroots
 de: Ungekochte rote Beete
-fr: Betterave rouge crue
-hr: Nekuhana cikla
-nl: Ongekookte rode bieten
+fr: Betteraves fraîches, Betterave rouge crue
+lt: švieži burokėliai
+nl: Verse rode bieten, Ongekookte rode bieten
 agribalyse_food_code:en: 20091
 ciqual_food_code:en: 20091
 ciqual_food_name:en: Beetroot, raw
 ciqual_food_name:fr: Betterave rouge, crue
+season_in_country_fr:en: 1,2,3,10,11,12
 
 < en:Beet
 < en:Cooked vegetables
@@ -104880,9 +104910,8 @@ ciqual_food_code:en: 20003
 ciqual_food_name:en: Beetroot, cooked
 ciqual_food_name:fr: Betterave rouge, cuite
 
-< en:Beet
+< en:Cooked beetroots
 fr: Betteraves sous vide
-
 
 < en:Vegetables
 # <en:ingredient:en:vegetable
@@ -107486,7 +107515,6 @@ de: Spinat
 es: Espinacas
 fi: pinaatit
 fr: Épinards
-hr: Špinata
 it: Spinaci
 ja: ホウレンソウ, ほうれん草
 la: Spinacia oleracea
@@ -107494,10 +107522,9 @@ nl: Spinazie
 pl: Szpinak
 ru: Шпинат
 tr: Ispanak
+agribalyse_food_code:en: 20059
 agribalyse_proxy_food_code:en: 20059
-ciqual_proxy_food_code:en: 20059
-ciqual_proxy_food_name:en: Spinach, raw
-ciqual_proxy_food_name:fr: Épinard, cru
+agribalyse_proxy_food_name:en: Spinach, raw
 intake24_category_code:en: SPNC
 intake24_category_code:fr: SPNC
 wikidata:en: Q81464
@@ -107514,6 +107541,16 @@ wikidata:en: Q81464
 #ciqual_food_name:fr: Épinard, cuit
 # no products on 7 sep 2024
 
+< en:Cooked vegetables
+< en:Spinachs
+en: Cooked spinach
+fr: Épinards cuits
+pl: Szpinak gotowany
+agribalyse_food_code:en: 20027
+ciqual_food_code:en: 20027
+ciqual_food_name:en: Spinach, cooked
+ciqual_food_name:fr: Épinard, cuit
+
 < en:Fresh vegetables
 < en:Spinachs
 en: Fresh spinachs
@@ -107522,7 +107559,6 @@ de: Frischer Spinat
 es: Espinacas frescas
 fi: Tuoreet pinaatit
 fr: Épinards frais
-hr: Svježi špinat
 nl: Verse spinazies
 pl: Szpinak świeży
 agribalyse_food_code:en: 20059
@@ -107534,8 +107570,8 @@ opposite:en: en:frozen-spinachs
 sales_format:en: package, weight
 season_in_country_fr:en: 1,2,3,4,5,9,10,11,12
 
-< en:Spinachs
-en: Young spinach leaves, Spinach young leaves
+< en:Fresh spinachs
+en: Spinach young leaves
 fr: Jeunes pousses d'épinards pour salades
 agribalyse_food_code:en: 20270
 ciqual_food_code:en: 20270
@@ -115537,11 +115573,11 @@ en: Mashed vegetables
 de: Gestampfte Gemüse
 fi: soseutetut vihannekset
 fr: Purées de légumes
-hr: Pasirano povrće
 it: Purè di verdure
 nl: Groentepureeën
 ro: Zacusca
 intake24_category_code:en: RVEG
+intake24_category_code:fr: RVEG
 
 < en:Mashed vegetables
 en: Mashed carrots, Carrots puree

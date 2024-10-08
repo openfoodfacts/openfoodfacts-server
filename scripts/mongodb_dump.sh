@@ -60,4 +60,11 @@ popd > /dev/null # data/delta
 mongoexport --collection recent_changes --host $HOST --db $DB --fields=_id,comment,code,userid,rev,countries_tags,t,diffs | gzip -9 > "new.${PREFIX}_recent_changes.jsonl.gz" && \
 mv new.${PREFIX}_recent_changes.jsonl.gz ${PREFIX}_recent_changes.jsonl.gz
 
+# Copy files to AWS S3 using MinIO client
+mc cp \
+    ${PREFIX}-products.jsonl.gz \
+    ${PREFIX}_recent_changes.jsonl.gz \
+    ${PREFIX}-mongodbdump.gz \
+    s3/openfoodfacts-ds
+
 popd > /dev/null # data
