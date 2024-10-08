@@ -1249,6 +1249,25 @@ sub store_product ($user_id, $product_ref, $comment) {
 		ensure_dir_created_or_die("$new_data_root/products/$prefix_path");
 		ensure_dir_created_or_die("$new_www_root/images/products/$prefix_path");
 
+		# Check if we are updating the product in place:
+		# the code changed, but it is the same path
+		# this can happen if the path is already normalized, but the code is not
+		# in that case we just want to update the code, and remove the old one from MongoDB
+		# we don't need to move the directories
+		if ("$BASE_DIRS{PRODUCTS}/$old_path" eq "$new_data_root/products/$path") {
+			$log->debug("updating product code in place", {old_code => $old_code, code => $code}) if $log->is_debug();
+			delete $product_ref->{old_code};
+			# remove the old product from the previous collection
+			if ($delete_from_previous_products_collection) {
+				execute_query(
+					sub {
+						return $previous_products_collection->delete_one({"_id" => $product_ref->{_id}});
+					}
+				);
+			}
+			$product_ref->{_id} = $product_ref->{code} . '';    # treat id as string;
+		}
+
 		if (    (!-e "$new_data_root/products/$path")
 			and (!-e "$new_www_root/images/products/$path"))
 		{
