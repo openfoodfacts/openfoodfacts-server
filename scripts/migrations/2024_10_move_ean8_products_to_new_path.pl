@@ -57,6 +57,11 @@ use File::Copy (qw/move/);
 
 use Data::Dumper;
 
+open(my $log, ">>", "$data_root/logs/move_ean8_products_to_new_path.log");
+print $log "move_ean8_products_to_new_path.pl started at " . localtime() . "\n";
+
+open(my $csv, ">>", "$data_root/logs/move_ean8_products_to_new_path.csv");
+
 sub normalize_code_zeroes($code) {
 
 	# Remove leading zeroes
@@ -249,10 +254,7 @@ GetOptions(
 
 my $d = 0;
 
-open(my $log, ">>", "$data_root/logs/move_ean8_products_to_new_path.log");
-print $log "move_ean8_products_to_new_path.pl started at " . localtime() . "\n";
 
-open(my $csv, ">>", "$data_root/logs/move_ean8_products_to_new_path.csv");
 
 # Loop on organizations if we are on the producers platform
 if (    (defined $server_options{private_products})
