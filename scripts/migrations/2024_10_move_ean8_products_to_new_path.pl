@@ -302,6 +302,20 @@ foreach my $orgid (@orgids) {
 												and print STDERR "$d products - $dir/$dir2/$dir3/$dir4\n";
 										}
 									}
+									# if we have 4 digits or more, check that the path does not have a leading 0
+									elsif ($dir =~ /^0/) {
+										if (-e "$data_root/products$org_path/$dir/$dir2/$dir3/$dir4/product.sto") {
+											push @products, "$dir/$dir2/$dir3/$dir4";
+											print STDERR
+												"nested dir with 13 or more digits and leading 0: $dir/$dir2/$dir3/$dir4\n";
+											print $log
+												"nested dir with 13 or more digits and leading 0: $dir/$dir2/$dir3/$dir4\n";
+											$d++;
+											(($d % 1000) == 1)
+												and print STDERR "$d products - $dir/$dir2/$dir3/$dir4\n";
+										}
+
+									}
 									$level4_dirs++;
 								}
 

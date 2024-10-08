@@ -67,12 +67,9 @@ use Log::Any::Adapter 'TAP';
 
 use Getopt::Long;
 
-
-
 my $query_params_ref = {};    # filters for mongodb query
 my $all_owners = '';
 my $obsolete = 0;
-
 
 GetOptions(
 	"query=s%" => $query_params_ref,
@@ -89,7 +86,6 @@ my $query_ref = {};
 
 add_params_to_query($query_params_ref, $query_ref);
 
-
 # On the producers platform, require --query owners_tags to be set, or the --all-owners field to be set.
 
 if ((defined $server_options{private_products}) and ($server_options{private_products})) {
@@ -98,8 +94,6 @@ if ((defined $server_options{private_products}) and ($server_options{private_pro
 		exit();
 	}
 }
-
-
 
 use Data::Dumper;
 print STDERR "MongoDB query:\n" . Dumper($query_ref);
@@ -138,32 +132,31 @@ while (my $product_ref = $cursor->next) {
 	my $code = $product_ref->{code};
 	my $path = product_path($product_ref);
 
-    my $code_len = length($code);
-    if (not defined $codes_lengths{$code_len}) {
-        $codes_lengths{$code_len} = 0;
-    }
-    $codes_lengths{$code_len}++;
+	my $code_len = length($code);
+	if (not defined $codes_lengths{$code_len}) {
+		$codes_lengths{$code_len} = 0;
+	}
+	$codes_lengths{$code_len}++;
 
-    if ($code ne $productid) {
-        $code_different_than_id++;
-        print STDERR "Code different than id. code: $code - id: $productid\n";
-    }
+	if ($code ne $productid) {
+		$code_different_than_id++;
+		print STDERR "Code different than id. code: $code - id: $productid\n";
+	}
 
-    my $normalized_code = normalize_code($code);
-    if ($code ne $normalized_code) {
-        $not_normalized_code++;
-        print STDERR "Not normalized code. code: $code - normalized: $normalized_code\n";
-    }
+	my $normalized_code = normalize_code($code);
+	if ($code ne $normalized_code) {
+		$not_normalized_code++;
+		print STDERR "Not normalized code. code: $code - normalized: $normalized_code\n";
+	}
 }
 
 # Print the code lengths
 print STDERR "Code lengths:\n";
-foreach my $code_len (sort {$codes_lengths{$a} <=> $codes_lengths{$b}} keys %codes_lengths) {
-    print STDERR "$code_len: $codes_lengths{$code_len}\n";
+foreach my $code_len (sort {$a <=> $b} keys %codes_lengths) {
+	print STDERR "$code_len: $codes_lengths{$code_len}\n";
 }
 
 print STDERR "Code different than id: $code_different_than_id\n";
 print STDERR "Not normalized code: $not_normalized_code\n";
-
 
 exit(0);
