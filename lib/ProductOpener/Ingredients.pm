@@ -97,7 +97,7 @@ BEGIN {
 		&match_ingredient_origin
 		&parse_origins_from_text
 
-		&assign_ciqual_codes
+		&assign_property_to_ingredients
 
 		&get_ingredients_with_property_value
 	);    # symbols to export on request
@@ -3013,7 +3013,7 @@ sub extend_ingredients_service ($product_ref, $updated_product_fields_ref) {
 
 	# Add Ciqual codes
 	# Used in particular for ingredients estimation from nutrients
-	assign_ciqual_codes($product_ref);
+	assign_property_to_ingredients($product_ref);
 
 	return;
 }
@@ -3225,7 +3225,7 @@ sub extract_ingredients_from_text ($product_ref) {
 		remove_fields(
 			$product_ref,
 			[
-				# assign_ciqual_codes - may have been introduced in previous version
+				# assign_property_to_ingredients - may have been introduced in previous version
 				"ingredients_without_ciqual_codes",
 				"ingredients_without_ciqual_codes_n",
 			]
@@ -3264,14 +3264,31 @@ sub extract_ingredients_from_text ($product_ref) {
 	return;
 }
 
-sub assign_ciqual_codes ($product_ref) {
+sub assign_property_to_ingredients ($product_ref) {
+    # If the ingredient list is not defined, the function immediately returns
+    return if not defined $product_ref->{ingredients};
 
-	return if not defined $product_ref->{ingredients};
+    # ------------------------------------ PART 1 : Getting CIQUAL codes ------------------------------------ #
+    # Retrieves a unique and sorted list of ingredients missing Ciqual codes
+    my @ingredients_without_ciqual_codes = uniq(sort(get_missing_ciqual_codes($product_ref->{ingredients})));
 
-	my @ingredients_without_ciqual_codes = uniq(sort(get_missing_ciqual_codes($product_ref->{ingredients})));
-	$product_ref->{ingredients_without_ciqual_codes} = \@ingredients_without_ciqual_codes;
-	$product_ref->{ingredients_without_ciqual_codes_n} = @ingredients_without_ciqual_codes + 0.0;
-	return;
+    # Stores this list in the product under the key 'ingredients_without_ciqual_codes'
+    $product_ref->{ingredients_without_ciqual_codes} = \@ingredients_without_ciqual_codes;
+
+    # Also stores the total number of ingredients without Ciqual codes
+    $product_ref->{ingredients_without_ciqual_codes_n} = @ingredients_without_ciqual_codes + 0.0;
+
+    # ------------------------------------ PART 2 : Getting Ecobalyse ids ------------------------------------ #
+    # Retrieves a unique and sorted list of ingredients missing Ecobalyse ids
+    my @ingredients_without_ecobalyse_ids = uniq(sort(get_missing_ecobalyse_ids($product_ref->{ingredients})));
+
+    # Stores this list in the product under the key 'ingredients_without_ecobalyse_ids'
+    $product_ref->{ingredients_without_ecobalyse_ids} = \@ingredients_without_ecobalyse_ids;
+
+    # Also stores the total number of ingredients without Ecobalyse ids
+    $product_ref->{ingredients_without_ecobalyse_ids_n} = @ingredients_without_ecobalyse_ids + 0.0;
+
+    return;
 }
 
 =head2 get_missing_ciqual_codes ($ingredients_ref)
@@ -3320,6 +3337,63 @@ sub get_missing_ciqual_codes ($ingredients_ref) {
 	}
 
 	return @ingredients_without_ciqual_codes;
+}
+
+=head2 get_missing_ecobalyse_ids ($ingredients_ref)
+
+Assign a ecobalyse_id or a ciqual_proxy_food_code to ingredients and sub ingredients. (NOTE : this is a first version that'll soon be improved)
+
+=head3 Arguments
+
+=head4 $ingredients_ref
+
+reference to an array of ingredients
+
+=head3 Return values
+
+=head4 @ingredients_without_ecobalyse_ids
+
+=cut
+
+sub get_missing_ecobalyse_ids ($ingredients_ref) {
+	my @ingredients_without_ecobalyse_ids = ();
+	foreach my $ingredient_ref (@{$ingredients_ref}) {
+
+		# Also add sub-ingredients
+		if (defined $ingredient_ref->{ingredients}) {
+			push(@ingredients_without_ecobalyse_ids, get_missing_ecobalyse_ids($ingredient_ref->{ingredients}));
+		}
+
+		# Assign a ecobalyse_code or a ecoalyse_proxy_code to the ingredient
+		delete $ingredient_ref->{ecobalyse_code};
+		delete $ingredient_ref->{ecobalyse_proxy_code};
+
+		# Getting properties from product
+		#my $product_origin = has_specific_ingredient_property()
+
+		# Getting the correct ecobalyse comake devde 
+		my $ecobalyse_code = get_inherited_property("ingredients", $ingredient_ref->{id}, "ecobalyse:en");
+		if (defined $ecobalyse_code) {
+			$ingredient_ref->{ecobalyse_code} = $ecobalyse_code;
+		}
+		else {
+			my $ecobalyse_proxy_code
+				= get_inherited_property("ingredients", $ingredient_ref->{id}, "ecobalyse_proxy:en");
+			if (defined $ecobalyse_proxy_code) {
+			$ingredient_ref->{ecobalyse_proxy_code} = $ecobalyse_proxy_code;
+			}
+			else {
+				push(@ingredients_without_ecobalyse_ids, $ingredient_ref->{id});
+			}
+		}
+		
+		#ecobalyse:en
+		#ecobalyse_labels_en_organic:en
+		#ecobalyse_origins_en_france:en
+		#ecobalyse_origins_en_european_union:en
+		#ecobalyse_labels_en_organic_origins_en_france:en
+	}
+	return @ingredients_without_ecobalyse_ids;
 }
 
 =head2 estimate_ingredients_percent_service ( $product_ref, $updated_product_fields_ref )
