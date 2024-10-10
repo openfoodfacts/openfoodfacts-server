@@ -6064,6 +6064,13 @@ ciqual_food_name:en: Fruit soft drink, still (10-50% of fruit juice), with sugar
 ciqual_food_name:fr: Boisson plate aux fruits (10 à 50% de jus), sucrée
 
 < en:Beverages
+en: Still soft drinks
+de: Stillgetränke
+es: Bebida gaseosa sin gas
+hr: Bezalkoholno piće
+nl: Koolzuurvrije frisdranken
+
+< en:Beverages
 en: Carbonated drinks
 bg: Газирани напитки
 ca: Begudes carbonatades
@@ -6519,7 +6526,7 @@ bg: Енергийна напитка без захар и с изкуствен
 fr: Boisson énergisante non sucrée avec édulcorants
 hr: Energetski napitak bez šećera i s umjetnim sladilima
 lt: Energetinis gėrimas be cukraus ir su dirbtiniais saldikliais
-nl: Energiedrankenzonder suiker met artificiële zoetstoffen
+nl: Energiedranken zonder suiker met artificiële zoetstoffen
 pl: Napój energetyczny bez cukru i ze sztucznymi słodzikami
 agribalyse_food_code:en: 18353
 ciqual_food_code:en: 18353
@@ -7613,8 +7620,44 @@ tr: Portakal suyu
 zh: 橙子汁, 橙汁
 agribalyse_proxy_food_code:en: 2011
 agribalyse_proxy_food_name:en: Mixed fruits juice, orange based, multivitamin
+#expected_ingredients:en: en:orange
+opposite:en: en:orange-nectars
 wikidata:en: Q1781317
 # Note: do not put the Agribalyse for home made orange juice, it is not relevant for industrial orange juice.
+
+< en:Orange juices
+< en:Refrigerated squeezed juices
+en: Refrigerated squeezed orange juices
+de: Gekühlte Orangendirektsäfte
+es: Zumos de naranja exprimidos refrigerados
+fr: Jus d'orange frais, jus d'oranges frais
+hr: Ohlađeni sokovi od cijeđene naranče
+lt: Šaltai laikomos spaustos apelsinų sultys
+nl: Gekoelde verse sinaasappelsappen, Gekoelde verse sinaasappelsap
+
+< en:Orange juices
+< en:Squeezed fruit juices
+en: Squeezed orange juices, Non-refrigerated squeezed orange juices, Pure orange juices
+de: Orangendirektsäfte
+es: Zumos de naranja exprimidos no refrigerados, Zumos de naranja exprimidos, Zumos de naranja exprimidos ambiente
+fi: puristetut appelsiinimehut
+fr: Jus d'orange pur jus, jus d'orange 100% pur jus, Jus d'oranges 100% pur jus, 100% pur jus d'oranges, pur jus d'orange
+hr: Cijeđeni sokovi od naranče
+nl: Vers geperste sinaasappelsappen, Vers geperst sinaasappelsap
+pt: Sumos de laranja espremida
+ciqual_food_code:en: 2070
+ciqual_food_name:en: Orange juice, pure juice
+ciqual_food_name:fr: Jus d'orange, pur jus
+
+< en:orange-juices
+en: Orange juices (home-made), Orange juice home-made
+fr: Jus d'orange maison
+hr: Sok od naranče domaći
+nl: Sinaasappelsappen (zelfgeperst)
+agribalyse_food_code:en: 2013
+ciqual_food_code:en: 2013
+ciqual_food_name:en: Orange juice, home-made
+ciqual_food_name:fr: Jus d'orange, maison
 
 < en:Fruit juices from concentrate
 < en:Orange juices
@@ -7636,6 +7679,7 @@ ciqual_food_name:fr: Jus d'orange, à base de concentré
 < en:Orange juices
 en: Orange juices without pulp
 fr: Jus d'orange sans pulpe, Jus d'orange filtrés
+opposite:en: en:orange-juices-with-pulp
 
 < en:Orange juices
 en: Orange juices with pulp
@@ -7647,6 +7691,7 @@ it: Succo d'arancia con polpa
 lt: Apelsinų sultys su minkštimu
 nl: Sinaasappelsappen met vruchtvlees
 pl: Soki pomarańczowe z miąższem
+opposite:en: en:orange-juices-without-pulp
 
 < en:Orange juices
 en: Blood orange juices
@@ -7936,15 +7981,6 @@ gpc_category_description:en: Definition: Includes any products that can be descr
 gpc_category_name:en: Fruit Juice - Ready to Drink (Perishable)
 
 
-< en:Orange juices
-< en:Refrigerated squeezed juices
-en: Refrigerated squeezed orange juices
-de: Gekühlte Orangendirektsäfte
-es: Zumos de naranja exprimidos refrigerados
-fr: Jus d'orange frais, jus d'oranges frais
-hr: Ohlađeni sokovi od cijeđene naranče
-lt: Šaltai laikomos spaustos apelsinų sultys
-nl: Gekoelde verse sinaasappelsappen, Gekoelde verse sinaasappelsap
 
 < en:Fruit juices
 en: Squeezed fruit juices, squeezed juices, Non-refrigerated squeezed juices, Pure fruit juices
@@ -7966,20 +8002,6 @@ ciqual_food_code:en: 2072
 ciqual_food_name:en: Fruit juice, pure juice (average)
 ciqual_food_name:fr: Jus de fruits, pur jus (aliment moyen)
 incompatible_with:en: categories:en:Fruit juices from concentrate
-
-< en:Orange juices
-< en:Squeezed fruit juices
-en: Squeezed orange juices, Non-refrigerated squeezed orange juices, Pure orange juices
-de: Orangendirektsäfte
-es: Zumos de naranja exprimidos no refrigerados, Zumos de naranja exprimidos, Zumos de naranja exprimidos ambiente
-fi: puristetut appelsiinimehut
-fr: Jus d'orange pur jus, jus d'orange 100% pur jus, Jus d'oranges 100% pur jus, 100% pur jus d'oranges, pur jus d'orange
-hr: Cijeđeni sokovi od naranče
-nl: Vers geperste sinaasappelsappen, Vers geperst sinaasappelsap
-pt: Sumos de laranja espremida
-ciqual_food_code:en: 2070
-ciqual_food_name:en: Orange juice, pure juice
-ciqual_food_name:fr: Jus d'orange, pur jus
 
 < en:Fruit juices
 en: Tangerine juices
@@ -8299,6 +8321,8 @@ agribalyse_food_code:en: 2375
 ciqual_food_code:en: 2375
 ciqual_food_name:en: Orange nectar
 ciqual_food_name:fr: Nectar d'orange
+#expected_ingredients:en: en:orange
+opposite:en: en:orange juices
 #wikidata:en:
 
 < en:Fruit nectars
@@ -11847,6 +11871,7 @@ hr: Bezalkoholna jabukovača
 lt: Nealkoholiniai sidrai, sidrai be alkoholio
 nl: Alcoholvrije cider, Niet-alcoholische cider
 
+< en:Still soft drinks
 < en:Tea-based beverages
 en: Still soft drink with tea extract
 de: Stillgetränk mit Teeextrakt
@@ -11872,7 +11897,7 @@ ciqual_food_code:en: 18065
 ciqual_food_name:en: Still soft drink with tea extract, flavoured, without sugar and with artificial sweeteners
 
 < en:Still soft drink with tea extract
-en: Still soft drink with tea extract flavoured with sugar
+en: Still soft drink with tea extract flavoured with sugar, Still soft drinks with tea extract and sugar and sweeteners
 fr: Boisson au thé aromatisée sucrée
 agribalyse_food_code:en: 18075
 ciqual_food_code:en: 18075
@@ -11933,6 +11958,7 @@ lt: Vaisiniai sirupai
 nl: Vruchtensiropen, Vruchtensiroop, Vruchtesiroop
 pl: Syropy owocowe, Syropy z owocami
 pt: Xaropes com frutas, Xarope com frutas
+comment:en: Fruitsyrups also exists. Need to differntiate better.
 wikidata:en: Q5506416
 
 < en:Flavoured syrups
@@ -12228,7 +12254,7 @@ wikidata:en: Q348958
 < en:Beverages
 #Do not put tea beverages under teas
 #<en:Teas
-en: Tea-based beverages, Tea beverages, Still soft drinks with tea extract and sugar and sweeteners
+en: Tea-based beverages, Tea beverages
 de: Teegetränke, Teebasierte Getränke
 es: Bebidas de té
 fi: Teepohjaiset juomat
@@ -39435,6 +39461,15 @@ gpc_category_name:en: Sugar Candy/Sugar Candy Substitutes Confectionery
 wikidata:en: Q185583
 
 < en:Candies
+en: Sugarfree candies
+bg: Бонбони без захар
+de: Bonbons (zuckerfrei), zuckerfreier Bonbons
+es: Golosinas sin azúcar
+fi: sokeriton karkit
+fr: Bonbons sans sucre, Bonbons sans sucres
+nl: Snoep (suikervrij)
+
+< en:Candies
 en: French candies
 fr: Bonbons français
 hr: Francuski bomboni
@@ -39475,6 +39510,7 @@ fr: Bonbons tonneaux de Root Beer
 
 #For throat improvement help
 < en:Candies
+fr: Bonbons rafraîchissants
 nl: Keelpastilles
 
 < en:French candies
@@ -39765,7 +39801,7 @@ he: מסטיק נטול סוכר, מסטיק ללא סוכר
 hr: Žvakaća guma bez šećera
 it: Gomme da masticare senza zucchero
 lt: Becukrės kramtomosios gumos, Kramtomosios gumos be cukraus
-nl: Suikervrije kauwgom
+nl: Kauwgom (suikervrij), Suikervrije kauwgom
 pl: bezcukrowa guma do żucia
 pt: Pastilhas elásticas sem açucar
 ro: Gumă de mestecat fără zahăr
@@ -60858,7 +60894,7 @@ hu: Napraforgóolajok
 it: Olio di girasole, Olio di semi di girasole
 ja: ひまわり油
 lt: Saulėgrąžų aliejai, Saulėgrąžų aliejus
-nl: Zonnebloemoliën
+nl: Zonnebloemoliën, Zonnebloemolie
 nl_be: Zonnebloemoliën
 pl: Olej słonecznikowy, Olej ze słonecznika
 pt: Óleos de girasol
@@ -82216,7 +82252,7 @@ lt: Salotos su lęšiais
 nl: Linzensalade
 
 < en:Prepared salads
-en: Beets salads
+en: Beets salads, Beetroot salads
 de: Rüben-Salate, Rübensalate
 fi: punajuurisalaatit
 fr: Salades de betteraves
@@ -85943,7 +85979,7 @@ fi: Leivitetyt kanaleikkeet
 fr: Escalopes de poulet panées, Escalopes de poulet panée, Escalope de poulet panée
 hr: Pohani pileći kotleti
 it: Cotoletta di pollo impanata
-nl: Kippenschnitzel
+nl: Kipschnitzel, Kippenschnitzel
 agribalyse_food_code:en: 36036
 ciqual_food_code:en: 36036
 ciqual_food_name:en: Turkey, breaded escalope
@@ -103166,6 +103202,7 @@ it: Dolcificanti da tavola
 nl: Tafelzoetstoffen
 nl_be: Tafelzoetstoffen
 
+
 en: Syrups
 bg: Сироп
 ca: Almívars, xarops
@@ -103218,14 +103255,14 @@ nl: Appelstropen
 en: Thick apple pear syrups
 nl: Appel-perenstropen
 
-< en:Syrups
+< en:Flavoured syrups
 en: Concentrate syrup without sugar and with artificial sweeteners
 fr: Boisson concentrée à diluer sans sucres ajoutés avec édulcorants, Sirop concentré à diluer sans sucres ajoutés avec édulcorants
 ciqual_food_code:en: 18059
 ciqual_food_name:en: Concentrate beverage (to be diluted), without sugar and with artificial sweeteners, ""syrup 0%"" type
 ciqual_food_name:fr: Boisson concentrée à diluer, sans sucres ajoutés, avec édulcorants, type ""sirop 0%""
 
-< en:Syrups
+< en:Flavoured syrups
 en: Syrup with sugar to be diluted
 fr: Sirop à diluer sucré
 agribalyse_food_code:en: 18017
@@ -103723,20 +103760,6 @@ ciqual_food_name:fr: Artichaut, fond, appertisé, égoutté
 en: Marinated canned artichokes
 nl: Gemarineerde artisjokken in blik/pot
 
-< en:Beet
-< en:Canned vegetables
-en: Canned beet, Canned beetroots
-bg: Консервирано цвекло
-de: Rote-Bete-Konserven
-es: Remolacha en conserva
-fi: purkitetut punajuuret
-fr: Betteraves en conserve
-hr: Konzervirana repa
-it: Barbabietole in scatola
-nl: Rode bieten in blik/pot
-ciqual_proxy_food_code:en: 20003
-ciqual_proxy_food_name:en: Beetroot, cooked
-ciqual_proxy_food_name:fr: Betterave rouge, cuite
 
 < en:Brussels sprouts
 < en:Canned vegetables
@@ -103953,13 +103976,15 @@ nl: Atjar tjampoer
 nl_be: Atjar tjampoer
 
 < en:Vegetable pickles
-en: Pickled beets
+en: Beetroot(pickled), Pickled beets
 de: Eingelegte rote Bete
 es: Remolacha encurtida
 fr: Betteraves marinées
 hr: Ukiseljena repa
 ja: ビーツのピクルス
-nl: Ingemaakte rode bieten
+nl: Ingemaakte rode bieten, Rode bieten op azijn
+comment:en: Cooked cut beetroot laid in vinegar.
+opposite:en: en:beetroot
 
 < en:Vegetable pickles
 en: Pickled carrots
@@ -104159,6 +104184,7 @@ nl: Verse groenten
 pt: Vegetais frescos
 ru: Свежие овощи
 zh: 新鲜蔬菜
+comment:en: Fresh vegetable are products that are only plantbased. These products are fresh from the land and underwent a little processing (cleaning, peeling, chopping). Products can have added ingredients for preservation purposes (water, salt preservatives) if they are sold canned. Many of these products require extra processing before they can be eaten.
 gpc_category_code:en: 10000006
 gpc_category_description:en: Definition: Includes any products that can be described/observed as any variety of vegetables, combination of vegetables or fruit vegetables, which may be whole, chopped, cleaned and trimmed, but has not gone through any further manufacturing processes, such as reformed, cooked, dried, salted or smoked, however these products can be coated, in sauce, stuffed or filled. Definition Excludes: Specifically excludes products that have added ingredients included such as rice, couscous and pasta. These products have been treated or packaged in such a way as to extend their consumable life. Excludes products such as Vegetables with additional dough or grains, Frozen and Fresh Unprepared and Unprocessed Vegetables, all Prepared and Processed Vegetables.
 gpc_category_name:en: Vegetables - Unprepared/Unprocessed (Shelf Stable)
@@ -104817,7 +104843,7 @@ en: Young canned jackfruit
 nl: Jonge Jackfruit in blik
 
 < en:Vegetables
-en: Aubergines
+en: Aubergines, Eggplants
 bg: Патладжани
 de: Auberginen
 es: Berenjenas
@@ -104839,20 +104865,38 @@ bg: Пресни патладжани
 de: Frische Auberginen
 fr: Aubergines fraîches
 hr: Svježi patlidžani
+nl: Verse aubergines
+expected_ingredients:en: en:aubergine
+opposite:en: en:frozen-aubergines
+sales_format:en: package, weight
 season_in_country_fr:en: 6,7,8,9
 
-< en:Aubergines
-en: Eggplant cooked
-fr: Aubergine cuite
-agribalyse_food_code:en: 20002
-ciqual_food_code:en: 20002
-ciqual_food_name:en: Eggplant, cooked
+<en: Aubergines
+< en:Frozen vegetables
+en: Frozen aubergines
+bg: Замразени патладжани
+de: Tiefkühl-Auberginen, Gefrohrene Aubergines
+es: Berenjenas congeladas
+fr: Aubergines surgelées
+hr: Smrznuti patlidžani
+nl: Diepvries aubergines
+opposite:en: en:fresh-aubergines
 
-< en:Aubergines
+#< en:Aubergines
+#en: Eggplant cooked
+#fr: Aubergine cuite
+#agribalyse_food_code:en: 20002
+#ciqual_food_code:en: 20002
+#ciqual_food_name:en: Eggplant, cooked
+# no products on 3-oct-2024
+
+< en:Frozen vegetables
 < en:Prepared vegetables
+en: Prepared eggplants
 fr: Aubergines préparées
 
-< fr:Aubergines préparées
+
+< en:Prepared eggplants
 en: Riste with eggplant and tomatoes and onions
 fr: Ristes d’aubergines, Mélange d'aubergines et tomates et oignons
 agribalyse_food_code:en: 25196
@@ -104867,7 +104911,7 @@ fr: Aubergines à la provençale
 # Beet
 
 < en:Vegetables
-en: Beet, Beetroots
+en: Beetroot, Beet
 bg: Червено цвекло
 de: Rote Bete
 es: Remolachas
@@ -104884,10 +104928,11 @@ agribalyse_proxy_food_name:en: Beetroot, raw
 agribalyse_proxy_food_name:fr: Betterave rouge, crue
 intake24_category_code:en: BEET
 intake24_category_code:fr: BEET
+opposite:en: en:beetroot(pickled)
 #TOCHECK:wikidata:en:Q99548274
 
 < en:Vegetables
-en: Fresh beet, Uncooked beetroots
+en: Beetroot(raw), Beet(raw), Beet(uncooked), Uncooked beet, Uncooked beetroots
 de: Ungekochte rote Beete
 fr: Betteraves fraîches, Betterave rouge crue
 lt: švieži burokėliai
@@ -104896,11 +104941,37 @@ agribalyse_food_code:en: 20091
 ciqual_food_code:en: 20091
 ciqual_food_name:en: Beetroot, raw
 ciqual_food_name:fr: Betterave rouge, crue
+opposite:en: en:beetroot(cooked)
+
+< en:Beet
+< en:Canned vegetables
+en: Beetroot(canned), Beet(canned), Canned beetroots, Canned beet
+bg: Консервирано цвекло
+de: Rote-Bete-Konserven
+es: Remolacha en conserva
+fi: purkitetut punajuuret
+fr: Betteraves en conserve
+hr: Konzervirana repa
+it: Barbabietole in scatola
+nl: Rode bieten in blik/pot
+ciqual_proxy_food_code:en: 20003
+ciqual_proxy_food_name:en: Beetroot, cooked
+ciqual_proxy_food_name:fr: Betterave rouge, cuite
+opposite:en: en:beetroot(fresh)
+
+< en:Beetroot(raw)
+< en:Fresh vegetables
+en: Beetroot(fresh), Fresh beet, Fresh beetroot
+fr: Betteraves fraîches
+hr: Svježa repa
+lt: švieži burokėliai
+expected_ingredients:en: en:beetroot
+opposite:en: en:beetroot(canned), en:beetroot(vacuum-packed)
 season_in_country_fr:en: 1,2,3,10,11,12
 
 < en:Beet
 < en:Cooked vegetables
-en: Cooked beetroots
+en: Beetroot(cooked), Beet(cooked), Cooked beet, Cooked beetroots
 fr: Betteraves rouges cuites
 hr: Kuhana cikla
 lt: Virti burokėliai
@@ -104909,14 +104980,23 @@ agribalyse_food_code:en: 20003
 ciqual_food_code:en: 20003
 ciqual_food_name:en: Beetroot, cooked
 ciqual_food_name:fr: Betterave rouge, cuite
+opposite:en: en:beetroot(raw), en:beetroot(vacuum-packed)
 
-< en:Cooked beetroots
+< en:Beet(cooked)
+en: Beetroot(vacuum-packed), Beet(vacuum-packed)
+de: Rüben(Vakuumverpackt)
+es: Remolachas envasadas al vacío
 fr: Betteraves sous vide
+it: Barbabietole sottovuoto
+nl: Bieten(Vacuümverpakt)
+pt: Beterraba embalada a vácuo
+expected_ingredients:en: en:beetroot
+opposite:en: en:beetroot(raw), en:beetroot(canned)
 
 < en:Vegetables
 # <en:ingredient:en:vegetable
 en: Broccoli
-af: Broccoli
+xx: Broccoli
 ar: قنبيط أخضر
 az: Brokkoli
 bg: Броколи
@@ -104926,12 +105006,11 @@ bs: Brokula
 ca: bròcoli
 cs: brokolice
 cy: Brocoli
-da: broccoli
 de: Brokkoli
 dv: ބުރޮކޯޅި
 el: Μπρόκολο
 eo: Brokolo
-es: Brócolis, Brócoli
+es: Brócolis, Brócoli, Floretes de brócoli
 et: spargelkapsas
 eu: Brokoli
 fa: کلم بروکلی
@@ -104947,7 +105026,6 @@ hu: Brokkoli
 hy: բրոկկոլի
 id: Brokoli
 is: Spergilkál
-it: broccoli
 ja: ブロッコリー
 jv: Brokoli
 kk: Брокколи
@@ -104962,21 +105040,18 @@ ml: ബ്രോക്കൊളി
 mr: ब्रोकली
 ms: Brokoli
 nb: brokkoli
-nl: broccoli
 nn: brokkoli
 nv: Chʼilzooł
 os: Брокколи
 pa: ਬਰੋਕਲੀ
 pl: brokuł
 pt: brócolos
-ro: Broccoli
 ru: брокколи
 sh: Brokula
 sk: Brokolica
 sl: Brokoli
 sr: броколи
 su: Brokoli
-sv: broccoli
 ta: புரோக்கோலி
 te: బ్రొక్కొలి
 th: บรอกโคลี
@@ -104998,7 +105073,6 @@ intake24_category_code:en: BRCL
 # bho:ब्रोकली
 # ckb:برۆکڵی
 # hsb:Brokoli
-# ilo:Broccoli
 # lij:Bròccolo
 # nan:Chheⁿ-hoe-chhài
 # nap:Vruoccole
@@ -105006,6 +105080,7 @@ intake24_category_code:en: BRCL
 # pt-br:brócolis
 # war:Brokoli
 # yue:西蘭花
+opposite:en: en:mashed-broccoli, en:mixed-vegetables
 wikidata:en: Q47722
 wikipedia:en: https://en.wikipedia.org/wiki/Broccoli
 
@@ -105018,6 +105093,8 @@ es: Brócoli fresco
 fi: Tuore parsakaali
 fr: Brocolis frais
 hr: Svježe brokule
+expected_ingredients:en: en:broccoli
+opposite:en: en:frozen-broccoli
 season_in_country_fr:en: 9,10,11
 
 < en:Broccoli
@@ -105030,6 +105107,35 @@ agribalyse_food_code:en: 20006
 ciqual_food_code:en: 20006
 ciqual_food_name:en: Broccoli, cooked
 ciqual_food_name:fr: Brocoli, cuit
+expected_ingredients:en: en:broccoli
+
+< en:Broccoli
+< en:Frozen vegetables
+en: Frozen broccolis, Frozen broccoli florets, Frozen broccoli
+de: Tiefkühl-Brokkoli
+es: Brócolis congelados, Brócoli en floretes congelado, Brócoli congelado
+fi: pakastetut parsakaalinuput
+fr: Brocolis surgelés, Brocolis en fleurettes surgelés, Brocoli surgelé
+hr: Smrznuta brokula
+it: Broccoli surgelati, Cime di broccoli surgelate
+nl: Diepvries broccoli
+pl: Brokuł (różyczki) głęboko mrożony
+agribalyse_proxy_food_code:en: 20204
+agribalyse_proxy_food_name:en: Broccoli, frozen, raw
+agribalyse_proxy_food_name:fr: Brocoli, surgelé, cru
+ciqual_food_code:en: 20204
+ciqual_food_name:en: Broccoli, frozen, raw
+ciqual_food_name:fr: Brocoli, surgelé, cru
+expected_ingredients:en: en:broccoli
+opposite:en: en:fresh-broccoli
+
+< en:Frozen broccolis
+en: Frozen cooked broccoli
+fr: Brocoli surgelé cuit
+agribalyse_food_code:en: 20205
+ciqual_food_code:en: 20205
+ciqual_food_name:en: Broccoli, frozen, cooked
+ciqual_food_name:fr: Brocoli, surgelé, cuit
 
 < en:Vegetables
 en: Brussels sprouts
@@ -107518,7 +107624,7 @@ fr: Épinards
 it: Spinaci
 ja: ホウレンソウ, ほうれん草
 la: Spinacia oleracea
-nl: Spinazie
+nl: Spinazie, Bladspinazie
 pl: Szpinak
 ru: Шпинат
 tr: Ispanak
@@ -112295,41 +112401,6 @@ nl: Diepvries gehakte artisjokken
 
 
 
-< en:Aubergines
-< en:Frozen vegetables
-en: Frozen aubergines
-bg: Замразени патладжани
-de: Tiefkühl-Auberginen, Gefrohrene Aubergines
-es: Berenjenas congeladas
-fr: Aubergines surgelées
-hr: Smrznuti patlidžani
-nl: Diepvries aubergines
-
-< en:Broccoli
-< en:Frozen vegetables
-en: Frozen broccolis, Frozen broccoli florets, Frozen broccoli
-de: Tiefkühl-Brokkoli
-es: Brócolis congelados, Brócoli en floretes congelado, Brócoli congelado
-fi: pakastetut parsakaalinuput
-fr: Brocolis surgelés, Brocolis en fleurettes surgelés, Brocoli surgelé
-hr: Smrznuta brokula
-it: Broccoli surgelati, Cime di broccoli surgelate
-nl: Diepvries broccoli
-pl: Brokuł (różyczki) głęboko mrożony
-agribalyse_proxy_food_code:en: 20204
-agribalyse_proxy_food_name:en: Broccoli, frozen, raw
-agribalyse_proxy_food_name:fr: Brocoli, surgelé, cru
-ciqual_food_code:en: 20204
-ciqual_food_name:en: Broccoli, frozen, raw
-ciqual_food_name:fr: Brocoli, surgelé, cru
-
-< en:Frozen broccolis
-en: Frozen cooked broccoli
-fr: Brocoli surgelé cuit
-agribalyse_food_code:en: 20205
-ciqual_food_code:en: 20205
-ciqual_food_name:en: Broccoli, frozen, cooked
-ciqual_food_name:fr: Brocoli, surgelé, cuit
 
 < en:Brussels sprouts
 < en:Frozen vegetables
@@ -115612,6 +115683,7 @@ agribalyse_food_code:en: 20259
 ciqual_food_code:en: 20259
 ciqual_food_name:en: Broccoli, puree
 ciqual_food_name:fr: Brocoli, purée
+opposite:en: en:broccoli
 
 < en:Mashed vegetables
 en: Mashed spinachs, Spinach puree
@@ -117529,17 +117601,6 @@ agribalyse_food_code:en: 0005
 ciqual_food_code:en: 0005
 ciqual_food_name:en: Dried deffated black soldier fly protein
 ciqual_food_name:fr: Insecte (Mouche Soldat Noir)
-
-
-< en:orange-juices
-en: Orange juice home-made
-fr: Jus d'orange maison
-hr: Sok od naranče domaći
-nl: Sinaasappelsappen (zelfgeperst)
-agribalyse_food_code:en: 2013
-ciqual_food_code:en: 2013
-ciqual_food_name:en: Orange juice, home-made
-ciqual_food_name:fr: Jus d'orange, maison
 
 < en:fruit-juices
 en: Fruit juice mixed - apple base standard
