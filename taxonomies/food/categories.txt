@@ -36710,6 +36710,7 @@ pt: Preparados para gelatina
 en: Mixes for kissel
 pl: Kisiel w proszku
 
+< en:Cereals and their products
 < en:Dessert mixes
 en: Pancake mixes, pancake mix
 es: Mezcla para tortitas
@@ -36719,10 +36720,20 @@ it: Preparato per pancake
 lt: Blynų miltų mišiniai, Blynų mišiniai, Miltų mišiniai blynams
 nl: Pancake mixes
 
+< en:Cereals and their products
 < en:Dessert mixes
 de: Pfannkuchenmischung
 fr: Préparations pour crêpes
 nl: Pannenkoekenmixes
+
+< en:Cereals and their products
+en: Dosa batter mixes
+
+< en:Cereals and their products
+en: Idly batter mixes, Idly batter, Idli batter
+
+< en:Dosa batter mixes
+en: Wet dosa batter mixes
 
 #There is two type of rosquillas in Spain. Some have the consistancy of doughnuts and the others are biscuits. This category regroups the doughnuts
 < en:Cakes
@@ -39360,6 +39371,13 @@ it: Ciliegie ricoperte di cioccolato
 lt: Vyšnios šokolade
 nl: Kersen met een chocolaag
 wikidata:en: Q1624200
+
+< en:Bonbons
+en: Chocolate covered nuts and fruits
+
+< en:Chocolate covered nuts and fruits
+en: Chocolate covered nuts and fruits mixes
+nl: Gemengde noten en fruit bedekt met chocolade
 
 < en:Bonbons
 en: Chocolate covered nuts, Chocolate confectionery filled with nuts
@@ -52425,6 +52443,9 @@ who_id:en: 7
 wikidata:en: Q13317
 
 < en:Yogurts
+en: Curd, Dahi
+
+< en:Yogurts
 en: Lactose-free yogurts
 bg: Кисело мляко без лактоза
 de: laktosefreie Joghurts
@@ -55081,7 +55102,7 @@ wikidata:en: Q11009
 < en:Nuts
 < en:Salty snacks
 en: Salted nuts
-de: gesalzene Nüsse
+de: Gesalzene Nüsse
 fr: Fruits à coque salés, fruits à coques salés
 hr: Slani orasi
 it: frutta a guscio salata
@@ -55089,6 +55110,20 @@ lt: Riešutai su druska, Sūdyti riešutai
 nl: Gezoute peulvruchten
 pt: Frutos secos com sal
 tr: Tuzlu çerezler
+opposite:en: en:Unsalted nuts
+
+< en:Nuts
+en: Unsalted nuts
+de: Ungesalzene Nüsse
+fr: Fruits à coque non-salés, fruits à coques non-salés
+it: frutta a guscio insalata
+nl: Ongezouten peulvruchten
+pt: Frutos secos sem sal
+opposite:en: en:Salted nuts
+
+< en:Nuts
+en: Mixed nuts
+nl: Notenmelanges, gemengde noten
 
 < en:Cashew nuts
 < en:Salted nuts
@@ -55100,6 +55135,7 @@ lt: Anakardžiai su druska, Sūdyti anakardžiai
 tr: Tuzlu Kaju
 
 < en:Cashew nuts
+< en:Unsalted nuts
 en: Unsalted cashews, Unsalted cashew nuts
 de: Ungesalzene Cashewnüsse, Ungesalzene Cashewkerne
 fr: Noix de cajou non-salées
@@ -55626,6 +55662,10 @@ wikipedia:nl: https://nl.wikipedia.org/wiki/Borrelnootje
 < en:Coated peanuts
 nl: Katjang pedis
 
+< en:Coated peanuts
+en: Wasabi coated peanuts
+nl: Wasabibollen
+
 < en:Peanuts
 en: Peanuts cooked in water with salt, Boiled peanuts with salt
 fr: Arachides bouillies salées, Arachides cuites à l'eau salée, Cacahuètes bouillies salées, Cacahuètes cuites à l'eau salée
@@ -56048,7 +56088,7 @@ hr: Brašna od kestena t110
 < en:Dried fruits
 < en:Nuts and their products
 en: Nuts and dried fruits
-nl: Studentenhavers
+nl: Noten en gedroogd fruit (gemengd), Studentenhavers
 
 < en:Nuts and their products
 < en:Oilseed purees
@@ -56175,8 +56215,7 @@ hr: Maslaci od kikirikija
 it: Burri di arachidi
 ja: ピーナッツバター
 lt: Žemės riešutų sviestai, žemės riešutų pastos
-nl: Pindakazen
-nl_be: Pindakazen
+nl: Pindakazen, Pindakaas
 pl: Masło z orzeszków ziemnych, Masło z orzeszków arachidowych
 pt: Manteigas de amendoim
 ru: Арахисовая паста, Арахисовые пасты
@@ -62824,9 +62863,6 @@ agribalyse_proxy_food_name:fr: Farine de blé tendre ou froment T45 (pour pâtis
 wikidata:en: Q2249305
 
 < en:Wheat flours
-en: refined wheat flour, maida
-
-< en:Wheat flours
 en: Self-raising wheat flour
 bg: Пшенично брашно с набухвател
 fr: Farine de blé tendre avec levure incorporée, Farine de froment avec levure incorporée
@@ -62946,7 +62982,7 @@ ciqual_food_name:en: Wheat flour, type 110
 ciqual_food_name:fr: Farine de blé tendre ou froment T110
 
 < en:Wheat flours
-en: Whole wheat flours
+en: Whole wheat flours, Atta
 bg: Пълнозърнесто пшенично брашно
 de: Vollkornweizenmehle
 es: Harina de trigo integral
@@ -62956,7 +62992,7 @@ ja: 全粒粉
 nl: Volkoren graanmeel
 
 < en:Wheat flours
-en: White wheat flours
+en: White wheat flours, Maida, Refined wheat flour
 nl: Witte tarwebloem
 
 < en:Common wheat flours
@@ -63254,7 +63290,7 @@ ciqual_food_name:fr: Germe de blé
 wikidata:en: Q41103403
 
 < en:Cereals and their products
-en: Cereal semolinas
+en: Cereal semolinas, Suji, Sooji
 de: Grieße, Grieß
 es: Sémolas y semolinas de cereales, Sémolas de cereales
 fi: viljakasvit
@@ -65714,6 +65750,7 @@ protected_name_file_number:en: PGI-BE-0968
 protected_name_type:en: pgi
 #wikidata:en:
 
+< en:Belgian endives
 < en:Belgian vegetables
 nl: Brussels grondwitloof
 origins:en: en:belgium
@@ -65735,17 +65772,11 @@ hr: Nizozemsko voće
 lt: Nyderlandiški vaisiai
 
 < en:Vegetables
-en: Dutch vegetables
-fr: Légumes néerlandais
+en: Vegetables from the Netherlands, Dutch vegetables
+fr: Légumes du Pays-Bas, Légumes néerlandais
 hr: Nizozemsko povrće
 lt: Nyderlandiškos daržovės
-
-< en:Dutch vegetables
-nl: Brabantse Wal Asperges
-origins:en: en:netherlands
-protected_name_file_number:en: PDO-NL-01177, PDO-NL-01177-AM01
-protected_name_type:en: pdo
-#wikidata:en:
+nl: Groenten uit Nederland, Nederlandse groenten
 
 < en:Fruits
 en: Fresh fruits
@@ -65841,10 +65872,16 @@ hr: Španjolsko voće
 lt: Ispaniški vaisiai
 
 < en:Vegetables
-en: Spanish vegetables, Vegetables from Spain
+en: Vegetables from Spain, Spanish vegetables
 fr: Légumes espagnols
 hr: Španjolsko povrće
 lt: Ispaniškos daržovės
+origins:en: en:spain
+
+< en:Vegetables
+en: Vegetables from Italy, Italian vegetables
+nl: Groenten uit Italië
+origins:en: en:italy
 
 < en:Cereals and their products
 en: Spanish cereals, Cereals from Spain
@@ -65857,7 +65894,7 @@ en: Spanish legumes, Beans from Spain
 lt: Ispaniški ankštiniai augalai
 
 < en:Chickpeas
-< en:Spanish vegetables
+< en:Vegetables from Spain
 es: Garbanzo de Fuentesaúco
 origins:en: en:spain
 protected_name_file_number:en: PGI-ES-0264, PGI-ES-0264-AM02
@@ -65871,8 +65908,8 @@ protected_name_file_number:en: PGI-ES-0609, PGI-ES-0609-AM01
 protected_name_type:en: pgi
 #wikidata:en:
 
-< en:Spanish vegetables
 < en:Tomatoes
+< en:Vegetables from Spain
 es: Tomate La Cañada
 origins:en: en:spain
 protected_name_file_number:en: PGI-ES-0664, PGI-ES-0664-AM01
@@ -65886,15 +65923,7 @@ protected_name_file_number:en: PDO-ES-0114, PDO-ES-0114-AM02
 protected_name_type:en: pdo
 #wikidata:en:
 
-< en:Asparagus
-< en:Spanish vegetables
-es: Espárrago de Huétor-Tájar
-origins:en: en:spain
-protected_name_file_number:en: PGI-ES-0056, PGI-ES-0056-AM01
-protected_name_type:en: pgi
-#wikidata:en:
-
-< en:Spanish vegetables
+< en:Vegetables from Spain
 es: Pimientos del Piquillo de Lodosa
 origins:en: en:spain
 protected_name_file_number:en: PDO-ES-0080, PDO-ES-0080-AM01
@@ -65910,7 +65939,7 @@ protected_name_type:en: pdo
 #wikidata:en:
 
 < en:Olives
-< en:Spanish vegetables
+< en:Vegetables from Spain
 es: Aceituna Gordal de Sevilla, Aceituna Gordal Sevillana
 origins:en: en:spain
 protected_name_file_number:en: PGI-ES-2183
@@ -65918,14 +65947,14 @@ protected_name_type:en: pgi
 #wikidata:en:
 
 < en:Olives
-< en:Spanish vegetables
+< en:Vegetables from Spain
 es: Aceituna Manzanilla de Sevilla, Aceituna Manzanilla Sevillana
 origins:en: en:spain
 protected_name_file_number:en: PGI-ES-2182
 protected_name_type:en: pgi
 #wikidata:en:
 
-< en:Spanish vegetables
+< en:Vegetables from Spain
 es: Pimiento de Gernika, Gernikako Piperra
 origins:en: en:spain
 protected_name_file_number:en: PGI-ES-0673, PGI-ES-0673-AM01
@@ -65946,14 +65975,14 @@ protected_name_file_number:en: PGI-ES-1235
 protected_name_type:en: pgi
 #wikidata:en:
 
-< en:Spanish vegetables
+< en:Vegetables from Spain
 es: Fesols de Santa Pau
 origins:en: en:spain
 protected_name_file_number:en: PDO-ES-1226
 protected_name_type:en: pdo
 #wikidata:en:
 
-< en:Spanish vegetables
+< en:Vegetables from Spain
 es: Pemento de Mougán
 origins:en: en:spain
 protected_name_file_number:en: PGI-ES-1133
@@ -65968,7 +65997,7 @@ protected_name_type:en: pgi
 #wikidata:en:
 
 < en:Olives
-< en:Spanish vegetables
+< en:Vegetables from Spain
 es: Aceituna de Mallorca, Aceituna Mallorquina, Oliva de Mallorca, Oliva Mallorquina
 origins:en: en:spain
 protected_name_file_number:en: PDO-ES-1051
@@ -65997,7 +66026,7 @@ protected_name_type:en: pgi
 #wikidata:en:
 
 < en:Chickpeas
-< en:Spanish vegetables
+< en:Vegetables from Spain
 es: Garbanzo de Escacena
 origins:en: en:spain
 protected_name_file_number:en: PGI-ES-0945
@@ -66012,28 +66041,28 @@ protected_name_type:en: pdo
 #wikidata:en:
 
 < en:Olives
-< en:Spanish vegetables
+< en:Vegetables from Spain
 es: Aceituna Aloreña de Málaga
 origins:en: en:spain
 protected_name_file_number:en: PDO-ES-0785
 protected_name_type:en: pdo
 #wikidata:en:
 
-< en:Spanish vegetables
+< en:Vegetables from Spain
 es: Papas Antiguas de Canarias
 origins:en: en:spain
 protected_name_file_number:en: PDO-ES-0866
 protected_name_type:en: pdo
 #wikidata:en:
 
-< en:Spanish vegetables
+< en:Vegetables from Spain
 es: Pimiento de Fresno-Benavente
 origins:en: en:spain
 protected_name_file_number:en: PGI-ES-0705
 protected_name_type:en: pgi
 #wikidata:en:
 
-< en:Spanish vegetables
+< en:Vegetables from Spain
 es: Mongeta del Ganxet
 origins:en: en:spain
 protected_name_file_number:en: PDO-ES-0636
@@ -66054,28 +66083,28 @@ protected_name_file_number:en: PGI-ES-0511
 protected_name_type:en: pgi
 #wikidata:en:
 
-< en:Spanish vegetables
+< en:Vegetables from Spain
 es: Pemento de Herbón
 origins:en: en:spain
 protected_name_file_number:en: PDO-ES-0509
 protected_name_type:en: pdo
 #wikidata:en:
 
-< en:Spanish vegetables
+< en:Vegetables from Spain
 es: Pemento da Arnoia
 origins:en: en:spain
 protected_name_file_number:en: PGI-ES-0510
 protected_name_type:en: pgi
 #wikidata:en:
 
-< en:Spanish vegetables
+< en:Vegetables from Spain
 es: Pemento de Oímbra
 origins:en: en:spain
 protected_name_file_number:en: PGI-ES-0486
 protected_name_type:en: pgi
 #wikidata:en:
 
-< en:Spanish vegetables
+< en:Vegetables from Spain
 es: Alubia de La Bañeza-León
 origins:en: en:spain
 protected_name_file_number:en: PGI-ES-0492
@@ -66089,21 +66118,21 @@ protected_name_file_number:en: PDO-ES-0244
 protected_name_type:en: pdo
 #wikidata:en:
 
-< en:Spanish vegetables
+< en:Vegetables from Spain
 es: Pemento do Couto
 origins:en: en:spain
 protected_name_file_number:en: PGI-ES-0464
 protected_name_type:en: pgi
 #wikidata:en:
 
-< en:Spanish vegetables
+< en:Vegetables from Spain
 es: Grelos de Galicia
 origins:en: en:spain
 protected_name_file_number:en: PGI-ES-0469
 protected_name_type:en: pgi
 #wikidata:en:
 
-< en:Spanish vegetables
+< en:Vegetables from Spain
 es: Faba de Lourenzá
 origins:en: en:spain
 protected_name_file_number:en: PGI-ES-0480
@@ -66119,7 +66148,7 @@ protected_name_type:en: pdo
 #wikidata:en:
 
 < en:Purple garlic
-< en:Spanish vegetables
+< en:Vegetables from Spain
 es: Ajo Morado de Las Pedroñeras
 origins:en: en:spain
 protected_name_file_number:en: PGI-ES-0228
@@ -66140,28 +66169,28 @@ protected_name_file_number:en: PDO-ES-0233
 protected_name_type:en: pdo
 #wikidata:en:
 
-< en:Spanish vegetables
+< en:Vegetables from Spain
 es: Coliflor de Calahorra
 origins:en: en:spain
 protected_name_file_number:en: PGI-ES-0268
 protected_name_type:en: pgi
 #wikidata:en:
 
-< en:Spanish vegetables
+< en:Vegetables from Spain
 es: Pataca de Galicia, Patata de Galicia
 origins:en: en:spain
 protected_name_file_number:en: PGI-ES-0205
 protected_name_type:en: pgi
 #wikidata:en:
 
-< en:Spanish vegetables
+< en:Vegetables from Spain
 es: Patatas de Prades, Patates de Prades
 origins:en: en:spain
 protected_name_file_number:en: PGI-ES-0232
 protected_name_type:en: pgi
 #wikidata:en:
 
-< en:Spanish vegetables
+< en:Vegetables from Spain
 es: Pimiento Asado del Bierzo
 origins:en: en:spain
 protected_name_file_number:en: PGI-ES-0262
@@ -66175,7 +66204,7 @@ protected_name_file_number:en: PDO-ES-0315
 protected_name_type:en: pdo
 #wikidata:en:
 
-< en:Spanish vegetables
+< en:Vegetables from Spain
 es: Pimiento Riojano
 origins:en: en:spain
 protected_name_file_number:en: PGI-ES-0275
@@ -66189,7 +66218,7 @@ protected_name_file_number:en: PDO-ES-0251
 protected_name_type:en: pdo
 #wikidata:en:
 
-< en:Spanish vegetables
+< en:Vegetables from Spain
 es: Alcachofa de Benicarló, Carxofa de Benicarló
 origins:en: en:spain
 protected_name_file_number:en: PDO-ES-0202
@@ -66217,7 +66246,7 @@ protected_name_file_number:en: PGI-ES-0152
 protected_name_type:en: pgi
 #wikidata:en:
 
-< en:Spanish vegetables
+< en:Vegetables from Spain
 es: Calçot de Valls
 origins:en: en:spain
 protected_name_file_number:en: PGI-ES-0171
@@ -66231,14 +66260,14 @@ protected_name_file_number:en: PDO-ES-0115
 protected_name_type:en: pdo
 #wikidata:en:
 
-< en:Spanish vegetables
+< en:Vegetables from Spain
 es: Alcachofa de Tudela
 origins:en: en:spain
 protected_name_file_number:en: PGI-ES-0139
 protected_name_type:en: pgi
 #wikidata:en:
 
-< en:Spanish vegetables
+< en:Vegetables from Spain
 en: Rice
 es: Arroz de Valencia, Arròs de València
 origins:en: en:spain
@@ -66253,7 +66282,7 @@ protected_name_file_number:en: PDO-ES-0103
 protected_name_type:en: pdo
 #wikidata:en:
 
-< en:Spanish vegetables
+< en:Vegetables from Spain
 es: Berenjena de Almagro
 origins:en: en:spain
 protected_name_file_number:en: PGI-ES-0011
@@ -66274,21 +66303,21 @@ protected_name_file_number:en: PGI-ES-0099
 protected_name_type:en: pgi
 #wikidata:en:
 
-< en:Spanish vegetables
+< en:Vegetables from Spain
 es: Faba Asturiana
 origins:en: en:spain
 protected_name_file_number:en: PGI-ES-0100
 protected_name_type:en: pgi
 #wikidata:en:
 
-< en:Spanish vegetables
+< en:Vegetables from Spain
 es: Judías de El Barco de Ávila
 origins:en: en:spain
 protected_name_file_number:en: PGI-ES-0101
 protected_name_type:en: pgi
 #wikidata:en:
 
-< en:Spanish vegetables
+< en:Vegetables from Spain
 es: Lenteja de La Armuña
 origins:en: en:spain
 protected_name_file_number:en: PGI-ES-0102
@@ -66948,6 +66977,9 @@ agribalyse_food_code:en: 13020
 ciqual_food_code:en: 13020
 ciqual_food_name:en: Gooseberry, raw
 ciqual_food_name:fr: Groseille à maquereau, crue
+
+< en:Berries
+en: Indian Gooseberries, Amla
 
 < en:Berries
 en: Strawberries
@@ -70554,7 +70586,7 @@ ciqual_food_name:en: Marjoram, dried
 ciqual_food_name:fr: Marjolaine, séchée
 
 < en:Aromatic herbs
-en: Mint, Mentha
+en: Mint, Mentha, Pudina
 bg: Мента
 de: Minze
 es: Menta
@@ -71969,7 +72001,7 @@ agribalyse_proxy_food_name:fr: Fenouil, cru
 wikidata:en: Q28692
 
 < en:Spices
-en: asafoetida
+en: asafoetida, hing
 ar: حِلْتِيت‎
 de: Teufelsdreck
 es: asafétida
@@ -72005,7 +72037,7 @@ tr: şeytantersi, hıthıt
 description:en: A resinous gum from the stem and roots of Ferula species such as Ferula foetida and Ferula assa-foetida, having a strong, unpleasant smell, with culinary and medical uses
 
 < en:Spices
-en: Cardamom, cardamon
+en: Cardamom, cardamon, Elaichi
 bg: Кардамон
 de: Kardamom
 es: Cardamono
@@ -78905,14 +78937,6 @@ protected_name_type:en: pgi
 wikidata:en: Q3411531
 
 < en:Salted pies
-en: Pizza with onion and anchovy and black olives
-fr: Pissaladière
-agribalyse_food_code:en: 25528
-ciqual_food_code:en: 25528
-ciqual_food_name:en: Pizza, onion anchovy and black olives
-ciqual_food_name:fr: Pissaladière
-
-< en:Salted pies
 fr: Flamiches
 wikidata:en: Q3073285
 
@@ -79713,23 +79737,45 @@ ciqual_food_name:fr: Soupe aux légumes verts, déshydratée reconstituée
 
 < en:Reheatable soups
 < en:Vegetable soups
-en: Asparagus soups, Reheatable asparagus soup
+en: Asparagus soups
 de: Spargelsuppen
-fr: Soupes aux asperges, Soupe aux asperges à réchauffer
+fr: Soupes aux asperges
 hr: Juhe od šparoga
-lt: Sriubos su šparagais, pašildomos sriubos su šparagais
+lt: Sriubos su šparagais
 nl: Aspergesoepen
+agribalyse_proxy_food_code:en: 25968
+agribalyse_proxy_food_name:en: Soup, asparagus, prepacked, to be reheated
+agribalyse_proxy_food_name:fr: Soupe aux asperges, préemballée à réchauffer
+ciqual_food_code:en: 25968
+
+< en: Asparagus soups
+en: Asparagus soups (reheatable)
+fr: Soupe aux asperges à réchauffer
+lt: Pašildomos sriubos su šparagais
+nl: Aspergesoepen (opwarmbaar)
 agribalyse_food_code:en: 25968
 ciqual_food_code:en: 25968
 ciqual_food_name:en: Soup, asparagus, prepacked, to be reheated
 ciqual_food_name:fr: Soupe aux asperges, préemballée à réchauffer
 
+< en:Asparagus soups
+< en:Cream of vegetable soups
+en: Cream of asparagus soups
+es: Cremas de espárragos
+fr: Veloutés d'asperges
+hr: Krem juhe od šparoga
+lt: Kreminės sriubos su šparagais
+nl: Aspergecrèmesoepen
+comment:en: Are these soups with a dairy ingredient. Should we have a category without the dairy ingredient?
+wikidata:en: Q18145066
+
+< en:Asparagus soups
 < en:Dehydrated soups
-< en:Vegetable soups
-en: Dehydrated asparagus soup
+en: Dehydrated asparagus soups, Dehydrated asparagus soup
 fr: Soupes aux asperges déshydratées
 hr: Dehidrirana juha od šparoga
 lt: Greito paruošimo sriubos su šparagais
+nl: Aspergesoepen (oplos)
 agribalyse_food_code:en: 25932
 ciqual_food_code:en: 25932
 ciqual_food_name:en: Soup, asparagus, dehydrated and reconstituted
@@ -79965,14 +80011,6 @@ nl: Groentecrèmesoepen
 
 < en:Cream of vegetable soups
 fr: Veloutés de légumes verts
-
-< en:Cream of vegetable soups
-en: Cream of asparagus soups
-es: Cremas de espárragos
-fr: Veloutés d'asperges
-hr: Krem juhe od šparoga
-lt: Kreminės sriubos su šparagais
-wikidata:en: Q18145066
 
 < en:Cream of vegetable soups
 en: Cream of carrot soups
@@ -81405,6 +81443,14 @@ fr: Calzones au fromage
 fr: Calzones peperoni
 
 < en:Pizzas
+en: Pizza with onion and anchovy and black olives
+fr: Pissaladière
+agribalyse_food_code:en: 25528
+ciqual_food_code:en: 25528
+ciqual_food_name:en: Pizza, onion anchovy and black olives
+ciqual_food_name:fr: Pissaladière
+
+< en:Pizzas
 en: Regina pizza, Pizza with ham and cheese and mushrooms
 de: Pizza Regina
 fr: Pizzas royales, Pizza royale, Pizza reine, Pizza Regina, Pizza jambon fromage champignons
@@ -82448,7 +82494,7 @@ lt: Makaronų salotos su vištiena
 en: Double crust pies, Two-crust pies, 2 crust pies
 fr: Tourtes, Tourte
 hr: Pite s dvije kore
-nl: Pies, pie
+nl: Pasteitjes
 wikidata:en: Q13360264
 
 < en:Double crust pies
@@ -84727,6 +84773,7 @@ es: Carne de cerdo y sus productos
 fr: Porc et dérivés
 hr: Svinjetina i proizvodi od nje
 lt: Kiauliena ir jos produktai
+nl: Varken en afgeleide producten
 pl: Wieprzowina i jej produkty
 incompatible_with:en: labels:en:kosher
 
@@ -92081,8 +92128,9 @@ xx: Troccoli
 < en:Pastas
 it: Trofie
 
-#<en:Pastas
-#it:Vermicelli
+#en:Pastas
+en: Wheat vermicelli, Semiya
+it: Vermicelli
 
 < en:Pastas
 it: Vincisgrassi
@@ -94269,7 +94317,7 @@ fr: Profiteroles, Profiterole, Profiterolles, Choux à la crème, Chou à la cr�
 hr: Krema od lisnatog
 it: Profiterole, Profiteroles
 ja: シュークリーム
-nl: Soesjes, Profiterole
+nl: Soesjes, Profiterole, Slagroomsoesjes
 agribalyse_food_code:en: 23455
 ciqual_food_code:en: 23455
 ciqual_food_name:en: Pastry cream puff
@@ -102063,15 +102111,14 @@ food_groups:en: en:salty-and-fatty-products
 intake24_category_code:en: PATE
 pnns_group_2:en: Salty and fatty products
 
-# This product is really popular in Belgium & Netherlands were it is called "Salade d'oeufs". Please don't put in the category "Prepared salads", because it is a spread not a meal
 < en:Salted spreads
 en: Egg salads, Egg spreads
 de: Eisalaten, Eisalat, Eiaufstriche, Eiersalat
 fr: Salades d'œufs, salades d'oeufs, Tartinades d'œufs, tartinades d'oeufs, tartinades aux oeufs
-hr: Salate od jaja
 lt: Salotos su kiaušiniais
 nl: Eisalades, Eiersalades
 pl: Sałatki jajeczne
+comment:en: This product is really popular in Belgium & Netherlands were it is called "Salade d'oeufs". Please don't put in the category "Prepared salads", because it is a spread not a meal
 
 < en:Salted spreads
 en: Yeast extract spreads
@@ -102087,6 +102134,9 @@ fr: Crèmes d'artichaut
 hr: Namazi od artičoke
 
 < en:Salted spreads
+nl: Mierikswortelspreads
+
+< en:Salted spreads
 en: Tapenades, tapenade, Puree of capers pitted black olives anchovy and herbs with olive oil and lemon juice
 bg: Маслинова паста
 ca: Tapenada
@@ -102096,7 +102146,6 @@ es: Tapenade
 fi: Tapenade
 fr: Tapenades, tapenade, ttapenades
 he: ממרח זיתים
-hr: Tapenade
 it: Tapenade
 ja: タプナード
 nl: Tapenades
@@ -102706,6 +102755,9 @@ es: Panela
 fr: Panela
 hr: Panela
 wikidata:en: Q10357458
+
+< en:Cane sugar
+en: Jaggery, Gud, Gur
 
 < en:Panela
 en: Panela blocks
@@ -104433,24 +104485,85 @@ ru: Спаржа
 agribalyse_proxy_food_code:en: 20076
 agribalyse_proxy_food_name:en: Asparagus, canned, drained
 agribalyse_proxy_food_name:fr: Asperge, appertisée, égouttée
-expected_ingredients:en: en:asparagus
+wikidata:en: Q23041045
+
+< en: Asparagus
+en: Asparagus heads
+es: Esperragos (yemas), Yemas de esparragos
+fr: Pointes d'asperges
+nl: Aspergekopjes
+agribalyse_proxy_food_code:en: 20076
+agribalyse_proxy_food_name:en: Asparagus, canned, drained
+agribalyse_proxy_food_name:fr: Asperge, appertisée, égouttée
 wikidata:en: Q23041045
 
 < en:Asparagus
-< en:French vegetables
-fr: Asperge des sables des Landes
-origins:en: en:landes
-protected_name_file_number:en: PGI-FR-0272
-protected_name_type:en: pgi
-wikidata:en: Q18578209
+en: Miniature asparagus
+fr: Asperges miniatures
+hr: Minijaturne šparoge
+nl: Mini asperges
+agribalyse_proxy_food_code:en: 20076
+agribalyse_proxy_food_name:en: Asparagus, canned, drained
+agribalyse_proxy_food_name:fr: Asperge, appertisée, égouttée
+wikidata:en: Q23041045
 
 < en:Asparagus
-en: Boiled asparagus, Asparagus cooked in water
-fr: Asperge bouillie, Asperge cuite à l'eau
-agribalyse_food_code:en: 20001
-ciqual_food_code:en: 20001
-ciqual_food_name:en: Asparagus, boiled/cooked in water
-ciqual_food_name:fr: Asperge, bouillie/cuite à l'eau
+en: Green asparagus
+bg: Зелени аспержи
+de: Grüner Spargel
+es: Espárragos verdes
+fi: vihreä parsa
+fr: Asperges vertes
+hr: Zelene šparoge
+it: Asparagi verdi
+ja: グリーンアスパラガス
+nl: Groene asperges
+agribalyse_food_code:en: 20279
+ciqual_food_code:en: 20279
+ciqual_food_name:en: Asparagus, green, raw
+ciqual_food_name:fr: Asperge, verte, crue
+opposite:en: en:white-asparagus, en:purple-asparagus
+#TOCHECK:wikidata:en:Q35075688
+
+< en:Asparagus
+en: Purple asparagus
+bg: Лилави аспержи
+de: Violetter Spargel
+es: Espárragos morados
+fr: Asperges violettes
+hr: Ljubičaste šparoge
+ja: パープルアスパラガス
+nl: Violette asperges
+agribalyse_proxy_food_code:en: 20282
+agribalyse_proxy_food_name:en: Asparagus, white or purple, peeled, raw
+agribalyse_proxy_food_name:fr: Asperge, blanche ou violette, pelée, crue
+opposite:en: en:white-asparagus, en:green-asparagus
+
+< en:Asparagus
+en: White asparagus
+bg: Бели аспержи
+de: Weißer Spargel, Weisser Spargel
+es: Espárragos blancos
+fi: valkoinen parsa
+fr: Asperges blanches
+hr: Bijele šparoge
+it: Asparagi bianchi
+ja: ホワイトアスパラガス
+nl: Witte asperges
+agribalyse_proxy_food_code:en: 20282
+agribalyse_proxy_food_name:en: Asparagus, white or purple, peeled, raw
+agribalyse_proxy_food_name:fr: Asperge, blanche ou violette, pelée, crue
+opposite:en: en:green-asparagus, en:purple-asparagus
+#TOCHECK:wikidata:en:Q22806705
+
+#< en:Asparagus
+#en: Boiled asparagus, Asparagus cooked in water
+#fr: Asperge bouillie, Asperge cuite à l'eau
+#agribalyse_food_code:en: 20001
+#ciqual_food_code:en: 20001
+#ciqual_food_name:en: Asparagus, boiled/cooked in water
+#ciqual_food_name:fr: Asperge, bouillie/cuite à l'eau
+#comment:en: no products on 28-sep-2024
 
 < en:Asparagus
 < en:Canned vegetables
@@ -104468,36 +104581,16 @@ agribalyse_food_code:en: 20076
 ciqual_food_code:en: 20076
 ciqual_food_name:en: Asparagus, canned, drained
 ciqual_food_name:fr: Asperge, appertisée, égouttée
+opposite:en: en:fresh-asparagus, en:frozen-asparagus
 
 < en:Canned asparagus
+< en:Green asparagus
 en: Canned green asparagus
 bg: Консервирани зелени аспержи
 es: Espárragos verdes en conserva
 fr: Asperges vertes en conserve
 hr: Konzervirane zelene šparoge
 nl: Groene asperges in blik/pot
-
-< en:Asparagus
-en: Miniature asparagus
-fr: Asperges miniatures
-hr: Minijaturne šparoge
-nl: Mini asperges
-
-< en:Asparagus
-en: White asparagus
-bg: Бели аспержи
-de: Weißer Spargel, Weisser Spargel
-es: Espárragos blancos
-fi: valkoinen parsa
-fr: Asperges blanches
-hr: Bijele šparoge
-it: Asparagi bianchi
-ja: ホワイトアスパラガス
-nl: Witte asperges
-agribalyse_proxy_food_code:en: 20282
-agribalyse_proxy_food_name:en: Asparagus, white or purple, peeled, raw
-agribalyse_proxy_food_name:fr: Asperge, blanche ou violette, pelée, crue
-#TOCHECK:wikidata:en:Q22806705
 
 < en:Canned asparagus
 < en:White asparagus
@@ -104513,16 +104606,69 @@ it: Asparagi bianchi in scatola
 nl: Witte asperges in blik/pot
 
 < en:Asparagus
+< en:Frozen vegetables
+en: Frozen asparagus
+de: Tiefkühl-Spargel
+es: Espárragos congelados
+fr: Asperges surgelées
+hr: Smrznute šparoge
+nl: Diepvries asperges
+
+< en:Frozen asparagus
+en: Frozen green asparagus
+de: Tiefgekühlter grüner Spargel, Gefrohrene grüne Spargel
+es: Espárragos verdes congelados
+fr: Asperges vertes surgelées
+hr: Smrznute zelene šparoge
+nl: Diepvries groenasperges
+
+< en:Frozen green asparagus
+en: Frozen chopped green asparagus
+de: Tiefgekühlter gehackter grüner Spargel, Gefrohrene gehackte grüne Spargel
+es: Espárragos verdes troceados congelados
+hr: Smrznute nasjeckane zelene šparoge
+nl: Gehakte groene diepvries asperges
+
+< en:Frozen green asparagus
+en: Frozen whole green asparagus
+de: Tiefgekühlter ganzer grüner Spargel, Gefrohrene ganze grüne Spargel
+es: Espárragos verdes enteros congelados
+fr: Asperges vertes entières surgelées, asperges vertes entières congelées
+hr: Smrznute cijele zelene šparoge
+nl: Hele groene diepvriesasperges
+
+< en:Frozen asparagus
+en: Frozen white asparagus
+de: Tiefgekühlter weißer Spargel, Gefrohrene weiße Spargel
+es: Espárragos blancos congelados
+fr: Asperges blanches surgelés
+hr: Smrznute bijele šparoge
+nl: Witte diepvriesasperges
+
+< en:Asparagus
+< en:Fresh vegetables
+en: Fresh Asparagus
+es: Espárragos frescos
+fr: Asperges fraîches
+hr: Svježe šparoge
+expected_ingredients:en: en:asparagus
+opposite:en: en:canned-asparagus, en:frozen-asparagus
+season_in_country_fr:en: 4,5,6
+
+< en:Asparagus
 en: Peeled asparagus
 fr: Asperges pelées
+nl: Asperges (geschild)
 agribalyse_food_code:en: 20073
 ciqual_food_code:en: 20073
 ciqual_food_name:en: Asparagus, peeled, raw
 ciqual_food_name:fr: Asperge, pelée, crue
 
-< en:Asparagus
-fr: Asperges pelées à la main
-nl: Handgeschilde asperges
+#< en:Peeled asparagus
+#en: Handpeeled asparagus
+#fr: Asperges pelées à la main
+#nl: Handgeschilde asperges
+#comment:en: No products on 28-sep-2024
 
 < en:Peeled asparagus
 < en:White asparagus
@@ -104534,98 +104680,6 @@ ciqual_food_name:en: Asparagus, white or purple, peeled, raw
 ciqual_food_name:fr: Asperge, blanche ou violette, pelée, crue
 
 < en:Asparagus
-en: Purple asparagus
-bg: Лилави аспержи
-de: Violetter Spargel
-es: Espárragos morados
-fr: Asperges violettes
-hr: Ljubičaste šparoge
-ja: パープルアスパラガス
-nl: Violette asperges
-#TOCHECK:wikidata:en:Q28367
-
-< en:Asparagus
-en: Green asparagus
-bg: Зелени аспержи
-de: Grüner Spargel
-es: Espárragos verdes
-fi: vihreä parsa
-fr: Asperges vertes
-hr: Zelene šparoge
-it: Asparagi verdi
-ja: グリーンアスパラガス
-nl: Groene asperges
-agribalyse_food_code:en: 20279
-ciqual_food_code:en: 20279
-ciqual_food_name:en: Asparagus, green, raw
-ciqual_food_name:fr: Asperge, verte, crue
-#TOCHECK:wikidata:en:Q35075688
-
-< en:Asparagus
-< en:Spanish vegetables
-es: Espárrago de Navarra
-origins:en: en:spain
-protected_name_file_number:en: PGI-ES-0098
-protected_name_type:en: pgi
-wikidata:en: Q60828285
-
-< en:Green asparagus
-it: Asparago verde di Altedo
-origins:en: en:italy
-protected_name_file_number:en: PGI-IT-0127-AM01, PGI-IT-0127
-protected_name_type:en: pgi
-wikidata:en: Q3625258
-
-< en:Asparagus
-it: Asparago di Cantello
-origins:en: en:italy
-protected_name_file_number:en: PGI-IT-01267
-protected_name_type:en: pgi
-#wikidata:en:
-
-< en:Asparagus
-it: Asparago di Badoere
-origins:en: en:italy
-protected_name_file_number:en: PGI-IT-0495-AM01, PGI-IT-0495
-protected_name_type:en: pgi
-wikidata:en: Q3625260
-
-< en:Asparagus
-en: Vale of Evesham Asparagus
-origins:en: en:united-kingdom
-protected_name_file_number:en: PGI-GB-02108
-protected_name_type:en: pgi
-#wikidata:en:
-
-< en:Asparagus
-it: Asparago bianco di Cimadolmo
-origins:en: en:italy
-protected_name_file_number:en: PGI-IT-0135
-protected_name_type:en: pgi
-wikidata:en: Q3625254
-
-< en:Asparagus
-it: Asparago Bianco di Bassano
-origins:en: en:italy
-protected_name_file_number:en: PDO-IT-0338
-protected_name_type:en: pdo
-wikidata:en: Q3625255
-
-< en:Asparagus
-en: Wild asparagus
-fr: Asperges sauvages
-hr: Divlje šparoge
-nl: Wilde asperges
-
-< en:Asparagus
-< en:Fresh vegetables
-en: Fresh Asparagus
-es: Espárragos frescos
-fr: Asperges fraîches
-hr: Svježe šparoge
-season_in_country_fr:en: 4,5,6
-
-< en:Asparagus
 de: Marchfeldspargel
 origins:en: en:austria
 protected_name_file_number:en: PGI-AT-1462
@@ -104634,9 +104688,29 @@ protected_name_type:en: pgi
 
 < en:Asparagus
 < en:French vegetables
+en: Asparagus from Sable des Landes
+fr: Asperge des sables des Landes
+agribalyse_proxy_food_code:en: 20282
+agribalyse_proxy_food_name:en: Asparagus, white or purple, peeled, raw
+agribalyse_proxy_food_name:fr: Asperge, blanche ou violette, pelée, crue
+origins:en: en:landes
+protected_name_file_number:en: PGI-FR-0272
+protected_name_type:en: pgi
+wikidata:en: Q18578209
+
+< en:Asparagus
+< en:French vegetables
 fr: Asperges du Blayais
 origins:en: en:france
 protected_name_file_number:en: PGI-FR-01254
+protected_name_type:en: pgi
+#wikidata:en:
+
+< en:Asparagus
+< en:German vegetables
+de: Abensberger Spargel, Abensberger Qualitätsspargel
+origins:en: en:germany
+protected_name_file_number:en: PGI-DE-0852
 protected_name_type:en: pgi
 #wikidata:en:
 
@@ -104656,13 +104730,88 @@ protected_name_file_number:en: PGI-DE-0804
 protected_name_type:en: pgi
 #wikidata:en:
 
+< en:Green asparagus
+< en:Vegetables from Italy
+it: Asparago verde di Altedo
+origins:en: en:italy
+protected_name_file_number:en: PGI-IT-0127-AM01, PGI-IT-0127
+protected_name_type:en: pgi
+wikidata:en: Q3625258
+
 < en:Asparagus
-< en:German vegetables
-de: Abensberger Spargel, Abensberger Qualitätsspargel
-origins:en: en:germany
-protected_name_file_number:en: PGI-DE-0852
+< en:Vegetables from Italy
+it: Asparago di Badoere
+origins:en: en:italy
+protected_name_file_number:en: PGI-IT-0495-AM01, PGI-IT-0495
+protected_name_type:en: pgi
+wikidata:en: Q3625260
+
+< en:Vegetables from Italy
+< en:White asparagus
+it: Asparago di Cantello
+origins:en: en:italy
+protected_name_file_number:en: PGI-IT-01267
 protected_name_type:en: pgi
 #wikidata:en:
+
+< en:Vegetables from Italy
+< en:White asparagus
+it: Asparago bianco di Cimadolmo
+origins:en: en:italy
+protected_name_file_number:en: PGI-IT-0135
+protected_name_type:en: pgi
+wikidata:en: Q3625254
+
+< en:Vegetables from Italy
+< en:White asparagus
+it: Asparago Bianco di Bassano
+origins:en: en:italy
+protected_name_file_number:en: PDO-IT-0338
+protected_name_type:en: pdo
+wikidata:en: Q3625255
+
+< en:Asparagus
+< en:Vegetables from the Netherlands
+nl: Brabantse Wal Asperges
+origins:en: en:netherlands
+protected_name_file_number:en: PDO-NL-01177, PDO-NL-01177-AM01
+protected_name_type:en: pdo
+#wikidata:en:
+
+< en:Asparagus
+< en:Vegetables from Spain
+es: Espárrago de Huétor-Tájar
+origins:en: en:spain
+protected_name_file_number:en: PGI-ES-0056, PGI-ES-0056-AM01
+protected_name_type:en: pgi
+#wikidata:en:
+
+< en:Green asparagus
+< en:Vegetables from Spain
+es: Espárrago de Navarra
+origins:en: en:spain
+protected_name_file_number:en: PGI-ES-0098
+protected_name_type:en: pgi
+wikidata:en: Q60828285
+
+< en:Green asparagus
+en: Vale of Evesham Asparagus
+origins:en: en:united-kingdom
+protected_name_file_number:en: PGI-GB-02108
+protected_name_type:en: pgi
+#wikidata:en:
+
+#< en:Asparagus
+#en: Wild asparagus
+#fr: Asperges sauvages
+#hr: Divlje šparoge
+#nl: Wilde asperges
+#comment:en: no products on 28-sep-2024
+
+< en:Prepared vegetables
+en: Prepared asparagus
+fr: Asperges préparées
+nl: Asperges (bereid)
 
 < en:Vegetables
 en: Okras
@@ -104785,9 +104934,9 @@ opposite:en: en:beetroot(pickled)
 < en:Vegetables
 en: Beetroot(raw), Beet(raw), Beet(uncooked), Uncooked beet, Uncooked beetroots
 de: Ungekochte rote Beete
-fr: Betterave rouge crue
-hr: Nekuhana cikla
-nl: Ongekookte rode bieten
+fr: Betteraves fraîches, Betterave rouge crue
+lt: švieži burokėliai
+nl: Verse rode bieten, Ongekookte rode bieten
 agribalyse_food_code:en: 20091
 ciqual_food_code:en: 20091
 ciqual_food_name:en: Beetroot, raw
@@ -104810,7 +104959,7 @@ ciqual_proxy_food_name:en: Beetroot, cooked
 ciqual_proxy_food_name:fr: Betterave rouge, cuite
 opposite:en: en:beetroot(fresh)
 
-< en:Uncooked beet
+< en:Beetroot(raw)
 < en:Fresh vegetables
 en: Beetroot(fresh), Fresh beet, Fresh beetroot
 fr: Betteraves fraîches
@@ -105588,7 +105737,7 @@ wikidata:en: Q178547
 
 
 < en:Leaf vegetables
-en: Belgian endives, Witloof
+en: Belgian endives, Witloof, Chicory
 de: Chicorée Salat
 es: Endibias, Endivias
 fr: Endives, Chicon
@@ -105605,11 +105754,16 @@ ciqual_food_name:fr: Endive, crue
 < en:Canned vegetables
 en: Canned Belgian endives
 fr: Endives en conserve
+nl: Witlof in blik
+opposite:en: en:fresh-belgian-endives
 
 < en:Belgian endives
 < en:Fresh vegetables
-en: Fresh belgian endives
+en: Fresh Belgian endives
 fr: Endives fraîches
+nl: Verse witlof
+expected_ingredients:en: en:belgian-endive
+opposite:en: en:canned-belgian-endives
 season_in_country_fr:en: 1,2,3,4,10
 
 < en:Leaf vegetables
@@ -105641,7 +105795,7 @@ ciqual_food_name:fr: Chicorée verte, crue
 
 < en:Plant-based foods
 # <en:ingredient:en:vegetable
-en: fennel
+en: Fennel
 af: Vinkel
 ar: شمرة شائعة
 az: Adi razyana
@@ -105725,6 +105879,7 @@ agribalyse_food_code:en: 20028
 ciqual_food_code:en: 20028
 ciqual_food_name:en: Fennel, raw
 ciqual_food_name:fr: Fenouil, cru
+comment:en: Fennel can mean the bulb, the leaves of the seeds;
 description:en: Fennel (Foeniculum vulgare) is a flowering plant species in the carrot family. The bulb, foliage, and fruits of the fennel plant are used in many of the culinary traditions of the world. The bulb is a crisp vegetable that can be sautéed, stewed, braised, grilled, or eaten raw. Young tender leaves are used for garnishes, as a salad, to add flavor to salads, to flavor sauces to be served with puddings, and also in soups and fish sauce.
 wikidata:en: Q43511
 # aeb-arab:بسباس
@@ -105738,17 +105893,6 @@ wikidata:en: Q43511
 # zh-tw:茴香
 wikipedia:en: https://en.wikipedia.org/wiki/Fennel
 
-< en:fennel
-fr: Fenouil frais
-season_in_country_fr:en: 4,6,7,8,9,10,11
-
-< en:fennel
-en: Boiled fennel, Fennel cooked in water
-fr: Fenouil bouilli, Fenouil cuit à l'eau
-agribalyse_food_code:en: 20118
-ciqual_food_code:en: 20118
-ciqual_food_name:en: Fennel, boiled/cooked in water
-ciqual_food_name:fr: Fenouil, bouilli/cuit à l'eau
 
 < en:Fennel
 < en:Vegetable rods
@@ -105758,21 +105902,41 @@ es: Bulbos de hinojo
 fr: Bulbes de fenouil
 hr: Lukovice komorača
 nl: Venkelknollen
+expected_ingredients:en: en:fennel-bulbs
+opposite:en: en:fennel-seeds
 
-< en:Aromatic herbs
-< en:Fennel
-en: Fennel leaves
-de: Fenchelblätter
-es: Hojas de hinojo
-fr: Feuilles de fenouil
-hr: Lišće komorača
-nl: Venkelblad
+< en:Fennel bulbs
+en: Boiled fennel, Fennel cooked in water
+fr: Fenouil bouilli, Fenouil cuit à l'eau
+agribalyse_food_code:en: 20118
+ciqual_food_code:en: 20118
+ciqual_food_name:en: Fennel, boiled/cooked in water
+ciqual_food_name:fr: Fenouil, bouilli/cuit à l'eau
+expected_ingredients:en: en:fennel-bulbs
+
+< en:Fennel bulbs
+< en:Fresh vegetables
+en: Fresh fennel bulbs, Fresh fennel
+fr: Bulbes de fenouil frais, Fenouil frais
+nl: Verse venkelknollen
+expected_ingredients:en: en:fennel-bulbs
+season_in_country_fr:en: 4,6,7,8,9,10,11
+
+#< en:Aromatic herbs
+#< en:Fennel
+#en: Fennel leaves
+#de: Fenchelblätter
+#es: Hojas de hinojo
+#fr: Feuilles de fenouil
+#hr: Lišće komorača
+#nl: Venkelblad
+#comment:en: No products on 27-sep-2024
 
 < en:Fennel
 < en:Herbal teas
 < en:Seeds
 < en:Spices
-en: Fennel seeds
+en: Fennel seeds, Saunf
 de: Fenchelsamen
 es: Semillas de hinojo
 fr: Graines de fenouil
@@ -105783,6 +105947,8 @@ agribalyse_food_code:en: 11066
 ciqual_food_code:en: 11066
 ciqual_food_name:en: Fennel, seed
 ciqual_food_name:fr: Fenouil, graine
+expected_ingredients:en: en:fennel-seeds
+opposite:en: en:fennel-bulbs
 
 < en:Garlic and their products
 en: Garlic
@@ -107455,7 +107621,6 @@ de: Spinat
 es: Espinacas
 fi: pinaatit
 fr: Épinards
-hr: Špinata
 it: Spinaci
 ja: ホウレンソウ, ほうれん草
 la: Spinacia oleracea
@@ -107463,10 +107628,9 @@ nl: Spinazie, Bladspinazie
 pl: Szpinak
 ru: Шпинат
 tr: Ispanak
+agribalyse_food_code:en: 20059
 agribalyse_proxy_food_code:en: 20059
-ciqual_proxy_food_code:en: 20059
-ciqual_proxy_food_name:en: Spinach, raw
-ciqual_proxy_food_name:fr: Épinard, cru
+agribalyse_proxy_food_name:en: Spinach, raw
 intake24_category_code:en: SPNC
 intake24_category_code:fr: SPNC
 wikidata:en: Q81464
@@ -107483,6 +107647,16 @@ wikidata:en: Q81464
 #ciqual_food_name:fr: Épinard, cuit
 # no products on 7 sep 2024
 
+< en:Cooked vegetables
+< en:Spinachs
+en: Cooked spinach
+fr: Épinards cuits
+pl: Szpinak gotowany
+agribalyse_food_code:en: 20027
+ciqual_food_code:en: 20027
+ciqual_food_name:en: Spinach, cooked
+ciqual_food_name:fr: Épinard, cuit
+
 < en:Fresh vegetables
 < en:Spinachs
 en: Fresh spinachs
@@ -107491,7 +107665,6 @@ de: Frischer Spinat
 es: Espinacas frescas
 fi: Tuoreet pinaatit
 fr: Épinards frais
-hr: Svježi špinat
 nl: Verse spinazies
 pl: Szpinak świeży
 agribalyse_food_code:en: 20059
@@ -107503,8 +107676,8 @@ opposite:en: en:frozen-spinachs
 sales_format:en: package, weight
 season_in_country_fr:en: 1,2,3,4,5,9,10,11,12
 
-< en:Spinachs
-en: Young spinach leaves, Spinach young leaves
+< en:Fresh spinachs
+en: Spinach young leaves
 fr: Jeunes pousses d'épinards pour salades
 agribalyse_food_code:en: 20270
 ciqual_food_code:en: 20270
@@ -108776,11 +108949,11 @@ la: Vigna subterranea
 wikidata:en: Q338219
 
 < en:Pulses
-en: Black grams
+en: Black grams, Urad bean, Black matpe bean, Urad Dal
 es: Lenteja negra, Lenteja mungo, Urd
 fr: Haricots urd, Urd
 hr: Crne grame
-la: Vigna mungo
+la: Vigna mungo, Phaseolus mungo
 nl: Uradbonen
 wikidata:en: Q369447
 
@@ -108836,7 +109009,7 @@ ciqual_food_name:en: Butter bean or yellow bean, raw
 ciqual_food_name:fr: Haricot beurre, cru
 
 < en:Pulses
-en: Chickpeas
+en: Chickpeas, Chana dal, Split Bengal gram
 bg: Нахут
 ca: Cigrons
 de: Kichererbsen, Kichererbse
@@ -108922,7 +109095,7 @@ es: Garbanzos de Escacena
 #en:Chana masala
 
 < en:Pulses
-en: Common beans, String beans
+en: Common beans, String beans, Rajma, Rajmah
 ca: Fesols
 de: Gartenbohnen, Fisolen, Strankerl, Stangenbohnen
 es: Alubias, Judías, Frijoles, Porotos, Fabas, Fabes
@@ -109120,7 +109293,7 @@ la: Lablab purpureus, Dolichos lablab
 wikidata:en: Q1077410
 
 < en:Pulses
-en: Lentils
+en: Lentils, Masoor dal, Masur dal
 bg: Леща
 ca: Llenties
 de: Linsen
@@ -109390,7 +109563,7 @@ vi: Đậu bướm
 wikidata:en: Q511249
 
 < en:Pulses
-en: Mung beans
+en: Mung beans, Mung dal, Moong dal
 ar: بقلة الماش
 bg: Боб мунг
 bn: মুগ
@@ -112226,45 +112399,7 @@ hr: Smrznute nasjeckane artičoke
 it: Carciofi tritati congelati
 nl: Diepvries gehakte artisjokken
 
-< en:Asparagus
-< en:Frozen vegetables
-en: Frozen asparagus
-de: Tiefkühl-Spargel
-es: Espárragos congelados
-fr: Asperges surgelées
-hr: Smrznute šparoge
-nl: Diepvries asperges
 
-< en:Frozen asparagus
-en: Frozen green asparagus
-de: Tiefgekühlter grüner Spargel, Gefrohrene grüne Spargel
-es: Espárragos verdes congelados
-fr: Asperges vertes surgelées
-hr: Smrznute zelene šparoge
-nl: Diepvries groenasperges
-
-< en:Frozen green asparagus
-en: Frozen chopped green asparagus
-de: Tiefgekühlter gehackter grüner Spargel, Gefrohrene gehackte grüne Spargel
-es: Espárragos verdes troceados congelados
-hr: Smrznute nasjeckane zelene šparoge
-nl: Gehakte groene diepvries asperges
-
-< en:Frozen green asparagus
-en: Frozen whole green asparagus
-de: Tiefgekühlter ganzer grüner Spargel, Gefrohrene ganze grüne Spargel
-es: Espárragos verdes enteros congelados
-fr: Asperges vertes entières surgelées, asperges vertes entières congelées
-hr: Smrznute cijele zelene šparoge
-nl: Hele groene diepvriesasperges
-
-< en:Frozen asparagus
-en: Frozen white asparagus
-de: Tiefgekühlter weißer Spargel, Gefrohrene weiße Spargel
-es: Espárragos blancos congelados
-fr: Asperges blanches surgelés
-hr: Smrznute bijele šparoge
-nl: Witte diepvriesasperges
 
 
 < en:Brussels sprouts
@@ -115509,11 +115644,11 @@ en: Mashed vegetables
 de: Gestampfte Gemüse
 fi: soseutetut vihannekset
 fr: Purées de légumes
-hr: Pasirano povrće
 it: Purè di verdure
 nl: Groentepureeën
 ro: Zacusca
 intake24_category_code:en: RVEG
+intake24_category_code:fr: RVEG
 
 < en:Mashed vegetables
 en: Mashed carrots, Carrots puree

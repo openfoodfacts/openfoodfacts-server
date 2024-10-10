@@ -24,7 +24,8 @@ from typing import Iterator, Tuple
 
 import boto3
 import tqdm
-from openfoodfacts import DatasetType, ProductDataset
+from openfoodfacts import ProductDataset
+from openfoodfacts.images import split_barcode
 
 logger = getLogger()
 handler = logging.StreamHandler()
@@ -49,8 +50,7 @@ def generate_product_path(barcode: str) -> str:
     if not barcode.isdigit():
         raise ValueError("unknown barcode format: {}".format(barcode))
 
-    match = BARCODE_PATH_REGEX.fullmatch(barcode)
-    splitted_barcode = [x for x in match.groups() if x] if match else [barcode]
+    splitted_barcode = split_barcode(barcode)
     return "/".join(splitted_barcode)
 
 
@@ -104,12 +104,13 @@ def get_sync_filepaths(
                 yield barcode, product_dir / ocr_file_name
 
 
-def run(image_dir: Path) -> None:
+def run(image_dir: Path, dataset_path: Path) -> None:
     """Launch the synchronization.
 
     :param image_dir: directory where images are stored
+    :param dataset_path: path to the JSONL dataset
     """
-    ds = ProductDataset(DatasetType.jsonl, force_download=True, download_newer=True)
+    ds = ProductDataset(dataset_path=dataset_path)
     logger.info("Fetching existing keys...")
     existing_keys = set(obj.key for obj in bucket.objects.filter(Prefix="data/"))
     logger.info("%d keys in openfoodfacts-images bucket", len(existing_keys))
@@ -197,5 +198,10 @@ if __name__ == "__main__":
         type=Path,
         help="Directory where images are stored.",
     )
+    parser.add_argument(
+        "dataset_path",
+        type=Path,
+        help="Directory where dataset is stored.",
+    )
     args = parser.parse_args()
-    run(args.image_dir)
+    run(args.image_dir, args.dataset_path)

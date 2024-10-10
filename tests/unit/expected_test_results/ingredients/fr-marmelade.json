@@ -137,7 +137,9 @@
          "is_in_taxonomy" : 1,
          "percent" : 41,
          "percent_estimate" : 41,
-         "text" : "Marmelade d'oranges"
+         "text" : "Marmelade d'oranges",
+         "vegan": "maybe",
+         "vegetarian": "maybe"
       },
       {
          "id" : "en:chocolate",
@@ -371,11 +373,9 @@
          "en:palm-fat"
       ],
       "en:vegan-status-unknown" : [
-         "en:orange-marmalade",
          "en:sodium-citrate"
       ],
       "en:vegetarian-status-unknown" : [
-         "en:orange-marmalade",
          "en:sodium-citrate"
       ]
    },
@@ -386,6 +386,8 @@
    ],
    "ingredients_hierarchy" : [
       "en:orange-marmalade",
+      "en:jam",
+      "en:marmalade",
       "en:chocolate",
       "en:wheat-flour",
       "en:cereal",
@@ -508,6 +510,8 @@
    "ingredients_percent_analysis" : -1,
    "ingredients_tags" : [
       "en:orange-marmalade",
+      "en:jam",
+      "en:marmalade",
       "en:chocolate",
       "en:wheat-flour",
       "en:cereal",
@@ -608,7 +612,7 @@
       "en:thickener"
    ],
    "ingredients_without_ciqual_codes_n" : 21,
-   "known_ingredients_n" : 71,
+   "known_ingredients_n" : 73,
    "lc" : "fr",
    "misc_tags" : [
       "en:some-ingredients-with-specified-percent",

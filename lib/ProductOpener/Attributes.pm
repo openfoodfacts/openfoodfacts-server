@@ -166,6 +166,11 @@ sub list_attributes ($target_lc) {
 				foreach my $attribute_id (@{$attributes_ref}) {
 
 					my $attribute_ref = initialize_attribute($attribute_id, $target_lc);
+
+					# Add the possible values for the attribute
+					$attribute_ref->{values}
+						= deep_get(\%options, "attribute_values", $attribute_id) || $options{attribute_values_default};
+
 					push @{$group_ref->{attributes}}, $attribute_ref;
 				}
 
