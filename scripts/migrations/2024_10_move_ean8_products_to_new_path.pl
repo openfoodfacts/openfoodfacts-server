@@ -400,23 +400,25 @@ foreach my $orgid (@orgids) {
 			}
 			closedir $dh2;
 
+			# Check if there is a product.sto file in the directory (happens when the barcode has 3 digits)
+			if (-e "$data_root/products$org_path/$dir/product.sto") {
+
+				print STDERR "dir with 3 digits and product.sto: $dir/product.sto\n";
+				print $log "dir with 3 digits and product.sto: $dir/product.sto\n";
+
+				push @products, "$dir";
+				$d++;
+
+			}
+
 		}
 		# Don't move dirs with 1 or 2 digits
-		elsif (($dir !~ /^\d\d?$/) and ($dir =~ /^\d+$/)) {
+		elsif ($dir !~ /^\.+$/) {
 			# Product directories at the root, with a different number than 3 digits
 			if (-e "$data_root/products$org_path/$dir/product.sto") {
 				push @products, $dir;
 				$d++;
 				(($d % 1000) == 1) and print STDERR "$d products - $dir\n";
-			}
-		}
-		elsif ($dir !~ /^\.+$/) {
-			$invalid++;
-			print STDERR "invalid code: $dir\n";
-			print $log "invalid code: $dir\n";
-			# Move the dir to $data_root/products$org_path/invalid-codes
-			if ($move) {
-				move_dir_to_invalid_codes($dir, $org_path);
 			}
 		}
 	}
