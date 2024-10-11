@@ -172,7 +172,7 @@ while (my $product_ref = $cursor->next) {
 			if ($product_ref) {
 				print STDERR "Adding back product $product_id to the collection.\n";
 				$products_collection->insert_one($product_ref);
-				$products_collections->replace_one({"_id" => $product_ref->{_id}}, $product_ref, {upsert => 1});
+				$products_collection->replace_one({"_id" => $product_ref->{_id}}, $product_ref, {upsert => 1});
 			}
 		}
 	}
