@@ -70,11 +70,13 @@ use Getopt::Long;
 my $query_params_ref = {};    # filters for mongodb query
 my $all_owners = '';
 my $obsolete = 0;
+my $fix = 0;
 
 GetOptions(
 	"query=s%" => $query_params_ref,
 	"all-owners" => \$all_owners,
 	"obsolete" => \$obsolete,
+	"fix" => \$fix,
 
 ) or die("Error in command line arguments:\n\n$usage");
 
@@ -144,14 +146,35 @@ while (my $product_ref = $cursor->next) {
 		print STDERR "Code different than id. code: $code - id: $productid\n";
 	}
 
+	my $to_be_fixed = 0;
+
 	my $normalized_code = normalize_code($code);
 	if ($normalized_code eq 'invalid') {
 		$invalid++;
+		$to_be_fixed = 1;
 		print STDERR "Invalid code: $code\n";
 	}
 	elsif ($code ne $normalized_code) {
 		$not_normalized_code++;
+		$to_be_fixed = 1;
 		print STDERR "Not normalized code. code: $code - normalized: $normalized_code\n";
+	}
+
+	if ($fix and $to_be_fixed) {
+		# Delete the product from the collection
+		print STDERR
+			"Deleting product $productid (code: $code, normalized_code: $normalized_code) from the collection - obsolete: $obsolete.\n";
+		my $delete_result = $products_collections{current}->delete_one({_id => $productid});
+		if ($normalized_code ne "invalid") {
+			# Try to retrieve the product from disk, and if it exists and is not deleted, add it to the collection with the right code
+			my $product_id = product_id_for_owner(undef, $normalized_code);
+			my $product_ref = retrieve_product($productid);
+			if ($product_ref) {
+				print STDERR "Adding back product $product_id to the collection.\n";
+				$products_collection->insert_one($product_ref);
+				$products_collections->replace_one({"_id" => $product_ref->{_id}}, $product_ref, {upsert => 1});
+			}
+		}
 	}
 }
 
