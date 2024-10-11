@@ -3,12 +3,12 @@ description: |
   Fields related to Eco-Score for a product.
 
   See also: `ecoscore_score`, `ecoscore_grade` and `ecoscore_tags`.
-  
+
 properties:
   ecoscore_data:
     type: object
     description: |
-      An object about a lot of details about data needed for Eco-Score computation 
+      An object about a lot of details about data needed for Eco-Score computation
       and complementary data of interest.
     properties:
       adjustments:
@@ -30,25 +30,38 @@ properties:
                 type: integer
               epi_value:
                 type: integer
+              origins_from_categories:
+                type: array
+                items:
+                  type: string
               origins_from_origins_field:
                 type: array
                 items:
                   type: string
               transportation_scores:
                 type: object
+                properties:
+                  world:
+                    type: integer
                 patternProperties:
-                  (?<language_code>\w\w):
+                  (?<country_code>\w\w):
                     type: integer
               transportation_values:
                 type: object
+                properties:
+                  world:
+                    type: integer
                 patternProperties:
-                  (?<language_code>\w\w):
+                  (?<country_code>\w\w):
                     type: integer
 
               values:
                 type: object
+                properties:
+                  world:
+                    type: integer
                 patternProperties:
-                  (?<language_code>\w\w):
+                  (?<country_code>\w\w):
                     type: integer
               warning:
                 type: string
@@ -102,7 +115,7 @@ properties:
       grades:
         type: object
         patternProperties:
-          (?<language_code>\w\w):
+          (?<country_code>\w\w):
             type: string
       missing:
         type: object
@@ -131,7 +144,7 @@ properties:
       scores:
         type: object
         patternProperties:
-          (?<language_code>\w\w):
+          (?<country_code>\w\w):
             type: integer
       status:
         type: string
