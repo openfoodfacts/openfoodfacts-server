@@ -143,7 +143,8 @@ while (my $product_ref = $cursor->next) {
 
 	if ($code ne $productid) {
 		$code_different_than_id++;
-		print STDERR "Code different than id. code: $code - id: $productid\n";
+		print STDERR "Code different than productid. code: $code - productid: $productid\n";
+		$to_be_fixed = 1;
 	}
 
 	my $to_be_fixed = 0;
