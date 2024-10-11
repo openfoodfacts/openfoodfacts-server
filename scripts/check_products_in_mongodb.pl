@@ -141,13 +141,13 @@ while (my $product_ref = $cursor->next) {
 	}
 	$codes_lengths{$code_len}++;
 
+	my $to_be_fixed = 0;
+
 	if ($code ne $productid) {
 		$code_different_than_id++;
 		print STDERR "Code different than productid. code: $code - productid: $productid\n";
 		$to_be_fixed = 1;
 	}
-
-	my $to_be_fixed = 0;
 
 	my $normalized_code = normalize_code($code);
 	if ($normalized_code eq 'invalid') {
