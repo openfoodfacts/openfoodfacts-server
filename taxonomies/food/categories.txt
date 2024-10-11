@@ -50008,6 +50008,7 @@ fr: Beurres au lait de brebis
 hr: Ovčji maslaci
 pl: Masło owcze
 #wikidata:en:
+incompatible_with:en: categories:en:Goat butters, Butters
 
 < en:Animal fats
 < en:Dairy spread
@@ -50018,9 +50019,12 @@ fr: Beurres au lait de chèvre
 hr: Kozji maslaci
 pl: Masło kozie
 #wikidata:en:
+incompatible_with:en: categories:en:Sheep butters, Butters
 
+< en:Animal fats
 < en:Dairy spread
-en: Butters
+< en:Milkfat
+en: Butters, cow butters
 bg: Краве масло
 ca: Mantegues
 cs: Máslo
@@ -50048,6 +50052,7 @@ agribalyse_proxy_food_name:en: Butter, 82% fat, unsalted
 gpc_category_code:en: 10000168
 gpc_category_description:en: Definition: Includes any products that can be described/observed as the fatty portion of animal milk, separated when milk or cream is agitated or churned. These products must be refrigerated to extend their consumable life. Definition Excludes: Excludes products such as Shelf Stable or Frozen Butter and all Butter Based Substitutes, and all Vegetable and Animal Cooking Oils and Fats.
 gpc_category_name:en: Butter (Perishable)
+incompatible_with:en: categories:en:Goat butters, Sheep butters
 intake24_category_code:en: BUTR
 wikidata:en: Q34172
 
@@ -57696,7 +57701,7 @@ nl_be: Botervetten
 pt: Gorduras de manteiga
 zh: 黄油脂肪
 
-< en:Butters
+< en:Butter fat
 en: Clarified butter
 fr: Beurre clarifié, beurres clarifiés
 
