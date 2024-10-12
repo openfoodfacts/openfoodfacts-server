@@ -180,7 +180,7 @@ sub process_xread_stream_reply($reply_ref) {
 	my @streams = @{$reply_ref};
 	foreach my $stream_ref (@streams) {
 		my @stream = @{$stream_ref};
-		if ($stream[0] eq 'user-registerd') {
+		if ($stream[0] eq 'user-registered') {
 			$last_processed_message_id = _process_registered_users_stream($stream[1]);
 		}
 		elsif ($stream[0] eq 'user-deleted') {
@@ -207,12 +207,12 @@ sub _process_registered_users_stream($stream_values_ref) {
 			$message_hash{$key} = $value;
 		}
 
-		$log->info("User registered", {user_id => $message_hash{'userName'}}) if $log->is_info();
+		$log->info("User registered", {user_id => $message_hash{'userName'}, newsletter => $message_hash{'newsletter'}}) if $log->is_info();
 
 		my $args_ref = {userid => $message_hash{'userName'}};
 		queue_job(welcome_user => [$args_ref] => {queue => $server_options{minion_local_queue}});
 
-		if ($message_hash{'newsletter'} eq '1') {
+		if ($message_hash{'newsletter'} eq 'subscribe') {
 			queue_job(subscribe_user_newsletter => [$args_ref] => {queue => $server_options{minion_local_queue}});
 		}
 

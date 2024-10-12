@@ -95,6 +95,7 @@ services:
             - static.${PRODUCT_OPENER_DOMAIN}
             - images.${PRODUCT_OPENER_DOMAIN}
             - fr.${PRODUCT_OPENER_DOMAIN}
+            - world-be.${PRODUCT_OPENER_DOMAIN}
             - world-de.${PRODUCT_OPENER_DOMAIN}
             - world-it.${PRODUCT_OPENER_DOMAIN}
             - es-it.${PRODUCT_OPENER_DOMAIN}
@@ -103,6 +104,8 @@ services:
             - fr.pro.${PRODUCT_OPENER_DOMAIN}
             - world.pro.${PRODUCT_OPENER_DOMAIN}
             - auth.${PRODUCT_OPENER_DOMAIN}
+            - es.${PRODUCT_OPENER_DOMAIN}
+            - be-fr.${PRODUCT_OPENER_DOMAIN}
 
 volumes:
   product_images:
