@@ -55492,13 +55492,13 @@ protected_name_type:en: pdo
 #wikidata:en:
 
 < en:Hazelnuts
-en: Hazelnut powders, Hazelnuts powder
-de: Haselnusspulver, gemahlene Hasselnüsse
-fr: Noisettes en poudre
-hr: Lješnjaci u prahu
-lt: Lazdyno riešutų milteliai
-comment: en: These powders can be with or without skin
-expected_ingredients:en: en:hazelnut
+en: Unshelled hazelnuts, Hazelnuts with shell
+de: Ungeschälte Haselnüsse
+es: Avellanas con cáscara
+fr: Noisettes non-décortiquées
+it: Nocciole con guscio
+nl: Hazelnoten (ongepeld)
+pt: Avelãs com casca
 opposite:en: en:shelled-hazelnuts
 
 < en:Hazelnuts
@@ -55510,15 +55510,34 @@ fi: kuorellisia hasselpähkinöitä
 fr: Noisettes décortiquées
 hr: Oljušteni lješnjaci
 hu: Héjas mogyoró
-it: Nocciole con guscio
+it: Nocciole sin guscio
 lt: Gliaudyti lazdyno riešutai
 nl: Gepelde hazelnoten
-pt: Avelãs com casca
+pt: Avelãs sin casca
 tr: Kabuklu fındık
 comment:en: we assume these hazelnuts are whole
-opposite:en: en:hazelnut-powders
+opposite:en: en:unshelled-hazelnuts
 wco_hs_code:en: 0802.22
 wco_hs_heading:en: 08.02
+
+< en:Shelled hazelnuts
+en: Hazelnut powders, Hazelnuts powder
+de: Haselnusspulver, gemahlene Hasselnüsse
+fr: Noisettes en poudre
+hr: Lješnjaci u prahu
+lt: Lazdyno riešutų milteliai
+nl: Hazelnootpoeders
+opposite:en: en:hazelnuts-(whole)
+comment:en: These powders can be with or without skin
+
+< en:Shelled hazelnuts
+en: Hazelnuts (whole)
+de: Haselnusspulver, gemahlene Hasselnüsse
+fr: Noisettes en poudre
+hr: Lješnjaci u prahu
+lt: Lazdyno riešutų milteliai
+opposite:en: en:hazelnut-powders
+comment: en: These powders can be with or without skin
 
 < en:Shelled hazelnuts
 en: Shelled hazelnuts with skin
@@ -55530,6 +55549,7 @@ lt: Gliaudyti lazdyno riešutai su odele
 nl: Gepelde rauwe hazelnoten met velletje
 opposite:en: en:blanched-shelled-hazelnuts
 
+
 < en:Shelled hazelnuts
 en: Blanched shelled hazelnuts, Skinless shelled hazelnuts
 es: Avellanas sin cáscara crudas sin piel, Avellanas sin cáscara crudas repeladas
@@ -55537,11 +55557,10 @@ fr: Noisettes décortiquées émondées
 hr: Blanširanih oljuštenih lješnjaka
 lt: Gliaudyti lazdyno riešutai be odelės
 nl: Gepelde witte hazelnoten
-expected_ingredients:en: en:hazelnut
 opposite:en: en:shelled-hazelnuts-with-skin
 
 < en:Shelled hazelnuts
-en: Raw shelled hazelnuts, Unroasted hazelnuts
+en: Raw hazelnuts, Unroasted hazelnuts,  
 fr: Noisettes décortiquées crues
 expected_ingredients:en: en:hazelnut
 opposite:en: en:roasted-hazelnuts
@@ -55561,18 +55580,11 @@ pt: Avelâs torradas
 agribalyse_food_code:en: 15033
 ciqual_food_code:en: 15033
 ciqual_food_name:en: Hazelnut, grilled
-opposite:en: en:raw-shelled-hazelnuts
+opposite:en: en:raw-hazelnuts
 
-< en:Roasted nuts
-< en:Shelled hazelnuts
-en: Hazelnut grilled salted
-fr: Noisette grillée salée
-nl: Hazelnoten (geroosterd en gezouten)
-agribalyse_food_code:en: 15050
-ciqual_food_code:en: 15050
-ciqual_food_name:en: Hazelnut, grilled, salted
 
 < en:Roasted hazelnuts
+< en:Shelled hazelnuts with skin
 en: Roasted hazelnuts with skin
 es: Avellanas tostadas con piel
 fr: Noisettes grillées non émondées
@@ -55581,6 +55593,7 @@ lt: Kepinti lazdyno riešutai su odele
 nl: Gebrande hazelnoten met velletje
 opposite:en: en:blanched-roasted-hazelnuts
 
+< en:Blanched shelled hazelnuts
 < en:Roasted hazelnuts
 en: Blanched roasted hazelnuts, Skinless roasted hazelnuts
 es: Avellanas tostadas sin piel
@@ -55590,6 +55603,19 @@ it: Nocciole arrostite sbiancate
 lt: Kepinti lazdyno riešutai be odelės
 nl: Witte gebrande hazelnoten
 opposite:en: en:roasted-hazelnuts-with-skin
+
+< en:Roasted hazelnuts
+< en:Shelled hazelnuts
+en: Hazelnut grilled salted
+fr: Noisette grillée salée
+nl: Hazelnoten (geroosterd en gezouten)
+agribalyse_food_code:en: 15050
+ciqual_food_code:en: 15050
+ciqual_food_name:en: Hazelnut, grilled, salted
+
+< en:Shelled hazelnuts
+en: Hazelnuts (unsalted)
+nl: Hazelnoten (ongezouten)
 
 < en:Nuts
 en: Macadamia nuts, Macadamia nut
