@@ -146,11 +146,14 @@ sub subscribe_to_redis_streams () {
 }
 
 sub _read_user_streams($search_from) {
-	my $streams = 'user-registered user-deleted';
-	$log->info("Reading from Redis", {stream => $streams, search_from => $search_from}) if $log->is_info();
+	my @streams = ('user-registered', 'user-deleted', $search_from, $search_from);
+
+	$log->info("Reading from Redis", {streams => \@streams}) if $log->is_info();
 	$redis_client->xread(
 		'BLOCK' => 0,
-		'STREAMS' => $streams,
+		'STREAMS' => 'user-deleted',
+		'user-registered',
+		$search_from,
 		$search_from,
 		sub {
 			my ($reply_ref, $err) = @_;
@@ -207,7 +210,8 @@ sub _process_registered_users_stream($stream_values_ref) {
 			$message_hash{$key} = $value;
 		}
 
-		$log->info("User registered", {user_id => $message_hash{'userName'}, newsletter => $message_hash{'newsletter'}}) if $log->is_info();
+		$log->info("User registered", {user_id => $message_hash{'userName'}, newsletter => $message_hash{'newsletter'}})
+			if $log->is_info();
 
 		my $args_ref = {userid => $message_hash{'userName'}};
 		queue_job(welcome_user => [$args_ref] => {queue => $server_options{minion_local_queue}});
