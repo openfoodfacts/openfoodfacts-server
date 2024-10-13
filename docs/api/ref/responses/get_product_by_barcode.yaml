@@ -3,9 +3,6 @@ x-stoplight:
 type: object
 allOf:
   - $ref: ./get_product_by_barcode_base.yaml
-  - type: object
-    properties:
+  - properties:
       product:
-        type: object
-        allOf:
-          - $ref: ../schemas/product.yaml
+        $ref: ../schemas/product.yaml
