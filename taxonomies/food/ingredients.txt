@@ -8357,7 +8357,6 @@ ciqual_food_code:en: 12742
 ciqual_food_name:en: Mimolette cheese, extra old, from cow's milk
 ciqual_food_name:fr: Mimolette extra-vieille
 
-#description:en:MONTEREY JACK, sometimes shortened to Jack, is an American white, semi-hard cheese made using cow's milk. It is noted for its mild flavor and slight sweetness.
 
 < en:cheese
 en: Monterey Jack, Monterey Jack Cheese
@@ -8376,6 +8375,7 @@ tr: monterey jack
 zh: 傑克芝士
 wikidata:en: Q1056415
 wikipedia:en: https://en.wikipedia.org/wiki/Monterey_Jack
+description:en:MONTEREY JACK, sometimes shortened to Jack, is an American white, semi-hard cheese made using cow's milk. It is noted for its mild flavor and slight sweetness.
 # Montenerey jack has 31 products @2019-05-31
 # ingredient/en:monterey-jack has 55 products in 1 language @2020-06-08
 
@@ -9299,7 +9299,7 @@ description:en: Blue cheese or bleu cheese is cheese made with cultures of the m
 description:de: Blauschimmelkäse ist Schimmelkäse, bei dessen Herstellung blau bis grünlich erscheinende Edelschimmelpilze wie Penicillium roqueforti und Penicillium glaucum eingesetzt werden.
 description:es: El queso azul es una clasificación general de los quesos de leche de vaca, de oveja y de cabra que tienen en su pasta cultivos de Penicillium añadidos al producto final y que proporcionan un color entre el azul y el gris-verdoso característico debido a los mohos.
 description:fr: Les fromages à pâte persillée ou à pâte à moisissure interne ou encore bleus1 sont des appellations appliquées à des fromages dont le caillé est ensemencé de penicillium.
-#description:it:L'erborinatura è una tecnica di lavorazione casearia che consente lo sviluppo di muffe nella pasta del formaggio con la conseguente comparsa di caratteristiche striature e chiazze blu-verdi.
+description:it: L\'erborinatura è una tecnica di lavorazione casearia che consente lo sviluppo di muffe nella pasta del formaggio con la conseguente comparsa di caratteristiche striature e chiazze blu-verdi.
 description:nl: Blauwschimmelkaas, ook wel blauwaderkaas genoemd, is een type schimmelkaas met een blauwe schimmel (Penicillium roqueforti) als opvallendste kenmerk.
 description:pt: Os queijos azuis têm uma produção mais elaborada, resultando assim numa massa macia e quebradiça, permeada por veios azulados que dão uma característica peculiar que dá nome a esse tipo de queijo.
 wikidata:en: Q746471
@@ -18834,9 +18834,6 @@ ciqual_food_code:en: 16570
 ciqual_food_name:en: Goose fat
 wikidata:en: Q102318348
 
-
-#description:en:VINAIGRE is a liquid consisting of about 5–20% acetic acid (CH3COOH)[citation needed], water (H2O), and trace chemicals that may include flavorings.
-
 en: vinegar
 af: asyn
 an: vinagre
@@ -18919,6 +18916,7 @@ ciqual_food_name:en: Vinegar
 ciqual_food_name:fr: Vinaigre
 vegan:en: yes
 vegetarian:en: yes
+description:en:VINAIGRE is a liquid consisting of about 5–20% acetic acid (CH3COOH), water (H2O), and trace chemicals that may include flavorings.
 # arc:ܚܠܐ
 # ast:vinagre
 # cdo:chó
@@ -19993,7 +19991,6 @@ wikidata:en: Q1892862
 # ingredient/fr:marc-de-champagne has 30 products in 4 languages @2018-12-14
 
 
-#description:en:A kirschwasser or kirsch is a clear, colorless fruit brandy traditionally made from double distillation of morello cherries, a dark-colored cultivar of the sour cherry.
 
 < en:alcohol
 en: kirsch
@@ -20014,6 +20011,7 @@ zh: 櫻桃白蘭地
 # nrm:Qùierche
 wikidata:en: Q279034
 wikipedia:en: https://en.wikipedia.org/wiki/Kirsch
+description:en: A kirschwasser or kirsch is a clear, colorless fruit brandy traditionally made from double distillation of morello cherries, a dark-colored cultivar of the sour cherry.
 # ingredient/fr:kirsch has 184 products in 5 languages @2018-12-29
 
 < en:alcohol
@@ -20623,7 +20621,6 @@ wikipedia:en: https://en.wikipedia.org/wiki/Sauternes_(wine)
 # ingredient/fr:sauternes has 74 products in 4 languages @2019-02-14
 
 
-#description:en:A ROSÉ is a type of wine that incorporates some of the color from the grape skins, but not enough to qualify it as a red wine.
 
 < en:wine
 en: rosé wine, rosé
@@ -20671,6 +20668,7 @@ ciqual_food_name:fr: Vin rosé
 # zh-hant:桃红葡萄酒
 wikidata:en: Q12979
 wikipedia:en: https://en.wikipedia.org/wiki/Rosé
+description:en:A ROSÉ is a type of wine that incorporates some of the color from the grape skins, but not enough to qualify it as a red wine.
 # fr:vin-rosé has 33 products @2018-10-29
 
 < en:wine
@@ -25523,7 +25521,7 @@ tr: gevrek arpa
 en: hulled barley
 hr: oljušteni ječam
 pl: kasza pęczak, pęczak
-#description:en:Hulled barley is a whole grain barley with only the inedible outer shell removed.
+description:en:Hulled barley is a whole grain barley with only the inedible outer shell removed.
 
 < en:hulled barley
 pl: pęczak obtaczany, pęczak jęczmienny kujawski
@@ -25532,7 +25530,7 @@ pl: pęczak obtaczany, pęczak jęczmienny kujawski
 en: pot barley
 hr: lonac ječam
 pl: kasza jęczmienna łamana, kasza jęczmienna wiejska
-#description:en:Pot barley is barley that has been processed to remove its fibrous outer hull but has not been polished.
+description:en:Pot barley is barley that has been processed to remove its fibrous outer hull but has not been polished.
 
 < en:barley groats
 en: pearl barley
@@ -25563,7 +25561,7 @@ ciqual_food_name:en: Pearled barley, raw
 ciqual_food_name:fr: Orge perlée, crue
 #nds:parelgorte
 wikidata:en: Q2743860
-#description:en:Pearl barley is barley that has been processed to remove its fibrous outer hull and polished to remove some or all of the bran layer.
+description:en:Pearl barley is barley that has been processed to remove its fibrous outer hull and polished to remove some or all of the bran layer.
 # 94 @2021-10-22
 
 < en:barley
@@ -26202,7 +26200,7 @@ ciqual_food_name:fr: Mil entier, cru
 comment:en: does not contain gluten
 wikidata:en: Q259438
 # 2479 in 16 @2021-10-13
-#description:en:Millets are a group of highly variable small-seeded grasses, widely grown around the world as cereal crops or grains for fodder and human food
+description:en:Millets are a group of highly variable small-seeded grasses, widely grown around the world as cereal crops or grains for fodder and human food
 
 < en:millet
 en: millet groats
@@ -30612,7 +30610,6 @@ nl: rijstmelk
 #
 ##################################################################################
 
-#description:en:Carob pods are mildly sweet on their own, so they are used in powdered, chip or syrup form as an ingredient in cakes and cookies, sometimes as a substitute for chocolate in recipes because of the color, texture, and taste of carob.
 #comment:en:When used as ingredient, the kernels of the carob pod of the carob tree is used.
 < en:pulse
 en: carob bean locust bean, carob seeds, carob, Carobin
@@ -30633,6 +30630,8 @@ sv: Johannesbrödfrö
 eurocode_2_group_3:en: 7.10.xx
 vegan:en: yes
 vegetarian:en: yes
+description:en:Carob pods are mildly sweet on their own, so they are used in powdered, chip or syrup form as an ingredient in cakes and cookies, sometimes as a substitute for chocolate in recipes because of the color, texture, and taste of carob.
+
 
 < en:carob seeds
 en: caroube dalmate
@@ -30640,7 +30639,6 @@ hr: dalmatinski rogač
 
 # question
 
-#description:en:Locust bean gum is produced from the endosperm, which accounts for 42–46% of the carob seed
 #comment:en:carob seed flour is made from the seeds in a carob pod. If the word seed is missing the flour of the pulp of a carob pod is meant.
 < en:carob
 < en:flour
@@ -30660,6 +30658,8 @@ nl: johannesbroodpitmeel
 pl: Mączka chleba świętojańskiego
 pt: farinha de semente de alfarroba, Farinha de sementes de alfarroba, semente de alfarroba, sementes de alfarroba
 sv: fruktkärnmjöl
+description:en:Locust bean gum is produced from the endosperm, which accounts for 42–46% of the carob seed
+
 
 < en:E410
 en: peruvian carob gum
@@ -31512,7 +31512,7 @@ bg: нерафинирана палмова захар
 fr: sucre non raffiné de palme, sucre de palme non raffiné, sucre de palme brut, sucre brut de palme
 hr: nerafinirani palmin šećer
 
-# description:en:COCONUT SUGAR is a palm sugar produced from the sap of the flower bud stem of the coconut palm.It is used in savory dishes, but mainly in local desserts and cakes of the Southeast Asian region. Coconut sugar is subtly sweet almost like brown sugar but with a slight hint of caramel. The flavor and sweetness is usually similar to table sugar or brown sugar. There is no scientific evidence that coconut sugar is more nutritious or healthier than any other sweetener.
+
 
 < en:palm sugar
 en: coconut sugar, coconut palm sugar
@@ -31532,6 +31532,7 @@ pl: cukier kokosowy
 su: Gula kalapa
 sv: kokossocker, kokospalmsocker
 ta: தென்னை சர்க்கரை
+description: en:COCONUT SUGAR is a palm sugar produced from the sap of the flower bud stem of the coconut palm. It is used in savory dishes, but mainly in local desserts and cakes of the Southeast Asian region. Coconut sugar is subtly sweet almost like brown sugar but with a slight hint of caramel. The flavor and sweetness is usually similar to table sugar or brown sugar. There is no scientific evidence that coconut sugar is more nutritious or healthier than any other sweetener.
 # yue:椰糖
 wikidata:en: Q5139861
 wikipedia:en: https://en.wikipedia.org/wiki/Coconut_sugar
@@ -31569,8 +31570,6 @@ fr: sucre vanilline
 de: Vanillinzucker
 fi: vanilliinisokeri
 pl: cukier wanilinowy
-
-# description:en:MALTOSE, also known as maltobiose or malt sugar, is a disaccharide formed from two units of glucose joined. Maltose is a component of malt, a substance which is obtained in the process of allowing grain to soften in water and germinate. It is also present in highly variable quantities in partially hydrolysed starch products like maltodextrin, corn syrup and acid-thinned starch. In humans, maltose is broken down by various maltase enzymes, providing two glucose molecules which can be further processed: either broken down to provide energy, or stored as glycogen. The lack of the sucrase-isomaltase enzyme in humans causes sucrose intolerance.
 
 < en:sugar
 en: maltose
@@ -31631,6 +31630,8 @@ tr: Maltoz
 uk: Мальтоза
 vi: Kẹo mạch nha
 zh: 麥芽糖
+description: en:MALTOSE, also known as maltobiose or malt sugar, is a disaccharide formed from two units of glucose joined. Maltose is a component of malt, a substance which is obtained in the process of allowing grain to soften in water and germinate. It is also present in highly variable quantities in partially hydrolysed starch products like maltodextrin, corn syrup and acid-thinned starch. In humans, maltose is broken down by various maltase enzymes, providing two glucose molecules which can be further processed: either broken down to provide energy, or stored as glycogen. The lack of the sucrase-isomaltase enzyme in humans causes sucrose intolerance.
+
 # azb:مالتوز
 # cdo:Măk-ngà-tòng
 # kk-arab:مالتوزا
@@ -33856,7 +33857,6 @@ wikidata:en: Q6858051
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:maitoproteiinitiiviste
 # 1 entry @ 2019-10-31
 
-#description:en:WHEY PROTEIN is a mixture of globular proteins isolated from whey, the liquid material created as a by-product of cheese production.
 
 # nova:en:whey-proteins
 < en:milk proteins
@@ -33882,6 +33882,7 @@ th: โปรตีนหางนม
 uk: Сироватковий білок
 vi: Đạm váng sữa
 zh: 乳清蛋白
+description:en:WHEY PROTEIN is a mixture of globular proteins isolated from whey, the liquid material created as a by-product of cheese production.
 # ckb:پڕۆتینی پاڵاوتەی شیر
 wikipedia:en: https://en.wikipedia.org/wiki/Whey_protein
 
@@ -40258,7 +40259,6 @@ hr: namaz od šljiva
 #                                Quince
 #
 ###################################################################################################
-#description:en:The QUINCE (Cydonia oblonga) is the sole member of the genus Cydonia in the family Rosaceae (which also contains apples and pears, among other fruits).
 # comment:en:Greek uses the same word for cockles and quinces.
 
 < en:fruit
@@ -40289,6 +40289,7 @@ sk: dule
 sl: kutine
 sv: kvitten
 vo: Aiva
+description:en:The QUINCE (Cydonia oblonga) is the sole member of the genus Cydonia in the family Rosaceae (which also contains apples and pears, among other fruits).
 # ang:codæppel
 # pcd:Counhiasse
 # scn:Cutugnu
@@ -45690,8 +45691,6 @@ pl: sproszkowane owowce lucuma
 #
 ###################################################################################################
 
-#description:en:LYCHEE is the sole member of the genus Litchi in the soapberry family, Sapindaceae.
-
 < en:fruit
 en: lychee, Litchi, Litchis
 af: Lietsjie
@@ -45766,6 +45765,7 @@ vi: Vải
 vo: licidafluk
 za: Laehcei
 zh: 荔枝
+description:en:LYCHEE is the sole member of the genus Litchi in the soapberry family, Sapindaceae.
 # ingredient/fr:litchi has 65 products in 6 languages @2019-03-01
 ciqual_food_code:en: 13023
 ciqual_food_name:en: Lychee, pulp, raw
@@ -45902,7 +45902,6 @@ fi: kandeerattu meloni
 it: meloni canditi
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:melons-confits 59 products in 3 languages @2018-09-29
 
-#description:en:Cantaloupe (muskmelon, mushmelon, rockmelon, sweet melon) or spanspek (South Africa) is a variety of the Cucumis melo species in the Cucurbitaceae family.
 
 < en:melon
 en: cantaloupe, cantaloupe melon
@@ -45950,6 +45949,7 @@ tl: milong kastila
 uk: канталуп
 vi: dưa vàng
 zh: 哈密瓜
+description:en:Cantaloupe (muskmelon, mushmelon, rockmelon, sweet melon) or spanspek (South Africa) is a variety of the Cucumis melo species in the Cucurbitaceae family.
 # bho:खरबुज्जा
 # chy:mâhöhko
 # ku-arab:شەمامۆک
@@ -72738,7 +72738,6 @@ nl: Lithothamnium calcareum
 # ingredient/fr:Lithothamnium-calcareum has 71 products @2020-05-12
 
 
-#description:en:Palmaria palmata, also called dulse, dillisk or dilsk (from Irish/Scottish Gaelic duileasc/duileasg), red dulse, sea lettuce flakes, or creathnach, is a red alga (Rhodophyta) previously referred to as Rhodymenia palmata.
 
 < en:algae
 en: dulse
@@ -72758,6 +72757,7 @@ ja: ダルス
 nl: Dulse
 nn: Søl
 pl: algi morskie dulse, dulse
+description:en:Palmaria palmata, also called dulse, dillisk or dilsk (from Irish/Scottish Gaelic duileasc/duileasg), red dulse, sea lettuce flakes, or creathnach, is a red alga (Rhodophyta) previously referred to as Rhodymenia palmata.
 # ingredient/fr:dulse has 59 products @2019-02-14
 ciqual_food_code:en: 20988
 ciqual_food_name:en: Dulse (Palmaria palmata), dried or dehydrated
@@ -72846,7 +72846,6 @@ ciqual_food_code:en: 20283
 ciqual_food_name:en: Glasswort (Salicornia sp.), fresh
 ciqual_food_name:fr: Salicorne (Salicornia sp.), fraîche
 
-#description:en:KOMBU (from Japanese: 昆布, translit. konbu) is edible kelp from mostly the family Laminariaceae and is widely eaten in East Asia. There are about eighteen edible species in Laminariaceae and most of them, but not all, are called kombu.
 
 < en:seaweed
 en: kombu
@@ -72872,6 +72871,7 @@ ru: комбу
 sk: Konbu
 th: คมบุ
 tr: Kombu
+description:en:KOMBU (from Japanese: 昆布, translit. konbu) is edible kelp from mostly the family Laminariaceae and is widely eaten in East Asia. There are about eighteen edible species in Laminariaceae and most of them, but not all, are called kombu.
 # ingredient/fr:kombu has 20 products in french @2019-02-22
 ciqual_food_code:en: 20990
 ciqual_food_name:en: Kombu or Japanese kelp (Laminaria japonica), dried or dehydrated
@@ -72979,7 +72979,6 @@ eurocode_2_group_3:en: 8.55.30
 wikidata:en: Q201565
 wikipedia:en: https://en.wikipedia.org/wiki/Nori
 
-#description:en:The sea lettuces comprise the genus Ulva, a group of edible green algae that is widely distributed along the coasts of the world's oceans.
 
 < en:seaweed
 en: sea lettuce, green laver
@@ -73018,6 +73017,7 @@ uk: Морський салат, Ульва
 uz: Ulva
 vi: Ulva
 zh: 石莼, 石莼属
+description:en:The sea lettuces comprise the genus Ulva, a group of edible green algae that is widely distributed along the coasts of the world's oceans.
 # ingredient/fr:laitue-de-mer has 73 products in 4 languages @2019-02-22
 # algues:laitue de mer
 ciqual_food_code:en: 20985
@@ -73032,7 +73032,6 @@ wikidata:en: Q1109330
 wikipedia:en: https://en.wikipedia.org/wiki/Sea_lettuce
 
 
-#description:en:HIMANTHALIA ELONGATA is a brown alga (class Phaeophyta or Phaeophyceae) in the order Fucales, also known by the common names thongweed, sea thong and sea spaghetti.
 
 < en:seaweed
 en: thongweed, sea spaghetti
@@ -73050,6 +73049,7 @@ ciqual_food_code:en: 20992
 ciqual_food_name:en: Sea thong (Himanthalia elongata), dried or dehydrated
 ciqual_food_name:fr: Haricot de mer (Himanthalia elongata), séchée ou déshydratée
 wikidata:en: Q1636443
+description:en:HIMANTHALIA ELONGATA is a brown alga (class Phaeophyta or Phaeophyceae) in the order Fucales, also known by the common names thongweed, sea thong and sea spaghetti.
 # ingredient/fr:spaghetti-de-mer has 7 products in french @2019-02-22
 # ingredient/fr:haricot-de-mer has 9 products in french @2019-02-22
 wikipedia:en: https://en.wikipedia.org/wiki/Himanthalia_elongata
@@ -73384,8 +73384,6 @@ de: Pfifferlinge
 pl: Pieprznik
 wikidata:en: Q922335
 
-#description:en:CANTHARELLUS CIBARIUS is a species of golden chanterelle mushroom in the genus Cantharellus.
-
 < en:Cantharellus
 en: golden chanterelle, cantharellus cibarius
 ar: فطر الشانتريل
@@ -73436,6 +73434,7 @@ uk: лисичка справжня
 vi: Nấm mồng gà
 vo: Kikkasiin
 zh: 鸡油菇
+description:en:CANTHARELLUS CIBARIUS is a species of golden chanterelle mushroom in the genus Cantharellus.
 # ingredient/fr:cantharellus-cibarius has 26 products in 3 languages @2018-12-16
 # ingredient/fr:girolles has 90 products in 3 languages @2018-12-16
 eurocode_2_group_3:en: 8.50.40
@@ -73595,8 +73594,6 @@ la: Boletus pinophilus, Boletus pinicola, pinicola
 pl: borowik sosnowy
 wikidata:en: Q1415435
 
-#description:en:LECCINUM is a genus of mushrooms from the Boletaceae family
-
 < en:mushroom
 en: Leccinum
 xx: Leccinum
@@ -73604,6 +73601,7 @@ pl: koźlarz, koźlarze
 sk: kozák
 wikidata:en: Q573152
 wikipedia:en: https://en.wikipedia.org/wiki/Leccinum
+description:en:LECCINUM is a genus of mushrooms from the Boletaceae family
 
 < en:Leccinum
 en: red-capped scaber stalk
@@ -73623,12 +73621,12 @@ sk: kozák brezový
 wikidata:en: Q628977
 wikipedia:en: https://en.wikipedia.org/wiki/Leccinum_scabrum
 
-#description:en:IMLERIA is a genus of mushrooms from the Boletaceae family
 
 < en:mushroom
 en: Imleria
 xx: Imleria
 pl: Podgrzyb, podgrzybek, podgrzybki
+description:en:IMLERIA is a genus of mushrooms from the Boletaceae family
 wikidata:en: Q19286081
 
 < en:Imleria
@@ -73646,8 +73644,6 @@ es: seta cultivada, setas cultivadas, setas frescas cultivadas
 fr: champignon cultivé, champignons cultivés
 hr: uzgojena gljiva
 eurocode_2_group_3:en: 8.50.10
-
-#description:en:AGARICUS BISPORUS is an edible basidiomycete mushroom native to grasslands in Europe and North America.
 
 < en:cultivated mushroom
 en: champignon, button mushrooms, cultivated mushrooms, Agaricus bisporus, cup mushroom
@@ -73695,6 +73691,7 @@ sv: Portabello, champinjon, champinjoner, vit champinjon, vita champinjoner
 ta: அகாரிகஸ் பைஸ்போரஸ்
 uk: Печериця садова
 zh: 雙孢蘑菇
+description:en:AGARICUS BISPORUS is an edible basidiomycete mushroom native to grasslands in Europe and North America.
 # fr:champignons de Paris has 857 products in 9 languages @2018-11-01
 carbon_footprint_fr_foodges_ingredient:fr: Champignons de Paris
 carbon_footprint_fr_foodges_value:fr: 1.9
@@ -76421,7 +76418,6 @@ la: Sprattus sprattus balticus
 #                                Plaice
 #
 ###################################################################################################
-#description:en: The European plaice (Pleuronectes platessa) is a commercially important flatfish
 
 < en:fish
 < en:white fish
@@ -76462,6 +76458,7 @@ sh: Iverak zlatopjeg
 sv: Rödspätta
 uk: камбала європейська
 zh: 鰈魚
+description:en: The European plaice (Pleuronectes platessa) is a commercially important flatfish
 # csb:Bańtka
 # frr:Skol
 # pcd:Càrlé
@@ -77081,7 +77078,6 @@ hr: pangas file
 it: filetti di pangasio
 nl: pangasiusfilets
 
-#description:en:Trisopterus luscus (bib, pout whiting, pout or most commonly pouting) is a seafish belonging to the cod family (Gadidae).
 
 < en:fish
 en: pouting, bib, pout
@@ -77106,6 +77102,7 @@ pt: Faneca
 sl: Francoski molič
 sv: Skäggtorsk
 zh: 條長臀鱈
+description:en:Trisopterus luscus (bib, pout whiting, pout or most commonly pouting) is a seafish belonging to the cod family (Gadidae).
 # structure:inner:role:synonym, eg tacaud (Trisopterus luscus)
 ciqual_food_code:en: 26133
 ciqual_food_name:en: Pouting, raw
@@ -77217,8 +77214,6 @@ fi: seitifilee
 nl: koolvisfilet
 # has 1 product on 2021-09-03
 
-#description:en:Salmon is the common name for several species of ray-finned fish in the family Salmonidae.
-
 < en:fish
 < en:oily fish
 en: salmon
@@ -77274,6 +77269,7 @@ th: ปลาแซลมอน
 tr: Sombalığı
 vi: Cá hồi
 zh: 鮭魚
+description:en:Salmon is the common name for several species of ray-finned fish in the family Salmonidae.
 # ingredient/salmon has 1659 products in 6 languages @2018-12-29
 carbon_footprint_fr_foodges_ingredient:fr: Pavé de Truite ou Saumon d'élevage
 carbon_footprint_fr_foodges_value:fr: 6.6
@@ -77419,7 +77415,6 @@ hr: škotski losos
 it: salmone scozzese
 nl: Schotse zalm
 
-#description:en:The Atlantic salmon (Salmo salar) is a species of ray-finned fish in the family Salmonidae.
 
 < en:salmon
 en: atlantic salmon, salmo salar salmon
@@ -77493,6 +77488,7 @@ zh: 大西洋鮭
 # zh-hk:大西洋鮭
 # zh-sg:大西洋鲑
 # zh-tw:大西洋鮭
+description:en:The Atlantic salmon (Salmo salar) is a species of ray-finned fish in the family Salmonidae.
 wikidata:en: Q188879
 wikipedia:en: https://en.wikipedia.org/wiki/Atlantic_salmon
 # ingredient/fr:saumon-atlantique has 687 products in 5 languages @2018-12-29
@@ -78239,8 +78235,6 @@ fr: Ventrèches de thon
 it: ventresca di tonno
 # ingredient/fr:Ventrèches-de-thon has 1 product @2019-01-02
 
-#description:en:The albacore (Thunnus alalunga), known also as the longfin tuna, is a species of tuna of the order Perciformes.
-
 < en:tuna
 en: albacore
 af: Albakoor
@@ -78280,6 +78274,7 @@ zh: 长鳍金枪鱼
 ciqual_food_code:en: 26076
 ciqual_food_name:en: Albacore, raw
 ciqual_food_name:fr: Thon germon ou thon blanc, cru
+description:en:The albacore (Thunnus alalunga), known also as the longfin tuna, is a species of tuna of the order Perciformes.
 # ace:Sisék
 # ceb:Barilis
 # war:Panit
@@ -78802,13 +78797,13 @@ vi: Họ Cá lượng
 zh: 金線魚科
 
 
-#description:en:Molva est un genre de poissons appelés lingues, élingues ou juliennes.
 
 < en:fish
 en: ling
 fr: lingue, julienne
 hr: vrijesak
 la: Molva
+description:en:Molva est un genre de poissons appelés lingues, élingues ou juliennes.
 # ingredient/fr:lingue has 1 product @2019-01-16
 ciqual_food_code:en: 26130
 ciqual_food_name:en: Ling, raw
@@ -79003,7 +78998,6 @@ wikipedia:en: https://en.wikipedia.org/wiki/Common_dentex
 #ciqual_food_name:en:Blackspot seabream, raw
 #ciqual_food_name:fr:Dorade rose, ou daurade rose, crue
 
-#description:fr:Les pageots (Pagellus) forment un genre de poissons marins perciformes de la famille des Sparidae
 
 < en:seabream
 en: porgies
@@ -79017,6 +79011,7 @@ ru: бесуги
 uk: Пагель
 wikidata:en: Q1654733
 wikipedia:fr: https://fr.wikipedia.org/wiki/Pagellus
+description:fr:Les pageots (Pagellus) forment un genre de poissons marins perciformes de la famille des Sparidae
 # ingredient/fr:pageot has 1 product in french @2019-01-01
 
 
@@ -79239,7 +79234,6 @@ ciqual_food_code:en: 26092
 ciqual_food_name:en: Sea trout, raw
 ciqual_food_name:fr: Truite de mer, crue
 
-#description:en:The rainbow trout (Oncorhynchus mykiss) is a trout and species of salmonid native to cold-water tributaries of the Pacific Ocean in Asia and North America.
 
 < en:trout
 en: rainbow trout
@@ -79296,6 +79290,7 @@ tr: Gökkuşağı alabalığı
 uk: Пструг райдужний
 vi: Cá hồi vân
 zh: 虹鱒
+description:en:The rainbow trout (Oncorhynchus mykiss) is a trout and species of salmonid native to cold-water tributaries of the Pacific Ocean in Asia and North America.
 # ingredient/fr:truite-arc-en-ciel has 81 products in 3 languages @2018-12-30
 carbon_footprint_fr_foodges_ingredient:fr: Truite d'élevage, entière
 carbon_footprint_fr_foodges_value:fr: 4.9
@@ -79639,11 +79634,10 @@ ciqual_food_name:fr: Mulet, cru
 wikidata:en: Q756996
 wikipedia:fr: https://fr.wikipedia.org/wiki/Mulet_(poisson)
 
-#description:fr:Le mot rascasse est un nom vernaculaire ambigu en français, pouvant désigner plusieurs espèces différentes de poissons réparties dans plusieurs genres, principalement de la famille des scorpaenidés.
-
 < en:rockfish
 en: spiny scorpionfish
 fr: rascasse
+description:fr:Le mot rascasse est un nom vernaculaire ambigu en français, pouvant désigner plusieurs espèces différentes de poissons réparties dans plusieurs genres, principalement de la famille des scorpaenidés.
 # ingredient/fr:rascasse has 4 products in french @2018-12-31
 ciqual_food_code:en: 26063
 ciqual_food_name:en: Spiny scorpionfish, raw
@@ -80634,7 +80628,7 @@ es: ostión del norte, concha de abanico
 fr: Pétoncle chilien, Pétoncle du Pérou, Peigne du Pérou
 hr: peruanska kapica
 la: Argopecten purpuratus
-#description:en:Argopecten purpuratus, common names the "Peruvian scallop", is an edible species of saltwater clam, a scallop.
+description:en:Argopecten purpuratus, common names the Peruvian scallop, is an edible species of saltwater clam, a scallop.
 description:es: Argopecten purpuratus es una especie de molusco bivalvo de la familia Pectinidae que se distribuye por las costas del Océano Pacífico de Perú y Chile.
 description:fr: Le pétoncle chilien (Argopecten purpuratus) est un bivalve de la famille des pectinidés habitant les côtes pacifiques de l'Amérique du Sud, du Pérou au Chili.
 description:it: Argopecten purpuratus è un mollusco appartenente alla famiglia Pectinidae a cui appartengono anche le capesante.
