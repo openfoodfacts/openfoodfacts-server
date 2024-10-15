@@ -55,6 +55,15 @@
                 `,
             },
         },
-        [% END %]        
+        [% END %]       
+        [% IF 1 %]
+        {
+            "element_type": "panel",
+            "panel_element": {
+                "panel_id":
+                    "ingredients_list",
+            },
+        }, 
+        [% END %] 
     ]
 }

@@ -10,17 +10,8 @@
     "expanded": false,
     [% END %]
     "title_element": {
-        "title": `
-        [% dash = "-" %]
-        [% dash.repeat(panel.level) %]
-
-        [% display_taxonomy_tag_name("ingredients", panel.ingredient_id) %]
-        [% IF panel.ingredient.percent.defined %]
-            ([% round(panel.ingredient.percent) %]%)
-        [% ELSIF panel.ingredient.percent_estimate.defined %]
-            ([% round(panel.ingredient.percent_estimate) %]% [% lang("estimate") %])
-        [% END %]
-        `,
+        // Note: the app displays line feeds as line feeds...
+        "title": `        [% dash = "-" %]        [% dash.repeat(panel.level) %]        [% display_taxonomy_tag_name("ingredients", panel.ingredient_id) %]        [% IF panel.ingredient.percent.defined %]            ([% round(panel.ingredient.percent) %]%)        [% ELSIF panel.ingredient.percent_estimate.defined %]            ([% round(panel.ingredient.percent_estimate) %]% [% lang("estimate") %])        [% END %]        `,
     },        
     "elements": [
         [% IF panel.ingredient_description -%]

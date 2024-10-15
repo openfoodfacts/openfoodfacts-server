@@ -10,9 +10,6 @@
             [% IF panels.ingredients_rare_crops.defined %]
             "ingredients_rare_crops",
             [% END %]
-            [% IF panels.ingredients_list.defined %]
-            "ingredients_list",
-            [% END %]
         ],
         [% IF panel.ingredients_image.defined %]
         "image": [% encode_json(panel.ingredients_image) %],

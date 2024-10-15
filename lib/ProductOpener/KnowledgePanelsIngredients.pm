@@ -47,12 +47,12 @@ BEGIN {
 
 use vars @EXPORT_OK;
 
-use ProductOpener::KnowledgePanels qw(create_panel_from_json_template add_taxonomy_properties_in_target_languages_to_object);
+use ProductOpener::KnowledgePanels
+	qw(create_panel_from_json_template add_taxonomy_properties_in_target_languages_to_object);
 use ProductOpener::Tags qw(:all);
 
 use Encode;
 use Data::DeepAccess qw(deep_get);
-
 
 =head2 create_ingredients_list_panel ( $product_ref, $target_lc, $target_cc, $options_ref )
 
@@ -76,39 +76,55 @@ sub create_ingredients_list_panel ($product_ref, $target_lc, $target_cc, $option
 
 	if ((defined $product_ref->{ingredients_tags}) and (scalar @{$product_ref->{ingredients_tags}} > 0)) {
 
-		my $ingredient_i = 0;	# sequence number for ingredients
-		my @ingredients_panels_ids = create_ingredients_panels_recursive($product_ref, \$ingredient_i, 0, $product_ref->{ingredients}, $target_lc, $target_cc, $options_ref);
+		my $ingredient_i = 0;    # sequence number for ingredients
+		my @ingredients_panels_ids
+			= create_ingredients_panels_recursive($product_ref, \$ingredient_i, 0, $product_ref->{ingredients},
+			$target_lc, $target_cc, $options_ref);
 		my $ingredients_list_panel_data_ref = {ingredients_panels_ids => \@ingredients_panels_ids};
 
-		create_panel_from_json_template("ingredients_list", "api/knowledge-panels/health/ingredients/ingredients_list.tt.json",
-			$ingredients_list_panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
+		create_panel_from_json_template(
+			"ingredients_list",
+			"api/knowledge-panels/health/ingredients/ingredients_list.tt.json",
+			$ingredients_list_panel_data_ref,
+			$product_ref, $target_lc, $target_cc, $options_ref
+		);
 
 	}
 	return;
 }
 
-sub create_ingredients_panels_recursive ($product_ref, $ingredient_i_ref, $level, $ingredients_ref, $target_lc, $target_cc, $options_ref) {
+sub create_ingredients_panels_recursive ($product_ref, $ingredient_i_ref, $level, $ingredients_ref, $target_lc,
+	$target_cc, $options_ref)
+{
 
 	my @ingredients_panels_ids = ();
 
 	foreach my $ingredient_ref (@$ingredients_ref) {
 
-			push @ingredients_panels_ids, create_ingredient_panel($product_ref, $ingredient_i_ref, $level, $ingredient_ref, $target_lc, $target_cc, $options_ref);
-			if (defined $ingredient_ref->{ingredients}) {
-				push @ingredients_panels_ids, create_ingredients_panels_recursive($product_ref, $ingredient_i_ref, $level + 1, $ingredient_ref->{ingredients}, $target_lc, $target_cc, $options_ref);
-			}
-		
+		push @ingredients_panels_ids,
+			create_ingredient_panel($product_ref, $ingredient_i_ref, $level, $ingredient_ref, $target_lc, $target_cc,
+			$options_ref);
+		if (defined $ingredient_ref->{ingredients}) {
+			push @ingredients_panels_ids,
+				create_ingredients_panels_recursive($product_ref, $ingredient_i_ref, $level + 1,
+				$ingredient_ref->{ingredients},
+				$target_lc, $target_cc, $options_ref);
+		}
+
 	}
 
 	return @ingredients_panels_ids;
 }
 
-sub create_ingredient_panel ($product_ref, $ingredient_i_ref, $level, $ingredient_ref, $target_lc, $target_cc, $options_ref) {
+sub create_ingredient_panel ($product_ref, $ingredient_i_ref, $level, $ingredient_ref, $target_lc, $target_cc,
+	$options_ref)
+{
 
 	$$ingredient_i_ref++;
 	my $ingredient_panel_id = "ingredient_" . $$ingredient_i_ref;
 
-	my $ingredient_panel_data_ref = {ingredient_id => $ingredient_ref->{id}, level => $level, ingredient => $ingredient_ref};
+	my $ingredient_panel_data_ref
+		= {ingredient_id => $ingredient_ref->{id}, level => $level, ingredient => $ingredient_ref};
 
 	# Wikipedia abstracts, in target language or English
 
@@ -117,8 +133,8 @@ sub create_ingredient_panel ($product_ref, $ingredient_i_ref, $level, $ingredien
 		push @$target_lcs_ref, "en";
 	}
 
-	add_taxonomy_properties_in_target_languages_to_object($ingredient_panel_data_ref, "ingredients", $ingredient_ref->{id},
-		["wikipedia_url", "wikipedia_title", "wikipedia_abstract"],
+	add_taxonomy_properties_in_target_languages_to_object($ingredient_panel_data_ref, "ingredients",
+		$ingredient_ref->{id}, ["wikipedia_url", "wikipedia_title", "wikipedia_abstract"],
 		$target_lcs_ref);
 
 	# We check if the knowledge content for this ingredient (and language/country) is available.
@@ -129,12 +145,10 @@ sub create_ingredient_panel ($product_ref, $ingredient_i_ref, $level, $ingredien
 		$ingredient_panel_data_ref->{ingredient_description} = $ingredient_description;
 	}
 
-	create_panel_from_json_template($ingredient_panel_id,
-		"api/knowledge-panels/health/ingredients/ingredient.tt.json",
+	create_panel_from_json_template($ingredient_panel_id, "api/knowledge-panels/health/ingredients/ingredient.tt.json",
 		$ingredient_panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
 
 	return $ingredient_panel_id;
 }
-
 
 1;
