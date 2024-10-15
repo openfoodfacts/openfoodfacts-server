@@ -177,7 +177,7 @@ use ProductOpener::ProductsFeatures qw(feature_enabled);
 use ProductOpener::RequestStats qw(:all);
 
 use Encode;
-use URI::Escape::XS;
+use URI::Escape::XS qw/uri_escape/;
 use CGI::Carp qw(fatalsToBrowser);
 use CGI qw(:cgi :cgi-lib :form escapeHTML charset);
 use HTML::Entities;
@@ -477,6 +477,10 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 
 	$template_data_ref->{encode_json} = sub ($var) {
 		return $json->encode($var);
+	};
+
+	$template_data_ref->{uri_escape} = sub ($var) {
+		return uri_escape($var);
 	};
 
 	return ($tt->process($template_filename, $template_data_ref, $result_content_ref));

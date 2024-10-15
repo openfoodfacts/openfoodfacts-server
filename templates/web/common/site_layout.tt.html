@@ -109,7 +109,7 @@
 					<ul class="right">
 						[% IF not user_id.defined %]
 							<li class="h-space-tiny has-form">
-								<a href="/cgi/oidc_signin.pl" class="round button secondary">
+								<a href="/cgi/oidc_signin.pl?return_url=[% uri_escape(canon_url) %]" class="round button secondary">
 									<span class="material-icons material-symbols-button">account_circle</span>
 									[% lang('sign_in') %]
 								</a>
