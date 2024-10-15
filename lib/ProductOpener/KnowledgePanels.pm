@@ -47,6 +47,7 @@ BEGIN {
 		&initialize_knowledge_panels_options
 		&create_knowledge_panels
 		&create_panel_from_json_template
+		&add_taxonomy_properties_in_target_languages_to_object
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -66,6 +67,7 @@ use ProductOpener::Lang qw/f_lang f_lang_in_lc lang lang_in_other_lc/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Ecoscore qw/is_ecoscore_extended_data_more_precise_than_agribalyse/;
 use ProductOpener::PackagerCodes qw/%packager_codes/;
+use ProductOpener::KnowledgePanelsIngredients qw/create_ingredients_list_panel/;
 use ProductOpener::KnowledgePanelsContribution qw/create_contribution_card_panel/;
 use ProductOpener::KnowledgePanelsReportProblem qw/create_report_problem_card_panel/;
 use ProductOpener::ProductsFeatures qw/feature_enabled/;
@@ -982,7 +984,10 @@ sub create_health_card_panel ($product_ref, $target_lc, $target_cc, $options_ref
 	$log->debug("create health card panel", {code => $product_ref->{code}}) if $log->is_debug();
 
 	# All food, pet food and beauty products have ingredients
-	create_ingredients_panel($product_ref, $target_lc, $target_cc, $options_ref);
+	if (feature_enabled("ingredients")) {
+		create_ingredients_panel($product_ref, $target_lc, $target_cc, $options_ref);
+		create_ingredients_list_panel($product_ref, $target_lc, $target_cc, $options_ref);
+	}
 
 	# Show additives only for food and pet food
 	if (feature_enabled("additives")) {
