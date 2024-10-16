@@ -77,6 +77,7 @@ sub create_ingredients_list_panel ($product_ref, $target_lc, $target_cc, $option
 	if ((defined $product_ref->{ingredients_tags}) and (scalar @{$product_ref->{ingredients_tags}} > 0)) {
 
 		my $ingredient_i = 0;    # sequence number for ingredients
+		# creates each individual panels for each ingredient
 		my @ingredients_panels_ids
 			= create_ingredients_panels_recursive($product_ref, \$ingredient_i, 0, $product_ref->{ingredients},
 			$target_lc, $target_cc, $options_ref);
