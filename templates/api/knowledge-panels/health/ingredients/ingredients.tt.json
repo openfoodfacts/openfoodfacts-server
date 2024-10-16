@@ -56,7 +56,7 @@
             },
         },
         [% END %]       
-        [% IF 1 %]
+        [% IF product.ingredients_n.defined && product.ingredients_n > 0 %]
         {
             "element_type": "panel",
             "panel_element": {
