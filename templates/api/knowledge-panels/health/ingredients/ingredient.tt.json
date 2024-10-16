@@ -10,14 +10,14 @@
         [% dash = "—" %]
         [% dash.repeat(panel.level) %]
 
-        [% display_taxonomy_tag_name("ingredients", panel.ingredient_id) %]
+        [% display_taxonomy_tag_name("ingredients", panel.ingredient_id) %][% sep %]:
         [% IF panel.ingredient.percent.defined %]
-            ([% sprintf("%.1f", panel.ingredient.percent) %]%)
+            [% sprintf("%.1f", panel.ingredient.percent) %]%
         [% ELSIF panel.ingredient.percent_estimate.defined %]
             [% IF panel.ingredient.percent_estimate < 2 %]
-                (< 2% - [% lang("estimate") %])
+                < 2% ([% lang("estimate") %])
             [% ELSE %]
-                ([% sprintf("%.1f", panel.ingredient.percent_estimate) %]% - [% lang("estimate") %])
+                [% sprintf("%.1f", panel.ingredient.percent_estimate) %]% ([% lang("estimate") %])
             [% END %]
         [% END %]
         ``,
