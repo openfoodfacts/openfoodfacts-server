@@ -77,11 +77,13 @@ sub create_ingredients_list_panel ($product_ref, $target_lc, $target_cc, $option
 	if ((defined $product_ref->{ingredients_tags}) and (scalar @{$product_ref->{ingredients_tags}} > 0)) {
 
 		my $ingredient_i = 0;    # sequence number for ingredients
+		# creates each individual panels for each ingredient
 		my @ingredients_panels_ids
 			= create_ingredients_panels_recursive($product_ref, \$ingredient_i, 0, $product_ref->{ingredients},
 			$target_lc, $target_cc, $options_ref);
 		my $ingredients_list_panel_data_ref = {ingredients_panels_ids => \@ingredients_panels_ids};
 
+		# create the panel that reference ingredients panels
 		create_panel_from_json_template(
 			"ingredients_list",
 			"api/knowledge-panels/health/ingredients/ingredients_list.tt.json",
