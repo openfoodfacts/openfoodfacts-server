@@ -15,9 +15,9 @@
             ([% sprintf("%.1f", panel.ingredient.percent) %]%)
         [% ELSIF panel.ingredient.percent_estimate.defined %]
             [% IF panel.ingredient.percent_estimate < 2 %]
-                (< 2% [% lang("estimate") %])
+                (< 2% - [% lang("estimate") %])
             [% ELSE %]
-                ([% sprintf("%.1f", panel.ingredient.percent_estimate) %]% [% lang("estimate") %])
+                ([% sprintf("%.1f", panel.ingredient.percent_estimate) %]% - [% lang("estimate") %])
             [% END %]
         [% END %]
         ``,
