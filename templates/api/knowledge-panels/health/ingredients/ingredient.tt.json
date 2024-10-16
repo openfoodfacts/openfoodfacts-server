@@ -4,11 +4,6 @@
         "health"
     ],
     "size": "small",
-    [% IF panel.ingredient_description OR panel.wikipedia_abstract %]
-    "expanded": false,
-    [% ELSE %]
-    "not_expandable": true,
-    [% END %]
     "title_element": {
         // double backticks: convert to a single line without newlines and extra spaces
         "title": ``
