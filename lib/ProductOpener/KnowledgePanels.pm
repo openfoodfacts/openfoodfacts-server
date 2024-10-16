@@ -273,6 +273,8 @@ sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref,
 Helper function to allow to enter multiline strings in JSON templates.
 The function converts the multiline string into a single line string.
 
+New lines are converted to \n, and quotes " and \ are escaped if not escaped already.
+
 =cut
 
 sub convert_multiline_string_to_singleline ($line) {
@@ -283,6 +285,30 @@ sub convert_multiline_string_to_singleline ($line) {
 
 	# \R will match all Unicode newline sequence
 	$line =~ s/\R/\\n/sg;
+
+	return '"' . $line . '"';
+}
+
+=head2 convert_multiline_string_to_singleline_without_line_breaks_and_extra_spaces($line)
+
+Helper function to allow to enter multiline strings in JSON templates.
+The function converts the multiline string into a single line string.
+
+Line breaks are converted to spaces, and multiple spaces are converted to a single space.
+
+This function is useful in templates where we use IF statements etc. to generate a single value like a title.
+
+=cut
+
+sub convert_multiline_string_to_singleline_without_line_breaks_and_extra_spaces ($line) {
+
+	# Escape " and \ unless they have been escaped already
+	# negative look behind to not convert \n to \\n or \" to \\" or \\ to \\\\
+	$line =~ s/(?<!\\)("|\\)/\\$1/g;
+
+	$line =~ s/\s+/ /g;
+	$line =~ s/^\s+//;
+	$line =~ s/\s+$//;
 
 	return '"' . $line . '"';
 }
@@ -300,6 +326,8 @@ Some special features that are not included in the JSON format are supported:
 2. Multiline strings can be included using backticks ` at the start and end of the multiline strings.
 - The multiline strings will be converted to a single string.
 - Quotes " are automatically escaped unless they are already escaped
+
+Using two backticks at the start and end of the string removes line breaks and extra spaces.
 
 3. Comments can be included by starting a line with //
 - Comments will be removed in the resulting JSON, they are only intended to make the source template easier to understand.
@@ -386,6 +414,8 @@ sub create_panel_from_json_template ($panel_id, $panel_template, $panel_data_ref
 
 		# Also escape quotes " to \"
 
+		$panel_json
+			=~ s/\`\`([^\`]*)\`\`/convert_multiline_string_to_singleline_without_line_breaks_and_extra_spaces($1)/seg;
 		$panel_json =~ s/\`([^\`]*)\`/convert_multiline_string_to_singleline($1)/seg;
 
 		# Remove trailing commas at the end of a string delimited by quotes
