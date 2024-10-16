@@ -7,14 +7,18 @@
     "title_element": {
         // double backticks: convert to a single line without newlines and extra spaces
         "title": ``
-        [% dash = "-" %]
+        [% dash = "—" %]
         [% dash.repeat(panel.level) %]
 
         [% display_taxonomy_tag_name("ingredients", panel.ingredient_id) %]
         [% IF panel.ingredient.percent.defined %]
-            ([% round(panel.ingredient.percent) %]%)
+            ([% sprintf("%.1f", panel.ingredient.percent) %]%)
         [% ELSIF panel.ingredient.percent_estimate.defined %]
-            ([% round(panel.ingredient.percent_estimate) %]% [% lang("estimate") %])
+            [% IF panel.ingredient.percent_estimate < 2 %]
+                (< 2% [% lang("estimate") %])
+            [% ELSE %]
+                ([% sprintf("%.1f", panel.ingredient.percent_estimate) %]% [% lang("estimate") %])
+            [% END %]
         [% END %]
         ``,
     },        
