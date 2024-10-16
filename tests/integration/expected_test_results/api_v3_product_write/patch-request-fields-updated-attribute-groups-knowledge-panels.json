@@ -484,6 +484,12 @@
                      "html" : "Could you add the ingredients list?"
                   },
                   "element_type" : "action"
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "ingredients_list"
+                  }
                }
             ],
             "evaluation" : "unknown",
