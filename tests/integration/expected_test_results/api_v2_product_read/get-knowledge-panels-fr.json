@@ -659,6 +659,54 @@
                "problem"
             ]
          },
+         "ingredient_1" : {
+            "elements" : [],
+            "expanded" : false,
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "title" : "                        Pomme                    (62% estimation)                "
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "ingredient_2" : {
+            "elements" : [],
+            "expanded" : false,
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "title" : "                        Lait                    (19% estimation)                "
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "ingredient_3" : {
+            "elements" : [],
+            "expanded" : false,
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "title" : "                        Œuf                    (9% estimation)                "
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "ingredient_4" : {
+            "elements" : [],
+            "expanded" : false,
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "title" : "                        Huile de palme                    (9% estimation)                "
+            },
+            "topics" : [
+               "health"
+            ]
+         },
          "ingredients" : {
             "elements" : [
                {
@@ -676,6 +724,12 @@
                   "element_type" : "text",
                   "text_element" : {
                      "html" : "<strong>Allergènes :</strong> \n                    en:Apple, Œufs, Lait\n                "
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "ingredients_list"
                   }
                }
             ],
@@ -824,6 +878,42 @@
                "icon_size" : "small",
                "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/vegetarian.svg",
                "title" : "Végétarien"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "ingredients_list" : {
+            "elements" : [
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "ingredient_1"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "ingredient_2"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "ingredient_3"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "ingredient_4"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "level" : "info",
+            "title_element" : {
+               "title" : "Information sur les ingrédients"
             },
             "topics" : [
                "health"

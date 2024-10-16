@@ -1359,6 +1359,54 @@
                "problem"
             ]
          },
+         "ingredient_1" : {
+            "elements" : [],
+            "expanded" : false,
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "title" : "                        Apple                    (62% estimate)                "
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "ingredient_2" : {
+            "elements" : [],
+            "expanded" : false,
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "title" : "                        Milk                    (19% estimate)                "
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "ingredient_3" : {
+            "elements" : [],
+            "expanded" : false,
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "title" : "                        Egg                    (9% estimate)                "
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "ingredient_4" : {
+            "elements" : [],
+            "expanded" : false,
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "title" : "                        Palm oil                    (9% estimate)                "
+            },
+            "topics" : [
+               "health"
+            ]
+         },
          "ingredients" : {
             "elements" : [
                {
@@ -1376,6 +1424,12 @@
                   "element_type" : "text",
                   "text_element" : {
                      "html" : "<strong>Allergens:</strong> \n                    Apple, Eggs, Milk\n                "
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "ingredients_list"
                   }
                }
             ],
@@ -1524,6 +1578,42 @@
                "icon_size" : "small",
                "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/vegetarian.svg",
                "title" : "Vegetarian"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "ingredients_list" : {
+            "elements" : [
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "ingredient_1"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "ingredient_2"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "ingredient_3"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "ingredient_4"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "level" : "info",
+            "title_element" : {
+               "title" : "Ingredient information"
             },
             "topics" : [
                "health"
