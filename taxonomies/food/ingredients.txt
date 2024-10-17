@@ -51046,7 +51046,7 @@ eurocode_2_group_2:en: 8.15
 
 # <en:category:en:Vegetables
 < en:brassica
-en: broccoli
+en: broccoli, broccoli cuts
 af: Broccoli
 ar: قنبيط أخضر
 az: Brokkoli
@@ -51067,7 +51067,7 @@ et: brokkoli, spargelkapsas
 eu: Brokoli
 fa: کلم بروکلی
 fi: parsakaali
-fr: Brocoli, Brocolis
+fr: Brocoli, Brocolis, choux brocolis
 ga: Brocailí
 gl: Brócoli
 gv: Callish Rangagh
@@ -51101,7 +51101,7 @@ pa: ਬਰੋਕਲੀ
 pl: brokuł, brokuły, brokuła, brokułów, brokułowy, brokułowa, brokułowe
 pt: brócolos
 ro: Broccoli
-ru: брокколи
+ru: брокколи, Капуста брокколи
 sh: Brokula
 sk: Brokolica
 sl: Brokoli
@@ -51141,11 +51141,11 @@ wikidata:en: Q47722
 wikipedia:en: https://en.wikipedia.org/wiki/Broccoli
 
 < en:broccoli
-en: Broccoli floret, broccoli top
+en: broccoli floret, broccoli top
 de: Brokkoliröschen
-fr: Brocolis en fleurettes
+fr: brocolis en fleurettes, fleurettes de brocolis
 hr: cvjetić brokule
-nl: broccoliroosjes
+nl: broccoliroosjes, broccoli roosjes
 # ingredient/fr:brocolis-en-fleurettes has 17 products in 3 languages @2019-05-24
 carbon_footprint_fr_foodges_ingredient:fr: Brocoli (France)
 carbon_footprint_fr_foodges_value:fr: 0.4
@@ -56251,6 +56251,10 @@ eurocode_2_group_3:en: 8.38.55
 wikidata:en: Q99548274
 wikipedia:en: https://en.wikipedia.org/wiki/Beetroot
 
+< en: red beetroot
+en: cooked red beetroot
+fr: betteraves rouges entieres cuites
+
 # Sometimes it is indicated as a colour.
 
 #<en:beetroot
@@ -57090,7 +57094,7 @@ ms: lada benggala
 mt: bżar ħelu
 my: ငရုပ်ပွ
 ne: भेडे खुर्सानी
-nl: paprika's, zoete peper, snack paprika
+nl: paprika, paprika's, zoete peper, snack paprika
 oc: pebron
 pl: papryka słodka
 ps: خواږه مرچ
@@ -62183,6 +62187,9 @@ it: pasta di nocciola Piemonte
 < en:hazelnut
 fr: noisettes avec peau
 
+< fr:noisettes avec peau
+fr: noisettes en poudre avec peau
+
 #processing:en: en:toasted
 < en:hazelnut
 en: toasted hazelnuts
@@ -62204,13 +62211,16 @@ ciqual_food_name:fr: Noisette grillée
 fr: noisettes décortiquées
 de: Haselnusskerne
 it: nocciole sgusciate
+nb: hasselnøttkjerner
 ru: ядро ореха фундука
 openfoodfacts:en: https://world.openfoodfacts.org/ingredient/fr:noisettes-décortiquées
 # 42 products in 4 languages @2018-10-07
 
 < en:hazelnut
-fr: noisettes entières
+en: hazelnut kernels
 de: ganze Haselnüsse, Haselnüsse ganz
+es: avellanas en grano
+fr: noisettes entières
 it: nocciole intere
 pt: avelã inteira, avelãs inteiras
 openfoodfacts:en: https://world.openfoodfacts.org/ingredient/fr:noisettes-entières
