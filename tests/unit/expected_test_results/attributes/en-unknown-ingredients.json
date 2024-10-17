@@ -279,7 +279,7 @@
                "grade" : "d",
                "icon_url" : "https://server_domain/images/attributes/dist/ecoscore-d.svg",
                "id" : "ecoscore",
-               "match" : 36,
+               "match" : 35,
                "name" : "Eco-Score",
                "panel_id" : "ecoscore",
                "status" : "known",
@@ -600,7 +600,6 @@
             "warning" : "origins_are_100_percent_unknown"
          },
          "packaging" : {
-            "non_recyclable_and_non_biodegradable_materials" : 1,
             "value" : -15,
             "warning" : "packaging_data_missing"
          },
