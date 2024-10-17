@@ -7,12 +7,13 @@ description: |
   * [Product Base](#cmp--schemas-product-base): Base fields of a product
   * [Product Misc](#cmp--schemas-product-misc): Miscellaneous but important fields of a product
   * [Product Tags](#cmp--schemas-product-tags): Tags fields on a product
-  * [Product Nutrition](#cmp--schemas-product-nutrition): Nutrition fields of a product
-  * [Product Ingredients](#cmp--schemas-product-ingredients): Fields about ingredients of a product
   * [Product Images](#cmp--schemas-product-images): Information about Images of a product
-  * [Product Eco-Score](#cmp--schemas-product-images): Fields related to Eco-Score for a product
-  * [Product Metadata](#cmp--schemas-product-ecoscore): Metadata of a product (author, editors, etc.)
+  * [Product Eco-Score](#cmp--schemas-product-ecoscore): Fields related to Eco-Score for a product
+  * [Product Ingredients](#cmp--schemas-product-ingredients): Fields about ingredients of a product
+  * [Product Nutrition](#cmp--schemas-product-nutrition): Nutrition fields of a product
   * [Product Data Quality](#cmp--schemas-product-quality): fields related to data quality for a product
+  * [Product Extended](#cmp--schemas-product-extended): TODO
+  * [Product Metadata](#cmp--schemas-product-meta): Metadata of a product (author, editors, etc.)
   * [Product Knowledge Panels](#cmp--schemas-product-knowledge-panels): Knowledge panels for a product
   * [Product Attribute Groups](#cmp--schemas-product-attribute-groups): Attribute groups for personal product matching
 
