@@ -433,6 +433,7 @@
       "ingredients" : [
          {
             "ciqual_food_code" : "13050",
+            "ecobalyse_code" : "apple-fr",
             "id" : "en:apple",
             "is_in_taxonomy" : 1,
             "percent_estimate" : 62.5,
@@ -444,6 +445,7 @@
          },
          {
             "ciqual_proxy_food_code" : "19051",
+            "ecobalyse_code" : "milk",
             "id" : "en:milk",
             "is_in_taxonomy" : 1,
             "percent_estimate" : 18.75,
@@ -455,6 +457,7 @@
          },
          {
             "ciqual_food_code" : "22000",
+            "ecobalyse_code" : "egg-indoor-code3",
             "id" : "en:egg",
             "is_in_taxonomy" : 1,
             "percent_estimate" : 9.375,
@@ -466,6 +469,7 @@
          },
          {
             "ciqual_food_code" : "16129",
+            "ecobalyse_code" : "refined-palm-oil",
             "from_palm_oil" : "yes",
             "id" : "en:palm-oil",
             "is_in_taxonomy" : 1,
@@ -542,6 +546,8 @@
       "ingredients_with_unspecified_percent_sum" : 100,
       "ingredients_without_ciqual_codes" : [],
       "ingredients_without_ciqual_codes_n" : 0,
+      "ingredients_without_ecobalyse_ids" : [],
+      "ingredients_without_ecobalyse_ids_n" : 0,
       "interface_version_created" : "20150316.jqm2",
       "interface_version_modified" : "20190830",
       "known_ingredients_n" : 10,

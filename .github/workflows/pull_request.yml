@@ -92,7 +92,7 @@ jobs:
     - name: ensure branch origin/main is fetched
       run: git fetch --no-tags --prune --progress --no-recurse-submodules --depth=5 origin  main
     - name: build taxonomies (should use cache)
-      run: make build_taxonomies
+      run: make build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
     - name: check taxonomies
       run: make check_taxonomies
     - name: check perltidy
@@ -117,7 +117,7 @@ jobs:
     - name: tests
       run: |
         make codecov_prepare
-        make COVER_OPTS='-e HARNESS_PERL_SWITCHES="-MDevel::Cover=+ignore,tests/"' tests
+        make COVER_OPTS='-e HARNESS_PERL_SWITCHES="-MDevel::Cover=+ignore,tests/"' tests GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
     - name: generate coverage results
       # even if tests failed
       if: always()

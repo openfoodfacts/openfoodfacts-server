@@ -516,7 +516,7 @@ components:
       required: true
     page:
       schema:
-        type: int
+        type: integer
         example: 24
       in: query
       name: page
@@ -524,7 +524,7 @@ components:
         The page number you request to view (eg. in search results spanning multiple pages)
     page_size:
       schema:
-        type: int
+        type: integer
         example: 24
       in: query
       name: page_size
