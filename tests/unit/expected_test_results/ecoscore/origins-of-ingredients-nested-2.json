@@ -401,6 +401,7 @@
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "19051",
+         "ecobalyse_code" : "milk",
          "id" : "en:milk",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 66.6666666666667,
@@ -534,6 +535,15 @@
       "en:sweetener"
    ],
    "ingredients_without_ciqual_codes_n" : 3,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:chocolate",
+      "en:cocoa",
+      "en:cocoa-butter",
+      "en:e951",
+      "en:salt",
+      "en:sweetener"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 6,
    "known_ingredients_n" : 9,
    "lc" : "en",
    "misc_tags" : [

@@ -421,6 +421,7 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "20053",
+         "ecobalyse_code" : "eggplant-eu",
          "id" : "en:aubergine",
          "is_in_taxonomy" : 1,
          "percent" : 60,
@@ -433,6 +434,7 @@
       },
       {
          "ciqual_food_code" : "4003",
+         "ecobalyse_code" : "potato-industry-fr",
          "id" : "en:potato",
          "is_in_taxonomy" : 1,
          "percent" : 39,
@@ -445,6 +447,7 @@
       },
       {
          "ciqual_food_code" : "17130",
+         "ecobalyse_code" : "rapeseed-oil",
          "from_palm_oil" : "no",
          "id" : "en:colza-oil",
          "is_in_taxonomy" : 1,
@@ -505,6 +508,8 @@
    "ingredients_with_unspecified_percent_sum" : 0,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
    "known_ingredients_n" : 10,
    "labels_tags" : [
       "en:eu-organic"
