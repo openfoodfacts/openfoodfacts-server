@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2024 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -201,6 +201,9 @@ use Data::DeepAccess qw(deep_get deep_set);
 use Log::Log4perl;
 use LWP::UserAgent;
 use Tie::IxHash;
+
+use OpenTelemetry::Context;
+use OpenTelemetry::Integration 'LWP::UserAgent';
 
 use Log::Any '$log', default_adapter => 'Stderr';
 
@@ -600,10 +603,19 @@ sub init_request ($request_ref = {}) {
 
 	$request_ref->{stats} = init_request_stats();
 
+	my $r = Apache2::RequestUtil->request();
+	my $headers_in = $r->headers_in;
+	my $headers_out = $r->headers_out;
+
 	# Clear the context
 	delete $log->context->{user_id};
 	delete $log->context->{user_session};
 	$log->context->{request} = generate_token(16);
+
+	my $span = $r->pnotes('OpenTelemetry::Span->current');
+	if (defined $span) {
+		$span->set_attribute('productopener.request', $log->context->{request});
+	}
 
 	# Initialize the request object
 	$request_ref->{referer} = referer();
@@ -655,7 +667,6 @@ sub init_request ($request_ref = {}) {
 	$request_ref->{header} = '';
 	$request_ref->{bodyabout} = '';
 
-	my $r = Apache2::RequestUtil->request();
 	$request_ref->{method} = $r->method();
 
 	my $cc = 'world';
@@ -663,13 +674,13 @@ sub init_request ($request_ref = {}) {
 	@lcs = ();
 	$country = 'en:world';
 
-	$r->headers_out->set(Server => "Product Opener");
+	$headers_out->set(Server => "Product Opener");
 	# temporarily remove X-Frame-Options: DENY, needed for graphs - 2023/11/23
-	#$r->headers_out->set("X-Frame-Options" => "DENY");
-	$r->headers_out->set("X-Content-Type-Options" => "nosniff");
-	$r->headers_out->set("X-Download-Options" => "noopen");
-	$r->headers_out->set("X-XSS-Protection" => "1; mode=block");
-	$r->headers_out->set("X-Request-ID" => $log->context->{request});
+	#$headers_out->set("X-Frame-Options" => "DENY");
+	$headers_out->set("X-Content-Type-Options" => "nosniff");
+	$headers_out->set("X-Download-Options" => "noopen");
+	$headers_out->set("X-XSS-Protection" => "1; mode=block");
+	$headers_out->set("X-Request-ID" => $log->context->{request});
 
 	# sub-domain format:
 	#
@@ -899,6 +910,9 @@ sub init_request ($request_ref = {}) {
 	}
 
 	$request_ref->{user_id} = $User_id;
+	if (defined $span) {
+		$span->set_attribute('user.id', $User_id);
+	}
 
 	# %admin is defined in Config.pm
 	# admins can change permissions for all users

@@ -52,6 +52,7 @@ use ProductOpener::Lang qw/:all/;
 use ProductOpener::API qw/:all/;
 
 use LWP::UserAgent;
+use OpenTelemetry::Integration 'LWP::UserAgent';
 use HTTP::Request::Common;
 
 my $api_base_url = 'https://api.brevo.com/v3';
