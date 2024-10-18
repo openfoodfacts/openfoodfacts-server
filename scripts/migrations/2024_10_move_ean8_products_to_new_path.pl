@@ -57,6 +57,14 @@ use File::Copy (qw/move/);
 
 use Data::Dumper;
 
+open(my $log, ">>", "$data_root/logs/move_ean8_products_to_new_path.log");
+print $log "move_ean8_products_to_new_path.pl started at " . localtime() . "\n";
+
+open(my $csv, ">>", "$data_root/logs/move_ean8_products_to_new_path.csv");
+
+my $products_collection = get_products_collection();
+my $obsolete_products_collection = get_products_collection({obsolete => 1});
+
 sub normalize_code_zeroes($code) {
 
 	# Remove leading zeroes
@@ -190,6 +198,50 @@ sub product_dir_move($source, $target) {
 	return 1;
 }
 
+sub move_dir_to_invalid_codes($dir, $org_path = "") {
+
+	my $target_dir = $dir;
+	$target_dir =~ s/[^0-9]//g;
+
+	if (move("$data_root/products$org_path/$dir", "$data_root/products$org_path/invalid-codes/$target_dir")) {
+		print STDERR "moved invalid code $dir to $data_root/products$org_path/invalid-codes/$target_dir\n";
+		print $log "moved invalid code $dir to $data_root/products$org_path/invalid-codes/$target_dir\n";
+	}
+	else {
+		print STDERR "could not move invalid code $dir to $data_root/products$org_path/invalid-codes/$target_dir\n";
+		print $log "could not move invalid code $dir to $data_root/products$org_path/invalid-codes/$target_dir\n";
+	}
+	# Delete from mongodb
+	my $id = $org_path . "/" . $target_dir;
+	$id =~ s/^\///;
+	$products_collection->delete_one({_id => $id});
+	$obsolete_products_collection->delete_one({_id => $id});
+
+	# Also move the image dir if it exists
+	if (-e "$www_root/images/products$org_path/$dir") {
+		if (
+			move(
+				"$www_root/images/products$org_path/$dir",
+				"$www_root/images/products$org_path/invalid-codes/$target_dir"
+			)
+			)
+		{
+			print STDERR
+				"moved invalid code $dir images to $www_root/images/products$org_path/invalid-codes/$target_dir\n";
+			print $log
+				"moved invalid code $dir images to $www_root/images/products$org_path/invalid-codes/$target_dir\n";
+		}
+		else {
+			print STDERR
+				"could not move invalid code $dir images to $www_root/images/products$org_path/invalid-codes/$target_dir\n";
+			print $log
+				"could not move invalid code $dir images to $www_root/images/products$org_path/invalid-codes/$target_dir\n";
+		}
+	}
+
+	return;
+}
+
 # Get a list of all products
 
 use Getopt::Long;
@@ -204,8 +256,6 @@ my $not_moved = 0;
 my $same_path = 0;
 my $changed_code = 0;
 
-my $products_collection = get_products_collection();
-my $obsolete_products_collection = get_products_collection({obsolete => 1});
 my @orgids = ();
 
 GetOptions(
@@ -216,11 +266,6 @@ GetOptions(
 @orgids = split(/,/, join(',', @orgids));
 
 my $d = 0;
-
-open(my $log, ">>", "$data_root/logs/move_ean8_products_to_new_path.log");
-print $log "move_ean8_products_to_new_path.pl started at " . localtime() . "\n";
-
-open(my $csv, ">>", "$data_root/logs/move_ean8_products_to_new_path.csv");
 
 # Loop on organizations if we are on the producers platform
 if (    (defined $server_options{private_products})
@@ -302,7 +347,31 @@ foreach my $orgid (@orgids) {
 												and print STDERR "$d products - $dir/$dir2/$dir3/$dir4\n";
 										}
 									}
+									# if we have 4 digits or more, check that the path does not have a leading 0
+									elsif ((length($dir4) > 4) and ($dir =~ /^0/)) {
+										if (-e "$data_root/products$org_path/$dir/$dir2/$dir3/$dir4/product.sto") {
+											push @products, "$dir/$dir2/$dir3/$dir4";
+											print STDERR
+												"nested dir with 14 or more digits and leading 0: $dir/$dir2/$dir3/$dir4\n";
+											print $log
+												"nested dir with 14 or more digits and leading 0: $dir/$dir2/$dir3/$dir4\n";
+											$d++;
+											(($d % 1000) == 1)
+												and print STDERR "$d products - $dir/$dir2/$dir3/$dir4\n";
+										}
+
+									}
 									$level4_dirs++;
+								}
+								# Check if we have more than 40 digits in the barcode ( digits in the 3 first dirs + $dir4)
+								if (length($dir4) > (40 - 3 * 3)) {
+									print STDERR "invalid code: $dir/$dir2/$dir3/$dir4\n";
+									print $log "invalid code: $dir/$dir2/$dir3/$dir4\n";
+									# Move the dir to $data_root/products$org_path/invalid-codes
+									$invalid++;
+									if ($move) {
+										move_dir_to_invalid_codes("$dir/$dir2/$dir3/$dir4", $org_path);
+									}
 								}
 
 							}
@@ -341,9 +410,20 @@ foreach my $orgid (@orgids) {
 			}
 			closedir $dh2;
 
+			# Check if there is a product.sto file in the directory (happens when the barcode has 3 digits)
+			if (-e "$data_root/products$org_path/$dir/product.sto") {
+
+				print STDERR "dir with 3 digits and product.sto: $dir/product.sto\n";
+				print $log "dir with 3 digits and product.sto: $dir/product.sto\n";
+
+				push @products, "$dir";
+				$d++;
+
+			}
+
 		}
 		# Don't move dirs with 1 or 2 digits
-		elsif (($dir !~ /^\d\d?$/) and ($dir =~ /^\d+$/)) {
+		elsif ($dir !~ /^\.+$/) {
 			# Product directories at the root, with a different number than 3 digits
 			if (-e "$data_root/products$org_path/$dir/product.sto") {
 				push @products, $dir;
@@ -353,44 +433,9 @@ foreach my $orgid (@orgids) {
 		}
 		elsif ($dir !~ /^\.+$/) {
 			print STDERR "invalid code: $dir\n";
-			print $log "invalid code: $dir\n";
-			# Move the dir to $data_root/products$org_path/invalid-codes
+			$invalid++;
 			if ($move) {
-				if (move("$data_root/products$org_path/$dir", "$data_root/products$org_path/invalid-codes/$dir")) {
-					print STDERR "moved invalid code $dir to $data_root/products$org_path/invalid-codes\n";
-					print $log "moved invalid code $dir to $data_root/products$org_path/invalid-codes\n";
-				}
-				else {
-					print STDERR "could not move invalid code $dir to $data_root/products$org_path/invalid-codes\n";
-					print $log "could not move invalid code $dir to $data_root/products$org_path/invalid-codes\n";
-				}
-				# Delete from mongodb
-				my $id = $org_path . "/" . $dir;
-				$id =~ s/^\///;
-				$products_collection->delete_one({_id => $id});
-				$obsolete_products_collection->delete_one({_id => $id});
-
-				# Also move the image dir if it exists
-				if (-e "$www_root/images/products$org_path/$dir") {
-					if (
-						move(
-							"$www_root/images/products$org_path/$dir",
-							"$www_root/images/products$org_path/invalid-codes/$dir"
-						)
-						)
-					{
-						print STDERR
-							"moved invalid code $dir images to $www_root/images/products$org_path/invalid-codes\n";
-						print $log
-							"moved invalid code $dir images to $www_root/images/products$org_path/invalid-codes\n";
-					}
-					else {
-						print STDERR
-							"could not move invalid code $dir images to $www_root/images/products$org_path/invalid-codes\n";
-						print $log
-							"could not move invalid code $dir images to $www_root/images/products$org_path/invalid-codes\n";
-					}
-				}
+				move_dir_to_invalid_codes($dir, $org_path);
 			}
 		}
 	}
@@ -427,6 +472,9 @@ foreach my $orgid (@orgids) {
 			$invalid++;
 			print STDERR "invalid path for code $code (old path: $old_path)\n";
 			print $log "invalid path for code $code (old path: $old_path)\n";
+			if ($move) {
+				move_dir_to_invalid_codes($old_path, $org_path);
+			}
 		}
 		elsif ($new_path ne $old_path) {
 
