@@ -1,9 +1,11 @@
 type: object
+title: image
 description: |
   This object represent an image that was uploaded to a product.
   "imgid" is an integer which is a sequential number unique to each picture.
 properties:
   sizes:
+    title: image_sizes
     type: object
     description: |
       The available image sizes for the product (both reduced and full). 

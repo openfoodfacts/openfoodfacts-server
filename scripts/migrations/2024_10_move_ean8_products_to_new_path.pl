@@ -240,6 +240,53 @@ sub move_dir_to_invalid_codes($dir, $org_path = "") {
 	}
 
 	return;
+=======
+sub move_invalid_dir($dir, $org_path) {
+
+	my $target_dir = $dir;
+	$target_dir =~ s/\///g;
+
+	print STDERR "move invalid code $dir to $data_root/products$org_path/invalid-codes/$target_dir\n";
+	# Move the dir to $data_root/products$org_path/invalid-codes
+	if ($move) {
+		if (move("$data_root/products$org_path/$dir", "$data_root/products$org_path/invalid-codes/$target_dir")) {
+			print STDERR "moved invalid code $dir to $data_root/products$org_path/invalid-codes/$target_dir\n";
+			print $log "moved invalid code $dir to $data_root/products$org_path/invalid-codes/$target_dir\n";
+		}
+		else {
+			print STDERR "could not move invalid code $dir to $data_root/products$org_path/invalid-codes/$target_dir\n";
+			print $log "could not move invalid code $dir to $data_root/products$org_path/invalid-codes/$target_dir\n";
+		}
+		# Delete from mongodb
+		my $id = $org_path . "/" . $target_dir;
+		$id =~ s/^\///;
+		$products_collection->delete_one({_id => $id});
+		$obsolete_products_collection->delete_one({_id => $id});
+
+		# Also move the image dir if it exists
+		if (-e "$www_root/images/products$org_path/$dir") {
+			if (
+				move(
+					"$www_root/images/products$org_path/$dir",
+					"$www_root/images/products$org_path/invalid-codes/$target_dir"
+				)
+				)
+			{
+				print STDERR
+					"moved invalid code $dir images to $www_root/images/products$org_path/invalid-codes/$target_dir\n";
+				print $log
+					"moved invalid code $dir images to $www_root/images/products$org_path/invalid-codes/$target_dir\n";
+			}
+			else {
+				print STDERR
+					"could not move invalid code $dir images to $www_root/images/products$org_path/invalid-codes/$target_dir\n";
+				print $log
+					"could not move invalid code $dir images to $www_root/images/products$org_path/invalid-codes/$target_dir\n";
+			}
+		}
+	}
+
+>>>>>>> remove-off-days-banner
 }
 
 # Get a list of all products
@@ -363,6 +410,13 @@ foreach my $orgid (@orgids) {
 									}
 									$level4_dirs++;
 								}
+								# Check if we have more than 40 digits in the barcode ( digits in the 3 first dirs + $dir4)
+								if (length($dir4) > (40 - 3 * 3)) {
+									print STDERR "invalid code: $dir/$dir2/$dir3/$dir4\n";
+									print $log "invalid code: $dir/$dir2/$dir3/$dir4\n";
+									# Move the dir to $data_root/products$org_path/invalid-codes
+									move_invalid_dir("$dir/$dir2/$dir3/$dir4", $org_path);
+								}
 
 							}
 							closedir $dh4;
@@ -420,6 +474,9 @@ foreach my $orgid (@orgids) {
 				$d++;
 				(($d % 1000) == 1) and print STDERR "$d products - $dir\n";
 			}
+		}
+		elsif ($dir !~ /^\.+$/) {
+			move_invalid_dir($dir, $org_path);
 		}
 	}
 	closedir $dh;

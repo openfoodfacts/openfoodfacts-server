@@ -243,43 +243,6 @@
 						
 							
 							
-								
-								<!-- start templates/web/common/includes/off_days_2024_banner.tt.html -->
-
-
-								
-
-<a href="//connect.openfoodfacts.org/event/open-food-facts-days-2024-22/register">
-    <section id="off-days-2024-banner-top" class="off-days-banner off-days-banner__ENG">
-    </section>
-</a>
-
-<script>
-    const offDaysBannerID = document.getElementById('off-days-2024-banner-top');
-
-    function getBannerCookie(bcname) {
-        const name = bcname + '=';
-        const decodedCookies = decodeURIComponent(document.cookie);
-        const cookies = decodedCookies.split(';');
-        for (const cookie of cookies) {
-        let c = cookie;
-        while (c.charAt(0) == ' ') { c = c.substring(1); }
-        if (c.indexOf(name) == 0) { return c.substring(name.length, c.length); }
-        }
-        
-        return '';
-    }
-
-    if (getBannerCookie('off_donation_banner_2023_a') !== '') {
-        console.log('cookie found');
-        offDaysBannerID.style.display = 'flex';
-    } else {
-        console.log('cookie not found');
-        offDaysBannerID.style.display = 'none';
-    }
-</script>
-
-
 								<!-- start templates/web/common/includes/donate_banner.tt.html -->
 
 
@@ -339,11 +302,11 @@
   }
 
   function DonationButton() {
-    setBannerCookie('off_donation_banner_2023_a', 1, 180);
+    setBannerCookie('off_donation_banner_2024_a', 1, 180);
     bannerID.style.display = 'none';
   }
 
-  if (getBannerCookie('off_donation_banner_2023_a') !== '') {
+  if (getBannerCookie('off_donation_banner_2024_a') !== '') {
     bannerID.style.display = 'none';
   } else { 
     bannerID.style.display = 'flex';
@@ -512,7 +475,7 @@
 
 <p id="field_categories">
     <span class="field">Categories: </span>
-    <span class="field_value" id="field_categories_value"><a href="/category/snacks" class="tag well_known">Snacks</a>, <a href="/category/breakfasts" class="tag well_known">Breakfasts</a>, <a href="/category/spreads" class="tag well_known">Spreads</a>, <a href="/category/sweet-snacks" class="tag well_known">Sweet snacks</a>, <a href="/category/sweet-spreads" class="tag well_known">Sweet spreads</a>, <a href="/category/biscuits-and-cakes" class="tag well_known">Biscuits and cakes</a>, <a href="/category/cakes" class="tag well_known">Cakes</a>, <a href="/category/fr:pates-a-tartiner" class="tag user_defined" lang="fr">fr:Pâtes à tartiner</a>, <a href="/category/hazelnut-spreads" class="tag well_known">Hazelnut spreads</a></span>
+    <span class="field_value" id="field_categories_value"><a href="/category/snacks" class="tag well_known">Snacks</a>, <a href="/category/breakfasts" class="tag well_known">Breakfasts</a>, <a href="/category/spreads" class="tag well_known">Spreads</a>, <a href="/category/sweet-snacks" class="tag well_known">Sweet snacks</a>, <a href="/category/biscuits-and-cakes" class="tag well_known">Biscuits and cakes</a>, <a href="/category/sweet-spreads" class="tag well_known">Sweet spreads</a>, <a href="/category/cakes" class="tag well_known">Cakes</a>, <a href="/category/fr:pates-a-tartiner" class="tag user_defined" lang="fr">fr:Pâtes à tartiner</a>, <a href="/category/hazelnut-spreads" class="tag well_known">Hazelnut spreads</a></span>
 </p>
 
 <!-- end templates/web/common/includes/display_field.tt.html -->

@@ -1,4 +1,5 @@
 type: object
+title: product_ingredients
 description: Fields about ingredients of a product
 properties:
 
@@ -22,7 +23,7 @@ properties:
       type: string
 
   ingredients:
-    $ref: ./ingredient.yaml
+    $ref: './ingredient.yaml#/components/schemas/Ingredients'
   ingredients_analysis:
     type: object
     properties:
