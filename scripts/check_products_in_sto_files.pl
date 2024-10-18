@@ -52,24 +52,36 @@ sub find_non_normalized_sto ($product_path) {
 	# return a list with path, product_id and normalized_id
 	my $iter = sto_iter($BASE_DIRS{PRODUCTS}, qr/product\.sto$/i);
 	my @anomalous = ();
+	my $i = 0;
 	while (my $product_path = $iter->()) {
-
+		print STDERR "Processing $product_path\n";
 		my $product_ref = retrieve($product_path);
 		if (defined $product_ref) {
 			my $code = $product_ref->{code};
-        my $product_id = $product_ref->{_id};
-		my $normalized_code = normalize_code($code);
-        my $normalized_product_id = product_id_for_owner(undef, $normalized_code);
-        my $normalized_product_path = product_path_from_id($normalized_product_id);
+			my $product_id = $product_ref->{_id};
+			my $normalized_code = normalize_code($code);
+			my $normalized_product_id = product_id_for_owner(undef, $normalized_code);
+			my $normalized_product_path = product_path_from_id($normalized_product_id);
 
-        $product_path =~ s/.*\/products\///;
-        $product_path =~ s/\/product\.sto$//;
-        #print STDERR "code: $code - normalized_code: $normalized_code - product_id: $product_id - normalized_product_id: $normalized_product_id - product_path: $product_path - normalized_product_path: $normalized_product_path\n";
+			$product_path =~ s/.*\/products\///;
+			$product_path =~ s/\/product\.sto$//;
+			#print STDERR "code: $code - normalized_code: $normalized_code - product_id: $product_id - normalized_product_id: $normalized_product_id - product_path: $product_path - normalized_product_path: $normalized_product_path\n";
 
-		if (($code ne $normalized_code)  or ($product_id ne $normalized_product_id) or ($product_path ne $normalized_product_path)) {
-			push(@anomalous, [$product_path, $normalized_product_path, $code, $normalized_code, $product_id, $normalized_product_id]);
+			if (   ($code ne $normalized_code)
+				or ($product_id ne $normalized_product_id)
+				or ($product_path ne $normalized_product_path))
+			{
+				push(
+					@anomalous,
+					[
+						$product_path, $normalized_product_path, $code,
+						$normalized_code, $product_id, $normalized_product_id
+					]
+				);
+			}
 		}
-        }
+		$i++;
+		($i % 1000 == 0) && print STDERR "Processed $i products - current path: $product_path\n";
 	}
 	return @anomalous;
 }
@@ -78,18 +90,20 @@ sub fix_non_normalized_sto ($product_path, $dry_run, $out) {
 	my @items = find_non_normalized_sto($product_path);
 
 	foreach my $item (@items) {
-        my ($product_path, $normalized_product_path, $code, $normalized_code, $product_id, $normalized_id) = @$item;
-		
+		my ($product_path, $normalized_product_path, $code, $normalized_code, $product_id, $normalized_id) = @$item;
+
 		my $is_duplicate = (-e "$BASE_DIRS{PRODUCTS}/$normalized_product_path") || 0;
-    
+
 		my $is_invalid = ($normalized_product_path eq "invalid") || 0;
 
-        print STDERR "product_path: $product_path - normalized_product_path: $normalized_product_path - code: $code - normalized_code: $normalized_code - product_id: $product_id - normalized_id: $normalized_id - is_duplicate: $is_duplicate - is_invalid: $is_invalid\n";
-		
+		print STDERR
+			"product_path: $product_path - normalized_product_path: $normalized_product_path - code: $code - normalized_code: $normalized_code - product_id: $product_id - normalized_id: $normalized_id - is_duplicate: $is_duplicate - is_invalid: $is_invalid\n";
+
 	}
 
-    print STDERR "Found " . scalar(@items) . " non normalized codes / ids / paths\n";
-return;}
+	print STDERR "Found " . scalar(@items) . " non normalized codes / ids / paths\n";
+	return;
+}
 
 my $int_codes_query_ref = {'code' => {'$not' => {'$type' => 'string'}}};
 
@@ -114,7 +128,6 @@ sub search_int_codes() {
 
 }
 
-
 ### script
 my $usage = <<TXT
 fix_non_normalized_codes.pl is a script that updates checks and fix for products with non normalized codes
@@ -132,5 +145,4 @@ GetOptions("dry-run" => \$dry_run,)
 # fix errors on filesystem
 my $product_path = $BASE_DIRS{PRODUCTS};
 fix_non_normalized_sto($product_path, $dry_run, \*STDOUT);
-
 
