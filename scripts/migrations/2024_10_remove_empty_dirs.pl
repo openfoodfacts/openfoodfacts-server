@@ -102,5 +102,7 @@ USAGE
 	exit(1);
 }
 
+remove_empty_dirs($dir);
+
 exit(0);
 
