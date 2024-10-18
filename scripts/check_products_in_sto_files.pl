@@ -98,6 +98,38 @@ sub fix_non_normalized_sto ($product_path, $dry_run, $out) {
 		print STDERR
 			"product_path: $product_path - normalized_product_path: $normalized_product_path - code: $code - normalized_code: $normalized_code - product_id: $product_id - normalized_id: $normalized_id - is_duplicate: $is_duplicate - is_invalid: $is_invalid\n";
 
+		if (not $dry_run) {
+			if ((not $is_invalid) and ($product_path eq $normalized_product_path)) {
+
+				# Delete the old code from MongoDB collections
+				print STDERR "Deleting old product id $product_id (new one is $normalized_product_id)\n";
+				$current_products_collection->delete_one({_id => $product_id});
+				$obsolete_products_collection->delete_one({_id => $product_id});
+
+				my $product_ref = retrieve_product($normalized_product_id, "include_deleted");
+				if (defined $product_ref) {
+					print STDERR "Product $normalized_product_id already exists with code: "
+						. $product_ref->{code}
+						. " - id: "
+						. $product_ref->{id}
+						. " -- saving it again with new code, id, _id\n";
+					$product_ref->{code} = $normalized_code . '';
+					$product_ref->{id} = $product_ref->{code} . '';    # treat id as string;
+					$product_ref->{_id} = $normalized_product_id . '';    # treat id as string;
+
+					# If the product is not deleted, store_product will add the new code to MongoDB
+					store_product(
+						"fix-code-bot", $product_ref, "changed code from $code to $normalized_code
+"
+					);
+				}
+				else {
+					print STDERR "Product $normalized_product_id does not exist\n";
+				}
+
+			}
+		}
+
 	}
 
 	print STDERR "Found " . scalar(@items) . " non normalized codes / ids / paths\n";
