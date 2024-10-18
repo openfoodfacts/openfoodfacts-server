@@ -105,10 +105,17 @@ my $socket_timeout_ms = 2 * 60000;    # 2 mins, instead of 30s default, to not d
 # Collection that will be used to iterate products
 my $products_collection = get_products_collection({obsolete => $obsolete, timeout => $socket_timeout_ms});
 
-# Collections for saving current / obsolete products
-my %products_collections = (
-	current => get_products_collection({timeout => $socket_timeout_ms}),
-	obsolete => get_products_collection({obsolete => $obsolete, timeout => $socket_timeout_ms}),
+my $current_products_collection = get_products_collection(
+	{
+		obsolete => $obsolete,
+		timeout => 10000
+	}
+);
+my $obsolete_products_collection = get_products_collection(
+	{
+		obsolete => 1,
+		timeout => 10000
+	}
 );
 
 my $products_count = "";
@@ -162,19 +169,37 @@ while (my $product_ref = $cursor->next) {
 	}
 
 	if ($fix and $to_be_fixed) {
-		# Delete the product from the collection
-		print STDERR
-			"Deleting product $productid (code: $code, normalized_code: $normalized_code) from the collection - obsolete: $obsolete.\n";
-		my $delete_result = $products_collections{current}->delete_one({_id => $productid});
-		if ($normalized_code ne "invalid") {
-			# Try to retrieve the product from disk, and if it exists and is not deleted, add it to the collection with the right code
-			my $product_id = product_id_for_owner(undef, $normalized_code);
-			my $product_ref = retrieve_product($productid);
-			if ($product_ref) {
-				print STDERR "Adding back product $product_id to the collection.\n";
-				$products_collection->replace_one({"_id" => $product_ref->{_id}}, $product_ref, {upsert => 1});
-			}
+
+		my $new_code = $normalized_code;
+		my $old_product_id = $code;
+		my $new_product_id = product_id_for_owner(undef, $normalized_code);
+
+		# Delete the old code from MongoDB collections
+		print STDERR "Deleting old product id $old_product_id (new one is $new_product_id)\n";
+		$current_products_collection->delete_one({_id => $old_product_id});
+		$obsolete_products_collection->delete_one({_id => $old_product_id});
+
+		my $product_ref = retrieve_product($new_product_id, "include_deleted");
+		if (defined $product_ref) {
+			print STDERR "Product $new_product_id already exists with code: "
+				. $product_ref->{code}
+				. " - id: "
+				. $product_ref->{id}
+				. " -- saving it again with new code, id, _id\n";
+			$product_ref->{code} = $normalized_code . '';
+			$product_ref->{id} = $product_ref->{code} . '';    # treat id as string;
+			$product_ref->{_id} = $new_product_id . '';    # treat id as string;
+
+			# If the product is not deleted, store_product will add the new code to MongoDB
+			store_product(
+				"fix-code-bot", $product_ref, "changed code from $code to $new_code
+"
+			);
 		}
+		else {
+			print STDERR "Product $new_product_id does not exist\n";
+		}
+
 	}
 }
 
