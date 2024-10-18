@@ -65,7 +65,7 @@ sub remove_empty_dirs ($dir) {
 	my @files = readdir($dh);
 	closedir $dh;
 
-	foreach my $file (@files) {
+	foreach my $file (sort @files) {
 
 		next if $file eq '.' or $file eq '..';
 
