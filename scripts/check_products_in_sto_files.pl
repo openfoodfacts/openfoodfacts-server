@@ -54,7 +54,6 @@ sub find_non_normalized_sto ($product_path) {
 	my @anomalous = ();
 	my $i = 0;
 	while (my $product_path = $iter->()) {
-		print STDERR "Processing $product_path\n";
 		my $product_ref = retrieve($product_path);
 		if (defined $product_ref) {
 			my $code = $product_ref->{code};
