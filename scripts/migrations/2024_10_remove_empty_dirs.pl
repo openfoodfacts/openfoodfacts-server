@@ -91,7 +91,7 @@ use Getopt::Long;
 my $dir;
 
 GetOptions(
-	'dir' => \$dir,
+	'dir=s' => \$dir,
 );
 
 if (not defined $dir) {
