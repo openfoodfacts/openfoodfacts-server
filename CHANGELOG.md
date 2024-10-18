@@ -1,5 +1,23 @@
 # Changelog
 
+## [2.46.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.45.0...v2.46.0) (2024-10-18)
+
+
+### Features
+
+* upload DB dump to AWS S3 ([#10863](https://github.com/openfoodfacts/openfoodfacts-server/issues/10863)) ([34ae5e4](https://github.com/openfoodfacts/openfoodfacts-server/commit/34ae5e4db29748f997d3ff2da7a63b947e17712e))
+
+
+### Bug Fixes
+
+* docs (paragraph 24) ([#10849](https://github.com/openfoodfacts/openfoodfacts-server/issues/10849)) ([354c22c](https://github.com/openfoodfacts/openfoodfacts-server/commit/354c22c9fbd5f98fc61bc24bc9a214426b849f13))
+* docs fix a broken Internal URL to Open Prices ([#10852](https://github.com/openfoodfacts/openfoodfacts-server/issues/10852)) ([d318472](https://github.com/openfoodfacts/openfoodfacts-server/commit/d3184721c1ccee28dc35ff6c8d22acfe6d807955))
+* docs Syntax issues ([#10851](https://github.com/openfoodfacts/openfoodfacts-server/issues/10851)) ([56275c4](https://github.com/openfoodfacts/openfoodfacts-server/commit/56275c442dff5e336cbbc0f6709f17d9f1482663))
+* downgrade jquery-ui ([#10877](https://github.com/openfoodfacts/openfoodfacts-server/issues/10877)) ([2cd6fd5](https://github.com/openfoodfacts/openfoodfacts-server/commit/2cd6fd5a284aed977ed3d886a2e1c79c1bcec84d))
+* In the Folksonomy Engine table, property and value headers were not at the right place ([#10857](https://github.com/openfoodfacts/openfoodfacts-server/issues/10857)) ([7547657](https://github.com/openfoodfacts/openfoodfacts-server/commit/754765724a256a8f3f99eba641c1f38973f9b4cd))
+* remove off days banner ([#10908](https://github.com/openfoodfacts/openfoodfacts-server/issues/10908)) ([855ae0c](https://github.com/openfoodfacts/openfoodfacts-server/commit/855ae0c773cd75b75ec8c061e25bd999707542e0))
+* update paths for EAN8 and short barcodes (padding with zeroes) - DO NOT MERGE ([#10472](https://github.com/openfoodfacts/openfoodfacts-server/issues/10472)) ([3c18781](https://github.com/openfoodfacts/openfoodfacts-server/commit/3c18781d6e4c4d8c95a26adf77a64ca8821f93e7))
+
 ## [2.45.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.44.0...v2.45.0) (2024-10-02)
 
 
