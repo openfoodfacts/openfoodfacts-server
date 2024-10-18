@@ -108,7 +108,7 @@ my $products_collection = get_products_collection({obsolete => $obsolete, timeou
 
 my $current_products_collection = get_products_collection(
 	{
-		obsolete => $obsolete,
+		obsolete => 0,
 		timeout => 10000
 	}
 );

@@ -43,13 +43,26 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Store qw/retrieve sto_iter store/;
 use Getopt::Long;
 
+my $current_products_collection = get_products_collection(
+	{
+		obsolete => 0,
+		timeout => 10000
+	}
+);
+my $obsolete_products_collection = get_products_collection(
+	{
+		obsolete => 1,
+		timeout => 10000
+	}
+);
+
 # how many operations in bulk write
 my $BULK_WRITE_SIZE = 100;
 
 sub find_non_normalized_sto ($product_path) {
 	# find all .sto files that have a non normalized code
 	# we take a very brute force approach on filename
-	# return a list with path, product_id and normalized_id
+	# return a list with path, product_id and normalized_product_id
 	my $iter = sto_iter($BASE_DIRS{PRODUCTS}, qr/product\.sto$/i);
 	my @anomalous = ();
 	my $i = 0;
@@ -85,20 +98,20 @@ sub find_non_normalized_sto ($product_path) {
 	return @anomalous;
 }
 
-sub fix_non_normalized_sto ($product_path, $dry_run, $out) {
+sub fix_non_normalized_sto ($product_path, $fix, $out) {
 	my @items = find_non_normalized_sto($product_path);
 
 	foreach my $item (@items) {
-		my ($product_path, $normalized_product_path, $code, $normalized_code, $product_id, $normalized_id) = @$item;
+		my ($product_path, $normalized_product_path, $code, $normalized_code, $product_id, $normalized_product_id) = @$item;
 
 		my $is_duplicate = (-e "$BASE_DIRS{PRODUCTS}/$normalized_product_path") || 0;
 
 		my $is_invalid = ($normalized_product_path eq "invalid") || 0;
 
 		print STDERR
-			"product_path: $product_path - normalized_product_path: $normalized_product_path - code: $code - normalized_code: $normalized_code - product_id: $product_id - normalized_id: $normalized_id - is_duplicate: $is_duplicate - is_invalid: $is_invalid\n";
+			"product_path: $product_path - normalized_product_path: $normalized_product_path - code: $code - normalized_code: $normalized_code - product_id: $product_id - normalized_product_id: $normalized_product_id - is_duplicate: $is_duplicate - is_invalid: $is_invalid\n";
 
-		if (not $dry_run) {
+		if ($fix) {
 			if ((not $is_invalid) and ($product_path eq $normalized_product_path)) {
 
 				# Delete the old code from MongoDB collections
@@ -161,19 +174,30 @@ sub search_int_codes() {
 
 ### script
 my $usage = <<TXT
-fix_non_normalized_codes.pl is a script that updates checks and fix for products with non normalized codes
+check_products_in_sto_files.pl is a script that updates checks and fix for products with non normalized codes
 
 Options:
 
---dry-run	do not do any processing just print what would be done
+--fix	fix products that have non normalized codes (only if they are on the right path)
 TXT
 	;
 
-my $dry_run = 0;
-GetOptions("dry-run" => \$dry_run,)
-	or die("Error in command line arguments:\n\n$usage");
+use Getopt::Long;
+
+my $query_params_ref = {};    # filters for mongodb query
+my $all_owners = '';
+my $obsolete = 0;
+my $fix = 0;
+
+GetOptions(
+	"query=s%" => $query_params_ref,
+	"all-owners" => \$all_owners,
+	"obsolete" => \$obsolete,
+	"fix" => \$fix,
+
+) or die("Error in command line arguments:\n\n$usage");
 
 # fix errors on filesystem
 my $product_path = $BASE_DIRS{PRODUCTS};
-fix_non_normalized_sto($product_path, $dry_run, \*STDOUT);
+fix_non_normalized_sto($product_path, $fix, \*STDOUT);
 
