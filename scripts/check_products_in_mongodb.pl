@@ -24,15 +24,16 @@ use Modern::Perl '2017';
 use utf8;
 
 my $usage = <<TXT
-update_all_products.pl is a script that updates the latest version of products in the file system and on MongoDB.
-It is used in particular to re-run tags generation when taxonomies have been updated.
+check_products_in_mongodb.pl - Check products in MongoDB
+- verify that the code is normalized
 
 Usage:
 
-update_all_products.pl --key some_string_value --fields categories,labels --index
+update_all_products.pl [--fix] [--query filters]
 
-The key is used to keep track of which products have been updated. If there are many products and field to updates,
-it is likely that the MongoDB cursor of products to be updated will expire, and the script will have to be re-run.
+--fix		fix the non-normalized codes: delete the old code from MongoDB collections, and store the product again with the new code
+
+Query filters:
 
 --query some_field=some_value (e.g. categories_tags=en:beers)	filter the products (--query parameters can be repeated to have multiple filters)
 --query some_field=-some_value	match products that don't have some_value for some_field
