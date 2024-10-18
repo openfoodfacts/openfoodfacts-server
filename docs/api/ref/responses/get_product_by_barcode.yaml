@@ -1,6 +1,5 @@
-x-stoplight:
-  id: cfk5obotr63sa
 type: object
+title: get_product_by_barcode_response
 allOf:
   - $ref: ./get_product_by_barcode_base.yaml
   - properties:

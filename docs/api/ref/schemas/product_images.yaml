@@ -1,5 +1,5 @@
 type: object
-title: product_images
+title: Product-Images
 description: |
   Information about Images of a product.
 
@@ -15,18 +15,12 @@ properties:
     description: |
       This contains properties for all images contained on the product.
     type: object
-    title: product_images
+    title: product_images_properties
     properties:
       1:
-        type: object
-        description: |
-          This represents an image uploaded for this product.
         $ref: ./image.yaml
       front:
-        description: |
-          This represents an image (or part of it) selected for a specific role on this product.
-        type: object
-        $ref: ./image_role.yaml
+        $ref: "./image_role.yaml#/components/schemas/ImageRole"
     patternProperties:
       '(?<imgid>\d+)':
         description: |
@@ -63,19 +57,19 @@ properties:
             description: |
               Thumbnail urls of product image (front) adapted to display on product page
             type: object
-            $ref: 'image_urls.yaml'
+            $ref: "image_urls.yaml"
           small:
             description: |
               Thumbnail urls of product image (front) adapted to display on product list page
             type: object
-            $ref: 'image_urls.yaml'
+            $ref: "image_urls.yaml"
           thumb:
             description: |
               Thumbnail urls of product image (front) in smallest format
             type: object
-            $ref: 'image_urls.yaml'
+            $ref: "image_urls.yaml"
     patternProperties:
-      '(?<image_type>front|packaging|ingredients|nutrition|other)':
+      "(?<image_type>front|packaging|ingredients|nutrition|other)":
         description: |
           See property `front` to get the real type of those objects
           (Put this way because of a [bug in rapidoc](https://github.com/rapi-doc/RapiDoc/issues/880))
@@ -89,7 +83,7 @@ properties:
     type: string
 
   patternProperties:
-    'image(_(?<image_type>front|packaging|ingredients|nutrition|other))?(_(?<image_size>small|thumb))?_url':
+    "image(_(?<image_type>front|packaging|ingredients|nutrition|other))?(_(?<image_size>small|thumb))?_url":
       description: |
         the URL of image of type `image_type` in size `image_size` (or full size if not given).
 

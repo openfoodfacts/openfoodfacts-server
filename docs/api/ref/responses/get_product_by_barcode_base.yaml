@@ -1,6 +1,5 @@
 type: object
-x-stoplight:
-  id: s4gz59htj4gc3
+title: get_product_by_barcode_base_response
 properties:
   code:
     type: string
@@ -11,5 +10,7 @@ properties:
       number starting with the 200 reserved prefix.
   status:
     type: integer
+    enum: [0, 1]
+    description: Return values based on ProductOpener/Display.pm analysis
   status_verbose:
     type: string

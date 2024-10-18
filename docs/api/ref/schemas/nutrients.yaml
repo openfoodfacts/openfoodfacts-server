@@ -23,7 +23,6 @@ components:
             type: boolean
             description: Indicates if the nutrient should be shown in the nutrition facts edit form
           unit:
-            description: Default unit of the nutrient
             $ref: "./nutrient_unit.yaml"
           nutrients:
             type: array
