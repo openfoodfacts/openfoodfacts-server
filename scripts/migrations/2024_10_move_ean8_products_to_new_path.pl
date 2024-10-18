@@ -368,7 +368,9 @@ foreach my $orgid (@orgids) {
 									print STDERR "invalid code: $dir/$dir2/$dir3/$dir4\n";
 									print $log "invalid code: $dir/$dir2/$dir3/$dir4\n";
 									# Move the dir to $data_root/products$org_path/invalid-codes
-									move_dir_to_invalid_codes("$dir/$dir2/$dir3/$dir4", $org_path);
+									if ($move) {
+										move_dir_to_invalid_codes("$dir/$dir2/$dir3/$dir4", $org_path);
+									}
 								}
 
 							}
@@ -429,7 +431,10 @@ foreach my $orgid (@orgids) {
 			}
 		}
 		elsif ($dir !~ /^\.+$/) {
-			move_invalid_dir($dir, $org_path);
+			print STDERR "invalid code: $dir\n";
+			if ($move) {
+				move_dir_to_invalid_codes($dir, $org_path);
+			}
 		}
 	}
 	closedir $dh;
