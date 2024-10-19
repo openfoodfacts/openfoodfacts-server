@@ -142,7 +142,7 @@ properties:
   traces_hierarchy:
     type: array
     items:
-      onyOf:
+      oneOf:
         - type: "object"
         - type: "string"
   traces_lc:
@@ -150,7 +150,7 @@ properties:
   traces_tags:
     type: array
     items:
-      onyOf:
+      oneOf:
         - type: "object"
         - type: "string"
   unknown_ingredients_n:
