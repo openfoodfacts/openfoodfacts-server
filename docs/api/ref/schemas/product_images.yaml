@@ -82,14 +82,14 @@ properties:
   image_url:
     type: string
 
-  patternProperties:
-    "image(_(?<image_type>front|packaging|ingredients|nutrition|other))?(_(?<image_size>small|thumb))?_url":
-      description: |
-        the URL of image of type `image_type` in size `image_size` (or full size if not given).
+patternProperties:
+  "image(_(?<image_type>front|packaging|ingredients|nutrition|other))?(_(?<image_size>small|thumb))?_url":
+    description: |
+      the URL of image of type `image_type` in size `image_size` (or full size if not given).
 
-        The `image_type` tells which image the url correspond to. `image_type` is `front` if not provided.
+      The `image_type` tells which image the url correspond to. `image_type` is `front` if not provided.
 
-        The image is the one for current language (affected by `lc` parameter) if an image exists for this language, the image in main product language otherwise.
+      The image is the one for current language (affected by `lc` parameter) if an image exists for this language, the image in main product language otherwise.
 
-        **IMPORTANT:** you should use `selected_images` field instead of this one.
-      type: string
+      **IMPORTANT:** you should use `selected_images` field instead of this one.
+    type: string
