@@ -16,33 +16,24 @@ properties:
     example: mypassword
   comment:
     type: string
-    description: A comment for the change. It will be shown in product changes history.
+    description: A comment for the change. It will be shown in product changes history.
     example: new packaging from super-app
   brands:
-    schema:
-      type: array
-      items:
-        type: string
-    style: form
-    explode: false
+    type: array
+    items:
+      type: string
     description: The brands of the product (comma separated list of values).
     example: Häagen-Dazs,General-mills
   labels:
-    schema:
-      type: array
-      items:
-        type: string
-    style: form
-    explode: false
+    type: array
+    items:
+      type: string
     description: The labels of the product (comma separated list of values).
     example: Kosher,Ferroro
   categories:
-    schema:
-      type: array
-      items:
-        type: string
-    style: form
-    explode: false
+    type: array
+    items:
+      type: string
     description: The categories of the product (comma separated list of values).
     example: Desserts,Frozen foods
   packaging:

@@ -347,6 +347,7 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "13005",
+         "ecobalyse_code" : "banana-non-eu",
          "id" : "en:banana",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 100,
@@ -394,6 +395,8 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
    "interface_version_created" : "import_csv_file - version 2019/09/17",
    "known_ingredients_n" : 2,
    "lang" : "fr",
