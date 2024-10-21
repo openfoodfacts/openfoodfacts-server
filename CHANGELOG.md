@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.47.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.46.0...v2.47.0) (2024-10-21)
+
+
+### Features
+
+* Eco-Score improvements and change of scale: A+ to F ([#10829](https://github.com/openfoodfacts/openfoodfacts-server/issues/10829)) ([87df665](https://github.com/openfoodfacts/openfoodfacts-server/commit/87df6653ed5959139a64bf518e0cc136e9cb4d0f))
+
+
+### Bug Fixes
+
+* add googleOther bot ([#10912](https://github.com/openfoodfacts/openfoodfacts-server/issues/10912)) ([d56760a](https://github.com/openfoodfacts/openfoodfacts-server/commit/d56760a0de53bb1bef6c869b6019c12052284197))
+
 ## [2.46.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.45.0...v2.46.0) (2024-10-18)
 
 
