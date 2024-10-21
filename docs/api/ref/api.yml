@@ -186,6 +186,10 @@ paths:
   /cgi/product_image_unselect.pl:
     post:
       summary: Unselect A Photo
+      description: |
+        This endpoint allows the user to unselect a photo for a product.
+        The user must provide the product code and the image ID to unselect.
+      operationId: post-cgi-product_image_unselect.pl
       requestBody:
         content:
           multipart/form-data:
@@ -414,6 +418,10 @@ paths:
       summary: |
         Get the weights corresponding to attributes preferences
         to compute personal product
+      description: |
+        This endpoint retrieves the weights corresponding to attribute preferences
+        for computing personal product recommendations. The weights are used to
+        personalize the product recommendations based on user preferences.
       tags:
         - Read Requests
         - Personal search
@@ -457,6 +465,9 @@ components:
       $ref: "./schemas/product_attribute_groups.yaml"
     Product:
       $ref: ./schemas/product.yaml
+    Ingredient:
+      # Added to fix some generator errors on $ref
+      $ref: "./schemas/ingredient.yaml#/components/schemas/Ingredient"
   parameters:
     id:
       schema:
@@ -603,4 +614,6 @@ components:
       name: term
 tags:
   - name: Read Requests
+    description: Endpoints that allow reading or retrieving data from the Open Food Facts database.
   - name: Write Requests
+    description: Endpoints that allow writing or modifying data in the Open Food Facts database.
