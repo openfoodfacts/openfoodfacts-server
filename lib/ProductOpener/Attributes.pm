@@ -36,7 +36,6 @@ See https://wiki.openfoodfacts.org/Product_Attributes
 If new attributes are added, make sure *to update the list of fields* fetched from MongoDB
 in Display.pm (in search_and_display_products subroutine).
 
-
 =cut
 
 package ProductOpener::Attributes;
