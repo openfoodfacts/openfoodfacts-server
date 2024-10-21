@@ -97,3 +97,9 @@ jobs:
           github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
           labeled: 🎯 P0, 🎯 P1
           label-operator: OR
+      - uses: actions/add-to-project@main
+        with:
+          project-url: https://github.com/orgs/openfoodfacts/projects/60 # Add issue to the API issues board
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+          labeled: API, API READ, API WRITE, 🔐 API auth, API v3, API tests, API Refactor, 🧽 API - Quality, API Read - Product, OpenAPI, 📚 OpenAPI
+          label-operator: OR
