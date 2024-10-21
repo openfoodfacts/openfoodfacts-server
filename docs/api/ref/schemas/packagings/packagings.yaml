@@ -1,6 +1,4 @@
 type: array
-x-stoplight:
-  id: 1cyz4qo9njog7
 title: Packagings (READ)
 description: |-
   The packagings object is an array of individual packaging component objects.
@@ -17,13 +15,13 @@ description: |-
 examples:
   - - number_of_units: 6
       shape:
-        id: 'en:bottle'
+        id: "en:bottle"
         lc_name: bouteille
       material:
-        id: 'en:bottle'
+        id: "en:bottle"
         lc_name: bouteille
       recycling:
-        id: 'en:bottle'
+        id: "en:bottle"
         lc_name: bouteille
       quantity_per_unit: 25 cl
       quantity_per_unit_value: 25
