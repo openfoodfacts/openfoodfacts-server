@@ -84,6 +84,7 @@ sub remove_empty_dirs ($dir) {
 		print "Removing empty directory $dir\n";
 		rmdir $dir;
 	}
+	return;
 }
 
 use Getopt::Long;
