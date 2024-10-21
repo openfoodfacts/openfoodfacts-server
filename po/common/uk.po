@@ -4620,7 +4620,7 @@ msgstr "Не підходить для категорії: {category}"
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
-msgstr "Якість харчовоі поживності є досить високою"
+msgstr "Якість харчової поживності є досить високою"
 
 msgctxt "attribute_nutriscore_b_description_short"
 msgid "Good nutritional quality"
@@ -4828,10 +4828,14 @@ msgctxt "attribute_ecoscore_setting_note"
 msgid "The Eco-Score is an environmental score (ecoscore) from A to E which makes it easy to compare the impact of food products on the environment."
 msgstr "Eco-Score - це екологічна оцінка (екосистема) від A до E, що полегшує порівняння впливу харчових продуктів на навколишнє середовище."
 
-# keep %s, it will be replaced by the letter A, B, C, D or E
+# keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_ecoscore_grade_title"
 msgid "Eco-Score %s"
 msgstr "Eco-Score %s"
+
+msgctxt "attribute_ecoscore_a_plus_description_short"
+msgid "Very low environmental impact"
+msgstr "Дуже низький вплив на навколишнє середовище"
 
 msgctxt "attribute_ecoscore_a_description_short"
 msgid "Very low environmental impact"
@@ -4850,6 +4854,10 @@ msgid "High environmental impact"
 msgstr "Високий вплив на навколишнє середовище"
 
 msgctxt "attribute_ecoscore_e_description_short"
+msgid "Very high environmental impact"
+msgstr "Дуже високий вплив на навколишнє середовище"
+
+msgctxt "attribute_ecoscore_f_description_short"
 msgid "Very high environmental impact"
 msgstr "Дуже високий вплив на навколишнє середовище"
 
