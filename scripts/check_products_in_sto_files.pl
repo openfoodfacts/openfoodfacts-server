@@ -102,7 +102,8 @@ sub fix_non_normalized_sto ($product_path, $fix, $out) {
 	my @items = find_non_normalized_sto($product_path);
 
 	foreach my $item (@items) {
-		my ($product_path, $normalized_product_path, $code, $normalized_code, $product_id, $normalized_product_id) = @$item;
+		my ($product_path, $normalized_product_path, $code, $normalized_code, $product_id, $normalized_product_id)
+			= @$item;
 
 		my $is_duplicate = (-e "$BASE_DIRS{PRODUCTS}/$normalized_product_path") || 0;
 

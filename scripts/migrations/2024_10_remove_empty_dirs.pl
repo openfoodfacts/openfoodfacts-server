@@ -90,15 +90,13 @@ use Getopt::Long;
 
 my $dir;
 
-GetOptions(
-	'dir=s' => \$dir,
-);
+GetOptions('dir=s' => \$dir,);
 
 if (not defined $dir) {
 	print <<USAGE
 Usage: $0 --dir /path/to/dir
 USAGE
-;
+		;
 	exit(1);
 }
 
