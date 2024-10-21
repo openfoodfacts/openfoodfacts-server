@@ -36,7 +36,6 @@ See https://wiki.openfoodfacts.org/Product_Attributes
 If new attributes are added, make sure *to update the list of fields* fetched from MongoDB
 in Display.pm (in search_and_display_products subroutine).
 
-
 =cut
 
 package ProductOpener::Attributes;
@@ -98,7 +97,7 @@ $options{attribute_groups} = [
 # Build a hash of attribute groups to make it easier to retrieve all attributes of a specific group
 my %attribute_groups = ();
 
-# Build a hash of attributes to make it easier to retrieve all attributes
+# Build a hash of attributes to make it easier to retrieve all attributes
 my %attributes = ();
 
 if (defined $options{attribute_groups}) {
@@ -472,11 +471,16 @@ sub compute_attribute_nutriscore ($product_ref, $target_lc, $target_cc) {
 
 	my $attribute_ref = initialize_attribute($attribute_id, $target_lc);
 
-	# Nutri-Score A, B, C, D or E
-	if ((defined $product_ref->{nutriscore_grade}) and ($product_ref->{nutriscore_grade} =~ /^[a-e]$/)) {
-		$attribute_ref->{status} = "known";
+	my $nutriscore_ref = deep_get($product_ref, "nutriscore", $version);
 
-		my $nutriscore_ref = $product_ref->{nutriscore}{$version};
+	# Check that we have computed a Nutri-Score with the expected version
+	# and that the Nutri-Score is A, B, C, D or E
+
+	if (    (defined $nutriscore_ref)
+		and (defined $product_ref->{nutriscore_grade})
+		and ($product_ref->{nutriscore_grade} =~ /^[a-e]$/))
+	{
+		$attribute_ref->{status} = "known";
 
 		my $is_beverage = $nutriscore_ref->{data}{is_beverage};
 		my $is_water = $nutriscore_ref->{data}{is_water};
