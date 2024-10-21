@@ -849,39 +849,29 @@ sub compute_ecoscore ($product_ref) {
 
 				$product_ref->{ecoscore_data}{"scores"}{$cc} += $bonus;
 
-				# Assign A to E grade
+				# Assign A+ to F grade
+				# SI(AO3>=90;"A+";SI(AO3>=75;"A";SI(AO3>=60;"B";SI(AO3>=45;"C";SI(AO3>=30;"D";SI(AO3>=15;"E";"F"))))));"")
 
-				if ($product_ref->{ecoscore_data}{"scores"}{$cc} >= 80) {
+				if ($product_ref->{ecoscore_data}{"scores"}{$cc} >= 90) {
+					$product_ref->{ecoscore_data}{"grades"}{$cc} = "a-plus";
+				}
+				elsif ($product_ref->{ecoscore_data}{"scores"}{$cc} >= 75) {
 					$product_ref->{ecoscore_data}{"grades"}{$cc} = "a";
 				}
 				elsif ($product_ref->{ecoscore_data}{"scores"}{$cc} >= 60) {
 					$product_ref->{ecoscore_data}{"grades"}{$cc} = "b";
 				}
-				elsif ($product_ref->{ecoscore_data}{"scores"}{$cc} >= 40) {
+				elsif ($product_ref->{ecoscore_data}{"scores"}{$cc} >= 45) {
 					$product_ref->{ecoscore_data}{"grades"}{$cc} = "c";
 				}
-				elsif ($product_ref->{ecoscore_data}{"scores"}{$cc} >= 20) {
+				elsif ($product_ref->{ecoscore_data}{"scores"}{$cc} >= 30) {
 					$product_ref->{ecoscore_data}{"grades"}{$cc} = "d";
 				}
-				else {
+				elsif ($product_ref->{ecoscore_data}{"scores"}{$cc} >= 15) {
 					$product_ref->{ecoscore_data}{"grades"}{$cc} = "e";
 				}
-
-				# If a product has the grade A and it contains a non-biodegradable and non-recyclable material, downgrade to B
-				if (
-					($product_ref->{ecoscore_data}{"grades"}{$cc} eq "a")
-					and ($product_ref->{ecoscore_data}{adjustments}{packaging}
-						{non_recyclable_and_non_biodegradable_materials} > 0)
-					)
-				{
-					$product_ref->{ecoscore_data}{"downgraded"} = "non_recyclable_and_non_biodegradable_materials";
-					# For France, save the original score
-					if ($cc eq 'fr') {
-						$product_ref->{ecoscore_data}{"scores"}{$cc . "_orig"}
-							= $product_ref->{ecoscore_data}{"scores"}{$cc};
-					}
-					$product_ref->{ecoscore_data}{"grades"}{$cc} = "b";
-					$product_ref->{ecoscore_data}{"scores"}{$cc} = 79;
+				else {
+					$product_ref->{ecoscore_data}{"grades"}{$cc} = "f";
 				}
 
 				$log->debug(
@@ -1395,6 +1385,8 @@ $product_ref->{adjustments}{origins_of_ingredients} hash with:
 - transportation_value_[country code]
 - aggregated origins: sorted array of origin + percent to show the % of ingredients by country used in the computation
 
+Note: the country EPI is not taken into account if the product already has a bonus for the production system.
+
 =cut
 
 sub compute_ecoscore_origins_of_ingredients_adjustment ($product_ref) {
@@ -1518,6 +1510,13 @@ sub compute_ecoscore_origins_of_ingredients_adjustment ($product_ref) {
 		{aggregated_origins => \@aggregated_origins})
 		if $log->is_debug();
 
+	# EPI score is not counted if we already have a bonus for the production system
+	# In this case, we set the EPI score to 0
+	if ($product_ref->{ecoscore_data}{adjustments}{production_system}{value} > 0) {
+		$epi_score = 0;
+		$epi_value = 0;
+	}
+
 	$product_ref->{ecoscore_data}{adjustments}{origins_of_ingredients} = {
 		origins_from_origins_field => \@origins_from_origins_field,
 		origins_from_categories => \@origins_from_categories,
@@ -1578,12 +1577,9 @@ sub compute_ecoscore_packaging_adjustment ($product_ref) {
 
 	my $warning;
 
-	# If we do not have packagings info, return the maximum malus, and indicate the product can contain non recyclable materials
+	# If we do not have packagings info, return the maximum malus
 	if ((not defined $product_ref->{packagings}) or (scalar @{$product_ref->{packagings}} == 0)) {
-		$product_ref->{ecoscore_data}{adjustments}{packaging} = {
-			value => -15,
-			non_recyclable_and_non_biodegradable_materials => 1,
-		};
+		$product_ref->{ecoscore_data}{adjustments}{packaging} = {value => -15,};
 		# indicate that we are missing key data
 		# this is to indicate to 3rd party that the computed Eco-Score should not be displayed without warnings
 		$product_ref->{ecoscore_data}{missing_key_data} = 1;
