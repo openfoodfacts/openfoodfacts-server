@@ -617,20 +617,24 @@ msgid "Change your account parameters"
 msgstr ""
 
 msgctxt "edit_user"
-msgid "Account parameters"
-msgstr "Account parameters"
+msgid "Preferences"
+msgstr ""
 
 msgctxt "edit_user_display"
-msgid "Account parameters"
-msgstr "Account parameters"
+msgid "Preferences"
+msgstr ""
 
 msgctxt "edit_user_process"
-msgid "Account parameters"
-msgstr "Account parameters"
+msgid "Preferences"
+msgstr ""
 
 msgctxt "edit_user_result"
-msgid "Your account parameters have been changed."
-msgstr "Your account parameters have been changed."
+msgid "Your preference shave been changed."
+msgstr ""
+
+msgctxt "user_in_keycloak"
+msgid "Account parameters"
+msgstr ""
 
 msgctxt "editors_p"
 msgid "editors"
@@ -4968,6 +4972,10 @@ msgctxt "number_of_members"
 msgid "Number of Members"
 msgstr "Number of Members"
 
+msgctxt "serial_no"
+msgid "S.No"
+msgstr "S.No"
+
 msgctxt "contact_form"
 msgid "Contact form"
 msgstr "Contact form"
@@ -6949,6 +6957,11 @@ msgstr "This user is not a member of the organization."
 msgctxt "skip_to_content"
 msgid "Skip to Content"
 msgstr "Skip to Content"
+
+msgctxt "oidc_signin_no_cookie"
+msgid "You need to enable cookies to sign in."
+msgstr "You need to enable cookies to sign in."
+
 
 msgctxt "cant_delete_main_contact"
 msgid "You cannot remove the main contact. Change it first."
