@@ -98,7 +98,7 @@ $options{attribute_groups} = [
 # Build a hash of attribute groups to make it easier to retrieve all attributes of a specific group
 my %attribute_groups = ();
 
-# Build a hash of attributes to make it easier to retrieve all attributes
+# Build a hash of attributes to make it easier to retrieve all attributes
 my %attributes = ();
 
 if (defined $options{attribute_groups}) {
