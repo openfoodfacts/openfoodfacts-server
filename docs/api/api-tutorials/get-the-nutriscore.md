@@ -17,7 +17,21 @@ Please use only the official assets to display the Nutri-Score. You can get v1 l
 ### Getting ready for Nutri-Score V2
 - Nutri-Score V2 has a new computation method, which now requires the ingredient list, a category, and of course the nutrition table
 - It also has a transition period new logo, to indicate you are using the new computation. It is not compulsory to use it, but it will save you from a lot of questions from your users ("Do you have the new formula ?")
-- You can get the new assets by contacting reuse@openfoodfacts.org. We will make them public as soon as possible. Make sure you use v2 assets when showing v2 values.
+- The assets for the transition period logo are language dependant. We have already loaded the official assets. If your language is not supported, please get in touch instead of trying to translate the assets on your own. We'll make sure to find solutions.
+
+#### New transition assets for Nutri-Score V2
+- https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-en.svg
+- https://static.openfoodfacts.org/images/attributes/dist/nutriscore-b-new-en.svg
+- https://static.openfoodfacts.org/images/attributes/dist/nutriscore-c-new-en.svg
+- https://static.openfoodfacts.org/images/attributes/dist/nutriscore-d-new-en.svg
+- https://static.openfoodfacts.org/images/attributes/dist/nutriscore-e-new-en.svg
+
+#### Available languages
+- Dutch (nl), French (fr), German (de), Luxembourgish (lb), English (en)
+- Replace likeso `nutriscore-e-new-en.svg` > `nutriscore-e-new-fr.svg`
+
+- You can get the new assets in additional languages by contacting <a href="mailto:reuse@openfoodfacts.org">reuse@openfoodfacts.org</a>. We will provide unofficial courtesy translations.
+-  Make sure you use v2 assets when showing v2 values.
 
 ### Manual version: Getting the Nutri-Score v1 value (we don't recommand the manual way anymore, especially with v2 around the corner)
 
@@ -80,16 +94,19 @@ Here are the different messages to use according to the state:
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
 </pre>
+
 ##### a message if fruit/nuts are missing
 <pre>
 msgctxt "nutrition_grade_fr_no_fruits_vegetables_nuts_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified, their possible positive contribution to the grade could not be taken into account."
 </pre>
+
 ##### a message if fruits/nuts is an estimate from ingredients
 <pre>
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d%"
 </pre>
+
 ##### a message if fruits/nuts is an estimate from category
 <pre>
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
