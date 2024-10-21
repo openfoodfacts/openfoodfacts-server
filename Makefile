@@ -126,7 +126,7 @@ create_folders: clone_deps
 # args variable may be use to eg. "--progress plain" option and keep logs on a failing build
 build:
 	@echo "🥫 Building containers …"
-	${DOCKER_COMPOSE} build ${args} ${container} 2>&1
+	${DOCKER_COMPOSE} build --no-cache ${args} ${container} 2>&1
 
 _up:run_deps
 	@echo "🥫 Starting containers …"
