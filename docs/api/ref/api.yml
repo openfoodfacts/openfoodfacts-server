@@ -23,8 +23,11 @@ externalDocs:
 servers:
   - description: dev
     url: "https://world.openfoodfacts.net"
-  - url: "https://world.openfoodfacts.org"
-    description: prod
+  - description: prod
+    url: "https://world.openfoodfacts.org"
+  - description: proxy (for doc purpose)
+    url: "http://localhost:8080"
+
 paths:
   "/api/v2/product/{barcode}":
     get:
