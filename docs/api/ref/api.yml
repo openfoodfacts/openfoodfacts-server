@@ -97,6 +97,10 @@ paths:
             schema:
               $ref: ./requestBodies/add_photo_to_existing_product.yaml
         description: ""
+      security:
+        - cookieAuth: []
+          userAgentAuth: []
+
   /cgi/ingredients.pl:
     parameters: []
     get:
@@ -224,6 +228,10 @@ paths:
         Note: If the barcode exists then you will be editing the existing product,
         However if it doesn''t you will be creating a new product with that unique barcode,
         and adding properties to the product.
+      security:
+        - cookieAuth: []
+          userAgentAuth: []
+
   /api/v2/search:
     get:
       summary: Search for Products
@@ -415,8 +423,82 @@ paths:
             application/json:
               schema:
                 $ref: ./responses/get_preferences.yaml
+  /cgi/session.pl:
+    post:
+      summary: Login and obtain a session cookie
+      operationId: get-cgi-session.pl
+      description: Retrieve session cookie for writing operations.
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: string
+                  description: Username for login
+                password:
+                  type: string
+                  description: Password for login
+                  format: password
+              required:
+                - user_id
+                - password
+      responses:
+        "200":
+          description: Successful login
+          headers:
+            Set-Cookie:
+              schema:
+                type: string
+                description: Session cookie for subsequent authenticated requests
+              examples:
+                sessionCookie:
+                  value: "session=user123&testuser&user_session&abcdef1234567890; domain=.example.net; path=/; SameSite=Lax"
+        "401":
+          description: Authentication failed
+
 components:
+  securitySchemes:
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: session
+      description: |
+        Session cookie containing user ID, username, and session token.
+        The value is structured as: user_id&username&user_session&session_token
+        e.g. "user_id&exampleuser&user_session&abcdefghijklmnopqrstuvwxyz123456789ABCDEFGHIJKLM"
+    userAgentAuth:
+      description: Authentication using User-Agent header
+        User-Agent header in the format 'app_name/app_version (email)'
+      type: apiKey
+      in: header
+      name: User-Agent
+
   schemas:
+    AppCredentials:
+      description: Schema for application credentials
+      type: object
+      properties:
+        app_name:
+          type: string
+          description: Name of the application
+        app_version:
+          type: string
+          description: Version of the application
+        app_uuid:
+          type: string
+          description: |
+            A salted random uuid (Unique identifier) for the user so that Open Food Facts moderators 
+            can selectively ban any problematic user without banning your whole app account.
+      required:
+        - app_name
+        - app_version
+        - app_uuid
+
     "Product-Base":
       $ref: ./schemas/product_base.yaml
     "Product-Misc":
@@ -592,8 +674,14 @@ components:
         example: f
       in: query
       name: term
+
+security:
+  - {} # No authentication required by default (for read requests)
+
 tags:
   - name: Read Requests
     description: Endpoints that allow reading or retrieving data from the Open Food Facts database.
   - name: Write Requests
     description: Endpoints that allow writing or modifying data in the Open Food Facts database.
+  - name: Authentication
+    description: Endpoints used to retrieve authentication info.
