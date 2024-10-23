@@ -136,6 +136,7 @@ my %codes_lengths = ();
 my $code_different_than_id = 0;
 my $not_normalized_code = 0;
 my $invalid = 0;
+my $exists_only_in_db = 0;
 
 while (my $product_ref = $cursor->next) {
 
@@ -202,6 +203,7 @@ while (my $product_ref = $cursor->next) {
 		}
 		else {
 			print STDERR "Product $new_product_id does not exist\n";
+			$exists_only_in_db++;
 		}
 
 	}
@@ -215,5 +217,6 @@ foreach my $code_len (sort {$a <=> $b} keys %codes_lengths) {
 
 print STDERR "Code different than id: $code_different_than_id\n";
 print STDERR "Not normalized code: $not_normalized_code\n";
+print STDERR "Products that existed only in MongoDB: $exists_only_in_db\n";
 
 exit(0);
