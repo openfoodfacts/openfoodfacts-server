@@ -171,6 +171,7 @@ while (my $product_ref = $cursor->next) {
 	}
 	elsif (!-e "$data_root/products/$path/product.sto") {
 		$to_be_fixed = 1;
+		$exists_only_in_db++;
 		print STDERR "Product $productid - data_root/products/$path/product.sto does not exist in the filesystem\n";
 	}
 
@@ -204,7 +205,6 @@ while (my $product_ref = $cursor->next) {
 		}
 		else {
 			print STDERR "Product $new_product_id does not exist\n";
-			$exists_only_in_db++;
 		}
 
 	}
