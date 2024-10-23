@@ -16,6 +16,8 @@ my %flavors = ();
 my %scans = ();
 my %product_names = ();
 my %brands = ();
+my %flavor_with_most_data = ();
+my %flavor_with_most_data_size = ();
 
 foreach my $flavor ("off", "obf", "opf", "opff") {
 	my $products_collection = get_products_collection({database => $flavor, timeout => $socket_timeout_ms});
@@ -28,6 +30,16 @@ foreach my $flavor ("off", "obf", "opf", "opff") {
 		my $code = $product_ref->{code};
 		$flavors{all}{$code}++;
 		$flavors{$flavor}{$code}++;
+		# Check which flavor has the biggest product file
+		my $path = product_path($product_ref);
+		if (not defined $flavor_with_most_data{$code}) {
+			$flavor_with_most_data{$code} = $flavor;
+			$flavor_with_most_data_size{$code} = (-s "/srv/$flavor/products/$path/product.sto") || 0;
+		}
+		if ((-s "/srv/$flavor/products/$path/product.sto") || 0 > $flavor_with_most_data_size{$code}) {
+			$flavor_with_most_data{$code} = $flavor;
+			$flavor_with_most_data_size{$code} = (-s "/srv/$flavor/products/$path/product.sto") || 0;
+		}
 		if (($product_ref->{scans_n} || 0) > ($scans{$code} || 0)) {
 			$scans{$code} = $product_ref->{scans_n} || 0;
 		}
@@ -58,7 +70,12 @@ my %urls = (
 
 foreach my $code (sort keys %{$flavors{all}}) {
 	next if $flavors{all}{$code} <= 1;
-	print $code . "\t" . ($product_names{$code} || '') . "\t" . ($brands{$code} || '') . "\t" . ($scans{$code} || 0);
+	print $code . "\t"
+		. $flavor_with_most_data{$code} . "\t"
+		. $flavor_with_most_data_size{$code} . "\t"
+		. ($product_names{$code} || '') . "\t"
+		. ($brands{$code} || '') . "\t"
+		. ($scans{$code} || 0);
 	print OUT $code . "\t"
 		. ($product_names{$code} || '') . "\t"
 		. ($brands{$code} || '') . "\t"
