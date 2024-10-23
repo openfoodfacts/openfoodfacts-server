@@ -1232,6 +1232,7 @@ $border-pink: #ff6e78;
 
 .donation-banner,
 .donation-banner-footer {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1241,6 +1242,16 @@ $border-pink: #ff6e78;
   @media #{$small-only} {
     flex-direction: column;
     padding: 20px 10px;
+  }
+  &__close {
+    button {
+      position: absolute;
+      top: .3rem;
+      right: .3rem;
+      cursor: pointer;
+      background-color: transparent;
+      color: inherit;
+    }
   }
   &__main-section{
     display: flex;
