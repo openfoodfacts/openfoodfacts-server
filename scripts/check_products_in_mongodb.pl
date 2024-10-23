@@ -137,6 +137,7 @@ my $code_different_than_id = 0;
 my $not_normalized_code = 0;
 my $invalid = 0;
 my $exists_only_in_db = 0;
+my $i = 0;
 
 while (my $product_ref = $cursor->next) {
 
@@ -207,6 +208,9 @@ while (my $product_ref = $cursor->next) {
 		}
 
 	}
+
+	$i++;
+	($i % 1000 == 0) and print STDERR "$i products checked\n";
 }
 
 # Print the code lengths
