@@ -89,7 +89,7 @@ paths:
                       product:
                         $ref: "#/components/schemas/Product-Knowledge-Panels"
       description: |
-        Knowledge panels gives high leve informations about a product,
+        Knowledge panels gives high level information about a product,
         ready to display.
         This is used by open food facts website,
         and by the official mobile application
