@@ -4,7 +4,7 @@ use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Product qw/:all/;
+use ProductOpener::Products qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Store qw/retrieve store/;
 use ProductOpener::Data qw/get_products_collection/;
