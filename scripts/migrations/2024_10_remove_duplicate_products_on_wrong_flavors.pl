@@ -68,7 +68,7 @@ if (not defined $csv_file) {
 }
 
 open(my $log, ">>", "$data_root/logs/remove_duplicate_products_on_wrong_flavors.log");
-print $log "move_ean8_products_to_new_path.pl started at " . localtime() . "\n";
+print $log "remove_duplicate_products_on_wrong_flavors started at " . localtime() . "\n";
 
 my $products_collection = get_products_collection();
 my $obsolete_products_collection = get_products_collection({obsolete => 1});
@@ -148,12 +148,6 @@ while (my $line = <$csv_fh>) {
 	else {
 		print STDERR "code $code should be on the kept flavor $kept_flavor instead of $flavor\n";
 		move_code_to_other_flavors_codes($code);
-
-		# Remove the code from MongoDB
-		my $id = $code;
-		$id =~ s/^\///;
-		$products_collection->delete_one({_id => $id});
-		$obsolete_products_collection->delete_one({_id => $id});
 
 		# Push a deleted event to Redis
 		push_to_redis_stream("remove-duplicates-bot", $product_ref, "deleted",

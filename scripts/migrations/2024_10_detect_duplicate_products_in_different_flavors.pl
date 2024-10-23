@@ -28,8 +28,8 @@ foreach my $flavor ("off", "obf", "opf", "opff") {
 		my $code = $product_ref->{code};
 		$flavors{all}{$code}++;
 		$flavors{$flavor}{$code}++;
-		if ($product_ref->{scans_n} > $scans{$code}) {
-			$scans{$code} = $product_ref->{scans_n};
+		if (($product_ref->{scans_n} || 0) > ($scans{$code} || 0)) {
+			$scans{$code} = $product_ref->{scans_n} || 0;
 		}
 		if (not defined $product_names{$code}) {
 			$product_names{$code} = $product_ref->{product_name};
