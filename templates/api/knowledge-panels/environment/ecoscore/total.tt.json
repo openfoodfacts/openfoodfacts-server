@@ -6,10 +6,10 @@
         "environment"
     ],
     "title_element": {
-        "title":  "[% edq(lang('impact_for_this_product')) %]: [% panel.grade FILTER upper %] (Score: [% panel.score %]/100)",
+        "title":  "[% edq(lang('impact_for_this_product')) %]: [% panel.letter_grade %] (Score: [% panel.score %]/100)",
         "subtitle": "[% edq(lang('front_alt')) %][% sep %]: [% product_name_brand_quantity(product) %]",
         "type": "grade",
-        "grade": "[% panel.grade %]",
+        "grade": "[% panel.grade_underscore %]",
         "icon_url": "[% static_subdomain %]/images/attributes/dist/ecoscore-[% panel.grade %].svg",
     },
     "elements": [
