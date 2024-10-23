@@ -150,15 +150,14 @@ while (my $product_ref = $cursor->next) {
 	$codes_lengths{$code_len}++;
 
 	my $to_be_fixed = 0;
+	my $normalized_code = normalize_code($code);
 
 	if ($code ne $productid) {
 		$code_different_than_id++;
 		print STDERR "Code different than productid. code: $code - productid: $productid\n";
 		$to_be_fixed = 1;
 	}
-
-	my $normalized_code = normalize_code($code);
-	if ($normalized_code eq 'invalid') {
+	elsif ($normalized_code eq 'invalid') {
 		$invalid++;
 		$to_be_fixed = 1;
 		print STDERR "Invalid code: $code\n";
@@ -167,6 +166,10 @@ while (my $product_ref = $cursor->next) {
 		$not_normalized_code++;
 		$to_be_fixed = 1;
 		print STDERR "Not normalized code. code: $code - normalized: $normalized_code\n";
+	}
+	elsif (!-e "$data_root/products/$path/product.sto") {
+		$to_be_fixed = 1;
+		print STDERR "Product $productid - data_root/products/$path/product.sto does not exist in the filesystem\n";
 	}
 
 	if ($fix and $to_be_fixed) {
