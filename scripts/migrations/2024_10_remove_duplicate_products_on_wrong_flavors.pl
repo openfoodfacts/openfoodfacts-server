@@ -56,26 +56,22 @@ Reviewed file: https://docs.google.com/spreadsheets/d/1-2WMvUC4J7iRYe3587mHJ1htI
 The script will move the products that are not kept to the other-flavors-codes directory (for both product and images)
 
 TXT
-;
+	;
 
 my $csv_file;
 
-GetOptions(
-	"flavor-code-csv=s" => \$csv_file,
-);
+GetOptions("flavor-code-csv=s" => \$csv_file,);
 
 if (not defined $csv_file) {
 	print STDERR $usage;
-	exit
+	exit;
 }
-
 
 open(my $log, ">>", "$data_root/logs/remove_duplicate_products_on_wrong_flavors.log");
 print $log "move_ean8_products_to_new_path.pl started at " . localtime() . "\n";
 
 my $products_collection = get_products_collection();
 my $obsolete_products_collection = get_products_collection({obsolete => 1});
-
 
 sub move_code_to_other_flavors_codes($code) {
 
@@ -94,19 +90,13 @@ sub move_code_to_other_flavors_codes($code) {
 		print $log "could not move other flavors code $dir to $data_root/products/other-flavors-codes/$target_dir\n";
 	}
 	# Delete from mongodb
-	my $id =  $code;
+	my $id = $code;
 	$products_collection->delete_one({_id => $id});
 	$obsolete_products_collection->delete_one({_id => $id});
 
 	# Also move the image dir if it exists
 	if (-e "$www_root/images/products/$dir") {
-		if (
-			move(
-				"$www_root/images/products/$dir",
-				"$www_root/images/products/other-flavors-codes/$target_dir"
-			)
-			)
-		{
+		if (move("$www_root/images/products/$dir", "$www_root/images/products/other-flavors-codes/$target_dir")) {
 			print STDERR
 				"moved other flavors code $dir images to $www_root/images/products/other-flavors-codes/$target_dir\n";
 			print $log
@@ -122,7 +112,6 @@ sub move_code_to_other_flavors_codes($code) {
 
 	return;
 }
-
 
 ensure_dir_created_or_die("$data_root/products/other-flavors-codes");
 ensure_dir_created_or_die("$www_root/images/products/other-flavors-codes");
@@ -167,8 +156,8 @@ while (my $line = <$csv_fh>) {
 		$obsolete_products_collection->delete_one({_id => $id});
 
 		# Push a deleted event to Redis
-		push_to_redis_stream("remove-duplicates-bot", $product_ref, "deleted", "duplicate product: keep product on $kept_flavor, remove from $flavor", undef);
+		push_to_redis_stream("remove-duplicates-bot", $product_ref, "deleted",
+			"duplicate product: keep product on $kept_flavor, remove from $flavor", undef);
 	}
 }
-
 
