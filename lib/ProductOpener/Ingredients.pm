@@ -3371,43 +3371,42 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 		# Getting properties from product
 		#my $product_origin = has_specific_ingredient_property()
 
-		# If the ingredient is biological, the id 'ecobalyse_labels_en_organic:en' is taken
-		if ("en:organic" in $ingredient_ref->{labels}) { 
-	
-			# Getting the correct ecobalyse comake devde
-			my $ecobalyse_code = get_inherited_property("ingredients", $ingredient_ref->{id}, "ecobalyse_labels_en_organic:en");
-			if (defined $ecobalyse_code) {
-				$ingredient_ref->{ecobalyse_code} = $ecobalyse_code;
-			}
-			else {
-				my $ecobalyse_proxy_code
-					= get_inherited_property("ingredients", $ingredient_ref->{id}, "ecobalyse_proxy:en");
-				if (defined $ecobalyse_proxy_code) {
-					$ingredient_ref->{ecobalyse_proxy_code} = $ecobalyse_proxy_code;
-				}
-				else {
-					push(@ingredients_without_ecobalyse_ids, $ingredient_ref->{id});
-				}
-			}
+		# If the ingredient is organic, the 'ecobalyse_labels_en_organic:en' id is used
+		if ($ingredient_ref->{labels} =~ /\ben:organic\b/) {
+
+		    # Retrieve the correct ecobalyse code
+		    my $ecobalyse_code = get_inherited_property("ingredients", $ingredient_ref->{id}, "ecobalyse_labels_en_organic:en");
+		    if (defined $ecobalyse_code) {
+        		$ingredient_ref->{ecobalyse_code} = $ecobalyse_code;
+		    }
+		    else {
+		        my $ecobalyse_proxy_code = get_inherited_property("ingredients", $ingredient_ref->{id}, "ecobalyse_proxy:en");
+		        if (defined $ecobalyse_proxy_code) {
+		            $ingredient_ref->{ecobalyse_proxy_code} = $ecobalyse_proxy_code;
+        		}
+		        else {
+        		    # Add to the list of ingredients without ecobalyse code
+		            push(@ingredients_without_ecobalyse_ids, $ingredient_ref->{id});
+        		}
+		    }
 
 		} else {
 
-			# Getting the correct ecobalyse comake devde
-			my $ecobalyse_code = get_inherited_property("ingredients", $ingredient_ref->{id}, "ecobalyse:en");
-			if (defined $ecobalyse_code) {
-				$ingredient_ref->{ecobalyse_code} = $ecobalyse_code;
-			}
-			else {
-				my $ecobalyse_proxy_code
-					= get_inherited_property("ingredients", $ingredient_ref->{id}, "ecobalyse_proxy:en");
-				if (defined $ecobalyse_proxy_code) {
-					$ingredient_ref->{ecobalyse_proxy_code} = $ecobalyse_proxy_code;
-				}
-				else {
-					push(@ingredients_without_ecobalyse_ids, $ingredient_ref->{id});
-				}
-			}
-
+		    # Retrieve the correct ecobalyse code if the ingredient is not organic
+		    my $ecobalyse_code = get_inherited_property("ingredients", $ingredient_ref->{id}, "ecobalyse:en");
+		    if (defined $ecobalyse_code) {
+        		$ingredient_ref->{ecobalyse_code} = $ecobalyse_code;
+		    }
+		    else {
+        		my $ecobalyse_proxy_code = get_inherited_property("ingredients", $ingredient_ref->{id}, "ecobalyse_proxy:en");
+		        if (defined $ecobalyse_proxy_code) {
+        		    $ingredient_ref->{ecobalyse_proxy_code} = $ecobalyse_proxy_code;
+		        }
+        		else {
+		            # Add to the list of ingredients without ecobalyse code
+        		    push(@ingredients_without_ecobalyse_ids, $ingredient_ref->{id});
+		        }
+    		}
 		}
 
 		#ecobalyse:en
