@@ -395,7 +395,7 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	(not defined $template_data_ref->{org_id}) and $template_data_ref->{org_id} = $Org_id;
 	$template_data_ref->{owner_pretty_path} = get_owner_pretty_path();
 
-	if (defined $template_data_ref->{user_id}) {
+	if (defined $template_data_ref->{user_id} and defined $template_data_ref->{canon_url}) {
 		$template_data_ref->{keycloak_account_link}
 			= ProductOpener::Keycloak->new()->get_account_link($template_data_ref->{canon_url});
 	}
