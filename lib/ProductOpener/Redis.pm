@@ -224,6 +224,8 @@ sub _process_registered_users_stream($stream_values_ref) {
 		# Create the user if they don't exist and set the properties
 		my $user_ref = retrieve_user($user_id);
 		unless ($user_ref) {
+			# This doesn't set registered_t and other fields,
+			# these are updated in Auth.pm when the user is redirected back to PO
 			$user_ref = {
 				userid => $user_id,
 				name => $user_id

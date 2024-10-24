@@ -292,8 +292,22 @@ sub get_user_id_using_token ($id_token, $request_ref, $require_verified_email = 
 	my $user_ref = retrieve_user($user_id);
 	unless ($user_ref) {
 		$log->info('User not found', {user_id => $user_id}) if $log->is_info();
-		return create_user_in_product_opener($id_token, $request_ref);
+		$user_ref = {userid => $user_id};
 	}
+
+	# Update duplicated information from Keycloak
+	$user_ref->{name} = $id_token->{'name'} // $user_id;
+	$user_ref->{email} = $id_token->{'email'};
+
+	# Make sure initial information is set (user may have been created by Redis)
+	defined $user_ref->{registered_t} or $user_ref->{registered_t} = time();
+	defined $user_ref->{last_login_t} or $user_ref->{last_login_t} = time();
+	defined $user_ref->{ip} or $user_ref->{ip} = remote_addr();
+	defined $user_ref->{initial_lc} or $user_ref->{initial_lc} = $lc;
+	defined $user_ref->{initial_cc} or $user_ref->{initial_cc} = $request_ref->{cc};
+	defined $user_ref->{initial_user_agent} or $user_ref->{initial_user_agent} = user_agent();
+
+	store_user($user_ref);
 
 	return $user_ref->{userid};
 }
@@ -466,45 +480,6 @@ sub signout_callback ($request_ref) {
 	init_user($request_ref);
 
 	return $cookie_ref{'return_url'};
-}
-
-=head2 create_user_in_product_opener($id_token)
-
-Create a .sto file for the user based on the ID token.
-
-Some functionality in ProductOpener still relies on the .sto files, so we need to
-create them for users that sign in using OIDC.
-
-=head3 Arguments
-
-=head4 An OIDC ID token representing the new user $id_token
-
-=head3 Return values
-
-The new user's id.
-
-=cut
-
-sub create_user_in_product_opener ($id_token, $request_ref) {
-	unless ($id_token) {
-		return;
-	}
-
-	my $user_ref = {
-		userid => $id_token->{'preferred_username'},
-		name => $id_token->{'name'} // $id_token->{'preferred_username'},
-		email => $id_token->{'email'},
-		ip => remote_addr(),
-		initial_lc => $lc,
-		initial_cc => $request_ref->{cc},
-		initial_user_agent => user_agent(),
-		registered_t => time(),
-		last_login_t => time(),
-	};
-
-	store_user($user_ref);
-
-	return $user_ref->{userid};
 }
 
 =head2 get_token_using_password_credentials($username, $password)
