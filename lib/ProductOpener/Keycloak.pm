@@ -142,9 +142,11 @@ sub create_user ($self, $user_ref, $password) {
 			}
 		],
 		attributes => [
-			name => [$user_ref->{name}],
-			locale => [$user_ref->{preferred_language}],
-			country => [$user_ref->{country}],
+			name => $user_ref->{name},
+			locale => $user_ref->{preferred_language},
+			country => $user_ref->{country},
+			reqested_org => $user_ref->{requested_org},
+			newsletter => ($user_ref->{newsletter} ? 'subscribe' : undef)
 		]
 	};
 	my $json = encode_json($api_request_ref);

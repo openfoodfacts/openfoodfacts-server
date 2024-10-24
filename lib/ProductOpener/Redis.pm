@@ -55,6 +55,9 @@ use vars @EXPORT_OK;
 use Log::Any qw/$log/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Minion qw/queue_job/;
+use ProductOpener::Users qw/retrieve_user store_user/;
+use ProductOpener::Text qw/remove_tags_and_quote/;
+use ProductOpener::Store qw/get_string_id_for_lang/;
 use AnyEvent;
 use AnyEvent::RipeRedis;
 
@@ -210,14 +213,47 @@ sub _process_registered_users_stream($stream_values_ref) {
 			$message_hash{$key} = $value;
 		}
 
-		$log->info("User registered", {user_id => $message_hash{'userName'}, newsletter => $message_hash{'newsletter'}})
+		my $user_id = $message_hash{'userName'};
+		my $newsletter = $message_hash{'newsletter'};
+		my $requested_org = $message_hash{'requestedOrg'};
+		my $email = $message_hash{'email'};
+
+		$log->info("User registered", {user_id => $user_id, newsletter => $newsletter})
 			if $log->is_info();
 
-		my $args_ref = {userid => $message_hash{'userName'}};
+		# Create the user if they don't exist and set the properties
+		my $user_ref = retrieve_user($user_id);
+		unless ($user_ref) {
+			$user_ref = {
+				userid => $user_id,
+				name => $user_id
+			};
+		}
+		$user_ref->{email} = $email;
+		if (defined $requested_org) {
+			$user_ref->{requested_org} = remove_tags_and_quote(decode utf8 => $requested_org);
+
+			my $requested_org_id = get_string_id_for_lang("no_language", $user_ref->{requested_org});
+
+			if ($requested_org_id ne "") {
+				$user_ref->{requested_org_id} = $requested_org_id;
+				$user_ref->{pro} = 1;
+			}
+		}
+		store_user($user_ref);
+
+		my $args_ref = {userid => $user_id};
+
 		queue_job(welcome_user => [$args_ref] => {queue => $server_options{minion_local_queue}});
 
-		if ($message_hash{'newsletter'} eq 'subscribe') {
+		# Subscribe to newsletter
+		if ($newsletter eq 'subscribe') {
 			queue_job(subscribe_user_newsletter => [$args_ref] => {queue => $server_options{minion_local_queue}});
+		}
+
+		# Register interest in joining an organisation
+		if (defined $requested_org) {
+			queue_job(process_user_requested_org => [$args_ref] => {queue => $server_options{minion_local_queue}});
 		}
 
 		$last_processed_message_id = $message_id;

@@ -219,6 +219,42 @@ sub subscribe_user_newsletter_task ($job, $args_ref) {
 	return;
 }
 
+=head2 process_user_requested_org_task ($job, $args_ref)
+
+C<process_user_requested_org_task()> Background task that to register a new user with an organisation
+
+=head3 Arguments
+
+Minion job arguments. $args_ref contains the userid
+
+=cut
+
+sub process_user_requested_org_task ($job, $args_ref) {
+	return if not defined $job;
+
+	my $job_id = $job->{id};
+
+	my $log_message = "process_user_requested_org_task - job: $job_id started - args: " . encode_json($args_ref) . "\n";
+	open(my $minion_log, ">>", "$BASE_DIRS{LOGS}/minion.log");
+	print $minion_log $log_message;
+	close($minion_log);
+
+	print STDERR $log_message;
+
+	my $userid = $args_ref->{userid};
+	my $user_ref = retreive_user($userid);
+	if (not(defined $user_ref)) {
+		$job->fail({errors => ['User with id ' . $userid . ' not found.']});
+		return;
+	}
+
+	process_user_requested_org($user_ref, {});
+
+	$job->finish("done");
+
+	return;
+}
+
 =head2 delete_user_task ($job, $args_ref)
 
 C<delete_user_task()> Background task that deletes a user. 
@@ -658,9 +694,11 @@ sub process_user_form ($type, $user_ref, $request_ref) {
 		my $keycloak = ProductOpener::Keycloak->new();
 		$keycloak->create_user($user_ref, single_param('password'));
 	}
-
-	# Professional account with a requested org (existing or new)
-	process_user_requested_org($user_ref, $request_ref);
+	else {
+		# Professional account with a requested org (existing or new)
+		# Keycloak round trip will do this for new users but still call here for edits
+		process_user_requested_org($user_ref, $request_ref);
+	}
 
 	# save user
 	store_user($user_ref);
