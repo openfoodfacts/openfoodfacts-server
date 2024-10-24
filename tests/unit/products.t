@@ -37,6 +37,8 @@ is(normalize_code('https://example.com/01/00012345000058?17=271200'),
 	'0012345000058', 'should reduce GS1 Digital Link URI to GTIN');
 is(normalize_code('https://world.openfoodfacts.org/'), '', 'non-GS1 URIs should return an empty string');
 is(normalize_code('http://spam.zip/'), '', 'non-GS1 URIs should return an empty string');
+is(normalize_code('0100360505082919'),
+	'0360505082919', 'should reduce GS1 AI unbracketed string to GTIN (13 digits, padded with 0)');
 
 # code normalization with GS1 AI
 is(normalize_code_with_gs1_ai('036000291452'), ('0036000291452', undef), 'GS1: should add leading 0 to valid UPC12');

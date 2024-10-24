@@ -81,12 +81,13 @@ paths:
           content:
             application/json:
               schema:
+                title: get_product_by_barcode_knowledge_panels_response
                 allOf:
                   - $ref: ./responses/get_product_by_barcode_base.yaml
                   - type: object
                     properties:
                       product:
-                        $ref: ./schemas/product_knowledge_panels.yaml
+                        $ref: "#/components/schemas/Product-Knowledge-Panels"
       description: |
         Knowledge panels gives high leve informations about a product,
         ready to display.
@@ -196,6 +197,7 @@ paths:
           content:
             application/json:
               schema:
+                title: unselect_a_photo_response
                 type: object
                 properties:
                   status:
@@ -403,6 +405,7 @@ paths:
           content:
             application/json:
               schema:
+                title: get_attribute_groups_response
                 $ref: ./responses/get_attribute_groups.yaml
       parameters:
         - $ref: "#/components/parameters/lc"
@@ -432,18 +435,22 @@ components:
       $ref: ./schemas/product_misc.yaml
     "Product-Tags":
       $ref: ./schemas/product_tags.yaml
-    "Product-Nutrition":
-      $ref: ./schemas/product_nutrition.yaml
-    "Product-Ingredients":
-      $ref: ./schemas/product_ingredients.yaml
     "Product-Images":
       $ref: ./schemas/product_images.yaml
     "Product-Eco-Score":
       $ref: ./schemas/product_ecoscore.yaml
+    "Product-Ingredients":
+      $ref: ./schemas/product_ingredients.yaml
+    "Product-Nutrition":
+      $ref: ./schemas/product_nutrition.yaml
+    "Product-Quality":
+      $ref: ./schemas/product_quality.yaml
+    "Product-Data-Quality":
+      $ref: ./schemas/product_knowledge_panels.yaml
+    "Product-Extended":
+      $ref: ./schemas/product_extended.yaml
     "Product-Metadata":
       $ref: ./schemas/product_meta.yaml
-    "Product-Data-Quality":
-      $ref: ./schemas/product_quality.yaml
     "Product-Knowledge-Panels":
       $ref: ./schemas/product_knowledge_panels.yaml
     "Product-Attribute-Groups":
@@ -516,7 +523,7 @@ components:
       required: true
     page:
       schema:
-        type: int
+        type: integer
         example: 24
       in: query
       name: page
@@ -524,7 +531,7 @@ components:
         The page number you request to view (eg. in search results spanning multiple pages)
     page_size:
       schema:
-        type: int
+        type: integer
         example: 24
       in: query
       name: page_size

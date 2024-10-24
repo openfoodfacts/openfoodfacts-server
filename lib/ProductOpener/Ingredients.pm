@@ -3407,7 +3407,6 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 					push(@ingredients_without_ecobalyse_ids, $ingredient_ref->{id});
 				}
 			}
-
 		}
 
 		#ecobalyse:en
