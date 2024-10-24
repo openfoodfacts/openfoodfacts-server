@@ -180,7 +180,7 @@ sub signin_callback ($request_ref) {
 		display_error_and_exit($request_ref, 'Authentication error', 401);
 	}
 
-	my $user_id = get_user_id_using_token($id_token);
+	my $user_id = get_user_id_using_token($id_token, $request_ref);
 	unless (defined $user_id) {
 		$log->info('User not found and not created') if $log->is_info();
 		display_error_and_exit($request_ref, 'Internal error', 500);
@@ -209,7 +209,7 @@ sub signin_callback ($request_ref) {
 	return $cookie_ref{'return_url'};
 }
 
-=head2 password_signin($username, $password)
+=head2 password_signin($username, $password, $request_ref)
 
 Signs in the user with a username and password, and returns the user's ID, refresh token, refresh token expiration time, access token, and access token expiration time.
 
@@ -227,7 +227,7 @@ A list containing the user's ID, refresh token, refresh token expiration time, a
 
 =cut
 
-sub password_signin ($username, $password) {
+sub password_signin ($username, $password, $request_ref) {
 	unless ($username and $password) {
 		return;
 	}
@@ -244,7 +244,7 @@ sub password_signin ($username, $password) {
 		return;
 	}
 
-	my $user_id = get_user_id_using_token($id_token);
+	my $user_id = get_user_id_using_token($id_token, $request_ref);
 	$log->debug('user_id found', {user_id => $user_id}) if $log->is_debug();
 	return (
 		$user_id,
@@ -258,7 +258,7 @@ sub password_signin ($username, $password) {
 	);
 }
 
-=head2 get_user_id_using_token ($id_token, $require_verified_email)
+=head2 get_user_id_using_token ($id_token, , $request_ref, $require_verified_email)
 
 Extract the user id from the OIDC identification token (which contains an email).
 
@@ -282,7 +282,7 @@ The userid as a string
 
 =cut
 
-sub get_user_id_using_token ($id_token, $require_verified_email = 0) {
+sub get_user_id_using_token ($id_token, $request_ref, $require_verified_email = 0) {
 	if ($require_verified_email and (not($id_token->{'email_verified'} eq $JSON::PP::true))) {
 		$log->info('User email is not verified.', {email => $id_token->{'email'}}) if $log->is_info();
 		return;
@@ -292,7 +292,7 @@ sub get_user_id_using_token ($id_token, $require_verified_email = 0) {
 	my $user_ref = retrieve_user($user_id);
 	unless ($user_ref) {
 		$log->info('User not found', {user_id => $user_id}) if $log->is_info();
-		return create_user_in_product_opener($id_token);
+		return create_user_in_product_opener($id_token, $request_ref);
 	}
 
 	return $user_ref->{userid};
@@ -485,17 +485,23 @@ The new user's id.
 
 =cut
 
-sub create_user_in_product_opener ($id_token) {
+sub create_user_in_product_opener ($id_token, $request_ref) {
 	unless ($id_token) {
 		return;
 	}
 
 	my $user_ref = {
 		userid => $id_token->{'preferred_username'},
-		name => $id_token->{'name'} // $id_token->{'preferred_username'}
+		name => $id_token->{'name'} // $id_token->{'preferred_username'},
+		email => $id_token->{'email'},
+		ip => remote_addr(),
+		initial_lc => $lc,
+		initial_cc => $request_ref->{cc},
+		initial_user_agent => user_agent(),
+		registered_t => time(),
+		last_login_t => time(),
 	};
 
-	$user_ref->{email} = $id_token->{'email'};
 	store_user($user_ref);
 
 	return $user_ref->{userid};

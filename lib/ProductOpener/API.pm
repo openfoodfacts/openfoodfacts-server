@@ -958,7 +958,7 @@ sub process_auth_header ($request_ref, $r) {
 	}
 
 	$request_ref->{access_token} = $access_token;
-	my $user_id = get_user_id_using_token($access_token);
+	my $user_id = get_user_id_using_token($access_token, $request_ref);
 	unless (defined $user_id) {
 		$log->info('User not found and not created') if $log->is_info();
 		display_error_and_exit($request_ref, 'Internal error', 500);

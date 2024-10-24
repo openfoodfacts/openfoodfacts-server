@@ -28,7 +28,7 @@ create_user_in_keycloak(\%create_user_args);
 subtest 'user + password_signin' => sub {
 	subtest 'with bad password' => sub {
 		my ($oidc_user_id, $refresh_token, $refresh_expires_at, $access_token, $access_expires_at, $id_token)
-			= password_signin('tests', 'badpassword');
+			= password_signin('tests', 'badpassword', {});
 		is($oidc_user_id, undef, 'user_id is undefined');
 		is($refresh_token, undef, 'refresh_token is undefined');
 		is($refresh_expires_at, undef, 'refresh_expires_at is undefined');
@@ -39,7 +39,7 @@ subtest 'user + password_signin' => sub {
 
 	subtest 'with good password' => sub {
 		my ($oidc_user_id, $refresh_token, $refresh_expires_at, $access_token, $access_expires_at, $id_token)
-			= password_signin('tests', '!!!TestTest1!!!');
+			= password_signin('tests', '!!!TestTest1!!!', {});
 		is($oidc_user_id, 'tests', 'user_id matches the one we used');
 		ok($refresh_token, 'refresh token is defined');
 		ok($refresh_expires_at, 'refresh token expires_at is defined');
@@ -52,7 +52,7 @@ subtest 'user + password_signin' => sub {
 subtest 'mail + password_signin' => sub {
 	subtest 'with bad password' => sub {
 		my ($oidc_user_id, $refresh_token, $refresh_expires_at, $access_token, $access_expires_at, $id_token)
-			= password_signin('bob@gmail.com', 'badpassword');
+			= password_signin('bob@gmail.com', 'badpassword', {});
 		is($oidc_user_id, undef, 'user_id is undefined');
 		is($refresh_token, undef, 'refresh_token is undefined');
 		is($refresh_expires_at, undef, 'refresh_expires_at is undefined');
@@ -63,7 +63,7 @@ subtest 'mail + password_signin' => sub {
 
 	subtest 'with good password' => sub {
 		my ($oidc_user_id, $refresh_token, $refresh_expires_at, $access_token, $access_expires_at, $id_token)
-			= password_signin('bob@gmail.com', '!!!TestTest1!!!');
+			= password_signin('bob@gmail.com', '!!!TestTest1!!!', {});
 		is($oidc_user_id, 'tests', 'user_id matches the one we used');
 		ok($refresh_token, 'refresh token is defined');
 		ok($refresh_expires_at, 'refresh token expires_at is defined');

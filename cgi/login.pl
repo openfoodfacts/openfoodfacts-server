@@ -65,7 +65,7 @@ if (not($final_status_set) and (not($ENV{'REQUEST_METHOD'} eq 'POST'))) {
 if (not($final_status_set)) {
 	my ($oidc_user_id, $refresh_token, $refresh_expires_at, $access_token, $access_expires_at, $id_token)
 		= password_signin(encode_utf8(decode utf8 => single_param('user_id')),
-		encode_utf8(decode utf8 => single_param('password')));
+		encode_utf8(decode utf8 => single_param('password')), $request_ref);
 	if ($oidc_user_id) {
 		$r->headers_out->set(Location => $loc);
 		$status_code = Apache2::Const::HTTP_MOVED_TEMPORARILY;
