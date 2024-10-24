@@ -109,10 +109,7 @@ properties:
   manufacturing_places_tags:
     type: array
     items:
-      title: manufacturing_places_tag
-      type:
-        - "object"
-        - "string"
+      type: "string"
   nova_groups_tags:
     type: array
     items:
