@@ -1,4 +1,5 @@
 type: object
+title: Product-Images
 description: |
   Information about Images of a product.
 
@@ -14,17 +15,12 @@ properties:
     description: |
       This contains properties for all images contained on the product.
     type: object
+    title: product_images_properties
     properties:
       1:
-        type: object
-        description: |
-          This represents an image uploaded for this product.
         $ref: ./image.yaml
       front:
-        description: |
-          This represents an image (or part of it) selected for a specific role on this product.
-        type: object
-        $ref: ./image_role.yaml
+        $ref: "./image_role.yaml#/components/schemas/ImageRole"
     patternProperties:
       '(?<imgid>\d+)':
         description: |
@@ -47,6 +43,7 @@ properties:
 
   selected_images:
     type: object
+    title: product_selected_images
     description: |
       URL for selected (important) images of the product.
 
@@ -60,19 +57,19 @@ properties:
             description: |
               Thumbnail urls of product image (front) adapted to display on product page
             type: object
-            $ref: 'image_urls.yaml'
+            $ref: "image_urls.yaml"
           small:
             description: |
               Thumbnail urls of product image (front) adapted to display on product list page
             type: object
-            $ref: 'image_urls.yaml'
+            $ref: "image_urls.yaml"
           thumb:
             description: |
               Thumbnail urls of product image (front) in smallest format
             type: object
-            $ref: 'image_urls.yaml'
+            $ref: "image_urls.yaml"
     patternProperties:
-      '(?<image_type>front|packaging|ingredients|nutrition|other)':
+      "(?<image_type>front|packaging|ingredients|nutrition|other)":
         description: |
           See property `front` to get the real type of those objects
           (Put this way because of a [bug in rapidoc](https://github.com/rapi-doc/RapiDoc/issues/880))
@@ -85,14 +82,14 @@ properties:
   image_url:
     type: string
 
-  patternProperties:
-    'image(_(?<image_type>front|packaging|ingredients|nutrition|other))?(_(?<image_size>small|thumb))?_url':
-      description: |
-        the URL of image of type `image_type` in size `image_size` (or full size if not given).
+patternProperties:
+  "image(_(?<image_type>front|packaging|ingredients|nutrition|other))?(_(?<image_size>small|thumb))?_url":
+    description: |
+      the URL of image of type `image_type` in size `image_size` (or full size if not given).
 
-        The `image_type` tells which image the url correspond to. `image_type` is `front` if not provided.
+      The `image_type` tells which image the url correspond to. `image_type` is `front` if not provided.
 
-        The image is the one for current language (affected by `lc` parameter) if an image exists for this language, the image in main product language otherwise.
+      The image is the one for current language (affected by `lc` parameter) if an image exists for this language, the image in main product language otherwise.
 
-        **IMPORTANT:** you should use `selected_images` field instead of this one.
-      type: string
+      **IMPORTANT:** you should use `selected_images` field instead of this one.
+    type: string
