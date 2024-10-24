@@ -583,33 +583,62 @@ sub create_ecoscore_panel ($product_ref, $target_lc, $target_cc, $options_ref, $
 		my $agribalyse_score = $product_ref->{ecoscore_data}{agribalyse}{score};
 		my $agribalyse_grade;
 
-		if ($agribalyse_score >= 80) {
+		if ($agribalyse_score >= 90) {
+			$agribalyse_grade = "a-plus";
+		}
+		elsif ($agribalyse_score >= 75) {
 			$agribalyse_grade = "a";
 		}
 		elsif ($agribalyse_score >= 60) {
 			$agribalyse_grade = "b";
 		}
-		elsif ($agribalyse_score >= 40) {
+		elsif ($agribalyse_score >= 45) {
 			$agribalyse_grade = "c";
 		}
-		elsif ($agribalyse_score >= 20) {
+		elsif ($agribalyse_score >= 30) {
 			$agribalyse_grade = "d";
 		}
-		else {
+		elsif ($agribalyse_score >= 15) {
 			$agribalyse_grade = "e";
+		}
+		else {
+			$agribalyse_grade = "f";
+		}
+
+		my $letter_grade = uc($grade);    # A+, A, B, C, D, E, F
+		my $grade_underscore = $grade;
+		$grade_underscore =~ s/\-/_/;    # a-plus -> a_plus
+		if ($grade eq "a-plus") {
+			$letter_grade = "A+";
+		}
+
+		my $agribalyse_letter_grade = uc($agribalyse_grade);    # A+, A, B, C, D, E, F
+		my $agribalyse_grade_underscore = $agribalyse_grade;
+		$agribalyse_grade_underscore =~ s/\-/_/;    # a-plus -> a_plus
+		if ($agribalyse_grade eq "a-plus") {
+			$agribalyse_letter_grade = "A+";
+		}
+
+		# cap the score to 100 as we display it /100
+		if ($score > 100) {
+			$score = 100;
 		}
 
 		# We can reuse some strings from the Eco-Score attribute
 		my $title = sprintf(lang_in_other_lc($target_lc, "attribute_ecoscore_grade_title"), uc($grade)) . ' - '
-			. lang_in_other_lc($target_lc, "attribute_ecoscore_" . $grade . "_description_short");
+			. lang_in_other_lc($target_lc, "attribute_ecoscore_" . $grade_underscore . "_description_short");
 
 		my $panel_data_ref = {
 			"agribalyse_category_name" => $agribalyse_category_name,
 			"agribalyse_score" => $agribalyse_score,
 			"agribalyse_grade" => $agribalyse_grade,
+			"agribalyse_grade_underscore" => $agribalyse_grade_underscore,
+			"agribalyse_letter_grade" => $agribalyse_letter_grade,
 			"name" => lang_in_other_lc($target_lc, "attribute_ecoscore_name"),
 			"score" => $score,
 			"grade" => $grade,
+			"grade_underscore" => $grade_underscore,
+			"letter_grade" => $letter_grade,
 			"title" => $title,
 			"transportation_warning" => $transportation_warning,
 		};

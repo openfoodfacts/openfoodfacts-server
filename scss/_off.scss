@@ -123,11 +123,13 @@ $material-icons: "Material Icons";
 }
 
 // background colors for attributes and panels
+$grade-a-plus-color: #219653;
 $grade-a-color: #219653;
 $grade-b-color: #60ac0e;
 $grade-c-color: #c88f01;
 $grade-d-color: #e07312;
 $grade-e-color: #eb5757;
+$grade-f-color: #bf3122;
 $grade-unknown-color: #4f4f4f;
 $evaluation-good-color: #219653;
 $evaluation-average-color: #f2994a;
@@ -1097,6 +1099,18 @@ a.grade_unknown:hover {
   color: $grade-unknown-color;
 }
 
+.grade_a_plus {
+  background-color: rgba($grade-a-plus-color, 0.1) !important;
+}
+
+a.grade_a_plus:hover {
+  background-color: rgba($grade-a-plus-color, 0.2) !important;
+}
+
+.grade_a_plus_title {
+  color: $grade-a-plus-color;
+}
+
 .grade_a {
   background-color: rgba($grade-a-color, 0.1) !important;
 }
@@ -1155,6 +1169,18 @@ a.grade_e:hover {
 
 .grade_e_title {
   color: $grade-e-color;
+}
+
+.grade_f {
+  background-color: rgba($grade-f-color, 0.1) !important;
+}
+
+a.grade_f:hover {
+  background-color: rgba($grade-f-color, 0.2) !important;
+}
+
+.grade_f_title {
+  color: $grade-f-color;
 }
 
 #main_column {
