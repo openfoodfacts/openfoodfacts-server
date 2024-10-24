@@ -59,8 +59,8 @@ foreach my $flavor (keys %flavors) {
 
 my $d = 0;
 
-open(OUT, ">:encoding(UTF-8)", "/srv/off/html/files/duplicate_products.csv");
-print OUT "code\tproduct_name\tbrands\tscans\toff\tobf\topf\topff\n";
+open(my $out, ">:encoding(UTF-8)", "/srv/off/html/files/duplicate_products.csv");
+print $out "code\tproduct_name\tbrands\tscans\toff\tobf\topf\topff\n";
 
 my %urls = (
 	off => "https://world.openfoodfacts.org",
@@ -77,22 +77,22 @@ foreach my $code (sort keys %{$flavors{all}}) {
 		. ($product_names{$code} || '') . "\t"
 		. ($brands{$code} || '') . "\t"
 		. ($scans{$code} || 0);
-	print OUT $code . "\t"
+	print $out $code . "\t"
 		. ($product_names{$code} || '') . "\t"
 		. ($brands{$code} || '') . "\t"
 		. ($scans{$code} || 0);
-	foreach $flavor ("off", "obf", "opf", "opff") {
+	foreach my $flavor ("off", "obf", "opf", "opff") {
 		if ($flavors{$flavor}{$code}) {
 			print "\t" . $flavor . " (" . $flavors{$flavor}{$code} . ")";
-			print OUT "\t" . $urls{$flavor} . "/product/$code";
+			print $out "\t" . $urls{$flavor} . "/product/$code";
 		}
 		else {
 			print "\t";
-			print OUT "\t";
+			print $out "\t";
 		}
 	}
 	print "\n";
-	print OUT "\n";
+	print $out "\n";
 	$d++;
 }
 
