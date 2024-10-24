@@ -630,7 +630,6 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "20505",
-         "ecobalyse_code" : "lentils-uncooked-eu",
          "id" : "en:green-lentils",
          "is_in_taxonomy" : 1,
          "labels" : "en:organic",
@@ -685,8 +684,10 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
-   "ingredients_without_ecobalyse_ids" : [],
-   "ingredients_without_ecobalyse_ids_n" : 0,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:green-lentils"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 1,
    "interface_version_created" : "import_csv_file - version 2019/09/17",
    "known_ingredients_n" : 5,
    "labels" : "Organic, EU Organic, FR-BIO-01, AB Agriculture Biologique, Agriculture France",
