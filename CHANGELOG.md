@@ -1,5 +1,22 @@
 # Changelog
 
+## [2.47.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.46.0...v2.47.0) (2024-10-24)
+
+
+### Features
+
+* api docs remove query string from get by barcode and add security to solve openapi linter errors/warnings  ([#10922](https://github.com/openfoodfacts/openfoodfacts-server/issues/10922)) ([b7aefbd](https://github.com/openfoodfacts/openfoodfacts-server/commit/b7aefbd03b95fa863b39550250ddbe2f0712febb))
+* Eco-Score improvements and change of scale: A+ to F ([#10829](https://github.com/openfoodfacts/openfoodfacts-server/issues/10829)) ([87df665](https://github.com/openfoodfacts/openfoodfacts-server/commit/87df6653ed5959139a64bf518e0cc136e9cb4d0f))
+
+
+### Bug Fixes
+
+* add googleOther bot ([#10912](https://github.com/openfoodfacts/openfoodfacts-server/issues/10912)) ([d56760a](https://github.com/openfoodfacts/openfoodfacts-server/commit/d56760a0de53bb1bef6c869b6019c12052284197))
+* allow CORS requests for product image move ([#10920](https://github.com/openfoodfacts/openfoodfacts-server/issues/10920)) ([967a47e](https://github.com/openfoodfacts/openfoodfacts-server/commit/967a47e5129ff0d14e1f43d618843f8f638f82c4))
+* attribute for product without new nutriscore data ([#10915](https://github.com/openfoodfacts/openfoodfacts-server/issues/10915)) ([c413719](https://github.com/openfoodfacts/openfoodfacts-server/commit/c41371912fd2bdb8f715bac89dcb06b87c7580ce))
+* cosmetic changes for new Eco-Score grades ([#10921](https://github.com/openfoodfacts/openfoodfacts-server/issues/10921)) ([6e7dbfa](https://github.com/openfoodfacts/openfoodfacts-server/commit/6e7dbfa961ca6bbdccbfd11d60e10d84a01854bc))
+* Revert "fix: remove unused jquery-ui safe-active-element module ([#10708](https://github.com/openfoodfacts/openfoodfacts-server/issues/10708))" ([#10924](https://github.com/openfoodfacts/openfoodfacts-server/issues/10924)) ([d290c54](https://github.com/openfoodfacts/openfoodfacts-server/commit/d290c54d5f0b85ffe1bfc794700b77a4b3b40838))
+
 ## [2.46.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.45.0...v2.46.0) (2024-10-18)
 
 
