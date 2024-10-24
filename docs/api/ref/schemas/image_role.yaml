@@ -29,7 +29,10 @@ components:
           #  - type: "boolean"
           #  - type: "string"
           #    enum: ["true", "false"]
-          type: "null"
+          type:
+            - "string"
+            - "boolean"
+            - "null"
           examples:
             - null
             - "false"
@@ -60,7 +63,10 @@ components:
           #  - type: "boolean"
           #  - type: "string"
           #    enum: ["true", "false"]
-          type: "null"
+          type:
+            - "string"
+            - "boolean"
+            - "null"
           examples:
             - null
             - "false"
