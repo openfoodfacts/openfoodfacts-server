@@ -88,10 +88,10 @@ paths:
                       product:
                         $ref: ./schemas/product_knowledge_panels.yaml
       description: |
-        Knowledge panels gives high leve informations about a product,
+        Knowledge panels give high level information about a product,
         ready to display.
         This is used by open food facts website,
-        and by the official mobile application
+        and by the official mobile application.
       operationId: get-product-by-barcode-knowledge-panels
   /cgi/product_image_upload.pl:
     post:
