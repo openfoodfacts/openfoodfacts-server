@@ -8,7 +8,7 @@
         "icon_url": "[% static_subdomain %]/images/attributes/dist/ecoscore-[% panel.grade %].svg",
         "title": "[% panel.title %]",
         "type": "grade",
-        "grade": "[% panel.grade %]"
+        "grade": "[% panel.grade_underscore %]"
     },
     "elements": [
         [% IF panel.transportation_warning.defined %]

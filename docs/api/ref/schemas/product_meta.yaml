@@ -112,8 +112,8 @@ properties:
           type: string
         url:
           type:
-            - "null"
-            - string
+            - 'null'
+            - 'string'
   sources_fields:
     type: object
     title: product_meta_source_fields

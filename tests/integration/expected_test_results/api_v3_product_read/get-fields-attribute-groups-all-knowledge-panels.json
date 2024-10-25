@@ -302,7 +302,7 @@
                   "grade" : "c",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/ecoscore-c.svg",
                   "id" : "ecoscore",
-                  "match" : 48,
+                  "match" : 47,
                   "name" : "Eco-Score",
                   "panel_id" : "ecoscore",
                   "status" : "known",
@@ -626,7 +626,7 @@
                   "grade" : "c",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/ecoscore-c.svg",
                   "id" : "ecoscore",
-                  "match" : 48,
+                  "match" : 47,
                   "name" : "Eco-Score",
                   "panel_id" : "ecoscore",
                   "status" : "known",
@@ -757,7 +757,7 @@
                      "epi_score" : "0",
                      "origin" : "en:unknown",
                      "percent" : 100,
-                     "transportation_score" : null
+                     "transportation_score" : 0
                   }
                ],
                "epi_score" : 0,
@@ -1841,7 +1841,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                Life cycle analysis score: 70<br>\n                Sum of bonuses and maluses:\n                    \n                        -23\n                    <br><br>\n                Final score: 47/100\n                \n                ",
+                     "html" : "\n                Life cycle analysis score: 70<br>\n                Sum of bonuses and maluses:\n                    \n                        -23\n                    <br><br>\n                Final score: 47/100\n                ",
                      "type" : "summary"
                   }
                }

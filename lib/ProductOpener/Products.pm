@@ -432,7 +432,7 @@ Boolean value indicating if the code is valid or not.
 sub is_valid_code ($code) {
 	# Return an empty string if $code is undef
 	return '' if !defined $code;
-	return $code =~ /^\d{4,24}$/;
+	return $code =~ /^\d{4,40}$/;
 }
 
 =head2 split_code()
