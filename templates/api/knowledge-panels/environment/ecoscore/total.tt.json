@@ -26,7 +26,6 @@
                         [% IF sum_of_bonuses_and_maluses > 0 %]+[% END %][% sum_of_bonuses_and_maluses %]
                     [% END %]<br><br>
                 [% lang('ecoscore_final_score') %][% sep %]: [% panel.score %]/100
-                [% IF product.ecoscore_data.downgraded AND (panel.score == 79) %] ([% lang('ecoscore_downgraded_non_recyclable_and_non_biodegradable_materials') %])[% END %]
                 `
             }
         }
