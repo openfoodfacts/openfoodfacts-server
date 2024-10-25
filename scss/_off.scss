@@ -1243,6 +1243,9 @@ $border-pink: #ff6e78;
     flex-direction: column;
     padding: 20px 10px;
   }
+  &__group-photo{
+    border-radius: 5px;
+  }
   &__close {
     button {
       position: absolute;
@@ -1253,13 +1256,19 @@ $border-pink: #ff6e78;
       color: inherit;
     }
   }
+  &__aside{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__main-title{
+    color: $border-pink;
+    font-weight: 700;
+  }
   &__main-section{
     display: flex;
     align-items: center;
     margin-bottom: 20px;
-    &__main-title{
-      color: $border-pink;
-    }
   }
   &__actions-section{
     display: flex;
