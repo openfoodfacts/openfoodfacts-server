@@ -848,13 +848,11 @@ CSS
 
 	my $label_new_code = $Lang{new_code}{$lc};
 
-	# 26/01/2017 - disallow barcode changes until we fix bug #677
-	if ($User{moderator}) {
-	}
-
 	$template_data_ref_display->{org_id} = $Org_id;
 	$template_data_ref_display->{label_new_code} = $label_new_code;
 	$template_data_ref_display->{owner_id} = $Owner_id;
+
+	$template_data_ref_display->{product_types} = \@product_types;
 
 	# obsolete products: restrict to admin on public site
 	# authorize owners on producers platform

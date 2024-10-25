@@ -1099,30 +1099,22 @@ $options{current_server} = "off";
 $options{other_servers} = {
 	obf => {
 		name => "Open Beauty Facts",
-		data_root => "/srv/obf",
-		www_root => "/srv/obf/html",
 		mongodb => "obf",
 		domain => "openbeautyfacts.org",
 	},
 	off => {
 		name => "Open Food Facts",
-		data_root => "/srv/off",
-		www_root => "/srv/off/html",
 		mongodb => "off",
 		domain => "openfoodfacts.org",
 	},
 	opf => {
 		name => "Open Products Facts",
-		data_root => "/srv/opf",
-		www_root => "/srv/opf/html",
 		mongodb => "opf",
 		domain => "openproductsfacts.org",
 	},
 	opff => {
 		prefix => "opff",
 		name => "Open Pet Food Facts",
-		data_root => "/srv/opff",
-		www_root => "/srv/opff/html",
 		mongodb => "opff",
 		domain => "openpetfoodfacts.org",
 	}
