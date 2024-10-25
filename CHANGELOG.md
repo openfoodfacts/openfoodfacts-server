@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.47.1](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.47.0...v2.47.1) (2024-10-24)
+
+
+### Bug Fixes
+
+* donation page now uses Matomo like the rest of OFF ([#10931](https://github.com/openfoodfacts/openfoodfacts-server/issues/10931)) ([7dbbcbc](https://github.com/openfoodfacts/openfoodfacts-server/commit/7dbbcbcbe00ec68d1612e795e4f7866d0b5f1ee5))
+
 ## [2.47.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.46.0...v2.47.0) (2024-10-24)
 
 
