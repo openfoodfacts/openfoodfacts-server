@@ -8,5 +8,6 @@ OnFailure=email-failures@sync_images_s3__%i.service
 Type=oneshot
 User=off
 Group=off
-ExecStart=/srv/%i/scripts/sync-s3-images/.venv/bin/python3 /srv/%i/scripts/sync-s3-images/sync_s3_images.py /mnt/%i/images/products
+# Warning: this script doesn't work currently with non-off product type
+ExecStart=/srv/%i/scripts/sync-s3-images/.venv/bin/python3 /srv/%i/scripts/sync-s3-images/sync_s3_images.py /mnt/off/images/products /mnt/off/html_data/openfoodfacts-products.jsonl.gz
 KillMode=process

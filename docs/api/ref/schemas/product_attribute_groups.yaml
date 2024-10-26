@@ -6,6 +6,7 @@ properties:
     type: array
     description: Each element is an attribute that can help compute a personal ranking for the product
     items:
+      title: product_attribute_group
       type: object
       properties:
         id:

@@ -302,7 +302,7 @@
                   "grade" : "c",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/ecoscore-c.svg",
                   "id" : "ecoscore",
-                  "match" : 48,
+                  "match" : 47,
                   "name" : "Eco-Score",
                   "panel_id" : "ecoscore",
                   "status" : "known",
@@ -626,7 +626,7 @@
                   "grade" : "c",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/ecoscore-c.svg",
                   "id" : "ecoscore",
-                  "match" : 48,
+                  "match" : 47,
                   "name" : "Eco-Score",
                   "panel_id" : "ecoscore",
                   "status" : "known",
@@ -757,7 +757,7 @@
                      "epi_score" : "0",
                      "origin" : "en:unknown",
                      "percent" : 100,
-                     "transportation_score" : null
+                     "transportation_score" : 0
                   }
                ],
                "epi_score" : 0,
@@ -1234,6 +1234,7 @@
       "ingredients" : [
          {
             "ciqual_food_code" : "13050",
+            "ecobalyse_code" : "apple-fr",
             "id" : "en:apple",
             "is_in_taxonomy" : 1,
             "percent_estimate" : 62.5,
@@ -1245,6 +1246,7 @@
          },
          {
             "ciqual_proxy_food_code" : "19051",
+            "ecobalyse_code" : "milk",
             "id" : "en:milk",
             "is_in_taxonomy" : 1,
             "percent_estimate" : 18.75,
@@ -1256,6 +1258,7 @@
          },
          {
             "ciqual_food_code" : "22000",
+            "ecobalyse_code" : "egg-indoor-code3",
             "id" : "en:egg",
             "is_in_taxonomy" : 1,
             "percent_estimate" : 9.375,
@@ -1267,6 +1270,7 @@
          },
          {
             "ciqual_food_code" : "16129",
+            "ecobalyse_code" : "refined-palm-oil",
             "from_palm_oil" : "yes",
             "id" : "en:palm-oil",
             "is_in_taxonomy" : 1,
@@ -1341,6 +1345,8 @@
       "ingredients_with_unspecified_percent_sum" : 100,
       "ingredients_without_ciqual_codes" : [],
       "ingredients_without_ciqual_codes_n" : 0,
+      "ingredients_without_ecobalyse_ids" : [],
+      "ingredients_without_ecobalyse_ids_n" : 0,
       "interface_version_created" : "20150316.jqm2",
       "interface_version_modified" : "20150316.jqm2",
       "knowledge_panels" : {
@@ -1527,6 +1533,7 @@
             "title_element" : {
                "grade" : "c",
                "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/ecoscore-c.svg",
+               "name" : "Eco-Score",
                "title" : "Eco-Score C - Moderate environmental impact",
                "type" : "grade"
             },
@@ -1834,7 +1841,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                Life cycle analysis score: 70<br>\n                Sum of bonuses and maluses:\n                    \n                        -23\n                    <br><br>\n                Final score: 47/100\n                \n                ",
+                     "html" : "\n                Life cycle analysis score: 70<br>\n                Sum of bonuses and maluses:\n                    \n                        -23\n                    <br><br>\n                Final score: 47/100\n                ",
                      "type" : "summary"
                   }
                }

@@ -4811,10 +4811,14 @@ msgctxt "attribute_ecoscore_setting_note"
 msgid "The Eco-Score is an environmental score (ecoscore) from A to E which makes it easy to compare the impact of food products on the environment."
 msgstr ""
 
-# keep %s, it will be replaced by the letter A, B, C, D or E
+# keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_ecoscore_grade_title"
 msgid "Eco-Score %s"
 msgstr "Eco-Score %s"
+
+msgctxt "attribute_ecoscore_a_plus_description_short"
+msgid "Very low environmental impact"
+msgstr "Very low environmental impact"
 
 msgctxt "attribute_ecoscore_a_description_short"
 msgid "Very low environmental impact"
@@ -4833,6 +4837,10 @@ msgid "High environmental impact"
 msgstr "High environmental impact"
 
 msgctxt "attribute_ecoscore_e_description_short"
+msgid "Very high environmental impact"
+msgstr "Very high environmental impact"
+
+msgctxt "attribute_ecoscore_f_description_short"
 msgid "Very high environmental impact"
 msgstr "Very high environmental impact"
 
@@ -6893,6 +6901,10 @@ msgctxt "report_problem_panel_title"
 msgid "Report a problem"
 msgstr "Report a problem"
 
+msgctxt "report_problem_navigation"
+msgid "Report a problem."
+msgstr "Report a problem."
+
 msgctxt "incomplete_or_incorrect_data_title"
 msgid "Incomplete or incorrect information?"
 msgstr "Incomplete or incorrect information?"
@@ -6913,6 +6925,7 @@ msgctxt "description"
 msgid "Description"
 msgstr "Description"
 
+# duplicate with "report_problem_panel_title"
 msgctxt "report_problem_navigation"
 msgid "Report a problem"
 msgstr "Report a problem"
@@ -7005,33 +7018,29 @@ msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_5"
 msgid "and your health!"
 msgstr "and your health!"
 
-msgctxt "brands_example_beauty"
-msgid "Nivea, Nivea Men"
-msgstr "Nivea, Nivea Men"
+#msgctxt "brands_example_beauty"
+#msgid "Nivea, Nivea Men"
+#msgstr "Nivea, Nivea Men"
 
-msgctxt "categories_example_beauty"
-msgid "Anti-dandruff shampoo, Whitening toothpaste"
-msgstr "Anti-dandruff shampoo, Whitening toothpaste"
+#msgctxt "categories_example_beauty"
+#msgid "Anti-dandruff shampoo, Whitening toothpaste"
+#msgstr "Anti-dandruff shampoo, Whitening toothpaste"
 
-msgctxt "emb_codes_example_beauty"
-msgid "EMB 53062"
-msgstr "EMB 53062"
+#msgctxt "emb_codes_example_beauty"
+#msgid "EMB 53062"
+#msgstr "EMB 53062"
 
-msgctxt "generic_name_example_beauty"
-msgid "Anti-dandruff shampoo"
-msgstr "Anti-dandruff shampoo"
+#msgctxt "generic_name_example_beauty"
+#msgid "Anti-dandruff shampoo"
+#msgstr "Anti-dandruff shampoo"
 
-msgctxt "product_name_example_beauty"
-msgid "Anti-Perspirant Stress Protect"
-msgstr "Anti-Perspirant Stress Protect"
+#msgctxt "product_name_example_beauty"
+#msgid "Anti-Perspirant Stress Protect"
+#msgstr "Anti-Perspirant Stress Protect"
 
-msgctxt "ingredients_text_example_beauty"
-msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
-msgstr "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
-
-msgctxt "report_problem_navigation"
-msgid "Report a problem"
-msgstr "Report a problem"
+#msgctxt "ingredients_text_example_beauty"
+#msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
+#msgstr "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
 
 msgctxt "created_by"
 msgid "Created by"
@@ -7052,10 +7061,6 @@ msgstr "Creation date"
 msgctxt "knowledge_panels_ingredients_rare_crops_divinfood"
 msgid "Open Food Facts participates in the European project <a href=\"https://divinfood.eu/\">DIVINFOOD</a> (funded from European Union’s Horizon 2020 research and innovation programme). DIVINFOOD aims to develop food chains that value under-utilised agrobiodiversity in order to act against the decline of biodiversity and to meet the growing expectations of consumers for healthy, local products that contribute to sustainable food systems."
 msgstr "Open Food Facts participates in the European project <a href=\"https://divinfood.eu/\">DIVINFOOD</a> (funded from European Union’s Horizon 2020 research and innovation programme). DIVINFOOD aims to develop food chains that value under-utilised agrobiodiversity in order to act against the decline of biodiversity and to meet the growing expectations of consumers for healthy, local products that contribute to sustainable food systems."
-
-msgctxt "open_in_crm"
-msgid "Open in CRM"
-msgstr "Open in CRM"
 
 msgctxt "deny"
 msgid "Deny"

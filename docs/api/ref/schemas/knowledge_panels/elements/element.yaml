@@ -6,7 +6,7 @@ description: |
   Each element object contains one specific element object such as a text element or an image element.
 properties:
   type:
-    element_type: string
+    type: string
     enum:
       - text
       - image

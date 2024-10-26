@@ -1,5 +1,5 @@
 {
-   "code" : "200000000034",
+   "code" : "0200000000034",
    "product" : {
       "attribute_groups" : [
          {
@@ -10,47 +10,51 @@
                   "grade" : "c",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutriscore-c-new-en.svg",
                   "id" : "nutriscore",
-                  "match" : 53.6666666666667,
+                  "match" : 51.5555555555556,
                   "name" : "Nutri-Score",
                   "panel_id" : "nutriscore_2023",
                   "status" : "known",
                   "title" : "Nutri-Score C"
                },
                {
-                  "grade" : "unknown",
-                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-salt-unknown.svg",
+                  "description_short" : "0.0502 g / 100 g",
+                  "grade" : "a",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-salt-low.svg",
                   "id" : "low_salt",
-                  "missing" : "Missing nutrition facts",
+                  "match" : 96.6533333333333,
                   "name" : "Salt",
-                  "status" : "unknown",
-                  "title" : "Salt in unknown quantity"
+                  "status" : "known",
+                  "title" : "Salt in low quantity"
                },
                {
-                  "grade" : "unknown",
-                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-fat-unknown.svg",
+                  "description_short" : "8.5 g / 100 g",
+                  "grade" : "b",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-fat-medium.svg",
                   "id" : "low_fat",
-                  "missing" : "Missing nutrition facts",
+                  "match" : 60.5882352941176,
                   "name" : "Fat",
-                  "status" : "unknown",
-                  "title" : "Fat in unknown quantity"
+                  "status" : "known",
+                  "title" : "Fat in moderate quantity"
                },
                {
-                  "grade" : "unknown",
-                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-unknown.svg",
+                  "description_short" : "12.5 g / 100 g",
+                  "grade" : "e",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-medium.svg",
                   "id" : "low_sugars",
-                  "missing" : "Missing nutrition facts",
+                  "match" : 20,
                   "name" : "Sugars",
-                  "status" : "unknown",
-                  "title" : "Sugars in unknown quantity"
+                  "status" : "known",
+                  "title" : "Sugars in moderate quantity"
                },
                {
-                  "grade" : "unknown",
-                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-saturated-fat-unknown.svg",
+                  "description_short" : "5.6 g / 100 g",
+                  "grade" : "e",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-saturated-fat-high.svg",
                   "id" : "low_saturated_fat",
-                  "missing" : "Missing nutrition facts",
+                  "match" : 17.6,
                   "name" : "Saturated fat",
-                  "status" : "unknown",
-                  "title" : "Saturated fat in unknown quantity"
+                  "status" : "known",
+                  "title" : "Saturated fat in high quantity"
                }
             ],
             "id" : "nutritional_quality",
@@ -275,7 +279,7 @@
                   "grade" : "c",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/ecoscore-c.svg",
                   "id" : "ecoscore",
-                  "match" : 48,
+                  "match" : 47,
                   "name" : "Eco-Score",
                   "panel_id" : "ecoscore",
                   "status" : "known",

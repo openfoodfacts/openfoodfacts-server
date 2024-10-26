@@ -1030,7 +1030,7 @@ sub set_user_agent_request_ref_attributes ($request_ref) {
 	my $is_crawl_bot = 0;
 	my $is_denied_crawl_bot = 0;
 	if ($user_agent_str
-		=~ /\b(Googlebot|Googlebot-Image|Google-InspectionTool|bingbot|Applebot|Yandex|DuckDuck|DotBot|Seekport|Ahrefs|DataForSeo|Seznam|ZoomBot|Mojeek|QRbot|Qwant|facebookexternalhit|Bytespider|GPTBot|ChatGPT-User|cohere-ai|anthropic-ai|PerplexityBot|ClaudeBot|Claude-Web|SEOkicks|Searchmetrics|MJ12|SurveyBot|SEOdiver|wotbox|Cliqz|Paracrawl|Scrapy|VelenPublicWebCrawler|Semrush|MegaIndex\.ru|Amazon|aiohttp|python-request|ImagesiftBot|Diffbot)/i
+		=~ /\b(GoogleOther|Googlebot|Googlebot-Image|Google-InspectionTool|bingbot|Applebot|Yandex|DuckDuck|DotBot|Seekport|Ahrefs|DataForSeo|Seznam|ZoomBot|Mojeek|QRbot|Qwant|facebookexternalhit|Bytespider|GPTBot|ChatGPT-User|cohere-ai|anthropic-ai|PerplexityBot|ClaudeBot|Claude-Web|SEOkicks|Searchmetrics|MJ12|SurveyBot|SEOdiver|wotbox|Cliqz|Paracrawl|Scrapy|VelenPublicWebCrawler|Semrush|MegaIndex\.ru|Amazon|aiohttp|python-request|ImagesiftBot|Diffbot)/i
 		)
 	{
 		$is_crawl_bot = 1;
@@ -2052,6 +2052,17 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 			$stats{all_tags_products} += $count;
 		}
 
+		# For the Eco-Score, we want to display A+ before A even though A+ is after A in alphabetical order
+		# If the tagid "a" is followed by tagid "a-plus", invert them
+		if (($tagtype eq 'ecoscore') and (defined $tags[1])) {
+
+			if (($tags[0]{_id} eq 'a') and ($tags[1]{_id} eq 'a-plus')) {
+				my $tags_tmp = $tags[0];
+				$tags[0] = $tags[1];
+				$tags[1] = $tags_tmp;
+			}
+		}
+
 		foreach my $tagcount_ref (@tags) {
 
 			$i++;
@@ -2212,9 +2223,12 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 
 			my $tag_link = $main_link . $link;
 
-			$html .= "<tr><td>";
+			$html .= "<tr>";
 
 			my $display = '';
+			# For Eco-Score, we add a data-sort attribute to sort the A+ grade before the A grade in Datatables.js
+			my $data_sort;
+
 			my @sameAs = ();
 			if ($tagtype eq 'nutrition_grades') {
 				my $grade;
@@ -2228,9 +2242,9 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 					$grade = lang("unknown");
 				}
 				$display
-					= "<img src=\"/images/attributes/dist/nutriscore-$tagid.svg\" alt=\"$Lang{nutrition_grade_fr_alt}{$lc} "
+					= "<img src=\"/images/attributes/dist/nutriscore-$tagid.svg\" alt=\"Nutri-Score "
 					. $grade
-					. "\" title=\"$Lang{nutrition_grade_fr_alt}{$lc} "
+					. "\" title=\"Nutri-Score "
 					. $grade
 					. "\" style=\"max-height:80px;\"> "
 					. $grade;
@@ -2238,19 +2252,27 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 			elsif ($tagtype eq 'ecoscore') {
 				my $grade;
 
-				if ($tagid =~ /^[abcde]$/) {
-					$grade = uc($tagid);
+				if ($tagid eq "a-plus") {
+					$grade = "A+";
+					$data_sort = "A+";
+				}
+				elsif ($tagid =~ /^[abcdef]$/) {
+					$grade = " " . uc($tagid);
+					$data_sort = "X-" . $grade;
 				}
 				elsif ($tagid eq "not-applicable") {
 					$grade = lang("not_applicable");
+					$data_sort = "Z";
 				}
 				else {
 					$grade = lang("unknown");
+					$data_sort = "Y";
 				}
+
 				$display
-					= "<img src=\"/images/attributes/dist/ecoscore-$tagid.svg\" alt=\"$Lang{ecoscore}{$lc} "
+					= "<img src=\"/images/attributes/dist/ecoscore-$tagid.svg\" alt=\"Eco-Score "
 					. $grade
-					. "\" title=\"$Lang{ecoscore}{$lc} "
+					. "\" title=\"Eco-Score "
 					. $grade
 					. "\" style=\"max-height:80px;\"> "
 					. $grade;
@@ -2282,6 +2304,13 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 			my $percent = '';
 			if (($display_percent) and ($stats{all_tags})) {
 				$percent = ' (' . sprintf("%2.2f", $products / $stats{all_tags_products} * 100) . '%)';
+			}
+
+			if (defined $data_sort) {
+				$html .= "<td data-sort=\"$data_sort\">";
+			}
+			else {
+				$html .= "<td>";
 			}
 
 			$css_class =~ s/^\s+|\s+$//g;
@@ -2447,10 +2476,10 @@ HTML
 				}
 			}
 			elsif ($request_ref->{groupby_tagtype} eq 'ecoscore') {
-				$categories = "'A','B','C','D','E','" . lang("not_applicable") . "','" . lang("unknown") . "'";
-				$colors = "'#1E8F4E','#60AC0E','#EEAE0E','#FF6F1E','#DF1F1F','#a0a0a0','#a0a0a0'";
+				$categories = "'A+','A','B','C','D','E','F','" . lang("not_applicable") . "','" . lang("unknown") . "'";
+				$colors = "'#1E8F4E','#1E8F4E','#60AC0E','#EEAE0E','#FF6F1E','#DF1F1F','#DF1F1F','#a0a0a0','#a0a0a0'";
 				$series_data = '';
-				foreach my $ecoscore_grade ('a', 'b', 'c', 'd', 'e', 'not-applicable', 'unknown') {
+				foreach my $ecoscore_grade ('a-plus', 'a', 'b', 'c', 'd', 'e', 'f', 'not-applicable', 'unknown') {
 					$series_data .= ($products{$ecoscore_grade} + 0) . ',';
 				}
 			}
@@ -7911,12 +7940,13 @@ JS
 	}
 
 	# Old UPC-12 in url? Redirect to EAN-13 url
-	if ($request_code ne $code) {
+	# TODO - 2024/10/02 - Temporarily disabled so that we can migrate short barcodes with digits not equal to 8 or greater or equal to 13
+	# Reenable after all products are migrated.
+	if (0 and ($request_code ne $code)) {
 		$request_ref->{redirect} = $request_ref->{canon_url};
-		$log->debug(
-			"302 redirecting user because request_code does not match code",
-			{redirect => $request_ref->{redirect}, lc => $lc, request_code => $code}
-		) if $log->is_debug();
+		$log->debug("302 redirecting user because request_code does not match code",
+			{redirect => $request_ref->{redirect}, lc => $lc, code => $code, request_code => $request_code})
+			if $log->is_debug();
 		redirect_to_url($request_ref, 302, $request_ref->{redirect});
 	}
 
@@ -9237,6 +9267,8 @@ sub data_to_display_nutrient_levels ($product_ref) {
 				push @{$result_data_ref->{nutrient_levels}}, {
 					nid => $nid,
 					nutrient_level => $product_ref->{nutrient_levels}{$nid},
+					evaluation => evaluate_nutrient_level($nid, $product_ref->{nutrient_levels}{$nid}),
+					nutrient_name => display_taxonomy_tag($lc, "nutrients", "zz:$nid"),
 					nutrient_quantity_in_grams =>
 						sprintf("%.2e", $product_ref->{nutriments}{$nid . $prepared . "_100g"}) + 0.0,
 					nutrient_in_quantity => sprintf(

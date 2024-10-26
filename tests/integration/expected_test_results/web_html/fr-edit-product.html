@@ -274,43 +274,6 @@
 						
 							
 							
-								
-								<!-- start templates/web/common/includes/off_days_2024_banner.tt.html -->
-
-
-								
-
-<a href="//connect.openfoodfacts.org/fr/event/open-food-facts-days-2024-22/register">
-    <section id="off-days-2024-banner-top" class="off-days-banner off-days-banner__FR">
-    </section>
-</a>
-
-<script>
-    const offDaysBannerID = document.getElementById('off-days-2024-banner-top');
-
-    function getBannerCookie(bcname) {
-        const name = bcname + '=';
-        const decodedCookies = decodeURIComponent(document.cookie);
-        const cookies = decodedCookies.split(';');
-        for (const cookie of cookies) {
-        let c = cookie;
-        while (c.charAt(0) == ' ') { c = c.substring(1); }
-        if (c.indexOf(name) == 0) { return c.substring(name.length, c.length); }
-        }
-        
-        return '';
-    }
-
-    if (getBannerCookie('off_donation_banner_2023_a') !== '') {
-        console.log('cookie found');
-        offDaysBannerID.style.display = 'flex';
-    } else {
-        console.log('cookie not found');
-        offDaysBannerID.style.display = 'none';
-    }
-</script>
-
-
 								<!-- start templates/web/common/includes/donate_banner.tt.html -->
 
 
@@ -370,11 +333,11 @@
   }
 
   function DonationButton() {
-    setBannerCookie('off_donation_banner_2023_a', 1, 180);
+    setBannerCookie('off_donation_banner_2024_a', 1, 180);
     bannerID.style.display = 'none';
   }
 
-  if (getBannerCookie('off_donation_banner_2023_a') !== '') {
+  if (getBannerCookie('off_donation_banner_2024_a') !== '') {
     bannerID.style.display = 'none';
   } else { 
     bannerID.style.display = 'flex';
@@ -3493,7 +3456,7 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
 <ul id="history_list">
   
   <li>
-    <time datetime="--ignore--">--ignore--</time> - <a href="/editeur/tests" lang="no_language">tests</a> Données (Ajout : lang, product_name, quantity, brands, categories, labels, link, countries, nutrition_data_per, nutrition_data_prepared_per, serving_size, ingredients_text, generic_name_en, ingredients_text_en, origin_en, product_name_en, ingredients_text_fr, product_name_fr) -- Nutriments (Ajout : nutrition-score-fr)   - (app)  &nbsp;
+    <time datetime="--ignore--">--ignore--</time> - <a href="/editeur/tests" lang="no_language">tests</a> Données (Ajout : code, lang, product_name, quantity, brands, categories, labels, link, countries, nutrition_data_per, nutrition_data_prepared_per, serving_size, ingredients_text, generic_name_en, ingredients_text_en, origin_en, product_name_en, ingredients_text_fr, product_name_fr) -- Nutriments (Ajout : nutrition-score-fr)   - (app)  &nbsp;
     <a href="/produit/3300000000002/tarte-aux-pommes-et-aux-framboise-bio-les-tartes-de-robert?rev=1" class="button tiny">View this revision</a>
     
   </li>
