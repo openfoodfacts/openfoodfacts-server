@@ -107,7 +107,7 @@ requires 'Module::Load';
 requires 'Time::Monotonic';
 
 # OpenTelemetry
-requires 'OpenTelemetry', '>= 0.024';
+requires 'OpenTelemetry', '>= 0.025';
 requires 'OpenTelemetry::SDK', '>= 0.024';
 requires 'OpenTelemetry::Exporter::OTLP', '>= 0.017';
 requires 'Feature::Compat::Try', '0.05'; # For finally before 5.35
