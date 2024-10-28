@@ -3,8 +3,11 @@
 [% banner_main = BLOCK %]
 
 <section id="donation-banner-top" class="donation-banner">
-  <div>
-    <img class="donation-banner__group-photo" src="/images/misc/donation-banners/[% IF lc == 'fr' %]FR[% ELSE %]ENG[% END %].png" alt="group photo donation 2024" />
+  <div class="donation-banner__left-aside">
+    <div class="donation-banner__hook-section">
+      <p>[% lang("donation_hook_2024") %]</p>
+    </div>
+    <img src="/images/misc/donation-banners/donation-banner-group-photo.png" alt="group photo donation 2024" />
   </div>
   <div>
     <div class="donation-banner__aside">
@@ -98,8 +101,11 @@
 [% banner_footer = BLOCK %]
 
 <section class="donation-banner-footer">
-  <div>
-    <img src="/images/misc/donation-banners/[% IF lc == 'fr' %]FR[% ELSE %]ENG[% END %].png" alt="group photo donation 2024" />
+  <div class="donation-banner-footer__left-aside">
+    <div class="donation-banner-footer__hook-section">
+      <p>[% lang("donation_hook_2024") %]</p>
+    </div>
+    <img src="/images/misc/donation-banners/donation-banner-group-photo.png" alt="group photo donation 2024" />
   </div>
   <div>
     <div>

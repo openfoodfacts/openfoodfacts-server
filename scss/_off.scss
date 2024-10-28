@@ -1256,6 +1256,29 @@ $border-pink: #ff6e78;
       color: inherit;
     }
   }
+  &__hook-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $section-cyan;
+    color: white;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    p {
+      font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      font-size: 25px;
+      font-weight: 700;
+      line-height: 35px;
+      text-transform: uppercase;
+    }
+  }
+  &__left-aside{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
   &__aside{
     display: flex;
     flex-direction: column;
