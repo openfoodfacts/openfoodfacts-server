@@ -68,7 +68,7 @@ if (not defined $csv_file) {
 }
 
 open(my $log, ">>", "$data_root/logs/remove_duplicate_products_on_wrong_flavors.log");
-print $log "remove_duplicate_products_on_wrong_flavors started at " . localtime() . "\n";
+print $log "remove_duplicate_products_on_wrong_flavors.pl started at " . localtime() . "\n";
 
 my $products_collection = get_products_collection();
 my $obsolete_products_collection = get_products_collection({obsolete => 1});
