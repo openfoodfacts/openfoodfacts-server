@@ -1271,6 +1271,10 @@ $border-pink: #ff6e78;
       font-weight: 700;
       line-height: 35px;
       text-transform: uppercase;
+      @media #{$small-only} {
+        font-size: 15px;
+        line-height: 20px;
+      }
     }
   }
   &__left-aside{
