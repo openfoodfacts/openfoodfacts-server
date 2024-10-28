@@ -1291,6 +1291,7 @@ $border-pink: #ff6e78;
     padding: 10px;
     margin: 10px;
     border-radius: 10px;
+    z-index: 1;
     p {
       font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
       font-size: 25px;
@@ -1305,9 +1306,13 @@ $border-pink: #ff6e78;
   }
   &__left-aside{
     width: 60%;
+    margin: 0 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    img {
+      transform: translatey(-15px);
+    }
   }
   &__aside{
     display: flex;
@@ -1316,12 +1321,12 @@ $border-pink: #ff6e78;
   }
   &__main-title{
     color: $border-pink;
-    font-weight: 700;
+    font-weight: 800;
+    font-size: 25px;
   }
   &__main-section{
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
   }
   &__actions-section{
     display: flex;
