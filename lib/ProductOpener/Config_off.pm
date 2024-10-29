@@ -70,7 +70,7 @@ BEGIN {
 
 		$memd_servers
 
-		$google_analytics
+		$analytics
 
 		$thumb_size
 		$crop_size
@@ -485,7 +485,7 @@ $small_size = 200;
 $display_size = 400;
 $zoom_size = 800;
 
-$google_analytics = <<HTML
+$analytics = <<HTML
 <!-- Matomo -->
 <script>
   var _paq = window._paq = window._paq || [];
