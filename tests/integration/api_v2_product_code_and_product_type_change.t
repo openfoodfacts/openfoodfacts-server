@@ -104,7 +104,15 @@ my $tests_ref = [
 		},
 		ua => $moderator_ua,
 	},
-	# Get the product
+	# Get the product with web interface
+	{
+		test_case => 'get-product-with-web-interface',
+		method => 'GET',
+		path => '/product/1234567890102',
+		expected_status_code => 302,
+		expected_type => 'html',
+	},
+	# Get the product with API v3
 	{
 		test_case => 'get-product-obf',
 		method => 'GET',
@@ -136,11 +144,18 @@ my $tests_ref = [
 		},
 		ua => $moderator_ua,
 	},
-	# Get the product
+	# Get the product with API v3
 	{
 		test_case => 'get-product-opf',
 		method => 'GET',
 		path => '/api/v3/product/1234567890200',
+		expected_status_code => 200,
+	},
+	# Search all products to check moved products are not on the off MongoDB database anymore
+	{
+		test_case => 'search-all-products',
+		method => 'GET',
+		path => '/cgi/search.pl?action=process&json=1&no_cache=1',
 		expected_status_code => 200,
 	},
 ];
