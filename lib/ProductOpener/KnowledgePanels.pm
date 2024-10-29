@@ -623,6 +623,9 @@ sub create_ecoscore_panel ($product_ref, $target_lc, $target_cc, $options_ref, $
 		if ($score > 100) {
 			$score = 100;
 		}
+		if ($score < 0) {
+			$score = 0;
+		}
 
 		# We can reuse some strings from the Eco-Score attribute
 		my $title = sprintf(lang_in_other_lc($target_lc, "attribute_ecoscore_grade_title"), uc($grade)) . ' - '
