@@ -1,84 +1,153 @@
 {
   "news": {
-    "nutriscore_v2": {
-      "start_date": "2024-06-08 00:00:00",
-      "end_date": "2024-06-30 23:59:59",
+    "donation_campaign": {
+      "start_date": "2024-10-25 00:00:00",
+      "end_date": "2025-01-31 23:59:59",
       "url": "https://world.openfoodfacts.org/nutriscore-v2",
       "translations": {
         "default": {
-          "title": "It's new!",
-          "message": "The **New Calculation** of the NutriScore is available in the application",
-          "button_label": "Learn more",
+          "title": "Our application needs you!",
+          "message": "By **supporting** our association, you allow **free access to food information** for millions of consumers around the world.",
+          "button_label": "Support",
+          "url": "https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utf_medium=smooth-app&utm_campaign=donation-2024",
           "image": {
-            "url": "https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-en.svg",
-            "width": 0.2
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/en.svg",
+            "width": 0.2,
+            "alt": "Support the Open Food Facts project"
           }
         },
-        "de": {
-          "title": "Es ist neu!",
-          "message": "Die **Neue Berechnung** des Nutri-Scores ist in der App verfügbar",
-          "button_label": "Mehr erfahren",
+        "fr_FR": {
+          "title": "Notre application a besoin de vous !",
+          "message": "En **soutenant** notre association, vous permettez **l'accès gratuit à l'information alimentaire** à des millions de consommateurs à travers le monde.",
+          "button_label": "Je soutiens",
+          "url": "https://fr.openfoodfacts.org/faire-un-don-a-open-food-facts?utm_source=off&utf_medium=smooth-app&utm_campaign=donation-2024",
           "image": {
-            "url": "https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-de.svg",
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/fr.svg",
             "width": 0.2,
-            "alt": "Das Nutri-Score A Logo"
-          }
-        },
-        "es": {
-          "title": "¡Es nuevo!",
-          "message": "El **Nuevo Cálculo** del Nutri-Score está disponible en la aplicación",
-          "button_label": "Más información",
-          "image": {
-            "url": "https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-en.svg",
-            "width": 0.2,
-            "alt": "El logo de Nutri-Score A"
+            "alt": "Soutenir le projet Open Food Facts"
           }
         },
         "fr": {
-          "title": "C’est tout nouveau !",
-          "message": "Le **Nouveau Calcul** du NutriScore est disponible dans l’application",
-          "button_label": "En savoir plus",
+          "title": "Notre application a besoin de vous !",
+          "message": "En **soutenant** notre association, vous permettez **l'accès gratuit à l'information alimentaire** à des millions de consommateurs à travers le monde.",
+          "button_label": "Je soutiens",
+          "url": "https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utf_medium=smooth-app&utm_campaign=donation-2024",
           "image": {
-            "url": "https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-fr.svg",
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/fr.svg",
             "width": 0.2,
-            "alt": "Le logo du NutriScore A"
+            "alt": "Soutenir le projet Open Food Facts"
           }
         },
-        "it": {
-          "title": "È nuovo!",
-          "message": "Il **Nuovo Calcolo** del NutriScore è disponibile nell'app",
-          "button_label": "Scopri di più",
-          "image": {
-            "url": "https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-en.svg",
-            "width": 0.2,
-            "alt": "Il logo NutriScore A"
-          }
+        "ar": {
+          "title": "تطبيقنا يحتاجك!",
+          "message": "من خلال **دعم** جمعيتنا، تتيح **الوصول المجاني إلى معلومات الغذاء** لملايين المستهلكين حول العالم.",
+          "button_label": "أدعم"
         },
-        "nl": {
-          "title": "Het is nieuw!",
-          "message": "De **Nieuwe Berekening** van de Nutri-Score is beschikbaar in de app",
-          "button_label": "Meer informatie",
-          "image": {
-            "url": "https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-nl.svg",
-            "width": 0.2,
-            "alt": "Het Nutri-Score A-logo"
-          }
+        "bn": {
+          "title": "আমাদের অ্যাপ্লিকেশন আপনার প্রয়োজন!",
+          "message": "আমাদের সমিতিকে **সমর্থন** করার মাধ্যমে, আপনি বিশ্বের লক্ষ লক্ষ ভোক্তাদের জন্য **খাদ্য তথ্যের বিনামূল্যে অ্যাক্সেস** প্রদান করেন।",
+          "button_label": "সমর্থন"
+        },
+        "de": {
+          "title": "Unsere Anwendung braucht Sie!",
+          "message": "Durch die **Unterstützung** unseres Vereins ermöglichen Sie **freien Zugang zu Lebensmittelinformationen** für Millionen von Verbrauchern weltweit.",
+          "button_label": "Unterstützen"
+        },
+        "el": {
+          "title": "Η εφαρμογή μας σας χρειάζεται!",
+          "message": "Υποστηρίζοντας τον σύλλογό μας, επιτρέπετε την **ελεύθερη πρόσβαση σε πληροφορίες τροφίμων** για εκατομμύρια καταναλωτές σε όλο τον κόσμο.",
+          "button_label": "Υποστηρίζω"
+        },
+        "es": {
+          "title": "¡Nuestra aplicación te necesita!",
+          "message": "Al **apoyar** nuestra asociación, permites el **acceso gratuito a la información alimentaria** para millones de consumidores en todo el mundo.",
+          "button_label": "Apoyar"
+        },
+        "hi": {
+          "title": "हमारे ऐप को आपकी जरूरत है!",
+          "message": "हमारे संघ का **समर्थन** करके, आप दुनिया भर के लाखों उपभोक्ताओं के लिए **खाद्य जानकारी तक मुफ्त पहुंच** प्रदान करते हैं।",
+          "button_label": "समर्थन"
         },
         "pt": {
-          "title": "É novo!",
-          "message": "O **Novo Cálculo** do Nutri-Score está disponível no aplicativo",
-          "button_label": "Saiba mais",
-          "image": {
-            "url": "https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-en.svg",
-            "width": 0.2,
-            "alt": "O logotipo Nutri-Score A"
-          }
+          "title": "Nosso aplicativo precisa de você!",
+          "message": "Ao **apoiar** nossa associação, você permite o **acesso gratuito a informações alimentares** para milhões de consumidores em todo o mundo.",
+          "button_label": "Apoiar"
+        },
+        "it": {
+          "title": "La nostra applicazione ha bisogno di te!",
+          "message": "Sostenendo la nostra associazione, consenti l'**accesso gratuito alle informazioni alimentari** per milioni di consumatori in tutto il mondo.",
+          "button_label": "Sostieni"
+        },
+        "ja": {
+          "title": "私たちのアプリケーションはあなたを必要としています！",
+          "message": "私たちの協会を**サポート**することで、世界中の何百万もの消費者に**食品情報への無料アクセス**を提供できます。",
+          "button_label": "サポート"
+        },
+        "ko": {
+          "title": "우리 애플리케이션이 당신을 필요로 합니다!",
+          "message": "우리 협회를 **지원**함으로써 전 세계 수백만 소비자에게 **식품 정보에 대한 무료 접근**을 허용합니다.",
+          "button_label": "지원"
+        },
+        "nl": {
+          "title": "Onze applicatie heeft u nodig!",
+          "message": "Door onze vereniging te **ondersteunen**, stelt u miljoenen consumenten wereldwijd in staat om **gratis toegang te krijgen tot voedselinformatie**.",
+          "button_label": "Ondersteunen"
+        },
+        "pl": {
+          "title": "Nasza aplikacja potrzebuje Ciebie!",
+          "message": "Wspierając nasze stowarzyszenie, umożliwiasz **darmowy dostęp do informacji o żywności** dla milionów konsumentów na całym świecie.",
+          "button_label": "Wspieram"
+        },
+        "ru": {
+          "title": "Наше приложение нуждается в вас!",
+          "message": "Поддерживая нашу ассоциацию, вы позволяете миллионам потребителей по всему миру **бесплатно получать доступ к информации о продуктах питания**.",
+          "button_label": "Поддержать"
+        },
+        "sv": {
+          "title": "Vår applikation behöver dig!",
+          "message": "Genom att **stötta** vår förening möjliggör du **fri tillgång till livsmedelsinformation** för miljontals konsumenter världen över.",
+          "button_label": "Stöd"
+        },
+        "tr": {
+          "title": "Uygulamamızın size ihtiyacı var!",
+          "message": "Derneğimizi **destekleyerek**, dünya çapında milyonlarca tüketiciye **gıda bilgilerine ücretsiz erişim** sağlıyorsunuz.",
+          "button_label": "Destek"
+        },
+        "vi": {
+          "title": "Ứng dụng của chúng tôi cần bạn!",
+          "message": "Bằng cách **hỗ trợ** hiệp hội của chúng tôi, bạn cho phép hàng triệu người tiêu dùng trên khắp thế giới **truy cập miễn phí vào thông tin thực phẩm**.",
+          "button_label": "Hỗ trợ"
+        },
+        "zh": {
+          "title": "我们的应用程序需要你！",
+          "message": "通过**支持**我们的协会，您允许全球数百万消费者**免费获取食品信息**。",
+          "button_label": "支持"
+        },
+        "id": {
+          "title": "Aplikasi kami membutuhkan Anda!",
+          "message": "Dengan **mendukung** asosiasi kami, Anda memungkinkan **akses gratis ke informasi makanan** bagi jutaan konsumen di seluruh dunia.",
+          "button_label": "Dukung"
+        },
+        "ms": {
+          "title": "Aplikasi kami memerlukan anda!",
+          "message": "Dengan **menyokong** persatuan kami, anda membenarkan **akses percuma kepada maklumat makanan** untuk berjuta-juta pengguna di seluruh dunia.",
+          "button_label": "Sokong"
+        },
+        "th": {
+          "title": "แอปพลิเคชันของเราต้องการคุณ!",
+          "message": "โดยการ**สนับสนุน**สมาคมของเรา คุณอนุญาตให้ผู้บริโภคหลายล้านคนทั่วโลก**เข้าถึงข้อมูลอาหารได้ฟรี**",
+          "button_label": "สนับสนุน"
+        },
+        "fa": {
+          "title": "برنامه ما به شما نیاز دارد!",
+          "message": "با **حمایت** از انجمن ما، شما به میلیون‌ها مصرف‌کننده در سراسر جهان اجازه می‌دهید تا به **اطلاعات غذایی رایگان** دسترسی داشته باشند.",
+          "button_label": "حمایت"
         }
       }
     },
     "translate_openfoodfacts": {
-      "start_date": "2024-06-08 00:00:00",
-      "end_date": "2024-06-30 23:59:59",
+      "start_date": "2025-02-01 00:00:00",
+      "end_date": "2025-12-31 23:59:59",
       "url": "https://translate.openfoodfacts.org/project/openfoodfacts/en",
       "translations": {
         "default": {
@@ -299,47 +368,17 @@
           }
         }
       }
-    },
-    "product_prices": {
-      "start_date": "2024-06-20 00:00:00",
-      "end_date": "2024-07-20 23:59:59",
-      "url": "https://prices.openfoodfacts.org/",
-      "translations": {
-        "default": {
-          "title": "Prices arrive on Open Food Facts",
-          "message": "Contribute prices and view their evolution across space and time, right from the product page.",
-          "button_label": "Learn about Open Prices",
-          "image": {
-            "url": "https://prices.openfoodfacts.org/app/android-chrome-512x512.png",
-            "width": 0.2
-          }
-        },
-        "en_us": {
-          "title": "Track Prices Over Time"
-        },
-        "fr": {
-          "title": "Suivez l'évolution des prix",
-          "message": "Collectez les prix des produits et visualisez leur évolution dans l'espace et le temps.",
-          "button_label": "Collecter des prix"
-        },
-        "de": {
-          "title": "Verfolgen Sie die Preisentwicklung",
-          "message": "Tragen Sie Preise bei und sehen Sie deren Entwicklung über Raum und Zeit.",
-          "button_label": "Preise erkunden"
-        }
-      }
     }
   },
   "tagline_feed": {
     "default": {
       "news": [
         {
-          "id": "nutriscore_v2"
+          "id": "donation_campaign"
+        },
+        {
+          "id": "translate_openfoodfacts"
         }
-      ]
-    },
-    "_FR": {
-      "news": [
       ]
     }
   }
