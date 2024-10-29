@@ -177,21 +177,6 @@ $flavor = 'off';
 	},
 );
 
-%admins = map {$_ => 1} qw(
-	alex-off
-	cha-delh
-	charlesnepote
-	gala-nafikova
-	hangy
-	manoncorneille
-	raphael0202
-	stephane
-	tacinte
-	teolemon
-	g123k
-	valimp
-);
-
 %options = (
 	site_name => "Open Food Facts",
 	product_type => "food",

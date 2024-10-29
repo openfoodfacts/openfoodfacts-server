@@ -62,6 +62,8 @@ use experimental 'smartmatch';
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 
+use Data::DeepAccess qw(deep_get);
+
 =head1 FUNCTIONS
 
 =head2 format_subdomain( SUBDOMAIN )
@@ -70,7 +72,14 @@ C<format_subdomain()> returns URL on the basis of subdomain and scheme (http/htt
 
 =head3 Arguments
 
+=head4 subdomain 
+
 A scalar variable to indicate the subdomain (e.g. "us" or "static") needs to be passed as an argument. 
+
+=head4 product_type (optional)
+
+Defaults to the current server product type. If passed, use the domain for that product type.
+(e.g. "beauty" -> "openbeautyfacts.org")
 
 =head3 Return Values
 
@@ -78,7 +87,7 @@ The function returns a URL by concatenating scheme, subdomain and server-domain.
 
 =cut
 
-sub format_subdomain ($sd) {
+sub format_subdomain ($sd, $product_type = undef) {
 
 	return $sd unless $sd;
 	my $scheme;
@@ -89,7 +98,9 @@ sub format_subdomain ($sd) {
 		$scheme = 'http';
 	}
 
-	return $scheme . '://' . $sd . '.' . $server_domain;
+	my $domain = deep_get(\%options, "product_types_domains", $product_type) || $server_domain;
+
+	return $scheme . '://' . $sd . '.' . $domain;
 
 }
 

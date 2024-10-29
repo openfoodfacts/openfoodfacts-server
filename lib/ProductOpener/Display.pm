@@ -7918,6 +7918,13 @@ JS
 		$request_ref->{canon_url} = get_world_subdomain() . product_url($product_ref);
 	}
 
+	# If the product has a product_type and it is not the product_type of the server, redirect to the correct server
+
+	if ((defined $product_ref->{product_type}) and ($product_ref->{product_type} ne $options{product_type})) {
+		redirect_to_url($request_ref, 302,
+			format_subdomain($subdomain, $product_ref->{product_type}) . product_url($product_ref));
+	}
+
 	# Old UPC-12 in url? Redirect to EAN-13 url
 	# TODO - 2024/10/02 - Temporarily disabled so that we can migrate short barcodes with digits not equal to 8 or greater or equal to 13
 	# Reenable after all products are migrated.
