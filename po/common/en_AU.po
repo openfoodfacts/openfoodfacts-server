@@ -17,7 +17,7 @@ msgstr ""
 
 msgctxt "site_description_off"
 msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
-msgstr ""
+msgstr "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
 
 msgctxt "tagline_off"
 msgid "Open Food Facts gathers information and data on food products from around the world."
@@ -131,11 +131,11 @@ msgstr "Join us on Slack"
 
 msgctxt "add_user_join_the_project"
 msgid "%s is a collaborative project to which you can bring much more than new products: your energy, enthusiasm and ideas!"
-msgstr "%s is a collaborative project to which you can bring much more than new products: your energy, enthusiasm, and ideas!"
+msgstr "%s is a collaborative project to which you can bring much more than new products: your energy, enthusiasm and ideas!"
 
 msgctxt "add_user_join_us_on_slack"
 msgid "We use a discussion system called Slack where all project participants can exchange and collaborate. Please join! We would be happy to know you!"
-msgstr "We use discussion system called Slack where all project participants can exchange and collaborate. Please join! We would be happy to know you!"
+msgstr "We use a discussion system called Slack where all project participants can exchange and collaborate. Please join! We would be happy to know you!"
 
 msgctxt "add_user_you_can_edit_pro"
 msgid "You can now easily import your product data and photos."
@@ -167,7 +167,7 @@ msgstr "Grant/Remove Admin status"
 
 msgctxt "please_email_producers"
 msgid "Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> if you have any question."
-msgstr "Please e-mail <a href=\"mailto:producers@openfoodfacts.org\"> producers@openfoodfacts.org </a> if you have any question."
+msgstr "Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> if you have any question."
 
 msgctxt "if_you_work_for_a_producer"
 msgid "If you work for a producer or brand and will add or complete data for your own products only, you can get access to our completely free Platform for Producers."
@@ -411,7 +411,7 @@ msgstr "Data"
 
 msgctxt "change_nutriments"
 msgid "Nutriments"
-msgstr "Nutrients"
+msgstr "Nutriments"
 
 msgctxt "change_selected_images"
 msgid "Selected images"
@@ -475,15 +475,15 @@ msgstr "Please correct the following errors:"
 
 msgctxt "correctors_p"
 msgid "correctors"
-msgstr "corrections"
+msgstr "correctors"
 
 msgctxt "correctors_s"
 msgid "corrector"
-msgstr "correction"
+msgstr "corrector"
 
 msgctxt "countries"
 msgid "Countries where sold"
-msgstr "Country"
+msgstr "Countries where sold"
 
 msgctxt "countries_note"
 msgid "Countries where the product is widely available (not including stores specialising in foreign products)"
@@ -579,7 +579,7 @@ msgstr "Ecological footprint"
 
 msgctxt "ecological_data_table_note"
 msgid "If the carbon footprint is specified on the label (rarely at this time), indicate it for the same quantity than the nutritional composition."
-msgstr "If the carbon footprint is specified on the label (rarely at the moment), indicate it for the same quantity as the nutritional composition."
+msgstr "If the carbon footprint is specified on the label (rarely at this time), indicate it for the same quantity than the nutritional composition."
 
 msgctxt "edit"
 msgid "edit"
@@ -720,7 +720,7 @@ msgstr "Invalid e-mail address"
 
 msgctxt "error_invalid_password"
 msgid "The password needs to be at least 6 characters long."
-msgstr "Password must be at least 6 characters."
+msgstr "The password needs to be at least 6 characters long."
 
 msgctxt "error_invalid_user"
 msgid "Invalid user."
@@ -1154,7 +1154,7 @@ msgstr "Ingredients are listed in order of importance (quantity)."
 
 msgctxt "ingredients_text_example"
 msgid "Cereals 85.5% (_wheat_ flour, whole-_wheat_ flour 11%), malt extract, cocoa 4,8%, ascorbic acid"
-msgstr "Cereals 85.5% (_wheat_ flour, whole-_wheat_ flour 11%), malt extract, cocoa 4.8%, ascorbic acid"
+msgstr "Cereals 85.5% (_wheat_ flour, whole-_wheat_ flour 11%), malt extract, cocoa 4,8%, ascorbic acid"
 
 msgctxt "ingredients_text_note"
 msgid "Keep the order, indicate the % when specified, separate with a comma or - , use ( ) for ingredients of an ingredient, surround allergens with _ e.g. _milk_"
@@ -1199,7 +1199,7 @@ msgstr "Organic"
 
 msgctxt "labels_note"
 msgid "Indicate only the most specific labels. \"Parents\" labels will be added automatically."
-msgstr "Indicate only the most specific labels. \"Parent\" labels will be added automatically."
+msgstr "Indicate only the most specific labels. \"Parents\" labels will be added automatically."
 
 msgctxt "labels_p"
 msgid "labels"
@@ -1521,19 +1521,19 @@ msgstr "nutrient level"
 
 msgctxt "nutriments_p"
 msgid "nutriments"
-msgstr "nutrients"
+msgstr "nutriments"
 
 msgctxt "nutriments_products"
 msgid "Products that contain the nutriment %s"
-msgstr "Products that contain the nutrient %s"
+msgstr "Products that contain the nutriment %s"
 
 msgctxt "nutriments_s"
 msgid "nutriment"
-msgstr "nutrient"
+msgstr "nutriment"
 
 msgctxt "nutriments_without_products"
 msgid "Products that do not contain the nutriment %s"
-msgstr "Products that do not contain the nutrient %s"
+msgstr "Products that do not contain the nutriment %s"
 
 msgctxt "nutrition_alt"
 msgid "Nutrition facts"
@@ -1561,7 +1561,7 @@ msgstr "Comparison to average values of products in the same category:"
 
 msgctxt "nutrition_data_comparison_with_categories_note"
 msgid "Please note: for each nutriment, the average is computed for products for which the nutriment quantity is known, not on all products of the category."
-msgstr "Please note: for each nutrient, the average is computed for products for which the nutrient quantity is known, not on all products of the category."
+msgstr "Please note: for each nutriment, the average is computed for products for which the nutriment quantity is known, not on all products of the category."
 
 msgctxt "nutrition_data_note"
 msgid "If the picture is sufficiently sharp and level, nutrition facts can be automatically extracted from the picture."
@@ -1618,7 +1618,7 @@ msgstr "Nutrition facts"
 msgctxt "nutrition_data_table_note"
 msgid "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
 "by typing the first letters of their name in the last row of the table."
-msgstr "The table lists by default nutrients that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutrients (vitamins, minerals, cholesterol etc.)\n"
+msgstr "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
 "by typing the first letters of their name in the last row of the table."
 
 msgctxt "nutrition_data_table_asterisk"
@@ -2227,7 +2227,7 @@ msgstr "Display results on a graph"
 
 msgctxt "search_graph_warning"
 msgid "Note: this is a user generated graph. The title, represented products and axis of visualization have been chosen by the author of the graph."
-msgstr "Note: this is a user generated graph. The title, represented products and axis of visualisation have been chosen by the author of the graph."
+msgstr "Note: this is a user generated graph. The title, represented products and axis of visualization have been chosen by the author of the graph."
 
 msgctxt "search_indifferent"
 msgid "Indifferent"
@@ -2267,11 +2267,11 @@ msgstr "Display results on a map"
 
 msgctxt "search_nutriment"
 msgid "choose a nutriment..."
-msgstr "choose a nutrient..."
+msgstr "choose a nutriment..."
 
 msgctxt "search_nutriments"
 msgid "Nutriments"
-msgstr "Nutrients"
+msgstr "Nutriments"
 
 msgctxt "search_or"
 msgid "or"
@@ -2339,7 +2339,7 @@ msgstr "Search for words present in the product name, generic name, brands, cate
 
 msgctxt "search_title"
 msgid "Search a product, brand, ingredient, nutriment etc."
-msgstr "Search a product, brand, ingredient, nutrient etc."
+msgstr "Search a product, brand, ingredient, nutriment etc."
 
 msgctxt "search_title_graph"
 msgid "Results graph"
@@ -3988,11 +3988,11 @@ msgstr "The product is in the fats category, the points for saturated fat are re
 
 msgctxt "nutriscore_points_for_energy"
 msgid "Energy"
-msgstr "Calories"
+msgstr "Energy"
 
 msgctxt "nutriscore_points_for_sugars"
 msgid "Sugars"
-msgstr "Sugar"
+msgstr "Sugars"
 
 msgctxt "nutriscore_points_for_saturated_fat"
 msgid "Saturated fat"
@@ -4393,7 +4393,7 @@ msgstr "If you would like to help, join the #ingredients channel on <a href=\"ht
 
 msgctxt "footer_producers_link"
 msgid "https://world.pro.openfoodfacts.org/"
-msgstr "http://world.pro.openfoodfacts.org/"
+msgstr "https://world.pro.openfoodfacts.org/"
 
 msgctxt "footer_producers"
 msgid "Producers"
@@ -5035,15 +5035,15 @@ msgstr "Currently selected preferences"
 
 msgctxt "preferences_locally_saved"
 msgid "Your preferences are kept in your browser and never sent to Open Food Facts or anyone else."
-msgstr ""
+msgstr "Your preferences are kept in your browser and never sent to Open Food Facts or anyone else."
 
 msgctxt "preferences_edit_your_preferences"
 msgid "Edit your preferences"
-msgstr ""
+msgstr "Edit your preferences"
 
 msgctxt "preferences_your_preferences"
 msgid "Your preferences"
-msgstr ""
+msgstr "Your preferences"
 
 # used in phrases like "salt in unknown quantity"
 msgctxt "unknown_quantity"
@@ -5691,7 +5691,7 @@ msgstr "For a more precise calculation of the Eco-Score, you can modify the prod
 
 msgctxt "ecoscore_final_score"
 msgid "Final score"
-msgstr "Score final"
+msgstr "Final score"
 
 msgctxt "ecoscore_lower_the_score_lower_the_impact"
 msgid "(the lower the score, the lower the impact)"
@@ -5875,20 +5875,20 @@ msgstr "Carbon footprint"
 # variable names between { } must not be translated
 msgctxt "f_carbon_footprint_per_100g_of_product"
 msgid "{grams} g CO₂e per 100g of product"
-msgstr ""
+msgstr "{grams} g CO₂e per 100g of product"
 
 # variable names between { } must not be translated
 msgctxt "f_carbon_footprint_per_unit"
 msgid "{kilograms} kg CO₂e per unit"
-msgstr ""
+msgstr "{kilograms} kg CO₂e per unit"
 
 msgctxt "average_for_the_category"
 msgid "average for the category"
-msgstr ""
+msgstr "average for the category"
 
 msgctxt "data_source_and_detailed_carbon_impact"
 msgid "Data source and detailed carbon impact"
-msgstr ""
+msgstr "Data source and detailed carbon impact"
 
 # variable names between { } must not be translated
 msgctxt "f_equal_to_driving_km_in_a_petrol_car"
@@ -5981,7 +5981,7 @@ msgstr "The nutrition facts of the product must be specified in order to compute
 
 msgctxt "nutriscore_missing_nutrition_data_details"
 msgid "Missing nutrition facts:"
-msgstr ""
+msgstr "Missing nutrition facts:"
 
 msgctxt "nutriscore_missing_category_and_nutrition_data"
 msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
@@ -6342,7 +6342,7 @@ msgstr "What you need to know"
 
 msgctxt "knowledge_panels_recommendation"
 msgid "Recommendation"
-msgstr "Gatz arrunt"
+msgstr "Recommendation"
 
 msgctxt "nutrient_info_salt_risk"
 msgid "A high consumption of salt (or sodium) can cause raised blood pressure, which can increase the risk of heart disease and stroke."
@@ -6715,7 +6715,7 @@ msgstr "Number of packaging components"
 
 msgctxt "packagings_materials_all"
 msgid "All materials"
-msgstr "Number of packaging components"
+msgstr "All materials"
 
 msgctxt "weight"
 msgid "Weight"
@@ -6913,7 +6913,7 @@ msgstr "Report a problem"
 
 msgctxt "report_problem_navigation"
 msgid "Report a problem."
-msgstr ""
+msgstr "Report a problem."
 
 msgctxt "incomplete_or_incorrect_data_title"
 msgid "Incomplete or incorrect information?"
@@ -6942,232 +6942,232 @@ msgstr "Report a problem"
 
 msgctxt "enter_main_contact_username"
 msgid "Enter main contact's username :"
-msgstr ""
+msgstr "Enter main contact's username :"
 
 msgctxt "change_main_contact"
 msgid "Change main contact"
-msgstr ""
+msgstr "Change main contact"
 
 msgctxt "main_contact_updated"
 msgid "Main contact updated"
-msgstr ""
+msgstr "Main contact updated"
 
 msgctxt "error_unknown_member"
 msgid "This user is not a member of the organization."
-msgstr ""
+msgstr "This user is not a member of the organization."
 
 msgctxt "skip_to_content"
 msgid "Skip to Content"
-msgstr ""
+msgstr "Skip to Content"
 
 msgctxt "cant_delete_main_contact"
 msgid "You cannot remove the main contact. Change it first."
-msgstr ""
+msgstr "You cannot remove the main contact. Change it first."
 
 msgctxt "open_in_crm"
 msgid "Open in CRM"
-msgstr ""
+msgstr "Open in CRM"
 
 msgctxt "information_provided_by_the_manufacturer"
 msgid "Information provided by the manufacturer"
-msgstr ""
+msgstr "Information provided by the manufacturer"
 
 msgctxt "information_provided_by_the_manufacturer_edit_form"
 msgid "Information identified by a factory icon has been provided by the manufacturer. It can be changed only by the manufacturer and moderators. If it is out of date or incorrect, please let us know."
-msgstr ""
+msgstr "Information identified by a factory icon has been provided by the manufacturer. It can be changed only by the manufacturer and moderators. If it is out of date or incorrect, please let us know."
 
 msgctxt "knowledge_panels_did_you_know"
 msgid "Did you know?"
-msgstr ""
+msgstr "Did you know?"
 
 msgctxt "knowledge_panels_why_it_matters"
 msgid "Why it matters"
-msgstr ""
+msgstr "Why it matters"
 
 msgctxt "knowledge_panels_what_you_can_do"
 msgid "What you can do"
-msgstr ""
+msgstr "What you can do"
 
 msgctxt "knowledge_panels_ingredients_rare_crops_title"
 msgid "Good for agricultural biodiversity"
-msgstr ""
+msgstr "Good for agricultural biodiversity"
 
 msgctxt "knowledge_panels_ingredients_rare_crops_subtitle"
 msgid "Contains neglected or underutilized crops:"
-msgstr ""
+msgstr "Contains neglected or underutilized crops:"
 
 msgctxt "knowledge_panels_ingredients_rare_crops_did_you_know"
 msgid "Since 1900, 75% of plant diversity has been lost as farmers around the world have abandoned local varieties for high-yielding varieties adapted to mass industrial processing. As a result, 60 % of human energy intake in the world comes from only 3 species: wheat, rice and corn."
-msgstr ""
+msgstr "Since 1900, 75% of plant diversity has been lost as farmers around the world have abandoned local varieties for high-yielding varieties adapted to mass industrial processing. As a result, 60 % of human energy intake in the world comes from only 3 species: wheat, rice and corn."
 
 msgctxt "knowledge_panels_ingredients_rare_crops_why_it_matters"
 msgid "The lack of variety of crops makes our food supply more vulnerable to pests, diseases and climate change."
-msgstr ""
+msgstr "The lack of variety of crops makes our food supply more vulnerable to pests, diseases and climate change."
 
 msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do"
 msgid "Consuming diverse cereals, legumes, vegetables and fruits contributes to:"
-msgstr ""
+msgstr "Consuming diverse cereals, legumes, vegetables and fruits contributes to:"
 
 msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_1"
 msgid "preserving neglected and underutilized species"
-msgstr ""
+msgstr "preserving neglected and underutilized species"
 
 msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_2"
 msgid "rural development and support of local farmers and companies"
-msgstr ""
+msgstr "rural development and support of local farmers and companies"
 
 msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_3"
 msgid "preserving of diversified landscapes"
-msgstr ""
+msgstr "preserving of diversified landscapes"
 
 msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_4"
 msgid "food security"
-msgstr ""
+msgstr "food security"
 
 msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_5"
 msgid "and your health!"
-msgstr ""
+msgstr "and your health!"
 
 msgctxt "created_by"
 msgid "Created by"
-msgstr ""
+msgstr "Created by"
 
 msgctxt "org_id"
 msgid "Org id"
-msgstr ""
+msgstr "Org id"
 
 msgctxt "verified_status"
 msgid "Verified status"
-msgstr ""
+msgstr "Verified status"
 
 msgctxt "creation_date"
 msgid "Creation date"
-msgstr ""
+msgstr "Creation date"
 
 msgctxt "knowledge_panels_ingredients_rare_crops_divinfood"
 msgid "Open Food Facts participates in the European project <a href=\"https://divinfood.eu/\">DIVINFOOD</a> (funded from European Union’s Horizon 2020 research and innovation programme). DIVINFOOD aims to develop food chains that value under-utilised agrobiodiversity in order to act against the decline of biodiversity and to meet the growing expectations of consumers for healthy, local products that contribute to sustainable food systems."
-msgstr ""
+msgstr "Open Food Facts participates in the European project <a href=\"https://divinfood.eu/\">DIVINFOOD</a> (funded from European Union’s Horizon 2020 research and innovation programme). DIVINFOOD aims to develop food chains that value under-utilised agrobiodiversity in order to act against the decline of biodiversity and to meet the growing expectations of consumers for healthy, local products that contribute to sustainable food systems."
 
 msgctxt "deny"
 msgid "Deny"
-msgstr ""
+msgstr "Deny"
 
 msgctxt "users_requested_to_join_org"
 msgid "These users have requested to join the organization:"
-msgstr ""
+msgstr "These users have requested to join the organization:"
 
 msgctxt "last_login"
 msgid "Last login date"
-msgstr ""
+msgstr "Last login date"
 
 msgctxt "last_import"
 msgid "Last import date"
-msgstr ""
+msgstr "Last import date"
 
 msgctxt "drop_a_file"
 msgid "Drop"
-msgstr ""
+msgstr "Drop"
 
 msgctxt "select_product_data_file"
 msgid "Select a file with product data"
-msgstr ""
+msgstr "Select a file with product data"
 
 msgctxt "number_of_products_without_nutriscore"
 msgid "Number of products without Nutri-Score"
-msgstr ""
+msgstr "Number of products without Nutri-Score"
 
 msgctxt "percent_of_products_with_nutriscore"
 msgid "% of products where Nutri-Score is computed"
-msgstr ""
+msgstr "% of products where Nutri-Score is computed"
 
 msgctxt "products_to_be_exported"
 msgid "Products to be exported"
-msgstr ""
+msgstr "Products to be exported"
 
 msgctxt "products_exported"
 msgid "Products exported"
-msgstr ""
+msgstr "Products exported"
 
 msgctxt "opportunities_to_improve_nutriscore"
 msgid "Opp. for Nutri-Score improvements"
-msgstr ""
+msgstr "Opp. for Nutri-Score improvements"
 
 msgctxt "date_of_last_update"
 msgid "Date of last update"
-msgstr ""
+msgstr "Date of last update"
 
 msgctxt "number_of_products_on_public_platform"
 msgid "Number of products on public platform"
-msgstr ""
+msgstr "Number of products on public platform"
 
 msgctxt "number_of_products_on_producer_platform"
 msgid "Number of products on producer platform"
-msgstr ""
+msgstr "Number of products on producer platform"
 
 msgctxt "automated_daily_export_to_public_platform"
 msgid "Automatic daily export to public platform"
-msgstr ""
+msgstr "Automatic daily export to public platform"
 
 msgctxt "improvements_navigation"
 msgid "Improvements"
-msgstr ""
+msgstr "Improvements"
 
 msgctxt "products_with_changes_since_last_export"
 msgid "Products with changes since last export"
-msgstr ""
+msgstr "Products with changes since last export"
 
 msgctxt "organization_list"
 msgid "Organization list"
-msgstr ""
+msgstr "Organization list"
 
 msgctxt "open_org"
 msgid "Open org"
-msgstr ""
+msgstr "Open org"
 
 msgctxt "secondhand"
 msgid "Secondhand"
-msgstr ""
+msgstr "Secondhand"
 
 msgctxt "donated_products_title"
 msgid "Donations"
-msgstr ""
+msgstr "Donations"
 
 msgctxt "donated_products_subtitle"
 msgid "Give this product, or search for a similar donated product"
-msgstr ""
+msgstr "Give this product, or search for a similar donated product"
 
 msgctxt "used_products_title"
 msgid "Used products"
-msgstr ""
+msgstr "Used products"
 
 msgctxt "used_products_subtitle"
 msgid "Buy this product used, or search for a similar used product"
-msgstr ""
+msgstr "Buy this product used, or search for a similar used product"
 
 msgctxt "attribute_repairability_index_france_name"
 msgid "Repairability index"
-msgstr ""
+msgstr "Repairability index"
 
 msgctxt "attribute_repairability_index_france_setting_name"
 msgid "Good repairability"
-msgstr ""
+msgstr "Good repairability"
 
 msgctxt "attribute_repairability_index_france_setting_note"
 msgid "Mandatory rating in France for certain products since 2021"
-msgstr ""
+msgstr "Mandatory rating in France for certain products since 2021"
 
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_repairability_index_france_grade_title"
 msgid "Repairability index %s"
-msgstr ""
+msgstr "Repairability index %s"
 
 msgctxt "attribute_repairability_index_france_unknown_title"
 msgid "Repairability index unknown"
-msgstr ""
+msgstr "Repairability index unknown"
 
 msgctxt "attribute_repairability_index_france_not_applicable_title"
 msgid "Repairability index not-applicable"
-msgstr ""
+msgstr "Repairability index not-applicable"
 
 msgctxt "attribute_repairability_index_france_not_applicable_description_short"
 msgid "Not-applicable for the category"
@@ -7176,25 +7176,25 @@ msgstr "Not-applicable for the category"
 # variable names between { } must not be translated
 msgctxt "f_attribute_repairability_index_france_not_applicable_description"
 msgid "Applicable only for categories: {categories}"
-msgstr ""
+msgstr "Applicable only for categories: {categories}"
 
 msgctxt "attribute_repairability_index_france_very_good_description_short"
 msgid "Very good repairability"
-msgstr ""
+msgstr "Very good repairability"
 
 msgctxt "attribute_repairability_index_france_good_description_short"
 msgid "Good repairability"
-msgstr ""
+msgstr "Good repairability"
 
 msgctxt "attribute_repairability_index_france_average_description_short"
 msgid "Average repairability"
-msgstr ""
+msgstr "Average repairability"
 
 msgctxt "attribute_repairability_index_france_poor_description_short"
 msgid "Poor repairability"
-msgstr ""
+msgstr "Poor repairability"
 
 msgctxt "attribute_repairability_index_france_bad_description_short"
 msgid "Bad repairability"
-msgstr ""
+msgstr "Bad repairability"
 
