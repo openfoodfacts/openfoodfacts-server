@@ -1,8 +1,8 @@
 {
-   "code" : "1234567890102",
+   "code" : "1234567890200",
    "errors" : [],
    "product" : {
-      "_id" : "1234567890102",
+      "_id" : "1234567890200",
       "_keywords" : [
          "product",
          "test"
@@ -23,7 +23,7 @@
          "agribalyse-unknown"
       ],
       "checkers_tags" : [],
-      "code" : "1234567890102",
+      "code" : "1234567890200",
       "codes_tags" : [
          "code-13",
          "1234567890xxx",
@@ -83,10 +83,8 @@
             "origins_of_ingredients" : {
                "aggregated_origins" : [
                   {
-                     "epi_score" : "0",
                      "origin" : "en:unknown",
-                     "percent" : 100,
-                     "transportation_score" : 0
+                     "percent" : 100
                   }
                ],
                "epi_score" : 0,
@@ -97,7 +95,6 @@
                "origins_from_origins_field" : [
                   "en:unknown"
                ],
-               "transportation_score" : 0,
                "transportation_scores" : {
                   "ad" : 0,
                   "al" : 0,
@@ -163,7 +160,6 @@
                   "world" : 0,
                   "xk" : 0
                },
-               "transportation_value" : 0,
                "transportation_values" : {
                   "ad" : 0,
                   "al" : 0,
@@ -229,7 +225,6 @@
                   "world" : 0,
                   "xk" : 0
                },
-               "value" : -5,
                "values" : {
                   "ad" : -5,
                   "al" : -5,
@@ -322,7 +317,6 @@
          },
          "missing_agribalyse_match_warning" : 1,
          "missing_key_data" : 1,
-         "scores" : {},
          "status" : "unknown"
       },
       "ecoscore_grade" : "unknown",
@@ -335,7 +329,7 @@
       ],
       "entry_dates_tags" : "--ignore--",
       "food_groups_tags" : [],
-      "id" : "1234567890100",
+      "id" : "1234567890200",
       "informers_tags" : [
          "openfoodfacts-contributors"
       ],
@@ -474,11 +468,11 @@
          "missing-category"
       ],
       "popularity_key" : 0,
-      "product_name" : "Test product 1",
-      "product_name_en" : "Test product 1",
-      "product_type" : "food",
+      "product_name" : "Test product 2",
+      "product_name_en" : "Test product 2",
+      "product_type" : "product",
       "removed_countries_tags" : [],
-      "rev" : 3,
+      "rev" : 2,
       "states" : "en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-to-be-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-to-be-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-to-be-completed, en:product-name-completed, en:photos-to-be-uploaded",
       "states_hierarchy" : [
          "en:to-be-completed",

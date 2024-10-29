@@ -53,10 +53,7 @@ my $tests_ref = [
 		path => '/api/v3/product/1234567890100',
 		body => '{
 			"product": {
-				"product_name_en": "Test product",
-				"brands_tags": ["Test brand"],
-				"categories_tags": ["en:beverages", "en:teas"],
-				"lang": "en",
+				"product_name_en": "Test product 1",
 				"countries_tags": ["en:france"]
 			}
 		}',
@@ -112,6 +109,38 @@ my $tests_ref = [
 		test_case => 'get-product-obf',
 		method => 'GET',
 		path => '/api/v3/product/1234567890102',
+		expected_status_code => 200,
+	},
+	# Create a new product
+	{
+		setup => 1,
+		test_case => 'setup-create-product-2',
+		method => 'PATCH',
+		path => '/api/v3/product/1234567890200',
+		body => '{
+			"product": {
+				"product_name_en": "Test product 2",
+				"lang": "en",
+				"countries_tags": ["en:france"]
+			}
+		}',
+	},
+	# Change the product_type field to opf
+	{
+		test_case => 'change-product-type-to-opf',
+		method => 'POST',
+		path => '/cgi/product_jqm_multilingual.pl',
+		form => {
+			code => "1234567890200",
+			new_code => "opf",
+		},
+		ua => $moderator_ua,
+	},
+	# Get the product
+	{
+		test_case => 'get-product-opf',
+		method => 'GET',
+		path => '/api/v3/product/1234567890200',
 		expected_status_code => 200,
 	},
 ];
