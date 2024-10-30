@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.48.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.47.1...v2.48.0) (2024-10-30)
+
+
+### Features
+
+* update the donation banner ([#10926](https://github.com/openfoodfacts/openfoodfacts-server/issues/10926)) ([2ae1768](https://github.com/openfoodfacts/openfoodfacts-server/commit/2ae1768f524acee85e66a04ae76a65303a59c2cf))
+
+
+### Bug Fixes
+
+* matomo config for obf, opf, opff ([#10946](https://github.com/openfoodfacts/openfoodfacts-server/issues/10946)) ([6a9cd2c](https://github.com/openfoodfacts/openfoodfacts-server/commit/6a9cd2c83691f414eb84df7f96d15aae8c4c72b3))
+
 ## [2.47.1](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.47.0...v2.47.1) (2024-10-24)
 
 
