@@ -37,7 +37,7 @@ foreach my $flavor ("off", "obf", "opf", "opff") {
 			$flavor_with_most_data{$code} = $flavor;
 			$flavor_with_most_data_size{$code} = (-s "/srv/$flavor/products/$path/product.sto") || 0;
 		}
-		if ((-s "/srv/$flavor/products/$path/product.sto") || 0 > $flavor_with_most_data_size{$code}) {
+		if (((-s "/srv/$flavor/products/$path/product.sto") || 0) > $flavor_with_most_data_size{$code}) {
 			$flavor_with_most_data{$code} = $flavor;
 			$flavor_with_most_data_size{$code} = (-s "/srv/$flavor/products/$path/product.sto") || 0;
 		}
@@ -60,7 +60,7 @@ foreach my $flavor (keys %flavors) {
 my $d = 0;
 
 open(my $out, ">:encoding(UTF-8)", "/srv/off/html/files/duplicate_products.csv");
-print $out "code\tproduct_name\tbrands\tscans\toff\tobf\topf\topff\n";
+print $out "flavor_with_most_data\tcode\tflavor_with_most_data_size\tproduct_name\tbrands\tscans\toff\tobf\topf\topff\n";
 
 my %urls = (
 	off => "https://world.openfoodfacts.org",
@@ -77,7 +77,9 @@ foreach my $code (sort keys %{$flavors{all}}) {
 		. ($product_names{$code} || '') . "\t"
 		. ($brands{$code} || '') . "\t"
 		. ($scans{$code} || 0);
-	print $out $code . "\t"
+	print $out $flavor_with_most_data{$code} . "\t"
+		. $code . "\t"
+		. $flavor_with_most_data_size{$code} . "\t"
 		. ($product_names{$code} || '') . "\t"
 		. ($brands{$code} || '') . "\t"
 		. ($scans{$code} || 0);
