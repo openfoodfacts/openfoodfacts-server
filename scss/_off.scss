@@ -1318,7 +1318,7 @@ $border-pink: #ff6e78;
   &__aside{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    //align-items: center;
   }
   &__main-title{
     color: $border-pink;
@@ -1341,7 +1341,7 @@ $border-pink: #ff6e78;
       padding: 20px 10px;
     }
     &__financial{
-      width: 40%;
+      width: 50%;
       @media #{$small-only} {
         width: 90%;
       }
@@ -1353,7 +1353,7 @@ $border-pink: #ff6e78;
       }
     }
     &__donate-button{
-      width: 50%;
+      width: 40%;
       a button{
         background-color: $border-pink;
         border-radius: 30px;
@@ -1361,7 +1361,7 @@ $border-pink: #ff6e78;
         font-size: 20px;
         font-weight: 900;
         &:hover{
-          background-color: rgba($border-pink, 0.9);
+          background-color: rgba($border-pink, 0.8);
         }
       }
     }
