@@ -45,7 +45,7 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Display qw/$country request_param single_param/;
+use ProductOpener::Display qw/$subdomain redirect_to_url $country request_param single_param/;
 use ProductOpener::Users qw/$Org_id $Owner_id $User_id/;
 use ProductOpener::Lang qw/$lc/;
 use ProductOpener::Products qw/:all/;
@@ -54,6 +54,7 @@ use ProductOpener::Packaging
 	qw/add_or_combine_packaging_component_data get_checked_and_taxonomized_packaging_component_data/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::Tags qw/%language_fields %writable_tags_fields add_tags_to_field compute_field_tags/;
+use ProductOpener::URL qw(format_subdomain);
 
 use Encode;
 
@@ -429,6 +430,15 @@ sub write_product_api ($request_ref) {
 		if (not defined $product_ref) {
 			$product_ref = init_product($User_id, $Org_id, $code, $country);
 			$product_ref->{interface_version_created} = "20221102/api/v3";
+		}
+		else {
+			# There is an existing product
+			# If the product has a product_type and it is not the product_type of the server, redirect to the correct server
+
+			if ((defined $product_ref->{product_type}) and ($product_ref->{product_type} ne $options{product_type})) {
+				redirect_to_url($request_ref, 307,
+					format_subdomain($subdomain, $product_ref->{product_type}) . '/api/v3/product/' . $code);
+			}
 		}
 
 		# Use default request language if we did not get tags_lc

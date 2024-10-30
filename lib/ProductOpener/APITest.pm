@@ -429,11 +429,11 @@ sub execute_request ($test_ref, $ua) {
 	my $response;
 
 	# For some tests, we don't want to follow redirects. We want to see the 302 responses, not the response to the final destination
-	if ((defined $test_ref->{expected_status_code}) and ($test_ref->{expected_status_code} == 302)) {
-		$ua->max_redirect(0);
+	if ((defined $test_ref->{expected_status_code}) and (int($test_ref->{expected_status_code} / 100) == 3)) {
+		$test_ua->max_redirect(0);
 	}
 	else {
-		$ua->max_redirect(3);
+		$test_ua->max_redirect(3);
 	}
 
 	# Send the request

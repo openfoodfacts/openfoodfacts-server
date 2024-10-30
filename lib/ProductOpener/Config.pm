@@ -128,7 +128,7 @@ autoload("ProductOpener::Config_$flavor");
 
 =cut
 
-$ProductOpener::Config::options{product_types} = qw(food petfood beauty product);
+$ProductOpener::Config::options{product_types} = [qw(food petfood beauty product)];
 $ProductOpener::Config::options{product_types_flavors} = {
 	food => "off",
 	petfood => "opff",

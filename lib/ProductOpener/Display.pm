@@ -7899,6 +7899,13 @@ JS
 		display_error_and_exit($request_ref, sprintf(lang("no_product_for_barcode"), $code), 404);
 	}
 
+	# If the product has a product_type and it is not the product_type of the server, redirect to the correct server
+
+	if ((defined $product_ref->{product_type}) and ($product_ref->{product_type} ne $options{product_type})) {
+		redirect_to_url($request_ref, 302,
+			format_subdomain($subdomain, $product_ref->{product_type}) . product_url($product_ref));
+	}
+
 	$title = product_name_brand_quantity($product_ref);
 	my $titleid = get_string_id_for_lang($lc, product_name_brand($product_ref));
 
@@ -7916,13 +7923,6 @@ JS
 
 	if ($lc eq 'en') {
 		$request_ref->{canon_url} = get_world_subdomain() . product_url($product_ref);
-	}
-
-	# If the product has a product_type and it is not the product_type of the server, redirect to the correct server
-
-	if ((defined $product_ref->{product_type}) and ($product_ref->{product_type} ne $options{product_type})) {
-		redirect_to_url($request_ref, 302,
-			format_subdomain($subdomain, $product_ref->{product_type}) . product_url($product_ref));
 	}
 
 	# Old UPC-12 in url? Redirect to EAN-13 url

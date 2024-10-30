@@ -342,6 +342,15 @@ else {
 		if (not defined $product_ref) {
 			display_error_and_exit($request_ref, sprintf(lang("no_product_for_barcode"), $code), 404);
 		}
+		else {
+			# There is an existing product
+			# If the product has a product_type and it is not the product_type of the server, redirect to the correct server
+			# We use a 302 redirect so that browsers issue a GET request to display the form (even if we received a POST request)
+			if ((defined $product_ref->{product_type}) and ($product_ref->{product_type} ne $options{product_type})) {
+				redirect_to_url($request_ref, 302,
+					format_subdomain($subdomain, $product_ref->{product_type}) . '/cgi/product.pl?code=' . $code);
+			}
+		}
 	}
 }
 

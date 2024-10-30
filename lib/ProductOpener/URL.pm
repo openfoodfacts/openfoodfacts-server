@@ -66,7 +66,7 @@ use Data::DeepAccess qw(deep_get);
 
 =head1 FUNCTIONS
 
-=head2 format_subdomain( SUBDOMAIN )
+=head2 format_subdomain($sd, $product_type = undef))
 
 C<format_subdomain()> returns URL on the basis of subdomain and scheme (http/https)
 
@@ -98,7 +98,8 @@ sub format_subdomain ($sd, $product_type = undef) {
 		$scheme = 'http';
 	}
 
-	my $domain = deep_get(\%options, "product_types_domains", $product_type) || $server_domain;
+	my $domain
+		= deep_get(\%options, "product_types_domains", $product_type || $options{product_type}) || $server_domain;
 
 	return $scheme . '://' . $sd . '.' . $domain;
 

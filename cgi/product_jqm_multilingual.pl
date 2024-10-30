@@ -114,6 +114,15 @@ else {
 		$product_ref = init_product($User_id, $Org_id, $code, $country);
 		$product_ref->{interface_version_created} = $interface_version;
 	}
+	else {
+		# There is an existing product
+		# If the product has a product_type and it is not the product_type of the server, redirect to the correct server
+
+		if ((defined $product_ref->{product_type}) and ($product_ref->{product_type} ne $options{product_type})) {
+			redirect_to_url($request_ref, 307,
+				format_subdomain($subdomain, $product_ref->{product_type}) . '/cgi/product_jqm.pl?code=' . $code);
+		}
+	}
 
 	# Process edit rules
 

@@ -106,7 +106,7 @@ my $tests_ref = [
 	},
 	# Get the product with web interface
 	{
-		test_case => 'get-product-with-web-interface',
+		test_case => 'get-obf-product-with-web-interface',
 		method => 'GET',
 		path => '/product/1234567890102',
 		expected_status_code => 302,
@@ -114,10 +114,35 @@ my $tests_ref = [
 	},
 	# Get the product with API v3
 	{
-		test_case => 'get-product-obf',
+		test_case => 'get-obf-product-with-api-v3',
 		method => 'GET',
 		path => '/api/v3/product/1234567890102',
-		expected_status_code => 200,
+		expected_status_code => 302,
+		expected_type => 'html',
+	},
+	# Edit the product with web interface (display the form)
+	{
+		test_case => 'edit-obf-product-with-web-interface-display-form',
+		method => 'GET',
+		path => '/cgi/product.pl?type=edit&code=1234567890102',
+		expected_status_code => 302,
+		expected_type => 'html',
+		ua => $ua,
+	},
+	# Edit the product with web interface (process the form)
+	{
+		test_case => 'edit-obf-product-with-web-interface-process-form',
+		method => 'POST',
+		path => '/cgi/product.pl',
+		form => {
+			type => "edit",
+			action => "process",
+			code => "1234567890102",
+			product_name => "Test product 2 - updated",
+		},
+		expected_status_code => 302,
+		expected_type => 'html',
+		ua => $ua,
 	},
 	# Create a new product
 	{
@@ -149,7 +174,8 @@ my $tests_ref = [
 		test_case => 'get-product-opf',
 		method => 'GET',
 		path => '/api/v3/product/1234567890200',
-		expected_status_code => 200,
+		expected_status_code => 302,
+		expected_type => 'html',
 	},
 	# Search all products to check moved products are not on the off MongoDB database anymore
 	{
