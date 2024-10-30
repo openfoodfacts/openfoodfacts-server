@@ -1265,6 +1265,7 @@ $border-pink: #ff6e78;
   padding: 20px 0;
   border: 10px solid $border-pink;
   width: 100%;
+  background-color: white;
   @media #{$small-only} {
     flex-direction: column;
     padding: 20px 10px;
