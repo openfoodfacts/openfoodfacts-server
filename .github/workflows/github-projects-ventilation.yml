@@ -3,10 +3,22 @@ name: Ventilate issues to the right GitHub projects
 on:
   issues:
     types:
-      - labeled
       - opened
-      - transferred
       - edited
+      - deleted
+      - transferred
+      - pinned
+      - unpinned
+      - closed
+      - reopened
+      - assigned
+      - unassigned
+      - labeled
+      - unlabeled
+      - locked
+      - unlocked
+      - milestoned
+      - demilestoned
 
   pull_request_target:
     types:
