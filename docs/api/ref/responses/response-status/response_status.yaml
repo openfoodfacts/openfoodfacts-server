@@ -1,8 +1,6 @@
 title: Response status
-x-stoplight:
-  id: 54bh0c5mejahn
 type: object
-description: 'A response object to describe if a READ or WRITE request was successful or not, and if there were errors or warnings, and what the impact of those errors or warnings was.'
+description: "A response object to describe if a READ or WRITE request was successful or not, and if there were errors or warnings, and what the impact of those errors or warnings was."
 examples:
   - status_id: success_with_errors
     result:
@@ -18,7 +16,7 @@ examples:
           lc_description: Les sucres (40g) sont plus élévés que les glucdes.
         field:
           id: nutriment.sugars
-          value: '40'
+          value: "40"
         impact:
           id: nutrients_not_updated
           name: Nutrients not updated
@@ -33,7 +31,7 @@ properties:
       - success_with_warnings
       - success_with_errors
       - failure
-    description: 'Overall status of the request: whether it failed or succeeded, with or without warnings or errors.'
+    description: "Overall status of the request: whether it failed or succeeded, with or without warnings or errors."
   result:
     type: object
     description: |-
@@ -48,10 +46,10 @@ properties:
         description: Name of the response result entry in English.
       lc_name:
         type: string
-        description: 'Name of the response result entry in the language specified in tags_lc, if supplied.'
+        description: "Name of the response result entry in the language specified in tags_lc, if supplied."
   warnings:
     type: array
-    description: 'List of warnings. Warnings are used to alert about something that may be wrong, but is not necessarily wrong (e.g. a nutrient value that is unexpectedly high).'
+    description: "List of warnings. Warnings are used to alert about something that may be wrong, but is not necessarily wrong (e.g. a nutrient value that is unexpectedly high)."
     items:
       $ref: ./warning-or-error.yaml
   errors:

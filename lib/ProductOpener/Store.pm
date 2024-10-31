@@ -307,6 +307,8 @@ sub sto_iter ($initial_path, $pattern = qr/\.sto$/i) {
 				foreach my $file (@candidates) {
 					# avoid ..
 					next if $file =~ /^\.\.?$/;
+					# avoid conflicting-codes and invalid-codes
+					next if $file =~ /^(conflicting|invalid)-codes$/;
 					my $path = "$current_dir/$file";
 					if (-d $path) {
 						# explore sub dirs

@@ -43,6 +43,7 @@
       },
       {
          "ciqual_proxy_food_code" : "31016",
+         "ecobalyse_code" : "sugar",
          "id" : "en:trehalose",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 10.9375,
@@ -236,6 +237,21 @@
       "en:vitamin-e"
    ],
    "ingredients_without_ciqual_codes_n" : 11,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:amino-acids",
+      "en:antioxidant",
+      "en:colour",
+      "en:condiment",
+      "en:e262",
+      "en:e415",
+      "en:e640i",
+      "en:modified-starch",
+      "en:thickener",
+      "en:vegetable-pigment",
+      "en:vitamin-c",
+      "en:vitamin-e"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 12,
    "known_ingredients_n" : 18,
    "lc" : "ja",
    "nutriments" : {

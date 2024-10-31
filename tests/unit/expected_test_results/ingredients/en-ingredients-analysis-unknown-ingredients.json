@@ -2,6 +2,7 @@
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "19051",
+         "ecobalyse_code" : "milk",
          "id" : "en:milk",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 56.25,
@@ -40,6 +41,7 @@
       },
       {
          "ciqual_proxy_food_code" : "31016",
+         "ecobalyse_code" : "sugar",
          "id" : "en:sugar",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 2.734375,
@@ -72,6 +74,7 @@
       },
       {
          "ciqual_food_code" : "18066",
+         "ecobalyse_code" : "tap-water",
          "id" : "en:water",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 0.68359375,
@@ -161,6 +164,14 @@
       "en:spice"
    ],
    "ingredients_without_ciqual_codes_n" : 3,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:another-unknown-ingredient",
+      "en:pepper",
+      "en:salt",
+      "en:some-unknown-ingredient",
+      "en:spice"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 5,
    "known_ingredients_n" : 11,
    "lc" : "en",
    "nutriments" : {
