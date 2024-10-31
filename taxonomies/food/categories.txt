@@ -39397,8 +39397,9 @@ ciqual_food_name:en: Chocolate confectionery, filled with nuts and/or praline
 ciqual_food_name:fr: Bouchée chocolat fourrage fruits à coques et/ou praliné
 
 < en:Chocolate covered nuts
-en: Chocolate covered brasil nuts
-nl: Paranoten in chokolade
+en: Chocolate covered Brazil nuts
+nl: Paranoten in chocolade
+opposite:en: en:brazil-nuts
 
 < en:Chocolate covered nuts
 en: Chocolate covered peanuts, Sugar and chocolate coated peanuts
@@ -55134,6 +55135,7 @@ opposite:en: en:Salted nuts
 < en:Nuts
 en: Mixed nuts
 nl: Notenmelanges, gemengde noten
+opposite:en: en:brazil-nuts
 
 < en:Cashew nuts
 < en:Salted nuts
@@ -55937,6 +55939,7 @@ sv: Paranötter, paranöt
 agribalyse_food_code:en: 15008
 ciqual_food_code:en: 15008
 ciqual_food_name:en: Brazil nut
+opposite:en: en:mixed-nuts, en:chocolate-covered-brazil-nuts
 wco_hs_code:en: 0801.21
 wco_hs_heading:en: 08.01
 wikidata:en: Q81671
@@ -55961,8 +55964,15 @@ nl: Paranoten(ongepeld), Ongepelde paranoten
 opposite:en: en:shelled-brazil-nuts
 
 < en:brazil-nuts
-en: Brazil nuts (salted)
-nl: Paranoten (gezouten)
+en: Brazil nuts(salted)
+nl: Paranoten(gezouten)
+opposite:en: en:brazil-nuts(unsalted)
+
+< en:brazil-nuts
+en: Brazil nuts(unsalted)
+nl: Paranoten(ongezouten)
+expected_ingredients:en: en:brazil-nut
+opposite:en: en:brazil-nuts(salted)
 
 < en:Nuts
 en: Pine nuts, Conifer nuts
