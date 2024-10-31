@@ -408,11 +408,15 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 	exists $product_ref->{new_server} and delete $product_ref->{new_server};
 
-	# 26/01/2017 - disallow barcode changes until we fix bug #677
-	if ($User{moderator} and (defined single_param("new_code")) and (single_param("new_code") ne "")) {
+	if ($User{moderator}) {
+		if ((defined single_param("new_code")) and (single_param("new_code") ne "")) {
 
-		change_product_server_or_code($product_ref, single_param("new_code"), \@errors);
-		$code = $product_ref->{code};
+			change_product_server_or_code($product_ref, single_param("new_code"), \@errors);
+			$code = $product_ref->{code};
+		}
+		if ((defined single_param("product_type")) and (single_param("product_type") ne "")) {
+			change_product_type($product_ref, single_param("product_type"), \@errors);
+		}
 	}
 
 	my @param_fields = ();
@@ -861,7 +865,7 @@ CSS
 	$template_data_ref_display->{label_new_code} = $label_new_code;
 	$template_data_ref_display->{owner_id} = $Owner_id;
 
-	$template_data_ref_display->{product_types} = \@product_types;
+	$template_data_ref_display->{product_types} = $options{product_types};
 
 	# obsolete products: restrict to admin on public site
 	# authorize owners on producers platform

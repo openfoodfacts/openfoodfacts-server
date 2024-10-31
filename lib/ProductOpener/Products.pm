@@ -65,10 +65,6 @@ use Exporter qw< import >;
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
-		@product_types
-		%product_types_flavors
-		%flavors_product_types
-
 		&is_valid_code
 		&normalize_code
 		&normalize_code_with_gs1_ai
@@ -111,6 +107,7 @@ BEGIN {
 
 		&make_sure_numbers_are_stored_as_numbers
 		&change_product_server_or_code
+		&change_product_type
 
 		&find_and_replace_user_id_in_products
 
@@ -173,20 +170,6 @@ my $ean_check = CheckDigits('ean');
 use Scalar::Util qw(looks_like_number);
 
 use GS1::SyntaxEngine::FFI::GS1Encoder;
-
-=head2 Available product types and flavors
-
-=cut
-
-@product_types = qw(food petfood beauty product);
-%product_types_flavors = (
-	food => "off",
-	petfood => "oppf",
-	beauty => "obf",
-	product => "opf"
-);
-
-%flavors_product_types = reverse %product_types_flavors;
 
 =head1 FUNCTIONS
 
@@ -1048,8 +1031,8 @@ sub change_product_server_or_code ($product_ref, $new_code, $errors_ref) {
 
 	if ($new_code =~ /^([a-z]+)$/) {
 		my $new_server = $1;
-		if (defined $flavors_product_types{$new_server}) {
-			change_product_type($product_ref, $flavors_product_types{$new_server}, $errors_ref);
+		if (defined $options{flavors_product_types}{$new_server}) {
+			change_product_type($product_ref, $options{flavors_product_types}{$new_server}, $errors_ref);
 		}
 	}
 
@@ -1090,7 +1073,7 @@ sub change_product_type ($product_ref, $new_product_type, $errors_ref) {
 		return;
 	}
 
-	if (not defined $product_types_flavors{$new_product_type}) {
+	if (not defined $options{product_types_flavors}{$new_product_type}) {
 		push @$errors_ref, lang("error_invalid_product_type");
 	}
 	else {
@@ -1204,9 +1187,9 @@ sub store_product ($user_id, $product_ref, $comment) {
 	if (defined $product_ref->{server}) {
 		my $new_server = $product_ref->{server};
 		# Update the product_type from the server
-		if (defined $flavors_product_types{$new_server}) {
+		if (defined $options{flavors_product_types}{$new_server}) {
 			my $errors_ref = {};
-			change_product_type($product_ref, $flavors_product_types{$new_server}, $errors_ref);
+			change_product_type($product_ref, $options{flavors_product_types}{$new_server}, $errors_ref);
 		}
 		delete $product_ref->{server};
 	}
@@ -1216,7 +1199,7 @@ sub store_product ($user_id, $product_ref, $comment) {
 
 	# Get the previous server and collection for the product
 	my $previous_server
-		= $product_types_flavors{$product_ref->{old_product_type}
+		= $options{product_types_flavors}{$product_ref->{old_product_type}
 			|| $product_ref->{product_type}
 			|| $options{product_type}};
 
@@ -1235,7 +1218,7 @@ sub store_product ($user_id, $product_ref, $comment) {
 	}
 
 	# Get the server and collection for the product that we will write
-	my $new_server = $product_types_flavors{$product_ref->{product_type} || $options{product_type}};
+	my $new_server = $options{product_types_flavors}{$product_ref->{product_type} || $options{product_type}};
 	my $new_products_collection = get_products_collection(
 		{database => $options{other_servers}{$new_server}{mongodb}, obsolete => $product_ref->{obsolete}});
 
