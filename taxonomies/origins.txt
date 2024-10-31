@@ -78,12 +78,12 @@ synonyms:hu: Délnyugat, Dél Nyugat
 synonyms:hu: Délkelet, Dél Kelet
 synonyms:hu: Kelet-Közép, Kelet Közép
 synonyms:hu: Nyugat-Közép, Nyugat Közép
-synonyms:it: Nordovest, Nord Ovest
-synonyms:it: Nordest, Nord Est
-synonyms:it: Sudovest, Sud Ovest
-synonyms:it: Sudest, Sud Est
-synonyms:it: Centro Est, Est Centrale
-synonyms:it: Centro Ovest, Ovest Centrale
+synonyms:it: Nordovest, Nord Ovest, Nord-Ovest
+synonyms:it: Nordest, Nord Est, Nord-Est
+synonyms:it: Sudovest, Sud Ovest, Sud-Ovest
+synonyms:it: Sudest, Sud Est, Sud-Est
+synonyms:it: Centro Est, Est Centrale, Centro-Est, Centro Orientale
+synonyms:it: Centro Ovest, Ovest Centrale, Centro-Ovest, Centro Occidentale
 synonyms:nl: Noordwest, Noord West
 synonyms:nl: Noordoost, Noord Oost
 synonyms:nl: Zuidwest, Zuid West
@@ -127,7 +127,7 @@ de: Unbekannt
 es: Desconocido
 fr: Inconnu, inconnue, inconnus, inconnues
 hu: Ismeretlen
-it: Sconosciuto
+it: Sconosciuta, Sconosciuto
 ja: 不明
 nl: Onbekend
 pl: Nieznany, Nieznane
@@ -142,6 +142,7 @@ ca: No especificat
 es: No especificado
 fr: Non indiqué, non indiquée, non indiqués, non indiquées, non spécifié, non spécifiée, non spécifiée, non spécifiées, non précisé, non précisée, non précisés, non précisées
 hu: Nincs megadva, kitöltetlen, nem elérhető
+it: Non specificata, non specificato
 nl: Niet-gespecificeerd
 pt: Não especificado
 
@@ -4067,7 +4068,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Rhône_(department)
 en: Métropole de Lyon
 xx: Métropole de Lyon
 insee:fr: 69M
-osm_realtion:en: 4850450
+osm_relation:en: 4850450
 wikidata:en: Q16665897
 wikipedia:en: https://en.wikipedia.org/wiki/Metropolis_of_Lyon
 
@@ -5405,8 +5406,24 @@ bg: Сицилия
 fr: Sicile
 hu: Szicília
 nl: Sicilië
-pl: SycyliaF
+pl: Sycylia
 tr: Sicilya
+
+< en:italy
+en: Apulia
+xx: Puglia
+
+< en:italy
+en: Lazio
+xx: Lazio
+
+< en:lazio
+en: Rome
+xx: Roma
+
+< en:italy
+en: Tuscany
+xx: Toscana
 
 ############################### Netherlands 
 
@@ -5447,6 +5464,7 @@ bg: Андалусия
 es: Andalucía
 fr: Andalousie
 hu: Andalúzia
+it: Andalusia
 nl: Andalusië
 
 < en:spain
@@ -5480,6 +5498,7 @@ pl: Wielka Brytania
 en: England
 bg: Англия
 fr: Angleterre
+it: Inghilterra
 nl: Engeland
 pl: Anglia
 
@@ -5487,6 +5506,7 @@ pl: Anglia
 en: Scotland
 bg: Шотландия
 fr: Écosse
+it: Scozia
 nl: Schotland
 pl: Szkocja
 
@@ -5518,7 +5538,7 @@ bg: Северна Ирландия
 fr: Irlande du Nord
 nl: Noord-Ierland
 
-# US states
+# China states
 
 < en: China
 en: Jiangsu
@@ -5531,6 +5551,8 @@ en: Yancheng
 xx: Yancheng
 zh: 盐城
 wikipedia:en: https://en.wikipedia.org/wiki/Yancheng
+
+# US states
 
 < en:united-states
 en: California
@@ -5563,6 +5585,7 @@ fr: Caroline du Sud
 en: Gaza Strip
 bg: Ивица Газа
 fr: Bande de Gaza
+it: Striscia di Gaza
 nl: Gazastrook
 
 # Marine zones

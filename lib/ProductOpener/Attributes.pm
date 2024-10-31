@@ -36,7 +36,6 @@ See https://wiki.openfoodfacts.org/Product_Attributes
 If new attributes are added, make sure *to update the list of fields* fetched from MongoDB
 in Display.pm (in search_and_display_products subroutine).
 
-
 =cut
 
 package ProductOpener::Attributes;
@@ -98,7 +97,7 @@ $options{attribute_groups} = [
 # Build a hash of attribute groups to make it easier to retrieve all attributes of a specific group
 my %attribute_groups = ();
 
-# Build a hash of attributes to make it easier to retrieve all attributes
+# Build a hash of attributes to make it easier to retrieve all attributes
 my %attributes = ();
 
 if (defined $options{attribute_groups}) {
@@ -166,6 +165,11 @@ sub list_attributes ($target_lc) {
 				foreach my $attribute_id (@{$attributes_ref}) {
 
 					my $attribute_ref = initialize_attribute($attribute_id, $target_lc);
+
+					# Add the possible values for the attribute
+					$attribute_ref->{values}
+						= deep_get(\%options, "attribute_values", $attribute_id) || $options{attribute_values_default};
+
 					push @{$group_ref->{attributes}}, $attribute_ref;
 				}
 
@@ -467,11 +471,16 @@ sub compute_attribute_nutriscore ($product_ref, $target_lc, $target_cc) {
 
 	my $attribute_ref = initialize_attribute($attribute_id, $target_lc);
 
-	# Nutri-Score A, B, C, D or E
-	if ((defined $product_ref->{nutriscore_grade}) and ($product_ref->{nutriscore_grade} =~ /^[a-e]$/)) {
-		$attribute_ref->{status} = "known";
+	my $nutriscore_ref = deep_get($product_ref, "nutriscore", $version);
 
-		my $nutriscore_ref = $product_ref->{nutriscore}{$version};
+	# Check that we have computed a Nutri-Score with the expected version
+	# and that the Nutri-Score is A, B, C, D or E
+
+	if (    (defined $nutriscore_ref)
+		and (defined $product_ref->{nutriscore_grade})
+		and ($product_ref->{nutriscore_grade} =~ /^[a-e]$/))
+	{
+		$attribute_ref->{status} = "known";
 
 		my $is_beverage = $nutriscore_ref->{data}{is_beverage};
 		my $is_water = $nutriscore_ref->{data}{is_water};
@@ -632,13 +641,7 @@ The return value is a reference to the resulting attribute data structure.
 =head4 % Match
 
 To differentiate products more finely, the match is based on the Eco-Score score
-that is used to define the Eco-Score grade from A to E.
-
-- Eco-Score A: 80 to 100
-- Eco-Score B: 60 to 79
-- Eco-Score C: 40 to 59
-- Eco-Score D: 20 to 39
-- Eco-Score E: 0 to 19
+that is used to define the Eco-Score grade from A+ to F.
 
 =cut
 
@@ -670,13 +673,8 @@ sub compute_attribute_ecoscore ($product_ref, $target_lc, $target_cc) {
 			if $log->is_debug();
 
 		# Compute match based on score
-
-		my $match = 0;
-
-		# Score ranges from 0 to 100 with some maluses and bonuses that can be added
-		# Warning: a Eco-Score score of 20 means D grade for the Eco-Score, but a match of 20 is E grade for the attributes
-		# So we add 1 to the Eco-Score score to compute the match.
-		$match = $score + 1;
+		# Score ranges from 0 to 100 with some maluses and bonuses that can be added or subtracted
+		my $match = $score;
 
 		if ($score < 0) {
 			$match = 0;
@@ -688,12 +686,18 @@ sub compute_attribute_ecoscore ($product_ref, $target_lc, $target_cc) {
 		$attribute_ref->{match} = $match;
 
 		if ($target_lc ne "data") {
+			my $letter_grade = uc($grade);    # A+, A, B, C, D, E, F
+			my $grade_underscore = $grade;
+			$grade_underscore =~ s/\-/_/;    # a-plus -> a_plus
+			if ($grade eq "a-plus") {
+				$letter_grade = "A+";
+			}
 			$attribute_ref->{title}
-				= sprintf(lang_in_other_lc($target_lc, "attribute_ecoscore_grade_title"), uc($grade));
+				= sprintf(lang_in_other_lc($target_lc, "attribute_ecoscore_grade_title"), $letter_grade);
 			$attribute_ref->{description}
-				= lang_in_other_lc($target_lc, "attribute_ecoscore_" . $grade . "_description");
+				= lang_in_other_lc($target_lc, "attribute_ecoscore_" . $grade_underscore . "_description");
 			$attribute_ref->{description_short}
-				= lang_in_other_lc($target_lc, "attribute_ecoscore_" . $grade . "_description_short");
+				= lang_in_other_lc($target_lc, "attribute_ecoscore_" . $grade_underscore . "_description_short");
 		}
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/ecoscore-$grade.svg";
 	}

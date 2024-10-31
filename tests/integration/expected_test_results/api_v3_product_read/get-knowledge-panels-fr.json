@@ -186,6 +186,7 @@
             "title_element" : {
                "grade" : "c",
                "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/ecoscore-c.svg",
+               "name" : "Eco-Score",
                "title" : "Eco-Score C - Impact modéré sur l'environnement",
                "type" : "grade"
             },
@@ -493,7 +494,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                Score d'analyse du cycle de vie : 70<br>\n                Somme des bonus et malus :\n                    \n                        -23\n                    <br><br>\n                Score final : 47/100\n                \n                ",
+                     "html" : "\n                Score d'analyse du cycle de vie : 70<br>\n                Somme des bonus et malus :\n                    \n                        -23\n                    <br><br>\n                Score final : 47/100\n                ",
                      "type" : "summary"
                   }
                }
