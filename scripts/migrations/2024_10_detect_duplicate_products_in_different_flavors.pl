@@ -60,7 +60,8 @@ foreach my $flavor (keys %flavors) {
 my $d = 0;
 
 open(my $out, ">:encoding(UTF-8)", "/srv/off/html/files/duplicate_products.csv");
-print $out "flavor_with_most_data\tcode\tflavor_with_most_data_size\tproduct_name\tbrands\tscans\toff\tobf\topf\topff\n";
+print $out
+	"flavor_with_most_data\tcode\tflavor_with_most_data_size\tproduct_name\tbrands\tscans\toff\tobf\topf\topff\n";
 
 my %urls = (
 	off => "https://world.openfoodfacts.org",
