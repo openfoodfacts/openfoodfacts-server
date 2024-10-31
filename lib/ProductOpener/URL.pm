@@ -98,11 +98,14 @@ sub format_subdomain ($sd, $product_type = undef) {
 		$scheme = 'http';
 	}
 
-	my $domain
-		= deep_get(\%options, "product_types_domains", $product_type || $options{product_type}) || $server_domain;
+	my $domain = $server_domain;
+	# If we have a product_type, different from the product_type of the server, use the domain for that product_type
+	if ((defined $product_type) and ($product_type ne $options{product_type})) {
+		
+		$domain = deep_get(\%options, "product_types_domains", $product_type || $options{product_type}) || $server_domain;
+	}
 
 	return $scheme . '://' . $sd . '.' . $domain;
-
 }
 
 =head2 subdomain_supports_https( SUBDOMAIN )
