@@ -239,8 +239,12 @@ foreach my $year (sort keys %number_of_products) {
 # Print all the stats by year in tab separated columns to STDOUT
 print "year\tactive_editors\tnew_editors\tproducts_edited\tproducts_added\ttotal_products\n";
 foreach my $year (sort keys %number_of_products) {
-	print join("\t", $year, scalar keys %{$active_editors{$year}},  $new_editors{$year}, scalar keys %{$products_edited{$year}}, scalar keys %{$products_added{$year}}, $number_of_products{$year}) . "\n";
+	print join("\t",
+		$year, scalar keys %{$active_editors{$year}},
+		$new_editors{$year},
+		scalar keys %{$products_edited{$year}},
+		scalar keys %{$products_added{$year}},
+		$number_of_products{$year}) . "\n";
 }
-
 
 exit(0);
