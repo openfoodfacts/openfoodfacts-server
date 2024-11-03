@@ -133,10 +133,10 @@ stopwords:bg: съдържа, в, от, с, със, до, и, или, и/или,
 stopwords:bs: i, u promjenljivom odnosu
 stopwords:ca: i, de
 stopwords:da: av, af, blandt andet, bl a, inklusive, heraf, indeholder, tilsat
-stopwords:de: und, mit, von, aus, enthält, enthalten, mindestens, in veränderlichen gewichtsanteilen, wenig, min, max
+stopwords:de: und, mit, von, aus, enthält, enthalten, mindestens, naturbelassen, in veränderlichen gewichtsanteilen, wenig, min, max
 stopwords:el: περιέχει
 # example: "artificial flavouring substances", "natural and nature identical flavouring substances"
-stopwords:en: and, or, added to enhance freshness, added to maintain flavor and freshness, assorted, contains, contain, edible, from, including, inter alia, less than 1% of:, minimum, produced with, with, with added, in varying proportions, substances, based
+stopwords:en: and, or, added to enhance freshness, added to maintain flavor and freshness, assorted, contains, contain, edible, from, including, inter alia, less than 1% of:, minimum, produced with, with, with added, in varying proportions, substances, based, for freshness
 stopwords:es: contiene, de, del, la, el, las, los, con, y, e, en, minimo, maximo, puede, contener, por, categoria, calibre, minimo, min, vereidad, variedad, de cultivo, origen, nota, produccion, controlada, equivalente, equivale
 stopwords:fi: sisältää, muun muassa, valio, koskenlaskija, snellmanin, jossa, noin, käymisen aikana muodostuva
 stopwords:fr: aux, au, de, le, du, la, a, et, avec, ou, en, proportion, variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets, pour souleves, dont, avec, autres, d'autres, d', avec ajout, sachet, marquants, demeter, minimum, base
@@ -62951,15 +62951,16 @@ ciqual_food_name:en: Walnut, fresh
 ciqual_food_name:fr: Noix, fraîche
 
 < en:walnut
-en: walnut kernel, walnuts shelled
+en: walnut kernel, walnuts shelled, Nntural shelled walnuts
 de: Walnusskerne, Walnusskern
 es: nuez mondada, nueces peladas, nueces sin cáscara
 fi: kuoreton saksanpähkinä, kuorettomat saksanpähkinät
-fr: cerneaux de noix
+fr: cerneaux de noix, Cerneaux de noix moitié nature
 hr: orah jezgra, jezgra oraha
 it: gherigli di noci, noci comuni
 nb: Valnøttkjerner
 nl: Gepelde walnoot, walnootpitten
+pt: Miolo de noz
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:cerneaux-de-noix
 # 78 products in 4 languages @2018-10-05
 ciqual_food_code:en: 15005
@@ -62977,13 +62978,9 @@ it: noci secche
 < en:walnut
 en: walnuts from Grenoble
 es: nueces de Grenoble
-fr: noix de Grenoble
+fr: noix de Grenoble, noix sèches de Grenoble, noix de Grenoble sèche, noix sèche de Grenoble
 hr: orasi iz grenoblea
 it: noci di Grenoble
-
-< en:walnuts from Grenoble
-en: dried walnuts from Grenoble
-fr: noix de Grenoble sèche, noix sèche de Grenoble
 
 < en:walnut
 es: nuez de castilla
@@ -62991,8 +62988,9 @@ es: nuez de castilla
 < en:walnut
 en: whole walnuts, dried whole walnuts
 de: Walnüsse in der Schale
-es: nueces cascara
+es: nueces cascara, nueces con cáscara
 fr: noix en coques, noix en coques séchées
+it: noci in guscio
 
 < en:walnut kernel
 fr: cerneaux de noix AOP
