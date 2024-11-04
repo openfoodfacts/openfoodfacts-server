@@ -66431,27 +66431,6 @@ protected_name_file_number:en: PDO-ES-0074
 protected_name_type:en: pdo
 #wikidata:en:
 
-# in eu, Blackcurrants jams/jellies should have specific
-# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02001L0113-20131118
-< en:Berries
-en: Blackcurrants, black currant
-bg: Касис
-fr: Cassis, Cassis
-hr: Crni ribizli
-lt: Juodieji serbentai
-agribalyse_food_code:en: 13007
-ciqual_food_code:en: 13007
-ciqual_food_name:en: Black currant, raw
-ciqual_food_name:fr: Cassis, cru
-
-< en:Blackcurrants
-< en:Fresh fruits
-en: Fresh blackcurrants
-fr: Cassis frais
-hr: Svježi crni ribiz
-lt: Švieži juodieji serbentai
-season_in_country_fr:en: 6,7,8
-
 < en:Fruits
 en: Kumquats, kumquat
 af: koemkwat
@@ -67108,7 +67087,6 @@ ciqual_food_name:fr: Fraise, crue
 #ciqual_food_name:en:Strawberry in season, raw
 #ciqual_food_name:fr:Fraise de saison, crue
 
-
 < en:Fresh fruits
 < en:Strawberries
 en: Fresh strawberries
@@ -67144,6 +67122,34 @@ fr: Fraise du Périgord
 origins:en: en:france, en:perigord
 protected_name_file_number:en: PGI-FR-0133, PGI-FR-0133-AM01
 protected_name_type:en: pgi
+
+
+# in eu, Blackcurrants jams/jellies should have specific
+# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02001L0113-20131118
+< en:Berries
+en: Blackcurrants, black currant
+bg: Касис
+fr: Cassis, Cassis
+hr: Crni ribizli
+lt: Juodieji serbentai
+agribalyse_food_code:en: 13007
+ciqual_food_code:en: 13007
+ciqual_food_name:en: Black currant, raw
+ciqual_food_name:fr: Cassis, cru
+
+< en:Blackcurrants
+< en:Fresh fruits
+en: Fresh blackcurrants
+fr: Cassis frais
+hr: Svježi crni ribiz
+lt: Švieži juodieji serbentai
+season_in_country_fr:en: 6,7,8
+
+< en:Fruits
+en: Camu-Camu
+xx: Camu-Camu
+la: Myrciaria dubia
+wikipedia:en: https://en.wikipedia.org/wiki/Myrciaria_dubia
 
 < en:Fruits
 en: Cherries
