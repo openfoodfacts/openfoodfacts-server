@@ -3370,11 +3370,11 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 
 		# We are now looking for the appropriate ecobalyse id :
 		# ecobalyse_origins_france_label_organic (if the product comes from france, and is organic)
-    	# ecobalyse_origins_european-union_label_organic (if the product comes from europe, and is organic)
-    	# ecobalyse_label_organic (if the product is organic)
-    	# ecobalyse_origins_france (if the product comes from france)
+		# ecobalyse_origins_european-union_label_organic (if the product comes from europe, and is organic)
+		# ecobalyse_label_organic (if the product is organic)
+		# ecobalyse_origins_france (if the product comes from france)
 		# ecobalyse_origins_european-union (if the product comes from the Europe region)
-    	# ecobalyse (else)
+		# ecobalyse (else)
 
 		# List of suffixes
 		my @suffixes = ();
