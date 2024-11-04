@@ -4089,6 +4089,15 @@ HTML
 						;
 				}
 
+				if ($packager_codes{$canon_tagid}{cc} eq 'it') {
+					$description .= <<HTML
+<p>$packager_codes{$canon_tagid}{name}<br>
+$packager_codes{$canon_tagid}{address}, $packager_codes{$canon_tagid}{region} (Italy)
+</p>
+HTML
+						;
+				}
+
 				if ($packager_codes{$canon_tagid}{cc} eq 'lu') {
 					$description .= <<HTML
 <p>$packager_codes{$canon_tagid}{name}<br>
