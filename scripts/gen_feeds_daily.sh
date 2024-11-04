@@ -20,6 +20,9 @@ export PERL5LIB=lib:$PERL5LIB
 # load paths
 . <(perl -e 'use ProductOpener::Paths qw/:all/; print base_paths_loading_script()')
 
+# load PRODUCT_OPENER_DOMAIN
+. <(perl -e 'use ProductOpener::Config qw/:all/; print "export PRODUCT_OPENER_DOMAIN=$server_domain\n";')
+
 # we should now have PRODUCT_OPENER_DOMAIN set (from Config.pm in production mode), check it
 if [ -z "$PRODUCT_OPENER_DOMAIN" ]; then
     >&2 echo "Environment variable PRODUCT_OPENER_DOMAIN not set"

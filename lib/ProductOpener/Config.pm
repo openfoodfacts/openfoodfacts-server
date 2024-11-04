@@ -35,9 +35,6 @@ if (not defined $flavor) {
 use Module::Load;
 autoload("ProductOpener::Config_$flavor");
 
-# Export $server_domain to the PRODUCT_OPENER_DOMAIN environment variable
-$ENV{PRODUCT_OPENER_DOMAIN} = $ENV{PRODUCT_OPENER_DOMAIN} || $ProductOpener::Config::server_domain;
-
 #
 
 1;
