@@ -15,6 +15,78 @@ msgstr ""
 "X-Crowdin-Language: lt\n"
 "X-Crowdin-File-ID: 3123\n"
 
+msgctxt "site_description_off"
+msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
+msgstr ""
+
+msgctxt "tagline_off"
+msgid "Open Food Facts gathers information and data on food products from around the world."
+msgstr "„Open Food Facts“ renka informaciją ir duomenis apie maisto produktus iš viso pasaulio."
+
+msgctxt "footer_tagline_off"
+msgid "A collaborative, free and open database of food products from around the world."
+msgstr "Bendradarbiaujanti, nemokama ir atvira maisto produktų iš viso pasaulio duomenų bazė."
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_off"
+msgid "/open-food-facts-mobile-app"
+msgstr "/open-food-facts-mobile-app"
+
+msgctxt "site_description_obf"
+msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
+msgstr ""
+
+msgctxt "tagline_obf"
+msgid "Open Beauty Facts gathers information and data on cosmetic products from around the world."
+msgstr "Open Beauty Facts surenkama informacija ir statistika apie kosmetikos produktus iš viso pasaulio."
+
+msgctxt "footer_tagline_obf"
+msgid "A collaborative, free and open database of cosmetic products from around the world."
+msgstr ""
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_obf"
+msgid "/open-beauty-facts-mobile-app"
+msgstr ""
+
+msgctxt "footer_and_the_facebook_group_obf"
+msgid "and the <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">Facebook group for contributors</a>"
+msgstr ""
+
+msgctxt "search_description_opensearch_obf"
+msgid "Open Beauty Facts product search"
+msgstr ""
+
+msgctxt "warning_not_complete_obf"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
+msgstr "Šio produkto puslapis nėra užbaigtas. Tu gali padėti jį užbaigti redaguodamas ji ir pridėdamas daugiau informacijos iš nuotraukų kurias turime arba nufotografuojant produktą naudojantis programele!<a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">noun\n\n"
+"Mobile operating system, based on Linux kernel.\n\n"
+"\" translation=\"\" style=\"cursor: pointer; border-bottom: 1px dashed var(--crowdin-text-muted); color: rgba(38, 50, 56, 0.87); font-family: Roboto, \"Helvetica Neue\", Helvetica, Arial, sans-serif; font-size: 15px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: pre-wrap; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Ačiū tau!"
+
+msgctxt "brands_example_beauty"
+msgid "Nivea, Nivea Men"
+msgstr ""
+
+msgctxt "categories_example_beauty"
+msgid "Anti-dandruff shampoo, Whitening toothpaste"
+msgstr ""
+
+msgctxt "emb_codes_example_beauty"
+msgid "EMB 53062"
+msgstr ""
+
+msgctxt "generic_name_example_beauty"
+msgid "Anti-dandruff shampoo"
+msgstr ""
+
+msgctxt "product_name_example_beauty"
+msgid "Anti-Perspirant Stress Protect"
+msgstr ""
+
+msgctxt "ingredients_text_example_beauty"
+msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
+msgstr ""
+
 msgctxt "1_product"
 msgid "1 product"
 msgstr "1 produktas"
@@ -816,7 +888,7 @@ msgstr "/legal"
 
 msgctxt "footer_privacy"
 msgid "Privacy"
-msgstr ""
+msgstr "Privatumas"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_privacy_link"
@@ -2072,7 +2144,7 @@ msgstr "Pasirinkite produktus su konkrečiais prekės ženklais, kategorijomis, 
 
 msgctxt "search_description_opensearch"
 msgid "Product search"
-msgstr ""
+msgstr "Produktų paieška"
 
 msgctxt "search_does_not_contain"
 msgid "does not contain"
@@ -4754,10 +4826,14 @@ msgctxt "attribute_ecoscore_setting_note"
 msgid "The Eco-Score is an environmental score (ecoscore) from A to E which makes it easy to compare the impact of food products on the environment."
 msgstr "„Eco-Score“ yra aplinkosaugos įvertinimas (ecoscore) nuo A iki E, leidžiantis lengvai palyginti maisto produktų daromą poveikį aplinkai."
 
-# keep %s, it will be replaced by the letter A, B, C, D or E
+# keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_ecoscore_grade_title"
 msgid "Eco-Score %s"
 msgstr "Eco-Score %s"
+
+msgctxt "attribute_ecoscore_a_plus_description_short"
+msgid "Very low environmental impact"
+msgstr "Labai mažas poveikis aplinkai"
 
 msgctxt "attribute_ecoscore_a_description_short"
 msgid "Very low environmental impact"
@@ -4776,6 +4852,10 @@ msgid "High environmental impact"
 msgstr "Didelis poveikis aplinkai"
 
 msgctxt "attribute_ecoscore_e_description_short"
+msgid "Very high environmental impact"
+msgstr "Labai didelis poveikis aplinkai"
+
+msgctxt "attribute_ecoscore_f_description_short"
 msgid "Very high environmental impact"
 msgstr "Labai didelis poveikis aplinkai"
 
@@ -4903,10 +4983,6 @@ msgctxt "number_of_members"
 msgid "Number of Members"
 msgstr "Narių skaičius"
 
-msgctxt "serial_no"
-msgid "S.No"
-msgstr "Ser. Nr."
-
 msgctxt "contact_form"
 msgid "Contact form"
 msgstr "Kontaktų forma"
@@ -4952,21 +5028,21 @@ msgctxt "ecoscore_information"
 msgid "Information about the Eco-score"
 msgstr "Informacija apie Eco-score"
 
-msgctxt "preferences_edit_your_food_preferences"
-msgid "Edit your food preferences"
-msgstr "Redaguokite savo maisto pageidavimus"
-
-msgctxt "preferences_your_preferences"
-msgid "Your food preferences"
-msgstr "Jūsų maisto pageidavimai"
-
 msgctxt "preferences_currently_selected_preferences"
 msgid "Currently selected preferences"
 msgstr "Šiuo metu pasirinkti nustatymai"
 
 msgctxt "preferences_locally_saved"
-msgid "Your food preferences are kept in your browser and never sent to Open Food Facts or anyone else."
-msgstr "Jūsų maisto pasirinkimai saugomi naršyklėje ir niekada nesiunčiami Open Food Facts ar kam nors kitam."
+msgid "Your preferences are kept in your browser and never sent to Open Food Facts or anyone else."
+msgstr "Jūsų parinktys saugomos jūsų naršyklėje ir niekada nėra siunčiamos „Open Food Facts“ ar kam nors kitam."
+
+msgctxt "preferences_edit_your_preferences"
+msgid "Edit your preferences"
+msgstr "Redaguoti savo parinktis"
+
+msgctxt "preferences_your_preferences"
+msgid "Your preferences"
+msgstr "Jūsų parinktys"
 
 # used in phrases like "salt in unknown quantity"
 msgctxt "unknown_quantity"
@@ -5750,6 +5826,46 @@ msgctxt "donation_text_2023_tertiary"
 msgid "The food revolution starts with you!"
 msgstr "Maisto revoliucija prasideda nuo tavęs!"
 
+msgctxt "donation_hook_2024"
+msgid "Help us inform millions of consumers around the world about what they eat"
+msgstr ""
+
+msgctxt "donation_title_2024"
+msgid "Please give to our 2024 Fundraiser"
+msgstr ""
+
+msgctxt "donation_list_2024_main"
+msgid "Your donations fund the day-to-day operations of our non-profit association:"
+msgstr ""
+
+msgctxt "donation_list_2024_first"
+msgid "keeping our database open & available to all,"
+msgstr ""
+
+msgctxt "donation_list_2024_first_sub"
+msgid "technical infrastructure (website/mobile app) & a small permanent team"
+msgstr ""
+
+msgctxt "donation_list_2024_second"
+msgid "remain independent of the food industry,"
+msgstr ""
+
+msgctxt "donation_list_2024_third"
+msgid "engage a community of committed citizens,"
+msgstr ""
+
+msgctxt "donation_list_2024_fourth"
+msgid "support the advancement of public health research."
+msgstr ""
+
+msgctxt "donation_financial_2024_text"
+msgid "Each donation counts! We appreciate your support in bringing further food transparency in the world."
+msgstr ""
+
+msgctxt "donation_button_2024_text"
+msgid "I SUPPORT"
+msgstr ""
+
 msgctxt "donation_cta"
 msgid "Donate"
 msgstr "Paaukokite"
@@ -5797,8 +5913,21 @@ msgstr "Anglies pėdsakas"
 
 # variable names between { } must not be translated
 msgctxt "f_carbon_footprint_per_100g_of_product"
-msgid "{grams} g CO² per 100g of product"
-msgstr "{grams} g CO² 100 g produkto"
+msgid "{grams} g CO₂e per 100g of product"
+msgstr "{grams} g CO₂e/100 g produkto"
+
+# variable names between { } must not be translated
+msgctxt "f_carbon_footprint_per_unit"
+msgid "{kilograms} kg CO₂e per unit"
+msgstr "{kilograms} kg CO₂e/vnt."
+
+msgctxt "average_for_the_category"
+msgid "average for the category"
+msgstr "kategorijos vidurkis"
+
+msgctxt "data_source_and_detailed_carbon_impact"
+msgid "Data source and detailed carbon impact"
+msgstr "Duomenų šaltinis ir išsamus anglies dioksido poveikis"
 
 # variable names between { } must not be translated
 msgctxt "f_equal_to_driving_km_in_a_petrol_car"
@@ -5888,6 +6017,10 @@ msgstr "Norint apskaičiuoti Nutri-Score, turi būti nurodyta produkto kategorij
 msgctxt "nutriscore_missing_nutrition_data"
 msgid "The nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr "Norint apskaičiuoti Nutri-Score, turi būti nurodyti produkto maistingumo faktai."
+
+msgctxt "nutriscore_missing_nutrition_data_details"
+msgid "Missing nutrition facts:"
+msgstr "Trūksta maistinė vertė:"
 
 msgctxt "nutriscore_missing_category_and_nutrition_data"
 msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
@@ -6111,22 +6244,22 @@ msgstr "Sužinokite daugiau apie Eco-Score"
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_very_good_match"
 msgid "Very good match"
-msgstr "Labai geras atitikimas"
+msgstr "Puikus atitikmuo"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_good_match"
 msgid "Good match"
-msgstr "Geras atitikimas"
+msgstr "Geras atitikmuo"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_poor_match"
 msgid "Poor match"
-msgstr "Blogas atitikimas"
+msgstr "Prastas atitikmuo"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_unknown_match"
 msgid "Unknown match"
-msgstr "Nežinomas pasirinkimas"
+msgstr "Nežinomas atitikmuo"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_may_not_match"
@@ -6184,7 +6317,7 @@ msgstr "Pridėti pakuotės komponentus"
 
 msgctxt "action_add_quantity"
 msgid "Add quantity of the product"
-msgstr ""
+msgstr "Pridėti produkto kiekį"
 
 # this is not used yet
 msgctxt "action_add_basic_details"
@@ -6725,19 +6858,19 @@ msgstr "Taškai už baltymus neskaičiuojami, nes neigiami taškai yra didesni a
 
 msgctxt "nutriscore_explanation_what_it_is"
 msgid "The Nutri-Score is a logo on the overall nutritional quality of products."
-msgstr ""
+msgstr "Nutri-Score - tai rodikis, nurodantis bendrą produkto mitybinę vertę."
 
 msgctxt "nutriscore_explanation_what_it_takes_into_account"
 msgid "The score from A to E is calculated based on nutrients and foods to favor (proteins, fiber, fruits, vegetables and legumes ...) and nutrients to limit (calories, saturated fat, sugars, salt)."
-msgstr ""
+msgstr "Įvertinimas nuo A iki E yra apskaičiojamas atsižvelgiant į maistines medžiagas ir maisto produktus (baltymai, skaidulos, vaisiai, daržovės ir ankštinės daržovės...) ir maistines medžiagas, kurias reikia riboti (kalorijos, sotieji riebalai, cukrus, druska)."
 
 msgctxt "nutriscore_explanation_where_the_data_comes_from"
 msgid "The score is calculated from the data of the nutrition facts table and the composition data (fruits, vegetables and legumes)."
-msgstr ""
+msgstr "Balas apskaičiuojamas pagal maistingumo duomenų lentelės duomenis ir sudėties duomenis (vaisiai, daržovės ir ankštiniai augalai)."
 
 msgctxt "nutriscore_explanation_recommended_by_public_health_authorities"
 msgid "The display of this logo is recommended by public health authorities without obligation for companies."
-msgstr ""
+msgstr "Šį logotipą rekomenduoja rodyti visuomenės sveikatos priežiūros institucijos, tačiau įmonės neprivalo to daryti."
 
 msgctxt "nutriscore_explanation_title"
 msgid "What is the Nutri-Score?"
@@ -6745,7 +6878,7 @@ msgstr "Kas yra „Nutri-Score“?"
 
 msgctxt "nutrient_info_energy_risk"
 msgid "Energy intakes above energy requirements are associated with increased risks of weight gain, overweight, obesity, and consequently risk of diet-related chronic diseases."
-msgstr ""
+msgstr "Energijos suvartojimas, viršijantis energijos poreikį, yra susijęs su padidėjusia svorio, antsvorio bei nutukimo rizika, taip pat su mityba susijusių lėtinių ligų rizika."
 
 msgctxt "nutrient_info_saturated_fat_risk"
 msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
@@ -6761,7 +6894,7 @@ msgstr "Didelis riebalų, ypač sočiųjų, vartojimas gali padidinti cholestero
 
 msgctxt "nutrient_info_non_nutritive_sweeteners_risk"
 msgid "Non-nutritive sweeteners may not confer any long-term benefit in reducing body fat in adults or children. There may be potential undesirable effects from long-term use of non-nutritive sweeteners, such as an increased risk of type 2 diabetes and cardiovascular diseases in adults."
-msgstr ""
+msgstr "Nemaistingi saldikliai gali neduoti jokios ilgalaikės naudos mažinant kūno riebalų kiekį suaugusiesiems ar vaikams. Ilgalaikis nemaistingų saldiklių vartojimas gali turėti nepageidaujamo poveikio, pavyzdžiui, suaugusiesiems gali padidėti 2 tipo diabeto ir širdies ir kraujagyslių ligų rizika."
 
 msgctxt "nutrient_info_fiber_benefit"
 msgid "Consuming foods rich in fiber (especially whole grain foods) reduces the risks of aerodigestive cancers, cardiovascular diseases, obesity and diabetes."
@@ -6817,6 +6950,10 @@ msgctxt "report_problem_panel_title"
 msgid "Report a problem"
 msgstr "Pranešti apie problemą"
 
+msgctxt "report_problem_navigation"
+msgid "Report a problem."
+msgstr "Pranešti apie problemą."
+
 msgctxt "incomplete_or_incorrect_data_title"
 msgid "Incomplete or incorrect information?"
 msgstr "Neišsami arba neteisinga informacija?"
@@ -6837,79 +6974,266 @@ msgctxt "description"
 msgid "Description"
 msgstr "Aprašas"
 
-msgctxt "site_description_off"
-msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
-msgstr ""
-
-msgctxt "tagline_off"
-msgid "Open Food Facts gathers information and data on food products from around the world."
-msgstr "„Open Food Facts“ renka informaciją ir duomenis apie maisto produktus iš viso pasaulio."
-
-msgctxt "footer_tagline_off"
-msgid "A collaborative, free and open database of food products from around the world."
-msgstr "Bendradarbiaujanti, nemokama ir atvira maisto produktų iš viso pasaulio duomenų bazė."
-
-#. make sure the text file exists for your language, otherwise ask @teolemon 
-msgctxt "get_the_app_link_off"
-msgid "/open-food-facts-mobile-app"
-msgstr "/open-food-facts-mobile-app"
-
-msgctxt "site_description_obf"
-msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
-msgstr ""
-
-msgctxt "tagline_obf"
-msgid "Open Beauty Facts gathers information and data on cosmetic products from around the world."
-msgstr "Open Beauty Facts surenkama informacija ir statistika apie kosmetikos produktus iš viso pasaulio."
-
-msgctxt "footer_tagline_obf"
-msgid "A collaborative, free and open database of cosmetic products from around the world."
-msgstr ""
-
-#. make sure the text file exists for your language, otherwise ask @teolemon 
-msgctxt "get_the_app_link_obf"
-msgid "/open-beauty-facts-mobile-app"
-msgstr ""
-
-msgctxt "footer_and_the_facebook_group_obf"
-msgid "and the <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">Facebook group for contributors</a>"
-msgstr ""
-
-msgctxt "search_description_opensearch_obf"
-msgid "Open Beauty Facts product search"
-msgstr ""
-
-msgctxt "warning_not_complete_obf"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
-msgstr "Šio produkto puslapis nėra užbaigtas. Tu gali padėti jį užbaigti redaguodamas ji ir pridėdamas daugiau informacijos iš nuotraukų kurias turime arba nufotografuojant produktą naudojantis programele!<a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">noun\n\n"
-"Mobile operating system, based on Linux kernel.\n\n"
-"\" translation=\"\" style=\"cursor: pointer; border-bottom: 1px dashed var(--crowdin-text-muted); color: rgba(38, 50, 56, 0.87); font-family: Roboto, \"Helvetica Neue\", Helvetica, Arial, sans-serif; font-size: 15px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: pre-wrap; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Ačiū tau!"
-
-msgctxt "brands_example_beauty"
-msgid "Nivea, Nivea Men"
-msgstr ""
-
-msgctxt "categories_example_beauty"
-msgid "Anti-dandruff shampoo, Whitening toothpaste"
-msgstr ""
-
-msgctxt "emb_codes_example_beauty"
-msgid "EMB 53062"
-msgstr ""
-
-msgctxt "generic_name_example_beauty"
-msgid "Anti-dandruff shampoo"
-msgstr ""
-
-msgctxt "product_name_example_beauty"
-msgid "Anti-Perspirant Stress Protect"
-msgstr ""
-
-msgctxt "ingredients_text_example_beauty"
-msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
-msgstr ""
-
+# duplicate with "report_problem_panel_title"
 msgctxt "report_problem_navigation"
 msgid "Report a problem"
 msgstr "Pranešti apie problemą"
+
+msgctxt "enter_main_contact_username"
+msgid "Enter main contact's username :"
+msgstr ""
+
+msgctxt "change_main_contact"
+msgid "Change main contact"
+msgstr ""
+
+msgctxt "main_contact_updated"
+msgid "Main contact updated"
+msgstr ""
+
+msgctxt "error_unknown_member"
+msgid "This user is not a member of the organization."
+msgstr ""
+
+msgctxt "skip_to_content"
+msgid "Skip to Content"
+msgstr ""
+
+msgctxt "cant_delete_main_contact"
+msgid "You cannot remove the main contact. Change it first."
+msgstr ""
+
+msgctxt "open_in_crm"
+msgid "Open in CRM"
+msgstr ""
+
+msgctxt "information_provided_by_the_manufacturer"
+msgid "Information provided by the manufacturer"
+msgstr ""
+
+msgctxt "information_provided_by_the_manufacturer_edit_form"
+msgid "Information identified by a factory icon has been provided by the manufacturer. It can be changed only by the manufacturer and moderators. If it is out of date or incorrect, please let us know."
+msgstr ""
+
+msgctxt "knowledge_panels_did_you_know"
+msgid "Did you know?"
+msgstr "Ar žinojote?"
+
+msgctxt "knowledge_panels_why_it_matters"
+msgid "Why it matters"
+msgstr "Kodėl tai svarbu"
+
+msgctxt "knowledge_panels_what_you_can_do"
+msgid "What you can do"
+msgstr "Ką jūs galite padaryti"
+
+msgctxt "knowledge_panels_ingredients_rare_crops_title"
+msgid "Good for agricultural biodiversity"
+msgstr ""
+
+msgctxt "knowledge_panels_ingredients_rare_crops_subtitle"
+msgid "Contains neglected or underutilized crops:"
+msgstr ""
+
+msgctxt "knowledge_panels_ingredients_rare_crops_did_you_know"
+msgid "Since 1900, 75% of plant diversity has been lost as farmers around the world have abandoned local varieties for high-yielding varieties adapted to mass industrial processing. As a result, 60 % of human energy intake in the world comes from only 3 species: wheat, rice and corn."
+msgstr ""
+
+msgctxt "knowledge_panels_ingredients_rare_crops_why_it_matters"
+msgid "The lack of variety of crops makes our food supply more vulnerable to pests, diseases and climate change."
+msgstr ""
+
+msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do"
+msgid "Consuming diverse cereals, legumes, vegetables and fruits contributes to:"
+msgstr ""
+
+msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_1"
+msgid "preserving neglected and underutilized species"
+msgstr ""
+
+msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_2"
+msgid "rural development and support of local farmers and companies"
+msgstr ""
+
+msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_3"
+msgid "preserving of diversified landscapes"
+msgstr ""
+
+msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_4"
+msgid "food security"
+msgstr ""
+
+msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_5"
+msgid "and your health!"
+msgstr ""
+
+msgctxt "created_by"
+msgid "Created by"
+msgstr "Sukūrė"
+
+msgctxt "org_id"
+msgid "Org id"
+msgstr "Org. ID"
+
+msgctxt "verified_status"
+msgid "Verified status"
+msgstr "Patvirtinta būsena"
+
+msgctxt "creation_date"
+msgid "Creation date"
+msgstr "Sukūrimo data"
+
+msgctxt "knowledge_panels_ingredients_rare_crops_divinfood"
+msgid "Open Food Facts participates in the European project <a href=\"https://divinfood.eu/\">DIVINFOOD</a> (funded from European Union’s Horizon 2020 research and innovation programme). DIVINFOOD aims to develop food chains that value under-utilised agrobiodiversity in order to act against the decline of biodiversity and to meet the growing expectations of consumers for healthy, local products that contribute to sustainable food systems."
+msgstr ""
+
+msgctxt "deny"
+msgid "Deny"
+msgstr ""
+
+msgctxt "users_requested_to_join_org"
+msgid "These users have requested to join the organization:"
+msgstr ""
+
+msgctxt "last_login"
+msgid "Last login date"
+msgstr ""
+
+msgctxt "last_import"
+msgid "Last import date"
+msgstr ""
+
+msgctxt "drop_a_file"
+msgid "Drop"
+msgstr "Numesti"
+
+msgctxt "select_product_data_file"
+msgid "Select a file with product data"
+msgstr "Rinktis failą su produkto duomenimis"
+
+msgctxt "number_of_products_without_nutriscore"
+msgid "Number of products without Nutri-Score"
+msgstr "Produktų skaičius be „Nutri-Score“"
+
+msgctxt "percent_of_products_with_nutriscore"
+msgid "% of products where Nutri-Score is computed"
+msgstr "% produktų, kurių „Nutri-Score“ yra apskaičiuotas"
+
+msgctxt "products_to_be_exported"
+msgid "Products to be exported"
+msgstr "Produktai, kurie turi būti eksportuoti"
+
+msgctxt "products_exported"
+msgid "Products exported"
+msgstr "Eksportuotos prekės"
+
+msgctxt "opportunities_to_improve_nutriscore"
+msgid "Opp. for Nutri-Score improvements"
+msgstr "„Nutri-Score“ patobulinimų galim."
+
+msgctxt "date_of_last_update"
+msgid "Date of last update"
+msgstr "Paskutinio atnaujinimo data"
+
+msgctxt "number_of_products_on_public_platform"
+msgid "Number of products on public platform"
+msgstr "Produktų skaičius viešojoje platformoje"
+
+msgctxt "number_of_products_on_producer_platform"
+msgid "Number of products on producer platform"
+msgstr "Produktų skaičius gamintojo platformoje"
+
+msgctxt "automated_daily_export_to_public_platform"
+msgid "Automatic daily export to public platform"
+msgstr "Automatinis kasdienis eksportas į viešąją platformą"
+
+msgctxt "improvements_navigation"
+msgid "Improvements"
+msgstr ""
+
+msgctxt "products_with_changes_since_last_export"
+msgid "Products with changes since last export"
+msgstr "Produktai su pakeitimais nuo paskutinio eksporto"
+
+msgctxt "organization_list"
+msgid "Organization list"
+msgstr "Organizacijos sąrašas"
+
+msgctxt "open_org"
+msgid "Open org"
+msgstr "Atidaryti org"
+
+msgctxt "secondhand"
+msgid "Secondhand"
+msgstr "Naudoti"
+
+msgctxt "donated_products_title"
+msgid "Donations"
+msgstr "Parama"
+
+msgctxt "donated_products_subtitle"
+msgid "Give this product, or search for a similar donated product"
+msgstr "Duokite šį produktą arba ieškokite panašaus paaukoto produkto"
+
+msgctxt "used_products_title"
+msgid "Used products"
+msgstr "Naudoti produktai"
+
+msgctxt "used_products_subtitle"
+msgid "Buy this product used, or search for a similar used product"
+msgstr "Pirkite šį produktą naudotą arba ieškokite panašaus naudoto produkto"
+
+msgctxt "attribute_repairability_index_france_name"
+msgid "Repairability index"
+msgstr "Taisomumo indeksas"
+
+msgctxt "attribute_repairability_index_france_setting_name"
+msgid "Good repairability"
+msgstr "Geras taisomumas"
+
+msgctxt "attribute_repairability_index_france_setting_note"
+msgid "Mandatory rating in France for certain products since 2021"
+msgstr "Nuo 2021 m. Prncūzijoje privalomas tam tikrų produktų įvertinimas"
+
+# keep %s, it will be replaced by the letter A, B, C, D or E
+msgctxt "attribute_repairability_index_france_grade_title"
+msgid "Repairability index %s"
+msgstr "Taisomumo indeksas %s"
+
+msgctxt "attribute_repairability_index_france_unknown_title"
+msgid "Repairability index unknown"
+msgstr "Taisomumo indeksas nežinomas"
+
+msgctxt "attribute_repairability_index_france_not_applicable_title"
+msgid "Repairability index not-applicable"
+msgstr "Taisomumo indeksas netaikomas"
+
+msgctxt "attribute_repairability_index_france_not_applicable_description_short"
+msgid "Not-applicable for the category"
+msgstr "Netaikoma šiai kategorijai"
+
+# variable names between { } must not be translated
+msgctxt "f_attribute_repairability_index_france_not_applicable_description"
+msgid "Applicable only for categories: {categories}"
+msgstr "Taikomas tik kategorijoms: {categories}"
+
+msgctxt "attribute_repairability_index_france_very_good_description_short"
+msgid "Very good repairability"
+msgstr "Labai geras taisomumas"
+
+msgctxt "attribute_repairability_index_france_good_description_short"
+msgid "Good repairability"
+msgstr "Geras taisomumas"
+
+msgctxt "attribute_repairability_index_france_average_description_short"
+msgid "Average repairability"
+msgstr "Vidutinis taisomumas"
+
+msgctxt "attribute_repairability_index_france_poor_description_short"
+msgid "Poor repairability"
+msgstr "Prastas taisomumas"
+
+msgctxt "attribute_repairability_index_france_bad_description_short"
+msgid "Bad repairability"
+msgstr "Blogas taisomumas"
 
