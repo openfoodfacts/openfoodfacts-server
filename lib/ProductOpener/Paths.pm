@@ -74,6 +74,14 @@ A hashmap containing references to base directories
 
 %BASE_DIRS = ();
 
+=head3 $BASE_DIRS{SCRIPTS}
+
+Directory for scripts
+
+=cut
+
+$BASE_DIRS{SCRIPTS} = _source_dir() . "/scripts";
+
 =head3 $BASE_DIRS{LOGS}
 
 Directory for logging
