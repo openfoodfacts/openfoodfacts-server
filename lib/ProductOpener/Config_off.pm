@@ -1076,35 +1076,6 @@ $options{import_export_fields_importance} = {
 	},
 );
 
-# allow moving products to other instances of Product Opener on the same server
-# e.g. OFF -> OBF
-
-$options{current_server} = "off";
-
-$options{other_servers} = {
-	obf => {
-		name => "Open Beauty Facts",
-		mongodb => "obf",
-		domain => "openbeautyfacts.org",
-	},
-	off => {
-		name => "Open Food Facts",
-		mongodb => "off",
-		domain => "openfoodfacts.org",
-	},
-	opf => {
-		name => "Open Products Facts",
-		mongodb => "opf",
-		domain => "openproductsfacts.org",
-	},
-	opff => {
-		prefix => "opff",
-		name => "Open Pet Food Facts",
-		mongodb => "opff",
-		domain => "openpetfoodfacts.org",
-	}
-};
-
 # Name of the Redis stream to which product updates are published
 $options{redis_stream_name} = "product_updates_off";
 
