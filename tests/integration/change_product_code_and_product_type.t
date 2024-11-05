@@ -189,23 +189,53 @@ my $tests_ref = [
 		},
 		ua => $moderator_ua,
 	},
+	# Get the product with API v2, without product_type parameter
+	{
+		test_case => 'get-product-opf-without-product-type-api-v2',
+		method => 'GET',
+		path => '/api/v2/product/1234567890200',
+		expected_status_code => 404,
+	},
+	# Get the product with API v2, with a wrong product type
+	{
+		test_case => 'get-product-opf-with-wrong-product-type-api-v2',
+		method => 'GET',
+		path => '/api/v2/product/1234567890200?product_type=off',
+		expected_status_code => 404,
+	},
+	# Get the product with API v2 with the right product type
+	{
+		test_case => 'get-product-opf-with-right-product-type-api-v2',
+		method => 'GET',
+		path => '/api/v2/product/1234567890200?product_type=product',
+		expected_status_code => 302,
+		expected_type => 'html',
+	},
+	# Get the product with API v2 with the "all" product_type
+	{
+		test_case => 'get-product-opf-with-all-product-type-api-v2',
+		method => 'GET',
+		path => '/api/v2/product/1234567890200?product_type=all',
+		expected_status_code => 302,
+		expected_type => 'html',
+	},
 	# Get the product with API v3, without product_type parameter
 	{
-		test_case => 'get-product-opf-without-product-type',
+		test_case => 'get-product-opf-without-product-type-api-v3',
 		method => 'GET',
 		path => '/api/v3/product/1234567890200',
 		expected_status_code => 404,
 	},
 	# Get the product with API v3, with a wrong product type
 	{
-		test_case => 'get-product-opf-with-wrong-product-type',
+		test_case => 'get-product-opf-with-wrong-product-type-api-v3',
 		method => 'GET',
 		path => '/api/v3/product/1234567890200?product_type=off',
 		expected_status_code => 404,
 	},
 	# Get the product with API v3 with the right product type
 	{
-		test_case => 'get-product-opf-with-right-product-type',
+		test_case => 'get-product-opf-with-right-product-type-api-v3',
 		method => 'GET',
 		path => '/api/v3/product/1234567890200?product_type=product',
 		expected_status_code => 302,
@@ -213,7 +243,7 @@ my $tests_ref = [
 	},
 	# Get the product with API v3 with the "all" product_type
 	{
-		test_case => 'get-product-opf-with-all-product-type',
+		test_case => 'get-product-opf-with-all-product-type-api-v3',
 		method => 'GET',
 		path => '/api/v3/product/1234567890200?product_type=all',
 		expected_status_code => 302,

@@ -10512,6 +10512,14 @@ sub display_taxonomy_api ($request_ref) {
 	return;
 }
 
+=head2 display_product_api ( $request_ref )
+
+Return product data in JSON format.
+
+This function is used only for api v0, v1 and v2. API v3 + uses APIProductRead.pm
+
+=cut
+
 sub display_product_api ($request_ref) {
 
 	my $cc = $request_ref->{cc};
@@ -10579,6 +10587,24 @@ sub display_product_api ($request_ref) {
 				$template_data_ref, \$html, $request_ref)
 				|| return "template error: " . $tt->error();
 			$response{jqm} .= $html;
+		}
+	}
+	elsif ((defined $product_ref->{product_type}) and ($product_ref->{product_type} ne $options{product_type})) {
+
+		# If the product has a product_type and it is not the product_type of the server,
+		# redirect to the correct server if the request includes a matching product_type parameter (or the "all" product type)
+
+		my $requested_product_type = single_param("product_type");
+		if (    (defined $requested_product_type)
+			and (($requested_product_type eq "all") or ($requested_product_type eq $product_ref->{product_type})))
+		{
+			redirect_to_url($request_ref, 302,
+				format_subdomain($subdomain, $product_ref->{product_type}) . $request_ref->{original_query_string});
+		}
+		else {
+			$request_ref->{status_code} = 404;
+			$response{status} = 0;
+			$response{status_verbose} = 'product found with a different product type: ' . $product_ref->{product_type};
 		}
 	}
 	else {
