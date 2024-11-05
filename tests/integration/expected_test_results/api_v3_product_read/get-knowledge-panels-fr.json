@@ -117,7 +117,7 @@
             "title_element" : {
                "icon_color_from_evaluation" : true,
                "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/car.svg",
-               "subtitle" : "286 g CO₂e pour 100g de produit",
+               "subtitle" : "286 g de CO₂e pour 100 g de produit",
                "title" : "Équivaut à parcourir 1.5 km dans une voiture à essence"
             },
             "topics" : [
@@ -494,7 +494,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                Score d'analyse du cycle de vie : 70<br>\n                Somme des bonus et malus :\n                    \n                        -23\n                    <br><br>\n                Score final : 47/100\n                \n                ",
+                     "html" : "\n                Score d'analyse du cycle de vie : 70<br>\n                Somme des bonus et malus :\n                    \n                        -23\n                    <br><br>\n                Score final : 47/100\n                ",
                      "type" : "summary"
                   }
                }
@@ -634,7 +634,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                Si les informations ne correspondent pas à celles figurant sur l'emballage, vous pouvez les compléter ou les corriger. Merci!\n                Open Food Facts est une base de données collaborative, et chaque contribution est utile pour tous.\n                "
+                     "html" : "\n                Si les informations ne correspondent pas à celles figurant sur l'emballage, vous pouvez les compléter ou les corriger. Merci !\n                Open Food Facts est une base de données collaborative, et chaque contribution est utile pour tous.\n                "
                   }
                },
                {
@@ -1093,7 +1093,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "<p>Le Nutri-Score est un logo sur la qualité nutritionnelle globale des produits.</p>\n<p>\nLe score de A à E est calculé en fonction des nutriments et aliments à favoriser (protéines, fibres, fruits et légumes, légumes secs…) et des nutriments à limiter (calories, matières grasses saturées, sucres, sel).\nLe score est calculé à partir des données du tableau de la déclaration nutritionnelle et des données de composition (fruits, légumes et légumes secs).\n</p>\n\n                ",
+                     "html" : "<p>Le Nutri-Score est un logo sur la qualité nutritionnelle globale des produits.</p>\n<p>\nLe score de A à E est calculé en fonction des nutriments et aliments à favoriser (protéines, fibres, fruits et légumes, légumes secs…) et des nutriments à limiter (calories, acides gras saturés, sucres, sel).\nLe score est calculé à partir des données du tableau de la déclaration nutritionnelle et des données de composition (fruits, légumes et légumes secs).\n</p>\n\n                ",
                      "type" : "info"
                   }
                },

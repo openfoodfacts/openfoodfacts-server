@@ -115,7 +115,7 @@
                      "epi_score" : "0",
                      "origin" : "en:unknown",
                      "percent" : 100,
-                     "transportation_score" : null
+                     "transportation_score" : 0
                   }
                ],
                "epi_score" : 0,
@@ -1199,7 +1199,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                Life cycle analysis score: 70<br>\n                Sum of bonuses and maluses:\n                    \n                        -23\n                    <br><br>\n                Final score: 47/100\n                \n                ",
+                     "html" : "\n                Life cycle analysis score: 70<br>\n                Sum of bonuses and maluses:\n                    \n                        -23\n                    <br><br>\n                Final score: 47/100\n                ",
                      "type" : "summary"
                   }
                }
@@ -1820,7 +1820,7 @@
             "title_element" : {
                "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/points-negative-1-10.svg",
                "subtitle" : "1/10 points (400kJ)",
-               "title" : "Calories"
+               "title" : "Energy"
             },
             "topics" : [
                "health"

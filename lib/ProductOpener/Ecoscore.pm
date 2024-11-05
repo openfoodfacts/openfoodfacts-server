@@ -214,6 +214,8 @@ sub load_ecoscore_data_origins_of_ingredients_distances() {
 			# Score 0 for unknown origin
 			$ecoscore_data{origins}{"en:unknown"}{"transportation_score_" . $countries[$i]} = 0;
 		}
+		# Score 0 for unspecified request country (world)
+		$ecoscore_data{origins}{"en:unknown"}{"transportation_score_world"} = 0;
 		my @ecoscore_countries_sorted = sort keys %ecoscore_countries;
 
 		%ecoscore_countries_enabled = %ecoscore_countries;
@@ -257,6 +259,8 @@ sub load_ecoscore_data_origins_of_ingredients_distances() {
 				}
 				$ecoscore_data{origins}{$origin_id}{"transportation_score_" . $countries[$i]} = $value;
 			}
+			# Score 0 for unspecified request country (world)
+			$ecoscore_data{origins}{$origin_id}{"transportation_score_world"} = 0;
 
 			$log->debug("ecoscore origins CSV file - row",
 				{origin => $origin, origin_id => $origin_id, ecoscore_data => $ecoscore_data{origins}{$origin_id}})
@@ -1754,13 +1758,20 @@ The adjustment value and computations details are stored in the product referenc
 
 =cut
 
-sub localize_ecoscore ($cc, $product_ref) {
+sub localize_ecoscore ($request_cc, $product_ref) {
 
 	# Localize the Eco-Score fields that depends on the country of the request
 
 	if (defined $product_ref->{ecoscore_data}) {
 
 		# Localize the final score
+
+		# If we have specific Eco-Score and origins of ingredients adjustment for the country, use it,
+		# otherwise use the world values
+		my $cc = $request_cc;
+		if (not defined $product_ref->{ecoscore_data}{"scores"}{$cc}) {
+			$cc = "world";
+		}
 
 		if (defined $product_ref->{ecoscore_data}{"scores"}{$cc}) {
 			$product_ref->{ecoscore_data}{"score"} = $product_ref->{ecoscore_data}{"scores"}{$cc};
@@ -1770,7 +1781,6 @@ sub localize_ecoscore ($cc, $product_ref) {
 			$product_ref->{"ecoscore_grade"} = $product_ref->{ecoscore_data}{"grade"};
 			$product_ref->{"ecoscore_tags"} = [$product_ref->{ecoscore_grade}];
 		}
-
 		# Localize the origins of ingredients data
 
 		if (defined $product_ref->{ecoscore_data}{adjustments}{origins_of_ingredients}) {

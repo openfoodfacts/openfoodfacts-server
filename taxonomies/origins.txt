@@ -5288,8 +5288,96 @@ xx: French Antilles
 fr: Antilles françaises
 
 
-# Canada regions
-fr: Québec
+# Canada provinces/territories
+
+< en:canada
+en: Alberta
+xx: Alberta
+iso:en: CA-AB
+wikipedia:en: https://en.wikipedia.org/wiki/Alberta
+
+< en:canada
+en: British Columbia
+xx: British Columbia
+iso:en: CA-BC
+wikipedia:en: https://en.wikipedia.org/wiki/British_Columbia
+
+< en:canada
+en: Manitoba
+xx: Manitoba
+iso:en: CA-MB
+wikipedia:en: https://en.wikipedia.org/wiki/Manitoba
+
+< en:canada
+en: New Brunswick
+xx: New Brunswick
+iso:en: CA-NB
+wikipedia:en: https://en.wikipedia.org/wiki/New_Brunswick
+
+< en:canada
+en: Newfoundland and Labrador
+xx: Newfoundland and Labrador
+iso:en: CA-NL
+wikipedia:en: https://en.wikipedia.org/wiki/Newfoundland_and_Labrador
+
+< en:canada
+en: Northwest Territories
+xx: Northwest Territories
+iso:en: CA-NT
+wikipedia:en: https://en.wikipedia.org/wiki/Northwest_Territories
+
+< en:canada
+en: Nova Scotia
+xx: Nova Scotia
+iso:en: CA-NS
+wikipedia:en: https://en.wikipedia.org/wiki/Nova_Scotia
+
+< en:canada
+en: Nunavut
+xx: Nunavut
+iso:en: CA-NU
+wikipedia:en: https://en.wikipedia.org/wiki/Nunavut
+
+< en:canada
+en: Ontario
+xx: Ontario
+iso:en: CA-ON
+wikipedia:en: https://en.wikipedia.org/wiki/Ontario
+
+< en:ontario
+en: Toronto
+xx: Toronto
+wikipedia:en: https://en.wikipedia.org/wiki/Toronto
+
+< en:canada
+en: Prince Edward Island
+xx: Prince Edward Island
+iso:en: CA-PE
+wikipedia:en: https://en.wikipedia.org/wiki/Prince_Edward_Island
+
+< en:canada
+en: Québec
+xx: Québec
+iso:en: CA-QC
+wikipedia:en: https://en.wikipedia.org/wiki/Quebec
+
+< en:quebec
+en: Montreal
+xx: Montreal
+web:en: https://montreal.ca/en/
+wikipedia:en: https://en.wikipedia.org/wiki/Montreal
+
+< en:canada
+en: Saskatchewan
+xx: Saskatchewan
+iso:en: CA-SK
+wikipedia:en: wikipedia:en: https://en.wikipedia.org/wiki/Saskatchewan
+
+< en:canada
+en: Yukon
+xx: Yukon
+iso:en: CA-YT
+wikipedia:en: https://en.wikipedia.org/wiki/Yukon
 
 # Germany regions
 
@@ -5408,6 +5496,22 @@ hu: Szicília
 nl: Sicilië
 pl: Sycylia
 tr: Sicilya
+
+< en:italy
+en: Apulia
+xx: Puglia
+
+< en:italy
+en: Lazio
+xx: Lazio
+
+< en:lazio
+en: Rome
+xx: Roma
+
+< en:italy
+en: Tuscany
+xx: Toscana
 
 ############################### Netherlands 
 

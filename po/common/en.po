@@ -18,14 +18,13 @@ msgstr ""
 # Overrides by flavor (e.g. obf) or product type (e.g. beauty)
 
 # OFF
-
 msgctxt "site_description_off"
 msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
 msgstr "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
 
 msgctxt "tagline_off"
-msgid   "Open Food Facts gathers information and data on food products from around the world."
-msgstr  "Open Food Facts gathers information and data on food products from around the world."
+msgid "Open Food Facts gathers information and data on food products from around the world."
+msgstr "Open Food Facts gathers information and data on food products from around the world."
 
 msgctxt "footer_tagline_off"
 msgid "A collaborative, free and open database of food products from around the world."
@@ -36,12 +35,6 @@ msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr "/open-food-facts-mobile-app"
 
-# OBF
-
-msgctxt "footer_tagline_obf"
-msgid "A collaborative, free and open database of cosmetic products from around the world."
-msgstr "A collaborative, free and open database of cosmetic products from around the world."
-
 msgctxt "site_description_obf"
 msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
 msgstr "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
@@ -50,14 +43,14 @@ msgctxt "tagline_obf"
 msgid "Open Beauty Facts gathers information and data on cosmetic products from around the world."
 msgstr "Open Beauty Facts gathers information and data on cosmetic products from around the world."
 
+msgctxt "footer_tagline_obf"
+msgid "A collaborative, free and open database of cosmetic products from around the world."
+msgstr "A collaborative, free and open database of cosmetic products from around the world."
+
 #. make sure the text file exists for your language, otherwise ask @teolemon 
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
 msgstr "/open-beauty-facts-mobile-app"
-
-msgctxt "warning_not_complete_obf"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
-msgstr "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
 
 msgctxt "footer_and_the_facebook_group_obf"
 msgid "and the <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">Facebook group for contributors</a>"
@@ -66,6 +59,10 @@ msgstr "and the <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">Fac
 msgctxt "search_description_opensearch_obf"
 msgid "Open Beauty Facts product search"
 msgstr "Open Beauty Facts product search"
+
+msgctxt "warning_not_complete_obf"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
+msgstr "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
 
 msgctxt "brands_example_beauty"
 msgid "Nivea, Nivea Men"
@@ -90,8 +87,6 @@ msgstr "Anti-Perspirant Stress Protect"
 msgctxt "ingredients_text_example_beauty"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
 msgstr "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
-
-# End of overrides by flavor or product type
 
 msgctxt "1_product"
 msgid "1 product"
@@ -5835,6 +5830,46 @@ msgctxt "donation_text_2023_tertiary"
 msgid "The food revolution starts with you!"
 msgstr "The food revolution starts with you!"
 
+msgctxt "donation_hook_2024"
+msgid "Help us inform millions of consumers around the world about what they eat"
+msgstr "Help us inform millions of consumers around the world about what they eat"
+
+msgctxt "donation_title_2024"
+msgid "Please give to our 2024 Fundraiser"
+msgstr "Please give to our 2024 Fundraiser"
+
+msgctxt "donation_list_2024_main"
+msgid "Your donations fund the day-to-day operations of our non-profit association:"
+msgstr "Your donations fund the day-to-day operations of our non-profit association:"
+
+msgctxt "donation_list_2024_first"
+msgid "keeping our database open & available to all,"
+msgstr "keeping our database open & available to all,"
+
+msgctxt "donation_list_2024_first_sub"
+msgid "technical infrastructure (website/mobile app) & a small permanent team"
+msgstr "technical infrastructure (website/mobile app) & a small permanent team"
+
+msgctxt "donation_list_2024_second"
+msgid "remain independent of the food industry,"
+msgstr "remain independent of the food industry,"
+
+msgctxt "donation_list_2024_third"
+msgid "engage a community of committed citizens,"
+msgstr "engage a community of committed citizens,"
+
+msgctxt "donation_list_2024_fourth"
+msgid "support the advancement of public health research."
+msgstr "support the advancement of public health research."
+
+msgctxt "donation_financial_2024_text"
+msgid "Each donation counts! We appreciate your support in bringing further food transparency in the world."
+msgstr "Each donation counts! We appreciate your support in bringing further food transparency in the world."
+
+msgctxt "donation_button_2024_text"
+msgid "I SUPPORT"
+msgstr "I SUPPORT"
+
 msgctxt "donation_cta"
 msgid "Donate"
 msgstr "Donate"
@@ -6739,7 +6774,7 @@ msgstr "Weight percent"
 
 msgctxt "nutriscore_component_energy"
 msgid "Energy"
-msgstr "Calories"
+msgstr "Energy"
 
 msgctxt "nutriscore_component_energy_from_saturated_fat"
 msgid "Energy from saturated fat"
@@ -6919,6 +6954,10 @@ msgctxt "report_problem_panel_title"
 msgid "Report a problem"
 msgstr "Report a problem"
 
+msgctxt "report_problem_navigation"
+msgid "Report a problem."
+msgstr "Report a problem."
+
 msgctxt "incomplete_or_incorrect_data_title"
 msgid "Incomplete or incorrect information?"
 msgstr "Incomplete or incorrect information?"
@@ -6939,29 +6978,10 @@ msgctxt "description"
 msgid "Description"
 msgstr "Description"
 
-msgctxt "skip_to_content"
-msgid "Skip to Content"
-msgstr "Skip to Content"
-
+# duplicate with "report_problem_panel_title"
 msgctxt "report_problem_navigation"
 msgid "Report a problem"
 msgstr "Report a problem"
-
-msgctxt "created_by"
-msgid "Created by"
-msgstr "Created by"
-
-msgctxt "org_id"
-msgid "Org id"
-msgstr "Org id"
-
-msgctxt "verified_status"
-msgid "Verified status"
-msgstr "Verified status"
-
-msgctxt "creation_date"
-msgid "Creation date"
-msgstr "Creation date"
 
 msgctxt "enter_main_contact_username"
 msgid "Enter main contact's username :"
@@ -6978,6 +6998,10 @@ msgstr "Main contact updated"
 msgctxt "error_unknown_member"
 msgid "This user is not a member of the organization."
 msgstr "This user is not a member of the organization."
+
+msgctxt "skip_to_content"
+msgid "Skip to Content"
+msgstr "Skip to Content"
 
 msgctxt "cant_delete_main_contact"
 msgid "You cannot remove the main contact. Change it first."
@@ -7047,6 +7071,22 @@ msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_5"
 msgid "and your health!"
 msgstr "and your health!"
 
+msgctxt "created_by"
+msgid "Created by"
+msgstr "Created by"
+
+msgctxt "org_id"
+msgid "Org id"
+msgstr "Org id"
+
+msgctxt "verified_status"
+msgid "Verified status"
+msgstr "Verified status"
+
+msgctxt "creation_date"
+msgid "Creation date"
+msgstr "Creation date"
+
 msgctxt "knowledge_panels_ingredients_rare_crops_divinfood"
 msgid "Open Food Facts participates in the European project <a href=\"https://divinfood.eu/\">DIVINFOOD</a> (funded from European Union’s Horizon 2020 research and innovation programme). DIVINFOOD aims to develop food chains that value under-utilised agrobiodiversity in order to act against the decline of biodiversity and to meet the growing expectations of consumers for healthy, local products that contribute to sustainable food systems."
 msgstr "Open Food Facts participates in the European project <a href=\"https://divinfood.eu/\">DIVINFOOD</a> (funded from European Union’s Horizon 2020 research and innovation programme). DIVINFOOD aims to develop food chains that value under-utilised agrobiodiversity in order to act against the decline of biodiversity and to meet the growing expectations of consumers for healthy, local products that contribute to sustainable food systems."
@@ -7056,8 +7096,8 @@ msgid "Deny"
 msgstr "Deny"
 
 msgctxt "users_requested_to_join_org"
-msgid "These users have requested to join the organization :"
-msgstr "These users have requested to join the organization :"
+msgid "These users have requested to join the organization:"
+msgstr "These users have requested to join the organization:"
 
 msgctxt "last_login"
 msgid "Last login date"
@@ -7091,10 +7131,6 @@ msgctxt "products_exported"
 msgid "Products exported"
 msgstr "Products exported"
 
-msgctxt "products_with_changes_since_last_export"
-msgid "Products with changes since last export"
-msgstr "Products with changes since last export"
-
 msgctxt "opportunities_to_improve_nutriscore"
 msgid "Opp. for Nutri-Score improvements"
 msgstr "Opp. for Nutri-Score improvements"
@@ -7118,6 +7154,10 @@ msgstr "Automatic daily export to public platform"
 msgctxt "improvements_navigation"
 msgid "Improvements"
 msgstr "Improvements"
+
+msgctxt "products_with_changes_since_last_export"
+msgid "Products with changes since last export"
+msgstr "Products with changes since last export"
 
 msgctxt "organization_list"
 msgid "Organization list"
