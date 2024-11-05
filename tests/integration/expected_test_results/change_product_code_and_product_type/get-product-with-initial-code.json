@@ -1,8 +1,8 @@
 {
-   "code" : "1234567890102",
+   "code" : "1234567890100",
    "errors" : [],
    "product" : {
-      "_id" : "1234567890102",
+      "_id" : "1234567890100",
       "_keywords" : [
          "product",
          "test"
@@ -23,7 +23,7 @@
          "agribalyse-unknown"
       ],
       "checkers_tags" : [],
-      "code" : "1234567890102",
+      "code" : "1234567890100",
       "codes_tags" : [
          "code-13",
          "1234567890xxx",
@@ -39,9 +39,7 @@
       ],
       "complete" : 0,
       "completeness" : 0.1,
-      "correctors_tags" : [
-         "moderator"
-      ],
+      "correctors_tags" : [],
       "countries" : "en:france",
       "countries_hierarchy" : [
          "en:france"
@@ -83,7 +81,7 @@
             "origins_of_ingredients" : {
                "aggregated_origins" : [
                   {
-                     "epi_score" : 0,
+                     "epi_score" : "0",
                      "origin" : "en:unknown",
                      "percent" : 100,
                      "transportation_score" : 0
@@ -330,7 +328,6 @@
          "unknown"
       ],
       "editors_tags" : [
-         "moderator",
          "openfoodfacts-contributors"
       ],
       "entry_dates_tags" : "--ignore--",
@@ -341,7 +338,6 @@
       ],
       "ingredients_lc" : "en",
       "interface_version_created" : "20221102/api/v3",
-      "interface_version_modified" : "20150316.jqm2",
       "lang" : "en",
       "languages" : {
          "en:english" : 1
@@ -357,8 +353,6 @@
          "en:1"
       ],
       "last_edit_dates_tags" : "--ignore--",
-      "last_editor" : "moderator",
-      "last_modified_by" : "moderator",
       "last_modified_t" : "--ignore--",
       "last_updated_t" : "--ignore--",
       "lc" : "en",
@@ -478,7 +472,7 @@
       "product_name_en" : "Test product 1",
       "product_type" : "food",
       "removed_countries_tags" : [],
-      "rev" : 3,
+      "rev" : 1,
       "states" : "en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-to-be-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-to-be-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-to-be-completed, en:product-name-completed, en:photos-to-be-uploaded",
       "states_hierarchy" : [
          "en:to-be-completed",

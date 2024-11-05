@@ -1,5 +1,7 @@
 #!/usr/bin/perl -w
 
+# Tests to change the product code or the product type of a product
+
 use ProductOpener::PerlStandards;
 
 use Test2::V0;
@@ -93,14 +95,25 @@ my $tests_ref = [
 		path => '/api/v3/product/1234567890102',
 		expected_status_code => 200,
 	},
-	# Send code=obf to move product to Open Beauty Facts
+	# Send an invalid product_type
 	{
-		test_case => 'change-product-code-to-obf',
+		test_case => 'send-invalid-product-type',
 		method => 'POST',
 		path => '/cgi/product_jqm_multilingual.pl',
 		form => {
 			code => "1234567890102",
-			new_code => "obf",
+			product_type => "invalid",
+		},
+		ua => $moderator_ua,
+	},
+	# Send product_type=beauty to move product to Open Beauty Facts
+	{
+		test_case => 'change-product-type-to-beauty',
+		method => 'POST',
+		path => '/cgi/product_jqm_multilingual.pl',
+		form => {
+			code => "1234567890102",
+			product_type => "beauty",
 		},
 		ua => $moderator_ua,
 	},
@@ -112,14 +125,21 @@ my $tests_ref = [
 		expected_status_code => 302,
 		expected_type => 'html',
 	},
-	# Get the product with API v3
+	# Get the product with API v3, no product_type
 	{
-		test_case => 'get-obf-product-with-api-v3',
+		test_case => 'get-obf-product-with-api-v3-no-product-type',
 		method => 'GET',
 		path => '/api/v3/product/1234567890102',
+		expected_status_code => 404,
+	},
+	# Get the product with API v3, with product_type all
+	{
+		test_case => 'get-obf-product-with-api-v3-no-product-type',
+		method => 'GET',
+		path => '/api/v3/product/1234567890102?product_type=all',
 		expected_status_code => 302,
 		expected_type => 'html',
-	},
+	},	
 	# Edit the product with web interface (display the form)
 	{
 		test_case => 'edit-obf-product-with-web-interface-display-form',
@@ -158,22 +178,44 @@ my $tests_ref = [
 			}
 		}',
 	},
-	# Change the product_type field to opf
+	# Change the product_type field to product
 	{
 		test_case => 'change-product-type-to-opf',
 		method => 'POST',
 		path => '/cgi/product_jqm_multilingual.pl',
 		form => {
 			code => "1234567890200",
-			new_code => "opf",
+			product_type => "product",
 		},
 		ua => $moderator_ua,
 	},
-	# Get the product with API v3
+	# Get the product with API v3, without product_type parameter
 	{
-		test_case => 'get-product-opf',
+		test_case => 'get-product-opf-without-product-type',
 		method => 'GET',
 		path => '/api/v3/product/1234567890200',
+		expected_status_code => 404,
+	},
+	# Get the product with API v3, with a wrong product type
+	{
+		test_case => 'get-product-opf-with-wrong-product-type',
+		method => 'GET',
+		path => '/api/v3/product/1234567890200?product_type=off',
+		expected_status_code => 404,
+	},
+	# Get the product with API v3 with the right product type
+	{
+		test_case => 'get-product-opf-with-right-product-type',
+		method => 'GET',
+		path => '/api/v3/product/1234567890200?product_type=product',
+		expected_status_code => 302,
+		expected_type => 'html',
+	},
+	# Get the product with API v3 with the "all" product_type
+	{
+		test_case => 'get-product-opf-with-all-product-type',
+		method => 'GET',
+		path => '/api/v3/product/1234567890200?product_type=all',
 		expected_status_code => 302,
 		expected_type => 'html',
 	},

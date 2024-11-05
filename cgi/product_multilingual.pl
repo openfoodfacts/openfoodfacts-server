@@ -410,11 +410,13 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 	if ($User{moderator}) {
 		if ((defined single_param("new_code")) and (single_param("new_code") ne "")) {
-
-			change_product_server_or_code($product_ref, single_param("new_code"), \@errors);
+			change_product_code($product_ref, single_param("new_code"), \@errors);
 			$code = $product_ref->{code};
 		}
-		if ((defined single_param("product_type")) and (single_param("product_type") ne "")) {
+		if (    (defined single_param("product_type"))
+			and (single_param("product_type") ne "")
+			and ($product_ref->{product_type} ne single_param("product_type")))
+		{
 			change_product_type($product_ref, single_param("product_type"), \@errors);
 		}
 	}

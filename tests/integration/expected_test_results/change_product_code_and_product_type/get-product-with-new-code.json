@@ -1,8 +1,8 @@
 {
-   "code" : "1234567890100",
+   "code" : "1234567890102",
    "errors" : [],
    "product" : {
-      "_id" : "1234567890100",
+      "_id" : "1234567890102",
       "_keywords" : [
          "product",
          "test"
@@ -23,7 +23,7 @@
          "agribalyse-unknown"
       ],
       "checkers_tags" : [],
-      "code" : "1234567890100",
+      "code" : "1234567890102",
       "codes_tags" : [
          "code-13",
          "1234567890xxx",
@@ -39,7 +39,9 @@
       ],
       "complete" : 0,
       "completeness" : 0.1,
-      "correctors_tags" : [],
+      "correctors_tags" : [
+         "moderator"
+      ],
       "countries" : "en:france",
       "countries_hierarchy" : [
          "en:france"
@@ -81,7 +83,7 @@
             "origins_of_ingredients" : {
                "aggregated_origins" : [
                   {
-                     "epi_score" : 0,
+                     "epi_score" : "0",
                      "origin" : "en:unknown",
                      "percent" : 100,
                      "transportation_score" : 0
@@ -328,6 +330,7 @@
          "unknown"
       ],
       "editors_tags" : [
+         "moderator",
          "openfoodfacts-contributors"
       ],
       "entry_dates_tags" : "--ignore--",
@@ -354,6 +357,8 @@
          "en:1"
       ],
       "last_edit_dates_tags" : "--ignore--",
+      "last_editor" : "moderator",
+      "last_modified_by" : "moderator",
       "last_modified_t" : "--ignore--",
       "last_updated_t" : "--ignore--",
       "lc" : "en",
