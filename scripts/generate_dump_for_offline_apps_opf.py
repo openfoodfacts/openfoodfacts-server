@@ -1,4 +1,3 @@
-generate_dump_for_offline_apps_off.py
 #!/usr/bin/python
 from __future__ import absolute_import, division, print_function
 import csv
