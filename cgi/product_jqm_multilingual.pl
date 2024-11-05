@@ -234,7 +234,7 @@ else {
 
 		if (check_user_permission($request_ref, $response_ref, "product_change_code")) {
 
-			change_product_code($product_ref, single_param('new_code'), \@errors);
+			push @errors, change_product_code($product_ref, single_param('new_code'));
 			$code = $product_ref->{code};
 		}
 		else {
@@ -248,14 +248,14 @@ else {
 
 		if (check_user_permission($request_ref, $response_ref, "product_change_product_type")) {
 
-			change_product_type($product_ref, single_param("product_type"), \@errors);
+			push @errors, change_product_type($product_ref, single_param("product_type"));
 		}
 		else {
 			push @errors, "No permission: product_change_product_type";
 		}
 	}
 
-	# Display an error message and exit if we have a fatal error (no permission to change barcode or product type)
+	# Display an error message and exit if we have a fatal error (no permission to change barcode or product type, or invalid barcode or product type)
 	if ($#errors >= 0) {
 		$response{status} = 0;
 		$response{status_verbose} = join(",", @errors);

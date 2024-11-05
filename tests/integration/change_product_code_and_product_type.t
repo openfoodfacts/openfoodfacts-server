@@ -54,37 +54,53 @@ my $tests_ref = [
 		method => 'PATCH',
 		path => '/api/v3/product/1234567890100',
 		body => '{
+			"tags_lc": "en",
 			"product": {
 				"product_name_en": "Test product 1",
 				"countries_tags": ["en:france"]
 			}
 		}',
 	},
-	# Change the barcode
+	# Change the barcode with API v2, not logged in
 	{
-		test_case => 'change-product-code-not-a-moderator',
+		test_case => 'change-product-code-api-v2-not-logged-in',
+		method => 'POST',
+		path => '/cgi/product_jqm_multilingual.pl',
+		form => {
+			code => "1234567890100",
+			new_code => "1234567890121",
+		}
+	},
+	# Change the product code with API v2, with a normal account
+	{
+		test_case => 'change-product-code-api-v3-normal-account',
+		method => 'POST',
+		path => '/cgi/product_jqm_multilingual.pl',
+		form => {
+			code => "1234567890100",
+			new_code => "1234567890131",
+		},
+		ua => $ua,
+	},
+	# Change the product code with a moderator account, invalid code
+	{
+		test_case => 'change-product-code-api-v3-moderator-invalid-code',
+		method => 'POST',
+		path => '/cgi/product_jqm_multilingual.pl',
+		form => {
+			code => "1234567890100",
+			new_code => "some invalid barcode",
+		},
+		ua => $moderator_ua,
+	},
+	# Change the product code with a moderator account
+	{
+		test_case => 'change-product-code-api-v3-moderator-invalid-code',
 		method => 'POST',
 		path => '/cgi/product_jqm_multilingual.pl',
 		form => {
 			code => "1234567890100",
 			new_code => "1234567890101",
-		}
-	},
-	# Get the product with the initial code
-	{
-		test_case => 'get-product-with-initial-code',
-		method => 'GET',
-		path => '/api/v3/product/1234567890100',
-		expected_status_code => 200,
-	},
-	# Change the product with a moderator account
-	{
-		test_case => 'change-product-code-moderator',
-		method => 'POST',
-		path => '/cgi/product_jqm_multilingual.pl',
-		form => {
-			code => "1234567890100",
-			new_code => "1234567890102",
 		},
 		ua => $moderator_ua,
 	},
@@ -92,12 +108,110 @@ my $tests_ref = [
 	{
 		test_case => 'get-product-with-new-code',
 		method => 'GET',
-		path => '/api/v3/product/1234567890102',
+		path => '/api/v3/product/1234567890101',
 		expected_status_code => 200,
 	},
-	# Send an invalid product_type
+	# Change the product code with API v3, not logged in
 	{
-		test_case => 'send-invalid-product-type',
+		test_case => 'change-product-code-api-v3-not-logged-in',
+		method => 'PATCH',
+		path => '/api/v3/product/1234567890101',
+		body => '{
+			"tags_lc": "en",
+			"product": {
+				"code": "1234567890102"
+			},
+			"fields": "updated"
+		}',
+		expected_status_code => 403,
+	},
+	# Change the product code with API v3, with a normal account
+	{
+		test_case => 'change-product-code-api-v3-normal-account',
+		method => 'PATCH',
+		path => '/api/v3/product/1234567890101',
+		body => '{
+			"tags_lc": "en",
+			"product": {
+				"code": "1234567890104"
+			},
+			"fields": "updated"
+		}',
+		ua => $ua,
+		expected_status_code => 403,
+	},
+	# Change the product code with API v3 with a moderator account, to an invalid barcode
+	{
+		test_case => 'change-product-code-api-v3-moderator-invalid-code',
+		method => 'PATCH',
+		path => '/api/v3/product/1234567890101',
+		body => '{
+			"tags_lc": "en",
+			"product": {
+				"code": "some invalid barcode"
+			},
+			"fields": "updated"
+		}',
+		ua => $moderator_ua,
+		expected_status_code => 400,
+	},
+	# Test setup - Create another product
+	{
+		setup => 1,
+		test_case => 'setup-create-product',
+		method => 'PATCH',
+		path => '/api/v3/product/1234567891234',
+		body => '{
+			"tags_lc": "en",
+			"product": {
+				"product_name_en": "Test product 1B",
+				"countries_tags": ["en:france"]
+			}
+		}',
+	},
+	# Change the product code with API v3 with a moderator account, to an existing barcode
+	{
+		test_case => 'change-product-code-api-v3-moderator-existing-code',
+		method => 'PATCH',
+		path => '/api/v3/product/1234567890101',
+		body => '{
+			"tags_lc": "en",
+			"product": {
+				"code": "1234567891234"
+			},
+			"fields": "updated"
+		}',
+		ua => $moderator_ua,
+		expected_status_code => 400,
+	},
+	# Change the product code with API v3, with moderator account, everything good
+	{
+		test_case => 'change-product-code-api-v3-moderator-valid-code',
+		method => 'PATCH',
+		path => '/api/v3/product/1234567890101',
+		body => '{
+			"tags_lc": "en",
+			"product": {
+				"code": "1234567890102"
+			},
+			"fields": "updated"
+		}',
+		ua => $moderator_ua,
+	},
+	# Send product_type=beauty to move product to Open Beauty Facts, normal account
+	{
+		test_case => 'change-product-type-to-beauty-api-v2-normal-account',
+		method => 'POST',
+		path => '/cgi/product_jqm_multilingual.pl',
+		form => {
+			code => "1234567890102",
+			product_type => "beauty",
+		},
+		ua => $ua,
+	},
+	# Send invalid product type
+	{
+		test_case => 'change-product-type-to-invalid-api-v2-moderator',
 		method => 'POST',
 		path => '/cgi/product_jqm_multilingual.pl',
 		form => {
@@ -108,7 +222,7 @@ my $tests_ref = [
 	},
 	# Send product_type=beauty to move product to Open Beauty Facts
 	{
-		test_case => 'change-product-type-to-beauty',
+		test_case => 'change-product-type-to-beauty-api-v2-moderator',
 		method => 'POST',
 		path => '/cgi/product_jqm_multilingual.pl',
 		form => {
@@ -171,6 +285,7 @@ my $tests_ref = [
 		method => 'PATCH',
 		path => '/api/v3/product/1234567890200',
 		body => '{
+			"tags_lc": "en",
 			"product": {
 				"product_name_en": "Test product 2",
 				"lang": "en",
@@ -246,6 +361,98 @@ my $tests_ref = [
 		test_case => 'get-product-opf-with-all-product-type-api-v3',
 		method => 'GET',
 		path => '/api/v3/product/1234567890200?product_type=all',
+		expected_status_code => 302,
+		expected_type => 'html',
+	},
+	# Create a new product
+	{
+		setup => 1,
+		test_case => 'setup-create-product-3',
+		method => 'PATCH',
+		path => '/api/v3/product/1234567890300',
+		body => '{
+			"product": {
+				"product_name_en": "Test product 3",
+				"lang": "en",
+				"countries_tags": ["en:france"]
+			}
+		}',
+	},
+	# Change the product_name field with API v3
+	{
+		test_case => 'change-product-name-with-api-v3',
+		method => 'PATCH',
+		path => '/api/v3/product/1234567890300',
+		body => '{
+			"product": {
+				"product_name_en": "Test product 3 - updated"
+			}
+		}',
+		ua => $moderator_ua,
+	},
+	# Change the product_type field to petfood, with API v3
+	{
+		test_case => 'change-product-type-to-opff-api-v3-invalid-product-type',
+		method => 'PATCH',
+		path => '/api/v3/product/1234567890300',
+		body => '{
+			"tags_lc": "en",
+			"product": {
+				"product_type": "invalid product type"
+			}
+		}',
+		ua => $moderator_ua,
+		expected_status_code => 400,
+	},
+	# Change the product_type field to petfood, with API v3
+	{
+		test_case => 'change-product-type-to-opff-api-v3-normal-account',
+		method => 'PATCH',
+		path => '/api/v3/product/1234567890300',
+		body => '{
+			"tags_lc": "en",
+			"product": {
+				"product_type": "petfood"
+			}
+		}',
+		ua => $ua,
+		expected_status_code => 403,
+	},
+	# Change the product_type field to petfood, with API v3
+	{
+		test_case => 'change-product-type-to-opff-api-v3',
+		method => 'PATCH',
+		path => '/api/v3/product/1234567890300',
+		body => '{
+			"tags_lc": "en",
+			"product": {
+				"product_type": "petfood"
+			}
+		}',
+		ua => $moderator_ua,
+	},
+	# Change the product_name field with API v3 again
+	# we have changed the product type, so we should get a redirect request
+	{
+		test_case => 'change-product-name-of-oppf-product-with-api-v3',
+		method => 'PATCH',
+		path => '/api/v3/product/1234567890300',
+		body => '{
+			"tags_lc": "en",
+			"product": {
+				"product_name_en": "Test product 3 - updated again"
+			},
+			"fields": "updated"
+		}',
+		ua => $moderator_ua,
+		expected_status_code => 307,
+		expected_type => 'html',
+	},
+	# Get the product with API v3, with product_type eq all
+	{
+		test_case => 'get-product-opff-with-all-product-type-api-v3',
+		method => 'GET',
+		path => '/api/v3/product/1234567890300?product_type=all',
 		expected_status_code => 302,
 		expected_type => 'html',
 	},

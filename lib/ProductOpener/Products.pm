@@ -1023,7 +1023,7 @@ sub retrieve_product_rev ($product_id, $rev, $include_deleted = 0) {
 	return $product_ref;
 }
 
-=head2 change_product_code ($product_ref, $new_code, $errors_ref)
+=head2 change_product_code ($product_ref, $new_code)
 
 Utility function to change the barcode of a product.
 Fails and returns an error if the code is invalid, or if there is already a product with the new code.
@@ -1034,11 +1034,14 @@ Fails and returns an error if the code is invalid, or if there is already a prod
 
 =head4 $new_code
 
-=head4 $errors_ref
+=head3 Return value
+
+If successful: undef
+If there was an error: invalid_code or new_code_already_exists
 
 =cut
 
-sub change_product_code ($product_ref, $new_code, $errors_ref) {
+sub change_product_code ($product_ref, $new_code) {
 
 	# Currently only called by admins and moderators
 
@@ -1046,15 +1049,15 @@ sub change_product_code ($product_ref, $new_code, $errors_ref) {
 
 	$new_code = normalize_code($new_code);
 	if (not is_valid_code($new_code)) {
-		push @$errors_ref, lang("invalid_barcode");
+		return "invalid_code";
 	}
 	else {
 		# check that the new code is available
 		if (-e "$data_root/products/" . product_path_from_id($new_code) . "/product.sto") {
-			push @{$errors_ref}, lang("error_new_code_already_exists");
 			$log->warn("cannot change product code, because the new code already exists",
 				{code => $code, new_code => $new_code})
 				if $log->is_warn();
+			return "error_new_code_already_exists";
 		}
 		else {
 			$product_ref->{old_code} = $code;
@@ -1068,7 +1071,7 @@ sub change_product_code ($product_ref, $new_code, $errors_ref) {
 	return;
 }
 
-=head2 change_product_type ($product_ref, $new_product_type, $errors_ref)
+=head2 change_product_type ($product_ref, $new_product_type)
 
 Utility function to change the product type of a product.
 Fails and returns an error if the product type is invalid.
@@ -1079,11 +1082,14 @@ Fails and returns an error if the product type is invalid.
 
 =head4 $new_product_type
 
-=head4 $errors_ref
+=head3 Return value
+
+If successful: undef
+If there was an error: invalid_product_type
 
 =cut
 
-sub change_product_type ($product_ref, $new_product_type, $errors_ref) {
+sub change_product_type ($product_ref, $new_product_type) {
 
 	# Currently only called by admins and moderators
 
@@ -1091,8 +1097,7 @@ sub change_product_type ($product_ref, $new_product_type, $errors_ref) {
 
 	# Return if the product type is already the new product type, or if the new product type is not defined
 	if ((not defined $new_product_type) or ((not defined $options{product_types_flavors}{$new_product_type}))) {
-		push @$errors_ref, lang("error_invalid_product_type");
-		return;
+		return "invalid_product_type";
 	}
 	elsif ($product_type ne $new_product_type) {
 		$product_ref->{old_product_type} = $product_type;
