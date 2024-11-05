@@ -139,7 +139,7 @@ my $tests_ref = [
 		path => '/api/v3/product/1234567890102?product_type=all',
 		expected_status_code => 302,
 		expected_type => 'html',
-	},	
+	},
 	# Edit the product with web interface (display the form)
 	{
 		test_case => 'edit-obf-product-with-web-interface-display-form',
