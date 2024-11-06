@@ -20,8 +20,8 @@ export PERL5LIB=lib:$PERL5LIB
 # load paths
 . <(perl -e 'use ProductOpener::Paths qw/:all/; print base_paths_loading_script()')
 
-# load PRODUCT_OPENER_DOMAIN
-. <(perl -e 'use ProductOpener::Config qw/:all/; print "export PRODUCT_OPENER_DOMAIN=$server_domain\n";')
+# load PRODUCT_OPENER_DOMAIN and MONGODB_HOST
+. <(perl -e 'use ProductOpener::Config qw/:all/; print "export PRODUCT_OPENER_DOMAIN=$server_domain\nexport MONGODB_HOST=$mongodb_host";')
 
 # we should now have PRODUCT_OPENER_DOMAIN set (from Config.pm in production mode), check it
 if [ -z "$PRODUCT_OPENER_DOMAIN" ]; then
@@ -66,7 +66,7 @@ mc cp \
 # Generate the MongoDB dumps and jsonl export
 cd $OFF_SCRIPTS_DIR
 
-./mongodb_dump.sh $OFF_PUBLIC_DATA_DIR $PRODUCT_OPENER_FLAVOR 10.1.0.102 $PRODUCT_OPENER_FLAVOR_SHORT
+./mongodb_dump.sh $OFF_PUBLIC_DATA_DIR $PRODUCT_OPENER_FLAVOR $MONGODB_HOST $PRODUCT_OPENER_FLAVOR_SHORT
 
 # Small products data and images export for Docker dev environments
 # for about 1/10000th of the products contained in production.
@@ -85,9 +85,12 @@ then
         --mongo-file $OFF_PUBLIC_EXPORTS_DIR/products.random-modulo-1000.mongodbdump.gz
 fi
 
-./generate_dump_for_offline_apps_off.py
+# Generate small CSV dump for the offline mode of the mobile app
+# parameters are passed through environment variables
+./generate_dump_for_offline_apps.py
 cd $OFF_PUBLIC_DATA_DIR/offline
-zip en.$PRODUCT_OPENER_DOMAIN.products.small.csv.zip en.$PRODUCT_OPENER_DOMAIN.products.small.csv
+zip new.en.$PRODUCT_OPENER_DOMAIN.products.small.csv.zip en.$PRODUCT_OPENER_DOMAIN.products.small.csv
+mv new.en.$PRODUCT_OPENER_DOMAIN.products.small.csv.zip en.$PRODUCT_OPENER_DOMAIN.products.small.csv.zip
 
 # Exports for Carrefour
 cd $OFF_SCRIPTS_DIR

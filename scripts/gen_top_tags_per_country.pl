@@ -809,7 +809,7 @@ HTML
 			;
 
 		my $stats_dir = "$BASE_DIRS{PUBLIC_DATA}/products_stats/$lc";
-		print "products_stats - saving $stats_dir/products_stats_$cc.html\n";
+		# print "products_stats - saving $stats_dir/products_stats_$cc.html\n";
 		ensure_dir_created_or_die($stats_dir);
 		if (open(my $OUT, ">:encoding(UTF-8)", "$stats_dir/products_stats_$cc.html")) {
 			print $OUT $html;
