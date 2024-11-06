@@ -112,7 +112,7 @@ properties:
         # minItems: 2
         # maxItems: 2
         items:
-          description: This array has two element for each marker. One
+          description: This array has two elements for each marker. The first element is the tag type of the marker (e.g. "ingredients", "additives", "categories"), and the second is the tag id in the taxonomy (e.g. "en:e471")
           type: string
 
   nucleotides_tags:
