@@ -49551,6 +49551,7 @@ incompatible_with:en: categories:en:milks, categories:en:creams, categories:en:H
 
 #this category is not made for vegan products but for dairy products used in replacement of cream
 < en:Dairies
+< en:Vegan products
 en: Compound dairy creams
 de: Sahne-Ersatz
 fr: Succédanés de la crème
@@ -54187,6 +54188,7 @@ ciqual_food_name:fr: Crème dessert au café, rayon frais
 
 < en:Dairy substitutes
 < en:Desserts
+< en:Vegan products
 en: Non-dairy desserts, vegetal desserts, vegan desserts
 de: Milchfreie Nachtische, vegetarische Nachtische, vegane Nachtische
 es: Postres vegetales
@@ -54657,6 +54659,7 @@ fr: Semoules au lait végétaliennes
 
 # Shouldn't be under chocolate mousses
 < en:Chocolate desserts
+< en:Vegan products
 en: Vegan chocolate mousses
 fr: Mousses au chocolat végétaliennes
 
@@ -54774,7 +54777,8 @@ ciqual_food_name:en: Soy dessert, w fruits, refrigerated
 ciqual_food_name:fr: Dessert au soja, aux fruits, rayon frais
 
 < en:Dairy substitutes
-< en:fermented foods
+< en:Fermented foods
+< en:Vegan products
 en: Non-dairy fermented foods
 de: fermentierte Lebensmittel ohne Milch
 es: Comida no láctea fermentada
@@ -100838,8 +100842,13 @@ ciqual_food_name:fr: Spécialité végétale type fromage à tartiner, au soja, 
 en: Egg salads substitutes, Egg spreads substitutes
 fr: Substituts de salades d'œufs, Substituts de tartinades d'œufs, Substituts de tartinades d'oeufs
 
+en: Vegan products
+fr: Produits veganes
+nl: Veganistische producten
+
 < en:Plant-based spreads
 < en:Salted spreads
+< en:Vegan products
 en: Vegan vegetable spreads
 fr: Tartinades véganes aux légumes
 hr: Veganski povrtni namazi
@@ -114549,6 +114558,7 @@ ciqual_food_code:en: 25227
 ciqual_food_name:en: Soybean and wheat-based nuggets (vegan)
 ciqual_food_name:fr: Nuggets soja et blé (convient aux véganes ou végétaliens), préemballé
 
+< en:Vegan products
 < en:Vegetarian nuggets
 en: Vegan nuggets, plant based nuggets
 fr: Nuggets végans, Nuggets végétaux
@@ -114607,6 +114617,7 @@ ciqual_food_code:en: 25593
 ciqual_food_name:en: Plant-based patty or steak from wheat and soybean (vegan), prepacked
 ciqual_food_name:fr: Galette ou pavé au blé et soja (convient aux véganes ou végétaliens), préemballé
 
+< en:Vegan products
 < en:Vegetarian patties
 en: Vegan patties, vegan burger patties, Vegetable escalope, vegan cutlet, vegan steaks
 fr: Galettes véganes, Steaks végétaux, steaks végétaux pour hamburgers
@@ -114667,6 +114678,7 @@ agribalyse_proxy_food_code:en: 20337
 agribalyse_proxy_food_name:en: Plant-based sausage with tofu (vegan)
 agribalyse_proxy_food_name:fr: Saucisse végétale au tofu (convient aux véganes ou végétaliens), préemballée
 
+< en:Vegan products
 < en:Vegetarian sausages
 en: Vegan sausages
 pl: Kiełbasy wegańskie, Kiełbaski wegańskie
@@ -114687,6 +114699,7 @@ agribalyse_proxy_food_name:en: Plant-based sausage with tofu (vegan)
 agribalyse_proxy_food_name:fr: Saucisse végétale au tofu (convient aux véganes ou végétaliens), préemballée
 wikidata:en: Q181055
 
+< en:Vegan products
 < en:Vegetarian hot dog sausages
 en: Vegan hot dog saucages
 pl: Parówki wegańskie
@@ -114717,8 +114730,9 @@ agribalyse_proxy_food_code:en: 20337
 agribalyse_proxy_food_name:en: Plant-based sausage with tofu (vegan)
 agribalyse_proxy_food_name:fr: Saucisse végétale au tofu (convient aux véganes ou végétaliens), préemballée
 
+< en:Vegan products
 < en:Vegetarian sausages
-en: Vegetarian sausages from tofu, Plant-based sausage with tofu (vegan)
+en: Vegan sausages from tofu, Vegetarian sausages from tofu, Plant-based sausage with tofu (vegan)
 fr: Saucisses végétariennes de tofu, Saucisse végétale au tofu (convient aux véganes ou végétaliens) préemballée
 hr: Vegetarijanske kobasice od tofua
 pl: Kiełbasy z tofu, Kiełbaski z tofu
@@ -114736,6 +114750,7 @@ pl: Zastępniki ryb
 
 < en:Dairy substitutes
 < en:Plant-based foods
+< en: Vegan products
 en: Cheese substitutes, Non-dairy cheeses, Plant cheeses, Vegan cheeses
 de: Milchfreie Käse, Pflanzliche Käse, Käseersatz, Vegane Käse
 es: Quesos vegetales
