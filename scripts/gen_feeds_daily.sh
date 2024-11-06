@@ -87,10 +87,14 @@ fi
 
 # Generate small CSV dump for the offline mode of the mobile app
 # parameters are passed through environment variables
-./generate_dump_for_offline_apps.py
-cd $OFF_PUBLIC_DATA_DIR/offline
-zip new.en.$PRODUCT_OPENER_DOMAIN.products.small.csv.zip en.$PRODUCT_OPENER_DOMAIN.products.small.csv
-mv new.en.$PRODUCT_OPENER_DOMAIN.products.small.csv.zip en.$PRODUCT_OPENER_DOMAIN.products.small.csv.zip
+
+# 2024/11/06: this script has been broken for a year in production, it will be reimplemented
+# in the upcoming openfoodfacts-export service
+
+# python3 $OFF_SCRIPTS_DIR/generate_dump_for_offline_apps.py
+# cd $OFF_PUBLIC_DATA_DIR/offline
+# zip new.en.$PRODUCT_OPENER_DOMAIN.products.small.csv.zip en.$PRODUCT_OPENER_DOMAIN.products.small.csv
+# mv new.en.$PRODUCT_OPENER_DOMAIN.products.small.csv.zip en.$PRODUCT_OPENER_DOMAIN.products.small.csv.zip
 
 # Exports for Carrefour
 cd $OFF_SCRIPTS_DIR
