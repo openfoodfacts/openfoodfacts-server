@@ -42,7 +42,7 @@ my $EXPECTED_BASE_PATHS = {
 };
 
 my %EXPECTED_OFF_PATHS = (%{$EXPECTED_BASE_PATHS});
-is(base_paths(), \%EXPECTED_BASE_PATHS, "base_paths content for off");
+is(base_paths(), \%EXPECTED_OFF_PATHS, "base_paths content for off");
 
 ok(ensure_dir_created("$BASE_DIRS{CACHE_TMP}"), "cache tmp directory exists");
 remove_tree("$BASE_DIRS{CACHE_TMP}/test-unit-xxx");
