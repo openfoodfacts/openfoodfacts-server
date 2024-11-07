@@ -88,21 +88,14 @@ sub create_report_problem_card_panel ($product_ref, $target_lc, $target_cc, $opt
 	# + add promo message for the pro platform ("Are you the owner? Add your contact information")
 
 	# Panel to tell users that they can fix the data themselves
-
+	# or report to nutripatrol
 	create_panel_from_json_template(
 		"incomplete_or_incorrect_data",
 		"api/knowledge-panels/report_problem/incomplete_or_incorrect_data.tt.json",
-		{}, $product_ref, $target_lc, $target_cc, $options_ref
+		{ nutripatrol_enabled => !!$nutripatrol_url }, $product_ref, $target_lc, $target_cc, $options_ref
 	);
 	push(@panels, "incomplete_or_incorrect_data");
 
-	if ($nutripatrol_url) {
-		# Panel to report to NutriPatrol
-		create_panel_from_json_template("report_to_nutripatrol",
-			"api/knowledge-panels/report_problem/report_to_nutripatrol.tt.json",
-			{}, $product_ref, $target_lc, $target_cc, $options_ref);
-		push(@panels, "report_to_nutripatrol");
-	}
 	# Panels to report product issues to local authorities
 
 	# France - SignalConso
