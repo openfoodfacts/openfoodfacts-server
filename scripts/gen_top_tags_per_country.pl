@@ -395,11 +395,7 @@ while (my $product_ref = $cursor->next) {
 	}
 	elsif ((defined $product_ref->{completed_t}) and ($product_ref->{completed_t} > 0)) {
 		$complete++;
-		if ($complete % 10 == 0) {
-			print "completed products: $complete\n";
-		}
 	}
-
 }
 
 # compute points
@@ -813,7 +809,7 @@ HTML
 			;
 
 		my $stats_dir = "$BASE_DIRS{PUBLIC_DATA}/products_stats/$lc";
-		print "products_stats - saving $stats_dir/products_stats_$cc.html\n";
+		# print "products_stats - saving $stats_dir/products_stats_$cc.html\n";
 		ensure_dir_created_or_die($stats_dir);
 		if (open(my $OUT, ">:encoding(UTF-8)", "$stats_dir/products_stats_$cc.html")) {
 			print $OUT $html;
@@ -840,16 +836,18 @@ my $start = 100000000000;
 
 foreach my $country (sort {$countries{$b} <=> $countries{$a}} keys %countries) {
 
-	if ($countries_dates{$country}{$date . ".start"} < $start) {
+	if (    (defined $countries_dates{$country}{$date . ".start"})
+		and ($countries_dates{$country}{$date . ".start"} < $start))
+	{
 		$start = $countries_dates{$country}{$date . ".start"};
 	}
-	if ($countries_dates{$country}{$date . ".end"} > $end) {
+	if ((defined $countries_dates{$country}{$date . ".end"}) and ($countries_dates{$country}{$date . ".end"} > $end)) {
 		$end = $countries_dates{$country}{$date . ".end"};
 	}
 }
 
 foreach my $country (
-	sort {$countries_dates{$a}{$date . ".start"} <=> $countries_dates{$b}{$date . ".start"}}
+	sort {($countries_dates{$a}{$date . ".start"} || 0) <=> ($countries_dates{$b}{$date . ".start"} || 0)}
 	keys %countries
 	)
 {

@@ -302,7 +302,7 @@ XML
 			$code < 1 and next;
 
 			$count++;
-			print "$count \n" if ($count % 1000 == 0);    # print number of products each 1000
+			print "$count \n" if ($count % 10000 == 0);    # print number of products each 10000
 
 			foreach my $field (@export_fields) {
 
