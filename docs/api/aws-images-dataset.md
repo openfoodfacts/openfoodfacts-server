@@ -43,3 +43,23 @@ JSON) before downloading them. For example, to keep only 400px versions of all
 images:
 
 `zcat data_keys.gz | grep '.400.jpg'`
+
+For example, if you want to extract a sample of images, you can use the code snippet below:
+
+```bash
+# Extract images from AWS
+n=1000
+images_dir="images"
+bucket_url="https://openfoodfacts-images.s3.eu-west-3.amazonaws.com/"
+
+zcat data_keys.gz |
+grep '.jpg' | # Filter
+shuf -n "$n" | # Random sample
+sed "s|^|$bucket_url|" | #Add bucket_url: "https://openfoodfacts-images.s3.eu-west-3.amazonaws.com/data/376/005/047/0099/1.jpg"
+while read -r url; do
+    filename=$(echo "$url" | sed "s|$bucket_url||" | tr '/' '_' | sed 's|data_||') # Filename as 376_005_047_0099_1.jpg
+    wget -O "$images_dir/$filename" "$url"
+done
+```
+
+You can further refine the image extraction process by applying additional filters like `last_editor` or `last_edited_date`. This can be done by combining the Open Food Facts database [dump](https://world.openfoodfacts.org/data) with **DuckDB** and the `data_keys.gz` file. For detailed instructions on using DuckDB to efficiently process the OFF database, refer to our [blog post](https://medium.com/@jeremyarancio/duckdb-open-food-facts-the-largest-open-food-database-in-the-palm-of-your-hand-0d4ab30d0701).

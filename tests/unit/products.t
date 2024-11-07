@@ -12,7 +12,7 @@ use ProductOpener::Products qw/:all/;
 
 # code normalization
 is(normalize_code('036000291452'), '0036000291452', 'should add leading 0 to valid UPC12');
-is(normalize_code('036000291455'), '036000291455', 'should not add 0 to invalid UPC12, just return as-is');
+is(normalize_code('036000291455'), '0036000291455', 'should add 0 to invalid UPC12');
 is(normalize_code('4015533014963'), '4015533014963', 'should just return invalid EAN13');
 ok(!(defined normalize_code(undef)), 'undef should stay undef');
 is(normalize_code(' just a simple test 4015533014963 here we go '),
@@ -20,7 +20,7 @@ is(normalize_code(' just a simple test 4015533014963 here we go '),
 is(normalize_code(' just a simple test 036000291452 here we go '),
 	'0036000291452', 'should add leading 0 to cleaned valid UPC12');
 is(normalize_code(' just a simple test 036000291455 here we go '),
-	'036000291455', 'should not add leading 0 to cleaned invalid UPC12');
+	'0036000291455', 'should add leading 0 to cleaned invalid UPC12');
 is(normalize_code('0104044782317112'), '4044782317112', 'should reduce GS1 AI unbracketed string to GTIN');
 is(normalize_code('(01)04044782317112(17)270101'), '4044782317112', 'should reduce GS1 AI bracketed string to GTIN');
 is(normalize_code('^010404478231711217270101'),
@@ -37,6 +37,8 @@ is(normalize_code('https://example.com/01/00012345000058?17=271200'),
 	'0012345000058', 'should reduce GS1 Digital Link URI to GTIN');
 is(normalize_code('https://world.openfoodfacts.org/'), '', 'non-GS1 URIs should return an empty string');
 is(normalize_code('http://spam.zip/'), '', 'non-GS1 URIs should return an empty string');
+is(normalize_code('0100360505082919'),
+	'0360505082919', 'should reduce GS1 AI unbracketed string to GTIN (13 digits, padded with 0)');
 
 # code normalization with GS1 AI
 is(normalize_code_with_gs1_ai('036000291452'), ('0036000291452', undef), 'GS1: should add leading 0 to valid UPC12');
@@ -349,5 +351,7 @@ is(preprocess_product_field('origin', 'France'), 'France');
 is(preprocess_product_field('packaging', 'Aluminium, Can, abc@gmail.com'), 'Aluminium, Can, ');
 is(preprocess_product_field('labels', 'email@example.com, Green Dot'), ', Green Dot');
 is(preprocess_product_field('stores', 'Carrefour, abc@gmail.com'), 'Carrefour, ');
+
+is(split_code("26153689"), "000/002/615/3689");
 
 done_testing();

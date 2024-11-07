@@ -10,14 +10,13 @@
    "page" : 1,
    "param" : {},
    "query_string" : "category/breads",
-   "rate_limiter_bucket" : "facet_products",
    "rate_limiter_blocking" : 0,
+   "rate_limiter_bucket" : "facet_products",
    "rate_limiter_limit" : 10,
    "rate_limiter_user_requests" : null,
    "tag" : "en:breads",
    "tag_prefix" : "",
    "tagid" : "en:breads",
-   "user_id": "userid",
    "tags" : [
       {
          "tag" : "en:breads",
@@ -26,5 +25,6 @@
          "tagtype" : "categories"
       }
    ],
-   "tagtype" : "categories"
+   "tagtype" : "categories",
+   "user_id" : "userid"
 }

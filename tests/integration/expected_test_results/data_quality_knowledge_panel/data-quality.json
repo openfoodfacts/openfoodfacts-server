@@ -1,5 +1,5 @@
 {
-   "code" : "200000000002",
+   "code" : "0200000000002",
    "product" : {
       "knowledge_panels" : {
          "contribution_card" : {
@@ -594,13 +594,17 @@
                   }
                }
             ],
-            "evaluation" : "",
+            "evaluation" : "bad",
+            "half_width_on_mobile" : true,
             "level" : "info",
             "size" : "small",
             "title_element" : {
                "icon_size" : "small",
                "icon_url" : "http://static.openfoodfacts.localhost/images/misc/high.svg",
-               "title" : "Salt in high quantity (120%)"
+               "name" : "Salt",
+               "title" : "Salt in high quantity (120%)",
+               "type" : "percentage",
+               "value" : 120
             },
             "topics" : [
                "health"

@@ -1,4 +1,5 @@
 type: object
+title: product_misc
 description: |
   Miscellaneous but important fields of a product
 properties:
@@ -41,7 +42,7 @@ properties:
         type: string
         enum: ["low", "moderate", "high"]
       sugars:
-        type: string.
+        type: string
         enum: ["low", "moderate", "high"]
   packaging_text:
     type: string

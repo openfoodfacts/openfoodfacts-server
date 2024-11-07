@@ -15,6 +15,76 @@ msgstr ""
 "X-Crowdin-Language: id\n"
 "X-Crowdin-File-ID: 3123\n"
 
+msgctxt "site_description_off"
+msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
+msgstr "Basis data kolaboratif, gratis, dan terbuka untuk bahan-bahan, fakta nutrisi, dan informasi tentang produk makanan dari seluruh dunia"
+
+msgctxt "tagline_off"
+msgid "Open Food Facts gathers information and data on food products from around the world."
+msgstr "Open Food Facts mengumpulkan informasi dan data tentang produk - produk makanan dari seluruh dunia."
+
+msgctxt "footer_tagline_off"
+msgid "A collaborative, free and open database of food products from around the world."
+msgstr "Sebuah basis data kolaboratif, bebas, dan terbuka mengenai produk makanan dari seluruh dunia."
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_off"
+msgid "/open-food-facts-mobile-app"
+msgstr "/open-food-facts-mobile-app"
+
+msgctxt "site_description_obf"
+msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
+msgstr "Sebuah basis data kandungan bahan, serta informasi tentang produk - produk kosmetik dari seluruh dunia yang kolaboratif, gratis, dan terbuka,"
+
+msgctxt "tagline_obf"
+msgid "Open Beauty Facts gathers information and data on cosmetic products from around the world."
+msgstr "Open Beauty Facts mengumpulkan informasi dan data tentang produk - produk kosmetik dari seluruh dunia."
+
+msgctxt "footer_tagline_obf"
+msgid "A collaborative, free and open database of cosmetic products from around the world."
+msgstr "Sebuah basis data produk - produk kosmetik dari seluruh dunia yang kolaboratif, gratis, dan terbuka."
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_obf"
+msgid "/open-beauty-facts-mobile-app"
+msgstr "/open-beauty-facts-mobile-app"
+
+msgctxt "footer_and_the_facebook_group_obf"
+msgid "and the <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">Facebook group for contributors</a>"
+msgstr "dan <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\"> grup Facebook untuk para kontributor </a>"
+
+msgctxt "search_description_opensearch_obf"
+msgid "Open Beauty Facts product search"
+msgstr "Open Food Facts pencarian produk"
+
+msgctxt "warning_not_complete_obf"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
+msgstr "Halaman produk ini tidak lengkap. Anda dapat membantu melengkapinya dengan menyuntingnya dan menambahkan lebih banyak data dari foto - foto yang kami miliki, atau dengan mengambil lebih banyak foto menggunakan aplikasi untuk <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> atau <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Terima kasih!"
+
+msgctxt "brands_example_beauty"
+msgid "Nivea, Nivea Men"
+msgstr "Nivea, Nivea Men"
+
+msgctxt "categories_example_beauty"
+msgid "Anti-dandruff shampoo, Whitening toothpaste"
+msgstr "Shampo anti ketombe, Pasta gigi pemutih"
+
+msgctxt "emb_codes_example_beauty"
+msgid "EMB 53062"
+msgstr "EMB 53062"
+
+msgctxt "generic_name_example_beauty"
+msgid "Anti-dandruff shampoo"
+msgstr "Sampo anti ketombe"
+
+msgctxt "product_name_example_beauty"
+msgid "Anti-Perspirant Stress Protect"
+msgstr "Antiperspiran Stress Protect"
+
+msgctxt "ingredients_text_example_beauty"
+msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
+msgstr "AQUA/AIR, NATRIUM LAURET SULFAT, DISODIUM COCOAMPHODIACETATE, GLIKOL DISTEARAT, KOKAMIDA MEA"
+
 msgctxt "1_product"
 msgid "1 product"
 msgstr "1 produk"
@@ -816,12 +886,12 @@ msgstr "/legal"
 
 msgctxt "footer_privacy"
 msgid "Privacy"
-msgstr ""
+msgstr "Privasi"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_privacy_link"
 msgid "/privacy"
-msgstr ""
+msgstr "/privacy"
 
 msgctxt "footer_press"
 msgid "Press"
@@ -4755,10 +4825,14 @@ msgctxt "attribute_ecoscore_setting_note"
 msgid "The Eco-Score is an environmental score (ecoscore) from A to E which makes it easy to compare the impact of food products on the environment."
 msgstr "Eco-Score adalah skor lingkungan (ecoscore) dari kisaran A hingga E yang membuatnya mudah untuk membandingkan dampak produk - produk makanan terhadap lingkungan."
 
-# keep %s, it will be replaced by the letter A, B, C, D or E
+# keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_ecoscore_grade_title"
 msgid "Eco-Score %s"
 msgstr "Eco-Score %s"
+
+msgctxt "attribute_ecoscore_a_plus_description_short"
+msgid "Very low environmental impact"
+msgstr "Dampak lingkungan sangat rendah"
 
 msgctxt "attribute_ecoscore_a_description_short"
 msgid "Very low environmental impact"
@@ -4777,6 +4851,10 @@ msgid "High environmental impact"
 msgstr "Dampak lingkungan tinggi"
 
 msgctxt "attribute_ecoscore_e_description_short"
+msgid "Very high environmental impact"
+msgstr "Dampak lingkungan sangat tinggi"
+
+msgctxt "attribute_ecoscore_f_description_short"
 msgid "Very high environmental impact"
 msgstr "Dampak lingkungan sangat tinggi"
 
@@ -4904,10 +4982,6 @@ msgctxt "number_of_members"
 msgid "Number of Members"
 msgstr "Jumlah Anggota"
 
-msgctxt "serial_no"
-msgid "S.No"
-msgstr "S.No"
-
 msgctxt "contact_form"
 msgid "Contact form"
 msgstr "Formulir kontak"
@@ -4953,21 +5027,21 @@ msgctxt "ecoscore_information"
 msgid "Information about the Eco-score"
 msgstr "Informasi tentang Eco-score"
 
-msgctxt "preferences_edit_your_food_preferences"
-msgid "Edit your food preferences"
-msgstr "Sunting preferensi makanan Anda"
-
-msgctxt "preferences_your_preferences"
-msgid "Your food preferences"
-msgstr "Preferensi makanan Anda"
-
 msgctxt "preferences_currently_selected_preferences"
 msgid "Currently selected preferences"
 msgstr "Preferensi terpilih saat ini"
 
 msgctxt "preferences_locally_saved"
-msgid "Your food preferences are kept in your browser and never sent to Open Food Facts or anyone else."
-msgstr "Preferensi makanan Anda disimpan dalam peramban dan tidak pernah dikirim ke Open Food Facts atau siapapun."
+msgid "Your preferences are kept in your browser and never sent to Open Food Facts or anyone else."
+msgstr "Preferensi Anda disimpan dalam peramban Anda dan tidak pernah dikirim ke Open Food Facts atau siapa pun."
+
+msgctxt "preferences_edit_your_preferences"
+msgid "Edit your preferences"
+msgstr "Sunting preferensi Anda"
+
+msgctxt "preferences_your_preferences"
+msgid "Your preferences"
+msgstr "Preferensi Anda"
 
 # used in phrases like "salt in unknown quantity"
 msgctxt "unknown_quantity"
@@ -5751,6 +5825,46 @@ msgctxt "donation_text_2023_tertiary"
 msgid "The food revolution starts with you!"
 msgstr "Revolusi makanan dimulai dari Anda!"
 
+msgctxt "donation_hook_2024"
+msgid "Help us inform millions of consumers around the world about what they eat"
+msgstr ""
+
+msgctxt "donation_title_2024"
+msgid "Please give to our 2024 Fundraiser"
+msgstr ""
+
+msgctxt "donation_list_2024_main"
+msgid "Your donations fund the day-to-day operations of our non-profit association:"
+msgstr ""
+
+msgctxt "donation_list_2024_first"
+msgid "keeping our database open & available to all,"
+msgstr ""
+
+msgctxt "donation_list_2024_first_sub"
+msgid "technical infrastructure (website/mobile app) & a small permanent team"
+msgstr ""
+
+msgctxt "donation_list_2024_second"
+msgid "remain independent of the food industry,"
+msgstr ""
+
+msgctxt "donation_list_2024_third"
+msgid "engage a community of committed citizens,"
+msgstr ""
+
+msgctxt "donation_list_2024_fourth"
+msgid "support the advancement of public health research."
+msgstr ""
+
+msgctxt "donation_financial_2024_text"
+msgid "Each donation counts! We appreciate your support in bringing further food transparency in the world."
+msgstr ""
+
+msgctxt "donation_button_2024_text"
+msgid "I SUPPORT"
+msgstr ""
+
 msgctxt "donation_cta"
 msgid "Donate"
 msgstr "Berdonasi"
@@ -5798,8 +5912,21 @@ msgstr "Jejak karbon"
 
 # variable names between { } must not be translated
 msgctxt "f_carbon_footprint_per_100g_of_product"
-msgid "{grams} g CO² per 100g of product"
-msgstr "{grams} g CO² per 100g produk"
+msgid "{grams} g CO₂e per 100g of product"
+msgstr "{grams} g CO₂e per 100g produk"
+
+# variable names between { } must not be translated
+msgctxt "f_carbon_footprint_per_unit"
+msgid "{kilograms} kg CO₂e per unit"
+msgstr "{kilograms} kg CO₂e per unit"
+
+msgctxt "average_for_the_category"
+msgid "average for the category"
+msgstr "rata-rata untuk kategori tersebut"
+
+msgctxt "data_source_and_detailed_carbon_impact"
+msgid "Data source and detailed carbon impact"
+msgstr "Sumber data dan dampak karbon terperinci"
 
 # variable names between { } must not be translated
 msgctxt "f_equal_to_driving_km_in_a_petrol_car"
@@ -5889,6 +6016,10 @@ msgstr "Kategori produk harus ditentukan untuk menghitung Nutri-Score."
 msgctxt "nutriscore_missing_nutrition_data"
 msgid "The nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr "Fakta nutrisi produk harus disebutkan secara spesifik untuk menghitung Nutri-Score."
+
+msgctxt "nutriscore_missing_nutrition_data_details"
+msgid "Missing nutrition facts:"
+msgstr "Kandungan gizi yang hilang:"
 
 msgctxt "nutriscore_missing_category_and_nutrition_data"
 msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
@@ -6818,6 +6949,10 @@ msgctxt "report_problem_panel_title"
 msgid "Report a problem"
 msgstr "Laporkan masalah"
 
+msgctxt "report_problem_navigation"
+msgid "Report a problem."
+msgstr ""
+
 msgctxt "incomplete_or_incorrect_data_title"
 msgid "Incomplete or incorrect information?"
 msgstr "Informasi tidak lengkap atau salah?"
@@ -6838,77 +6973,266 @@ msgctxt "description"
 msgid "Description"
 msgstr "Deskripsi"
 
-msgctxt "site_description_off"
-msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
-msgstr "Basis data kandungan bahan, informasi nilai gizi, dan informasi produk makanan dari seluruh dunia yang kolaboratif, gratis, dan terbuka"
-
-msgctxt "tagline_off"
-msgid "Open Food Facts gathers information and data on food products from around the world."
-msgstr "Open Food Facts mengumpulkan informasi dan data tentang produk - produk makanan dari seluruh dunia."
-
-msgctxt "footer_tagline_off"
-msgid "A collaborative, free and open database of food products from around the world."
-msgstr "Sebuah basis data kolaboratif, bebas, dan terbuka mengenai produk makanan dari seluruh dunia."
-
-#. make sure the text file exists for your language, otherwise ask @teolemon 
-msgctxt "get_the_app_link_off"
-msgid "/open-food-facts-mobile-app"
-msgstr "/open-food-facts-mobile-app"
-
-msgctxt "site_description_obf"
-msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
-msgstr "Sebuah basis data kandungan bahan, serta informasi tentang produk - produk kosmetik dari seluruh dunia yang kolaboratif, gratis, dan terbuka,"
-
-msgctxt "tagline_obf"
-msgid "Open Beauty Facts gathers information and data on cosmetic products from around the world."
-msgstr "Open Beauty Facts mengumpulkan informasi dan data tentang produk - produk kosmetik dari seluruh dunia."
-
-msgctxt "footer_tagline_obf"
-msgid "A collaborative, free and open database of cosmetic products from around the world."
-msgstr "Sebuah basis data produk - produk kosmetik dari seluruh dunia yang kolaboratif, gratis, dan terbuka."
-
-#. make sure the text file exists for your language, otherwise ask @teolemon 
-msgctxt "get_the_app_link_obf"
-msgid "/open-beauty-facts-mobile-app"
-msgstr "/open-beauty-facts-mobile-app"
-
-msgctxt "footer_and_the_facebook_group_obf"
-msgid "and the <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">Facebook group for contributors</a>"
-msgstr "dan <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\"> grup Facebook untuk para kontributor </a>"
-
-msgctxt "search_description_opensearch_obf"
-msgid "Open Beauty Facts product search"
-msgstr "Open Food Facts pencarian produk"
-
-msgctxt "warning_not_complete_obf"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
-msgstr "Halaman produk ini tidak lengkap. Anda dapat membantu melengkapinya dengan menyuntingnya dan menambahkan lebih banyak data dari foto - foto yang kami miliki, atau dengan mengambil lebih banyak foto menggunakan aplikasi untuk <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> atau <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Terima kasih!"
-
-msgctxt "brands_example_beauty"
-msgid "Nivea, Nivea Men"
-msgstr "Nivea, Nivea Men"
-
-msgctxt "categories_example_beauty"
-msgid "Anti-dandruff shampoo, Whitening toothpaste"
-msgstr "Shampo anti ketombe, Pasta gigi pemutih"
-
-msgctxt "emb_codes_example_beauty"
-msgid "EMB 53062"
-msgstr "EMB 53062"
-
-msgctxt "generic_name_example_beauty"
-msgid "Anti-dandruff shampoo"
-msgstr "Sampo anti ketombe"
-
-msgctxt "product_name_example_beauty"
-msgid "Anti-Perspirant Stress Protect"
-msgstr "Antiperspiran Stress Protect"
-
-msgctxt "ingredients_text_example_beauty"
-msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
-msgstr "AQUA/AIR, NATRIUM LAURET SULFAT, DISODIUM COCOAMPHODIACETATE, GLIKOL DISTEARAT, KOKAMIDA MEA"
-
+# duplicate with "report_problem_panel_title"
 msgctxt "report_problem_navigation"
 msgid "Report a problem"
 msgstr "Laporkan masalah"
+
+msgctxt "enter_main_contact_username"
+msgid "Enter main contact's username :"
+msgstr "Masukkan nama pengguna kontak utama :"
+
+msgctxt "change_main_contact"
+msgid "Change main contact"
+msgstr "Mengubah kontak utama"
+
+msgctxt "main_contact_updated"
+msgid "Main contact updated"
+msgstr "Kontak utama diperbarui"
+
+msgctxt "error_unknown_member"
+msgid "This user is not a member of the organization."
+msgstr "Pengguna ini bukan anggota organisasi."
+
+msgctxt "skip_to_content"
+msgid "Skip to Content"
+msgstr "Langsung ke Konten"
+
+msgctxt "cant_delete_main_contact"
+msgid "You cannot remove the main contact. Change it first."
+msgstr "Anda tidak dapat menghapus kontak utama. Ubahlah terlebih dahulu."
+
+msgctxt "open_in_crm"
+msgid "Open in CRM"
+msgstr "Buka di CRM"
+
+msgctxt "information_provided_by_the_manufacturer"
+msgid "Information provided by the manufacturer"
+msgstr "Informasi yang diberikan oleh produsen"
+
+msgctxt "information_provided_by_the_manufacturer_edit_form"
+msgid "Information identified by a factory icon has been provided by the manufacturer. It can be changed only by the manufacturer and moderators. If it is out of date or incorrect, please let us know."
+msgstr "Informasi yang diidentifikasi oleh ikon pabrik telah disediakan oleh produsen. Informasi ini hanya dapat diubah oleh produsen dan moderator. Jika informasi ini sudah ketinggalan zaman atau tidak benar, beri tahu kami."
+
+msgctxt "knowledge_panels_did_you_know"
+msgid "Did you know?"
+msgstr "Tahukah Anda?"
+
+msgctxt "knowledge_panels_why_it_matters"
+msgid "Why it matters"
+msgstr "Mengapa penting"
+
+msgctxt "knowledge_panels_what_you_can_do"
+msgid "What you can do"
+msgstr "Apa yang dapat Anda lakukan"
+
+msgctxt "knowledge_panels_ingredients_rare_crops_title"
+msgid "Good for agricultural biodiversity"
+msgstr "Baik untuk keanekaragaman hayati pertanian"
+
+msgctxt "knowledge_panels_ingredients_rare_crops_subtitle"
+msgid "Contains neglected or underutilized crops:"
+msgstr "Mengandung tanaman yang terabaikan atau kurang dimanfaatkan:"
+
+msgctxt "knowledge_panels_ingredients_rare_crops_did_you_know"
+msgid "Since 1900, 75% of plant diversity has been lost as farmers around the world have abandoned local varieties for high-yielding varieties adapted to mass industrial processing. As a result, 60 % of human energy intake in the world comes from only 3 species: wheat, rice and corn."
+msgstr "Sejak tahun 1900, sebanyak 75% keanekaragaman tanaman telah hilang karena petani di seluruh dunia telah meninggalkan varietas lokal dan beralih ke varietas unggul yang diadaptasi untuk pemrosesan industri massal. Akibatnya, sebanyak 60% asupan energi manusia di dunia hanya berasal dari 3 spesies: gandum, beras, dan jagung."
+
+msgctxt "knowledge_panels_ingredients_rare_crops_why_it_matters"
+msgid "The lack of variety of crops makes our food supply more vulnerable to pests, diseases and climate change."
+msgstr "Kurangnya variasi tanaman membuat pasokan makanan kita lebih rentan terhadap hama, penyakit, dan perubahan iklim."
+
+msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do"
+msgid "Consuming diverse cereals, legumes, vegetables and fruits contributes to:"
+msgstr "Mengkonsumsi beragam sereal, kacang-kacangan, sayuran, dan buah-buahan dapat membantu:"
+
+msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_1"
+msgid "preserving neglected and underutilized species"
+msgstr "melestarikan spesies yang terabaikan dan kurang dimanfaatkan"
+
+msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_2"
+msgid "rural development and support of local farmers and companies"
+msgstr "pembangunan pedesaan dan dukungan terhadap petani dan perusahaan lokal"
+
+msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_3"
+msgid "preserving of diversified landscapes"
+msgstr "melestarikan lanskap yang beragam"
+
+msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_4"
+msgid "food security"
+msgstr "keamanan pangan"
+
+msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_5"
+msgid "and your health!"
+msgstr "dan kesehatan Anda!"
+
+msgctxt "created_by"
+msgid "Created by"
+msgstr "Dibuat oleh"
+
+msgctxt "org_id"
+msgid "Org id"
+msgstr "ID Org"
+
+msgctxt "verified_status"
+msgid "Verified status"
+msgstr "Status terverifikasi"
+
+msgctxt "creation_date"
+msgid "Creation date"
+msgstr "Tanggal pembuatan"
+
+msgctxt "knowledge_panels_ingredients_rare_crops_divinfood"
+msgid "Open Food Facts participates in the European project <a href=\"https://divinfood.eu/\">DIVINFOOD</a> (funded from European Union’s Horizon 2020 research and innovation programme). DIVINFOOD aims to develop food chains that value under-utilised agrobiodiversity in order to act against the decline of biodiversity and to meet the growing expectations of consumers for healthy, local products that contribute to sustainable food systems."
+msgstr "Open Food Facts berpartisipasi dalam proyek Eropa <a href=\"https://divinfood.eu/\">DIVINFOOD</a> (didanai oleh program penelitian dan inovasi Horizon 2020 Uni Eropa). DIVINFOOD bertujuan untuk mengembangkan rantai makanan yang menghargai keanekaragaman hayati yang kurang dimanfaatkan dalam rangka mengatasi penurunan keanekaragaman hayati dan untuk memenuhi harapan konsumen yang terus meningkat terhadap produk lokal yang sehat dan berkontribusi pada sistem pangan yang berkelanjutan."
+
+msgctxt "deny"
+msgid "Deny"
+msgstr "Bantah"
+
+msgctxt "users_requested_to_join_org"
+msgid "These users have requested to join the organization:"
+msgstr "Para pengguna ini telah meminta untuk bergabung dengan organisasi:"
+
+msgctxt "last_login"
+msgid "Last login date"
+msgstr "Tanggal masuk terakhir"
+
+msgctxt "last_import"
+msgid "Last import date"
+msgstr "Tanggal impor terakhir"
+
+msgctxt "drop_a_file"
+msgid "Drop"
+msgstr "Taruh"
+
+msgctxt "select_product_data_file"
+msgid "Select a file with product data"
+msgstr "Pilih file dengan data produk"
+
+msgctxt "number_of_products_without_nutriscore"
+msgid "Number of products without Nutri-Score"
+msgstr "Jumlah produk tanpa Nutri-Score"
+
+msgctxt "percent_of_products_with_nutriscore"
+msgid "% of products where Nutri-Score is computed"
+msgstr "% produk yang dihitung Nutri-Score-nya"
+
+msgctxt "products_to_be_exported"
+msgid "Products to be exported"
+msgstr "Produk yang akan diekspor"
+
+msgctxt "products_exported"
+msgid "Products exported"
+msgstr "Produk yang diekspor"
+
+msgctxt "opportunities_to_improve_nutriscore"
+msgid "Opp. for Nutri-Score improvements"
+msgstr "Peluang untuk peningkatan Nutri-Score"
+
+msgctxt "date_of_last_update"
+msgid "Date of last update"
+msgstr "Tanggal pembaruan terakhir"
+
+msgctxt "number_of_products_on_public_platform"
+msgid "Number of products on public platform"
+msgstr "Jumlah produk di platform publik"
+
+msgctxt "number_of_products_on_producer_platform"
+msgid "Number of products on producer platform"
+msgstr "Jumlah produk di platform produsen"
+
+msgctxt "automated_daily_export_to_public_platform"
+msgid "Automatic daily export to public platform"
+msgstr "Ekspor harian otomatis ke platform publik"
+
+msgctxt "improvements_navigation"
+msgid "Improvements"
+msgstr "Peningkatan"
+
+msgctxt "products_with_changes_since_last_export"
+msgid "Products with changes since last export"
+msgstr "Produk dengan perubahan sejak ekspor terakhir"
+
+msgctxt "organization_list"
+msgid "Organization list"
+msgstr "Daftar organisasi"
+
+msgctxt "open_org"
+msgid "Open org"
+msgstr "Open org"
+
+msgctxt "secondhand"
+msgid "Secondhand"
+msgstr "Bekas"
+
+msgctxt "donated_products_title"
+msgid "Donations"
+msgstr "Donasi"
+
+msgctxt "donated_products_subtitle"
+msgid "Give this product, or search for a similar donated product"
+msgstr "Berikan produk ini atau cari produk donasi serupa"
+
+msgctxt "used_products_title"
+msgid "Used products"
+msgstr "Produk bekas"
+
+msgctxt "used_products_subtitle"
+msgid "Buy this product used, or search for a similar used product"
+msgstr "Beli produk bekas ini atau cari produk bekas serupa"
+
+msgctxt "attribute_repairability_index_france_name"
+msgid "Repairability index"
+msgstr "Indeks kemudahan diperbaiki"
+
+msgctxt "attribute_repairability_index_france_setting_name"
+msgid "Good repairability"
+msgstr ""
+
+msgctxt "attribute_repairability_index_france_setting_note"
+msgid "Mandatory rating in France for certain products since 2021"
+msgstr ""
+
+# keep %s, it will be replaced by the letter A, B, C, D or E
+msgctxt "attribute_repairability_index_france_grade_title"
+msgid "Repairability index %s"
+msgstr ""
+
+msgctxt "attribute_repairability_index_france_unknown_title"
+msgid "Repairability index unknown"
+msgstr ""
+
+msgctxt "attribute_repairability_index_france_not_applicable_title"
+msgid "Repairability index not-applicable"
+msgstr ""
+
+msgctxt "attribute_repairability_index_france_not_applicable_description_short"
+msgid "Not-applicable for the category"
+msgstr "Tidak berlaku untuk kategori ini"
+
+# variable names between { } must not be translated
+msgctxt "f_attribute_repairability_index_france_not_applicable_description"
+msgid "Applicable only for categories: {categories}"
+msgstr ""
+
+msgctxt "attribute_repairability_index_france_very_good_description_short"
+msgid "Very good repairability"
+msgstr ""
+
+msgctxt "attribute_repairability_index_france_good_description_short"
+msgid "Good repairability"
+msgstr ""
+
+msgctxt "attribute_repairability_index_france_average_description_short"
+msgid "Average repairability"
+msgstr ""
+
+msgctxt "attribute_repairability_index_france_poor_description_short"
+msgid "Poor repairability"
+msgstr ""
+
+msgctxt "attribute_repairability_index_france_bad_description_short"
+msgid "Bad repairability"
+msgstr ""
 

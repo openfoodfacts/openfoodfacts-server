@@ -70,7 +70,7 @@ BEGIN {
 
 		$memd_servers
 
-		$google_analytics
+		$analytics
 
 		$thumb_size
 		$crop_size
@@ -204,6 +204,19 @@ $flavor = 'off';
 	facebook_page_url_fr => "https://www.facebook.com/OpenFoodFacts.fr",
 	twitter_account => "OpenFoodFacts",
 	twitter_account_fr => "OpenFoodFactsFr",
+	# favicon HTML and images generated with https://realfavicongenerator.net/ using the SVG icon
+	favicons => <<HTML
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/off/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/off/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/off/favicon-16x16.png">
+<link rel="manifest" href="/images/favicon/off/site.webmanifest">
+<link rel="mask-icon" href="/images/favicon/off/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="/images/favicon/off/favicon.ico">
+<meta name="msapplication-TileColor" content="#00aba9">
+<meta name="msapplication-config" content="/images/favicon/off/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+HTML
+	,
 );
 
 $options{export_limit} = 10000;
@@ -472,7 +485,7 @@ $small_size = 200;
 $display_size = 400;
 $zoom_size = 800;
 
-$google_analytics = <<HTML
+$analytics = <<HTML
 <!-- Matomo -->
 <script>
   var _paq = window._paq = window._paq || [];
@@ -544,22 +557,6 @@ my $manifest = {
 $options{manifest} = $manifest;
 
 $options{display_random_sample_of_products_after_edits} = 0;    # from MongoDB 3.2 onward
-
-$options{favicons} = <<HTML
-<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
-<link rel="manifest" href="/images/favicon/site.webmanifest">
-<link rel="mask-icon" href="/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
-<link rel="shortcut icon" href="/images/favicon/favicon.ico">
-<meta name="msapplication-TileColor" content="#ffffff">
-<meta name="msapplication-config" content="/images/favicon/browserconfig.xml">
-<meta name="theme-color" content="#ffffff">
-
-<meta name="apple-itunes-app" content="app-id=588797948">
-<meta name="flattr:id" content="dw637l">
-HTML
-	;
 
 $options{opensearch_image} = <<XML
 <Image width="16" height="16" type="image/x-icon">https://static.$server_domain/images/favicon/favicon.ico</Image>
@@ -986,12 +983,39 @@ $options{attribute_groups} = [
 	["environment", ["ecoscore", "forest_footprint",]],
 ];
 
+# By default attributes have 4 possible values: not_important, important, very_important, mandatory
+# For some attributes, like allergens or vegan, we can limit to 2 values: not_important, mandatory
+$options{attribute_values_default} = ["not_important", "important", "very_important", "mandatory"];
+
+$options{attribute_values} = {
+	"allergens_no_gluten" => ["not_important", "mandatory"],
+	"allergens_no_milk" => ["not_important", "mandatory"],
+	"allergens_no_eggs" => ["not_important", "mandatory"],
+	"allergens_no_nuts" => ["not_important", "mandatory"],
+	"allergens_no_peanuts" => ["not_important", "mandatory"],
+	"allergens_no_sesame_seeds" => ["not_important", "mandatory"],
+	"allergens_no_soybeans" => ["not_important", "mandatory"],
+	"allergens_no_celery" => ["not_important", "mandatory"],
+	"allergens_no_mustard" => ["not_important", "mandatory"],
+	"allergens_no_lupin" => ["not_important", "mandatory"],
+	"allergens_no_fish" => ["not_important", "mandatory"],
+	"allergens_no_crustaceans" => ["not_important", "mandatory"],
+	"allergens_no_molluscs" => ["not_important", "mandatory"],
+	"allergens_no_sulphur_dioxide_and_sulphites" => ["not_important", "mandatory"],
+	"vegan" => ["not_important", "mandatory"],
+	"vegetarian" => ["not_important", "mandatory"],
+};
+
 # default preferences for attributes
 $options{attribute_default_preferences} = {
 	"nutriscore" => "very_important",
 	"nova" => "important",
 	"ecoscore" => "important",
 };
+
+use JSON::MaybeXS;
+$options{attribute_default_preferences_json}
+	= JSON->new->utf8->canonical->encode($options{attribute_default_preferences});
 
 # Used to generate the sample import file for the producers platform
 # possible values: mandatory, recommended, optional.
@@ -1649,6 +1673,7 @@ $options{rate_limit_product} = 100;
 # Rate limit allow list
 $options{rate_limit_allow_list} = {
 	'51.210.154.203' => 1,    # OVH2
+	'45.147.209.254' => 1,    # Moji server (actually OSM proxy, Moji only has ipv6)
 };
 
 1;

@@ -1,7 +1,7 @@
 Ensuring Data Quality for Open Food Facts Contributions
 -------------------------------------------------------
 
-This tutorial will guide you through best practices for maintaining high-quality data contributions to Open Food Facts through your app. As you know, Open Food Facts (and your app, since you have implemented or are implementing contributing back to Open Food Facts)leverages crowdsourcing, which is a fantastic way to gather a vast amount of information. However, it also necessitates measures to ensure data accuracy.
+This tutorial will guide you through best practices for maintaining high-quality data contributions to Open Food Facts through your app. As you know, Open Food Facts (and your app, since you have implemented or are implementing contributing back to Open Food Facts) leverages crowdsourcing, which is a fantastic way to gather a vast amount of information. However, it also necessitates measures to ensure data accuracy.
 
 ### Prevention is Key
 
@@ -37,7 +37,7 @@ The most effective approach lies in prevention. Here's how your app's interface 
 -   **"As Sold" vs. "As Prepared" Values:**\
     Nutritional information can be presented based on the product's state, "as sold" or "as prepared." Ensure clarity within your app regarding these variations.
 
-- ** A photo is better than nothing at all or bad data alone **
+- **A photo is better than nothing at all or bad data alone**
   Using a photo helps us cross-check the edits by your users, use artificial intelligence to compare the product to similar products in the same category. It also helps us complete the product at a later time if your users doesn't have the courage to input the data, or if he inputs bad data. A photo of the nutrition table and of the ingredients will go *a very long way*
 
 By following these guidelines and fostering a collaborative approach with Open Food Facts, your app can significantly contribute to a high-quality data collection effort, empowering informed consumer choices.

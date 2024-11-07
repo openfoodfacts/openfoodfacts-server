@@ -73,6 +73,7 @@ BEGIN {
 		&server_for_product_id
 		&data_root_for_product_id
 		&www_root_for_product_id
+		&split_code
 		&product_path
 		&product_path_from_id
 		&product_id_from_path
@@ -81,7 +82,6 @@ BEGIN {
 		&get_owner_id
 		&init_product
 		&retrieve_product
-		&retrieve_product_or_deleted_product
 		&retrieve_product_rev
 		&store_product
 		&product_name_brand
@@ -289,11 +289,49 @@ sub normalize_code ($code) {
 
 	if (defined $code) {
 		($code, my $gs1_ai_data_str) = &normalize_code_with_gs1_ai($code);
+		$code = normalize_code_zeroes($code);
 	}
 	return $code;
 }
 
-=head2 normalize_code_with_gs1_ai()
+=head2 normalize_code_zeroes($code)
+
+On disk, we store product files and images in directories named after the product code, and we add leading 0s to the paths.
+So we need to normalize the number of leading 0s of product codes, so that we don't have 2 products for codes that differ only by leading 0s.
+
+This function normalizes the product code by:
+- removing leading zeroes,
+- adding leading zeroes to have at least 13 digits,
+- removing leading zeroes for EAN8s to keep only 8 digits
+
+Note: this function adds leading 0s even if the GS1 code is not valid.
+
+=cut
+
+sub normalize_code_zeroes($code) {
+
+	# Return the code as-is if it is not all digits
+	if ($code !~ /^\d+$/) {
+		return $code;
+	}
+
+	# Remove leading zeroes
+	$code =~ s/^0+//;
+
+	# Add leading zeroes to have at least 13 digits
+	if (length($code) < 13) {
+		$code = "0" x (13 - length($code)) . $code;
+	}
+
+	# Remove leading zeroes for EAN8s to keep only 8 digits
+	if ((length($code) eq 13) and ($code =~ /^00000/)) {
+		$code = $';
+	}
+
+	return $code;
+}
+
+=head2 normalize_code_with_gs1_ai($code)
 
 C<normalize_code_with_gs1_ai()> this function normalizes the product code by:
 - running the given code through normalization method provided by GS1 to format a GS1 data string, or data URI to a GTIN,
@@ -322,26 +360,6 @@ sub normalize_code_with_gs1_ai ($code) {
 
 		# Keep only digits, remove spaces, dashes and everything else
 		$code =~ s/\D//g;
-
-		# Add a leading 0 to valid UPC-12 codes
-		# invalid 12 digit codes may be EAN-13s with a missing number
-		if ((length($code) eq 12) and ($ean_check->is_valid('0' . $code))) {
-			$code = '0' . $code;
-		}
-
-		# Remove leading 0 for codes with 14 digits
-		if ((length($code) eq 14) and ($code =~ /^0/)) {
-			$code = $';
-		}
-
-		# Remove 5 or 6 leading 0s for EAN8
-		# 00000080050100 (from Ferrero)
-		if ((length($code) eq 14) and ($code =~ /^000000/)) {
-			$code = $';
-		}
-		if ((length($code) eq 13) and ($code =~ /^00000/)) {
-			$code = $';
-		}
 	}
 	return ($code, $ai_data_str);
 }
@@ -414,7 +432,7 @@ Boolean value indicating if the code is valid or not.
 sub is_valid_code ($code) {
 	# Return an empty string if $code is undef
 	return '' if !defined $code;
-	return $code =~ /^\d{4,24}$/;
+	return $code =~ /^\d{4,40}$/;
 }
 
 =head2 split_code()
@@ -433,7 +451,9 @@ Example: 1234567890123  :-  123/456/789/0123
 
 =cut
 
-sub split_code ($code) {
+# We temporarily keep the old split_code() so that during the migration,
+# we can check if the old path exists (in which case we use it) and if not, we use the new path.
+sub old_split_code ($code) {
 
 	# Require at least 4 digits (some stores use very short internal barcodes, they are likely to be conflicting)
 	if (not is_valid_code($code)) {
@@ -442,7 +462,44 @@ sub split_code ($code) {
 		return "invalid";
 	}
 
-	# First splits into 3 sections of 3 numbers and the ast section with the remaining numbers
+	# First splits into 3 sections of 3 numbers and the last section with the remaining numbers
+	my $path = $code;
+	# Remove leading 0s that were added to normalize the code
+	$code =~ s/^0+//;
+	if ($code =~ /^(.{3})(.{3})(.{3})(.*)$/) {
+		$path = "$1/$2/$3/$4";
+	}
+	return $path;
+}
+
+sub split_code ($code) {
+
+	# TODO: remove old_split_code() once all products have been migrated to the new path
+	my $old_path = old_split_code($code);
+	# If the old path exists, the product has not been migrated yet, so we use the old path
+	# Note: this does not work on the pro platform, as we are missing the org-id component of the path.
+	if (-e "$BASE_DIRS{PRODUCTS}/$old_path/product.sto") {
+		$log->debug("old_split_code path exists, using old path", {code => $code, old_path => $old_path})
+			if $log->is_debug();
+		return $old_path;
+	}
+	else {
+		$log->debug("old_split_code path does not exist", {code => $code, old_path => $old_path}) if $log->is_debug();
+	}
+
+	# Require at least 4 digits (some stores use very short internal barcodes, they are likely to be conflicting)
+	if (not is_valid_code($code)) {
+
+		$log->info("invalid code", {code => $code}) if $log->is_info();
+		return "invalid";
+	}
+
+	# Pad code with 0s if it has less than 13 digits
+	if (length($code) < 13) {
+		$code = "0" x (13 - length($code)) . $code;
+	}
+
+	# First splits into 3 sections of 3 numbers and the last section with the remaining numbers
 	my $path = $code;
 	if ($code =~ /^(.{3})(.{3})(.{3})(.*)$/) {
 		$path = "$1/$2/$3/$4";
@@ -772,6 +829,7 @@ sub init_product ($userid, $orgid, $code, $countryid) {
 		created_t => time(),
 		creator => $creator,
 		rev => 0,
+		product_type => $options{product_type},
 	};
 
 	if (defined $server) {
@@ -870,7 +928,7 @@ sub init_product ($userid, $orgid, $code, $countryid) {
 	return $product_ref;
 }
 
-sub retrieve_product ($product_id) {
+sub retrieve_product ($product_id, $include_deleted = 0) {
 
 	my $path = product_path_from_id($product_id);
 	my $product_data_root = data_root_for_product_id($product_id);
@@ -889,7 +947,6 @@ sub retrieve_product ($product_id) {
 
 	my $product_ref = retrieve($full_product_path);
 
-	# If the product is on another server, set the server field so that it will be saved in the other server if we save it
 	my $server = server_for_product_id($product_id);
 
 	if (not defined $product_ref) {
@@ -898,6 +955,21 @@ sub retrieve_product ($product_id) {
 			if $log->is_debug();
 	}
 	else {
+		if (($product_ref->{deleted}) and (not $include_deleted)) {
+			$log->debug(
+				"retrieve_product - deleted product",
+				{
+					product_id => $product_id,
+					product_data_root => $product_data_root,
+					path => $path,
+					server => $server
+				}
+			) if $log->is_debug();
+			return;
+		}
+
+		# If the product is on another server, set the server field so that it will be saved in the other server if we save it
+
 		if (defined $server) {
 			$product_ref->{server} = $server;
 			$log->debug(
@@ -910,48 +982,16 @@ sub retrieve_product ($product_id) {
 				}
 			) if $log->is_debug();
 		}
-
-		if ($product_ref->{deleted}) {
-			$log->debug(
-				"retrieve_product - deleted product",
-				{
-					product_id => $product_id,
-					product_data_root => $product_data_root,
-					path => $path,
-					server => $server
-				}
-			) if $log->is_debug();
-			return;
+		else {
+			# If the product was moved previously, it may have a server field, remove it
+			delete $product_ref->{server};
 		}
 	}
 
 	return $product_ref;
 }
 
-sub retrieve_product_or_deleted_product ($product_id, $deleted_ok = 1) {
-
-	my $path = product_path_from_id($product_id);
-	my $product_data_root = data_root_for_product_id($product_id);
-
-	my $product_ref = retrieve("$product_data_root/products/$path/product.sto");
-
-	# If the product is on another server, set the server field so that it will be saved in the other server if we save it
-	my $server = server_for_product_id($product_id);
-	if ((defined $product_ref) and (defined $server)) {
-		$product_ref->{server} = $server;
-	}
-
-	if (    (defined $product_ref)
-		and ($product_ref->{deleted})
-		and (not $deleted_ok))
-	{
-		return;
-	}
-
-	return $product_ref;
-}
-
-sub retrieve_product_rev ($product_id, $rev) {
+sub retrieve_product_rev ($product_id, $rev, $include_deleted = 0) {
 
 	if ($rev !~ /^\d+$/) {
 		return;
@@ -962,14 +1002,21 @@ sub retrieve_product_rev ($product_id, $rev) {
 
 	my $product_ref = retrieve("$product_data_root/products/$path/$rev.sto");
 
-	# If the product is on another server, set the server field so that it will be saved in the other server if we save it
-	my $server = server_for_product_id($product_id);
-	if ((defined $product_ref) and (defined $server)) {
-		$product_ref->{server} = $server;
-	}
+	if (defined $product_ref) {
 
-	if ((defined $product_ref) and ($product_ref->{deleted})) {
-		return;
+		if (($product_ref->{deleted}) and (not $include_deleted)) {
+			return;
+		}
+
+		# If the product is on another server, set the server field so that it will be saved in the other server if we save it
+		my $server = server_for_product_id($product_id);
+		if (defined $server) {
+			$product_ref->{server} = $server;
+		}
+		else {
+			# If the product was moved previously, it may have a server field, remove it
+			delete $product_ref->{server};
+		}
 	}
 
 	return $product_ref;
@@ -1173,7 +1220,8 @@ sub store_product ($user_id, $product_ref, $comment) {
 	if (defined $product_ref->{old_code}) {
 
 		my $old_code = $product_ref->{old_code};
-		my $old_path = product_path_from_id($old_code);
+		my $old_product_id = product_id_for_owner($Owner_id, $old_code);
+		my $old_path = product_path_from_id($old_product_id);
 
 		if (defined $product_ref->{new_server}) {
 			my $new_server = $product_ref->{new_server};
@@ -1201,6 +1249,25 @@ sub store_product ($user_id, $product_ref, $comment) {
 		# Create the directories for the product
 		ensure_dir_created_or_die("$new_data_root/products/$prefix_path");
 		ensure_dir_created_or_die("$new_www_root/images/products/$prefix_path");
+
+		# Check if we are updating the product in place:
+		# the code changed, but it is the same path
+		# this can happen if the path is already normalized, but the code is not
+		# in that case we just want to update the code, and remove the old one from MongoDB
+		# we don't need to move the directories
+		if ("$BASE_DIRS{PRODUCTS}/$old_path" eq "$new_data_root/products/$path") {
+			$log->debug("updating product code in place", {old_code => $old_code, code => $code}) if $log->is_debug();
+			delete $product_ref->{old_code};
+			# remove the old product from the previous collection
+			if ($delete_from_previous_products_collection) {
+				execute_query(
+					sub {
+						return $previous_products_collection->delete_one({"_id" => $product_ref->{_id}});
+					}
+				);
+			}
+			$product_ref->{_id} = $product_ref->{code} . '';    # treat id as string;
+		}
 
 		if (    (!-e "$new_data_root/products/$path")
 			and (!-e "$new_www_root/images/products/$path"))
@@ -1444,6 +1511,9 @@ sub store_product ($user_id, $product_ref, $comment) {
 	}
 
 	# Publish information about update on Redis stream
+	$log->debug("push_to_redis_stream",
+		{code => $code, product_id => $product_id, action => $action, comment => $comment, diffs => $diffs})
+		if $log->is_debug();
 	push_to_redis_stream($user_id, $product_ref, $action, $comment, $diffs);
 
 	return 1;
@@ -2143,12 +2213,13 @@ sub compute_product_history_and_completeness ($product_data_root, $current_produ
 	# Read all previous versions to see which fields have been added or edited
 
 	my @fields = (
-		'lang', 'product_name',
-		'generic_name', @ProductOpener::Config::product_fields,
-		@ProductOpener::Config::product_other_fields, 'no_nutrition_data',
-		'nutrition_data_per', 'nutrition_data_prepared_per',
-		'serving_size', 'allergens',
-		'traces', 'ingredients_text'
+		'code', 'lang',
+		'product_name', 'generic_name',
+		@ProductOpener::Config::product_fields, @ProductOpener::Config::product_other_fields,
+		'no_nutrition_data', 'nutrition_data_per',
+		'nutrition_data_prepared_per', 'serving_size',
+		'allergens', 'traces',
+		'ingredients_text'
 	);
 
 	my %previous = (uploaded_images => {}, selected_images => {}, fields => {}, nutriments => {});

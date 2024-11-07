@@ -30,6 +30,8 @@ use ProductOpener::Users qw( $User_id retrieve_user );
 use ProductOpener::Orgs qw( list_org_ids retrieve_org store_org send_rejection_email);
 use ProductOpener::CRM qw( init_crm_data sync_org_with_crm );
 use ProductOpener::Store qw( retrieve store );
+use ProductOpener::Data qw( :all );
+use Log::Any::Adapter 'TAP';
 use Encode;
 
 binmode(STDOUT, ":encoding(UTF-8)");
@@ -60,7 +62,7 @@ if (!-e $checkpoint_file) {
 open($checkpoint, '+<:encoding(UTF-8)', $checkpoint_file) or die "Could not open file: $!";
 my %orgs_processed = map {chomp; $_ => 1} <$checkpoint>;
 
-foreach my $org_id (keys %orgs_to_accept) {
+foreach my $org_id (sort(list_org_ids())) {
 
 	$org_id = decode utf8 => $org_id;
 	my $org_ref = retrieve_org($org_id);
@@ -91,6 +93,8 @@ foreach my $org_id (keys %orgs_to_accept) {
 	}
 
 	store("$BASE_DIRS{ORGS}/" . $org_ref->{org_id} . ".sto", $org_ref);
+	my $orgs_collection = get_orgs_collection();
+	$orgs_collection->replace_one({"org_id" => $org_ref->{org_id}}, $org_ref, {upsert => 1});
 
 	print $checkpoint "$org_id\n";
 }

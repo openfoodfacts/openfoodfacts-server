@@ -80,47 +80,48 @@ if (not -e $lang_dir) {
 	) if $log->is_warn();
 }
 
-if (opendir DH2, $lang_dir) {
+# Check both $lang_dir + flavor specific directory
 
-	$log->info("Reading texts from $lang_dir") if $log->is_info();
+foreach my $dir ($lang_dir, "$lang_dir/$flavor") {
 
-	foreach my $langid (readdir(DH2)) {
-		next if $langid eq '.';
-		next if $langid eq '..';
-		#$log->trace("reading texts", { lang => $langid }) if $log->is_trace();
-		next if ((length($langid) ne 2) and not($langid eq 'other'));
+	if (opendir DH2, $dir) {
 
-		my $lc_dir_path = "$lang_dir/$langid/texts";
-		if (-e $lc_dir_path) {
-			opendir DH, $lc_dir_path or die "Couldn't open $lc_dir_path: $!";
-			foreach my $textid (readdir(DH)) {
-				next if $textid eq '.';
-				next if $textid eq '..';
-				my $file = $textid;
-				my $file_path = "$lc_dir_path/$textid";
+		$log->info("Reading texts from $lang_dir") if $log->is_info();
 
-				$textid =~ s/(\.foundation)?(\.$langid)?\.html//;
+		foreach my $langid (readdir(DH2)) {
+			next if $langid eq '.';
+			next if $langid eq '..';
+			#$log->trace("reading texts", { lang => $langid }) if $log->is_trace();
+			next if ((length($langid) ne 2) and not($langid eq 'other'));
 
-				# check if its a redirection
-				if ($file_path =~ m/.redirect$/) {
-					read_redirect_file($file_path, $langid, \%texts);
-				}
-				else {
-					defined $texts{$textid} or $texts{$textid} = {};
-					# prefer the .foundation version
-					if ((not defined $texts{$textid}{$langid}) or (length($file) > length($texts{$textid}{$langid}))) {
-						$texts{$textid}{$langid} = $file;
+			my $lc_dir_path = "$dir/$langid/texts";
+			if (-e $lc_dir_path) {
+				opendir DH, $lc_dir_path or die "Couldn't open $dir/$langid/texts: $!";
+				foreach my $textid (readdir(DH)) {
+					next if $textid eq '.';
+					next if $textid eq '..';
+					my $file = $textid;
+					my $file_path = "$lc_dir_path/$textid";
+					$textid =~ s/(\.foundation)?(\.$langid)?\.html//;
+					# check if its a redirection
+					if ($file_path =~ m/.redirect$/) {
+						read_redirect_file($file_path, $langid, \%texts);
+					}
+					else {
+						defined $texts{$textid} or $texts{$textid} = {};
+						# prefer the .foundation version
+						if ((not defined $texts{$textid}{$langid}) or (length($file) > length($texts{$textid}{$langid}))) {
+							$texts{$textid}{$langid} = $file;
+						}
 					}
 				}
-
-				#$log->trace("text loaded", { langid => $langid, textid => $textid }) if $log->is_trace();
+				closedir(DH);
 			}
-			closedir(DH);
 		}
+		closedir(DH2);
 	}
-	closedir(DH2);
 }
-else {
+if (scalar keys %texts == 0) {
 	$log->error("Texts could not be loaded.") if $log->is_error();
 	die("Texts could not be loaded from $BASE_DIRS{LANG} or $BASE_DIRS{LANG}-default");
 }

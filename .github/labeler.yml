@@ -989,6 +989,7 @@ OCR:
 - changed-files:
   - any-glob-to-any-file: 'scripts/run_cloud_vision_ocr.pl'
   - any-glob-to-any-file: 'tests/unit/send_image_to_cloud_vision.t'
+  - any-glob-to-any-file: 'scripts/run_ocr.py'
 
 # Scanbot is the bot updating Scan statistics on products. The plan is to eventually use openfoodfacts-events for scan statistics.
 Scanbot:

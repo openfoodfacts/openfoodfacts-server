@@ -78,12 +78,12 @@ synonyms:hu: Délnyugat, Dél Nyugat
 synonyms:hu: Délkelet, Dél Kelet
 synonyms:hu: Kelet-Közép, Kelet Közép
 synonyms:hu: Nyugat-Közép, Nyugat Közép
-synonyms:it: Nordovest, Nord Ovest
-synonyms:it: Nordest, Nord Est
-synonyms:it: Sudovest, Sud Ovest
-synonyms:it: Sudest, Sud Est
-synonyms:it: Centro Est, Est Centrale
-synonyms:it: Centro Ovest, Ovest Centrale
+synonyms:it: Nordovest, Nord Ovest, Nord-Ovest
+synonyms:it: Nordest, Nord Est, Nord-Est
+synonyms:it: Sudovest, Sud Ovest, Sud-Ovest
+synonyms:it: Sudest, Sud Est, Sud-Est
+synonyms:it: Centro Est, Est Centrale, Centro-Est, Centro Orientale
+synonyms:it: Centro Ovest, Ovest Centrale, Centro-Ovest, Centro Occidentale
 synonyms:nl: Noordwest, Noord West
 synonyms:nl: Noordoost, Noord Oost
 synonyms:nl: Zuidwest, Zuid West
@@ -127,7 +127,7 @@ de: Unbekannt
 es: Desconocido
 fr: Inconnu, inconnue, inconnus, inconnues
 hu: Ismeretlen
-it: Sconosciuto
+it: Sconosciuta, Sconosciuto
 ja: 不明
 nl: Onbekend
 pl: Nieznany, Nieznane
@@ -142,6 +142,7 @@ ca: No especificat
 es: No especificado
 fr: Non indiqué, non indiquée, non indiqués, non indiquées, non spécifié, non spécifiée, non spécifiée, non spécifiées, non précisé, non précisée, non précisés, non précisées
 hu: Nincs megadva, kitöltetlen, nem elérhető
+it: Non specificata, non specificato
 nl: Niet-gespecificeerd
 pt: Não especificado
 
@@ -3943,6 +3944,11 @@ web:fr: https://www.ain.fr
 wikidata:en: Q3083
 wikipedia:en: https://en.wikipedia.org/wiki/Ain
 
+< en: Ain
+en: Bugey
+xx: Bugey
+wikipedia:en: https://en.wikipedia.org/wiki/Bugey
+
 < en: Auvergne
 < en: Auvergne-Rhône-Alpes
 en: Allier
@@ -4062,7 +4068,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Rhône_(department)
 en: Métropole de Lyon
 xx: Métropole de Lyon
 insee:fr: 69M
-osm_realtion:en: 4850450
+osm_relation:en: 4850450
 wikidata:en: Q16665897
 wikipedia:en: https://en.wikipedia.org/wiki/Metropolis_of_Lyon
 
@@ -4109,6 +4115,11 @@ iso:en: FR-21
 web:fr: https://www.cotedor.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Côte-d%27Or
 
+< en: Côte-d'Or
+en: Dijon
+xx: Dijon
+wikipedia:en: https://en.wikipedia.org/wiki/Dijon
+
 < en: Bourgogne-Franche-Comté
 < en: Franche-Comté
 en: Doubs
@@ -4117,6 +4128,11 @@ insee:fr: 70
 iso:en: FR-70
 web:fr: https://www.doubs.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Doubs
+
+< en: Doubs
+en: Montbéliard
+xx: Montbéliard
+wikipedia:en: https://en.wikipedia.org/wiki/Montbéliard
 
 < en: Bourgogne-Franche-Comté
 < en: Franche-Comté
@@ -4130,8 +4146,9 @@ wikipedia:en: https://en.wikipedia.org/wiki/Haute-Saône
 < en: Bourgogne-Franche-Comté
 < en: Bresse
 < en: Franche-Comté
-en: Jura
-xx: Jura
+en: Jura (France))
+xx: Jura (France)
+fr: Jura français
 insee:fr: 39
 iso:en: FR-39
 nuts:en: FR432
@@ -4213,6 +4230,11 @@ nuts:en: FR522
 web:fr: https://www.finistere.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Finistère
 
+< en: Finistère
+en: Roscoff
+xx: Roscoff
+wikipedia:en: https://en.wikipedia.org/wiki/Roscoff
+
 < en: Brittany
 en: Ille-et-Vilaine
 xx: Ille-et-Vilaine
@@ -4221,6 +4243,11 @@ iso:en: FR-35
 nuts:en: FR523
 web:fr: https://www.ille-et-vilaine.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Ille-et-Vilaine
+
+< en: Ille-et-Vilaine
+en: Janzé
+xx: Janzé
+wikipedia:en: https://en.wikipedia.org/wiki/Janzé
 
 < en: Brittany
 en: Morbihan
@@ -4241,6 +4268,16 @@ iso:en: FR-CVL
 nuts:en: FR2
 web:fr: https://www.centre-valdeloire.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Centre-Val_de_Loire
+
+< en: Centre-Val de Loire
+en: Tours
+xx: Tours
+wikipedia:en: https://en.wikipedia.org/wiki/Tours
+
+< en: Centre-Val de Loire
+en: Berry
+xx: Berry
+wikipedia:en: https://en.wikipedia.org/wiki/Berry,_France
 
 < en: Centre-Val de Loire
 en: Cher
@@ -4462,6 +4499,11 @@ iso:en: FR-59
 nuts:en: FR301
 web:fr: https://lenord.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Nord_(French_department)
+
+< en: Nord
+en: Arleux
+xx: Arleux
+wikipedia:fr: https://en.wikipedia.org/wiki/Arleux
 
 < en: Hauts-de-France
 en: Oise
@@ -4723,6 +4765,11 @@ nuts:en: FR614
 web:fr: https://www.lotetgaronne.fr/
 wikipedia:en: https://en.wikipedia.org/wiki/Lot-et-Garonne
 
+< en: Lot-et-Garonne
+en: Agen
+xx: Agen
+wikipedia:en: https://en.wikipedia.org/wiki/Agen
+
 < en: Nouvelle-Aquitaine
 en: Pyrénées-Atlantiques
 xx: Pyrénées-Atlantiques
@@ -4744,6 +4791,10 @@ insee:fr: 79
 iso:en: FR-79
 web:fr: https://www.deux-sevres.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Deux-Sèvres
+
+< en: Deux-Sèvres
+en: Val de Sèvres
+xx: Val de Sèvres
 
 < en: Nouvelle-Aquitaine
 < en: Poitou-Charentes
@@ -4777,6 +4828,18 @@ wikipedia:en: https://en.wikipedia.org/wiki/Gascony
 en: Périgord
 xx: Périgord
 wikipedia:en: https://en.wikipedia.org/wiki/Périgord
+
+< en: Charente
+< en: Charente-Maritime
+< en: Deux-Sèvres
+en: Saintonge
+xx: Saintonge
+wikipedia:en: https://en.wikipedia.org/wiki/County_of_Saintonge
+
+< en: Nouvelle-Aquitaine
+en: Limousin
+xx: Limousin
+wikipedia:en: https://en.wikipedia.org/wiki/Limousin
 
 < en: Nouvelle-Aquitaine
 en: South-western France, South-west of France
@@ -4913,6 +4976,11 @@ iso:en: FR-81
 web:fr: https://www.tarn.fr/
 wikipedia:en: https://en.wikipedia.org/wiki/Tarn_(department)
 
+< en: Tarn
+en: Lautrec
+xx: Lautrec
+wikipedia:en: https://en.wikipedia.org/wiki/Lautrec
+
 < en: Occcitania
 en: Languedoc-Roussillon
 xx: Languedoc-Roussillon
@@ -4923,6 +4991,12 @@ xx: Tarn-et-Garonne
 insee:fr: 82
 iso:en: FR-82
 wikipedia:en: https://en.wikipedia.org/wiki/Tarn-et-Garonne
+
+< en: Gers
+< en: Tarn-et-Garonne
+en: Lomagne
+xx: Lomagne
+wikipedia:fr: https://fr.wikipedia.org/wiki/Lomagne
 
 # ************************************************************
 
@@ -4945,6 +5019,10 @@ iso:en: FR-44
 nuts:en: FR511
 web:fr: https://www.loire-atlantique.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Loire-Atlantique
+
+< en: Loire-Atlantique
+en: Guérande
+xx: Guérande
 
 < en: Pays de la Loire
 en: Maine-et-Loire
@@ -4985,6 +5063,11 @@ insee:fr: 85
 iso:en: FR-85
 web:fr: https://www.vendee.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Vendée
+
+< en: Vendée
+en: Noirmoutier
+xx: Noirmoutier
+wikipedia:fr: https://en.wikipedia.org/wiki/Noirmoutier
 
 < en: Centre-Val de Loire
 < en: Pays de la Loire
@@ -5029,6 +5112,11 @@ iso:en: FR-06
 nuts:en: FR823
 web:fr: https://www.departement06.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Alpes-Maritimes
+
+< en: Alpes-Maritimes
+en: Nice
+xx: Nice
+wikipedia:en: https://en.wikipedia.org/wiki/Nice
 
 < en: Provence-Alpes-Côte d'Azur
 en: Bouches-du-Rhône
@@ -5123,11 +5211,21 @@ xx: Rhône-Alpes
 
 # ******************** Historic/popular regions in France *********************
 
+< en: Auvergne-Rhône-Alpes
+< en: Bourgogne-Franche-Comté
+en: Beaujolais
+xx: Beaujolais
+wikipedia:fr: https://fr.wikipedia.org/wiki/Beaujolais
+
 < en: France
 en: Bresse
 xx: Bresse
 wikipedia:fr: https://fr.wikipedia.org/wiki/Bresse
 
+< en: France
+en: Center-East France
+xx: Center-East France
+fr: Centre-Est de France
 
 < en: Ardèche
 < en: Gard
@@ -5137,66 +5235,149 @@ en: Cévennes
 xx: Cévennes
 wikipedia:en: https://en.wikipedia.org/wiki/Cévennes
 
-# still to digest
+< en: France
+en: Champagne
+xx: Champagne
+wikipedia:en: https://en.wikipedia.org/wiki/Champagne_(province)
 
 < en: France
 en: Gatinais
 xx: Gatinais
 wikipedia:fr: https://fr.wikipedia.org/wiki/Gâtinais
 
-fr: Pays-Basque
-
-
-< en: France
-en: Champagne
-xx: Champagne
-wikipedia:en: https://en.wikipedia.org/wiki/Champagne_(province)
-
-< en:France
-fr: Beaujolais
-
-
-< en: France
-en: Guérande
-fr: Guérande
-
-< en: France
-en: Île de France
-fr: Île de France
-
 < en: France
 en: Languedoc
+xx: Languedoc
+wikipedia:fr: https://fr.wikipedia.org/wiki/Languedoc
 
 < en: France
-fr: Maine
+< en: Spain
+fr: Pays-Basque
 
-
-< en: France
-fr: Limousin
-xx: Limousin
+# still to digest
 
 < en: France
-fr: Val de Sèvres
-
-< en: France
-fr: Jura français
+fr: Maine-France
 
 < en: France
 fr: Pays-Basque
 
-# Disabling as parent because it can skew the Eco-Score
-#<en:France
-en: Guadeloupe
-fr: Guadeloupe
+# Disabling France as parent because it can skew the Eco-Score
+en: France overseas
 
+< en: Central America
+< en: France overseas
+en: Guadeloupe
+xx: Guadeloupe
+
+< en: Africa
+< en: France overseas
 en: Réunion Island
+xx: Réunion Island
 fr: Île de la Réunion
 
-en: Antilles
-fr: Antilles
+< en: France overseas
+< en: South America
+en: French Guyana
+xx: French Guyana
 
-# Canada regions
-fr: Québec
+< en: Central America
+< en: France overseas
+en: French Antilles
+xx: French Antilles
+fr: Antilles françaises
+
+
+# Canada provinces/territories
+
+< en:canada
+en: Alberta
+xx: Alberta
+iso:en: CA-AB
+wikipedia:en: https://en.wikipedia.org/wiki/Alberta
+
+< en:canada
+en: British Columbia
+xx: British Columbia
+iso:en: CA-BC
+wikipedia:en: https://en.wikipedia.org/wiki/British_Columbia
+
+< en:canada
+en: Manitoba
+xx: Manitoba
+iso:en: CA-MB
+wikipedia:en: https://en.wikipedia.org/wiki/Manitoba
+
+< en:canada
+en: New Brunswick
+xx: New Brunswick
+iso:en: CA-NB
+wikipedia:en: https://en.wikipedia.org/wiki/New_Brunswick
+
+< en:canada
+en: Newfoundland and Labrador
+xx: Newfoundland and Labrador
+iso:en: CA-NL
+wikipedia:en: https://en.wikipedia.org/wiki/Newfoundland_and_Labrador
+
+< en:canada
+en: Northwest Territories
+xx: Northwest Territories
+iso:en: CA-NT
+wikipedia:en: https://en.wikipedia.org/wiki/Northwest_Territories
+
+< en:canada
+en: Nova Scotia
+xx: Nova Scotia
+iso:en: CA-NS
+wikipedia:en: https://en.wikipedia.org/wiki/Nova_Scotia
+
+< en:canada
+en: Nunavut
+xx: Nunavut
+iso:en: CA-NU
+wikipedia:en: https://en.wikipedia.org/wiki/Nunavut
+
+< en:canada
+en: Ontario
+xx: Ontario
+iso:en: CA-ON
+wikipedia:en: https://en.wikipedia.org/wiki/Ontario
+
+< en:ontario
+en: Toronto
+xx: Toronto
+wikipedia:en: https://en.wikipedia.org/wiki/Toronto
+
+< en:canada
+en: Prince Edward Island
+xx: Prince Edward Island
+iso:en: CA-PE
+wikipedia:en: https://en.wikipedia.org/wiki/Prince_Edward_Island
+
+< en:canada
+en: Québec
+xx: Québec
+iso:en: CA-QC
+wikipedia:en: https://en.wikipedia.org/wiki/Quebec
+
+< en:quebec
+en: Montreal
+xx: Montreal
+web:en: https://montreal.ca/en/
+wikipedia:en: https://en.wikipedia.org/wiki/Montreal
+
+< en:canada
+en: Saskatchewan
+xx: Saskatchewan
+iso:en: CA-SK
+wikipedia:en: wikipedia:en: https://en.wikipedia.org/wiki/Saskatchewan
+
+< en:canada
+en: Yukon
+xx: Yukon
+iso:en: CA-YT
+wikipedia:en: https://en.wikipedia.org/wiki/Yukon
 
 # Germany regions
 
@@ -5313,8 +5494,24 @@ bg: Сицилия
 fr: Sicile
 hu: Szicília
 nl: Sicilië
-pl: SycyliaF
+pl: Sycylia
 tr: Sicilya
+
+< en:italy
+en: Apulia
+xx: Puglia
+
+< en:italy
+en: Lazio
+xx: Lazio
+
+< en:lazio
+en: Rome
+xx: Roma
+
+< en:italy
+en: Tuscany
+xx: Toscana
 
 ############################### Netherlands 
 
@@ -5355,6 +5552,7 @@ bg: Андалусия
 es: Andalucía
 fr: Andalousie
 hu: Andalúzia
+it: Andalusia
 nl: Andalusië
 
 < en:spain
@@ -5388,6 +5586,7 @@ pl: Wielka Brytania
 en: England
 bg: Англия
 fr: Angleterre
+it: Inghilterra
 nl: Engeland
 pl: Anglia
 
@@ -5395,8 +5594,19 @@ pl: Anglia
 en: Scotland
 bg: Шотландия
 fr: Écosse
+it: Scozia
 nl: Schotland
 pl: Szkocja
+
+< en: Scotland
+en: Angus
+xx: Angus
+wikipedia:en: https://en.wikipedia.org/wiki/Angus,_Scotland
+
+< en: Angus
+en: Arbroath
+xx: Arbroath
+wikipedia:en: https://en.wikipedia.org/wiki/Arbroath
 
 < en:great-britain
 en: Wales
@@ -5415,6 +5625,20 @@ en: Northern Ireland
 bg: Северна Ирландия
 fr: Irlande du Nord
 nl: Noord-Ierland
+
+# China states
+
+< en: China
+en: Jiangsu
+xx: Jiangsu
+zh: 江苏省
+wikipedia: https://en.wikipedia.org/wiki/Jiangsu
+
+< en: Jiangsu
+en: Yancheng
+xx: Yancheng
+zh: 盐城
+wikipedia:en: https://en.wikipedia.org/wiki/Yancheng
 
 # US states
 
@@ -5449,6 +5673,7 @@ fr: Caroline du Sud
 en: Gaza Strip
 bg: Ивица Газа
 fr: Bande de Gaza
+it: Striscia di Gaza
 nl: Gazastrook
 
 # Marine zones

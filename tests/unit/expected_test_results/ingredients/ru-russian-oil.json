@@ -2,6 +2,7 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "17440",
+         "ecobalyse_code" : "sunflower-oil",
          "from_palm_oil" : "no",
          "id" : "en:sunflower-oil",
          "is_in_taxonomy" : 1,
@@ -75,6 +76,10 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:soya-oil"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 1,
    "known_ingredients_n" : 5,
    "lc" : "ru",
    "nutriments" : {
