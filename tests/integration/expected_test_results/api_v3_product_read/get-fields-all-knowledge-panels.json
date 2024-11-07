@@ -1329,34 +1329,10 @@
             "type" : "card"
          },
          "incomplete_or_incorrect_data" : {
-            "elements" : [
-               {
-                  "element_type" : "text",
-                  "text_element" : {
-                     "html" : "\n                If the information does not match the information on the packaging, you can complete or correct it. Thank you!\n                Open Food Facts is a collaborative database, and every contribution is useful for all.\n                nutripatrol_enabled: "
-                  }
-               },
-               {
-                  "action_element" : {
-                     "actions" : [
-                        "edit_product"
-                     ],
-                     "html" : ""
-                  },
-                  "element_type" : "action"
-               }
-            ],
-            "evaluation" : "neutral",
-            "expand_for" : "large",
-            "level" : "info",
-            "title_element" : {
-               "icon_url" : "http://static.openfoodfacts.localhost/images/logos/off-logo-icon-light.svg",
-               "subtitle" : "Category, labels, ingredients, allergens, nutritional information, photos etc.",
-               "title" : "Incomplete or incorrect information?"
-            },
-            "topics" : [
-               "problem"
-            ]
+            "json" : "{\n    \"level\": \"info\",\n    \"topics\": [\n        \"problem\"\n    ],\n    \"expand_for\": \"large\",\n    \"evaluation\": \"neutral\",\n    \"title_element\": {\n        \"title\": \"Incomplete or incorrect information?\",\n        \"subtitle\": \"Category, labels, ingredients, allergens, nutritional information, photos etc.\",\n        \"icon_url\": \"http://static.openfoodfacts.localhost/images/logos/off-logo-icon-light.svg\"},\n    \"elements\": [\n        {\n            \"element_type\": \"text\",\n            \"text_element\": {\n                \"html\": `\n                If the information does not match the information on the packaging, you can complete or correct it. Thank you!\n                Open Food Facts is a collaborative database, and every contribution is useful for all.\n            }},\n        {\n            \"element_type\": \"action\",\n            \"action_element\": {\n                \"html\": \"\",\n                \"actions\": [\"edit_product\"]\n            }\n        }]\n}",
+            "json_debug_url" : "http://static.openfoodfacts.localhost/files/debug/knowledge_panels/incomplete_or_incorrect_data4260392550101.json",
+            "json_error" : "malformed JSON string, neither tag, array, object, number, string or atom, at character offset 519 (before \"`\\n                I...\") at /opt/product-opener/lib/ProductOpener/KnowledgePanels.pm line 411.\n",
+            "template" : "api/knowledge-panels/report_problem/incomplete_or_incorrect_data.tt.json"
          },
          "ingredients" : {
             "elements" : [
