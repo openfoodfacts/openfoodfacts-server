@@ -1,0 +1,30 @@
+{
+    "level": "info",
+    "expanded": true,
+    "topics": [
+        "problem"
+    ],
+    "evaluation": "neutral",
+    "title_element": {
+        "title": "[% edq(lang('report_to_nutripatrol_title')) %]",
+        "subtitle": "[% edq(lang('report_to_nutripatrol_subtitle')) %]",
+        "icon_url": "[% static_subdomain %]/images/logos/off-logo-icon-light.svg",
+    },
+    "elements": [
+        {
+            "element_type": "text",
+            "text_element": {
+                "html": `
+                [% lang('report_to_nutripatrol_explain') %]
+                `
+            },
+        },
+        {
+            "element_type": "action",
+            "action_element": {
+                "html": "",
+                "actions": ["report_product_to_nutripatrol"]
+            }
+        }
+    ]
+}

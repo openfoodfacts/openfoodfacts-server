@@ -48,7 +48,8 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::KnowledgePanels qw(create_panel_from_json_template);
-use ProductOpener::Tags qw(:all);
+use ProductOpener::Tags qw/:all/;
+use ProductOpener::ConfigEnv qw/:all/;
 
 use Encode;
 use Data::DeepAccess qw(deep_get);
@@ -95,8 +96,13 @@ sub create_report_problem_card_panel ($product_ref, $target_lc, $target_cc, $opt
 	);
 	push(@panels, "incomplete_or_incorrect_data");
 
-	# TODO: add a panel for Nutri-Patrol once it is ready
-
+	if ($nutripatrol_url) {
+		# Panel to report to NutriPatrol
+		create_panel_from_json_template("report_to_nutripatrol",
+			"api/knowledge-panels/report_problem/report_to_nutripatrol.tt.json",
+			{}, $product_ref, $target_lc, $target_cc, $options_ref);
+		push(@panels, "report_to_nutripatrol");
+	}
 	# Panels to report product issues to local authorities
 
 	# France - SignalConso
