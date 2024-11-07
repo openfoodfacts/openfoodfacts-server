@@ -55845,6 +55845,7 @@ ciqual_food_code:en: 15019
 ciqual_food_name:en: Cashew nut, grilled, salted
 
 < en:Nuts
+< en:Shelled nuts
 en: Pecan nuts, Pecan nut
 de: Pekannüsse, Pekannusskerne
 es: Nueces pecanas
@@ -55854,7 +55855,8 @@ it: Noci pecan
 ja: ピーカンナッツ, ペカンナッツ, ペカン
 la: Carya illinoinensis
 lt: Pekano riešutai
-nl: Pecannoten
+nl: Pecannote
+pl: Orzechy pekan, Orzechy pekan łuskane
 sv: Pekannötter, pekannöt
 agribalyse_proxy_food_code:en: 15026
 agribalyse_proxy_food_name:en: Pecan nut
@@ -55864,17 +55866,23 @@ wco_hs_heading:en: 08.02
 wikidata:en: Q333877
 
 < en:Pecan nuts
-en: Salted pecan nut, Salted pecan nuts
+en: Salted pecan nuts, Salted pecan nut
 fr: Noix de pécan salées, Noix de pécan salée
 agribalyse_food_code:en: 15046
 ciqual_food_code:en: 15046
 ciqual_food_name:en: Pecan nut, salted
 ciqual_food_name:fr: Noix de pécan, salées
 
+< en:Pecan nuts
+en: Roasted pecan nuts
+
 #for nuts that have not been salted nor roasted
 < en:Pecan nuts
-en: Pecan nuts (unsalted)
-nl: Pecannoten (ongezouten)
+en: Plain pecan nuts
+es: Nuez pecana natural, nuex pecana cruda
+fr: Noix de pécan naturels
+nl: Pecannoten(natuurlijk)
+pt: Noz pecana natural
 agribalyse_food_code:en: 15026
 ciqual_food_code:en: 15026
 ciqual_food_name:en: Pecan nut
@@ -56498,7 +56506,7 @@ nl: Suikeramandelen
 
 < en:Dragées
 < en:Nut confectioneries
-en: Caramelized pinte nuts, Sugar coated pinenuts
+en: Caramelized pine nuts, Sugar coated pinenuts
 es: Piñones cubiertos de azúcar
 fr: Pignons de pin enrobés de sucre
 hr: Pinjole obložene šećerom
@@ -56522,6 +56530,10 @@ fr: Noisettes caramélisées
 hr: Karameliziranih lješnjaka
 lt: Karamelizuoti lazdyno riešutai
 nl: Suikerhazelnoten, Gekarameliseerde hazelnoten
+
+< en:Caramelized nuts
+en: Caramelized pecan nuts
+nl: Gekarameliseerde pecannoten
 
 en: Farming products, farm products
 bg: Селскостопански продукти
