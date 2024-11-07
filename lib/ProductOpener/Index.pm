@@ -110,7 +110,9 @@ foreach my $dir ($lang_dir, "$lang_dir/$flavor") {
 					else {
 						defined $texts{$textid} or $texts{$textid} = {};
 						# prefer the .foundation version
-						if ((not defined $texts{$textid}{$langid}) or (length($file) > length($texts{$textid}{$langid}))) {
+						if (   (not defined $texts{$textid}{$langid})
+							or (length($file) > length($texts{$textid}{$langid})))
+						{
 							$texts{$textid}{$langid} = $file;
 						}
 					}
