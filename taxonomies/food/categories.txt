@@ -55856,10 +55856,8 @@ la: Carya illinoinensis
 lt: Pekano riešutai
 nl: Pecannoten
 sv: Pekannötter, pekannöt
-agribalyse_food_code:en: 15026
-ciqual_food_code:en: 15026
-ciqual_food_name:en: Pecan nut
-ciqual_food_name:fr: Noix de pécan
+agribalyse_proxy_food_code:en: 15026
+agribalyse_proxy_food_name:en: Pecan nut
 wco_hs_code:en: 0802.99
 # 0802.99 = "Other nuts"
 wco_hs_heading:en: 08.02
@@ -55875,8 +55873,12 @@ ciqual_food_name:fr: Noix de pécan, salées
 
 #for nuts that have not been salted nor roasted
 < en:Pecan nuts
-en: Plain pecan nuts
-nl: Pecannoten (onbehandeld)
+en: Pecan nuts (unsalted)
+nl: Pecannoten (ongezouten)
+agribalyse_food_code:en: 15026
+ciqual_food_code:en: 15026
+ciqual_food_name:en: Pecan nut
+ciqual_food_name:fr: Noix de pécan
 
 < en:Nuts
 en: Pistachios
