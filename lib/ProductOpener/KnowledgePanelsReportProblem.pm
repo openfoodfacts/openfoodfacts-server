@@ -92,7 +92,8 @@ sub create_report_problem_card_panel ($product_ref, $target_lc, $target_cc, $opt
 	create_panel_from_json_template(
 		"incomplete_or_incorrect_data",
 		"api/knowledge-panels/report_problem/incomplete_or_incorrect_data.tt.json",
-		{ nutripatrol_enabled => !!$nutripatrol_url }, $product_ref, $target_lc, $target_cc, $options_ref
+		{nutripatrol_enabled => !!$nutripatrol_url},
+		$product_ref, $target_lc, $target_cc, $options_ref
 	);
 	push(@panels, "incomplete_or_incorrect_data");
 
