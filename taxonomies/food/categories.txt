@@ -55867,16 +55867,18 @@ wco_hs_heading:en: 08.02
 wikidata:en: Q333877
 
 < en:Pecan nuts
-en: Salted pecan nuts, Salted pecan nut
+en: Pecan nuts(salted), Salted pecan nuts, Salted pecan nut
 fr: Noix de pécan salées, Noix de pécan salée
 agribalyse_food_code:en: 15046
 ciqual_food_code:en: 15046
 ciqual_food_name:en: Pecan nut, salted
 ciqual_food_name:fr: Noix de pécan, salées
+opposite:en: en:pecan-nuts(plain)
 
 < en:Pecan nuts
 en: Pecan nuts(roasted), Roasted pecan nuts
 #expected_ingredients:en: en:pecan-nut, en:oil
+opposite:en: en:pecan-nuts(plain)
 
 < en:Pecan nuts(roasted)
 < en:Salted pecan nuts
@@ -55898,6 +55900,7 @@ ciqual_food_code:en: 15026
 ciqual_food_name:en: Pecan nut
 ciqual_food_name:fr: Noix de pécan
 expected_ingredients:en: en:pecan-nut
+opposite:en: en:pecan-nuts(roasted), en:pecan-nuts(salted)
 
 < en:Nuts
 en: Pistachios
