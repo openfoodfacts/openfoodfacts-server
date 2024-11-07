@@ -407,6 +407,10 @@ check_openapi: check_openapi_v2 check_openapi_v3
 # Compilation #
 #-------------#
 
+build_packager_codes: create_folders
+	@echo "🥫 build packager codes"
+	${DOCKER_COMPOSE} run --no-deps --rm backend /opt/product-opener/scripts/update_packager_codes.pl
+
 build_taxonomies: create_folders
 	$(MAKE) MOUNT_FOLDER=build-cache MOUNT_VOLUME=build_cache _bind_local
 	@echo "🥫 build taxonomies"
