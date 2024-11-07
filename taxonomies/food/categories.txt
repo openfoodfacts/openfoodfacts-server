@@ -52485,7 +52485,7 @@ ciqual_food_name:fr: Yaourt, lait fermenté ou spécialité laitière, nature, s
 
 < en:Fermented milk drinks
 < en:Yogurts
-en: Drinkable yogurts, Yogurt drinks
+en: Yogurt drinks, Drinkable yogurts
 bg: Кисело мляко за пиене
 ca: Iogurt per beure
 de: Trinkjoghurt, Trinkjogurt, Trinkjoghurts, Trinkjogurts
@@ -52508,24 +52508,35 @@ agribalyse_proxy_food_name:fr: Boisson lactée, lait fermenté ou yaourt à boir
 intake24_category_code:en: YOGD
 intake24_category_code:fr: YOGD
 
-< en:Drinkable yogurts
+< en: Yogurt drinks
+en: Flavoured yoghurt drinks, Yoghurt drinks(flavoured)
+nl: Yoghurtdranken met smaak
+
+< en:Flavoured yoghurt drinks
 en: Vanilla yogurt drinks
 fr: Yaourts à boire goût vanille, Yaourts à boire vanille, Yaourts à boire saveur vanille
 hr: Pića s jogurtom od vanilije
 lt: Vaniliniai jogurto gėrimai
+nl: Yoghurtdranken met vanille
 pt: Bebidas de iogurte de baunilha
 ciqual_food_code:en: 19508
 
-< en:Drinkable yogurts
+< en:Flavoured yoghurt drinks
+en: Chocolate yoghurt drinks
+fr: Yaourts à boire goût chocolat
+nl: Yoghurt dranken met chocolade
+
+< en:Yogurt drinks with fruit flavour
 en: Raspberry drinkable yogurts
 fr: Yaourts à boire goût framboise
 hr: Pitki jogurti od maline
 nl: Framboosdrinkyoghurts
 
-< en:Drinkable yogurts
-fr: Yaourts à boire goût chocolat
+< en: Flavoured yoghurt drinks
+en: Fruit flavoured yoghurt drinks
+nl: Fruitdrinkyoghurts, Drinkyoghurts met fruitsmaak
 
-< en:Drinkable yogurts
+< en:Fruit flavoured yoghurt drinks
 en: Strawberry yogurt drinks
 fr: Yaourts à boire goût fraise, Yaourts à boire fraise, Yaourts à boire saveur fraise
 hr: Napitci od jogurta od jagode
@@ -52533,8 +52544,16 @@ lt: Braškiniai jogurto gėrimai
 nl: Aardbeiendrinkyoghurts
 ciqual_food_code:en: 19535
 
-< en:Drinkable yogurts
+< en:Yogurt drinks
+en: Yogurt drinks without sugar
 fr: Yaourts à boire sans sucres
+nl: Yoghurtdranken zonder suiker
+# A verifier ajoute depuis Nutrinet
+
+< en:Yogurt drinks
+en: Yogurt drinks with sugar
+fr: Yaourts à boire avec sucre
+nl: Yoghurtdranken met suiker
 # A verifier ajoute depuis Nutrinet
 
 < en:Flavoured fermented dairy desserts
