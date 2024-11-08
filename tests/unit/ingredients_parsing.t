@@ -660,6 +660,11 @@ my @lists = (
 		"arôme naturel de citron, citron vert et d'autres agrumes",
 		"arôme naturel de citron, arôme naturel de citron vert, arôme naturel d'agrumes"
 	],
+	["fr", "Huiles végétales (colza, palme)", "huile de colza, huile de palme"],
+	["fr", "Huiles végétales 54.5% (colza, palme)", ""],
+	["fr", "Huiles végétales non hydrogénées (colza, palme)", ""],
+	["fr", "Huiles végétales bio (olive, palme, tournesol)", ""],
+
 );
 
 foreach my $test_ref (@lists) {
