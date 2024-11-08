@@ -20,8 +20,7 @@ properties:
         and
         A series of mask for the barcode
         It helps retrieve barcodes starting by
-      example: |
-        ["code-13","3017620422xxx","301762042xxxx","30176204xxxxx","3017620xxxxxx","301762xxxxxxx","30176xxxxxxxx","3017xxxxxxxxx","301xxxxxxxxxx","30xxxxxxxxxxx","3xxxxxxxxxxxx"]
+      examples: ["code-13","3017620422xxx","301762042xxxx","30176204xxxxx","3017620xxxxxx","301762xxxxxxx","30176xxxxxxxx","3017xxxxxxxxx","301xxxxxxxxxx","30xxxxxxxxxxx","3xxxxxxxxxxxx"]
   generic_name:
     type: string
     description: |
