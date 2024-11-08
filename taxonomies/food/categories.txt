@@ -55865,18 +55865,12 @@ wco_hs_heading:en: 08.02
 wikidata:en: Q19958754
 
 < en:Pistachios
-< fr:Fruits à coque salés
-en: Salted pistachios
-es: Pistachos salados, Pistaches salados
-fr: Pistaches salées
-hr: Slane pistacije
-it: Pistacchi salati
-lt: Sūdytos pistacijos
-nl: Gezouten pistachenoten
+en: Plain pistachios, Pistachios(plain)
+nl: Pistachenote(onbehandeld)
 
 < en:Pistachios
 < en:Shelled nuts
-en: Shelled pistachios
+en: Pistachios(shalled), Shelled pistachios
 es: Pistachos sin cáscara
 fr: Pistaches décortiquées
 hr: Pistacije u ljusci
@@ -55887,7 +55881,11 @@ wco_hs_code:en: 0802.52
 wco_hs_heading:en: 08.02
 
 < en:Pistachios
-en: Roasted pistachios
+en: Pistachios(unshelled), Unshelled pistachios
+nl: Pistachenoten(met schil)
+
+< en:Pistachios
+en: Pistachios(roasted), Roasted pistachios
 de: Geröstete Pistazien
 es: Pistachos tostados
 fi: paahdetut pistaasit
@@ -55902,14 +55900,25 @@ ciqual_food_code:en: 15044
 ciqual_food_name:en: Pistachio nut, grilled
 
 < en:Pistachios
+< fr:Fruits à coque salés
+en: Salted pistachios
+es: Pistachos salados, Pistaches salados
+fr: Pistaches salées
+hr: Slane pistacije
+it: Pistacchi salati
+lt: Sūdytos pistacijos
+nl: Gezouten pistachenoten
+
 < en:Roasted pistachios
-en: Pistachio nut grilled salted
+< en:Shelled pistachios
+en: Pistachios (roasted and salted), Roasted and saled pistachios, Pistachio nut grilled salted
 fr: Pistache grillée salée
 agribalyse_food_code:en: 15009
 ciqual_food_code:en: 15009
 ciqual_food_name:en: Pistachio nut, grilled, salted
 
 < en:Pistachios
+en: Pistachios from Raffadali
 it: Pistacchio di Raffadali
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-02449
