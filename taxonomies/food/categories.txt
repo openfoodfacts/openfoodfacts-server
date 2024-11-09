@@ -39292,7 +39292,7 @@ ciqual_food_name:en: Chocolate confectionery, filled with wafer
 ciqual_food_name:fr: Bonbon / bouchée au chocolat fourrage gaufrettes / biscuit
 
 < en:Bonbons
-en: Chocolate covered chickpeas
+en: Chocolate coated chickpeas, Chocolate covered chickpeas
 de: Schokoladenüberzogene Kichererbsen
 es: Garbanzos cubiertos de chocolate
 fr: Pois chiches enrobés de chocolat
@@ -39307,7 +39307,7 @@ fr: Gingembrettes
 
 < en:Bonbons
 < en:Fruit confectioneries
-en: Chocolate covered fruits
+en: Chocolate coated fruits, Chocolate covered fruits
 de: Früchte mit Schokoladenüberzug
 es: Frutas recubiertas de chocolate
 fi: suklaalla päällystetyt hedelmät
@@ -39380,7 +39380,7 @@ en: Chocolate covered nuts and fruits
 en: Chocolate covered nuts and fruits mixes
 nl: Gemengde noten en fruit bedekt met chocolade
 
-< en:Bonbons
+< en:Chocolate covered nuts and fruits
 en: Chocolate covered nuts, Chocolate confectionery filled with nuts
 de: Mit Schokolade überzogene Nüsse
 es: Frutos de cáscara recubiertos de chocolate, Frutos secos recubiertos de chocolate
@@ -39397,7 +39397,7 @@ ciqual_food_name:en: Chocolate confectionery, filled with nuts and/or praline
 ciqual_food_name:fr: Bouchée chocolat fourrage fruits à coques et/ou praliné
 
 < en:Chocolate covered nuts
-en: Chocolate covered peanuts, Sugar and chocolate coated peanuts
+en: Chocolate coated peanuts, Chocolate covered peanuts, Sugar and chocolate coated peanuts
 de: Erdnüsse mit Schokoladenüberzug
 es: Cacahuetes recubiertos de chocolate, Maní recubierto de chocolate
 fi: Suklaalla päällystetyt maapähkinät
@@ -39414,7 +39414,7 @@ ciqual_food_name:en: Sugar and chocolate coated peanut
 ciqual_food_name:fr: Cacahuètes enrobées de chocolat dragéifiées
 
 < en:Chocolate covered nuts
-en: Chocolate covered almonds
+en: Chocolate coated almonds, Chocolate covered almonds
 de: Mandeln mit Schokoladenüberzug
 es: Almendras recubiertas de chocolate
 fr: Amandes enrobées de chocolat
@@ -39422,6 +39422,9 @@ hr: Bademi preliveni čokoladom
 lt: Migdolai šokolade
 nl: Amandelen in chocolade
 pt: Amêndoas cobertas com chocolate
+
+< en:Chocolate covered nuts
+en: Chocolate coated pistachios, Chocolate covered pistachios
 
 < en:Chocolate covered nuts
 < en:Nut confectioneries
@@ -55850,6 +55853,7 @@ fi: Pistaasipähkinät, Pistaasit
 fr: Pistaches, Pistache
 hr: pistacije, pistacija
 hu: Pisztácia
+id: Pistasio
 it: Pistacchi
 ja: ピスタチオ
 la: Pistacia vera
@@ -55858,8 +55862,10 @@ nl: Pistachenoten
 ru: Фисташки
 sv: Pistaschnötter, pistaschnöt
 tr: Antep fıstığı
+zh: 开心果
 agribalyse_proxy_food_code:en: 15044
 agribalyse_proxy_food_name:en: Pistachio nut, grilled
+opposite:en: en:pistachio-ice-cream-tubs, en:seeds, en:dried-fruits
 wco_hs_code:en: 0802.51
 wco_hs_heading:en: 08.02
 wikidata:en: Q19958754
@@ -55882,17 +55888,19 @@ wco_hs_heading:en: 08.02
 
 < en:Pistachios
 en: Pistachios(unshelled), Unshelled pistachios
-nl: Pistachenoten(met schil)
+fr: Pistaches non décortiquées
+nl: Pistachenoten(met schil), Ongepelde pistachenoten
 
 < en:Pistachios
-en: Pistachios(roasted), Roasted pistachios
+en: Pistachios(roasted), Roasted pistachios, Toasted pistachios
 de: Geröstete Pistazien
 es: Pistachos tostados
+et: röstitud ja soolatud pistaatsiapähklid
 fi: paahdetut pistaasit
 fr: Pistaches grillées
 hr: Pečeni pistacije
 hu: Pörkölt pisztácia
-it: Pistacchio tostato
+it: Pistacchi tostati, Pistacchio tostato
 lt: Skrudintos pistacijos
 nl: Geroosterde pistachenootjes
 agribalyse_food_code:en: 15044
@@ -55909,6 +55917,11 @@ it: Pistacchi salati
 lt: Sūdytos pistacijos
 nl: Gezouten pistachenoten
 
+< en:Pistachios
+en: Unsalted pistachios
+fr: Pistaches sans sel
+nl: Pistachenoten(ongezouten)
+
 < en:Roasted pistachios
 < en:Shelled pistachios
 en: Pistachios (roasted and salted), Roasted and saled pistachios, Pistachio nut grilled salted
@@ -55924,6 +55937,11 @@ origins:en: en:italy
 protected_name_file_number:en: PDO-IT-02449
 protected_name_type:en: pdo
 wikidata:en: Q30896744
+
+< en:Pistachios
+en: Pistachios from Bronte
+it: Pistacchi di Bronte, Pistacchi verde di Bronte
+origin:en: en:italy
 
 < en:Nuts
 en: Brazil nuts, Para nuts
