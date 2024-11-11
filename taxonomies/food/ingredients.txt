@@ -10912,7 +10912,7 @@ fr: Sel iodé, sel de cuisine iodé
 hr: jodirana sol, jodirona kuhinjska sol, kuhinjska sol jodirana, jodirana kuhinjska sol
 hu: jódozott só
 id: Garam beryodium
-it: Sale iodato
+it: Sale iodato, sale fino iodato protetto
 lt: Joduota druska
 nb: jodisert salt, salt med jod
 nl: gejodeerd zout
@@ -62756,12 +62756,12 @@ sv: karamelliserade pekannötter
 #
 ###################################################################################################
 < en:tree nut
-en: pistachio nuts, pistachio
+en: pistachio nuts, pistachio, American Pistachios
 bg: шамфъстък, шам-фъстък
 ca: festuc, festucs
 cs: pistácie
 da: pistacienødder
-de: Pistazien, pistazienkerne
+de: Pistazien, pistazienkerne, Pistazienkerne gehackt
 el: φυστίκια, Φυστίκια κελυφωτά
 es: pistachos, pistacho, alfóncigos
 et: pistaatsiapähklid, pistaatsiapähkleid
@@ -62795,7 +62795,7 @@ ecobalyse:en: pistachio-non-eu
 wikidata:en: Q14959225
 
 < en:pistachio nuts
-en: grilled pistachio nut
+en: grilled pistachio nut, Dry roasted pistachios
 de: Pistazienkerne geröstet
 es: pistachos tostados
 fr: Pistache grillée
@@ -62804,10 +62804,12 @@ ciqual_food_code:en: 15044
 ciqual_food_name:en: Pistachio nut, grilled
 
 < en:pistachio nuts
-de: geschälte Pistazien, Pistazienkerne geschält
+en: Shelled pistachios
+de: geschälte Pistazien, Pistazienkerne geschält, Pistazienkerne geschält
 tr: kabuklu antep fistituz
 
 < en:pistachio nuts
+en: pistachio nuts in shells
 es: pistacho con cáscara, pistachos con cáscara
 fr: pistaches en coques, pistache coque, Pistaches coques ouvertes naturellement
 it: Pistacchi in guscio
@@ -62816,7 +62818,12 @@ nl: pistaches met schelp, pistachenoten zonder dop
 ru: Орехи фисташковые неочищенные
 
 < en:grilled pistachio nut
+< en:shelled pistachios
+en: roasted pistachio nuts in shell, in-shell pistachios
 it: pistacchio con guscio tostato
+
+< en:shelled pistachios
+de: Pistazienkerne geschält und geröstet
 
 < en:pistachio nuts
 en: pistachio paste
