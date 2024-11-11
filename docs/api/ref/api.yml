@@ -516,6 +516,8 @@ components:
       $ref: ./schemas/product_ingredients.yaml
     "Product-Nutrition":
       $ref: ./schemas/product_nutrition.yaml
+    "Product-Nutriscore":
+      $ref: "./schemas/product_nutriscore.yaml#/components/schemas/NutriscoreAll"
     "Product-Quality":
       $ref: ./schemas/product_quality.yaml
     "Product-Data-Quality":
