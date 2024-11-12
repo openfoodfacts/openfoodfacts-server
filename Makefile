@@ -11,7 +11,8 @@ SHELL := $(shell which bash)
 ENV_FILE ?= .env
 NAME = "ProductOpener"
 MOUNT_POINT ?= /mnt
-DOCKER_LOCAL_DATA ?= /srv/off/docker_data
+DOCKER_LOCAL_DATA_DEFAULT = /srv/off/docker_data
+DOCKER_LOCAL_DATA ?= $(DOCKER_LOCAL_DATA_DEFAULT)
 OS := $(shell uname)
 
 # mount point for shared data (default to the one on staging)
@@ -406,20 +407,27 @@ check_openapi: check_openapi_v2 check_openapi_v3
 # Compilation #
 #-------------#
 
+build_packager_codes: create_folders
+	@echo "🥫 build packager codes"
+	${DOCKER_COMPOSE} run --no-deps --rm backend /opt/product-opener/scripts/update_packager_codes.pl
+
 build_taxonomies: create_folders
+	$(MAKE) MOUNT_FOLDER=build-cache MOUNT_VOLUME=build_cache _bind_local
 	@echo "🥫 build taxonomies"
-    # GITHUB_TOKEN might be empty, but if it's a valid token it enables pushing taxonomies to build cache repository
+# GITHUB_TOKEN might be empty, but if it's a valid token it enables pushing taxonomies to build cache repository
 	${DOCKER_COMPOSE} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl ${name}
 
 # a version where we force building without using cache
 # use it when you are developing in Tags.pm and want to iterate
 # at the end, change the $BUILD_TAGS_VERSION in Tags.pm
 rebuild_taxonomies:
+	$(MAKE) MOUNT_FOLDER=build-cache MOUNT_VOLUME=build_cache _bind_local
 	${DOCKER_COMPOSE} run --no-deps --rm -e TAXONOMY_NO_GET_FROM_CACHE=1 backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl ${name}
 
 build_taxonomies_test: create_folders
+	$(MAKE) MOUNT_FOLDER=build-cache MOUNT_VOLUME=build_cache PROJECT_SUFFIX=_test _bind_local
 	@echo "🥫 build taxonomies"
-    # GITHUB_TOKEN might be empty, but if it's a valid token it enables pushing taxonomies to build cache repository
+# GITHUB_TOKEN might be empty, but if it's a valid token it enables pushing taxonomies to build cache repository
 	${DOCKER_COMPOSE_TEST} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl ${name}
 
 
@@ -435,6 +443,21 @@ _clean_old_external_volumes:
 save_orgs_to_mongodb:
 	@echo "🥫 Saving exsiting orgs into MongoDB …"
 	${DOCKER_COMPOSE} run --rm backend perl -I/opt/product-opener/lib /opt/product-opener/scripts/migrations/2024_06_save_existing_orgs_to_mongodb.pl "/mnt/podata/orgs"
+
+_bind_local:
+ifeq ($(DOCKER_LOCAL_DATA),$(DOCKER_LOCAL_DATA_DEFAULT))
+	@true
+else ifeq ($(MOUNT_FOLDER),)
+	$(error "Missing MOUNT_FOLDER variable")
+else ifeq ($(MOUNT_VOLUME),)
+	$(error "Missing MOUNT_VOLUME variable")
+else
+	@echo "🥫 Linking data volume ${COMPOSE_PROJECT_NAME}${PROJECT_SUFFIX}_${MOUNT_VOLUME} to directory ${DOCKER_LOCAL_DATA}/${MOUNT_FOLDER} …"
+# local data
+	mkdir -p "${DOCKER_LOCAL_DATA}/${MOUNT_FOLDER}"
+	docker volume rm ${COMPOSE_PROJECT_NAME}${PROJECT_SUFFIX}_${MOUNT_VOLUME} || true
+	docker volume create --label com.docker.compose.project=${COMPOSE_PROJECT_NAME}${PROJECT_SUFFIX} --label com.docker.compose.version=$(shell docker compose version --short) --label com.docker.compose.volume=${MOUNT_VOLUME} --driver=local -o type=none -o o=bind -o "device=${DOCKER_LOCAL_DATA}/${MOUNT_FOLDER}" ${COMPOSE_PROJECT_NAME}${PROJECT_SUFFIX}_${MOUNT_VOLUME}
+endif
 
 #------------#
 # Production #
@@ -476,6 +499,7 @@ clean_folders: clean_logs
 	( rm -rf html/data/i18n/ || true )
 	( rm -rf html/{css,js}/dist/ || true )
 	( rm -rf tmp/ || true )
+	( rm -rf build-cache/ || true )
 
 clean_logs:
 	( rm -f logs/* logs/apache2/* logs/nginx/* || true )

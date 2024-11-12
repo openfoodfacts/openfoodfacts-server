@@ -104,7 +104,7 @@ sub normalize_code {
 			"HR $code EU" when 'hr';
 			"$code" when 'hu';
 			"$code" when 'ie';
-			"$code EC" when 'it';
+			"$code" when 'it';
 			"LT $code EC" when 'lt';
 			"$code" when 'lu';
 			"PL $code EC" when 'pl';
@@ -121,11 +121,6 @@ sub normalize_code {
 }
 
 my %code_processor = (
-	it => sub {
-		my ($c) = @_;
-		$c =~ s/^CE //sxm;
-		return $c;
-	},
 	uk => sub {
 		my ($c) = @_;
 		$c =~ s/(\s|\/)*ec$//isxm;
@@ -180,7 +175,7 @@ my %approval_key = (
 	hr => 'app_number',
 	hu => 'code',
 	ie => 'code',
-	it => 'approvalnumber',
+	it => 'code',
 	lt => 'vet_approval_no',
 	lu => 'code',
 	pl => 'code',
