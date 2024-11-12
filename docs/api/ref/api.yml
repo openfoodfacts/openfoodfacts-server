@@ -531,8 +531,11 @@ components:
     Product:
       $ref: ./schemas/product.yaml
     Ingredient:
-      # Added to fix some generator errors on $ref
+      # Added to fix some generator errors on recursive $ref
       $ref: "./schemas/ingredient.yaml#/components/schemas/Ingredient"
+    Nutrient:
+      # Added to fix some generator errors on recursive $ref
+      $ref: "./schemas/nutrients.yaml#/components/schemas/Nutrient"
   parameters:
     id:
       schema:
