@@ -4923,8 +4923,8 @@ sub add_params_to_query ($params_ref, $query_ref) {
 							# if the tagid ends with !, we want to search for products with this exact tag, without canonicalization
 							# this is useful in particular when we change the main id of a tag entry in the taxonomy,
 							# so that we can find products that have not been reprocessed yet and that still have the old tag
-							if ($tag2 =~ /^[a-z]{2}:.*!$/) {
-								$tagid2 = $tag2;
+							if ($tag2 =~ /^([a-z]{2}:.*)!$/) {
+								$tagid2 = $1;
 							}
 							else {
 								$tagid2 = get_taxonomyid($tag_lc, canonicalize_taxonomy_tag($tag_lc, $tagtype, $tag2));
@@ -4962,8 +4962,8 @@ sub add_params_to_query ($params_ref, $query_ref) {
 						# if the tagid ends with !, we want to search for products with this exact tag, without canonicalization
 						# this is useful in particular when we change the main id of a tag entry in the taxonomy,
 						# so that we can find products that have not been reprocessed yet and that still have the old tag
-						if ($tag =~ /^[a-z]{2}:.*!$/) {
-							$tagid = $tag;
+						if ($tag =~ /^([a-z]{2}:.*)!$/) {
+							$tagid = $1;
 						}
 						else {
 							$tagid = get_taxonomyid($tag_lc, canonicalize_taxonomy_tag($tag_lc, $tagtype, $tag));
