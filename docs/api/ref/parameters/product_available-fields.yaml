@@ -17,64 +17,202 @@ components:
             - knowledge_panels
             # all other fields
             - added_countries_tags
+            - additives_n
             - additives_original_tags
-            - additives_prev_original_tags
             - additives_tags
+            - allergens
+            - allergens_from_ingredients
+            - allergens_from_user
+            - allergens_hierarchy
             - allergens_tags
             - amino_acids_prev_tags
             - amino_acids_tags
+            - brands
             - brands_tags
+            - categories
+            - categories_hierarchy
+            - categories_lc
+            - categories_old
+            - categories_properties
             - categories_properties_tags
             - categories_tags
+            - category_properties
             - checkers_tags
             - ciqual_food_name_tags
             - cities_tags
+            - code
             - codes_tags
+            - compared_to_category
+            - complete
+            - completeness
             - correctors_tags
+            - countries
+            - countries_hierarchy
+            - countries_lc
             - countries_tags
+            - created_t
+            - creator
             - data_quality_bugs_tags
             - data_quality_errors_tags
             - data_quality_info_tags
             - data_quality_tags
             - data_quality_warnings_tags
-            - data_sources_tags
+            - ecoscore_data
+            - ecoscore_extended_data
+            - ecoscore_extended_data_version
+            - ecoscore_grade
+            - ecoscore_score
             - ecoscore_tags
             - editors_tags
+            - emb_codes
             - emb_codes_tags
             - entry_dates_tags
+            - expiration_date
+            - food_groups
             - food_groups_tags
+            - generic_name
+            - generic_name_it
+            - id
+            - image_front_small_url
+            - image_front_thumb_url
+            - image_front_url
+            - image_small_url
+            - image_thumb_url
+            - image_url
+            - images
             - informers_tags
+            - ingredients
+            - ingredients_analysis
             - ingredients_analysis_tags
+            - ingredients_from_or_that_may_be_from_palm_oil_n
+            - ingredients_from_palm_oil_n
             - ingredients_from_palm_oil_tags
+            - ingredients_hierarchy
+            - ingredients_n
             - ingredients_n_tags
             - ingredients_original_tags
+            - ingredients_percent_analysis
             - ingredients_tags
+            - ingredients_text
+            - ingredients_text_it
+            - ingredients_text_with_allergens
+            - ingredients_text_with_allergens_it
+            - ingredients_that_may_be_from_palm_oil_n
             - ingredients_that_may_be_from_palm_oil_tags
+            - ingredients_with_specified_percent_n
+            - ingredients_with_specified_percent_sum
+            - ingredients_with_unspecified_percent_n
+            - ingredients_with_unspecified_percent_sum
+            - ingredients_without_ciqual_codes
+            - ingredients_without_ciqual_codes_n
+            - interface_version_created
+            - interface_version_modified
+            - known_ingredients_n
+            - labels
+            - labels_hierarchy
+            - labels_lc
+            - labels_old
             - labels_tags
+            - lang
+            - languages
+            - languages_codes
+            - languages_hierarchy
             - languages_tags
             - last_edit_dates_tags
+            - last_editor
             - last_image_dates_tags
+            - last_image_t
+            - last_modified_by
+            - last_modified_t
+            - last_updated_t
+            - lc
+            - link
             - main_countries_tags
+            - manufacturing_places
             - manufacturing_places_tags
+            - max_imgid
             - minerals_prev_tags
             - minerals_tags
             - misc_tags
+            - no_nutrition_data
+            - nova_group
+            - nova_groups
+            - nova_groups_markers
             - nova_groups_tags
             - nucleotides_prev_tags
             - nucleotides_tags
+            - nutrient_levels
             - nutrient_levels_tags
+            - nutriments
+            - nutriscore
+            - nutriscore_2021_tags
+            - nutriscore_2023_tags
+            - nutriscore_data
+            - nutriscore_grade
+            - nutriscore_score
+            - nutriscore_score_opposite
+            - nutriscore_tags
+            - nutriscore_version
+            - nutrition_data_per
+            - nutrition_data_prepared_per
+            - nutrition_grade_fr
+            - nutrition_grades
             - nutrition_grades_tags
+            - nutrition_score_beverage
+            - nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients
+            - nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value
+            - nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients
+            - nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value
+            - origins
+            - origins_hierarchy
+            - origins_lc
+            - origins_old
             - origins_tags
             - other_nutritional_substances_tags
+            - packaging
+            - packaging_hierarchy
+            - packaging_lc
+            - packaging_materials_tags
+            - packaging_old
+            - packaging_old_before_taxonomization
+            - packaging_recycling_tags
+            - packaging_shapes_tags
             - packaging_tags
+            - packagings
+            - packagings_materials
+            - packagings_n
             - photographers_tags
+            - pnns_groups_1
+            - pnns_groups_1_tags
+            - pnns_groups_2
+            - pnns_groups_2_tags
+            - popularity_key
             - popularity_tags
+            - product_name
+            - product_name_it
+            - product_quantity
+            - purchase_places
             - purchase_places_tags
+            - quantity
             - removed_countries_tags
+            - rev
+            - scans_n
+            - selected_images
+            - sortkey
+            - states
+            - states_hierarchy
             - states_tags
+            - stores
             - stores_tags
+            - traces
+            - traces_from_ingredients
+            - traces_from_user
+            - traces_hierarchy
             - traces_tags
+            - unique_scans_n
+            - unknown_ingredients_n
             - unknown_nutrients_tags
+            - update_key
             - vitamins_prev_tags
             - vitamins_tags
             #TODO: add more fields
