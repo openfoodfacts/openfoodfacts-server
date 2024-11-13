@@ -311,6 +311,16 @@ Footer:
   # attributes
   - any-glob-to-any-file: 'docs/​api/​ref/​responses/​get_attribute_groups.yaml'
   - any-glob-to-any-file: 'docs/​api/​ref/​responses/​get_preferences.yaml'
+  # knowledge_panels
+  - any-glob-to-any-file: 'docs/api/ref/schemas/knowledge_panels/panel.yaml'
+  - any-glob-to-any-file: 'docs/api/ref/schemas/knowledge_panels/panels.yaml'
+  - any-glob-to-any-file: 'docs/api/ref/schemas/knowledge_panels/elements/​element.yaml'
+  - any-glob-to-any-file: 'docs/api/ref/schemas/knowledge_panels/elements/​text_element.yaml'
+  - any-glob-to-any-file: 'docs/api/ref/schemas/knowledge_panels/elements/​image_element.yaml'
+  - any-glob-to-any-file: 'docs/api/ref/schemas/knowledge_panels/elements/​panel_element.yaml'
+  - any-glob-to-any-file: 'docs/api/ref/schemas/knowledge_panels/elements/​table_element.yaml'
+  - any-glob-to-any-file: 'docs/api/ref/schemas/knowledge_panels/elements/​title_element.yaml'
+  - any-glob-to-any-file: 'docs/api/ref/schemas/knowledge_panels/elements/​panel_group_element.yaml'
 # You can learn how to use Docker at https://docker-curriculum.com/
 # Tracking issue: 
 🐋 Docker:
@@ -614,7 +624,15 @@ brands:
   - any-glob-to-any-file: 'docs/api/ref/schemas/knowledge_panels/**'
   - any-glob-to-any-file: 'lib/ProductOpener/KnowledgePanelsTags.pm'
   - any-glob-to-any-file: 'docs/api/explain-knowledge-panels.md'
-
+  - any-glob-to-any-file: 'docs/api/ref/schemas/knowledge_panels/panel.yaml'
+  - any-glob-to-any-file: 'docs/api/ref/schemas/knowledge_panels/panels.yaml'
+  - any-glob-to-any-file: 'docs/api/ref/schemas/knowledge_panels/elements/​element.yaml'
+  - any-glob-to-any-file: 'docs/api/ref/schemas/knowledge_panels/elements/​text_element.yaml'
+  - any-glob-to-any-file: 'docs/api/ref/schemas/knowledge_panels/elements/​image_element.yaml'
+  - any-glob-to-any-file: 'docs/api/ref/schemas/knowledge_panels/elements/​panel_element.yaml'
+  - any-glob-to-any-file: 'docs/api/ref/schemas/knowledge_panels/elements/​table_element.yaml'
+  - any-glob-to-any-file: 'docs/api/ref/schemas/knowledge_panels/elements/​title_element.yaml'
+  - any-glob-to-any-file: 'docs/api/ref/schemas/knowledge_panels/elements/​panel_group_element.yaml'
 # Tracking issue: 
 Serving size:
 - changed-files:
