@@ -1,17 +1,20 @@
 type: object
+#title: product_ecoscore
 description: |
   Fields related to Eco-Score for a product.
 
   See also: `ecoscore_score`, `ecoscore_grade` and `ecoscore_tags`.
-  
+
 properties:
   ecoscore_data:
     type: object
+    title: product_ecoscore_data
     description: |
-      An object about a lot of details about data needed for Eco-Score computation 
+      An object about a lot of details about data needed for Eco-Score computation
       and complementary data of interest.
     properties:
       adjustments:
+        title: product_ecoscore_adjustments
         type: object
         properties:
           origins_of_ingredients:
@@ -20,6 +23,7 @@ properties:
               aggregated_origins:
                 type: array
                 items:
+                  title: adjustments_origin_of_ingredient_aggregated
                   type: object
                   properties:
                     origin:
@@ -30,25 +34,38 @@ properties:
                 type: integer
               epi_value:
                 type: integer
+              origins_from_categories:
+                type: array
+                items:
+                  type: string
               origins_from_origins_field:
                 type: array
                 items:
                   type: string
               transportation_scores:
                 type: object
+                properties:
+                  world:
+                    type: integer
                 patternProperties:
-                  (?<language_code>\w\w):
+                  (?<country_code>\w\w):
                     type: integer
               transportation_values:
                 type: object
+                properties:
+                  world:
+                    type: integer
                 patternProperties:
-                  (?<language_code>\w\w):
+                  (?<country_code>\w\w):
                     type: integer
 
               values:
                 type: object
+                properties:
+                  world:
+                    type: integer
                 patternProperties:
-                  (?<language_code>\w\w):
+                  (?<country_code>\w\w):
                     type: integer
               warning:
                 type: string
@@ -61,6 +78,7 @@ properties:
                 type: array
                 items:
                   type: object
+                  title: adjustments_packaging_item
                   properties:
                     ecoscore_material_score:
                       type: integer
@@ -102,7 +120,7 @@ properties:
       grades:
         type: object
         patternProperties:
-          (?<language_code>\w\w):
+          (?<country_code>\w\w):
             type: string
       missing:
         type: object
@@ -121,9 +139,13 @@ properties:
         type: object
         properties:
           grade:
-            type: string
+            type:
+              - "string"
+              - "null"
           score:
-            type: integer
+            type:
+              - "integer"
+              - "null"
           agribalyse:
             $ref: "./agribalyse.yaml"
       score:
@@ -131,7 +153,7 @@ properties:
       scores:
         type: object
         patternProperties:
-          (?<language_code>\w\w):
+          (?<country_code>\w\w):
             type: integer
       status:
         type: string

@@ -300,7 +300,6 @@
             "warning" : "origins_are_100_percent_unknown"
          },
          "packaging" : {
-            "non_recyclable_and_non_biodegradable_materials" : 1,
             "value" : -15,
             "warning" : "packaging_data_missing"
          },
@@ -485,6 +484,7 @@
    "producer_version_id_imported" : "Product will not be imported",
    "product_name_fr" : "Some product",
    "product_name_fr_imported" : "Some product",
+   "product_type" : "food",
    "removed_countries_tags" : [],
    "rev" : 1,
    "sources" : [

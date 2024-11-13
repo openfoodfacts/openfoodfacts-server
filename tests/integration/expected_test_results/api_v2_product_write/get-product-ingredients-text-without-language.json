@@ -100,7 +100,7 @@
                      "epi_score" : "0",
                      "origin" : "en:unknown",
                      "percent" : 100,
-                     "transportation_score" : null
+                     "transportation_score" : 0
                   }
                ],
                "epi_score" : 0,
@@ -312,7 +312,6 @@
                "warning" : "origins_are_100_percent_unknown"
             },
             "packaging" : {
-               "non_recyclable_and_non_biodegradable_materials" : 1,
                "value" : -15,
                "warning" : "packaging_data_missing"
             },
@@ -428,6 +427,11 @@
       "ingredients_with_unspecified_percent_sum" : 100,
       "ingredients_without_ciqual_codes" : [],
       "ingredients_without_ciqual_codes_n" : 0,
+      "ingredients_without_ecobalyse_ids" : [
+         "en:pork-meat",
+         "en:salt"
+      ],
+      "ingredients_without_ecobalyse_ids_n" : 2,
       "interface_version_created" : "20150316.jqm2",
       "interface_version_modified" : "20150316.jqm2",
       "known_ingredients_n" : 5,
@@ -751,6 +755,7 @@
       "product_name_en" : "Some sausages",
       "product_quantity" : "250",
       "product_quantity_unit" : "g",
+      "product_type" : "food",
       "quantity" : "250 g",
       "removed_countries_tags" : [],
       "rev" : 1,

@@ -241,6 +241,12 @@ sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref,
 		$has_contribution_card = create_contribution_card_panel($product_ref, $target_lc, $target_cc, $options_ref);
 	}
 
+	my $has_secondhand_card;
+	if ($panel_is_requested->('secondhand_card')) {
+		$has_secondhand_card
+			= create_secondhand_card_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+	}
+
 	# Create the root panel that contains the panels we want to show directly on the product page
 	create_panel_from_json_template(
 		"root",
@@ -250,6 +256,7 @@ sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref,
 			has_report_problem_card => $has_report_problem_card,
 			has_contribution_card => $has_contribution_card,
 			has_environment_card => $has_environment_card,
+			has_secondhand_card => $has_secondhand_card,
 		},
 		$product_ref,
 		$target_lc,
@@ -576,32 +583,65 @@ sub create_ecoscore_panel ($product_ref, $target_lc, $target_cc, $options_ref, $
 		my $agribalyse_score = $product_ref->{ecoscore_data}{agribalyse}{score};
 		my $agribalyse_grade;
 
-		if ($agribalyse_score >= 80) {
+		if ($agribalyse_score >= 90) {
+			$agribalyse_grade = "a-plus";
+		}
+		elsif ($agribalyse_score >= 75) {
 			$agribalyse_grade = "a";
 		}
 		elsif ($agribalyse_score >= 60) {
 			$agribalyse_grade = "b";
 		}
-		elsif ($agribalyse_score >= 40) {
+		elsif ($agribalyse_score >= 45) {
 			$agribalyse_grade = "c";
 		}
-		elsif ($agribalyse_score >= 20) {
+		elsif ($agribalyse_score >= 30) {
 			$agribalyse_grade = "d";
 		}
-		else {
+		elsif ($agribalyse_score >= 15) {
 			$agribalyse_grade = "e";
+		}
+		else {
+			$agribalyse_grade = "f";
+		}
+
+		my $letter_grade = uc($grade);    # A+, A, B, C, D, E, F
+		my $grade_underscore = $grade;
+		$grade_underscore =~ s/\-/_/;    # a-plus -> a_plus
+		if ($grade eq "a-plus") {
+			$letter_grade = "A+";
+		}
+
+		my $agribalyse_letter_grade = uc($agribalyse_grade);    # A+, A, B, C, D, E, F
+		my $agribalyse_grade_underscore = $agribalyse_grade;
+		$agribalyse_grade_underscore =~ s/\-/_/;    # a-plus -> a_plus
+		if ($agribalyse_grade eq "a-plus") {
+			$agribalyse_letter_grade = "A+";
+		}
+
+		# cap the score to 100 as we display it /100
+		if ($score > 100) {
+			$score = 100;
+		}
+		if ($score < 0) {
+			$score = 0;
 		}
 
 		# We can reuse some strings from the Eco-Score attribute
 		my $title = sprintf(lang_in_other_lc($target_lc, "attribute_ecoscore_grade_title"), uc($grade)) . ' - '
-			. lang_in_other_lc($target_lc, "attribute_ecoscore_" . $grade . "_description_short");
+			. lang_in_other_lc($target_lc, "attribute_ecoscore_" . $grade_underscore . "_description_short");
 
 		my $panel_data_ref = {
 			"agribalyse_category_name" => $agribalyse_category_name,
 			"agribalyse_score" => $agribalyse_score,
 			"agribalyse_grade" => $agribalyse_grade,
+			"agribalyse_grade_underscore" => $agribalyse_grade_underscore,
+			"agribalyse_letter_grade" => $agribalyse_letter_grade,
+			"name" => lang_in_other_lc($target_lc, "attribute_ecoscore_name"),
 			"score" => $score,
 			"grade" => $grade,
+			"grade_underscore" => $grade_underscore,
+			"letter_grade" => $letter_grade,
 			"title" => $title,
 			"transportation_warning" => $transportation_warning,
 		};
@@ -632,7 +672,8 @@ sub create_ecoscore_panel ($product_ref, $target_lc, $target_cc, $options_ref, $
 		#     }
 		# }
 
-		create_panel_from_json_template("carbon_footprint", "api/knowledge-panels/environment/carbon_footprint.tt.json",
+		create_panel_from_json_template("carbon_footprint",
+			"api/knowledge-panels/environment/carbon_footprint_food.tt.json",
 			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
 
 		# Add panels for the different bonuses and maluses
@@ -765,6 +806,11 @@ sub create_environment_card_panel ($product_ref, $target_lc, $target_cc, $option
 		}
 	}
 
+	# Create panel for carbon footprint (non-food products, for food products, it is added by create_ecoscore_panel)
+	if ($options{product_type} ne "food") {
+		create_carbon_footprint_panel($product_ref, $target_lc, $target_cc, $options_ref);
+	}
+
 	# Create panel for packaging components, and packaging materials
 	create_panel_from_json_template("packaging_recycling",
 		"api/knowledge-panels/environment/packaging_recycling.tt.json",
@@ -780,20 +826,109 @@ sub create_environment_card_panel ($product_ref, $target_lc, $target_cc, $option
 	create_manufacturing_place_panel($product_ref, $target_lc, $target_cc, $options_ref);
 
 	# Origins of ingredients for the environment card, for food, pet food and beauty products
-	if (   ($options{product_type} eq "food")
-		or ($options{product_type} eq "pet_food")
-		or ($options{product_type} eq "beauty"))
-	{
+	if (feature_enabled("ingredients")) {
 		create_panel_from_json_template("origins_of_ingredients",
 			"api/knowledge-panels/environment/origins_of_ingredients.tt.json",
 			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
 	}
 
 	# Create the environment_card panel
-	$panel_data_ref->{packaging_image} = data_to_display_image($product_ref, "packaging", $target_lc),
-		create_panel_from_json_template("environment_card", "api/knowledge-panels/environment/environment_card.tt.json",
+	$panel_data_ref->{packaging_image} = data_to_display_image($product_ref, "packaging", $target_lc);
+	create_panel_from_json_template("environment_card", "api/knowledge-panels/environment/environment_card.tt.json",
 		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
 	return 1;
+}
+
+=head2 create_secondhand_card_panel ( $product_ref, $target_lc, $target_cc, $options_ref )
+
+Creates a knowledge panel card that contains all knowledge panels related to the circular economy:
+- sharing, buying, selling etc.
+
+Created for products in specific categories, for users in specific countries.
+
+=head3 Arguments
+
+=head4 product reference $product_ref
+
+Loaded from the MongoDB database, Storable files, or the OFF API.
+
+=head4 language code $target_lc
+
+Returned attributes contain both data and strings intended to be displayed to users.
+This parameter sets the desired language for the user facing strings.
+
+=head4 country code $target_cc
+
+Used to select secondhand options (e.g. classified ads sites) that are relevant for the user.
+
+=cut
+
+sub create_secondhand_card_panel ($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
+
+	$log->debug("create secondhand card panel", {code => $product_ref->{code}}) if $log->is_debug();
+
+	my $panel_data_ref = {};
+
+	# Only available for the product_type "product"
+	if ($options{product_type} ne "product") {
+		return 0;
+	}
+
+	# Add the name of the most specific category (last in categories_hierarchy) to the panel data
+	my $category_id = $product_ref->{categories_hierarchy}[-1];
+	$panel_data_ref->{category_name} = display_taxonomy_tag_name($target_lc, "categories", $category_id);
+
+	# Create paneld for donations
+
+	create_panel_from_json_template("donated_products_fr_geev",
+		"api/knowledge-panels/secondhand/donated_products_fr_geev.tt.json",
+		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
+
+	create_panel_from_json_template("donated_products", "api/knowledge-panels/secondhand/donated_products.tt.json",
+		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
+
+	# Created panels for buying used products
+	create_panel_from_json_template("used_products_fr_backmarket",
+		"api/knowledge-panels/secondhand/used_products_fr_backmarket.tt.json",
+		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
+
+	create_panel_from_json_template("used_products", "api/knowledge-panels/secondhand/used_products.tt.json",
+		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
+
+	# Create the secondhand_card panel
+
+	create_panel_from_json_template("secondhand_card", "api/knowledge-panels/secondhand/secondhand_card.tt.json",
+		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
+
+	return 1;
+}
+
+sub create_carbon_footprint_panel($product_ref, $target_lc, $target_cc, $options_ref) {
+
+	# Find the first category that has a carbon_impact_fr_impactco2:en: property
+	my ($value, $category_id)
+		= get_inherited_property_from_categories_tags($product_ref, "carbon_impact_fr_impactco2:en");
+
+	$log->debug("create carbon footprint panel",
+		{code => $product_ref->{code}, category_id => $category_id, value => $value})
+		if $log->is_debug();
+
+	if (defined $value) {
+
+		my $panel_data_ref = {
+			category_id => $category_id,
+			category_name => display_taxonomy_tag_name($target_lc, "categories", $category_id),
+			co2_kg_per_unit => $value,
+			unit_name => get_property_with_fallbacks("categories", $category_id, "unit_name:$target_lc"),
+			link => get_property("categories", $category_id, "carbon_impact_fr_impactco2_link:en"),
+		};
+
+		create_panel_from_json_template("carbon_footprint",
+			"api/knowledge-panels/environment/carbon_footprint_product.tt.json",
+			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
+	}
+
+	return;
 }
 
 =head2 create_manufacturing_place_panel ( $product_ref, $target_lc, $target_cc, $options_ref )
@@ -970,6 +1105,7 @@ sub create_nutriscore_panel ($product_ref, $target_lc, $target_cc, $options_ref)
 		$panel_data_ref->{title} = lang_in_other_lc($target_lc,
 			"attribute_nutriscore_" . $panel_data_ref->{nutriscore_grade} . "_description_short");
 	}
+	$panel_data_ref->{name} = lang_in_other_lc($target_lc, "attribute_nutriscore_name");
 
 	# Nutri-Score panel: score + details
 	create_panel_from_json_template("nutriscore", "api/knowledge-panels/health/nutriscore/nutriscore.tt.json",

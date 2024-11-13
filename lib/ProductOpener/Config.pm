@@ -35,4 +35,6 @@ if (not defined $flavor) {
 use Module::Load;
 autoload("ProductOpener::Config_$flavor");
 
+#
+
 1;

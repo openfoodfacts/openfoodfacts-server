@@ -1,4 +1,8 @@
 type: object
+title: image_size
+description: |
+  properties of fullsize image
+  **TODO** explain how to compute name
 properties:
   h:
     type: integer

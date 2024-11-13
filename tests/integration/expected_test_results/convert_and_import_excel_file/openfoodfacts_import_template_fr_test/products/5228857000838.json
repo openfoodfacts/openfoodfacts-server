@@ -295,7 +295,6 @@
             "warning" : "origins_are_100_percent_unknown"
          },
          "packaging" : {
-            "non_recyclable_and_non_biodegradable_materials" : 1,
             "value" : -15,
             "warning" : "packaging_data_missing"
          },
@@ -478,6 +477,7 @@
    "product_name" : "A test product",
    "product_name_fr" : "A test product",
    "product_name_fr_imported" : "A test product",
+   "product_type" : "food",
    "removed_countries_tags" : [],
    "rev" : 1,
    "sources" : [

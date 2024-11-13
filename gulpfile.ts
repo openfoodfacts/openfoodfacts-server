@@ -104,6 +104,7 @@ function buildjQueryUi() {
     "./node_modules/jquery-ui/ui/position.js",
     "./node_modules/jquery-ui/ui/keycode.js",
     "./node_modules/jquery-ui/ui/unique-id.js",
+    "./node_modules/jquery-ui/ui/safe-active-element.js",
     "./node_modules/jquery-ui/ui/widgets/autocomplete.js",
     "./node_modules/jquery-ui/ui/widgets/menu.js",
   ]).

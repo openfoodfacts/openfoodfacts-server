@@ -69,7 +69,7 @@ BEGIN {
 
 		$memd_servers
 
-		$google_analytics
+		$analytics
 
 		$thumb_size
 		$crop_size
@@ -174,13 +174,26 @@ $flavor = "opf";
 
 %options = (
 	site_name => "Open Products Facts",
-	product_type => "products",
+	product_type => "product",
 	og_image_url => "https://world.openproductsfacts.org/images/misc/openproductsfacts-logo-en.png",
 	#android_apk_app_link => "https://world.openbeautyfacts.org/images/apps/obf.apk?utm_source=opf&utf_medium=web",
 	#android_app_link => "https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&utm_source=opf&utf_medium=web",
 	#ios_app_link => "https://apps.apple.com/app/open-beauty-facts/id1122926380?utm_source=opf&utf_medium=web",
 	#facebook_page_url => "https://www.facebook.com/openbeautyfacts?&utm_source=opf&utf_medium=web",
 	#twitter_account => "OpenBeautyFacts",
+	# favicon HTML and images generated with https://realfavicongenerator.net/ using the SVG icon
+	favicons => <<HTML
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/opf/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/opf/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/opf/favicon-16x16.png">
+<link rel="manifest" href="/images/favicon/opf/site.webmanifest">
+<link rel="mask-icon" href="/images/favicon/opf/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="/images/favicon/opf/favicon.ico">
+<meta name="msapplication-TileColor" content="#00aba9">
+<meta name="msapplication-config" content="/images/favicon/opf/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+HTML
+	,
 );
 
 $options{export_limit} = 10000;
@@ -255,7 +268,27 @@ $small_size = 200;
 $display_size = 400;
 $zoom_size = 800;
 
-$google_analytics = <<HTML
+$analytics = <<HTML
+<!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+  _paq.push(["setCookieDomain", "*.openproductsfacts.org"]);
+  _paq.push(["setDomains", ["*.openproductsfacts.org"]]);
+  _paq.push(["setDoNotTrack", true]);
+  _paq.push(["disableCookies"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//analytics.openfoodfacts.org/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '11']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//analytics.openfoodfacts.org/matomo.php?idsite=11&amp;rec=1" style="border:0;" alt="" /></p></noscript>
 HTML
 	;
 
@@ -305,20 +338,17 @@ HTML
 @taxonomy_fields = qw(
 	units
 	languages states countries
-	allergens origins additives_classes ingredients
+	origins
 	packaging_shapes packaging_materials packaging_recycling packaging
-	labels food_groups categories
-	ingredients_processing
-	additives vitamins minerals amino_acids nucleotides other_nutritional_substances traces
-	ingredients_analysis
-	nutrients nutrient_levels misc nova_groups
+	labels categories
+	misc
 	periods_after_opening
 	data_quality data_quality_bugs data_quality_info data_quality_warnings data_quality_errors data_quality_warnings_producers data_quality_errors_producers
 	improvements
 );
 
 # tag types (=facets) that should be indexed by web crawlers, all other tag types are not indexable
-@index_tag_types = qw(brands categories labels additives nova_groups ecoscore nutrition_grades products);
+@index_tag_types = qw(brands categories labels products);
 
 # fields in product edit form, above ingredients and nutrition facts
 
@@ -480,6 +510,22 @@ HTML
 	completeness
 	last_image_t
 );
+
+# Used to generate the list of possible product attributes, which is
+# used to display the possible choices for user preferences
+$options{attribute_groups}
+	= [["labels", ["labels_organic", "labels_fair_trade"]], ["environment", ["repairability_index_france",]],];
+
+# default preferences for attributes
+$options{attribute_default_preferences} = {
+	"labels_organic" => "important",
+	"labels_fair_trade" => "important",
+	"repairability_index_france" => "important",
+};
+
+use JSON::MaybeXS;
+$options{attribute_default_preferences_json}
+	= JSON->new->utf8->canonical->encode($options{attribute_default_preferences});
 
 # for ingredients OCR, we use tesseract-ocr
 # on debian, dictionaries are in /usr/share/tesseract-ocr/tessdata
