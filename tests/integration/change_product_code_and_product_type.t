@@ -95,7 +95,7 @@ my $tests_ref = [
 	},
 	# Change the product code with a moderator account, API v2
 	{
-		test_case => 'change-product-code-api-v2-moderator-invalid-code',
+		test_case => 'change-product-code-api-v2-moderator',
 		method => 'POST',
 		path => '/cgi/product_jqm_multilingual.pl',
 		form => {
