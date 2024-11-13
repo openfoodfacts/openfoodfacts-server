@@ -55880,7 +55880,7 @@ tr: Antep fıstığı
 zh: 开心果
 agribalyse_proxy_food_code:en: 15044
 agribalyse_proxy_food_name:en: Pistachio nut, grilled
-opposite:en: en:pistachio-ice-cream-tubs, en:seeds, en:dried-fruits
+opposite:en: en:pistachio-ice-cream-tubs, en:seeds, en:dried-fruits, en:mixed-nuts, en:flavoured-pistachios
 wco_hs_code:en: 0802.51
 wco_hs_heading:en: 08.02
 wikidata:en: Q19958754
@@ -55888,6 +55888,8 @@ wikidata:en: Q19958754
 < en:Pistachios
 en: Plain pistachios, Pistachios(plain)
 nl: Pistachenote(onbehandeld)
+expected_ingredients:en: en:pistachi
+opposite:en: en:pistachios(roasted), en:pistchios(salted)
 
 
 < en:Pistachios
@@ -55901,6 +55903,7 @@ hu: Héjas pisztácia, pisztácia héjban
 lt: Gliaudytos pistacijos
 nl: Gepelde pistachenoten
 sl: jedrca pistacije
+opposite:en: en:pistachios(unshelled)
 wco_hs_code:en: 0802.52
 wco_hs_heading:en: 08.02
 
@@ -55909,6 +55912,7 @@ en: Pistachios(unshelled), Unshelled pistachios, Pistachio Nuts in Shells
 fr: Pistaches non décortiquées
 nb: Pistasjnøtter med skall
 nl: Pistachenoten(met schil), Ongepelde pistachenoten
+opposite:en: en:pistachio-kernels
 
 < en:Pistachios
 en: Pistachios(roasted), Roasted pistachios, Toasted pistachios
@@ -55930,18 +55934,20 @@ ciqual_food_name:en: Pistachio nut, grilled
 
 < en:Pistachios
 < fr:Fruits à coque salés
-en: Salted pistachios
+en: Salted pistachios, Pistachios(salted)
 es: Pistachos salados, Pistaches salados
 fr: Pistaches salées
 hr: Slane pistacije
 it: Pistacchi salati
 lt: Sūdytos pistacijos
 nl: Gezouten pistachenoten
+opposite:en: en:pistachios(unsalted)
 
 < en:Pistachios
-en: Unsalted pistachios
+en: Pistachios(unsalted), Unsalted pistachios
 fr: Pistaches sans sel
 nl: Pistachenoten(ongezouten)
+opposite:en: en:salted-pistachios
 
 < en:Roasted pistachios
 < en:Shelled pistachios
@@ -55951,7 +55957,7 @@ agribalyse_food_code:en: 15009
 ciqual_food_code:en: 15009
 ciqual_food_name:en: Pistachio nut, grilled, salted
 
-< en:Pistachios
+< en:Pistachio kernels
 en: Hacked pistachios
 fr: Pistaches hachées
 
@@ -73159,7 +73165,7 @@ en: Chicken seasoning
 pl: Przyprawy do kurczaka, Przyprawa do kurczaka
 
 < en:Spices
-en: Chili peppers, chilis, hot peppers, Chilli peppers, chillis
+en: Chili peppers, chilis, hot peppers, Chilli peppers, chillis, Chilli
 bg: Люти чушки
 de: Chilischoten, Chilis
 es: Chiles
