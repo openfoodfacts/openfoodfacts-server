@@ -71,9 +71,9 @@ my $tests_ref = [
 			new_code => "1234567890121",
 		}
 	},
-	# Change the product code with API v2, with a normal account
+	# Change the product code with API v2, with a normal account,
 	{
-		test_case => 'change-product-code-api-v3-normal-account',
+		test_case => 'change-product-code-api-v2-normal-account',
 		method => 'POST',
 		path => '/cgi/product_jqm_multilingual.pl',
 		form => {
@@ -82,9 +82,9 @@ my $tests_ref = [
 		},
 		ua => $ua,
 	},
-	# Change the product code with a moderator account, invalid code
+	# Change the product code with a moderator account, invalid code, API v2
 	{
-		test_case => 'change-product-code-api-v3-moderator-invalid-code',
+		test_case => 'change-product-code-api-v2-moderator-invalid-code',
 		method => 'POST',
 		path => '/cgi/product_jqm_multilingual.pl',
 		form => {
@@ -93,9 +93,9 @@ my $tests_ref = [
 		},
 		ua => $moderator_ua,
 	},
-	# Change the product code with a moderator account
+	# Change the product code with a moderator account, API v2
 	{
-		test_case => 'change-product-code-api-v3-moderator-invalid-code',
+		test_case => 'change-product-code-api-v2-moderator-invalid-code',
 		method => 'POST',
 		path => '/cgi/product_jqm_multilingual.pl',
 		form => {
