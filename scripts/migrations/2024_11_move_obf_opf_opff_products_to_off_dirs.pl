@@ -39,6 +39,7 @@ use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Data qw/:all/;
 use ProductOpener::Orgs qw/:all/;
+use ProductOpener::Paths qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -58,56 +59,11 @@ my $move = 0;
 
 GetOptions('move' => \$move,);
 
-sub product_dir_move($source, $target) {
-	# If the source does not contain directories, use move() to move it directly
-	# otherwise, create the target directory, go through all files in the source, and use move() to move them to the target, but do not move contained directories
-	# then remove the source directory
-
-	# First check if source contains directories
-	my $contains_directories = 0;
-	opendir my $dh, $source or die "could not open $source directory: $!\n";
-	foreach my $dir (sort readdir($dh)) {
-		chomp($dir);
-		next if $dir eq '.';
-		next if $dir eq '..';
-		next if $dir =~ /\.lock/;    # lingering lock files
-		if (-d "$source/$dir") {
-			$contains_directories = 1;
-			last;
-		}
-	}
-
-	# If source does not contain directories, use move() to move it directly
-	if (!$contains_directories) {
-		return move($source, $target);
-	}
-
-	print STDERR "source $source contains directories, moving files instead of directory\n";
-
-	# Otherwise, create the target directory
-	ensure_dir_created_or_die($target);
-
-	# Go through all files in the source
-	opendir my $dir_h, $source or die "could not open $source directory: $!\n";
-	foreach my $file (sort readdir($dir_h)) {
-		chomp($file);
-		# Move files and symbolic links
-		if (!-d "$source/$file") {
-			move("$source/$file", "$target/$file") or die "could not move $source/$file to $target/$file: $!\n";
-		}
-	}
-
-	# Remove the source directory
-	rmdir($source);
-
-	return 1;
-}
-
 my @dirs_without_product_sto = ();
 my @empty_dirs = ();
 my @products_existing_on_off = ();
 my @products_not_existing_on_off = ();
-my @products_existing_on_off_but_deleted_on_off() = ();
+my @products_existing_on_off_but_deleted_on_off = ();
 my @products_existing_on_off_but_deleted_locally = ();
 my @products_existing_on_off_and_not_deleted_on_off_or_locally = ();
 
@@ -132,18 +88,18 @@ sub move_product_dir_to_off ($dir, $dir2, $dir3, $dir4) {
 			die;
 		}
 	}
-	if (move("$data_root/products/$dir/$dir2/$dir3/$dir4", "/srv/off/products/$dir/$dir2/$dir3/$dir4")) {
-		print STDERR "moved /$data_root/products/$dir/$dir2/$dir3/$dir4 to /srv/off/products/$dir/$dir2/$dir3/$dir4\n";
+	if (move("BASE_DIRS{PRODUCTS}/$dir/$dir2/$dir3/$dir4", "/srv/off/products/$dir/$dir2/$dir3/$dir4")) {
+		print STDERR "moved /$BASE_DIRS{PRODUCTS}/$dir/$dir2/$dir3/$dir4 to /srv/off/products/$dir/$dir2/$dir3/$dir4\n";
 	}
 	else {
 		print STDERR
-			"could not move /$data_root/products/$dir/$dir2/$dir3/$dir4 to /srv/off/products/$dir/$dir2/$dir3/$dir4: $!\n";
+			"could not move /$BASE_DIRS{PRODUCTS}/$dir/$dir2/$dir3/$dir4 to /srv/off/products/$dir/$dir2/$dir3/$dir4: $!\n";
 		die;
 	}
 
 	# move images if they exist
-	if (-e "$www_root/images/products/$dir/$dir2/$dir3/$dir4") {
-		ensure_dir_created_or_die("$www_root/images/products/$dir/$dir2/$dir3");
+	if (-e "$BASE_DIRS{PRODUCTS_IMAGES}/$dir/$dir2/$dir3/$dir4") {
+		ensure_dir_created_or_die("$BASE_DIRS{PRODUCTS_IMAGES}/$dir/$dir2/$dir3");
 		# if there is an existing off directory for this product, move it to deleted-off-products-codes-replaced-by-other-flavors
 		if (-e "/srv/off/html/images/products/$dir/$dir2/$dir3/$dir4") {
 			if (
@@ -164,24 +120,26 @@ sub move_product_dir_to_off ($dir, $dir2, $dir3, $dir4) {
 		}
 		if (
 			move(
-				"$www_root/images/products/$dir/$dir2/$dir3/$dir4", "$www_root/images/products/$dir/$dir2/$dir3/$dir4"
+				"$BASE_DIRS{PRODUCTS_IMAGES}/$dir/$dir2/$dir3/$dir4",
+				"$BASE_DIRS{PRODUCTS_IMAGES}/$dir/$dir2/$dir3/$dir4"
 			)
 			)
 		{
 			print STDERR
-				"moved $www_root/images/products/$dir/$dir2/$dir3/$dir4 to $www_root/images/products/$dir/$dir2/$dir3/$dir4\n";
+				"moved $BASE_DIRS{PRODUCTS_IMAGES}/$dir/$dir2/$dir3/$dir4 to $BASE_DIRS{PRODUCTS_IMAGES}/$dir/$dir2/$dir3/$dir4\n";
 		}
 		else {
 			print STDERR
-				"could not move $www_root/images/products/$dir/$dir2/$dir3/$dir4 to $www_root/images/products/$dir/$dir2/$dir3/$dir4: $!\n";
+				"could not move $BASE_DIRS{PRODUCTS_IMAGES}/$dir/$dir2/$dir3/$dir4 to $BASE_DIRS{PRODUCTS_IMAGES}/$dir/$dir2/$dir3/$dir4: $!\n";
 			die;
 		}
 	}
+	die;
 }
 
 sub check_if_we_can_move_product_dir_to_off ($dir, $dir2, $dir3, $dir4) {
 	# Check if the product.sto file exists locally
-	my $local_product_ref = retrieve("$data_root/products/$dir/$dir2/$dir3/$dir4/product.sto");
+	my $local_product_ref = retrieve("$BASE_DIRS{PRODUCTS}/$dir/$dir2/$dir3/$dir4/product.sto");
 	if ($local_product_ref) {
 		# Check if the product exists on OFF
 		my $off_product_ref = retrieve("/srv/off/products/$dir/$dir2/$dir3/$dir4/product.sto");
@@ -210,7 +168,7 @@ sub check_if_we_can_move_product_dir_to_off ($dir, $dir2, $dir3, $dir4) {
 	else {
 		push @dirs_without_product_sto, "$dir/$dir2/$dir3/$dir4";
 		# Check if the dir is empty
-		opendir my $dh, "$data_root/products/$dir/$dir2/$dir3/$dir4" or die "Cannot open directory: $!";
+		opendir my $dh, "$BASE_DIRS{PRODUCTS}/$dir/$dir2/$dir3/$dir4" or die "Cannot open directory: $!";
 		my @files = grep {$_ ne '.' && $_ ne '..'} readdir($dh);
 		closedir $dh;
 		if (scalar @files == 0) {
@@ -223,35 +181,36 @@ my @products = ();
 
 my $dh;
 
-opendir $dh, "$data_root/products"
-	or die "could not open $data_root/products directory: $!\n";
+opendir $dh, "$BASE_DIRS{PRODUCTS}"
+	or die "could not open $BASE_DIRS{PRODUCTS} directory: $!\n";
 foreach my $dir (sort readdir($dh)) {
 	chomp($dir);
 
 	print STDERR "dir: $dir\n";
 
 	# Check it is a directory
-	next if not -d "$data_root/products/$dir";
+	next if not -d "$BASE_DIRS{PRODUCTS}/$dir";
 	next if ($dir =~ /codes/);
 
 	if ($dir =~ /^\d\d\d$/) {
 
-		opendir my $dh2, "$data_root/products/$dir"
-			or die "ERROR: could not open $data_root/products/$dir directory: $!\n";
+		opendir my $dh2, "$BASE_DIRS{PRODUCTS}/$dir"
+			or die "ERROR: could not open $BASE_DIRS{PRODUCTS}/$dir directory: $!\n";
 		foreach my $dir2 (sort readdir($dh2)) {
 			chomp($dir2);
 			if ($dir2 =~ /^\d\d\d$/) {
-				opendir my $dh3, "$data_root/products/$dir/$dir2"
-					or die "ERROR: could not open $data_root/products/$dir/$dir2 directory: $!\n";
+				opendir my $dh3, "$BASE_DIRS{PRODUCTS}/$dir/$dir2"
+					or die "ERROR: could not open $BASE_DIRS{PRODUCTS}/$dir/$dir2 directory: $!\n";
 				foreach my $dir3 (sort readdir($dh3)) {
 					chomp($dir3);
 					if ($dir3 =~ /^\d\d\d$/) {
-						opendir my $dh4, "$data_root/products/$dir/$dir2/$dir3"
-							or die "ERROR: could not open $data_root/products/$dir/$dir2/$dir3 directory: $!\n";
+						opendir my $dh4, "$BASE_DIRS{PRODUCTS}/$dir/$dir2/$dir3"
+							or die "ERROR: could not open $BASE_DIRS{PRODUCTS}/$dir/$dir2/$dir3 directory: $!\n";
 						foreach my $dir4 (sort readdir($dh4)) {
 							chomp($dir4);
 							# We should have 4 digits or more (for codes with more than 13 digits)
 							if ($dir4 =~ /^\d+$/) {
+								push @products, "$dir/$dir2/$dir3/$dir4";
 								check_if_we_can_move_product_dir_to_off($dir, $dir2, $dir3, $dir4);
 							}
 						}
@@ -270,9 +229,11 @@ my $count = scalar @products;
 print STDERR "Found $count products\n";
 
 # Print the number of products in the different cases
-print STDERR "Products existing on OFF and deleted on OFF: "
+print STDERR "Products not existing on OFF: " . scalar @products_not_existing_on_off . "\n";
+print STDERR "Products existing on OFF: " . scalar @products_existing_on_off . "\n";
+print STDERR "Products existing on OFF but deleted on OFF: "
 	. scalar @products_existing_on_off_but_deleted_on_off . "\n";
-print STDERR "Products existing on OFF and deleted locally: "
+print STDERR "Products existing on OFF but deleted locally: "
 	. scalar @products_existing_on_off_but_deleted_locally . "\n";
 print STDERR "Products existing on OFF and not deleted on OFF or locally: "
 	. scalar @products_existing_on_off_and_not_deleted_on_off_or_locally . "\n";
