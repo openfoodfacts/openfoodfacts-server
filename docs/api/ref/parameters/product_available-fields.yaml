@@ -1,0 +1,86 @@
+openapi: 3.1.0
+components:
+  parameters:
+    ProductAvailableFields:
+      name: fields
+      in: query
+      description: Specific fields to return. Use 'knowledge_panels' for Knowledge Panels only.
+      required: false
+      style: form
+      # Style 'form' with explode=false transforms the array into a comma-separated query string
+      explode: false
+      schema:
+        type: array
+        items:
+          type: string
+          enum:
+            # meta/special fields
+            - knowledge_panels
+            # all other fields
+            - added_countries_tags
+            - additives_original_tags
+            - additives_prev_original_tags
+            - additives_tags
+            - allergens_tags
+            - amino_acids_prev_tags
+            - amino_acids_tags
+            - brands_tags
+            - categories_properties_tags
+            - categories_tags
+            - checkers_tags
+            - ciqual_food_name_tags
+            - cities_tags
+            - codes_tags
+            - correctors_tags
+            - countries_tags
+            - data_quality_bugs_tags
+            - data_quality_errors_tags
+            - data_quality_info_tags
+            - data_quality_tags
+            - data_quality_warnings_tags
+            - data_sources_tags
+            - ecoscore_tags
+            - editors_tags
+            - emb_codes_tags
+            - entry_dates_tags
+            - food_groups_tags
+            - informers_tags
+            - ingredients_analysis_tags
+            - ingredients_from_palm_oil_tags
+            - ingredients_n_tags
+            - ingredients_original_tags
+            - ingredients_tags
+            - ingredients_that_may_be_from_palm_oil_tags
+            - labels_tags
+            - languages_tags
+            - last_edit_dates_tags
+            - last_image_dates_tags
+            - main_countries_tags
+            - manufacturing_places_tags
+            - minerals_prev_tags
+            - minerals_tags
+            - misc_tags
+            - nova_groups_tags
+            - nucleotides_prev_tags
+            - nucleotides_tags
+            - nutrient_levels_tags
+            - nutrition_grades_tags
+            - origins_tags
+            - other_nutritional_substances_tags
+            - packaging_tags
+            - photographers_tags
+            - popularity_tags
+            - purchase_places_tags
+            - removed_countries_tags
+            - states_tags
+            - stores_tags
+            - traces_tags
+            - unknown_nutrients_tags
+            - vitamins_prev_tags
+            - vitamins_tags
+        uniqueItems: true
+        minItems: 1
+        examples:
+          - ["knowledge_panels", "product_name", "nutriments"]
+          - ["categories_tags", "packaging_tags"]
+          - ["allergens_tags"]
