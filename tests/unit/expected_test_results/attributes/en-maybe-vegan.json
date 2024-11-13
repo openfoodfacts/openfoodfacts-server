@@ -591,7 +591,6 @@
             "warning" : "origins_are_100_percent_unknown"
          },
          "packaging" : {
-            "non_recyclable_and_non_biodegradable_materials" : 1,
             "value" : -15,
             "warning" : "packaging_data_missing"
          },
@@ -637,6 +636,7 @@
       },
       {
          "ciqual_food_code" : "16129",
+         "ecobalyse_code" : "refined-palm-oil",
          "from_palm_oil" : "yes",
          "id" : "en:palm-oil",
          "is_in_taxonomy" : 1,
@@ -715,6 +715,11 @@
       "en:enzyme"
    ],
    "ingredients_without_ciqual_codes_n" : 1,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:enzyme",
+      "en:tapioca"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 2,
    "known_ingredients_n" : 7,
    "languages" : {},
    "languages_codes" : {},

@@ -45,6 +45,7 @@
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "19051",
+         "ecobalyse_code" : "milk",
          "id" : "en:milk",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 100,
@@ -92,6 +93,8 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
    "known_ingredients_n" : 2,
    "lc" : "en",
    "minerals_tags" : [],

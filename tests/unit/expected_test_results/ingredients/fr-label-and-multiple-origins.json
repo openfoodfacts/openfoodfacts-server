@@ -2,6 +2,7 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "22000",
+         "ecobalyse_code" : "egg-indoor-code3",
          "id" : "en:egg",
          "ingredients" : [
             {
@@ -98,6 +99,12 @@
       "fr:suisse"
    ],
    "ingredients_without_ciqual_codes_n" : 3,
+   "ingredients_without_ecobalyse_ids" : [
+      "fr:d-elevage-au-sol",
+      "fr:france",
+      "fr:suisse"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 3,
    "known_ingredients_n" : 1,
    "lc" : "fr",
    "nutriments" : {

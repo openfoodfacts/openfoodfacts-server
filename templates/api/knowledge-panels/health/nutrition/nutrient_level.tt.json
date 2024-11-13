@@ -4,8 +4,12 @@
         "health"
     ],
     "size": "small",
+    "half_width_on_mobile": true,
     "evaluation": "[% panel.evaluation %]",
     "title_element": {
+        "name": "[% panel.nutrient_name %]",
+        "type": "percentage",
+        "value": [% panel.nutrient_quantity_in_grams %],
         "title": "[% panel.nutrient_in_quantity %] ([% panel.nutrient_quantity_in_grams %]%)",
         "icon_url": "[% static_subdomain %]/images/misc/[% panel.nutrient_level %].svg",
         "icon_size": "small",

@@ -73,6 +73,8 @@ BEGIN {
 		&compute_nutrition_data_per_100g_and_per_serving
 		&compute_unknown_nutrients
 		&compute_nutrient_levels
+		&evaluate_nutrient_level
+		&compute_units_of_alcohol
 		&compute_estimated_nutrients
 
 		&compare_nutriments
@@ -2488,6 +2490,17 @@ sub compute_nutrient_levels ($product_ref) {
 	}
 
 	return;
+}
+
+my %nutrient_level_evaluation_table = (
+	low => "good",
+	moderate => "average",
+	high => "bad",
+);
+
+sub evaluate_nutrient_level ($nid, $nutrient_level) {
+	# Will need different tables if we add nutrients that are good for you
+	return $nutrient_level_evaluation_table{$nutrient_level} // 'unknown';
 }
 
 =head2 create_nutrients_level_taxonomy ()
