@@ -221,7 +221,7 @@ sub subscribe_user_newsletter_task ($job, $args_ref) {
 
 =head2 process_user_requested_org_task ($job, $args_ref)
 
-C<process_user_requested_org_task()> Background task that to register a new user with an organisation
+C<process_user_requested_org_task()> Background task that to register a new user with an organization
 
 =head3 Arguments
 

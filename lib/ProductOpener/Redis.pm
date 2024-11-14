@@ -253,7 +253,7 @@ sub _process_registered_users_stream($stream_values_ref) {
 			queue_job(subscribe_user_newsletter => [$args_ref] => {queue => $server_options{minion_local_queue}});
 		}
 
-		# Register interest in joining an organisation
+		# Register interest in joining an organization
 		if (defined $requested_org) {
 			queue_job(process_user_requested_org => [$args_ref] => {queue => $server_options{minion_local_queue}});
 		}
