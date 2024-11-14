@@ -4113,6 +4113,15 @@ HTML
 						;
 				}
 
+				if ($packager_codes{$canon_tagid}{cc} eq 'it') {
+					$description .= <<HTML
+<p>$packager_codes{$canon_tagid}{name}<br>
+$packager_codes{$canon_tagid}{address}, $packager_codes{$canon_tagid}{region} (Italy)
+</p>
+HTML
+						;
+				}
+
 				if ($packager_codes{$canon_tagid}{cc} eq 'lu') {
 					$description .= <<HTML
 <p>$packager_codes{$canon_tagid}{name}<br>
@@ -7507,15 +7516,8 @@ sub display_page ($request_ref) {
 		$site_name .= " - " . lang_in_other_lc($request_lc, "producers_platform");
 	}
 
-	# Override Google Analytics from Config.pm with server_options
-	# defined in Config2.pm if it exists
-
-	if (exists $server_options{google_analytics}) {
-		$google_analytics = $server_options{google_analytics};
-	}
-
 	$template_data_ref->{styles} = $request_ref->{styles};
-	$template_data_ref->{google_analytics} = $google_analytics;
+	$template_data_ref->{analytics} = $analytics;
 	$template_data_ref->{bodyabout} = $request_ref->{bodyabout};
 	$template_data_ref->{site_name} = $site_name;
 

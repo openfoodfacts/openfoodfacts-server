@@ -58,18 +58,30 @@ jobs:
       with:
         # needs depth to run git log below
         fetch-depth: 50
+    - uses: actions/cache@v4
+      id: cache
+      with:
+        path: ./build-cache
+        key: taxonomies-${{ hashFiles('taxonomies/**') }}
+        restore-keys: taxonomies-
     - name: build
       run: make build container=backend
     - name: push backend image as artifact
-      uses: ishworkh/docker-image-artifact-upload@v1
+      uses: ishworkh/container-image-artifact-upload@v2.0.0
       with:
         image: "openfoodfacts-server/backend:dev"
-    - name: Rebuild taxonomies
+    - name: Fetch origin/main
+      # we need origin/main to have comparison linting work
+      run: |
+        git remote set-branches --add origin main
+        git fetch --no-tags --prune --progress --no-recurse-submodules --depth=5 origin main
+    - name: Restore taxonomies dates
       # here we first restore dates from git for taxonomies to avoid build them all
       # see https://stackoverflow.com/a/60984318/2886726
       run: |
         git ls-files taxonomies/ | xargs -I{} git log -1 --date=format:%Y%m%d%H%M.%S --format='touch -t %ad "{}"' "{}" | bash
-        make build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+    - name: Rebuild taxonomies
+      run: make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
 
   check_perl:
     name: 🐪 Check Perl
@@ -80,19 +92,28 @@ jobs:
     - uses: actions/checkout@v4
       with:
         fetch-depth: 1
-    # we need origin/main to have comparison linting work !
     - name: Fetch origin/main
+      # we need origin/main to have comparison linting work
       run: |
         git remote set-branches --add origin main
-        git fetch origin
+        git fetch --no-tags --prune --progress --no-recurse-submodules --depth=5 origin main
+    - name: Restore taxonomies dates
+      # here we first restore dates from git for taxonomies to avoid build them all
+      # see https://stackoverflow.com/a/60984318/2886726
+      run: |
+        git ls-files taxonomies/ | xargs -I{} git log -1 --date=format:%Y%m%d%H%M.%S --format='touch -t %ad "{}"' "{}" | bash
+    - uses: actions/cache/restore@v4
+      id: cache
+      with:
+        path: ./build-cache
+        key: taxonomies-${{ hashFiles('taxonomies/**') }}
+        restore-keys: taxonomies-
     - name: Download backend image from artifacts
-      uses: ishworkh/docker-image-artifact-download@v1
+      uses: ishworkh/container-image-artifact-download@v2.0.0
       with:
         image: "openfoodfacts-server/backend:dev"
-    - name: ensure branch origin/main is fetched
-      run: git fetch --no-tags --prune --progress --no-recurse-submodules --depth=5 origin  main
     - name: build taxonomies (should use cache)
-      run: make build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+      run: make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
     - name: check taxonomies
       run: make check_taxonomies
     - name: check perltidy
@@ -110,14 +131,30 @@ jobs:
     - uses: actions/checkout@v4
       with:
         fetch-depth: 1
+    - uses: actions/cache/restore@v4
+      id: cache
+      with:
+        path: ./build-cache
+        key: taxonomies-${{ hashFiles('taxonomies/**') }}
+        restore-keys: taxonomies-
+    - name: Fetch origin/main
+      # we need origin/main to have comparison linting work
+      run: |
+        git remote set-branches --add origin main
+        git fetch --no-tags --prune --progress --no-recurse-submodules --depth=5 origin main
+    - name: Restore taxonomies dates
+      # here we first restore dates from git for taxonomies to avoid build them all
+      # see https://stackoverflow.com/a/60984318/2886726
+      run: |
+        git ls-files taxonomies/ | xargs -I{} git log -1 --date=format:%Y%m%d%H%M.%S --format='touch -t %ad "{}"' "{}" | bash
     - name: Download backend image from artifacts
-      uses: ishworkh/docker-image-artifact-download@v1
+      uses: ishworkh/container-image-artifact-download@v2.0.0
       with:
         image: "openfoodfacts-server/backend:dev"       
     - name: tests
       run: |
         make codecov_prepare
-        make COVER_OPTS='-e HARNESS_PERL_SWITCHES="-MDevel::Cover=+ignore,tests/"' tests GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+        make COVER_OPTS='-e HARNESS_PERL_SWITCHES="-MDevel::Cover=+ignore,tests/"' DOCKER_LOCAL_DATA="$(pwd)" tests GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
     - name: generate coverage results
       # even if tests failed
       if: always()
@@ -138,8 +175,14 @@ jobs:
     - uses: actions/checkout@v4
       with:
         fetch-depth: 1
+    - uses: actions/cache/restore@v4
+      id: cache
+      with:
+        path: ./build-cache
+        key: taxonomies-${{ hashFiles('taxonomies/**') }}
+        restore-keys: taxonomies-
     - name: Download backend image from artifacts
-      uses: ishworkh/docker-image-artifact-download@v1
+      uses: ishworkh/container-image-artifact-download@v2.0.0
       with:
         image: "openfoodfacts-server/backend:dev"
     - name: set right UID and GID in .envrc
@@ -149,7 +192,7 @@ jobs:
         echo "export USER_GID=$(id -g)" >> .envrc
     - name: Test make dev
       run: |
-        make dev
+        make DOCKER_LOCAL_DATA="$(pwd)" dev
         make status
     - name: Test all is running
       run: make livecheck || ( tail -n 300 logs/apache2/*error*log; docker compose logs; false )

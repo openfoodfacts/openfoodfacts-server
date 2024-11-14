@@ -17,10 +17,14 @@ properties:
     type: object
     title: product_images_properties
     properties:
-      1:
-        $ref: ./image.yaml
       front:
         $ref: "./image_role.yaml#/components/schemas/ImageRole"
+
+    additionalProperties:
+      $ref: "./image.yaml#/components/schemas/Image"
+    propertyNames:
+      type: integer
+
     patternProperties:
       '(?<imgid>\d+)':
         description: |
@@ -50,24 +54,8 @@ properties:
       This is very handy if you display the product to users.
     properties:
       front:
-        type: object
-        description: URLs of thumbnails image of image of type `image_type`
-        properties:
-          display:
-            description: |
-              Thumbnail urls of product image (front) adapted to display on product page
-            type: object
-            $ref: "image_urls.yaml"
-          small:
-            description: |
-              Thumbnail urls of product image (front) adapted to display on product list page
-            type: object
-            $ref: "image_urls.yaml"
-          thumb:
-            description: |
-              Thumbnail urls of product image (front) in smallest format
-            type: object
-            $ref: "image_urls.yaml"
+        $ref: "./image_urls.yaml#/components/schemas/SelectedImage"
+
     patternProperties:
       "(?<image_type>front|packaging|ingredients|nutrition|other)":
         description: |

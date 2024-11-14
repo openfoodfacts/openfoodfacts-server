@@ -71931,7 +71931,8 @@ en: Salts from Québec
 fr: Sels du Québéc
 hr: Soli iz Québeca
 lt: Druskos iš Kvebeko
-origins:en: en:canada, fr:quebec
+nl: Zout uit Québec
+origins:en: en:canada, en:quebec
 
 < en:Salts
 en: Table salts
@@ -91873,6 +91874,9 @@ pnns_group_2:en: Cereals
 wikidata:en: Q178
 wikipedia:en: https://en.wikipedia.org/wiki/Pasta
 
+< en:pastas
+en: Semiya
+
 < en:Cereals and their products
 < en:Pastas
 en: Cereal pastas
@@ -92182,7 +92186,7 @@ xx: Troccoli
 it: Trofie
 
 #en:Pastas
-en: Wheat vermicelli, Semiya
+en: Wheat vermicelli
 it: Vermicelli
 
 < en:Pastas
@@ -94190,6 +94194,16 @@ ja: 餅, もち
 nl: Mochi
 wikidata:en: Q470519
 
+# Pastries made of hazelnut or almond, sugar and egg white. It is generally not filled.
+< en:Desserts
+< en:Pastries
+en: Nut macarons
+fr: Macarons aux fruits à coques
+agribalyse_food_code:en: 23027
+ciqual_food_code:en: 23027
+ciqual_food_name:en: Macaroon
+
+# filled macarons
 < en:Desserts
 < en:Pastries
 en: Macarons, Macaroon, Macaroons, Macaron
@@ -94201,9 +94215,9 @@ it: Macaron
 ja: マカロン
 nl: Macarons
 pl: Słodkie makaroniki
-agribalyse_food_code:en: 23027
-ciqual_food_code:en: 23027
-ciqual_food_name:en: Macaroon
+agribalyse_food_code:en: 23024
+ciqual_food_code:en: 23024
+ciqual_food_name:en: Macaron filled with jam or cream
 
 < en:Macarons
 fr: Assortiments de macarons
@@ -94212,43 +94226,11 @@ es: Assortment de macarons
 it: Assortimento di macaron
 ja: マカロンのアソートメント
 nl: Macaron assortiment
-agribalyse_food_code:en: 23027
-ciqual_food_code:en: 23027
-ciqual_food_name:en: Macaroon
 
-< en:Macarons
-en: Macaron filled with jam
-de: Macaron mit Marmelade gefüllt
-es: Macaron relleno de mermelada
-fr: Macaron moelleux fourré à la confiture
-hr: Makarone punjene džemom
-it: Macaron ripieno di marmellata
-ja: ジャム入りマカロン
-nl_be: Macaron gevuld met confituur
-agribalyse_food_code:en: 23024
-ciqual_food_code:en: 23024
-ciqual_food_name:en: Macaron filled with jam or cream
-
-< en:Macarons
-en: Macaron filled with cream
-de: Macaron mit Cremefüllung
-es: Macaron relleno de crema
-fr: Macaron moelleux fourré à la crème
-hr: Makarone punjene kremom
-it: Macaron ripieno di crema
-ja: クリーム入りマカロン
-nl_be: Macaron gevuld met crème
-agribalyse_food_code:en: 23024
-ciqual_food_code:en: 23024
-ciqual_food_name:en: Macaron filled with jam or cream
-
-< en:Macarons
-fr: Macarons à la noix de coco
-de: Kokosmakronen
-es: Macarons de coco
-it: Macarons al cocco
-ja: ココナッツマカロン
-nl: Kokosmacarons
+# pastries made of a dairy mousse and entire raspberries between two layers of almond macaron
+< en:Desserts
+< en:Pastries
+fr: Entremets macaron framboise
 
 < en:Desserts
 < en:Pastries
@@ -94408,12 +94390,15 @@ ciqual_food_code:en: 23474
 ciqual_food_name:en: Profiteroles (chou pastry), with custard and chocolate sauce, refrigerated
 
 < en:Pastries
-en: Coconut Macaroons, Coconut macaroon, Rock-shaped coconut cak
+en: Coconut macaroons, Coconut macaroon, Rock-shaped coconut cake
+de: Kokosmakronen
+es: Macarons de coco
 fi: Kookosmakronit, Kookosmacaronit
-fr: Rochers à la noix de coco, Congolais, Rochers coco, rocher à la noix de coco, rocher coco, Petit gâteau à la noix de coco
+fr: Rochers à la noix de coco, Congolais, Rochers coco, rocher à la noix de coco, rocher coco, Petit gâteau à la noix de coco, Macarons à la noix de coco
 hr: Kokos makaroni
-it: Biscotti al cocco
-nl: Kokosmacaron
+it: Macarons al cocco
+ja: ココナッツマカロン
+nl: Kokosmacarons, Kokosmacaron
 agribalyse_food_code:en: 23033
 ciqual_food_code:en: 23033
 ciqual_food_name:en: Rock-shaped coconut cake

@@ -12,7 +12,6 @@ echo "DB $DB"
 
 cd $DIR
 
-pushd data/ > /dev/null
 mongoexport --collection products --host $HOST --db $DB | gzip > new.$PREFIX-products.jsonl.gz && \
 mv new.$PREFIX-products.jsonl.gz $PREFIX-products.jsonl.gz
 mongoexport --collection products_obsolete --host $HOST --db $DB | gzip > new.$PREFIX-products_obsolete.jsonl.gz && \
@@ -66,5 +65,3 @@ mc cp \
     ${PREFIX}_recent_changes.jsonl.gz \
     ${PREFIX}-mongodbdump.gz \
     s3/openfoodfacts-ds
-
-popd > /dev/null # data
