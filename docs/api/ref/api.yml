@@ -640,7 +640,7 @@ components:
         * `created_t`, `last_modified_t`, are about creation and modification dates
         * `nothing`, tells not to sort at all (because if you do not provide the sort_by argument we default to sorting on popularity (for food) or last modification date)
     fields:
-      $ref: ./parameters/product_available-fields.yaml#/components/parameters/ProductAvailableFields
+      $ref: ./parameters/product_available_fields.yaml#/components/parameters/ProductAvailableFields
     knowledge_panels_included:
       schema:
         type: string
