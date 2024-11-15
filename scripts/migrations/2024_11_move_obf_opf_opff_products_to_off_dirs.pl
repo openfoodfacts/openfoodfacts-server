@@ -47,7 +47,7 @@ use Storable qw/dclone/;
 use Encode;
 use JSON::PP;
 
-use File::Copy (qw/move/);
+use File::Copy::Recursive qw/dirmove/;
 
 use Data::Dumper;
 
@@ -79,8 +79,9 @@ sub move_product_dir_to_off ($dir, $dir2, $dir3, $dir4) {
 	ensure_dir_created_or_die("/srv/off/products/$dir/$dir2/$dir3");
 	# if there is an existing off directory for this product, move it to deleted-off-products-codes-replaced-by-other-flavors
 	if (-e "/srv/off/products/$dir/$dir2/$dir3/$dir4") {
+		print STDERR "moving existing product on OFF\n";
 		if (
-			move(
+			dirmove(
 				"/srv/off/products/$dir/$dir2/$dir3/$dir4",
 				"/srv/off/products/deleted-off-products-codes-replaced-by-other-flavors/$dir$dir2$dir3$dir4"
 			)
@@ -96,22 +97,23 @@ sub move_product_dir_to_off ($dir, $dir2, $dir3, $dir4) {
 		}
 	}
 	# move the directory to /srv/off/products
-	if (move("BASE_DIRS{PRODUCTS}/$dir/$dir2/$dir3/$dir4", "/srv/off/products/$dir/$dir2/$dir3/")) {
-		print STDERR "moved /$BASE_DIRS{PRODUCTS}/$dir/$dir2/$dir3/$dir4 to /srv/off/products/$dir/$dir2/$dir3/$dir4\n";
+	if (dirmove("$BASE_DIRS{PRODUCTS}/$dir/$dir2/$dir3/$dir4", "/srv/off/products/$dir/$dir2/$dir3/$dir4")) {
+		print STDERR "moved $BASE_DIRS{PRODUCTS}/$dir/$dir2/$dir3/$dir4 to /srv/off/products/$dir/$dir2/$dir3/$dir4\n";
 	}
 	else {
 		print STDERR
-			"could not move /$BASE_DIRS{PRODUCTS}/$dir/$dir2/$dir3/$dir4 to /srv/off/products/$dir/$dir2/$dir3/$dir4: $!\n";
+			"could not move $BASE_DIRS{PRODUCTS}/$dir/$dir2/$dir3/$dir4 to /srv/off/products/$dir/$dir2/$dir3/$dir4: $!\n";
 		die;
 	}
 
 	# move images if they exist
 	if (-e "$BASE_DIRS{PRODUCTS_IMAGES}/$dir/$dir2/$dir3/$dir4") {
+		print STDERR "moving images from $BASE_DIRS{PRODUCTS_IMAGES}/$dir/$dir2/$dir3/$dir4\n";
 		ensure_dir_created_or_die("/srv/off/html/images/products/$dir/$dir2/$dir3");
 		# if there is an existing off directory for this product, move it to deleted-off-products-codes-replaced-by-other-flavors
 		if (-e "/srv/off/html/images/products/$dir/$dir2/$dir3/$dir4") {
 			if (
-				move(
+				dirmove(
 					"/srv/off/html/images/products/$dir/$dir2/$dir3/$dir4",
 					"/srv/off/html/images/products/deleted-off-products-codes-replaced-by-other-flavors/$dir$dir2$dir3$dir4"
 				)
@@ -127,9 +129,9 @@ sub move_product_dir_to_off ($dir, $dir2, $dir3, $dir4) {
 			}
 		}
 		if (
-			move(
+			dirmove(
 				"$BASE_DIRS{PRODUCTS_IMAGES}/$dir/$dir2/$dir3/$dir4",
-				"/srv/off/html/images/products/$dir/$dir2/$dir3/"
+				"/srv/off/html/images/products/$dir/$dir2/$dir3/$dir4"
 			)
 			)
 		{
