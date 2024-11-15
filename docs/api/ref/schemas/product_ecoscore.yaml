@@ -51,15 +51,15 @@ properties:
               transportation_score:
                 type: integer
               transportation_scores:
-                $ref: "./ecoscore-country-code.yaml#/components/schemas/EcoscoreCountryCode"
+                $ref: "./ecoscore-country-code.yaml#/components/schemas/EcoscoreCountryValues"
               transportation_value:
                 type: integer
               transportation_values:
-                $ref: "./ecoscore-country-code.yaml#/components/schemas/EcoscoreCountryCode"
+                $ref: "./ecoscore-country-code.yaml#/components/schemas/EcoscoreCountryValues"
               value:
                 type: integer
               values:
-                $ref: "./ecoscore-country-code.yaml#/components/schemas/EcoscoreCountryCode"
+                $ref: "./ecoscore-country-code.yaml#/components/schemas/EcoscoreCountryValues"
               warning:
                 type: string
           packaging:

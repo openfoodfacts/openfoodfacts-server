@@ -72,10 +72,10 @@ components:
       #patternProperties:
       #  (?<country_code>\w\w):
       #    type: integer
-    CountryValues:
+    EcoscoreCountryValues:
       type: object
       propertyNames:
-        $ref: "#/components/schemas/CountryCode"
+        $ref: "#/components/schemas/EcoscoreCountryCode"
       additionalProperties:
         type: number
         default: 0
