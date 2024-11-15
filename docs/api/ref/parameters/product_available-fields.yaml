@@ -9,7 +9,6 @@ components:
         type: string
         pattern: "^[a-zA-Z0-9_.-]+(,[a-zA-Z0-9_.-]+)*$"
         description: Custom comma-separated list of product field names
-        example: "my_custom_field,another_field"
         examples:
           - "knowledge_panels"
           - "knowledge_panels,product_name,nutriments"
