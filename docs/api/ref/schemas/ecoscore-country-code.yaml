@@ -1,10 +1,9 @@
-openapi: 3.1.0
 components:
   schemas:
-    CountryCode:
+    EcoscoreCountryCode:
       type: string
       enum:
-        &countryCodes [
+        [
           "ad",
           "al",
           "at",
