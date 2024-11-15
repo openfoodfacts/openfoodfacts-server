@@ -67,6 +67,12 @@ my @products_existing_on_off_but_deleted_on_off = ();
 my @products_existing_on_off_but_deleted_locally = ();
 my @products_existing_on_off_and_not_deleted_on_off_or_locally = ();
 
+# We removed the other servers dirs from the base paths,
+# but for this script, we need /srv/off/products and /srv/off/html/images/products
+
+$BASE_DIRS{OFF_PRODUCTS} = "/srv/off/products";
+$BASE_DIRS{OFF_PRODUCTS_IMAGES} = "/srv/off/html/images/products";
+
 sub move_product_dir_to_off ($dir, $dir2, $dir3, $dir4) {
 	# move .sto files
 	print STDERR "moving $dir/$dir2/$dir3/$dir4\n";
@@ -89,7 +95,8 @@ sub move_product_dir_to_off ($dir, $dir2, $dir3, $dir4) {
 			die;
 		}
 	}
-	if (move("BASE_DIRS{PRODUCTS}/$dir/$dir2/$dir3/$dir4", "/srv/off/products/$dir/$dir2/$dir3/$dir4")) {
+	# move the directory to /srv/off/products
+	if (move("BASE_DIRS{PRODUCTS}/$dir/$dir2/$dir3/$dir4", "/srv/off/products/$dir/$dir2/$dir3/")) {
 		print STDERR "moved /$BASE_DIRS{PRODUCTS}/$dir/$dir2/$dir3/$dir4 to /srv/off/products/$dir/$dir2/$dir3/$dir4\n";
 	}
 	else {
@@ -100,7 +107,7 @@ sub move_product_dir_to_off ($dir, $dir2, $dir3, $dir4) {
 
 	# move images if they exist
 	if (-e "$BASE_DIRS{PRODUCTS_IMAGES}/$dir/$dir2/$dir3/$dir4") {
-		ensure_dir_created_or_die("$BASE_DIRS{PRODUCTS_IMAGES}/$dir/$dir2/$dir3");
+		ensure_dir_created_or_die("/srv/off/html/images/products/$dir/$dir2/$dir3");
 		# if there is an existing off directory for this product, move it to deleted-off-products-codes-replaced-by-other-flavors
 		if (-e "/srv/off/html/images/products/$dir/$dir2/$dir3/$dir4") {
 			if (
@@ -122,21 +129,21 @@ sub move_product_dir_to_off ($dir, $dir2, $dir3, $dir4) {
 		if (
 			move(
 				"$BASE_DIRS{PRODUCTS_IMAGES}/$dir/$dir2/$dir3/$dir4",
-				"$BASE_DIRS{PRODUCTS_IMAGES}/$dir/$dir2/$dir3/$dir4"
+				"/srv/off/html/images/products/$dir/$dir2/$dir3/"
 			)
 			)
 		{
 			print STDERR
-				"moved $BASE_DIRS{PRODUCTS_IMAGES}/$dir/$dir2/$dir3/$dir4 to $BASE_DIRS{PRODUCTS_IMAGES}/$dir/$dir2/$dir3/$dir4\n";
+				"moved $BASE_DIRS{PRODUCTS_IMAGES}/$dir/$dir2/$dir3/$dir4 to /srv/off/html/images/products/$dir/$dir2/$dir3/$dir4\n";
 		}
 		else {
 			print STDERR
-				"could not move $BASE_DIRS{PRODUCTS_IMAGES}/$dir/$dir2/$dir3/$dir4 to $BASE_DIRS{PRODUCTS_IMAGES}/$dir/$dir2/$dir3/$dir4: $!\n";
+				"could not move $BASE_DIRS{PRODUCTS_IMAGES}/$dir/$dir2/$dir3/$dir4 to /srv/off/html/images/products/$dir/$dir2/$dir3/$dir4: $!\n";
 			die;
 		}
 	}
 	die;
-    return;
+	return;
 }
 
 sub check_if_we_can_move_product_dir_to_off ($dir, $dir2, $dir3, $dir4) {
@@ -178,7 +185,7 @@ sub check_if_we_can_move_product_dir_to_off ($dir, $dir2, $dir3, $dir4) {
 			push @empty_dirs, "$dir/$dir2/$dir3/$dir4";
 		}
 	}
-    return;
+	return;
 }
 
 my @products = ();
