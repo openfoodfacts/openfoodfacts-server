@@ -69,6 +69,7 @@ my @products_existing_on_off_and_not_deleted_on_off_or_locally = ();
 
 sub move_product_dir_to_off ($dir, $dir2, $dir3, $dir4) {
 	# move .sto files
+	print STDERR "moving $dir/$dir2/$dir3/$dir4\n";
 	ensure_dir_created_or_die("/srv/off/products/$dir/$dir2/$dir3");
 	# if there is an existing off directory for this product, move it to deleted-off-products-codes-replaced-by-other-flavors
 	if (-e "/srv/off/products/$dir/$dir2/$dir3/$dir4") {
