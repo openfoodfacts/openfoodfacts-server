@@ -4920,9 +4920,17 @@ sub add_params_to_query ($params_ref, $query_ref) {
 					foreach my $tag2 (split(/\|/, $tag)) {
 						my $tagid2;
 						if (defined $taxonomy_fields{$tagtype}) {
-							$tagid2 = get_taxonomyid($tag_lc, canonicalize_taxonomy_tag($tag_lc, $tagtype, $tag2));
-							if ($tagtype eq 'additives') {
-								$tagid2 =~ s/-.*//;
+							# if the tagid ends with !, we want to search for products with this exact tag, without canonicalization
+							# this is useful in particular when we change the main id of a tag entry in the taxonomy,
+							# so that we can find products that have not been reprocessed yet and that still have the old tag
+							if ($tag2 =~ /^([a-z]{2}:.*)!$/) {
+								$tagid2 = $1;
+							}
+							else {
+								$tagid2 = get_taxonomyid($tag_lc, canonicalize_taxonomy_tag($tag_lc, $tagtype, $tag2));
+								if ($tagtype eq 'additives') {
+									$tagid2 =~ s/-.*//;
+								}
 							}
 						}
 						else {
@@ -4951,9 +4959,17 @@ sub add_params_to_query ($params_ref, $query_ref) {
 				else {
 					my $tagid;
 					if (defined $taxonomy_fields{$tagtype}) {
-						$tagid = get_taxonomyid($tag_lc, canonicalize_taxonomy_tag($tag_lc, $tagtype, $tag));
-						if ($tagtype eq 'additives') {
-							$tagid =~ s/-.*//;
+						# if the tagid ends with !, we want to search for products with this exact tag, without canonicalization
+						# this is useful in particular when we change the main id of a tag entry in the taxonomy,
+						# so that we can find products that have not been reprocessed yet and that still have the old tag
+						if ($tag =~ /^([a-z]{2}:.*)!$/) {
+							$tagid = $1;
+						}
+						else {
+							$tagid = get_taxonomyid($tag_lc, canonicalize_taxonomy_tag($tag_lc, $tagtype, $tag));
+							if ($tagtype eq 'additives') {
+								$tagid =~ s/-.*//;
+							}
 						}
 					}
 					else {
