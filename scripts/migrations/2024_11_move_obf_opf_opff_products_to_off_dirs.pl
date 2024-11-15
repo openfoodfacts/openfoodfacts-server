@@ -135,6 +135,7 @@ sub move_product_dir_to_off ($dir, $dir2, $dir3, $dir4) {
 		}
 	}
 	die;
+    return;
 }
 
 sub check_if_we_can_move_product_dir_to_off ($dir, $dir2, $dir3, $dir4) {
@@ -176,6 +177,7 @@ sub check_if_we_can_move_product_dir_to_off ($dir, $dir2, $dir3, $dir4) {
 			push @empty_dirs, "$dir/$dir2/$dir3/$dir4";
 		}
 	}
+    return;
 }
 
 my @products = ();
