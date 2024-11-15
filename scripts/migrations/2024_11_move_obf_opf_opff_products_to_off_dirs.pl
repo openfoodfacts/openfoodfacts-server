@@ -97,21 +97,22 @@ sub move_product_dir_to_off ($dir, $dir2, $dir3, $dir4) {
 		}
 	}
 	# move the directory to /srv/off/products
-	if (dirmove("$BASE_DIRS{PRODUCTS}/$dir/$dir2/$dir3/$dir4", "/srv/off/products/$dir/$dir2/$dir3/$dir4")) {
-		print STDERR "moved $BASE_DIRS{PRODUCTS}/$dir/$dir2/$dir3/$dir4 to /srv/off/products/$dir/$dir2/$dir3/$dir4\n";
+	if (dirmove("/mnt/$flavor/products/$dir/$dir2/$dir3/$dir4", "/srv/off/products/$dir/$dir2/$dir3/$dir4")) {
+		print STDERR "moved /mnt/$flavor/products/$dir/$dir2/$dir3/$dir4 to /srv/off/products/$dir/$dir2/$dir3/$dir4\n";
 	}
 	else {
 		print STDERR
-			"could not move $BASE_DIRS{PRODUCTS}/$dir/$dir2/$dir3/$dir4 to /srv/off/products/$dir/$dir2/$dir3/$dir4: $!\n";
+			"could not move /mnt/$flavor/products/$dir/$dir2/$dir3/$dir4 to /srv/off/products/$dir/$dir2/$dir3/$dir4: $!\n";
 		die;
 	}
 
 	# move images if they exist
-	if (-e "$BASE_DIRS{PRODUCTS_IMAGES}/$dir/$dir2/$dir3/$dir4") {
-		print STDERR "moving images from $BASE_DIRS{PRODUCTS_IMAGES}/$dir/$dir2/$dir3/$dir4\n";
+	if (-e "/mnt/$flavor/images/products/$dir/$dir2/$dir3/$dir4") {
+		print STDERR "moving images from /mnt/$flavor/images/products/$dir/$dir2/$dir3/$dir4\n";
 		ensure_dir_created_or_die("/srv/off/html/images/products/$dir/$dir2/$dir3");
 		# if there is an existing off directory for this product, move it to deleted-off-products-codes-replaced-by-other-flavors
 		if (-e "/srv/off/html/images/products/$dir/$dir2/$dir3/$dir4") {
+            print STDERR "moving existing product images on OFF\n";
 			if (
 				dirmove(
 					"/srv/off/html/images/products/$dir/$dir2/$dir3/$dir4",
@@ -130,17 +131,17 @@ sub move_product_dir_to_off ($dir, $dir2, $dir3, $dir4) {
 		}
 		if (
 			dirmove(
-				"$BASE_DIRS{PRODUCTS_IMAGES}/$dir/$dir2/$dir3/$dir4",
+				"/mnt/$flavor/images/products/$dir/$dir2/$dir3/$dir4",
 				"/srv/off/html/images/products/$dir/$dir2/$dir3/$dir4"
 			)
 			)
 		{
 			print STDERR
-				"moved $BASE_DIRS{PRODUCTS_IMAGES}/$dir/$dir2/$dir3/$dir4 to /srv/off/html/images/products/$dir/$dir2/$dir3/$dir4\n";
+				"moved /mnt/$flavor/images/products/$dir/$dir2/$dir3/$dir4 to /srv/off/html/images/products/$dir/$dir2/$dir3/$dir4\n";
 		}
 		else {
 			print STDERR
-				"could not move $BASE_DIRS{PRODUCTS_IMAGES}/$dir/$dir2/$dir3/$dir4 to /srv/off/html/images/products/$dir/$dir2/$dir3/$dir4: $!\n";
+				"could not move /mnt/$flavor/images/products/$dir/$dir2/$dir3/$dir4 to /srv/off/html/images/products/$dir/$dir2/$dir3/$dir4: $!\n";
 			die;
 		}
 	}
@@ -150,7 +151,7 @@ sub move_product_dir_to_off ($dir, $dir2, $dir3, $dir4) {
 
 sub check_if_we_can_move_product_dir_to_off ($dir, $dir2, $dir3, $dir4) {
 	# Check if the product.sto file exists locally
-	my $local_product_ref = retrieve("$BASE_DIRS{PRODUCTS}/$dir/$dir2/$dir3/$dir4/product.sto");
+	my $local_product_ref = retrieve("/mnt/$flavor/products/$dir/$dir2/$dir3/$dir4/product.sto");
 	if ($local_product_ref) {
 		# Check if the product exists on OFF
 		my $off_product_ref = retrieve("/srv/off/products/$dir/$dir2/$dir3/$dir4/product.sto");
@@ -180,7 +181,7 @@ sub check_if_we_can_move_product_dir_to_off ($dir, $dir2, $dir3, $dir4) {
 	else {
 		push @dirs_without_product_sto, "$dir/$dir2/$dir3/$dir4";
 		# Check if the dir is empty
-		opendir my $dh, "$BASE_DIRS{PRODUCTS}/$dir/$dir2/$dir3/$dir4" or die "Cannot open directory: $!";
+		opendir my $dh, "/mnt/$flavor/products/$dir/$dir2/$dir3/$dir4" or die "Cannot open directory: $!";
 		my @files = grep {$_ ne '.' && $_ ne '..'} readdir($dh);
 		closedir $dh;
 		if (scalar @files == 0) {
@@ -194,31 +195,31 @@ my @products = ();
 
 my $dh;
 
-opendir $dh, "$BASE_DIRS{PRODUCTS}"
-	or die "could not open $BASE_DIRS{PRODUCTS} directory: $!\n";
+opendir $dh, "/mnt/$flavor/products"
+	or die "could not open /mnt/$flavor/products directory: $!\n";
 foreach my $dir (sort readdir($dh)) {
 	chomp($dir);
 
 	print STDERR "dir: $dir\n";
 
 	# Check it is a directory
-	next if not -d "$BASE_DIRS{PRODUCTS}/$dir";
+	next if not -d "/mnt/$flavor/products/$dir";
 	next if ($dir =~ /codes/);
 
 	if ($dir =~ /^\d\d\d$/) {
 
-		opendir my $dh2, "$BASE_DIRS{PRODUCTS}/$dir"
-			or die "ERROR: could not open $BASE_DIRS{PRODUCTS}/$dir directory: $!\n";
+		opendir my $dh2, "/mnt/$flavor/products/$dir"
+			or die "ERROR: could not open /mnt/$flavor/products/$dir directory: $!\n";
 		foreach my $dir2 (sort readdir($dh2)) {
 			chomp($dir2);
 			if ($dir2 =~ /^\d\d\d$/) {
-				opendir my $dh3, "$BASE_DIRS{PRODUCTS}/$dir/$dir2"
-					or die "ERROR: could not open $BASE_DIRS{PRODUCTS}/$dir/$dir2 directory: $!\n";
+				opendir my $dh3, "/mnt/$flavor/products/$dir/$dir2"
+					or die "ERROR: could not open /mnt/$flavor/products/$dir/$dir2 directory: $!\n";
 				foreach my $dir3 (sort readdir($dh3)) {
 					chomp($dir3);
 					if ($dir3 =~ /^\d\d\d$/) {
-						opendir my $dh4, "$BASE_DIRS{PRODUCTS}/$dir/$dir2/$dir3"
-							or die "ERROR: could not open $BASE_DIRS{PRODUCTS}/$dir/$dir2/$dir3 directory: $!\n";
+						opendir my $dh4, "/mnt/$flavor/products/$dir/$dir2/$dir3"
+							or die "ERROR: could not open /mnt/$flavor/products/$dir/$dir2/$dir3 directory: $!\n";
 						foreach my $dir4 (sort readdir($dh4)) {
 							chomp($dir4);
 							# We should have 4 digits or more (for codes with more than 13 digits)
