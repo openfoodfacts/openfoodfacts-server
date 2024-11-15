@@ -144,7 +144,7 @@ sub check_if_we_can_move_product_dir_to_off ($dir, $dir2, $dir3, $dir4) {
 		# Check if the product exists on OFF
 		my $off_product_ref = retrieve("/srv/off/products/$dir/$dir2/$dir3/$dir4/product.sto");
 		if ($off_product_ref) {
-            push @products_existing_on_off, "$dir/$dir2/$dir3/$dir4";
+			push @products_existing_on_off, "$dir/$dir2/$dir3/$dir4";
 			# Check if the product is deleted on OFF
 			if ($off_product_ref->{deleted}) {
 				push @products_existing_on_off_but_deleted_on_off, "$dir/$dir2/$dir3/$dir4";
