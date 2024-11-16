@@ -96,7 +96,7 @@ $BASE_DIRS{OFF_PRODUCTS_IMAGES} = "/srv/off/html/images/products";
 sub move_product_dir_to_off ($dir, $dir2, $dir3, $dir4) {
 	# move .sto files
 	print STDERR "moving $dir/$dir2/$dir3/$dir4\n";
-	ensure_dir_created_or_die("/srv/off/products/$dir/$dir2/$dir3");
+	#ensure_dir_created_or_die("/srv/off/products/$dir/$dir2/$dir3");
 	# if there is an existing off directory for this product, move it to deleted-off-products-codes-replaced-by-other-flavors
 	if (0 and -e "/srv/off/products/$dir/$dir2/$dir3/$dir4") {
 		print STDERR "moving existing product on OFF\n";
@@ -129,7 +129,7 @@ sub move_product_dir_to_off ($dir, $dir2, $dir3, $dir4) {
 	# move images if they exist
 	if (-e "/srv/opf/html/images/products/other-flavors-codes/$dir$dir2$dir3$dir4") {
 		print STDERR "moving images from /srv/opf/html/images/products/other-flavors-codes/$dir$dir2$dir3$dir4\n";
-		ensure_dir_created_or_die("/srv/off/html/images/products/$dir/$dir2/$dir3");
+		#ensure_dir_created_or_die("/srv/off/html/images/products/$dir/$dir2/$dir3");
 		# if there is an existing off directory for this product, move it to deleted-off-products-codes-replaced-by-other-flavors
 		if (0 and -e "/srv/off/html/images/products/$dir/$dir2/$dir3/$dir4") {
             print STDERR "moving existing product images on OFF\n";
