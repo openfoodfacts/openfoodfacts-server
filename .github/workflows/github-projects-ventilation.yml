@@ -138,5 +138,5 @@ jobs:
         with:
           project-url: https://github.com/orgs/openfoodfacts/projects/136 # Add issue to the Translations project
           github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
-          labeled: 🌐 Translations, 
+          labeled: 🌐 Translations, translations, i18n, Translations
           label-operator: OR
