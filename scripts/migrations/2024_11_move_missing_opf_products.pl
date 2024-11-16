@@ -71,7 +71,7 @@ opendir $dh, "/srv/opf/products/other-flavors-codes"
 foreach my $dir (sort readdir($dh)) {
 	chomp($dir);
 	# Check it is a directory
-	next if not -d "/mnt/$flavor/products/$dir";
+	next if not -d "/srv/opf/products/other-flavors-codes/$dir";
 	print STDERR "dir: $dir\n";
 
 	if ($dir =~ /^(\d\d\d)(\d\d\d)(\d\d\d)(\d+)$/) {
