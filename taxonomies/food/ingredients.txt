@@ -63492,7 +63492,7 @@ sv: melonfrön
 # description:en:Pine nuts, also called piñón or pinoli, are the edible seeds of pines (family Pinaceae, genus Pinus).
 
 < en:seed
-en: pine nuts
+en: pine nuts, pine nut kernels, pinenuts
 ar: حبوب الصنوبر
 ba: кедр сәтләүеге
 bg: кедрови ядки
@@ -63500,12 +63500,12 @@ ca: pinyó
 de: Pinienkerne
 el: Κουκουνάρι
 eo: Pinsemo
-es: Piñón, piñones
+es: Piñón, piñones, Piñores crudos y pelados
 et: seedermännipähkel
 eu: Pinazi
 fa: دانه کاج
 fi: pinjansiemen
-fr: pignon de pin, pignons de pin, pignons, pignons de pin décortiqués, Pignons de pin décortiqués et pelés, Pignons de pin décortiqués - pelés et brossés
+fr: pignon de pin, pignons de pin, pignons, pignons de pin décortiqués, Pignons de pin décortiqués et pelés, Pignons de pin décortiqués - pelés et brossés, noix de pin, Pignons de pin épluchés, Pignons de pin décortiqués pelés et brossés
 ga: Piñón
 he: צנובר
 hr: pinjole
@@ -63515,6 +63515,7 @@ it: pinoli, pinolo
 ja: 松の実
 ko: 잣
 ku: Fistiqên çaman
+la: Nucleus pineus
 nb: pinjekjerne
 nl: pijnboompitten, Pijnboompit
 nn: russenøtter
@@ -63554,13 +63555,24 @@ nutriscore_fruits_vegetables_nuts:en: no
 wikipedia:en: https://en.wikipedia.org/wiki/Pine_nut
 
 < en:pine nuts
+fr: pignons de cedre, Pignons de cèdre décortiqués
+
+< en:pine nuts
+xx: Pinus sibirica
+fr: pignons de pin de sibérie
 la: Pinus sibirica
 
 < en:pine nuts
-la: Nucleus pineus
+en: European pine
+la: Pinus Pinea
 
 < en: pine nuts
+xx: Pinus koraiensis
 la: Pinus koraiensis
+
+< en: pine nuts
+en: roasted pin nuts
+nb: Tørristede pinjekjerner
 
 < en:seed
 en: hemp seed
