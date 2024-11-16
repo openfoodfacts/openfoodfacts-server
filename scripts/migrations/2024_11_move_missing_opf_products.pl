@@ -61,6 +61,11 @@ GetOptions('move' => \$move,);
 
 # find all dirs in /srv/opf/products/other-flavors-codes
 
+my $dh;
+
+my @dirs_existing_in_off;
+my @dirs_not_existing_in_off;
+
 opendir $dh, "/srv/opf/products/other-flavors-codes"
 	or die "could not open /srv/opf/products directory: $!\n";
 foreach my $dir (sort readdir($dh)) {
@@ -72,9 +77,11 @@ foreach my $dir (sort readdir($dh)) {
 	if ($dir =~ /^(\d\d\d)(\d\d\d)(\d\d\d)(\d+)$/) {
 		# check if the dir exists in /srv/off/products
 		if (-e "/srv/off/products/$1/$2/$3/$4") {
+			push @dirs_existing_in_off, $dir;
 			print STDERR "dir exists in /srv/off/products/$1/$2/$3/$4\n";
 		}
 		else {
+			push @dirs_not_existing_in_off, $dir;
 			print STDERR "dir does not exist in /srv/off/products/$1/$2/$3/$4\n";
 			if ($move) {
 				move_product_dir_to_off($1, $2, $3, $4);
@@ -161,6 +168,9 @@ sub move_product_dir_to_off ($dir, $dir2, $dir3, $dir4) {
 	die;
 	return;
 }
+
+print STDERR "dirs existing in off: " . scalar(@dirs_existing_in_off) . "\n";
+print STDERR "dirs not existing in off: " . scalar(@dirs_not_existing_in_off) . "\n";
 
 exit(0);
 
