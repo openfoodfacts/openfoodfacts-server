@@ -20,8 +20,6 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use CGI::Carp qw(fatalsToBrowser);
-
 use ProductOpener::PerlStandards;
 
 use ProductOpener::Config qw/:all/;
@@ -95,15 +93,15 @@ $BASE_DIRS{OFF_PRODUCTS_IMAGES} = "/srv/off/html/images/products";
 
 sub move_product_dir_to_off ($dir, $dir2, $dir3, $dir4) {
 	# move .sto files
-	print STDERR "moving $dir/$dir2/$dir3/$dir4\n";
+	print STDERR "moving /srv/opf/products/other-flavors-codes/$dir$dir2$dir3$dir4 to /srv/off/products/$dir/$dir2/$dir3/$dir4\n";
 	#ensure_dir_created_or_die("/srv/off/products/$dir/$dir2/$dir3");
 	# if there is an existing off directory for this product, move it to deleted-off-products-codes-replaced-by-other-flavors
 	if (0 and -e "/srv/off/products/$dir/$dir2/$dir3/$dir4") {
 		print STDERR "moving existing product on OFF\n";
 		if (
 			dirmove(
-				"/srv/off/products/$dir/$dir2/$dir3/$dir4",
-				"/srv/off/products/deleted-off-products-codes-replaced-by-other-flavors/$dir$dir2$dir3$dir4"
+				"/srv/off/products/deleted-off-products-codes-replaced-by-other-flavors/$dir$dir2$dir3$dir4",
+				"/srv/off/products/$dir/$dir2/$dir3/$dir4"
 			)
 			)
 		{
