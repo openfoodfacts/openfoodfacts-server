@@ -6517,6 +6517,10 @@ msgctxt "api_result_product_not_found"
 msgid "Product not found"
 msgstr "Produto não encontrado"
 
+msgctxt "api_result_product_found_with_a_different_product_type"
+msgid "Product found with a different product type"
+msgstr ""
+
 msgctxt "api_result_product_updated"
 msgid "Product updated"
 msgstr "Produto atualizado"
@@ -6540,6 +6544,10 @@ msgstr "JSON inválido no corpo da solicitação"
 msgctxt "api_message_invalid_code"
 msgid "Invalid code"
 msgstr "Código inválido"
+
+msgctxt "api_message_invalid_product_type"
+msgid "Invalid product type"
+msgstr ""
 
 msgctxt "api_message_invalid_type_must_be_object"
 msgid "Invalid type: must be an object"
@@ -7234,4 +7242,28 @@ msgstr "Fraca reparabilidade"
 msgctxt "attribute_repairability_index_france_bad_description_short"
 msgid "Bad repairability"
 msgstr "Má reparabilidade"
+
+msgctxt "product_type"
+msgid "Product type"
+msgstr ""
+
+# Food product type
+msgctxt "product_type_food"
+msgid "Food"
+msgstr "Alimento"
+
+# Pet food product type
+msgctxt "product_type_petfood"
+msgid "Pet food"
+msgstr "Comida para animais"
+
+# Beauty product type
+msgctxt "product_type_beauty"
+msgid "Beauty"
+msgstr "Beleza"
+
+# General product product type
+msgctxt "product_type_product"
+msgid "Product"
+msgstr "Produto"
 
