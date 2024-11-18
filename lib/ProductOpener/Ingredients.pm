@@ -3383,6 +3383,10 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 			push @suffixes, "_labels_organic";
 		}
 		push @suffixes, '';
+
+		if ($ingredient_ref->{labels} =~ /\ben:organic\b/) {
+			push @suffixes, "proxy_labels_organic";
+		}
 		push @suffixes, '_proxy';
 
 		# Loop through each suffix and proxy combination to retrieve ecobalyse code
