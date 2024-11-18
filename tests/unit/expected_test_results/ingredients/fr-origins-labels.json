@@ -52,6 +52,7 @@
       },
       {
          "ciqual_proxy_food_code" : "13034",
+         "ecobalyse_code" : "orange-non-eu",
          "id" : "en:orange",
          "is_in_taxonomy" : 1,
          "labels" : "en:organic",
@@ -179,10 +180,9 @@
       "en:blackcurrant",
       "en:cocoa",
       "en:cocoa-butter",
-      "en:grapefruit",
-      "en:orange"
+      "en:grapefruit"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 5,
+   "ingredients_without_ecobalyse_ids_n" : 4,
    "known_ingredients_n" : 14,
    "lc" : "fr",
    "nutriments" : {

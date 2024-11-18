@@ -41,6 +41,7 @@
       },
       {
          "ciqual_food_code" : "19590",
+         "ecobalyse_code" : "mozzarella",
          "id" : "en:mozzarella",
          "is_in_taxonomy" : 1,
          "labels" : "en:organic",
@@ -202,12 +203,11 @@
    "ingredients_without_ciqual_codes_n" : 2,
    "ingredients_without_ecobalyse_ids" : [
       "en:herb",
-      "en:mozzarella",
       "en:salt",
       "en:spice",
       "en:yeast"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 5,
+   "ingredients_without_ecobalyse_ids_n" : 4,
    "known_ingredients_n" : 22,
    "lc" : "fr",
    "misc_tags" : [

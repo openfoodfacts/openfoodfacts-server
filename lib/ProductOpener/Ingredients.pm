@@ -3380,12 +3380,12 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 		my @suffixes = ();
 		# If the ingredient is organic...
 		if ($ingredient_ref->{labels} =~ /\ben:organic\b/) {
-			push @suffixes, "_labels_organic";
+			push @suffixes, "_labels_en_organic";
 		}
 		push @suffixes, '';
 
 		if ($ingredient_ref->{labels} =~ /\ben:organic\b/) {
-			push @suffixes, "proxy_labels_organic";
+			push @suffixes, "_proxy_labels_en_organic";
 		}
 		push @suffixes, '_proxy';
 
