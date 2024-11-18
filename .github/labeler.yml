@@ -253,9 +253,74 @@ Footer:
 # Tracking issue: https://github.com/openfoodfacts/openfoodfacts-server/issues/7446
 📚 OpenAPI:
 - changed-files:
+  # core
   - any-glob-to-any-file: 'docs/assets/api-rapidoc.html'
+  - any-glob-to-any-file: 'docs/api/ref/api.yml'
+  - any-glob-to-any-file: 'docs/api/ref/api-v3.yml'
+  - any-glob-to-any-file: 'docs/​api/​ref/​schemas/​tags_parameters.yaml'
+  # product core
   - any-glob-to-any-file: 'docs/api/ref/schemas/product_base.yaml'
-
+  - any-glob-to-any-file: 'docs/​api/​ref/​schemas/​product.yaml'
+  - any-glob-to-any-file: 'docs/​api/​ref/​schemas/​product_extended.yaml'
+  - any-glob-to-any-file: 'docs/​api/​ref/​schemas/​product_meta.yaml'
+  - any-glob-to-any-file: 'docs/​api/​ref/​schemas/​product_misc.yaml'
+  - any-glob-to-any-file: 'docs/​api/​ref/​schemas/​product_tags.yaml'
+  - any-glob-to-any-file: 'docs/​api/​ref/​schemas/​product_hidden.yaml'
+  # nutrition
+  - any-glob-to-any-file: 'docs/​api/​ref/​schemas/​nutrients.yaml'
+  - any-glob-to-any-file: 'docs/​api/​ref/​schemas/​nutrient_unit.yaml'
+  - any-glob-to-any-file: 'docs/​api/​ref/​schemas/​nutrition_search.yaml'
+  - any-glob-to-any-file: 'docs/​api/​ref/​responses/​get_nutrients.yaml'
+  - any-glob-to-any-file: 'docs/​api/​ref/​schemas/​product_nutrition.yaml'
+  # ecoscore
+  - any-glob-to-any-file: 'docs/api/ref/schemas/agribalyse.yaml'
+  - any-glob-to-any-file: 'docs/api/ref/schemas/product_ecoscore.yaml'
+  # multilingual
+  - any-glob-to-any-file: 'docs/api/ref/schemas/country-code.yaml'
+  - any-glob-to-any-file: 'docs/​api/​ref/​requestBodies/​lc_cc.yaml'
+  # ingredients
+  - any-glob-to-any-file: 'docs/​api/​ref/​schemas/​ingredient.yaml'
+  - any-glob-to-any-file: 'docs/​api/​ref/​schemas/​product_ingredients.yaml'
+  # data quality
+  - any-glob-to-any-file: 'docs/​api/​ref/​schemas/​product_quality.yaml'
+  # nutriscore
+  - any-glob-to-any-file: 'docs/​api/​ref/​schemas/​product_nutriscore.yaml'
+  # tags
+  - any-glob-to-any-file: 'docs/​api/​ref/​schemas/​taxonomies/​tagtype.yaml'
+  - any-glob-to-any-file: 'docs/​api/​ref/​requestBodies/​fields_tags_lc.yaml'
+  # Packaging
+  - any-glob-to-any-file: 'docs/​api/​ref/​schemas/​packagings/​packagings.yaml'
+  - any-glob-to-any-file: 'docs/​api/​ref/​schemas/​packagings/​shape.yaml'
+  - any-glob-to-any-file: 'docs/​api/​ref/​schemas/​packagings/​material.yaml'
+  - any-glob-to-any-file: 'docs/​api/​ref/​schemas/​packagings/​recycling.yaml'
+  # search
+  - any-glob-to-any-file: 'docs/​api/​ref/​responses/​search_for_products.yaml'
+  # WRITE
+  - any-glob-to-any-file: 'docs/​api/​ref/​schemas/​product_update_api_v3.yaml'
+  # images
+  - any-glob-to-any-file: 'docs/​api/​ref/​schemas/​product_images.yaml'
+  - any-glob-to-any-file: 'docs/​api/​ref/​schemas/​image.yaml'
+  - any-glob-to-any-file: 'docs/​api/​ref/​schemas/​image_role.yaml'
+  - any-glob-to-any-file: 'docs/​api/​ref/​schemas/​image_size.yaml'
+  - any-glob-to-any-file: 'docs/​api/​ref/​schemas/​image_urls.yaml'
+  # WRITE - photos
+  - any-glob-to-any-file: 'docs/​api/​ref/​requestBodies/​unselect_a_photo.yaml'
+  - any-glob-to-any-file: 'docs/​api/​ref/​requestBodies/​crop_a_photo.yaml'
+  - any-glob-to-any-file: 'docs/​api/​ref/​responses/​ocr_on_product.yaml'
+  - any-glob-to-any-file: 'docs/​api/​ref/​responses/​rotate_a_photo.yaml'
+  # attributes
+  - any-glob-to-any-file: 'docs/​api/​ref/​responses/​get_attribute_groups.yaml'
+  - any-glob-to-any-file: 'docs/​api/​ref/​responses/​get_preferences.yaml'
+  # knowledge_panels
+  - any-glob-to-any-file: 'docs/api/ref/schemas/knowledge_panels/panel.yaml'
+  - any-glob-to-any-file: 'docs/api/ref/schemas/knowledge_panels/panels.yaml'
+  - any-glob-to-any-file: 'docs/api/ref/schemas/knowledge_panels/elements/​element.yaml'
+  - any-glob-to-any-file: 'docs/api/ref/schemas/knowledge_panels/elements/​text_element.yaml'
+  - any-glob-to-any-file: 'docs/api/ref/schemas/knowledge_panels/elements/​image_element.yaml'
+  - any-glob-to-any-file: 'docs/api/ref/schemas/knowledge_panels/elements/​panel_element.yaml'
+  - any-glob-to-any-file: 'docs/api/ref/schemas/knowledge_panels/elements/​table_element.yaml'
+  - any-glob-to-any-file: 'docs/api/ref/schemas/knowledge_panels/elements/​title_element.yaml'
+  - any-glob-to-any-file: 'docs/api/ref/schemas/knowledge_panels/elements/​panel_group_element.yaml'
 # You can learn how to use Docker at https://docker-curriculum.com/
 # Tracking issue: 
 🐋 Docker:
@@ -342,6 +407,8 @@ Display:
   - any-glob-to-any-file: 'templates/api/knowledge-panels/environment/origins_of_ingredients.tt.json'
   - any-glob-to-any-file: 'templates/api/knowledge-panels/environment/ecoscore/threatened_species.tt.json'
   - any-glob-to-any-file: 'docs/reference/api-tutorials/get-the-ecoscore.md'
+  - any-glob-to-any-file: 'docs/api/ref/schemas/agribalyse.yaml'
+  - any-glob-to-any-file: 'docs/api/ref/schemas/product_ecoscore.yaml'
   
 # French Lifecycle Analysis for Food (LCA) database used in Eco-Score computations
 # https://doc.agribalyse.fr/documentation
@@ -368,7 +435,7 @@ Agribalyse:
   - any-glob-to-any-file: 'templates/​api/​knowledge-panels/​environment/​ecoscore/​agribalyse.tt.json'
   - any-glob-to-any-file: 'tests/​unit/​expected_test_results/​ecoscore/​agribalyse-updated-category.json'
   - any-glob-to-any-file: 'external-data/​ecoscore/​agribalyse/​AGRIBALYSE3.1.1_produits alimentaires.xlsx'
-
+  - any-glob-to-any-file: 'docs/api/ref/schemas/agribalyse.yaml'
 # https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Food.html
 Food.pm:
 - changed-files:
@@ -557,7 +624,15 @@ brands:
   - any-glob-to-any-file: 'docs/api/ref/schemas/knowledge_panels/**'
   - any-glob-to-any-file: 'lib/ProductOpener/KnowledgePanelsTags.pm'
   - any-glob-to-any-file: 'docs/api/explain-knowledge-panels.md'
-
+  - any-glob-to-any-file: 'docs/api/ref/schemas/knowledge_panels/panel.yaml'
+  - any-glob-to-any-file: 'docs/api/ref/schemas/knowledge_panels/panels.yaml'
+  - any-glob-to-any-file: 'docs/api/ref/schemas/knowledge_panels/elements/​element.yaml'
+  - any-glob-to-any-file: 'docs/api/ref/schemas/knowledge_panels/elements/​text_element.yaml'
+  - any-glob-to-any-file: 'docs/api/ref/schemas/knowledge_panels/elements/​image_element.yaml'
+  - any-glob-to-any-file: 'docs/api/ref/schemas/knowledge_panels/elements/​panel_element.yaml'
+  - any-glob-to-any-file: 'docs/api/ref/schemas/knowledge_panels/elements/​table_element.yaml'
+  - any-glob-to-any-file: 'docs/api/ref/schemas/knowledge_panels/elements/​title_element.yaml'
+  - any-glob-to-any-file: 'docs/api/ref/schemas/knowledge_panels/elements/​panel_group_element.yaml'
 # Tracking issue: 
 Serving size:
 - changed-files:
@@ -613,7 +688,19 @@ Numbers:
   - any-glob-to-any-file: 'tests/unit/ingredients_nutriscore.t'
   - any-glob-to-any-file: 'scripts/add_nutriscore_to_scanbot_csv.pl'
   - any-glob-to-any-file: 'docs/introduction/get-the-nutriscore.md'
+  - any-glob-to-any-file: 'docs/​api/​ref/​schemas/​product_nutriscore.yaml'
 
+Nutrients:
+- changed-files:
+  - any-glob-to-any-file: 'docs/​api/​ref/​schemas/​nutrients.yaml'
+  - any-glob-to-any-file: 'docs/​api/​ref/​schemas/​nutrient_unit.yaml'
+  - any-glob-to-any-file: 'docs/​api/​ref/​responses/​get_nutrients.yaml'
+
+Nutrition facts:
+- changed-files:
+  - any-glob-to-any-file: 'docs/​api/​ref/​schemas/​product_nutrition.yaml'
+  - any-glob-to-any-file: 'docs/​api/​ref/​schemas/​nutrition_search.yaml'
+  
 # https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Orgs.html
 🏭 Orgs:
 - changed-files:
@@ -644,8 +731,6 @@ Numbers:
   - any-glob-to-any-file: 'packager-codes/geocode_addresses.sto'
   - any-glob-to-any-file: 'packager-codes/packager_codes.sto'
 
-
-
 # facets: facets allow you to explore products according to various criterion. Based on MongoDB
 facets:
 - changed-files:
@@ -668,7 +753,7 @@ Redis:
   - any-glob-to-any-file: 'taxonomies/packaging_shapes.txt'
   - any-glob-to-any-file: 'taxonomies/packaging_shapes.result.sto'
   - any-glob-to-any-file: 'taxonomies/packaging_shapes.result.txt'
-
+  - any-glob-to-any-file: 'docs/​api/​ref/​schemas/​packagings/​shape.yaml'
 # Packaging is the #1 topic consumers care about when it comes to the environmental impact of food. 
 # While packaging is not actually the #1 impact by magnitude, it's one that is actionable, and that we try to have good support for.
 # https://wiki.openfoodfacts.org/Category:Recycling
@@ -707,7 +792,10 @@ Redis:
   - any-glob-to-any-file: 'tests/unit/packaging.t'
   - any-glob-to-any-file: 'docs/api/ref/schemas/packagings/**'
   - any-glob-to-any-file: 'scripts/gen_packaging_stats.pl'
-
+  - any-glob-to-any-file: 'docs/​api/​ref/​schemas/​packagings/​packagings.yaml'
+  - any-glob-to-any-file: 'docs/​api/​ref/​schemas/​packagings/​shape.yaml'
+  - any-glob-to-any-file: 'docs/​api/​ref/​schemas/​packagings/​material.yaml'
+  - any-glob-to-any-file: 'docs/​api/​ref/​schemas/​packagings/​recycling.yaml'
 # Our Producers Platform (https://world.pro.openfoodfacts.org) lets food producers import their product data/images using Excel files or Product Information Systems like EQUADIS or AGENA3000. 
 # It also provides opportunity for product improvement (currently only for Nutri-Score)
 # https://wiki.openfoodfacts.org/Platform_for_producers
@@ -806,7 +894,17 @@ Store:
   - any-glob-to-any-file: 'docs/ref/api/requestBodies/crop_a_photo.yaml'
   - any-glob-to-any-file: 'docs/ref/api/requestBodies/add_photo_to_existing_product.yaml'
   - any-glob-to-any-file: 'docs/api/tutorial-uploading-photo-to-a-product.md'
-
+  # images
+  - any-glob-to-any-file: 'docs/​api/​ref/​schemas/​product_images.yaml'
+  - any-glob-to-any-file: 'docs/​api/​ref/​schemas/​image.yaml'
+  - any-glob-to-any-file: 'docs/​api/​ref/​schemas/​image_role.yaml'
+  - any-glob-to-any-file: 'docs/​api/​ref/​schemas/​image_size.yaml'
+  - any-glob-to-any-file: 'docs/​api/​ref/​schemas/​image_urls.yaml'
+  # WRITE - photos
+  - any-glob-to-any-file: 'docs/​api/​ref/​requestBodies/​unselect_a_photo.yaml'
+  - any-glob-to-any-file: 'docs/​api/​ref/​requestBodies/​crop_a_photo.yaml'
+  - any-glob-to-any-file: 'docs/​api/​ref/​responses/​ocr_on_product.yaml'
+  - any-glob-to-any-file: 'docs/​api/​ref/​responses/​rotate_a_photo.yaml'
 # https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Products.html
 Products:
 - changed-files:
@@ -1338,6 +1436,10 @@ API WRITE:
   - any-glob-to-any-file: 'lib/ProductOpener/APIProductWrite.pm'
   - any-glob-to-any-file: 'lib/ProductOpener/APIProductRevert.pm'
   - any-glob-to-any-file: 'tests/integration/api_v3_product_revert.t'
+  - any-glob-to-any-file: 'docs/​api/​ref/​requestBodies/​unselect_a_photo.yaml'
+  - any-glob-to-any-file: 'docs/​api/​ref/​requestBodies/​crop_a_photo.yaml'
+  - any-glob-to-any-file: 'docs/​api/​ref/​responses/​ocr_on_product.yaml'
+  - any-glob-to-any-file: 'docs/​api/​ref/​responses/​rotate_a_photo.yaml'
 monitoring:
 - changed-files:
   - any-glob-to-any-file: 'scripts/api_stats.pl'
