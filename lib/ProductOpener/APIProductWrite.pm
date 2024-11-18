@@ -45,15 +45,17 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Display qw/$country request_param single_param/;
+use ProductOpener::Display qw/$subdomain redirect_to_url $country request_param single_param/;
 use ProductOpener::Users qw/$Org_id $Owner_id $User_id/;
 use ProductOpener::Lang qw/$lc/;
 use ProductOpener::Products qw/:all/;
-use ProductOpener::API qw/add_error add_warning customize_response_for_product normalize_requested_code/;
+use ProductOpener::API
+	qw/add_error add_warning check_user_permission customize_response_for_product normalize_requested_code/;
 use ProductOpener::Packaging
 	qw/add_or_combine_packaging_component_data get_checked_and_taxonomized_packaging_component_data/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::Tags qw/%language_fields %writable_tags_fields add_tags_to_field compute_field_tags/;
+use ProductOpener::URL qw(format_subdomain);
 
 use Encode;
 
@@ -264,11 +266,17 @@ sub update_product_fields ($request_ref, $product_ref, $response_ref) {
 
 	my $request_body_ref = $request_ref->{body_json};
 
-	$request_ref->{updated_product_fields} = {};
+	if (not exists $request_ref->{updated_product_fields}) {
+		$request_ref->{updated_product_fields} = {};
+	}
 
 	my $input_product_ref = $request_body_ref->{product};
 
 	foreach my $field (sort keys %{$input_product_ref}) {
+
+		# new_code and product_type have been handled previously,
+		# as we do not process the write requests if there is an error with a change of code or product type
+		next if $field =~ /^(new_code|product_type)$/;
 
 		my $value = $input_product_ref->{$field};
 
@@ -430,6 +438,15 @@ sub write_product_api ($request_ref) {
 			$product_ref = init_product($User_id, $Org_id, $code, $country);
 			$product_ref->{interface_version_created} = "20221102/api/v3";
 		}
+		else {
+			# There is an existing product
+			# If the product has a product_type and it is not the product_type of the server, redirect to the correct server
+
+			if ((defined $product_ref->{product_type}) and ($product_ref->{product_type} ne $options{product_type})) {
+				redirect_to_url($request_ref, 307,
+					format_subdomain($subdomain, $product_ref->{product_type}) . '/api/v3/product/' . $code);
+			}
+		}
 
 		# Use default request language if we did not get tags_lc
 		if (not defined $request_body_ref->{tags_lc}) {
@@ -465,21 +482,82 @@ sub write_product_api ($request_ref) {
 			);
 		}
 		else {
-			# Update the product
-			update_product_fields($request_ref, $product_ref, $response_ref);
 
-			# Process the product data
-			analyze_and_enrich_product_data($product_ref, $response_ref);
+			# Change of code
+			if (    (defined $request_body_ref->{product}{code})
+				and ($product_ref->{code} ne $request_body_ref->{product}{code}))
+			{
 
-			# Save the product
-			if ($code ne "test") {
-				my $comment = $request_body_ref->{comment} || "API v3";
-				store_product($User_id, $product_ref, $comment);
+				if (check_user_permission($request_ref, $response_ref, "product_change_code")) {
+
+					my $change_product_code_error
+						= change_product_code($product_ref, $request_body_ref->{product}{code});
+					if ($change_product_code_error) {
+						add_error(
+							$response_ref,
+							{
+								message => {id => $error},
+								field => {id => "new_code"},
+								impact => {id => "failure"},
+							}
+						);
+						$error = 1;
+					}
+					else {
+						$code = $product_ref->{code};
+					}
+				}
+				else {
+					$error = 1;
+				}
 			}
 
-			# Select / compute only the fields requested by the caller, default to updated fields
-			$response_ref->{product} = customize_response_for_product($request_ref, $product_ref,
-				request_param($request_ref, 'fields') || "updated");
+			# Change of product type
+			if (    (defined $request_body_ref->{product}{product_type})
+				and ($product_ref->{product_type} ne $request_body_ref->{product}{product_type}))
+			{
+
+				if (check_user_permission($request_ref, $response_ref, "product_change_product_type")) {
+
+					my $change_product_type_error
+						= change_product_type($product_ref, $request_body_ref->{product}{product_type});
+					if ($change_product_type_error) {
+						add_error(
+							$response_ref,
+							{
+								message => {id => $error},
+								field => {id => "product_type"},
+								impact => {id => "failure"},
+							}
+						);
+						$error = 1;
+					}
+					else {
+						$request_ref->{updated_product_fields}{product_type} = 1;
+					}
+				}
+				else {
+					$error = 1;
+				}
+			}
+
+			if (not $error) {
+				# Update the product
+				update_product_fields($request_ref, $product_ref, $response_ref);
+
+				# Process the product data
+				analyze_and_enrich_product_data($product_ref, $response_ref);
+
+				# Save the product
+				if ($code ne "test") {
+					my $comment = $request_body_ref->{comment} || "API v3";
+					store_product($User_id, $product_ref, $comment);
+				}
+
+				# Select / compute only the fields requested by the caller, default to updated fields
+				$response_ref->{product} = customize_response_for_product($request_ref, $product_ref,
+					request_param($request_ref, 'fields') || "updated");
+			}
 		}
 	}
 

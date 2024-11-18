@@ -56,7 +56,7 @@ use ProductOpener::Ecoscore qw/:all/;
 use ProductOpener::Packaging qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
-use ProductOpener::API qw/get_initialized_response/;
+use ProductOpener::API qw/get_initialized_response check_user_permission/;
 use ProductOpener::APIProductWrite qw/skip_protected_field/;
 
 use Apache2::RequestRec ();
@@ -113,6 +113,15 @@ else {
 	if (not defined $product_ref) {
 		$product_ref = init_product($User_id, $Org_id, $code, $country);
 		$product_ref->{interface_version_created} = $interface_version;
+	}
+	else {
+		# There is an existing product
+		# If the product has a product_type and it is not the product_type of the server, redirect to the correct server
+
+		if ((defined $product_ref->{product_type}) and ($product_ref->{product_type} ne $options{product_type})) {
+			redirect_to_url($request_ref, 307,
+				format_subdomain($subdomain, $product_ref->{product_type}) . '/cgi/product_jqm.pl?code=' . $code);
+		}
 	}
 
 	# Process edit rules
@@ -219,23 +228,44 @@ else {
 		}
 	}
 
-	# 26/01/2017 - disallow barcode changes until we fix bug #677
-	if ($User{moderator} and (defined single_param('new_code'))) {
+	# Change code or product type
 
-		change_product_server_or_code($product_ref, single_param('new_code'), \@errors);
-		$code = $product_ref->{code};
+	if (defined single_param('new_code')) {
 
-		if ($#errors >= 0) {
-			$response{status} = 0;
-			$response{status_verbose} = 'new code is invalid';
+		if (check_user_permission($request_ref, $response_ref, "product_change_code")) {
 
-			my $data = encode_json(\%response);
-
-			write_cors_headers();
-			print header(-type => 'application/json', -charset => 'utf-8') . $data;
-
-			exit(0);
+			push @errors, change_product_code($product_ref, single_param('new_code'));
+			$code = $product_ref->{code};
 		}
+		else {
+			push @errors, "No permission: product_change_code";
+		}
+	}
+
+	if (    (defined single_param("product_type"))
+		and ($product_ref->{product_type} ne single_param("product_type")))
+	{
+
+		if (check_user_permission($request_ref, $response_ref, "product_change_product_type")) {
+
+			push @errors, change_product_type($product_ref, single_param("product_type"));
+		}
+		else {
+			push @errors, "No permission: product_change_product_type";
+		}
+	}
+
+	# Display an error message and exit if we have a fatal error (no permission to change barcode or product type, or invalid barcode or product type)
+	if ($#errors >= 0) {
+		$response{status} = 0;
+		$response{status_verbose} = join(",", @errors);
+
+		my $data = encode_json(\%response);
+
+		write_cors_headers();
+		print header(-type => 'application/json', -charset => 'utf-8') . $data;
+
+		exit(0);
 	}
 
 	#my @app_fields = qw(product_name brands quantity);
