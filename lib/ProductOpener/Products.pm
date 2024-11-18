@@ -106,7 +106,8 @@ BEGIN {
 		&product_data_is_protected
 
 		&make_sure_numbers_are_stored_as_numbers
-		&change_product_server_or_code
+		&change_product_code
+		&change_product_type
 
 		&find_and_replace_user_id_in_products
 
@@ -1022,49 +1023,88 @@ sub retrieve_product_rev ($product_id, $rev, $include_deleted = 0) {
 	return $product_ref;
 }
 
-sub change_product_server_or_code ($product_ref, $new_code, $errors_ref) {
+=head2 change_product_code ($product_ref, $new_code)
 
-	# Currently only called by admins, can cause issues because of bug #677
+Utility function to change the barcode of a product.
+Fails and returns an error if the code is invalid, or if there is already a product with the new code.
+
+=head3 Parameters
+
+=head4 $product_ref
+
+=head4 $new_code
+
+=head3 Return value
+
+If successful: undef
+If there was an error: invalid_code or new_code_already_exists
+
+=cut
+
+sub change_product_code ($product_ref, $new_code) {
+
+	# Currently only called by admins and moderators
 
 	my $code = $product_ref->{code};
-	my $new_server = "";
-	my $new_data_root = $data_root;
-
-	if ($new_code =~ /^([a-z]+)$/) {
-		$new_server = $1;
-		if (    (defined $options{other_servers})
-			and (defined $options{other_servers}{$new_server})
-			and ($options{other_servers}{$new_server}{data_root} ne $data_root))
-		{
-			$new_code = $code;
-			$new_data_root = $options{other_servers}{$new_server}{data_root};
-		}
-	}
 
 	$new_code = normalize_code($new_code);
 	if (not is_valid_code($new_code)) {
-		push @$errors_ref, lang("invalid_barcode");
+		return "invalid_code";
 	}
 	else {
 		# check that the new code is available
-		if (-e "$new_data_root/products/" . product_path_from_id($new_code)) {
-			push @{$errors_ref}, lang("error_new_code_already_exists");
-			$log->warn(
-				"cannot change product code, because the new code already exists",
-				{code => $code, new_code => $new_code, new_server => $new_server}
-			) if $log->is_warn();
+		if (-e "$data_root/products/" . product_path_from_id($new_code) . "/product.sto") {
+			$log->warn("cannot change product code, because the new code already exists",
+				{code => $code, new_code => $new_code})
+				if $log->is_warn();
+			return "error_new_code_already_exists";
 		}
 		else {
 			$product_ref->{old_code} = $code;
 			$code = $new_code;
 			$product_ref->{code} = $code;
-			if ($new_server ne '') {
-				$product_ref->{new_server} = $new_server;
-			}
-			$log->info("changing code",
-				{old_code => $product_ref->{old_code}, code => $code, new_server => $new_server})
+			$log->info("changing code", {old_code => $product_ref->{old_code}, code => $code})
 				if $log->is_info();
 		}
+	}
+
+	return;
+}
+
+=head2 change_product_type ($product_ref, $new_product_type)
+
+Utility function to change the product type of a product.
+Fails and returns an error if the product type is invalid.
+
+=head3 Parameters
+
+=head4 $product_ref
+
+=head4 $new_product_type
+
+=head3 Return value
+
+If successful: undef
+If there was an error: invalid_product_type
+
+=cut
+
+sub change_product_type ($product_ref, $new_product_type) {
+
+	# Currently only called by admins and moderators
+
+	my $product_type = $product_ref->{product_type};
+
+	# Return if the product type is already the new product type, or if the new product type is not defined
+	if ((not defined $new_product_type) or ((not defined $options{product_types_flavors}{$new_product_type}))) {
+		return "invalid_product_type";
+	}
+	elsif ($product_type ne $new_product_type) {
+		$product_ref->{old_product_type} = $product_type;
+		$product_ref->{product_type} = $new_product_type;
+		$log->info("changing product type",
+			{old_product_type => $product_ref->{old_product_type}, product_type => $new_product_type})
+			if $log->is_info();
 	}
 
 	return;
@@ -1163,22 +1203,60 @@ sub store_product ($user_id, $product_ref, $comment) {
 		}
 	) if $log->is_debug();
 
-	# In case we need to move a product from OFF to OBF etc.
-	# the "new_server" value will be set to off, obf etc.
-	# we first move the existing files (product and images)
-	# and then store the product with a comment.
+	my $delete_from_previous_products_collection = 0;
 
 	# if we have a "server" value (e.g. from an import),
 	# we save the product on the corresponding server but we don't need to move an existing product
+	if (defined $product_ref->{server}) {
+		my $new_server = $product_ref->{server};
+		# Update the product_type from the server
+		if (defined $options{flavors_product_types}{$new_server}) {
+			my $errors_ref = [];
+			change_product_type($product_ref, $options{flavors_product_types}{$new_server}, $errors_ref);
+			# Log if we have an error
+			if (scalar(@{$errors_ref}) > 0) {
+				$log->error(
+					"store_product - change_product_type - errors",
+					{errors => $errors_ref, product_ref => $product_ref}
+				);
+			}
+		}
+		delete $product_ref->{server};
+	}
 
-	my $new_data_root = $data_root;
-	my $new_www_root = $www_root;
+	# In case we need to move a product from OFF to OBF etc.
+	# we will have a old_product_type field
+
+	# Get the previous server and collection for the product
+	my $previous_server
+		= $options{product_types_flavors}{$product_ref->{old_product_type}
+			|| $product_ref->{product_type}
+			|| $options{product_type}};
 
 	# We use the was_obsolete flag so that we can remove the product from its old collection
 	# (either products or products_obsolete) if its obsolete status has changed
-	my $previous_products_collection = get_products_collection({obsolete => $product_ref->{was_obsolete}});
-	my $new_products_collection = get_products_collection({obsolete => $product_ref->{obsolete}});
-	my $delete_from_previous_products_collection = 0;
+	my $previous_products_collection = get_products_collection(
+		{database => $options{other_servers}{$previous_server}{mongodb}, obsolete => $product_ref->{was_obsolete}});
+
+	# Change of product type
+	if (defined $product_ref->{old_product_type}) {
+		$log->info("changing product type",
+			{old_product_type => $product_ref->{old_product_type}, product_type => $product_ref->{product_type}})
+			if $log->is_info();
+		$delete_from_previous_products_collection = 1;
+		delete $product_ref->{old_product_type};
+	}
+
+	# Get the server and collection for the product that we will write
+	my $new_server = $options{product_types_flavors}{$product_ref->{product_type} || $options{product_type}};
+	my $new_products_collection = get_products_collection(
+		{database => $options{other_servers}{$new_server}{mongodb}, obsolete => $product_ref->{obsolete}});
+
+	if ($previous_server ne $new_server) {
+		$log->info("changing server", {old_server => $previous_server, new_server => $new_server, code => $code})
+			if $log->is_info();
+		$delete_from_previous_products_collection = 1;
+	}
 
 	# the obsolete (and was_obsolete) field is either undef or an empty string, or contains "on"
 	if (   ($product_ref->{was_obsolete} and not $product_ref->{obsolete})
@@ -1204,36 +1282,17 @@ sub store_product ($user_id, $product_ref, $comment) {
 			$action = "unarchived";
 		}
 	}
+
 	delete $product_ref->{was_obsolete};
 
-	if (    (defined $product_ref->{server})
-		and (defined $options{other_servers})
-		and (defined $options{other_servers}{$product_ref->{server}}))
-	{
-		my $server = $product_ref->{server};
-		$new_data_root = $options{other_servers}{$server}{data_root};
-		$new_www_root = $options{other_servers}{$server}{www_root};
-		$new_products_collection = get_products_collection(
-			{database => $options{other_servers}{$server}{mongodb}, obsolete => $product_ref->{obsolete}});
-	}
-
+	# Change of barcode
 	if (defined $product_ref->{old_code}) {
 
 		my $old_code = $product_ref->{old_code};
 		my $old_product_id = product_id_for_owner($Owner_id, $old_code);
 		my $old_path = product_path_from_id($old_product_id);
 
-		if (defined $product_ref->{new_server}) {
-			my $new_server = $product_ref->{new_server};
-			$new_data_root = $options{other_servers}{$new_server}{data_root};
-			$new_www_root = $options{other_servers}{$new_server}{www_root};
-			$new_products_collection = get_products_collection(
-				{database => $options{other_servers}{$new_server}{mongodb}, obsolete => $product_ref->{obsolete}});
-			$product_ref->{server} = $product_ref->{new_server};
-			delete $product_ref->{new_server};
-		}
-
-		$log->info("moving product", {old_code => $old_code, code => $code, new_data_root => $new_data_root})
+		$log->info("moving product", {old_code => $old_code, code => $code})
 			if $log->is_info();
 
 		# Move directory
@@ -1247,15 +1306,15 @@ sub store_product ($user_id, $product_ref, $comment) {
 
 		$log->debug("creating product directories", {path => $path, prefix_path => $prefix_path}) if $log->is_debug();
 		# Create the directories for the product
-		ensure_dir_created_or_die("$new_data_root/products/$prefix_path");
-		ensure_dir_created_or_die("$new_www_root/images/products/$prefix_path");
+		ensure_dir_created_or_die("$data_root/products/$prefix_path");
+		ensure_dir_created_or_die("$www_root/images/products/$prefix_path");
 
 		# Check if we are updating the product in place:
 		# the code changed, but it is the same path
 		# this can happen if the path is already normalized, but the code is not
 		# in that case we just want to update the code, and remove the old one from MongoDB
 		# we don't need to move the directories
-		if ("$BASE_DIRS{PRODUCTS}/$old_path" eq "$new_data_root/products/$path") {
+		if ("$BASE_DIRS{PRODUCTS}/$old_path" eq "$data_root/products/$path") {
 			$log->debug("updating product code in place", {old_code => $old_code, code => $code}) if $log->is_debug();
 			delete $product_ref->{old_code};
 			# remove the old product from the previous collection
@@ -1269,8 +1328,8 @@ sub store_product ($user_id, $product_ref, $comment) {
 			$product_ref->{_id} = $product_ref->{code} . '';    # treat id as string;
 		}
 
-		if (    (!-e "$new_data_root/products/$path")
-			and (!-e "$new_www_root/images/products/$path"))
+		if (    (!-e "$data_root/products/$path")
+			and (!-e "$www_root/images/products/$path"))
 		{
 			# File::Copy move() is intended to move files, not
 			# directories. It does work on directories if the
@@ -1289,7 +1348,7 @@ sub store_product ($user_id, $product_ref, $comment) {
 			$log->debug("moving product data",
 				{source => "$BASE_DIRS{PRODUCTS}/$old_path", destination => "$BASE_DIRS{PRODUCTS}/$path"})
 				if $log->is_debug();
-			dirmove("$BASE_DIRS{PRODUCTS}/$old_path", "$new_data_root/products/$path")
+			dirmove("$BASE_DIRS{PRODUCTS}/$old_path", "$data_root/products/$path")
 				or $log->error(
 				"could not move product data",
 				{
@@ -1303,15 +1362,15 @@ sub store_product ($user_id, $product_ref, $comment) {
 				"moving product images",
 				{
 					source => "$BASE_DIRS{PRODUCTS_IMAGES}/$old_path",
-					destination => "$new_www_root/images/products/$path"
+					destination => "$www_root/images/products/$path"
 				}
 			) if $log->is_debug();
-			dirmove("$BASE_DIRS{PRODUCTS_IMAGES}/$old_path", "$new_www_root/images/products/$path")
+			dirmove("$BASE_DIRS{PRODUCTS_IMAGES}/$old_path", "$www_root/images/products/$path")
 				or $log->error(
 				"could not move product images",
 				{
 					source => "$BASE_DIRS{PRODUCTS_IMAGES}/$old_path",
-					destination => "$new_www_root/images/products/$path",
+					destination => "$www_root/images/products/$path",
 					error => $!
 				}
 				);
@@ -1329,15 +1388,15 @@ sub store_product ($user_id, $product_ref, $comment) {
 
 		}
 		else {
-			(-e "$new_data_root/products/$path")
+			(-e "$data_root/products/$path")
 				and $log->error("cannot move product data, because the destination already exists",
 				{source => "$BASE_DIRS{PRODUCTS}/$old_path", destination => "$BASE_DIRS{PRODUCTS}/$path"});
-			(-e "$new_www_root/products/$path")
+			(-e "$www_root/products/$path")
 				and $log->error(
 				"cannot move product images data, because the destination already exists",
 				{
 					source => "$BASE_DIRS{PRODUCTS_IMAGES}/$old_path",
-					destination => "$new_www_root/images/products/$path"
+					destination => "$www_root/images/products/$path"
 				}
 				);
 		}
@@ -1347,12 +1406,12 @@ sub store_product ($user_id, $product_ref, $comment) {
 
 	if ($rev < 1) {
 		# Create the directories for the product
-		ensure_dir_created_or_die("$new_data_root/products/$path");
-		ensure_dir_created_or_die("$new_www_root/images/products/$path");
+		ensure_dir_created_or_die("$data_root/products/$path");
+		ensure_dir_created_or_die("$www_root/images/products/$path");
 	}
 
 	# Check lock and previous version
-	my $changes_ref = retrieve("$new_data_root/products/$path/changes.sto");
+	my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
 	if (not defined $changes_ref) {
 		$changes_ref = [];
 	}
@@ -1431,7 +1490,7 @@ sub store_product ($user_id, $product_ref, $comment) {
 
 	my $blame_ref = {};
 
-	compute_product_history_and_completeness($new_data_root, $product_ref, $changes_ref, $blame_ref);
+	compute_product_history_and_completeness($product_ref, $changes_ref, $blame_ref);
 
 	compute_data_sources($product_ref, $changes_ref);
 
@@ -1473,7 +1532,7 @@ sub store_product ($user_id, $product_ref, $comment) {
 	}
 
 	# First store the product data in a .sto file on disk
-	store("$new_data_root/products/$path/$rev.sto", $product_ref);
+	store("$data_root/products/$path/$rev.sto", $product_ref);
 
 	# Also store the product in MongoDB, unless it was marked as deleted
 	if ($product_ref->{deleted}) {
@@ -1489,16 +1548,16 @@ sub store_product ($user_id, $product_ref, $comment) {
 	}
 
 	# Update link
-	my $link = "$new_data_root/products/$path/product.sto";
+	my $link = "$data_root/products/$path/product.sto";
 	if (-l $link) {
 		unlink($link) or $log->error("could not unlink old product.sto", {link => $link, error => $!});
 	}
 
 	symlink("$rev.sto", $link)
 		or $log->error("could not symlink to new revision",
-		{source => "$new_data_root/products/$path/$rev.sto", link => $link, error => $!});
+		{source => "$data_root/products/$path/$rev.sto", link => $link, error => $!});
 
-	store("$new_data_root/products/$path/changes.sto", $changes_ref);
+	store("$data_root/products/$path/changes.sto", $changes_ref);
 	log_change($product_ref, $change_ref);
 
 	$log->debug("store_product - done", {code => $code, product_id => $product_id}) if $log->is_debug();
@@ -2163,7 +2222,7 @@ sub record_user_edit_type ($users_ref, $user_type, $user_id) {
 	return;
 }
 
-sub compute_product_history_and_completeness ($product_data_root, $current_product_ref, $changes_ref, $blame_ref) {
+sub compute_product_history_and_completeness ($current_product_ref, $changes_ref, $blame_ref) {
 
 	my $code = $current_product_ref->{code};
 	my $product_id = $current_product_ref->{_id};
@@ -2213,13 +2272,13 @@ sub compute_product_history_and_completeness ($product_data_root, $current_produ
 	# Read all previous versions to see which fields have been added or edited
 
 	my @fields = (
-		'code', 'lang',
-		'product_name', 'generic_name',
-		@ProductOpener::Config::product_fields, @ProductOpener::Config::product_other_fields,
-		'no_nutrition_data', 'nutrition_data_per',
-		'nutrition_data_prepared_per', 'serving_size',
-		'allergens', 'traces',
-		'ingredients_text'
+		'product_type', 'code',
+		'lang', 'product_name',
+		'generic_name', @ProductOpener::Config::product_fields,
+		@ProductOpener::Config::product_other_fields, 'no_nutrition_data',
+		'nutrition_data_per', 'nutrition_data_prepared_per',
+		'serving_size', 'allergens',
+		'traces', 'ingredients_text'
 	);
 
 	my %previous = (uploaded_images => {}, selected_images => {}, fields => {}, nutriments => {});
@@ -2247,7 +2306,7 @@ sub compute_product_history_and_completeness ($product_data_root, $current_produ
 		if (not defined $rev) {
 			$rev = $revs;    # was not set before June 2012
 		}
-		my $product_ref = retrieve("$product_data_root/products/$path/$rev.sto");
+		my $product_ref = retrieve("$data_root/products/$path/$rev.sto");
 
 		# if not found, we may be be updating the product, with the latest rev not set yet
 		if ((not defined $product_ref) or ($rev == $current_product_ref->{rev})) {
