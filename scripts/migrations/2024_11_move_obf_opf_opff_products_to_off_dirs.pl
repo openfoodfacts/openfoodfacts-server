@@ -112,7 +112,7 @@ sub move_product_dir_to_off ($dir, $dir2, $dir3, $dir4) {
 		ensure_dir_created_or_die("/srv/off/html/images/products/$dir/$dir2/$dir3");
 		# if there is an existing off directory for this product, move it to deleted-off-products-codes-replaced-by-other-flavors
 		if (-e "/srv/off/html/images/products/$dir/$dir2/$dir3/$dir4") {
-            print STDERR "moving existing product images on OFF\n";
+			print STDERR "moving existing product images on OFF\n";
 			if (
 				dirmove(
 					"/srv/off/html/images/products/$dir/$dir2/$dir3/$dir4",

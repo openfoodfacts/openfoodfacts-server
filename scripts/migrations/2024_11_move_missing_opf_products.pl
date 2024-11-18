@@ -93,7 +93,8 @@ $BASE_DIRS{OFF_PRODUCTS_IMAGES} = "/srv/off/html/images/products";
 
 sub move_product_dir_to_off ($dir, $dir2, $dir3, $dir4) {
 	# move .sto files
-	print STDERR "moving /srv/opf/products/other-flavors-codes/$dir$dir2$dir3$dir4 to /srv/off/products/$dir/$dir2/$dir3/$dir4\n";
+	print STDERR
+		"moving /srv/opf/products/other-flavors-codes/$dir$dir2$dir3$dir4 to /srv/off/products/$dir/$dir2/$dir3/$dir4\n";
 	#ensure_dir_created_or_die("/srv/off/products/$dir/$dir2/$dir3");
 	# if there is an existing off directory for this product, move it to deleted-off-products-codes-replaced-by-other-flavors
 	if (0 and -e "/srv/off/products/$dir/$dir2/$dir3/$dir4") {
@@ -115,8 +116,14 @@ sub move_product_dir_to_off ($dir, $dir2, $dir3, $dir4) {
 		}
 	}
 	# move the directory to /srv/off/products
-	if (dirmove("/srv/opf/products/other-flavors-codes/$dir$dir2$dir3$dir4", "/srv/off/products/$dir/$dir2/$dir3/$dir4")) {
-		print STDERR "moved /srv/opf/products/other-flavors-codes/$dir$dir2$dir3$dir4 to /srv/off/products/$dir/$dir2/$dir3/$dir4\n";
+	if (
+		dirmove(
+			"/srv/opf/products/other-flavors-codes/$dir$dir2$dir3$dir4", "/srv/off/products/$dir/$dir2/$dir3/$dir4"
+		)
+		)
+	{
+		print STDERR
+			"moved /srv/opf/products/other-flavors-codes/$dir$dir2$dir3$dir4 to /srv/off/products/$dir/$dir2/$dir3/$dir4\n";
 	}
 	else {
 		print STDERR
@@ -130,7 +137,7 @@ sub move_product_dir_to_off ($dir, $dir2, $dir3, $dir4) {
 		#ensure_dir_created_or_die("/srv/off/html/images/products/$dir/$dir2/$dir3");
 		# if there is an existing off directory for this product, move it to deleted-off-products-codes-replaced-by-other-flavors
 		if (0 and -e "/srv/off/html/images/products/$dir/$dir2/$dir3/$dir4") {
-            print STDERR "moving existing product images on OFF\n";
+			print STDERR "moving existing product images on OFF\n";
 			if (
 				dirmove(
 					"/srv/off/html/images/products/$dir/$dir2/$dir3/$dir4",
