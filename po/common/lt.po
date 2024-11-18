@@ -6519,6 +6519,10 @@ msgctxt "api_result_product_not_found"
 msgid "Product not found"
 msgstr "Prekė nerasta"
 
+msgctxt "api_result_product_found_with_a_different_product_type"
+msgid "Product found with a different product type"
+msgstr ""
+
 msgctxt "api_result_product_updated"
 msgid "Product updated"
 msgstr "Produktas atnaujintas"
@@ -6542,6 +6546,10 @@ msgstr "Netinkamas JSON užklausos tekste"
 msgctxt "api_message_invalid_code"
 msgid "Invalid code"
 msgstr "Neteisingas kodas"
+
+msgctxt "api_message_invalid_product_type"
+msgid "Invalid product type"
+msgstr ""
 
 msgctxt "api_message_invalid_type_must_be_object"
 msgid "Invalid type: must be an object"
@@ -7236,4 +7244,28 @@ msgstr "Prastas taisomumas"
 msgctxt "attribute_repairability_index_france_bad_description_short"
 msgid "Bad repairability"
 msgstr "Blogas taisomumas"
+
+msgctxt "product_type"
+msgid "Product type"
+msgstr ""
+
+# Food product type
+msgctxt "product_type_food"
+msgid "Food"
+msgstr ""
+
+# Pet food product type
+msgctxt "product_type_petfood"
+msgid "Pet food"
+msgstr ""
+
+# Beauty product type
+msgctxt "product_type_beauty"
+msgid "Beauty"
+msgstr ""
+
+# General product product type
+msgctxt "product_type_product"
+msgid "Product"
+msgstr "Produktas"
 
