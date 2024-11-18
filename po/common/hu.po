@@ -17,7 +17,7 @@ msgstr ""
 
 msgctxt "site_description_off"
 msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
-msgstr ""
+msgstr "A világ minden tájáról származó élelmiszerek összetevőinek, tápértékadatainak és információnak együttműködésen alapuló, nyílt és ingyenes adatbázisa"
 
 msgctxt "tagline_off"
 msgid "Open Food Facts gathers information and data on food products from around the world."
@@ -95,7 +95,7 @@ msgstr "Rólunk"
 
 msgctxt "add"
 msgid "Add"
-msgstr "Hozzáad"
+msgstr "Hozzáadás"
 
 msgctxt "add_language"
 msgid "Add language"
@@ -904,7 +904,7 @@ msgstr "/press"
 
 msgctxt "footer_terms"
 msgid "Terms of use"
-msgstr "Felhasználási feltételek (ToU) (angolul)"
+msgstr "Felhasználási feltételek"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_terms_link"
@@ -2142,7 +2142,7 @@ msgstr "Válassza ki a termékeket bizonyos márkanevek, kategóriák, címkék,
 
 msgctxt "search_description_opensearch"
 msgid "Product search"
-msgstr ""
+msgstr "Termék keresése"
 
 msgctxt "search_does_not_contain"
 msgid "does not contain"
@@ -2624,7 +2624,7 @@ msgstr "nézet"
 
 msgctxt "view_this_revision"
 msgid "View this revision"
-msgstr ""
+msgstr "Változat megtekintése"
 
 msgctxt "view_list_for_products_from_the_entire_world"
 msgid "View the list for matching products from the entire world"
@@ -4594,7 +4594,7 @@ msgstr "Nutri-Score %s"
 
 msgctxt "attribute_nutriscore_unknown_title"
 msgid "Nutri-Score unknown"
-msgstr ""
+msgstr "Ismeretlen Nutri-Score"
 
 msgctxt "attribute_nutriscore_unknown_description_short"
 msgid "Missing data to compute the Nutri-Score"
@@ -5031,15 +5031,15 @@ msgstr "Jelenleg kiválasztott beállítások"
 
 msgctxt "preferences_locally_saved"
 msgid "Your preferences are kept in your browser and never sent to Open Food Facts or anyone else."
-msgstr ""
+msgstr "A preferenciáit a böngészője tárolja, és soha nem küldi el az OpenFoodFacts vagy bárki más számára."
 
 msgctxt "preferences_edit_your_preferences"
 msgid "Edit your preferences"
-msgstr ""
+msgstr "Saját preferenciák szerkesztése"
 
 msgctxt "preferences_your_preferences"
 msgid "Your preferences"
-msgstr ""
+msgstr "Preferenciáim"
 
 # used in phrases like "salt in unknown quantity"
 msgctxt "unknown_quantity"
@@ -6489,7 +6489,7 @@ msgstr ""
 
 msgctxt "nutrition"
 msgid "Nutrition"
-msgstr "Tápanyag"
+msgstr "Tápérték"
 
 # Note: "criteria" is plural here. So in French for instance: "Vos critères"
 msgctxt "your_criteria"
