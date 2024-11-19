@@ -2833,7 +2833,7 @@ my %actions_urls = (
 	report_product_to_nutripatrol => "$nutripatrol_url/flag/product/?barcode=PRODUCT_CODE&source=web&flavor=$flavor"
 );
 
-sub product_action_url ($code, $action="edit_product") {
+sub product_action_url ($code, $action = "edit_product") {
 
 	my $url;
 	if (defined $actions_urls{$action}) {
