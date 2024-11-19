@@ -1,8 +1,11 @@
-openapi: 3.1.0
 components:
   schemas:
     # Reusable base definitions
     NutriscoreGrade:
+      description: |
+        Nutri-Score for the product as a letter.
+
+        See https://world.openfoodfacts.org/nutriscore.
       type: string
       enum: ["a", "b", "c", "d", "e"]
 
@@ -309,6 +312,8 @@ components:
           $ref: "#/components/schemas/NutriscoreGrade"
           examples: ["d"]
         nutriscore_score:
+          description: |
+            Nutri-Score for the product as an integer (see also `nutriscore_grade`).
           type: integer
           examples: [13]
         nutriscore_score_opposite:
