@@ -49,7 +49,7 @@ paths:
             type: string
             examples:
               - "3017620422003"
-        - $ref: "#/components/parameters/requested_product_type"
+        - $ref: "#/components/parameters/product_type"
         - $ref: "#/components/parameters/fields"
       responses:
         "200":
@@ -581,6 +581,8 @@ components:
       name: code
       description: Barcode of the product
       required: true
+    product_type:
+      $ref: ./parameters/requested_product_type.yaml#/components/parameters/RequestedProductType
     process_image:
       schema:
         type: string
