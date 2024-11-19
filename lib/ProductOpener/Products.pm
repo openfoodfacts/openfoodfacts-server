@@ -71,14 +71,11 @@ BEGIN {
 		&assign_new_code
 		&product_id_for_owner
 		&server_for_product_id
-		&data_root_for_product_id
-		&www_root_for_product_id
 		&split_code
 		&product_path
 		&product_path_from_id
 		&product_id_from_path
 		&product_exists
-		&product_exists_on_other_server
 		&get_owner_id
 		&init_product
 		&retrieve_product
@@ -452,41 +449,7 @@ Example: 1234567890123  :-  123/456/789/0123
 
 =cut
 
-# We temporarily keep the old split_code() so that during the migration,
-# we can check if the old path exists (in which case we use it) and if not, we use the new path.
-sub old_split_code ($code) {
-
-	# Require at least 4 digits (some stores use very short internal barcodes, they are likely to be conflicting)
-	if (not is_valid_code($code)) {
-
-		$log->info("invalid code", {code => $code}) if $log->is_info();
-		return "invalid";
-	}
-
-	# First splits into 3 sections of 3 numbers and the last section with the remaining numbers
-	my $path = $code;
-	# Remove leading 0s that were added to normalize the code
-	$code =~ s/^0+//;
-	if ($code =~ /^(.{3})(.{3})(.{3})(.*)$/) {
-		$path = "$1/$2/$3/$4";
-	}
-	return $path;
-}
-
 sub split_code ($code) {
-
-	# TODO: remove old_split_code() once all products have been migrated to the new path
-	my $old_path = old_split_code($code);
-	# If the old path exists, the product has not been migrated yet, so we use the old path
-	# Note: this does not work on the pro platform, as we are missing the org-id component of the path.
-	if (-e "$BASE_DIRS{PRODUCTS}/$old_path/product.sto") {
-		$log->debug("old_split_code path exists, using old path", {code => $code, old_path => $old_path})
-			if $log->is_debug();
-		return $old_path;
-	}
-	else {
-		$log->debug("old_split_code path does not exist", {code => $code, old_path => $old_path}) if $log->is_debug();
-	}
 
 	# Require at least 4 digits (some stores use very short internal barcodes, they are likely to be conflicting)
 	if (not is_valid_code($code)) {
@@ -582,66 +545,6 @@ sub server_for_product_id ($product_id) {
 	}
 
 	return;
-}
-
-=head2 data_root_for_product_id ( $product_id )
-
-Returns the data root for the product, possibly on another server.
-
-=head3 Parameters
-
-=head4 $product_id
-
-Product id of the form [code], [owner-id]/[code], or [server-id]:[code]
-
-=head3 Return values
-
-The data root for the product.
-
-=cut
-
-sub data_root_for_product_id ($product_id) {
-
-	if ($product_id =~ /:/) {
-
-		my $server = $`;
-
-		if ((defined $options{other_servers}) and (defined $options{other_servers}{$server})) {
-			return $options{other_servers}{$server}{data_root};
-		}
-	}
-
-	return $data_root;
-}
-
-=head2 www_root_for_product_id ( $product_id )
-
-Returns the www root for the product, possibly on another server.
-
-=head3 Parameters
-
-=head4 $product_id
-
-Product id of the form [code], [owner-id]/[code], or [server-id]:[code]
-
-=head3 Return values
-
-The www root for the product.
-
-=cut
-
-sub www_root_for_product_id ($product_id) {
-
-	if ($product_id =~ /:/) {
-
-		my $server = $`;
-
-		if ((defined $options{other_servers}) and (defined $options{other_servers}{$server})) {
-			return $options{other_servers}{$server}{www_root};
-		}
-	}
-
-	return $www_root;
 }
 
 =head2 product_path_from_id ( $product_id )
@@ -741,35 +644,6 @@ sub product_exists ($product_id) {
 	}
 	else {
 		return $product_ref;
-	}
-}
-
-sub product_exists_on_other_server ($server, $id) {
-
-	if (not((defined $options{other_servers}) and (defined $options{other_servers}{$server}))) {
-		return 0;
-	}
-
-	my $server_data_root = $options{other_servers}{$server}{data_root};
-
-	my $path = product_path_from_id($id);
-
-	$log->debug("product_exists_on_other_server",
-		{id => $id, server => $server, server_data_root => $server_data_root, path => $path})
-		if $log->is_debug();
-
-	if (-e "$server_data_root/products/$path") {
-
-		my $product_ref = retrieve("$server_data_root/products/$path/product.sto");
-		if ((not defined $product_ref) or ($product_ref->{deleted})) {
-			return 0;
-		}
-		else {
-			return $product_ref;
-		}
-	}
-	else {
-		return 0;
 	}
 }
 
@@ -932,16 +806,13 @@ sub init_product ($userid, $orgid, $code, $countryid) {
 sub retrieve_product ($product_id, $include_deleted = 0) {
 
 	my $path = product_path_from_id($product_id);
-	my $product_data_root = data_root_for_product_id($product_id);
 
-	my $full_product_path = "$product_data_root/products/$path/product.sto";
+	my $full_product_path = "$BASE_DIRS{PRODUCTS}/$path/product.sto";
 
 	$log->debug(
 		"retrieve_product",
 		{
 			product_id => $product_id,
-			product_data_root => $product_data_root,
-			path => $path,
 			full_product_path => $full_product_path
 		}
 	) if $log->is_debug();
@@ -952,7 +823,7 @@ sub retrieve_product ($product_id, $include_deleted = 0) {
 
 	if (not defined $product_ref) {
 		$log->debug("retrieve_product - product does not exist",
-			{product_id => $product_id, product_data_root => $product_data_root, path => $path, server => $server})
+			{product_id => $product_id, path => $path, server => $server})
 			if $log->is_debug();
 	}
 	else {
@@ -961,7 +832,6 @@ sub retrieve_product ($product_id, $include_deleted = 0) {
 				"retrieve_product - deleted product",
 				{
 					product_id => $product_id,
-					product_data_root => $product_data_root,
 					path => $path,
 					server => $server
 				}
@@ -977,7 +847,6 @@ sub retrieve_product ($product_id, $include_deleted = 0) {
 				"retrieve_product - product on another server",
 				{
 					product_id => $product_id,
-					product_data_root => $product_data_root,
 					path => $path,
 					server => $server
 				}
@@ -999,9 +868,8 @@ sub retrieve_product_rev ($product_id, $rev, $include_deleted = 0) {
 	}
 
 	my $path = product_path_from_id($product_id);
-	my $product_data_root = data_root_for_product_id($product_id);
 
-	my $product_ref = retrieve("$product_data_root/products/$path/$rev.sto");
+	my $product_ref = retrieve("$BASE_DIRS{PRODUCTS}/products/$path/$rev.sto");
 
 	if (defined $product_ref) {
 
@@ -1053,7 +921,7 @@ sub change_product_code ($product_ref, $new_code) {
 	}
 	else {
 		# check that the new code is available
-		if (-e "$data_root/products/" . product_path_from_id($new_code) . "/product.sto") {
+		if (-e "$BASE_DIRS{PRODUCTS}/" . product_path_from_id($new_code) . "/product.sto") {
 			$log->warn("cannot change product code, because the new code already exists",
 				{code => $code, new_code => $new_code})
 				if $log->is_warn();
@@ -1306,15 +1174,15 @@ sub store_product ($user_id, $product_ref, $comment) {
 
 		$log->debug("creating product directories", {path => $path, prefix_path => $prefix_path}) if $log->is_debug();
 		# Create the directories for the product
-		ensure_dir_created_or_die("$data_root/products/$prefix_path");
-		ensure_dir_created_or_die("$www_root/images/products/$prefix_path");
+		ensure_dir_created_or_die("$BASE_DIRS{PRODUCTS}/$prefix_path");
+		ensure_dir_created_or_die("$BASE_DIRS{PRODUCTS_IMAGES}/$prefix_path");
 
 		# Check if we are updating the product in place:
 		# the code changed, but it is the same path
 		# this can happen if the path is already normalized, but the code is not
 		# in that case we just want to update the code, and remove the old one from MongoDB
 		# we don't need to move the directories
-		if ("$BASE_DIRS{PRODUCTS}/$old_path" eq "$data_root/products/$path") {
+		if ("$BASE_DIRS{PRODUCTS}/$old_path" eq "$BASE_DIRS{PRODUCTS}/$path") {
 			$log->debug("updating product code in place", {old_code => $old_code, code => $code}) if $log->is_debug();
 			delete $product_ref->{old_code};
 			# remove the old product from the previous collection
@@ -1328,8 +1196,8 @@ sub store_product ($user_id, $product_ref, $comment) {
 			$product_ref->{_id} = $product_ref->{code} . '';    # treat id as string;
 		}
 
-		if (    (!-e "$data_root/products/$path")
-			and (!-e "$www_root/images/products/$path"))
+		if (    (!-e "$BASE_DIRS{PRODUCTS}/$path")
+			and (!-e "$BASE_DIRS{PRODUCTS_IMAGES}/$path"))
 		{
 			# File::Copy move() is intended to move files, not
 			# directories. It does work on directories if the
@@ -1348,7 +1216,7 @@ sub store_product ($user_id, $product_ref, $comment) {
 			$log->debug("moving product data",
 				{source => "$BASE_DIRS{PRODUCTS}/$old_path", destination => "$BASE_DIRS{PRODUCTS}/$path"})
 				if $log->is_debug();
-			dirmove("$BASE_DIRS{PRODUCTS}/$old_path", "$data_root/products/$path")
+			dirmove("$BASE_DIRS{PRODUCTS}/$old_path", "$BASE_DIRS{PRODUCTS}/$path")
 				or $log->error(
 				"could not move product data",
 				{
@@ -1362,15 +1230,15 @@ sub store_product ($user_id, $product_ref, $comment) {
 				"moving product images",
 				{
 					source => "$BASE_DIRS{PRODUCTS_IMAGES}/$old_path",
-					destination => "$www_root/images/products/$path"
+					destination => "$BASE_DIRS{PRODUCTS_IMAGES}/$path"
 				}
 			) if $log->is_debug();
-			dirmove("$BASE_DIRS{PRODUCTS_IMAGES}/$old_path", "$www_root/images/products/$path")
+			dirmove("$BASE_DIRS{PRODUCTS_IMAGES}/$old_path", "$BASE_DIRS{PRODUCTS_IMAGES}/$path")
 				or $log->error(
 				"could not move product images",
 				{
 					source => "$BASE_DIRS{PRODUCTS_IMAGES}/$old_path",
-					destination => "$www_root/images/products/$path",
+					destination => "$BASE_DIRS{PRODUCTS_IMAGES}/$path",
 					error => $!
 				}
 				);
@@ -1388,15 +1256,15 @@ sub store_product ($user_id, $product_ref, $comment) {
 
 		}
 		else {
-			(-e "$data_root/products/$path")
+			(-e "$BASE_DIRS{PRODUCTS}/$path")
 				and $log->error("cannot move product data, because the destination already exists",
 				{source => "$BASE_DIRS{PRODUCTS}/$old_path", destination => "$BASE_DIRS{PRODUCTS}/$path"});
-			(-e "$www_root/products/$path")
+			(-e "$BASE_DIRS{PRODUCTS_IMAGES}/$path")
 				and $log->error(
 				"cannot move product images data, because the destination already exists",
 				{
 					source => "$BASE_DIRS{PRODUCTS_IMAGES}/$old_path",
-					destination => "$www_root/images/products/$path"
+					destination => "$BASE_DIRS{PRODUCTS_IMAGES}/$path"
 				}
 				);
 		}
@@ -1406,12 +1274,12 @@ sub store_product ($user_id, $product_ref, $comment) {
 
 	if ($rev < 1) {
 		# Create the directories for the product
-		ensure_dir_created_or_die("$data_root/products/$path");
-		ensure_dir_created_or_die("$www_root/images/products/$path");
+		ensure_dir_created_or_die("$BASE_DIRS{PRODUCTS}/$path");
+		ensure_dir_created_or_die("$BASE_DIRS{PRODUCTS_IMAGES}/$path");
 	}
 
 	# Check lock and previous version
-	my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
+	my $changes_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/changes.sto");
 	if (not defined $changes_ref) {
 		$changes_ref = [];
 	}
@@ -1532,7 +1400,7 @@ sub store_product ($user_id, $product_ref, $comment) {
 	}
 
 	# First store the product data in a .sto file on disk
-	store("$data_root/products/$path/$rev.sto", $product_ref);
+	store("$BASE_DIRS{PRODUCTS}/$path/$rev.sto", $product_ref);
 
 	# Also store the product in MongoDB, unless it was marked as deleted
 	if ($product_ref->{deleted}) {
@@ -1548,16 +1416,16 @@ sub store_product ($user_id, $product_ref, $comment) {
 	}
 
 	# Update link
-	my $link = "$data_root/products/$path/product.sto";
+	my $link = "$BASE_DIRS{PRODUCTS}/$path/product.sto";
 	if (-l $link) {
 		unlink($link) or $log->error("could not unlink old product.sto", {link => $link, error => $!});
 	}
 
 	symlink("$rev.sto", $link)
 		or $log->error("could not symlink to new revision",
-		{source => "$data_root/products/$path/$rev.sto", link => $link, error => $!});
+		{source => "$BASE_DIRS{PRODUCTS}/$path/$rev.sto", link => $link, error => $!});
 
-	store("$data_root/products/$path/changes.sto", $changes_ref);
+	store("$BASE_DIRS{PRODUCTS}/$path/changes.sto", $changes_ref);
 	log_change($product_ref, $change_ref);
 
 	$log->debug("store_product - done", {code => $code, product_id => $product_id}) if $log->is_debug();
@@ -2306,7 +2174,7 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 		if (not defined $rev) {
 			$rev = $revs;    # was not set before June 2012
 		}
-		my $product_ref = retrieve("$data_root/products/$path/$rev.sto");
+		my $product_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/$rev.sto");
 
 		# if not found, we may be be updating the product, with the latest rev not set yet
 		if ((not defined $product_ref) or ($rev == $current_product_ref->{rev})) {
