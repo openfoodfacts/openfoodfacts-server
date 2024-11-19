@@ -13349,7 +13349,7 @@ hu: szalonna, bacon, bacon szalonna
 id: Bacon
 io: Lardo
 is: Beikon
-it: pancetta, bacon, speck
+it: pancetta, bacon, speck, pancetta suina, pancetta di suino, pancetta di maiale
 ja: ベーコン
 kk: Бекон
 ko: 베이컨
@@ -13448,7 +13448,7 @@ fi: savupekoni, savustettu pekoni
 fr: lard fumé
 hr: dimljena slanina
 hu: füstölt bacon, füstölt bacon szalonna
-it: lardo affumicato
+it: pancetta affumicata
 nl: gerookte spek, gerookt spek
 sv: rökt bacon
 # ingredient/fr:lard-fumé has 66 products in 4 languages @2019-05-10
@@ -13488,7 +13488,7 @@ de: geräucherte Speckwürfel
 es: mechas de tocino ahumadas
 fr: lardon fumé, lardons fumés
 hr: dimljeni lonci
-it: Lardi affumicati
+it: lardo affumicato, Lardi affumicati
 nl: gerookte spekjes
 pt: toucinho fumado
 ciqual_food_code:en: 28720
@@ -63492,20 +63492,20 @@ sv: melonfrön
 # description:en:Pine nuts, also called piñón or pinoli, are the edible seeds of pines (family Pinaceae, genus Pinus).
 
 < en:seed
-en: pine nuts
+en: pine nuts, pine nut kernels, pinenuts
 ar: حبوب الصنوبر
 ba: кедр сәтләүеге
 bg: кедрови ядки
-ca: pinyó
+ca: pinyó, pinyons
 de: Pinienkerne
 el: Κουκουνάρι
 eo: Pinsemo
-es: Piñón, piñones
+es: Piñón, piñones, Piñores crudos y pelados
 et: seedermännipähkel
 eu: Pinazi
 fa: دانه کاج
 fi: pinjansiemen
-fr: pignon de pin, pignons de pin, pignons
+fr: pignon de pin, pignons de pin, pignons, pignons de pin décortiqués, Pignons de pin décortiqués et pelés, Pignons de pin décortiqués - pelés et brossés, noix de pin, Pignons de pin épluchés, Pignons de pin décortiqués pelés et brossés
 ga: Piñón
 he: צנובר
 hr: pinjole
@@ -63515,6 +63515,7 @@ it: pinoli, pinolo
 ja: 松の実
 ko: 잣
 ku: Fistiqên çaman
+la: Nucleus pineus
 nb: pinjekjerne
 nl: pijnboompitten, Pijnboompit
 nn: russenøtter
@@ -63554,14 +63555,26 @@ nutriscore_fruits_vegetables_nuts:en: no
 wikipedia:en: https://en.wikipedia.org/wiki/Pine_nut
 
 < en:pine nuts
+fr: pignons de cedre, Pignons de cèdre décortiqués
+
+< en:pine nuts
+en: Siberian pine
+xx: Pinus sibirica
+fr: pignons de pin de sibérie
 la: Pinus sibirica
 
 < en:pine nuts
-la: Nucleus pineus
+en: European pine
+la: Pinus Pinea
 
-< en:pine nuts
-fr: pignons de pin décortiqués
-# 5@2019-06-07
+< en: pine nuts
+en: Korean pine
+xx: Pinus koraiensis
+la: Pinus koraiensis
+
+< en: pine nuts
+en: roasted pin nuts
+nb: Tørristede pinjekjerner
 
 < en:seed
 en: hemp seed

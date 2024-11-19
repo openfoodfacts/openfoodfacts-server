@@ -33,7 +33,7 @@ cd $OFF_SCRIPTS_DIR
 
 # off-pro flavor: we don't generate most exports
 # but we have some special processing
-if [ "$PRODUCT_OPENER_FLAVOR" == "off-pro" ]; then
+if [ "$PRODUCT_OPENER_FLAVOR_SHORT" == "off-pro" ]; then
     echo "Generating feeds for off-pro flavor"
     ./save_org_product_data_daily_off_pro.pl
     echo "Skipping exports for off-pro flavor"
@@ -61,7 +61,7 @@ mc cp \
     fr.$PRODUCT_OPENER_DOMAIN.products.csv \
     fr.$PRODUCT_OPENER_DOMAIN.products.csv.gz \
     fr.$PRODUCT_OPENER_DOMAIN.products.rdf \
-    s3/openfoodfacts-ds
+    s3/$PRODUCT_OPENER_FLAVOR-ds
 
 # Generate the MongoDB dumps and jsonl export
 cd $OFF_SCRIPTS_DIR
