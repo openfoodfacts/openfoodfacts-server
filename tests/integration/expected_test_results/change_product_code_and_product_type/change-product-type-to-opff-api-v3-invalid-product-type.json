@@ -1,0 +1,22 @@
+{
+   "code" : "1234567890300",
+   "errors" : [
+      {
+         "field" : {
+            "id" : "product_type"
+         },
+         "impact" : {
+            "id" : "failure",
+            "lc_name" : "Failure",
+            "name" : "Failure"
+         },
+         "message" : {
+            "id" : 0,
+            "lc_name" : "",
+            "name" : ""
+         }
+      }
+   ],
+   "status" : "failure",
+   "warnings" : []
+}

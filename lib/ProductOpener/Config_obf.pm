@@ -581,44 +581,6 @@ $options{display_tag_ingredients} = [
 
 ];
 
-# allow moving products to other instances of Product Opener on the same server
-# e.g. OFF -> OBF
-
-$options{current_server} = "obf";
-
-$options{other_servers} = {
-	obf => {
-		name => "Open Beauty Facts",
-		data_root => "/srv/obf",
-		www_root => "/srv/obf/html",
-		mongodb => "obf",
-		domain => "openbeautyfacts.org",
-	},
-	off => {
-		name => "Open Food Facts",
-		data_root => "/srv/off",
-		www_root => "/srv/off/html",
-		mongodb => "off",
-		domain => "openfoodfacts.org",
-	},
-	opff => {
-		prefix => "opff",
-		name => "Open Pet Food Facts",
-		data_root => "/srv/opff",
-		www_root => "/srv/opff/html",
-		mongodb => "opff",
-		domain => "openpetfoodfacts.org",
-	},
-	opf => {
-		name => "Open Products Facts",
-		data_root => "/srv/opf",
-		www_root => "/srv/opf/html",
-		mongodb => "opf",
-		domain => "openproductsfacts.org",
-	},
-
-};
-
 $options{no_nutrition_table} = 1;
 
 # Name of the Redis stream to which product updates are published
