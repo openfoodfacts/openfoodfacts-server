@@ -856,7 +856,7 @@ sub retrieve_product_rev ($product_id, $rev, $include_deleted = 0) {
 
 	my $path = product_path_from_id($product_id);
 
-	my $product_ref = retrieve("$BASE_DIRS{PRODUCTS}/products/$path/$rev.sto");
+	my $product_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/$rev.sto");
 
 	if (defined $product_ref) {
 
