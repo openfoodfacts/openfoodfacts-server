@@ -2833,12 +2833,12 @@ my %actions_urls = (
 	report_product_to_nutripatrol => "$nutripatrol_url/flag/product/?barcode=PRODUCT_CODE&source=web&flavor=$flavor"
 );
 
-sub product_action_url ($code, $action) {
+sub product_action_url ($code, $action="edit_product") {
 
 	my $url;
 	if (defined $actions_urls{$action}) {
 		my $action_url = $actions_urls{$action};
-		if ($action_url =~ /^#/) {
+		if (($action_url eq '') || ($action_url =~ /^#/)) {
 			# link to the edit form
 			$url = "/cgi/product.pl?type=edit&code=" . $code;
 			$url .= $action_url;
@@ -2853,7 +2853,7 @@ sub product_action_url ($code, $action) {
 		$log->error("unknown product action", {code => $code, action => $action});
 	}
 
-	return $url;
+	return $url // "";
 }
 
 sub compute_keywords ($product_ref) {
