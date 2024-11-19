@@ -70,7 +70,7 @@ BEGIN {
 		&normalize_code_with_gs1_ai
 		&assign_new_code
 		&product_id_for_owner
-		&server_for_product_id
+		&server_for_product_type
 		&split_code
 		&product_path
 		&product_path_from_id
@@ -480,10 +480,6 @@ If the products on the server are public, the product id is equal to the product
 If the products on the server are private (e.g. on the platform for producers),
 the product_id is of the form user-[user id]/[code] or org-[organization id]/code.
 
-The product id can be prefixed by a server id to indicate that is is on another server
-(e.g. Open Food Facts, Open Beauty Facts, Open Products Facts or Open Pet Food Facts)
-e.g. off:[code]
-
 =head3 Parameters
 
 =head4 Owner id
@@ -519,15 +515,13 @@ sub product_id_for_owner ($ownerid, $code) {
 	}
 }
 
-=head2 server_for_product_id ( $product_id )
+=head2 server_for_product_type ( $product_type )
 
 Returns the server for the product, if it is not on the current server.
 
 =head3 Parameters
 
-=head4 $product_id
-
-Product id of the form [code], [owner-id]/[code], or [server-id]:[code] or [server-id]:[owner-id]/[code]
+=head4 $product_type
 
 =head3 Return values
 
@@ -535,13 +529,11 @@ undef is the product is on the current server, or server id of the server of the
 
 =cut
 
-sub server_for_product_id ($product_id) {
+sub server_for_product_type ($product_type) {
 
-	if ($product_id =~ /:/) {
+	if ((defined $product_type) and ($product_type ne $options{product_type})) {
 
-		my $server = $`;
-
-		return $server;
+		return $options{product_types_flavors}{$product_type};
 	}
 
 	return;
@@ -555,7 +547,7 @@ Returns the relative path for the product.
 
 =head4 $product_id
 
-Product id of the form [code], [owner-id]/[code], or [server-id]:[code]
+Product id of the form [code], [owner-id]/[code]
 
 =head3 Return values
 
@@ -565,17 +557,14 @@ The relative path for the product.
 
 sub product_path_from_id ($product_id) {
 
-	my $product_id_without_server = $product_id;
-	$product_id_without_server =~ s/(.*)://;
-
 	if (    (defined $server_options{private_products})
 		and ($server_options{private_products})
-		and ($product_id_without_server =~ /\//))
+		and ($product_id =~ /\//))
 	{
 		return $` . "/" . split_code($');
 	}
 	else {
-		return split_code($product_id_without_server);
+		return split_code($product_id);
 	}
 
 }
@@ -819,11 +808,8 @@ sub retrieve_product ($product_id, $include_deleted = 0) {
 
 	my $product_ref = retrieve($full_product_path);
 
-	my $server = server_for_product_id($product_id);
-
 	if (not defined $product_ref) {
-		$log->debug("retrieve_product - product does not exist",
-			{product_id => $product_id, path => $path, server => $server})
+		$log->debug("retrieve_product - product does not exist", {product_id => $product_id, path => $path})
 			if $log->is_debug();
 	}
 	else {
@@ -833,13 +819,14 @@ sub retrieve_product ($product_id, $include_deleted = 0) {
 				{
 					product_id => $product_id,
 					path => $path,
-					server => $server
 				}
 			) if $log->is_debug();
 			return;
 		}
 
 		# If the product is on another server, set the server field so that it will be saved in the other server if we save it
+
+		my $server = server_for_product_type($product_ref->{product_type});
 
 		if (defined $server) {
 			$product_ref->{server} = $server;
@@ -878,7 +865,7 @@ sub retrieve_product_rev ($product_id, $rev, $include_deleted = 0) {
 		}
 
 		# If the product is on another server, set the server field so that it will be saved in the other server if we save it
-		my $server = server_for_product_id($product_id);
+		my $server = server_for_product_type($product_ref->{product_type});
 		if (defined $server) {
 			$product_ref->{server} = $server;
 		}
@@ -1079,14 +1066,11 @@ sub store_product ($user_id, $product_ref, $comment) {
 		my $new_server = $product_ref->{server};
 		# Update the product_type from the server
 		if (defined $options{flavors_product_types}{$new_server}) {
-			my $errors_ref = [];
-			change_product_type($product_ref, $options{flavors_product_types}{$new_server}, $errors_ref);
+			my $error = change_product_type($product_ref, $options{flavors_product_types}{$new_server});
 			# Log if we have an error
-			if (scalar(@{$errors_ref}) > 0) {
-				$log->error(
-					"store_product - change_product_type - errors",
-					{errors => $errors_ref, product_ref => $product_ref}
-				);
+			if ($error) {
+				$log->error("store_product - change_product_type - error",
+					{error => $error, product_ref => $product_ref});
 			}
 		}
 		delete $product_ref->{server};
@@ -1167,10 +1151,6 @@ sub store_product ($user_id, $product_ref, $comment) {
 
 		my $prefix_path = $path;
 		$prefix_path =~ s/\/[^\/]+$//;    # remove the last subdir: we'll move it
-		if ($path eq $prefix_path) {
-			# short barcodes with no prefix
-			$prefix_path = '';
-		}
 
 		$log->debug("creating product directories", {path => $path, prefix_path => $prefix_path}) if $log->is_debug();
 		# Create the directories for the product
