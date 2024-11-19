@@ -458,6 +458,9 @@ sub split_code ($code) {
 		return "invalid";
 	}
 
+	# Remove leading zeroes
+	$code =~ s/^0+//;
+
 	# Pad code with 0s if it has less than 13 digits
 	if (length($code) < 13) {
 		$code = "0" x (13 - length($code)) . $code;
