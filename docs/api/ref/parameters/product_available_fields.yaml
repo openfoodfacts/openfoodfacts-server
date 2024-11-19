@@ -1,0 +1,17 @@
+components:
+  parameters:
+    ProductAvailableFields:
+      name: fields
+      in: query
+      description: Specific fields to return. Use 'knowledge_panels' for Knowledge Panels only.
+      required: false
+      schema:
+        type: string
+        pattern: "^[a-zA-Z0-9_.-]+(,[a-zA-Z0-9_.-]+)*$"
+        description: Custom comma-separated list of product field names
+        examples:
+          - "knowledge_panels"
+          - "knowledge_panels,product_name,nutriments"
+          - "categories_tags,packaging_tags"
+          - "allergens_tags,nutriscores"
+          - "images,brands_tags,categories_tags,countries_tags,languages_tags,ecoscore_tags"
