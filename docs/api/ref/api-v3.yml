@@ -451,7 +451,6 @@ components:
       name: code
       description: Barcode of the product
       required: true
-      $ref: ./parameters/requested_product_type.yaml#/components/parameters/RequestedProductType
 tags:
   - name: Read Requests
   - name: Write Requests
