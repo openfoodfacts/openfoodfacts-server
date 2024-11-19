@@ -38,7 +38,7 @@ paths:
           schema:
             type: string
             example: "3017620422003"
-        - $ref: "#/components/parameters/product_type"
+        - $ref: "./parameters/requested_product_type.yaml#/components/parameters/RequestedProductType"
         - $ref: "#/components/parameters/cc"
         - $ref: "#/components/parameters/lc"
         - schema:
