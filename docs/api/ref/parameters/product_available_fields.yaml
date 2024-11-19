@@ -3,7 +3,7 @@ components:
     ProductAvailableFields:
       name: fields
       in: query
-      description: Specific fields to return. Use 'knowledge_panels' for Knowledge Panels only.
+      description: Specific fields to return.!!!!! Use 'knowledge_panels' for Knowledge Panels only.
       required: false
       schema:
         type: string

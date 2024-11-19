@@ -49,6 +49,7 @@ paths:
             type: string
             examples:
               - "3017620422003"
+        - $ref: "#/components/parameters/requested_product_type"
         - $ref: "#/components/parameters/fields"
       responses:
         "200":
@@ -71,7 +72,18 @@ paths:
                   $ref: "./examples/get_product_by_barcode_spread.yaml"
                 knowledge-panels:
                   $ref: "./examples/get_product_by_barcode_knowledge_panels.yaml" # You'll need to create this example
-
+        "302":
+          description: Redirect to the correct server for the product type of the requested product
+          headers:
+            Location:
+              schema:
+                type: string
+                description: URL to the correct server
+              examples:
+                redirect:
+                  value: "https://world.openbeautyfacts.org/api/v2/product/8710447445990"
+        "404":
+          description: Product not found
   /cgi/product_image_upload.pl:
     post:
       tags:

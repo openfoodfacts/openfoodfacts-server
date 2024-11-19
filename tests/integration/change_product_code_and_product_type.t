@@ -315,7 +315,7 @@ my $tests_ref = [
 	{
 		test_case => 'get-product-opf-with-wrong-product-type-api-v2',
 		method => 'GET',
-		path => '/api/v2/product/1234567890200?product_type=off',
+		path => '/api/v2/product/1234567890200?product_type=food',
 		expected_status_code => 404,
 	},
 	# Get the product with API v2 with the right product type
@@ -345,7 +345,7 @@ my $tests_ref = [
 	{
 		test_case => 'get-product-opf-with-wrong-product-type-api-v3',
 		method => 'GET',
-		path => '/api/v3/product/1234567890200?product_type=off',
+		path => '/api/v3/product/1234567890200?product_type=food',
 		expected_status_code => 404,
 	},
 	# Get the product with API v3 with the right product type
