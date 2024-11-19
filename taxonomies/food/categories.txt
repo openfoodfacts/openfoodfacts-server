@@ -55959,10 +55959,14 @@ fr: Pignons de pin
 hr: Pinjolima
 it: Pinoli
 la: Pinus
+nb: Pinjekerner
 nl: Pijnboompitten
+pt: Pinhões
+sv: Pinjenotter
 agribalyse_food_code:en: 15025
 ciqual_food_code:en: 15025
 ciqual_food_name:en: Pine nuts
+expected_ingredients:en: en:pine-nut
 wco_hs_code:en: 0802.91
 wco_hs_heading:en: 08.02
 wikidata:en: Q212933
@@ -55979,7 +55983,25 @@ nl: Gepelde pijnboompitten
 wco_hs_code:en: 0802.92
 wco_hs_heading:en: 08.02
 
-< en:Nuts
+< en:Pine nuts
+it: Pinoli del Tirreno
+
+< en:Pine nuts
+en: Siberian Pine
+la: Pinus Sibirica
+opposite:en: en:european-pine, en:korean-pine
+
+< en:Pine nuts
+en: Korean pine
+la: Pinus Koraiensis
+opposite:en: en:european-pine, en:siberian-pine
+
+< en:Pine nuts
+en: European Pine
+la: Pinus Pinea
+opposite:en: en:siberian-pine, en:korean-pine
+
+< en:Pine nuts
 en: Cedar nuts
 de: Zedernkerne
 fr: Pignons de cèdre
@@ -55987,6 +56009,15 @@ hr: Cedrovine
 wco_hs_code:en: 0802.99
 # 0802.99 = "Other nuts"
 wco_hs_heading:en: 08.02
+
+< en: pine nuts
+en: Pine nuts(plain), Plain pine nuts
+opposite:en: en:pine-nuts(roasted)
+
+< en: pine nuts
+en: Pine nuts(roasted), Roasted pin nuts
+nb: Tørristede pinjekjerner
+opposite:en: en:pine-nuts(plain)
 
 < en:Fats
 it: olio di noce di cedro
