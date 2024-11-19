@@ -133,7 +133,7 @@ build:
 
 _up:run_deps
 	@echo "🥫 Starting containers …"
-	${DOCKER_COMPOSE_RUN} up -d 2>&1
+	${DOCKER_COMPOSE} up -d 2>&1
 	@echo "🥫 started service at http://openfoodfacts.localhost"
 
 up: build create_folders _up
@@ -318,7 +318,7 @@ update_tests_results: build_taxonomies_test build_lang_test run_test_deps
 
 bash:
 	@echo "🥫 Open a bash shell in the backend container"
-	${DOCKER_COMPOSE_RUN} run --rm -w /opt/product-opener backend bash
+	${DOCKER_COMPOSE} run --rm -w /opt/product-opener backend bash
 
 bash_test:
 	@echo "🥫 Open a bash shell in the test container"
