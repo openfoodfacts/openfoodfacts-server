@@ -647,7 +647,7 @@ msgstr "Termékek, melyeket a következő származási kóddal rendelkező cég 
 
 msgctxt "emb_code_p"
 msgid "Traceability codes"
-msgstr "Származási kód (EMB vagy EK üzemkód)"
+msgstr "Származási kód (EK-üzemkód)"
 
 msgctxt "emb_code_s"
 msgid "Traceability code"
@@ -676,7 +676,7 @@ msgstr "Termékek melyek származási kódja nem %s"
 # Those are country specific codes. For European countries, you can change FR 62.448.034 CE to DE BY 718 EG (for instance)
 msgctxt "emb_codes_example"
 msgid "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
-msgstr "EMB 53062, HU 62.448.034 EK, 84 R 20, 33 RECOLTANT 522"
+msgstr "HU 123 EK, EMB 53062, 84 R 20, 33 RECOLTANT 522"
 
 msgctxt "emb_codes_note"
 msgid "In Europe, the code is in an ellipse with the 2 country initials followed by a number and CE."
@@ -7244,7 +7244,7 @@ msgstr ""
 
 msgctxt "product_type"
 msgid "Product type"
-msgstr ""
+msgstr "Terméktípus"
 
 # Food product type
 msgctxt "product_type_food"
