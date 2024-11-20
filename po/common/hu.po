@@ -4254,7 +4254,7 @@ msgstr "Összes termék eltávolítása"
 
 msgctxt "remove_user"
 msgid "Remove user"
-msgstr ""
+msgstr "Felhasználó eltávolítása"
 
 msgctxt "remove_products_from_producers_platform"
 msgid "Remove all your products from the platform for producers"
@@ -4344,15 +4344,15 @@ msgstr "Hozzájáruló"
 
 msgctxt "contributor_settings_description"
 msgid "Those settings allow you to personalize some aspects of the website"
-msgstr ""
+msgstr "Ezek a beállítások lehetővé teszik a weboldal egyes részeinek személyre szabását"
 
 msgctxt "display_barcode_in_search"
 msgid "Display barcode in search results"
-msgstr ""
+msgstr "Vonalkód megjelenítése a keresési eredményeknél"
 
 msgctxt "edit_link_in_search"
 msgid "Add an edit link in search results"
-msgstr ""
+msgstr "Szerkesztési hivatkozás megjelenítése a keresési eredményeknél"
 
 msgctxt "ciqual_food_name"
 msgid "CIQUAL food name"
@@ -4561,11 +4561,11 @@ msgstr "Hiányzó információ: fair trade termék?"
 
 msgctxt "attribute_labels_fair_trade_yes_description_short"
 msgid "Helps producers in developing countries."
-msgstr ""
+msgstr "Segíti a fejlődő országok termelőit."
 
 msgctxt "attribute_labels_fair_trade_description_short"
 msgid "Fair trade products help producers in developing countries."
-msgstr ""
+msgstr "A méltányos kereskedelemből származó termékek segítik a fejlődő országok termelőit."
 
 msgctxt "attribute_labels_fair_trade_description"
 msgid "When you buy fair trade products, producers in developing countries are paid an higher and fairer price, which helps them improve and sustain higher social and often environmental standards."
@@ -4598,20 +4598,20 @@ msgstr "Ismeretlen Nutri-Score"
 
 msgctxt "attribute_nutriscore_unknown_description_short"
 msgid "Missing data to compute the Nutri-Score"
-msgstr ""
+msgstr "Hiányoznak a Nutri-Score kiszámításához szükséges adatok"
 
 msgctxt "attribute_nutriscore_not_applicable_title"
 msgid "Nutri-Score not-applicable"
-msgstr ""
+msgstr "A Nutri-Score nem alkalmazható"
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
 msgid "Not-applicable for the category"
-msgstr ""
+msgstr "Nem alkalmazható a kategóriára"
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_nutriscore_not_applicable_description"
 msgid "Not-applicable for the category: {category}"
-msgstr ""
+msgstr "Nem alkalmazható erre a kategóriára: {category}"
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
@@ -4732,7 +4732,7 @@ msgstr "Nincs vagy kevés adalékanyag"
 
 msgctxt "attribute_additives_setting_note"
 msgid "Additives are markers of food processing, and excess consumption of some of them have undesirable health impacts."
-msgstr ""
+msgstr "Az adalékanyagok az élelmiszer-feldolgozás markerei, és némelyikük túlzott fogyasztása nemkívánatos egészségügyi hatásokkal jár."
 
 msgctxt "attribute_additives_unknown_title"
 msgid "Additives not computed"
@@ -4789,7 +4789,7 @@ msgstr "Próbáljon meg a lehető legspecifikusabb lenni. Műanyag esetén kérj
 
 msgctxt "packaging_text_note_3"
 msgid "Data from this field will be combined with any data provided for each packaging part. It is possible to provide one or the other, or both."
-msgstr ""
+msgstr "Az ebből a mezőből származó adatok kombinálva lesznek az egyes csomagolási részekhez megadott adatokkal. Lehetőség van csak az egyik vagy a másik, vagy mindkettő megadására."
 
 msgctxt "product_js_extract_packaging"
 msgid "Extract the recycling instructions and/or packaging information from the picture"
@@ -4974,11 +4974,11 @@ msgstr "Hivatalos honlap"
 
 msgctxt "organization_members"
 msgid "Organization Members"
-msgstr ""
+msgstr "Szervezet tagjai"
 
 msgctxt "number_of_members"
 msgid "Number of Members"
-msgstr ""
+msgstr "Tagok száma"
 
 msgctxt "contact_form"
 msgid "Contact form"
@@ -5198,7 +5198,7 @@ msgstr "A legutóbbi exportálás óta megváltozott termékek száma"
 
 msgctxt "number_of_products_withdrawn_from_the_market_since_last_export"
 msgid "Number of products withdrawn from the market since last export"
-msgstr ""
+msgstr "A legutóbbi exportálás óta a piacról kivont termékek száma"
 
 msgctxt "only_export_products_with_changes"
 msgid "Only export products with changes"
@@ -5235,7 +5235,7 @@ msgstr "Alacsony az erdőirtás kockázata (erdőlábnyom)"
 
 msgctxt "attribute_forest_footprint_setting_note"
 msgid "The forest footprint corresponds to the risk of deforestation associated with its ingredients."
-msgstr ""
+msgstr "Az erdőlábnyom az összetevőkhöz kapcsolódó erdőirtás kockázatának felel meg."
 
 msgctxt "attribute_forest_footprint_a_title"
 msgid "Very small forest footprint"
@@ -5354,24 +5354,24 @@ msgstr "Távolítson el minden tápanyagértéket"
 
 msgctxt "delete_user_process"
 msgid "User is being deleted. This may take a few minutes."
-msgstr ""
+msgstr "A felhasználó törlése folyamatban van. Ez eltarthat néhány percig."
 
 msgctxt "attribute_ecoscore_not_applicable_title"
 msgid "Eco-Score not yet applicable"
-msgstr ""
+msgstr "Az Eco-Score még nem alkalmazható"
 
 msgctxt "attribute_ecoscore_not_applicable_description_short"
 msgid "Not yet applicable for the category"
-msgstr ""
+msgstr "Még nem alkalmazható a kategóriára"
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_ecoscore_not_applicable_description"
 msgid "Not yet applicable for the category: {category}"
-msgstr ""
+msgstr "Még nem alkalmazható erre a kategóriára: {category}"
 
 msgctxt "ecoscore_not_applicable_coming_soon"
 msgid "The Eco-Score is not yet applicable for this category, but we are working on adding support for it."
-msgstr ""
+msgstr "Az Eco-Score még nem alkalmazható erre a kategóriára, de dolgozunk a támogatáson."
 
 msgctxt "attribute_ecoscore_unknown_title"
 msgid "Eco-Score not computed"
@@ -7215,7 +7215,7 @@ msgstr ""
 
 msgctxt "attribute_repairability_index_france_not_applicable_description_short"
 msgid "Not-applicable for the category"
-msgstr ""
+msgstr "Nem alkalmazható a kategóriára"
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_repairability_index_france_not_applicable_description"
