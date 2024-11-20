@@ -5383,7 +5383,7 @@ msgstr "Ismeretlen környezeti hatás"
 
 msgctxt "ecoscore_unknown_call_to_help"
 msgid "We could not compute the Eco-Score of this product as it is missing some data, could you help complete it?"
-msgstr ""
+msgstr "Nem tudtuk kiszámítani ennek a terméknek az Eco-Score pontszámát, mivel hiányzik hozzá néhány adat. Tudna segíteni a kitöltésükben?"
 
 msgctxt "org_list_of_gs1_gln_description"
 msgid "GS1 data is automatically associated with an OFF organization identifier that corresponds to the GS1 partyName field. To change the OFF organization identifier, you can directly assign 1 or more GS1 GLN identifiers."
@@ -5399,7 +5399,7 @@ msgstr "A GS1 GLN-azonosítók vesszővel elválasztott listája a szervezettel 
 
 msgctxt "org_valid_org"
 msgid "Validate organization as a real producer."
-msgstr ""
+msgstr "Szervezet hitelesítése valódi gyártóként."
 
 msgctxt "org_valid_org_note"
 msgid "The organization is verified as a real producer by a human, also creates entry in CRM."
@@ -5719,7 +5719,7 @@ msgstr "Az Eco-Score-t eredetileg Franciaország számára fejlesztették ki, é
 
 msgctxt "ecoscore_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
-msgstr ""
+msgstr "Válasszon egy országot, hogy a szállítás teljes hatását figyelembe vehessük."
 
 msgctxt "ecoscore_warning_transportation"
 msgid "The full impact of transportation to your country is currently unknown."
