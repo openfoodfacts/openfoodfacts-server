@@ -64,7 +64,7 @@ my $tests_ref = [
 		method => 'GET',
 		path => '/api/v3/product/04260392550101',
 		expected_status_code => 200,
-	},	
+	},
 	{
 		test_case => 'get-existing-product-gs1-caret',
 		method => 'GET',
