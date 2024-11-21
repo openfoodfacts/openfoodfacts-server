@@ -38,6 +38,7 @@ paths:
           schema:
             type: string
             example: "3017620422003"
+        - $ref: "./parameters/requested_product_type.yaml#/components/parameters/RequestedProductType"
         - $ref: "#/components/parameters/cc"
         - $ref: "#/components/parameters/lc"
         - schema:
@@ -84,6 +85,18 @@ paths:
                 allOf:
                   - $ref: ./responses/response-status/response_status.yaml
                   - $ref: ./schemas/product.yaml
+        "302":
+          description: Redirect to the correct server for the product type of the requested product
+          headers:
+            Location:
+              schema:
+                type: string
+                description: URL to the correct server
+              examples:
+                redirect:
+                  value: "https://world.openbeautyfacts.org/api/v3/product/8710447445990"
+        "404":
+          description: Product not found
       description: |-
         Retrieve information for a product with a specific barcode.
 
