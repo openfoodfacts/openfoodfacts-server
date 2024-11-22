@@ -269,8 +269,6 @@
          {
             "attributes" : [
                {
-                  "description" : "",
-                  "description_short" : "Processed foods",
                   "grade" : "b",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nova-group-3.svg",
                   "id" : "nova",
@@ -278,7 +276,7 @@
                   "name" : "NOVA group",
                   "panel_id" : "nova",
                   "status" : "known",
-                  "title" : "NOVA 3"
+                  "title" : "Processed foods"
                },
                {
                   "grade" : "a",
@@ -593,8 +591,6 @@
          {
             "attributes" : [
                {
-                  "description" : "",
-                  "description_short" : "Processed foods",
                   "grade" : "b",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nova-group-3.svg",
                   "id" : "nova",
@@ -602,7 +598,7 @@
                   "name" : "NOVA group",
                   "panel_id" : "nova",
                   "status" : "known",
-                  "title" : "NOVA 3"
+                  "title" : "Processed foods"
                },
                {
                   "grade" : "a",
@@ -2187,7 +2183,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n<p>Food products are classified into 4 groups according to their degree of processing:</p>\n<ol>\n<li>Unprocessed or minimally processed foods</li>\n<li>Processed culinary ingredients</li>\n<li>Processed foods</li>\n<li>Ultra processed foods</li>\n</ol>\n<br>\n<p>The determination of the group is based on the category of the product and on the ingredients it contains.</p>\n<p>&rarr; <a href=\"http://world.openfoodfacts.localhost/nova\">Learn more about the NOVA classification</a></p>\n"
+                     "html" : "\n<p>Food products are classified into 4 groups according to their degree of processing:</p>\n<ol>\n<li>Unprocessed or minimally processed foods</li>\n<li>Processed culinary ingredients</li>\n<li>Processed foods</li>\n<li>Ultra-processed foods</li>\n</ol>\n<br>\n<p>The determination of the group is based on the category of the product and on the ingredients it contains.</p>\n<p>&rarr; <a href=\"http://world.openfoodfacts.localhost/nova\">Learn more about the NOVA classification</a></p>\n"
                   }
                }
             ],
