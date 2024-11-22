@@ -1290,7 +1290,7 @@ msgstr "Hozza létre a fiókját."
 
 msgctxt "login_not_registered_yet"
 msgid "Not registered yet?"
-msgstr "Még nem regisztráltál?"
+msgstr "Még nem regisztrált?"
 
 msgctxt "login_register_title"
 msgid "Sign-in"
@@ -2686,7 +2686,7 @@ msgstr "Figyelmeztetés: a tápértékadatok nincsenek megadva. Ezek az összete
 
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
-msgstr "Figyelmeztetés: a rost mennyisége nincs megadva, ezért a lehetséges kedvező hozzájárulása az osztályzathoz nem vehető figyelembe."
+msgstr "Figyelmeztetés: a rost mennyisége nincs megadva, ezért nem vehető figyelembe az esetleges kedvező hozzájárulása az osztályzathoz."
 
 msgctxt "nutrition_grade_fr_fiber_and_fruits_vegetables_nuts_warning"
 msgid "Warning: the amounts of fiber and of fruits, vegetables and nuts are not specified, their possible positive contribution to the grade could not be taken into account."
@@ -2694,7 +2694,7 @@ msgstr "Figyelem: a rost, gyümölcs, zöldségek és diófélék mennyisége ni
 
 msgctxt "nutrition_grade_fr_no_fruits_vegetables_nuts_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified, their possible positive contribution to the grade could not be taken into account."
-msgstr "Figyelmeztetés: a gyümölcsök, zöldségek és diófélék mennyisége nincs megadva, ezért a lehetséges kedvező hozzájárulásuk az osztályzathoz nem vehető figyelembe."
+msgstr "Figyelmeztetés: a gyümölcsök, zöldségek és diófélék mennyisége nincs megadva, ezért nem vehető figyelembe az esetleges kedvező hozzájárulásuk az osztályzathoz."
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was manually estimated from the list of ingredients: %d"
@@ -6723,15 +6723,15 @@ msgstr "A csomagolás átlagos súlya 100 g termékre vonatkoztatva"
 
 msgctxt "total"
 msgid "Total"
-msgstr ""
+msgstr "Összesen"
 
 msgctxt "packaging_material_products_percent"
 msgid "% of products containing the material"
-msgstr ""
+msgstr "%-a a termékeknek tartalmaz ilyen anyagot"
 
 msgctxt "packaging_material_products_percent_main"
 msgid "% of products containing mostly the material"
-msgstr ""
+msgstr "%-a a termékeknek főként ilyen anyagot tartalmaz"
 
 msgctxt "relative_to_products_containing_the_material"
 msgid "for products that contain the material"
@@ -6751,27 +6751,27 @@ msgstr "Előnyben részesített nyelv"
 
 msgctxt "packagings_n_p"
 msgid "Numbers of packaging components"
-msgstr ""
+msgstr "Csomagolóelemek száma"
 
 msgctxt "packagings_n_s"
 msgid "Number of packaging components"
-msgstr ""
+msgstr "Csomagolóelemek száma"
 
 msgctxt "packagings_materials_all"
 msgid "All materials"
-msgstr ""
+msgstr "Összes anyag"
 
 msgctxt "weight"
 msgid "Weight"
-msgstr ""
+msgstr "Súly"
 
 msgctxt "weight_100g"
 msgid "Weight per 100g of product"
-msgstr ""
+msgstr "Súly 100 g termékre vonatkoztatva"
 
 msgctxt "weight_percent"
 msgid "Weight percent"
-msgstr ""
+msgstr "Súly aránya"
 
 msgctxt "nutriscore_component_energy"
 msgid "Energy"
@@ -6779,7 +6779,7 @@ msgstr "Energia"
 
 msgctxt "nutriscore_component_energy_from_saturated_fat"
 msgid "Energy from saturated fat"
-msgstr ""
+msgstr "Telített zsírsavakból származó energia"
 
 msgctxt "nutriscore_component_sugars"
 msgid "Sugars"
@@ -6791,7 +6791,7 @@ msgstr "Telített zsír"
 
 msgctxt "nutriscore_component_saturated_fat_ratio"
 msgid "Saturated fat / fat"
-msgstr ""
+msgstr "Telített zsírsavak / zsír"
 
 msgctxt "nutriscore_component_salt"
 msgid "Salt"
@@ -6799,11 +6799,11 @@ msgstr "Só"
 
 msgctxt "nutriscore_component_non_nutritive_sweeteners"
 msgid "Non-nutritive sweeteners"
-msgstr ""
+msgstr "Nem tápláló édesítőszerek"
 
 msgctxt "nutriscore_component_fruits_vegetables_legumes"
 msgid "Fruits, vegetables and legumes"
-msgstr ""
+msgstr "Gyümölcsök, zöldségek és hüvelyesek"
 
 msgctxt "nutriscore_component_fiber"
 msgid "Fiber"
@@ -6815,11 +6815,11 @@ msgstr "Fehérje"
 
 msgctxt "presence"
 msgid "Presence"
-msgstr ""
+msgstr "Jelenlét"
 
 msgctxt "absence"
 msgid "Absence"
-msgstr ""
+msgstr "Hiány"
 
 msgctxt "nutriscore_is_water"
 msgid "This product is considered to be water for the calculation of the Nutri-Score."
@@ -7082,11 +7082,11 @@ msgstr ""
 
 msgctxt "verified_status"
 msgid "Verified status"
-msgstr ""
+msgstr "Ellenőrzött állapot"
 
 msgctxt "creation_date"
 msgid "Creation date"
-msgstr ""
+msgstr "Létrehozás dátuma"
 
 msgctxt "knowledge_panels_ingredients_rare_crops_divinfood"
 msgid "Open Food Facts participates in the European project <a href=\"https://divinfood.eu/\">DIVINFOOD</a> (funded from European Union’s Horizon 2020 research and innovation programme). DIVINFOOD aims to develop food chains that value under-utilised agrobiodiversity in order to act against the decline of biodiversity and to meet the growing expectations of consumers for healthy, local products that contribute to sustainable food systems."
@@ -7094,7 +7094,7 @@ msgstr ""
 
 msgctxt "deny"
 msgid "Deny"
-msgstr ""
+msgstr "Megtagadás"
 
 msgctxt "users_requested_to_join_org"
 msgid "These users have requested to join the organization:"
@@ -7102,23 +7102,23 @@ msgstr ""
 
 msgctxt "last_login"
 msgid "Last login date"
-msgstr ""
+msgstr "Utolsó bejelentkezés dátuma"
 
 msgctxt "last_import"
 msgid "Last import date"
-msgstr ""
+msgstr "Utolsó importálás dátuma"
 
 msgctxt "drop_a_file"
 msgid "Drop"
-msgstr ""
+msgstr "Elvetés"
 
 msgctxt "select_product_data_file"
 msgid "Select a file with product data"
-msgstr ""
+msgstr "Válasszon ki egy fájlt a termékadatokkal"
 
 msgctxt "number_of_products_without_nutriscore"
 msgid "Number of products without Nutri-Score"
-msgstr ""
+msgstr "Nutri-Score nélküli termékek száma"
 
 msgctxt "percent_of_products_with_nutriscore"
 msgid "% of products where Nutri-Score is computed"
