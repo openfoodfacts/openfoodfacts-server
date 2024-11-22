@@ -52,12 +52,19 @@ DOCKER_COMPOSE=docker compose --env-file=${ENV_FILE} ${LOAD_EXTRA_ENV_FILE}
 # docker command that do not need the shared network
 DOCKER_COMPOSE_RAW=COMPOSE_FILE="${COMPOSE_FILE_RAW}" ${DOCKER_COMPOSE}
 # we run tests in a specific project name to be separated from dev instances
-# Also we merge the compose files of dependencies right in with COMPOSE_FILE, 
+# Also we merge the compose files of dependencies right in with COMPOSE_FILE,
 # so we are isolated and don't need an external network
 # We keep web-default for web contents
 # we also publish mongodb on a separate port to avoid conflicts
 # we also enable the possibility to fake services in po_test_runner
-DOCKER_COMPOSE_TEST=WEB_RESOURCES_PATH=./web-default ROBOTOFF_URL="http://backend:8881/" GOOGLE_CLOUD_VISION_API_URL="http://backend:8881/" COMPOSE_PROJECT_NAME=${COMPOSE_PROJECT_NAME}_test COMPOSE_FILE="${COMPOSE_FILE};${DEPS_DIR}/openfoodfacts-shared-services/docker-compose.yml" PO_COMMON_PREFIX=test_ MONGO_EXPOSE_PORT=27027 MONGODB_CACHE_SIZE=4 ODOO_CRM_URL= docker compose --env-file=${ENV_FILE}
+DOCKER_COMPOSE_TEST=WEB_RESOURCES_PATH=./web-default ROBOTOFF_URL="http://backend:8881/" \
+	GOOGLE_CLOUD_VISION_API_URL="http://backend:8881/" \
+	ODOO_CRM_URL="" \
+	MONGO_EXPOSE_PORT=27027 MONGODB_CACHE_SIZE=4 \
+	COMPOSE_PROJECT_NAME=${COMPOSE_PROJECT_NAME}_test \
+	COMPOSE_FILE="${COMPOSE_FILE_RAW};${DEPS_DIR}/openfoodfacts-shared-services/docker-compose.yml" \
+	PO_COMMON_PREFIX=test_  \
+	docker compose --env-file=${ENV_FILE}
 # Enable Redis only for integration tests
 DOCKER_COMPOSE_INT_TEST=REDIS_URL="redis:6379" ${DOCKER_COMPOSE_TEST}
 TEST_CMD ?= yath test -PProductOpener::LoadData
