@@ -5296,7 +5296,7 @@ msgstr "Az alábbi %d termék osztályozása az Ön preferenciái szerint"
 
 msgctxt "sort_by_popularity"
 msgid "Most scanned products"
-msgstr "Legtöbbször beolvasott termékek"
+msgstr "Legtöbbször leolvasott termékek"
 
 msgctxt "sort_by_nutriscore_score"
 msgid "Products with the best Nutri-Score"
@@ -6953,52 +6953,52 @@ msgstr "Egészítse ki vagy javítsa a termékinformációkat"
 
 msgctxt "report_problem_panel_title"
 msgid "Report a problem"
-msgstr ""
+msgstr "Probléma bejelentése"
 
 msgctxt "report_problem_navigation"
 msgid "Report a problem."
-msgstr ""
+msgstr "Probléma bejelentése."
 
 msgctxt "incomplete_or_incorrect_data_title"
 msgid "Incomplete or incorrect information?"
-msgstr ""
+msgstr "Hiányos vagy helytelen információ?"
 
 msgctxt "incomplete_or_incorrect_data_subtitle_off"
 msgid "Category, labels, ingredients, allergens, nutritional information, photos etc."
-msgstr ""
+msgstr "Kategória, címkék, összetevők, allergének, tápértékadatok, fotók stb."
 
 msgctxt "incomplete_or_incorrect_data_content_correct"
 msgid "If the information does not match the information on the packaging, you can complete or correct it. Thank you!"
-msgstr ""
+msgstr "Ha az információ nem egyezik a csomagoláson szereplő információval, kiegészítheti vagy javíthatja azt. Köszönjük!"
 
 msgctxt "incomplete_or_incorrect_data_content_correct_off"
 msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
-msgstr ""
+msgstr "Az Open Food Facts egy együttműködésen alapuló adatbázis, amiben minden hozzájárulás mindenki számára hasznos."
 
 msgctxt "description"
 msgid "Description"
-msgstr ""
+msgstr "Leírás"
 
 # duplicate with "report_problem_panel_title"
 msgctxt "report_problem_navigation"
 msgid "Report a problem"
-msgstr ""
+msgstr "Probléma bejelentése"
 
 msgctxt "enter_main_contact_username"
 msgid "Enter main contact's username :"
-msgstr ""
+msgstr "Adja meg a fő kapcsolattartó felhasználónevét:"
 
 msgctxt "change_main_contact"
 msgid "Change main contact"
-msgstr ""
+msgstr "Fő kapcsolattartó módosítása"
 
 msgctxt "main_contact_updated"
 msgid "Main contact updated"
-msgstr ""
+msgstr "A fő kapcsolattartó frissítve"
 
 msgctxt "error_unknown_member"
 msgid "This user is not a member of the organization."
-msgstr ""
+msgstr "Ez a felhasználó nem tagja a szervezetnek."
 
 msgctxt "skip_to_content"
 msgid "Skip to Content"
@@ -7006,15 +7006,15 @@ msgstr ""
 
 msgctxt "cant_delete_main_contact"
 msgid "You cannot remove the main contact. Change it first."
-msgstr ""
+msgstr "A fő kapcsolattartó nem távolítható el. Először változtassa meg."
 
 msgctxt "open_in_crm"
 msgid "Open in CRM"
-msgstr ""
+msgstr "Megnyitás CRM-ben"
 
 msgctxt "information_provided_by_the_manufacturer"
 msgid "Information provided by the manufacturer"
-msgstr ""
+msgstr "A gyártó által megadott információk"
 
 msgctxt "information_provided_by_the_manufacturer_edit_form"
 msgid "Information identified by a factory icon has been provided by the manufacturer. It can be changed only by the manufacturer and moderators. If it is out of date or incorrect, please let us know."
@@ -7022,23 +7022,23 @@ msgstr ""
 
 msgctxt "knowledge_panels_did_you_know"
 msgid "Did you know?"
-msgstr ""
+msgstr "Tudta?"
 
 msgctxt "knowledge_panels_why_it_matters"
 msgid "Why it matters"
-msgstr ""
+msgstr "Miért számít"
 
 msgctxt "knowledge_panels_what_you_can_do"
 msgid "What you can do"
-msgstr ""
+msgstr "Mit tehet Ön"
 
 msgctxt "knowledge_panels_ingredients_rare_crops_title"
 msgid "Good for agricultural biodiversity"
-msgstr ""
+msgstr "Jót tesz a mezőgazdasági biológiai sokféleségnek"
 
 msgctxt "knowledge_panels_ingredients_rare_crops_subtitle"
 msgid "Contains neglected or underutilized crops:"
-msgstr ""
+msgstr "Elhanyagolt vagy túl ritkán használt növényeket tartalmaz:"
 
 msgctxt "knowledge_panels_ingredients_rare_crops_did_you_know"
 msgid "Since 1900, 75% of plant diversity has been lost as farmers around the world have abandoned local varieties for high-yielding varieties adapted to mass industrial processing. As a result, 60 % of human energy intake in the world comes from only 3 species: wheat, rice and corn."
@@ -7138,7 +7138,7 @@ msgstr ""
 
 msgctxt "date_of_last_update"
 msgid "Date of last update"
-msgstr ""
+msgstr "Utolsó frissítés dátuma"
 
 msgctxt "number_of_products_on_public_platform"
 msgid "Number of products on public platform"
@@ -7174,7 +7174,7 @@ msgstr ""
 
 msgctxt "donated_products_title"
 msgid "Donations"
-msgstr ""
+msgstr "Adományok"
 
 msgctxt "donated_products_subtitle"
 msgid "Give this product, or search for a similar donated product"
@@ -7190,28 +7190,28 @@ msgstr ""
 
 msgctxt "attribute_repairability_index_france_name"
 msgid "Repairability index"
-msgstr ""
+msgstr "Javíthatósági index"
 
 msgctxt "attribute_repairability_index_france_setting_name"
 msgid "Good repairability"
-msgstr ""
+msgstr "Jó javíthatóság"
 
 msgctxt "attribute_repairability_index_france_setting_note"
 msgid "Mandatory rating in France for certain products since 2021"
-msgstr ""
+msgstr "Franciaországban bizonyos termékeknél 2021 óta kötelező besorolás"
 
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_repairability_index_france_grade_title"
 msgid "Repairability index %s"
-msgstr ""
+msgstr "Javíthatósági index %s"
 
 msgctxt "attribute_repairability_index_france_unknown_title"
 msgid "Repairability index unknown"
-msgstr ""
+msgstr "A javíthatósági index ismeretlen"
 
 msgctxt "attribute_repairability_index_france_not_applicable_title"
 msgid "Repairability index not-applicable"
-msgstr ""
+msgstr "A javíthatósági index nem alkalmazható"
 
 msgctxt "attribute_repairability_index_france_not_applicable_description_short"
 msgid "Not-applicable for the category"
@@ -7220,27 +7220,27 @@ msgstr "Nem alkalmazható a kategóriára"
 # variable names between { } must not be translated
 msgctxt "f_attribute_repairability_index_france_not_applicable_description"
 msgid "Applicable only for categories: {categories}"
-msgstr ""
+msgstr "Csak a következő kategóriákra alkalmazható: {categories}"
 
 msgctxt "attribute_repairability_index_france_very_good_description_short"
 msgid "Very good repairability"
-msgstr ""
+msgstr "Nagyon jó javíthatóság"
 
 msgctxt "attribute_repairability_index_france_good_description_short"
 msgid "Good repairability"
-msgstr ""
+msgstr "Jó javíthatóság"
 
 msgctxt "attribute_repairability_index_france_average_description_short"
 msgid "Average repairability"
-msgstr ""
+msgstr "Átlagos javíthatóság"
 
 msgctxt "attribute_repairability_index_france_poor_description_short"
 msgid "Poor repairability"
-msgstr ""
+msgstr "Gyenge javíthatóság"
 
 msgctxt "attribute_repairability_index_france_bad_description_short"
 msgid "Bad repairability"
-msgstr ""
+msgstr "Rossz javíthatóság"
 
 msgctxt "product_type"
 msgid "Product type"
