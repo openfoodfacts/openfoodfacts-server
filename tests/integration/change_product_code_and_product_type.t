@@ -220,6 +220,29 @@ my $tests_ref = [
 		},
 		ua => $moderator_ua,
 	},
+	# Send null product type
+	# 2024/11/21: the OFF app is sending product_type=null for new products
+	{
+		test_case => 'change-product-type-to-null-api-v2-moderator',
+		method => 'POST',
+		path => '/cgi/product_jqm_multilingual.pl',
+		form => {
+			code => "1234567890102",
+			product_type => "null",
+		},
+		ua => $moderator_ua,
+	},
+	# Send empty string product type
+	{
+		test_case => 'change-product-type-to-empty-string-api-v2-moderator',
+		method => 'POST',
+		path => '/cgi/product_jqm_multilingual.pl',
+		form => {
+			code => "1234567890102",
+			product_type => "",
+		},
+		ua => $moderator_ua,
+	},
 	# Send product_type=beauty to move product to Open Beauty Facts
 	{
 		test_case => 'change-product-type-to-beauty-api-v2-moderator',
@@ -390,7 +413,7 @@ my $tests_ref = [
 		}',
 		ua => $moderator_ua,
 	},
-	# Change the product_type field to petfood, with API v3
+	# Change the product_type field to invalid product type, with API v3
 	{
 		test_case => 'change-product-type-to-opff-api-v3-invalid-product-type',
 		method => 'PATCH',

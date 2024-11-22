@@ -56,6 +56,8 @@ use ProductOpener::API qw/get_initialized_response/;
 use ProductOpener::APIProductWrite qw/skip_protected_field/;
 use ProductOpener::ProductsFeatures qw/feature_enabled/;
 use ProductOpener::Orgs qw/update_import_date update_last_import_type/;
+use ProductOpener::APIProductWrite
+	qw/process_change_product_type_request_if_we_have_one process_change_product_code_request_if_we_have_one/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -408,18 +410,14 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 	exists $product_ref->{new_server} and delete $product_ref->{new_server};
 
-	if ($request_ref->{admin} or $User{moderator}) {
-		if ((defined single_param("new_code")) and (single_param("new_code") ne "")) {
-			change_product_code($product_ref, single_param("new_code"));
-			$code = $product_ref->{code};
-		}
-		if (    (defined single_param("product_type"))
-			and (single_param("product_type") ne "")
-			and ($product_ref->{product_type} ne single_param("product_type")))
-		{
-			change_product_type($product_ref, single_param("product_type"));
-		}
-	}
+	# Check if the request is for changing the product code or the product type, if so process it
+
+	process_change_product_code_request_if_we_have_one($request_ref, $response_ref, $product_ref,
+		single_param("new_code"));
+	$code = $product_ref->{code};
+
+	process_change_product_type_request_if_we_have_one($request_ref, $response_ref, $product_ref,
+		single_param("product_type"));
 
 	my @param_fields = ();
 
