@@ -92,6 +92,19 @@
                         <li class="product-section-button"><a class="nav-link scrollto button small round white-button"
                                 href="#contribution"><span>[% lang("contribution_navigation") %]</span></a></li>
 
+                        <!-- Share Button -->
+                        <li class="nav-button" style="float: right;">
+                            <a href="[% request_ref.canon_url %]" class="button small" title="[% title %]"
+                                style="display: inline-flex; align-items: center;">
+                                <span class="material-icons size-20" style="margin-right: 0.25rem;">
+                                    share
+                                </span>
+                                <span class="show-for-large-up">
+                                    [% lang('share') %]
+                                </span>
+                            </a>
+                        </li>
+
                         <!-- Edit Button -->
                         <li class="nav-button" style="float: right;">
                             <a href="/cgi/product.pl?type=edit&code=[% code %]" class="button small white-button round"
@@ -102,19 +115,6 @@
                                 </span>
                                 <span class="show-for-large-up">
                                     [% lang('edit_product_page') %]
-                                </span>
-                            </a>
-                        </li>
-
-                        <!-- Share Button -->
-                        <li class="nav-button" style="float: right;">
-                            <a href="[% request_ref.canon_url %]" class="button small white-button round"
-                                title="[% title %]" style="display: inline-flex; align-items: center;">
-                                <span class="material-icons size-20" style="margin-right: 0.25rem;">
-                                    share
-                                </span>
-                                <span class="show-for-large-up">
-                                    [% lang('share') %]
                                 </span>
                             </a>
                         </li>
