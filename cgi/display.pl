@@ -27,11 +27,11 @@ use CGI::Carp qw(fatalsToBrowser);
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
-use ProductOpener::Routing qw/:all/;
+use ProductOpener::Routing qw/analyze_request/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::Users qw/:all/;
-use ProductOpener::Lang qw/:all/;
-use ProductOpener::API qw/:all/;
+use ProductOpener::Users qw/$Owner_id init_user/;
+use ProductOpener::Lang qw/lang/;
+use ProductOpener::API qw/decode_json_request_body init_api_response process_api_request read_request_body/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -52,7 +52,10 @@ $log->debug("display.pl - start", {env_query_string => $env_query_string, reques
 
 # Special behaviors for API v3 requests
 
-if ($env_query_string =~ /^\/?api\/v(3(\.\d+)?)\//) {
+my $api_pattern = qr/^\/?api\/v(3(\.\d+)?)\//;
+my $method_pattern = qr/^(POST|PUT|PATCH)$/;
+
+if ($env_query_string =~ $api_pattern) {
 
 	# Record that we have an API v3 request, as errors (e.g. bad userid and password) will be handled differently
 	# (through API::process_api_request instead of returning an error page in HTML)
@@ -65,13 +68,14 @@ if ($env_query_string =~ /^\/?api\/v(3(\.\d+)?)\//) {
 	# if we have such a request, we need to read the body before CGI.pm tries to read it to get multipart/form-data parameters
 	# We also need to do this before the call to init_request() which calls init_user()
 	# so that authentification credentials user_id and password from the JSON body can be used to authenticate the user
-	if ($request_ref->{method} =~ /^(POST|PUT|PATCH)$/) {
+	if ($request_ref->{method} =~ $method_pattern) {
 		read_request_body($request_ref);
 		decode_json_request_body($request_ref);
 	}
+
 }
 
-if (($env_query_string !~ /^\/?api\/v(3(\.\d+)?)\//) or ($request_ref->{method} !~ /^(POST|PUT|PATCH)$/)) {
+if (($env_query_string !~ $api_pattern) or ($request_ref->{method} !~ $method_pattern)) {
 	# Not an API v3 POST/PUT/PATCH request: we will use CGI.pm param() method to access query string or multipart/form-data parameters
 
 	# The nginx reverse proxy turns /somepath?someparam=somevalue to /cgi/display.pl?/somepath?someparam=somevalue
@@ -105,7 +109,7 @@ analyze_request($request_ref);
 
 if (defined $request_ref->{error_message}) {
 	$log->debug("analyze_request error", {request_ref => $request_ref});
-	display_error($request_ref->{error_message}, $request_ref->{status_code});
+	display_error($request_ref, $request_ref->{error_message}, $request_ref->{status_code});
 	$log->debug("analyze_request error - return Apache2::Const::OK");
 	return Apache2::Const::OK;
 }
@@ -114,6 +118,13 @@ if ($request_ref->{no_index} eq 1) {
 	# The request is made from a known web crawler and the web-page shouldn't be indexed:
 	# return directly a "noindex" empty HTML page
 	display_no_index_page_and_exit();
+	return Apache2::Const::OK;
+}
+
+if ($request_ref->{rate_limiter_blocking}) {
+	# The request is blocked by the rate limiter:
+	# return directly a "too many requests" empty HTML page
+	display_too_many_requests_page_and_exit();
 	return Apache2::Const::OK;
 }
 
@@ -139,7 +150,7 @@ if (
 	)
 {
 
-	display_error_and_exit(lang("no_owner_defined"), 200);
+	display_error_and_exit($request_ref, lang("no_owner_defined"), 200);
 }
 
 if ((defined $request_ref->{api}) and (defined $request_ref->{api_action})) {

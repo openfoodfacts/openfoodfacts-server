@@ -45,7 +45,7 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 
 
 # Get a list of all products
@@ -78,7 +78,7 @@ my $cursor = get_products_collection()->query({})->fields({ code => 1 })->sort({
 		my @old = @old_r;
 
 		# Update
-		extract_ingredients_classes_from_text($product_ref);
+		extract_additives_from_text($product_ref);
 		
 		my @new = @{$product_ref->{$class . '_tags'}};
 		my %old = {};

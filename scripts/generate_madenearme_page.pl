@@ -26,7 +26,7 @@ use CGI::Carp qw(fatalsToBrowser);
 use CGI qw/:cgi :form escapeHTML/;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
@@ -34,8 +34,8 @@ use ProductOpener::Display qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
-use ProductOpener::Tags qw/:all/;
-use ProductOpener::URL qw/:all/;
+use ProductOpener::Tags qw/%country_codes/;
+use ProductOpener::URL qw/format_subdomain/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -45,7 +45,7 @@ use Getopt::Long;
 use JSON::MaybeXS;
 use Log::Any qw($log);
 
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Lang qw/$lc /;
 
 # initialize html
 sub get_initial_html ($cc) {
@@ -116,14 +116,14 @@ my $usage = "Usage: $0 <country code (or world)> <language code> [--verbose]\n";
 my $verbose = undef;
 GetOptions("verbose" => \$verbose) or die($usage);
 
-$cc = $ARGV[0];
+my $request_ref = {};
+my $cc = $ARGV[0];
 $lc = $ARGV[1];
 $subdomain = $cc;
 $formatted_subdomain = format_subdomain($subdomain);
-$header = "";
-$initjs = "";
-
-$lang = $lc;
+$request_ref->{header} = "";
+$request_ref->{initjs} = "";
+$request_ref->{cc} = $cc;
 
 if ((not defined $cc) or (not defined $lc)) {
 	die("$usage\nError: Pass country code (or world) and language code as arguments.\n");
@@ -145,7 +145,6 @@ $html = get_initial_html($cc);
 
 my %map_options = (uk => "map.setView(new L.LatLng(54.0617609,-3.4433238),6);",);
 
-my $request_ref = {};
 my $graph_ref = {};
 
 $log->info("finding products", {lc => $lc, cc => $cc, country => $country}) if $log->is_info();
@@ -156,8 +155,8 @@ my $products_iter = iter_products_from_jsonl($jsonl_path, $country, $verbose);
 $request_ref->{map_options} = $map_options{$cc} || "";
 my $map_html = map_of_products($products_iter, $request_ref, $graph_ref);
 
-$html =~ s/<HEADER>/$header/;
-$html =~ s/<INITJS>/$initjs/;
+$html =~ s/<HEADER>/$request_ref->{header}/;
+$html =~ s/<INITJS>/$request_ref->{initjs}/;
 $html =~ s/<CONTENT>/$map_html/;
 
 binmode(STDOUT, ":encoding(UTF-8)");

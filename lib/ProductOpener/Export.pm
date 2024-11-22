@@ -92,15 +92,16 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
-use ProductOpener::Store qw/:all/;
-use ProductOpener::Lang qw/:all/;
-use ProductOpener::Tags qw/:all/;
-use ProductOpener::Display qw/:all/;
-use ProductOpener::Food qw/:all/;
-use ProductOpener::Data qw/:all/;
-use ProductOpener::Products qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
+use ProductOpener::Store qw/retrieve_json/;
+use ProductOpener::Lang qw/$lc/;
+use ProductOpener::Tags qw/%language_fields %tags_fields %taxonomy_fields list_taxonomy_tags_in_language/;
+use ProductOpener::Display qw/search_and_export_products/;
+use ProductOpener::Food qw/%nutriments_tables/;
+use ProductOpener::Data qw/get_products_collection/;
+use ProductOpener::Products qw/add_images_urls_to_product product_path/;
 use ProductOpener::Ecoscore qw/localize_ecoscore/;
+use ProductOpener::ProductsFeatures qw(feature_enabled);
 
 use Text::CSV;
 use Excel::Writer::XLSX;
@@ -527,7 +528,8 @@ sub export_csv ($args_ref) {
 				$field =~ s/^off://;
 
 				# Localize the Eco-Score fields that depend on the country of the request
-				if (($field =~ /^ecoscore/) and (not $ecoscore_localized)) {
+				if (feature_enabled("ecoscore", $product_ref) and ($field =~ /^ecoscore/) and (not $ecoscore_localized))
+				{
 					localize_ecoscore($export_cc, $product_ref);
 					$ecoscore_localized = 1;
 				}

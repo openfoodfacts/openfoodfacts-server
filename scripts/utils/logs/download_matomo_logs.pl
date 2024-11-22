@@ -20,27 +20,35 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-# This script expects nginx access logs on STDIN
-# filtered by the app:
-# grep "Official Android App" nginx.access2.log | grep Scan > android_app.log
-
 use Modern::Perl '2017';
 use utf8;
 
 # Script used to download Matomo events from the Matomo API
 # day by day, as we otherwise get timeouts
 
-# A Matomo API token needs to be specified below
-my $token = '';
+# A Matomo API token needs to be passed as parameter
+my $year = $ARGV[0];
+my $token = $ARGV[1];
 
-my $year = "2022";
+if ((not defined $year) or ($year !~ /^20\d\d$/) or (not defined $token)) {
+	print STDERR ("Usage: download_matomo_logs.pl [year] [token]");
+	exit;
+}
 
 for (my $month = 1; $month <= 12; $month++) {
 	for (my $day = 1; $day <= 31; $day++) {
 		my $date = sprintf("%d-%02d-%02d", $year, $month, $day);
+		my $file = "matomo_app.log.scan.$date";
+		# Sometime matomo timesout and we get a file with a 0 byte size
+		# If we already have a file with a non 0 size, assume we already
+		# successfully retrieved the file in a previous run, and skip it
+		if ((-e $file) and (-s $file > 1000)) {
+			print STDERR "Skipping $date (already downloaded)\n";
+			next;
+		}
 		print STDERR "Downloading data for $date\n";
 		system(
-			"wget -O matomo_app.log.scan.$date 'https://analytics.openfoodfacts.org/?module=API&method=Live.getLastVisitsDetails&idSite=2&period=day&date=$date&format=JSON&token_auth=$token&filter_limit=-1'"
+			"wget -O $file 'https://analytics.openfoodfacts.org/?module=API&method=Live.getLastVisitsDetails&idSite=2&period=day&date=$date&format=JSON&token_auth=$token&filter_limit=-1'"
 		);
 	}
 }

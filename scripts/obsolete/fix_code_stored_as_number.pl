@@ -49,7 +49,7 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 
 use Getopt::Long;
 
@@ -160,7 +160,7 @@ while (my $product_ref = $cursor->next) {
 		if ($process_ingredients) {
 			# Ingredients classes
 			extract_ingredients_from_text($product_ref);
-			extract_ingredients_classes_from_text($product_ref);
+			extract_additives_from_text($product_ref);
 
 			compute_languages($product_ref); # need languages for allergens detection
 			detect_allergens_from_text($product_ref);

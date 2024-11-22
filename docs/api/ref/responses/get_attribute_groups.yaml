@@ -1,0 +1,47 @@
+type: array
+description: |
+  List of groups of attributes for personal search in a specific language.
+items:
+  title: attribute_group
+  type: object
+  properties:
+    id:
+      type: string
+      description: unique id of the group
+    name:
+      type: string
+      description: Name of the group
+    attributes:
+      type: array
+      description: |
+        Attributes that are part of this group
+      items:
+        title: attribute
+        type: object
+        properties:
+          id:
+            type: string
+            description: unique id of the attribute
+          name:
+            type: string
+            description: Name of the attribute
+          icon_url:
+            type: string
+            description: url of icon to display next to the settings for this attribute
+          setting_name:
+            type: string
+            description: a description of the attribute to display to users
+          setting_note:
+            type: string
+            description: a complementary note on the attribute
+          default:
+            type: string
+            enum:
+              - "mandatory"
+              - "very_important"
+              - "important"
+              - "not_important"
+            description: Indicates the default setting for this attribute
+          panel_id:
+            type: string
+            description: Linked knowledge panel (optional)

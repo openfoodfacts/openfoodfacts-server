@@ -70,7 +70,7 @@
 
             <div class="large-6 column">                
             <!-- injecting facet-knowledge-panel -->
-            <div id="facet-knowledge-panel" style="margin-left: 70px;">
+            <div id="facet-knowledge-panel" style="margin-left: 70px; z-index: 1;">
                 <h2 id="facet_panels_title"></h2>
                 <div id="facet_panels_content"></div>
             </div>
@@ -81,11 +81,9 @@
                     if ("[% tags.1.tagid.defined %]") {
                         params += "&sec_facet_tag=[% tags.1.tagtype %]&sec_value_tag=[% tags.1.canon_tagid %]"
                     }
-                    // Filtering data for country
-                    if ("[% country_code %]" !== "world") {
-                        // Adding language code to get transalted data
-                        params += "&lang_code=[% lc %]&country=[% cc %]";
-                    }
+
+                    // Adding language code to get translated data
+                    params += "&lang_code=[% lc %]&country=[% country_code %]";
 
                     fetch(facet_kp + params)
                         .then((response) => {

@@ -7,10 +7,10 @@
         [% IF product.nova_group.defined && product.nova_group > 0 %]
             [% SET nova_group = product.nova_group %]
             "icon_url": "[% static_subdomain %]/images/attributes/dist/nova-group-[% product.nova_group %].svg",
-            "title": "[% lang('attribute_nova_' _ nova_group _ '_description_short') %]",
+            "title": "[% edq(lang('attribute_nova_' _ nova_group _ '_description_short')) %]",
         [% ELSE %]
             "icon_url": "[% static_subdomain %]/images/attributes/dist/nova-group-unknown.svg",
-            "title": "[% lang('attribute_nova_unknown_description_short') %]",       
+            "title": "[% edq(lang('attribute_nova_unknown_description_short')) %]",       [%# why are there parenthesis around the name ? %]
         [% END %]
     },
     "elements": [

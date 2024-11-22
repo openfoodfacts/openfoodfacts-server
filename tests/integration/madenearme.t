@@ -2,7 +2,7 @@
 
 use ProductOpener::PerlStandards;
 
-use Test::More;
+use Test2::V0;
 use File::Copy "copy";
 use File::Basename "fileparse";
 use File::Temp;
@@ -55,7 +55,7 @@ foreach my $test_ref (@tests) {
 	# get geopoints
 	my @geopoints = ($html_content =~ m/"geo":\[\d+\.\d+,\d+\.\d+\]/g);
 	# compare geopoints
-	is_deeply(\@geopoints, $test_ref->{geopoints}, "$testid: geopoints");
+	is(\@geopoints, $test_ref->{geopoints}, "$testid: geopoints");
 }
 done_testing();
 1;

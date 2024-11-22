@@ -2,7 +2,9 @@
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "9410",
+         "ecobalyse_code" : "flour",
          "id" : "en:wheat-flour",
+         "is_in_taxonomy" : 1,
          "labels" : "en:organic",
          "percent_estimate" : 33,
          "percent_max" : 40,
@@ -13,7 +15,9 @@
       },
       {
          "ciqual_food_code" : "20170",
+         "ecobalyse_code" : "tomato-heated-greenhouse-eu",
          "id" : "en:tomato-puree",
+         "is_in_taxonomy" : 1,
          "labels" : "en:organic",
          "percent" : 26,
          "percent_estimate" : 26,
@@ -25,7 +29,9 @@
       },
       {
          "ciqual_food_code" : "18066",
+         "ecobalyse_code" : "tap-water",
          "id" : "en:water",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 21.5,
          "percent_max" : 26,
          "percent_min" : 17,
@@ -35,7 +41,9 @@
       },
       {
          "ciqual_food_code" : "19590",
+         "ecobalyse_code" : "mozzarella",
          "id" : "en:mozzarella",
+         "is_in_taxonomy" : 1,
          "labels" : "en:organic",
          "percent" : 17,
          "percent_estimate" : 17,
@@ -48,8 +56,10 @@
       },
       {
          "ciqual_food_code" : "17440",
+         "ecobalyse_code" : "sunflower-oil",
          "from_palm_oil" : "no",
          "id" : "en:sunflower-oil",
+         "is_in_taxonomy" : 1,
          "labels" : "en:organic",
          "percent_estimate" : 1.25,
          "percent_max" : 10.3333333333333,
@@ -59,7 +69,9 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_proxy_food_code" : "11009",
          "id" : "en:yeast",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 0.625,
          "percent_max" : 7.75,
          "percent_min" : 0,
@@ -70,6 +82,7 @@
       {
          "ciqual_food_code" : "11058",
          "id" : "en:salt",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 0.3125,
          "percent_max" : 6.2,
          "percent_min" : 0,
@@ -79,6 +92,7 @@
       },
       {
          "id" : "en:herb",
+         "is_in_taxonomy" : 1,
          "labels" : "en:organic",
          "percent_estimate" : 0.15625,
          "percent_max" : 5.16666666666667,
@@ -89,6 +103,7 @@
       },
       {
          "id" : "en:spice",
+         "is_in_taxonomy" : 1,
          "labels" : "en:organic",
          "percent_estimate" : 0.15625,
          "percent_max" : 4.42857142857143,
@@ -183,10 +198,16 @@
    "ingredients_with_unspecified_percent_sum" : 57,
    "ingredients_without_ciqual_codes" : [
       "en:herb",
+      "en:spice"
+   ],
+   "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:herb",
+      "en:salt",
       "en:spice",
       "en:yeast"
    ],
-   "ingredients_without_ciqual_codes_n" : 3,
+   "ingredients_without_ecobalyse_ids_n" : 4,
    "known_ingredients_n" : 22,
    "lc" : "fr",
    "misc_tags" : [

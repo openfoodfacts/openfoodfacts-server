@@ -1,6 +1,7 @@
 [
    {
       "id" : "en:apple",
+      "is_in_taxonomy" : 1,
       "percent" : 84,
       "percent_estimate" : 84,
       "percent_max" : 84,
@@ -8,16 +9,17 @@
       "text" : "jabłka"
    },
    {
-      "id" : "en:mango",
+      "id" : "en:mango-puree",
+      "is_in_taxonomy" : 1,
       "percent" : 10,
       "percent_estimate" : 10,
       "percent_max" : 10,
       "percent_min" : 10,
-      "processing" : "en:pureed",
-      "text" : "mango"
+      "text" : "przecier z mango"
    },
    {
       "id" : "en:concentrated-apple-juice",
+      "is_in_taxonomy" : 1,
       "percent" : 3,
       "percent_estimate" : 3,
       "percent_max" : 3,
@@ -26,6 +28,7 @@
    },
    {
       "id" : "pl:zagęszczony-sok-z-marakuji",
+      "is_in_taxonomy" : 0,
       "percent" : 1.5,
       "percent_estimate" : 1.5,
       "percent_max" : 1.5,
@@ -34,6 +37,7 @@
    },
    {
       "id" : "en:acerola-juice",
+      "is_in_taxonomy" : 1,
       "percent_estimate" : 1.5,
       "percent_max" : 1.5,
       "percent_min" : 1.5,

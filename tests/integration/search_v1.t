@@ -2,10 +2,13 @@
 
 use ProductOpener::PerlStandards;
 
-use Test::More;
-use ProductOpener::APITest qw/:all/;
-use ProductOpener::Test qw/:all/;
-use ProductOpener::TestDefaults qw/:all/;
+use Test2::V0;
+use ProductOpener::APITest qw/create_user edit_product execute_api_tests new_client wait_application_ready/;
+use ProductOpener::Test qw/remove_all_products remove_all_users/;
+use ProductOpener::TestDefaults qw/%default_product_form %default_user_form/;
+use ProductOpener::Cache qw/$memd/;
+# We need to flush memcached so that cached queries from other tests (e.g. web_html.t) don't interfere with this test
+$memd->flush_all;
 
 use File::Basename "dirname";
 
