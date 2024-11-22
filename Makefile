@@ -50,7 +50,7 @@ HOSTS=127.0.0.1 world.productopener.localhost fr.productopener.localhost static.
 # commands aliases
 DOCKER_COMPOSE=docker compose --env-file=${ENV_FILE} ${LOAD_EXTRA_ENV_FILE}
 # docker command that do not need the shared network
-DOCKER_COMPOSE_RAW=COMPOSE_FILE="${COMPOSE_FILE_RAW}" ${DOCKER_COMPOSE}
+DOCKER_COMPOSE_BUILD=COMPOSE_FILE="${COMPOSE_FILE_BUILD}" ${DOCKER_COMPOSE}
 # we run tests in a specific project name to be separated from dev instances
 # Also we merge the compose files of dependencies right in with COMPOSE_FILE,
 # so we are isolated and don't need an external network
@@ -62,7 +62,7 @@ DOCKER_COMPOSE_TEST=WEB_RESOURCES_PATH=./web-default ROBOTOFF_URL="http://backen
 	ODOO_CRM_URL="" \
 	MONGO_EXPOSE_PORT=27027 MONGODB_CACHE_SIZE=4 \
 	COMPOSE_PROJECT_NAME=${COMPOSE_PROJECT_NAME}_test \
-	COMPOSE_FILE="${COMPOSE_FILE_RAW};${DEPS_DIR}/openfoodfacts-shared-services/docker-compose.yml" \
+	COMPOSE_FILE="${COMPOSE_FILE_BUILD};${DEPS_DIR}/openfoodfacts-shared-services/docker-compose.yml" \
 	PO_COMMON_PREFIX=test_  \
 	docker compose --env-file=${ENV_FILE}
 # Enable Redis only for integration tests
@@ -136,7 +136,7 @@ create_folders: clone_deps
 # args variable may be use to eg. "--progress plain" option and keep logs on a failing build
 build:
 	@echo "🥫 Building containers …"
-	${DOCKER_COMPOSE_RAW} build ${args} ${container} 2>&1
+	${DOCKER_COMPOSE_BUILD} build ${args} ${container} 2>&1
 
 _up:run_deps
 	@echo "🥫 Starting containers …"
@@ -148,15 +148,15 @@ up: build create_folders _up
 # Used by staging so that shared services are not created
 prod_up: build create_folders
 	@echo "🥫 Starting containers …"
-	${DOCKER_COMPOSE_RAW} up -d 2>&1
+	${DOCKER_COMPOSE_BUILD} up -d 2>&1
 
 down:
 	@echo "🥫 Bringing down containers …"
-	${DOCKER_COMPOSE_RAW} down
+	${DOCKER_COMPOSE_BUILD} down
 
 hdown:
 	@echo "🥫 Bringing down containers and associated volumes …"
-	${DOCKER_COMPOSE_RAW} down -v
+	${DOCKER_COMPOSE_BUILD} down -v
 
 reset: hdown up
 
@@ -202,7 +202,7 @@ build_lang: create_folders
 	@echo "🥫 Rebuild language"
     # Run build_lang.pl
     # Languages may build taxonomies on-the-fly so include GITHUB_TOKEN so results can be cached
-	${DOCKER_COMPOSE_RAW} run --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
+	${DOCKER_COMPOSE_BUILD} run --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
 
 build_lang_test: create_folders
 # Run build_lang.pl in test env
@@ -211,8 +211,8 @@ build_lang_test: create_folders
 # use this in dev if you messed up with permissions or user uid/gid
 reset_owner:
 	@echo "🥫 reset owner"
-	${DOCKER_COMPOSE_RAW} run --rm --no-deps --user root backend chown www-data:www-data -R /opt/product-opener/ /mnt/podata /var/log/apache2 /var/log/httpd  || true
-	${DOCKER_COMPOSE_RAW} run --rm --no-deps --user root frontend chown www-data:www-data -R /opt/product-opener/html/images/icons/dist /opt/product-opener/html/js/dist /opt/product-opener/html/css/dist
+	${DOCKER_COMPOSE_BUILD} run --rm --no-deps --user root backend chown www-data:www-data -R /opt/product-opener/ /mnt/podata /var/log/apache2 /var/log/httpd  || true
+	${DOCKER_COMPOSE_BUILD} run --rm --no-deps --user root frontend chown www-data:www-data -R /opt/product-opener/html/images/icons/dist /opt/product-opener/html/js/dist /opt/product-opener/html/css/dist
 
 init_backend: build_taxonomies build_lang
 
@@ -346,12 +346,12 @@ TO_CHECK := $(shell [ -x "`which git 2>/dev/null`" ] && git diff origin/main --n
 check_perl_fast:
 	@echo "🥫 Checking ${TO_CHECK}"
 	test -z "${TO_CHECK}" || \
-	  ${DOCKER_COMPOSE_RAW} run --rm backend make -j ${CPU_COUNT} ${TO_CHECK} || \
+	  ${DOCKER_COMPOSE_BUILD} run --rm backend make -j ${CPU_COUNT} ${TO_CHECK} || \
 	  ( echo "Perl syntax errors! Look at 'failed--compilation' in above logs" && false )
 
 check_translations:
 	@echo "🥫 Checking translations"
-	${DOCKER_COMPOSE_RAW} run --rm backend scripts/check-translations.sh
+	${DOCKER_COMPOSE_BUILD} run --rm backend scripts/check-translations.sh
 
 # check all perl files compile (takes time, but needed to check a function rename did not break another module !)
 # IMPORTANT: We exclude some files that are in .check_perl_excludes
@@ -359,7 +359,7 @@ check_perl:
 	@echo "🥫 Checking all perl files"
 	@if grep -P '^\s*$$' .check_perl_excludes; then echo "No blank line accepted in .check_perl_excludes, fix it"; false; fi
 	ALL_PERL_FILES=$$(find . -regex ".*\.\(p[lm]\|t\)"|grep -v "/\."|grep -v "/obsolete/"| grep -vFf .check_perl_excludes) ; \
-	${DOCKER_COMPOSE_RAW} run --rm --no-deps backend make -j ${CPU_COUNT} $$ALL_PERL_FILES  || \
+	${DOCKER_COMPOSE_BUILD} run --rm --no-deps backend make -j ${CPU_COUNT} $$ALL_PERL_FILES  || \
 	  ( echo "Perl syntax errors! Look at 'failed--compilation' in above logs" && false )
 
 # check with perltidy
@@ -369,13 +369,13 @@ TO_TIDY_CHECK := $(shell echo ${TO_CHECK}| tr " " "\n" | grep -vFf .perltidy_exc
 check_perltidy:
 	@echo "🥫 Checking with perltidy ${TO_TIDY_CHECK}"
 	@if grep -P '^\s*$$' .perltidy_excludes; then echo "No blank line accepted in .perltidy_excludes, fix it"; false; fi
-	test -z "${TO_TIDY_CHECK}" || ${DOCKER_COMPOSE_RAW} run --rm --no-deps backend perltidy --assert-tidy -opath=/tmp/ --standard-error-output ${TO_TIDY_CHECK}
+	test -z "${TO_TIDY_CHECK}" || ${DOCKER_COMPOSE_BUILD} run --rm --no-deps backend perltidy --assert-tidy -opath=/tmp/ --standard-error-output ${TO_TIDY_CHECK}
 
 # same as check_perltidy, but this time applying changes
 lint_perltidy:
 	@echo "🥫 Linting with perltidy ${TO_TIDY_CHECK}"
 	@if grep -P '^\s*$$' .perltidy_excludes; then echo "No blank line accepted in .perltidy_excludes, fix it"; false; fi
-	test -z "${TO_TIDY_CHECK}" || ${DOCKER_COMPOSE_RAW} run --rm --no-deps backend perltidy --standard-error-output -b -bext=/ ${TO_TIDY_CHECK}
+	test -z "${TO_TIDY_CHECK}" || ${DOCKER_COMPOSE_BUILD} run --rm --no-deps backend perltidy --standard-error-output -b -bext=/ ${TO_TIDY_CHECK}
 
 
 #Checking with Perl::Critic
@@ -384,7 +384,7 @@ lint_perltidy:
 # find . -regex ".*\.\(p[lM]\|t\)"|grep -v "/\."|grep -v "/obsolete/"|xargs docker compose run --rm --no-deps -T backend perlcritic
 check_critic:
 	@echo "🥫 Checking with perlcritic"
-	test -z "${TO_CHECK}" || ${DOCKER_COMPOSE_RAW} run --rm --no-deps backend perlcritic ${TO_CHECK}
+	test -z "${TO_CHECK}" || ${DOCKER_COMPOSE_BUILD} run --rm --no-deps backend perlcritic ${TO_CHECK}
 
 TAXONOMIES_TO_CHECK := $(shell [ -x "`which git 2>/dev/null`" ] && git diff origin/main --name-only | grep  -P 'taxonomies.*/.*\.txt$$' | grep -v '\.result.txt' | xargs ls -d 2>/dev/null | grep -v "^.$$")
 
@@ -392,12 +392,12 @@ TAXONOMIES_TO_CHECK := $(shell [ -x "`which git 2>/dev/null`" ] && git diff orig
 check_taxonomies:
 	@echo "🥫 Checking taxonomies"
 	test -z "${TAXONOMIES_TO_CHECK}" || \
-	${DOCKER_COMPOSE_RAW} run --rm --no-deps backend scripts/taxonomies/lint_taxonomy.pl --verbose --check ${TAXONOMIES_TO_CHECK}
+	${DOCKER_COMPOSE_BUILD} run --rm --no-deps backend scripts/taxonomies/lint_taxonomy.pl --verbose --check ${TAXONOMIES_TO_CHECK}
 
 lint_taxonomies:
 	@echo "🥫 Linting taxonomies"
 	test -z "${TAXONOMIES_TO_CHECK}" || \
-	${DOCKER_COMPOSE_RAW} run --rm --no-deps backend scripts/taxonomies/lint_taxonomy.pl --verbose ${TAXONOMIES_TO_CHECK}
+	${DOCKER_COMPOSE_BUILD} run --rm --no-deps backend scripts/taxonomies/lint_taxonomy.pl --verbose ${TAXONOMIES_TO_CHECK}
 
 
 check_openapi_v2:
@@ -418,20 +418,20 @@ check_openapi: check_openapi_v2 check_openapi_v3
 
 build_packager_codes: create_folders
 	@echo "🥫 build packager codes"
-	${DOCKER_COMPOSE_RAW} run --no-deps --rm backend /opt/product-opener/scripts/update_packager_codes.pl
+	${DOCKER_COMPOSE_BUILD} run --no-deps --rm backend /opt/product-opener/scripts/update_packager_codes.pl
 
 build_taxonomies: create_folders
 	$(MAKE) MOUNT_FOLDER=build-cache MOUNT_VOLUME=build_cache _bind_local
 	@echo "🥫 build taxonomies"
 # GITHUB_TOKEN might be empty, but if it's a valid token it enables pushing taxonomies to build cache repository
-	${DOCKER_COMPOSE_RAW} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl ${name}
+	${DOCKER_COMPOSE_BUILD} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl ${name}
 
 # a version where we force building without using cache
 # use it when you are developing in Tags.pm and want to iterate
 # at the end, change the $BUILD_TAGS_VERSION in Tags.pm
 rebuild_taxonomies:
 	$(MAKE) MOUNT_FOLDER=build-cache MOUNT_VOLUME=build_cache _bind_local
-	${DOCKER_COMPOSE_RAW} run --no-deps --rm -e TAXONOMY_NO_GET_FROM_CACHE=1 backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl ${name}
+	${DOCKER_COMPOSE_BUILD} run --no-deps --rm -e TAXONOMY_NO_GET_FROM_CACHE=1 backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl ${name}
 
 build_taxonomies_test: create_folders
 	$(MAKE) MOUNT_FOLDER=build-cache MOUNT_VOLUME=build_cache PROJECT_SUFFIX=_test _bind_local
@@ -451,7 +451,7 @@ _clean_old_external_volumes:
 
 save_orgs_to_mongodb:
 	@echo "🥫 Saving exsiting orgs into MongoDB …"
-	${DOCKER_COMPOSE_RAW} run --rm backend perl -I/opt/product-opener/lib /opt/product-opener/scripts/migrations/2024_06_save_existing_orgs_to_mongodb.pl "/mnt/podata/orgs"
+	${DOCKER_COMPOSE_BUILD} run --rm backend perl -I/opt/product-opener/lib /opt/product-opener/scripts/migrations/2024_06_save_existing_orgs_to_mongodb.pl "/mnt/podata/orgs"
 
 _bind_local:
 ifeq ($(DOCKER_LOCAL_DATA),$(DOCKER_LOCAL_DATA_DEFAULT))
