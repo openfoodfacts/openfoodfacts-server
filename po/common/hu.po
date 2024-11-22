@@ -1508,7 +1508,7 @@ msgstr "Átlagos tápérték 100 g termékben"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "nutrient_levels_link"
 msgid "/nutrient-levels"
-msgstr "/tapanyagszintek"
+msgstr "/nutrient-levels"
 
 msgctxt "nutrient_levels_p"
 msgid "nutrient levels"
@@ -6131,7 +6131,7 @@ msgstr "Forrás"
 # variable names between { } must not be translated
 msgctxt "f_app_user"
 msgid "A user of the {app_name} app"
-msgstr ""
+msgstr "A(z) {app_name} alkalmazás felhasználója"
 
 msgctxt "food_groups_p"
 msgid "food groups"
@@ -6187,44 +6187,44 @@ msgstr "Nem találtunk pálmaolajat tartalmazó összetevőket"
 
 msgctxt "attribute_palm_oil_setting_note"
 msgid "To determine whether a product contains palm oil, we only rely on the list of ingredients."
-msgstr ""
+msgstr "Annak megállapításához, hogy egy termék tartalmaz-e pálmaolajat, csak az összetevők listájára hagyatkozunk."
 
 msgctxt "unrecognized_ingredients"
 msgid "Unrecognized ingredients"
-msgstr ""
+msgstr "Felismeretlen összetevők"
 
 msgctxt "nova_1_unprocessed_ingredients"
 msgid "The product contains only unprocessed or minimally processed ingredients."
-msgstr ""
+msgstr "A termék csak feldolgozatlan vagy minimálisan feldolgozott összetevőket tartalmaz."
 
 # variable names between { } must not be translated
 msgctxt "f_nova_markers_for_nova_group"
 msgid "Elements that indicate the product is in the {nova_group} group"
-msgstr ""
+msgstr "A termék {nova_group} csoportba tartozását jelző elemek"
 
 msgctxt "nova_classification_description"
 msgid "Food products are classified into 4 groups according to their degree of processing:"
-msgstr ""
+msgstr "Az élelmiszereket a feldolgozottságuk mértéke szerint 4 csoportba sorolják:"
 
 msgctxt "nova_classification_how"
 msgid "The determination of the group is based on the category of the product and on the ingredients it contains."
-msgstr ""
+msgstr "A csoport megállapítása a termék kategóriája és a termékben található összetevők alapján történik."
 
 msgctxt "nova_classification_learn_more"
 msgid "Learn more about the NOVA classification"
-msgstr ""
+msgstr "Tudjon meg többet a NOVA besorolásról"
 
 msgctxt "nova_group_missing_category"
 msgid "The category of the product must be specified in order to determine the NOVA group."
-msgstr ""
+msgstr "A NOVA-csoport meghatározásához meg kell adni a termék kategóriáját."
 
 msgctxt "nova_group_missing_ingredients"
 msgid "The ingredients of the product must be specified in order to determine the NOVA group."
-msgstr ""
+msgstr "A NOVA-csoport meghatározásához meg kell adni a termék összetevőit."
 
 msgctxt "nova_group_too_many_unknown_ingredient"
 msgid "We could not recognize some of the ingredients and determine the NOVA group."
-msgstr ""
+msgstr "Néhány összetevőt nem tudtunk felismerni, és emiatt nem tudtuk meghatározni a NOVA-csoportot."
 
 msgctxt "unselect_image"
 msgid "Unselect Image"
@@ -6236,7 +6236,7 @@ msgstr "Köszönjük"
 
 msgctxt "ecoscore_learn_more"
 msgid "Learn more about the Eco-Score"
-msgstr ""
+msgstr "Tudjon meg többet az Eco-Score-ról"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_very_good_match"
@@ -6270,27 +6270,27 @@ msgstr "Nem egyezik"
 
 msgctxt "reset_preferences"
 msgid "Use default preferences"
-msgstr ""
+msgstr "Alapértelmezett beállítások használata"
 
 msgctxt "reset_preferences_details"
 msgid "Nutri-Score, Eco-Score and food processing level (NOVA)"
-msgstr ""
+msgstr "Nutri-Score, Eco-Score és élelmiszer-feldolgozási szint (NOVA)"
 
 msgctxt "actions_add_ingredients"
 msgid "Could you add the ingredients list?"
-msgstr ""
+msgstr "Hozzá tudná adni az összetevőket?"
 
 msgctxt "actions_to_compute_nutriscore"
 msgid "Could you add the information needed to compute the Nutri-Score?"
-msgstr ""
+msgstr "Meg tudná adni a Nutri-Score kiszámításához szükséges információkat?"
 
 msgctxt "actions_to_compute_ecoscore"
 msgid "Could you add a precise product category so that we can compute the Eco-Score?"
-msgstr ""
+msgstr "Meg tudná adni a pontos termékkategóriát, hogy ki tudjuk számítani az Eco-Score-t?"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
-msgstr ""
+msgstr "Összetevők hozzáadása"
 
 msgctxt "action_add_categories"
 msgid "Add a category"
@@ -6329,37 +6329,37 @@ msgstr "Adja meg egy adag méretét"
 # this is not used yet
 msgctxt "action_add_ingredients_image"
 msgid "Take a photo of the ingredients"
-msgstr "Készítsen egy fotót az összetevőkről"
+msgstr "Készítsen fényképet az összetevőkről"
 
 # this is not used yet
 msgctxt "action_add_nutrition_image"
 msgid "Take a photo of the nutrition facts"
-msgstr "Készítsen egy fotót a tápértékadatokról"
+msgstr "Készítsen fényképet a tápértékadatokról"
 
 # this is not used yet
 msgctxt "action_refresh_ingredients_image"
 msgid "Refresh the photo of the ingredients"
-msgstr ""
+msgstr "Összetevők fényképének frissítése"
 
 # this is not used yet
 msgctxt "action_refresh_nutrition_image"
 msgid "Refresh the photo of the nutrition facts"
-msgstr ""
+msgstr "Tápértékadatok fényképének frissítése"
 
 # this is not used yet
 msgctxt "action_add_packaging_text"
 msgid "Extract and check the recycling information"
-msgstr ""
+msgstr "Újrahasznosítási információk kinyerése és ellenőrzése"
 
 # this is not used yet
 msgctxt "action_add_stores"
 msgid "Add the store where you found this product"
-msgstr ""
+msgstr "Adja meg az üzletet, ahol ezt a terméket találta"
 
 # this is not used yet
 msgctxt "action_labels"
 msgid "Add any label present on this product"
-msgstr ""
+msgstr "Adja meg a terméken található címkéket"
 
 # this is not used yet
 msgctxt "action_countries"
@@ -6369,7 +6369,7 @@ msgstr "Adja meg az országot, ahol ez a termék megtalálható"
 # this is not used yet
 msgctxt "action_packager_codes_image"
 msgid "Take a photo of traceability codes"
-msgstr ""
+msgstr "Készítsen fényképet a gyártási kódokról"
 
 # Used as a header for key facts
 msgctxt "knowledge_panels_facts"
@@ -6414,23 +6414,23 @@ msgstr "Korlátozza a cukor és a cukros italok fogyasztását"
 
 msgctxt "nutrient_recommendation_sugars_drinks"
 msgid "Sugary drinks (such as sodas, fruit beverages, and fruit juices and nectars) should be limited as much as possible (no more than 1 glass a day)."
-msgstr ""
+msgstr "A cukros italokat (például üdítőket, gyümölcsitalokat, gyümölcsleveket és nektárokat) a lehető legjobban korlátozni kell (legfeljebb napi 1 pohárral)."
 
 msgctxt "nutrient_recommendation_sugars_food"
 msgid "Choose products with lower sugar content and reduce the consumption of products with added sugars."
-msgstr ""
+msgstr "Válasszon alacsonyabb cukortartalmú termékeket, és csökkentse a hozzáadott cukrot tartalmazó termékek fogyasztását."
 
 msgctxt "nutrient_info_fat_and_saturated_fat_risk"
 msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
-msgstr ""
+msgstr "A zsírok, különösen a telített zsírsavak túlzott fogyasztása növelheti a koleszterinszintet, ami növeli a szívbetegségek kockázatát."
 
 msgctxt "nutrient_recommendation_fat_and_saturated_fat_title"
 msgid "Reduce the consumption of fat and saturated fat"
-msgstr ""
+msgstr "Csökkentse a zsírok és telített zsírsavak fogyasztását"
 
 msgctxt "nutrient_recommendation_fat_and_saturated_fat"
 msgid "Choose products with lower fat and saturated fat content."
-msgstr ""
+msgstr "Válasszon kevés zsírt és telített zsírsavakat tartalmazó termékeket."
 
 msgctxt "sign_in"
 msgid "Sign in"
@@ -6454,32 +6454,32 @@ msgstr "Termék szerkesztve"
 
 msgctxt "products_photographed"
 msgid "Products photographed"
-msgstr ""
+msgstr "Lefényképezett termékek"
 
 # result of the matching with the user preferences: should ne a noun, not a verb
 msgctxt "matching_with_your_preferences"
 msgid "Matching with your preferences"
-msgstr ""
+msgstr "Az Ön preferenciáinak megfelelő"
 
 # HTML tags and variable names between { } must not be translated
 msgctxt "f_join_us_on_slack"
 msgid "Join us on <a href=\"{url}\">Slack</a>"
-msgstr ""
+msgstr "Csatlakozzon hozzánk <a href=\"{url}\">Slack</a>-en"
 
 # HTML tags and variable names between { } must not be translated
 msgctxt "f_discover_our_code_of_conduct"
 msgid "Discover our <a href=\"{url}\">Code of conduct</a>"
-msgstr ""
+msgstr "Olvassa el a <a href=\"{url}\">Magatartási kódexünket</a>"
 
 # {links} must not be translated, it will be replaced by icons and/or text links
 msgctxt "f_footer_follow_us_links"
 msgid "Follow us: {links}"
-msgstr ""
+msgstr "Kövessen minket: {links}"
 
 # Should be as small as possible, e.g. use "app" instead of "application", don't specify "mobile"
 msgctxt "footer_install_the_app_exclamation_mark"
 msgid "Install the app!"
-msgstr ""
+msgstr "Telepítse az alkalmazást!"
 
 # HTML tags must not be translated, keep <span id=\"everyday\"> and <span id=\"foods\"> and put them around the corresponding words in the translation
 # e.g. in French: Scannez les <span id=\"foods\">aliments</span> de votre <span id=\"everyday\">quotidien</span>
@@ -6887,15 +6887,15 @@ msgstr ""
 
 msgctxt "nutrient_info_saturated_fat_risk"
 msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
-msgstr ""
+msgstr "A zsírok, különösen a telített zsírsavak túlzott fogyasztása növelheti a koleszterinszintet, ami növeli a szívbetegségek kockázatát."
 
 msgctxt "nutrient_info_saturated_fat_ratio_risk"
 msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
-msgstr ""
+msgstr "A zsírok, különösen a telített zsírsavak túlzott fogyasztása növelheti a koleszterinszintet, ami növeli a szívbetegségek kockázatát."
 
 msgctxt "nutrient_info_energy_from_saturated_fat_risk"
 msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
-msgstr ""
+msgstr "A zsírok, különösen a telített zsírsavak túlzott fogyasztása növelheti a koleszterinszintet, ami növeli a szívbetegségek kockázatát."
 
 msgctxt "nutrient_info_non_nutritive_sweeteners_risk"
 msgid "Non-nutritive sweeteners may not confer any long-term benefit in reducing body fat in adults or children. There may be potential undesirable effects from long-term use of non-nutritive sweeteners, such as an increased risk of type 2 diabetes and cardiovascular diseases in adults."
