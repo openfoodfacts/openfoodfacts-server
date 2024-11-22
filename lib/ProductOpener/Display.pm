@@ -4103,6 +4103,15 @@ HTML
 						;
 				}
 
+				if ($packager_codes{$canon_tagid}{cc} eq 'it') {
+					$description .= <<HTML
+<p>$packager_codes{$canon_tagid}{name}<br>
+$packager_codes{$canon_tagid}{address}, $packager_codes{$canon_tagid}{region} (Italy)
+</p>
+HTML
+						;
+				}
+
 				if ($packager_codes{$canon_tagid}{cc} eq 'lu') {
 					$description .= <<HTML
 <p>$packager_codes{$canon_tagid}{name}<br>
@@ -4925,9 +4934,17 @@ sub add_params_to_query ($params_ref, $query_ref) {
 					foreach my $tag2 (split(/\|/, $tag)) {
 						my $tagid2;
 						if (defined $taxonomy_fields{$tagtype}) {
-							$tagid2 = get_taxonomyid($tag_lc, canonicalize_taxonomy_tag($tag_lc, $tagtype, $tag2));
-							if ($tagtype eq 'additives') {
-								$tagid2 =~ s/-.*//;
+							# if the tagid ends with !, we want to search for products with this exact tag, without canonicalization
+							# this is useful in particular when we change the main id of a tag entry in the taxonomy,
+							# so that we can find products that have not been reprocessed yet and that still have the old tag
+							if ($tag2 =~ /^([a-z]{2}:.*)!$/) {
+								$tagid2 = $1;
+							}
+							else {
+								$tagid2 = get_taxonomyid($tag_lc, canonicalize_taxonomy_tag($tag_lc, $tagtype, $tag2));
+								if ($tagtype eq 'additives') {
+									$tagid2 =~ s/-.*//;
+								}
 							}
 						}
 						else {
@@ -4956,9 +4973,17 @@ sub add_params_to_query ($params_ref, $query_ref) {
 				else {
 					my $tagid;
 					if (defined $taxonomy_fields{$tagtype}) {
-						$tagid = get_taxonomyid($tag_lc, canonicalize_taxonomy_tag($tag_lc, $tagtype, $tag));
-						if ($tagtype eq 'additives') {
-							$tagid =~ s/-.*//;
+						# if the tagid ends with !, we want to search for products with this exact tag, without canonicalization
+						# this is useful in particular when we change the main id of a tag entry in the taxonomy,
+						# so that we can find products that have not been reprocessed yet and that still have the old tag
+						if ($tag =~ /^([a-z]{2}:.*)!$/) {
+							$tagid = $1;
+						}
+						else {
+							$tagid = get_taxonomyid($tag_lc, canonicalize_taxonomy_tag($tag_lc, $tagtype, $tag));
+							if ($tagtype eq 'additives') {
+								$tagid =~ s/-.*//;
+							}
 						}
 					}
 					else {
@@ -7497,15 +7522,8 @@ sub display_page ($request_ref) {
 		$site_name .= " - " . lang_in_other_lc($request_lc, "producers_platform");
 	}
 
-	# Override Google Analytics from Config.pm with server_options
-	# defined in Config2.pm if it exists
-
-	if (exists $server_options{google_analytics}) {
-		$google_analytics = $server_options{google_analytics};
-	}
-
 	$template_data_ref->{styles} = $request_ref->{styles};
-	$template_data_ref->{google_analytics} = $google_analytics;
+	$template_data_ref->{analytics} = $analytics;
 	$template_data_ref->{bodyabout} = $request_ref->{bodyabout};
 	$template_data_ref->{site_name} = $site_name;
 
@@ -7918,6 +7936,13 @@ JS
 
 	if (not defined $product_ref) {
 		display_error_and_exit($request_ref, sprintf(lang("no_product_for_barcode"), $code), 404);
+	}
+
+	# If the product has a product_type and it is not the product_type of the server, redirect to the correct server
+
+	if ((defined $product_ref->{product_type}) and ($product_ref->{product_type} ne $options{product_type})) {
+		redirect_to_url($request_ref, 302,
+			format_subdomain($subdomain, $product_ref->{product_type}) . product_url($product_ref));
 	}
 
 	$title = product_name_brand_quantity($product_ref);
@@ -10526,6 +10551,14 @@ sub display_taxonomy_api ($request_ref) {
 	return;
 }
 
+=head2 display_product_api ( $request_ref )
+
+Return product data in JSON format.
+
+This function is used only for api v0, v1 and v2. API v3 + uses APIProductRead.pm
+
+=cut
+
 sub display_product_api ($request_ref) {
 
 	my $cc = $request_ref->{cc};
@@ -10593,6 +10626,24 @@ sub display_product_api ($request_ref) {
 				$template_data_ref, \$html, $request_ref)
 				|| return "template error: " . $tt->error();
 			$response{jqm} .= $html;
+		}
+	}
+	elsif ((defined $product_ref->{product_type}) and ($product_ref->{product_type} ne $options{product_type})) {
+
+		# If the product has a product_type and it is not the product_type of the server,
+		# redirect to the correct server if the request includes a matching product_type parameter (or the "all" product type)
+
+		my $requested_product_type = single_param("product_type");
+		if (    (defined $requested_product_type)
+			and (($requested_product_type eq "all") or ($requested_product_type eq $product_ref->{product_type})))
+		{
+			redirect_to_url($request_ref, 302,
+				format_subdomain($subdomain, $product_ref->{product_type}) . $request_ref->{original_query_string});
+		}
+		else {
+			$request_ref->{status_code} = 404;
+			$response{status} = 0;
+			$response{status_verbose} = 'product found with a different product type: ' . $product_ref->{product_type};
 		}
 	}
 	else {

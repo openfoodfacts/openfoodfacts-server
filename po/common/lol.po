@@ -15,6 +15,76 @@ msgstr ""
 "X-Crowdin-Language: lol\n"
 "X-Crowdin-File-ID: 3123\n"
 
+msgctxt "site_description_off"
+msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
+msgstr "crwdns248742:0crwdne248742:0"
+
+msgctxt "tagline_off"
+msgid "Open Food Facts gathers information and data on food products from around the world."
+msgstr "crwdns248744:0crwdne248744:0"
+
+msgctxt "footer_tagline_off"
+msgid "A collaborative, free and open database of food products from around the world."
+msgstr "crwdns248746:0crwdne248746:0"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_off"
+msgid "/open-food-facts-mobile-app"
+msgstr "crwdns248748:0crwdne248748:0"
+
+msgctxt "site_description_obf"
+msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
+msgstr "crwdns248752:0crwdne248752:0"
+
+msgctxt "tagline_obf"
+msgid "Open Beauty Facts gathers information and data on cosmetic products from around the world."
+msgstr "crwdns248754:0crwdne248754:0"
+
+msgctxt "footer_tagline_obf"
+msgid "A collaborative, free and open database of cosmetic products from around the world."
+msgstr "crwdns248750:0crwdne248750:0"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_obf"
+msgid "/open-beauty-facts-mobile-app"
+msgstr "crwdns248756:0crwdne248756:0"
+
+msgctxt "footer_and_the_facebook_group_obf"
+msgid "and the <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">Facebook group for contributors</a>"
+msgstr "crwdns248760:0crwdne248760:0"
+
+msgctxt "search_description_opensearch_obf"
+msgid "Open Beauty Facts product search"
+msgstr "crwdns248762:0crwdne248762:0"
+
+msgctxt "warning_not_complete_obf"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
+msgstr "crwdns248758:0crwdne248758:0"
+
+msgctxt "brands_example_beauty"
+msgid "Nivea, Nivea Men"
+msgstr "crwdns248764:0crwdne248764:0"
+
+msgctxt "categories_example_beauty"
+msgid "Anti-dandruff shampoo, Whitening toothpaste"
+msgstr "crwdns248766:0crwdne248766:0"
+
+msgctxt "emb_codes_example_beauty"
+msgid "EMB 53062"
+msgstr "crwdns248768:0crwdne248768:0"
+
+msgctxt "generic_name_example_beauty"
+msgid "Anti-dandruff shampoo"
+msgstr "crwdns248770:0crwdne248770:0"
+
+msgctxt "product_name_example_beauty"
+msgid "Anti-Perspirant Stress Protect"
+msgstr "crwdns248772:0crwdne248772:0"
+
+msgctxt "ingredients_text_example_beauty"
+msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
+msgstr "crwdns248774:0crwdne248774:0"
+
 msgctxt "1_product"
 msgid "1 product"
 msgstr "crwdns225089:0crwdne225089:0"
@@ -4886,10 +4956,6 @@ msgctxt "number_of_members"
 msgid "Number of Members"
 msgstr "crwdns227473:0crwdne227473:0"
 
-msgctxt "serial_no"
-msgid "S.No"
-msgstr "crwdns227475:0crwdne227475:0"
-
 msgctxt "contact_form"
 msgid "Contact form"
 msgstr "crwdns227477:0crwdne227477:0"
@@ -4935,21 +5001,21 @@ msgctxt "ecoscore_information"
 msgid "Information about the Eco-score"
 msgstr "crwdns227495:0crwdne227495:0"
 
-msgctxt "preferences_edit_your_food_preferences"
-msgid "Edit your food preferences"
-msgstr "crwdns227497:0crwdne227497:0"
-
-msgctxt "preferences_your_preferences"
-msgid "Your food preferences"
-msgstr "crwdns227499:0crwdne227499:0"
-
 msgctxt "preferences_currently_selected_preferences"
 msgid "Currently selected preferences"
 msgstr "crwdns227501:0crwdne227501:0"
 
 msgctxt "preferences_locally_saved"
-msgid "Your food preferences are kept in your browser and never sent to Open Food Facts or anyone else."
-msgstr "crwdns227503:0crwdne227503:0"
+msgid "Your preferences are kept in your browser and never sent to Open Food Facts or anyone else."
+msgstr "crwdns249468:0crwdne249468:0"
+
+msgctxt "preferences_edit_your_preferences"
+msgid "Edit your preferences"
+msgstr "crwdns249470:0crwdne249470:0"
+
+msgctxt "preferences_your_preferences"
+msgid "Your preferences"
+msgstr "crwdns249472:0crwdne249472:0"
 
 # used in phrases like "salt in unknown quantity"
 msgctxt "unknown_quantity"
@@ -5780,8 +5846,21 @@ msgstr "crwdns227903:0crwdne227903:0"
 
 # variable names between { } must not be translated
 msgctxt "f_carbon_footprint_per_100g_of_product"
-msgid "{grams} g CO² per 100g of product"
-msgstr "crwdns227905:0{grams}crwdne227905:0"
+msgid "{grams} g CO₂e per 100g of product"
+msgstr "crwdns249474:0{grams}crwdne249474:0"
+
+# variable names between { } must not be translated
+msgctxt "f_carbon_footprint_per_unit"
+msgid "{kilograms} kg CO₂e per unit"
+msgstr "crwdns249476:0{kilograms}crwdne249476:0"
+
+msgctxt "average_for_the_category"
+msgid "average for the category"
+msgstr "crwdns249478:0crwdne249478:0"
+
+msgctxt "data_source_and_detailed_carbon_impact"
+msgid "Data source and detailed carbon impact"
+msgstr "crwdns249480:0crwdne249480:0"
 
 # variable names between { } must not be translated
 msgctxt "f_equal_to_driving_km_in_a_petrol_car"
@@ -5871,6 +5950,10 @@ msgstr "crwdns227947:0crwdne227947:0"
 msgctxt "nutriscore_missing_nutrition_data"
 msgid "The nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr "crwdns227949:0crwdne227949:0"
+
+msgctxt "nutriscore_missing_nutrition_data_details"
+msgid "Missing nutrition facts:"
+msgstr "crwdns249152:0crwdne249152:0"
 
 msgctxt "nutriscore_missing_category_and_nutrition_data"
 msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
@@ -6800,6 +6883,10 @@ msgctxt "report_problem_panel_title"
 msgid "Report a problem"
 msgstr "crwdns248102:0crwdne248102:0"
 
+msgctxt "report_problem_navigation"
+msgid "Report a problem."
+msgstr "crwdns250248:0crwdne250248:0"
+
 msgctxt "incomplete_or_incorrect_data_title"
 msgid "Incomplete or incorrect information?"
 msgstr "crwdns248104:0crwdne248104:0"
@@ -6820,77 +6907,266 @@ msgctxt "description"
 msgid "Description"
 msgstr "crwdns247894:0crwdne247894:0"
 
-msgctxt "site_description_off"
-msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
-msgstr "crwdns248226:0crwdne248226:0"
-
-msgctxt "tagline_off"
-msgid "Open Food Facts gathers information and data on food products from around the world."
-msgstr "crwdns248228:0crwdne248228:0"
-
-msgctxt "footer_tagline_off"
-msgid "A collaborative, free and open database of food products from around the world."
-msgstr "crwdns248230:0crwdne248230:0"
-
-#. make sure the text file exists for your language, otherwise ask @teolemon 
-msgctxt "get_the_app_link_off"
-msgid "/open-food-facts-mobile-app"
-msgstr "crwdns248232:0crwdne248232:0"
-
-msgctxt "site_description_obf"
-msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
-msgstr "crwdns248234:0crwdne248234:0"
-
-msgctxt "tagline_obf"
-msgid "Open Beauty Facts gathers information and data on cosmetic products from around the world."
-msgstr "crwdns248236:0crwdne248236:0"
-
-msgctxt "footer_tagline_obf"
-msgid "A collaborative, free and open database of cosmetic products from around the world."
-msgstr "crwdns248238:0crwdne248238:0"
-
-#. make sure the text file exists for your language, otherwise ask @teolemon 
-msgctxt "get_the_app_link_obf"
-msgid "/open-beauty-facts-mobile-app"
-msgstr "crwdns248240:0crwdne248240:0"
-
-msgctxt "footer_and_the_facebook_group_obf"
-msgid "and the <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">Facebook group for contributors</a>"
-msgstr "crwdns248242:0crwdne248242:0"
-
-msgctxt "search_description_opensearch_obf"
-msgid "Open Beauty Facts product search"
-msgstr "crwdns248244:0crwdne248244:0"
-
-msgctxt "warning_not_complete_obf"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
-msgstr "crwdns248246:0crwdne248246:0"
-
-msgctxt "brands_example_beauty"
-msgid "Nivea, Nivea Men"
-msgstr "crwdns248248:0crwdne248248:0"
-
-msgctxt "categories_example_beauty"
-msgid "Anti-dandruff shampoo, Whitening toothpaste"
-msgstr "crwdns248250:0crwdne248250:0"
-
-msgctxt "emb_codes_example_beauty"
-msgid "EMB 53062"
-msgstr "crwdns248252:0crwdne248252:0"
-
-msgctxt "generic_name_example_beauty"
-msgid "Anti-dandruff shampoo"
-msgstr "crwdns248254:0crwdne248254:0"
-
-msgctxt "product_name_example_beauty"
-msgid "Anti-Perspirant Stress Protect"
-msgstr "crwdns248256:0crwdne248256:0"
-
-msgctxt "ingredients_text_example_beauty"
-msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
-msgstr "crwdns248258:0crwdne248258:0"
-
+# duplicate with "report_problem_panel_title"
 msgctxt "report_problem_navigation"
 msgid "Report a problem"
-msgstr "crwdns248112:0crwdne248112:0"
+msgstr "crwdns248776:0crwdne248776:0"
+
+msgctxt "enter_main_contact_username"
+msgid "Enter main contact's username :"
+msgstr "crwdns248816:0crwdne248816:0"
+
+msgctxt "change_main_contact"
+msgid "Change main contact"
+msgstr "crwdns248818:0crwdne248818:0"
+
+msgctxt "main_contact_updated"
+msgid "Main contact updated"
+msgstr "crwdns248820:0crwdne248820:0"
+
+msgctxt "error_unknown_member"
+msgid "This user is not a member of the organization."
+msgstr "crwdns248822:0crwdne248822:0"
+
+msgctxt "skip_to_content"
+msgid "Skip to Content"
+msgstr "crwdns248294:0crwdne248294:0"
+
+msgctxt "cant_delete_main_contact"
+msgid "You cannot remove the main contact. Change it first."
+msgstr "crwdns248824:0crwdne248824:0"
+
+msgctxt "open_in_crm"
+msgid "Open in CRM"
+msgstr "crwdns248918:0crwdne248918:0"
+
+msgctxt "information_provided_by_the_manufacturer"
+msgid "Information provided by the manufacturer"
+msgstr "crwdns248972:0crwdne248972:0"
+
+msgctxt "information_provided_by_the_manufacturer_edit_form"
+msgid "Information identified by a factory icon has been provided by the manufacturer. It can be changed only by the manufacturer and moderators. If it is out of date or incorrect, please let us know."
+msgstr "crwdns248974:0crwdne248974:0"
+
+msgctxt "knowledge_panels_did_you_know"
+msgid "Did you know?"
+msgstr "crwdns248936:0crwdne248936:0"
+
+msgctxt "knowledge_panels_why_it_matters"
+msgid "Why it matters"
+msgstr "crwdns248938:0crwdne248938:0"
+
+msgctxt "knowledge_panels_what_you_can_do"
+msgid "What you can do"
+msgstr "crwdns248940:0crwdne248940:0"
+
+msgctxt "knowledge_panels_ingredients_rare_crops_title"
+msgid "Good for agricultural biodiversity"
+msgstr "crwdns248942:0crwdne248942:0"
+
+msgctxt "knowledge_panels_ingredients_rare_crops_subtitle"
+msgid "Contains neglected or underutilized crops:"
+msgstr "crwdns248944:0crwdne248944:0"
+
+msgctxt "knowledge_panels_ingredients_rare_crops_did_you_know"
+msgid "Since 1900, 75% of plant diversity has been lost as farmers around the world have abandoned local varieties for high-yielding varieties adapted to mass industrial processing. As a result, 60 % of human energy intake in the world comes from only 3 species: wheat, rice and corn."
+msgstr "crwdns248946:0crwdne248946:0"
+
+msgctxt "knowledge_panels_ingredients_rare_crops_why_it_matters"
+msgid "The lack of variety of crops makes our food supply more vulnerable to pests, diseases and climate change."
+msgstr "crwdns248948:0crwdne248948:0"
+
+msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do"
+msgid "Consuming diverse cereals, legumes, vegetables and fruits contributes to:"
+msgstr "crwdns248950:0crwdne248950:0"
+
+msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_1"
+msgid "preserving neglected and underutilized species"
+msgstr "crwdns248952:0crwdne248952:0"
+
+msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_2"
+msgid "rural development and support of local farmers and companies"
+msgstr "crwdns248954:0crwdne248954:0"
+
+msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_3"
+msgid "preserving of diversified landscapes"
+msgstr "crwdns248956:0crwdne248956:0"
+
+msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_4"
+msgid "food security"
+msgstr "crwdns248958:0crwdne248958:0"
+
+msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_5"
+msgid "and your health!"
+msgstr "crwdns248960:0crwdne248960:0"
+
+msgctxt "created_by"
+msgid "Created by"
+msgstr "crwdns249028:0crwdne249028:0"
+
+msgctxt "org_id"
+msgid "Org id"
+msgstr "crwdns249030:0crwdne249030:0"
+
+msgctxt "verified_status"
+msgid "Verified status"
+msgstr "crwdns249032:0crwdne249032:0"
+
+msgctxt "creation_date"
+msgid "Creation date"
+msgstr "crwdns249034:0crwdne249034:0"
+
+msgctxt "knowledge_panels_ingredients_rare_crops_divinfood"
+msgid "Open Food Facts participates in the European project <a href=\"https://divinfood.eu/\">DIVINFOOD</a> (funded from European Union’s Horizon 2020 research and innovation programme). DIVINFOOD aims to develop food chains that value under-utilised agrobiodiversity in order to act against the decline of biodiversity and to meet the growing expectations of consumers for healthy, local products that contribute to sustainable food systems."
+msgstr "crwdns248962:0crwdne248962:0"
+
+msgctxt "deny"
+msgid "Deny"
+msgstr "crwdns249102:0crwdne249102:0"
+
+msgctxt "users_requested_to_join_org"
+msgid "These users have requested to join the organization:"
+msgstr "crwdns249104:0crwdne249104:0"
+
+msgctxt "last_login"
+msgid "Last login date"
+msgstr "crwdns249086:0crwdne249086:0"
+
+msgctxt "last_import"
+msgid "Last import date"
+msgstr "crwdns249088:0crwdne249088:0"
+
+msgctxt "drop_a_file"
+msgid "Drop"
+msgstr "crwdns249138:0crwdne249138:0"
+
+msgctxt "select_product_data_file"
+msgid "Select a file with product data"
+msgstr "crwdns249140:0crwdne249140:0"
+
+msgctxt "number_of_products_without_nutriscore"
+msgid "Number of products without Nutri-Score"
+msgstr "crwdns249126:0crwdne249126:0"
+
+msgctxt "percent_of_products_with_nutriscore"
+msgid "% of products where Nutri-Score is computed"
+msgstr "crwdns249128:0crwdne249128:0"
+
+msgctxt "products_to_be_exported"
+msgid "Products to be exported"
+msgstr "crwdns249130:0crwdne249130:0"
+
+msgctxt "products_exported"
+msgid "Products exported"
+msgstr "crwdns249132:0crwdne249132:0"
+
+msgctxt "opportunities_to_improve_nutriscore"
+msgid "Opp. for Nutri-Score improvements"
+msgstr "crwdns249134:0crwdne249134:0"
+
+msgctxt "date_of_last_update"
+msgid "Date of last update"
+msgstr "crwdns249136:0crwdne249136:0"
+
+msgctxt "number_of_products_on_public_platform"
+msgid "Number of products on public platform"
+msgstr "crwdns249144:0crwdne249144:0"
+
+msgctxt "number_of_products_on_producer_platform"
+msgid "Number of products on producer platform"
+msgstr "crwdns249146:0crwdne249146:0"
+
+msgctxt "automated_daily_export_to_public_platform"
+msgid "Automatic daily export to public platform"
+msgstr "crwdns249148:0crwdne249148:0"
+
+msgctxt "improvements_navigation"
+msgid "Improvements"
+msgstr "crwdns249142:0crwdne249142:0"
+
+msgctxt "products_with_changes_since_last_export"
+msgid "Products with changes since last export"
+msgstr "crwdns249150:0crwdne249150:0"
+
+msgctxt "organization_list"
+msgid "Organization list"
+msgstr "crwdns249442:0crwdne249442:0"
+
+msgctxt "open_org"
+msgid "Open org"
+msgstr "crwdns249360:0crwdne249360:0"
+
+msgctxt "secondhand"
+msgid "Secondhand"
+msgstr "crwdns249482:0crwdne249482:0"
+
+msgctxt "donated_products_title"
+msgid "Donations"
+msgstr "crwdns249484:0crwdne249484:0"
+
+msgctxt "donated_products_subtitle"
+msgid "Give this product, or search for a similar donated product"
+msgstr "crwdns249486:0crwdne249486:0"
+
+msgctxt "used_products_title"
+msgid "Used products"
+msgstr "crwdns249488:0crwdne249488:0"
+
+msgctxt "used_products_subtitle"
+msgid "Buy this product used, or search for a similar used product"
+msgstr "crwdns249490:0crwdne249490:0"
+
+msgctxt "attribute_repairability_index_france_name"
+msgid "Repairability index"
+msgstr "crwdns249492:0crwdne249492:0"
+
+msgctxt "attribute_repairability_index_france_setting_name"
+msgid "Good repairability"
+msgstr "crwdns249494:0crwdne249494:0"
+
+msgctxt "attribute_repairability_index_france_setting_note"
+msgid "Mandatory rating in France for certain products since 2021"
+msgstr "crwdns249496:0crwdne249496:0"
+
+# keep %s, it will be replaced by the letter A, B, C, D or E
+msgctxt "attribute_repairability_index_france_grade_title"
+msgid "Repairability index %s"
+msgstr "crwdns249498:0%scrwdne249498:0"
+
+msgctxt "attribute_repairability_index_france_unknown_title"
+msgid "Repairability index unknown"
+msgstr "crwdns249500:0crwdne249500:0"
+
+msgctxt "attribute_repairability_index_france_not_applicable_title"
+msgid "Repairability index not-applicable"
+msgstr "crwdns249502:0crwdne249502:0"
+
+msgctxt "attribute_repairability_index_france_not_applicable_description_short"
+msgid "Not-applicable for the category"
+msgstr "crwdns249504:0crwdne249504:0"
+
+# variable names between { } must not be translated
+msgctxt "f_attribute_repairability_index_france_not_applicable_description"
+msgid "Applicable only for categories: {categories}"
+msgstr "crwdns249506:0{categories}crwdne249506:0"
+
+msgctxt "attribute_repairability_index_france_very_good_description_short"
+msgid "Very good repairability"
+msgstr "crwdns249508:0crwdne249508:0"
+
+msgctxt "attribute_repairability_index_france_good_description_short"
+msgid "Good repairability"
+msgstr "crwdns249510:0crwdne249510:0"
+
+msgctxt "attribute_repairability_index_france_average_description_short"
+msgid "Average repairability"
+msgstr "crwdns249512:0crwdne249512:0"
+
+msgctxt "attribute_repairability_index_france_poor_description_short"
+msgid "Poor repairability"
+msgstr "crwdns249514:0crwdne249514:0"
+
+msgctxt "attribute_repairability_index_france_bad_description_short"
+msgid "Bad repairability"
+msgstr "crwdns249516:0crwdne249516:0"
 

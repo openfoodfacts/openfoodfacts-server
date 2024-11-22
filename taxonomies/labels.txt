@@ -26,6 +26,7 @@ stopwords:es: por, la, las, los, el, apto, para, con, de, verificado, certificad
 stopwords:fi: ainesosat, vahvistettu, sertifioitu, hyväksytty, 100%, puhdas, tuote, standardi, valvottu, valvottua, tuotettu
 stopwords:fr: ingrédient, ingrédients, agricole, agricoles, issu, issue, issus, issues, d', du, de, l', le, la, convient, peut convenir, au, aux, régime, régimes, conforme, validé, vérifié, certifié, par, un, une, approuvé, 100%, pur, garantie, garanti, produit garanti, produit certifié, sas, en, durant, pendant, phase, période, dès, label, marque, logo, produit issu, produits issus, tous, les, sont, est, issus de la production
 stopwords:hu: összetevők, mezőgazdaság, ellenőrzött, tanúsított, 100%, természetes, termék, garantált
+stopwords:it: il, la, i, gli, le, di, del, dei, della, delle, nel, nei, nella, nelle, con, da, dal, dalla, dai, dagli, dalle
 stopwords:pl: z, certyfikowane, certyfikowany, certyfikowana, gwarancja
 stopwords:pt: ingredientes, agrícola, de, com, por, a, o, as, os, apto, para, verificado, certificado, conforme, validado, verificado, aprovado, controlado, 100%, puro, garantia, garantido, produto garantido, produto certificado, etiqueta, marca
 stopwords:ru: ингредиенты, из, с, проверено, сертифицировано, подтверждено, 100%, чистый, продукт, гарантия, гарантировано, стандарт
@@ -49,6 +50,7 @@ synonyms:es: OGMs, Organismos genéticamente modificados, transgénicos, OGM
 synonyms:bg: ГМО, Генетично модифицирани организми
 synonyms:fi: GMO:ita, muuntogeenisiä organismeja, muuntogeeninen, GMO, GM
 synonyms:fr: OGMs, Organismes génétiquement modifiés, OGM
+synonyms:it: OGM, OGMs, Organismo geneticamente modificato, Organismi geneticamente modificati
 synonyms:pt: OGMs, Organismos geneticamente modificados, transgénicos, transgênicos, OGM
 synonyms:ru: ГМО, Генетически Модифицированные Организмы
 
@@ -56,7 +58,7 @@ synonyms:en: Rich in, High in
 synonyms:es: Rico en, Alto contenido de, Alto contenido en
 synonyms:fi: runsaasti, paljon
 synonyms:fr: Riche en, Fort en
-synonyms:it: Ricco in, Alto contenuto di, Ricchi in
+synonyms:it: Ricco, ricchi, alto contenuto
 synonyms:pt: Rico em, Alto conteúdo de, Alto teor em, Alto teor de, Enriquecido com
 synonyms:ru: Обогащено
 
@@ -137,7 +139,10 @@ synonyms:fr: dès la fin, après
 synonyms:pt: do fim de, depois, depois de
 
 synonyms:fr: antibiotique, anti-biotique, anti-biotiques, anti-biotiques, traitement antibiotique, utilisation d'antibiotique
+synonyms:it: antibiotici, antibiotico, uso di antibiotici, trattamento con antibiotici
 synonyms:pt: antibiótico, anti-biótico, antibióticos, anti-bióticos, antibiotico, anti-biotico, antibioticos, anti-bioticos
+
+synonyms:it: allevamento, allevamenti, allevate, allevata, allevati, allevato
 
 synonyms:fr: phase de ponte, période de ponte, la ponte
 
@@ -276,7 +281,7 @@ fi: vapaana laiduntava, ulkoilma
 fr: Plein air
 he: גידול חופשי
 hu: Szabad tartású
-it: Allevamento a terra, allevate a terra, allevata a terra, allevati a terra, allevato a terra
+it: Allevamento a terra
 nl: Vrije uitloop
 pt: Em liberdade, ao ar livre
 ru: свободный выгул, открытый воздух
@@ -309,7 +314,7 @@ fr: Œufs de poules élevées en plein air, Œufs de plein air, Œufs plein air,
 he: ביצי חופש
 hr: iz slobodnog uzgoja, iz štalskog uzgoja, iz štalskog (podnog) uzgoja, iz podnog uzgoja
 hu: Szabad tartású tojás
-it: Uova da allevamento all'aperto
+it: Uova da allevamento all'aperto, uova da galline allevate all'aperto
 nl: Vrije uitloop eieren
 pl: jaja z chowu na wolnym wybiegu, 1 - jajka z chowu na wolnym wybiegu, 1 - jaja z chowu na wolnym wybiegu
 pt: Ovos de galinhas criadas em liberdade, ovos de galinhas em liberdade, ovos de galinhas livres de gaiolas, ovos de galinhas criadas ao ar livre, ovos de galinhas ao ar livre
@@ -358,7 +363,7 @@ en: Free range chicken
 de: Freilandhühnchen
 fi: ulkokana, vapaana elänyt kana
 hu: Szabad tartású csirke, Szabad tartású tyúk
-it: Polli allevati a terra
+it: Polli allevati a terra, galline allevate a terra
 pt: Galinhas criadas em liberdade, galinhas em liberdade, galinhas livres de gaiolas, galinhas criadas ao ar livre, galinhas ao ar livre
 
 < en:Free range

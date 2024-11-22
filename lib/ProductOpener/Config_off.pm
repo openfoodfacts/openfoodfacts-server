@@ -70,7 +70,7 @@ BEGIN {
 
 		$memd_servers
 
-		$google_analytics
+		$analytics
 
 		$thumb_size
 		$crop_size
@@ -175,21 +175,6 @@ $flavor = 'off';
 		unaccent => 1,
 		lowercase => 1,
 	},
-);
-
-%admins = map {$_ => 1} qw(
-	alex-off
-	cha-delh
-	charlesnepote
-	gala-nafikova
-	hangy
-	manoncorneille
-	raphael0202
-	stephane
-	tacinte
-	teolemon
-	g123k
-	valimp
 );
 
 %options = (
@@ -485,7 +470,7 @@ $small_size = 200;
 $display_size = 400;
 $zoom_size = 800;
 
-$google_analytics = <<HTML
+$analytics = <<HTML
 <!-- Matomo -->
 <script>
   var _paq = window._paq = window._paq || [];
@@ -1090,43 +1075,6 @@ $options{import_export_fields_importance} = {
 		}
 	},
 );
-
-# allow moving products to other instances of Product Opener on the same server
-# e.g. OFF -> OBF
-
-$options{current_server} = "off";
-
-$options{other_servers} = {
-	obf => {
-		name => "Open Beauty Facts",
-		data_root => "/srv/obf",
-		www_root => "/srv/obf/html",
-		mongodb => "obf",
-		domain => "openbeautyfacts.org",
-	},
-	off => {
-		name => "Open Food Facts",
-		data_root => "/srv/off",
-		www_root => "/srv/off/html",
-		mongodb => "off",
-		domain => "openfoodfacts.org",
-	},
-	opf => {
-		name => "Open Products Facts",
-		data_root => "/srv/opf",
-		www_root => "/srv/opf/html",
-		mongodb => "opf",
-		domain => "openproductsfacts.org",
-	},
-	opff => {
-		prefix => "opff",
-		name => "Open Pet Food Facts",
-		data_root => "/srv/opff",
-		www_root => "/srv/opff/html",
-		mongodb => "opff",
-		domain => "openpetfoodfacts.org",
-	}
-};
 
 # Name of the Redis stream to which product updates are published
 $options{redis_stream_name} = "product_updates_off";
