@@ -155,11 +155,11 @@ msgstr "A szervezethez való csatlakozási kérelme a szervezet adminisztrátor�
 
 msgctxt "admin_status_updated"
 msgid "Admin Status Updated"
-msgstr "Admin állapot frissítve"
+msgstr "Adminisztrátori állapot frissítve"
 
 msgctxt "admin_status"
 msgid "Admin Status"
-msgstr "Admin állapot"
+msgstr "Adminisztrátori állapot"
 
 msgctxt "grant_remove_admin_status"
 msgid "Grant/Remove Admin status"
@@ -203,7 +203,7 @@ msgstr "Adja meg a meghívni kívánt felhasználók e-mail címét (vesszővel 
 
 msgctxt "f_this_is_a_pro_account_for_org"
 msgid "This account is a professional account associated with the producer or brand {org}. You have access to the Platform for Producers."
-msgstr "Ez a fiók a(z) {org} gyártóhoz vagy márkához társított professzionális fiók. Hozzáférhet a Producerek Platformjához."
+msgstr "Ez a fiók a(z) {org} gyártóhoz vagy márkához társított szakmai fiók. Hozzáférhet a Gyártói Platformhoz."
 
 # please check that site_name and the brackets stays intact
 msgctxt "add_user_email_subject"
@@ -244,7 +244,7 @@ msgstr "A túlzott ivás káros az egészségre."
 
 msgctxt "email_warning"
 msgid "Please note that your Pro account will only be valid if you use your professional e-mail address. Our moderation team checks that the domain name is consistent with the organisation you wish to join."
-msgstr "Felhívjuk figyelmét, hogy Pro-fiókja csak akkor lesz érvényes, ha szakmai e-mail címét használja. Moderátorcsapatunk ellenőrzi, hogy a domain név megegyezik-e a csatlakozni kívánt szervezettel."
+msgstr "Felhívjuk figyelmét, hogy Pro-fiókja csak akkor lesz érvényes, ha céges e-mail címét használja. Moderátorcsapatunk ellenőrzi, hogy a domain név megegyezik-e a csatlakozni kívánt szervezettel."
 
 msgctxt "all_missions"
 msgid "All missions"
@@ -323,11 +323,11 @@ msgstr "Ön is segíthet az Open Food Facts program finanszírozásában"
 
 msgctxt "producers_administration_manual"
 msgid "Producers Admin manual"
-msgstr "Producer Admin kézikönyv"
+msgstr "Gyártói Adminisztrátori Kézikönyv"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org Az /images/svg/donate-icon.svg\" alt=\"Adományozás az Open Food Facts-nak\" /></a><p><<site_name>> egy, az iparágtól független non-profit egyesület készítette. Mindenki számára készült, mindenki által, és mindenki finanszírozza. Munkánkat úgy támogathatja, hogy <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">adományoz az Open Food Facts számára</a > és <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">a Lilo keresőmotor használatával</a> is.<br/ ><b>Köszönjük!</b></p>"
+msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org Az /images/svg/donate-icon.svg\" alt=\"Adományozás az Open Food Facts-nak\" /></a><p>A(z) <<site_name>> egy, az iparágtól független non-profit egyesület által készített adatbázis. Mindenki számára készült, mindenki által, és mindenki finanszírozza. Munkánkat úgy támogathatja, hogy <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">adományoz az Open Food Facts számára</a >, valamint <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">a Lilo keresőmotor használatával</a> is.<br/ ><b>Köszönjük!</b></p>"
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
@@ -595,7 +595,7 @@ msgstr "Termék szerkesztése"
 
 msgctxt "edit_product_page"
 msgid "Edit the page"
-msgstr "Az oldal szerkesztése"
+msgstr "Termék szerkesztése"
 
 msgctxt "edit_profile"
 msgid "Edit your public profile"
@@ -886,7 +886,7 @@ msgstr "/legal"
 
 msgctxt "footer_privacy"
 msgid "Privacy"
-msgstr "Magánélet"
+msgstr "Adatvédelem"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_privacy_link"
@@ -940,7 +940,7 @@ msgstr "https://world.openbeautyfacts.org"
 
 msgctxt "footer_pro"
 msgid "Open Food Facts for Producers"
-msgstr "Nyílt élelmiszer-tények a termelők számára"
+msgstr "Open Food Facts a gyártók számára"
 
 msgctxt "for"
 msgid "for"
@@ -1082,7 +1082,7 @@ msgstr "Összetevők"
 
 msgctxt "no_ingredient"
 msgid "Ingredients are missing"
-msgstr "Az összetevők hiányoznak"
+msgstr "Hiányoznak az összetevők"
 
 msgctxt "one_ingredient"
 msgid "1 ingredient"
@@ -1840,7 +1840,7 @@ msgstr "Ön most segített a világ legnagyobb nyílt adatbázisának fejleszté
 
 msgctxt "product_edit_thank_you"
 msgid "Thank you so much for joining us in our journey to data transparency!"
-msgstr "Köszönjük, hogy csatlakozott hozzánk az adatok átláthatósága felé vezető úton!"
+msgstr "Nagyon köszönjük, hogy csatlakozott hozzánk az adatátláthatóság felé vezető úton!"
 
 msgctxt "product_characteristics"
 msgid "Product characteristics"
@@ -2367,7 +2367,7 @@ msgstr "Termékoldal megtekintése"
 
 msgctxt "re_edit_product_page"
 msgid "Edit the product again"
-msgstr "Szerkessze újra a terméket"
+msgstr "Termék szerkesztése újra"
 
 msgctxt "select_country"
 msgid "Country"
@@ -2641,8 +2641,8 @@ msgstr "A világ minden tájáról származó eredmények megtekintése"
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
 "→ <a href=\"https://support.openfoodfacts.org/help/en-gb/9/27\">Why it matters</a>"
-msgstr "Az információknak és adatoknak a termék csomagolásán és címkéjén kell származniuk (és nem más webhelyekről vagy a gyártó oldaláról), és a képeket Önnek kell készítenie.<br/>\n"
-"→ <a href=\"https://support.openfoodfacts.org/help/en-gb/9/27\">Miért számít?</a>"
+msgstr "Az információk és adatok a termék csomagolásáról, címkéjéről kell származzanak (és nem az internetről, vagy a gyártó weboldaláról), és a fotókat Önnek kell készítenie.<br/>\n"
+"→ <a href=\"https://support.openfoodfacts.org/help/en-gb/9/27\">Miért fontos ez?</a>"
 
 msgctxt "website"
 msgid "Site or blog address"
@@ -2682,7 +2682,7 @@ msgstr "Képet küldött a gyártó. Ha úgy gondolja, hogy ez hibás vagy nem n
 
 msgctxt "nutrition_grade_fr_nutriments_estimated_warning"
 msgid "Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients."
-msgstr "Figyelmeztetés: a táplálkozási tények nincsenek megadva. Ezeket az összetevők listájából becsülték meg."
+msgstr "Figyelmeztetés: a tápértékadatok nincsenek megadva. Ezek az összetevők alapján lettek becsülve."
 
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
@@ -2698,15 +2698,15 @@ msgstr "Figyelmeztetés: a gyümölcsök, zöldségek és diófélék mennyiség
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was manually estimated from the list of ingredients: %d"
-msgstr "Figyelmeztetés: a címkén nincs feltüntetve a gyümölcs, zöldség és dió mennyisége, manuálisan becsülték meg az összetevők listájából: %d"
+msgstr "Figyelmeztetés: a címkén nincs feltüntetve a gyümölcs, zöldség és dió mennyisége, ezek manuálisan lettek megbecsülve az összetevőlistából: %d"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d"
-msgstr "Figyelmeztetés: a címkén nincs feltüntetve a gyümölcs, zöldség és dió mennyisége, a termék kategóriájából (%s) becsülték: %d"
+msgstr "Figyelmeztetés: a címkén nincs feltüntetve a gyümölcs, zöldség és dió mennyisége, ezek a termék kategóriájából (%s) lettek megbecsülve: %d"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_from_ingredients_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d"
-msgstr "Figyelmeztetés: a címkén nincs feltüntetve a gyümölcs, zöldség és dió mennyisége, az összetevők listájából becsülték: %d"
+msgstr "Figyelmeztetés: a címkén nincs feltüntetve a gyümölcs, zöldség és dió mennyisége, ezek az összetevőlista alapján lettek megbecsülve: %d"
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
@@ -2956,11 +2956,11 @@ msgstr "A túlzott fogyasztás kockázata"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_high"
 msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a high risk of reaching or exceeding the Acceptable Daily Intake (ADI) for <tag>."
-msgstr "Az Európai Élelmiszerbiztonsági Hatóság (EFSA) megállapította, hogy egyes népességcsoportokban nagy a kockázata annak, hogy elérik vagy túllépik a <tag> elfogadható napi bevitelét (ADI)."
+msgstr "Az Európai Élelmiszer-biztonsági Hatóság (EFSA) megállapította, hogy egyes népességcsoportokban nagy a kockázata annak, hogy elérik vagy túllépik a(z) <tag> elfogadható napi bevitelét (ADI)."
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_moderate"
 msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a moderate risk of reaching or exceeding the Acceptable Daily Intake (ADI) for <tag>."
-msgstr "Az Európai Élelmiszerbiztonsági Hatóság (EFSA) megállapította, hogy egyes népességcsoportokban nagy a kockázata annak, hogy elérik vagy túllépik a <tag> elfogadható napi bevitelét (ADI)."
+msgstr "Az Európai Élelmiszer-biztonsági Hatóság (EFSA) megállapította, hogy egyes népességcsoportokban közepes a kockázata annak, hogy elérik vagy túllépik a(z) <tag> elfogadható napi bevitelét (ADI)."
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_description"
 msgid "To evaluate your exposure to the <tag> food additive, you can browse our list of products that contain it. See the list of <nb_products> products with <tag> below."
@@ -2992,7 +2992,7 @@ msgstr "Az elfogadható napi bevitel (ADI) elérésének vagy túllépésének k
 
 msgctxt "additives_efsa_evaluation_exposure_greater_than_noael"
 msgid "Risk of reaching exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
-msgstr "A maximális dózis túllépésének kockázata káros hatás nélkül (Nincs megfigyelhető káros hatás szintje – NOAEL)"
+msgstr "A legnagyobb dózis káros hatások nélküli túllépésének kockázata (a „Nincs megfigyelhető káros hatás” szintje– NOAEL)"
 
 msgctxt "additives_efsa_evaluation_exposure_mean_greater_than_adi"
 msgid "Groups with more than 50% of members exceeding the acceptable daily intake (ADI)"
@@ -3004,11 +3004,11 @@ msgstr "A csoport tagjainak több mint 5%-ánál meghaladja az elfogadható napi
 
 msgctxt "additives_efsa_evaluation_exposure_mean_greater_than_noael"
 msgid "Groups with more than 50% of members exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
-msgstr "A csoport tagjainak több mint 50%-ánál túllépi a káros hatások nélküli legnagyobb dózis mennyiségét (a Nincs Megfigyelhető Káros Hatás szintjét - NOAEL)"
+msgstr "A csoport tagjainak több mint 50%-ánál túllépi a káros hatások nélküli legnagyobb dózis mennyiségét (a „Nincs megfigyelhető káros hatás” szintjét - NOAEL)"
 
 msgctxt "additives_efsa_evaluation_exposure_95th_greater_than_noael"
 msgid "Groups with more than 5% of members exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
-msgstr "A csoport tagjainak több mint 5%-ánál túllépi a káros hatások nélküli legnagyobb dózis mennyiségét (a Nincs Megfigyelhető Káros Hatás szintjét - NOAEL)"
+msgstr "A csoport tagjainak több mint 5%-ánál túllépi a káros hatások nélküli legnagyobb dózis mennyiségét (a „Nincs megfigyelhető káros hatás” szintjét - NOAEL)"
 
 msgctxt "exposure_title_95th"
 msgid "Moderate risk"
@@ -3020,7 +3020,7 @@ msgstr "az emberek 5%-a vagy több"
 
 msgctxt "exposure_title_mean"
 msgid "High risk"
-msgstr "Nagy kockázat"
+msgstr "Magas kockázat"
 
 msgctxt "exposure_description_mean"
 msgid "50% of people or more"
@@ -6406,7 +6406,7 @@ msgstr "Korlátozza a sós snackek fogyasztását, és válasszon alacsonyabb s�
 
 msgctxt "nutrient_info_sugars_risk"
 msgid "A high consumption of sugar can cause weight gain and tooth decay. It also augments the risk of type 2 diabetes and cardio-vascular diseases."
-msgstr "A magas cukorfogyasztás súlygyarapodást és fogszuvasodást okozhat. Ezenkívül növeli a 2-es típusú cukorbetegség és a szív- és érrendszeri betegségek kockázatát."
+msgstr "A túlzott cukorfogyasztás súlygyarapodást és fogszuvasodást okozhat. Ezenkívül növeli a 2-es típusú cukorbetegség és a szív- és érrendszeri betegségek kockázatát."
 
 msgctxt "nutrient_recommendation_sugars_title"
 msgid "Limit the consumption of sugar and sugary drinks"
@@ -6485,7 +6485,7 @@ msgstr "Telepítse az alkalmazást!"
 # e.g. in French: Scannez les <span id=\"foods\">aliments</span> de votre <span id=\"everyday\">quotidien</span>
 msgctxt "footer_scan_your_everyday_foods"
 msgid "Scan your <span id=\"everyday\">everyday</span> <span id=\"foods\">foods</span>"
-msgstr ""
+msgstr "Olvassa le <span id=\"everyday\">mindennapi</span> <span id=\"foods\">élelmiszereit</span>"
 
 msgctxt "nutrition"
 msgid "Nutrition"
@@ -6494,7 +6494,7 @@ msgstr "Tápérték"
 # Note: "criteria" is plural here. So in French for instance: "Vos critères"
 msgctxt "your_criteria"
 msgid "Your criteria"
-msgstr ""
+msgstr "Az Ön kritériumai"
 
 msgctxt "product"
 msgid "Product"
@@ -6506,75 +6506,75 @@ msgstr "Környezet"
 
 msgctxt "api_result_failure"
 msgid "Failure"
-msgstr ""
+msgstr "Hiba"
 
 msgctxt "api_result_product_found"
 msgid "Product found"
-msgstr ""
+msgstr "Megtalált termék"
 
 msgctxt "api_result_product_not_found"
 msgid "Product not found"
-msgstr ""
+msgstr "A termék nem található"
 
 msgctxt "api_result_product_found_with_a_different_product_type"
 msgid "Product found with a different product type"
-msgstr ""
+msgstr "A termék más terméktípussal található meg"
 
 msgctxt "api_result_product_updated"
 msgid "Product updated"
-msgstr ""
+msgstr "A termék frissítve"
 
 msgctxt "api_message_invalid_api_action"
 msgid "Invalid API action"
-msgstr ""
+msgstr "Érvénytelen API-művelet"
 
 msgctxt "api_message_invalid_api_method"
 msgid "Invalid API method"
-msgstr ""
+msgstr "Érvénytelen API-hívás"
 
 msgctxt "api_message_empty_request_body"
 msgid "Empty request body"
-msgstr ""
+msgstr "A kérés törzse üres"
 
 msgctxt "api_message_invalid_json_in_request_body"
 msgid "Invalid JSON in request body"
-msgstr ""
+msgstr "Érvénytelen JSON található a kérés törzsében"
 
 msgctxt "api_message_invalid_code"
 msgid "Invalid code"
-msgstr ""
+msgstr "Érvénytelen kód"
 
 msgctxt "api_message_invalid_product_type"
 msgid "Invalid product type"
-msgstr ""
+msgstr "Érvénytelen terméktípus"
 
 msgctxt "api_message_invalid_type_must_be_object"
 msgid "Invalid type: must be an object"
-msgstr ""
+msgstr "Érvénytelen típus: objektumnak kell lennie"
 
 msgctxt "api_message_invalid_type_must_be_array"
 msgid "Invalid type: must be an array"
-msgstr ""
+msgstr "Érvénytelen típus: tömbnek kell lennie"
 
 msgctxt "api_message_invalid_type_must_be_integer"
 msgid "Invalid type: must be an integer"
-msgstr ""
+msgstr "Érvénytelen típus: egész számnak kell lennie"
 
 msgctxt "api_message_invalid_type_must_be_number"
 msgid "Invalid type: must be a number"
-msgstr ""
+msgstr "Érvénytelen típus: számnak kell lennie"
 
 msgctxt "api_message_missing_field"
 msgid "Missing field"
-msgstr ""
+msgstr "Hiányzó mező"
 
 msgctxt "api_message_unrecognized_field"
 msgid "Unrecognized field"
-msgstr ""
+msgstr "Felismeretlen mező"
 
 msgctxt "api_message_unrecognized_value"
 msgid "Unrecognized value"
-msgstr ""
+msgstr "Felismeretlen érték"
 
 msgctxt "api_impact_none"
 msgid "None"
@@ -6586,15 +6586,15 @@ msgstr "Figyelmeztetés"
 
 msgctxt "api_impact_failure"
 msgid "Failure"
-msgstr ""
+msgstr "Hiba"
 
 msgctxt "api_impact_field_ignored"
 msgid "Field ignored"
-msgstr ""
+msgstr "Figyelmen kívül hagyott mező"
 
 msgctxt "api_impact_value_converted"
 msgid "Value converted"
-msgstr ""
+msgstr "Érték konvertálva"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units"
@@ -6604,29 +6604,29 @@ msgstr "Darabszám"
 # Unit = element, not unit of measure
 msgctxt "packaging_weight"
 msgid "Weight of one empty unit"
-msgstr ""
+msgstr "Üres csomagolóelem súlya"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit"
 msgid "Quantity of product contained per unit"
-msgstr ""
+msgstr "A tartalmazott termék mennyisége egységenként"
 
 # variable names between { } must not be translated
 msgctxt "f_help_categorize_on_hunger_games"
 msgid "Help categorize more {title} on Hunger Games"
-msgstr ""
+msgstr "Segítsen több {title} kategorizálásában a Hunger Gamesben"
 
 msgctxt "packagings_complete"
 msgid "All the packaging parts of the product are listed."
-msgstr ""
+msgstr "A termék összes csomagolóeleme fel van sorolva."
 
 msgctxt "api_message_invalid_user_id_and_password"
 msgid "Invalid user id and password"
-msgstr ""
+msgstr "Érvénytelen felhasználói azonosító vagy jelszó"
 
 msgctxt "api_message_invalid_value_must_be_0_or_1"
 msgid "Invalid value: must be 0 or 1"
-msgstr ""
+msgstr "Érvénytelen érték: 0 vagy 1 lehet"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units_description"
@@ -6648,7 +6648,7 @@ msgstr "Csak akkor adja meg az újrahasznosítási utasításokat, ha fel van t�
 # Unit = element, not unit of measure
 msgctxt "packaging_weight_description"
 msgid "Remove any remaining food and wash and dry the packaging part before weighting. If possible, use a scale with 0.1g or 0.01g precision."
-msgstr ""
+msgstr "Távolítson el minden megmaradt élelmiszert, és lemérés előtt mossa le és szárítsa meg a csomagolást. Ha lehetséges, használjon 0,1 g vagy 0,01 g pontosságú mérleget."
 
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit_description"
@@ -6657,7 +6657,7 @@ msgstr "Adja meg a termék nettó tömegét vagy nettó térfogatát, és tünte
 
 msgctxt "import_and_export_products"
 msgid "Import and export products"
-msgstr ""
+msgstr "Termékek importálása és exportálása"
 
 msgctxt "add_products"
 msgid "Add products"
@@ -6666,60 +6666,60 @@ msgstr "Termékek hozzáadása"
 # Needs to be short (displayed in a menu)
 msgctxt "install_the_app_to_add_products"
 msgid "Install the app to add products"
-msgstr ""
+msgstr "App telepítése termékek hozzáadásához"
 
 msgctxt "search_and_analyze_products"
 msgid "Search and analyze products"
-msgstr ""
+msgstr "Termékek keresése és elemzése"
 
 msgctxt "resources"
 msgid "Resources"
-msgstr ""
+msgstr "Erőforrások"
 
 msgctxt "pro_platform_user_guide"
 msgid "Pro platform user guide"
-msgstr ""
+msgstr "Pro platform felhasználói útmutató"
 
 msgctxt "faq_for_producers"
 msgid "FAQ for producers"
-msgstr ""
+msgstr "GYIK a gyártóknak"
 
 # variable names between { } must not be translated
 msgctxt "product_js_enter_value_between_0_and_max"
 msgid "Please enter a value between 0 and {max}."
-msgstr ""
+msgstr "Adjon meg egy 0 és {max} közötti értéket."
 
 msgctxt "please_ask_users_create_account_first"
 msgid "Please ask the following users to create an Open Food Facts account first:"
-msgstr ""
+msgstr "Kérje meg a következő felhasználókat, hogy először hozzanak létre Open Food Facts fiókot:"
 
 msgctxt "users_added_successfully"
 msgid "Users added to the organization successfully:"
-msgstr ""
+msgstr "A szervezethez sikeresen hozzáadott felhasználók:"
 
 msgctxt "product_js_sugars_warning"
 msgid "Sugars should not be higher than carbohydrates."
-msgstr ""
+msgstr "A cukor nem lehet magasabb a szénhidrátoknál."
 
 msgctxt "product_js_saturated_fat_warning"
 msgid "Saturated fat should not be higher than fat."
-msgstr ""
+msgstr "A telített zsírsavak mennyisége nem lehet magasabb a zsíroknál."
 
 msgctxt "packaging_materials"
 msgid "Packaging materials"
-msgstr ""
+msgstr "Csomagoló anyagok"
 
 msgctxt "packaging_weight_total"
 msgid "Packaging weight"
-msgstr ""
+msgstr "Csomagolás súlya"
 
 msgctxt "packaging_weight_100g"
 msgid "Packaging weight per 100 g of product"
-msgstr ""
+msgstr "Csomagolás súlya 100 g termékre"
 
 msgctxt "packaging_weight_100g_mean"
 msgid "Mean packaging weight per 100 g of product"
-msgstr ""
+msgstr "A csomagolás átlagos súlya 100 g termékre vonatkoztatva"
 
 msgctxt "total"
 msgid "Total"
@@ -6867,19 +6867,19 @@ msgstr ""
 
 msgctxt "nutriscore_explanation_what_it_takes_into_account"
 msgid "The score from A to E is calculated based on nutrients and foods to favor (proteins, fiber, fruits, vegetables and legumes ...) and nutrients to limit (calories, saturated fat, sugars, salt)."
-msgstr ""
+msgstr "Az A-tól E-ig terjedő pontszámot a hasznos tápanyagok és élelmiszerek (fehérjék, rostok, gyümölcsök, zöldségek és hüvelyesek) és a korlátozni kívánt tápanyagok (kalória, telített zsírok, cukor, só) alapján számítjuk ki."
 
 msgctxt "nutriscore_explanation_where_the_data_comes_from"
 msgid "The score is calculated from the data of the nutrition facts table and the composition data (fruits, vegetables and legumes)."
-msgstr ""
+msgstr "A pontszámot a tápértéktáblázat adataiból és az összetételből (gyümölcsök, zöldségek és hüvelyesek) számítjuk ki."
 
 msgctxt "nutriscore_explanation_recommended_by_public_health_authorities"
 msgid "The display of this logo is recommended by public health authorities without obligation for companies."
-msgstr ""
+msgstr "Ennek a logónak a feltüntetését a közegészségügyi hatóságok ajánlják, de a vállalatok számára nem kötelező."
 
 msgctxt "nutriscore_explanation_title"
 msgid "What is the Nutri-Score?"
-msgstr ""
+msgstr "Mi az a Nutri-Score?"
 
 msgctxt "nutrient_info_energy_risk"
 msgid "Energy intakes above energy requirements are associated with increased risks of weight gain, overweight, obesity, and consequently risk of diet-related chronic diseases."
@@ -6927,7 +6927,7 @@ msgstr ""
 
 msgctxt "api_status_failure"
 msgid "Failure"
-msgstr ""
+msgstr "Hiba"
 
 msgctxt "api_result_product_reverted"
 msgid "Product reverted to the specified revision"
