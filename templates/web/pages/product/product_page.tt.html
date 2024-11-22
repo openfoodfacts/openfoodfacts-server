@@ -95,22 +95,27 @@
                         <!-- Edit Button -->
                         <li class="nav-button" style="float: right;">
                             <a href="/cgi/product.pl?type=edit&code=[% code %]" class="button small white-button round"
-                                title="[% edq(lang('edit_product_page')) %]">
-                                <span class="material-icons size-20 ">
+                                title="[% edq(lang('edit_product_page')) %]"
+                                style="display: inline-flex; align-items: center;">
+                                <span class="material-icons size-20" style="margin-right: 0.25rem;">
                                     edit
                                 </span>
-                                <span class="show-for-large-up">[% lang('edit_product_page') %]</span>
+                                <span class="show-for-large-up">
+                                    [% lang('edit_product_page') %]
+                                </span>
                             </a>
                         </li>
 
                         <!-- Share Button -->
                         <li class="nav-button" style="float: right;">
-                            <a href="[% request_ref.canon_url %]" class="button small" title="[% title %]">
-                                <span class="material-icons size-20 ">
+                            <a href="[% request_ref.canon_url %]" class="button small white-button round"
+                                title="[% title %]" style="display: inline-flex; align-items: center;">
+                                <span class="material-icons size-20" style="margin-right: 0.25rem;">
                                     share
                                 </span>
-
-                                <span class="show-for-large-up">[% lang('share') %]</span>
+                                <span class="show-for-large-up">
+                                    [% lang('share') %]
+                                </span>
                             </a>
                         </li>
                     </ul>
