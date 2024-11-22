@@ -730,7 +730,7 @@ Nutrition facts:
   - any-glob-to-any-file: 'packager-codes/FR-merge-UTF-8.csv'
   - any-glob-to-any-file: 'packager-codes/geocode_addresses.sto'
   - any-glob-to-any-file: 'packager-codes/packager_codes.sto'
-
+  - any-glob-to-any-file: 'scripts/packager-codes/**'
 # facets: facets allow you to explore products according to various criterion. Based on MongoDB
 facets:
 - changed-files:
@@ -741,6 +741,72 @@ facets:
 🇫🇷 France:
 - changed-files:
   - any-glob-to-any-file: 'packager-codes/FR-merge-UTF-8.csv'
+
+Portugal:
+- changed-files:
+  - any-glob-to-any-file: 'scripts/packager-codes/portugal-geocode.sh'
+  - any-glob-to-any-file: 'scripts/packager-codes/portugal-concatenate-csv-sections.py'
+
+:
+- changed-files:
+  - any-glob-to-any-file: 'scripts/packager-codes/toidukaitlejad-tsv.xsl'
+
+Cyprus:
+- changed-files:
+  - any-glob-to-any-file: 'scripts/packager-codes/cy_packagers_refresh.py'
+
+Croatia:
+- changed-files:
+  - any-glob-to-any-file: 'scripts/packager-codes/hr-packagers-refresh.pl'
+
+Italy:
+- changed-files:
+  - any-glob-to-any-file: 'scripts/packager-codes/it_packagers_refresh.py'
+
+Non-EU traceability codes:
+- changed-files:
+  - any-glob-to-any-file: 'scripts/packager-codes/non-eu/​non_eu_spider.py'
+  - any-glob-to-any-file: 'scripts/packager-codes/non-eu/​requirements.txt'
+  - any-glob-to-any-file: 'scripts/packager-codes/non-eu/​packager_codes.py'
+  - any-glob-to-any-file: 'scripts/packager-codes/non-eu/​pdf_extraction.py'
+  
+Poland:
+- changed-files:
+  - any-glob-to-any-file: 'scripts/packager-codes/poland_packager_code.py'
+
+Spain:
+- changed-files:
+  - any-glob-to-any-file: 'scripts/packager-codes/es-packagers-html2csv.pl'
+
+Austria:
+- changed-files:
+  - any-glob-to-any-file: 'scripts/packager-codes/at_packagers_refresh_part1.py'
+  - any-glob-to-any-file: 'scripts/packager-codes/at_packagers_refresh_part2.py'
+
+Czech republic:
+- changed-files:
+  - any-glob-to-any-file: 'scripts/packager-codes/cz_packagers_refresh_part1.py'
+  - any-glob-to-any-file: 'scripts/packager-codes/cz_packagers_refresh_part2.py'
+
+Denmark:
+- changed-files:
+  - any-glob-to-any-file: 'scripts/packager-codes/dk_packagers_refresh_part1.py'
+  - any-glob-to-any-file: 'scripts/packager-codes/dk_packagers_refresh_part2.py'
+
+Hungary:
+- changed-files:
+  - any-glob-to-any-file: 'scripts/packager-codes/hu_packagers_refresh_part1.py'
+  - any-glob-to-any-file: 'scripts/packager-codes/hu_packagers_refresh_part2.py'
+
+Ireland:
+- changed-files:
+  - any-glob-to-any-file: 'scripts/packager-codes/ie_packagers_refresh_part1.py'
+  - any-glob-to-any-file: 'scripts/packager-codes/ie_packagers_refresh_part2.py'
+
+Luxembourg:
+- changed-files:
+  - any-glob-to-any-file: 'scripts/packager-codes/lu_packagers_refresh_part1.py'
+  - any-glob-to-any-file: 'scripts/packager-codes/lu_packagers_refresh_part2.py'
 
 # https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Redis.html
 Redis:
