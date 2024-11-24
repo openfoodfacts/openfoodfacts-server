@@ -111,6 +111,7 @@ sub init_api_response ($request_ref) {
 }
 
 sub add_warning ($response_ref, $warning_ref) {
+	defined $response_ref->{warnings} or $response_ref->{warnings} = [];
 	push @{$response_ref->{warnings}}, $warning_ref;
 	return;
 }
@@ -136,6 +137,7 @@ HTTP status code to return in the response, defaults to 400 bad request.
 =cut
 
 sub add_error ($response_ref, $error_ref, $status_code = 400) {
+	defined $response_ref->{errors} or $response_ref->{errors} = [];
 	push @{$response_ref->{errors}}, $error_ref;
 	$response_ref->{status_code} = $status_code;
 	return;
@@ -882,20 +884,19 @@ Reference to the response object.
 
 Permission to check.
 
-=head3 Return value
+=head3 Return value $has_permission
 
-1 if the user does not have the permission, 0 otherwise.
+1 if the user has the permission, 0 otherwise.
 
 =cut
 
 sub check_user_permission ($request_ref, $response_ref, $permission) {
 
-	# We will return an error equal to 1 if the user does not have the permission
-	my $error = 0;
+	my $has_permission = 1;
 
 	# Check if the user has permission
 	if (not has_permission($request_ref, $permission)) {
-		$error = 1;
+		$has_permission = 0;
 		$log->error("check_user_permission - user does not have permission", {permission => $permission})
 			if $log->is_error();
 		add_error(
@@ -909,7 +910,7 @@ sub check_user_permission ($request_ref, $response_ref, $permission) {
 		);
 	}
 
-	return $error;
+	return $has_permission;
 }
 
 =head2 process_auth_header ( $request_ref, $r )
@@ -957,7 +958,7 @@ sub process_auth_header ($request_ref, $r) {
 		return -1;
 	}
 
-	$request_ref->{access_token} = $access_token;
+	$request_ref->{access_token} = $token;
 	my $user_id = get_user_id_using_token($access_token, $request_ref);
 	unless (defined $user_id) {
 		$log->info('User not found and not created') if $log->is_info();

@@ -153,7 +153,7 @@
 									Test
 								</a>
 								<ul class="dropdown">
-									<li><a href="//keycloak:8080/realms/open-products-facts/account?referrer=ProductOpener&referrer_uri=http%3A%2F%2Ffr.openfoodfacts.localhost" target="_blank"><span class="material-icons">account_box</span> Account parameters</a></li>
+									<li><a href="//keycloak:8080/realms/open-products-facts/account?referrer=ProductOpener&referrer_uri=http%3A%2F%2Ffr.openfoodfacts.localhost" target="_blank" rel="noopener"><span class="material-icons">account_box</span> Account parameters</a></li>
 									<li><a href="/cgi/user.pl?type=edit&userid=tests"><span class="material-icons">settings</span> Paramètres du compte</a></li>
 
 									
@@ -440,6 +440,8 @@
                     <span id="barcode" property="food:code" itemprop="gtin13" style="speak-as:digits;">3300000000002</span>
                 </p>
 
+
+        
 
         
 
@@ -3492,7 +3494,10 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
 <ul id="history_list">
   
   <li>
-    <time datetime="--ignore--">--ignore--</time> - <a href="/editeur/tests" lang="no_language">tests</a> Données (Ajout : code, lang, product_name, quantity, brands, categories, labels, link, countries, nutrition_data_per, nutrition_data_prepared_per, serving_size, ingredients_text, generic_name_en, ingredients_text_en, origin_en, product_name_en, ingredients_text_fr, product_name_fr) -- Nutriments (Ajout : nutrition-score-fr)   - (app)  &nbsp;
+    <time datetime="--ignore--">--ignore--</time> - <a href="/editeur/tests" lang="no_language">tests</a>
+    
+    
+    Données (Ajout : product_type, code, lang, product_name, quantity, brands, categories, labels, link, countries, nutrition_data_per, nutrition_data_prepared_per, serving_size, ingredients_text, generic_name_en, ingredients_text_en, origin_en, product_name_en, ingredients_text_fr, product_name_fr) -- Nutriments (Ajout : nutrition-score-fr)   - (app)  &nbsp;
     <a href="/produit/3300000000002/tarte-aux-pommes-et-aux-framboise-bio-les-tartes-de-robert?rev=1" class="button tiny">Voir cette révision</a>
     
   </li>

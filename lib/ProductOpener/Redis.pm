@@ -354,8 +354,7 @@ sub push_to_redis_stream ($user_id, $product_ref, $action, $comment, $diffs, $ti
 				# product_type should be used over flavor (kept for backward compatibility)
 				'product_type',
 				$options{product_type},
-				'flavor',
-				$options{current_server},
+				'flavor', $flavor,
 				'user_id',
 				Encode::encode_utf8($user_id),
 				'action',

@@ -661,7 +661,7 @@ This is useful for example for products change log.
 
 =head3 Arguments
 
-=head4 The access token. $access_token
+=head4 The access token string. $access_token_string
 
 =head3 Return values
 
@@ -669,12 +669,21 @@ The authorized party (client ID) or undefined if the token is not issued by the 
 
 =cut
 
-sub get_azp ($access_token) {
-	if (not(defined $access_token)) {
+sub get_azp ($access_token_string) {
+	if (not(defined $access_token_string)) {
 		return;
 	}
 
 	_ensure_oidc_is_discovered();
+
+	my $access_token;
+	# verify token using JWKS (see Auth.pm)
+	eval {$access_token = verify_access_token($access_token_string);};
+	my $error = $@;
+	if ($error) {
+		$log->info('Access token invalid', {token => $access_token_string}) if $log->is_info();
+		return;
+	}
 
 	if (    (defined $oidc_discover_document->{issuer})
 		and (not($oidc_discover_document->{issuer} eq $access_token->{iss})))
