@@ -55214,6 +55214,10 @@ wco_hs_heading:en: 08.02
 wikidata:en: Q39918
 
 < en:Almonds
+en: Almonds(unshelled), Almonds with shell, Unshelled almonds
+nl: Ongepelde amandelen
+
+< en:Almonds
 < en:Shelled nuts
 en: Shelled almonds
 bg: Белени бадеми
@@ -55225,28 +55229,28 @@ hr: Oljušteni bademi
 hu: Héjas mandula
 it: Mandorle sgusciate
 lt: Gliaudyti migdolai, lukštenti migdolai
-nl: Gepelde amandelen
+nl: Amandelen(gepeld), Gepelde amandelen
 wco_hs_code:en: 0802.12
 wco_hs_heading:en: 08.02
 
-< en:Almonds
+< en:Shelled almonds
 en: Whole almonds
 de: ganze Mandeln
 fr: Amandes entières
 hr: Cijeli bademi
+nl: Amandelen (heel)
 agribalyse_food_code:en: 15000
 ciqual_food_code:en: 15000
-ciqual_food_name:en: Almond, (with peel)
+ciqual_food_name:en: Almond (with peel)
 
-< en:Almonds
-< en:Whole almonds
+< en:Shelled almonds
 en: Almond peeled unpeeled or blanched
 fr: Amande mondée émondée blanchie
 agribalyse_food_code:en: 15041
 ciqual_food_code:en: 15041
 ciqual_food_name:en: Almond, peeled, unpeeled or blanched
 
-< en:Almonds
+< en:Shelled almonds
 en: Almond flakes, Sliced almonds
 fi: Mantelihiutaleet
 fr: Amandes effilées
@@ -55254,19 +55258,27 @@ hr: Listići badema
 lt: Migdolų drožlės, pjaustyti migdolai, migdolų riekelės
 nl: Amandelschaafsel, Amandelvlokken
 
-< en:Almonds
-en: Grilled almonds
+< en:Shelled almonds
+en: Almonds(roasted), Roasted almonds, Grilled almonds
 de: Geröstete Mandeln
 fi: grillatut mantelit
 fr: Amandes grillées
 hr: Bademi na žaru
 it: Mandorle Grigliate
 lt: Grilinti migdolai
-nl: Gegrilde amandel
+nl: Gegrilde amandelen
 agribalyse_proxy_food_code:en: 15042
 agribalyse_proxy_food_name:en: Almond, grilled, salted
 
-< en:Almonds
+< en:Shelled almonds
+en: Almonds(unroasted)
+nl: Amandelen(ongegrild)
+
+< en:Almonds(unroasted)
+< en:Almonds(unsalted)
+en: Almonds(raw)
+
+< en:Shelled almonds
 en: Salted almonds
 de: Gesalzene Mandeln
 es: Almendras saladas
@@ -55276,11 +55288,15 @@ hr: Slani bademi
 hu: Sós mandula, sózott mandula
 it: Mandorle salate
 lt: Sūdyti migdolai, Migdolai su druska
-nl: Gezouten amandelen
+nl: Amandelen(gezouten), Gezouten amandelen
 pl: Solone migdały
 tr: Tuzlu badem
 agribalyse_proxy_food_code:en: 15042
 agribalyse_proxy_food_name:en: Almond, grilled, salted
+
+< en:Shelled almonds
+en: Almonds(unsalted), Salted almonds
+nl: Amandelen(ongezouten), Ongezouten amandelen
 
 < en:Grilled almonds
 < en:Salted almonds
@@ -55295,6 +55311,7 @@ ciqual_food_name:en: Almond, grilled, salted
 < en:Salted almonds
 en: Roasted salted almonds
 lt: Kepinti ir sūdyti migdolai
+nl: Amandelen(geroosterd en gezouten)
 
 < en:Nuts
 en: Cashew nuts
