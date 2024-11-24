@@ -6195,7 +6195,7 @@ msgstr "Для обнаружения продуктов содержащих п
 
 msgctxt "unrecognized_ingredients"
 msgid "Unrecognized ingredients"
-msgstr ""
+msgstr "Нераспознанные ингредиенты"
 
 msgctxt "nova_1_unprocessed_ingredients"
 msgid "The product contains only unprocessed or minimally processed ingredients."
@@ -6363,7 +6363,7 @@ msgstr "Добавить магазин, где найден продукт"
 # this is not used yet
 msgctxt "action_labels"
 msgid "Add any label present on this product"
-msgstr ""
+msgstr "Добавьте любую этикетку, имеющуюся на этом продукте"
 
 # this is not used yet
 msgctxt "action_countries"
@@ -6373,7 +6373,7 @@ msgstr "Добавить страну где вы нашли этот проду
 # this is not used yet
 msgctxt "action_packager_codes_image"
 msgid "Take a photo of traceability codes"
-msgstr ""
+msgstr "Сфотографируйте коды отслеживания"
 
 # Used as a header for key facts
 msgctxt "knowledge_panels_facts"
@@ -6386,15 +6386,15 @@ msgstr "Рекомендации"
 
 msgctxt "nutrient_info_salt_risk"
 msgid "A high consumption of salt (or sodium) can cause raised blood pressure, which can increase the risk of heart disease and stroke."
-msgstr ""
+msgstr "Чрезмерное потребление соли (или натрия) может привести к повышению артериального давления, что может увеличить риск сердечных заболеваний и инсульта."
 
 msgctxt "nutrient_info_salt_high_blood_pressure"
 msgid "Many people who have high blood pressure do not know it, as there are often no symptoms."
-msgstr ""
+msgstr "Многие люди, страдающие повышенным артериальным давлением, не знают об этом, поскольку зачастую симптомы отсутствуют."
 
 msgctxt "nutrient_info_salt_high_consumption"
 msgid "Most people consume too much salt (on average 9 to 12 grams per day), around twice the recommended maximum level of intake."
-msgstr ""
+msgstr "Большинство людей потребляют слишком много соли (в среднем 9–12 граммов в день), что примерно в два раза превышает рекомендуемую максимальную норму потребления."
 
 msgctxt "nutrient_recommendation_salt_title"
 msgid "Limit the consumption of salt and salted food"
@@ -6402,11 +6402,11 @@ msgstr "Предел потребления соли и солёных прод�
 
 msgctxt "nutrient_recommendation_salt_cooking_and_table"
 msgid "Reduce the quantity of salt used when cooking, and don't salt again at the table."
-msgstr ""
+msgstr "Уменьшите количество соли, используемой при приготовлении пищи, и не солите ее когда она уже готова."
 
 msgctxt "nutrient_recommendation_salt_limit_salty_snacks"
 msgid "Limit the consumption of salty snacks and choose products with lower salt content."
-msgstr ""
+msgstr "Ограничить потребление соленых закусок, и выбрать продукты с низким содержанием соли."
 
 msgctxt "nutrient_info_sugars_risk"
 msgid "A high consumption of sugar can cause weight gain and tooth decay. It also augments the risk of type 2 diabetes and cardio-vascular diseases."
@@ -6426,15 +6426,15 @@ msgstr "Выбирайте продукты с низким содержание
 
 msgctxt "nutrient_info_fat_and_saturated_fat_risk"
 msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
-msgstr ""
+msgstr "Высокое потребление жиров, особенно насыщенных, может привести к повышению уровня холестерина, что увеличивает риск сердечных заболеваний."
 
 msgctxt "nutrient_recommendation_fat_and_saturated_fat_title"
 msgid "Reduce the consumption of fat and saturated fat"
-msgstr ""
+msgstr "Сократите потребление жиров и насыщенных жиров"
 
 msgctxt "nutrient_recommendation_fat_and_saturated_fat"
 msgid "Choose products with lower fat and saturated fat content."
-msgstr ""
+msgstr "Выбирайте продукты с пониженным содержанием жиров и насыщенных жиров."
 
 msgctxt "sign_in"
 msgid "Sign in"
@@ -6454,26 +6454,26 @@ msgstr "Добавленные продукты"
 
 msgctxt "products_edited"
 msgid "Products edited"
-msgstr ""
+msgstr "Продукты отредактированы"
 
 msgctxt "products_photographed"
 msgid "Products photographed"
-msgstr ""
+msgstr "Фотографируемая продукция"
 
 # result of the matching with the user preferences: should ne a noun, not a verb
 msgctxt "matching_with_your_preferences"
 msgid "Matching with your preferences"
-msgstr ""
+msgstr "Соответствие вашим предпочтениям"
 
 # HTML tags and variable names between { } must not be translated
 msgctxt "f_join_us_on_slack"
 msgid "Join us on <a href=\"{url}\">Slack</a>"
-msgstr ""
+msgstr "Присоединяйтесь к нам в <a href=\"{url}\">Slack</a>"
 
 # HTML tags and variable names between { } must not be translated
 msgctxt "f_discover_our_code_of_conduct"
 msgid "Discover our <a href=\"{url}\">Code of conduct</a>"
-msgstr ""
+msgstr "Откройте для себя наши <a href=\"{url}\">Нормы поведения</a>"
 
 # {links} must not be translated, it will be replaced by icons and/or text links
 msgctxt "f_footer_follow_us_links"
@@ -6489,7 +6489,7 @@ msgstr "Скачайте приложение!"
 # e.g. in French: Scannez les <span id=\"foods\">aliments</span> de votre <span id=\"everyday\">quotidien</span>
 msgctxt "footer_scan_your_everyday_foods"
 msgid "Scan your <span id=\"everyday\">everyday</span> <span id=\"foods\">foods</span>"
-msgstr ""
+msgstr "Сканируйте свои <span id=\"everyday\">каждый день</span> <span id=\"foods\">продукты</span>"
 
 msgctxt "nutrition"
 msgid "Nutrition"
@@ -6510,7 +6510,7 @@ msgstr "Окружающая среда"
 
 msgctxt "api_result_failure"
 msgid "Failure"
-msgstr ""
+msgstr "Провал"
 
 msgctxt "api_result_product_found"
 msgid "Product found"
@@ -6538,15 +6538,15 @@ msgstr "Неверный метод API"
 
 msgctxt "api_message_empty_request_body"
 msgid "Empty request body"
-msgstr ""
+msgstr "Пустой запрос"
 
 msgctxt "api_message_invalid_json_in_request_body"
 msgid "Invalid JSON in request body"
-msgstr ""
+msgstr "Недопустимый JSON в запросе"
 
 msgctxt "api_message_invalid_code"
 msgid "Invalid code"
-msgstr ""
+msgstr "Неверный код"
 
 msgctxt "api_message_invalid_product_type"
 msgid "Invalid product type"
@@ -6566,7 +6566,7 @@ msgstr "Недопустимый тип: должен быть целым чис
 
 msgctxt "api_message_invalid_type_must_be_number"
 msgid "Invalid type: must be a number"
-msgstr ""
+msgstr "Неверный тип: должно быть число"
 
 msgctxt "api_message_missing_field"
 msgid "Missing field"
@@ -6574,7 +6574,7 @@ msgstr "Пропущено поле"
 
 msgctxt "api_message_unrecognized_field"
 msgid "Unrecognized field"
-msgstr ""
+msgstr "Неопознанное поле"
 
 msgctxt "api_message_unrecognized_value"
 msgid "Unrecognized value"
@@ -6590,7 +6590,7 @@ msgstr "Nazwa zwyczajowa"
 
 msgctxt "api_impact_failure"
 msgid "Failure"
-msgstr ""
+msgstr "Провал"
 
 msgctxt "api_impact_field_ignored"
 msgid "Field ignored"
@@ -6608,21 +6608,22 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_weight"
 msgid "Weight of one empty unit"
-msgstr ""
+msgstr "Вес одной пустой единицы"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit"
 msgid "Quantity of product contained per unit"
-msgstr ""
+msgstr "Количество продукта, содержащегося в единице"
 
 # variable names between { } must not be translated
 msgctxt "f_help_categorize_on_hunger_games"
 msgid "Help categorize more {title} on Hunger Games"
-msgstr ""
+msgstr "Помогите классифицировать больше {title} в \n"
+"Hunger Games"
 
 msgctxt "packagings_complete"
 msgid "All the packaging parts of the product are listed."
-msgstr ""
+msgstr "Перечислены все части упаковки продукта."
 
 msgctxt "api_message_invalid_user_id_and_password"
 msgid "Invalid user id and password"
@@ -6652,7 +6653,7 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_weight_description"
 msgid "Remove any remaining food and wash and dry the packaging part before weighting. If possible, use a scale with 0.1g or 0.01g precision."
-msgstr ""
+msgstr "Удалите остатки пищи, вымойте и высушите упаковочную часть перед взвешиванием. Если возможно, используйте весы с точностью до 0.1 или 0.01 г."
 
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit_description"
@@ -6682,7 +6683,7 @@ msgstr "Ресурсы"
 
 msgctxt "pro_platform_user_guide"
 msgid "Pro platform user guide"
-msgstr ""
+msgstr "Руководство пользователя Pro"
 
 msgctxt "faq_for_producers"
 msgid "FAQ for producers"
@@ -6695,87 +6696,87 @@ msgstr "Пожалуйста, введите значение между 0 и {m
 
 msgctxt "please_ask_users_create_account_first"
 msgid "Please ask the following users to create an Open Food Facts account first:"
-msgstr ""
+msgstr "Пожалуйста, попросите следующих пользователей сначала создать учетную запись Open Food Facts:"
 
 msgctxt "users_added_successfully"
 msgid "Users added to the organization successfully:"
-msgstr ""
+msgstr "Пользователи успешно добавлены в организацию:"
 
 msgctxt "product_js_sugars_warning"
 msgid "Sugars should not be higher than carbohydrates."
-msgstr ""
+msgstr "Содержание сахара не должно превышать содержание углеводов."
 
 msgctxt "product_js_saturated_fat_warning"
 msgid "Saturated fat should not be higher than fat."
-msgstr ""
+msgstr "Содержание насыщенных жиров не должно превышать содержание жиров."
 
 msgctxt "packaging_materials"
 msgid "Packaging materials"
-msgstr ""
+msgstr "Упаковочные материалы"
 
 msgctxt "packaging_weight_total"
 msgid "Packaging weight"
-msgstr ""
+msgstr "Вес упаковки"
 
 msgctxt "packaging_weight_100g"
 msgid "Packaging weight per 100 g of product"
-msgstr ""
+msgstr "Вес упаковки на 100 г продукта"
 
 msgctxt "packaging_weight_100g_mean"
 msgid "Mean packaging weight per 100 g of product"
-msgstr ""
+msgstr "Средний вес упаковки на 100 г продукта"
 
 msgctxt "total"
 msgid "Total"
-msgstr ""
+msgstr "Всего"
 
 msgctxt "packaging_material_products_percent"
 msgid "% of products containing the material"
-msgstr ""
+msgstr "% продуктов, содержащих материал"
 
 msgctxt "packaging_material_products_percent_main"
 msgid "% of products containing mostly the material"
-msgstr ""
+msgstr "% продуктов, содержащих в основном материал"
 
 msgctxt "relative_to_products_containing_the_material"
 msgid "for products that contain the material"
-msgstr ""
+msgstr "для продуктов, содержащих материал"
 
 msgctxt "relative_to_products_containing_mostly_the_material"
 msgid "for products that contain mostly the material"
-msgstr ""
+msgstr "для продуктов, которые содержат в основном материал"
 
 msgctxt "relative_to_all_products"
 msgid "relative to all products"
-msgstr ""
+msgstr "относительно всех продуктов"
 
 msgctxt "preferred_language"
 msgid "Preferred Language"
-msgstr ""
+msgstr "Предпочитаемый язык"
 
 msgctxt "packagings_n_p"
 msgid "Numbers of packaging components"
-msgstr ""
+msgstr "Количество компонентов упаковки"
 
 msgctxt "packagings_n_s"
 msgid "Number of packaging components"
-msgstr ""
+msgstr "Количество компонентов упаковки"
 
 msgctxt "packagings_materials_all"
 msgid "All materials"
-msgstr ""
+msgstr "Все материалы"
 
 msgctxt "weight"
 msgid "Weight"
-msgstr ""
+msgstr "Вес"
 
 msgctxt "weight_100g"
 msgid "Weight per 100g of product"
-msgstr ""
+msgstr "Вес на 100 г продукта"
 
 msgctxt "weight_percent"
 msgid "Weight percent"
-msgstr ""
+msgstr "Весовой процент"
 
 msgctxt "nutriscore_component_energy"
 msgid "Energy"
@@ -6783,7 +6784,7 @@ msgstr "Энергетическая ценность"
 
 msgctxt "nutriscore_component_energy_from_saturated_fat"
 msgid "Energy from saturated fat"
-msgstr ""
+msgstr "Энергия из насыщенных жиров"
 
 msgctxt "nutriscore_component_sugars"
 msgid "Sugars"
@@ -6795,7 +6796,7 @@ msgstr "Насыщенные жиры"
 
 msgctxt "nutriscore_component_saturated_fat_ratio"
 msgid "Saturated fat / fat"
-msgstr ""
+msgstr "Насыщенные жиры / жиры"
 
 msgctxt "nutriscore_component_salt"
 msgid "Salt"
@@ -6803,11 +6804,11 @@ msgstr "Соль"
 
 msgctxt "nutriscore_component_non_nutritive_sweeteners"
 msgid "Non-nutritive sweeteners"
-msgstr ""
+msgstr "Некалорийные подсластители"
 
 msgctxt "nutriscore_component_fruits_vegetables_legumes"
 msgid "Fruits, vegetables and legumes"
-msgstr ""
+msgstr "Фрукты, овощи и бобовые"
 
 msgctxt "nutriscore_component_fiber"
 msgid "Fiber"
@@ -6819,103 +6820,103 @@ msgstr "Белки"
 
 msgctxt "presence"
 msgid "Presence"
-msgstr ""
+msgstr "Наличие"
 
 msgctxt "absence"
 msgid "Absence"
-msgstr ""
+msgstr "Отсутствие"
 
 msgctxt "nutriscore_is_water"
 msgid "This product is considered to be water for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "При расчете Nutri-Score данный продукт считается водой."
 
 msgctxt "nutriscore_is_fat_oil_nuts_seeds"
 msgid "This product is considered to be fat, oil, nuts or seeds for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "При расчете Nutri-Score данный продукт считается жиром, маслом, орехами или семенами."
 
 msgctxt "nutriscore_is_cheese"
 msgid "This product is considered to be cheese for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "При расчете Nutri-Score данный продукт считается сыром."
 
 msgctxt "nutriscore_is_red_meat_product"
 msgid "This product is considered to be a red meat product for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "Этот продукт считается красным мясным продуктом для расчета Nutri-Score."
 
 msgctxt "nutriscore_count_proteins_reason_beverage"
 msgid "Points for proteins are counted because the product is considered to be a beverage."
-msgstr ""
+msgstr "Баллы за белки начисляются, поскольку продукт считается напитком."
 
 msgctxt "nutriscore_count_proteins_reason_cheese"
 msgid "Points for proteins are counted because the product is considered to be cheese."
-msgstr ""
+msgstr "Баллы за белки начисляются, поскольку продукт считается сыром."
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_less_than_7"
 msgid "Points for proteins are counted because the negative points are less than 7."
-msgstr ""
+msgstr "Баллы за белки учитываются, поскольку отрицательные баллы меньше 7."
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_less_than_11"
 msgid "Points for proteins are counted because the negative points are less than 11."
-msgstr ""
+msgstr "Баллы за белки учитываются, поскольку отрицательные баллы меньше 11."
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_to_7"
 msgid "Points for proteins are not counted because the negative points greater than or equal to 7."
-msgstr ""
+msgstr "Баллы за белки не учитываются, так как отрицательные баллы больше или равны 7."
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_to_11"
 msgid "Points for proteins are not counted because the negative points greater than or equal to 11."
-msgstr ""
+msgstr "Баллы за белки не учитываются, так как отрицательные баллы больше или равны 11."
 
 msgctxt "nutriscore_explanation_what_it_is"
 msgid "The Nutri-Score is a logo on the overall nutritional quality of products."
-msgstr ""
+msgstr "Nutri-Score — это логотип, отражающий общую пищевую ценность продуктов."
 
 msgctxt "nutriscore_explanation_what_it_takes_into_account"
 msgid "The score from A to E is calculated based on nutrients and foods to favor (proteins, fiber, fruits, vegetables and legumes ...) and nutrients to limit (calories, saturated fat, sugars, salt)."
-msgstr ""
+msgstr "Оценка по шкале от A до E рассчитывается на основе питательных веществ и продуктов, потребление которых следует ограничивать (белки, клетчатка, фрукты, овощи и бобовые...), а также питательных веществ, потребление которых следует ограничивать (калории, насыщенные жиры, сахара, соль)."
 
 msgctxt "nutriscore_explanation_where_the_data_comes_from"
 msgid "The score is calculated from the data of the nutrition facts table and the composition data (fruits, vegetables and legumes)."
-msgstr ""
+msgstr "Оценка рассчитывается на основе данных таблицы пищевой ценности и данных о составе (фрукты, овощи и бобовые)."
 
 msgctxt "nutriscore_explanation_recommended_by_public_health_authorities"
 msgid "The display of this logo is recommended by public health authorities without obligation for companies."
-msgstr ""
+msgstr "Размещение этого логотипа рекомендовано органами здравоохранения без каких-либо обязательств для компаний."
 
 msgctxt "nutriscore_explanation_title"
 msgid "What is the Nutri-Score?"
-msgstr ""
+msgstr "Что такое Nutri-Score?"
 
 msgctxt "nutrient_info_energy_risk"
 msgid "Energy intakes above energy requirements are associated with increased risks of weight gain, overweight, obesity, and consequently risk of diet-related chronic diseases."
-msgstr ""
+msgstr "Потребление энергии сверх необходимой связано с повышенным риском увеличения веса, избыточного веса, ожирения и, следовательно, риска возникновения хронических заболеваний, связанных с питанием."
 
 msgctxt "nutrient_info_saturated_fat_risk"
 msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
-msgstr ""
+msgstr "Высокое потребление жиров, особенно насыщенных, может привести к повышению уровня холестерина, что увеличивает риск сердечных заболеваний."
 
 msgctxt "nutrient_info_saturated_fat_ratio_risk"
 msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
-msgstr ""
+msgstr "Высокое потребление жиров, особенно насыщенных, может привести к повышению уровня холестерина, что увеличивает риск сердечных заболеваний."
 
 msgctxt "nutrient_info_energy_from_saturated_fat_risk"
 msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
-msgstr ""
+msgstr "Высокое потребление жиров, особенно насыщенных, может привести к повышению уровня холестерина, что увеличивает риск сердечных заболеваний."
 
 msgctxt "nutrient_info_non_nutritive_sweeteners_risk"
 msgid "Non-nutritive sweeteners may not confer any long-term benefit in reducing body fat in adults or children. There may be potential undesirable effects from long-term use of non-nutritive sweeteners, such as an increased risk of type 2 diabetes and cardiovascular diseases in adults."
-msgstr ""
+msgstr "Некалорийные подсластители могут не давать долгосрочных преимуществ в снижении жировых отложений у взрослых или детей. Могут быть потенциальные нежелательные эффекты от долгосрочного использования некалорийных подсластителей, такие как повышенный риск диабета 2 типа и сердечно-сосудистых заболеваний у взрослых."
 
 msgctxt "nutrient_info_fiber_benefit"
 msgid "Consuming foods rich in fiber (especially whole grain foods) reduces the risks of aerodigestive cancers, cardiovascular diseases, obesity and diabetes."
-msgstr ""
+msgstr "Употребление продуктов, богатых клетчаткой (особенно цельно зерновых), снижает риск возникновения рака пищеварительной системы, сердечно-сосудистых заболеваний, ожирения и диабета."
 
 msgctxt "nutrient_info_fruits_vegetables_legumes_benefit"
 msgid "Consuming foods rich in fruits, vegetables and legumes reduces the risks of aerodigestive cancers, cardiovascular diseases, obesity and diabetes."
-msgstr ""
+msgstr "Употребление продуктов, богатых фруктами, овощами и бобовыми, снижает риск возникновения рака пищеварительной системы, сердечно-сосудистых заболеваний, ожирения и диабета."
 
 msgctxt "nutrient_info_proteins_benefit"
 msgid "Foods that are rich in proteins are usually rich in calcium or iron which are essential minerals with numerous health benefits."
-msgstr ""
+msgstr "Продукты, богатые белками, обычно богаты кальцием или железом — важнейшими минералами, обладающими многочисленными полезными свойствами для здоровья."
 
 msgctxt "revert"
 msgid "Revert to this revision"
@@ -6931,7 +6932,7 @@ msgstr ""
 
 msgctxt "api_status_failure"
 msgid "Failure"
-msgstr ""
+msgstr "Провал"
 
 msgctxt "api_result_product_reverted"
 msgid "Product reverted to the specified revision"
