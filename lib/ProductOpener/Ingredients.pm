@@ -1766,14 +1766,23 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 	# and indicate that the service is creating the "ingredients" structure
 	$updated_product_fields_ref->{ingredients} = 1;
 
-	return if ((not defined $product_ref->{ingredients_text}) or ($product_ref->{ingredients_text} eq ""));
+	# $product_ref->{ingredients_lc} is defined in extract_ingredients_from_text()
+	my $ingredients_lc = $product_ref->{ingredients_lc} || $product_ref->{lc};
+
+	if (   (not defined $product_ref->{ingredients_text})
+		or ($product_ref->{ingredients_text} eq "")
+		or (not defined $ingredients_lc))
+	{
+		$log->debug(
+			"parse_ingredients_text_service - missing ingredients_text or ingredients_lc",
+			{ingredients_text => $product_ref->{ingredients_text}, ingredients_lc => $ingredients_lc}
+		) if $log->is_debug();
+		return;
+	}
 
 	my $text = $product_ref->{ingredients_text};
 
 	$log->debug("extracting ingredients from text", {text => $text}) if $log->is_debug();
-
-	# $product_ref->{ingredients_lc} is defined in extract_ingredients_from_text()
-	my $ingredients_lc = $product_ref->{ingredients_lc} || $product_ref->{lc};
 
 	$text = preparse_ingredients_text($ingredients_lc, $text);
 
@@ -3005,7 +3014,10 @@ reference to a hash of product fields that have been created or updated
 
 sub extend_ingredients_service ($product_ref, $updated_product_fields_ref) {
 
-	# and indicate that the service is creating the "ingredients" structure
+	# Do nothing and return if we don't have the ingredients structure
+	return if not defined $product_ref->{ingredients};
+
+	# indicate that the service is modifying the "ingredients" structure
 	$updated_product_fields_ref->{ingredients} = 1;
 
 	# Add properties like origins from specific ingredients extracted from labels or the end of the ingredients list
@@ -3415,6 +3427,9 @@ reference to a hash of product fields that have been created or updated
 =cut 
 
 sub estimate_ingredients_percent_service ($product_ref, $updated_product_fields_ref) {
+
+	# Do nothing and return if we don't have the ingredients structure
+	return if not defined $product_ref->{ingredients};
 
 	# Add a percent_max value for salt and sugar ingredients, based on the nutrition facts.
 	add_percent_max_for_ingredients_from_nutrition_facts($product_ref);
@@ -4163,6 +4178,9 @@ reference to a hash of product fields that have been created or updated
 =cut
 
 sub analyze_ingredients_service ($product_ref, $updated_product_fields_ref) {
+
+	# Do nothing and return if we don't have the ingredients structure
+	return if not defined $product_ref->{ingredients};
 
 	# Delete any existing values for the ingredients analysis fields
 	delete $product_ref->{ingredients_analysis};
@@ -5911,7 +5929,8 @@ my @symbols = ('\*\*\*', '\*\*', '\*', '°°°', '°°', '°', '\(1\)', '\(2\)',
 my $symbols_regexp = join('|', @symbols);
 
 sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
-	$log->debug("develop_ingredients_categories_and_types: start with>$text<") if $log->is_debug();
+	$log->debug("develop_ingredients_categories_and_types", {ingredients_lc => $ingredients_lc, text => $text})
+		if $log->is_debug();
 
 	if (defined $ingredients_categories_and_types{$ingredients_lc}) {
 
