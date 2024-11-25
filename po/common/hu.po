@@ -663,7 +663,7 @@ msgstr "származási kódok (EK-üzemkódok)"
 
 msgctxt "emb_codes_products"
 msgid "Products with the traceability code %s"
-msgstr "Termékek melyek származási kódja %s"
+msgstr "Termékek, melyek származási kódja %s"
 
 msgctxt "emb_codes_s"
 msgid "traceability code"
@@ -1243,15 +1243,15 @@ msgstr "nyelv"
 
 msgctxt "last_edit_dates_p"
 msgid "Last edit dates"
-msgstr "Utolsó szerkesztés dátumai"
+msgstr "Utolsó szerkesztések dátumai"
 
 msgctxt "last_edit_dates_s"
 msgid "Last edit date"
-msgstr "Utolsó módosítás ideje"
+msgstr "Utolsó szerkesztés dátuma"
 
 msgctxt "last_image_dates_p"
 msgid "Last picture dates"
-msgstr "Utolsó kép dátumai"
+msgstr "Utolsó képek dátumai"
 
 msgctxt "last_image_dates_s"
 msgid "Last picture date"
@@ -1303,8 +1303,8 @@ msgstr "Jelentkezzen be a termékek hozzáadásához vagy szerkesztéséhez."
 msgctxt "login_to_add_products"
 msgid "<p>Please sign-in to add or edit a product.</p>\n\n"
 "<p>If you do not yet have an account on <<site_name>>, you can <a href=\"/cgi/user.pl\">register in 30 seconds</a>.</p>\n"
-msgstr "<p>Kérem, jelentkezzen be a termék hozzáadásához vagy szerkesztéséhez.</p>\n\n"
-"<p>Amennyiben nem rendelkezik fiókkal a(z) <<site_name>>-on, lehetősége van <a href=\"/cgi/user.pl\">regisztrálni egyet 30 másodperc alatt</a>.</p>\n"
+msgstr "<p>A termék hozzáadásához vagy szerkesztéséhez jelentkezzen be.</p>\n\n"
+"<p>Amennyiben nem rendelkezik fiókkal az <<site_name>>-en, <a href=\"/cgi/user.pl\">regisztráljon egyet fél perc alatt</a>.</p>\n"
 
 msgctxt "login_username_email"
 msgid "Username or e-mail address:"
@@ -1312,7 +1312,7 @@ msgstr "Felhasználónév vagy email cím:"
 
 msgctxt "low"
 msgid "low"
-msgstr "kis"
+msgstr "alacsony"
 
 msgctxt "low_quantity"
 msgid "low quantity"
@@ -1340,7 +1340,7 @@ msgstr "gyártás vagy feldolgozás helyei"
 
 msgctxt "manufacturing_places_products"
 msgid "Products manufactured or processed in %s"
-msgstr "Termékek, amelyeknek %s a gyártás vagy feldolgozás helye"
+msgstr "Termékek, amelyeknek %s a gyártási vagy feldolgozási helye"
 
 msgctxt "manufacturing_places_s"
 msgid "manufacturing or processing place"
@@ -1352,7 +1352,7 @@ msgstr "hely hozzáadása"
 
 msgctxt "manufacturing_places_without_products"
 msgid "Products not manufactured or processed in %s"
-msgstr "Termékek, amelyeknek nem %s a gyártás vagy feldolgozás helye"
+msgstr "Termékek, amelyeknek nem %s a gyártási vagy feldolgozási helye"
 
 msgctxt "map_count"
 msgid "%d products match the search criteria, of which %i products have a known production place."
@@ -1360,7 +1360,7 @@ msgstr "%d termék felel meg a keresési feltételeknek, ezek közül %i termék
 
 msgctxt "map_title"
 msgid "Map title"
-msgstr "Térkép címe"
+msgstr "Térképi cím"
 
 msgctxt "menu"
 msgid "Menu"
@@ -1560,7 +1560,7 @@ msgstr "Összehasonlítás az azonos kategóriába tartozó termékek átlagos �
 
 msgctxt "nutrition_data_comparison_with_categories_note"
 msgid "Please note: for each nutriment, the average is computed for products for which the nutriment quantity is known, not on all products of the category."
-msgstr "Kérjük, vegye figyelembe: minden egyes tápanyag esetében az átlagot azokra a termékekre számítjuk ki, amelyeknél ismert a tápanyagmennyiség, nem pedig a kategória összes termékére."
+msgstr "Vegye figyelembe: minden egyes tápanyag esetében az átlagot azokra a termékekre számítjuk ki, amelyeknél ismert a tápanyagmennyiség, nem pedig a kategória összes termékére."
 
 msgctxt "nutrition_data_note"
 msgid "If the picture is sufficiently sharp and level, nutrition facts can be automatically extracted from the picture."
@@ -1568,7 +1568,7 @@ msgstr "Ha a kép eléggé éles és nem ferde, akkor a tápértékadatok automa
 
 msgctxt "nutrition_data_per_10"
 msgid "10th centile"
-msgstr "10. centilis"
+msgstr "10. percentilis"
 
 msgctxt "nutrition_data_per_100g"
 msgid "for 100 g / 100 ml"
@@ -1576,7 +1576,7 @@ msgstr "100 g / 100 ml-ben"
 
 msgctxt "nutrition_data_per_5"
 msgid "5<sup>th</sup> centile"
-msgstr "5. centilis"
+msgstr "5. percentilis"
 
 msgctxt "nutrition_data_per_50"
 msgid "Median"
@@ -1584,11 +1584,11 @@ msgstr "Medián"
 
 msgctxt "nutrition_data_per_90"
 msgid "90th centile"
-msgstr "90. centilis"
+msgstr "90. percentilis"
 
 msgctxt "nutrition_data_per_95"
 msgid "95<sup>th</sup> centile"
-msgstr "95. centilis"
+msgstr "95. percentilis"
 
 msgctxt "nutrition_data_per_max"
 msgid "Maximum"
@@ -1617,7 +1617,7 @@ msgstr "Tápértékadatok"
 msgctxt "nutrition_data_table_note"
 msgid "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
 "by typing the first letters of their name in the last row of the table."
-msgstr "A táblázat alapértelmezetten felsorolja a gyakran megadott tápanyagokat. Hagyja üresen azt a mezőt, ami nem szerepel a címkén.<br/>Hozzáadhat további tápanyagokat (vitaminok, ásványi anyagok, koleszterin, stb.)\n"
+msgstr "Alaphelyzetben a táblázat a gyakran megadott tápanyagokat tartalmazza. Hagyja üresen azt a mezőt, ami nem szerepel a címkén.<br/>Hozzáadhat további tápanyagokat (vitaminok, ásványi anyagok, koleszterin, stb.)\n"
 "úgy, hogy beírja a nevük kezdőbetűit a táblázat utolsó sorába."
 
 msgctxt "nutrition_data_table_asterisk"
@@ -1668,23 +1668,23 @@ msgstr "Szeged, Magyarország"
 
 msgctxt "origins_note_xxx"
 msgid "Indicate the origin of ingredients"
-msgstr "Adja meg az összetevők eredetét"
+msgstr "Adja meg az összetevők származási helyét"
 
 msgctxt "origins_p"
 msgid "origins of ingredients"
-msgstr "összetevők eredete"
+msgstr "összetevők származási helyei"
 
 msgctxt "origins_products"
 msgid "Products with ingredients originating from %s"
-msgstr "Termékek, amelyek összetevőinek eredete %s"
+msgstr "Termékek, amelyek összetevőinek származási helye %s"
 
 msgctxt "origins_s"
 msgid "origin of ingredients"
-msgstr "összetevők eredete"
+msgstr "összetevők származási helye"
 
 msgctxt "origins_tagsinput"
 msgid "add an origin"
-msgstr "eredet hozzáadása"
+msgstr "származás hozzáadása"
 
 msgctxt "origins_without_products"
 msgid "Products without ingredients originating from %s"
@@ -1724,7 +1724,7 @@ msgstr "Termékek, amelyeknek nem %s a csomagolása"
 
 msgctxt "page_x"
 msgid "Page %d"
-msgstr "Oldal %d"
+msgstr "%d. oldal"
 
 msgctxt "page_x_out_of_y"
 msgid "Page %d out of %d."
@@ -4230,7 +4230,7 @@ msgstr "Számított Nutri-Score osztályzat"
 
 msgctxt "scanned_code"
 msgid "Scanned code"
-msgstr "Beolvasott kód"
+msgstr "Leolvasott kód"
 
 msgctxt "code_from_filename"
 msgid "Code from file name"
