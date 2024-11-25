@@ -10648,7 +10648,8 @@ sub display_product_api ($request_ref) {
 			and (($requested_product_type eq "all") or ($requested_product_type eq $product_ref->{product_type})))
 		{
 			redirect_to_url($request_ref, 302,
-				format_subdomain($subdomain, $product_ref->{product_type}) . $request_ref->{original_query_string});
+				format_subdomain($subdomain, $product_ref->{product_type}) . "/"
+					. $request_ref->{original_query_string});
 		}
 		else {
 			$request_ref->{status_code} = 404;
