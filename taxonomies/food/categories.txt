@@ -55122,6 +55122,7 @@ opposite:en: en:unsalted-nuts
 < en:Nuts
 en: Unsalted nuts
 de: Ungesalzene Nüsse
+es: Mezcla de frutos secos
 fr: Fruits à coque non-salés, fruits à coques non-salés
 it: frutta a guscio insalata
 nl: Ongezouten peulvruchten
@@ -55129,7 +55130,8 @@ pt: Frutos secos sem sal
 opposite:en: en:salted-nuts
 
 < en:Nuts
-en: Mixed nuts
+en: Mixed nuts, Nut mix
+de: Nussmischung
 nl: Notenmelanges, gemengde noten
 
 < en:Cashew nuts
@@ -55248,10 +55250,29 @@ ciqual_food_code:en: 15000
 ciqual_food_name:en: Almond (with peel)
 opposite:en: en:almonds flakes
 
+< en:Nut flours
 < en:Shelled almonds
-en: Almond powders
-fi: Mantelijauhe
-nl: Amandelpoeders
+en: Almond meal, Ground almond, Almond powders
+de: gemahlene Mandeln, geriebene Mandeln
+es: Almendras en polvo, Almendra en polvo
+fr: Amandes en poudre, poudres d’amande, poudre d’amande, Amande en poudre
+hr: Obrok od badema
+it: Pasto di Mandorle
+lt: Migdolų miltai
+nl: Gemalen amandelen, Amandelpoeders
+agribalyse_proxy_food_code:en: 15041
+agribalyse_proxy_food_name:en: Almond, peeled, unpeeled or blanched
+agribalyse_proxy_food_name:fr: Amande, mondée, émondée ou blanchie
+wikidata:en: Q4733897
+
+< en:Almond meal
+en: Almond flours
+es: Harinas de almendra, Harina de almendra
+fi: mantelijauho, Mantelijauhe
+fr: Farine d'Amandes
+hr: Bademovo brašno
+it: Farina di mandorle
+pt: Farinha de amêndoa
 
 < en:Shelled almonds
 en: Almonds(blanched), Blanched almonds
@@ -55280,7 +55301,7 @@ nl: Amandelschaafsel, Amandelvlokken
 opposite:en: en:almonds(whole)
 
 < en:Shelled almonds
-en: Almonds(roasted), Roasted almonds, Grilled almonds
+en: Almonds(roasted), Roasted almonds, Grilled almonds, Toasted almonds
 de: Geröstete Mandeln
 fi: grillatut mantelit
 fr: Amandes grillées
@@ -56166,29 +56187,6 @@ hr: Brašna od orašastih plodova
 it: Farine di noci
 lt: Riešutų miltai
 nl: Gemalen noten
-
-< en:Nut flours
-en: Almond meal, Ground almond
-de: gemahlene Mandeln, geriebene Mandeln
-es: Almendras en polvo, Almendra en polvo
-fr: Amandes en poudre, poudres d’amande, poudre d’amande, Amande en poudre
-hr: Obrok od badema
-it: Pasto di Mandorle
-lt: Migdolų miltai
-nl: Gemalen amandels
-agribalyse_proxy_food_code:en: 15041
-agribalyse_proxy_food_name:en: Almond, peeled, unpeeled or blanched
-agribalyse_proxy_food_name:fr: Amande, mondée, émondée ou blanchie
-wikidata:en: Q4733897
-
-< en:Almond meal
-en: Almond flours
-es: Harinas de almendra, Harina de almendra
-fi: mantelijauho
-fr: Farine d'Amandes
-hr: Bademovo brašno
-it: Farina di mandorle
-pt: Farinha de amêndoa
 
 < en:Nut flours
 en: Chestnut flours
