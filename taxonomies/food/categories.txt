@@ -55210,7 +55210,7 @@ sv: Mandlar, mandel
 tr: Badem
 agribalyse_proxy_food_code:en: 15000
 agribalyse_proxy_food_name:en: Almond, (with peel)
-opposite:en: en:chocolate-covered-almonds
+opposite:en: en:chocolate-covered-almonds, en:almond-butters
 wco_hs_code:en: 0802.11
 wco_hs_heading:en: 08.02
 wikidata:en: Q39918
@@ -55285,14 +55285,17 @@ lt: Grilinti migdolai
 nl: Gegrilde amandelen
 agribalyse_proxy_food_code:en: 15042
 agribalyse_proxy_food_name:en: Almond, grilled, salted
+opposite:en: en:almonds(unroasted)
 
 < en:Shelled almonds
 en: Almonds(unroasted)
 nl: Amandelen(ongegrild)
+opposite:en: en:almonds(roasted)
 
 < en:Almonds(unroasted)
 < en:Almonds(unsalted)
 en: Almonds(raw)
+es: Almendra natural
 
 < en:Shelled almonds
 en: Salted almonds
@@ -55309,10 +55312,12 @@ pl: Solone migdały
 tr: Tuzlu badem
 agribalyse_proxy_food_code:en: 15042
 agribalyse_proxy_food_name:en: Almond, grilled, salted
+opposite:en: en:almonds(unsalted)
 
 < en:Shelled almonds
 en: Almonds(unsalted), Salted almonds
 nl: Amandelen(ongezouten), Ongezouten amandelen
+opposite:en: en:almonds(salted)
 
 < en:Grilled almonds
 < en:Salted almonds
