@@ -949,7 +949,7 @@ Array of specific ingredients.
 
 sub add_specific_ingredients_from_labels ($product_ref) {
 
-	my $ingredients_lc = $product_ref->{ingredients_lc} || $product_ref->{lc};
+	my $ingredients_lc = $product_ref->{ingredients_lc} || $product_ref->{lc} || $product_ref->{lang};
 
 	if (defined $product_ref->{labels_tags}) {
 		foreach my $labelid (@{$product_ref->{labels_tags}}) {
@@ -1011,7 +1011,7 @@ Array of specific ingredients.
 
 sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quantity_regexp, $per_100g_regexp) {
 
-	my $ingredients_lc = $product_ref->{ingredients_lc} || $product_ref->{lc};
+	my $ingredients_lc = $product_ref->{ingredients_lc} || $product_ref->{lc} || $product_ref->{lang};
 
 	# Go through the ingredient lists multiple times
 	# as long as we have one match
@@ -1604,7 +1604,7 @@ Array of specific ingredients.
 
 sub parse_origins_from_text ($product_ref, $text) {
 
-	my $ingredients_lc = $product_ref->{ingredients_lc} || $product_ref->{lc};
+	my $ingredients_lc = $product_ref->{ingredients_lc} || $product_ref->{lc} || $product_ref->{lang};
 
 	# Normalize single quotes
 	$text =~ s/’/'/g;
@@ -1767,7 +1767,7 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 	$updated_product_fields_ref->{ingredients} = 1;
 
 	# $product_ref->{ingredients_lc} is defined in extract_ingredients_from_text()
-	my $ingredients_lc = $product_ref->{ingredients_lc} || $product_ref->{lc};
+	my $ingredients_lc = $product_ref->{ingredients_lc} || $product_ref->{lc} || $product_ref->{lang};
 
 	if (   (not defined $product_ref->{ingredients_text})
 		or ($product_ref->{ingredients_text} eq "")
@@ -3137,7 +3137,7 @@ sub compute_ingredients_tags ($product_ref) {
 	my $field = "ingredients";
 
 	$product_ref->{ingredients_original_tags} = $product_ref->{ingredients_tags};
-	my $ingredients_lc = $product_ref->{ingredients_lc} || $product_ref->{lc};
+	my $ingredients_lc = $product_ref->{ingredients_lc} || $product_ref->{lc} || $product_ref->{lang};
 
 	if (defined $taxonomy_fields{$field}) {
 		$product_ref->{$field . "_hierarchy"} = [
@@ -3205,7 +3205,7 @@ sub extract_ingredients_from_text ($product_ref) {
 
 	$product_ref->{specific_ingredients} = [];
 
-	my $ingredients_lc = $product_ref->{ingredients_lc} || $product_ref->{lc};
+	my $ingredients_lc = $product_ref->{ingredients_lc} || $product_ref->{lc} || $product_ref->{lang};
 
 	# Ingredients origins may be listed in the origin field
 	# e.g. "Origin of the rice: Thailand."
@@ -6608,7 +6608,7 @@ sub extract_additives_from_text ($product_ref) {
 	if (not defined $product_ref->{ingredients_text}) {
 		return;
 	}
-	my $ingredients_lc = $product_ref->{ingredients_lc} || $product_ref->{lc};
+	my $ingredients_lc = $product_ref->{ingredients_lc} || $product_ref->{lc} || $product_ref->{lang};
 	my $text = preparse_ingredients_text($ingredients_lc, $product_ref->{ingredients_text});
 	# do not match anything if we don't have a translation for "and"
 	my $and = $and{$ingredients_lc} || " will not match ";
@@ -7192,7 +7192,7 @@ sub count_sweeteners_and_non_nutritive_sweeteners ($product_ref) {
 
 sub replace_allergen ($language, $product_ref, $allergen, $before) {
 
-	my $ingredients_lc = $product_ref->{ingredients_lc} || $product_ref->{lc};
+	my $ingredients_lc = $product_ref->{ingredients_lc} || $product_ref->{lc} || $product_ref->{lang};
 	my $field = "allergens";
 
 	my $traces_regexp = $may_contain_regexps{$language};
@@ -7214,7 +7214,7 @@ sub replace_allergen ($language, $product_ref, $allergen, $before) {
 
 sub replace_allergen_in_caps ($language, $product_ref, $allergen, $before) {
 
-	my $ingredients_lc = $product_ref->{ingredients_lc} || $product_ref->{lc};
+	my $ingredients_lc = $product_ref->{ingredients_lc} || $product_ref->{lc} || $product_ref->{lang};
 	my $field = "allergens";
 
 	my $traces_regexp = $may_contain_regexps{$language};
@@ -7240,7 +7240,7 @@ sub replace_allergen_in_caps ($language, $product_ref, $allergen, $before) {
 
 sub replace_allergen_between_separators ($language, $product_ref, $start_separator, $allergen, $end_separator, $before)
 {
-	my $ingredients_lc = $product_ref->{ingredients_lc} || $product_ref->{lc};
+	my $ingredients_lc = $product_ref->{ingredients_lc} || $product_ref->{lc} || $product_ref->{lang};
 	my $field = "allergens";
 
 	#print STDERR "replace_allergen_between_separators - allergen: $allergen\n";
@@ -7448,7 +7448,7 @@ sub detect_allergens_from_text ($product_ref) {
 		init_allergens_regexps();
 	}
 
-	my $ingredients_lc = $product_ref->{ingredients_lc} || $product_ref->{lc};
+	my $ingredients_lc = $product_ref->{ingredients_lc} || $product_ref->{lc} || $product_ref->{lang};
 
 	# Keep allergens entered by users in the allergens and traces field
 
