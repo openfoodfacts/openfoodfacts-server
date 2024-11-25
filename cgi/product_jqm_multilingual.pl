@@ -57,7 +57,8 @@ use ProductOpener::Packaging qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::API qw/get_initialized_response check_user_permission/;
-use ProductOpener::APIProductWrite qw/skip_protected_field/;
+use ProductOpener::APIProductWrite
+	qw/process_change_product_type_request_if_we_have_one process_change_product_code_request_if_we_have_one skip_protected_field/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -230,30 +231,14 @@ else {
 
 	# Change code or product type
 
-	if (defined single_param('new_code')) {
+	push @errors,
+		process_change_product_code_request_if_we_have_one($request_ref, $response_ref, $product_ref,
+		single_param("new_code"));
+	$code = $product_ref->{code};
 
-		if (check_user_permission($request_ref, $response_ref, "product_change_code")) {
-
-			push @errors, change_product_code($product_ref, single_param('new_code'));
-			$code = $product_ref->{code};
-		}
-		else {
-			push @errors, "No permission: product_change_code";
-		}
-	}
-
-	if (    (defined single_param("product_type"))
-		and ($product_ref->{product_type} ne single_param("product_type")))
-	{
-
-		if (check_user_permission($request_ref, $response_ref, "product_change_product_type")) {
-
-			push @errors, change_product_type($product_ref, single_param("product_type"));
-		}
-		else {
-			push @errors, "No permission: product_change_product_type";
-		}
-	}
+	push @errors,
+		process_change_product_type_request_if_we_have_one($request_ref, $response_ref, $product_ref,
+		single_param("product_type"));
 
 	# Display an error message and exit if we have a fatal error (no permission to change barcode or product type, or invalid barcode or product type)
 	if ($#errors >= 0) {
