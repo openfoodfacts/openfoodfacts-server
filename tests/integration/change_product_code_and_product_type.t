@@ -208,7 +208,7 @@ my $tests_ref = [
 			product_type => "food",
 		},
 		ua => $ua,
-	},	
+	},
 	# Send product_type=beauty to move product to Open Beauty Facts, normal account
 	{
 		test_case => 'change-product-type-to-beauty-api-v2-normal-account',
@@ -451,7 +451,7 @@ my $tests_ref = [
 		}',
 		ua => $ua,
 		expected_status_code => 200,
-	},	
+	},
 	# Change the product_type field to petfood, with API v3, normal account
 	{
 		test_case => 'change-product-type-to-opff-api-v3-normal-account',
