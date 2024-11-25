@@ -27,7 +27,7 @@
                 "actions": ["edit_product"]
             }
         },
-        [% IF panel.nutripatrol_enabled %]
+        [% IF panel.nutripatrol_enabled and !mobile %]
         {
             "element_type": "text",
             "text_element": {
