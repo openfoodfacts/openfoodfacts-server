@@ -198,6 +198,17 @@ my $tests_ref = [
 		}',
 		ua => $moderator_ua,
 	},
+	# Send existing product type, normal account
+	{
+		test_case => 'send-existing-product-type-api-v2-normal-account',
+		method => 'POST',
+		path => '/cgi/product_jqm_multilingual.pl',
+		form => {
+			code => "1234567890102",
+			product_type => "food",
+		},
+		ua => $ua,
+	},
 	# Send product_type=beauty to move product to Open Beauty Facts, normal account
 	{
 		test_case => 'change-product-type-to-beauty-api-v2-normal-account',
@@ -427,7 +438,21 @@ my $tests_ref = [
 		ua => $moderator_ua,
 		expected_status_code => 400,
 	},
-	# Change the product_type field to petfood, with API v3
+	# Send existing product type, with API v3, normal account
+	{
+		test_case => 'send-existing-product-type-api-v3-normal-account',
+		method => 'PATCH',
+		path => '/api/v3/product/1234567890300',
+		body => '{
+			"tags_lc": "en",
+			"product": {
+				"product_type": "food"
+			}
+		}',
+		ua => $ua,
+		expected_status_code => 200,
+	},
+	# Change the product_type field to petfood, with API v3, normal account
 	{
 		test_case => 'change-product-type-to-opff-api-v3-normal-account',
 		method => 'PATCH',
@@ -441,7 +466,7 @@ my $tests_ref = [
 		ua => $ua,
 		expected_status_code => 403,
 	},
-	# Change the product_type field to petfood, with API v3
+	# Change the product_type field to petfood, with API v3, moderator account
 	{
 		test_case => 'change-product-type-to-opff-api-v3',
 		method => 'PATCH',
