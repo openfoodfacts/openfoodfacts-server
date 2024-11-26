@@ -78,7 +78,7 @@ sub specific_processes_for_food_product ($product_ref) {
 	# Ingredients analysis
 
 	# Select best language to parse ingredients
-	$product_ref->{ingredients_lc} = select_ingredients_lc($product_ref);
+	select_ingredients_lc($product_ref);
 	clean_ingredients_text($product_ref);
 	extract_ingredients_from_text($product_ref);
 	extract_additives_from_text($product_ref);

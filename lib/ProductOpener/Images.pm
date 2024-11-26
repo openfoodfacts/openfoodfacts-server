@@ -1337,7 +1337,7 @@ sub process_image_crop ($user_id, $product_id, $id, $imgid, $angle, $normalize, 
 	}
 
 	print STDERR
-		"image_crop.pl - imgid: $imgid - crop_size: $crop_size - x1: $x1, y1: $y1, x2: $x2, y2: $y2, w: $w, h: $h\n";
+		"image_crop.pl - source_path: $source_path - product_id: $product_id - imgid: $imgid - crop_size: $crop_size - x1: $x1, y1: $y1, x2: $x2, y2: $y2, w: $w, h: $h\n";
 	$log->trace("calculating geometry",
 		{crop_size => $crop_size, x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2, w => $w, h => $h})
 		if $log->is_trace();

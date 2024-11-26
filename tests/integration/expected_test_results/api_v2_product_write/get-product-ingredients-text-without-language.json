@@ -11,7 +11,7 @@
       "additives_tags" : [],
       "allergens" : "",
       "allergens_from_ingredients" : "",
-      "allergens_from_user" : "(en) ",
+      "allergens_from_user" : "(fr) ",
       "allergens_hierarchy" : [],
       "allergens_tags" : [],
       "amino_acids_tags" : [],
@@ -793,11 +793,20 @@
          "en:product-name-to-be-completed",
          "en:photos-to-be-uploaded"
       ],
-      "traces" : "",
+      "traces" : "en:milk,en:Moutarde,en:abcd",
       "traces_from_ingredients" : "",
-      "traces_from_user" : "(en) ",
-      "traces_hierarchy" : [],
-      "traces_tags" : [],
+      "traces_from_user" : "(en) Moutarde, milk, abcd",
+      "traces_hierarchy" : [
+         "en:milk",
+         "en:Moutarde",
+         "en:abcd"
+      ],
+      "traces_lc" : "en",
+      "traces_tags" : [
+         "en:milk",
+         "en:moutarde",
+         "en:abcd"
+      ],
       "unknown_ingredients_n" : 0,
       "unknown_nutrients_tags" : [],
       "vitamins_tags" : [],

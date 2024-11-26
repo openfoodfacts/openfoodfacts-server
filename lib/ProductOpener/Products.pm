@@ -77,6 +77,7 @@ BEGIN {
 		&product_id_from_path
 		&product_exists
 		&get_owner_id
+		&normalize_product_data
 		&init_product
 		&retrieve_product
 		&retrieve_product_rev
@@ -848,6 +849,8 @@ sub retrieve_product ($product_id, $include_deleted = 0) {
 		}
 	}
 
+	normalize_product_data($product_ref);
+
 	return $product_ref;
 }
 
@@ -877,6 +880,8 @@ sub retrieve_product_rev ($product_id, $rev, $include_deleted = 0) {
 			delete $product_ref->{server};
 		}
 	}
+
+	normalize_product_data($product_ref);
 
 	return $product_ref;
 }
@@ -1531,20 +1536,31 @@ sub compute_data_sources ($product_ref, $changes_ref) {
 	return;
 }
 
+=head2 normalize_product_data($product_ref)
+
+Function to do some normalization of product data (from the product database or input product data from a service)
+
+=cut
+
+sub normalize_product_data($product_ref) {
+
+	# We currently have two fields lang and lc that are used to store the main language of the product
+	# TODO: at some point, we should keep only one field
+	# In theory, they should always have a value (defaulting to English), and they should be the same
+	# It is possible that in some situations, one or the other is missing
+	# e.g. when a product service is called directly with product data, and the product is not loaded
+	# through the database or the .sto file.
+	# some old revisions may also have missing values
+
+	my $main_lc = $product_ref->{lc} || $product_ref->{lang} || "en";
+	$product_ref->{lang} = $main_lc;
+	$product_ref->{lc} = $main_lc;
+}
+
 sub compute_completeness_and_missing_tags ($product_ref, $current_ref, $previous_ref) {
 
+	normalize_product_data($product_ref);
 	my $lc = $product_ref->{lc};
-	if (not defined $lc) {
-		# Try lang field
-		if (defined $product_ref->{lang}) {
-			$lc = $product_ref->{lang};
-		}
-		else {
-			$lc = "en";
-			$product_ref->{lang} = "en";
-		}
-		$product_ref->{lc} = $lc;
-	}
 
 	# Compute completeness and missing tags
 
