@@ -67,7 +67,13 @@ subtest 'user registration from redis to minion' => sub {
 subtest 'user deletion from redis to minion' => sub {
 	# Mock reply data
 	my $mock_reply = [
-		['user-deleted', [['message_id_1', ['userName', 'user1']], ['message_id_2', ['userName', 'user2']],]],
+		[
+			'user-deleted',
+			[
+				['message_id_1', ['userName', 'user1', 'newUserName', 'anonymous-123']],
+				['message_id_2', ['userName', 'user2', 'newUserName', 'anonymous-234']],
+			]
+		],
 		['other-stream', [['message_id_3', ['key', 'value']],]]
 	];
 

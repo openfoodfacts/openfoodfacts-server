@@ -48,7 +48,7 @@ my $mocked_job = mock 'Minion::Job' => (
 		}
 	],
 );
-delete_user_task(Minion::Job->new(), {userid => 'tests'});
+delete_user_task(Minion::Job->new(), {userid => 'tests', newuserid => 'anonymous-123'});
 is($job_result, 'done', 'delete_user finished without errors');
 
 #user sign out of its account

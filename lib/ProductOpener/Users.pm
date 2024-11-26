@@ -108,7 +108,6 @@ use JSON::MaybeXS;
 
 use Math::Random::Secure qw(irand);
 use Log::Any qw($log);
-use MIME::Base32 qw(encode_base32);
 
 my @user_groups = qw(producer database app bot moderator pro_moderator);
 
@@ -279,8 +278,8 @@ sub delete_user_task ($job, $args_ref) {
 	print STDERR $log_message;
 
 	my $userid = $args_ref->{userid};
-	# Suffix is a combination of seconds since epoch plus a 16 bit random number
-	my $new_userid = "anonymous-" . lc(encode_base32(pack('LS', time(), rand(65536))));
+	# Anonymous user id is generated in Keycloak so that it is consistent across product flavors
+	my $new_user_id = $args_ref->{newuserid};
 
 	$log->info("delete_user", {userid => $userid, new_userid => $new_userid}) if $log->is_info();
 
