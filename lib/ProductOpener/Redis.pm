@@ -149,15 +149,18 @@ sub subscribe_to_redis_streams () {
 }
 
 sub _read_user_streams($search_from) {
-	my @streams = ('user-registered', 'user-deleted', $search_from, $search_from);
+	my @streams = ('BLOCK', 0, 'STREAMS', 'user-deleted');
+	if ($process_global_redis_events) {
+		push(@streams, 'user-registered');
+	}
+	push(@streams, $search_from);
+	if ($process_global_redis_events) {
+		push(@streams, $search_from);
+	}
 
 	$log->info("Reading from Redis", {streams => \@streams}) if $log->is_info();
 	$redis_client->xread(
-		'BLOCK' => 0,
-		'STREAMS' => 'user-deleted',
-		'user-registered',
-		$search_from,
-		$search_from,
+		@streams,
 		sub {
 			my ($reply_ref, $err) = @_;
 			if ($err) {

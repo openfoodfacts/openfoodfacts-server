@@ -285,6 +285,8 @@ sub delete_user_task ($job, $args_ref) {
 	$log->info("delete_user", {userid => $userid, new_userid => $new_userid}) if $log->is_info();
 
 	# Remove the user
+	# Note that all flavours will do this, so only one will actually delete the user file
+	# The others should just silently continue
 	remove_user($args_ref);
 
 	#  re-assign product edits to anonymous-[random number]

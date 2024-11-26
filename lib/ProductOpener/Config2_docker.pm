@@ -57,6 +57,7 @@ BEGIN {
 		$events_password
 		%oidc_options
 		$redis_url
+		$process_global_redis_events
 		%server_options
 		$build_cache_repo
 		$rate_limiter_blocking_enabled
@@ -143,6 +144,7 @@ $facets_kp_url = $ENV{FACETS_KP_URL};
 
 # Set this to your instance of the search service to enable writes to it
 $redis_url = $ENV{REDIS_URL};
+$process_global_redis_events = $ENV{PROCESS_GLOBAL_REDIS_EVENTS};
 
 %server_options = (
 	private_products => $producers_platform,    # 1 to make products visible only to the owner (producer platform)

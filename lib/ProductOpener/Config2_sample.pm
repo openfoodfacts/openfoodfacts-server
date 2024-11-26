@@ -49,6 +49,7 @@ BEGIN {
 		$events_password
 		%oidc_options
 		$redis_url
+		$process_global_redis_events
 		%server_options
 
 	);
@@ -108,6 +109,7 @@ $events_password = '';
 );
 
 $redis_url = '';
+$process_global_redis_events = $ENV{PROCESS_GLOBAL_REDIS_EVENTS};
 
 %server_options = (
 
