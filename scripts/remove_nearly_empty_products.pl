@@ -70,7 +70,7 @@ while (my $product_ref = $cursor->next) {
 							"few information & no image at all";
 
 			# Save the product
-			store_product("remove-bad-products-nearly-empty", $product_ref, $comment);
+			store_product("remove-bad-products-wo-photos-bot", $product_ref, $comment);
 
 			print "Removed product $code, created by $product_ref->{creator}";
 			print ", completeness: $product_ref->{completeness}";
