@@ -25,14 +25,19 @@ use ProductOpener::PerlStandards;
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Products qw/retrieve_product/;
+use ProductOpener::Products qw/retrieve_product store_product/;
 use ProductOpener::Store qw/:all/;
+use ProductOpener::Tags qw/:all/;
 use ProductOpener::Data qw/get_products_collection/;
 
-# This script is run daily to remove empty products (without data or pictures)
-# in particular products created by the button to add a product without a barcode
+# This script is run to remove products with a data quality issue, 
+# few information & no image at all (excluding imports)
 
-my $cursor = get_products_collection()->query({data_quality_errors_tags => { '$ne' => ''} })->fields({code => 1});
+my $cursor = get_products_collection()->query(
+	{ data_quality_errors_tags => { '$nin' => [undef, []] }
+	 , states_tags => 'en:photos-to-be-uploaded' 
+	}
+	)->fields({code => 1});
 $cursor->immortal(1);
 my $removed = 0;
 
@@ -50,7 +55,7 @@ while (my $product_ref = $cursor->next) {
 	
 		if (1
 			#and (defined $product_ref->{last_image_t})
-			and ($product_ref->{last_image_t} eq '')
+			#and ($product_ref->{last_image_t} eq '')
 			and ($product_ref->{owner} eq '')
 			and ($product_ref->{creator} ne 'usda-ndb-import')
 			and ($product_ref->{creator} !~ /^org-.*/)
@@ -58,11 +63,19 @@ while (my $product_ref = $cursor->next) {
 			and (time() > $product_ref->{last_modified_t} + (60 * 60 * 24 * 30))
 			) {
 
-			print "updating product $code, $product_ref->{creator}, $product_ref->{data_quality_errors_tags}, $product_ref->{completeness}...\n";
 			#$product_ref->{deleted} = 'on';
-			#my $comment = "automatic removal of product without information or images";
+			add_tag($product_ref, "misc", 'en:bad-product-to-be-deleted'); # Test before deleting
 
-			#print STDERR "removing product code $code\n";
+			my $comment = "[remove_nearly_empty_products.pl] removal of product with a data quality issue, " .
+							"few information & no image at all";
+
+			# Save the product
+			store_product("remove-bad-products-nearly-empty", $product_ref, $comment);
+
+			print "Removed product $code, created by $product_ref->{creator}";
+			print ", completeness: $product_ref->{completeness}";
+			print ", quality issues: $product_ref->{data_quality_errors_tags}...\n";
+
 			$removed++;
 		}
 	}
