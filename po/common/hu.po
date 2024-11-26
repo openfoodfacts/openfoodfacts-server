@@ -5064,7 +5064,7 @@ msgstr "Eco-Score"
 
 msgctxt "packaging_parts"
 msgid "Packaging parts"
-msgstr "Csomagolóanyagok"
+msgstr "Csomagolás részei"
 
 # A short name for a physical piece of packaging (e.g. in English, "packaging" instead of "packaging part"). Used with a number (e.g. "Packaging 1" to identify a packaging part)
 msgctxt "packaging_part_short"
@@ -5182,7 +5182,7 @@ msgstr "% a termékben"
 
 msgctxt "forest_footprint_calculation_details"
 msgid "Details of the calculation of the forest footprint"
-msgstr "Erdőlábnyom osztályzat kiszámításának részletei"
+msgstr "Az erdőlábnyom kiszámításának részletei"
 
 msgctxt "you_are_on_the_public_database"
 msgid "You are on the public database."
@@ -5308,11 +5308,11 @@ msgstr "Legjobb Eco-Score osztályzatú termékek"
 
 msgctxt "sort_by_created_t"
 msgid "Recently added products"
-msgstr "Legutóbb hozzáadott termékek"
+msgstr "Nemrég hozzáadott termékek"
 
 msgctxt "sort_by_last_modified_t"
 msgid "Recently modified products"
-msgstr "Mostanában módosított termékek"
+msgstr "Nemrég módosított termékek"
 
 # %d will be replaced by the number of products
 msgctxt "d_products_per_page"
@@ -5338,7 +5338,7 @@ msgstr "Jövőkép, küldetés, értékek és programok"
 # Do not translate
 msgctxt "footer_vision_link"
 msgid "https://world.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs"
-msgstr "https://world.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs"
+msgstr "https://world-hu.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs"
 
 msgctxt "forgotten_password"
 msgid "Forgotten password?"
@@ -5350,7 +5350,7 @@ msgstr "Nem tudjuk alaphelyzetbe állítani a jelszavát, kérjük, forduljon ho
 
 msgctxt "remove_all_nutrient_values"
 msgid "Remove all nutrient values"
-msgstr "Távolítson el minden tápanyagértéket"
+msgstr "Minden tápanyagérték eltávolítása"
 
 msgctxt "delete_user_process"
 msgid "User is being deleted. This may take a few minutes."
@@ -5423,11 +5423,11 @@ msgstr "Az automatizált exportálást csak azoknál a szervezeteknél szabad ak
 
 msgctxt "org_admin"
 msgid "Administrator fields"
-msgstr "Adminisztrátor mezők"
+msgstr "Adminisztrátori mezők"
 
 msgctxt "minion_status_inactive"
 msgid "Queued"
-msgstr "Várakozik"
+msgstr "Sorba állítva"
 
 msgctxt "minion_status_active"
 msgid "In progress"
@@ -5487,7 +5487,7 @@ msgstr "Írja felül azokat a termékeket, amelyeknek más tulajdonosa van a nyi
 
 msgctxt "data_source_database"
 msgid "Some of the data for the products of %s come from %s."
-msgstr "%s szorzatára vonatkozó adatok egy része az %s."
+msgstr "%s termékadatainak egy része innen származik: %s."
 
 msgctxt "data_source_database_note_about_the_producers_platform"
 msgid "Manufacturers can use the Open Food Facts <a href=\"<producers_platform_url>\">free plaform for producers</a> to access and complete this data, and to obtain reports, analysis and product improvements opportunities (e.g. better Nutri-Score)."
@@ -5509,7 +5509,7 @@ msgstr "Ha ugyanazt az oszlopot több sorban használja a képek URL-jének mega
 
 msgctxt "forest_footprint_one_line_explanation"
 msgid "The forest footprint is calculated by taking into account the ingredients whose production requires soybeans, the cultivation of which is linked to deforestation."
-msgstr "Az erdőlábnyom kiszámításakor figyelembe veszik azokat az összetevőket, amelyek előállításához szójababra van szükség, amelynek termesztése az erdőirtáshoz kapcsolódik."
+msgstr "Az erdőlábnyom kiszámításakor figyelembe vesszük azokat az összetevőket, amelyek előállításához szójababra van szükség, amelynek termesztése az erdőirtáshoz kapcsolódik."
 
 msgctxt "ecoscore_agribalyse_match_warning"
 msgid "The Eco-Score can only be calculated if the product has a sufficiently precise category."
@@ -5898,7 +5898,7 @@ msgstr "Összetevők statisztikái minden termékhez"
 
 msgctxt "recipes_ingredients_for_each_product"
 msgid "Ingredients for each product"
-msgstr "Hozzávalók minden termékhez"
+msgstr "Hozzávalók az egyes termékekhez"
 
 msgctxt "product_deleted"
 msgid "Product deleted."
@@ -5965,7 +5965,7 @@ msgstr "Bónusz"
 
 msgctxt "malus"
 msgid "Malus"
-msgstr "Roszallás"
+msgstr "Levonás"
 
 msgctxt "life_cycle_analysis"
 msgid "Life cycle analysis"
@@ -5973,7 +5973,7 @@ msgstr "Életciklus elemzés"
 
 msgctxt "ecoscore_bonuses_and_maluses"
 msgid "Bonuses and maluses"
-msgstr "Bónuszok és roszallások"
+msgstr "Bónuszok és levonások"
 
 msgctxt "ecoscore_for_this_product"
 msgid "Eco-Score for this product"
@@ -5985,11 +5985,11 @@ msgstr "Az azonos kategóriába tartozó termékek átlagos hatása"
 
 msgctxt "ecoscore_sum_of_bonuses_and_maluses"
 msgid "Sum of bonuses and maluses"
-msgstr "A bónuszok és a rosszallások összege"
+msgstr "A bónuszok és a levonások összege"
 
 msgctxt "ecoscore_sum_of_bonuses_and_maluses_is_capped"
 msgid "The sum of bonuses and maluses is capped at +25."
-msgstr "A bónuszok és a roszallások összegének felső határa +25."
+msgstr "A bónuszok és a levonások összegének felső határa +25."
 
 msgctxt "ecoscore_lca_score"
 msgid "Life cycle analysis score"
@@ -6608,7 +6608,7 @@ msgstr "Darabszám"
 # Unit = element, not unit of measure
 msgctxt "packaging_weight"
 msgid "Weight of one empty unit"
-msgstr "Üres csomagolóelem súlya"
+msgstr "Egy üres egység súlya"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit"
