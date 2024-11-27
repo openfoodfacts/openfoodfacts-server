@@ -2,6 +2,96 @@
    "code" : "0200000000034",
    "product" : {
       "knowledge_panels" : {
+         "additive_en:e100" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<p>La curcumine ne présente pas de risques connus pour la santé.</p>"
+                  }
+               }
+            ],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "title" : "E100 - Curcumine"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "additive_en:e322" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<strong>Lecithin :</strong> Lecithin -UK: , US: , from the Greek lekithos, \"egg yolk\"- is a generic term to designate any group of yellow-brownish fatty substances occurring in animal and plant tissues, which are amphiphilic – they attract both water and fatty substances -and so are both hydrophilic and lipophilic-, and are used for smoothing food textures, dissolving powders -emulsifying-, homogenizing liquid mixtures, and repelling sticking materials.Lecithins are mixtures of glycerophospholipids including phosphatidylcholine, phosphatidylethanolamine, phosphatidylinositol, phosphatidylserine, and phosphatidic acid.Lecithin was first isolated in 1845 by the French chemist and pharmacist Theodore Gobley. In 1850, he named the phosphatidylcholine lécithine. Gobley originally isolated lecithin from egg yolk—λέκιθος lekithos is \"egg yolk\" in Ancient Greek—and established the complete chemical formula of phosphatidylcholine in 1874; in between, he had demonstrated the presence of lecithin in a variety of biological matters, including venous blood, in human lungs, bile, human brain tissue, fish eggs, fish roe, and chicken and sheep brain. Lecithin can easily be extracted chemically using solvents such as hexane, ethanol, acetone, petroleum ether, benzene, etc., or extraction can be done mechanically. It is usually available from sources such as soybeans, eggs, milk, marine sources, rapeseed, cottonseed, and sunflower. It has low solubility in water, but is an excellent emulsifier. In aqueous solution, its phospholipids can form either liposomes, bilayer sheets, micelles, or lamellar structures, depending on hydration and temperature. This results in a type of surfactant that usually is classified as amphipathic. Lecithin is sold as a food additive and dietary supplement. In cooking, it is sometimes used as an emulsifier and to prevent sticking, for example in nonstick cooking spray.",
+                     "source_language" : "Anglais",
+                     "source_lc" : "en",
+                     "source_text" : "Wikipedia",
+                     "source_url" : "https://en.wikipedia.org/wiki/Lecithin"
+                  }
+               }
+            ],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "title" : "E322 - Lécithines"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "additive_en:e322i" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<strong>Lecithin :</strong> Lecithin -UK: , US: , from the Greek lekithos, \"egg yolk\"- is a generic term to designate any group of yellow-brownish fatty substances occurring in animal and plant tissues, which are amphiphilic – they attract both water and fatty substances -and so are both hydrophilic and lipophilic-, and are used for smoothing food textures, dissolving powders -emulsifying-, homogenizing liquid mixtures, and repelling sticking materials.Lecithins are mixtures of glycerophospholipids including phosphatidylcholine, phosphatidylethanolamine, phosphatidylinositol, phosphatidylserine, and phosphatidic acid.Lecithin was first isolated in 1845 by the French chemist and pharmacist Theodore Gobley. In 1850, he named the phosphatidylcholine lécithine. Gobley originally isolated lecithin from egg yolk—λέκιθος lekithos is \"egg yolk\" in Ancient Greek—and established the complete chemical formula of phosphatidylcholine in 1874; in between, he had demonstrated the presence of lecithin in a variety of biological matters, including venous blood, in human lungs, bile, human brain tissue, fish eggs, fish roe, and chicken and sheep brain. Lecithin can easily be extracted chemically using solvents such as hexane, ethanol, acetone, petroleum ether, benzene, etc., or extraction can be done mechanically. It is usually available from sources such as soybeans, eggs, milk, marine sources, rapeseed, cottonseed, and sunflower. It has low solubility in water, but is an excellent emulsifier. In aqueous solution, its phospholipids can form either liposomes, bilayer sheets, micelles, or lamellar structures, depending on hydration and temperature. This results in a type of surfactant that usually is classified as amphipathic. Lecithin is sold as a food additive and dietary supplement. In cooking, it is sometimes used as an emulsifier and to prevent sticking, for example in nonstick cooking spray.",
+                     "source_language" : "Anglais",
+                     "source_lc" : "en",
+                     "source_text" : "Wikipedia",
+                     "source_url" : "https://en.wikipedia.org/wiki/Lecithin"
+                  }
+               }
+            ],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "title" : "E322i - Lécithine"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "additives" : {
+            "elements" : [
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "additive_en:e100"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "additive_en:e322"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "additive_en:e322i"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "level" : "info",
+            "topics" : [
+               "health"
+            ],
+            "type" : "inline"
+         },
          "carbon_footprint" : {
             "elements" : [
                {
@@ -613,6 +703,15 @@
                   "element_type" : "panel_group",
                   "panel_group_element" : {
                      "panel_ids" : [
+                        "additives"
+                     ],
+                     "title" : "Additifs"
+                  }
+               },
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_ids" : [
                         "ingredients_analysis",
                         "ingredients_analysis_details"
                      ],
@@ -666,8 +765,8 @@
                   "text_element" : {
                      "edit_field_id" : "ingredients_text_en",
                      "edit_field_type" : "ingredients_text",
-                     "edit_field_value" : "apple, milk, eggs, palm oil",
-                     "html" : "<span class=\"allergen\">apple</span>, <span class=\"allergen\">milk</span>, <span class=\"allergen\">eggs</span>, palm oil",
+                     "edit_field_value" : "apple, milk, eggs, palm oil, coloring: curcumin, emulsifier: soy lecithin",
+                     "html" : "<span class=\"allergen\">apple</span>, <span class=\"allergen\">milk</span>, <span class=\"allergen\">eggs</span>, palm oil, coloring: curcumin, emulsifier: soy lecithin",
                      "language" : "Anglais",
                      "lc" : "en"
                   }
@@ -675,7 +774,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "<strong>Allergènes :</strong> \n                    en:Apple, Œufs, Lait\n                "
+                     "html" : "<strong>Allergènes :</strong> \n                    en:Apple, Œufs, Lait, Soja\n                "
                   }
                }
             ],
@@ -686,7 +785,7 @@
             "title_element" : {
                "icon_color_from_evaluation" : true,
                "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/ingredients.svg",
-               "title" : "4 ingrédients"
+               "title" : "8 ingrédients"
             },
             "topics" : [
                "health"
@@ -731,13 +830,13 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "en: <span>apple</span>, <span>milk</span>, <span>eggs</span>, <span>palm oil</span>"
+                     "html" : "en: <span>apple</span>, <span>milk</span>, <span>eggs</span>, <span>palm oil</span>, <span>coloring</span> (<span>curcumin</span>), <span>emulsifier</span> (<span>soy lecithin</span>)"
                   }
                },
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "<ol id=\"ordered_ingredients_list\">\n<li><span>apple</span> -> en:apple - vegan:&nbsp;yes - vegetarian:&nbsp;yes - ciqual_food_code:&nbsp;13050 - percent_min:&nbsp;25 - percent_max:&nbsp;100</li>\n<li><span>milk</span> -> en:milk - vegan:&nbsp;no - vegetarian:&nbsp;yes - ciqual_proxy_food_code:&nbsp;19051 - percent_min:&nbsp;0 - percent_max:&nbsp;50</li>\n<li><span>eggs</span> -> en:egg - vegan:&nbsp;no - vegetarian:&nbsp;yes - ciqual_food_code:&nbsp;22000 - percent_min:&nbsp;0 - percent_max:&nbsp;33.3333333333333</li>\n<li><span>palm oil</span> -> en:palm-oil - vegan:&nbsp;yes - vegetarian:&nbsp;yes - from_palm_oil:&nbsp;yes - ciqual_food_code:&nbsp;16129 - percent_min:&nbsp;0 - percent_max:&nbsp;25</li>\n</ol>\n"
+                     "html" : "<ol id=\"ordered_ingredients_list\">\n<li><span>apple</span> -> en:apple - vegan:&nbsp;yes - vegetarian:&nbsp;yes - ciqual_food_code:&nbsp;13050 - percent_min:&nbsp;16.6666666666667 - percent_max:&nbsp;100</li>\n<li><span>milk</span> -> en:milk - vegan:&nbsp;no - vegetarian:&nbsp;yes - ciqual_proxy_food_code:&nbsp;19051 - percent_min:&nbsp;0 - percent_max:&nbsp;50</li>\n<li><span>eggs</span> -> en:egg - vegan:&nbsp;no - vegetarian:&nbsp;yes - ciqual_food_code:&nbsp;22000 - percent_min:&nbsp;0 - percent_max:&nbsp;33.3333333333333</li>\n<li><span>palm oil</span> -> en:palm-oil - vegan:&nbsp;yes - vegetarian:&nbsp;yes - from_palm_oil:&nbsp;yes - ciqual_food_code:&nbsp;16129 - percent_min:&nbsp;0 - percent_max:&nbsp;25</li>\n<li><span>coloring</span> -> en:colour - percent_min:&nbsp;0 - percent_max:&nbsp;20<ol id=\"ordered_ingredients_list\">\n<li><span>curcumin</span> -> en:e100 - vegan:&nbsp;yes - vegetarian:&nbsp;yes - percent_min:&nbsp;0 - percent_max:&nbsp;20</li>\n</ol>\n</li>\n<li><span>emulsifier</span> -> en:emulsifier - percent_min:&nbsp;0 - percent_max:&nbsp;16.6666666666667<ol id=\"ordered_ingredients_list\">\n<li><span>soy lecithin</span> -> en:soya-lecithin - vegan:&nbsp;yes - vegetarian:&nbsp;yes - ciqual_food_code:&nbsp;42200 - percent_min:&nbsp;0 - percent_max:&nbsp;16.6666666666667</li>\n</ol>\n</li>\n</ol>\n"
                   }
                },
                {
@@ -832,9 +931,15 @@
          "nova" : {
             "elements" : [
                {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "recommendation_ultra_processed_foods"
+                  }
+               },
+               {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n\n    \n        \n            <p>Éléments qui indiquent que le produit est dans le groupe 3 - Aliments transformés :</p>\n            <ul>\n            \n                <li>Catégorie : Snacks sucrés</li>\n            \n            </ul>\n        \n    \n\n"
+                     "html" : "\n\n    \n        \n            <p>Éléments qui indiquent que le produit est dans le groupe 4 - Produits alimentaires et boissons ultra-transformés :</p>\n            <ul>\n            \n                <li>Additif : E100 - Curcumine</li>\n            \n                <li>Additif : E322 - Lécithines</li>\n            \n                <li>Ingrédient : Colorant</li>\n            \n                <li>Ingrédient : Émulsifiant</li>\n            \n            </ul>\n        \n    \n\n"
                   }
                },
                {
@@ -846,8 +951,9 @@
             ],
             "level" : "info",
             "title_element" : {
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nova-group-3.svg",
-               "title" : "Aliments transformés"
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nova-group-4.svg",
+               "subtitle" : "4 marqueurs d'ultra-transformation",
+               "title" : "Aliments ultra-transformés"
             },
             "topics" : [
                "health"
@@ -1040,7 +1146,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "Avertissement : Le taux de fruits, légumes et noix n'est pas indiqué sur l'étiquette, il a été estimé en fonction de la liste des ingrédients : 62\n                    ",
+                     "html" : "Avertissement : Le taux de fruits, légumes et noix n'est pas indiqué sur l'étiquette, il a été estimé en fonction de la liste des ingrédients : 58\n                    ",
                      "type" : "warning"
                   }
                },
@@ -1078,7 +1184,7 @@
                         "nutriscore_component_fiber",
                         "nutriscore_component_fruits_vegetables_legumes"
                      ],
-                     "title" : "Points positifs : 3/17"
+                     "title" : "Points positifs : 2/17"
                   }
                },
                {
@@ -1152,8 +1258,8 @@
             "level" : "info",
             "size" : "small",
             "title_element" : {
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/points-positive-2-5.svg",
-               "subtitle" : "2/5 points (62.5%)",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/points-positive-1-5.svg",
+               "subtitle" : "1/5 points (58.3%)",
                "title" : "Fruits, légumes et légumes secs"
             },
             "topics" : [
@@ -1272,14 +1378,14 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "Avertissement : Le taux de fruits, légumes et noix n'est pas indiqué sur l'étiquette, il a été estimé en fonction de la liste des ingrédients : 62\n                    ",
+                     "html" : "Avertissement : Le taux de fruits, légumes et noix n'est pas indiqué sur l'étiquette, il a été estimé en fonction de la liste des ingrédients : 58\n                    ",
                      "type" : "warning"
                   }
                },
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n\n    <p>Ce produit n'est pas considéré comme une boisson pour le calcul du Nutri-Score.</p>\n\n\n\n\n\n<p>Les points pour les protéines sont comptés car les points négatifs sont inférieurs à 11.</p>\n\n<p>\n  <strong>Score nutritionnel : 6</strong>\n  (9 - 3)\n</p>\n<p><strong>Nutri-Score : C</strong></p>                \n                "
+                     "html" : "\n\n    <p>Ce produit n'est pas considéré comme une boisson pour le calcul du Nutri-Score.</p>\n\n\n\n\n\n<p>Les points pour les protéines sont comptés car les points négatifs sont inférieurs à 11.</p>\n\n<p>\n  <strong>Score nutritionnel : 7</strong>\n  (9 - 2)\n</p>\n<p><strong>Nutri-Score : C</strong></p>                \n                "
                   }
                }
             ],
@@ -1450,10 +1556,10 @@
                                  "text" : "Fruits‚ légumes‚ noix et huiles de colza‚ noix et olive (estimation par analyse de la liste des ingrédients)"
                               },
                               {
-                                 "text" : "62,5 %"
+                                 "text" : "58,333 %"
                               },
                               {
-                                 "text" : "62,5 %"
+                                 "text" : "58,333 %"
                               }
                            ]
                         }
@@ -1703,6 +1809,32 @@
             },
             "topics" : [
                "environment"
+            ]
+         },
+         "recommendation_ultra_processed_foods" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n                    Plusieurs études ont montré qu'une consommation élevée d'aliments ultra-transformés est associée à un risque accru de maladies chroniques non transmissibles, telles que l'obésité, l'hypertension et le diabète.\n                    ",
+                     "source_language" : "en",
+                     "source_text" : "Ultra-processed foods increase noncommunicable chronic disease risk",
+                     "source_url" : "https://pubmed.ncbi.nlm.nih.gov/34798466/",
+                     "type" : "quote"
+                  }
+               }
+            ],
+            "evaluation" : "bad",
+            "level" : "recommendation",
+            "title_element" : {
+               "evaluation" : "bad",
+               "icon_color_from_evaluation" : true,
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/arrow-bottom-right-thick.svg",
+               "subtitle" : "Les aliments ultra-transformés augmentent le risque de maladies chroniques",
+               "title" : "Limiter les aliments ultra-transformés"
+            },
+            "topics" : [
+               "health"
             ]
          },
          "report_problem_card" : {
