@@ -31,15 +31,15 @@ C<ProductOpener::CMS> contains functions that interact with the CMS
 
 Uses the WordPress API to fetch pages content.
 
-We use WPML to manage the translations of the pages on WordPress and get them 
+We use WPML to manage the translations of the pages on WordPress and get them
 here from the /graphql endpoint (WPMLGraphQL plugin).
 
 =head2 DETAILS
 
-- Be aware that if a page is published, and the default translation has not been created (even if empty), 
-  it won't show up in the graphql response. 
-  Ex: You create a French page, publish it, then, at least, you have to create/start the 
-  	  English translation (let it empty for the moment if you want). After that you'll 
+- Be aware that if a page is published, and the default translation has not been created (even if empty),
+  it won't show up in the graphql response.
+  Ex: You create a French page, publish it, then, at least, you have to create/start the
+  	  English translation (let it empty for the moment if you want). After that you'll
 	  be able to see the french page in Product Opener. As an admin do /content/refresh
 
 =cut
@@ -63,12 +63,13 @@ BEGIN {
 }
 use vars @EXPORT_OK;
 
-use ProductOpener::Config qw/:all/;
-use ProductOpener::Config2 qw/:all/;
-use LWP::Simple;
+use ProductOpener::Config;
+use ProductOpener::Config2;
 use HTTP::Tiny;
 use Log::Any qw($log);
 use JSON;
+
+my $json_obj = JSON->new->utf8->allow_nonref->canonical;
 
 my $default_wp_language_code = 'en';
 
@@ -135,6 +136,7 @@ It requests the page content from the WordPress REST API.
 
 sub wp_get_page_from_slug ($lc, $slug) {
 	my $default_translation_id = $page_id_by_localized_slug->{$lc}{$slug};
+	return if not $default_translation_id;
 	my $page_id = $page_metadata_cache_by_id->{$default_translation_id}{$lc}{id};
 	if ($page_id) {
 		my $page_data = _wp_get_page_by_id($page_id);
@@ -151,20 +153,21 @@ sub wp_get_page_from_slug ($lc, $slug) {
 =head2  wp_get_available_pages($lc)
 
 Gets the list of available pages, given a language code.
-If the page isn't available in that language, it defaults to C<$default_wp_language_code>
+If the page isn't available in that language,
+it defaults to the C<$default_wp_language_code> version
 
 =head3 Returns
 
-An list of pages:
+A list of pages:
 
-(
+  (
     {
 	  id: '6'
       lc: 'en',
       link: '/content/en/test-page',
       title: 'Test Page'
     },
-)
+  )
 
 =cut
 
@@ -204,16 +207,18 @@ At the end C<$page_metadata_cache_by_id> associate id with the result of C<_wp_l
 =cut
 
 sub load_cms_data () {
-	my @pages = _wp_list_pages();
 	if (not $ProductOpener::Config2::wordpress_url) {
-		print STDERR "No WordPress URL defined in ProductOpener::Config2::wordpress_url\n";
+		$log->info("No WordPress URL defined in ProductOpener::Config::wordpress_url\n") if $log->is_info();
 		return 0;
 	}
+	my @pages = _wp_list_pages();
 	if (!@pages) {
-		print STDERR "Couldn't get pages metadata from WordPress$@\n";
+		$log->error("Couldn't get pages metadata from WordPress$@\n") if $log->is_error();
 		return 0;
 	}
 
+	# for each pages translation,
+	# store them in page_metadata_cache_by_id and page_id_by_localized_slug
 	my $format_and_store = sub {
 		my ($page, $grouping_id) = @_;
 		$page->{id} = delete $page->{databaseId};
@@ -229,24 +234,25 @@ sub load_cms_data () {
 		$format_and_store->($page, $page->{databaseId});
 	}
 
+	$log->info("Loaded " . (scalar @pages) . " pages (" . (List::Util::sum(map { scalar keys %{$_} } (values %{$page_metadata_cache_by_id}))) . " translations) from WordPress\n") if $log->is_info();
+
 	return 1;
 }
 
 =head2 _wp_list_pages ()
 
-Get the list of pages from the CMS
+Harvest the list of posts from the CMS,
+We only get posts with tags corresponding to the current flavor
 
 =head3 Returns
 
-An list of pages with their translations
+An list of pages with their translations.
 
-=cut  
-
-use Data::Dumper;
+=cut
 
 sub _wp_list_pages () {
 	my $query = '{
-		posts(where: {tag: "' . $options{current_server} . '"}) {
+		posts(where: {tag: "' . $ProductOpener::Config::flavor . '"}) {
 			nodes {
 				databaseId
 				slug
@@ -286,17 +292,18 @@ sub _wp_graphql_query ($query) {
 	);
 	my $json;
 	if ($response->{success}) {
-		eval {$json = decode_json($response->{content});};
+		eval {$json = $json_obj->decode($response->{content});};
 		if ($@) {
-			$log->debug("_get_json_from_url_and_decode", {error => $@, query => $query}) if $log->is_debug();
+			$log->error("_wp_graphql_query error decoding json", {error => $@, query => $query}) if $log->is_error();
 		}
 		else {
 			return $json->{data};
 		}
 	}
-	$log->debug("_wp_graphql_query", {error => $response->{content}, query => $query}) if $log->is_debug();
-	return $json;
+	$log->error("_wp_graphql_query - bad response:", {error => $response->{content}, query => $query}) if $log->is_error();
+	return;
 }
+
 
 sub _wp_get_page_by_id ($page_id) {
 	# we don't use graphql because it's more efficient to get the content from the REST API
@@ -305,13 +312,19 @@ sub _wp_get_page_by_id ($page_id) {
 }
 
 sub _get_json_from_url_and_decode ($url) {
-	my $response = get($url);
-	my $json;
-	eval {$json = decode_json($response);};
-	if ($@) {
-		$log->debug("_get_json_from_url_and_decode", {error => $@, url => $url}) if $log->is_debug();
+	my $http = HTTP::Tiny->new();
+	my $response = $http->get($url);
+	if ($response->{success}) {
+		my $json;
+		eval {$json = $json_obj->decode($response->{content});};
+		if ($@) {
+			$log->error("_get_json_from_url_and_decode: bad JSON", {error => $@, url => $url}) if $log->is_error();
+		}
+		return $json // [];
+	} else {
+		$log->error("_get_json_from_url_and_decode: request error", {response => $response, url => $url}) if $log->is_error();
+		return [];
 	}
-	return $json // [];
 }
 
 1;

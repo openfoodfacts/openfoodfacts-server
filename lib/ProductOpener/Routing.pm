@@ -592,7 +592,7 @@ sub content_route($request_ref) {
 
 	my $op = $components[1] // '';
 
-	# # content/refresh
+	# # content/refresh is a route to refresh contents from the CMS, only available to admins
 	if (($op eq 'refresh') and is_admin_user($request_ref->{user_id})) {
 		load_cms_data();
 		$log->debug("content_route", {what => 'refreshed available contents'}) if $log->is_debug();
