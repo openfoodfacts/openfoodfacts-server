@@ -106,7 +106,7 @@
             "origins_of_ingredients" : {
                "aggregated_origins" : [
                   {
-                     "epi_score" : 0,
+                     "epi_score" : "0",
                      "origin" : "en:unknown",
                      "percent" : 100,
                      "transportation_score" : 0
@@ -1340,6 +1340,21 @@
                   "action_element" : {
                      "actions" : [
                         "edit_product"
+                     ],
+                     "html" : ""
+                  },
+                  "element_type" : "action"
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n                If you want to report vandalism, inappropriate content or erroneous data you can't fix yourself, report it to our moderators team.\n                "
+                  }
+               },
+               {
+                  "action_element" : {
+                     "actions" : [
+                        "report_product_to_nutripatrol"
                      ],
                      "html" : ""
                   },

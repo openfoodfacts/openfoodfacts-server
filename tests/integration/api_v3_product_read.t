@@ -60,6 +60,12 @@ my $tests_ref = [
 		expected_status_code => 200,
 	},
 	{
+		test_case => 'get-existing-product-with-leading-zero',
+		method => 'GET',
+		path => '/api/v3/product/04260392550101',
+		expected_status_code => 200,
+	},
+	{
 		test_case => 'get-existing-product-gs1-caret',
 		method => 'GET',
 		path => '/api/v3/product/%5E0104260392550101',
