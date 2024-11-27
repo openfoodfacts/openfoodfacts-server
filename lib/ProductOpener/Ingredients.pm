@@ -5750,7 +5750,8 @@ my %ingredients_categories_and_types = (
 		# huiles
 		{
 			categories => [
-				'(?:(?: et )?(?:huile|graisse|stéarine|matière\s? grasse)s?)+(?: (?:végétale|(?:partiellement |totalement |non(?:-| |))hydrogénée?)s?)+',
+				# allow multiple types of oils in the category (e.g. "huiles et graisses"), with modifiers (e.g. "végétale")
+				'(?:(?: et )?(?:huile|graisse|stéarine|matière\s? grasse)s?)+(?: (?:végétale|(?:partiellement |totalement |non(?:-| |))hydrogénée?)s?)*',
 			],
 			types => [
 				"arachide", "avocat", "carthame", "chanvre",
@@ -5980,7 +5981,7 @@ my %ingredients_categories_and_types = (
 );
 
 sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
-	$log->debug("develop_ingredients_categories_and_types: start with>$text<") if $log->is_debug();
+	$log->debug("develop_ingredients_categories_and_types", {text => $text}) if $log->is_debug();
 
 	if (defined $ingredients_categories_and_types{$ingredients_lc}) {
 
@@ -5996,7 +5997,6 @@ sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
 				if ($unaccented_category ne $category) {
 					$category_regexp .= '|' . $unaccented_category . '|' . $unaccented_category . 's';
 				}
-
 			}
 			$category_regexp =~ s/^\|//;
 
@@ -6023,6 +6023,8 @@ sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
 				}
 			}
 			$type_regexp =~ s/^\|//;
+
+			#$log->debug("develop_ingredients_categories_and_types", { category_regexp => $category_regexp, type_regexp => $type_regexp}) if $log->is_debug();
 
 			my $of_bool = 1;
 			if (defined $categories_and_types_ref->{of_bool}) {
