@@ -4481,7 +4481,7 @@ sub remove_parsable_labels ($ingredients_lc, $ingredient) {
 	return $ingredient;
 }
 
-=head2 normalize_a_of_b ( $lc, $a, $b, $of_bool, $alternate_names_ref )
+=head2 normalize_a_of_b ( $lc, $a, $b, $of_bool, $alternate_names_ref = undef )
 
 This function is called by normalize_enumeration()
 
@@ -4594,7 +4594,7 @@ sub normalize_a_of_b ($ingredients_lc, $a, $b, $of_bool, $alternate_names_ref = 
 	return $a_of_b;
 }
 
-=head2 normalize_enumeration ($lc, $category, $types, $of_bool, $alternate_names_ref = undef)
+=head2 normalize_enumeration ($lc, $category, $types, $of_bool, $alternate_names_ref = undef, $do_not_output_parent = undef)
 
 
 This function is called by develop_ingredients_categories_and_types()
@@ -4620,6 +4620,20 @@ string, as matched from definition in %ingredients_categories_and_types, example
 
 string, as matched from definition in %ingredients_categories_and_types, example: 'sunflower, olive and palm' for 'Vegetal oil (sunflower, olive and palm)'
 
+=head4 $of_bool - indicate if we want to construct entries like "<category> of <type>"
+
+e.g. in French we combine "huile" and "olive" to "huile d'olive"
+but we combine "poivron" and "rouge" to "poivron rouge".
+
+=head4 $alternate_names_ref
+
+Reference to an array of alternate names for the category
+
+=head4 $do_not_output_parent - indicate if we want to output the parent ingredient
+
+e.g. for "carbonates d'ammonium et de sodium", we want only "carbonates d'ammonium, carbonates de sodium"
+and not "carbonates (carbonates d'ammonium, carbonates de sodium)" as "carbonates" is another additive
+
 =head3 Return value
 
 =head4 Transformed ingredients list text
@@ -4629,7 +4643,12 @@ example: 'vegetal oils (sunflower vegetal oil, olive vegetal oil, palm vegetal o
 
 =cut
 
-sub normalize_enumeration ($ingredients_lc, $category, $types, $of_bool, $alternate_names_ref = undef) {
+sub normalize_enumeration (
+	$ingredients_lc, $category, $types, $of_bool,
+	$alternate_names_ref = undef,
+	$do_not_output_parent = undef
+	)
+{
 	$log->debug("normalize_enumeration", {category => $category, types => $types}) if $log->is_debug();
 
 	# If there is a trailing space, save it and output it
@@ -4648,14 +4667,18 @@ sub normalize_enumeration ($ingredients_lc, $category, $types, $of_bool, $altern
 	my $percent_or_quantity_regexp = $percent_or_quantity_regexps{$ingredients_lc};
 	$category_without_percent_or_quantity =~ s/$percent_or_quantity_regexp//ig;
 
-	return $category . " (" . join(
+	my $list = join(
 		", ",
 		map {
 			normalize_a_of_b($ingredients_lc, $category_without_percent_or_quantity, $_, $of_bool, $alternate_names_ref)
 		} @list
-		)
-		. ")"
-		. $trailing_space;
+	);
+
+	unless ($do_not_output_parent) {
+		$list = $category . " (" . $list . ")";
+	}
+
+	return $list . $trailing_space;
 }
 
 # iodure et hydroxide de potassium
@@ -5834,7 +5857,10 @@ my %ingredients_categories_and_types = (
 			types => [
 				"aluminium", "ammonium", "calcium", "cuivre", "fer", "magnésium",
 				"manganèse", "potassium", "sodium", "zinc",
-			]
+			],
+			# avoid turning "carbonates d'ammonium et de sodium" into "carbonates (carbonates d'ammonium, carbonates de sodium)"
+			# as "carbonates" is an additive
+			do_not_output_parent => 1,
 		},
 		# peppers
 		{categories => ["piment", "poivron"], types => ["vert", "jaune", "rouge",], of_bool => 0,},
@@ -6092,20 +6118,20 @@ sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
 				# require a " et " and/or " de " at the end of the enumeration
 				#
 				$text
-					=~ s/($category_regexp)(?::| | de | d')+((($type_regexp)($symbols_regexp|\s)*( |\/| \/ | - |,|, | et | de | et de | et d'| d')+)*($type_regexp)($symbols_regexp|\s)*( |\/| \/ | - |,|, )*( et | de | et de | et d'| d'| d'autres | et d'autres )( |\/| \/ | - |,|, )*($type_regexp)($symbols_regexp|\s)*)\b/normalize_enumeration($ingredients_lc,$1,$2,$of_bool, $categories_and_types_ref->{alternate_names})/ieg;
+					=~ s/($category_regexp)(?::| | de | d')+((($type_regexp)($symbols_regexp|\s)*( |\/| \/ | - |,|, | et | de | et de | et d'| d')+)*($type_regexp)($symbols_regexp|\s)*( |\/| \/ | - |,|, )*( et | de | et de | et d'| d'| d'autres | et d'autres )( |\/| \/ | - |,|, )*($type_regexp)($symbols_regexp|\s)*)\b/normalize_enumeration($ingredients_lc,$1,$2,$of_bool, $categories_and_types_ref->{alternate_names}, $categories_and_types_ref->{do_not_output_parent})/ieg;
 
 				# Huiles végétales (palme, colza et tournesol)
 				$text
-					=~ s/($category_regexp)(?:\(|\[)(?:de |d')?((($type_regexp)($symbols_regexp|\s)*( |\/| \/ | - |,|, | et | de | et de | et d'| d')+)+($type_regexp)($symbols_regexp|\s)*)\b(\s?(\)|\]))/normalize_enumeration($ingredients_lc,$1,$2,$of_bool, $categories_and_types_ref->{alternate_names})/ieg;
+					=~ s/($category_regexp)(?:\(|\[)(?:de |d')?((($type_regexp)($symbols_regexp|\s)*( |\/| \/ | - |,|, | et | de | et de | et d'| d')+)+($type_regexp)($symbols_regexp|\s)*)\b(\s?(\)|\]))/normalize_enumeration($ingredients_lc,$1,$2,$of_bool, $categories_and_types_ref->{alternate_names}, $categories_and_types_ref->{do_not_output_parent})/ieg;
 
 				$text =~ s/fer_élémentaire/fer élémentaire/ig;
 
 				# huile végétale (colza)
 				$text
-					=~ s/($category_regexp)\s?(?:\(|\[)\s?($type_regexp)\b(\s?(\)|\]))/normalize_enumeration($ingredients_lc,$1,$2,$of_bool, $categories_and_types_ref->{alternate_names})/ieg;
+					=~ s/($category_regexp)\s?(?:\(|\[)\s?($type_regexp)\b(\s?(\)|\]))/normalize_enumeration($ingredients_lc,$1,$2,$of_bool, $categories_and_types_ref->{alternate_names}, $categories_and_types_ref->{do_not_output_parent})/ieg;
 				# huile végétale : colza,
 				$text
-					=~ s/($category_regexp)\s?(?::)\s?($type_regexp)(?=$separators|.|$)/normalize_enumeration($ingredients_lc,$1,$2,$of_bool, $categories_and_types_ref->{alternate_names})/ieg;
+					=~ s/($category_regexp)\s?(?::)\s?($type_regexp)(?=$separators|.|$)/normalize_enumeration($ingredients_lc,$1,$2,$of_bool, $categories_and_types_ref->{alternate_names}, $categories_and_types_ref->{do_not_output_parent})/ieg;
 			}
 		}
 
