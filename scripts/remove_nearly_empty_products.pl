@@ -60,18 +60,23 @@ while (my $product_ref = $cursor->next) {
 	my $last_image_t = defined($product_ref->{last_image_t}) ? $product_ref->{last_image_t} : 0;
 	my $first_quality_error = defined($product_ref->{data_quality_errors_tags}[0]) ? $product_ref->{data_quality_errors_tags[0]} : "-";
 	my $time_ok = defined(time() - $last_modified_t + (60 * 60 * 24 * 30)) ? (time() - $last_modified_t + (60 * 60 * 24 * 30)) : 0;
-	my $completeness = defined($product_ref->{completeness}) ? $product_ref->{completeness} : "";
+	my $completeness = defined($product_ref->{completeness}) ? $product_ref->{completeness} : "99";
+	my $err = "";
 
 
 	if ((defined $product_ref) and ($code ne '')) {
 	
-		if (
-			($owner eq '' or  $owner eq null)
-			and ($creator ne 'usda-ndb-import')
-			and ($creator !~ /^org-.*/)
-			and ($product_ref->{completeness} < 0.4)
-			and ($time > $last_modified_t + (60 * 60 * 24 * 30))
-			) {
+		# Check few conditions: exclude products from owners, imports; completeness needs to be > 0.4
+		$err = ($owner eq '') ? "" : "o";
+		$err .= ($creator ne 'usda-ndb-import') ? "" : "u";
+		$err .= ($creator !~ /^org-.*/) ? "" : "p";
+		$err .= ($creator ne '') ? "" : "v";
+		$err .= ($completeness < 0.4) ? "" : "c";
+		$err .= ($last_image_t > 0) ? "" : "i";
+		$err .= ($time_ok > 0) ? "" : "t";
+		$err .= ($first_quality_error ne '-') ? "" : "q";
+
+		if ($err eq "") {
 
 			#$product_ref->{deleted} = 'on';
 			#add_tag($product_ref, "misc", 'en:bad-product-to-be-deleted'); # Test before deleting
@@ -82,26 +87,27 @@ while (my $product_ref = $cursor->next) {
 			# Save the product
 			#store_product("remove-bad-products-wo-photos-bot", $product_ref, $comment);
 
-			print "Removed ";
+			print "Removed  ";
 
 			$removed++;
 		}
 		else {
-			print "NOT RMVD - ";
-			print ($owner eq '' or  $owner eq null) ? "owner is empty - " : "owner is not empty - ";
+			print "NOT RMVD ";
 		}
 
 		# print debugging info
 		printf ("%18s", $code);
 		printf (", creator: %15s", substr($creator, 0, 15));
-		printf (", cmpltness: %3s", $completeness);
+		printf (", cmpltness: %3s", substr($completeness, 0,3));
 		printf (", owner: %5s", $owner);
 		printf (", last_img: %10s", $last_image_t);
 		printf (", last_modified: %10s", $last_modified_t);
 		#print ", time ok?: $time_ok";
 		print ", time ok?: ";
-		print (($time > $last_modified_t + (60 * 60 * 24 * 30)) ? "" : "-"); print $time_ok;
+		print (($time > $last_modified_t + (60 * 60 * 24 * 30)) ? "" : "-");
+		printf ("%-10s", $time_ok);
 		print ", dq issues: " . substr($first_quality_error, 0, 12);
+		print ", err: $err";
 		print "\n";
 
 	}
