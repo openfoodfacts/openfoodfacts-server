@@ -279,7 +279,7 @@ sub delete_user_task ($job, $args_ref) {
 
 	my $userid = $args_ref->{userid};
 	# Anonymous user id is generated in Keycloak so that it is consistent across product flavors
-	my $new_user_id = $args_ref->{newuserid};
+	my $new_userid = $args_ref->{newuserid};
 
 	$log->info("delete_user", {userid => $userid, new_userid => $new_userid}) if $log->is_info();
 

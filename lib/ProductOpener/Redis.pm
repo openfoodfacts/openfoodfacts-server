@@ -149,14 +149,15 @@ sub subscribe_to_redis_streams () {
 }
 
 sub _read_user_streams($search_from) {
+	# Listen for user-deleted events so that we can redact product contributions for this flavor
 	my @streams = ('BLOCK', 0, 'STREAMS', 'user-deleted');
+	# If this process handles global events then also listen for the user-registered events from Keycloak
 	if ($process_global_redis_events) {
 		push(@streams, 'user-registered');
-	}
-	push(@streams, $search_from);
-	if ($process_global_redis_events) {
 		push(@streams, $search_from);
 	}
+	# Note the message index to search from is provided at the end of the list in the same order as the list of keys
+	push(@streams, $search_from);
 
 	$log->info("Reading from Redis", {streams => \@streams}) if $log->is_info();
 	$redis_client->xread(
@@ -169,12 +170,14 @@ sub _read_user_streams($search_from) {
 			}
 
 			if ($reply_ref) {
+				# Process any received messages
 				my $last_processed_message_id = process_xread_stream_reply($reply_ref);
 				if ($last_processed_message_id) {
 					$search_from = $last_processed_message_id;
 				}
 			}
 
+			# Start listening for the next batch of messages
 			_read_user_streams($search_from);
 			return;
 		}
