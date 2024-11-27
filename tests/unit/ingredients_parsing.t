@@ -672,4 +672,30 @@ foreach my $test_ref (@lists) {
 	is(lc($preparsed), lc($expected)) or print STDERR "Original ingredients: $ingredients ($l)\n";
 }
 
+my @converted_lists;
+my $id = 1;
+
+foreach my $entry (@lists) {
+    push @converted_lists, {
+        id => $id++ . "",
+        ilc => $entry->[0],
+        ingredients_text => $entry->[1],
+    };
+}
+
+use Data::Dumper::AutoEncode;
+# print the converted lists, with the hash keys sorted
+$Data::Dumper::Sortkeys = 1;
+binmode STDOUT, ':encoding(UTF-8)';
+my $list = eDumper(\@converted_lists);
+$list =~ s/\\x\{([0-9a-f]+)\}/chr hex $1/ger;
+print $list;
+# output list to file abc.txt, in unicode
+open(my $fh, '>', 'abc.txt') or die "Could
+not open file 'abc.txt' $!";
+print $fh $list;
+close $fh;
+
+
+
 done_testing();
