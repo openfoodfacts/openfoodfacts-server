@@ -1348,11 +1348,19 @@ Averages by categories:
   - any-glob-to-any-file: 'scripts/create_small_categories_nutriments_per_country_for_testing.pl'
 
 # This lives at https://github.com/openfoodfacts/openfoodfacts-web. 
-# We'd like to use a CMS like wordpress instead. 
-# Make sure to clone it if you want the content page to work on your local instance.
+# We're migrating pages progressively to our Wordpress-based CMS. 
+# Make sure to clone openfoodfacts-web it if you want the content page to work on your local instance.
+# TODO: explain how you should do for Wordpress
 Static content:
 - changed-files:
   - any-glob-to-any-file: 'scripts/copy_text_files.pl'
+  - any-glob-to-any-file: 'docs/dev/explain-website-contents.md'
+  - any-glob-to-any-file: 'docs/dev/how-to-setup-wordpress.md'
+  - any-glob-to-any-file: 'html/css/wp.css'
+  - any-glob-to-any-file: 'lib/ProductOpener/CMS.pm'
+  - any-glob-to-any-file: 'templates/web/pages/content/menu.tt.html'
+  - any-glob-to-any-file: 'templates/web/pages/content/wordpress_content.tt.html'
+  - any-glob-to-any-file: 'tests/unit/cms.t'
 
 # Matomo is our analytics system. We need to fetch matomo logs from the mobile app to generate scan statistics. We used to do that with server side logs.
 # We also want to add Matomo events on the key part of the Web experience (see tracking issue for details)
