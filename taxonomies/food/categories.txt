@@ -55276,11 +55276,26 @@ opposite:en: en:almonds flakes
 #de: Mandelscheiben
 # not many products yet
 
+
+< en:Shelled almonds
+en: Almonds(blanched), Blanched almonds
+es: Almendras repeladas, Almendra pelada, Almendras sin piel
+fr: Amandes blanchies, Amandes émondées
+it: Mandorle pelate
+nl: Amandelen(geblancheerd), Geblancherde amandelen
+pt: Miolo de Amêndoa sem Pele
+opposite:en: en:almonds(non-blanched)
+
+< en:Shelled almonds
+en: Almonds(non-blanched), Non-blanched almonds, Unblanched almonds
+nl: Amandelen(niet geblancheerd)
+opposite:en: en:almonds(blanched)
+
 < en:Almonds(blanched)
 en: Almond flakes, Sliced almonds
 de: Mandeln(Gehobelt), Gehobelte Mandeln
-fi: Mantelihiutaleet
 es: Almendras rebanadas
+fi: Mantelihiutaleet
 fr: Amandes effilées
 hr: Listići badema
 lt: Migdolų drožlės, pjaustyti migdolai, migdolų riekelės
@@ -55313,19 +55328,6 @@ agribalyse_proxy_food_name:en: Almond, peeled, unpeeled or blanched
 agribalyse_proxy_food_name:fr: Amande, mondée, émondée ou blanchie
 wikidata:en: Q4733897
 
-< en:Shelled almonds
-en: Almonds(blanched), Blanched almonds
-en: Alemdras repeladas, Almendra pelada, Almendras sin piel
-fr: Amandes blanchies, Amandes émondées
-it: Mandorle pelate
-nl: Amandelen(geblancheerd), Geblancherde amandelen
-pt: Miolo de Amêndoa sem Pele
-opposite:en: en:almonds(non-blanched)
-
-< en:Shelled almonds
-en: Almonds(non-blanched), Non-blanched almonds, Unblanched almonds
-nl: Amandelen(niet geblancheerd)
-opposite:en: en:almonds(blanched)
 
 < en:Almonds(blanched)
 en: Almond peeled unpeeled or blanched
@@ -55353,10 +55355,10 @@ en: Almonds(unroasted)
 nl: Amandelen(ongegrild)
 opposite:en: en:almonds(roasted)
 
+< en:Almonds(non-blanched)
 < en:Almonds(unroasted)
 < en:Almonds(unsalted)
-< en:Almonds(non-blanched)
-en: Almonds(raw)
+en: Almonds(raw), Raw almonds
 es: Almendra natural, Almendra cruda
 fr: Amandes décortiqués crues, Amandes crues
 ro: Migdale crude
