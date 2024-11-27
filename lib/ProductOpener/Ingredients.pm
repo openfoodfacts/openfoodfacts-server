@@ -7631,8 +7631,9 @@ sub detect_allergens_from_text ($product_ref) {
 	# Use the language the tag have been entered in
 
 	my $traces_regexp;
-	if (defined $may_contain_regexps{$product_ref->{traces_lc} || $ingredients_lc}) {
-		$traces_regexp = $may_contain_regexps{$product_ref->{traces_lc} || $ingredients_lc};
+	my $traces_lc = $product_ref->{traces_lc} || $product_ref->{lc};
+	if ((defined $traces_lc) and (defined $may_contain_regexps{$traces_lc})) {
+		$traces_regexp = $may_contain_regexps{$traces_lc};
 	}
 
 	if (    (defined $traces_regexp)

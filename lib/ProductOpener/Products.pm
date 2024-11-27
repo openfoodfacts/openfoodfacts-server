@@ -1555,6 +1555,8 @@ sub normalize_product_data($product_ref) {
 	my $main_lc = $product_ref->{lc} || $product_ref->{lang} || "en";
 	$product_ref->{lang} = $main_lc;
 	$product_ref->{lc} = $main_lc;
+
+	return;
 }
 
 sub compute_completeness_and_missing_tags ($product_ref, $current_ref, $previous_ref) {
