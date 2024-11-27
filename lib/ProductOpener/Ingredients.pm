@@ -6662,6 +6662,8 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 
 This function extracts additives from the ingredients text and adds them to the product_ref in the additives_tags array.
 
+TODO: this function is independent of the ingredient parsing, we should combine the two.
+
 =head3 Arguments
 
 =head4 Product reference
@@ -6692,10 +6694,12 @@ sub extract_additives_from_text ($product_ref) {
 	delete $product_ref->{ingredients_sweeteners_n};
 	delete $product_ref->{ingredients_non_nutritive_sweeteners_n};
 
-	if (not defined $product_ref->{ingredients_text}) {
+	my $ingredients_lc = get_or_select_ingredients_lc($product_ref);
+
+	if ((not defined $product_ref->{ingredients_text}) or (not defined $ingredients_lc)) {
 		return;
 	}
-	my $ingredients_lc = get_or_select_ingredients_lc($product_ref);
+
 	my $text = preparse_ingredients_text($ingredients_lc, $product_ref->{ingredients_text});
 	# do not match anything if we don't have a translation for "and"
 	my $and = $and{$ingredients_lc} || " will not match ";
