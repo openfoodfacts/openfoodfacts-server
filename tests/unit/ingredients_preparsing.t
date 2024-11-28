@@ -20,10 +20,16 @@ is(normalize_a_of_b("en", "oil", "olive", 1), "olive oil");
 is(normalize_a_of_b("es", "aceta", "oliva", 1), "aceta de oliva");
 is(normalize_a_of_b("fr", "huile végétale", "olive", 1), "huile végétale d'olive");
 
-is(normalize_enumeration("en", "phosphates", "calcium and sodium", 1), "phosphates (calcium phosphates, sodium phosphates)");
-is(normalize_enumeration("en", "vegetal oil", "sunflower, palm", 1), "vegetal oil (sunflower vegetal oil, palm vegetal oil)");
-is(normalize_enumeration("fr", "huile", "colza, tournesol et olive", 1),
-	"huile (huile de colza, huile de tournesol, huile d'olive)");
+is(normalize_enumeration("en", "phosphates", "calcium and sodium", 1),
+	"phosphates (calcium phosphates, sodium phosphates)");
+is(
+	normalize_enumeration("en", "vegetal oil", "sunflower, palm", 1),
+	"vegetal oil (sunflower vegetal oil, palm vegetal oil)"
+);
+is(
+	normalize_enumeration("fr", "huile", "colza, tournesol et olive", 1),
+	"huile (huile de colza, huile de tournesol, huile d'olive)"
+);
 
 is(separate_additive_class("fr", "colorant", " ", "", "naturel"), "colorant ");
 is(separate_additive_class("fr", "colorant", " ", "", "carmins"), "colorant : ");
@@ -1210,7 +1216,7 @@ my @tests = (
 		id => '226',
 		lc => 'fr',
 		ingredients_text => 'Huiles végétales 54.5% (colza, palme)',
-	},	
+	},
 	{
 		id => '227',
 		lc => 'fr',

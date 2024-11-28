@@ -5893,7 +5893,7 @@ my %ingredients_categories_and_types = (
 				"voćni",
 			]
 		},
-		# falvouring
+		# flavouring
 		{
 			categories => ["prirodna aroma", "prirodne arome",],
 			types => ["citrusa sa ostalim prirodnim aromama", "limuna", "mente", "mente s drugim prirodnim aromama",]
@@ -5994,7 +5994,7 @@ my %ingredients_categories_and_types = (
 	ru => [
 		# oils
 		{
-			categories => ["масло", "масло растительное",],
+			categories => ['масло(?: растительное)?',],
 			types => [
 				"Подсолнечное", "Пальмовое", "Рапсовое", "Кокосовое", "горчицы", "Соевое",
 				"Пальмоядровое", "Оливковое", "пальм",
@@ -6083,10 +6083,9 @@ sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
 				or ($ingredients_lc eq "pl"))
 			{
 				# vegetable oil (palm, sunflower and olive) -> palm vegetable oil, sunflower vegetable oil, olive vegetable oil
-				$text =~ s/($category_regexp)(?::|\(|\[| | $of )+
-							((($type_regexp)($symbols_regexp|\s)*(\s|\/|\s\/\s|\s-\s|,|,\s|$and|$of|$and_of|$and_or)+)+
-								($type_regexp)($symbols_regexp|\s)*)\b(\s?(\)|\]))?
-						/normalize_enumeration($ingredients_lc,$1,$2,$of_bool, $categories_and_types_ref->{alternate_names},$categories_and_types_ref->{do_not_output_parent})/iegx;
+				# nNte: not using the /x modifier to put spaces in the regexp, as it doesn't work if the interpolated variables contain spaces themselves...
+				$text
+					=~ s/($category_regexp)(?::|\(|\[| | $of )+((($type_regexp)($symbols_regexp|\s)*(\s|\/|\s\/\s|\s-\s|,|,\s|$and|$of|$and_of|$and_or)+)+($type_regexp)($symbols_regexp|\s)*)\b(\s?(\)|\]))?/normalize_enumeration($ingredients_lc,$1,$2,$of_bool, $categories_and_types_ref->{alternate_names},$categories_and_types_ref->{do_not_output_parent})/ieg;
 
 				# vegetable oil (palm) -> palm vegetable oil
 				$text
