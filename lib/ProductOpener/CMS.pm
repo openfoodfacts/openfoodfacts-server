@@ -47,6 +47,7 @@ here from the /graphql endpoint (WPMLGraphQL plugin).
 package ProductOpener::CMS;
 
 use ProductOpener::PerlStandards;
+use utf8;
 use Exporter qw< import >;
 
 BEGIN {
@@ -216,6 +217,10 @@ sub load_cms_data () {
 		$log->error("Couldn't get pages metadata from WordPress$@\n") if $log->is_error();
 		return 0;
 	}
+
+	# reset pages
+	$page_id_by_localized_slug = {};
+	$page_metadata_cache_by_id = {};
 
 	# for each pages translation,
 	# store them in page_metadata_cache_by_id and page_id_by_localized_slug
