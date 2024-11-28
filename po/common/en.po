@@ -4678,8 +4678,17 @@ msgid "Processed foods"
 msgstr "Processed foods"
 
 msgctxt "attribute_nova_4_description_short"
-msgid "Ultra processed foods"
-msgstr "Ultra processed foods"
+msgid "Ultra-processed foods"
+msgstr "Ultra-processed foods"
+
+msgctxt "attribute_nova_4_1_marker"
+msgid "1 ultra-processing marker"
+msgstr "1 ultra-processing marker"
+
+# variable names between { } must not be translated
+msgctxt "f_attribute_nova_4_markers"
+msgid "{number} ultra-processing markers"
+msgstr "{number} ultra-processing markers"
 
 msgctxt "export_product_page"
 msgid "Export product to public database"
@@ -6378,6 +6387,10 @@ msgctxt "action_packager_codes_image"
 msgid "Take a photo of traceability codes"
 msgstr "Take a photo of traceability codes"
 
+msgctxt "action_report_product_to_nutripatrol"
+msgid "Report this product to our moderators"
+msgstr "Report this product to our moderators"
+
 # Used as a header for key facts
 msgctxt "knowledge_panels_facts"
 msgid "What you need to know"
@@ -6523,6 +6536,10 @@ msgctxt "api_result_product_not_found"
 msgid "Product not found"
 msgstr "Product not found"
 
+msgctxt "api_result_product_found_with_a_different_product_type"
+msgid "Product found with a different product type"
+msgstr "Product found with a different product type"
+
 msgctxt "api_result_product_updated"
 msgid "Product updated"
 msgstr "Product updated"
@@ -6546,6 +6563,10 @@ msgstr "Invalid JSON in request body"
 msgctxt "api_message_invalid_code"
 msgid "Invalid code"
 msgstr "Invalid code"
+
+msgctxt "api_message_invalid_product_type"
+msgid "Invalid product type"
+msgstr "Invalid product type"
 
 msgctxt "api_message_invalid_type_must_be_object"
 msgid "Invalid type: must be an object"
@@ -6974,6 +6995,10 @@ msgctxt "incomplete_or_incorrect_data_content_correct_off"
 msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
 msgstr "Open Food Facts is a collaborative database, and every contribution is useful for all."
 
+msgctxt "report_to_nutripatrol_explain"
+msgid "If you want to report vandalism, inappropriate content or erroneous data you can't fix yourself, report it to our moderators team."
+msgstr "If you want to report vandalism, inappropriate content or erroneous data you can't fix yourself, report it to our moderators team."
+
 msgctxt "description"
 msgid "Description"
 msgstr "Description"
@@ -7241,6 +7266,38 @@ msgctxt "attribute_repairability_index_france_bad_description_short"
 msgid "Bad repairability"
 msgstr "Bad repairability"
 
-msgctxt "concerned_categories"
-msgid "Bad repairability"
-msgstr "Bad repairability"
+msgctxt "product_type"
+msgid "Product type"
+msgstr "Product type"
+
+# Food product type
+msgctxt "product_type_food"
+msgid "Food"
+msgstr "Food"
+
+# Pet food product type
+msgctxt "product_type_petfood"
+msgid "Pet food"
+msgstr "Pet food"
+
+# Beauty product type
+msgctxt "product_type_beauty"
+msgid "Beauty"
+msgstr "Beauty"
+
+# General product product type
+msgctxt "product_type_product"
+msgid "Product"
+msgstr "Product"
+
+msgctxt "recommendation_limit_ultra_processed_foods_title"
+msgid "Limit ultra-processed foods"
+msgstr "Limit ultra-processed foods"
+
+msgctxt "recommendation_limit_ultra_processed_foods_subtitle"
+msgid "Ultra-processed foods increase noncommunicable chronic disease risk"
+msgstr "Ultra-processed foods increase noncommunicable chronic disease risk"
+
+msgctxt "recommendation_limit_ultra_processed_foods_text"
+msgid "Several studies have found that a high consumption of ultra-processed foods is associated with an increased risk of noncommunicable chronic diseases, such as obesity, hypertension and diabetes."
+msgstr "Several studies have found that a high consumption of ultra-processed foods is associated with an increased risk of noncommunicable chronic diseases, such as obesity, hypertension and diabetes."
