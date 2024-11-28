@@ -83,12 +83,12 @@ while (my $product_ref = $cursor->next) {
 		if ($err eq "") {
 
 			# Test before deleting the products; comment if you don't want it
-			#add_tag($product_ref, "misc", 'en:bad-product-to-be-deleted'); # Test before deleting
+			#add_tag($product_ref, "misc", 'en:bad-product-wo-image-to-be-deleted'); # Test before deleting
 
 			# Modify `deleted` field to remove the product
 			#$product_ref->{deleted} = 'on';
-			my $comment = "[remove_bad_empty_products_wo_images.pl] removal of product with a data quality issue, " .
-							"few information & no image at all";
+			my $comment = "[remove_bad_nearly_empty_products_wo_images.pl] removal of product with " .
+							"a data quality issue, few information & no image at all";
 
 			# Save the product
 			#store_product("remove-bad-products-wo-photos-bot", $product_ref, $comment);
