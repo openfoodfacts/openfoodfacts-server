@@ -87,8 +87,8 @@ while (my $product_ref = $cursor->next) {
 
 			# Modify `deleted` field to remove the product
 			#$product_ref->{deleted} = 'on';
-			my $comment = "[remove_bad_nearly_empty_products_wo_images.pl] removal of product with a data quality issue, " .
-							"few information & no image at all";
+			my $comment = "[remove_bad_nearly_empty_products_wo_images.pl] removal of product with " .
+							"a data quality issue, few information & no image at all";
 
 			# Save the product
 			#store_product("remove-bad-products-wo-photos-bot", $product_ref, $comment);
