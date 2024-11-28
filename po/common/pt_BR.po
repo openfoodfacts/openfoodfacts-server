@@ -4675,6 +4675,15 @@ msgctxt "attribute_nova_4_description_short"
 msgid "Ultra processed foods"
 msgstr "Alimentos ultra-processados"
 
+msgctxt "attribute_nova_4_1_marker"
+msgid "1 ultra-processing marker"
+msgstr ""
+
+# variable names between { } must not be translated
+msgctxt "f_attribute_nova_4_markers"
+msgid "{number} ultra-processing markers"
+msgstr ""
+
 msgctxt "export_product_page"
 msgid "Export product to public database"
 msgstr "Exportar fotos para a base de dados pública"
@@ -7274,4 +7283,16 @@ msgstr "Beleza"
 msgctxt "product_type_product"
 msgid "Product"
 msgstr "Produto"
+
+msgctxt "recommendation_limit_ultra_processed_foods_title"
+msgid "Limit ultra-processed foods"
+msgstr ""
+
+msgctxt "recommendation_limit_ultra_processed_foods_subtitle"
+msgid "Ultra-processed foods increase noncommunicable chronic disease risk"
+msgstr ""
+
+msgctxt "recommendation_limit_ultra_processed_foods_text"
+msgid "Several studies have found that a high consumption of ultra-processed foods is associated with an increased risk of noncommunicable chronic diseases, such as obesity, hypertension and diabetes."
+msgstr ""
 
