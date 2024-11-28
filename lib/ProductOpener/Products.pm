@@ -125,6 +125,7 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Store qw/get_string_id_for_lang get_url_id_for_lang retrieve store/;
 use ProductOpener::Config qw/:all/;
+use ProductOpener::ConfigEnv qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die/;
 use ProductOpener::Users qw/$Org_id $Owner_id $User_id %User init_user/;
 use ProductOpener::Orgs qw/retrieve_org/;
@@ -2756,20 +2757,31 @@ my %actions_urls = (
 	add_packager_codes_image => "#packager_codes",
 	add_labels => "#labels",
 	add_countries => "#countries",
+	# this is for web rendering so source is web
+	report_product_to_nutripatrol => "$nutripatrol_url/flag/product/?barcode=PRODUCT_CODE&source=web&flavor=$flavor"
 );
 
-sub product_action_url ($code, $action) {
+sub product_action_url ($code, $action = "edit_product") {
 
-	my $url = "/cgi/product.pl?type=edit&code=" . $code;
-
+	my $url;
 	if (defined $actions_urls{$action}) {
-		$url .= $actions_urls{$action};
+		my $action_url = $actions_urls{$action};
+		if (($action_url eq '') || ($action_url =~ /^#/)) {
+			# link to the edit form
+			$url = "/cgi/product.pl?type=edit&code=" . $code;
+			$url .= $action_url;
+		}
+		else {
+			# full url
+			$url = $action_url;
+			$url =~ s/PRODUCT_CODE/$code/;
+		}
 	}
 	else {
 		$log->error("unknown product action", {code => $code, action => $action});
 	}
 
-	return $url;
+	return $url // "";
 }
 
 sub compute_keywords ($product_ref) {
