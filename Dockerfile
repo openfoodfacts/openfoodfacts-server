@@ -85,7 +85,7 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
 # set locale
 RUN sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen && \
     locale-gen
-ENV LANG en_US.UTF-8 LANGUAGE en_US:en LC_ALL en_US.UTF-8
+ENV LANG=en_US.UTF-8 LANGUAGE=en_US:en LC_ALL=en_US.UTF-8
 RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
     apt install -y \
         #

@@ -71,7 +71,8 @@ sub do_mock() {
 			'get' => sub {
 				my ($obj, $url) = @_;
 				push @called_get_url, $url;
-				my $page_id = "$1" if ($url =~ /.*\/(\d+)$/);
+				my $page_id;
+				$page_id = "$1" if ($url =~ /.*\/(\d+)$/);
 				return {success => 1, content => encode_utf8($fake_content{$page_id} // "[]")};
 			},
 		],
