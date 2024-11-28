@@ -239,7 +239,12 @@ sub load_cms_data () {
 		$format_and_store->($page, $page->{databaseId});
 	}
 
-	$log->info("Loaded " . (scalar @pages) . " pages (" . (List::Util::sum(map { scalar keys %{$_} } (values %{$page_metadata_cache_by_id}))) . " translations) from WordPress\n") if $log->is_info();
+	$log->info("Loaded "
+			. (scalar @pages)
+			. " pages ("
+			. (List::Util::sum(map {scalar keys %{$_}} (values %{$page_metadata_cache_by_id})))
+			. " translations) from WordPress\n")
+		if $log->is_info();
 
 	return 1;
 }
@@ -305,10 +310,10 @@ sub _wp_graphql_query ($query) {
 			return $json->{data};
 		}
 	}
-	$log->error("_wp_graphql_query - bad response:", {error => $response->{content}, query => $query}) if $log->is_error();
+	$log->error("_wp_graphql_query - bad response:", {error => $response->{content}, query => $query})
+		if $log->is_error();
 	return;
 }
-
 
 sub _wp_get_page_by_id ($page_id) {
 	# we don't use graphql because it's more efficient to get the content from the REST API
@@ -326,8 +331,10 @@ sub _get_json_from_url_and_decode ($url) {
 			$log->error("_get_json_from_url_and_decode: bad JSON", {error => $@, url => $url}) if $log->is_error();
 		}
 		return $json // [];
-	} else {
-		$log->error("_get_json_from_url_and_decode: request error", {response => $response, url => $url}) if $log->is_error();
+	}
+	else {
+		$log->error("_get_json_from_url_and_decode: request error", {response => $response, url => $url})
+			if $log->is_error();
 		return [];
 	}
 }
