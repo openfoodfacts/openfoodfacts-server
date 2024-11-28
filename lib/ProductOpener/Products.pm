@@ -1417,9 +1417,6 @@ sub store_product ($user_id, $product_ref, $comment) {
 		$new_products_collection->delete_one({"_id" => $product_ref->{_id}});
 	}
 	else {
-		$log->debug("store_product - saving product in MongoDB",
-			{new_products_collection => $new_products_collection, code => $code, product_id => $product_id})
-			if $log->is_debug();
 		$new_products_collection->replace_one({"_id" => $product_ref->{_id}}, $product_ref, {upsert => 1});
 	}
 
