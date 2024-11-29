@@ -31,6 +31,10 @@ can be used to call `load_cms_data` again, and refresh the pages list.
 
 See [How to setup wordpress](./how-to-setup-wordpress.md)
 
+### How to create a page
+
+See https://wiki.openfoodfacts.org/Open_Food_Facts_Contents
+
 ## openfoodfacts-web Pages
 
 This is the historic way of creating contents, and is still used for some pages.
@@ -48,3 +52,7 @@ The integration with crowdin is done through the usual github / crowdin workflow
 
 See [How to use pages from openfoodfacts-web](./how-to-use-pages-from-openfoodfacts-web.md)
 
+
+## How to migrate from openfoodfacts-web to the CMS
+
+See https://wiki.openfoodfacts.org/Open_Food_Facts_Contents#How_to:_replace_an_Openfoodfacts-web_page_by_a_Wordpress_page_.28Not_yet_in_production.29
