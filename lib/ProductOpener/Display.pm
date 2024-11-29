@@ -7925,8 +7925,12 @@ JS
 	}
 
 	# If the product has a product_type and it is not the product_type of the server, redirect to the correct server
+	# unless we are in the pro platform
 
-	if ((defined $product_ref->{product_type}) and ($product_ref->{product_type} ne $options{product_type})) {
+	if (    (not $server_options{private_products})
+		and (defined $product_ref->{product_type})
+		and ($product_ref->{product_type} ne $options{product_type}))
+	{
 		redirect_to_url($request_ref, 302,
 			format_subdomain($subdomain, $product_ref->{product_type}) . product_url($product_ref));
 	}
@@ -10614,16 +10618,25 @@ sub display_product_api ($request_ref) {
 			$response{jqm} .= $html;
 		}
 	}
-	elsif ((defined $product_ref->{product_type}) and ($product_ref->{product_type} ne $options{product_type})) {
+	elsif ( (not $server_options{private_products})
+		and (defined $product_ref->{product_type})
+		and ($product_ref->{product_type} ne $options{product_type}))
+	{
 
 		# If the product has a product_type and it is not the product_type of the server,
 		# redirect to the correct server if the request includes a matching product_type parameter (or the "all" product type)
+		# If we are on the producers platform, don't redirect as we have only one server for all flavors
 
 		my $requested_product_type = single_param("product_type");
 		if (    (defined $requested_product_type)
 			and (($requested_product_type eq "all") or ($requested_product_type eq $product_ref->{product_type})))
 		{
-			redirect_to_url($request_ref, 302,
+			my $status_code = 302;
+			# If the method is POST, PUT, PATCH or DELETE, return a 307 status code
+			if ($request_ref->{api_method} =~ /^(POST|PUT|PATCH|DELETE)$/) {
+				$status_code = 307;
+			}
+			redirect_to_url($request_ref, $status_code,
 				format_subdomain($subdomain, $product_ref->{product_type}) . "/"
 					. $request_ref->{original_query_string});
 		}
