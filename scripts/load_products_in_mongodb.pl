@@ -47,6 +47,7 @@ use ProductOpener::Data qw/get_products_collection/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
+use JSON::MaybeXS;
 
 use Log::Any::Adapter 'TAP';
 
