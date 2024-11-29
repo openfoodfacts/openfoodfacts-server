@@ -1016,7 +1016,7 @@ sub set_user_agent_request_ref_attributes ($request_ref) {
 	my $is_crawl_bot = 0;
 	my $is_denied_crawl_bot = 0;
 	if ($user_agent_str
-		=~ /\b(Googlebot|Googlebot-Image|Google-InspectionTool|bingbot|Applebot|Yandex|DuckDuck|DotBot|Seekport|Ahrefs|DataForSeo|Seznam|ZoomBot|Mojeek|QRbot|Qwant|facebookexternalhit|Bytespider|GPTBot|ChatGPT-User|cohere-ai|anthropic-ai|PerplexityBot|ClaudeBot|Claude-Web|SEOkicks|Searchmetrics|MJ12|SurveyBot|SEOdiver|wotbox|Cliqz|Paracrawl|Scrapy|VelenPublicWebCrawler|Semrush|MegaIndex\.ru|Amazon|aiohttp|python-request|ImagesiftBot|Diffbot)/i
+		=~ /\b(GoogleOther|Googlebot|Googlebot-Image|Google-InspectionTool|bingbot|Applebot|Yandex|DuckDuck|DotBot|Seekport|Ahrefs|DataForSeo|Seznam|ZoomBot|Mojeek|QRbot|Qwant|facebookexternalhit|Bytespider|GPTBot|ChatGPT-User|cohere-ai|anthropic-ai|PerplexityBot|ClaudeBot|Claude-Web|SEOkicks|Searchmetrics|MJ12|SurveyBot|SEOdiver|wotbox|Cliqz|Paracrawl|Scrapy|VelenPublicWebCrawler|Semrush|MegaIndex\.ru|Amazon|aiohttp|python-request|ImagesiftBot|Diffbot)/i
 		)
 	{
 		$is_crawl_bot = 1;
@@ -2038,6 +2038,17 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 			$stats{all_tags_products} += $count;
 		}
 
+		# For the Eco-Score, we want to display A+ before A even though A+ is after A in alphabetical order
+		# If the tagid "a" is followed by tagid "a-plus", invert them
+		if (($tagtype eq 'ecoscore') and (defined $tags[1])) {
+
+			if (($tags[0]{_id} eq 'a') and ($tags[1]{_id} eq 'a-plus')) {
+				my $tags_tmp = $tags[0];
+				$tags[0] = $tags[1];
+				$tags[1] = $tags_tmp;
+			}
+		}
+
 		foreach my $tagcount_ref (@tags) {
 
 			$i++;
@@ -2198,9 +2209,12 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 
 			my $tag_link = $main_link . $link;
 
-			$html .= "<tr><td>";
+			$html .= "<tr>";
 
 			my $display = '';
+			# For Eco-Score, we add a data-sort attribute to sort the A+ grade before the A grade in Datatables.js
+			my $data_sort;
+
 			my @sameAs = ();
 			if ($tagtype eq 'nutrition_grades') {
 				my $grade;
@@ -2214,9 +2228,9 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 					$grade = lang("unknown");
 				}
 				$display
-					= "<img src=\"/images/attributes/dist/nutriscore-$tagid.svg\" alt=\"$Lang{nutrition_grade_fr_alt}{$lc} "
+					= "<img src=\"/images/attributes/dist/nutriscore-$tagid.svg\" alt=\"Nutri-Score "
 					. $grade
-					. "\" title=\"$Lang{nutrition_grade_fr_alt}{$lc} "
+					. "\" title=\"Nutri-Score "
 					. $grade
 					. "\" style=\"max-height:80px;\"> "
 					. $grade;
@@ -2224,19 +2238,27 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 			elsif ($tagtype eq 'ecoscore') {
 				my $grade;
 
-				if ($tagid =~ /^[abcde]$/) {
-					$grade = uc($tagid);
+				if ($tagid eq "a-plus") {
+					$grade = "A+";
+					$data_sort = "A+";
+				}
+				elsif ($tagid =~ /^[abcdef]$/) {
+					$grade = " " . uc($tagid);
+					$data_sort = "X-" . $grade;
 				}
 				elsif ($tagid eq "not-applicable") {
 					$grade = lang("not_applicable");
+					$data_sort = "Z";
 				}
 				else {
 					$grade = lang("unknown");
+					$data_sort = "Y";
 				}
+
 				$display
-					= "<img src=\"/images/attributes/dist/ecoscore-$tagid.svg\" alt=\"$Lang{ecoscore}{$lc} "
+					= "<img src=\"/images/attributes/dist/ecoscore-$tagid.svg\" alt=\"Eco-Score "
 					. $grade
-					. "\" title=\"$Lang{ecoscore}{$lc} "
+					. "\" title=\"Eco-Score "
 					. $grade
 					. "\" style=\"max-height:80px;\"> "
 					. $grade;
@@ -2268,6 +2290,13 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 			my $percent = '';
 			if (($display_percent) and ($stats{all_tags})) {
 				$percent = ' (' . sprintf("%2.2f", $products / $stats{all_tags_products} * 100) . '%)';
+			}
+
+			if (defined $data_sort) {
+				$html .= "<td data-sort=\"$data_sort\">";
+			}
+			else {
+				$html .= "<td>";
 			}
 
 			$css_class =~ s/^\s+|\s+$//g;
@@ -2433,10 +2462,10 @@ HTML
 				}
 			}
 			elsif ($request_ref->{groupby_tagtype} eq 'ecoscore') {
-				$categories = "'A','B','C','D','E','" . lang("not_applicable") . "','" . lang("unknown") . "'";
-				$colors = "'#1E8F4E','#60AC0E','#EEAE0E','#FF6F1E','#DF1F1F','#a0a0a0','#a0a0a0'";
+				$categories = "'A+','A','B','C','D','E','F','" . lang("not_applicable") . "','" . lang("unknown") . "'";
+				$colors = "'#1E8F4E','#1E8F4E','#60AC0E','#EEAE0E','#FF6F1E','#DF1F1F','#DF1F1F','#a0a0a0','#a0a0a0'";
 				$series_data = '';
-				foreach my $ecoscore_grade ('a', 'b', 'c', 'd', 'e', 'not-applicable', 'unknown') {
+				foreach my $ecoscore_grade ('a-plus', 'a', 'b', 'c', 'd', 'e', 'f', 'not-applicable', 'unknown') {
 					$series_data .= ($products{$ecoscore_grade} + 0) . ',';
 				}
 			}
@@ -4060,6 +4089,15 @@ HTML
 						;
 				}
 
+				if ($packager_codes{$canon_tagid}{cc} eq 'it') {
+					$description .= <<HTML
+<p>$packager_codes{$canon_tagid}{name}<br>
+$packager_codes{$canon_tagid}{address}, $packager_codes{$canon_tagid}{region} (Italy)
+</p>
+HTML
+						;
+				}
+
 				if ($packager_codes{$canon_tagid}{cc} eq 'lu') {
 					$description .= <<HTML
 <p>$packager_codes{$canon_tagid}{name}<br>
@@ -4882,9 +4920,17 @@ sub add_params_to_query ($params_ref, $query_ref) {
 					foreach my $tag2 (split(/\|/, $tag)) {
 						my $tagid2;
 						if (defined $taxonomy_fields{$tagtype}) {
-							$tagid2 = get_taxonomyid($tag_lc, canonicalize_taxonomy_tag($tag_lc, $tagtype, $tag2));
-							if ($tagtype eq 'additives') {
-								$tagid2 =~ s/-.*//;
+							# if the tagid ends with !, we want to search for products with this exact tag, without canonicalization
+							# this is useful in particular when we change the main id of a tag entry in the taxonomy,
+							# so that we can find products that have not been reprocessed yet and that still have the old tag
+							if ($tag2 =~ /^([a-z]{2}:.*)!$/) {
+								$tagid2 = $1;
+							}
+							else {
+								$tagid2 = get_taxonomyid($tag_lc, canonicalize_taxonomy_tag($tag_lc, $tagtype, $tag2));
+								if ($tagtype eq 'additives') {
+									$tagid2 =~ s/-.*//;
+								}
 							}
 						}
 						else {
@@ -4913,9 +4959,17 @@ sub add_params_to_query ($params_ref, $query_ref) {
 				else {
 					my $tagid;
 					if (defined $taxonomy_fields{$tagtype}) {
-						$tagid = get_taxonomyid($tag_lc, canonicalize_taxonomy_tag($tag_lc, $tagtype, $tag));
-						if ($tagtype eq 'additives') {
-							$tagid =~ s/-.*//;
+						# if the tagid ends with !, we want to search for products with this exact tag, without canonicalization
+						# this is useful in particular when we change the main id of a tag entry in the taxonomy,
+						# so that we can find products that have not been reprocessed yet and that still have the old tag
+						if ($tag =~ /^([a-z]{2}:.*)!$/) {
+							$tagid = $1;
+						}
+						else {
+							$tagid = get_taxonomyid($tag_lc, canonicalize_taxonomy_tag($tag_lc, $tagtype, $tag));
+							if ($tagtype eq 'additives') {
+								$tagid =~ s/-.*//;
+							}
 						}
 					}
 					else {
@@ -7454,15 +7508,8 @@ sub display_page ($request_ref) {
 		$site_name .= " - " . lang_in_other_lc($request_lc, "producers_platform");
 	}
 
-	# Override Google Analytics from Config.pm with server_options
-	# defined in Config2.pm if it exists
-
-	if (exists $server_options{google_analytics}) {
-		$google_analytics = $server_options{google_analytics};
-	}
-
 	$template_data_ref->{styles} = $request_ref->{styles};
-	$template_data_ref->{google_analytics} = $google_analytics;
+	$template_data_ref->{analytics} = $analytics;
 	$template_data_ref->{bodyabout} = $request_ref->{bodyabout};
 	$template_data_ref->{site_name} = $site_name;
 
@@ -7875,6 +7922,17 @@ JS
 
 	if (not defined $product_ref) {
 		display_error_and_exit($request_ref, sprintf(lang("no_product_for_barcode"), $code), 404);
+	}
+
+	# If the product has a product_type and it is not the product_type of the server, redirect to the correct server
+	# unless we are in the pro platform
+
+	if (    (not $server_options{private_products})
+		and (defined $product_ref->{product_type})
+		and ($product_ref->{product_type} ne $options{product_type}))
+	{
+		redirect_to_url($request_ref, 302,
+			format_subdomain($subdomain, $product_ref->{product_type}) . product_url($product_ref));
 	}
 
 	$title = product_name_brand_quantity($product_ref);
@@ -10483,6 +10541,14 @@ sub display_taxonomy_api ($request_ref) {
 	return;
 }
 
+=head2 display_product_api ( $request_ref )
+
+Return product data in JSON format.
+
+This function is used only for api v0, v1 and v2. API v3 + uses APIProductRead.pm
+
+=cut
+
 sub display_product_api ($request_ref) {
 
 	my $cc = $request_ref->{cc};
@@ -10550,6 +10616,34 @@ sub display_product_api ($request_ref) {
 				$template_data_ref, \$html, $request_ref)
 				|| return "template error: " . $tt->error();
 			$response{jqm} .= $html;
+		}
+	}
+	elsif ( (not $server_options{private_products})
+		and (defined $product_ref->{product_type})
+		and ($product_ref->{product_type} ne $options{product_type}))
+	{
+
+		# If the product has a product_type and it is not the product_type of the server,
+		# redirect to the correct server if the request includes a matching product_type parameter (or the "all" product type)
+		# If we are on the producers platform, don't redirect as we have only one server for all flavors
+
+		my $requested_product_type = single_param("product_type");
+		if (    (defined $requested_product_type)
+			and (($requested_product_type eq "all") or ($requested_product_type eq $product_ref->{product_type})))
+		{
+			my $status_code = 302;
+			# If the method is POST, PUT, PATCH or DELETE, return a 307 status code
+			if ($request_ref->{api_method} =~ /^(POST|PUT|PATCH|DELETE)$/) {
+				$status_code = 307;
+			}
+			redirect_to_url($request_ref, $status_code,
+				format_subdomain($subdomain, $product_ref->{product_type}) . "/"
+					. $request_ref->{original_query_string});
+		}
+		else {
+			$request_ref->{status_code} = 404;
+			$response{status} = 0;
+			$response{status_verbose} = 'product found with a different product type: ' . $product_ref->{product_type};
 		}
 	}
 	else {

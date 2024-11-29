@@ -70,7 +70,7 @@ BEGIN {
 
 		$memd_servers
 
-		$google_analytics
+		$analytics
 
 		$thumb_size
 		$crop_size
@@ -270,7 +270,27 @@ $small_size = 200;
 $display_size = 400;
 $zoom_size = 800;
 
-$google_analytics = <<HTML
+$analytics = <<HTML
+<!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+  _paq.push(["setCookieDomain", "*.openbeautyfacts.org"]);
+  _paq.push(["setDomains", ["*.openbeautyfacts.org"]]);
+  _paq.push(["setDoNotTrack", true]);
+  _paq.push(["disableCookies"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//analytics.openfoodfacts.org/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '10']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//analytics.openfoodfacts.org/matomo.php?idsite=10&amp;rec=1" style="border:0;" alt="" /></p></noscript>
 HTML
 	;
 
@@ -560,44 +580,6 @@ $options{display_tag_ingredients} = [
 	'INCI Restriction',
 
 ];
-
-# allow moving products to other instances of Product Opener on the same server
-# e.g. OFF -> OBF
-
-$options{current_server} = "obf";
-
-$options{other_servers} = {
-	obf => {
-		name => "Open Beauty Facts",
-		data_root => "/srv/obf",
-		www_root => "/srv/obf/html",
-		mongodb => "obf",
-		domain => "openbeautyfacts.org",
-	},
-	off => {
-		name => "Open Food Facts",
-		data_root => "/srv/off",
-		www_root => "/srv/off/html",
-		mongodb => "off",
-		domain => "openfoodfacts.org",
-	},
-	opff => {
-		prefix => "opff",
-		name => "Open Pet Food Facts",
-		data_root => "/srv/opff",
-		www_root => "/srv/opff/html",
-		mongodb => "opff",
-		domain => "openpetfoodfacts.org",
-	},
-	opf => {
-		name => "Open Products Facts",
-		data_root => "/srv/opf",
-		www_root => "/srv/opf/html",
-		mongodb => "opf",
-		domain => "openproductsfacts.org",
-	},
-
-};
 
 $options{no_nutrition_table} = 1;
 

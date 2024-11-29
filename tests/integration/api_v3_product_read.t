@@ -31,7 +31,7 @@ my @products = (
 			code => '4260392550101',
 			product_name => "Some product",
 			generic_name => "Tester",
-			ingredients_text => "apple, milk, eggs, palm oil",
+			ingredients_text => "apple, milk, eggs, palm oil, coloring: curcumin, emulsifier: soy lecithin",
 			categories => "cookies",
 			labels => "organic",
 			origin => "france",
@@ -57,6 +57,12 @@ my $tests_ref = [
 		test_case => 'get-existing-product',
 		method => 'GET',
 		path => '/api/v3/product/4260392550101',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'get-existing-product-with-leading-zero',
+		method => 'GET',
+		path => '/api/v3/product/04260392550101',
 		expected_status_code => 200,
 	},
 	{

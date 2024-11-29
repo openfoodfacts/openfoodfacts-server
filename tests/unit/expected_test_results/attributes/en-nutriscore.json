@@ -253,8 +253,6 @@
       {
          "attributes" : [
             {
-               "description" : "",
-               "description_short" : "Unprocessed or minimally processed foods",
                "grade" : "a",
                "icon_url" : "https://server_domain/images/attributes/dist/nova-group-1.svg",
                "id" : "nova",
@@ -262,7 +260,7 @@
                "name" : "NOVA group",
                "panel_id" : "nova",
                "status" : "known",
-               "title" : "NOVA 1"
+               "title" : "Unprocessed or minimally processed foods"
             },
             {
                "grade" : "a",
@@ -286,7 +284,7 @@
                "grade" : "c",
                "icon_url" : "https://server_domain/images/attributes/dist/ecoscore-c.svg",
                "id" : "ecoscore",
-               "match" : 51,
+               "match" : 50,
                "name" : "Eco-Score",
                "panel_id" : "ecoscore",
                "status" : "known",
@@ -603,7 +601,6 @@
             "warning" : "origins_are_100_percent_unknown"
          },
          "packaging" : {
-            "non_recyclable_and_non_biodegradable_materials" : 1,
             "value" : -15,
             "warning" : "packaging_data_missing"
          },
@@ -831,6 +828,10 @@
       "en:fruit"
    ],
    "ingredients_without_ciqual_codes_n" : 1,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:fruit"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 1,
    "known_ingredients_n" : 1,
    "languages" : {},
    "languages_codes" : {},

@@ -2,7 +2,6 @@ type: object
 description: |
   Data about a product which is represented as tags
 properties:
-
   brands:
     type: string
     description: List of brands (not taxonomized)
@@ -30,7 +29,7 @@ properties:
     type: array
     items:
       type: string
-      description:  List of checkers (users who checked the product) tags
+      description: List of checkers (users who checked the product) tags
   cities:
     type: string
   cities_tags:
@@ -79,7 +78,6 @@ properties:
     items:
       type: object
 
-
   labels:
     type: string
   labels_hierarchy:
@@ -99,7 +97,10 @@ properties:
     type: array
     items:
       type: string
-    example: ["2016-03-11","2016-03","2016"]
+    examples:
+      - - "2016-03-11"
+        - "2016-03"
+        - "2016"
 
   manufacturing_places:
     type: string
@@ -108,7 +109,7 @@ properties:
   manufacturing_places_tags:
     type: array
     items:
-      type: object
+      type: "string"
   nova_groups_tags:
     type: array
     items:

@@ -257,8 +257,7 @@
       {
          "attributes" : [
             {
-               "description" : "",
-               "description_short" : "Ultra processed foods",
+               "description_short" : "5 ultra-processing markers",
                "grade" : "e",
                "icon_url" : "https://server_domain/images/attributes/dist/nova-group-4.svg",
                "id" : "nova",
@@ -266,7 +265,7 @@
                "name" : "NOVA group",
                "panel_id" : "nova",
                "status" : "known",
-               "title" : "NOVA 4"
+               "title" : "Ultra-processed foods"
             },
             {
                "grade" : "b",
@@ -290,7 +289,7 @@
                "grade" : "d",
                "icon_url" : "https://server_domain/images/attributes/dist/ecoscore-d.svg",
                "id" : "ecoscore",
-               "match" : 36,
+               "match" : 35,
                "name" : "Eco-Score",
                "panel_id" : "ecoscore",
                "status" : "known",
@@ -605,7 +604,6 @@
             "warning" : "origins_are_100_percent_unknown"
          },
          "packaging" : {
-            "non_recyclable_and_non_biodegradable_materials" : 1,
             "value" : -15,
             "warning" : "packaging_data_missing"
          },
@@ -794,6 +792,7 @@
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "19051",
+         "ecobalyse_code" : "milk",
          "id" : "en:cow-s-milk",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 57.1428571428571,
@@ -846,6 +845,7 @@
       },
       {
          "ciqual_proxy_food_code" : "31016",
+         "ecobalyse_code" : "sugar",
          "id" : "en:sugar",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 2.5,
@@ -950,6 +950,14 @@
       "en:microbial-culture"
    ],
    "ingredients_without_ciqual_codes_n" : 3,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:e412",
+      "en:garlic-flavouring",
+      "en:high-fructose-corn-syrup",
+      "en:microbial-culture",
+      "en:salt"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 5,
    "known_ingredients_n" : 18,
    "languages" : {},
    "languages_codes" : {},

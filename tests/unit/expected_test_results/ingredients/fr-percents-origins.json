@@ -2,6 +2,7 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "2074",
+         "ecobalyse_code" : "apple-organic",
          "id" : "en:apple-juice",
          "is_in_taxonomy" : 1,
          "labels" : "en:organic",
@@ -102,6 +103,12 @@
       "en:sodium-chloride"
    ],
    "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:quince",
+      "en:sea-salt",
+      "en:sodium-chloride"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 3,
    "known_ingredients_n" : 12,
    "lc" : "fr",
    "misc_tags" : [

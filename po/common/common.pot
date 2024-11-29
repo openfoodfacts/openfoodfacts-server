@@ -4662,6 +4662,15 @@ msgctxt "attribute_nova_4_description_short"
 msgid "Ultra processed foods"
 msgstr "Ultra processed foods"
 
+msgctxt "attribute_nova_4_1_marker"
+msgid "1 ultra-processing marker"
+msgstr "1 ultra-processing marker"
+
+# variable names between { } must not be translated
+msgctxt "f_attribute_nova_4_markers"
+msgid "{number} ultra-processing markers"
+msgstr "{number} ultra-processing markers"
+
 msgctxt "export_product_page"
 msgid "Export product to public database"
 msgstr "Export product to public database"
@@ -4811,10 +4820,14 @@ msgctxt "attribute_ecoscore_setting_note"
 msgid "The Eco-Score is an environmental score (ecoscore) from A to E which makes it easy to compare the impact of food products on the environment."
 msgstr ""
 
-# keep %s, it will be replaced by the letter A, B, C, D or E
+# keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_ecoscore_grade_title"
 msgid "Eco-Score %s"
 msgstr "Eco-Score %s"
+
+msgctxt "attribute_ecoscore_a_plus_description_short"
+msgid "Very low environmental impact"
+msgstr "Very low environmental impact"
 
 msgctxt "attribute_ecoscore_a_description_short"
 msgid "Very low environmental impact"
@@ -4833,6 +4846,10 @@ msgid "High environmental impact"
 msgstr "High environmental impact"
 
 msgctxt "attribute_ecoscore_e_description_short"
+msgid "Very high environmental impact"
+msgstr "Very high environmental impact"
+
+msgctxt "attribute_ecoscore_f_description_short"
 msgid "Very high environmental impact"
 msgstr "Very high environmental impact"
 
@@ -5803,6 +5820,46 @@ msgctxt "donation_text_2023_tertiary"
 msgid "The food revolution starts with you!"
 msgstr ""
 
+msgctxt "donation_hook_2024"
+msgid "Help us inform millions of consumers around the world about what they eat"
+msgstr "Help us inform millions of consumers around the world about what they eat"
+
+msgctxt "donation_title_2024"
+msgid "Please give to our 2024 Fundraiser"
+msgstr "Please give to our 2024 Fundraiser"
+
+msgctxt "donation_list_2024_main"
+msgid "Your donations fund the day-to-day operations of our non-profit association:"
+msgstr "Your donations fund the day-to-day operations of our non-profit association:"
+
+msgctxt "donation_list_2024_first"
+msgid "keeping our database open & available to all,"
+msgstr "keeping our database open & available to all,"
+
+msgctxt "donation_list_2024_first_sub"
+msgid "technical infrastructure (website/mobile app) & a small permanent team"
+msgstr "technical infrastructure (website/mobile app) & a small permanent team"
+
+msgctxt "donation_list_2024_second"
+msgid "remain independent of the food industry,"
+msgstr "remain independent of the food industry,"
+
+msgctxt "donation_list_2024_third"
+msgid "engage a community of committed citizens,"
+msgstr "engage a community of committed citizens,"
+
+msgctxt "donation_list_2024_fourth"
+msgid "support the advancement of public health research."
+msgstr "support the advancement of public health research."
+
+msgctxt "donation_financial_2024_text"
+msgid "Each donation counts! We appreciate your support in bringing further food transparency in the world."
+msgstr "Each donation counts! We appreciate your support in bringing further food transparency in the world."
+
+msgctxt "donation_button_2024_text"
+msgid "I SUPPORT"
+msgstr "I SUPPORT"
+
 msgctxt "donation_cta"
 msgid "Donate"
 msgstr ""
@@ -6311,6 +6368,10 @@ msgctxt "action_packager_codes_image"
 msgid "Take a photo of traceability codes"
 msgstr "Take a photo of traceability codes"
 
+msgctxt "action_report_product_to_nutripatrol"
+msgid "Report this product to our moderators"
+msgstr "Report this product to our moderators"
+
 # Used as a header for key facts
 msgctxt "knowledge_panels_facts"
 msgid "What you need to know"
@@ -6456,6 +6517,10 @@ msgctxt "api_result_product_not_found"
 msgid "Product not found"
 msgstr "Product not found"
 
+msgctxt "api_result_product_found_with_a_different_product_type"
+msgid "Product found with a different product type"
+msgstr "Product found with a different product type"
+
 msgctxt "api_result_product_updated"
 msgid "Product updated"
 msgstr "Product updated"
@@ -6479,6 +6544,10 @@ msgstr "Invalid JSON in request body"
 msgctxt "api_message_invalid_code"
 msgid "Invalid code"
 msgstr "Invalid code"
+
+msgctxt "api_message_invalid_product_type"
+msgid "Invalid product type"
+msgstr "Invalid product type"
 
 msgctxt "api_message_invalid_type_must_be_object"
 msgid "Invalid type: must be an object"
@@ -6913,6 +6982,10 @@ msgctxt "incomplete_or_incorrect_data_content_correct_off"
 msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
 msgstr "Open Food Facts is a collaborative database, and every contribution is useful for all."
 
+msgctxt "report_to_nutripatrol_explain"
+msgid "If you want to report vandalism, inappropriate content or erroneous data you can't fix yourself, report it to our moderators team."
+msgstr "If you want to report vandalism, inappropriate content or erroneous data you can't fix yourself, report it to our moderators team."
+
 msgctxt "description"
 msgid "Description"
 msgstr "Description"
@@ -7212,3 +7285,39 @@ msgstr "estimate"
 msgctxt "ingredient_information"
 msgid "Ingredient information"
 msgstr "Ingredient information"
+
+msgctxt "product_type"
+msgid "Product type"
+msgstr "Product type"
+
+# Food product type
+msgctxt "product_type_food"
+msgid "Food"
+msgstr "Food"
+
+# Pet food product type
+msgctxt "product_type_petfood"
+msgid "Pet food"
+msgstr "Pet food"
+
+# Beauty product type
+msgctxt "product_type_beauty"
+msgid "Beauty"
+msgstr "Beauty"
+
+# General product product type
+msgctxt "product_type_product"
+msgid "Product"
+msgstr "Product"
+
+msgctxt "recommendation_limit_ultra_processed_foods_title"
+msgid "Limit ultra-processed foods"
+msgstr "Limit ultra-processed foods"
+
+msgctxt "recommendation_limit_ultra_processed_foods_subtitle"
+msgid "Ultra-processed foods increase noncommunicable chronic disease risk"
+msgstr "Ultra-processed foods increase noncommunicable chronic disease risk"
+
+msgctxt "recommendation_limit_ultra_processed_foods_text"
+msgid "Several studies have found that a high consumption of ultra-processed foods is associated with an increased risk of noncommunicable chronic diseases, such as obesity, hypertension and diabetes."
+msgstr "Several studies have found that a high consumption of ultra-processed foods is associated with an increased risk of noncommunicable chronic diseases, such as obesity, hypertension and diabetes."
