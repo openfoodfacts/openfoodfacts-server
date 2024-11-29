@@ -94,6 +94,16 @@ location = /dona-a-open-food-facts {
 	try_files /donate/it.html =404;
 }
 
+# JA
+location = /donate-to-open-food-facts-ja {
+	try_files /donate/ja.html =404;
+}
+
+# KO
+location = /donate-to-open-food-facts-ko {
+	try_files /donate/ko.html =404;
+}
+
 # LT
 location = /donate-to-open-food-facts-lt {
 	try_files /donate/lt.html =404;
@@ -104,9 +114,14 @@ location = /donate-to-open-food-facts-lu {
 	try_files /donate/lu.html =404;
 }
 
-# KO
-location = /donate-to-open-food-facts-ko {
-	try_files /donate/ko.html =404;
+# MG
+location = /donate-to-open-food-facts-mg {
+	try_files /donate/mg.html =404;
+}
+
+# MS
+location = /donate-to-open-food-facts-ms {
+	try_files /donate/ms.html =404;
 }
 
 # NL
@@ -139,19 +154,24 @@ location = /donate-to-open-food-facts-ru {
 	try_files /donate/ru.html =404;
 }
 
-# SL
-location = /doniraj-k-open-food-facts {
-	try_files /donate/sl.html =404;
-}
-
 # SK
 location = /donate-to-open-food-facts-sk {
 	try_files /donate/sk.html =404;
 }
 
+# SL
+location = /doniraj-k-open-food-facts {
+	try_files /donate/sl.html =404;
+}
+
 # SV
 location = /donate-to-open-food-facts-sv {
 	try_files /donate/sv.html =404;
+}
+
+# TH
+location = /donate-to-open-food-facts-th {
+	try_files /donate/th.html =404;
 }
 
 # TR
@@ -168,7 +188,6 @@ location = /donate-to-open-food-facts-ua {
 location = /donate-to-open-food-facts-vi {
 	try_files /donate/vi.html =404;
 }
-
 
 # zh-cn: 捐赠给openfoodfacts Juānzèng gěi openfoodfacts
 location = /donate-to-open-food-facts-cn {

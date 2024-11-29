@@ -41,15 +41,8 @@ my $EXPECTED_BASE_PATHS = {
 	USERS => "$data_root/users",
 	USERS_TRANSLATIONS => "$data_root/translate",
 };
-my $EXPECTED_FOREIGN_PATHS = {
-	OBF_PRODUCTS_DIR => '/srv/obf/products',
-	OBF_PRODUCTS_IMAGES_DIR => '/srv/obf/html/images/products',
-	OPFF_PRODUCTS_DIR => '/srv/opff/products',
-	OPFF_PRODUCTS_IMAGES_DIR => '/srv/opff/html/images/products',
-	OPF_PRODUCTS_DIR => '/srv/opf/products',
-	OPF_PRODUCTS_IMAGES_DIR => '/srv/opf/html/images/products',
-};
-my %EXPECTED_OFF_PATHS = (%{$EXPECTED_BASE_PATHS}, %{$EXPECTED_FOREIGN_PATHS},);
+
+my %EXPECTED_OFF_PATHS = (%{$EXPECTED_BASE_PATHS});
 is(base_paths(), \%EXPECTED_OFF_PATHS, "base_paths content for off");
 
 ok(ensure_dir_created("$BASE_DIRS{CACHE_TMP}"), "cache tmp directory exists");
