@@ -69,15 +69,20 @@ cd $OFF_SCRIPTS_DIR
 ./mongodb_dump.sh $OFF_PUBLIC_DATA_DIR $PRODUCT_OPENER_FLAVOR $MONGODB_HOST $PRODUCT_OPENER_FLAVOR_SHORT
 
 # Small products data and images export for Docker dev environments
-# for about 1/10000th of the products contained in production.
-./export_products_data_and_images.pl --sample-mod 10000,0 \
+# for about 1/100000th of the products contained in production.
+./export_products_data_and_images.pl --sample-mod 100000,0 \
+    --products-file $OFF_PUBLIC_EXPORTS_DIR/products.random-modulo-100000.tar.gz \
+    --images-file $OFF_PUBLIC_EXPORTS_DIR/products.random-modulo-100000.images.tar.gz \
+    --jsonl-file $OFF_PUBLIC_EXPORTS_DIR/products.random-modulo-100000.jsonl.gz \
+    --mongo-file $OFF_PUBLIC_EXPORTS_DIR/products.random-modulo-100000.mongodbdump.gz
+# On saturday, export modulo 1000 and 10000 for larger sample
+if [ "$(date +%u)" = "6" ]
+then
+    ./export_products_data_and_images.pl --sample-mod 10000,0 \
     --products-file $OFF_PUBLIC_EXPORTS_DIR/products.random-modulo-10000.tar.gz \
     --images-file $OFF_PUBLIC_EXPORTS_DIR/products.random-modulo-10000.images.tar.gz \
     --jsonl-file $OFF_PUBLIC_EXPORTS_DIR/products.random-modulo-10000.jsonl.gz \
     --mongo-file $OFF_PUBLIC_EXPORTS_DIR/products.random-modulo-10000.mongodbdump.gz
-# On saturday, export modulo 1000 for larger sample
-if [ "$(date +%u)" = "6" ]
-then
     ./export_products_data_and_images.pl --sample-mod 1000,0 \
         --products-file $OFF_PUBLIC_EXPORTS_DIR/products.random-modulo-1000.tar.gz \
         --images-file $OFF_PUBLIC_EXPORTS_DIR/products.random-modulo-1000.images.tar.gz \
