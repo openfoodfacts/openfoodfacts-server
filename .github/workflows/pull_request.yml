@@ -167,7 +167,7 @@ jobs:
         files: cover_db/codecov.json
 
   tests_dev:
-    name: 🧪 Test make dev
+    name: 🧪 Test make dev_without_sample_data
     needs: build_backend  # only to avoid building taxonomies
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
@@ -190,9 +190,9 @@ jobs:
         rm -f .envrc
         echo "export USER_UID=$(id -u)" >> .envrc
         echo "export USER_GID=$(id -g)" >> .envrc
-    - name: Test make dev
+    - name: Test make dev_without_sample_data
       run: |
-        make DOCKER_LOCAL_DATA="$(pwd)" dev
+        make DOCKER_LOCAL_DATA="$(pwd)" dev_without_sample_data
         make status
     - name: Test all is running
       run: make livecheck || ( tail -n 300 logs/apache2/*error*log; docker compose logs; false )

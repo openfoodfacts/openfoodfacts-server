@@ -109,6 +109,11 @@ dev: hello build init_backend _up import_sample_data create_mongodb_indexes refr
 	@echo "🥫 You should be able to access your local install of Open Food Facts at http://world.openfoodfacts.localhost/"
 	@echo "🥫 You have around 100 test products. Please run 'make import_prod_data' if you want a full production dump (~2M products)."
 
+# used to test make dev in GitHub PR tests, without having to rely on getting a data dump from an external source
+# (e.g. https://static.openfoodfacts.org which can be slow)
+dev_without_sample_data: hello build init_backend _up create_mongodb_indexes refresh_product_tags
+	@echo "🥫 You should be able to access your local install of Open Food Facts at http://world.openfoodfacts.localhost/"
+
 edit_etc_hosts:
 	@grep -qxF -- "${HOSTS}" /etc/hosts || echo "${HOSTS}" >> /etc/hosts
 
