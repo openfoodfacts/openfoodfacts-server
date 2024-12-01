@@ -1331,10 +1331,10 @@ sub check_nutrition_data ($product_ref) {
 			my $total_fiber = $soluble_fiber + $insoluble_fiber;
 
 			if ($total_fiber > $product_ref->{nutriments}{fiber_100g} + 0.001) {
-                # ignore if there is "<" symbol (example: <1 + 5 = 5, issue #11075)
+				# ignore if there is "<" symbol (example: <1 + 5 = 5, issue #11075)
 				my $soluble_modifier = $product_ref->{nutriments}{'soluble-fiber_modifier'};
 				my $insoluble_modifier = $product_ref->{nutriments}{'insoluble-fiber_modifier'};
-                
+
 				if (
 						((!defined $soluble_modifier) or (defined $soluble_modifier and $soluble_modifier ne '<'))
 					and ((!defined $insoluble_modifier) or (defined $insoluble_modifier and $insoluble_modifier ne '<'))

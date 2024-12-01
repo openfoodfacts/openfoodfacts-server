@@ -1912,7 +1912,7 @@ $product_ref = {
 	nutriments => {
 		fiber_100g => 5,
 		'soluble-fiber_100g' => 1,
-        'soluble-fiber_modifier' => '<',
+		'soluble-fiber_modifier' => '<',
 		'insoluble-fiber_100g' => 5,
 	},
 	data_quality_errors_tags => [],
@@ -1930,7 +1930,7 @@ $product_ref = {
 	nutriments => {
 		fiber_100g => 5,
 		'soluble-fiber_100g' => 1,
-        'soluble-fiber_modifier' => '>',
+		'soluble-fiber_modifier' => '>',
 		'insoluble-fiber_100g' => 5,
 	},
 	data_quality_errors_tags => [],
@@ -1942,6 +1942,5 @@ ok(
 	has_tag($product_ref, 'data_quality_errors', 'en:nutrition-soluble-fiber-plus-insoluble-fiber-greater-than-fiber'),
 	'Soluble fiber + Insoluble fiber exceeds total fiber and > symbol does not cancel that error to be raised'
 ) or diag Dumper $product_ref;
-
 
 done_testing();
