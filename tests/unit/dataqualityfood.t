@@ -1893,7 +1893,7 @@ ok(
 # Test case for fiber content
 $product_ref = {
 	nutriments => {
-		'fiber_100g' => 5,
+		fiber_100g => 5,
 		'soluble-fiber_100g' => 3,
 		'insoluble-fiber_100g' => 3,
 	},
