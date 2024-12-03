@@ -1257,7 +1257,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 		and (defined $options{product_type})
 		and (  ($options{product_type} eq "food")
 			or ($options{product_type} eq "petfood")
-			or ($options{product_type} eq "foodsupplements"))
+			or ($options{product_type} eq "foodsupplement"))
 		)
 	{
 		@tagtypes = (
