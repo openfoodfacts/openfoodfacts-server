@@ -1252,9 +1252,13 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 	}
 
 	# For the Open Food Facts ingredients taxonomy, concatenate additives, minerals, vitamins, nucleotides and other nutritional substances taxonomies
-	elsif ( ($tagtype eq "ingredients")
+	elsif (
+			($tagtype eq "ingredients")
 		and (defined $options{product_type})
-		and (($options{product_type} eq "food") or ($options{product_type} eq "petfood")))
+		and (  ($options{product_type} eq "food")
+			or ($options{product_type} eq "petfood")
+			or ($options{product_type} eq "foodsupplements"))
+		)
 	{
 		@tagtypes = (
 			"additives_classes", "additives", "minerals", "vitamins",
