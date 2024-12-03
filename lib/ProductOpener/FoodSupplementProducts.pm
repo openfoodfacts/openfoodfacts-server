@@ -61,7 +61,7 @@ use ProductOpener::ForestFootprint qw/compute_forest_footprint/;
 
 use Log::Any qw($log);
 
-=head2 specific_processes_for_food_product ( $ingredients_ref )
+=head2 specific_processes_for_food_supplement_product ( $ingredients_ref )
 
 Runs specific processes for food products:
 
@@ -73,7 +73,7 @@ Runs specific processes for food products:
 
 =cut
 
-sub specific_processes_for_food_product ($product_ref) {
+sub specific_processes_for_food_supplement_product ($product_ref) {
 
 	# Ingredients analysis
 
