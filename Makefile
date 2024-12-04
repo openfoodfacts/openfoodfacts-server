@@ -11,6 +11,8 @@ SHELL := $(shell which bash)
 ENV_FILE ?= .env
 NAME = "ProductOpener"
 MOUNT_POINT ?= /mnt
+# in CI, in make dev we want to skip downloading sample images (too slow)
+SKIP_SAMPLE_IMAGES ?= SKIP_SAMPLE_IMAGES
 DOCKER_LOCAL_DATA_DEFAULT = /srv/off/docker_data
 DOCKER_LOCAL_DATA ?= $(DOCKER_LOCAL_DATA_DEFAULT)
 OS := $(shell uname)

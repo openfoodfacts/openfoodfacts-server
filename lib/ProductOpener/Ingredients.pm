@@ -3379,28 +3379,26 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 		# List of suffixes
 		my @suffixes = ();
 		# If the ingredient is organic...
-		if ($ingredient_ref->{labels} =~ /\ben:organic\b/) {
+		if ((defined $ingredient_ref->{labels}) and ($ingredient_ref->{labels} =~ /\ben:organic\b/)) {
 			push @suffixes, "_labels_en_organic";
 		}
 		push @suffixes, '';
 
-		if ($ingredient_ref->{labels} =~ /\ben:organic\b/) {
-			push @suffixes, "_proxy_labels_en_organic";
-		}
-		push @suffixes, '_proxy';
+		# First try an exact match, and then a proxy match
+		foreach my $prefix ("ecobalyse", "ecobalyse_proxy") {
+			# Loop through each suffix to retrieve ecobalyse code
+			foreach my $suffix (@suffixes) {
+				# Construct the property name using the prefix and suffix
+				my $property_name = $prefix . $suffix . ":en";
 
-		# Loop through each suffix and proxy combination to retrieve ecobalyse code
-		foreach my $suffix (@suffixes) {
-			# Construct the property name using the proxy and suffix
-			my $property_name = "ecobalyse" . $suffix . ":en";
+				# Attempt to retrieve the ecobalyse code for the current property name
+				my $ecobalyse_code = get_inherited_property("ingredients", $ingredient_ref->{id}, $property_name);
 
-			# Attempt to retrieve the ecobalyse code for the current property name
-			my $ecobalyse_code = get_inherited_property("ingredients", $ingredient_ref->{id}, $property_name);
-
-			if (defined $ecobalyse_code) {
-				# Assign the ecobalyse code if found
-				$ingredient_ref->{ecobalyse_code} = $ecobalyse_code;
-				last;
+				if (defined $ecobalyse_code) {
+					# Assign the ecobalyse code if found
+					$ingredient_ref->{ecobalyse_code} = $ecobalyse_code;
+					last;
+				}
 			}
 			# Exit the loop if a valid ecobalyse code was found
 			last if defined $ingredient_ref->{ecobalyse_code};
