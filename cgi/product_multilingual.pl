@@ -347,8 +347,12 @@ else {
 		else {
 			# There is an existing product
 			# If the product has a product_type and it is not the product_type of the server, redirect to the correct server
+			# unless we are on the pro platform
 			# We use a 302 redirect so that browsers issue a GET request to display the form (even if we received a POST request)
-			if ((defined $product_ref->{product_type}) and ($product_ref->{product_type} ne $options{product_type})) {
+			if (    (not $server_options{private_products})
+				and (defined $product_ref->{product_type})
+				and ($product_ref->{product_type} ne $options{product_type}))
+			{
 				redirect_to_url($request_ref, 302,
 					format_subdomain($subdomain, $product_ref->{product_type}) . '/cgi/product.pl?code=' . $code);
 			}

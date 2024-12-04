@@ -70,6 +70,7 @@ BEGIN {
 		&normalize_code_with_gs1_ai
 		&assign_new_code
 		&product_id_for_owner
+		&get_server_for_product
 		&server_for_product_type
 		&split_code
 		&product_path
@@ -505,7 +506,7 @@ The product id.
 
 sub product_id_for_owner ($ownerid, $code) {
 
-	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
+	if ($server_options{private_products}) {
 		if (defined $ownerid) {
 			return $ownerid . "/" . $code;
 		}
@@ -543,6 +544,36 @@ sub server_for_product_type ($product_type) {
 	return;
 }
 
+=head2 get_server_for_product ( $product_ref )
+
+Return the MongoDB database for the product: off, obf, opf, opff or off-pro
+
+If we are on the producers platform, we currently have only one server: off-pro
+
+=cut
+
+sub get_server_for_product ($product_ref) {
+
+	my $server;
+
+	# On the pro platform, we currently have only one server
+	if ($server_options{private_products}) {
+		$server = $mongodb;    # off-pro
+	}
+	else {
+		# In case we need to move a product from OFF to OBF etc.
+		# we will have a old_product_type field
+
+		$server
+			= $options{product_types_flavors}{$product_ref->{old_product_type}
+				|| $product_ref->{product_type}
+				|| $options{product_type}};
+
+	}
+
+	return $server;
+}
+
 =head2 product_path_from_id ( $product_id )
 
 Returns the relative path for the product.
@@ -561,8 +592,7 @@ The relative path for the product.
 
 sub product_path_from_id ($product_id) {
 
-	if (    (defined $server_options{private_products})
-		and ($server_options{private_products})
+	if (    ($server_options{private_products})
 		and ($product_id =~ /\//))
 	{
 		return $` . "/" . split_code($');
@@ -596,7 +626,7 @@ sub product_path ($product_ref) {
 		die("Argument of product_path() must be a reference to the product hash object, not a scalar: $product_ref\n");
 	}
 
-	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
+	if ($server_options{private_products}) {
 		return $product_ref->{owner} . "/" . split_code($product_ref->{code});
 	}
 	else {
@@ -642,7 +672,7 @@ sub product_exists ($product_id) {
 
 sub get_owner_id ($userid, $orgid, $ownerid) {
 
-	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
+	if ($server_options{private_products}) {
 
 		if (not defined $ownerid) {
 			if (defined $orgid) {
@@ -704,7 +734,7 @@ sub init_product ($userid, $orgid, $code, $countryid) {
 		$product_ref->{server} = $server;
 	}
 
-	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
+	if ($server_options{private_products}) {
 		my $ownerid = get_owner_id($userid, $orgid, $Owner_id);
 
 		$product_ref->{owner} = $ownerid;
@@ -1084,10 +1114,7 @@ sub store_product ($user_id, $product_ref, $comment) {
 	# we will have a old_product_type field
 
 	# Get the previous server and collection for the product
-	my $previous_server
-		= $options{product_types_flavors}{$product_ref->{old_product_type}
-			|| $product_ref->{product_type}
-			|| $options{product_type}};
+	my $previous_server = get_server_for_product($product_ref);
 
 	# We use the was_obsolete flag so that we can remove the product from its old collection
 	# (either products or products_obsolete) if its obsolete status has changed
@@ -1104,7 +1131,7 @@ sub store_product ($user_id, $product_ref, $comment) {
 	}
 
 	# Get the server and collection for the product that we will write
-	my $new_server = $options{product_types_flavors}{$product_ref->{product_type} || $options{product_type}};
+	my $new_server = get_server_for_product($product_ref);
 	my $new_products_collection = get_products_collection(
 		{database => $options{other_servers}{$new_server}{mongodb}, obsolete => $product_ref->{obsolete}});
 
@@ -1699,7 +1726,7 @@ sub compute_completeness_and_missing_tags ($product_ref, $current_ref, $previous
 	}
 
 	# On the producers platform, keep track of which products have changes to be exported
-	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
+	if ($server_options{private_products}) {
 		if (    (defined $product_ref->{last_exported_t})
 			and ($product_ref->{last_exported_t} > $product_ref->{last_modified_t}))
 		{

@@ -1808,6 +1808,17 @@ sub create_recommendation_panels ($product_ref, $target_lc, $target_cc, $options
 				{}, $product_ref, $target_lc, $target_cc, $options_ref);
 		}
 	}
+
+	# NOVA 4 ultra-processed foods
+	if ((defined $product_ref->{nova_groups}) and ($product_ref->{nova_groups} eq "4")) {
+
+		create_panel_from_json_template(
+			"recommendation_ultra_processed_foods",
+			"api/knowledge-panels/recommendations/health/world/ultra_processed_foods.tt.json",
+			{}, $product_ref, $target_lc, $target_cc, $options_ref
+		);
+	}
+
 	return;
 }
 

@@ -887,11 +887,27 @@ sub compute_attribute_nova ($product_ref, $target_lc) {
 		$attribute_ref->{match} = $nova_groups_scores{$nova_group + 0};    # Make sure the key is a number
 
 		if ($target_lc ne "data") {
-			$attribute_ref->{title} = sprintf(lang_in_other_lc($target_lc, "attribute_nova_group_title"), $nova_group);
-			$attribute_ref->{description}
-				= lang_in_other_lc($target_lc, "attribute_nova_" . $nova_group . "_description");
-			$attribute_ref->{description_short}
+			# Instead of putting NOVA 4 in the title, we indicate what it is: "Ultra-processed foods"
+			# and we use the description to put the number of markers
+			# $attribute_ref->{title} = sprintf(lang_in_other_lc($target_lc, "attribute_nova_group_title"), $nova_group);
+			# NOVA 4 can still be seen in the logo.
+			$attribute_ref->{title}
 				= lang_in_other_lc($target_lc, "attribute_nova_" . $nova_group . "_description_short");
+
+			# For NOVA 4, indicate the number of markers
+			if ($nova_group == 4) {
+				my $markers = deep_get($product_ref, qw/nova_groups_markers 4/);
+				if (defined $markers) {
+					my $markers_n = scalar @{$markers};
+					if ($markers_n <= 1) {
+						$attribute_ref->{description_short} = lang_in_other_lc($target_lc, "attribute_nova_4_1_marker");
+					}
+					else {
+						$attribute_ref->{description_short}
+							= f_lang_in_lc($target_lc, "f_attribute_nova_4_markers", {number => $markers_n});
+					}
+				}
+			}
 		}
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/nova-group-$nova_group.svg";
 

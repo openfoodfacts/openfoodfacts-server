@@ -10,21 +10,30 @@
          "tester"
       ],
       "added_countries_tags" : [],
-      "additives_n" : 0,
-      "additives_original_tags" : [],
-      "additives_tags" : [],
+      "additives_n" : 2,
+      "additives_original_tags" : [
+         "en:e100",
+         "en:e322i"
+      ],
+      "additives_tags" : [
+         "en:e100",
+         "en:e322",
+         "en:e322i"
+      ],
       "allergens" : "",
-      "allergens_from_ingredients" : "en:eggs, en:milk, apple, milk, eggs",
+      "allergens_from_ingredients" : "en:soybeans, en:eggs, en:milk, apple, milk, eggs",
       "allergens_from_user" : "(en) ",
       "allergens_hierarchy" : [
          "en:apple",
          "en:eggs",
-         "en:milk"
+         "en:milk",
+         "en:soybeans"
       ],
       "allergens_tags" : [
          "en:apple",
          "en:eggs",
-         "en:milk"
+         "en:milk",
+         "en:soybeans"
       ],
       "amino_acids_tags" : [],
       "attribute_groups" : [
@@ -36,7 +45,7 @@
                   "grade" : "c",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutriscore-c-new-en.svg",
                   "id" : "nutriscore",
-                  "match" : 51.5555555555556,
+                  "match" : 49.4444444444444,
                   "name" : "Nutri-Score",
                   "panel_id" : "nutriscore_2023",
                   "status" : "known",
@@ -89,7 +98,7 @@
          {
             "attributes" : [
                {
-                  "debug" : "4 ingredients (0 unknown)",
+                  "debug" : "8 ingredients (0 unknown)",
                   "grade" : "a",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-gluten.svg",
                   "id" : "allergens_no_gluten",
@@ -119,7 +128,7 @@
                   "title" : "Contains: Eggs"
                },
                {
-                  "debug" : "4 ingredients (0 unknown)",
+                  "debug" : "8 ingredients (0 unknown)",
                   "grade" : "a",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-nuts.svg",
                   "id" : "allergens_no_nuts",
@@ -129,7 +138,7 @@
                   "title" : "Does not contain: Nuts"
                },
                {
-                  "debug" : "4 ingredients (0 unknown)",
+                  "debug" : "8 ingredients (0 unknown)",
                   "grade" : "a",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-peanuts.svg",
                   "id" : "allergens_no_peanuts",
@@ -139,7 +148,7 @@
                   "title" : "Does not contain: Peanuts"
                },
                {
-                  "debug" : "4 ingredients (0 unknown)",
+                  "debug" : "8 ingredients (0 unknown)",
                   "grade" : "a",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-sesame-seeds.svg",
                   "id" : "allergens_no_sesame_seeds",
@@ -149,17 +158,17 @@
                   "title" : "Does not contain: Sesame seeds"
                },
                {
-                  "debug" : "4 ingredients (0 unknown)",
-                  "grade" : "a",
-                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-soybeans.svg",
+                  "debug" : "en:soybeans in allergens",
+                  "grade" : "e",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/contains-soybeans.svg",
                   "id" : "allergens_no_soybeans",
-                  "match" : 100,
+                  "match" : 0,
                   "name" : "Soybeans",
                   "status" : "known",
-                  "title" : "Does not contain: Soybeans"
+                  "title" : "Contains: Soybeans"
                },
                {
-                  "debug" : "4 ingredients (0 unknown)",
+                  "debug" : "8 ingredients (0 unknown)",
                   "grade" : "a",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-celery.svg",
                   "id" : "allergens_no_celery",
@@ -169,7 +178,7 @@
                   "title" : "Does not contain: Celery"
                },
                {
-                  "debug" : "4 ingredients (0 unknown)",
+                  "debug" : "8 ingredients (0 unknown)",
                   "grade" : "a",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-mustard.svg",
                   "id" : "allergens_no_mustard",
@@ -179,7 +188,7 @@
                   "title" : "Does not contain: Mustard"
                },
                {
-                  "debug" : "4 ingredients (0 unknown)",
+                  "debug" : "8 ingredients (0 unknown)",
                   "grade" : "a",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-lupin.svg",
                   "id" : "allergens_no_lupin",
@@ -189,7 +198,7 @@
                   "title" : "Does not contain: Lupin"
                },
                {
-                  "debug" : "4 ingredients (0 unknown)",
+                  "debug" : "8 ingredients (0 unknown)",
                   "grade" : "a",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-fish.svg",
                   "id" : "allergens_no_fish",
@@ -199,7 +208,7 @@
                   "title" : "Does not contain: Fish"
                },
                {
-                  "debug" : "4 ingredients (0 unknown)",
+                  "debug" : "8 ingredients (0 unknown)",
                   "grade" : "a",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-crustaceans.svg",
                   "id" : "allergens_no_crustaceans",
@@ -209,7 +218,7 @@
                   "title" : "Does not contain: Crustaceans"
                },
                {
-                  "debug" : "4 ingredients (0 unknown)",
+                  "debug" : "8 ingredients (0 unknown)",
                   "grade" : "a",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-molluscs.svg",
                   "id" : "allergens_no_molluscs",
@@ -219,7 +228,7 @@
                   "title" : "Does not contain: Molluscs"
                },
                {
-                  "debug" : "4 ingredients (0 unknown)",
+                  "debug" : "8 ingredients (0 unknown)",
                   "grade" : "a",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-sulphur-dioxide-and-sulphites.svg",
                   "id" : "allergens_no_sulphur_dioxide_and_sulphites",
@@ -272,26 +281,25 @@
          {
             "attributes" : [
                {
-                  "description" : "",
-                  "description_short" : "Processed foods",
-                  "grade" : "b",
-                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nova-group-3.svg",
+                  "description_short" : "4 ultra-processing markers",
+                  "grade" : "e",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nova-group-4.svg",
                   "id" : "nova",
-                  "match" : 75,
+                  "match" : 0,
                   "name" : "NOVA group",
                   "panel_id" : "nova",
                   "status" : "known",
-                  "title" : "NOVA 3"
+                  "title" : "Ultra-processed foods"
                },
                {
-                  "grade" : "a",
-                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/0-additives.svg",
+                  "grade" : "c",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/2-additives.svg",
                   "id" : "additives",
-                  "match" : 100,
+                  "match" : 60,
                   "name" : "Additives",
                   "panel_id" : "additives",
                   "status" : "known",
-                  "title" : "Without additives"
+                  "title" : "2 additives"
                }
             ],
             "id" : "processing",
@@ -317,7 +325,7 @@
                   "grade" : "a",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-a.svg",
                   "id" : "forest_footprint",
-                  "match" : 99.9416666666667,
+                  "match" : 99.9351851851852,
                   "name" : "Forest footprint",
                   "status" : "known",
                   "title" : "Very small forest footprint"
@@ -364,7 +372,7 @@
                   "grade" : "c",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutriscore-c-new-en.svg",
                   "id" : "nutriscore",
-                  "match" : 51.5555555555556,
+                  "match" : 49.4444444444444,
                   "name" : "Nutri-Score",
                   "panel_id" : "nutriscore_2023",
                   "status" : "known",
@@ -417,7 +425,7 @@
          {
             "attributes" : [
                {
-                  "debug" : "4 ingredients (0 unknown)",
+                  "debug" : "8 ingredients (0 unknown)",
                   "grade" : "a",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-gluten.svg",
                   "id" : "allergens_no_gluten",
@@ -447,7 +455,7 @@
                   "title" : "Contains: Eggs"
                },
                {
-                  "debug" : "4 ingredients (0 unknown)",
+                  "debug" : "8 ingredients (0 unknown)",
                   "grade" : "a",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-nuts.svg",
                   "id" : "allergens_no_nuts",
@@ -457,7 +465,7 @@
                   "title" : "Does not contain: Nuts"
                },
                {
-                  "debug" : "4 ingredients (0 unknown)",
+                  "debug" : "8 ingredients (0 unknown)",
                   "grade" : "a",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-peanuts.svg",
                   "id" : "allergens_no_peanuts",
@@ -467,7 +475,7 @@
                   "title" : "Does not contain: Peanuts"
                },
                {
-                  "debug" : "4 ingredients (0 unknown)",
+                  "debug" : "8 ingredients (0 unknown)",
                   "grade" : "a",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-sesame-seeds.svg",
                   "id" : "allergens_no_sesame_seeds",
@@ -477,17 +485,17 @@
                   "title" : "Does not contain: Sesame seeds"
                },
                {
-                  "debug" : "4 ingredients (0 unknown)",
-                  "grade" : "a",
-                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-soybeans.svg",
+                  "debug" : "en:soybeans in allergens",
+                  "grade" : "e",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/contains-soybeans.svg",
                   "id" : "allergens_no_soybeans",
-                  "match" : 100,
+                  "match" : 0,
                   "name" : "Soybeans",
                   "status" : "known",
-                  "title" : "Does not contain: Soybeans"
+                  "title" : "Contains: Soybeans"
                },
                {
-                  "debug" : "4 ingredients (0 unknown)",
+                  "debug" : "8 ingredients (0 unknown)",
                   "grade" : "a",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-celery.svg",
                   "id" : "allergens_no_celery",
@@ -497,7 +505,7 @@
                   "title" : "Does not contain: Celery"
                },
                {
-                  "debug" : "4 ingredients (0 unknown)",
+                  "debug" : "8 ingredients (0 unknown)",
                   "grade" : "a",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-mustard.svg",
                   "id" : "allergens_no_mustard",
@@ -507,7 +515,7 @@
                   "title" : "Does not contain: Mustard"
                },
                {
-                  "debug" : "4 ingredients (0 unknown)",
+                  "debug" : "8 ingredients (0 unknown)",
                   "grade" : "a",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-lupin.svg",
                   "id" : "allergens_no_lupin",
@@ -517,7 +525,7 @@
                   "title" : "Does not contain: Lupin"
                },
                {
-                  "debug" : "4 ingredients (0 unknown)",
+                  "debug" : "8 ingredients (0 unknown)",
                   "grade" : "a",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-fish.svg",
                   "id" : "allergens_no_fish",
@@ -527,7 +535,7 @@
                   "title" : "Does not contain: Fish"
                },
                {
-                  "debug" : "4 ingredients (0 unknown)",
+                  "debug" : "8 ingredients (0 unknown)",
                   "grade" : "a",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-crustaceans.svg",
                   "id" : "allergens_no_crustaceans",
@@ -537,7 +545,7 @@
                   "title" : "Does not contain: Crustaceans"
                },
                {
-                  "debug" : "4 ingredients (0 unknown)",
+                  "debug" : "8 ingredients (0 unknown)",
                   "grade" : "a",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-molluscs.svg",
                   "id" : "allergens_no_molluscs",
@@ -547,7 +555,7 @@
                   "title" : "Does not contain: Molluscs"
                },
                {
-                  "debug" : "4 ingredients (0 unknown)",
+                  "debug" : "8 ingredients (0 unknown)",
                   "grade" : "a",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-sulphur-dioxide-and-sulphites.svg",
                   "id" : "allergens_no_sulphur_dioxide_and_sulphites",
@@ -600,26 +608,25 @@
          {
             "attributes" : [
                {
-                  "description" : "",
-                  "description_short" : "Processed foods",
-                  "grade" : "b",
-                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nova-group-3.svg",
+                  "description_short" : "4 ultra-processing markers",
+                  "grade" : "e",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nova-group-4.svg",
                   "id" : "nova",
-                  "match" : 75,
+                  "match" : 0,
                   "name" : "NOVA group",
                   "panel_id" : "nova",
                   "status" : "known",
-                  "title" : "NOVA 3"
+                  "title" : "Ultra-processed foods"
                },
                {
-                  "grade" : "a",
-                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/0-additives.svg",
+                  "grade" : "c",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/2-additives.svg",
                   "id" : "additives",
-                  "match" : 100,
+                  "match" : 60,
                   "name" : "Additives",
                   "panel_id" : "additives",
                   "status" : "known",
-                  "title" : "Without additives"
+                  "title" : "2 additives"
                }
             ],
             "id" : "processing",
@@ -645,7 +652,7 @@
                   "grade" : "a",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-a.svg",
                   "id" : "forest_footprint",
-                  "match" : 99.9416666666667,
+                  "match" : 99.9351851851852,
                   "name" : "Forest footprint",
                   "status" : "known",
                   "title" : "Very small forest footprint"
@@ -1213,7 +1220,7 @@
          "en:biscuits-and-cakes"
       ],
       "forest_footprint_data" : {
-         "footprint_per_kg" : 0.00145833333333333,
+         "footprint_per_kg" : 0.00162037037037037,
          "grade" : "a",
          "ingredients" : [
             {
@@ -1223,10 +1230,10 @@
                      "en:organic"
                   ]
                ],
-               "footprint_per_kg" : 0.00145833333333333,
+               "footprint_per_kg" : 0.00162037037037037,
                "matching_tag_id" : "en:egg",
-               "percent" : 9.375,
-               "percent_estimate" : 9.375,
+               "percent" : 10.4166666666667,
+               "percent_estimate" : 10.4166666666667,
                "processing_factor" : 1,
                "tag_id" : "en:egg",
                "tag_type" : "ingredients",
@@ -1251,9 +1258,9 @@
             "ecobalyse_code" : "apple-fr",
             "id" : "en:apple",
             "is_in_taxonomy" : 1,
-            "percent_estimate" : 62.5,
+            "percent_estimate" : 58.3333333333333,
             "percent_max" : 100,
-            "percent_min" : 25,
+            "percent_min" : 16.6666666666667,
             "text" : "apple",
             "vegan" : "yes",
             "vegetarian" : "yes"
@@ -1263,7 +1270,7 @@
             "ecobalyse_code" : "milk",
             "id" : "en:milk",
             "is_in_taxonomy" : 1,
-            "percent_estimate" : 18.75,
+            "percent_estimate" : 20.8333333333333,
             "percent_max" : 50,
             "percent_min" : 0,
             "text" : "milk",
@@ -1275,7 +1282,7 @@
             "ecobalyse_code" : "egg-indoor-code3",
             "id" : "en:egg",
             "is_in_taxonomy" : 1,
-            "percent_estimate" : 9.375,
+            "percent_estimate" : 10.4166666666667,
             "percent_max" : 33.3333333333333,
             "percent_min" : 0,
             "text" : "eggs",
@@ -1288,12 +1295,53 @@
             "from_palm_oil" : "yes",
             "id" : "en:palm-oil",
             "is_in_taxonomy" : 1,
-            "percent_estimate" : 9.375,
+            "percent_estimate" : 5.20833333333333,
             "percent_max" : 25,
             "percent_min" : 0,
             "text" : "palm oil",
             "vegan" : "yes",
             "vegetarian" : "yes"
+         },
+         {
+            "id" : "en:colour",
+            "ingredients" : [
+               {
+                  "id" : "en:e100",
+                  "is_in_taxonomy" : 1,
+                  "percent_estimate" : 2.60416666666666,
+                  "percent_max" : 20,
+                  "percent_min" : 0,
+                  "text" : "curcumin",
+                  "vegan" : "yes",
+                  "vegetarian" : "yes"
+               }
+            ],
+            "is_in_taxonomy" : 1,
+            "percent_estimate" : 2.60416666666666,
+            "percent_max" : 20,
+            "percent_min" : 0,
+            "text" : "coloring"
+         },
+         {
+            "id" : "en:emulsifier",
+            "ingredients" : [
+               {
+                  "ciqual_food_code" : "42200",
+                  "id" : "en:soya-lecithin",
+                  "is_in_taxonomy" : 1,
+                  "percent_estimate" : 2.60416666666666,
+                  "percent_max" : 16.6666666666667,
+                  "percent_min" : 0,
+                  "text" : "soy lecithin",
+                  "vegan" : "yes",
+                  "vegetarian" : "yes"
+               }
+            ],
+            "is_in_taxonomy" : 1,
+            "percent_estimate" : 2.60416666666666,
+            "percent_max" : 16.6666666666667,
+            "percent_min" : 0,
+            "text" : "emulsifier"
          }
       ],
       "ingredients_analysis" : {
@@ -1320,12 +1368,18 @@
          "en:palm-oil",
          "en:oil-and-fat",
          "en:vegetable-oil-and-fat",
-         "en:palm-oil-and-fat"
+         "en:palm-oil-and-fat",
+         "en:colour",
+         "en:emulsifier",
+         "en:e100",
+         "en:soya-lecithin",
+         "en:e322",
+         "en:e322i"
       ],
       "ingredients_lc" : "en",
-      "ingredients_n" : 4,
+      "ingredients_n" : 8,
       "ingredients_n_tags" : [
-         "4",
+         "8",
          "1-10"
       ],
       "ingredients_non_nutritive_sweeteners_n" : 0,
@@ -1333,7 +1387,11 @@
          "en:apple",
          "en:milk",
          "en:egg",
-         "en:palm-oil"
+         "en:palm-oil",
+         "en:colour",
+         "en:emulsifier",
+         "en:e100",
+         "en:soya-lecithin"
       ],
       "ingredients_percent_analysis" : 1,
       "ingredients_sweeteners_n" : 0,
@@ -1347,23 +1405,121 @@
          "en:palm-oil",
          "en:oil-and-fat",
          "en:vegetable-oil-and-fat",
-         "en:palm-oil-and-fat"
+         "en:palm-oil-and-fat",
+         "en:colour",
+         "en:emulsifier",
+         "en:e100",
+         "en:soya-lecithin",
+         "en:e322",
+         "en:e322i"
       ],
-      "ingredients_text" : "apple, milk, eggs, palm oil",
-      "ingredients_text_en" : "apple, milk, eggs, palm oil",
-      "ingredients_text_with_allergens" : "<span class=\"allergen\">apple</span>, <span class=\"allergen\">milk</span>, <span class=\"allergen\">eggs</span>, palm oil",
-      "ingredients_text_with_allergens_en" : "<span class=\"allergen\">apple</span>, <span class=\"allergen\">milk</span>, <span class=\"allergen\">eggs</span>, palm oil",
+      "ingredients_text" : "apple, milk, eggs, palm oil, coloring: curcumin, emulsifier: soy lecithin",
+      "ingredients_text_en" : "apple, milk, eggs, palm oil, coloring: curcumin, emulsifier: soy lecithin",
+      "ingredients_text_with_allergens" : "<span class=\"allergen\">apple</span>, <span class=\"allergen\">milk</span>, <span class=\"allergen\">eggs</span>, palm oil, coloring: curcumin, emulsifier: soy lecithin",
+      "ingredients_text_with_allergens_en" : "<span class=\"allergen\">apple</span>, <span class=\"allergen\">milk</span>, <span class=\"allergen\">eggs</span>, palm oil, coloring: curcumin, emulsifier: soy lecithin",
       "ingredients_with_specified_percent_n" : 0,
       "ingredients_with_specified_percent_sum" : 0,
-      "ingredients_with_unspecified_percent_n" : 4,
+      "ingredients_with_unspecified_percent_n" : 6,
       "ingredients_with_unspecified_percent_sum" : 100,
-      "ingredients_without_ciqual_codes" : [],
-      "ingredients_without_ciqual_codes_n" : 0,
-      "ingredients_without_ecobalyse_ids" : [],
-      "ingredients_without_ecobalyse_ids_n" : 0,
+      "ingredients_without_ciqual_codes" : [
+         "en:colour",
+         "en:e100",
+         "en:emulsifier"
+      ],
+      "ingredients_without_ciqual_codes_n" : 3,
+      "ingredients_without_ecobalyse_ids" : [
+         "en:colour",
+         "en:e100",
+         "en:emulsifier",
+         "en:soya-lecithin"
+      ],
+      "ingredients_without_ecobalyse_ids_n" : 4,
       "interface_version_created" : "20150316.jqm2",
       "interface_version_modified" : "20150316.jqm2",
       "knowledge_panels" : {
+         "additive_en:e100" : {
+            "elements" : [],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "title" : "E100 - Curcumin"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "additive_en:e322" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<strong>Lecithin:</strong> Lecithin -UK: , US: , from the Greek lekithos, \"egg yolk\"- is a generic term to designate any group of yellow-brownish fatty substances occurring in animal and plant tissues, which are amphiphilic – they attract both water and fatty substances -and so are both hydrophilic and lipophilic-, and are used for smoothing food textures, dissolving powders -emulsifying-, homogenizing liquid mixtures, and repelling sticking materials.Lecithins are mixtures of glycerophospholipids including phosphatidylcholine, phosphatidylethanolamine, phosphatidylinositol, phosphatidylserine, and phosphatidic acid.Lecithin was first isolated in 1845 by the French chemist and pharmacist Theodore Gobley. In 1850, he named the phosphatidylcholine lécithine. Gobley originally isolated lecithin from egg yolk—λέκιθος lekithos is \"egg yolk\" in Ancient Greek—and established the complete chemical formula of phosphatidylcholine in 1874; in between, he had demonstrated the presence of lecithin in a variety of biological matters, including venous blood, in human lungs, bile, human brain tissue, fish eggs, fish roe, and chicken and sheep brain. Lecithin can easily be extracted chemically using solvents such as hexane, ethanol, acetone, petroleum ether, benzene, etc., or extraction can be done mechanically. It is usually available from sources such as soybeans, eggs, milk, marine sources, rapeseed, cottonseed, and sunflower. It has low solubility in water, but is an excellent emulsifier. In aqueous solution, its phospholipids can form either liposomes, bilayer sheets, micelles, or lamellar structures, depending on hydration and temperature. This results in a type of surfactant that usually is classified as amphipathic. Lecithin is sold as a food additive and dietary supplement. In cooking, it is sometimes used as an emulsifier and to prevent sticking, for example in nonstick cooking spray.",
+                     "source_language" : "English",
+                     "source_lc" : "en",
+                     "source_text" : "Wikipedia",
+                     "source_url" : "https://en.wikipedia.org/wiki/Lecithin"
+                  }
+               }
+            ],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "title" : "E322 - Lecithins"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "additive_en:e322i" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<strong>Lecithin:</strong> Lecithin -UK: , US: , from the Greek lekithos, \"egg yolk\"- is a generic term to designate any group of yellow-brownish fatty substances occurring in animal and plant tissues, which are amphiphilic – they attract both water and fatty substances -and so are both hydrophilic and lipophilic-, and are used for smoothing food textures, dissolving powders -emulsifying-, homogenizing liquid mixtures, and repelling sticking materials.Lecithins are mixtures of glycerophospholipids including phosphatidylcholine, phosphatidylethanolamine, phosphatidylinositol, phosphatidylserine, and phosphatidic acid.Lecithin was first isolated in 1845 by the French chemist and pharmacist Theodore Gobley. In 1850, he named the phosphatidylcholine lécithine. Gobley originally isolated lecithin from egg yolk—λέκιθος lekithos is \"egg yolk\" in Ancient Greek—and established the complete chemical formula of phosphatidylcholine in 1874; in between, he had demonstrated the presence of lecithin in a variety of biological matters, including venous blood, in human lungs, bile, human brain tissue, fish eggs, fish roe, and chicken and sheep brain. Lecithin can easily be extracted chemically using solvents such as hexane, ethanol, acetone, petroleum ether, benzene, etc., or extraction can be done mechanically. It is usually available from sources such as soybeans, eggs, milk, marine sources, rapeseed, cottonseed, and sunflower. It has low solubility in water, but is an excellent emulsifier. In aqueous solution, its phospholipids can form either liposomes, bilayer sheets, micelles, or lamellar structures, depending on hydration and temperature. This results in a type of surfactant that usually is classified as amphipathic. Lecithin is sold as a food additive and dietary supplement. In cooking, it is sometimes used as an emulsifier and to prevent sticking, for example in nonstick cooking spray.",
+                     "source_language" : "English",
+                     "source_lc" : "en",
+                     "source_text" : "Wikipedia",
+                     "source_url" : "https://en.wikipedia.org/wiki/Lecithin"
+                  }
+               }
+            ],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "title" : "E322i - Lecithin"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "additives" : {
+            "elements" : [
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "additive_en:e100"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "additive_en:e322"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "additive_en:e322i"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "level" : "info",
+            "topics" : [
+               "health"
+            ],
+            "type" : "inline"
+         },
          "carbon_footprint" : {
             "elements" : [
                {
@@ -1975,6 +2131,15 @@
                   "element_type" : "panel_group",
                   "panel_group_element" : {
                      "panel_ids" : [
+                        "additives"
+                     ],
+                     "title" : "Additives"
+                  }
+               },
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_ids" : [
                         "ingredients_analysis",
                         "ingredients_analysis_details"
                      ],
@@ -2043,8 +2208,8 @@
                   "text_element" : {
                      "edit_field_id" : "ingredients_text_en",
                      "edit_field_type" : "ingredients_text",
-                     "edit_field_value" : "apple, milk, eggs, palm oil",
-                     "html" : "<span class=\"allergen\">apple</span>, <span class=\"allergen\">milk</span>, <span class=\"allergen\">eggs</span>, palm oil",
+                     "edit_field_value" : "apple, milk, eggs, palm oil, coloring: curcumin, emulsifier: soy lecithin",
+                     "html" : "<span class=\"allergen\">apple</span>, <span class=\"allergen\">milk</span>, <span class=\"allergen\">eggs</span>, palm oil, coloring: curcumin, emulsifier: soy lecithin",
                      "language" : "English",
                      "lc" : "en"
                   }
@@ -2052,7 +2217,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "<strong>Allergens:</strong> \n                    Apple, Eggs, Milk\n                "
+                     "html" : "<strong>Allergens:</strong> \n                    Apple, Eggs, Milk, Soybeans\n                "
                   }
                }
             ],
@@ -2063,7 +2228,7 @@
             "title_element" : {
                "icon_color_from_evaluation" : true,
                "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/ingredients.svg",
-               "title" : "4 ingredients"
+               "title" : "8 ingredients"
             },
             "topics" : [
                "health"
@@ -2108,13 +2273,13 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "en: <span>apple</span>, <span>milk</span>, <span>eggs</span>, <span>palm oil</span>"
+                     "html" : "en: <span>apple</span>, <span>milk</span>, <span>eggs</span>, <span>palm oil</span>, <span>coloring</span> (<span>curcumin</span>), <span>emulsifier</span> (<span>soy lecithin</span>)"
                   }
                },
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "<ol id=\"ordered_ingredients_list\">\n<li><span>apple</span> -> en:apple - vegan:&nbsp;yes - vegetarian:&nbsp;yes - ciqual_food_code:&nbsp;13050 - percent_min:&nbsp;25 - percent_max:&nbsp;100</li>\n<li><span>milk</span> -> en:milk - vegan:&nbsp;no - vegetarian:&nbsp;yes - ciqual_proxy_food_code:&nbsp;19051 - percent_min:&nbsp;0 - percent_max:&nbsp;50</li>\n<li><span>eggs</span> -> en:egg - vegan:&nbsp;no - vegetarian:&nbsp;yes - ciqual_food_code:&nbsp;22000 - percent_min:&nbsp;0 - percent_max:&nbsp;33.3333333333333</li>\n<li><span>palm oil</span> -> en:palm-oil - vegan:&nbsp;yes - vegetarian:&nbsp;yes - from_palm_oil:&nbsp;yes - ciqual_food_code:&nbsp;16129 - percent_min:&nbsp;0 - percent_max:&nbsp;25</li>\n</ol>\n"
+                     "html" : "<ol id=\"ordered_ingredients_list\">\n<li><span>apple</span> -> en:apple - vegan:&nbsp;yes - vegetarian:&nbsp;yes - ciqual_food_code:&nbsp;13050 - percent_min:&nbsp;16.6666666666667 - percent_max:&nbsp;100</li>\n<li><span>milk</span> -> en:milk - vegan:&nbsp;no - vegetarian:&nbsp;yes - ciqual_proxy_food_code:&nbsp;19051 - percent_min:&nbsp;0 - percent_max:&nbsp;50</li>\n<li><span>eggs</span> -> en:egg - vegan:&nbsp;no - vegetarian:&nbsp;yes - ciqual_food_code:&nbsp;22000 - percent_min:&nbsp;0 - percent_max:&nbsp;33.3333333333333</li>\n<li><span>palm oil</span> -> en:palm-oil - vegan:&nbsp;yes - vegetarian:&nbsp;yes - from_palm_oil:&nbsp;yes - ciqual_food_code:&nbsp;16129 - percent_min:&nbsp;0 - percent_max:&nbsp;25</li>\n<li><span>coloring</span> -> en:colour - percent_min:&nbsp;0 - percent_max:&nbsp;20<ol id=\"ordered_ingredients_list\">\n<li><span>curcumin</span> -> en:e100 - vegan:&nbsp;yes - vegetarian:&nbsp;yes - percent_min:&nbsp;0 - percent_max:&nbsp;20</li>\n</ol>\n</li>\n<li><span>emulsifier</span> -> en:emulsifier - percent_min:&nbsp;0 - percent_max:&nbsp;16.6666666666667<ol id=\"ordered_ingredients_list\">\n<li><span>soy lecithin</span> -> en:soya-lecithin - vegan:&nbsp;yes - vegetarian:&nbsp;yes - ciqual_food_code:&nbsp;42200 - percent_min:&nbsp;0 - percent_max:&nbsp;16.6666666666667</li>\n</ol>\n</li>\n</ol>\n"
                   }
                },
                {
@@ -2209,22 +2374,29 @@
          "nova" : {
             "elements" : [
                {
-                  "element_type" : "text",
-                  "text_element" : {
-                     "html" : "\n\n    \n        \n            <p>Elements that indicate the product is in the 3 - Processed foods group:</p>\n            <ul>\n            \n                <li>Category: Sweet snacks</li>\n            \n            </ul>\n        \n    \n\n"
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "recommendation_ultra_processed_foods"
                   }
                },
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n<p>Food products are classified into 4 groups according to their degree of processing:</p>\n<ol>\n<li>Unprocessed or minimally processed foods</li>\n<li>Processed culinary ingredients</li>\n<li>Processed foods</li>\n<li>Ultra processed foods</li>\n</ol>\n<br>\n<p>The determination of the group is based on the category of the product and on the ingredients it contains.</p>\n<p>&rarr; <a href=\"http://world.openfoodfacts.localhost/nova\">Learn more about the NOVA classification</a></p>\n"
+                     "html" : "\n\n    \n        \n            <p>Elements that indicate the product is in the 4 - Ultra processed food and drink products group:</p>\n            <ul>\n            \n                <li>Additive: E100 - Curcumin</li>\n            \n                <li>Additive: E322 - Lecithins</li>\n            \n                <li>Ingredient: Colour</li>\n            \n                <li>Ingredient: Emulsifier</li>\n            \n            </ul>\n        \n    \n\n"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n<p>Food products are classified into 4 groups according to their degree of processing:</p>\n<ol>\n<li>Unprocessed or minimally processed foods</li>\n<li>Processed culinary ingredients</li>\n<li>Processed foods</li>\n<li>Ultra-processed foods</li>\n</ol>\n<br>\n<p>The determination of the group is based on the category of the product and on the ingredients it contains.</p>\n<p>&rarr; <a href=\"http://world.openfoodfacts.localhost/nova\">Learn more about the NOVA classification</a></p>\n"
                   }
                }
             ],
             "level" : "info",
             "title_element" : {
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nova-group-3.svg",
-               "title" : "Processed foods"
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nova-group-4.svg",
+               "subtitle" : "4 ultra-processing markers",
+               "title" : "Ultra-processed foods"
             },
             "topics" : [
                "health"
@@ -2417,7 +2589,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: 62\n                    ",
+                     "html" : "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: 58\n                    ",
                      "type" : "warning"
                   }
                },
@@ -2455,7 +2627,7 @@
                         "nutriscore_component_fiber",
                         "nutriscore_component_fruits_vegetables_legumes"
                      ],
-                     "title" : "Positive points: 3/17"
+                     "title" : "Positive points: 2/17"
                   }
                },
                {
@@ -2529,8 +2701,8 @@
             "level" : "info",
             "size" : "small",
             "title_element" : {
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/points-positive-2-5.svg",
-               "subtitle" : "2/5 points (62.5%)",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/points-positive-1-5.svg",
+               "subtitle" : "1/5 points (58.3%)",
                "title" : "Fruits, vegetables and legumes"
             },
             "topics" : [
@@ -2649,14 +2821,14 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: 62\n                    ",
+                     "html" : "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: 58\n                    ",
                      "type" : "warning"
                   }
                },
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n\n    <p>This product is not considered a beverage for the calculation of the Nutri-Score.</p>\n\n\n\n\n\n<p>Points for proteins are counted because the negative points are less than 11.</p>\n\n<p>\n  <strong>Nutritional score: 6</strong>\n  (9 - 3)\n</p>\n<p><strong>Nutri-Score: C</strong></p>                \n                "
+                     "html" : "\n\n    <p>This product is not considered a beverage for the calculation of the Nutri-Score.</p>\n\n\n\n\n\n<p>Points for proteins are counted because the negative points are less than 11.</p>\n\n<p>\n  <strong>Nutritional score: 7</strong>\n  (9 - 2)\n</p>\n<p><strong>Nutri-Score: C</strong></p>                \n                "
                   }
                }
             ],
@@ -2827,10 +2999,10 @@
                                  "text" : "Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (estimate from ingredients list analysis)"
                               },
                               {
-                                 "text" : "62.5 %"
+                                 "text" : "58.333 %"
                               },
                               {
-                                 "text" : "62.5 %"
+                                 "text" : "58.333 %"
                               }
                            ]
                         }
@@ -3082,6 +3254,32 @@
                "environment"
             ]
          },
+         "recommendation_ultra_processed_foods" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n                    Several studies have found that a high consumption of ultra-processed foods is associated with an increased risk of noncommunicable chronic diseases, such as obesity, hypertension and diabetes.\n                    ",
+                     "source_language" : "en",
+                     "source_text" : "Ultra-processed foods increase noncommunicable chronic disease risk",
+                     "source_url" : "https://pubmed.ncbi.nlm.nih.gov/34798466/",
+                     "type" : "quote"
+                  }
+               }
+            ],
+            "evaluation" : "bad",
+            "level" : "recommendation",
+            "title_element" : {
+               "evaluation" : "bad",
+               "icon_color_from_evaluation" : true,
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/arrow-bottom-right-thick.svg",
+               "subtitle" : "Ultra-processed foods increase noncommunicable chronic disease risk",
+               "title" : "Limit ultra-processed foods"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
          "report_problem_card" : {
             "elements" : [
                {
@@ -3141,7 +3339,7 @@
             "type" : "inline"
          }
       },
-      "known_ingredients_n" : 10,
+      "known_ingredients_n" : 16,
       "labels" : "organic",
       "labels_hierarchy" : [
          "en:organic"
@@ -3183,9 +3381,8 @@
          "en:ecoscore-missing-data-warning",
          "en:forest-footprint-a",
          "en:forest-footprint-computed",
-         "en:nutriscore-2021-b-2023-c",
-         "en:nutriscore-2021-better-than-2023",
-         "en:nutriscore-2021-different-from-2023",
+         "en:nutriscore-2021-c-2023-c",
+         "en:nutriscore-2021-same-as-2023",
          "en:nutriscore-computed",
          "en:nutrition-all-nutriscore-values-known",
          "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
@@ -3196,19 +3393,37 @@
          "en:packagings-number-of-components-4",
          "en:main-countries-new-product"
       ],
-      "nova_group" : 3,
+      "nova_group" : 4,
       "nova_group_debug" : "",
-      "nova_groups" : "3",
+      "nova_groups" : "4",
       "nova_groups_markers" : {
          "3" : [
             [
                "categories",
                "en:sweet-snacks"
             ]
+         ],
+         "4" : [
+            [
+               "additives",
+               "en:e100"
+            ],
+            [
+               "additives",
+               "en:e322"
+            ],
+            [
+               "ingredients",
+               "en:colour"
+            ],
+            [
+               "ingredients",
+               "en:emulsifier"
+            ]
          ]
       },
       "nova_groups_tags" : [
-         "en:3-processed-foods"
+         "en:4-ultra-processed-food-and-drink-products"
       ],
       "nucleotides_tags" : [],
       "nutrient_levels" : {
@@ -3250,15 +3465,15 @@
          "fiber_serving" : 0.2,
          "fiber_unit" : "g",
          "fiber_value" : 2,
-         "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 62.5,
-         "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 62.5,
-         "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 62.5,
-         "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 62.5,
-         "nova-group" : 3,
-         "nova-group_100g" : 3,
-         "nova-group_serving" : 3,
-         "nutrition-score-fr" : 2,
-         "nutrition-score-fr_100g" : 2,
+         "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 58.3333333333333,
+         "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 58.3333333333333,
+         "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 58.3333333333333,
+         "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 58.3333333333333,
+         "nova-group" : 4,
+         "nova-group_100g" : 4,
+         "nova-group_serving" : 4,
+         "nutrition-score-fr" : 3,
+         "nutrition-score-fr_100g" : 3,
          "proteins" : 4.5,
          "proteins_100g" : 4.5,
          "proteins_serving" : 0.45,
@@ -3285,53 +3500,6 @@
          "sugars_unit" : "g",
          "sugars_value" : 12.5
       },
-      "nutriments_estimated" : {
-         "alcohol_100g" : 0,
-         "beta-carotene_100g" : 1.19375e-05,
-         "calcium_100g" : 0.0333875,
-         "carbohydrates_100g" : 7.6484375,
-         "cholesterol_100g" : 0.03778125,
-         "copper_100g" : 2.678125e-05,
-         "energy-kcal_100g" : 134.5875,
-         "energy-kj_100g" : 558.75,
-         "energy_100g" : 558.75,
-         "fat_100g" : 10.4134375,
-         "fiber_100g" : 0.8125,
-         "fructose_100g" : 3.77578125,
-         "galactose_100g" : 0,
-         "glucose_100g" : 2.0565625,
-         "iodine_100g" : 7.09375e-06,
-         "iron_100g" : 0.0002265625,
-         "lactose_100g" : 0.924375,
-         "magnesium_100g" : 0.00570625,
-         "maltose_100g" : 0.00703125,
-         "manganese_100g" : 2.73828125e-05,
-         "pantothenic-acid_100g" : 0.0002590625,
-         "phosphorus_100g" : 0.0445625,
-         "phylloquinone_100g" : 1.153125e-06,
-         "polyols_100g" : 0.36875,
-         "potassium_100g" : 0.09825,
-         "proteins_100g" : 1.974375,
-         "salt_100g" : 0.0496875,
-         "saturated-fat_100g" : 4.903125,
-         "selenium_100g" : 1.2290625e-06,
-         "sodium_100g" : 0.019725,
-         "starch_100g" : 0,
-         "sucrose_100g" : 0.51953125,
-         "sugars_100g" : 7.2621875,
-         "vitamin-a_100g" : 1.739625e-05,
-         "vitamin-b12_100g" : 2.278125e-07,
-         "vitamin-b1_100g" : 2.509375e-05,
-         "vitamin-b2_100g" : 9.34375e-05,
-         "vitamin-b6_100g" : 4.54375e-05,
-         "vitamin-b9_100g" : 4.10625e-06,
-         "vitamin-c_100g" : 0.00274375,
-         "vitamin-d_100g" : 1.903125e-07,
-         "vitamin-e_100g" : 0.001657625,
-         "vitamin-pp_100g" : 8.003125e-05,
-         "water_100g" : 78.365625,
-         "zinc_100g" : 0.0002046875
-      },
       "nutriscore" : {
          "2021" : {
             "category_available" : 1,
@@ -3342,15 +3510,15 @@
                "fiber" : 2,
                "fiber_points" : 2,
                "fiber_value" : 2,
-               "fruits_vegetables_nuts_colza_walnut_olive_oils" : 62.5,
-               "fruits_vegetables_nuts_colza_walnut_olive_oils_points" : 2,
-               "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 62.5,
+               "fruits_vegetables_nuts_colza_walnut_olive_oils" : 58.3333333333333,
+               "fruits_vegetables_nuts_colza_walnut_olive_oils_points" : 1,
+               "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 58.3,
                "is_beverage" : 0,
                "is_cheese" : 0,
                "is_fat" : 0,
                "is_water" : 0,
                "negative_points" : 8,
-               "positive_points" : 6,
+               "positive_points" : 5,
                "proteins" : 4.5,
                "proteins_points" : 2,
                "proteins_value" : 4.5,
@@ -3364,11 +3532,11 @@
                "sugars_points" : 2,
                "sugars_value" : 12.5
             },
-            "grade" : "b",
+            "grade" : "c",
             "nutrients_available" : 1,
             "nutriscore_applicable" : 1,
             "nutriscore_computed" : 1,
-            "score" : 2
+            "score" : 3
          },
          "2023" : {
             "category_available" : 1,
@@ -3421,10 +3589,10 @@
                      },
                      {
                         "id" : "fruits_vegetables_legumes",
-                        "points" : 2,
+                        "points" : 1,
                         "points_max" : 5,
                         "unit" : "%",
-                        "value" : 62.5
+                        "value" : 58.3
                      }
                   ]
                },
@@ -3442,18 +3610,18 @@
                   "fiber",
                   "fruits_vegetables_legumes"
                ],
-               "positive_points" : 3,
+               "positive_points" : 2,
                "positive_points_max" : 17
             },
             "grade" : "c",
             "nutrients_available" : 1,
             "nutriscore_applicable" : 1,
             "nutriscore_computed" : 1,
-            "score" : 6
+            "score" : 7
          }
       },
       "nutriscore_2021_tags" : [
-         "b"
+         "c"
       ],
       "nutriscore_2023_tags" : [
          "c"
@@ -3465,23 +3633,23 @@
          "fiber" : 2,
          "fiber_points" : 2,
          "fiber_value" : 2,
-         "fruits_vegetables_nuts_colza_walnut_olive_oils" : 62.5,
-         "fruits_vegetables_nuts_colza_walnut_olive_oils_points" : 2,
-         "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 62.5,
-         "grade" : "b",
+         "fruits_vegetables_nuts_colza_walnut_olive_oils" : 58.3333333333333,
+         "fruits_vegetables_nuts_colza_walnut_olive_oils_points" : 1,
+         "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 58.3,
+         "grade" : "c",
          "is_beverage" : 0,
          "is_cheese" : 0,
          "is_fat" : 0,
          "is_water" : 0,
          "negative_points" : 8,
-         "positive_points" : 6,
+         "positive_points" : 5,
          "proteins" : 4.5,
          "proteins_points" : 2,
          "proteins_value" : 4.5,
          "saturated_fat" : 5.6,
          "saturated_fat_points" : 5,
          "saturated_fat_value" : 5.6,
-         "score" : 2,
+         "score" : 3,
          "sodium" : 20.08,
          "sodium_points" : 0,
          "sodium_value" : 20.1,
@@ -3489,27 +3657,27 @@
          "sugars_points" : 2,
          "sugars_value" : 12.5
       },
-      "nutriscore_grade" : "b",
-      "nutriscore_score" : 2,
-      "nutriscore_score_opposite" : -2,
+      "nutriscore_grade" : "c",
+      "nutriscore_score" : 3,
+      "nutriscore_score_opposite" : -3,
       "nutriscore_tags" : [
-         "b"
+         "c"
       ],
       "nutriscore_version" : "2021",
       "nutrition_data" : "on",
       "nutrition_data_per" : "100g",
       "nutrition_data_prepared_per" : "100g",
-      "nutrition_grade_fr" : "b",
-      "nutrition_grades" : "b",
+      "nutrition_grade_fr" : "c",
+      "nutrition_grades" : "c",
       "nutrition_grades_tags" : [
-         "b"
+         "c"
       ],
       "nutrition_score_beverage" : 0,
       "nutrition_score_debug" : "",
       "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients" : 1,
-      "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 62.5,
+      "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 58.3333333333333,
       "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
-      "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 62.5,
+      "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 58.3333333333333,
       "origin" : "france",
       "origin_en" : "france",
       "other_nutritional_substances_tags" : [],
