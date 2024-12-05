@@ -136,7 +136,7 @@ stopwords:da: av, af, blandt andet, bl a, inklusive, heraf, indeholder, tilsat
 stopwords:de: und, mit, von, aus, enthält, enthalten, mindestens, naturbelassen, in veränderlichen gewichtsanteilen, wenig, min, max
 stopwords:el: περιέχει
 # example: "artificial flavouring substances", "natural and nature identical flavouring substances"
-stopwords:en: and, or, added to enhance freshness, added to maintain flavor and freshness, assorted, contains, contain, edible, from, including, inter alia, less than 1% of:, minimum, produced with, with, with added, in varying proportions, substances, based, for freshness
+stopwords:en: and, or, added to enhance freshness, added to maintain flavor and freshness, assorted, based, contains, contains less than 2% of the following, contains one or more of the following, contain, edible, for freshness, from, including, inter alia, in varying proportions, less than 1% of:, may contain one or more of the following, minimum, possibly some, produced with, roasted in, substances, with, with added
 stopwords:es: contiene, de, del, la, el, las, los, con, y, e, en, minimo, maximo, puede, contener, por, categoria, calibre, minimo, min, vereidad, variedad, de cultivo, origen, nota, produccion, controlada, equivalente, equivale
 stopwords:fi: sisältää, muun muassa, valio, koskenlaskija, snellmanin, jossa, noin, käymisen aikana muodostuva
 stopwords:fr: aux, au, de, le, du, la, a, et, avec, ou, en, proportion, variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets, pour souleves, dont, avec, autres, d'autres, d', avec ajout, sachet, marquants, demeter, minimum, base
@@ -10880,7 +10880,7 @@ hr: kalijev jodid
 
 < en:salt
 en: non-iodised salt
-de: salz unjodiert
+de: salz unjodiert, Speisesalz unjodiert
 fr: sel non iodé
 hr: nejodirana sol
 
@@ -17354,7 +17354,7 @@ sv: fullhärdad rypsolja
 # ingredient/fi:kokonaan-kovetettu-rypsiöljy has 4 products in 1 language @2020-06-08
 
 < en:canola oil
-en: non-gmo canola oil
+en: non-gmo canola oil, non gmo canola oil
 de: GVO-freies Rapsöl
 es: aceite de canola no modificado genéticamente, aceite de canola no gmo
 fr: Huile de colza sans OGM
@@ -61491,7 +61491,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Nut_(fruit)
 #comment:en:do NOT add the state of the almond, i.e. peeled, crushed, etc. This is detected in the processing taxonomy
 
 < en:tree nut
-en: almond, almonds, almond kernel, mamra giri, badaam giri
+en: almond, almonds, almond kernel, mamra giri, badaam giri, Raw almond kernels
 am: አልመንድ
 ar: لوز
 bg: бадем, бадеми
@@ -61499,7 +61499,7 @@ ca: ametlla, ametlles
 cs: mandle
 da: mandel, mandler
 de: Mandel, Mandeln
-el: Αμύγδαλο, αμύγδαλα
+el: Αμύγδαλο, αμύγδαλα, Αμυγδαλόψιχα
 eo: migdalo
 es: almendra, almendras
 et: Mandel, mandlid, mandleid
@@ -61558,7 +61558,16 @@ wikidata:en: Q184357
 # TODO Split French and English
 
 < en:almond
-en: raw almonds
+en: Nonpareil almonds
+
+< en:almond
+en: Marcona almond
+
+< en:almond
+fr: amande coque
+
+< en:almond
+en: raw almonds, Natural whole almonds, Raw natural almonds
 bg: сурови бадеми
 de: rohe Mandeln
 es: almendras crudas
@@ -61574,7 +61583,7 @@ pt: amêndoa biológica, amêndoas biológicas
 < en:almond
 en: almond with skin
 de: Mandeln mit Haut
-es: almendra con piel
+es: almendra con piel, almendra piel
 fi: kuorellinen manteli
 fr: amande brute, amandes mondées, amandes brunes
 hr: badem s kožicom
@@ -61585,13 +61594,14 @@ ciqual_food_name:en: Almond, (with peel)
 # ingredient/almond-with-skin has 4 products in 2 languages @2018-10-06
 
 < en:almond
-en: almond without skin
+en: almond without skin, Marcona almonds without skin, Peeled marcona almonds
 da: smuttede mandler
 de: Mandeln ohne Haut
 es: almendra pelada
 fi: kuoreton manteli
-fr: amande émondée, amandes pelées, noyaux d'amandes
+fr: amande émondée, amandes pelées, noyaux d'amandes, amandes blanchies naturelles
 hr: badem jezgra, bademova jezgra
+it: Mandorle pelate
 nl: amandel zonder vlies
 pl: migdały łuskane
 pt: amêndoa sem pele, amêndoas sem pele, amêndoa pelada, amêndoas peladas
@@ -61719,8 +61729,8 @@ sv: mandelbitar
 # ingredient/fr:éclats-d'amandes has 73 products in 4 languages @2018-10-06
 
 < en:almond
-en: dry roasted almonds
-bg: печени бадеми
+en: roasted almonds, dry roasted almonds
+bg: печени бадеми, печени бадемови ядки
 ca: ametlles torrades
 de: geröstete Mandeln, Mandeln geröstet
 es: Almendras tostadas secas
@@ -61729,6 +61739,7 @@ hr: suhi prženi bademi
 it: mandorle tostate
 nl: geroosterde amandelen
 pt: amêndoa torrada, amêndoas torradas
+ro: migdale coapte
 # ingredient/fr:amandes%20grillées has 159 products in 5 languages @2018-10-06
 
 < en:almond
@@ -89692,6 +89703,9 @@ tr: kaplama
 # coating (water, wheat flour, modified corn starch, gluten of wheat, corn flour, corn starch, salt, potato starch)
 vegan:en: maybe
 vegetarian:en: maybe
+
+< en:coating
+en: Sour Cream & Chive Flavour Seasoning
 
 < en:coating
 en: cocoa coating
