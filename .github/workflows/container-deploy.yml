@@ -147,6 +147,7 @@ jobs:
           echo "COMPOSE_PROJECT_NAME=po" >> .env
           echo "COMPOSE_PATH_SEPARATOR=;" >> .env
           echo "COMPOSE_FILE=docker-compose.yml;docker/prod.yml;docker/geolite2.yml;docker/monitor.yml" >> .env
+          echo "COMPOSE_FILE_BUILD=docker-compose.yml;docker/prod.yml" >> .env
           echo "COMPOSE_PROFILES=off" >> .env
           echo "PRODUCT_OPENER_EXPOSE=" >> .env
           echo "ADMIN_EXPOSE=" >> .env

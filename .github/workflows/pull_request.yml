@@ -161,7 +161,7 @@ jobs:
       run: |
         make coverage_txt
         make codecov
-    - uses: codecov/codecov-action@v4
+    - uses: codecov/codecov-action@v5
       if: always()
       with:
         files: cover_db/codecov.json
@@ -192,7 +192,7 @@ jobs:
         echo "export USER_GID=$(id -g)" >> .envrc
     - name: Test make dev
       run: |
-        make DOCKER_LOCAL_DATA="$(pwd)" dev
+        make DOCKER_LOCAL_DATA="$(pwd)" SKIP_SAMPLE_IMAGES=1 dev
         make status
     - name: Test all is running
       run: make livecheck || ( tail -n 300 logs/apache2/*error*log; docker compose logs; false )

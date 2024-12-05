@@ -3368,23 +3368,45 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 		delete $ingredient_ref->{ecobalyse_code};
 		delete $ingredient_ref->{ecobalyse_proxy_code};
 
-		# Getting properties from product
-		#my $product_origin = has_specific_ingredient_property()
+		# We are now looking for the appropriate ecobalyse id :
+		# ecobalyse_origins_france_label_organic (if the product comes from france, and is organic)
+		# ecobalyse_origins_european-union_label_organic (if the product comes from europe, and is organic)
+		# ecobalyse_label_organic (if the product is organic)
+		# ecobalyse_origins_france (if the product comes from france)
+		# ecobalyse_origins_european-union (if the product comes from the Europe region)
+		# ecobalyse (else)
 
-		# Getting the correct ecobalyse comake devde
-		my $ecobalyse_code = get_inherited_property("ingredients", $ingredient_ref->{id}, "ecobalyse:en");
-		if (defined $ecobalyse_code) {
-			$ingredient_ref->{ecobalyse_code} = $ecobalyse_code;
+		# List of suffixes
+		my @suffixes = ();
+		# If the ingredient is organic...
+		if ((defined $ingredient_ref->{labels}) and ($ingredient_ref->{labels} =~ /\ben:organic\b/)) {
+			push @suffixes, "_labels_en_organic";
 		}
-		else {
-			my $ecobalyse_proxy_code
-				= get_inherited_property("ingredients", $ingredient_ref->{id}, "ecobalyse_proxy:en");
-			if (defined $ecobalyse_proxy_code) {
-				$ingredient_ref->{ecobalyse_proxy_code} = $ecobalyse_proxy_code;
+		push @suffixes, '';
+
+		# First try an exact match, and then a proxy match
+		foreach my $prefix ("ecobalyse", "ecobalyse_proxy") {
+			# Loop through each suffix to retrieve ecobalyse code
+			foreach my $suffix (@suffixes) {
+				# Construct the property name using the prefix and suffix
+				my $property_name = $prefix . $suffix . ":en";
+
+				# Attempt to retrieve the ecobalyse code for the current property name
+				my $ecobalyse_code = get_inherited_property("ingredients", $ingredient_ref->{id}, $property_name);
+
+				if (defined $ecobalyse_code) {
+					# Assign the ecobalyse code if found
+					$ingredient_ref->{ecobalyse_code} = $ecobalyse_code;
+					last;
+				}
 			}
-			else {
-				push(@ingredients_without_ecobalyse_ids, $ingredient_ref->{id});
-			}
+			# Exit the loop if a valid ecobalyse code was found
+			last if defined $ingredient_ref->{ecobalyse_code};
+		}
+
+		# If no ecobalyse code was found, add ingredient ID to list of missing codes
+		if (!defined $ingredient_ref->{ecobalyse_code}) {
+			push(@ingredients_without_ecobalyse_ids, $ingredient_ref->{id});
 		}
 
 		#ecobalyse:en
