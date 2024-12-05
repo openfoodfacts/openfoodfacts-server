@@ -70,6 +70,7 @@ BEGIN {
 		&normalize_code_with_gs1_ai
 		&assign_new_code
 		&product_id_for_owner
+		&get_server_for_product
 		&server_for_product_type
 		&split_code
 		&product_path
@@ -541,6 +542,36 @@ sub server_for_product_type ($product_type) {
 	}
 
 	return;
+}
+
+=head2 get_server_for_product ( $product_ref )
+
+Return the MongoDB database for the product: off, obf, opf, opff or off-pro
+
+If we are on the producers platform, we currently have only one server: off-pro
+
+=cut
+
+sub get_server_for_product ($product_ref) {
+
+	my $server;
+
+	# On the pro platform, we currently have only one server
+	if ($server_options{private_products}) {
+		$server = $mongodb;    # off-pro
+	}
+	else {
+		# In case we need to move a product from OFF to OBF etc.
+		# we will have a old_product_type field
+
+		$server
+			= $options{product_types_flavors}{$product_ref->{old_product_type}
+				|| $product_ref->{product_type}
+				|| $options{product_type}};
+
+	}
+
+	return $server;
 }
 
 =head2 product_path_from_id ( $product_id )
@@ -1031,36 +1062,6 @@ sub compute_sort_keys ($product_ref) {
 	$product_ref->{popularity_key} = $popularity_key + 0;
 
 	return;
-}
-
-=head2 get_server_for_product ( $product_ref )
-
-Return the MongoDB database for the product: off, obf, opf, opff or off-pro
-
-If we are on the producers platform, we currently have only one server: off-pro
-
-=cut
-
-sub get_server_for_product ($product_ref) {
-
-	my $server;
-
-	# On the pro platform, we currently have only one server
-	if ($server_options{private_products}) {
-		$server = $mongodb;    # off-pro
-	}
-	else {
-		# In case we need to move a product from OFF to OBF etc.
-		# we will have a old_product_type field
-
-		$server
-			= $options{product_types_flavors}{$product_ref->{old_product_type}
-				|| $product_ref->{product_type}
-				|| $options{product_type}};
-
-	}
-
-	return $server;
 }
 
 =head2 store_product ($user_id, $product_ref, $comment)
