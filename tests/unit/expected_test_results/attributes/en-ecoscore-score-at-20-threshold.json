@@ -1,12 +1,9 @@
 {
-   "additives_original_tags" : [],
-   "additives_tags" : [],
    "allergens" : "",
    "allergens_from_ingredients" : "",
    "allergens_from_user" : "(en) ",
    "allergens_hierarchy" : [],
    "allergens_tags" : [],
-   "amino_acids_tags" : [],
    "attribute_groups_en" : [
       {
          "attributes" : [
@@ -780,7 +777,6 @@
       "d"
    ],
    "food_groups_tags" : [],
-   "ingredients_lc" : "en",
    "ingredients_text" : "",
    "languages" : {},
    "languages_codes" : {},
@@ -789,7 +785,6 @@
       "en:0"
    ],
    "lc" : "en",
-   "minerals_tags" : [],
    "misc_tags" : [
       "en:ecoscore-changed",
       "en:ecoscore-computed",
@@ -821,7 +816,6 @@
    "nova_groups_tags" : [
       "unknown"
    ],
-   "nucleotides_tags" : [],
    "nutrient_levels" : {},
    "nutrient_levels_tags" : [],
    "nutriments" : {},
@@ -890,7 +884,6 @@
    "nutrition_score_debug" : "missing energy_100g - missing fat_100g - missing saturated-fat_100g - missing sugars_100g - missing sodium_100g - missing proteins_100g",
    "nutrition_score_warning_no_fiber" : 1,
    "nutrition_score_warning_no_fruits_vegetables_nuts" : 1,
-   "other_nutritional_substances_tags" : [],
    "packaging_materials_tags" : [],
    "packaging_recycling_tags" : [],
    "packaging_shapes_tags" : [],
@@ -911,6 +904,5 @@
    "traces_from_user" : "(en) ",
    "traces_hierarchy" : [],
    "traces_tags" : [],
-   "unknown_nutrients_tags" : [],
-   "vitamins_tags" : []
+   "unknown_nutrients_tags" : []
 }

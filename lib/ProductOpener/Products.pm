@@ -70,6 +70,7 @@ BEGIN {
 		&normalize_code_with_gs1_ai
 		&assign_new_code
 		&product_id_for_owner
+		&get_server_for_product
 		&server_for_product_type
 		&split_code
 		&product_path
@@ -77,6 +78,7 @@ BEGIN {
 		&product_id_from_path
 		&product_exists
 		&get_owner_id
+		&normalize_product_data
 		&init_product
 		&retrieve_product
 		&retrieve_product_rev
@@ -543,6 +545,36 @@ sub server_for_product_type ($product_type) {
 	return;
 }
 
+=head2 get_server_for_product ( $product_ref )
+
+Return the MongoDB database for the product: off, obf, opf, opff or off-pro
+
+If we are on the producers platform, we currently have only one server: off-pro
+
+=cut
+
+sub get_server_for_product ($product_ref) {
+
+	my $server;
+
+	# On the pro platform, we currently have only one server
+	if ($server_options{private_products}) {
+		$server = $mongodb;    # off-pro
+	}
+	else {
+		# In case we need to move a product from OFF to OBF etc.
+		# we will have a old_product_type field
+
+		$server
+			= $options{product_types_flavors}{$product_ref->{old_product_type}
+				|| $product_ref->{product_type}
+				|| $options{product_type}};
+
+	}
+
+	return $server;
+}
+
 =head2 product_path_from_id ( $product_id )
 
 Returns the relative path for the product.
@@ -848,6 +880,8 @@ sub retrieve_product ($product_id, $include_deleted = 0) {
 		}
 	}
 
+	normalize_product_data($product_ref);
+
 	return $product_ref;
 }
 
@@ -877,6 +911,8 @@ sub retrieve_product_rev ($product_id, $rev, $include_deleted = 0) {
 			delete $product_ref->{server};
 		}
 	}
+
+	normalize_product_data($product_ref);
 
 	return $product_ref;
 }
@@ -1031,36 +1067,6 @@ sub compute_sort_keys ($product_ref) {
 	$product_ref->{popularity_key} = $popularity_key + 0;
 
 	return;
-}
-
-=head2 get_server_for_product ( $product_ref )
-
-Return the MongoDB database for the product: off, obf, opf, opff or off-pro
-
-If we are on the producers platform, we currently have only one server: off-pro
-
-=cut
-
-sub get_server_for_product ($product_ref) {
-
-	my $server;
-
-	# On the pro platform, we currently have only one server
-	if ($server_options{private_products}) {
-		$server = $mongodb;    # off-pro
-	}
-	else {
-		# In case we need to move a product from OFF to OBF etc.
-		# we will have a old_product_type field
-
-		$server
-			= $options{product_types_flavors}{$product_ref->{old_product_type}
-				|| $product_ref->{product_type}
-				|| $options{product_type}};
-
-	}
-
-	return $server;
 }
 
 =head2 store_product ($user_id, $product_ref, $comment)
@@ -1558,20 +1564,33 @@ sub compute_data_sources ($product_ref, $changes_ref) {
 	return;
 }
 
+=head2 normalize_product_data($product_ref)
+
+Function to do some normalization of product data (from the product database or input product data from a service)
+
+=cut
+
+sub normalize_product_data($product_ref) {
+
+	# We currently have two fields lang and lc that are used to store the main language of the product
+	# TODO: at some point, we should keep only one field
+	# In theory, they should always have a value (defaulting to English), and they should be the same
+	# It is possible that in some situations, one or the other is missing
+	# e.g. when a product service is called directly with product data, and the product is not loaded
+	# through the database or the .sto file.
+	# some old revisions may also have missing values
+
+	my $main_lc = $product_ref->{lc} || $product_ref->{lang} || "en";
+	$product_ref->{lang} = $main_lc;
+	$product_ref->{lc} = $main_lc;
+
+	return;
+}
+
 sub compute_completeness_and_missing_tags ($product_ref, $current_ref, $previous_ref) {
 
+	normalize_product_data($product_ref);
 	my $lc = $product_ref->{lc};
-	if (not defined $lc) {
-		# Try lang field
-		if (defined $product_ref->{lang}) {
-			$lc = $product_ref->{lang};
-		}
-		else {
-			$lc = "en";
-			$product_ref->{lang} = "en";
-		}
-		$product_ref->{lc} = $lc;
-	}
 
 	# Compute completeness and missing tags
 

@@ -34198,10 +34198,17 @@ intake24_category_code:en: GING
 oqali_family:en: fr:Biscuits et gateaux industriels - Pains d_epices
 wikidata:en: Q178600
 
-
-
 < en:Gingerbreads
 fr: Pains d'épices au miel
+
+# Most common form of gingerbread in France: a soft block, pre-sliced or not
+< en:Gingerbreads
+en: Gingerbread blocks
+fr: Blocs de pain d'épices
+
+# German-style gingerbread with a thin wafer layer
+< en:Gingerbreads
+de: Oblaten-Lebkuchen
 
 < en:Biscuits and cakes
 en: Savoy-style sponge cake, Savoy cake, Savoy sponge cake
@@ -34352,7 +34359,8 @@ wikidata:en: Q6591
 wikipedia:en: https://en.wikipedia.org/wiki/Speculaas
 
 < en:Speculaas
-nl: Kruidnoten, Speculaasnoten
+fr: Nicolettes
+nl: Kruidnoten, Speculaasnoten, Pepernoten
 
 < nl:Sinterklaasproducten
 nl: Taai taai
@@ -34795,6 +34803,7 @@ protected_name_type:en: pgi
 wikidata:en: Q452383
 
 < en:German bakery products
+< en:Gingerbreads
 de: Nürnberger Lebkuchen
 origins:en: en:germany
 protected_name_file_number:en: PGI-DE-0670
@@ -35334,10 +35343,10 @@ wikidata:en: Q1820454
 # How should I translate this in ja? パン粉 would probably be closer to en:Panko, but what about en:Bread crumbs?
 
 < en:Breads
-en: Buns, rolls
+en: Bread rolls, Buns, rolls
 de: Brötchen, Semmeln
 fi: Sämpylät
-fr: Buns (petits pains)
+fr: Petits pains, Buns (petits pains)
 hr: Buns
 it: Panini inglesi
 ja: ロールパン
@@ -35573,7 +35582,7 @@ fr: Tortillas de blé, pains plats au blé, galettes de blé pour tortillas, wra
 hr: Pšenični somuni
 it: Tortilla, Wrap, Piadine
 lt: Kvietiniai paplotėliai, kvietinės tortilijos
-nl: Graantortillas, Platte graanbroden, Platte graanbrood
+nl: Graantortillas, Platte graanbroden, Platte graanbrood, Wraps(ongevuld)
 sv: Halvtjockkakor, Hällakaka
 agribalyse_food_code:en: 7815_1
 ciqual_food_code:en: 7815
@@ -36536,6 +36545,12 @@ gpc_category_description:en: Definition: Includes any products that can be descr
 gpc_category_name:en: Cakes - Sweet (Perishable)
 
 < en:Cakes
+en: Banana breads
+xx: Banana breads
+fr: Gâteaux aux bananes, gâteau aux bananes, gâteaux à la banane, gâteau à la banane, pains à la banane, pain à la banane, pains aux bananes, pain à la banane
+wikidata:en: Q806097
+
+< en:Cakes
 en: Yogurt cake
 fr: Gâteau au yaourt
 hr: Kolač od jogurta
@@ -36652,6 +36667,10 @@ en: Muffins mix
 de: Muffin Backmischung
 hr: Smjesa za muffine
 nl: Muffinmixes
+
+< en:Cake mixes
+en: Banana bread mixes
+fr: Préparations pour banana bread
 
 < en:Baking Mixes
 < en:Dessert mixes
@@ -55278,6 +55297,9 @@ en: Marcona almonds
 fr: Amandes Marcona
 nl: Marcona amandelen
 
+< en: Almonds
+en: Nonpareil almonds
+
 #< en: Almonds
 #en: Bitter almonds
 #de: Bittermandeln
@@ -55289,10 +55311,11 @@ nl: Marcona amandelen
 #la: Prunis dulcis var. dulcis
 #sv: Sötmandel
 
-#< en:Almonds
-#en: Almonds(unshelled), Almonds with shell, Unshelled almonds
-#nl: Amandelen(ongepeld), Ongepelde amandelen
-#opposite:en: en:almonds(shelled)
+< en:Almonds
+en: Almonds(unshelled), Almonds with shell, Unshelled almonds
+it: Mandorle in guscio
+nl: Amandelen(ongepeld), Ongepelde amandelen
+opposite:en: en:almonds(shelled)
 
 < en:Almonds
 < en:Shelled nuts
@@ -55326,10 +55349,9 @@ opposite:en: en:almonds flakes
 #de: Mandelscheiben
 # not many products yet
 
-
 < en:Shelled almonds
 en: Almonds(blanched), Blanched almonds
-es: Almendras repeladas, Almendra pelada, Almendras sin piel
+es: Almendras repeladas, Almendra pelada, Almendras sin piel, Láminas de almendra
 fr: Amandes blanchies, Amandes émondées
 it: Mandorle pelate
 nl: Amandelen(geblancheerd), Geblancherde amandelen
@@ -55357,6 +55379,7 @@ opposite:en: en:almonds(whole)
 # not many products yet
 
 < en:Almonds(blanched)
+en: Almonds(slivered), Slivered almonds
 de: Mandeln gestiftet
 fr: Amandes allumettes
 it: Mandorle a bastonino
@@ -55378,7 +55401,6 @@ agribalyse_proxy_food_name:en: Almond, peeled, unpeeled or blanched
 agribalyse_proxy_food_name:fr: Amande, mondée, émondée ou blanchie
 wikidata:en: Q4733897
 
-
 < en:Almonds(blanched)
 en: Almond peeled unpeeled or blanched
 fr: Amande mondée émondée blanchie
@@ -55388,6 +55410,7 @@ ciqual_food_name:en: Almond, peeled, unpeeled or blanched
 
 < en:Shelled almonds
 en: Almonds(roasted), Roasted almonds, Grilled almonds, Toasted almonds
+ca: Ametles torrades
 de: Geröstete Mandeln
 es: Almendra tostada, Almendras fritas
 fi: grillatut mantelit
@@ -55409,6 +55432,8 @@ opposite:en: en:almonds(roasted)
 < en:Almonds(unroasted)
 < en:Almonds(unsalted)
 en: Almonds(raw), Raw almonds
+ca: Ametlles crues
+de: Mandeln(Naturbelassen)
 es: Almendra natural, Almendra cruda
 fr: Amandes décortiqués crues, Amandes crues
 ro: Migdale crude
@@ -55456,7 +55481,8 @@ comment:en: Flavoured almonds has been put outside the Almonds category. Otherwi
 
 < en: Flavoured almonds
 en: Almonds(smoked), Smoked almonds
-fr: Amandes goût fumé
+da: Mandler med røgsmag
+fr: Amandes goût fumé, Amandes saveur fumée
 nl: Amandelen(gerookt), Gerookte amandelen
 
 #############################################
@@ -93082,7 +93108,7 @@ fr: Coquillettes de blé dur
 en: Lasagna sheets, Lasagne sheets
 fr: Lasagnes à garnir
 hr: Lazanje za ukrašavanje
-nl: Lasagne vellen
+nl: Lasagne vellen, Lasagnevellen
 
 < en:Durum wheat pasta
 en: Durum wheat plates for lasagna
