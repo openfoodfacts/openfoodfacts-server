@@ -34198,10 +34198,17 @@ intake24_category_code:en: GING
 oqali_family:en: fr:Biscuits et gateaux industriels - Pains d_epices
 wikidata:en: Q178600
 
-
-
 < en:Gingerbreads
 fr: Pains d'épices au miel
+
+# Most common form of gingerbread in France: a soft block, pre-sliced or not
+< en:Gingerbreads
+en: Gingerbread blocks
+fr: Blocs de pain d'épices
+
+# German-style gingerbread with a thin wafer layer
+< en:Gingerbreads
+de: Oblaten-Lebkuchen
 
 < en:Biscuits and cakes
 en: Savoy-style sponge cake, Savoy cake, Savoy sponge cake
@@ -34795,6 +34802,7 @@ protected_name_type:en: pgi
 wikidata:en: Q452383
 
 < en:German bakery products
+< en:Gingerbreads
 de: Nürnberger Lebkuchen
 origins:en: en:germany
 protected_name_file_number:en: PGI-DE-0670
@@ -35334,10 +35342,10 @@ wikidata:en: Q1820454
 # How should I translate this in ja? パン粉 would probably be closer to en:Panko, but what about en:Bread crumbs?
 
 < en:Breads
-en: Buns, rolls
+en: Bread rolls, Buns, rolls
 de: Brötchen, Semmeln
 fi: Sämpylät
-fr: Buns (petits pains)
+fr: Petits pains, Buns (petits pains)
 hr: Buns
 it: Panini inglesi
 ja: ロールパン
@@ -36536,6 +36544,12 @@ gpc_category_description:en: Definition: Includes any products that can be descr
 gpc_category_name:en: Cakes - Sweet (Perishable)
 
 < en:Cakes
+en: Banana breads
+xx: Banana breads
+fr: Gâteaux aux bananes, gâteau aux bananes, gâteaux à la banane, gâteau à la banane, pains à la banane, pain à la banane, pains aux bananes, pain à la banane
+wikidata:en: Q806097
+
+< en:Cakes
 en: Yogurt cake
 fr: Gâteau au yaourt
 hr: Kolač od jogurta
@@ -36652,6 +36666,10 @@ en: Muffins mix
 de: Muffin Backmischung
 hr: Smjesa za muffine
 nl: Muffinmixes
+
+< en:Cake mixes
+en: Banana bread mixes
+fr: Préparations pour banana bread
 
 < en:Baking Mixes
 < en:Dessert mixes
