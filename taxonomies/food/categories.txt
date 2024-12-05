@@ -34359,7 +34359,8 @@ wikidata:en: Q6591
 wikipedia:en: https://en.wikipedia.org/wiki/Speculaas
 
 < en:Speculaas
-nl: Kruidnoten, Speculaasnoten
+fr: Nicolettes
+nl: Kruidnoten, Speculaasnoten, Pepernoten
 
 < nl:Sinterklaasproducten
 nl: Taai taai
@@ -35581,7 +35582,7 @@ fr: Tortillas de blé, pains plats au blé, galettes de blé pour tortillas, wra
 hr: Pšenični somuni
 it: Tortilla, Wrap, Piadine
 lt: Kvietiniai paplotėliai, kvietinės tortilijos
-nl: Graantortillas, Platte graanbroden, Platte graanbrood
+nl: Graantortillas, Platte graanbroden, Platte graanbrood, Wraps(ongevuld)
 sv: Halvtjockkakor, Hällakaka
 agribalyse_food_code:en: 7815_1
 ciqual_food_code:en: 7815
@@ -55309,6 +55310,9 @@ en: Marcona almonds
 fr: Amandes Marcona
 nl: Marcona amandelen
 
+< en: Almonds
+en: Nonpareil almonds
+
 #< en: Almonds
 #en: Bitter almonds
 #de: Bittermandeln
@@ -55320,10 +55324,11 @@ nl: Marcona amandelen
 #la: Prunis dulcis var. dulcis
 #sv: Sötmandel
 
-#< en:Almonds
-#en: Almonds(unshelled), Almonds with shell, Unshelled almonds
-#nl: Amandelen(ongepeld), Ongepelde amandelen
-#opposite:en: en:almonds(shelled)
+< en:Almonds
+en: Almonds(unshelled), Almonds with shell, Unshelled almonds
+it: Mandorle in guscio
+nl: Amandelen(ongepeld), Ongepelde amandelen
+opposite:en: en:almonds(shelled)
 
 < en:Almonds
 < en:Shelled nuts
@@ -55357,10 +55362,9 @@ opposite:en: en:almonds flakes
 #de: Mandelscheiben
 # not many products yet
 
-
 < en:Shelled almonds
 en: Almonds(blanched), Blanched almonds
-es: Almendras repeladas, Almendra pelada, Almendras sin piel
+es: Almendras repeladas, Almendra pelada, Almendras sin piel, Láminas de almendra
 fr: Amandes blanchies, Amandes émondées
 it: Mandorle pelate
 nl: Amandelen(geblancheerd), Geblancherde amandelen
@@ -55388,6 +55392,7 @@ opposite:en: en:almonds(whole)
 # not many products yet
 
 < en:Almonds(blanched)
+en: Almonds(slivered), Slivered almonds
 de: Mandeln gestiftet
 fr: Amandes allumettes
 it: Mandorle a bastonino
@@ -55409,7 +55414,6 @@ agribalyse_proxy_food_name:en: Almond, peeled, unpeeled or blanched
 agribalyse_proxy_food_name:fr: Amande, mondée, émondée ou blanchie
 wikidata:en: Q4733897
 
-
 < en:Almonds(blanched)
 en: Almond peeled unpeeled or blanched
 fr: Amande mondée émondée blanchie
@@ -55419,6 +55423,7 @@ ciqual_food_name:en: Almond, peeled, unpeeled or blanched
 
 < en:Shelled almonds
 en: Almonds(roasted), Roasted almonds, Grilled almonds, Toasted almonds
+ca: Ametles torrades
 de: Geröstete Mandeln
 es: Almendra tostada, Almendras fritas
 fi: grillatut mantelit
@@ -55440,6 +55445,8 @@ opposite:en: en:almonds(roasted)
 < en:Almonds(unroasted)
 < en:Almonds(unsalted)
 en: Almonds(raw), Raw almonds
+ca: Ametlles crues
+de: Mandeln(Naturbelassen)
 es: Almendra natural, Almendra cruda
 fr: Amandes décortiqués crues, Amandes crues
 ro: Migdale crude
@@ -55487,7 +55494,8 @@ comment:en: Flavoured almonds has been put outside the Almonds category. Otherwi
 
 < en: Flavoured almonds
 en: Almonds(smoked), Smoked almonds
-fr: Amandes goût fumé
+da: Mandler med røgsmag
+fr: Amandes goût fumé, Amandes saveur fumée
 nl: Amandelen(gerookt), Gerookte amandelen
 
 #############################################
@@ -93170,7 +93178,7 @@ fr: Coquillettes de blé dur
 en: Lasagna sheets, Lasagne sheets
 fr: Lasagnes à garnir
 hr: Lazanje za ukrašavanje
-nl: Lasagne vellen, Lasagne bladen
+nl: Lasagne vellen, Lasagnevellen, Lasagne bladen
 
 < en:Durum wheat pasta
 en: Durum wheat plates for lasagna
