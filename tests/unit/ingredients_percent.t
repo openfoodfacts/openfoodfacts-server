@@ -279,8 +279,8 @@ foreach my $test_ref (@tests) {
 	my $testid = $test_ref->[0];
 	my $product_ref = $test_ref->[1];
 
-	parse_ingredients_text_service($product_ref, {});
-	estimate_ingredients_percent_service($product_ref, {});
+	parse_ingredients_text_service($product_ref, {}, {});
+	estimate_ingredients_percent_service($product_ref, {}, {});
 
 	compare_to_expected_results(
 		$product_ref->{ingredients},
