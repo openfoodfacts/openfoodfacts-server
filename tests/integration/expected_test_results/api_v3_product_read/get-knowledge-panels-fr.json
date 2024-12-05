@@ -778,7 +778,7 @@
             "level" : "info",
             "size" : "small",
             "title_element" : {
-               "title" : "Pomme : 62.5% (estimation)"
+               "title" : "Pomme : 58.3% (estimation)"
             },
             "topics" : [
                "health"
@@ -789,7 +789,7 @@
             "level" : "info",
             "size" : "small",
             "title_element" : {
-               "title" : "Lait : 18.8% (estimation)"
+               "title" : "Lait : 20.8% (estimation)"
             },
             "topics" : [
                "health"
@@ -800,7 +800,7 @@
             "level" : "info",
             "size" : "small",
             "title_element" : {
-               "title" : "Œuf : 9.4% (estimation)"
+               "title" : "Œuf : 10.4% (estimation)"
             },
             "topics" : [
                "health"
@@ -811,7 +811,51 @@
             "level" : "info",
             "size" : "small",
             "title_element" : {
-               "title" : "Huile de palme : 9.4% (estimation)"
+               "title" : "Huile de palme : 5.2% (estimation)"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "ingredient_5" : {
+            "elements" : [],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "title" : "Colorant : 2.6% (estimation)"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "ingredient_6" : {
+            "elements" : [],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "title" : "— E100 : 2.6% (estimation)"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "ingredient_7" : {
+            "elements" : [],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "title" : "Émulsifiant : 2.6% (estimation)"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "ingredient_8" : {
+            "elements" : [],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "title" : "— Lécithine de soja : 2.6% (estimation)"
             },
             "topics" : [
                "health"
@@ -1017,6 +1061,30 @@
                   "element_type" : "panel",
                   "panel_element" : {
                      "panel_id" : "ingredient_4"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "ingredient_5"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "ingredient_6"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "ingredient_7"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "ingredient_8"
                   }
                }
             ],
