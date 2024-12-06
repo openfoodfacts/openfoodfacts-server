@@ -131,7 +131,7 @@ GetOptions(
 	"skip_existing_values" => \$skip_existing_values,
 	"only_select_not_existing_images" => \$only_select_not_existing_images,
 	"use_brand_owner_as_org_name" => \$use_brand_owner_as_org_name,
-) or die("Error in command line arguments:\n$\nusage");
+) or die("Error in command line arguments:\n\n$usage");
 
 print STDERR "import_csv_file.pl
 - user_id: $user_id
