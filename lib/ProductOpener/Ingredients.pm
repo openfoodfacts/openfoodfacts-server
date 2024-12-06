@@ -4678,6 +4678,7 @@ sub normalize_a_of_b ($ingredients_lc, $a, $b, $of_bool, $alternate_names_ref = 
 		# TODO: use the labels regexps instead
 		my $a_of_b_copy = remove_parsable_labels($ingredients_lc, $a_of_b);
 		canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $a_of_b_copy, \$name_exists);
+		print STDERR "a: $a - b: $b - $a_of_b: $a_of_b - a_of_b_copy: $a_of_b_copy: - $name_exists\n";
 
 		if (not $name_exists) {
 			foreach my $alternate_name (@{$alternate_names_ref}) {
@@ -4685,7 +4686,10 @@ sub normalize_a_of_b ($ingredients_lc, $a, $b, $of_bool, $alternate_names_ref = 
 					= $alternate_name;    # make a copy so that we can modify it without changing the array entry
 				$alternate_name_copy =~ s/<type>/$b/;
 				my $alternate_name_exists;
-				canonicalize_taxonomy_tag($lc, "ingredients", $alternate_name_copy, \$alternate_name_exists);
+				canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $alternate_name_copy,
+					\$alternate_name_exists);
+				print STDERR
+					"alternate_name: $alternate_name - alternate_name_copy: $alternate_name_copy: - $alternate_name_exists\n";
 				if ($alternate_name_exists) {
 					$a_of_b = $alternate_name_copy;
 					last;
@@ -4697,7 +4701,7 @@ sub normalize_a_of_b ($ingredients_lc, $a, $b, $of_bool, $alternate_names_ref = 
 	return $a_of_b;
 }
 
-=head2 normalize_enumeration ($lc, $category, $types, $of_bool, $alternate_names_ref = undef, $do_not_output_parent = undef)
+=head2 normalize_enumeration ($ingredients_lc, $category, $types, $of_bool, $alternate_names_ref = undef, $do_not_output_parent = undef)
 
 
 This function is called by develop_ingredients_categories_and_types()
@@ -4790,12 +4794,12 @@ sub normalize_fr_a_et_b_de_c ($a, $b, $c) {
 	return normalize_fr_a_de_b($a, $c) . ", " . normalize_fr_a_de_b($b, $c);
 }
 
-sub normalize_additives_enumeration ($lc, $enumeration) {
+sub normalize_additives_enumeration ($ingredients_lc, $enumeration) {
 
 	$log->debug("normalize_additives_enumeration", {enumeration => $enumeration}) if $log->is_debug();
 
 	# do not match anything if we don't have a translation for "and"
-	my $and = $and{$lc} || " will not match ";
+	my $and = $and{$ingredients_lc} || " will not match ";
 
 	my @list = split(/$obrackets|$cbrackets|\/| \/ | $dashes |$commas |$commas|$and/i, $enumeration);
 

@@ -27,22 +27,22 @@
          "id" : "en:vegetable-fat",
          "ingredients" : [
             {
-               "ciqual_proxy_food_code" : "16129",
+               "ciqual_food_code" : "16129",
                "ecobalyse_code" : "refined-palm-oil",
                "from_palm_oil" : "yes",
-               "id" : "en:palm-fat",
+               "id" : "en:palm-oil",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 6.25,
-               "text" : "graisse végétale de palme",
+               "text" : "huile de palme",
                "vegan" : "yes",
                "vegetarian" : "yes"
             },
             {
                "from_palm_oil" : "yes",
-               "id" : "en:palm-kernel-fat",
+               "id" : "en:palm-kernel-oil",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 6.25,
-               "text" : "graisse végétale de palmiste",
+               "text" : "huile de palmiste",
                "vegan" : "yes",
                "vegetarian" : "yes"
             }
@@ -128,8 +128,8 @@
          "en:skimmed-milk-powder"
       ],
       "en:palm-oil" : [
-         "en:palm-fat",
-         "en:palm-kernel-fat"
+         "en:palm-oil",
+         "en:palm-kernel-oil"
       ],
       "en:vegan-status-unknown" : [
          "fr:beurre-de-cacao1",
@@ -165,9 +165,9 @@
       "en:flavouring",
       "en:cocoa",
       "en:plant",
-      "en:palm-fat",
+      "en:palm-oil",
       "en:palm-oil-and-fat",
-      "en:palm-kernel-fat",
+      "en:palm-kernel-oil",
       "en:palm-kernel-oil-and-fat",
       "en:e322"
    ],
@@ -188,8 +188,8 @@
       "en:emulsifier",
       "en:vanilla-flavouring",
       "en:cocoa",
-      "en:palm-fat",
-      "en:palm-kernel-fat",
+      "en:palm-oil",
+      "en:palm-kernel-oil",
       "en:e322"
    ],
    "ingredients_percent_analysis" : -1,
@@ -213,9 +213,9 @@
       "en:flavouring",
       "en:cocoa",
       "en:plant",
-      "en:palm-fat",
+      "en:palm-oil",
       "en:palm-oil-and-fat",
-      "en:palm-kernel-fat",
+      "en:palm-kernel-oil",
       "en:palm-kernel-oil-and-fat",
       "en:e322"
    ],
@@ -227,7 +227,7 @@
    "ingredients_without_ciqual_codes" : [
       "en:e322",
       "en:emulsifier",
-      "en:palm-kernel-fat",
+      "en:palm-kernel-oil",
       "en:vanilla-flavouring",
       "en:vegetable-fat",
       "fr:beurre-de-cacao1",
@@ -238,7 +238,7 @@
       "en:cocoa",
       "en:e322",
       "en:emulsifier",
-      "en:palm-kernel-fat",
+      "en:palm-kernel-oil",
       "en:vanilla-flavouring",
       "en:vegetable-fat",
       "fr:beurre-de-cacao1",

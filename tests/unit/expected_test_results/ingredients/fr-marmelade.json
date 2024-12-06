@@ -185,7 +185,7 @@
                      "id" : "en:illipe-oil",
                      "is_in_taxonomy" : 1,
                      "percent_estimate" : 0.778125,
-                     "text" : "graisses végétales d'illipe",
+                     "text" : "huile de illipe",
                      "vegan" : "yes",
                      "vegetarian" : "yes"
                   },
@@ -194,7 +194,7 @@
                      "id" : "en:mango-kernel-oil",
                      "is_in_taxonomy" : 1,
                      "percent_estimate" : 0.3890625,
-                     "text" : "graisses végétales de mangue",
+                     "text" : "huile de mangue",
                      "vegan" : "yes",
                      "vegetarian" : "yes"
                   },
@@ -203,7 +203,7 @@
                      "id" : "en:shorea-robusta-seed-oil",
                      "is_in_taxonomy" : 1,
                      "percent_estimate" : 0.19453125,
-                     "text" : "graisses végétales de sal",
+                     "text" : "huile de sal",
                      "vegan" : "yes",
                      "vegetarian" : "yes"
                   },
@@ -213,18 +213,18 @@
                      "id" : "en:shea-butter",
                      "is_in_taxonomy" : 1,
                      "percent_estimate" : 0.097265625,
-                     "text" : "graisses végétales de karité",
+                     "text" : "huile de karité",
                      "vegan" : "yes",
                      "vegetarian" : "yes"
                   },
                   {
-                     "ciqual_proxy_food_code" : "16129",
+                     "ciqual_food_code" : "16129",
                      "ecobalyse_code" : "refined-palm-oil",
                      "from_palm_oil" : "yes",
-                     "id" : "en:palm-fat",
+                     "id" : "en:palm-oil",
                      "is_in_taxonomy" : 1,
                      "percent_estimate" : 0.0972656249999999,
-                     "text" : "graisses végétales de palme",
+                     "text" : "huile de palme",
                      "vegan" : "yes",
                      "vegetarian" : "yes"
                   }
@@ -391,7 +391,7 @@
          "en:egg"
       ],
       "en:palm-oil" : [
-         "en:palm-fat"
+         "en:palm-oil"
       ],
       "en:vegan-status-unknown" : [
          "en:sodium-citrate"
@@ -477,7 +477,7 @@
       "en:vegetable-oil",
       "en:shorea-robusta-seed-oil",
       "en:shea-butter",
-      "en:palm-fat",
+      "en:palm-oil",
       "en:palm-oil-and-fat"
    ],
    "ingredients_lc" : "fr",
@@ -527,7 +527,7 @@
       "en:mango-kernel-oil",
       "en:shorea-robusta-seed-oil",
       "en:shea-butter",
-      "en:palm-fat",
+      "en:palm-oil",
       "en:soya-lecithin"
    ],
    "ingredients_percent_analysis" : -1,
@@ -603,7 +603,7 @@
       "en:vegetable-oil",
       "en:shorea-robusta-seed-oil",
       "en:shea-butter",
-      "en:palm-fat",
+      "en:palm-oil",
       "en:palm-oil-and-fat"
    ],
    "ingredients_text" : "Marmelade d'oranges 41% (sirop de glucose-fructose, sucre, pulpe d'orange 4.5%, jus d'orange concentré 1.4% (équivalent jus d'orange 7.8%), pulpe d'orange concentrée 0.6% (équivalent pulpe d'orange 2.6%), gélifiant (pectines), acidifiant (acide citrique), correcteurs d'acidité (citrate de calcium, citrate de sodium), arôme naturel d'orange, épaississant (gomme xanthane)), chocolat 24.9% (sucre, pâte de cacao, beurre de cacao, graisses végétales (illipe, mangue, sal, karité et palme en proportions variables), arôme, émulsifiant (lécithine de soja), lactose et protéines de lait), farine de blé, sucre, oeufs, sirop de glucose-fructose, huile de colza, poudre à lever (carbonate acide d'ammonium, diphosphate disodique, carbonate acide de sodium), sel, émulsifiant (lécithine de soja).",
