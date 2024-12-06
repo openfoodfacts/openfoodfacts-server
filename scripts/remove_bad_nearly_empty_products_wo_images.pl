@@ -136,6 +136,7 @@ while (my $product_ref = $cursor->next) {
 							"a data quality issue, few information & no image at all";
 				store_product("remove-bad-products-wo-photos-bot", $product_ref, $comment);
 				print "Removed ";
+				sleep(1); # Sleep for 1 second to avoid overloading the server
 			}
 
 			if ($test) {
