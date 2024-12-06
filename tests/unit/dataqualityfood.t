@@ -913,6 +913,7 @@ check_quality_and_test_product_has_quality_tag(
 	'en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars',
 	'sum of fructose plus glucose plus maltose plus lactose plus sucrose cannot be greater than sugars', 1
 );
+
 $product_ref = {
 	nutriments => {
 		"sugars_100g" => 20,
@@ -929,6 +930,25 @@ check_quality_and_test_product_has_quality_tag(
 	'en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars',
 	'sum of fructose plus glucose plus maltose plus lactose plus sucrose cannot be greater than sugars', 0
 );
+
+# lactose < 0.01g
+$product_ref = {
+	nutriments => {
+		"sugars_100g" => 0,
+		"lactose_100g" => 0.01,
+		'lactose_modifier' => '<',
+	}
+};
+
+ProductOpener::DataQuality::check_quality($product_ref);
+
+ok(
+	!has_tag(
+		$product_ref, 'data_quality_errors',
+		'en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars'
+	),
+	'Lactose and symbol lower than should be ignore'
+) or diag Dumper $product_ref;
 
 # salt_100g is very small warning (may be in mg)
 ## lower than 0.001
