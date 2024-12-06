@@ -22,6 +22,26 @@
 
 use ProductOpener::PerlStandards;
 
+my $usage = <<TXT
+remove_bad_nearly_empty_products_wo_images.pl is a script to remove products 
+with a data quality issue, few information & no image at all (excluding imports)
+
+Usage:
+
+remove_bad_nearly_empty_products_wo_images.pl [--test|--misc|--remove] [--ip ip-address]
+
+Without arguments, the script will not work.
+1. Start with --test to display the products that would be removed.
+2. Then use --misc to add a tag to the products that would be removed.
+3. Check the products with the misc tag: https://world.openfoodfacts.org/misc/en:bad-product-to-be-deleted
+4. Check this list with the community, to be sure there is no side effect.
+5. Use --remove to actually remove the products.
+
+--ip is used to specify the IP address of the contributor.
+
+TXT
+	;
+
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
@@ -30,8 +50,29 @@ use ProductOpener::Store qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Data qw/get_products_collection/;
 
-# This script is run to remove products with a data quality issue, 
-# few information & no image at all (excluding imports)
+use Getopt::Long;
+
+my ($test, $misc, $remove, $ip);
+
+GetOptions(
+	"help|h|?" => sub { print $usage; exit(0); },
+	"remove" => \$remove,
+	"test" => \$test,
+	"misc" => \$misc,
+	"ip=s" => \$ip,
+	);
+
+if (!($test or $misc or $remove)) {
+	if (($test and $misc) or ($test and $remove) or ($misc and $remove)) {
+		die("You need to use either --test, --misc or --remove:\n\n$usage");
+	}
+	die("You need to use either --test, --misc or --remove:\n\n$usage");
+}
+
+# IP verification from https://stackoverflow.com/a/36760050
+if ($ip ne "" and $ip !~ /^((25[0-5]|(2[0-4]|1\d|[1-9]|)\d)\.?\b){4}$/) {
+	die("ip is not valid:\n\n$usage");
+}
 
 my $socket_timeout_ms = 2 * 60000;    # 2 mins, instead of 30s default, to not die as easily if mongodb is busy.
 my $cursor = get_products_collection({timeout => $socket_timeout_ms})->query({
@@ -83,15 +124,19 @@ while (my $product_ref = $cursor->next) {
 		if ($err eq "") {
 
 			# Test before deleting the products; comment if you don't want it
-			#add_tag($product_ref, "misc", 'en:bad-product-wo-image-to-be-deleted'); # Test before deleting
+			if ($misc) {
+				add_tag($product_ref, "misc", 'en:bad-product-wo-image-to-be-deleted'); # Test before deleting
+			}
 
 			# Modify `deleted` field to remove the product
 			#$product_ref->{deleted} = 'on';
 			my $comment = "[remove_bad_nearly_empty_products_wo_images.pl] removal of product with " .
 							"a data quality issue, few information & no image at all";
 
-			# Save the product
-			#store_product("remove-bad-products-wo-photos-bot", $product_ref, $comment);
+			# Save the product if --remove argument is set
+			if ($remove) {
+				store_product("remove-bad-products-wo-photos-bot", $product_ref, $comment);
+			}
 
 			print "Removed ";
 
