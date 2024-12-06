@@ -128,17 +128,19 @@ while (my $product_ref = $cursor->next) {
 				add_tag($product_ref, "misc", 'en:bad-product-wo-image-to-be-deleted'); # Test before deleting
 			}
 
-			# Modify `deleted` field to remove the product
-			#$product_ref->{deleted} = 'on';
-			my $comment = "[remove_bad_nearly_empty_products_wo_images.pl] removal of product with " .
-							"a data quality issue, few information & no image at all";
-
-			# Save the product if --remove argument is set
+			# Remove the product if --remove argument is set
 			if ($remove) {
+				# Modify `deleted` field to remove the product
+				$product_ref->{deleted} = 'on';
+				my $comment = "[remove_bad_nearly_empty_products_wo_images.pl] removal of product with " .
+							"a data quality issue, few information & no image at all";
 				store_product("remove-bad-products-wo-photos-bot", $product_ref, $comment);
+				print "Removed ";
 			}
 
-			print "Removed ";
+			if ($test) {
+				print "TB rmvd "; # Meaning "to be removed"
+			}
 
 			$removed++;
 		}
