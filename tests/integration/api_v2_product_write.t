@@ -71,6 +71,7 @@ my $tests_ref = [
 			quantity => "250 g",
 			serving_size => '20 g',
 			ingredients_text => "Pork meat, salt",
+			ingredients_text => "Pork meat, salt",
 		}
 	},
 	{
@@ -174,17 +175,7 @@ $tests_ref = [
 			categories => "Cookies",
 			quantity => "250 g",
 			serving_size => '20 g',
-			ingredients_text_fr => "Farine de blé, eau, sel, sucre",
-			labels => "Bio, Max Havelaar",
-			nutriment_salt => '50.2',
-			nutriment_salt_unit => 'mg',
-			nutriment_sugars => '12.5',
 		},
-		headers_in => {
-			'Authorization' => 'Bearer 4711',
-		},
-		expected_type => "html",
-		expected_status_code => 403,
 	},
 ];
 

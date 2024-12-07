@@ -949,8 +949,6 @@ Array of specific ingredients.
 
 sub add_specific_ingredients_from_labels ($product_ref) {
 
-	my $ingredients_lc = $product_ref->{ingredients_lc} || $product_ref->{lc};
-
 	if (defined $product_ref->{labels_tags}) {
 		foreach my $labelid (@{$product_ref->{labels_tags}}) {
 			my $ingredients = get_property("labels", $labelid, "ingredients:en");
@@ -1011,7 +1009,7 @@ Array of specific ingredients.
 
 sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quantity_regexp, $per_100g_regexp) {
 
-	my $ingredients_lc = $product_ref->{ingredients_lc} || $product_ref->{lc};
+	my $ingredients_lc = get_or_select_ingredients_lc($product_ref);
 
 	# Go through the ingredient lists multiple times
 	# as long as we have one match
@@ -1576,7 +1574,7 @@ sub parse_processing_from_ingredient ($ingredients_lc, $ingredient) {
 	return (\@processings, $ingredient, $ingredient_id, $ingredient_recognized);
 }
 
-=head2 parse_origins_from_text ( product_ref, $text)
+=head2 parse_origins_from_text ( product_ref, $text, $ingredients_lc)
 
 This function parses the origins of ingredients field to extract the origins of specific ingredients.
 The origins are stored in the specific_ingredients structure of the product.
@@ -1592,6 +1590,11 @@ while parse_origins_from_text() will also recognize text like "Strawberries: Spa
 
 =head4 text $text
 
+=head4 $ingredients_lc : language for the origins text
+
+In most cases it is the same as $product_ref->{ingredients_lc}, except if there are no ingredients listed,
+in which case we can have origins listed in the main language of the product.
+
 =head3 Return values
 
 =head4 specific_ingredients structure
@@ -1602,9 +1605,7 @@ Array of specific ingredients.
 
 =cut
 
-sub parse_origins_from_text ($product_ref, $text) {
-
-	my $ingredients_lc = $product_ref->{ingredients_lc} || $product_ref->{lc};
+sub parse_origins_from_text ($product_ref, $text, $ingredients_lc) {
 
 	# Normalize single quotes
 	$text =~ s/’/'/g;
@@ -1661,30 +1662,77 @@ sub parse_origins_from_text ($product_ref, $text) {
 
 =head2 select_ingredients_lc ($product_ref)
 
-Return the `ingredients_lc` field to save in $product_ref.
+Select, set and return the `ingredients_lc` field in $product_ref.
 
 This is the language that will be used to parse ingredients. We first check that ingredients_text_{lang}
 exists and is non-empty for the product main language (`lc`), and return it if it does.
 Otherwise we look at all languages defined in `languages_codes` for a non-empty `ingredients_text_lang`.
 
+If we find a language with non empty ingredients in ingredients_text_{lang}:
+- we copy the value to the `ingredients_text` field in the product
+- we set the `ingredients_lc` field in the product and return it,
+otherwise we unset it.
+
 =head3 Arguments
 
 =head4 $product_ref
 
+=head3 Return values
+
+=head4 ingredients_lc
+
+Language code for ingredients parsing.
+
 =cut
 
 sub select_ingredients_lc ($product_ref) {
-	if (defined $product_ref->{languages_codes}) {
-		# We sort the keys so that the order is deterministic
-		foreach my $language ($product_ref->{lc}, sort keys %{$product_ref->{languages_codes}}) {
-			if (    (defined $product_ref->{"ingredients_text_" . $language})
-				and ($product_ref->{"ingredients_text_" . $language} ne ""))
-			{
-				return $language;
-			}
+	# Get all languages that have ingredients_text_{lang} defined, capture the language code
+	# Note: we don't use language_codes here, as it might not have been computed if we are called from a service
+	# with minimal product data
+	my @ingredients_text_fields = sort grep {/^ingredients_text_(\w\w)$/} (keys %$product_ref);
+
+	# Put the main language first
+	unshift @ingredients_text_fields, "ingredients_text_" . $product_ref->{lc};
+
+	$log->debug("select_ingredients_lc - ingredients_text_fields",
+		{ingredients_text_fields => \@ingredients_text_fields})
+		if $log->is_debug();
+
+	foreach my $ingredient_text_field (@ingredients_text_fields) {
+		if (    (defined $product_ref->{$ingredient_text_field})
+			and ($product_ref->{$ingredient_text_field} ne ""))
+		{
+			$product_ref->{ingredients_text} = $product_ref->{$ingredient_text_field};
+			my $language = substr($ingredient_text_field, -2);
+			$product_ref->{ingredients_lc} = $language;
+			return $language;
 		}
 	}
-	return $product_ref->{lc};
+
+	# If we have ingredients_text set (but no ingredients_text_{lang}), we use the main language of the product
+	# This might happen with very old revisions before we had language specific fields
+	# or in unit test cases
+	if (    (defined $product_ref->{ingredients_text})
+		and ($product_ref->{ingredients_text} ne "")
+		and (defined $product_ref->{lc}))
+	{
+		$product_ref->{ingredients_lc} = $product_ref->{lc};
+		return $product_ref->{lc};
+	}
+	delete $product_ref->{ingredients_lc};
+	return;
+}
+
+=head2 get_or_select_ingredients_lc ($product_ref)
+
+Return the ingredients_lc field if already set, otherwise call select_ingredients_lc() to select it.
+
+This function is used in ingredients related services, to ensure that the ingredients_lc field is set.
+
+=cut
+
+sub get_or_select_ingredients_lc ($product_ref) {
+	return $product_ref->{ingredients_lc} || select_ingredients_lc($product_ref);
 }
 
 =head2 get_percent_or_quantity_and_normalized_quantity($percent_or_quantity_value, $percent_or_quantity_unit)
@@ -1739,7 +1787,7 @@ sub get_percent_or_quantity_and_normalized_quantity ($percent_or_quantity_value,
 	return ($percent, $quantity, $quantity_g);
 }
 
-=head2 parse_ingredients_text_service ( $product_ref, $updated_product_fields_ref )
+=head2 parse_ingredients_text_service ( $product_ref, $updated_product_fields_ref, $errors_ref )
 
 Parse the ingredients_text field to extract individual ingredients.
 
@@ -1755,9 +1803,13 @@ product object reference
 
 reference to a hash of product fields that have been created or updated
 
+=head4 $errors_ref
+
+reference to an array of error messages
+
 =cut
 
-sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
+sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref, $errors_ref) {
 
 	my $debug_ingredients = 0;
 
@@ -1766,14 +1818,46 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 	# and indicate that the service is creating the "ingredients" structure
 	$updated_product_fields_ref->{ingredients} = 1;
 
-	return if ((not defined $product_ref->{ingredients_text}) or ($product_ref->{ingredients_text} eq ""));
+	my $ingredients_lc = get_or_select_ingredients_lc($product_ref);
+
+	if (   (not defined $product_ref->{ingredients_text})
+		or ($product_ref->{ingredients_text} eq "")
+		or (not defined $ingredients_lc))
+	{
+		$log->debug(
+			"parse_ingredients_text_service - missing ingredients_text or ingredients_lc",
+			{ingredients_text => $product_ref->{ingredients_text}, ingredients_lc => $ingredients_lc}
+		) if $log->is_debug();
+		if ((not defined $product_ref->{ingredients_text}) or ($product_ref->{ingredients_text} eq "")) {
+
+			push @{$errors_ref},
+				{
+				message => {id => "missing_field"},
+				field => {
+					id => "ingredients_text",
+					impact => {id => "skipped_service"},
+					service => {id => "parse_ingredients_text"}
+				}
+				};
+		}
+		if (not defined $ingredients_lc) {
+			push @{$errors_ref},
+				{
+				message => {id => "missing_field"},
+				field => {
+					id => "ingredients_lc",
+					impact => {id => "skipped_service"},
+					service => {id => "parse_ingredients_text"}
+				}
+				};
+		}
+
+		return;
+	}
 
 	my $text = $product_ref->{ingredients_text};
 
 	$log->debug("extracting ingredients from text", {text => $text}) if $log->is_debug();
-
-	# $product_ref->{ingredients_lc} is defined in extract_ingredients_from_text()
-	my $ingredients_lc = $product_ref->{ingredients_lc} || $product_ref->{lc};
 
 	$text = preparse_ingredients_text($ingredients_lc, $text);
 
@@ -2983,13 +3067,13 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 	return;
 }
 
-=head2 extend_ingredients_service ( $product_ref, $updated_product_fields_ref )
+=head2 extend_ingredients_service ( $product_ref, $updated_product_fields_ref, $errors_ref )
 
 After the nested ingredients structure has been built with the parse_ingredients_text_service,
 this service adds some properties to the ingredients:
 
 - Origins, labels etc. that have been extracted from other fields
-- Ciqual codes
+- Ciqual and Ecobalyse codes
 
 =head3 Arguments
 
@@ -3001,11 +3085,18 @@ product object reference
 
 reference to a hash of product fields that have been created or updated
 
+=head4 $errors_ref
+
+reference to an array of error messages
+
 =cut
 
-sub extend_ingredients_service ($product_ref, $updated_product_fields_ref) {
+sub extend_ingredients_service ($product_ref, $updated_product_fields_ref, $errors_ref) {
 
-	# and indicate that the service is creating the "ingredients" structure
+	# Do nothing and return if we don't have the ingredients structure
+	return if not defined $product_ref->{ingredients};
+
+	# indicate that the service is modifying the "ingredients" structure
 	$updated_product_fields_ref->{ingredients} = 1;
 
 	# Add properties like origins from specific ingredients extracted from labels or the end of the ingredients list
@@ -3125,7 +3216,7 @@ sub compute_ingredients_tags ($product_ref) {
 	my $field = "ingredients";
 
 	$product_ref->{ingredients_original_tags} = $product_ref->{ingredients_tags};
-	my $ingredients_lc = $product_ref->{ingredients_lc} || $product_ref->{lc};
+	my $ingredients_lc = get_or_select_ingredients_lc($product_ref);
 
 	if (defined $taxonomy_fields{$field}) {
 		$product_ref->{$field . "_hierarchy"} = [
@@ -3193,12 +3284,15 @@ sub extract_ingredients_from_text ($product_ref) {
 
 	$product_ref->{specific_ingredients} = [];
 
-	my $ingredients_lc = $product_ref->{ingredients_lc} || $product_ref->{lc};
+	# It is possible that we could have origins info listed without having ingredients listed
+	# (also in unit tests)
+	# so we fall back to the main language of the product in that case
+	my $origin_lc = get_or_select_ingredients_lc($product_ref) || $product_ref->{lc};
 
 	# Ingredients origins may be listed in the origin field
 	# e.g. "Origin of the rice: Thailand."
-	if (defined $product_ref->{"origin_" . $ingredients_lc}) {
-		parse_origins_from_text($product_ref, $product_ref->{"origin_" . $ingredients_lc});
+	if (defined $product_ref->{"origin_" . $origin_lc}) {
+		parse_origins_from_text($product_ref, $product_ref->{"origin_" . $origin_lc}, $origin_lc);
 	}
 
 	# Add specific ingredients from labels
@@ -3207,16 +3301,16 @@ sub extract_ingredients_from_text ($product_ref) {
 	# Parse the ingredients list to extract individual ingredients and sub-ingredients
 	# to create the ingredients array with nested sub-ingredients arrays
 
-	parse_ingredients_text_service($product_ref, {});
+	parse_ingredients_text_service($product_ref, {}, []);
 
 	if (defined $product_ref->{ingredients}) {
 
 		# - Add properties like origins from specific ingredients extracted from labels or the end of the ingredients list
 		# - Obtain Ciqual codes ready for ingredients estimation from nutrients
-		extend_ingredients_service($product_ref, {});
+		extend_ingredients_service($product_ref, {}, []);
 
 		# Compute minimum and maximum percent ranges and percent estimates for each ingredient and sub ingredient
-		estimate_ingredients_percent_service($product_ref, {});
+		estimate_ingredients_percent_service($product_ref, {}, []);
 
 		estimate_nutriscore_2021_fruits_vegetables_nuts_percent_from_ingredients($product_ref);
 		estimate_nutriscore_2023_fruits_vegetables_legumes_percent_from_ingredients($product_ref);
@@ -3254,7 +3348,7 @@ sub extract_ingredients_from_text ($product_ref) {
 	# Analyze ingredients to see the ones that are vegan, vegetarian, from palm oil etc.
 	# and compute the resulting value for the complete product
 
-	analyze_ingredients_service($product_ref, {});
+	analyze_ingredients_service($product_ref, {}, []);
 
 	# Delete specific ingredients if empty
 	if ((exists $product_ref->{specific_ingredients}) and (scalar @{$product_ref->{specific_ingredients}} == 0)) {
@@ -3418,7 +3512,7 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 	return @ingredients_without_ecobalyse_ids;
 }
 
-=head2 estimate_ingredients_percent_service ( $product_ref, $updated_product_fields_ref )
+=head2 estimate_ingredients_percent_service ( $product_ref, $updated_product_fields_ref, $errors_ref )
 
 Compute minimum and maximum percent ranges and percent estimates for each ingredient and sub ingredient.
 
@@ -3434,9 +3528,16 @@ product object reference
 
 reference to a hash of product fields that have been created or updated
 
+=head4 $errors_ref
+
+reference to an array of error messages
+
 =cut 
 
-sub estimate_ingredients_percent_service ($product_ref, $updated_product_fields_ref) {
+sub estimate_ingredients_percent_service ($product_ref, $updated_product_fields_ref, $errors_ref) {
+
+	# Do nothing and return if we don't have the ingredients structure
+	return if not defined $product_ref->{ingredients};
 
 	# Add a percent_max value for salt and sugar ingredients, based on the nutrition facts.
 	add_percent_max_for_ingredients_from_nutrition_facts($product_ref);
@@ -4161,7 +4262,7 @@ sub compute_ingredients_percent_estimates ($total, $ingredients_ref) {
 	return;
 }
 
-=head2 analyze_ingredients ( $product_ref, $updated_product_fields_ref )
+=head2 analyze_ingredients_service ( $product_ref, $updated_product_fields_ref, $errors_ref )
 
 Analyzes ingredients to see the ones that are vegan, vegetarian, from palm oil etc.
 and computes the resulting value for the complete product.
@@ -4182,9 +4283,13 @@ product object reference
 
 reference to a hash of product fields that have been created or updated
 
+=head4 $errors_ref
+
+reference to an array of error messages
+
 =cut
 
-sub analyze_ingredients_service ($product_ref, $updated_product_fields_ref) {
+sub analyze_ingredients_service ($product_ref, $updated_product_fields_ref, $errors_ref) {
 
 	# Delete any existing values for the ingredients analysis fields
 	delete $product_ref->{ingredients_analysis};
@@ -5933,7 +6038,8 @@ my @symbols = ('\*\*\*', '\*\*', '\*', '°°°', '°°', '°', '\(1\)', '\(2\)',
 my $symbols_regexp = join('|', @symbols);
 
 sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
-	$log->debug("develop_ingredients_categories_and_types: start with>$text<") if $log->is_debug();
+	$log->debug("develop_ingredients_categories_and_types", {ingredients_lc => $ingredients_lc, text => $text})
+		if $log->is_debug();
 
 	if (defined $ingredients_categories_and_types{$ingredients_lc}) {
 
@@ -6578,6 +6684,8 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 
 This function extracts additives from the ingredients text and adds them to the product_ref in the additives_tags array.
 
+TODO: this function is independent of the ingredient parsing, we should combine the two.
+
 =head3 Arguments
 
 =head4 Product reference
@@ -6608,10 +6716,12 @@ sub extract_additives_from_text ($product_ref) {
 	delete $product_ref->{ingredients_sweeteners_n};
 	delete $product_ref->{ingredients_non_nutritive_sweeteners_n};
 
-	if (not defined $product_ref->{ingredients_text}) {
+	my $ingredients_lc = get_or_select_ingredients_lc($product_ref);
+
+	if ((not defined $product_ref->{ingredients_text}) or (not defined $ingredients_lc)) {
 		return;
 	}
-	my $ingredients_lc = $product_ref->{ingredients_lc} || $product_ref->{lc};
+
 	my $text = preparse_ingredients_text($ingredients_lc, $product_ref->{ingredients_text});
 	# do not match anything if we don't have a translation for "and"
 	my $and = $and{$ingredients_lc} || " will not match ";
@@ -7195,7 +7305,7 @@ sub count_sweeteners_and_non_nutritive_sweeteners ($product_ref) {
 
 sub replace_allergen ($language, $product_ref, $allergen, $before) {
 
-	my $ingredients_lc = $product_ref->{ingredients_lc} || $product_ref->{lc};
+	my $ingredients_lc = get_or_select_ingredients_lc($product_ref);
 	my $field = "allergens";
 
 	my $traces_regexp = $may_contain_regexps{$language};
@@ -7217,7 +7327,7 @@ sub replace_allergen ($language, $product_ref, $allergen, $before) {
 
 sub replace_allergen_in_caps ($language, $product_ref, $allergen, $before) {
 
-	my $ingredients_lc = $product_ref->{ingredients_lc} || $product_ref->{lc};
+	my $ingredients_lc = get_or_select_ingredients_lc($product_ref);
 	my $field = "allergens";
 
 	my $traces_regexp = $may_contain_regexps{$language};
@@ -7243,7 +7353,7 @@ sub replace_allergen_in_caps ($language, $product_ref, $allergen, $before) {
 
 sub replace_allergen_between_separators ($language, $product_ref, $start_separator, $allergen, $end_separator, $before)
 {
-	my $ingredients_lc = $product_ref->{ingredients_lc} || $product_ref->{lc};
+	my $ingredients_lc = get_or_select_ingredients_lc($product_ref);
 	my $field = "allergens";
 
 	#print STDERR "replace_allergen_between_separators - allergen: $allergen\n";
@@ -7451,7 +7561,7 @@ sub detect_allergens_from_text ($product_ref) {
 		init_allergens_regexps();
 	}
 
-	my $ingredients_lc = $product_ref->{ingredients_lc} || $product_ref->{lc};
+	my $ingredients_lc = get_or_select_ingredients_lc($product_ref);
 
 	# Keep allergens entered by users in the allergens and traces field
 
@@ -7547,8 +7657,9 @@ sub detect_allergens_from_text ($product_ref) {
 	# Use the language the tag have been entered in
 
 	my $traces_regexp;
-	if (defined $may_contain_regexps{$product_ref->{traces_lc} || $ingredients_lc}) {
-		$traces_regexp = $may_contain_regexps{$product_ref->{traces_lc} || $ingredients_lc};
+	my $traces_lc = $product_ref->{traces_lc} || $product_ref->{lc};
+	if ((defined $traces_lc) and (defined $may_contain_regexps{$traces_lc})) {
+		$traces_regexp = $may_contain_regexps{$traces_lc};
 	}
 
 	if (    (defined $traces_regexp)
@@ -7570,7 +7681,7 @@ sub detect_allergens_from_text ($product_ref) {
 		# regenerate allergens and traces from the allergens_tags field so that it is prefixed with the values in the
 		# main language of the product (which may be different than the $tag_lc language of the interface)
 
-		my $tag_lc = $product_ref->{$field . "_lc"} || $ingredients_lc || "?";
+		my $tag_lc = $product_ref->{$field . "_lc"} || $product_ref->{lc} || "?";
 		$product_ref->{$field . "_from_user"} = "($tag_lc) " . ($product_ref->{$field} // "");
 		$product_ref->{$field . "_hierarchy"} = [gen_tags_hierarchy_taxonomy($tag_lc, $field, $product_ref->{$field})];
 		$product_ref->{$field} = join(',', @{$product_ref->{$field . "_hierarchy"}});
@@ -7586,11 +7697,13 @@ sub detect_allergens_from_text ($product_ref) {
 			$allergens .= ", " . $product_ref->{$field};
 		}
 
-		$product_ref->{$field . "_hierarchy"} = [gen_tags_hierarchy_taxonomy($ingredients_lc, $field, $allergens)];
+		$product_ref->{$field . "_hierarchy"}
+			= [gen_tags_hierarchy_taxonomy($ingredients_lc || $product_ref->{lc}, $field, $allergens)];
 		$product_ref->{$field . "_tags"} = [];
 		# print STDERR "result for $field : ";
 		foreach my $tag (@{$product_ref->{$field . "_hierarchy"}}) {
-			push @{$product_ref->{$field . "_tags"}}, get_allergens_taxonomyid($ingredients_lc, $tag);
+			push @{$product_ref->{$field . "_tags"}},
+				get_allergens_taxonomyid($ingredients_lc || $product_ref->{lc}, $tag);
 			# print STDERR " - $tag";
 		}
 		# print STDERR "\n";
