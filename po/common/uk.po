@@ -87,7 +87,7 @@ msgstr "АКВА/ВОДА, ЛАУРЕТСУЛЬФАТ НАТРІЮ, ДИНАТР
 
 msgctxt "1_product"
 msgid "1 product"
-msgstr "Товар"
+msgstr "1 продукт"
 
 msgctxt "about"
 msgid "About me"
@@ -123,7 +123,7 @@ msgstr "Дякуємо за підтримку!"
 
 msgctxt "add_user_you_can_edit"
 msgid "You can now add and edit products on the web or with our free <a href=\"%s\">mobile app</a>."
-msgstr "Тепер ви можете додавати та редагувати продукти в Інтернеті або за допомогою нашого безкоштовного <a href=\"%s\">мобільного додатка</a>."
+msgstr "Тепер ви можете додавати та редагувати продукти в Інтернеті або за допомогою нашого безплатного <a href=\"%s\">мобільного додатка</a>."
 
 msgctxt "join_us_on_slack"
 msgid "Join us on Slack"
@@ -139,7 +139,7 @@ msgstr "Ми використовуємо дискусійну систему п
 
 msgctxt "add_user_you_can_edit_pro"
 msgid "You can now easily import your product data and photos."
-msgstr "Тепер ви можете легко імпортувати дані про товари та фотографії."
+msgstr "Тепер ви можете легко імпортувати дані про продукти та фотографії."
 
 msgctxt "add_user_you_can_edit_pro_promo"
 msgid "You can now add and edit your products and import their data and photos on our free <a href=\"%s\">platform for producers</a>."
@@ -167,7 +167,7 @@ msgstr "Надати/зняти статус адміністратора"
 
 msgctxt "please_email_producers"
 msgid "Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> if you have any question."
-msgstr "Будь ласка, напишіть на електронну адресу запитання <a href=\"mailto:producers@openfoodfacts.org\">producents@openfoodfacts.org</a> якщо вони у вас виникли."
+msgstr "Будь ласка, напишіть на електронну адресу <a href=\"mailto:producers@openfoodfacts.org\">producents@openfoodfacts.org</a>, якщо у вас виникли запитання."
 
 msgctxt "if_you_work_for_a_producer"
 msgid "If you work for a producer or brand and will add or complete data for your own products only, you can get access to our completely free Platform for Producers."
@@ -319,15 +319,15 @@ msgstr "Номер штрих-коду:"
 
 msgctxt "you_can_also_help_us"
 msgid "You can also help to fund the Open Food Facts project"
-msgstr "Ви також можете допомогти фінансувати проект Open Food Facts"
+msgstr "Ви також можете допомогти фінансувати проєкт Open Food Facts"
 
 msgctxt "producers_administration_manual"
 msgid "Producers Admin manual"
-msgstr "Управління ручним виробництвом"
+msgstr "Інструкція адміністратора для виробників"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr "<a href=\"https://ua.openfoodfacts.org/donate-to-open-food-facts-ua?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> створюється неприбутковою асоціацією, незалежною від індустрії. Вона створена для всіх, усіма, і фінансується всіма. Ви можете підтримати нашу роботу <a href=\"https://ua.openfoodfacts.org/donate-to-open-food-facts-ua?utm_source=login-open-food-facts\">пожертвувати на Open Food Facts</a>а також за допомогою <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">пошукової системи Lilo</a>.<br/><b>Дякую тобі!</b></p>"
+msgstr "<a href=\"https://ua.openfoodfacts.org/donate-to-open-food-facts-ua?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> створюється неприбутковою асоціацією, незалежною від індустрії. Вона створена для всіх, усіма, і фінансується всіма. Ви можете підтримати нашу роботу <a href=\"https://ua.openfoodfacts.org/donate-to-open-food-facts-ua?utm_source=login-open-food-facts\">пожертвувати на Open Food Facts</a>а також за допомогою <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">пошукової системи Lilo</a>.<br/><b>Дякуємо!</b></p>"
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
@@ -4686,7 +4686,7 @@ msgstr "1 маркер ультра-обробки"
 # variable names between { } must not be translated
 msgctxt "f_attribute_nova_4_markers"
 msgid "{number} ultra-processing markers"
-msgstr ""
+msgstr "{number} міток ультраобробки"
 
 msgctxt "export_product_page"
 msgid "Export product to public database"
@@ -5843,7 +5843,7 @@ msgstr "Допоможіть нам інформувати мільйони сп
 
 msgctxt "donation_title_2024"
 msgid "Please give to our 2024 Fundraiser"
-msgstr ""
+msgstr "Будь ласка, приєднуйтесь до нашого Збору коштів 2024"
 
 msgctxt "donation_list_2024_main"
 msgid "Your donations fund the day-to-day operations of our non-profit association:"
@@ -5851,27 +5851,27 @@ msgstr "Ваші пожертви фінансують щоденні опера
 
 msgctxt "donation_list_2024_first"
 msgid "keeping our database open & available to all,"
-msgstr ""
+msgstr "тримаємо нашу базу даних відкритою та доступною для всіх,"
 
 msgctxt "donation_list_2024_first_sub"
 msgid "technical infrastructure (website/mobile app) & a small permanent team"
-msgstr ""
+msgstr "технічна інфраструктура (веб-сайт/мобільний додаток) та невелика постійна команда"
 
 msgctxt "donation_list_2024_second"
 msgid "remain independent of the food industry,"
-msgstr ""
+msgstr "залишаємося незалежними від харчової промисловості,"
 
 msgctxt "donation_list_2024_third"
 msgid "engage a community of committed citizens,"
-msgstr ""
+msgstr "залучаємо спільноту відданих громадян,"
 
 msgctxt "donation_list_2024_fourth"
 msgid "support the advancement of public health research."
-msgstr ""
+msgstr "підтримуємо розвиток досліджень громадського здоров'я."
 
 msgctxt "donation_financial_2024_text"
 msgid "Each donation counts! We appreciate your support in bringing further food transparency in the world."
-msgstr ""
+msgstr "Кожна пожертва має значення! Ми цінуємо вашу підтримку в забезпеченні подальшої прозорості харчових продуктів у світі."
 
 msgctxt "donation_button_2024_text"
 msgid "I SUPPORT"
