@@ -1907,4 +1907,51 @@ ok(
 	'Soluble fiber + Insoluble fiber exceeds total fiber'
 ) or diag Dumper $product_ref;
 
+# Test case for fiber content having "<" symbol
+$product_ref = {
+	nutriments => {
+		fiber_100g => 5,
+		'soluble-fiber_100g' => 1,
+		'soluble-fiber_modifier' => '<',
+		'insoluble-fiber_100g' => 5,
+	},
+	data_quality_errors_tags => [],
+};
+
+ProductOpener::DataQuality::check_quality($product_ref);
+
+ok(
+	!has_tag($product_ref, 'data_quality_errors', 'en:nutrition-soluble-fiber-plus-insoluble-fiber-greater-than-fiber'),
+	'Soluble fiber + Insoluble fiber exceeds total fiber but there is < symbol'
+) or diag Dumper $product_ref;
+
+# Test case for fiber content having ">" symbol
+$product_ref = {
+	nutriments => {
+		fiber_100g => 5,
+		'soluble-fiber_100g' => 1,
+		'soluble-fiber_modifier' => '>',
+		'insoluble-fiber_100g' => 5,
+	},
+	data_quality_errors_tags => [],
+};
+
+# Test case for fiber content beside other element having "<"
+$product_ref = {
+	nutriments => {
+		fiber_100g => 5,
+		'soluble-fiber_100g' => 1,
+		'soluble-fiber_modifier' => '<',
+		'insoluble-fiber_100g' => 10,
+	},
+	data_quality_errors_tags => [],
+};
+
+ProductOpener::DataQuality::check_quality($product_ref);
+
+ok(
+	has_tag($product_ref, 'data_quality_errors', 'en:nutrition-soluble-fiber-plus-insoluble-fiber-greater-than-fiber'),
+	'insoluble-fiber_100g larger than fiber_100g'
+) or diag Dumper $product_ref;
+
 done_testing();
