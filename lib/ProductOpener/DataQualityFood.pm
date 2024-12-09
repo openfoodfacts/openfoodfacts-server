@@ -1289,11 +1289,11 @@ sub check_nutrition_data ($product_ref) {
 				= defined $product_ref->{nutriments}{maltose_100g} ? $product_ref->{nutriments}{maltose_100g} : 0;
 			# sometimes lactose < 0.01 is written below the nutrition table together whereas
 			# sugar is 0 in the nutrition table (#10715)
-			# ignore lactose when having "<" symbol
-			my $lactose = 0;
 			my $sucrose
 				= defined $product_ref->{nutriments}{sucrose_100g} ? $product_ref->{nutriments}{sucrose_100g} : 0;
 
+			# ignore lactose when having "<" symbol
+			my $lactose = 0;
 			if (defined $product_ref->{nutriments}{lactose_100g}) {
 				my $lactose_modifier = $product_ref->{nutriments}{'lactose_modifier'};
 				if (!defined $lactose_modifier || $lactose_modifier ne '<') {
