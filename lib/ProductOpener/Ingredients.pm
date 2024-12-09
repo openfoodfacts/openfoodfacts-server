@@ -3476,7 +3476,24 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 		if ((defined $ingredient_ref->{labels}) and ($ingredient_ref->{labels} =~ /\ben:organic\b/)) {
 			push @suffixes, "_labels_en_organic";
 		}
+		# If the ingredient is european...
+		#if ((defined $ingredient_ref->{labels}) and ($ingredient_ref->{labels} =~ /\ben:organic\b/)) {
+		#	push @suffixes, "_origins_en_france";
+		#}
+		# If the ingredient is french...
+		#if ((defined $ingredient_ref->{origin}) and ($ingredient_ref->{origin} =~ /\ben:organic\b/)) {
+		#	push @suffixes, "__origins_en_european_union";
+		#}
+		# If the ingredient is both organic and french...
+		#if ((defined $ingredient_ref->{labels}) and ($ingredient_ref->{labels} =~ /\ben:organic\b/)) {
+		#	push @suffixes, "_labels_en_organic_origins_en_france";
+		#}
+		# If the ingredient is both organic and european...
+		#if ((defined $ingredient_ref->{labels}) and ($ingredient_ref->{labels} =~ /\ben:organic\b/)) {
+		#	push @suffixes, "_labels_en_organic_origins_en_european_union";
+		#}
 		push @suffixes, '';
+		
 
 		# First try an exact match, and then a proxy match
 		foreach my $prefix ("ecobalyse", "ecobalyse_proxy") {
