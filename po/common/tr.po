@@ -4674,6 +4674,15 @@ msgctxt "attribute_nova_4_description_short"
 msgid "Ultra processed foods"
 msgstr "Üst düzey işlemden geçmiş yiyecekler"
 
+msgctxt "attribute_nova_4_1_marker"
+msgid "1 ultra-processing marker"
+msgstr ""
+
+# variable names between { } must not be translated
+msgctxt "f_attribute_nova_4_markers"
+msgid "{number} ultra-processing markers"
+msgstr ""
+
 msgctxt "export_product_page"
 msgid "Export product to public database"
 msgstr "Ürünleri herkese açık veritabanına aktarın"
@@ -5031,15 +5040,15 @@ msgstr "Şu anda seçili tercihler"
 
 msgctxt "preferences_locally_saved"
 msgid "Your preferences are kept in your browser and never sent to Open Food Facts or anyone else."
-msgstr ""
+msgstr "Tercihleriniz tarayıcınızda tutulur ve asla Open Food Facts'e veya başka birine gönderilmez."
 
 msgctxt "preferences_edit_your_preferences"
 msgid "Edit your preferences"
-msgstr ""
+msgstr "Tercihlerinizi düzenleyin"
 
 msgctxt "preferences_your_preferences"
 msgid "Your preferences"
-msgstr ""
+msgstr "Tercihleriniz"
 
 # used in phrases like "salt in unknown quantity"
 msgctxt "unknown_quantity"
@@ -5825,15 +5834,15 @@ msgstr "Gıda devrimi sizinle başlıyor!"
 
 msgctxt "donation_hook_2024"
 msgid "Help us inform millions of consumers around the world about what they eat"
-msgstr ""
+msgstr "Dünya çapında milyonlarca tüketiciyi ne yedikleri konusunda bilgilendirmemize yardımcı olun"
 
 msgctxt "donation_title_2024"
 msgid "Please give to our 2024 Fundraiser"
-msgstr ""
+msgstr "Lütfen 2024 Bağış Kampanyamıza bağış yapın"
 
 msgctxt "donation_list_2024_main"
 msgid "Your donations fund the day-to-day operations of our non-profit association:"
-msgstr ""
+msgstr "Bağışlarınız, kâr amacı gütmeyen derneğimizin günlük faaliyetlerini finanse ediyor:"
 
 msgctxt "donation_list_2024_first"
 msgid "keeping our database open & available to all,"
@@ -5861,7 +5870,7 @@ msgstr ""
 
 msgctxt "donation_button_2024_text"
 msgid "I SUPPORT"
-msgstr ""
+msgstr "DESTEKLİYORUM"
 
 msgctxt "donation_cta"
 msgid "Donate"
@@ -5911,12 +5920,12 @@ msgstr "Karbon Ayakizi"
 # variable names between { } must not be translated
 msgctxt "f_carbon_footprint_per_100g_of_product"
 msgid "{grams} g CO₂e per 100g of product"
-msgstr ""
+msgstr "100 g ürün başına {grams} g CO²"
 
 # variable names between { } must not be translated
 msgctxt "f_carbon_footprint_per_unit"
 msgid "{kilograms} kg CO₂e per unit"
-msgstr ""
+msgstr "{kilograms} kg CO₂e birim başına"
 
 msgctxt "average_for_the_category"
 msgid "average for the category"
@@ -6371,6 +6380,10 @@ msgctxt "action_packager_codes_image"
 msgid "Take a photo of traceability codes"
 msgstr "İzlenebilirlik kodlarının fotoğrafını çekin"
 
+msgctxt "action_report_product_to_nutripatrol"
+msgid "Report this product to our moderators"
+msgstr ""
+
 # Used as a header for key facts
 msgctxt "knowledge_panels_facts"
 msgid "What you need to know"
@@ -6516,6 +6529,10 @@ msgctxt "api_result_product_not_found"
 msgid "Product not found"
 msgstr "Ürün bulunamadı"
 
+msgctxt "api_result_product_found_with_a_different_product_type"
+msgid "Product found with a different product type"
+msgstr ""
+
 msgctxt "api_result_product_updated"
 msgid "Product updated"
 msgstr "Ürün güncellendi"
@@ -6539,6 +6556,10 @@ msgstr "İstek gövdesinde geçersiz JSON"
 msgctxt "api_message_invalid_code"
 msgid "Invalid code"
 msgstr "Geçersiz kod"
+
+msgctxt "api_message_invalid_product_type"
+msgid "Invalid product type"
+msgstr ""
 
 msgctxt "api_message_invalid_type_must_be_object"
 msgid "Invalid type: must be an object"
@@ -6949,7 +6970,7 @@ msgstr "Bir sorun bildir"
 
 msgctxt "report_problem_navigation"
 msgid "Report a problem."
-msgstr ""
+msgstr "Bir sorun bildir."
 
 msgctxt "incomplete_or_incorrect_data_title"
 msgid "Incomplete or incorrect information?"
@@ -6966,6 +6987,10 @@ msgstr "Eğer bilgiler ambalaj üzerindeki bilgilerle eşleşmiyorsa tamamlayabi
 msgctxt "incomplete_or_incorrect_data_content_correct_off"
 msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
 msgstr "Open Food Facts ortak çalışmaya dayalı bir veri tabanıdır ve her katkı herkes için faydalıdır."
+
+msgctxt "report_to_nutripatrol_explain"
+msgid "If you want to report vandalism, inappropriate content or erroneous data you can't fix yourself, report it to our moderators team."
+msgstr ""
 
 msgctxt "description"
 msgid "Description"
@@ -7006,7 +7031,7 @@ msgstr "CRM'de açın"
 
 msgctxt "information_provided_by_the_manufacturer"
 msgid "Information provided by the manufacturer"
-msgstr ""
+msgstr "Üretici tarafından sağlanan bilgiler"
 
 msgctxt "information_provided_by_the_manufacturer_edit_form"
 msgid "Information identified by a factory icon has been provided by the manufacturer. It can be changed only by the manufacturer and moderators. If it is out of date or incorrect, please let us know."
@@ -7074,7 +7099,7 @@ msgstr "Kuruluş kimliği"
 
 msgctxt "verified_status"
 msgid "Verified status"
-msgstr ""
+msgstr "Doğrulanmış durum"
 
 msgctxt "creation_date"
 msgid "Creation date"
@@ -7086,7 +7111,7 @@ msgstr ""
 
 msgctxt "deny"
 msgid "Deny"
-msgstr ""
+msgstr "Reddet"
 
 msgctxt "users_requested_to_join_org"
 msgid "These users have requested to join the organization:"
@@ -7130,19 +7155,19 @@ msgstr ""
 
 msgctxt "date_of_last_update"
 msgid "Date of last update"
-msgstr ""
+msgstr "Son güncelleme tarihi"
 
 msgctxt "number_of_products_on_public_platform"
 msgid "Number of products on public platform"
-msgstr ""
+msgstr "Herkese açık platformdaki ürün sayısı"
 
 msgctxt "number_of_products_on_producer_platform"
 msgid "Number of products on producer platform"
-msgstr ""
+msgstr "Üretici platformundaki ürün sayısı"
 
 msgctxt "automated_daily_export_to_public_platform"
 msgid "Automatic daily export to public platform"
-msgstr ""
+msgstr "Herkese açık platforma otomatik günlük aktarım"
 
 msgctxt "improvements_navigation"
 msgid "Improvements"
@@ -7154,7 +7179,7 @@ msgstr ""
 
 msgctxt "organization_list"
 msgid "Organization list"
-msgstr ""
+msgstr "Organizasyon listesi"
 
 msgctxt "open_org"
 msgid "Open org"
@@ -7162,48 +7187,48 @@ msgstr ""
 
 msgctxt "secondhand"
 msgid "Secondhand"
-msgstr ""
+msgstr "İkinci el"
 
 msgctxt "donated_products_title"
 msgid "Donations"
-msgstr ""
+msgstr "Bağışlar"
 
 msgctxt "donated_products_subtitle"
 msgid "Give this product, or search for a similar donated product"
-msgstr ""
+msgstr "Bu ürünü verin veya bağışlanan benzer bir ürünü arayın"
 
 msgctxt "used_products_title"
 msgid "Used products"
-msgstr ""
+msgstr "Kullanılmış ürünler"
 
 msgctxt "used_products_subtitle"
 msgid "Buy this product used, or search for a similar used product"
-msgstr ""
+msgstr "Bu ürünü ikinci el olarak satın alın veya benzer bir ikinci el ürün arayın"
 
 msgctxt "attribute_repairability_index_france_name"
 msgid "Repairability index"
-msgstr ""
+msgstr "Onarılabilirlik indeksi"
 
 msgctxt "attribute_repairability_index_france_setting_name"
 msgid "Good repairability"
-msgstr ""
+msgstr "İyi onarılabilirlik"
 
 msgctxt "attribute_repairability_index_france_setting_note"
 msgid "Mandatory rating in France for certain products since 2021"
-msgstr ""
+msgstr "Fransa'da 2021'den beri belirli ürünler için zorunlu derecelendirme"
 
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_repairability_index_france_grade_title"
 msgid "Repairability index %s"
-msgstr ""
+msgstr "Onarılabilirlik indeksi %s"
 
 msgctxt "attribute_repairability_index_france_unknown_title"
 msgid "Repairability index unknown"
-msgstr ""
+msgstr "Onarılabilirlik indeksi bilinmiyor"
 
 msgctxt "attribute_repairability_index_france_not_applicable_title"
 msgid "Repairability index not-applicable"
-msgstr ""
+msgstr "Onarılabilirlik indeksi geçerli değil"
 
 msgctxt "attribute_repairability_index_france_not_applicable_description_short"
 msgid "Not-applicable for the category"
@@ -7212,25 +7237,61 @@ msgstr "Kategori için geçerli değil"
 # variable names between { } must not be translated
 msgctxt "f_attribute_repairability_index_france_not_applicable_description"
 msgid "Applicable only for categories: {categories}"
-msgstr ""
+msgstr "Yalnızca şu kategoriler için geçerlidir: {categories}"
 
 msgctxt "attribute_repairability_index_france_very_good_description_short"
 msgid "Very good repairability"
-msgstr ""
+msgstr "Çok iyi onarılabilirlik"
 
 msgctxt "attribute_repairability_index_france_good_description_short"
 msgid "Good repairability"
-msgstr ""
+msgstr "İyi onarılabilirlik"
 
 msgctxt "attribute_repairability_index_france_average_description_short"
 msgid "Average repairability"
-msgstr ""
+msgstr "Ortalama onarılabilirlik"
 
 msgctxt "attribute_repairability_index_france_poor_description_short"
 msgid "Poor repairability"
-msgstr ""
+msgstr "Zayıf onarılabilirlik"
 
 msgctxt "attribute_repairability_index_france_bad_description_short"
 msgid "Bad repairability"
+msgstr "Kötü onarılabilirlik"
+
+msgctxt "product_type"
+msgid "Product type"
+msgstr ""
+
+# Food product type
+msgctxt "product_type_food"
+msgid "Food"
+msgstr "Gıda"
+
+# Pet food product type
+msgctxt "product_type_petfood"
+msgid "Pet food"
+msgstr "Evcil hayvan maması"
+
+# Beauty product type
+msgctxt "product_type_beauty"
+msgid "Beauty"
+msgstr "Güzellik"
+
+# General product product type
+msgctxt "product_type_product"
+msgid "Product"
+msgstr "Ürün"
+
+msgctxt "recommendation_limit_ultra_processed_foods_title"
+msgid "Limit ultra-processed foods"
+msgstr ""
+
+msgctxt "recommendation_limit_ultra_processed_foods_subtitle"
+msgid "Ultra-processed foods increase noncommunicable chronic disease risk"
+msgstr ""
+
+msgctxt "recommendation_limit_ultra_processed_foods_text"
+msgid "Several studies have found that a high consumption of ultra-processed foods is associated with an increased risk of noncommunicable chronic diseases, such as obesity, hypertension and diabetes."
 msgstr ""
 
