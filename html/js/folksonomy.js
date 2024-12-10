@@ -7,8 +7,8 @@
 /* eslint no-unused-expressions: ["error", { "allowTernary": true }] */
 
 // Product Opener (Open Food Facts web app) uses:
-// * jQuery 3.7.1:                view-source:https://static.openfoodfacts.org/js/dist/jquery.js (~84 KB)
-//                                http://code.jquery.com/jquery-3.7.1.min.js
+// * jQuery 2.2.4:                view-source:https://static.openfoodfacts.org/js/dist/jquery.js (~84 KB)
+//                                http://code.jquery.com/jquery-2.2.4.min.js
 // * jQuery-UI 1.14.1:            view-source:https://static.openfoodfacts.org/js/dist/jquery-ui.js (~82 KB)
 //                                http://code.jquery.com/ui/1.14.1/jquery-ui.min.js
 // * Tagify 3.x:                  https://github.com/yairEO/tagify (~47 KB)
