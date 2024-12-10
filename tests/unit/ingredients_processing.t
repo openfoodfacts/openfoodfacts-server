@@ -1837,10 +1837,16 @@ my @tests = (
 		{lc => "hr", ingredients_text => "Pasterizirano mlijeko (s 1.0% mliječne masti)"},
 		[
 			{
-				'id' => 'en:milk-with-1-0-milk-fat',
-				'is_in_taxonomy' => 1,
-				'processing' => 'en:pasteurised',
-				'text' => 'mlijeko s 1.0% mliječne masti'
+				id => "en:pasteurised-milk",
+				ingredients => [
+					{
+						id => "en:milk-with-1-0-milk-fat",
+						is_in_taxonomy => 1,
+						text => "mlijeko s 1.0% mlije\x{10d}ne masti"
+					}
+				],
+				is_in_taxonomy => 1,
+				text => "Pasterizirano mlijeko"
 			}
 		]
 	],
