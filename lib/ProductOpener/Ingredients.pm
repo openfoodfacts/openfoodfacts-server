@@ -3435,7 +3435,7 @@ sub get_missing_ciqual_codes ($ingredients_ref) {
 
 =head2 get_missing_ecobalyse_ids ($ingredients_ref)
 
-Assign a ecobalyse_id or a ciqual_proxy_food_code to ingredients and sub ingredients. (NOTE : this is a first version that'll soon be improved)
+Assign a ecobalyse_code or a ecobalyse_proxy_code to ingredients and sub ingredients. (NOTE : this is a first version that'll soon be improved)
 
 =head3 Arguments
 
@@ -3472,26 +3472,40 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 
 		# List of suffixes
 		my @suffixes = ();
+		# If the ingredient is both organic and French...
+		if ((defined $ingredient_ref->{labels}) and 
+		    ($ingredient_ref->{labels} =~ /\ben:organic\b/) and 
+		    (defined $ingredient_ref->{origins}) and 
+		    (get_geographical_area($ingredient_ref->{origins}) eq "fr")) {
+
+		    push @suffixes, "_labels_en_organic_origins_en_france";
+		}
+		# If the ingredient is both organic and European...
+		if ((defined $ingredient_ref->{labels}) and 
+		    ($ingredient_ref->{labels} =~ /\ben:organic\b/) and 
+		    (defined $ingredient_ref->{origins}) and 
+		    (get_geographical_area($ingredient_ref->{origins}) eq "eu")) {
+    
+		    push @suffixes, "_labels_en_organic_origins_en_european_union";
+		}
 		# If the ingredient is organic...
-		if ((defined $ingredient_ref->{labels}) and ($ingredient_ref->{labels} =~ /\ben:organic\b/)) {
+		if ((defined $ingredient_ref->{labels}) and 
+			($ingredient_ref->{labels} =~ /\ben:organic\b/)) {
+
 			push @suffixes, "_labels_en_organic";
 		}
-		# If the ingredient is european...
-		#if ((defined $ingredient_ref->{labels}) and ($ingredient_ref->{labels} =~ /\ben:organic\b/)) {
-		#	push @suffixes, "_origins_en_france";
-		#}
-		# If the ingredient is french...
-		#if ((defined $ingredient_ref->{origin}) and ($ingredient_ref->{origin} =~ /\ben:organic\b/)) {
-		#	push @suffixes, "__origins_en_european_union";
-		#}
-		# If the ingredient is both organic and french...
-		#if ((defined $ingredient_ref->{labels}) and ($ingredient_ref->{labels} =~ /\ben:organic\b/)) {
-		#	push @suffixes, "_labels_en_organic_origins_en_france";
-		#}
-		# If the ingredient is both organic and european...
-		#if ((defined $ingredient_ref->{labels}) and ($ingredient_ref->{labels} =~ /\ben:organic\b/)) {
-		#	push @suffixes, "_labels_en_organic_origins_en_european_union";
-		#}
+		# If the ingredient is French...
+		if ((defined $ingredient_ref->{origins}) and 
+		    (get_geographical_area($ingredient_ref->{origins}) eq "fr")) {
+
+			push @suffixes, "_origins_en_france";
+		}
+		# If the ingredient is European...
+		if ((defined $ingredient_ref->{origins}) and 
+		    (get_geographical_area($ingredient_ref->{origins}) eq "eu")) {
+
+			push @suffixes, "_origins_en_european_union";
+		}
 		push @suffixes, '';
 		
 
@@ -3527,6 +3541,35 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 		#ecobalyse_labels_en_organic_origins_en_france:en
 	}
 	return @ingredients_without_ecobalyse_ids;
+}
+
+=head2 get_geographical_area ($country_code)
+
+Retrieve the geographical area for ecobalyse. (NOTE : this is a first version that'll soon be improved)
+
+=head3 Arguments
+
+=head4 $country_code
+
+reference to the name of the country 
+
+=head3 Return values
+
+=head4 $ecobalyse_area
+
+=cut
+
+sub get_geographical_area ($country_code) {
+    # Getting information about the country
+    my $ecobalyse_area = ""; 
+    if (get_inherited_property("countries", $country_code, "ecobalyse_is_part_of_eu") eq "yes") {
+        $ecobalyse_area = "eu";
+    }
+    if ($country_code eq "france") {
+        $ecobalyse_area = "fr";
+    }
+
+    return $ecobalyse_area;
 }
 
 =head2 estimate_ingredients_percent_service ( $product_ref, $updated_product_fields_ref, $errors_ref )
