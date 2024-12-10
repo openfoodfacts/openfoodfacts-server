@@ -160,7 +160,8 @@ sub welcome_user_task ($job, $args_ref) {
 	print STDERR $log_message;
 
 	my $userid = $args_ref->{userid};
-	my $user_ref = find_user_by_username($userid);
+	my $keycloak = ProductOpener::Keycloak->new();
+	my $user_ref = $keycloak->find_user_by_username($userid);
 
 	# Fetch the HTML mail template corresponding to the user language, english is the
 	# default if the translation is not available
@@ -201,7 +202,8 @@ sub subscribe_user_newsletter_task ($job, $args_ref) {
 	print STDERR $log_message;
 
 	my $userid = $args_ref->{userid};
-	my $user_ref = find_user_by_username($userid);
+	my $keycloak = ProductOpener::Keycloak->new();
+	my $user_ref = $keycloak->find_user_by_username($userid);
 	if (not(defined $user_ref)) {
 		$job->fail({errors => ['User with id ' . $userid . ' not found in Keycloak.']});
 		return;
@@ -241,7 +243,7 @@ sub process_user_requested_org_task ($job, $args_ref) {
 	print STDERR $log_message;
 
 	my $userid = $args_ref->{userid};
-	my $user_ref = retreive_user($userid);
+	my $user_ref = retrieve_user($userid);
 	if (not(defined $user_ref)) {
 		$job->fail({errors => ['User with id ' . $userid . ' not found.']});
 		return;
