@@ -21,6 +21,7 @@
 
     panel             = panels.$panel_id;
     is_card_or_inline = (panel.type == "card") OR (panel.type == "inline");
+    has_elements      = panel.elements.defined AND panel.elements.size > 0;
     wrapper_name      = is_card_or_inline ? "wrapper_for_card_or_inline" : "wrapper_for_other_types";   %]
 
 	<!-- start templates/[% template.name %] - panel_id: [% panel_id %] -->
@@ -92,10 +93,10 @@
         style="margin-top:0.5rem;margin-bottom:1.5rem;"
     [% END %]
 >
-<li class="accordion-navigation">
+<li class="accordion-navigation[% IF ! has_elements %] accordion-navigation-inactive[% END %]">
 
     [% IF panel.title_element.defined %]
-        <a href="#panel_[% panel_id | replace(':','-') %]_content" [% ~%]
+        <[% IF has_elements %]a[% ELSE %]div[% END %] href="#panel_[% panel_id | replace(':','-') %]_content" [% ~%]
            class="panel_title[% IF panel.title_element.type == "grade" %] grade_[% panel.title_element.grade %][% END %]"
             [% IF panel.size == "small" %]
                 style="padding:0.1rem;padding-left:1rem;"
@@ -130,7 +131,7 @@
                 <span [% IF panel.size == "small" %]style="font-size:0.9rem;"[% END %]>[% panel.title_element.subtitle %]</span>
             [% END %]
             <hr class="floatclear">
-        </a>
+        </[% IF has_elements %]a[% ELSE %]div[% END %]>
     [% END %]
 [% content %]
 </li>
