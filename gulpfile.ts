@@ -80,6 +80,7 @@ export function copyJs() {
     "./node_modules/select2/dist/js/select2.min.js",
     "./node_modules/jsbarcode/dist/JsBarcode.all.min.js",
   ], {
+    // prefer jquery from package.json to foundation-vendored copy
     ignore: "./node_modules/foundation-sites/js/vendor/jquery.js",
   }).
     pipe(init()).
