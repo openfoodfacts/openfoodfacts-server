@@ -3499,6 +3499,7 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 		    (get_geographical_area($ingredient_ref->{origins}) eq "fr")) {
 
 			push @suffixes, "_origins_en_france";
+			push @suffixes, "_origins_en_european_union";
 		}
 		# If the ingredient is European...
 		if ((defined $ingredient_ref->{origins}) and 
@@ -3543,13 +3544,13 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 	return @ingredients_without_ecobalyse_ids;
 }
 
-=head2 get_geographical_area ($country_code)
+=head2 get_geographical_area ($originid)
 
 Retrieve the geographical area for ecobalyse. (NOTE : this is a first version that'll soon be improved)
 
 =head3 Arguments
 
-=head4 $country_code
+=head4 $originid
 
 reference to the name of the country 
 
@@ -3559,13 +3560,13 @@ reference to the name of the country
 
 =cut
 
-sub get_geographical_area ($country_code) {
+sub get_geographical_area ($originid) {
     # Getting information about the country
     my $ecobalyse_area = ""; 
-    if (get_inherited_property("countries", $country_code, "ecobalyse_is_part_of_eu") eq "yes") {
+    if (get_inherited_property("countries", $originid, "ecobalyse_is_part_of_eu") eq "yes") {
         $ecobalyse_area = "eu";
     }
-    if ($country_code eq "france") {
+    if ($originid eq "en:france") {
         $ecobalyse_area = "fr";
     }
 
