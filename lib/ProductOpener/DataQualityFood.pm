@@ -1037,7 +1037,7 @@ sub check_nutrition_data ($product_ref) {
 			if ((not defined $product_ref->{serving_size}) or ($product_ref->{serving_size} eq '')) {
 				push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-data-per-serving-missing-serving-size";
 			}
-			elsif ($product_ref->{serving_quantity} eq "0") {
+			elsif (defined $product_ref->{serving_quantity} and $product_ref->{serving_quantity} eq "0") {
 				push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-data-per-serving-serving-quantity-is-0";
 			}
 		}
@@ -1280,33 +1280,33 @@ sub check_nutrition_data ($product_ref) {
 		}
 
 		# sum of nutriments that compose sugar can not be greater than sugar value
-		if (
-			(defined $product_ref->{nutriments}{sugars_100g})
-			and (
-				(
-					(
-						(defined $product_ref->{nutriments}{fructose_100g}) ? $product_ref->{nutriments}{fructose_100g}
-						: 0
-					) + (
-						(defined $product_ref->{nutriments}{glucose_100g}) ? $product_ref->{nutriments}{glucose_100g}
-						: 0
-					) + (
-						(defined $product_ref->{nutriments}{maltose_100g}) ? $product_ref->{nutriments}{maltose_100g}
-						: 0
-					) + (
-						(defined $product_ref->{nutriments}{lactose_100g}) ? $product_ref->{nutriments}{lactose_100g}
-						: 0
-					) + (
-						(defined $product_ref->{nutriments}{sucrose_100g}) ? $product_ref->{nutriments}{sucrose_100g}
-						: 0
-					)
-				) > ($product_ref->{nutriments}{sugars_100g}) + 0.001
-			)
-			)
-		{
+		if (defined $product_ref->{nutriments}{sugars_100g}) {
+			my $fructose
+				= defined $product_ref->{nutriments}{fructose_100g} ? $product_ref->{nutriments}{fructose_100g} : 0;
+			my $glucose
+				= defined $product_ref->{nutriments}{glucose_100g} ? $product_ref->{nutriments}{glucose_100g} : 0;
+			my $maltose
+				= defined $product_ref->{nutriments}{maltose_100g} ? $product_ref->{nutriments}{maltose_100g} : 0;
+			# sometimes lactose < 0.01 is written below the nutrition table together whereas
+			# sugar is 0 in the nutrition table (#10715)
+			my $sucrose
+				= defined $product_ref->{nutriments}{sucrose_100g} ? $product_ref->{nutriments}{sucrose_100g} : 0;
 
-			push @{$product_ref->{data_quality_errors_tags}},
-				"en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars";
+			# ignore lactose when having "<" symbol
+			my $lactose = 0;
+			if (defined $product_ref->{nutriments}{lactose_100g}) {
+				my $lactose_modifier = $product_ref->{nutriments}{'lactose_modifier'};
+				if (!defined $lactose_modifier || $lactose_modifier ne '<') {
+					$lactose = $product_ref->{nutriments}{lactose_100g};
+				}
+			}
+
+			my $total_sugar = $fructose + $glucose + $maltose + $lactose + $sucrose;
+
+			if ($total_sugar > $product_ref->{nutriments}{sugars_100g} + 0.001) {
+				push @{$product_ref->{data_quality_errors_tags}},
+					"en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars";
+			}
 		}
 
 		if (    (defined $product_ref->{nutriments}{"saturated-fat_100g"})
@@ -1753,8 +1753,10 @@ sub check_quantity ($product_ref) {
 			push @{$product_ref->{data_quality_warnings_tags}}, "en:product-quantity-under-1g";
 		}
 
-		if ($product_ref->{quantity} =~ /\d\s?mg\b/i) {
-			push @{$product_ref->{data_quality_warnings_tags}}, "en:product-quantity-in-mg";
+		if (defined $product_ref->{quantity} && $product_ref->{quantity} ne '') {
+			if ($product_ref->{quantity} =~ /\d\s?mg\b/i) {
+				push @{$product_ref->{data_quality_warnings_tags}}, "en:product-quantity-in-mg";
+			}
 		}
 	}
 
@@ -2590,51 +2592,58 @@ Check if all or almost all the ingredients have a specified percentage in the in
 
 sub check_ingredients_with_specified_percent ($product_ref) {
 
-	if (defined $product_ref->{ingredients_with_specified_percent_n}) {
+	if (    defined $product_ref->{ingredients_with_specified_percent_n}
+		and $product_ref->{ingredients_with_specified_percent_n} > 0
+		and defined $product_ref->{ingredients_with_unspecified_percent_n}
+		and $product_ref->{ingredients_with_unspecified_percent_n} == 0)
+	{
+		push @{$product_ref->{data_quality_info_tags}}, 'en:all-ingredients-with-specified-percent';
+	}
+	elsif (defined $product_ref->{ingredients_with_unspecified_percent_n}
+		and $product_ref->{ingredients_with_unspecified_percent_n} == 1)
+	{
+		push @{$product_ref->{data_quality_info_tags}}, 'en:all-but-one-ingredient-with-specified-percent';
+	}
 
-		if (    ($product_ref->{ingredients_with_specified_percent_n} > 0)
-			and ($product_ref->{ingredients_with_unspecified_percent_n} == 0))
-		{
-			push @{$product_ref->{data_quality_info_tags}}, 'en:all-ingredients-with-specified-percent';
-		}
-		elsif ($product_ref->{ingredients_with_unspecified_percent_n} == 1) {
-			push @{$product_ref->{data_quality_info_tags}}, 'en:all-but-one-ingredient-with-specified-percent';
-		}
+	if (    defined $product_ref->{ingredients_with_specified_percent_n}
+		and $product_ref->{ingredients_with_specified_percent_n} > 0
+		and defined $product_ref->{ingredients_with_specified_percent_sum}
+		and $product_ref->{ingredients_with_specified_percent_sum} >= 90
+		and defined $product_ref->{ingredients_with_unspecified_percent_sum}
+		and $product_ref->{ingredients_with_unspecified_percent_sum} < 10)
+	{
+		push @{$product_ref->{data_quality_info_tags}}, 'en:sum-of-ingredients-with-unspecified-percent-lesser-than-10';
+	}
 
-		if (    ($product_ref->{ingredients_with_specified_percent_n} > 0)
-			and ($product_ref->{ingredients_with_specified_percent_sum} >= 90)
-			and ($product_ref->{ingredients_with_unspecified_percent_sum} < 10))
-		{
-			push @{$product_ref->{data_quality_info_tags}},
-				'en:sum-of-ingredients-with-unspecified-percent-lesser-than-10';
-		}
+	# Flag products where the sum of % is higher than 100
+	if (    defined $product_ref->{ingredients_with_specified_percent_n}
+		and $product_ref->{ingredients_with_specified_percent_n} > 0
+		and defined $product_ref->{ingredients_with_specified_percent_sum}
+		and $product_ref->{ingredients_with_specified_percent_sum} > 100)
+	{
+		push @{$product_ref->{data_quality_info_tags}}, 'en:sum-of-ingredients-with-specified-percent-greater-than-100';
+	}
 
-		# Flag products where the sum of % is higher than 100
-		if (    ($product_ref->{ingredients_with_specified_percent_n} > 0)
-			and ($product_ref->{ingredients_with_specified_percent_sum} > 100))
-		{
-			push @{$product_ref->{data_quality_info_tags}},
-				'en:sum-of-ingredients-with-specified-percent-greater-than-100';
-		}
+	if (    defined $product_ref->{ingredients_with_specified_percent_n}
+		and $product_ref->{ingredients_with_specified_percent_n} > 0
+		and defined $product_ref->{ingredients_with_specified_percent_sum}
+		and $product_ref->{ingredients_with_specified_percent_sum} > 200)
+	{
+		push @{$product_ref->{data_quality_warnings_tags}},
+			'en:sum-of-ingredients-with-specified-percent-greater-than-200';
+	}
 
-		if (    ($product_ref->{ingredients_with_specified_percent_n} > 0)
-			and ($product_ref->{ingredients_with_specified_percent_sum} > 200))
-		{
-			push @{$product_ref->{data_quality_warnings_tags}},
-				'en:sum-of-ingredients-with-specified-percent-greater-than-200';
-		}
-
-		# Percentage for ingredient is higher than 100% in extracted ingredients from the picture
-		if ($product_ref->{ingredients_with_specified_percent_n} > 0) {
-			foreach my $ingredient_id (@{$product_ref->{ingredients}}) {
-				if (    (defined $ingredient_id->{percent})
-					and ($ingredient_id->{percent} > 100))
-				{
-					push @{$product_ref->{data_quality_warnings_tags}},
-						'en:ingredients-extracted-ingredient-from-picture-with-more-than-100-percent';
-					last;
-				}
-
+	# Percentage for ingredient is higher than 100% in extracted ingredients from the picture
+	if (defined $product_ref->{ingredients_with_specified_percent_n}
+		and $product_ref->{ingredients_with_specified_percent_n} > 0)
+	{
+		foreach my $ingredient_id (@{$product_ref->{ingredients}}) {
+			if (    (defined $ingredient_id->{percent})
+				and ($ingredient_id->{percent} > 100))
+			{
+				push @{$product_ref->{data_quality_warnings_tags}},
+					'en:ingredients-extracted-ingredient-from-picture-with-more-than-100-percent';
+				last;
 			}
 		}
 	}
