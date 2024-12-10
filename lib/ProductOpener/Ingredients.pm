@@ -3496,39 +3496,25 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 		# List of suffixes
 		my @suffixes = ();
 		# If the ingredient is both organic and French...
-		if ((defined $ingredient_ref->{labels}) and 
-		    ($ingredient_ref->{labels} =~ /\ben:organic\b/) and 
-		    (defined $ingredient_ref->{origins}) and 
-		    (get_geographical_area($ingredient_ref->{origins}) eq "fr")) {
-
+		if ((defined $ingredient_ref->{labels}) and ($ingredient_ref->{labels} =~ /\ben:organic\b/) and (defined $ingredient_ref->{origins}) and (get_geographical_area($ingredient_ref->{origins}) eq "fr")) {
 		    push @suffixes, "_labels_en_organic_origins_en_france";
 			push @suffixes, "_labels_en_organic_origins_en_european_union";
 		}
 		# If the ingredient is both organic and European...
-		if ((defined $ingredient_ref->{labels}) and 
-		    ($ingredient_ref->{labels} =~ /\ben:organic\b/) and 
-		    (defined $ingredient_ref->{origins}) and 
-		    (get_geographical_area($ingredient_ref->{origins}) eq "eu")) {
-    
+		if ((defined $ingredient_ref->{labels}) and ($ingredient_ref->{labels} =~ /\ben:organic\b/) and (defined $ingredient_ref->{origins}) and (get_geographical_area($ingredient_ref->{origins}) eq "eu")) {
 		    push @suffixes, "_labels_en_organic_origins_en_european_union";
 		}
 		# If the ingredient is organic...
-		if ((defined $ingredient_ref->{labels}) and 
-			($ingredient_ref->{labels} =~ /\ben:organic\b/)) {
-
+		if ((defined $ingredient_ref->{labels}) and ($ingredient_ref->{labels} =~ /\ben:organic\b/)) {
 			push @suffixes, "_labels_en_organic";
 		}
 		# If the ingredient is French...
-		if ((defined $ingredient_ref->{origins}) and 
-		    (get_geographical_area($ingredient_ref->{origins}) eq "fr")) {
-
+		if ((defined $ingredient_ref->{origins}) and (get_geographical_area($ingredient_ref->{origins}) eq "fr")) {
 			push @suffixes, "_origins_en_france";
 			push @suffixes, "_origins_en_european_union";
 		}
 		# If the ingredient is European...
-		if ((defined $ingredient_ref->{origins}) and 
-		    (get_geographical_area($ingredient_ref->{origins}) eq "eu")) {
-
+		if ((defined $ingredient_ref->{origins}) and (get_geographical_area($ingredient_ref->{origins}) eq "eu")) {
 			push @suffixes, "_origins_en_european_union";
 		}
 		push @suffixes, '';
