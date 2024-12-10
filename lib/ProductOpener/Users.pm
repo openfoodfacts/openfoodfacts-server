@@ -165,10 +165,11 @@ sub welcome_user_task ($job, $args_ref) {
 
 	# Fetch the HTML mail template corresponding to the user language, english is the
 	# default if the translation is not available
-	# TODO: If the user does not explicitly set a language this is not saved in Keycloak
-	my $language = $user_ref->{attributes}->{preferred_language};
+	my $language = $user_ref->{attributes}->{locale}[0];
 	my $email_content = get_html_email_content("user_welcome.html", $language);
-	my $user_name = $user_ref->{attributes}->{name} || $userid;
+	my $user_name = $user_ref->{attributes}->{name}[0] || $userid;
+	$user_ref->{name} = $user_name;
+
 	# Replace placeholders by user values
 	$email_content =~ s/\{\{USERID\}\}/$userid/g;
 	$email_content =~ s/\{\{NAME\}\}/$user_name/g;
