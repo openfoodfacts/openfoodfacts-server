@@ -4676,6 +4676,15 @@ msgctxt "attribute_nova_4_description_short"
 msgid "Ultra processed foods"
 msgstr "מזון מעובד מאוד"
 
+msgctxt "attribute_nova_4_1_marker"
+msgid "1 ultra-processing marker"
+msgstr "סימן אולטרא עיבוד אחד"
+
+# variable names between { } must not be translated
+msgctxt "f_attribute_nova_4_markers"
+msgid "{number} ultra-processing markers"
+msgstr "{number} סימני אולטרא עיבוד"
+
 msgctxt "export_product_page"
 msgid "Export product to public database"
 msgstr "ייצוא מוצר למסד נתונים ציבורי"
@@ -6373,6 +6382,10 @@ msgctxt "action_packager_codes_image"
 msgid "Take a photo of traceability codes"
 msgstr "צילום הקודים של המעקב"
 
+msgctxt "action_report_product_to_nutripatrol"
+msgid "Report this product to our moderators"
+msgstr "דיווח על המוצר הזה למפקחים שלנו"
+
 # Used as a header for key facts
 msgctxt "knowledge_panels_facts"
 msgid "What you need to know"
@@ -6518,6 +6531,10 @@ msgctxt "api_result_product_not_found"
 msgid "Product not found"
 msgstr "המוצר לא נמצא"
 
+msgctxt "api_result_product_found_with_a_different_product_type"
+msgid "Product found with a different product type"
+msgstr "המוצר נמצא תחת סוג מוצר אחר"
+
 msgctxt "api_result_product_updated"
 msgid "Product updated"
 msgstr "המוצר עודכן"
@@ -6541,6 +6558,10 @@ msgstr "JSON שגוי בגוף הבקשה"
 msgctxt "api_message_invalid_code"
 msgid "Invalid code"
 msgstr "קוד שגוי"
+
+msgctxt "api_message_invalid_product_type"
+msgid "Invalid product type"
+msgstr "סוג מוצר שגוי"
 
 msgctxt "api_message_invalid_type_must_be_object"
 msgid "Invalid type: must be an object"
@@ -6969,6 +6990,10 @@ msgctxt "incomplete_or_incorrect_data_content_correct_off"
 msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
 msgstr "Open Food Facts הוא מסד נתונים שיתופי, וכל תרומה מועילה לכלל."
 
+msgctxt "report_to_nutripatrol_explain"
+msgid "If you want to report vandalism, inappropriate content or erroneous data you can't fix yourself, report it to our moderators team."
+msgstr "בדיווח על השחתה, תוכן פוגעני או שגוי שאין לך איך לתקן בעצמך, יש לדווח לצוות המפקחים שלנו."
+
 msgctxt "description"
 msgid "Description"
 msgstr "תיאור"
@@ -7235,4 +7260,40 @@ msgstr "יכולת תיקון ירודה"
 msgctxt "attribute_repairability_index_france_bad_description_short"
 msgid "Bad repairability"
 msgstr "יכולת תיקון גרועה"
+
+msgctxt "product_type"
+msgid "Product type"
+msgstr "סוג המוצר"
+
+# Food product type
+msgctxt "product_type_food"
+msgid "Food"
+msgstr "מזון"
+
+# Pet food product type
+msgctxt "product_type_petfood"
+msgid "Pet food"
+msgstr "מזון לחיות מחמד"
+
+# Beauty product type
+msgctxt "product_type_beauty"
+msgid "Beauty"
+msgstr "טיפול"
+
+# General product product type
+msgctxt "product_type_product"
+msgid "Product"
+msgstr "מוצר"
+
+msgctxt "recommendation_limit_ultra_processed_foods_title"
+msgid "Limit ultra-processed foods"
+msgstr "הגבלת מאכלים אולטרא מעובדים"
+
+msgctxt "recommendation_limit_ultra_processed_foods_subtitle"
+msgid "Ultra-processed foods increase noncommunicable chronic disease risk"
+msgstr "מאכלים אולטרא מעובדים מגדילים את הסיכוי למחלות כרוניות שאינן מידבקות"
+
+msgctxt "recommendation_limit_ultra_processed_foods_text"
+msgid "Several studies have found that a high consumption of ultra-processed foods is associated with an increased risk of noncommunicable chronic diseases, such as obesity, hypertension and diabetes."
+msgstr "מספר מחקרים מצאו שצריכה מוגברת של מאכלים אולטרא מעובדים מקושרת לסיכון מוגבר למחלות כרוניות שאינן מידבקות, כגון השמנה, לחץ דם גבוה וסוכרת."
 
