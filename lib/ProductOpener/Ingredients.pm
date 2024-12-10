@@ -3479,6 +3479,7 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 		    (get_geographical_area($ingredient_ref->{origins}) eq "fr")) {
 
 		    push @suffixes, "_labels_en_organic_origins_en_france";
+			push @suffixes, "_labels_en_organic_origins_en_european_union";
 		}
 		# If the ingredient is both organic and European...
 		if ((defined $ingredient_ref->{labels}) and 
