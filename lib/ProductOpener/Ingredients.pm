@@ -3497,7 +3497,7 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 		my @suffixes = ();
 		# If the ingredient is both organic and French...
 		if ((defined $ingredient_ref->{labels}) and ($ingredient_ref->{labels} =~ /\ben:organic\b/) and (defined $ingredient_ref->{origins}) and (get_geographical_area($ingredient_ref->{origins}) eq "fr")) {
-		    push @suffixes, "_labels_en_organic_origins_en_france";
+			push @suffixes, "_labels_en_organic_origins_en_france";
 			push @suffixes, "_labels_en_organic_origins_en_european_union";
 		}
 		# If the ingredient is both organic and European...
