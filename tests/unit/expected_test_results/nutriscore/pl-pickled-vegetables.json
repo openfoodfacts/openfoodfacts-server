@@ -233,10 +233,10 @@
    "nutriments" : {
       "energy_100g" : 53,
       "fat_100g" : 0.1,
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 75.0713606089439,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 75.0713606089439,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 86.2511893434824,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 86.2511893434824,
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 88.3920076117983,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 88.3920076117983,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 99.5718363463368,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 99.5718363463368,
       "nova-group" : 3,
       "nova-group_100g" : 3,
       "nova-group_serving" : 3,
@@ -309,9 +309,9 @@
             "fiber" : 0,
             "fiber_points" : 0,
             "fiber_value" : 0,
-            "fruits_vegetables_nuts_colza_walnut_olive_oils" : 86.2511893434824,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils" : 99.5718363463368,
             "fruits_vegetables_nuts_colza_walnut_olive_oils_points" : 5,
-            "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 86.3,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 99.6,
             "is_beverage" : 0,
             "is_cheese" : 0,
             "is_fat" : 0,
@@ -366,7 +366,7 @@
                   {
                      "id" : "salt",
                      "new_grade" : "d",
-                     "new_score" : 17,
+                     "new_score" : 14,
                      "new_value" : 4,
                      "points" : 20,
                      "points_max" : 20,
@@ -384,13 +384,10 @@
                   },
                   {
                      "id" : "fruits_vegetables_legumes",
-                     "new_grade" : "d",
-                     "new_score" : 15,
-                     "new_value" : 81,
-                     "points" : 2,
+                     "points" : 5,
                      "points_max" : 5,
                      "unit" : "%",
-                     "value" : 75.1
+                     "value" : 88.4
                   }
                ]
             },
@@ -407,14 +404,14 @@
                "fiber",
                "fruits_vegetables_legumes"
             ],
-            "positive_points" : 2,
+            "positive_points" : 5,
             "positive_points_max" : 10
          },
          "grade" : "d",
          "nutrients_available" : 1,
          "nutriscore_applicable" : 1,
          "nutriscore_computed" : 1,
-         "score" : 18
+         "score" : 15
       }
    },
    "nutriscore_2021_tags" : [
@@ -430,9 +427,9 @@
       "fiber" : 0,
       "fiber_points" : 0,
       "fiber_value" : 0,
-      "fruits_vegetables_nuts_colza_walnut_olive_oils" : 86.2511893434824,
+      "fruits_vegetables_nuts_colza_walnut_olive_oils" : 99.5718363463368,
       "fruits_vegetables_nuts_colza_walnut_olive_oils_points" : 5,
-      "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 86.3,
+      "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 99.6,
       "grade" : "c",
       "is_beverage" : 0,
       "is_cheese" : 0,
@@ -471,9 +468,9 @@
    "nutrition_score_beverage" : 0,
    "nutrition_score_debug" : "",
    "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients" : 1,
-   "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 75.0713606089439,
+   "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 88.3920076117983,
    "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
-   "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 86.2511893434824,
+   "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 99.5718363463368,
    "nutrition_score_warning_no_fiber" : 1,
    "other_nutritional_substances_tags" : [],
    "pnns_groups_1" : "Salty snacks",
