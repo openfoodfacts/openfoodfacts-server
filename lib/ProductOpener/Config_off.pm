@@ -607,7 +607,7 @@ $options{categories_exempted_from_nutriscore} = [
 		en:baby-milks
 		en:chewing-gum
 		en:food-additives
-		en:food-supplements
+		en:dietary-supplements
 		en:meal-replacements
 		en:salts
 		en:spices
