@@ -3496,13 +3496,21 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 		# List of suffixes
 		my @suffixes = ();
 		# If the ingredient is both organic and French...
-		if ((defined $ingredient_ref->{labels}) and ($ingredient_ref->{labels} =~ /\ben:organic\b/) and (defined $ingredient_ref->{origins}) and (get_geographical_area($ingredient_ref->{origins}) eq "fr")) {
+		if (    (defined $ingredient_ref->{labels})
+			and ($ingredient_ref->{labels} =~ /\ben:organic\b/)
+			and (defined $ingredient_ref->{origins})
+			and (get_geographical_area($ingredient_ref->{origins}) eq "fr"))
+		{
 			push @suffixes, "_labels_en_organic_origins_en_france";
 			push @suffixes, "_labels_en_organic_origins_en_european_union";
 		}
 		# If the ingredient is both organic and European...
-		if ((defined $ingredient_ref->{labels}) and ($ingredient_ref->{labels} =~ /\ben:organic\b/) and (defined $ingredient_ref->{origins}) and (get_geographical_area($ingredient_ref->{origins}) eq "eu")) {
-		    push @suffixes, "_labels_en_organic_origins_en_european_union";
+		if (    (defined $ingredient_ref->{labels})
+			and ($ingredient_ref->{labels} =~ /\ben:organic\b/)
+			and (defined $ingredient_ref->{origins})
+			and (get_geographical_area($ingredient_ref->{origins}) eq "eu"))
+		{
+			push @suffixes, "_labels_en_organic_origins_en_european_union";
 		}
 		# If the ingredient is organic...
 		if ((defined $ingredient_ref->{labels}) and ($ingredient_ref->{labels} =~ /\ben:organic\b/)) {
@@ -3518,7 +3526,6 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 			push @suffixes, "_origins_en_european_union";
 		}
 		push @suffixes, '';
-		
 
 		# First try an exact match, and then a proxy match
 		foreach my $prefix ("ecobalyse", "ecobalyse_proxy") {
@@ -3571,16 +3578,16 @@ reference to the name of the country
 =cut
 
 sub get_geographical_area ($originid) {
-    # Getting information about the country
-    my $ecobalyse_area = ""; 
-    if (get_inherited_property("countries", $originid, "ecobalyse_is_part_of_eu") eq "yes") {
-        $ecobalyse_area = "eu";
-    }
-    if ($originid eq "en:france") {
-        $ecobalyse_area = "fr";
-    }
+	# Getting information about the country
+	my $ecobalyse_area = "";
+	if (get_inherited_property("countries", $originid, "ecobalyse_is_part_of_eu") eq "yes") {
+		$ecobalyse_area = "eu";
+	}
+	if ($originid eq "en:france") {
+		$ecobalyse_area = "fr";
+	}
 
-    return $ecobalyse_area;
+	return $ecobalyse_area;
 }
 
 =head2 estimate_ingredients_percent_service ( $product_ref, $updated_product_fields_ref, $errors_ref )
