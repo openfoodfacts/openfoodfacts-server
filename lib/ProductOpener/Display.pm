@@ -2596,6 +2596,11 @@ HTML
 			$extra_column_searchable .= ', {"searchable": false}';
 		}
 
+		# additive table has an extra column for risks
+		if ($tagtype eq 'additives') {
+			$extra_column_searchable .= ', {"searchable": false}';
+		}
+
 		$request_ref->{initjs} .= <<JS
 let oTable = \$('#tagstable').DataTable({
 	language: {
@@ -5875,7 +5880,6 @@ facets.
 
 sub display_pagination ($request_ref, $count, $limit, $page) {
 
-	my $html = '';
 	my $html_pages = '';
 
 	$log->debug("PAGINATION: START\n", {count => $count, limit => $limit, page => $page}) if $log->is_debug();
@@ -5982,29 +5986,7 @@ sub display_pagination ($request_ref, $count, $limit, $page) {
 			. "</ul>\n";
 	}
 
-	# Close the list
-
-	if (defined single_param("jqm")) {
-		if (defined $next_page_url) {
-			my $loadmore = lang("loadmore");
-			$html .= <<HTML
-<li id="loadmore" style="text-align:center"><a href="${formatted_subdomain}/${next_page_url}&jqm_loadmore=1" id="loadmorelink">$loadmore</a></li>
-HTML
-				;
-		}
-		else {
-			$html .= '<br><br>';
-		}
-	}
-
-	if (not defined $request_ref->{jqm_loadmore}) {
-		$html .= "</ul>\n";
-	}
-
-	if (not defined single_param("jqm")) {
-		$html .= $html_pages;
-	}
-	return $html;
+	return $html_pages;
 }
 
 sub search_and_export_products ($request_ref, $query_ref, $sort_by) {
