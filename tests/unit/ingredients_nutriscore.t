@@ -61,8 +61,7 @@ my @ingredients_text_tests = (
 	[
 		{
 			lc => "fr",
-			ingredients_text =>
-				"Courgette grillée 37,5%, tomate pelée 20%, poivron jaune 17%, oignon rouge grillé 8%,
+			ingredients_text => "Courgette grillée 37,5%, tomate pelée 20%, poivron jaune 17%, oignon rouge grillé 8%,
 				eau, huile d'olive vierge extra 3,9%, oignon,
 				olive noire entière dénoyautée saumurée 2,5% (olive, eau, sel, correcteurs d'acidité : acide citrique, acide lactique),
 				ail, basilic 0,9%, amidon de riz, sel"
