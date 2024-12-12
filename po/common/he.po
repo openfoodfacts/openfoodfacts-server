@@ -4813,48 +4813,48 @@ msgctxt "attribute_group_environment_name"
 msgid "Environment"
 msgstr "סביבה"
 
-msgctxt "attribute_ecoscore_name"
+msgctxt "attribute_environmental_score_name"
 msgid "Eco-Score"
 msgstr "Eco-Score"
 
-msgctxt "attribute_ecoscore_setting_name"
+msgctxt "attribute_environmental_score_setting_name"
 msgid "Low environmental impact (Eco-Score)"
 msgstr "השפעה סביבתית נמוכה (Eco-Score)"
 
-msgctxt "attribute_ecoscore_setting_note"
-msgid "The Eco-Score is an environmental score (ecoscore) from A to E which makes it easy to compare the impact of food products on the environment."
+msgctxt "attribute_environmental_score_setting_note"
+msgid "The Eco-Score is an environmental score (environmental_score) from A to E which makes it easy to compare the impact of food products on the environment."
 msgstr "Eco-Score הוא ציון סביבתי מ־A עד E שמקל על ההשוואה של מוצרי מזון על הסביבה."
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
-msgctxt "attribute_ecoscore_grade_title"
+msgctxt "attribute_environmental_score_grade_title"
 msgid "Eco-Score %s"
 msgstr "Eco-Score %s"
 
-msgctxt "attribute_ecoscore_a_plus_description_short"
+msgctxt "attribute_environmental_score_a_plus_description_short"
 msgid "Very low environmental impact"
 msgstr "השפעה מועטה מאוד על איכות הסביבה"
 
-msgctxt "attribute_ecoscore_a_description_short"
+msgctxt "attribute_environmental_score_a_description_short"
 msgid "Very low environmental impact"
 msgstr "השפעה מועטה מאוד על איכות הסביבה"
 
-msgctxt "attribute_ecoscore_b_description_short"
+msgctxt "attribute_environmental_score_b_description_short"
 msgid "Low environmental impact"
 msgstr "השפעה מועטה על איכות הסביבה"
 
-msgctxt "attribute_ecoscore_c_description_short"
+msgctxt "attribute_environmental_score_c_description_short"
 msgid "Moderate environmental impact"
 msgstr "השפעה מתונה על איכות הסביבה"
 
-msgctxt "attribute_ecoscore_d_description_short"
+msgctxt "attribute_environmental_score_d_description_short"
 msgid "High environmental impact"
 msgstr "השפעה רבה על איכות הסביבה"
 
-msgctxt "attribute_ecoscore_e_description_short"
+msgctxt "attribute_environmental_score_e_description_short"
 msgid "Very high environmental impact"
 msgstr "השפעה רבה מאוד על איכות הסביבה"
 
-msgctxt "attribute_ecoscore_f_description_short"
+msgctxt "attribute_environmental_score_f_description_short"
 msgid "Very high environmental impact"
 msgstr "השפעה רבה מאוד על איכות הסביבה"
 
@@ -5008,22 +5008,22 @@ msgid "Environmental impact"
 msgstr "השפעה על איכות הסביבה"
 
 # Numerical score for the Eco-score (do not translate Eco-score)
-msgctxt "ecoscore_score"
+msgctxt "environmental_score_score"
 msgid "Eco-score score"
 msgstr "ציון Eco-Score"
 
 # Letter grade from A to E for the Eco-score (do not translate Eco-score)
-msgctxt "ecoscore_grade"
+msgctxt "environmental_score_grade"
 msgid "Eco-score grade"
 msgstr "דירוג Eco-Score"
 
 # do not translate Eco-score
-msgctxt "ecoscore_calculation_details"
+msgctxt "environmental_score_calculation_details"
 msgid "Details of the calculation of the Eco-score"
 msgstr "פירוט אופן חישוב Eco-Score"
 
 # do not translate Eco-score
-msgctxt "ecoscore_information"
+msgctxt "environmental_score_information"
 msgid "Information about the Eco-score"
 msgstr "מידע על Eco-Score"
 
@@ -5056,11 +5056,11 @@ msgctxt "missing_nutrition_facts"
 msgid "Missing nutrition facts"
 msgstr "עובדות תזונתיות חסרות"
 
-msgctxt "ecoscore_p"
+msgctxt "environmental_score_p"
 msgid "Eco-Score"
 msgstr "Eco-Score"
 
-msgctxt "ecoscore_s"
+msgctxt "environmental_score_s"
 msgid "Eco-Score"
 msgstr "Eco-Score"
 
@@ -5304,7 +5304,7 @@ msgctxt "sort_by_nutriscore_score"
 msgid "Products with the best Nutri-Score"
 msgstr "מוצרים עם ה־Nutri-Score הטוב ביותר"
 
-msgctxt "sort_by_ecoscore_score"
+msgctxt "sort_by_environmental_score_score"
 msgid "Products with the best Eco-Score"
 msgstr "מוצרים עם ה־Edo-Score הטוב ביותר"
 
@@ -5358,32 +5358,32 @@ msgctxt "delete_user_process"
 msgid "User is being deleted. This may take a few minutes."
 msgstr "המשתמש נמחק. זה עלול לארוך מספר דקות."
 
-msgctxt "attribute_ecoscore_not_applicable_title"
+msgctxt "attribute_environmental_score_not_applicable_title"
 msgid "Eco-Score not yet applicable"
 msgstr "Eco-Score לא חל עדיין"
 
-msgctxt "attribute_ecoscore_not_applicable_description_short"
+msgctxt "attribute_environmental_score_not_applicable_description_short"
 msgid "Not yet applicable for the category"
 msgstr "לא חל עדיין על הקטגוריה"
 
 # variable names between { } must not be translated
-msgctxt "f_attribute_ecoscore_not_applicable_description"
+msgctxt "f_attribute_environmental_score_not_applicable_description"
 msgid "Not yet applicable for the category: {category}"
 msgstr "לא חל עדיין על הקטגוריה: {category}"
 
-msgctxt "ecoscore_not_applicable_coming_soon"
+msgctxt "environmental_score_not_applicable_coming_soon"
 msgid "The Eco-Score is not yet applicable for this category, but we are working on adding support for it."
 msgstr "Eco-Score לא חל עדיין על הקטגוריה הזאת אך אנו עמלים להוספת התמיכה בציון."
 
-msgctxt "attribute_ecoscore_unknown_title"
+msgctxt "attribute_environmental_score_unknown_title"
 msgid "Eco-Score not computed"
 msgstr "Eco-Score לא מחושב"
 
-msgctxt "attribute_ecoscore_unknown_description_short"
+msgctxt "attribute_environmental_score_unknown_description_short"
 msgid "Unknown environmental impact"
 msgstr "ההשפעה על איכות הסביבה לא ידועה"
 
-msgctxt "ecoscore_unknown_call_to_help"
+msgctxt "environmental_score_unknown_call_to_help"
 msgid "We could not compute the Eco-Score of this product as it is missing some data, could you help complete it?"
 msgstr "לא הצלחנו לחשב את ה־Eco-Score של מוצר זה מכיוון שחסרים בו נתונים, נוכל להיעזר בך להשלים אותו?"
 
@@ -5513,217 +5513,217 @@ msgctxt "forest_footprint_one_line_explanation"
 msgid "The forest footprint is calculated by taking into account the ingredients whose production requires soybeans, the cultivation of which is linked to deforestation."
 msgstr "טביעת הרגל של היער מחושבת על ידי התחשבות במרכיבים שייצורם דורש פולי סויה שגידולם קשור לכריתת יערות."
 
-msgctxt "ecoscore_agribalyse_match_warning"
+msgctxt "environmental_score_agribalyse_match_warning"
 msgid "The Eco-Score can only be calculated if the product has a sufficiently precise category."
 msgstr "ניתן לחשב Eco-Score רק אם למוצר יש קטגוריה מדויקת מספיק."
 
-msgctxt "ecoscore_add_more_precise_category"
+msgctxt "environmental_score_add_more_precise_category"
 msgid "You can modify the product page to add a more precise category."
 msgstr "באפשרותך לשנות את עמוד המוצר כדי להוסיף קטגוריה מדויקת יותר."
 
-msgctxt "ecoscore_platform_promo"
+msgctxt "environmental_score_platform_promo"
 msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
 msgstr "אם ייצרת את המוצר הזה, ניתן לשלוח לנו מידע עליו עם <a href=\"https://il.pro.openfoodfacts.org\">הפלטפורמה החינמית שלנו ליצרנים</a>."
 
-msgctxt "ecoscore_warning_missing_information"
+msgctxt "environmental_score_warning_missing_information"
 msgid "Warning: some information necessary to calculate the Eco-Score with precision is not provided (see the details of the calculation below)."
 msgstr "אזהרה: חלק מהמידע הנחוץ לחישוב Eco-Score באופן מדויק לא מסופק (פרטי החישוב מופיעים להלן לעיונך)."
 
-msgctxt "ecoscore_add_missing_information"
+msgctxt "environmental_score_add_missing_information"
 msgid "You can edit the product to add the missing information."
 msgstr "ניתן לערוך את המוצר כדי להוסיף את הפרטים החסרים."
 
-msgctxt "ecoscore_product_category_reference_score"
+msgctxt "environmental_score_product_category_reference_score"
 msgid "Baseline score of the product category"
 msgstr "ציון הבסיס של קטגוריית המוצר"
 
-msgctxt "ecoscore_panel_lca"
+msgctxt "environmental_score_panel_lca"
 msgid "Lifecyle Analysis (LCA)"
 msgstr "ניתוח מחזור חיים (LCA)"
 
 # do not translate Agribalyse
-msgctxt "ecoscore_agribalyse_category"
+msgctxt "environmental_score_agribalyse_category"
 msgid "Agribalyse category"
 msgstr "קטגוריית Agribalyse"
 
-msgctxt "ecoscore_category_proxy_match"
+msgctxt "environmental_score_category_proxy_match"
 msgid "Approximate match with the product category"
 msgstr "התאמה משוערת לקטגוריית המוצרים"
 
-msgctxt "ecoscore_category_exact_match"
+msgctxt "environmental_score_category_exact_match"
 msgid "Exact match with the product category"
 msgstr "התאמה מדויקת לקטגוריית המוצרים"
 
-msgctxt "ecoscore_pef_environmental_score"
+msgctxt "environmental_score_pef_environmental_score"
 msgid "PEF environmental score"
 msgstr "ציון PEF סביבתי"
 
-msgctxt "ecoscore_incl_climate_change_impact"
+msgctxt "environmental_score_incl_climate_change_impact"
 msgid "including impact on climate change"
 msgstr "כולל השפעה על שינויי האקלים"
 
-msgctxt "ecoscore_impact_detail_by_stages"
+msgctxt "environmental_score_impact_detail_by_stages"
 msgid "Details of the impacts by stages of the life cycle"
 msgstr "פירוט ההשפעות לפי שלבי מחזור החיים"
 
 # stage meaning step
-msgctxt "ecoscore_stage"
+msgctxt "environmental_score_stage"
 msgid "Stage"
 msgstr "שלב"
 
-msgctxt "ecoscore_impact"
+msgctxt "environmental_score_impact"
 msgid "Impact"
 msgstr "השפעה"
 
-msgctxt "ecoscore_agriculture"
+msgctxt "environmental_score_agriculture"
 msgid "Agriculture"
 msgstr "חקלאות"
 
-msgctxt "ecoscore_processing"
+msgctxt "environmental_score_processing"
 msgid "Processing"
 msgstr "עיבוד"
 
-msgctxt "ecoscore_packaging"
+msgctxt "environmental_score_packaging"
 msgid "Packaging"
 msgstr "אריזה"
 
-msgctxt "ecoscore_transportation"
+msgctxt "environmental_score_transportation"
 msgid "Transportation"
 msgstr "שינוע"
 
-msgctxt "ecoscore_distribution"
+msgctxt "environmental_score_distribution"
 msgid "Distribution"
 msgstr "הפצה"
 
-msgctxt "ecoscore_consumption"
+msgctxt "environmental_score_consumption"
 msgid "Consumption"
 msgstr "צריכה"
 
-msgctxt "ecoscore_lca_score_out_of_100"
+msgctxt "environmental_score_lca_score_out_of_100"
 msgid "LCA score out of 100"
 msgstr "ציון LCA מתוך 100"
 
-msgctxt "ecoscore_no_agribalyse_category_match"
+msgctxt "environmental_score_no_agribalyse_category_match"
 msgid "No match between product categories and Agribalyse categories."
 msgstr "אין התאמה בין קטגוריות המוצרים והקטגוריות ב־Agribalyse."
 
-msgctxt "ecoscore_edit_category_to_more_granular"
+msgctxt "environmental_score_edit_category_to_more_granular"
 msgid "You can modify the product page to add a more granular category."
 msgstr "ניתן לשנות את עמוד המוצר כדי להוסיף קטגוריה מדויקת יותר."
 
-msgctxt "ecoscore_additional_bonuses_and_maluses"
+msgctxt "environmental_score_additional_bonuses_and_maluses"
 msgid "Additional bonuses and maluses"
 msgstr "ציונים לשבח ולרעה"
 
-msgctxt "ecoscore_production_system"
+msgctxt "environmental_score_production_system"
 msgid "Production mode"
 msgstr "מצב ייצור"
 
-msgctxt "ecoscore_no_labels_taken_into_account"
+msgctxt "environmental_score_no_labels_taken_into_account"
 msgid "No labels taken into account for the production system."
 msgstr "לא נלקחו אף תוויות בחשבון במערכת הייצור."
 
-msgctxt "ecoscore_please_add_the_labels"
+msgctxt "environmental_score_please_add_the_labels"
 msgid "If this product has a label characterizing the production system (organic, fair trade, Label Rouge, Bleu Blanc Coeur etc.), you can modify the product sheet to add it."
 msgstr "אם למוצר זה יש תווית שמאפיינת את מערכת הייצור (אורגני, סחר הוגן, חי בריא, תנאי ייצור נאותים וכו׳), ניתן לשנות את גיליון המוצר כדי להוסיף אותה."
 
-msgctxt "ecoscore_origins_of_ingredients"
+msgctxt "environmental_score_origins_of_ingredients"
 msgid "Origins of ingredients"
 msgstr "מקורות הרכיבים"
 
-msgctxt "ecoscore_ingredients_not_indicated"
+msgctxt "environmental_score_ingredients_not_indicated"
 msgid "The origins of the ingredients of this product are not indicated."
 msgstr "מקורות רכיבי המוצר הזה לא צוינו."
 
-msgctxt "ecoscore_please_add_the_ingredients"
+msgctxt "environmental_score_please_add_the_ingredients"
 msgid "If they are indicated on the packaging, you can modify the product sheet and add them."
 msgstr "אם הם מצוינים על האריזה, ניתן לערוך את גיליון המוצר ולהוסיף אותם."
 
-msgctxt "ecoscore_environmental_policy"
+msgctxt "environmental_score_environmental_policy"
 msgid "Environmental policy"
 msgstr "מדיניות סביבתית"
 
-msgctxt "ecoscore_threatened_species"
+msgctxt "environmental_score_threatened_species"
 msgid "Threatened species"
 msgstr "מינים בסכנה"
 
-msgctxt "ecoscore_ingredients_whose_cultivation_threatens_species"
+msgctxt "environmental_score_ingredients_whose_cultivation_threatens_species"
 msgid "Ingredients that threatens species"
 msgstr "רכיבים שמאיימים על מינים"
 
-msgctxt "ecoscore_no_species_threatening_ingredients"
+msgctxt "environmental_score_no_species_threatening_ingredients"
 msgid "No ingredients that threaten species"
 msgstr "אין רכיבים שמאיימים על מינים"
 
-msgctxt "ecoscore_ingredients_unknown"
+msgctxt "environmental_score_ingredients_unknown"
 msgid "The information on the ingredients of this product has not been given."
 msgstr "המידע על רכיבי מוצר זה לא נמסרו."
 
-msgctxt "ecoscore_edit_for_more_precise_ecoscore"
+msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Eco-Score, you can edit the product page and add them."
 msgstr "לחישוב מדויק יותר של Eco-Score, ניתן לערוך את דף המוצר ולהוסיף אותם."
 
-msgctxt "ecoscore_packaging_ratio"
+msgctxt "environmental_score_packaging_ratio"
 msgid "ratio"
 msgstr "יחס"
 
-msgctxt "ecoscore_packaging_score"
+msgctxt "environmental_score_packaging_score"
 msgid "score"
 msgstr "ציון"
 
-msgctxt "ecoscore_score_of_all_components"
+msgctxt "environmental_score_score_of_all_components"
 msgid "Score of all components"
 msgstr "ציון לכל הרכיבים"
 
-msgctxt "ecoscore_no_packaging_information"
+msgctxt "environmental_score_no_packaging_information"
 msgid "The information about the packaging of this product is not filled in."
 msgstr "המידע על אריזת המוצר הזה לא צוין."
 
-msgctxt "ecoscore_unprecise_packaging_information"
+msgctxt "environmental_score_unprecise_packaging_information"
 msgid "The information about the packaging of this product is not sufficiently precise (exact shapes and materials of all components of the packaging)."
 msgstr "המידע על אריזת המוצר הזה אינה מדויקת מספיק (הצורות המדויקות והחומרים של כל הרכיבים של האריזה)."
 
-msgctxt "ecoscore_edit_for_more_precise_ecoscore"
+msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Eco-Score, you can modify the product page and add them."
 msgstr "לחישוב מדויק יותר של Eco-Score, ניתן לשנות את דף המוצר ולהוסיף אותם."
 
-msgctxt "ecoscore_final_score"
+msgctxt "environmental_score_final_score"
 msgid "Final score"
 msgstr "ציון סופי"
 
-msgctxt "ecoscore_lower_the_score_lower_the_impact"
+msgctxt "environmental_score_lower_the_score_lower_the_impact"
 msgid "(the lower the score, the lower the impact)"
 msgstr "(ככל שהציון יותר נמוך ככה ההשפעה יותר נמוכה)"
 
-msgctxt "ecoscore_kg_co2_eq_kg_product"
+msgctxt "environmental_score_kg_co2_eq_kg_product"
 msgid "kg CO2 eq/kg of product"
 msgstr "ק״ג CO2 שווה ערך לק״ג מוצר"
 
 # do not translate the link
-msgctxt "ecoscore_platform_prompt_ecoscore_modal"
+msgctxt "environmental_score_platform_prompt_environmental_score_modal"
 msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
 msgstr "אם ייצרת את המוצר הזה, ניתן לשלוח לנו מידע עליו עם <a href=\"https://il.pro.openfoodfacts.org\">הפלטפורמה החינמית שלנו ליצרנים</a>."
 
 # do not translate Eco-Score and the link
-msgctxt "ecoscore_description"
-msgid "The <a href=\"/ecoscore\">Eco-Score</a> is an experimental score that summarizes the environmental impacts of food products."
-msgstr "<a href=\"/ecoscore\">Eco-Score</a> הוא ציון ניסיוני שמסכם את ההשפעות הסביבתיות של מוצרי מזון."
+msgctxt "environmental_score_description"
+msgid "The <a href=\"/environmental_score\">Eco-Score</a> is an experimental score that summarizes the environmental impacts of food products."
+msgstr "<a href=\"/environmental_score\">Eco-Score</a> הוא ציון ניסיוני שמסכם את ההשפעות הסביבתיות של מוצרי מזון."
 
 # do not translate Eco-Score
-msgctxt "ecoscore_warning_fr"
+msgctxt "environmental_score_warning_fr"
 msgid "The Eco-Score formula is subject to change as it is regularly improved to make it more precise."
 msgstr "נוסחת Eco-Score עשויה להשתנות כיוון שהיא משתפרת באופן תמידי כך שתהיה מדויקת ככל הניתן."
 
 # do not translate Eco-Score
-msgctxt "ecoscore_warning_international"
+msgctxt "environmental_score_warning_international"
 msgid "The Eco-Score was initially developped for France and it is being extended to other European countries. The Eco-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
 msgstr "Eco-Score פותח במקור בצרפת והוא מתפשט למדינות אירופיות נוספות. נוסחת Eco-Score עשויה להשתנות כיוון שהיא משתפרת באופן תמידי כדי שתהיה מדויקת, ככל הניתן, לכל מדינה ומדינה."
 
-msgctxt "ecoscore_warning_transportation_world"
+msgctxt "environmental_score_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
 msgstr "נא לבחור מדינה כדי לכלול את השפעותיה המלאות של התעבורה."
 
-msgctxt "ecoscore_warning_transportation"
+msgctxt "environmental_score_warning_transportation"
 msgid "The full impact of transportation to your country is currently unknown."
 msgstr "ההשפעה המלאה של התעבורה למדינה שלך אינה ידועה כרגע."
 
@@ -5760,35 +5760,35 @@ msgctxt "org_protect_data_note"
 msgid "Removing or changing the provided data will be possible only by experimented contributors on the web site."
 msgstr "הסרה או שינוי של הנתונים שסופקו תהיה אפשרית רק על ידי מתנדבים מנוסים באתר."
 
-msgctxt "ecoscore_packaging_impact_high"
+msgctxt "environmental_score_packaging_impact_high"
 msgid "Packaging with a high impact"
 msgstr "אריזה בעלת השפעה גבוהה"
 
-msgctxt "ecoscore_packaging_impact_medium"
+msgctxt "environmental_score_packaging_impact_medium"
 msgid "Packaging with a medium impact"
 msgstr "אריזה בעלת השפעה בינונית"
 
-msgctxt "ecoscore_packaging_impact_low"
+msgctxt "environmental_score_packaging_impact_low"
 msgid "Packaging with a low impact"
 msgstr "אריזה בעלת השפעה נמוכה"
 
-msgctxt "ecoscore_packaging_missing_information"
+msgctxt "environmental_score_packaging_missing_information"
 msgid "Missing packaging information for this product"
 msgstr "חסר מידע אריזה עבור מוצר זה"
 
-msgctxt "ecoscore_origins_of_ingredients_impact_high"
+msgctxt "environmental_score_origins_of_ingredients_impact_high"
 msgid "Origins of ingredients with a high impact"
 msgstr "מקורות רכיבים בעלי השפעה גבוהה"
 
-msgctxt "ecoscore_origins_of_ingredients_impact_medium"
+msgctxt "environmental_score_origins_of_ingredients_impact_medium"
 msgid "Origins of ingredients with a medium impact"
 msgstr "מקורות רכיבים בעלי השפעה בינונית"
 
-msgctxt "ecoscore_origins_of_ingredients_impact_low"
+msgctxt "environmental_score_origins_of_ingredients_impact_low"
 msgid "Origins of ingredients with a low impact"
 msgstr "מקורות רכיבים בעלי השפעה נמוכה"
 
-msgctxt "ecoscore_origins_of_ingredients_missing_information"
+msgctxt "environmental_score_origins_of_ingredients_missing_information"
 msgid "Missing origins of ingredients information"
 msgstr "חסר מידע על מקורות של רכיבים"
 
@@ -5869,19 +5869,19 @@ msgctxt "donation_cta"
 msgid "Donate"
 msgstr "תרומה"
 
-msgctxt "ecoscore_production_system_no_labels_with_environmental_benefits"
+msgctxt "environmental_score_production_system_no_labels_with_environmental_benefits"
 msgid "No labels with environmental benefits"
 msgstr "אין תוויות עם יתרונות סביבתיים"
 
-msgctxt "ecoscore_production_system_labels_with_environmental_benefits"
+msgctxt "environmental_score_production_system_labels_with_environmental_benefits"
 msgid "Labels with environmental benefits"
 msgstr "תוויות עם יתרונות סביבתיים"
 
-msgctxt "ecoscore_production_system_labels_with_environmental_benefits_high"
+msgctxt "environmental_score_production_system_labels_with_environmental_benefits_high"
 msgid "Labels with high environmental benefits"
 msgstr "תוויות עם יתרונות סביבתיים רבים"
 
-msgctxt "ecoscore_production_system_labels_with_environmental_benefits_very_high"
+msgctxt "environmental_score_production_system_labels_with_environmental_benefits_very_high"
 msgid "Labels with very high environmental benefits"
 msgstr "תוויות עם יתרונות סביבתיים רבים מאוד"
 
@@ -5973,11 +5973,11 @@ msgctxt "life_cycle_analysis"
 msgid "Life cycle analysis"
 msgstr "ניתוח מחזור חיים"
 
-msgctxt "ecoscore_bonuses_and_maluses"
+msgctxt "environmental_score_bonuses_and_maluses"
 msgid "Bonuses and maluses"
 msgstr "בונוסים ומאלוסים"
 
-msgctxt "ecoscore_for_this_product"
+msgctxt "environmental_score_for_this_product"
 msgid "Eco-Score for this product"
 msgstr "Eco-Score עבור מוצר זה"
 
@@ -5985,15 +5985,15 @@ msgctxt "average_impact_of_the_category"
 msgid "Average impact of products of the same category"
 msgstr "השפעה ממוצעת של מוצרים מאותה הקטגוריה"
 
-msgctxt "ecoscore_sum_of_bonuses_and_maluses"
+msgctxt "environmental_score_sum_of_bonuses_and_maluses"
 msgid "Sum of bonuses and maluses"
 msgstr "סכום של בונוסים ומאלוסים"
 
-msgctxt "ecoscore_sum_of_bonuses_and_maluses_is_capped"
+msgctxt "environmental_score_sum_of_bonuses_and_maluses_is_capped"
 msgid "The sum of bonuses and maluses is capped at +25."
 msgstr "סכום הבונוסים והמאלוסים מוגבל ל־‎+25."
 
-msgctxt "ecoscore_lca_score"
+msgctxt "environmental_score_lca_score"
 msgid "Life cycle analysis score"
 msgstr "ציון ניתוח מחזור חיים"
 
@@ -6001,7 +6001,7 @@ msgctxt "impact_for_this_product"
 msgid "Impact for this product"
 msgstr "השפעת המוצר הזה"
 
-msgctxt "ecoscore_downgraded_non_recyclable_and_non_biodegradable_materials"
+msgctxt "environmental_score_downgraded_non_recyclable_and_non_biodegradable_materials"
 msgid "The score of products with non-recyclable and non-biodegradable packaging materials is capped at 79 (grade B)."
 msgstr "הציון של מוצרים עם אריזה מחומרים שלא ניתן למחזר ואינם מתכלים מוגבל ל־79 (דרגה B)."
 
@@ -6236,7 +6236,7 @@ msgctxt "nutriscore_learn_more"
 msgid "Learn more about the Nutri-Score"
 msgstr "תודה רבה"
 
-msgctxt "ecoscore_learn_more"
+msgctxt "environmental_score_learn_more"
 msgid "Learn more about the Eco-Score"
 msgstr "מידע נוסף על Eco-Score"
 
@@ -6286,7 +6286,7 @@ msgctxt "actions_to_compute_nutriscore"
 msgid "Could you add the information needed to compute the Nutri-Score?"
 msgstr "נוכל לבקש ממך להוסיף את המידע הדרוש לחישוב Nutri-Score?"
 
-msgctxt "actions_to_compute_ecoscore"
+msgctxt "actions_to_compute_environmental_score"
 msgid "Could you add a precise product category so that we can compute the Eco-Score?"
 msgstr "נוכל לבקש ממך להוסיף קטגוריה מדויקת כדי שנוכל לחשב Eco-Score?"
 

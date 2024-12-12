@@ -1,25 +1,25 @@
 <!-- start templates/[% component.name %] -->
 
 <p>
-  <a data-dropdown="ecoscore_drop" aria-controls="ecoscore_drop" aria-expanded="false">[% lang('ecoscore_calculation_details') %] &raquo;</a>
+  <a data-dropdown="environmental_score_drop" aria-controls="environmental_score_drop" aria-expanded="false">[% lang('environmental_score_calculation_details') %] &raquo;</a>
 </p>
-<div id="ecoscore_drop" data-dropdown-content class="f-dropdown content large" aria-hidden="true" tabindex="-1">
+<div id="environmental_score_drop" data-dropdown-content class="f-dropdown content large" aria-hidden="true" tabindex="-1">
 
-	<h3>[% lang('ecoscore_product_category_reference_score') %]</h3>
+	<h3>[% lang('environmental_score_product_category_reference_score') %]</h3>
 
 	<div class="row">
 	<div class="small-12 columns">
-		<div class="panel ecoscore_panel" id="ecoscore_panel_lca">
-	<h4>[% display_icon('lca') %] [% lang('ecoscore_panel_lca') %]</h4>
+		<div class="panel environmental_score_panel" id="environmental_score_panel_lca">
+	<h4>[% display_icon('lca') %] [% lang('environmental_score_panel_lca') %]</h4>
 	
 	[% IF agribalyse.code %]
 	
 	<p>
-		[% lang('ecoscore_agribalyse_category') %]</a>[% sep %]: <a href="https://www.agribalyse.fr/app/aliments/[% agribalyse.code %]" title="
+		[% lang('environmental_score_agribalyse_category') %]</a>[% sep %]: <a href="https://www.agribalyse.fr/app/aliments/[% agribalyse.code %]" title="
 		[% IF agribalyse.agribalyse_proxy_food_code %]
-			[% lang('ecoscore_category_proxy_match') %]
+			[% lang('environmental_score_category_proxy_match') %]
 		[% ELSE %]
-			[% lang('ecoscore_category_exact_match') %]
+			[% lang('environmental_score_category_exact_match') %]
 		[% END %]
 		">
 		[% IF lc == "fr" %]
@@ -30,18 +30,18 @@
 		</a>
 	</p>
 	<ul>
-		<li>[% lang('ecoscore_pef_environmental_score') %][% sep %]: [% agribalyse.ef_total FILTER format("%.2f"); %] [% lang('ecoscore_lower_the_score_lower_the_impact') %]</li>
-		<li>- [% lang('ecoscore_incl_climate_change_impact') %][% sep %]: [% agribalyse.co2_total FILTER format("%.2f"); %] [% lang('ecoscore_kg_co2_eq_kg_product') %]</li>
+		<li>[% lang('environmental_score_pef_environmental_score') %][% sep %]: [% agribalyse.ef_total FILTER format("%.2f"); %] [% lang('environmental_score_lower_the_score_lower_the_impact') %]</li>
+		<li>- [% lang('environmental_score_incl_climate_change_impact') %][% sep %]: [% agribalyse.co2_total FILTER format("%.2f"); %] [% lang('environmental_score_kg_co2_eq_kg_product') %]</li>
 	</ul>
 	
 		<table id="agribalyse_impacts">
-			<caption style="text-align:left">[% lang('ecoscore_impact_detail_by_stages') %]</caption>
+			<caption style="text-align:left">[% lang('environmental_score_impact_detail_by_stages') %]</caption>
 			<tr>
 				<th scope="col">[% lang('stage') %]</th>
-				<th scope="colgroup" colspan="2">[% lang('ecoscore_impact') %]</th>
+				<th scope="colgroup" colspan="2">[% lang('environmental_score_impact') %]</th>
 			</tr>
 			<tr>
-				<td>[% display_icon('agriculture') %] [% lang('ecoscore_agriculture') %]</td>
+				<td>[% display_icon('agriculture') %] [% lang('environmental_score_agriculture') %]</td>
 				<td style="text-align:right">[% (100 * agribalyse.ef_agriculture / agribalyse.ef_total) FILTER format("%.1f"); %]%</td>
 				<td style="width:220px;" class="show-for-large-up">
 					<div class="agribalyse_impact_bar_full">
@@ -50,7 +50,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td>[% display_icon('processing') %] [% lang('ecoscore_processing') %]</td>
+				<td>[% display_icon('processing') %] [% lang('environmental_score_processing') %]</td>
 				<td style="text-align:right">[% (100 * agribalyse.ef_processing / agribalyse.ef_total) FILTER format("%.1f"); %]%</td>
 				<td style="width:200px;" class="show-for-large-up">
 					<div class="agribalyse_impact_bar_full">
@@ -59,7 +59,7 @@
 				</td>				
 			</tr>
 			<tr>
-				<td>[% display_icon('packaging') %] [% lang('ecoscore_packaging') %]</td>
+				<td>[% display_icon('packaging') %] [% lang('environmental_score_packaging') %]</td>
 				<td style="text-align:right">[% (100 * agribalyse.ef_packaging / agribalyse.ef_total) FILTER format("%.1f"); %]%</td>
 				<td style="width:200px;" class="show-for-large-up">
 					<div class="agribalyse_impact_bar_full">
@@ -68,7 +68,7 @@
 				</td>				
 			</tr>
 			<tr>
-				<td>[% display_icon('truck') %] [% lang('ecoscore_transportation') %]</td>
+				<td>[% display_icon('truck') %] [% lang('environmental_score_transportation') %]</td>
 				<td style="text-align:right">[% (100 * agribalyse.ef_transportation / agribalyse.ef_total) FILTER format("%.1f"); %]%</td>
 				<td style="width:200px;" class="show-for-large-up">
 					<div class="agribalyse_impact_bar_full">
@@ -77,7 +77,7 @@
 				</td>				
 			</tr>
 			<tr>
-				<td>[% display_icon('cart') %] [% lang('ecoscore_distribution') %]</td>
+				<td>[% display_icon('cart') %] [% lang('environmental_score_distribution') %]</td>
 				<td style="text-align:right">[% (100 * agribalyse.ef_distribution / agribalyse.ef_total) FILTER format("%.1f"); %]%</td>
 				<td style="width:200px;" class="show-for-large-up">
 					<div class="agribalyse_impact_bar_full">
@@ -86,7 +86,7 @@
 				</td>				
 			</tr>
 			<tr>
-				<td>[% display_icon('cooking-pan') %] [% lang('ecoscore_consumption') %]</td>
+				<td>[% display_icon('cooking-pan') %] [% lang('environmental_score_consumption') %]</td>
 				<td style="text-align:right">[% (100 * agribalyse.ef_consumption / agribalyse.ef_total) FILTER format("%.1f"); %]%</td>
 				<td style="width:200px;" class="show-for-large-up">
 					<div class="agribalyse_impact_bar_full">
@@ -97,14 +97,14 @@
 		</table>	
 	
 	<p>
-		<strong>[% lang('ecoscore_lca_score_out_of_100') %][% sep %]: [% round(agribalyse.score) %]</strong>
+		<strong>[% lang('environmental_score_lca_score_out_of_100') %][% sep %]: [% round(agribalyse.score) %]</strong>
 	</p>
 	
 	[% ELSE %]
 	<div class="panel warning">
-		<strong>[% lang('ecoscore_no_agribalyse_category_match') %]</strong><br><br>
-		[% lang('ecoscore_edit_category_to_more_granular') %]<br><br>
-		[% lang('ecoscore_platform_prompt_ecoscore_modal') %]
+		<strong>[% lang('environmental_score_no_agribalyse_category_match') %]</strong><br><br>
+		[% lang('environmental_score_edit_category_to_more_granular') %]<br><br>
+		[% lang('environmental_score_platform_prompt_environmental_score_modal') %]
 	</div>
 	[% END %]
 	
@@ -112,13 +112,13 @@
 	</div>
 	</div>
 
-	<h3>[% lang('ecoscore_additional_bonuses_and_maluses') %]</h3>
+	<h3>[% lang('environmental_score_additional_bonuses_and_maluses') %]</h3>
 	
-	<div class="row" data-equalizer="ecoscore1">
+	<div class="row" data-equalizer="environmental_score1">
 	
 	<div class="small-12 large-6 columns">
-		 <div class="panel ecoscore_panel" id="ecoscore_panel_production_system" data-equalizer-watch="ecoscore1">
-	<h4>[% display_icon('agriculture') %] [% lang('ecoscore_production_system') %]</h4>
+		 <div class="panel environmental_score_panel" id="environmental_score_panel_production_system" data-equalizer-watch="environmental_score1">
+	<h4>[% display_icon('agriculture') %] [% lang('environmental_score_production_system') %]</h4>
 	
 	[% IF adjustments.production_system.value.defined && adjustments.production_system.value > 0 %]
 		
@@ -128,14 +128,14 @@
 		[% END %]
 		</ul>
 	
-		<p><strong>[% lang('ecoscore_production_system') %][% sep %]: +[% adjustments.production_system.value %]</strong></p>
+		<p><strong>[% lang('environmental_score_production_system') %][% sep %]: +[% adjustments.production_system.value %]</strong></p>
 	[% ELSE %]
-		<p>[% lang('ecoscore_no_labels_taken_into_account') %]</p>
+		<p>[% lang('environmental_score_no_labels_taken_into_account') %]</p>
 		
 		[% IF adjustments.production_system.warning %]
 			<div class="panel warning">
-				[% lang('ecoscore_please_add_the_labels') %]<br><br>
-				[% lang('ecoscore_platform_prompt_ecoscore_modal') %]
+				[% lang('environmental_score_please_add_the_labels') %]<br><br>
+				[% lang('environmental_score_platform_prompt_environmental_score_modal') %]
 			</div>
 		[% END %]		
 		
@@ -144,8 +144,8 @@
 	</div>
 	
 	<div class="small-12 large-6 columns">	
-		 <div class="panel ecoscore_panel" id="ecoscore_panel_origins" data-equalizer-watch="ecoscore1">
-	<h4>[% display_icon('public') %] [% lang('ecoscore_origins_of_ingredients') %]</h4>
+		 <div class="panel environmental_score_panel" id="environmental_score_panel_origins" data-equalizer-watch="environmental_score1">
+	<h4>[% display_icon('public') %] [% lang('environmental_score_origins_of_ingredients') %]</h4>
 	
 	[% IF adjustments.origins_of_ingredients.aggregated_origins %]
 		<ul>
@@ -157,41 +157,41 @@
 	
 	[% IF adjustments.origins_of_ingredients.warning %]
 		<div class="panel warning">
-			<strong>[% lang('ecoscore_ingredients_not_indicated') %]</strong><br><br>
-			[% lang('ecoscore_please_add_the_ingredients') %]<br><br>
-			[% lang('ecoscore_platform_prompt_ecoscore_modal') %]
+			<strong>[% lang('environmental_score_ingredients_not_indicated') %]</strong><br><br>
+			[% lang('environmental_score_please_add_the_ingredients') %]<br><br>
+			[% lang('environmental_score_platform_prompt_environmental_score_modal') %]
 		</div>
 	[% END %]
 
 	<p>
-		<strong>[% lang('ecoscore_environmental_policy') %][% sep %]: [% IF adjustments.origins_of_ingredients.epi_value.defined && adjustments.origins_of_ingredients.epi_value > 0 %]+[% END %][% round(adjustments.origins_of_ingredients.epi_value) %]</strong><br>
-		<strong>[% lang('ecoscore_transportation') %][% sep %]: [% IF adjustments.origins_of_ingredients.epi_value.defined && adjustments.origins_of_ingredients.transportation_value > 0 %]+[% END %][% round(adjustments.origins_of_ingredients.transportation_value) %]</strong><br>
+		<strong>[% lang('environmental_score_environmental_policy') %][% sep %]: [% IF adjustments.origins_of_ingredients.epi_value.defined && adjustments.origins_of_ingredients.epi_value > 0 %]+[% END %][% round(adjustments.origins_of_ingredients.epi_value) %]</strong><br>
+		<strong>[% lang('environmental_score_transportation') %][% sep %]: [% IF adjustments.origins_of_ingredients.epi_value.defined && adjustments.origins_of_ingredients.transportation_value > 0 %]+[% END %][% round(adjustments.origins_of_ingredients.transportation_value) %]</strong><br>
 	</p>
 	</div>
 	</div>
 	</div>
 	
-	<div class="row" data-equalizer="ecoscore2">
+	<div class="row" data-equalizer="environmental_score2">
 	
 	<div class="small-12 large-6 columns">
-		 <div class="panel ecoscore_panel" id="ecoscore_panel_threatened_species" data-equalizer-watch="ecoscore2">
-	<h4>[% display_icon('monkey_unhappy') %] [% lang('ecoscore_threatened_species') %]</h4>
+		 <div class="panel environmental_score_panel" id="environmental_score_panel_threatened_species" data-equalizer-watch="environmental_score2">
+	<h4>[% display_icon('monkey_unhappy') %] [% lang('environmental_score_threatened_species') %]</h4>
 	
 	[% IF adjustments.threatened_species.value %]
-		<p>[% lang('ecoscore_ingredients_whose_cultivation_threatens_species') %][% sep %]:</p>
+		<p>[% lang('environmental_score_ingredients_whose_cultivation_threatens_species') %][% sep %]:</p>
 		<ul>
 			<li>[% display_taxonomy_tag("ingredients",adjustments.threatened_species.ingredient) %]</li>
 		</ul>
-		<p><strong>[% lang('ecoscore_threatened_species') %][% sep %]: [% adjustments.threatened_species.value %]</strong></p>
+		<p><strong>[% lang('environmental_score_threatened_species') %][% sep %]: [% adjustments.threatened_species.value %]</strong></p>
 	[% ELSE %]
-		<p>[% lang('ecoscore_no_species_threatening_ingredients') %]</p>
+		<p>[% lang('environmental_score_no_species_threatening_ingredients') %]</p>
 	[% END %]
 	
 	[% IF adjustments.threatened_species.warning %]
 		<div class="panel warning">
-			<strong>[% lang('ecoscore_ingredients_unknown') %]</strong><br><br>
-			[% lang('ecoscore_edit_for_more_precise_ecoscore') %]<br><br>
-			[% lang('ecoscore_platform_prompt_ecoscore_modal') %]
+			<strong>[% lang('environmental_score_ingredients_unknown') %]</strong><br><br>
+			[% lang('environmental_score_edit_for_more_precise_environmental_score') %]<br><br>
+			[% lang('environmental_score_platform_prompt_environmental_score_modal') %]
 		</div>
 	[% END %]	
 	
@@ -199,22 +199,22 @@
 	</div>
 	
 	<div class="small-12 large-6 columns">
-		 <div class="panel ecoscore_panel" id="ecoscore_panel_packaging" data-equalizer-watch="ecoscore2">
+		 <div class="panel environmental_score_panel" id="environmental_score_panel_packaging" data-equalizer-watch="environmental_score2">
 	
-	<h4>[% display_icon('packaging') %] [% lang('ecoscore_packaging') %]</h4>
+	<h4>[% display_icon('packaging') %] [% lang('environmental_score_packaging') %]</h4>
 	
 	[% IF adjustments.packaging.warning %]
 		<div class="panel warning">
 			<strong>
 				[% IF adjustments.packaging.warning == "packaging_data_missing" %]
-					[% lang('ecoscore_no_packaging_information') %]
+					[% lang('environmental_score_no_packaging_information') %]
 				[% ELSE %]
-					[% lang('ecoscore_unprecise_packaging_information') %]
+					[% lang('environmental_score_unprecise_packaging_information') %]
 				[% END %]
 			</strong>
 			<br><br>
-			[% lang('ecoscore_edit_for_more_precise_ecoscore') %]<br><br>
-			[% lang('ecoscore_platform_prompt_ecoscore_modal') %]
+			[% lang('environmental_score_edit_for_more_precise_environmental_score') %]<br><br>
+			[% lang('environmental_score_platform_prompt_environmental_score_modal') %]
 		</div>
 	[% END %]
 
@@ -223,26 +223,26 @@
 			[% FOREACH packaging IN adjustments.packaging.packagings %]
 				<li>
 					[% display_taxonomy_tag("packaging_shapes",packaging.shape) %]
-					([% lang('ecoscore_packaging_ratio') %][% sep %]: [% packaging.ecoscore_shape_ratio %])
+					([% lang('environmental_score_packaging_ratio') %][% sep %]: [% packaging.environmental_score_shape_ratio %])
 					-
 					[% display_taxonomy_tag("packaging_materials",packaging.material) %]
-					([% lang('ecoscore_packaging_score') %][% sep %]: [% packaging.ecoscore_material_score %])
+					([% lang('environmental_score_packaging_score') %][% sep %]: [% packaging.environmental_score_material_score %])
 				</li>
 			[% END %]
 		</ul>
-		<p>[% lang('ecoscore_score_of_all_components') %][% sep %]: [% adjustments.packaging.score %]</p>	
+		<p>[% lang('environmental_score_score_of_all_components') %][% sep %]: [% adjustments.packaging.score %]</p>	
 	[% END %]
 
-	<p><strong>[% lang('ecoscore_packaging') %][% sep %]: [% IF adjustments.packaging.value.defined && adjustments.packaging.value > 0 %]+[% END %][% adjustments.packaging.value %]</strong></p>
+	<p><strong>[% lang('environmental_score_packaging') %][% sep %]: [% IF adjustments.packaging.value.defined && adjustments.packaging.value > 0 %]+[% END %][% adjustments.packaging.value %]</strong></p>
 	
 	</div>
 	</div>
 	</div>
 	
-	<h3>[% lang('ecoscore_final_score') %]</h3>
+	<h3>[% lang('environmental_score_final_score') %]</h3>
 
-	<p><strong>[% lang('ecoscore_score') %][% sep %]: [% round(score) %]</strong>
-	- <strong>[% lang('ecoscore_grade') %][% sep %]: [% grade FILTER ucfirst %]</strong></p>
+	<p><strong>[% lang('environmental_score_score') %][% sep %]: [% round(score) %]</strong>
+	- <strong>[% lang('environmental_score_grade') %][% sep %]: [% grade FILTER ucfirst %]</strong></p>
 
 </div>
 

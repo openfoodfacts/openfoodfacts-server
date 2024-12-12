@@ -1,0 +1,30 @@
+{
+    "level": "info",
+    "topics": [
+        "environment"
+    ],
+    "title_element": {
+        "icon_url": "[% static_subdomain %]/images/attributes/dist/environmental-score-unknown.svg",
+        "title": "[% edq(lang('attribute_environmental_score_unknown_title')) %] - [% edq(lang('attribute_environmental_score_unknown_description_short')) %]",
+        "type": "grade",
+        "grade": "unknown",
+    },
+    "elements": [
+        {
+            "element_type": "text",
+            "text_element": {
+                "type": "summary",
+                "html":  "[% edq(lang('environmental_score_unknown_call_to_help')) %]"
+            }
+        },
+        {
+            "element_type": "action",
+            "action_element": {
+                "html": `[% lang("actions_to_compute_environmental_score") %]`,
+                "actions": [
+                    "add_categories",
+                ]
+            }
+        },
+    ]
+}

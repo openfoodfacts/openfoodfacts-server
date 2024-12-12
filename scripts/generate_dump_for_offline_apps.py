@@ -16,9 +16,9 @@ def main():
         
     df = pandas.read_csv(off_public_data_dir + '/en.' + product_opener_flavor + '.org.products.csv', sep='\t', low_memory=False)
     colnames = ['code','product_name','quantity','brands']
-    # add 'nutriscore_grade','nova_group','ecoscore_grade' columns if the flavor is off
+    # add 'nutriscore_grade','nova_group','environmental_score_grade' columns if the flavor is off
     if product_opener_flavor_short == 'off':
-        colnames = colnames + ['nutriscore_grade','nova_group','ecoscore_grade']
+        colnames = colnames + ['nutriscore_grade','nova_group','environmental_score_grade']
 
     df.rename(columns={'nutriscore_grade': 'nutrition_grade_fr'}).to_csv(off_public_data_dir + '/offline/en.' + product_opener_flavor + '.org.products.small.csv', columns = colnames,sep='\t',index=False)
  

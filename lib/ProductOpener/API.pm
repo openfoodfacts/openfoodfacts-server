@@ -70,7 +70,7 @@ use ProductOpener::Tags qw/%language_fields display_taxonomy_tag/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::Attributes qw/compute_attributes/;
 use ProductOpener::KnowledgePanels qw/create_knowledge_panels initialize_knowledge_panels_options/;
-use ProductOpener::Ecoscore qw/localize_ecoscore/;
+use ProductOpener::EnvironmentalScore qw/localize_environmental_score/;
 use ProductOpener::Packaging qw/%packaging_taxonomies/;
 use ProductOpener::Permissions qw/has_permission/;
 use ProductOpener::GeoIP qw/get_country_for_ip_api/;
@@ -680,7 +680,7 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 
 	my $carbon_footprint_computed = 0;
 
-	# Special case if fields is empty, or contains only "none" or "raw": we do not need to localize the Eco-Score
+	# Special case if fields is empty, or contains only "none" or "raw": we do not need to localize the Environmental-Score
 
 	if ((scalar @fields) == 0) {
 		return {};
@@ -695,9 +695,9 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 		}
 	}
 
-	# Localize the Eco-Score fields that depend on the country of the request
-	if (feature_enabled("ecoscore", $product_ref)) {
-		localize_ecoscore($request_ref->{cc}, $product_ref);
+	# Localize the Environmental-Score fields that depend on the country of the request
+	if (feature_enabled("environmental_score", $product_ref)) {
+		localize_environmental_score($request_ref->{cc}, $product_ref);
 	}
 
 	# lets compute each requested field
@@ -733,12 +733,12 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 			next;
 		}
 
-		# Eco-Score details in simple HTML
-		if ($field eq "ecoscore_details_simple_html") {
-			if ((1 or $show_ecoscore) and (defined $product_ref->{ecoscore_data})) {
+		# Environmental-Score details in simple HTML
+		if ($field eq "environmental_score_details_simple_html") {
+			if ((1 or $show_environmental_score) and (defined $product_ref->{environmental_score_data})) {
 				$customized_product_ref->{$field}
-					= display_ecoscore_calculation_details_simple_html($request_ref->{cc},
-					$product_ref->{ecoscore_data});
+					= display_environmental_score_calculation_details_simple_html($request_ref->{cc},
+					$product_ref->{environmental_score_data});
 			}
 			next;
 		}
