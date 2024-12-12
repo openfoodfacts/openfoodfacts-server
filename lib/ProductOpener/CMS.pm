@@ -40,7 +40,7 @@ here from the /graphql endpoint (WPMLGraphQL plugin).
   it won't show up in the graphql response.
   Ex: You create a French page, publish it, then, at least, you have to create/start the
   	  English translation (let it empty for the moment if you want). After that you'll
-	  be able to see the french page in Product Opener. As an admin do /content/refresh
+	  be able to see the french page in Product Opener. As an admin do /$CONTENT_PATH_PREFIX/refresh
 
 =cut
 
@@ -58,6 +58,8 @@ BEGIN {
 		&wp_get_available_pages
 		&wp_update_pages_metadata_cache
 		&load_cms_data
+
+		$CONTENT_PATH_PREFIX
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 
@@ -69,6 +71,16 @@ use ProductOpener::Config2;
 use HTTP::Tiny;
 use Log::Any qw($log);
 use JSON;
+
+=head1 CONSTANTS
+
+=head2 $CONTENT_PATH_PREFIX
+
+Path to the content directory (without any leading or trailing slash).
+
+=cut
+
+$CONTENT_PATH_PREFIX = 'content';
 
 my $json_obj = JSON->new->utf8->allow_nonref->canonical;
 
@@ -99,6 +111,8 @@ my $page_metadata_cache_by_id = {};
 #   'en' => {'contribute' => 8 }
 # }
 my $page_id_by_localized_slug = {};
+
+=head1 FUNCTIONS
 
 =head2 content_path ($lc, $default_slug)
 
@@ -145,7 +159,7 @@ sub wp_get_page_from_slug ($lc, $slug) {
 		return {
 			title => $page_data->{title}{rendered},
 			content => $page_data->{content}{rendered},
-			link => "/content/$lc/$page_data->{slug}",
+			link => "/$CONTENT_PATH_PREFIX/$lc/$page_data->{slug}",
 		};
 	}
 	return;
@@ -193,7 +207,7 @@ sub wp_get_available_page_translation ($lc, $page_id) {
 	return {
 		id => $page->{id},
 		lc => $lc,
-		link => "/content/$lc/$page->{slug}",
+		link => "/$CONTENT_PATH_PREFIX/$lc/$page->{slug}",
 		title => $page->{title},
 	};
 }

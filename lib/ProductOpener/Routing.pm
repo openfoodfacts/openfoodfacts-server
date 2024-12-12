@@ -57,7 +57,7 @@ use ProductOpener::Index qw/%texts/;
 use ProductOpener::Store qw/get_string_id_for_lang/;
 use ProductOpener::Redis qw/:all/;
 use ProductOpener::RequestStats qw/:all/;
-use ProductOpener::CMS qw/load_cms_data/;
+use ProductOpener::CMS qw/load_cms_data $CONTENT_PATH_PREFIX/;
 
 use Encode;
 use CGI qw/:cgi :form escapeHTML/;
@@ -114,7 +114,7 @@ sub load_routes() {
 		['properties', \&properties_route],
 		['property', \&properties_route],
 		['products', \&products_route],
-		['content', \&content_route],
+		[$CONTENT_PATH_PREFIX, \&content_route],
 		# with priority
 		['', \&index_route],
 		['^(?<page>\d+)$', \&index_route, {regex => 1}],
@@ -596,10 +596,10 @@ sub content_route($request_ref) {
 	if (($op eq 'refresh') and is_admin_user($request_ref->{user_id})) {
 		load_cms_data();
 		$log->debug("content_route", {what => 'refreshed available contents'}) if $log->is_debug();
-		redirect_to_url($request_ref, 302, '/content');
+		redirect_to_url($request_ref, 302, '/$CONTENT_PATH_PREFIX');
 		return 1;
 	}
-	# /content/[lc]/[slug]
+	# /$CONTENT_PATH_PREFIX/[lc]/[slug]
 	$request_ref->{content_lc} = $op || $request_ref->{lc};
 	if (defined $components[2]) {
 		$request_ref->{content_slug} = $components[2];
