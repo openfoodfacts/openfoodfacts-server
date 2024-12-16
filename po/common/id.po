@@ -4676,6 +4676,15 @@ msgctxt "attribute_nova_4_description_short"
 msgid "Ultra processed foods"
 msgstr "Makanan olahan ultra"
 
+msgctxt "attribute_nova_4_1_marker"
+msgid "1 ultra-processing marker"
+msgstr "1 penanda ultra-pemrosesan"
+
+# variable names between { } must not be translated
+msgctxt "f_attribute_nova_4_markers"
+msgid "{number} ultra-processing markers"
+msgstr "{number} penanda ultra-pemrosesan"
+
 msgctxt "export_product_page"
 msgid "Export product to public database"
 msgstr "Ekspor produk ke basis data publik"
@@ -5827,43 +5836,43 @@ msgstr "Revolusi makanan dimulai dari Anda!"
 
 msgctxt "donation_hook_2024"
 msgid "Help us inform millions of consumers around the world about what they eat"
-msgstr ""
+msgstr "Bantu kami menginformasikan kepada jutaan konsumen di seluruh dunia tentang apa yang mereka makan"
 
 msgctxt "donation_title_2024"
 msgid "Please give to our 2024 Fundraiser"
-msgstr ""
+msgstr "Silakan berdonasi ke Penggalangan Dana 2024 kami"
 
 msgctxt "donation_list_2024_main"
 msgid "Your donations fund the day-to-day operations of our non-profit association:"
-msgstr ""
+msgstr "Donasi Anda mendanai operasional sehari-hari asosiasi nirlaba kami:"
 
 msgctxt "donation_list_2024_first"
 msgid "keeping our database open & available to all,"
-msgstr ""
+msgstr "menjaga basis data kami tetap terbuka dan tersedia untuk semua,"
 
 msgctxt "donation_list_2024_first_sub"
 msgid "technical infrastructure (website/mobile app) & a small permanent team"
-msgstr ""
+msgstr "infrastruktur teknis (situs web/aplikasi) & tim permanen kecil"
 
 msgctxt "donation_list_2024_second"
 msgid "remain independent of the food industry,"
-msgstr ""
+msgstr "tetap independen pada industri makanan,"
 
 msgctxt "donation_list_2024_third"
 msgid "engage a community of committed citizens,"
-msgstr ""
+msgstr "melibatkan komunitas warga yang berkomitmen,"
 
 msgctxt "donation_list_2024_fourth"
 msgid "support the advancement of public health research."
-msgstr ""
+msgstr "mendukung kemajuan penelitian kesehatan masyarakat."
 
 msgctxt "donation_financial_2024_text"
 msgid "Each donation counts! We appreciate your support in bringing further food transparency in the world."
-msgstr ""
+msgstr "Setiap donasi sangat berarti! Kami menghargai dukungan Anda dalam mewujudkan transparansi pangan di dunia."
 
 msgctxt "donation_button_2024_text"
 msgid "I SUPPORT"
-msgstr ""
+msgstr "SAYA MENDUKUNG"
 
 msgctxt "donation_cta"
 msgid "Donate"
@@ -6373,6 +6382,10 @@ msgctxt "action_packager_codes_image"
 msgid "Take a photo of traceability codes"
 msgstr "Ambil foto kode penelusuran"
 
+msgctxt "action_report_product_to_nutripatrol"
+msgid "Report this product to our moderators"
+msgstr "Laporkan produk ini ke moderator kami"
+
 # Used as a header for key facts
 msgctxt "knowledge_panels_facts"
 msgid "What you need to know"
@@ -6518,6 +6531,10 @@ msgctxt "api_result_product_not_found"
 msgid "Product not found"
 msgstr "Produk tidak ditemukan"
 
+msgctxt "api_result_product_found_with_a_different_product_type"
+msgid "Product found with a different product type"
+msgstr "Produk ditemukan dengan jenis produk yang berbeda"
+
 msgctxt "api_result_product_updated"
 msgid "Product updated"
 msgstr "Produk diperbarui"
@@ -6541,6 +6558,10 @@ msgstr "JSON tidak valid dalam isi permintaan"
 msgctxt "api_message_invalid_code"
 msgid "Invalid code"
 msgstr "Kode tidak valid"
+
+msgctxt "api_message_invalid_product_type"
+msgid "Invalid product type"
+msgstr "Jenis produk tidak valid"
 
 msgctxt "api_message_invalid_type_must_be_object"
 msgid "Invalid type: must be an object"
@@ -6951,7 +6972,7 @@ msgstr "Laporkan masalah"
 
 msgctxt "report_problem_navigation"
 msgid "Report a problem."
-msgstr ""
+msgstr "Laporkan masalah."
 
 msgctxt "incomplete_or_incorrect_data_title"
 msgid "Incomplete or incorrect information?"
@@ -6968,6 +6989,10 @@ msgstr "Jika informasi tidak sesuai dengan informasi pada kemasan, Anda dapat me
 msgctxt "incomplete_or_incorrect_data_content_correct_off"
 msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
 msgstr "Open Food Facts merupakan basis data kolaboratif dan setiap kontribusi bermanfaat untuk semua."
+
+msgctxt "report_to_nutripatrol_explain"
+msgid "If you want to report vandalism, inappropriate content or erroneous data you can't fix yourself, report it to our moderators team."
+msgstr "Jika Anda ingin melaporkan vandalisme, konten tidak pantas, atau kesalahan data yang tidak dapat Anda perbaiki, laporkan kepada tim moderator kami."
 
 msgctxt "description"
 msgid "Description"
@@ -7188,24 +7213,24 @@ msgstr "Indeks kemudahan diperbaiki"
 
 msgctxt "attribute_repairability_index_france_setting_name"
 msgid "Good repairability"
-msgstr ""
+msgstr "Tingkat kemudahan diperbaiki bagus"
 
 msgctxt "attribute_repairability_index_france_setting_note"
 msgid "Mandatory rating in France for certain products since 2021"
-msgstr ""
+msgstr "Peringkat wajib di Prancis untuk produk tertentu sejak 2021"
 
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_repairability_index_france_grade_title"
 msgid "Repairability index %s"
-msgstr ""
+msgstr "Indeks kemudahan diperbaiki %s"
 
 msgctxt "attribute_repairability_index_france_unknown_title"
 msgid "Repairability index unknown"
-msgstr ""
+msgstr "Indeks kemudahan diperbaiki tidak diketahui"
 
 msgctxt "attribute_repairability_index_france_not_applicable_title"
 msgid "Repairability index not-applicable"
-msgstr ""
+msgstr "Indeks kemudahan diperbaiki tidak berlaku"
 
 msgctxt "attribute_repairability_index_france_not_applicable_description_short"
 msgid "Not-applicable for the category"
@@ -7214,25 +7239,61 @@ msgstr "Tidak berlaku untuk kategori ini"
 # variable names between { } must not be translated
 msgctxt "f_attribute_repairability_index_france_not_applicable_description"
 msgid "Applicable only for categories: {categories}"
-msgstr ""
+msgstr "Hanya berlaku untuk kategori: {categories}"
 
 msgctxt "attribute_repairability_index_france_very_good_description_short"
 msgid "Very good repairability"
-msgstr ""
+msgstr "Tingkat kemudahan diperbaiki sangat bagus"
 
 msgctxt "attribute_repairability_index_france_good_description_short"
 msgid "Good repairability"
-msgstr ""
+msgstr "Tingkat kemudahan diperbaiki bagus"
 
 msgctxt "attribute_repairability_index_france_average_description_short"
 msgid "Average repairability"
-msgstr ""
+msgstr "Tingkat kemudahan diperbaiki rata-rata"
 
 msgctxt "attribute_repairability_index_france_poor_description_short"
 msgid "Poor repairability"
-msgstr ""
+msgstr "Tingkat kemudahan diperbaiki tidak bagus"
 
 msgctxt "attribute_repairability_index_france_bad_description_short"
 msgid "Bad repairability"
-msgstr ""
+msgstr "Tingkat kemudahan diperbaiki buruk"
+
+msgctxt "product_type"
+msgid "Product type"
+msgstr "Tipe produk"
+
+# Food product type
+msgctxt "product_type_food"
+msgid "Food"
+msgstr "Makanan"
+
+# Pet food product type
+msgctxt "product_type_petfood"
+msgid "Pet food"
+msgstr "Makanan hewan"
+
+# Beauty product type
+msgctxt "product_type_beauty"
+msgid "Beauty"
+msgstr "Kecantikan"
+
+# General product product type
+msgctxt "product_type_product"
+msgid "Product"
+msgstr "Produk"
+
+msgctxt "recommendation_limit_ultra_processed_foods_title"
+msgid "Limit ultra-processed foods"
+msgstr "Batasi makanan ultra-proses"
+
+msgctxt "recommendation_limit_ultra_processed_foods_subtitle"
+msgid "Ultra-processed foods increase noncommunicable chronic disease risk"
+msgstr "Makanan ultra-proses meningkatkan risiko penyakit kronis tidak menular"
+
+msgctxt "recommendation_limit_ultra_processed_foods_text"
+msgid "Several studies have found that a high consumption of ultra-processed foods is associated with an increased risk of noncommunicable chronic diseases, such as obesity, hypertension and diabetes."
+msgstr "Beberapa penelitian telah menemukan bahwa konsumsi makanan ultra-proses yang tinggi dikaitkan dengan peningkatan risiko penyakit kronis yang tidak menular, seperti obesitas, hipertensi, dan diabetes."
 

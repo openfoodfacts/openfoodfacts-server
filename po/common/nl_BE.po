@@ -4675,6 +4675,15 @@ msgctxt "attribute_nova_4_description_short"
 msgid "Ultra processed foods"
 msgstr "Ultra bewerkt voedsel"
 
+msgctxt "attribute_nova_4_1_marker"
+msgid "1 ultra-processing marker"
+msgstr "1 ultra-processing marker"
+
+# variable names between { } must not be translated
+msgctxt "f_attribute_nova_4_markers"
+msgid "{number} ultra-processing markers"
+msgstr "{number} ultra-processing markers"
+
 msgctxt "export_product_page"
 msgid "Export product to public database"
 msgstr "Product exporteren naar openbare database"
@@ -6372,6 +6381,10 @@ msgctxt "action_packager_codes_image"
 msgid "Take a photo of traceability codes"
 msgstr "Maak een foto van traceerbaarheidscodes"
 
+msgctxt "action_report_product_to_nutripatrol"
+msgid "Report this product to our moderators"
+msgstr "Meld dit product aan onze moderators"
+
 # Used as a header for key facts
 msgctxt "knowledge_panels_facts"
 msgid "What you need to know"
@@ -6517,6 +6530,10 @@ msgctxt "api_result_product_not_found"
 msgid "Product not found"
 msgstr "Geen product gevonden"
 
+msgctxt "api_result_product_found_with_a_different_product_type"
+msgid "Product found with a different product type"
+msgstr "Product gevonden met een ander producttype"
+
 msgctxt "api_result_product_updated"
 msgid "Product updated"
 msgstr "Product bijgewerkt"
@@ -6540,6 +6557,10 @@ msgstr "Ongeldige JSON in verzoektekst"
 msgctxt "api_message_invalid_code"
 msgid "Invalid code"
 msgstr "Ongeldige code"
+
+msgctxt "api_message_invalid_product_type"
+msgid "Invalid product type"
+msgstr "Ongeldig producttype"
 
 msgctxt "api_message_invalid_type_must_be_object"
 msgid "Invalid type: must be an object"
@@ -6854,6 +6875,18 @@ msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_
 msgid "Points for proteins are not counted because the negative points greater than or equal to 11."
 msgstr "Punten voor eiwitten worden niet meegeteld omdat het aantal negatieve punten groter dan of gelijk aan 11 zijn."
 
+msgctxt "nutriscore_new_computation_title"
+msgid "Discover the new Nutri-Score!"
+msgstr ""
+
+msgctxt "nutriscore_new_computation_description"
+msgid "<p>The computation of the Nutri-Score is evolving to provide better recommendations based on the latest scientific evidence.</p><p>Main improvements:</p><ul><li>Better differentiation of milks, sweetened dairy drinks and plant-based drinks</li><li>Better ranking of drinks to favor low-sugar drinks without sweeteners</li><li>Lower grades for products that contain too much salt or sugar</li><li>Higher grades for some fatty fish and oils rich in good fats</li><li>Lower grades for red meat</li></ul>"
+msgstr ""
+
+msgctxt "nutriscore_new_computation_link_text"
+msgid "Discover all the improvements of the new Nutri-Score"
+msgstr ""
+
 msgctxt "nutriscore_explanation_what_it_is"
 msgid "The Nutri-Score is a logo on the overall nutritional quality of products."
 msgstr "De Nutri-Score is een logo dat de algehele voedingskwaliteit van producten weergeeft."
@@ -6967,6 +7000,10 @@ msgstr "Indien de gegevens niet overeenkomen met de gegevens op de verpakking, k
 msgctxt "incomplete_or_incorrect_data_content_correct_off"
 msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
 msgstr "Open Food Facts is een samenwerkingsdatabase en elke bijdrage is nuttig voor iedereen."
+
+msgctxt "report_to_nutripatrol_explain"
+msgid "If you want to report vandalism, inappropriate content or erroneous data you can't fix yourself, report it to our moderators team."
+msgstr "Als u vandalisme, ongepaste inhoud of onjuiste gegevens wilt melden die u niet zelf kunt aanpassen, kunt u dit melden bij ons moderatorteam."
 
 msgctxt "description"
 msgid "Description"
@@ -7234,4 +7271,40 @@ msgstr "Matige repareerbaarheid"
 msgctxt "attribute_repairability_index_france_bad_description_short"
 msgid "Bad repairability"
 msgstr "Slechte repareerbaarheid"
+
+msgctxt "product_type"
+msgid "Product type"
+msgstr "Producttype"
+
+# Food product type
+msgctxt "product_type_food"
+msgid "Food"
+msgstr "Voedsel"
+
+# Pet food product type
+msgctxt "product_type_petfood"
+msgid "Pet food"
+msgstr "Dierenvoeding"
+
+# Beauty product type
+msgctxt "product_type_beauty"
+msgid "Beauty"
+msgstr "Schoonheidsindustrie"
+
+# General product product type
+msgctxt "product_type_product"
+msgid "Product"
+msgstr "Product"
+
+msgctxt "recommendation_limit_ultra_processed_foods_title"
+msgid "Limit ultra-processed foods"
+msgstr "Beperk ultrabewerkte voedingsmiddelen"
+
+msgctxt "recommendation_limit_ultra_processed_foods_subtitle"
+msgid "Ultra-processed foods increase noncommunicable chronic disease risk"
+msgstr "Ultrabewerkte voedingsmiddelen verhogen het risico op niet-overdraagbare chronische ziekten"
+
+msgctxt "recommendation_limit_ultra_processed_foods_text"
+msgid "Several studies have found that a high consumption of ultra-processed foods is associated with an increased risk of noncommunicable chronic diseases, such as obesity, hypertension and diabetes."
+msgstr "Uit diverse onderzoeken is gebleken dat een hoge consumptie van sterk bewerkte voedingsmiddelen gepaard gaat met een verhoogd risico op niet-overdraagbare chronische ziekten, zoals obesitas, hypertensie en diabetes."
 
