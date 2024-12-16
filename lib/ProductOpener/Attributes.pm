@@ -440,7 +440,7 @@ This parameter sets the desired language for the user facing strings.
 =head4 country code $target_cc
 
 Different countries can have different versions of the Nutri-Score at a given time.
-e.g. in early 2024, France does not use the new Nutri-Score 2023 yet, while other countries do.
+e.g. in early 2024, France did not use the new Nutri-Score 2023 yet, while other countries did.
 
 =head3 Return value
 
@@ -459,9 +459,6 @@ that is used to define the Nutri-Score grade from A to E.
 sub compute_attribute_nutriscore ($product_ref, $target_lc, $target_cc) {
 
 	my $version = "2023";
-	if ($target_cc eq "fr") {
-		$version = "2021";
-	}
 
 	$log->debug("compute nutriscore attribute",
 		{code => $product_ref->{code}, version => $version, nutriscore => $product_ref->{nutriscore}{$version}})

@@ -45,6 +45,13 @@
             }
         },        
         [% END %]
+        // New Nutri-Score
+        {
+            "element_type": "panel",
+            "panel_element": {
+                "panel_id": "nutriscore_new_computation",
+            },
+        },        
         // Explanation of Nutri-Score
         {
             "element_type": "panel",
