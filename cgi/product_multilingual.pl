@@ -934,7 +934,7 @@ sub add_parent_if_missing {
 		}
 	}
 
-    return;
+	return;
 }
 
 if (($action eq 'display') and (($type eq 'add') or ($type eq 'edit'))) {
