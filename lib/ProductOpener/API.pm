@@ -625,6 +625,52 @@ sub customize_packagings ($request_ref, $product_ref) {
 	return $customized_packagings_ref;
 }
 
+
+=head2 api_compatibility_for_field ($field, $api_version)
+
+To support older API versions that can request fields that have been renamed or changed,
+we rename older requested fields to the new field names to construct the response.
+
+Resulting fields will then be renamed back to older names by the api_compatibility_for_product function.
+
+=cut
+
+sub api_compatibility_for_field ($field, $api_version) {
+
+	# API 3.1 - 2024/12/18 - ecoscore* fields have been renamed to environmental_score*
+	if ($api_version < 3.1) {
+		if ($field =~ /^ecoscore/) {
+			$field = "environmental_score" . $';
+		}
+	}
+
+	return $field;
+}
+
+=head2 api_compatibility_for_product ($product_ref, $api_version)
+
+The response schema can change between API versions. This function transforms the product object to match the requested API version.
+
+=cut
+
+sub api_compatibility_for_product ($product_ref, $api_version) {
+
+	# API 3.1 - 2024/12/18 - ecoscore* fields have been renamed to environmental_score*
+	if ($api_version < 3.1) {
+		foreach my $subfield (qw/data grade score tags/) {
+			if (defined $product_ref->{"environmental_score_" . $subfield}) {
+				$product_ref->{"ecoscore_" . $subfield} = $product_ref->{"environmental_score_" . $subfield};
+				delete $product_ref->{"environmental_score_" . $subfield};
+			}
+		}
+	}
+
+	return $product_ref;
+}
+
+
+
+
 =head2 customize_response_for_product ( $request_ref, $product_ref, $fields_comma_separated_list, $fields_ref )
 
 Using the fields parameter, API product or search queries can request

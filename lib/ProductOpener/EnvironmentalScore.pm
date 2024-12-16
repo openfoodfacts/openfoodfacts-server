@@ -111,7 +111,8 @@ Loads the AgriBalyse database.
 
 sub load_agribalyse_data() {
 
-	my $agribalyse_details_by_step_csv_file = $data_root . "/external-data/environmental_score/agribalyse/AGRIBALYSE_vf.csv.2";
+	my $agribalyse_details_by_step_csv_file
+		= $data_root . "/external-data/environmental_score/agribalyse/AGRIBALYSE_vf.csv.2";
 
 	my $rows_ref = [];
 
@@ -222,7 +223,8 @@ sub load_environmental_score_data_origins_of_ingredients_distances() {
 		@environmental_score_countries_enabled_sorted = @environmental_score_countries_sorted;
 
 		$environmental_score_data{origins}{"en:world"} = $environmental_score_data{origins}{"en:unknown"};
-		$environmental_score_data{origins}{"en:european-union-and-non-european-union"} = $environmental_score_data{origins}{"en:unknown"};
+		$environmental_score_data{origins}{"en:european-union-and-non-european-union"}
+			= $environmental_score_data{origins}{"en:unknown"};
 
 		$log->debug(
 			"environmental_score origins distances CSV file - countries header row",
@@ -242,8 +244,10 @@ sub load_environmental_score_data_origins_of_ingredients_distances() {
 
 			if (not $origin_id_exists_in_taxonomy) {
 
-				$log->error("environmental_score origin does not exist in taxonomy", {origin => $origin, origin_id => $origin_id})
-					if $log->is_error();
+				$log->error(
+					"environmental_score origin does not exist in taxonomy",
+					{origin => $origin, origin_id => $origin_id}
+				) if $log->is_error();
 				$errors++;
 			}
 
@@ -262,9 +266,14 @@ sub load_environmental_score_data_origins_of_ingredients_distances() {
 			# Score 0 for unspecified request country (world)
 			$environmental_score_data{origins}{$origin_id}{"transportation_score_world"} = 0;
 
-			$log->debug("environmental_score origins CSV file - row",
-				{origin => $origin, origin_id => $origin_id, environmental_score_data => $environmental_score_data{origins}{$origin_id}})
-				if $log->is_debug();
+			$log->debug(
+				"environmental_score origins CSV file - row",
+				{
+					origin => $origin,
+					origin_id => $origin_id,
+					environmental_score_data => $environmental_score_data{origins}{$origin_id}
+				}
+			) if $log->is_debug();
 		}
 
 		if ($errors) {
@@ -315,7 +324,8 @@ sub load_environmental_score_data_origins_of_ingredients() {
 		$environmental_score_data{origins}{"en:unknown"}{epi_score} = 0;
 
 		$environmental_score_data{origins}{"en:world"} = $environmental_score_data{origins}{"en:unknown"};
-		$environmental_score_data{origins}{"en:european-union-and-non-european-union"} = $environmental_score_data{origins}{"en:unknown"};
+		$environmental_score_data{origins}{"en:european-union-and-non-european-union"}
+			= $environmental_score_data{origins}{"en:unknown"};
 
 		my $row_ref;
 
@@ -350,8 +360,10 @@ sub load_environmental_score_data_origins_of_ingredients() {
 
 			if (not $origin_id_exists_in_taxonomy) {
 
-				$log->error("environmental_score origin does not exist in taxonomy", {origin => $origin, origin_id => $origin_id})
-					if $log->is_error();
+				$log->error(
+					"environmental_score origin does not exist in taxonomy",
+					{origin => $origin, origin_id => $origin_id}
+				) if $log->is_error();
 				$errors++;
 			}
 
@@ -360,9 +372,14 @@ sub load_environmental_score_data_origins_of_ingredients() {
 			# Override data for France from distances.csv with the original French Environmental-Score data for France
 			$environmental_score_data{origins}{$origin_id}{"transportation_score_fr"} = $row_ref->[2];
 
-			$log->debug("environmental_score origins CSV file - row",
-				{origin => $origin, origin_id => $origin_id, environmental_score_data => $environmental_score_data{origins}{$origin_id}})
-				if $log->is_debug();
+			$log->debug(
+				"environmental_score origins CSV file - row",
+				{
+					origin => $origin,
+					origin_id => $origin_id,
+					environmental_score_data => $environmental_score_data{origins}{$origin_id}
+				}
+			) if $log->is_debug();
 		}
 
 		if ($errors) {
@@ -543,7 +560,8 @@ sub load_environmental_score_data_packaging() {
 			}
 
 			if (defined $environmental_score_data{packaging_materials}{$source}) {
-				$environmental_score_data{packaging_materials}{$target} = $environmental_score_data{packaging_materials}{$source};
+				$environmental_score_data{packaging_materials}{$target}
+					= $environmental_score_data{packaging_materials}{$source};
 				$properties{packaging_materials}{$target}{"environmental_score_score:en"}
 					= $environmental_score_data{packaging_materials}{$source}{"score"};
 			}
@@ -556,7 +574,8 @@ sub load_environmental_score_data_packaging() {
 		die("Could not open environmental_score materials CSV $csv_file: $!");
 	}
 
-	$log->debug("environmental_score packaging_materials data", {packaging_materials => $environmental_score_data{packaging_materials}})
+	$log->debug("environmental_score packaging_materials data",
+		{packaging_materials => $environmental_score_data{packaging_materials}})
 		if $log->is_debug();
 
 	# Packaging shapes / formats
@@ -604,7 +623,8 @@ sub load_environmental_score_data_packaging() {
 			}
 
 			if (not $shape_id_exists_in_taxonomy) {
-				$log->error("environmental_score shape does not exist in taxonomy", {shape => $shape, shape_id => $shape_id})
+				$log->error("environmental_score shape does not exist in taxonomy",
+					{shape => $shape, shape_id => $shape_id})
 					if $log->is_error();
 				$errors++;
 			}
@@ -637,23 +657,28 @@ sub load_environmental_score_data_packaging() {
 
 		# Extra assignments
 
-		$environmental_score_data{packaging_shapes}{"en:can"} = $environmental_score_data{packaging_shapes}{"en:drink-can"};
+		$environmental_score_data{packaging_shapes}{"en:can"}
+			= $environmental_score_data{packaging_shapes}{"en:drink-can"};
 		$properties{"packaging_shapes"}{"en:can"}{"environmental_score_ratio:en"}
 			= $environmental_score_data{packaging_shapes}{"en:can"}{ratio};
 
-		$environmental_score_data{packaging_shapes}{"en:card"} = $environmental_score_data{packaging_shapes}{"en:backing"};
+		$environmental_score_data{packaging_shapes}{"en:card"}
+			= $environmental_score_data{packaging_shapes}{"en:backing"};
 		$properties{"packaging_shapes"}{"en:card"}{"environmental_score_ratio:en"}
 			= $environmental_score_data{packaging_shapes}{"en:backing"}{ratio};
 
-		$environmental_score_data{packaging_shapes}{"en:label"} = $environmental_score_data{packaging_shapes}{"en:sheet"};
+		$environmental_score_data{packaging_shapes}{"en:label"}
+			= $environmental_score_data{packaging_shapes}{"en:sheet"};
 		$properties{"packaging_shapes"}{"en:label"}{"environmental_score_ratio:en"}
 			= $environmental_score_data{packaging_shapes}{"en:sheet"}{ratio};
 
-		$environmental_score_data{packaging_shapes}{"en:spout"} = $environmental_score_data{packaging_shapes}{"en:bottle-cap"};
+		$environmental_score_data{packaging_shapes}{"en:spout"}
+			= $environmental_score_data{packaging_shapes}{"en:bottle-cap"};
 		$properties{"packaging_shapes"}{"en:spout"}{"environmental_score_ratio:en"}
 			= $environmental_score_data{packaging_shapes}{"en:bottle-cap"}{ratio};
 
-		$environmental_score_data{packaging_shapes}{"xx:elo-pak"} = $environmental_score_data{packaging_shapes}{"en:tetra-pak"};
+		$environmental_score_data{packaging_shapes}{"xx:elo-pak"}
+			= $environmental_score_data{packaging_shapes}{"en:tetra-pak"};
 		$properties{"packaging_shapes"}{"xx:elo-pak"}{"environmental_score_ratio:en"}
 			= $environmental_score_data{packaging_shapes}{"en:tetra-pak"}{ratio};
 	}
@@ -661,7 +686,8 @@ sub load_environmental_score_data_packaging() {
 		die("Could not open environmental_score shapes CSV $csv_file: $!");
 	}
 
-	$log->debug("environmental_score packaging_shapes data", {packaging_materials => $environmental_score_data{packaging_shapes}})
+	$log->debug("environmental_score packaging_shapes data",
+		{packaging_materials => $environmental_score_data{packaging_shapes}})
 		if $log->is_debug();
 	return;
 }
@@ -779,7 +805,8 @@ sub compute_environmental_score ($product_ref) {
 	compute_environmental_score_packaging_adjustment($product_ref);
 
 	if ($category_without_environmental_score) {
-		$product_ref->{environmental_score_data}{environmental_score_not_applicable_for_category} = $category_without_environmental_score;
+		$product_ref->{environmental_score_data}{environmental_score_not_applicable_for_category}
+			= $category_without_environmental_score;
 		$product_ref->{environmental_score_data}{status} = "unknown";
 		$product_ref->{environmental_score_tags} = ["not-applicable"];
 		$product_ref->{environmental_score_grade} = "not-applicable";
@@ -808,7 +835,8 @@ sub compute_environmental_score ($product_ref) {
 			# Compute the Environmental-Score for all countries + world (with 0 for the transportation bonus)
 			foreach my $cc (@environmental_score_countries_enabled_sorted, "world") {
 
-				$product_ref->{environmental_score_data}{"scores"}{$cc} = $product_ref->{environmental_score_data}{agribalyse}{score};
+				$product_ref->{environmental_score_data}{"scores"}{$cc}
+					= $product_ref->{environmental_score_data}{agribalyse}{score};
 
 				$log->debug("compute_environmental_score - agribalyse score",
 					{cc => $cc, agribalyse_score => $product_ref->{environmental_score_data}{agribalyse}{score}})
@@ -896,8 +924,10 @@ sub compute_environmental_score ($product_ref) {
 			# Unfortunately there is a MongoDB index limit and we cannot create a different set of field
 			# for each country.
 
-			$product_ref->{environmental_score_data}{"score"} = $product_ref->{environmental_score_data}{"scores"}{"fr"};
-			$product_ref->{environmental_score_data}{"grade"} = $product_ref->{environmental_score_data}{"grades"}{"fr"};
+			$product_ref->{environmental_score_data}{"score"}
+				= $product_ref->{environmental_score_data}{"scores"}{"fr"};
+			$product_ref->{environmental_score_data}{"grade"}
+				= $product_ref->{environmental_score_data}{"grades"}{"fr"};
 			$product_ref->{"environmental_score_score"} = $product_ref->{environmental_score_data}{"scores"}{"fr"};
 			$product_ref->{"environmental_score_grade"} = $product_ref->{environmental_score_data}{"grades"}{"fr"};
 			$product_ref->{"environmental_score_tags"} = [$product_ref->{environmental_score_grade}];
@@ -905,7 +935,13 @@ sub compute_environmental_score ($product_ref) {
 			if ($product_ref->{environmental_score_data}{"downgraded"}) {
 				add_tag($product_ref, "misc", "en:environmental-score-downgraded");
 			}
-			if (($product_ref->{environmental_score_data}{scores}{fr_orig} // $product_ref->{environmental_score_data}{scores}{fr}) > 100) {
+			if (
+				(
+					$product_ref->{environmental_score_data}{scores}{fr_orig}
+					// $product_ref->{environmental_score_data}{scores}{fr}
+				) > 100
+				)
+			{
 				add_tag($product_ref, "misc", "en:environmental-score-score-above-100");
 			}
 
@@ -923,7 +959,8 @@ sub compute_environmental_score ($product_ref) {
 				# environmental-score-missing-data-packagings will also be triggered when we have some packaging data that is not complete
 				# e.g. we have a shape like "bottle" but no associated material
 				# also add a facet when we have no packaging information at all
-				my $packaging_warning = deep_get($product_ref, qw(environmental_score_data adjustments packaging warning));
+				my $packaging_warning
+					= deep_get($product_ref, qw(environmental_score_data adjustments packaging warning));
 				if ((defined $packaging_warning) and ($packaging_warning eq "packaging_data_missing")) {
 					add_tag($product_ref, "misc", "en:environmental-score-missing-data-no-packagings");
 				}
@@ -952,7 +989,9 @@ sub compute_environmental_score ($product_ref) {
 		$old_environmental_score_score = $old_previous_data->{score};
 	}
 	if (defined $old_environmental_score_score || defined $product_ref->{environmental_score_score}) {
-		if (!defined $old_environmental_score_score || $old_environmental_score_score != $product_ref->{environmental_score_score}) {
+		if (!defined $old_environmental_score_score
+			|| $old_environmental_score_score != $product_ref->{environmental_score_score})
+		{
 			if (!defined $old_previous_data && defined $old_agribalyse) {
 				$product_ref->{environmental_score_data}{previous_data} = {
 					grade => $old_environmental_score_grade,
@@ -961,7 +1000,9 @@ sub compute_environmental_score ($product_ref) {
 				};
 			}
 			add_tag($product_ref, "misc", "en:environmental-score-changed");
-			if (!defined $old_environmental_score_grade || $old_environmental_score_grade ne $product_ref->{environmental_score_grade}) {
+			if (!defined $old_environmental_score_grade
+				|| $old_environmental_score_grade ne $product_ref->{environmental_score_grade})
+			{
 				add_tag($product_ref, "misc", "en:environmental-score-grade-changed");
 			}
 		}
@@ -1031,12 +1072,14 @@ sub compute_environmental_score_agribalyse ($product_ref) {
 			$agb = $agb_proxy_match;
 		}
 		else {
-			defined $product_ref->{environmental_score_data}{missing} or $product_ref->{environmental_score_data}{missing} = {};
+			defined $product_ref->{environmental_score_data}{missing}
+				or $product_ref->{environmental_score_data}{missing} = {};
 			$product_ref->{environmental_score_data}{missing}{agb_category} = 1;
 		}
 	}
 	else {
-		defined $product_ref->{environmental_score_data}{missing} or $product_ref->{environmental_score_data}{missing} = {};
+		defined $product_ref->{environmental_score_data}{missing}
+			or $product_ref->{environmental_score_data}{missing} = {};
 		$product_ref->{environmental_score_data}{missing}{categories} = 1;
 	}
 
@@ -1206,7 +1249,8 @@ sub compute_environmental_score_production_system_adjustment ($product_ref) {
 	# No labels warning
 	if ($product_ref->{environmental_score_data}{adjustments}{production_system}{value} == 0) {
 		$product_ref->{environmental_score_data}{adjustments}{production_system}{warning} = "no_label";
-		defined $product_ref->{environmental_score_data}{missing} or $product_ref->{environmental_score_data}{missing} = {};
+		defined $product_ref->{environmental_score_data}{missing}
+			or $product_ref->{environmental_score_data}{missing} = {};
 		$product_ref->{environmental_score_data}{missing}{labels} = 1;
 	}
 	return;
@@ -1250,7 +1294,8 @@ sub compute_environmental_score_threatened_species_adjustment ($product_ref) {
 	# No ingredients warning
 	if ((not defined $product_ref->{ingredients}) or (scalar @{$product_ref->{ingredients}} == 0)) {
 		$product_ref->{environmental_score_data}{adjustments}{threatened_species}{warning} = "ingredients_missing";
-		defined $product_ref->{environmental_score_data}{missing} or $product_ref->{environmental_score_data}{missing} = {};
+		defined $product_ref->{environmental_score_data}{missing}
+			or $product_ref->{environmental_score_data}{missing} = {};
 		$product_ref->{environmental_score_data}{missing}{ingredients} = 1;
 	}
 	return;
@@ -1325,8 +1370,10 @@ sub aggregate_origins_of_ingredients ($default_origins_ref, $aggregated_origins_
 					my $country_code = get_inherited_property("origins", $origin_id, "country_code_2:en");
 
 					if (
-							(defined $country_code)
-						and (defined $environmental_score_data{origins}{canonicalize_taxonomy_tag("en", "origins", $country_code)})
+						(defined $country_code)
+						and (
+							defined $environmental_score_data{origins}
+							{canonicalize_taxonomy_tag("en", "origins", $country_code)})
 						)
 					{
 						$origin_id = canonicalize_taxonomy_tag("en", "origins", $country_code);
@@ -1504,7 +1551,8 @@ sub compute_environmental_score_origins_of_ingredients_adjustment ($product_ref)
 		$epi_score += $environmental_score_data{origins}{$origin_id}{epi_score} * $percent / 100;
 		foreach my $cc (@environmental_score_countries_enabled_sorted) {
 			$transportation_scores{$cc}
-				+= ($environmental_score_data{origins}{$origin_id}{"transportation_score_" . $cc} // 0) * $percent / 100;
+				+= ($environmental_score_data{origins}{$origin_id}{"transportation_score_" . $cc} // 0)
+				* $percent / 100;
 		}
 	}
 
@@ -1537,14 +1585,18 @@ sub compute_environmental_score_origins_of_ingredients_adjustment ($product_ref)
 	foreach my $cc (@environmental_score_countries_enabled_sorted, "world") {
 		$product_ref->{environmental_score_data}{adjustments}{origins_of_ingredients}{"transportation_values"}{$cc}
 			= 0 + round($transportation_scores{$cc} / 6.66);
-		$product_ref->{environmental_score_data}{adjustments}{origins_of_ingredients}{"values"}{$cc} = 0 + round($epi_value)
-			+ $product_ref->{environmental_score_data}{adjustments}{origins_of_ingredients}{"transportation_values"}{$cc};
+		$product_ref->{environmental_score_data}{adjustments}{origins_of_ingredients}{"values"}{$cc}
+			= 0 + round($epi_value)
+			+ $product_ref->{environmental_score_data}{adjustments}{origins_of_ingredients}{"transportation_values"}
+			{$cc};
 	}
 
 	# Add a warning if the only origin is en:unknown
 	if (($#aggregated_origins == 0) and ($aggregated_origins[0]{origin} eq "en:unknown")) {
-		$product_ref->{environmental_score_data}{adjustments}{origins_of_ingredients}{warning} = "origins_are_100_percent_unknown";
-		defined $product_ref->{environmental_score_data}{missing} or $product_ref->{environmental_score_data}{missing} = {};
+		$product_ref->{environmental_score_data}{adjustments}{origins_of_ingredients}{warning}
+			= "origins_are_100_percent_unknown";
+		defined $product_ref->{environmental_score_data}{missing}
+			or $product_ref->{environmental_score_data}{missing} = {};
 		$product_ref->{environmental_score_data}{missing}{origins} = 1;
 	}
 	return;
@@ -1606,7 +1658,8 @@ sub compute_environmental_score_packaging_adjustment ($product_ref) {
 
 			if (defined $packaging_ref->{shape}) {
 
-				my $ratio = get_inherited_property("packaging_shapes", $packaging_ref->{shape}, "environmental_score_ratio:en");
+				my $ratio = get_inherited_property("packaging_shapes", $packaging_ref->{shape},
+					"environmental_score_ratio:en");
 				if (defined $ratio) {
 					$packaging_ref->{environmental_score_shape_ratio} = $ratio + 0;
 				}
@@ -1654,8 +1707,11 @@ sub compute_environmental_score_packaging_adjustment ($product_ref) {
 					}
 				}
 
-				my $score
-					= get_inherited_property("packaging_materials", $packaging_ref->{material}, "environmental_score_score:en");
+				my $score = get_inherited_property(
+					"packaging_materials",
+					$packaging_ref->{material},
+					"environmental_score_score:en"
+				);
 				if (defined $score) {
 					$packaging_ref->{environmental_score_material_score} = $score + 0;
 				}
@@ -1667,10 +1723,11 @@ sub compute_environmental_score_packaging_adjustment ($product_ref) {
 
 				# Check if there is a shape-specific material score (e.g. PEHD bottle)
 				if (defined $packaging_ref->{shape}) {
-					my $shape_specific_score
-						= get_inherited_property("packaging_materials",
+					my $shape_specific_score = get_inherited_property(
+						"packaging_materials",
 						$packaging_ref->{material} . '.' . $packaging_ref->{shape},
-						"environmental_score_score:en");
+						"environmental_score_score:en"
+					);
 					if (defined $shape_specific_score) {
 						$packaging_ref->{environmental_score_material_score} = $shape_specific_score + 0;
 						$packaging_ref->{material_shape} = $packaging_ref->{material} . '.' . $packaging_ref->{shape};
@@ -1707,7 +1764,8 @@ sub compute_environmental_score_packaging_adjustment ($product_ref) {
 			# Multiply the shape ratio and the material score
 
 			$packaging_score
-				+= (100 - $packaging_ref->{environmental_score_material_score}) * $packaging_ref->{environmental_score_shape_ratio};
+				+= (100 - $packaging_ref->{environmental_score_material_score})
+				* $packaging_ref->{environmental_score_shape_ratio};
 		}
 
 		$packaging_score = 100 - $packaging_score;
@@ -1727,7 +1785,8 @@ sub compute_environmental_score_packaging_adjustment ($product_ref) {
 
 	if (defined $warning) {
 		$product_ref->{environmental_score_data}{adjustments}{packaging}{warning} = $warning;
-		defined $product_ref->{environmental_score_data}{missing} or $product_ref->{environmental_score_data}{missing} = {};
+		defined $product_ref->{environmental_score_data}{missing}
+			or $product_ref->{environmental_score_data}{missing} = {};
 		$product_ref->{environmental_score_data}{missing}{packagings} = 1;
 	}
 	return;
@@ -1789,18 +1848,24 @@ sub localize_environmental_score ($request_cc, $product_ref) {
 				= $product_ref->{environmental_score_data}{adjustments}{origins_of_ingredients}{"values"}{$cc};
 
 			$product_ref->{environmental_score_data}{adjustments}{origins_of_ingredients}{"transportation_score"}
-				= $product_ref->{environmental_score_data}{adjustments}{origins_of_ingredients}{"transportation_scores"}{$cc};
+				= $product_ref->{environmental_score_data}{adjustments}{origins_of_ingredients}
+				{"transportation_scores"}{$cc};
 
 			$product_ref->{environmental_score_data}{adjustments}{origins_of_ingredients}{"transportation_value"}
-				= $product_ref->{environmental_score_data}{adjustments}{origins_of_ingredients}{"transportation_values"}{$cc};
+				= $product_ref->{environmental_score_data}{adjustments}{origins_of_ingredients}
+				{"transportation_values"}{$cc};
 
 			# For each origin, we also add its score (EPI + transporation to country of request)
 			# so that clients can show which ingredients contributes the most to the origins of ingredients bonus / malus
 
-			if (defined $product_ref->{environmental_score_data}{adjustments}{origins_of_ingredients}{aggregated_origins}) {
+			if (
+				defined $product_ref->{environmental_score_data}{adjustments}{origins_of_ingredients}
+				{aggregated_origins})
+			{
 
 				foreach my $origin_ref (
-					@{$product_ref->{environmental_score_data}{adjustments}{origins_of_ingredients}{aggregated_origins}})
+					@{$product_ref->{environmental_score_data}{adjustments}{origins_of_ingredients}{aggregated_origins}}
+					)
 				{
 
 					my $origin_id = $origin_ref->{origin};
@@ -1860,7 +1925,8 @@ sub is_environmental_score_extended_data_more_precise_than_agribalyse ($product_
 	# Check that the product has both Agribalyse and Impact Estimator data
 
 	my $agribalyse_score = deep_get($product_ref, qw(agribalyse ef_agriculture));
-	my $estimated_score = deep_get($product_ref, qw(environmental_score_extended_data impact likeliest_impacts EF_single_score));
+	my $estimated_score
+		= deep_get($product_ref, qw(environmental_score_extended_data impact likeliest_impacts EF_single_score));
 
 	if ((defined $agribalyse_score) and (defined $estimated_score)) {
 
