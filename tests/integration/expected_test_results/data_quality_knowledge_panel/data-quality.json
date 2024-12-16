@@ -83,7 +83,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "<ul> <li id=\"data-error-en:environmental_score-extended-data-not-computed\"> EcoScore - Extended data - Not computed </li> <li id=\"data-error-en:food-groups-1-unknown\"> Food groups 1 unknown </li> <li id=\"data-error-en:food-groups-2-unknown\"> Food groups 2 unknown </li> <li id=\"data-error-en:food-groups-3-unknown\"> Food groups 3 unknown </li> <li id=\"data-error-en:ingredients-percent-analysis-ok\"> Ingredients percent analysis OK </li> </ul>"
+                     "html" : "<ul> <li id=\"data-error-en:environmental-score-extended-data-not-computed\"> Environmental-score-extended-data-not-computed </li> <li id=\"data-error-en:food-groups-1-unknown\"> Food groups 1 unknown </li> <li id=\"data-error-en:food-groups-2-unknown\"> Food groups 2 unknown </li> <li id=\"data-error-en:food-groups-3-unknown\"> Food groups 3 unknown </li> <li id=\"data-error-en:ingredients-percent-analysis-ok\"> Ingredients percent analysis OK </li> </ul>"
                   }
                }
             ],
@@ -120,37 +120,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "<ul> <li id=\"data-error-en:environmental_score-origins-of-ingredients-origins-are-100-percent-unknown\"> EcoScore origins of ingredients origins are 100 percent unknown <br><span class=\"description\">Origins of ingredients are one of the Eco-Score components. They are currently extracted from the ingredient list and the Origins field.</span> </li> </ul>"
-                  }
-               },
-               {
-                  "action_element" : {
-                     "actions" : [
-                        "add_origins"
-                     ],
-                     "html" : ""
-                  },
-                  "element_type" : "action"
-               },
-               {
-                  "element_type" : "text",
-                  "text_element" : {
-                     "html" : "<ul> <li id=\"data-error-en:environmental_score-packaging-packaging-data-missing\"> EcoScore - packaging - Packaging data missing <br><span class=\"description\">No packaging data - Packaging is one of the components of the Eco-Score, and thus it's important to have packaging data.</span> </li> </ul>"
-                  }
-               },
-               {
-                  "action_element" : {
-                     "actions" : [
-                        "add_packaging_components"
-                     ],
-                     "html" : ""
-                  },
-                  "element_type" : "action"
-               },
-               {
-                  "element_type" : "text",
-                  "text_element" : {
-                     "html" : "<ul> <li id=\"data-error-en:environmental_score-production-system-no-label\"> EcoScore - production system - no label </li> </ul>"
+                     "html" : "<ul> <li id=\"data-error-en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown\"> Environmental-score-origins-of-ingredients-origins-are-100-percent-unknown </li> <li id=\"data-error-en:environmental-score-packaging-packaging-data-missing\"> Environmental-score-packaging-packaging-data-missing </li> <li id=\"data-error-en:environmental-score-production-system-no-label\"> Environmental-score-production-system-no-label </li> </ul>"
                   }
                }
             ],
@@ -165,36 +135,6 @@
             },
             "topics" : [
                "contribution"
-            ]
-         },
-         "environmental_score" : {
-            "elements" : [
-               {
-                  "element_type" : "text",
-                  "text_element" : {
-                     "html" : "We could not compute the Eco-Score of this product as it is missing some data, could you help complete it?",
-                     "type" : "summary"
-                  }
-               },
-               {
-                  "action_element" : {
-                     "actions" : [
-                        "add_categories"
-                     ],
-                     "html" : "Could you add a precise product category so that we can compute the Eco-Score?"
-                  },
-                  "element_type" : "action"
-               }
-            ],
-            "level" : "info",
-            "title_element" : {
-               "grade" : "unknown",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/environmental_score-unknown.svg",
-               "title" : "Eco-Score not computed - Unknown environmental impact",
-               "type" : "grade"
-            },
-            "topics" : [
-               "environment"
             ]
          },
          "environment_card" : {
@@ -233,6 +173,36 @@
                "environment"
             ],
             "type" : "card"
+         },
+         "environmental_score" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "We could not compute the Eco-Score of this product as it is missing some data, could you help complete it?",
+                     "type" : "summary"
+                  }
+               },
+               {
+                  "action_element" : {
+                     "actions" : [
+                        "add_categories"
+                     ],
+                     "html" : "Could you add a precise product category so that we can compute the Eco-Score?"
+                  },
+                  "element_type" : "action"
+               }
+            ],
+            "level" : "info",
+            "title_element" : {
+               "grade" : "unknown",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/environmental-score-unknown.svg",
+               "title" : "Eco-Score not computed - Unknown environmental impact",
+               "type" : "grade"
+            },
+            "topics" : [
+               "environment"
+            ]
          },
          "health_card" : {
             "elements" : [

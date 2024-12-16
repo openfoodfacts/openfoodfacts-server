@@ -71,7 +71,7 @@
          "data_quality_info_tags" : [
             "en:packaging-data-incomplete",
             "en:ingredients-percent-analysis-ok",
-            "en:environmental_score-extended-data-not-computed",
+            "en:environmental-score-extended-data-not-computed",
             "en:food-groups-1-unknown",
             "en:food-groups-2-unknown",
             "en:food-groups-3-unknown"
@@ -79,17 +79,21 @@
          "data_quality_tags" : [
             "en:packaging-data-incomplete",
             "en:ingredients-percent-analysis-ok",
-            "en:environmental_score-extended-data-not-computed",
+            "en:environmental-score-extended-data-not-computed",
             "en:food-groups-1-unknown",
             "en:food-groups-2-unknown",
             "en:food-groups-3-unknown",
-            "en:environmental_score-origins-of-ingredients-origins-are-100-percent-unknown",
-            "en:environmental_score-production-system-no-label"
+            "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
+            "en:environmental-score-production-system-no-label"
          ],
          "data_quality_warnings_tags" : [
-            "en:environmental_score-origins-of-ingredients-origins-are-100-percent-unknown",
-            "en:environmental_score-production-system-no-label"
+            "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
+            "en:environmental-score-production-system-no-label"
          ],
+         "editors_tags" : [
+            "tests"
+         ],
+         "entry_dates_tags" : "--ignore--",
          "environmental_score_data" : {
             "adjustments" : {
                "origins_of_ingredients" : {
@@ -368,10 +372,6 @@
          "environmental_score_tags" : [
             "unknown"
          ],
-         "editors_tags" : [
-            "tests"
-         ],
-         "entry_dates_tags" : "--ignore--",
          "food_groups_tags" : [],
          "forest_footprint_data" : {
             "footprint_per_kg" : 0.0074375,
@@ -548,8 +548,8 @@
          "main_countries_tags" : [],
          "minerals_tags" : [],
          "misc_tags" : [
-            "en:environmental_score-extended-data-not-computed",
-            "en:environmental_score-not-computed",
+            "en:environmental-score-extended-data-not-computed",
+            "en:environmental-score-not-computed",
             "en:forest-footprint-a",
             "en:forest-footprint-computed",
             "en:nutriscore-2021-c-2023-c",
@@ -993,7 +993,7 @@
          "data_quality_info_tags" : [
             "en:no-packaging-data",
             "en:ingredients-percent-analysis-ok",
-            "en:environmental_score-extended-data-not-computed",
+            "en:environmental-score-extended-data-not-computed",
             "en:food-groups-1-unknown",
             "en:food-groups-2-unknown",
             "en:food-groups-3-unknown"
@@ -1001,19 +1001,23 @@
          "data_quality_tags" : [
             "en:no-packaging-data",
             "en:ingredients-percent-analysis-ok",
-            "en:environmental_score-extended-data-not-computed",
+            "en:environmental-score-extended-data-not-computed",
             "en:food-groups-1-unknown",
             "en:food-groups-2-unknown",
             "en:food-groups-3-unknown",
-            "en:environmental_score-origins-of-ingredients-origins-are-100-percent-unknown",
-            "en:environmental_score-packaging-packaging-data-missing",
-            "en:environmental_score-production-system-no-label"
+            "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
+            "en:environmental-score-packaging-packaging-data-missing",
+            "en:environmental-score-production-system-no-label"
          ],
          "data_quality_warnings_tags" : [
-            "en:environmental_score-origins-of-ingredients-origins-are-100-percent-unknown",
-            "en:environmental_score-packaging-packaging-data-missing",
-            "en:environmental_score-production-system-no-label"
+            "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
+            "en:environmental-score-packaging-packaging-data-missing",
+            "en:environmental-score-production-system-no-label"
          ],
+         "editors_tags" : [
+            "tests"
+         ],
+         "entry_dates_tags" : "--ignore--",
          "environmental_score_data" : {
             "adjustments" : {
                "origins_of_ingredients" : {
@@ -1262,10 +1266,6 @@
          "environmental_score_tags" : [
             "unknown"
          ],
-         "editors_tags" : [
-            "tests"
-         ],
-         "entry_dates_tags" : "--ignore--",
          "food_groups_tags" : [],
          "generic_name" : "Tester",
          "generic_name_en" : "Tester",
@@ -1369,8 +1369,8 @@
          "main_countries_tags" : [],
          "minerals_tags" : [],
          "misc_tags" : [
-            "en:environmental_score-extended-data-not-computed",
-            "en:environmental_score-not-computed",
+            "en:environmental-score-extended-data-not-computed",
+            "en:environmental-score-not-computed",
             "en:nutriscore-missing-nutrition-data",
             "en:nutriscore-missing-nutrition-data-energy",
             "en:nutriscore-missing-nutrition-data-fat",
@@ -1622,7 +1622,7 @@
          "data_quality_info_tags" : [
             "en:no-packaging-data",
             "en:ingredients-percent-analysis-ok",
-            "en:environmental_score-extended-data-not-computed",
+            "en:environmental-score-extended-data-not-computed",
             "en:food-groups-1-unknown",
             "en:food-groups-2-unknown",
             "en:food-groups-3-unknown"
@@ -1630,19 +1630,23 @@
          "data_quality_tags" : [
             "en:no-packaging-data",
             "en:ingredients-percent-analysis-ok",
-            "en:environmental_score-extended-data-not-computed",
+            "en:environmental-score-extended-data-not-computed",
             "en:food-groups-1-unknown",
             "en:food-groups-2-unknown",
             "en:food-groups-3-unknown",
-            "en:environmental_score-origins-of-ingredients-origins-are-100-percent-unknown",
-            "en:environmental_score-packaging-packaging-data-missing",
-            "en:environmental_score-production-system-no-label"
+            "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
+            "en:environmental-score-packaging-packaging-data-missing",
+            "en:environmental-score-production-system-no-label"
          ],
          "data_quality_warnings_tags" : [
-            "en:environmental_score-origins-of-ingredients-origins-are-100-percent-unknown",
-            "en:environmental_score-packaging-packaging-data-missing",
-            "en:environmental_score-production-system-no-label"
+            "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
+            "en:environmental-score-packaging-packaging-data-missing",
+            "en:environmental-score-production-system-no-label"
          ],
+         "editors_tags" : [
+            "tests"
+         ],
+         "entry_dates_tags" : "--ignore--",
          "environmental_score_data" : {
             "adjustments" : {
                "origins_of_ingredients" : {
@@ -1891,10 +1895,6 @@
          "environmental_score_tags" : [
             "unknown"
          ],
-         "editors_tags" : [
-            "tests"
-         ],
-         "entry_dates_tags" : "--ignore--",
          "food_groups_tags" : [],
          "forest_footprint_data" : {
             "footprint_per_kg" : 0.0132222222222222,
@@ -2045,8 +2045,8 @@
          "main_countries_tags" : [],
          "minerals_tags" : [],
          "misc_tags" : [
-            "en:environmental_score-extended-data-not-computed",
-            "en:environmental_score-not-computed",
+            "en:environmental-score-extended-data-not-computed",
+            "en:environmental-score-not-computed",
             "en:forest-footprint-a",
             "en:forest-footprint-computed",
             "en:nutriscore-2021-a-2023-a",
@@ -2450,7 +2450,7 @@
          "data_quality_info_tags" : [
             "en:no-packaging-data",
             "en:ingredients-percent-analysis-ok",
-            "en:environmental_score-extended-data-not-computed",
+            "en:environmental-score-extended-data-not-computed",
             "en:food-groups-1-unknown",
             "en:food-groups-2-unknown",
             "en:food-groups-3-unknown"
@@ -2458,19 +2458,23 @@
          "data_quality_tags" : [
             "en:no-packaging-data",
             "en:ingredients-percent-analysis-ok",
-            "en:environmental_score-extended-data-not-computed",
+            "en:environmental-score-extended-data-not-computed",
             "en:food-groups-1-unknown",
             "en:food-groups-2-unknown",
             "en:food-groups-3-unknown",
-            "en:environmental_score-origins-of-ingredients-origins-are-100-percent-unknown",
-            "en:environmental_score-packaging-packaging-data-missing",
-            "en:environmental_score-production-system-no-label"
+            "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
+            "en:environmental-score-packaging-packaging-data-missing",
+            "en:environmental-score-production-system-no-label"
          ],
          "data_quality_warnings_tags" : [
-            "en:environmental_score-origins-of-ingredients-origins-are-100-percent-unknown",
-            "en:environmental_score-packaging-packaging-data-missing",
-            "en:environmental_score-production-system-no-label"
+            "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
+            "en:environmental-score-packaging-packaging-data-missing",
+            "en:environmental-score-production-system-no-label"
          ],
+         "editors_tags" : [
+            "tests"
+         ],
+         "entry_dates_tags" : "--ignore--",
          "environmental_score_data" : {
             "adjustments" : {
                "origins_of_ingredients" : {
@@ -2722,10 +2726,6 @@
          "environmental_score_tags" : [
             "unknown"
          ],
-         "editors_tags" : [
-            "tests"
-         ],
-         "entry_dates_tags" : "--ignore--",
          "food_groups_tags" : [],
          "generic_name_en" : "Tester",
          "id" : "0200000000039",
@@ -2857,8 +2857,8 @@
          "main_countries_tags" : [],
          "minerals_tags" : [],
          "misc_tags" : [
-            "en:environmental_score-extended-data-not-computed",
-            "en:environmental_score-not-computed",
+            "en:environmental-score-extended-data-not-computed",
+            "en:environmental-score-not-computed",
             "en:nutriscore-2021-c-2023-c",
             "en:nutriscore-2021-same-as-2023",
             "en:nutriscore-computed",
@@ -3267,7 +3267,7 @@
          "data_quality_info_tags" : [
             "en:no-packaging-data",
             "en:ingredients-percent-analysis-ok",
-            "en:environmental_score-extended-data-not-computed",
+            "en:environmental-score-extended-data-not-computed",
             "en:food-groups-1-known",
             "en:food-groups-2-known",
             "en:food-groups-3-unknown"
@@ -3275,19 +3275,23 @@
          "data_quality_tags" : [
             "en:no-packaging-data",
             "en:ingredients-percent-analysis-ok",
-            "en:environmental_score-extended-data-not-computed",
+            "en:environmental-score-extended-data-not-computed",
             "en:food-groups-1-known",
             "en:food-groups-2-known",
             "en:food-groups-3-unknown",
-            "en:environmental_score-origins-of-ingredients-origins-are-100-percent-unknown",
-            "en:environmental_score-packaging-packaging-data-missing",
-            "en:environmental_score-production-system-no-label"
+            "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
+            "en:environmental-score-packaging-packaging-data-missing",
+            "en:environmental-score-production-system-no-label"
          ],
          "data_quality_warnings_tags" : [
-            "en:environmental_score-origins-of-ingredients-origins-are-100-percent-unknown",
-            "en:environmental_score-packaging-packaging-data-missing",
-            "en:environmental_score-production-system-no-label"
+            "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
+            "en:environmental-score-packaging-packaging-data-missing",
+            "en:environmental-score-production-system-no-label"
          ],
+         "editors_tags" : [
+            "tests"
+         ],
+         "entry_dates_tags" : "--ignore--",
          "environmental_score_data" : {
             "adjustments" : {
                "origins_of_ingredients" : {
@@ -3688,10 +3692,6 @@
          "environmental_score_tags" : [
             "e"
          ],
-         "editors_tags" : [
-            "tests"
-         ],
-         "entry_dates_tags" : "--ignore--",
          "food_groups" : "en:breakfast-cereals",
          "food_groups_tags" : [
             "en:cereals-and-potatoes",
@@ -3800,15 +3800,15 @@
          "main_countries_tags" : [],
          "minerals_tags" : [],
          "misc_tags" : [
-            "en:environmental_score-changed",
-            "en:environmental_score-computed",
-            "en:environmental_score-extended-data-not-computed",
-            "en:environmental_score-grade-changed",
-            "en:environmental_score-missing-data-labels",
-            "en:environmental_score-missing-data-no-packagings",
-            "en:environmental_score-missing-data-origins",
-            "en:environmental_score-missing-data-packagings",
-            "en:environmental_score-missing-data-warning",
+            "en:environmental-score-changed",
+            "en:environmental-score-computed",
+            "en:environmental-score-extended-data-not-computed",
+            "en:environmental-score-grade-changed",
+            "en:environmental-score-missing-data-labels",
+            "en:environmental-score-missing-data-no-packagings",
+            "en:environmental-score-missing-data-origins",
+            "en:environmental-score-missing-data-packagings",
+            "en:environmental-score-missing-data-warning",
             "en:nutriscore-2021-a-2023-a",
             "en:nutriscore-2021-same-as-2023",
             "en:nutriscore-computed",
@@ -4242,7 +4242,7 @@
          "data_quality_info_tags" : [
             "en:no-packaging-data",
             "en:ingredients-percent-analysis-ok",
-            "en:environmental_score-extended-data-not-computed",
+            "en:environmental-score-extended-data-not-computed",
             "en:food-groups-1-known",
             "en:food-groups-2-known",
             "en:food-groups-3-unknown"
@@ -4250,19 +4250,23 @@
          "data_quality_tags" : [
             "en:no-packaging-data",
             "en:ingredients-percent-analysis-ok",
-            "en:environmental_score-extended-data-not-computed",
+            "en:environmental-score-extended-data-not-computed",
             "en:food-groups-1-known",
             "en:food-groups-2-known",
             "en:food-groups-3-unknown",
-            "en:environmental_score-origins-of-ingredients-origins-are-100-percent-unknown",
-            "en:environmental_score-packaging-packaging-data-missing",
-            "en:environmental_score-production-system-no-label"
+            "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
+            "en:environmental-score-packaging-packaging-data-missing",
+            "en:environmental-score-production-system-no-label"
          ],
          "data_quality_warnings_tags" : [
-            "en:environmental_score-origins-of-ingredients-origins-are-100-percent-unknown",
-            "en:environmental_score-packaging-packaging-data-missing",
-            "en:environmental_score-production-system-no-label"
+            "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
+            "en:environmental-score-packaging-packaging-data-missing",
+            "en:environmental-score-production-system-no-label"
          ],
+         "editors_tags" : [
+            "tests"
+         ],
+         "entry_dates_tags" : "--ignore--",
          "environmental_score_data" : {
             "adjustments" : {
                "origins_of_ingredients" : {
@@ -4663,10 +4667,6 @@
          "environmental_score_tags" : [
             "e"
          ],
-         "editors_tags" : [
-            "tests"
-         ],
-         "entry_dates_tags" : "--ignore--",
          "food_groups" : "en:breakfast-cereals",
          "food_groups_tags" : [
             "en:cereals-and-potatoes",
@@ -4776,15 +4776,15 @@
          "main_countries_tags" : [],
          "minerals_tags" : [],
          "misc_tags" : [
-            "en:environmental_score-changed",
-            "en:environmental_score-computed",
-            "en:environmental_score-extended-data-not-computed",
-            "en:environmental_score-grade-changed",
-            "en:environmental_score-missing-data-labels",
-            "en:environmental_score-missing-data-no-packagings",
-            "en:environmental_score-missing-data-origins",
-            "en:environmental_score-missing-data-packagings",
-            "en:environmental_score-missing-data-warning",
+            "en:environmental-score-changed",
+            "en:environmental-score-computed",
+            "en:environmental-score-extended-data-not-computed",
+            "en:environmental-score-grade-changed",
+            "en:environmental-score-missing-data-labels",
+            "en:environmental-score-missing-data-no-packagings",
+            "en:environmental-score-missing-data-origins",
+            "en:environmental-score-missing-data-packagings",
+            "en:environmental-score-missing-data-warning",
             "en:nutriscore-2021-a-2023-a",
             "en:nutriscore-2021-same-as-2023",
             "en:nutriscore-computed",

@@ -287,7 +287,7 @@
                "description" : "",
                "description_short" : "High environmental impact",
                "grade" : "d",
-               "icon_url" : "https://server_domain/images/attributes/dist/environmental_score-d.svg",
+               "icon_url" : "https://server_domain/images/attributes/dist/ecoscore-d.svg",
                "id" : "environmental_score",
                "match" : 35,
                "name" : "Eco-Score",
@@ -365,7 +365,7 @@
    "data_quality_info_tags" : [
       "en:no-packaging-data",
       "en:ingredients-percent-analysis-ok",
-      "en:environmental_score-extended-data-not-computed",
+      "en:environmental-score-extended-data-not-computed",
       "en:food-groups-1-known",
       "en:food-groups-2-known",
       "en:food-groups-3-unknown"
@@ -376,18 +376,18 @@
       "en:created-missing",
       "en:no-packaging-data",
       "en:ingredients-percent-analysis-ok",
-      "en:environmental_score-extended-data-not-computed",
+      "en:environmental-score-extended-data-not-computed",
       "en:food-groups-1-known",
       "en:food-groups-2-known",
       "en:food-groups-3-unknown",
-      "en:environmental_score-origins-of-ingredients-origins-are-100-percent-unknown",
-      "en:environmental_score-packaging-packaging-data-missing",
-      "en:environmental_score-production-system-no-label"
+      "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
+      "en:environmental-score-packaging-packaging-data-missing",
+      "en:environmental-score-production-system-no-label"
    ],
    "data_quality_warnings_tags" : [
-      "en:environmental_score-origins-of-ingredients-origins-are-100-percent-unknown",
-      "en:environmental_score-packaging-packaging-data-missing",
-      "en:environmental_score-production-system-no-label"
+      "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
+      "en:environmental-score-packaging-packaging-data-missing",
+      "en:environmental-score-production-system-no-label"
    ],
    "environmental_score_data" : {
       "adjustments" : {
@@ -968,15 +968,15 @@
    "lc" : "en",
    "minerals_tags" : [],
    "misc_tags" : [
-      "en:environmental_score-changed",
-      "en:environmental_score-computed",
-      "en:environmental_score-extended-data-not-computed",
-      "en:environmental_score-grade-changed",
-      "en:environmental_score-missing-data-labels",
-      "en:environmental_score-missing-data-no-packagings",
-      "en:environmental_score-missing-data-origins",
-      "en:environmental_score-missing-data-packagings",
-      "en:environmental_score-missing-data-warning",
+      "en:environmental-score-changed",
+      "en:environmental-score-computed",
+      "en:environmental-score-extended-data-not-computed",
+      "en:environmental-score-grade-changed",
+      "en:environmental-score-missing-data-labels",
+      "en:environmental-score-missing-data-no-packagings",
+      "en:environmental-score-missing-data-origins",
+      "en:environmental-score-missing-data-packagings",
+      "en:environmental-score-missing-data-warning",
       "en:nutriscore-missing-nutrition-data",
       "en:nutriscore-missing-nutrition-data-energy",
       "en:nutriscore-missing-nutrition-data-fat",

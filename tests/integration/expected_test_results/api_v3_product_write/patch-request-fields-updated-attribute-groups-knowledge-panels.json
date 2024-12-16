@@ -274,7 +274,7 @@
                   "description" : "",
                   "description_short" : "Unknown environmental impact",
                   "grade" : "unknown",
-                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/environmental_score-unknown.svg",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/ecoscore-unknown.svg",
                   "id" : "environmental_score",
                   "match" : 0,
                   "name" : "Eco-Score",
@@ -325,36 +325,6 @@
          }
       ],
       "knowledge_panels" : {
-         "environmental_score" : {
-            "elements" : [
-               {
-                  "element_type" : "text",
-                  "text_element" : {
-                     "html" : "We could not compute the Eco-Score of this product as it is missing some data, could you help complete it?",
-                     "type" : "summary"
-                  }
-               },
-               {
-                  "action_element" : {
-                     "actions" : [
-                        "add_categories"
-                     ],
-                     "html" : "Could you add a precise product category so that we can compute the Eco-Score?"
-                  },
-                  "element_type" : "action"
-               }
-            ],
-            "level" : "info",
-            "title_element" : {
-               "grade" : "unknown",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/environmental_score-unknown.svg",
-               "title" : "Eco-Score not computed - Unknown environmental impact",
-               "type" : "grade"
-            },
-            "topics" : [
-               "environment"
-            ]
-         },
          "environment_card" : {
             "elements" : [
                {
@@ -391,6 +361,36 @@
                "environment"
             ],
             "type" : "card"
+         },
+         "environmental_score" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "We could not compute the Eco-Score of this product as it is missing some data, could you help complete it?",
+                     "type" : "summary"
+                  }
+               },
+               {
+                  "action_element" : {
+                     "actions" : [
+                        "add_categories"
+                     ],
+                     "html" : "Could you add a precise product category so that we can compute the Eco-Score?"
+                  },
+                  "element_type" : "action"
+               }
+            ],
+            "level" : "info",
+            "title_element" : {
+               "grade" : "unknown",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/environmental-score-unknown.svg",
+               "title" : "Eco-Score not computed - Unknown environmental impact",
+               "type" : "grade"
+            },
+            "topics" : [
+               "environment"
+            ]
          },
          "health_card" : {
             "elements" : [

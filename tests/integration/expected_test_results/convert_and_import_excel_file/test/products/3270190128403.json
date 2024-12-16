@@ -134,7 +134,7 @@
       "en:packaging-data-incomplete",
       "en:ingredients-percent-analysis-ok",
       "en:all-but-one-ingredient-with-specified-percent",
-      "en:environmental_score-extended-data-not-computed",
+      "en:environmental-score-extended-data-not-computed",
       "en:food-groups-1-known",
       "en:food-groups-2-known",
       "en:food-groups-3-unknown"
@@ -143,7 +143,7 @@
       "en:packaging-data-incomplete",
       "en:ingredients-percent-analysis-ok",
       "en:all-but-one-ingredient-with-specified-percent",
-      "en:environmental_score-extended-data-not-computed",
+      "en:environmental-score-extended-data-not-computed",
       "en:food-groups-1-known",
       "en:food-groups-2-known",
       "en:food-groups-3-unknown"
@@ -155,6 +155,16 @@
       "producers",
       "producer-carrefour"
    ],
+   "editors_tags" : [
+      "test-user"
+   ],
+   "emb_codes" : "EMB 43062A",
+   "emb_codes_imported" : "EMB 43062A",
+   "emb_codes_orig" : "EMB 43062A",
+   "emb_codes_tags" : [
+      "emb-43062a"
+   ],
+   "entry_dates_tags" : "--ignore--",
    "environmental_score_data" : {
       "adjustments" : {
          "origins_of_ingredients" : {
@@ -554,16 +564,6 @@
    "environmental_score_tags" : [
       "a-plus"
    ],
-   "editors_tags" : [
-      "test-user"
-   ],
-   "emb_codes" : "EMB 43062A",
-   "emb_codes_imported" : "EMB 43062A",
-   "emb_codes_orig" : "EMB 43062A",
-   "emb_codes_tags" : [
-      "emb-43062a"
-   ],
-   "entry_dates_tags" : "--ignore--",
    "food_groups" : "en:vegetables",
    "food_groups_tags" : [
       "en:fruits-and-vegetables",
@@ -746,11 +746,11 @@
    "max_imgid" : "1",
    "minerals_tags" : [],
    "misc_tags" : [
-      "en:environmental_score-changed",
-      "en:environmental_score-computed",
-      "en:environmental_score-extended-data-not-computed",
-      "en:environmental_score-grade-changed",
-      "en:environmental_score-score-above-100",
+      "en:environmental-score-changed",
+      "en:environmental-score-computed",
+      "en:environmental-score-extended-data-not-computed",
+      "en:environmental-score-grade-changed",
+      "en:environmental-score-score-above-100",
       "en:nutriscore-missing-nutrition-data",
       "en:nutriscore-missing-nutrition-data-fat",
       "en:nutriscore-missing-nutrition-data-proteins",

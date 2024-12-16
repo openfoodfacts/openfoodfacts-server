@@ -78,27 +78,27 @@
    "data_quality_errors_tags" : [],
    "data_quality_info_tags" : [
       "en:packaging-data-incomplete",
-      "en:environmental_score-extended-data-not-computed",
+      "en:environmental-score-extended-data-not-computed",
       "en:food-groups-1-known",
       "en:food-groups-2-known",
       "en:food-groups-3-unknown"
    ],
    "data_quality_tags" : [
       "en:packaging-data-incomplete",
-      "en:environmental_score-extended-data-not-computed",
+      "en:environmental-score-extended-data-not-computed",
       "en:food-groups-1-known",
       "en:food-groups-2-known",
       "en:food-groups-3-unknown",
-      "en:environmental_score-origins-of-ingredients-origins-are-100-percent-unknown",
-      "en:environmental_score-packaging-unscored-shape",
-      "en:environmental_score-production-system-no-label",
-      "en:environmental_score-threatened-species-ingredients-missing"
+      "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
+      "en:environmental-score-packaging-unscored-shape",
+      "en:environmental-score-production-system-no-label",
+      "en:environmental-score-threatened-species-ingredients-missing"
    ],
    "data_quality_warnings_tags" : [
-      "en:environmental_score-origins-of-ingredients-origins-are-100-percent-unknown",
-      "en:environmental_score-packaging-unscored-shape",
-      "en:environmental_score-production-system-no-label",
-      "en:environmental_score-threatened-species-ingredients-missing"
+      "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
+      "en:environmental-score-packaging-unscored-shape",
+      "en:environmental-score-production-system-no-label",
+      "en:environmental-score-threatened-species-ingredients-missing"
    ],
    "data_sources" : "Producers, Producer - test-org",
    "data_sources_imported" : "Producers, Producer - test-org",
@@ -106,6 +106,10 @@
       "producers",
       "producer-test-org"
    ],
+   "editors_tags" : [
+      "test-user"
+   ],
+   "entry_dates_tags" : "--ignore--",
    "environmental_score_data" : {
       "adjustments" : {
          "origins_of_ingredients" : {
@@ -544,10 +548,6 @@
    "environmental_score_tags" : [
       "b"
    ],
-   "editors_tags" : [
-      "test-user"
-   ],
-   "entry_dates_tags" : "--ignore--",
    "food_groups" : "en:dressings-and-sauces",
    "food_groups_tags" : [
       "en:fats-and-sauces",
@@ -582,13 +582,13 @@
    "lc_imported" : "en",
    "main_countries_tags" : [],
    "misc_tags" : [
-      "en:environmental_score-changed",
-      "en:environmental_score-computed",
-      "en:environmental_score-extended-data-not-computed",
-      "en:environmental_score-missing-data-labels",
-      "en:environmental_score-missing-data-origins",
-      "en:environmental_score-missing-data-packagings",
-      "en:environmental_score-missing-data-warning",
+      "en:environmental-score-changed",
+      "en:environmental-score-computed",
+      "en:environmental-score-extended-data-not-computed",
+      "en:environmental-score-missing-data-labels",
+      "en:environmental-score-missing-data-origins",
+      "en:environmental-score-missing-data-packagings",
+      "en:environmental-score-missing-data-warning",
       "en:nutriscore-missing-nutrition-data",
       "en:nutriscore-missing-nutrition-data-energy",
       "en:nutriscore-missing-nutrition-data-fat",

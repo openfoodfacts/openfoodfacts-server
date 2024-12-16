@@ -81,7 +81,7 @@
       "data_quality_info_tags" : [
          "en:packaging-data-incomplete",
          "en:ingredients-percent-analysis-ok",
-         "en:environmental_score-extended-data-not-computed",
+         "en:environmental-score-extended-data-not-computed",
          "en:food-groups-1-unknown",
          "en:food-groups-2-unknown",
          "en:food-groups-3-unknown"
@@ -89,21 +89,26 @@
       "data_quality_tags" : [
          "en:packaging-data-incomplete",
          "en:ingredients-percent-analysis-ok",
-         "en:environmental_score-extended-data-not-computed",
+         "en:environmental-score-extended-data-not-computed",
          "en:food-groups-1-unknown",
          "en:food-groups-2-unknown",
          "en:food-groups-3-unknown",
          "en:nutrition-value-under-0-001-g-salt",
-         "en:environmental_score-origins-of-ingredients-origins-are-100-percent-unknown"
+         "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown"
       ],
       "data_quality_warnings_tags" : [
          "en:nutrition-value-under-0-001-g-salt",
-         "en:environmental_score-origins-of-ingredients-origins-are-100-percent-unknown"
+         "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown"
       ],
       "debug_param_sorted_langs" : [
          "en",
          "fr"
       ],
+      "editors_tags" : [
+         "moderator",
+         "tests"
+      ],
+      "entry_dates_tags" : "--ignore--",
       "environmental_score_data" : {
          "adjustments" : {
             "origins_of_ingredients" : {
@@ -392,11 +397,6 @@
       "environmental_score_tags" : [
          "unknown"
       ],
-      "editors_tags" : [
-         "moderator",
-         "tests"
-      ],
-      "entry_dates_tags" : "--ignore--",
       "food_groups_tags" : [],
       "forest_footprint_data" : {
          "footprint_per_kg" : 0.00145833333333333,
@@ -596,8 +596,8 @@
       "main_countries_tags" : [],
       "minerals_tags" : [],
       "misc_tags" : [
-         "en:environmental_score-extended-data-not-computed",
-         "en:environmental_score-not-computed",
+         "en:environmental-score-extended-data-not-computed",
+         "en:environmental-score-not-computed",
          "en:forest-footprint-a",
          "en:forest-footprint-computed",
          "en:nutriscore-missing-nutrition-data",

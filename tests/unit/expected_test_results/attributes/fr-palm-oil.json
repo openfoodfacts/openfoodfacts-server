@@ -280,7 +280,7 @@
                "description" : "",
                "description_short" : "Impact environnemental inconnu",
                "grade" : "unknown",
-               "icon_url" : "https://server_domain/images/attributes/dist/environmental_score-unknown.svg",
+               "icon_url" : "https://server_domain/images/attributes/dist/ecoscore-unknown.svg",
                "id" : "environmental_score",
                "match" : 0,
                "name" : "Eco-Score",
@@ -348,7 +348,7 @@
    "data_quality_info_tags" : [
       "en:no-packaging-data",
       "en:ingredients-percent-analysis-ok",
-      "en:environmental_score-extended-data-not-computed",
+      "en:environmental-score-extended-data-not-computed",
       "en:food-groups-1-unknown",
       "en:food-groups-2-unknown",
       "en:food-groups-3-unknown"
@@ -359,18 +359,18 @@
       "en:created-missing",
       "en:no-packaging-data",
       "en:ingredients-percent-analysis-ok",
-      "en:environmental_score-extended-data-not-computed",
+      "en:environmental-score-extended-data-not-computed",
       "en:food-groups-1-unknown",
       "en:food-groups-2-unknown",
       "en:food-groups-3-unknown",
-      "en:environmental_score-origins-of-ingredients-origins-are-100-percent-unknown",
-      "en:environmental_score-packaging-packaging-data-missing",
-      "en:environmental_score-production-system-no-label"
+      "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
+      "en:environmental-score-packaging-packaging-data-missing",
+      "en:environmental-score-production-system-no-label"
    ],
    "data_quality_warnings_tags" : [
-      "en:environmental_score-origins-of-ingredients-origins-are-100-percent-unknown",
-      "en:environmental_score-packaging-packaging-data-missing",
-      "en:environmental_score-production-system-no-label"
+      "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
+      "en:environmental-score-packaging-packaging-data-missing",
+      "en:environmental-score-production-system-no-label"
    ],
    "environmental_score_data" : {
       "adjustments" : {
@@ -707,8 +707,8 @@
    "lc" : "fr",
    "minerals_tags" : [],
    "misc_tags" : [
-      "en:environmental_score-extended-data-not-computed",
-      "en:environmental_score-not-computed",
+      "en:environmental-score-extended-data-not-computed",
+      "en:environmental-score-not-computed",
       "en:nutriscore-missing-category",
       "en:nutriscore-missing-nutrition-data",
       "en:nutriscore-missing-nutrition-data-energy",

@@ -93,7 +93,7 @@
       "data_quality_info_tags" : [
          "en:packaging-data-incomplete",
          "en:ingredients-percent-analysis-ok",
-         "en:environmental_score-extended-data-not-computed",
+         "en:environmental-score-extended-data-not-computed",
          "en:food-groups-1-known",
          "en:food-groups-2-known",
          "en:food-groups-3-unknown"
@@ -101,21 +101,25 @@
       "data_quality_tags" : [
          "en:packaging-data-incomplete",
          "en:ingredients-percent-analysis-ok",
-         "en:environmental_score-extended-data-not-computed",
+         "en:environmental-score-extended-data-not-computed",
          "en:food-groups-1-known",
          "en:food-groups-2-known",
          "en:food-groups-3-unknown",
          "en:energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
-         "en:environmental_score-origins-of-ingredients-origins-are-100-percent-unknown",
-         "en:environmental_score-production-system-no-label",
+         "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
+         "en:environmental-score-production-system-no-label",
          "en:nutrition-sugars-plus-starch-greater-than-carbohydrates",
          "en:energy-value-in-kj-does-not-match-value-computed-from-other-nutrients"
       ],
       "data_quality_warnings_tags" : [
          "en:energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
-         "en:environmental_score-origins-of-ingredients-origins-are-100-percent-unknown",
-         "en:environmental_score-production-system-no-label"
+         "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
+         "en:environmental-score-production-system-no-label"
       ],
+      "editors_tags" : [
+         "tests"
+      ],
+      "entry_dates_tags" : "--ignore--",
       "environmental_score_data" : {
          "adjustments" : {
             "origins_of_ingredients" : {
@@ -556,10 +560,6 @@
       "environmental_score_tags" : [
          "c"
       ],
-      "editors_tags" : [
-         "tests"
-      ],
-      "entry_dates_tags" : "--ignore--",
       "food_groups" : "en:biscuits-and-cakes",
       "food_groups_tags" : [
          "en:sugary-snacks",
@@ -987,6 +987,61 @@
                "environment"
             ]
          },
+         "environment_card" : {
+            "elements" : [
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "environmental_score"
+                  }
+               },
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_ids" : [
+                        "carbon_footprint"
+                     ],
+                     "title" : "Carbon footprint"
+                  }
+               },
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_group_id" : "packaging_recycling",
+                     "panel_ids" : [
+                        "packaging_recycling"
+                     ],
+                     "title" : "Packaging"
+                  }
+               },
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_ids" : [
+                        "origins_of_ingredients"
+                     ],
+                     "title" : "Transportation"
+                  }
+               },
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_ids" : [
+                        "palm_oil"
+                     ],
+                     "title" : "Threatened species"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "title_element" : {
+               "title" : "Environment"
+            },
+            "topics" : [
+               "environment"
+            ],
+            "type" : "card"
+         },
          "environmental_score" : {
             "elements" : [
                {
@@ -1048,7 +1103,7 @@
             "level" : "info",
             "title_element" : {
                "grade" : "c",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/environmental_score-c.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/ecoscore-c.svg",
                "name" : "Eco-Score",
                "title" : "Eco-Score C - Moderate environmental impact",
                "type" : "grade"
@@ -1365,7 +1420,7 @@
             "level" : "info",
             "title_element" : {
                "grade" : "c",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/environmental_score-c.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/ecoscore-c.svg",
                "subtitle" : "Product: Some product - 100 g",
                "title" : "Impact for this product: C (Score: 47/100)",
                "type" : "grade"
@@ -1373,61 +1428,6 @@
             "topics" : [
                "environment"
             ]
-         },
-         "environment_card" : {
-            "elements" : [
-               {
-                  "element_type" : "panel",
-                  "panel_element" : {
-                     "panel_id" : "environmental_score"
-                  }
-               },
-               {
-                  "element_type" : "panel_group",
-                  "panel_group_element" : {
-                     "panel_ids" : [
-                        "carbon_footprint"
-                     ],
-                     "title" : "Carbon footprint"
-                  }
-               },
-               {
-                  "element_type" : "panel_group",
-                  "panel_group_element" : {
-                     "panel_group_id" : "packaging_recycling",
-                     "panel_ids" : [
-                        "packaging_recycling"
-                     ],
-                     "title" : "Packaging"
-                  }
-               },
-               {
-                  "element_type" : "panel_group",
-                  "panel_group_element" : {
-                     "panel_ids" : [
-                        "origins_of_ingredients"
-                     ],
-                     "title" : "Transportation"
-                  }
-               },
-               {
-                  "element_type" : "panel_group",
-                  "panel_group_element" : {
-                     "panel_ids" : [
-                        "palm_oil"
-                     ],
-                     "title" : "Threatened species"
-                  }
-               }
-            ],
-            "expanded" : true,
-            "title_element" : {
-               "title" : "Environment"
-            },
-            "topics" : [
-               "environment"
-            ],
-            "type" : "card"
          },
          "health_card" : {
             "elements" : [
@@ -2718,13 +2718,13 @@
       "main_countries_tags" : [],
       "minerals_tags" : [],
       "misc_tags" : [
-         "en:environmental_score-changed",
-         "en:environmental_score-computed",
-         "en:environmental_score-extended-data-not-computed",
-         "en:environmental_score-grade-changed",
-         "en:environmental_score-missing-data-labels",
-         "en:environmental_score-missing-data-origins",
-         "en:environmental_score-missing-data-warning",
+         "en:environmental-score-changed",
+         "en:environmental-score-computed",
+         "en:environmental-score-extended-data-not-computed",
+         "en:environmental-score-grade-changed",
+         "en:environmental-score-missing-data-labels",
+         "en:environmental-score-missing-data-origins",
+         "en:environmental-score-missing-data-warning",
          "en:forest-footprint-a",
          "en:forest-footprint-computed",
          "en:nutriscore-2021-c-2023-c",
