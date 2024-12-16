@@ -26,7 +26,7 @@ load_environmental_score_data();
 
 init_packaging_taxonomies_regexps();
 
-# Taxonomy tags used by EcoScore.pm that should not be renamed
+# Taxonomy tags used by EnvironmentalScore that should not be renamed
 # (or that should be renamed in the code and tests as well).
 
 my %tags = (

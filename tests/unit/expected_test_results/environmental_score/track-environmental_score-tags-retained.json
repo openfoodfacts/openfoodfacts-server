@@ -340,11 +340,9 @@
       },
       "missing_data_warning" : 1,
       "previous_data" : {
-         "agribalyse" : {
-            "version" : "2.9"
-         },
-         "grade" : "e",
-         "score" : 20
+         "grade" : "d",
+         "score" : 20,
+         "version" : "3.0"
       },
       "score" : 18,
       "scores" : {
@@ -481,16 +479,19 @@
    "known_ingredients_n" : 4,
    "lc" : "fr",
    "misc_tags" : [
+      "en:environmental_score-changed",
+      "en:environmental_score-grade-changed",
       "en:packagings-number-of-components-2",
       "en:packagings-not-complete",
       "en:packagings-not-empty-but-not-complete",
       "en:packagings-not-empty",
-      "en:environmental_score-extended-data-not-computed",
-      "en:environmental_score-missing-data-warning",
-      "en:environmental_score-missing-data-labels",
-      "en:environmental_score-missing-data-origins",
-      "en:environmental_score-computed",
-      "en:environmental_score-changed"
+      "en:environmental-score-extended-data-not-computed",
+      "en:environmental-score-missing-data-warning",
+      "en:environmental-score-missing-data-labels",
+      "en:environmental-score-missing-data-origins",
+      "en:environmental-score-computed",
+      "en:environmental-score-changed",
+      "en:environmental-score-grade-changed"
    ],
    "nutriments" : {
       "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
