@@ -1030,20 +1030,18 @@ sub create_health_card_panel ($product_ref, $target_lc, $target_cc, $options_ref
 		create_nova_panel($product_ref, $target_lc, $target_cc, $options_ref);
 	}
 	if (feature_enabled("nutriscore")) {
-		if (   $target_cc eq "fr"
-			|| $options_ref->{admin}
+
+		# For moderators, admins, and on the producers platform: we show the old Nutri-Score
+		# in addition to the new Nutri-Score
+
+		if (   $options_ref->{admin}
 			|| $options_ref->{moderator}
 			|| $options_ref->{producers_platform})
 		{
 			create_nutriscore_panel($product_ref, $target_lc, $target_cc, $options_ref);
 		}
-		if (   $target_cc ne "fr"
-			|| $options_ref->{admin}
-			|| $options_ref->{moderator}
-			|| $options_ref->{producers_platform})
-		{
-			create_nutriscore_2023_panel($product_ref, $target_lc, $target_cc, $options_ref);
-		}
+
+		create_nutriscore_2023_panel($product_ref, $target_lc, $target_cc, $options_ref);
 
 		create_nutrient_levels_panels($product_ref, $target_lc, $target_cc, $options_ref);
 
@@ -1205,6 +1203,11 @@ sub create_nutriscore_2023_panel ($product_ref, $target_lc, $target_cc, $options
 
 	# Nutri-Score panel: parent panel
 	create_panel_from_json_template("nutriscore_2023", "api/knowledge-panels/health/nutriscore/nutriscore_2023.tt.json",
+		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
+
+	# Nutri-Score new computation
+	create_panel_from_json_template("nutriscore_new_computation",
+		"api/knowledge-panels/health/nutriscore/nutriscore_new_computation.tt.json",
 		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
 
 	# Nutri-Score description
