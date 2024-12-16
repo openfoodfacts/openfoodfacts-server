@@ -274,11 +274,11 @@
                   "description" : "",
                   "description_short" : "Unknown environmental impact",
                   "grade" : "unknown",
-                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/ecoscore-unknown.svg",
-                  "id" : "ecoscore",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/environmental_score-unknown.svg",
+                  "id" : "environmental_score",
                   "match" : 0,
                   "name" : "Eco-Score",
-                  "panel_id" : "ecoscore",
+                  "panel_id" : "environmental_score",
                   "status" : "unknown",
                   "title" : "Eco-Score not computed"
                },
@@ -325,7 +325,7 @@
          }
       ],
       "knowledge_panels" : {
-         "ecoscore" : {
+         "environmental_score" : {
             "elements" : [
                {
                   "element_type" : "text",
@@ -347,7 +347,7 @@
             "level" : "info",
             "title_element" : {
                "grade" : "unknown",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/ecoscore-unknown.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/environmental_score-unknown.svg",
                "title" : "Eco-Score not computed - Unknown environmental impact",
                "type" : "grade"
             },
@@ -360,7 +360,7 @@
                {
                   "element_type" : "panel",
                   "panel_element" : {
-                     "panel_id" : "ecoscore"
+                     "panel_id" : "environmental_score"
                   }
                },
                {

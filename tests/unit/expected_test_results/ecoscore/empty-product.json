@@ -1,5 +1,5 @@
 {
-   "ecoscore_data" : {
+   "environmental_score_data" : {
       "adjustments" : {
          "origins_of_ingredients" : {
             "aggregated_origins" : [
@@ -240,8 +240,8 @@
       "missing_key_data" : 1,
       "status" : "unknown"
    },
-   "ecoscore_grade" : "unknown",
-   "ecoscore_tags" : [
+   "environmental_score_grade" : "unknown",
+   "environmental_score_tags" : [
       "unknown"
    ],
    "lc" : "en",
@@ -249,8 +249,8 @@
       "en:packagings-number-of-components-0",
       "en:packagings-not-complete",
       "en:packagings-empty",
-      "en:ecoscore-extended-data-not-computed",
-      "en:ecoscore-not-computed"
+      "en:environmental_score-extended-data-not-computed",
+      "en:environmental_score-not-computed"
    ],
    "packaging_materials_tags" : [],
    "packaging_recycling_tags" : [],

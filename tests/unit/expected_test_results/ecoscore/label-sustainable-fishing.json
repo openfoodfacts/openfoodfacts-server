@@ -2,7 +2,7 @@
    "categories_tags" : [
       "en:butters"
    ],
-   "ecoscore_data" : {
+   "environmental_score_data" : {
       "adjustments" : {
          "origins_of_ingredients" : {
             "aggregated_origins" : [
@@ -116,9 +116,9 @@
       "score_uk" : 7,
       "status" : "known"
    },
-   "ecoscore_grade" : "e",
-   "ecoscore_score" : 7,
-   "ecoscore_tags" : [
+   "environmental_score_grade" : "e",
+   "environmental_score_score" : 7,
+   "environmental_score_tags" : [
       "e"
    ],
    "labels" : "Sustainable fishing",
@@ -131,9 +131,9 @@
    ],
    "lc" : "en",
    "misc_tags" : [
-      "en:ecoscore-extended-data-not-computed",
-      "en:ecoscore-missing-data-warning",
-      "en:ecoscore-computed"
+      "en:environmental_score-extended-data-not-computed",
+      "en:environmental_score-missing-data-warning",
+      "en:environmental_score-computed"
    ],
    "packagings" : []
 }

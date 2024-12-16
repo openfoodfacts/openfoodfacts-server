@@ -71,7 +71,7 @@
       "data_quality_info_tags" : [
          "en:no-packaging-data",
          "en:ingredients-percent-analysis-ok",
-         "en:ecoscore-extended-data-not-computed",
+         "en:environmental_score-extended-data-not-computed",
          "en:food-groups-1-known",
          "en:food-groups-2-known",
          "en:food-groups-3-unknown"
@@ -79,20 +79,20 @@
       "data_quality_tags" : [
          "en:no-packaging-data",
          "en:ingredients-percent-analysis-ok",
-         "en:ecoscore-extended-data-not-computed",
+         "en:environmental_score-extended-data-not-computed",
          "en:food-groups-1-known",
          "en:food-groups-2-known",
          "en:food-groups-3-unknown",
-         "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
-         "en:ecoscore-packaging-packaging-data-missing",
-         "en:ecoscore-production-system-no-label"
+         "en:environmental_score-origins-of-ingredients-origins-are-100-percent-unknown",
+         "en:environmental_score-packaging-packaging-data-missing",
+         "en:environmental_score-production-system-no-label"
       ],
       "data_quality_warnings_tags" : [
-         "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
-         "en:ecoscore-packaging-packaging-data-missing",
-         "en:ecoscore-production-system-no-label"
+         "en:environmental_score-origins-of-ingredients-origins-are-100-percent-unknown",
+         "en:environmental_score-packaging-packaging-data-missing",
+         "en:environmental_score-production-system-no-label"
       ],
-      "ecoscore_data" : {
+      "environmental_score_data" : {
          "adjustments" : {
             "origins_of_ingredients" : {
                "aggregated_origins" : [
@@ -336,8 +336,8 @@
          "scores" : {},
          "status" : "unknown"
       },
-      "ecoscore_grade" : "unknown",
-      "ecoscore_tags" : [
+      "environmental_score_grade" : "unknown",
+      "environmental_score_tags" : [
          "unknown"
       ],
       "editors_tags" : [
@@ -456,8 +456,8 @@
       "main_countries_tags" : [],
       "minerals_tags" : [],
       "misc_tags" : [
-         "en:ecoscore-extended-data-not-computed",
-         "en:ecoscore-not-computed",
+         "en:environmental_score-extended-data-not-computed",
+         "en:environmental_score-not-computed",
          "en:nutriscore-2021-better-than-2023",
          "en:nutriscore-2021-d-2023-e",
          "en:nutriscore-2021-different-from-2023",

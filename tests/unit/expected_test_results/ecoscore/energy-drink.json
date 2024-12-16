@@ -2,7 +2,7 @@
    "categories_tags" : [
       "en:energy-drinks"
    ],
-   "ecoscore_data" : {
+   "environmental_score_data" : {
       "adjustments" : {
          "origins_of_ingredients" : {
             "aggregated_origins" : [
@@ -220,8 +220,8 @@
             "non_recyclable_and_non_biodegradable_materials" : 0,
             "packagings" : [
                {
-                  "ecoscore_material_score" : 50,
-                  "ecoscore_shape_ratio" : 1,
+                  "environmental_score_material_score" : 50,
+                  "environmental_score_shape_ratio" : 1,
                   "material" : "en:pet-1-polyethylene-terephthalate",
                   "material_shape" : "en:pet-1-polyethylene-terephthalate.en:bottle",
                   "non_recyclable_and_non_biodegradable" : "no",
@@ -229,8 +229,8 @@
                   "shape" : "en:bottle"
                },
                {
-                  "ecoscore_material_score" : 50,
-                  "ecoscore_shape_ratio" : 0.1,
+                  "environmental_score_material_score" : 50,
+                  "environmental_score_shape_ratio" : 0.1,
                   "material" : "en:hdpe-2-high-density-polyethylene",
                   "material_shape" : "en:hdpe-2-high-density-polyethylene.en:bottle-cap",
                   "non_recyclable_and_non_biodegradable" : "no",
@@ -248,15 +248,15 @@
          },
          "threatened_species" : {}
       },
-      "ecoscore_not_applicable_for_category" : "en:energy-drinks",
+      "environmental_score_not_applicable_for_category" : "en:energy-drinks",
       "missing" : {
          "labels" : 1,
          "origins" : 1
       },
       "status" : "unknown"
    },
-   "ecoscore_grade" : "not-applicable",
-   "ecoscore_tags" : [
+   "environmental_score_grade" : "not-applicable",
+   "environmental_score_tags" : [
       "not-applicable"
    ],
    "ingredients" : [
@@ -328,9 +328,9 @@
       "en:packagings-not-complete",
       "en:packagings-not-empty-but-not-complete",
       "en:packagings-not-empty",
-      "en:ecoscore-extended-data-not-computed",
-      "en:ecoscore-not-applicable",
-      "en:ecoscore-not-computed"
+      "en:environmental_score-extended-data-not-computed",
+      "en:environmental_score-not-applicable",
+      "en:environmental_score-not-computed"
    ],
    "nutriments" : {
       "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,

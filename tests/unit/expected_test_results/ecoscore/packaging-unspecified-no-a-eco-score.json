@@ -2,7 +2,7 @@
    "categories_tags" : [
       "en:baguettes"
    ],
-   "ecoscore_data" : {
+   "environmental_score_data" : {
       "adjustments" : {
          "origins_of_ingredients" : {
             "aggregated_origins" : [
@@ -390,9 +390,9 @@
       },
       "status" : "known"
    },
-   "ecoscore_grade" : "a-plus",
-   "ecoscore_score" : 112,
-   "ecoscore_tags" : [
+   "environmental_score_grade" : "a-plus",
+   "environmental_score_score" : 112,
+   "environmental_score_tags" : [
       "a-plus"
    ],
    "ingredients" : [
@@ -453,14 +453,14 @@
       "en:packagings-number-of-components-0",
       "en:packagings-not-complete",
       "en:packagings-empty",
-      "en:ecoscore-extended-data-not-computed",
-      "en:ecoscore-score-above-100",
-      "en:ecoscore-missing-data-warning",
-      "en:ecoscore-missing-data-packagings",
-      "en:ecoscore-missing-data-no-packagings",
-      "en:ecoscore-computed",
-      "en:ecoscore-changed",
-      "en:ecoscore-grade-changed"
+      "en:environmental_score-extended-data-not-computed",
+      "en:environmental_score-score-above-100",
+      "en:environmental_score-missing-data-warning",
+      "en:environmental_score-missing-data-packagings",
+      "en:environmental_score-missing-data-no-packagings",
+      "en:environmental_score-computed",
+      "en:environmental_score-changed",
+      "en:environmental_score-grade-changed"
    ],
    "nutriments" : {
       "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,

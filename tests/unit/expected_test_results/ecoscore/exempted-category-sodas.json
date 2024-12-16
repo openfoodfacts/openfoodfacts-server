@@ -2,7 +2,7 @@
    "categories_tags" : [
       "en:sodas"
    ],
-   "ecoscore_data" : {
+   "environmental_score_data" : {
       "adjustments" : {
          "origins_of_ingredients" : {
             "aggregated_origins" : [
@@ -229,7 +229,7 @@
             "warning" : "ingredients_missing"
          }
       },
-      "ecoscore_not_applicable_for_category" : "en:sodas",
+      "environmental_score_not_applicable_for_category" : "en:sodas",
       "missing" : {
          "ingredients" : 1,
          "labels" : 1,
@@ -239,8 +239,8 @@
       "missing_key_data" : 1,
       "status" : "unknown"
    },
-   "ecoscore_grade" : "not-applicable",
-   "ecoscore_tags" : [
+   "environmental_score_grade" : "not-applicable",
+   "environmental_score_tags" : [
       "not-applicable"
    ],
    "lc" : "en",
@@ -248,9 +248,9 @@
       "en:packagings-number-of-components-0",
       "en:packagings-not-complete",
       "en:packagings-empty",
-      "en:ecoscore-extended-data-not-computed",
-      "en:ecoscore-not-applicable",
-      "en:ecoscore-not-computed"
+      "en:environmental_score-extended-data-not-computed",
+      "en:environmental_score-not-applicable",
+      "en:environmental_score-not-computed"
    ],
    "packaging_materials_tags" : [],
    "packaging_recycling_tags" : [],

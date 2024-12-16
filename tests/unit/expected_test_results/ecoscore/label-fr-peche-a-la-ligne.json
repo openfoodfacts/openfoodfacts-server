@@ -2,7 +2,7 @@
    "categories_tags" : [
       "en:butters"
    ],
-   "ecoscore_data" : {
+   "environmental_score_data" : {
       "adjustments" : {
          "origins_of_ingredients" : {
             "aggregated_origins" : [
@@ -116,9 +116,9 @@
       "score_uk" : 22,
       "status" : "known"
    },
-   "ecoscore_grade" : "d",
-   "ecoscore_score" : 22,
-   "ecoscore_tags" : [
+   "environmental_score_grade" : "d",
+   "environmental_score_score" : 22,
+   "environmental_score_tags" : [
       "d"
    ],
    "labels" : "Pêché à la ligne",
@@ -135,9 +135,9 @@
    ],
    "lc" : "fr",
    "misc_tags" : [
-      "en:ecoscore-extended-data-not-computed",
-      "en:ecoscore-missing-data-warning",
-      "en:ecoscore-computed"
+      "en:environmental_score-extended-data-not-computed",
+      "en:environmental_score-missing-data-warning",
+      "en:environmental_score-computed"
    ],
    "packagings" : []
 }

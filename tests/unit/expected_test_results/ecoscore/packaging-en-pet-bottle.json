@@ -3,7 +3,7 @@
       "en:beverages",
       "en:orange-juices"
    ],
-   "ecoscore_data" : {
+   "environmental_score_data" : {
       "adjustments" : {
          "origins_of_ingredients" : {
             "aggregated_origins" : [
@@ -221,8 +221,8 @@
             "non_recyclable_and_non_biodegradable_materials" : 0,
             "packagings" : [
                {
-                  "ecoscore_material_score" : 50,
-                  "ecoscore_shape_ratio" : 1,
+                  "environmental_score_material_score" : 50,
+                  "environmental_score_shape_ratio" : 1,
                   "material" : "en:pet-1-polyethylene-terephthalate",
                   "material_shape" : "en:pet-1-polyethylene-terephthalate.en:bottle",
                   "non_recyclable_and_non_biodegradable" : "no",
@@ -405,9 +405,9 @@
       },
       "status" : "known"
    },
-   "ecoscore_grade" : "c",
-   "ecoscore_score" : 53,
-   "ecoscore_tags" : [
+   "environmental_score_grade" : "c",
+   "environmental_score_score" : 53,
+   "environmental_score_tags" : [
       "c"
    ],
    "lc" : "en",
@@ -416,13 +416,13 @@
       "en:packagings-not-complete",
       "en:packagings-not-empty-but-not-complete",
       "en:packagings-not-empty",
-      "en:ecoscore-extended-data-not-computed",
-      "en:ecoscore-missing-data-warning",
-      "en:ecoscore-missing-data-labels",
-      "en:ecoscore-missing-data-origins",
-      "en:ecoscore-computed",
-      "en:ecoscore-changed",
-      "en:ecoscore-grade-changed"
+      "en:environmental_score-extended-data-not-computed",
+      "en:environmental_score-missing-data-warning",
+      "en:environmental_score-missing-data-labels",
+      "en:environmental_score-missing-data-origins",
+      "en:environmental_score-computed",
+      "en:environmental_score-changed",
+      "en:environmental_score-grade-changed"
    ],
    "packaging_materials_tags" : [
       "en:pet-1-polyethylene-terephthalate"

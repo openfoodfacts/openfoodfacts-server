@@ -2,7 +2,7 @@
    "categories_tags" : [
       "en:foies-gras"
    ],
-   "ecoscore_data" : {
+   "environmental_score_data" : {
       "adjustments" : {
          "origins_of_ingredients" : {
             "aggregated_origins" : [
@@ -220,15 +220,15 @@
             "non_recyclable_and_non_biodegradable_materials" : 0,
             "packagings" : [
                {
-                  "ecoscore_material_score" : 81,
-                  "ecoscore_shape_ratio" : 1,
+                  "environmental_score_material_score" : 81,
+                  "environmental_score_shape_ratio" : 1,
                   "material" : "en:glass",
                   "number_of_units" : 1,
                   "shape" : "en:pot"
                },
                {
-                  "ecoscore_material_score" : 76,
-                  "ecoscore_shape_ratio" : 0.2,
+                  "environmental_score_material_score" : 76,
+                  "environmental_score_shape_ratio" : 0.2,
                   "material" : "en:steel",
                   "number_of_units" : 1,
                   "shape" : "en:lid"
@@ -414,9 +414,9 @@
       },
       "status" : "known"
    },
-   "ecoscore_grade" : "e",
-   "ecoscore_score" : 18,
-   "ecoscore_tags" : [
+   "environmental_score_grade" : "e",
+   "environmental_score_score" : 18,
+   "environmental_score_tags" : [
       "e"
    ],
    "ingredients" : [
@@ -485,12 +485,12 @@
       "en:packagings-not-complete",
       "en:packagings-not-empty-but-not-complete",
       "en:packagings-not-empty",
-      "en:ecoscore-extended-data-not-computed",
-      "en:ecoscore-missing-data-warning",
-      "en:ecoscore-missing-data-labels",
-      "en:ecoscore-missing-data-origins",
-      "en:ecoscore-computed",
-      "en:ecoscore-changed"
+      "en:environmental_score-extended-data-not-computed",
+      "en:environmental_score-missing-data-warning",
+      "en:environmental_score-missing-data-labels",
+      "en:environmental_score-missing-data-origins",
+      "en:environmental_score-computed",
+      "en:environmental_score-changed"
    ],
    "nutriments" : {
       "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,

@@ -2,7 +2,7 @@
    "categories_tags" : [
       "en:sodas"
    ],
-   "ecoscore_data" : {
+   "environmental_score_data" : {
       "adjustments" : {
          "origins_of_ingredients" : {
             "aggregated_origins" : [
@@ -24,8 +24,8 @@
          "packaging" : {
             "packagings" : [
                {
-                  "ecoscore_material_score" : 0,
-                  "ecoscore_shape_ratio" : 1,
+                  "environmental_score_material_score" : 0,
+                  "environmental_score_shape_ratio" : 1,
                   "material" : "en:unknown",
                   "shape" : "en:unknown"
                }
@@ -68,9 +68,9 @@
       "score" : 82.8336969127427,
       "status" : "known"
    },
-   "ecoscore_grade" : "a",
-   "ecoscore_score" : 82.8336969127427,
-   "ecoscore_tags" : [
+   "environmental_score_grade" : "a",
+   "environmental_score_score" : 82.8336969127427,
+   "environmental_score_tags" : [
       "a"
    ],
    "lc" : "en",

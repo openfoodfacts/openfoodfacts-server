@@ -2,7 +2,7 @@
    "categories_tags" : [
       "en:milks"
    ],
-   "ecoscore_data" : {
+   "environmental_score_data" : {
       "adjustments" : {
          "origins_of_ingredients" : {
             "aggregated_origins" : [
@@ -219,8 +219,8 @@
             "non_recyclable_and_non_biodegradable_materials" : 0,
             "packagings" : [
                {
-                  "ecoscore_material_score" : 50,
-                  "ecoscore_shape_ratio" : 1,
+                  "environmental_score_material_score" : 50,
+                  "environmental_score_shape_ratio" : 1,
                   "material" : "en:pet-1-polyethylene-terephthalate",
                   "material_shape" : "en:pet-1-polyethylene-terephthalate.en:bottle",
                   "non_recyclable_and_non_biodegradable" : "no",
@@ -228,8 +228,8 @@
                   "shape" : "en:bottle"
                },
                {
-                  "ecoscore_material_score" : 50,
-                  "ecoscore_shape_ratio" : 0.1,
+                  "environmental_score_material_score" : 50,
+                  "environmental_score_shape_ratio" : 0.1,
                   "material" : "en:hdpe-2-high-density-polyethylene",
                   "material_shape" : "en:hdpe-2-high-density-polyethylene.en:bottle-cap",
                   "non_recyclable_and_non_biodegradable" : "no",
@@ -409,9 +409,9 @@
       },
       "status" : "known"
    },
-   "ecoscore_grade" : "b",
-   "ecoscore_score" : 67,
-   "ecoscore_tags" : [
+   "environmental_score_grade" : "b",
+   "environmental_score_score" : 67,
+   "environmental_score_tags" : [
       "b"
    ],
    "ingredients" : [
@@ -473,12 +473,12 @@
       "en:packagings-not-complete",
       "en:packagings-not-empty-but-not-complete",
       "en:packagings-not-empty",
-      "en:ecoscore-extended-data-not-computed",
-      "en:ecoscore-missing-data-warning",
-      "en:ecoscore-missing-data-labels",
-      "en:ecoscore-computed",
-      "en:ecoscore-changed",
-      "en:ecoscore-grade-changed"
+      "en:environmental_score-extended-data-not-computed",
+      "en:environmental_score-missing-data-warning",
+      "en:environmental_score-missing-data-labels",
+      "en:environmental_score-computed",
+      "en:environmental_score-changed",
+      "en:environmental_score-grade-changed"
    ],
    "nutriments" : {
       "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,

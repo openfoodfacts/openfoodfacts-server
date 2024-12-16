@@ -2,7 +2,7 @@
    "categories_tags" : [
       "en:sodas"
    ],
-   "ecoscore_data" : {
+   "environmental_score_data" : {
       "adjustments" : {
          "origins_of_ingredients" : {
             "aggregated_origins" : [
@@ -24,8 +24,8 @@
          "packaging" : {
             "packagings" : [
                {
-                  "ecoscore_material_score" : 72,
-                  "ecoscore_shape_ratio" : 1,
+                  "environmental_score_material_score" : 72,
+                  "environmental_score_shape_ratio" : 1,
                   "material" : "en:heavy-aluminium",
                   "shape" : "en:can"
                }
@@ -66,15 +66,15 @@
       "score" : 90.0336969127427,
       "status" : "known"
    },
-   "ecoscore_grade" : "a",
-   "ecoscore_score" : 90.0336969127427,
-   "ecoscore_tags" : [
+   "environmental_score_grade" : "a",
+   "environmental_score_score" : 90.0336969127427,
+   "environmental_score_tags" : [
       "a"
    ],
    "lc" : "en",
    "misc_tags" : [
-      "en:ecoscore-missing-data-warning",
-      "en:ecoscore-computed"
+      "en:environmental_score-missing-data-warning",
+      "en:environmental_score-computed"
    ],
    "packaging_text" : "aluminium can",
    "packagings" : [

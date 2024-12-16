@@ -14,14 +14,15 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Tags qw/canonicalize_taxonomy_tag compute_field_tags/;
 use ProductOpener::Test qw/init_expected_results/;
 use ProductOpener::Ingredients qw/extract_ingredients_from_text/;
-use ProductOpener::Ecoscore qw/compute_ecoscore load_agribalyse_data load_ecoscore_data/;
+use ProductOpener::EnvironmentalScore
+	qw/compute_environmental_score load_agribalyse_data load_environmental_score_data/;
 use ProductOpener::Packaging qw/analyze_and_combine_packaging_data init_packaging_taxonomies_regexps/;
 use ProductOpener::API qw/get_initialized_response/;
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
 load_agribalyse_data();
-load_ecoscore_data();
+load_environmental_score_data();
 
 init_packaging_taxonomies_regexps();
 
@@ -334,7 +335,7 @@ my @tests = (
 	# Sodas: no Eco-Score
 
 	[
-		'category-without-ecoscore-sodas',
+		'category-without-environmental_score-sodas',
 		{
 			lc => "en",
 			categories_tags => ["en:sodas"],
@@ -529,15 +530,15 @@ my @tests = (
 		}
 	],
 
-	# Keep track of old ecoscore score and add tags if it has changed
+	# Keep track of old environmental_score score and add tags if it has changed
 	[
-		'track-ecoscore-changes',
+		'track-environmental_score-changes',
 		{
 			lc => "fr",
 			categories_tags => ["en:foies-gras"],
 			packaging_text => "1 pot en verre, 1 couvercle en acier",
 			ingredients_text => "Foie gras de canard",
-			ecoscore_data => {
+			environmental_score_data => {
 				grade => "d",
 				score => 20,
 				agribalyse => {
@@ -549,13 +550,13 @@ my @tests = (
 
 	# Score changed but same grade
 	[
-		'track-ecoscore-same-grade',
+		'track-environmental_score-same-grade',
 		{
 			lc => "fr",
 			categories_tags => ["en:foies-gras"],
 			packaging_text => "1 pot en verre, 1 couvercle en acier",
 			ingredients_text => "Foie gras de canard",
-			ecoscore_data => {
+			environmental_score_data => {
 				grade => "e",
 				score => 20,
 				agribalyse => {
@@ -567,13 +568,13 @@ my @tests = (
 
 	# Don't create data or tags if no change
 	[
-		'track-ecoscore-no-change',
+		'track-environmental_score-no-change',
 		{
 			lc => "fr",
 			categories_tags => ["en:foies-gras"],
 			packaging_text => "1 pot en verre, 1 couvercle en acier",
 			ingredients_text => "Foie gras de canard",
-			ecoscore_data => {
+			environmental_score_data => {
 				grade => "e",
 				score => 18
 			}
@@ -582,13 +583,13 @@ my @tests = (
 
 	# Tags and previous data are retained on subsequent updates even if score is different
 	[
-		'track-ecoscore-tags-retained',
+		'track-environmental_score-tags-retained',
 		{
 			lc => "fr",
 			categories_tags => ["en:foies-gras"],
 			packaging_text => "1 pot en verre, 1 couvercle en acier",
 			ingredients_text => "Foie gras de canard",
-			ecoscore_data => {
+			environmental_score_data => {
 				grade => "e",
 				score => 19,
 				version => "3.1",
@@ -598,7 +599,7 @@ my @tests = (
 					version => "3.0"
 				}
 			},
-			misc_tags => ["en:ecoscore-changed", "en:ecoscore-grade-changed"]
+			misc_tags => ["en:environmental_score-changed", "en:environmental_score-grade-changed"]
 		},
 	],
 
@@ -692,7 +693,7 @@ foreach my $test_ref (@tests) {
 	my $response_ref = get_initialized_response();
 	analyze_and_combine_packaging_data($product_ref, $response_ref);
 
-	compute_ecoscore($product_ref);
+	compute_environmental_score($product_ref);
 
 	# Save the result
 

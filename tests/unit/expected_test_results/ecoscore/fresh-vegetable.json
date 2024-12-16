@@ -4,7 +4,7 @@
       "en:fresh-tomatoes",
       "en:tomatoes"
    ],
-   "ecoscore_data" : {
+   "environmental_score_data" : {
       "adjustments" : {
          "origins_of_ingredients" : {
             "aggregated_origins" : [
@@ -222,8 +222,8 @@
             "non_recyclable_and_non_biodegradable_materials" : 0,
             "packagings" : [
                {
-                  "ecoscore_material_score" : 0,
-                  "ecoscore_shape_ratio" : 0.1,
+                  "environmental_score_material_score" : 0,
+                  "environmental_score_shape_ratio" : 0.1,
                   "material" : "en:plastic",
                   "non_recyclable_and_non_biodegradable" : "maybe",
                   "number_of_units" : 1,
@@ -240,15 +240,15 @@
          },
          "threatened_species" : {}
       },
-      "ecoscore_not_applicable_for_category" : "en:fresh-vegetables",
+      "environmental_score_not_applicable_for_category" : "en:fresh-vegetables",
       "missing" : {
          "labels" : 1,
          "origins" : 1
       },
       "status" : "unknown"
    },
-   "ecoscore_grade" : "not-applicable",
-   "ecoscore_tags" : [
+   "environmental_score_grade" : "not-applicable",
+   "environmental_score_tags" : [
       "not-applicable"
    ],
    "ingredients" : [
@@ -307,9 +307,9 @@
       "en:packagings-not-complete",
       "en:packagings-not-empty-but-not-complete",
       "en:packagings-not-empty",
-      "en:ecoscore-extended-data-not-computed",
-      "en:ecoscore-not-applicable",
-      "en:ecoscore-not-computed"
+      "en:environmental_score-extended-data-not-computed",
+      "en:environmental_score-not-applicable",
+      "en:environmental_score-not-computed"
    ],
    "nutriments" : {
       "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 100,
