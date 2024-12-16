@@ -1068,8 +1068,31 @@
             ]
          },
          "nutriscore_new_computation" : {
-            "template" : "api/knowledge-panels/health/nutriscore/nutriscore_new_computation.tt.json",
-            "template_error" : "file error - api/knowledge-panels/health/nutriscore/nutriscore_new_computation.tt.json: not found"
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<p>Le calcul du Nutri-Score évolue pour fournir de meilleures recommandations basées sur les dernières preuves scientifiques.</p><p>Principales améliorations :</p><ul><li>Meilleure différenciation des laits, des boissons lactées sucrées et des boissons végétales</li><li>Meilleur classement des boissons pour favoriser les boissons peu sucrées sans édulcorants</li><li>Notes plus basses pour les produits contenant trop de sel ou de sucre</li><li>Notes plus élevées pour certains poissons gras et huiles riches en bonnes graisses</li><li>Notes plus basses pour la viande rouge</li></ul>\n                ",
+                     "type" : "info"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n<p>&rarr; <a href=\"http://world-fr.openfoodfacts.localhost/nutriscore-v2\">Découvrez toutes les améliorations du nouveau Nutri-Score</a></p>\n"
+                  }
+               }
+            ],
+            "level" : "info",
+            "title_element" : {
+               "icon_size" : "small",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/info.svg",
+               "title" : "Découvrez le nouveau Nutri-Score !",
+               "type" : "info"
+            },
+            "topics" : [
+               "health"
+            ]
          },
          "nutrition_facts_table" : {
             "elements" : [
