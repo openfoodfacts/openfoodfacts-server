@@ -625,7 +625,6 @@ sub customize_packagings ($request_ref, $product_ref) {
 	return $customized_packagings_ref;
 }
 
-
 =head2 api_compatibility_for_field ($field, $api_version)
 
 To support older API versions that can request fields that have been renamed or changed,
@@ -667,9 +666,6 @@ sub api_compatibility_for_product ($product_ref, $api_version) {
 
 	return $product_ref;
 }
-
-
-
 
 =head2 customize_response_for_product ( $request_ref, $product_ref, $fields_comma_separated_list, $fields_ref )
 
