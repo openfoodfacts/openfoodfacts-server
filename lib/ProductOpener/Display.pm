@@ -10481,15 +10481,15 @@ sub add_parent_if_missing {
 
 			my ($parent_name, $parent_unit) = get_nutrient_name($parent_nutriment, $parent_nid, $product_ref, $lc);
 
-            my @parent_columns;
+			my @parent_columns;
 			my $parent_cell_data_ref = {
-					value => '?',
-					rdfa => '',
-					class => undef,
-					percent => undef,
-					type => "normal",
-				};
-            push(@parent_columns, $parent_cell_data_ref);
+				value => '?',
+				rdfa => '',
+				class => undef,
+				percent => undef,
+				type => "normal",
+			};
+			push(@parent_columns, $parent_cell_data_ref);
 
 			push @{$template_data_ref->{nutrition_table}{rows}},
 				{

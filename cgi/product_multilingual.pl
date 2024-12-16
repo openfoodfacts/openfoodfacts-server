@@ -821,7 +821,6 @@ sub get_nutrient_level {
 	return 0;
 }
 
-
 =head2 add_parent_if_missing ( $nutriment, $nutriment_table, $nutriments, $class, $prefix, $lc )
 
 Adds a parent nutrient to the list of nutrients if the parent is missing and the current nutrient is not a top-level nutrient.
@@ -861,11 +860,11 @@ None. The function modifies the nutrients array in-place by adding a parent nutr
 =cut
 
 sub add_parent_if_missing {
-    my ($nutriment, $nutriment_table, $nutriments, $class, $prefix, $lc) = @_;
+	my ($nutriment, $nutriment_table, $nutriments, $class, $prefix, $lc) = @_;
 
-    return if $class eq 'main';
+	return if $class eq 'main';
 
-    my $level = get_nutrient_level($nutriment);
+	my $level = get_nutrient_level($nutriment);
 
 	# Locate the parent nutrient by checking the previous nutrients in @nutriments
 	my $nutriment_index;
@@ -892,50 +891,49 @@ sub add_parent_if_missing {
 		}
 	}
 
-    if ($parent_nutriment) {
-        my $parent_nutrient_ref = {};
+	if ($parent_nutriment) {
+		my $parent_nutrient_ref = {};
 
 		my $parent_nid = $parent_nutriment;
 		$parent_nid =~ s/^(-|!)+//g;
 		$parent_nid =~ s/-$//g;
 
-        $parent_nutrient_ref->{prefix} = "";
-        $parent_nutrient_ref->{class} = 'sub';
-        $parent_nutrient_ref->{nid} = $parent_nid;
+		$parent_nutrient_ref->{prefix} = "";
+		$parent_nutrient_ref->{class} = 'sub';
+		$parent_nutrient_ref->{nid} = $parent_nid;
 
-        # Check if the parent nutrient is in the taxonomy
-        if (exists_taxonomy_tag("nutrients", "zz:$parent_nid")) {
-            $parent_nutrient_ref->{name} = display_taxonomy_tag($lc, "nutrients", "zz:$parent_nid");
-        }
+		# Check if the parent nutrient is in the taxonomy
+		if (exists_taxonomy_tag("nutrients", "zz:$parent_nid")) {
+			$parent_nutrient_ref->{name} = display_taxonomy_tag($lc, "nutrients", "zz:$parent_nid");
+		}
 
-        # Predefined units for the parent nutrient
-        my @parent_units_arr = (
-            { u => 'g', label => 'g', selected => 'selected="selected" ' },
-            { u => 'mg', label => 'mg', selected => '' },
-            { u => 'µg', label => 'mcg/µg', selected => '' }
-        );
-        $parent_nutrient_ref->{units_arr} = \@parent_units_arr;
-        $parent_nutrient_ref->{hide_select} = '';
-        $parent_nutrient_ref->{hide_percent} = ' style="display:none"';
-        $parent_nutrient_ref->{nutriment_unit_disabled} = '';
-        $parent_nutrient_ref->{shown} = 1;
+		# Predefined units for the parent nutrient
+		my @parent_units_arr = (
+			{u => 'g', label => 'g', selected => 'selected="selected" '},
+			{u => 'mg', label => 'mg', selected => ''},
+			{u => 'µg', label => 'mcg/µg', selected => ''}
+		);
+		$parent_nutrient_ref->{units_arr} = \@parent_units_arr;
+		$parent_nutrient_ref->{hide_select} = '';
+		$parent_nutrient_ref->{hide_percent} = ' style="display:none"';
+		$parent_nutrient_ref->{nutriment_unit_disabled} = '';
+		$parent_nutrient_ref->{shown} = 1;
 
-        # Check if parent nutrient is already in @nutriments
-        my $parent_exists = 0;
-        foreach my $existing_nutriment (@$nutriments) {
-            if ($existing_nutriment->{nid} eq $parent_nid && $existing_nutriment->{shown} == 1) {
-                $parent_exists = 1;
-                last;
-            }
-        }
+		# Check if parent nutrient is already in @nutriments
+		my $parent_exists = 0;
+		foreach my $existing_nutriment (@$nutriments) {
+			if ($existing_nutriment->{nid} eq $parent_nid && $existing_nutriment->{shown} == 1) {
+				$parent_exists = 1;
+				last;
+			}
+		}
 
-        # Push the parent nutrient if it doesn't already exist
-        if (!$parent_exists) {
-            push(@$nutriments, $parent_nutrient_ref);
-        }
-    }
+		# Push the parent nutrient if it doesn't already exist
+		if (!$parent_exists) {
+			push(@$nutriments, $parent_nutrient_ref);
+		}
+	}
 }
-
 
 if (($action eq 'display') and (($type eq 'add') or ($type eq 'edit'))) {
 
@@ -1296,7 +1294,8 @@ CSS
 				$prefix = "&nbsp; ";
 			}
 
-            add_parent_if_missing($nutriment, \@{$nutriments_tables{$nutriment_table}}, \@nutriments, $class, $prefix, $lc);
+			add_parent_if_missing($nutriment, \@{$nutriments_tables{$nutriment_table}},
+				\@nutriments, $class, $prefix, $lc);
 		}
 
 		my $display = '';
