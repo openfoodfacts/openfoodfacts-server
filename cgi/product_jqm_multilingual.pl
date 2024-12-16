@@ -52,7 +52,7 @@ use ProductOpener::Food qw/assign_nutriments_values_from_request_parameters/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::DataQuality qw/:all/;
-use ProductOpener::Ecoscore qw/:all/;
+use ProductOpener::EnvironmentalScore qw/:all/;
 use ProductOpener::Packaging qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
@@ -266,8 +266,8 @@ else {
 		push @app_fields, "creator";
 	}
 
-	if ($request_ref->{admin} or ($User_id eq "ecoscore-impact-estimator")) {
-		push @app_fields, ("ecoscore_extended_data", "ecoscore_extended_data_version");
+	if ($request_ref->{admin} or ($User_id eq "environmental-score-impact-estimator")) {
+		push @app_fields, ("environmental_score_extended_data", "environmental_score_extended_data_version");
 	}
 
 	# generate a list of potential languages for language specific fields
@@ -385,7 +385,7 @@ else {
 				}
 
 			}
-			elsif ($field eq "ecoscore_extended_data") {
+			elsif ($field eq "environmental_score_extended_data") {
 				# we expect a JSON value
 				if (defined single_param($field)) {
 					$product_ref->{$field} = decode_json(single_param($field));

@@ -56,7 +56,7 @@ len(rows)
 
 rows.sort(key=lambda r: r.get("cat_en") or r.get("cat_fr"))
 
-with open("ecoscores-cat.csv", "w") as f:
+with open("environmental_scores-cat.csv", "w") as f:
     writer = csv.DictWriter(f, fieldnames=["tagid", "cat_en", "cat_fr", "agribalyse_food_code"])
     writer.writeheader()
     writer.writerows(rows)

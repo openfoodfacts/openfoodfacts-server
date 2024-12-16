@@ -4,11 +4,11 @@
         "environment"
     ],
     "expanded": false,
-[% IF product.ecoscore_data.adjustments.origins_of_ingredients.warning == "origins_are_100_percent_unknown" %]
+[% IF product.environmental_score_data.adjustments.origins_of_ingredients.warning == "origins_are_100_percent_unknown" %]
     "evaluation": "unknown",
     "title_element": {
-        "title": "[% edq(lang('ecoscore_origins_of_ingredients')) %]",
-        "subtitle": "[% edq(lang('ecoscore_origins_of_ingredients_missing_information')) %]",
+        "title": "[% edq(lang('environmental_score_origins_of_ingredients')) %]",
+        "subtitle": "[% edq(lang('environmental_score_origins_of_ingredients_missing_information')) %]",
         "icon_color_from_evaluation": true,
         "icon_url": "[% static_subdomain %]/images/icons/dist/public.svg",
     },
@@ -18,9 +18,9 @@
             "text_element": {
                 "type": "warning",
                 "html": `
-                [% lang('ecoscore_ingredients_not_indicated') %]<br><br>
-                [% lang('ecoscore_please_add_the_ingredients') %]<br><br>
-                [% lang('ecoscore_platform_prompt_ecoscore_modal') %]
+                [% lang('environmental_score_ingredients_not_indicated') %]<br><br>
+                [% lang('environmental_score_please_add_the_ingredients') %]<br><br>
+                [% lang('environmental_score_platform_prompt_environmental_score_modal') %]
                     `
             }
         },
@@ -35,20 +35,20 @@
         },
     ],
 [% ELSE %]
-    [% IF product.ecoscore_data.adjustments.origins_of_ingredients.value <= 0 %]
+    [% IF product.environmental_score_data.adjustments.origins_of_ingredients.value <= 0 %]
     "evaluation": "bad",
     "title_element": {
-        "subtitle": "[% edq(lang('ecoscore_origins_of_ingredients_impact_high')) %]",
-    [% ELSIF product.ecoscore_data.adjustments.origins_of_ingredients.value <= 15 %]
+        "subtitle": "[% edq(lang('environmental_score_origins_of_ingredients_impact_high')) %]",
+    [% ELSIF product.environmental_score_data.adjustments.origins_of_ingredients.value <= 15 %]
     "evaluation": "average",
     "title_element": {
-        "subtitle": "[% edq(lang('ecoscore_origins_of_ingredients_impact_medium')) %]",    
+        "subtitle": "[% edq(lang('environmental_score_origins_of_ingredients_impact_medium')) %]",    
     [% ELSE %]
     "evaluation": "good",
     "title_element": {
-        "subtitle": "[% edq(lang('ecoscore_origins_of_ingredients_impact_low')) %]",
+        "subtitle": "[% edq(lang('environmental_score_origins_of_ingredients_impact_low')) %]",
     [% END %]
-        "title": "[% edq(lang('ecoscore_origins_of_ingredients')) %]",
+        "title": "[% edq(lang('environmental_score_origins_of_ingredients')) %]",
         "icon_color_from_evaluation": true,
         "icon_url": "[% static_subdomain %]/images/icons/dist/public.svg",
     },
@@ -56,9 +56,9 @@
         {
             "element_type": "table",
             "table_element": {
-                "id": "ecoscore_origins_of_ingredients_table",
+                "id": "environmental_score_origins_of_ingredients_table",
                 "table_type": "percents",
-                "title": "[% edq(lang('ecoscore_origins_of_ingredients')) %]",
+                "title": "[% edq(lang('environmental_score_origins_of_ingredients')) %]",
                 "columns": [
                     {
                         "text": "[% edq(lang('origin')) %]",
@@ -69,12 +69,12 @@
                         "type": "percent",
                     },
                     {
-                        "text": "[% edq(lang('ecoscore_impact')) %]",
+                        "text": "[% edq(lang('environmental_score_impact')) %]",
                         "type": "text",
                     }
                 ],
                 "rows": [
-                    [% FOREACH origin IN product.ecoscore_data.adjustments.origins_of_ingredients.aggregated_origins %]
+                    [% FOREACH origin IN product.environmental_score_data.adjustments.origins_of_ingredients.aggregated_origins %]
                     {
                         "values": [
                             {

@@ -52,7 +52,7 @@ use ProductOpener::Tags qw/init_emb_codes init_taxonomies/;
 use ProductOpener::PackagerCodes qw/init_geocode_addresses init_packager_codes/;
 use ProductOpener::Packaging qw/init_packaging_taxonomies_regexps/;
 use ProductOpener::ForestFootprint qw/load_forest_footprint_data/;
-use ProductOpener::Ecoscore qw(load_agribalyse_data load_ecoscore_data);
+use ProductOpener::EnvironmentalScore qw(load_agribalyse_data load_environmental_score_data);
 use ProductOpener::MainCountries qw(load_scans_data);
 use ProductOpener::NutritionCiqual qw(load_ciqual_data);
 use ProductOpener::Routing qw(load_routes);
@@ -88,7 +88,7 @@ sub load_data() {
 
 	if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
 		load_agribalyse_data();
-		load_ecoscore_data();
+		load_environmental_score_data();
 		load_forest_footprint_data();
 		load_ciqual_data();
 	}

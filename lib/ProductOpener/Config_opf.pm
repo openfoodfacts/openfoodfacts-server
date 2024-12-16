@@ -430,7 +430,7 @@ HTML
 @drilldown_fields = qw(
 	nutrition_grades
 	nova_groups
-	ecoscore
+	environmental_score
 	brands
 	categories
 	labels
@@ -499,8 +499,8 @@ HTML
 	food_groups
 	states
 	brand_owner
-	ecoscore_score
-	ecoscore_grade
+	environmental_score_score
+	environmental_score_grade
 	nutrient_levels_tags
 	product_quantity
 	owner

@@ -110,7 +110,7 @@ if ((defined single_param('json')) or (defined single_param('jsonp')) or (define
 
 my @search_fields
 	= qw(brands categories packaging labels origins manufacturing_places emb_codes purchase_places stores countries
-	ingredients additives allergens traces nutrition_grades nova_groups ecoscore languages creator editors states);
+	ingredients additives allergens traces nutrition_grades nova_groups environmental_score languages creator editors states);
 
 $request_ref->{admin} and push @search_fields, "lang";
 
@@ -352,7 +352,7 @@ if ($action eq 'display') {
 	my @other_search_fields = (
 		"additives_n", "ingredients_n", "known_ingredients_n", "unknown_ingredients_n",
 		"fruits-vegetables-nuts-estimate-from-ingredients",
-		"forest_footprint", "product_quantity", "nova_group", 'ecoscore_score',
+		"forest_footprint", "product_quantity", "nova_group", 'environmental_score_score',
 	);
 
 	# Add the fields related to packaging

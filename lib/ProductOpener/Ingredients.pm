@@ -821,7 +821,7 @@ contains a property for an ingredient. (e.g. do we have an origin specified for 
 
 If the ingredient_id parameter is undef, then we return the value for any specific ingredient.
 (useful for products for which we do not have ingredients, but for which we have a label like "French eggs":
-we can still derive the origin of the ingredients, e.g. for the Eco-Score)
+we can still derive the origin of the ingredients, e.g. for the Environmental-Score)
 
 =head4 property
 

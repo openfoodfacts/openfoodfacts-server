@@ -115,7 +115,7 @@
                            "type" : "percent"
                         }
                      ],
-                     "id" : "ecoscore_carbon_impact_by_stages_table",
+                     "id" : "environmental_score_carbon_impact_by_stages_table",
                      "rows" : [
                         {
                            "id" : "agriculture",
@@ -214,7 +214,62 @@
                "environment"
             ]
          },
-         "ecoscore" : {
+         "environment_card" : {
+            "elements" : [
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "environmental_score"
+                  }
+               },
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_ids" : [
+                        "carbon_footprint"
+                     ],
+                     "title" : "Empreinte carbone"
+                  }
+               },
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_group_id" : "packaging_recycling",
+                     "panel_ids" : [
+                        "packaging_recycling"
+                     ],
+                     "title" : "Emballage"
+                  }
+               },
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_ids" : [
+                        "origins_of_ingredients"
+                     ],
+                     "title" : "Transport"
+                  }
+               },
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_ids" : [
+                        "palm_oil"
+                     ],
+                     "title" : "Espèces menacées"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "title_element" : {
+               "title" : "Environnement"
+            },
+            "topics" : [
+               "environment"
+            ],
+            "type" : "card"
+         },
+         "environmental_score" : {
             "elements" : [
                {
                   "element_type" : "text",
@@ -226,7 +281,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "L'<a href=\"http://world-fr.openfoodfacts.localhost/ecoscore\">Eco-Score</a> est un score expérimental qui synthétise les impacts environnementaux des produits alimentaires."
+                     "html" : "L'<a href=\"http://world-fr.openfoodfacts.localhost/environmental_score\">Eco-Score</a> est un score expérimental qui synthétise les impacts environnementaux des produits alimentaires."
                   }
                },
                {
@@ -240,7 +295,7 @@
                   "element_type" : "panel_group",
                   "panel_group_element" : {
                      "panel_ids" : [
-                        "ecoscore_agribalyse"
+                        "environmental_score_agribalyse"
                      ],
                      "title" : "Analyse du cycle de vie"
                   }
@@ -249,9 +304,9 @@
                   "element_type" : "panel_group",
                   "panel_group_element" : {
                      "panel_ids" : [
-                        "ecoscore_origins_of_ingredients",
-                        "ecoscore_threatened_species",
-                        "ecoscore_packaging"
+                        "environmental_score_origins_of_ingredients",
+                        "environmental_score_threatened_species",
+                        "environmental_score_packaging"
                      ],
                      "title" : "Bonus et malus"
                   }
@@ -260,7 +315,7 @@
                   "element_type" : "panel_group",
                   "panel_group_element" : {
                      "panel_ids" : [
-                        "ecoscore_total"
+                        "environmental_score_total"
                      ],
                      "title" : "Eco-Score pour ce produit"
                   }
@@ -284,7 +339,7 @@
                "environment"
             ]
          },
-         "ecoscore_agribalyse" : {
+         "environmental_score_agribalyse" : {
             "elements" : [
                {
                   "element_type" : "text",
@@ -306,7 +361,7 @@
                            "type" : "percent"
                         }
                      ],
-                     "id" : "ecoscore_lca_impacts_by_stages_table",
+                     "id" : "environmental_score_lca_impacts_by_stages_table",
                      "rows" : [
                         {
                            "id" : "agriculture",
@@ -406,7 +461,7 @@
                "environment"
             ]
          },
-         "ecoscore_origins_of_ingredients" : {
+         "environmental_score_origins_of_ingredients" : {
             "elements" : [
                {
                   "element_type" : "text",
@@ -429,7 +484,7 @@
                "environment"
             ]
          },
-         "ecoscore_packaging" : {
+         "environmental_score_packaging" : {
             "elements" : [
                {
                   "element_type" : "table",
@@ -452,7 +507,7 @@
                            "type" : "text"
                         }
                      ],
-                     "id" : "ecoscore_packaging_components",
+                     "id" : "environmental_score_packaging_components",
                      "rows" : [
                         {
                            "values" : [
@@ -543,7 +598,7 @@
                "environment"
             ]
          },
-         "ecoscore_production_system" : {
+         "environmental_score_production_system" : {
             "evaluation" : "neutral",
             "level" : "info",
             "title_element" : {
@@ -556,7 +611,7 @@
                "environment"
             ]
          },
-         "ecoscore_threatened_species" : {
+         "environmental_score_threatened_species" : {
             "elements" : [
                {
                   "element_type" : "text",
@@ -579,7 +634,7 @@
                "environment"
             ]
          },
-         "ecoscore_total" : {
+         "environmental_score_total" : {
             "elements" : [
                {
                   "element_type" : "text",
@@ -600,61 +655,6 @@
             "topics" : [
                "environment"
             ]
-         },
-         "environment_card" : {
-            "elements" : [
-               {
-                  "element_type" : "panel",
-                  "panel_element" : {
-                     "panel_id" : "ecoscore"
-                  }
-               },
-               {
-                  "element_type" : "panel_group",
-                  "panel_group_element" : {
-                     "panel_ids" : [
-                        "carbon_footprint"
-                     ],
-                     "title" : "Empreinte carbone"
-                  }
-               },
-               {
-                  "element_type" : "panel_group",
-                  "panel_group_element" : {
-                     "panel_group_id" : "packaging_recycling",
-                     "panel_ids" : [
-                        "packaging_recycling"
-                     ],
-                     "title" : "Emballage"
-                  }
-               },
-               {
-                  "element_type" : "panel_group",
-                  "panel_group_element" : {
-                     "panel_ids" : [
-                        "origins_of_ingredients"
-                     ],
-                     "title" : "Transport"
-                  }
-               },
-               {
-                  "element_type" : "panel_group",
-                  "panel_group_element" : {
-                     "panel_ids" : [
-                        "palm_oil"
-                     ],
-                     "title" : "Espèces menacées"
-                  }
-               }
-            ],
-            "expanded" : true,
-            "title_element" : {
-               "title" : "Environnement"
-            },
-            "topics" : [
-               "environment"
-            ],
-            "type" : "card"
          },
          "health_card" : {
             "elements" : [

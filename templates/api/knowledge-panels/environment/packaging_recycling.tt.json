@@ -6,7 +6,7 @@
 [% IF NOT (product.packagings.size) %]
     "evaluation": "unknown",
     "title_element": {
-        "title": "[% edq(lang('ecoscore_packaging_missing_information')) %]",
+        "title": "[% edq(lang('environmental_score_packaging_missing_information')) %]",
         "icon_url": "[% static_subdomain %]/images/icons/dist/packaging.svg",
         "icon_color_from_evaluation": true,
         "evaluation": "neutral",                
@@ -17,7 +17,7 @@
             "text_element": {
                 "type": "warning",
                 "html": `
-                    [% lang('ecoscore_no_packaging_information') %]
+                    [% lang('environmental_score_no_packaging_information') %]
                     `
             }
         },
@@ -32,25 +32,25 @@
         },
     ],
 [% ELSE %]
-    // Eco-Score currently computed only for food products
+    // Environmental-Score currently computed only for food products
     // no evaluation of packaging for other product types
     // TODO: add evaluation for non-food products
-    [% IF NOT product.ecoscore_data.adjustments.packaging.value.defined %]
+    [% IF NOT product.environmental_score_data.adjustments.packaging.value.defined %]
     "evaluation": "unknown",
     "title_element": {
         "title": "[% edq(lang('packaging')) %]",
-    [% ELSIF product.ecoscore_data.adjustments.packaging.value <= -15 %]
+    [% ELSIF product.environmental_score_data.adjustments.packaging.value <= -15 %]
     "evaluation": "bad",
     "title_element": {
-        "title": "[% edq(lang('ecoscore_packaging_impact_high')) %]",
-    [% ELSIF product.ecoscore_data.adjustments.packaging.value <= -5 %]
+        "title": "[% edq(lang('environmental_score_packaging_impact_high')) %]",
+    [% ELSIF product.environmental_score_data.adjustments.packaging.value <= -5 %]
     "evaluation": "average",
     "title_element": {
-        "title": "[% edq(lang('ecoscore_packaging_impact_medium')) %]",    
+        "title": "[% edq(lang('environmental_score_packaging_impact_medium')) %]",    
     [% ELSE %]
     "evaluation": "good",
     "title_element": {
-        "title": "[% edq(lang('ecoscore_packaging_impact_low')) %]",
+        "title": "[% edq(lang('environmental_score_packaging_impact_low')) %]",
     [% END %]
         "icon_url": "[% static_subdomain %]/images/icons/dist/packaging.svg",
         "icon_color_from_evaluation": true,

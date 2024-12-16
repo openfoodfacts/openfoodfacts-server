@@ -100,7 +100,7 @@ use ProductOpener::Orgs
 use ProductOpener::Data qw/:all/;
 use ProductOpener::Packaging
 	qw/add_or_combine_packaging_component_data get_checked_and_taxonomized_packaging_component_data/;
-use ProductOpener::Ecoscore qw/:all/;
+use ProductOpener::EnvironmentalScore qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::PackagerCodes qw/normalize_packager_codes/;
 use ProductOpener::API qw/get_initialized_response/;
