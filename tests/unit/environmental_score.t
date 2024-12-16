@@ -335,7 +335,7 @@ my @tests = (
 	# Sodas: no Eco-Score
 
 	[
-		'category-without-environmental_score-sodas',
+		'category-without-environmental-score-sodas',
 		{
 			lc => "en",
 			categories_tags => ["en:sodas"],
@@ -532,7 +532,7 @@ my @tests = (
 
 	# Keep track of old environmental_score score and add tags if it has changed
 	[
-		'track-environmental_score-changes',
+		'track-environmental-score-changes',
 		{
 			lc => "fr",
 			categories_tags => ["en:foies-gras"],
@@ -550,7 +550,7 @@ my @tests = (
 
 	# Score changed but same grade
 	[
-		'track-environmental_score-same-grade',
+		'track-environmental-score-same-grade',
 		{
 			lc => "fr",
 			categories_tags => ["en:foies-gras"],
@@ -568,7 +568,7 @@ my @tests = (
 
 	# Don't create data or tags if no change
 	[
-		'track-environmental_score-no-change',
+		'track-environmental-score-no-change',
 		{
 			lc => "fr",
 			categories_tags => ["en:foies-gras"],
@@ -583,7 +583,7 @@ my @tests = (
 
 	# Tags and previous data are retained on subsequent updates even if score is different
 	[
-		'track-environmental_score-tags-retained',
+		'track-environmental-score-tags-retained',
 		{
 			lc => "fr",
 			categories_tags => ["en:foies-gras"],
@@ -599,7 +599,7 @@ my @tests = (
 					version => "3.0"
 				}
 			},
-			misc_tags => ["en:environmental_score-changed", "en:environmental_score-grade-changed"]
+			misc_tags => ["en:environmental-score-changed", "en:environmental-score-grade-changed"]
 		},
 	],
 

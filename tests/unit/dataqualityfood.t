@@ -319,7 +319,7 @@ check_quality_and_test_product_has_quality_tag(
 			}
 		}
 	},
-	"en:environmental_score-origins-of-ingredients-origins-are-100-percent-unknown",
+	"en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
 	"origins 100 percent unknown",
 	1
 );
