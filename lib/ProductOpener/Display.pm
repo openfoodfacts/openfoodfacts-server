@@ -10500,6 +10500,8 @@ sub add_parent_if_missing {
 				};
 		}
 	}
+
+    return;
 }
 
 =head2 nutrient_in_rows ( $parent_nid, $rows_ref )

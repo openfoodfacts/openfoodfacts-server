@@ -933,6 +933,8 @@ sub add_parent_if_missing {
 			push(@$nutriments, $parent_nutrient_ref);
 		}
 	}
+
+    return;
 }
 
 if (($action eq 'display') and (($type eq 'add') or ($type eq 'edit'))) {
