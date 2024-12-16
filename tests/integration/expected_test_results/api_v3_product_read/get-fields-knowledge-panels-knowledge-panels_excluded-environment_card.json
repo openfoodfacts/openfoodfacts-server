@@ -492,31 +492,8 @@
             ]
          },
          "nutriscore_new_computation" : {
-            "elements" : [
-               {
-                  "element_type" : "text",
-                  "text_element" : {
-                     "html" : "<p>The computation of the Nutri-Score is evolving to provide better recommendations based on the latest scientific evidence.</p><p>Main improvements:</p><ul><li>Better differentiation of milks, sweetened dairy drinks and plant-based drinks</li><li>Better ranking of drinks to favor low-sugar drinks without sweeteners</li><li>Lower grades for products that contain too much salt or sugar</li><li>Higher grades for some fatty fish and oils rich in good fats</li><li>Lower grades for red meat</li></ul>\n                ",
-                     "type" : "info"
-                  }
-               },
-               {
-                  "element_type" : "text",
-                  "text_element" : {
-                     "html" : "\n<p>&rarr; <a href=\"http://world.openfoodfacts.localhost/nutriscore-v2\">Discover all the improvements of the new Nutri-Score</a></p>\n"
-                  }
-               }
-            ],
-            "level" : "info",
-            "title_element" : {
-               "icon_size" : "small",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/info.svg",
-               "title" : "Discover the new Nutri-Score!",
-               "type" : "info"
-            },
-            "topics" : [
-               "health"
-            ]
+            "template" : "api/knowledge-panels/health/nutriscore/nutriscore_new_computation.tt.json",
+            "template_error" : "file error - api/knowledge-panels/health/nutriscore/nutriscore_new_computation.tt.json: not found"
          },
          "nutrition_facts_table" : {
             "elements" : [
