@@ -9897,8 +9897,8 @@ CSS
 	my $perf = get_percent_formatter($lc, 0);
 
 	foreach my $nutriment (@nutriments) {
-
 		next if $nutriment =~ /^\#/;
+
 		my $nid = $nutriment;
 		$nid =~ s/^(-|!)+//g;
 		$nid =~ s/-$//g;
@@ -9908,76 +9908,16 @@ CSS
 		# Skip "energy-kcal" and "energy-kj" as we will display "energy" which has both
 		next if (($nid eq "energy-kcal") or ($nid eq "energy-kj"));
 
-		# Determine if the nutrient should be shown
-		my $shown = 0;
-
-		# Check if we have a value for the nutrient
-		my $is_nutrient_with_value = (
-			((defined $product_ref->{nutriments}{$nid}) and ($product_ref->{nutriments}{$nid} ne ''))
-				or ((defined $product_ref->{nutriments}{$nid . "_100g"})
-				and ($product_ref->{nutriments}{$nid . "_100g"} ne ''))
-				or ((defined $product_ref->{nutriments}{$nid . "_prepared"})
-				and ($product_ref->{nutriments}{$nid . "_prepared"} ne ''))
-				or ((defined $product_ref->{nutriments}{$nid . "_modifier"})
-				and ($product_ref->{nutriments}{$nid . "_modifier"} eq '-'))
-				or ((defined $product_ref->{nutriments}{$nid . "_prepared_modifier"})
-				and ($product_ref->{nutriments}{$nid . "_prepared_modifier"} eq '-'))
-		);
-
-		# Show rows that are not optional (id with a trailing -), or for which we have a value
-		if (($nutriment !~ /-$/) or $is_nutrient_with_value) {
-			$shown = 1;
-		}
-
-		# Hide rows that are not important when we don't have a value
-		if ((($nutriment !~ /^!/) or ($product_ref->{id} eq 'search'))
-			and not($is_nutrient_with_value))
-		{
-			$shown = 0;
-		}
-
-		# Show the UK nutrition score only if the country is matching
-		# Always show the FR nutrition score (Nutri-Score)
-
-		if ($nid =~ /^nutrition-score-(.*)$/) {
-			# Always show the FR score and Nutri-Score
-			if (($request_ref->{cc} ne $1) and (not($1 eq 'fr'))) {
-				$shown = 0;
-			}
-
-			# 2021-12: now not displaying the Nutrition scores and Nutri-Score in nutrition facts table (experimental)
-			$shown = 0;
-		}
+		my $shown = should_show_nutrient($nutriment, $product_ref, $request_ref, $nid);
 
 		if ($shown) {
+			my $level = get_nutrient_level($nutriment);
 
-			# Level of the nutrient: 0 for main nutrients, 1 for sub-nutrients, 2 for sub-sub-nutrients
-			my $level = 0;
+			add_parent_if_missing($nutriment, $level, $template_data_ref, \@nutriments, $product_ref);
 
-			if ($nutriment =~ /^!?-/) {
-				$level = 1;
-				if ($nutriment =~ /^!?--/) {
-					$level = 2;
-				}
-			}
+			# Get nutrient name using refactored function
+			my ($name, $unit) = get_nutrient_name($nutriment, $nid, $product_ref, $lc);
 
-			# Name of the nutrient
-
-			my $name;
-			my $unit = "g";
-
-			if (exists_taxonomy_tag("nutrients", "zz:$nid")) {
-				$name = display_taxonomy_tag($lc, "nutrients", "zz:$nid");
-				$unit = get_property("nutrients", "zz:$nid", "unit:en") // 'g';
-			}
-			else {
-				if (defined $product_ref->{nutriments}{$nid . "_label"}) {
-					$name = $product_ref->{nutriments}{$nid . "_label"};
-				}
-				if (defined $product_ref->{nutriments}{$nid . "_unit"}) {
-					$unit = $product_ref->{nutriments}{$nid . "_unit"};
-				}
-			}
 			my @columns;
 			my @extra_row_columns;
 
@@ -10366,6 +10306,283 @@ CSS
 	}
 
 	return $template_data_ref;
+}
+
+=head2 should_show_nutrient ( $nutriment, $product_ref, $request_ref )
+
+Determines if a specific nutrient should be displayed in the nutrition table.
+
+This function checks various conditions such as whether the nutrient has a value, is optional, or is country-specific, and returns a boolean indicating whether the nutrient should be shown.
+
+=head3 Arguments
+
+=head4 Nutrient $nutriment
+
+The nutrient identifier (e.g., "fat", "sodium", etc.).
+
+=head4 Product reference $product_ref
+
+Reference to the product's data, which contains the nutritional values.
+
+=head4 Request reference $request_ref
+
+Reference to request data, which can contain country-specific or other relevant information.
+
+=head3 Return values
+
+Returns 1 if the nutrient should be shown, 0 otherwise.
+
+=cut
+
+sub should_show_nutrient {
+	my ($nutriment, $product_ref, $request_ref, $nid) = @_;
+
+	# Logic to determine if the nutrient should be shown (as in your original code)
+	my $is_nutrient_with_value = (
+		((defined $product_ref->{nutriments}{$nid}) and ($product_ref->{nutriments}{$nid} ne ''))
+			or ((defined $product_ref->{nutriments}{$nid . "_100g"})
+			and ($product_ref->{nutriments}{$nid . "_100g"} ne ''))
+			or ((defined $product_ref->{nutriments}{$nid . "_prepared"})
+			and ($product_ref->{nutriments}{$nid . "_prepared"} ne ''))
+			or ((defined $product_ref->{nutriments}{$nid . "_modifier"})
+			and ($product_ref->{nutriments}{$nid . "_modifier"} eq '-'))
+			or ((defined $product_ref->{nutriments}{$nid . "_prepared_modifier"})
+			and ($product_ref->{nutriments}{$nid . "_prepared_modifier"} eq '-'))
+	);
+
+	# Logic to show important or non-optional nutrients
+	if (($nutriment !~ /-$/) or $is_nutrient_with_value) {
+		return 1;
+	}
+
+	# Hide non-important nutrients when no value is present
+	if ((($nutriment !~ /^!/) or ($product_ref->{id} eq 'search')) and not($is_nutrient_with_value)) {
+		return 0;
+	}
+
+	# Special handling for nutrition scores (optional, based on request_ref)
+	if ($nid =~ /^nutrition-score-(.*)$/) {
+		# Always show FR score and Nutri-Score
+		if (($request_ref->{cc} ne $1) and (not($1 eq 'fr'))) {
+			return 0;
+		}
+
+		# Experimental: hide nutrition scores for now
+		return 0;
+	}
+
+	return 1;
+}
+
+=head2 get_nutrient_level ( $nutriment )
+
+Determines the level of a nutrient based on the number of leading dashes.
+
+The level is used to establish whether a nutrient is a top-level nutrient or a sub-nutrient (e.g., fat -> saturated fat -> omega-3).
+
+=head3 Arguments
+
+=head4 Nutrient $nutriment
+
+The nutrient identifier string, which may contain leading dashes to denote levels.
+
+=head3 Return values
+
+Returns an integer indicating the nutrient's level.
+- 0 for main nutrients
+- 1 for sub-nutrients
+- 2 for sub-sub-nutrients, etc.
+
+=cut
+
+sub get_nutrient_level {
+	my ($nutriment) = @_;
+	if ($nutriment =~ /^!?--/) {
+		return 2;    # Sub-sub-nutrient (level 2)
+	}
+	elsif ($nutriment =~ /^!?-/) {
+		return 1;    # Sub-nutrient (level 1)
+	}
+	return 0;    # Top-level nutrient (level 0)
+}
+
+=head2 add_parent_if_missing ( $nutriment, $level, $template_data_ref, $added_nutrients_ref, $nutriments )
+
+Ensures that a parent nutrient (e.g., polyol for isomalt) is added to the nutrition table before adding the current nutrient.
+
+This function looks for the parent nutrient in the list of nutrients and adds it to the template if it’s missing.
+
+=head3 Arguments
+
+=head4 Nutrient $nutriment
+
+The current nutrient being processed (e.g., isomalt).
+
+=head4 Level $level
+
+The level of the current nutrient, which helps determine the parent nutrient (level - 1).
+
+=head4 Template data reference $template_data_ref
+
+A reference to the data structure that holds the nutrition table rows.
+
+=head4 Added nutrients reference $added_nutrients_ref
+
+A hash reference tracking nutrients that have already been added to avoid duplication.
+
+=head4 Nutriments array reference $nutriments
+
+A reference to the array of all nutrients to locate the parent nutrient.
+
+=head3 Return values
+
+None. The function modifies the template data in-place.
+
+=cut
+
+sub add_parent_if_missing {
+	my ($nutriment, $level, $template_data_ref, $nutriments, $product_ref) = @_;
+
+	# top nutrients don't have parents
+	return if $level == 0;
+
+	# Locate the parent nutrient by checking the previous nutrients in @nutriments
+	my $parent_nutriment;
+	my $nutriment_index;
+	for (my $i = 0; $i <= $#{$nutriments}; $i++) {
+		if ($nutriments->[$i] eq $nutriment) {
+			$nutriment_index = $i;
+			last;
+		}
+	}
+
+	if (defined $nutriment_index && $nutriment_index > 0) {
+		# Loop backwards from the previous nutrient
+		for (my $i = $nutriment_index - 1; $i >= 0; $i--) {
+			my $candidate_nutriment = $nutriments->[$i];
+			next if $candidate_nutriment =~ /^\#/;    # Skip comments
+
+			# Check if it's a parent nutrient (one level higher)
+			my $candidate_level = get_nutrient_level($candidate_nutriment);
+			if ($candidate_level == $level - 1) {
+				$parent_nutriment = $candidate_nutriment;
+				last;
+			}
+		}
+	}
+
+	if ($parent_nutriment) {
+		my $parent_nid = $parent_nutriment;
+		$parent_nid =~ s/^(-|!)+//g;
+		$parent_nid =~ s/-$//g;
+
+		if (!nutrient_in_rows($parent_nid, $template_data_ref->{nutrition_table}{rows})) {
+			my $parent_level = $level - 1;
+
+			my ($parent_name, $parent_unit) = get_nutrient_name($parent_nutriment, $parent_nid, $product_ref, $lc);
+
+            my @parent_columns;
+			my $parent_cell_data_ref = {
+					value => '?',
+					rdfa => '',
+					class => undef,
+					percent => undef,
+					type => "normal",
+				};
+            push(@parent_columns, $parent_cell_data_ref);
+
+			push @{$template_data_ref->{nutrition_table}{rows}},
+				{
+				nid => $parent_nid,
+				level => $parent_level,
+				name => $parent_name,
+				columns => \@parent_columns,
+				};
+		}
+	}
+}
+
+=head2 nutrient_in_rows ( $parent_nid, $rows_ref )
+
+Checks whether a specific nutrient (by its ID) is already present in the nutrition table rows.
+
+This is used to prevent adding duplicate nutrients.
+
+=head3 Arguments
+
+=head4 Parent nutrient ID $parent_nid
+
+The nutrient identifier for the parent (e.g., "fat", "sodium").
+
+=head4 Rows reference $rows_ref
+
+A reference to the array of rows in the nutrition table, where each row is a hash containing nutrient information.
+
+=head3 Return values
+
+Returns 1 if the nutrient is found in the rows, 0 otherwise.
+
+=cut
+
+sub nutrient_in_rows {
+	my ($parent_nid, $rows_ref) = @_;
+
+	foreach my $row (@{$rows_ref}) {
+		if ($row->{nid} eq $parent_nid) {
+			return 1;
+		}
+	}
+	return 0;
+}
+
+=head2 get_nutrient_name ( $nutriment, $nid, $product_ref )
+
+Retrieves the name of the nutrient, either from the taxonomy or from the product's data.
+
+This function looks up the nutrient name from a taxonomy if available, or falls back to the product-specific label.
+
+=head3 Arguments
+
+=head4 Nutrient $nutriment
+
+The current nutrient identifier (e.g., "fat", "sodium").
+
+=head4 Nutrient ID $nid
+
+The cleaned nutrient ID (without leading/trailing dashes or exclamation marks).
+
+=head4 Product reference $product_ref
+
+Reference to the product data structure, which may contain custom labels for nutrients.
+
+=head3 Return values
+
+Returns the name of the nutrient as a string.
+
+=cut
+
+sub get_nutrient_name {
+	my ($nutriment, $nid, $product_ref, $lc) = @_;
+
+	my $name;
+	my $unit = "g";
+
+	# Check if the nutrient exists in the taxonomy and get its display name and unit
+	if (exists_taxonomy_tag("nutrients", "zz:$nid")) {
+		$name = display_taxonomy_tag($lc, "nutrients", "zz:$nid");
+		$unit = get_property("nutrients", "zz:$nid", "unit:en") // 'g';    # Use 'g' as the fallback unit
+	}
+	else {
+		# If the nutrient label and unit are defined in the product, use those
+		if (defined $product_ref->{nutriments}{$nid . "_label"}) {
+			$name = $product_ref->{nutriments}{$nid . "_label"};
+		}
+		if (defined $product_ref->{nutriments}{$nid . "_unit"}) {
+			$unit = $product_ref->{nutriments}{$nid . "_unit"};
+		}
+	}
+
+	return ($name, $unit);
 }
 
 =head2 display_nutrition_table ( $product_ref, $comparisons_ref )

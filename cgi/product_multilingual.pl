@@ -789,6 +789,154 @@ sub display_input_field ($product_ref, $field, $language, $request_ref) {
 	return $html_field;
 }
 
+=head2 get_nutrient_level ( $nutriment )
+
+Determines the level of a nutrient based on the number of leading dashes.
+
+The level is used to establish whether a nutrient is a top-level nutrient or a sub-nutrient (e.g., fat -> saturated fat -> omega-3).
+
+=head3 Arguments
+
+=head4 Nutrient $nutriment
+
+The nutrient identifier string, which may contain leading dashes to denote levels.
+
+=head3 Return values
+
+Returns an integer indicating the nutrient's level.
+- 0 for main nutrients
+- 1 for sub-nutrients
+- 2 for sub-sub-nutrients, etc.
+
+=cut
+
+sub get_nutrient_level {
+	my ($nutriment) = @_;
+	if ($nutriment =~ /^!?--/) {
+		return 2;
+	}
+	elsif ($nutriment =~ /^!?-/) {
+		return 1;
+	}
+	return 0;
+}
+
+
+=head2 add_parent_if_missing ( $nutriment, $nutriment_table, $nutriments, $class, $prefix, $lc )
+
+Adds a parent nutrient to the list of nutrients if the parent is missing and the current nutrient is not a top-level nutrient.
+
+This function locates the parent nutrient by scanning the previous nutrients in the nutrition table, checking for one level higher than the current nutrient, and then adding it to the list of nutrients if it's not already present.
+
+=head3 Arguments
+
+=head4 Nutrient $nutriment
+
+The current nutrient being processed.
+
+=head4 Nutrient table array reference $nutriment_table
+
+A reference to the array containing all nutrients, where the function will look for the parent nutrient.
+
+=head4 Nutriments array reference $nutriments
+
+A reference to the array of all nutrients where the function will add the parent nutrient if it's missing.
+
+=head4 Class $class
+
+The classification of the current nutrient, indicating whether it’s a main nutrient or a sub-nutrient (e.g., 'main' or 'sub').
+
+=head4 Prefix $prefix
+
+The prefix used for nutrient identification.
+
+=head4 Language code $lc
+
+The language code, used when displaying taxonomy tags to get the correct localized name of the nutrient.
+
+=head3 Return values
+
+None. The function modifies the nutrients array in-place by adding a parent nutrient if it's missing.
+
+=cut
+
+sub add_parent_if_missing {
+    my ($nutriment, $nutriment_table, $nutriments, $class, $prefix, $lc) = @_;
+
+    return if $class eq 'main';
+
+    my $level = get_nutrient_level($nutriment);
+
+	# Locate the parent nutrient by checking the previous nutrients in @nutriments
+	my $nutriment_index;
+	for (my $i = 0; $i <= $#{$nutriment_table}; $i++) {
+		if ($nutriment_table->[$i] eq $nutriment) {
+			$nutriment_index = $i;
+			last;
+		}
+	}
+
+	my $parent_nutriment;
+	if (defined $nutriment_index && $nutriment_index > 0) {
+		# Loop backwards from the previous nutrient
+		for (my $i = $nutriment_index - 1; $i >= 0; $i--) {
+			my $candidate_nutriment = $nutriment_table->[$i];
+			next if $candidate_nutriment =~ /^\#/;    # Skip comments
+
+			# Check if it's a parent nutrient (one level higher)
+			my $candidate_level = get_nutrient_level($candidate_nutriment);
+			if ($candidate_level == $level - 1) {
+				$parent_nutriment = $candidate_nutriment;
+				last;
+			}
+		}
+	}
+
+    if ($parent_nutriment) {
+        my $parent_nutrient_ref = {};
+
+		my $parent_nid = $parent_nutriment;
+		$parent_nid =~ s/^(-|!)+//g;
+		$parent_nid =~ s/-$//g;
+
+        $parent_nutrient_ref->{prefix} = "";
+        $parent_nutrient_ref->{class} = 'sub';
+        $parent_nutrient_ref->{nid} = $parent_nid;
+
+        # Check if the parent nutrient is in the taxonomy
+        if (exists_taxonomy_tag("nutrients", "zz:$parent_nid")) {
+            $parent_nutrient_ref->{name} = display_taxonomy_tag($lc, "nutrients", "zz:$parent_nid");
+        }
+
+        # Predefined units for the parent nutrient
+        my @parent_units_arr = (
+            { u => 'g', label => 'g', selected => 'selected="selected" ' },
+            { u => 'mg', label => 'mg', selected => '' },
+            { u => 'µg', label => 'mcg/µg', selected => '' }
+        );
+        $parent_nutrient_ref->{units_arr} = \@parent_units_arr;
+        $parent_nutrient_ref->{hide_select} = '';
+        $parent_nutrient_ref->{hide_percent} = ' style="display:none"';
+        $parent_nutrient_ref->{nutriment_unit_disabled} = '';
+        $parent_nutrient_ref->{shown} = 1;
+
+        # Check if parent nutrient is already in @nutriments
+        my $parent_exists = 0;
+        foreach my $existing_nutriment (@$nutriments) {
+            if ($existing_nutriment->{nid} eq $parent_nid && $existing_nutriment->{shown} == 1) {
+                $parent_exists = 1;
+                last;
+            }
+        }
+
+        # Push the parent nutrient if it doesn't already exist
+        if (!$parent_exists) {
+            push(@$nutriments, $parent_nutrient_ref);
+        }
+    }
+}
+
+
 if (($action eq 'display') and (($type eq 'add') or ($type eq 'edit'))) {
 
 	# Populate the energy-kcal or energy-kj field from the energy field if it exists
@@ -1147,6 +1295,8 @@ CSS
 			if ($nutriment =~ /^--/) {
 				$prefix = "&nbsp; ";
 			}
+
+            add_parent_if_missing($nutriment, \@{$nutriments_tables{$nutriment_table}}, \@nutriments, $class, $prefix, $lc);
 		}
 
 		my $display = '';
