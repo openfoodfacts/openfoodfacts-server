@@ -104,11 +104,7 @@
          "en",
          "fr"
       ],
-      "editors_tags" : [
-         "tests"
-      ],
-      "entry_dates_tags" : "--ignore--",
-      "environmental_score_data" : {
+      "ecoscore_data" : {
          "adjustments" : {
             "origins_of_ingredients" : {
                "aggregated_origins" : [
@@ -392,10 +388,14 @@
          "scores" : {},
          "status" : "unknown"
       },
-      "environmental_score_grade" : "unknown",
-      "environmental_score_tags" : [
+      "ecoscore_grade" : "unknown",
+      "ecoscore_tags" : [
          "unknown"
       ],
+      "editors_tags" : [
+         "tests"
+      ],
+      "entry_dates_tags" : "--ignore--",
       "food_groups_tags" : [],
       "forest_footprint_data" : {
          "footprint_per_kg" : 0.00145833333333333,

@@ -90,11 +90,7 @@
             "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
             "en:environmental-score-production-system-no-label"
          ],
-         "editors_tags" : [
-            "tests"
-         ],
-         "entry_dates_tags" : "--ignore--",
-         "environmental_score_data" : {
+         "ecoscore_data" : {
             "adjustments" : {
                "origins_of_ingredients" : {
                   "aggregated_origins" : [
@@ -368,10 +364,14 @@
             "scores" : {},
             "status" : "unknown"
          },
-         "environmental_score_grade" : "unknown",
-         "environmental_score_tags" : [
+         "ecoscore_grade" : "unknown",
+         "ecoscore_tags" : [
             "unknown"
          ],
+         "editors_tags" : [
+            "tests"
+         ],
+         "entry_dates_tags" : "--ignore--",
          "food_groups_tags" : [],
          "forest_footprint_data" : {
             "footprint_per_kg" : 0.0074375,
@@ -1014,11 +1014,7 @@
             "en:environmental-score-packaging-packaging-data-missing",
             "en:environmental-score-production-system-no-label"
          ],
-         "editors_tags" : [
-            "tests"
-         ],
-         "entry_dates_tags" : "--ignore--",
-         "environmental_score_data" : {
+         "ecoscore_data" : {
             "adjustments" : {
                "origins_of_ingredients" : {
                   "aggregated_origins" : [
@@ -1262,10 +1258,14 @@
             "scores" : {},
             "status" : "unknown"
          },
-         "environmental_score_grade" : "unknown",
-         "environmental_score_tags" : [
+         "ecoscore_grade" : "unknown",
+         "ecoscore_tags" : [
             "unknown"
          ],
+         "editors_tags" : [
+            "tests"
+         ],
+         "entry_dates_tags" : "--ignore--",
          "food_groups_tags" : [],
          "generic_name" : "Tester",
          "generic_name_en" : "Tester",
@@ -1643,11 +1643,7 @@
             "en:environmental-score-packaging-packaging-data-missing",
             "en:environmental-score-production-system-no-label"
          ],
-         "editors_tags" : [
-            "tests"
-         ],
-         "entry_dates_tags" : "--ignore--",
-         "environmental_score_data" : {
+         "ecoscore_data" : {
             "adjustments" : {
                "origins_of_ingredients" : {
                   "aggregated_origins" : [
@@ -1891,10 +1887,14 @@
             "scores" : {},
             "status" : "unknown"
          },
-         "environmental_score_grade" : "unknown",
-         "environmental_score_tags" : [
+         "ecoscore_grade" : "unknown",
+         "ecoscore_tags" : [
             "unknown"
          ],
+         "editors_tags" : [
+            "tests"
+         ],
+         "entry_dates_tags" : "--ignore--",
          "food_groups_tags" : [],
          "forest_footprint_data" : {
             "footprint_per_kg" : 0.0132222222222222,
@@ -2471,11 +2471,7 @@
             "en:environmental-score-packaging-packaging-data-missing",
             "en:environmental-score-production-system-no-label"
          ],
-         "editors_tags" : [
-            "tests"
-         ],
-         "entry_dates_tags" : "--ignore--",
-         "environmental_score_data" : {
+         "ecoscore_data" : {
             "adjustments" : {
                "origins_of_ingredients" : {
                   "aggregated_origins" : [
@@ -2722,10 +2718,14 @@
             "scores" : {},
             "status" : "unknown"
          },
-         "environmental_score_grade" : "unknown",
-         "environmental_score_tags" : [
+         "ecoscore_grade" : "unknown",
+         "ecoscore_tags" : [
             "unknown"
          ],
+         "editors_tags" : [
+            "tests"
+         ],
+         "entry_dates_tags" : "--ignore--",
          "food_groups_tags" : [],
          "generic_name_en" : "Tester",
          "id" : "0200000000039",
@@ -3288,11 +3288,7 @@
             "en:environmental-score-packaging-packaging-data-missing",
             "en:environmental-score-production-system-no-label"
          ],
-         "editors_tags" : [
-            "tests"
-         ],
-         "entry_dates_tags" : "--ignore--",
-         "environmental_score_data" : {
+         "ecoscore_data" : {
             "adjustments" : {
                "origins_of_ingredients" : {
                   "aggregated_origins" : [
@@ -3687,11 +3683,15 @@
             },
             "status" : "known"
          },
-         "environmental_score_grade" : "e",
-         "environmental_score_score" : 25,
-         "environmental_score_tags" : [
+         "ecoscore_grade" : "e",
+         "ecoscore_score" : 25,
+         "ecoscore_tags" : [
             "e"
          ],
+         "editors_tags" : [
+            "tests"
+         ],
+         "entry_dates_tags" : "--ignore--",
          "food_groups" : "en:breakfast-cereals",
          "food_groups_tags" : [
             "en:cereals-and-potatoes",
@@ -4263,11 +4263,7 @@
             "en:environmental-score-packaging-packaging-data-missing",
             "en:environmental-score-production-system-no-label"
          ],
-         "editors_tags" : [
-            "tests"
-         ],
-         "entry_dates_tags" : "--ignore--",
-         "environmental_score_data" : {
+         "ecoscore_data" : {
             "adjustments" : {
                "origins_of_ingredients" : {
                   "aggregated_origins" : [
@@ -4662,11 +4658,15 @@
             },
             "status" : "known"
          },
-         "environmental_score_grade" : "e",
-         "environmental_score_score" : 25,
-         "environmental_score_tags" : [
+         "ecoscore_grade" : "e",
+         "ecoscore_score" : 25,
+         "ecoscore_tags" : [
             "e"
          ],
+         "editors_tags" : [
+            "tests"
+         ],
+         "entry_dates_tags" : "--ignore--",
          "food_groups" : "en:breakfast-cereals",
          "food_groups_tags" : [
             "en:cereals-and-potatoes",

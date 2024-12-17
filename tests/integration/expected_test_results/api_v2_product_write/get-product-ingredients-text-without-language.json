@@ -92,11 +92,7 @@
          "en:environmental-score-packaging-packaging-data-missing",
          "en:environmental-score-production-system-no-label"
       ],
-      "editors_tags" : [
-         "openfoodfacts-contributors"
-      ],
-      "entry_dates_tags" : "--ignore--",
-      "environmental_score_data" : {
+      "ecoscore_data" : {
          "adjustments" : {
             "origins_of_ingredients" : {
                "aggregated_origins" : [
@@ -340,10 +336,14 @@
          "scores" : {},
          "status" : "unknown"
       },
-      "environmental_score_grade" : "unknown",
-      "environmental_score_tags" : [
+      "ecoscore_grade" : "unknown",
+      "ecoscore_tags" : [
          "unknown"
       ],
+      "editors_tags" : [
+         "openfoodfacts-contributors"
+      ],
+      "entry_dates_tags" : "--ignore--",
       "food_groups" : "en:processed-meat",
       "food_groups_tags" : [
          "en:fish-meat-eggs",
