@@ -300,7 +300,7 @@
                "description_short" : "Low environmental impact",
                "grade" : "b",
                "icon_url" : "https://server_domain/images/attributes/dist/ecoscore-b.svg",
-               "id" : "environmental_score",
+               "id" : "ecoscore",
                "match" : 68,
                "name" : "Eco-Score",
                "panel_id" : "environmental_score",
@@ -368,7 +368,6 @@
    "categories_tags" : [
       "en:biscuits"
    ],
-   "compared_to_category" : "en:biscuits",
    "countries_tags" : [
       "en:united-kingdom",
       "en:france"
@@ -397,14 +396,15 @@
       "en:food-groups-1-unknown",
       "en:food-groups-2-unknown",
       "en:food-groups-3-unknown",
-      "en:nutrition-value-very-low-for-category-energy",
       "en:environmental-score-packaging-unspecified-material",
       "en:environmental-score-production-system-no-label"
    ],
    "data_quality_warnings_tags" : [
-      "en:nutrition-value-very-low-for-category-energy",
       "en:environmental-score-packaging-unspecified-material",
       "en:environmental-score-production-system-no-label"
+   ],
+   "ecoscore_tags" : [
+      "b"
    ],
    "environmental_score_data" : {
       "adjustments" : {

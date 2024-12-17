@@ -279,7 +279,7 @@
                "description_short" : "Unknown environmental impact",
                "grade" : "unknown",
                "icon_url" : "https://server_domain/images/attributes/dist/ecoscore-unknown.svg",
-               "id" : "environmental_score",
+               "id" : "ecoscore",
                "match" : 0,
                "name" : "Eco-Score",
                "panel_id" : "environmental_score",
@@ -373,6 +373,9 @@
       "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
       "en:environmental-score-packaging-packaging-data-missing",
       "en:environmental-score-production-system-no-label"
+   ],
+   "ecoscore_tags" : [
+      "unknown"
    ],
    "environmental_score_data" : {
       "adjustments" : {

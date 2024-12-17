@@ -277,7 +277,7 @@
                "description_short" : "High environmental impact",
                "grade" : "d",
                "icon_url" : "https://server_domain/images/attributes/dist/ecoscore-d.svg",
-               "id" : "environmental_score",
+               "id" : "ecoscore",
                "match" : 35,
                "name" : "Eco-Score",
                "panel_id" : "environmental_score",
@@ -345,7 +345,6 @@
    "categories_tags" : [
       "en:cheeses"
    ],
-   "compared_to_category" : "en:cheeses",
    "data_quality_bugs_tags" : [
       "en:main-language-missing",
       "en:code-missing",
@@ -378,6 +377,9 @@
       "en:environmental-score-packaging-packaging-data-missing",
       "en:environmental-score-production-system-no-label",
       "en:environmental-score-threatened-species-ingredients-missing"
+   ],
+   "ecoscore_tags" : [
+      "d"
    ],
    "environmental_score_data" : {
       "adjustments" : {
