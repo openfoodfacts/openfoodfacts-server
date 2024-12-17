@@ -469,7 +469,7 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 			return sprintf("%.0f", $var);
 		}
 		else {
-			return undef;
+			return;
 		}
 	};
 
