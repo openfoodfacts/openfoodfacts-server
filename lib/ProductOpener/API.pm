@@ -752,6 +752,9 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 	# lets compute each requested field
 	foreach my $field (@fields) {
 
+		# Compatibility with older API versions
+		$field = api_compatibility_for_field($field, $request_ref->{api_version});
+
 		if ($field eq 'all') {
 			# Return all fields of the product, with processing that depends on the API version used
 			# e.g. in API v3, the "packagings" structure is more verbose than the stored version
@@ -908,7 +911,7 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 	}
 
 	# Before returning the product, we need to make sure that the fields are compatible with the requested API version
-	api_compatibility_for_product ($customized_product_ref, $request_ref->{api_version});
+	api_compatibility_for_product($customized_product_ref, $request_ref->{api_version});
 
 	return $customized_product_ref;
 }

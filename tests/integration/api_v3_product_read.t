@@ -260,7 +260,7 @@ my $tests_ref = [
 		query_string => '?fields=code,product_name&user_id=tests&password=bad_password',
 		expected_status_code => 403,
 	},
-		{
+	{
 		test_case => 'get-specific-fields-environmental-score-api-v3-1',
 		method => 'GET',
 		path => '/api/v3.1/product/4260392550101',
