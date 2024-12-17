@@ -463,15 +463,16 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 		}
 	};
 
-    $template_data_ref->{round} = sub ($var) {
-        # Check if $var is defined and is numeric
-        if (defined $var && $var =~ /^-?\d+(\.\d+)?$/) {
-            return sprintf("%.0f", $var);
-        } else {
-            return undef;
-        }
-    };
-    
+	$template_data_ref->{round} = sub ($var) {
+		# Check if $var is defined and is numeric
+		if (defined $var && $var =~ /^-?\d+(\.\d+)?$/) {
+			return sprintf("%.0f", $var);
+		}
+		else {
+			return undef;
+		}
+	};
+
 	$template_data_ref->{sprintf} = sub ($var1, $var2) {
 		return sprintf($var1, $var2);
 	};
@@ -7991,10 +7992,10 @@ JS
 
 		localize_ecoscore($request_ref->{cc}, $product_ref);
 
-        if (defined $product_ref->{ecoscore_data}{"grade"}) {
-            $template_data_ref->{ecoscore_grade} = uc($product_ref->{ecoscore_data}{"grade"});
-            $template_data_ref->{ecoscore_grade_lc} = $product_ref->{ecoscore_data}{"grade"};
-        }
+		if (defined $product_ref->{ecoscore_data}{"grade"}) {
+			$template_data_ref->{ecoscore_grade} = uc($product_ref->{ecoscore_data}{"grade"});
+			$template_data_ref->{ecoscore_grade_lc} = $product_ref->{ecoscore_data}{"grade"};
+		}
 
 		$template_data_ref->{ecoscore_score} = $product_ref->{ecoscore_data}{"score"};
 		$template_data_ref->{ecoscore_data} = $product_ref->{ecoscore_data};
