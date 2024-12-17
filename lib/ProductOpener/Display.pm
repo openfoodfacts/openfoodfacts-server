@@ -10410,7 +10410,7 @@ sub get_nutrient_level {
 
 Ensures that a parent nutrient (e.g., polyol for isomalt) is added to the nutrition table before adding the current nutrient.
 
-This function looks for the parent nutrient in the list of nutrients and adds it to the template if it’s missing.
+This function looks for the parent nutrient in the list of nutrients and adds it to the template if it's missing.
 
 =head3 Arguments
 

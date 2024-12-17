@@ -843,7 +843,7 @@ A reference to the array of all nutrients where the function will add the parent
 
 =head4 Class $class
 
-The classification of the current nutrient, indicating whether it’s a main nutrient or a sub-nutrient (e.g., 'main' or 'sub').
+The classification of the current nutrient, indicating whether it's a main nutrient or a sub-nutrient (e.g., 'main' or 'sub').
 
 =head4 Prefix $prefix
 
