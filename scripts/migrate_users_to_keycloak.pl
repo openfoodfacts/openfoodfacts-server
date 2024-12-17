@@ -179,6 +179,24 @@ sub convert_scrypt_password_to_keycloak_credentials ($hashed_password) {
 	return $credential;
 }
 
+sub open_checkpoint($filename) {
+	if (!-e $filename) {
+		`touch $filename`;
+	}
+	open(my $checkpoint_file, '+<', $filename) or die "Could not open file '$filename' $!";
+	seek($checkpoint_file, 0, 0);
+	my $checkpoint = <$checkpoint_file>;
+	chomp $checkpoint if $checkpoint;
+	return ($checkpoint_file, $checkpoint);
+}
+
+sub update_checkpoint($checkpoint_file, $checkpoint) {
+	seek($checkpoint_file, 0, 0);
+	print $checkpoint_file $checkpoint;
+	truncate($checkpoint_file, tell($checkpoint_file));
+	return 1;
+}
+
 my $importtype = 'realm-batch';
 if ((scalar @ARGV) > 0 and (length($ARGV[0]) > 0)) {
 	$importtype = $ARGV[0];
@@ -192,29 +210,35 @@ if ((scalar @ARGV) > 0 and ('anonymize' eq $ARGV[-1])) {
 }
 
 if ($importtype eq 'validate') {
+	open(my $invalid_user_file, '>:encoding(UTF-8)', 'invalid_users.csv') or die "Could not open invalid_users file $!";
+
 	my $all_emails = {};
 	if (opendir(my $dh, "$BASE_DIRS{USERS}/")) {
-		foreach my $file (readdir($dh)) {
+		my @files = readdir($dh);
+		closedir $dh;
+		foreach my $file (sort @files) {
 			if (($file =~ /.+\.sto$/) and ($file ne 'users_emails.sto')) {
 				my $user_ref = retrieve("$BASE_DIRS{USERS}/$file");
 				if (defined $user_ref) {
 					my $user_id = $user_ref->{userid};
-					my $email = $user_ref->{email} || 'nul';
-					my $last_login_t = $user_ref->{last_login_t};
+					my $email = lc($user_ref->{email} || '');
+					$email =~ s/\s+//g;
+					my $last_login_t = $user_ref->{last_login_t} || 0;
 					my $user_info ={userid => $user_id, last_login_t => $last_login_t};
 					my $user_infos = $all_emails->{$email};
 					if (!defined $user_infos) {
-						$all_emails->{$email} = {userid => $user_id, last_login_t => $last_login_t, users => [$user_info]};
+						$all_emails->{$email} = {userid => $user_id, last_login_t => $last_login_t, file => $file, users => [$user_info]};
 						if (not $email =~ /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/) {
-							print "$user_id,$email,invalid\n";
+							print $invalid_user_file "$user_id,$file,$email,invalid\n";
 							$all_emails->{$email}->{invalid} = 1;
 						}
 					} else {
 						if ($last_login_t < $user_infos->{last_login_t}) {
-							print $user_id . ",$email,duplicate\n";
+							print $invalid_user_file $user_id . ",$file,$email,duplicate\n";
 						} else {
-							print $user_infos->{userid} . ",$email,duplicate\n";
+							print $invalid_user_file $user_infos->{userid} . "," . $user_infos->{file} . ",$email,duplicate\n";
 							$user_infos->{userid} = $user_id;
+							$user_infos->{file} = $file;
 							$user_infos->{last_login_t} = $last_login_t;
 						}
 						push(@{$user_infos->{users}}, $user_info);
@@ -223,9 +247,11 @@ if ($importtype eq 'validate') {
 			}
 		}
 
-		closedir $dh;
 		store("all_emails.sto", $all_emails);
 	}
+
+	close $invalid_user_file;
+
 }
 elsif ($importtype eq 'realm-batch') {
 	my @users = ();
