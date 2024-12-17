@@ -654,6 +654,13 @@ The response schema can change between API versions. This function transforms th
 
 sub api_compatibility_for_product ($product_ref, $api_version) {
 
+	$log->debug("api_compatibility_for_product - start", {api_version => $api_version}) if $log->is_debug();
+
+	# no requested version, return the product as is
+	if (not defined $api_version) {
+		return $product_ref;
+	}
+
 	# API 3.1 - 2024/12/18 - ecoscore* fields have been renamed to environmental_score*
 	if ($api_version < 3.1) {
 		foreach my $subfield (qw/data grade score tags/) {
@@ -899,6 +906,9 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 
 		# TODO: it would be great to return errors when the caller requests fields that are invalid (e.g. typos)
 	}
+
+	# Before returning the product, we need to make sure that the fields are compatible with the requested API version
+	api_compatibility_for_product ($customized_product_ref, $request_ref->{api_version});
 
 	return $customized_product_ref;
 }
