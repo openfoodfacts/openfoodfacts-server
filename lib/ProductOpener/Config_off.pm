@@ -712,7 +712,7 @@ $options{replace_existing_values_when_importing_those_tags_fields} = {
 );
 
 # tag types (=facets) that should be indexed by web crawlers, all other tag types are not indexable
-@index_tag_types = qw(brands categories labels additives nova_groups environmental_score nutrition_grades products);
+@index_tag_types = qw(brands categories labels additives nova_groups ecoscore nutrition_grades products);
 
 # fields in product edit form, above ingredients and nutrition facts
 
@@ -794,7 +794,7 @@ $options{replace_existing_values_when_importing_those_tags_fields} = {
 @drilldown_fields = qw(
 	nutrition_grades
 	nova_groups
-	environmental_score
+	ecoscore
 	brands
 	categories
 	labels
@@ -965,7 +965,10 @@ $options{attribute_groups} = [
 	],
 	["ingredients_analysis", ["vegan", "vegetarian", "palm_oil_free",]],
 	["labels", ["labels_organic", "labels_fair_trade"]],
-	["environment", ["environmental_score", "forest_footprint",]],
+	# Note: before 2025, the Environmental-Score was called the Eco-Score,
+	# as the id of the attribute is stored inside clients, we keep the
+	# id "ecoscore" for the attribute.
+	["environment", ["ecoscore", "forest_footprint",]],
 ];
 
 # By default attributes have 4 possible values: not_important, important, very_important, mandatory
@@ -995,7 +998,7 @@ $options{attribute_values} = {
 $options{attribute_default_preferences} = {
 	"nutriscore" => "very_important",
 	"nova" => "important",
-	"environmental_score" => "important",
+	"ecoscore" => "important",
 };
 
 use JSON::MaybeXS;

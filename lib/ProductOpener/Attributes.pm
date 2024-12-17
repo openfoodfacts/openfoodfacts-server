@@ -281,7 +281,7 @@ sub initialize_attribute ($attribute_id, $target_lc) {
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/nutriscore-a.svg";
 		$attribute_ref->{panel_id} = "nutriscore";
 	}
-	elsif ($attribute_id eq "environmental_score") {
+	elsif ($attribute_id eq "ecoscore") {
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/ecoscore-a.svg";
 		$attribute_ref->{panel_id} = "environmental_score";
 	}
@@ -616,6 +616,10 @@ sub compute_attribute_nutriscore ($product_ref, $target_lc, $target_cc) {
 
 Computes an environmental impact attribute based on the Environmental-Score.
 
+Note: before 2025, the Environmental-Score was called the Eco-Score,
+as the id of the attribute is stored inside clients, we keep the
+id "ecoscore" for the attribute.
+
 =head3 Arguments
 
 =head4 product reference $product_ref
@@ -648,7 +652,10 @@ sub compute_attribute_environmental_score ($product_ref, $target_lc, $target_cc)
 		{code => $product_ref->{code}, environmental_score_data => $product_ref->{environmental_score_data}})
 		if $log->is_debug();
 
-	my $attribute_id = "environmental_score";
+	# Note: before 2025, the Environmental-Score was called the Eco-Score,
+	# as the id of the attribute is stored inside clients, we keep the
+	# id "ecoscore" for the attribute.
+	my $attribute_id = "ecoscore";
 
 	my $attribute_ref = initialize_attribute($attribute_id, $target_lc);
 

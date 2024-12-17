@@ -1008,6 +1008,13 @@ sub compute_environmental_score ($product_ref) {
 		}
 	}
 
+	# Before 2025, the Environmental Score was called the Eco-Score.
+	# to ease the transition, we copy environmental_score_tags to eco_score_tags
+	# so that queries to MongoDB and off-query do not have to change
+	if (defined $product_ref->{environmental_score_tags}) {
+		$product_ref->{ecoscore_tags} = $product_ref->{environmental_score_tags};
+	}
+
 	return;
 }
 
