@@ -11,7 +11,15 @@ use Log::Any::Adapter 'TAP';
 
 use ProductOpener::API qw/:all/;
 
-is(ProductOpener::API::api_compatibility_for_product ({ environmental_score_grade => "a"}, "3"), { ecoscore_grade => "a"}, "ecoscore_grade 3");
-is(ProductOpener::API::api_compatibility_for_product ({ environmental_score_grade => "b"}, "3.1"), { environmental_score_grade => "b"}, "ecoscore_grade 3.1");
+is(
+	ProductOpener::API::api_compatibility_for_product({environmental_score_grade => "a"}, "3"),
+	{ecoscore_grade => "a"},
+	"ecoscore_grade 3"
+);
+is(
+	ProductOpener::API::api_compatibility_for_product({environmental_score_grade => "b"}, "3.1"),
+	{environmental_score_grade => "b"},
+	"ecoscore_grade 3.1"
+);
 
 done_testing();
