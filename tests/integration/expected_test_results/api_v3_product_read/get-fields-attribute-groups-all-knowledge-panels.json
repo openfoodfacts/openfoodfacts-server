@@ -308,13 +308,13 @@
                   "description" : "",
                   "description_short" : "Moderate environmental impact",
                   "grade" : "c",
-                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/ecoscore-c.svg",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/green-score-c.svg",
                   "id" : "ecoscore",
                   "match" : 47,
-                  "name" : "Eco-Score",
+                  "name" : "Green-Score",
                   "panel_id" : "environmental_score",
                   "status" : "known",
-                  "title" : "Eco-Score C"
+                  "title" : "Green-Score C"
                },
                {
                   "description" : "",
@@ -631,13 +631,13 @@
                   "description" : "",
                   "description_short" : "Moderate environmental impact",
                   "grade" : "c",
-                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/ecoscore-c.svg",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/green-score-c.svg",
                   "id" : "ecoscore",
                   "match" : 47,
-                  "name" : "Eco-Score",
+                  "name" : "Green-Score",
                   "panel_id" : "environmental_score",
                   "status" : "known",
-                  "title" : "Eco-Score C"
+                  "title" : "Green-Score C"
                },
                {
                   "description" : "",
@@ -1694,13 +1694,13 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "The <a href=\"http://world.openfoodfacts.localhost/environmental_score\">Eco-Score</a> is an experimental score that summarizes the environmental impacts of food products."
+                     "html" : "The <a href=\"http://world.openfoodfacts.localhost/environmental_score\">Green-Score</a> is an experimental score that summarizes the environmental impacts of food products."
                   }
                },
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                    \n                        The Eco-Score was initially developped for France and it is being extended to other European countries. The Eco-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country.\n                                    \n                ",
+                     "html" : "\n                    \n                        The Green-Score was initially developped for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country.\n                                    \n                ",
                      "type" : "note"
                   }
                },
@@ -1730,22 +1730,22 @@
                      "panel_ids" : [
                         "environmental_score_total"
                      ],
-                     "title" : "Eco-Score for this product"
+                     "title" : "Green-Score for this product"
                   }
                },
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n<p>&rarr; <a href=\"http://world.openfoodfacts.localhost/eco-score-the-environmental-impact-of-food-products\">Learn more about the Eco-Score</a></p>\n"
+                     "html" : "\n<p>&rarr; <a href=\"http://world.openfoodfacts.localhost/eco-score-the-environmental-impact-of-food-products\">Learn more about the Green-Score</a></p>\n"
                   }
                }
             ],
             "level" : "info",
             "title_element" : {
                "grade" : "c",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/ecoscore-c.svg",
-               "name" : "Eco-Score",
-               "title" : "Eco-Score C - Moderate environmental impact",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/green-score-c.svg",
+               "name" : "Green-Score",
+               "title" : "Green-Score C - Moderate environmental impact",
                "type" : "grade"
             },
             "topics" : [
@@ -2060,7 +2060,7 @@
             "level" : "info",
             "title_element" : {
                "grade" : "c",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/ecoscore-c.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/green-score-c.svg",
                "subtitle" : "Product: Some product - 100 g",
                "title" : "Impact for this product: C (Score: 47/100)",
                "type" : "grade"
