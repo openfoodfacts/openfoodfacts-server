@@ -1,0 +1,22 @@
+{
+    "level": "info",
+    "topics": [
+        "environment"
+    ],
+    "title_element": {
+        "icon_url": "[% static_subdomain %]/images/attributes/dist/green-score-not-applicable.svg",
+        "title": "[% edq(lang('attribute_environmental_score_not_applicable_title')) %]",
+        "subtitle": "[% panel.subtitle %]",
+        "type": "grade",
+        "grade": "unknown",
+    },
+    "elements": [
+        {
+            "element_type": "text",
+            "text_element": {
+                "type": "summary",
+                "html": "[% edq(lang('environmental_score_not_applicable_coming_soon')) %]"
+            }
+        },       
+    ]
+}
