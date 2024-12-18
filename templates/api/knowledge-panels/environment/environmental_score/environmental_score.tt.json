@@ -5,7 +5,7 @@
     ],
     "title_element": {
         "name": "[% panel.name %]",
-        "icon_url": "[% static_subdomain %]/images/attributes/dist/ecoscore-[% panel.grade %].svg",
+        "icon_url": "[% static_subdomain %]/images/attributes/dist/green-score-[% panel.grade %].svg",
         "title": "[% panel.title %]",
         "type": "grade",
         "grade": "[% panel.grade_underscore %]"

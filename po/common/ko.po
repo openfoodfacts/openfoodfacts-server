@@ -4813,20 +4813,20 @@ msgid "Environment"
 msgstr "환경"
 
 msgctxt "attribute_environmental_score_name"
-msgid "Eco-Score"
+msgid "Green-Score"
 msgstr "친환경 점수"
 
 msgctxt "attribute_environmental_score_setting_name"
-msgid "Low environmental impact (Eco-Score)"
-msgstr "낮은 환경 영향(Eco-Score)"
+msgid "Low environmental impact (Green-Score)"
+msgstr "낮은 환경 영향(Green-Score)"
 
 msgctxt "attribute_environmental_score_setting_note"
-msgid "The Eco-Score is an environmental score (environmental_score) from A to E which makes it easy to compare the impact of food products on the environment."
+msgid "The Green-Score is an environmental score (environmental_score) from A to E which makes it easy to compare the impact of food products on the environment."
 msgstr ""
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
-msgid "Eco-Score %s"
+msgid "Green-Score %s"
 msgstr "환경 점수 %s"
 
 msgctxt "attribute_environmental_score_a_plus_description_short"
@@ -5056,11 +5056,11 @@ msgid "Missing nutrition facts"
 msgstr "누락된 영양 성분"
 
 msgctxt "environmental_score_p"
-msgid "Eco-Score"
+msgid "Green-Score"
 msgstr "친환경 점수"
 
 msgctxt "environmental_score_s"
-msgid "Eco-Score"
+msgid "Green-Score"
 msgstr "친환경 점수"
 
 msgctxt "packaging_parts"
@@ -5304,8 +5304,8 @@ msgid "Products with the best Nutri-Score"
 msgstr "최고의 Nutri-Score 제품"
 
 msgctxt "sort_by_environmental_score_score"
-msgid "Products with the best Eco-Score"
-msgstr "최고의 Eco-Score 제품"
+msgid "Products with the best Green-Score"
+msgstr "최고의 Green-Score 제품"
 
 msgctxt "sort_by_created_t"
 msgid "Recently added products"
@@ -5358,8 +5358,8 @@ msgid "User is being deleted. This may take a few minutes."
 msgstr ""
 
 msgctxt "attribute_environmental_score_not_applicable_title"
-msgid "Eco-Score not yet applicable"
-msgstr "Eco-Score는 아직 적용되지 않음"
+msgid "Green-Score not yet applicable"
+msgstr "Green-Score는 아직 적용되지 않음"
 
 msgctxt "attribute_environmental_score_not_applicable_description_short"
 msgid "Not yet applicable for the category"
@@ -5371,11 +5371,11 @@ msgid "Not yet applicable for the category: {category}"
 msgstr "카테고리에 아직 적용되지 않음: {category}"
 
 msgctxt "environmental_score_not_applicable_coming_soon"
-msgid "The Eco-Score is not yet applicable for this category, but we are working on adding support for it."
-msgstr "Eco-Score는 아직 이 범주에 적용할 수 없지만 이에 대한 지원을 추가하기 위해 노력하고 있습니다."
+msgid "The Green-Score is not yet applicable for this category, but we are working on adding support for it."
+msgstr "Green-Score는 아직 이 범주에 적용할 수 없지만 이에 대한 지원을 추가하기 위해 노력하고 있습니다."
 
 msgctxt "attribute_environmental_score_unknown_title"
-msgid "Eco-Score not computed"
+msgid "Green-Score not computed"
 msgstr "에코 점수가 계산되지 않음"
 
 msgctxt "attribute_environmental_score_unknown_description_short"
@@ -5383,8 +5383,8 @@ msgid "Unknown environmental impact"
 msgstr "알 수 없는 환경적 영향"
 
 msgctxt "environmental_score_unknown_call_to_help"
-msgid "We could not compute the Eco-Score of this product as it is missing some data, could you help complete it?"
-msgstr "일부 데이터가 누락되어 이 상품의 Eco-Score를 계산할 수 없습니다. 완성하는 데 도움을 주시겠습니까?"
+msgid "We could not compute the Green-Score of this product as it is missing some data, could you help complete it?"
+msgstr "일부 데이터가 누락되어 이 상품의 Green-Score를 계산할 수 없습니다. 완성하는 데 도움을 주시겠습니까?"
 
 msgctxt "org_list_of_gs1_gln_description"
 msgid "GS1 data is automatically associated with an OFF organization identifier that corresponds to the GS1 partyName field. To change the OFF organization identifier, you can directly assign 1 or more GS1 GLN identifiers."
@@ -5513,8 +5513,8 @@ msgid "The forest footprint is calculated by taking into account the ingredients
 msgstr "산림발자국은 생산에 대두가 필요한 성분을 고려하여 계산되며, 대두 재배는 삼림 벌채와 관련이 있습니다."
 
 msgctxt "environmental_score_agribalyse_match_warning"
-msgid "The Eco-Score can only be calculated if the product has a sufficiently precise category."
-msgstr "Eco-Score는 제품에 충분히 정확한 범주가 있는 경우에만 계산할 수 있습니다."
+msgid "The Green-Score can only be calculated if the product has a sufficiently precise category."
+msgstr "Green-Score는 제품에 충분히 정확한 범주가 있는 경우에만 계산할 수 있습니다."
 
 msgctxt "environmental_score_add_more_precise_category"
 msgid "You can modify the product page to add a more precise category."
@@ -5525,8 +5525,8 @@ msgid "If you are the manufacturer of this product, you can send us the informat
 msgstr "귀하가 이 제품의 제조업체인 경우 당사의 <a href=\"https://world.pro.openfoodfacts.org\">생산자를 위한 무료 플랫폼</a>을 통해 정보를 보낼 수 있습니다."
 
 msgctxt "environmental_score_warning_missing_information"
-msgid "Warning: some information necessary to calculate the Eco-Score with precision is not provided (see the details of the calculation below)."
-msgstr "경고: Eco-Score를 정확하게 계산하는 데 필요한 일부 정보가 제공되지 않습니다(아래 계산 세부 정보 참조)."
+msgid "Warning: some information necessary to calculate the Green-Score with precision is not provided (see the details of the calculation below)."
+msgstr "경고: Green-Score를 정확하게 계산하는 데 필요한 일부 정보가 제공되지 않습니다(아래 계산 세부 정보 참조)."
 
 msgctxt "environmental_score_add_missing_information"
 msgid "You can edit the product to add the missing information."
@@ -5659,8 +5659,8 @@ msgid "The information on the ingredients of this product has not been given."
 msgstr "이 제품의 성분에 대한 정보는 제공되지 않았습니다."
 
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
-msgid "For a more precise calculation of the Eco-Score, you can edit the product page and add them."
-msgstr "Eco-Score의 보다 정확한 계산을 위해 제품 페이지를 편집하고 추가할 수 있습니다."
+msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
+msgstr "Green-Score의 보다 정확한 계산을 위해 제품 페이지를 편집하고 추가할 수 있습니다."
 
 msgctxt "environmental_score_packaging_ratio"
 msgid "ratio"
@@ -5683,8 +5683,8 @@ msgid "The information about the packaging of this product is not sufficiently p
 msgstr "이 제품의 포장에 대한 정보가 충분히 정확하지 않습니다(포장의 모든 구성 요소의 정확한 모양 및 재료)."
 
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
-msgid "For a more precise calculation of the Eco-Score, you can modify the product page and add them."
-msgstr "Eco-Score의 보다 정확한 계산을 위해 제품 페이지를 수정하여 추가할 수 있습니다."
+msgid "For a more precise calculation of the Green-Score, you can modify the product page and add them."
+msgstr "Green-Score의 보다 정확한 계산을 위해 제품 페이지를 수정하여 추가할 수 있습니다."
 
 msgctxt "environmental_score_final_score"
 msgid "Final score"
@@ -5703,20 +5703,20 @@ msgctxt "environmental_score_platform_prompt_environmental_score_modal"
 msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
 msgstr "귀하가 이 제품의 제조업체인 경우 당사의 <a href=\"https://world.pro.openfoodfacts.org\">생산자를 위한 무료 플랫폼</a>을 통해 정보를 보낼 수 있습니다."
 
-# do not translate Eco-Score and the link
+# do not translate Green-Score and the link
 msgctxt "environmental_score_description"
-msgid "The <a href=\"/environmental_score\">Eco-Score</a> is an experimental score that summarizes the environmental impacts of food products."
-msgstr "<a href=\"/environmental_score\">Eco-Score</a> 은 식품의 환경 영향을 요약한 실험 점수입니다."
+msgid "The <a href=\"/environmental_score\">Green-Score</a> is an experimental score that summarizes the environmental impacts of food products."
+msgstr "<a href=\"/environmental_score\">Green-Score</a> 은 식품의 환경 영향을 요약한 실험 점수입니다."
 
-# do not translate Eco-Score
+# do not translate Green-Score
 msgctxt "environmental_score_warning_fr"
-msgid "The Eco-Score formula is subject to change as it is regularly improved to make it more precise."
-msgstr "Eco-Score 공식은 더 정확하게 만들기 위해 정기적으로 개선되므로 변경될 수 있습니다."
+msgid "The Green-Score formula is subject to change as it is regularly improved to make it more precise."
+msgstr "Green-Score 공식은 더 정확하게 만들기 위해 정기적으로 개선되므로 변경될 수 있습니다."
 
-# do not translate Eco-Score
+# do not translate Green-Score
 msgctxt "environmental_score_warning_international"
-msgid "The Eco-Score was initially developped for France and it is being extended to other European countries. The Eco-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
-msgstr "Eco-Score는 처음에 프랑스를 위해 개발되었으며 다른 유럽 국가로 확장되고 있습니다. Eco-Score 공식은 더 정확하고 각 국가에 더 적합하도록 정기적으로 개선되므로 변경될 수 있습니다."
+msgid "The Green-Score was initially developped for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
+msgstr "Green-Score는 처음에 프랑스를 위해 개발되었으며 다른 유럽 국가로 확장되고 있습니다. Green-Score 공식은 더 정확하고 각 국가에 더 적합하도록 정기적으로 개선되므로 변경될 수 있습니다."
 
 msgctxt "environmental_score_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
@@ -5727,8 +5727,8 @@ msgid "The full impact of transportation to your country is currently unknown."
 msgstr ""
 
 msgctxt "app_banner_text"
-msgid "Scan barcodes to get the Nutri-Score, the Eco-Score and more!"
-msgstr "Nutri-Score, Eco-Score 등을 얻으려면 바코드를 스캔하십시오!"
+msgid "Scan barcodes to get the Nutri-Score, the Green-Score and more!"
+msgstr "Nutri-Score, Green-Score 등을 얻으려면 바코드를 스캔하십시오!"
 
 msgctxt "org_gs1_product_name_is_abbreviated"
 msgid "GS1 product names for this manufacturer are abbreviated."
@@ -5977,7 +5977,7 @@ msgid "Bonuses and maluses"
 msgstr "보너스 및 과오"
 
 msgctxt "environmental_score_for_this_product"
-msgid "Eco-Score for this product"
+msgid "Green-Score for this product"
 msgstr "이 제품의 에코 점수"
 
 msgctxt "average_impact_of_the_category"
@@ -6236,8 +6236,8 @@ msgid "Learn more about the Nutri-Score"
 msgstr "Nutri-Score에 대해 더 알아보기"
 
 msgctxt "environmental_score_learn_more"
-msgid "Learn more about the Eco-Score"
-msgstr "Eco-Score에 대해 자세히 알아보기"
+msgid "Learn more about the Green-Score"
+msgstr "Green-Score에 대해 자세히 알아보기"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_very_good_match"
@@ -6274,8 +6274,8 @@ msgid "Use default preferences"
 msgstr "기본 환경 설정 사용"
 
 msgctxt "reset_preferences_details"
-msgid "Nutri-Score, Eco-Score and food processing level (NOVA)"
-msgstr "Nutri-Score, Eco-Score 및 식품 가공 수준(NOVA)"
+msgid "Nutri-Score, Green-Score and food processing level (NOVA)"
+msgstr "Nutri-Score, Green-Score 및 식품 가공 수준(NOVA)"
 
 msgctxt "actions_add_ingredients"
 msgid "Could you add the ingredients list?"
@@ -6286,8 +6286,8 @@ msgid "Could you add the information needed to compute the Nutri-Score?"
 msgstr "Nutri-Score를 계산하는 데 필요한 정보를 추가할 수 있습니까?"
 
 msgctxt "actions_to_compute_environmental_score"
-msgid "Could you add a precise product category so that we can compute the Eco-Score?"
-msgstr "Eco-Score를 계산할 수 있도록 정확한 상품 카테고리를 추가해주실 수 있나요?"
+msgid "Could you add a precise product category so that we can compute the Green-Score?"
+msgstr "Green-Score를 계산할 수 있도록 정확한 상품 카테고리를 추가해주실 수 있나요?"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"

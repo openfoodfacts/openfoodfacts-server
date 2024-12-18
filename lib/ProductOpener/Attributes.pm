@@ -282,7 +282,7 @@ sub initialize_attribute ($attribute_id, $target_lc) {
 		$attribute_ref->{panel_id} = "nutriscore";
 	}
 	elsif ($attribute_id eq "ecoscore") {
-		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/ecoscore-a.svg";
+		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/green-score-a.svg";
 		$attribute_ref->{panel_id} = "environmental_score";
 	}
 	elsif ($attribute_id eq "forest_footprint") {
@@ -706,14 +706,14 @@ sub compute_attribute_environmental_score ($product_ref, $target_lc, $target_cc)
 				= lang_in_other_lc($target_lc,
 				"attribute_environmental_score_" . $grade_underscore . "_description_short");
 		}
-		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/ecoscore-$grade.svg";
+		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/green-score-$grade.svg";
 	}
 	# Environmental-Score is not-applicable
 	elsif ( (defined $product_ref->{environmental_score_grade})
 		and ($product_ref->{environmental_score_grade} eq "not-applicable"))
 	{
 		$attribute_ref->{status} = "unknown";
-		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/ecoscore-not-applicable.svg";
+		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/green-score-not-applicable.svg";
 		$attribute_ref->{match} = 0;
 		if ($target_lc ne "data") {
 			$attribute_ref->{title}
@@ -738,7 +738,7 @@ sub compute_attribute_environmental_score ($product_ref, $target_lc, $target_cc)
 	# Environmental-Score is unknown
 	else {
 		$attribute_ref->{status} = "unknown";
-		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/ecoscore-unknown.svg";
+		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/green-score-unknown.svg";
 		$attribute_ref->{match} = 0;
 		if ($target_lc ne "data") {
 			$attribute_ref->{title} = lang_in_other_lc($target_lc, "attribute_environmental_score_unknown_title");
