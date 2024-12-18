@@ -555,6 +555,13 @@ sub create_environmental_score_panel ($product_ref, $target_lc, $target_cc, $opt
 
 	my $cc = $request_ref->{cc};
 
+	# 2024/12: If we do not have yet environmental_score_data, we use ecoscore_data
+	# (or possibly for older revisions)
+	# TBD: remove this code once all products have been updated (but we won't show the score for old revisions)
+	if ((not defined $product_ref->{environmental_score_data}) and (defined $product_ref->{ecoscore_data})) {
+		$product_ref->{environmental_score_data} = $product_ref->{ecoscore_data};
+	}
+
 	if (    (defined $product_ref->{environmental_score_data})
 		and ($product_ref->{environmental_score_data}{status} eq "known"))
 	{

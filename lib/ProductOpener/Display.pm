@@ -5399,6 +5399,14 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 			"environmental_score_data.environmental_score_not_applicable_for_category" => 1,
 			"environmental_score_grade" => 1,
 			"environmental_score_score" => 1,
+			# 2024-12: get also the ecoscore_data for products that have not been reprocessed yet
+			# TODO: remove all products have the environmental_data score populated
+			"ecoscore_data.status" => 1,
+			("ecoscore_data.scores." . $request_ref->{cc}) => 1,
+			("ecoscore_data.grades." . $request_ref->{cc}) => 1,
+			"ecoscore_data.environmental_score_not_applicable_for_category" => 1,
+			"ecoscore_grade" => 1,
+			"ecoscore_score" => 1,
 			"forest_footprint_data.grade" => 1,
 			"forest_footprint_data.footprint_per_kg" => 1,
 			"ingredients_analysis_tags" => 1,
