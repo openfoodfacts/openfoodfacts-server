@@ -1,0 +1,58 @@
+name: Build and Upload SDKs
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  build-and-upload-sdks:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 11
+        uses: actions/setup-java@v3
+        with:
+          java-version: '11'
+
+      - name: Install OpenAPI Generator
+        run: |
+          wget https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/5.3.0/openapi-generator-cli-5.3.0.jar -O openapi-generator-cli.jar
+
+      - name: Generate SDKs
+        run: |
+          java -jar openapi-generator-cli.jar generate -i docs/api/ref/api-v3.yml -g python -o sdks/python
+          java -jar openapi-generator-cli.jar generate -i docs/api/ref/api-v3.yml -g java -o sdks/java
+          java -jar openapi-generator-cli.jar generate -i docs/api/ref/api-v3.yml -g javascript -o sdks/javascript
+
+      - name: Create release assets
+        run: |
+          tar -czvf python-sdk.tar.gz -C sdks/python .
+          tar -czvf java-sdk.tar.gz -C sdks/java .
+          tar -czvf javascript-sdk.tar.gz -C sdks/javascript .
+
+      - name: Upload Python SDK
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: ./python-sdk.tar.gz
+          asset_name: python-sdk.tar.gz
+          asset_content_type: application/gzip
+
+      - name: Upload Java SDK
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: ./java-sdk.tar.gz
+          asset_name: java-sdk.tar.gz
+          asset_content_type: application/gzip
+
+      - name: Upload JavaScript SDK
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: ./javascript-sdk.tar.gz
+          asset_name: javascript-sdk.tar.gz
+          asset_content_type: application/gzip
