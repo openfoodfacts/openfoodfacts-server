@@ -1080,7 +1080,7 @@ $options{import_export_fields_importance} = {
 );
 
 # Name of the Redis stream to which product updates are published
-$options{redis_stream_name} = "product_updates_off";
+$options{redis_stream_name} = "product_updates";
 
 # used to rename texts and to redirect to the new name
 $options{redirect_texts} = {
