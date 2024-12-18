@@ -370,7 +370,7 @@ sub add_user_to_org ($org_id_or_ref, $user_id, $groups_ref) {
 
 		# the first admin is main contact
 		if ($group eq "admins"
-			and (not exists $org_ref->{main_contact} or $org_ref->{main_contact} eq ''))
+			and (not defined $org_ref->{main_contact} or $org_ref->{main_contact} eq ''))
 		{
 			$org_ref->{main_contact} = $user_id;
 		}
