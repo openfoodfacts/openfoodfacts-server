@@ -276,8 +276,10 @@ $expected_product_ref = {
 	'nutrition_data_prepared' => 'on',
 	'nutrition_data_prepared_per' => 'serving',
 	'product_quantity' => 100,
+	'product_quantity_unit' => 'g',
 	'quantity' => '100 g',
 	'serving_quantity' => 25,
+	'serving_quantity_unit' => 'g',
 	'serving_size' => '25 g'
 };
 
