@@ -106,7 +106,7 @@ use ProductOpener::Lang qw/$lc %Lang %Langs lang/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Images qw/extract_text_from_image/;
 use ProductOpener::Nutriscore qw/compute_nutriscore_score_and_grade/;
-use ProductOpener::Numbers qw/convert_string_to_number round_to_max_decimal_places/;
+use ProductOpener::Numbers qw/:all/;
 use ProductOpener::Ingredients
 	qw/estimate_nutriscore_2021_milk_percent_from_ingredients estimate_nutriscore_2023_red_meat_percent_from_ingredients/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
@@ -348,6 +348,8 @@ sub assign_nid_modifier_value_and_unit ($product_ref, $nid, $modifier, $value, $
 		}
 
 		$value = convert_string_to_number($value);
+
+		$value = remove_insignificant_digits($value);
 
 		$product_ref->{nutriments}{$nid . "_unit"} = $unit;
 		$product_ref->{nutriments}{$nid . "_value"} = $value;
