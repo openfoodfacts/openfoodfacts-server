@@ -4808,41 +4808,41 @@ msgstr "சுற்றுச்சூழல்"
 
 msgctxt "attribute_environmental_score_name"
 msgid "Green-Score"
-msgstr ""
+msgstr "பச்சை-ஸ்கோர்"
 
 msgctxt "attribute_environmental_score_setting_name"
 msgid "Low environmental impact (Green-Score)"
-msgstr ""
+msgstr "குறைந்த சுற்றுச்சூழல் பாதிப்பு (பச்சை ஸ்கோர்)"
 
 msgctxt "attribute_environmental_score_setting_note"
 msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr ""
+msgstr "பசுமை ஸ்கோர் என்பது A முதல் E வரையிலான சுற்றுச்சூழல் ஸ்கோர் ஆகும், இது சுற்றுச்சூழலில் உணவுப் பொருட்களின் தாக்கத்தை ஒப்பிட்டுப் பார்ப்பதை எளிதாக்குகிறது."
 
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
 msgid "Green-Score"
-msgstr ""
+msgstr "பச்சை-ஸ்கோர்"
 
 msgctxt "attribute_ecoscore_setting_name"
 msgid "Low environmental impact (Green-Score)"
-msgstr ""
+msgstr "குறைந்த சுற்றுச்சூழல் பாதிப்பு (பச்சை ஸ்கோர்)"
 
 msgctxt "attribute_ecoscore_setting_note"
 msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr ""
+msgstr "பசுமை ஸ்கோர் என்பது A முதல் E வரையிலான சுற்றுச்சூழல் ஸ்கோர் ஆகும், இது சுற்றுச்சூழலில் உணவுப் பொருட்களின் தாக்கத்தை ஒப்பிட்டுப் பார்ப்பதை எளிதாக்குகிறது."
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
 msgid "Green-Score %s"
-msgstr ""
+msgstr "பச்சை-ஸ்கோர் %s"
 
 msgctxt "attribute_environmental_score_a_plus_description_short"
 msgid "Very low environmental impact"
-msgstr ""
+msgstr "மிகக் குறைந்த சுற்றுச்சூழல் பாதிப்பு"
 
 msgctxt "attribute_environmental_score_a_description_short"
 msgid "Very low environmental impact"
-msgstr ""
+msgstr "மிகக் குறைந்த சுற்றுச்சூழல் பாதிப்பு"
 
 msgctxt "attribute_environmental_score_b_description_short"
 msgid "Low environmental impact"
@@ -4850,19 +4850,19 @@ msgstr ""
 
 msgctxt "attribute_environmental_score_c_description_short"
 msgid "Moderate environmental impact"
-msgstr ""
+msgstr "மிகக் குறைந்த சுற்றுச்சூழல் பாதிப்பு"
 
 msgctxt "attribute_environmental_score_d_description_short"
 msgid "High environmental impact"
-msgstr ""
+msgstr "மிகக் குறைந்த சுற்றுச்சூழல் பாதிப்பு"
 
 msgctxt "attribute_environmental_score_e_description_short"
 msgid "Very high environmental impact"
-msgstr ""
+msgstr "மிகக் குறைந்த சுற்றுச்சூழல் பாதிப்பு"
 
 msgctxt "attribute_environmental_score_f_description_short"
 msgid "Very high environmental impact"
-msgstr ""
+msgstr "மிகக் குறைந்த சுற்றுச்சூழல் பாதிப்பு"
 
 # keep the %s, it will be replaced by an allergen
 msgctxt "contains_s"
@@ -5016,22 +5016,22 @@ msgstr ""
 # Numerical score for the Green-Score (do not translate Green-Score)
 msgctxt "environmental_score_score"
 msgid "Green-Score score"
-msgstr ""
+msgstr "பச்சை-ஸ்கோர் ஸ்கோர்"
 
 # Letter grade from A to E for the Green-Score (do not translate Green-Score)
 msgctxt "environmental_score_grade"
 msgid "Green-Score grade"
-msgstr ""
+msgstr "பச்சை-ஸ்கோர் தரம் "
 
 # do not translate Green-Score
 msgctxt "environmental_score_calculation_details"
 msgid "Details of the calculation of the Green-Score"
-msgstr ""
+msgstr "கிரீன் ஸ்கோரின் கணக்கீட்டின் விவரங்கள்"
 
 # do not translate Green-Score
 msgctxt "environmental_score_information"
 msgid "Information about the Green-Score"
-msgstr ""
+msgstr "கிரீன்-ஸ்கோர் பற்றிய தகவல்"
 
 msgctxt "preferences_currently_selected_preferences"
 msgid "Currently selected preferences"
@@ -5064,19 +5064,19 @@ msgstr ""
 
 msgctxt "ecoscore_p"
 msgid "Green-Score"
-msgstr ""
+msgstr "பச்சை-ஸ்கோர்"
 
 msgctxt "ecoscore_s"
 msgid "Green-Score"
-msgstr ""
+msgstr "பச்சை-ஸ்கோர்"
 
 msgctxt "environmental_score_p"
 msgid "Green-Score"
-msgstr ""
+msgstr "பச்சை-ஸ்கோர்"
 
 msgctxt "environmental_score_s"
 msgid "Green-Score"
-msgstr ""
+msgstr "பச்சை-ஸ்கோர்"
 
 msgctxt "misc_p"
 msgid "Miscellaneous"
@@ -5247,7 +5247,7 @@ msgstr ""
 # It = the platform
 msgctxt "product_edits_by_producers_indicators"
 msgid "It computes indicators such as the Nutri-Score, NOVA, and the Green-Score, and automatically identifies suggestions to improve them (for instance all products that would get a better Nutri-Score grade with a slight composition change)."
-msgstr ""
+msgstr "இது நியூட்ரி-ஸ்கோர், நோவா மற்றும் கிரீன்-ஸ்கோர் போன்ற குறிகாட்டிகளைக் கணக்கிடுகிறது, மேலும் அவற்றை மேம்படுத்துவதற்கான பரிந்துரைகளை தானாகவே அடையாளம் காட்டுகிறது (உதாரணமாக, சிறிய கலவை மாற்றத்துடன் சிறந்த நியூட்ரி-ஸ்கோர் தரத்தைப் பெறும் அனைத்து தயாரிப்புகளும்)."
 
 msgctxt "attribute_forest_footprint_name"
 msgid "Forest footprint"
@@ -5328,7 +5328,7 @@ msgstr ""
 
 msgctxt "sort_by_environmental_score_score"
 msgid "Products with the best Green-Score"
-msgstr ""
+msgstr "சிறந்த பசுமை ஸ்கோர் கொண்ட தயாரிப்புகள்"
 
 msgctxt "sort_by_created_t"
 msgid "Recently added products"
@@ -5382,32 +5382,32 @@ msgstr "பயனர் நீக்கப்படுகிறார். இத
 
 msgctxt "attribute_environmental_score_not_applicable_title"
 msgid "Green-Score not yet applicable"
-msgstr ""
+msgstr "பச்சை-ஸ்கோர் இன்னும் பொருந்தவில்லை"
 
 msgctxt "attribute_environmental_score_not_applicable_description_short"
 msgid "Not yet applicable for the category"
-msgstr ""
+msgstr "வகைக்கு இன்னும் பொருந்தவில்லை"
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_environmental_score_not_applicable_description"
 msgid "Not yet applicable for the category: {category}"
-msgstr ""
+msgstr "வகைக்கு இன்னும் பொருந்தவில்லை; (வகை)"
 
 msgctxt "environmental_score_not_applicable_coming_soon"
 msgid "The Green-Score is not yet applicable for this category, but we are working on adding support for it."
-msgstr ""
+msgstr "இந்த வகைக்கு கிரீன்-ஸ்கோர் இன்னும் பொருந்தவில்லை, ஆனால் அதற்கான ஆதரவைச் சேர்க்கும் பணியில் ஈடுபட்டுள்ளோம்."
 
 msgctxt "attribute_environmental_score_unknown_title"
 msgid "Green-Score not computed"
-msgstr ""
+msgstr "பச்சை-ஸ்கோர் கணக்கிடப்படவில்லை"
 
 msgctxt "attribute_environmental_score_unknown_description_short"
 msgid "Unknown environmental impact"
-msgstr ""
+msgstr "மிகக் குறைந்த சுற்றுச்சூழல் பாதிப்பு"
 
 msgctxt "environmental_score_unknown_call_to_help"
 msgid "We could not compute the Green-Score of this product as it is missing some data, could you help complete it?"
-msgstr ""
+msgstr "இந்தத் தயாரிப்பில் சில தரவு இல்லாததால், அதன் கிரீன் ஸ்கோரை எங்களால் கணக்கிட முடியவில்லை, அதை முடிக்க உதவ முடியுமா?"
 
 msgctxt "org_list_of_gs1_gln_description"
 msgid "GS1 data is automatically associated with an OFF organization identifier that corresponds to the GS1 partyName field. To change the OFF organization identifier, you can directly assign 1 or more GS1 GLN identifiers."
@@ -5537,19 +5537,19 @@ msgstr ""
 
 msgctxt "environmental_score_agribalyse_match_warning"
 msgid "The Green-Score can only be calculated if the product has a sufficiently precise category."
-msgstr ""
+msgstr "தயாரிப்பு போதுமான துல்லியமான வகையைக் கொண்டிருந்தால் மட்டுமே கிரீன் ஸ்கோரைக் கணக்கிட முடியும்."
 
 msgctxt "environmental_score_add_more_precise_category"
 msgid "You can modify the product page to add a more precise category."
-msgstr ""
+msgstr "மேலும் துல்லியமான வகையைச் சேர்க்க, நீங்கள் தயாரிப்புப் பக்கத்தை மாற்றலாம்."
 
 msgctxt "environmental_score_platform_promo"
 msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
-msgstr ""
+msgstr "நீங்கள் இந்தத் தயாரிப்பின் உற்பத்தியாளராக இருந்தால், உற்பத்தியாளர்களுக்கான எங்கள் <a href=\"https://world.pro.openfoodfacts.org\">இலவச தளமான</a>மூலம் தகவலை எங்களுக்கு அனுப்பலாம்."
 
 msgctxt "environmental_score_warning_missing_information"
 msgid "Warning: some information necessary to calculate the Green-Score with precision is not provided (see the details of the calculation below)."
-msgstr ""
+msgstr "எச்சரிக்கை: கிரீன் ஸ்கோரைத் துல்லியமாகக் கணக்கிடத் தேவையான சில தகவல்கள் வழங்கப்படவில்லை (கீழே உள்ள கணக்கீட்டின் விவரங்களைப் பார்க்கவும்)."
 
 msgctxt "environmental_score_add_missing_information"
 msgid "You can edit the product to add the missing information."
@@ -5724,7 +5724,7 @@ msgstr ""
 # do not translate the link
 msgctxt "environmental_score_platform_prompt_environmental_score_modal"
 msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
-msgstr ""
+msgstr "நீங்கள் இந்தத் தயாரிப்பின் உற்பத்தியாளராக இருந்தால், உற்பத்தியாளர்களுக்கான எங்கள் <a href=\"https://world.pro.openfoodfacts.org\">இலவச தளமான</a>மூலம் தகவலை எங்களுக்கு அனுப்பலாம்."
 
 # do not translate Green-Score and the link
 msgctxt "environmental_score_description"
