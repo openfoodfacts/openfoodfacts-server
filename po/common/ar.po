@@ -550,11 +550,11 @@ msgstr "حذف مستخدم"
 
 msgctxt "delete_confirmation"
 msgid "This will delete your user details and anonymise all of your contributions. Please re-enter your user name to confirm."
-msgstr ""
+msgstr "هذا سوف يحذف معلوماتك الشخصية ويخفي كل مساهماتك. يرجى إدخال أسم المستخدم الخاص بك مرة أخرى للتأكيد."
 
 msgctxt "danger_zone"
 msgid "Danger Zone"
-msgstr ""
+msgstr "منطقة الخطر"
 
 msgctxt "diff_add"
 msgid "Added:"
@@ -642,7 +642,7 @@ msgstr "المحرر"
 
 msgctxt "email"
 msgid "E-mail address"
-msgstr ""
+msgstr "البريد الإلكتروني"
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with traceability code %s"
@@ -654,11 +654,11 @@ msgstr "رموز التتبع"
 
 msgctxt "emb_code_s"
 msgid "Traceability code"
-msgstr ""
+msgstr "رمز التتبع"
 
 msgctxt "emb_codes"
 msgid "Traceability code"
-msgstr ""
+msgstr "رمز التتبع"
 
 msgctxt "emb_codes_p"
 msgid "traceability codes"
@@ -735,11 +735,11 @@ msgstr "يجب أن يحتوي اسم المستخدم على أحرف وأرق�
 
 msgctxt "error_username_too_long"
 msgid "The user name is too long (maximum 40 characters)."
-msgstr ""
+msgstr "اسم المستخدم طويل جداً (40 حرف ورمز كحد أقصى)."
 
 msgctxt "error_name_too_long"
 msgid "The name is too long (maximum 60 characters)."
-msgstr ""
+msgstr "الاسم طويل جداً (60 حرف أو رمز كحد أقصى)."
 
 msgctxt "error_new_code_already_exists"
 msgid "A product already exists with the new code"
@@ -817,7 +817,7 @@ msgstr "و<<site_name>> بلوق"
 # Do not translate
 msgctxt "footer_blog_link"
 msgid "https://blog.openfoodfacts.org/en/"
-msgstr ""
+msgstr "https://blog.openfoodfacts.org/en/"
 
 msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
@@ -888,12 +888,12 @@ msgstr "/legal"
 
 msgctxt "footer_privacy"
 msgid "Privacy"
-msgstr ""
+msgstr "الخصوصية"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_privacy_link"
 msgid "/privacy"
-msgstr ""
+msgstr "/privacy"
 
 msgctxt "footer_press"
 msgid "Press"
@@ -1064,7 +1064,7 @@ msgstr "تفاصيل الصورة ومعلومات اﻹسناد"
 
 msgctxt "invite_user"
 msgid "Invite Users"
-msgstr ""
+msgstr "دعوة مستخدمين"
 
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
@@ -1088,11 +1088,11 @@ msgstr "المكونات مفقودة"
 
 msgctxt "one_ingredient"
 msgid "1 ingredient"
-msgstr ""
+msgstr "مكوِّن 1"
 
 msgctxt "f_ingredients_with_number"
 msgid "{number} ingredients"
-msgstr ""
+msgstr "{number} مكونات"
 
 msgctxt "ingredients_alt"
 msgid "Ingredients"
@@ -1172,7 +1172,7 @@ msgstr "العنصر الذي قد يكون من زيت النخيل"
 
 msgctxt "ingredients_without_products"
 msgid "Products that do not contain the ingredient %s"
-msgstr ""
+msgstr "المنتجات التي لا تحتوي على المكون %s"
 
 # Please change appstore_US.svg to appstore_XX.svg. check the url https://static.openfoodfacts.org/images/misc/appstore/black/appstore_XX.svg
 msgctxt "ios_app_icon_url"
@@ -1458,7 +1458,7 @@ msgstr "الاشتراك في النشرة الإخبارية (2 رسائل ال
 
 msgctxt "subscribe_to_our_newsletter"
 msgid "Subscribe to our newsletter"
-msgstr ""
+msgstr "اشترك إلى نشرتنا الإخبارية"
 
 msgctxt "next"
 msgid "Next"
@@ -1644,7 +1644,8 @@ msgstr "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social
 msgctxt "on_the_blog_content"
 msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://blog.openfoodfacts.org/en/\">our blog</a>!</p>\n"
 "<p>Recent news:</p>\n"
-msgstr ""
+msgstr "<p> لمعرفة المزيد عن <<site_name>>, قم بزيارة <a href=\"https://blog.openfoodfacts.org/en/\">مدونتنا</a>!</p>\n"
+"<p>أخبار حديثة:</p>\n"
 
 msgctxt "on_the_blog_title"
 msgid "News"
@@ -1838,7 +1839,7 @@ msgstr "تم حفظ التغييرات."
 
 msgctxt "product_edit_you_contributed"
 msgid "You just helped to improve the world largest open data database."
-msgstr ""
+msgstr "لقد ساعدتم للتو في تحسين أكبر قاعدة بيانات للبيانات المفتوحة في العالم."
 
 msgctxt "product_edit_thank_you"
 msgid "Thank you so much for joining us in our journey to data transparency!"
@@ -2412,7 +2413,7 @@ msgstr "إذا كان جدول معلومات التغذية يحتوي على �
 
 msgctxt "serving_too_small_for_nutrition_analysis"
 msgid "Serving size is too small (5 g / 5 ml or less) to calculate 100 g / 100 ml values and perform any further nutritional analysis"
-msgstr ""
+msgstr "حجم الحصة صغير جداً (5 جم / 5 مل أو أقل) لحساب قيم 100 جم / 100 مل وإجراء أي تحليل غذائي إضافي"
 
 msgctxt "session_title"
 msgid "Sign-in"
@@ -2621,7 +2622,7 @@ msgstr "المنتجات التي لم تتم إضافتها بواسطة %s"
 
 msgctxt "video_tutorials"
 msgid "Video Tutorials"
-msgstr ""
+msgstr "دروس بوساطة الفيديو"
 
 msgctxt "view"
 msgid "view"
@@ -2629,7 +2630,7 @@ msgstr "عرض"
 
 msgctxt "view_this_revision"
 msgid "View this revision"
-msgstr ""
+msgstr "عرض هذه المراجعة"
 
 msgctxt "view_list_for_products_from_the_entire_world"
 msgid "View the list for matching products from the entire world"
@@ -2646,7 +2647,8 @@ msgstr "عرض النتائج من كل أنحاء العالم"
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
 "→ <a href=\"https://support.openfoodfacts.org/help/en-gb/9/27\">Why it matters</a>"
-msgstr ""
+msgstr "يجب أن تأتي المعلومات والبيانات من عُبْوَة المنتج والملصق (وليس من مواقع أخرى أو موقع الشركة المصنعة)، ويجب أن تكون قد التقطت الصور بنفسك.<br/>\n"
+"→ <a href=\"https://support.openfoodfacts.org/help/en-gb/9/27\">ما أهمية ذلك</a>"
 
 msgctxt "website"
 msgid "Site or blog address"
@@ -2682,11 +2684,11 @@ msgstr "تحميل صور أقل دقة (للاتصال البطيء)"
 
 msgctxt "protected_image_message"
 msgid "An image has been sent by the manufacturer. If you think it is incorrect or not up-to-date, please contact us."
-msgstr ""
+msgstr "تم إرسال صورة من الشركة المصنعة. إذا كنت تعتقد أنه خطأ أو ليس حديث, يرجى منك التواصل معنا."
 
 msgctxt "nutrition_grade_fr_nutriments_estimated_warning"
 msgid "Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients."
-msgstr ""
+msgstr "تحذير: المعلومات الغذائية ليست محددة. تم تقديرها من قائمة المكونات."
 
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
@@ -2702,7 +2704,7 @@ msgstr "تحذير: لم يتم تحديد كمية الفواكه والخضر�
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was manually estimated from the list of ingredients: %d"
-msgstr ""
+msgstr "تحذير: كَمّيَّة الفاكهة والخضروات والمكسرات ليست محددة على الملصق، تم تقديرها يدوياً من قائمة المكونات: %d"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d"
