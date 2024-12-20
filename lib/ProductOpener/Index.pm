@@ -94,20 +94,28 @@ foreach my $dir ($lang_dir, "$lang_dir/$flavor") {
 			#$log->trace("reading texts", { lang => $langid }) if $log->is_trace();
 			next if ((length($langid) ne 2) and not($langid eq 'other'));
 
-			if (-e "$dir/$langid/texts") {
-				opendir DH, "$dir/$langid/texts" or die "Couldn't open $dir/$langid/texts: $!";
+			my $lc_dir_path = "$dir/$langid/texts";
+			if (-e $lc_dir_path) {
+				opendir DH, $lc_dir_path or die "Couldn't open $dir/$langid/texts: $!";
 				foreach my $textid (readdir(DH)) {
 					next if $textid eq '.';
 					next if $textid eq '..';
 					my $file = $textid;
+					my $file_path = "$lc_dir_path/$textid";
 					$textid =~ s/(\.foundation)?(\.$langid)?\.html//;
-					defined $texts{$textid} or $texts{$textid} = {};
-					# prefer the .foundation version
-					if ((not defined $texts{$textid}{$langid}) or (length($file) > length($texts{$textid}{$langid}))) {
-						$texts{$textid}{$langid} = $file;
+					# check if its a redirection
+					if ($file_path =~ m/.redirect$/) {
+						read_redirect_file($file_path, $langid, \%texts);
 					}
-
-					#$log->trace("text loaded", { langid => $langid, textid => $textid }) if $log->is_trace();
+					else {
+						defined $texts{$textid} or $texts{$textid} = {};
+						# prefer the .foundation version
+						if (   (not defined $texts{$textid}{$langid})
+							or (length($file) > length($texts{$textid}{$langid})))
+						{
+							$texts{$textid}{$langid} = $file;
+						}
+					}
 				}
 				closedir(DH);
 			}
@@ -177,6 +185,18 @@ sub decode_html_entities ($string) {
 	}
 
 	return $utf8;
+}
+
+sub read_redirect_file ($file_path, $langid, $texts) {
+	my $fh;
+	open($fh, '<', $file_path) or die "Couldn't open $file_path: $!";
+	while (my $line = <$fh>) {
+		chomp $line;
+		my ($textid, $uri) = split(/\s+/, $line);
+		$texts->{$textid}{redirect}{$langid} = $uri;
+	}
+	close $fh;
+	return;
 }
 
 1;
