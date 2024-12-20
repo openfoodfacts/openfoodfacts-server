@@ -44,6 +44,9 @@ my $keycloak_partialimport_endpoint
 	. uri_escape($oidc_options{keycloak_realm_name})
 	. '/partialImport';
 
+my $user_emails = undef;
+my ($checkpoint_file, $checkpoint) = open_checkpoint('checkpoint.tmp');
+
 sub create_user_in_keycloak_with_scrypt_credential ($keycloak_user_ref) {
 	my $json = encode_json($keycloak_user_ref);
 
@@ -71,6 +74,9 @@ sub create_user_in_keycloak_with_scrypt_credential ($keycloak_user_ref) {
 
 	my $json_response = $get_user_response->decoded_content(charset => 'UTF-8');
 	my @created_users = decode_json($json_response);
+
+	update_checkpoint($checkpoint_file, $keycloak_user_ref->{username});
+
 	return $created_users[0];
 }
 
@@ -96,8 +102,10 @@ sub import_users_in_keycloak ($users_ref) {
 				keycloak_realm_name => $oidc_options{keycloak_realm_name}
 			}
 		);
+		return;
 	}
 
+	update_checkpoint($checkpoint_file, @{$users_ref}[-1]->{username});
 	return;
 }
 
@@ -122,22 +130,37 @@ sub convert_to_keycloak_user ($user_file, $anonymize) {
 
 	my $credential
 		= $anonymize ? {} : convert_scrypt_password_to_keycloak_credentials($user_ref->{'encrypted_password'}) // {};
+	my $userid = $user_ref->{userid};
 	my $keycloak_user_ref = {
-		email => ($anonymize ? 'off.' . $user_ref->{userid} . '@example.org' : $user_ref->{email}),
-		# Currently, the assumption is that all users have verified their email address. This is not true, but it's better than forcing all existing users to verify their email address.
-		emailVerified => $JSON::PP::true,
 		enabled => $JSON::PP::true,
-		username => $user_ref->{userid},
+		username => $userid,
 		credentials => [$credential],
-		attributes => [
-			name => [($anonymize ? $user_ref->{userid} : $user_ref->{name})],
-			locale => [$user_ref->{initial_lc}],
-			country => [$user_ref->{initial_cc}],
+		attributes => {
+			name => ($anonymize ? $userid : $user_ref->{name}),
+			locale => $user_ref->{initial_lc},
+			country => $user_ref->{initial_cc},
+			registered => 'registered', # The prevents welcome emails from being sent
 			importTimestamp => time(),
 			importSourceChangedTimestamp => (stat($user_file))[9]
-		],
-		createdTimestamp => $user_ref->{registered_t} * 1000
+		},
+		createdTimestamp => ($user_ref->{registered_t} // time()) * 1000
 	};
+
+	my $email = sanitise_email($user_ref->{email});
+	my $email_status = $user_emails->{$email};
+
+	if ($anonymize) {
+		$keycloak_user_ref->{email} = 'off.' . $user_ref->{userid};
+		$keycloak_user_ref->{emailVerified} = $JSON::PP::true;
+	}
+	elsif (not defined $email_status or $email_status->{invalid} or $email_status->{userid} ne $userid) {
+		$keycloak_user_ref->{attributes}{old_email} = $user_ref->{email};
+	}
+	else {
+		$keycloak_user_ref->{email} = $email;
+		# Currently, the assumption is that all users have verified their email address. This is not true, but it's better than forcing all existing users to verify their email address.
+		$keycloak_user_ref->{emailVerified} = $JSON::PP::true;
+	}
 
 	return $keycloak_user_ref;
 }
@@ -179,6 +202,67 @@ sub convert_scrypt_password_to_keycloak_credentials ($hashed_password) {
 	return $credential;
 }
 
+sub validate_user_emails() {
+	open(my $invalid_user_file, '>:encoding(UTF-8)', 'invalid_users.csv') or die "Could not open invalid_users file $!";
+
+	my $all_emails = {};
+	if (opendir(my $dh, "$BASE_DIRS{USERS}/")) {
+		my @files = readdir($dh);
+		closedir $dh;
+		foreach my $file (sort @files) {
+			if (($file =~ /.+\.sto$/) and ($file ne 'users_emails.sto')) {
+				my $user_ref = retrieve("$BASE_DIRS{USERS}/$file");
+				if (defined $user_ref) {
+					my $user_id = $user_ref->{userid};
+					my $email = sanitise_email($user_ref->{email});
+					my $last_login_t = $user_ref->{last_login_t} || 0;
+					my $user_info = {userid => $user_id, last_login_t => $last_login_t};
+					my $user_infos = $all_emails->{$email};
+					if (!defined $user_infos) {
+						$all_emails->{$email}
+							= {userid => $user_id, last_login_t => $last_login_t, file => $file, users => [$user_info]};
+						if (
+							not $email
+							=~ /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/
+							)
+						{
+							print $invalid_user_file "$user_id,$file,$email,invalid\n";
+							$all_emails->{$email}->{invalid} = 1;
+						}
+					}
+					else {
+						if ($last_login_t < $user_infos->{last_login_t}) {
+							print $invalid_user_file $user_id . ",$file,$email,duplicate\n";
+						}
+						else {
+							print $invalid_user_file $user_infos->{userid} . ","
+								. $user_infos->{file}
+								. ",$email,duplicate\n";
+							$user_infos->{userid} = $user_id;
+							$user_infos->{file} = $file;
+							$user_infos->{last_login_t} = $last_login_t;
+						}
+						push(@{$user_infos->{users}}, $user_info);
+					}
+				}
+			}
+		}
+
+		store("all_emails.sto", $all_emails);
+	}
+
+	close $invalid_user_file;
+
+	return $all_emails;
+}
+
+sub sanitise_email($email) {
+	$email = lc($email || '');
+	$email =~ s/\s+//g;
+
+	return $email;
+}
+
 sub open_checkpoint($filename) {
 	if (!-e $filename) {
 		`touch $filename`;
@@ -187,12 +271,13 @@ sub open_checkpoint($filename) {
 	seek($checkpoint_file, 0, 0);
 	my $checkpoint = <$checkpoint_file>;
 	chomp $checkpoint if $checkpoint;
+	$checkpoint = '' if not defined $checkpoint;
 	return ($checkpoint_file, $checkpoint);
 }
 
 sub update_checkpoint($checkpoint_file, $checkpoint) {
 	seek($checkpoint_file, 0, 0);
-	print $checkpoint_file $checkpoint;
+	print $checkpoint_file "$checkpoint.sto";
 	truncate($checkpoint_file, tell($checkpoint_file));
 	return 1;
 }
@@ -210,55 +295,19 @@ if ((scalar @ARGV) > 0 and ('anonymize' eq $ARGV[-1])) {
 }
 
 if ($importtype eq 'validate') {
-	open(my $invalid_user_file, '>:encoding(UTF-8)', 'invalid_users.csv') or die "Could not open invalid_users file $!";
+	validate_user_emails();
+}
+elsif ($importtype eq 'realm-batch') {
+	$user_emails = (retrieve("all_emails.sto") or validate_user_emails());
 
-	my $all_emails = {};
+	my @users = ();
+
 	if (opendir(my $dh, "$BASE_DIRS{USERS}/")) {
 		my @files = readdir($dh);
 		closedir $dh;
 		foreach my $file (sort @files) {
-			if (($file =~ /.+\.sto$/) and ($file ne 'users_emails.sto')) {
-				my $user_ref = retrieve("$BASE_DIRS{USERS}/$file");
-				if (defined $user_ref) {
-					my $user_id = $user_ref->{userid};
-					my $email = lc($user_ref->{email} || '');
-					$email =~ s/\s+//g;
-					my $last_login_t = $user_ref->{last_login_t} || 0;
-					my $user_info ={userid => $user_id, last_login_t => $last_login_t};
-					my $user_infos = $all_emails->{$email};
-					if (!defined $user_infos) {
-						$all_emails->{$email} = {userid => $user_id, last_login_t => $last_login_t, file => $file, users => [$user_info]};
-						if (not $email =~ /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/) {
-							print $invalid_user_file "$user_id,$file,$email,invalid\n";
-							$all_emails->{$email}->{invalid} = 1;
-						}
-					} else {
-						if ($last_login_t < $user_infos->{last_login_t}) {
-							print $invalid_user_file $user_id . ",$file,$email,duplicate\n";
-						} else {
-							print $invalid_user_file $user_infos->{userid} . "," . $user_infos->{file} . ",$email,duplicate\n";
-							$user_infos->{userid} = $user_id;
-							$user_infos->{file} = $file;
-							$user_infos->{last_login_t} = $last_login_t;
-						}
-						push(@{$user_infos->{users}}, $user_info);
-					}
-				}
-			}
-		}
+			next if $file le $checkpoint;
 
-		store("all_emails.sto", $all_emails);
-	}
-
-	close $invalid_user_file;
-
-}
-elsif ($importtype eq 'realm-batch') {
-	my @users = ();
-
-	if (opendir(my $dh, "$BASE_DIRS{USERS}/")) {
-
-		foreach my $file (readdir($dh)) {
 			if (($file =~ /.+\.sto$/) and ($file ne 'users_emails.sto')) {
 				my $keycloak_user = convert_to_keycloak_user("$BASE_DIRS{USERS}/$file", $anonymize);
 				push(@users, $keycloak_user) if defined $keycloak_user;
@@ -269,8 +318,6 @@ elsif ($importtype eq 'realm-batch') {
 				@users = ();
 			}
 		}
-
-		closedir $dh;
 	}
 
 	if (scalar @users) {
@@ -278,14 +325,18 @@ elsif ($importtype eq 'realm-batch') {
 	}
 }
 elsif ($importtype eq 'api-multi') {
+	$user_emails = (retrieve("all_emails.sto") or validate_user_emails());
+
 	if (opendir(my $dh, "$BASE_DIRS{USERS}/")) {
-		foreach my $file (readdir($dh)) {
+		my @files = readdir($dh);
+		closedir $dh;
+		foreach my $file (sort @files) {
+			next if $file le $checkpoint;
+
 			if (($file =~ /.+\.sto$/) and ($file ne 'users_emails.sto')) {
 				migrate_user("$BASE_DIRS{USERS}/$file", $anonymize);
 			}
 		}
-
-		closedir $dh;
 	}
 }
 elsif ($importtype eq 'api-single') {
@@ -296,3 +347,5 @@ elsif ($importtype eq 'api-single') {
 else {
 	die "Unknown import type: $importtype";
 }
+
+close $checkpoint_file;
