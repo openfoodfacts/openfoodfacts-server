@@ -136,7 +136,7 @@ sub convert_to_keycloak_user ($user_file, $anonymize) {
 		username => $userid,
 		credentials => [$credential],
 		attributes => {
-			name => ($anonymize ? $userid : $user_ref->{name}),
+			name => substr(($anonymize ? $userid : $user_ref->{name}), 0, 255),
 			locale => $user_ref->{initial_lc},
 			country => $user_ref->{initial_cc},
 			registered => 'registered', # The prevents welcome emails from being sent
@@ -154,7 +154,7 @@ sub convert_to_keycloak_user ($user_file, $anonymize) {
 		$keycloak_user_ref->{emailVerified} = $JSON::PP::true;
 	}
 	elsif (not defined $email_status or $email_status->{invalid} or $email_status->{userid} ne $userid) {
-		$keycloak_user_ref->{attributes}{old_email} = $user_ref->{email};
+		$keycloak_user_ref->{attributes}{old_email} = substr($user_ref->{email}, 0, 255);
 	}
 	else {
 		$keycloak_user_ref->{email} = $email;
