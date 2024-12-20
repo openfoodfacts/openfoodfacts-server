@@ -49,6 +49,7 @@ my ($checkpoint_file, $checkpoint) = open_checkpoint('checkpoint.tmp');
 
 sub create_user_in_keycloak_with_scrypt_credential ($keycloak_user_ref) {
 	my $json = encode_json($keycloak_user_ref);
+	my $userid = $keycloak_user_ref->{username};
 
 	my $request_token = $keycloak->get_or_refresh_token();
 	my $create_user_request = HTTP::Request->new(POST => $keycloak->{users_endpoint});
@@ -58,26 +59,14 @@ sub create_user_in_keycloak_with_scrypt_credential ($keycloak_user_ref) {
 	$create_user_request->content($json);
 	my $new_user_response = LWP::UserAgent::Plugin->new->request($create_user_request);
 	unless ($new_user_response->is_success) {
-		$log->error($new_user_response->content);
+		print "$json\n";
+		$log->error($userid . ": " . $new_user_response->content);
 		return;
 	}
 
-	$request_token = $keycloak->get_or_refresh_token();
-	my $get_user_request = HTTP::Request->new(GET => $new_user_response->header('location'));
-	$get_user_request->header('Content-Type' => 'application/json');
-	$get_user_request->header('Authorization' => $request_token->{token_type} . ' ' . $request_token->{access_token});
-	my $get_user_response = LWP::UserAgent::Plugin->new->request($get_user_request);
-	unless ($get_user_response->is_success) {
-		$log->error($get_user_response->content);
-		return;
-	}
+	update_checkpoint($checkpoint_file, $userid);
 
-	my $json_response = $get_user_response->decoded_content(charset => 'UTF-8');
-	my @created_users = decode_json($json_response);
-
-	update_checkpoint($checkpoint_file, $keycloak_user_ref->{username});
-
-	return $created_users[0];
+	return;
 }
 
 sub import_users_in_keycloak ($users_ref) {
