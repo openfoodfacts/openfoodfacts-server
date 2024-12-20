@@ -2708,11 +2708,11 @@ msgstr "تحذير: كَمّيَّة الفاكهة والخضروات والم�
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d"
-msgstr ""
+msgstr "تحذير: كَمّيَّة الفواكه والخضروات والمكسرات ليست محددة على الملصق, تم تقديرها من فئة (%s) المنتج: %d"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_from_ingredients_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d"
-msgstr ""
+msgstr "تحذير: كَمّيَّة الفواكه والخضروات والمكسرات ليست محددة على الملصق, تم تقديرها من قائمة المكونات: %d"
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
@@ -2962,11 +2962,11 @@ msgstr "خطر التعرض المفرط"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_high"
 msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a high risk of reaching or exceeding the Acceptable Daily Intake (ADI) for <tag>."
-msgstr ""
+msgstr "لقد قررت هيئة سلامة الغذاء الأوروبية (EFSA) إن تم إعراض بعض المجموعات السكانية في خطر كبير للوصول أو تجاوز المدخول اليومي المقبول (ADI) لـ<tag>."
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_moderate"
 msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a moderate risk of reaching or exceeding the Acceptable Daily Intake (ADI) for <tag>."
-msgstr ""
+msgstr "لقد قررت هيئة سلامة الغذاء الأوروبية (EFSA) إن تم إعراض بعض المجموعات السكانية في خطر معتدل للوصول أو تجاوز المدخول اليومي المقبول (ADI) لـ<tag>."
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_description"
 msgid "To evaluate your exposure to the <tag> food additive, you can browse our list of products that contain it. See the list of <nb_products> products with <tag> below."
@@ -2994,11 +2994,11 @@ msgstr "لا يوجد خطر, أو خطر منخفض للغاية من التع�
 
 msgctxt "additives_efsa_evaluation_exposure_greater_than_adi"
 msgid "Risk of reaching or exceeding the acceptable daily intake (ADI)"
-msgstr ""
+msgstr "خطر وصول أو تجاوز المدخول اليومي المقبول (ADI)"
 
 msgctxt "additives_efsa_evaluation_exposure_greater_than_noael"
 msgid "Risk of reaching exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
-msgstr ""
+msgstr "خطر وصول أو تجاوز الجرعة القصوى دون أي تأثير سلبي (لم يتم ملاحظة أي مستوى من التأثير السلبي - NOAEL)"
 
 msgctxt "additives_efsa_evaluation_exposure_mean_greater_than_adi"
 msgid "Groups with more than 50% of members exceeding the acceptable daily intake (ADI)"
@@ -3022,7 +3022,7 @@ msgstr "مخاطرة معتدلة"
 
 msgctxt "exposure_description_95th"
 msgid "5% of people or more"
-msgstr ""
+msgstr "5% من الناس أو أكثر"
 
 msgctxt "exposure_title_mean"
 msgid "High risk"
@@ -3030,7 +3030,7 @@ msgstr "مخاطر عالية"
 
 msgctxt "exposure_description_mean"
 msgid "50% of people or more"
-msgstr ""
+msgstr "50% من الناس أو أكثر"
 
 msgctxt "wikipedia"
 msgid "Wikipedia"
@@ -4014,7 +4014,7 @@ msgstr "الفاكهة والخضراوات والمكسرات واللفت \\ �
 
 msgctxt "nutriscore_points_for_fiber"
 msgid "Fiber"
-msgstr ""
+msgstr "الألياف"
 
 msgctxt "nutriscore_points_for_proteins"
 msgid "Proteins"
@@ -4085,11 +4085,11 @@ msgstr "لا تزال منصة المنتجين تحت التطوير ونقوم
 
 msgctxt "crm_user_id"
 msgid "Id of corresponding contact in CRM"
-msgstr ""
+msgstr "معرف جهة الاتصال المقابلة في CRM"
 
 msgctxt "crm_org_id"
 msgid "Id of corresponding organization in CRM"
-msgstr ""
+msgstr "معرف المنظمة المقابلة في CRM"
 
 msgctxt "user_groups"
 msgid "Groups"
@@ -4178,7 +4178,7 @@ msgstr "اعتدال منصة المنتجين"
 # variable names between { } must not be translated
 msgctxt "f_pro_moderator_owner_set"
 msgid "You are currently viewing products from {organization}."
-msgstr ""
+msgstr "أنت الآن تعرض منتجات من {organization}."
 
 msgctxt "pro_moderator_owner_not_set"
 msgid "You are currently viewing your own products."
@@ -4191,7 +4191,7 @@ msgstr "لمشاهدة منتجات من مستخدم أو منظمة محددة
 # Action verb "Change" to put on a form button
 msgctxt "pro_moderator_edit_owner"
 msgid "Switch to another organization"
-msgstr ""
+msgstr "التبديل إلى منظمة أخرى"
 
 msgctxt "pro_moderator_edit_owner_placeholder"
 msgid "user-abc or org-xyz"
@@ -4260,7 +4260,7 @@ msgstr "إزالة جميع المنتجات"
 
 msgctxt "remove_user"
 msgid "Remove user"
-msgstr ""
+msgstr "حذف المستخدم"
 
 msgctxt "remove_products_from_producers_platform"
 msgid "Remove all your products from the platform for producers"
@@ -4350,11 +4350,11 @@ msgstr "مساهم"
 
 msgctxt "contributor_settings_description"
 msgid "Those settings allow you to personalize some aspects of the website"
-msgstr ""
+msgstr "هذه الإعدادات تسمح لك بتخصيص بعض أوجه الموقع"
 
 msgctxt "display_barcode_in_search"
 msgid "Display barcode in search results"
-msgstr ""
+msgstr "أعرض الباركود في نتائج البحث"
 
 msgctxt "edit_link_in_search"
 msgid "Add an edit link in search results"
@@ -6857,7 +6857,7 @@ msgstr ""
 
 msgctxt "nutriscore_component_fiber"
 msgid "Fiber"
-msgstr ""
+msgstr "الألياف"
 
 msgctxt "nutriscore_component_proteins"
 msgid "Proteins"
