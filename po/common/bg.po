@@ -2628,7 +2628,7 @@ msgstr "изглед"
 
 msgctxt "view_this_revision"
 msgid "View this revision"
-msgstr ""
+msgstr "Вижте тази версия"
 
 msgctxt "view_list_for_products_from_the_entire_world"
 msgid "View the list for matching products from the entire world"
@@ -2682,11 +2682,11 @@ msgstr "Зареждане на изображения с по-ниска раз
 
 msgctxt "protected_image_message"
 msgid "An image has been sent by the manufacturer. If you think it is incorrect or not up-to-date, please contact us."
-msgstr ""
+msgstr "Изображение е изпратено от производителя. Ако смятате, че е неправилно или не е актуално, моля, свържете се с нас."
 
 msgctxt "nutrition_grade_fr_nutriments_estimated_warning"
 msgid "Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients."
-msgstr ""
+msgstr "Внимание: хранителните стойности не са посочени. Те са изчислени от списъка на съставките."
 
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
@@ -2960,11 +2960,11 @@ msgstr "Риск от свръх излагане"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_high"
 msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a high risk of reaching or exceeding the Acceptable Daily Intake (ADI) for <tag>."
-msgstr ""
+msgstr "Европейският орган за безопасност на храните (EFSA) установи, че някои групи от населението имат висок риск от достигане или надвишаване на допустимия дневен прием (ДДП) за <tag>."
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_moderate"
 msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a moderate risk of reaching or exceeding the Acceptable Daily Intake (ADI) for <tag>."
-msgstr ""
+msgstr "Европейският орган за безопасност на храните (EFSA) установи, че някои групи от населението имат умерен риск от достигане или надвишаване на допустимия дневен прием (ДДП) за <tag>."
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_description"
 msgid "To evaluate your exposure to the <tag> food additive, you can browse our list of products that contain it. See the list of <nb_products> products with <tag> below."
@@ -2992,11 +2992,11 @@ msgstr "Няма или много нисък риск от прекомерно
 
 msgctxt "additives_efsa_evaluation_exposure_greater_than_adi"
 msgid "Risk of reaching or exceeding the acceptable daily intake (ADI)"
-msgstr ""
+msgstr "Риск от достигане или превишаване на допустимия дневен прием (ДДП)"
 
 msgctxt "additives_efsa_evaluation_exposure_greater_than_noael"
 msgid "Risk of reaching exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
-msgstr ""
+msgstr "Риск от достигане на надвишаване на максималната доза без неблагоприятен ефект (Няма наблюдавано ниво на неблагоприятен ефект - NOAEL)"
 
 msgctxt "additives_efsa_evaluation_exposure_mean_greater_than_adi"
 msgid "Groups with more than 50% of members exceeding the acceptable daily intake (ADI)"
@@ -4176,7 +4176,7 @@ msgstr "Модериране на платформата на производи
 # variable names between { } must not be translated
 msgctxt "f_pro_moderator_owner_set"
 msgid "You are currently viewing products from {organization}."
-msgstr ""
+msgstr "В момента разглеждате продукти от {organization}."
 
 msgctxt "pro_moderator_owner_not_set"
 msgid "You are currently viewing your own products."
@@ -4189,7 +4189,7 @@ msgstr "За да видите продукти от конкретен потр
 # Action verb "Change" to put on a form button
 msgctxt "pro_moderator_edit_owner"
 msgid "Switch to another organization"
-msgstr ""
+msgstr "Преминете към друга организация"
 
 msgctxt "pro_moderator_edit_owner_placeholder"
 msgid "user-abc or org-xyz"
@@ -4258,7 +4258,7 @@ msgstr "Премахване на всички продукти"
 
 msgctxt "remove_user"
 msgid "Remove user"
-msgstr ""
+msgstr "Премахване на потребител"
 
 msgctxt "remove_products_from_producers_platform"
 msgid "Remove all your products from the platform for producers"
@@ -4632,12 +4632,12 @@ msgstr "Средно хранително качество"
 # lower: translate to "less good" in some languages (e.g. French: "Moins bonne qualité nutritionnelle")
 msgctxt "attribute_nutriscore_d_description_short"
 msgid "Lower nutritional quality"
-msgstr ""
+msgstr "По-ниско хранително качество"
 
 # lower: translate to "less good" in some languages (e.g. French: "Moins bonne qualité nutritionnelle")
 msgctxt "attribute_nutriscore_e_description_short"
 msgid "Lower nutritional quality"
-msgstr ""
+msgstr "По-ниско хранително качество"
 
 msgctxt "attribute_group_processing_name"
 msgid "Food processing"
@@ -4682,12 +4682,12 @@ msgstr "Свръхпреработени храни"
 
 msgctxt "attribute_nova_4_1_marker"
 msgid "1 ultra-processing marker"
-msgstr ""
+msgstr "1 маркер за ултра-обработка"
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_nova_4_markers"
 msgid "{number} ultra-processing markers"
-msgstr ""
+msgstr "{number} маркери зя ултра-обработка"
 
 msgctxt "export_product_page"
 msgid "Export product to public database"
@@ -4828,41 +4828,41 @@ msgstr "Околна среда"
 
 msgctxt "attribute_environmental_score_name"
 msgid "Green-Score"
-msgstr ""
+msgstr "Зелен-Резултат"
 
 msgctxt "attribute_environmental_score_setting_name"
 msgid "Low environmental impact (Green-Score)"
-msgstr ""
+msgstr "Ниско въздействие върху околната среда (Зелен-Резултат)"
 
 msgctxt "attribute_environmental_score_setting_note"
 msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr ""
+msgstr "Зелен-Резултат е оценка за околната среда от A до E, която улеснява сравняването на въздействието на хранителните продукти върху околната среда."
 
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
 msgid "Green-Score"
-msgstr ""
+msgstr "Зелен-Резултат"
 
 msgctxt "attribute_ecoscore_setting_name"
 msgid "Low environmental impact (Green-Score)"
-msgstr ""
+msgstr "Ниско въздействие върху околната среда (Зелен-Резултат)"
 
 msgctxt "attribute_ecoscore_setting_note"
 msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr ""
+msgstr "Зелен-Резултат е оценка за околната среда от A до E, която улеснява сравняването на въздействието на хранителните продукти върху околната среда."
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
 msgid "Green-Score %s"
-msgstr ""
+msgstr "Зелен-Резултат %s"
 
 msgctxt "attribute_environmental_score_a_plus_description_short"
 msgid "Very low environmental impact"
-msgstr ""
+msgstr "Много ниско въздействие върху околната среда"
 
 msgctxt "attribute_environmental_score_a_description_short"
 msgid "Very low environmental impact"
-msgstr ""
+msgstr "Много ниско въздействие върху околната среда"
 
 msgctxt "attribute_environmental_score_b_description_short"
 msgid "Low environmental impact"
@@ -4870,19 +4870,19 @@ msgstr "Ниско въздействие върху околната среда
 
 msgctxt "attribute_environmental_score_c_description_short"
 msgid "Moderate environmental impact"
-msgstr ""
+msgstr "Умерено въздействие върху околната среда"
 
 msgctxt "attribute_environmental_score_d_description_short"
 msgid "High environmental impact"
-msgstr ""
+msgstr "Силно въздействие върху околната среда"
 
 msgctxt "attribute_environmental_score_e_description_short"
 msgid "Very high environmental impact"
-msgstr ""
+msgstr "Много силно въздействие върху околната среда"
 
 msgctxt "attribute_environmental_score_f_description_short"
 msgid "Very high environmental impact"
-msgstr ""
+msgstr "Много силно въздействие върху околната среда"
 
 # keep the %s, it will be replaced by an allergen
 msgctxt "contains_s"
@@ -5002,11 +5002,11 @@ msgstr "Официален сайт"
 
 msgctxt "organization_members"
 msgid "Organization Members"
-msgstr ""
+msgstr "Членове на организацията"
 
 msgctxt "number_of_members"
 msgid "Number of Members"
-msgstr ""
+msgstr "Брой членове"
 
 msgctxt "contact_form"
 msgid "Contact form"
@@ -5084,19 +5084,19 @@ msgstr "Липсващи хранителни стойности"
 
 msgctxt "ecoscore_p"
 msgid "Green-Score"
-msgstr ""
+msgstr "Зелен-Резултат"
 
 msgctxt "ecoscore_s"
 msgid "Green-Score"
-msgstr ""
+msgstr "Зелен-Резултат"
 
 msgctxt "environmental_score_p"
 msgid "Green-Score"
-msgstr ""
+msgstr "Зелен-Резултат"
 
 msgctxt "environmental_score_s"
 msgid "Green-Score"
-msgstr ""
+msgstr "Зелен-Резултат"
 
 msgctxt "misc_p"
 msgid "Miscellaneous"
