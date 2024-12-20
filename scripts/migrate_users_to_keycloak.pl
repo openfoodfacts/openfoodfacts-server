@@ -131,13 +131,17 @@ sub convert_to_keycloak_user ($user_file, $anonymize) {
 	my $credential
 		= $anonymize ? {} : convert_scrypt_password_to_keycloak_credentials($user_ref->{'encrypted_password'}) // {};
 	my $userid = $user_ref->{userid};
+	my $name = ($anonymize ? $userid : $user_ref->{name});
+	# Inverted expression from: https://github.com/keycloak/keycloak/blob/2eae68010877c6807b6a454c2d54e0d1852ed1c0/services/src/main/java/org/keycloak/userprofile/validator/PersonNameProhibitedCharactersValidator.java#L42C63-L42C114
+	$name =~ s/[<>&"$%!#?§;*~\/\\|^=\[\]{}()\x00-\x1F\x7F]+//g;
+
 	my $keycloak_user_ref = {
 		enabled => $JSON::PP::true,
 		username => $userid,
 		credentials => [$credential],
 		attributes => {
 			# Truncate name more than 255 because of UTF-8 encoding. Could do this more precisely...
-			name => substr(($anonymize ? $userid : $user_ref->{name}), 0, 128),
+			name => substr($name, 0, 128),
 			locale => $user_ref->{initial_lc},
 			country => $user_ref->{initial_cc},
 			registered => 'registered', # The prevents welcome emails from being sent
