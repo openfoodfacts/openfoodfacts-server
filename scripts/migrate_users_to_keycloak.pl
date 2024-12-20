@@ -118,7 +118,7 @@ sub convert_to_keycloak_user ($user_file, $anonymize) {
 	}
 
 	my $credential
-		= $anonymize ? {} : convert_scrypt_password_to_keycloak_credentials($user_ref->{'encrypted_password'}) // {};
+		= $anonymize ? undef : convert_scrypt_password_to_keycloak_credentials($user_ref->{'encrypted_password'});
 	my $userid = $user_ref->{userid};
 	my $name = ($anonymize ? $userid : $user_ref->{name});
 	# Inverted expression from: https://github.com/keycloak/keycloak/blob/2eae68010877c6807b6a454c2d54e0d1852ed1c0/services/src/main/java/org/keycloak/userprofile/validator/PersonNameProhibitedCharactersValidator.java#L42C63-L42C114
@@ -127,18 +127,20 @@ sub convert_to_keycloak_user ($user_file, $anonymize) {
 	my $keycloak_user_ref = {
 		enabled => $JSON::PP::true,
 		username => $userid,
-		credentials => [$credential],
 		attributes => {
 			# Truncate name more than 255 because of UTF-8 encoding. Could do this more precisely...
 			name => substr($name, 0, 128),
 			locale => $user_ref->{initial_lc},
 			country => $user_ref->{initial_cc},
-			registered => 'registered', # The prevents welcome emails from being sent
+			registered => 'registered',    # The prevents welcome emails from being sent
 			importTimestamp => time(),
 			importSourceChangedTimestamp => (stat($user_file))[9]
 		},
 		createdTimestamp => ($user_ref->{registered_t} // time()) * 1000
 	};
+	if (defined $credential) {
+		$keycloak_user_ref->{credentials} = [$credential];
+	}
 
 	my $email = sanitise_email($user_ref->{email});
 	my $email_status = $user_emails->{$email};
@@ -191,6 +193,9 @@ sub convert_scrypt_password_to_keycloak_credentials ($hashed_password) {
 
 		$credential->{credentialData} = encode_json($credential_data);
 		$credential->{temporary} = $JSON::false;
+	}
+	else {
+		return;
 	}
 
 	return $credential;
