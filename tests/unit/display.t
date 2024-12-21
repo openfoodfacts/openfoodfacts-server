@@ -37,7 +37,7 @@ my $textid = '/doesnotexist';
 is(url_for_text($textid), '/doesnotexist');
 
 # test a language other than default (en)
-$textid = '/ecoscore';
+$textid = '/environmental_score';
 $lc = 'es';
 is(url_for_text($textid), '/eco-score-el-impacto-medioambiental-de-los-productos-alimenticios');
 

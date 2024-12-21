@@ -299,7 +299,7 @@ use Log::Any::Adapter 'TAP', filter => "none";
 
 check_quality_and_test_product_has_quality_tag(
 	{
-		'ecoscore_data' => {
+		'environmental_score_data' => {
 			'adjustments' => {
 				'origins_of_ingredients' => {
 					'aggregated_origins' => [
@@ -319,7 +319,7 @@ check_quality_and_test_product_has_quality_tag(
 			}
 		}
 	},
-	"en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
+	"en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
 	"origins 100 percent unknown",
 	1
 );

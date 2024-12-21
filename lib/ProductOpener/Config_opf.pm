@@ -430,7 +430,7 @@ HTML
 @drilldown_fields = qw(
 	nutrition_grades
 	nova_groups
-	ecoscore
+	environmental_score
 	brands
 	categories
 	labels
@@ -499,8 +499,8 @@ HTML
 	food_groups
 	states
 	brand_owner
-	ecoscore_score
-	ecoscore_grade
+	environmental_score_score
+	environmental_score_grade
 	nutrient_levels_tags
 	product_quantity
 	owner
@@ -566,6 +566,6 @@ $options{attribute_default_preferences_json}
 $options{no_nutrition_table} = 1;
 
 # Name of the Redis stream to which product updates are published
-$options{redis_stream_name} = "product_updates_opf";
+$options{redis_stream_name} = "product_updates";
 
 1;
