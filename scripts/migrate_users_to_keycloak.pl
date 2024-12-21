@@ -223,7 +223,7 @@ sub validate_user_emails() {
 						if (
 							not $email
 							=~ /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/
-							)
+							or $email =~ /\.@/)
 						{
 							print $invalid_user_file "$user_id,$file,$email,invalid\n";
 							$all_emails->{$email}->{invalid} = 1;
@@ -340,7 +340,8 @@ elsif ($importtype eq 'api-multi') {
 }
 elsif ($importtype eq 'api-single') {
 	if ((scalar @ARGV) == 2 and (length($ARGV[1]) > 0)) {
-		migrate_user($ARGV[1], $anonymize);
+		$user_emails = (retrieve("all_emails.sto") or validate_user_emails());
+		migrate_user("$BASE_DIRS{USERS}/${ARGV[1]}.sto", $anonymize);
 	}
 }
 else {
