@@ -98,8 +98,8 @@ sub import_users_in_keycloak ($users_ref) {
 	return;
 }
 
-sub migrate_user ($user_file, $anonymize) {
-	my $keycloak_user_ref = convert_to_keycloak_user($user_file, $anonymize);
+sub migrate_user ($userid, $anonymize) {
+	my $keycloak_user_ref = convert_to_keycloak_user($userid, $anonymize);
 	if (not(defined $keycloak_user_ref)) {
 		$log->warn('unable to convert user_ref');
 		return;
@@ -110,8 +110,8 @@ sub migrate_user ($user_file, $anonymize) {
 	return;
 }
 
-sub convert_to_keycloak_user ($user_file, $anonymize) {
-	my $user_ref = retrieve($user_file);
+sub convert_to_keycloak_user ($userid, $anonymize) {
+	my $user_ref = retrieve("$BASE_DIRS{USERS}/$userid.sto");
 	if (not(defined $user_ref)) {
 		$log->warn('undefined $user_ref');
 		return;
@@ -119,7 +119,6 @@ sub convert_to_keycloak_user ($user_file, $anonymize) {
 
 	my $credential
 		= $anonymize ? undef : convert_scrypt_password_to_keycloak_credentials($user_ref->{'encrypted_password'});
-	my $userid = $user_ref->{userid};
 	my $name = ($anonymize ? $userid : $user_ref->{name});
 	# Inverted expression from: https://github.com/keycloak/keycloak/blob/2eae68010877c6807b6a454c2d54e0d1852ed1c0/services/src/main/java/org/keycloak/userprofile/validator/PersonNameProhibitedCharactersValidator.java#L42C63-L42C114
 	$name =~ s/[<>&"$%!#?§;*~\/\\|^=\[\]{}()\x00-\x1F\x7F]+//g;
@@ -146,7 +145,7 @@ sub convert_to_keycloak_user ($user_file, $anonymize) {
 	my $email_status = $user_emails->{$email};
 
 	if ($anonymize) {
-		$keycloak_user_ref->{email} = 'off.' . $user_ref->{userid};
+		$keycloak_user_ref->{email} = 'off.' . $userid;
 		$keycloak_user_ref->{emailVerified} = $JSON::PP::true;
 	}
 	elsif (not defined $email_status or $email_status->{invalid} or $email_status->{userid} ne $userid) {
@@ -213,33 +212,31 @@ sub validate_user_emails() {
 			if (($file =~ /.+\.sto$/) and ($file ne 'users_emails.sto')) {
 				my $user_ref = retrieve("$BASE_DIRS{USERS}/$file");
 				if (defined $user_ref) {
-					my $user_id = $user_ref->{userid};
+					my $userid = substr($file, 0, -4);
 					my $email = sanitise_email($user_ref->{email});
 					my $last_login_t = $user_ref->{last_login_t} || 0;
-					my $user_info = {userid => $user_id, last_login_t => $last_login_t};
+					my $user_info = {userid => $userid, last_login_t => $last_login_t};
 					my $user_infos = $all_emails->{$email};
 					if (!defined $user_infos) {
 						$all_emails->{$email}
-							= {userid => $user_id, last_login_t => $last_login_t, file => $file, users => [$user_info]};
+							= {userid => $userid, last_login_t => $last_login_t, users => [$user_info]};
 						if (
 							not $email
 							=~ /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/
 							or $email =~ /\.@/)
 						{
-							print $invalid_user_file "$user_id,$file,$email,invalid\n";
+							print $invalid_user_file "$userid,$email,invalid\n";
 							$all_emails->{$email}->{invalid} = 1;
 						}
 					}
 					else {
 						if ($last_login_t < $user_infos->{last_login_t}) {
-							print $invalid_user_file $user_id . ",$file,$email,duplicate\n";
+							print $invalid_user_file "$userid,$email,duplicate\n";
 						}
 						else {
-							print $invalid_user_file $user_infos->{userid} . ","
-								. $user_infos->{file}
+							print $invalid_user_file $user_infos->{userid}
 								. ",$email,duplicate\n";
-							$user_infos->{userid} = $user_id;
-							$user_infos->{file} = $file;
+							$user_infos->{userid} = $userid;
 							$user_infos->{last_login_t} = $last_login_t;
 						}
 						push(@{$user_infos->{users}}, $user_info);
@@ -313,7 +310,7 @@ elsif ($importtype eq 'realm-batch') {
 			next if $file le $checkpoint;
 
 			if (($file =~ /.+\.sto$/) and ($file ne 'users_emails.sto')) {
-				my $keycloak_user = convert_to_keycloak_user("$BASE_DIRS{USERS}/$file", $anonymize);
+				my $keycloak_user = convert_to_keycloak_user(substr($file, 0, -4), $anonymize);
 				push(@users, $keycloak_user) if defined $keycloak_user;
 			}
 
@@ -340,7 +337,7 @@ elsif ($importtype eq 'api-multi') {
 			next if $file le $checkpoint;
 
 			if (($file =~ /.+\.sto$/) and ($file ne 'users_emails.sto')) {
-				migrate_user("$BASE_DIRS{USERS}/$file", $anonymize);
+				migrate_user(substr($file, 0, -4), $anonymize);
 			}
 			if ($count % 10000 == 0) {
 				print "Migrated $count / " . scalar @files . "\n";
@@ -351,7 +348,7 @@ elsif ($importtype eq 'api-multi') {
 elsif ($importtype eq 'api-single') {
 	if ((scalar @ARGV) == 2 and (length($ARGV[1]) > 0)) {
 		$user_emails = (retrieve("all_emails.sto") or validate_user_emails());
-		migrate_user("$BASE_DIRS{USERS}/${ARGV[1]}.sto", $anonymize);
+		migrate_user($ARGV[1], $anonymize);
 	}
 }
 else {
