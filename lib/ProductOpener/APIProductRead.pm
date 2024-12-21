@@ -138,17 +138,22 @@ sub read_product_api ($request_ref) {
 		);
 		$response_ref->{result} = {id => "product_not_found"};
 	}
-	elsif ((defined $product_ref->{product_type}) and ($product_ref->{product_type} ne $options{product_type})) {
+	elsif ( (not $server_options{private_products})
+		and (defined $product_ref->{product_type})
+		and ($product_ref->{product_type} ne $options{product_type}))
+	{
 
 		# If the product has a product_type and it is not the product_type of the server,
 		# redirect to the correct server if the request includes a matching product_type parameter (or the "all" product type)
+		# unless we are on the pro platform
 
 		my $requested_product_type = single_param("product_type");
 		if (    (defined $requested_product_type)
 			and (($requested_product_type eq "all") or ($requested_product_type eq $product_ref->{product_type})))
 		{
 			redirect_to_url($request_ref, 302,
-				format_subdomain($subdomain, $product_ref->{product_type}) . $request_ref->{original_query_string});
+				format_subdomain($subdomain, $product_ref->{product_type}) . "/"
+					. $request_ref->{original_query_string});
 		}
 		else {
 			add_error(

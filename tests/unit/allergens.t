@@ -411,6 +411,8 @@ is(
 		'allergens_from_ingredients' => "Saumon, oeufs, bl\x{e9}",
 		'allergens_hierarchy' => ['en:eggs', 'en:fish', 'en:gluten', 'en:mustard'],
 		'allergens_tags' => ['en:eggs', 'en:fish', 'en:gluten', 'en:mustard'],
+		'ingredients_lc' => 'fr',
+		'ingredients_text' => "Saumon, oeufs, bl\x{e9}, chocolat",
 		'ingredients_text_fr' => "Saumon, oeufs, bl\x{e9}, chocolat",
 		'ingredients_text_with_allergens' =>
 			"<span class=\"allergen\">Saumon</span>, <span class=\"allergen\">oeufs</span>, <span class=\"allergen\">bl\x{e9}</span>, chocolat",
@@ -451,6 +453,8 @@ is(
 		'allergens_from_ingredients' => '',
 		'allergens_hierarchy' => ['en:celery', 'en:crustaceans', 'en:lupin'],
 		'allergens_tags' => ['en:celery', 'en:crustaceans', 'en:lupin'],
+		'ingredients_lc' => 'fr',
+		'ingredients_text' => 'Filet de saumon sauvage',
 		'ingredients_text_fr' => 'Filet de saumon sauvage',
 		'ingredients_text_with_allergens' => 'Filet de saumon sauvage',
 		'ingredients_text_with_allergens_fr' => 'Filet de saumon sauvage',

@@ -2,7 +2,7 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "13014",
-         "ecobalyse_code" : "strawberry-non-eu",
+         "ecobalyse_code" : "strawberry-fr-offseason",
          "id" : "en:strawberry",
          "is_in_taxonomy" : 1,
          "origins" : "en:france",
@@ -65,7 +65,7 @@
       },
       {
          "ciqual_proxy_food_code" : "13009",
-         "ecobalyse_code" : "lemon-eu",
+         "ecobalyse_code" : "lemon-organic",
          "id" : "en:lemon",
          "is_in_taxonomy" : 1,
          "labels" : "en:organic",
@@ -102,7 +102,7 @@
       },
       {
          "ciqual_food_code" : "13008",
-         "ecobalyse_code" : "cherry-tr",
+         "ecobalyse_code" : "cherry-organic",
          "id" : "en:cherry",
          "is_in_taxonomy" : 1,
          "labels" : "en:organic",
@@ -136,6 +136,7 @@
       "en:cherry",
       "en:prunus-species-fruit"
    ],
+   "ingredients_lc" : "fr",
    "ingredients_n" : 9,
    "ingredients_n_tags" : [
       "9",

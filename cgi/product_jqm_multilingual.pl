@@ -52,7 +52,7 @@ use ProductOpener::Food qw/assign_nutriments_values_from_request_parameters/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::DataQuality qw/:all/;
-use ProductOpener::Ecoscore qw/:all/;
+use ProductOpener::EnvironmentalScore qw/:all/;
 use ProductOpener::Packaging qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
@@ -118,8 +118,12 @@ else {
 	else {
 		# There is an existing product
 		# If the product has a product_type and it is not the product_type of the server, redirect to the correct server
+		# unless we are on the pro platform
 
-		if ((defined $product_ref->{product_type}) and ($product_ref->{product_type} ne $options{product_type})) {
+		if (    (not $server_options{private_products})
+			and (defined $product_ref->{product_type})
+			and ($product_ref->{product_type} ne $options{product_type}))
+		{
 			redirect_to_url($request_ref, 307,
 				format_subdomain($subdomain, $product_ref->{product_type}) . '/cgi/product_jqm.pl?code=' . $code);
 		}
@@ -262,8 +266,8 @@ else {
 		push @app_fields, "creator";
 	}
 
-	if ($request_ref->{admin} or ($User_id eq "ecoscore-impact-estimator")) {
-		push @app_fields, ("ecoscore_extended_data", "ecoscore_extended_data_version");
+	if ($request_ref->{admin} or ($User_id eq "environmental-score-impact-estimator")) {
+		push @app_fields, ("environmental_score_extended_data", "environmental_score_extended_data_version");
 	}
 
 	# generate a list of potential languages for language specific fields
@@ -381,7 +385,7 @@ else {
 				}
 
 			}
-			elsif ($field eq "ecoscore_extended_data") {
+			elsif ($field eq "environmental_score_extended_data") {
 				# we expect a JSON value
 				if (defined single_param($field)) {
 					$product_ref->{$field} = decode_json(single_param($field));
