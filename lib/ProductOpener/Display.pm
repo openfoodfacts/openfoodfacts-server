@@ -1998,7 +1998,7 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 
 		# For the Environmental-Score, we want to display A+ before A even though A+ is after A in alphabetical order
 		# If the tagid "a" is followed by tagid "a-plus", invert them
-		if (($tagtype eq 'environmental_score') and (defined $tags[1])) {
+		if (($tagtype eq 'ecoscore') or ($tagtype eq 'environmental_score') and (defined $tags[1])) {
 
 			if (($tags[0]{_id} eq 'a') and ($tags[1]{_id} eq 'a-plus')) {
 				my $tags_tmp = $tags[0];
@@ -2193,7 +2193,7 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 					. "\" style=\"max-height:80px;\"> "
 					. $grade;
 			}
-			elsif ($tagtype eq 'environmental_score') {
+			elsif (($tagtype eq 'ecoscore') or ($tagtype eq 'environmental_score')) {
 				my $grade;
 
 				if ($tagid eq "a-plus") {
