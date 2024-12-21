@@ -216,7 +216,7 @@ jobs:
         echo "export USER_GID=$(id -g)" >> .envrc
     - name: Test make dev
       run: |
-        make DOCKER_LOCAL_DATA="$(pwd)" SKIP_SAMPLE_IMAGES=1 dev
+        make DOCKER_LOCAL_DATA="$(pwd)" SKIP_SAMPLE_IMAGES=1 dev_no_build
         make status
     - name: Test all is running
       run: make livecheck || ( tail -n 300 logs/apache2/*error*log; docker compose logs; false )
