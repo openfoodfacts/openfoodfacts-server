@@ -569,14 +569,28 @@ ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
 	'en:serving-size-is-missing-digits',
-	'serving size should contains digits', 1
+	'serving size does not contain digits', 1
 );
 $product_ref = {serving_size => "120g"};
 ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
 	'en:serving-size-is-missing-digits',
-	'serving size should contains digits', 0
+	'serving size contains digits', 0
+);
+$product_ref = {serving_size => ""};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:serving-size-is-missing-digits',
+	'serving size is empty', 0
+);
+$product_ref = {serving_size => "-"};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:serving-size-is-missing-digits',
+	'serving size is -', 0
 );
 
 # serving size is missing
