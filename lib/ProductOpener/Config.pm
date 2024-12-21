@@ -163,10 +163,14 @@ $ProductOpener::Config::options{other_servers} = {
 		domain => "openproductsfacts.org",
 	},
 	opff => {
-		prefix => "opff",
 		name => "Open Pet Food Facts",
 		mongodb => "opff",
 		domain => "openpetfoodfacts.org",
+	},
+	'off-pro' => {
+		name => "Open Food Facts Pro",
+		mongodb => "off-pro",
+		domain => "pro.openfoodfacts.org",
 	}
 };
 
