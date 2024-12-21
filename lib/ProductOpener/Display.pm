@@ -2214,9 +2214,9 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 				}
 
 				$display
-					= "<img src=\"/images/attributes/dist/environmental-score-$tagid.svg\" alt=\"Environmental-Score "
+					= "<img src=\"/images/attributes/dist/green-score-$tagid.svg\" alt=\"Green-Score "
 					. $grade
-					. "\" title=\"Environmental-Score "
+					. "\" title=\"Green-Score "
 					. $grade
 					. "\" style=\"max-height:80px;\"> "
 					. $grade;
