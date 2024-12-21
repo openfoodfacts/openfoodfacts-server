@@ -111,7 +111,8 @@ sub migrate_user ($userid, $anonymize) {
 }
 
 sub convert_to_keycloak_user ($userid, $anonymize) {
-	my $user_ref = retrieve("$BASE_DIRS{USERS}/$userid.sto");
+	my $user_file = "$BASE_DIRS{USERS}/$userid.sto";
+	my $user_ref = retrieve($user_file);
 	if (not(defined $user_ref)) {
 		$log->warn('undefined $user_ref');
 		return;
