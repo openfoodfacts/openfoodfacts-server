@@ -208,6 +208,7 @@ sub validate_user_emails() {
 	if (opendir(my $dh, "$BASE_DIRS{USERS}/")) {
 		my @files = readdir($dh);
 		closedir $dh;
+		my $count = 0;
 		foreach my $file (sort @files) {
 			if (($file =~ /.+\.sto$/) and ($file ne 'users_emails.sto')) {
 				my $user_ref = retrieve("$BASE_DIRS{USERS}/$file");
@@ -244,6 +245,10 @@ sub validate_user_emails() {
 						push(@{$user_infos->{users}}, $user_info);
 					}
 				}
+			}
+			$count++;
+			if ($count % 10000 == 0) {
+				print "Validated $count / " . scalar @files . "\n";
 			}
 		}
 
