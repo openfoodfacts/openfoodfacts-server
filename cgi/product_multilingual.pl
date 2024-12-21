@@ -46,7 +46,7 @@ use ProductOpener::KnowledgePanels qw/initialize_knowledge_panels_options/;
 use ProductOpener::KnowledgePanelsContribution qw/create_contribution_card_panel/;
 use ProductOpener::URL qw/:all/;
 use ProductOpener::DataQuality qw/:all/;
-use ProductOpener::Ecoscore qw/:all/;
+use ProductOpener::EnvironmentalScore qw/:all/;
 use ProductOpener::Packaging
 	qw/apply_rules_to_augment_packaging_component_data get_checked_and_taxonomized_packaging_component_data/;
 use ProductOpener::ForestFootprint qw/:all/;

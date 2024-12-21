@@ -867,8 +867,8 @@ $options{replace_existing_values_when_importing_those_tags_fields} = {
 	food_groups
 	states
 	brand_owner
-	ecoscore_score
-	ecoscore_grade
+	environmental_score_score
+	environmental_score_grade
 	nutrient_levels_tags
 	product_quantity
 	owner
@@ -937,15 +937,15 @@ $options{off_export_fields_groups} = [
 			"nova_groups",
 			"nutriscore_grade",
 			"nutriscore_score",
-			"ecoscore_grade",
-			"ecoscore_score",
-			"ecoscore_data.missing_key_data",
-			"ecoscore_data.agribalyse.code",
-			"ecoscore_data.adjustments.origins_of_ingredients.value",
-			"ecoscore_data.adjustments.packaging.value",
-			"ecoscore_data.adjustments.packaging.non_recyclable_and_non_biodegradable_materials",
-			"ecoscore_data.adjustments.production_system.value",
-			"ecoscore_data.adjustments.threatened_species.value",
+			"environmental_score_grade",
+			"environmental_score_score",
+			"environmental_score_data.missing_key_data",
+			"environmental_score_data.agribalyse.code",
+			"environmental_score_data.adjustments.origins_of_ingredients.value",
+			"environmental_score_data.adjustments.packaging.value",
+			"environmental_score_data.adjustments.packaging.non_recyclable_and_non_biodegradable_materials",
+			"environmental_score_data.adjustments.production_system.value",
+			"environmental_score_data.adjustments.threatened_species.value",
 		]
 	],
 ];
@@ -969,6 +969,9 @@ $options{attribute_groups} = [
 	],
 	["ingredients_analysis", ["vegan", "vegetarian", "palm_oil_free",]],
 	["labels", ["labels_organic", "labels_fair_trade"]],
+	# Note: before 2025, the Environmental-Score was called the Eco-Score,
+	# as the id of the attribute is stored inside clients, we keep the
+	# id "ecoscore" for the attribute.
 	["environment", ["ecoscore", "forest_footprint",]],
 ];
 
@@ -1081,7 +1084,7 @@ $options{import_export_fields_importance} = {
 );
 
 # Name of the Redis stream to which product updates are published
-$options{redis_stream_name} = "product_updates_off";
+$options{redis_stream_name} = "product_updates";
 
 # used to rename texts and to redirect to the new name
 $options{redirect_texts} = {

@@ -37,7 +37,10 @@
 .show-when-logged-in {display:none}
 
     </style>
-    <!-- Matomo -->
+</head>
+<body class="products_page">
+
+	<!-- Matomo -->
 <script>
   var _paq = window._paq = window._paq || [];
   /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
@@ -60,8 +63,7 @@
 <!-- End Matomo Code -->
 
 
-</head>
-<body class="products_page">
+
 	<div class="skip"><a href="#content" tabindex="0">Aller au contenu</a></div>
 
 	<div id="page">
@@ -254,8 +256,8 @@
     <div class="donation-banner__aside">
       <div class="donation-banner__main-section">
         <img
-          width="50px"
-          height="50px"
+          width="50"
+          height="50"
           src="//world.openfoodfacts.org/images/logos/logo-variants/CMJN-ICON_WHITE_BG_OFF.svg"
           alt="open food facts logo"
         />
@@ -430,7 +432,7 @@
             </li>
         
             <li>
-              <a href="?sort_by=ecoscore_score" onclick="$.cookie('last_sort_by', 'ecoscore_score', { expires: 180, path: '/' });">Produits avec le meilleur Eco-Score</a>
+              <a href="?sort_by=environmental_score_score" onclick="$.cookie('last_sort_by', 'environmental_score_score', { expires: 180, path: '/' });">Produits avec le meilleur Green-Score</a>
             </li>
         
             <li>
@@ -461,7 +463,7 @@
             </li>
           
             <li>
-              <a href="/eco-score">Eco-Score</a>
+              <a href="/environmental-score">Green-Score</a>
             </li>
           
             <li>
@@ -529,7 +531,7 @@
             </li>
           
             <li>
-              <a href="/misc"></a>
+              <a href="/misc">Divers</a>
             </li>
           
             <li>
@@ -609,8 +611,7 @@
   </div>
       
     
-	</ul>
-
+	
   </div>
 </div>
 
@@ -673,8 +674,8 @@
     <div>
       <div class="donation-banner-footer__main-section">
         <img
-          width="50px"
-          height="50px"
+          width="50"
+          height="50"
           src="//world.openfoodfacts.org/images/logos/logo-variants/CMJN-ICON_WHITE_BG_OFF.svg"
           alt="open food facts logo"
         />
@@ -819,15 +820,15 @@ var products = [
             "attributes":[
                {
                   "description":"",
-                  "description_short":"Qualité nutritionnelle moyenne",
-                  "grade":"c",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-c.svg",
+                  "description_short":"Moins bonne qualité nutritionnelle",
+                  "grade":"d",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-d-new-fr.svg",
                   "id":"nutriscore",
-                  "match":43.1111111111111,
+                  "match":29.4444444444444,
                   "name":"Nutri-Score",
-                  "panel_id":"nutriscore",
+                  "panel_id":"nutriscore_2023",
                   "status":"known",
-                  "title":"Nutri-Score C"
+                  "title":"Nutri-Score D"
                },
                {
                   "grade":"unknown",
@@ -1083,13 +1084,13 @@ var products = [
                   "description":"",
                   "description_short":"Faible impact environnemental",
                   "grade":"b",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/ecoscore-b.svg",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/green-score-b.svg",
                   "id":"ecoscore",
                   "match":70,
-                  "name":"Eco-Score",
-                  "panel_id":"ecoscore",
+                  "name":"Green-Score",
+                  "panel_id":"environmental_score",
                   "status":"known",
-                  "title":"Eco-Score B"
+                  "title":"Green-Score B"
                },
                {
                   "description":"",
@@ -1148,11 +1149,11 @@ var products = [
                   "description":"",
                   "description_short":"Données manquantes pour calculer le Nutri-Score",
                   "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-unknown.svg",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-unknown-new-fr.svg",
                   "id":"nutriscore",
                   "match":0,
                   "name":"Nutri-Score",
-                  "panel_id":"nutriscore",
+                  "panel_id":"nutriscore_2023",
                   "status":"unknown",
                   "title":"Nutri-Score inconnu"
                },
@@ -1410,13 +1411,13 @@ var products = [
                   "description":"",
                   "description_short":"Impact environnemental inconnu",
                   "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/ecoscore-unknown.svg",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/green-score-unknown.svg",
                   "id":"ecoscore",
                   "match":0,
-                  "name":"Eco-Score",
-                  "panel_id":"ecoscore",
+                  "name":"Green-Score",
+                  "panel_id":"environmental_score",
                   "status":"unknown",
-                  "title":"Eco-Score non calculé"
+                  "title":"Green-Score non calculé"
                },
                {
                   "description":"",
@@ -1474,11 +1475,11 @@ var products = [
                   "description":"",
                   "description_short":"Qualité nutritionnelle moyenne",
                   "grade":"c",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-c.svg",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-c-new-fr.svg",
                   "id":"nutriscore",
-                  "match":50.5,
+                  "match":41,
                   "name":"Nutri-Score",
-                  "panel_id":"nutriscore",
+                  "panel_id":"nutriscore_2023",
                   "status":"known",
                   "title":"Nutri-Score C"
                },
@@ -1737,13 +1738,13 @@ var products = [
                   "description":"",
                   "description_short":"Impact modéré sur l'environnement",
                   "grade":"c",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/ecoscore-c.svg",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/green-score-c.svg",
                   "id":"ecoscore",
                   "match":50,
-                  "name":"Eco-Score",
-                  "panel_id":"ecoscore",
+                  "name":"Green-Score",
+                  "panel_id":"environmental_score",
                   "status":"known",
-                  "title":"Eco-Score C"
+                  "title":"Green-Score C"
                },
                {
                   "description":"",
@@ -1800,12 +1801,12 @@ var products = [
                {
                   "description":"",
                   "description_short":"Qualité nutritionnelle moyenne",
-                  "grade":"c",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-c.svg",
+                  "grade":"d",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-c-new-fr.svg",
                   "id":"nutriscore",
-                  "match":50.5,
+                  "match":35.25,
                   "name":"Nutri-Score",
-                  "panel_id":"nutriscore",
+                  "panel_id":"nutriscore_2023",
                   "status":"known",
                   "title":"Nutri-Score C"
                },
@@ -2064,13 +2065,13 @@ var products = [
                   "description":"",
                   "description_short":"Impact modéré sur l'environnement",
                   "grade":"c",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/ecoscore-c.svg",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/green-score-c.svg",
                   "id":"ecoscore",
                   "match":50,
-                  "name":"Eco-Score",
-                  "panel_id":"ecoscore",
+                  "name":"Green-Score",
+                  "panel_id":"environmental_score",
                   "status":"known",
-                  "title":"Eco-Score C"
+                  "title":"Green-Score C"
                },
                {
                   "description":"",
@@ -2128,11 +2129,11 @@ var products = [
                   "description":"",
                   "description_short":"Données manquantes pour calculer le Nutri-Score",
                   "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-unknown.svg",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-unknown-new-fr.svg",
                   "id":"nutriscore",
                   "match":0,
                   "name":"Nutri-Score",
-                  "panel_id":"nutriscore",
+                  "panel_id":"nutriscore_2023",
                   "status":"unknown",
                   "title":"Nutri-Score inconnu"
                },
@@ -2391,13 +2392,13 @@ var products = [
                   "description":"",
                   "description_short":"Faible impact environnemental",
                   "grade":"b",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/ecoscore-b.svg",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/green-score-b.svg",
                   "id":"ecoscore",
                   "match":67,
-                  "name":"Eco-Score",
-                  "panel_id":"ecoscore",
+                  "name":"Green-Score",
+                  "panel_id":"environmental_score",
                   "status":"known",
-                  "title":"Eco-Score B"
+                  "title":"Green-Score B"
                },
                {
                   "description":"",
@@ -2455,11 +2456,11 @@ var products = [
                   "description":"",
                   "description_short":"Données manquantes pour calculer le Nutri-Score",
                   "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-unknown.svg",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-unknown-new-fr.svg",
                   "id":"nutriscore",
                   "match":0,
                   "name":"Nutri-Score",
-                  "panel_id":"nutriscore",
+                  "panel_id":"nutriscore_2023",
                   "status":"unknown",
                   "title":"Nutri-Score inconnu"
                },
@@ -2718,13 +2719,13 @@ var products = [
                   "description":"",
                   "description_short":"Impact environnemental inconnu",
                   "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/ecoscore-unknown.svg",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/green-score-unknown.svg",
                   "id":"ecoscore",
                   "match":0,
-                  "name":"Eco-Score",
-                  "panel_id":"ecoscore",
+                  "name":"Green-Score",
+                  "panel_id":"environmental_score",
                   "status":"unknown",
-                  "title":"Eco-Score non calculé"
+                  "title":"Green-Score non calculé"
                },
                {
                   "description":"",
@@ -2780,13 +2781,13 @@ var products = [
             "attributes":[
                {
                   "description":"",
-                  "description_short":"Mauvaise qualité nutritionnelle",
+                  "description_short":"Moins bonne qualité nutritionnelle",
                   "grade":"d",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-d.svg",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-d-new-fr.svg",
                   "id":"nutriscore",
-                  "match":35.7777777777778,
+                  "match":27.3333333333333,
                   "name":"Nutri-Score",
-                  "panel_id":"nutriscore",
+                  "panel_id":"nutriscore_2023",
                   "status":"known",
                   "title":"Nutri-Score D"
                },
@@ -3045,13 +3046,13 @@ var products = [
                   "description":"",
                   "description_short":"Faible impact environnemental",
                   "grade":"c",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/ecoscore-b.svg",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/green-score-b.svg",
                   "id":"ecoscore",
                   "match":60,
-                  "name":"Eco-Score",
-                  "panel_id":"ecoscore",
+                  "name":"Green-Score",
+                  "panel_id":"environmental_score",
                   "status":"known",
-                  "title":"Eco-Score B"
+                  "title":"Green-Score B"
                },
                {
                   "description":"",

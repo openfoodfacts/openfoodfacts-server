@@ -67,7 +67,7 @@ use ProductOpener::Display qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Data qw/get_products_collection/;
-use ProductOpener::Ecoscore qw(compute_ecoscore);
+use ProductOpener::EnvironmentalScore qw(compute_environmental_score);
 use ProductOpener::LoadData qw/load_data/;
 
 use CGI qw/:cgi :form escapeHTML/;

@@ -3626,7 +3626,7 @@ sub add_images_urls_to_product ($product_ref, $target_lc, $specific_imagetype = 
 =head2 analyze_and_enrich_product_data ($product_ref, $response_ref)
 
 This function processes product raw data to analyze it and enrich it.
-For instance to analyze ingredients and compute scores such as Nutri-Score and Eco-Score.
+For instance to analyze ingredients and compute scores such as Nutri-Score and Environmental-Score.
 
 =head3 Parameters
 
@@ -3674,7 +3674,7 @@ sub analyze_and_enrich_product_data ($product_ref, $response_ref) {
 	# Needed before we analyze packaging data in order to compute packaging weights per 100g of product
 	normalize_product_quantity_and_serving_size($product_ref);
 
-	# We need packaging analysis before calling the Eco-Score for food products
+	# We need packaging analysis before calling the Environmental-Score for food products
 	analyze_and_combine_packaging_data($product_ref, $response_ref);
 
 	compute_languages($product_ref);    # need languages for allergens detection and cleaning ingredients
