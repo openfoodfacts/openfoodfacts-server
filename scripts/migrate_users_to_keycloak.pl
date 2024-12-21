@@ -334,11 +334,16 @@ elsif ($importtype eq 'api-multi') {
 	if (opendir(my $dh, "$BASE_DIRS{USERS}/")) {
 		my @files = readdir($dh);
 		closedir $dh;
+		my $count = 0;
 		foreach my $file (sort @files) {
+			$count++;
 			next if $file le $checkpoint;
 
 			if (($file =~ /.+\.sto$/) and ($file ne 'users_emails.sto')) {
 				migrate_user("$BASE_DIRS{USERS}/$file", $anonymize);
+			}
+			if ($count % 10000 == 0) {
+				print "Migrated $count / " . scalar @files . "\n";
 			}
 		}
 	}
