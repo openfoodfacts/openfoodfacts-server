@@ -4810,48 +4810,48 @@ msgctxt "attribute_group_environment_name"
 msgid "Environment"
 msgstr "Životní prostředí"
 
-msgctxt "attribute_ecoscore_name"
-msgid "Eco-Score"
+msgctxt "attribute_environmental_score_name"
+msgid "Green-Score"
 msgstr "Eco-score"
 
-msgctxt "attribute_ecoscore_setting_name"
-msgid "Low environmental impact (Eco-Score)"
+msgctxt "attribute_environmental_score_setting_name"
+msgid "Low environmental impact (Green-Score)"
 msgstr "Nízký dopad na životní prostředí (Eko-skóre)"
 
-msgctxt "attribute_ecoscore_setting_note"
-msgid "The Eco-Score is an environmental score (ecoscore) from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr "Eco-Score je environmentální skóre (ekoskóre) od A do E, které usnadňuje porovnávání vlivu potravinářských výrobků na životní prostředí."
+msgctxt "attribute_environmental_score_setting_note"
+msgid "The Green-Score is an environmental score (environmental_score) from A to E which makes it easy to compare the impact of food products on the environment."
+msgstr "Green-Score je environmentální skóre (ekoskóre) od A do E, které usnadňuje porovnávání vlivu potravinářských výrobků na životní prostředí."
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
-msgctxt "attribute_ecoscore_grade_title"
-msgid "Eco-Score %s"
-msgstr "Eco-Score %s"
+msgctxt "attribute_environmental_score_grade_title"
+msgid "Green-Score %s"
+msgstr "Green-Score %s"
 
-msgctxt "attribute_ecoscore_a_plus_description_short"
+msgctxt "attribute_environmental_score_a_plus_description_short"
 msgid "Very low environmental impact"
 msgstr "Velmi nízký dopad na životní prostředí"
 
-msgctxt "attribute_ecoscore_a_description_short"
+msgctxt "attribute_environmental_score_a_description_short"
 msgid "Very low environmental impact"
 msgstr "Velmi nízký dopad na životní prostředí"
 
-msgctxt "attribute_ecoscore_b_description_short"
+msgctxt "attribute_environmental_score_b_description_short"
 msgid "Low environmental impact"
 msgstr "Nízký dopad na životní prostředí"
 
-msgctxt "attribute_ecoscore_c_description_short"
+msgctxt "attribute_environmental_score_c_description_short"
 msgid "Moderate environmental impact"
 msgstr "Střední dopad na životní prostředí"
 
-msgctxt "attribute_ecoscore_d_description_short"
+msgctxt "attribute_environmental_score_d_description_short"
 msgid "High environmental impact"
 msgstr "Vysoký dopad na životní prostředí"
 
-msgctxt "attribute_ecoscore_e_description_short"
+msgctxt "attribute_environmental_score_e_description_short"
 msgid "Very high environmental impact"
 msgstr "Velmi vysoký dopad na životní prostředí"
 
-msgctxt "attribute_ecoscore_f_description_short"
+msgctxt "attribute_environmental_score_f_description_short"
 msgid "Very high environmental impact"
 msgstr "Velmi vysoký dopad na životní prostředí"
 
@@ -5005,22 +5005,22 @@ msgid "Environmental impact"
 msgstr "Dopad na životní prostředí"
 
 # Numerical score for the Eco-score (do not translate Eco-score)
-msgctxt "ecoscore_score"
+msgctxt "environmental_score_score"
 msgid "Eco-score score"
 msgstr "Ekologické skóre"
 
 # Letter grade from A to E for the Eco-score (do not translate Eco-score)
-msgctxt "ecoscore_grade"
+msgctxt "environmental_score_grade"
 msgid "Eco-score grade"
 msgstr "Stupeň ekologického skóre"
 
 # do not translate Eco-score
-msgctxt "ecoscore_calculation_details"
+msgctxt "environmental_score_calculation_details"
 msgid "Details of the calculation of the Eco-score"
 msgstr "Podrobnosti výpočtu Eko-skóre"
 
 # do not translate Eco-score
-msgctxt "ecoscore_information"
+msgctxt "environmental_score_information"
 msgid "Information about the Eco-score"
 msgstr "Informace o ekologickém skóre"
 
@@ -5053,12 +5053,12 @@ msgctxt "missing_nutrition_facts"
 msgid "Missing nutrition facts"
 msgstr "Chybějící výživová fakta"
 
-msgctxt "ecoscore_p"
-msgid "Eco-Score"
+msgctxt "environmental_score_p"
+msgid "Green-Score"
 msgstr "Eco-score"
 
-msgctxt "ecoscore_s"
-msgid "Eco-Score"
+msgctxt "environmental_score_s"
+msgid "Green-Score"
 msgstr "Eco-score"
 
 msgctxt "packaging_parts"
@@ -5301,9 +5301,9 @@ msgctxt "sort_by_nutriscore_score"
 msgid "Products with the best Nutri-Score"
 msgstr "Produkty s nejlepšími Nutri-Score"
 
-msgctxt "sort_by_ecoscore_score"
-msgid "Products with the best Eco-Score"
-msgstr "Produkty s nejlepší Eco-Score"
+msgctxt "sort_by_environmental_score_score"
+msgid "Products with the best Green-Score"
+msgstr "Produkty s nejlepší Green-Score"
 
 msgctxt "sort_by_created_t"
 msgid "Recently added products"
@@ -5355,34 +5355,34 @@ msgctxt "delete_user_process"
 msgid "User is being deleted. This may take a few minutes."
 msgstr "Uživatel se odstraňuje. Může to trvat několik minut."
 
-msgctxt "attribute_ecoscore_not_applicable_title"
-msgid "Eco-Score not yet applicable"
-msgstr "Eco-Score zatím nelze použít"
+msgctxt "attribute_environmental_score_not_applicable_title"
+msgid "Green-Score not yet applicable"
+msgstr "Green-Score zatím nelze použít"
 
-msgctxt "attribute_ecoscore_not_applicable_description_short"
+msgctxt "attribute_environmental_score_not_applicable_description_short"
 msgid "Not yet applicable for the category"
 msgstr "Pro kategorii zatím neplatí"
 
 # variable names between { } must not be translated
-msgctxt "f_attribute_ecoscore_not_applicable_description"
+msgctxt "f_attribute_environmental_score_not_applicable_description"
 msgid "Not yet applicable for the category: {category}"
 msgstr "Zatím neplatí pro kategorii: {category}"
 
-msgctxt "ecoscore_not_applicable_coming_soon"
-msgid "The Eco-Score is not yet applicable for this category, but we are working on adding support for it."
-msgstr "Eco-Score ještě není pro tuto kategorii použitelný, ale pracujeme na tom, abychom pro ni přidali podporu."
+msgctxt "environmental_score_not_applicable_coming_soon"
+msgid "The Green-Score is not yet applicable for this category, but we are working on adding support for it."
+msgstr "Green-Score ještě není pro tuto kategorii použitelný, ale pracujeme na tom, abychom pro ni přidali podporu."
 
-msgctxt "attribute_ecoscore_unknown_title"
-msgid "Eco-Score not computed"
+msgctxt "attribute_environmental_score_unknown_title"
+msgid "Green-Score not computed"
 msgstr "Eko-skóre není vypočítáno"
 
-msgctxt "attribute_ecoscore_unknown_description_short"
+msgctxt "attribute_environmental_score_unknown_description_short"
 msgid "Unknown environmental impact"
 msgstr "Neznámý dopad na životní prostředí"
 
-msgctxt "ecoscore_unknown_call_to_help"
-msgid "We could not compute the Eco-Score of this product as it is missing some data, could you help complete it?"
-msgstr "Nemohli jsme vypočítat Eco-Score tohoto produktu, protože mu chybí některá data, mohli byste pomoci je doplnit?"
+msgctxt "environmental_score_unknown_call_to_help"
+msgid "We could not compute the Green-Score of this product as it is missing some data, could you help complete it?"
+msgstr "Nemohli jsme vypočítat Green-Score tohoto produktu, protože mu chybí některá data, mohli byste pomoci je doplnit?"
 
 msgctxt "org_list_of_gs1_gln_description"
 msgid "GS1 data is automatically associated with an OFF organization identifier that corresponds to the GS1 partyName field. To change the OFF organization identifier, you can directly assign 1 or more GS1 GLN identifiers."
@@ -5510,223 +5510,223 @@ msgctxt "forest_footprint_one_line_explanation"
 msgid "The forest footprint is calculated by taking into account the ingredients whose production requires soybeans, the cultivation of which is linked to deforestation."
 msgstr "Lesní stopa se vypočítává s přihlédnutím k přísadám, jejichž výroba vyžaduje sóju, jejíž pěstování je spojeno s odlesňováním."
 
-msgctxt "ecoscore_agribalyse_match_warning"
-msgid "The Eco-Score can only be calculated if the product has a sufficiently precise category."
-msgstr "Eco-Score lze vypočítat pouze v případě, že výrobek má dostatečně přesnou kategorii."
+msgctxt "environmental_score_agribalyse_match_warning"
+msgid "The Green-Score can only be calculated if the product has a sufficiently precise category."
+msgstr "Green-Score lze vypočítat pouze v případě, že výrobek má dostatečně přesnou kategorii."
 
-msgctxt "ecoscore_add_more_precise_category"
+msgctxt "environmental_score_add_more_precise_category"
 msgid "You can modify the product page to add a more precise category."
 msgstr "Můžete upravit stránku produktu a přidat přesnější kategorii."
 
-msgctxt "ecoscore_platform_promo"
+msgctxt "environmental_score_platform_promo"
 msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
 msgstr "Pokud jste výrobcem tohoto produktu, můžete nám zaslat informace prostřednictvím naší <a href=\"https://world.pro.openfoodfacts.org\">bezplatné platformy pro výrobce</a>."
 
-msgctxt "ecoscore_warning_missing_information"
-msgid "Warning: some information necessary to calculate the Eco-Score with precision is not provided (see the details of the calculation below)."
+msgctxt "environmental_score_warning_missing_information"
+msgid "Warning: some information necessary to calculate the Green-Score with precision is not provided (see the details of the calculation below)."
 msgstr "Upozornění: Některé informace potřebné k přesnému výpočtu Eco-score nejsou poskytnuty (viz podrobnosti výpočtu níže)."
 
-msgctxt "ecoscore_add_missing_information"
+msgctxt "environmental_score_add_missing_information"
 msgid "You can edit the product to add the missing information."
 msgstr "Můžete upravit produkt a přidat chybějící informace."
 
-msgctxt "ecoscore_product_category_reference_score"
+msgctxt "environmental_score_product_category_reference_score"
 msgid "Baseline score of the product category"
 msgstr "Základní skóre kategorie produktů"
 
-msgctxt "ecoscore_panel_lca"
+msgctxt "environmental_score_panel_lca"
 msgid "Lifecyle Analysis (LCA)"
 msgstr "Analýza životního cyklu (LCA)"
 
 # do not translate Agribalyse
-msgctxt "ecoscore_agribalyse_category"
+msgctxt "environmental_score_agribalyse_category"
 msgid "Agribalyse category"
 msgstr "Agribalyse kategorie"
 
-msgctxt "ecoscore_category_proxy_match"
+msgctxt "environmental_score_category_proxy_match"
 msgid "Approximate match with the product category"
 msgstr "Přibližná shoda s kategorií produktu"
 
-msgctxt "ecoscore_category_exact_match"
+msgctxt "environmental_score_category_exact_match"
 msgid "Exact match with the product category"
 msgstr "Přesná shoda s kategorií produktu"
 
-msgctxt "ecoscore_pef_environmental_score"
+msgctxt "environmental_score_pef_environmental_score"
 msgid "PEF environmental score"
 msgstr "Environmentální skóre PEF"
 
-msgctxt "ecoscore_incl_climate_change_impact"
+msgctxt "environmental_score_incl_climate_change_impact"
 msgid "including impact on climate change"
 msgstr "včetně dopadu na změnu klimatu"
 
-msgctxt "ecoscore_impact_detail_by_stages"
+msgctxt "environmental_score_impact_detail_by_stages"
 msgid "Details of the impacts by stages of the life cycle"
 msgstr "Podrobnosti o dopadech podle fází životního cyklu"
 
 # stage meaning step
-msgctxt "ecoscore_stage"
+msgctxt "environmental_score_stage"
 msgid "Stage"
 msgstr "Fáze"
 
-msgctxt "ecoscore_impact"
+msgctxt "environmental_score_impact"
 msgid "Impact"
 msgstr "Dopad"
 
-msgctxt "ecoscore_agriculture"
+msgctxt "environmental_score_agriculture"
 msgid "Agriculture"
 msgstr "Zemědělství"
 
-msgctxt "ecoscore_processing"
+msgctxt "environmental_score_processing"
 msgid "Processing"
 msgstr "Zpracování"
 
-msgctxt "ecoscore_packaging"
+msgctxt "environmental_score_packaging"
 msgid "Packaging"
 msgstr "Obal"
 
-msgctxt "ecoscore_transportation"
+msgctxt "environmental_score_transportation"
 msgid "Transportation"
 msgstr "Doprava"
 
-msgctxt "ecoscore_distribution"
+msgctxt "environmental_score_distribution"
 msgid "Distribution"
 msgstr "Distribuce"
 
-msgctxt "ecoscore_consumption"
+msgctxt "environmental_score_consumption"
 msgid "Consumption"
 msgstr "Spotřeba"
 
-msgctxt "ecoscore_lca_score_out_of_100"
+msgctxt "environmental_score_lca_score_out_of_100"
 msgid "LCA score out of 100"
 msgstr "LCA skóre ze 100"
 
-msgctxt "ecoscore_no_agribalyse_category_match"
+msgctxt "environmental_score_no_agribalyse_category_match"
 msgid "No match between product categories and Agribalyse categories."
 msgstr "Žádná shoda mezi kategoriemi produktů a kategoriemi Agribalyse."
 
-msgctxt "ecoscore_edit_category_to_more_granular"
+msgctxt "environmental_score_edit_category_to_more_granular"
 msgid "You can modify the product page to add a more granular category."
 msgstr "Můžete upravit stránku produktu a přidat podrobnější kategorii."
 
-msgctxt "ecoscore_additional_bonuses_and_maluses"
+msgctxt "environmental_score_additional_bonuses_and_maluses"
 msgid "Additional bonuses and maluses"
 msgstr "Další bonusy a malusy"
 
-msgctxt "ecoscore_production_system"
+msgctxt "environmental_score_production_system"
 msgid "Production mode"
 msgstr "Produkční režim"
 
-msgctxt "ecoscore_no_labels_taken_into_account"
+msgctxt "environmental_score_no_labels_taken_into_account"
 msgid "No labels taken into account for the production system."
 msgstr "Pro produkční systém se neberou v úvahu žádné štítky."
 
-msgctxt "ecoscore_please_add_the_labels"
+msgctxt "environmental_score_please_add_the_labels"
 msgid "If this product has a label characterizing the production system (organic, fair trade, Label Rouge, Bleu Blanc Coeur etc.), you can modify the product sheet to add it."
 msgstr "Pokud má tento produkt štítek charakterizující výrobní systém (bio, fair trade, Label Rouge, Bleu Blanc Coeur atd.), můžete upravit produktový list a přidat jej."
 
-msgctxt "ecoscore_origins_of_ingredients"
+msgctxt "environmental_score_origins_of_ingredients"
 msgid "Origins of ingredients"
 msgstr "Původ přísad"
 
-msgctxt "ecoscore_ingredients_not_indicated"
+msgctxt "environmental_score_ingredients_not_indicated"
 msgid "The origins of the ingredients of this product are not indicated."
 msgstr "Původ přísad tohoto výrobků není uveden."
 
-msgctxt "ecoscore_please_add_the_ingredients"
+msgctxt "environmental_score_please_add_the_ingredients"
 msgid "If they are indicated on the packaging, you can modify the product sheet and add them."
 msgstr "Pokud jsou uvedeny na obalu, můžete upravit produktový list a přidat je."
 
-msgctxt "ecoscore_environmental_policy"
+msgctxt "environmental_score_environmental_policy"
 msgid "Environmental policy"
 msgstr "Environmentální politika"
 
-msgctxt "ecoscore_threatened_species"
+msgctxt "environmental_score_threatened_species"
 msgid "Threatened species"
 msgstr "Ohrožené druhy"
 
-msgctxt "ecoscore_ingredients_whose_cultivation_threatens_species"
+msgctxt "environmental_score_ingredients_whose_cultivation_threatens_species"
 msgid "Ingredients that threatens species"
 msgstr "Přísady, které ohrožují druhy"
 
-msgctxt "ecoscore_no_species_threatening_ingredients"
+msgctxt "environmental_score_no_species_threatening_ingredients"
 msgid "No ingredients that threaten species"
 msgstr "Žádné přísady, které ohrožují druhy"
 
-msgctxt "ecoscore_ingredients_unknown"
+msgctxt "environmental_score_ingredients_unknown"
 msgid "The information on the ingredients of this product has not been given."
 msgstr "Informace o složkách tohoto produktu nebyly uvedeny."
 
-msgctxt "ecoscore_edit_for_more_precise_ecoscore"
-msgid "For a more precise calculation of the Eco-Score, you can edit the product page and add them."
+msgctxt "environmental_score_edit_for_more_precise_environmental_score"
+msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
 msgstr "Pro přesnější výpočet Eko-skóre můžete upravit stránku produktu a přidat je."
 
-msgctxt "ecoscore_packaging_ratio"
+msgctxt "environmental_score_packaging_ratio"
 msgid "ratio"
 msgstr "poměr"
 
-msgctxt "ecoscore_packaging_score"
+msgctxt "environmental_score_packaging_score"
 msgid "score"
 msgstr "skóre"
 
-msgctxt "ecoscore_score_of_all_components"
+msgctxt "environmental_score_score_of_all_components"
 msgid "Score of all components"
 msgstr "Skóre všech složek"
 
-msgctxt "ecoscore_no_packaging_information"
+msgctxt "environmental_score_no_packaging_information"
 msgid "The information about the packaging of this product is not filled in."
 msgstr "Údaje o obalu tohoto produktu nejsou vyplněny."
 
-msgctxt "ecoscore_unprecise_packaging_information"
+msgctxt "environmental_score_unprecise_packaging_information"
 msgid "The information about the packaging of this product is not sufficiently precise (exact shapes and materials of all components of the packaging)."
 msgstr "Údaje o obalu tohoto výrobku nejsou dostatečně přesné (přesné tvary a materiály všech součástí obalu)."
 
-msgctxt "ecoscore_edit_for_more_precise_ecoscore"
-msgid "For a more precise calculation of the Eco-Score, you can modify the product page and add them."
-msgstr "Pro přesnější výpočet Eco-Score můžete upravit stránku produktu a přidat je."
+msgctxt "environmental_score_edit_for_more_precise_environmental_score"
+msgid "For a more precise calculation of the Green-Score, you can modify the product page and add them."
+msgstr "Pro přesnější výpočet Green-Score můžete upravit stránku produktu a přidat je."
 
-msgctxt "ecoscore_final_score"
+msgctxt "environmental_score_final_score"
 msgid "Final score"
 msgstr "Konečné skóre"
 
-msgctxt "ecoscore_lower_the_score_lower_the_impact"
+msgctxt "environmental_score_lower_the_score_lower_the_impact"
 msgid "(the lower the score, the lower the impact)"
 msgstr "(čím nižší je skóre, tím nižší dopad)"
 
-msgctxt "ecoscore_kg_co2_eq_kg_product"
+msgctxt "environmental_score_kg_co2_eq_kg_product"
 msgid "kg CO2 eq/kg of product"
 msgstr "kg CO2 ekv./kg produktu"
 
 # do not translate the link
-msgctxt "ecoscore_platform_prompt_ecoscore_modal"
+msgctxt "environmental_score_platform_prompt_environmental_score_modal"
 msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
 msgstr "Pokud jste výrobcem tohoto produktu, můžete nám zaslat informace prostřednictvím naší <a href=\"https://world.pro.openfoodfacts.org\">bezplatné platformy pro výrobce</a>."
 
-# do not translate Eco-Score and the link
-msgctxt "ecoscore_description"
-msgid "The <a href=\"/ecoscore\">Eco-Score</a> is an experimental score that summarizes the environmental impacts of food products."
-msgstr "<a href=\"/ecoscore\">Eco-Score</a> je experimentální skóre, které shrnuje dopady potravinářských výrobků na životní prostředí."
+# do not translate Green-Score and the link
+msgctxt "environmental_score_description"
+msgid "The <a href=\"/green-score\">Green-Score</a> is an experimental score that summarizes the environmental impacts of food products."
+msgstr "<a href=\"/green-score\">Green-Score</a> je experimentální skóre, které shrnuje dopady potravinářských výrobků na životní prostředí."
 
-# do not translate Eco-Score
-msgctxt "ecoscore_warning_fr"
-msgid "The Eco-Score formula is subject to change as it is regularly improved to make it more precise."
-msgstr "Vzorec Eco-Score se může změnit, protože je pravidelně vylepšován, aby byl přesnější."
+# do not translate Green-Score
+msgctxt "environmental_score_warning_fr"
+msgid "The Green-Score formula is subject to change as it is regularly improved to make it more precise."
+msgstr "Vzorec Green-Score se může změnit, protože je pravidelně vylepšován, aby byl přesnější."
 
-# do not translate Eco-Score
-msgctxt "ecoscore_warning_international"
-msgid "The Eco-Score was initially developped for France and it is being extended to other European countries. The Eco-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
-msgstr "Eco-Score bylo původně vyvinuto pro Francii a je rozšiřováno do dalších evropských zemí. Vzorec Eco-Score se může změnit, protože je pravidelně vylepšován, aby byl přesnější a lépe vyhovoval každé zemi."
+# do not translate Green-Score
+msgctxt "environmental_score_warning_international"
+msgid "The Green-Score was initially developped for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
+msgstr "Green-Score bylo původně vyvinuto pro Francii a je rozšiřováno do dalších evropských zemí. Vzorec Green-Score se může změnit, protože je pravidelně vylepšován, aby byl přesnější a lépe vyhovoval každé zemi."
 
-msgctxt "ecoscore_warning_transportation_world"
+msgctxt "environmental_score_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
 msgstr "Vyberte zemi tak, aby zahrnovala plný dopad přepravy."
 
-msgctxt "ecoscore_warning_transportation"
+msgctxt "environmental_score_warning_transportation"
 msgid "The full impact of transportation to your country is currently unknown."
 msgstr "Plný dopad dopravy do vaší země není v současné době znám."
 
 msgctxt "app_banner_text"
-msgid "Scan barcodes to get the Nutri-Score, the Eco-Score and more!"
-msgstr "Naskenujte čárové kódy a získejte Nutri-Score, Eco-Score a další!"
+msgid "Scan barcodes to get the Nutri-Score, the Green-Score and more!"
+msgstr "Naskenujte čárové kódy a získejte Nutri-Score, Green-Score a další!"
 
 msgctxt "org_gs1_product_name_is_abbreviated"
 msgid "GS1 product names for this manufacturer are abbreviated."
@@ -5757,35 +5757,35 @@ msgctxt "org_protect_data_note"
 msgid "Removing or changing the provided data will be possible only by experimented contributors on the web site."
 msgstr "Odstranění nebo změna poskytnutých dat bude možná pouze pro experimentální přispěvatele na webu."
 
-msgctxt "ecoscore_packaging_impact_high"
+msgctxt "environmental_score_packaging_impact_high"
 msgid "Packaging with a high impact"
 msgstr "Balení s vysokým dopadem"
 
-msgctxt "ecoscore_packaging_impact_medium"
+msgctxt "environmental_score_packaging_impact_medium"
 msgid "Packaging with a medium impact"
 msgstr "Balení se středním dopadem"
 
-msgctxt "ecoscore_packaging_impact_low"
+msgctxt "environmental_score_packaging_impact_low"
 msgid "Packaging with a low impact"
 msgstr "Balení s nízkým dopadem"
 
-msgctxt "ecoscore_packaging_missing_information"
+msgctxt "environmental_score_packaging_missing_information"
 msgid "Missing packaging information for this product"
 msgstr "Chybí informace o balení tohoto produktu"
 
-msgctxt "ecoscore_origins_of_ingredients_impact_high"
+msgctxt "environmental_score_origins_of_ingredients_impact_high"
 msgid "Origins of ingredients with a high impact"
 msgstr "Původ ingrediencí s vysokým dopadem"
 
-msgctxt "ecoscore_origins_of_ingredients_impact_medium"
+msgctxt "environmental_score_origins_of_ingredients_impact_medium"
 msgid "Origins of ingredients with a medium impact"
 msgstr "Původ ingrediencí se středním dopadem"
 
-msgctxt "ecoscore_origins_of_ingredients_impact_low"
+msgctxt "environmental_score_origins_of_ingredients_impact_low"
 msgid "Origins of ingredients with a low impact"
 msgstr "Původ ingrediencí s nízkým dopadem"
 
-msgctxt "ecoscore_origins_of_ingredients_missing_information"
+msgctxt "environmental_score_origins_of_ingredients_missing_information"
 msgid "Missing origins of ingredients information"
 msgstr "Chybějící informace o původu ingrediencí"
 
@@ -5866,19 +5866,19 @@ msgctxt "donation_cta"
 msgid "Donate"
 msgstr "Podpořit"
 
-msgctxt "ecoscore_production_system_no_labels_with_environmental_benefits"
+msgctxt "environmental_score_production_system_no_labels_with_environmental_benefits"
 msgid "No labels with environmental benefits"
 msgstr "Žádné štítky s přínosem pro životní prostředí"
 
-msgctxt "ecoscore_production_system_labels_with_environmental_benefits"
+msgctxt "environmental_score_production_system_labels_with_environmental_benefits"
 msgid "Labels with environmental benefits"
 msgstr "Štítky s přínosem pro životní prostředí"
 
-msgctxt "ecoscore_production_system_labels_with_environmental_benefits_high"
+msgctxt "environmental_score_production_system_labels_with_environmental_benefits_high"
 msgid "Labels with high environmental benefits"
 msgstr "Štítky s vysokým přínosem pro životní prostředí"
 
-msgctxt "ecoscore_production_system_labels_with_environmental_benefits_very_high"
+msgctxt "environmental_score_production_system_labels_with_environmental_benefits_very_high"
 msgid "Labels with very high environmental benefits"
 msgstr "Štítky s velmi vysokým přínosem pro životní prostředí"
 
@@ -5970,27 +5970,27 @@ msgctxt "life_cycle_analysis"
 msgid "Life cycle analysis"
 msgstr "Analýza životního cyklu"
 
-msgctxt "ecoscore_bonuses_and_maluses"
+msgctxt "environmental_score_bonuses_and_maluses"
 msgid "Bonuses and maluses"
 msgstr "Bonusy a malusy"
 
-msgctxt "ecoscore_for_this_product"
-msgid "Eco-Score for this product"
-msgstr "Eco-Score pro tento produkt"
+msgctxt "environmental_score_for_this_product"
+msgid "Green-Score for this product"
+msgstr "Green-Score pro tento produkt"
 
 msgctxt "average_impact_of_the_category"
 msgid "Average impact of products of the same category"
 msgstr "Průměrný dopad produktů stejné kategorie"
 
-msgctxt "ecoscore_sum_of_bonuses_and_maluses"
+msgctxt "environmental_score_sum_of_bonuses_and_maluses"
 msgid "Sum of bonuses and maluses"
 msgstr "Součet bonusů a malusů"
 
-msgctxt "ecoscore_sum_of_bonuses_and_maluses_is_capped"
+msgctxt "environmental_score_sum_of_bonuses_and_maluses_is_capped"
 msgid "The sum of bonuses and maluses is capped at +25."
 msgstr "Součet bonusů a malusů je omezen na +25."
 
-msgctxt "ecoscore_lca_score"
+msgctxt "environmental_score_lca_score"
 msgid "Life cycle analysis score"
 msgstr "Skóre analýzy životního cyklu"
 
@@ -5998,7 +5998,7 @@ msgctxt "impact_for_this_product"
 msgid "Impact for this product"
 msgstr "Vliv na tento produkt"
 
-msgctxt "ecoscore_downgraded_non_recyclable_and_non_biodegradable_materials"
+msgctxt "environmental_score_downgraded_non_recyclable_and_non_biodegradable_materials"
 msgid "The score of products with non-recyclable and non-biodegradable packaging materials is capped at 79 (grade B)."
 msgstr "Skóre produktů s nerecyklovatelnými a biologicky nerozložitelnými obalovými materiály je omezeno na 79 (stupeň B)."
 
@@ -6233,9 +6233,9 @@ msgctxt "nutriscore_learn_more"
 msgid "Learn more about the Nutri-Score"
 msgstr "Děkujeme"
 
-msgctxt "ecoscore_learn_more"
-msgid "Learn more about the Eco-Score"
-msgstr "Zjistěte více o Eco-Score"
+msgctxt "environmental_score_learn_more"
+msgid "Learn more about the Green-Score"
+msgstr "Zjistěte více o Green-Score"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_very_good_match"
@@ -6272,8 +6272,8 @@ msgid "Use default preferences"
 msgstr "Použít výchozí předvolby"
 
 msgctxt "reset_preferences_details"
-msgid "Nutri-Score, Eco-Score and food processing level (NOVA)"
-msgstr "Nutri-Score, Eco-Score a úroveň zpracování potravin (NOVA)"
+msgid "Nutri-Score, Green-Score and food processing level (NOVA)"
+msgstr "Nutri-Score, Green-Score a úroveň zpracování potravin (NOVA)"
 
 msgctxt "actions_add_ingredients"
 msgid "Could you add the ingredients list?"
@@ -6283,9 +6283,9 @@ msgctxt "actions_to_compute_nutriscore"
 msgid "Could you add the information needed to compute the Nutri-Score?"
 msgstr "Mohl byste přidat informace potřebné k výpočtu Nutri-Score?"
 
-msgctxt "actions_to_compute_ecoscore"
-msgid "Could you add a precise product category so that we can compute the Eco-Score?"
-msgstr "Mohl byste přidat přesnou produktovou kategorii, abychom mohli vypočítat Eco-Score?"
+msgctxt "actions_to_compute_environmental_score"
+msgid "Could you add a precise product category so that we can compute the Green-Score?"
+msgstr "Mohl byste přidat přesnou produktovou kategorii, abychom mohli vypočítat Green-Score?"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"

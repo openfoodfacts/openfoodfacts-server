@@ -74,7 +74,7 @@ use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::DataQuality qw/check_quality/;
 use ProductOpener::Data qw/get_products_collection/;
-use ProductOpener::Ecoscore qw(compute_ecoscore);
+use ProductOpener::EnvironmentalScore qw(compute_environmental_score);
 use ProductOpener::Packaging
 	qw(analyze_and_combine_packaging_data guess_language_of_packaging_text init_packaging_taxonomies_regexps);
 use ProductOpener::ForestFootprint qw(compute_forest_footprint);
@@ -138,7 +138,7 @@ my $mark_as_obsolete_since_date = '';
 my $reassign_energy_kcal = '';
 my $delete_old_fields = '';
 my $mongodb_to_mongodb = '';
-my $compute_ecoscore = '';
+my $compute_environmental_score = '';
 my $compute_forest_footprint = '';
 my $fix_nutrition_data_per = '';
 my $fix_nutrition_data = '';
@@ -176,7 +176,7 @@ GetOptions(
 	"compute-nova" => \$compute_nova,
 	"compute-codes" => \$compute_codes,
 	"compute-carbon" => \$compute_carbon,
-	"compute-ecoscore" => \$compute_ecoscore,
+	"compute-environmental_score" => \$compute_environmental_score,
 	"compute-forest-footprint" => \$compute_forest_footprint,
 	"check-quality" => \$check_quality,
 	"compute-sort-key" => \$compute_sort_key,
@@ -280,7 +280,7 @@ if (    (not $process_ingredients)
 	and (not $delete_debug_tags)
 	and (not $compute_codes)
 	and (not $compute_carbon)
-	and (not $compute_ecoscore)
+	and (not $compute_environmental_score)
 	and (not $compute_forest_footprint)
 	and (not $process_packagings)
 	and (not $check_quality)
@@ -1256,8 +1256,8 @@ while (my $product_ref = $cursor->next) {
 			analyze_and_combine_packaging_data($product_ref, $response_ref);
 		}
 
-		if ($compute_ecoscore) {
-			compute_ecoscore($product_ref);
+		if ($compute_environmental_score) {
+			compute_environmental_score($product_ref);
 		}
 
 		if ($compute_forest_footprint) {
