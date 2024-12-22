@@ -11,7 +11,7 @@ requires 'XML::Encoding'; # libxml-encoding-perl
 requires 'MIME::Lite'; # libmime-lite-perl
 requires 'MIME::Base32';
 requires 'Cache::Memcached::Fast'; #libcache-memcached-fast-perl
-requires 'CHI';
+requires 'CHI'; # required by the packager code refresh scripts
 requires 'JSON'; # libjson-perl
 requires 'JSON::PP'; # libjson-pp-perl
 requires 'Cpanel::JSON::XS'; # libcpanel-json-xs-perl - fast parsing
