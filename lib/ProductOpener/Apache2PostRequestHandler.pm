@@ -36,6 +36,8 @@ use Log::Any '$log', default_adapter => 'Stderr';
 use Apache2::Const qw(:common);
 use OpenTelemetry::Trace::Span;
 
+my $provider = OpenTelemetry->tracer_provider;
+
 sub handler {
 	my $r = shift;
 
@@ -49,6 +51,19 @@ sub handler {
 	}
 	else {
 		$log->debug('ProductOpener::Apache2PostRequestHandler::handler: span not found')
+			if $log->is_debug();
+	}
+
+	my $flush_result;
+	eval {$flush_result = $provider->force_flush()->get();};
+	my $err = $@;
+	if ($err) {
+		$log->warn('ProductOpener::Apache2PostRequestHandler::handler: provider flush error', {error => $err})
+			if $log->is_warn();
+	}
+	else {
+		$log->debug('ProductOpener::Apache2PostRequestHandler::handler: provider flushed',
+			{flush_result => $flush_result})
 			if $log->is_debug();
 	}
 
