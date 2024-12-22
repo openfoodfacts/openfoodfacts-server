@@ -1050,11 +1050,11 @@ sub process_image_upload ($product_id, $imagefield, $user_id, $time, $comment, $
 			# Create a link to the image in /new_images so that it can be batch processed by OCR
 			# and computer vision algorithms
 
-			(-e "$BASE_DIRS{PRODUCTS}/new_images") or mkdir("$BASE_DIRS{PRODUCTS}/new_images", 0755);
+			(-e "$BASE_DIRS{CACHE_NEW_IMAGES}") or mkdir("$BASE_DIRS{CACHE_NEW_IMAGES}", 0755);
 			my $code = $product_id;
 			$code =~ s/.*\///;
 			symlink("$target_image_dir/$imgid.jpg",
-				"$BASE_DIRS{PRODUCTS}/new_images/" . time() . "." . $code . "." . $imagefield . "." . $imgid . ".jpg");
+				"$BASE_DIRS{CACHE_NEW_IMAGES}/" . time() . "." . $code . "." . $imagefield . "." . $imgid . ".jpg");
 
 			# Save the image file size so that we can skip the image before processing it if it is uploaded again
 			$images_ref->{$size_orig} = $imgid;
@@ -1337,7 +1337,7 @@ sub process_image_crop ($user_id, $product_id, $id, $imgid, $angle, $normalize, 
 	}
 
 	print STDERR
-		"image_crop.pl - imgid: $imgid - crop_size: $crop_size - x1: $x1, y1: $y1, x2: $x2, y2: $y2, w: $w, h: $h\n";
+		"image_crop.pl - source_path: $source_path - product_id: $product_id - imgid: $imgid - crop_size: $crop_size - x1: $x1, y1: $y1, x2: $x2, y2: $y2, w: $w, h: $h\n";
 	$log->trace("calculating geometry",
 		{crop_size => $crop_size, x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2, w => $w, h => $h})
 		if $log->is_trace();
