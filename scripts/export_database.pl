@@ -130,7 +130,7 @@ $fields_ref->{nutriments} = 1;
 $fields_ref->{ingredients} = 1;
 $fields_ref->{images} = 1;
 $fields_ref->{lc} = 1;
-$fields_ref->{ecoscore_data} = 1;
+$fields_ref->{environmental_score_data} = 1;
 
 # Current date, used for RDF dcterms:modified: 2019-02-07
 my ($sec, $min, $hour, $mday, $mon, $year, $wday, $yday, $isdst) = localtime();
@@ -330,9 +330,11 @@ XML
 					$field_value = $product_ref->{$field . "_" . $l};
 				}
 
-				# Eco-Score data is stored in ecoscore_data.(grades|scores).(language code)
-				if (($field =~ /^ecoscore_(score|grade)_(\w\w)/) and (defined $product_ref->{ecoscore_data})) {
-					$field_value = ($product_ref->{ecoscore_data}{$1 . "s"}{$2} // "");
+				# Environmental-Score data is stored in environmental_score_data.(grades|scores).(language code)
+				if (    ($field =~ /^environmental_score_(score|grade)_(\w\w)/)
+					and (defined $product_ref->{environmental_score_data}))
+				{
+					$field_value = ($product_ref->{environmental_score_data}{$1 . "s"}{$2} // "");
 				}
 
 				if ($field_value ne '') {
