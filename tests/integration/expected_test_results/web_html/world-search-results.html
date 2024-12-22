@@ -37,7 +37,10 @@
 .show-when-logged-in {display:none}
 
     </style>
-    <!-- Matomo -->
+</head>
+<body class="products_page">
+
+	<!-- Matomo -->
 <script>
   var _paq = window._paq = window._paq || [];
   /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
@@ -60,8 +63,7 @@
 <!-- End Matomo Code -->
 
 
-</head>
-<body class="products_page">
+
 	<div class="skip"><a href="#content" tabindex="0">Skip to Content</a></div>
 
 	<div id="page">
@@ -254,8 +256,8 @@
     <div class="donation-banner__aside">
       <div class="donation-banner__main-section">
         <img
-          width="50px"
-          height="50px"
+          width="50"
+          height="50"
           src="//world.openfoodfacts.org/images/logos/logo-variants/CMJN-ICON_WHITE_BG_OFF.svg"
           alt="open food facts logo"
         />
@@ -417,7 +419,7 @@
             </li>
         
             <li>
-              <a href="/cgi/search.pl?action=process&search_terms=apple&sort_by=unique_scans_n&page_size=50?sort_by=ecoscore_score" onclick="$.cookie('last_sort_by', 'ecoscore_score', { expires: 180, path: '/' });">Products with the best Eco-Score</a>
+              <a href="/cgi/search.pl?action=process&search_terms=apple&sort_by=unique_scans_n&page_size=50?sort_by=environmental_score_score" onclick="$.cookie('last_sort_by', 'environmental_score_score', { expires: 180, path: '/' });">Products with the best Green-Score</a>
             </li>
         
             <li>
@@ -470,8 +472,7 @@
   </div>
       
     
-	</ul>
-
+	
   </div>
 </div>
 
@@ -539,8 +540,8 @@
     <div>
       <div class="donation-banner-footer__main-section">
         <img
-          width="50px"
-          height="50px"
+          width="50"
+          height="50"
           src="//world.openfoodfacts.org/images/logos/logo-variants/CMJN-ICON_WHITE_BG_OFF.svg"
           alt="open food facts logo"
         />
@@ -685,7 +686,7 @@ var products = [
             "attributes":[
                {
                   "description":"",
-                  "description_short":"Poor nutritional quality",
+                  "description_short":"Lower nutritional quality",
                   "grade":"d",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-d-new-en.svg",
                   "id":"nutriscore",
@@ -921,8 +922,6 @@ var products = [
          {
             "attributes":[
                {
-                  "description":"",
-                  "description_short":"Processed foods",
                   "grade":"b",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nova-group-3.svg",
                   "id":"nova",
@@ -930,7 +929,7 @@ var products = [
                   "name":"NOVA group",
                   "panel_id":"nova",
                   "status":"known",
-                  "title":"NOVA 3"
+                  "title":"Processed foods"
                },
                {
                   "grade":"c",
@@ -952,13 +951,13 @@ var products = [
                   "description":"",
                   "description_short":"Low environmental impact",
                   "grade":"c",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/ecoscore-b.svg",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/green-score-b.svg",
                   "id":"ecoscore",
                   "match":60,
-                  "name":"Eco-Score",
-                  "panel_id":"ecoscore",
+                  "name":"Green-Score",
+                  "panel_id":"environmental_score",
                   "status":"known",
-                  "title":"Eco-Score B"
+                  "title":"Green-Score B"
                },
                {
                   "description":"",
@@ -1014,7 +1013,7 @@ var products = [
             "attributes":[
                {
                   "description":"",
-                  "description_short":"Poor nutritional quality",
+                  "description_short":"Lower nutritional quality",
                   "grade":"d",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-d-new-en.svg",
                   "id":"nutriscore",
@@ -1250,8 +1249,6 @@ var products = [
          {
             "attributes":[
                {
-                  "description":"",
-                  "description_short":"Processed foods",
                   "grade":"b",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nova-group-3.svg",
                   "id":"nova",
@@ -1259,7 +1256,7 @@ var products = [
                   "name":"NOVA group",
                   "panel_id":"nova",
                   "status":"known",
-                  "title":"NOVA 3"
+                  "title":"Processed foods"
                },
                {
                   "grade":"c",
@@ -1281,13 +1278,13 @@ var products = [
                   "description":"",
                   "description_short":"Low environmental impact",
                   "grade":"c",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/ecoscore-b.svg",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/green-score-b.svg",
                   "id":"ecoscore",
                   "match":60,
-                  "name":"Eco-Score",
-                  "panel_id":"ecoscore",
+                  "name":"Green-Score",
+                  "panel_id":"environmental_score",
                   "status":"known",
-                  "title":"Eco-Score B"
+                  "title":"Green-Score B"
                },
                {
                   "description":"",
@@ -1579,8 +1576,6 @@ var products = [
          {
             "attributes":[
                {
-                  "description":"",
-                  "description_short":"Unprocessed or minimally processed foods",
                   "grade":"a",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nova-group-1.svg",
                   "id":"nova",
@@ -1588,7 +1583,7 @@ var products = [
                   "name":"NOVA group",
                   "panel_id":"nova",
                   "status":"known",
-                  "title":"NOVA 1"
+                  "title":"Unprocessed or minimally processed foods"
                },
                {
                   "grade":"a",
@@ -1610,13 +1605,13 @@ var products = [
                   "description":"",
                   "description_short":"Moderate environmental impact",
                   "grade":"c",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/ecoscore-c.svg",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/green-score-c.svg",
                   "id":"ecoscore",
                   "match":50,
-                  "name":"Eco-Score",
-                  "panel_id":"ecoscore",
+                  "name":"Green-Score",
+                  "panel_id":"environmental_score",
                   "status":"known",
-                  "title":"Eco-Score C"
+                  "title":"Green-Score C"
                },
                {
                   "description":"",
@@ -1908,8 +1903,6 @@ var products = [
          {
             "attributes":[
                {
-                  "description":"",
-                  "description_short":"Unprocessed or minimally processed foods",
                   "grade":"a",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nova-group-1.svg",
                   "id":"nova",
@@ -1917,7 +1910,7 @@ var products = [
                   "name":"NOVA group",
                   "panel_id":"nova",
                   "status":"known",
-                  "title":"NOVA 1"
+                  "title":"Unprocessed or minimally processed foods"
                },
                {
                   "grade":"a",
@@ -1939,13 +1932,13 @@ var products = [
                   "description":"",
                   "description_short":"Moderate environmental impact",
                   "grade":"c",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/ecoscore-c.svg",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/green-score-c.svg",
                   "id":"ecoscore",
                   "match":50,
-                  "name":"Eco-Score",
-                  "panel_id":"ecoscore",
+                  "name":"Green-Score",
+                  "panel_id":"environmental_score",
                   "status":"known",
-                  "title":"Eco-Score C"
+                  "title":"Green-Score C"
                },
                {
                   "description":"",
@@ -2001,7 +1994,7 @@ var products = [
             "attributes":[
                {
                   "description":"",
-                  "description_short":"Poor nutritional quality",
+                  "description_short":"Lower nutritional quality",
                   "grade":"d",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-d-new-en.svg",
                   "id":"nutriscore",
@@ -2236,8 +2229,6 @@ var products = [
          {
             "attributes":[
                {
-                  "description":"",
-                  "description_short":"Processed foods",
                   "grade":"b",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nova-group-3.svg",
                   "id":"nova",
@@ -2245,7 +2236,7 @@ var products = [
                   "name":"NOVA group",
                   "panel_id":"nova",
                   "status":"known",
-                  "title":"NOVA 3"
+                  "title":"Processed foods"
                },
                {
                   "grade":"c",
@@ -2267,13 +2258,13 @@ var products = [
                   "description":"",
                   "description_short":"Low environmental impact",
                   "grade":"b",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/ecoscore-b.svg",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/green-score-b.svg",
                   "id":"ecoscore",
                   "match":70,
-                  "name":"Eco-Score",
-                  "panel_id":"ecoscore",
+                  "name":"Green-Score",
+                  "panel_id":"environmental_score",
                   "status":"known",
-                  "title":"Eco-Score B"
+                  "title":"Green-Score B"
                },
                {
                   "description":"",

@@ -2,7 +2,7 @@
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "9410",
-         "ecobalyse_proxy_code" : "flour",
+         "ecobalyse_code" : "flour",
          "id" : "en:flour",
          "is_in_taxonomy" : 1,
          "percent" : 12,
@@ -216,6 +216,7 @@
       "en:e330",
       "en:e338"
    ],
+   "ingredients_lc" : "fi",
    "ingredients_n" : 19,
    "ingredients_n_tags" : [
       "19",

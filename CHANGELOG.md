@@ -1,5 +1,72 @@
 # Changelog
 
+## [2.52.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.51.0...v2.52.0) (2024-12-18)
+
+
+### Features
+
+* change redis stream name to product_updates ([#11141](https://github.com/openfoodfacts/openfoodfacts-server/issues/11141)) ([beb2b64](https://github.com/openfoodfacts/openfoodfacts-server/commit/beb2b64ad1e79446390c1caa890ddf729a13c444))
+* launch new Nutri-Score for France ([#11123](https://github.com/openfoodfacts/openfoodfacts-server/issues/11123)) ([e1a7800](https://github.com/openfoodfacts/openfoodfacts-server/commit/e1a7800bf4e74abd9d31ae7637ec929426a92237))
+* rename ecoscore fields to environmental_score (internal) and new external name and logos ([#11142](https://github.com/openfoodfacts/openfoodfacts-server/issues/11142)) ([8a1fec4](https://github.com/openfoodfacts/openfoodfacts-server/commit/8a1fec4718e78212e83ff8eb358c41cccd67cbd4))
+
+
+### Bug Fixes
+
+* nutripatrol URL ([#11115](https://github.com/openfoodfacts/openfoodfacts-server/issues/11115)) ([8c1d123](https://github.com/openfoodfacts/openfoodfacts-server/commit/8c1d123665734731a4353bfbebb33fbe4c77bed4))
+* nutriscore messages ([#11140](https://github.com/openfoodfacts/openfoodfacts-server/issues/11140)) ([7c0ff96](https://github.com/openfoodfacts/openfoodfacts-server/commit/7c0ff96627b2e3acc7022ba2a03b5beef912c6d6))
+* promo images for new nutri-score ([#11144](https://github.com/openfoodfacts/openfoodfacts-server/issues/11144)) ([8a37c8b](https://github.com/openfoodfacts/openfoodfacts-server/commit/8a37c8b0fa31003fbfa1cd32ccc56f40b0cf6f96))
+* redirect /nutriscore-v2 to /new-nutriscore ([#11135](https://github.com/openfoodfacts/openfoodfacts-server/issues/11135)) ([3907e7c](https://github.com/openfoodfacts/openfoodfacts-server/commit/3907e7c4e823a4936b3abb1854bdfd715e1275d6))
+* switch main nutriscore version to 2023 ([#11134](https://github.com/openfoodfacts/openfoodfacts-server/issues/11134)) ([6a0400f](https://github.com/openfoodfacts/openfoodfacts-server/commit/6a0400fd6dccc09150aefe87d39ca5d29beb589b))
+
+## [2.51.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.50.0...v2.51.0) (2024-12-10)
+
+
+### Features
+
+* Add script to remove nearly empty products with quality issues ([#11058](https://github.com/openfoodfacts/openfoodfacts-server/issues/11058)) ([82726d5](https://github.com/openfoodfacts/openfoodfacts-server/commit/82726d5e082c01b13a105a46b0766c806f4ca13f))
+* NOVA 4 attribute and knowledge panel improvements ([#11035](https://github.com/openfoodfacts/openfoodfacts-server/issues/11035)) ([9048011](https://github.com/openfoodfacts/openfoodfacts-server/commit/904801101b417773cd8d4fa574648741fb16f746))
+
+
+### Bug Fixes
+
+* additives table + clean HTML to remove some validation errors ([#11093](https://github.com/openfoodfacts/openfoodfacts-server/issues/11093)) ([474f68d](https://github.com/openfoodfacts/openfoodfacts-server/commit/474f68df98ebfe0895d62969882521563f18288e))
+* avoid crash if ingredients services called without ingredients_lc ([#11055](https://github.com/openfoodfacts/openfoodfacts-server/issues/11055)) ([1db3e94](https://github.com/openfoodfacts/openfoodfacts-server/commit/1db3e94a85967973d286958504c7026668572f70))
+* data quality, false positive, nutrition sum with lower symbol ([#11076](https://github.com/openfoodfacts/openfoodfacts-server/issues/11076)) ([d389c87](https://github.com/openfoodfacts/openfoodfacts-server/commit/d389c870e2cb09d696e836d3149ef6a996e7671f))
+* data quality, false positive, nutrition sum with lower symbol for milk below the table ([#11098](https://github.com/openfoodfacts/openfoodfacts-server/issues/11098)) ([7febb69](https://github.com/openfoodfacts/openfoodfacts-server/commit/7febb698d2fe5d96e1ed9102f142a8107bfdd718))
+* display of usage in scripts/import_csv_file.pl  ([#11091](https://github.com/openfoodfacts/openfoodfacts-server/issues/11091)) ([91881f8](https://github.com/openfoodfacts/openfoodfacts-server/commit/91881f8ef7d8d663445068387cd449a5f291c3ea))
+* improve parsing of 'category (type 1, type 2..)' ingredients ([#10999](https://github.com/openfoodfacts/openfoodfacts-server/issues/10999)) ([42618ac](https://github.com/openfoodfacts/openfoodfacts-server/commit/42618ac95cee57bfb901ccc1a12b8c1824a335ef))
+* letter A at end of string is not a stopword ([#11095](https://github.com/openfoodfacts/openfoodfacts-server/issues/11095)) ([6eaeb26](https://github.com/openfoodfacts/openfoodfacts-server/commit/6eaeb26c028ce130c6159f5214858d125d3fe7ea))
+* Load products in mongodb ([#11072](https://github.com/openfoodfacts/openfoodfacts-server/issues/11072)) ([6787ba1](https://github.com/openfoodfacts/openfoodfacts-server/commit/6787ba1b59a219b4f60edd32bceabfbd36c66047))
+* new images path ([#11096](https://github.com/openfoodfacts/openfoodfacts-server/issues/11096)) ([8658959](https://github.com/openfoodfacts/openfoodfacts-server/commit/8658959a99417e03d6e7ceb1042fc4090e37cdd3))
+* pro platform product writes to the public platform MongoDB database ([#11065](https://github.com/openfoodfacts/openfoodfacts-server/issues/11065)) ([f77eb82](https://github.com/openfoodfacts/openfoodfacts-server/commit/f77eb8248504d17bbc1e1cb5130a4bdbccc931d3))
+* product image move [#11067](https://github.com/openfoodfacts/openfoodfacts-server/issues/11067) ([#11092](https://github.com/openfoodfacts/openfoodfacts-server/issues/11092)) ([30257c1](https://github.com/openfoodfacts/openfoodfacts-server/commit/30257c136e32a90bc84635f40b48b597eb860d66))
+* remove warning in ecobalyse matching of ingredients ([#11062](https://github.com/openfoodfacts/openfoodfacts-server/issues/11062)) ([c29fce9](https://github.com/openfoodfacts/openfoodfacts-server/commit/c29fce9664167572574ce5ab3da75b146575c746))
+
+## [2.50.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.49.0...v2.50.0) (2024-11-26)
+
+
+### Features
+
+* increase donation locales ([292aa2c](https://github.com/openfoodfacts/openfoodfacts-server/commit/292aa2c30689e1c18e9e97223f641f7471b726c8))
+* increase donation locales ([#10982](https://github.com/openfoodfacts/openfoodfacts-server/issues/10982)) ([292aa2c](https://github.com/openfoodfacts/openfoodfacts-server/commit/292aa2c30689e1c18e9e97223f641f7471b726c8))
+* japanese-donation-fix ([6ed9179](https://github.com/openfoodfacts/openfoodfacts-server/commit/6ed917959a2544128600d6e08401990d8bd74760))
+* japanese-donation-fix ([#10995](https://github.com/openfoodfacts/openfoodfacts-server/issues/10995)) ([6ed9179](https://github.com/openfoodfacts/openfoodfacts-server/commit/6ed917959a2544128600d6e08401990d8bd74760))
+* nutripatrol product report ([#10991](https://github.com/openfoodfacts/openfoodfacts-server/issues/10991)) ([6e4d43a](https://github.com/openfoodfacts/openfoodfacts-server/commit/6e4d43abfec79b25f3b1db4f3ec9fcf798fad7cf))
+* openApi refactor fields parameter to support multiple values with enum validation (getProductByBarCode/search) ([#11012](https://github.com/openfoodfacts/openfoodfacts-server/issues/11012)) ([055d950](https://github.com/openfoodfacts/openfoodfacts-server/commit/055d950103c9fe54349d54cf072ce2db768498fc))
+* script to count product contributions by year ([#10957](https://github.com/openfoodfacts/openfoodfacts-server/issues/10957)) ([ca320be](https://github.com/openfoodfacts/openfoodfacts-server/commit/ca320beba4e9bc4a99f9063ca2b0eb13c462bbb2))
+* Update tagline-off-android-v3.json - additional-languages-for-d… ([#10998](https://github.com/openfoodfacts/openfoodfacts-server/issues/10998)) ([093f75e](https://github.com/openfoodfacts/openfoodfacts-server/commit/093f75e03635f06e69c301cdc6ef2e65e4d31e20))
+
+
+### Bug Fixes
+
+* allow to query tags without normalization ([#11008](https://github.com/openfoodfacts/openfoodfacts-server/issues/11008)) ([d8f4a2b](https://github.com/openfoodfacts/openfoodfacts-server/commit/d8f4a2b4cf2737878aa80cd82e1637b99c3a0fe1))
+* API redirects for product types ([#11056](https://github.com/openfoodfacts/openfoodfacts-server/issues/11056)) ([9f63e0f](https://github.com/openfoodfacts/openfoodfacts-server/commit/9f63e0fa41cdf089cf531b85e59512cb308e55ce))
+* apidoc openApi ecoscore mapping ([#11009](https://github.com/openfoodfacts/openfoodfacts-server/issues/11009)) ([b2f2ca9](https://github.com/openfoodfacts/openfoodfacts-server/commit/b2f2ca9ca39151e28176519ca9c81ca182ca799b))
+* copy of csv exports to amazon s3 ([#10981](https://github.com/openfoodfacts/openfoodfacts-server/issues/10981)) ([4a0cc22](https://github.com/openfoodfacts/openfoodfacts-server/commit/4a0cc22374070e8d6c86ce51b8240fa466011ba8))
+* labeler.yml for Estonia packager code ([#11036](https://github.com/openfoodfacts/openfoodfacts-server/issues/11036)) ([adbcc0b](https://github.com/openfoodfacts/openfoodfacts-server/commit/adbcc0b5d28e5ab37f3dc2616cfb4a673fac7c39))
+* refactor + ignore 'null' product_type sent by app ([#11032](https://github.com/openfoodfacts/openfoodfacts-server/issues/11032)) ([48a5322](https://github.com/openfoodfacts/openfoodfacts-server/commit/48a53229d66314f730f411ee2eedd6a60965a257))
+* Update the mobile tagline for the donation campaign ([#10994](https://github.com/openfoodfacts/openfoodfacts-server/issues/10994)) ([8a40a64](https://github.com/openfoodfacts/openfoodfacts-server/commit/8a40a64def0a88ee2afbfc7dd87d35f292abeff4))
+
 ## [2.49.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.48.0...v2.49.0) (2024-11-06)
 
 

@@ -72,7 +72,7 @@ If $target_lc is equal to "data", no strings are returned.
 
 =head4 country code $target_cc
 
-Needed for some country specific panels like the Eco-Score.
+Needed for some country specific panels like the Environmental-Score.
 
 =head4 options $options_ref
 
