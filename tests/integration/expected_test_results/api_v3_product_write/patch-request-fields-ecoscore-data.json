@@ -2,7 +2,7 @@
    "code" : "1234567890009",
    "errors" : [],
    "product" : {
-      "ecoscore_data" : {
+      "environmental_score_data" : {
          "adjustments" : {
             "origins_of_ingredients" : {
                "aggregated_origins" : [
@@ -10,11 +10,14 @@
                      "epi_score" : 0,
                      "origin" : "en:unknown",
                      "percent" : 100,
-                     "transportation_score" : null
+                     "transportation_score" : 0
                   }
                ],
                "epi_score" : 0,
                "epi_value" : -5,
+               "origins_from_categories" : [
+                  "en:unknown"
+               ],
                "origins_from_origins_field" : [
                   "en:unknown"
                ],
@@ -222,8 +225,8 @@
                "non_recyclable_and_non_biodegradable_materials" : 1,
                "packagings" : [
                   {
-                     "ecoscore_material_score" : 0,
-                     "ecoscore_shape_ratio" : 1,
+                     "environmental_score_material_score" : 0,
+                     "environmental_score_shape_ratio" : 1,
                      "material" : "en:plastic",
                      "non_recyclable_and_non_biodegradable" : "maybe",
                      "number_of_units" : 1,

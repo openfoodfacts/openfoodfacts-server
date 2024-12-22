@@ -6,14 +6,32 @@
     "title_element": {
         [% IF product.nova_group.defined && product.nova_group > 0 %]
             [% SET nova_group = product.nova_group %]
-            "icon_url": "[% static_subdomain %]/images/attributes/nova-group-[% product.nova_group %].svg",
-            "title": "[% lang('attribute_nova_' _ nova_group _ '_description_short') %]",
+            "icon_url": "[% static_subdomain %]/images/attributes/dist/nova-group-[% product.nova_group %].svg",
+            "title": "[% edq(lang('attribute_nova_' _ nova_group _ '_description_short')) %]",
+            // Number of NOVA 4 markers in subtitle
+            [% IF nova_group == 4 AND product.nova_groups_markers.$nova_group %]
+                // 1 marker
+                [% IF product.nova_groups_markers.$nova_group.size == 1 %]
+                    "subtitle": "[% edq(lang('attribute_nova_4_1_marker')) %]",
+                // n markers
+                [% ELSE %]
+                    "subtitle": "[% edq(f_lang('f_attribute_nova_4_markers', { 'number' => product.nova_groups_markers.$nova_group.size} )) %]",
+               [% END %]
+            [% END %]
         [% ELSE %]
-            "icon_url": "[% static_subdomain %]/images/attributes/nova-group-unknown.svg",
-            "title": "[% lang('attribute_nova_unknown_description_short') %]",       
+            "icon_url": "[% static_subdomain %]/images/attributes/dist/nova-group-unknown.svg",
+            "title": "[% edq(lang('attribute_nova_unknown_description_short')) %]",       [%# why are there parenthesis around the name ? %]
         [% END %]
     },
     "elements": [
+        [% IF panels.recommendation_ultra_processed_foods.defined %]
+        {
+            "element_type": "panel",
+            "panel_element": {
+                "panel_id": "recommendation_ultra_processed_foods",
+            }
+        },
+        [% END %]
         {
             "element_type": "text",
             "text_element": {

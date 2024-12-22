@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2024 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -17,6 +17,8 @@
 #
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+## no critic (RequireFilenameMatchesPackage);
 
 package ProductOpener::Config2;
 
@@ -35,6 +37,7 @@ BEGIN {
 		$producers_platform
 		$data_root
 		$conf_root
+		$sftp_root
 		$www_root
 		$geolite2_path
 		$log_emails
@@ -55,6 +58,12 @@ BEGIN {
 		$redis_url
 		%server_options
 		$build_cache_repo
+		$rate_limiter_blocking_enabled
+		$crm_url
+		$crm_api_url
+		$crm_username
+		$crm_db
+		$crm_pwd
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -78,10 +87,10 @@ $server_domain = $is_localhost && $po_port != '80' ? "$po_domain:$po_port" : $po
 $data_root = "/mnt/podata";
 $www_root = "/opt/product-opener/html";
 $conf_root = "/opt/product-opener/conf";
+$sftp_root = "/mnt/podata/sftp";
 $geolite2_path = $ENV{GEOLITE2_PATH};
 
-my $mongodb_url = $ENV{MONGODB_HOST} || "mongodb";
-$mongodb_host = "mongodb://$mongodb_url:27017";
+$mongodb_host = $ENV{MONGODB_HOST} || "mongodb";
 $mongodb = $producers_platform ? "off-pro" : "off";
 $mongodb_timeout_ms = 50000;    # config option max_time_ms/maxTimeMS
 
@@ -139,5 +148,14 @@ $redis_url = $ENV{REDIS_URL};
 );
 
 $build_cache_repo = $ENV{BUILD_CACHE_REPO};
+
+$rate_limiter_blocking_enabled = $ENV{RATE_LIMITER_BLOCKING_ENABLED} // "0";
+
+# Odoo CRM
+$crm_url = $ENV{ODOO_CRM_URL};
+$crm_api_url = $crm_url . '//xmlrpc/2/' if $crm_url;
+$crm_username = $ENV{ODOO_CRM_USER};
+$crm_db = $ENV{ODOO_CRM_DB};
+$crm_pwd = $ENV{ODOO_CRM_PASSWORD};
 
 1;

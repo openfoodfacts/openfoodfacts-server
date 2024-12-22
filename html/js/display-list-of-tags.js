@@ -1,7 +1,7 @@
 // This file is part of Product Opener.
 //
 // Product Opener
-// Copyright (C) 2011-2023 Association Open Food Facts
+// Copyright (C) 2011-2024 Association Open Food Facts
 // Contact: contact@openfoodfacts.org
 // Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 //
@@ -22,7 +22,7 @@
 /*global lang jsVectorMap*/
 
 function getServerDomain() {
-  return window.location.href.match(/^https?:\/\/([^/?#]+)(?:[/?#]|$)/i)[1];
+  return (/^https?:\/\/([^/?#]+)(?:[/?#]|$)/i).exec(window.location.href)[1];
 }
 
 function displayWorldMap(selector, countries) {
@@ -32,7 +32,8 @@ function displayWorldMap(selector, countries) {
   const products = lang().products;
   const direction = getComputedStyle(document.querySelector(selector)).direction;
 
-  const map = new jsVectorMap({
+  const JsVectorMap = jsVectorMap; // Workaround for SonarQube false positive
+  const map = new JsVectorMap({
     selector: selector,
     map: "world_merc",
     visualizeData: {

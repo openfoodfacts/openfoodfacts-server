@@ -20,8 +20,7 @@ properties:
         and
         A series of mask for the barcode
         It helps retrieve barcodes starting by
-      example:
-        ["code-13","3017620422xxx","301762042xxxx","30176204xxxxx","3017620xxxxxx","301762xxxxxxx","30176xxxxxxxx","3017xxxxxxxxx","301xxxxxxxxxx","30xxxxxxxxxxx","3xxxxxxxxxxxx"]
+      examples: ["code-13","3017620422xxx","301762042xxxx","30176204xxxxx","3017620xxxxxx","301762xxxxxxx","30176xxxxxxxx","3017xxxxxxxxx","301xxxxxxxxxx","30xxxxxxxxxxx","3xxxxxxxxxxxx"]
   generic_name:
     type: string
     description: |
@@ -47,7 +46,7 @@ properties:
       Main language is also used to decide which ingredients list to parse.
   nova_group:
     type: integer
-    description:
+    description: |
       Nova group as an integer from 1 to 4. See https://world.openfoodfacts.org/nova
   nova_groups:
     type: string
@@ -67,9 +66,18 @@ properties:
     description: |
       The name of the product can also
       be in many other languages like
-      product_name_fr (for french).
+      product_name_fr (for French).
   product_quantity:
     type: string
+    description: |
+      The size in g or ml for the whole product.
+      It's a normalized version of the quantity field.
+    example: "500"
+  product_quantity_unit:
+    type: string
+    description: |
+      The unit (either g or ml) for the correponding product_quantity.
+    example: "g"
   quantity:
     type: string
     description: |
@@ -84,4 +92,4 @@ patternProperties:
     type: string
     description: |
       This can be returned in many other languages
-      like generic_name_fr (for french).
+      like generic_name_fr (for French).

@@ -37,6 +37,8 @@ BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		&write_product_api
+		&process_change_product_code_request_if_we_have_one
+		&process_change_product_type_request_if_we_have_one
 		&skip_protected_field
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -45,14 +47,17 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Display qw/:all/;
-use ProductOpener::Users qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Display qw/$subdomain redirect_to_url $country request_param single_param/;
+use ProductOpener::Users qw/$Org_id $Owner_id $User_id/;
+use ProductOpener::Lang qw/$lc/;
 use ProductOpener::Products qw/:all/;
-use ProductOpener::API qw/:all/;
-use ProductOpener::Packaging qw/:all/;
-use ProductOpener::Text qw/:all/;
-use ProductOpener::Tags qw/:all/;
+use ProductOpener::API
+	qw/add_error add_warning check_user_permission customize_response_for_product normalize_requested_code/;
+use ProductOpener::Packaging
+	qw/add_or_combine_packaging_component_data get_checked_and_taxonomized_packaging_component_data/;
+use ProductOpener::Text qw/remove_tags_and_quote/;
+use ProductOpener::Tags qw/%language_fields %writable_tags_fields add_tags_to_field compute_field_tags/;
+use ProductOpener::URL qw(format_subdomain);
 
 use Encode;
 
@@ -67,9 +72,8 @@ sub skip_protected_field ($product_ref, $field, $moderator = 0) {
 	# If we are on the public platform, and the field data has been imported from the producer platform
 	# ignore the field changes for non tag fields, unless made by a moderator
 	if (    (not $server_options{producers_platform})
-		and (defined $product_ref->{owner_fields})
-		and (defined $product_ref->{owner_fields}{$field})
-		and (not $moderator))
+		and (not $moderator)
+		and (is_owner_field($product_ref, $field)))
 	{
 		$log->debug(
 			"skipping field with a value set by the owner",
@@ -105,7 +109,8 @@ sub update_field_with_0_or_1_value ($request_ref, $product_ref, $field, $value) 
 				message => {id => "invalid_value_must_be_0_or_1"},
 				field => {id => $field},
 				impact => {id => "field_ignored"},
-			}
+			},
+			200
 		);
 	}
 	else {
@@ -132,7 +137,8 @@ sub update_packagings ($request_ref, $product_ref, $field, $add_to_existing_comp
 				message => {id => "invalid_type_must_be_array"},
 				field => {id => $field},
 				impact => {id => "field_ignored"},
-			}
+			},
+			200
 		);
 	}
 	else {
@@ -163,7 +169,8 @@ sub update_packagings ($request_ref, $product_ref, $field, $add_to_existing_comp
 								message => {id => "invalid_type_must_be_object"},
 								field => {id => $property},
 								impact => {id => "field_ignored"},
-							}
+							},
+							200
 						);
 					}
 				}
@@ -205,7 +212,8 @@ sub update_tags_fields ($request_ref, $product_ref, $field, $add_to_existing_tag
 				message => {id => "invalid_type_must_be_array"},
 				field => {id => $field},
 				impact => {id => "field_ignored"},
-			}
+			},
+			200
 		);
 	}
 	else {
@@ -260,11 +268,17 @@ sub update_product_fields ($request_ref, $product_ref, $response_ref) {
 
 	my $request_body_ref = $request_ref->{body_json};
 
-	$request_ref->{updated_product_fields} = {};
+	if (not exists $request_ref->{updated_product_fields}) {
+		$request_ref->{updated_product_fields} = {};
+	}
 
 	my $input_product_ref = $request_body_ref->{product};
 
 	foreach my $field (sort keys %{$input_product_ref}) {
+
+		# new_code and product_type have been handled previously,
+		# as we do not process the write requests if there is an error with a change of code or product type
+		next if $field =~ /^(new_code|product_type)$/;
 
 		my $value = $input_product_ref->{$field};
 
@@ -323,7 +337,8 @@ sub update_product_fields ($request_ref, $product_ref, $response_ref) {
 						message => {id => "invalid_language_code"},
 						field => {id => $field},
 						impact => {id => "field_ignored"},
-					}
+					},
+					200
 				);
 
 			}
@@ -348,7 +363,114 @@ sub update_product_fields ($request_ref, $product_ref, $response_ref) {
 	return;
 }
 
-=head2 write_product_api()
+=head2 process_change_product_code_request_if_we_have_one($request_ref, $response_ref, $product_ref, $new_code)
+
+Process a change of code request if we have one.
+
+=head3 Parameters
+
+=head4 $request_ref (input)
+
+Reference to the request object.
+
+=head4 $response_ref (input)
+
+Reference to the response object.
+
+=head4 $product_ref (input)
+
+Reference to the product object.
+
+=head4 $new_code (input)
+
+New code.
+
+=head3 Return value
+
+undef if we don't have a change product code request, or if it was processed correctly.
+an error id if there was an error (e.g. no_permisssion or invalid_product_type).
+
+=cut
+
+sub process_change_product_code_request_if_we_have_one($request_ref, $response_ref, $product_ref, $new_code) {
+
+	my $error;
+	# Change of code
+	if (    (defined $new_code)
+		and ($new_code ne $product_ref->{code}))
+	{
+
+		if (check_user_permission($request_ref, $response_ref, "product_change_code")) {
+
+			$error = change_product_code($product_ref, $new_code);
+			if ($error) {
+				add_error(
+					$response_ref,
+					{
+						message => {id => $error},
+						field => {id => "new_code"},
+						impact => {id => "failure"},
+					}
+				);
+			}
+		}
+		else {
+			$error = "no_permission: product_change_code";
+		}
+	}
+	# If we have an error, we return it, otherwise we just use "return;"
+	# so that the function can be used in list context: push @errors, process_change_product_code_request_if_we_have_one(...)
+	if ($error) {
+		return $error;
+	}
+	return;
+}
+
+sub process_change_product_type_request_if_we_have_one($request_ref, $response_ref, $product_ref, $new_product_type) {
+
+	my $error;
+
+	# Change of product type
+	if (
+			(defined $new_product_type)
+		and ($new_product_type ne "")
+		and ($new_product_type ne
+			"null")    # 2024/11/21: OFF app sends "null" as a string, ignore it as it is not a valid product type
+		and ($new_product_type ne $product_ref->{product_type})
+		)
+	{
+
+		if (check_user_permission($request_ref, $response_ref, "product_change_product_type")) {
+
+			$error = change_product_type($product_ref, $new_product_type);
+			if ($error) {
+				add_error(
+					$response_ref,
+					{
+						message => {id => $error},
+						field => {id => "product_type"},
+						impact => {id => "failure"},
+					}
+				);
+			}
+			else {
+				$request_ref->{updated_product_fields}{product_type} = 1;
+			}
+		}
+		else {
+			$error = "no_permission: product_change_product_type";
+		}
+	}
+
+	# If we have an error, we return it, otherwise we just use "return;"
+	# so that the function can be used in list context: push @errors, process_change_product_code_request_if_we_have_one(...)
+	if ($error) {
+		return $error;
+	}
+	return;
+}
+
+=head2 write_product_api($request_ref)
 
 Process API v3 WRITE product requests.
 
@@ -425,6 +547,19 @@ sub write_product_api ($request_ref) {
 			$product_ref = init_product($User_id, $Org_id, $code, $country);
 			$product_ref->{interface_version_created} = "20221102/api/v3";
 		}
+		else {
+			# There is an existing product
+			# If the product has a product_type and it is not the product_type of the server, redirect to the correct server
+			# unless we are on the pro platform
+
+			if (    (not $server_options{private_products})
+				and (defined $product_ref->{product_type})
+				and ($product_ref->{product_type} ne $options{product_type}))
+			{
+				redirect_to_url($request_ref, 307,
+					format_subdomain($subdomain, $product_ref->{product_type}) . '/api/v3/product/' . $code);
+			}
+		}
 
 		# Use default request language if we did not get tags_lc
 		if (not defined $request_body_ref->{tags_lc}) {
@@ -455,25 +590,47 @@ sub write_product_api ($request_ref) {
 					message => {id => "edit_against_edit_rules"},
 					field => {id => "product"},
 					impact => {id => "failure"},
-				}
+				},
+				403
 			);
 		}
 		else {
-			# Update the product
-			update_product_fields($request_ref, $product_ref, $response_ref);
 
-			# Process the product data
-			analyze_and_enrich_product_data($product_ref, $response_ref);
-
-			# Save the product
-			if ($code ne "test") {
-				my $comment = $request_body_ref->{comment} || "API v3";
-				store_product($User_id, $product_ref, $comment);
+			if (
+				process_change_product_code_request_if_we_have_one(
+					$request_ref, $response_ref, $product_ref, $request_body_ref->{product}{code}
+				)
+				)
+			{
+				$error = 1;
 			}
 
-			# Select / compute only the fields requested by the caller, default to updated fields
-			$response_ref->{product} = customize_response_for_product($request_ref, $product_ref,
-				request_param($request_ref, 'fields') || "updated");
+			if (
+				process_change_product_type_request_if_we_have_one(
+					$request_ref, $response_ref, $product_ref, $request_body_ref->{product}{product_type}
+				)
+				)
+			{
+				$error = 1;
+			}
+
+			if (not $error) {
+				# Update the product
+				update_product_fields($request_ref, $product_ref, $response_ref);
+
+				# Process the product data
+				analyze_and_enrich_product_data($product_ref, $response_ref);
+
+				# Save the product
+				if ($code ne "test") {
+					my $comment = $request_body_ref->{comment} || "API v3";
+					store_product($User_id, $product_ref, $comment);
+				}
+
+				# Select / compute only the fields requested by the caller, default to updated fields
+				$response_ref->{product} = customize_response_for_product($request_ref, $product_ref,
+					request_param($request_ref, 'fields') || "updated");
+			}
 		}
 	}
 

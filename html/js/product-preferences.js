@@ -1,10 +1,10 @@
 /*global lang */
 /*global preferences_text*/ // depends on which type of page the preferences are shown on
+/*global default_preferences*/ // depends on flavor: OFF, OBF etc.
 
 var attribute_groups; // All supported attribute groups and attributes + translated strings
 var preferences; // All supported preferences + translated strings
 var use_user_product_preferences_for_ranking = JSON.parse(localStorage.getItem('use_user_product_preferences_for_ranking'));
-var default_preferences = { "nutriscore" : "very_important", "nova" : "important", "ecoscore" : "important" };
 
 function get_user_product_preferences() {
     // Retrieve user preferences from local storage
@@ -127,7 +127,7 @@ function display_use_preferences_switch_and_edit_preferences_button(target_selec
 	
 	var html_edit_preferences = '<div><a id="show_selection_form" class="button small round secondary" role="button" tabindex="0">' +
         '<span class="material-icons size-20">&#xE556;</span>' +
-        "&nbsp;<span>" + lang().preferences_edit_your_food_preferences + '</span></a></div>';
+        "&nbsp;<span>" + lang().preferences_edit_your_preferences + '</span></a></div>';
 	
 	// Display a switch for scoring and ranking products according to the user preferences 
 			
@@ -170,6 +170,8 @@ function display_user_product_preferences(target_selected, target_selection_form
             attribute_groups = data;
             display_user_product_preferences(target_selected, target_selection_form, change);
         });
+
+        return;
     }
 
     if (!preferences) {
@@ -179,6 +181,8 @@ function display_user_product_preferences(target_selected, target_selection_form
             preferences = data;
             display_user_product_preferences(target_selected, target_selection_form, change);
         });
+        
+        return;
     }
 
     if (attribute_groups && preferences && !displayed_user_product_preferences) {
@@ -248,7 +252,7 @@ function display_user_product_preferences(target_selected, target_selection_form
 			+ '<a class="show_selected button small success round" role="button" tabindex="0">'
 			+ '<img src="/images/icons/dist/cancel.svg" class="icon" alt="" style="filter:invert(1)">'
 			+ " " + lang().close + '</a></div>'
-			+ "<h2>" + lang().preferences_edit_your_food_preferences + "</h2>"
+			+ "<h2>" + lang().preferences_edit_your_preferences + "</h2>"
 			+ "<p>" + lang().preferences_locally_saved + "</p>"
 			+ generate_preferences_switch_button(lang().classify_products_according_to_your_preferences, "preferences_switch_in_preferences")
 			+ '<a id="reset_preferences_button" class="button small round success" role="button" tabindex="0">' + lang().reset_preferences + '</a>'

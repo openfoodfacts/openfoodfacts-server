@@ -5,6 +5,7 @@
          "ingredients" : [
             {
                "id" : "en:e440a",
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 100,
                "percent_max" : 100,
                "percent_min" : 100,
@@ -13,6 +14,7 @@
                "vegetarian" : "yes"
             }
          ],
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 100,
          "percent_max" : 100,
          "percent_min" : 100,
@@ -29,6 +31,7 @@
       "en:gelling-agent",
       "en:e440a"
    ],
+   "ingredients_lc" : "fr",
    "ingredients_n" : 2,
    "ingredients_n_tags" : [
       "2",
@@ -49,9 +52,15 @@
    "ingredients_with_unspecified_percent_n" : 1,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
-      "en:e440a"
+      "en:e440a",
+      "en:gelling-agent"
    ],
-   "ingredients_without_ciqual_codes_n" : 1,
+   "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:e440a",
+      "en:gelling-agent"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 2,
    "known_ingredients_n" : 2,
    "lc" : "fr",
    "nutriments" : {

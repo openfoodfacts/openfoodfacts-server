@@ -1,16 +1,19 @@
 #!/usr/bin/perl -w
 
+# HARNESS-TIMEOUT-EVENT 240
+
 use Modern::Perl '2017';
 use utf8;
 
-use Test::More;
-use Test::Number::Delta;
+use Test2::V0;
+use Data::Dumper;
+$Data::Dumper::Terse = 1;
 #use Log::Any::Adapter 'TAP', filter => "none";
 use Log::Any::Adapter 'TAP';
 
-use ProductOpener::Producers qw/:all/;
-use ProductOpener::Store qw/:all/;
-use ProductOpener::Test qw/:all/;
+use ProductOpener::Producers qw/init_fields_columns_names_for_lang match_column_name_to_field normalize_column_name/;
+use ProductOpener::Store qw/get_string_id_for_lang/;
+use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 my $inputs_dir = "$test_dir/inputs/$test_id/";
@@ -18,13 +21,13 @@ my $inputs_dir = "$test_dir/inputs/$test_id/";
 # Generate the files that match potential column names from producers to OFF fields
 foreach my $l (qw(en fr es)) {
 	init_fields_columns_names_for_lang($l)
-		# 2023/04/24: the files are growing too much (currently 100Mb), which is too much for GitHub
-		# commenting out this test
-		#compare_to_expected_results(
-		#	init_fields_columns_names_for_lang($l),
-		#	$expected_result_dir . "/column_names_$l.json",
-		#	$update_expected_results
-		#);
+	# 2023/04/24: the files are growing too much (currently 100Mb), which is too much for GitHub
+	# commenting out this test
+	#compare_to_expected_results(
+	#	init_fields_columns_names_for_lang($l),
+	#	$expected_result_dir . "/column_names_$l.json",
+	#	$update_expected_results
+	#);
 }
 
 my @tests = (
@@ -51,7 +54,10 @@ my @tests = (
 	["fr", "Matières grasses / Lipides pour 100 g / 100 ml", {}],
 
 	["en", "energy-kj_prepared", {field => "energy-kj_prepared_100g_value_unit", value_unit => 'value_in_kj'}],
-	["en", "energy-kcal_prepared", {field => "energy-kcal_prepared_100g_value_unit", value_unit => 'value_in_kcal'}],
+	[
+		"en", "energy-kcal_prepared",
+		{field => "energy-kcal_prepared_100g_value_unit", value_unit => 'value_in_kcal'}
+	],
 	["en", "energy-kcal_prepared_value", {field => "energy-kcal_prepared_100g_value_unit", value_unit => 'value'}],
 
 	["es", "proteinas", {field => "proteins_100g_value_unit"}],
@@ -70,7 +76,11 @@ my @tests = (
 	["es", "Valor Energético 100gr", {field => "energy_100g_value_unit"}],
 	["es", "Valor Energético KJ / 100 gr", {field => "energy-kj_100g_value_unit", value_unit => 'value_in_kj'}],
 	["es", "Valor Energético KJ / 100gr", {field => "energy-kj_100g_value_unit", value_unit => 'value_in_kj'}],
-	["es", "Valor Energético KJ por porción", {field => "energy-kj_serving_value_unit", value_unit => 'value_in_kj'}],
+	[
+		"es",
+		"Valor Energético KJ por porción",
+		{field => "energy-kj_serving_value_unit", value_unit => 'value_in_kj'}
+	],
 
 	["en", "vitamin c (µg)", {field => "vitamin-c_100g_value_unit", value_unit => "value_in_mcg"}],
 	["en", "folates_ug_100g", {field => 'folates_100g_value_unit', value_unit => 'value_in_mcg'}],
@@ -130,8 +140,8 @@ foreach my $test_ref (@tests) {
 
 	my $fieldid = get_string_id_for_lang("no_language", normalize_column_name($test_ref->[1]));
 	my $result_ref = match_column_name_to_field($test_ref->[0], $fieldid);
-	is_deeply($result_ref, $test_ref->[2])
-		or diag explain {test => $test_ref, fieldid => $fieldid, result => $result_ref};
+	is($result_ref, $test_ref->[2])
+		or diag Dumper {test => $test_ref, fieldid => $fieldid, result => $result_ref};
 
 }
 

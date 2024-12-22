@@ -2,6 +2,7 @@
    "ingredients" : [
       {
          "id" : "en:meat",
+         "is_in_taxonomy" : 1,
          "labels" : "en:halal",
          "percent_estimate" : 62.5,
          "percent_max" : 100,
@@ -12,6 +13,7 @@
       },
       {
          "id" : "en:beef-gelatin",
+         "is_in_taxonomy" : 1,
          "labels" : "en:halal",
          "percent_estimate" : 18.75,
          "percent_max" : 50,
@@ -22,6 +24,7 @@
       },
       {
          "id" : "en:collagen",
+         "is_in_taxonomy" : 1,
          "labels" : "en:halal",
          "percent_estimate" : 9.375,
          "percent_max" : 33.3333333333333,
@@ -33,6 +36,7 @@
       {
          "ciqual_food_code" : "40121",
          "id" : "en:duck-foie-gras",
+         "is_in_taxonomy" : 1,
          "labels" : "en:halal",
          "percent_estimate" : 9.375,
          "percent_max" : 25,
@@ -73,6 +77,7 @@
       "en:duck",
       "en:duck-liver"
    ],
+   "ingredients_lc" : "fr",
    "ingredients_n" : 4,
    "ingredients_n_tags" : [
       "4",
@@ -108,6 +113,13 @@
       "en:meat"
    ],
    "ingredients_without_ciqual_codes_n" : 3,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:beef-gelatin",
+      "en:collagen",
+      "en:duck-foie-gras",
+      "en:meat"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 4,
    "known_ingredients_n" : 10,
    "lc" : "fr",
    "nutriments" : {

@@ -26,15 +26,16 @@ use utf8;
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Store qw/store/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Images qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Lang qw/$lc/;
 use ProductOpener::Mail qw/:all/;
-use ProductOpener::Products qw/:all/;
+use ProductOpener::Products qw/compute_keywords/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
@@ -43,7 +44,7 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 
 # Get a list of all products
 
@@ -75,7 +76,7 @@ while (my $product_ref = $cursor->next) {
 
 		# Store
 
-		# store("$data_root/products/$path/product.sto", $product_ref);
+		# store("$BASE_DIRS{PRODUCTS}/$path/product.sto", $product_ref);
 		# get_products_collection()->save($product_ref);
 	}
 }

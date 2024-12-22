@@ -81,11 +81,11 @@ BEGIN {
 }
 
 use ProductOpener::Config qw(:all);
-use ProductOpener::Tags qw(:all);
+use ProductOpener::Tags qw(%level exists_taxonomy_tag get_inherited_property has_tag);
 
-use ProductOpener::DataQualityCommon qw(:all);
-use ProductOpener::DataQualityFood qw(:all);
-use ProductOpener::ProducersFood qw(:all);
+use ProductOpener::DataQualityCommon qw(check_quality_common);
+use ProductOpener::DataQualityFood qw(check_quality_food);
+use ProductOpener::ProducersFood qw(detect_possible_improvements);
 
 =head1 FUNCTIONS
 

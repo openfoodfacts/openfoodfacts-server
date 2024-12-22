@@ -6,8 +6,7 @@ use Modern::Perl '2017';
 
 use Log::Any::Adapter 'TAP';
 use Mock::Quick qw/qobj qmeth/;
-use Test::MockModule;
-use Test::More;
+use Test2::V0;
 
 use File::Path qw/make_path remove_tree/;
 
@@ -17,7 +16,7 @@ use ProductOpener::Producers qw/load_csv_or_excel_file convert_file/;
 use ProductOpener::Products "retrieve_product";
 use ProductOpener::Store "store";
 use ProductOpener::Test qw/:all/;
-use ProductOpener::LoadData qw/:all/;
+use ProductOpener::LoadData qw/load_data/;
 
 load_data();
 
@@ -59,10 +58,12 @@ my @tests = (
 # Testing import of a csv file
 foreach my $test_ref (@tests) {
 
-	my $import_module = Test::MockModule->new('ProductOpener::Import');
-
-	# mock download image to fetch image in inputs_dir
-	$import_module->mock('download_image', \&fake_download_image);
+	my $import_module = mock 'ProductOpener::Import' => (
+		override => [
+			# mock download image to fetch image in inputs_dir
+			'download_image' => \&fake_download_image
+		]
+	);
 
 	# clean data
 	remove_all_products();

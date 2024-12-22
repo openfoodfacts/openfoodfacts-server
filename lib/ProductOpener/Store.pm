@@ -42,10 +42,10 @@ BEGIN {
 use vars @EXPORT_OK;    # no 'my' keyword for these
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 
 use Storable qw(lock_store lock_nstore lock_retrieve);
-use Encode;
-use Encode::Punycode;
+
 use URI::Escape::XS;
 use Unicode::Normalize;
 use Log::Any qw($log);
@@ -85,6 +85,9 @@ sub unac_string_perl ($s) {
 # 3. turn ascii characters that are not letters / numbers to -
 # 4. keep other UTF-8 characters (e.g. Chinese, Japanese, Korean, Arabic, Hebrew etc.) untouched
 # 5. remove leading and trailing -, turn multiple - to -
+
+# IMPORTANT: if you change the behaviour of this method,
+# you need to change $BUILD_TAGS_VERSION in Tags.pm
 
 sub get_string_id_for_lang ($lc, $string) {
 
@@ -297,13 +300,15 @@ sub sto_iter ($initial_path, $pattern = qr/\.sto$/i) {
 			# explore a new dir until we get some file
 			while ((scalar @files == 0) && (scalar @dirs > 0)) {
 				my $current_dir = shift @dirs;
-				opendir(DIR, "$current_dir") or die "Cannot open $current_dir\n";
+				opendir(DIR, $current_dir) or die "Cannot open $current_dir\n";
 				# Sort files so that we always explore them in the same order (useful for tests)
 				my @candidates = sort readdir(DIR);
 				closedir(DIR);
 				foreach my $file (@candidates) {
 					# avoid ..
 					next if $file =~ /^\.\.?$/;
+					# avoid conflicting-codes and invalid-codes
+					next if $file =~ /^(conflicting|invalid)-codes$/;
 					my $path = "$current_dir/$file";
 					if (-d $path) {
 						# explore sub dirs

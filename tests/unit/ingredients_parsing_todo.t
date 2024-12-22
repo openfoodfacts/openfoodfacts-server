@@ -3,20 +3,18 @@
 # "TODO" Tests for known issues, to track if they get fixed while fixing something else.
 # See https://perldoc.perl.org/Test/More.html#*TODO%3a-BLOCK*
 
-use strict;
-use warnings;
+use ProductOpener::PerlStandards;
 
-use utf8;
-
-use Test::More;
+use Test2::V0;
+use Data::Dumper;
+$Data::Dumper::Terse = 1;
 #use Log::Any::Adapter 'TAP';
 use Log::Any::Adapter 'TAP', filter => 'trace';
 
 #use Text::Diff;
 
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::TagsEntries qw/:all/;
-use ProductOpener::Ingredients qw/:all/;
+use ProductOpener::Ingredients qw/parse_ingredients_text_service/;
 
 # dummy product for testing
 
@@ -118,7 +116,7 @@ my @tests = (
 
 	# ingredient group: (element1, element2, element3) needs to be parsed as ingredient group (element1, element2, element3)
 	#комплексная пищевая добавка: (порошок сыра гауда, данбо, камамбер, голубой сыр, эмульгирующая соль Е 339)
-	# using english, because the explain() output \x-escapes utf8.
+	# using english, because the Dumper() output \x-escapes utf8.
 	[
 		"Issue #3959 - 'ingredient with colon before subingredients opening bracket' - https://github.com/openfoodfacts/openfoodfacts-server/issues/3959",
 		{
@@ -176,40 +174,39 @@ my @tests = (
 foreach my $test_ref (@tests) {
 
 	# tell the testing framework it's okay to fail these
-TODO: {
-		local $TODO = $test_ref->[0];    # human readable reason for the test
+	todo $test_ref->[0] => sub {
 
 		my $product_ref = $test_ref->[1];
 		my $expected_ingredients_ref = $test_ref->[2];
 
 		print STDERR "ingredients_text: " . $product_ref->{ingredients_text} . "\n";
 
-		parse_ingredients_text_service($product_ref, {});
+		parse_ingredients_text_service($product_ref, {}, {});
 
-		is_deeply($product_ref->{ingredients}, $expected_ingredients_ref)
+		is($product_ref->{ingredients}, $expected_ingredients_ref)
 			# using print + join instead of diag so that we don't have
 			# hashtags. It makes copy/pasting the resulting structure
 			# inside the test file much easier when tests results need
 			# to be updated. Caveat is that it might interfere with
 			# test output.
 
-			#or print STDERR join("\n", explain $product_ref->{ingredients});
-			#or diag explain $product_ref->{ingredients};
+			#or print STDERR join("\n", Dumper $product_ref->{ingredients});
+			#or diag Dumper $product_ref->{ingredients};
 
 			or do {
 			print STDERR "# Got:\n";
-			print STDERR join("\n", explain $product_ref->{ingredients});
+			print STDERR join("\n", Dumper $product_ref->{ingredients});
 			print STDERR "# Expected:\n";
-			print STDERR join("\n", explain $expected_ingredients_ref);
+			print STDERR join("\n", Dumper $expected_ingredients_ref);
 			};
 
 		#			or do {
-		#				my $str_got = join("\n", explain $product_ref->{ingredients});
-		#				my $str_expected = join("\n", explain $expected_ingredients_ref );
+		#				my $str_got = join("\n", Dumper $product_ref->{ingredients});
+		#				my $str_expected = join("\n", Dumper $expected_ingredients_ref );
 		#				print STDERR diff(\$str_expected, \$str_got);
 		#			};
 
-	}
+	};
 
 }
 

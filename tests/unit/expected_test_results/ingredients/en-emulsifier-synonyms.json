@@ -6,6 +6,7 @@
             {
                "from_palm_oil" : "maybe",
                "id" : "en:e471",
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 50,
                "percent_max" : 100,
                "percent_min" : 25,
@@ -15,6 +16,7 @@
             },
             {
                "id" : "en:e477",
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 25,
                "percent_max" : 50,
                "percent_min" : 0,
@@ -23,6 +25,7 @@
                "vegetarian" : "maybe"
             }
          ],
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 75,
          "percent_max" : 100,
          "percent_min" : 50,
@@ -33,6 +36,7 @@
          "ingredients" : [
             {
                "id" : "en:e412",
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 12.5,
                "percent_max" : 50,
                "percent_min" : 0,
@@ -42,6 +46,7 @@
             },
             {
                "id" : "en:e410",
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 12.5,
                "percent_max" : 25,
                "percent_min" : 0,
@@ -50,6 +55,7 @@
                "vegetarian" : "yes"
             }
          ],
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 25,
          "percent_max" : 50,
          "percent_min" : 0,
@@ -82,6 +88,7 @@
       "en:e412",
       "en:e410"
    ],
+   "ingredients_lc" : "en",
    "ingredients_n" : 6,
    "ingredients_n_tags" : [
       "6",
@@ -113,9 +120,20 @@
       "en:e410",
       "en:e412",
       "en:e471",
-      "en:e477"
+      "en:e477",
+      "en:emulsifier",
+      "en:stabiliser"
    ],
-   "ingredients_without_ciqual_codes_n" : 4,
+   "ingredients_without_ciqual_codes_n" : 6,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:e410",
+      "en:e412",
+      "en:e471",
+      "en:e477",
+      "en:emulsifier",
+      "en:stabiliser"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 6,
    "known_ingredients_n" : 6,
    "lc" : "en",
    "nutriments" : {

@@ -1,0 +1,32 @@
+type: object
+description: |
+  Properties that goes in change ref
+properties:
+  comment:
+    type: string
+    description: |
+      A comment on the contribution.
+      Adding meaningful comments help moderators and users understand a single product history.
+  app_name:
+    type: string
+    description: |
+      Name of the app providing the information
+  app_version:
+    type: string
+    description: |
+      Version of the app providing the information
+  app_uuid:
+    type: string
+    description: |
+      When an app uses a single user to log its contributions,
+      it might be interesting to know which user of the app is providing the information.
+      You can use this field to provide an identifier (eg: an sha1 of the username) that's privacy preserving. Make sure that your salt is strong, perfectly random and secret
+
+      In case we have trouble with one of your user, it helps our moderators revert edits.
+  User-Agent:
+    type: string
+    description: |
+      It is required that you pass a specific User-Agent header when you do an API request.
+      But some times it's not possible to modify such a header
+      (eg. request using JavaScript in a browser).
+      In such cases, you can override it with this parameter.

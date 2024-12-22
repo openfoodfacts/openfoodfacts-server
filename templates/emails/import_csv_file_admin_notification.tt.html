@@ -31,7 +31,7 @@ Subject: Result of import_csv_file.pl: org: [% args.org_id %] - source: [% args.
         <li>
             <a href="https://world.[% server_domain %]/cgi/user.pl?action=process&type=edit_owner&pro_moderator_owner=org-[% org %]">
                 [% org %]
-            </a>:
+            </a> (GLN: [% stats.orgs_glns.$org %]) :
             [% stats.$orgs_stat.$org %]
         </li>
     [% END %]

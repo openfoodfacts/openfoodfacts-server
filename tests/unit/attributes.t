@@ -1,35 +1,35 @@
 #!/usr/bin/perl -w
 
 use Modern::Perl '2017';
+no warnings qw(experimental::signatures);
+
 use utf8;
 
-use Test::More;
+use Test2::V0;
+use Data::Dumper;
+$Data::Dumper::Terse = 1;
+$Data::Dumper::Sortkeys = 1;
 use Log::Any::Adapter 'TAP';
 
-use JSON::PP;
+use JSON::MaybeXS;
 
-my $json = JSON::PP->new->allow_nonref->canonical;
+my $json = JSON::MaybeXS->new->allow_nonref->canonical;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::TagsEntries qw/:all/;
-use ProductOpener::Test qw/:all/;
-use ProductOpener::Products qw/:all/;
+use ProductOpener::Test qw/init_expected_results/;
+use ProductOpener::Products qw/analyze_and_enrich_product_data/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
-use ProductOpener::Ecoscore qw/:all/;
+use ProductOpener::EnvironmentalScore qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
-use ProductOpener::Attributes qw/:all/;
+use ProductOpener::Attributes qw/compute_attributes/;
 use ProductOpener::Packaging qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
-use ProductOpener::API qw/:all/;
+use ProductOpener::API qw/get_initialized_response/;
+use ProductOpener::LoadData qw/load_data/;
 
-load_agribalyse_data();
-load_ecoscore_data();
-
-init_packaging_taxonomies_regexps();
-
-load_forest_footprint_data();
+load_data();
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
@@ -132,7 +132,7 @@ my @tests = (
 
 	# bug https://github.com/openfoodfacts/openfoodfacts-server/issues/6356
 	[
-		'en-ecoscore-score-at-20-threshold',
+		'en-environmental_score-score-at-20-threshold',
 		{
 			lc => "en",
 			categories => "Cocoa and hazelnuts spreads",
@@ -218,7 +218,7 @@ foreach my $test_ref (@tests) {
 		return;
 	}
 
-	walk $product_ref, sub {$_[0] =~ s/https?:\/\/([^\/]+)\//https:\/\/server_domain\//;};
+	walk $product_ref, sub {return unless defined $_[0]; $_[0] =~ s/https?:\/\/([^\/]+)\//https:\/\/server_domain\//;};
 
 	# Save the result
 
@@ -235,10 +235,11 @@ foreach my $test_ref (@tests) {
 
 		local $/;    #Enable 'slurp' mode
 		my $expected_product_ref = $json->decode(<$expected_result>);
-		is_deeply($product_ref, $expected_product_ref) or diag explain $product_ref;
+		print STDERR "testid: $testid\n";
+		is($product_ref, $expected_product_ref) or diag Dumper $product_ref;
 	}
 	else {
-		diag explain $product_ref;
+		diag Dumper $product_ref;
 		fail("could not load $expected_result_dir/$testid.json");
 	}
 }

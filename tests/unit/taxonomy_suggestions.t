@@ -3,11 +3,13 @@
 use Modern::Perl '2017';
 use utf8;
 
-use Test::More;
+use Test2::V0;
+use Data::Dumper;
+$Data::Dumper::Terse = 1;
 use Log::Any::Adapter 'TAP';
 
-use ProductOpener::Tags qw/:all/;
-use ProductOpener::TaxonomySuggestions qw/:all/;
+use ProductOpener::Tags qw/retrieve_tags_taxonomy/;
+use ProductOpener::TaxonomySuggestions qw/get_taxonomy_suggestions get_taxonomy_suggestions_with_synonyms/;
 
 ProductOpener::Tags::retrieve_tags_taxonomy("test");
 
@@ -61,8 +63,8 @@ my @filter_tests = (
 foreach my $test_ref (@filter_tests) {
 	my @results = ProductOpener::TaxonomySuggestions::filter_suggestions_matching_string($test_ref->{tags},
 		$test_ref->{tagtype}, $test_ref->{lc}, $test_ref->{string}, {});
-	if (not is_deeply(\@results, $test_ref->{expected})) {
-		diag explain($test_ref, \@results);
+	if (not is(\@results, $test_ref->{expected})) {
+		diag Dumper($test_ref, \@results);
 	}
 }
 
@@ -89,8 +91,58 @@ my @suggest_tests = (
 foreach my $test_ref (@suggest_tests) {
 	my @results = ProductOpener::TaxonomySuggestions::get_taxonomy_suggestions($test_ref->{tagtype}, $test_ref->{lc},
 		$test_ref->{string}, {}, {});
-	if (not is_deeply(\@results, $test_ref->{expected})) {
-		diag explain($test_ref, \@results);
+	if (not is(\@results, $test_ref->{expected})) {
+		diag Dumper($test_ref, \@results);
+	}
+}
+
+# Complete suggestion generation (with synnyms)
+
+my @suggest_tests = (
+	{
+		desc => 'Match at start',
+		tagtype => "test",
+		lc => "en",
+		string => "ba",
+		expected => [
+			{
+				'matched_synonym' => 'banana yogurts',
+				'tag' => 'Banana yogurts'
+			}
+		],
+	},
+	{
+		desc => 'Match at start and inside, return start first',
+		tagtype => "test",
+		lc => "en",
+		string => "yog",
+		expected => [
+			{
+				'matched_synonym' => 'yogurts',
+				'tag' => 'Yogurts'
+			},
+			{
+				'matched_synonym' => 'banana yogurts',
+				'tag' => 'Banana yogurts'
+			},
+			{
+				'matched_synonym' => 'lemon yogurts',
+				'tag' => 'Lemon yogurts'
+			},
+			{
+				'matched_synonym' => 'Passion fruit yogurts',
+				'tag' => 'Passion fruit yogurts'
+			}
+		],
+	},
+
+);
+
+foreach my $test_ref (@suggest_tests) {
+	my @results = ProductOpener::TaxonomySuggestions::get_taxonomy_suggestions_with_synonyms($test_ref->{tagtype},
+		$test_ref->{lc}, $test_ref->{string}, {}, {});
+	if (not is(\@results, $test_ref->{expected})) {
+		diag Dumper($test_ref, \@results);
 	}
 }
 

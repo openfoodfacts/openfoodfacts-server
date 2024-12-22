@@ -26,26 +26,27 @@ use utf8;
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::Tags qw/:all/;
+use ProductOpener::Tags qw/%tags_fields/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Images qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Lang qw/$lc  %lang_lc/;
 use ProductOpener::Mail qw/:all/;
-use ProductOpener::Products qw/:all/;
+use ProductOpener::Products qw/product_path/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/:all/;
-use ProductOpener::Data qw/:all/;
+use ProductOpener::Data qw/get_products_collection/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 
 my @fields = qw(product_name generic_name quantity packaging brands categories origins labels emb_codes );
 my %tags_fields = (
@@ -96,7 +97,6 @@ $fields_ref->{nutriments} = 1;
 foreach my $l (values %lang_lc) {
 
 	$lc = $l;
-	$lang = $l;
 
 	my $cursor = get_products_collection()->query({lc => $lc})->fields($fields_ref)->sort({code => 1});
 
@@ -139,7 +139,7 @@ foreach my $l (values %lang_lc) {
 		$total++;
 	}
 
-	open(my $OUT, ">:encoding(UTF-8)", "$www_root/data/$lang.openfoodfacts.org.products.battlefood.10.json");
+	open(my $OUT, ">:encoding(UTF-8)", "$BASE_DIRS{PUBLIC_DATA}/$l.openfoodfacts.org.products.battlefood.10.json");
 	my $data = encode_json(\@products);
 	$data =~ s/\.100g/_100g/g;
 	print $OUT $data;

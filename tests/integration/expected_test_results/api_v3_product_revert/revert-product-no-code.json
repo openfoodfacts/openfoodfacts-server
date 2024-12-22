@@ -1,0 +1,26 @@
+{
+   "errors" : [
+      {
+         "field" : {
+            "id" : "code"
+         },
+         "impact" : {
+            "id" : "failure",
+            "lc_name" : "Failure",
+            "name" : "Failure"
+         },
+         "message" : {
+            "id" : "missing_field",
+            "lc_name" : "Missing field",
+            "name" : "Missing field"
+         }
+      }
+   ],
+   "result" : {
+      "id" : "product_not_reverted",
+      "lc_name" : "Product not reverted to the specified revision",
+      "name" : "Product not reverted to the specified revision"
+   },
+   "status" : "failure",
+   "warnings" : []
+}
