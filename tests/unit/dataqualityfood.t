@@ -299,7 +299,7 @@ use Log::Any::Adapter 'TAP', filter => "none";
 
 check_quality_and_test_product_has_quality_tag(
 	{
-		'ecoscore_data' => {
+		'environmental_score_data' => {
 			'adjustments' => {
 				'origins_of_ingredients' => {
 					'aggregated_origins' => [
@@ -319,7 +319,7 @@ check_quality_and_test_product_has_quality_tag(
 			}
 		}
 	},
-	"en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
+	"en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
 	"origins 100 percent unknown",
 	1
 );
@@ -569,14 +569,28 @@ ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
 	'en:serving-size-is-missing-digits',
-	'serving size should contains digits', 1
+	'serving size does not contain digits', 1
 );
 $product_ref = {serving_size => "120g"};
 ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
 	'en:serving-size-is-missing-digits',
-	'serving size should contains digits', 0
+	'serving size contains digits', 0
+);
+$product_ref = {serving_size => ""};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:serving-size-is-missing-digits',
+	'serving size is empty', 0
+);
+$product_ref = {serving_size => "-"};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:serving-size-is-missing-digits',
+	'serving size is -', 0
 );
 
 # serving size is missing
@@ -913,6 +927,7 @@ check_quality_and_test_product_has_quality_tag(
 	'en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars',
 	'sum of fructose plus glucose plus maltose plus lactose plus sucrose cannot be greater than sugars', 1
 );
+
 $product_ref = {
 	nutriments => {
 		"sugars_100g" => 20,
@@ -929,6 +944,25 @@ check_quality_and_test_product_has_quality_tag(
 	'en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars',
 	'sum of fructose plus glucose plus maltose plus lactose plus sucrose cannot be greater than sugars', 0
 );
+
+# lactose < 0.01g
+$product_ref = {
+	nutriments => {
+		"sugars_100g" => 0,
+		"lactose_100g" => 0.01,
+		'lactose_modifier' => '<',
+	}
+};
+
+ProductOpener::DataQuality::check_quality($product_ref);
+
+ok(
+	!has_tag(
+		$product_ref, 'data_quality_errors',
+		'en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars'
+	),
+	'Lactose and symbol lower than should be ignore'
+) or diag Dumper $product_ref;
 
 # salt_100g is very small warning (may be in mg)
 ## lower than 0.001
@@ -1190,17 +1224,12 @@ $product_ref = {
 		'en:olive-oils', 'en:virgin-olive-oils',
 		'en:extra-virgin-olive-oils'
 	],
-	nutrition_grade_fr => "c",
+	nutrition_grade_fr => "b",
 	nutriscore => {
 		2023 => {"nutrients_available" => 1,},
 	},
 };
 ProductOpener::DataQuality::check_quality($product_ref);
-check_quality_and_test_product_has_quality_tag(
-	$product_ref,
-	'en:nutri-score-grade-from-category-does-not-match-calculated-grade',
-	'Calculate nutriscore grade should be the same as the one provided in the taxonomy for this category', 0
-);
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
 	'en:nutri-score-grade-from-category-does-not-match-calculated-grade',
@@ -1905,6 +1934,53 @@ ProductOpener::DataQuality::check_quality($product_ref);
 ok(
 	has_tag($product_ref, 'data_quality_errors', 'en:nutrition-soluble-fiber-plus-insoluble-fiber-greater-than-fiber'),
 	'Soluble fiber + Insoluble fiber exceeds total fiber'
+) or diag Dumper $product_ref;
+
+# Test case for fiber content having "<" symbol
+$product_ref = {
+	nutriments => {
+		fiber_100g => 5,
+		'soluble-fiber_100g' => 1,
+		'soluble-fiber_modifier' => '<',
+		'insoluble-fiber_100g' => 5,
+	},
+	data_quality_errors_tags => [],
+};
+
+ProductOpener::DataQuality::check_quality($product_ref);
+
+ok(
+	!has_tag($product_ref, 'data_quality_errors', 'en:nutrition-soluble-fiber-plus-insoluble-fiber-greater-than-fiber'),
+	'Soluble fiber + Insoluble fiber exceeds total fiber but there is < symbol'
+) or diag Dumper $product_ref;
+
+# Test case for fiber content having ">" symbol
+$product_ref = {
+	nutriments => {
+		fiber_100g => 5,
+		'soluble-fiber_100g' => 1,
+		'soluble-fiber_modifier' => '>',
+		'insoluble-fiber_100g' => 5,
+	},
+	data_quality_errors_tags => [],
+};
+
+# Test case for fiber content beside other element having "<"
+$product_ref = {
+	nutriments => {
+		fiber_100g => 5,
+		'soluble-fiber_100g' => 1,
+		'soluble-fiber_modifier' => '<',
+		'insoluble-fiber_100g' => 10,
+	},
+	data_quality_errors_tags => [],
+};
+
+ProductOpener::DataQuality::check_quality($product_ref);
+
+ok(
+	has_tag($product_ref, 'data_quality_errors', 'en:nutrition-soluble-fiber-plus-insoluble-fiber-greater-than-fiber'),
+	'insoluble-fiber_100g larger than fiber_100g'
 ) or diag Dumper $product_ref;
 
 done_testing();

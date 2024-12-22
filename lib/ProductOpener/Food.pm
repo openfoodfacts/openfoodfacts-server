@@ -2113,7 +2113,7 @@ sub set_fields_comparing_nutriscore_versions ($product_ref, $version1, $version2
 	return;
 }
 
-=head2 compute_nutriscore( $product_ref )
+=head2 compute_nutriscore( $product_ref, $current_version = "2023" )
 
 Determines if we have enough data to compute the Nutri-Score (category + nutrition facts),
 and if the Nutri-Score is applicable to the product the category.
@@ -2122,7 +2122,7 @@ Populates the data structure needed to compute the Nutri-Score and computes it.
 
 =cut
 
-sub compute_nutriscore ($product_ref, $current_version = "2021") {
+sub compute_nutriscore ($product_ref, $current_version = "2023") {
 
 	# Initialize values
 
