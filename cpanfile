@@ -39,7 +39,7 @@ requires 'Pod::Simple::HTMLBatch'; # libpod-simple-perl
 requires 'GeoIP2', '>= 2.006002, < 3.0'; # libgeoip2-perl, deps: libdata-validate-ip-perl libio-compress-perl libjson-maybexs-perl liblist-someutils-perl, libdata-dumper-concise-perl, libdata-printer-perl
 requires 'Email::Valid', '>= 1.202, < 2.0'; # libemail-valid-perl
 requires 'Path::Tiny', '>= 0.118'; # libpath-tiny-perl
-requires 'XML::LibXSLT'; # libxml-libxslt-perl
+requires 'XML::LibXSLT'; # libxml-libxslt-perl - required by the packager code refresh scripts
 requires 'XML::RPC', '== 2'; # libxml-rpc-fast-perl
 
 # Probably not available as Debian/Ubuntu packages
