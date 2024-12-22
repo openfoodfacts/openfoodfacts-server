@@ -1026,6 +1026,7 @@ sub check_nutrition_data ($product_ref) {
 		# catch serving_size = "serving", regardless of setting (per 100g or per serving)
 		if (    (defined $product_ref->{serving_size})
 			and ($product_ref->{serving_size} ne "")
+			and ($product_ref->{serving_size} ne "-")
 			and ($product_ref->{serving_size} !~ /\d/))
 		{
 			push @{$product_ref->{data_quality_errors_tags}}, "en:serving-size-is-missing-digits";
