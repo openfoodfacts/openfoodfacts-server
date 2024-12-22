@@ -35,16 +35,17 @@ BEGIN {
 		&unac_string_perl
 		&get_string_id_for_lang
 		&get_url_id_for_lang
+		&sto_iter
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 use vars @EXPORT_OK;    # no 'my' keyword for these
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 
 use Storable qw(lock_store lock_nstore lock_retrieve);
-use Encode;
-use Encode::Punycode;
+
 use URI::Escape::XS;
 use Unicode::Normalize;
 use Log::Any qw($log);
@@ -84,6 +85,9 @@ sub unac_string_perl ($s) {
 # 3. turn ascii characters that are not letters / numbers to -
 # 4. keep other UTF-8 characters (e.g. Chinese, Japanese, Korean, Arabic, Hebrew etc.) untouched
 # 5. remove leading and trailing -, turn multiple - to -
+
+# IMPORTANT: if you change the behaviour of this method,
+# you need to change $BUILD_TAGS_VERSION in Tags.pm
 
 sub get_string_id_for_lang ($lc, $string) {
 
@@ -253,7 +257,9 @@ sub retrieve ($file) {
 
 sub store_json ($file, $ref) {
 
-	return write_json($file, $ref);
+	# we sort hash keys so that the same object results in the same file
+	# we do not indent as it can easily multiply the size by 2 or more with deep nested structures
+	return write_json($file, $ref, (sort => 1));
 }
 
 sub retrieve_json ($file) {
@@ -271,6 +277,59 @@ sub retrieve_json ($file) {
 	}
 
 	return $return;
+}
+
+=head2  sto_iter($initial_path, $pattern=qr/\.sto$/i)
+
+iterate all the files corresponding to $pattern starting from $initial_path
+
+use it as an iterator:
+my $iter = sto_iter(".");
+while (my $path = $iter->()) {
+	# do stuff
+}
+
+=cut
+
+sub sto_iter ($initial_path, $pattern = qr/\.sto$/i) {
+	my @dirs = ($initial_path);
+	my @files = ();
+	my %seen;
+	return sub {
+		if (scalar @files == 0) {
+			# explore a new dir until we get some file
+			while ((scalar @files == 0) && (scalar @dirs > 0)) {
+				my $current_dir = shift @dirs;
+				opendir(DIR, $current_dir) or die "Cannot open $current_dir\n";
+				# Sort files so that we always explore them in the same order (useful for tests)
+				my @candidates = sort readdir(DIR);
+				closedir(DIR);
+				foreach my $file (@candidates) {
+					# avoid ..
+					next if $file =~ /^\.\.?$/;
+					# avoid conflicting-codes and invalid-codes
+					next if $file =~ /^(conflicting|invalid)-codes$/;
+					my $path = "$current_dir/$file";
+					if (-d $path) {
+						# explore sub dirs
+						next if $seen{$path};
+						$seen{$path} = 1;
+						push @dirs, $path;
+					}
+					next if ($path !~ $pattern);
+					push(@files, $path);
+				}
+			}
+		}
+		# if we still have files, return a file
+		if (scalar @files > 0) {
+			return shift @files;
+		}
+		else {
+			# or end iteration
+			return;
+		}
+	};
 }
 
 1;

@@ -29,16 +29,17 @@ use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Users qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Lang qw/$lc/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Ingredients qw/:all/;
-use ProductOpener::Text qw/:all/;
+use ProductOpener::Ingredients
+	qw/clean_ingredients_text extract_additives_from_text extract_ingredients_from_text preparse_ingredients_text/;
+use ProductOpener::Text qw/remove_tags_and_quote/;
 
 use CGI qw/:cgi :form escapeHTML charset/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 
 use Log::Any qw($log);
 
@@ -70,8 +71,8 @@ if ($action eq 'process') {
 	clean_ingredients_text($product_ref);
 	$log->debug("extract_ingredients_from_text") if $log->is_debug();
 	extract_ingredients_from_text($product_ref);
-	$log->debug("extract_ingredients_classes_from_text") if $log->is_debug();
-	extract_ingredients_classes_from_text($product_ref);
+	$log->debug("extract_additives_from_text") if $log->is_debug();
+	extract_additives_from_text($product_ref);
 
 	my $html_details = display_ingredients_analysis_details($product_ref);
 	$html_details =~ s/.*tabindex="-1">/<div>/;
@@ -80,14 +81,10 @@ if ($action eq 'process') {
 	$template_data_ref->{html_details} = $html_details;
 	$template_data_ref->{display_ingredients_analysis} = display_ingredients_analysis($product_ref);
 	$template_data_ref->{product_ref} = $product_ref;
+	$template_data_ref->{preparsed_ingredients_text} = preparse_ingredients_text($lc, $ingredients_text);
 
-	my $json = JSON::PP->new->pretty->encode($product_ref->{ingredients});
+	my $json = JSON::MaybeXS->new->pretty->encode($product_ref->{ingredients});
 	$template_data_ref->{json} = $json;
-}
-
-my $full_width = 1;
-if ($action ne 'display') {
-	$full_width = 0;
 }
 
 process_template('web/pages/test_ingredients/test_ingredients_analysis.tt.html', $template_data_ref, \$html)
@@ -95,5 +92,4 @@ process_template('web/pages/test_ingredients/test_ingredients_analysis.tt.html',
 
 $request_ref->{title} = "Ingredients analysis test";
 $request_ref->{content_ref} = \$html;
-$request_ref->{full_width} = $full_width;
 display_page($request_ref);

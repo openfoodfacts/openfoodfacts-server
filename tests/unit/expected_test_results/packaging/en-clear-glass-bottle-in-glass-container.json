@@ -1,9 +1,19 @@
 {
    "lc" : "en",
    "misc_tags" : [
+      "en:packagings-number-of-components-1",
       "en:packagings-not-complete",
       "en:packagings-not-empty-but-not-complete",
       "en:packagings-not-empty"
+   ],
+   "packaging_materials_tags" : [
+      "en:clear-glass"
+   ],
+   "packaging_recycling_tags" : [
+      "en:recycle-in-glass-bin"
+   ],
+   "packaging_shapes_tags" : [
+      "en:bottle"
    ],
    "packaging_text" : "Clear glass bottle in glass container",
    "packagings" : [
@@ -12,5 +22,10 @@
          "recycling" : "en:recycle-in-glass-bin",
          "shape" : "en:bottle"
       }
-   ]
+   ],
+   "packagings_materials" : {
+      "all" : {},
+      "en:glass" : {}
+   },
+   "packagings_n" : 1
 }

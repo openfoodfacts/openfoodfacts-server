@@ -24,29 +24,30 @@ use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
-use ProductOpener::Display qw/:all/;
+use ProductOpener::Display qw/$test $tt process_template/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/:all/;
-use ProductOpener::Mail qw/:all/;
+use ProductOpener::Mail qw/send_email_to_producers_admin/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::DataQuality qw/:all/;
-use ProductOpener::Import qw/:all/;
-use ProductOpener::Ecoscore qw/:all/;
+use ProductOpener::Import qw/import_csv_file/;
+use ProductOpener::EnvironmentalScore qw/:all/;
 use ProductOpener::Packaging qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::PackagerCodes qw/:all/;
-use ProductOpener::LoadData qw/:all/;
+use ProductOpener::LoadData qw/load_data/;
 
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 use Time::Local;
 use Data::Dumper;
 use Text::CSV;
@@ -130,7 +131,7 @@ GetOptions(
 	"skip_existing_values" => \$skip_existing_values,
 	"only_select_not_existing_images" => \$only_select_not_existing_images,
 	"use_brand_owner_as_org_name" => \$use_brand_owner_as_org_name,
-) or die("Error in command line arguments:\n$\nusage");
+) or die("Error in command line arguments:\n\n$usage");
 
 print STDERR "import_csv_file.pl
 - user_id: $user_id
@@ -222,7 +223,7 @@ foreach my $stat (sort keys %{$stats_ref}) {
 
 	print STDERR $stat . "\t" . (scalar keys %{$stats_ref->{$stat}}) . "\n";
 
-	open(my $out, ">", "$data_root/tmp/import.$stat.txt") or print "Could not create import.$stat.txt : $!\n";
+	open(my $out, ">", "$BASE_DIRS{CACHE_TMP}/import.$stat.txt") or print "Could not create import.$stat.txt : $!\n";
 
 	foreach my $code (sort keys %{$stats_ref->{$stat}}) {
 		print $out $code . "\n";
@@ -251,3 +252,7 @@ if ($mail =~ /^\s*Subject:\s*(.*)\n/i) {
 	print "email body:\n$body\n\n";
 }
 
+if ($stats_ref->{error}) {
+	print STDERR "An error occured: " . $stats_ref->{error}{error} . "\n";
+	exit(1);
+}

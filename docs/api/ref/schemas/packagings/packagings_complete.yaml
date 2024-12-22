@@ -1,0 +1,5 @@
+title: packagings_complete
+type: integer
+minimum: 0
+maximum: 1
+description: Indicate if the packagings array contains all the packaging parts of the product. This field can be set by users when they enter or verify packaging data. Possible values are 0 or 1.

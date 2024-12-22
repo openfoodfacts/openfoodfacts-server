@@ -1,0 +1,36 @@
+type: array
+title: Packagings (READ)
+description: |-
+  The packagings object is an array of individual packaging component objects.
+
+  The Packaging data document explains how packaging data is structured in Open Food Facts: https://openfoodfacts.github.io/openfoodfacts-server/dev/explain-packaging-data/
+
+  The shape, material and recycling properties of each packaging component are linked to entries in the packaging_shapes, packaging_materials and packaging_recycling taxonomies:
+
+  https://world.openfoodfacts.org/data/taxonomies/packaging_shapes.json
+  https://world.openfoodfacts.org/data/taxonomies/packaging_materials.json
+  https://world.openfoodfacts.org/data/taxonomies/packaging_recycling.json
+
+  If the tags_lc field is set, the properties will include a lc_name field with the translation in the requested language.
+examples:
+  - - number_of_units: 6
+      shape:
+        id: "en:bottle"
+        lc_name: bouteille
+      material:
+        id: "en:bottle"
+        lc_name: bouteille
+      recycling:
+        id: "en:bottle"
+        lc_name: bouteille
+      quantity_per_unit: 25 cl
+      quantity_per_unit_value: 25
+      quantity_per_unit_unit: cl
+      weight_specified: 30
+      weight_measured: 32
+      weight_estimated: 26
+      weight: 30
+      weight_source_id: specified
+items:
+  $ref: ./packaging_component.yaml
+readOnly: true

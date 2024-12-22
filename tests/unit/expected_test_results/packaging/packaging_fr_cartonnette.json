@@ -1,9 +1,19 @@
 {
    "lc" : "fr",
    "misc_tags" : [
+      "en:packagings-number-of-components-1",
       "en:packagings-not-complete",
       "en:packagings-not-empty-but-not-complete",
       "en:packagings-not-empty"
+   ],
+   "packaging_materials_tags" : [
+      "en:cardboard"
+   ],
+   "packaging_recycling_tags" : [
+      "en:recycle"
+   ],
+   "packaging_shapes_tags" : [
+      "en:card"
    ],
    "packaging_text" : "1 cartonnette à recycler",
    "packagings" : [
@@ -13,5 +23,10 @@
          "recycling" : "en:recycle",
          "shape" : "en:card"
       }
-   ]
+   ],
+   "packagings_materials" : {
+      "all" : {},
+      "en:paper-or-cardboard" : {}
+   },
+   "packagings_n" : 1
 }

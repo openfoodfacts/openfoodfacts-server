@@ -42,35 +42,44 @@ BEGIN {
 		&html_displays_error
 		&login
 		&mails_from_log
-		&mail_to_text
 		&new_client
 		&normalize_mail_for_comparison
+		&origin_from_url
 		&post_form
 		&tail_log_start
 		&tail_log_read
 		&wait_application_ready
-		&wait_dynamic_front
 		&execute_api_tests
-		&wait_server
+		&fake_http_server
+		&get_minion_jobs
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
 use vars @EXPORT_OK;
 
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::TestDefaults qw/:all/;
 use ProductOpener::Test qw/:all/;
-use ProductOpener::Mail qw/ $LOG_EMAIL_START $LOG_EMAIL_END /;
+use ProductOpener::Mail qw/$LOG_EMAIL_START $LOG_EMAIL_END/;
+use ProductOpener::Store qw/store retrieve/;
+use ProductOpener::Producers qw/get_minion/;
 
-use Test::More;
+use Test2::V0;
+use Data::Dumper;
+$Data::Dumper::Terse = 1;
 use LWP::UserAgent;
 use HTTP::CookieJar::LWP;
 use HTTP::Request::Common;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 use Carp qw/confess/;
 use Clone qw/clone/;
 use File::Tail;
+use Test::Fake::HTTPD;
+use Minion;
+
+no warnings qw(experimental::signatures);
 
 # Constants of the test website main domain and url
 # Should be used internally only (see: construct_test_url to build urls in tests)
@@ -120,7 +129,7 @@ sub wait_server() {
 		$count++;
 		if (($count % 3) == 0) {
 			print("Waiting for backend to be ready since more than $count seconds...\n");
-			diag explain({url => $target_url, status => $response->code, response => $response});
+			diag Dumper({url => $target_url, status => $response->code, response => $response});
 		}
 		confess("Waited too much for backend") if $count > 60;
 	}
@@ -153,6 +162,8 @@ Return a user agent
 sub new_client () {
 	my $jar = HTTP::CookieJar::LWP->new;
 	my $ua = LWP::UserAgent->new(cookie_jar => $jar);
+	# set a neutral user-agent, for it may appear in some results
+	$ua->agent("Product-opener-tests/1.0");
 	return $ua;
 }
 
@@ -173,8 +184,8 @@ sub create_user ($ua, $args_ref) {
 	my $tail = tail_log_start();
 	my $response = $ua->post("$TEST_WEBSITE_URL/cgi/user.pl", Content => \%fields);
 	if (not $response->is_success) {
-		diag("Couldn't create user with " . explain(\%fields) . "\n");
-		diag explain $response;
+		diag("Couldn't create user with " . Dumper(\%fields) . "\n");
+		diag Dumper $response;
 		diag("\n\nLog4Perl Logs: \n" . tail_log_read($tail) . "\n\n");
 		confess("\nResuming");
 	}
@@ -207,8 +218,8 @@ sub login ($ua, $user_id, $password) {
 	);
 	my $response = $ua->post("$TEST_WEBSITE_URL/cgi/login.pl", Content => \%fields);
 	if (not($response->is_success || $response->is_redirect)) {
-		diag("Couldn't login with " . explain(\%fields) . "\n");
-		diag explain $response;
+		diag("Couldn't login with " . Dumper(\%fields) . "\n");
+		diag Dumper $response;
 		confess("Resuming");
 	}
 	return $response;
@@ -230,7 +241,7 @@ sub get_page ($ua, $url) {
 	my $response = $ua->get("$TEST_WEBSITE_URL$url");
 	if (not $response->is_success) {
 		diag("Couldn't get page $url\n");
-		diag explain $response;
+		diag Dumper $response;
 		confess("Resuming");
 	}
 	return $response;
@@ -255,8 +266,8 @@ Reference of a hash of fields to pass as the form result
 sub post_form ($ua, $url, $fields_ref) {
 	my $response = $ua->post("$TEST_WEBSITE_URL$url", Content => $fields_ref);
 	if (not $response->is_success) {
-		diag("Couldn't submit form $url with " . explain($fields_ref) . "\n");
-		diag explain $response;
+		diag("Couldn't submit form $url with " . Dumper($fields_ref) . "\n");
+		diag Dumper $response;
 		confess("Resuming");
 	}
 	return $response;
@@ -284,8 +295,8 @@ sub edit_product ($ua, $product_fields) {
 
 	my $response = $ua->post("$TEST_WEBSITE_URL/cgi/product_jqm2.pl", Content => \%fields,);
 	if (not $response->is_success) {
-		diag("Couldn't create product with " . explain(\%fields) . "\n");
-		diag explain $response;
+		diag("Couldn't create product with " . Dumper(\%fields) . "\n");
+		diag Dumper $response;
 		confess("Resuming");
 	}
 	return $response;
@@ -297,6 +308,7 @@ Return if a form displays errors
 
 Most forms will return a 200 while displaying an error message.
 This function assumes error_list.tt.html was used.
+
 =cut
 
 sub html_displays_error ($page) {
@@ -363,7 +375,9 @@ my $tests_ref = (
     [
 		{
 			# request description
-			test_case => 'no-body',  # a description of the test, should be unique to easily retrieve which test failed
+			setup => 1,	# optional, if set to 1, the request will be executed (e.g. to create a product to test on) but the result content will not be checked
+						# expected status code (defaulting to 200) will still be checked to report setup issues
+			test_case => 'no-body',  # test case id, must be unique as it is used to name the expected results file
 			method => 'POST',		# defaults to GET
 			subdomain => 'world',	# defaults to "world"
 			path => '/api/v3/product/12345678',
@@ -371,9 +385,14 @@ my $tests_ref = (
 			form => { field_name => field_value, .. },	# optional, will not be sent if there is a body
 			headers_in => {header1 => value1},  # optional, headers to add to request
 			body => '{"some_json_field": "some_value"}',  # optional, will be fetched in file in needed
+			ua => a LWP::UserAgent object, if a specific user is needed (e.g. with moderator status)
 
 			# expected return
+			expected_status_code => 200,	# optional. Defaults to 200
 			headers => {header1 => value1, }  # optional. You may add an undef value to test for the inexistance of a header
+			response_content_must_match => "regexp"	# optional. You may add a case insensitive regexp (e.g. "Product saved") that must be matched
+			response_content_must_not_match => "regexp"	# optional. You may add a case insensitive regexp (e.g. "error") that must not be matched
+			sort_products_by => "product_name" # optional. You may provide a field to sort the returned products by so that they are in an expected order
 		}
     ],
 );
@@ -384,127 +403,207 @@ If undef we open a new client.
 
 You might need this to test with an authenticated user.
 
+Note: this setting can be overriden for each test case by specifying a "ua" field.
+
 =cut
 
-sub execute_api_tests ($file, $tests_ref, $ua = undef) {
+sub execute_request ($test_ref, $ua) {
 
-	my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results($file));
+	# We may have a test case specific user agent
+	my $test_ua = $test_ref->{ua} // $ua;
 
-	my $ua = $ua // LWP::UserAgent->new();
+	my $test_case = $test_ref->{test_case};
+	my $url
+		= construct_test_url($test_ref->{path} . ($test_ref->{query_string} || ''), $test_ref->{subdomain} || 'world');
+	$test_ref->{url} = $url;
 
-	foreach my $test_ref (@$tests_ref) {
-		my $test_case = $test_ref->{test_case};
-		my $url = construct_test_url($test_ref->{path} . ($test_ref->{query_string} || ''),
-			$test_ref->{subdomain} || 'world');
+	my $method = $test_ref->{method} || 'GET';
+	$test_ref->{method} = $method;
 
-		my $method = $test_ref->{method} || 'GET';
+	my $headers_in = {"Origin" => origin_from_url($url)};
+	if (defined $test_ref->{headers_in}) {
+		# combine with computed headers
+		$headers_in = {%$headers_in, %{$test_ref->{headers_in}}};
+	}
 
-		my $response;
+	my $response;
 
-		my $headers_in = {"Origin" => origin_from_url($url)};
-		if (defined $test_ref->{headers_in}) {
-			# combine with computed headers
-			$headers_in = {%$headers_in, %{$test_ref->{headers_in}}};
+	# For some tests, we don't want to follow redirects. We want to see the 302 responses, not the response to the final destination
+	if ((defined $test_ref->{expected_status_code}) and (int($test_ref->{expected_status_code} / 100) == 3)) {
+		$test_ua->max_redirect(0);
+	}
+	else {
+		$test_ua->max_redirect(3);
+	}
+
+	# Send the request
+	if ($method eq 'OPTIONS') {
+		# not yet supported by our (system) version of HTTP::Request::Common
+		# $response = $ua->request(OPTIONS($url));
+		# hacky: use internal method
+		my $request = HTTP::Request::Common::request_type_with_data("OPTIONS", $url, %$headers_in);
+		$response = $test_ua->request($request);
+	}
+	elsif ($method eq 'GET') {
+		$response = $test_ua->get($url, %$headers_in);
+	}
+	elsif ($method eq 'POST') {
+		if (defined $test_ref->{body}) {
+			$response = $test_ua->post(
+				$url,
+				Content => encode_utf8($test_ref->{body}),
+				"Content-Type" => "application/json; charset=utf-8",
+				%$headers_in
+			);
 		}
-
-		# Send the request
-		if ($method eq 'OPTIONS') {
-			# not yet supported by our (system) version of HTTP::Request::Common
-			# $response = $ua->request(OPTIONS($url));
-			# hacky: use internal method
-			my $request = HTTP::Request::Common::request_type_with_data("OPTIONS", $url, %$headers_in);
-			$response = $ua->request($request);
-		}
-		elsif ($method eq 'GET') {
-			$response = $ua->get($url, %$headers_in);
-		}
-		elsif ($method eq 'POST') {
-			if (defined $test_ref->{body}) {
-				$response = $ua->post(
+		elsif (defined $test_ref->{form}) {
+			my $form = $test_ref->{form};
+			my $is_multipart = 0;
+			foreach my $value (values %$form) {
+				if (ref($value) eq 'ARRAY') {
+					$is_multipart = 1;
+					last;
+				}
+			}
+			if ($is_multipart) {
+				$response = $test_ua->post(
 					$url,
-					Content => encode_utf8($test_ref->{body}),
-					"Content-Type" => "application/json; charset=utf-8",
+					"Content-Type" => "multipart/form-data",
+					Content => $form,
 					%$headers_in
 				);
 			}
-			elsif (defined $test_ref->{form}) {
-				$response = $ua->post($url, Content => $test_ref->{form}, %$headers_in);
+			else {
+				$response = $test_ua->post($url, Content => $form, %$headers_in);
+			}
+		}
+		else {
+			$response = $test_ua->post($url, %$headers_in);
+		}
+	}
+	elsif ($method eq 'PUT') {
+		$response = $test_ua->put(
+			$url,
+			Content => encode_utf8($test_ref->{body}),
+			"Content-Type" => "application/json; charset=utf-8",
+			%$headers_in,
+		);
+	}
+	elsif ($method eq 'DELETE') {
+		$response = $test_ua->delete(
+			$url,
+			Content => encode_utf8($test_ref->{body}),
+			"Content-Type" => "application/json; charset=utf-8",
+			%$headers_in,
+		);
+	}
+	elsif ($method eq 'PATCH') {
+		my $request = HTTP::Request::Common::PATCH(
+			$url,
+			Content => encode_utf8($test_ref->{body}),
+			"Content-Type" => "application/json; charset=utf-8",
+			%$headers_in,
+		);
+		$response = $test_ua->request($request);
+	}
+
+	# Check if we got a redirect: they are currently not supported by execute_api_tests
+	# We would need to re-construct the url
+	my $final_url = $response->request->uri;
+	if ($url ne $final_url) {
+		diag("Warning: redirects are not supported by APITest.pm!!! Got a redirect to " . $final_url);
+	}
+
+	return $response;
+}
+
+sub check_request_response ($test_ref, $response, $test_id, $test_dir, $expected_result_dir, $update_expected_results) {
+
+	my $test_case = $test_ref->{test_case};
+
+	# Check if we got the expected response status code, expect 200 if not provided
+	if (not defined $test_ref->{expected_status_code}) {
+		$test_ref->{expected_status_code} = 200;
+	}
+
+	is($response->code, $test_ref->{expected_status_code}, "$test_case - Test status")
+		or diag(Dumper($test_ref), "Response status line: " . $response->status_line);
+
+	if (defined $test_ref->{headers}) {
+		while (my ($hname, $hvalue) = each %{$test_ref->{headers}}) {
+			my $rvalue = $response->header($hname);
+			# one may put undef values to test the inexistance of a header
+			if (!defined $hvalue) {
+				ok(!defined $rvalue, "$test_case - header $hname should not be defined");
+			}
+			# one may put a /regexp/ to test the value of a header
+			elsif ($hvalue =~ /^\/(.*)\/$/) {
+				my $regexp = $1;
+				like($rvalue, qr/$regexp/, "$test_case - header $hname like $hvalue");
 			}
 			else {
-				$response = $ua->post($url, %$headers_in);
+				is($rvalue, $hvalue, "$test_case - header $hname");
 			}
 		}
-		elsif ($method eq 'PUT') {
-			$response = $ua->put(
-				$url,
-				Content => encode_utf8($test_ref->{body}),
-				"Content-Type" => "application/json; charset=utf-8",
-				%$headers_in,
+	}
+
+	my $response_content = $response->decoded_content;
+
+	# Check that we don't get an error message generated by the Apache Server
+	# e.g. "Apache/2.4.56 (Debian) Server at world.openfoodfacts.localhost Port 80"
+	# unless it is a redirect
+	if (($response_content =~ /Apache.*Server/) and not($response->code =~ /^3\d\d$/)) {
+		fail("Received an Apache Server generated error message for test $test_case");
+		diag("Response content: " . $response_content);
+	}
+
+	my $expected_type = $test_ref->{expected_type} // 'json';
+
+	if ((($expected_type eq 'text') or ($expected_type eq 'html'))) {
+		# Check that the file is the same as expected (useful for HTML content or dynamic robots.txt)
+		is(
+			compare_file_to_expected_results(
+				$response_content, "$expected_result_dir/$test_case.$expected_type",
+				$update_expected_results, $test_ref
+			),
+			1,
+			"$test_case - result"
+		);
+	}
+	# Otherwise we expect the result is JSON
+	elsif ($expected_type eq 'json') {
+
+		# Check that we got a JSON response
+
+		my $decoded_json;
+		eval {
+			$decoded_json = decode_json($response_content);
+			1;
+		} or do {
+			my $json_decode_error = $@;
+			diag(
+				"$test_case - $test_ref->{method} $test_ref->{url} request got a response that is not valid JSON: $json_decode_error"
 			);
-		}
-		elsif ($method eq 'DELETE') {
-			$response = $ua->delete(
-				$url,
-				Content => encode_utf8($test_ref->{body}),
-				"Content-Type" => "application/json; charset=utf-8" % $headers_in,
-			);
-		}
-		elsif ($method eq 'PATCH') {
-			my $request = HTTP::Request::Common::PATCH(
-				$url,
-				Content => encode_utf8($test_ref->{body}),
-				"Content-Type" => "application/json; charset=utf-8",
-				%$headers_in,
-			);
-			$response = $ua->request($request);
-		}
+			diag("Response content: " . $response_content);
+			fail($test_case);
+			return;
+		};
 
-		# Check if we got the expected response status code, expect 200 if not provided
-		if (not defined $test_ref->{expected_status_code}) {
-			$test_ref->{expected_status_code} = 200;
-		}
-
-		is($response->code, $test_ref->{expected_status_code}, "$test_case - Test status")
-			or diag(explain($test_ref), "Response status line: " . $response->status_line);
-
-		if (defined $test_ref->{headers}) {
-			while (my ($hname, $hvalue) = each %{$test_ref->{headers}}) {
-				my $rvalue = $response->header($hname);
-				# one may put undef values to test the inexistance of a header
-				if (!defined $hvalue) {
-					ok(!defined $rvalue, "$test_case - header $hname should not be defined");
-				}
-				else {
-					is($rvalue, $hvalue, "$test_case - header $hname");
-				}
-			}
-		}
-
-		if (not((defined $test_ref->{expected_type}) and ($test_ref->{expected_type} eq "html"))) {
-
-			# Check that we got a JSON response
-			my $json = $response->decoded_content;
-
-			my $decoded_json;
-			eval {
-				$decoded_json = decode_json($json);
-				1;
-			} or do {
-				my $json_decode_error = $@;
-				diag(
-					"$test_case - The $method request to $url returned a response that is not valid JSON: $json_decode_error"
-				);
-				diag("Response content: " . $json);
-				fail($test_case);
-				next;
-			};
+		# If the request was a setup request, we don't need to save or check the response
+		# otherwise, save or check the response
+		if (not $test_ref->{setup}) {
 
 			# normalize for comparison
-			if (defined $decoded_json->{'products'}) {
-				normalize_products_for_test_comparison($decoded_json->{'products'});
-			}
-			if (defined $decoded_json->{'product'}) {
-				normalize_product_for_test_comparison($decoded_json->{'product'});
+			if (ref($decoded_json) eq 'HASH') {
+				if (defined $decoded_json->{'products'}) {
+					normalize_products_for_test_comparison($decoded_json->{'products'});
+					if (defined $test_ref->{sort_products_by}) {
+						sort_products_for_test_comparison($decoded_json->{'products'}, $test_ref->{sort_products_by});
+					}
+				}
+				if (defined $decoded_json->{'product'}) {
+					normalize_product_for_test_comparison($decoded_json->{'product'});
+				}
 			}
 
 			is(
@@ -513,9 +612,49 @@ sub execute_api_tests ($file, $tests_ref, $ua = undef) {
 					$update_expected_results, $test_ref
 				),
 				1,
+				"$test_case - result"
 			);
-		}
 
+		}
+	}
+	# We do not check the response content for some queries (e.g OPTIONS queries), in that case expected_type is set to 'none'
+	elsif ($expected_type ne 'none') {
+		fail($test_case);
+		diag("Unknown expected type: $expected_type");
+	}
+
+	# Check if the response content matches what we expect
+	my $must_match = $test_ref->{response_content_must_match};
+	if (    (defined $must_match)
+		and ($response_content !~ /$must_match/i))
+	{
+		fail($test_case);
+		diag("Must match: " . $must_match . "\n" . "Response content: " . $response_content);
+	}
+
+	my $must_not_match = $test_ref->{response_content_must_not_match};
+	if (    (defined $must_not_match)
+		and ($response_content =~ /$must_not_match/i))
+	{
+		fail($test_case);
+		diag("Must not match: " . $must_not_match . "\n" . "Response content: " . $response_content);
+	}
+
+	return;
+}
+
+sub execute_api_tests ($file, $tests_ref, $ua = undef) {
+
+	my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results($file));
+
+	$ua = $ua // LWP::UserAgent->new();
+
+	foreach my $test_ref (@$tests_ref) {
+
+		my $response = execute_request($test_ref, $ua);
+
+		check_request_response($test_ref, $response, $test_id, $test_dir, $expected_result_dir,
+			$update_expected_results);
 	}
 	return;
 }
@@ -573,7 +712,9 @@ sub tail_log_read ($tail) {
 }
 
 =head2 mails_from_log($text)
+
 Retrieve mails in a log extract
+
 =cut
 
 sub mails_from_log ($text) {
@@ -584,15 +725,19 @@ sub mails_from_log ($text) {
 }
 
 =head2 mail_to_text($text)
+
 Make mail more easy to search by removing some specific formatting
 
 Especially we replace "3D=" for "=" and join line and their continuation
+
 =head3 Arguments
 
 =head4 $mail text of mail
 
 =head3 Returns
-Reformated text
+
+Reformatted text
+
 =cut
 
 sub mail_to_text ($mail) {
@@ -608,20 +753,23 @@ sub mail_to_text ($mail) {
 
 Replace parts of mail that varies from tests to tests,
 and also in a format that's nice in json.
+
 =head3 Arguments
 
 =head4 $mail text of mail
 
 =head3 Returns
+
 ref to an array of lines of the email
+
 =cut
 
 sub normalize_mail_for_comparison ($mail) {
 	# remove boundaries
 	my $text = mail_to_text($mail);
-	my @boundaries = $text =~ m/boundary="([^"]+)"/g;
+	my @boundaries = $text =~ m/boundary=([^ ,\n\t]+)/g;
 	foreach my $boundary (@boundaries) {
-		$text =~ s/$boundary/\\"--boundary--\\"/g;
+		$text =~ s/$boundary/boundary/g;
 	}
 	# replace generic dates
 	$text =~ s/\d\d\d\d-\d\d-\d\d/--date--/g;
@@ -630,6 +778,137 @@ sub normalize_mail_for_comparison ($mail) {
 	# replace date headers
 	@lines = map {my $text = $_; $text =~ s/^Date: .+/Date: ***/g; $text;} @lines;
 	return \@lines;
+}
+
+=head2 fake_http_server($port, $dump_path, $responses_ref) {
+
+Launch a fake HTTP server.
+
+We use that to simulate Robotoff or any HTTP API in integration tests.
+As it will be launched on the local backend container, we have to pretend
+those service URL is on C<backend:$port>.
+
+You can provide a list of responses to simulate real service responses,
+while requests sent are store for later checks by the tests.
+
+=head3 parameters
+
+=head4 $dump_path - path
+
+A temporary directory to dump requests
+
+You can retrieve requests, in this directory as C<req-n.sto>
+
+=head4 $responses_ref - ref to a list
+
+List of responses to send, in right order, for each received request.
+
+If the number of request exceed this list,
+we will send simple 200 HTTP responses with a json payload.
+
+=head3 returns ref to fake server
+
+Hold the reference until you don't need the server
+
+=cut
+
+sub fake_http_server ($port, $dump_path, $responses_ref) {
+
+	# dump responses
+	my $resp_num = 0;
+	foreach my $resp (@$responses_ref) {
+		store("$dump_path/resp-$resp_num.sto", $resp);
+		$resp_num += 1;
+	}
+
+	my $httpd = Test::Fake::HTTPD->new(
+		timeout => 1000,
+		listen => 10,
+		host => "0.0.0.0",
+		port => $port,
+	);
+
+	$httpd->run(
+		sub {
+			my $req = shift;
+			my @dumped_reqs = glob("$dump_path/req-*.sto");
+			my $num_req = scalar @dumped_reqs;
+			# dump request to the folder
+			store("$dump_path/req-$num_req.sto", $req);
+			# look for an eventual response
+			my $response_ref;
+			if (-e "$dump_path/resp-$num_req.sto") {
+				$response_ref = retrieve("$dump_path/resp-$num_req.sto");
+			}
+			else {
+				# an ok response
+				$response_ref = HTTP::Response->new("200", "OK", HTTP::Headers->new(), '{"foo": "blah"}');
+			}
+			return $response_ref;
+		}
+	);
+	return $httpd;
+}
+
+=head2 get_minion_jobs($task_name, $created_after_ts, $max_waiting_time)
+
+Subprogram which wait till the minion finished its job or
+if it takes too much time
+
+=head3 Arguments
+
+=head4 $task_name
+
+The name of the task 
+
+=head4 $created_after_ts
+
+The timestamp of the creation of the task
+
+=head4 $max_waiting_time
+
+The max waiting time for this given task
+
+=head3 Returns
+
+Returns a list of jobs information associated with the task_name
+
+Note: for each job we return the job information (as returned by the jobs() iterator),
+not the Minion job object.
+
+=cut
+
+sub get_minion_jobs ($task_name, $created_after_ts, $max_waiting_time) {
+	my $waited = 0;    # counting the waiting time
+	my %run_jobs = ();
+	my $jobs_complete = 0;
+	while (($waited < $max_waiting_time) and (not $jobs_complete)) {
+		my $jobs = get_minion()->jobs({tasks => [$task_name]});
+		# iterate on jobs
+		$jobs_complete = 1;
+		while (my $job = $jobs->next) {
+			next if (defined $run_jobs{$job->{id}});
+			# only those who were created after the timestamp
+			if ($job->{created} >= $created_after_ts) {
+				# retrieving the job id
+				my $job_id = $job->{id};
+				# retrieving the job state
+				my $job_state = $job->{state};
+				# check if the job is done
+				if (($job_state eq "active") or ($job_state eq "inactive")) {
+					$jobs_complete = 0;
+					sleep(2);
+					$waited += 2;
+				}
+				else {
+					$run_jobs{$job_id} = $job;
+				}
+			}
+		}
+	}
+	# sort by creation date to have jobs in predictable order
+	my @all_jobs = sort {$_->info->{created}} (values %run_jobs);
+	return \@all_jobs;
 }
 
 1;

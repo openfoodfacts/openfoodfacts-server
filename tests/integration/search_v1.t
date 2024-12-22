@@ -2,10 +2,13 @@
 
 use ProductOpener::PerlStandards;
 
-use Test::More;
-use ProductOpener::APITest qw/:all/;
-use ProductOpener::Test qw/:all/;
-use ProductOpener::TestDefaults qw/:all/;
+use Test2::V0;
+use ProductOpener::APITest qw/create_user edit_product execute_api_tests new_client wait_application_ready/;
+use ProductOpener::Test qw/remove_all_products remove_all_users/;
+use ProductOpener::TestDefaults qw/%default_product_form %default_user_form/;
+use ProductOpener::Cache qw/$memd/;
+# We need to flush memcached so that cached queries from other tests (e.g. web_html.t) don't interfere with this test
+$memd->flush_all;
 
 use File::Basename "dirname";
 
@@ -58,12 +61,14 @@ my @products = (
 			origin => "france"
 		)
 	},
+	# Note: the following 2 products will have ingredients set in English (language of the interface)
+	# and not in Spanish (main language of the product)
 	{
 		%{dclone(\%default_product_form)},
 		(
 			code => '200000000039',
 			lang => "es",
-			product_name => "Vegan Test Snack",
+			product_name => "Vegan Test Snack with palm oil",
 			generic_name => "Tester",
 			ingredients_text => "apple, water, palm oil",
 			origin => "spain",
@@ -75,14 +80,26 @@ my @products = (
 		(
 			code => '200000000045',
 			lang => "es",
-			product_name => "Vegan Test Snack",
+			product_name => "Vegan breakfast cereals without palm oil",
 			generic_name => "Tester",
 			ingredients_text => "apple, water",
 			origin => "China",
 			packaging_text => "no",
 			categories => "breakfast cereals"
 		)
+	},
+	{
+		%{dclone(\%default_product_form)},
+		(
+			code => '200000000046',
+			product_name => "More vegan breakfast cereals without palm oil",
+			ingredients_text => "apple, water",
+			origin => "UK",
+			countries => "United Kingdom, Ireland",
+			categories => "breakfast cereals"
+		)
 	}
+	#
 );
 
 foreach my $product_ref (@products) {

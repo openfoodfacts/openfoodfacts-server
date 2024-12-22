@@ -28,8 +28,8 @@ use CGI::Carp qw(fatalsToBrowser);
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
-use ProductOpener::Lang qw/:all/;
-use ProductOpener::Tags qw/:all/;
+use ProductOpener::Lang qw/$lc/;
+use ProductOpener::Tags qw/spellcheck_taxonomy_tag/;
 
 use Getopt::Long;
 

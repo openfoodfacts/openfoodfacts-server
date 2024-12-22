@@ -1,6 +1,6 @@
-////////////////
+///////////////////
 //// topbar
-//
+
 
 .select2-container--default .select2-results__option--highlighted[aria-selected] { background-color: $chocolate !important; }
 
@@ -59,7 +59,7 @@
       &.left {
         li {
           &:first-child {
-            a {
+            #menu_link {
               display: inline-flex;
               padding-top: 12px;
               padding-bottom: 9px;
@@ -284,9 +284,8 @@
   }
 }
 
-//
 //// end topbar gen
-////////////////
+///////////////////
 
 @media #{$topbar-media-query} {
   #offNav {
@@ -352,5 +351,26 @@
         }
       }
     }
+  }
+}
+
+//skip to content styling
+.skip a {
+	background: #FFFFFF;
+	left: 0;
+	padding: 6px;
+	position: absolute;
+	top: -40px;
+	-webkit-transition: top 1s ease-out;
+	-o-transition: top 1s ease-out;
+	transition: top 1s ease-out;
+	z-index: 1;
+
+  &:focus {
+    top:20px;
+    color: #000000;
+    -webkit-text-decoration-style: solid;
+    text-decoration-style: solid;
+	  z-index: 6;
   }
 }

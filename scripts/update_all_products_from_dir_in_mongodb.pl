@@ -26,7 +26,8 @@ use utf8;
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
+use ProductOpener::Store qw/retrieve/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Tags qw/:all/;
@@ -34,17 +35,17 @@ use ProductOpener::Users qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Mail qw/:all/;
-use ProductOpener::Products qw/:all/;
+use ProductOpener::Products qw/product_id_for_owner product_path_from_id retrieve_product/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
-use ProductOpener::Data qw/:all/;
+use ProductOpener::Data qw/get_products_collection/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 
 use Data::Dumper;
 
@@ -94,10 +95,10 @@ if (scalar $#products < 0) {
 		if (not defined $owner) {
 			die("The owner must be specified on the producers platform");
 		}
-		find_products("$data_root/products/$owner", '');
+		find_products("$BASE_DIRS{PRODUCTS}/$owner", '');
 	}
 	else {
-		find_products("$data_root/products", '');
+		find_products($BASE_DIRS{PRODUCTS}, '');
 	}
 }
 
@@ -118,8 +119,8 @@ foreach my $code (@products) {
 	my $path = product_path_from_id($product_id);
 
 	#my $product_ref = retrieve_product($code);
-	my $product_ref = retrieve("$data_root/products/$path/product.sto")
-		or print "not defined $data_root/products/$path/product.sto\n";
+	my $product_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/product.sto")
+		or print "not defined $BASE_DIRS{PRODUCTS}/$path/product.sto\n";
 
 	if ((defined $product_ref)) {
 

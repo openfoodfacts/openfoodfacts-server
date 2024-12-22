@@ -2,10 +2,10 @@
 
 use ProductOpener::PerlStandards;
 
-use Test::More;
-use ProductOpener::APITest qw/:all/;
-use ProductOpener::Test qw/:all/;
-use ProductOpener::TestDefaults qw/:all/;
+use Test2::V0;
+use ProductOpener::APITest qw/create_user execute_api_tests login new_client wait_application_ready/;
+use ProductOpener::Test qw/remove_all_products remove_all_users/;
+use ProductOpener::TestDefaults qw/%default_user_form/;
 
 use File::Basename "dirname";
 
@@ -30,11 +30,11 @@ my $tests_ref = [
 		path => '/cgi/auth.pl',
 		expected_status_code => 403,    # we are not authenticated
 		headers => {
-			"Access-Control-Allow-Origins" => "http://world.openfoodfacts.localhost",
+			"Access-Control-Allow-Origin" => "http://world.openfoodfacts.localhost",
 			"Access-Control-Allow-Credentials" => "true",
 			"Vary" => "Origin"
 		},
-		expected_type => "html",
+		expected_type => "none",    # no body for OPTIONS requests
 	},
 	{
 		test_case => 'get-auth',
@@ -42,11 +42,11 @@ my $tests_ref = [
 		path => '/cgi/auth.pl',
 		expected_status_code => 403,    # we are not authenticated
 		headers => {
-			"Access-Control-Allow-Origins" => "http://world.openfoodfacts.localhost",
+			"Access-Control-Allow-Origin" => "http://world.openfoodfacts.localhost",
 			"Access-Control-Allow-Credentials" => "true",
 			"Vary" => "Origin"
 		},
-		expected_type => "html",
+		expected_type => "none",    # no body for OPTIONS requests
 	},
 	{
 		test_case => 'options-auth-bad-origin',
@@ -55,21 +55,33 @@ my $tests_ref = [
 		expected_status_code => 403,    # because Options triggers a GET, and we are unauthenticated
 		headers_in => {"Origin" => "http://other.localhost"},
 		headers => {
-			"Access-Control-Allow-Origins" => "*",
+			"Access-Control-Allow-Origin" => "*",
 			"Access-Control-Allow-Credentials" => undef,
 		},
-		expected_type => "html",
+		expected_type => "none",    # no body for OPTIONS requests
 	},
+	# Note: in API v3, we return a 200 status code for OPTIONS, even if the product does not exist
 	{
 		test_case => 'options-api-v3',
 		method => 'OPTIONS',
 		path => '/api/v3/product/0000002',
-		expected_status_code => 404,
+		expected_status_code => 200,
 		headers => {
-			"Access-Control-Allow-Origins" => "*",
+			"Access-Control-Allow-Origin" => "*",
 			"Access-Control-Allow-Methods" => "HEAD, GET, PATCH, POST, PUT, OPTIONS",
 		},
-		expected_type => "html",
+		expected_type => "none",    # no body for OPTIONS requests
+	},
+	{
+		test_case => 'options-api-v3-test-product',
+		method => 'OPTIONS',
+		path => '/api/v3/product/test',
+		expected_status_code => 200,
+		headers => {
+			"Access-Control-Allow-Origin" => "*",
+			"Access-Control-Allow-Methods" => "HEAD, GET, PATCH, POST, PUT, OPTIONS",
+		},
+		expected_type => "none",    # no body for OPTIONS requests
 	},
 	{
 		test_case => 'get-api-v3',
@@ -77,10 +89,10 @@ my $tests_ref = [
 		path => '/api/v3/product/0000002',
 		expected_status_code => 404,
 		headers => {
-			"Access-Control-Allow-Origins" => "*",
+			"Access-Control-Allow-Origin" => "*",
 			"Access-Control-Allow-Methods" => "HEAD, GET, PATCH, POST, PUT, OPTIONS",
 		},
-		expected_type => "html",
+		expected_type => "none",    # no body for OPTIONS requests
 	},
 	{
 		test_case => 'options-api-v2',
@@ -88,10 +100,10 @@ my $tests_ref = [
 		path => '/api/v2/product/0000002',
 		expected_status_code => 404,
 		headers => {
-			"Access-Control-Allow-Origins" => "*",
+			"Access-Control-Allow-Origin" => "*",
 			"Access-Control-Allow-Methods" => "HEAD, GET, PATCH, POST, PUT, OPTIONS",
 		},
-		expected_type => "html",
+		expected_type => "none",    # no body for OPTIONS requests
 	},
 	{
 		test_case => 'get-api-v2',
@@ -99,10 +111,9 @@ my $tests_ref = [
 		path => '/api/v2/product/0000002',
 		expected_status_code => 404,
 		headers => {
-			"Access-Control-Allow-Origins" => "*",
+			"Access-Control-Allow-Origin" => "*",
 			"Access-Control-Allow-Methods" => "HEAD, GET, PATCH, POST, PUT, OPTIONS",
 		},
-		expected_type => "html",
 	},
 ];
 execute_api_tests(__FILE__, $tests_ref);
@@ -120,11 +131,11 @@ $tests_ref = [
 		path => '/cgi/auth.pl',
 		expected_status_code => 200,    # authenticated
 		headers => {
-			"Access-Control-Allow-Origins" => "http://world.openfoodfacts.localhost",
+			"Access-Control-Allow-Origin" => "http://world.openfoodfacts.localhost",
 			"Access-Control-Allow-Credentials" => "true",
 			"Vary" => "Origin"
 		},
-		expected_type => "html",
+		expected_type => "none",
 	},
 	{
 		test_case => 'user-options-auth-bad-origin',
@@ -133,10 +144,10 @@ $tests_ref = [
 		expected_status_code => 200,    # authenticated
 		headers_in => {"Origin" => "http://other.localhost"},
 		headers => {
-			"Access-Control-Allow-Origins" => "*",
+			"Access-Control-Allow-Origin" => "*",
 			"Access-Control-Allow-Credentials" => undef,
 		},
-		expected_type => "html",
+		expected_type => "none",
 	},
 ];
 execute_api_tests(__FILE__, $tests_ref, $auth_ua);

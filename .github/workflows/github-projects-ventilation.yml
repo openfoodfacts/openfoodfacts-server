@@ -1,0 +1,148 @@
+name: Ventilate issues to the right GitHub projects
+
+on:
+  issues:
+    types:
+      - opened
+      - edited
+      - deleted
+      - transferred
+      - pinned
+      - unpinned
+      - closed
+      - reopened
+      - assigned
+      - unassigned
+      - labeled
+      - unlabeled
+      - locked
+      - unlocked
+      - milestoned
+      - demilestoned
+
+  pull_request_target:
+    types:
+    - assigned
+    - unassigned
+    - labeled
+    - unlabeled
+    - opened
+    - edited
+    - closed
+    - reopened
+    - synchronize
+    - converted_to_draft
+    - ready_for_review
+    - locked
+    - unlocked
+    - review_requested
+    - review_request_removed
+    - auto_merge_enabled
+    - auto_merge_disabled
+jobs:
+  add-to-projects:
+    name: Ventilate issues to the right GitHub projects
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/add-to-project@main
+        with:
+          project-url: https://github.com/orgs/openfoodfacts/projects/11 # Add issue to the openfoodfacts-design project
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+          labeled: 🎨 Mockup available, 🎨 Mockup required
+          label-operator: OR
+      - uses: actions/add-to-project@main
+        with:
+          project-url: https://github.com/orgs/openfoodfacts/projects/36 # Add issue to the open pet food facts project
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+          labeled: 🐾 Open Pet Food Facts
+          label-operator: OR
+      - uses: actions/add-to-project@main
+        with:
+          project-url: https://github.com/orgs/openfoodfacts/projects/43 # Add issue to the open products facts project
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+          labeled: 📸 Open Products Facts
+          label-operator: OR
+      - uses: actions/add-to-project@main
+        with:
+          project-url: https://github.com/orgs/openfoodfacts/projects/37 # Add issue to the open beauty facts project
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+          labeled: 🧴 Open Beauty Facts
+          label-operator: OR
+      - uses: actions/add-to-project@main
+        with:
+          project-url: https://github.com/orgs/openfoodfacts/projects/4 # Add issue to the packaging project
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+          labeled: 📦 Packaging
+          label-operator: OR
+      - uses: actions/add-to-project@main
+        with:
+          project-url: https://github.com/orgs/openfoodfacts/projects/25 # Add issue to the documentation project
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+          labeled: 📚 Documentation
+          label-operator: OR
+      - uses: actions/add-to-project@main
+        with:
+          project-url: https://github.com/orgs/openfoodfacts/projects/5 # Add issue to the folksonomy project
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+          labeled: 🏷️ Folksonomy Project
+          label-operator: OR         
+      - uses: actions/add-to-project@main
+        with:
+          project-url: https://github.com/orgs/openfoodfacts/projects/44 # Add issue to the data quality project
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+          labeled: 🧽 Data quality
+          label-operator: OR    
+      - uses: actions/add-to-project@main
+        with:
+          project-url: https://github.com/orgs/openfoodfacts/projects/82 # Add issue to the search project
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+          labeled: 🔎 Search
+          label-operator: OR
+      - uses: actions/add-to-project@main
+        with:
+          project-url: https://github.com/orgs/openfoodfacts/projects/41 # Add issue to the producer platform project
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+          labeled: 🏭 Producers Platform
+          label-operator: OR    
+      - uses: actions/add-to-project@main
+        with:
+          project-url: https://github.com/orgs/openfoodfacts/projects/19 # Add issue to the infrastructure project
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+          labeled: infrastructure
+          label-operator: OR   
+      - uses: actions/add-to-project@main
+        with:
+          project-url: https://github.com/orgs/openfoodfacts/projects/92 # Add issue to the Nutri-Score project
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+          labeled: 🚦 Nutri-Score
+          label-operator: OR   
+      - uses: actions/add-to-project@main
+        with:
+          project-url: https://github.com/orgs/openfoodfacts/projects/132 # Add issue to the Top upvoted issues board
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+          labeled: ⭐ top issue, 👍 Top 10 Issue!
+          label-operator: OR
+      - uses: actions/add-to-project@main
+        with:
+          project-url: https://github.com/orgs/openfoodfacts/projects/57 # Add issue to the Most impactful issues board
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+          labeled: 🎯 P0, 🎯 P1
+          label-operator: OR
+      - uses: actions/add-to-project@main
+        with:
+          project-url: https://github.com/orgs/openfoodfacts/projects/60 # Add issue to the API issues board
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+          labeled: API, API READ, API WRITE, 🔐 API auth, API v3, API tests, API Refactor, 🧽 API - Quality, API Read - Product, OpenAPI, 📚 OpenAPI
+          label-operator: OR
+      - uses: actions/add-to-project@main
+        with:
+          project-url: https://github.com/orgs/openfoodfacts/projects/136 # Add issue to the Translations project
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+          labeled: 🌐 Translations, translations, i18n, Translations
+          label-operator: OR
+      - uses: actions/add-to-project@main
+        with:
+          project-url: https://github.com/orgs/openfoodfacts/projects/84 # Add issue to the Metrics project
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+          labeled: matomo
+          label-operator: OR

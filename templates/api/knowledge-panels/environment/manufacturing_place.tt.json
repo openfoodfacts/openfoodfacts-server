@@ -6,7 +6,7 @@
     "evaluation": "neutral",
     "expanded": true,
     "title_element": {
-        "title": "[% lang('manufacturing_places_s') FILTER ucfirst %]",
+        "title": "[% edq(lang('manufacturing_places_s')) FILTER ucfirst %]",
         [% IF panel.packager_code_data.cc == 'fr' %]
             "subtitle": "[% panel.packager_code_data.commune %] - [% display_taxonomy_tag_name('countries', 'en:france') %]",        
         [% ELSIF panel.packager_code_data.cc == 'ch' %]

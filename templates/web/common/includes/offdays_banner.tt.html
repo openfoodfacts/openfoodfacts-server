@@ -1,0 +1,75 @@
+<!-- start templates/[% component.name %] -->
+
+<section id="offdays-banner-top" class="offdays-banner">
+  <span class="offdays-banner__image"></span>
+  <div class="offdays-banner__content">
+  <a
+      class="offdays-banner__content--button button round white-button"
+    [% IF lc == 'fr' %]
+        href="https://blog.openfoodfacts.org/fr/news/rendez-vous-en-octobre-pour-les-journees-open-food-facts"
+    [% ELSE %]
+        href="https://blog.openfoodfacts.org/en/news/open-food-facts-days-are-back-%f0%9f%8e%89-2023-edition"
+    [% END %]
+  >
+    <!-- <span class="material-icons">scale</span> -->
+    [% IF lc == "fr" %]
+        S'inscrire aux Journées Open Food Facts 2023
+    [% ELSE %]
+        Register for the Open Food Facts Days 2023
+    [% END %]
+  </a>
+  <div class="offdays-banner__content-paragraphs">
+    <p class="offdays-banner__content-paragraphs--text">
+        [% IF lc == "fr" %]
+            Les <b>Journées Open Food Facts 2023</b>, auront lieu en octobre à Paris !
+            On vous y attend, <a href="https://connect.openfoodfacts.org/fr/event/les-journees-open-food-facts-2023-9/register">INSCRIVEZ-VOUS ICI</a>
+        [% ELSE %]
+            Our annual community event <b>Open Food Facts Days 2023</b> will take place this October in Paris!
+            To be a part of it, <a href="https://connect.openfoodfacts.org/event/open-food-fact-days-2023-9/register">REGISTER HERE</a>            
+        [% END %]
+    </p>
+  </div>
+  <div class="offdays-banner__content-close">
+    <span id="hide-donate-banner" class="offdays-banner__content-close--icon material-icons" onclick="bannerButton();">close</span>
+  </div>
+</section>
+
+<script>
+  let d = new Date();
+  let bannerID = document.getElementById('offdays-banner-top');
+  let getDomain = window.location.origin.split('.');
+
+  function setBannerCookie(bcname, bcval, bcexdays) {
+    d.setTime(d.getTime() + (bcexdays*60*60*24*1000));
+    let expires = 'expires=' + d.toUTCString();
+    // Apply cookie for every domain contains open...facts
+    let domain = 'domain=.' + getDomain.slice(1).join('.');
+    document.cookie = bcname + '=' + bcval + ';' + expires + ';' + domain + ';SameSite=None;Secure;path=/';
+  }
+  
+  function getBannerCookie(bcname) {
+    const name = bcname + '=';
+    const decodedCookies = decodeURIComponent(document.cookie);
+    const cookies = decodedCookies.split(';');
+    for (const cookie of cookies) {
+      let c = cookie;
+      while (c.charAt(0) == ' ') { c = c.substring(1); }
+      if (c.indexOf(name) == 0) { return c.substring(name.length, c.length); }
+    }
+    
+    return '';
+  }
+
+  function bannerButton() {
+    setBannerCookie('off-offdays-banner', 1, 180);
+    bannerID.style.display = 'none';
+  }
+
+  if (getBannerCookie('off-offdays-banner') !== '') {
+    bannerID.style.display = 'none';
+  } else { 
+    bannerID.style.display = 'flex';
+  }
+</script>
+
+<!-- end templates/[% component.name %] -->

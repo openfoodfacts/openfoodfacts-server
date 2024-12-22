@@ -3,199 +3,88 @@
 use Modern::Perl '2017';
 use utf8;
 
-use Test::More;
-use Test::Number::Delta relative => 1.001;
+use Test2::V0;
+use Data::Dumper;
+$Data::Dumper::Terse = 1;
+$Data::Dumper::Sortkeys = 1;
 use Log::Any::Adapter 'TAP';
 
-use ProductOpener::Tags qw/:all/;
+use ProductOpener::Tags qw/exists_taxonomy_tag has_tag get_property %properties/;
 use ProductOpener::Food qw/:all/;
+use ProductOpener::FoodProducts qw/:all/;
 
-# Based on https://de.wikipedia.org/w/index.php?title=Wasserh%C3%A4rte&oldid=160348959#Einheiten_und_Umrechnung
-is(mmoll_to_unit(1, 'mol/l'), 0.001);
-is(mmoll_to_unit('1', 'moll/l'), 1);
-is(mmoll_to_unit(1, 'mmol/l'), 1);
-is(mmoll_to_unit(1, 'mval/l'), 2);
-is(mmoll_to_unit(1, 'ppm'), 100);
-is(mmoll_to_unit(1, "\N{U+00B0}rH"), 40.080);
-is(mmoll_to_unit(1, "\N{U+00B0}fH"), 10.00);
-is(mmoll_to_unit(1, "\N{U+00B0}e"), 7.02);
-is(mmoll_to_unit(1, "\N{U+00B0}dH"), 5.6);
-is(mmoll_to_unit(1, 'gpg'), 5.847);
-
-is(unit_to_mmoll(1, 'mol/l'), 1000);
-is(unit_to_mmoll('1', 'mmol/l'), 1);
-is(unit_to_mmoll(1, 'mmol/l'), 1);
-is(unit_to_mmoll(1, 'mval/l'), 0.5);
-is(unit_to_mmoll(1, 'ppm'), 0.01);
-delta_ok(unit_to_mmoll(1, "\N{U+00B0}rH"), 0.025);
-delta_ok(unit_to_mmoll(1, "\N{U+00B0}fH"), 0.1);
-delta_ok(unit_to_mmoll(1, "\N{U+00B0}e"), 0.142);
-delta_ok(unit_to_mmoll(1, "\N{U+00B0}dH"), 0.1783);
-delta_ok(unit_to_mmoll(1, 'gpg'), 0.171);
-
-is(mmoll_to_unit(unit_to_mmoll(1, 'ppm'), "\N{U+00B0}dH"), 0.056);
-
-# Chinese Measurements Source: http://www.new-chinese.org/lernwortschatz-chinesisch-masseinheiten.html
-# kè - gram - 克
-is(normalize_quantity("42\N{U+514B}"), 42);
-is(normalize_serving_size("42\N{U+514B}"), 42);
-is(unit_to_g(42, "\N{U+514B}"), 42);
-is(g_to_unit(42, "\N{U+514B}"), 42);
-# gōngkè - gram - 公克 (in use at least in Taïwan)
-is(normalize_quantity("42\N{U+516C}\N{U+514B}"), 42);
-is(normalize_serving_size("42\N{U+516C}\N{U+514B}"), 42);
-is(unit_to_g(42, "\N{U+516C}\N{U+514B}"), 42);
-is(g_to_unit(42, "\N{U+516C}\N{U+514B}"), 42);
-# héokè - milligram - 毫克
-is(normalize_quantity("42000\N{U+6BEB}\N{U+514B}"), 42);
-is(normalize_serving_size("42000\N{U+6BEB}\N{U+514B}"), 42);
-is(unit_to_g(42000, "\N{U+6BEB}\N{U+514B}"), 42);
-is(g_to_unit(42, "\N{U+6BEB}\N{U+514B}"), 42000);
-# jīn - pound 500 g - 斤
-is(normalize_quantity("84\N{U+65A4}"), 42000);
-is(normalize_serving_size("84\N{U+65A4}"), 42000);
-is(unit_to_g(84, "\N{U+65A4}"), 42000);
-is(g_to_unit(42000, "\N{U+65A4}"), 84);
-# gōngjīn - kg - 公斤
-is(normalize_quantity("42\N{U+516C}\N{U+65A4}"), 42000);
-is(normalize_serving_size("42\N{U+516C}\N{U+65A4}"), 42000);
-is(unit_to_g(42, "\N{U+516C}\N{U+65A4}"), 42000);
-is(g_to_unit(42000, "\N{U+516C}\N{U+65A4}"), 42);
-# háoshēng - milliliter - 毫升
-is(normalize_quantity("42\N{U+6BEB}\N{U+5347}"), 42);
-is(normalize_serving_size("42\N{U+6BEB}\N{U+5347}"), 42);
-is(unit_to_g(42, "\N{U+6BEB}\N{U+5347}"), 42);
-is(g_to_unit(42, "\N{U+6BEB}\N{U+5347}"), 42);
-# gōngshēng - liter - 公升
-is(normalize_quantity("42\N{U+516C}\N{U+5347}"), 42000);
-is(normalize_serving_size("42\N{U+516C}\N{U+5347}"), 42000);
-is(unit_to_g(42, "\N{U+516C}\N{U+5347}"), 42000);
-is(g_to_unit(42000, "\N{U+516C}\N{U+5347}"), 42);
-
-# Russian units
-
-is(unit_to_g(1, "г"), 1);
-is(unit_to_g(1, "мг"), 0.001);
-
-# unit conversion tests
-# TODO
-# if (!defined(unit_to_g(1, "unknown")))
-# {
-# 	return 1;
-# }
-is(unit_to_g(1, "kj"), 1);
-is(unit_to_g(1, "kcal"), 4);
-is(unit_to_g(1000, "kcal"), 4184);
-is(unit_to_g(1.2345, "kg"), 1234.5);
-is(unit_to_g(1, "kJ"), 1);
-is(unit_to_g(10, ""), 10);
-is(unit_to_g(10, " "), 10);
-is(unit_to_g(10, "% vol"), 10);
-is(unit_to_g(10, "%"), 10);
-is(unit_to_g(10, "% vol"), 10);
-is(unit_to_g(10, "% DV"), 10);
-is(unit_to_g(11, "mL"), 11);
-is(g_to_unit(42000, "kg"), 42);
-is(g_to_unit(28.349523125, "oz"), 1);
-is(g_to_unit(30, "fl oz"), 1);
-is(g_to_unit(1, "mcg"), 1000000);
-
-is(normalize_quantity("1 г"), 1);
-is(normalize_quantity("1 мг"), 0.001);
-is(normalize_quantity("1 кг"), 1000);
-is(normalize_quantity("1 л"), 1000);
-is(normalize_quantity("1 дл"), 100);
-is(normalize_quantity("1 кл"), 10);
-is(normalize_quantity("1 мл"), 1);
-
-is(normalize_quantity("250G"), 250);
-is(normalize_quantity("4 x 25g"), 100);
-is(normalize_quantity("4 x25g"), 100);
-is(normalize_quantity("4 * 25g"), 100);
-is(normalize_quantity("4X2,5L"), 10000);
-is(normalize_quantity("1 barquette de 40g"), 40);
-is(normalize_quantity("2 barquettes de 40g"), 80);
-is(normalize_quantity("6 bouteilles de 33cl"), 6 * 33 * 10);
-is(normalize_quantity("10 unités de 170g"), 1700);
-is(normalize_quantity("10 unites, 170g"), 170);
-is(normalize_quantity("4 bouteilles en verre de 20cl"), 800);
-is(normalize_quantity("5 bottles of 20cl"), 100 * 10);
+# Note: the categories en:unsweetened-beverages, en:sweetened-beverages, en:artificially-sweetened-beverages
+# are now only added temporarily when we compute food groups, they are not kept in the product categories
 
 my $product_ref = {
 	lc => "en",
 	categories_tags => ["en:beverages"],
 	categories => "beverages",
-	ingredients_tags => ["en:water", "en:fruit-juice"],
 };
 
 # without an ingredient list: should not add en:unsweetened-beverages
 
-special_process_product($product_ref);
+specific_processes_for_food_product($product_ref);
 
-ok((not has_tag($product_ref, 'categories', 'en:unsweetened-beverages')), 'should not add en:unsweetened-beverages')
-	|| diag explain $product_ref;
+# ok((not has_tag($product_ref, 'categories', 'en:unsweetened-beverages')), 'should not add en:unsweetened-beverages')
+#	|| diag Dumper $product_ref;
 
-is($product_ref->{pnns_groups_2}, "unknown") || diag explain $product_ref;
+is($product_ref->{pnns_groups_2}, "unknown") || diag Dumper $product_ref;
 
 $product_ref = {
 	lc => "en",
 	categories_tags => ["en:beverages"],
 	categories => "beverages",
-	ingredients_tags => ["en:water", "en:fruit-juice"],
 	ingredients_text => "water, fruit juice",
 };
 
 # with an ingredient list: should add en:unsweetened-beverages
 
-special_process_product($product_ref);
+specific_processes_for_food_product($product_ref);
 
-#ok( (has_tag($product_ref, 'categories', 'en:unsweetened-beverages')), 'should add en:unsweetened-beverages' ) || diag explain $product_ref;
+#ok( (has_tag($product_ref, 'categories', 'en:unsweetened-beverages')), 'should add en:unsweetened-beverages' ) || diag Dumper $product_ref;
 
-is($product_ref->{pnns_groups_2}, "Unsweetened beverages") || diag explain $product_ref;
-
-$product_ref = {
-	lc => "en",
-	categories_tags => ["en:beverages"],
-	categories => "beverages",
-	ingredients_tags => ["en:sugar"],
-};
-
-special_process_product($product_ref);
-
-#ok( has_tag($product_ref, 'categories', 'en:sweetened-beverages'), 'should add en:sweetened-beverages' ) || diag explain $product_ref;
-
-is($product_ref->{pnns_groups_2}, "Sweetened beverages") || diag explain $product_ref;
+is($product_ref->{pnns_groups_2}, "Unsweetened beverages") || diag Dumper $product_ref;
 
 $product_ref = {
 	lc => "en",
 	categories_tags => ["en:beverages"],
 	categories => "beverages",
-	ingredients_tags => ["en:sugar"],
-	additives_tags => ["en:e950"],
-	with_sweeteners => 1,
+	ingredients_text => "water, sugar",
 };
 
-special_process_product($product_ref);
+specific_processes_for_food_product($product_ref);
 
-#ok( has_tag($product_ref, 'categories', 'en:artificially-sweetened-beverages'), 'should add en:artificially-sweetened-beverages' ) || diag explain $product_ref;
+#ok( has_tag($product_ref, 'categories', 'en:sweetened-beverages'), 'should add en:sweetened-beverages' ) || diag Dumper $product_ref;
 
-is($product_ref->{pnns_groups_2}, "Artificially sweetened beverages") || diag explain $product_ref;
+is($product_ref->{pnns_groups_2}, "Sweetened beverages") || diag Dumper $product_ref;
+
+$product_ref = {
+	lc => "en",
+	categories_tags => ["en:beverages"],
+	categories => "beverages",
+	ingredients_text => "sugar, e950",
+};
+
+specific_processes_for_food_product($product_ref);
+
+#ok( has_tag($product_ref, 'categories', 'en:artificially-sweetened-beverages'), 'should add en:artificially-sweetened-beverages' ) || diag Dumper $product_ref;
+
+is($product_ref->{pnns_groups_2}, "Artificially sweetened beverages") || diag Dumper $product_ref;
 
 $product_ref = {
 	lc => "en",
 	categories_tags => ["en:beverages", "en:waters", "en:flavored-waters"],
 	categories => "beverages",
-	ingredients_tags => ["en:sugar"],
-	additives_tags => ["en:e950"],
-	with_sweeteners => 1,
+	ingredients_text => "sugar, e950",
 };
 
-special_process_product($product_ref);
+specific_processes_for_food_product($product_ref);
 
-#ok( has_tag($product_ref, 'categories', 'en:artificially-sweetened-beverages'), 'should add en:artificially-sweetened-beverages' ) || diag explain $product_ref;
-#ok( has_tag($product_ref, 'categories', 'en:sweetened-beverages'), 'should add en:sweetened-beverages' ) || diag explain $product_ref;
+#ok( has_tag($product_ref, 'categories', 'en:artificially-sweetened-beverages'), 'should add en:artificially-sweetened-beverages' ) || diag Dumper $product_ref;
+#ok( has_tag($product_ref, 'categories', 'en:sweetened-beverages'), 'should add en:sweetened-beverages' ) || diag Dumper $product_ref;
 
-is($product_ref->{pnns_groups_2}, "Artificially sweetened beverages") || diag explain $product_ref;
+is($product_ref->{pnns_groups_2}, "Artificially sweetened beverages") || diag Dumper $product_ref;
 
 $product_ref = {
 	lc => "en",
@@ -203,9 +92,9 @@ $product_ref = {
 	categories_tags => ["en:beverages", "en:waters", "en:flavored-waters"],
 };
 
-special_process_product($product_ref);
+specific_processes_for_food_product($product_ref);
 
-is($product_ref->{pnns_groups_2}, "Waters and flavored waters") || diag explain $product_ref;
+is($product_ref->{pnns_groups_2}, "Waters and flavored waters") || diag Dumper $product_ref;
 
 $product_ref = {
 	lc => "en",
@@ -213,49 +102,33 @@ $product_ref = {
 	categories_tags => ["en:beverages", "en:iced-teas"],
 };
 
-special_process_product($product_ref);
+specific_processes_for_food_product($product_ref);
 
-is($product_ref->{pnns_groups_2}, "Teas and herbal teas and coffees") || diag explain $product_ref;
+is($product_ref->{pnns_groups_2}, "Teas and herbal teas and coffees") || diag Dumper $product_ref;
 
 $product_ref = {
 	lc => "en",
 	categories => "beverages",
 	categories_tags => ["en:beverages", "en:ice-teas"],
-	ingredients_tags => ["en:sugar"],
-	additives_tags => ["en:e950"],
-	with_sweeteners => 1,
+	ingredients_text => "sugar, sorbitol",
 };
 
-special_process_product($product_ref);
+specific_processes_for_food_product($product_ref);
 
-ok(not(has_tag($product_ref, 'categories', 'en:artificially-sweetened-beverages')),
-	'should add en:artificially-sweetened-beverages')
-	|| diag explain $product_ref;
-ok(not(has_tag($product_ref, 'categories', 'en:sweetened-beverages')), 'should add en:sweetened-beverages')
-	|| diag explain $product_ref;
-
-is($product_ref->{pnns_groups_2}, "Artificially sweetened beverages") || diag explain $product_ref;
+is($product_ref->{pnns_groups_2}, "Artificially sweetened beverages") || diag Dumper $product_ref;
 
 $product_ref = {
 	lc => "en",
 	categories => "beverages",
 	categories_tags => ["en:beverages"],
-	ingredients_tags => ["en:water", "en:fruit-juice"],
 	ingredients_text => "water, fruit juice",
-	with_sweeteners => 1,
 };
 
 # with an ingredient list: should add en:unsweetened-beverages
 
-special_process_product($product_ref);
+specific_processes_for_food_product($product_ref);
 
-ok((not(has_tag($product_ref, 'categories', 'en:unsweetened-beverages'))), 'should not add en:unsweetened-beverages')
-	|| diag explain $product_ref;
-ok(not(has_tag($product_ref, 'categories', 'en:artificially-sweetened-beverages')),
-	'should add en:unsweetened-beverages')
-	|| diag explain $product_ref;
-
-is($product_ref->{pnns_groups_2}, "Artificially sweetened beverages") || diag explain $product_ref;
+is($product_ref->{pnns_groups_2}, "Unsweetened beverages") || diag Dumper $product_ref;
 
 $product_ref = {
 	lc => "en",
@@ -267,26 +140,21 @@ $product_ref = {
 
 # with an ingredient list: should add en:unsweetened-beverages
 
-special_process_product($product_ref);
+specific_processes_for_food_product($product_ref);
 
-ok(not(not has_tag($product_ref, 'categories', 'en:unsweetened-beverages')), 'should remove en:unsweetened-beverages')
-	|| diag explain $product_ref;
-ok(not(has_tag($product_ref, 'categories', 'en:sweetened-beverages')), 'should add en:sweetened-beverages')
-	|| diag explain $product_ref;
-
-is($product_ref->{pnns_groups_2}, "Sweetened beverages") || diag explain $product_ref;
+is($product_ref->{pnns_groups_2}, "Unsweetened beverages") || diag Dumper $product_ref;
 
 is($product_ref->{nutrition_score_beverage}, 1);
 
 $product_ref = {
 	lc => "en",
 	categories => "beverages",
-	categories_tags => ["en:beverages", "en:plant-milks"],
+	categories_tags => ["en:beverages", "en:plant-based-milk-alternatives"],
 	ingredients_tags => ["en:water", "en:sugar"],
 	ingredients_text => "water, fruit juice",
 };
 
-special_process_product($product_ref);
+specific_processes_for_food_product($product_ref);
 
 is($product_ref->{nutrition_score_beverage}, 0);
 
@@ -307,7 +175,7 @@ $expected_product_ref = {
 	}
 };
 
-is_deeply($product_ref, $expected_product_ref) or diag explain($product_ref);
+is($product_ref, $expected_product_ref) or diag Dumper($product_ref);
 
 $product_ref = {
 	nutriments => {"nova-group" => 4, "nova-group_100g" => 4, "nova-group_serving" => 4, "alcohol" => 12, "ph" => 7},
@@ -316,7 +184,7 @@ $product_ref = {
 	serving_size => "25 g",
 };
 
-compute_serving_size_data($product_ref);
+compute_nutrition_data_per_100g_and_per_serving($product_ref);
 
 $expected_product_ref = {
 	'nutriments' => {
@@ -333,12 +201,14 @@ $expected_product_ref = {
 	'nutrition_data_per' => 'serving',
 	'nutrition_data_prepared_per' => '100g',
 	'product_quantity' => 100,
+	'product_quantity_unit' => "g",
 	'quantity' => '100 g',
 	'serving_quantity' => 25,
+	'serving_quantity_unit' => "g",
 	'serving_size' => '25 g'
 };
 
-is_deeply($product_ref, $expected_product_ref) or diag explain($product_ref);
+is($product_ref, $expected_product_ref) or diag Dumper($product_ref);
 
 $product_ref = {
 	nutriments => {"sugars" => 4, "salt" => 1},
@@ -347,7 +217,7 @@ $product_ref = {
 	serving_size => "25 g",
 };
 
-compute_serving_size_data($product_ref);
+compute_nutrition_data_per_100g_and_per_serving($product_ref);
 
 $expected_product_ref = {
 	'nutriments' => {
@@ -362,12 +232,14 @@ $expected_product_ref = {
 	'nutrition_data_per' => 'serving',
 	'nutrition_data_prepared_per' => '100g',
 	'product_quantity' => 100,
+	'product_quantity_unit' => "g",
 	'quantity' => '100 g',
 	'serving_quantity' => 25,
+	'serving_quantity_unit' => "g",
 	'serving_size' => '25 g'
 };
 
-is_deeply($product_ref, $expected_product_ref) or diag explain($product_ref);
+is($product_ref, $expected_product_ref) or diag Dumper($product_ref);
 
 $product_ref = {
 	nutriments => {
@@ -381,7 +253,7 @@ $product_ref = {
 	serving_size => "25 g",
 };
 
-compute_serving_size_data($product_ref);
+compute_nutrition_data_per_100g_and_per_serving($product_ref);
 
 $expected_product_ref = {
 	'nutriments' => {
@@ -418,7 +290,7 @@ $product_ref = {
 	serving_size => "25 g",
 };
 
-compute_serving_size_data($product_ref);
+compute_nutrition_data_per_100g_and_per_serving($product_ref);
 
 $expected_product_ref = {
 	'nutriments' => {
@@ -430,8 +302,10 @@ $expected_product_ref = {
 	'nutrition_data_per' => '100g',
 	'nutrition_data_prepared_per' => '100g',
 	'product_quantity' => 100,
+	'product_quantity_unit' => "g",
 	'quantity' => '100 g',
 	'serving_quantity' => 25,
+	'serving_quantity_unit' => "g",
 	'serving_size' => '25 g'
 };
 
@@ -439,7 +313,7 @@ is(default_unit_for_nid("sugars"), "g");
 is(default_unit_for_nid("energy-kj"), "kJ");
 is(default_unit_for_nid("energy-kcal_prepared"), "kcal");
 
-is_deeply($product_ref, $expected_product_ref) or diag explain($product_ref);
+is($product_ref, $expected_product_ref) or diag Dumper($product_ref);
 
 # Check that nutrients typed in by users in the nutrition table product edit form are recognized
 is(canonicalize_nutriment("en", "saturated"), "saturated-fat");
@@ -482,14 +356,14 @@ my $modifier;
 normalize_nutriment_value_and_modifier(\$value, \$modifier);
 is($value, "50.1");
 is($modifier, undef);
-# test compute_serving_size_data with various units
+# test compute_nutrition_data_per_100g_and_per_serving with various units
 assign_nid_modifier_value_and_unit($product_ref, "salt", $modifier, $value, undef);
 assign_nid_modifier_value_and_unit($product_ref, "sugars", $modifier, $value, "g");
 assign_nid_modifier_value_and_unit($product_ref, "fat", $modifier, $value, "mg");
 
-compute_serving_size_data($product_ref);
+compute_nutrition_data_per_100g_and_per_serving($product_ref);
 
-is_deeply(
+is(
 	$product_ref,
 	{
 		'nutriments' => {
@@ -509,7 +383,7 @@ is_deeply(
 		'nutrition_data_per' => '100g',
 		'nutrition_data_prepared_per' => '100g'
 	}
-) or diag explain $product_ref;
+) or diag Dumper $product_ref;
 
 # test various  modifiers : - (not communicated), >=, etc.
 
@@ -533,9 +407,9 @@ is($modifier, undef);
 assign_nid_modifier_value_and_unit($product_ref, "fat", $modifier, $value, "g");
 
 # test modifiers are taken into account
-compute_serving_size_data($product_ref);
+compute_nutrition_data_per_100g_and_per_serving($product_ref);
 
-is_deeply(
+is(
 	$product_ref,
 	{
 		'nutriments' => {
@@ -551,7 +425,7 @@ is_deeply(
 		'nutrition_data_per' => '100g',
 		'nutrition_data_prepared_per' => '100g'
 	}
-) or diag explain $product_ref;
+) or diag Dumper $product_ref;
 
 # test reporting traces
 $value = 'Traces';
@@ -568,10 +442,13 @@ is($value, '20,5');
 is($modifier, '~');
 assign_nid_modifier_value_and_unit($product_ref, "salt_prepared", $modifier, $value, "g");
 
-# test support of traces, as well as "nearly" and prepared values
-compute_serving_size_data($product_ref);
+# Prepared value defined in IU
+assign_nid_modifier_value_and_unit($product_ref, "vitamin-a_prepared", "", 468, "IU");
 
-is_deeply(
+# test support of traces, as well as "nearly" and prepared values
+compute_nutrition_data_per_100g_and_per_serving($product_ref);
+
+is(
 	$product_ref,
 	{
 		'nutriments' => {
@@ -591,12 +468,16 @@ is_deeply(
 			'sugars_100g' => 1,
 			'sugars_modifier' => "\x{2264}",
 			'sugars_unit' => 'g',
-			'sugars_value' => 1
+			'sugars_value' => 1,
+			'vitamin-a_prepared' => '0.0001404',
+			'vitamin-a_prepared_100g' => '0.0001404',
+			'vitamin-a_prepared_unit' => 'IU',
+			'vitamin-a_prepared_value' => 468,
 		},
 		'nutrition_data_per' => '100g',
 		'nutrition_data_prepared_per' => '100g'
 	}
-) or diag explain $product_ref;
+) or diag Dumper $product_ref;
 
 # Test IU and %DV values
 $product_ref = {'nutrition_data_per' => '100g'};
@@ -606,11 +487,11 @@ assign_nid_modifier_value_and_unit($product_ref, "calcium", undef, 20, "% DV");
 assign_nid_modifier_value_and_unit($product_ref, "vitamin-d", undef, 20, "% DV");
 assign_nid_modifier_value_and_unit($product_ref, "vitamin-b1", undef, 100, "% DV");
 
-is_deeply(
+is(
 	$product_ref,
 	{
 		nutriments => {
-			'calcium' => '0.2',
+			'calcium' => '0.26',
 			'calcium_unit' => '% DV',
 			'calcium_value' => 20,
 			'vitamin-a' => '1.2e-05',
@@ -619,7 +500,7 @@ is_deeply(
 			'vitamin-b1' => '0.0012',
 			'vitamin-b1_unit' => '% DV',
 			'vitamin-b1_value' => 100,
-			'vitamin-d' => '8e-06',
+			'vitamin-d' => '4e-06',
 			'vitamin-d_unit' => '% DV',
 			'vitamin-d_value' => 20,
 			'vitamin-e' => '0.0266666666666667',
@@ -628,6 +509,69 @@ is_deeply(
 		},
 		'nutrition_data_per' => '100g',
 	}
-) or diag explain $product_ref;
+) or diag Dumper $product_ref;
+
+# Test that 100g values are not extrapolated where serving size <=5
+$product_ref = {
+	serving_size => '5 g',
+	nutrition_data_per => 'serving'
+};
+
+assign_nid_modifier_value_and_unit($product_ref, "fat", undef, '1', 'g');
+compute_nutrition_data_per_100g_and_per_serving($product_ref);
+
+is(
+	$product_ref,
+	{
+		'nutriments' => {
+			'fat' => '1',
+			'fat_serving' => '1',
+			'fat_unit' => 'g',
+			'fat_value' => '1',
+		},
+		'nutrition_data_per' => 'serving',
+		'nutrition_data_prepared_per' => '100g',
+		'serving_quantity' => 5,
+		'serving_quantity_unit' => "g",
+		'serving_size' => '5 g'
+	}
+) or diag Dumper $product_ref;
+
+# Testing for get_nutrient_unit both for India and a country where no unit is described
+# Test case for fetching unit for sodium in India
+{
+	my $unit_in_india = get_nutrient_unit("sodium", "in");
+	is($unit_in_india, "mg", "Check if unit_in is fetched correctly for sodium in India");
+}
+
+# Test case for fetching unit for sodium outside India (eg: US)
+{
+	my $unit_in_us = get_nutrient_unit("sodium", "us");
+	is($unit_in_us, "mg", "Check if unit_us is fetched correctly for sodium in US");
+}
+
+# Test case for fetching unit for sodium outside India (eg: Canada)
+{
+	my $unit_in_canada = get_nutrient_unit("sodium", "ca");
+	is($unit_in_canada, "g", "Check if unit is fetched correctly for sodium in Canada");
+}
+
+# Test case for a product that previously had ingredients and additives, and then has its ingredients removed
+
+$product_ref = {
+	lc => "en",
+	categories => "beverages",
+	ingredients_text => "water, fruit juice, citric acid",
+};
+
+specific_processes_for_food_product($product_ref);
+
+ok((has_tag($product_ref, 'additives', 'en:e330')), 'should have en:330') || diag Dumper $product_ref;
+
+delete $product_ref->{ingredients_text};
+
+specific_processes_for_food_product($product_ref);
+
+ok((not has_tag($product_ref, 'additives', 'en:e330')), 'should not have en:330') || diag Dumper $product_ref;
 
 done_testing();

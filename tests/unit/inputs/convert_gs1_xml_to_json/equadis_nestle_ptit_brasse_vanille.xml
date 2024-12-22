@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="UTF-8"?><catalogue_item_notification:catalogueItemNotificationMessage xmlns:catalogue_item_notification="urn:gs1:gdsn:catalogue_item_notification:xsd:3" xmlns:sh="http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:gs1:gdsn:catalogue_item_notification:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/CatalogueItemNotification.xsd">
+   <sh:StandardBusinessDocumentHeader>
+      <sh:HeaderVersion>1.0</sh:HeaderVersion>
+      <sh:Sender>
+         <sh:Identifier Authority="GS1">3027800020370</sh:Identifier>
+      </sh:Sender>
+      <sh:Receiver>
+         <sh:Identifier Authority="GS1">8888888899990</sh:Identifier>
+      </sh:Receiver>
+      <sh:DocumentIdentification>
+         <sh:Standard>GS1</sh:Standard>
+         <sh:TypeVersion>3.1</sh:TypeVersion>
+         <sh:InstanceIdentifier>3027800020301_CINf0f1065a2bcd4bd5a7dd1750f08f2dbf137</sh:InstanceIdentifier>
+         <sh:Type>catalogueItemNotification</sh:Type>
+         <sh:MultipleType>false</sh:MultipleType>
+         <sh:CreationDateAndTime>2023-09-08T10:49:14+02:00</sh:CreationDateAndTime>
+      </sh:DocumentIdentification>
+   </sh:StandardBusinessDocumentHeader>
+   <transaction>
+      <transactionIdentification>
+         <entityIdentification>3027800020301_CINf0f1065a2bcd4bd5a7dd1750f08f2dbf137_TransactionID</entityIdentification>
+         <contentOwner>
+            <gln>3010337100035</gln>
+         </contentOwner>
+      </transactionIdentification>
+      <documentCommand>
+         <documentCommandHeader type="ADD">
+            <documentCommandIdentification>
+               <entityIdentification>3027800020301_CINf0f1065a2bcd4bd5a7dd1750f08f2dbf137_DocID</entityIdentification>
+               <contentOwner>
+                  <gln>3010337100035</gln>
+               </contentOwner>
+            </documentCommandIdentification>
+         </documentCommandHeader>
+         <catalogue_item_notification:catalogueItemNotification>
+            <creationDateTime>2023-09-08T10:49:14+02:00</creationDateTime>
+            <documentStatusCode>ORIGINAL</documentStatusCode>
+            <catalogueItemNotificationIdentification>
+               <entityIdentification>3027800020301_CINf0f1065a2bcd4bd5a7dd1750f08f2dbf137_CIN</entityIdentification>
+               <contentOwner>
+                  <gln>3010337100035</gln>
+               </contentOwner>
+            </catalogueItemNotificationIdentification>
+            <isReload>false</isReload>
+            <catalogueItem>
+               <dataRecipient>8888888899990</dataRecipient>
+               <sourceDataPool>3027800020370</sourceDataPool>
+               <catalogueItemState>
+                  <catalogueItemStateCode>REGISTERED</catalogueItemStateCode>
+               </catalogueItemState>
+               <tradeItem>
+                  <gtin>07613287945112</gtin>
+                  <additionalTradeItemIdentification additionalTradeItemIdentificationTypeCode="SUPPLIER_ASSIGNED">NC</additionalTradeItemIdentification>
+                  <isTradeItemABaseUnit>true</isTradeItemABaseUnit>
+                  <isTradeItemAConsumerUnit>true</isTradeItemAConsumerUnit>
+                  <isTradeItemADespatchUnit>false</isTradeItemADespatchUnit>
+                  <isTradeItemAnInvoiceUnit>true</isTradeItemAnInvoiceUnit>
+                  <isTradeItemAnOrderableUnit>true</isTradeItemAnOrderableUnit>
+                  <isTradeItemAService>false</isTradeItemAService>
+                  <isTradeItemNonphysical>false</isTradeItemNonphysical>
+                  <tradeItemUnitDescriptorCode>BASE_UNIT_OR_EACH</tradeItemUnitDescriptorCode>
+                  <tradeItemTradeChannelCode>MASS_MERCHANDISING</tradeItemTradeChannelCode>
+                  <brandOwner>
+                     <gln>7613039000373</gln>
+                     <partyName>Société des Produits Nestlé S.A.</partyName>
+                  </brandOwner>
+                  <informationProviderOfTradeItem>
+                     <gln>3010337100035</gln>
+                     <partyName>Nestlé France S.A.S.</partyName>
+                  </informationProviderOfTradeItem>
+                  <manufacturerOfTradeItem>
+                     <gln>3010337100035</gln>
+                     <partyName>Nestlé France S.A.S.</partyName>
+                  </manufacturerOfTradeItem>
+                  <displayUnitInformation>
+                     <isTradeItemADisplayUnit>FALSE</isTradeItemADisplayUnit>
+                  </displayUnitInformation>
+                  <gdsnTradeItemClassification>
+                     <gpcCategoryCode>10000104</gpcCategoryCode>
+                     <gpcCategoryName>Bébés/Nourrissons - Aliments Spéciaux (Longue Conservation)</gpcCategoryName>
+                  </gdsnTradeItemClassification>
+                  <targetMarket>
+                     <targetMarketCountryCode>250</targetMarketCountryCode>
+                  </targetMarket>
+                  <tradeItemContactInformation>
+                     <contactTypeCode>BZL</contactTypeCode>
+                     <contactAddress>34-40 rue Guynemer 92130 Issy-les-Moulineaux</contactAddress>
+                     <contactName>Nestlé France</contactName>
+                  </tradeItemContactInformation>
+                  <tradeItemContactInformation>
+                     <contactTypeCode>CXC</contactTypeCode>
+                     <contactAddress>34-40 rue Guynemer 92130 Issy-les-Moulineaux</contactAddress>
+                     <contactName>Nestlé France</contactName>
+                  </tradeItemContactInformation>
+                  <tradeItemInformation>
+                     <productionVariantDescription languageCode="fr">44157465</productionVariantDescription>
+                     <extension>
+                        
+                        <allergen_information:allergenInformationModule xmlns:allergen_information="urn:gs1:gdsn:allergen_information:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:allergen_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/AllergenInformationModule.xsd">
+                           <allergenRelatedInformation>
+                              <allergenSpecificationAgency>EU</allergenSpecificationAgency>
+                              <allergenSpecificationName>1169/2011</allergenSpecificationName>
+                              <allergenStatement languageCode="fr">Lait</allergenStatement>
+                              <isAllergenRelevantDataProvided>true</isAllergenRelevantDataProvided>
+                              <allergen>
+                                 <allergenTypeCode>AM</allergenTypeCode>
+                                 <levelOfContainmentCode>CONTAINS</levelOfContainmentCode>
+                              </allergen>
+                           </allergenRelatedInformation>
+                        </allergen_information:allergenInformationModule>
+                        <consumer_instructions:consumerInstructionsModule xmlns:consumer_instructions="urn:gs1:gdsn:consumer_instructions:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:consumer_instructions:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/ConsumerInstructionsModule.xsd">
+                           <consumerInstructions>
+                              <consumerStorageInstructions languageCode="fr">Pratique se conserve à température ambiante (5-25°C).</consumerStorageInstructions>
+                           </consumerInstructions>
+                        </consumer_instructions:consumerInstructionsModule>
+                        <dangerous_substance_information:dangerousSubstanceInformationModule xmlns:dangerous_substance_information="urn:gs1:gdsn:dangerous_substance_information:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:dangerous_substance_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/DangerousSubstanceInformationModule.xsd">
+                           <dangerousSubstanceInformation>
+                              <dangerousSubstanceProperties>
+                                 <isDangerousSubstance>FALSE</isDangerousSubstance>
+                              </dangerousSubstanceProperties>
+                           </dangerousSubstanceInformation>
+                        </dangerous_substance_information:dangerousSubstanceInformationModule>
+                        <delivery_purchasing_information:deliveryPurchasingInformationModule xmlns:delivery_purchasing_information="urn:gs1:gdsn:delivery_purchasing_information:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:delivery_purchasing_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/DeliveryPurchasingInformationModule.xsd">
+                           <deliveryPurchasingInformation>
+                              <firstShipDateTime>2022-01-03T00:00:00+01:00</firstShipDateTime>
+                              <isTradeItemReorderable>false</isTradeItemReorderable>
+                              <startAvailabilityDateTime>2022-01-03T00:00:00+01:00</startAvailabilityDateTime>
+                           </deliveryPurchasingInformation>
+                        </delivery_purchasing_information:deliveryPurchasingInformationModule>
+                        <duty_fee_tax_information:dutyFeeTaxInformationModule xmlns:duty_fee_tax_information="urn:gs1:gdsn:duty_fee_tax_information:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:duty_fee_tax_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/DutyFeeTaxInformationModule.xsd">
+                           <dutyFeeTaxInformation>
+                              <dutyFeeTaxAgencyCode>65</dutyFeeTaxAgencyCode>
+                              <dutyFeeTaxTypeCode>2G</dutyFeeTaxTypeCode>
+                              <dutyFeeTaxTypeDescription languageCode="fr">TAUX REDUIT 5.5 %</dutyFeeTaxTypeDescription>
+                              <dutyFeeTax>
+                                 <dutyFeeTaxCategoryCode codeListVersion="2">LOW</dutyFeeTaxCategoryCode>
+                              </dutyFeeTax>
+                           </dutyFeeTaxInformation>
+                           <dutyFeeTaxInformation>
+                              <dutyFeeTaxAgencyCode>65</dutyFeeTaxAgencyCode>
+                              <dutyFeeTaxTypeCode>3001000002282</dutyFeeTaxTypeCode>
+                              <dutyFeeTaxTypeDescription languageCode="fr">TAXE ECO-EMBALLAGES (FR)</dutyFeeTaxTypeDescription>
+                              <dutyFeeTax>
+                                 <dutyFeeTaxAmount currencyCode="EUR">0.04</dutyFeeTaxAmount>
+                              </dutyFeeTax>
+                           </dutyFeeTaxInformation>
+                        </duty_fee_tax_information:dutyFeeTaxInformationModule>
+                        <farming_and_processing_information:farmingAndProcessingInformationModule xmlns:farming_and_processing_information="urn:gs1:gdsn:farming_and_processing_information:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:farming_and_processing_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/FarmingAndProcessingInformationModule.xsd">
+                           <rawMaterialIrradiatedCode>FALSE</rawMaterialIrradiatedCode>
+                           <tradeItemOrganicInformation>
+                              <organicClaim>
+                                 <organicTradeItemCode>5</organicTradeItemCode>
+                              </organicClaim>
+                           </tradeItemOrganicInformation>
+                           <tradeItemFarmingAndProcessing>
+                              <geneticallyModifiedDeclarationCode>UNDECLARED</geneticallyModifiedDeclarationCode>
+                              <irradiatedCode>FALSE</irradiatedCode>
+                           </tradeItemFarmingAndProcessing>
+                        </farming_and_processing_information:farmingAndProcessingInformationModule>
+                        <food_and_beverage_ingredient:foodAndBeverageIngredientModule xmlns:food_and_beverage_ingredient="urn:gs1:gdsn:food_and_beverage_ingredient:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:food_and_beverage_ingredient:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/FoodAndBeverageIngredientModule.xsd">
+                           <ingredientStatement languageCode="fr">Ingrédients: LAIT entier 82%, eau, sucre, amidon de tapioca, épaississant : pectine; protéines de LAIT, arôme naturel de vanille, ferments lactiques (LAIT).</ingredientStatement>
+                           <isIngredientRelevantDataProvided>TRUE</isIngredientRelevantDataProvided>
+                        </food_and_beverage_ingredient:foodAndBeverageIngredientModule>
+                        <food_and_beverage_preparation_serving:foodAndBeveragePreparationServingModule xmlns:food_and_beverage_preparation_serving="urn:gs1:gdsn:food_and_beverage_preparation_serving:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:food_and_beverage_preparation_serving:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/FoodAndBeveragePreparationServingModule.xsd">
+                           <preparationServing>
+                              <preparationInstructions languageCode="fr">Produit prêt à consommer</preparationInstructions>
+                              <preparationTypeCode>UNSPECIFIED</preparationTypeCode>
+                           </preparationServing>
+                        </food_and_beverage_preparation_serving:foodAndBeveragePreparationServingModule>
+                        <health_related_information:healthRelatedInformationModule xmlns:health_related_information="urn:gs1:gdsn:health_related_information:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:health_related_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/HealthRelatedInformationModule.xsd">
+                           <healthRelatedInformation>
+                              <compulsoryAdditiveLabelInformation languageCode="fr">Ne pas conserver le produit une foie entamé. Ne pas consommer si l'emballage (pot, opercule) est abimé. Conditionné sous atmosphère protectrice. C'est toujours bien assis et sous la surveillance d'un adulte que votre bébé peut savourer ce produit.</compulsoryAdditiveLabelInformation>
+                              <nutritionalProgram>
+                                 <nutritionalProgramIngredients>
+                                    <nutritionalProgramIngredientMeasurement measurementUnitCode="P1">0.0000</nutritionalProgramIngredientMeasurement>
+                                    <nutritionalProgramIngredientTypeCode>FRUITS_VEGETABLES_LEGUMES_AND_NUTS</nutritionalProgramIngredientTypeCode>
+                                 </nutritionalProgramIngredients>
+                              </nutritionalProgram>
+                           </healthRelatedInformation>
+                        </health_related_information:healthRelatedInformationModule>
+                        <marketing_information:marketingInformationModule xmlns:marketing_information="urn:gs1:gdsn:marketing_information:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:marketing_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/MarketingInformationModule.xsd">
+                           <marketingInformation>
+                              <tradeItemFeatureBenefit languageCode="fr">Sans colorant*, sans conservateur*, sans arôme artificiel.</tradeItemFeatureBenefit>
+                              <tradeItemFeatureBenefit languageCode="fr">Il est important d'avoir une alimentation variée et équilibrée.</tradeItemFeatureBenefit>
+                              <tradeItemMarketingMessage languageCode="fr">NESTLE P'TIT BRASSE Vanille, le laitage conçu exprès pour bébé*. Produit en France au bon lait de nos régions. Du calcium pour contribuer au développement normal des os de bébé; de l'arôme naturel de Vanille; une teneur ajustée en protéines*. Pratique, il s'emporte partout grâce à notre procédé de fabrication spécifique qui permet une conservation hors du frigo. *Conformément à la réglementation sur les aliments pour bébés.</tradeItemMarketingMessage>
+                              <season>
+                                 <isTradeItemSeasonal>FALSE</isTradeItemSeasonal>
+                              </season>
+                           </marketingInformation>
+                        </marketing_information:marketingInformationModule>
+                        <nutritional_information:nutritionalInformationModule xmlns:nutritional_information="urn:gs1:gdsn:nutritional_information:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:nutritional_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/NutritionalInformationModule.xsd">
+                           <isNutrientRelevantDataProvided>true</isNutrientRelevantDataProvided>
+                           <nutrientHeader>
+                              <preparationStateCode>UNPREPARED</preparationStateCode>
+                              <servingSize measurementUnitCode="GRM">100.0</servingSize>
+                              <servingSizeDescription languageCode="fr">100GRM</servingSizeDescription>
+                              <nutrientDetail>
+                                 <nutrientTypeCode>ENER-</nutrientTypeCode>
+                                 <measurementPrecisionCode>APPROXIMATELY</measurementPrecisionCode>
+                                 <quantityContained measurementUnitCode="KJO">368</quantityContained>
+                                 <quantityContained measurementUnitCode="E14">88</quantityContained>
+                              </nutrientDetail>
+                              <nutrientDetail>
+                                 <nutrientTypeCode>FAT</nutrientTypeCode>
+                                 <measurementPrecisionCode>APPROXIMATELY</measurementPrecisionCode>
+                                 <quantityContained measurementUnitCode="GRM">3.3</quantityContained>
+                              </nutrientDetail>
+                              <nutrientDetail>
+                                 <nutrientTypeCode>FASAT</nutrientTypeCode>
+                                 <measurementPrecisionCode>APPROXIMATELY</measurementPrecisionCode>
+                                 <quantityContained measurementUnitCode="GRM">2</quantityContained>
+                              </nutrientDetail>
+                              <nutrientDetail>
+                                 <nutrientTypeCode>CHOAVL</nutrientTypeCode>
+                                 <measurementPrecisionCode>APPROXIMATELY</measurementPrecisionCode>
+                                 <quantityContained measurementUnitCode="GRM">11.2</quantityContained>
+                              </nutrientDetail>
+                              <nutrientDetail>
+                                 <nutrientTypeCode>SUGAR-</nutrientTypeCode>
+                                 <measurementPrecisionCode>APPROXIMATELY</measurementPrecisionCode>
+                                 <quantityContained measurementUnitCode="GRM">7.2</quantityContained>
+                              </nutrientDetail>
+                              <nutrientDetail>
+                                 <nutrientTypeCode>FIBTG</nutrientTypeCode>
+                                 <measurementPrecisionCode>APPROXIMATELY</measurementPrecisionCode>
+                                 <quantityContained measurementUnitCode="GRM">0.5</quantityContained>
+                              </nutrientDetail>
+                              <nutrientDetail>
+                                 <nutrientTypeCode>PRO-</nutrientTypeCode>
+                                 <measurementPrecisionCode>APPROXIMATELY</measurementPrecisionCode>
+                                 <quantityContained measurementUnitCode="GRM">3</quantityContained>
+                              </nutrientDetail>
+                              <nutrientDetail>
+                                 <nutrientTypeCode>SALTEQ</nutrientTypeCode>
+                                 <measurementPrecisionCode>APPROXIMATELY</measurementPrecisionCode>
+                                 <quantityContained measurementUnitCode="GRM">0.09</quantityContained>
+                              </nutrientDetail>
+                              <nutrientDetail>
+                                 <nutrientTypeCode>NA</nutrientTypeCode>
+                                 <measurementPrecisionCode>APPROXIMATELY</measurementPrecisionCode>
+                                 <quantityContained measurementUnitCode="GRM">0.04</quantityContained>
+                              </nutrientDetail>
+                              <nutrientDetail>
+                                 <nutrientTypeCode>CA</nutrientTypeCode>
+                                 <measurementPrecisionCode>APPROXIMATELY</measurementPrecisionCode>
+                                 <quantityContained measurementUnitCode="MGM">100</quantityContained>
+                              </nutrientDetail>
+                           </nutrientHeader>
+                        </nutritional_information:nutritionalInformationModule>
+                        <packaging_information:packagingInformationModule xmlns:packaging_information="urn:gs1:gdsn:packaging_information:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:packaging_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PackagingInformationModule.xsd">
+                           <packaging>
+                              <packagingTypeCode>BX</packagingTypeCode>
+                           </packaging>
+                        </packaging_information:packagingInformationModule>
+                        <packaging_marking:packagingMarkingModule xmlns:packaging_marking="urn:gs1:gdsn:packaging_marking:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:packaging_marking:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PackagingMarkingModule.xsd">
+                           <packagingMarking>
+                              <hasBatchNumber>true</hasBatchNumber>
+                              <isPackagingMarkedReturnable>false</isPackagingMarkedReturnable>
+                              <isPriceOnPack>false</isPriceOnPack>
+                              <packagingMarkedLabelAccreditationCode>TRIMAN</packagingMarkedLabelAccreditationCode>
+                              <localPackagingMarkedLabelAccreditationCodeReference>NO_FSC</localPackagingMarkedLabelAccreditationCodeReference>
+                              <localPackagingMarkedLabelAccreditationCodeReference>NO_MSC</localPackagingMarkedLabelAccreditationCodeReference>
+                              <localPackagingMarkedLabelAccreditationCodeReference>NO_ASC</localPackagingMarkedLabelAccreditationCodeReference>
+                              <packagingDate>
+                                 <tradeItemDateOnPackagingTypeCode>BEST_BEFORE_DATE</tradeItemDateOnPackagingTypeCode>
+                              </packagingDate>
+                           </packagingMarking>
+                        </packaging_marking:packagingMarkingModule>
+                        <place_of_item_activity:placeOfItemActivityModule xmlns:place_of_item_activity="urn:gs1:gdsn:place_of_item_activity:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:place_of_item_activity:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PlaceOfItemActivityModule.xsd">
+                           <importClassification>
+                              <importClassificationTypeCode>CUSTOMS_TARIFF_NUMBER</importClassificationTypeCode>
+                              <importClassificationValue>1901100000</importClassificationValue>
+                           </importClassification>
+                           <placeOfProductActivity>
+                              <countryOfOrigin>
+                                 <countryCode>250</countryCode>
+                              </countryOfOrigin>
+                              <productActivityDetails>
+                                 <productActivityTypeCode>LAST_PROCESSING</productActivityTypeCode>
+                                 <countryOfActivity>
+                                    <countryCode>250</countryCode>
+                                 </countryOfActivity>
+                              </productActivityDetails>
+                           </placeOfProductActivity>
+                        </place_of_item_activity:placeOfItemActivityModule>
+                        <promotional_item_information:promotionalItemInformationModule xmlns:promotional_item_information="urn:gs1:gdsn:promotional_item_information:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:promotional_item_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PromotionalItemInformationModule.xsd">
+                           <isTradeItemAPromotionalUnit>false</isTradeItemAPromotionalUnit>
+                        </promotional_item_information:promotionalItemInformationModule>
+                        <referenced_file_detail_information:referencedFileDetailInformationModule xmlns:referenced_file_detail_information="urn:gs1:gdsn:referenced_file_detail_information:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:referenced_file_detail_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/ReferencedFileDetailInformationModule.xsd">
+                           <referencedFileHeader>
+                              <referencedFileTypeCode>PRODUCT_IMAGE</referencedFileTypeCode>
+                              <contentDescription languageCode="fr">Produit emballé / Packshot</contentDescription>
+                              <fileEffectiveStartDateTime>2023-02-10T00:00:00+01:00</fileEffectiveStartDateTime>
+                              <fileFormatName>png</fileFormatName>
+                              <fileName>07613287945112_A1N1_s01.png</fileName>
+                              <uniformResourceIdentifier>https://nestlecontenthub-dam.esko-saas.com/mediabeacon/servlet/dload/07613287945112_A1N1_s01.png?apikey=3FB047E2-3E1B-4177-AF64-3999E0543B78&amp;id=204815475&amp;filename=07613287945112_A1N1_s01.png</uniformResourceIdentifier>
+                              <referencedFileDetail>
+                                 <isFileBackgroundTransparent>FALSE</isFileBackgroundTransparent>
+                                 <fileUsageInformation>
+                                    <canFilesBeEdited>FALSE</canFilesBeEdited>
+                                 </fileUsageInformation>
+                              </referencedFileDetail>
+                           </referencedFileHeader>
+                           <referencedFileHeader>
+                              <referencedFileTypeCode>PRODUCT_IMAGE</referencedFileTypeCode>
+                              <contentDescription languageCode="fr">Produit emballé / Packshot</contentDescription>
+                              <fileEffectiveStartDateTime>2023-02-10T00:00:00+01:00</fileEffectiveStartDateTime>
+                              <fileFormatName>jpg</fileFormatName>
+                              <fileName>07613287945112_A1L1_s01.jpg</fileName>
+                              <uniformResourceIdentifier>https://nestlecontenthub-dam.esko-saas.com/mediabeacon/servlet/dload/07613287945112_A1L1_s01.jpg?apikey=3FB047E2-3E1B-4177-AF64-3999E0543B78&amp;id=204815471&amp;filename=07613287945112_A1L1_s01.jpg</uniformResourceIdentifier>
+                              <referencedFileDetail>
+                                 <isFileBackgroundTransparent>FALSE</isFileBackgroundTransparent>
+                                 <fileUsageInformation>
+                                    <canFilesBeEdited>FALSE</canFilesBeEdited>
+                                 </fileUsageInformation>
+                              </referencedFileDetail>
+                           </referencedFileHeader>
+                           <referencedFileHeader>
+                              <referencedFileTypeCode>PRODUCT_IMAGE</referencedFileTypeCode>
+                              <contentDescription languageCode="fr">Produit emballé / Packshot</contentDescription>
+                              <fileEffectiveStartDateTime>2023-02-10T00:00:00+01:00</fileEffectiveStartDateTime>
+                              <fileFormatName>png</fileFormatName>
+                              <fileName>07613287945112_A1L1_s15.png</fileName>
+                              <uniformResourceIdentifier>https://nestlecontenthub-dam.esko-saas.com/mediabeacon/servlet/dload/07613287945112_A1L1_s01.png?apikey=3FB047E2-3E1B-4177-AF64-3999E0543B78&amp;id=204815473&amp;filename=07613287945112_A1L1_s01.png</uniformResourceIdentifier>
+                              <isPrimaryFile>TRUE</isPrimaryFile>
+                           </referencedFileHeader>
+                           <referencedFileHeader>
+                              <referencedFileTypeCode>PACKAGING_ARTWORK</referencedFileTypeCode>
+                              <fileEffectiveStartDateTime>2023-04-03T00:00:00+02:00</fileEffectiveStartDateTime>
+                              <fileFormatName>pdf</fileFormatName>
+                              <fileName>07613287945112_L1_s01.pdf</fileName>
+                              <uniformResourceIdentifier>https://nestlecontenthub-dam.esko-saas.com/mediabeacon/servlet/dload/07613287945112_L1_s01.pdf?apikey=3FB047E2-3E1B-4177-AF64-3999E0543B78&amp;id=204815479&amp;filename=07613287945112_L1_s01.pdf</uniformResourceIdentifier>
+                              <referencedFileDetail>
+                                 <isFileBackgroundTransparent>FALSE</isFileBackgroundTransparent>
+                                 <fileUsageInformation>
+                                    <canFilesBeEdited>FALSE</canFilesBeEdited>
+                                 </fileUsageInformation>
+                              </referencedFileDetail>
+                           </referencedFileHeader>
+                           <referencedFileHeader>
+                              <referencedFileTypeCode>PRODUCT_IMAGE</referencedFileTypeCode>
+                              <contentDescription languageCode="fr">Produit emballé / Packshot</contentDescription>
+                              <fileEffectiveStartDateTime>2023-02-10T00:00:00+01:00</fileEffectiveStartDateTime>
+                              <fileFormatName>png</fileFormatName>
+                              <fileName>07613287945112_A3N1_s01.png</fileName>
+                              <uniformResourceIdentifier>https://nestlecontenthub-dam.esko-saas.com/mediabeacon/servlet/dload/07613287945112_A3N1_s01.png?apikey=3FB047E2-3E1B-4177-AF64-3999E0543B78&amp;id=204815476&amp;filename=07613287945112_A3N1_s01.png</uniformResourceIdentifier>
+                              <referencedFileDetail>
+                                 <isFileBackgroundTransparent>FALSE</isFileBackgroundTransparent>
+                                 <fileUsageInformation>
+                                    <canFilesBeEdited>FALSE</canFilesBeEdited>
+                                 </fileUsageInformation>
+                              </referencedFileDetail>
+                           </referencedFileHeader>
+                           <referencedFileHeader>
+                              <referencedFileTypeCode>PRODUCT_IMAGE</referencedFileTypeCode>
+                              <contentDescription languageCode="fr">Produit emballé / Packshot</contentDescription>
+                              <fileEffectiveStartDateTime>2023-04-03T00:00:00+02:00</fileEffectiveStartDateTime>
+                              <fileFormatName>png</fileFormatName>
+                              <fileName>07613287945112_A7N1_s01.png</fileName>
+                              <uniformResourceIdentifier>https://nestlecontenthub-dam.esko-saas.com/mediabeacon/servlet/dload/07613287945112_A7N1_s01.png?apikey=3FB047E2-3E1B-4177-AF64-3999E0543B78&amp;id=204815477&amp;filename=07613287945112_A7N1_s01.png</uniformResourceIdentifier>
+                              <referencedFileDetail>
+                                 <isFileBackgroundTransparent>FALSE</isFileBackgroundTransparent>
+                                 <fileUsageInformation>
+                                    <canFilesBeEdited>FALSE</canFilesBeEdited>
+                                 </fileUsageInformation>
+                              </referencedFileDetail>
+                           </referencedFileHeader>
+                           <referencedFileHeader>
+                              <referencedFileTypeCode>PRODUCT_IMAGE</referencedFileTypeCode>
+                              <contentDescription languageCode="fr">Produit emballé / Packshot</contentDescription>
+                              <fileEffectiveStartDateTime>2023-02-10T00:00:00+01:00</fileEffectiveStartDateTime>
+                              <fileFormatName>png</fileFormatName>
+                              <fileName>07613287945112_A9N1_s01.png</fileName>
+                              <uniformResourceIdentifier>https://nestlecontenthub-dam.esko-saas.com/mediabeacon/servlet/dload/07613287945112_A9N1_s01.png?apikey=3FB047E2-3E1B-4177-AF64-3999E0543B78&amp;id=204815478&amp;filename=07613287945112_A9N1_s01.png</uniformResourceIdentifier>
+                              <referencedFileDetail>
+                                 <isFileBackgroundTransparent>FALSE</isFileBackgroundTransparent>
+                                 <fileUsageInformation>
+                                    <canFilesBeEdited>FALSE</canFilesBeEdited>
+                                 </fileUsageInformation>
+                              </referencedFileDetail>
+                           </referencedFileHeader>
+                        </referenced_file_detail_information:referencedFileDetailInformationModule>
+                        <sales_information:salesInformationModule xmlns:sales_information="urn:gs1:gdsn:sales_information:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:sales_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/SalesInformationModule.xsd">
+                           <tradeItemPriceInformation>
+                              <cataloguePrice>
+                                 <tradeItemPrice currencyCode="EUR">5.788</tradeItemPrice>
+                                 <priceBasisQuantity measurementUnitCode="H87">1</priceBasisQuantity>
+                                 <priceEffectiveStartDate>2023-03-01T00:00:00+01:00</priceEffectiveStartDate>
+                              </cataloguePrice>
+                           </tradeItemPriceInformation>
+                           <salesInformation>
+                              <isBasePriceDeclarationRelevant>FALSE</isBasePriceDeclarationRelevant>
+                              <priceComparisonMeasurement measurementUnitCode="KGM">0.8</priceComparisonMeasurement>
+                              <priceComparisonContentTypeCode>PER_KILOGRAM</priceComparisonContentTypeCode>
+                              <sellingUnitOfMeasure>H87</sellingUnitOfMeasure>
+                           </salesInformation>
+                        </sales_information:salesInformationModule>
+                        
+                        <trade_item_description:tradeItemDescriptionModule xmlns:trade_item_description="urn:gs1:gdsn:trade_item_description:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:trade_item_description:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemDescriptionModule.xsd">
+                           <tradeItemDescriptionInformation>
+                              <descriptionShort languageCode="fr">P'tit Brassé Vanille (8x100g)</descriptionShort>
+                              <functionalName languageCode="fr">Aliment bébé-nourrisson</functionalName>
+                              <invoiceName languageCode="fr">Aliment bébé-nourrisson</invoiceName>
+                              <regulatedProductName languageCode="fr">Aliment pour bébés. Dessert lacté avec arôme naturel de vanille</regulatedProductName>
+                              <tradeItemDescription languageCode="fr">NESTLE P'TIT BRASSE Vanille 8x100g</tradeItemDescription>
+                              <brandNameInformation>
+                                 <brandName>NESTLE</brandName>
+                                 <subBrand>P'TIT BRASSE</subBrand>
+                              </brandNameInformation>
+                           </tradeItemDescriptionInformation>
+                        </trade_item_description:tradeItemDescriptionModule>
+                        <trade_item_lifespan:tradeItemLifespanModule xmlns:trade_item_lifespan="urn:gs1:gdsn:trade_item_lifespan:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:trade_item_lifespan:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemLifespanModule.xsd">
+                           <tradeItemLifespan>
+                              <minimumTradeItemLifespanFromTimeOfArrival>120</minimumTradeItemLifespanFromTimeOfArrival>
+                              <minimumTradeItemLifespanFromTimeOfProduction>274</minimumTradeItemLifespanFromTimeOfProduction>
+                           </tradeItemLifespan>
+                        </trade_item_lifespan:tradeItemLifespanModule>
+                        <trade_item_measurements:tradeItemMeasurementsModule xmlns:trade_item_measurements="urn:gs1:gdsn:trade_item_measurements:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:trade_item_measurements:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemMeasurementsModule.xsd">
+                           <tradeItemMeasurements>
+                              <depth measurementUnitCode="MMT">127</depth>
+                              <height measurementUnitCode="MMT">120</height>
+                              <netContent measurementUnitCode="GRM">800</netContent>
+                              <width measurementUnitCode="MMT">127</width>
+                              <tradeItemWeight>
+                                 <grossWeight measurementUnitCode="GRM">850</grossWeight>
+                                 <netWeight measurementUnitCode="GRM">800</netWeight>
+                              </tradeItemWeight>
+                           </tradeItemMeasurements>
+                        </trade_item_measurements:tradeItemMeasurementsModule>
+                        <trade_item_temperature_information:tradeItemTemperatureInformationModule xmlns:trade_item_temperature_information="urn:gs1:gdsn:trade_item_temperature_information:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:trade_item_temperature_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemTemperatureInformationModule.xsd">
+                           <tradeItemTemperatureConditionTypeCode>AMBIENT</tradeItemTemperatureConditionTypeCode>
+                           <tradeItemTemperatureInformation>
+                              <maximumTemperature temperatureMeasurementUnitCode="CEL">30</maximumTemperature>
+                              <minimumTemperature temperatureMeasurementUnitCode="CEL">6</minimumTemperature>
+                              <temperatureQualifierCode>STORAGE_HANDLING</temperatureQualifierCode>
+                           </tradeItemTemperatureInformation>
+                        </trade_item_temperature_information:tradeItemTemperatureInformationModule>
+                        <trade_item_temperature_information:tradeItemTemperatureInformationModule xmlns:trade_item_temperature_information="urn:gs1:gdsn:trade_item_temperature_information:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:trade_item_temperature_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemTemperatureInformationModule.xsd">
+                           <tradeItemTemperatureConditionTypeCode>AMBIENT</tradeItemTemperatureConditionTypeCode>
+                           <tradeItemTemperatureInformation>
+                              <maximumTemperature temperatureMeasurementUnitCode="CEL">30</maximumTemperature>
+                              <minimumTemperature temperatureMeasurementUnitCode="CEL">6</minimumTemperature>
+                              <temperatureQualifierCode>STORAGE_HANDLING</temperatureQualifierCode>
+                           </tradeItemTemperatureInformation>
+                        </trade_item_temperature_information:tradeItemTemperatureInformationModule>
+                        
+                        <variable_trade_item_information:variableTradeItemInformationModule xmlns:variable_trade_item_information="urn:gs1:gdsn:variable_trade_item_information:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:variable_trade_item_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/VariableTradeItemInformationModule.xsd">
+                           <variableTradeItemInformation>
+                              <isTradeItemAVariableUnit>false</isTradeItemAVariableUnit>
+                           </variableTradeItemInformation>
+                        </variable_trade_item_information:variableTradeItemInformationModule>
+                        <product_information:productInformationModule xmlns:product_information="urn:gs1:gdsn:product_information:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:product_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/ProductInformationModule.xsd">
+                           <productInformationDetail>
+                              <claimDescription languageCode="fr">sans conservateur, sans colorant, sans arôme artificiel.</claimDescription>
+                              <claimDetail>
+                                 <claimMarkedOnPackage>TRUE</claimMarkedOnPackage>
+                                 <claimTypeCode>FREE_FROM</claimTypeCode>
+                                 <claimElementCode>ARTIFICIAL_FLAVOUR</claimElementCode>
+                              </claimDetail>
+                              <claimDetail>
+                                 <claimMarkedOnPackage>TRUE</claimMarkedOnPackage>
+                                 <claimTypeCode>FREE_FROM</claimTypeCode>
+                                 <claimElementCode>COLOURING_AGENTS</claimElementCode>
+                              </claimDetail>
+                              <claimDetail>
+                                 <claimMarkedOnPackage>TRUE</claimMarkedOnPackage>
+                                 <claimTypeCode>FREE_FROM</claimTypeCode>
+                                 <claimElementCode>PRESERVATIVES</claimElementCode>
+                              </claimDetail>
+                              <claimDetail>
+                                 <claimMarkedOnPackage>TRUE</claimMarkedOnPackage>
+                                 <claimTypeCode>FREE_FROM</claimTypeCode>
+                                 <claimElementCode>ARTIFICIAL_COLOUR</claimElementCode>
+                              </claimDetail>
+                           </productInformationDetail>
+                        </product_information:productInformationModule>
+                     </extension>
+                  </tradeItemInformation>
+                  <tradeItemSynchronisationDates>
+                     <lastChangeDateTime>2023-09-08T10:49:14+02:00</lastChangeDateTime>
+                     <effectiveDateTime>2023-04-03T00:00:00+02:00</effectiveDateTime>
+                     <publicationDateTime>2023-09-08T10:49:14+02:00</publicationDateTime>
+                  </tradeItemSynchronisationDates>
+                  <avpList>
+                     <stringAVP attributeName="countryOfSettlement">250</stringAVP>
+                  </avpList>
+               </tradeItem>
+            </catalogueItem>
+         </catalogue_item_notification:catalogueItemNotification>
+      </documentCommand>
+   </transaction>
+</catalogue_item_notification:catalogueItemNotificationMessage>

@@ -1,19 +1,28 @@
 {
    "lc" : "en",
    "misc_tags" : [
+      "en:packagings-number-of-components-1",
       "en:packagings-not-complete",
       "en:packagings-not-empty-but-not-complete",
       "en:packagings-not-empty"
+   ],
+   "packaging_materials_tags" : [
+      "en:cardboard"
+   ],
+   "packaging_recycling_tags" : [],
+   "packaging_shapes_tags" : [
+      "en:box"
    ],
    "packaging_text" : "aluminium can",
    "packagings" : [
       {
          "material" : "en:cardboard",
          "shape" : "en:box"
-      },
-      {
-         "material" : "en:aluminium",
-         "shape" : "en:can"
       }
-   ]
+   ],
+   "packagings_materials" : {
+      "all" : {},
+      "en:paper-or-cardboard" : {}
+   },
+   "packagings_n" : 1
 }

@@ -1,0 +1,39 @@
+type: object
+title: search_for_products_response
+properties:
+  count:
+    type: integer
+    description: |
+      Total number of products found
+    example: 2701
+  page:
+    type: integer
+    description: |
+      Page number of returned results.
+
+      You can get a different page, by using the `page` query parameter.
+    example: 1
+  page_count:
+    type: integer
+    description: |
+      Number of products in this page.
+
+      This will differ from page_size only on the last page.
+    example: 24
+  page_size:
+    type: integer
+    description: |
+      Requested number of products per pages
+
+      To get the number of pages, divide count by page_size
+      (eg. `Math.floor( count / page_size) + 1 `)
+    example: 24
+  products:
+    type: array
+    description: |
+      The products matching the query corresponding to current page
+    items:
+      $ref: ../schemas/product.yaml
+  skip:
+    type: integer
+    example: 0

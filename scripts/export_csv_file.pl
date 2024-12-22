@@ -24,13 +24,13 @@ use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Export qw/:all/;
-use ProductOpener::Display qw/:all/;
+use ProductOpener::Export qw/export_csv/;
+use ProductOpener::Display qw/add_params_to_query/;
 
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 use Time::Local;
 use Data::Dumper;
 use Text::CSV;
@@ -68,13 +68,13 @@ TXT
 	;
 
 my %query_fields_values = ();
-my $fields;
-my $extra_fields;
+my $fields = '';
+my $extra_fields = '';
 my $separator = "\t";
-my $include_images_paths;
-my $query_codes_from_file;
-my $export_computed_fields;
-my $export_canonicalized_tags_fields;
+my $include_images_paths = 0;
+my $query_codes_from_file = '';
+my $export_computed_fields = 0;
+my $export_canonicalized_tags_fields = 0;
 
 GetOptions(
 	"fields=s" => \$fields,
@@ -119,7 +119,7 @@ foreach my $field (sort keys %{$query_ref}) {
 	}
 }
 
-if (defined $query_codes_from_file) {
+if ($query_codes_from_file) {
 	my @codes = ();
 	open(my $in, "<", "$query_codes_from_file") or die("Cannot read $query_codes_from_file: $!\n");
 	while (<$in>) {
@@ -146,15 +146,15 @@ if ($export_canonicalized_tags_fields) {
 	$args_ref->{export_canonicalized_tags_fields} = 1;
 }
 
-if ((defined $fields) and ($fields ne "")) {
+if ($fields) {
 	$args_ref->{fields} = [split(/,/, $fields)];
 }
 
-if ((defined $extra_fields) and ($extra_fields ne "")) {
+if ($extra_fields) {
 	$args_ref->{extra_fields} = [split(/,/, $extra_fields)];
 }
 
-if (defined $include_images_paths) {
+if ($include_images_paths) {
 	$args_ref->{include_images_paths} = 1;
 }
 

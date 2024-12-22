@@ -1,0 +1,48 @@
+title: panel
+type: object
+description: Each panel contains an optional title and an optional array of elements.
+properties:
+  type:
+    type: string
+    description: 'Type of the panel. If set to "card", the panel and its sub-panels should be displayed in a card. If set to "inline", the panel should have its content always displayed.'
+  expanded:
+    type: boolean
+    description: 'If true, the panel is to be displayed already expanded. If false, only the title should be displayed, and the user should be able to click or tap it to open the panel and display the elements.'
+  expand_for:
+    type: string
+    description: 'If set to "large", the content of the panel should be expanded on large screens, but it should still be possible to unexpand it.'
+  evaluation:
+    type: string
+    description: A simple assessment of the panel value, typically used to format fonts, et.c e.g. bad = red
+    enum:
+      - good
+      - average
+      - neutral
+      - bad
+      - unknown
+  title_element:
+    $ref: ./elements/title_element.yaml
+  elements:
+    type: array
+    description: An ordered list of elements to display in the content of the panel.
+    items:
+      $ref: ./elements/element.yaml
+  level:
+    type: string
+    description: |
+      a message level, as levels we use in log.
+      It might help theming the panel visualy
+    example: info
+  size:
+    type: string
+    enum:
+      - small
+    description: |
+      size is either empty (normal display) 
+      or small to indicate a panel that should have a smaller font size
+    example: small
+  topics:
+    type: array
+    items:
+      type: string
+      example: health

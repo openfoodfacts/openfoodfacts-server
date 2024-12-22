@@ -52,6 +52,7 @@ BEGIN {
 		&decode_json_request_body
 		&normalize_requested_code
 		&customize_response_for_product
+		&check_user_permission
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -60,27 +61,35 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::HTTP qw/:all/;
+use ProductOpener::HTTP qw/write_cors_headers/;
 use ProductOpener::Users qw/:all/;
-use ProductOpener::Lang qw/:all/;
-use ProductOpener::Products qw/:all/;
+use ProductOpener::Lang qw/$lc lang_in_other_lc/;
+use ProductOpener::Products qw/normalize_code_with_gs1_ai product_name_brand_quantity/;
 use ProductOpener::Export qw/:all/;
-use ProductOpener::Tags qw/:all/;
-use ProductOpener::Text qw/:all/;
-use ProductOpener::Attributes qw/:all/;
-use ProductOpener::KnowledgePanels qw/:all/;
-use ProductOpener::Ecoscore qw/localize_ecoscore/;
-use ProductOpener::Packaging qw/:all/;
+use ProductOpener::Tags qw/%language_fields display_taxonomy_tag/;
+use ProductOpener::Text qw/remove_tags_and_quote/;
+use ProductOpener::Attributes qw/compute_attributes/;
+use ProductOpener::KnowledgePanels qw/create_knowledge_panels initialize_knowledge_panels_options/;
+use ProductOpener::EnvironmentalScore qw/localize_environmental_score/;
+use ProductOpener::Packaging qw/%packaging_taxonomies/;
+use ProductOpener::Permissions qw/has_permission/;
+use ProductOpener::GeoIP qw/get_country_for_ip_api/;
 
-use ProductOpener::APIProductRead qw/:all/;
-use ProductOpener::APIProductWrite qw/:all/;
+use ProductOpener::APIProductRead qw/read_product_api/;
+use ProductOpener::APIProductWrite qw/write_product_api/;
+use ProductOpener::APIProductRevert qw/revert_product_api/;
+use ProductOpener::APIProductServices qw/product_services_api/;
+use ProductOpener::APITagRead qw/read_tag_api/;
+use ProductOpener::APITaxonomySuggestions qw/taxonomy_suggestions_api/;
+use ProductOpener::ProductsFeatures qw(feature_enabled);
 
 use CGI qw(header);
 use Apache2::RequestIO();
 use Apache2::RequestRec();
-use JSON::PP;
+use JSON::MaybeXS;
 use Data::DeepAccess qw(deep_get);
 use Storable qw(dclone);
+use Encode;
 
 sub get_initialized_response() {
 	return {
@@ -98,12 +107,54 @@ sub init_api_response ($request_ref) {
 }
 
 sub add_warning ($response_ref, $warning_ref) {
+	defined $response_ref->{warnings} or $response_ref->{warnings} = [];
 	push @{$response_ref->{warnings}}, $warning_ref;
 	return;
 }
 
-sub add_error ($response_ref, $error_ref) {
+=head2 add_error ($response_ref, $error_ref, $status_code = 400)
+
+Add an error to the response object.
+
+=head3 Parameters
+
+=head4 $response_ref (input)
+
+Reference to the response object.
+
+=head4 $error_ref (input)
+
+Reference to the error object.
+
+=head4 $status_code (input)
+
+HTTP status code to return in the response, defaults to 400 bad request.
+
+=cut
+
+sub add_error ($response_ref, $error_ref, $status_code = 400) {
+	defined $response_ref->{errors} or $response_ref->{errors} = [];
 	push @{$response_ref->{errors}}, $error_ref;
+	$response_ref->{status_code} = $status_code;
+	return;
+}
+
+sub add_invalid_method_error ($response_ref, $request_ref) {
+
+	$log->warn("process_api_request - invalid method", {request => $request_ref}) if $log->is_warn();
+	add_error(
+		$response_ref,
+		{
+			message => {id => "invalid_api_method"},
+			field => {
+				id => "api_method",
+				value => $request_ref->{api_method},
+				api_action => $request_ref->{api_action},
+			},
+			impact => {id => "failure"},
+		},
+		405
+	);
 	return;
 }
 
@@ -181,7 +232,7 @@ sub decode_json_request_body ($request_ref) {
 				$request_ref->{api_response},
 				{
 					message => {id => "invalid_json_in_request_body"},
-					field => {id => "body", value => $request_ref->{body}},
+					field => {id => "body", value => $request_ref->{body}, error => $@},
 					impact => {id => "failure"},
 				}
 			);
@@ -296,9 +347,10 @@ Reference to the customized product object.
 
 sub send_api_response ($request_ref) {
 
-	my $status_code = $request_ref->{status_code} || "200";
+	my $status_code = $request_ref->{api_response}{status_code} || $request_ref->{status_code} || "200";
+	delete $request_ref->{api_response}{status_code};
 
-	my $json = JSON::PP->new->allow_nonref->canonical->utf8->encode($request_ref->{api_response});
+	my $json = JSON::MaybeXS->new->allow_nonref->canonical->utf8->encode($request_ref->{api_response});
 
 	# add headers
 	# We need to send the header Access-Control-Allow-Credentials=true so that websites
@@ -336,6 +388,43 @@ Reference to the request object.
 
 =cut
 
+# Dipatch table for API actions
+my $dispatch_table = {
+	# Product read or write
+	product => {
+		GET => \&read_product_api,
+		HEAD => \&read_product_api,
+		OPTIONS => sub {return;},    # Just return CORS headers
+		PATCH => \&write_product_api,
+	},
+	# Product revert
+	product_revert => {
+		# Check that the method is POST (GET may be dangerous: it would allow to revert a product by just clicking or loading a link)
+		POST => \&revert_product_api,
+	},
+	# Product services
+	product_services => {
+		POST => \&product_services_api,
+		OPTIONS => sub {return;},    # Just return CORS headers
+	},
+	# Taxonomy suggestions
+	taxonomy_suggestions => {
+		GET => \&taxonomy_suggestions_api,
+		HEAD => \&taxonomy_suggestions_api,
+		OPTIONS => sub {return;},    # Just return CORS headers
+	},
+	# Tag read
+	tag => {
+		GET => \&read_tag_api,
+		HEAD => \&read_tag_api,
+		OPTIONS => sub {return;},    # Just return CORS headers
+	},
+	geoip => {
+		GET => \&get_country_for_ip_api,
+	}
+
+};
+
 sub process_api_request ($request_ref) {
 
 	$log->debug("process_api_request - start", {request => $request_ref}) if $log->is_debug();
@@ -348,27 +437,14 @@ sub process_api_request ($request_ref) {
 			if $log->is_warn();
 	}
 	else {
-
 		# Route the API request to the right processing function, based on API action (from path) and method
-
-		if ($request_ref->{api_action} eq "product") {
-
-			if ($request_ref->{api_method} eq "PATCH") {
-				write_product_api($request_ref);
-			}
-			elsif ($request_ref->{api_method} =~ /^(GET|HEAD|OPTIONS)$/) {
-				read_product_api($request_ref);
+		if (exists $dispatch_table->{$request_ref->{api_action}}) {
+			my $action_dispatch_ref = $dispatch_table->{$request_ref->{api_action}};
+			if (exists $action_dispatch_ref->{$request_ref->{api_method}}) {
+				$action_dispatch_ref->{$request_ref->{api_method}}->($request_ref);
 			}
 			else {
-				$log->warn("process_api_request - invalid method", {request => $request_ref}) if $log->is_warn();
-				add_error(
-					$response_ref,
-					{
-						message => {id => "invalid_api_method"},
-						field => {id => "api_method", value => $request_ref->{api_method}},
-						impact => {id => "failure"},
-					}
-				);
+				add_invalid_method_error($response_ref, $request_ref);
 			}
 		}
 		else {
@@ -385,9 +461,7 @@ sub process_api_request ($request_ref) {
 	}
 
 	determine_response_result($response_ref);
-
 	add_localized_messages_to_api_response($request_ref->{lc}, $response_ref);
-
 	send_api_response($request_ref);
 
 	$log->debug("process_api_request - stop", {request => $request_ref}) if $log->is_debug();
@@ -411,13 +485,13 @@ Reference to the response object.
 
 =head3 Return value
 
-Normalized code.
+Normalized code and, if available, GS1 AI data string.
 
 =cut
 
 sub normalize_requested_code ($requested_code, $response_ref) {
 
-	my $code = normalize_code($requested_code);
+	my ($code, $ai_data_str) = &normalize_code_with_gs1_ai($requested_code);
 	$response_ref->{code} = $code;
 
 	# Add a warning if the normalized code is different from the requested code
@@ -426,13 +500,13 @@ sub normalize_requested_code ($requested_code, $response_ref) {
 			$response_ref,
 			{
 				message => {id => "different_normalized_product_code"},
-				field => {id => $code, value => $code},
+				field => {id => "code", value => $code},
 				impact => {id => "none"},
 			}
 		);
 	}
 
-	return $code;
+	return ($code, $ai_data_str);
 }
 
 =head2 get_images_to_update($product_ref, $target_lc)
@@ -531,7 +605,7 @@ sub customize_packagings ($request_ref, $product_ref) {
 
 			my $customized_packaging_ref = dclone($packaging_ref);
 
-			if ($request_ref->{api_version} >= 3) {
+			if ((defined $request_ref->{api_version}) and ($request_ref->{api_version} >= 3)) {
 				# Shape, material and recycling are localized
 				foreach my $property ("shape", "material", "recycling") {
 					if (defined $packaging_ref->{$property}) {
@@ -551,7 +625,56 @@ sub customize_packagings ($request_ref, $product_ref) {
 	return $customized_packagings_ref;
 }
 
-=head2 customize_response_for_product ( $request_ref, $product_ref, $fields )
+=head2 api_compatibility_for_field ($field, $api_version)
+
+To support older API versions that can request fields that have been renamed or changed,
+we rename older requested fields to the new field names to construct the response.
+
+Resulting fields will then be renamed back to older names by the api_compatibility_for_product function.
+
+=cut
+
+sub api_compatibility_for_field ($field, $api_version) {
+
+	# API 3.1 - 2024/12/18 - ecoscore* fields have been renamed to environmental_score*
+	if ($api_version < 3.1) {
+		if ($field =~ /^ecoscore/) {
+			$field = "environmental_score" . $';
+		}
+	}
+
+	return $field;
+}
+
+=head2 api_compatibility_for_product ($product_ref, $api_version)
+
+The response schema can change between API versions. This function transforms the product object to match the requested API version.
+
+=cut
+
+sub api_compatibility_for_product ($product_ref, $api_version) {
+
+	$log->debug("api_compatibility_for_product - start", {api_version => $api_version}) if $log->is_debug();
+
+	# no requested version, return the product as is
+	if (not defined $api_version) {
+		return $product_ref;
+	}
+
+	# API 3.1 - 2024/12/18 - ecoscore* fields have been renamed to environmental_score*
+	if ($api_version < 3.1) {
+		foreach my $subfield (qw/data grade score tags/) {
+			if (defined $product_ref->{"environmental_score_" . $subfield}) {
+				$product_ref->{"ecoscore_" . $subfield} = $product_ref->{"environmental_score_" . $subfield};
+				delete $product_ref->{"environmental_score_" . $subfield};
+			}
+		}
+	}
+
+	return $product_ref;
+}
+
+=head2 customize_response_for_product ( $request_ref, $product_ref, $fields_comma_separated_list, $fields_ref )
 
 Using the fields parameter, API product or search queries can request
 a specific set of fields to be returned.
@@ -570,14 +693,18 @@ Reference to the request object.
 
 Reference to the product object (retrieved from disk or from a MongoDB query)
 
-=head4 $fields (input)
+=head4 $fields_comma_separated_list (input)
 
-Comma separated list of fields, default to none.
+Comma separated list of fields (usually from GET query parameters), default to none.
 
 Special values:
 - none: no fields are returned
 - all: all fields are returned, and special fields (e.g. attributes, knowledge panels) are not computed
 - updated: fields that were updated by a WRITE request
+
+=head4 $fields_ref (input)
+
+Reference to a list of fields (alternative way to provide fields, e.g. from a JSON body).
 
 =head3 Return value
 
@@ -585,61 +712,94 @@ Reference to the customized product object.
 
 =cut
 
-sub customize_response_for_product ($request_ref, $product_ref, $fields) {
+sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_separated_list, $fields_ref = undef) {
+
+	# Fields can be in a comma separated list (if provided as a query parameter)
+	# or in a array reference (if provided in a JSON body)
+
+	my @fields = ();
+	if (defined $fields_comma_separated_list) {
+		push @fields, split(/,/, $fields_comma_separated_list);
+	}
+	if (defined $fields_ref) {
+		push @fields, @$fields_ref;
+	}
 
 	my $customized_product_ref = {};
 
 	my $carbon_footprint_computed = 0;
 
-	if ((not defined $fields) or ($fields eq "none")) {
+	# Special case if fields is empty, or contains only "none" or "raw": we do not need to localize the Environmental-Score
+
+	if ((scalar @fields) == 0) {
 		return {};
 	}
-	elsif ($fields eq "raw") {
-		# Return the raw product data, as stored in the .sto files and database
-		return $product_ref;
-	}
-
-	if ($fields =~ /\ball\b/) {
-		# Return all fields of the product, with processing that depends on the API version used
-		# e.g. in API v3, the "packagings" structure is more verbose than the stored version
-		$fields = $` . join(",", sort keys %{$product_ref}) . $';
-	}
-
-	# Callers of the API V3 WRITE product can send fields = updated to get only updated fields
-	if ($fields =~ /\bupdated\b/) {
-		if (defined $request_ref->{updated_product_fields}) {
-			$fields = $` . join(',', sort keys %{$request_ref->{updated_product_fields}}) . $';
-			$log->debug("returning only updated fields", {fields => $fields}) if $log->is_debug();
+	if ((scalar @fields) == 1) {
+		if ($fields[0] eq "none") {
+			return {};
+		}
+		if ($fields[0] eq "raw") {
+			# Return the raw product data, as stored in the .sto files and database
+			return $product_ref;
 		}
 	}
 
-	# Localize the Eco-Score fields that depend on the country of the request
-	localize_ecoscore($cc, $product_ref);
+	# Localize the Environmental-Score fields that depend on the country of the request
+	if (feature_enabled("environmental_score", $product_ref)) {
+		localize_environmental_score($request_ref->{cc}, $product_ref);
+	}
 
 	# lets compute each requested field
-	foreach my $field (split(/,/, $fields)) {
+	foreach my $field (@fields) {
+
+		# Compatibility with older API versions
+		$field = api_compatibility_for_field($field, $request_ref->{api_version});
+
+		if ($field eq 'all') {
+			# Return all fields of the product, with processing that depends on the API version used
+			# e.g. in API v3, the "packagings" structure is more verbose than the stored version
+			push @fields, sort keys %{$product_ref};
+			next;
+		}
+
+		# Callers of the API V3 WRITE product can send fields = updated to get only updated fields
+		if ($field eq "updated") {
+			if (defined $request_ref->{updated_product_fields}) {
+				push @fields, sort keys %{$request_ref->{updated_product_fields}};
+				$log->debug("returning only updated fields", {fields => \@fields}) if $log->is_debug();
+			}
+			next;
+		}
+
 		if ($field eq "product_display_name") {
-			$customized_product_ref->{$field} = remove_tags_and_quote(product_name_brand_quantity($product_ref));
+			# For web search queries, we may already have a product_display_name field computed and stored in the query cache
+			# and the product name / brands / quantity fields have been removed in that case, so we use it as-is.
+			$customized_product_ref->{$field} = $product_ref->{product_display_name}
+				|| remove_tags_and_quote(product_name_brand_quantity($product_ref));
+			next;
 		}
 
 		# Allow apps to request a HTML nutrition table by passing &fields=nutrition_table_html
-		elsif ($field eq "nutrition_table_html") {
-			$customized_product_ref->{$field} = display_nutrition_table($product_ref, undef);
+		if ($field eq "nutrition_table_html") {
+			$customized_product_ref->{$field} = display_nutrition_table($product_ref, undef, $request_ref);
+			next;
 		}
 
-		# Eco-Score details in simple HTML
-		elsif ($field eq "ecoscore_details_simple_html") {
-			if ((1 or $show_ecoscore) and (defined $product_ref->{ecoscore_data})) {
+		# Environmental-Score details in simple HTML
+		if ($field eq "environmental_score_details_simple_html") {
+			if ((1 or $show_environmental_score) and (defined $product_ref->{environmental_score_data})) {
 				$customized_product_ref->{$field}
-					= display_ecoscore_calculation_details_simple_html($cc, $product_ref->{ecoscore_data});
+					= display_environmental_score_calculation_details_simple_html($request_ref->{cc},
+					$product_ref->{environmental_score_data});
 			}
+			next;
 		}
 
 		# fields in %language_fields can have different values by language
 		# by priority, return the first existing value in the language requested,
 		# possibly multiple languages if sent ?lc=fr,nl for instance,
 		# and otherwise fallback on the main language of the product
-		elsif (defined $language_fields{$field}) {
+		if (defined $language_fields{$field}) {
 			foreach my $preferred_lc (@lcs, $product_ref->{lc}) {
 				if (    (defined $product_ref->{$field . "_" . $preferred_lc})
 					and ($product_ref->{$field . "_" . $preferred_lc} ne ''))
@@ -648,10 +808,15 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields) {
 					last;
 				}
 			}
+			# Also copy the field for the main language if it exists
+			if (defined $product_ref->{$field}) {
+				$customized_product_ref->{$field} = $product_ref->{$field};
+			}
+			next;
 		}
 
 		# [language_field]_languages : return a value with all existing values for a specific language field
-		elsif ($field =~ /^(.*)_languages$/) {
+		if ($field =~ /^(.*)_languages$/) {
 
 			my $language_field = $1;
 			$customized_product_ref->{$field} = {};
@@ -663,10 +828,11 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields) {
 					}
 				}
 			}
+			next;
 		}
 
 		# Taxonomy fields requested in a specific language
-		elsif ($field =~ /^(.*)_tags_([a-z]{2})$/) {
+		if ($field =~ /^(.*)_tags_([a-z]{2})$/) {
 			my $tagtype = $1;
 			my $target_lc = $2;
 			if (defined $product_ref->{$tagtype . "_tags"}) {
@@ -675,13 +841,14 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields) {
 					push @{$customized_product_ref->{$field}}, display_taxonomy_tag($target_lc, $tagtype, $tagid);
 				}
 			}
+			next;
 		}
 
 		# Apps can request the full nutriments hash
 		# or specific nutrients:
 		# - saturated-fat_prepared_100g : return field at top level
 		# - nutrients|nutriments.sugars_serving : return field in nutrients / nutriments hash
-		elsif ($field =~ /^((nutrients|nutriments)\.)?((.*)_(100g|serving))$/) {
+		if ($field =~ /^((nutrients|nutriments)\.)?((.*)_(100g|serving))$/) {
 			my $return_hash = $2;
 			my $nutrient = $3;
 			if ((defined $product_ref->{nutriments}) and (defined $product_ref->{nutriments}{$nutrient})) {
@@ -695,45 +862,106 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields) {
 					$customized_product_ref->{$nutrient} = $product_ref->{nutriments}{$nutrient};
 				}
 			}
+			next;
 		}
+
 		# Product attributes requested in a specific language (or data only)
-		elsif ($field =~ /^attribute_groups_([a-z]{2}|data)$/) {
+		if ($field =~ /^attribute_groups_([a-z]{2}|data)$/) {
 			my $target_lc = $1;
-			compute_attributes($product_ref, $target_lc, $cc, $attributes_options_ref);
+			compute_attributes($product_ref, $target_lc, $request_ref->{cc}, $attributes_options_ref);
 			$customized_product_ref->{$field} = $product_ref->{$field};
+			next;
 		}
+
 		# Product attributes in the $lc language
-		elsif ($field eq "attribute_groups") {
-			compute_attributes($product_ref, $lc, $cc, $attributes_options_ref);
+		if ($field eq "attribute_groups") {
+			compute_attributes($product_ref, $lc, $request_ref->{cc}, $attributes_options_ref);
 			$customized_product_ref->{$field} = $product_ref->{"attribute_groups_" . $lc};
+			next;
 		}
+
 		# Knowledge panels in the $lc language
-		elsif ($field eq "knowledge_panels") {
+		if ($field eq "knowledge_panels") {
 			initialize_knowledge_panels_options($knowledge_panels_options_ref, $request_ref);
-			create_knowledge_panels($product_ref, $lc, $cc, $knowledge_panels_options_ref);
+			create_knowledge_panels($product_ref, $lc, $request_ref->{cc}, $knowledge_panels_options_ref, $request_ref);
 			$customized_product_ref->{$field} = $product_ref->{"knowledge_panels_" . $lc};
+			next;
 		}
 
 		# Images to update in a specific language
-		elsif ($field =~ /^images_to_update_([a-z]{2})$/) {
+		if ($field =~ /^images_to_update_([a-z]{2})$/) {
 			my $target_lc = $1;
 			$customized_product_ref->{$field} = get_images_to_update($product_ref, $target_lc);
+			next;
 		}
 
 		# Packagings data
-		elsif ($field eq "packagings") {
+		if ($field eq "packagings") {
 			$customized_product_ref->{$field} = customize_packagings($request_ref, $product_ref);
+			next;
 		}
 
 		# straight fields
-		elsif ((not defined $customized_product_ref->{$field}) and (defined $product_ref->{$field})) {
+		if ((not defined $customized_product_ref->{$field}) and (defined $product_ref->{$field})) {
 			$customized_product_ref->{$field} = $product_ref->{$field};
+			next;
 		}
 
 		# TODO: it would be great to return errors when the caller requests fields that are invalid (e.g. typos)
 	}
 
+	# Before returning the product, we need to make sure that the fields are compatible with the requested API version
+	api_compatibility_for_product($customized_product_ref, $request_ref->{api_version});
+
 	return $customized_product_ref;
+}
+
+=head2 check_user_permission ($request_ref, $response_ref, $permission)
+
+Check the user has a specific permission, before processing an API request.
+If the user does not have the permission, an error is added to the response.
+
+=head3 Parameters
+
+=head4 $request_ref (input)
+
+Reference to the request object.
+
+=head4 $response_ref (output)
+
+Reference to the response object.
+
+=head4 $permission (input)
+
+Permission to check.
+
+=head3 Return value $has_permission
+
+1 if the user has the permission, 0 otherwise.
+
+=cut
+
+sub check_user_permission ($request_ref, $response_ref, $permission) {
+
+	my $has_permission = 1;
+
+	# Check if the user has permission
+	if (not has_permission($request_ref, $permission)) {
+		$has_permission = 0;
+		$log->error("check_user_permission - user does not have permission", {permission => $permission})
+			if $log->is_error();
+		add_error(
+			$response_ref,
+			{
+				message => {id => "no_permission"},
+				field => {id => "permission", value => $permission},
+				impact => {id => "failure"},
+			},
+			403
+		);
+	}
+
+	return $has_permission;
 }
 
 1;

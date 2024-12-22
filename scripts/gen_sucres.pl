@@ -26,20 +26,21 @@ use utf8;
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
+use ProductOpener::Store qw/get_string_id_for_lang store/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/:all/;
-use ProductOpener::Images qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Images qw/display_image/;
+use ProductOpener::Lang qw/$lc  %lang_lc lang/;
 use ProductOpener::Mail qw/:all/;
-use ProductOpener::Products qw/:all/;
+use ProductOpener::Products qw/product_url/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/:all/;
-use ProductOpener::Data qw/:all/;
+use ProductOpener::Data qw/get_products_collection/;
 
 use URI::Escape::XS qw/uri_escape uri_unescape/;
 
@@ -47,7 +48,16 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
+
+print STDERR ("Please fix this script before using it:\n"
+		. "1- do not write to lang/ (its git controlled)\n"
+		. "2- use Paths.pm for pathes (not /srv/sugar),\n"
+		. "3- only do one script of gen_sugar.pl and gen_sucre.pl,\n"
+		. "5- use matomo instead of GA\n"
+		. "4- fix bugs\n"
+		. "Or perhaps rework all this to use a single html page + json data\n");
+die();
 
 # Generate a list of the top brands, categories, users, additives etc.
 
@@ -81,7 +91,6 @@ my @fields = qw (
 foreach my $l ('fr') {
 
 	$lc = $l;
-	$lang = $l;
 
 	my $fields_ref = {code => 1, product_name => 1, brands => 1, quantity => 1, nutriments => 1};
 	my %tags = ();
@@ -615,7 +624,7 @@ HTML
 
 	$html .= "</tbody></table>";
 
-	open(my $OUT, ">:encoding(UTF-8)", "$data_root/lang/$lang/texts/sugar.html");
+	open(my $OUT, ">:encoding(UTF-8)", "$BASE_DIRS{LANG}/$l/texts/sugar.html");
 	print $OUT $html;
 	close $OUT;
 

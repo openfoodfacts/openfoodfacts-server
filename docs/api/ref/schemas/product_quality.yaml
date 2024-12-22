@@ -1,0 +1,66 @@
+type: object
+description: |
+  This is data that is linked to products data quality
+properties:
+  data_quality_bugs_tags:
+    type: array
+    items:
+      type: object
+  data_quality_errors_tags:
+    type: array
+    items:
+      type: object
+  data_quality_info_tags:
+    type: array
+    items:
+      type: string
+  data_quality_tags:
+    type: array
+    items:
+      type: string
+  data_quality_warnings_tags:
+    type: array
+    items:
+      type: string
+  data_sources:
+    type: string
+    description: |
+      Source of data imported from producers.
+  data_sources_tags:
+    type: array
+    items:
+      type: string
+  last_check_dates_tags:
+    type: array
+    items:
+      type: string
+  last_checked_t:
+    type: integer
+  last_checker:
+    type: string
+
+  states:
+    description: |
+      comma separated list of values indicating some states of the product,
+      like things to be done, or to be completed.
+      See [states taxonomy](https://static.openfoodfacts.net/data/taxonomies/states.json)
+    type: string
+  states_hierarchy:
+    type: array
+    items:
+      type: string
+  states_tags:
+    type: array
+    items:
+      description: |
+        Each state describe something that is completed or is to be done or improved on the product.
+
+        Refer to [states taxonomy](https://static.openfoodfacts.net/data/taxonomies/states.json)
+      type: string
+
+  misc_tags:
+    description: |
+      Information about different aspect of the product
+    type: array
+    items:
+      type: string

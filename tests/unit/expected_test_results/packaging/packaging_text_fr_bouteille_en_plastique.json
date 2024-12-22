@@ -1,9 +1,19 @@
 {
    "lc" : "fr",
    "misc_tags" : [
+      "en:packagings-number-of-components-1",
       "en:packagings-not-complete",
       "en:packagings-not-empty-but-not-complete",
       "en:packagings-not-empty"
+   ],
+   "packaging_materials_tags" : [
+      "en:plastic"
+   ],
+   "packaging_recycling_tags" : [
+      "en:discard"
+   ],
+   "packaging_shapes_tags" : [
+      "en:bottle"
    ],
    "packaging_text" : "bouteille en plastique à jeter",
    "packagings" : [
@@ -12,5 +22,10 @@
          "recycling" : "en:discard",
          "shape" : "en:bottle"
       }
-   ]
+   ],
+   "packagings_materials" : {
+      "all" : {},
+      "en:plastic" : {}
+   },
+   "packagings_n" : 1
 }

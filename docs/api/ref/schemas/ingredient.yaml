@@ -1,0 +1,41 @@
+components:
+  schemas:
+    Ingredient:
+      title: ingredient
+      type: object
+      properties:
+        id:
+          type: string
+        ingredients:
+          $ref: "#/components/schemas/Ingredients"
+        percent:
+          type: integer
+          description: The percentage of the ingredient.
+        percent_estimate:
+          type: number
+          description: Estimated percentage of the ingredient.
+        percent_max:
+          type:
+            - "string"
+            - "number"
+          description: Maximum percentage of the ingredient.
+        percent_min:
+          type: integer
+          description: Minimum percentage of the ingredient.
+        text:
+          type: string
+          description: Text description of the ingredient.
+        vegan:
+          type: string
+          description: Indicates if the ingredient is vegan.
+        vegetarian:
+          type: string
+          description: Indicates if the ingredient is vegetarian.
+    Ingredients:
+      title: ingredients
+      type: array
+      description: |
+        This structure gives the different ingredients and some information about them,
+        like estimate on their quantity.
+      items:
+        $ref: "#/components/schemas/Ingredient"

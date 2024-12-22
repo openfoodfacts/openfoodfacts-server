@@ -1,25 +1,12 @@
-// Create a structure so that we can display the packaging components for each recycling type
-[% SET recycling_types = {} %]
-[% SET unknown = "en:unknown" %]
-[% IF product.packagings %]
-    [% FOREACH packaging IN product.packagings %]
-        [% IF packaging.recycling.defined %]
-            [% SET recycling_types.${packaging.recycling} = 1 %]
-        [% ELSE %]
-            [% SET recycling_types.$unknown = 1 %]
-        [% END %]
-    [% END %]
-[% END %]
-
 {
     "level" :"info",
     "topics": [
         "environment"
     ],
-[% IF NOT (product.ecoscore_data.adjustments.packaging.packagings AND product.ecoscore_data.adjustments.packaging.packagings.size) %]
+[% IF NOT (product.packagings.size) %]
     "evaluation": "unknown",
     "title_element": {
-        "title": "[% lang('ecoscore_packaging_missing_information') %]",
+        "title": "[% edq(lang('environmental_score_packaging_missing_information')) %]",
         "icon_url": "[% static_subdomain %]/images/icons/dist/packaging.svg",
         "icon_color_from_evaluation": true,
         "evaluation": "neutral",                
@@ -30,7 +17,7 @@
             "text_element": {
                 "type": "warning",
                 "html": `
-                    [% lang('ecoscore_no_packaging_information') %]
+                    [% lang('environmental_score_no_packaging_information') %]
                     `
             }
         },
@@ -44,63 +31,45 @@
             }
         },
     ],
-[% ELSE %]    
-    [% IF product.ecoscore_data.adjustments.packaging.value <= -15 %]
+[% ELSE %]
+    // Environmental-Score currently computed only for food products
+    // no evaluation of packaging for other product types
+    // TODO: add evaluation for non-food products
+    [% IF NOT product.environmental_score_data.adjustments.packaging.value.defined %]
+    "evaluation": "unknown",
+    "title_element": {
+        "title": "[% edq(lang('packaging')) %]",
+    [% ELSIF product.environmental_score_data.adjustments.packaging.value <= -15 %]
     "evaluation": "bad",
     "title_element": {
-        "title": "[% lang('ecoscore_packaging_impact_high') %]",
-    [% ELSIF product.ecoscore_data.adjustments.packaging.value <= -5 %]
+        "title": "[% edq(lang('environmental_score_packaging_impact_high')) %]",
+    [% ELSIF product.environmental_score_data.adjustments.packaging.value <= -5 %]
     "evaluation": "average",
     "title_element": {
-        "title": "[% lang('ecoscore_packaging_impact_medium') %]",    
+        "title": "[% edq(lang('environmental_score_packaging_impact_medium')) %]",    
     [% ELSE %]
     "evaluation": "good",
     "title_element": {
-        "title": "[% lang('ecoscore_packaging_impact_low') %]",
+        "title": "[% edq(lang('environmental_score_packaging_impact_low')) %]",
     [% END %]
         "icon_url": "[% static_subdomain %]/images/icons/dist/packaging.svg",
         "icon_color_from_evaluation": true,
     },        
     "expanded": true,
     "elements": [
-        [% FOREACH recycling_type IN ["en:recycle", "en:discard", "en:unknown"] %]
-            [% IF recycling_types.$recycling_type.defined %]
-            {
-                "element_type": "text",
-                "text_element": {
-                    "type": "summary",
-                    "icon_color_from_evaluation": true,
-                    [% IF recycling_type == "en:recycle" %]
-                    "evaluation": "good",
-                    "icon_url": "[% static_subdomain %]/images/icons/dist/recycle-variant.svg",
-                    "icon_alt": "[% display_taxonomy_tag_name("packaging_recycling",recycling_type) %]",
-                    [% ELSIF recycling_type == "en:discard" %]
-                    "evaluation": "bad",
-                    "icon_url": "[% static_subdomain %]/images/icons/dist/delete.svg",
-                    "icon_alt": "[% display_taxonomy_tag_name("packaging_recycling",recycling_type) %]",
-                    [% ELSE %]
-                    "evaluation": "neutral",
-                    "icon_url": "[% static_subdomain %]/images/icons/dist/help.svg",
-                    "icon_alt": "[% lang('unknown') %]",
-                    [% END %]                
-                    "html": `
-                        [% FOREACH packaging IN product.packagings %]
-                            [% IF packaging.recycling == recycling_type OR (recycling_type == "en:unknown" AND NOT packaging.recycling.defined) %]
-                                [% IF packaging.number_of_units %][% packaging.number_of_units %] x [% END %]
-                                <strong>
-                                    [% display_taxonomy_tag_name('packaging_shapes',packaging.shape) %]
-                                    [% IF packaging.quantity_per_unit %][% packaging.quantity_per_unit %] [% END %]
-                                </strong>
-                                    [% IF packaging.material %]
-                                        ([% display_taxonomy_tag_name('packaging_materials',packaging.material) %][% IF packaging.weight_measured %][% sep %]: [% packaging.weight_measured %] g[% END %])
-                                    [% END %]
-                                    <br>
-                            [% END %]
-                        [% END %]
-                        `
-                }
+        {
+            "element_type": "panel",
+            "panel_element": {
+                    "panel_id": "packaging_components",
             },
-            [% END %]
+        },
+        [% IF (product.packagings_materials AND product.packagings_materials.size) %]
+        {
+            "element_type": "panel",
+            "panel_element": {
+                "panel_id": "packaging_materials",
+            },
+        },
         [% END %]
     ]
 [% END %]

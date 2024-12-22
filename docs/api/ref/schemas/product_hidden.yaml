@@ -1,0 +1,105 @@
+type: object
+detail: |
+  Here are referenced fields that one may found in the database but
+  either have no real meaning or should not be considered part of the API
+
+properties:
+  allergens_imported:
+    type: string
+  brands_imported:
+    type: string
+  countries_imported:
+    type: string
+  data_sources_imported:
+    type: string
+  lang_imported:
+    type: string
+  lc_imported:
+    type: string
+  no_nutrition_data_imported:
+    type: string
+  nutrition_data_per_imported:
+    type: string
+  obsolete_imported:
+    type: string
+  owner_imported:
+    type: string
+  packaging_imported:
+    type: string
+  producer_version_id_imported:
+    type: string
+  quantity_imported:
+    type: string
+  serving_size_imported:
+    type: string
+
+
+  grades:
+    type: object
+
+  countries_beforescanbot:
+    type: string
+  nucleotides_prev_tags:
+    type: array
+    items:
+      type: object
+
+  nutrition_data:
+    type: string
+  nutrition_data_prepared:
+    type: string
+
+  _id:
+    type: string
+    description: id in database of the product, this normally is the barcode
+  _keywords:
+    type: array
+    items:
+      type: string
+
+  max_imgid:
+    type: string
+  packaging:
+    type: string
+  packaging_hierarchy:
+    type: array
+    items:
+      type: string
+  packaging_lc:
+    type: string
+  packaging_tags:
+    type: array
+    items:
+      type: string
+  producer_version_id:
+    description: |
+      A version id internal to the producer.
+      We may grab those from PIM or GS1 platforms.
+    type: string
+  removed_countries_tags:
+    type: array
+    items:
+      type: object
+  sortkey:
+    type: integer
+
+  vitamins_prev_tags:
+    type: array
+    items:
+      type: object
+
+  scores:
+    type: object
+
+patternProperties:
+  'abbreviated_product_name_(?<language_code>\w\w)_imported':
+    type: string
+  'conservation_conditions_(?<language_code>\w\w)_imported':
+    type: string
+  'customer_service_(?<language_code>\w\w)_imported':
+    type: string
+
+  'ingredients_text_(?<language_code>\w\w)_imported':
+    type: string
+    description: |
+      list of ingredients as imported by the producer in language_code

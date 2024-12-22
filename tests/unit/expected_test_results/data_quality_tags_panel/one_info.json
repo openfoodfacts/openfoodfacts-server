@@ -1,0 +1,24 @@
+{
+   "data_quality_info" : {
+      "elements" : [
+         {
+            "element_type" : "text",
+            "text_element" : {
+               "html" : "<ul> <li id=\"data-error-en:nutrition-data-prepared\"> Nutrition data - Prepared <br><span class=\"description\">We have nutrition data for prepared product</span> </li> </ul>"
+            }
+         }
+      ],
+      "evaluation" : "good",
+      "expand_for" : "large",
+      "level" : "info",
+      "title_element" : {
+         "icon_color_from_evaluation" : true,
+         "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/data-info.svg",
+         "subtitle" : "Some infos about data quality on this product",
+         "title" : "Data Quality infos"
+      },
+      "topics" : [
+         "contribution"
+      ]
+   }
+}

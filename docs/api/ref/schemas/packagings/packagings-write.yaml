@@ -1,0 +1,11 @@
+type: array
+x-stoplight:
+  id: 69xpogby1amz6
+title: Packagings (WRITE)
+description: |-
+  The packagings object is an array of individual packaging component objects.
+
+  The Packaging data document explains how packaging data is structured in Open Food Facts: https://openfoodfacts.github.io/openfoodfacts-server/dev/explain-packaging-data/
+examples: []
+items:
+  $ref: ./packaging_component-write.yaml

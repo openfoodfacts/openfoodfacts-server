@@ -1,0 +1,108 @@
+{
+    "level": "info",
+    "topics": [
+        "health"
+    ],
+    "title_element": {
+        "icon_url": "[% static_subdomain %]/images/attributes/dist/nutriscore-[% panel.nutriscore_grade %]-new-[% IF lc == "fr" %][% lc %][% ELSE %]en[% END %].svg",
+        "title": "[% panel.title %]",
+        [% IF panel.subtitle %]
+        "subtitle": "[% panel.subtitle %]",
+        [% END %]
+        "type": "grade",
+        "grade": "[% panel.nutriscore_grade %]",
+    },
+    "elements": [
+        // First display warnings
+        [% IF panel.nutriscore_warnings %]
+            [% FOREACH warning IN panel.nutriscore_warnings %]
+            {
+                "element_type": "text",
+                "text_element": {
+                    "type": "warning",
+                    "html": `[% warning %]
+                    `,
+                }
+            },
+            [% END %]
+        [% END %]        
+        // Display actions if we are missing data to compute the Nutri-Score
+        [% IF panel.nutriscore_unknown_reason == "missing_category" OR  panel.nutriscore_unknown_reason == "missing_nutrition_data" OR panel.nutriscore_unknown_reason == "missing_category_and_nutrition_data" %]
+        {
+            "element_type": "action",
+            "action_element": {
+                "html": `[% lang("actions_to_compute_nutriscore") %]`,
+                "actions": [
+                    [% IF panel.nutriscore_unknown_reason == "missing_category" %]
+                        "add_categories"
+                    [% ELSIF panel.nutriscore_unknown_reason == "missing_nutrition_data" %]
+                        "add_nutrition_facts"
+                    [% ELSIF panel.nutriscore_unknown_reason == "missing_category_and_nutrition_data" %]
+                        "add_categories",
+                        "add_nutrition_facts"
+                    [% END %]
+                ]
+            }
+        },        
+        [% END %]
+        // New Nutri-Score
+        {
+            "element_type": "panel",
+            "panel_element": {
+                "panel_id": "nutriscore_new_computation",
+            },
+        },        
+        // Explanation of Nutri-Score
+        {
+            "element_type": "panel",
+            "panel_element": {
+                "panel_id": "nutriscore_description",
+            },
+        },        
+        // Start with negative points first, as the positive points depend on negative points
+        [% IF product.nutriscore.2023.data.components.negative.size > 0 %]
+        {
+            "element_type": "panel_group",
+            "panel_group_element": {
+                "title": "[% edq(lang('nutriscore_negative_points')) %][% sep %]: [% product.nutriscore.2023.data.negative_points %]/[% product.nutriscore.2023.data.negative_points_max %]",
+                "evaluation": "bad",
+                "icon_url": "[% static_subdomain %]/images/icons/dist/circle-minus.svg",
+                "icon_size": "small",
+                "icon_color_from_evaluation": true,
+                "panel_ids": [
+                    [% FOREACH component IN product.nutriscore.2023.data.components.negative %]
+                        "nutriscore_component_[% component.id %]",
+                    [% END %]
+                ],
+            },
+        }, 
+        [% END %]
+        // Positive points
+        [% IF product.nutriscore.2023.data.components.positive.size > 0 %]         
+        {
+            "element_type": "panel_group",
+            "panel_group_element": {
+                "title": "[% edq(lang('nutriscore_positive_points')) %][% sep %]: [% product.nutriscore.2023.data.positive_points %]/[% product.nutriscore.2023.data.positive_points_max %]",
+                "evaluation": "good",
+                "icon_url": "[% static_subdomain %]/images/icons/dist/circle-plus.svg",
+                "icon_size": "small",
+                "icon_color_from_evaluation": true,
+                "panel_ids": [
+                    [% FOREACH component IN product.nutriscore.2023.data.components.positive %]
+                        "nutriscore_component_[% component.id %]",
+                    [% END %]
+                ],
+            },
+        },
+        [% END %]
+        // Details of the computation of the Nutri-Score
+        [% IF panels.nutriscore_details.defined %]
+        {
+            "element_type": "panel",
+            "panel_element": {
+                "panel_id": "nutriscore_details",
+            },
+        },        
+        [% END %]
+    ]
+}

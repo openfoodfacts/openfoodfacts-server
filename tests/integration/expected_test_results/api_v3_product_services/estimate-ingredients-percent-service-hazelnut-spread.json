@@ -1,0 +1,48 @@
+{
+   "errors" : [],
+   "fields" : [
+      "updated"
+   ],
+   "product" : {
+      "ingredients" : [
+         {
+            "id" : "en:sugar",
+            "percent_estimate" : 58.75,
+            "percent_max" : 74,
+            "percent_min" : 43.5,
+            "text" : "Sucre",
+            "vegan" : "yes",
+            "vegetarian" : "yes"
+         },
+         {
+            "ciqual_food_code" : "16129",
+            "from_palm_oil" : "yes",
+            "id" : "en:palm-oil",
+            "percent_estimate" : 27.125,
+            "percent_max" : 43.5,
+            "percent_min" : 13,
+            "text" : "huile de palme",
+            "vegan" : "yes",
+            "vegetarian" : "yes"
+         },
+         {
+            "ciqual_food_code" : "17210",
+            "from_palm_oil" : "no",
+            "id" : "en:hazelnut-oil",
+            "percent" : 13,
+            "percent_estimate" : 14.125,
+            "percent_max" : 13,
+            "percent_min" : 13,
+            "text" : "huile de NOISETTES",
+            "vegan" : "yes",
+            "vegetarian" : "yes"
+         }
+      ],
+      "ingredients_percent_analysis" : 1
+   },
+   "services" : [
+      "estimate_ingredients_percent"
+   ],
+   "status" : "success",
+   "warnings" : []
+}

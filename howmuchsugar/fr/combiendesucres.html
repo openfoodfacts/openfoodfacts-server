@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Combien de sucres ?</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta name="language" content="fr-FR" />
+
+<meta property="fb:admins" content="706410516" />
+<meta property="og:site_name" content="Combien de sucres ?"/>
+<meta property="fb:app_id" content="472618429477645" />
+<meta property="og:type" content="food"/>
+<meta property="og:title" content="Combien de sucres ?"/>
+<meta property="og:url" content="https://combiendesucres.fr/"/>
+
+<meta property="og:image" content="https://combiendesucres.fr/combien_de_sucres.png"/>
+<meta property="og:image" content="https://combiendesucres.fr/combiendesucres_exemple.png"/>
+<meta property="og:image" content="https://combiendesucres.fr/combien_de_sucres-3572x1500.png"/>
+<meta property="og:image" content="https://combiendesucres.fr/combiendesucres_1_ou_42.800.png"/>
+<meta property="og:description" content="Vous pensez en connaître un morceau sur le sucre dans les produits alimentaires ? Vérifiez-le en quelques clics avec ce jeu instructif, simple et rapide."/>
+<meta name="description" content="Vous pensez en connaître un morceau sur le sucre dans les produits alimentaires ? Vérifiez-le en quelques clics avec ce jeu instructif, simple et rapide." />
+
+<script type="text/javascript" src="pixi.js"></script>
+<script type="text/javascript" src="Box2dWeb-2.1.a.3.min.js"></script>
+
+
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.10.2/themes/start/jquery-ui.css" />
+<script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="https://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+<script src="jquery.html5storage.min.js"></script>
+<script type="text/javascript" src="sucres.js"></script>
+
+
+<style type="text/css" media="all">
+
+
+
+body,html {
+	min-height:101%;
+	font-family: "Arial", "Helvetica", "Verdana", "sans-serif";
+	font-size: 100%;
+	padding:0px;
+	margin:0px;
+	width:100%;
+	background:#d5e5ff;
+}
+
+h1 {
+	font-size:20px;
+}
+
+#page {
+width:930px;
+padding:30px;
+padding-top:0px;
+margin:auto;
+position:relative;
+background: #3163ca;
+min-height:101%;
+color:white;
+}
+
+#main {
+width:410px;
+height:750px;
+padding-left:20px;
+padding-right:20px;
+float:left;
+margin-right:30px;
+background: white url("sucres_bgl.png") no-repeat top; 
+position: relative;
+}
+
+#progress {
+	position:absolute;
+	bottom:20px;
+	color:darkblue;
+	width:410px;
+}
+
+#progressmsg {
+	margin-bottom:10px;
+}
+
+#sugar_cubes {
+width:450px;
+height:750px;
+padding:0px;
+margin:0px;
+border:none;
+overflow:hidden;
+cursor: hand; cursor: pointer;
+position:relative;
+}
+
+#sugar_cubes:active { 
+cursor: hand; cursor: pointer; cursor: move;
+}
+
+
+#content {
+width:930px;
+color:white;
+clear:left;
+font-size:0.8em;
+}
+
+
+#sharebuttons {
+
+}
+
+.sharebutton { float:left; padding-right:10px;padding-bottom:5px;}	
+
+a, a:visited {
+	color:yellow;
+	text-decoration:none;
+}
+
+a:hover {
+	color:orange;
+}
+
+#play.a, #play.a:visited {
+	color: blue;
+}
+
+#play.a:hover {
+	color:darkblue;
+}
+
+h1 {
+	margin-top:0px;
+	color:white;
+}
+
+#description {
+	color:white;
+	font-size:0.9em;
+}
+
+#product {
+	background-color:white;
+	text-align:center;
+	display:block;
+	width:200px;;
+	height:200px;
+	padding:10px;
+	overflow:hidden;
+	float:right;
+	margin-left:20px;
+	margin-bottom:20px;
+}
+
+#products {
+	width:200px;
+	height:200px;
+	line-height:200px;
+	text-align:center;
+	padding:0px;
+	margin:0px;
+	display: table-cell;
+	vertical-align:middle;
+	background:white;
+}
+
+#products img {
+	vertical-align:middle;
+}
+
+#info, #answer {
+	font-size:0.9em;
+}
+
+#cubes {
+	font-size:64px;
+}
+
+#results {
+	position:absolute;
+	width:311px;
+	height:311px;
+	bottom:120px;
+	left:54px;
+	background: transparent url("score_bg.png") no-repeat top; 
+	color:black;
+	display:none;
+	padding:20px;
+}
+
+#score {
+	text-align:center;
+	font-size:40px;
+}
+
+#logo {
+	border:none;
+}
+
+h2 {
+	margin-top:30px;
+}
+
+</style>
+
+<script type="text/javascript">
+var small = -1;
+var small_f = -1;
+var big = -1;
+</script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-31851927-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+	
+</head>
+<body>
+
+<div id="page">
+
+<div id="main">
+
+<a href="/"><img id="logo" src="combien_de_sucres.png" width="381" height="160" alt="Combien de sucres ?" /></a>
+<br/>
+
+<p>Savez-vous combien il y a de sucre dans les produits alimentaires ?</p>
+<p>Testez votre perception du sucre dans les aliments en
+essayant d'évaluer l'équivalent en morceaux de sucres !</p>
+
+<a href="/cgi/sugar_random.pl"><img src="combiendesucres_exemple.png" width="410" height="242" style="border:none" /></a>
+
+<p><a href="/cgi/sugar_random.pl" id="play">A vous de jouer !</a></p>
+
+<div id="sharebuttons">
+<div style="float:left;padding-right:15px;" class="sharebutton"><iframe allowtransparency="true" frameborder="0" scrolling="no" role="presentation" 
+src="https://platform.twitter.com/widgets/tweet_button.html?via=CombienDeSucres&amp;count=vertical&amp;lang=fr&amp;text=Vous%20en%20connaissez%20un%20morceau%20en%20sucre%20%3F%20Testez%20le%20sur%20%22Combien%20de%20Sucres%20%3F%22%20!"
+style="width:65px; height:63px;"></iframe></div>
+<div style="float:left;padding-right:15px;" class="sharebutton"><fb:like href="https://combiendesucres.fr" layout="box_count"></fb:like></div>
+<div style="float:left;padding-right:15px;padding-bottom:10px;" class="sharebutton"><g:plusone size="tall" count="true" href="https://combiendesucres.fr"></g:plusone></div>
+</div>
+
+
+</div>
+
+<div id="sugar_cubes">
+<canvas id="c" width="450" height="750">Pour voir les sucres tomber, il faut un navigateur plus récent.</canvas>
+<div id="results">
+<div id="score"></div>
+<div id="score_share"></div>
+<div id="score_stats"></div>
+</div>
+</div>
+
+<br/>
+<div id="mice" style="float:left;width:410px;margin-right:30px;padding:20px;">
+<p>Les souris aiment le sucre ! Utilisez la vôtre pour attraper les morceaux et les empiler comme il vous plait.</p>
+<form style="display:none">
+<input type="button" name="saveButton" id="saveButton" value="Enregistrer" onclick="save_drawing(); return false;">
+</form>
+</div>
+
+<div style="float:left;width:450px;text-align:center;vertical-align:center;color:white;">
+<div id="cubes">0</div><div id="cubes2">&nbsp;petits morceaux de sucre</div><div id="your_answer"></div>
+</div>
+
+
+<div id="content">
+
+<h2>Pourquoi ce jeu ?</h2>
+
+<p>"Combien de sucres ?" permet d'apprendre à estimer la quantité de sucre contenue dans les produits alimentaires courants : boissons, jus de fruits, sodas, yaourts, crèmes glacées, céréales, pâtes à tartiner etc.</p>
+
+<p>La comparaison avec la quantité équivalente de morceaux de sucre permet à tous, y compris aux enfants, de mieux se rendre compte du sucre présent dans les aliments qu'ils consomment.
+Par exemple une canette de soda de 33 cl contient souvent l'équivalent de 9 ou 10 petits morceaux de sucre.</p>
+
+<p>Les réponses au jeu sont enregistrées de façon anonyme afin de pouvoir étudier les différences entre la quantité de sucre estimée et la quantité réelle. Ainsi en jouant à "Combien de sucres ?", vous pouvez
+nous aider à évaluer les différences entre perception et réalité pour les différentes catégories d'aliments. Merci beaucoup !</p>
+
+<h2>Sucres</h2>
+
+<p>La teneur en sucre utilisée dans le jeu est celle indiquée sur les étiquettes des produits dans le tableau nutritionnel. Il s'agit de la ligne "(dont sucres)"
+dans la partie "Glucides". En pratique il s'agit des "sucres simples" (à "indice glycémique élevé", autrefois appelés "sucres rapides") comme le saccharose, le glucose, le fructose, le lactose, et le maltose.
+Cette indication est optionnelle, beaucoup de produits n'indiquent que la teneur en glucides sans distinguer les sucres, l'amidon et les polyols.</p>
+
+<p>Le nombre de sucres correspond à la quantité totale du produit, qui suivant les cas contient plusieurs portions.</p>
+
+<div style="float:right;margin-left:20px;margin-bottom:20px;"><a href="https://fr.openfoodfacts.org"><img src="openfoodfacts-logo-fr.png" alt="Open Food Facts" style="border:none;background-color:white;padding:5px;display:block"/></a></div>
+
+<h2>Source des données</h2>
+
+<p>Les données sur les produits et les photos proviennent de la base collaborative <a href="https://fr.openfoodfacts.org">Open Food Facts</a>.
+Les données sont disponibles sous la licence ouverte <a href="https://opendatacommons.org/licenses/odbl/1.0/">Open Database License</a> et les photos sous la licence
+<a href="https://creativecommons.org/licenses/by-sa/3.0/deed.fr">Creative Commons Attribution Partage à l'identique</a>. Les marques citées sont la propriété de leurs propriétaires respectifs.</p>
+<p>La base de données est constituée de manière collaborative, il n'est pas possible de garantir qu'elle soit exempte d'erreurs. La composition des produits peut également avoir changé.
+Si vous constatez une erreur, <a href="mailto:stephane@combiendesucres.fr">merci de nous la signaler</a> afin qu'elle soit corrigée.</p>
+
+
+<h2 style="clear:both">Remerciements</h2>
+
+<p>Un grand merci à tous les contributeurs d'Open Food Facts de collecter les informations sur les produits alimentaires et de les rendre disponibles pour tous et pour tous usages. Rejoignez-nous !</p>
+
+<p>Merci aussi à Bertrand, Nicolas et Emmanuel pour leurs remarques et suggestions pour ce jeu.</p>
+
+<p>Merci à Erin Catto pour son merveilleux moteur de simulation physique <a href="https://box2d.org/">box2d</a> qui permet aux oiseaux d'Angry Birds de voler et aux sucres de Combien de sucres? de tomber !</p>
+
+<p>Merci à Mat Groves de Goodboy Digital pour la très efficace bibliothèque graphique <a href="https://github.com/GoodBoyDigital/pixi.js">pixi.js</a>.</p>
+
+<h2>Contact</h2>
+
+<p>Le jeu "Combien de sucres ?" a été créé par Stéphane Gigandet. Vous pouvez me contacter à l'adresse <a href="mailto:stephane@combiendesucres.fr">stephane@combiendesucres.fr</a></p>
+
+<img src="/combiendesucres_1_ou_42.800.png" alt="Sucre écrit avec des sucres" />
+
+<h2>Pour en savoir plus sur ce que l'on mange...</h2>
+
+<p>Rejoignez <a href="https://fr.openfoodfacts.org">Open Food Facts</a>, la base de données collaborative, libre et ouverte sur les produits alimentaires. Open Food Facts permet de décrypter les étiquettes et
+de facilement comparer les produits alimentaires.
+Les données peuvent être réutilisées librement dans d'autres applications telles que "Combien de sucres ?" et la carte interactive <a href="https://cestfabriquepresdechezvous.info/">C'est fabriqué près de chez vous</a></p>
+
+<p>Comparez la composition nutritionnelle (calories, glucides, protéines, lipides, minéraux et vitamines) de milliers d'aliments sur <a href="https://informationsnutritionnelles.fr/">Informations Nutritionnelles</a>.</p>
+
+<p>Cuisinez maison ! C'est encore la meilleure façon de savoir ce qu'il y a vraiment dans son assiette. Découvrez les <a href="https://recettes.de/cuisine">recettes de cuisine personnelles et originales</a> des blogueuses et blogueurs culinaires.</p>
+
+<a href="https://cestfabriquepresdechezvous.info/"><img src="cestfabriquepresdechezvous.275x100.png" alt="C'est fabriqué près de chez vous" style="border:none;background-color:white;padding:5px;"></a>
+
+<a href="https://informationsnutritionnelles.fr/"><img src="informations-nutritionnelles.png" alt="Informations Nutritionnelles" style="border:none;background-color:white;padding:5px;"></a>
+
+<a href="https://recettes.de/cuisine"><img src="recettes-logo-389x105.png" alt="Recettes de cuisine" style="border:none;padding:5px;"></a>
+
+
+
+</div>
+
+</div>
+
+
+<div id="fb-root"></div>
+
+    <script type="text/javascript">
+      window.fbAsyncInit = function() {
+        FB.init({appId: '472618429477645', status: true, cookie: true,
+                 xfbml: true});
+     };
+	 
+      (function() {
+        var e = document.createElement('script');
+        e.type = 'text/javascript';
+        e.src = document.location.protocol +
+          '//connect.facebook.net/fr_FR/all.js';
+        e.async = true;
+        document.getElementById('fb-root').appendChild(e);
+      }());
+	  
+
+    </script>	
+
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js">
+  {lang: 'fr'}
+</script>
+
+
+</body>
+</html>		

@@ -39,6 +39,7 @@ BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		%packager_codes
+		@sorted_packager_codes
 		%geocode_addresses
 		&init_packager_codes
 		&init_geocode_addresses
@@ -54,9 +55,9 @@ BEGIN {
 
 use vars @EXPORT_OK;
 
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Store qw/get_string_id_for_lang retrieve/;
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Lang qw/lang/;
 
 use Log::Any qw($log);
 
@@ -183,15 +184,24 @@ sub normalize_packager_codes ($codes) {
 }
 
 my %local_ec = (
+	AT => "EG",
+	CY => "EK",
+	CZ => "ES",
 	DE => "EG",
+	DK => "EF",
 	EE => "EÜ",
 	ES => "CE",
 	FI => "EY",
 	FR => "CE",
+	HR => "EU",
+	HU => "ES",
+	IE => "EC",
 	IT => "CE",
+	LU => "CE",
 	NL => "EG",
 	PL => "WE",
 	PT => "CE",
+	SI => "ES",
 	UK => "EC",
 );
 
@@ -242,6 +252,8 @@ sub init_packager_codes() {
 	if (-e "$data_root/packager-codes/packager_codes.sto") {
 		my $packager_codes_ref = retrieve("$data_root/packager-codes/packager_codes.sto");
 		%packager_codes = %{$packager_codes_ref};
+		# Used to display sorted suggestions in TaxonomySuggestions.pm
+		@sorted_packager_codes = sort keys %packager_codes;
 	}
 	return;
 }

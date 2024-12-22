@@ -37,25 +37,28 @@ use ProductOpener::PerlStandards;
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::HTTP qw/:all/;
-use ProductOpener::Tags qw/:all/;
-use ProductOpener::Users qw/:all/;
+use ProductOpener::HTTP qw/write_cors_headers/;
+use ProductOpener::Tags qw/%language_fields %tags_fields add_tags_to_field compute_field_tags/;
+use ProductOpener::Users qw/$Org_id $Owner_id $User_id %User/;
 use ProductOpener::Images qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Lang qw/$lc %lang_lc/;
 use ProductOpener::Mail qw/:all/;
 use ProductOpener::Products qw/:all/;
-use ProductOpener::Food qw/:all/;
+use ProductOpener::Food qw/assign_nutriments_values_from_request_parameters/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::DataQuality qw/:all/;
-use ProductOpener::Ecoscore qw/:all/;
+use ProductOpener::EnvironmentalScore qw/:all/;
 use ProductOpener::Packaging qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
-use ProductOpener::Text qw/:all/;
-use ProductOpener::API qw/:all/;
+use ProductOpener::Text qw/remove_tags_and_quote/;
+use ProductOpener::API qw/get_initialized_response check_user_permission/;
+use ProductOpener::APIProductWrite
+	qw/process_change_product_type_request_if_we_have_one process_change_product_code_request_if_we_have_one skip_protected_field/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -64,7 +67,7 @@ use CGI qw/:cgi :form :cgi-lib escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 use Log::Any qw($log);
 
 my $request_ref = ProductOpener::Display::init_request();
@@ -97,7 +100,7 @@ my $original_code = $code;
 
 $code = normalize_code($code);
 
-if ($code !~ /^\d{4,24}$/) {
+if (not is_valid_code($code)) {
 
 	$log->info("invalid code", {code => $code, original_code => $original_code}) if $log->is_info();
 	$response{status} = 0;
@@ -111,6 +114,19 @@ else {
 	if (not defined $product_ref) {
 		$product_ref = init_product($User_id, $Org_id, $code, $country);
 		$product_ref->{interface_version_created} = $interface_version;
+	}
+	else {
+		# There is an existing product
+		# If the product has a product_type and it is not the product_type of the server, redirect to the correct server
+		# unless we are on the pro platform
+
+		if (    (not $server_options{private_products})
+			and (defined $product_ref->{product_type})
+			and ($product_ref->{product_type} ne $options{product_type}))
+		{
+			redirect_to_url($request_ref, 307,
+				format_subdomain($subdomain, $product_ref->{product_type}) . '/cgi/product_jqm.pl?code=' . $code);
+		}
 	}
 
 	# Process edit rules
@@ -138,8 +154,8 @@ else {
 	my @errors = ();
 
 	# Store parameters for debug purposes
-	(-e "$data_root/debug") or mkdir("$data_root/debug", 0755);
-	open(my $out, ">", "$data_root/debug/product_jqm_multilingual." . time() . "." . $code);
+	ensure_dir_created($BASE_DIRS{CACHE_DEBUG}) or display_error_and_exit($request_ref, "Missing path", 503);
+	open(my $out, ">", "$BASE_DIRS{CACHE_DEBUG}/product_jqm_multilingual." . time() . "." . $code);
 	print $out encode_json(Vars());
 	close $out;
 
@@ -217,23 +233,28 @@ else {
 		}
 	}
 
-	# 26/01/2017 - disallow barcode changes until we fix bug #677
-	if ($User{moderator} and (defined single_param('new_code'))) {
+	# Change code or product type
 
-		change_product_server_or_code($product_ref, single_param('new_code'), \@errors);
-		$code = $product_ref->{code};
+	push @errors,
+		process_change_product_code_request_if_we_have_one($request_ref, $response_ref, $product_ref,
+		single_param("new_code"));
+	$code = $product_ref->{code};
 
-		if ($#errors >= 0) {
-			$response{status} = 0;
-			$response{status_verbose} = 'new code is invalid';
+	push @errors,
+		process_change_product_type_request_if_we_have_one($request_ref, $response_ref, $product_ref,
+		single_param("product_type"));
 
-			my $data = encode_json(\%response);
+	# Display an error message and exit if we have a fatal error (no permission to change barcode or product type, or invalid barcode or product type)
+	if ($#errors >= 0) {
+		$response{status} = 0;
+		$response{status_verbose} = join(",", @errors);
 
-			write_cors_headers();
-			print header(-type => 'application/json', -charset => 'utf-8') . $data;
+		my $data = encode_json(\%response);
 
-			exit(0);
-		}
+		write_cors_headers();
+		print header(-type => 'application/json', -charset => 'utf-8') . $data;
+
+		exit(0);
 	}
 
 	#my @app_fields = qw(product_name brands quantity);
@@ -241,12 +262,12 @@ else {
 		= qw(product_name generic_name quantity packaging brands categories labels origins manufacturing_places emb_codes link expiration_date purchase_places stores countries  );
 
 	# admin field to set a creator
-	if ($admin) {
+	if ($request_ref->{admin}) {
 		push @app_fields, "creator";
 	}
 
-	if ($admin or ($User_id eq "ecoscore-impact-estimator")) {
-		push @app_fields, ("ecoscore_extended_data", "ecoscore_extended_data_version");
+	if ($request_ref->{admin} or ($User_id eq "environmental-score-impact-estimator")) {
+		push @app_fields, ("environmental_score_extended_data", "environmental_score_extended_data_version");
 	}
 
 	# generate a list of potential languages for language specific fields
@@ -308,10 +329,6 @@ else {
 		}
 	}
 
-	# Do not allow edits / removal through API for data provided by producers (only additions for non existing fields)
-	# when the corresponding organization has the protect_data checkbox checked
-	my $protected_data = product_data_is_protected($product_ref);
-
 	foreach my $field (@app_fields, 'nutrition_data_per', 'serving_size', 'traces', 'ingredients_text', 'origin',
 		'packaging_text', 'lang')
 	{
@@ -344,48 +361,48 @@ else {
 					existing_value => $product_ref->{$field}
 				}
 			) if $log->is_debug();
+			next;
 		}
 
-		elsif (defined single_param($field)) {
+		if (defined single_param($field)) {
 
-			# Do not allow edits / removal through API for data provided by producers (only additions for non existing fields)
-			if (($protected_data) and (defined $product_ref->{$field}) and ($product_ref->{$field} ne "")) {
-				$log->debug("producer data already exists for field, skip empty value",
-					{field => $field, code => $code, existing_value => $product_ref->{$field}})
-					if $log->is_debug();
+			# Only moderators can update values for fields sent by the producer
+			if (skip_protected_field($product_ref, $field, $User{moderator})) {
+				next;
+			}
+
+			if ($field eq "lang") {
+				my $value = remove_tags_and_quote(decode utf8 => single_param($field));
+
+				# strip variants fr-BE fr_BE
+				$value =~ s/^([a-z][a-z])(-|_).*$/$1/i;
+				$value = lc($value);
+
+				# skip unrecognized languages (keep the existing lang & lc value)
+				if (defined $lang_lc{$value}) {
+					$product_ref->{lang} = $value;
+					$product_ref->{lc} = $value;
+				}
 
 			}
+			elsif ($field eq "environmental_score_extended_data") {
+				# we expect a JSON value
+				if (defined single_param($field)) {
+					$product_ref->{$field} = decode_json(single_param($field));
+				}
+			}
 			else {
-				if ($field eq "lang") {
-					my $value = remove_tags_and_quote(decode utf8 => single_param($field));
+				$product_ref->{$field} = preprocess_product_field($field, decode utf8 => single_param($field));
 
-					# strip variants fr-BE fr_BE
-					$value =~ s/^([a-z][a-z])(-|_).*$/$1/i;
-					$value = lc($value);
-
-					# skip unrecognized languages (keep the existing lang & lc value)
-					if (defined $lang_lc{$value}) {
-						$product_ref->{lang} = $value;
-						$product_ref->{lc} = $value;
-					}
-
+				# If we have a language specific field like "ingredients_text" without a language code suffix
+				# we assume it is in the language of the interface
+				if (defined $language_fields{$field}) {
+					my $field_lc = $field . "_" . $lc;
+					$product_ref->{$field_lc} = $product_ref->{$field};
+					delete $product_ref->{$field};
 				}
-				elsif ($field eq "ecoscore_extended_data") {
-					# we expect a JSON value
-					if (defined single_param($field)) {
-						$product_ref->{$field} = decode_json(single_param($field));
-					}
-				}
-				else {
-					$product_ref->{$field} = remove_tags_and_quote(decode utf8 => single_param($field));
 
-					if ((defined $language_fields{$field}) and (defined $product_ref->{lc})) {
-						my $field_lc = $field . "_" . $product_ref->{lc};
-						$product_ref->{$field_lc} = $product_ref->{$field};
-					}
-
-					compute_field_tags($product_ref, $lc, $field);
-				}
+				compute_field_tags($product_ref, $lc, $field);
 			}
 		}
 
@@ -395,18 +412,13 @@ else {
 				my $field_lc = $field . '_' . $param_lang;
 				if (defined single_param($field_lc)) {
 
-					# Do not allow edits / removal through API for data provided by producers (only additions for non existing fields)
-					if (($protected_data) and (defined $product_ref->{$field_lc}) and ($product_ref->{$field_lc} ne ""))
-					{
-						$log->debug("producer data already exists for field, skip empty value",
-							{field_lc => $field_lc, code => $code, existing_value => $product_ref->{$field_lc}})
-							if $log->is_debug();
+					# Only moderators can update values for fields sent by the producer
+					if (skip_protected_field($product_ref, $field_lc, $User{moderator})) {
+						next;
 					}
-					else {
 
-						$product_ref->{$field_lc} = remove_tags_and_quote(decode utf8 => single_param($field_lc));
-						compute_field_tags($product_ref, $lc, $field_lc);
-					}
+					$product_ref->{$field_lc} = remove_tags_and_quote(decode utf8 => single_param($field_lc));
+					compute_field_tags($product_ref, $lc, $field_lc);
 				}
 			}
 		}
@@ -414,14 +426,7 @@ else {
 
 	# Nutrition data
 
-	# Do not allow nutrition edits through API for data provided by producers
-	if (($protected_data) and (defined $product_ref->{"nutriments"})) {
-		print STDERR
-			"product_jqm_multilingual.pm - code: $code - nutrition data provided by producer exists, skip nutrients\n";
-	}
-	else {
-		assign_nutriments_values_from_request_parameters($product_ref, $nutriment_table);
-	}
+	assign_nutriments_values_from_request_parameters($product_ref, $nutriment_table, $User{moderator});
 
 	analyze_and_enrich_product_data($product_ref, $response_ref);
 
