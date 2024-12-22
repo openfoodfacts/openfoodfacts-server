@@ -235,8 +235,7 @@ sub validate_user_emails() {
 							print $invalid_user_file "$userid,$email,duplicate\n";
 						}
 						else {
-							print $invalid_user_file $user_infos->{userid}
-								. ",$email,duplicate\n";
+							print $invalid_user_file $user_infos->{userid} . ",$email,duplicate\n";
 							$user_infos->{userid} = $userid;
 							$user_infos->{last_login_t} = $last_login_t;
 						}
