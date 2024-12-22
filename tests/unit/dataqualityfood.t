@@ -299,7 +299,7 @@ use Log::Any::Adapter 'TAP', filter => "none";
 
 check_quality_and_test_product_has_quality_tag(
 	{
-		'ecoscore_data' => {
+		'environmental_score_data' => {
 			'adjustments' => {
 				'origins_of_ingredients' => {
 					'aggregated_origins' => [
@@ -319,7 +319,7 @@ check_quality_and_test_product_has_quality_tag(
 			}
 		}
 	},
-	"en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
+	"en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
 	"origins 100 percent unknown",
 	1
 );
@@ -569,14 +569,28 @@ ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
 	'en:serving-size-is-missing-digits',
-	'serving size should contains digits', 1
+	'serving size does not contain digits', 1
 );
 $product_ref = {serving_size => "120g"};
 ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
 	'en:serving-size-is-missing-digits',
-	'serving size should contains digits', 0
+	'serving size contains digits', 0
+);
+$product_ref = {serving_size => ""};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:serving-size-is-missing-digits',
+	'serving size is empty', 0
+);
+$product_ref = {serving_size => "-"};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:serving-size-is-missing-digits',
+	'serving size is -', 0
 );
 
 # serving size is missing
@@ -1210,17 +1224,12 @@ $product_ref = {
 		'en:olive-oils', 'en:virgin-olive-oils',
 		'en:extra-virgin-olive-oils'
 	],
-	nutrition_grade_fr => "c",
+	nutrition_grade_fr => "b",
 	nutriscore => {
 		2023 => {"nutrients_available" => 1,},
 	},
 };
 ProductOpener::DataQuality::check_quality($product_ref);
-check_quality_and_test_product_has_quality_tag(
-	$product_ref,
-	'en:nutri-score-grade-from-category-does-not-match-calculated-grade',
-	'Calculate nutriscore grade should be the same as the one provided in the taxonomy for this category', 0
-);
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
 	'en:nutri-score-grade-from-category-does-not-match-calculated-grade',

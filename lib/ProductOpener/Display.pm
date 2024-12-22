@@ -124,7 +124,7 @@ BEGIN {
 
 		%file_timestamps
 
-		$show_ecoscore
+		$show_environmental_score
 		$attributes_options_ref
 		$knowledge_panels_options_ref
 
@@ -158,7 +158,7 @@ use ProductOpener::Data
 use ProductOpener::Text
 	qw(escape_char escape_single_quote_and_newlines get_decimal_formatter get_percent_formatter remove_tags_and_quote);
 use ProductOpener::Nutriscore qw(%points_thresholds compute_nutriscore_grade);
-use ProductOpener::Ecoscore qw(localize_ecoscore);
+use ProductOpener::EnvironmentalScore qw(localize_environmental_score);
 use ProductOpener::Attributes qw(compute_attributes list_attributes);
 use ProductOpener::KnowledgePanels qw(create_knowledge_panels initialize_knowledge_panels_options);
 use ProductOpener::KnowledgePanelsTags qw(create_tag_knowledge_panels);
@@ -333,14 +333,14 @@ $images_subdomain = format_subdomain('images');
 =head2 url_for_text ( $textid )
 
 Return the localized URL for a text. (e.g. "data" points to /data in English and /donnees in French)
-Note: This currently only has ecoscore
+Note: This currently only has environmental_score
 
 =cut
 
 # Note: the following urls are currently hardcoded, but the idea is to build the mapping table
 # at startup from the available translated texts in the repository. (TODO)
 my %urls_for_texts = (
-	"ecoscore" => {
+	"environmental_score" => {
 		en => "eco-score-the-environmental-impact-of-food-products",
 		de => "eco-score-die-umweltauswirkungen-von-lebensmitteln",
 		es => "eco-score-el-impacto-medioambiental-de-los-productos-alimenticios",
@@ -960,8 +960,8 @@ CSS
 	$attributes_options_ref = {};
 	$knowledge_panels_options_ref = {};
 
-	if (not feature_enabled("ecoscore")) {
-		$knowledge_panels_options_ref->{skip_ecoscore} = 1;
+	if (not feature_enabled("environmental_score")) {
+		$knowledge_panels_options_ref->{skip_environmental_score} = 1;
 	}
 	if (not feature_enabled("forest_footprint")) {
 		$knowledge_panels_options_ref->{skip_forest_footprint} = 1;
@@ -1263,8 +1263,9 @@ sub display_robots_txt_and_exit ($request_ref) {
 				defined $tag_value_plural
 				and length($tag_value_plural)
 				!= 0
-				# ecoscore has the same value for singular and plural, and products should not be disabled
-				and ($type !~ /^ecoscore|products$/) and not(exists($disallow_paths_localized_set{$tag_value_plural}))
+				# environmental_score has the same value for singular and plural, and products should not be disabled
+				and ($type !~ /^environmental_score|products$/)
+				and not(exists($disallow_paths_localized_set{$tag_value_plural}))
 				)
 			{
 				$disallow_paths_localized_set{$tag_value_plural} = undef;
@@ -1727,7 +1728,7 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 	my $default_sort_by = "count";
 
 	# except for scores where we sort alphabetically (A to E, and 1 to 4)
-	if (($groupby_tagtype =~ /^nutriscore|nutrition_grades|ecoscore|nova_groups/)) {
+	if (($groupby_tagtype =~ /^nutriscore|nutrition_grades|environmental_score|nova_groups/)) {
 		$default_sort_by = "tag";
 	}
 
@@ -2030,7 +2031,7 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 		}
 
 		# display_percent parameter: display the percentage of products for each tag
-		# This is useful only for tags that have unique values like Nutri-Score and Eco-Score
+		# This is useful only for tags that have unique values like Nutri-Score and Environmental-Score
 		my $display_percent = single_param("display_percent");
 		foreach my $tagcount_ref (@tags) {
 			my $count = $tagcount_ref->{count};
@@ -2038,9 +2039,9 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 			$stats{all_tags_products} += $count;
 		}
 
-		# For the Eco-Score, we want to display A+ before A even though A+ is after A in alphabetical order
+		# For the Environmental-Score, we want to display A+ before A even though A+ is after A in alphabetical order
 		# If the tagid "a" is followed by tagid "a-plus", invert them
-		if (($tagtype eq 'ecoscore') and (defined $tags[1])) {
+		if (($tagtype eq 'environmental_score') and (defined $tags[1])) {
 
 			if (($tags[0]{_id} eq 'a') and ($tags[1]{_id} eq 'a-plus')) {
 				my $tags_tmp = $tags[0];
@@ -2212,7 +2213,7 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 			$html .= "<tr>";
 
 			my $display = '';
-			# For Eco-Score, we add a data-sort attribute to sort the A+ grade before the A grade in Datatables.js
+			# For Environmental-Score, we add a data-sort attribute to sort the A+ grade before the A grade in Datatables.js
 			my $data_sort;
 
 			my @sameAs = ();
@@ -2235,7 +2236,7 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 					. "\" style=\"max-height:80px;\"> "
 					. $grade;
 			}
-			elsif ($tagtype eq 'ecoscore') {
+			elsif ($tagtype eq 'environmental_score') {
 				my $grade;
 
 				if ($tagid eq "a-plus") {
@@ -2256,9 +2257,9 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 				}
 
 				$display
-					= "<img src=\"/images/attributes/dist/ecoscore-$tagid.svg\" alt=\"Eco-Score "
+					= "<img src=\"/images/attributes/dist/environmental-score-$tagid.svg\" alt=\"Environmental-Score "
 					. $grade
-					. "\" title=\"Eco-Score "
+					. "\" title=\"Environmental-Score "
 					. $grade
 					. "\" style=\"max-height:80px;\"> "
 					. $grade;
@@ -2439,10 +2440,10 @@ HTML
 
 		$log->debug("going through all tags - done", {}) if $log->is_debug();
 
-		# Nutri-Score nutrition grades colors histogram / Eco-Score / NOVA groups histogram
+		# Nutri-Score nutrition grades colors histogram / Environmental-Score / NOVA groups histogram
 
 		if (   ($request_ref->{groupby_tagtype} eq 'nutrition_grades')
-			or ($request_ref->{groupby_tagtype} eq 'ecoscore')
+			or ($request_ref->{groupby_tagtype} eq 'environmental_score')
 			or ($request_ref->{groupby_tagtype} eq 'nova_groups'))
 		{
 
@@ -2461,12 +2462,14 @@ HTML
 					$series_data .= ($products{$nutrition_grade} + 0) . ',';
 				}
 			}
-			elsif ($request_ref->{groupby_tagtype} eq 'ecoscore') {
+			elsif ($request_ref->{groupby_tagtype} eq 'environmental_score') {
 				$categories = "'A+','A','B','C','D','E','F','" . lang("not_applicable") . "','" . lang("unknown") . "'";
 				$colors = "'#1E8F4E','#1E8F4E','#60AC0E','#EEAE0E','#FF6F1E','#DF1F1F','#DF1F1F','#a0a0a0','#a0a0a0'";
 				$series_data = '';
-				foreach my $ecoscore_grade ('a-plus', 'a', 'b', 'c', 'd', 'e', 'f', 'not-applicable', 'unknown') {
-					$series_data .= ($products{$ecoscore_grade} + 0) . ',';
+				foreach
+					my $environmental_score_grade ('a-plus', 'a', 'b', 'c', 'd', 'e', 'f', 'not-applicable', 'unknown')
+				{
+					$series_data .= ($products{$environmental_score_grade} + 0) . ',';
 				}
 			}
 			elsif ($request_ref->{groupby_tagtype} eq 'nova_groups') {
@@ -4991,7 +4994,7 @@ sub add_params_to_query ($params_ref, $query_ref) {
 					# if the value is "unknown", we need to add a condition on the field being empty
 
 					my @tagtype_allowing_unknown_as_value
-						= qw(nutrition_grades nova_groups ecoscore pnns_groups_1 pnns_groups_2 food_groups);
+						= qw(nutrition_grades nova_groups environmental_score pnns_groups_1 pnns_groups_2 food_groups);
 					# warning: unknown is a value for pnns_groups_1 and 2
 					if (
 						(
@@ -5239,7 +5242,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 			and ($sort_by ne 'popularity')
 			and ($sort_by ne 'nutriscore_score')
 			and ($sort_by ne 'nova_score')
-			and ($sort_by ne 'ecoscore_score')
+			and ($sort_by ne 'environmental_score_score')
 			and ($sort_by ne 'nothing'))
 		)
 	{
@@ -5269,7 +5272,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		elsif ($sort_by eq "popularity_key") {
 			$order = -1;
 		}
-		elsif ($sort_by eq "ecoscore_score") {
+		elsif ($sort_by eq "environmental_score_score") {
 			$order = -1;
 		}
 		elsif ($sort_by eq "nutriscore_score") {
@@ -5297,7 +5300,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 
 	$template_data_ref->{sort_options} = [];
 
-	# Nutri-Score and Eco-Score are only for food products
+	# Nutri-Score and Environmental-Score are only for food products
 	# and currently scan data is only loaded for Open Food Facts
 	if (feature_enabled("popularity")) {
 
@@ -5317,12 +5320,12 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 			};
 	}
 	# Show Eco-score sort only for some countries, or for moderators
-	if (feature_enabled("ecoscore")) {
+	if (feature_enabled("environmental_score")) {
 		push @{$template_data_ref->{sort_options}},
 			{
-			value => "ecoscore_score",
-			link => $request_ref->{current_link} . "?sort_by=ecoscore_score",
-			name => lang("sort_by_ecoscore_score")
+			value => "environmental_score_score",
+			link => $request_ref->{current_link} . "?sort_by=environmental_score_score",
+			name => lang("sort_by_environmental_score_score")
 			};
 	}
 
@@ -5388,12 +5391,20 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 			"additives_n" => 1,
 			"allergens_tags" => 1,
 			"categories_tags" => 1,
-			# Get only the ecoscore_data needed to compute attributes
+			# Get only the environmental_score_data needed to compute attributes
 			# with the target country
+			"environmental_score_data.status" => 1,
+			("environmental_score_data.scores." . $request_ref->{cc}) => 1,
+			("environmental_score_data.grades." . $request_ref->{cc}) => 1,
+			"environmental_score_data.environmental_score_not_applicable_for_category" => 1,
+			"environmental_score_grade" => 1,
+			"environmental_score_score" => 1,
+			# 2024-12: get also the ecoscore_data for products that have not been reprocessed yet
+			# TODO: remove all products have the environmental_data score populated
 			"ecoscore_data.status" => 1,
 			("ecoscore_data.scores." . $request_ref->{cc}) => 1,
 			("ecoscore_data.grades." . $request_ref->{cc}) => 1,
-			"ecoscore_data.ecoscore_not_applicable_for_category" => 1,
+			"ecoscore_data.environmental_score_not_applicable_for_category" => 1,
 			"ecoscore_grade" => 1,
 			"ecoscore_score" => 1,
 			"forest_footprint_data.grade" => 1,
@@ -5714,8 +5725,8 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 
 					# Eco-score: currently only for moderators
 
-					if ($newtagtype eq 'ecoscore') {
-						next if not(feature_enabled("ecoscore"));
+					if ($newtagtype eq 'environmental_score') {
+						next if not(feature_enabled("environmental_score"));
 					}
 
 					push @{$template_data_ref->{current_drilldown_fields}},
@@ -6009,7 +6020,7 @@ sub search_and_export_products ($request_ref, $query_ref, $sort_by) {
 	}
 
 	my $args_ref = {
-		cc => $request_ref->{cc},    # used to localize Eco-Score fields
+		cc => $request_ref->{cc},    # used to localize Environmental-Score fields
 		format => $format,
 		filehandle => \*STDOUT,
 		filename => "openfoodfacts_export." . $format,
@@ -6084,7 +6095,10 @@ my %nutrition_grades_colors = (
 sub get_search_field_path_components ($field) {
 	my @fields;
 	# direct fields
-	if (($field =~ /_n$/) or ($field eq "product_quantity") or ($field eq "nova_group") or ($field eq "ecoscore_score"))
+	if (   ($field =~ /_n$/)
+		or ($field eq "product_quantity")
+		or ($field eq "nova_group")
+		or ($field eq "environmental_score_score"))
 	{
 		@fields = ($field);
 	}
@@ -6129,9 +6143,9 @@ sub get_search_field_title_and_details ($field) {
 		$allow_decimals = "allowDecimals:false,\n";
 		$title = escape_single_quote_and_newlines(lang("nova_groups_s"));
 	}
-	elsif ($field eq "ecoscore_score") {
+	elsif ($field eq "environmental_score_score") {
 		$allow_decimals = "allowDecimals:false,\n";
-		$title = escape_single_quote_and_newlines(lang("ecoscore_score"));
+		$title = escape_single_quote_and_newlines(lang("environmental_score_score"));
 	}
 	elsif ($field =~ /^packagings_materials\.([^.]+)\.([^.]+)$/) {
 		my $material = $1;
@@ -7647,7 +7661,7 @@ sub display_page ($request_ref) {
 	# Twitter account
 	$html =~ s/<twitter_account>/$twitter_account/g;
 
-	# Replace urls for texts in links like <a href="/ecoscore"> with a localized name
+	# Replace urls for texts in links like <a href="/environmental_score"> with a localized name
 	$html =~ s/(href=")(\/[^"]+)/$1 . url_for_text($2)/eg;
 
 	my $status_code = $request_ref->{status_code} // 200;
@@ -7975,22 +7989,23 @@ JS
 	my $product_url = product_url($product_ref);
 	$template_data_ref->{this_product_url} = $product_url;
 
-	# Environmental impact and Eco-Score
-	# Limit to the countries for which we have computed the Eco-Score
+	# Environmental impact and Environmental-Score
+	# Limit to the countries for which we have computed the Environmental-Score
 	# for alpha test to moderators, display eco-score for all countries
 
-	# Note: the Eco-Score data needs to be localized before we create the knowledge panels.
+	# Note: the Environmental-Score data needs to be localized before we create the knowledge panels.
 
-	if ((feature_enabled("ecoscore")) and (defined $product_ref->{ecoscore_data})) {
+	if ((feature_enabled("environmental_score")) and (defined $product_ref->{environmental_score_data})) {
 
-		localize_ecoscore($request_ref->{cc}, $product_ref);
+		localize_environmental_score($request_ref->{cc}, $product_ref);
 
-		$template_data_ref->{ecoscore_grade} = uc($product_ref->{ecoscore_data}{"grade"});
-		$template_data_ref->{ecoscore_grade_lc} = $product_ref->{ecoscore_data}{"grade"};
-		$template_data_ref->{ecoscore_score} = $product_ref->{ecoscore_data}{"score"};
-		$template_data_ref->{ecoscore_data} = $product_ref->{ecoscore_data};
-		$template_data_ref->{ecoscore_calculation_details}
-			= display_ecoscore_calculation_details($request_ref->{cc}, $product_ref->{ecoscore_data});
+		$template_data_ref->{environmental_score_grade} = uc($product_ref->{environmental_score_data}{"grade"});
+		$template_data_ref->{environmental_score_grade_lc} = $product_ref->{environmental_score_data}{"grade"};
+		$template_data_ref->{environmental_score_score} = $product_ref->{environmental_score_data}{"score"};
+		$template_data_ref->{environmental_score_data} = $product_ref->{environmental_score_data};
+		$template_data_ref->{environmental_score_calculation_details}
+			= display_environmental_score_calculation_details($request_ref->{cc},
+			$product_ref->{environmental_score_data});
 	}
 
 	# Activate knowledge panels for all users
@@ -11527,49 +11542,51 @@ sub _format_comment ($comment) {
 	return $comment;
 }
 
-=head2 display_ecoscore_calculation_details( $ecoscore_cc, $ecoscore_data_ref )
+=head2 display_environmental_score_calculation_details( $environmental_score_cc, $environmental_score_data_ref )
 
 Generates HTML code with information on how the Eco-score was computed for a particular product.
 
 =head3 Parameters
 
-=head4 country code $ecoscore_cc
+=head4 country code $environmental_score_cc
 
-=head4 ecoscore data $ecoscore_data_ref
+=head4 environmental_score data $environmental_score_data_ref
 
 =cut
 
-sub display_ecoscore_calculation_details ($ecoscore_cc, $ecoscore_data_ref) {
+sub display_environmental_score_calculation_details ($environmental_score_cc, $environmental_score_data_ref) {
 
 	# Generate a data structure that we will pass to the template engine
 
-	my $template_data_ref = dclone($ecoscore_data_ref);
+	my $template_data_ref = dclone($environmental_score_data_ref);
 
 	# Eco-score Calculation Template
 
 	my $html;
-	process_template('web/pages/product/includes/ecoscore_details.tt.html', $template_data_ref, \$html)
+	process_template('web/pages/product/includes/environmental_score_details.tt.html', $template_data_ref, \$html)
 		|| return "template error: " . $tt->error();
 
 	return $html;
 }
 
-=head2 display_ecoscore_calculation_details_simple_html( $ecoscore_cc, $ecoscore_data_ref )
+=head2 display_environmental_score_calculation_details_simple_html( $environmental_score_cc, $environmental_score_data_ref )
 
 Generates simple HTML code (to display in a mobile app) with information on how the Eco-score was computed for a particular product.
 
 =cut
 
-sub display_ecoscore_calculation_details_simple_html ($ecoscore_cc, $ecoscore_data_ref) {
+sub display_environmental_score_calculation_details_simple_html ($environmental_score_cc, $environmental_score_data_ref)
+{
 
 	# Generate a data structure that we will pass to the template engine
 
-	my $template_data_ref = dclone($ecoscore_data_ref);
+	my $template_data_ref = dclone($environmental_score_data_ref);
 
 	# Eco-score Calculation Template
 
 	my $html;
-	process_template('web/pages/product/includes/ecoscore_details_simple_html.tt.html', $template_data_ref, \$html)
+	process_template('web/pages/product/includes/environmental_score_details_simple_html.tt.html',
+		$template_data_ref, \$html)
 		|| return "template error: " . $tt->error();
 
 	return $html;

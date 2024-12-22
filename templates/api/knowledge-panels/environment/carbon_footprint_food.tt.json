@@ -1,5 +1,5 @@
 // Compute the Carbon Impact for 100g
-[% SET co2_100g = product.ecoscore_data.agribalyse.co2_total / 10 %]
+[% SET co2_100g = product.environmental_score_data.agribalyse.co2_total / 10 %]
 [% SET driving_100g = co2_100g  * 100 / 19.3 %]
 {
     "level" :"info",
@@ -29,7 +29,7 @@
                 "type": "summary",
                 "html": `
                     <p>[% lang('source_ademe_agribalyse_for_category') %] 
-                    <a href="https://agribalyse.ademe.fr/app/aliments/[% product.ecoscore_data.agribalyse.code %]">[% panel.agribalyse_category_name %]</a>
+                    <a href="https://agribalyse.ademe.fr/app/aliments/[% product.environmental_score_data.agribalyse.code %]">[% panel.agribalyse_category_name %]</a>
                     ([% lang('source_ademe_agribalyse') %])
                     </p>
                     `
@@ -38,16 +38,16 @@
         {
             "element_type": "table",
             "table_element": {
-                "id": "ecoscore_carbon_impact_by_stages_table",
+                "id": "environmental_score_carbon_impact_by_stages_table",
                 "table_type": "percents",
-                "title": "[% edq(lang('ecoscore_impact_detail_by_stages')) %]",
+                "title": "[% edq(lang('environmental_score_impact_detail_by_stages')) %]",
                 "columns": [
                     {
-                        "text": "[% edq(lang('ecoscore_stage')) %]",
+                        "text": "[% edq(lang('environmental_score_stage')) %]",
                         "type": "text",
                     },
                     {
-                        "text": "[% edq(lang('ecoscore_impact')) %]",
+                        "text": "[% edq(lang('environmental_score_impact')) %]",
                         "type": "percent",
                     }
                 ],
@@ -58,12 +58,12 @@
                         "values": [
                             {
                                 "icon_url": "[% static_subdomain %]/images/icons/dist/[% step %].svg",
-                                "text": "[% edq(lang("ecoscore_$step")) %]"
+                                "text": "[% edq(lang("environmental_score_$step")) %]"
                             },
                             {
                                 [% co2_step = "co2_$step" %]
-                                "text": "[% (100 * product.ecoscore_data.agribalyse.$co2_step / product.ecoscore_data.agribalyse.co2_total) FILTER format('%.1f'); %] %",
-                                "percent": [% (100 * product.ecoscore_data.agribalyse.$co2_step / product.ecoscore_data.agribalyse.co2_total) %]
+                                "text": "[% (100 * product.environmental_score_data.agribalyse.$co2_step / product.environmental_score_data.agribalyse.co2_total) FILTER format('%.1f'); %] %",
+                                "percent": [% (100 * product.environmental_score_data.agribalyse.$co2_step / product.environmental_score_data.agribalyse.co2_total) %]
                             }
                         ],
                     },
