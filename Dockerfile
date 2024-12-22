@@ -11,7 +11,8 @@ ARG CPANMOPTS=
 FROM debian:bullseye AS modperl
 
 # Install cpm to install cpanfile dependencies
-RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
+RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
+    --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt set -x && \
     apt update && \
     apt install -y \
         apache2 \
@@ -80,7 +81,8 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
         # NB: not available in ubuntu 1804 LTS:
         libgeoip2-perl \
         libemail-valid-perl
-RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
+RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
+    --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt set -x && \
     apt install -y \
         #
         # cpan dependencies that can be satisfied by apt even if the package itself can't:

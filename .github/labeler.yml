@@ -173,7 +173,7 @@ WikiData:
 # Tracking issue: https://github.com/openfoodfacts/openfoodfacts-server/issues/5555
 📸 Open Products Facts:
 - changed-files:
-  - any-glob-to-any-file: 'taxonomies/products/**/*'
+  - any-glob-to-any-file: 'taxonomies/product/**/*'
   - any-glob-to-any-file: 'po/openproductsfacts/**/*'
   - any-glob-to-any-file: 'lib/ProductOpener/Config_opf.pm'
   - any-glob-to-any-file: 'conf/nginx/sites-available/opf'
