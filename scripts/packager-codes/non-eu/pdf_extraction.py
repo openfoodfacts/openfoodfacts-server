@@ -21,10 +21,12 @@ def extract_page(page: Page):
     table_page = page.crop(table_bbox)
 
     # Get table lines
-    vertical_lines_x = sorted(set(p[0] for p in table_page.curves[0]["points"]))
+    vertical_lines_x = sorted(set(p[0]
+                              for p in table_page.curves[0]["points"]))
     vertical_lines_x = [table_page.curves[1]["x0"]] + vertical_lines_x + [
         table_page.curves[1]["x1"]]
-    horizontal_lines_y = sorted(c["points"][0][1] for c in table_page.curves[1:])
+    horizontal_lines_y = sorted(c["points"][0][1]
+                                for c in table_page.curves[1:])
     horizontal_lines_y = [table_page.curves[0]["top"]] + horizontal_lines_y + [
         table_page.curves[-1]["bottom"]]
 

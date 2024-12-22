@@ -181,6 +181,13 @@ jobs:
       if: always()
       with:
         files: cover_db/codecov.json
+        token: ${{ secrets.CODECOV_TOKEN }}
+    - name: Upload test results to Codecov
+      if: ${{ !cancelled() }}
+      uses: codecov/test-results-action@v1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        files: ./tests/unit/outputs/junit.xml,./tests/integration/outputs/junit.xml
 
   tests_dev:
     name: 🧪 Test make dev
