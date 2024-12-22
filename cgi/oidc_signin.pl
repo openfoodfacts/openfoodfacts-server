@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2024 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -20,27 +20,30 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2017';
-use utf8;
+=head1 DESCRIPTION
+
+This cgi script initiates sign-in process with the OIDC service (eg. keycloak)
+
+It redirects to the OIDC service, which will redirect back to oidc_signin_callback.pl
+
+=cut
+
+use ProductOpener::PerlStandards;
 
 use CGI::Carp qw(fatalsToBrowser);
 
-use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
-use ProductOpener::Store qw/:all/;
-use ProductOpener::Index qw/:all/;
-use ProductOpener::Display qw/:all/;
-use ProductOpener::Images qw/:all/;
-use ProductOpener::Users qw/create_password_hash retrieve_user store_user/;
-use ProductOpener::Mail qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Auth qw/access_to_protected_resource/;
+use ProductOpener::Display qw/init_request single_param/;
+use ProductOpener::Routing qw/analyze_request/;
 
-use CGI qw/:cgi :form escapeHTML/;
-use URI::Escape::XS;
-use Encode;
+use Log::Any qw($log);
 
-my $userid = $ARGV[0];
-# This will need to be fixed for Keycloak
-my $user_ref = retrieve_user($userid);
-$user_ref->{encrypted_password} = create_password_hash(encode_utf8(decode utf8 => $ARGV[1]));
-store_user($user_ref);
+$log->info('start') if $log->is_info();
+
+my $request_ref = init_request();
+analyze_request($request_ref);
+
+$request_ref->{return_url} = single_param('return_url');
+access_to_protected_resource($request_ref);
+
+1;
