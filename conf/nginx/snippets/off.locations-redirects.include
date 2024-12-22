@@ -1,5 +1,9 @@
 # Redirects for Open Food Facts
 
+location = /nutriscore-v2 {
+	return 301 https://$host/new-nutriscore;
+}
+
 # Donations
 # 100 % translated: fr, bg, ca, zh, cs, da, nl, de, he, id, it, lt, pl, pt, ro, ru, es, tr, uk, vi
 # EN

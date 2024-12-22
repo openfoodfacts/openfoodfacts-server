@@ -292,11 +292,11 @@ my $tests_ref = [
 		}'
 	},
 	{
-		test_case => 'patch-request-fields-ecoscore-data',
+		test_case => 'patch-request-fields-environmental_score-data',
 		method => 'PATCH',
 		path => '/api/v3/product/1234567890009',
 		body => '{
-			"fields": "ecoscore_data",
+			"fields": "environmental_score_data",
 			"tags_lc": "en",
 			"product": {
 				"packagings": [

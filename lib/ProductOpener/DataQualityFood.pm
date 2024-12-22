@@ -51,7 +51,7 @@ use ProductOpener::Config qw(:all);
 use ProductOpener::Store qw(get_string_id_for_lang);
 use ProductOpener::Tags qw(:all);
 use ProductOpener::Food qw(%categories_nutriments_per_country);
-use ProductOpener::Ecoscore qw(is_ecoscore_extended_data_more_precise_than_agribalyse);
+use ProductOpener::EnvironmentalScore qw(is_environmental_score_extended_data_more_precise_than_agribalyse);
 use ProductOpener::Units qw(extract_standard_unit);
 
 use Data::DeepAccess qw(deep_exists);
@@ -1026,6 +1026,7 @@ sub check_nutrition_data ($product_ref) {
 		# catch serving_size = "serving", regardless of setting (per 100g or per serving)
 		if (    (defined $product_ref->{serving_size})
 			and ($product_ref->{serving_size} ne "")
+			and ($product_ref->{serving_size} ne "-")
 			and ($product_ref->{serving_size} !~ /\d/))
 		{
 			push @{$product_ref->{data_quality_errors_tags}}, "en:serving-size-is-missing-digits";
@@ -2651,40 +2652,43 @@ sub check_ingredients_with_specified_percent ($product_ref) {
 	return;
 }
 
-=head2 check_ecoscore_data( PRODUCT_REF )
+=head2 check_environmental_score_data( PRODUCT_REF )
 
 Checks for data needed to compute the Eco-score.
 
 =cut
 
-sub check_ecoscore_data ($product_ref) {
+sub check_environmental_score_data ($product_ref) {
 
-	if (defined $product_ref->{ecoscore_data}) {
+	if (defined $product_ref->{environmental_score_data}) {
 
-		foreach my $adjustment (sort keys %{$product_ref->{ecoscore_data}{adjustments}}) {
+		foreach my $adjustment (sort keys %{$product_ref->{environmental_score_data}{adjustments}}) {
 
-			if (defined $product_ref->{ecoscore_data}{adjustments}{$adjustment}{warning}) {
-				my $warning = $adjustment . '-' . $product_ref->{ecoscore_data}{adjustments}{$adjustment}{warning};
+			if (defined $product_ref->{environmental_score_data}{adjustments}{$adjustment}{warning}) {
+				my $warning
+					= $adjustment . '-' . $product_ref->{environmental_score_data}{adjustments}{$adjustment}{warning};
 				$warning =~ s/_/-/g;
-				push @{$product_ref->{data_quality_warnings_tags}}, 'en:ecoscore-' . $warning;
+				push @{$product_ref->{data_quality_warnings_tags}}, 'en:environmental-score-' . $warning;
 			}
 		}
 	}
 
-	# Extended Eco-Score data from impact estimator
-	if (defined $product_ref->{ecoscore_extended_data}) {
+	# Extended Environmental-Score data from impact estimator
+	if (defined $product_ref->{environmental_score_extended_data}) {
 
-		push @{$product_ref->{data_quality_info_tags}}, 'en:ecoscore-extended-data-computed';
+		push @{$product_ref->{data_quality_info_tags}}, 'en:environmental-score-extended-data-computed';
 
-		if (is_ecoscore_extended_data_more_precise_than_agribalyse($product_ref)) {
-			push @{$product_ref->{data_quality_info_tags}}, 'en:ecoscore-extended-data-more-precise-than-agribalyse';
+		if (is_environmental_score_extended_data_more_precise_than_agribalyse($product_ref)) {
+			push @{$product_ref->{data_quality_info_tags}},
+				'en:environmental-score-extended-data-more-precise-than-agribalyse';
 		}
 		else {
-			push @{$product_ref->{data_quality_info_tags}}, 'en:ecoscore-extended-data-less-precise-than-agribalyse';
+			push @{$product_ref->{data_quality_info_tags}},
+				'en:environmental-score-extended-data-less-precise-than-agribalyse';
 		}
 	}
 	else {
-		push @{$product_ref->{data_quality_info_tags}}, 'en:ecoscore-extended-data-not-computed';
+		push @{$product_ref->{data_quality_info_tags}}, 'en:environmental-score-extended-data-not-computed';
 	}
 
 	return;
@@ -2802,7 +2806,7 @@ sub check_quality_food ($product_ref) {
 	check_categories($product_ref);
 	check_labels($product_ref);
 	compare_nutriscore_with_value_from_producer($product_ref);
-	check_ecoscore_data($product_ref);
+	check_environmental_score_data($product_ref);
 	check_food_groups($product_ref);
 	check_incompatible_tags($product_ref);
 
