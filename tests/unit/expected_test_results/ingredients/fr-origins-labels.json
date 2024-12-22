@@ -2,6 +2,7 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "13014",
+         "ecobalyse_code" : "strawberry-fr-offseason",
          "id" : "en:strawberry",
          "is_in_taxonomy" : 1,
          "origins" : "en:france",
@@ -26,6 +27,7 @@
       },
       {
          "ciqual_food_code" : "13015",
+         "ecobalyse_code" : "raspberry-eu",
          "id" : "en:raspberry",
          "is_in_taxonomy" : 1,
          "origins" : "en:belgium",
@@ -50,6 +52,7 @@
       },
       {
          "ciqual_proxy_food_code" : "13034",
+         "ecobalyse_code" : "orange-non-eu",
          "id" : "en:orange",
          "is_in_taxonomy" : 1,
          "labels" : "en:organic",
@@ -62,6 +65,7 @@
       },
       {
          "ciqual_proxy_food_code" : "13009",
+         "ecobalyse_code" : "lemon-organic",
          "id" : "en:lemon",
          "is_in_taxonomy" : 1,
          "labels" : "en:organic",
@@ -98,6 +102,7 @@
       },
       {
          "ciqual_food_code" : "13008",
+         "ecobalyse_code" : "cherry-organic",
          "id" : "en:cherry",
          "is_in_taxonomy" : 1,
          "labels" : "en:organic",
@@ -131,6 +136,7 @@
       "en:cherry",
       "en:prunus-species-fruit"
    ],
+   "ingredients_lc" : "fr",
    "ingredients_n" : 9,
    "ingredients_n_tags" : [
       "9",
@@ -171,6 +177,13 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:blackcurrant",
+      "en:cocoa",
+      "en:cocoa-butter",
+      "en:grapefruit"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 4,
    "known_ingredients_n" : 14,
    "lc" : "fr",
    "nutriments" : {

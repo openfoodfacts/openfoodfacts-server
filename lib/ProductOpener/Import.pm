@@ -100,7 +100,7 @@ use ProductOpener::Orgs
 use ProductOpener::Data qw/:all/;
 use ProductOpener::Packaging
 	qw/add_or_combine_packaging_component_data get_checked_and_taxonomized_packaging_component_data/;
-use ProductOpener::Ecoscore qw/:all/;
+use ProductOpener::EnvironmentalScore qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::PackagerCodes qw/normalize_packager_codes/;
 use ProductOpener::API qw/get_initialized_response/;
@@ -1492,6 +1492,7 @@ sub import_csv_file ($args_ref) {
 		# read code
 		my $code = $imported_product_ref->{code};
 		$code = normalize_code($code);
+		$imported_product_ref->{code} = $code;    # In case we added or removed leading 0s
 
 		my $modified = 0;
 
@@ -1875,35 +1876,8 @@ sub import_csv_file ($args_ref) {
 			}
 		}
 
-		# If we are importing on the public platform, check if the product exists on other servers
-		# (e.g. Open Beauty Facts, Open Products Facts), unless it already exists on the target server
-
-		my $product_ref;
-
-		if (    (defined $options{other_servers})
-			and not((defined $server_options{private_products}) and ($server_options{private_products}))
-			and not(product_exists($product_id)))
-		{
-			foreach my $server (sort keys %{$options{other_servers}}) {
-				next if ($server eq $options{current_server});
-
-				$product_ref = product_exists_on_other_server($server, $product_id);
-				if ($product_ref) {
-					# Indicate to store_product() that the product is on another server
-					$product_ref->{server} = $server;
-					# Indicate to Images.pm functions that the product is on another server
-					$product_id = $server . ":" . $product_id;
-					$log->debug("product exists on another server",
-						{code => $code, server => $server, product_id => $product_id})
-						if $log->is_debug();
-					last;    # no need to search on other servers
-				}
-			}
-		}
-
-		if (not $product_ref) {
-			$product_ref = product_exists($product_id);    # returns 0 if not
-		}
+		# TODO: check what happens if the product exists with a different product type than the current server
+		my $product_ref = product_exists($product_id);    # returns 0 if not
 
 		my $product_comment = $args_ref->{comment};
 		if ((defined $imported_product_ref->{comment}) and ($imported_product_ref->{comment} ne "")) {
@@ -2918,6 +2892,7 @@ sub update_export_status_for_csv_file ($args_ref) {
 
 		my $code = $imported_product_ref->{code};
 		$code = normalize_code($code);
+		$imported_product_ref->{code} = $code;    # In case we added or removed leading 0s
 		my $product_id = product_id_for_owner($Owner_id, $code);
 
 		$log->debug("update export status for product", {i => $i, code => $code, product_id => $product_id})

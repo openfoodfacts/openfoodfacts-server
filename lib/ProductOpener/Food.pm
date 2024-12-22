@@ -73,6 +73,8 @@ BEGIN {
 		&compute_nutrition_data_per_100g_and_per_serving
 		&compute_unknown_nutrients
 		&compute_nutrient_levels
+		&evaluate_nutrient_level
+		&compute_units_of_alcohol
 		&compute_estimated_nutrients
 
 		&compare_nutriments
@@ -2099,7 +2101,7 @@ sub set_fields_comparing_nutriscore_versions ($product_ref, $version1, $version2
 	return;
 }
 
-=head2 compute_nutriscore( $product_ref )
+=head2 compute_nutriscore( $product_ref, $current_version = "2023" )
 
 Determines if we have enough data to compute the Nutri-Score (category + nutrition facts),
 and if the Nutri-Score is applicable to the product the category.
@@ -2108,7 +2110,7 @@ Populates the data structure needed to compute the Nutri-Score and computes it.
 
 =cut
 
-sub compute_nutriscore ($product_ref, $current_version = "2021") {
+sub compute_nutriscore ($product_ref, $current_version = "2023") {
 
 	# Initialize values
 
@@ -2488,6 +2490,17 @@ sub compute_nutrient_levels ($product_ref) {
 	}
 
 	return;
+}
+
+my %nutrient_level_evaluation_table = (
+	low => "good",
+	moderate => "average",
+	high => "bad",
+);
+
+sub evaluate_nutrient_level ($nid, $nutrient_level) {
+	# Will need different tables if we add nutrients that are good for you
+	return $nutrient_level_evaluation_table{$nutrient_level} // 'unknown';
 }
 
 =head2 create_nutrients_level_taxonomy ()

@@ -26,9 +26,11 @@
         [% lang("css") %]
         [% styles %]
     </style>
-    [% google_analytics %]
 </head>
 <body[% bodyabout %] class="[% page_type %]_page">
+
+	[% analytics %]
+
 	<div class="skip"><a href="#content" tabindex="0">[% lang('skip_to_content') %]</a></div>
 
 	<div id="page">
@@ -279,10 +281,13 @@
 								[% INCLUDE 'web/common/includes/offdays_banner.tt.html' %]							
 							[% ELSIF 1 == 2 %]
 								[% INCLUDE 'web/common/includes/packagings_banner.tt.html' %]
-							[% ELSE %]
+							[% ELSIF 2 == 3 %]
 								[%# we keep the old code so that we can easily put back the donation banner %]
 								[% PROCESS 'web/common/includes/off_days_2024_banner.tt.html' %]
 								[% banner_off_days_2024_top %]
+								[% PROCESS 'web/common/includes/donate_banner.tt.html' %]
+								[% banner_main %]
+							[% ELSE %]
 								[% PROCESS 'web/common/includes/donate_banner.tt.html' %]
 								[% banner_main %]
 							[% END %]

@@ -42,6 +42,7 @@
       "en:natural-flavouring",
       "en:lemon-flavouring"
    ],
+   "ingredients_lc" : "en",
    "ingredients_n" : 2,
    "ingredients_n_tags" : [
       "2",
@@ -68,6 +69,11 @@
       "en:natural-orange-flavouring"
    ],
    "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:lemon-flavouring",
+      "en:natural-orange-flavouring"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 2,
    "known_ingredients_n" : 4,
    "lc" : "en",
    "nutriments" : {

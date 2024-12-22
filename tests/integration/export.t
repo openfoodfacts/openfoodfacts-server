@@ -17,7 +17,7 @@ use ProductOpener::Import qw/import_csv_file/;
 use ProductOpener::Export qw/export_csv/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Packaging qw/:all/;
-use ProductOpener::Ecoscore qw/:all/;
+use ProductOpener::EnvironmentalScore qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::Test qw/compare_csv_file_to_expected_results init_expected_results remove_all_products/;
 use ProductOpener::LoadData qw/load_data/;

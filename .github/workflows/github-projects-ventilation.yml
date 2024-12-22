@@ -3,11 +3,42 @@ name: Ventilate issues to the right GitHub projects
 on:
   issues:
     types:
-      - labeled
       - opened
-      - transferred
       - edited
+      - deleted
+      - transferred
+      - pinned
+      - unpinned
+      - closed
+      - reopened
+      - assigned
+      - unassigned
+      - labeled
+      - unlabeled
+      - locked
+      - unlocked
+      - milestoned
+      - demilestoned
 
+  pull_request_target:
+    types:
+    - assigned
+    - unassigned
+    - labeled
+    - unlabeled
+    - opened
+    - edited
+    - closed
+    - reopened
+    - synchronize
+    - converted_to_draft
+    - ready_for_review
+    - locked
+    - unlocked
+    - review_requested
+    - review_request_removed
+    - auto_merge_enabled
+    - auto_merge_disabled
 jobs:
   add-to-projects:
     name: Ventilate issues to the right GitHub projects
@@ -96,4 +127,22 @@ jobs:
           project-url: https://github.com/orgs/openfoodfacts/projects/57 # Add issue to the Most impactful issues board
           github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
           labeled: 🎯 P0, 🎯 P1
+          label-operator: OR
+      - uses: actions/add-to-project@main
+        with:
+          project-url: https://github.com/orgs/openfoodfacts/projects/60 # Add issue to the API issues board
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+          labeled: API, API READ, API WRITE, 🔐 API auth, API v3, API tests, API Refactor, 🧽 API - Quality, API Read - Product, OpenAPI, 📚 OpenAPI
+          label-operator: OR
+      - uses: actions/add-to-project@main
+        with:
+          project-url: https://github.com/orgs/openfoodfacts/projects/136 # Add issue to the Translations project
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+          labeled: 🌐 Translations, translations, i18n, Translations
+          label-operator: OR
+      - uses: actions/add-to-project@main
+        with:
+          project-url: https://github.com/orgs/openfoodfacts/projects/84 # Add issue to the Metrics project
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+          labeled: matomo
           label-operator: OR

@@ -1,0 +1,24 @@
+components:
+  parameters:
+    RequestedProductType:
+      name: product_type
+      in: query
+      description: >
+        Used for READ queries for one product. Expected product type of the requested product. Defaults to the product type of the server the query is sent to
+        (e.g. 'food' for Open Food Facts, 'beauty' for Open Beauty Facts, etc.). 'all' matches all product types.
+        If the product exists on a different server that matches the requested product type, the API will return a 302 redirect to the correct server.
+        Otherwise, the API will return a 404 error.
+        It is possible that new product types will be added in the future.
+      required: false
+      schema:
+        type: string
+        enum:
+          - "all"
+          - "beauty"
+          - "food"
+          - "petfood"
+          - "product"
+        description: Expected product type of the requested product
+        examples:
+          - "all"
+          - "food"

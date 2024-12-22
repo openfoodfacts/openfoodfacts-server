@@ -70,7 +70,7 @@ BEGIN {
 
 		$memd_servers
 
-		$google_analytics
+		$analytics
 
 		$thumb_size
 		$crop_size
@@ -175,21 +175,6 @@ $flavor = 'off';
 		unaccent => 1,
 		lowercase => 1,
 	},
-);
-
-%admins = map {$_ => 1} qw(
-	alex-off
-	cha-delh
-	charlesnepote
-	gala-nafikova
-	hangy
-	manoncorneille
-	raphael0202
-	stephane
-	tacinte
-	teolemon
-	g123k
-	valimp
 );
 
 %options = (
@@ -485,7 +470,7 @@ $small_size = 200;
 $display_size = 400;
 $zoom_size = 800;
 
-$google_analytics = <<HTML
+$analytics = <<HTML
 <!-- Matomo -->
 <script>
   var _paq = window._paq = window._paq || [];
@@ -878,8 +863,8 @@ $options{replace_existing_values_when_importing_those_tags_fields} = {
 	food_groups
 	states
 	brand_owner
-	ecoscore_score
-	ecoscore_grade
+	environmental_score_score
+	environmental_score_grade
 	nutrient_levels_tags
 	product_quantity
 	owner
@@ -948,15 +933,15 @@ $options{off_export_fields_groups} = [
 			"nova_groups",
 			"nutriscore_grade",
 			"nutriscore_score",
-			"ecoscore_grade",
-			"ecoscore_score",
-			"ecoscore_data.missing_key_data",
-			"ecoscore_data.agribalyse.code",
-			"ecoscore_data.adjustments.origins_of_ingredients.value",
-			"ecoscore_data.adjustments.packaging.value",
-			"ecoscore_data.adjustments.packaging.non_recyclable_and_non_biodegradable_materials",
-			"ecoscore_data.adjustments.production_system.value",
-			"ecoscore_data.adjustments.threatened_species.value",
+			"environmental_score_grade",
+			"environmental_score_score",
+			"environmental_score_data.missing_key_data",
+			"environmental_score_data.agribalyse.code",
+			"environmental_score_data.adjustments.origins_of_ingredients.value",
+			"environmental_score_data.adjustments.packaging.value",
+			"environmental_score_data.adjustments.packaging.non_recyclable_and_non_biodegradable_materials",
+			"environmental_score_data.adjustments.production_system.value",
+			"environmental_score_data.adjustments.threatened_species.value",
 		]
 	],
 ];
@@ -980,8 +965,34 @@ $options{attribute_groups} = [
 	],
 	["ingredients_analysis", ["vegan", "vegetarian", "palm_oil_free",]],
 	["labels", ["labels_organic", "labels_fair_trade"]],
+	# Note: before 2025, the Environmental-Score was called the Eco-Score,
+	# as the id of the attribute is stored inside clients, we keep the
+	# id "ecoscore" for the attribute.
 	["environment", ["ecoscore", "forest_footprint",]],
 ];
+
+# By default attributes have 4 possible values: not_important, important, very_important, mandatory
+# For some attributes, like allergens or vegan, we can limit to 2 values: not_important, mandatory
+$options{attribute_values_default} = ["not_important", "important", "very_important", "mandatory"];
+
+$options{attribute_values} = {
+	"allergens_no_gluten" => ["not_important", "mandatory"],
+	"allergens_no_milk" => ["not_important", "mandatory"],
+	"allergens_no_eggs" => ["not_important", "mandatory"],
+	"allergens_no_nuts" => ["not_important", "mandatory"],
+	"allergens_no_peanuts" => ["not_important", "mandatory"],
+	"allergens_no_sesame_seeds" => ["not_important", "mandatory"],
+	"allergens_no_soybeans" => ["not_important", "mandatory"],
+	"allergens_no_celery" => ["not_important", "mandatory"],
+	"allergens_no_mustard" => ["not_important", "mandatory"],
+	"allergens_no_lupin" => ["not_important", "mandatory"],
+	"allergens_no_fish" => ["not_important", "mandatory"],
+	"allergens_no_crustaceans" => ["not_important", "mandatory"],
+	"allergens_no_molluscs" => ["not_important", "mandatory"],
+	"allergens_no_sulphur_dioxide_and_sulphites" => ["not_important", "mandatory"],
+	"vegan" => ["not_important", "mandatory"],
+	"vegetarian" => ["not_important", "mandatory"],
+};
 
 # default preferences for attributes
 $options{attribute_default_preferences} = {
@@ -1068,45 +1079,8 @@ $options{import_export_fields_importance} = {
 	},
 );
 
-# allow moving products to other instances of Product Opener on the same server
-# e.g. OFF -> OBF
-
-$options{current_server} = "off";
-
-$options{other_servers} = {
-	obf => {
-		name => "Open Beauty Facts",
-		data_root => "/srv/obf",
-		www_root => "/srv/obf/html",
-		mongodb => "obf",
-		domain => "openbeautyfacts.org",
-	},
-	off => {
-		name => "Open Food Facts",
-		data_root => "/srv/off",
-		www_root => "/srv/off/html",
-		mongodb => "off",
-		domain => "openfoodfacts.org",
-	},
-	opf => {
-		name => "Open Products Facts",
-		data_root => "/srv/opf",
-		www_root => "/srv/opf/html",
-		mongodb => "opf",
-		domain => "openproductsfacts.org",
-	},
-	opff => {
-		prefix => "opff",
-		name => "Open Pet Food Facts",
-		data_root => "/srv/opff",
-		www_root => "/srv/opff/html",
-		mongodb => "opff",
-		domain => "openpetfoodfacts.org",
-	}
-};
-
 # Name of the Redis stream to which product updates are published
-$options{redis_stream_name} = "product_updates_off";
+$options{redis_stream_name} = "product_updates";
 
 # used to rename texts and to redirect to the new name
 $options{redirect_texts} = {

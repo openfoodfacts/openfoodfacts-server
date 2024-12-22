@@ -2,6 +2,7 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "20087",
+         "ecobalyse_code" : "bellpepper-unheated-greehouse",
          "id" : "en:red-bell-pepper",
          "is_in_taxonomy" : 1,
          "origins" : "en:spain,en:italy,en:france",
@@ -14,6 +15,7 @@
       },
       {
          "ciqual_food_code" : "20168",
+         "ecobalyse_code" : "bellpepper-unheated-greehouse",
          "id" : "en:yellow-bell-pepper",
          "is_in_taxonomy" : 1,
          "origins" : "en:south-america",
@@ -38,6 +40,7 @@
       "en:bell-pepper",
       "en:yellow-bell-pepper"
    ],
+   "ingredients_lc" : "en",
    "ingredients_n" : 2,
    "ingredients_n_tags" : [
       "2",
@@ -62,6 +65,8 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
    "known_ingredients_n" : 5,
    "lc" : "en",
    "nutriments" : {

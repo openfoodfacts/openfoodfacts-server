@@ -7,15 +7,15 @@
             "attributes" : [
                {
                   "description" : "",
-                  "description_short" : "Qualité nutritionnelle moyenne",
-                  "grade" : "c",
-                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutriscore-c-new-fr.svg",
+                  "description_short" : "Données manquantes pour calculer le Nutri-Score",
+                  "grade" : "unknown",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutriscore-unknown-new-fr.svg",
                   "id" : "nutriscore",
-                  "match" : 53.6666666666667,
+                  "match" : 0,
                   "name" : "Nutri-Score",
                   "panel_id" : "nutriscore_2023",
-                  "status" : "known",
-                  "title" : "Nutri-Score C"
+                  "status" : "unknown",
+                  "title" : "Nutri-Score inconnu"
                },
                {
                   "grade" : "unknown",
@@ -60,7 +60,7 @@
          {
             "attributes" : [
                {
-                  "debug" : "4 ingredients (0 unknown)",
+                  "debug" : "8 ingredients (0 unknown)",
                   "grade" : "a",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-gluten.svg",
                   "id" : "allergens_no_gluten",
@@ -90,7 +90,7 @@
                   "title" : "Contient : Œufs"
                },
                {
-                  "debug" : "4 ingredients (0 unknown)",
+                  "debug" : "8 ingredients (0 unknown)",
                   "grade" : "a",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-nuts.svg",
                   "id" : "allergens_no_nuts",
@@ -100,7 +100,7 @@
                   "title" : "Ne contient pas : Fruits à coque"
                },
                {
-                  "debug" : "4 ingredients (0 unknown)",
+                  "debug" : "8 ingredients (0 unknown)",
                   "grade" : "a",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-peanuts.svg",
                   "id" : "allergens_no_peanuts",
@@ -110,7 +110,7 @@
                   "title" : "Ne contient pas : Arachides"
                },
                {
-                  "debug" : "4 ingredients (0 unknown)",
+                  "debug" : "8 ingredients (0 unknown)",
                   "grade" : "a",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-sesame-seeds.svg",
                   "id" : "allergens_no_sesame_seeds",
@@ -120,17 +120,17 @@
                   "title" : "Ne contient pas : Graines de sésame"
                },
                {
-                  "debug" : "4 ingredients (0 unknown)",
-                  "grade" : "a",
-                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-soybeans.svg",
+                  "debug" : "en:soybeans in allergens",
+                  "grade" : "e",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/contains-soybeans.svg",
                   "id" : "allergens_no_soybeans",
-                  "match" : 100,
+                  "match" : 0,
                   "name" : "Soja",
                   "status" : "known",
-                  "title" : "Ne contient pas : Soja"
+                  "title" : "Contient : Soja"
                },
                {
-                  "debug" : "4 ingredients (0 unknown)",
+                  "debug" : "8 ingredients (0 unknown)",
                   "grade" : "a",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-celery.svg",
                   "id" : "allergens_no_celery",
@@ -140,7 +140,7 @@
                   "title" : "Ne contient pas : Céleri"
                },
                {
-                  "debug" : "4 ingredients (0 unknown)",
+                  "debug" : "8 ingredients (0 unknown)",
                   "grade" : "a",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-mustard.svg",
                   "id" : "allergens_no_mustard",
@@ -150,7 +150,7 @@
                   "title" : "Ne contient pas : Moutarde"
                },
                {
-                  "debug" : "4 ingredients (0 unknown)",
+                  "debug" : "8 ingredients (0 unknown)",
                   "grade" : "a",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-lupin.svg",
                   "id" : "allergens_no_lupin",
@@ -160,7 +160,7 @@
                   "title" : "Ne contient pas : Lupin"
                },
                {
-                  "debug" : "4 ingredients (0 unknown)",
+                  "debug" : "8 ingredients (0 unknown)",
                   "grade" : "a",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-fish.svg",
                   "id" : "allergens_no_fish",
@@ -170,7 +170,7 @@
                   "title" : "Ne contient pas : Poisson"
                },
                {
-                  "debug" : "4 ingredients (0 unknown)",
+                  "debug" : "8 ingredients (0 unknown)",
                   "grade" : "a",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-crustaceans.svg",
                   "id" : "allergens_no_crustaceans",
@@ -180,7 +180,7 @@
                   "title" : "Ne contient pas : Crustacés"
                },
                {
-                  "debug" : "4 ingredients (0 unknown)",
+                  "debug" : "8 ingredients (0 unknown)",
                   "grade" : "a",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-molluscs.svg",
                   "id" : "allergens_no_molluscs",
@@ -190,7 +190,7 @@
                   "title" : "Ne contient pas : Mollusques"
                },
                {
-                  "debug" : "4 ingredients (0 unknown)",
+                  "debug" : "8 ingredients (0 unknown)",
                   "grade" : "a",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-sulphur-dioxide-and-sulphites.svg",
                   "id" : "allergens_no_sulphur_dioxide_and_sulphites",
@@ -243,26 +243,25 @@
          {
             "attributes" : [
                {
-                  "description" : "",
-                  "description_short" : "Aliments transformés",
-                  "grade" : "b",
-                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nova-group-3.svg",
+                  "description_short" : "4 marqueurs d'ultra-transformation",
+                  "grade" : "e",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nova-group-4.svg",
                   "id" : "nova",
-                  "match" : 75,
+                  "match" : 0,
                   "name" : "Groupe NOVA",
                   "panel_id" : "nova",
                   "status" : "known",
-                  "title" : "NOVA 3"
+                  "title" : "Aliments ultra-transformés"
                },
                {
-                  "grade" : "a",
-                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/0-additives.svg",
+                  "grade" : "c",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/2-additives.svg",
                   "id" : "additives",
-                  "match" : 100,
+                  "match" : 60,
                   "name" : "Additifs",
                   "panel_id" : "additives",
                   "status" : "known",
-                  "title" : "Sans additifs"
+                  "title" : "2 additifs"
                }
             ],
             "id" : "processing",
@@ -274,13 +273,13 @@
                   "description" : "",
                   "description_short" : "Impact modéré sur l'environnement",
                   "grade" : "c",
-                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/ecoscore-c.svg",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/green-score-c.svg",
                   "id" : "ecoscore",
-                  "match" : 48,
-                  "name" : "Eco-Score",
-                  "panel_id" : "ecoscore",
+                  "match" : 47,
+                  "name" : "Green-Score",
+                  "panel_id" : "environmental_score",
                   "status" : "known",
-                  "title" : "Eco-Score C"
+                  "title" : "Green-Score C"
                },
                {
                   "description" : "",
@@ -288,7 +287,7 @@
                   "grade" : "a",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-a.svg",
                   "id" : "forest_footprint",
-                  "match" : 99.9416666666667,
+                  "match" : 99.9351851851852,
                   "name" : "Empreinte forêt",
                   "status" : "known",
                   "title" : "Très petite empreinte forêt"
