@@ -18,7 +18,7 @@ requires 'Cpanel::JSON::XS'; # libcpanel-json-xs-perl - fast parsing
 requires 'JSON::MaybeXS'; # libjson-maybexs-perl
 requires 'Clone'; # libclone-perl
 requires 'Crypt::PasswdMD5'; # libcrypt-passwdmd5-perl
-requires 'Data::Table'; # libdata-table-perl
+requires 'Data::Table'; # libdata-table-perl - required by the packager code refresh scripts
 requires 'Encode::Detect'; # libencode-detect-perl
 requires 'Barcode::ZBar'; # libbarcode-zbar-perl
 requires 'XML::FeedPP'; # libxml-feedpp-perl
