@@ -1,0 +1,9 @@
+@import "../node_modules/@yaireo/tagify/src/tagify.scss";
+@import "variables"; 
+
+
+:root {
+  $tagify-dd-color-primary: #341100 !important; 
+  --tagify-dd-color-primary: #341100 !important;
+}
+
