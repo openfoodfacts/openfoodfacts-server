@@ -72,7 +72,7 @@
             "element_type": "text",
             "text_element": {
                 "html": `
-<p>&rarr; <a href="[% url_for_text("environmental_score") %]">[% lang('environmental_score_learn_more') %]</a></p>
+<p>&rarr; <a href="/green-score">[% lang('environmental_score_learn_more') %]</a></p>
 `
             },
         },
