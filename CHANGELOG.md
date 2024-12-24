@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.52.1](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.52.0...v2.52.1) (2024-12-24)
+
+
+### Bug Fixes
+
+* allow serving size to be hyphenated ([#11161](https://github.com/openfoodfacts/openfoodfacts-server/issues/11161)) ([7c0df2d](https://github.com/openfoodfacts/openfoodfacts-server/commit/7c0df2d7b09ee3d3bcb872adfe2ffd37fefd1b59))
+* Correct indentation, so that CodeQL can work with the code ([#11166](https://github.com/openfoodfacts/openfoodfacts-server/issues/11166)) ([0178ac2](https://github.com/openfoodfacts/openfoodfacts-server/commit/0178ac22cd7f2324039b91d688761c61fa19cf86))
+* fix OPF PR labelling ([e708ae3](https://github.com/openfoodfacts/openfoodfacts-server/commit/e708ae398fc5d3facca6f008e452fe9724d1b093))
+* fix OPF PR labelling ([#11154](https://github.com/openfoodfacts/openfoodfacts-server/issues/11154)) ([e708ae3](https://github.com/openfoodfacts/openfoodfacts-server/commit/e708ae398fc5d3facca6f008e452fe9724d1b093))
+* green-score link ([#11146](https://github.com/openfoodfacts/openfoodfacts-server/issues/11146)) ([abf858a](https://github.com/openfoodfacts/openfoodfacts-server/commit/abf858a3f7ce1ccfe573a8146e6f49a6b73a7342))
+* nutriscore grade from category change for extra virgin olive oils ([#11156](https://github.com/openfoodfacts/openfoodfacts-server/issues/11156)) ([32d58e0](https://github.com/openfoodfacts/openfoodfacts-server/commit/32d58e026a46a5864aa9c01e0fe4fe1321c9dfb1))
+* SonarCloud issues ([#11165](https://github.com/openfoodfacts/openfoodfacts-server/issues/11165)) ([b84d545](https://github.com/openfoodfacts/openfoodfacts-server/commit/b84d545c3592bee5603dbffa54dda230a62380da))
+
 ## [2.52.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.51.0...v2.52.0) (2024-12-18)
 
 
