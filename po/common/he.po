@@ -4868,19 +4868,19 @@ msgstr "השפעה מועטה על איכות הסביבה"
 
 msgctxt "attribute_environmental_score_c_description_short"
 msgid "Moderate environmental impact"
-msgstr ""
+msgstr "השפעה מתונה על איכות הסביבה"
 
 msgctxt "attribute_environmental_score_d_description_short"
 msgid "High environmental impact"
-msgstr ""
+msgstr "השפעה רבה על איכות הסביבה"
 
 msgctxt "attribute_environmental_score_e_description_short"
 msgid "Very high environmental impact"
-msgstr ""
+msgstr "השפעה רבה מאוד על איכות הסביבה"
 
 msgctxt "attribute_environmental_score_f_description_short"
 msgid "Very high environmental impact"
-msgstr ""
+msgstr "השפעה רבה מאוד על איכות הסביבה"
 
 # keep the %s, it will be replaced by an allergen
 msgctxt "contains_s"
@@ -5034,22 +5034,22 @@ msgstr "השפעה על איכות הסביבה"
 # Numerical score for the Green-Score (do not translate Green-Score)
 msgctxt "environmental_score_score"
 msgid "Green-Score score"
-msgstr ""
+msgstr "ציון Green-Score"
 
 # Letter grade from A to E for the Green-Score (do not translate Green-Score)
 msgctxt "environmental_score_grade"
 msgid "Green-Score grade"
-msgstr ""
+msgstr "דרגת Green-Score"
 
 # do not translate Green-Score
 msgctxt "environmental_score_calculation_details"
 msgid "Details of the calculation of the Green-Score"
-msgstr ""
+msgstr "פירוט אופן חישוב Green-Score"
 
 # do not translate Green-Score
 msgctxt "environmental_score_information"
 msgid "Information about the Green-Score"
-msgstr ""
+msgstr "מידע על Green-Score"
 
 msgctxt "preferences_currently_selected_preferences"
 msgid "Currently selected preferences"
@@ -5265,7 +5265,7 @@ msgstr "הפלטפורמה מספקת גם ניתוח מעמיק של המוצר
 # It = the platform
 msgctxt "product_edits_by_producers_indicators"
 msgid "It computes indicators such as the Nutri-Score, NOVA, and the Green-Score, and automatically identifies suggestions to improve them (for instance all products that would get a better Nutri-Score grade with a slight composition change)."
-msgstr ""
+msgstr "הוא מחשב חיוויים כגון Nutri-Score,‏ NOVA ו־Green-Score ומזהה אוטומטית הצעות כדי לשפר אותם (למשל כל המוצרים שיקבלו ציון Nutri-Score טוב יותר עם שינוי קל בהרכב)."
 
 msgctxt "attribute_forest_footprint_name"
 msgid "Forest footprint"
@@ -5346,7 +5346,7 @@ msgstr "מוצרים עם ה־Nutri-Score הטוב ביותר"
 
 msgctxt "sort_by_environmental_score_score"
 msgid "Products with the best Green-Score"
-msgstr ""
+msgstr "מוצרים עם ה־Green-Score הטוב ביותר"
 
 msgctxt "sort_by_created_t"
 msgid "Recently added products"
@@ -5400,16 +5400,16 @@ msgstr "המשתמש נמחק. זה עלול לארוך מספר דקות."
 
 msgctxt "attribute_environmental_score_not_applicable_title"
 msgid "Green-Score not yet applicable"
-msgstr ""
+msgstr "Green-Score לא חל עדיין"
 
 msgctxt "attribute_environmental_score_not_applicable_description_short"
 msgid "Not yet applicable for the category"
-msgstr ""
+msgstr "לא חל עדיין על הקטגוריה"
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_environmental_score_not_applicable_description"
 msgid "Not yet applicable for the category: {category}"
-msgstr ""
+msgstr "לא חל עדיין על הקטגוריה: {category}"
 
 msgctxt "environmental_score_not_applicable_coming_soon"
 msgid "The Green-Score is not yet applicable for this category, but we are working on adding support for it."
@@ -5705,39 +5705,39 @@ msgstr ""
 
 msgctxt "environmental_score_packaging_ratio"
 msgid "ratio"
-msgstr ""
+msgstr "יחס"
 
 msgctxt "environmental_score_packaging_score"
 msgid "score"
-msgstr ""
+msgstr "ציון"
 
 msgctxt "environmental_score_score_of_all_components"
 msgid "Score of all components"
-msgstr ""
+msgstr "ציון לכל הרכיבים"
 
 msgctxt "environmental_score_no_packaging_information"
 msgid "The information about the packaging of this product is not filled in."
-msgstr ""
+msgstr "המידע על אריזת המוצר הזה לא צוין."
 
 msgctxt "environmental_score_unprecise_packaging_information"
 msgid "The information about the packaging of this product is not sufficiently precise (exact shapes and materials of all components of the packaging)."
-msgstr ""
+msgstr "המידע על אריזת המוצר הזה אינה מדויקת מספיק (הצורות המדויקות והחומרים של כל הרכיבים של האריזה)."
 
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can modify the product page and add them."
-msgstr ""
+msgstr "לחישוב מדויק יותר של Green-Score, ניתן לשנות את דף המוצר ולהוסיף אותם."
 
 msgctxt "environmental_score_final_score"
 msgid "Final score"
-msgstr ""
+msgstr "ציון סופי"
 
 msgctxt "environmental_score_lower_the_score_lower_the_impact"
 msgid "(the lower the score, the lower the impact)"
-msgstr ""
+msgstr "(ככל שהציון יותר נמוך ככה ההשפעה יותר נמוכה)"
 
 msgctxt "environmental_score_kg_co2_eq_kg_product"
 msgid "kg CO2 eq/kg of product"
-msgstr ""
+msgstr "ק״ג CO2 שווה ערך לק״ג מוצר"
 
 # do not translate the link
 msgctxt "environmental_score_platform_prompt_environmental_score_modal"
@@ -5752,24 +5752,24 @@ msgstr "<a href=\"/green-score\">Green-Score</a> הוא ציון ניסיוני 
 # do not translate Green-Score
 msgctxt "environmental_score_warning_fr"
 msgid "The Green-Score formula is subject to change as it is regularly improved to make it more precise."
-msgstr ""
+msgstr "נוסחת Green-Score עשויה להשתנות כיוון שהיא משתפרת באופן תמידי כך שתהיה מדויקת ככל הניתן."
 
 # do not translate Green-Score
 msgctxt "environmental_score_warning_international"
 msgid "The Green-Score was initially developped for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
-msgstr ""
+msgstr "Green-Score פותח במקור בצרפת והוא מתפשט למדינות אירופיות נוספות. נוסחת Green-Score עשויה להשתנות כיוון שהיא משתפרת באופן תמידי כדי שתהיה מדויקת, ככל הניתן, לכל מדינה ומדינה."
 
 msgctxt "environmental_score_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
-msgstr ""
+msgstr "נא לבחור מדינה כדי לכלול את השפעותיה המלאות של התעבורה."
 
 msgctxt "environmental_score_warning_transportation"
 msgid "The full impact of transportation to your country is currently unknown."
-msgstr ""
+msgstr "ההשפעה המלאה של התעבורה למדינה שלך אינה ידועה כרגע."
 
 msgctxt "app_banner_text"
 msgid "Scan barcodes to get the Nutri-Score, the Green-Score and more!"
-msgstr ""
+msgstr "ניתן לסרוק ברקודים כדי לקבל Nutri-Score,‏ Green-Score ועוד!"
 
 msgctxt "org_gs1_product_name_is_abbreviated"
 msgid "GS1 product names for this manufacturer are abbreviated."
@@ -5802,35 +5802,35 @@ msgstr "הסרה או שינוי של הנתונים שסופקו תהיה אפ�
 
 msgctxt "environmental_score_packaging_impact_high"
 msgid "Packaging with a high impact"
-msgstr ""
+msgstr "אריזה בעלת השפעה גבוהה"
 
 msgctxt "environmental_score_packaging_impact_medium"
 msgid "Packaging with a medium impact"
-msgstr ""
+msgstr "אריזה בעלת השפעה בינונית"
 
 msgctxt "environmental_score_packaging_impact_low"
 msgid "Packaging with a low impact"
-msgstr ""
+msgstr "אריזה בעלת השפעה נמוכה"
 
 msgctxt "environmental_score_packaging_missing_information"
 msgid "Missing packaging information for this product"
-msgstr ""
+msgstr "חסר מידע אריזה עבור מוצר זה"
 
 msgctxt "environmental_score_origins_of_ingredients_impact_high"
 msgid "Origins of ingredients with a high impact"
-msgstr ""
+msgstr "מקורות רכיבים בעלי השפעה גבוהה"
 
 msgctxt "environmental_score_origins_of_ingredients_impact_medium"
 msgid "Origins of ingredients with a medium impact"
-msgstr ""
+msgstr "מקורות רכיבים בעלי השפעה בינונית"
 
 msgctxt "environmental_score_origins_of_ingredients_impact_low"
 msgid "Origins of ingredients with a low impact"
-msgstr ""
+msgstr "מקורות רכיבים בעלי השפעה נמוכה"
 
 msgctxt "environmental_score_origins_of_ingredients_missing_information"
 msgid "Missing origins of ingredients information"
-msgstr ""
+msgstr "חסר מידע על מקורות של רכיבים"
 
 msgctxt "percent_of_ingredients"
 msgid "% of ingredients"
@@ -5911,19 +5911,19 @@ msgstr "תרומה"
 
 msgctxt "environmental_score_production_system_no_labels_with_environmental_benefits"
 msgid "No labels with environmental benefits"
-msgstr ""
+msgstr "אין תוויות עם יתרונות סביבתיים"
 
 msgctxt "environmental_score_production_system_labels_with_environmental_benefits"
 msgid "Labels with environmental benefits"
-msgstr ""
+msgstr "תוויות עם יתרונות סביבתיים"
 
 msgctxt "environmental_score_production_system_labels_with_environmental_benefits_high"
 msgid "Labels with high environmental benefits"
-msgstr ""
+msgstr "תוויות עם יתרונות סביבתיים רבים"
 
 msgctxt "environmental_score_production_system_labels_with_environmental_benefits_very_high"
 msgid "Labels with very high environmental benefits"
-msgstr ""
+msgstr "תוויות עם יתרונות סביבתיים רבים מאוד"
 
 msgctxt "other"
 msgid "Other"
@@ -6015,11 +6015,11 @@ msgstr "ניתוח מחזור חיים"
 
 msgctxt "environmental_score_bonuses_and_maluses"
 msgid "Bonuses and maluses"
-msgstr ""
+msgstr "ציונים לשבח ולרעה"
 
 msgctxt "environmental_score_for_this_product"
 msgid "Green-Score for this product"
-msgstr ""
+msgstr "Green-Score עבור מוצר זה"
 
 msgctxt "average_impact_of_the_category"
 msgid "Average impact of products of the same category"
@@ -6027,15 +6027,15 @@ msgstr "השפעה ממוצעת של מוצרים מאותה הקטגוריה"
 
 msgctxt "environmental_score_sum_of_bonuses_and_maluses"
 msgid "Sum of bonuses and maluses"
-msgstr ""
+msgstr "סכום ציונים לשבח ולרעה"
 
 msgctxt "environmental_score_sum_of_bonuses_and_maluses_is_capped"
 msgid "The sum of bonuses and maluses is capped at +25."
-msgstr ""
+msgstr "סכום הציונים לשבח ולרעה מוגבל ל־‎+25."
 
 msgctxt "environmental_score_lca_score"
 msgid "Life cycle analysis score"
-msgstr ""
+msgstr "ציון ניתוח מחזור חיים"
 
 msgctxt "impact_for_this_product"
 msgid "Impact for this product"
@@ -6043,7 +6043,7 @@ msgstr "השפעת המוצר הזה"
 
 msgctxt "environmental_score_downgraded_non_recyclable_and_non_biodegradable_materials"
 msgid "The score of products with non-recyclable and non-biodegradable packaging materials is capped at 79 (grade B)."
-msgstr ""
+msgstr "הציון של מוצרים עם אריזה מחומרים שלא ניתן למחזר ואינם מתכלים מוגבל ל־79 (דרגה B)."
 
 msgctxt "nutriscore_not_applicable"
 msgid "Nutri-Score not applicable for this product category."
@@ -6278,7 +6278,7 @@ msgstr "תודה רבה"
 
 msgctxt "environmental_score_learn_more"
 msgid "Learn more about the Green-Score"
-msgstr ""
+msgstr "מידע נוסף על Green-Score"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_very_good_match"
@@ -6316,7 +6316,7 @@ msgstr "להשתמש בהעדפות ברירת המחדל"
 
 msgctxt "reset_preferences_details"
 msgid "Nutri-Score, Green-Score and food processing level (NOVA)"
-msgstr ""
+msgstr "Nutri-Score,‏ Green-Score ורמת עיבוד מזון (NOVA)"
 
 msgctxt "actions_add_ingredients"
 msgid "Could you add the ingredients list?"
@@ -6328,7 +6328,7 @@ msgstr "נוכל לבקש ממך להוסיף את המידע הדרוש לחי�
 
 msgctxt "actions_to_compute_environmental_score"
 msgid "Could you add a precise product category so that we can compute the Green-Score?"
-msgstr ""
+msgstr "נוכל לבקש ממך להוסיף קטגוריה מדויקת כדי שנוכל לחשב Green-Score?"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
