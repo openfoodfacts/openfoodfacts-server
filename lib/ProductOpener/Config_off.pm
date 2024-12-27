@@ -613,7 +613,6 @@ $options{categories_exempted_from_nutriscore} = [
 		en:spices
 		en:sugar-substitutes
 		en:vinegars
-		en:pet-food
 		en:non-food-products
 	)
 ];
