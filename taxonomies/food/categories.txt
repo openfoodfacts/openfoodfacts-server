@@ -15591,15 +15591,6 @@ origins:en: en:france
 wikidata:en: Q2669603
 
 < en:Wines from France
-fr: Châteauneuf-du-Pape
-origins:en: en:france
-wikidata:en: Q2914687
-
-< en:White wines
-< fr:Châteauneuf-du-Pape
-fr: Châteauneuf-du-Pape blanc
-
-< en:Wines from France
 fr: Châtillon-en-Diois
 origins:en: en:france
 wikidata:en: Q1090846
@@ -16299,6 +16290,11 @@ fr: Châteauneuf-du-Pape
 origins:en: en:france
 protected_name_file_number:en: PDO-FR-A0144
 protected_name_type:en: pdo
+wikidata:en: Q2914687
+
+< en:White wines
+< fr:Châteauneuf-du-Pape
+fr: Châteauneuf-du-Pape blanc
 
 < en:Wines from France
 fr: Côtes du Roussillon
@@ -36540,7 +36536,6 @@ intake24_category_code:en: CAKE
 # nan:Ke-nn̄g-ko
 # nds:Koken
 # nrm:Gâche
-#nl:taart, taarten
 # pcd:Watieu
 # pt-br:Bolo
 # scn:Cuddura
@@ -37808,6 +37803,14 @@ sv: Snacks variationer
 gpc_category_code:en: 10000612
 gpc_category_description:en: Definition: Includes any products that can be described/observed as two or more distinct Snacks sold together, which exist within the schema belonging to different bricks but to the same class, that is two or more products contained within the same pack which cross bricks within the Snacks class. Includes products such as Crisps and Popcorn sold together. Items that are received free with purchases should be removed from the classification decision-making process. Definition Excludes: Excludes products such as Chips and Dips variety packs.
 gpc_category_name:en: Snacks Variety Packs
+
+< en:Snacks
+en: Nut-based snacks
+
+< en:flavoured-nuts
+en: Flavoured pistachios, flavored pistachios
+fr: Pistaches aromatisées
+nl: Pistachenoten(gearomatiseerd)
 
 < en:Snacks
 en: Sweet snacks, Sugary snacks
@@ -39326,7 +39329,7 @@ ciqual_food_name:en: Chocolate confectionery, filled with wafer
 ciqual_food_name:fr: Bonbon / bouchée au chocolat fourrage gaufrettes / biscuit
 
 < en:Bonbons
-en: Chocolate covered chickpeas
+en: Chocolate coated chickpeas, Chocolate covered chickpeas
 de: Schokoladenüberzogene Kichererbsen
 es: Garbanzos cubiertos de chocolate
 fr: Pois chiches enrobés de chocolat
@@ -39341,7 +39344,7 @@ fr: Gingembrettes
 
 < en:Bonbons
 < en:Fruit confectioneries
-en: Chocolate covered fruits
+en: Chocolate coated fruits, Chocolate covered fruits
 de: Früchte mit Schokoladenüberzug
 es: Frutas recubiertas de chocolate
 fi: suklaalla päällystetyt hedelmät
@@ -39414,7 +39417,7 @@ en: Chocolate covered nuts and fruits
 en: Chocolate covered nuts and fruits mixes
 nl: Gemengde noten en fruit bedekt met chocolade
 
-< en:Bonbons
+< en:Chocolate covered nuts and fruits
 en: Chocolate covered nuts, Chocolate confectionery filled with nuts
 de: Mit Schokolade überzogene Nüsse
 es: Frutos de cáscara recubiertos de chocolate, Frutos secos recubiertos de chocolate
@@ -39436,7 +39439,7 @@ nl: Paranoten in chocolade
 opposite:en: en:brazil-nuts
 
 < en:Chocolate covered nuts
-en: Chocolate covered peanuts, Sugar and chocolate coated peanuts
+en: Chocolate coated peanuts, Chocolate covered peanuts, Sugar and chocolate coated peanuts
 de: Erdnüsse mit Schokoladenüberzug
 es: Cacahuetes recubiertos de chocolate, Maní recubierto de chocolate
 fi: Suklaalla päällystetyt maapähkinät
@@ -39453,7 +39456,7 @@ ciqual_food_name:en: Sugar and chocolate coated peanut
 ciqual_food_name:fr: Cacahuètes enrobées de chocolat dragéifiées
 
 < en:Chocolate covered nuts
-en: Chocolate covered almonds, Chocolate coated almondså
+en: Chocolate coated almonds, Chocolate covered almonds
 de: Mandeln mit Schokoladenüberzug, Schokolierte Mandeln
 es: Almendras recubiertas de chocolate
 fr: Amandes enrobées de chocolat, Amandes chocolatées
@@ -39462,6 +39465,9 @@ it: Mandorle al cioccolato
 lt: Migdolai šokolade
 nl: Amandelen in chocolade
 pt: Amêndoas cobertas com chocolate
+
+< en:Chocolate covered nuts
+en: Chocolate coated pistachios, Chocolate covered pistachios
 
 < en:Chocolate covered nuts
 < en:Nut confectioneries
@@ -46529,7 +46535,7 @@ it: Formaggi molli
 nl: Zachte kazen
 pt: Queijos macios
 sv: Mjuka ostar
-incompatible_with:en categories:en:hard-cheeses
+incompatible_with:en: categories:en:hard-cheeses
 intake24_category_code:en: SFTC
 
 < en:Soft cheeses
@@ -46593,7 +46599,7 @@ ru: Варёный спрессованный сыр
 ciqual_food_code:en: 12100
 ciqual_food_name:en: Hard cheese (average)
 ciqual_food_name:fr: Fromage à pâte pressée cuite (aliment moyen)
-incompatible_with:en categories:en:soft-cheeses
+incompatible_with:en: categories:en:soft-cheeses
 intake24_category_code:en: HRDC
 wikidata:en: Q3088330
 
@@ -55126,6 +55132,7 @@ tr: Çerez ve çerez ürünleri
 
 < en: Nuts and their products
 < en: Snacks
+< en:nut-based-snacks
 en: Flavoured nuts
 fr: Fruits de coques aromatisées
 nl: Gearomatiseerde noten
@@ -56089,72 +56096,121 @@ fi: Pistaasipähkinät, Pistaasit
 fr: Pistaches, Pistache
 hr: pistacije, pistacija
 hu: Pisztácia
+id: Pistasio
 it: Pistacchi
 ja: ピスタチオ
 la: Pistacia vera
 lt: Pistacijos
+lv: pistācijas rieksti
+nb: Pistasjnøtter
 nl: Pistachenoten
 ru: Фисташки
+sl: Pistacije
 sv: Pistaschnötter, pistaschnöt
+th: พิสตาชิโอ
 tr: Antep fıstığı
+zh: 开心果
 agribalyse_proxy_food_code:en: 15044
 agribalyse_proxy_food_name:en: Pistachio nut, grilled
+opposite:en: en:pistachio-ice-cream-tubs, en:seeds, en:dried-fruits, en:mixed-nuts, en:flavoured-pistachios
 sales_format:en: package, weight
 wco_hs_code:en: 0802.51
 wco_hs_heading:en: 08.02
 wikidata:en: Q19958754
 
 < en:Pistachios
-< fr:Fruits à coque salés
-en: Salted pistachios
-es: Pistachos salados, Pistaches salados
-fr: Pistaches salées
-hr: Slane pistacije
-it: Pistacchi salati
-lt: Sūdytos pistacijos
-nl: Gezouten pistachenoten
+en: Plain pistachios, Pistachios(plain)
+nl: Pistachenote(onbehandeld)
+expected_ingredients:en: en:pistachi
+opposite:en: en:pistachios(roasted), en:pistchios(salted)
+
 
 < en:Pistachios
 < en:Shelled nuts
-en: Shelled pistachios
+en: Pistachio kernels, Pistachios(shelled), Shelled pistachios
+el: Φυστίκια κελυφωτά
 es: Pistachos sin cáscara
 fr: Pistaches décortiquées
 hr: Pistacije u ljusci
 hu: Héjas pisztácia, pisztácia héjban
 lt: Gliaudytos pistacijos
 nl: Gepelde pistachenoten
+sl: jedrca pistacije
+opposite:en: en:pistachios(unshelled)
 wco_hs_code:en: 0802.52
 wco_hs_heading:en: 08.02
 
 < en:Pistachios
-en: Roasted pistachios
+en: Pistachios(unshelled), Unshelled pistachios, Pistachio Nuts in Shells
+fr: Pistaches non décortiquées
+nb: Pistasjnøtter med skall
+nl: Pistachenoten(met schil), Ongepelde pistachenoten
+opposite:en: en:pistachio-kernels
+
+< en:Pistachios
+en: Pistachios(roasted), Roasted pistachios, Toasted pistachios
 de: Geröstete Pistazien
 es: Pistachos tostados
+et: röstitud ja soolatud pistaatsiapähklid
 fi: paahdetut pistaasit
 fr: Pistaches grillées
 hr: Pečeni pistacije
 hu: Pörkölt pisztácia
-it: Pistacchio tostato
+it: Pistacchi tostati, Pistacchio tostato
 lt: Skrudintos pistacijos
 nl: Geroosterde pistachenootjes
+pt: Pistacios torrados
+ru: Жареные фисташки
 agribalyse_food_code:en: 15044
 ciqual_food_code:en: 15044
 ciqual_food_name:en: Pistachio nut, grilled
 
 < en:Pistachios
+< fr:Fruits à coque salés
+en: Salted pistachios, Pistachios(salted)
+es: Pistachos salados, Pistaches salados
+fr: Pistaches salées
+hr: Slane pistacije
+it: Pistacchi salati
+lt: Sūdytos pistacijos
+nl: Gezouten pistachenoten
+opposite:en: en:pistachios(unsalted)
+
+< en:Pistachios
+en: Pistachios(unsalted), Unsalted pistachios
+fr: Pistaches sans sel
+nl: Pistachenoten(ongezouten)
+opposite:en: en:salted-pistachios
+
 < en:Roasted pistachios
-en: Pistachio nut grilled salted
+< en:Shelled pistachios
+en: Pistachios (roasted and salted), Roasted and saled pistachios, Pistachio nut grilled salted
 fr: Pistache grillée salée
 agribalyse_food_code:en: 15009
 ciqual_food_code:en: 15009
 ciqual_food_name:en: Pistachio nut, grilled, salted
 
+< en:Pistachio kernels
+en: Hacked pistachios
+es: Pistachos picados
+fr: Pistaches hachées
+
 < en:Pistachios
+en: Pistachios from Raffadali
 it: Pistacchio di Raffadali
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-02449
 protected_name_type:en: pdo
 wikidata:en: Q30896744
+
+< en:Pistachios
+en: Pistachios from Bronte
+it: Pistacchi di Bronte, Pistacchi verde di Bronte
+origin:en: en:italy
+
+< en:Pistachios
+en: Pistachio butters(100%)
+de: Pistazienmus(100%)
 
 < en:Nuts
 en: Brazil nuts, Para nuts
@@ -56591,7 +56647,7 @@ nl: Pindakazen (100% pinda)
 < en:Nut butters
 en: Pistachio butters
 es: Mantecas de pistachos
-fr: Beurres de pistaches
+fr: Beurres de pistaches, Purées de pistaches
 hr: Maslaci od pistacija
 it: Burri di pistacchio
 ja: ピスタチオバター
@@ -58795,6 +58851,9 @@ ciqual_food_name:fr: Huile d'avocat
 # oils from fruits/vegetables/legumes for products in the fats/oils category are counted as fruits/vegetables/legumes for the Nutri-Score 2023
 nutriscore_category_override_for_fruits_vegetables_legumes:en: 100
 wikidata:en: Q2918735
+
+< en:Fruit and fruit seed oils
+en: MCT oils
 
 < en:Fruit and fruit seed oils
 en: Coconut oils
@@ -63880,18 +63939,6 @@ hr: Pšenični škrob
 lt: Kviečių krakmolas
 nl: Tarwezetmelen
 
-< en:Starches
-en: Tapioca
-fr: Tapioca, Tapioca cru, Perles du Japon crues, Perles du Japon
-hr: Tapioka
-ja: タピオカ
-pt: Tapioca
-agribalyse_food_code:en: 4000
-ciqual_food_code:en: 4000
-ciqual_food_name:en: Tapioca, raw
-ciqual_food_name:fr: Tapioca ou Perles du Japon, cru
-
-
 < en:Cereals and their products
 en: Groats
 de: Graupen
@@ -64149,6 +64196,9 @@ zh: 食品添加剂
 description:en: substances added to food to preserve flavor or enhance its taste, appearance, or other qualities
 #vec:Aditivo ałimentar
 wikidata:en: Q189567
+
+< en:Food additives
+en: MCT powder
 
 < en:Food additives
 en: Lecithin
@@ -64982,7 +65032,7 @@ es: Pacquetes variados de helados de palo
 fr: Assortiments de bâtonnets glacés
 hr: Raznolika pakiranja sladoledne ploče
 it: Gelati a stecco confezione miste
-nl: Ijsjesassortimenten
+nl: IJsjesassortimenten
 #description:en:A package with icecream bars with bars with different flavours
 
 < en:Ice cream bars
@@ -65732,13 +65782,15 @@ es: Granizados de mojito
 < en:Frozen ready-made meals
 < en:Ravioli
 en: Frozen ravioli
-de: Tiefkühlravioli
+de: Tiefkühlravioli, Tiefgekühlte Ravioli
+es: Ravioli congelado
 fi: pakastettu ravioli
 fr: Ravioli surgelés, raviolis surgelés
 hr: Smrznuti ravioli
 hu: Fagyasztott ravioli
+it: Ravioli surgelati
 lt: Šaldyti ravioliai
-nl: Diepvriesraviolis
+nl: Diepvriesraviolis, Bevroren ravioli
 
 < en:Frozen foods
 fr: Cônes et batonnets surgelés
@@ -65856,6 +65908,10 @@ nl: Diepvries hartige taarten
 en: Frozen quiches
 fr: Quiches surgelées, Quiches salées surgelées
 
+< en:Meals
+en: Combination Meals
+
+< en:Combination meals
 < en:Frozen foods
 < en:Meals
 en: Frozen ready-made meals, Frozen prepared meals, Frozen prepared dishes, Frozen dinners
@@ -65872,12 +65928,6 @@ nl: Diepvriesmaaltijden
 pl: Mrożone dania gotowe
 pt: Refeições prontas a comer congeladas
 ru: Замороженные готовые обеды
-
-< en:Meals
-en: Combination Meals
-
-< en:Combination meals
-en: Frozen ready-made meals
 gpc_category_code:en: 10006751
 gpc_category_description:en: Definition: Ready-made combination meal or microwave meal is a pre-packaged perishable full meal.  The meal requires no preparation, but may be warmed,  and contains all the elements typically contained in a single-serving meal.  A ready-made meal (also known as a TV Dinner) must have a main component and at least one additional component such as a side item, a dessert and/or beverage. These products must be refrigerated to extend their consumable life. Definition Excludes: Excludes products such as Non-Combination Meals, Shelf Stable Ready to Eat Combination Meals, Not Ready to Eat Combination Meals, Ready-Made Combination Meal Variety Packs, Prepared/Processed Products, and Unprepared Meals.
 gpc_category_name:en: Ready-Made Combination Meals - Ready to Eat (Perishable)
@@ -67314,6 +67364,10 @@ ciqual_food_name:fr: Groseille à maquereau, crue
 
 < en:Berries
 en: Indian Gooseberries, Amla
+
+< en:Indian Gooseberries
+en: Indian goosberry powders, Amla powders
+nl: Amla poeders
 
 < en:Berries
 en: Strawberries
@@ -73439,7 +73493,7 @@ en: Chicken seasoning
 pl: Przyprawy do kurczaka, Przyprawa do kurczaka
 
 < en:Spices
-en: Chili peppers, chilis, hot peppers, Chilli peppers, chillis
+en: Chili peppers, chilis, hot peppers, Chilli peppers, chillis, Chilli
 bg: Люти чушки
 de: Chilischoten, Chilis
 es: Chiles
@@ -77590,10 +77644,8 @@ gpc_category_name:en: Grain Based Products / Meals - Ready to Eat - Savoury (Per
 
 < en:Meals
 en: Pad thai
-fr: Pad Thaï
-hr: Pad thai
+xx: Pad Thaï, Pad Thai
 ja: パッタイ
-pl: Pad thai
 wikidata:en: Q730298
 
 < en:Meals
@@ -79239,7 +79291,7 @@ ciqual_food_name:en: Provencal-type tripe (with tomato)
 ciqual_food_name:fr: Tripes à la tomate ou à la provençale
 
 < en:Specialty made with tripe
-< en:Tripes
+< en:Tripe
 en: Beef tripes
 fr: Tripes de boeuf
 hr: Goveđi tripice
@@ -89555,7 +89607,7 @@ fr: Pâtés de taureau
 
 < en:Fish preparations
 < en:Spreads
-en: Fish spreads
+en: Fish spreads, Fish spread
 fr: Préparations de poisson à tartiner
 hr: Riblji namazi
 nl: Vispastas
@@ -89568,7 +89620,7 @@ nl: Tonijnpastas
 
 < en:Meat preparations
 < en:Spreads
-en: Meat spreads
+en: Meat spreads, Meat spread
 fr: Préparations de viande à tartiner
 hr: Mesni namazi
 nl: Vleespastas
@@ -93147,7 +93199,7 @@ fr: Coquillettes de blé dur
 en: Lasagna sheets, Lasagne sheets
 fr: Lasagnes à garnir
 hr: Lazanje za ukrašavanje
-nl: Lasagne vellen, Lasagnevellen
+nl: Lasagne vellen, Lasagnevellen, Lasagne bladen
 
 < en:Durum wheat pasta
 en: Durum wheat plates for lasagna
@@ -93483,15 +93535,6 @@ de: Frische Ravioli
 fr: Ravioli frais
 hr: Svježi ravioli
 nl: Verse raviolis
-
-< en:Ravioli
-en: Frozen ravioli
-de: Tiefgekühlte Ravioli
-es: Ravioli congelado
-fr: Ravioli surgelé
-hr: Smrznuti ravioli
-it: Ravioli surgelati
-nl: Bevroren ravioli
 
 < en:Fresh ravioli
 < en:Meat ravioli
@@ -94656,6 +94699,9 @@ ciqual_food_code:en: 23680
 ciqual_food_name:en: Twelfth Night cake
 ciqual_food_name:fr: Galette des rois feuilletée
 wikidata:en: Q177166
+
+< en: Pastries
+nl: Vlaaien, Vlaai
 
 < en:Pastries
 en: Twelfth Night cake with almond paste, Twelfth Night cake puff pastry filled with almond paste
@@ -101058,7 +101104,7 @@ wikidata:en: Q909729
 
 < en:Plant-based foods
 < en:Spreads
-en: Plant-based spreads, Vegetable spreads, vegetable pastes
+en: Plant-based spreads, Vegetable spreads, vegetable pastes. Plant-based spread
 ca: Productes amb base vegetal per untar
 de: pflanzliche Brotaufstriche, pflanzlicher Brotaufstrich
 es: Untables vegetales
@@ -101105,7 +101151,7 @@ nl: Veganistische producten
 < en:Plant-based spreads
 < en:Salted spreads
 < en:Vegan products
-en: Vegan vegetable spreads
+en: Vegan vegetable spreads, Vegan vegetable spread
 fr: Tartinades véganes aux légumes
 hr: Veganski povrtni namazi
 nl: Veganistische groentespreads
@@ -101132,7 +101178,7 @@ en: Butter and margarine mix
 
 < en:Breakfasts
 < en:Spreads
-en: Sweet spreads
+en: Sweet spreads, Sweet spread
 ca: Productes dolços per untar
 de: Süße Brotaufstriche, Süßer Brotaufstrich
 es: Untables dulces
@@ -107235,10 +107281,6 @@ de: Bintje Kartoffeln
 fr: Pomme de terre Bintje
 hr: Bintje krumpir
 nl: Bintje aardappelen
-
-< en:Potatoes
-en: Lady Christl potatoes
-fr: Pomme de terre Lady Christl
 
 < en:Potatoes
 en: Ostara potatoes
@@ -116395,18 +116437,6 @@ hr: Terine od krvavica
 nl: Bloedworstterinnes, Bloedworstterrine
 
 < en:Terrines
-en: Fish terrines, Fish terrine
-de: Fisch-Terrinen, Fischterrinen
-fi: kalaterriinit
-fr: Terrines de poisson, Terrine de poisson
-hr: Riblje terine
-nl: Visterrines
-agribalyse_food_code:en: 8291
-ciqual_food_code:en: 8291
-ciqual_food_name:en: Fish terrine
-pnns_group_2:en: Fish and seafood
-
-< en:Terrines
 en: Seafood terrine
 fr: Terrine de fruits de mer
 agribalyse_food_code:en: 8292
@@ -117025,14 +117055,6 @@ ciqual_food_name:fr: Feuilleté ou Friand au fromage
 
 < en:Friands
 < en:Puff pastry meals
-en: Ham and cheese in puffed pastry
-fr: Feuilleté jambon fromage, Friand jambon fromage
-agribalyse_food_code:en: 25508
-ciqual_food_code:en: 25508
-ciqual_food_name:en: Ham and cheese in puffed pastry
-
-< en:Friands
-< en:Puff pastry meals
 en: Seafood in puff pastry
 fr: Feuilletés aux fruits de mer
 agribalyse_food_code:en: 25151
@@ -117376,12 +117398,17 @@ ciqual_food_name:fr: Yaourt, lait fermenté ou spécialité laitière, aux cér�
 fr: Fromages blancs aromatisés
 
 < en:Terrines
-en: Fish terrines
+en: Fish terrines, Fish terrine
+de: Fisch-Terrinen, Fischterrinen
 fi: kalaterriinit
 fr: Terrines de poisson
 hr: Riblje terine
 it: Terrine di pesce
 nl: Visterrines
+agribalyse_food_code:en: 8291
+ciqual_food_code:en: 8291
+ciqual_food_name:en: Fish terrine
+
 food_groups:en: en:fish-and-seafood
 pnns_group_2:en: Fish and seafood
 #wikidata:en:
@@ -117809,6 +117836,7 @@ nl: Soesjes met groente
 < en:Puff pastry meals
 en: Ham and cheese in puffed pastry
 fr: Feuilleté jambon fromage
+agribalyse_food_code:en: 25508
 ciqual_food_code:en: 25508
 ciqual_food_name:en: Ham and cheese in puffed pastry
 
