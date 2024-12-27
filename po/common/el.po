@@ -808,12 +808,12 @@ msgstr "και η ομάδα <a href=\"https://www.facebook.com/groups/openfoodf
 
 msgctxt "footer_blog"
 msgid "<<site_name>> blog"
-msgstr "Το <<site_name>> το blog"
+msgstr "Το ιστολόγιο του <<site_name>>"
 
 # Do not translate
 msgctxt "footer_blog_link"
 msgid "https://blog.openfoodfacts.org/en/"
-msgstr ""
+msgstr "https://blog.openfoodfacts.org/en/"
 
 msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
@@ -822,11 +822,11 @@ msgstr "Κώδικας Δεοντολογίας"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_code_of_conduct_link"
 msgid "/code-of-conduct"
-msgstr ""
+msgstr "/code-of-conduct"
 
 msgctxt "footer_data"
 msgid "Data, API and SDKs"
-msgstr ""
+msgstr "Δεδομένα, API και SDK"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_data_link"
@@ -859,11 +859,13 @@ msgctxt "footer_follow_us"
 msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
 "<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> and\n"
 "<a href=\"https://www.instagram.com/open.food.facts/\">Instagram</a>\n"
-msgstr ""
+msgstr "Ακολουθήστε μας στο <a href=\"https://twitter.com/openfoodfacts\">Χ</a>,\n"
+"<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> και\n"
+"<a href=\"https://www.instagram.com/open.food.facts/\">Instagram</a>\n"
 
 msgctxt "footer_install_the_app"
 msgid "Install the app"
-msgstr "Εγκαταστήστε το app"
+msgstr "Εγκαταστήστε την εφαρμογή"
 
 msgctxt "footer_join_the_community"
 msgid "Join the community"
@@ -875,7 +877,7 @@ msgstr "Ελάτε μαζί μας στο %s:"
 
 msgctxt "footer_legal"
 msgid "Legal"
-msgstr "Νομική αναφέρει"
+msgstr "Νομικά"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_legal_link"
@@ -884,12 +886,12 @@ msgstr "/legal"
 
 msgctxt "footer_privacy"
 msgid "Privacy"
-msgstr ""
+msgstr "Απόρρητο"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_privacy_link"
 msgid "/privacy"
-msgstr ""
+msgstr "/privacy"
 
 msgctxt "footer_press"
 msgid "Press"
@@ -907,7 +909,7 @@ msgstr "Όροι χρήσης"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_terms_link"
 msgid "/terms-of-use"
-msgstr ""
+msgstr "/terms-of-use"
 
 msgctxt "footer_who_we_are"
 msgid "Who we are"
@@ -920,25 +922,25 @@ msgstr "/who-we-are"
 
 msgctxt "footer_wiki"
 msgid "<<site_name>> wiki (en)"
-msgstr ""
+msgstr "<<site_name>> wiki (en)"
 
 # Do not translate
 msgctxt "footer_wiki_link"
 msgid "https://wiki.openfoodfacts.org"
-msgstr ""
+msgstr "https://wiki.openfoodfacts.org"
 
 # Do not translate Open Beauty Facts but do translate Cosmetics
 msgctxt "footer_obf"
 msgid "Open Beauty Facts - Cosmetics"
-msgstr ""
+msgstr "Open Beauty Facts - Καλλυντικά"
 
 msgctxt "footer_obf_link"
 msgid "https://world.openbeautyfacts.org"
-msgstr ""
+msgstr "https://world.openbeautyfacts.org"
 
 msgctxt "footer_pro"
 msgid "Open Food Facts for Producers"
-msgstr ""
+msgstr "Open Food Facts για Παραγωγούς"
 
 msgctxt "for"
 msgid "for"
@@ -962,7 +964,7 @@ msgstr "Αντίο"
 
 msgctxt "graph_count"
 msgid "%d products match the search criteria, of which %i products have defined values for the graph's axis."
-msgstr "%d των προϊόντων πληρούν τα κριτήρια αναζήτησης, από τα οποία %i των προϊόντων έχουν καθορισμένες τιμές για τους άξονες του γραφήματος."
+msgstr "%d προϊόντα ταιριάζουν με τα κριτήρια αναζήτησης, από τα οποία τα %i προϊόντα έχουν καθορισμένες τιμές για τον άξονα του γραφήματος."
 
 msgctxt "graph_title"
 msgid "Graph title"
@@ -970,11 +972,11 @@ msgstr "Τίτλος γραφήματος"
 
 msgctxt "graphs_and_maps"
 msgid "Graphs and maps"
-msgstr ""
+msgstr "Γραφήματα και χάρτες"
 
 msgctxt "hello"
 msgid "Hello"
-msgstr "Γειά σας"
+msgstr "Γεια"
 
 msgctxt "high"
 msgid "high"
@@ -990,7 +992,7 @@ msgstr "Ιστορικό τροποποιήσεων"
 
 msgctxt "image_front"
 msgid "Front picture"
-msgstr "Φωτογραφία εμπρόσθιας επιφάνειας"
+msgstr "Μπροστινή εικόνα"
 
 msgctxt "image_ingredients"
 msgid "Ingredients picture"
@@ -1006,60 +1008,61 @@ msgstr "Φωτογραφία θρεπτικών συστατικών"
 
 msgctxt "image_upload_error_image_already_exists"
 msgid "This picture has already been sent."
-msgstr "Αυτή ή εικόνα έχει ήδη σταλεί"
+msgstr "Αυτή η εικόνα έχει ήδη σταλεί."
 
 msgctxt "image_upload_error_image_too_small"
 msgid "The picture is too small. Please do not upload pictures found on the Internet and only send photos you have taken yourself."
-msgstr "Αυτη η εικονα είναι πολύ μικρή. Παρακαλούμε μην ανεβάζετε φωτογραφίες που αντλήσατε από το διαδίκτυο και στείλτε αποκλειστικά φωτογραφίες που τραβήξατε εσείς"
+msgstr "Αυτή η εικόνα είναι πολύ μικρή. Παρακαλούμε μην ανεβάζετε φωτογραφίες που αντλήσατε από το διαδίκτυο και στείλτε αποκλειστικά φωτογραφίες που τραβήξατε εσείς."
 
 msgctxt "image_upload_error_no_barcode_found_in_image_long"
 msgid "The barcode in the image could not be read, or the image contained no barcode.\n"
 "You can try with another image, or directly enter the barcode."
-msgstr ""
+msgstr "Δεν ήταν δυνατή η ανάγνωση του γραμμικού κωδικού στην εικόνα ή η εικόνα δεν περιείχε γραμμωτό κώδικα.\n"
+"Μπορείτε να δοκιμάσετε με άλλη εικόνα ή να εισαγάγετε απευθείας τον γραμμωτό κώδικα."
 
 msgctxt "image_upload_error_no_barcode_found_in_image_short"
 msgid "No barcode found in the image."
-msgstr ""
+msgstr "Δεν βρέθηκε γραμμωτός κωδικός στην εικόνα."
 
 msgctxt "image_upload_error_no_barcode_specified_or_found"
 msgid "No barcode specified or found in the image or filename."
-msgstr ""
+msgstr "Δεν καθορίστηκε ούτε βρέθηκε γραμμικός κώδικας στην εικόνα ή το όνομα αρχείου."
 
 msgctxt "image_upload_error_could_not_read_image"
 msgid "The image could not be read."
-msgstr ""
+msgstr "Δεν ήταν δυνατή η ανάγνωση της εικόνας."
 
 msgctxt "image_upload_error_no_barcode_found_in_text"
 msgid "You must enter the characters of the barcode or send a product image when the barcode is visible."
-msgstr ""
+msgstr "Πρέπει να εισαγάγετε τους χαρακτήρες του γραμμικού κώδικα ή να στείλετε μια εικόνα προϊόντος όταν ο γραμμωτός κώδικας είναι ορατός."
 
 msgctxt "image_full_size"
 msgid "Full size"
-msgstr ""
+msgstr "Πλήρες μέγεθος"
 
 msgctxt "image_attribution_creativecommons"
 msgid "This file was uploaded to product %s and is licensed under the %s license."
-msgstr ""
+msgstr "Αυτό το αρχείο μεταφορτώθηκε στο προϊόν %s και διαθέτει άδεια χρήσης με την άδεια %s."
 
 msgctxt "image_attribution_photographer"
 msgid "Attribution: Photo by %s per %s"
-msgstr ""
+msgstr "Απόδοση: Φωτογραφία από %s ανά %s"
 
 msgctxt "image_attribution_photographer_editor"
 msgid "Attribution: Photo by %s with additional modifications by %s per %s"
-msgstr ""
+msgstr "Απόδοση: Φωτογραφία από %s με πρόσθετες τροποποιήσεις από %s ανά %s"
 
 msgctxt "image_original_link_text"
 msgid "(Original Image)"
-msgstr ""
+msgstr "(Πρωτότυπη εικόνα)"
 
 msgctxt "image_attribution_link_title"
 msgid "Photo detail and attribution information"
-msgstr ""
+msgstr "Λεπτομέρειες φωτογραφίας και πληροφορίες απόδοσης"
 
 msgctxt "invite_user"
 msgid "Invite Users"
-msgstr ""
+msgstr "Πρόσκληση Χρηστών"
 
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
@@ -1067,11 +1070,11 @@ msgstr "Προϊόντα που προσθέσατε και απαιτούν σ�
 
 msgctxt "informers_p"
 msgid "informers"
-msgstr "πληροφοριοδοτες"
+msgstr "πληροφοριοδότες"
 
 msgctxt "informers_s"
 msgid "informers"
-msgstr "πληροφοριοδοτες"
+msgstr "πληροφοριοδότες"
 
 msgctxt "ingredients"
 msgid "Ingredients"
@@ -1079,15 +1082,15 @@ msgstr "Συστατικά"
 
 msgctxt "no_ingredient"
 msgid "Ingredients are missing"
-msgstr ""
+msgstr "Λείπουν συστατικά"
 
 msgctxt "one_ingredient"
 msgid "1 ingredient"
-msgstr ""
+msgstr "1 συστατικό"
 
 msgctxt "f_ingredients_with_number"
 msgid "{number} ingredients"
-msgstr ""
+msgstr "{number} συστατικά"
 
 msgctxt "ingredients_alt"
 msgid "Ingredients"
@@ -1095,7 +1098,7 @@ msgstr "Συστατικά"
 
 msgctxt "ingredients_analysis_note"
 msgid "Note: ingredients can be listed with many different names, please let us know if you think the analysis above is incorrect."
-msgstr ""
+msgstr "Σημείωση: Τα συστατικά μπορούν να παρατίθενται με πολλά διαφορετικά ονόματα, ενημερώστε μας εάν πιστεύετε ότι η παραπάνω ανάλυση είναι εσφαλμένη."
 
 msgctxt "ingredients_from_or_that_may_be_from_palm_oil_p"
 msgid "ingredients from or that may be from palm oil"
@@ -1115,11 +1118,11 @@ msgstr "συστατικό προερχόμενο από φοινικέλαιο"
 
 msgctxt "ingredients_n_p"
 msgid "Numbers of ingredients"
-msgstr ""
+msgstr "Αριθμοί συστατικών"
 
 msgctxt "ingredients_n_s"
 msgid "Number of ingredients"
-msgstr ""
+msgstr "Αριθμός συστατικών"
 
 msgctxt "known_ingredients_n_s"
 msgid "Number of recognized ingredients"
@@ -1127,7 +1130,7 @@ msgstr "Αριθμός αναγνωρισμένων συστατικών"
 
 msgctxt "unknown_ingredients_n_s"
 msgid "Number of unrecognized ingredients"
-msgstr "Αριθμός αναγνωρισμένων συστατικών"
+msgstr "Αριθμός μη αναγνωρισμένων συστατικών"
 
 msgctxt "ingredients_p"
 msgid "ingredients"
@@ -1135,11 +1138,11 @@ msgstr "συστατικα"
 
 msgctxt "ingredients_products"
 msgid "Products that contain the ingredient %s"
-msgstr "Προϊόντα που περιέχουν τα συστατικά %s"
+msgstr "Προϊόντα που περιέχουν το συστατικό %s"
 
 msgctxt "ingredients_s"
 msgid "ingredient"
-msgstr "συστατικο"
+msgstr "συστατικό"
 
 msgctxt "ingredients_text"
 msgid "Ingredients list"
@@ -1147,11 +1150,11 @@ msgstr "Λίστα συστατικών"
 
 msgctxt "ingredients_text_display_note"
 msgid "Ingredients are listed in order of importance (quantity)."
-msgstr "Τα συστατικά αναγράφονται με σειρά σημασίας (ποσότητα)"
+msgstr "Τα συστατικά αναγράφονται με σειρά σημασίας (ποσότητα)."
 
 msgctxt "ingredients_text_example"
 msgid "Cereals 85.5% (_wheat_ flour, whole-_wheat_ flour 11%), malt extract, cocoa 4,8%, ascorbic acid"
-msgstr "Δημητριακά 85.5% (_σταρένιο_ αλεύρι, _σταρένιο_ αλεύρι ολικής άλεσης 11%),εκχύλισμα βύνης, κακάο 4,8%, ασκορβικό οξύ"
+msgstr "Δημητριακά 85.5% (_σταρένιο_ αλεύρι, _σταρένιο_ αλεύρι ολικής άλεσης 11%), εκχύλισμα βύνης, κακάο 4,8%, ασκορβικό οξύ"
 
 msgctxt "ingredients_text_note"
 msgid "Keep the order, indicate the % when specified, separate with a comma or - , use ( ) for ingredients of an ingredient, surround allergens with _ e.g. _milk_"
@@ -1167,16 +1170,16 @@ msgstr "συστατικό πιθανώς προερχόμενο από φοιν
 
 msgctxt "ingredients_without_products"
 msgid "Products that do not contain the ingredient %s"
-msgstr ""
+msgstr "Προϊόντα που δεν περιέχουν το συστατικό %s"
 
 # Please change appstore_US.svg to appstore_XX.svg. check the url https://static.openfoodfacts.org/images/misc/appstore/black/appstore_XX.svg
 msgctxt "ios_app_icon_url"
 msgid "/images/misc/appstore/black/appstore_US.svg"
-msgstr ""
+msgstr "/images/misc/appstore/black/appstore_GR.svg"
 
 msgctxt "ios_app_icon_alt_text"
 msgid "Download on the App Store"
-msgstr ""
+msgstr "Λήψη από το App Store"
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
@@ -1196,11 +1199,11 @@ msgstr "Βιολογικό/Οργανικό"
 
 msgctxt "labels_note"
 msgid "Indicate only the most specific labels. \"Parents\" labels will be added automatically."
-msgstr "Αναφέρετε μόνο την πιο εξειδικευμένη κατηγορία. \"Parents\" κατηγορίες θα προστεθούν αυτόματα."
+msgstr "Αναφέρετε μόνο τις πιο εξειδικευμένες ετικέτες. Οι «γονικές» ετικέτες θα προστεθούν αυτόματα."
 
 msgctxt "labels_p"
 msgid "labels"
-msgstr "ετικετες"
+msgstr "ετικέτες"
 
 msgctxt "labels_products"
 msgid "Products that have the label %s"
@@ -1216,7 +1219,7 @@ msgstr "προσθέστε μια ετικέτα"
 
 msgctxt "labels_without_products"
 msgid "Products that do not have the label %s"
-msgstr ""
+msgstr "Προϊόντα που δεν έχουν την ετικέτα %s"
 
 msgctxt "lang"
 msgid "Main language"
@@ -1224,15 +1227,15 @@ msgstr "Κύρια γλώσσα"
 
 msgctxt "lang_note"
 msgid "Language most present and most highlighted on the product"
-msgstr "Κύρια γλώσσα του προϊόντος"
+msgstr "Γλώσσα που είναι πιο παρούσα και πιο επισημασμένη στο προϊόν"
 
 msgctxt "language"
 msgid "en-US"
-msgstr "el-GR"
+msgstr "el_GR"
 
 msgctxt "languages_p"
 msgid "languages"
-msgstr ""
+msgstr "γλώσσες"
 
 msgctxt "languages_s"
 msgid "language"
@@ -1248,22 +1251,22 @@ msgstr "Ημερομηνία τελευταίας τροποποίησης"
 
 msgctxt "last_image_dates_p"
 msgid "Last picture dates"
-msgstr ""
+msgstr "Ημερομηνίες τελευταίας φωτογραφίας"
 
 msgctxt "last_image_dates_s"
 msgid "Last picture date"
-msgstr ""
+msgstr "Ημερομηνία τελευταίας φωτογραφίας"
 
 msgctxt "licence_accept"
 msgid "By adding information, data and/or images, you accept to place irrevocably your contribution under the <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents Licence 1.0</a> licence\n"
 "for information and data, and under the <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution - ShareAlike 3.0</a> licence for images.\n"
 "You accept to be credited by re-users by a link to the product your are contributing to."
-msgstr "Προσθέτοντας πληροφορία, δεδομενα ή/και φωτογραφίες, αποδέχεστε αμετάκλητα ότι αποδέχεστε τη <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents Licence 1.0</a> άδεια για πληροφορία και δεδομένα, και υπό the <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution - ShareAlike 3.0</a> άδεια για τις εικόνες.\n"
+msgstr "Προσθέτοντας πληροφορία, δεδομένα ή/και φωτογραφίες, αποδέχεστε αμετάκλητα ότι αποδέχεστε τη <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents Licence 1.0</a> άδεια για πληροφορία και δεδομένα, και υπό the <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution - ShareAlike 3.0</a> άδεια για τις εικόνες.\n"
 "Αποδέχεστε ότι το περιεχόμενο αποδίδεται σε εσάς σε περίπτωση επαναχρησιμοποίησης των δεδομένων μέσω σύνδεσης με το προϊόν με το οποίο έχετε συμβάλλει."
 
 msgctxt "link"
 msgid "Link to the product page on the official site of the producer"
-msgstr "Link στη σελίδα του προϊόντος στο επίσημο site του παραγωγού"
+msgstr "Σύνδεσμος στη σελίδα του προϊόντος στον επίσημο ιστότοπο του παραγωγού"
 
 msgctxt "list_of_x"
 msgid "List of %s"
@@ -1271,19 +1274,19 @@ msgstr "Λίστα από %s"
 
 msgctxt "loadmore"
 msgid "Load more results"
-msgstr ""
+msgstr "Φόρτωση περισσότερων αποτελεσμάτων"
 
 msgctxt "login_and_add_product"
 msgid "Sign-in and add the product"
-msgstr "Εγγραφείτε και προσθέστε προϊόντα"
+msgstr "Συνδεθείτε και προσθέστε το προϊόν"
 
 msgctxt "login_and_edit_product"
 msgid "Sign-in and edit the product"
-msgstr "Εγγραφείτε και επεξεργαστείτε προϊόντα"
+msgstr "Συνδεθείτε και επεξεργαστείτε το προϊόν"
 
 msgctxt "login_create_your_account"
 msgid "Create your account."
-msgstr "τη δημιουργία του λογαριασμού σας ."
+msgstr "Δημιουργήστε το λογαριασμό σας."
 
 msgctxt "login_not_registered_yet"
 msgid "Not registered yet?"
@@ -1295,17 +1298,17 @@ msgstr "Σύνδεση"
 
 msgctxt "login_to_add_and_edit_products"
 msgid "Sign-in to add or edit products."
-msgstr "Εγγραφείτε για να προσθέσετε ή να επεξεργαστείτε προϊόντα."
+msgstr "Συνδεθείτε για να προσθέσετε ή να επεξεργαστείτε προϊόντα."
 
 msgctxt "login_to_add_products"
 msgid "<p>Please sign-in to add or edit a product.</p>\n\n"
 "<p>If you do not yet have an account on <<site_name>>, you can <a href=\"/cgi/user.pl\">register in 30 seconds</a>.</p>\n"
-msgstr "<p>Παρακαλώ εγγραφείτε για να προσθέσετε ή να επεξεργαστείτε προϊόντα.</p>\n\n"
-"<p> Αν δεν έχετε ακόμα λογαριασμό στο <<site_name>>, μπορείτε να <a href=\"/cgi/user.pl\">register in 30 seconds</a>.</p>\n"
+msgstr "<p>Παρακαλώ συνδεθείτε για να προσθέσετε ή να επεξεργαστείτε ένα προϊόν.</p>\n\n"
+"<p>Εάν δεν έχετε ακόμη λογαριασμό στο <<site_name>>, μπορείτε <a href=\"/cgi/user.pl\">να εγγραφείτε σε 30 δευτερόλεπτα</a>.</p>\n"
 
 msgctxt "login_username_email"
 msgid "Username or e-mail address:"
-msgstr "Username ή διεύθυνση e-mail:"
+msgstr "Όνομα χρήστη ή διεύθυνση e-mail:"
 
 msgctxt "low"
 msgid "low"
@@ -1317,15 +1320,15 @@ msgstr "μικρή ποσότητα"
 
 msgctxt "manage_images"
 msgid "Manage images"
-msgstr ""
+msgstr "Διαχείριση εικόνων"
 
 msgctxt "manage_images_info"
 msgid "You can select one or more images and then:"
-msgstr ""
+msgstr "Μπορείτε να επιλέξετε μία ή περισσότερες εικόνες και στη συνέχεια:"
 
 msgctxt "manufacturing_places"
 msgid "Manufacturing or processing places"
-msgstr "Τόπος παραγωγής ή επεξεργασίας"
+msgstr "Τόποι παραγωγής ή επεξεργασίας"
 
 msgctxt "manufacturing_places_example"
 msgid "Montana, USA"
@@ -1349,11 +1352,11 @@ msgstr "προσθέστε ένα τόπο"
 
 msgctxt "manufacturing_places_without_products"
 msgid "Products not manufactured or processed in %s"
-msgstr ""
+msgstr "Προϊόντα που δεν έχουν κατασκευαστεί ή επεξεργαστεί σε %s"
 
 msgctxt "map_count"
 msgid "%d products match the search criteria, of which %i products have a known production place."
-msgstr "%d των προϊόντων πληρούν τα κριτήρια αναζήτησης, από τα οποία %i των προϊόντων έχουν γνωστό τόπο παραγωγής."
+msgstr "%d προϊόντα ταιριάζουν με τα κριτήρια αναζήτησης, από τα οποία τα οποία %i προϊόντα έχουν καθορισμένες τιμές για τον άξονα του γραφήματος."
 
 msgctxt "map_title"
 msgid "Map title"
@@ -1424,11 +1427,11 @@ msgstr "μέτρια ποσότητα"
 
 msgctxt "move_images_to_another_product"
 msgid "Move the images to another product"
-msgstr ""
+msgstr "Μετακινήστε τις εικόνες σε άλλο προϊόν"
 
 msgctxt "n_products"
 msgid "%s products"
-msgstr ""
+msgstr "%s προϊόντα"
 
 msgctxt "name"
 msgid "Name"
@@ -1440,19 +1443,19 @@ msgstr "Ονόματα"
 
 msgctxt "new_code"
 msgid "If the barcode is not correct, please correct it here:"
-msgstr "Αν το barcode δεν είναι σωστό, παρακαλώ διορθώστε το εδώ:"
+msgstr "Αν ο γραμμωτός κώδικας δεν είναι σωστός, παρακαλώ διορθώστε τον εδώ:"
 
 msgctxt "new_code_note"
 msgid "For products without a barcode, an internal code is automatically set."
-msgstr "Για προϊόντα χωρίς barcode, καθορίζεται αυτομάτως ένας εσωτερικός κώδικας"
+msgstr "Για προϊόντα χωρίς γραμμωτό κώδικα, καθορίζεται αυτομάτως ένας εσωτερικός κώδικας."
 
 msgctxt "newsletter_description"
 msgid "Subscribe to the newsletter (2 emails per month maximum)"
-msgstr "Εγγραφείτε στο newsletter (2 emails το μήνα maximum)"
+msgstr "Εγγραφείτε στο ενημερωτικό δελτίο (μέγιστο 2 email ανά μήνα)"
 
 msgctxt "subscribe_to_our_newsletter"
 msgid "Subscribe to our newsletter"
-msgstr ""
+msgstr "Εγγραφείτε στο ενημερωτικό μας δελτίο"
 
 msgctxt "next"
 msgid "Next"
@@ -1460,7 +1463,7 @@ msgstr "Επόμενο"
 
 msgctxt "no_barcode"
 msgid "Product without barcode"
-msgstr "Προϊόν χωρίς barcode"
+msgstr "Προϊόν χωρίς γραμμωτό κώδικα"
 
 msgctxt "no_nutrition_data"
 msgid "Nutrition facts are not specified on the product."
@@ -1468,15 +1471,15 @@ msgstr "Τα διατροφικά δεδομένα δεν αναγράφοντα
 
 msgctxt "multiple_nutrition_data"
 msgid "Multiple nutrition facts are specified on the product (e.g. with added water or milk)."
-msgstr ""
+msgstr "Πολλαπλά διατροφικά στοιχεία προσδιορίζονται στο προϊόν (πχ. με προσθήκη νερού ή γάλακτος)."
 
 msgctxt "multiple_nutrition_data_instructions"
 msgid "Enter only the nutrition facts for the unprepared product, without added water or milk. If there are different products, enter nutrition facts for the first product listed."
-msgstr ""
+msgstr "Εισαγάγετε μόνο τα στοιχεία διατροφής για το μη προετοιμασμένο προϊόν, χωρίς προσθήκη νερού ή γάλακτος. Εάν υπάρχουν διαφορετικά προϊόντα, εισαγάγετε στοιχεία διατροφής για το πρώτο προϊόν που αναφέρεται."
 
 msgctxt "no_product_for_barcode"
 msgid "No product listed for barcode %s."
-msgstr "Δεν υπάρχει προϊόν με barcode %s"
+msgstr "Δεν υπάρχει προϊόν με γραμμωτό κώδικα %s."
 
 msgctxt "no_products"
 msgid "No products."
@@ -1500,7 +1503,7 @@ msgstr "%s σε %s"
 
 msgctxt "nutrient_levels_info"
 msgid "Nutrient levels for 100 g"
-msgstr "Διατροφικοί δείκτες ανά 100 g"
+msgstr "Διατροφικοί δείκτες ανά 100 γρ"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "nutrient_levels_link"
@@ -1529,7 +1532,7 @@ msgstr "θρεπτικό συστατικό"
 
 msgctxt "nutriments_without_products"
 msgid "Products that do not contain the nutriment %s"
-msgstr ""
+msgstr "Προϊόντα που δεν περιέχουν το θρεπτικό συστατικό %s"
 
 msgctxt "nutrition_alt"
 msgid "Nutrition facts"
@@ -1541,19 +1544,19 @@ msgstr "Διατροφικά στοιχεία"
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
-msgstr "Μέσα διατροφικά στοιχεία για το %d των προϊόντων από το %s της κατηγορίας για την οποία τα διατροφικά δεδομένα είναι γνωστά (από το %d των προϊόντων)."
+msgstr "Μέσα διατροφικά στοιχεία για τα %d προϊόντα από τη κατηγορία %s για την οποία τα διατροφικά δεδομένα είναι γνωστά (από τα %d προϊόντα)."
 
 msgctxt "nutrition_data_compare_percent"
 msgid "% of difference"
-msgstr "Διαφορά στο %"
+msgstr "% διαφορά"
 
 msgctxt "nutrition_data_compare_value"
 msgid "value for 100 g / 100 ml"
-msgstr "αξία για 100 g / 100 ml"
+msgstr "αξία για 100 γρ / 100 ml"
 
 msgctxt "nutrition_data_comparison_with_categories"
 msgid "Comparison to average values of products in the same category:"
-msgstr "Σύγκριση με το μέσο όρο της αξίας των προϊόντων της ίδιας κατηγορίας"
+msgstr "Σύγκριση με το μέσο όρο της αξίας των προϊόντων της ίδιας κατηγορίας:"
 
 msgctxt "nutrition_data_comparison_with_categories_note"
 msgid "Please note: for each nutriment, the average is computed for products for which the nutriment quantity is known, not on all products of the category."
@@ -1561,7 +1564,7 @@ msgstr "Παρακαλώ σημειώστε: για κάθε ένα θρεπτι
 
 msgctxt "nutrition_data_note"
 msgid "If the picture is sufficiently sharp and level, nutrition facts can be automatically extracted from the picture."
-msgstr "Εάν η φωτογραφία είναι καθαρή, τα διατροφικά στοιχεία μπορούν αυτόματα να εξαχθούν από αυτή"
+msgstr "Εάν η φωτογραφία είναι καθαρή, τα διατροφικά στοιχεία μπορούν αυτόματα να εξαχθούν από αυτή."
 
 msgctxt "nutrition_data_per_10"
 msgid "10th centile"
@@ -1569,7 +1572,7 @@ msgstr ""
 
 msgctxt "nutrition_data_per_100g"
 msgid "for 100 g / 100 ml"
-msgstr "για 100 g / 100 ml"
+msgstr "για 100 γρ / 100 ml"
 
 msgctxt "nutrition_data_per_5"
 msgid "5<sup>th</sup> centile"
