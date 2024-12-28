@@ -1,7 +1,7 @@
 '''
 This file is part of Product Opener.
 Product Opener
-Copyright (C) 2011-2023 Association Open Food Facts
+Copyright (C) 2011-2024 Association Open Food Facts
 Contact: contact@openfoodfacts.org
 Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 Product Opener is free software: you can redistribute it and/or modify
@@ -74,16 +74,17 @@ def extract_row_from_online_table(row: list) -> dict:
 
     return row_data
 
+
 def parse_from_website(url: str) -> pl.dataframe.frame.DataFrame:
     try:
         html_content = requests.get(url, headers=headers).text
-    except requests.exceptions.ConnectionError :
+    except requests.exceptions.ConnectionError:
         print(f"parse_from_website, cannot get url {url}")
 
     if not html_content:
         print(f"parse_from_website, error with request {url}")
         sys.exit(1)
-    
+
     soup = BeautifulSoup(html_content, 'html.parser')
 
     tables = soup.find_all('table')
@@ -91,7 +92,8 @@ def parse_from_website(url: str) -> pl.dataframe.frame.DataFrame:
     data_rows = []
     for table in tables:
         for tr in table.find_all('tr'):
-            raw_row_data = [td.get_text(separator=", ") for td in tr.find_all('td')]
+            raw_row_data = [td.get_text(separator=", ")
+                            for td in tr.find_all('td')]
             # ignore []
             # ignore ['Ovine'] or ['Cutting', 'Bovine'] (due to merged cells)
             # keep only first 4 columns
@@ -134,7 +136,8 @@ def create_df_dafm_meat() -> pl.dataframe.frame.DataFrame:
     # keep only where integer in code column
     df = df.drop_nulls(subset=[df.columns[0]])
     # add prefix and suffix
-    df = df.with_columns((f"{code_prefix} " + pl.col(df.columns[0]).cast(pl.String) + f" {code_suffix}").alias(df.columns[0]))
+    df = df.with_columns((f"{code_prefix} " + pl.col(df.columns[0]).cast(
+        pl.String) + f" {code_suffix}").alias(df.columns[0]))
 
     return df
 
@@ -161,8 +164,8 @@ def create_df_dafm_milk() -> pl.dataframe.frame.DataFrame:
         pl.when(pl.col(df.columns[2]).cast(pl.String) == "as across")
         .then(
             pl.concat_str([
-                    pl.col(df.columns[1])
-                ])
+                pl.col(df.columns[1])
+            ])
         )
         .otherwise(
             pl.concat_str([
@@ -175,13 +178,13 @@ def create_df_dafm_milk() -> pl.dataframe.frame.DataFrame:
         .alias(df.columns[1])
     )
 
-
     df = df[:, [0, 1, 3]]
 
     # legal name: 1, trading name: 2
     # 2 occurences of integer ending by space for code
     # IE2151EC (Ireland) starta by 2 spaces
-    df = df.with_columns(pl.col(df.columns[0]).str.replace_all('"', '').str.replace_all('\n\n', ''))
+    df = df.with_columns(pl.col(df.columns[0]).str.replace_all(
+        '"', '').str.replace_all('\n\n', ''))
 
     # replace non-integer by null for code
     # integer starting by 1 or starting by IE (Ireland)
@@ -196,24 +199,27 @@ def create_df_dafm_milk() -> pl.dataframe.frame.DataFrame:
     )
 
     # keep all row being integer
-    df_b = df.with_columns(pl.col(df.columns[0]).str.to_integer(strict=False).cast(pl.String))
+    df_b = df.with_columns(pl.col(df.columns[0]).str.to_integer(
+        strict=False).cast(pl.String))
     # keep only where integer in code column
     df_b = df_b.drop_nulls(subset=[df_b.columns[0]])
     # add prefix and suffix
-    df_b = df_b.with_columns((f"{code_prefix} " + pl.col(df.columns[0]).cast(pl.String) + f" {code_suffix}").alias(df.columns[0]))
+    df_b = df_b.with_columns((f"{code_prefix} " + pl.col(df.columns[0]).cast(
+        pl.String) + f" {code_suffix}").alias(df.columns[0]))
     # missing comma in "3 Main St. Ballybunion, Co. Kerry" (Ireland)
-    df_b = df_b.with_columns(pl.col(df.columns[2]).str.replace("3 Main St. Ballybunion", "3 Main St., Ballybunion"))
+    df_b = df_b.with_columns(pl.col(df.columns[2]).str.replace(
+        "3 Main St. Ballybunion", "3 Main St., Ballybunion"))
 
     df = pl.concat([df_a, df_b])
 
     df = df.with_columns(
-            pl.col(df.columns[2])
-                .str.strip_chars()
-                .str.replace_all(r"\n", ", ")
-                .str.replace_all(r"\s+", " ")
-                .str.replace_all(r",,", ",")
-                .str.replace_all(r", ,", ",")
-        )
+        pl.col(df.columns[2])
+        .str.strip_chars()
+        .str.replace_all(r"\n", ", ")
+        .str.replace_all(r"\s+", " ")
+        .str.replace_all(r",,", ",")
+        .str.replace_all(r", ,", ",")
+    )
 
     return df
 
@@ -226,7 +232,6 @@ def get_data_online():
     df_dafm_meat = create_df_dafm_meat()
     df_dafm_milk = create_df_dafm_milk()
 
-
     # Health Service Executive (HSE)
     # no codes in url_hse_butcher
     # df_hse_butcher = parse_from_website(url_hse_butcher)
@@ -238,14 +243,14 @@ def get_data_online():
     df_sfpa_factory = parse_from_website(url_sfpa_factory)
 
     df = pl.concat([
-            df_la_establishment,
-            df_dafm_meat,
-            df_dafm_milk,
-            df_hse_establishments,
-            df_sfpa_establishments,
-            df_sfpa_freezer,
-            df_sfpa_factory
-        ])
+        df_la_establishment,
+        df_dafm_meat,
+        df_dafm_milk,
+        df_hse_establishments,
+        df_sfpa_establishments,
+        df_sfpa_freezer,
+        df_sfpa_factory
+    ])
     df.write_csv(output_file, separator=';')
 
 
