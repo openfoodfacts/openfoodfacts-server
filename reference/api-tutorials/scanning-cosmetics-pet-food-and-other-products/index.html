@@ -1484,6 +1484,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#important-apis-if-you-want-to-scan-any-kind-of-product-or-help-your-users-avoid-adding-cosmetics-by-mistake-in-open-food-facts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Important APIs if you want to scan any kind of product (or help your users avoid adding cosmetics by mistake in Open Food Facts)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#api-roadmap-and-multi-project-behaviour" class="md-nav__link">
     <span class="md-ellipsis">
       API Roadmap and multi-project behaviour
@@ -1697,6 +1706,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#important-apis-if-you-want-to-scan-any-kind-of-product-or-help-your-users-avoid-adding-cosmetics-by-mistake-in-open-food-facts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Important APIs if you want to scan any kind of product (or help your users avoid adding cosmetics by mistake in Open Food Facts)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#api-roadmap-and-multi-project-behaviour" class="md-nav__link">
     <span class="md-ellipsis">
       API Roadmap and multi-project behaviour
@@ -1812,7 +1830,7 @@
 </ul>
 <h4 id="different-behaviours-common-to-open-beauty-facts-open-pet-food-facts-open-products-facts">Different behaviours common to Open Beauty Facts, Open Pet Food Facts, Open Products Facts<a class="headerlink" href="#different-behaviours-common-to-open-beauty-facts-open-pet-food-facts-open-products-facts" title="Permanent link">#</a></h4>
 <ul>
-<li>Old codebase, being upgraded very soon: Knowledge panels are not supported, the new packaging API is not supported</li>
+<li>The same codebase: Knowledge panels are supported, the new packaging API is supported</li>
 <li>Search-a-licious, Open Prices, Folksonomy Engine, Nutri-Patrol not supported yet</li>
 <li>No Robotoff questions yet</li>
 </ul>
@@ -1831,12 +1849,15 @@
 <li>No Eco-Score, Nutri-Score or NOVA level for ultra-processing</li>
 <li>Most data will be modelled using the <a href="docs/reference/api-tutorials/folksonomy-engine.md">Folksonomy Engine</a></li>
 </ul>
+<h3 id="important-apis-if-you-want-to-scan-any-kind-of-product-or-help-your-users-avoid-adding-cosmetics-by-mistake-in-open-food-facts">Important APIs if you want to scan any kind of product (or help your users avoid adding cosmetics by mistake in Open Food Facts)<a class="headerlink" href="#important-apis-if-you-want-to-scan-any-kind-of-product-or-help-your-users-avoid-adding-cosmetics-by-mistake-in-open-food-facts" title="Permanent link">#</a></h3>
+<ul>
+<li>We have a universal barcode scanning API, where you scan a barcode, and you get a result from either Open Food Facts, Open Pet Food Facts, Open Beauty Facts or Open Products Facts with a product_type</li>
+<li>If no result is found in any of the 4 databases, you will have to ask the type of product to your users, and use the classic product addition API on the right project.</li>
+<li>If (it can happen) the product appears on the wrong project, we suggest you use the NutriPatrol API to let your users report it to the moderators, and the proceed to a product addition on the right project. The moderators will then move the existing data to the right project. Eventually, project categorization errors should be infinitesimal.</li>
+</ul>
 <h3 id="api-roadmap-and-multi-project-behaviour">API Roadmap and multi-project behaviour<a class="headerlink" href="#api-roadmap-and-multi-project-behaviour" title="Permanent link">#</a></h3>
 <ul>
 <li>We plan to bring the APIs mentionned above to Open Beauty Facts (Search-a-licious, Knowledge Panels, Open Prices, Robotoff, Folksonomy Engine)</li>
-<li>We plan to have a universal barcode scanning API, where you scan a barcode, and you get a result from either Open Food Facts, Open Pet Food Facts, Open Beauty Facts or Open Products Facts</li>
-<li>If no result is found in any of the 4 databases, you will have to ask the type of product to your users, and use the classic product addition API on the right project.</li>
-<li>If (it can happen) the product appears on the wrong project, we suggest you use the NutriPatrol API to let your users report it to the moderators, and the proceed to a product addition on the right project. The moderators will then move the existing data to the right project. Eventually, project categorization errors should be infinitesimal.</li>
 </ul>
 <h3 id="sample-outputs">Sample outputs<a class="headerlink" href="#sample-outputs" title="Permanent link">#</a></h3>
 <ul>
