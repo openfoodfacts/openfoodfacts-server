@@ -2037,12 +2037,7 @@ script.</p>
 </li>
 </ul>
 <ul>
-<li><code>COMPOSE_PROJECT_NAME</code> set to different values in each <code>.env</code> file, so that container names across deployments are unique.</li>
-</ul>
-<ul>
-<li><code>FRONTEND_PORT</code> and <code>MONGODB_PORT</code> 
-  set to different values in each <code>.env</code> file, 
-  so that frontend containers don't port-conflict with each other.</li>
+<li><code>COMPOSE_PROJECT_NAME</code>, <code>COMPOSE_PROFILES</code>,  <code>PRODUCT_OPENER_DOMAIN</code>, <code>PRODUCT_OPENER_PORT</code>, <code>PRODUCT_OPENER_FLAVOR</code> and <code>PRODUCT_OPENER_FLAVOR_SHORT</code> set to different values in each <code>.env</code> file, so that container names across deployments are unique and frontend containers don't port-conflict with each other. See example below.</li>
 </ul>
 <p>To switch between configurations, set <code>ENV_FILE</code> before running <code>make</code> commands,
 (or <code>docker compose</code> command):</p>
@@ -2083,6 +2078,27 @@ make up
 </code></pre></div></li>
 </ul>
 <p><strong>Note:</strong> the above case of 4 deployments is <strong><em>a bit ambitious</em></strong>, since ProductOpener's <code>backend</code> container takes about ~6GB of RAM to run, meaning that the above 4 deployments would require a total of 24GB of RAM available.</p>
+<p><strong>Example:</strong> if you already have Open Food Facts up and running and you would like to have Open Beauty Facts as well. Then, copy <code>.env</code> to <code>.env.obf</code> and modify the following variables:
+<div class="highlight"><pre><span></span><code>COMPOSE_PROJECT_NAME=po_off
+COMPOSE_PROFILES=off
+PRODUCT_OPENER_DOMAIN=openfoodfacts.localhost
+PRODUCT_OPENER_PORT=80
+PRODUCT_OPENER_FLAVOR=openfoodfacts
+PRODUCT_OPENER_FLAVOR_SHORT=off
+</code></pre></div>
+to
+<div class="highlight"><pre><span></span><code>COMPOSE_PROJECT_NAME=po_obf
+COMPOSE_PROFILES=obf
+PRODUCT_OPENER_DOMAIN=openbeautyfacts.localhost
+PRODUCT_OPENER_PORT=81
+PRODUCT_OPENER_FLAVOR=openbeautyfacts
+PRODUCT_OPENER_FLAVOR_SHORT=obf
+</code></pre></div>
+Run:
+<div class="highlight"><pre><span></span><code>export ENV_FILE=.env.obf
+make dev
+</code></pre></div>
+If you have error like <code>Errors in the labels taxonomy definition at /opt/product-opener/lib/ProductOpener/Tags.pm line 1622.</code>, due to conflict between taxonomies, a small hack is to comment the lines (it appears 2 times in the file) raising error in the <strong>Tags.pm</strong> file. </p>
 
 
 
