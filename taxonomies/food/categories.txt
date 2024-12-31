@@ -55242,24 +55242,6 @@ de: Nussmischung
 nl: Notenmelanges, gemengde noten
 opposite:en: en:brazil-nuts
 
-< en:Cashew nuts
-< en:Salted nuts
-en: Salted cashews, Salted cashew nuts
-de: Gesalzene Cashewnüsse, Gesalzene Cashewkerne
-fr: Noix de cajou salées
-hr: Slani indijski oraščići
-lt: Anakardžiai su druska, Sūdyti anakardžiai
-tr: Tuzlu Kaju
-
-< en:Cashew nuts
-< en:Unsalted nuts
-en: Unsalted cashews, Unsalted cashew nuts
-de: Ungesalzene Cashewnüsse, Ungesalzene Cashewkerne
-fr: Noix de cajou non-salées
-hr: Neslani indijski oraščići
-lt: Anakardžiai (nesūdyti)
-nl: Cashewnoten (ongezouten), Ongezouten cashewnoten
-
 < en:Peanuts
 < en:Salted nuts
 en: Salted peanuts
@@ -55556,6 +55538,43 @@ wco_hs_code:en: 0801.31
 wco_hs_heading:en: 08.01
 wikidata:en: Q34007
 
+< en:Cashew nuts
+< en:Salted nuts
+en: Salted cashews, Salted cashew nuts
+de: Gesalzene Cashewnüsse, Gesalzene Cashewkerne
+fr: Noix de cajou salées
+hr: Slani indijski oraščići
+lt: Anakardžiai su druska, Sūdyti anakardžiai
+tr: Tuzlu Kaju
+
+< en:Cashew nuts
+< en:Unsalted nuts
+en: Unsalted cashews, Unsalted cashew nuts
+de: Ungesalzene Cashewnüsse, Ungesalzene Cashewkerne
+fr: Noix de cajou crues, Noix de cajou non-salées
+hr: Neslani indijski oraščići
+lt: Anakardžiai (nesūdyti)
+nl: Cashewnoten (ongezouten), Ongezouten cashewnoten
+agribalyse_proxy_food_code:en: 15019
+agribalyse_proxy_food_name:en: Cashew nut, grilled, salted
+bulk_proxy_category:en: en:cashew-nuts
+expected_ingredients:en: en:cashew-nuts
+sales_format:en: package, weight
+
+< en:Cashew nuts
+< en:Roasted nuts
+en: Roasted cashew nuts
+de: Geröstete Cashews, Geröstete Cashewnüsse
+fi: paahdetut cashew-pähkinät
+fr: Noix de Cajou grillées
+hr: Pečeni indijski oraščići
+lt: Skrudinti anakardžiai
+nl: Geroosterde cashewnoten
+tr: Kavrulmuş Kaju
+agribalyse_food_code:en: 15019
+ciqual_food_code:en: 15019
+ciqual_food_name:en: Cashew nut, grilled, salted
+
 < en:Nuts
 en: Chestnuts
 bg: Кестени
@@ -55794,11 +55813,16 @@ lt: Gliaudyti lazdyno riešutai be odelės
 nl: Gepelde witte hazelnoten
 opposite:en: en:shelled-hazelnuts-with-skin
 
+< en:Hazelnuts (unsalted)
 < en:Shelled hazelnuts
 en: Raw hazelnuts, Unroasted hazelnuts
 fr: Noisettes décortiquées crues
+bulk_proxy_category:en: en:raw-hazelnuts
 expected_ingredients:en: en:hazelnut
 opposite:en: en:roasted-hazelnuts
+agribalyse_proxy_food_code:en: 15004
+agribalyse_proxy_food_name:en: Hazelnut
+sales_format:en: package, weight
 
 < en:Hazelnuts
 < en:Roasted nuts
@@ -55816,7 +55840,6 @@ agribalyse_food_code:en: 15033
 ciqual_food_code:en: 15033
 ciqual_food_name:en: Hazelnut, grilled
 opposite:en: en:raw-hazelnuts
-
 
 < en:Roasted hazelnuts
 < en:Shelled hazelnuts with skin
@@ -56017,20 +56040,6 @@ nl: Geroosterde gezouten pinda's
 agribalyse_food_code:en: 15002
 ciqual_food_code:en: 15002
 ciqual_food_name:en: Peanut, grilled, salted
-
-< en:Cashew nuts
-< en:Roasted nuts
-en: Roasted cashew nuts
-de: Geröstete Cashews, Geröstete Cashewnüsse
-fi: paahdetut cashew-pähkinät
-fr: Noix de Cajou grillées
-hr: Pečeni indijski oraščići
-lt: Skrudinti anakardžiai
-nl: Geroosterde cashewnoten
-tr: Kavrulmuş Kaju
-agribalyse_food_code:en: 15019
-ciqual_food_code:en: 15019
-ciqual_food_name:en: Cashew nut, grilled, salted
 
 < en:Nuts
 < en:Shelled nuts
