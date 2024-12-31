@@ -55464,9 +55464,8 @@ de: Mandeln(Naturbelassen)
 es: Almendra natural, Almendra cruda, Almendra cruda con piel
 fr: Amandes décortiqués crues, Amandes crues
 ro: Migdale crude
-bulk_proxy_category:en: en:almonds
+bulk_code:en: 1504200
 expected_ingredients:en: en:almond
-sales_format:en: package, weight
 
 < en:Shelled almonds
 en: Almonds(salted), Salted almonds
@@ -55546,6 +55545,7 @@ fr: Noix de cajou salées
 hr: Slani indijski oraščići
 lt: Anakardžiai su druska, Sūdyti anakardžiai
 tr: Tuzlu Kaju
+opposite:en: en:unsalted-cashew-nuts
 
 < en:Cashew nuts
 < en:Unsalted nuts
@@ -55555,11 +55555,14 @@ fr: Noix de cajou crues, Noix de cajou non-salées
 hr: Neslani indijski oraščići
 lt: Anakardžiai (nesūdyti)
 nl: Cashewnoten (ongezouten), Ongezouten cashewnoten
-agribalyse_proxy_food_code:en: 15019
-agribalyse_proxy_food_name:en: Cashew nut, grilled, salted
-bulk_proxy_category:en: en:cashew-nuts
+opposite:en: en:salted-cashew-nuts
+
+< en: Non-roasted cashew nuts
+< en: Unsalted cashews
+en: Raw cashew nuts
+fr: Noix de cajou crues
+bulk_code:en: 150190001
 expected_ingredients:en: en:cashew-nuts
-sales_format:en: package, weight
 
 < en:Cashew nuts
 < en:Roasted nuts
@@ -55572,8 +55575,15 @@ lt: Skrudinti anakardžiai
 nl: Geroosterde cashewnoten
 tr: Kavrulmuş Kaju
 agribalyse_food_code:en: 15019
+bulk_code:en: 1501900002
 ciqual_food_code:en: 15019
 ciqual_food_name:en: Cashew nut, grilled, salted
+opposite:en: en:non-roasted-cashew-nuts
+
+< en:Cashew nuts
+en: Non-roasted cashew nuts
+fr: Noix de cajou non-grillées
+opposite:en: en:roasted-cashew-nuts
 
 < en:Nuts
 en: Chestnuts
@@ -55817,12 +55827,11 @@ opposite:en: en:shelled-hazelnuts-with-skin
 < en:Shelled hazelnuts
 en: Raw hazelnuts, Unroasted hazelnuts
 fr: Noisettes décortiquées crues
-bulk_proxy_category:en: en:raw-hazelnuts
+bulk_code:en: 1500400
 expected_ingredients:en: en:hazelnut
 opposite:en: en:roasted-hazelnuts
 agribalyse_proxy_food_code:en: 15004
 agribalyse_proxy_food_name:en: Hazelnut
-sales_format:en: package, weight
 
 < en:Hazelnuts
 < en:Roasted nuts
@@ -56443,13 +56452,12 @@ ru: ядра грецкого ореха
 sv: valnötskärnor
 zh: 带壳核桃
 agribalyse_food_code:en: 15005
-bulk_proxy_category:en: en:walnut-kernels
+bulk_code:en: 1500500
 ciqual_food_code:en: 15005
 ciqual_food_name:en: Walnut, dried, husked
 ciqual_food_name:fr: Noix, séchée, cerneaux
 expected_ingredients:en: en:walnut
 opposite:en: en:fresh-walnuts
-sales_format:en: package, weight
 wco_hs_code:en: 0802.32
 wco_hs_heading:en: 08.02
 
@@ -62172,11 +62180,10 @@ hr: Müsli na bircher
 lt: Musli dribsniai
 nl: Mueslis (Bircher), Birecher Mueslis
 agribalyse_food_code:en: 32128
-bulk_proxy_category:en: en:bircher-style-mueslis
+bulk_code:en: 3212800
 ciqual_food_code:en: 32128
 ciqual_food_name:en: Muesli, flakes (Bircher-style)
 ciqual_food_name:fr: Muesli floconneux ou de type traditionnel
-sales_format:en: package, weight
 
 # Bircher-style muesli
 
