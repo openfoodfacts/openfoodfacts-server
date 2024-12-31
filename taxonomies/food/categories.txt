@@ -55445,6 +55445,7 @@ hr: Bademi na žaru
 it: Mandorle Grigliate
 lt: Grilinti migdolai
 nl: Gegrilde amandelen
+bulk_code:en: 1504201
 agribalyse_proxy_food_code:en: 15042
 agribalyse_proxy_food_name:en: Almond, grilled, salted
 opposite:en: en:almonds(unroasted)
@@ -55490,6 +55491,12 @@ en: Almonds(unsalted), Unsalted almonds
 fr: Amandes non-salées
 nl: Amandelen(ongezouten), Ongezouten amandelen
 opposite:en: en:almonds(salted)
+
+< en:Almonds(roasted)
+< en:Almonds(unsalted)
+en: Almonds(roasted and unsalted)
+fr: Amandes grillées et non-salées
+bulk_code:en: 1504201
 
 < en:Almonds(roasted)
 < en:Salted almonds
@@ -69730,6 +69737,7 @@ lt: Džiovinti obuoliai
 nl: Gedroogde appels
 ru: Яблоки сушёные, сушёные яблоки
 agribalyse_food_code:en: 13111
+bulk_code:en: 1311100s
 ciqual_food_code:en: 13111
 ciqual_food_name:en: Apple, dried
 ciqual_food_name:fr: Pomme, sèche
@@ -102945,6 +102953,12 @@ es: Semillas de calabaza sin cáscara tostadas, Pipas de calabaza sin cáscara t
 fr: Graines de courge décortiquées grillées
 hr: Pečene oljuštene sjemenke bundeve
 nl: Geroosterde gepelde pompoenpitten
+
+< en:Roasted shelled pumpkin seeds
+en: Pumpkin seeds(non-roasted/shelled/unsalted), Non-roasted unsalted shelled pumpkin seeds
+fr: Graines de courge(non-grillées/non-salées/décortiquées)
+nl: Pompoenpitten(gepeld/ongeroosterd/ongezouten)
+bulk_code:en: 1502801
 
 < en:Seeds
 en: Cucurbitacea seeds
