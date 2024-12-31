@@ -1804,7 +1804,7 @@ msgstr "Υπάρχουν Εξερευνητές από %dχώρες και πρ�
 
 msgctxt "points_country"
 msgid "%s has %d Explorers and %d Ambassadors."
-msgstr ""
+msgstr "Η χώρα %s έχει %d Εξερευνητές και %d Πρεσβευτές."
 
 msgctxt "points_ranking"
 msgid "Ranking"
@@ -1816,7 +1816,7 @@ msgstr "Κατάταξη συντελεστών και χωρών"
 
 msgctxt "points_user"
 msgid "%s is an Explorer for %d countries and an Ambassador for %d countries."
-msgstr "Ο %s είναι Explorer για %d χώρες και Ambassador για %d χώρες."
+msgstr "Ο χρήστης %s είναι Εξερευνητής για %d χώρες και Πρεσβευτής για %d χώρες."
 
 msgctxt "previous"
 msgid "Previous"
@@ -1828,19 +1828,19 @@ msgstr "Προσθέστε ένα θρεπτικό συστατικό"
 
 msgctxt "product_added"
 msgid "Product added on"
-msgstr "Προϊόν προστέθηκε το"
+msgstr "Το προϊόν προστέθηκε στις"
 
 msgctxt "product_changes_saved"
 msgid "Changes saved."
-msgstr "Οι αλλαγές αποθηκεύτηκαν"
+msgstr "Οι αλλαγές αποθηκεύτηκαν."
 
 msgctxt "product_edit_you_contributed"
 msgid "You just helped to improve the world largest open data database."
-msgstr ""
+msgstr "Μόλις βοηθήσατε να βελτιωθεί η μεγαλύτερη βάση δεδομένων ανοικτών δεδομένων στον κόσμο."
 
 msgctxt "product_edit_thank_you"
 msgid "Thank you so much for joining us in our journey to data transparency!"
-msgstr ""
+msgstr "Σας ευχαριστούμε πολύ που συμμετέχετε στο ταξίδι μας προς τη διαφάνεια δεδομένων!"
 
 msgctxt "product_characteristics"
 msgid "Product characteristics"
@@ -1848,11 +1848,11 @@ msgstr "Χαρακτηριστικά του προϊόντος"
 
 msgctxt "product_created"
 msgid "Product created"
-msgstr ""
+msgstr "Το προϊόν δημιουργήθηκε"
 
 msgctxt "product_description"
 msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
-msgstr ""
+msgstr "Συστατικά, αλλεργιογόνα, πρόσθετα, διατροφικά στοιχεία, ετικέτες, προέλευση των συστατικών και πληροφορίες για το προϊόν %s"
 
 msgctxt "product_image"
 msgid "Product picture"
@@ -1860,15 +1860,15 @@ msgstr "Φωτογραφία του προϊόντος"
 
 msgctxt "product_image_with_barcode"
 msgid "Picture with barcode:"
-msgstr "Εικόνα προϊόντος με barcode"
+msgstr "Εικόνα προϊόντος με γραμμωτό κώδικα:"
 
 msgctxt "product_js_current_image"
 msgid "Current image:"
-msgstr "Παρούσα εικόνα:"
+msgstr "Τρέχουσα εικόνα:"
 
 msgctxt "product_js_deleting_images"
 msgid "Deleting images"
-msgstr ""
+msgstr "Διαγραφή εικόνων"
 
 msgctxt "product_js_extract_ingredients"
 msgid "Extract the ingredients from the picture"
@@ -1876,11 +1876,11 @@ msgstr "Εξάγετε τα συστατικά από την εικόνα"
 
 msgctxt "product_js_extracted_ingredients_nok"
 msgid "Ingredients text could not be extracted. Try with a sharper image, with higher resolution or a better framing of the text."
-msgstr "Δεν ήταν δυνατόν να εξαχθεί το κείμενο των συστατικών. Παρακαλούμε ξαναπροσπαθήστε με μια πιο καθαρή εικόνα, καλύτερη ανάλυση ή καλύτερη διαμόρφωση κειμένου ."
+msgstr "Δεν ήταν δυνατόν να εξαχθεί το κείμενο των συστατικών. Παρακαλούμε ξαναπροσπαθήστε με μια πιο καθαρή εικόνα, καλύτερη ανάλυση ή καλύτερη εστίαση κειμένου."
 
 msgctxt "product_js_extracted_ingredients_ok"
 msgid "Ingredients text has been extracted. Text recognition is not perfect, so please check the text below and correct errors if needed."
-msgstr "Το κείμενο των συστατικών έχει εξαχθει. Η αναγνωριση του κειμένου δεν είναι τέλεια, παρακαλούμε ελεγξτε το κείμενο και διορθώστε ενδεχόμενα σφάλματα αν αυτό είναι απαραίτητο."
+msgstr "Το κείμενο των συστατικών έχει εξαχθεί. Η αναγνώριση του κειμένου δεν είναι τέλεια, παρακαλούμε ελέγξτε το κείμενο και διορθώστε ενδεχόμενα σφάλματα αν είναι απαραίτητο."
 
 msgctxt "product_js_extracting_ingredients"
 msgid "Extracting ingredients"
@@ -1888,7 +1888,7 @@ msgstr "Εξαγωγή συστατικών σε εξέλιξη"
 
 msgctxt "product_js_image_normalize"
 msgid "Normalize colors"
-msgstr "Εξισορρόπηση χρώματος"
+msgstr "Κανονικοποίηση χρωμάτων"
 
 msgctxt "product_js_image_open_full_size_image"
 msgid "Open the picture in original size in a new windows"
@@ -1900,7 +1900,7 @@ msgstr "Η εικόνα ελήφθη"
 
 msgctxt "product_js_image_rotate_and_crop"
 msgid "Rotate the image if necessary, then click and drag to select the interesting zone:"
-msgstr "Περιστρέψτε την εικόνα αν είναι απαραίτητο, εν συνεχεία κλικαρετε και σύρετε για να επιλέξετε την περιοχή που σας ενδιαφέρει"
+msgstr "Περιστρέψτε την εικόνα αν είναι απαραίτητο, μετά κάντε κλικ και σύρετε για να επιλέξετε την περιοχή που σας ενδιαφέρει:"
 
 msgctxt "product_js_image_rotate_left"
 msgid "Rotate left"
@@ -1928,27 +1928,27 @@ msgstr "Σφάλμα κατά την αποστολή της εικόνας"
 
 msgctxt "product_js_image_white_magic"
 msgid "Photo on white background: try to remove the background"
-msgstr "Φωτογραφία σε λευκό background:Προσπαθήστε να αφαιρέσετε το background"
+msgstr "Φωτογραφία σε λευκό παρασκήνιο: Προσπαθήστε να αφαιρέσετε το παρασκήνιο"
 
 msgctxt "product_js_images_delete_error"
 msgid "Errors while deleting images"
-msgstr ""
+msgstr "Σφάλματα κατά τη διαγραφή εικόνων"
 
 msgctxt "product_js_images_deleted"
 msgid "Images deleted"
-msgstr ""
+msgstr "Οι εικόνες διαγράφηκαν"
 
 msgctxt "product_js_images_move_error"
 msgid "Errors while moving images"
-msgstr ""
+msgstr "Σφάλματα κατά τη μετακίνηση εικόνων"
 
 msgctxt "product_js_images_moved"
 msgid "Images moved"
-msgstr ""
+msgstr "Οι εικόνες μετακινήθηκαν"
 
 msgctxt "product_js_moving_images"
 msgid "Moving images"
-msgstr ""
+msgstr "Μετακίνηση εικόνων"
 
 msgctxt "product_js_upload_image"
 msgid "Add a picture"
@@ -1956,15 +1956,15 @@ msgstr "Προσθέστε μια εικόνα"
 
 msgctxt "product_js_upload_image_note"
 msgid "→ With Chrome, Firefox and Safari, you can select multiple pictures (product, ingredients, nutrition facts etc.) by clicking them while holding the Ctrl key pressed to add them all in one shot."
-msgstr ""
+msgstr "→ Με Chrome, Firefox και Safari, μπορείτε να επιλέξετε πολλές φωτογραφίες (προϊόν, συστατικά, στοιχεία διατροφής κ.λπ.) κάνοντας κλικ σε αυτές ενώ κρατάτε πατημένο το πλήκτρο Ctrl για να τις προσθέσετε όλες σε μία λήψη."
 
 msgctxt "product_js_uploading_image"
 msgid "Uploading image"
-msgstr "Η εικόνα αποστέλλεται"
+msgstr "Μεταφόρτωση εικόνας"
 
 msgctxt "product_last_edited"
 msgid "Last edit of product page on"
-msgstr ""
+msgstr "Τελευταία επεξεργασία της σελίδας προϊόντος στις"
 
 msgctxt "product_name"
 msgid "Product name"
@@ -1972,19 +1972,19 @@ msgstr "Όνομα προϊόντος"
 
 msgctxt "product_name_example"
 msgid "Kinder Bueno White"
-msgstr ""
+msgstr "Kinder Bueno Λευκό"
 
 msgctxt "products"
 msgid "products"
-msgstr "προιοντα"
+msgstr "προϊόντα"
 
 msgctxt "products_stats"
 msgid "Evolution of the number of products on <<site_name>>"
-msgstr "Εξέλιξη του αριθμού των προϊόντων στο <<site_name>>"
+msgstr "Η εξέλιξη του αριθμού των προϊόντων στο <<site_name>>"
 
 msgctxt "products_stats_completed_t"
 msgid "Products with complete information"
-msgstr "Προϊόντα με πλήρως συμπληρωμένη πληροφορία"
+msgstr "Προϊόντα με πλήρως συμπληρωμένες πληροφορίες"
 
 msgctxt "products_stats_created_t"
 msgid "Products"
@@ -2000,7 +2000,7 @@ msgstr "Προϊόντα που προσθέσατε ή επεξεργαστήκ
 
 msgctxt "purchase_places"
 msgid "City, state and country where purchased"
-msgstr "Πόλη και κράτος αγοράς"
+msgstr "Πόλη, πολιτεία και κράτος αγοράς"
 
 msgctxt "purchase_places_note"
 msgid "Indicate where you bought or saw the product (at least the country)"
@@ -2032,15 +2032,15 @@ msgstr "Ποσότητα"
 
 msgctxt "quantity_example"
 msgid "2 l, 250 g, 1 kg, 25 cl, 6 fl oz, 1 pound"
-msgstr "2 l, 250 g, 1 kg, 25 cl, 250 ml, 6 fl oz"
+msgstr "2 l, 250 g, 1 kg, 25 cl, 6 fl oz, 1 pound"
 
 msgctxt "remember_me"
 msgid "Remember me"
-msgstr "Θυμήσου με"
+msgstr "Να με θυμάσαι"
 
 msgctxt "remember_purchase_places_and_stores"
 msgid "Remember the place of purchase and store for the next product adds"
-msgstr "Θυμήσου τον τόπο αγοράς και αποθήκευσε για τις επόμενες προσθήκες προϊόντων"
+msgstr "Θυμηθείτε τον τόπο αγοράς και αποθηκεύστε για τις επόμενες προσθήκες προϊόντων"
 
 msgctxt "reset_password"
 msgid "Reset password"
@@ -2056,27 +2056,35 @@ msgid "Hello <NAME>,\n\n"
 "See you soon,\n\n"
 "Stephane\n"
 "https://openfoodfacts.org\n"
-msgstr ""
+msgstr "Γεια σας <NAME>,\n\n"
+"Ζητήσατε την επαναφορά του κωδικού πρόσβασής σας στο https://openfoodfacts.org\n\n"
+"για το όνομα χρήστη: <USERID>\n\n"
+"Για να συνεχίσετε το επαναφορά κωδικού πρόσβασης, κάντε κλικ στον παρακάτω σύνδεσμο.\n"
+"Εάν δεν ζητήσατε την επαναφορά του κωδικού πρόσβασης, μπορείτε να αγνοήσετε αυτό το μήνυμα.\n\n"
+"<RESET_URL>\n\n"
+"Τα λέμε σύντομα,\n\n"
+"Stephane\n"
+"https://openfoodfacts.org\n"
 
 msgctxt "reset_password_email_subject"
 msgid "Reset of your password on <<site_name>>"
-msgstr ""
+msgstr "Επαναφορά κωδικού πρόσβασης στο <<site_name>>"
 
 msgctxt "reset_password_reset"
 msgid "Your password has been changed. You can now log-in with this password."
-msgstr "Ο κωδικός χρήστη έχει αλλάξει. Μπορείτε τώρα να συνδεθείτε με τον νέο κωδικό"
+msgstr "Ο κωδικός πρόσβασής σας έχει αλλάξει. Μπορείτε τώρα να συνδεθείτε με αυτόν τον κωδικό."
 
 msgctxt "reset_password_reset_msg"
 msgid "Enter a new password."
-msgstr "Εισάγετε νέο κωδικό χρήστη."
+msgstr "Εισαγάγετε έναν νέο κωδικό πρόσβασης."
 
 msgctxt "reset_password_send_email"
 msgid "An email with a link to reset your password has been sent to the e-mail address associated with your account."
-msgstr "Ένα email με το link για την ανάκληση του κωδικού χρήστη σας έχει σταλεί στην διεύθυνση ηλεκτρονικού ταχυδρομείου που έχετε συνδέσει σε αυτό το λογαριασμό."
+msgstr "Ένα email με έναν σύνδεσμο για την επαναφορά του κωδικού πρόσβασής σας έχει σταλεί στη διεύθυνση ηλεκτρονικού ταχυδρομείου που σχετίζεται με τον λογαριασμό σας."
 
 msgctxt "reset_password_send_email_msg"
 msgid "If you have forgotten your password, fill-in your username or e-mail address to receive instructions for resetting your password."
-msgstr "Αν έχετε ξεχάσει τον κωδικό χρήστη. συμπληρώστε το όνομα χρήστη ή τη διεύθυνση ηλεκτρονικού ταχυδρομείου προκειμένου να λάβετε οδηγίες ανάκλησης του κωδικού σας."
+msgstr "Αν έχετε ξεχάσει τον κωδικό πρόσβασής σας, συμπληρώστε το όνομα χρήστη ή τη διεύθυνση ηλεκτρονικού ταχυδρομείου σας για να λάβετε οδηγίες για την επαναφορά του κωδικού πρόσβασής σας."
 
 msgctxt "risk_level"
 msgid "Risk"
@@ -2100,7 +2108,7 @@ msgstr "Υψηλός κίνδυνος"
 
 msgctxt "salt_equivalent"
 msgid "salt equivalent"
-msgstr "Ισοδύναμο σε αλάτι"
+msgstr "ισοδύναμο αλατιού"
 
 msgctxt "save"
 msgid "Save"
@@ -2108,11 +2116,11 @@ msgstr "Αποθήκευση"
 
 msgctxt "saved"
 msgid "Saved."
-msgstr "Τα δεδομένα έχουν αποθηκευτεί."
+msgstr "Αποθηκεύτηκε."
 
 msgctxt "saving"
 msgid "Saving."
-msgstr "Τα δεδομένα αποθηκεύονται."
+msgstr "Αποθηκεύεται."
 
 msgctxt "search"
 msgid "Search"
@@ -2136,7 +2144,7 @@ msgstr "Επιλέξτε προϊόντα με συγκεκριμένες μάρ
 
 msgctxt "search_description_opensearch"
 msgid "Product search"
-msgstr ""
+msgstr "Αναζήτηση προϊόντος"
 
 msgctxt "search_does_not_contain"
 msgid "does not contain"
@@ -2144,31 +2152,31 @@ msgstr "δεν περιέχει"
 
 msgctxt "search_download_button"
 msgid "Download"
-msgstr ""
+msgstr "Λήψη"
 
 msgctxt "search_download_choice"
 msgid "Download results"
-msgstr "Κατεβάστε αποτελέσματα"
+msgstr "Λήψη αποτελεσμάτων"
 
 msgctxt "search_download_results"
 msgid "Download results in XLSX or CSV format. Please note that for performance reasons, you can download up to 10.000 results only."
-msgstr ""
+msgstr "Λήψη αποτελεσμάτων σε μορφή XLSX ή CSV. Λάβετε υπόψη ότι για λόγους απόδοσης, μπορείτε να πραγματοποιήσετε λήψη έως και 10.000 αποτελεσμάτων μόνο."
 
 msgctxt "search_download_xlsx"
 msgid "XLSX format"
-msgstr ""
+msgstr "Μορφή XLSX"
 
 msgctxt "search_download_xlsx_description"
 msgid "Excel or LibreOffice"
-msgstr ""
+msgstr "Excel ή LibreOffice"
 
 msgctxt "search_download_csv"
 msgid "CSV format"
-msgstr ""
+msgstr "Μορφή CSV"
 
 msgctxt "search_download_csv_description"
 msgid "Character set: Unicode (UTF-8) - Separator: tabulation (tab)"
-msgstr ""
+msgstr "Σύνολο χαρακτήρων: Unicode (UTF-8) - Διαχωριστικό: tabulation (tab)"
 
 msgctxt "search_edit"
 msgid "Change search criteria"
@@ -2176,11 +2184,11 @@ msgstr "Αλλάξτε κριτήρια αναζήτησης"
 
 msgctxt "search_generate_graph"
 msgid "Generate graph"
-msgstr "Δημιουργησε γραφημα"
+msgstr "Δημιουργία γραφήματος"
 
 msgctxt "search_generate_map"
 msgid "Generate the map"
-msgstr "Δημιουργήστε το χάρτη"
+msgstr "Δημιουργία χάρτη"
 
 msgctxt "search_graph"
 msgid "Graph"
@@ -2188,11 +2196,11 @@ msgstr "Γράφημα"
 
 msgctxt "search_graph_2_axis"
 msgid "Scatter plot"
-msgstr "Γράφημα με 2 άξονες"
+msgstr "Γράφημα διασποράς"
 
 msgctxt "search_graph_blog"
 msgid "<p>→ learn more about <<site_name>> graphs: <a href=\"/graphs-in-3-clicks\">Graphs in 3 clicks</a> (blog).</p>"
-msgstr ""
+msgstr "<p>→ μάθετε περισσότερα για τα γραφήματα του <<site_name>>: <a href=\"/graphs-in-3-clicks\">Γραφήματα σε 3 κλικ</a> (ιστολόγιο).</p>"
 
 msgctxt "search_graph_choice"
 msgid "Results on a graph"
@@ -2201,23 +2209,24 @@ msgstr "Αποτελέσματα σε γράφημα"
 msgctxt "search_graph_instructions"
 msgid "Select what you want to graph on the horizontal axis to obtain a histogram, or select two axis to\n"
 "get a cloud of products (scatter plot)."
-msgstr ""
+msgstr "Επιλέξτε τι θέλετε να έχετε στον οριζόντιο άξονα για να λάβετε ένα ιστόγραμμα ή επιλέξτε δύο άξονες για\n"
+"να λάβετε ένα σύννεφο προϊόντων (γράφημα διασποράς)."
 
 msgctxt "search_graph_link"
 msgid "Permanent link to this graph, shareable by e-mail and on social networks"
-msgstr "Μόνιμος σύνδεσμος σε αυτo τo γράφημα, μπορείτε να τον μοιραστείτε μέσω e-mail και στα κοινωνικά δίκτυα"
+msgstr "Μόνιμος σύνδεσμος σε αυτό το γράφημα, μπορείτε να τον μοιραστείτε μέσω e-mail και στα κοινωνικά δίκτυα"
 
 msgctxt "search_graph_note"
 msgid "The graph will show only products for which displayed values are known."
-msgstr "Το γράφημα αυτό θα δείξει μόνο προϊόντα για τα οποία οι αντιπροσωπευόμενες τιμές είναι γνωστές"
+msgstr "Το γράφημα θα εμφανίζει μόνο προϊόντα για τα οποία είναι γνωστές οι εμφανιζόμενες τιμές."
 
 msgctxt "search_graph_title"
 msgid "Display results on a graph"
-msgstr "Δείξε αποτελέσματα με γράφημα"
+msgstr "Εμφάνιση αποτελεσμάτων σε γράφημα"
 
 msgctxt "search_graph_warning"
 msgid "Note: this is a user generated graph. The title, represented products and axis of visualization have been chosen by the author of the graph."
-msgstr "Σημείωση: αυτό είναι είναι ένα γράφημα φτιαγμένο από  χρήστη. Ο τίτλος, τα παρουσιαζόμενα προϊόντα και η παρουσίαση των αξόνων έχουν επιλεχθεί από το δημιουργό του γραφήματος."
+msgstr "Σημείωση: αυτό είναι ένα γράφημα που δημιουργήθηκε από χρήστη. Ο τίτλος, τα εμφανιζόμενα προϊόντα και ο άξονας οπτικοποίησης έχουν επιλεγεί από τον δημιουργό του γραφήματος."
 
 msgctxt "search_indifferent"
 msgid "Indifferent"
@@ -2245,15 +2254,15 @@ msgstr "Αποτελέσματα στο χάρτη"
 
 msgctxt "search_map_link"
 msgid "Permanent link to this map, shareable by e-mail and on social networks"
-msgstr "Μόνιμος σύνδεσμος σε αυτo το χάρτη, μπορείτε να τον μοιραστείτε μέσω e-mail και στα κοινωνικά δίκτυα"
+msgstr "Μόνιμος σύνδεσμος σε αυτόν τον χάρτη, μπορείτε να τον μοιραστείτε μέσω e-mail και στα κοινωνικά δίκτυα"
 
 msgctxt "search_map_note"
 msgid "The map will show only products for which the production place is known."
-msgstr "Ο χάρτης θα δείξει μονο προϊόντα για τα οποία ο τόπος παραγωγής είναι γνωστός."
+msgstr "Ο χάρτης θα δείξει μόνο προϊόντα για τα οποία ο τόπος παραγωγής είναι γνωστός."
 
 msgctxt "search_map_title"
 msgid "Display results on a map"
-msgstr "Δείξε αποτελέσματα πάνω σε χάρτη"
+msgstr "Εμφάνιση αποτελεσμάτων σε χάρτη"
 
 msgctxt "search_nutriment"
 msgid "choose a nutriment..."
@@ -2281,7 +2290,7 @@ msgstr "Αναζήτηση αποτελεσμάτων"
 
 msgctxt "search_series"
 msgid "Use a different color for the following products:"
-msgstr "Χρησιμοποίησε διαφορετικό χρώμα για τα ακόλουθα προϊόντα:"
+msgstr "Χρησιμοποιήστε διαφορετικό χρώμα για τα παρακάτω προϊόντα:"
 
 msgctxt "search_series_default"
 msgid "Other products"
@@ -2289,15 +2298,15 @@ msgstr "Άλλα προϊόντα"
 
 msgctxt "search_series_fairtrade"
 msgid "Fair trade"
-msgstr "Δικαίου εμπορίου"
+msgstr "Δίκαιο εμπόριο"
 
 msgctxt "search_series_fairtrade_label"
 msgid "fair-trade"
-msgstr "Δικαίου-εμπορίου"
+msgstr "δίκαιο-εμπόριο"
 
 msgctxt "search_series_nutrition_grades"
 msgid "Use nutrition grades colors"
-msgstr ""
+msgstr "Χρήση χρωμάτων διατροφικών βαθμών"
 
 msgctxt "search_series_organic"
 msgid "Organic"
@@ -2305,11 +2314,11 @@ msgstr "Βιολογικό/Οργανικό"
 
 msgctxt "search_series_organic_label"
 msgid "organic"
-msgstr "Βιολογικό/Οργανικό"
+msgstr "βιολογικό/οργανικό"
 
 msgctxt "search_series_with_sweeteners"
 msgid "With sweeteners"
-msgstr "Με προσθήκη γλυκαντικών"
+msgstr "Με γλυκαντικά"
 
 msgctxt "search_tag"
 msgid "choose a criterion..."
@@ -2329,7 +2338,7 @@ msgstr "Αναζητήστε λέξεις στο όνομα του προϊόν�
 
 msgctxt "search_title"
 msgid "Search a product, brand, ingredient, nutriment etc."
-msgstr "Αναζητήστε ένα προϊόν, συστατικό, θρεπτικό συστατικό κλπ"
+msgstr "Αναζητήστε ένα προϊόν, συστατικό, θρεπτικό συστατικό κλπ."
 
 msgctxt "search_title_graph"
 msgid "Results graph"
@@ -2357,11 +2366,11 @@ msgstr "Χωρίς"
 
 msgctxt "see_product_page"
 msgid "See the product page"
-msgstr "Βλπ τη σελίδα του προϊόντος"
+msgstr "Δείτε τη σελίδα του προϊόντος"
 
 msgctxt "re_edit_product_page"
 msgid "Edit the product again"
-msgstr ""
+msgstr "Επεξεργαστείτε ξανά το προϊόν"
 
 msgctxt "select_country"
 msgid "Country"
@@ -2373,15 +2382,15 @@ msgstr "Γλώσσα"
 
 msgctxt "send_image"
 msgid "Send a picture..."
-msgstr "Ανεβάστε μια εικόνα..."
+msgstr "Στείλτε μια εικόνα..."
 
 msgctxt "send_image_error"
 msgid "Upload error"
-msgstr "Σφάλμα κατά την αποστολή"
+msgstr "Σφάλμα μεταφόρτωσης"
 
 msgctxt "sending_image"
 msgid "Sending image"
-msgstr "Τρέχουσα εικόνα σε αποστολή"
+msgstr "Αποστέλλεται εικόνα"
 
 msgctxt "serving_size"
 msgid "Serving size"
@@ -2389,19 +2398,19 @@ msgstr "Μέγεθος μερίδας"
 
 msgctxt "serving_size_prepared"
 msgid "Prepared serving size"
-msgstr ""
+msgstr "Μέγεθος προετοιμασμένης μερίδας"
 
 msgctxt "serving_size_example"
 msgid "60 g, 12 oz, 20cl, 2 fl oz"
-msgstr "30 g, 2 μπισκότα 60 gr, 12 oz, 20cl, 2 fl oz"
+msgstr "60 g, 12 oz, 20cl, 2 fl oz"
 
 msgctxt "serving_size_note"
 msgid "If the nutrition facts table contains values for the prepared product, indicate the total serving size of the prepared product (including added water or milk)."
-msgstr ""
+msgstr "Εάν ο πίνακας διατροφικών στοιχείων περιέχει τιμές για το παρασκευασμένο προϊόν, αναφέρετε το συνολικό μέγεθος μερίδας του παρασκευασμένου προϊόντος (συμπεριλαμβανομένου του προστιθέμενου νερού ή γάλακτος)."
 
 msgctxt "serving_too_small_for_nutrition_analysis"
 msgid "Serving size is too small (5 g / 5 ml or less) to calculate 100 g / 100 ml values and perform any further nutritional analysis"
-msgstr ""
+msgstr "Το μέγεθος μερίδας είναι πολύ μικρό (5 g / 5 ml ή λιγότερο) για να υπολογιστούν οι τιμές 100 g / 100 ml και να πραγματοποιηθεί οποιαδήποτε περαιτέρω διατροφική ανάλυση"
 
 msgctxt "session_title"
 msgid "Sign-in"
@@ -2413,7 +2422,7 @@ msgstr "Κοινοποίηση"
 
 msgctxt "show_category_stats"
 msgid "Show detailed stats"
-msgstr "Δείξε λεπτομερή στατιστικά"
+msgstr "Εμφάνιση αναλυτικών στατιστικών"
 
 msgctxt "show_category_stats_details"
 msgid "standard deviation, minimum, maximum, 10th and 90th percentiles"
@@ -2421,11 +2430,11 @@ msgstr "τυπική απόκλιση, ελάχιστο, μέγιστο, 10ο κ
 
 msgctxt "signin_before_submit"
 msgid "If you already have an account on <SITE>, please sign-in before filling this form."
-msgstr "Εαν έχετε ήδη ένα λογαριασμό στο <SITE>, παρακαλώ εγγραφείτε πριν συμπληρώσετε αυτή τη φόρμα."
+msgstr "Εάν έχετε ήδη ένα λογαριασμό στο <SITE>, παρακαλώ συνδεθείτε πριν συμπληρώσετε αυτή τη φόρμα."
 
 msgctxt "signout"
 msgid "Sign-out"
-msgstr "Διαγραφή"
+msgstr "Αποσύνδεση"
 
 msgctxt "sort_by"
 msgid "Sort by"
@@ -2433,7 +2442,7 @@ msgstr "Ταξινομήστε ανά"
 
 msgctxt "sort_completeness"
 msgid "Completeness"
-msgstr ""
+msgstr "Πληρότητα"
 
 msgctxt "sort_created_t"
 msgid "Add date"
@@ -2485,19 +2494,19 @@ msgstr "καταστημα"
 
 msgctxt "stores_tagsinput"
 msgid "add a store"
-msgstr "προσθέστε ένα καταστημα"
+msgstr "προσθήκη καταστήματος"
 
 msgctxt "stores_without_products"
 msgid "Products not bought at %s"
-msgstr ""
+msgstr "Προϊόντα που δεν αγοράζονται σε %s"
 
 msgctxt "subscribe"
 msgid "Subscribe"
-msgstr "Εγγραφείτε"
+msgstr "Εγγραφή"
 
 msgctxt "tag_belongs_to"
 msgid "Belongs to:"
-msgstr "Ανήκει σε :"
+msgstr "Ανήκει σε:"
 
 msgctxt "tag_contains"
 msgid "Contains:"
@@ -2505,7 +2514,7 @@ msgstr "Περιέχει :"
 
 msgctxt "tag_weblinks"
 msgid "Weblinks"
-msgstr ""
+msgstr "Σύνδεσμοι"
 
 msgctxt "tagstable_filtered"
 msgid "out of _MAX_"
@@ -2522,11 +2531,11 @@ msgstr "Ίχνη"
 
 msgctxt "traces_example"
 msgid "Milk, Gluten, Nuts"
-msgstr "Γάλα, Γλουτένη, Καρποί"
+msgstr "Γάλα, Γλουτένη, Ξηροί καρποί"
 
 msgctxt "traces_note"
 msgid "Indicate ingredients from mentions like \"May contain traces of\", \"Made in a factory that also uses\" etc."
-msgstr "Παρακαλούμε υποδείξτε συστατικά με ενδείξεις όπως \"Μπορεί να περιέχει ίχνη από\", \"Παρασκευάζεται σε εργοστάσιο που επίσης γίνεται επεξεργασία\" κλπ"
+msgstr "Παρακαλούμε υποδείξτε συστατικά με ενδείξεις όπως \"Μπορεί να περιέχει ίχνη από\", \"Παρασκευάζεται σε εργοστάσιο που επίσης γίνεται επεξεργασία\" κλπ."
 
 msgctxt "traces_p"
 msgid "traces"
@@ -2534,11 +2543,11 @@ msgstr "ιχνη"
 
 msgctxt "traces_s"
 msgid "trace"
-msgstr "ιχνος"
+msgstr "ίχνος"
 
 msgctxt "twitter"
 msgid "Twitter username (optional)"
-msgstr "Twitter username"
+msgstr "Όνομα χρήστη Χ (προαιρετικό)"
 
 msgctxt "unknown"
 msgid "Unknown"
@@ -2554,7 +2563,7 @@ msgstr "άγνωστο θρεπτικό συστατικό"
 
 msgctxt "unsubscribe"
 msgid "Unsubscribe"
-msgstr "Διαγραφείτε"
+msgstr "Κατάργηση εγγραφής"
 
 msgctxt "unsubscribe_info"
 msgid "You can unsubscribe from the lists at any time."
@@ -2582,7 +2591,7 @@ msgstr "Προϊόντα που προστέθηκαν από το χρήστη 
 
 msgctxt "users_add_without_products"
 msgid "Products that were not added by the user %s"
-msgstr ""
+msgstr "Προϊόντα που δεν προστέθηκαν από τον χρήστη %s"
 
 msgctxt "users_edit_products"
 msgid "Products that were edited by the user %s"
@@ -2590,11 +2599,11 @@ msgstr "Προϊόντα που επεξεργάστηκαν από το χρή�
 
 msgctxt "users_edit_without_products"
 msgid "Products that were not edited by the user %s"
-msgstr ""
+msgstr "Προϊόντα που δεν επεξεργάστηκαν από τον χρήστη %s"
 
 msgctxt "users_p"
 msgid "contributors"
-msgstr "χρηστες"
+msgstr "συνεισφέροντες"
 
 msgctxt "users_products"
 msgid "Products added by %s"
@@ -2602,23 +2611,23 @@ msgstr "Προϊόντα που προστέθηκαν από %s"
 
 msgctxt "users_s"
 msgid "contributor"
-msgstr "συντελεστης"
+msgstr "συνεισφέρων"
 
 msgctxt "users_without_products"
 msgid "Products not added by %s"
-msgstr ""
+msgstr "Προϊόντα που δεν προστέθηκαν από %s"
 
 msgctxt "video_tutorials"
 msgid "Video Tutorials"
-msgstr ""
+msgstr "Εκπαιδευτικά Βίντεο"
 
 msgctxt "view"
 msgid "view"
-msgstr "Βλέπε"
+msgstr "προβολή"
 
 msgctxt "view_this_revision"
 msgid "View this revision"
-msgstr ""
+msgstr "Δείτε αυτή την αναθεώρηση"
 
 msgctxt "view_list_for_products_from_the_entire_world"
 msgid "View the list for matching products from the entire world"
@@ -4539,7 +4548,7 @@ msgstr ""
 
 msgctxt "attribute_labels_fair_trade_name"
 msgid "Fair trade"
-msgstr "Δικαίου εμπορίου"
+msgstr "Δίκαιο εμπόριο"
 
 msgctxt "attribute_labels_fair_trade_yes_title"
 msgid "Fair trade product"
