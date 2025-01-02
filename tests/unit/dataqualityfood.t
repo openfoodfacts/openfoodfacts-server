@@ -1983,4 +1983,38 @@ ok(
 	'insoluble-fiber_100g larger than fiber_100g'
 ) or diag Dumper $product_ref;
 
+# Test case for sum fiber subnutriment comparison with fiber (0.01 difference should be fine)
+$product_ref = {
+	nutriments => {
+		fiber_100g => 3.57,
+		'soluble-fiber_100g' => 1.79,
+		'insoluble-fiber_100g' => 1.79,
+	},
+	data_quality_errors_tags => [],
+};
+
+ProductOpener::DataQuality::check_quality($product_ref);
+
+ok(
+	!has_tag($product_ref, 'data_quality_errors', 'en:nutrition-soluble-fiber-plus-insoluble-fiber-greater-than-fiber'),
+	'insoluble-fiber_100g larger than fiber_100g'
+) or diag Dumper $product_ref;
+
+# Test case for sum fiber subnutriment comparison with fiber (0.02 difference should be raise error)
+$product_ref = {
+	nutriments => {
+		fiber_100g => 3.57,
+		'soluble-fiber_100g' => 1.79,
+		'insoluble-fiber_100g' => 1.80,
+	},
+	data_quality_errors_tags => [],
+};
+
+ProductOpener::DataQuality::check_quality($product_ref);
+
+ok(
+	has_tag($product_ref, 'data_quality_errors', 'en:nutrition-soluble-fiber-plus-insoluble-fiber-greater-than-fiber'),
+	'insoluble-fiber_100g larger than fiber_100g'
+) or diag Dumper $product_ref;
+
 done_testing();

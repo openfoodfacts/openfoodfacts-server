@@ -1341,7 +1341,9 @@ sub check_nutrition_data ($product_ref) {
 
 			my $total_fiber = $soluble_fiber + $insoluble_fiber;
 
-			if ($total_fiber > $product_ref->{nutriments}{fiber_100g} + 0.001) {
+			# increased threshold from 0.001 to 0.01 (see issue #10491)
+			# make sure that floats stop after 2 decimals
+			if (sprintf("%.2f", $total_fiber) > sprintf("%.2f", $product_ref->{nutriments}{fiber_100g} + 0.01)) {
 				push @{$product_ref->{data_quality_errors_tags}},
 					"en:nutrition-soluble-fiber-plus-insoluble-fiber-greater-than-fiber";
 			}
