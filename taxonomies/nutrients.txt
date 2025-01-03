@@ -2800,7 +2800,7 @@ eu: proteina
 fa: ﭘﺮﻭﺗﺌ‍ین
 fi: Proteiinit, Proteiini
 fo: Protein
-fr: Protéines, Protéine, Protéine brute
+fr: Protéines, Protéine
 fy: proteïne
 ga: Próitéin
 gl: Proteína
@@ -3482,8 +3482,8 @@ wikidata:en: Q306135
 wikipedia:en: https://en.wikipedia.org/wiki/Beta-Carotene
 
 zz: vitamin-d
-xx: Vitamin D, D, D3, vitamin D3
-en: Vitamin D, D
+xx: Vitamin D (D3), Vitamin D, D, Vitamin D3, D3
+en: Vitamin D (D3), Vitamin D, D, Vitamin D3, D3
 af: Vitamien D
 ar: فيتامين دي
 az: D vitamini
@@ -6768,4 +6768,228 @@ es: L-Glutatión, Glutationa
 unit:en: mg
 wikidata:en: Q116907
 wikipedia:en: https://en.wikipedia.org/wiki/Glutathione
+
+# following nutrients are for pet food 
+# https://eur-lex.europa.eu/eli/reg/2009/767/2018-12-26
+# I- analytical constituents
+zz: crude fat
+xx: crude fat
+en: crude fat
+bg: Сурови мазнини
+cs: hrubý tuk
+da: råfedt
+de: Rohfett
+el: ακατέργαστες λιπαρές ουσίες
+es: Grasa bruta
+et: toorrasv
+fi: raakarasva
+fr: matières grasses brutes
+hr: sirova mast, sirove masti
+hu: nyerszsír
+it: grassi grezzi
+lt: žali riebalai
+lv: koptauki
+mt: ix-xaħam mhux raffinat
+nl: ruw vet
+pl: tłuszcz surowy
+pt: matéria gorda bruta
+ro: grăsimi brute
+sk: tuk
+sl: surove maščobe
+sv: råfett
+unit:en: %
+
+zz: crude protein
+xx: crude protein
+en: crude protein
+bg: Суров протеин
+cs: hrubý protein
+da: råprotein
+de: Rohprotein
+el: ακατέργαστη πρωτεΐνη
+es: Proteína bruta
+et: toorvalk
+fi: raakavalkuainen
+fr: protéine brute
+hr: sirove bjelančevine
+hu: nyersfehérje
+it: proteina grezza
+lt: žali baltymai
+lv: kopproteīns
+mt: il-proteini mhux raffinati
+nl: ruw eiwit
+pl: białko surowe
+pt: proteína bruta
+ro: proteine brute
+sk: dusíkaté látky
+sl: surove beljakovine
+sv: råprotein
+unit:en: %
+
+zz: crude ash
+xx: crude ash
+en: crude ash
+bg: Сурова пепел
+cs: hrubý popel
+da: råaske
+de: Rohasche
+el: ακατέργαστη τέφρα
+es: Ceniza bruta
+et: toortuhk
+fi: tuhka
+fr: Cendres brutes
+hr: sirovi pepeo
+hu: nyershamu
+it: ceneri grezze
+lt: žali pelenai
+lv: koppelni
+mt: l-irmied mhux raffinat
+nl: ruwe as
+pl: popiół surowy
+pt: cinza bruta
+ro: cenușă brută
+sk: popol
+sl: surovi pepel
+sv: råaska
+unit:en: %
+
+zz: crude fibre
+xx: crude fibre
+en: crude fibre
+bg: Сурови влакнини
+cs: hrubá vláknina
+da: træstof
+de: Rohfaser
+el: ακατέργαστες ινώδεις ουσίες
+es: Fibra bruta
+et: toorkiud
+fi: raakakuitu
+fr: Cellulose brute
+hr: sirova vlaknina
+hu: nyersrost
+it: fibra grezza
+lt: žalia ląsteliena
+lv: kopšķiedra
+mt: il-fibri mhux maħdumin
+nl: ruwe celstof
+pl: włókno surowe
+pt: fibra bruta
+ro: fibre brute
+sk: hrubá vláknina
+sl: surove vlaknine
+sv: växttråd
+unit:en: %
+
+zz: moisture
+xx: moisture
+en: moisture
+bg: Влага
+cs: vlhkost
+da: vandindhold
+de: Feuchtigkeit
+el: υγρασία
+es: Humedad
+et: niiskus
+fi: kosteus
+fr: humidité
+hr: vlaga
+hu: nedvesség
+it: umidità
+lt: drėgnis
+lv: mitrums
+mt: l-umdità
+nl: vocht
+pl: wilgotność
+pt: humidade
+ro: umiditate
+sk: vlhkosť
+sl: vlaga
+sv: vatten
+unit:en: %
+
+# II- nutritional additives
+zz: iron II sulphate monohydrate
+xx: iron II sulphate monohydrate
+en: iron II sulphate monohydrate
+es: sulfato ferroso monohidratado
+fr: sulfate de fer II monohydraté, sulfate ferreux monohydraté, fer sulfureux monohydraté
+it: solfato ferroso monoidrato
+unit:en: mg
+
+zz: potassium iodide
+xx: potassium iodide
+en: potassium iodide
+es: yoduro de potasio
+fr: iodure de potassium
+it: ioduro di potassio
+unit:en: mg
+
+zz: copper II sulphate pentahydrate
+xx: copper II sulphate pentahydrate
+en: copper II sulphate pentahydrate
+es: sulfato de cobre II pentahidratado, sulfato de cobre pentahidratado
+fr: sulfate de cuivre II pentahydraté, sulfate de cuivre pentahydraté, sulfate cuivrique pentahydraté
+it: solfato di rarne pentaidrato
+nl: koper II sulfaatpentahydraat
+pt: sulfato de cobre II penta-hidratado
+unit:en: mg
+
+zz: manganous sulphate monohydrate
+xx: manganous sulphate monohydrate
+en: manganous sulphate monohydrate
+es: sulfato manganoso monohidratado
+fr: sulfate de manganèse monohydraté
+hr: mangan sulfat monohidrat
+it: solfato manganoso monoidrato
+nl: mangaansulfaat-monohydraat
+pt: sulfato de manganês II mono-hidratodo
+unit:en: mg
+
+zz: zinc sulphate monohydrate
+xx: zinc sulphate monohydrate
+en: zinc sulphate monohydrate
+es: sulfato de cinc monohidratado
+fr: sulfate de zinc monohydraté
+hr: cink sulfat monohidrat
+it: solfato di zinco monoidrato
+nl: zinksulfaat-monohydraat
+pt: sulfato de zinco mono-hidratodo
+unit:en: mg
+
+zz: sodium selenite
+xx: sodium selenite
+en: sodium selenite
+es: selenito de sodio
+fr: sélénite de sodium
+it: selenite di sodio
+unit:en: mg
+
+zz: calcium iodate anhydrous
+xx: calcium iodate anhydrous
+en: calcium iodate anhydrous
+fr: iodate de calcium anhydre
+hr: kalcij jodat
+nl: watervrij calciumjodaat
+unit:en: mg
+
+# III- zootechnical additives or technological additives
+
+zz: cassia gum
+xx: cassia gum
+en: cassia gum
+fr: gomme cassia
+unit:en: mg
+
+zz: ammonium chloride
+xx: ammonium chloride
+en: ammonium chloride
+fr: chlorure d'ammonium
+unit:en: mg
+
+zz: choline chloride
+xx: choline chloride
+en: choline chloride
+fr: chlorure de choline
+hr: kolin klorid
+unit:en: mg
 

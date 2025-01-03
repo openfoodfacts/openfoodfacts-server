@@ -636,6 +636,9 @@ Resulting fields will then be renamed back to older names by the api_compatibili
 
 sub api_compatibility_for_field ($field, $api_version) {
 
+	# Provide a default value for $api_version if it is not defined
+	$api_version //= 0;
+
 	# API 3.1 - 2024/12/18 - ecoscore* fields have been renamed to environmental_score*
 	if ($api_version < 3.1) {
 		if ($field =~ /^ecoscore/) {
@@ -848,7 +851,7 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 		# or specific nutrients:
 		# - saturated-fat_prepared_100g : return field at top level
 		# - nutrients|nutriments.sugars_serving : return field in nutrients / nutriments hash
-		if ($field =~ /^((nutrients|nutriments)\.)?((.*)_(100g|serving))$/) {
+		if ($field =~ /^((nutrients|nutriments)\.)?((.*)_(100g|1kg|serving))$/) {
 			my $return_hash = $2;
 			my $nutrient = $3;
 			if ((defined $product_ref->{nutriments}) and (defined $product_ref->{nutriments}{$nutrient})) {
