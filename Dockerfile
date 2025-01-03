@@ -54,7 +54,6 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         libcache-memcached-fast-perl \
         libjson-pp-perl \
         libclone-perl \
-        libcrypt-passwdmd5-perl \
         libencode-detect-perl \
         libgraphics-color-perl \
         libbarcode-zbar-perl \
@@ -68,6 +67,7 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         libdbd-pg-perl \
         libtemplate-perl \
         liburi-escape-xs-perl \
+        libanyevent-redis-perl \
         # NB: not available in ubuntu 1804 LTS:
         libmath-random-secure-perl \
         libfile-copy-recursive-perl \
@@ -160,6 +160,8 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         libperl-dev \
         # needed to build Apache2::Connection::XForwardedFor
         libapache2-mod-perl2-dev \
+        # OpenSSL dev needed by OIDC::Lite
+        libssl-dev \
         # Imager::zxing - build deps
         cmake \
         pkg-config \
