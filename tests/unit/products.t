@@ -354,4 +354,34 @@ is(preprocess_product_field('stores', 'Carrefour, abc@gmail.com'), 'Carrefour, '
 
 is(split_code("26153689"), "000/002/615/3689");
 
+# test review_product_type, to migrate product in other flavor if category tag is provided
+# food to pet food
+$product_ref = {
+	categories_tags => ['en:non-food-products', 'en:open-pet-food-facts'],
+	product_type => 'food'
+};
+ProductOpener::Products::review_product_type($product_ref);
+is($product_ref->{product_type}, 'petfood');
+# beauty to product
+$product_ref = {
+	categories_tags => ['en:non-beauty-products', 'en:open-products-facts'],
+	product_type => 'beauty'
+};
+ProductOpener::Products::review_product_type($product_ref);
+is($product_ref->{product_type}, 'product');
+# food to beauty AND product -> move to beauty (handled by alphabetical order)
+$product_ref = {
+	categories_tags => ['en:non-food-products', 'en:open-beauty-facts', 'en:open-products-facts'],
+	product_type => 'food'
+};
+ProductOpener::Products::review_product_type($product_ref);
+is($product_ref->{product_type}, 'beauty');
+# rerun same test based on result of previous test should not do anything (missing tag "en:non-beauty-products")
+$product_ref = {
+	categories_tags => ['en:non-food-products', 'en:open-beauty-facts', 'en:open-products-facts'],
+	product_type => 'beauty'
+};
+ProductOpener::Products::review_product_type($product_ref);
+is($product_ref->{product_type}, 'beauty');
+
 done_testing();
