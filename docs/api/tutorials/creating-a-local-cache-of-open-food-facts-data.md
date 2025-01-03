@@ -11,7 +11,7 @@ A local cache is a copy of OFF data stored directly on your system or server. Th
 
 -   **FoodVisor Contributed (Python/MongoDB) backend:** The FoodVisor startup contributed a few years ago <a href="https://github.com/openfoodfacts/openfoodfacts-apirestpython">a Python-based backend with a MongoDB export</a>, providing a solid starting point for caching in Python environments.
 -   **Project-Specific Caches:** Several OFF projects like open-prices and robotoff have implemented local caches for their own needs. While not immediately reusable, they can serve as valuable references.
--   **SDKs** We have <a href="https://openfoodfacts.github.io/openfoodfacts-server/api/#sdks">a number of official SDKs</a> that can be leveraged as part of a caching backend. Please leverage and contribute to those 🙏
+-   **SDKs** We have [a number of official SDKs](../api.md#sdks) that can be leveraged as part of a caching backend. Please leverage and contribute to those 🙏
 -   **You can start a project within Open Food Facts to solve this**
 
 ### Need for Diverse Solutions
@@ -25,7 +25,7 @@ For applications primarily focused on user-generated requests, a local cache may
 ### Licensing and Data Sharing
 
 Even when using a local cache, you're still bound by the Open Database License (ODbL). **Do not mix OFF data with external product data**. All additions or modifications made to OFF data must be shared back to OFF, preferably through the WRITE API. Consider incorporating this functionality into your cache implementation.
-For more on legal issues, <a href="https://openfoodfacts.github.io/openfoodfacts-server/reference/api-tutorials/license-be-on-the-legal-side/">please read this page</a>
+For more on legal issues [please read this page](./license-be-on-the-legal-side.md)
 
 ### Challenges of Cache Maintenance
 
