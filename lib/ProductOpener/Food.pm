@@ -70,7 +70,7 @@ BEGIN {
 		&compute_nutriscore_data
 		&compute_nutriscore
 		&compute_nova_group
-		&compute_nutrition_data_per_100g_and_per_serving
+		&compute_nutrition_data_per_xxg_and_per_serving
 		&compute_unknown_nutrients
 		&compute_nutrient_levels
 		&evaluate_nutrient_level
@@ -2216,14 +2216,14 @@ sub compute_nutriscore ($product_ref, $current_version = "2023") {
 	return;
 }
 
-=head2 compute_nutrition_data_per_100g_and_per_serving ($product_ref)
+=head2 compute_nutrition_data_per_xxg_and_per_serving ($product_ref)
 
 Input nutrition data is indicated per 100g or per serving.
 This function computes the nutrition data for the other quantity (per serving or per 100g) if we know the serving quantity.
 
 =cut
 
-sub compute_nutrition_data_per_100g_and_per_serving ($product_ref) {
+sub compute_nutrition_data_per_xxg_and_per_serving ($product_ref) {
 
 	# Make sure we have normalized the product quantity and the serving size
 	# in a normal setting, this function has already been called by analyze_and_enrich_product_data()
