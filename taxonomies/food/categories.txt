@@ -35166,6 +35166,7 @@ pt: Baguetes
 ro: Baghete
 zh: 法式面包, 法式长棍面包
 agribalyse_food_code:en: 7001
+bulk_code: 0700100
 ciqual_food_code:en: 7001
 ciqual_food_name:en: Bread, French bread, baguette
 ciqual_food_name:fr: Pain, baguette, courante
@@ -36559,6 +36560,7 @@ gpc_category_name:en: Cakes - Sweet (Perishable)
 en: Banana breads
 xx: Banana breads
 fr: Gâteaux aux bananes, gâteau aux bananes, gâteaux à la banane, gâteau à la banane, pains à la banane, pain à la banane, pains aux bananes, pain à la banane
+nl: Bananenbroden, Banaanbroden
 wikidata:en: Q806097
 
 < en:Cakes
@@ -37911,6 +37913,8 @@ hr: Ušećereni limun
 it: Cedro candito
 nl: Gekonfijte citroen
 
+< en:Candied fruits
+en: Candied bananas
 
 < en:Candied fruits
 en: Candied lime
@@ -43400,6 +43404,10 @@ de: Quinoa Chips
 fr: Chips au quinoa
 hr: Čips od kvinoje
 nl: Quinoa chips
+
+< en:Crisps
+en: Banana crisps
+nl: Banana chips
 
 < en:Crisps
 en: Lentil Crisps
@@ -55361,6 +55369,7 @@ fr: Amandes entières
 hr: Cijeli bademi
 nl: Amandelen(heel)
 agribalyse_food_code:en: 15000
+bulk_code:en: 1500000
 ciqual_food_code:en: 15000
 ciqual_food_name:en: Almond (with peel)
 opposite:en: en:almonds flakes
@@ -55542,6 +55551,7 @@ ru: Орехи Кешью
 tr: Kaju
 agribalyse_proxy_food_code:en: 15019
 agribalyse_proxy_food_name:en: Cashew nut, grilled, salted
+bulk_code:en: 1501901
 wco_hs_code:en: 0801.31
 wco_hs_heading:en: 08.01
 wikidata:en: Q34007
@@ -55795,6 +55805,7 @@ lt: Gliaudyti lazdyno riešutai
 nl: Gepelde hazelnoten
 pt: Avelãs sin casca
 tr: Kabuklu fındık
+bulk_code:en: 1500401
 opposite:en: en:unshelled-hazelnuts
 wco_hs_code:en: 0802.22
 wco_hs_heading:en: 08.02
@@ -66452,13 +66463,6 @@ protected_name_file_number:en: PDO-ES-0817
 protected_name_type:en: pdo
 #wikidata:en:
 
-< en:Bananas
-es: Plátano de Canarias
-origins:en: en:spain
-protected_name_file_number:en: PGI-ES-0867
-protected_name_type:en: pgi
-#wikidata:en:
-
 < en:Chickpeas
 < en:Vegetables from Spain
 es: Garbanzo de Escacena
@@ -66818,6 +66822,7 @@ tr: kamkat
 uk: кумкват
 vi: quất
 zh: 金橘
+bulk_code:en: 1354901
 #arz:كمكوات
 #ast:kumquat
 #azb:کینکان
@@ -66838,6 +66843,7 @@ en: Kumquat without pips
 fr: Kumquat sans pépins
 hr: Kumkvat bez koštica
 lt: Kinkanas be kauliukų
+nl: Kumquat(zonder zaden)
 agribalyse_food_code:en: 13549
 ciqual_food_code:en: 13549
 ciqual_food_name:en: Kumquat, without pips, raw
@@ -67024,6 +67030,7 @@ es: Manzanas reineta
 fr: Pommes reinette
 hr: Riđe jabuke
 nl: Reinette appels
+bulk_code:en: 1308505
 wikidata:en: Q2299367
 
 < en:Apples
@@ -67271,6 +67278,7 @@ lt: Mėlynės
 nl: Bosbessen, Bosbes
 ro: Afine
 agribalyse_food_code:en: 13028
+bulk_code:en: 1302800
 ciqual_food_code:en: 13028
 ciqual_food_name:en: Blueberry, raw
 ciqual_food_name:fr: Myrtille, crue
@@ -67367,6 +67375,7 @@ nl: Frambozen
 ro: Zmeură
 sv: Hallon
 agribalyse_food_code:en: 13015
+bulk_code:en: 1301500
 ciqual_food_code:en: 13015
 ciqual_food_name:en: Raspberry, raw
 ciqual_food_name:fr: Framboise, crue
@@ -67538,6 +67547,7 @@ lt: Vyšnios
 nl: Kersen
 ro: Cireșe
 sv: Körsbär
+bulk_code:en: 1300801
 wikidata:en: Q196
 
 < en:Cherries
@@ -67631,8 +67641,9 @@ nl: Pomelos
 bulk_code:en: 9999900
 
 < en:Fresh pomelos
-en: Corsican pomelos
+en: Pomelos from Corsica, Corsican pomelos
 fr: Pomelo de Corse
+bulk_code:en: 9999700
 origins:en: en:france
 protected_name_file_number:en: PGI-FR-1085
 protected_name_type:en: pgi
@@ -68231,6 +68242,7 @@ ciqual_food_name:fr: Kiwi, pulpe et graines, cru
 < en:Kiwis
 en: Green kiwis
 fr: Kiwis verts
+bulk_code:en: 1302102
 
 < en:Kiwis
 en: Yellow kiwis
@@ -68698,6 +68710,7 @@ season_in_country_fr:en: 1,2,3,8,9,10,11,12
 < en:Apples
 en: Apples Chantecler
 fr: Pommes Chantecler, Pommes Chantecler Belchard
+bulk_code:en: 1303705
 
 
 < en:Apples
@@ -68884,6 +68897,8 @@ ciqual_food_code:en: 13004
 ciqual_food_name:en: Avocado, pulp, raw
 ciqual_food_name:fr: Avocat, pulpe, cru
 
+#### Bananas 
+
 < en:Tropical fruits
 en: Bananas
 bg: Банани
@@ -68903,8 +68918,53 @@ tr: Muz
 agribalyse_proxy_food_code:en: 53100
 agribalyse_proxy_food_name:en: Plantain banana, raw
 agribalyse_proxy_food_name:fr: Banane plantain, crue
-bulk_code:en: 5310000
+opposite:en: en:beverages, en:cakes, en:candies, en:desserts
 wikidata:en: Q503
+
+< en:Bananas(Cavendish)
+en: Bananas from the Canary Islands
+es: Plátano de Canarias
+fr: Bananes des Îles Canaries
+origins:en: en:spain
+protected_name_file_number:en: PGI-ES-0867
+protected_name_type:en: pgi
+#wikidata:en:
+
+< en:Bananas
+< en:Fresh fruits
+en: Bananas(fresh), Fresh bananas
+de: Bananen(frish), Frische Bananen
+fr: Bananes(fraîche), Bananes fraîches
+nl: Bananen(vers), verse bananen
+bulk_code:en: 5310000
+bulk_proxy_category:en: en:bananas
+opposite:en: en:dried-bananas, en:bananas(frozen)
+sales_format:en: package, weight, item
+
+< en:Bananas
+en: Bananas(frozen), Frozen bananas
+fr: Bananes congélés
+nl: Bananen(diepvries)
+opposite:en: en:dried-bananas, en:bananas(fresh)
+
+< en:Bananas
+en: Bananas(Cavendish)
+xx: Cavendish
+fr: Bananes Cavendish
+nl: Bananen(Cavendish)
+
+< en:Bananas(Cavendish)
+< en:Bananas(fresh)
+< en:Bananas(whole)
+< en:Fresh fruits
+en: Bananas(fresh whole Cavendish)
+fr: Bananes(fraîche Cavendish)
+nl: Bananen(verse hele Cavendish), Verse hele Cavendish bananen
+bulk_code:en: 5310000
+bulk_proxy_category:en: en:bananas
+comment:en: assume that most bananes sold in the shop are fresh Cavendish bananas
+expected_ingredients:en: en:cavendish-banana
+sales_format:en: package, weight, item
 
 < en:Bananas
 en: Plantain bananas
@@ -68932,18 +68992,13 @@ ciqual_food_name:fr: Banane plantain, cuite
 #wikidata:en:
 
 < en:Plantain bananas
+en: Bananas(Matooke), Matooke bananas
 fr: Matooke, matoke
+xx: Matooke
 wikidata:en: Q101418717
 
-< en:Flours
-en: Banana flours
-fr: Farines de banane
-hr: Brašna od banane
-lt: Bananų miltai
-nl: Bananenmelen
-
 < en:Bananas
-en: Red banana
+en: Bananas(red), Red bananas
 ar: الموز الأحمر
 fr: Bananes rouges
 hr: Crvena banana
@@ -68956,12 +69011,36 @@ ta: செவ்வாழை
 wikidata:en: Q2427471
 
 < en:Bananas
+en: Bananas(frécinette), Baby bananas
+fr: Bananes frécinettes, Bananes fréchinettes
+
+< en:Bananas
+en: Bananas(whole)
+fr: Bananes(entiers)
+nl: Bananen(heel), Hele bananen
+
+< en:Bananas
+en: Bananas(sliced), Sliced bananas
+fr: Bananes(rondelles)
+nl: Bananen(schijven), Bananenschijfjes
+
+< en:Bananas
+< en:Flours
+en: Banana flours
+fr: Farines de banane
+hr: Brašna od banane
+lt: Bananų miltai
+nl: Bananenmelen
+
+< en:Bananas
 en: Banana pulp
 fr: Pulpe de banane
+nl: Bananenpulp
 agribalyse_food_code:en: 13005
 ciqual_food_code:en: 13005
 ciqual_food_name:en: Banana, pulp, raw
 ciqual_food_name:fr: Banane, pulpe, crue
+
 
 < en:Tropical fruits
 en: Chirimuyas, Custard apples, Cherimoyas
@@ -69033,6 +69112,7 @@ fr: Noix de coco râpée
 hr: Ribani kokos
 lt: Tarkuotas kokosas
 nl: Geraspte kokos, Kokosrasp
+bulk_code:en: 1500701
 #wikidata:en:
 
 < en:Tropical fruits
@@ -69818,8 +69898,9 @@ ciqual_food_code:en: 13001
 ciqual_food_name:en: Apricot, pitted, dried
 ciqual_food_name:fr: Abricot, dénoyauté, sec
 
+< en:Bananas
 < en:Dried fruits
-en: Dried bananas, Dried banana chips, Banana crisps
+en: Dried bananas
 de: getrocknete Bananen, gedörrte Bananen, Bananenchips
 es: Plátanos deshidratados, Bananas deshidratadas, Rodajas de plátano deshidratadas, Chips de plátano
 fr: Bananes séchées, Chips de banane
@@ -69832,6 +69913,7 @@ agribalyse_food_code:en: 13089
 ciqual_food_code:en: 13089
 ciqual_food_name:en: Banana, pulp, dried
 ciqual_food_name:fr: Banane, pulpe, sèche
+opposite:en: en:bananas(fresh)
 
 #<en:Bananas
 #en:Dried banana pulp
@@ -70193,6 +70275,11 @@ agribalyse_food_code:en: 13713
 ciqual_food_code:en: 13713
 ciqual_food_name:en: Apricot, canned in light syrup, not drained
 ciqual_food_name:fr: Abricot au sirop léger, appertisé, non égoutté
+
+< en:Fruits in syrup
+en: Bananas in syrup
+fr: Bananes au sirop
+nl: Bananen op siroop
 
 < en:Fruits in syrup
 en: Canned mixed fruit in syrup, Canned fruit cocktail in syrup
@@ -71157,6 +71244,7 @@ zh: 薄荷
 agribalyse_proxy_food_code:en: 11027
 agribalyse_proxy_food_name:en: Mint, fresh
 agribalyse_proxy_food_name:fr: Menthe, fraîche
+bulk_code:en: 1102700
 wikidata:en: Q47859
 
 < en:Dried aromatic plants
@@ -71859,6 +71947,7 @@ pl: Tymianek, Tymianek właściwy, Tymian, Macierzanka zwyczajna
 agribalyse_proxy_food_code:en: 11070
 agribalyse_proxy_food_name:en: Thyme, fresh
 agribalyse_proxy_food_name:fr: Thym, frais
+bulk_code:en: 1107000
 wikidata:en: Q148668
 
 < en:Fresh aromatic plants
@@ -72004,6 +72093,7 @@ es: Bouquets garnis, Bouquet garni
 fr: Bouquets garnis, Bouquet garni
 hr: Buket garni
 nl: Kruidenbuiltjes
+bulk_code:en: 9999600
 wikidata:en: Q895177
 
 < en:Bouquet garni
@@ -91735,6 +91825,7 @@ fr: Girolles, Girolle, Jaunotte, Jauniré, Cantharellus cibarius, Chanterelle ci
 hr: Lisičarke
 la: Cantharellus cibarius
 nl: Cantharellen, Hanenkammen
+bulk_code:en: 2010300
 ciqual_food_code:en: 20103
 ciqual_food_name:en: Chanterelle or girolle mushroom, raw
 ciqual_food_name:fr: Champignon chanterelle ou girolle crue
@@ -104798,6 +104889,7 @@ hr: Jeruzalemska artičoka
 ja: キクイモ
 nl: Aardperen, Aardpeer
 agribalyse_food_code:en: 20196
+bulk_code:en: 2019600
 ciqual_food_code:en: 20196
 ciqual_food_name:en: Jerusalem artichoke, raw
 ciqual_food_name:fr: Topinambour, cru
@@ -105115,6 +105207,7 @@ nl: Witte asperges
 agribalyse_proxy_food_code:en: 20282
 agribalyse_proxy_food_name:en: Asparagus, white or purple, peeled, raw
 agribalyse_proxy_food_name:fr: Asperge, blanche ou violette, pelée, crue
+bulk_code:en: 2028200
 opposite:en: en:green-asparagus, en:purple-asparagus
 #TOCHECK:wikidata:en:Q22806705
 
@@ -106935,6 +107028,7 @@ hr: Romaine salata
 ja: ロメインレタス, コスレタス
 nl: Romainesla
 agribalyse_food_code:en: 20171
+bulk_code:en: 2017100
 ciqual_food_code:en: 20171
 ciqual_food_name:en: Cos or romaine lettuce, raw
 ciqual_food_name:fr: Laitue romaine, crue
@@ -106959,6 +107053,7 @@ pt: alface americana
 sv: isbergssallat
 # zh-tw:皺葉萵苣
 agribalyse_food_code:en: 20200
+bulk_code:en: 2020000
 ciqual_food_code:en: 20200
 ciqual_food_name:en: Iceberg lettuce, raw
 ciqual_food_name:fr: Laitue iceberg, crue
@@ -107445,6 +107540,7 @@ en: Charlotte potatoes
 fr: Pommes de terre Charlotte
 hr: Charlotte krumpir
 nl: Charlotte aardappel
+bulk_code:en: 0040803
 wikidata:en: Q1067085
 
 < en:Potatoes
@@ -107495,6 +107591,7 @@ hr: Krumpir za kuhanje na pari
 < en:Potatoes
 en: Potatoes for gratin
 fr: Pomme de terre gratin
+bulk_code:en: 0400802
 
 < en:Potatoes
 en: Potatoes for hash browns, hashed brown potatoes, hashed browned potatoes
@@ -108031,6 +108128,7 @@ hr: Daikon rotkvice
 ja: ダイコン, 大根, だいこん
 la: Raphanus sativus var. longipinnatus
 nl: Daikon radijs
+bulk_code:en: 2008901
 expected_ingredients:en: en:daikon radish
 wikidata:en: Q7224757
 # Not sure what to do with ja: translation, 「ダイコン」 seems to have a complex relationship with "radish".
@@ -108176,6 +108274,7 @@ ru: романеско
 uk: капуста романеско
 zh: 宝塔花菜
 agribalyse_food_code:en: 20280
+bulk_code:en: 2028001
 ciqual_food_code:en: 20280
 ciqual_food_name:en: Romanesco cauliflower or romanesco broccoli, raw
 ciqual_food_name:fr: Chou romanesco ou brocoli à pomme, cru
@@ -108213,6 +108312,7 @@ th: หอมต้นเดี่ยว
 tr: Yeşil soğan
 vi: Hành lá
 zh: 青蔥
+bulk_code:en: 9999500
 comment:en: do not mix green onion with welsh onion
 # ingredient/fr:oignon-vert has 45 products in 6 languages @2018-12-06
 # ingredient/fr:oignons-de-printemps has 47 products @2018-12-06
@@ -108611,11 +108711,6 @@ ciqual_food_name:fr: Tomate, crue
 intake24_category_code:en: TMTO
 intake24_category_code:fr: TMTO
 
-#agribalyse_food_code:en:20047_2
-#ciqual_food_code:en:20047
-#ciqual_food_name:en:Tomato in season, raw
-#ciqual_food_name:fr:Tomate de saison, crue
-
 #agribalyse_food_code:en:20047_3
 #ciqual_food_code:en:20047
 #ciqual_food_name:en:Tomato off season, raw
@@ -108978,6 +109073,7 @@ tr: Roka
 uk: Рукола
 zh: 芝麻菜
 agribalyse_food_code:en: 20217
+bulk_code:en: 2021700
 ciqual_food_code:en: 20217
 ciqual_food_name:en: Roman rocket, raw
 ciqual_food_name:fr: Roquette, crue
@@ -109343,6 +109439,7 @@ ciqual_food_name:fr: Mélange de céréales et légumineuses, cru
 en: Flat beans
 fr: Haricots plats
 agribalyse_food_code:en: 20269
+bulk_code:en: 2026900
 ciqual_food_code:en: 20269
 ciqual_food_name:en: Flat bean, raw
 ciqual_food_name:fr: Haricot plat, cru
@@ -110073,6 +110170,7 @@ nl: Gepelde rode linzen
 agribalyse_proxy_food_code:en: 20535
 agribalyse_proxy_food_name:en: Lentil, pink or red, dried
 agribalyse_proxy_food_name:fr: Lentille corail, sèche
+bulk_code:en: 2053500
 
 < en:Dried lentils
 < en:Red lentils
@@ -114138,6 +114236,7 @@ nl: Appelflappen
 nl_be: Appelflappen
 pl: Appelflap
 agribalyse_food_code:en: 23480
+bulk_code:en: 2348000
 ciqual_food_code:en: 23480
 ciqual_food_name:en: Apple turnover
 ciqual_food_name:fr: Chausson aux pommes
@@ -114157,6 +114256,7 @@ it: Croissant al cioccolato
 nl: Chocolade croissants, Chocolade croissant
 tr: Çikolatalı kruvasan, Çikolatalı kruasan, Çikolatalı ay çöreği, Çikolatalı ayçöreği
 agribalyse_food_code:en: 7730
+bulk_code:en: 0773000
 ciqual_food_code:en: 7730
 ciqual_food_name:en: Chocolate croissant, puff pastry, from bakery
 wikidata:en: Q1190838
@@ -118326,6 +118426,7 @@ fr: Tomate de saison crue
 hr: Rajčica u sezoni sirova
 nl: Tomaten (van het land)
 agribalyse_food_code:en: 20047_2
+bulk_code:en: 2004702
 ciqual_food_code:en: 20047
 ciqual_food_name:en: Tomato, in season, raw
 ciqual_food_name:fr: Tomate de saison, crue
