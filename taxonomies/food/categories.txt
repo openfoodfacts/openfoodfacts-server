@@ -48208,6 +48208,7 @@ sv: Mozzarella
 agribalyse_food_code:en: 19590
 ciqual_food_code:en: 19590
 ciqual_food_name:en: Mozzarella cheese, from cow's milk
+minimum_number_of_ingredients:en: 3
 oqali_family:en: fr:Fromages - Mozzarella
 wikidata:en: Q14088
 
@@ -68653,6 +68654,10 @@ tr: Armut
 bulk_code:en: 1303700
 intake24_category_code:en: PEAR
 wikidata:en: Q13099586
+
+< en:Pears
+en: Comice pears
+fr: Poires comice
 
 < en:Pears
 en: Packham's pears, Packham's Triumph pears
@@ -93215,12 +93220,6 @@ hr: Špageti od punog ili polucjelovitog zrna durum pšenice
 nl: Harde volkorenspaghettis
 
 < en:Whole or semi-whole durum wheat pasta
-en: Whole or semi-whole durum wheat spirals
-es: Espirales de trigo duro integrales o semi-integrales
-fr: Spirales de blé dur entier ou semi-entier
-hr: Spirale od cjelovite ili polucjelovite durum pšenice
-
-< en:Whole or semi-whole durum wheat pasta
 en: Whole or semi-whole durum wheat stars
 es: Estrellas de trigo duro integrales o semi-integrales
 fr: Étoiles de blé dur entier ou semi-entier
@@ -93391,6 +93390,15 @@ fr: Cannelloni à la ricotta et aux épinards
 < en:Pastas
 fr: Coquillettes, coquillette
 wikidata:en: Q2996948
+
+< fr:Coquillettes
+fr: Coquillettes complètes
+
+< fr:Coquillettes
+fr: Coquillettes semi-complètes
+
+< fr:Coquillettes
+fr: Coquillettes blanches
 
 < en:Durum wheat pasta
 < fr:Coquillettes
@@ -107488,6 +107496,18 @@ food_groups:en: en:potatoes
 intake24_category_code:en: POTS
 pnns_group_2:en: Potatoes
 
+< en:Potatoes
+en: Allians potatoes
+fr: Pommes de terre Allians
+
+< en:Potatoes
+en: Nazca potatoes
+fr: Pommes de terre Nazca
+
+< en:Potatoes
+en: Louisiana potatoes
+fr: Pommes de terre Louisiana
+
 #################### Potato harvest ####################
 
 < en:Potatoes
@@ -118706,3 +118726,8 @@ gpc_category_code:en: 10000613
 gpc_category_description:en: Definition: Includes any products that can be described/observed as two or more distinct Prepared and Preserved Foods sold together which exist within the schema but belong to different classes, that is two or more products contained within the same pack which cross classes within the Prepared and Preserved Foods Family. Includes products such as Chicken Korma and Ice Cream variety packs. Items that are received free with purchases should be removed from the classification decision-making process. Definition Excludes: Excludes products such as Jam and Chocolate Spread variety packs and Chips and Dips variety packs.
 gpc_category_name:en: Prepared/Preserved Foods Variety Packs
 
+en: Whole durum wheat spirals
+fr: Spirales de blé dur complet
+
+en: Semi whole durum wheat spirals
+fr: Spirales de blé dur semi-complet

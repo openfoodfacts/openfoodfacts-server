@@ -104,7 +104,6 @@ BEGIN {
 		&add_params_to_query
 		&add_params_and_filters_to_query
 
-		&url_for_text
 		&process_template
 
 		@search_series
@@ -329,47 +328,6 @@ $images_subdomain = format_subdomain('images');
 
 =head1 FUNCTIONS
 
-
-=head2 url_for_text ( $textid )
-
-Return the localized URL for a text. (e.g. "data" points to /data in English and /donnees in French)
-Note: This currently only has environmental_score
-
-=cut
-
-# Note: the following urls are currently hardcoded, but the idea is to build the mapping table
-# at startup from the available translated texts in the repository. (TODO)
-my %urls_for_texts = (
-	"environmental_score" => {
-		en => "eco-score-the-environmental-impact-of-food-products",
-		de => "eco-score-die-umweltauswirkungen-von-lebensmitteln",
-		es => "eco-score-el-impacto-medioambiental-de-los-productos-alimenticios",
-		fr => "eco-score-l-impact-environnemental-des-produits-alimentaires",
-		it => "eco-score-impatto-ambientale-dei-prodotti-alimentari",
-		nl => "eco-score-de-milieu-impact-van-voedingsproducten",
-		pt => "eco-score-o-impacto-ambiental-dos-produtos-alimentares",
-	},
-);
-
-sub url_for_text ($textid) {
-
-	# remove starting / if passed
-	$textid =~ s/^\///;
-
-	if (not defined $urls_for_texts{$textid}) {
-		return "/" . $textid;
-	}
-	elsif (defined $urls_for_texts{$textid}{$lc}) {
-		return "/" . $urls_for_texts{$textid}{$lc};
-	}
-	elsif ($urls_for_texts{$textid}{en}) {
-		return "/" . $urls_for_texts{$textid}{en};
-	}
-	else {
-		return "/" . $textid;
-	}
-}
-
 =head2 process_template ( $template_filename , $template_data_ref , $result_content_ref, $request_ref = {} )
 
 Add some functions and variables needed by many templates and process the template with template toolkit.
@@ -424,7 +382,6 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	$template_data_ref->{display_date_without_time} = \&display_date_without_time;
 	$template_data_ref->{display_date_ymd} = \&display_date_ymd;
 	$template_data_ref->{display_date_tag} = \&display_date_tag;
-	$template_data_ref->{url_for_text} = \&url_for_text;
 	$template_data_ref->{product_url} = \&product_url;
 	$template_data_ref->{product_action_url} = \&product_action_url;
 	$template_data_ref->{product_name_brand_quantity} = \&product_name_brand_quantity;
@@ -1016,12 +973,12 @@ sub set_user_agent_request_ref_attributes ($request_ref) {
 	my $is_crawl_bot = 0;
 	my $is_denied_crawl_bot = 0;
 	if ($user_agent_str
-		=~ /\b(GoogleOther|Googlebot|Googlebot-Image|Google-InspectionTool|bingbot|Applebot|Yandex|DuckDuck|DotBot|Seekport|Ahrefs|DataForSeo|Seznam|ZoomBot|Mojeek|QRbot|Qwant|facebookexternalhit|Bytespider|GPTBot|ChatGPT-User|cohere-ai|anthropic-ai|PerplexityBot|ClaudeBot|Claude-Web|SEOkicks|Searchmetrics|MJ12|SurveyBot|SEOdiver|wotbox|Cliqz|Paracrawl|Scrapy|VelenPublicWebCrawler|Semrush|MegaIndex\.ru|Amazon|aiohttp|python-request|ImagesiftBot|Diffbot)/i
+		=~ /\b(GoogleOther|Googlebot|Googlebot-Image|Google-InspectionTool|bingbot|Applebot|Yandex|DuckDuck|DotBot|Seekport|Ahrefs|DataForSeo|Seznam|ZoomBot|Mojeek|QRbot|Qwant|facebookexternalhit|Bytespider|GPTBot|ChatGPT-User|cohere-ai|anthropic-ai|PerplexityBot|ClaudeBot|Claude-Web|SEOkicks|Searchmetrics|MJ12|SurveyBot|SEOdiver|wotbox|Cliqz|Paracrawl|Scrapy|VelenPublicWebCrawler|Semrush|MegaIndex\.ru|Amazon|aiohttp|python-request|ImagesiftBot|Diffbot|Timpibot)/i
 		)
 	{
 		$is_crawl_bot = 1;
 		if ($user_agent_str
-			=~ /\b(bingbot|Seekport|Ahrefs|DataForSeo|Seznam|ZoomBot|Mojeek|QRbot|Bytespider|SEOkicks|Searchmetrics|MJ12|SurveyBot|SEOdiver|wotbox|Cliqz|Paracrawl|Scrapy|VelenPublicWebCrawler|Semrush|MegaIndex\.ru|YandexMarket|Amazon|GPTBot|ChatGPT-User|PerplexityBot|ClaudeBot|Claude-Web|cohere-ai|anthropic-ai|ImagesiftBot|Diffbot)/i
+			=~ /\b(bingbot|Seekport|Ahrefs|DataForSeo|Seznam|ZoomBot|Mojeek|QRbot|Bytespider|SEOkicks|Searchmetrics|MJ12|SurveyBot|SEOdiver|wotbox|Cliqz|Paracrawl|Scrapy|VelenPublicWebCrawler|Semrush|MegaIndex\.ru|YandexMarket|Amazon|GPTBot|ChatGPT-User|PerplexityBot|ClaudeBot|Claude-Web|cohere-ai|anthropic-ai|ImagesiftBot|Diffbot|Timpibot)/i
 			)
 		{
 			$is_denied_crawl_bot = 1;
@@ -2041,7 +1998,7 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 
 		# For the Environmental-Score, we want to display A+ before A even though A+ is after A in alphabetical order
 		# If the tagid "a" is followed by tagid "a-plus", invert them
-		if (($tagtype eq 'environmental_score') and (defined $tags[1])) {
+		if (($tagtype eq 'ecoscore') or ($tagtype eq 'environmental_score') and (defined $tags[1])) {
 
 			if (($tags[0]{_id} eq 'a') and ($tags[1]{_id} eq 'a-plus')) {
 				my $tags_tmp = $tags[0];
@@ -2236,7 +2193,7 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 					. "\" style=\"max-height:80px;\"> "
 					. $grade;
 			}
-			elsif ($tagtype eq 'environmental_score') {
+			elsif (($tagtype eq 'ecoscore') or ($tagtype eq 'environmental_score')) {
 				my $grade;
 
 				if ($tagid eq "a-plus") {
@@ -2257,9 +2214,9 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 				}
 
 				$display
-					= "<img src=\"/images/attributes/dist/environmental-score-$tagid.svg\" alt=\"Environmental-Score "
+					= "<img src=\"/images/attributes/dist/green-score-$tagid.svg\" alt=\"Green-Score "
 					. $grade
-					. "\" title=\"Environmental-Score "
+					. "\" title=\"Green-Score "
 					. $grade
 					. "\" style=\"max-height:80px;\"> "
 					. $grade;
@@ -7660,9 +7617,6 @@ sub display_page ($request_ref) {
 
 	# Twitter account
 	$html =~ s/<twitter_account>/$twitter_account/g;
-
-	# Replace urls for texts in links like <a href="/environmental_score"> with a localized name
-	$html =~ s/(href=")(\/[^"]+)/$1 . url_for_text($2)/eg;
 
 	my $status_code = $request_ref->{status_code} // 200;
 
