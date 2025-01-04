@@ -68926,50 +68926,19 @@ agribalyse_proxy_food_name:fr: Banane plantain, crue
 opposite:en: en:beverages, en:cakes, en:candies, en:desserts
 wikidata:en: Q503
 
-< en:Bananas(Cavendish)
-en: Bananas from the Canary Islands
-es: Plátano de Canarias
-fr: Bananes des Îles Canaries
-origins:en: en:spain
-protected_name_file_number:en: PGI-ES-0867
-protected_name_type:en: pgi
-#wikidata:en:
-
 < en:Bananas
 < en:Fresh fruits
 en: Bananas(fresh), Fresh bananas
 de: Bananen(frish), Frische Bananen
 fr: Bananes(fraîche), Bananes fraîches
 nl: Bananen(vers), verse bananen
-bulk_code:en: 5310000
-bulk_proxy_category:en: en:bananas
 opposite:en: en:dried-bananas, en:bananas(frozen)
-sales_format:en: package, weight, item
 
 < en:Bananas
 en: Bananas(frozen), Frozen bananas
 fr: Bananes congélés
 nl: Bananen(diepvries)
 opposite:en: en:dried-bananas, en:bananas(fresh)
-
-< en:Bananas
-en: Bananas(Cavendish)
-xx: Cavendish
-fr: Bananes Cavendish
-nl: Bananen(Cavendish)
-
-< en:Bananas(Cavendish)
-< en:Bananas(fresh)
-< en:Bananas(whole)
-< en:Fresh fruits
-en: Bananas(fresh whole Cavendish)
-fr: Bananes(fraîche Cavendish)
-nl: Bananen(verse hele Cavendish), Verse hele Cavendish bananen
-bulk_code:en: 5310000
-bulk_proxy_category:en: en:bananas
-comment:en: assume that most bananes sold in the shop are fresh Cavendish bananas
-expected_ingredients:en: en:cavendish-banana
-sales_format:en: package, weight, item
 
 < en:Bananas
 en: Plantain bananas
@@ -68987,14 +68956,26 @@ food_groups:en: en:potatoes
 pnns_group_2:en: Potatoes
 wikidata:en: Q165449
 
-< en:Plantain bananas
-en: Cooked plantain bananas
-fr: Bananes plantain cuites
-agribalyse_food_code:en: 53101
-ciqual_food_code:en: 53101
-ciqual_food_name:en: Plantain banana, cooked
-ciqual_food_name:fr: Banane plantain, cuite
+< en:Bananas
+en: Bananas(Cavendish)
+xx: Cavendish
+fr: Bananes Cavendish
+nl: Bananen(Cavendish)
+
+< en:Bananas(Cavendish)
+en: Bananas from the Canary Islands
+es: Plátano de Canarias
+fr: Bananes des Îles Canaries
+nl: Bananen van de Canarische eilanden
+origins:en: en:spain
+protected_name_file_number:en: PGI-ES-0867
+protected_name_type:en: pgi
 #wikidata:en:
+
+< en:Bananas
+en: Bananas(frécinette), Baby bananas
+fr: Bananes frécinettes, Bananes fréchinettes
+
 
 < en:Plantain bananas
 en: Bananas(Matooke), Matooke bananas
@@ -69015,9 +68996,15 @@ pt: Banana vermelha
 ta: செவ்வாழை
 wikidata:en: Q2427471
 
-< en:Bananas
-en: Bananas(frécinette), Baby bananas
-fr: Bananes frécinettes, Bananes fréchinettes
+< en:Plantain bananas
+en: Cooked plantain bananas
+fr: Bananes plantain cuites
+agribalyse_food_code:en: 53101
+ciqual_food_code:en: 53101
+ciqual_food_name:en: Plantain banana, cooked
+ciqual_food_name:fr: Banane plantain, cuite
+#wikidata:en:
+
 
 < en:Bananas
 en: Bananas(whole)
@@ -69046,6 +69033,18 @@ ciqual_food_code:en: 13005
 ciqual_food_name:en: Banana, pulp, raw
 ciqual_food_name:fr: Banane, pulpe, crue
 
+< en:Bananas(Cavendish)
+< en:Bananas(fresh)
+< en:Bananas(whole)
+< en:Fresh fruits
+en: Bananas(fresh whole Cavendish)
+fr: Bananes(fraîche Cavendish)
+nl: Bananen(verse hele Cavendish), Verse hele Cavendish bananen
+bulk_code:en: 5310000
+bulk_proxy_category:en: en:bananas
+comment:en: assume that most bananes sold in the shop are fresh Cavendish bananas
+expected_ingredients:en: en:cavendish-banana
+sales_format:en: package, weight, item
 
 < en:Tropical fruits
 en: Chirimuyas, Custard apples, Cherimoyas
