@@ -376,12 +376,12 @@ $product_ref = {
 };
 ProductOpener::Products::review_product_type($product_ref);
 is($product_ref->{product_type}, 'beauty');
-# rerun same test based on result of previous test should not do anything (missing tag "en:non-beauty-products")
+# rerun same test based on result of previous test, will now move to products
 $product_ref = {
 	categories_tags => ['en:non-food-products', 'en:open-beauty-facts', 'en:open-products-facts'],
 	product_type => 'beauty'
 };
 ProductOpener::Products::review_product_type($product_ref);
-is($product_ref->{product_type}, 'beauty');
+is($product_ref->{product_type}, 'product');
 
 done_testing();

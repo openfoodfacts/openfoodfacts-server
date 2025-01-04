@@ -82,6 +82,20 @@ stopwords:de: und, mit, von
 # Careful: it should be the same main tag, not a synonym
 # Remark: add the property to the highest parent
 
+en: Incorrect product type
+bg: Неправилен product type
+ca: Tipus de producte incorrecte
+de: Falscher product type
+es: Tipo de producto incorrecto
+fi: Väärä product type
+fr: Mauvais product type
+hr: Pogrešan product type
+it: Tipo di prodotto errato
+nl: Verkeerd product type
+pt: Tipo de produto incorreto
+ru: Неправильный product type
+
+< en: Incorrect product type
 en: Non food products
 bg: Нехранителни продукти
 ca: Productes no alimentaris
@@ -131,7 +145,7 @@ tr: Deterjan
 wikidata:en: Q334637
 
 # REAL Cigarettes
-< en:Non food products
+< en:Open Products Facts
 en: Cigarettes
 bg: Цигари
 de: Zigaretten

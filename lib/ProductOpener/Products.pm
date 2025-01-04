@@ -2973,55 +2973,47 @@ sub review_product_type ($product_ref) {
 	my $error;
 
 	if ($product_ref->{product_type} eq "beauty") {
-		if (has_tag($product_ref, "categories", "en:non-beauty-products")) {
-			if (has_tag($product_ref, "categories", "en:open-food-facts")) {
-				$error = change_product_type($product_ref, "food");
-			}
-			elsif (has_tag($product_ref, "categories", "en:open-pet-food-facts")) {
-				$error = change_product_type($product_ref, "petfood");
-			}
-			elsif (has_tag($product_ref, "categories", "en:open-products-facts")) {
-				$error = change_product_type($product_ref, "product");
-			}
+		if (has_tag($product_ref, "categories", "en:open-food-facts")) {
+			$error = change_product_type($product_ref, "food");
+		}
+		elsif (has_tag($product_ref, "categories", "en:open-pet-food-facts")) {
+			$error = change_product_type($product_ref, "petfood");
+		}
+		elsif (has_tag($product_ref, "categories", "en:open-products-facts")) {
+			$error = change_product_type($product_ref, "product");
 		}
 	}
 	elsif ($product_ref->{product_type} eq "food") {
-		if (has_tag($product_ref, "categories", "en:non-food-products")) {
-			if (has_tag($product_ref, "categories", "en:open-beauty-facts")) {
-				$error = change_product_type($product_ref, "beauty");
-			}
-			elsif (has_tag($product_ref, "categories", "en:open-pet-food-facts")) {
-				$error = change_product_type($product_ref, "petfood");
-			}
-			elsif (has_tag($product_ref, "categories", "en:open-products-facts")) {
-				$error = change_product_type($product_ref, "product");
-			}
+		if (has_tag($product_ref, "categories", "en:open-beauty-facts")) {
+			$error = change_product_type($product_ref, "beauty");
+		}
+		elsif (has_tag($product_ref, "categories", "en:open-pet-food-facts")) {
+			$error = change_product_type($product_ref, "petfood");
+		}
+		elsif (has_tag($product_ref, "categories", "en:open-products-facts")) {
+			$error = change_product_type($product_ref, "product");
 		}
 	}
 	elsif ($product_ref->{product_type} eq "petfood") {
-		if (has_tag($product_ref, "categories", "en:non-pet-food-products")) {
-			if (has_tag($product_ref, "categories", "en:open-beauty-facts")) {
-				$error = change_product_type($product_ref, "beauty");
-			}
-			elsif (has_tag($product_ref, "categories", "en:open-food-facts")) {
-				$error = change_product_type($product_ref, "food");
-			}
-			elsif (has_tag($product_ref, "categories", "en:open-products-facts")) {
-				$error = change_product_type($product_ref, "product");
-			}
+		if (has_tag($product_ref, "categories", "en:open-beauty-facts")) {
+			$error = change_product_type($product_ref, "beauty");
+		}
+		elsif (has_tag($product_ref, "categories", "en:open-food-facts")) {
+			$error = change_product_type($product_ref, "food");
+		}
+		elsif (has_tag($product_ref, "categories", "en:open-products-facts")) {
+			$error = change_product_type($product_ref, "product");
 		}
 	}
 	elsif ($product_ref->{product_type} eq "product") {
-		if (has_tag($product_ref, "categories", "en:non-food-products")) {
-			if (has_tag($product_ref, "categories", "en:open-beauty-facts")) {
-				$error = change_product_type($product_ref, "beauty");
-			}
-			elsif (has_tag($product_ref, "categories", "en:open-food-facts")) {
-				$error = change_product_type($product_ref, "food");
-			}
-			elsif (has_tag($product_ref, "categories", "en:open-pet-food-facts")) {
-				$error = change_product_type($product_ref, "petfood");
-			}
+		if (has_tag($product_ref, "categories", "en:open-beauty-facts")) {
+			$error = change_product_type($product_ref, "beauty");
+		}
+		elsif (has_tag($product_ref, "categories", "en:open-food-facts")) {
+			$error = change_product_type($product_ref, "food");
+		}
+		elsif (has_tag($product_ref, "categories", "en:open-pet-food-facts")) {
+			$error = change_product_type($product_ref, "petfood");
 		}
 	}
 
@@ -3756,7 +3748,9 @@ sub analyze_and_enrich_product_data ($product_ref, $response_ref) {
 	compute_languages($product_ref);    # need languages for allergens detection and cleaning ingredients
 
 	# change the product type of non-food categorized products (issue #11094)
-	review_product_type($product_ref);
+	if (has_tag($product_ref, "categories", "en:incorrect-product-type")) {
+		review_product_type($product_ref);
+	}
 
 	# Run special analysis, score calculations that it specific to the product type
 
