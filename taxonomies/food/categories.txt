@@ -43407,7 +43407,14 @@ nl: Quinoa chips
 
 < en:Crisps
 en: Banana crisps
+de: Bananenchips
+es: Rodajas de plátano deshidratadas, Chips de plátano
+fr: Chips de banane
+it: Chips di banana essiccata
+lt: Džiovinti bananų traškučiai
 nl: Banana chips
+ru: Бананы сушёные, сушёные бананы
+opposite:en: en:bananas, en: dried-bananas
 
 < en:Crisps
 en: Lentil Crisps
@@ -69008,7 +69015,6 @@ ciqual_food_name:en: Plantain banana, cooked
 ciqual_food_name:fr: Banane plantain, cuite
 #wikidata:en:
 
-
 < en:Bananas
 en: Bananas(whole), Whole bananas
 fr: Bananes(entiers)
@@ -69021,13 +69027,14 @@ fr: Bananes(rondelles)
 nl: Bananen(schijven), Bananenschijfjes
 opposite:en: en:whole-bananas, en:banana-flours, en:banana-pulp
 
-< en:Bananas
+#< en:Bananas
 < en:Flours
 en: Banana flours
 fr: Farines de banane
 hr: Brašna od banane
 lt: Bananų miltai
 nl: Bananenmelen
+comment:en: Bananas is restricted to whole fresh ones
 opposite:en: en:whole-bananas, en:sliced-banana, en:banana-pulp
 
 < en:Bananas
@@ -69909,26 +69916,23 @@ ciqual_food_code:en: 13001
 ciqual_food_name:en: Apricot, pitted, dried
 ciqual_food_name:fr: Abricot, dénoyauté, sec
 
-< en:Bananas
+#< en:Bananas
 < en:Dried fruits
 en: Dried bananas
-de: getrocknete Bananen, gedörrte Bananen, Bananenchips
-es: Plátanos deshidratados, Bananas deshidratadas, Rodajas de plátano deshidratadas, Chips de plátano
-fr: Bananes séchées, Chips de banane
+de: getrocknete Bananen, gedörrte Bananen
+es: Plátanos deshidratados, Bananas deshidratadas
+fr: Bananes séchées
 hr: Sušene banane
-it: Banana essiccata, Chips di banana essiccata
+it: Banana essiccata
 lt: Džiovinti bananų traškučiai, Džiovinti bananai
-nl: Gedroogde bananen, bananenchips
+nl: Gedroogde bananen
 ru: Бананы сушёные, сушёные бананы
 agribalyse_food_code:en: 13089
 ciqual_food_code:en: 13089
 ciqual_food_name:en: Banana, pulp, dried
 ciqual_food_name:fr: Banane, pulpe, sèche
-opposite:en: en:bananas(fresh)
-
-#<en:Bananas
-#en:Dried banana pulp
-#fr:Pulpe de banane sèche
+comment:en: Bananas is restricted to whole fresh ones
+opposite:en: en:bananas, en: banana-crisps
 
 < en:Dried fruits
 en: Dried strawberries
