@@ -439,7 +439,7 @@ sub convert_carrefour_france_files ($file_handle, $files_ref) {
 			delete $product_ref->{emb_codes};
 		}
 
-        $product_ref -> {lc} = "fr";
+		$product_ref->{lc} = "fr";
 	}
 
 	# Clean and normalize fields
