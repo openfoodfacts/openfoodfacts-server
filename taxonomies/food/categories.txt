@@ -68905,7 +68905,7 @@ ciqual_food_name:fr: Avocat, pulpe, cru
 #### Bananas 
 
 < en:Tropical fruits
-en: Bananas
+en: Bananas, Bananas(unspecified)
 bg: Банани
 de: Bananen
 es: Plátanos, Bananas
@@ -68961,6 +68961,7 @@ en: Bananas(Cavendish)
 xx: Cavendish
 fr: Bananes Cavendish
 nl: Bananen(Cavendish)
+opposite:en: en:plantain-bananas, en:red-bananas, en:baby-bananas
 
 < en:Bananas(Cavendish)
 en: Bananas from the Canary Islands
@@ -68975,6 +68976,7 @@ protected_name_type:en: pgi
 < en:Bananas
 en: Bananas(frécinette), Baby bananas
 fr: Bananes frécinettes, Bananes fréchinettes
+opposite:en: en:plantain-bananas, en:red-bananas, en:cavendish-bananas
 
 
 < en:Plantain bananas
@@ -68994,6 +68996,7 @@ ml: ചെങ്കദളി
 nl: Rode bananen
 pt: Banana vermelha
 ta: செவ்வாழை
+opposite:en: en:plantain-bananas, en:baby-bananas, en:cavendish-bananas
 wikidata:en: Q2427471
 
 < en:Plantain bananas
@@ -69007,14 +69010,16 @@ ciqual_food_name:fr: Banane plantain, cuite
 
 
 < en:Bananas
-en: Bananas(whole)
+en: Bananas(whole), Whole bananas
 fr: Bananes(entiers)
 nl: Bananen(heel), Hele bananen
+opposite:en: en:sliced-bananas, en:banana-flours, en:banana-pulp
 
 < en:Bananas
 en: Bananas(sliced), Sliced bananas
 fr: Bananes(rondelles)
 nl: Bananen(schijven), Bananenschijfjes
+opposite:en: en:whole-bananas, en:banana-flours, en:banana-pulp
 
 < en:Bananas
 < en:Flours
@@ -69023,6 +69028,7 @@ fr: Farines de banane
 hr: Brašna od banane
 lt: Bananų miltai
 nl: Bananenmelen
+opposite:en: en:whole-bananas, en:sliced-banana, en:banana-pulp
 
 < en:Bananas
 en: Banana pulp
@@ -69032,6 +69038,7 @@ agribalyse_food_code:en: 13005
 ciqual_food_code:en: 13005
 ciqual_food_name:en: Banana, pulp, raw
 ciqual_food_name:fr: Banane, pulpe, crue
+opposite:en: en:whole-bananas, en:sliced-banana, en:banana-flours
 
 < en:Bananas(Cavendish)
 < en:Bananas(fresh)
