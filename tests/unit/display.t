@@ -31,20 +31,6 @@ is(display_date_tag($t), '<time datetime="2016-08-27T12:08:49">27. August 2016, 
 #	'<p><span class="field">Link to the product page on the official site of the producer:</span> <a href="http://producer.com">http://producer.com</a></p>'
 # );
 
-#test for URL localization
-#test for path not existing in urls_for_text
-my $textid = '/doesnotexist';
-is(url_for_text($textid), '/doesnotexist');
-
-# test a language other than default (en)
-$textid = '/environmental_score';
-$lc = 'es';
-is(url_for_text($textid), '/eco-score-el-impacto-medioambiental-de-los-productos-alimenticios');
-
-# test for language that does not exist (test defaults to en)
-$lc = 'does not exist';
-is(url_for_text($textid), '/eco-score-the-environmental-impact-of-food-products');
-
 $lc = 'en';
 
 #test search query

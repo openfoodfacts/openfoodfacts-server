@@ -1,4 +1,4 @@
-﻿stopwords:en:ingredients, from, with, of, by, the, verified, certified, approved, 100%, pure, product, guaranty, guaranteed, standard
+stopwords:en:ingredients, from, with, of, by, the, verified, certified, approved, 100%, pure, product, guaranty, guaranteed, standard
 stopwords:fr: ingrédients, issus, de, l', convient, peut convenir, au, aux, régime, régimes, conforme, validé, vérifié, certifié, par, un, une, approuvé, 100%, pur, garantie, garanti, produit, sas
 stopwords:es: por, la, las, los, el, apto, para, certificado, controlado, registrado, 100%
 
@@ -10,18 +10,23 @@ synonyms:en: without, 0%
 synonyms:es: sin, 0%
 synonyms:fr: sans, 0%
 
-synonyms:fr: ajout, adjonction
+# already in food labels.txt
+# synonyms:fr: ajout, adjonction
 
-synonyms:fr: carbone, co2
-synonyms:en: carbon, co2
+# already in food labels.txt
+# synonyms:fr: carbone, co2
+# synonyms:en: carbon, co2
 
-synonyms:fr: durable, soutenable, responsable
+# already in food labels.txt
+# synonyms:fr: durable, soutenable, responsable
 
 synonyms:fr: fabrication, production
 
-synonyms:fr: fabrique, produit
+# already in food labels.txt
+# synonyms:fr: fabrique, produit
 
-synonyms:fr: naturel, d'origine naturelle, origine naturelle
+# already in food labels.txt
+# synonyms:fr: naturel, d'origine naturelle, origine naturelle
 
 synonyms:fr: testé, formule testée
 
@@ -38,13 +43,14 @@ nl_be: 100% natuurlijk
 en: Carbon compensated product, carbon neutral
 fr: Produit compensé carbone, Carbone neutre, neutre en carbone, carbone compensé
 
-en: Carbon footprint, carbon emissions, product that specifies the carbon footprint
-de: CO2-Emissionen
-es: Huella de carbono, Emisiones de CO2
-fr: Empreinte carbone, émissions de carbone
-it: Emissioni di CO2, impronta climatica
-pt: Pegada de carbono, Emissões de CO2
-wikidata:en: Q310667
+# already in food labels.txt
+# en: Carbon footprint, carbon emissions, product that specifies the carbon footprint
+# de: CO2-Emissionen
+# es: Huella de carbono, Emisiones de CO2
+# fr: Empreinte carbone, émissions de carbone
+# it: Emissioni di CO2, impronta climatica
+# pt: Pegada de carbono, Emissões de CO2
+# wikidata:en: Q310667
 
 en: Cooperative product
 es: Producto de cooperativa
@@ -77,37 +83,42 @@ en: Fairtrade International, Fairtrade, FLO international, FLO
 es: Fairtrade International, Fairtrade, FLO international, FLO
 fr: Fairtrade International, Fairtrade, FLO international, FLO
 
-< en:Fair trade
-en: Max Havelaar, Max Havelar, Fairtrade/Max Havelaar
-nl: Fair trade
-nl_be: Fair trade
-wikidata:en: Q694008
+# already in food labels.txt
+# < en:Fair trade
+# en: Max Havelaar, Max Havelar, Fairtrade/Max Havelaar
+# nl: Fair trade
+# nl_be: Fair trade
+# wikidata:en: Q694008
 
-< en:Max Havelaar
-fr: Max Havelaar Belgique
-nl: Max Havelaar Nederland
-nl_be: Max Havelaar Belgie
+# already in food labels.txt
+# < en:Max Havelaar
+# fr: Max Havelaar Belgique
+# nl: Max Havelaar Nederland
+# nl_be: Max Havelaar Belgie
 
-< en:Max Havelaar
-fr: Max Havelaar France
+# already in food labels.txt
+# < en:Max Havelaar
+# fr: Max Havelaar France
 
 < en:Fair trade
 en: TransFer, TransFer Canada
 
-en: In braille
-de: In Brailleschrift
-es: En braille, Producto en braille
-fr: Produit en braille
-it: In braille
-nl: In braille
-wikidata:en: Q79894
+# already in food labels.txt
+# en: In braille
+# de: In Brailleschrift
+# es: En braille, Producto en braille
+# fr: Produit en braille
+# it: In braille
+# nl: In braille
+# wikidata:en: Q79894
 
-en: Incorrect data on label, Incorrect data
-de: Falsche Angaben auf der Verpackung
-es: Datos incorrectos en la etiqueta, Datos incorrectos
-fr: Informations incorrectes sur l'emballage, Informations incorrectes
-it: Dati errati sull'etichetta, Dati errati
-nl: Onjuiste gegevens op het etiket, Onjuiste gegevens
+# already in food labels.txt
+# en: Incorrect data on label, Incorrect data
+# de: Falsche Angaben auf der Verpackung
+# es: Datos incorrectos en la etiqueta, Datos incorrectos
+# fr: Informations incorrectes sur l'emballage, Informations incorrectes
+# it: Dati errati sull'etichetta, Dati errati
+# nl: Onjuiste gegevens op het etiket, Onjuiste gegevens
 
 
 en: Without paraben, Paraben-free, No paraben, No parabens
@@ -142,16 +153,18 @@ en: BO-BIO-126
 < en:Organic
 en: India Organic
 
-< en:Organic
-en: EU Organic, European Organic
-de: EG-Öko-Verordnung, EU-Öko-Verordnung, Europäische Öko-Verordnung, EU Ökologische
-es: Ecológico UE, Ecológico U.E., Producto ecológico europeo
-fr: Bio européen, Label bio européen, bio ce, bio europe
-it: Biologico UE
-wikidata:en: Q380448
+# already in food labels.txt
+# < en:Organic
+# en: EU Organic, European Organic
+# de: EG-Öko-Verordnung, EU-Öko-Verordnung, Europäische Öko-Verordnung, EU Ökologische
+# es: Ecológico UE, Ecológico U.E., Producto ecológico europeo
+# fr: Bio européen, Label bio européen, bio ce, bio europe
+# it: Biologico UE
+# wikidata:en: Q380448
 
-< en:Organic
-de: Deutsches Bio-Siegel, Deutsches staatliches Bio-Siegel
+# already in food labels.txt
+# < en:Organic
+# de: Deutsches Bio-Siegel, Deutsches staatliches Bio-Siegel
 
 < en:EU Organic
 en: AT-BIO-004
@@ -1171,9 +1184,10 @@ fr: Agriculture durable
 en: UTZ Certified, UTZ
 wikidata:en: Q2305872
 
-< en:UTZ Certified
-en: UTZ Certified Cacao, UTZ Certified Cocoa
-de: UTZ Certified Kakao
+# already in food labels.txt
+# < en:UTZ Certified
+# en: UTZ Certified Cacao, UTZ Certified Cocoa
+# de: UTZ Certified Kakao
 
 < en:UTZ Certified
 en: UTZ Certified Coffee
@@ -1204,9 +1218,10 @@ th: สูตรเจ
 en: Vegan Action
 wikidata:en: Q7918275
 
-< en:Vegan
-en: Vegan Society
-wikidata:en: Q1855049
+# already in food labels.txt
+# < en:Vegan
+# en: Vegan Society
+# wikidata:en: Q1855049
 
 < en:Vegan
 es: UVE Vegano, Unión Vegetariana Española Vegano, Certificado UVE Vegano
@@ -1291,15 +1306,17 @@ fr: Cosmétique Bio - Charte Cosmebio, Cosmébio, Charte Cosmebio
 
 fr: Cosmétique Eco - Charte Cosmebio, Cosméco, Charte Cosméco
 
-fr: Nature & Progrès, Nature et Progrès
+# already in food labels.txt
+# fr: Nature & Progrès, Nature et Progrès
 
 en: BDIH
 fr: BDIH, Cosmétiques naturels certifiés BDIH, BDIH Cosmétiques naturels certifiés
 
 en: NaTrue
 
-< en:organic
-de: Austria Bio Garantie
+# already in food labels.txt
+# < en:organic
+# de: Austria Bio Garantie
 
 en: One Voice
 fr: One Voice, One Voice - pour une éthique animale et planétaire
@@ -1313,18 +1330,21 @@ fr: EU Ecolabel, Ecolabel EU, Ecolabel européen
 < en:Ecolabel
 en: Nordic Ecolabel
 
-fr: Ecocert Equitable, Equitable Ecocert
+# already in food labels.txt
+# fr: Ecocert Equitable, Equitable Ecocert
 
-fr: Ecocert
+# already in food labels.txt
+# fr: Ecocert
 
 en: Hypoallergenic
 de: Hypoallergen
 fr: Hypoallergénique
 nl: Hypoallergeen
 
-en: Green point
-de: Grüner punkt
-fr: Point vert
+# already in food labels.txt
+# en: Green point
+# de: Grüner punkt
+# fr: Point vert
 
 en: Not tested on animals
 de: Nicht an Tieren getestet
@@ -1408,11 +1428,12 @@ es: Sin acetona
 fr: Sans acétone
 nl: Zonder aceton
 
-fr: Sans alcool, Pas d'alcool
-en: No alcohol, 0 alcohol, without alcohol, alcohol free
-de: Ohne Alkohol, Kein Alkohol, alkoholfrei
-es: Sin alcohol, 0 alcohol, sin contenido de alcohol, libre de alcohol
-nl: Zonder alcohol, Geen alcohol, alcoholvrij
+# already in food labels.txt
+# fr: Sans alcool, Pas d'alcool
+# en: No alcohol, 0 alcohol, without alcohol, alcohol free
+# de: Ohne Alkohol, Kein Alkohol, alkoholfrei
+# es: Sin alcohol, 0 alcohol, sin contenido de alcohol, libre de alcohol
+# nl: Zonder alcohol, Geen alcohol, alcoholvrij
 
 en: Without glycol ethers
 de: Ohne Glykolether
@@ -1444,17 +1465,19 @@ es: Sin triclosán
 fr: Sans triclosan
 nl: Zonder triclosan
 
-en: Palm oil free, Without palm oil, No palm oil
-de: Ohne Palmöl
-es: Sin aceite de palma
-fr: Sans huile de palme
-nl: Zonder palmolie
+# already in food labels.txt
+# en:Palm oil free, Without palm oil, No palm oil
+# es:Sin aceite de palma
+# fr:Sans huile de palme
+# de:Ohne Palmöl
+# nl:Zonder palmolie
 
-en: Sustainable Palm Oil, Certified Sustainable Palm Oil, RSPO
-de: Nachhaltiges Palmöl, Zertifiziertes nachhaltiges Palmöl, RSPO
-es: Aceite de palma sostenible, Aceite de palma certificado sostenible, RSPO
-fr: Huile de palme durable, Huile de palme certifiée durable, RSPO
-nl: Duurzame palmolie, Gecertificeerde duurzame palmolie, RSPO
+# already in food labels.txt
+# en:Sustainable Palm Oil, Certified Sustainable Palm Oil, RSPO
+# fr:Huile de palme durable, Huile de palme certifiée durable, RSPO
+# es:Aceite de palma sostenible, Aceite de palma certificado sostenible, RSPO
+# de:Nachhaltiges Palmöl, Zertifiziertes nachhaltiges Palmöl, RSPO
+# nl:Duurzame palmolie, Gecertificeerde duurzame palmolie, RSPO
 
 fr: Ne pique pas les yeux
 en: Does not sting the eyes, No more tears, No tears, No tears formula
@@ -1465,11 +1488,12 @@ nl: Prikt niet in de ogen, Geen tranen, Geen tranen formule
 fr: Non comédogène, Non obstruant les pores
 en: Non comedogenic, Non pore-clogging
 
-fr: Sans conservateurs, sans conservateur, 0 conservateur
-en: No preservatives, Preservatives free
-de: Ohne Konservierungsstoffe, Konservierungsstoffe frei
-es: Sin conservantes, libre de conservantes
-nl: Zonder conserveermiddelen, conserveermiddelvrij
+# already in food labels.txt
+# fr:Sans conservateurs, sans conservateur, 0 conservateur
+# en:No preservatives, Preservatives free
+# es:Sin conservantes, libre de conservantes
+# de:Ohne Konservierungsstoffe, Konservierungsstoffe frei
+# nl:Zonder conserveermiddelen, conserveermiddelvrij
 
 fr: Résiste à l'eau, Résistant à l'eau
 en: Waterproof, splashproof, water resistant
@@ -1478,7 +1502,3 @@ es: Resistente al agua, a prueba de salpicaduras, resistente al agua
 nl: Waterdicht, spatwaterdicht, waterbestendig
 
 fr: Anti-traces, anti-trace
-
-fr: UFSBD
-en: UFSBD
-

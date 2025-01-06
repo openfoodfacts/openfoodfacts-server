@@ -435,7 +435,6 @@ HTML
 
 @drilldown_fields = qw(
 	nutrition_grades
-	nova_groups
 	environmental_score
 	brands
 	categories
