@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://openfoodfacts.github.io/openfoodfacts-server/reference/api-tutorials/get-the-ecoscore/">
+        <link rel="canonical" href="https://openfoodfacts.github.io/openfoodfacts-server/api/tutorials/creating-a-local-cache-of-open-food-facts-data/">
       
       
-        <link rel="prev" href="../get-ingredient-related-analysis/">
+        <link rel="prev" href="../comparing-sodas/">
       
       
-        <link rel="next" href="../get-the-nutriscore/">
+        <link rel="next" href="../finding-healthy-cereals/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Get the ecoscore - Product Opener (Open Food Facts Server)</title>
+        <title>Creating a local cache of open food facts data - Product Opener (Open Food Facts Server)</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#table-of-contents" class="md-skip">
+        <a href="#open-food-facts-local-caching-a-tutorial" class="md-skip">
           Skip to content
         </a>
       
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Get the ecoscore
+              Creating a local cache of open food facts data
             
           </span>
         </div>
@@ -234,17 +234,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -258,7 +260,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Api
@@ -272,7 +274,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../api/" class="md-nav__link">
+      <a href="../../" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -293,7 +295,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../api/intro-robotoff/" class="md-nav__link">
+      <a href="../../intro-robotoff/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -314,7 +316,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../api/tutorial-dev-journey/" class="md-nav__link">
+      <a href="../../tutorial-dev-journey/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -335,7 +337,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../api/tutorial-off-api/" class="md-nav__link">
+      <a href="../../tutorial-off-api/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -356,7 +358,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../api/tutorial-uploading-photo-to-a-product/" class="md-nav__link">
+      <a href="../../tutorial-uploading-photo-to-a-product/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -377,7 +379,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../api/how-to-download-images/" class="md-nav__link">
+      <a href="../../how-to-download-images/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -398,7 +400,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../api/explain-knowledge-panels/" class="md-nav__link">
+      <a href="../../explain-knowledge-panels/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -419,7 +421,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../api/ref-barcode-normalization/" class="md-nav__link">
+      <a href="../../ref-barcode-normalization/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -440,7 +442,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../api/ref-cheatsheet/" class="md-nav__link">
+      <a href="../../ref-cheatsheet/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -461,7 +463,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../api/ref-v2/" class="md-nav__link">
+      <a href="../../ref-v2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -482,7 +484,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../api/ref-v3/" class="md-nav__link">
+      <a href="../../ref-v3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -503,7 +505,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../api/aws-images-dataset/" class="md-nav__link">
+      <a href="../../aws-images-dataset/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -524,7 +526,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../api/leveraging-links-to-wikidata/" class="md-nav__link">
+      <a href="../../leveraging-links-to-wikidata/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -533,6 +535,489 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_14" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_14" id="__nav_2_14_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tutorials
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_14_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_14">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adding-missing-products/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Adding missing products
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../comparing-sodas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Comparing sodas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Creating a local cache of open food facts data
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Creating a local cache of open food facts data
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#open-food-facts-local-caching-a-tutorial" class="md-nav__link">
+    <span class="md-ellipsis">
+      Open Food Facts Local Caching: A Tutorial
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Open Food Facts Local Caching: A Tutorial">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-a-local-cache" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is a Local Cache?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#current-caching-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Current Caching Options
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#need-for-diverse-solutions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Need for Diverse Solutions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-not-to-cache" class="md-nav__link">
+    <span class="md-ellipsis">
+      When NOT to Cache
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#licensing-and-data-sharing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Licensing and Data Sharing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#challenges-of-cache-maintenance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Challenges of Cache Maintenance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#building-your-own-cache" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building Your Own Cache
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-involved" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get Involved!
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../finding-healthy-cereals/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Finding healthy cereals
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../folksonomy-engine/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Folksonomy engine
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../get-in-touch-with-openfoodfacts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Get in touch with openfoodfacts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../get-ingredient-related-analysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Get ingredient related analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../get-the-green-score/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Get the green score
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../get-the-nutriscore/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Get the nutriscore
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to-create-data-quality-controls-in-your-app/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to create data quality controls in your app
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../license-be-on-the-legal-side/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License be on the legal side
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../product-prices/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Product prices
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reporting-issues-with-nutripatrol/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reporting issues with nutripatrol
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scanning-cosmetics-pet-food-and-other-products/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scanning cosmetics pet food and other products
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../working-with-facets/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Providing knowledge panels for a particular Open Food Facts facet (category, brand, etc...)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -1028,539 +1513,6 @@
   
 
     
-      
-      
-  
-  
-    
-  
-  
-  
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
-        
-          
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    Reference
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_4">
-            <span class="md-nav__icon md-icon"></span>
-            Reference
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" checked>
-        
-          
-          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    Api tutorials
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_4_1">
-            <span class="md-nav__icon md-icon"></span>
-            Api tutorials
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../adding-missing-products/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Adding missing products
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../comparing-sodas/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Comparing sodas
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../creating-a-local-cache-of-open-food-facts-data/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Creating a local cache of open food facts data
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../finding-healthy-cereals/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Finding healthy cereals
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../folksonomy-engine/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Folksonomy engine
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../get-in-touch-with-openfoodfacts/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Get in touch with openfoodfacts
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../get-ingredient-related-analysis/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Get ingredient related analysis
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Get the ecoscore
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  <span class="md-ellipsis">
-    Get the ecoscore
-  </span>
-  
-
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#table-of-contents" class="md-nav__link">
-    <span class="md-ellipsis">
-      Table of contents
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Table of contents">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#implementing-the-basic-display-of-the-score" class="md-nav__link">
-    <span class="md-ellipsis">
-      Implementing the basic display of the score
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Implementing the basic display of the score">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#preferred-method-knowledge-panels" class="md-nav__link">
-    <span class="md-ellipsis">
-      Preferred method : Knowledge panels
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#using-the-raw-api" class="md-nav__link">
-    <span class="md-ellipsis">
-      Using the Raw API
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#using-the-attributes-api" class="md-nav__link">
-    <span class="md-ellipsis">
-      Using the Attributes API
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#displaying-the-eco-score-outside-france" class="md-nav__link">
-    <span class="md-ellipsis">
-      Displaying the Eco-Score outside France
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ensuring-a-good-user-experience-even-with-data-gaps" class="md-nav__link">
-    <span class="md-ellipsis">
-      Ensuring a good user experience (even with data gaps)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#adding-value-by-explaining" class="md-nav__link">
-    <span class="md-ellipsis">
-      Adding value by explaining
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#additional-ways-to-get-ready" class="md-nav__link">
-    <span class="md-ellipsis">
-      Additional ways to get ready
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../get-the-nutriscore/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Get the nutriscore
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../how-to-create-data-quality-controls-in-your-app/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    How to create data quality controls in your app
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../license-be-on-the-legal-side/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    License be on the legal side
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../product-prices/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Product prices
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../reporting-issues-with-nutripatrol/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Reporting issues with nutripatrol
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../scanning-cosmetics-pet-food-and-other-products/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Scanning cosmetics pet food and other products
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../working-with-facets/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Providing knowledge panels for a particular Open Food Facts facet (category, brand, etc...)
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
   </ul>
 </nav>
                   </div>
@@ -1586,88 +1538,82 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#table-of-contents" class="md-nav__link">
+  <a href="#open-food-facts-local-caching-a-tutorial" class="md-nav__link">
     <span class="md-ellipsis">
-      Table of contents
+      Open Food Facts Local Caching: A Tutorial
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Table of contents">
+    <nav class="md-nav" aria-label="Open Food Facts Local Caching: A Tutorial">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#implementing-the-basic-display-of-the-score" class="md-nav__link">
+  <a href="#what-is-a-local-cache" class="md-nav__link">
     <span class="md-ellipsis">
-      Implementing the basic display of the score
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Implementing the basic display of the score">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#preferred-method-knowledge-panels" class="md-nav__link">
-    <span class="md-ellipsis">
-      Preferred method : Knowledge panels
+      What is a Local Cache?
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#using-the-raw-api" class="md-nav__link">
+  <a href="#current-caching-options" class="md-nav__link">
     <span class="md-ellipsis">
-      Using the Raw API
+      Current Caching Options
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#using-the-attributes-api" class="md-nav__link">
+  <a href="#need-for-diverse-solutions" class="md-nav__link">
     <span class="md-ellipsis">
-      Using the Attributes API
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#displaying-the-eco-score-outside-france" class="md-nav__link">
-    <span class="md-ellipsis">
-      Displaying the Eco-Score outside France
+      Need for Diverse Solutions
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#ensuring-a-good-user-experience-even-with-data-gaps" class="md-nav__link">
+  <a href="#when-not-to-cache" class="md-nav__link">
     <span class="md-ellipsis">
-      Ensuring a good user experience (even with data gaps)
+      When NOT to Cache
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#adding-value-by-explaining" class="md-nav__link">
+  <a href="#licensing-and-data-sharing" class="md-nav__link">
     <span class="md-ellipsis">
-      Adding value by explaining
+      Licensing and Data Sharing
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#additional-ways-to-get-ready" class="md-nav__link">
+  <a href="#challenges-of-cache-maintenance" class="md-nav__link">
     <span class="md-ellipsis">
-      Additional ways to get ready
+      Challenges of Cache Maintenance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#building-your-own-cache" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building Your Own Cache
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-involved" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get Involved!
     </span>
   </a>
   
@@ -1696,111 +1642,43 @@
   
 
 
-  <h1>Get the ecoscore</h1>
+  <h1>Creating a local cache of open food facts data</h1>
 
-<p>Helping your users get the Eco-Score for any product</p>
+<h2 id="open-food-facts-local-caching-a-tutorial">Open Food Facts Local Caching: A Tutorial<a class="headerlink" href="#open-food-facts-local-caching-a-tutorial" title="Permanent link">#</a></h2>
+<p>Open Food Facts (OFF) offers a rich dataset of food product information. Creating a local cache can enhance performance for your heavy-duty applications. This tutorial will guide you through the process, considerations, and best practices.</p>
+<h3 id="what-is-a-local-cache">What is a Local Cache?<a class="headerlink" href="#what-is-a-local-cache" title="Permanent link">#</a></h3>
+<p>A local cache is a copy of OFF data stored directly on your system or server. This allows your application to retrieve information without constantly querying the main OFF API, improving speed and reliability.</p>
+<h3 id="current-caching-options">Current Caching Options<a class="headerlink" href="#current-caching-options" title="Permanent link">#</a></h3>
 <ul>
-<li>If you can't get the information on a specific product, you can get your user to send photos and data.</li>
-<li>That will then be processed by Open Food Facts to get the computed result you want to show them.</li>
-<li>You can implement the complete flow so that they get immediately the result with some effort on their side.</li>
-<li>That will ensure user satisfaction</li>
-<li>Please refer to the <a href="https://openfoodfacts.github.io/openfoodfacts-server/reference/api-tutorials/adding-missing-products/">product addition tutorial</a> for the technical way to do the required operations (such as category input), and to the high level workflow below for all the cases you have to handle.</li>
+<li><strong>FoodVisor Contributed (Python/MongoDB) backend:</strong> The FoodVisor startup contributed a few years ago <a href="https://github.com/openfoodfacts/openfoodfacts-apirestpython">a Python-based backend with a MongoDB export</a>, providing a solid starting point for caching in Python environments.</li>
+<li><strong>Project-Specific Caches:</strong> Several OFF projects like open-prices and robotoff have implemented local caches for their own needs. While not immediately reusable, they can serve as valuable references.</li>
+<li><strong>SDKs</strong> We have <a href="../api.md#sdks">a number of official SDKs</a> that can be leveraged as part of a caching backend. Please leverage and contribute to those 🙏</li>
+<li><strong>You can start a project within Open Food Facts to solve this</strong></li>
 </ul>
-<h2 id="table-of-contents">Table of contents<a class="headerlink" href="#table-of-contents" title="Permanent link">#</a></h2>
+<h3 id="need-for-diverse-solutions">Need for Diverse Solutions<a class="headerlink" href="#need-for-diverse-solutions" title="Permanent link">#</a></h3>
+<p>We encourage developers who feel the need for very intensive operations not driven by user scans to create local caching solutions in various programming languages. These can be integrated into your own projects, and if well-designed, have the potential to become official OFF backends.</p>
+<h3 id="when-not-to-cache">When NOT to Cache<a class="headerlink" href="#when-not-to-cache" title="Permanent link">#</a></h3>
+<p>For applications primarily focused on user-generated requests, a local cache may not be necessary. The OFF API can handle such many such requests efficiently, and direct API usage contributes to valuable scan statistics for the project.</p>
+<h3 id="licensing-and-data-sharing">Licensing and Data Sharing<a class="headerlink" href="#licensing-and-data-sharing" title="Permanent link">#</a></h3>
+<p>Even when using a local cache, you're still bound by the Open Database License (ODbL). <strong>Do not mix OFF data with external product data</strong>. All additions or modifications made to OFF data must be shared back to OFF, preferably through the WRITE API. Consider incorporating this functionality into your cache implementation.
+For more on legal issues <a href="../license-be-on-the-legal-side/">please read this page</a></p>
+<h3 id="challenges-of-cache-maintenance">Challenges of Cache Maintenance<a class="headerlink" href="#challenges-of-cache-maintenance" title="Permanent link">#</a></h3>
+<p>Maintaining a cache can be complex due to the dynamic nature of OFF data.</p>
 <ul>
-<li>Getting your app ready for the Eco-Score</li>
-<li>Implementing the basic display of the score</li>
-<li>Displaying the Eco-Score outside France</li>
-<li>Ensuring a good user experience (even with data gaps)</li>
-<li>Adding disclaimers when we can't display the Eco-Score</li>
-<li>Adding disclaimers when the Eco-Score is computed with a data gap + Asking the users to photograph and/or complete missing information</li>
-<li>Adding value by explaining</li>
-<li>Product Attributes</li>
-<li>Additional ways to get ready</li>
-<li>Onboarding producers you know</li>
+<li><strong>Immediate Updates:</strong> Any writes to OFF data should first go through automatic moderation on your end (see our tutorial about this). After successful submission to OFF, your local cache should be immediately refreshed.</li>
+<li><strong>Real-Time Notifications (Future):</strong> Currently, there's no public API for real-time OFF updates stream. However, we have an internal system (REDIS) and are exploring options for a future 3rd party notification API. Express your interest by contacting <a href="mailto:reuse@openfoodfacts.org">reuse@openfoodfacts.org</a>.</li>
 </ul>
-<h3 id="implementing-the-basic-display-of-the-score">Implementing the basic display of the score<a class="headerlink" href="#implementing-the-basic-display-of-the-score" title="Permanent link">#</a></h3>
-<h4 id="preferred-method-knowledge-panels">Preferred method : Knowledge panels<a class="headerlink" href="#preferred-method-knowledge-panels" title="Permanent link">#</a></h4>
-<ul>
-<li>With Knowledge panels, you just have to implement a for-loop in your app. Translations, updates, and all the complexity will be handled </li>
-</ul>
-<h4 id="using-the-raw-api">Using the Raw API<a class="headerlink" href="#using-the-raw-api" title="Permanent link">#</a></h4>
-<ul>
-<li>The API is adding a new ecoscore_grade field from A to E. Technically wise, it behaves like the Nutri-Score, so you can clone part of your Nutri-Score implementation </li>
-<li>If (and only if) the server sends back a proper value (a, b, c, d or e), display the new score, otherwise, display our gray placeholder</li>
-<li><a href="https://world.openfoodfacts.org/api/v0/product/3414280980209.json?fields=ecoscore_grade">https://world.openfoodfacts.org/api/v0/product/3414280980209.json?fields=ecoscore_grade</a></li>
-<li>{"status_verbose":"product found","product":{"ecoscore_grade":"b"},"status":1,"code":"3414280980209"}</li>
-<li>https://world.openfoodfacts.org/api/v0/product/3414280980209.json?fields=ecoscore_grade</li>
-<li>Here are the visuals.
-    * <a href="https://static.openfoodfacts.org/images/icons/ecoscore-a.svg">https://static.openfoodfacts.org/images/icons/ecoscore-a.svg</a>
-    * <a href="https://static.openfoodfacts.org/images/icons/ecoscore-b.svg">https://static.openfoodfacts.org/images/icons/ecoscore-b.svg</a>
-    * <a href="https://static.openfoodfacts.org/images/icons/ecoscore-c.svg">https://static.openfoodfacts.org/images/icons/ecoscore-c.svg</a>
-    * <a href="https://static.openfoodfacts.org/images/icons/ecoscore-d.svg">https://static.openfoodfacts.org/images/icons/ecoscore-d.svg</a>
-    * <a href="https://static.openfoodfacts.org/images/icons/ecoscore-e.svg">https://static.openfoodfacts.org/images/icons/ecoscore-e.svg</a>
-    * <a href="https://static.openfoodfacts.org/images/icons/ecoscore-unknown.svg">https://static.openfoodfacts.org/images/icons/ecoscore-unknown.svg</a> </li>
-</ul>
-<h4 id="using-the-attributes-api">Using the Attributes API<a class="headerlink" href="#using-the-attributes-api" title="Permanent link">#</a></h4>
-<p>The Open Food Facts official app use this one, which is less work but also less flexible (will display other data as well).</p>
-<h3 id="displaying-the-eco-score-outside-france">Displaying the Eco-Score outside France<a class="headerlink" href="#displaying-the-eco-score-outside-france" title="Permanent link">#</a></h3>
-<ul>
-<li>You need to ensure the country your users are in:
-    * Asking them explicitly at startup, and storing the value
-    * Geofencing your app to just one country
-    * Using the phones or the IP address (using eg GeoIP) to infer a country</li>
-<li>You need to serve the matching Eco-Score value
-    * You can ask for a country specific Eco-Score</li>
-<li><strong>If your users are outside France, you need to clearly display the experimental disclaimer at least once.</strong></li>
-</ul>
-<h3 id="ensuring-a-good-user-experience-even-with-data-gaps">Ensuring a good user experience (even with data gaps)<a class="headerlink" href="#ensuring-a-good-user-experience-even-with-data-gaps" title="Permanent link">#</a></h3>
-<p><em>We can compute the Eco-Score for most of the database, but we’re missing some data on some products to make the computation exact, and it won’t be computed on some products. <span style="text-decoration:underline;">In any case, you need to make sure your users won’t be frustrated by implementing the following points:</span></em></p>
-<ul>
-<li>Adding disclaimers when we can’t display the Eco-Score
-    * <strong><span style="text-decoration:underline;">Add a message if we have a category but no Eco-Score</span></strong>
-        * <em>if “en:categories-completed” _in states_tags</em> <strong><span style="text-decoration:underline;">AND</span></strong> ecoscore_grade=Null_
-            * We could not compute an Eco-Score for this product. It might be that the category is not specific enough or that we don't have supporting data for this category. If you believe this is an error, you can email <a href="mailto:contact@example.com">contact@example.com</a>
-            * You can get states with <a href="https://world.openfoodfacts.org/api/v0/product/3414280980209.json?fields=ecoscore_grade,states_tags">https://world.openfoodfacts.org/api/v0/product/3414280980209.json?fields=ecoscore_grade,states_tags </a>
-    * <strong><span style="text-decoration:underline;">Help the user add the category if it is missing</span></strong>
-        * You can use our Robotoff API to get your users to validate a prediction
-            * <a href="https://docs.google.com/document/d/1IoDy0toQrrqtWHvDYp2rEVw84Yq1J0x2pt-0RGTm7h0/edit">Robotoff Questions</a></li>
-<li>Adding disclaimers when the Eco-Score is computed with a data gap + Asking the users to photograph and/or complete missing information
-    * <strong><span style="text-decoration:underline;">Add a message if no labels are available</span></strong>
-        * if "en:labels-to-be-completed" in states_tags
-            * <code>"The Eco-Score takes into account environmental labels. Please take them into photo or edit the product so that they can be taken into account"</code>
-        * Asking your users for a photo should be enough
-        * You can otherwise add toggles for Explicit labels (please add a photo of them to avoid mistakes)
-        * You can get states with <a href="https://world.openfoodfacts.org/api/v0/product/3414280980209.json?fields=ecoscore_grade,states_tags">https://world.openfoodfacts.org/api/v0/product/3414280980209.json?fields=ecoscore_grade,states_tags </a>
-    * <strong><span style="text-decoration:underline;">Add a message if no origins are available</span></strong>
-        * if "en:origins-to-be-completed" in states_tags
-            * <code>"The Eco-Score takes into account the origins of the ingredients. Please take them into a photo (ingredient list and/or any geographic claim or edit the product so that they can be taken into account. If it is not clear, you can contact the food producer."</code>
-            * You can get states with <a href="https://world.openfoodfacts.org/api/v0/product/3414280980209.json?fields=ecoscore_grade,states_tags">https://world.openfoodfacts.org/api/v0/product/3414280980209.json?fields=ecoscore_grade,states_tags </a>
-    * <strong><span style="text-decoration:underline;">Add a message if recycling information is missing</span></strong>
-        * if "en:packaging-photo-to-be-selected" in states_tags
-            * <a href="https://github.com/openfoodfacts/openfoodfacts-androidapp/issues/3531">Add a button to take a picture of the recycling instructions · Issue #3531 · openfoodfacts/openfoodfacts-androidapp</a> 
-        * if "en:packaging-to-be-completed" in states_tags
-            * you can get your users to type it, take a photo, or have a combinatory picker with packaging type, packaging material, packaging recyclability
-            * The field to input raw recycling instructions eg: “Plastic bottle to recycle, Plastic cap to recycle” is “packaging_text_en” (change the language code accordingly)
-            * It will get automatically parsed and get used to compute the Eco-Score
-        * You can get states with <a href="https://world.openfoodfacts.org/api/v0/product/3414280980209.json?fields=ecoscore_grade,ecoscore_alpha,states_tags">https://world.openfoodfacts.org/api/v0/product/3414280980209.json?fields=ecoscore_grade,ecoscore_alpha,states_tags</a> 
-    * <strong><span style="text-decoration:underline;">Sharing some of your code</span></strong>
-        * You are very welcome to implement data contribution in one of our SDKs. The more apps let their user add photos and data, the more Eco-Scores we get.</li>
-</ul>
-<h3 id="adding-value-by-explaining">Adding value by explaining<a class="headerlink" href="#adding-value-by-explaining" title="Permanent link">#</a></h3>
-<ul>
-<li>Product Attributes</li>
-<li>You can implement the product attributes API that displays additional information with a minimum of coding
-    * Full API documentation: <a href="https://wiki.openfoodfacts.org/Product_Attributes">https://wiki.openfoodfacts.org/Product_Attributes</a>
-    * Visual mockups: <a href="https://github.com/openfoodfacts/openfoodfacts-androidapp/issues/3501">https://github.com/openfoodfacts/openfoodfacts-androidapp/issues/3501</a> 
-    * A Flutter implementation is available, and you are very welcome to contribute implementation in one of our existing SDKs (or create your own)</li>
-<li>Explanation of Eco-Score computations
-    * <a href="https://world-fr.openfoodfacts.org/api/v0/product/0634065322366.json?fields=environment_infocard,ecoscore_grade">https://world-fr.openfoodfacts.org/api/v0/product/0634065322366.json?fields=environment_infocard,ecoscore_grade</a> 
-    * HTML explanation. You can get the localized version by changing world-fr into world-de
-    * The HTML explanation is already available in the openfoodfacts-dart package</li>
-</ul>
-<h3 id="additional-ways-to-get-ready">Additional ways to get ready<a class="headerlink" href="#additional-ways-to-get-ready" title="Permanent link">#</a></h3>
-<ul>
-<li>Onboarding producers you know</li>
-<li>You can ask any producer you know to get in touch with us at <a href="mailto:producers@openfoodfacts.org">producers@openfoodfacts.org</a> so that their products are Eco-Score ready in terms of data (we have easy ways to import their data using the Producer Platform: <a href="https://world.pro.openfoodfacts.org/">https://world.pro.openfoodfacts.org/</a> )</li>
-</ul>
+<h3 id="building-your-own-cache">Building Your Own Cache<a class="headerlink" href="#building-your-own-cache" title="Permanent link">#</a></h3>
+<ol>
+<li><strong>Choose Your Technology:</strong> Select a database or storage mechanism suitable for your language and project needs.</li>
+<li><strong>Data Structure:</strong> Design a structure to efficiently store product information, categories, ingredients, etc.</li>
+<li><strong>Synchronization:</strong> Develop processes to regularly fetch updates from the OFF API and refresh your cache.</li>
+<li><strong>Data Validation:</strong> Implement mechanisms to validate the accuracy and integrity of the cached data.</li>
+<li><strong>Sharing Back:</strong> Integrate the OFF WRITE API to automatically share any new or modified data.</li>
+</ol>
+<h3 id="get-involved">Get Involved!<a class="headerlink" href="#get-involved" title="Permanent link">#</a></h3>
+<p>If you're building a local cache, we'd love to hear about it! Your contribution can benefit the entire OFF community. By sharing your solution, you have the opportunity to make it an official OFF backend.</p>
+<p>Let's work together to make Open Food Facts data even more accessible and useful!</p>
 
 
 

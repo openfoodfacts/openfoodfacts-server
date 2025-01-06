@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://openfoodfacts.github.io/openfoodfacts-server/reference/api-tutorials/product-prices/">
+        <link rel="canonical" href="https://openfoodfacts.github.io/openfoodfacts-server/api/tutorials/finding-healthy-cereals/">
       
       
-        <link rel="prev" href="../license-be-on-the-legal-side/">
+        <link rel="prev" href="../creating-a-local-cache-of-open-food-facts-data/">
       
       
-        <link rel="next" href="../reporting-issues-with-nutripatrol/">
+        <link rel="next" href="../folksonomy-engine/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Product prices - Product Opener (Open Food Facts Server)</title>
+        <title>Finding healthy cereals - Product Opener (Open Food Facts Server)</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#open-prices" class="md-skip">
+        <a href="#authentication-and-header" class="md-skip">
           Skip to content
         </a>
       
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Product prices
+              Finding healthy cereals
             
           </span>
         </div>
@@ -234,17 +234,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -258,7 +260,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Api
@@ -272,7 +274,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../api/" class="md-nav__link">
+      <a href="../../" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -293,7 +295,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../api/intro-robotoff/" class="md-nav__link">
+      <a href="../../intro-robotoff/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -314,7 +316,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../api/tutorial-dev-journey/" class="md-nav__link">
+      <a href="../../tutorial-dev-journey/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -335,7 +337,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../api/tutorial-off-api/" class="md-nav__link">
+      <a href="../../tutorial-off-api/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -356,7 +358,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../api/tutorial-uploading-photo-to-a-product/" class="md-nav__link">
+      <a href="../../tutorial-uploading-photo-to-a-product/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -377,7 +379,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../api/how-to-download-images/" class="md-nav__link">
+      <a href="../../how-to-download-images/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -398,7 +400,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../api/explain-knowledge-panels/" class="md-nav__link">
+      <a href="../../explain-knowledge-panels/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -419,7 +421,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../api/ref-barcode-normalization/" class="md-nav__link">
+      <a href="../../ref-barcode-normalization/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -440,7 +442,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../api/ref-cheatsheet/" class="md-nav__link">
+      <a href="../../ref-cheatsheet/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -461,7 +463,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../api/ref-v2/" class="md-nav__link">
+      <a href="../../ref-v2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -482,7 +484,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../api/ref-v3/" class="md-nav__link">
+      <a href="../../ref-v3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -503,7 +505,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../api/aws-images-dataset/" class="md-nav__link">
+      <a href="../../aws-images-dataset/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -524,7 +526,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../api/leveraging-links-to-wikidata/" class="md-nav__link">
+      <a href="../../leveraging-links-to-wikidata/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -533,6 +535,429 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_14" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_14" id="__nav_2_14_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tutorials
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_14_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_14">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adding-missing-products/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Adding missing products
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../comparing-sodas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Comparing sodas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../creating-a-local-cache-of-open-food-facts-data/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Creating a local cache of open food facts data
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Finding healthy cereals
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Finding healthy cereals
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#authentication-and-header" class="md-nav__link">
+    <span class="md-ellipsis">
+      Authentication and Header
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subdomain" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subdomain
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#query-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Query Parameters
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../folksonomy-engine/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Folksonomy engine
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../get-in-touch-with-openfoodfacts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Get in touch with openfoodfacts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../get-ingredient-related-analysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Get ingredient related analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../get-the-green-score/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Get the green score
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../get-the-nutriscore/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Get the nutriscore
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to-create-data-quality-controls-in-your-app/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to create data quality controls in your app
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../license-be-on-the-legal-side/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License be on the legal side
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../product-prices/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Product prices
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reporting-issues-with-nutripatrol/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reporting issues with nutripatrol
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scanning-cosmetics-pet-food-and-other-products/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scanning cosmetics pet food and other products
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../working-with-facets/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Providing knowledge panels for a particular Open Food Facts facet (category, brand, etc...)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -1028,464 +1453,6 @@
   
 
     
-      
-      
-  
-  
-    
-  
-  
-  
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
-        
-          
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    Reference
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_4">
-            <span class="md-nav__icon md-icon"></span>
-            Reference
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" checked>
-        
-          
-          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    Api tutorials
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_4_1">
-            <span class="md-nav__icon md-icon"></span>
-            Api tutorials
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../adding-missing-products/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Adding missing products
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../comparing-sodas/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Comparing sodas
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../creating-a-local-cache-of-open-food-facts-data/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Creating a local cache of open food facts data
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../finding-healthy-cereals/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Finding healthy cereals
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../folksonomy-engine/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Folksonomy engine
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../get-in-touch-with-openfoodfacts/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Get in touch with openfoodfacts
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../get-ingredient-related-analysis/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Get ingredient related analysis
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../get-the-ecoscore/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Get the ecoscore
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../get-the-nutriscore/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Get the nutriscore
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../how-to-create-data-quality-controls-in-your-app/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    How to create data quality controls in your app
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../license-be-on-the-legal-side/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    License be on the legal side
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Product prices
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  <span class="md-ellipsis">
-    Product prices
-  </span>
-  
-
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#open-prices" class="md-nav__link">
-    <span class="md-ellipsis">
-      Open Prices
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#links" class="md-nav__link">
-    <span class="md-ellipsis">
-      Links
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../reporting-issues-with-nutripatrol/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Reporting issues with nutripatrol
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../scanning-cosmetics-pet-food-and-other-products/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Scanning cosmetics pet food and other products
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../working-with-facets/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Providing knowledge panels for a particular Open Food Facts facet (category, brand, etc...)
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
   </ul>
 </nav>
                   </div>
@@ -1511,18 +1478,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#open-prices" class="md-nav__link">
+  <a href="#authentication-and-header" class="md-nav__link">
     <span class="md-ellipsis">
-      Open Prices
+      Authentication and Header
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#links" class="md-nav__link">
+  <a href="#subdomain" class="md-nav__link">
     <span class="md-ellipsis">
-      Links
+      Subdomain
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#query-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Query Parameters
     </span>
   </a>
   
@@ -1546,19 +1522,57 @@
   
 
 
-  <h1>Product prices</h1>
+  <h1>Finding healthy cereals</h1>
 
-<h3 id="open-prices">Open Prices<a class="headerlink" href="#open-prices" title="Permanent link">#</a></h3>
+<p><strong>Dave</strong> wants his app to make an API call to provide Stefano healthy plant-based breakfast cereals.</p>
+<hr />
+<h2 id="authentication-and-header">Authentication and Header<a class="headerlink" href="#authentication-and-header" title="Permanent link">#</a></h2>
+<p>To make the API query that returns the products that might be interesting for Anna, Dave doesn't need to authenticate. However, he has to add a User-Agent HTTP Header with the name of his app, the version, system and a url (if any), not to be blocked by mistake.</p>
+<p>In this case, that would be: <code>User-Agent: HealthyFoodChoices - Android - Version 1.0</code></p>
+<hr />
+<h2 id="subdomain">Subdomain<a class="headerlink" href="#subdomain" title="Permanent link">#</a></h2>
+<p>Since Stefano lives in Italy, Dave wants to define the subdomain for the query as us. The subdomain automatically defines the country code (<code>cc</code>) and language of the interface (<code>lc</code>).</p>
+<p>The country code determines that only the products sold in the Italy are displayed. The language of the interface for the country code <code>it</code> is Italian.</p>
+<p>In this case:</p>
+<p><a href="https://it.openfoodfacts.org">https://it.openfoodfacts.org</a></p>
+<hr />
+<h2 id="query-parameters">Query Parameters<a class="headerlink" href="#query-parameters" title="Permanent link">#</a></h2>
+<p>Dave wants to fine-tune the query to provide Anna with the products that match her buying preferences. To do so, he wants to drill down the results to display only breakfast cereals.</p>
+<p>First, he adds the following sequence after the https call: <code>/cgi/search.pl?</code> (all search queries need to include this)</p>
+<p>Then, he defines some tags and the appropriate values: <code>action=process&amp;tagtype_0=categories&amp;tag_contains_0=contains&amp;tag_0=breakfast_cereals</code></p>
+<p>where:</p>
 <ul>
-<li>Open Prices is a project to collect and share prices of food products around the world. It’s a publicly available dataset that can be used for research, analysis, and more. Open Prices is developed and maintained by Open Food Facts.</li>
-<li>We are crowdsourcing an open-source dataset of food prices. Prices can be added by users through our web app. Retailers or third-party apps can contribute as well by using our API.</li>
-<li>We ask contributors to provide a proof of the price, in the form of a photo of the price tag or receipt. This is to make it easier to ensure data quality.</li>
+<li><code>action</code> introduces the action to be performed (process)</li>
+<li><code>tagtype_0</code> adds the first search criterion (categories)</li>
+<li><code>tag_contains_0=contains</code> determines that the results should be included (note that you can exclude products from the search)</li>
+<li><code>tag_0</code> defines the category to be filtered by (breakfast_cereals)</li>
 </ul>
-<h3 id="links">Links<a class="headerlink" href="#links" title="Permanent link">#</a></h3>
+<p><strong>Note:</strong> The parameters are concatenated with <code>&amp;</code>.</p>
+<p>To retrieve breakfast cereals sold in the US, Dave makes the following: <a href="https://us.openfoodfacts.org/cgi/search.pl?action=process&amp;tagtype_0=categories&amp;tag_contains_0=contains&amp;tag_0=breakfast_cereals">https://us.openfoodfacts.org/cgi/search.pl?action=process&amp;tagtype_0=categories&amp;tag_contains_0=contains&amp;tag_0=breakfast_cereals</a></p>
+<p>With this query, the nutrition facts of more than 200 products are displayed.</p>
+<p>Then, Dave wants to exclude the products that contain ingredients from palm oil. He adds a new parameter to the query:</p>
 <ul>
-<li>Please read the FAQ at <a href="https://prices.openfoodfacts.org/">https://prices.openfoodfacts.org/</a></li>
-<li>The API is located at <a href="https://prices.openfoodfacts.org/api/docs">https://prices.openfoodfacts.org/api/docs</a></li>
+<li><code>ingredients_from_palm_oil=without</code></li>
 </ul>
+<p>This parameter excludes the products that might contain palm oil ingredients from the search.</p>
+<p><a href="https://us.openfoodfacts.org/cgi/search.pl?action=process&amp;tagtype_0=categories&amp;tag_contains_0=contains&amp;tag_0=breakfast_cereals&amp;ingredients_from_palm_oil=without">https://us.openfoodfacts.org/cgi/search.pl?action=process&amp;tagtype_0=categories&amp;tag_contains_0=contains&amp;tag_0=breakfast_cereals&amp;ingredients_from_palm_oil=without</a></p>
+<p>Next, Dave adds another parameter to exclude the products that contain additives:</p>
+<ul>
+<li><code>additives=without</code></li>
+</ul>
+<p>The query is as follows:</p>
+<p><a href="https://us.openfoodfacts.org/cgi/search.pl?action=process&amp;tagtype_0=categories&amp;tag_contains_0=contains&amp;tag_0=breakfast_cereals&amp;ingredients_from_palm_oil=without&amp;additives=without">https://us.openfoodfacts.org/cgi/search.pl?action=process&amp;tagtype_0=categories&amp;tag_contains_0=contains&amp;tag_0=breakfast_cereals&amp;ingredients_from_palm_oil=without&amp;additives=without</a></p>
+<p>Finally, Dave adds another parameter to include only products with a nutriscore A. The nutriscore is a nutrition grade determined by the amount of healthy and unhealthy nutrients.</p>
+<ul>
+<li><code>tagtype_1=nutrition_grade</code></li>
+<li><code>tag_contains_1=contains</code></li>
+<li><code>tag_1=A</code></li>
+</ul>
+<p>The complete query looks like this:</p>
+<p><a href="https://us.openfoodfacts.org/cgi/search.pl?action=process&amp;tagtype_0=categories&amp;tag_contains_0=contains&amp;tag_0=breakfast_cereals&amp;tagtype_1=nutrition_grades&amp;tag_contains_1=contains&amp;tag_1=A&amp;additives=without&amp;ingredients_from_palm_oil=without">https://us.openfoodfacts.org/cgi/search.pl?action=process&amp;tagtype_0=categories&amp;tag_contains_0=contains&amp;tag_0=breakfast_cereals&amp;tagtype_1=nutrition_grades&amp;tag_contains_1=contains&amp;tag_1=A&amp;additives=without&amp;ingredients_from_palm_oil=without</a></p>
+<p>Add the json=true parameter to avoid scraping.</p>
+<p><a href="https://us.openfoodfacts.org/cgi/search.pl?action=process&amp;tagtype_0=categories&amp;tag_contains_0=contains&amp;tag_0=breakfast_cereals&amp;tagtype_1=nutrition_grades&amp;tag_contains_1=contains&amp;tag_1=A&amp;additives=without&amp;ingredients_from_palm_oil=without&amp;json=true">https://us.openfoodfacts.org/cgi/search.pl?action=process&amp;tagtype_0=categories&amp;tag_contains_0=contains&amp;tag_0=breakfast_cereals&amp;tagtype_1=nutrition_grades&amp;tag_contains_1=contains&amp;tag_1=A&amp;additives=without&amp;ingredients_from_palm_oil=without&amp;json=true</a></p>
+<p>Anna can see now at a glance which products match her search criteria. In this case, around 20 brands of breakfast cereals.</p>
 
 
 
