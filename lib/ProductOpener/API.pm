@@ -851,7 +851,7 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 		# or specific nutrients:
 		# - saturated-fat_prepared_100g : return field at top level
 		# - nutrients|nutriments.sugars_serving : return field in nutrients / nutriments hash
-		if ($field =~ /^((nutrients|nutriments)\.)?((.*)_(100g|1kg|serving))$/) {
+		if ($field =~ /^((nutrients|nutriments)\.)?((.*)_(100g|serving))$/) {
 			my $return_hash = $2;
 			my $nutrient = $3;
 			if ((defined $product_ref->{nutriments}) and (defined $product_ref->{nutriments}{$nutrient})) {

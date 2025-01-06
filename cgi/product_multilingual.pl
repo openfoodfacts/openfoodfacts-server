@@ -37,7 +37,7 @@ use ProductOpener::Lang qw/:all/;
 use ProductOpener::Mail qw/send_email_to_admin/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Food
-	qw/%nutriments_tables %other_nutriments_lists assign_nutriments_values_from_request_parameters compute_nutrition_data_per_xxg_and_per_serving get_nutrient_unit has_category_that_should_have_prepared_nutrition_data/;
+	qw/%nutriments_tables %other_nutriments_lists assign_nutriments_values_from_request_parameters compute_nutrition_data_per_100g_and_per_serving get_nutrient_unit has_category_that_should_have_prepared_nutrition_data/;
 use ProductOpener::Units qw/g_to_unit mmoll_to_unit/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
@@ -792,7 +792,7 @@ sub display_input_field ($product_ref, $field, $language, $request_ref) {
 if (($action eq 'display') and (($type eq 'add') or ($type eq 'edit'))) {
 
 	# Populate the energy-kcal or energy-kj field from the energy field if it exists
-	compute_nutrition_data_per_xxg_and_per_serving($product_ref);
+	compute_nutrition_data_per_100g_and_per_serving($product_ref);
 
 	my $template_data_ref_display = {};
 

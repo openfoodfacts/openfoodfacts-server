@@ -174,7 +174,7 @@ foreach my $group_ref (@$select2_options_ref) {
 
 		if ($group_id =~ /^nutrition/) {
 			my $nid = $field_id;
-			$nid =~ s/_(100g|1kg|serving|prepared).*//;
+			$nid =~ s/_(100g|serving|prepared).*//;
 			$log->debug("field nutrition", {group_id => $group_id, field_id => $field_id, nid => $nid})
 				if $log->is_debug();
 			my $unit = default_unit_for_nid($nid);

@@ -5053,7 +5053,7 @@ sub add_params_to_query ($params_ref, $query_ref) {
 		# e.g. saturated-fat_prepared_serving=<3=0
 		# the parameter name is exactly the same as the key in the nutriments hash of the product
 
-		elsif ($field =~ /^(.*?)_(100g|1kg|serving)$/) {
+		elsif ($field =~ /^(.*?)_(100g|serving)$/) {
 
 			# We can have multiple conditions, separated with a comma
 			# e.g. sugars_100g=>10,<=20
@@ -5506,7 +5506,11 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 			$cursor = execute_query(
 				sub {
 					return get_products_collection(get_products_collection_request_parameters($request_ref))
-						->query($query_ref)->fields($fields_ref)->sort($sort_ref)->limit($limit)->skip($skip);
+						->query($query_ref)
+						->fields($fields_ref)
+						->sort($sort_ref)
+						->limit($limit)
+						->skip($skip);
 				}
 			);
 			$log->debug("MongoDB query ok", {error => $@}) if $log->is_debug();
@@ -6971,7 +6975,8 @@ sub search_and_graph_products ($request_ref, $query_ref, $graph_ref) {
 		$cursor = execute_query(
 			sub {
 				return get_products_collection(get_products_collection_request_parameters($request_ref))
-					->query($query_ref)->fields($fields_ref);
+					->query($query_ref)
+					->fields($fields_ref);
 			}
 		);
 	};
@@ -7281,7 +7286,8 @@ sub search_products_for_map ($request_ref, $query_ref) {
 		$cursor = execute_query(
 			sub {
 				return get_products_collection(get_products_collection_request_parameters($request_ref))
-					->query($query_ref)->fields(
+					->query($query_ref)
+					->fields(
 					{
 						code => 1,
 						lc => 1,
@@ -9687,7 +9693,7 @@ sub data_to_display_nutrition_table ($product_ref, $comparisons_ref, $request_re
 
 	my $template_data_ref = {};
 	# This function populates a data structure that is used by the template to display the nutrition facts table
-	if ($product_ref->{product_type} eq "petfood") {
+	if ((defined $product_ref->{product_type}) && ($product_ref->{product_type} eq "petfood")) {
 		$template_data_ref = {
 
 			nutrition_table => {
@@ -9721,100 +9727,97 @@ sub data_to_display_nutrition_table ($product_ref, $comparisons_ref, $request_re
 	# Data for each column
 	my %columns = ();
 
-	if ($product_ref->{product_type} eq "petfood") {
-		# only as sold in percent or for 1kg
-		$columns{"1kg"} = {
+	# We can have data for the product as sold, and/or prepared
+	my @displayed_product_types = ();
+	my %displayed_product_types = ();
+
+	if ((not defined $product_ref->{nutrition_data}) or ($product_ref->{nutrition_data})) {
+		# by default, old products did not have a checkbox, display the nutrition data entry column for the product as sold
+		push @displayed_product_types, "";
+		$displayed_product_types{as_sold} = 1;
+	}
+	# if (($product_ref->{product_type} eq "food") and (defined $product_ref->{nutrition_data_prepared}) and ($product_ref->{nutrition_data_prepared} eq 'on')) {
+	if ((defined $product_ref->{nutrition_data_prepared}) and ($product_ref->{nutrition_data_prepared} eq 'on')) {
+		push @displayed_product_types, "prepared_";
+		$displayed_product_types{prepared} = 1;
+	}
+
+	foreach my $product_type (@displayed_product_types) {
+
+		my $nutrition_data_per = "nutrition_data" . "_" . $product_type . "per";
+
+		my $col_name = lang("product_as_sold");
+		if ($product_type eq 'prepared_') {
+			$col_name = lang("prepared_product");
+		}
+
+		# only for 100g, petfood is diplayed per 1kg
+		# update header name here
+		# update value later
+		my $name;
+		if ((defined $product_ref->{product_type}) && ($product_ref->{product_type} eq "petfood")) {
+			$name = $col_name . "<br>" . lang("analytical_constituents_per_1kg");
+		}
+		else {
+			$name = $col_name . "<br>" . lang("nutrition_data_per_100g");
+		}
+		$columns{$product_type . "100g"} = {
 			scope => "product",
-			product_type => "",
-			per => "1kg",
-			name => lang("product_as_sold") . "<br>" . lang("analytical_constituents_per_1kg"),
-			short_name => "1kg",
+			product_type => $product_type,
+			per => "100g",
+			name => $col_name . "<br>" . $name,
+			short_name => "100g",
 		};
 
-		push @cols, '1kg';
-	}
-	# food
-	else {
-		# We can have data for the product as sold, and/or prepared
-		my @displayed_product_types = ();
-		my %displayed_product_types = ();
+		$columns{$product_type . "serving"} = {
+			scope => "product",
+			product_type => $product_type,
+			per => "serving",
+			name => $col_name . "<br>" . lang("nutrition_data_per_serving"),
+			short_name => lang("nutrition_data_per_serving"),
+		};
 
-		if ((not defined $product_ref->{nutrition_data}) or ($product_ref->{nutrition_data})) {
-			# by default, old products did not have a checkbox, display the nutrition data entry column for the product as sold
-			push @displayed_product_types, "";
-			$displayed_product_types{as_sold} = 1;
-		}
-		# if (($product_ref->{product_type} eq "food") and (defined $product_ref->{nutrition_data_prepared}) and ($product_ref->{nutrition_data_prepared} eq 'on')) {
-		if ((defined $product_ref->{nutrition_data_prepared}) and ($product_ref->{nutrition_data_prepared} eq 'on')) {
-			push @displayed_product_types, "prepared_";
-			$displayed_product_types{prepared} = 1;
+		if ((defined $product_ref->{serving_size}) and ($product_ref->{serving_size} ne '')) {
+			$columns{$product_type . "serving"}{name} .= ' (' . $product_ref->{serving_size} . ')';
 		}
 
-		foreach my $product_type (@displayed_product_types) {
+		if (not defined $product_ref->{$nutrition_data_per}) {
+			$product_ref->{$nutrition_data_per} = '100g';
+		}
 
-			my $nutrition_data_per = "nutrition_data" . "_" . $product_type . "per";
+		if ($product_ref->{$nutrition_data_per} eq 'serving') {
 
-			my $col_name = lang("product_as_sold");
-			if ($product_type eq 'prepared_') {
-				$col_name = lang("prepared_product");
-			}
-
-			$columns{$product_type . "100g"} = {
-				scope => "product",
-				product_type => $product_type,
-				per => "100g",
-				name => $col_name . "<br>" . lang("nutrition_data_per_100g"),
-				short_name => "100g",
-			};
-			$columns{$product_type . "serving"} = {
-				scope => "product",
-				product_type => $product_type,
-				per => "serving",
-				name => $col_name . "<br>" . lang("nutrition_data_per_serving"),
-				short_name => lang("nutrition_data_per_serving"),
-			};
-
-			if ((defined $product_ref->{serving_size}) and ($product_ref->{serving_size} ne '')) {
-				$columns{$product_type . "serving"}{name} .= ' (' . $product_ref->{serving_size} . ')';
-			}
-
-			if (not defined $product_ref->{$nutrition_data_per}) {
-				$product_ref->{$nutrition_data_per} = '100g';
-			}
-
-			if ($product_ref->{$nutrition_data_per} eq 'serving') {
-
-				if ((defined $product_ref->{serving_quantity}) and ($product_ref->{serving_quantity} > 0)) {
-					if (($product_type eq "") and ($displayed_product_types{prepared})) {
-						# do not display non prepared by portion if we have data for the prepared product
-						# -> the portion size is for the prepared product
-						push @cols, $product_type . '100g';
-					}
-					else {
-						push @cols, ($product_type . '100g', $product_type . 'serving');
-					}
+			if ((defined $product_ref->{serving_quantity}) and ($product_ref->{serving_quantity} > 0)) {
+				if (($product_type eq "") and ($displayed_product_types{prepared})) {
+					# do not display non prepared by portion if we have data for the prepared product
+					# -> the portion size is for the prepared product
+					push @cols, $product_type . '100g';
 				}
 				else {
-					push @cols, $product_type . 'serving';
+					push @cols, ($product_type . '100g', $product_type . 'serving');
 				}
 			}
 			else {
-				if ((defined $product_ref->{serving_quantity}) and ($product_ref->{serving_quantity} > 0)) {
-					if (($product_type eq "") and ($displayed_product_types{prepared})) {
-						# do not display non prepared by portion if we have data for the prepared product
-						# -> the portion size is for the prepared product
-						push @cols, $product_type . '100g';
-					}
-					else {
-						push @cols, ($product_type . '100g', $product_type . 'serving');
-					}
-				}
-				else {
+				push @cols, $product_type . 'serving';
+			}
+		}
+		else {
+			if ((defined $product_ref->{serving_quantity}) and ($product_ref->{serving_quantity} > 0)) {
+				if (($product_type eq "") and ($displayed_product_types{prepared})) {
+					# do not display non prepared by portion if we have data for the prepared product
+					# -> the portion size is for the prepared product
 					push @cols, $product_type . '100g';
 				}
+				else {
+					push @cols, ($product_type . '100g', $product_type . 'serving');
+				}
+			}
+			else {
+				push @cols, $product_type . '100g';
 			}
 		}
 	}
+	# }
 
 	# Comparisons with other products, categories, recommended daily values etc.
 
@@ -10186,7 +10189,20 @@ CSS
 							$value = $product_ref->{nutriments}{$nid . "_" . $col_id};
 						}
 						else {
-							$value = $decf->format(g_to_unit($product_ref->{nutriments}{$nid . "_" . $col_id}, $unit));
+							# only for 100g, petfood is diplayed per 1kg
+							# update header above
+							# update value here
+							if (   (defined $product_ref->{product_type})
+								&& ($product_ref->{product_type} eq "petfood")
+								&& ($unit ne "%"))
+							{
+								$value = $decf->format(
+									g_to_unit($product_ref->{nutriments}{$nid . "_" . $col_id} * 10, $unit));
+							}
+							else {
+								$value
+									= $decf->format(g_to_unit($product_ref->{nutriments}{$nid . "_" . $col_id}, $unit));
+							}
 						}
 
 						# too small values are converted to e notation: 7.18e-05
@@ -11673,7 +11689,8 @@ sub search_and_analyze_recipes ($request_ref, $query_ref) {
 		$cursor = execute_query(
 			sub {
 				return get_products_collection(get_products_collection_request_parameters($request_ref))
-					->query($query_ref)->fields($fields_ref);
+					->query($query_ref)
+					->fields($fields_ref);
 			}
 		);
 	};

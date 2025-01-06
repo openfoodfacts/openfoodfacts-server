@@ -70,7 +70,7 @@ BEGIN {
 		&compute_nutriscore_data
 		&compute_nutriscore
 		&compute_nova_group
-		&compute_nutrition_data_per_xxg_and_per_serving
+		&compute_nutrition_data_per_100g_and_per_serving
 		&compute_unknown_nutrients
 		&compute_nutrient_levels
 		&evaluate_nutrient_level
@@ -381,9 +381,6 @@ sub assign_nid_modifier_value_and_unit ($product_ref, $nid, $modifier, $value, $
 		delete $product_ref->{nutriments}{$nid . "_value"};
 		# Delete other fields dervied from the value
 		delete $product_ref->{nutriments}{$nid};
-		# petfood
-		delete $product_ref->{nutriments}{$nid . "_1kg"};
-		# food
 		delete $product_ref->{nutriments}{$nid . "_100g"};
 		delete $product_ref->{nutriments}{$nid . "_serving"};
 		# Delete modifiers (e.g. < sign), unless it is '-' which indicates that the field does not exist on the packaging
@@ -2216,14 +2213,14 @@ sub compute_nutriscore ($product_ref, $current_version = "2023") {
 	return;
 }
 
-=head2 compute_nutrition_data_per_xxg_and_per_serving ($product_ref)
+=head2 compute_nutrition_data_per_100g_and_per_serving ($product_ref)
 
 Input nutrition data is indicated per 100g or per serving.
 This function computes the nutrition data for the other quantity (per serving or per 100g) if we know the serving quantity.
 
 =cut
 
-sub compute_nutrition_data_per_xxg_and_per_serving ($product_ref) {
+sub compute_nutrition_data_per_100g_and_per_serving ($product_ref) {
 
 	# Make sure we have normalized the product quantity and the serving size
 	# in a normal setting, this function has already been called by analyze_and_enrich_product_data()
@@ -2286,13 +2283,7 @@ sub compute_nutrition_data_per_xxg_and_per_serving ($product_ref) {
 		}
 
 		if (not defined $product_ref->{"nutrition_data" . $product_type . "_per"}) {
-			if ((defined $product_ref->{product_type}) && ($product_ref->{product_type} eq "petfood")) {
-				$product_ref->{"nutrition_data" . $product_type . "_per"} = '1kg';
-			}
-			# food
-			else {
-				$product_ref->{"nutrition_data" . $product_type . "_per"} = '100g';
-			}
+			$product_ref->{"nutrition_data" . $product_type . "_per"} = '100g';
 		}
 
 		if ($product_ref->{"nutrition_data" . $product_type . "_per"} eq 'serving') {
@@ -2334,69 +2325,54 @@ sub compute_nutrition_data_per_xxg_and_per_serving ($product_ref) {
 		}
 		# nutrition_data_<_/prepared>_per eq '100g' or '1kg'
 		else {
-			if ((defined $product_ref->{product_type}) && ($product_ref->{product_type} eq "petfood")) {
-				# can be either % or per 1kg
-				# no serving size
-				foreach my $nid (keys %{$product_ref->{nutriments}}) {
-					if (   ($product_type eq "") and ($nid =~ /_/)
-						or ($product_type eq "_prepared"))
-					{
-						next;
-					}
+			foreach my $nid (keys %{$product_ref->{nutriments}}) {
+				if (   ($product_type eq "") and ($nid =~ /_/)
+					or (($product_type eq "_prepared") and ($nid !~ /_prepared$/)))
+				{
 
-					# value for 100g is the same as value shown in the nutrition table
-					$product_ref->{nutriments}{$nid . $product_type . "_1kg"}
-						= $product_ref->{nutriments}{$nid . $product_type};
-					# get rid of non-digit prefixes if any
-					$product_ref->{nutriments}{$nid . $product_type . "_1kg"}
-						=~ s/^(<|environ|max|maximum|min|minimum)( )?//;
-					# set value as numeric
-					$product_ref->{nutriments}{$nid . $product_type . "_1kg"} += 0.0;
+					next;
+				}
+				$nid =~ s/_prepared$//;
 
-					delete $product_ref->{nutriments}{$nid . $product_type . "_serving"};
+				# Value for 100g is the same as value shown in the nutrition table
+				$product_ref->{nutriments}{$nid . $product_type . "_100g"}
+					= $product_ref->{nutriments}{$nid . $product_type};
+				# get rid of non-digit prefixes if any
+				$product_ref->{nutriments}{$nid . $product_type . "_100g"}
+					=~ s/^(<|environ|max|maximum|min|minimum)( )?//;
+				# set value as numeric
+				$product_ref->{nutriments}{$nid . $product_type . "_100g"} += 0.0;
+				delete $product_ref->{nutriments}{$nid . $product_type . "_serving"};
+
+				my $unit = get_property("nutrients", "zz:$nid", "unit:en")
+					;    # $unit will be undef if the nutrient is not in the taxonomy
+
+				# petfood, Value for 100g is 10x smaller than in the nutrition table (kg)
+				if (   (defined $product_ref->{product_type})
+					&& ($product_ref->{product_type} eq "petfood")
+					&& (defined $unit)
+					and ($unit ne "%"))
+				{
+					$product_ref->{nutriments}{$nid . $product_type . "_100g"} /= 10;
+				}
+
+				# If the nutrient has no unit (e.g. pH), or is a % (e.g. "% vol" for alcohol), it is the same regardless of quantity
+				# otherwise we adjust the value for the serving quantity
+				if ((defined $unit) and (($unit eq '') or ($unit =~ /^\%/))) {
+					$product_ref->{nutriments}{$nid . $product_type . "_serving"}
+						= $product_ref->{nutriments}{$nid . $product_type} + 0.0;
+				}
+				elsif ((defined $product_ref->{serving_quantity}) and ($product_ref->{serving_quantity} > 0)) {
+
+					$product_ref->{nutriments}{$nid . $product_type . "_serving"} = sprintf("%.2e",
+						$product_ref->{nutriments}{$nid . $product_type} / 100.0 * $product_ref->{serving_quantity})
+						+ 0.0;
+
+					# Record that we have a nutrient value for this product type (with a unit, not NOVA, alcohol % etc.)
+					$nutrition_data{$product_type} = 1;
 				}
 			}
-			# food
-			else {
-				foreach my $nid (keys %{$product_ref->{nutriments}}) {
-					if (   ($product_type eq "") and ($nid =~ /_/)
-						or (($product_type eq "_prepared") and ($nid !~ /_prepared$/)))
-					{
-
-						next;
-					}
-					$nid =~ s/_prepared$//;
-
-					# value for 100g is the same as value shown in the nutrition table
-					$product_ref->{nutriments}{$nid . $product_type . "_100g"}
-						= $product_ref->{nutriments}{$nid . $product_type};
-					# get rid of non-digit prefixes if any
-					$product_ref->{nutriments}{$nid . $product_type . "_100g"}
-						=~ s/^(<|environ|max|maximum|min|minimum)( )?//;
-					# set value as numeric
-					$product_ref->{nutriments}{$nid . $product_type . "_100g"} += 0.0;
-					delete $product_ref->{nutriments}{$nid . $product_type . "_serving"};
-
-					my $unit = get_property("nutrients", "zz:$nid", "unit:en")
-						;    # $unit will be undef if the nutrient is not in the taxonomy
-
-					# If the nutrient has no unit (e.g. pH), or is a % (e.g. "% vol" for alcohol), it is the same regardless of quantity
-					# otherwise we adjust the value for the serving quantity
-					if ((defined $unit) and (($unit eq '') or ($unit =~ /^\%/))) {
-						$product_ref->{nutriments}{$nid . $product_type . "_serving"}
-							= $product_ref->{nutriments}{$nid . $product_type} + 0.0;
-					}
-					elsif ((defined $product_ref->{serving_quantity}) and ($product_ref->{serving_quantity} > 0)) {
-
-						$product_ref->{nutriments}{$nid . $product_type . "_serving"} = sprintf("%.2e",
-							$product_ref->{nutriments}{$nid . $product_type} / 100.0 * $product_ref->{serving_quantity})
-							+ 0.0;
-
-						# Record that we have a nutrient value for this product type (with a unit, not NOVA, alcohol % etc.)
-						$nutrition_data{$product_type} = 1;
-					}
-				}
-			}
+			# }
 
 		}
 

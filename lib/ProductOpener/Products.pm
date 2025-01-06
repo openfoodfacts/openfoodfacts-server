@@ -191,7 +191,7 @@ sub make_sure_numbers_are_stored_as_numbers ($product_ref) {
 	if (defined $product_ref->{nutriments}) {
 		foreach my $field (keys %{$product_ref->{nutriments}}) {
 			# _100g and _serving need to be numbers
-			if ($field =~ /_(100g|1kg|serving)$/) {
+			if ($field =~ /_(100g|serving)$/) {
 				# Store as number
 				$product_ref->{nutriments}{$field} += 0.0;
 			}
