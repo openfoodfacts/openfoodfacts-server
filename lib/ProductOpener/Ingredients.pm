@@ -61,6 +61,7 @@ BEGIN {
 		&parse_ingredients_text_service
 		&extend_ingredients_service
 		&estimate_ingredients_percent_service
+		&estimate_environmental_cost_ingredients_service
 
 		&extract_ingredients_from_image
 
@@ -3588,6 +3589,36 @@ sub get_geographical_area ($originid) {
 	}
 
 	return $ecobalyse_area;
+}
+
+=head2 estimate_environmental_cost_ingredients_service ( $product_ref, $updated_product_fields_ref, $errors_ref )
+
+Compute the environmental cost for a given list of ingredients (see the french environemental labelling, Ecobalyse). 
+
+This function is a product service that can be run through ProductOpener::ApiProductServices
+
+=head3 Arguments
+
+=head4 $product_ref
+
+product object reference
+
+=head4 $updated_product_fields_ref
+
+reference to a hash of product fields that have been created or updated
+
+=head4 $errors_ref
+
+reference to an array of error messages
+
+=cut
+
+sub estimate_ingredients_percent_service ($product_ref, $updated_product_fields_ref, $errors_ref) {
+
+	# Do nothing and return if we don't have the ingredients structure
+	return if not defined $product_ref->{ingredients};
+
+	return;
 }
 
 =head2 estimate_ingredients_percent_service ( $product_ref, $updated_product_fields_ref, $errors_ref )

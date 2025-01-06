@@ -116,6 +116,7 @@ my %service_functions = (
 	extend_ingredients => \&ProductOpener::Ingredients::extend_ingredients_service,
 	estimate_ingredients_percent => \&ProductOpener::Ingredients::estimate_ingredients_percent_service,
 	analyze_ingredients => \&ProductOpener::Ingredients::analyze_ingredients_service,
+	estimate_environmental_cost_ingredients => \&ProductOpener::Ingredients::estimate_environmental_cost_ingredients_service,
 );
 
 sub check_product_services_api_input ($request_ref) {
