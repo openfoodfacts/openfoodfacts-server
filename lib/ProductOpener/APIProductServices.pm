@@ -51,6 +51,7 @@ Currently implemented services:
 - extend_ingredients : extend the ingredients object with additional information
 - estimate_ingredients_percent : compute percent_min, percent_max, percent_estimate for each ingredient in the ingredients object
 - analyze_ingredients : analyze the ingredients object and return a summary object
+- estimate_environmental_cost_ingredients : estimate the environmental cost of a given product (see Ecobalyse)
 
 =head4 product
 
