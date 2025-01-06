@@ -822,7 +822,7 @@ contains a property for an ingredient. (e.g. do we have an origin specified for 
 
 If the ingredient_id parameter is undef, then we return the value for any specific ingredient.
 (useful for products for which we do not have ingredients, but for which we have a label like "French eggs":
-we can still derive the origin of the ingredients, e.g. for the Eco-Score)
+we can still derive the origin of the ingredients, e.g. for the Environmental-Score)
 
 =head4 property
 
@@ -3581,7 +3581,10 @@ reference to the name of the country
 sub get_geographical_area ($originid) {
 	# Getting information about the country
 	my $ecobalyse_area = "";
-	if (get_inherited_property("countries", $originid, "ecobalyse_is_part_of_eu") eq "yes") {
+	my $ecobalyse_is_part_of_eu_result = get_inherited_property("countries", $originid, "ecobalyse_is_part_of_eu");
+	if (defined $ecobalyse_is_part_of_eu_result
+		&& $ecobalyse_is_part_of_eu_result eq "yes")
+	{
 		$ecobalyse_area = "eu";
 	}
 	if ($originid eq "en:france") {
@@ -3589,36 +3592,6 @@ sub get_geographical_area ($originid) {
 	}
 
 	return $ecobalyse_area;
-}
-
-=head2 estimate_environmental_cost_ingredients_service ( $product_ref, $updated_product_fields_ref, $errors_ref )
-
-Compute the environmental cost for a given list of ingredients (see the french environemental labelling, Ecobalyse). 
-
-This function is a product service that can be run through ProductOpener::ApiProductServices
-
-=head3 Arguments
-
-=head4 $product_ref
-
-product object reference
-
-=head4 $updated_product_fields_ref
-
-reference to a hash of product fields that have been created or updated
-
-=head4 $errors_ref
-
-reference to an array of error messages
-
-=cut
-
-sub estimate_ingredients_percent_service ($product_ref, $updated_product_fields_ref, $errors_ref) {
-
-	# Do nothing and return if we don't have the ingredients structure
-	return if not defined $product_ref->{ingredients};
-
-	return;
 }
 
 =head2 estimate_ingredients_percent_service ( $product_ref, $updated_product_fields_ref, $errors_ref )

@@ -51,6 +51,9 @@ use Log::Any qw($log);
 use Storable qw(dclone);
 use Text::Fuzzy;
 
+# to use read_file
+use File::Slurp;
+
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
@@ -1214,6 +1217,15 @@ sub load_xml_file ($file, $xml_rules_ref, $xml_fields_mapping_ref, $code) {
 	}
 
 	$log->info("parsing xml file with XML::Rules", {file => $file, xml_rules => $xml_rules_ref}) if $log->is_info();
+
+	# Read the file content
+	# Check if the file is empty or contains only comments
+	# See issue #9655, file 13003_3270190006787_valNut.xml + 5 others are empty
+	my $content = read_file($file);
+	if ($content =~ /^\s*<!--.*-->\s*$/s) {
+		# $log->warn("File is empty or contains only comments", {file => $file}) if $log->is_warn();
+		return 1;
+	}
 
 	my $parser = XML::Rules->new(rules => $xml_rules_ref);
 

@@ -1,5 +1,50 @@
 # Changelog
 
+## [2.53.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.52.0...v2.53.0) (2025-01-06)
+
+
+### Features
+
+* data-quality - minimum number of ingredients ([#11152](https://github.com/openfoodfacts/openfoodfacts-server/issues/11152)) ([d7881d4](https://github.com/openfoodfacts/openfoodfacts-server/commit/d7881d4b9fc8d2262508913c1ec67e5dd0ce474a)), closes [#9732](https://github.com/openfoodfacts/openfoodfacts-server/issues/9732)
+* data-quality/apply-remove_insignificant_digits-for-nutriments ([#11147](https://github.com/openfoodfacts/openfoodfacts-server/issues/11147)) ([a6df72f](https://github.com/openfoodfacts/openfoodfacts-server/commit/a6df72f381c242c41ad677b7c184df479ff23aad))
+* Top categories for Open Products Facts ([2239473](https://github.com/openfoodfacts/openfoodfacts-server/commit/2239473a993fbfe0b516633c43ea3b810dae9b4a))
+* Top categories for Open Products Facts ([#11171](https://github.com/openfoodfacts/openfoodfacts-server/issues/11171)) ([2239473](https://github.com/openfoodfacts/openfoodfacts-server/commit/2239473a993fbfe0b516633c43ea3b810dae9b4a))
+
+
+### Bug Fixes
+
+* allow serving size to be hyphenated ([#11161](https://github.com/openfoodfacts/openfoodfacts-server/issues/11161)) ([7c0df2d](https://github.com/openfoodfacts/openfoodfacts-server/commit/7c0df2d7b09ee3d3bcb872adfe2ffd37fefd1b59))
+* Correct indentation, so that CodeQL can work with the code ([#11166](https://github.com/openfoodfacts/openfoodfacts-server/issues/11166)) ([0178ac2](https://github.com/openfoodfacts/openfoodfacts-server/commit/0178ac22cd7f2324039b91d688761c61fa19cf86))
+* data quality - increase threshold for comparison between fiber and its subnutriments ([#11145](https://github.com/openfoodfacts/openfoodfacts-server/issues/11145)) ([f0a2682](https://github.com/openfoodfacts/openfoodfacts-server/commit/f0a2682ee8c33114cd9df569c965a94ab79ac11b))
+* Delete html/images/lang/de/labels/halal.90x90.png ([#11183](https://github.com/openfoodfacts/openfoodfacts-server/issues/11183)) ([80cf708](https://github.com/openfoodfacts/openfoodfacts-server/commit/80cf708e9a475589b2f753f4d3055e2aab477a0e))
+* environmental_score ([#11191](https://github.com/openfoodfacts/openfoodfacts-server/issues/11191)) ([cbe221e](https://github.com/openfoodfacts/openfoodfacts-server/commit/cbe221e40432a70a981f2544234cd80c1585763b))
+* fix OPF PR labelling ([e708ae3](https://github.com/openfoodfacts/openfoodfacts-server/commit/e708ae398fc5d3facca6f008e452fe9724d1b093))
+* fix OPF PR labelling ([#11154](https://github.com/openfoodfacts/openfoodfacts-server/issues/11154)) ([e708ae3](https://github.com/openfoodfacts/openfoodfacts-server/commit/e708ae398fc5d3facca6f008e452fe9724d1b093))
+* fixes for Green-Score ([#11155](https://github.com/openfoodfacts/openfoodfacts-server/issues/11155)) ([7287d8b](https://github.com/openfoodfacts/openfoodfacts-server/commit/7287d8b87dedcf6993f8fa96f27cc3d127bc2064))
+* green-score link ([#11146](https://github.com/openfoodfacts/openfoodfacts-server/issues/11146)) ([abf858a](https://github.com/openfoodfacts/openfoodfacts-server/commit/abf858a3f7ce1ccfe573a8146e6f49a6b73a7342))
+* nutriscore grade from category change for extra virgin olive oils ([#11156](https://github.com/openfoodfacts/openfoodfacts-server/issues/11156)) ([32d58e0](https://github.com/openfoodfacts/openfoodfacts-server/commit/32d58e026a46a5864aa9c01e0fe4fe1321c9dfb1))
+* rm nova drilldown field for beauty ([#11193](https://github.com/openfoodfacts/openfoodfacts-server/issues/11193)) ([3f5b654](https://github.com/openfoodfacts/openfoodfacts-server/commit/3f5b65444eb34709ecdb60828e37a8dc788a98e0))
+* SonarCloud issues ([#11165](https://github.com/openfoodfacts/openfoodfacts-server/issues/11165)) ([b84d545](https://github.com/openfoodfacts/openfoodfacts-server/commit/b84d545c3592bee5603dbffa54dda230a62380da))
+* warnings in import_convert_carrefour_france ([#11189](https://github.com/openfoodfacts/openfoodfacts-server/issues/11189)) ([4643e3a](https://github.com/openfoodfacts/openfoodfacts-server/commit/4643e3a79c42120026fdfa7bac936d88899b2185))
+
+## [2.52.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.51.0...v2.52.0) (2024-12-18)
+
+
+### Features
+
+* change redis stream name to product_updates ([#11141](https://github.com/openfoodfacts/openfoodfacts-server/issues/11141)) ([beb2b64](https://github.com/openfoodfacts/openfoodfacts-server/commit/beb2b64ad1e79446390c1caa890ddf729a13c444))
+* launch new Nutri-Score for France ([#11123](https://github.com/openfoodfacts/openfoodfacts-server/issues/11123)) ([e1a7800](https://github.com/openfoodfacts/openfoodfacts-server/commit/e1a7800bf4e74abd9d31ae7637ec929426a92237))
+* rename ecoscore fields to environmental_score (internal) and new external name and logos ([#11142](https://github.com/openfoodfacts/openfoodfacts-server/issues/11142)) ([8a1fec4](https://github.com/openfoodfacts/openfoodfacts-server/commit/8a1fec4718e78212e83ff8eb358c41cccd67cbd4))
+
+
+### Bug Fixes
+
+* nutripatrol URL ([#11115](https://github.com/openfoodfacts/openfoodfacts-server/issues/11115)) ([8c1d123](https://github.com/openfoodfacts/openfoodfacts-server/commit/8c1d123665734731a4353bfbebb33fbe4c77bed4))
+* nutriscore messages ([#11140](https://github.com/openfoodfacts/openfoodfacts-server/issues/11140)) ([7c0ff96](https://github.com/openfoodfacts/openfoodfacts-server/commit/7c0ff96627b2e3acc7022ba2a03b5beef912c6d6))
+* promo images for new nutri-score ([#11144](https://github.com/openfoodfacts/openfoodfacts-server/issues/11144)) ([8a37c8b](https://github.com/openfoodfacts/openfoodfacts-server/commit/8a37c8b0fa31003fbfa1cd32ccc56f40b0cf6f96))
+* redirect /nutriscore-v2 to /new-nutriscore ([#11135](https://github.com/openfoodfacts/openfoodfacts-server/issues/11135)) ([3907e7c](https://github.com/openfoodfacts/openfoodfacts-server/commit/3907e7c4e823a4936b3abb1854bdfd715e1275d6))
+* switch main nutriscore version to 2023 ([#11134](https://github.com/openfoodfacts/openfoodfacts-server/issues/11134)) ([6a0400f](https://github.com/openfoodfacts/openfoodfacts-server/commit/6a0400fd6dccc09150aefe87d39ca5d29beb589b))
+
 ## [2.51.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.50.0...v2.51.0) (2024-12-10)
 
 

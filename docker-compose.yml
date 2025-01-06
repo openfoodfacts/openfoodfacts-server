@@ -1,6 +1,4 @@
-﻿version: "3.7"
-
-x-backend-conf: &backend-conf
+﻿x-backend-conf: &backend-conf
   image: ghcr.io/openfoodfacts/openfoodfacts-server/backend:${TAG}
   environment:
     - PRODUCERS_PLATFORM
