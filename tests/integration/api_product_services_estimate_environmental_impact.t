@@ -88,7 +88,7 @@ my $tests_ref = [
 			"product":{}
 		}',
 		expected_status_code => 400,
-	},
+	}
 	# echo service
 	{
 		test_case => 'service-no-body',
@@ -113,8 +113,8 @@ my $tests_ref = [
 			"services":["echo"],
 			"fields": ["product_name_en","product_name_fr"],'
 			. $product_hazelnut_spread_json . '}',
-	},
-]
+	}
+];
 
 execute_api_tests(__FILE__, $tests_ref);
 
