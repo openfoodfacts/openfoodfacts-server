@@ -61,7 +61,6 @@ BEGIN {
 		&parse_ingredients_text_service
 		&extend_ingredients_service
 		&estimate_ingredients_percent_service
-		&estimate_environmental_cost_ingredients_service
 
 		&extract_ingredients_from_image
 
@@ -1825,53 +1824,6 @@ sub get_percent_or_quantity_and_normalized_quantity ($percent_or_quantity_value,
 	}
 
 	return ($percent, $quantity, $quantity_g);
-}
-
-=head2 estimate_environmental_cost_ingredients_service ( $product_ref, $updated_product_fields_ref, $errors_ref )
-
-Compute the environemental cost of a given product (see the french environmental labelling Ecobalyse).
-
-This function is a product service that can be run through ProductOpener::ApiProductServices
-
-=head3 Arguments
-
-=head4 $product_ref
-
-product object reference
-
-=head4 $updated_product_fields_ref
-
-reference to a hash of product fields that have been created or updated
-
-=head4 $errors_ref
-
-reference to an array of error messages
-
-=cut
-
-sub estimate_environmental_cost_ingredients_service ($product_ref, $updated_product_fields_ref, $errors_ref) {
-
-	# Do nothing and return if we don't have the ingredients structure
-	return if not defined $product_ref->{ingredients};
-
-	# indicate that the service is modifying the "ingredients" structure
-	$updated_product_fields_ref->{ingredients} = 1;
-
-	# Traverse the ingredients tree, breadth first
-	my @ingredients = @{$product_ref->{ingredients}};
-
-	while (@ingredients) {
-
-		# Remove and process the first ingredient
-		my $ingredient_ref = shift @ingredients;
-		my $ingredientid = $ingredient_ref->{id};
-
-		# 1. taking the ecobalyse_id + mass
-	}
-
-	# 2. using it to calculate the agregated score
-
-	return;
 }
 
 =head2 parse_ingredients_text_service ( $product_ref, $updated_product_fields_ref, $errors_ref )
