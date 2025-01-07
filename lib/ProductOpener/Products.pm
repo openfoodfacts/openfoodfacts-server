@@ -2972,49 +2972,21 @@ sub review_product_type ($product_ref) {
 
 	my $error;
 
-	if ($product_ref->{product_type} eq "beauty") {
-		if (has_tag($product_ref, "categories", "en:open-food-facts")) {
-			$error = change_product_type($product_ref, "food");
-		}
-		elsif (has_tag($product_ref, "categories", "en:open-pet-food-facts")) {
-			$error = change_product_type($product_ref, "petfood");
-		}
-		elsif (has_tag($product_ref, "categories", "en:open-products-facts")) {
-			$error = change_product_type($product_ref, "product");
-		}
+	my $expected_type;
+	if (has_tag($product_ref, "categories", "en:open-food-facts")) {
+		$expected_type = "food";
 	}
-	elsif ($product_ref->{product_type} eq "food") {
-		if (has_tag($product_ref, "categories", "en:open-beauty-facts")) {
-			$error = change_product_type($product_ref, "beauty");
-		}
-		elsif (has_tag($product_ref, "categories", "en:open-pet-food-facts")) {
-			$error = change_product_type($product_ref, "petfood");
-		}
-		elsif (has_tag($product_ref, "categories", "en:open-products-facts")) {
-			$error = change_product_type($product_ref, "product");
-		}
+	elsif (has_tag($product_ref, "categories", "en:open-pet-food-facts")) {
+		$expected_type = "petfood";
 	}
-	elsif ($product_ref->{product_type} eq "petfood") {
-		if (has_tag($product_ref, "categories", "en:open-beauty-facts")) {
-			$error = change_product_type($product_ref, "beauty");
-		}
-		elsif (has_tag($product_ref, "categories", "en:open-food-facts")) {
-			$error = change_product_type($product_ref, "food");
-		}
-		elsif (has_tag($product_ref, "categories", "en:open-products-facts")) {
-			$error = change_product_type($product_ref, "product");
-		}
+	elsif (has_tag($product_ref, "categories", "en:open-products-facts")) {
+		$expected_type = "product";
 	}
-	elsif ($product_ref->{product_type} eq "product") {
-		if (has_tag($product_ref, "categories", "en:open-beauty-facts")) {
-			$error = change_product_type($product_ref, "beauty");
-		}
-		elsif (has_tag($product_ref, "categories", "en:open-food-facts")) {
-			$error = change_product_type($product_ref, "food");
-		}
-		elsif (has_tag($product_ref, "categories", "en:open-pet-food-facts")) {
-			$error = change_product_type($product_ref, "petfood");
-		}
+	elsif (has_tag($product_ref, "categories", "en:open-beauty-facts")) {
+		$expected_type = "beauty";
+	}
+	if ($expected_type and ($product_ref->{product_type} ne expected_type)) {
+		$error = change_product_type($product_ref, expected_type);
 	}
 
 	if ($error) {
