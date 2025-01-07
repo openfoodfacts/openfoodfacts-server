@@ -13,7 +13,7 @@ server {
 	}
 }
 
-# map to decide if we go to the priority (8002) or standard service (8801)
+# map to decide if we go to the priority (8002) or standard service (8001)
 map $uri $apache_port {
 	default 8001;
 
