@@ -55164,6 +55164,7 @@ en: Coated nuts
 
 < en:coated-nuts
 en: Coated walnuts
+
 < en:Plant-based foods
 < en:Variety packs
 en: Fruits-Nuts-Seed variety packs
@@ -55452,6 +55453,7 @@ agribalyse_food_code:en: 15041
 ciqual_food_code:en: 15041
 ciqual_food_name:en: Almond, peeled, unpeeled or blanched
 
+< en:Bulk
 < en:Shelled almonds
 en: Almonds(roasted), Roasted almonds, Grilled almonds, Toasted almonds
 ca: Ametles torrades
@@ -55463,9 +55465,9 @@ hr: Bademi na žaru
 it: Mandorle Grigliate
 lt: Grilinti migdolai
 nl: Gegrilde amandelen
-bulk_code:en: 1504201
 agribalyse_proxy_food_code:en: 15042
 agribalyse_proxy_food_name:en: Almond, grilled, salted
+bulk_code:en: 1504201
 opposite:en: en:almonds(unroasted)
 
 < en:Shelled almonds
@@ -55852,15 +55854,16 @@ lt: Gliaudyti lazdyno riešutai be odelės
 nl: Gepelde witte hazelnoten
 opposite:en: en:shelled-hazelnuts-with-skin
 
+< en:Bulk
 < en:Hazelnuts (unsalted)
 < en:Shelled hazelnuts
 en: Raw hazelnuts, Unroasted hazelnuts
 fr: Noisettes décortiquées crues
+agribalyse_proxy_food_code:en: 15004
+agribalyse_proxy_food_name:en: Hazelnut
 bulk_code:en: 1500400
 expected_ingredients:en: en:hazelnut
 opposite:en: en:roasted-hazelnuts
-agribalyse_proxy_food_code:en: 15004
-agribalyse_proxy_food_name:en: Hazelnut
 
 < en:Hazelnuts
 < en:Roasted nuts
@@ -68296,6 +68299,7 @@ protected_name_file_number:en: PGI-FR-02433
 protected_name_type:en: pgi
 #wikidata:en:
 
+< en:Bulk
 < en:Fruits
 en: Peaches, peach
 bg: Праскови
@@ -68308,7 +68312,7 @@ it: Pesche
 ja: モモ, もも, 桃, ピーチ
 lt: Persikai
 nl: Perziken
-bulk_code: 1303001
+bulk_code:en: 1303001
 intake24_category_code:en: PCHS
 
 < en:Peaches
@@ -68763,6 +68767,7 @@ ciqual_food_name:en: Prickly pear, pulp and seeds, raw
 ciqual_food_name:fr: Figue de Barbarie, pulpe et graines, crue
 wikidata:en: Q144412
 
+< en:Bulk
 < en:Fruits
 en: Plums
 bg: Сливи
@@ -68776,7 +68781,7 @@ lt: Slyvos
 nl: Pruimen
 ru: Сливы
 agribalyse_food_code:en: 13100
-bulk_code: 1310000
+bulk_code:en: 1310000
 ciqual_food_code:en: 13100
 ciqual_food_name:en: Plum, raw
 ciqual_food_name:fr: Prune, crue
@@ -68987,8 +68992,8 @@ opposite:en: en:plantain-bananas, en:red-bananas, en:cavendish-bananas
 
 < en:Plantain bananas
 en: Bananas(Matooke), Matooke bananas
-fr: Matooke, matoke
 xx: Matooke
+fr: Matooke, matoke
 wikidata:en: Q101418717
 
 < en:Bananas
@@ -104933,6 +104938,7 @@ nl: Verse aardperen
 expected_ingredients:en: en:jerusalem-artichoke
 season_in_country_fr:en: 1,2,11,12
 
+< en:Bulk
 < en:Vegetables
 en: Parsnip
 fr: Panais
@@ -104940,7 +104946,7 @@ hr: Pastrnjak
 ja: パースニップ
 nl: Pastinaken, Pastinaak
 agribalyse_food_code:en: 20181
-bulk_code: 2018100
+bulk_code:en: 2018100
 ciqual_food_code:en: 20181
 ciqual_food_name:en: Parsnip, raw
 ciqual_food_name:fr: Panais, cru
@@ -106275,6 +106281,7 @@ ciqual_food_name:fr: Céleri-rave, cuit
 
 
 # <en:Vegetable rods
+< en:Bulk
 < en:Vegetables
 en: Chards, Chard, Swiss chard
 ar: سلق
@@ -106320,7 +106327,7 @@ zh: 莙薘菜
 agribalyse_proxy_food_code:en: 20004
 agribalyse_proxy_food_name:en: Swiss chard, raw
 agribalyse_proxy_food_name:fr: Bette ou blette, crue
-bulk_code:en:2000400
+bulk_code:en: 2000400
 description:en: Chard (Beta vulgaris subsp. vulgaris, Cicla-Group and Flavescens-Group) is a green leafy vegetable. Chard, like other green leafy vegetables, has highly nutritious leaves, making it a popular component of healthy diets.Fresh young chard can be used raw in salads. Mature chard leaves and stalks are typically cooked (like in pizzoccheri) or sautéed; the bitterness fades with cooking, leaving a refined flavor which is more delicate than that of cooked spinach.
 # azb:پازی تره‌سی
 # frr:Mangold
@@ -107345,6 +107352,7 @@ ciqual_food_code:en: 20086
 ciqual_food_name:en: Sweet pepper, green, cooked
 ciqual_food_name:fr: Poivron vert, cuit
 
+< en:Bulk
 < en:Sweet Peppers
 en: Sweet peppers(yellow), Yellow sweet peppers
 bg: Жълти чушки
@@ -107355,7 +107363,7 @@ hr: Žute slatke paprike
 ja: 黄ピーマン
 nl: Paprikas(geel), Gele paprikas
 agribalyse_food_code:en: 20168
-bulk_code: 2016800
+bulk_code:en: 2016800
 ciqual_food_code:en: 20168
 ciqual_food_name:en: Sweet pepper, yellow, raw
 ciqual_food_name:fr: Poivron jaune, cru
@@ -107532,7 +107540,7 @@ fr: Pommes de terre nouvelles, Pommes de terre fraîches, Pommes de terre primeu
 hr: Mladi krumpir
 nl: Nieuwe oogst aardappelen
 agribalyse_food_code:en: 4023
-bulk_code:en:0402300
+bulk_code:en: 0402300
 ciqual_food_code:en: 4023
 ciqual_food_name:en: New potato, raw
 ciqual_food_name:fr: Pomme de terre nouvelle, crue
@@ -107953,7 +107961,7 @@ hr: Butternut tikve
 ja: バターナッツかぼちゃ
 nl: Muskaatpompoen
 agribalyse_food_code:en: 20138
-bulk_code: 2013800
+bulk_code:en: 2013800
 ciqual_food_code:en: 20138
 ciqual_food_name:en: Squash, butternut, pulp, raw
 ciqual_food_name:fr: Courge doubeurre (butternut), pulpe, crue
@@ -107977,6 +107985,7 @@ expected_ingredients:en: en:spaghetti squash
 
 ##############################
 
+< en:Bulk
 < en:Vegetables
 en: Radishes, radish
 am: ፍጁል
@@ -108070,7 +108079,6 @@ zh: 萝卜
 # ingredient/fr:Radis has 393 products in 4 languages @2019-05-16
 # category/radish has 2 products @2019-05-22
 # usage:en:fruit and vegetable concentrates (safflower, radish, black carrot, lemon, hibiscus)
-description:en: The radish (Raphanus raphanistrum subsp. sativus or Raphanus sativus) is an edible root vegetable of the Brassicaceae family. The root of the radish is usually eaten raw, although tougher specimens can be steamed. The raw flesh has a crisp texture and a pungent, peppery flavor.
 # aeb-arab:فجل
 # azb:قیرمیزی تورپ
 # bar:Radi
@@ -108100,6 +108108,7 @@ description:en: The radish (Raphanus raphanistrum subsp. sativus or Raphanus sat
 # yue:蘿蔔
 # zh-tw:蘿蔔
 bulk_code:en: 2004501
+description:en: The radish (Raphanus raphanistrum subsp. sativus or Raphanus sativus) is an edible root vegetable of the Brassicaceae family. The root of the radish is usually eaten raw, although tougher specimens can be steamed. The raw flesh has a crisp texture and a pungent, peppery flavor.
 wikidata:en: Q7224565
 wikipedia:en: https://en.wikipedia.org/wiki/Radish
 
@@ -108389,7 +108398,7 @@ tr: Ispanak
 agribalyse_food_code:en: 20059
 agribalyse_proxy_food_code:en: 20059
 agribalyse_proxy_food_name:en: Spinach, raw
-bulk_code:2005900
+bulk_code:en: 2005900
 intake24_category_code:en: SPNC
 intake24_category_code:fr: SPNC
 wikidata:en: Q81464
