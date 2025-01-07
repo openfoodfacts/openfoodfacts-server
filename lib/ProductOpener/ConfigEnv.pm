@@ -33,6 +33,6 @@ BEGIN {
 use vars @EXPORT_OK;    # no 'my' keyword for these
 
 $nutripatrol_url = $ENV{NUTRIPATROL_URL};
-$nutripatrol_url =~ s/\///;    # remove trailing slash if there is one
+$nutripatrol_url =~ s/\/$//;    # remove trailing slash if there is one
 
 1;
