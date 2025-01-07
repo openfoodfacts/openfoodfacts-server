@@ -21,27 +21,57 @@ my $product_hazelnut_spread_json = '
 		"product_name_fr": "Ma pâte aux noisettes",
         "ingredients": [
             {
-                "id": "en:sugar",
-                "text": "Sucre",
-                "vegan": "yes",
-                "vegetarian": "yes"
+                "is_in_taxonomy" : 1,
+                "id" : "en:sugar",
+                "vegetarian" : "yes",
+                "percent_estimate" : 50,
+                "ecobalyse_code" : "sugar",
+                "vegan" : "yes",
+                "ciqual_proxy_food_code" : "31016",
+                "text" : "Sucre"
             },
             {
-                "ciqual_food_code": "16129",
-                "from_palm_oil": "yes",
-                "id": "en:palm-oil",
-                "text": "huile de palme",
-                "vegan": "yes",
-                "vegetarian": "yes"
+                "vegetarian" : "yes",
+                "from_palm_oil" : "yes",
+                "percent_estimate" : 25,
+                "ciqual_food_code" : "16129",
+                "is_in_taxonomy" : 1,
+                "id" : "en:palm-oil",
+                "text" : "huile de palme",
+                "ecobalyse_code" : "refined-palm-oil",
+                "vegan" : "yes"
             },
             {
-                "ciqual_food_code": "17210",
-                "from_palm_oil": "no",
-                "id": "en:hazelnut-oil",
-                "percent": 13,
-                "text": "huile de NOISETTES",
-                "vegan": "yes",
-                "vegetarian": "yes"
+                "is_in_taxonomy" : 1,
+                "id" : "en:hazelnut",
+                "vegetarian" : "yes",
+                "percent_estimate" : 13,
+                "ciqual_food_code" : "15004",
+                "ecobalyse_code" : "hazelnut-unshelled-non-eu",
+                "vegan" : "yes",
+                "percent" : 13,
+                "text" : "NOISETTES"
+            },
+            {
+                "id" : "en:skimmed-milk-powder",
+                "is_in_taxonomy" : 1,
+                "percent_estimate" : 8.7,
+                "ciqual_food_code" : "19054",
+                "vegetarian" : "yes",
+                "vegan" : "no",
+                "ecobalyse_code" : "milk-powder",
+                "text" : "LAIT écrémé en poudre",
+                "percent" : 8.7
+            },
+            {
+                "ciqual_proxy_food_code" : "18100",
+                "vegan" : "yes",
+                "text" : "cacao maigre",
+                "percent" : 7.4,
+                "id" : "en:fat-reduced-cocoa",
+                "is_in_taxonomy" : 1,
+                "percent_estimate" : 3.3,
+                "vegetarian" : "yes"
             }
         ]
     }
