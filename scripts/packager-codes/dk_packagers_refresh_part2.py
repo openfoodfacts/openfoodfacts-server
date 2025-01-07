@@ -1,7 +1,7 @@
 '''
 This file is part of Product Opener.
 Product Opener
-Copyright (C) 2011-2023 Association Open Food Facts
+Copyright (C) 2011-2024 Association Open Food Facts
 Contact: contact@openfoodfacts.org
 Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 Product Opener is free software: you can redistribute it and/or modify
@@ -36,13 +36,15 @@ def extract_address_components(address_to_convert):
         print("info, address without comma")
     elif len(address_split) == 2:
         print("info, exactly 1 comma", address_split)
-        street, post_and_town = address_split[0].strip(), address_split[1].strip()
+        street, post_and_town = address_split[0].strip(
+        ), address_split[1].strip()
         # sometimes there are no postcode, just town
         if post_and_town[:4].isdigit():
             postal_code = post_and_town.split()[0]
             town = " ".join(post_and_town.split()[1:])
         else:
-            print("warning: could not extract postal code, set second element as town", address_split)
+            print(
+                "warning: could not extract postal code, set second element as town", address_split)
             town = post_and_town
     else:
         print("info, more than 1 comma", address_split)
@@ -112,10 +114,9 @@ def convert_address_to_lat_lng(address_to_convert: str) -> list:
             if len(town_split[-1]) == 1 or len(town_split[-1]) == 2:
                 town = " ".join(town_split[:-1])
                 print("info, drop suffix of town")
-            
+
             if old_town != town:
                 url = url.replace(old_town, town)
-
 
             url_2 = url.replace(f"street={old_street}&", "")
             print("info, drop street")
@@ -131,8 +132,9 @@ def convert_address_to_lat_lng(address_to_convert: str) -> list:
 
                     # can be in Greenland
                     # example: Fiskervej B 99, Postboks 69, 3921 Narsaq
-                    url_3 = url_2.replace(f"country=Denmark&country_code=DK&", "")
-                    
+                    url_3 = url_2.replace(
+                        f"country=Denmark&country_code=DK&", "")
+
                     try:
                         print("url_3", url_3)
                         response = requests.get(url_3)
@@ -140,7 +142,8 @@ def convert_address_to_lat_lng(address_to_convert: str) -> list:
                         if data != []:
                             lat, lng = data[0]['lat'], data[0]['lon']
                         else:
-                            print(f'Empty response for: {address_to_convert}" {url_3}')
+                            print(f'Empty response for: {
+                                  address_to_convert}" {url_3}')
                             sys.exit(1)
                     except (requests.exceptions.RequestException, KeyError, IndexError) as e:
                         print(f"Error: {e}, url: {url}")
@@ -155,15 +158,13 @@ def convert_address_to_lat_lng(address_to_convert: str) -> list:
     return [lat, lng]
 
 
-
 if __name__ == "__main__":
     source_file = 'DK-merge-UTF-8_no_coord.csv'
     target_file = "DK-merge-UTF-8.csv"
     index_last_line_processed = 'dk_packagers_refresh_part2_index_tmp.txt'
-    api_key = "" # TODO remove
+    api_key = ""  # TODO remove
     country_name = "Denmark"
     country_code = "DK"
-
 
     data = []
     try:
@@ -190,7 +191,7 @@ if __name__ == "__main__":
                     row += ['lat', 'lng']
                 else:
                     row += convert_address_to_lat_lng(row[2])
-                    
+
                 writer.writerow(row)
 
                 with open(index_last_line_processed, 'w') as f:
