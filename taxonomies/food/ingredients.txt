@@ -35,7 +35,7 @@
 # wikidata:en:Q421576
 # wikipedia:en:https://en.wikipedia.org/wiki/Enilconazole
 
-# proxy indicates that the match is not perfect, but corresponding values could be used 
+# proxy indicates that the match is not perfect, but corresponding values could be used
 
 # ciqual_food_code:en:42200
 # ciqual_food_name:en:Soy lecithin
@@ -26018,7 +26018,7 @@ pl: kiełki gryki
 < en:buckwheat
 en: buckwheat flakes
 da: boghvedeflager
-de: Buchweizenflocken
+de: Buchweizenflocken, Buchweizenflakes
 es: copos de sarraceno
 fi: tattarihiutale
 fr: flocons de sarrasin, pétales de sarrasin
@@ -34958,7 +34958,7 @@ fr: chocolat noir à 70 de cacao
 # <en:chocolate chips
 en: dark chocolate chunks, dark chocolate chips
 bg: парчета тъмен шоколад
-de: Bitterschokoladenstückchen
+de: Bitterschokoladenstückchen, Zartbitterschokoladenplättchen, Zartbitter-Schokoladenplättchen
 es: Trozos de chocolate negro, pepitas de chocolate negro, pedacitos de chocolate negro
 fi: tumma suklaarouhe
 fr: morceaux de chocolat noir, pépites de chocolat noir, copeaux de chocolat noir
@@ -35062,7 +35062,7 @@ nl: Belgische melkchocolade
 # <en:chocolate chips
 fr: pépites de chocolat au lait
 da: stykker af mæelkechocolade
-de: Milchschokoladenstückchen, Vollmilchschokoladenstückchen
+de: Milchschokoladenstückchen, Vollmilchschokoladenstückchen, Vollmilchschokoladentropfen
 fi: maitosuklaarouhe, maitosuklaapaloja
 it: pezzetti di cioccolato di latte
 nl: stukjes melkchocolade
@@ -35194,6 +35194,24 @@ sv: chokladsås
 ciqual_food_code:en: 11300
 ciqual_food_name:en: Chocolate sauce
 ciqual_food_name:fr: Sauce au chocolat
+
+# chocolate covered ingredients
+
+# <en:compound
+de: Schokolierte Cornflakes
+fr: cornflakes au chocolat
+nl: cornflakes omhuld met chocolade
+
+# <en: compound
+de: schokolierter Puffreis
+fr: riz soufflé chocolaté
+nl: met chocolade omhulde gepofte rijst
+
+# <en: compound
+de: schokoliertes Reisextrudat
+fr: extrudat de riz chocolaté
+nl: chocolade rijstextrudaat
+
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -52181,7 +52199,7 @@ description:en: CELERY (Apium graveolens) is a marshland plant in the family Api
 ecobalyse:en: celery-eu
 ecobalyse_labels_en_organic:en: celery-organic
 ecobalyse_origins_en_france:en: celery-fr
-eurocode_2_group_3:en: 8.20.10	
+eurocode_2_group_3:en: 8.20.10
 wikidata:en: Q23012379
 wikipedia:en: https://en.wikipedia.org/wiki/Celery
 
@@ -52488,7 +52506,7 @@ nl: rabarbersap
 en: shoot vegetable
 eurocode_2_group_2:en: 8.25
 
-# 
+#
 < en:shoot vegetable
 en: asparagus, asparagus spears
 af: Aspersie
