@@ -1837,10 +1837,16 @@ my @tests = (
 		{lc => "hr", ingredients_text => "Pasterizirano mlijeko (s 1.0% mliječne masti)"},
 		[
 			{
-				'id' => 'en:milk-with-1-0-milk-fat',
-				'is_in_taxonomy' => 1,
-				'processing' => 'en:pasteurised',
-				'text' => 'mlijeko s 1.0% mliječne masti'
+				id => "en:pasteurised-milk",
+				ingredients => [
+					{
+						id => "en:milk-with-1-0-milk-fat",
+						is_in_taxonomy => 1,
+						text => "mlijeko s 1.0% mlije\x{10d}ne masti"
+					}
+				],
+				is_in_taxonomy => 1,
+				text => "Pasterizirano mlijeko"
 			}
 		]
 	],
@@ -2742,7 +2748,7 @@ foreach my $test_ref (@tests) {
 
 	print STDERR "ingredients_text: " . $product_ref->{ingredients_text} . "\n";
 
-	parse_ingredients_text_service($product_ref, {});
+	parse_ingredients_text_service($product_ref, {}, {});
 
 	is($product_ref->{ingredients}, $expected_ingredients_ref)
 

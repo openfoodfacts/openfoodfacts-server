@@ -1,6 +1,4 @@
-﻿version: "3.7"
-
-# Some tweaks to be able to run npm run lint
+﻿# Some tweaks to be able to run npm run lint
 services:
   dynamicfront:
     command: ["npm", "run", "lint"]

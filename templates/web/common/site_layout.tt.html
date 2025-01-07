@@ -15,6 +15,7 @@
     [% og_images2 %]
     <meta property="og:description" content="[% canon_description %]">
     [% options_favicons %]
+	<meta name="apple-itunes-app" content="app-id=588797948">
     <link rel="canonical" href="[% canon_url %]">
     <link rel="stylesheet" href="[% static_subdomain %]/css/dist/app-[% edq(lang('text_direction')) %].css?v=[% css_timestamp %]" data-base-layout="true">
     <link rel="stylesheet" href="[% static_subdomain %]/css/dist/jqueryui/themes/base/jquery-ui.css" data-base-layout="true">
@@ -25,9 +26,11 @@
         [% lang("css") %]
         [% styles %]
     </style>
-    [% google_analytics %]
 </head>
 <body[% bodyabout %] class="[% page_type %]_page">
+
+	[% analytics %]
+
 	<div class="skip"><a href="#content" tabindex="0">[% lang('skip_to_content') %]</a></div>
 
 	<div id="page">
@@ -77,6 +80,11 @@
 								<li>
 									<a href="/cgi/search.pl?graph=1">[% lang('graphs_and_maps') %]</a>
 								</li>
+								[% IF pro_moderator or admin %]
+									<li>
+										<a href="/cgi/display_org_table.pl">[% lang('organization_list') %]</a>
+									</li>
+								[% END %]
 							</ul>
 						</li>
 						
@@ -273,10 +281,13 @@
 								[% INCLUDE 'web/common/includes/offdays_banner.tt.html' %]							
 							[% ELSIF 1 == 2 %]
 								[% INCLUDE 'web/common/includes/packagings_banner.tt.html' %]
-							[% ELSE %]
+							[% ELSIF 2 == 3 %]
 								[%# we keep the old code so that we can easily put back the donation banner %]
 								[% PROCESS 'web/common/includes/off_days_2024_banner.tt.html' %]
 								[% banner_off_days_2024_top %]
+								[% PROCESS 'web/common/includes/donate_banner.tt.html' %]
+								[% banner_main %]
+							[% ELSE %]
 								[% PROCESS 'web/common/includes/donate_banner.tt.html' %]
 								[% banner_main %]
 							[% END %]

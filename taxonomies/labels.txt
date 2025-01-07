@@ -26,6 +26,7 @@ stopwords:es: por, la, las, los, el, apto, para, con, de, verificado, certificad
 stopwords:fi: ainesosat, vahvistettu, sertifioitu, hyväksytty, 100%, puhdas, tuote, standardi, valvottu, valvottua, tuotettu
 stopwords:fr: ingrédient, ingrédients, agricole, agricoles, issu, issue, issus, issues, d', du, de, l', le, la, convient, peut convenir, au, aux, régime, régimes, conforme, validé, vérifié, certifié, par, un, une, approuvé, 100%, pur, garantie, garanti, produit garanti, produit certifié, sas, en, durant, pendant, phase, période, dès, label, marque, logo, produit issu, produits issus, tous, les, sont, est, issus de la production
 stopwords:hu: összetevők, mezőgazdaság, ellenőrzött, tanúsított, 100%, természetes, termék, garantált
+stopwords:it: il, la, i, gli, le, di, del, dei, della, delle, nel, nei, nella, nelle, con, da, dal, dalla, dai, dagli, dalle
 stopwords:pl: z, certyfikowane, certyfikowany, certyfikowana, gwarancja
 stopwords:pt: ingredientes, agrícola, de, com, por, a, o, as, os, apto, para, verificado, certificado, conforme, validado, verificado, aprovado, controlado, 100%, puro, garantia, garantido, produto garantido, produto certificado, etiqueta, marca
 stopwords:ru: ингредиенты, из, с, проверено, сертифицировано, подтверждено, 100%, чистый, продукт, гарантия, гарантировано, стандарт
@@ -49,6 +50,7 @@ synonyms:es: OGMs, Organismos genéticamente modificados, transgénicos, OGM
 synonyms:bg: ГМО, Генетично модифицирани организми
 synonyms:fi: GMO:ita, muuntogeenisiä organismeja, muuntogeeninen, GMO, GM
 synonyms:fr: OGMs, Organismes génétiquement modifiés, OGM
+synonyms:it: OGM, OGMs, Organismo geneticamente modificato, Organismi geneticamente modificati
 synonyms:pt: OGMs, Organismos geneticamente modificados, transgénicos, transgênicos, OGM
 synonyms:ru: ГМО, Генетически Модифицированные Организмы
 
@@ -56,7 +58,7 @@ synonyms:en: Rich in, High in
 synonyms:es: Rico en, Alto contenido de, Alto contenido en
 synonyms:fi: runsaasti, paljon
 synonyms:fr: Riche en, Fort en
-synonyms:it: Ricco in, Alto contenuto di, Ricchi in
+synonyms:it: Ricco, ricchi, alto contenuto
 synonyms:pt: Rico em, Alto conteúdo de, Alto teor em, Alto teor de, Enriquecido com
 synonyms:ru: Обогащено
 
@@ -137,7 +139,10 @@ synonyms:fr: dès la fin, après
 synonyms:pt: do fim de, depois, depois de
 
 synonyms:fr: antibiotique, anti-biotique, anti-biotiques, anti-biotiques, traitement antibiotique, utilisation d'antibiotique
+synonyms:it: antibiotici, antibiotico, uso di antibiotici, trattamento con antibiotici
 synonyms:pt: antibiótico, anti-biótico, antibióticos, anti-bióticos, antibiotico, anti-biotico, antibioticos, anti-bioticos
+
+synonyms:it: allevamento, allevamenti, allevate, allevata, allevati, allevato
 
 synonyms:fr: phase de ponte, période de ponte, la ponte
 
@@ -309,7 +314,7 @@ fr: Œufs de poules élevées en plein air, Œufs de plein air, Œufs plein air,
 he: ביצי חופש
 hr: iz slobodnog uzgoja, iz štalskog uzgoja, iz štalskog (podnog) uzgoja, iz podnog uzgoja
 hu: Szabad tartású tojás
-it: Uova da allevamento all'aperto
+it: Uova da allevamento all'aperto, uova da galline allevate all'aperto
 nl: Vrije uitloop eieren
 pl: jaja z chowu na wolnym wybiegu, 1 - jajka z chowu na wolnym wybiegu, 1 - jaja z chowu na wolnym wybiegu
 pt: Ovos de galinhas criadas em liberdade, ovos de galinhas em liberdade, ovos de galinhas livres de gaiolas, ovos de galinhas criadas ao ar livre, ovos de galinhas ao ar livre
@@ -358,7 +363,7 @@ en: Free range chicken
 de: Freilandhühnchen
 fi: ulkokana, vapaana elänyt kana
 hu: Szabad tartású csirke, Szabad tartású tyúk
-it: Polli allevati a terra
+it: Polli allevati a terra, galline allevate a terra
 pt: Galinhas criadas em liberdade, galinhas em liberdade, galinhas livres de gaiolas, galinhas criadas ao ar livre, galinhas ao ar livre
 
 < en:Free range
@@ -820,6 +825,18 @@ xx: International Ice Cream Consortium award best technical solution 2014
 < en:International Ice Cream Consortium award
 en: International Ice Cream Consortium award best commercial solution 2014
 xx: International Ice Cream Consortium award best commercial solution 2014
+
+en: MåBra recommends
+xx: MåBra rekommenderar, Må bra rekommenderar
+sv: MåBra rekommenderar, Må bra rekommenderar
+country:en: Sweden
+label_categories:en: en:Food awards
+website:sv: https://www.mabra.com/
+
+< en:MåBra recommends
+xx: MåBra rekommenderar 2023
+sv: MåBra rekommenderar 2023
+website:sv: https://www.mabra.com/nyttig-mat/2023-arets-vinnare-i-mabra-valet/8976312
 
 
 en: HACCP, Hazard analysis and critical control points
@@ -21925,7 +21942,8 @@ it: Etichette relative alla salute dei denti
 nl: Gebitsgezondheidslabels
 
 < en:Tooth-health related labels
-fr: Union française pour la santé bucco-dentaire, Ufsbd
+en: UFSBD
+fr: Union française pour la santé bucco-dentaire, UFSBD
 
 en: European Fruit Juice Control System, EQCS, European Quality Control System for Juice, European Quality Control System for Juice and Nectars from Fruits and Vegetables
 
@@ -22324,12 +22342,8 @@ pt: Milho de França, milho francês
 ingredients:en: en:corn
 origins:en: en:france
 
-fr: Tomates de France, Tomates cultivées en France
+fr: Tomates de France, Tomates cultivées en France, Tomates origine France
 pt: Tomates de França, tomate de França, tomate da França, tomates da França
-ingredients:en: en:tomato
-origins:en: en:france
-
-fr: Tomates origine France
 ingredients:en: en:tomato
 origins:en: en:france
 
@@ -22342,26 +22356,21 @@ origins:en: en:france
 en: Potatoes from France
 ca: Patates de França
 de: Kartoffeln aus Frankreich
-es: Patatas originadas en Francia
+es: Patatas originadas en Francia, Patatas de origen Francia
 fi: perunoita Ranskasta, perunoiden alkuperä Ranska
-fr: Pommes de terre de France
-it: Patate francesi, Patate dalla Francia
+fr: Pommes de terre de France, Pommes de terre origine France
+it: patate francesi, patate di origine Francia, patate dalla Francia
 nl: Aardappelen uit Frankrijk
-pt: Batatas de França, batata de França, batata da França, batatas da França, batata francesa, batatas francesas
+pt: Batatas de França, batata de França, batata da França, batatas da França, batata francesa, batatas francesas, Batatas de origem França
 ingredients:en: en:potato
 origins:en: en:france
-
-fr: Pommes de terre origine France
-es: Patatas de origen Francia
-it: Patate di origine Francia
-pt: Batatas de origem França
 
 en: Apples from France
 de: Äpfel aus Frankreich
 es: Manzanas de Francia
 fi: omenia Ranskasta, omenien alkuperä Ranska
 fr: Pommes de France
-it: Mele francesi
+it: mele francesi, mele di origine Francia, mele dalla francia
 pt: Maçãs da França, maçãs de frança, maça francesa, maçãs francesas
 ingredients:en: en:apple
 origins:en: en:france
@@ -22667,7 +22676,7 @@ de: In Norwegen aufgewachsen
 es: Criado en Noruega
 fi: Kasvatettu Norjassa
 fr: élevé en Norvège, élevés en Norvège, élevée en Norvège, élevées en Norvège
-it: Cresciuto in Norvegia
+it: Cresciuto in Norvegia, Allevato in Norvegia
 pt: Criado na Noruega, criados na Noruega, criada na Noruega, criadas na Noruega
 label_categories:en: en:Geographic label
 origins:en: en:norway
@@ -22737,7 +22746,7 @@ es: Producto pasteurizado
 fr: Pasteurisé, produit pasteurisé
 hr: pasterizirano, proizvod pasteriziran
 hu: pasztőrözött termék
-it: Prodotto pastorizzato
+it: Pastorizzato, pastorizzata, pastorizzate, Prodotto pastorizzato
 nb: Pasteurisert
 nl: gepasteuriseerd, gepasteuriseerd product
 pt: Produto pasteurizado

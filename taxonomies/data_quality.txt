@@ -910,6 +910,11 @@ en: ingredients single ingredient from category does not match actual ingredient
 description:en: This category expect a single and specific ingredient
 fix_action:en: add_ingredients_text
 
+< en:Ingredients errors
+en: ingredients count lower than expected for the category
+description:en: This category expect at least a given number of ingredients
+fix_action:en: add_ingredients_text
+
 
 ### Labels
 
@@ -3495,8 +3500,8 @@ en: low-fat label claim but fat above limitation
 description:en: In EU, a claim that a food is low fat may only be made where the product contains no more than 3 g of fat per 100 g for solids or 1,5 g of fat per 100 ml for liquids. 1,8 g of fat per 100 ml for semi-skimmed milk. See: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
 
 < en:Data quality warnings
+en: no fat label claim but fat above 0.5
 description:en: In EU, a claim that a food is fat free may only be made where the product contains no more than 0,5 g of fat per 100 g or 100 ml. See: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
-en:en: no fat label claim but fat above 0.5
 
 < en:Data quality warnings
 en: low saturated-fat label claim but fat above limitation

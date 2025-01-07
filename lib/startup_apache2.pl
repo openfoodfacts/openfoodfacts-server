@@ -86,7 +86,7 @@ use ProductOpener::DataQualityFood qw/:all/;
 use ProductOpener::Packaging qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::Nutriscore qw(:all);
-use ProductOpener::Ecoscore qw(:all);
+use ProductOpener::EnvironmentalScore qw(:all);
 use ProductOpener::Attributes qw(:all);
 use ProductOpener::KnowledgePanels qw(:all);
 use ProductOpener::Orgs qw(:all);

@@ -45,7 +45,7 @@ use ProductOpener::KnowledgePanels qw/initialize_knowledge_panels_options/;
 use ProductOpener::KnowledgePanelsContribution qw/create_contribution_card_panel/;
 use ProductOpener::URL qw/:all/;
 use ProductOpener::DataQuality qw/:all/;
-use ProductOpener::Ecoscore qw/:all/;
+use ProductOpener::EnvironmentalScore qw/:all/;
 use ProductOpener::Packaging
 	qw/apply_rules_to_augment_packaging_component_data get_checked_and_taxonomized_packaging_component_data/;
 use ProductOpener::ForestFootprint qw/:all/;
@@ -56,6 +56,8 @@ use ProductOpener::API qw/get_initialized_response/;
 use ProductOpener::APIProductWrite qw/skip_protected_field/;
 use ProductOpener::ProductsFeatures qw/feature_enabled/;
 use ProductOpener::Orgs qw/update_import_date update_last_import_type/;
+use ProductOpener::APIProductWrite
+	qw/process_change_product_type_request_if_we_have_one process_change_product_code_request_if_we_have_one/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -338,9 +340,22 @@ else {
 			display_error_and_exit($request_ref, lang("no_owner_defined"), 200);
 		}
 		$product_id = product_id_for_owner($Owner_id, $code);
-		$product_ref = retrieve_product_or_deleted_product($product_id, $User{moderator});
+		$product_ref = retrieve_product($product_id, $User{moderator});
 		if (not defined $product_ref) {
 			display_error_and_exit($request_ref, sprintf(lang("no_product_for_barcode"), $code), 404);
+		}
+		else {
+			# There is an existing product
+			# If the product has a product_type and it is not the product_type of the server, redirect to the correct server
+			# unless we are on the pro platform
+			# We use a 302 redirect so that browsers issue a GET request to display the form (even if we received a POST request)
+			if (    (not $server_options{private_products})
+				and (defined $product_ref->{product_type})
+				and ($product_ref->{product_type} ne $options{product_type}))
+			{
+				redirect_to_url($request_ref, 302,
+					format_subdomain($subdomain, $product_ref->{product_type}) . '/cgi/product.pl?code=' . $code);
+			}
 		}
 	}
 }
@@ -399,12 +414,14 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 	exists $product_ref->{new_server} and delete $product_ref->{new_server};
 
-	# 26/01/2017 - disallow barcode changes until we fix bug #677
-	if ($User{moderator} and (defined single_param("new_code")) and (single_param("new_code") ne "")) {
+	# Check if the request is for changing the product code or the product type, if so process it
 
-		change_product_server_or_code($product_ref, single_param("new_code"), \@errors);
-		$code = $product_ref->{code};
-	}
+	process_change_product_code_request_if_we_have_one($request_ref, $response_ref, $product_ref,
+		single_param("new_code"));
+	$code = $product_ref->{code};
+
+	process_change_product_type_request_if_we_have_one($request_ref, $response_ref, $product_ref,
+		single_param("product_type"));
 
 	my @param_fields = ();
 
@@ -848,13 +865,11 @@ CSS
 
 	my $label_new_code = $Lang{new_code}{$lc};
 
-	# 26/01/2017 - disallow barcode changes until we fix bug #677
-	if ($User{moderator}) {
-	}
-
 	$template_data_ref_display->{org_id} = $Org_id;
 	$template_data_ref_display->{label_new_code} = $label_new_code;
 	$template_data_ref_display->{owner_id} = $Owner_id;
+
+	$template_data_ref_display->{product_types} = $options{product_types};
 
 	# obsolete products: restrict to admin on public site
 	# authorize owners on producers platform
@@ -1638,7 +1653,7 @@ MAIL
 
 	$template_data_ref_process->{edited_product_url}
 		= $url_prefix . get_owner_pretty_path() . product_url($product_ref);
-	$template_data_ref_process->{edit_product_url} = $url_prefix . product_action_url($product_ref->{code}, "");
+	$template_data_ref_process->{edit_product_url} = $url_prefix . product_action_url($product_ref->{code});
 
 	if ($type ne 'delete') {
 		# adding contribution card

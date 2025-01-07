@@ -73,6 +73,8 @@ BEGIN {
 		&compute_nutrition_data_per_100g_and_per_serving
 		&compute_unknown_nutrients
 		&compute_nutrient_levels
+		&evaluate_nutrient_level
+		&compute_units_of_alcohol
 		&compute_estimated_nutrients
 
 		&compare_nutriments
@@ -104,7 +106,7 @@ use ProductOpener::Lang qw/$lc %Lang %Langs lang/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Images qw/extract_text_from_image/;
 use ProductOpener::Nutriscore qw/compute_nutriscore_score_and_grade/;
-use ProductOpener::Numbers qw/convert_string_to_number round_to_max_decimal_places/;
+use ProductOpener::Numbers qw/:all/;
 use ProductOpener::Ingredients
 	qw/estimate_nutriscore_2021_milk_percent_from_ingredients estimate_nutriscore_2023_red_meat_percent_from_ingredients/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
@@ -346,6 +348,8 @@ sub assign_nid_modifier_value_and_unit ($product_ref, $nid, $modifier, $value, $
 		}
 
 		$value = convert_string_to_number($value);
+
+		$value = remove_insignificant_digits($value);
 
 		$product_ref->{nutriments}{$nid . "_unit"} = $unit;
 		$product_ref->{nutriments}{$nid . "_value"} = $value;
@@ -2099,7 +2103,7 @@ sub set_fields_comparing_nutriscore_versions ($product_ref, $version1, $version2
 	return;
 }
 
-=head2 compute_nutriscore( $product_ref )
+=head2 compute_nutriscore( $product_ref, $current_version = "2023" )
 
 Determines if we have enough data to compute the Nutri-Score (category + nutrition facts),
 and if the Nutri-Score is applicable to the product the category.
@@ -2108,7 +2112,7 @@ Populates the data structure needed to compute the Nutri-Score and computes it.
 
 =cut
 
-sub compute_nutriscore ($product_ref, $current_version = "2021") {
+sub compute_nutriscore ($product_ref, $current_version = "2023") {
 
 	# Initialize values
 
@@ -2488,6 +2492,17 @@ sub compute_nutrient_levels ($product_ref) {
 	}
 
 	return;
+}
+
+my %nutrient_level_evaluation_table = (
+	low => "good",
+	moderate => "average",
+	high => "bad",
+);
+
+sub evaluate_nutrient_level ($nid, $nutrient_level) {
+	# Will need different tables if we add nutrients that are good for you
+	return $nutrient_level_evaluation_table{$nutrient_level} // 'unknown';
 }
 
 =head2 create_nutrients_level_taxonomy ()

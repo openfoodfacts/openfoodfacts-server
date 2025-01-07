@@ -40,6 +40,7 @@
       "en:some-unknown-ingredient",
       "en:salt"
    ],
+   "ingredients_lc" : "en",
    "ingredients_n" : 2,
    "ingredients_n_tags" : [
       "2",
@@ -63,6 +64,11 @@
       "en:some-unknown-ingredient"
    ],
    "ingredients_without_ciqual_codes_n" : 1,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:salt",
+      "en:some-unknown-ingredient"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 2,
    "known_ingredients_n" : 1,
    "lc" : "en",
    "nutriments" : {
