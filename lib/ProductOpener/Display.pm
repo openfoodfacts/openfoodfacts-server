@@ -7960,15 +7960,15 @@ JS
 
 		localize_environmental_score($request_ref->{cc}, $product_ref);
 
-		if (defined $product_ref->{ecoscore_data}{"grade"}) {
-			$template_data_ref->{ecoscore_grade} = uc($product_ref->{ecoscore_data}{"grade"});
-			$template_data_ref->{ecoscore_grade_lc} = $product_ref->{ecoscore_data}{"grade"};
+		if (defined $product_ref->{environmental_score_data}{"grade"}) {
+			$template_data_ref->{environmental_score_grade} = uc($product_ref->{environmental_score_data}{"grade"});
+			$template_data_ref->{environmental_score_lc} = $product_ref->{environmental_score_data}{"grade"};
 		}
 
-		$template_data_ref->{ecoscore_score} = $product_ref->{ecoscore_data}{"score"};
-		$template_data_ref->{ecoscore_data} = $product_ref->{ecoscore_data};
-		$template_data_ref->{ecoscore_calculation_details}
-			= display_ecoscore_calculation_details($request_ref->{cc}, $product_ref->{ecoscore_data});
+		$template_data_ref->{environmental_score_score} = $product_ref->{environmental_score_data}{"score"};
+		$template_data_ref->{environmental_score_data} = $product_ref->{environmental_score_data};
+		$template_data_ref->{environmental_score_calculation_details}
+			= display_environmental_score_calculation_details($request_ref->{cc}, $product_ref->{environmental_score_data});
 	}
 
 	# Activate knowledge panels for all users
