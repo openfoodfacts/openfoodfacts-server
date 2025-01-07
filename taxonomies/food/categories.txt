@@ -69050,7 +69050,7 @@ opposite:en: en:whole-bananas, en:sliced-banana, en:banana-flours
 < en:Bananas(Cavendish)
 < en:Bananas(fresh)
 < en:Bananas(whole)
-< en:Fresh fruits
+< en:Bulk
 en: Bananas(fresh whole Cavendish)
 fr: Bananes(fraîche Cavendish)
 nl: Bananen(verse hele Cavendish), Verse hele Cavendish bananen
@@ -115622,25 +115622,27 @@ hr: Lisnati khorasan pšenični kolači
 it: Gallette di grano Khorasan soffiato, Torte di grano Khorasan soffiato
 nl: Kamutwafels
 
-#Crackers are used a thin hard bread that need to be covered with something sweet or savoury
-< en:Appetizers
 < en:Biscuits and crackers
-en: Crackers
+en: Crackers(Breakfast), Crackers
 bg: Крекери
 ca: Galetes salades
 da: Crackers
 de: Crackers
 es: Crackers
 fi: suolaiset keksit
-fr: Biscuits apéritifs, biscuits pour l'apéritif, gâteaux pour l'apéritif, Gâteaux apéritifs, Biscuits crackers, Crackers, Biscuits salés, Crackers salés
+fr: Biscuits crackers, Crackers
 he: קרקרים
 hr: Krekeri
 hu: Krékerek
 it: Crackers
 ja: クラッカー
-nl: Crackers
+nl: Crackers(ontbijt), Crackers, Ontbijtcrackers
 ru: Солёное печенье
 sv: Crackers
+
+< en:Appetizers
+en: Crackers(Appetizers)
+fr: Biscuits apéritifs, biscuits pour l'apéritif, gâteaux pour l'apéritif, Gâteaux apéritifs, Biscuits salés, Crackers salés
 agribalyse_proxy_food_code:en: 38402
 ciqual_food_code:en: 38399
 ciqual_food_name:en: Salty snacks
@@ -115648,6 +115650,7 @@ ciqual_food_name:fr: Biscuit apéritif (aliment moyen)
 ciqual_proxy_food_code:en: 38402
 ciqual_proxy_food_name:en: Salty snacks, crackers, plain
 ciqual_proxy_food_name:fr: Biscuit apéritif, crackers, nature
+comment:en: Crackers are used a thin hard bread that need to be covered with something sweet or savoury
 
 #small crackers (max 5 cm) for appetizers
 < en:Crackers
