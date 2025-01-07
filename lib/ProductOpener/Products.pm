@@ -2985,8 +2985,8 @@ sub review_product_type ($product_ref) {
 	elsif (has_tag($product_ref, "categories", "en:open-beauty-facts")) {
 		$expected_type = "beauty";
 	}
-	if ($expected_type and ($product_ref->{product_type} ne expected_type)) {
-		$error = change_product_type($product_ref, expected_type);
+	if ($expected_type and ($product_ref->{product_type} ne $expected_type)) {
+		$error = change_product_type($product_ref, $expected_type);
 	}
 
 	if ($error) {
