@@ -5462,7 +5462,11 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 			$cursor = execute_query(
 				sub {
 					return get_products_collection(get_products_collection_request_parameters($request_ref))
-						->query($query_ref)->fields($fields_ref)->sort($sort_ref)->limit($limit)->skip($skip);
+						->query($query_ref)
+						->fields($fields_ref)
+						->sort($sort_ref)
+						->limit($limit)
+						->skip($skip);
 				}
 			);
 			$log->debug("MongoDB query ok", {error => $@}) if $log->is_debug();
@@ -6927,7 +6931,8 @@ sub search_and_graph_products ($request_ref, $query_ref, $graph_ref) {
 		$cursor = execute_query(
 			sub {
 				return get_products_collection(get_products_collection_request_parameters($request_ref))
-					->query($query_ref)->fields($fields_ref);
+					->query($query_ref)
+					->fields($fields_ref);
 			}
 		);
 	};
@@ -7237,7 +7242,8 @@ sub search_products_for_map ($request_ref, $query_ref) {
 		$cursor = execute_query(
 			sub {
 				return get_products_collection(get_products_collection_request_parameters($request_ref))
-					->query($query_ref)->fields(
+					->query($query_ref)
+					->fields(
 					{
 						code => 1,
 						lc => 1,
@@ -7968,7 +7974,8 @@ JS
 		$template_data_ref->{environmental_score_score} = $product_ref->{environmental_score_data}{"score"};
 		$template_data_ref->{environmental_score_data} = $product_ref->{environmental_score_data};
 		$template_data_ref->{environmental_score_calculation_details}
-			= display_environmental_score_calculation_details($request_ref->{cc}, $product_ref->{environmental_score_data});
+			= display_environmental_score_calculation_details($request_ref->{cc},
+			$product_ref->{environmental_score_data});
 	}
 
 	# Activate knowledge panels for all users
@@ -11595,7 +11602,8 @@ sub search_and_analyze_recipes ($request_ref, $query_ref) {
 		$cursor = execute_query(
 			sub {
 				return get_products_collection(get_products_collection_request_parameters($request_ref))
-					->query($query_ref)->fields($fields_ref);
+					->query($query_ref)
+					->fields($fields_ref);
 			}
 		);
 	};
