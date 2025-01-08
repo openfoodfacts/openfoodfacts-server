@@ -115,8 +115,8 @@ my $tests_ref = [
 			"fields": ["product_name_en","product_name_fr"],'
 			. $product_hazelnut_spread_json . '}',
 	},
-    # compute the environmental impact of the product
-    # return a new field
+	# compute the environmental impact of the product
+	# return a new field
 	{
 		test_case => 'echo-service-hazelnut-spread-enviro-field',
 		method => 'POST',
@@ -126,8 +126,8 @@ my $tests_ref = [
 			"fields": ["estimate_environmental_impact_service"],'
 			. $product_hazelnut_spread_json . '}',
 	},
-    # compute the environmental impact of the product
-    # return the whole product object
+	# compute the environmental impact of the product
+	# return the whole product object
 	{
 		test_case => 'echo-service-hazelnut-spread-enviro-field',
 		method => 'POST',
