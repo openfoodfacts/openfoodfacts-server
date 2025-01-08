@@ -179,7 +179,7 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 			$log->debug("ecs value stored", {ecs => $product_ref->{ecs}}) if $log->is_debug();
 		}
 		else {
-			$log->warn("La clé 'ecs' n'a pas été trouvée dans la réponse") if $log->is_warn();
+			$log->warn("'ecs' key not found") if $log->is_warn();
 		}
 	}
 	else {
