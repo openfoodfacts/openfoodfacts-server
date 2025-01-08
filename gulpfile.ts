@@ -3,11 +3,11 @@ import { init, write } from "gulp-sourcemaps";
 
 import concat from "gulp-concat";
 import gulpSass from "gulp-sass";
+import gzip from "gulp-gzip";
 import minifyCSS from "gulp-csso";
 import sassLib from "sass";
 import svgmin from "gulp-svgmin";
 import terser from "gulp-terser";
-import gzip from "gulp-gzip";
 
 const sass = gulpSass(sassLib);
 
