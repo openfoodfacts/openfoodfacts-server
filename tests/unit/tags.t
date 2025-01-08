@@ -144,7 +144,7 @@ compute_field_tags($product_ref, "fr", "categories");
 is(
 	[sort @{$product_ref->{categories_tags}}],
 	[
-		sort('en:plant-based-foods-and-beverages', 'en:plant-based-foods', 'en:fruits-and-vegetables-based-foods',
+		sort('bulk', 'en:plant-based-foods-and-beverages', 'en:plant-based-foods', 'en:fruits-and-vegetables-based-foods',
 			'en:fruits-based-foods', 'en:fruits', 'en:apples',
 			'en:berries', 'en:tropical-fruits', 'en:bananas',
 			'en:plums', 'en:raspberries', 'en:strawberries',
