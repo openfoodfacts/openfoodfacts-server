@@ -30,13 +30,23 @@ To deploy you need to execute the following steps:
    git fetch
    git checkout $VERSION
    ```
+1. rebuild taxonomies and lang
+   ```bash
+   sudo -u off bash
+   cd /srv/$SERVICE
+   source env/setenv.sh $SERVICE
+   ./scripts/taxonomies/build_tags_taxonomy.pl
+   ./scripts/build_lang.pl
+   ```
 1. update the frontend assets you just downloaded
    ```bash
    sudo -u off /srv/$SERVICE/scripts/deploy/install-dist-files.sh
    ```
 1. restart services
    ```bash
+   sudo -u off bash
    sudo systemctl daemon-reload
-   sudo systemctl restart nginx apache2
-   sudo systemctl restart cloud_vision_ocr@$SERVICE.service
+   sudo systemctl restart nginx
+   sudo systemctl stop apache2 cloud_vision_ocr@$SERVICE.service minion@$SERVICE.service
+   sudo systemctl start apache2 cloud_vision_ocr@$SERVICE.service minion@$SERVICE.service
    ```
