@@ -2374,8 +2374,6 @@ sub compute_nutrition_data_per_100g_and_per_serving ($product_ref) {
 					$nutrition_data{$product_type} = 1;
 				}
 			}
-			# }
-
 		}
 
 		# Carbon footprint
