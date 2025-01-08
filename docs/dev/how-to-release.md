@@ -40,11 +40,10 @@ To deploy you need to execute the following steps:
    ```
 1. update the frontend assets you just downloaded
    ```bash
-   sudo -u off /srv/$SERVICE/scripts/deploy/install-dist-files.sh
+   sudo -u off /srv/$SERVICE/scripts/deploy/install-dist-files.sh $VERSION $SERVICE
    ```
 1. restart services
    ```bash
-   sudo -u off bash
    sudo systemctl daemon-reload
    sudo systemctl restart nginx
    sudo systemctl stop apache2 cloud_vision_ocr@$SERVICE.service minion@$SERVICE.service
