@@ -84,32 +84,32 @@ reference to an array of error messages
 
 sub estimate_environmental_impact_service ($product_ref, $updated_product_fields_ref, $errors_ref) {
 
-    # $updated_product_fields_ref, $errors_ref sont des outputs : chaque service 
-    # dit quels champs sont modifiés
-    # Ici on en ajoute un : "environemental_impact"
+	# $updated_product_fields_ref, $errors_ref sont des outputs : chaque service
+	# dit quels champs sont modifiés
+	# Ici on en ajoute un : "environemental_impact"
 
-    # If undefined ingredients, do nothing
-    return if not defined $product_ref->{ingredients};
+	# If undefined ingredients, do nothing
+	return if not defined $product_ref->{ingredients};
 
 	# indicate that the service is modifying the "ingredients" structure
 	$updated_product_fields_ref->{environmental_impact} = 1;
-    $product_ref->{environmental_impact} = 0;
+	$product_ref->{environmental_impact} = 0;
 
-    # Estimating the environmental impact
-    while (@ingredients) {
-        # Remove and process the first ingredient from the list
-        my $ingredient_ref = shift @ingredients;
+	# Estimating the environmental impact
+	while (@ingredients) {
+		# Remove and process the first ingredient from the list
+		my $ingredient_ref = shift @ingredients;
 
-        # Dummy calculation
-        $product_ref->{environmental_impact}++;
-    }
+		# Dummy calculation
+		$product_ref->{environmental_impact}++;
+	}
 
-    # If necessary, return error as well 
-    # (number of unattributed ingredients, 
-    # percentage of unattributed mass, etc...)
+	# If necessary, return error as well
+	# (number of unattributed ingredients,
+	# percentage of unattributed mass, etc...)
 
-    # add_error
-    # add_warning
+	# add_error
+	# add_warning
 
 	return;
 }

@@ -114,7 +114,29 @@ my $tests_ref = [
 			"services":["echo"],
 			"fields": ["product_name_en","product_name_fr"],'
 			. $product_hazelnut_spread_json . '}',
-	}
+	},
+    # compute the environmental impact of the product
+    # return a new field
+	{
+		test_case => 'echo-service-hazelnut-spread-enviro-field',
+		method => 'POST',
+		path => '/api/v3/product_services',
+		body => '{
+			"services":["echo"],
+			"fields": ["estimate_environmental_impact_service"],'
+			. $product_hazelnut_spread_json . '}',
+	},
+    # compute the environmental impact of the product
+    # return the whole product object
+	{
+		test_case => 'echo-service-hazelnut-spread-enviro-field',
+		method => 'POST',
+		path => '/api/v3/product_services',
+		body => '{
+			"services":["echo"],
+			"fields": ["all"],'
+			. $product_hazelnut_spread_json . '}',
+	},
 
 ];
 
