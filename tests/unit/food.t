@@ -653,7 +653,7 @@ my %form = ();
 			compute_nutrition_data_per_100g_and_per_serving(\%product);
 
 			is(\%product, $test_ref->{expected_product_ref}, "Result for $id - $desc") || diag Dumper \%product;
-;
+
 		};
 		if ($@) {
 			diag("Error running test: $@");
