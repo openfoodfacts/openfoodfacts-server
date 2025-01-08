@@ -6,6 +6,7 @@ use utf8;
 use Test2::V0;
 use Data::Dumper;
 $Data::Dumper::Terse = 1;
+$Data::Dumper::Sortkeys = 1;
 use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Products qw/:all/;
@@ -357,31 +358,30 @@ is(split_code("26153689"), "000/002/615/3689");
 # test review_product_type, to migrate product in other flavor if category tag is provided
 # food to pet food
 $product_ref = {
-	categories_tags => ['en:non-food-products', 'en:open-pet-food-facts'],
+	categories_tags => ['en:incorrect-product-type', 'en:non-food-products', 'en:open-pet-food-facts'],
 	product_type => 'food'
 };
-ProductOpener::Products::review_product_type($product_ref);
-is($product_ref->{product_type}, 'petfood');
+review_product_type($product_ref);
+is($product_ref->{product_type}, 'petfood') || diag Dumper $product_ref;
 # beauty to product
 $product_ref = {
-	categories_tags => ['en:non-beauty-products', 'en:open-products-facts'],
+	categories_tags => ['en:incorrect-product-type', 'en:non-beauty-products', 'en:open-products-facts'],
 	product_type => 'beauty'
 };
-ProductOpener::Products::review_product_type($product_ref);
-is($product_ref->{product_type}, 'product');
+review_product_type($product_ref);
+is($product_ref->{product_type}, 'product') || diag Dumper $product_ref;
 # food to beauty AND product -> move to beauty (handled by alphabetical order)
 $product_ref = {
-	categories_tags => ['en:non-food-products', 'en:open-beauty-facts', 'en:open-products-facts'],
+	categories_tags =>
+		['en:incorrect-product-type', 'en:non-food-products', 'en:open-beauty-facts', 'en:open-products-facts'],
 	product_type => 'food'
 };
-ProductOpener::Products::review_product_type($product_ref);
-is($product_ref->{product_type}, 'beauty');
-# rerun same test based on result of previous test, will now move to products
-$product_ref = {
-	categories_tags => ['en:non-food-products', 'en:open-beauty-facts', 'en:open-products-facts'],
-	product_type => 'beauty'
-};
-ProductOpener::Products::review_product_type($product_ref);
-is($product_ref->{product_type}, 'product');
+review_product_type($product_ref);
+is($product_ref->{product_type}, 'beauty') || diag Dumper $product_ref;
+# rerun same test based on result of previous test,
+# will remain beauty because has tag beauty is evaluated first
+# and tag remains after migration
+review_product_type($product_ref);
+is($product_ref->{product_type}, 'beauty') || diag Dumper $product_ref;
 
 done_testing();

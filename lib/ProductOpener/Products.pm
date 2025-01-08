@@ -96,6 +96,7 @@ BEGIN {
 		&compute_completeness_and_missing_tags
 		&compute_product_history_and_completeness
 		&compute_languages
+		&review_product_type
 		&compute_changes_diff_text
 		&compute_data_sources
 		&compute_sort_keys
@@ -2973,7 +2974,10 @@ sub review_product_type ($product_ref) {
 	my $error;
 
 	my $expected_type;
-	if (has_tag($product_ref, "categories", "en:open-food-facts")) {
+	if (has_tag($product_ref, "categories", "en:open-beauty-facts")) {
+		$expected_type = "beauty";
+	}
+	elsif (has_tag($product_ref, "categories", "en:open-food-facts")) {
 		$expected_type = "food";
 	}
 	elsif (has_tag($product_ref, "categories", "en:open-pet-food-facts")) {
@@ -2982,9 +2986,7 @@ sub review_product_type ($product_ref) {
 	elsif (has_tag($product_ref, "categories", "en:open-products-facts")) {
 		$expected_type = "product";
 	}
-	elsif (has_tag($product_ref, "categories", "en:open-beauty-facts")) {
-		$expected_type = "beauty";
-	}
+
 	if ($expected_type and ($product_ref->{product_type} ne $expected_type)) {
 		$error = change_product_type($product_ref, $expected_type);
 	}
