@@ -7,6 +7,7 @@ import minifyCSS from "gulp-csso";
 import sassLib from "sass";
 import svgmin from "gulp-svgmin";
 import terser from "gulp-terser";
+import gzip from "gulp-gzip";
 
 const sass = gulpSass(sassLib);
 
@@ -93,6 +94,7 @@ export function buildJs() {
     pipe(init()).
     pipe(terser()).
     pipe(write(".")).
+    pipe(gzip()).
     pipe(dest("./html/js/dist"));
 }
 
