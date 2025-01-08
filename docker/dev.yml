@@ -43,11 +43,12 @@ services:
     # only turn on for off profile
     <<: *minion-db-network
   backend:
-    <<: [*backend-conf, *minion-db-network] 
+    # For some reason we need to list minion-db-network first otherwise it isn't included
+    <<: [*minion-db-network, *backend-conf] 
   incron: *backend-conf
   redis-listener: *backend-conf
   minion:
-    <<: [*backend-conf, *minion-db-network]
+    <<: [*minion-db-network, *backend-conf]
   # in dev we want to use watch assets and recompile on the fly
   # also we want to build at start time in case some files changed, as we want to avoid recreating volumes
   dynamicfront:
