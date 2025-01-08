@@ -155,9 +155,9 @@ sub convert_carrefour_france_files ($file_handle, $files_ref) {
 
 				#"b" => "pass",
 				#"strong" => "pass",
-				"b" => sub {return '<b>' . $_[1]->{_content} . '</b>'},
-				"strong" => sub {return '<strong>' . $_[1]->{_content} . '</strong>'},
-				"u" => sub {return '<u>' . $_[1]->{_content} . '</u>'},
+				"b" => sub {return '<b>' . ($_[1]->{_content} // '') . '</b>'},
+				"strong" => sub {return '<strong>' . ($_[1]->{_content} // '') . '</strong>'},
+				"u" => sub {return '<u>' . ($_[1]->{_content} // '') . '</u>'},
 				"em" => "pass",
 
 				"br" => "==<br />",
@@ -438,6 +438,8 @@ sub convert_carrefour_france_files ($file_handle, $files_ref) {
 			$product_ref->{producer_fr} = $product_ref->{emb_codes};
 			delete $product_ref->{emb_codes};
 		}
+
+		$product_ref->{lc} = "fr";
 	}
 
 	# Clean and normalize fields
