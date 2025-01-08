@@ -148,7 +148,7 @@ is(
 			'en:fruits-based-foods', 'en:fruits', 'en:apples',
 			'en:berries', 'en:tropical-fruits', 'en:bananas',
 			'en:plums', 'en:raspberries', 'en:strawberries',
-			'en:bulk',
+'en:bulk',
 		)
 	]
 
