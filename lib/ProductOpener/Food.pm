@@ -2350,9 +2350,9 @@ sub compute_nutrition_data_per_100g_and_per_serving ($product_ref) {
 					;    # $unit will be undef if the nutrient is not in the taxonomy
 
 				# petfood, Value for 100g is 10x smaller than in the nutrition table (kg)
-				if (   (defined $product_ref->{product_type})
-					&& ($product_ref->{product_type} eq "petfood")
-					&& (defined $unit)
+				if (    (defined $product_ref->{product_type})
+					and ($product_ref->{product_type} eq "petfood")
+					and (defined $unit)
 					and ($unit ne "%"))
 				{
 					$product_ref->{nutriments}{$nid . $product_type . "_100g"} /= 10;
