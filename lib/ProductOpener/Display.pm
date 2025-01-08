@@ -9700,7 +9700,6 @@ sub data_to_display_nutrition_table ($product_ref, $comparisons_ref, $request_re
 		push @displayed_product_types, "";
 		$displayed_product_types{as_sold} = 1;
 	}
-	# if (($product_ref->{product_type} eq "food") and (defined $product_ref->{nutrition_data_prepared}) and ($product_ref->{nutrition_data_prepared} eq 'on')) {
 	if ((defined $product_ref->{nutrition_data_prepared}) and ($product_ref->{nutrition_data_prepared} eq 'on')) {
 		push @displayed_product_types, "prepared_";
 		$displayed_product_types{prepared} = 1;
@@ -9718,18 +9717,18 @@ sub data_to_display_nutrition_table ($product_ref, $comparisons_ref, $request_re
 		# only for 100g, petfood is diplayed per 1kg
 		# update header name here
 		# update value later
-		my $name;
+		my $name_per_xxg;
 		if ((defined $product_ref->{product_type}) && ($product_ref->{product_type} eq "petfood")) {
-			$name = $col_name . "<br>" . lang("analytical_constituents_per_1kg");
+			$name_per_xxg = $col_name . "<br>" . lang("analytical_constituents_per_1kg");
 		}
 		else {
-			$name = $col_name . "<br>" . lang("nutrition_data_per_100g");
+			$name_per_xxg = $col_name . "<br>" . lang("nutrition_data_per_100g");
 		}
 		$columns{$product_type . "100g"} = {
 			scope => "product",
 			product_type => $product_type,
 			per => "100g",
-			name => $col_name . "<br>" . $name,
+			name => $name_per_xxg,
 			short_name => "100g",
 		};
 
