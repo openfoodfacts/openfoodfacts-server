@@ -595,7 +595,7 @@ my @tests = (
 			'nutriment_salt' => '1.000001',
 			'nutriment_salt_unit' => 'g',
 		},
-		nutriment_table => "europe",
+		nutriment_table => "off_europe",
 		product_ref => {
 			'nutriments' => {}
 		},
