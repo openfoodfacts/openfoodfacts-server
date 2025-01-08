@@ -165,7 +165,6 @@ is(
 			'en:berries', 'en:citrus', 'en:tropical-fruits',
 			'en:bananas', 'en:lemons', 'en:oranges',
 			'en:plums', 'en:raspberries', 'en:strawberries',
-			'en:bulk',
 		)
 	]
 
