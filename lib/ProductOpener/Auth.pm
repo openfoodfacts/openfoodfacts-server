@@ -155,6 +155,19 @@ sub signin_callback ($request_ref) {
 	}
 
 	my $code = single_param('code');
+	if (not defined $code) {
+		my $error = single_param('error');
+		if ($error eq 'temporarily_unavailable') {
+			# Start the login process again if we get a temporarily_unavailable error
+			# This can happen when the user has validate their email on another tab
+			start_authorize($request_ref);
+		}
+		else {
+			display_error_and_exit($request_ref, $error, 500);
+		}
+
+		return;
+	}
 	my $state = single_param('state');
 	my $time = time;
 	my $current_client = _get_client();
