@@ -147,7 +147,8 @@ is(
 		sort('en:plant-based-foods-and-beverages', 'en:plant-based-foods', 'en:fruits-and-vegetables-based-foods',
 			'en:fruits-based-foods', 'en:fruits', 'en:apples',
 			'en:berries', 'en:tropical-fruits', 'en:bananas',
-			'en:plums', 'en:raspberries', 'en:strawberries', 'en:bulk',
+			'en:plums', 'en:raspberries', 'en:strawberries',
+			'en:bulk',
 		)
 	]
 
@@ -163,7 +164,8 @@ is(
 			'en:fruits-based-foods', 'en:fruits', 'en:apples',
 			'en:berries', 'en:citrus', 'en:tropical-fruits',
 			'en:bananas', 'en:lemons', 'en:oranges',
-			'en:plums', 'en:raspberries', 'en:strawberries', 'en:bulk',
+			'en:plums', 'en:raspberries', 'en:strawberries',
+			'en:bulk',
 		)
 	]
 
