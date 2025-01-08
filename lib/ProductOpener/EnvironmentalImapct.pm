@@ -102,6 +102,7 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 
         # Dummy calculation
         $product_ref->{environmental_impact}++;
+    }
 
     # If necessary, return error as well 
     # (number of unattributed ingredients, 
