@@ -95,103 +95,105 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 	$updated_product_fields_ref->{environmental_impact} = 1;
 	$product_ref->{environmental_impact} = 0;
 
-    # Initialisation of the payload structure
-    my $payload = {
-        ingredients => [],
-        transform   => {},
-        packaging   => [],
-        distribution => "ambient",
-        preparation => ["refrigeration"]
-    };
+	# Initialisation of the payload structure
+	my $payload = {
+		ingredients => [],
+		transform => {},
+		packaging => [],
+		distribution => "ambient",
+		preparation => ["refrigeration"]
+	};
 
-    # Estimating the environmental impact
-    while (@{$product_ref->{ingredients}}) {
-        # Retrieving the first ingredient and deleting it
-        my $ingredient_ref = shift @{$product_ref->{ingredients}};
+	# Estimating the environmental impact
+	while (@{$product_ref->{ingredients}}) {
+		# Retrieving the first ingredient and deleting it
+		my $ingredient_ref = shift @{$product_ref->{ingredients}};
 
-        # Adding each ingredient to the payload structure
-        push @{$payload->{ingredients}}, {
-            id   => $ingredient_ref->{id},
-            mass => $ingredient_ref->{mass}
-        };
-    }
+		# Adding each ingredient to the payload structure
+		push @{$payload->{ingredients}},
+			{
+			id => $ingredient_ref->{id},
+			mass => $ingredient_ref->{mass}
+			};
+	}
 
-    # Adding a transformation
-    if (defined $product_ref->{transform}) {
-        $payload->{transform} = {
-            id   => $product_ref->{transform}->{id},
-            mass => $product_ref->{transform}->{mass}
-        };
-    }
+	# Adding a transformation
+	if (defined $product_ref->{transform}) {
+		$payload->{transform} = {
+			id => $product_ref->{transform}->{id},
+			mass => $product_ref->{transform}->{mass}
+		};
+	}
 
-    # Adding a packaging
-    if (defined $product_ref->{packaging}) {
-        foreach my $packaging_ref (@{$product_ref->{packaging}}) {
-            push @{$payload->{packaging}}, {
-                id   => $packaging_ref->{id},
-                mass => $packaging_ref->{mass}
-            };
-        }
-    }
+	# Adding a packaging
+	if (defined $product_ref->{packaging}) {
+		foreach my $packaging_ref (@{$product_ref->{packaging}}) {
+			push @{$payload->{packaging}},
+				{
+				id => $packaging_ref->{id},
+				mass => $packaging_ref->{mass}
+				};
+		}
+	}
 
-    # URL de l'API
-    my $url_recipe = "https://staging-ecobalyse.incubateur.net/api/food";
+	# URL de l'API
+	my $url_recipe = "https://staging-ecobalyse.incubateur.net/api/food";
 
-    # Créer un objet UserAgent pour faire la requête API
-    my $ua = LWP::UserAgent->new();
-    $ua->timeout(2); # Définir le timeout de la requête
+	# Créer un objet UserAgent pour faire la requête API
+	my $ua = LWP::UserAgent->new();
+	$ua->timeout(2);    # Définir le timeout de la requête
 
-    # Préparer la requête POST avec le payload
-    my $request = POST $url_recipe, $payload;
-    $request->header('content-type' => 'application/json');
-    $request->content(decode_utf8(encode_json($payload)));
+	# Préparer la requête POST avec le payload
+	my $request = POST $url_recipe, $payload;
+	$request->header('content-type' => 'application/json');
+	$request->content(decode_utf8(encode_json($payload)));
 
-    # Informations de débogage pour la requête
-    $log->debug("send_event request", {endpoint => $url_recipe, payload => $payload}) if $log->is_debug();
+	# Informations de débogage pour la requête
+	$log->debug("send_event request", {endpoint => $url_recipe, payload => $payload}) if $log->is_debug();
 
 	# Envoyer la requête et obtenir la réponse
 	my $response = $ua->request($request);
 
 	# Gérer la réponse en fonction du succès ou de l'échec
 	if ($response->is_success) {
-    	$log->debug(
-        	"send_event response ok",
-        	{
-            	endpoint => $url_recipe,
-	            payload  => $payload,
-    	        is_success => $response->is_success,
-        	    code => $response->code,
-            	status_line => $response->status_line
-	        }
-    	) if $log->is_debug();
+		$log->debug(
+			"send_event response ok",
+			{
+				endpoint => $url_recipe,
+				payload => $payload,
+				is_success => $response->is_success,
+				code => $response->code,
+				status_line => $response->status_line
+			}
+		) if $log->is_debug();
 
-	    # Analyser la réponse JSON
-    	my $response_data = decode_json($response->decoded_content);
+		# Analyser la réponse JSON
+		my $response_data = decode_json($response->decoded_content);
 
-	    # Accéder à la valeur spécifique "ecs"
-    	my $ecs_value = $response_data->{results} // {}->{total} // {}->{ecs};
+		# Accéder à la valeur spécifique "ecs"
+		my $ecs_value = $response_data->{results} // {}->{total} // {}->{ecs};
 
-	    # Vérifier si ecs existe et le stocker dans le champ de produit
-    	if (defined $ecs_value) {
-        	$product_ref->{ecs} = $ecs_value;
-	        $log->debug("ecs value stored", {ecs => $product_ref->{ecs}}) if $log->is_debug();
-    	}
-    	else {
-        	$log->warn("La clé 'ecs' n'a pas été trouvée dans la réponse") if $log->is_warn();
-	    }
+		# Vérifier si ecs existe et le stocker dans le champ de produit
+		if (defined $ecs_value) {
+			$product_ref->{ecs} = $ecs_value;
+			$log->debug("ecs value stored", {ecs => $product_ref->{ecs}}) if $log->is_debug();
+		}
+		else {
+			$log->warn("La clé 'ecs' n'a pas été trouvée dans la réponse") if $log->is_warn();
+		}
 	}
 	else {
-    	$log->warn(
-        	"send_event response not ok",
-        	{
-            	endpoint => $url_recipe,
-	            payload  => $payload,
-    	        is_success => $response->is_success,
-        	    code => $response->code,
-            	status_line => $response->status_line,
-            	response => $response
-        	}
-	    ) if $log->is_warn();
+		$log->warn(
+			"send_event response not ok",
+			{
+				endpoint => $url_recipe,
+				payload => $payload,
+				is_success => $response->is_success,
+				code => $response->code,
+				status_line => $response->status_line,
+				response => $response
+			}
+		) if $log->is_warn();
 	}
 
 	# If necessary, return error as well
