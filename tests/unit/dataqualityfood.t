@@ -1331,6 +1331,59 @@ check_quality_and_test_product_has_quality_tag(
 	'en:ingredients-single-ingredient-from-category-does-not-match-actual-ingredients',
 	'We expect the ingredient given in the taxonomy for this product', 0
 );
+
+# category minimum number of ingredients. Raise error
+$product_ref = {
+	categories_tags => [
+		"en:dairies", "en:fermented-foods",
+		"en:fermented-milk-products", "en:cheeses",
+		"en:italien-cheeses", "en:strected-curd-cheeses",
+		"en:frozen-desserts", "en:olive-tree-products",
+		"en:mozzarella"
+	],
+	ingredients => [{id => 'en:buffalo milk'}, {id => 'en:salt'}]
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:ingredients-count-lower-than-expected-for-the-category',
+	'2 ingredients provided, at least 3 expected (rennet is missing)', 1
+);
+# category minimum number of ingredients. More ingredients
+$product_ref = {
+	categories_tags => [
+		"en:dairies", "en:fermented-foods",
+		"en:fermented-milk-products", "en:cheeses",
+		"en:italien-cheeses", "en:strected-curd-cheeses",
+		"en:frozen-desserts", "en:olive-tree-products",
+		"en:mozzarella"
+	],
+	ingredients => [{id => 'en:buffalo milk'}, {id => 'en:salt'}, {id => 'en:e330'}]
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:ingredients-count-lower-than-expected-for-the-category',
+	'4 ingredients provided, at least 3 expected', 0
+);
+# category minimum number of ingredients. No ingredients at all
+$product_ref = {
+	categories_tags => [
+		"en:dairies", "en:fermented-foods",
+		"en:fermented-milk-products", "en:cheeses",
+		"en:italien-cheeses", "en:strected-curd-cheeses",
+		"en:frozen-desserts", "en:olive-tree-products",
+		"en:mozzarella"
+	],
+	ingredients => []
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:ingredients-count-lower-than-expected-for-the-category',
+	'0 ingredients provided, at least 3 expecte, but do not raise error', 0
+);
+
 # product quantity warnings and errors
 $product_ref = {product_quantity => "123456789",};
 check_quality_and_test_product_has_quality_tag(
@@ -1972,6 +2025,40 @@ $product_ref = {
 		'soluble-fiber_100g' => 1,
 		'soluble-fiber_modifier' => '<',
 		'insoluble-fiber_100g' => 10,
+	},
+	data_quality_errors_tags => [],
+};
+
+ProductOpener::DataQuality::check_quality($product_ref);
+
+ok(
+	has_tag($product_ref, 'data_quality_errors', 'en:nutrition-soluble-fiber-plus-insoluble-fiber-greater-than-fiber'),
+	'insoluble-fiber_100g larger than fiber_100g'
+) or diag Dumper $product_ref;
+
+# Test case for sum fiber subnutriment comparison with fiber (0.01 difference should be fine)
+$product_ref = {
+	nutriments => {
+		fiber_100g => 3.57,
+		'soluble-fiber_100g' => 1.79,
+		'insoluble-fiber_100g' => 1.79,
+	},
+	data_quality_errors_tags => [],
+};
+
+ProductOpener::DataQuality::check_quality($product_ref);
+
+ok(
+	!has_tag($product_ref, 'data_quality_errors', 'en:nutrition-soluble-fiber-plus-insoluble-fiber-greater-than-fiber'),
+	'insoluble-fiber_100g larger than fiber_100g'
+) or diag Dumper $product_ref;
+
+# Test case for sum fiber subnutriment comparison with fiber (0.02 difference should be raise error)
+$product_ref = {
+	nutriments => {
+		fiber_100g => 3.57,
+		'soluble-fiber_100g' => 1.79,
+		'insoluble-fiber_100g' => 1.80,
 	},
 	data_quality_errors_tags => [],
 };

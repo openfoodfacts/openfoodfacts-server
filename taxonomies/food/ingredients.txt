@@ -35,7 +35,7 @@
 # wikidata:en:Q421576
 # wikipedia:en:https://en.wikipedia.org/wiki/Enilconazole
 
-# proxy indicates that the match is not perfect, but corresponding values could be used 
+# proxy indicates that the match is not perfect, but corresponding values could be used
 
 # ciqual_food_code:en:42200
 # ciqual_food_name:en:Soy lecithin
@@ -3172,14 +3172,14 @@ en: semi-skimmed milk, reduced-fat milk, partly skimmed milk, partially skimmed 
 bg: полуобезмаслено мляко
 ca: llet parcialment desnatada, llet semidesnatada, llet parcialment desgreixada
 da: letmælk
-de: teilentrahmte milch
+de: teilentrahmte milch, Halbentrahmte Milch
 es: leche parcialmente desnatada, leche semidesnatada, Leche semidescremada, leche parcialmente descremada
 fi: kevytmaito
 fr: lait demi-écrémé, lait partiellement écrémé, lait semi-écrémé, Lait à 15.5 g/l de matière grasse
 hr: djelomično obrano mlijeko, djelimično obrano mlijeko
 hu: zsírszegény tej, félzsíros tej
 is: léttmjólk
-it: latte parzialmente scremato
+it: latte parzialmente scremato, Latte semiscremato
 nb: lettmelk
 nl: halfvolle melk, gedeeltelijk afgeroomde melk
 pl: Mleko półtłuste
@@ -10912,7 +10912,7 @@ fr: Sel iodé, sel de cuisine iodé
 hr: jodirana sol, jodirona kuhinjska sol, kuhinjska sol jodirana, jodirana kuhinjska sol
 hu: jódozott só
 id: Garam beryodium
-it: Sale iodato
+it: Sale iodato, sale fino iodato protetto
 lt: Joduota druska
 nb: jodisert salt, salt med jod
 nl: gejodeerd zout
@@ -16936,6 +16936,9 @@ it: olio di cocco raffinato
 pl: rafinowany olej kokosowy, olej kokosowy rafinowany
 ru: масло кокосовое рафинированное дезодорированное
 
+< en:coconut oil
+en: MCT oil, Medium-chain triglycerides oil
+
 < en:vegetable fat
 # producedFrom:en:coconut
 en: coconut fat
@@ -21684,6 +21687,7 @@ fr: avec autres arômes naturels, autres arômes naturels
 hr: sa ostalim prirodnim aromama, prirodno identične
 is: með öðrum náttúrulegum bragðefnum
 nl: Met andere natuurlijke smaakstoffen
+pl: z innymi naturalnymi aromatami
 ru: ароматизатор идентичный натуральному
 
 < en:natural flavouring
@@ -21825,7 +21829,7 @@ de: natürliches Orangenaroma mit anderen natürlichen Aromen
 fi: luontainen appelsiiniaromi ja muita luontaisia aromeja, luontainen appelsiiniaromi ja muut luontaiset aromit, luontainen appelsiiniaromi joka sisältää muita luontaisia aromeja
 hr: prirodna aroma naranče s drugim prirodnim aromama
 nl: natuurlijk sinaasappelaroma met andere natuurlijke aroma's
-pl: naturalny aromat pomarańczowy z innymi naturalnymi aromatami
+pl: naturalny aromat pomarańczowy z innymi naturalnymi aromatami, naturalny aromat pomarańczowy z innymi aromatami naturalnymi
 sv: naturlig apelsinarom med andra naturliga aromer
 
 < en:flavouring
@@ -21904,7 +21908,7 @@ de: natürliches Zitronenaroma mit anderen natürliche Aromen
 fi: luontainen sitruuna-aromi ja muut luontaiset aromit
 hr: prirodna aroma limuna s drugim prirodnim aromama, prirodna aroma mente citrusa sa ostalim prirodnim aromama
 it: aroma naturale di limone con altri aromi naturali
-pl: naturalny aromat cytrynowy z innymi naturalnymi aromatami
+pl: naturalny aromat cytrynowy z innymi naturalnymi aromatami, naturalny aromat cytrynowy z innymi aromatami naturalnymi
 
 < en:natural flavouring
 < en:natural lemon flavouring
@@ -21938,6 +21942,7 @@ nl: natuurlijke citroen en limoen aromas
 < en:natural flavouring
 < en:natural lime flavouring
 fr: arôme naturel de citron vert avec autres arômes naturels
+pl: naturalny aromat limonki z innymi naturalnymi aromatami
 # 25@2109-06-06
 
 < en:flavouring
@@ -21961,13 +21966,14 @@ fi: luontainen greippiaromi
 fr: arôme naturel de pamplemousse
 hr: prirodna aroma grejpa
 hu: természetes grépfrút aroma
-pl: naturalny aromat grejpfutowy
+pl: naturalny aromat grejpfrutowy
 
 < en:grapefruit natural flavouring
 en: pink grapefruit natural flavouring
 de: natürliches Pink Grapefruitaroma
 fr: arôme naturel de pamplemousse rose
 hr: prirodna aroma ružičastog grejpa
+pl: naturalny aromat różowego grejpfruta
 
 < en:natural flavouring
 en: natural mandarin orange flavour
@@ -21976,6 +21982,7 @@ fi: luontainen mandariiniaromi
 fr: arôme naturel de mandarine
 hr: prirodna aroma mandarine
 hu: természetes mandarin aroma
+pl: naturalny aromat mandarynkowy, naturalny aromat mandarynki
 
 < en:natural flavouring
 en: natural cherry flavouring
@@ -21986,6 +21993,7 @@ fi: luontainen kirsikka-aromi
 fr: arôme naturel de cerise
 hr: prirodna aroma višnje, prirodna aroma trešnje
 hu: természetes cseresznye aroma
+pl: naturalny aromat wiśniowy
 
 < en:natural flavouring
 en: natural hot pepper flavouring
@@ -22020,6 +22028,7 @@ fi: luontainen inkivääriaromi
 fr: arôme naturel de gingembre
 hr: prirodna aroma đumbira
 hu: természetes gyömbér aroma
+pl: naturalny aromat imbirowy
 
 < en:flavouring
 en: ananas flavouring
@@ -22047,6 +22056,7 @@ hr: aroma banane
 hu: banán aroma, banánaroma
 it: aroma di banana
 nl: bananensmaak
+pl: aromat bananowy
 ro: aromă de banane
 
 < en:natural flavouring
@@ -22059,6 +22069,7 @@ hr: prirodna aroma banane
 hu: természetes banán aroma
 it: Aroma naturale alla banana
 nl: natuurlijke bananensmaak
+pl: naturalny aromat bananowy
 
 < en:natural flavouring
 en: natural cola flavouring
@@ -22176,6 +22187,7 @@ fi: luontainen kaneliaromi
 fr: arôme naturel de cannelle
 hr: prirodna aroma cimeta
 hu: természetes fahéj aroma
+pl: naturalny aromat cynamonowy
 
 < en:natural flavouring
 en: natural oregano flavouring
@@ -22185,6 +22197,7 @@ fi: luontainen oreganoaromi
 fr: arôme naturel d'origan
 hr: prirodna aroma origana
 hu: természetes oregánó aroma
+pl: naturalny aromat oregano
 
 < en:natural flavouring
 fr: arôme naturel de sureau
@@ -22272,6 +22285,7 @@ hr: aroma breskve
 hu: őszibarack aroma
 it: aroma di pesca
 nl: perzikaroma
+pl: aromat brzoskwiniowy
 
 < en:natural flavouring
 en: natural peach flavouring
@@ -22281,6 +22295,7 @@ fi: luontainen persikka-aromi
 fr: arôme naturel de pêche
 hr: prirodna aroma breskve
 hu: természetes őszibarack aroma
+pl: naturalny aromat brzoskwiniowy
 
 < en:flavouring
 en: pepper flavouring
@@ -22313,6 +22328,7 @@ sv: paprikaarom
 < en:natural flavouring
 fr: arôme naturel de pomme avec autres arômes naturels
 fi: luontainen omena-aromi ja muut luontaiset aromit
+pl: naturalny aromat jabłkowy z innymi naturalnymi aromatami
 
 < en:natural flavouring
 en: natural blackcurrant flavouring
@@ -22325,6 +22341,7 @@ hr: prirodna aroma crnog ribiza
 hu: természetes fekete ribizli aroma
 nb: naturlig smak fra solbær
 nl: natuurlijk cassisaroma
+pl: naturalny aromat czarnej porzeczki
 sv: naturlig svartvinbärssmak
 
 < en:natural flavouring
@@ -22387,6 +22404,11 @@ hu: természetes málna aroma
 it: Aroma naturale di lampone
 pl: naturalny aromat malinowy
 # derivedFrom:en:raspberry
+
+< en:natural flavouring
+< en:natural raspberry flavouring
+en: natural raspberry flavouring with other natural flavourings
+pl: naturalny aromat malinowy z innymi aromatami
 
 < en:natural flavouring
 # derivedFrom:en:pepper
@@ -22456,7 +22478,7 @@ hr: prirodna aroma kakaa
 hu: természetes kakaó aroma
 it: aroma naturale di cacao
 nl: natuurlijk cacao-aroma
-
+pl: naturalny aromat kakaowy
 
 < en:flavouring
 en: cocoa flavouring, cocoa flavour
@@ -22490,6 +22512,7 @@ fi: luontainen rosmariiniaromi
 hu: természetes rozmaring aroma
 it: aroma naturale di rosmarino
 nl: natuurlijk rozemarijn aroma
+pl: naturalny aromat rozmarynu
 
 < en:natural flavouring
 en: natural basil flavouring
@@ -22500,6 +22523,7 @@ fr: arôme naturel de basilic
 hr: prirodna aroma bosiljka
 hu: természetes bazsaliom aroma
 it: aroma naturale del basilico, aroma naturale di basilico
+pl: naturalny aromat bazylii
 
 < en:natural flavouring
 de: natürliches Kaffee-Aroma
@@ -22763,7 +22787,7 @@ hr: prirodna aroma vanilije s drugim prirodnim aromama
 hu: természetes vanília aroma más természetes aromákkal
 it: aroma naturale di vaniglia con altri aromi naturali
 nl: natuurlijk vanillearoma met andere natuurlijke aroma's, natuurlijk vanille aroma en andere natuurlijke aroma's
-pl: naturalny aromat waniliowy z innymi naturalnymi aromatami
+pl: naturalny aromat waniliowy z innymi naturalnymi aromatami, naturalny aromat waniliowy z innym naturalnym aromatem
 sv: naturlig vaniljarom med andra naturliga aromer
 
 
@@ -22774,6 +22798,7 @@ fi: luontainen timjamiaromi
 fr: arôme naturel de thym
 hr: prirodna aroma timijana
 hu: természetes kakukkfű aroma
+pl: naturalny aromat z tymianku
 
 < en:natural flavouring
 en: natural tea flavouring
@@ -22926,6 +22951,7 @@ fr: arôme naturel d'amande
 hr: prirodna aroma badema
 hu: természetes mandula aroma
 it: aroma naturale di mandorle
+pl: naturalny aromat migdałowy
 pt: aroma natural de amêndoa
 
 < en:natural flavouring
@@ -23361,6 +23387,7 @@ hr: prirodna aroma sira
 hu: természetes sajt aroma
 it: aroma naturale di formaggio
 nl: natuurlijk kaasaroma
+pl: naturalny aromat sera
 vegan:en: no
 vegetarian:en: maybe
 
@@ -23402,6 +23429,7 @@ fi: luontainen hunaja-aromi
 fr: arôme naturel de miel
 hr: prirodna aroma meda
 hu: természetes méz aroma
+pl: naturalny aromat miodu, naturalny aromat miodowy
 
 < en:natural flavouring
 en: natural shallot flavouring
@@ -23447,6 +23475,7 @@ fi: luontainen suklaa-aromi
 fr: arôme naturel de chocolat
 hr: prirodna aroma čokolade
 hu: természetes csokoládé aroma
+pl: naturalny aromat czekoladowy
 
 < en:natural flavouring
 en: natural rose flavouring
@@ -23667,6 +23696,7 @@ fr: arôme naturel de clou de girofle
 hr: prirodna aroma klinčića
 it: aroma naturale di chiodo di garofano
 nl: natuurlijke kruidnagelsmaak
+pl: naturalny aromat goździkowy, naturalny aromat goździków
 pt: sabor natural de cravo
 
 < en:natural flavouring
@@ -25988,7 +26018,7 @@ pl: kiełki gryki
 < en:buckwheat
 en: buckwheat flakes
 da: boghvedeflager
-de: Buchweizenflocken
+de: Buchweizenflocken, Buchweizenflakes
 es: copos de sarraceno
 fi: tattarihiutale
 fr: flocons de sarrasin, pétales de sarrasin
@@ -29074,7 +29104,7 @@ eurocode_2_group_3:en: 8.45.50
 < en:sweet corn
 en: baby corn
 hr: mladi kukuruz
-pl: mini kolby kukurydzy, kukurydza baby
+pl: mini kolby kukurydzy, kukurydza baby, małe kolby kukurydzy
 # ingredient/en:baby-corn has 117 products @2023-06-25
 
 < en:vegetable fiber
@@ -34928,7 +34958,7 @@ fr: chocolat noir à 70 de cacao
 # <en:chocolate chips
 en: dark chocolate chunks, dark chocolate chips
 bg: парчета тъмен шоколад
-de: Bitterschokoladenstückchen
+de: Bitterschokoladenstückchen, Zartbitterschokoladenplättchen, Zartbitter-Schokoladenplättchen
 es: Trozos de chocolate negro, pepitas de chocolate negro, pedacitos de chocolate negro
 fi: tumma suklaarouhe
 fr: morceaux de chocolat noir, pépites de chocolat noir, copeaux de chocolat noir
@@ -35032,7 +35062,7 @@ nl: Belgische melkchocolade
 # <en:chocolate chips
 fr: pépites de chocolat au lait
 da: stykker af mæelkechocolade
-de: Milchschokoladenstückchen, Vollmilchschokoladenstückchen
+de: Milchschokoladenstückchen, Vollmilchschokoladenstückchen, Vollmilchschokoladentropfen
 fi: maitosuklaarouhe, maitosuklaapaloja
 it: pezzetti di cioccolato di latte
 nl: stukjes melkchocolade
@@ -35164,6 +35194,24 @@ sv: chokladsås
 ciqual_food_code:en: 11300
 ciqual_food_name:en: Chocolate sauce
 ciqual_food_name:fr: Sauce au chocolat
+
+# chocolate covered ingredients
+
+# <en:compound
+de: Schokolierte Cornflakes
+fr: cornflakes au chocolat
+nl: cornflakes omhuld met chocolade
+
+# <en: compound
+de: schokolierter Puffreis
+fr: riz soufflé chocolaté
+nl: met chocolade omhulde gepofte rijst
+
+# <en: compound
+de: schokoliertes Reisextrudat
+fr: extrudat de riz chocolaté
+nl: chocolade rijstextrudaat
+
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -52159,7 +52207,7 @@ description:en: CELERY (Apium graveolens) is a marshland plant in the family Api
 ecobalyse:en: celery-eu
 ecobalyse_labels_en_organic:en: celery-organic
 ecobalyse_origins_en_france:en: celery-fr
-eurocode_2_group_3:en: 8.20.10	
+eurocode_2_group_3:en: 8.20.10
 wikidata:en: Q23012379
 wikipedia:en: https://en.wikipedia.org/wiki/Celery
 
@@ -52466,7 +52514,7 @@ nl: rabarbersap
 en: shoot vegetable
 eurocode_2_group_2:en: 8.25
 
-# 
+#
 < en:shoot vegetable
 en: asparagus, asparagus spears
 af: Aspersie
@@ -59810,6 +59858,7 @@ eurocode_2_group_4:en: 7.10.30.20
 
 < en:pulse
 en: kidney bean
+pl: fasola czerwona kidney
 eurocode_2_group_3:en: 7.10.30
 eurocode_2_group_4:en: 7.10.30.20
 
@@ -62784,33 +62833,35 @@ sv: karamelliserade pekannötter
 #
 ###################################################################################################
 < en:tree nut
-en: pistachio nuts, pistachio
+en: pistachio nuts, pistachio, American Pistachios
 bg: шамфъстък, шам-фъстък
 ca: festuc, festucs
 cs: pistácie
 da: pistacienødder
-de: Pistazien
-el: φυστίκια
+de: Pistazien, pistazienkerne, Pistazienkerne gehackt
+el: φυστίκια, Φυστίκια κελυφωτά
 es: pistachos, pistacho, alfóncigos
 et: pistaatsiapähklid, pistaatsiapähkleid
 fi: pistaasipähkinät, pistaasipähkinä
-fr: pistache, pistaches
+fr: pistache, pistaches, Pistache d'Egine
 ga: cnónna pistéise
 hr: pistacija, pistacije, pistaciju
 hu: pisztácia
-it: pistacchio, pistacchi
+it: pistacchio, pistacchi, granella di pistacchi
 ja: ピスタチオ
-lt: pistacijos
-lv: pistāciju rieksti
+lt: pistacijos, pistacijų riešutai
+lv: pistāciju rieksti, pistācijas rieksti
 mt: pistaċċi
+nb: Pistasjnøtter
 nl: pistachenoten
 pl: orzechy pistacjowe, pistacje
-pt: pistácios
+pt: pistácios, pistácio
 ro: fistic
 ru: фисташки
 sk: pistáciové oriešky
-sl: pistacija
+sl: pistacija, jedrca pistacije
 sv: pistaschmandel, pistaschnöt, pistaschnötter, pistagenöt
+th: พิสตาชิโอ
 tr: antep fıstığı
 zh: 开心果, 阿月浑子
 ciqual_food_code:en: 15044
@@ -62821,13 +62872,35 @@ ecobalyse:en: pistachio-non-eu
 wikidata:en: Q14959225
 
 < en:pistachio nuts
-en: Grilled pistachio nut
+en: grilled pistachio nut, Dry roasted pistachios
+de: Pistazienkerne geröstet
+es: pistachos tostados
 fr: Pistache grillée
+pt: pistacios torrados
 ciqual_food_code:en: 15044
 ciqual_food_name:en: Pistachio nut, grilled
 
 < en:pistachio nuts
-fr: pistaches en coques
+en: Shelled pistachios
+de: geschälte Pistazien, Pistazienkerne geschält, Pistazienkerne geschält
+tr: kabuklu antep fistituz
+
+< en:pistachio nuts
+en: pistachio nuts in shells
+es: pistacho con cáscara, pistachos con cáscara
+fr: pistaches en coques, pistache coque, Pistaches coques ouvertes naturellement
+it: Pistacchi in guscio
+nb: Pistasjnøtter med skall
+nl: pistaches met schelp, pistachenoten zonder dop
+ru: Орехи фисташковые неочищенные
+
+< en:grilled pistachio nut
+< en:shelled pistachios
+en: roasted pistachio nuts in shell, in-shell pistachios
+it: pistacchio con guscio tostato
+
+< en:shelled pistachios
+de: Pistazienkerne geschält und geröstet
 
 < en:pistachio nuts
 en: pistachio paste
@@ -93201,6 +93274,12 @@ en: Kanzuri
 ja: かんずり
 description:en: Japanese fermented chili paste manufactured in Niigata Prefecture
 wikidata:en: Q11264544
+
+< en:hot sauce
+en: salsa
+pl: pikantny sos salsa
+description:en: Mexican table sauces, especially the chunky tomato-and-chili-based pico de gallo.
+wikipedia:en: https://en.wikipedia.org/wiki/Salsa_(food)
 
 #category/bearnaise-sauce
 < en:sauce

@@ -9,13 +9,13 @@ If you have an app that makes POST calls and you don't want your users to authen
 - `user_id`: myappname
 - `password`: 123456
 
-* For a complete reference on AUTH, please read: https://openfoodfacts.github.io/openfoodfacts-server/api/#authentication
-    
+* For a complete reference on AUTH, please read: [Authentication in our introduction](../index.md#authentication)
+
 ---
 
 ## Adding images to support your edit, and get machine learning predictions
 If you ask your users just one thing, it would be to send photos of the packaging (front, ingredients, nutrition, recycling, the more the better)<br>
-<a href="https://openfoodfacts.github.io/openfoodfacts-server/api/tutorial-uploading-photo-to-a-product/"> Please refer to our comprehensive tutorial on uploading images</a>
+Please refer to our [comprehensive tutorial on uploading images](../tutorial-uploading-photo-to-a-product.md)
 
 ---
 
@@ -57,7 +57,7 @@ You can define one or more parameters to add, for example, the brand and the Kos
 
 - `brands`: Häagen-Dazs
 - `labels`: kosher
-    
+
 
 The call looks like this:
 
@@ -94,21 +94,22 @@ It should be structured as: user-agent + user-id.
 `comment=Edit by a Healthy Choices 1.2 iOS user - SxGFRZkFwdytsK2NYaDg4MzRVenNvUEI4LzU2a2JWK05LZkFRSWc9PQ`
 
 
---- 
+---
 ## Leveraging Robotoff ML predictions to simplify life for your users
 
-Leveraging Robotoff prediction to simplify life for your users: https://openfoodfacts.github.io/openfoodfacts-server/api/intro-robotoff/
+Leveraging [Robotoff prediction](../intro-robotoff.md) to simplify life for your users.
 You can get a category prediction from images (useful for Nutri-Score and Eco-Score), you can get quality labels prediction, brand predictions, weight predictions from images.
 To achieve this you need the upload image section above. Adding data like product name, ingredients and nutrition can help, but some predictions can be done with just images.
 
 ## Getting your users to check ingredients OCR in an autonomous fashion
 
-Getting your users to check ingredients OCR in an autonomous fashion: https://openfoodfacts.github.io/openfoodfacts-server/reference/api-tutorials/get-ingredient-related-analysis/
+Getting your users to [check ingredients OCR in an autonomous fashion](./get-ingredient-related-analysis.md)
 
 ## Getting your users to input nutrition facts
-Getting your users to input nutrition facts: https://openfoodfacts.github.io/openfoodfacts-server/dev/explain-nutrition-data/
+[Getting your users to input nutrition facts](../../dev/explain-nutrition-data.md)
+
 ## Getting your users to input packaging data
-Getting your users to input packaging data: https://openfoodfacts.github.io/openfoodfacts-server/dev/explain-packaging-data/
+Getting your users to [input packaging data](../../dev/explain-packaging-data.md)
 
 ## Showing the result of their work
 - You can then reload the product, potentially using Knowledge Panels, to show the rewarding result of their work.
