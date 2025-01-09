@@ -35,7 +35,7 @@ paths:
         - Read Requests
       summary: Get information for a specific product by barcode
       description: |
-        Fetches product details by its unique barcode. 
+        Fetches product details by its unique barcode.
         Can return all product details or specific fields like knowledge panels.
       operationId: get-product-by-barcode
       parameters:
@@ -482,7 +482,8 @@ components:
         The value is structured as: user_id&username&user_session&session_token
         e.g. "user_id&exampleuser&user_session&abcdefghijklmnopqrstuvwxyz123456789ABCDEFGHIJKLM"
     userAgentAuth:
-      description: Authentication using User-Agent header
+      description: |
+        Authentication using User-Agent header
         User-Agent header in the format 'app_name/app_version (email)'
       type: apiKey
       in: header
@@ -502,7 +503,7 @@ components:
         app_uuid:
           type: string
           description: |
-            A salted random uuid (Unique identifier) for the user so that Open Food Facts moderators 
+            A salted random uuid (Unique identifier) for the user so that Open Food Facts moderators
             can selectively ban any problematic user without banning your whole app account.
       required:
         - app_name

@@ -166,51 +166,49 @@ properties:
           [default-unit]: https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Food.html#default_unit_for_nid_(_%24nid)
         type: string
         enum:
-          [
-            "公斤",
-            "公升",
-            "kg",
-            "кг",
-            "l",
-            "л",
-            "毫克",
-            "mg",
-            "мг",
-            "mcg",
-            "µg",
-            "oz",
-            "fl oz",
-            "dl",
-            "дл",
-            "cl",
-            "кл",
-            "斤",
-            "g",
-            "",
-            " ",
-            "kJ",
-            "克",
-            "公克",
-            "г",
-            "мл",
-            "ml",
-            "mmol/l",
-            "毫升",
-            "% vol",
-            "ph",
-            "%",
-            "% dv",
-            "% vol (alcohol)",
-            "iu",
-            "mol/l",
-            "mval/l",
-            "ppm",
-            "�rh",
-            "�fh",
-            "�e",
-            "�dh",
-            "gpg",
-          ]
+          - "公斤"
+          - "公升"
+          - "kg"
+          - "кг"
+          - "l"
+          - "л"
+          - "毫克"
+          - "mg"
+          - "мг"
+          - "mcg"
+          - "µg"
+          - "oz"
+          - "fl oz"
+          - "dl"
+          - "дл"
+          - "cl"
+          - "кл"
+          - "斤"
+          - "g"
+          - ""
+          - " "
+          - "kJ"
+          - "克"
+          - "公克"
+          - "г"
+          - "мл"
+          - "ml"
+          - "mmol/l"
+          - "毫升"
+          - "% vol"
+          - "ph"
+          - "%"
+          - "% dv"
+          - "% vol (alcohol)"
+          - "iu"
+          - "mol/l"
+          - "mval/l"
+          - "ppm"
+          - "�rh"
+          - "�fh"
+          - "�e"
+          - "�dh"
+          - "gpg"
       '(?<nutrient>[\w-]+)_100g':
         description: |
           The standardized value of a serving of 100g (or 100ml for liquids)

@@ -172,14 +172,12 @@ components:
         id:
           type: string
           examples:
-            [
-              "energy",
-              "sugars",
-              "saturated_fat",
-              "salt",
-              "fiber",
-              "fruits_vegetables_legumes",
-            ]
+            - "energy"
+            - "sugars"
+            - "saturated_fat"
+            - "salt"
+            - "fiber"
+            - "fruits_vegetables_legumes"
         points:
           type: integer
           examples: [5, 6, 7, 2, 1, 0]
