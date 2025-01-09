@@ -595,7 +595,7 @@ my @tests = (
 			'nutriment_salt' => '1.000001',
 			'nutriment_salt_unit' => 'g',
 		},
-		nutriment_table => "europe",
+		nutriment_table => "off_europe",
 		product_ref => {
 			'nutriments' => {}
 		},
@@ -652,7 +652,8 @@ my %form = ();
 			assign_nutriments_values_from_request_parameters(\%product, $test_ref->{nutriment_table});
 			compute_nutrition_data_per_100g_and_per_serving(\%product);
 
-			is(\%product, $test_ref->{expected_product_ref}, "Result for $id - $desc");
+			is(\%product, $test_ref->{expected_product_ref}, "Result for $id - $desc") || diag Dumper \%product;
+
 		};
 		if ($@) {
 			diag("Error running test: $@");

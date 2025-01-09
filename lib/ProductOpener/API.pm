@@ -636,6 +636,9 @@ Resulting fields will then be renamed back to older names by the api_compatibili
 
 sub api_compatibility_for_field ($field, $api_version) {
 
+	# Provide a default value for $api_version if it is not defined
+	$api_version //= 0;
+
 	# API 3.1 - 2024/12/18 - ecoscore* fields have been renamed to environmental_score*
 	if ($api_version < 3.1) {
 		if ($field =~ /^ecoscore/) {

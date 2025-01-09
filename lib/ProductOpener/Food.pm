@@ -404,12 +404,14 @@ sub assign_nid_modifier_value_and_unit ($product_ref, $nid, $modifier, $value, $
 # !proteins : important, always show even if value has not been entered
 
 %cc_nutriment_table = (
-	default => "europe",
-	ca => "ca",
-	ru => "ru",
-	us => "us",
-	hk => "hk",
-	jp => "jp",
+	off_default => "off_europe",
+	off_ca => "off_ca",
+	off_ru => "off_ru",
+	off_us => "off_us",
+	off_hk => "off_hk",
+	off_jp => "off_jp",
+	off_in => "off_in",
+	opff_default => "opff_europe"
 );
 
 =head2 %nutriments_tables
@@ -444,7 +446,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 
 # http://healthycanadians.gc.ca/eating-nutrition/label-etiquetage/tips-conseils/nutrition-fact-valeur-nutritive-eng.php
 %nutriments_tables = (
-	europe => [
+	off_europe => [
 		(
 			'!energy-kj', '!energy-kcal',
 			'!energy-', '-energy-from-fat-',
@@ -508,7 +510,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'nitrate-', 'acidity-',
 		)
 	],
-	ca => [
+	off_ca => [
 		(
 			'!energy-kcal', 'energy-',
 			'!fat', '-saturated-fat',
@@ -571,7 +573,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'nitrate-', 'acidity-',
 		)
 	],
-	ru => [
+	off_ru => [
 		(
 			'!proteins', '-casein-',
 			'-serum-proteins-', '-nucleotides-',
@@ -634,7 +636,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'nitrate-', 'acidity-',
 		)
 	],
-	us => [
+	off_us => [
 		(
 			'!energy-kcal', 'energy-',
 			'-energy-from-fat-', '!fat',
@@ -695,7 +697,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'nitrate-', 'acidity-',
 		)
 	],
-	us_before_2017 => [
+	off_us_before_2017 => [
 		(
 			'!energy', '-energy-from-fat',
 			'!fat', '-saturated-fat',
@@ -757,7 +759,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'nitrate-', 'acidity-',
 		)
 	],
-	hk => [
+	off_hk => [
 		(
 			'!energy-kj', '!energy-kcal', '!proteins', '!fat',
 			'-saturated-fat', '-unsaturated-fat-', '--monounsaturated-fat-', '--monounsaturated-fat-',
@@ -770,7 +772,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'nutrition-score-fr-', 'sulphate-', 'nitrate-', 'acidity-',
 		)
 	],
-	jp => [
+	off_jp => [
 		(
 			'!energy-kj-', '!energy-kcal',
 			'!energy-', '-energy-from-fat-',
@@ -829,7 +831,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'nitrate-', 'acidity-',
 		)
 	],
-	in => [
+	off_in => [
 		(
 			'!energy-kj', '!energy-kcal',
 			'!proteins', '-casein-',
@@ -892,6 +894,22 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'nitrate-', 'acidity-',
 		)
 	],
+	# https://eur-lex.europa.eu/eli/reg/2009/767/2018-12-26
+	opff_europe => [
+		(
+			'!crude-fat', '!crude-protein', '!crude-ash', '!crude-fibre', '!moisture',
+			# optional additives, alphabetical order
+			'beta-carotene-', 'biotin-', 'calcium-', 'copper-', 'iodine-',
+			'iron-', 'magnesium-', 'manganese-', 'omega-3-fat-', 'omega-6-fat-',
+			'phosphorus-', 'potassium-', 'selenium-', 'sodium-', 'taurine-',
+			'vitamin-a-', 'vitamin-c-', 'vitamin-d-', 'vitamin-e-', 'zinc-',
+			# optional stricly pet food related, alphabetical order
+			'ammonium-chloride-', 'calcium-iodate-anhydrous-',
+			'cassia-gum-', 'choline-chloride-', 'copper-ii-sulphate-pentahydrate-',
+			'iron-ii-sulphate-monohydrate-', 'manganous-sulphate-monohydrate-',
+			'potassium-iodide-', 'sodium-selenite-', 'zinc-sulphate-monohydrate-'
+		)
+	]
 );
 
 # Compute the list of nutriments that are not shown by default so that they can be suggested
@@ -2307,8 +2325,8 @@ sub compute_nutrition_data_per_100g_and_per_serving ($product_ref) {
 
 			}
 		}
+		# nutrition_data_<_/prepared>_per eq '100g' or '1kg'
 		else {
-
 			foreach my $nid (keys %{$product_ref->{nutriments}}) {
 				if (   ($product_type eq "") and ($nid =~ /_/)
 					or (($product_type eq "_prepared") and ($nid !~ /_prepared$/)))
@@ -2318,15 +2336,27 @@ sub compute_nutrition_data_per_100g_and_per_serving ($product_ref) {
 				}
 				$nid =~ s/_prepared$//;
 
+				# Value for 100g is the same as value shown in the nutrition table
 				$product_ref->{nutriments}{$nid . $product_type . "_100g"}
 					= $product_ref->{nutriments}{$nid . $product_type};
+				# get rid of non-digit prefixes if any
 				$product_ref->{nutriments}{$nid . $product_type . "_100g"}
 					=~ s/^(<|environ|max|maximum|min|minimum)( )?//;
+				# set value as numeric
 				$product_ref->{nutriments}{$nid . $product_type . "_100g"} += 0.0;
 				delete $product_ref->{nutriments}{$nid . $product_type . "_serving"};
 
 				my $unit = get_property("nutrients", "zz:$nid", "unit:en")
 					;    # $unit will be undef if the nutrient is not in the taxonomy
+
+				# petfood, Value for 100g is 10x smaller than in the nutrition table (kg)
+				if (    (defined $product_ref->{product_type})
+					and ($product_ref->{product_type} eq "petfood")
+					and (defined $unit)
+					and ($unit ne "%"))
+				{
+					$product_ref->{nutriments}{$nid . $product_type . "_100g"} /= 10;
+				}
 
 				# If the nutrient has no unit (e.g. pH), or is a % (e.g. "% vol" for alcohol), it is the same regardless of quantity
 				# otherwise we adjust the value for the serving quantity
@@ -2343,9 +2373,7 @@ sub compute_nutrition_data_per_100g_and_per_serving ($product_ref) {
 					# Record that we have a nutrient value for this product type (with a unit, not NOVA, alcohol % etc.)
 					$nutrition_data{$product_type} = 1;
 				}
-
 			}
-
 		}
 
 		# Carbon footprint
@@ -3163,6 +3191,16 @@ sub assign_nutriments_values_from_request_parameters ($product_ref, $nutriment_t
 
 			if ($nid eq 'alcohol') {
 				$unit = '% vol';
+			}
+
+			# pet nutrients (analytical_constituents) are always in percent
+			if (   ($nid eq 'crude-fat')
+				or ($nid eq 'crude-protein')
+				or ($nid eq 'crude-ash')
+				or ($nid eq 'crude-fibre')
+				or ($nid eq 'moisture'))
+			{
+				$unit = '%';
 			}
 
 			# New label?
