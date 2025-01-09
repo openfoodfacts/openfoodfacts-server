@@ -552,7 +552,7 @@ is(
 		sort('en:plant-based-foods-and-beverages', 'en:plant-based-foods', 'en:fruits-and-vegetables-based-foods',
 			'en:meals', 'en:fruits-based-foods', 'en:fruits',
 			'en:apples', 'en:peaches', 'en:tropical-fruits',
-			'en:bananas', 'en:pears',)
+			'en:bananas', 'en:pears', 'en:bulk',)
 	],
 ) or diag Dumper $product_ref;
 
