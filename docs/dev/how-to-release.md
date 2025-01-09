@@ -30,6 +30,10 @@ To deploy you need to execute the following steps:
    git fetch
    git checkout $VERSION
    ```
+1. verify every needed symlink is in place
+   ```bash
+   sudo -u off scripts/deploy/verify-deployment.sh $SERVICE
+   ```
 1. rebuild taxonomies and lang
    ```bash
    sudo -u off bash
