@@ -19,12 +19,10 @@ map $uri $apache_port {
 
 	# home pages
 	"~*/$" 8002;
-	# product read / write
-	"~*/(mountaj|məhsul|продукт|gynnyrch|produkt|product|product|product|produkto|producto|toode|produkto|produit|produto|termék|produk|製品|afaris|өнім|생성물|berhem|उत्पादन|produk|produkt|उत्पादन|product|product|product|produkt|produkt|produit|produto|produto|produto|продукт|product|proizvod|produkto|ürün|продукт|产品|產品|產品)/" 8004;
-	"~*/cgi/product.pl" 8002;
+	# product read / write (note that nginx does not support direct utf-8)
+	"~*/(mountaj|m\xc9\x99hsul|\xd0\xbf\xd1\x80\xd0\xbe\xd0\xb4\xd1\x83\xd0\xba\xd1\x82|gynnyrch|produkt|product|product|product|produkto|producto|toode|produkto|produit|produto|term\xc3\xa9k|produk|\xe8\xa3\xbd\xe5\x93\x81|afaris|\xd3\xa9\xd0\xbd\xd1\x96\xd0\xbc|\xec\x83\x9d\xec\x84\xb1\xeb\xac\xbc|berhem|\xe0\xa4\x89\xe0\xa4\xa4\xe0\xa5\x8d\xe0\xa4\xaa\xe0\xa4\xbe\xe0\xa4\xa6\xe0\xa4\xa8|produk|produkt|\xe0\xa4\x89\xe0\xa4\xa4\xe0\xa5\x8d\xe0\xa4\xaa\xe0\xa4\xbe\xe0\xa4\xa6\xe0\xa4\xa8|product|product|product|produkt|produkt|produit|produto|produto|produto|\xd0\xbf\xd1\x80\xd0\xbe\xd0\xb4\xd1\x83\xd0\xba\xd1\x82|product|proizvod|produkto|\xc3\xbcr\xc3\xbcn|\xd0\xbf\xd1\x80\xd0\xbe\xd0\xb4\xd1\x83\xd0\xba\xd1\x82|\xe4\xba\xa7\xe5\x93\x81|\xe7\x94\xa2\xe5\x93\x81|\xe7\x94\xa2\xe5\x93\x81)/" 8002;
 	"~*/cgi/product.pl" 8002;
 	# product API read / write
-	"~*/api/v./product/" 8002;
 	"~*/api/v./product/" 8002;
 }
 
