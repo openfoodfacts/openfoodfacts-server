@@ -42628,6 +42628,7 @@ es: Arroces de Camarga
 fr: Riz de Camargue
 hr: Camargue riža
 nl: Camarguerijsten, Camargue rijst, Camarguerijst
+bulk_code:en 0910101
 origins:en: en:france, en:camargue
 protected_name_file_number:en: PGI-FR-0073
 protected_name_type:en: pgi
@@ -42642,6 +42643,7 @@ fr: Riz de Camargue complet
 < en:Semi-milled rices
 en: Semi-milled Camargue rices
 fr: Riz de Camargue semi-complet
+bulk_code:en 0910102
 
 < en:Japonica rices
 < en:Medium grain rices
@@ -56021,6 +56023,7 @@ hr: Premazani kikiriki
 it: Arachidi rivestite
 nl: Borrelnootjes
 agribalyse_food_code:en: 38406
+bulk_code:en: 3840600
 ciqual_food_code:en: 38406
 ciqual_food_name:en: Coated peanuts
 ciqual_food_name:fr: Cacahuètes (arachide) enrobées d'un biscuit, pour apéritif
@@ -66889,6 +66892,13 @@ intake24_category_code:en: APLS
 wikidata:en: Q89
 
 < en:Apples
+en: Elstar apples
+fr: Pommes Elstar, Elstar
+hr: Elstar jabuke
+nl: Elstar
+bulk_code:en: 1308506
+
+< en:Apples
 en: Story apples
 fr: Pommes story
 
@@ -66968,6 +66978,7 @@ it: Mele Fuji
 la: Malus domestica cult. Red Delicious x Ralls Genet
 lt: Fuji obuoliai
 nl: Fuji appels
+bulk_code:en: 1308507
 wikidata:en: Q504893
 
 < en:Apples
@@ -67009,11 +67020,6 @@ ciqual_food_code:en: 13620
 ciqual_food_name:en: Apple, var. Golden, pulp and skin, raw
 ciqual_food_name:fr: Pomme Golden, pulpe et peau, crue
 
-< en:Apples
-en: Elstar apples
-fr: Pommes Elstar, Elstar
-hr: Elstar jabuke
-nl: Elstar
 
 < en:Acidic apples
 < en:Apples
@@ -68392,6 +68398,7 @@ fr: Pitayas
 hr: Pitaje
 lt: Drakono vaisiai
 nl: Pitajas, pitahajas, Drakenvruchten
+bulk_code:en: 9999200
 wikidata:en: Q232755
 
 < en:Fruits
@@ -71157,6 +71164,7 @@ zh: 莳萝
 agribalyse_proxy_food_code:en: 11093
 agribalyse_proxy_food_name:en: Dill, fresh
 agribalyse_proxy_food_name:fr: Aneth, frais
+bulk_code:en: 1109300
 expected_ingredients:en: en:dill
 wikidata:en: Q26686
 
@@ -106564,6 +106572,7 @@ ciqual_food_name:fr: Chicorée rouge, crue
 en: Green endive
 fr: Chicorée verte
 agribalyse_food_code:en: 20163
+bulk_code:en: 2016300
 ciqual_food_code:en: 20163
 ciqual_food_name:en: Green endive, raw
 ciqual_food_name:fr: Chicorée verte, crue
@@ -107097,6 +107106,7 @@ gpc_category_name:en: Loose Leaf/Multileaf Lettuce Other
 
 < en:Lettuces
 fr: Sucrines
+bulk_code:en: 2017101
 
 < en:Lettuces
 fr: Laitue fraîche
@@ -108455,18 +108465,6 @@ intake24_category_code:en: SPNC
 intake24_category_code:fr: SPNC
 wikidata:en: Q81464
 
-#< en:Cooked vegetables
-#< en:Spinachs
-#en: Cooked spinach
-#fr: Épinards cuits
-#hr: Kuhani špinat
-#pl: Szpinak gotowany
-#agribalyse_food_code:en: 20027
-#ciqual_food_code:en: 20027
-#ciqual_food_name:en: Spinach, cooked
-#ciqual_food_name:fr: Épinard, cuit
-# no products on 7 sep 2024
-
 < en:Cooked vegetables
 < en:Spinachs
 en: Cooked spinach
@@ -108500,6 +108498,7 @@ season_in_country_fr:en: 1,2,3,4,5,9,10,11,12
 en: Spinach young leaves
 fr: Jeunes pousses d'épinards pour salades
 agribalyse_food_code:en: 20270
+bulk_code:en: 2027000
 ciqual_food_code:en: 20270
 ciqual_food_name:en: Spinach, young leaves, raw
 ciqual_food_name:fr: Épinard, jeunes pousses pour salades, cru
@@ -108742,6 +108741,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Turnip
 en: Rutabaga, Swede
 fr: Rutabaga
 agribalyse_food_code:en: 20201
+bulk_code:en: 2020100
 ciqual_food_code:en: 20201
 ciqual_food_name:en: Rutabaga or Swede, raw
 ciqual_food_name:fr: Rutabaga, cru
@@ -108842,6 +108842,7 @@ fr: Tomate olivette, Tomates olivettes
 
 < en:Tomatoes
 fr: Tomates allongées
+bulk_code:en: 2004701
 
 < en:Tomatoes
 en: Cherry tomatoes
@@ -109279,6 +109280,7 @@ wikidata:en: Q27033
 en: Mesclun, Mix of baby salad leaves
 fr: Mesclun, Mélange de jeunes pousses de salade
 agribalyse_food_code:en: 20272
+bulk_code:en: 2027200
 ciqual_food_code:en: 20272
 ciqual_food_name:en: Mesclun or salads, mix of baby leaves
 ciqual_food_name:fr: Mesclun ou salade, mélange de jeunes pousses
@@ -109637,6 +109639,7 @@ ja: グリーンピース, えんどう豆, アオエンドウ
 nl: Verse doperwten
 pl: Groszek zielony, Groch zielony
 ru: Зелёный горошек
+bulk_code:en: 2007200
 
 < en:Fresh legumes
 < en:Green peas
@@ -109767,6 +109770,7 @@ fr: Pois cassés secs
 hr: Sušeni sitni grašak
 nl: Spliterwten
 agribalyse_food_code:en: 20515
+bulk_code:en: 2051500
 ciqual_food_code:en: 20515
 ciqual_food_name:en: Split pea, dried
 ciqual_food_name:fr: Pois cassé, sec
@@ -109869,6 +109873,7 @@ tr: Nohut
 agribalyse_proxy_food_code:en: 20516
 agribalyse_proxy_food_name:en: Chick pea, dried
 agribalyse_proxy_food_name:fr: Pois chiche, sec
+bulk_code:en: 2051600
 wikidata:en: Q81375
 
 < en:Chickpeas
@@ -110567,6 +110572,7 @@ fr: Fèves
 agribalyse_proxy_food_code:en: 20518
 agribalyse_proxy_food_name:en: Broad bean, dried
 agribalyse_proxy_food_name:fr: Fève, sèche
+bulk_code:en: 2051800
 
 < en:Broad beans
 en: Dried broad beans
@@ -114227,6 +114233,7 @@ ja: クロワッサン
 nl: Croissants
 tr: Kruvasan, Kruasan, Ay çöreği, Ayçöreği
 agribalyse_food_code:en: 7602
+bulk_code:en: 0760200
 ciqual_food_code:en: 7602
 ciqual_food_name:en: Croissant
 ciqual_food_name:fr: Croissant, sans précision
