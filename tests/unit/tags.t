@@ -184,7 +184,7 @@ is(
 			'en:berries', 'en:citrus', 'en:tropical-fruits',
 			'en:bananas', 'en:lemons', 'en:oranges',
 			'en:plums', 'en:raspberries', 'en:strawberries',
-			'it:bogus')
+			'it:bogus', 'en:bulk')
 	]
 
 	#) or diag Dumper $product_ref->{categories_tags};
