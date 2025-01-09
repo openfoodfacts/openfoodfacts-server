@@ -46,6 +46,8 @@ package ProductOpener::EnvironmentalImpact;
 use ProductOpener::PerlStandards;
 use Exporter qw< import >;
 
+use HTTP::Request::Common;
+
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
@@ -168,10 +170,18 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 		) if $log->is_debug();
 
 		# Analyser la réponse JSON
-		my $response_data = decode_json($response->decoded_content);
+		my $response_data;
+		eval {
+		    $response_data = decode_json($response->decoded_content);
+		};
+		if ($@) {
+		    $log->warn("Invalid JSON response: $@") if $log->is_warn();
+		    return;
+		}
 
 		# Accéder à la valeur spécifique "ecs"
-		my $ecs_value = $response_data->{results} // {}->{total} // {}->{ecs};
+		# my $ecs_value = $response_data->{results} // {}->{total} // {}->{ecs};
+		my $ecs_value = $response_data->{results}{total}{ecs} if exists $response_data->{results}{total}{ecs};
 
 		# Vérifier si ecs existe et le stocker dans le champ de produit
 		if (defined $ecs_value) {
