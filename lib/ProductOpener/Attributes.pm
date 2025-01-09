@@ -662,6 +662,8 @@ sub compute_attribute_environmental_score ($product_ref, $target_lc, $target_cc)
 	# TBD: remove this code once all products have been updated (but we won't show the score for old revisions)
 	if ((not defined $product_ref->{environmental_score_data}) and (defined $product_ref->{ecoscore_data})) {
 		$product_ref->{environmental_score_data} = $product_ref->{ecoscore_data};
+		$product_ref->{environmental_score_score} = $product_ref->{ecoscore_score};
+		$product_ref->{environmental_score_grade} = $product_ref->{ecoscore_grade};
 	}
 
 	my $attribute_ref = initialize_attribute($attribute_id, $target_lc);
@@ -671,8 +673,8 @@ sub compute_attribute_environmental_score ($product_ref, $target_lc, $target_cc)
 	{
 		$attribute_ref->{status} = "known";
 
-		my $score = $product_ref->{environmental_score_data}{score} // 0;
-		my $grade = $product_ref->{environmental_score_data}{grade};
+		my $score = $product_ref->{environmental_score_score} // 0;
+		my $grade = $product_ref->{environmental_score_grade};
 
 		if (    (defined $product_ref->{environmental_score_data}{"scores"})
 			and (defined $product_ref->{environmental_score_data}{"scores"}{$target_cc}))
@@ -716,9 +718,8 @@ sub compute_attribute_environmental_score ($product_ref, $target_lc, $target_cc)
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/green-score-$grade.svg";
 	}
 	# Environmental-Score is not-applicable
-	elsif ( (defined $product_ref->{environmental_score_data})
-		and (defined $product_ref->{environmental_score_data}{grade})
-		and ($product_ref->{environmental_score_data}{grade} eq "not-applicable"))
+	elsif ( (defined $product_ref->{environmental_score_grade})
+		and ($product_ref->{environmental_score_grade} eq "not-applicable"))
 	{
 		$attribute_ref->{status} = "unknown";
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/green-score-not-applicable.svg";
