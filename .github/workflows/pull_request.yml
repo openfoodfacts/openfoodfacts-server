@@ -80,8 +80,20 @@ jobs:
       # see https://stackoverflow.com/a/60984318/2886726
       run: |
         git ls-files taxonomies/ | xargs -I{} git log -1 --date=format:%Y%m%d%H%M.%S --format='touch -t %ad "{}"' "{}" | bash
-    - name: Rebuild taxonomies
+    - name: Rebuild taxonomies for Open Food Facts (off)
       run: make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+    - name: Rebuild taxonomies for Open Beauty Facts (obf)
+      run: |
+        source env/setenv.sh obf
+        make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+    - name: Rebuild taxonomies for Open Products Facts (opf)
+      run: |
+        source env/setenv.sh opf
+        make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+    - name: Rebuild taxonomies for Open Pet Food Facts (opff)
+      run: |
+        source env/setenv.sh opff
+        make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
 
   check_perl:
     name: 🐪 Check Perl
