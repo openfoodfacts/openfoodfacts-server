@@ -2410,19 +2410,11 @@ wikipedia:fr: https://fr.wikipedia.org/wiki/Beurre_doux
 en: 82% fat unsalted Butter
 fr: Beurre à 82% MG doux
 hr: neslani maslac 82% masti
-it: Burro non salato 82% di grassi, burro dolce 82% di grassi
-ciqual_food_code:en: 16400
-ciqual_food_name:en: Butter, 82% fat, unsalted
-ciqual_food_name:fr: Beurre à 82% MG, doux
-
-< en:unsalted butter
-en: 82% fat unsalted butter
-fr: Beurre à 82% MG doux
-hr: neslani maslac 82% masti
-it: Burro morbido non salato 82% di grassi, burro morbido dolce 82% di grassi
+it: Burro non salato 82% di grassi, burro dolce 82% di grassi, Burro morbido non salato 82% di grassi, burro morbido dolce 82% di grassi
 ciqual_food_code:en: 16404
 ciqual_food_name:en: Butter, 82% fat, unsalted, easy-to-spread
 ciqual_food_name:fr: Beurre à 82% MG, doux, tendre
+
 
 < en:butter
 en: lightly salted butter
@@ -11472,6 +11464,7 @@ ciqual_food_name:fr: Boeuf, queue, bouillie/cuite à l'eau
 
 < en:beef meat
 en: beef kidney, Raw beef kidney
+de: Rindernieren
 fr: Rognon de boeuf, Rognon de boeuf cru
 hr: govedi bubreg, goveđi bubreg
 ciqual_food_code:en: 40402
@@ -11615,9 +11608,6 @@ hr: goveđi tripice
 en: beef lung
 de: Rinderlunge
 
-< en:beef meat
-en: beef kidney
-de: Rindernieren
 
 < en:beef meat
 en: beef udder
@@ -14957,7 +14947,17 @@ wikipedia:en: https://en.wikipedia.org/wiki/Modified_starch
 
 < en:starch
 en: pea starch
+bg: грахово нишесте
+de: Erbsenstärke
+fi: hernetärkkelys
+fr: Amidon de pois
+hr: škrob od graška
 it: amido di pisello, amido di piselli
+nl: erwtenzetmeel
+pl: skrobia grochowa, skrobia z grochu, skrobi grochowej, skrobi z grochu
+sv: ärtstärkelse
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:hernet%C3%A4rkkelys
+# 1 entry @ 2019-11-02
 
 # description:en:Corn starch or maize starch is the starch derived from the corn (maize) grain.
 
@@ -15285,18 +15285,6 @@ fr: amidons de blé et de pomme de terre
 < en:modified tapioca starch
 fi: muunnettu maissi- ja tapiokatärkkelys
 
-< en:starch
-en: pea starch
-bg: грахово нишесте
-de: Erbsenstärke
-fi: hernetärkkelys
-fr: Amidon de pois
-hr: škrob od graška
-nl: erwtenzetmeel
-pl: skrobia grochowa, skrobia z grochu, skrobi grochowej, skrobi z grochu
-sv: ärtstärkelse
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:hernet%C3%A4rkkelys
-# 1 entry @ 2019-11-02
 
 < en:barley
 < en:starch
