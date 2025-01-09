@@ -1839,7 +1839,7 @@ sub check_categories ($product_ref) {
 
 	# some categories have an expected minimum number of ingredients
 	# push data quality error if ingredients count is lower than the expected number of ingredients
-	my ($minimum_number_of_ingredients, $category_id2)
+	my ($minimum_number_of_ingredients, $category_id3)
 		= get_inherited_property_from_categories_tags($product_ref, "minimum_number_of_ingredients:en");
 
 	if ((defined $minimum_number_of_ingredients)) {
