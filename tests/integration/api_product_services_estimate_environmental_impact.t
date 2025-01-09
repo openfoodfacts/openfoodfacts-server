@@ -123,7 +123,7 @@ my $tests_ref = [
 		path => '/api/v3/product_services',
 		body => '{
 			"services":["echo"],
-			"fields": ["estimate_environmental_impact_service"],'
+			"fields": ["all"],'
 			. $product_hazelnut_spread_json . '}',
 	},
 	# compute the environmental impact of the product

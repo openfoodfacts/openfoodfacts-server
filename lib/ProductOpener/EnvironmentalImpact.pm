@@ -27,7 +27,7 @@ ProductOpener::EnvironmentalImpact - process and analyze products
 =head1 SYNOPSIS
 
 C<ProductOpener::EnvironmentalImpact> processes products to compute
-their environmental impact (see french eco-labeling Ecobalyse).
+their environmental impact (see french environmental labelling Ecobalyse).
 
     use ProductOpener::EnvironmentalImpact qw/:all/;
 
@@ -62,7 +62,7 @@ use vars @EXPORT_OK;
 
 =head2 estimate_environmental_impact_service ( $product_ref, $updated_product_fields_ref, $errors_ref )
 
-Compute the environmental impact of a given product (see the french environmental eco-labeling Ecobalyse).
+Compute the environmental impact of a given product (see the french environmental environmental labelling Ecobalyse).
 
 This function is a product service that can be run through ProductOpener::ApiProductServices
 
@@ -118,12 +118,12 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 	}
 
 	# Adding a transformation
-	if (defined $product_ref->{transform}) {
-		$payload->{transform} = {
-			id => $product_ref->{transform}->{id},
-			mass => $product_ref->{transform}->{mass}
-		};
-	}
+	#if (defined $product_ref->{transform}) {
+	#	$payload->{transform} = {
+	#		id => $product_ref->{transform}->{id},
+	#		mass => $product_ref->{transform}->{mass}
+	#	};
+	#}
 
 	# Adding a packaging
 	if (defined $product_ref->{packaging}) {
