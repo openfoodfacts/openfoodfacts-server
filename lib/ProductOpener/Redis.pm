@@ -223,6 +223,7 @@ sub _process_registered_users_stream($stream_values_ref) {
 		my $newsletter = $message_hash{'newsletter'};
 		my $requested_org = $message_hash{'requestedOrg'};
 		my $email = $message_hash{'email'};
+		my $clientId = $message_hash{'clientId'};
 
 		$log->info("User registered", {user_id => $user_id, newsletter => $newsletter})
 			if $log->is_info();
@@ -252,10 +253,13 @@ sub _process_registered_users_stream($stream_values_ref) {
 
 		my $args_ref = {userid => $user_id};
 
-		queue_job(welcome_user => [$args_ref] => {queue => $server_options{minion_local_queue}});
+		if (not defined $clientId or $clientId ne 'OFF_PRO') {
+			# Don't send normal welcome email for users that sign-up via the pro platform
+			queue_job(welcome_user => [$args_ref] => {queue => $server_options{minion_local_queue}});
+		}
 
 		# Subscribe to newsletter
-		if ($newsletter eq 'subscribe') {
+		if (defined $newsletter and $newsletter eq 'subscribe') {
 			queue_job(subscribe_user_newsletter => [$args_ref] => {queue => $server_options{minion_local_queue}});
 		}
 
