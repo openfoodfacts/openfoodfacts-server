@@ -184,7 +184,7 @@ is(
 			'en:berries', 'en:citrus', 'en:tropical-fruits',
 			'en:bananas', 'en:lemons', 'en:oranges',
 			'en:plums', 'en:raspberries', 'en:strawberries',
-			'it:bogus', 'en:bulk')
+			'it:bogus')
 	]
 
 	#) or diag Dumper $product_ref->{categories_tags};
@@ -552,8 +552,7 @@ is(
 		sort('en:plant-based-foods-and-beverages', 'en:plant-based-foods', 'en:fruits-and-vegetables-based-foods',
 			'en:meals', 'en:fruits-based-foods', 'en:fruits',
 			'en:apples', 'en:peaches', 'en:tropical-fruits',
-			'en:bananas', 'en:pears', 
-			'en:bulk',)
+			'en:bananas', 'en:pears',)
 	],
 ) or diag Dumper $product_ref;
 

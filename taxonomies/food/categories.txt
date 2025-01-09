@@ -35156,7 +35156,6 @@ fr: Fougasses au chorizo
 fr: Fougasses aux olives
 
 < en:Breads
-< en:bulk
 en: Baguettes, French bread
 de: Baguettes, Baguette
 es: Baguetes
@@ -55458,7 +55457,6 @@ agribalyse_food_code:en: 15041
 ciqual_food_code:en: 15041
 ciqual_food_name:en: Almond, peeled, unpeeled or blanched
 
-< en:Bulk
 < en:Shelled almonds
 en: Almonds(roasted), Roasted almonds, Grilled almonds, Toasted almonds
 ca: Ametles torrades
@@ -55483,6 +55481,7 @@ opposite:en: en:almonds(roasted)
 < en:Almonds(non-blanched)
 < en:Almonds(unroasted)
 < en:Almonds(unsalted)
+< en:Bulk
 < en:Whole almonds
 en: Almonds(raw), Raw almonds
 ca: Ametlles crues
@@ -55519,6 +55518,7 @@ opposite:en: en:almonds(salted)
 
 < en:Almonds(roasted)
 < en:Almonds(unsalted)
+< en:Bulk
 en: Almonds(roasted and unsalted)
 fr: Amandes grillées et non-salées
 bulk_code:en: 1504201
@@ -55597,6 +55597,7 @@ fr: Noix de cajou crues
 bulk_code:en: 150190001
 expected_ingredients:en: en:cashew-nuts
 
+< en:Bulk
 < en:Cashew nuts
 < en:Roasted nuts
 en: Roasted cashew nuts
@@ -55859,7 +55860,6 @@ lt: Gliaudyti lazdyno riešutai be odelės
 nl: Gepelde witte hazelnoten
 opposite:en: en:shelled-hazelnuts-with-skin
 
-< en:Bulk
 < en:Hazelnuts (unsalted)
 < en:Shelled hazelnuts
 en: Raw hazelnuts, Unroasted hazelnuts
@@ -68304,7 +68304,6 @@ protected_name_file_number:en: PGI-FR-02433
 protected_name_type:en: pgi
 #wikidata:en:
 
-< en:Bulk
 < en:Fruits
 en: Peaches, peach
 bg: Праскови
@@ -68317,7 +68316,6 @@ it: Pesche
 ja: モモ, もも, 桃, ピーチ
 lt: Persikai
 nl: Perziken
-bulk_code:en: 1303001
 intake24_category_code:en: PCHS
 
 < en:Peaches
@@ -68327,6 +68325,7 @@ protected_name_file_number:en: PGI-IT-02469
 protected_name_type:en: pgi
 #wikidata:en:
 
+< en:Bulk
 < en:Fresh fruits
 < en:Peaches
 en: Fresh peaches
@@ -68334,6 +68333,7 @@ es: Melocotones frescos
 fr: Pêches fraîches
 hr: Svježe breskve
 lt: Švieži persikai
+bulk_code:en: 1303001
 season_in_country_fr:en: 6,7,8,9
 
 < en:Peaches
@@ -68772,7 +68772,6 @@ ciqual_food_name:en: Prickly pear, pulp and seeds, raw
 ciqual_food_name:fr: Figue de Barbarie, pulpe et graines, crue
 wikidata:en: Q144412
 
-< en:Bulk
 < en:Fruits
 en: Plums
 bg: Сливи
@@ -68786,12 +68785,12 @@ lt: Slyvos
 nl: Pruimen
 ru: Сливы
 agribalyse_food_code:en: 13100
-bulk_code:en: 1310000
 ciqual_food_code:en: 13100
 ciqual_food_name:en: Plum, raw
 ciqual_food_name:fr: Prune, crue
 intake24_category_code:en: PLUM
 
+< en:Bulk
 < en:Fresh fruits
 < en:Plums
 en: Fresh plums
@@ -68799,6 +68798,7 @@ de: Frische Pflaumen
 fr: Prunes fraîches
 hr: Svježe šljive
 lt: Šviežios slyvos
+bulk_code:en: 1310000
 season_in_country_fr:en: 7,8,9
 
 < en:Fresh plums
@@ -104943,7 +104943,6 @@ nl: Verse aardperen
 expected_ingredients:en: en:jerusalem-artichoke
 season_in_country_fr:en: 1,2,11,12
 
-< en:Bulk
 < en:Vegetables
 en: Parsnip
 fr: Panais
@@ -104951,16 +104950,17 @@ hr: Pastrnjak
 ja: パースニップ
 nl: Pastinaken, Pastinaak
 agribalyse_food_code:en: 20181
-bulk_code:en: 2018100
 ciqual_food_code:en: 20181
 ciqual_food_name:en: Parsnip, raw
 ciqual_food_name:fr: Panais, cru
 
+< en:Bulk
 < en:Fresh vegetables
 < en:Parsnip
 en: Fresh parsnip
 fr: Panais frais
 nl: Verse pastinaken, Verse pastinaak
+bulk_code:en: 2018100
 expected_ingredients:en: en:parsnip
 season_in_country_fr:en: 1,2,3,10,11,12
 
@@ -106286,7 +106286,6 @@ ciqual_food_name:fr: Céleri-rave, cuit
 
 
 # <en:Vegetable rods
-< en:Bulk
 < en:Vegetables
 en: Chards, Chard, Swiss chard
 ar: سلق
@@ -106332,7 +106331,6 @@ zh: 莙薘菜
 agribalyse_proxy_food_code:en: 20004
 agribalyse_proxy_food_name:en: Swiss chard, raw
 agribalyse_proxy_food_name:fr: Bette ou blette, crue
-bulk_code:en: 2000400
 description:en: Chard (Beta vulgaris subsp. vulgaris, Cicla-Group and Flavescens-Group) is a green leafy vegetable. Chard, like other green leafy vegetables, has highly nutritious leaves, making it a popular component of healthy diets.Fresh young chard can be used raw in salads. Mature chard leaves and stalks are typically cooked (like in pizzoccheri) or sautéed; the bitterness fades with cooking, leaving a refined flavor which is more delicate than that of cooked spinach.
 # azb:پازی تره‌سی
 # frr:Mangold
@@ -106357,12 +106355,14 @@ description:en: Chard (Beta vulgaris subsp. vulgaris, Cicla-Group and Flavescens
 wikidata:en: Q157954
 wikipedia:en: https://en.wikipedia.org/wiki/Chard
 
+< en:Bulk
 < en:Chards
 < en:Fresh vegetables
 en: Fresh chards
 es: Acelgas frescas
 fr: Blettes fraîches
 hr: Svježe blitve
+bulk_code:en: 2000400
 season_in_country_fr:en: 6,7,8,9,10,11
 
 < en:Chards
@@ -107357,7 +107357,6 @@ ciqual_food_code:en: 20086
 ciqual_food_name:en: Sweet pepper, green, cooked
 ciqual_food_name:fr: Poivron vert, cuit
 
-< en:Bulk
 < en:Sweet Peppers
 en: Sweet peppers(yellow), Yellow sweet peppers
 bg: Жълти чушки
@@ -107990,7 +107989,6 @@ expected_ingredients:en: en:spaghetti squash
 
 ##############################
 
-< en:Bulk
 < en:Vegetables
 en: Radishes, radish
 am: ፍጁል
