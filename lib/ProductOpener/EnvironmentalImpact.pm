@@ -118,12 +118,12 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 	}
 
 	# Adding a transformation
-	#if (defined $product_ref->{transform}) {
-	#	$payload->{transform} = {
-	#		id => $product_ref->{transform}->{id},
-	#		mass => $product_ref->{transform}->{mass}
-	#	};
-	#}
+	if (defined $product_ref->{transform}) {
+		$payload->{transform} = {
+			id => $product_ref->{transform}->{id},
+			mass => $product_ref->{transform}->{mass}
+		};
+	}
 
 	# Adding a packaging
 	if (defined $product_ref->{packaging}) {
