@@ -68994,7 +68994,6 @@ en: Bananas(frécinette), Baby bananas
 fr: Bananes frécinettes, Bananes fréchinettes
 opposite:en: en:plantain-bananas, en:red-bananas, en:cavendish-bananas
 
-
 < en:Plantain bananas
 en: Bananas(Matooke), Matooke bananas
 xx: Matooke
@@ -69066,7 +69065,43 @@ nl: Bananen(verse hele Cavendish), Verse hele Cavendish bananen
 bulk_code:en: 5310000
 bulk_proxy_category:en: en:bananas
 comment:en: assume that most bananes sold in the shop are fresh Cavendish bananas
-expected_ingredients:en: en:cavendish-banana
+expected_ingredients:en: en:banana
+sales_format:en: package, weight, item
+
+< en:Bananas(frecinette)
+< en:Bananas(fresh)
+< en:Bananas(whole)
+< en:Bulk
+en: Bananas(fresh whole frecinette)
+fr: Bananes(fraîche entier frecinette)
+nl: Bananen(verse hele frecinette), Verse hele frecinette bananen
+bulk_code:en: 5310001
+bulk_proxy_category:en: en:bananas(frecinette)
+expected_ingredients:en: en:banana
+sales_format:en: package, weight, item
+
+< en:Bananas(red)
+< en:Bananas(fresh)
+< en:Bananas(whole)
+< en:Bulk
+en: Bananas(fresh whole red)
+fr: Bananes(fraîche rouge)
+nl: Bananen(verse hele rode), Verse hele rode bananen
+bulk_code:en: 5310001
+bulk_proxy_category:en: en:bananas(red)
+expected_ingredients:en: en:banana
+sales_format:en: package, weight, item
+
+< en:Bananas from the Canary Islands
+< en:Bananas(fresh)
+< en:Bananas(whole)
+< en:Bulk
+en: Bananas(fresh whole red from the Canary Islands)
+fr: Bananes(fraîche rouge des Canaries)
+nl: Bananen(verse hele rode van de Canrische eilanden), Verse hele bananen van de Canarische eilanden
+bulk_code:en: 5310001
+bulk_proxy_category:en: en:bananas-from-the-canary-islands
+expected_ingredients:en: en:bananas
 sales_format:en: package, weight, item
 
 < en:Tropical fruits
