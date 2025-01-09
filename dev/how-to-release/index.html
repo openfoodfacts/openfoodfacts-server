@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://openfoodfacts.github.io/openfoodfacts-server/dev/how-to-deploy/">
+        <link rel="canonical" href="https://openfoodfacts.github.io/openfoodfacts-server/dev/how-to-release/">
       
       
-        <link rel="prev" href="../">
+        <link rel="prev" href="../how-to-quick-start-guide/">
       
       
-        <link rel="next" href="../how-to-develop-producer-platform/">
+        <link rel="next" href="../how-to-update-agribalyse-ecoscore/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>How to deploy to Prod environment - Product Opener (Open Food Facts Server)</title>
+        <title>How to release - Product Opener (Open Food Facts Server)</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#how-to-deploy-to-prod-environment" class="md-skip">
+        <a href="#how-to-release" class="md-skip">
           Skip to content
         </a>
       
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              How to deploy to Prod environment
+              How to release
             
           </span>
         </div>
@@ -965,37 +965,6 @@
                 
   
   
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  <span class="md-ellipsis">
-    How to deploy to Prod environment
-  </span>
-  
-
-      </a>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
   
   
     <li class="md-nav__item">
@@ -1071,6 +1040,85 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    How to release
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    How to release
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#staging-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Staging environment
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#production-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Production environment
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1418,6 +1466,32 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#staging-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Staging environment
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#production-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Production environment
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1434,28 +1508,50 @@
   
 
 
-<h1 id="how-to-deploy-to-prod-environment">How to deploy to Prod environment<a class="headerlink" href="#how-to-deploy-to-prod-environment" title="Permanent link">#</a></h1>
-<p>Note: prod deployment is very manual and not automated yet.</p>
-<ul>
-<li>Login to the off1 server, as the "off" user</li>
-<li>cd /home/off/openfoodfacts-server</li>
-<li>Check that you are on the main branch</li>
-<li>git pull</li>
-<li>Copy changed files (don't copy everything, in particular not the lang directory that is being moved to the openfoodfacts-web repository)</li>
-<li>e.g. cp cgi scripts lib po taxonomies templates /srv/off/</li>
-<li>cd /srv/off</li>
-<li>export NPM_CONFIG_PREFIX=~/.npm-global</li>
-<li>npm install</li>
-<li>npm run build</li>
-<li>cd /srv/off/cgi</li>
-<li>export PERL5LIB=.</li>
-<li>./build_lang.pl</li>
-<li>as the root user:</li>
-<li>systemctl stop apache2@off</li>
-<li>systemctl start apache2@off</li>
-<li>systemctl stop minion-off</li>
-<li>systemctl start minion-off</li>
-</ul>
+<h1 id="how-to-release">How to release<a class="headerlink" href="#how-to-release" title="Permanent link">#</a></h1>
+<h2 id="staging-environment">Staging environment<a class="headerlink" href="#staging-environment" title="Permanent link">#</a></h2>
+<p>This is automatically done by the CI of github,
+see <code>.github/workflows/container-build.yml</code>.</p>
+<p>The deployment uses docker compose with specific environments variables
+and the <code>docker/prod.yml</code> overlay.</p>
+<p>As soon as you merge a pull request in the <code>main</code> branch,
+the action is triggered. You can see it at
+https://github.com/openfoodfacts/openfoodfacts-server/actions/workflows/container-build.yml</p>
+<h2 id="production-environment">Production environment<a class="headerlink" href="#production-environment" title="Permanent link">#</a></h2>
+<p>Product Opener is deployed on a container in Proxmox.
+The container is a debian server, it must follow the <code>backend</code> container version.</p>
+<p>In the command lines, I use $SERVICE and $VERSION variables,
+corresponding to the service short name (off, opf, etc.) and the version tag.</p>
+<p>To deploy you need to execute the following steps:</p>
+<ol>
+<li>merge the Release Please pull request.
+   This will create a new release / version tag on github</li>
+<li>update the code:
+   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>-u<span class="w"> </span>off<span class="w"> </span>bash
+<span class="nb">cd</span><span class="w"> </span>/srv/<span class="nv">$SERVICE</span>
+git<span class="w"> </span>fetch
+git<span class="w"> </span>checkout<span class="w"> </span><span class="nv">$VERSION</span>
+</code></pre></div></li>
+<li>verify every needed symlink is in place
+   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>-u<span class="w"> </span>off<span class="w"> </span>scripts/deploy/verify-deployment.sh<span class="w"> </span><span class="nv">$SERVICE</span>
+</code></pre></div></li>
+<li>rebuild taxonomies and lang
+   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>-u<span class="w"> </span>off<span class="w"> </span>bash
+<span class="nb">cd</span><span class="w"> </span>/srv/<span class="nv">$SERVICE</span>
+<span class="nb">source</span><span class="w"> </span>env/setenv.sh<span class="w"> </span><span class="nv">$SERVICE</span>
+./scripts/taxonomies/build_tags_taxonomy.pl
+./scripts/build_lang.pl
+</code></pre></div></li>
+<li>update the frontend assets you just downloaded
+   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>-u<span class="w"> </span>off<span class="w"> </span>/srv/<span class="nv">$SERVICE</span>/scripts/deploy/install-dist-files.sh<span class="w"> </span><span class="nv">$VERSION</span><span class="w"> </span><span class="nv">$SERVICE</span>
+</code></pre></div></li>
+<li>restart services
+   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload
+sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>nginx
+sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>apache2<span class="w"> </span>cloud_vision_ocr@<span class="nv">$SERVICE</span>.service<span class="w"> </span>minion@<span class="nv">$SERVICE</span>.service
+sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>apache2<span class="w"> </span>cloud_vision_ocr@<span class="nv">$SERVICE</span>.service<span class="w"> </span>minion@<span class="nv">$SERVICE</span>.service
+</code></pre></div></li>
+</ol>
 
 
 
