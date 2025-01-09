@@ -1,0 +1,16 @@
+# Set the command-line arguments to pass to the server.
+# we use a different port than the standard exporter
+ARGS='-telemetry.address :9118 -scrape_uri http://127.0.0.1:8002/server-status/?auto'
+
+#Usage of prometheus-apache-exporter:
+#  -host_override string
+#      Override for HTTP Host header; empty string for no override.
+#  -insecure
+#      Ignore server certificate if using https.
+#  -scrape_uri string
+#      URI to apache stub status page. (default
+#      "http://localhost/server-status/?auto")
+#  -telemetry.address string
+#      Address on which to expose metrics. (default ":9117")
+#  -telemetry.endpoint string
+#      Path under which to expose metrics. (default "/metrics")
