@@ -53,7 +53,7 @@ foreach my $userid (sort @userids) {
 	if ($i % 1000 == 0) {
 		print "$i / $n - $userid\n";
 		store("$BASE_DIRS{USERS}/users_emails.sto", $emails_ref);
-	}	
+	}
 }
 
 store("$BASE_DIRS{USERS}/users_emails.sto", $emails_ref);
