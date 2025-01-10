@@ -325,6 +325,7 @@
          "agribalyse" : {
             "warning" : "missing_agribalyse_match"
          },
+         "grade" : "unknown",
          "missing" : {
             "agb_category" : 1,
             "labels" : 1,
@@ -456,7 +457,6 @@
       "main_countries_tags" : [],
       "minerals_tags" : [],
       "misc_tags" : [
-         "en:environmental-score-extended-data-not-computed",
          "en:environmental-score-not-computed",
          "en:nutriscore-2021-better-than-2023",
          "en:nutriscore-2021-d-2023-e",

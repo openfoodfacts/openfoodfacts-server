@@ -662,6 +662,8 @@ sub compute_attribute_environmental_score ($product_ref, $target_lc, $target_cc)
 	# TBD: remove this code once all products have been updated (but we won't show the score for old revisions)
 	if ((not defined $product_ref->{environmental_score_data}) and (defined $product_ref->{ecoscore_data})) {
 		$product_ref->{environmental_score_data} = $product_ref->{ecoscore_data};
+		$product_ref->{environmental_score_score} = $product_ref->{ecoscore_score};
+		$product_ref->{environmental_score_grade} = $product_ref->{ecoscore_grade};
 	}
 
 	my $attribute_ref = initialize_attribute($attribute_id, $target_lc);
