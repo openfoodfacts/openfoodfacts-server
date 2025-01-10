@@ -78,7 +78,6 @@ my $import_lc;
 my $no_source = 0;
 my $skip_not_existing_products = 0;
 my $pretend = 0;
-my $skip_if_not_code;
 my $skip_products_without_info = 0;
 my $skip_existing_values = 0;
 my $only_select_not_existing_images = 0;
