@@ -526,6 +526,8 @@ sub upload_images_for_product($args_ref, $images_ref, $product_ref, $imported_pr
 			}
 		}
 	}
+
+	return;
 }
 
 # download image at given url parameter
@@ -2182,9 +2184,9 @@ sub import_csv_file ($args_ref) {
 				$skip_not_existing++;
 				next;
 			}
+			else {
+				$new++;
 
-			$new++;
-			if (1 and (not $product_ref)) {
 				$log->debug("creating not existing product", {code => $code, product_id => $product_id})
 					if $log->is_debug();
 
