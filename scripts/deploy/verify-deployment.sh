@@ -79,23 +79,25 @@ function check_args {
 
 function compute_services {
   # systemd services to check for symlinks
-  SYSTEMD_LINKS+=( email-failures@.service nginx.service.d apache2@.service.d cloud_vision_ocr@.service )
+  SYSTEMD_LINKS+=( email-failures@.service nginx.service.d apache2.service apache2@.service.d prometheus@.service.d cloud_vision_ocr@.service )
   # units that must be active (and enabled)
-  SYSTEMD_UNITS_ACTIVE=( nginx.service apache2@standard.service.d cloud_vision_ocr@$SERVICE.service )
+  SYSTEMD_UNITS_ACTIVE=( nginx.service apache2.service cloud_vision_ocr@$SERVICE.service )
   # units that must be enabled
   SYSTEMD_UNITS_ENABLED=( )
   # priority request on off
   if [[ $SERVICE = "off" ]]
   then
     SYSTEMD_LINKS+=( prometheus-apache-exporter@.service )
-    SYSTEMD_UNITS_ACTIVE+=( apache2@priority.service.d prometheus-apache-exporter@standard.service prometheus-apache-exporter@priority.service )
+    SYSTEMD_UNITS_ACTIVE+=( apache2@priority.service prometheus-apache-exporter.service prometheus-apache-exporter@priority.service )
   fi
   if [[ -z $IS_PRO ]]
   then
-    SYSTEMD_LINKS+=( gen_feeds@.{service,timer} )
-    SYSTEMD_UNITS_ACTIVE+=( gen_feeds@$SERVICE.timer )
-    SYSTEMD_UNITS_ENABLED+=( gen_feeds@$SERVICE.service )
+    # non pro
+    SYSTEMD_LINKS+=( gen_feeds_daily@.{service,timer} )
+    SYSTEMD_UNITS_ACTIVE+=( gen_feeds_daily@$SERVICE.timer )
+    SYSTEMD_UNITS_ENABLED+=( gen_feeds_daily@$SERVICE.service )
   else
+    # pro
     SYSTEMD_LINKS+=( producers_import@.{service,timer} )
     SYSTEMD_UNITS_ACTIVE+=( producers_import@$SERVICE.timer )
     SYSTEMD_UNITS_ENABLED+=( producers_import@$SERVICE.service )
@@ -220,8 +222,8 @@ function compute_expected_links {
   # prometheus configs
   if [[ $SERVICE = "off" ]]
   then
-    EXPECTED_LINKS["/etc/default/prometheus-apache-standard-exporter@.service"]="$REPO_PATH/conf/etc-default/prometheus-apache-standard-exporter@.service"
-    EXPECTED_LINKS["/etc/default/prometheus-apache-priority-exporter@.service"]="$REPO_PATH/conf/etc-default/prometheus-apache-priority-exporter@.service"
+    EXPECTED_LINKS["/etc/default/prometheus-apache-exporter"]="$REPO_PATH/conf/etc-default/prometheus-apache-exporter"
+    EXPECTED_LINKS["/etc/default/prometheus-apache-priority-exporter"]="$REPO_PATH/conf/etc-default/prometheus-apache-priority-exporter"
   fi
 
   # Note: other link on old versions:
@@ -273,9 +275,9 @@ function check_systemd_units {
     if ! ( systemctl -q is-active $unit )
     then
       GOT_ERROR=1
-      >&2 echo "ERROR: $unit unit must be enabled"
+      >&2 echo "ERROR: $unit unit must be active"
     else
-      [[ -n "$VERBOSE" ]] && echo "    OK: $unit unit enabled"
+      [[ -n "$VERBOSE" ]] && echo "    OK: $unit unit active"
     fi
   done
 
@@ -285,11 +287,14 @@ function check_systemd_units {
 function other_checks {
   # a common pitfall is to have log rotate not working
   # because conf file must be owned by root
+  [[ -n "$VERBOSE" ]] && echo "Checking other things..."
   NON_ROOT_LOGROTATE_CONF=$(find /etc/logrotate.d/ -type f -not -user root)
   if [[ -n "$NON_ROOT_LOGROTATE_CONF" ]]
   then
     GOT_ERROR=1
     >&2 echo "ERROR: logrotate config files $NON_ROOT_LOGROTATE_CONF must be owned by root"
+  else
+    [[ -n "$VERBOSE" ]] && echo "    OK: logrotate config files are owned by root"
   fi
 }
 
