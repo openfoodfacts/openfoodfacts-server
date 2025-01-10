@@ -6,17 +6,19 @@
 # that are set in env.<server name>
 # And also the instance name
 
-# we will first source the standard envvars file (if it exists)
-if [[ -f /etc/apache2/envvars ]];
-then
-    source /etc/apache2/envvars
-fi
-
-# SUFFIX can be used to tweak settings
+# SUFFIX can be used to tweak settings according to the instance name
 if [ "${APACHE_CONFDIR##/etc/apache2-}" != "${APACHE_CONFDIR}" ] ; then
     SUFFIX="-${APACHE_CONFDIR##/etc/apache2-}"
+    APACHE_INSTANCE=${APACHE_CONFDIR##/etc/apache2-}
 else
     SUFFIX=
+    APACHE_INSTANCE=
+fi
+
+# we will first source the standard envvars file (if it exists)
+if [ -f /etc/apache2${SUFFIX}/envvars ];
+then
+    . /etc/apache2/envvars
 fi
 
 # now we can set our specific settings
@@ -26,18 +28,18 @@ export APACHE_RUN_USER=off
 export APACHE_RUN_GROUP=off
 
 # port - standard or priority
-export APACHE_PORT=8001
-if [[ "$SUFFIX" = "priority" ]]
+export APACHE2_PORT=8001
+if [ "$APACHE_INSTANCE" = "priority" ]
 then
-    export APACHE_PORT=8002
-else
+    export APACHE2_PORT=8002
+fi
 
 APP_DIR=/srv/$PRODUCT_OPENER_FLAVOR_SHORT
 
-LOG4PERL_CONF=$APP_DIR/conf/$SUFFIX-log.conf
-if [[ "$SUFFIX" != "standard" ]]
+LOG4PERL_CONF=$APP_DIR/conf/$PRODUCT_OPENER_FLAVOR_SHORT-log.conf
+if [ -n "$APACHE_INSTANCE" ]
 then
-    export LOG4PERL_CONF=/conf/$SUFFIX-$PRODUCT_OPENER_FLAVOR_SHORT-log.conf
+    export LOG4PERL_CONF=$APP_DIR/conf/$PRODUCT_OPENER_FLAVOR_SHORT-$APACHE_INSTANCE-log.conf
 fi
 
 # MPM settings -----------
@@ -50,16 +52,17 @@ export APACHE_MPM_MAX_REQUEST_WORKERS=20
 # keep this a bit low to avoid memory issues
 export APACHE_MPM_MAX_CONN_PER_CHILD=100
 # specific MPM settings
-if [[ "$PRODUCT_OPENER_FLAVOR_SHORT" = "off" ]]
+if [ "$PRODUCT_OPENER_FLAVOR_SHORT" = "off" ]
 then
     export APACHE_MPM_START_SERVERS=5
     export APACHE_MPM_MAX_REQUEST_WORKERS=25
-    if [[ "$SUFFIX" = "priority" ]]
+    if [ "$INSTANCE_NAME" = "priority" ]
     then
         export APACHE_MPM_MAX_REQUEST_WORKERS=50
     fi
 fi
-if [[ "$PRODUCT_OPENER_FLAVOR_SHORT" = "off-pro" ]]
+if [ "$PRODUCT_OPENER_FLAVOR_SHORT" = "off-pro" ]
+then
     export APACHE_MPM_MAX_REQUEST_WORKERS=10
 fi
 # MinSpareServers: minimum number of server processes which are kept spare

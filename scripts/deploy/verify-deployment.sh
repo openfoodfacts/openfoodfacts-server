@@ -218,6 +218,7 @@ function compute_expected_links {
 
   # log rotate config
   EXPECTED_LINKS["/etc/logrotate.d/apache2"]="$REPO_PATH/conf/logrotate/apache2"
+  EXPECTED_LINKS["/etc/logrotate.d/nginx"]="$REPO_PATH/conf/logrotate/nginx"
 
   # prometheus configs
   if [[ $SERVICE = "off" ]]
@@ -288,7 +289,8 @@ function other_checks {
   # a common pitfall is to have log rotate not working
   # because conf file must be owned by root
   [[ -n "$VERBOSE" ]] && echo "Checking other things..."
-  NON_ROOT_LOGROTATE_CONF=$(find /etc/logrotate.d/ -type f -not -user root)
+  # we need -follow because our confs are symlinked
+  NON_ROOT_LOGROTATE_CONF=$(find /etc/logrotate.d/ -follow -type f -not -user root)
   if [[ -n "$NON_ROOT_LOGROTATE_CONF" ]]
   then
     GOT_ERROR=1
