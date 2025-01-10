@@ -126,7 +126,7 @@ server {
 		access_log /var/log/nginx/proxy-obf-access.log proxied_requests buffer=256K flush=1s;
 		error_log /var/log/nginx/proxy-obf-error.log;
 
-		proxy_pass http://127.0.0.1:8002/cgi/display.pl?;
+		proxy_pass http://127.0.0.1:8001/cgi/display.pl?;
 	}
 
 	location /cgi/ {
@@ -137,7 +137,7 @@ server {
 		access_log /var/log/nginx/proxy-obf-access.log proxied_requests buffer=256K flush=1s;
 		error_log /var/log/nginx/proxy-obf-error.log;
 
-		proxy_pass http://127.0.0.1:8002;
+		proxy_pass http://127.0.0.1:8001;
 	}
 }
 

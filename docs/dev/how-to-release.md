@@ -23,6 +23,12 @@ corresponding to the service short name (off, opf, etc.) and the version tag.
 To deploy you need to execute the following steps:
 1. merge the Release Please pull request.
    This will create a new release / version tag on github
+1. verify there is no unreleased code on the server:
+   ```bash
+   sudo -u off bash
+   cd /srv/$SERVICE
+   git status
+   ```
 1. update the code:
    ```bash
    sudo -u off bash
@@ -32,7 +38,7 @@ To deploy you need to execute the following steps:
    ```
 1. verify every needed symlink is in place
    ```bash
-   sudo -u off scripts/deploy/verify-deployment.sh $SERVICE
+   sudo /srv/$SERVICE/scripts/deploy/verify-deployment.sh $SERVICE
    ```
 1. rebuild taxonomies and lang
    ```bash
@@ -50,6 +56,8 @@ To deploy you need to execute the following steps:
    ```bash
    sudo systemctl daemon-reload
    sudo systemctl restart nginx
-   sudo systemctl stop apache2 cloud_vision_ocr@$SERVICE.service minion@$SERVICE.service
+   sudo systemctl stop apache2 cloud_vision_ocr@$SERVICE.service minion@$SERVICE.service; \
    sudo systemctl start apache2 cloud_vision_ocr@$SERVICE.service minion@$SERVICE.service
+   # On off
+   sudo systemctl stop apache2@priority; sudo systemctl start apache2@priority
    ```
