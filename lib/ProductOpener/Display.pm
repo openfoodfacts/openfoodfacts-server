@@ -421,8 +421,15 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	};
 
 	$template_data_ref->{round} = sub ($var) {
-		return sprintf("%.0f", $var);
+		# Check if $var is defined and is numeric
+		if (defined $var && $var =~ /^-?\d+(\.\d+)?$/) {
+			return sprintf("%.0f", $var);
+		}
+		else {
+			return;
+		}
 	};
+
 	$template_data_ref->{sprintf} = sub ($var1, $var2) {
 		return sprintf($var1, $var2);
 	};
@@ -5455,7 +5462,11 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 			$cursor = execute_query(
 				sub {
 					return get_products_collection(get_products_collection_request_parameters($request_ref))
-						->query($query_ref)->fields($fields_ref)->sort($sort_ref)->limit($limit)->skip($skip);
+						->query($query_ref)
+						->fields($fields_ref)
+						->sort($sort_ref)
+						->limit($limit)
+						->skip($skip);
 				}
 			);
 			$log->debug("MongoDB query ok", {error => $@}) if $log->is_debug();
@@ -6920,7 +6931,8 @@ sub search_and_graph_products ($request_ref, $query_ref, $graph_ref) {
 		$cursor = execute_query(
 			sub {
 				return get_products_collection(get_products_collection_request_parameters($request_ref))
-					->query($query_ref)->fields($fields_ref);
+					->query($query_ref)
+					->fields($fields_ref);
 			}
 		);
 	};
@@ -7230,7 +7242,8 @@ sub search_products_for_map ($request_ref, $query_ref) {
 		$cursor = execute_query(
 			sub {
 				return get_products_collection(get_products_collection_request_parameters($request_ref))
-					->query($query_ref)->fields(
+					->query($query_ref)
+					->fields(
 					{
 						code => 1,
 						lc => 1,
@@ -7953,8 +7966,11 @@ JS
 
 		localize_environmental_score($request_ref->{cc}, $product_ref);
 
-		$template_data_ref->{environmental_score_grade} = uc($product_ref->{environmental_score_data}{"grade"});
-		$template_data_ref->{environmental_score_grade_lc} = $product_ref->{environmental_score_data}{"grade"};
+		if (defined $product_ref->{environmental_score_data}{"grade"}) {
+			$template_data_ref->{environmental_score_grade} = uc($product_ref->{environmental_score_data}{"grade"});
+			$template_data_ref->{environmental_score_lc} = $product_ref->{environmental_score_data}{"grade"};
+		}
+
 		$template_data_ref->{environmental_score_score} = $product_ref->{environmental_score_data}{"score"};
 		$template_data_ref->{environmental_score_data} = $product_ref->{environmental_score_data};
 		$template_data_ref->{environmental_score_calculation_details}
@@ -11586,7 +11602,8 @@ sub search_and_analyze_recipes ($request_ref, $query_ref) {
 		$cursor = execute_query(
 			sub {
 				return get_products_collection(get_products_collection_request_parameters($request_ref))
-					->query($query_ref)->fields($fields_ref);
+					->query($query_ref)
+					->fields($fields_ref);
 			}
 		);
 	};

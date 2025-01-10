@@ -8,58 +8,51 @@
    "allergens_hierarchy" : [],
    "allergens_tags" : [],
    "amino_acids_tags" : [],
-   "categories" : "cherry tomatoes",
+   "categories" : "dill",
    "categories_hierarchy" : [
       "en:plant-based-foods-and-beverages",
       "en:plant-based-foods",
-      "en:fruits-and-vegetables-based-foods",
-      "en:vegetables-based-foods",
-      "en:vegetables",
-      "en:tomatoes-and-their-products",
-      "en:tomatoes",
-      "en:cherry-tomatoes"
+      "en:condiments",
+      "en:culinary-plants",
+      "en:aromatic-plants",
+      "en:herbs",
+      "en:dill"
    ],
    "categories_lc" : "en",
    "categories_properties" : {
-      "agribalyse_food_code:en" : "20172",
-      "ciqual_food_code:en" : "20172"
+      "agribalyse_proxy_food_code:en" : "11093",
+      "ciqual_food_code:en" : "11080"
    },
    "categories_properties_tags" : [
       "all-products",
       "categories-known",
-      "agribalyse-food-code-20172",
-      "agribalyse-food-code-known",
-      "agribalyse-proxy-food-code-unknown",
-      "ciqual-food-code-20172",
+      "agribalyse-food-code-unknown",
+      "agribalyse-proxy-food-code-11093",
+      "agribalyse-proxy-food-code-known",
+      "ciqual-food-code-11080",
       "ciqual-food-code-known",
       "agribalyse-known",
-      "agribalyse-20172"
+      "agribalyse-11093"
    ],
    "categories_tags" : [
       "en:plant-based-foods-and-beverages",
       "en:plant-based-foods",
-      "en:fruits-and-vegetables-based-foods",
-      "en:vegetables-based-foods",
-      "en:vegetables",
-      "en:tomatoes-and-their-products",
-      "en:tomatoes",
-      "en:cherry-tomatoes"
+      "en:condiments",
+      "en:culinary-plants",
+      "en:aromatic-plants",
+      "en:herbs",
+      "en:dill"
    ],
-   "food_groups" : "en:vegetables",
-   "food_groups_tags" : [
-      "en:fruits-and-vegetables",
-      "en:vegetables"
-   ],
+   "food_groups_tags" : [],
    "ingredients" : [
       {
-         "ciqual_food_code" : "20172",
-         "ecobalyse_code" : "tomato-heated-greenhouse-eu",
-         "id" : "en:cherry-tomato",
+         "ciqual_food_code" : "11093",
+         "id" : "en:dill",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 100,
          "percent_max" : 100,
          "percent_min" : 100,
-         "text" : "cherry tomatoes",
+         "text" : "dill",
          "vegan" : "yes",
          "vegetarian" : "yes"
       }
@@ -71,10 +64,8 @@
       "en:vegetarian"
    ],
    "ingredients_hierarchy" : [
-      "en:cherry-tomato",
-      "en:vegetable",
-      "en:fruit-vegetable",
-      "en:tomato"
+      "en:dill",
+      "en:herb"
    ],
    "ingredients_lc" : "en",
    "ingredients_n" : 1,
@@ -84,29 +75,39 @@
    ],
    "ingredients_non_nutritive_sweeteners_n" : 0,
    "ingredients_original_tags" : [
-      "en:cherry-tomato"
+      "en:dill"
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_sweeteners_n" : 0,
    "ingredients_tags" : [
-      "en:cherry-tomato",
-      "en:vegetable",
-      "en:fruit-vegetable",
-      "en:tomato"
+      "en:dill",
+      "en:herb"
    ],
-   "ingredients_text" : "cherry tomatoes",
+   "ingredients_text" : "dill",
    "ingredients_with_specified_percent_n" : 0,
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 1,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
-   "ingredients_without_ecobalyse_ids" : [],
-   "ingredients_without_ecobalyse_ids_n" : 0,
-   "known_ingredients_n" : 4,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:dill"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 1,
+   "known_ingredients_n" : 2,
    "lc" : "en",
    "minerals_tags" : [],
    "misc_tags" : [
+      "en:nutrition-not-enough-data-to-compute-nutrition-score",
+      "en:nutriscore-missing-nutrition-data",
+      "en:nutriscore-missing-nutrition-data-energy",
+      "en:nutriscore-missing-nutrition-data-fat",
+      "en:nutriscore-missing-nutrition-data-saturated-fat",
+      "en:nutriscore-missing-nutrition-data-sugars",
+      "en:nutriscore-missing-nutrition-data-sodium",
+      "en:nutriscore-missing-nutrition-data-proteins",
+      "en:nutrition-no-fiber",
+      "en:nutriscore-using-estimated-nutrition-facts",
       "en:nutriscore-computed",
       "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
       "en:nutrition-all-nutriscore-values-known",
@@ -122,22 +123,9 @@
       "en:1-unprocessed-or-minimally-processed-foods"
    ],
    "nucleotides_tags" : [],
-   "nutrient_levels" : {
-      "fat" : "low",
-      "salt" : "low",
-      "saturated-fat" : "low",
-      "sugars" : "low"
-   },
-   "nutrient_levels_tags" : [
-      "en:fat-in-low-quantity",
-      "en:saturated-fat-in-low-quantity",
-      "en:sugars-in-low-quantity",
-      "en:salt-in-low-quantity"
-   ],
+   "nutrient_levels" : {},
+   "nutrient_levels_tags" : [],
    "nutriments" : {
-      "energy_100g" : 81,
-      "fat_100g" : 0.26,
-      "fiber_100g" : 1.2,
       "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 100,
       "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 100,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 100,
@@ -145,75 +133,66 @@
       "nova-group" : 1,
       "nova-group_100g" : 1,
       "nova-group_serving" : 1,
-      "nutrition-score-fr" : -5,
-      "nutrition-score-fr_100g" : -5,
-      "proteins_100g" : 0.86,
-      "salt_100g" : "0",
-      "salt_value" : "0",
-      "saturated-fat_100g" : 0.056,
-      "sodium" : 0,
-      "sodium_100g" : 0,
-      "sodium_unit" : "g",
-      "sodium_value" : "0",
-      "sugars_100g" : 2.48
+      "nutrition-score-fr" : -7,
+      "nutrition-score-fr_100g" : -7
    },
    "nutriments_estimated" : {
       "alcohol_100g" : 0,
-      "beta-carotene_100g" : 0.00136,
-      "calcium_100g" : 0.0066,
-      "carbohydrates_100g" : 5.62,
+      "beta-carotene_100g" : 0.000696,
+      "calcium_100g" : 0.202,
+      "carbohydrates_100g" : 3.9,
       "cholesterol_100g" : 0,
-      "copper_100g" : 5e-05,
-      "energy-kcal_100g" : 33.7,
-      "energy-kj_100g" : 142,
-      "energy_100g" : 142,
-      "fat_100g" : 0.25,
-      "fiber_100g" : 1.2,
-      "fructose_100g" : 2.5,
-      "galactose_100g" : 0,
-      "glucose_100g" : 2.3,
-      "iodine_100g" : 1e-05,
-      "iron_100g" : 0.00037,
+      "copper_100g" : 0.00022,
+      "energy-kcal_100g" : 48.2,
+      "energy-kj_100g" : 202,
+      "energy_100g" : 202,
+      "fat_100g" : 1.1,
+      "fiber_100g" : 3.5,
+      "fructose_100g" : 0.25,
+      "galactose_100g" : 0.19,
+      "glucose_100g" : 0.15,
+      "iodine_100g" : 3.9e-06,
+      "iron_100g" : 0.0055,
       "lactose_100g" : 0.1,
-      "magnesium_100g" : 0.011,
+      "magnesium_100g" : 0.028,
       "maltose_100g" : 0.1,
-      "manganese_100g" : 0.00016,
-      "pantothenic-acid_100g" : 7.9e-05,
-      "phosphorus_100g" : 0.031,
-      "phylloquinone_100g" : 2.83e-06,
-      "polyols_100g" : 0.25,
-      "potassium_100g" : 0.33,
-      "proteins_100g" : 1.31,
-      "salt_100g" : 0.0063,
-      "saturated-fat_100g" : 0.005,
-      "selenium_100g" : 1e-05,
-      "sodium_100g" : 0.0025,
+      "manganese_100g" : 0.0027,
+      "pantothenic-acid_100g" : 0.0003,
+      "phosphorus_100g" : 0.0519,
+      "phylloquinone_100g" : 0.000152,
+      "polyols_100g" : 0,
+      "potassium_100g" : 0.647,
+      "proteins_100g" : 3.93,
+      "salt_100g" : 0.15,
+      "saturated-fat_100g" : 0.27,
+      "selenium_100g" : 2.7e-06,
+      "sodium_100g" : 0.027,
       "starch_100g" : 0.18,
-      "sucrose_100g" : 0.1,
-      "sugars_100g" : 4.8,
+      "sucrose_100g" : 0.35,
+      "sugars_100g" : 1.2,
       "vitamin-a_100g" : 0,
       "vitamin-b12_100g" : 0,
-      "vitamin-b1_100g" : 4.8e-05,
-      "vitamin-b2_100g" : 1.8e-05,
-      "vitamin-b6_100g" : 9.6e-05,
-      "vitamin-b9_100g" : 1.76e-05,
-      "vitamin-c_100g" : 0.0218,
+      "vitamin-b1_100g" : 0.00019,
+      "vitamin-b2_100g" : 0.00043,
+      "vitamin-b6_100g" : 0.0003,
+      "vitamin-b9_100g" : 0.000116,
+      "vitamin-c_100g" : 0.07,
       "vitamin-d_100g" : 0,
-      "vitamin-e_100g" : 0.0004,
-      "vitamin-pp_100g" : 0.00092,
-      "water_100g" : 90.1,
-      "zinc_100g" : 0.00018
+      "vitamin-e_100g" : 0.0017,
+      "vitamin-pp_100g" : 0.0024,
+      "water_100g" : 86,
+      "zinc_100g" : 0.0018
    },
    "nutriscore" : {
       "2021" : {
          "category_available" : 1,
          "data" : {
-            "energy" : 81,
+            "energy" : 202,
             "energy_points" : 0,
-            "energy_value" : 81,
-            "fiber" : 1.2,
-            "fiber_points" : 1,
-            "fiber_value" : 1.2,
+            "energy_value" : 202,
+            "fiber" : 3.5,
+            "fiber_points" : 3,
+            "fiber_value" : 3.5,
             "fruits_vegetables_nuts_colza_walnut_olive_oils" : 100,
             "fruits_vegetables_nuts_colza_walnut_olive_oils_points" : 5,
             "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 100,
@@ -222,25 +201,25 @@
             "is_fat" : 0,
             "is_water" : 0,
             "negative_points" : 0,
-            "positive_points" : 6,
-            "proteins" : 0.86,
-            "proteins_points" : 0,
-            "proteins_value" : 0.86,
-            "saturated_fat" : 0.056,
+            "positive_points" : 10,
+            "proteins" : 3.93,
+            "proteins_points" : 2,
+            "proteins_value" : 3.93,
+            "saturated_fat" : 0.27,
             "saturated_fat_points" : 0,
-            "saturated_fat_value" : 0.1,
-            "sodium" : 0,
+            "saturated_fat_value" : 0.3,
+            "sodium" : 27,
             "sodium_points" : 0,
-            "sodium_value" : 0,
-            "sugars" : 2.48,
+            "sodium_value" : 27,
+            "sugars" : 1.2,
             "sugars_points" : 0,
-            "sugars_value" : 2.48
+            "sugars_value" : 1.2
          },
          "grade" : "a",
          "nutrients_available" : 1,
          "nutriscore_applicable" : 1,
          "nutriscore_computed" : 1,
-         "score" : -6
+         "score" : -10
       },
       "2023" : {
          "category_available" : 1,
@@ -252,50 +231,44 @@
                      "points" : 0,
                      "points_max" : 10,
                      "unit" : "kJ",
-                     "value" : 81
+                     "value" : 202
                   },
                   {
                      "id" : "sugars",
                      "points" : 0,
                      "points_max" : 15,
                      "unit" : "g",
-                     "value" : 2.48
+                     "value" : 1.2
                   },
                   {
                      "id" : "saturated_fat",
                      "points" : 0,
                      "points_max" : 10,
                      "unit" : "g",
-                     "value" : 0.06
+                     "value" : 0.27
                   },
                   {
                      "id" : "salt",
                      "points" : 0,
                      "points_max" : 20,
                      "unit" : "g",
-                     "value" : 0
+                     "value" : 0.15
                   }
                ],
                "positive" : [
                   {
                      "id" : "proteins",
-                     "new_grade" : "a",
-                     "new_score" : -6,
-                     "new_value" : 2.5,
-                     "points" : 0,
+                     "points" : 1,
                      "points_max" : 7,
                      "unit" : "g",
-                     "value" : 0.86
+                     "value" : 3.93
                   },
                   {
                      "id" : "fiber",
-                     "new_grade" : "a",
-                     "new_score" : -6,
-                     "new_value" : 3.1,
-                     "points" : 0,
+                     "points" : 1,
                      "points_max" : 5,
                      "unit" : "g",
-                     "value" : 1.2
+                     "value" : 3.5
                   },
                   {
                      "id" : "fruits_vegetables_legumes",
@@ -320,14 +293,14 @@
                "fiber",
                "fruits_vegetables_legumes"
             ],
-            "positive_points" : 5,
+            "positive_points" : 7,
             "positive_points_max" : 17
          },
          "grade" : "a",
          "nutrients_available" : 1,
          "nutriscore_applicable" : 1,
          "nutriscore_computed" : 1,
-         "score" : -5
+         "score" : -7
       }
    },
    "nutriscore_2021_tags" : [
@@ -344,44 +317,44 @@
                "points" : 0,
                "points_max" : 10,
                "unit" : "kJ",
-               "value" : 81
+               "value" : 202
             },
             {
                "id" : "sugars",
                "points" : 0,
                "points_max" : 15,
                "unit" : "g",
-               "value" : 2.48
+               "value" : 1.2
             },
             {
                "id" : "saturated_fat",
                "points" : 0,
                "points_max" : 10,
                "unit" : "g",
-               "value" : 0.06
+               "value" : 0.27
             },
             {
                "id" : "salt",
                "points" : 0,
                "points_max" : 20,
                "unit" : "g",
-               "value" : 0
+               "value" : 0.15
             }
          ],
          "positive" : [
             {
                "id" : "proteins",
-               "points" : 0,
+               "points" : 1,
                "points_max" : 7,
                "unit" : "g",
-               "value" : 0.86
+               "value" : 3.93
             },
             {
                "id" : "fiber",
-               "points" : 0,
+               "points" : 1,
                "points_max" : 5,
                "unit" : "g",
-               "value" : 1.2
+               "value" : 3.5
             },
             {
                "id" : "fruits_vegetables_legumes",
@@ -407,13 +380,13 @@
          "fiber",
          "fruits_vegetables_legumes"
       ],
-      "positive_points" : 5,
+      "positive_points" : 7,
       "positive_points_max" : 17,
-      "score" : -5
+      "score" : -7
    },
    "nutriscore_grade" : "a",
-   "nutriscore_score" : -5,
-   "nutriscore_score_opposite" : 5,
+   "nutriscore_score" : -7,
+   "nutriscore_score_opposite" : 7,
    "nutriscore_tags" : [
       "a"
    ],
@@ -426,21 +399,22 @@
       "a"
    ],
    "nutrition_score_beverage" : 0,
-   "nutrition_score_debug" : "",
+   "nutrition_score_debug" : "missing energy_100g - missing fat_100g - missing saturated-fat_100g - missing sugars_100g - missing sodium_100g - missing proteins_100g",
    "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients" : 1,
    "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 100,
    "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
    "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 100,
+   "nutrition_score_warning_nutriments_estimated" : 1,
    "other_nutritional_substances_tags" : [],
-   "pnns_groups_1" : "Fruits and vegetables",
+   "pnns_groups_1" : "unknown",
    "pnns_groups_1_tags" : [
-      "fruits-and-vegetables",
-      "known"
+      "unknown",
+      "missing-association"
    ],
-   "pnns_groups_2" : "Vegetables",
+   "pnns_groups_2" : "unknown",
    "pnns_groups_2_tags" : [
-      "vegetables",
-      "known"
+      "unknown",
+      "missing-association"
    ],
    "traces" : "",
    "traces_from_ingredients" : "",
