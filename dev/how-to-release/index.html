@@ -1526,6 +1526,11 @@ corresponding to the service short name (off, opf, etc.) and the version tag.</p
 <ol>
 <li>merge the Release Please pull request.
    This will create a new release / version tag on github</li>
+<li>verify there is no unreleased code on the server:
+   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>-u<span class="w"> </span>off<span class="w"> </span>bash
+<span class="nb">cd</span><span class="w"> </span>/srv/<span class="nv">$SERVICE</span>
+git<span class="w"> </span>status
+</code></pre></div></li>
 <li>update the code:
    <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>-u<span class="w"> </span>off<span class="w"> </span>bash
 <span class="nb">cd</span><span class="w"> </span>/srv/<span class="nv">$SERVICE</span>
@@ -1533,7 +1538,7 @@ git<span class="w"> </span>fetch
 git<span class="w"> </span>checkout<span class="w"> </span><span class="nv">$VERSION</span>
 </code></pre></div></li>
 <li>verify every needed symlink is in place
-   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>-u<span class="w"> </span>off<span class="w"> </span>scripts/deploy/verify-deployment.sh<span class="w"> </span><span class="nv">$SERVICE</span>
+   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>/srv/<span class="nv">$SERVICE</span>/scripts/deploy/verify-deployment.sh<span class="w"> </span><span class="nv">$SERVICE</span>
 </code></pre></div></li>
 <li>rebuild taxonomies and lang
    <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>-u<span class="w"> </span>off<span class="w"> </span>bash
@@ -1548,8 +1553,10 @@ git<span class="w"> </span>checkout<span class="w"> </span><span class="nv">$VER
 <li>restart services
    <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload
 sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>nginx
-sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>apache2<span class="w"> </span>cloud_vision_ocr@<span class="nv">$SERVICE</span>.service<span class="w"> </span>minion@<span class="nv">$SERVICE</span>.service
+sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>apache2<span class="w"> </span>cloud_vision_ocr@<span class="nv">$SERVICE</span>.service<span class="w"> </span>minion@<span class="nv">$SERVICE</span>.service<span class="p">;</span><span class="w"> </span><span class="se">\</span>
 sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>apache2<span class="w"> </span>cloud_vision_ocr@<span class="nv">$SERVICE</span>.service<span class="w"> </span>minion@<span class="nv">$SERVICE</span>.service
+<span class="c1"># On off</span>
+sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>apache2@priority<span class="p">;</span><span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>apache2@priority
 </code></pre></div></li>
 </ol>
 
