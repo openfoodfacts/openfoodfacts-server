@@ -4833,7 +4833,7 @@ msgstr "Lage milieu-impact (Green-Score)"
 
 msgctxt "attribute_environmental_score_setting_note"
 msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr ""
+msgstr "De Green-Score is een milieuscore van A tot en met E waarmee u eenvoudig de impact van voedselproducten op het milieu kunt vergelijken."
 
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
@@ -4846,7 +4846,7 @@ msgstr "Lage milieu-impact (Green-Score)"
 
 msgctxt "attribute_ecoscore_setting_note"
 msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr ""
+msgstr "De Green-Score is een milieuscore van A tot en met E waarmee u eenvoudig de impact van voedselproducten op het milieu kunt vergelijken."
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
@@ -5676,7 +5676,7 @@ msgstr "De herkomst van de ingrediënten van dit product is niet aangegeven."
 
 msgctxt "environmental_score_please_add_the_ingredients"
 msgid "If they are indicated on the packaging, you can modify the product sheet and add them."
-msgstr ""
+msgstr "Als de ingrediënten op de verpakking staan, dan kan je deze op de productpagina toevoegen."
 
 msgctxt "environmental_score_environmental_policy"
 msgid "Environmental policy"
@@ -5688,15 +5688,15 @@ msgstr "Bedreigde soorten"
 
 msgctxt "environmental_score_ingredients_whose_cultivation_threatens_species"
 msgid "Ingredients that threatens species"
-msgstr ""
+msgstr "Ingrediënten die soorten bedreigen"
 
 msgctxt "environmental_score_no_species_threatening_ingredients"
 msgid "No ingredients that threaten species"
-msgstr ""
+msgstr "Geen ingrediënten die soorten bedreigen"
 
 msgctxt "environmental_score_ingredients_unknown"
 msgid "The information on the ingredients of this product has not been given."
-msgstr ""
+msgstr "Er is geen informatie verstrekt over de ingrediënten van dit product."
 
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
@@ -5708,31 +5708,31 @@ msgstr ""
 
 msgctxt "environmental_score_packaging_score"
 msgid "score"
-msgstr ""
+msgstr "score"
 
 msgctxt "environmental_score_score_of_all_components"
 msgid "Score of all components"
-msgstr ""
+msgstr "Score van alle componenten"
 
 msgctxt "environmental_score_no_packaging_information"
 msgid "The information about the packaging of this product is not filled in."
-msgstr ""
+msgstr "De verpakkingsinformatie van dit product is niet ingevuld."
 
 msgctxt "environmental_score_unprecise_packaging_information"
 msgid "The information about the packaging of this product is not sufficiently precise (exact shapes and materials of all components of the packaging)."
-msgstr ""
+msgstr "De verpakkingsinformatie van dit product is niet nauwkeurig genoeg (zoals, de exacte vorm en materialen van alle onderdelen van de verpakking)."
 
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can modify the product page and add them."
-msgstr ""
+msgstr "Voor een nauwkeurigere berekening van de Green-Score kunt u de productpagina aanpassen en deze toevoegen."
 
 msgctxt "environmental_score_final_score"
 msgid "Final score"
-msgstr ""
+msgstr "Eindscore"
 
 msgctxt "environmental_score_lower_the_score_lower_the_impact"
 msgid "(the lower the score, the lower the impact)"
-msgstr ""
+msgstr "(hoe lager de score, hoe lager de impact)"
 
 msgctxt "environmental_score_kg_co2_eq_kg_product"
 msgid "kg CO2 eq/kg of product"
@@ -5760,15 +5760,15 @@ msgstr ""
 
 msgctxt "environmental_score_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
-msgstr ""
+msgstr "Selecteer een land om de volledige impact van transport op te nemen."
 
 msgctxt "environmental_score_warning_transportation"
 msgid "The full impact of transportation to your country is currently unknown."
-msgstr ""
+msgstr "De volledige impact van het transport naar uw land is momenteel niet bekend."
 
 msgctxt "app_banner_text"
 msgid "Scan barcodes to get the Nutri-Score, the Green-Score and more!"
-msgstr ""
+msgstr "Scan barcodes om de Nutri-Score, de Green-Score en meer te zien!"
 
 msgctxt "org_gs1_product_name_is_abbreviated"
 msgid "GS1 product names for this manufacturer are abbreviated."
@@ -5801,35 +5801,35 @@ msgstr "Verwijderen of wijzigen van de verstrekte gegevens zal alleen mogelijk z
 
 msgctxt "environmental_score_packaging_impact_high"
 msgid "Packaging with a high impact"
-msgstr ""
+msgstr "Verpakking met een hoge impact"
 
 msgctxt "environmental_score_packaging_impact_medium"
 msgid "Packaging with a medium impact"
-msgstr ""
+msgstr "Verpakking met een gemiddelde impact"
 
 msgctxt "environmental_score_packaging_impact_low"
 msgid "Packaging with a low impact"
-msgstr ""
+msgstr "Verpakking met een lage impact"
 
 msgctxt "environmental_score_packaging_missing_information"
 msgid "Missing packaging information for this product"
-msgstr ""
+msgstr "Ontbrekende verpakkingsinformatie voor dit product"
 
 msgctxt "environmental_score_origins_of_ingredients_impact_high"
 msgid "Origins of ingredients with a high impact"
-msgstr ""
+msgstr "Herkomst van ingrediënten met een hoge impact"
 
 msgctxt "environmental_score_origins_of_ingredients_impact_medium"
 msgid "Origins of ingredients with a medium impact"
-msgstr ""
+msgstr "Herkomst van ingrediënten met een gemiddelde impact"
 
 msgctxt "environmental_score_origins_of_ingredients_impact_low"
 msgid "Origins of ingredients with a low impact"
-msgstr ""
+msgstr "Herkomst van ingrediënten met een lage impact"
 
 msgctxt "environmental_score_origins_of_ingredients_missing_information"
 msgid "Missing origins of ingredients information"
-msgstr ""
+msgstr "Ontbrekende informatie over de oorsprong van ingrediënten"
 
 msgctxt "percent_of_ingredients"
 msgid "% of ingredients"
@@ -5910,11 +5910,11 @@ msgstr "Doneer"
 
 msgctxt "environmental_score_production_system_no_labels_with_environmental_benefits"
 msgid "No labels with environmental benefits"
-msgstr ""
+msgstr "Geen etiketten met milieuvoordelen"
 
 msgctxt "environmental_score_production_system_labels_with_environmental_benefits"
 msgid "Labels with environmental benefits"
-msgstr ""
+msgstr "Labels met milieuvoordelen"
 
 msgctxt "environmental_score_production_system_labels_with_environmental_benefits_high"
 msgid "Labels with high environmental benefits"
@@ -6014,11 +6014,11 @@ msgstr "Levenscyclusanalyse"
 
 msgctxt "environmental_score_bonuses_and_maluses"
 msgid "Bonuses and maluses"
-msgstr ""
+msgstr "Bonussen en malussen"
 
 msgctxt "environmental_score_for_this_product"
 msgid "Green-Score for this product"
-msgstr ""
+msgstr "Green-Score voor dit product"
 
 msgctxt "average_impact_of_the_category"
 msgid "Average impact of products of the same category"
@@ -6026,15 +6026,15 @@ msgstr "Gemiddelde impact van producten van dezelfde categorie"
 
 msgctxt "environmental_score_sum_of_bonuses_and_maluses"
 msgid "Sum of bonuses and maluses"
-msgstr ""
+msgstr "Som van bonussen en malussen"
 
 msgctxt "environmental_score_sum_of_bonuses_and_maluses_is_capped"
 msgid "The sum of bonuses and maluses is capped at +25."
-msgstr ""
+msgstr "De som van bonussen en malussen is beperkt tot +25."
 
 msgctxt "environmental_score_lca_score"
 msgid "Life cycle analysis score"
-msgstr ""
+msgstr "Levenscyclusanalysescore"
 
 msgctxt "impact_for_this_product"
 msgid "Impact for this product"
@@ -6042,7 +6042,7 @@ msgstr "Invloed voor dit product"
 
 msgctxt "environmental_score_downgraded_non_recyclable_and_non_biodegradable_materials"
 msgid "The score of products with non-recyclable and non-biodegradable packaging materials is capped at 79 (grade B)."
-msgstr ""
+msgstr "De score van producten met niet-recycleerbare en niet-biologisch afbreekbare verpakkingsmaterialen wordt beperkt op 79 (niveau B)."
 
 msgctxt "nutriscore_not_applicable"
 msgid "Nutri-Score not applicable for this product category."
@@ -6277,7 +6277,7 @@ msgstr "Meer informatie over de Nutri-Score"
 
 msgctxt "environmental_score_learn_more"
 msgid "Learn more about the Green-Score"
-msgstr ""
+msgstr "Meer informatie over de Green-Score"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_very_good_match"
@@ -6315,7 +6315,7 @@ msgstr "Gebruik standaard voorkeuren"
 
 msgctxt "reset_preferences_details"
 msgid "Nutri-Score, Green-Score and food processing level (NOVA)"
-msgstr ""
+msgstr "Nutri-Score, Green-Score en voedselverwerkingsniveau (NOVA)"
 
 msgctxt "actions_add_ingredients"
 msgid "Could you add the ingredients list?"
