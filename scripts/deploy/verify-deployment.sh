@@ -79,16 +79,25 @@ function check_args {
 
 function compute_services {
   # systemd services to check for symlinks
-  SYSTEMD_LINKS+=( email-failures@.service nginx.service.d apache2.service.d cloud_vision_ocr@.service )
+  SYSTEMD_LINKS+=( email-failures@.service nginx.service.d apache2.service apache2@.service.d prometheus@.service.d cloud_vision_ocr@.service )
   # units that must be active (and enabled)
   SYSTEMD_UNITS_ACTIVE=( nginx.service apache2.service cloud_vision_ocr@$SERVICE.service )
+  # units that must be enabled
   SYSTEMD_UNITS_ENABLED=( )
+  # priority request on off
+  if [[ $SERVICE = "off" ]]
+  then
+    SYSTEMD_LINKS+=( prometheus-apache-exporter@.service )
+    SYSTEMD_UNITS_ACTIVE+=( apache2@priority.service prometheus-apache-exporter.service prometheus-apache-exporter@priority.service )
+  fi
   if [[ -z $IS_PRO ]]
   then
-    SYSTEMD_LINKS+=( gen_feeds{,_daily}@.{service,timer} )
-    SYSTEMD_UNITS_ACTIVE+=( gen_feeds@$SERVICE.timer gen_feeds_daily@$SERVICE.timer )
-    SYSTEMD_UNITS_ENABLED+=( gen_feeds@$SERVICE.service gen_feeds_daily@$SERVICE.service )
+    # non pro
+    SYSTEMD_LINKS+=( gen_feeds_daily@.{service,timer} )
+    SYSTEMD_UNITS_ACTIVE+=( gen_feeds_daily@$SERVICE.timer )
+    SYSTEMD_UNITS_ENABLED+=( gen_feeds_daily@$SERVICE.service )
   else
+    # pro
     SYSTEMD_LINKS+=( producers_import@.{service,timer} )
     SYSTEMD_UNITS_ACTIVE+=( producers_import@$SERVICE.timer )
     SYSTEMD_UNITS_ENABLED+=( producers_import@$SERVICE.service )
@@ -190,9 +199,17 @@ function compute_expected_links {
   fi
 
   # apache2 links
-  EXPECTED_LINKS["/etc/apache2/ports.conf"]="$REPO_PATH/conf/apache-2.4/$SERVICE-ports.conf"
-  EXPECTED_LINKS["/etc/apache2/mods-available/mpm_prefork.conf"]="$REPO_PATH/conf/apache-2.4/$SERVICE-mpm_prefork.conf"
+  EXPECTED_LINKS["/etc/apache2/ports.conf"]="$REPO_PATH/conf/apache-2.4/ports.conf"
+  EXPECTED_LINKS["/etc/apache2/off-envvars"]="$REPO_PATH/conf/apache-2.4/off-envvars"
+  EXPECTED_LINKS["/etc/apache2/mods-available/mpm_prefork.conf"]="$REPO_PATH/conf/apache-2.4/mpm_prefork.conf"
   EXPECTED_LINKS["/etc/apache2/sites-enabled/$SERVICE.conf"]="$REPO_PATH/conf/apache-2.4/sites-available/$SERVICE.conf"
+  EXPECTED_LINKS["/etc/apache2-standard"]="/etc/apache-2"
+  EXPECTED_LINKS["/var/log/apache2-standard"]="/var/log/apache-2"
+  if [[ $SERVICE = "off" ]]
+  then
+    EXPECTED_LINKS["/etc/apache2-priority"]="/etc/apache-2"
+    EXPECTED_LINKS["/var/log/apache2-standard"]="/var/log/apache-2"
+  fi
 
   for systemd_unit in {apache2,nginx}.service.d ${SYSTEMD_LINKS[@]}
   do
@@ -201,6 +218,14 @@ function compute_expected_links {
 
   # log rotate config
   EXPECTED_LINKS["/etc/logrotate.d/apache2"]="$REPO_PATH/conf/logrotate/apache2"
+  EXPECTED_LINKS["/etc/logrotate.d/nginx"]="$REPO_PATH/conf/logrotate/nginx"
+
+  # prometheus configs
+  if [[ $SERVICE = "off" ]]
+  then
+    EXPECTED_LINKS["/etc/default/prometheus-apache-exporter"]="$REPO_PATH/conf/etc-default/prometheus-apache-exporter"
+    EXPECTED_LINKS["/etc/default/prometheus-apache-priority-exporter"]="$REPO_PATH/conf/etc-default/prometheus-apache-priority-exporter"
+  fi
 
   # Note: other link on old versions:
   # /srv/$SERVICE/users_emails.sto -> /srv/$SERVICE/users/users_emails.sto
@@ -240,6 +265,7 @@ function check_systemd_units {
   do
     if ! ( systemctl -q is-enabled $unit )
     then
+      GOT_ERROR=1
       >&2 echo "ERROR: $unit unit must be enabled"
     else
       [[ -n "$VERBOSE" ]] && echo "    OK: $unit unit enabled"
@@ -249,9 +275,10 @@ function check_systemd_units {
   do
     if ! ( systemctl -q is-active $unit )
     then
-      >&2 echo "ERROR: $unit unit must be enabled"
+      GOT_ERROR=1
+      >&2 echo "ERROR: $unit unit must be active"
     else
-      [[ -n "$VERBOSE" ]] && echo "    OK: $unit unit enabled"
+      [[ -n "$VERBOSE" ]] && echo "    OK: $unit unit active"
     fi
   done
 
@@ -259,17 +286,18 @@ function check_systemd_units {
 
 
 function other_checks {
-  # apache2 must run with off user and group
-  for variable in USER GROUP
-  do
-    if ! ( grep -q "^export APACHE_RUN_$variable=off" /etc/apache2/envvars )
-    then
-      GOT_ERROR=1
-      >&2 echo "ERROR: $variable for apache2 should be off instead off" $(grep "^export APACHE_RUN_$variable=.*" /etc/apache2/envvars)
-    else
-      [[ -n "$VERBOSE" ]] && echo "    OK APACHE_RUN_$variable for apache2"
-    fi
-  done
+  # a common pitfall is to have log rotate not working
+  # because conf file must be owned by root
+  [[ -n "$VERBOSE" ]] && echo "Checking other things..."
+  # we need -follow because our confs are symlinked
+  NON_ROOT_LOGROTATE_CONF=$(find /etc/logrotate.d/ -follow -type f -not -user root)
+  if [[ -n "$NON_ROOT_LOGROTATE_CONF" ]]
+  then
+    GOT_ERROR=1
+    >&2 echo "ERROR: logrotate config files $NON_ROOT_LOGROTATE_CONF must be owned by root"
+  else
+    [[ -n "$VERBOSE" ]] && echo "    OK: logrotate config files are owned by root"
+  fi
 }
 
 
