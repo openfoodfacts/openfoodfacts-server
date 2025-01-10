@@ -159,6 +159,7 @@ use Log::Any qw($log);
 use Data::DeepAccess qw(deep_get);
 
 use LWP::UserAgent;
+use OpenTelemetry::Integration 'LWP::UserAgent';
 use Storable qw(dclone);
 use File::Copy::Recursive;
 use File::Basename qw/dirname/;
