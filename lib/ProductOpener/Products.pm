@@ -76,7 +76,6 @@ BEGIN {
 		&product_path
 		&product_path_from_id
 		&product_id_from_path
-		&product_exists
 		&get_owner_id
 		&normalize_product_data
 		&init_product
@@ -714,20 +713,6 @@ sub product_id_from_path ($product_path) {
 	# transform to id by simply removing "/"
 	$id =~ s/\///g;
 	return $id;
-}
-
-sub product_exists ($product_id) {
-
-	# deprecated, just use retrieve_product()
-
-	my $product_ref = retrieve_product($product_id);
-
-	if (not defined $product_ref) {
-		return 0;
-	}
-	else {
-		return $product_ref;
-	}
 }
 
 sub get_owner_id ($userid, $orgid, $ownerid) {
@@ -2909,12 +2894,13 @@ sub compute_codes ($product_ref) {
 
 	my $ean = undef;
 
+	# Note: we now normalize codes, so we should not have conflicts
 	if (length($code) == 12) {
 		$ean = '0' . $code;
-		if (product_exists('0' . $code)) {
+		if (retrieve_product('0' . $code)) {
 			push @codes, "conflict-with-ean-13";
 		}
-		elsif (-e ("$BASE_DIRS{PRODUCTS}/" . product_path_from_id("0" . $code))) {
+		elsif (retrieve_product('0' . $code), 1) {
 			push @codes, "conflict-with-deleted-ean-13";
 		}
 	}
@@ -2923,7 +2909,7 @@ sub compute_codes ($product_ref) {
 		$ean = $code;
 		my $upc = $code;
 		$upc =~ s/^.//;
-		if (product_exists($upc)) {
+		if (retrieve_product($upc)) {
 			push @codes, "conflict-with-upc-12";
 		}
 	}

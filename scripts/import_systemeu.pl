@@ -36,8 +36,7 @@ use ProductOpener::Users qw/$User_id/;
 use ProductOpener::Images qw/process_image_crop process_image_upload/;
 use ProductOpener::Lang qw/$lc lang/;
 use ProductOpener::Mail qw/:all/;
-use ProductOpener::Products
-	qw/analyze_and_enrich_product_data init_product product_exists retrieve_product store_product/;
+use ProductOpener::Products qw/analyze_and_enrich_product_data init_product retrieve_product store_product/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Units qw/unit_to_g/;
 use ProductOpener::Ingredients qw/:all/;
@@ -459,7 +458,7 @@ while (my $imported_product_ref = $csv->getline_hr($io)) {
 
 	print "product $i - code: $code\n";
 
-	my $product_ref = product_exists("org-systeme-u/" . $code);    # returns 0 if not
+	my $product_ref = retrieve_product("org-systeme-u/" . $code);    # returns 0 if not
 
 	if (not $product_ref) {
 		print "- does not exist in OFF yet\n";

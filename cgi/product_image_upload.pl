@@ -197,7 +197,7 @@ if ($imagefield) {
 		exit(0);
 	}
 
-	my $product_ref = product_exists($product_id);    # returns 0 if not
+	my $product_ref = retrieve_product($product_id);
 
 	if (not $product_ref) {
 		$log->info("product code does not exist yet, creating product", {code => $code});
