@@ -56558,13 +56558,6 @@ es: Harinas de castañas T110
 fr: Farines de châtaigne T110
 hr: Brašna od kestena t110
 
-< en:Dried fruits
-< en:Nuts and their products
-en: Nuts with dried fruits, Nuts and dried fruits
-de: Studentenfutter
-fr: Mendiants
-nl: Noten en gedroogd fruit (gemengd), Studentenhavers
-
 < en:Nuts and their products
 < en:Oilseed purees
 en: Nut butters
@@ -62282,6 +62275,11 @@ en: Crunchy mueslis
 fr: Mueslis croustillants
 hr: Hrskavi musli
 lt: Traškus muslis
+
+< en: Crunchy mueslis
+en: Crunchy mueslis without fruits
+fr: Mueslis croustillants sans fruits
+bulk_code:en: 3211101
 
 < en:Crunchy mueslis
 < en:Mueslis with fruits
@@ -70137,6 +70135,7 @@ it: Frutta essiccata mista
 lt: Džiovinti įvairūs vaisiai
 nl: Gedroogde fruitmelanges
 
+
 < en:Dried mixed fruits
 en: Mix of grains and dried fruit, Mix of nuts and dried fruit
 fr: Mélange apéritif de graines et fruits séchés
@@ -70155,6 +70154,13 @@ ciqual_food_code:en: 15049
 ciqual_food_name:en: Mix of unsalted grains/nuts and raisins
 ciqual_food_name:fr: Mélange apéritif de graines (non salées) et raisins secs
 
+< en:Mix of grains and raisins
+en: Nuts with dried fruits, Nuts and dried fruits
+de: Studentenfutter
+fr: Mendiants, Mélanges étudiants
+nl: Noten en gedroogd fruit (gemengd), Studentenhavers
+bulk_code:en: 1504901
+
 < en:Mix of grains and dried fruit
 en: Mix of salted grains and raisins, Mix of salted nuts and raisins
 fr: Mélange apéritif de graines salées et raisins secs
@@ -70162,6 +70168,7 @@ agribalyse_food_code:en: 15018
 ciqual_food_code:en: 15018
 ciqual_food_name:en: Mix of salted grains/nuts and raisins
 ciqual_food_name:fr: Mélange apéritif de graines salées et raisins secs
+
 
 < en:Dried fruits
 en: Dried papayas
