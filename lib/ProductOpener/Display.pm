@@ -1401,17 +1401,23 @@ sub display_text_content ($request_ref, $textid, $text_lc, $file) {
 
 	# Add org name to index title on producers platform
 
-	if (($textid eq 'index-pro') and (defined $Owner_id)) {
-		my $owner_user_or_org = $Owner_id;
-		if (defined $Org_id) {
-			if ((defined $Org{name}) and ($Org{name} ne "")) {
-				$owner_user_or_org = $Org{name};
+	if ($textid eq 'index-pro') {
+		if (defined $Owner_id) {
+			my $owner_user_or_org = $Owner_id;
+			if (defined $Org_id) {
+				if ((defined $Org{name}) and ($Org{name} ne "")) {
+					$owner_user_or_org = $Org{name};
+				}
+				else {
+					$owner_user_or_org = $Org_id;
+				}
 			}
-			else {
-				$owner_user_or_org = $Org_id;
-			}
+			$html =~ s/<\/h1>/ - $owner_user_or_org<\/h1>/;
 		}
-		$html =~ s/<\/h1>/ - $owner_user_or_org<\/h1>/;
+
+		# Set the login links
+		my $escaped_canon_url = uri_escape($formatted_subdomain);
+		$html =~ s/<escaped_subdomain>/$escaped_canon_url/g;
 	}
 
 	$log->debug("displaying text from file",
