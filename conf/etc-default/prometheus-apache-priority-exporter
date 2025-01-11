@@ -1,5 +1,6 @@
 # Set the command-line arguments to pass to the server.
-ARGS='-scrape_uri http://127.0.0.1:8001/server-status/?auto'
+# we use a different port than the standard exporter
+ARGS='-telemetry.address :9118 -scrape_uri http://127.0.0.1:8002/server-status/?auto'
 
 #Usage of prometheus-apache-exporter:
 #  -host_override string
