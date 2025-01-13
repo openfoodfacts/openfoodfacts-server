@@ -53885,6 +53885,16 @@ comment:en: In dutch there is a difference between compote and moes. The former 
 wikidata:en: Q618345
 
 < en:Compotes
+en: Banana pulp
+fr: Pulpe de banane
+nl: Bananenpulp
+agribalyse_food_code:en: 13005
+ciqual_food_code:en: 13005
+ciqual_food_name:en: Banana, pulp, raw
+ciqual_food_name:fr: Banane, pulpe, crue
+opposite:en: en:whole-bananas, en:sliced-banana, en:banana-flours
+
+< en:Compotes
 en: Peach compotes
 bg: Компот от праскови
 de: Pfirsichkompott
@@ -68948,7 +68958,7 @@ ciqual_food_name:fr: Avocat, pulpe, cru
 #### Bananas 
 
 < en:Tropical fruits
-en: Bananas, Bananas(unspecified)
+en: Bananas
 bg: Банани
 de: Bananen
 es: Plátanos, Bananas
@@ -69050,18 +69060,6 @@ ciqual_food_name:en: Plantain banana, cooked
 ciqual_food_name:fr: Banane plantain, cuite
 #wikidata:en:
 
-< en:Bananas
-en: Bananas(whole), Whole bananas
-fr: Bananes(entiers)
-nl: Bananen(heel), Hele bananen
-opposite:en: en:sliced-bananas, en:banana-flours, en:banana-pulp
-
-< en:Bananas
-en: Bananas(sliced), Sliced bananas
-fr: Bananes(rondelles)
-nl: Bananen(schijven), Bananenschijfjes
-opposite:en: en:whole-bananas, en:banana-flours, en:banana-pulp
-
 #< en:Bananas
 < en:Flours
 en: Banana flours
@@ -69072,23 +69070,12 @@ nl: Bananenmelen
 comment:en: Bananas is restricted to whole fresh ones
 opposite:en: en:whole-bananas, en:sliced-banana, en:banana-pulp
 
-< en:Bananas
-en: Banana pulp
-fr: Pulpe de banane
-nl: Bananenpulp
-agribalyse_food_code:en: 13005
-ciqual_food_code:en: 13005
-ciqual_food_name:en: Banana, pulp, raw
-ciqual_food_name:fr: Banane, pulpe, crue
-opposite:en: en:whole-bananas, en:sliced-banana, en:banana-flours
-
 < en:Bananas(Cavendish)
 < en:Bananas(fresh)
-< en:Bananas(whole)
 < en:Bulk
-en: Bananas(fresh whole Cavendish)
+en: Bananas(fresh Cavendish)
 fr: Bananes(fraîche Cavendish)
-nl: Bananen(verse hele Cavendish), Verse hele Cavendish bananen
+nl: Bananen(verse Cavendish), Verse hele Cavendish bananen
 bulk_code:en: 5310000
 bulk_proxy_category:en: en:bananas
 comment:en: assume that most bananes sold in the shop are fresh Cavendish bananas
@@ -69097,11 +69084,10 @@ sales_format:en: package, weight, item
 
 < en:Bananas(frecinette)
 < en:Bananas(fresh)
-< en:Bananas(whole)
 < en:Bulk
-en: Bananas(fresh whole frecinette)
-fr: Bananes(fraîche entier frecinette)
-nl: Bananen(verse hele frecinette), Verse hele frecinette bananen
+en: Bananas(fresh frecinette)
+fr: Bananes(fraîche frecinette)
+nl: Bananen(verse frecinette), Verse hele frecinette bananen
 bulk_code:en: 5310001
 bulk_proxy_category:en: en:bananas(frecinette)
 expected_ingredients:en: en:banana
@@ -69121,11 +69107,10 @@ sales_format:en: package, weight, item
 
 < en:Bananas from the Canary Islands
 < en:Bananas(fresh)
-< en:Bananas(whole)
 < en:Bulk
-en: Bananas(fresh whole red from the Canary Islands)
+en: Bananas(fresh  red from the Canary Islands)
 fr: Bananes(fraîche rouge des Canaries)
-nl: Bananen(verse hele rode van de Canrische eilanden), Verse hele bananen van de Canarische eilanden
+nl: Bananen(verse rode van de Canrische eilanden), Verse hele bananen van de Canarische eilanden
 bulk_code:en: 5310001
 bulk_proxy_category:en: en:bananas-from-the-canary-islands
 expected_ingredients:en: en:bananas
