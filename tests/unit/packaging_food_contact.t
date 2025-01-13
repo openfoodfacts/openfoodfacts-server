@@ -11,10 +11,8 @@ use Log::Any::Adapter 'TAP';
 use JSON;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Packaging
-	qw/init_packaging_taxonomies_regexps analyze_and_combine_packaging_data/;
-use ProductOpener::PackagingFoodContact
-	qw/determine_food_contact_of_packaging_components/;
+use ProductOpener::Packaging qw/init_packaging_taxonomies_regexps analyze_and_combine_packaging_data/;
+use ProductOpener::PackagingFoodContact qw/determine_food_contact_of_packaging_components/;
 use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
 use ProductOpener::API qw/get_initialized_response/;
 
@@ -22,53 +20,52 @@ my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init
 
 init_packaging_taxonomies_regexps();
 
-
 # Tests for determine_food_contact_of_packaging_components()
 
 my @tests = (
 
 	[
 		'empty_packagings',
-        {
-            lc => "en",
-            packaging_text => "",
-        }
+		{
+			lc => "en",
+			packaging_text => "",
+		}
 	],
-		[
+	[
 		'hazelnut_paste_glass_jar',
-        {
-            lc => "en",
-            packaging_text => "glass jar, plastic lid, paper label, paper seal, cardboard box",
-        }
+		{
+			lc => "en",
+			packaging_text => "glass jar, plastic lid, paper label, paper seal, cardboard box",
+		}
 	],
-    [
+	[
 		'canned_tomatoes',
-        {
-            lc => "en",
-            packaging_text => "can, paper label",
-        }
+		{
+			lc => "en",
+			packaging_text => "can, paper label",
+		}
 	],
-    [
+	[
 		'coffee_capsule',
-        {
-            lc => "en",
-            packaging_text => "carboard box, plastic capsule, plastic film",
-        }
+		{
+			lc => "en",
+			packaging_text => "carboard box, plastic capsule, plastic film",
+		}
 	],
-    [
-        'meat_tray',
-        {
-            lc => "en",
-            packaging_text => "plastic tray, plastic film, paper label",
-        }
-    ],
-    [
-        'wine_bottle',
-        {
-            lc => "en",
-            packaging_text => "glass bottle, cork, paper label",
-        }
-    ],
+	[
+		'meat_tray',
+		{
+			lc => "en",
+			packaging_text => "plastic tray, plastic film, paper label",
+		}
+	],
+	[
+		'wine_bottle',
+		{
+			lc => "en",
+			packaging_text => "glass bottle, cork, paper label",
+		}
+	],
 
 );
 
@@ -87,9 +84,9 @@ foreach my $test_ref (@tests) {
 	my $response_ref = get_initialized_response();
 
 	analyze_and_combine_packaging_data($product_ref, $response_ref);
-    determine_food_contact_of_packaging_components($product_ref->{packagings});
+	determine_food_contact_of_packaging_components($product_ref->{packagings});
 
-    compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json", $update_expected_results);
+	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json", $update_expected_results);
 }
 
 done_testing();
