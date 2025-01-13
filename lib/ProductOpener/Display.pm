@@ -1416,6 +1416,7 @@ sub display_text_content ($request_ref, $textid, $text_lc, $file) {
 		}
 
 		# Set the login links
+		# TODO: Should be full URL
 		my $escaped_canon_url = uri_escape($formatted_subdomain);
 		$html =~ s/<escaped_subdomain>/$escaped_canon_url/g;
 	}
@@ -1455,6 +1456,8 @@ sub display_text_content ($request_ref, $textid, $text_lc, $file) {
 	if ($file =~ /\/index-pro/) {
 		# On the producers platform, display products only if the owner is logged in
 		# and has an associated org or is a moderator
+
+		# TODO: Show request to join button if user is logged in but not in an org
 		if ((defined $Owner_id) and (($Owner_id =~ /^org-/) or ($User{moderator}) or $User{pro_moderator})) {
 			$html .= display_index_for_producer($request_ref);
 			$html .= search_and_display_products($request_ref, {}, "last_modified_t", undef, undef);
