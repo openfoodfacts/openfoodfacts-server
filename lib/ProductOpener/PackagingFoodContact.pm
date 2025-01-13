@@ -58,7 +58,6 @@ use ProductOpener::Tags qw/:all/;
 use Data::DeepAccess qw(deep_get deep_val);
 use List::Util qw(first);
 
-
 =head1 FUNCTIONS
 
 =head2 determine_food_contact_of_packaging_components_service ( $product_ref, $updated_product_fields_ref, $errors_ref )
@@ -83,21 +82,26 @@ reference to an array of error messages
 
 =cut
 
-sub determine_food_contact_of_packaging_components_service ($product_ref, $updated_product_fields_ref = {}, $errors_ref = []) {
+sub determine_food_contact_of_packaging_components_service (
+	$product_ref,
+	$updated_product_fields_ref = {},
+	$errors_ref = []
+	)
+{
 
 	# Check if we have packaging data in the packagings structure
-	my $packagings_ref = deep_get($product_ref, "packaging", "packaging_components");
+	my $packagings_ref = $product_ref->{packagings};
 
 	if (not defined $packagings_ref) {
-				push @{$errors_ref},
-				{
-				message => {id => "missing_field"},
-				field => {
-					id => "packagings",
-					impact => {id => "skipped_service"},
-					service => {id => "determine_food_contact_of_packaging_components"}
-				}
-				};
+		push @{$errors_ref},
+			{
+			message => {id => "missing_field"},
+			field => {
+				id => "packagings",
+				impact => {id => "skipped_service"},
+				service => {id => "determine_food_contact_of_packaging_components"}
+			}
+			};
 		return;
 	}
 
@@ -125,8 +129,9 @@ Hash reference with conditions like material, shape, recycling as keys, and a va
 
 =head3 Return values
 
-Array with aeference to an array of packaging components that match the conditions,
-and a reference to an array of packaging components that do not match the conditions.
+Array with:
+- a reference to an array of packaging components that match the conditions,
+- a reference to an array of packaging components that do not match the conditions.
 
 =cut 
 
@@ -144,7 +149,10 @@ sub get_matching_and_non_matching_packaging_components ($packagings_ref, $condit
 			if (defined $packaging_ref->{$property}) {
 
 				# Check if the component value is a child of one of the condition values
-				my @values = ref $conditions_ref->{$property} eq 'ARRAY' ? @{$conditions_ref->{$property}} : ($conditions_ref->{$property});
+				my @values
+					= ref $conditions_ref->{$property} eq 'ARRAY'
+					? @{$conditions_ref->{$property}}
+					: ($conditions_ref->{$property});
 				my $matched_value = 0;
 
 				foreach my $value (@values) {
@@ -174,7 +182,6 @@ sub get_matching_and_non_matching_packaging_components ($packagings_ref, $condit
 
 	return \@matching_packagings, \@non_matching_packagings;
 }
-
 
 sub set_food_contact_property_of_packaging_components ($packagings_ref, $food_contact) {
 
@@ -209,7 +216,8 @@ sub determine_food_contact_of_packaging_components ($packagings_ref) {
 
 	# Bottles, pots, jars: in contact with the food
 	my ($bottles_ref, $non_bottles_ref)
-		= get_matching_and_non_matching_packaging_components($packagings_ref, {shape => ["en:bottle", "en:pot", "en:jar"]});
+		= get_matching_and_non_matching_packaging_components($packagings_ref,
+		{shape => ["en:bottle", "en:pot", "en:jar"]});
 	if (@$bottles_ref) {
 		set_food_contact_property_of_packaging_components($bottles_ref, 1);
 		set_food_contact_property_of_packaging_components($non_bottles_ref, 0);
@@ -248,7 +256,8 @@ sub determine_food_contact_of_packaging_components ($packagings_ref) {
 
 	# Individual packaging components (dose, bag): in contact with the food
 	my ($individuals_ref, $non_individuals_ref)
-		= get_matching_and_non_matching_packaging_components($packagings_ref, {shape => ["en:individual-dose", "en:individual-bag"]});
+		= get_matching_and_non_matching_packaging_components($packagings_ref,
+		{shape => ["en:individual-dose", "en:individual-bag"]});
 	if (@$individuals_ref) {
 		set_food_contact_property_of_packaging_components($individuals_ref, 1);
 		set_food_contact_property_of_packaging_components($non_individuals_ref, 0);
@@ -257,8 +266,6 @@ sub determine_food_contact_of_packaging_components ($packagings_ref) {
 
 	return;
 }
-
-
 
 1;
 
