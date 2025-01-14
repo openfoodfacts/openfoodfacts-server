@@ -195,7 +195,7 @@ msgstr "Akun profesional harus memiliki organisasi yang terkait (nama atau merek
 
 msgctxt "enter_name_of_org"
 msgid "Please enter the name of your organization (company name or brand)."
-msgstr "Silahkan masukkan nama organisasi Anda (nama atau merek perusahaan)."
+msgstr "Silakan masukkan nama organisasi Anda (nama atau merek perusahaan)."
 
 msgctxt "enter_email_addresses_of_users"
 msgid "Enter email addresses of users to invite (comma-separated):"
@@ -5425,7 +5425,7 @@ msgstr "Dampak lingkungan tidak diketahui"
 
 msgctxt "environmental_score_unknown_call_to_help"
 msgid "We could not compute the Green-Score of this product as it is missing some data, could you help complete it?"
-msgstr ""
+msgstr "Kami tidak dapat menghitung Green-Score produk ini karena ada beberapa data yang hilang, bisakah Anda membantu melengkapinya?"
 
 msgctxt "org_list_of_gs1_gln_description"
 msgid "GS1 data is automatically associated with an OFF organization identifier that corresponds to the GS1 partyName field. To change the OFF organization identifier, you can directly assign 1 or more GS1 GLN identifiers."
@@ -5555,36 +5555,36 @@ msgstr "Jejak hutan dihitung dengan mempertimbangkan bahan - bahan yang produksi
 
 msgctxt "environmental_score_agribalyse_match_warning"
 msgid "The Green-Score can only be calculated if the product has a sufficiently precise category."
-msgstr ""
+msgstr "Green-Score hanya bisa dihitung jika produk memiliki kategori yang cukup tepat."
 
 msgctxt "environmental_score_add_more_precise_category"
 msgid "You can modify the product page to add a more precise category."
-msgstr ""
+msgstr "Anda dapat memodifikasi halaman untuk menambahkan kategori yang lebih tepat."
 
 msgctxt "environmental_score_platform_promo"
 msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
-msgstr ""
+msgstr "Jika Anda adalah pabrikan produk ini, Anda bisa mengirimkan kami informasinya dengan <a href=\"https://world.pro.openfoodfacts.org\">platform gratis bagi produsen</a> kami."
 
 msgctxt "environmental_score_warning_missing_information"
 msgid "Warning: some information necessary to calculate the Green-Score with precision is not provided (see the details of the calculation below)."
-msgstr ""
+msgstr "Peringatan: beberapa informasi yang diperlukan untuk menghitung Green-Score dengan tepat tidak disediakan (lihat detail penghitungannya di bawah)."
 
 msgctxt "environmental_score_add_missing_information"
 msgid "You can edit the product to add the missing information."
-msgstr ""
+msgstr "Anda bisa menyunting produk untuk menambahkan informasi yang hilang."
 
 msgctxt "environmental_score_product_category_reference_score"
 msgid "Baseline score of the product category"
-msgstr ""
+msgstr "Skor dasar dari kategori produk"
 
 msgctxt "environmental_score_panel_lca"
 msgid "Lifecyle Analysis (LCA)"
-msgstr ""
+msgstr "Lifecyle Analysis (LCA)"
 
 # do not translate Agribalyse
 msgctxt "environmental_score_agribalyse_category"
 msgid "Agribalyse category"
-msgstr ""
+msgstr "Kategori agribalyse"
 
 msgctxt "environmental_score_category_proxy_match"
 msgid "Approximate match with the product category"
@@ -5592,36 +5592,36 @@ msgstr "Kecocokan kira - kira dengan kategori produk"
 
 msgctxt "environmental_score_category_exact_match"
 msgid "Exact match with the product category"
-msgstr ""
+msgstr "Kecocokan persis dengan kategori produk"
 
 msgctxt "environmental_score_pef_environmental_score"
 msgid "PEF environmental score"
-msgstr ""
+msgstr "Skor lingkungan PEF"
 
 msgctxt "environmental_score_incl_climate_change_impact"
 msgid "including impact on climate change"
-msgstr ""
+msgstr "termasuk dampak terhadap perubahan iklim"
 
 msgctxt "environmental_score_impact_detail_by_stages"
 msgid "Details of the impacts by stages of the life cycle"
-msgstr ""
+msgstr "Detail dampaknya menurut tahapan siklus hidup"
 
 # stage meaning step
 msgctxt "environmental_score_stage"
 msgid "Stage"
-msgstr ""
+msgstr "Tahapan"
 
 msgctxt "environmental_score_impact"
 msgid "Impact"
-msgstr ""
+msgstr "Dampak"
 
 msgctxt "environmental_score_agriculture"
 msgid "Agriculture"
-msgstr ""
+msgstr "Pertanian"
 
 msgctxt "environmental_score_processing"
 msgid "Processing"
-msgstr ""
+msgstr "Memproses"
 
 msgctxt "environmental_score_packaging"
 msgid "Packaging"
@@ -5629,19 +5629,19 @@ msgstr "Kemasan"
 
 msgctxt "environmental_score_transportation"
 msgid "Transportation"
-msgstr ""
+msgstr "Transportasi"
 
 msgctxt "environmental_score_distribution"
 msgid "Distribution"
-msgstr ""
+msgstr "Distribusi"
 
 msgctxt "environmental_score_consumption"
 msgid "Consumption"
-msgstr ""
+msgstr "Konsumsi"
 
 msgctxt "environmental_score_lca_score_out_of_100"
 msgid "LCA score out of 100"
-msgstr ""
+msgstr "Skor LCA dari total 100"
 
 msgctxt "environmental_score_no_agribalyse_category_match"
 msgid "No match between product categories and Agribalyse categories."
@@ -5649,19 +5649,19 @@ msgstr "Tidak ada kecocokan antara kategori produk dan kategori Agribalyse."
 
 msgctxt "environmental_score_edit_category_to_more_granular"
 msgid "You can modify the product page to add a more granular category."
-msgstr ""
+msgstr "Anda bisa memodifikasi halaman produk untuk menambahkan kategori yang lebih terperinci."
 
 msgctxt "environmental_score_additional_bonuses_and_maluses"
 msgid "Additional bonuses and maluses"
-msgstr ""
+msgstr "Bonus dan kesalahan pemakaian tambahan"
 
 msgctxt "environmental_score_production_system"
 msgid "Production mode"
-msgstr ""
+msgstr "Mode produksi"
 
 msgctxt "environmental_score_no_labels_taken_into_account"
 msgid "No labels taken into account for the production system."
-msgstr ""
+msgstr "Tidak ada label yang diperhitungkan untuk sistem produksi."
 
 msgctxt "environmental_score_please_add_the_labels"
 msgid "If this product has a label characterizing the production system (organic, fair trade, Label Rouge, Bleu Blanc Coeur etc.), you can modify the product sheet to add it."
@@ -5669,19 +5669,19 @@ msgstr "Jika produk ini memiliki label yang mencirikan sistem produksi (organik,
 
 msgctxt "environmental_score_origins_of_ingredients"
 msgid "Origins of ingredients"
-msgstr ""
+msgstr "Asal usul bahan"
 
 msgctxt "environmental_score_ingredients_not_indicated"
 msgid "The origins of the ingredients of this product are not indicated."
-msgstr ""
+msgstr "Asal usul bahan produk ini tidak disebutkan."
 
 msgctxt "environmental_score_please_add_the_ingredients"
 msgid "If they are indicated on the packaging, you can modify the product sheet and add them."
-msgstr ""
+msgstr "Jika tertera pada kemasan, Anda bisa memodifikasi lembar produk dan menambahkannya."
 
 msgctxt "environmental_score_environmental_policy"
 msgid "Environmental policy"
-msgstr ""
+msgstr "Kebijakan lingkungan"
 
 msgctxt "environmental_score_threatened_species"
 msgid "Threatened species"
@@ -5689,39 +5689,39 @@ msgstr "Spesies terancam"
 
 msgctxt "environmental_score_ingredients_whose_cultivation_threatens_species"
 msgid "Ingredients that threatens species"
-msgstr ""
+msgstr "Bahan-bahan yang mengancam spesies"
 
 msgctxt "environmental_score_no_species_threatening_ingredients"
 msgid "No ingredients that threaten species"
-msgstr ""
+msgstr "Tidak ada bahan yang mengancam spesies"
 
 msgctxt "environmental_score_ingredients_unknown"
 msgid "The information on the ingredients of this product has not been given."
-msgstr ""
+msgstr "Informasi tentang bahan produk ini belum diberikan."
 
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
-msgstr ""
+msgstr "Untuk penghitungan Green-Score yang lebih tepat, Anda bisa menyunting halaman produk dan menambahkannya."
 
 msgctxt "environmental_score_packaging_ratio"
 msgid "ratio"
-msgstr ""
+msgstr "rasio"
 
 msgctxt "environmental_score_packaging_score"
 msgid "score"
-msgstr ""
+msgstr "skor"
 
 msgctxt "environmental_score_score_of_all_components"
 msgid "Score of all components"
-msgstr ""
+msgstr "Skor semua komponen"
 
 msgctxt "environmental_score_no_packaging_information"
 msgid "The information about the packaging of this product is not filled in."
-msgstr ""
+msgstr "Informasi tentang kemasan produk ini tidak diisi."
 
 msgctxt "environmental_score_unprecise_packaging_information"
 msgid "The information about the packaging of this product is not sufficiently precise (exact shapes and materials of all components of the packaging)."
-msgstr ""
+msgstr "Informasi tentang kemasan produk ini tidak cukup tepat (bentuk dan material tepat dari semua komponen kemasan)."
 
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can modify the product page and add them."
@@ -5729,25 +5729,25 @@ msgstr "Untuk penghitungan Eco-Score yang lebih tepat, Anda bisa memodifikasi ha
 
 msgctxt "environmental_score_final_score"
 msgid "Final score"
-msgstr ""
+msgstr "Skor akhir"
 
 msgctxt "environmental_score_lower_the_score_lower_the_impact"
 msgid "(the lower the score, the lower the impact)"
-msgstr ""
+msgstr "(semakin rendah skor, semakin rendah dampaknya)"
 
 msgctxt "environmental_score_kg_co2_eq_kg_product"
 msgid "kg CO2 eq/kg of product"
-msgstr ""
+msgstr "kg CO2 eq/kg produk"
 
 # do not translate the link
 msgctxt "environmental_score_platform_prompt_environmental_score_modal"
 msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
-msgstr ""
+msgstr "Jika Anda adalah pabrikan produk ini, Anda bisa mengirimkan kami informasinya dengan <a href=\"https://world.pro.openfoodfacts.org\">platform gratis bagi produsen</a> kami."
 
 # do not translate Green-Score and the link
 msgctxt "environmental_score_description"
 msgid "The <a href=\"/green-score\">Green-Score</a> is an experimental score that summarizes the environmental impacts of food products."
-msgstr ""
+msgstr "<a href=\"/ecoscore\">Green-Score</a> adalah skor eksperimental yang merangkum dampak lingkungan dari produk makanan."
 
 # do not translate Green-Score
 msgctxt "environmental_score_warning_fr"
@@ -5757,19 +5757,19 @@ msgstr "Formula Green-Score dapat berubah karena secara berkala diperbaiki agar 
 # do not translate Green-Score
 msgctxt "environmental_score_warning_international"
 msgid "The Green-Score was initially developped for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
-msgstr ""
+msgstr "Green-Score pada awalnya dikembangkan untuk Prancis dan sedang diperluas ke negara-negara Eropa lainnya. Formula Green-Score dapat berubah sewaktu-sewaktu karena secara berkala terus disempurnakan agar lebih tepat dan sesuai untuk setiap negara."
 
 msgctxt "environmental_score_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
-msgstr ""
+msgstr "Pilih negara untuk menyertakan dampak penuh dari transportasi."
 
 msgctxt "environmental_score_warning_transportation"
 msgid "The full impact of transportation to your country is currently unknown."
-msgstr ""
+msgstr "Dampak penuh transportasi ke negara Anda saat ini belum diketahui."
 
 msgctxt "app_banner_text"
 msgid "Scan barcodes to get the Nutri-Score, the Green-Score and more!"
-msgstr ""
+msgstr "Pindai kode batang untuk mendapatkan Nutri-Score, Green-Score, dan banyak lagi!"
 
 msgctxt "org_gs1_product_name_is_abbreviated"
 msgid "GS1 product names for this manufacturer are abbreviated."
@@ -5806,11 +5806,11 @@ msgstr "Kemasan dengan dampak tinggi"
 
 msgctxt "environmental_score_packaging_impact_medium"
 msgid "Packaging with a medium impact"
-msgstr ""
+msgstr "Kemasan dengan dampak sedang"
 
 msgctxt "environmental_score_packaging_impact_low"
 msgid "Packaging with a low impact"
-msgstr ""
+msgstr "Kemasan dengan dampak rendah"
 
 msgctxt "environmental_score_packaging_missing_information"
 msgid "Missing packaging information for this product"
@@ -5822,11 +5822,11 @@ msgstr "Asal usul bahan dengan dampak tinggi"
 
 msgctxt "environmental_score_origins_of_ingredients_impact_medium"
 msgid "Origins of ingredients with a medium impact"
-msgstr ""
+msgstr "Asal usul bahan dengan dampak sedang"
 
 msgctxt "environmental_score_origins_of_ingredients_impact_low"
 msgid "Origins of ingredients with a low impact"
-msgstr ""
+msgstr "Asal usul bahan dengan dampak rendah"
 
 msgctxt "environmental_score_origins_of_ingredients_missing_information"
 msgid "Missing origins of ingredients information"
@@ -5911,11 +5911,11 @@ msgstr "Berdonasi"
 
 msgctxt "environmental_score_production_system_no_labels_with_environmental_benefits"
 msgid "No labels with environmental benefits"
-msgstr ""
+msgstr "Tidak ada label dengan manfaat lingkungan"
 
 msgctxt "environmental_score_production_system_labels_with_environmental_benefits"
 msgid "Labels with environmental benefits"
-msgstr ""
+msgstr "Label dengan manfaat lingkungan"
 
 msgctxt "environmental_score_production_system_labels_with_environmental_benefits_high"
 msgid "Labels with high environmental benefits"
@@ -5923,7 +5923,7 @@ msgstr "Label dengan manfaat lingkungan tinggi"
 
 msgctxt "environmental_score_production_system_labels_with_environmental_benefits_very_high"
 msgid "Labels with very high environmental benefits"
-msgstr ""
+msgstr "Label dengan manfaat lingkungan yang sangat tinggi"
 
 msgctxt "other"
 msgid "Other"
@@ -6015,11 +6015,11 @@ msgstr "Analisis siklus hidup"
 
 msgctxt "environmental_score_bonuses_and_maluses"
 msgid "Bonuses and maluses"
-msgstr ""
+msgstr "Bonus dan kesalahan pemakaian"
 
 msgctxt "environmental_score_for_this_product"
 msgid "Green-Score for this product"
-msgstr ""
+msgstr "Green-Score untuk produk ini"
 
 msgctxt "average_impact_of_the_category"
 msgid "Average impact of products of the same category"
@@ -6027,15 +6027,15 @@ msgstr "Dampak rata - rata produk dari kategori yang sama"
 
 msgctxt "environmental_score_sum_of_bonuses_and_maluses"
 msgid "Sum of bonuses and maluses"
-msgstr ""
+msgstr "Jumlah bonus dan kesalahan pemakaian"
 
 msgctxt "environmental_score_sum_of_bonuses_and_maluses_is_capped"
 msgid "The sum of bonuses and maluses is capped at +25."
-msgstr ""
+msgstr "Jumlah bonus dan kesalahan pemakaian dibatasi hingga +25."
 
 msgctxt "environmental_score_lca_score"
 msgid "Life cycle analysis score"
-msgstr ""
+msgstr "Skor analisis siklus hidup"
 
 msgctxt "impact_for_this_product"
 msgid "Impact for this product"
@@ -6043,7 +6043,7 @@ msgstr "Dampak untuk produk ini"
 
 msgctxt "environmental_score_downgraded_non_recyclable_and_non_biodegradable_materials"
 msgid "The score of products with non-recyclable and non-biodegradable packaging materials is capped at 79 (grade B)."
-msgstr ""
+msgstr "Skor produk dengan bahan kemasan non-daur ulang dan non-dapat terurai dengan mudah dibatasi pada angka 79 (nilai B)."
 
 msgctxt "nutriscore_not_applicable"
 msgid "Nutri-Score not applicable for this product category."
@@ -6278,7 +6278,7 @@ msgstr "Terima Kasih"
 
 msgctxt "environmental_score_learn_more"
 msgid "Learn more about the Green-Score"
-msgstr ""
+msgstr "Pelajari lebih lanjut tentang Green-Score"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_very_good_match"
@@ -6316,7 +6316,7 @@ msgstr "Gunakan preferensi default"
 
 msgctxt "reset_preferences_details"
 msgid "Nutri-Score, Green-Score and food processing level (NOVA)"
-msgstr ""
+msgstr "Nutri-Score, Green-Score, dan tingkat pengolahan makanan (NOVA)"
 
 msgctxt "actions_add_ingredients"
 msgid "Could you add the ingredients list?"
@@ -6328,7 +6328,7 @@ msgstr "Bisakah Anda menambahkan informasi yang diperlukan untuk menghitung Nutr
 
 msgctxt "actions_to_compute_environmental_score"
 msgid "Could you add a precise product category so that we can compute the Green-Score?"
-msgstr ""
+msgstr "Bisakah Anda menambahkan kategori produk yang tepat sehingga kami dapat menghitung Green-Skor?"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
@@ -6909,11 +6909,11 @@ msgstr "Poin untuk protein tidak dihitung karena poin negatif lebih besar atau s
 
 msgctxt "nutriscore_new_computation_title"
 msgid "Discover the new Nutri-Score!"
-msgstr ""
+msgstr "Temukan Nutri-Score yang baru!"
 
 msgctxt "nutriscore_new_computation_description"
 msgid "<p>The computation of the Nutri-Score is evolving to provide better recommendations based on the latest scientific evidence.</p><p>Main improvements:</p><ul><li>Better score for some fatty fish and oils rich in good fats</li><li>Better score for whole products rich in fiber</li><li>Worse score for products containing a lot of salt or sugar</li><li>Worse score for red meat (compared to poultry)</li></ul>"
-msgstr ""
+msgstr "<p>Perhitungan Nutri-Score terus berkembang untuk memberikan rekomendasi yang lebih baik berdasarkan bukti ilmiah terkini.</p><p>Peningkatan utama:</p><ul><li>Skor yang lebih baik untuk beberapa ikan berlemak dan minyak yang kaya akan lemak baik</li><li>Skor yang lebih baik untuk seluruh produk yang kaya akan serat</li><li>Skor yang lebih buruk untuk produk yang mengandung banyak garam atau gula</li><li>Skor yang lebih buruk untuk daging merah (dibandingkan dengan unggas)</li></ul>"
 
 msgctxt "nutriscore_new_computation_link_text"
 msgid "Discover all the improvements of the new Nutri-Score"
