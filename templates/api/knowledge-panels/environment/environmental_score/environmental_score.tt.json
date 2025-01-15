@@ -7,6 +7,7 @@
         "name": "[% panel.name %]",
         "icon_url": "[% static_subdomain %]/images/attributes/dist/green-score-[% panel.grade %].svg",
         "title": "[% panel.title %]",
+        "subtitle": "[% panel.subtitle %]",
         "type": "grade",
         "grade": "[% panel.grade_underscore %]"
     },
