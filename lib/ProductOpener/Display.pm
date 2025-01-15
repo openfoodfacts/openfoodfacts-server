@@ -7618,12 +7618,11 @@ sub display_page ($request_ref) {
 	$template_data_ref->{request} = $request_ref;
 
 	my $html;
-	my $template = 'web/common/site_layout.tt.html';
 	# ?content_only=1 -> only the content, no header, footer, etc.
 	if (($user_agent =~ /smoothie/) or (single_param('content_only'))) {
-		$template = 'web/common/content_only.tt.html';
+		$template_data_ref->{content_only} = 1;
 	}
-	process_template($template, $template_data_ref, \$html, $request_ref)
+	process_template('web/common/site_layout.tt.html', $template_data_ref, \$html, $request_ref)
 		|| ($html = "template error: " . $tt->error());
 
 	# disable equalizer
