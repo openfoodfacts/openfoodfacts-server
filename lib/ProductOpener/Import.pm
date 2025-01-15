@@ -337,7 +337,7 @@ sub upload_images_for_product($args_ref, $images_ref, $product_ref, $imported_pr
 			# upload the image
 			my $file = $images_ref->{$imagefield};
 
-			# Skip PDF file has we have issues to convert them, and they are sometimes not images about the product
+			# Skip PDF file, as we have issues to convert them, and they are sometimes not images about the product
 			# but multi-pages product sheets, certificates etc.
 			if ($file =~ /\.pdf$/) {
 				$log->debug("skipping PDF file", {file => $file, imagefield => $imagefield, code => $code})
