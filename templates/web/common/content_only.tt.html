@@ -1,0 +1,146 @@
+<!-- start templates/[% template.name %] -->
+
+<!doctype html>
+<html class="no-js" lang="[% language %]" data-serverdomain="[% server_domain %]" dir="[% edq(lang('text_direction')) %]">
+<head>
+    <meta charset="utf-8">
+    <title>[% title %]</title>
+    [% meta_description %]
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta property="fb:app_id" content="[% fb_config %]">
+    <meta property="og:type" content="[% og_type %]">
+    <meta property="og:title" content="[% canon_title %]">
+    <meta property="og:url" content="[% canon_url %]">
+    [% og_images %]
+    [% og_images2 %]
+    <meta property="og:description" content="[% canon_description %]">
+    [% options_favicons %]
+	<meta name="apple-itunes-app" content="app-id=588797948">
+    <link rel="canonical" href="[% canon_url %]">
+    <link rel="stylesheet" href="[% static_subdomain %]/css/dist/app-[% edq(lang('text_direction')) %].css?v=[% css_timestamp %]" data-base-layout="true">
+    <link rel="stylesheet" href="[% static_subdomain %]/css/dist/jqueryui/themes/base/jquery-ui.css" data-base-layout="true">
+    <link rel="stylesheet" href="[% static_subdomain %]/css/dist/select2.min.css">
+    <link rel="search" href="[% formatted_subdomain %]/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="[% options.site_name %]">
+	[% header %]
+    <style media="all">
+        [% lang("css") %]
+        [% styles %]
+    </style>
+</head>
+<body[% bodyabout %] class="[% page_type %]_page">
+
+	[% analytics %]
+
+	<div id="page">
+	
+
+		<div id="main_container" style="position:relative" class="block_latte">
+			
+	
+
+	[% offcanvasposition = 'left' %]
+	[% IF lang('text_direction') == 'rtl' %]
+	[% offcanvasposition = 'right' %]
+	[% END %]
+
+
+		<div id="content" class="off-canvas-wrap block_latte" data-offcanvas>
+			<div class="inner-wrap">
+			
+
+				<div class="main block_light">
+					<div id="main_column">
+            			
+						[% IF page_format == "banner" %]
+							<!-- banner pages such as product, product edit form and landing pages have their own h1 title -->
+							[% content %]
+						[% ELSIF page_type == "products" %]
+							[% IF schema_org_itemtype.defined %]
+								<!-- some lists of products for facets (e.g. brands) have microformats data -->
+								<div itemscope itemtype="[% schema_org_itemtype %]">
+									<div class="row">
+										<div class="small-12 column v-space-short">
+											<h1 itemprop="name">[% title %]</h1>
+										</div>
+									</div>
+								  [% content %]
+								</div>
+							[% ELSE %]
+								<div class="row">
+                  <div class="small-12 column"> 
+										<h1 class="if-empty-dnone">[% title %]</h1>
+									</div>
+								</div>
+								[% content %]
+							[% END %]
+						[% ELSE %]
+							<div class="row">
+								<div class="small-12 column">
+									<h1 class="if-empty-dnone">[% title %]</h1>
+									[% content %]
+								</div>
+							</div>
+						[% END %]
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+
+
+	</div>
+
+<script src="[% static_subdomain %]/js/dist/modernizr.js" data-base-layout="true"></script>
+<script src="[% static_subdomain %]/js/dist/jquery.js" data-base-layout="true"></script>
+<script src="[% static_subdomain %]/js/dist/jquery-ui.js" data-base-layout="true"></script>
+<script src="[% static_subdomain %]/js/dist/hc-sticky.js"></script>
+<script src="[% static_subdomain %]/js/dist/display.js"></script>
+<script src="[% static_subdomain %]/js/dist/stikelem.js"></script>
+<script src="[% static_subdomain %]/js/dist/scrollNav.js"></script>
+  
+<script src="[% static_subdomain %]/js/dist/foundation.js" data-base-layout="true"></script>
+<script src="[% static_subdomain %]/js/dist/jquery.cookie.js"></script>
+<script src="[% static_subdomain %]/js/dist/select2.min.js"></script>
+[% scripts %]
+<script>
+\$(document).foundation({
+	equalizer : {
+		equalize_on_stack: true
+	},
+	accordion: {
+		callback : function (accordion) {
+			\$(document).foundation('equalizer', 'reflow');
+		}
+	}
+});
+
+</script>
+<script type="application/ld+json">
+{
+	"@context" : "https://schema.org",
+	"@type" : "WebSite",
+	"name" : "[% options.site_name %]",
+	"url" : "[% formatted_subdomain %]",
+	"potentialAction": {
+		"@type": "SearchAction",
+		"target": "[% formatted_subdomain %]/cgi/search.pl?search_terms=?{search_term_string}",
+		"query-input": "required name=search_term_string"
+	}
+}
+</script>
+<script type="application/ld+json">
+{
+	"@context": "https://schema.org/",
+	"@type": "Organization",
+	"url": "[% formatted_subdomain %]",
+	"logo": "[% static_subdomain %]/images/logos/[% flavor %]-logo-vertical-light.svg",
+	"name": "[% options.site_name %]",
+	"sameAs" : ["[% facebook_page_url %]", "https://twitter.com/[% twitter_account %]"]
+}
+</script>
+
+
+</body>
+</html>
+
+<!-- end templates/[% template.name %] -->
