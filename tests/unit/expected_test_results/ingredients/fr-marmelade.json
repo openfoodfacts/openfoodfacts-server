@@ -125,7 +125,7 @@
                "id" : "en:thickener",
                "ingredients" : [
                   {
-                     "id" : "fr:epaississant-e415",
+                     "id" : "en:e415",
                      "is_in_taxonomy" : 1,
                      "percent_estimate" : 0.234375,
                      "text" : "gomme xanthane",
@@ -471,7 +471,6 @@
       "en:sodium-citrate",
       "en:minerals",
       "en:sodium",
-      "fr:epaississant-e415",
       "en:e415",
       "en:illipe-oil",
       "en:mango-kernel-oil",
@@ -523,7 +522,7 @@
       "en:e330",
       "en:e333",
       "en:sodium-citrate",
-      "fr:epaississant-e415",
+      "en:e415",
       "en:illipe-oil",
       "en:mango-kernel-oil",
       "en:shorea-robusta-seed-oil",
@@ -598,7 +597,6 @@
       "en:sodium-citrate",
       "en:minerals",
       "en:sodium",
-      "fr:epaississant-e415",
       "en:e415",
       "en:illipe-oil",
       "en:mango-kernel-oil",
@@ -619,6 +617,7 @@
       "en:chocolate",
       "en:e330",
       "en:e333",
+      "en:e415",
       "en:e440a",
       "en:e450i",
       "en:e500ii",
@@ -634,8 +633,7 @@
       "en:shorea-robusta-seed-oil",
       "en:sodium-citrate",
       "en:thickener",
-      "en:vegetable-fat",
-      "fr:epaississant-e415"
+      "en:vegetable-fat"
    ],
    "ingredients_without_ciqual_codes_n" : 22,
    "ingredients_without_ecobalyse_ids" : [
@@ -646,6 +644,7 @@
       "en:cocoa-paste",
       "en:e330",
       "en:e333",
+      "en:e415",
       "en:e440a",
       "en:e450i",
       "en:e500ii",
@@ -666,11 +665,10 @@
       "en:sodium-citrate",
       "en:soya-lecithin",
       "en:thickener",
-      "en:vegetable-fat",
-      "fr:epaississant-e415"
+      "en:vegetable-fat"
    ],
    "ingredients_without_ecobalyse_ids_n" : 29,
-   "known_ingredients_n" : 74,
+   "known_ingredients_n" : 73,
    "lc" : "fr",
    "misc_tags" : [
       "en:some-ingredients-with-specified-percent",
