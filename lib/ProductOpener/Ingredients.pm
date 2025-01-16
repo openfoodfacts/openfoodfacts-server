@@ -6018,6 +6018,16 @@ my %ingredients_categories_and_types = (
 		},
 	],
 
+	es => [
+		# oils
+		{
+			categories => ["aceite", "aceite vegetal", "aceites vegetales"],
+			types =>
+				["aguacate", "coco", "colza", "girasol", "linaza", "nabina", "oliva", "palma", "palmiste", "soja",],
+			alternate_names => ["aceite de <type>", "aceite d'<type>"],
+		},
+	],
+
 	fr => [
 		# huiles
 		{
@@ -6027,12 +6037,13 @@ my %ingredients_categories_and_types = (
 			],
 			types => [
 				"arachide", "avocat", "carthame", "chanvre",
-				"coco", "colza", "coton", "illipe",
-				"karité", "lin", "mangue", "noisette",
-				"noix", "noyaux de mangue", "olive", "olive extra",
-				"olive vierge", "olive extra vierge", "olive vierge extra", "palme",
-				"palmiste", "pépins de raisin", "sal", "sésame",
-				"soja", "tournesol", "tournesol oléique",
+				"coco", "colza", "coprah", "coton",
+				"graines de colza", "illipe", "karité", "lin",
+				"mangue", "noisette", "noix", "noyaux de mangue",
+				"olive", "olive extra", "olive vierge", "olive extra vierge",
+				"olive vierge extra", "palme", "palmiste", "pépins de raisin",
+				"sal", "sésame", "soja", "tournesol",
+				"tournesol oléique",
 			],
 			alternate_names => [
 				"huile de <type>",
