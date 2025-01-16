@@ -870,6 +870,15 @@ puffed orange and caramelized unknown_fruit4.",
 		}
 	],
 
+	# Vegetable oils with one unrecognized oil
+	[
+		"en-vegetable-oils-with-one-unrecognized-oil",
+		{
+			lc => "en",
+			ingredients_text => "vegetable oils (sunflower, soy, something strange)",
+		}
+	],
+
 );
 
 foreach my $test_ref (@tests) {
