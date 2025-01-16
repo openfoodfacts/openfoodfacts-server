@@ -502,7 +502,7 @@ el: λεκιθίνη σόγιας
 es: lecitina de soja, lecitina de soya, lecitinas de soja, lecitinas de soya
 et: sojaletsitiin
 fi: soijalesitiini, soijalesitiiniä, soijalesitiinit, E322 soijasta
-fr: lécithine de soja, lécithines de soja, émulsifiant lécithines de soja, lécithine de soja e322
+fr: lécithine de soja, lécithines de soja, lécithine de soja e322
 he: לציטין סויה
 hr: emulgator soja lecitin, emulgator sojin lecitin, soja lecitin, emulgatori sojin lecitin, sojin lecithin, sojin lecitin, sojini lecitini
 hu: szójalecitin, szójalecitinek
@@ -578,12 +578,6 @@ en: non-gmo sunflower lecithin
 hr: ne-gmo suncokretov lecitin
 it: lecitina di girasole non ogm
 
-# <en:emulsifier
-< en:sunflower lecithin
-fr: émulsifiant lécithine de tournesol
-fi: emulgointiaine auringonkukkalesitiini
-# ingredient/fr:émulsifiant-lécithine-de-tournesol has 100 products in 6 languages @2019-02-22
-
 < en:soya lecithin
 < en:sunflower lecithin
 en: soya and sunflower lecithin
@@ -623,18 +617,6 @@ sv: rapslecitin, rapslecithin
 # fr:lécithines-de-colza has 609 products in 6 languages @2018-11-10
 vegan:en: yes
 vegetarian:en: yes
-
-< en:E322(i)
-fr: émulsifiant lécithines, émulsifiants lécithines
-de: emulgator lecithine
-es: emulsionante de lecitina, emulsionantes de lecitina
-hr: emulgator lecitin iz uljane repice
-it: emulsionante lecitine
-nl: emulgator lecithinen
-pt: emulsionante lecitinas
-# fr:émulsifiant-lécithines has 88 products in 6 languages @2018-11-10
-# fr:émulsifiants-lécithines has 21 products in 4 languages @2018-11-10
-
 
 
 # Has NO E-number!!!
@@ -837,20 +819,6 @@ es: pectina de limon
 hr: limunov pektin
 it: pectina di limone
 lt: citrinų pektinas
-
-
-
-< en:E471
-en: emulsifier mono- and diglycerides of fatty acids
-bg: емулгатор Моно- и диглицериди на мастни киселини, емулгатор e471
-ca: emulsionant e471, emulsificant e471, emulgent e471
-de: Emulgator Mono- und Diglyceride von Fettsäuren
-es: emulsionante e471, emulsificante e471, emulgente e471
-fi: emulgointiaine rasvahappojen mono- ja diglyseridit
-fr: émulsifiant e471
-hr: emulgator mono- i digliceridi masnih kiselina
-it: emulsionante e471, emulsionante mono- e digliceridi degli acidi grassi
-lt: riebalų rūgščių mono- ir digliceridai, emulsiklis riebalų rūgščių mono- ir digliceridai
 
 < en:E471
 en: mono and diglycerides of fatty acids of vegetable origin
@@ -30761,14 +30729,6 @@ hr: ksantan guma i guar guma
 hu: xantángumi és guargumi
 it: Gomma xanthan e gomma di guar
 
-< en:gum arabic
-de: Verdickungsmittel Gummi arabicum
-fr: épaississant gomme arabique
-it: addensante gomma arabica
-# ingredient/fr:épaississant-gomme-arabique has 47 products in 4 languages @2019-03-02
-# stabilisant (gomme arabique)
-
-
 ##################################################################################
 #
 #                        SUGAR
@@ -37553,9 +37513,6 @@ zh: 黄原胶
 # zh-tw:黃原膠
 wikidata:en: Q410768
 wikipedia:en: https://en.wikipedia.org/wiki/Xanthan_gum
-
-< en:E415
-fr: épaississant e415
 
 en: gellan gum, E418, E-418, E 418, INS418, INS-418, INS 418, gellan
 ar: صمغ الجيلان

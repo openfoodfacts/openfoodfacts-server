@@ -879,6 +879,24 @@ puffed orange and caramelized unknown_fruit4.",
 		}
 	],
 
+	# émulsifiant : lécithines (tournesol)
+	[
+		"fr-emulsifiant-lecithines-tournesol",
+		{
+			lc => "fr",
+			ingredients_text => "émulsifiant : lécithines (tournesol)",
+		}
+	],
+
+	# émulsifiant e471
+	[
+		"fr-emulsifiant-e471-emulsifiant-lecithine-de-soja",
+		{
+			lc => "fr",
+			ingredients_text => "émulsifiant e471, émulsifiant lécithine de soja",
+		}
+	]
+
 );
 
 foreach my $test_ref (@tests) {
