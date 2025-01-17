@@ -174,6 +174,7 @@ use ProductOpener::Cache qw/$max_memcached_object_size $memd generate_cache_key/
 use ProductOpener::Permissions qw/has_permission/;
 use ProductOpener::ProductsFeatures qw(feature_enabled);
 use ProductOpener::RequestStats qw(:all);
+use ProductOpener::PackagingFoodContact qw/determine_food_contact_of_packaging_components_service/;
 
 use Encode;
 use URI::Escape::XS;
@@ -421,8 +422,15 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	};
 
 	$template_data_ref->{round} = sub ($var) {
-		return sprintf("%.0f", $var);
+		# Check if $var is defined and is numeric
+		if (defined $var && $var =~ /^-?\d+(\.\d+)?$/) {
+			return sprintf("%.0f", $var);
+		}
+		else {
+			return;
+		}
 	};
+
 	$template_data_ref->{sprintf} = sub ($var1, $var2) {
 		return sprintf($var1, $var2);
 	};
@@ -1258,6 +1266,20 @@ sub display_index_for_producer ($request_ref) {
 				count => $count,
 				};
 		}
+	}
+
+	# Count the products with a Nutri-Score computed
+	my $count = count_products($request_ref, {misc_tags => "en:nutriscore-computed"});
+	if ($count > 0) {
+		push @{$template_data_ref->{facets}},
+			{
+			url => "/misc?filter=nutriscore",
+			number_of_products => lang("discover_the_evolution_of_the_nutriscore_grades_of_your_products"),
+			count => $count,
+			};
+	}
+	else {
+		$template_data_ref->{add_products_to_discover_the_evolution_of_their_nutriscore_grades} = 1;
 	}
 
 	# Display a message if some product updates have not been published yet
@@ -5455,7 +5477,11 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 			$cursor = execute_query(
 				sub {
 					return get_products_collection(get_products_collection_request_parameters($request_ref))
-						->query($query_ref)->fields($fields_ref)->sort($sort_ref)->limit($limit)->skip($skip);
+						->query($query_ref)
+						->fields($fields_ref)
+						->sort($sort_ref)
+						->limit($limit)
+						->skip($skip);
 				}
 			);
 			$log->debug("MongoDB query ok", {error => $@}) if $log->is_debug();
@@ -6920,7 +6946,8 @@ sub search_and_graph_products ($request_ref, $query_ref, $graph_ref) {
 		$cursor = execute_query(
 			sub {
 				return get_products_collection(get_products_collection_request_parameters($request_ref))
-					->query($query_ref)->fields($fields_ref);
+					->query($query_ref)
+					->fields($fields_ref);
 			}
 		);
 	};
@@ -7230,7 +7257,8 @@ sub search_products_for_map ($request_ref, $query_ref) {
 		$cursor = execute_query(
 			sub {
 				return get_products_collection(get_products_collection_request_parameters($request_ref))
-					->query($query_ref)->fields(
+					->query($query_ref)
+					->fields(
 					{
 						code => 1,
 						lc => 1,
@@ -7605,6 +7633,10 @@ sub display_page ($request_ref) {
 	$template_data_ref->{request} = $request_ref;
 
 	my $html;
+	# ?content_only=1 -> only the content, no header, footer, etc.
+	if (($user_agent =~ /smoothie/) or (single_param('content_only'))) {
+		$template_data_ref->{content_only} = 1;
+	}
 	process_template('web/common/site_layout.tt.html', $template_data_ref, \$html, $request_ref)
 		|| ($html = "template error: " . $tt->error());
 
@@ -7953,13 +7985,23 @@ JS
 
 		localize_environmental_score($request_ref->{cc}, $product_ref);
 
-		$template_data_ref->{environmental_score_grade} = uc($product_ref->{environmental_score_data}{"grade"});
-		$template_data_ref->{environmental_score_grade_lc} = $product_ref->{environmental_score_data}{"grade"};
+		if (defined $product_ref->{environmental_score_data}{"grade"}) {
+			$template_data_ref->{environmental_score_grade} = uc($product_ref->{environmental_score_data}{"grade"});
+			$template_data_ref->{environmental_score_lc} = $product_ref->{environmental_score_data}{"grade"};
+		}
+
 		$template_data_ref->{environmental_score_score} = $product_ref->{environmental_score_data}{"score"};
 		$template_data_ref->{environmental_score_data} = $product_ref->{environmental_score_data};
 		$template_data_ref->{environmental_score_calculation_details}
 			= display_environmental_score_calculation_details($request_ref->{cc},
 			$product_ref->{environmental_score_data});
+	}
+
+	# 2025/01 - For moderators, determine which packaging components are in contact with food, so that we can display them
+	# This is for initial development of the feature, once finalized, we could compute and store this data in the product
+
+	if ($User{moderator}) {
+		ProductOpener::PackagingFoodContact::determine_food_contact_of_packaging_components_service($product_ref);
 	}
 
 	# Activate knowledge panels for all users
@@ -11586,7 +11628,8 @@ sub search_and_analyze_recipes ($request_ref, $query_ref) {
 		$cursor = execute_query(
 			sub {
 				return get_products_collection(get_products_collection_request_parameters($request_ref))
-					->query($query_ref)->fields($fields_ref);
+					->query($query_ref)
+					->fields($fields_ref);
 			}
 		);
 	};

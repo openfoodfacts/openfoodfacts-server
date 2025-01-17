@@ -375,9 +375,6 @@ HTML
 	conservation_conditions
 	recycling_instructions_to_recycle
 	recycling_instructions_to_discard
-	nutrition_grade_fr_producer
-	nutriscore_score_producer
-	nutriscore_grade_producer
 	recipe_idea
 	origin
 	customer_service
@@ -428,9 +425,6 @@ HTML
 # If adding to this list ensure that the tables are being replicated to Postgres in the openfoodfacts-query repo
 
 @drilldown_fields = qw(
-	nutrition_grades
-	nova_groups
-	environmental_score
 	brands
 	categories
 	labels
@@ -439,12 +433,6 @@ HTML
 	manufacturing_places
 	emb_codes
 	ingredients
-	additives
-	vitamins
-	minerals
-	amino_acids
-	nucleotides
-	other_nutritional_substances
 	allergens
 	traces
 	misc
@@ -488,20 +476,10 @@ HTML
 	traces
 	serving_size
 	serving_quantity
-	no_nutrition_data
 	additives_n
 	additives
-	nutriscore_score
-	nutriscore_grade
-	nova_group
-	pnns_groups_1
-	pnns_groups_2
-	food_groups
 	states
 	brand_owner
-	environmental_score_score
-	environmental_score_grade
-	nutrient_levels_tags
 	product_quantity
 	owner
 	data_quality_errors_tags
