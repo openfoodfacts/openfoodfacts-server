@@ -385,7 +385,8 @@
             "title_element" : {
                "grade" : "unknown",
                "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/green-score-unknown.svg",
-               "title" : "Green-Score not computed - Unknown environmental impact",
+               "subtitle" : "Unknown environmental impact",
+               "title" : "Green-Score not computed",
                "type" : "grade"
             },
             "topics" : [
@@ -836,7 +837,7 @@
                   "element_type" : "text",
                   "text_element" : {
                      "evaluation" : "neutral",
-                     "html" : "\n                        \n                            \n                                1 x \n                                <strong>\n                                    Bag\n                                    \n                                </strong>\n                                    \n                                        (Plastic)\n                                    \n                                    <br>\n                            \n                        \n                        ",
+                     "html" : "\n                        \n                            \n                                1 x \n                                <strong>\n                                    Bag\n                                    \n                                </strong>\n                                    \n                                        (Plastic)\n                                    \n                                    \n                                    <br>\n                            \n                        \n                        ",
                      "icon_alt" : "Unknown",
                      "icon_color_from_evaluation" : true,
                      "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/help.svg",
