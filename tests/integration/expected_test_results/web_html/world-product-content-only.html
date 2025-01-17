@@ -1,4 +1,4 @@
-<!-- start templates/web/common/content_only.tt.html -->
+<!-- start templates/web/common/site_layout.tt.html -->
 
 <!doctype html>
 <html class="no-js" lang="en" data-serverdomain="openfoodfacts.localhost" dir="ltr">
@@ -75,23 +75,26 @@
 
 
 
-	<div id="page">
 	
+
+	<div id="page">
+		
 
 		<div id="main_container" style="position:relative" class="block_latte">
-			
-	
-
-	
-	
-
+		
+		
 
 		<div id="content" class="off-canvas-wrap block_latte" data-offcanvas>
 			<div class="inner-wrap">
 			
+				<a class="exit-off-canvas"></a>
+
+				
 
 				<div class="main block_light">
 					<div id="main_column">
+
+						
             			
 						
 							<!-- banner pages such as product, product edit form and landing pages have their own h1 title -->
@@ -2581,8 +2584,10 @@ The score is calculated from the data of the nutrition facts table and the compo
                 
             >
                 
-                Green-Score B - Low environmental impact
+                Green-Score B
             </h4>
+            
+                <span >Low environmental impact</span>
             
             <hr class="floatclear">
         </a>
@@ -4168,6 +4173,7 @@ The score is calculated from the data of the nutrition facts table and the compo
 		</div>
 		</div>
 
+		
 
 	</div>
 
@@ -4179,6 +4185,24 @@ The score is calculated from the data of the nutrition facts table and the compo
 <script src="//static.openfoodfacts.localhost/js/dist/stikelem.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/scrollNav.js"></script>
   
+
+<script>
+$(function() {
+$('.f-dropdown').on('opened.fndtn.dropdown', function() {
+   $(document).foundation('equalizer', 'reflow');
+});
+$('.f-dropdown').on('closed.fndtn.dropdown', function() {
+   $(document).foundation('equalizer', 'reflow');
+});
+display_user_product_preferences("#preferences_selected", "#preferences_selection_form", function () { display_product_summary("#product_summary", product); });
+display_product_summary("#product_summary", product);
+
+
+});
+</script>
+
+
+
 <script src="//static.openfoodfacts.localhost/js/dist/foundation.js" data-base-layout="true"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/jquery.cookie.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/select2.min.js"></script>
@@ -4233,7 +4257,10 @@ $(document).foundation({
 </script>
 
 
+
+
+
 </body>
 </html>
 
-<!-- end templates/web/common/content_only.tt.html -->
+<!-- end templates/web/common/site_layout.tt.html -->
