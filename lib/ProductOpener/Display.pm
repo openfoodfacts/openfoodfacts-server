@@ -174,6 +174,7 @@ use ProductOpener::Cache qw/$max_memcached_object_size $memd generate_cache_key/
 use ProductOpener::Permissions qw/has_permission/;
 use ProductOpener::ProductsFeatures qw(feature_enabled);
 use ProductOpener::RequestStats qw(:all);
+use ProductOpener::PackagingFoodContact qw/determine_food_contact_of_packaging_components_service/;
 
 use Encode;
 use URI::Escape::XS;
@@ -7632,6 +7633,10 @@ sub display_page ($request_ref) {
 	$template_data_ref->{request} = $request_ref;
 
 	my $html;
+	# ?content_only=1 -> only the content, no header, footer, etc.
+	if (($user_agent =~ /smoothie/) or (single_param('content_only'))) {
+		$template_data_ref->{content_only} = 1;
+	}
 	process_template('web/common/site_layout.tt.html', $template_data_ref, \$html, $request_ref)
 		|| ($html = "template error: " . $tt->error());
 
@@ -7990,6 +7995,13 @@ JS
 		$template_data_ref->{environmental_score_calculation_details}
 			= display_environmental_score_calculation_details($request_ref->{cc},
 			$product_ref->{environmental_score_data});
+	}
+
+	# 2025/01 - For moderators, determine which packaging components are in contact with food, so that we can display them
+	# This is for initial development of the feature, once finalized, we could compute and store this data in the product
+
+	if ($User{moderator}) {
+		ProductOpener::PackagingFoodContact::determine_food_contact_of_packaging_components_service($product_ref);
 	}
 
 	# Activate knowledge panels for all users

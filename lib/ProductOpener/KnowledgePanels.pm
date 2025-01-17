@@ -642,9 +642,9 @@ sub create_environmental_score_panel ($product_ref, $target_lc, $target_cc, $opt
 		}
 
 		# We can reuse some strings from the Environmental-Score attribute
-		my $title
-			= sprintf(lang_in_other_lc($target_lc, "attribute_environmental_score_grade_title"), uc($grade)) . ' - '
-			. lang_in_other_lc($target_lc, "attribute_environmental_score_" . $grade_underscore . "_description_short");
+		my $title = sprintf(lang_in_other_lc($target_lc, "attribute_environmental_score_grade_title"), $letter_grade);
+		my $subtitle
+			= lang_in_other_lc($target_lc, "attribute_environmental_score_" . $grade_underscore . "_description_short");
 
 		my $panel_data_ref = {
 			"agribalyse_category_name" => $agribalyse_category_name,
@@ -658,6 +658,7 @@ sub create_environmental_score_panel ($product_ref, $target_lc, $target_cc, $opt
 			"grade_underscore" => $grade_underscore,
 			"letter_grade" => $letter_grade,
 			"title" => $title,
+			"subtitle" => $subtitle,
 			"transportation_warning" => $transportation_warning,
 		};
 
@@ -672,23 +673,6 @@ sub create_environmental_score_panel ($product_ref, $target_lc, $target_cc, $opt
 			"api/knowledge-panels/environment/environmental_score/agribalyse.tt.json",
 			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref
 		);
-
-		# Create an extra panel for products that have extended environmental_score data from the impact estimator
-
-		# 2022/05/06: disabled as we currently have few products with reliable extended environmental_score data
-
-		# if (defined $product_ref->{environmental_score_extended_data}) {
-
-		#     extract_data_from_impact_estimator_best_recipe($product_ref, $panel_data_ref);
-
-		#     compare_impact_estimator_data_to_category_average($product_ref, $panel_data_ref, $target_cc);
-
-		#     # Display a panel only if we can compare the product extended impact
-		#     if (defined $panel_data_ref->{environmental_score_extended_data_for_category}) {
-		#         create_panel_from_json_template("environmental_score_extended", "api/knowledge-panels/environment/environmental_score/environmental_score_extended.tt.json",
-		#             $panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
-		#     }
-		# }
 
 		create_panel_from_json_template("carbon_footprint",
 			"api/knowledge-panels/environment/carbon_footprint_food.tt.json",
