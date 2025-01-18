@@ -126,6 +126,19 @@ de: Ohne paraben, Parabenfrei
 es: Sin Parabenos
 fr: Sans paraben, Sans parabenes, 0 parabens, 0 paraben, Sans parabene, Sans parabens, Zero paraben
 nl: Zonder parabeen
+pt: Sem parabenos, livre de parabenos
+
+en: Without EDTA, EDTA free, No EDTA
+de: Ohne EDTA
+es: Sin EDTA
+fr: Sans EDTA
+nl: Zonder EDTA
+pt: Sem EDTA
+it: Senza EDTA
+ja: EDTA不使用
+ko: EDTA 없음
+zh-CN: 不含EDTA
+zh-TW: 不含EDTA
 
 en: Organic
 de: Bio, Öko, Biologisch, Ökologisch, Kontrolliert biologisch, Kontrolliert ökologisch, biologische Landwirtschaft, ökologische Landwirtschaft, biologischer Landbau, ökologischer Landbau
@@ -1340,6 +1353,13 @@ en: Hypoallergenic
 de: Hypoallergen
 fr: Hypoallergénique
 nl: Hypoallergeen
+es: Hipoalergénico
+pt: Hipoalergênico
+it: Ipoallergenico
+ja: 低刺激性
+ko: 저자극성
+zh-CN: 低过敏性
+zh-TW: 低過敏性
 
 # already in food labels.txt
 # en: Green point
@@ -1360,6 +1380,7 @@ nl: Neutrale pH-waarde voor de huid, neutrale pH-waarde, pH-waarde neutraal voor
 
 en: Dermatologically tested, Dermatologically approved, Tested by dermatologists, Dermo tested
 fr: Testé dermatologiquement, Testé dermatologiquemment, Testé sous controle dermatologique, Tolérance testée sous controle dermatologique, Tolerance-cutanee-testee-dermatologiquement, Tolerance-cutanee-testee-sous-controle-dermatologique, testée dermatologiquement, testées dermatologiquement, Approuvé dermatologiquement, dermato-testé
+pt:Dermatologicamente testado
 
 en: Fully recyclable packaging
 de: Vollständig recycelbare Verpackung
@@ -1375,6 +1396,15 @@ nl: Makkelijk ontvlambaar
 
 en: Without phthalates, without phtalates, 0 phthalates
 fr: Sans phtalates, Sans phtalate, 0 phtalate, zero phtalate
+de: Ohne Phthalate
+es: Sin ftalatos
+nl: Zonder ftalaten
+pt: Sem ftalatos
+it: Senza ftalati
+ja: フタル酸エステル不使用
+ko: 프탈레이트 없음
+zh-CN: 不含邻苯二甲酸酯
+zh-TW: 不含鄰苯二甲酸酯
 
 en: No colorings, without colorings, no colourings, without colourings, no colour, no color
 fr: Sans colorants, pas de colorants, 0 colorant, zero colorant
@@ -1389,12 +1419,24 @@ de: Ohne Seife
 es: Sin jabón
 fr: Sans savon
 nl: Zonder zeep
+pt: Sem sabão
+it: Senza sapone
+ja: 石鹸不使用
+ko: 비누 없음
+zh-CN: 不含皂
+zh-TW: 不含皂
 
 en: Without perfume, no perfume, perfume free
 de: Ohne Parfüm
 es: Sin perfume
 fr: Sans parfum
 nl: Zonder parfum
+pt: Sem perfume
+it: Senza profumo
+ja: 無香料
+ko: 향료 없음
+zh-CN: 无香精
+zh-TW: 無香精
 
 en: Synthetic scent free, free from synthesis fragrance, synthesis fragrance free, free from synthetic fragrances, synthetic fragrances free
 de: Ohne synthetischen Duft, frei von synthetischen Duftstoffen, synthetische Duftstoffe frei
@@ -1428,6 +1470,18 @@ es: Sin acetona
 fr: Sans acétone
 nl: Zonder aceton
 
+en: Condom compatible
+de: Kondomfreundlich
+es: Compatible con preservativos, Compatible con condones
+fr: Compatible avec les preservatifs
+nl: Condoomvriendelijk
+pt: Compatível com preservativos
+it: Compatibile con i preservativi
+ja: コンドームとの併用可
+ko: 콘돔과 함께 사용 가능
+zh-CN: 可与避孕套一起使用
+zh-TW: 可與保險套一起使用
+
 # already in food labels.txt
 # fr: Sans alcool, Pas d'alcool
 # en: No alcohol, 0 alcohol, without alcohol, alcohol free
@@ -1458,12 +1512,104 @@ de: Ohne Ammoniak
 es: Sin amoníaco
 fr: Sans ammoniaque
 nl: Zonder ammoniak
+pt: Sem amônia
+it: Senza ammoniaca
+ja: アンモニアフリー
+ko: 암모니아 없음
+zh-CN: 不含氨
 
 en: Without triclosan, Triclosan free, No triclosan
 de: Ohne Triclosan
 es: Sin triclosán
 fr: Sans triclosan
 nl: Zonder triclosan
+pt: Sem triclosan
+it: Senza triclosan
+ja: トリクロサン不使用
+ko: 트리클로산 없음
+zh-CN: 不含三氯生
+
+en: Without mineral oil, Mineral oil free, No mineral oil
+de: Ohne Mineralöl
+es: Sin aceite mineral
+fr: Sans huile minérale
+nl: Zonder minerale olie
+pt: Sem óleo mineral
+it: Senza olio minerale
+ja: ミネラルオイル不使用
+ko: 미네랄 오일 없음
+zh-CN: 不含矿物油
+zh-TW: 不含礦物油
+
+en: Without microplastics, Microplastic free, No microplastics
+de: Ohne Mikroplastik
+es: Sin microplásticos
+fr: Sans microplastiques
+nl: Zonder microplastics
+pt: Sem microplásticos
+it: Senza microplastiche
+ja: マイクロプラスチックフリー
+ko: 미세 플라스틱 없음
+zh-CN: 不含微塑料
+zh-TW: 不含微塑膠
+
+en: Ophthalmologically tested, Ophthalmologist tested
+de: Augenärztlich getestet
+es: Oftalmológicamente probado, Probado oftalmológicamente
+fr: Testé ophtalmologiquement
+nl: Oftalmologisch getest
+pt: Testado oftalmologicamente
+it: Testato oftalmologicamente
+ja: 眼科医によるテスト済み
+ko: 안과 의사 테스트 완료
+zh-CN: 经眼科医生测试
+zh-TW: 經眼科醫生測試
+
+en: Tested under ophthalmological control
+de: Unter augenärztlicher Kontrolle getestet
+es: Testado bajo control oftalmológico
+fr: Testé sous contrôle ophtalmologique
+nl: Getest onder oogheelkundige controle
+pt: Testado sob controle oftalmológico
+it: Testato sotto controllo oftalmologico
+ja: 眼科医の管理下でテスト済み
+ko: 안과 전문의의 관리하에 테스트됨
+zh-CN: 经眼科医生监控测试
+zh-TW: 經眼科醫生監控測試
+
+en: Tested under gynecological control
+de: Unter gynäkologischer Kontrolle getestet
+es: Testado bajo control ginecológico
+nl: Getest onder gynaecologische controle
+pt: Testado sob controle ginecológico
+it: Testato sotto controllo ginecologico
+ja: 婦人科医の管理下でテスト済み
+ko: 산부인과 전문의의 관리하에 테스트됨
+zh-CN: 经妇科医生监控测试
+zh-TW: 經婦科醫生監控測試
+
+en: Gynecologically tested
+de: Gynäkologisch getestet
+es: Ginecológicamente probado
+nl: Gynaecologisch getest
+pt: Testado ginecologicamente
+it: Testato ginecologicamente
+ja: 婦人科医によるテスト済み
+ko: 산부인과 전문의 테스트 완료
+zh-CN: 经妇科医生测试
+zh-TW: 經婦科醫生測試
+
+en: Clinically tested
+de: Klinisch getestet
+es: Clínicamente probado
+fr: Testé cliniquement
+nl: Klinisch getest
+pt: Testado clinicamente
+it: Clinicamente testato
+ja: 臨床的にテスト済み
+ko: 임상적으로 테스트됨
+zh-CN: 经临床测试
+zh-TW: 經臨床測試
 
 # already in food labels.txt
 # en:Palm oil free, Without palm oil, No palm oil
@@ -1487,6 +1633,13 @@ nl: Prikt niet in de ogen, Geen tranen, Geen tranen formule
 
 fr: Non comédogène, Non obstruant les pores
 en: Non comedogenic, Non pore-clogging
+pt: Nao comedogenico
+es: No comedogénico, No obstruye los poros
+de: Nicht komedogen, Nicht porenverstopfend
+it: Non comedogenico, Non ostruisce i pori
+ja: ノンコメドジェニック、毛穴を詰まらせない
+ko: 논코메도제닉, 모공을 막지 않음
+zh-CN: 非致粉刺性，不堵塞毛孔
 
 # already in food labels.txt
 # fr:Sans conservateurs, sans conservateur, 0 conservateur
