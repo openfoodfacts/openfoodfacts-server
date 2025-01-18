@@ -444,7 +444,7 @@ sub remove_duplicates {
 
 =head2 find_smallest_value_key ( hashmap )
 
-This function finds the key with the smallest value in a hashmap. If multiple keys have the same smallest value, it returns the lexicographically smallest key.
+This function finds the key with the smallest value in a hashmap. If multiple keys have the same smallest value, it returns the first key in alphabetical order.
 
 =head3 Arguments
 
@@ -454,7 +454,7 @@ A hash reference where the keys are strings and the values are numeric.
 
 =head3 Return value
 
-Returns the key with the smallest value. If multiple keys have the same smallest value, returns the lexicographically smallest key.
+Returns the key with the smallest value. If multiple keys have the same smallest value, returns the first key in alphabetical order.
 
 =cut
 
@@ -484,7 +484,7 @@ sub find_smallest_value_key {
 
 =head2 get_sorted_strings ( string1, string2 )
 
-This function returns two strings in lexicographically sorted order.
+This function returns two strings in alphabetical order.
 
 =head3 Arguments
 
