@@ -1,4 +1,4 @@
-﻿stopwords:en:ingredients, from, with, of, by, the, verified, certified, approved, 100%, pure, product, guaranty, guaranteed, standard
+stopwords:en:ingredients, from, with, of, by, the, verified, certified, approved, 100%, pure, product, guaranty, guaranteed, standard
 stopwords:fr: ingrédients, issus, de, l', convient, peut convenir, au, aux, régime, régimes, conforme, validé, vérifié, certifié, par, un, une, approuvé, 100%, pur, garantie, garanti, produit, sas
 stopwords:es: por, la, las, los, el, apto, para, certificado, controlado, registrado, 100%
 
@@ -39,6 +39,84 @@ es: 100% natural
 fr: 100% naturel
 nl: 100% natuurlijk
 nl_be: 100% natuurlijk
+
+en: Without PEG
+fr: Sans PEG
+
+en: Without PPD
+fr: Sans PPD
+
+en: Without propellant gas
+fr: Sans gaz propulseur
+
+en: Without butane
+fr: Sans butane
+
+en: Without propane
+fr: Sans propane
+
+en: Without camphor
+fr: Sans camphre
+
+en: Without synthetic camphor
+fr: Sans camphre synthetique
+
+en: Without rinsing
+fr: sans rincage
+
+en: Without sodium laureth sulfate
+fr: sans sodium-laureth-sulfate, sans sodium-lauryl-laureth-sulfate, sans sodium-laureth-sulfates
+
+en: Without titanium dioxide
+fr: Sans dioxyde de titane
+
+en: Without silicone
+fr: Sans silicone, sans huile de silicone
+
+en: Without toluene
+fr: Sans toluene
+
+en: Without methylisothiazolinone
+fr: Sans methylisothiazolinone
+
+en: Without aluminum chlorohydrate
+fr: Sans aluminium chlorohydrate
+
+en: Without cotton
+fr: Sans Coton
+
+en: Without soda
+fr: Sans soude
+
+en: Without sodium lauryl sulfates
+fr: Sans sodium lauryl sulfates
+
+en: Without alkaline soap
+fr: Sans savon alcalin
+
+en: Without soap
+fr: Sans savon
+
+en: Without resorcinol
+fr: Sans resorcine
+
+en: Without synthetic antiperspirant
+fr: Sans anti transpirant synthetique
+
+en: Without picramic acid
+fr: Sans acide picramique
+
+en: Without SLS SLES
+fr: Sans SLS SLES
+
+en: Without metallic salts
+fr: Sans sels metalliques
+
+en: Without peroxides
+fr: Sans peroxydes, sans peroxyde, sans peroxide d'hydrogene
+
+en: Without chlorine bleaching
+fr: Sans blanchissement au chlore
 
 en: Carbon compensated product, carbon neutral
 fr: Produit compensé carbone, Carbone neutre, neutre en carbone, carbone compensé
@@ -127,6 +205,9 @@ es: Sin Parabenos
 fr: Sans paraben, Sans parabenes, 0 parabens, 0 paraben, Sans parabene, Sans parabens, Zero paraben
 nl: Zonder parabeen
 pt: Sem parabenos, livre de parabenos
+
+en: Without paraffins
+fr: Sans paraffines, sans paraffine
 
 en: Without EDTA, EDTA free, No EDTA
 de: Ohne EDTA
@@ -1251,6 +1332,12 @@ wikidata:en: Q748367
 en: No animal derived ingredients
 fr: Pas de composant animal, Sans matière animale
 
+en: Without animal fat
+fr: Sans graisse animale, sans graisses animales
+
+en: Without bisphenol
+fr: Sans bisphenol
+
 en: PEFC, Pan European Forest Certification, Program for the Endorsement of Forest Certification, Program for the Endorsement of Forest Certification schemes
 fr: PEFC
 
@@ -1518,6 +1605,9 @@ ja: アンモニアフリー
 ko: 암모니아 없음
 zh-CN: 不含氨
 
+en: Without ammonium
+fr: Sans ammonium
+
 en: Without triclosan, Triclosan free, No triclosan
 de: Ohne Triclosan
 es: Sin triclosán
@@ -1541,6 +1631,9 @@ ko: 미네랄 오일 없음
 zh-CN: 不含矿物油
 zh-TW: 不含礦物油
 
+en: Without ingredients derived from petroleum
+fr: Sans ingredients issus du pétrole, sans derive du pétrole
+
 en: Without microplastics, Microplastic free, No microplastics
 de: Ohne Mikroplastik
 es: Sin microplásticos
@@ -1552,6 +1645,12 @@ ja: マイクロプラスチックフリー
 ko: 미세 플라스틱 없음
 zh-CN: 不含微塑料
 zh-TW: 不含微塑膠
+
+en:Without plastic microbeads
+fr:sans-microbilles-de-plastique, sans-mirobilles-de-plastique, sans-micro-billes-de-plastique, formule-sans-microplastique
+
+en: Without binder
+fr: Sans agent liant
 
 en: Ophthalmologically tested, Ophthalmologist tested
 de: Augenärztlich getestet
@@ -1610,6 +1709,21 @@ ja: 臨床的にテスト済み
 ko: 임상적으로 테스트됨
 zh-CN: 经临床测试
 zh-TW: 經臨床測試
+
+en: Without essential oil
+fr: Sans huile essentielle
+
+en: Without menthol
+fr: Sans menthol
+
+en: Without mint
+fr: Sans menthe
+
+en: Without lotion
+fr: Sans lotion
+
+en: Without ionization
+fr: Sans ionisation
 
 # already in food labels.txt
 # en:Palm oil free, Without palm oil, No palm oil
