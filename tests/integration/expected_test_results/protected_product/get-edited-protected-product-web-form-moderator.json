@@ -380,6 +380,7 @@
          "agribalyse" : {
             "warning" : "missing_agribalyse_match"
          },
+         "grade" : "unknown",
          "missing" : {
             "agb_category" : 1,
             "origins" : 1
@@ -596,7 +597,6 @@
       "main_countries_tags" : [],
       "minerals_tags" : [],
       "misc_tags" : [
-         "en:environmental-score-extended-data-not-computed",
          "en:environmental-score-not-computed",
          "en:forest-footprint-a",
          "en:forest-footprint-computed",
