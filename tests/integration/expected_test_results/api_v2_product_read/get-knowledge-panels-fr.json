@@ -331,7 +331,8 @@
                "grade" : "c",
                "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/green-score-c.svg",
                "name" : "Green-Score",
-               "title" : "Green-Score C - Impact modéré sur l'environnement",
+               "subtitle" : "Impact modéré sur l'environnement",
+               "title" : "Green-Score C",
                "type" : "grade"
             },
             "topics" : [
@@ -1667,7 +1668,7 @@
                   "element_type" : "text",
                   "text_element" : {
                      "evaluation" : "good",
-                     "html" : "\n                        \n                            \n                                1 x \n                                <strong>\n                                    Boîte\n                                    \n                                </strong>\n                                    \n                                        (Bois)\n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                            \n                                3 x \n                                <strong>\n                                    Couvercle\n                                    \n                                </strong>\n                                    \n                                        (Acier)\n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                        ",
+                     "html" : "\n                        \n                            \n                                1 x \n                                <strong>\n                                    Boîte\n                                    \n                                </strong>\n                                    \n                                        (Bois)\n                                    \n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                            \n                                3 x \n                                <strong>\n                                    Couvercle\n                                    \n                                </strong>\n                                    \n                                        (Acier)\n                                    \n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                        ",
                      "icon_alt" : "Recycler",
                      "icon_color_from_evaluation" : true,
                      "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/recycle-variant.svg",
@@ -1678,7 +1679,7 @@
                   "element_type" : "text",
                   "text_element" : {
                      "evaluation" : "bad",
-                     "html" : "\n                        \n                            \n                        \n                            \n                        \n                            \n                        \n                            \n                                1 x \n                                <strong>\n                                    Film\n                                    \n                                </strong>\n                                    \n                                        (Plastique)\n                                    \n                                    <br>\n                            \n                        \n                        ",
+                     "html" : "\n                        \n                            \n                        \n                            \n                        \n                            \n                        \n                            \n                                1 x \n                                <strong>\n                                    Film\n                                    \n                                </strong>\n                                    \n                                        (Plastique)\n                                    \n                                    \n                                    <br>\n                            \n                        \n                        ",
                      "icon_alt" : "Jeter",
                      "icon_color_from_evaluation" : true,
                      "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/delete.svg",
@@ -1689,7 +1690,7 @@
                   "element_type" : "text",
                   "text_element" : {
                      "evaluation" : "neutral",
-                     "html" : "\n                        \n                            \n                        \n                            \n                                6 x \n                                <strong>\n                                    Bouteille\n                                    25cl \n                                </strong>\n                                    \n                                        (Verre)\n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                            \n                        \n                        ",
+                     "html" : "\n                        \n                            \n                        \n                            \n                                6 x \n                                <strong>\n                                    Bouteille\n                                    25cl \n                                </strong>\n                                    \n                                        (Verre)\n                                    \n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                            \n                        \n                        ",
                      "icon_alt" : "Inconnu",
                      "icon_color_from_evaluation" : true,
                      "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/help.svg",

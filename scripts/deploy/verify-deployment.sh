@@ -80,9 +80,9 @@ function check_args {
 
 function compute_services {
   # systemd services to check for symlinks
-  SYSTEMD_LINKS+=( email-failures@.service nginx.service.d apache2.service.d cloud_vision_ocr@.service )
+  SYSTEMD_LINKS+=( email-failures@.service nginx.service.d apache2.service.d cloud_vision_ocr@.service minion@.service )
   # units that must be active (and enabled)
-  SYSTEMD_UNITS_ACTIVE=( nginx.service apache2.service cloud_vision_ocr@$SERVICE.service )
+  SYSTEMD_UNITS_ACTIVE=( nginx.service apache2.service cloud_vision_ocr@$SERVICE.service minion@.service )
   # units that must be enabled
   SYSTEMD_UNITS_ENABLED=( )
   # priority request on off
