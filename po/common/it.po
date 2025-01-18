@@ -4632,12 +4632,12 @@ msgstr "Qualità nutrizionale nella media"
 # lower: translate to "less good" in some languages (e.g. French: "Moins bonne qualité nutritionnelle")
 msgctxt "attribute_nutriscore_d_description_short"
 msgid "Lower nutritional quality"
-msgstr ""
+msgstr "Qualità nutrizionale ridotta"
 
 # lower: translate to "less good" in some languages (e.g. French: "Moins bonne qualité nutritionnelle")
 msgctxt "attribute_nutriscore_e_description_short"
 msgid "Lower nutritional quality"
-msgstr ""
+msgstr "Qualità nutrizionale ridotta"
 
 msgctxt "attribute_group_processing_name"
 msgid "Food processing"
@@ -4828,41 +4828,41 @@ msgstr "Ambiente"
 
 msgctxt "attribute_environmental_score_name"
 msgid "Green-Score"
-msgstr ""
+msgstr "Green-Score"
 
 msgctxt "attribute_environmental_score_setting_name"
 msgid "Low environmental impact (Green-Score)"
-msgstr ""
+msgstr "Basso impatto ambientale (Green-Score)"
 
 msgctxt "attribute_environmental_score_setting_note"
 msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr ""
+msgstr "Il Green-Score è un punteggio ambientale dalla A alla E che rende facile confrontare l'impatto dei prodotti alimentari sull'ambiente."
 
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
 msgid "Green-Score"
-msgstr ""
+msgstr "Green-Score"
 
 msgctxt "attribute_ecoscore_setting_name"
 msgid "Low environmental impact (Green-Score)"
-msgstr ""
+msgstr "Basso impatto ambientale (Green-Score)"
 
 msgctxt "attribute_ecoscore_setting_note"
 msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr ""
+msgstr "Il Green-Score è un punteggio ambientale dalla A alla E che rende facile confrontare l'impatto dei prodotti alimentari sull'ambiente."
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
 msgid "Green-Score %s"
-msgstr ""
+msgstr "Green-Score %s"
 
 msgctxt "attribute_environmental_score_a_plus_description_short"
 msgid "Very low environmental impact"
-msgstr ""
+msgstr "Impatto ambientale molto basso"
 
 msgctxt "attribute_environmental_score_a_description_short"
 msgid "Very low environmental impact"
-msgstr ""
+msgstr "Impatto ambientale molto basso"
 
 msgctxt "attribute_environmental_score_b_description_short"
 msgid "Low environmental impact"
@@ -4870,19 +4870,19 @@ msgstr "Basso impatto ambientale"
 
 msgctxt "attribute_environmental_score_c_description_short"
 msgid "Moderate environmental impact"
-msgstr ""
+msgstr "Impatto ambientale moderato"
 
 msgctxt "attribute_environmental_score_d_description_short"
 msgid "High environmental impact"
-msgstr ""
+msgstr "Alto impatto ambientale"
 
 msgctxt "attribute_environmental_score_e_description_short"
 msgid "Very high environmental impact"
-msgstr ""
+msgstr "Impatto ambientale molto elevato"
 
 msgctxt "attribute_environmental_score_f_description_short"
 msgid "Very high environmental impact"
-msgstr ""
+msgstr "Impatto ambientale molto elevato"
 
 # keep the %s, it will be replaced by an allergen
 msgctxt "contains_s"
@@ -5036,17 +5036,17 @@ msgstr "Impatto ambientale"
 # Numerical score for the Green-Score (do not translate Green-Score)
 msgctxt "environmental_score_score"
 msgid "Green-Score score"
-msgstr ""
+msgstr "Punteggio Green-Score"
 
 # Letter grade from A to E for the Green-Score (do not translate Green-Score)
 msgctxt "environmental_score_grade"
 msgid "Green-Score grade"
-msgstr ""
+msgstr "Grado Green-Score"
 
 # do not translate Green-Score
 msgctxt "environmental_score_calculation_details"
 msgid "Details of the calculation of the Green-Score"
-msgstr ""
+msgstr "Dettagli del calcolo del Green-Score"
 
 # do not translate Green-Score
 msgctxt "environmental_score_information"
@@ -5084,19 +5084,19 @@ msgstr "Dati nutrizionali mancanti"
 
 msgctxt "ecoscore_p"
 msgid "Green-Score"
-msgstr ""
+msgstr "Green-Score"
 
 msgctxt "ecoscore_s"
 msgid "Green-Score"
-msgstr ""
+msgstr "Green-Score"
 
 msgctxt "environmental_score_p"
 msgid "Green-Score"
-msgstr ""
+msgstr "Green-Score"
 
 msgctxt "environmental_score_s"
 msgid "Green-Score"
-msgstr ""
+msgstr "Green-Score"
 
 msgctxt "misc_p"
 msgid "Miscellaneous"
@@ -5267,7 +5267,7 @@ msgstr "La piattaforma fornisce anche analisi profonde del prodotto."
 # It = the platform
 msgctxt "product_edits_by_producers_indicators"
 msgid "It computes indicators such as the Nutri-Score, NOVA, and the Green-Score, and automatically identifies suggestions to improve them (for instance all products that would get a better Nutri-Score grade with a slight composition change)."
-msgstr ""
+msgstr "Calcola indicatori come il Nutri-Score, NOVA e il Green-Score, e identifica automaticamente suggerimenti per migliorarli (per esempio tutti i prodotti che riceveranno un punteggio del Nutri-Score migliore con un lieve cambiamento di composizione)."
 
 msgctxt "attribute_forest_footprint_name"
 msgid "Forest footprint"
@@ -5348,7 +5348,7 @@ msgstr "Prodotti con il miglior Nutri-Score"
 
 msgctxt "sort_by_environmental_score_score"
 msgid "Products with the best Green-Score"
-msgstr ""
+msgstr "Prodotti con il miglior Green-Score"
 
 msgctxt "sort_by_created_t"
 msgid "Recently added products"
@@ -5402,16 +5402,16 @@ msgstr "L'utente è in fase di eliminazione. Potrebbe richiedere alcuni minuti."
 
 msgctxt "attribute_environmental_score_not_applicable_title"
 msgid "Green-Score not applicable"
-msgstr ""
+msgstr "Green-Score non applicabile"
 
 msgctxt "attribute_environmental_score_not_applicable_description_short"
 msgid "Not applicable for the category"
-msgstr ""
+msgstr "Non applicabile per la categoria"
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_environmental_score_not_applicable_description"
 msgid "Not yet applicable for the category: {category}"
-msgstr ""
+msgstr "Non ancora applicabile per la categoria: {category}"
 
 msgctxt "environmental_score_not_applicable_coming_soon"
 msgid "The Green-Score is not yet applicable for this category, but we are working on adding support for it."
