@@ -152,7 +152,7 @@ stopwords:hu: tartalmaz, változó arányban, min, zsírtartalom, összetevő, �
 stopwords:id: mengandung
 stopwords:is: úr
 # example: COCCO in proporzione variabile
-stopwords:it: di, del, dal, contiene, nella, in proporzione variabile, prodotto, prodotti, il, la, le, i, gli
+stopwords:it: di, del, della, delle, dal, contiene, nella, in proporzione variabile, prodotto, prodotti, il, la, le, i, gli
 # Japanese stopwords are matched without word boundaries, do not put as stopwords characters or words that could be part of an actual ingredient entry
 stopwords:ja: 等, その他
 stopwords:lt: iš, su, su pridėtiniu, mažiausiai, įskaitant
@@ -25465,7 +25465,7 @@ es: cebada orgánica
 fi: luomuohra
 hr: organski ječam, eko ječam
 hu: bio árpa
-it: Orzo biologico
+it: orzo biologico
 nl: biologische gerst
 nn: økologisk bygg
 pt: cevada orgânica
@@ -25480,7 +25480,7 @@ fi: idätetty ohra
 fr: orge germée
 hr: proklijali ječam
 hu: csíráztatott árpa
-it: Orzo germogliato
+it: orzo germogliato
 nl: gekiemde gerst
 nn: spiret bygg
 pl: jęczmień kiełkowany, kiełki jęczmienia
@@ -25496,7 +25496,7 @@ fi: täysjyväohra
 fr: orge complète
 hr: integralni ječam
 hu: teljes kiőrésű árpa
-it: Orzo integrale
+it: orzo integrale
 nl: volkorengerst
 nn: fulkornsbygg
 pl: jeçzmień z pełnego przemiału
@@ -25533,6 +25533,7 @@ de: Vollkorn-Gerstenflocken, Vollkorngerstenflocken, Gerstenvollkornflocken
 fi: täysjyväohrahiutale, täysjyväohrahiutaleet
 fr: flocons d'orge complète
 hr: ječmene pahuljice od cijelog zrna
+it: fiocchi d'orzo integrale
 nl: volkoren gerstvlokken
 sv: fullkornskornflingor
 # ingredient/fr:flocons-d'orge-complete has 16 products in 4 languages @2020-06-08
@@ -28562,6 +28563,10 @@ ciqual_food_name:en: Soya flour
 ciqual_food_name:fr: Farine de soja
 
 < en:soya flour
+en: restructured soya flour
+it: farina di soia ristrutturata
+
+< en:restructured soya flour
 en: soya flour restructured and rehydrated
 it: farina di soia ristrutturata e reidratata
 
@@ -33549,6 +33554,10 @@ de: Sojaeiweißerzeugnis
 fr: produit à base de protéines de soja
 allergens:en: en:soybeans
 
+< en:soy protein product
+en: proteic extruded soy, proteic extrusion of soy
+it: estruso proteico di soia
+
 < en:vegetable fiber
 en: soy fiber
 de: Sojafaser
@@ -33569,6 +33578,7 @@ de: Rehydrierte Sojafaser, rehydrierte Sojafasern
 es: fibra de soja rehidratada
 fr: Fibre de soja réhydratée
 hr: rehidrirana sojina vlakna
+it: fibre di soia reidratate
 
 < en:soy protein
 en: dehydrated soy protein
@@ -33579,6 +33589,7 @@ fi: dehydratoitu soijaproteiini
 fr: protéines de soja déshydratées
 hr: dehidrirani protein soje
 hu: dehidratált szójafehérje
+it: proteine di soia disidratate
 
 < en:soy protein
 en: textured soy protein, texturised soya protein
@@ -33598,6 +33609,7 @@ fi: uudelleen hydratoitu soijaproteiini
 fr: protéines de soja réhydratées, protéines végétales de soja réhydratées, textures de soja réhydratées
 hr: rehidrirani protein soje
 hu: rehidratált szójafehérje
+it: proteine di soia reidratate
 nl: gerehydrateerd soja-eiwit, gerehydrateerde soja-eiwit
 sv: rehydrerat sojaprotein
 
@@ -33609,7 +33621,7 @@ es: Aislado de proteína de soja
 fi: soijaproteiini-isolaatti
 fr: isolat de protéine de soja
 hr: izolat proteina soje, izolat sojinih bjelančevina
-it: Proteine isolate della soia, proteine isolate di soia
+it: proteine isolate di soia, proteine di soia isolate
 pl: izolowane białko sojowe, izolat białka sojowego
 ru: изолированный белок сои
 
@@ -38289,6 +38301,7 @@ ca: Fruits de bosc
 es: frutas del bosque
 fr: fruits des bois
 hr: šumsko voće
+it: frutti di bosco, bacche di bosco
 nl: bosvruchten
 pl: owoce leśne, owoców leśnych
 
@@ -41997,9 +42010,20 @@ pt: sumo de kumquat
 
 ###################################################################################################
 #
-#                                Chinotto
+#                                Less common citrus fruits
 #
 ###################################################################################################
+
+< en:citrus fruit
+en: citron
+it: cedro
+la: citrus medica
+wikipedia:en: https://en.wikipedia.org/wiki/Citron
+
+< en:citron
+< en:citrus fruit extract
+en: citron extract
+it: estratto di cedro
 
 < en:citrus fruit
 en: chinotto, citrus myrtifolia
@@ -89214,6 +89238,7 @@ en: rusk
 de: Zwieback
 fr: biscotte
 hr: dvopek
+it: fetta biscottata
 nl: beschuit
 wikidata:en: Q5477096
 wikipedia:en: https://en.wikipedia.org/wiki/Rusk
@@ -89488,7 +89513,7 @@ fi: Napolilainen vohveli
 fr: gaufrette
 hr: napolitanska napolitanka
 hu: Nápolyi ostya
-it: cialda
+it: wafer, wafer ripieni, wafer ripieno
 nl: Neapolitan wafer
 tr: Gofret
 # 143 products in 5 @2021-09-06
@@ -89513,7 +89538,7 @@ es: oblea, obleas, barquillo, barquillo sin azúcares añadidos
 fi: Vohvelit
 fr: pain azyme
 hr: napolitanka
-it: wafer
+it: cialda, ostia, cialde, ostie
 nl: ongedesemd brood, ouwel
 pl: wafel, wafli
 # ingredient/fr:pain-azyme has 293 products in 6 languages @2019-03-07
@@ -89522,6 +89547,9 @@ pl: wafel, wafli
 < en:wafer
 de: Backoblate, Backoblaten
 
+< en:wafer
+en: starch wafer
+it: ostia d'amido
 
 fr: biscuit d'enrobage
 
@@ -89529,6 +89557,7 @@ fr: biscuit d'enrobage
 bg: Гризини
 de: Grissini
 fr: gressins
+it: grissini
 nl: Broodstengels
 pt: gressinos
 sv: Grissini
@@ -89977,7 +90006,7 @@ hr: krušne mrvice
 hu: zsemlemorzsa, kenyérmorzsa
 id: Tepung roti
 io: Raspo-pano
-it: pangrattato, pane grattugiato
+it: pangrattato, pane grattugiato, panatura
 ja: パン粉
 ko: 빵가루
 lt: Malti džiūvėsiai
