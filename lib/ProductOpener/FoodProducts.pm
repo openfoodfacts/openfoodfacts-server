@@ -58,7 +58,6 @@ use ProductOpener::FoodGroups qw/compute_food_groups/;
 use ProductOpener::Nutriscore qw/:all/;
 use ProductOpener::EnvironmentalScore qw/compute_environmental_score/;
 use ProductOpener::ForestFootprint qw/compute_forest_footprint/;
-use ProductOpener::TaxonomiesEnhancer qw/detect_taxonomy_translation_from_text/;
 
 use Log::Any qw($log);
 
@@ -84,7 +83,6 @@ sub specific_processes_for_food_product ($product_ref) {
 	extract_ingredients_from_text($product_ref);
 	extract_additives_from_text($product_ref);
 	detect_allergens_from_text($product_ref);
-    detect_taxonomy_translation_from_text($product_ref);
 
 	# Category analysis
 	# Food category rules for sweetened/sugared beverages
