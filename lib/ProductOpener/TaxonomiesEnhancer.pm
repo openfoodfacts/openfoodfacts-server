@@ -18,8 +18,6 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-=encoding UTF-8
-
 =head1 NAME
 
 ProductOpener::TaxonomiesEnhancer - analyze ingredients and other fields to enrich the taxonomies
@@ -42,6 +40,8 @@ analyze ingredients and other fields to enrich the taxonomies
 =cut
 
 package ProductOpener::TaxonomiesEnhancer;
+
+use ProductOpener::PerlStandards;
 use Exporter qw< import >;
 
 BEGIN {
@@ -51,14 +51,13 @@ BEGIN {
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
+use vars @EXPORT_OK;
 
 use List::Util qw(any);
 use Log::Log4perl qw(get_logger);
 use Text::Levenshtein qw(distance);
-use vars @EXPORT_OK;
 
 use ProductOpener::Ingredients qw/parse_ingredients_text_service/;
-use ProductOpener::PerlStandards;
 use ProductOpener::Tags qw/add_tag get_taxonomy_tag_synonyms is_a/;
 
 # Configure Log4perl
@@ -797,6 +796,8 @@ sub check_ingredients_between_languages {
 			);
 		}
 	}
+
+    return;
 }
 
 1;
