@@ -797,7 +797,7 @@ sub check_ingredients_between_languages {
 		}
 	}
 
-    return;
+	return;
 }
 
 1;
