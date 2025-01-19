@@ -42,6 +42,7 @@ analyze ingredients and other fields to enrich the taxonomies
 =cut
 
 package ProductOpener::TaxonomiesEnhancer;
+use Exporter qw< import >;
 
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
@@ -51,7 +52,6 @@ BEGIN {
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
-use Exporter qw< import >;
 use List::Util qw(any);
 use Log::Log4perl qw(get_logger);
 use Text::Levenshtein qw(distance);
@@ -156,6 +156,8 @@ sub parse_ingredients_for_language {
 	delete $ingredients_hash->{"ingredients_lc"} if exists $ingredients_hash->{"ingredients_lc"};
 	delete $ingredients_hash->{"ingredients_text"} if exists $ingredients_hash->{"ingredients_text"};
 	delete $ingredients_hash->{"ingredients_text_" . $lang} if exists $ingredients_hash->{"ingredients_text_" . $lang};
+
+	return;
 }
 
 =head2 not_enough_known_ingredients ( ingredients1, ingredients2 )
@@ -251,7 +253,7 @@ sub detect_missing_stop_words_before_list {
 	) if $log->is_debug();
 
 	# Return if first ingredient in ingredients1 is unknown or first ingredient in ingredients2 is known
-	if (!$ingredients1->[0]{is_in_taxonomy} or $ingredients2->[0]{is_in_taxonomy}) {
+	if (!$ingredients1->[0]{is_in_taxonomy} || $ingredients2->[0]{is_in_taxonomy}) {
 		$log->debug(
 			"check_ingredients_between_languages > detect_missing_stop_words_before_list -   first ingredient in ingredients1 ($ingredients1->[0]{id}) is unknown (is_in_taxonomy => $ingredients1->[0]{is_in_taxonomy}) or first ingredient in ingredients2 is known (is_in_taxonomy => $ingredients2->[0]{is_in_taxonomy})"
 		) if $log->is_debug();
@@ -278,6 +280,8 @@ sub detect_missing_stop_words_before_list {
 			$previous_ingredients_object = $ingredients2->[$i];
 		}
 	}
+
+	return;
 }
 
 =head2 get_ingredient_index ( ingredients, ingredient_id )
@@ -408,6 +412,8 @@ sub detect_missing_stop_words_after_list {
 			$missing_stop_words_after->{$lang2} = $unknown_ingredient_object->{id};
 		}
 	}
+
+	return;
 }
 
 =head2 remove_duplicates ( @array )
@@ -662,6 +668,8 @@ sub detect_missing_ingredients {
 			}
 		}
 	}
+
+	return;
 }
 
 =head2 check_ingredients_between_languages ( product_ref )

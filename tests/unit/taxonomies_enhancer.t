@@ -1,15 +1,13 @@
 #!/usr/bin/perl -w
 
+use Modern::Perl '2017';
+use utf8;
+
+use Test2::V0;
 use Data::Dumper;
 $Data::Dumper::Terse = 1;    # rm variable name
 $Data::Dumper::Indent = 1;
 $Data::Dumper::Sortkeys = 1;
-
-use Test2::V0;
-
-# use Modern::Perl '2017';
-# use utf8;
-# use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Tags qw/has_tag/;
 use ProductOpener::TaxonomiesEnhancer qw/check_ingredients_between_languages/;
