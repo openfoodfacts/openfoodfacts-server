@@ -110,6 +110,9 @@ requires 'Module::Load';
 # To measure the time taken by requests
 requires 'Time::Monotonic';
 
+# To measure similarity between words and find possible typo
+requires 'Text::Levenshtein';
+
 on 'test' => sub {
   requires 'Test2::V0';
   requires 'Mock::Quick';
