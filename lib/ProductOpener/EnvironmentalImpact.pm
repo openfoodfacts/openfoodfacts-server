@@ -158,38 +158,39 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 
 	# Handle the response based on success or failure
 	if ($response->is_success) {
-	    $log->debug(
-	        "send_event response ok",
-	        {
-	            endpoint => $url_recipe,
-	            payload => $payload,
-	            is_success => $response->is_success,
-	            code => $response->code,
-	            status_line => $response->status_line
-	        }
-	    ) if $log->is_debug(); {
+		$log->debug(
+			"send_event response ok",
+			{
+				endpoint => $url_recipe,
+				payload => $payload,
+				is_success => $response->is_success,
+				code => $response->code,
+				status_line => $response->status_line
+			}
+		) if $log->is_debug();
+		{
 
-		    # Parse the JSON response
-		    my $response_data;
-		    eval {$response_data = decode_json($response->decoded_content);};
-		    if ($@) {
-		        $log->warn("Invalid JSON response: $@") if $log->is_warn();
-		        return;
-		    }
+			# Parse the JSON response
+			my $response_data;
+			eval {$response_data = decode_json($response->decoded_content);};
+			if ($@) {
+				$log->warn("Invalid JSON response: $@") if $log->is_warn();
+				return;
+			}
 
-		    # Access the specific "ecs" value
-		    my $ecs_value;  # Declare the variable outside the condition
-		    if (exists $response_data->{results}{total}{ecs}) {
-		        $ecs_value = $response_data->{results}{total}{ecs};
-		    }
-		    # Check if ecs exists and store it in the product field
-		    if (defined $ecs_value) {
-		        $product_ref->{environmental_impact} = $ecs_value;
-		        $log->debug("ecs value stored", {ecs => $product_ref->{ecs}}) if $log->is_debug();
-		    }
-		    else {
-		        $log->warn("'ecs' key not found") if $log->is_warn();
-		    }
+			# Access the specific "ecs" value
+			my $ecs_value;    # Declare the variable outside the condition
+			if (exists $response_data->{results}{total}{ecs}) {
+				$ecs_value = $response_data->{results}{total}{ecs};
+			}
+			# Check if ecs exists and store it in the product field
+			if (defined $ecs_value) {
+				$product_ref->{environmental_impact} = $ecs_value;
+				$log->debug("ecs value stored", {ecs => $product_ref->{ecs}}) if $log->is_debug();
+			}
+			else {
+				$log->warn("'ecs' key not found") if $log->is_warn();
+			}
 		}
 	}
 	else {
