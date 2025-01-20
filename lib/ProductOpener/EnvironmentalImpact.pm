@@ -173,8 +173,8 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 		my $response_data;
 		eval {$response_data = decode_json($response->decoded_content);};
 		if ($@) {
-		    $log->warn("Invalid JSON response: $@") if $log->is_warn();
-		    return;
+			$log->warn("Invalid JSON response: $@") if $log->is_warn();
+			return;
 		}
 
 		# Accéder à la valeur spécifique "ecs"
