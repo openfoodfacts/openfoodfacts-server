@@ -46,7 +46,7 @@ my $product_hazelnut_spread_json = '
 
 # Définition des tests
 my $tests_ref = [
-    {
+        {
         test_case => 'unknown-service',
         method => 'POST',
         path => '/api/v3/product_services',
@@ -55,15 +55,15 @@ my $tests_ref = [
             "product":{}
         }',
         expected_status_code => 400,
-    },
-    {
+        },
+        {
         test_case => 'echo-service-hazelnut-spread',
         method => 'POST',
         path => '/api/v3/product_services/echo',
         body => '{
             "services":["echo"],
             "fields":["all"],' . $product_hazelnut_spread_json . '}',
-    },
+        },
 ];
 
 execute_api_tests(__FILE__, $tests_ref);

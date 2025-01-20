@@ -138,56 +138,58 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 		}
 	}
 
-	# URL de l'API
-	my $url_recipe = "https://staging-ecobalyse.incubateur.net/api/food";
+	# API URL
+	 $url_recipe = "https://staging-ecobalyse.incubateur.net/api/food";
 
-	# Créer un objet UserAgent pour faire la requête API
+	# Create a UserAgent object to make the API request
 	my $ua = LWP::UserAgent->new();
-	$ua->timeout(2);    # Définir le timeout de la requête
+	$ua->timeout(2);    # Set the request timeout
 
-	# Préparer la requête POST avec le payload
+	# Prepare the POST request with the payload
 	my $request = POST $url_recipe, $payload;
 	$request->header('content-type' => 'application/json');
 	$request->content(decode_utf8(encode_json($payload)));
 
-	# Informations de débogage pour la requête
+	# Debug information for the request
 	$log->debug("send_event request", {endpoint => $url_recipe, payload => $payload}) if $log->is_debug();
 
-	# Envoyer la requête et obtenir la réponse
+	# Send the request and get the response
 	my $response = $ua->request($request);
 
-	# Gérer la réponse en fonction du succès ou de l'échec
+	# Handle the response based on success or failure
 	if ($response->is_success) {
-		$log->debug(
-			"send_event response ok",
-			{
-				endpoint => $url_recipe,
-				payload => $payload,
-				is_success => $response->is_success,
-				code => $response->code,
-				status_line => $response->status_line
-			}
-		) if $log->is_debug();
+	    $log->debug(
+	        "send_event response ok",
+	        {
+	            endpoint => $url_recipe,
+	            payload => $payload,
+	            is_success => $response->is_success,
+	            code => $response->code,
+	            status_line => $response->status_line
+	        }
+	    ) if $log->is_debug();
 
-		# Analyser la réponse JSON
-		my $response_data;
-		eval {$response_data = decode_json($response->decoded_content);};
-		if ($@) {
-			$log->warn("Invalid JSON response: $@") if $log->is_warn();
-			return;
-		}
+		    # Parse the JSON response
+		    my $response_data;
+		    eval {$response_data = decode_json($response->decoded_content);};
+		    if ($@) {
+		        $log->warn("Invalid JSON response: $@") if $log->is_warn();
+		        return;
+		    }
 
-		# Accéder à la valeur spécifique "ecs"
-		# my $ecs_value = $response_data->{results} // {}->{total} // {}->{ecs};
-		my $ecs_value = $response_data->{results}{total}{ecs} if exists $response_data->{results}{total}{ecs};
-
-		# Vérifier si ecs existe et le stocker dans le champ de produit
-		if (defined $ecs_value) {
-			$product_ref->{environmental_impact} = $ecs_value;
-			$log->debug("ecs value stored", {ecs => $product_ref->{ecs}}) if $log->is_debug();
-		}
-		else {
-			$log->warn("'ecs' key not found") if $log->is_warn();
+		    # Access the specific "ecs" value
+		    my $ecs_value;  # Declare the variable outside the condition
+		    if (exists $response_data->{results}{total}{ecs}) {
+		        $ecs_value = $response_data->{results}{total}{ecs};
+		    }
+		    # Check if ecs exists and store it in the product field
+		    if (defined $ecs_value) {
+		        $product_ref->{environmental_impact} = $ecs_value;
+		        $log->debug("ecs value stored", {ecs => $product_ref->{ecs}}) if $log->is_debug();
+		    }
+		    else {
+		        $log->warn("'ecs' key not found") if $log->is_warn();
+		    }
 		}
 	}
 	else {
