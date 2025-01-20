@@ -46,50 +46,50 @@ my $product_hazelnut_spread_json = '
 
 # Définition des tests
 my $tests_ref = [
-        {
-        test_case => 'unknown-service',
-        method => 'POST',
-        path => '/api/v3/product_services',
-        body => '{
+	{
+		test_case => 'unknown-service',
+		method => 'POST',
+		path => '/api/v3/product_services',
+		body => '{
             "services":["unknown"],
             "product":{}
         }',
-        expected_status_code => 400,
-        },
-        {
-        test_case => 'echo-service-hazelnut-spread',
-        method => 'POST',
-        path => '/api/v3/product_services/echo',
-        body => '{
+		expected_status_code => 400,
+	},
+	{
+		test_case => 'echo-service-hazelnut-spread',
+		method => 'POST',
+		path => '/api/v3/product_services/echo',
+		body => '{
             "services":["echo"],
             "fields":["all"],' . $product_hazelnut_spread_json . '}',
-        },
+	},
 ];
 
 execute_api_tests(__FILE__, $tests_ref);
 
 # Tests supplémentaires (exemple)
 my @tests = (
-    [
-        'empty-product',
-        {
-            lc => "en",
-        }
-    ],
-    [
-        'unknown-category',
-        {
-            lc => "en",
-            categories_tags => ["en:some-unknown-category"],
-        }
-    ],
+	[
+		'empty-product',
+		{
+			lc => "en",
+		}
+	],
+	[
+		'unknown-category',
+		{
+			lc => "en",
+			categories_tags => ["en:some-unknown-category"],
+		}
+	],
 );
 
 # Validation des tests supplémentaires
 foreach my $test (@tests) {
-    my ($description, $params) = @$test;
-    diag("Testing: $description");
-    # Ajouter ici la logique de test avec les $params
+	my ($description, $params) = @$test;
+	diag("Testing: $description");
+	# Ajouter ici la logique de test avec les $params
 }
 
 done_testing();
