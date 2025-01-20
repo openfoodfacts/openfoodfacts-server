@@ -109,39 +109,42 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 	};
 
 	# Estimating the environmental impact
-    foreach my $ingredient_ref (@{$product_ref->{ingredients}}) {
-        next unless defined $ingredient_ref->{id} && defined $ingredient_ref->{mass};
-        push @{$payload->{ingredients}}, {
-            id   => $ingredient_ref->{id},
-            mass => $ingredient_ref->{mass}
-        };
-    }
+	foreach my $ingredient_ref (@{$product_ref->{ingredients}}) {
+		next unless defined $ingredient_ref->{id} && defined $ingredient_ref->{mass};
+		push @{$payload->{ingredients}},
+			{
+			id => $ingredient_ref->{id},
+			mass => $ingredient_ref->{mass}
+			};
+	}
 
 	# Adding a transformation
-    if (defined $product_ref->{transform}) {
-        $payload->{transform} = {
-            id   => $product_ref->{transform}->{id},
-            mass => $product_ref->{transform}->{mass}
-        } if defined $product_ref->{transform}->{id} && defined $product_ref->{transform}->{mass};
-    }
+	if (defined $product_ref->{transform}) {
+		$payload->{transform} = {
+			id => $product_ref->{transform}->{id},
+			mass => $product_ref->{transform}->{mass}
+			}
+			if defined $product_ref->{transform}->{id} && defined $product_ref->{transform}->{mass};
+	}
 
 	# Adding a packaging
-    if (defined $product_ref->{packaging}) {
-        foreach my $packaging_ref (@{$product_ref->{packaging}}) {
-            next unless defined $packaging_ref->{id} && defined $packaging_ref->{mass};
-            push @{$payload->{packaging}}, {
-                id   => $packaging_ref->{id},
-                mass => $packaging_ref->{mass}
-            };
-        }
-    }
+	if (defined $product_ref->{packaging}) {
+		foreach my $packaging_ref (@{$product_ref->{packaging}}) {
+			next unless defined $packaging_ref->{id} && defined $packaging_ref->{mass};
+			push @{$payload->{packaging}},
+				{
+				id => $packaging_ref->{id},
+				mass => $packaging_ref->{mass}
+				};
+		}
+	}
 
 	# API URL
 	$url_recipe = "https://staging-ecobalyse.incubateur.net/api/food";
 
 	# Create a UserAgent object to make the API request
-    my $ua = LWP::UserAgent->new();
-    $ua->timeout(2);
+	my $ua = LWP::UserAgent->new();
+	$ua->timeout(2);
 
 	# Prepare the POST request with the payload
 	my $request = POST $url_recipe, $payload;
@@ -155,39 +158,39 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 	my $response = $ua->request($request);
 
 	# Handle the response based on success or failure
-    if ($response->is_success) {
-        $log->debug(
-            "send_event response ok",
-            {
-                endpoint    => $url_recipe,
-                payload     => $payload,
-                code        => $response->code,
-                status_line => $response->status_line
-            }
-        ) if $log->is_debug();
+	if ($response->is_success) {
+		$log->debug(
+			"send_event response ok",
+			{
+				endpoint => $url_recipe,
+				payload => $payload,
+				code => $response->code,
+				status_line => $response->status_line
+			}
+		) if $log->is_debug();
 
 		# Parse the JSON response
-	    my $response_data;
-        eval { $response_data = decode_json($response->decoded_content); };
-    	if ($@) {
-	        $log->warn("Invalid JSON response: $@") if $log->is_warn();
-    	    return;
-    	}
+		my $response_data;
+		eval {$response_data = decode_json($response->decoded_content);};
+		if ($@) {
+			$log->warn("Invalid JSON response: $@") if $log->is_warn();
+			return;
+		}
 
-	    # Access the specific "ecs" value
-        if (exists $response_data->{results}{total}{ecs}) {
-        	my $ecs_value = $response_data->{results}{total}{ecs};
-            if (defined $ecs_value) {
-    	        $product_ref->{environmental_impact} = $ecs_value;
-        	    $log->debug("ecs value stored", {ecs => $ecs_value}) if $log->is_debug();
-        	}
-	        else {
-	            $log->warn("'ecs' key found but undefined") if $log->is_warn();
-        	}
-	    }
-    	else {
-    	    $log->warn("'ecs' key not found in response") if $log->is_warn();
-        }
+		# Access the specific "ecs" value
+		if (exists $response_data->{results}{total}{ecs}) {
+			my $ecs_value = $response_data->{results}{total}{ecs};
+			if (defined $ecs_value) {
+				$product_ref->{environmental_impact} = $ecs_value;
+				$log->debug("ecs value stored", {ecs => $ecs_value}) if $log->is_debug();
+			}
+			else {
+				$log->warn("'ecs' key found but undefined") if $log->is_warn();
+			}
+		}
+		else {
+			$log->warn("'ecs' key not found in response") if $log->is_warn();
+		}
 	}
 	else {
 		$log->warn(
@@ -199,9 +202,9 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 				code => $response->code,
 				status_line => $response->status_line,
 				response => $response
-            }
-        ) if $log->is_warn();
-    }
+			}
+		) if $log->is_warn();
+	}
 
 	# If necessary, return error as well
 	# (number of unattributed ingredients,
