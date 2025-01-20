@@ -171,9 +171,7 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 
 		# Analyser la réponse JSON
 		my $response_data;
-		eval {
-		    $response_data = decode_json($response->decoded_content);
-		};
+		eval {$response_data = decode_json($response->decoded_content);};
 		if ($@) {
 		    $log->warn("Invalid JSON response: $@") if $log->is_warn();
 		    return;
