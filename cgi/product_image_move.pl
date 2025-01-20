@@ -145,7 +145,7 @@ if ($path eq 'invalid') {
 	exit(0);
 }
 
-my $product_ref = product_exists($product_id);    # returns 0 if not
+my $product_ref = retrieve_product($product_id);
 
 if (not $product_ref) {
 	$log->warn("product does not exist", {code => $code, product_id => $product_id});
