@@ -119,6 +119,8 @@ my %service_functions = (
 	analyze_ingredients => \&ProductOpener::Ingredients::analyze_ingredients_service,
 	estimate_environmental_impact_service =>
 		\&ProductOpener::EnvironmentalImpact::estimate_environmental_impact_service,
+	determine_food_contact_of_packaging_components =>
+		\&ProductOpener::PackagingFoodContact::determine_food_contact_of_packaging_components_service,
 );
 
 sub check_product_services_api_input ($request_ref) {
