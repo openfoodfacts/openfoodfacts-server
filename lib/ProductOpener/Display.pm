@@ -114,6 +114,7 @@ BEGIN {
 		$images_subdomain
 		$static_subdomain
 		$producers_platform_url
+		$public_platform_url
 		$test
 		@lcs
 		$country
@@ -345,6 +346,7 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	$template_data_ref->{server_options_private_products} = $server_options{private_products};
 	$template_data_ref->{server_options_producers_platform} = $server_options{producers_platform};
 	$template_data_ref->{producers_platform_url} = $producers_platform_url;
+	$template_data_ref->{public_platform_url} = $public_platform_url;
 	$template_data_ref->{server_domain} = $server_domain;
 	$template_data_ref->{static_subdomain} = $static_subdomain;
 	$template_data_ref->{images_subdomain} = $images_subdomain;
@@ -907,10 +909,15 @@ CSS
 	# call format_subdomain($subdomain) only once
 	$formatted_subdomain = format_subdomain($subdomain);
 	$producers_platform_url = $formatted_subdomain . '/';
+	$public_platform_url = $formatted_subdomain . '/';
 
 	# If we are not already on the producers platform: add .pro
 	if ($producers_platform_url !~ /\.pro\.open/) {
 		$producers_platform_url =~ s/\.open/\.pro\.open/;
+	}
+	# and the contrary for public platform
+	if ($public_platform_url ~ /\.pro\.open/) {
+		$public_platform_url =~ s/\.pro\.open/\.open/;
 	}
 
 	# Enable or disable user food preferences: used to compute attributes and to display
