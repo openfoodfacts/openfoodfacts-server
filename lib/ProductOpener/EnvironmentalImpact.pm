@@ -167,7 +167,7 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 	            code => $response->code,
 	            status_line => $response->status_line
 	        }
-	    ) if $log->is_debug();
+	    ) if $log->is_debug(); {
 
 		    # Parse the JSON response
 		    my $response_data;
