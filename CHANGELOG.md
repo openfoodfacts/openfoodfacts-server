@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.56.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.55.0...v2.56.0) (2025-01-20)
+
+
+### Features
+
+* add link on pro platform to see nutriscore evolution [#11246](https://github.com/openfoodfacts/openfoodfacts-server/issues/11246) ([#11247](https://github.com/openfoodfacts/openfoodfacts-server/issues/11247)) ([c0518c1](https://github.com/openfoodfacts/openfoodfacts-server/commit/c0518c16562ca4b1ee92b458effed749fe3b654d))
+* Update the tagline to force the app upgrade ([#11262](https://github.com/openfoodfacts/openfoodfacts-server/issues/11262)) ([f685cb0](https://github.com/openfoodfacts/openfoodfacts-server/commit/f685cb019e67b0dabc049cb2a405ef0461cda0e3))
+
 ## [2.55.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.54.0...v2.55.0) (2025-01-17)
 
 
