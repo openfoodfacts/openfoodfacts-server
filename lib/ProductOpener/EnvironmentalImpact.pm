@@ -167,10 +167,10 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 		if (exists $response_data->{results}{total}{ecs}) {
 			my $ecs_value = $response_data->{results}{total}{ecs};
 
-	        # If 'ecs' is defined, store it in the product reference
-    	    if (defined $ecs_value) {
-        	    $product_ref->{environmental_impact} = $ecs_value;
-        	}
+			# If 'ecs' is defined, store it in the product reference
+			if (defined $ecs_value) {
+				$product_ref->{environmental_impact} = $ecs_value;
+			}
 		}
 
 		# If necessary, return error as well
