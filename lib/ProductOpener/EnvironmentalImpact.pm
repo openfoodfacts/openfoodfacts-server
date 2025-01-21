@@ -140,7 +140,7 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 	}
 
 	# API URL
-	$url_recipe = "https://staging-ecobalyse.incubateur.net/api/food";
+	my $url_recipe = "https://staging-ecobalyse.incubateur.net/api/food";
 
 	# Create a UserAgent object to make the API request
 	my $ua = LWP::UserAgent->new();
@@ -152,66 +152,34 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 	$request->content(decode_utf8(encode_json($payload)));
 
 	# Debug information for the request
-	$log->debug("send_event request", {endpoint => $url_recipe, payload => $payload}) if $log->is_debug();
+	# $log->debug("send_event request", {endpoint => $url_recipe, payload => $payload}) if $log->is_debug();
 
 	# Send the request and get the response
 	my $response = $ua->request($request);
 
 	# Handle the response based on success or failure
 	if ($response->is_success) {
-		$log->debug(
-			"send_event response ok",
-			{
-				endpoint => $url_recipe,
-				payload => $payload,
-				code => $response->code,
-				status_line => $response->status_line
-			}
-		) if $log->is_debug();
-
 		# Parse the JSON response
 		my $response_data;
 		eval {$response_data = decode_json($response->decoded_content);};
-		if ($@) {
-			$log->warn("Invalid JSON response: $@") if $log->is_warn();
-			return;
-		}
 
 		# Access the specific "ecs" value
 		if (exists $response_data->{results}{total}{ecs}) {
 			my $ecs_value = $response_data->{results}{total}{ecs};
-			if (defined $ecs_value) {
-				$product_ref->{environmental_impact} = $ecs_value;
-				$log->debug("ecs value stored", {ecs => $ecs_value}) if $log->is_debug();
-			}
-			else {
-				$log->warn("'ecs' key found but undefined") if $log->is_warn();
-			}
+
+	        # If 'ecs' is defined, store it in the product reference
+    	    if (defined $ecs_value) {
+        	    $product_ref->{environmental_impact} = $ecs_value;
+        	}
 		}
-		else {
-			$log->warn("'ecs' key not found in response") if $log->is_warn();
-		}
+
+		# If necessary, return error as well
+		# (number of unattributed ingredients,
+		# percentage of unattributed mass, etc...)
+
+		# add_error
+		# add_warning
+
+		return;
 	}
-	else {
-		$log->warn(
-			"send_event response not ok",
-			{
-				endpoint => $url_recipe,
-				payload => $payload,
-				is_success => $response->is_success,
-				code => $response->code,
-				status_line => $response->status_line,
-				response => $response
-			}
-		) if $log->is_warn();
-	}
-
-	# If necessary, return error as well
-	# (number of unattributed ingredients,
-	# percentage of unattributed mass, etc...)
-
-	# add_error
-	# add_warning
-
-	return;
 }
