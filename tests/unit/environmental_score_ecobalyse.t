@@ -1,4 +1,6 @@
-#!/usr/bin/perl -w
+#!/usr/bin/perl
+use strict;
+use warnings;
 
 #use Modern::Perl '2017';
 use utf8;
