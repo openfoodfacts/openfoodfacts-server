@@ -11,6 +11,7 @@ use Log::Any::Adapter 'TAP';
 use JSON;
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::EnvironmentalImpact qw/estimate_environmental_impact_service/;
 use ProductOpener::APITest qw/execute_api_tests wait_application_ready/;
 
 # Définition du produit exemple
@@ -85,11 +86,17 @@ my @tests = (
 	],
 );
 
-# Validation des tests supplémentaires
 foreach my $test (@tests) {
     my ($description, $params) = @$test;
     diag("Testing: $description");
-	# Ajouter ici la logique de test avec les $params
+	
+	my $testid = $test_ref->[0];
+	my $product_ref = $test_ref->[1];
+
+	# Run the test
+    compute_field_tags($product_ref, $product_ref->{lc}, "labels");
 }
+
+#
 
 done_testing();
