@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 
-use Modern::Perl '2017';
+#use Modern::Perl '2017';
 use utf8;
 
 use Test2::V0;
@@ -87,8 +87,8 @@ my @tests = (
 
 # Validation des tests supplémentaires
 foreach my $test (@tests) {
-	my ($description, $params) = @$test;
-	diag("Testing: $description");
+    my ($description, $params) = @$test;
+    diag("Testing: $description");
 	# Ajouter ici la logique de test avec les $params
 }
 
