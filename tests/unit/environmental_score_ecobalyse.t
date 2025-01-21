@@ -89,14 +89,14 @@ my @tests = (
 );
 
 foreach my $test (@tests) {
-    my ($description, $params) = @$test;
-    diag("Testing: $description");
-	
+	my ($description, $params) = @$test;
+	diag("Testing: $description");
+
 	my $testid = $test_ref->[0];
 	my $product_ref = $test_ref->[1];
 
 	# Run the test
-    compute_field_tags($product_ref, $product_ref->{lc}, "labels");
+	compute_field_tags($product_ref, $product_ref->{lc}, "labels");
 }
 
 #
