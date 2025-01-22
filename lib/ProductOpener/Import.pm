@@ -328,6 +328,7 @@ sub upload_images_for_product($args_ref, $images_ref, $product_ref, $imported_pr
 
 			my $imagefield_with_lc = $imagefield;
 
+			# we might have more than one column for image_other
 			# image_other_url.2 -> remove the number
 			$imagefield_with_lc =~ s/(\.|_)(\d+)$//;
 
