@@ -313,6 +313,7 @@ sub upload_images_for_product($args_ref, $images_ref, $product_ref, $imported_pr
 			$log->debug("uploading image for product", {imagefield => $imagefield, code => $code})
 				if $log->is_debug();
 
+			# compute imgid for new image
 			my $current_max_imgid = -1;
 
 			if (defined $product_ref->{images}) {
