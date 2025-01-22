@@ -603,11 +603,11 @@ $options{categories_considered_as_beverages_for_nutriscore_2023} = [
 $options{categories_exempted_from_nutriscore} = [
 	qw(
 		en:alcoholic-beverages
-		en:aromatic-herbs
 		en:baby-foods
 		en:baby-milks
 		en:chewing-gum
 		en:food-additives
+		en:dietary-supplements
 		en:meal-replacements
 		en:salts
 		en:spices
