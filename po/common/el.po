@@ -6056,15 +6056,15 @@ msgstr "Η κατηγορία του προϊόντος πρέπει να καθ
 
 msgctxt "nutriscore_missing_nutrition_data"
 msgid "The nutrition facts of the product must be specified in order to compute the Nutri-Score."
-msgstr ""
+msgstr "Τα διατροφικά στοιχεία του προϊόντος πρέπει να προσδιορίζονται προκειμένου να υπολογιστεί το Nutri-Score."
 
 msgctxt "nutriscore_missing_nutrition_data_details"
 msgid "Missing nutrition facts:"
-msgstr ""
+msgstr "Λείπουν διατροφικά στοιχεία:"
 
 msgctxt "nutriscore_missing_category_and_nutrition_data"
 msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
-msgstr ""
+msgstr "Η κατηγορία και τα διατροφικά στοιχεία του προϊόντος πρέπει να προσδιορίζονται για τον υπολογισμό του Nutri-Score."
 
 msgctxt "health"
 msgid "Health"
@@ -6072,79 +6072,79 @@ msgstr ""
 
 msgctxt "contribution_panel_title"
 msgid "Contribution"
-msgstr ""
+msgstr "Συνεισφορά"
 
 msgctxt "contribution_navigation"
 msgid "Contribution"
-msgstr ""
+msgstr "Συνεισφορά"
 
 msgctxt "data_quality_errors_panel_title"
 msgid "Detected Errors"
-msgstr ""
+msgstr "Εντοπίστηκαν Σφάλματα"
 
 msgctxt "data_quality_errors_panel_subtitle"
 msgid "Help us improve quality of our data by contributing fixes"
-msgstr ""
+msgstr "Βοηθήστε μας να βελτιώσουμε την ποιότητα των δεδομένων μας συνεισφέροντας διορθώσεις"
 
 msgctxt "data_quality_warnings_panel_title"
 msgid "Potential issues"
-msgstr ""
+msgstr "Πιθανά ζητήματα"
 
 msgctxt "data_quality_warnings_panel_subtitle"
 msgid "We have detected some potential issues or potential improvements, could you check if some apply ?"
-msgstr ""
+msgstr "Εντοπίσαμε ορισμένα πιθανά προβλήματα ή πιθανές βελτιώσεις, μπορείτε να ελέγξετε αν ισχύουν κάποια;"
 
 msgctxt "data_quality_info_panel_title"
 msgid "Data Quality infos"
-msgstr ""
+msgstr "Πληροφορίες Ποιότητας Δεδομένων"
 
 msgctxt "data_quality_info_panel_subtitle"
 msgid "Some infos about data quality on this product"
-msgstr ""
+msgstr "Μερικές πληροφορίες σχετικά με την ποιότητα των δεδομένων σε αυτό το προϊόν"
 
 # will be followed by : and a value. e.g. "Compared to: bananas"
 msgctxt "compared_to"
 msgid "Compared to"
-msgstr ""
+msgstr "Σε σύγκριση με"
 
 # name of an activity / a sport
 msgctxt "activity_walking"
 msgid "Walking"
-msgstr ""
+msgstr "Περπάτημα"
 
 # name of an activity / a sport
 msgctxt "activity_swimming"
 msgid "Swimming"
-msgstr ""
+msgstr "Κολύμβηση"
 
 # name of an activity / a sport
 msgctxt "activity_bicycling"
 msgid "Bicycling"
-msgstr ""
+msgstr "Ποδηλασία"
 
 # name of an activity / a sport
 msgctxt "activity_running"
 msgid "Running"
-msgstr ""
+msgstr "Τρέξιμο"
 
 # Don't translate {kj}, it will be replaced by a number
 msgctxt "f_energy_per_100g"
 msgid "{kj} kJ per 100g"
-msgstr ""
+msgstr "{kj} kJ ανά 100g"
 
 # Don't translate {kj}, it will be replaced by a number
 msgctxt "f_equal_to_walking_minutes_or_steps"
 msgid "Equal to walking {minutes} minutes or {steps} steps"
-msgstr ""
+msgstr "Ισοδυναμεί με περπάτημα {minutes} λεπτά ή {steps} βήματα"
 
 # Don't translate {kg} and {lb}, it will be replaced by a number
 msgctxt "f_energy_expenditure_for_weight_in_kg_lb"
 msgid "Energy expenditure for a person weighting {kg} kg / {lb} lb"
-msgstr ""
+msgstr "Ενεργειακή δαπάνη για άτομο που ζυγίζει το {kg} kg / {lb} lb"
 
 msgctxt "nutriscore_missing_category_short"
 msgid "Missing category"
-msgstr ""
+msgstr "Λείπει κατηγορία"
 
 msgctxt "nutriscore_missing_nutrition_data_short"
 msgid "Missing nutrition facts"
@@ -6152,49 +6152,49 @@ msgstr "Λείπουν διατροφικά στοιχεία"
 
 msgctxt "nutriscore_missing_category_and_nutrition_data_short"
 msgid "Missing category and nutrition facts"
-msgstr ""
+msgstr "Λείπουν κατηγορία και διατροφικά στοιχεία"
 
 msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_title"
 msgid "Reduce or stop drinking alcohol"
-msgstr ""
+msgstr "Μειώστε ή σταματήστε να πίνετε αλκοόλ"
 
 msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_subtitle"
 msgid "Less is better"
-msgstr ""
+msgstr "Όσο λιγότερο τόσο καλύτερο"
 
 msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_text"
 msgid "This might not be the answer people want to hear, but there is no safe level for drinking alcohol. Of course there is lower-risk drinking, but WHO does not set particular limits, because the evidence shows that the ideal situation for health is to not drink at all. Alcohol is closely related to around 60 different diagnoses and for almost all there is a close dose–response relationship, so the more you drink, the higher your risk of disease. Less is better."
-msgstr ""
+msgstr "Αυτή μπορεί να μην είναι η απάντηση που θέλουν να ακούσουν οι άνθρωποι, αλλά δεν υπάρχει ασφαλές επίπεδο για την κατανάλωση αλκοόλ. Φυσικά υπάρχει χαμηλότερου κινδύνου κατανάλωση αλκοόλ, αλλά ο ΠΟΥ δεν θέτει συγκεκριμένα όρια, γιατί τα στοιχεία δείχνουν ότι η ιδανική κατάσταση για την υγεία είναι να μην πίνεις καθόλου. Το αλκοόλ σχετίζεται στενά με περίπου 60 διαφορετικές διαγνώσεις και σχεδόν για όλες υπάρχει στενή σχέση δόσης-απόκρισης, επομένως όσο περισσότερο πίνετε, τόσο μεγαλύτερος είναι ο κίνδυνος ασθένειας. Όσο λιγότερο τόσο καλύτερα."
 
 # "source" as in "source of the information"
 msgctxt "source"
 msgid "Source"
-msgstr ""
+msgstr "Πηγή"
 
 # variable names between { } must not be translated
 msgctxt "f_app_user"
 msgid "A user of the {app_name} app"
-msgstr ""
+msgstr "Ένας χρήστης της εφαρμογής {app_name}"
 
 msgctxt "food_groups_p"
 msgid "food groups"
-msgstr ""
+msgstr "ομάδες τροφίμων"
 
 msgctxt "food_groups_s"
 msgid "food group"
-msgstr ""
+msgstr "ομάδα τροφίμων"
 
 msgctxt "non_vegan_ingredients"
 msgid "Non-vegan ingredients"
-msgstr ""
+msgstr "Μη vegan συστατικά"
 
 msgctxt "vegan_ingredients"
 msgid "No non-vegan ingredients detected"
-msgstr ""
+msgstr "Δεν ανιχνεύθηκαν μη vegan συστατικά"
 
 msgctxt "maybe_vegan_ingredients"
 msgid "Ingredients that may not be vegan"
-msgstr ""
+msgstr "Συστατικά που μπορεί να μην είναι vegan"
 
 msgctxt "attribute_vegan_setting_note"
 msgid "To determine whether a product is vegan, we only rely on the list of ingredients."
@@ -6202,15 +6202,15 @@ msgstr "Για να προσδιορίσουμε εάν ένα προϊόν εί
 
 msgctxt "non_vegetarian_ingredients"
 msgid "Non-vegetarian ingredients"
-msgstr ""
+msgstr "Μη χορτοφαγικά συστατικά"
 
 msgctxt "vegetarian_ingredients"
 msgid "No non-vegetarian ingredients detected"
-msgstr ""
+msgstr "Δεν ανιχνεύθηκαν μη χορτοφαγικά συστατικά"
 
 msgctxt "maybe_vegetarian_ingredients"
 msgid "Ingredients that may not be vegetarian"
-msgstr ""
+msgstr "Συστατικά που μπορεί να μην είναι χορτοφαγικά"
 
 msgctxt "attribute_vegetarian_setting_note"
 msgid "To determine whether a product is vegetarian, we only rely on the list of ingredients."
@@ -6218,15 +6218,15 @@ msgstr "Για να προσδιορίσουμε εάν ένα προϊόν εί
 
 msgctxt "palm_oil_ingredients"
 msgid "Ingredients that contain palm oil"
-msgstr ""
+msgstr "Συστατικά που περιέχουν φοινικέλαιο"
 
 msgctxt "may_contain_palm_oil_ingredients"
 msgid "Ingredients that may contain palm oil"
-msgstr ""
+msgstr "Συστατικά που μπορεί να περιέχουν φοινικέλαιο"
 
 msgctxt "palm_oil_free_ingredients"
 msgid "No ingredients containing palm oil detected"
-msgstr ""
+msgstr "Δεν ανιχνεύθηκαν συστατικά που περιέχουν φοινικέλαιο"
 
 msgctxt "attribute_palm_oil_setting_note"
 msgid "To determine whether a product contains palm oil, we only rely on the list of ingredients."
@@ -6234,40 +6234,40 @@ msgstr "Για να προσδιορίσουμε εάν ένα προϊόν πε
 
 msgctxt "unrecognized_ingredients"
 msgid "Unrecognized ingredients"
-msgstr ""
+msgstr "Μη αναγνωρισμένα συστατικά"
 
 msgctxt "nova_1_unprocessed_ingredients"
 msgid "The product contains only unprocessed or minimally processed ingredients."
-msgstr ""
+msgstr "Το προϊόν περιέχει μόνο μη επεξεργασμένα ή ελάχιστα επεξεργασμένα συστατικά."
 
 # variable names between { } must not be translated
 msgctxt "f_nova_markers_for_nova_group"
 msgid "Elements that indicate the product is in the {nova_group} group"
-msgstr ""
+msgstr "Στοιχεία που υποδεικνύουν ότι το προϊόν ανήκει στην ομάδα {nova_group}"
 
 msgctxt "nova_classification_description"
 msgid "Food products are classified into 4 groups according to their degree of processing:"
-msgstr ""
+msgstr "Τα τρόφιμα ταξινομούνται σε 4 ομάδες ανάλογα με το βαθμό επεξεργασίας τους:"
 
 msgctxt "nova_classification_how"
 msgid "The determination of the group is based on the category of the product and on the ingredients it contains."
-msgstr ""
+msgstr "Ο προσδιορισμός της ομάδας βασίζεται στην κατηγορία του προϊόντος και στα συστατικά που περιέχει."
 
 msgctxt "nova_classification_learn_more"
 msgid "Learn more about the NOVA classification"
-msgstr ""
+msgstr "Μάθετε περισσότερα για την ταξινόμηση NOVA"
 
 msgctxt "nova_group_missing_category"
 msgid "The category of the product must be specified in order to determine the NOVA group."
-msgstr ""
+msgstr "Η κατηγορία του προϊόντος πρέπει να καθοριστεί για να προσδιοριστεί η ομάδα NOVA."
 
 msgctxt "nova_group_missing_ingredients"
 msgid "The ingredients of the product must be specified in order to determine the NOVA group."
-msgstr ""
+msgstr "Τα συστατικά του προϊόντος πρέπει να προσδιορίζονται για να προσδιοριστεί η ομάδα NOVA."
 
 msgctxt "nova_group_too_many_unknown_ingredient"
 msgid "We could not recognize some of the ingredients and determine the NOVA group."
-msgstr ""
+msgstr "Δεν μπορέσαμε να αναγνωρίσουμε μερικά από τα συστατικά και να καθορίσουμε την ομάδα NOVA."
 
 msgctxt "unselect_image"
 msgid "Unselect Image"
@@ -6279,7 +6279,7 @@ msgstr "Περισσότερες πληροφορίες σχετικά με το
 
 msgctxt "environmental_score_learn_more"
 msgid "Learn more about the Green-Score"
-msgstr ""
+msgstr "Μάθετε περισσότερα για το Green-Score"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_very_good_match"
@@ -6313,19 +6313,19 @@ msgstr ""
 
 msgctxt "reset_preferences"
 msgid "Use default preferences"
-msgstr ""
+msgstr "Χρήση προεπιλεγμένων προτιμήσεων"
 
 msgctxt "reset_preferences_details"
 msgid "Nutri-Score, Green-Score and food processing level (NOVA)"
-msgstr ""
+msgstr "Nutri-Score, Green-Score και επίπεδο επεξεργασίας τροφίμων (NOVA)"
 
 msgctxt "actions_add_ingredients"
 msgid "Could you add the ingredients list?"
-msgstr ""
+msgstr "Θα μπορούσατε να προσθέσετε τη λίστα συστατικών;"
 
 msgctxt "actions_to_compute_nutriscore"
 msgid "Could you add the information needed to compute the Nutri-Score?"
-msgstr ""
+msgstr "Θα μπορούσατε να προσθέσετε τις πληροφορίες που απαιτούνται για τον υπολογισμό του Nutri-Score;"
 
 msgctxt "actions_to_compute_environmental_score"
 msgid "Could you add a precise product category so that we can compute the Green-Score?"
@@ -6573,55 +6573,55 @@ msgstr "Το προϊόν ενημερώθηκε"
 
 msgctxt "api_message_invalid_api_action"
 msgid "Invalid API action"
-msgstr ""
+msgstr "Μη έγκυρη ενέργεια API"
 
 msgctxt "api_message_invalid_api_method"
 msgid "Invalid API method"
-msgstr ""
+msgstr "Μη έγκυρη μέθοδος API"
 
 msgctxt "api_message_empty_request_body"
 msgid "Empty request body"
-msgstr ""
+msgstr "Κενό σώμα αιτήματος"
 
 msgctxt "api_message_invalid_json_in_request_body"
 msgid "Invalid JSON in request body"
-msgstr ""
+msgstr "Μη έγκυρο JSON στο σώμα αιτήματος"
 
 msgctxt "api_message_invalid_code"
 msgid "Invalid code"
-msgstr ""
+msgstr "Μη έγκυρος κωδικός"
 
 msgctxt "api_message_invalid_product_type"
 msgid "Invalid product type"
-msgstr ""
+msgstr "Μη έγκυρος τύπος προϊόντος"
 
 msgctxt "api_message_invalid_type_must_be_object"
 msgid "Invalid type: must be an object"
-msgstr ""
+msgstr "Μη έγκυρος τύπος: πρέπει να είναι αντικείμενο"
 
 msgctxt "api_message_invalid_type_must_be_array"
 msgid "Invalid type: must be an array"
-msgstr ""
+msgstr "Μη έγκυρος τύπος: πρέπει να είναι πίνακας"
 
 msgctxt "api_message_invalid_type_must_be_integer"
 msgid "Invalid type: must be an integer"
-msgstr ""
+msgstr "Μη έγκυρος τύπος: πρέπει να είναι ακέραιος αριθμός"
 
 msgctxt "api_message_invalid_type_must_be_number"
 msgid "Invalid type: must be a number"
-msgstr ""
+msgstr "Μη έγκυρος τύπος: πρέπει να είναι αριθμός"
 
 msgctxt "api_message_missing_field"
 msgid "Missing field"
-msgstr ""
+msgstr "Λείπει πεδίο"
 
 msgctxt "api_message_unrecognized_field"
 msgid "Unrecognized field"
-msgstr ""
+msgstr "Μη αναγνωρισμένο πεδίο"
 
 msgctxt "api_message_unrecognized_value"
 msgid "Unrecognized value"
-msgstr ""
+msgstr "Μη αναγνωρισμένη αξία"
 
 msgctxt "api_impact_none"
 msgid "None"
@@ -6637,11 +6637,11 @@ msgstr "Αποτυχία"
 
 msgctxt "api_impact_field_ignored"
 msgid "Field ignored"
-msgstr ""
+msgstr "Το πεδίο αγνοήθηκε"
 
 msgctxt "api_impact_value_converted"
 msgid "Value converted"
-msgstr ""
+msgstr "Η τιμή μετατράπηκε"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units"
@@ -6651,29 +6651,29 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_weight"
 msgid "Weight of one empty unit"
-msgstr ""
+msgstr "Βάρος μιας άδειας μονάδας"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit"
 msgid "Quantity of product contained per unit"
-msgstr ""
+msgstr "Ποσότητα προϊόντος που περιέχεται ανά μονάδα"
 
 # variable names between { } must not be translated
 msgctxt "f_help_categorize_on_hunger_games"
 msgid "Help categorize more {title} on Hunger Games"
-msgstr ""
+msgstr "Βοηθήστε να κατηγοριοποιήσουμε περισσότερα {title} στα Παιχνίδια Πείνας"
 
 msgctxt "packagings_complete"
 msgid "All the packaging parts of the product are listed."
-msgstr ""
+msgstr "Αναφέρονται όλα τα μέρη συσκευασίας του προϊόντος."
 
 msgctxt "api_message_invalid_user_id_and_password"
 msgid "Invalid user id and password"
-msgstr ""
+msgstr "Μη έγκυρο αναγνωριστικό χρήστη και κωδικός πρόσβασης"
 
 msgctxt "api_message_invalid_value_must_be_0_or_1"
 msgid "Invalid value: must be 0 or 1"
-msgstr ""
+msgstr "Μη έγκυρη τιμή: πρέπει να είναι 0 ή 1"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units_description"
@@ -6695,7 +6695,7 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_weight_description"
 msgid "Remove any remaining food and wash and dry the packaging part before weighting. If possible, use a scale with 0.1g or 0.01g precision."
-msgstr ""
+msgstr "Αφαιρέστε τυχόν εναπομείναντα τρόφιμα και πλύνετε και στεγνώστε το μέρος της συσκευασίας πριν το ζύγισμα. Εάν είναι δυνατόν, χρησιμοποιήστε ζυγαριά με ακρίβεια 0,1 g ή 0,01 g."
 
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit_description"
@@ -6704,7 +6704,7 @@ msgstr ""
 
 msgctxt "import_and_export_products"
 msgid "Import and export products"
-msgstr ""
+msgstr "Εισαγωγή και εξαγωγή προϊόντων"
 
 msgctxt "add_products"
 msgid "Add products"
@@ -6713,76 +6713,76 @@ msgstr "Προσθέστε προϊόντα"
 # Needs to be short (displayed in a menu)
 msgctxt "install_the_app_to_add_products"
 msgid "Install the app to add products"
-msgstr ""
+msgstr "Εγκαταστήστε την εφαρμογή για να προσθέσετε προϊόντα"
 
 msgctxt "search_and_analyze_products"
 msgid "Search and analyze products"
-msgstr ""
+msgstr "Αναζήτηση και ανάλυση προϊόντων"
 
 msgctxt "resources"
 msgid "Resources"
-msgstr ""
+msgstr "Πόροι"
 
 msgctxt "pro_platform_user_guide"
 msgid "Pro platform user guide"
-msgstr ""
+msgstr "Οδηγός χρήσης Pro πλατφόρμας"
 
 msgctxt "faq_for_producers"
 msgid "FAQ for producers"
-msgstr ""
+msgstr "Συχνές ερωτήσεις για παραγωγούς"
 
 # variable names between { } must not be translated
 msgctxt "product_js_enter_value_between_0_and_max"
 msgid "Please enter a value between 0 and {max}."
-msgstr ""
+msgstr "Εισαγάγετε μια τιμή μεταξύ 0 και {max}."
 
 msgctxt "please_ask_users_create_account_first"
 msgid "Please ask the following users to create an Open Food Facts account first:"
-msgstr ""
+msgstr "Ζητήστε από τους ακόλουθους χρήστες να δημιουργήσουν πρώτα έναν λογαριασμό Open Food Facts:"
 
 msgctxt "users_added_successfully"
 msgid "Users added to the organization successfully:"
-msgstr ""
+msgstr "Χρήστες που προστέθηκαν με επιτυχία στον οργανισμό:"
 
 msgctxt "product_js_sugars_warning"
 msgid "Sugars should not be higher than carbohydrates."
-msgstr ""
+msgstr "Τα σάκχαρα δεν πρέπει να είναι υψηλότερα από τους υδατάνθρακες."
 
 msgctxt "product_js_saturated_fat_warning"
 msgid "Saturated fat should not be higher than fat."
-msgstr ""
+msgstr "Το κορεσμένο λίπος δεν πρέπει να είναι υψηλότερο από το λίπος."
 
 msgctxt "packaging_materials"
 msgid "Packaging materials"
-msgstr ""
+msgstr "Υλικά συσκευασίας"
 
 msgctxt "packaging_weight_total"
 msgid "Packaging weight"
-msgstr ""
+msgstr "Βάρος συσκευασίας"
 
 msgctxt "packaging_weight_100g"
 msgid "Packaging weight per 100 g of product"
-msgstr ""
+msgstr "Βάρος συσκευασίας ανά 100 g προϊόντος"
 
 msgctxt "packaging_weight_100g_mean"
 msgid "Mean packaging weight per 100 g of product"
-msgstr ""
+msgstr "Μέσο βάρος συσκευασίας ανά 100 g προϊόντος"
 
 msgctxt "total"
 msgid "Total"
-msgstr ""
+msgstr "Σύνολο"
 
 msgctxt "packaging_material_products_percent"
 msgid "% of products containing the material"
-msgstr ""
+msgstr "% των προϊόντων που περιέχουν το υλικό"
 
 msgctxt "packaging_material_products_percent_main"
 msgid "% of products containing mostly the material"
-msgstr ""
+msgstr "% των προϊόντων που περιέχουν κυρίως το υλικό"
 
 msgctxt "relative_to_products_containing_the_material"
 msgid "for products that contain the material"
-msgstr ""
+msgstr "για προϊόντα που περιέχουν το υλικό"
 
 msgctxt "relative_to_products_containing_mostly_the_material"
 msgid "for products that contain mostly the material"
@@ -6990,16 +6990,16 @@ msgstr "Αποτυχία"
 
 msgctxt "api_result_product_reverted"
 msgid "Product reverted to the specified revision"
-msgstr ""
+msgstr "Το προϊόν επανήλθε στην καθορισμένη αναθεώρηση"
 
 msgctxt "api_result_product_not_reverted"
 msgid "Product not reverted to the specified revision"
-msgstr ""
+msgstr "Το προϊόν δεν επανήλθε στην καθορισμένη αναθεώρηση"
 
 # sweeteners (additives), plural
 msgctxt "sweeteners"
 msgid "sweeteners"
-msgstr ""
+msgstr "γλυκαντικά"
 
 # sweetener (additive), singular
 msgctxt "sweetener"
@@ -7008,196 +7008,196 @@ msgstr "γλυκαντικό"
 
 msgctxt "action_edit_product"
 msgid "Complete or correct product information"
-msgstr ""
+msgstr "Συμπληρώστε ή διορθώστε τις πληροφορίες προϊόντος"
 
 msgctxt "report_problem_panel_title"
 msgid "Report a problem"
-msgstr ""
+msgstr "Αναφορά πρόβληματος"
 
 msgctxt "report_problem_navigation"
 msgid "Report a problem."
-msgstr ""
+msgstr "Αναφέρετε ένα πρόβλημα."
 
 msgctxt "incomplete_or_incorrect_data_title"
 msgid "Incomplete or incorrect information?"
-msgstr ""
+msgstr "Ελλιπείς ή λανθασμένες πληροφορίες;"
 
 msgctxt "incomplete_or_incorrect_data_subtitle_off"
 msgid "Category, labels, ingredients, allergens, nutritional information, photos etc."
-msgstr ""
+msgstr "Κατηγορία, ετικέτες, συστατικά, αλλεργιογόνα, διατροφικές πληροφορίες, φωτογραφίες κλπ."
 
 msgctxt "incomplete_or_incorrect_data_content_correct"
 msgid "If the information does not match the information on the packaging, you can complete or correct it. Thank you!"
-msgstr ""
+msgstr "Εάν οι πληροφορίες δεν ταιριάζουν με τις πληροφορίες στη συσκευασία, μπορείτε να τις συμπληρώσετε ή να τις διορθώσετε. Σας ευχαριστώ!"
 
 msgctxt "incomplete_or_incorrect_data_content_correct_off"
 msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
-msgstr ""
+msgstr "Το Open Food Facts είναι μια συνεργατική βάση δεδομένων και κάθε συνεισφορά είναι χρήσιμη για όλους."
 
 msgctxt "report_to_nutripatrol_explain"
 msgid "If you want to report vandalism, inappropriate content or erroneous data you can't fix yourself, report it to our moderators team."
-msgstr ""
+msgstr "Εάν θέλετε να αναφέρετε βανδαλισμούς, ακατάλληλο περιεχόμενο ή λανθασμένα δεδομένα που δεν μπορείτε να διορθώσετε μόνοι σας, αναφέρετέ το στην ομάδα συντονιστών μας."
 
 msgctxt "description"
 msgid "Description"
-msgstr ""
+msgstr "Περιγραφή"
 
 # duplicate with "report_problem_panel_title"
 msgctxt "report_problem_navigation"
 msgid "Report a problem"
-msgstr ""
+msgstr "Αναφορά πρόβληματος"
 
 msgctxt "enter_main_contact_username"
 msgid "Enter main contact's username :"
-msgstr ""
+msgstr "Εισάγετε το όνομα χρήστη της κύριας επαφής :"
 
 msgctxt "change_main_contact"
 msgid "Change main contact"
-msgstr ""
+msgstr "Αλλαγή κύριας επαφής"
 
 msgctxt "main_contact_updated"
 msgid "Main contact updated"
-msgstr ""
+msgstr "Η κύρια επαφή ενημερώθηκε"
 
 msgctxt "error_unknown_member"
 msgid "This user is not a member of the organization."
-msgstr ""
+msgstr "Αυτός ο χρήστης δεν είναι μέλος του οργανισμού."
 
 msgctxt "skip_to_content"
 msgid "Skip to Content"
-msgstr ""
+msgstr "Μετάβαση στο Περιεχόμενο"
 
 msgctxt "cant_delete_main_contact"
 msgid "You cannot remove the main contact. Change it first."
-msgstr ""
+msgstr "Δεν μπορείτε να αφαιρέσετε την κύρια επαφή. Άλλαξέ το πρώτα."
 
 msgctxt "open_in_crm"
 msgid "Open in CRM"
-msgstr ""
+msgstr "Ανοίξτε σε CRM"
 
 msgctxt "information_provided_by_the_manufacturer"
 msgid "Information provided by the manufacturer"
-msgstr ""
+msgstr "Πληροφορίες που παρέχονται από τον κατασκευαστή"
 
 msgctxt "information_provided_by_the_manufacturer_edit_form"
 msgid "Information identified by a factory icon has been provided by the manufacturer. It can be changed only by the manufacturer and moderators. If it is out of date or incorrect, please let us know."
-msgstr ""
+msgstr "Οι πληροφορίες που προσδιορίζονται από ένα εικονίδιο εργοστασίου παρέχονται από τον κατασκευαστή. Μπορεί να αλλάξει μόνο από τον κατασκευαστή και τους συντονιστές. Εάν είναι παλιό ή εσφαλμένο, ενημερώστε μας."
 
 msgctxt "knowledge_panels_did_you_know"
 msgid "Did you know?"
-msgstr ""
+msgstr "Το γνωρίζατε;"
 
 msgctxt "knowledge_panels_why_it_matters"
 msgid "Why it matters"
-msgstr ""
+msgstr "Γιατί έχει σημασία"
 
 msgctxt "knowledge_panels_what_you_can_do"
 msgid "What you can do"
-msgstr ""
+msgstr "Τι μπορείτε να κάνετε"
 
 msgctxt "knowledge_panels_ingredients_rare_crops_title"
 msgid "Good for agricultural biodiversity"
-msgstr ""
+msgstr "Καλό για τη γεωργική βιοποικιλότητα"
 
 msgctxt "knowledge_panels_ingredients_rare_crops_subtitle"
 msgid "Contains neglected or underutilized crops:"
-msgstr ""
+msgstr "Περιέχει παραμελημένες ή ανεπαρκώς χρησιμοποιημένες καλλιέργειες:"
 
 msgctxt "knowledge_panels_ingredients_rare_crops_did_you_know"
 msgid "Since 1900, 75% of plant diversity has been lost as farmers around the world have abandoned local varieties for high-yielding varieties adapted to mass industrial processing. As a result, 60 % of human energy intake in the world comes from only 3 species: wheat, rice and corn."
-msgstr ""
+msgstr "Από το 1900, το 75% της ποικιλίας των φυτών έχει χαθεί καθώς οι αγρότες σε όλο τον κόσμο έχουν εγκαταλείψει τις τοπικές ποικιλίες για ποικιλίες υψηλής απόδοσης προσαρμοσμένες στη μαζική βιομηχανική επεξεργασία. Ως αποτέλεσμα, το 60% της ανθρώπινης ενεργειακής πρόσληψης στον κόσμο προέρχεται μόνο από 3 είδη: σιτάρι, ρύζι και καλαμπόκι."
 
 msgctxt "knowledge_panels_ingredients_rare_crops_why_it_matters"
 msgid "The lack of variety of crops makes our food supply more vulnerable to pests, diseases and climate change."
-msgstr ""
+msgstr "Η έλλειψη ποικιλίας καλλιεργειών καθιστά την προσφορά τροφίμων πιο ευάλωτη σε παράσιτα, ασθένειες και κλιματική αλλαγή."
 
 msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do"
 msgid "Consuming diverse cereals, legumes, vegetables and fruits contributes to:"
-msgstr ""
+msgstr "Η κατανάλωση ποικίλων δημητριακών, οσπρίων, λαχανικών και φρούτων συμβάλλει:"
 
 msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_1"
 msgid "preserving neglected and underutilized species"
-msgstr ""
+msgstr "διατήρηση παραμελημένων και υποχρησιμοποιούμενων ειδών"
 
 msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_2"
 msgid "rural development and support of local farmers and companies"
-msgstr ""
+msgstr "αγροτική ανάπτυξη και υποστήριξη των τοπικών αγροτών και επιχειρήσεων"
 
 msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_3"
 msgid "preserving of diversified landscapes"
-msgstr ""
+msgstr "διατήρηση διαφοροποιημένων τοπίων"
 
 msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_4"
 msgid "food security"
-msgstr ""
+msgstr "ασφάλεια τροφίμων"
 
 msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_5"
 msgid "and your health!"
-msgstr ""
+msgstr "και την υγεία σου!"
 
 msgctxt "created_by"
 msgid "Created by"
-msgstr ""
+msgstr "Δημιουργήθηκε από"
 
 msgctxt "org_id"
 msgid "Org id"
-msgstr ""
+msgstr "Org id"
 
 msgctxt "verified_status"
 msgid "Verified status"
-msgstr ""
+msgstr "Κατάσταση επαλήθευσης"
 
 msgctxt "creation_date"
 msgid "Creation date"
-msgstr ""
+msgstr "Ημερομηνία δημιουργίας"
 
 msgctxt "knowledge_panels_ingredients_rare_crops_divinfood"
 msgid "Open Food Facts participates in the European project <a href=\"https://divinfood.eu/\">DIVINFOOD</a> (funded from European Union’s Horizon 2020 research and innovation programme). DIVINFOOD aims to develop food chains that value under-utilised agrobiodiversity in order to act against the decline of biodiversity and to meet the growing expectations of consumers for healthy, local products that contribute to sustainable food systems."
-msgstr ""
+msgstr "Το Open Food Facts συμμετέχει στο ευρωπαϊκό έργο <a href=\"https://divinfood.eu/\">DIVINFOOD</a> (χρηματοδοτούμενο από το πρόγραμμα έρευνας και καινοτομίας Horizon 2020 της Ευρωπαϊκής Ένωσης). Το DIVINFOOD στοχεύει να αναπτύξει τροφικές αλυσίδες που εκτιμούν την ανεπαρκώς χρησιμοποιούμενη αγροβιοποικιλότητα, προκειμένου να δράσει ενάντια στη μείωση της βιοποικιλότητας και να ανταποκριθεί στις αυξανόμενες προσδοκίες των καταναλωτών για υγιή, τοπικά προϊόντα που συμβάλλουν σε βιώσιμα συστήματα τροφίμων."
 
 msgctxt "deny"
 msgid "Deny"
-msgstr ""
+msgstr "Απόρριψη"
 
 msgctxt "users_requested_to_join_org"
 msgid "These users have requested to join the organization:"
-msgstr ""
+msgstr "Αυτοί οι χρήστες έχουν ζητήσει να εγγραφούν στον οργανισμό:"
 
 msgctxt "last_login"
 msgid "Last login date"
-msgstr ""
+msgstr "Ημερομηνία τελευταίας σύνδεσης"
 
 msgctxt "last_import"
 msgid "Last import date"
-msgstr ""
+msgstr "Τελευταία ημερομηνία εισαγωγής"
 
 msgctxt "drop_a_file"
 msgid "Drop"
-msgstr ""
+msgstr "Απόθεση"
 
 msgctxt "select_product_data_file"
 msgid "Select a file with product data"
-msgstr ""
+msgstr "Επιλέξτε ένα αρχείο με δεδομένα προϊόντος"
 
 msgctxt "number_of_products_without_nutriscore"
 msgid "Number of products without Nutri-Score"
-msgstr ""
+msgstr "Αριθμός προϊόντων χωρίς Nutri-Score"
 
 msgctxt "percent_of_products_with_nutriscore"
 msgid "% of products where Nutri-Score is computed"
-msgstr ""
+msgstr "% των προϊόντων στα οποία υπολογίζεται το Nutri-Score"
 
 msgctxt "products_to_be_exported"
 msgid "Products to be exported"
-msgstr ""
+msgstr "Προϊόντα προς εξαγωγή"
 
 msgctxt "products_exported"
 msgid "Products exported"
-msgstr ""
+msgstr "Τα προϊόντα εξήχθησαν"
 
 msgctxt "opportunities_to_improve_nutriscore"
 msgid "Opp. for Nutri-Score improvements"
-msgstr ""
+msgstr "Opp. για βελτιώσεις του Nutri-Score"
 
 msgctxt "date_of_last_update"
 msgid "Date of last update"
