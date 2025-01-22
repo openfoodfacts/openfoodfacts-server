@@ -324,7 +324,8 @@ sub upload_images_for_product($args_ref, $images_ref, $product_ref, $imported_pr
 				}
 			}
 
-			# if the language is not specified, assign it to the language of the product
+			# if the language is not specified in column name,
+			# use the language of the product
 
 			my $imagefield_with_lc = $imagefield;
 
