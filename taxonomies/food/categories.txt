@@ -6286,6 +6286,12 @@ ciqual_food_code:en: 18345
 ciqual_food_name:en: Fruit soft drink, carbonated (less than 10% of fruit juice), without sugar and artificial sweetener(s)
 ciqual_food_name:fr: Boisson gazeuse aux fruits (à moins de 10% de jus), non sucrée, sans édulcorant
 
+< en:Carbonated drinks
+en: Carbonated soft drinks with tea extract
+fr: Boissons gazeuses au thé aromatisées, Boisson gazeuse au thé aromatisée
+agribalyse_proxy_food_code:en: 18015
+agribalyse_proxy_food_name:en: Still soft drink with tea extract, with sugar and artificial sweetener(s)
+
 < en:Sodas
 en: Tonic water
 bg: Тоник
@@ -6662,6 +6668,11 @@ agribalyse_food_code:en: 18039
 ciqual_food_code:en: 18039
 ciqual_food_name:en: Lemonade with a flavoured syrup
 ciqual_food_name:fr: Diabolo (limonade et sirop)
+
+< en: Lemonades
+en: Chinotto
+fr: Chinotto
+it: Chinotto
 
 < en:Sodas
 en: Colas, Cola, Cola sodas
@@ -8580,7 +8591,10 @@ it: Succo di barbabietola
 ja: ビートルートジュース, ビーツジュース
 lt: Burokėlių sultys
 nl: Rode bietensappen, Rode bietensap
-agribalyse_food_code:en: 1
+agribalyse_food_code:en: 0001
+ciqual_food_code:en: 1
+ciqual_food_name:en: Beetroot juice, pure juice
+ciqual_food_name:fr: Jus de betterave
 
 < en:Tomatoes and their products
 < en:Vegetable juices
@@ -13059,6 +13073,15 @@ fr: Alsace Pinot gris
 
 < fr:Vin d'Alsace
 fr: Alsace Riesling, Riesling d'Alsace
+
+< fr:Vin d'Alsace
+fr: Edelzwicker, Alsace edelzwicker
+origins:en: en:france
+wikidata:en: Q1283481
+
+< fr:Vin d'Alsace
+fr: Sylvaner d'Alsace, Alsace sylvaner, Sylvaner
+origins:en: en:france
 
 < en:Wines from France
 fr: Anjou, Anjou Val de Loire
@@ -32993,6 +33016,16 @@ agribalyse_food_code:en: 5201
 ciqual_food_code:en: 5201
 ciqual_food_name:en: Wine, white, sparkling
 ciqual_food_name:fr: Vin blanc mousseux
+
+< en:Red wines
+< en:Sparkling wines
+en: Sparkling red wine
+fr: Vin rouge pétillant
+
+< en:Rosé wines
+< en:Sparkling wines
+en: Sparkling Rosé wine
+fr: Vin rosé pétillant
 
 < en:Flavoured wines
 < en:Sparkling wines
@@ -64343,6 +64376,10 @@ fr: Arômes pâtisserie, Arôme pâtisserie
 nl: Gebaksaromas
 
 < en:Food additives
+en: Citric acid
+fr: Acide citrique
+
+< en:Food additives
 en: Food colorings, Food dyes, Color additives, Food colourings, Food coloring, Food colouring
 de: Lebensmittelfarbe, Lebensmittelfarbstoffe
 es: Colorantes alimentarios, Colorantes
@@ -95429,6 +95466,10 @@ hr: Tartlete od krušaka
 it: Tortini di pera
 nl: Peertaartjes
 
+< en:Fruit tartlets
+en: Frozen fruit tartlets
+fr: Tartelettes aux fruits surgelées
+
 < en:Specific products
 en: Products sold before year 2000, products sold before 2000
 de: Produkte die vor dem Jahr 2000 verkauft wurden, Produkte die vor 2000 verkauft wurden
@@ -100490,6 +100531,11 @@ fr: Saupe
 agribalyse_food_code:en: 26111
 ciqual_food_code:en: 26111
 ciqual_food_name:en: Salema, raw
+
+< en:Fishes
+en: Bleak
+fr: Ablette
+wikidata:en: Q200473
 
 < en:Cooked cods
 en: Roasted cods, Baked cods
@@ -118468,3 +118514,4 @@ fr: Spirales de blé dur complet
 
 en: Semi whole durum wheat spirals
 fr: Spirales de blé dur semi-complet
+
