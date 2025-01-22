@@ -1381,6 +1381,10 @@ while (my $product_ref = $cursor->next) {
 			assign_ciqual_codes($product_ref);
 		}
 
+		if (has_tag($product_ref, "categories", "en:incorrect-product-type")) {
+			$product_values_changed = 1;
+		}
+
 		my $any_change = $product_values_changed;
 		if (not $pretend) {
 			if (!$any_change) {
