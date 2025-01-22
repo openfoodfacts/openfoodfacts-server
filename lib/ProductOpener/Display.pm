@@ -916,7 +916,7 @@ CSS
 		$producers_platform_url =~ s/\.open/\.pro\.open/;
 	}
 	# and the contrary for public platform
-	if ($public_platform_url ~ /\.pro\.open/) {
+	if ($public_platform_url =~ /\.pro\.open/) {
 		$public_platform_url =~ s/\.pro\.open/\.open/;
 	}
 
