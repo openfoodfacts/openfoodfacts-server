@@ -3581,7 +3581,10 @@ reference to the name of the country
 sub get_geographical_area ($originid) {
 	# Getting information about the country
 	my $ecobalyse_area = "";
-	if (get_inherited_property("countries", $originid, "ecobalyse_is_part_of_eu") eq "yes") {
+	my $ecobalyse_is_part_of_eu_result = get_inherited_property("countries", $originid, "ecobalyse_is_part_of_eu");
+	if (defined $ecobalyse_is_part_of_eu_result
+		&& $ecobalyse_is_part_of_eu_result eq "yes")
+	{
 		$ecobalyse_area = "eu";
 	}
 	if ($originid eq "en:france") {
@@ -5191,6 +5194,8 @@ my %phrases_after_ingredients_list = (
 		'100 (ml|g) enthalten durchschnittlich',
 		'\d\d\d\sg\s\w*\swerden aus\s\d\d\d\sg\s\w*\shergestellt'
 		,    # 100 g Salami werden aus 120 g Schweinefleisch hergestellt.
+		'Alle Zutaten sind aus biologischem Anbau',
+		'außer die mit * markierten Bestandteile'
 	],
 
 	el => [
@@ -8128,6 +8133,7 @@ can be taken into account, whereas crisps which are thin and completely dehydrat
 =cut
 
 my %fruits_vegetables_legumes_eurocodes = (
+	"7.10" => 1,
 	"8.10" => 1,
 	"8.15" => 1,
 	"8.20" => 1,
@@ -8147,7 +8153,7 @@ my %fruits_vegetables_legumes_eurocodes = (
 	"9.40" => 1,
 	"9.50" => 1,
 	"9.60" => 1,
-	"7.10" => 1,
+	"12.20" => 1,    # Herbs
 );
 
 sub is_fruits_vegetables_legumes ($ingredient_id, $processing = undef) {
@@ -8168,7 +8174,7 @@ sub is_fruits_vegetables_legumes ($ingredient_id, $processing = undef) {
 				((defined $eurocode_2_group_1) and ($eurocode_2_group_1 eq "9"))
 					# Vegetables and legumes
 					or ((defined $eurocode_2_group_2)
-					and (exists $fruits_vegetables_legumes_eurocodes{$eurocode_2_group_2}))
+					and ($fruits_vegetables_legumes_eurocodes{$eurocode_2_group_2}))
 			)
 				and (not $is_a_further_processed_ingredient)
 				and (not $further_processed)

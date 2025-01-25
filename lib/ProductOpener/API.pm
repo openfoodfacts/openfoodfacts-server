@@ -630,7 +630,7 @@ sub customize_packagings ($request_ref, $product_ref) {
 To support older API versions that can request fields that have been renamed or changed,
 we rename older requested fields to the new field names to construct the response.
 
-Resulting fields will then be renamed back to older names by the api_compatibility_for_product function.
+Resulting fields will then be renamed back to older names by the api_compatibility_for_product_response function.
 
 =cut
 
@@ -646,15 +646,40 @@ sub api_compatibility_for_field ($field, $api_version) {
 	return $field;
 }
 
-=head2 api_compatibility_for_product ($product_ref, $api_version)
+=head2 api_compatibility_for_product_input ($product_ref)
+
+The product objects saved in the database or in the .sto files may have different schema over time.
+This function updates the product object to the latest revision, for some fields, when possible,
+so that we can read older revisions of products, or when all products are not migrated yet.
+
+=cut
+
+sub api_compatibility_for_product_input ($product_ref) {
+
+	$log->debug("api_compatibility_for_product_input - start") if $log->is_debug();
+
+	# 2024/12: ecoscore fields were renamed to environmental_score
+	foreach my $subfield (qw/data grade score tags/) {
+		if (defined $product_ref->{"ecoscore_" . $subfield}) {
+			if (not defined $product_ref->{"environmental_score_" . $subfield}) {
+				$product_ref->{"environmental_score_" . $subfield} = $product_ref->{"ecoscore_" . $subfield};
+			}
+			delete $product_ref->{"ecoscore_" . $subfield};
+		}
+	}
+
+	return $product_ref;
+}
+
+=head2 api_compatibility_for_product_response ($product_ref, $api_version)
 
 The response schema can change between API versions. This function transforms the product object to match the requested API version.
 
 =cut
 
-sub api_compatibility_for_product ($product_ref, $api_version) {
+sub api_compatibility_for_product_response ($product_ref, $api_version) {
 
-	$log->debug("api_compatibility_for_product - start", {api_version => $api_version}) if $log->is_debug();
+	$log->debug("api_compatibility_for_product_response - start", {api_version => $api_version}) if $log->is_debug();
 
 	# no requested version, return the product as is
 	if (not defined $api_version) {
@@ -743,6 +768,9 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 			return $product_ref;
 		}
 	}
+
+	# Update the product object to the latest schema, for some fields, when possible
+	api_compatibility_for_product_input($product_ref);
 
 	# Localize the Environmental-Score fields that depend on the country of the request
 	if (feature_enabled("environmental_score", $product_ref)) {
@@ -911,7 +939,7 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 	}
 
 	# Before returning the product, we need to make sure that the fields are compatible with the requested API version
-	api_compatibility_for_product($customized_product_ref, $request_ref->{api_version});
+	api_compatibility_for_product_response($customized_product_ref, $request_ref->{api_version});
 
 	return $customized_product_ref;
 }

@@ -5,9 +5,63 @@
 # - carbon_impact_fr_impactco2:en: co2 equivalent in kg per unit (1 product) from https://impactco2.fr/
 # - carbon_impact_fr_impactco2_link:en: URL for the category on https://impactco2.fr/
 
+en: Furniture
+
+en: Appliances
+
+< en:Appliances
+en: Fridge
+
+< en:Appliances
+en: Freezer
+
+< en:Appliances
+en: Dishwasher
+
+< en:Appliances
+en: Micro-waves
+
+< en:Appliances
+en: Ovens
+
+en: Cooking equipment
+
+en: Sport equipment
+
+< en:Sport equipment
+en: Bikes
+
+< en:Sport equipment
+en: Bike equipment
+
+< en:Sport equipment
+en: Swimming equipment
+
+< en:Sport equipment
+en: Sport clothes
+
+en: Fitness equipment
+
+< en:Sport equipment
+en: Sport shoes
+
+en: Baby equipment
+
 en: Electronic products, electronics
 fr: Appareils électroniques
 secondhand_used:en: backmarket
+
+< en: Electronic products
+en: TVs
+
+< en: Electronic products
+en: Printers
+
+< en: Electronic products
+en: USB cables
+
+< en: Electronic products
+en: Headphones
 
 < en: electronic products
 en: Digital tablets
@@ -38,7 +92,9 @@ en: iPhone smartphones
 xx: iPhone, iPhones
 fr: Smartphones iPhone
 
-en: Clothes
+en: Clothes, Clothing
+de: Bekleidung
+es: Ropa
 fr: Vêtements
 
 < en: Clothes
@@ -49,7 +105,34 @@ carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/habillement/tshi
 unit_name:xx: t-shirt
 unit_name:en: t-shirt
 
+< en: Clothes
+en: Women clothes
+
+< en: Clothes
+en: Men clothes
+
+en: Women shoes
+
+< en: Clothes
+en: Socks
+
+< en: Clothes
+en: Jeans
+
+< en: Clothes
+en: Skirts
+
+< en: Clothes
+en: Dresses
+
+< en: Clothes
+en: Pull-Over
+
+en: Jewelry
+
 en: Books
+de: Bücher
+es: Libros
 fr: Livres
 
 en: Papers
@@ -67,6 +150,137 @@ fr: Cigarettes
 en: Laundry detergents
 fr: Lessives
 
-
 en: Christmas trees
 fr: Arbres de Noël
+
+en: Vitamins
+de: Vitamine
+es: Vitaminas
+fr: Vitamines
+
+en: Liquid detergent
+de: Flüssigwaschmittel
+es: Detergentes líquidos
+fr: Lessives liquides
+
+en: Dishwasher tablets
+de: Geschirrspültabs
+es: Pastillas para lavavajillas
+fr: Tablettes pour lave-vaisselle
+
+en: Batteries
+de: Batterien
+es: Pilas, Baterías
+fr: Piles
+
+en: Bleach
+de: Bleichmittel
+fr: Eau de Javel
+
+# To move into OBF
+en: Personal care products
+de: Körperpflegeprodukte
+es: Productos de cuidado personal
+fr: Produits de soins personnels
+
+# To move into OPFF
+en: Pet food
+de: Tiernahrung
+es: Comida para mascotas
+fr: Aliments pour animaux de compagnie
+
+en: Hair clips
+de: Haarspangen
+es: Pinzas para el pelo
+fr: Barrettes pour les cheveux
+
+en: Tampons
+de: Tampons
+es: Tampones
+fr: Tampons hygiéniques
+
+en: Office supplies
+de: Bürobedarf
+es: Suministros de oficina
+fr: Fournitures de bureau
+
+en: Household chemicals
+de: Haushaltschemikalien
+es: Productos químicos domésticos
+fr: Produits chimiques ménagers
+
+en: Inflatable toys
+de: Aufblasbares Spielzeug
+es: Juguetes inflables
+fr: Jouets gonflables
+
+en: Pet litter
+de: Tierstreu
+es: Arena para mascotas
+fr: Litière pour animaux
+
+en: Medicine
+de: Medizin
+es: Medicina
+fr: Médicament
+
+en: Sanitary napkins
+de: Damenbinden
+es: Compresas sanitarias
+fr: Serviettes hygiéniques
+
+en: Household sponges
+de: Haushaltsschwämme
+es: Esponjas domésticas
+fr: Éponges ménagères
+
+en: Hair ties
+de: Haargummis
+es: Gomas para el pelo
+fr: Élastiques pour les cheveux
+
+en: Toys
+de: Spielzeug
+es: Juguetes
+fr: Jouets
+
+en: Video games
+de: Videospiele
+es: Videojuegos
+fr: Jeux vidéo
+
+en: DVDs
+
+en: Blue-Ray
+
+en: VHS
+
+en: CDs
+
+en: Music instruments
+
+en: Paper pads
+de: Notizblöcke
+es: Blocs de notas
+fr: Blocs-notes
+
+en: notebooks
+de: Hefte
+es: cuadernos
+fr: cahiers
+
+en: Diapers
+de: Windeln
+es: Pañales
+fr: Couches
+
+en: Detergents
+de: Waschmittel
+es: Detergentes
+fr: Détergents
+
+en: Toilet gel
+de: Toilettengel
+es: Gel WC
+fr: Gel WC
+
