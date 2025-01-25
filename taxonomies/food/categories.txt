@@ -6286,6 +6286,12 @@ ciqual_food_code:en: 18345
 ciqual_food_name:en: Fruit soft drink, carbonated (less than 10% of fruit juice), without sugar and artificial sweetener(s)
 ciqual_food_name:fr: Boisson gazeuse aux fruits (à moins de 10% de jus), non sucrée, sans édulcorant
 
+< en:Carbonated drinks
+en: Carbonated soft drinks with tea extract
+fr: Boissons gazeuses au thé aromatisées, Boisson gazeuse au thé aromatisée
+agribalyse_proxy_food_code:en: 18015
+agribalyse_proxy_food_name:en: Still soft drink with tea extract, with sugar and artificial sweetener(s)
+
 < en:Sodas
 en: Tonic water
 bg: Тоник
@@ -6662,6 +6668,11 @@ agribalyse_food_code:en: 18039
 ciqual_food_code:en: 18039
 ciqual_food_name:en: Lemonade with a flavoured syrup
 ciqual_food_name:fr: Diabolo (limonade et sirop)
+
+< en: Lemonades
+en: Chinotto
+fr: Chinotto
+it: Chinotto
 
 < en:Sodas
 en: Colas, Cola, Cola sodas
@@ -8580,7 +8591,10 @@ it: Succo di barbabietola
 ja: ビートルートジュース, ビーツジュース
 lt: Burokėlių sultys
 nl: Rode bietensappen, Rode bietensap
-agribalyse_food_code:en: 1
+agribalyse_food_code:en: 0001
+ciqual_food_code:en: 1
+ciqual_food_name:en: Beetroot juice, pure juice
+ciqual_food_name:fr: Jus de betterave
 
 < en:Tomatoes and their products
 < en:Vegetable juices
@@ -13063,6 +13077,15 @@ fr: Alsace Pinot gris
 
 < fr:Vin d'Alsace
 fr: Alsace Riesling, Riesling d'Alsace
+
+< fr:Vin d'Alsace
+fr: Edelzwicker, Alsace edelzwicker
+origins:en: en:france
+wikidata:en: Q1283481
+
+< fr:Vin d'Alsace
+fr: Sylvaner d'Alsace, Alsace sylvaner, Sylvaner
+origins:en: en:france
 
 < en:Wines from France
 fr: Anjou, Anjou Val de Loire
@@ -32998,6 +33021,16 @@ ciqual_food_code:en: 5201
 ciqual_food_name:en: Wine, white, sparkling
 ciqual_food_name:fr: Vin blanc mousseux
 
+< en:Red wines
+< en:Sparkling wines
+en: Sparkling red wine
+fr: Vin rouge pétillant
+
+< en:Rosé wines
+< en:Sparkling wines
+en: Sparkling Rosé wine
+fr: Vin rosé pétillant
+
 < en:Flavoured wines
 < en:Sparkling wines
 < en:White wines
@@ -34273,7 +34306,7 @@ wikidata:en: Q2936384
 < en:Dry biscuits
 en: Cantucci, cantuccini
 xx: Cantucci
-bg: Кантучи
+bg: Кантучи, кантучини
 fr: Cantucci, cantuccini
 it: Cantucci, cantuccini
 nl: Cantucci
@@ -41504,6 +41537,7 @@ ciqual_food_name:fr: Igname, épluchée, bouillie/cuite à l'eau
 
 < en:Cereals and potatoes
 en: Gnocchi
+bg: Ньоки
 de: Gnocchi
 es: Ñoquis
 fi: Gnocchi
@@ -44623,6 +44657,7 @@ wikidata:en: Q3088299
 < en:Cow cheeses
 en: Provolone
 xx: Provolone
+bg: Проволоне
 de: Provolone
 es: Provolone
 fi: Provolone
@@ -64448,6 +64483,10 @@ fr: Arômes pâtisserie, Arôme pâtisserie
 nl: Gebaksaromas
 
 < en:Food additives
+en: Citric acid
+fr: Acide citrique
+
+< en:Food additives
 en: Food colorings, Food dyes, Color additives, Food colourings, Food coloring, Food colouring
 de: Lebensmittelfarbe, Lebensmittelfarbstoffe
 es: Colorantes alimentarios, Colorantes
@@ -82072,6 +82111,7 @@ ciqual_food_name:fr: Petit salé ou saucisse aux lentilles
 
 < en:Meals
 en: Focaccia
+bg: Фокача
 fr: Focaccia
 hr: Focaccia
 ja: フォカッチャ
@@ -93838,6 +93878,7 @@ fr: Ravioli frais à la viande
 < en:Pasta stuffed with meat
 < en:ravioli
 en: Meat ravioli
+bg: Равиоли с месо
 de: Fleischravioli
 es: Ravioli de carne
 fr: Ravioli à la viande
@@ -93849,6 +93890,7 @@ agribalyse_proxy_food_code:en: 25019
 < en:Pasta stuffed with vegetables
 < en:ravioli
 en: Ravioli with vegetables, Vegetable ravioli, Ravioli filled with vegetables
+bg: Равиоли със зеленчуци
 de: Gemüseravioli, Gemüse-Ravioli
 es: Ravioli con verduras, Ravioles con verduras, Ravioli de verduras, Raviolis de verduras
 fi: Raviolia kasviksilla
@@ -94296,6 +94338,7 @@ nl: Tortellini met kip
 < en:Stuffed Pastas
 en: Tortelloni
 xx: Tortelloni
+bg: Тортелони
 wikidata:en: Q20061
 
 < en:Pastas
@@ -95033,6 +95076,7 @@ wikidata:en: Q2746070
 
 < en:Pastries
 en: Cream puff, Pastry cream puff
+bg: Профитероли
 de: Windbeutel, Profiterole, Profiteroles
 es: Bocadito de nata, Profiterol, Profiteroles
 fr: Profiteroles, Profiterole, Profiterolles, Choux à la crème, Chou à la crème
@@ -95687,6 +95731,10 @@ fr: Tartelettes à la poire
 hr: Tartlete od krušaka
 it: Tortini di pera
 nl: Peertaartjes
+
+< en:Fruit tartlets
+en: Frozen fruit tartlets
+fr: Tartelettes aux fruits surgelées
 
 < en:Specific products
 en: Products sold before year 2000, products sold before 2000
@@ -100749,6 +100797,11 @@ fr: Saupe
 agribalyse_food_code:en: 26111
 ciqual_food_code:en: 26111
 ciqual_food_name:en: Salema, raw
+
+< en:Fishes
+en: Bleak
+fr: Ablette
+wikidata:en: Q200473
 
 < en:Cooked cods
 en: Roasted cods, Baked cods
@@ -112382,6 +112435,7 @@ ciqual_food_name:fr: Câpres, au vinaigre
 
 < en:Condiments
 en: Capers
+bg: Каперси
 de: Kapernbeeren
 hr: Kapari
 ja: ケッパー
@@ -118838,3 +118892,4 @@ fr: Spirales de blé dur complet
 
 en: Semi whole durum wheat spirals
 fr: Spirales de blé dur semi-complet
+
