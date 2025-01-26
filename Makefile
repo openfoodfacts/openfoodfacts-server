@@ -10,6 +10,7 @@ SHELL := $(shell which bash)
 # some vars
 ENV_FILE ?= .env
 NAME = "ProductOpener"
+VERSION = $(shell cat version.txt)
 MOUNT_POINT ?= /mnt
 DOCKER_LOCAL_DATA_DEFAULT = /srv/off/docker_data
 DOCKER_LOCAL_DATA ?= $(DOCKER_LOCAL_DATA_DEFAULT)
@@ -91,7 +92,7 @@ _FORCE:
 # Info #
 #------#
 info:
-	@echo "${NAME} version: ${VERSION}"
+	@echo "${NAME} version: v${VERSION}"
 
 usage:
 	@echo "🥫 Welcome to the Open Food Facts project"

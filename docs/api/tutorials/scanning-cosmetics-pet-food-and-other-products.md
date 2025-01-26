@@ -8,7 +8,7 @@
 * Other type of products: The base URL is openproductsfacts.org instead of openfoodfacts.org
 
 #### Different behaviours common to Open Beauty Facts, Open Pet Food Facts, Open Products Facts
-* Old codebase, being upgraded very soon: Knowledge panels are not supported, the new packaging API is not supported
+* The same codebase: Knowledge panels are supported, the new packaging API is supported
 * Search-a-licious, Open Prices, Folksonomy Engine, Nutri-Patrol not supported yet
 * No Robotoff questions yet
 
@@ -24,11 +24,15 @@
 * No Eco-Score, Nutri-Score or NOVA level for ultra-processing
 * Most data will be modelled using the [Folksonomy Engine](docs/reference/api-tutorials/folksonomy-engine.md)
 
-### API Roadmap and multi-project behaviour
-* We plan to bring the APIs mentionned above to Open Beauty Facts (Search-a-licious, Knowledge Panels, Open Prices, Robotoff, Folksonomy Engine)
-* We plan to have a universal barcode scanning API, where you scan a barcode, and you get a result from either Open Food Facts, Open Pet Food Facts, Open Beauty Facts or Open Products Facts
+### Important APIs if you want to scan any kind of product (or help your users avoid adding cosmetics by mistake in Open Food Facts)
+
+* We have a universal barcode scanning API, where you scan a barcode, and you get a result from either Open Food Facts, Open Pet Food Facts, Open Beauty Facts or Open Products Facts with a product_type
 * If no result is found in any of the 4 databases, you will have to ask the type of product to your users, and use the classic product addition API on the right project.
 * If (it can happen) the product appears on the wrong project, we suggest you use the NutriPatrol API to let your users report it to the moderators, and the proceed to a product addition on the right project. The moderators will then move the existing data to the right project. Eventually, project categorization errors should be infinitesimal.
+
+### API Roadmap and multi-project behaviour
+* We plan to bring the APIs mentionned above to Open Beauty Facts (Search-a-licious, Knowledge Panels, Open Prices, Robotoff, Folksonomy Engine)
+
 
 ### Sample outputs
 * Please use the Open Food Facts API reference for most operations (data and photo addition, ingredient lists, categories, labels…)

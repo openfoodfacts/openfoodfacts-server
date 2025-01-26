@@ -252,7 +252,7 @@ if ($type eq 'search_or_add') {
 			$product_id = product_id_for_owner($Owner_id, $code);
 			$log->debug("we have a code", {code => $code, product_id => $product_id}) if $log->is_debug();
 
-			$product_ref = product_exists($product_id);    # returns 0 if not
+			$product_ref = retrieve_product($product_id);
 
 			if ($product_ref) {
 				$log->info("product exists, redirecting to page", {code => $code}) if $log->is_info();
