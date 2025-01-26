@@ -287,9 +287,8 @@ unit_test: create_folders
 	${DOCKER_COMPOSE_TEST} stop
 	@echo "🥫 unit tests success"
 
-integration_test: create_folders
+integration_test: _prepare_integration_tests create_folders
 	@echo "🥫 Running integration tests …"
-	mkdir -p tests/integration/outputs/
 # we launch the server and run tests within same container. Dependendies are listed in integration-test.yml
 # this is the place where variables are important
 	${DOCKER_COMPOSE_INT_TEST} up -d backend frontend
@@ -310,12 +309,19 @@ test-unit: guard-test create_folders
 # to update expected results: make test-int test="test-name.t :: --update-expected-results"
 # you can use TEST_CMD to change test command, like TEST_CMD="perl -d" to debug a test
 # you can also add args= to pass more options to your test command
-test-int: guard-test create_folders
+test-int: guard-test _prepare_integration_tests create_folders
 	@echo "🥫 Running test: 'tests/integration/${test}' …"
+# we launch the server and run tests within same container. Dependendies are listed in integration-test.yml
+# this is the place where variables are important
 	${DOCKER_COMPOSE_INT_TEST} up -d backend frontend
 	${DOCKER_COMPOSE_INT_TEST} exec -e PO_EAGER_LOAD_DATA=1 backend ${TEST_CMD} ${args} tests/integration/${test}
 # better shutdown, for if we do a modification of the code, we need a restart
 	${DOCKER_COMPOSE_INT_TEST} stop
+
+_prepare_integration_tests:
+	mkdir -p tests/integration/outputs/
+# ensure that the network is created; note that this is done by "run_deps", which is not called for integration tests
+	docker network create ${COMMON_NET_NAME} || true
 
 # stop all docker tests containers
 stop_tests:
@@ -325,7 +331,7 @@ stop_tests:
 clean_tests:
 	${DOCKER_COMPOSE_TEST} down -v --remove-orphans
 
-update_tests_results: build_taxonomies_test build_lang_test
+update_tests_results: build_taxonomies_test build_lang_test _prepare_integration_tests
 	@echo "🥫 Updated expected test results with actuals for easy Git diff"
 	${DOCKER_COMPOSE_INT_TEST} up -d backend frontend
 	${DOCKER_COMPOSE_INT_TEST} exec -T -w /opt/product-opener/tests backend bash update_tests_results.sh
