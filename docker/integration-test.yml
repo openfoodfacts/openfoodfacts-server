@@ -3,6 +3,10 @@ include:
   - ${DEPS_DIR}/openfoodfacts-auth/docker-compose.yml
 
 services:
+  frontend:
+    depends_on:
+        backend:
+          condition: service_started
   backend:
     depends_on:
       postgres:
