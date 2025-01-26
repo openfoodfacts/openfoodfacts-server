@@ -54316,7 +54316,7 @@ hr: začin vlasac
 
 # TUBERS (Eurocode 2 8.10)
 
-< en:vegetable
+< en:plant
 en: tuber, tubers, tuber vegetable
 de: Knollengemüse
 es: tubérculo, tubérculos
@@ -54354,9 +54354,9 @@ hi: मुख्य जड़वाले सब्जी
 hr: korjenasto povrće s glavnim korijenom
 eurocode_2_group_2:en: 8.38
 
-# description:en:ROOT VEGETABLES are underground plant parts eaten by humans as food.
+# description:en:ROOT VEGETABLES are underground plant parts eaten by humans as food. This ingredient shouldn't be under vegetable since it can contain potato which is not a vegetable.
 
-< en:vegetable
+< en:plant
 en: root vegetable
 ar: قائمة الخضراوات الجذرية
 bg: Кореноплод
