@@ -174,12 +174,12 @@ hdown:
 
 reset: hdown up
 
-restart:run_deps
+restart: run_deps
 	@echo "🥫 Restarting frontend & backend containers …"
 	${DOCKER_COMPOSE} restart backend frontend
 	@echo "🥫  started service at http://openfoodfacts.localhost"
 
-status:run_deps
+status: run_deps
 	@echo "🥫 Getting container status …"
 	${DOCKER_COMPOSE} ps
 
@@ -230,7 +230,7 @@ reset_owner:
 
 init_backend: build_taxonomies build_lang
 
-create_mongodb_indexes:run_deps
+create_mongodb_indexes: run_deps
 	@echo "🥫 Creating MongoDB indexes …"
 	${DOCKER_COMPOSE} run --rm backend perl /opt/product-opener/scripts/create_mongodb_indexes.pl
 
@@ -250,7 +250,7 @@ import_more_sample_data: run_deps
 	@echo "🥫 Importing sample data (~2000 products) into MongoDB …"
 	${DOCKER_COMPOSE} run --rm backend bash /opt/product-opener/scripts/import_more_sample_data.sh
 
-refresh_mongodb:run_deps
+refresh_mongodb: run_deps
 	@echo "🥫 Refreshing mongoDB from product files …"
 	${DOCKER_COMPOSE} run --rm backend perl /opt/product-opener/scripts/update_all_products_from_dir_in_mongodb.pl
 
