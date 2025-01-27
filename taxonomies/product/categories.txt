@@ -5,9 +5,63 @@
 # - carbon_impact_fr_impactco2:en: co2 equivalent in kg per unit (1 product) from https://impactco2.fr/
 # - carbon_impact_fr_impactco2_link:en: URL for the category on https://impactco2.fr/
 
+en: Furniture
+
+en: Appliances
+
+< en:Appliances
+en: Fridge
+
+< en:Appliances
+en: Freezer
+
+< en:Appliances
+en: Dishwasher
+
+< en:Appliances
+en: Micro-waves
+
+< en:Appliances
+en: Ovens
+
+en: Cooking equipment
+
+en: Sport equipment
+
+< en:Sport equipment
+en: Bikes
+
+< en:Sport equipment
+en: Bike equipment
+
+< en:Sport equipment
+en: Swimming equipment
+
+< en:Sport equipment
+en: Sport clothes
+
+en: Fitness equipment
+
+< en:Sport equipment
+en: Sport shoes
+
+en: Baby equipment
+
 en: Electronic products, electronics
 fr: Appareils électroniques
 secondhand_used:en: backmarket
+
+< en: Electronic products
+en: TVs
+
+< en: Electronic products
+en: Printers
+
+< en: Electronic products
+en: USB cables
+
+< en: Electronic products
+en: Headphones
 
 < en: electronic products
 en: Digital tablets
@@ -50,6 +104,31 @@ carbon_impact_fr_impactco2:en: 6.43
 carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/habillement/tshirtencoton
 unit_name:xx: t-shirt
 unit_name:en: t-shirt
+
+< en: Clothes
+en: Women clothes
+
+< en: Clothes
+en: Men clothes
+
+en: Women shoes
+
+< en: Clothes
+en: Socks
+
+< en: Clothes
+en: Jeans
+
+< en: Clothes
+en: Skirts
+
+< en: Clothes
+en: Dresses
+
+< en: Clothes
+en: Pull-Over
+
+en: Jewelry
 
 en: Books
 de: Bücher
@@ -169,6 +248,16 @@ en: Video games
 de: Videospiele
 es: Videojuegos
 fr: Jeux vidéo
+
+en: DVDs
+
+en: Blue-Ray
+
+en: VHS
+
+en: CDs
+
+en: Music instruments
 
 en: Paper pads
 de: Notizblöcke
