@@ -101,7 +101,7 @@ my $tests_ref = [
 			. $product_hazelnut_spread_json . '}',
 	},
 
-    # estimate_environmental_impact_service service
+	# estimate_environmental_impact_service service
 	# no fields parameter, should get back only updated fields
 	{
 		test_case => 'estimate-environmental-impact-service-hazelnut-spread',

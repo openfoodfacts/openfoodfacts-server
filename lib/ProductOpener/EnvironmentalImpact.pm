@@ -158,31 +158,31 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 	# my $response = $ua->request($request);
 
 	# Handle the response based on success or failure
-# 	if ($response->is_success) {
-# 		# Parse the JSON response
-# 		my $response_data;
-# 		eval {$response_data = decode_json($response->decoded_content);};
+	# 	if ($response->is_success) {
+	# 		# Parse the JSON response
+	# 		my $response_data;
+	# 		eval {$response_data = decode_json($response->decoded_content);};
 
-# 		# Access the specific "ecs" value
-# 		if (exists $response_data->{results}{total}{ecs}) {
-# 			my $ecs_value = $response_data->{results}{total}{ecs};
-# 			# If 'ecs' is defined, store it in the product reference
-# 			if (defined $ecs_value) {
-# 				$product_ref->{environmental_impact} = $ecs_value;
-# 			}
-# 		}
+	# 		# Access the specific "ecs" value
+	# 		if (exists $response_data->{results}{total}{ecs}) {
+	# 			my $ecs_value = $response_data->{results}{total}{ecs};
+	# 			# If 'ecs' is defined, store it in the product reference
+	# 			if (defined $ecs_value) {
+	# 				$product_ref->{environmental_impact} = $ecs_value;
+	# 			}
+	# 		}
 
-		# If necessary, return error as well
-		# (number of unattributed ingredients,
-		# percentage of unattributed mass, etc...)
+	# If necessary, return error as well
+	# (number of unattributed ingredients,
+	# percentage of unattributed mass, etc...)
 
-		# add_error
-		# add_warning
+	# add_error
+	# add_warning
 
-		$product_ref->{environmental_impact} = 5;
+	$product_ref->{environmental_impact} = 5;
 
-		return;
-# 	}
+	return;
+	# 	}
 }
 
 1;
