@@ -1,9 +1,5 @@
 #!/usr/bin/perl
-use strict;
-use warnings;
-
-#use Modern::Perl '2017';
-use utf8;
+use ProductOpener::PerlStandards;
 
 use Test2::V0;
 use Data::Dumper;
@@ -13,39 +9,48 @@ use Log::Any::Adapter 'TAP';
 use JSON;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::EnvironmentalImpact qw/estimate_environmental_impact_service/;
 use ProductOpener::APITest qw/execute_api_tests wait_application_ready/;
+use ProductOpener::Test qw/:all/;
+use ProductOpener::TestDefaults qw/:all/;
+
+use File::Basename "dirname";
+
+use Storable qw(dclone);
+
+wait_application_ready();
 
 # Définition du produit exemple
-my $product_hazelnut_spread_json = '{
+my $product_hazelnut_spread_json = '
     "product": {
-        "product_name_en": "My hazelnut spread",
-        "product_name_fr": "Ma pâte aux noisettes",
+		"product_name_en": "My hazelnut spread",
+		"product_name_fr": "Ma pâte aux noisettes",
         "ingredients": [
             {
-                "is_in_taxonomy": 1,
                 "id": "en:sugar",
-                "vegetarian": "yes",
-                "percent_estimate": 50,
-                "ecobalyse_code": "sugar",
+                "text": "Sucre",
                 "vegan": "yes",
-                "ciqual_proxy_food_code": "31016",
-                "text": "Sucre"
+                "vegetarian": "yes"
             },
             {
-                "vegetarian": "yes",
-                "from_palm_oil": "yes",
-                "percent_estimate": 25,
                 "ciqual_food_code": "16129",
-                "is_in_taxonomy": 1,
+                "from_palm_oil": "yes",
                 "id": "en:palm-oil",
                 "text": "huile de palme",
-                "ecobalyse_code": "refined-palm-oil",
-                "vegan": "yes"
+                "vegan": "yes",
+                "vegetarian": "yes"
+            },
+            {
+                "ciqual_food_code": "17210",
+                "from_palm_oil": "no",
+                "id": "en:hazelnut-oil",
+                "percent": 13,
+                "text": "huile de NOISETTES",
+                "vegan": "yes",
+                "vegetarian": "yes"
             }
         ]
     }
-}';
+';
 
 # Définition des tests
 my $tests_ref = [
@@ -54,9 +59,16 @@ my $tests_ref = [
 		method => 'POST',
 		path => '/api/v3/product_services',
 		body => '{
-            "services":["unknown"],
-            "product":{}
-        }',
+			"services":["unknown"],
+			"product":{}
+		}',
+		expected_status_code => 400,
+	},
+	# echo service
+	{
+		test_case => 'service-no-body',
+		method => 'POST',
+		path => '/api/v3/product_services',
 		expected_status_code => 400,
 	},
 	{
@@ -64,41 +76,53 @@ my $tests_ref = [
 		method => 'POST',
 		path => '/api/v3/product_services/echo',
 		body => '{
-            "services":["echo"],
-            "fields":["all"],' . $product_hazelnut_spread_json . '}',
+			"services":["echo"],
+			"fields":["all"],'
+			. $product_hazelnut_spread_json . '}',
+	},
+	{
+		test_case => 'echo-service-hazelnut-spread-fields',
+		method => 'POST',
+		path => '/api/v3/product_services',
+		body => '{
+			"services":["echo"],
+			"fields": ["product_name_en","product_name_fr"],'
+			. $product_hazelnut_spread_json . '}',
+	},
+
+	# estimate_ingredients_percent service
+	# no fields parameter, should get back only updated fields
+	{
+		test_case => 'estimate-ingredients-percent-service-hazelnut-spread',
+		method => 'POST',
+		path => '/api/v3/product_services',
+		body => '{
+			"services":["estimate_ingredients_percent"],'
+			. $product_hazelnut_spread_json . '}',
+	},
+
+    # estimate_environmental_impact_service service
+	# no fields parameter, should get back only updated fields
+	{
+		test_case => 'estimate-environmental-impact-service-hazelnut-spread',
+		method => 'POST',
+		path => '/api/v3/product_services',
+		body => '{
+			"services":["estimate_environmental_impact_service"],'
+			. $product_hazelnut_spread_json . '}',
+	},
+	# Get back only specific fields
+	{
+		test_case => 'estimate-environmental-impact-service-hazelnut-spread-specific-fields',
+		method => 'POST',
+		path => '/api/v3/product_services',
+		body => '{
+			"services":["estimate_environmental_impact_service"],
+            "fields": ["ingredients_percent_analysis"],'
+			. $product_hazelnut_spread_json . '}',
 	},
 ];
 
 execute_api_tests(__FILE__, $tests_ref);
-
-# Tests supplémentaires (exemple)
-my @tests = (
-	[
-		'empty-product',
-		{
-			lc => "en",
-		}
-	],
-	[
-		'unknown-category',
-		{
-			lc => "en",
-			categories_tags => ["en:some-unknown-category"],
-		}
-	],
-);
-
-foreach my $test (@tests) {
-	my ($description, $params) = @$test;
-	diag("Testing: $description");
-
-	my $testid = $test_ref->[0];
-	my $product_ref = $test_ref->[1];
-
-	# Run the test
-	# estimate_environmental_impact_service($product_ref, $product_ref->{lc}, "labels");
-}
-
-#
 
 done_testing();
