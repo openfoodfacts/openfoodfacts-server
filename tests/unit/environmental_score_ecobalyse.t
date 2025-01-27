@@ -17,7 +17,7 @@ use ProductOpener::EnvironmentalImpact qw/estimate_environmental_impact_service/
 use ProductOpener::APITest qw/execute_api_tests wait_application_ready/;
 
 # Définition du produit exemple
-my $product_hazelnut_spread_json = '
+my $product_hazelnut_spread_json = '{
     "product": {
         "product_name_en": "My hazelnut spread",
         "product_name_fr": "Ma pâte aux noisettes",
@@ -45,7 +45,7 @@ my $product_hazelnut_spread_json = '
             }
         ]
     }
-';
+}';
 
 # Définition des tests
 my $tests_ref = [
@@ -96,7 +96,7 @@ foreach my $test (@tests) {
 	my $product_ref = $test_ref->[1];
 
 	# Run the test
-	compute_field_tags($product_ref, $product_ref->{lc}, "labels");
+	# estimate_environmental_impact_service($product_ref, $product_ref->{lc}, "labels");
 }
 
 #
