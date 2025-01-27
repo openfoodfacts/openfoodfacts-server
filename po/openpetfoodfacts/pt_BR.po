@@ -25,8 +25,8 @@ msgstr "Open Pet Food Facts reúne informações e dados sobre produtos alimenta
 
 #. replace by the right country code, and make sure the url works
 msgctxt "android_app_link"
-msgid "https://play.google.com/store/apps/details?id=org.openpetfoodfacts.scanner&hl=en"
-msgstr "https://play.google.com/store/apps/details?id=org.openpetfoodfacts.scanner&hl=pt"
+msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en"
+msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=pt-br"
 
 msgctxt "brands_example"
 msgid "Purina, Pedigree"
@@ -58,12 +58,8 @@ msgid "https://world.openfoodfacts.org/images/apps/off.apk"
 msgstr "https://br.openfoodfacts.org/images/apps/off.apk"
 
 msgctxt "ios_app_link"
-msgid "https://apps.apple.com/app/open-beauty-facts/id1122926380"
-msgstr "https://apps.apple.com/pt/app/open-beauty-facts/id1122926380"
-
-msgctxt "windows_phone_app_link"
-msgid "https://apps.microsoft.com/store/detail/open-food-facts-scan-to-get-nutriscore-ecoscore-and-more/XP8LT18SRPKLRG"
-msgstr "https://apps.microsoft.com/store/detail/open-food-facts-scan-to-get-nutriscore-ecoscore-and-more/XP8LT18SRPKLRG"
+msgid "https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948"
+msgstr ""
 
 #. make sure the Twitter account exists for your country. Otherwise, ask @stephane to create it
 msgctxt "twitter_account"
@@ -94,10 +90,6 @@ msgctxt "site_description"
 msgid "A collaborative, free and open database of ingredients, nutrition facts and information on pet food products from around the world"
 msgstr "Uma base de dados livre, aberta e colaborativa sobre ingredientes, informações nutricionais e produtos alimentares para animais de todo o mundo"
 
-msgctxt "footer_and_the_facebook_group"
-msgid "and the <a href=\"https://www.facebook.com/groups/OpenFoodFacts/\">Facebook group for contributors</a>"
-msgstr "e o <a href=\"https://www.facebook.com/groups/OpenFoodFacts/\">grupo do Facebook para colaboradores</a>"
-
 msgctxt "footer_tagline"
 msgid "A collaborative, free and open database of pet food products from around the world."
 msgstr "Uma base de dados colaborativa, livre e aberta sobre produtos alimentares para animais de todo o mundo."
@@ -119,6 +111,7 @@ msgctxt "product_js_upload_image_note"
 msgid "→ With Chrome, Firefox and Safari, you can select multiple pictures (product, ingredients etc.) by clicking them while holding the Ctrl key pressed to add them all in one shot."
 msgstr "→ Com o Chrome, Firefox e Safari, você pode selecionar várias fotos (produto, ingredientes, etc.) clicando nelas enquanto pressiona a tecla Ctrl para adicioná-las todas de uma só vez."
 
+# Still in use. Would be nice to move it to placeholders
 msgctxt "search_description_opensearch"
 msgid "Open Pet Food Facts product search"
 msgstr "Open Pet Food Facts pesquisa de produto"
