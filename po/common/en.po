@@ -15,9 +15,6 @@ msgstr ""
 "X-Crowdin-Language: en\n"
 "X-Crowdin-File-ID: 3123\n"
 
-# Overrides by flavor (e.g. obf) or product type (e.g. beauty)
-
-# OFF
 msgctxt "site_description_off"
 msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
 msgstr "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
@@ -4680,8 +4677,8 @@ msgid "Processed foods"
 msgstr "Processed foods"
 
 msgctxt "attribute_nova_4_description_short"
-msgid "Ultra-processed foods"
-msgstr "Ultra-processed foods"
+msgid "Ultra processed foods"
+msgstr "Ultra processed foods"
 
 msgctxt "attribute_nova_4_1_marker"
 msgid "1 ultra-processing marker"
@@ -5269,8 +5266,8 @@ msgstr "The platform also provides in-depth analysis of the products."
 
 # It = the platform
 msgctxt "product_edits_by_producers_indicators"
-msgid "It computes indicators such as the Nutri-Score, NOVA, and the Green-score, and automatically identifies suggestions to improve them (for instance all products that would get a better Nutri-Score grade with a slight composition change)."
-msgstr "It computes indicators such as the Nutri-Score, NOVA, and the Green-score, and automatically identifies suggestions to improve them (for instance all products that would get a better Nutri-Score grade with a slight composition change)."
+msgid "It computes indicators such as the Nutri-Score, NOVA, and the Green-Score, and automatically identifies suggestions to improve them (for instance all products that would get a better Nutri-Score grade with a slight composition change)."
+msgstr "It computes indicators such as the Nutri-Score, NOVA, and the Green-Score, and automatically identifies suggestions to improve them (for instance all products that would get a better Nutri-Score grade with a slight composition change)."
 
 msgctxt "attribute_forest_footprint_name"
 msgid "Forest footprint"
@@ -5413,8 +5410,8 @@ msgstr "Not applicable for the category"
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_environmental_score_not_applicable_description"
-msgid "Not applicable for the category: {category}"
-msgstr "Not applicable for the category: {category}"
+msgid "Not yet applicable for the category: {category}"
+msgstr "Not yet applicable for the category: {category}"
 
 msgctxt "environmental_score_not_applicable_coming_soon"
 msgid "The Green-Score is not yet applicable for this category, but we are working on adding support for it."
@@ -5757,7 +5754,7 @@ msgstr "The <a href=\"/green-score\">Green-Score</a> is an experimental score th
 # do not translate Green-Score
 msgctxt "environmental_score_warning_fr"
 msgid "The Green-Score formula is subject to change as it is regularly improved to make it more precise."
-msgstr "The Green-Score formula is subject to change as it is is regularly improved to make it more precise."
+msgstr "The Green-Score formula is subject to change as it is regularly improved to make it more precise."
 
 # do not translate Green-Score
 msgctxt "environmental_score_warning_international"
@@ -6917,22 +6914,8 @@ msgid "Discover the new Nutri-Score!"
 msgstr "Discover the new Nutri-Score!"
 
 msgctxt "nutriscore_new_computation_description"
-msgid "<p>The computation of the Nutri-Score is evolving to provide better recommendations based on the latest scientific evidence.</p>"
-"<p>Main improvements:</p>"
-"<ul>"
-"<li>Better score for some fatty fish and oils rich in good fats</li>"
-"<li>Better score for whole products rich in fiber</li>"
-"<li>Worse score for products containing a lot of salt or sugar</li>"
-"<li>Worse score for red meat (compared to poultry)</li>"
-"</ul>"
-msgstr "<p>The computation of the Nutri-Score is evolving to provide better recommendations based on the latest scientific evidence.</p>"
-"<p>Main improvements:</p>"
-"<ul>"
-"<li>Better score for some fatty fish and oils rich in good fats</li>"
-"<li>Better score for whole products rich in fiber</li>"
-"<li>Worse score for products containing a lot of salt or sugar</li>"
-"<li>Worse score for red meat (compared to poultry)</li>"
-"</ul>"
+msgid "<p>The computation of the Nutri-Score is evolving to provide better recommendations based on the latest scientific evidence.</p><p>Main improvements:</p><ul><li>Better score for some fatty fish and oils rich in good fats</li><li>Better score for whole products rich in fiber</li><li>Worse score for products containing a lot of salt or sugar</li><li>Worse score for red meat (compared to poultry)</li></ul>"
+msgstr "<p>The computation of the Nutri-Score is evolving to provide better recommendations based on the latest scientific evidence.</p><p>Main improvements:</p><ul><li>Better score for some fatty fish and oils rich in good fats</li><li>Better score for whole products rich in fiber</li><li>Worse score for products containing a lot of salt or sugar</li><li>Worse score for red meat (compared to poultry)</li></ul>"
 
 msgctxt "nutriscore_new_computation_link_text"
 msgid "Discover all the improvements of the new Nutri-Score"
@@ -7370,3 +7353,4 @@ msgstr "Add products with a category, ingredients list and nutrition facts to di
 msgctxt "in_contact_with_food"
 msgid "In contact with food"
 msgstr "In contact with food"
+

@@ -25,7 +25,7 @@ msgstr ""
 
 #. replace by the right country code, and make sure the url works
 msgctxt "android_app_link"
-msgid "https://play.google.com/store/apps/details?id=org.openpetfoodfacts.scanner&hl=en"
+msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en"
 msgstr ""
 
 msgctxt "brands_example"
@@ -58,11 +58,7 @@ msgid "https://world.openfoodfacts.org/images/apps/off.apk"
 msgstr ""
 
 msgctxt "ios_app_link"
-msgid "https://apps.apple.com/app/open-beauty-facts/id1122926380"
-msgstr ""
-
-msgctxt "windows_phone_app_link"
-msgid "https://apps.microsoft.com/store/detail/open-food-facts-scan-to-get-nutriscore-environmental_score-and-more/XP8LT18SRPKLRG"
+msgid "https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948"
 msgstr ""
 
 #. make sure the Twitter account exists for your country. Otherwise, ask @stephane to create it
@@ -94,10 +90,6 @@ msgctxt "site_description"
 msgid "A collaborative, free and open database of ingredients, nutrition facts and information on pet food products from around the world"
 msgstr ""
 
-msgctxt "footer_and_the_facebook_group"
-msgid "and the <a href=\"https://www.facebook.com/groups/OpenFoodFacts/\">Facebook group for contributors</a>"
-msgstr ""
-
 msgctxt "footer_tagline"
 msgid "A collaborative, free and open database of pet food products from around the world."
 msgstr ""
@@ -119,6 +111,7 @@ msgctxt "product_js_upload_image_note"
 msgid "→ With Chrome, Firefox and Safari, you can select multiple pictures (product, ingredients etc.) by clicking them while holding the Ctrl key pressed to add them all in one shot."
 msgstr "→ Miaraka amin'ny Chrome, Firefox ary Safari, afaka misafidy sary marobe (vokatra, akora sns) ianao amin'ny alàlan'ny fanindriana azy ireo sy fitazonana ny kitendry Ctrl mba hampidirana azy ireo indray mandeha."
 
+# Still in use. Would be nice to move it to placeholders
 msgctxt "search_description_opensearch"
 msgid "Open Pet Food Facts product search"
 msgstr ""

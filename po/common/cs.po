@@ -1700,7 +1700,7 @@ msgstr "Typ balení, formát, materiál"
 
 msgctxt "packaging_p"
 msgid "packaging"
-msgstr "balení"
+msgstr "obal"
 
 msgctxt "packaging_products"
 msgid "Products with a %s packaging"
@@ -1708,7 +1708,7 @@ msgstr "Výrobky s balením typu %s"
 
 msgctxt "packaging_s"
 msgid "packaging"
-msgstr "balení"
+msgstr "obal"
 
 msgctxt "packaging_tagsinput"
 msgid "add a type, shape or material"
@@ -4624,13 +4624,15 @@ msgctxt "attribute_nutriscore_c_description_short"
 msgid "Average nutritional quality"
 msgstr "Průměrná nutriční kvalita"
 
+# lower: translate to "less good" in some languages (e.g. French: "Moins bonne qualité nutritionnelle")
 msgctxt "attribute_nutriscore_d_description_short"
-msgid "Poor nutritional quality"
-msgstr "Špatná nutriční kvalita"
+msgid "Lower nutritional quality"
+msgstr "Nižší výživová kvalita"
 
+# lower: translate to "less good" in some languages (e.g. French: "Moins bonne qualité nutritionnelle")
 msgctxt "attribute_nutriscore_e_description_short"
-msgid "Bad nutritional quality"
-msgstr "Špatná nutriční kvalita"
+msgid "Lower nutritional quality"
+msgstr "Nižší výživová kvalita"
 
 msgctxt "attribute_group_processing_name"
 msgid "Food processing"
@@ -4672,6 +4674,15 @@ msgstr "Běžně zpracované potraviny"
 msgctxt "attribute_nova_4_description_short"
 msgid "Ultra processed foods"
 msgstr "Ultra zpracované potraviny"
+
+msgctxt "attribute_nova_4_1_marker"
+msgid "1 ultra-processing marker"
+msgstr "1 ultra zpracovaný marker"
+
+# variable names between { } must not be translated
+msgctxt "f_attribute_nova_4_markers"
+msgid "{number} ultra-processing markers"
+msgstr "{number} ultrazpracované markery"
 
 msgctxt "export_product_page"
 msgid "Export product to public database"
@@ -4812,15 +4823,28 @@ msgstr "Životní prostředí"
 
 msgctxt "attribute_environmental_score_name"
 msgid "Green-Score"
-msgstr "Eco-score"
+msgstr "Green-Score"
 
 msgctxt "attribute_environmental_score_setting_name"
 msgid "Low environmental impact (Green-Score)"
-msgstr "Nízký dopad na životní prostředí (Eko-skóre)"
+msgstr "Nízký dopad na životní prostředí (Green-Score)"
 
 msgctxt "attribute_environmental_score_setting_note"
-msgid "The Green-Score is an environmental score (environmental_score) from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr "Green-Score je environmentální skóre (ekoskóre) od A do E, které usnadňuje porovnávání vlivu potravinářských výrobků na životní prostředí."
+msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
+msgstr "Green-Score je environmentální skóre od A do E, které usnadňuje srovnání dopadu potravinářských výrobků na životní prostředí."
+
+# Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
+msgctxt "attribute_ecoscore_name"
+msgid "Green-Score"
+msgstr "Green-Score"
+
+msgctxt "attribute_ecoscore_setting_name"
+msgid "Low environmental impact (Green-Score)"
+msgstr "Nízký dopad na životní prostředí (Green-Score)"
+
+msgctxt "attribute_ecoscore_setting_note"
+msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
+msgstr "Green-Score je environmentální skóre od A do E, které usnadňuje srovnání dopadu potravinářských výrobků na životní prostředí."
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
@@ -4841,7 +4865,7 @@ msgstr "Nízký dopad na životní prostředí"
 
 msgctxt "attribute_environmental_score_c_description_short"
 msgid "Moderate environmental impact"
-msgstr "Střední dopad na životní prostředí"
+msgstr "Mírný dopad na životní prostředí"
 
 msgctxt "attribute_environmental_score_d_description_short"
 msgid "High environmental impact"
@@ -5004,25 +5028,25 @@ msgctxt "environmental_impact"
 msgid "Environmental impact"
 msgstr "Dopad na životní prostředí"
 
-# Numerical score for the Eco-score (do not translate Eco-score)
+# Numerical score for the Green-Score (do not translate Green-Score)
 msgctxt "environmental_score_score"
-msgid "Eco-score score"
-msgstr "Ekologické skóre"
+msgid "Green-Score score"
+msgstr "Green-Score skóre"
 
-# Letter grade from A to E for the Eco-score (do not translate Eco-score)
+# Letter grade from A to E for the Green-Score (do not translate Green-Score)
 msgctxt "environmental_score_grade"
-msgid "Eco-score grade"
-msgstr "Stupeň ekologického skóre"
+msgid "Green-Score grade"
+msgstr ""
 
-# do not translate Eco-score
+# do not translate Green-Score
 msgctxt "environmental_score_calculation_details"
-msgid "Details of the calculation of the Eco-score"
-msgstr "Podrobnosti výpočtu Eko-skóre"
+msgid "Details of the calculation of the Green-Score"
+msgstr ""
 
-# do not translate Eco-score
+# do not translate Green-Score
 msgctxt "environmental_score_information"
-msgid "Information about the Eco-score"
-msgstr "Informace o ekologickém skóre"
+msgid "Information about the Green-Score"
+msgstr "Informace o Green-Score"
 
 msgctxt "preferences_currently_selected_preferences"
 msgid "Currently selected preferences"
@@ -5053,13 +5077,29 @@ msgctxt "missing_nutrition_facts"
 msgid "Missing nutrition facts"
 msgstr "Chybějící výživová fakta"
 
+msgctxt "ecoscore_p"
+msgid "Green-Score"
+msgstr "Green-Score"
+
+msgctxt "ecoscore_s"
+msgid "Green-Score"
+msgstr "Green-Score"
+
 msgctxt "environmental_score_p"
 msgid "Green-Score"
-msgstr "Eco-score"
+msgstr "Green-Score"
 
 msgctxt "environmental_score_s"
 msgid "Green-Score"
-msgstr "Eco-score"
+msgstr "Green-Score"
+
+msgctxt "misc_p"
+msgid "Miscellaneous"
+msgstr "Ostatní"
+
+msgctxt "misc_s"
+msgid "Miscellaneous"
+msgstr "Ostatní"
 
 msgctxt "packaging_parts"
 msgid "Packaging parts"
@@ -5221,8 +5261,8 @@ msgstr "Platforma také poskytuje hloubkovou analýzu produktů."
 
 # It = the platform
 msgctxt "product_edits_by_producers_indicators"
-msgid "It computes indicators such as the Nutri-Score, NOVA, and the Eco-score, and automatically identifies suggestions to improve them (for instance all products that would get a better Nutri-Score grade with a slight composition change)."
-msgstr "Vypočítává ukazatele, jako je Nutri-Score, NOVA a Eco-score, a automaticky identifikuje návrhy na jejich zlepšení (například všechny produkty, které by získaly lepší stupeň Nutri-Score s mírnou změnou složení)."
+msgid "It computes indicators such as the Nutri-Score, NOVA, and the Green-Score, and automatically identifies suggestions to improve them (for instance all products that would get a better Nutri-Score grade with a slight composition change)."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_name"
 msgid "Forest footprint"
@@ -5303,7 +5343,7 @@ msgstr "Produkty s nejlepšími Nutri-Score"
 
 msgctxt "sort_by_environmental_score_score"
 msgid "Products with the best Green-Score"
-msgstr "Produkty s nejlepší Green-Score"
+msgstr ""
 
 msgctxt "sort_by_created_t"
 msgid "Recently added products"
@@ -5356,25 +5396,25 @@ msgid "User is being deleted. This may take a few minutes."
 msgstr "Uživatel se odstraňuje. Může to trvat několik minut."
 
 msgctxt "attribute_environmental_score_not_applicable_title"
-msgid "Green-Score not yet applicable"
-msgstr "Green-Score zatím nelze použít"
+msgid "Green-Score not applicable"
+msgstr "Green-Score nelze použít"
 
 msgctxt "attribute_environmental_score_not_applicable_description_short"
-msgid "Not yet applicable for the category"
-msgstr "Pro kategorii zatím neplatí"
+msgid "Not applicable for the category"
+msgstr ""
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_environmental_score_not_applicable_description"
 msgid "Not yet applicable for the category: {category}"
-msgstr "Zatím neplatí pro kategorii: {category}"
+msgstr ""
 
 msgctxt "environmental_score_not_applicable_coming_soon"
 msgid "The Green-Score is not yet applicable for this category, but we are working on adding support for it."
-msgstr "Green-Score ještě není pro tuto kategorii použitelný, ale pracujeme na tom, abychom pro ni přidali podporu."
+msgstr ""
 
 msgctxt "attribute_environmental_score_unknown_title"
 msgid "Green-Score not computed"
-msgstr "Eko-skóre není vypočítáno"
+msgstr ""
 
 msgctxt "attribute_environmental_score_unknown_description_short"
 msgid "Unknown environmental impact"
@@ -5382,7 +5422,7 @@ msgstr "Neznámý dopad na životní prostředí"
 
 msgctxt "environmental_score_unknown_call_to_help"
 msgid "We could not compute the Green-Score of this product as it is missing some data, could you help complete it?"
-msgstr "Nemohli jsme vypočítat Green-Score tohoto produktu, protože mu chybí některá data, mohli byste pomoci je doplnit?"
+msgstr ""
 
 msgctxt "org_list_of_gs1_gln_description"
 msgid "GS1 data is automatically associated with an OFF organization identifier that corresponds to the GS1 partyName field. To change the OFF organization identifier, you can directly assign 1 or more GS1 GLN identifiers."
@@ -5512,27 +5552,27 @@ msgstr "Lesní stopa se vypočítává s přihlédnutím k přísadám, jejichž
 
 msgctxt "environmental_score_agribalyse_match_warning"
 msgid "The Green-Score can only be calculated if the product has a sufficiently precise category."
-msgstr "Green-Score lze vypočítat pouze v případě, že výrobek má dostatečně přesnou kategorii."
+msgstr ""
 
 msgctxt "environmental_score_add_more_precise_category"
 msgid "You can modify the product page to add a more precise category."
-msgstr "Můžete upravit stránku produktu a přidat přesnější kategorii."
+msgstr ""
 
 msgctxt "environmental_score_platform_promo"
 msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
-msgstr "Pokud jste výrobcem tohoto produktu, můžete nám zaslat informace prostřednictvím naší <a href=\"https://world.pro.openfoodfacts.org\">bezplatné platformy pro výrobce</a>."
+msgstr ""
 
 msgctxt "environmental_score_warning_missing_information"
 msgid "Warning: some information necessary to calculate the Green-Score with precision is not provided (see the details of the calculation below)."
-msgstr "Upozornění: Některé informace potřebné k přesnému výpočtu Eco-score nejsou poskytnuty (viz podrobnosti výpočtu níže)."
+msgstr ""
 
 msgctxt "environmental_score_add_missing_information"
 msgid "You can edit the product to add the missing information."
-msgstr "Můžete upravit produkt a přidat chybějící informace."
+msgstr ""
 
 msgctxt "environmental_score_product_category_reference_score"
 msgid "Baseline score of the product category"
-msgstr "Základní skóre kategorie produktů"
+msgstr ""
 
 msgctxt "environmental_score_panel_lca"
 msgid "Lifecyle Analysis (LCA)"
@@ -5561,7 +5601,7 @@ msgstr "včetně dopadu na změnu klimatu"
 
 msgctxt "environmental_score_impact_detail_by_stages"
 msgid "Details of the impacts by stages of the life cycle"
-msgstr "Podrobnosti o dopadech podle fází životního cyklu"
+msgstr ""
 
 # stage meaning step
 msgctxt "environmental_score_stage"
@@ -5570,15 +5610,15 @@ msgstr "Fáze"
 
 msgctxt "environmental_score_impact"
 msgid "Impact"
-msgstr "Dopad"
+msgstr ""
 
 msgctxt "environmental_score_agriculture"
 msgid "Agriculture"
-msgstr "Zemědělství"
+msgstr ""
 
 msgctxt "environmental_score_processing"
 msgid "Processing"
-msgstr "Zpracování"
+msgstr ""
 
 msgctxt "environmental_score_packaging"
 msgid "Packaging"
@@ -5586,59 +5626,59 @@ msgstr "Obal"
 
 msgctxt "environmental_score_transportation"
 msgid "Transportation"
-msgstr "Doprava"
+msgstr ""
 
 msgctxt "environmental_score_distribution"
 msgid "Distribution"
-msgstr "Distribuce"
+msgstr ""
 
 msgctxt "environmental_score_consumption"
 msgid "Consumption"
-msgstr "Spotřeba"
+msgstr ""
 
 msgctxt "environmental_score_lca_score_out_of_100"
 msgid "LCA score out of 100"
-msgstr "LCA skóre ze 100"
+msgstr ""
 
 msgctxt "environmental_score_no_agribalyse_category_match"
 msgid "No match between product categories and Agribalyse categories."
-msgstr "Žádná shoda mezi kategoriemi produktů a kategoriemi Agribalyse."
+msgstr ""
 
 msgctxt "environmental_score_edit_category_to_more_granular"
 msgid "You can modify the product page to add a more granular category."
-msgstr "Můžete upravit stránku produktu a přidat podrobnější kategorii."
+msgstr ""
 
 msgctxt "environmental_score_additional_bonuses_and_maluses"
 msgid "Additional bonuses and maluses"
-msgstr "Další bonusy a malusy"
+msgstr ""
 
 msgctxt "environmental_score_production_system"
 msgid "Production mode"
-msgstr "Produkční režim"
+msgstr ""
 
 msgctxt "environmental_score_no_labels_taken_into_account"
 msgid "No labels taken into account for the production system."
-msgstr "Pro produkční systém se neberou v úvahu žádné štítky."
+msgstr ""
 
 msgctxt "environmental_score_please_add_the_labels"
 msgid "If this product has a label characterizing the production system (organic, fair trade, Label Rouge, Bleu Blanc Coeur etc.), you can modify the product sheet to add it."
-msgstr "Pokud má tento produkt štítek charakterizující výrobní systém (bio, fair trade, Label Rouge, Bleu Blanc Coeur atd.), můžete upravit produktový list a přidat jej."
+msgstr ""
 
 msgctxt "environmental_score_origins_of_ingredients"
 msgid "Origins of ingredients"
-msgstr "Původ přísad"
+msgstr ""
 
 msgctxt "environmental_score_ingredients_not_indicated"
 msgid "The origins of the ingredients of this product are not indicated."
-msgstr "Původ přísad tohoto výrobků není uveden."
+msgstr ""
 
 msgctxt "environmental_score_please_add_the_ingredients"
 msgid "If they are indicated on the packaging, you can modify the product sheet and add them."
-msgstr "Pokud jsou uvedeny na obalu, můžete upravit produktový list a přidat je."
+msgstr ""
 
 msgctxt "environmental_score_environmental_policy"
 msgid "Environmental policy"
-msgstr "Environmentální politika"
+msgstr ""
 
 msgctxt "environmental_score_threatened_species"
 msgid "Threatened species"
@@ -5646,27 +5686,27 @@ msgstr "Ohrožené druhy"
 
 msgctxt "environmental_score_ingredients_whose_cultivation_threatens_species"
 msgid "Ingredients that threatens species"
-msgstr "Přísady, které ohrožují druhy"
+msgstr ""
 
 msgctxt "environmental_score_no_species_threatening_ingredients"
 msgid "No ingredients that threaten species"
-msgstr "Žádné přísady, které ohrožují druhy"
+msgstr ""
 
 msgctxt "environmental_score_ingredients_unknown"
 msgid "The information on the ingredients of this product has not been given."
-msgstr "Informace o složkách tohoto produktu nebyly uvedeny."
+msgstr ""
 
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
-msgstr "Pro přesnější výpočet Eko-skóre můžete upravit stránku produktu a přidat je."
+msgstr ""
 
 msgctxt "environmental_score_packaging_ratio"
 msgid "ratio"
-msgstr "poměr"
+msgstr ""
 
 msgctxt "environmental_score_packaging_score"
 msgid "score"
-msgstr "skóre"
+msgstr ""
 
 msgctxt "environmental_score_score_of_all_components"
 msgid "Score of all components"
@@ -5678,7 +5718,7 @@ msgstr "Údaje o obalu tohoto produktu nejsou vyplněny."
 
 msgctxt "environmental_score_unprecise_packaging_information"
 msgid "The information about the packaging of this product is not sufficiently precise (exact shapes and materials of all components of the packaging)."
-msgstr "Údaje o obalu tohoto výrobku nejsou dostatečně přesné (přesné tvary a materiály všech součástí obalu)."
+msgstr "Informace o obalech tohoto výrobku nejsou dostatečně přesné (např. tvary a materiály všech částí obalů)."
 
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can modify the product page and add them."
@@ -5699,7 +5739,7 @@ msgstr "kg CO2 ekv./kg produktu"
 # do not translate the link
 msgctxt "environmental_score_platform_prompt_environmental_score_modal"
 msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
-msgstr "Pokud jste výrobcem tohoto produktu, můžete nám zaslat informace prostřednictvím naší <a href=\"https://world.pro.openfoodfacts.org\">bezplatné platformy pro výrobce</a>."
+msgstr ""
 
 # do not translate Green-Score and the link
 msgctxt "environmental_score_description"
@@ -5714,7 +5754,7 @@ msgstr "Vzorec Green-Score se může změnit, protože je pravidelně vylepšov�
 # do not translate Green-Score
 msgctxt "environmental_score_warning_international"
 msgid "The Green-Score was initially developped for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
-msgstr "Green-Score bylo původně vyvinuto pro Francii a je rozšiřováno do dalších evropských zemí. Vzorec Green-Score se může změnit, protože je pravidelně vylepšován, aby byl přesnější a lépe vyhovoval každé zemi."
+msgstr "Green-Score byl původně vyvinut pro Francii a je rozšiřován do dalších evropských zemí. Vzorec Green-Score se může změnit, protože je pravidelně vylepšován, aby byl přesnější a lépe vyhovoval každé zemi."
 
 msgctxt "environmental_score_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
@@ -5759,7 +5799,7 @@ msgstr "Odstranění nebo změna poskytnutých dat bude možná pouze pro experi
 
 msgctxt "environmental_score_packaging_impact_high"
 msgid "Packaging with a high impact"
-msgstr "Balení s vysokým dopadem"
+msgstr "Obal s vysokým dopadem"
 
 msgctxt "environmental_score_packaging_impact_medium"
 msgid "Packaging with a medium impact"
@@ -5828,7 +5868,7 @@ msgstr "Pomozte nám informovat miliony spotřebitelů po celém světě o tom, 
 
 msgctxt "donation_title_2024"
 msgid "Please give to our 2024 Fundraiser"
-msgstr ""
+msgstr "Přispějte prosím do naší sbírky 2024"
 
 msgctxt "donation_list_2024_main"
 msgid "Your donations fund the day-to-day operations of our non-profit association:"
@@ -6285,7 +6325,7 @@ msgstr "Mohl byste přidat informace potřebné k výpočtu Nutri-Score?"
 
 msgctxt "actions_to_compute_environmental_score"
 msgid "Could you add a precise product category so that we can compute the Green-Score?"
-msgstr "Mohl byste přidat přesnou produktovou kategorii, abychom mohli vypočítat Green-Score?"
+msgstr "Mohli byste přidat přesnou kategorii produktu, abychom mohli vypočítat Green-Score?"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
@@ -6369,6 +6409,10 @@ msgstr "Přidejte zemi, kde jste tento produkt našli"
 msgctxt "action_packager_codes_image"
 msgid "Take a photo of traceability codes"
 msgstr "Vyfoťte kódy sledovatelnosti"
+
+msgctxt "action_report_product_to_nutripatrol"
+msgid "Report this product to our moderators"
+msgstr "Nahlásit tento produkt našim moderátorům"
 
 # Used as a header for key facts
 msgctxt "knowledge_panels_facts"
@@ -6515,6 +6559,10 @@ msgctxt "api_result_product_not_found"
 msgid "Product not found"
 msgstr "Produkt nebyl nalezen"
 
+msgctxt "api_result_product_found_with_a_different_product_type"
+msgid "Product found with a different product type"
+msgstr "Produkt byl nalezen s jiným typem produktu"
+
 msgctxt "api_result_product_updated"
 msgid "Product updated"
 msgstr "Produkt aktualizován"
@@ -6538,6 +6586,10 @@ msgstr "Neplatný JSON v těle požadavku"
 msgctxt "api_message_invalid_code"
 msgid "Invalid code"
 msgstr "Neplatný kód"
+
+msgctxt "api_message_invalid_product_type"
+msgid "Invalid product type"
+msgstr "Neplatný typ produktu"
 
 msgctxt "api_message_invalid_type_must_be_object"
 msgid "Invalid type: must be an object"
@@ -6852,6 +6904,18 @@ msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_
 msgid "Points for proteins are not counted because the negative points greater than or equal to 11."
 msgstr "Body za bílkoviny se nepočítají, protože záporné body jsou větší nebo rovné 11."
 
+msgctxt "nutriscore_new_computation_title"
+msgid "Discover the new Nutri-Score!"
+msgstr "Objevte nové Nutri-Score!"
+
+msgctxt "nutriscore_new_computation_description"
+msgid "<p>The computation of the Nutri-Score is evolving to provide better recommendations based on the latest scientific evidence.</p><p>Main improvements:</p><ul><li>Better score for some fatty fish and oils rich in good fats</li><li>Better score for whole products rich in fiber</li><li>Worse score for products containing a lot of salt or sugar</li><li>Worse score for red meat (compared to poultry)</li></ul>"
+msgstr "<p>Výpočet Nutri-Score se vyvíjí, aby poskytoval lepší doporučení založená na nejnovějších vědeckých důkazech.</p><p>Hlavní vylepšení:</p><ul><li>Lepší skóre pro některé tučné ryby a oleje bohaté na dobré tuky</li><li>Lepší skóre pro celé produkty bohaté na vlákninu</li><li>Horší skóre pro produkty obsahující hodně sůl nebo cukr</li><li>Horší skóre pro červené maso (ve srovnání s drůbežím)</li></ul>"
+
+msgctxt "nutriscore_new_computation_link_text"
+msgid "Discover all the improvements of the new Nutri-Score"
+msgstr "Objevte všechna vylepšení nového Nutri-Score"
+
 msgctxt "nutriscore_explanation_what_it_is"
 msgid "The Nutri-Score is a logo on the overall nutritional quality of products."
 msgstr "Nutri-Score je logo o celkové nutriční kvalitě produktů."
@@ -6965,6 +7029,10 @@ msgstr "Pokud se údaje neshodují s údaji na obalu, můžete je doplnit nebo o
 msgctxt "incomplete_or_incorrect_data_content_correct_off"
 msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
 msgstr "Open Food Facts je databáze založená na spolupráci a každý příspěvek je užitečný pro všechny."
+
+msgctxt "report_to_nutripatrol_explain"
+msgid "If you want to report vandalism, inappropriate content or erroneous data you can't fix yourself, report it to our moderators team."
+msgstr "Pokud chcete nahlásit vandalismus, nevhodný obsah nebo chybná data, která sami nemůžete opravit, nahlaste to našemu týmu moderátorů."
 
 msgctxt "description"
 msgid "Description"
@@ -7232,4 +7300,52 @@ msgstr "Špatná opravitelnost"
 msgctxt "attribute_repairability_index_france_bad_description_short"
 msgid "Bad repairability"
 msgstr "Špatná opravitelnost"
+
+msgctxt "product_type"
+msgid "Product type"
+msgstr "Typ produktu"
+
+# Food product type
+msgctxt "product_type_food"
+msgid "Food"
+msgstr "Jídlo"
+
+# Pet food product type
+msgctxt "product_type_petfood"
+msgid "Pet food"
+msgstr "Zvířecí krmivo"
+
+# Beauty product type
+msgctxt "product_type_beauty"
+msgid "Beauty"
+msgstr "Krása"
+
+# General product product type
+msgctxt "product_type_product"
+msgid "Product"
+msgstr "Produkt"
+
+msgctxt "recommendation_limit_ultra_processed_foods_title"
+msgid "Limit ultra-processed foods"
+msgstr "Omezte ultra zpracované potraviny"
+
+msgctxt "recommendation_limit_ultra_processed_foods_subtitle"
+msgid "Limiting ultra-processed foods reduces the risk of noncommunicable chronic diseases"
+msgstr "Omezení ultrazpracovaných potravin snižuje riziko nepřenosných chronických onemocnění"
+
+msgctxt "recommendation_limit_ultra_processed_foods_text"
+msgid "Several studies have found that a lower consumption of ultra-processed foods is associated with a reduced risk of noncommunicable chronic diseases, such as obesity, hypertension and diabetes."
+msgstr "Několik studií zjistilo, že nižší spotřeba ultrazpracovaných potravin je spojena se sníženým rizikem nepřenosných chronických onemocnění, jako je obezita, vysoký tlak a cukrovka."
+
+msgctxt "discover_the_evolution_of_the_nutriscore_grades_of_your_products"
+msgid "Discover the evolution of the Nutri-Score grades of your products"
+msgstr "Objevte vývoj tříd Nutri-Score vašich produktů"
+
+msgctxt "add_products_to_discover_the_evolution_of_their_nutriscore_grades"
+msgid "Add products with a category, ingredients list and nutrition facts to discover the evolution of their Nutri-Score grades."
+msgstr "Přidejte produkty s kategorií, seznamem ingrediencí a nutričními údaji a objevte vývoj jejich stupňů Nutri-Score."
+
+msgctxt "in_contact_with_food"
+msgid "In contact with food"
+msgstr "Při kontaktu s potravinami"
 
