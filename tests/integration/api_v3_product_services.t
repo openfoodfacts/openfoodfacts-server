@@ -176,6 +176,35 @@ JSON
 JSON
 	},
 
+	# determine_food_contact_of_packaging_components
+	{
+		test_case => 'determine-food-contact-of-packaging-components-service',
+		method => 'POST',
+		path => '/api/v3/product_services',
+		body => <<JSON
+{
+	"services":["determine_food_contact_of_packaging_components"],
+	"product": {
+		"lc": "en",
+		"packagings": [
+			{
+				"material": "en:plastic",
+				"shape": "en:tray"
+			},
+			{
+				"material": "en:plastic",
+				"shape": "en:film"
+			},
+			{
+				"material": "en:paper",
+				"shape": "en:label"
+			}
+		]
+	}
+}
+JSON
+	},
+
 ];
 
 execute_api_tests(__FILE__, $tests_ref);

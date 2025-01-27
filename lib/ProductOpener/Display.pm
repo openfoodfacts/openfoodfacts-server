@@ -114,6 +114,7 @@ BEGIN {
 		$images_subdomain
 		$static_subdomain
 		$producers_platform_url
+		$public_platform_url
 		$test
 		@lcs
 		$country
@@ -174,6 +175,7 @@ use ProductOpener::Cache qw/$max_memcached_object_size $memd generate_cache_key/
 use ProductOpener::Permissions qw/has_permission/;
 use ProductOpener::ProductsFeatures qw(feature_enabled);
 use ProductOpener::RequestStats qw(:all);
+use ProductOpener::PackagingFoodContact qw/determine_food_contact_of_packaging_components_service/;
 
 use Encode;
 use URI::Escape::XS;
@@ -344,6 +346,7 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	$template_data_ref->{server_options_private_products} = $server_options{private_products};
 	$template_data_ref->{server_options_producers_platform} = $server_options{producers_platform};
 	$template_data_ref->{producers_platform_url} = $producers_platform_url;
+	$template_data_ref->{public_platform_url} = $public_platform_url;
 	$template_data_ref->{server_domain} = $server_domain;
 	$template_data_ref->{static_subdomain} = $static_subdomain;
 	$template_data_ref->{images_subdomain} = $images_subdomain;
@@ -906,10 +909,15 @@ CSS
 	# call format_subdomain($subdomain) only once
 	$formatted_subdomain = format_subdomain($subdomain);
 	$producers_platform_url = $formatted_subdomain . '/';
+	$public_platform_url = $formatted_subdomain . '/';
 
 	# If we are not already on the producers platform: add .pro
 	if ($producers_platform_url !~ /\.pro\.open/) {
 		$producers_platform_url =~ s/\.open/\.pro\.open/;
+	}
+	# and the contrary for public platform
+	if ($public_platform_url =~ /\.pro\.open/) {
+		$public_platform_url =~ s/\.pro\.open/\.open/;
 	}
 
 	# Enable or disable user food preferences: used to compute attributes and to display
@@ -1265,6 +1273,20 @@ sub display_index_for_producer ($request_ref) {
 				count => $count,
 				};
 		}
+	}
+
+	# Count the products with a Nutri-Score computed
+	my $count = count_products($request_ref, {misc_tags => "en:nutriscore-computed"});
+	if ($count > 0) {
+		push @{$template_data_ref->{facets}},
+			{
+			url => "/misc?filter=nutriscore",
+			number_of_products => lang("discover_the_evolution_of_the_nutriscore_grades_of_your_products"),
+			count => $count,
+			};
+	}
+	else {
+		$template_data_ref->{add_products_to_discover_the_evolution_of_their_nutriscore_grades} = 1;
 	}
 
 	# Display a message if some product updates have not been published yet
@@ -7618,6 +7640,10 @@ sub display_page ($request_ref) {
 	$template_data_ref->{request} = $request_ref;
 
 	my $html;
+	# ?content_only=1 -> only the content, no header, footer, etc.
+	if (($user_agent =~ /smoothie/) or (single_param('content_only'))) {
+		$template_data_ref->{content_only} = 1;
+	}
 	process_template('web/common/site_layout.tt.html', $template_data_ref, \$html, $request_ref)
 		|| ($html = "template error: " . $tt->error());
 
@@ -7976,6 +8002,13 @@ JS
 		$template_data_ref->{environmental_score_calculation_details}
 			= display_environmental_score_calculation_details($request_ref->{cc},
 			$product_ref->{environmental_score_data});
+	}
+
+	# 2025/01 - For moderators, determine which packaging components are in contact with food, so that we can display them
+	# This is for initial development of the feature, once finalized, we could compute and store this data in the product
+
+	if ($User{moderator}) {
+		ProductOpener::PackagingFoodContact::determine_food_contact_of_packaging_components_service($product_ref);
 	}
 
 	# Activate knowledge panels for all users

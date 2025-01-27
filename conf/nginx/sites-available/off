@@ -25,7 +25,9 @@ map $uri $apache_port {
 	# product API read / write
 	"~*^/api/v./product/" 8002;
         # whitelist most cgi (but display and search)
-        "~*^/cgi/(?!display|search).pl" 8002;
+        "~*^/cgi/(?!display\.pl|search\.pl)" 8002;
+        # whitelist most api (but search)
+        "~*^/api/v./(?!search\b)" 8002;
 }
 
 # variables definitions for expiry headers are loaded from /etc/nginx/conf.d/expires-no-json-xml.conf
