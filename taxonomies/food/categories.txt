@@ -41815,6 +41815,10 @@ ciqual_food_code:en: 9321
 ciqual_food_name:en: Pearled barley, raw
 ciqual_food_name:fr: Orge perlée, crue
 
+< en:Pearled barley
+en: Arpacas
+fr: Arpacas
+
 < en:Barley
 en: Unsalted boiled pearled barley, Unsalted pearled barley cooked in water
 fr: Orge perlée bouillie non salée, Orge perlée cuite à l'eau non salée
@@ -42158,6 +42162,10 @@ hr: Mljevene sjemenke smeđeg lana
 nl: Gemalen bruin lijnzaad
 
 < en:Cereal grains
+en: Freekeh
+fr: Freekeh
+
+< en:Cereal grains
 en: Meslin, Maslin
 es: Morcajo, Tranquillón, Mezclas de trigo y centeno
 fr: Méteil, Mélange de blé et seigle
@@ -42459,6 +42467,14 @@ pt: Arrozes agulha
 incompatible_with:en: categories:en:short-grain-rices, categories:en:medium-grain-rices
 wikidata:en: Q67594028
 
+< en:Long grain rices
+en: Carolino rices
+fr: Riz Carolino
+
+< en:Long grain rices
+en: Pilavlik rices, rice for pilaf
+fr: Riz pilavlik, riz pour pilaf
+
 < en:Rices
 en: Medium grain rices
 de: Mittelkornreis
@@ -42468,6 +42484,14 @@ hr: Riže srednjeg zrna
 it: Risi di grano medio
 nl: Mediumgraanrijst
 incompatible_with:en: categories:en:short-grain-rices, categories:en:long-grain-rices
+
+< en:Medium grain rices
+en: Kolam rices
+fr: Riz Kolam
+
+< en:Medium grain rices
+en: Sona Masoori rices
+fr: Riz Sona Masoori, riz Sona Mahsuri
 
 < en:Rices
 en: Short grain rices
@@ -42480,6 +42504,10 @@ it: Riso a grano corto, Riso a grana corta
 lt: Trumpagrūdžiai ryžiai
 nl: Korrelrijst
 incompatible_with:en: categories:en:long-grain-rices, categories:en:medium-grain-rices
+
+< en:Short grain rices
+en: Camolino rices
+fr: Riz Camolino
 
 < en:Rices
 en: Rices for paella
@@ -42504,6 +42532,10 @@ nl: Risottorijsten
 pl: Ryż do risotto, Ryż na risotto
 pt: Arrozes para risotto
 #wikidata:en:
+
+< en:Rices for risotto
+en: Sant'Andrea Rices
+fr: Riz Sant'Andrea
 
 < en:Rices
 en: Sushi rice, Rices for sushi
@@ -42778,6 +42810,19 @@ fr: Riz Tahibonet
 hr: Tahibonet riže
 nl: Tahibonetrijsten, Tahibonetrijst, Tahibonet-rijst, Tahibonet rijst
 #wikidata:en:
+
+< en:Indica rices
+< en:Long grain rices
+en: Patna rices
+fr: Riz Patna
+
+< en:Long grain rices
+en: Osmancik rices
+fr: Riz Osmancik
+
+< en:Long grain rices
+en: Parmal rices
+fr: Riz Parmal
 
 < en:Japonica rices
 < en:Medium grain rices
@@ -81063,6 +81108,10 @@ ciqual_food_name:en: Cantonese rice
 ciqual_food_name:fr: Riz cantonais
 wikidata:en: Q1076874
 
+< en:Prepared rices
+en: Congee
+fr: Congee
+
 < en:Meals
 en: Basque-style piperade, Fondue of sweet peppers and tomatoes flavoured with onions and garlics
 fr: Piperade basquaise
@@ -92873,6 +92922,10 @@ hr: Aromatizirane i obojene suhe tjestenine
 it: Paste secche colorate ed aromatizzate
 nl: Gearomatiseerde en gekleurde pasta
 
+< en:Flavored and colored dry pastas
+en: Spinach flavored dry pastas
+fr: Pâtes sèches aromatisées aux épinards
+
 < en:Dry egg pastas
 en: Cooked unsalted dried egg pasta
 fr: Pâtes sèches aux œufs cuites non salées
@@ -94176,6 +94229,10 @@ hr: Celofanski rezanci
 nl: Glasnoedels
 wikidata:en: Q840448
 
+< en:Noodles
+en: Maranta noodles, Maranta vermicelli
+fr: Vermicelles de marante
+
 < en:Egg pastas
 < en:Noodles
 en: Egg noodles
@@ -94431,6 +94488,10 @@ zh: 干豆腐粉丝, 干豆腐面条
 ciqual_food_code:en: 9902
 ciqual_food_name:en: Soy vermicelli or soy noodle, dried
 ciqual_food_name:fr: Vermicelle de soja, sèche
+
+< en:Noodles
+en: Korean noodles, Guksu
+fr: Nouilles coréennes, Guksu
 
 < en:Meals
 en: Pasta dishes
