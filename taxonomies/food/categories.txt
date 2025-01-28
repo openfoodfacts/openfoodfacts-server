@@ -41071,6 +41071,26 @@ ru: Консервированное мясо
 tr: Konserve et
 zh: 罐装肉, 肉罐头
 
+< en:Canned meats
+< en:Cooked game
+en: Canned game
+fr: Viandes de gibier en conserve
+
+< en:Canned meats
+< en:sheep meat
+en: Canned sheep meat
+fr: Viande de mouton en conserve
+
+< en:Canned meats
+< en:Cooked veal meat
+en: Canned veal meat
+fr: Viande de veau en conserve
+
+< en:Canned meats
+< en:Cooked poultries
+en: Canned poultries, Canned poultry
+fr: Volailles en conserve, volaille en conserve
+
 < en:Meals
 en: Spanish omelettes, Spanish-style tortilla with onions, Omelette with potatoes and onions
 de: Kartoffel Tortillas
@@ -78817,6 +78837,23 @@ ciqual_food_code:en: 30707
 ciqual_food_name:en: Sausage in a brioche crust, cooked
 
 < en:Meals with meat
+en: Ghivetch
+fr: Djuwetsch, Djuvec
+
+< en:Meals with meat
+en: Fasulye, Kuru fasulye
+fr: Fasulye, kuru fasulye
+
+< en:Meals with meat
+< en:Stews
+en: Goulash
+fr: Goulash, goulasch
+
+< en:Stews
+en: Lecsó
+fr: Letcho, Lecsó
+
+< en:Meals with meat
 en: Meals with horse meat
 fr: Plats préparés au cheval, plats à base de viande chevaline, plats à base de viande de cheval, plats à base de cheval
 hr: Jela s konjskim mesom
@@ -81794,12 +81831,20 @@ agribalyse_proxy_food_code:en: 20194
 wikidata:en: Q804297
 
 < en:Baked beans in tomato sauce
+en: Barbunya
+fr: Barbunya
+
+< en:Baked beans in tomato sauce
 en: Canned haricot beans with tomato sauce
 fr: Haricots blancs à la sauce tomate en conserve, Haricots blancs à la sauce tomate appertisés
 agribalyse_food_code:en: 20194
 ciqual_food_code:en: 20194
 ciqual_food_name:en: Haricot beans with tomato sauce, canned
 ciqual_food_name:fr: Haricots blancs à la sauce tomate, appertisés
+
+< en:Canned haricot beans with tomato sauce
+en: Canned Barbunya
+fr: Barbunya en conserve
 
 < en:Prepared vegetables
 es: Alubias con verduras
@@ -88560,7 +88605,12 @@ ciqual_food_name:fr: Saucisse (aliment moyen)
 intake24_category_code:en: SSGS
 
 < en:Sausages
-en: Beef sausages
+en: Beef sausages, Beef sausage
+fr: Saucisses de bœuf, Saucisse de bœuf
+agribalyse_proxy_food_code:en: 30152
+ciqual_proxy_food_code:en: 30152
+ciqual_proxy_food_name:en: Merguez sausage, pure beef, raw
+ciqual_proxy_food_name:fr: Merguez, pur bœuf, crue
 gpc_category_code:en: 10005833
 gpc_category_description:en: Definition: Includes any products that can be described/observed as a food made from ground beef,  which may be prepared using a specific, regionally based process. The ground meat is mixed with other ingredients such as animal fat, salt, spices, herbs, vegetables or fruit and then typically packed in a casing, which may be link shaped or form a rope or ring, or sold without a casing such as bologna and some frankfurters. Some sausages are cooked during processing and may be preserved by curing, drying in cool air, or smoking. Definition Excludes: Excludes products such as vegetarian sausages made from meat substitutes as well as pate.
 gpc_category_name:en: Beef Sausages - Prepared/Processed
@@ -88903,6 +88953,10 @@ fr: Saucisses confites
 hr: Kisele kobasice
 hu: Pácolt kolbász
 nl: Ingemaakte worst
+
+< en:Pickled sausages
+en: Utopenci, Utopenec
+fr: Utopenci, Utopenec
 
 # Don't confused the "French" style and the "German" style liver sausages. The French ones are cured and the German ones are precooked and usually spreadable
 < en:Cured sausages
@@ -93623,6 +93677,14 @@ hr: Mesni ravioli
 it: Ravioli di carne
 nl: Vleesravioli
 agribalyse_proxy_food_code:en: 25019
+
+< en:Meat ravioli
+xx: manti
+
+< en:Meat ravioli
+en: Pelmeni
+fr: Pelmeni
+ru: пельмени
 
 < en:Pasta stuffed with vegetables
 < en:ravioli
@@ -104690,6 +104752,80 @@ fr: Chanterelles marinées, girolles à l'huile, chanterelles à l'huile
 en: Pickled red cabbage, marinated red cabbage
 fr: Chou rouge mariné, Choux rouges marinés
 
+< en:Vegetable pickles
+< en:Canned white cabbage
+en: Pickled white cabbage, marinated white cabbage
+fr: Chou blanc mariné, Choux blancs marinés
+
+< en:Vegetable pickles
+< en:Canned celery stalks
+en: Celery stalks pickles, marinated celery stalks
+fr: Céleri-branche mariné
+
+< en:Vegetable pickles
+< en:Canned pumpkin
+en: Pumpkin pickles, marinated pumpkin
+fr: Potiron mariné
+
+< en:Vegetable pickles
+< en:Canned squash
+en: Squash pickles, marinated squash
+fr: Courge marinée
+
+< en:Vegetable pickles
+< en:Canned sweet corn
+en: Pickled sweet corn, sweet corn pickles, marinated sweet corn
+fr: Maïs doux mariné
+
+< en:Vegetable pickles
+< en:Canned turnips
+en: Turnips pickles
+fr: Navets marinés
+
+< en:Vegetable pickles
+< en:Canned drained bamboo shoots
+en: Bamboo shoots pickles, marinated bamboo shoots
+fr: Pousses de bambou marinées
+
+< en:Vegetable pickles
+< en:Radishes
+en: Radish pickles, marinated radishes
+fr: Radis marinés
+
+< en:Radish pickles
+< en:Red radishes
+en: Red radish pickles, marinated red radishes
+fr: Radis rouges marinés, Radis roses marinés
+
+< en:Vegetable pickles
+< en:Canned tomatoes
+en: Pickled tomatoes, marinated tomatoes
+fr: Tomates marinées
+
+< en:Vegetable pickles
+en: Torshi
+fr: Torchi
+
+< en:Canned fruits
+< en:Plant-based pickles
+en: Pickled fruits, Fruit pickles
+fr: Pickles de fruits, fruits marinés
+
+< en:Fruit pickles
+< en:Mangoes
+en: Pickled mangoes, marinated mangoes
+fr: Pickles de mangues, mangues marinées
+
+< en:Fruit pickles
+< en:Plums
+en: Pickled plums, marinated plums
+fr: Pickles de prunes, prunes marinées
+
+< en:Fruit pickles
+< en:Limes
+en: Pickled limes, marinated limes
+fr: Pickles de citrons verts, citrons verts marinées
+
 < en:Fresh plant-based foods
 < en:Vegetables based foods
 en: Fresh vegetables
@@ -105350,6 +105486,10 @@ fr: Poudres de gombo, Gombo en poudre
 hr: Bamije u prahu
 nl: Okrapoeders
 
+< en:Okras
+en: Canned okras
+fr: Gombos en conserve, Gombos appertisés
+
 < en:Vegetables
 en: Jackfruit
 fr: Jacquiers
@@ -105722,6 +105862,10 @@ ciqual_food_code:en: 20116
 ciqual_food_name:en: White cabbage, raw
 ciqual_food_name:fr: Chou blanc, cru
 
+< en:White cabbage
+en: Canned white cabbage
+fr: Choux blancs en conserve, chou blanc en conserve
+
 < en:Cabbages
 en: Green cabbage
 bg: Зелено зеле
@@ -105740,6 +105884,10 @@ agribalyse_food_code:en: 20015
 ciqual_food_code:en: 20015
 ciqual_food_name:en: Green cabbage, boiled/cooked in water
 ciqual_food_name:fr: Chou vert, cuit
+
+< en:Green cabbage
+en: Canned green cabbage
+fr: Choux verts en conserve, Chou vert en conserve
 
 < en:Cabbages
 en: Red cabbage
@@ -105771,6 +105919,10 @@ agribalyse_food_code:en: 20095
 ciqual_food_code:en: 20095
 ciqual_food_name:en: Red cabbage, boiled/cooked in water
 ciqual_food_name:fr: Chou rouge, bouilli/cuit à l'eau
+
+< en:Red cabbage
+en: Canned red cabbage
+fr: Choux rouges en conserve, Chou rouge en conserve
 
 # TODO difference between the Chou-raves
 
@@ -107668,6 +107820,10 @@ en: Fresh squash
 fr: Courges fraîches, Courge fraîche
 nl: Verse pompenen
 expected_ingredients:en: en:squash
+
+< en:Squash
+en: Canned squash
+fr: Courge en conserve, Courge appertisée
 
 < en:Squash
 en: Pumpkins, Winter squashs
@@ -109809,6 +109965,10 @@ origins:en: en:france
 protected_name_file_number:en: PDO-FR-0062
 protected_name_type:en: pdo
 #wikidata:en:
+
+< en:Coco white beans
+en: Canned coco white beans
+fr: Haricots cocos blancs en conserve, Haricots cocos en conserve
 
 < en:Common beans
 en: Canela beans
