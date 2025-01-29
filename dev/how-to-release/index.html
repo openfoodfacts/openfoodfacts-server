@@ -22,7 +22,7 @@
     
     
       
-        <title>How to release - Product Opener (Open Food Facts Server)</title>
+        <title>How to deploy a release - Product Opener (Open Food Facts Server)</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#how-to-release" class="md-skip">
+        <a href="#how-to-deploy-a-release" class="md-skip">
           Skip to content
         </a>
       
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              How to release
+              How to deploy a release
             
           </span>
         </div>
@@ -1065,7 +1065,7 @@
           
   
   <span class="md-ellipsis">
-    How to release
+    How to deploy a release
   </span>
   
 
@@ -1076,7 +1076,7 @@
         
   
   <span class="md-ellipsis">
-    How to release
+    How to deploy a release
   </span>
   
 
@@ -1508,7 +1508,7 @@
   
 
 
-<h1 id="how-to-release">How to release<a class="headerlink" href="#how-to-release" title="Permanent link">#</a></h1>
+<h1 id="how-to-deploy-a-release">How to deploy a release<a class="headerlink" href="#how-to-deploy-a-release" title="Permanent link">#</a></h1>
 <h2 id="staging-environment">Staging environment<a class="headerlink" href="#staging-environment" title="Permanent link">#</a></h2>
 <p>This is automatically done by the CI of github,
 see <code>.github/workflows/container-build.yml</code>.</p>
@@ -1521,7 +1521,7 @@ https://github.com/openfoodfacts/openfoodfacts-server/actions/workflows/containe
 <p>Product Opener is deployed on a container in Proxmox.
 The container is a debian server, it must follow the <code>backend</code> container version.</p>
 <p>In the command lines, I use $SERVICE and $VERSION variables,
-corresponding to the service short name (off, opf, etc.) and the version tag.</p>
+corresponding to the service short name (off, off-pro, obf, opf, opff) and the version tag (including the letter "v", e.g. "v2.55.0")</p>
 <p>To deploy you need to execute the following steps:</p>
 <ol>
 <li>merge the Release Please pull request.
