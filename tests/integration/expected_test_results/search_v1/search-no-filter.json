@@ -355,6 +355,7 @@
             "agribalyse" : {
                "warning" : "missing_agribalyse_match"
             },
+            "grade" : "unknown",
             "missing" : {
                "agb_category" : 1,
                "labels" : 1,
@@ -548,7 +549,6 @@
          "main_countries_tags" : [],
          "minerals_tags" : [],
          "misc_tags" : [
-            "en:environmental-score-extended-data-not-computed",
             "en:environmental-score-not-computed",
             "en:forest-footprint-a",
             "en:forest-footprint-computed",
@@ -1291,6 +1291,7 @@
             "agribalyse" : {
                "warning" : "missing_agribalyse_match"
             },
+            "grade" : "unknown",
             "missing" : {
                "agb_category" : 1,
                "labels" : 1,
@@ -1413,7 +1414,6 @@
          "main_countries_tags" : [],
          "minerals_tags" : [],
          "misc_tags" : [
-            "en:environmental-score-extended-data-not-computed",
             "en:environmental-score-not-computed",
             "en:nutriscore-missing-nutrition-data",
             "en:nutriscore-missing-nutrition-data-energy",
@@ -1920,6 +1920,7 @@
             "agribalyse" : {
                "warning" : "missing_agribalyse_match"
             },
+            "grade" : "unknown",
             "missing" : {
                "agb_category" : 1,
                "labels" : 1,
@@ -2089,7 +2090,6 @@
          "main_countries_tags" : [],
          "minerals_tags" : [],
          "misc_tags" : [
-            "en:environmental-score-extended-data-not-computed",
             "en:environmental-score-not-computed",
             "en:forest-footprint-a",
             "en:forest-footprint-computed",
@@ -2795,6 +2795,7 @@
             "agribalyse" : {
                "warning" : "missing_agribalyse_match"
             },
+            "grade" : "unknown",
             "missing" : {
                "agb_category" : 1,
                "labels" : 1,
@@ -2945,7 +2946,6 @@
          "main_countries_tags" : [],
          "minerals_tags" : [],
          "misc_tags" : [
-            "en:environmental-score-extended-data-not-computed",
             "en:environmental-score-not-computed",
             "en:nutriscore-2021-c-2023-c",
             "en:nutriscore-2021-same-as-2023",
@@ -3926,7 +3926,6 @@
          "misc_tags" : [
             "en:environmental-score-changed",
             "en:environmental-score-computed",
-            "en:environmental-score-extended-data-not-computed",
             "en:environmental-score-grade-changed",
             "en:environmental-score-missing-data-labels",
             "en:environmental-score-missing-data-no-packagings",
@@ -4946,7 +4945,6 @@
          "misc_tags" : [
             "en:environmental-score-changed",
             "en:environmental-score-computed",
-            "en:environmental-score-extended-data-not-computed",
             "en:environmental-score-grade-changed",
             "en:environmental-score-missing-data-labels",
             "en:environmental-score-missing-data-no-packagings",

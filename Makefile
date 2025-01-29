@@ -10,6 +10,7 @@ SHELL := $(shell which bash)
 # some vars
 ENV_FILE ?= .env
 NAME = "ProductOpener"
+VERSION = $(shell cat version.txt)
 MOUNT_POINT ?= /mnt
 DOCKER_LOCAL_DATA_DEFAULT = /srv/off/docker_data
 DOCKER_LOCAL_DATA ?= $(DOCKER_LOCAL_DATA_DEFAULT)
@@ -85,7 +86,7 @@ _FORCE:
 # Info #
 #------#
 info:
-	@echo "${NAME} version: ${VERSION}"
+	@echo "${NAME} version: v${VERSION}"
 
 usage:
 	@echo "🥫 Welcome to the Open Food Facts project"
@@ -106,6 +107,13 @@ goodbye:
 # Local #
 #-------#
 dev: hello build init_backend _up import_sample_data create_mongodb_indexes refresh_product_tags
+	@echo "🥫 You should be able to access your local install of Open Food Facts at http://world.openfoodfacts.localhost/"
+	@echo "🥫 You have around 100 test products. Please run 'make import_prod_data' if you want a full production dump (~2M products)."
+
+#-------#
+# CI    #
+#-------#
+dev_no_build: hello init_backend _up import_sample_data create_mongodb_indexes refresh_product_tags
 	@echo "🥫 You should be able to access your local install of Open Food Facts at http://world.openfoodfacts.localhost/"
 	@echo "🥫 You have around 100 test products. Please run 'make import_prod_data' if you want a full production dump (~2M products)."
 

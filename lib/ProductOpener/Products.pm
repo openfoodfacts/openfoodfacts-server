@@ -76,7 +76,6 @@ BEGIN {
 		&product_path
 		&product_path_from_id
 		&product_id_from_path
-		&product_exists
 		&get_owner_id
 		&normalize_product_data
 		&init_product
@@ -332,6 +331,53 @@ sub normalize_code_zeroes($code) {
 	return $code;
 }
 
+=head2 is_valid_upc12($code)
+
+C<is_valid_upc12()> this function validates a UPC-12 code by:
+- checking if the input is exactly 12 digits long,
+- verifying the check digit using the modulo 10 algorithm.
+
+=head3 Arguments
+
+UPC-12 Code in the Raw form: $code
+
+=head3 Return Values
+
+1 (true) if the UPC-12 code is valid, 0 (false) otherwise.
+
+=cut
+
+# use strict;
+# use warnings;
+
+sub is_valid_upc12 {
+	my ($upc) = @_;
+
+	# Check if the input is exactly 12 digits long
+	return 0 unless $upc =~ /^\d{12}$/;
+
+	# Extract the first 11 digits and the check digit
+	my $check_digit = substr($upc, -1);
+	my $upc_without_check_digit = substr($upc, 0, 11);
+
+	# Calculate the check digit
+	my $sum_odd = 0;
+	my $sum_even = 0;
+	for my $i (0 .. 10) {
+		if ($i % 2 == 0) {
+			$sum_odd += substr($upc_without_check_digit, $i, 1);
+		}
+		else {
+			$sum_even += substr($upc_without_check_digit, $i, 1);
+		}
+	}
+	my $total_sum = ($sum_odd * 3) + $sum_even;
+	my $calculated_check_digit = (10 - ($total_sum % 10)) % 10;
+
+	# Validate the check digit
+	return $check_digit == $calculated_check_digit;
+}
+
 =head2 normalize_code_with_gs1_ai($code)
 
 C<normalize_code_with_gs1_ai()> this function normalizes the product code by:
@@ -361,7 +407,19 @@ sub normalize_code_with_gs1_ai ($code) {
 
 		# Keep only digits, remove spaces, dashes and everything else
 		$code =~ s/\D//g;
+
+		# might be upc12
+		if (is_valid_upc12($code)) {
+			$code = "0" . $code;
+		}
+
+		# Check if the length of the code is 14 and the first character is '0'
+		if (length($code) == 14 && substr($code, 0, 1) eq '0') {
+			# Drop the first zero
+			$code = substr($code, 1);
+		}
 	}
+
 	return ($code, $ai_data_str);
 }
 
@@ -399,7 +457,7 @@ sub _try_normalize_code_gs1 ($code) {
 		}
 	};
 	if ($@) {
-		$log->warn("GS1Parser error", {error => $@}) if $log->is_warn();
+		# $log->warn("GS1Parser error", {error => $@}) if $log->is_warn();
 		$code = undef;
 		$ai_data_str = undef;
 	}
@@ -655,20 +713,6 @@ sub product_id_from_path ($product_path) {
 	# transform to id by simply removing "/"
 	$id =~ s/\///g;
 	return $id;
-}
-
-sub product_exists ($product_id) {
-
-	# deprecated, just use retrieve_product()
-
-	my $product_ref = retrieve_product($product_id);
-
-	if (not defined $product_ref) {
-		return 0;
-	}
-	else {
-		return $product_ref;
-	}
 }
 
 sub get_owner_id ($userid, $orgid, $ownerid) {
@@ -2850,12 +2894,13 @@ sub compute_codes ($product_ref) {
 
 	my $ean = undef;
 
+	# Note: we now normalize codes, so we should not have conflicts
 	if (length($code) == 12) {
 		$ean = '0' . $code;
-		if (product_exists('0' . $code)) {
+		if (retrieve_product('0' . $code)) {
 			push @codes, "conflict-with-ean-13";
 		}
-		elsif (-e ("$BASE_DIRS{PRODUCTS}/" . product_path_from_id("0" . $code))) {
+		elsif (retrieve_product('0' . $code), 1) {
 			push @codes, "conflict-with-deleted-ean-13";
 		}
 	}
@@ -2864,7 +2909,7 @@ sub compute_codes ($product_ref) {
 		$ean = $code;
 		my $upc = $code;
 		$upc =~ s/^.//;
-		if (product_exists($upc)) {
+		if (retrieve_product($upc)) {
 			push @codes, "conflict-with-upc-12";
 		}
 	}

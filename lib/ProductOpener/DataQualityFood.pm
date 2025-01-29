@@ -1341,7 +1341,9 @@ sub check_nutrition_data ($product_ref) {
 
 			my $total_fiber = $soluble_fiber + $insoluble_fiber;
 
-			if ($total_fiber > $product_ref->{nutriments}{fiber_100g} + 0.001) {
+			# increased threshold from 0.001 to 0.01 (see issue #10491)
+			# make sure that floats stop after 2 decimals
+			if (sprintf("%.2f", $total_fiber) > sprintf("%.2f", $product_ref->{nutriments}{fiber_100g} + 0.01)) {
 				push @{$product_ref->{data_quality_errors_tags}},
 					"en:nutrition-soluble-fiber-plus-insoluble-fiber-greater-than-fiber";
 			}
@@ -1379,31 +1381,6 @@ sub check_nutrition_data ($product_ref) {
 		{
 			push @{$product_ref->{data_quality_errors_tags}},
 				"en:nutri-score-grade-from-category-does-not-match-calculated-grade";
-		}
-
-		# some categories have an expected ingredient - push data quality error if ingredient differs from expected ingredient
-		# note: we currently support only 1 expected ingredient
-		my ($expected_ingredients, $category_id2)
-			= get_inherited_property_from_categories_tags($product_ref, "expected_ingredients:en");
-
-		if ((defined $expected_ingredients)) {
-			$expected_ingredients = canonicalize_taxonomy_tag("en", "ingredients", $expected_ingredients);
-			my $number_of_ingredients = (defined $product_ref->{ingredients}) ? @{$product_ref->{ingredients}} : 0;
-
-			if ($number_of_ingredients == 0) {
-				push @{$product_ref->{data_quality_warnings_tags}},
-					"en:ingredients-single-ingredient-from-category-missing";
-			}
-			elsif (
-				# more than 1 ingredient
-				($number_of_ingredients > 1)
-				# ingredient different than expected ingredient
-				or not(is_a("ingredients", $product_ref->{ingredients}[0]{id}, $expected_ingredients))
-				)
-			{
-				push @{$product_ref->{data_quality_errors_tags}},
-					"en:ingredients-single-ingredient-from-category-does-not-match-actual-ingredients";
-			}
 		}
 	}
 	$log->debug("has_prepared_data: " . $has_prepared_data) if $log->debug();
@@ -1833,6 +1810,47 @@ sub check_categories ($product_ref) {
 	# Plant milks should probably not be dairies https://github.com/openfoodfacts/openfoodfacts-server/issues/73
 	if (has_tag($product_ref, "categories", "en:plant-milks") and has_tag($product_ref, "categories", "en:dairies")) {
 		push @{$product_ref->{data_quality_warnings_tags}}, "en:incompatible-categories-plant-milk-and-dairy";
+	}
+
+	# some categories have an expected ingredient - push data quality error if ingredient differs from expected ingredient
+	# note: we currently support only 1 expected ingredient
+	my ($expected_ingredients, $category_id2)
+		= get_inherited_property_from_categories_tags($product_ref, "expected_ingredients:en");
+
+	if ((defined $expected_ingredients)) {
+		$expected_ingredients = canonicalize_taxonomy_tag("en", "ingredients", $expected_ingredients);
+		my $number_of_ingredients = (defined $product_ref->{ingredients}) ? @{$product_ref->{ingredients}} : 0;
+
+		if ($number_of_ingredients == 0) {
+			push @{$product_ref->{data_quality_warnings_tags}},
+				"en:ingredients-single-ingredient-from-category-missing";
+		}
+		elsif (
+			# more than 1 ingredient
+			($number_of_ingredients > 1)
+			# ingredient different than expected ingredient
+			or not(is_a("ingredients", $product_ref->{ingredients}[0]{id}, $expected_ingredients))
+			)
+		{
+			push @{$product_ref->{data_quality_errors_tags}},
+				"en:ingredients-single-ingredient-from-category-does-not-match-actual-ingredients";
+		}
+	}
+
+	# some categories have an expected minimum number of ingredients
+	# push data quality error if ingredients count is lower than the expected number of ingredients
+	my ($minimum_number_of_ingredients, $category_id3)
+		= get_inherited_property_from_categories_tags($product_ref, "minimum_number_of_ingredients:en");
+
+	if ((defined $minimum_number_of_ingredients)) {
+		my $number_of_ingredients = (defined $product_ref->{ingredients}) ? @{$product_ref->{ingredients}} : 0;
+
+		# category might be provided but not ingredients
+		# consider only when some ingredients are provided
+		if ($number_of_ingredients > 0 && $number_of_ingredients < $minimum_number_of_ingredients) {
+			push @{$product_ref->{data_quality_errors_tags}},
+				"en:ingredients-count-lower-than-expected-for-the-category";
+		}
 	}
 
 	return;

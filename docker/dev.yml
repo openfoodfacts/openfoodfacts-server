@@ -1,6 +1,4 @@
-﻿version: "3.7"
-
-x-backend-conf: &backend-conf
+﻿x-backend-conf: &backend-conf
   image: openfoodfacts-server/backend:dev
   build:
     context: .

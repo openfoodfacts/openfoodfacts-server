@@ -19,20 +19,6 @@ concurrency:
 
 jobs:
 
-  # those are just until we de-activate their mandatory
-  gulp:
-    name: Gulp
-    runs-on: ubuntu-latest
-    steps:
-    - name: just finish
-      run: exit 0
-  dev:
-    name: Dev
-    runs-on: ubuntu-latest
-    steps:
-    - name: just finish
-      run: exit 0
-
   lint:
     name: 🕵️‍♀️ NPM lint
     runs-on: ubuntu-latest
@@ -80,8 +66,20 @@ jobs:
       # see https://stackoverflow.com/a/60984318/2886726
       run: |
         git ls-files taxonomies/ | xargs -I{} git log -1 --date=format:%Y%m%d%H%M.%S --format='touch -t %ad "{}"' "{}" | bash
-    - name: Rebuild taxonomies
+    - name: Rebuild taxonomies for Open Food Facts (off)
       run: make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+    - name: Rebuild taxonomies for Open Beauty Facts (obf)
+      run: |
+        source env/setenv.sh obf
+        make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+    - name: Rebuild taxonomies for Open Products Facts (opf)
+      run: |
+        source env/setenv.sh opf
+        make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+    - name: Rebuild taxonomies for Open Pet Food Facts (opff)
+      run: |
+        source env/setenv.sh opff
+        make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
 
   check_perl:
     name: 🐪 Check Perl
@@ -223,9 +221,23 @@ jobs:
         echo "export USER_GID=$(id -g)" >> .envrc
     - name: Test make dev
       run: |
-        make DOCKER_LOCAL_DATA="$(pwd)" SKIP_SAMPLE_IMAGES=1 dev
+        make DOCKER_LOCAL_DATA="$(pwd)" SKIP_SAMPLE_IMAGES=1 dev_no_build
         make status
     - name: Test all is running
       run: make livecheck || ( tail -n 300 logs/apache2/*error*log; docker compose logs; false )
     - name: test clean
       run: make hdown
+
+  test_deployment:
+    name: 🦾 Some test of deployment tools
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 1
+    - name: verify apache2 envvars is correct
+      run: |
+        env/setenv.sh off;
+        sh -c ". conf/apache-2.4/off-envvars"
+        sh -c "APACHE_CONFDIR=/etc/apache2-priority; . conf/apache-2.4/off-envvars"
