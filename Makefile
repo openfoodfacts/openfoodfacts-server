@@ -50,34 +50,31 @@ endif
 HOSTS=127.0.0.1 world.productopener.localhost fr.productopener.localhost static.productopener.localhost ssl-api.productopener.localhost fr-en.productopener.localhost
 # commands aliases
 DOCKER_COMPOSE=docker compose --env-file=${ENV_FILE} ${LOAD_EXTRA_ENV_FILE}
-# Ensure shared_network is referenced when running locally
-DOCKER_COMPOSE_RUN=COMPOSE_FILE="${COMPOSE_FILE};docker/run.yml" ${DOCKER_COMPOSE}
+# docker command that do not need the shared network
+DOCKER_COMPOSE_BUILD=COMPOSE_FILE="${COMPOSE_FILE_BUILD}" ${DOCKER_COMPOSE}
 # we run tests in a specific project name to be separated from dev instances
 # Also we merge the compose files of dependencies right in with COMPOSE_FILE,
 # so we are isolated and don't need an external network
 # We keep web-default for web contents
 # we also publish mongodb on a separate port to avoid conflicts
 # we also enable the possibility to fake services in po_test_runner
-DOCKER_COMPOSE_TEST_BASE=WEB_RESOURCES_PATH=./web-default ROBOTOFF_URL="http://backend:8881/" \
+DOCKER_COMPOSE_TEST=WEB_RESOURCES_PATH=./web-default ROBOTOFF_URL="http://backend:8881/" \
 	GOOGLE_CLOUD_VISION_API_URL="http://backend:8881/" \
 	ODOO_CRM_URL="" \
 	MONGO_EXPOSE_PORT=27027 MONGODB_CACHE_SIZE=4 \
 	COMPOSE_PROJECT_NAME=${COMPOSE_PROJECT_NAME}_test \
-	PO_COMMON_PREFIX=test_ \
+	COMPOSE_FILE="${COMPOSE_FILE_BUILD};${DEPS_DIR}/openfoodfacts-shared-services/docker-compose.yml" \
+	PO_COMMON_PREFIX=test_  \
 	docker compose --env-file=${ENV_FILE}
-DOCKER_COMPOSE_TEST=COMPOSE_FILE="${COMPOSE_FILE};${DEPS_DIR}/openfoodfacts-shared-services/docker-compose.yml" \
-	${DOCKER_COMPOSE_TEST_BASE}
-# Enable Redis only for integration tests. TODO: Currently using dev tag for keycloak - need to switch to main
-DOCKER_COMPOSE_INT_TEST=COMPOSE_FILE="${COMPOSE_FILE};docker/integration-test.yml" \
-	REDIS_URL="redis:6379" \
-	KEYCLOAK_BASE_URL=http://keycloak:8080 \
-	PRODUCT_OPENER_OIDC_DISCOVERY_ENDPOINT=http://keycloak:8080/realms/open-products-facts/.well-known/openid-configuration \
-	KC_BOOTSTRAP_ADMIN_USERNAME=test KC_BOOTSTRAP_ADMIN_PASSWORD=test \
-	${DOCKER_COMPOSE_TEST_BASE}
+# Enable Redis only for integration tests
+# and use a specific compose file, which adds dependencies
+DOCKER_COMPOSE_INT_TEST=REDIS_URL="redis:6379" \
+	COMPOSE_FILE="${COMPOSE_FILE_BUILD};docker/integration_test.yml \
+	${DOCKER_COMPOSE_TEST}
 TEST_CMD ?= yath test -PProductOpener::LoadData
 
 # Space delimited list of dependant projects
-DEPS=openfoodfacts-shared-services openfoodfacts-auth 
+DEPS=openfoodfacts-shared-services openfoodfacts-auth
 # Set the DEPS_DIR if it hasn't been set already
 ifeq (${DEPS_DIR},)
 	export DEPS_DIR=${PWD}/deps
@@ -150,7 +147,7 @@ create_folders: clone_deps
 # args variable may be use to eg. "--progress plain" option and keep logs on a failing build
 build:
 	@echo "🥫 Building containers …"
-	${DOCKER_COMPOSE} build ${args} ${container} 2>&1
+	${DOCKER_COMPOSE_BUILD} build ${args} ${container} 2>&1
 
 _up: run_deps
 	@echo "🥫 Starting containers …"
@@ -162,15 +159,15 @@ up: build create_folders _up
 # Used by staging so that shared services are not created
 prod_up: build create_folders
 	@echo "🥫 Starting containers …"
-	${DOCKER_COMPOSE} up -d 2>&1
+	${DOCKER_COMPOSE_BUILD} up -d 2>&1
 
 down:
 	@echo "🥫 Bringing down containers …"
-	${DOCKER_COMPOSE} down --remove-orphans
+	${DOCKER_COMPOSE_BUILD} down --remove-orphans
 
 hdown:
 	@echo "🥫 Bringing down containers and associated volumes …"
-	${DOCKER_COMPOSE} down -v
+	${DOCKER_COMPOSE_BUILD} down -v
 
 reset: hdown up
 
@@ -216,7 +213,7 @@ build_lang: create_folders
 	@echo "🥫 Rebuild language"
     # Run build_lang.pl
     # Languages may build taxonomies on-the-fly so include GITHUB_TOKEN so results can be cached
-	${DOCKER_COMPOSE} run --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
+	${DOCKER_COMPOSE_BUILD} run --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
 
 build_lang_test: create_folders
 # Run build_lang.pl in test env
@@ -225,14 +222,14 @@ build_lang_test: create_folders
 # use this in dev if you messed up with permissions or user uid/gid
 reset_owner:
 	@echo "🥫 reset owner"
-	${DOCKER_COMPOSE} run --rm --no-deps --user root backend chown www-data:www-data -R /opt/product-opener/ /mnt/podata /var/log/apache2 /var/log/httpd  || true
-	${DOCKER_COMPOSE} run --rm --no-deps --user root frontend chown www-data:www-data -R /opt/product-opener/html/images/icons/dist /opt/product-opener/html/js/dist /opt/product-opener/html/css/dist
+	${DOCKER_COMPOSE_BUILD} run --rm --no-deps --user root backend chown www-data:www-data -R /opt/product-opener/ /mnt/podata /var/log/apache2 /var/log/httpd  || true
+	${DOCKER_COMPOSE_BUILD} run --rm --no-deps --user root frontend chown www-data:www-data -R /opt/product-opener/html/images/icons/dist /opt/product-opener/html/js/dist /opt/product-opener/html/css/dist
 
 init_backend: build_taxonomies build_lang
 
 create_mongodb_indexes: run_deps
 	@echo "🥫 Creating MongoDB indexes …"
-	${DOCKER_COMPOSE_RUN} run --rm backend perl /opt/product-opener/scripts/create_mongodb_indexes.pl
+	${DOCKER_COMPOSE} run --rm backend perl /opt/product-opener/scripts/create_mongodb_indexes.pl
 
 refresh_product_tags: run_deps
 	@echo "🥫 Refreshing product data cached in Postgres …"
@@ -241,18 +238,18 @@ refresh_product_tags: run_deps
 import_sample_data: run_deps
 	@ if [[ "${PRODUCT_OPENER_FLAVOR_SHORT}" = "off" &&  "${PRODUCERS_PLATFORM}" != "1" ]]; then \
    		echo "🥫 Importing sample data (~200 products) into MongoDB …"; \
-		${DOCKER_COMPOSE_RUN} run --rm -e SKIP_SAMPLE_IMAGES backend bash /opt/product-opener/scripts/import_sample_data.sh; \
+		${DOCKER_COMPOSE} run --rm -e SKIP_SAMPLE_IMAGES backend bash /opt/product-opener/scripts/import_sample_data.sh; \
 	else \
 	 	echo "🥫 Not importing sample data into MongoDB (only for po_off project)"; \
 	fi
 	
 import_more_sample_data: run_deps
 	@echo "🥫 Importing sample data (~2000 products) into MongoDB …"
-	${DOCKER_COMPOSE_RUN} run --rm backend bash /opt/product-opener/scripts/import_more_sample_data.sh
+	${DOCKER_COMPOSE} run --rm backend bash /opt/product-opener/scripts/import_more_sample_data.sh
 
 refresh_mongodb: run_deps
 	@echo "🥫 Refreshing mongoDB from product files …"
-	${DOCKER_COMPOSE_RUN} run --rm backend perl /opt/product-opener/scripts/update_all_products_from_dir_in_mongodb.pl
+	${DOCKER_COMPOSE} run --rm backend perl /opt/product-opener/scripts/update_all_products_from_dir_in_mongodb.pl
 
 # this command is used to import data on the mongodb used on staging environment
 import_prod_data: run_deps
@@ -290,9 +287,11 @@ unit_test: create_folders
 integration_test: create_folders
 	@echo "🥫 Running integration tests …"
 	mkdir -p tests/integration/outputs/
-# we launch the server and run tests within same container. Dependendies are listed in integration-test.yml
+# we launch the server and run tests within same container.
 # this is the place where variables are important
-	${DOCKER_COMPOSE_INT_TEST} up -d backend frontend
+# note that we don't launch the frontend because it causes issues,
+# as we use localhost in tests (which is the backend)
+	${DOCKER_COMPOSE_INT_TEST} up -d backend
 # note: we need the -T option for ci (non tty environment)
 	${DOCKER_COMPOSE_INT_TEST} exec ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/integration/outputs/junit.xml" -e PO_EAGER_LOAD_DATA=1 -T backend yath --renderer=Formatter --renderer=JUnit -PProductOpener::LoadData tests/integration
 	${DOCKER_COMPOSE_INT_TEST} stop
@@ -313,15 +312,18 @@ test-unit: guard-test create_folders
 test-int: guard-test create_folders
 	@echo "🥫 Running test: 'tests/integration/${test}' …"
 	mkdir -p tests/integration/outputs/
-# we launch the server and run tests within same container. Dependendies are listed in integration-test.yml
+# we launch the server and run tests within same container
+# we also need dynamicfront for some assets to exists
 # this is the place where variables are important
-	${DOCKER_COMPOSE_INT_TEST} up -d backend frontend
+	${DOCKER_COMPOSE_INT_TEST} up -d backend
 	${DOCKER_COMPOSE_INT_TEST} exec -e PO_EAGER_LOAD_DATA=1 backend ${TEST_CMD} ${args} tests/integration/${test}
 # better shutdown, for if we do a modification of the code, we need a restart
 	${DOCKER_COMPOSE_INT_TEST} stop
 
 # stop all docker tests containers
 stop_tests:
+	@echo "🥫 Stopping test dockers"
+	${DOCKER_COMPOSE_TEST} stop
 	${DOCKER_COMPOSE_INT_TEST} stop
 
 # clean tests, remove containers and volume (useful if you changed env variables, etc.)
@@ -330,13 +332,15 @@ clean_tests:
 
 update_tests_results: build_taxonomies_test build_lang_test
 	@echo "🥫 Updated expected test results with actuals for easy Git diff"
-	${DOCKER_COMPOSE_INT_TEST} up -d backend frontend
-	${DOCKER_COMPOSE_INT_TEST} exec -T -w /opt/product-opener/tests backend bash update_tests_results.sh
-	${DOCKER_COMPOSE_INT_TEST} stop
+	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb backend dynamicfront incron
+	${DOCKER_COMPOSE_TEST} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl ${name}
+	${DOCKER_COMPOSE_TEST} run --rm backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
+	${DOCKER_COMPOSE_TEST} exec -T -w /opt/product-opener/tests backend bash update_tests_results.sh
+	${DOCKER_COMPOSE_TEST} stop
 
 bash:
 	@echo "🥫 Open a bash shell in the backend container"
-	${DOCKER_COMPOSE_RUN} run --rm -w /opt/product-opener backend bash
+	${DOCKER_COMPOSE_BUILD} run --rm -w /opt/product-opener backend bash
 
 bash_test:
 	@echo "🥫 Open a bash shell in the test container"
@@ -357,12 +361,12 @@ TO_CHECK := $(shell [ -x "`which git 2>/dev/null`" ] && git diff origin/main --n
 check_perl_fast:
 	@echo "🥫 Checking ${TO_CHECK}"
 	test -z "${TO_CHECK}" || \
-	  ${DOCKER_COMPOSE} run --rm backend make -j ${CPU_COUNT} ${TO_CHECK} || \
+	  ${DOCKER_COMPOSE_BUILD} run --rm backend make -j ${CPU_COUNT} ${TO_CHECK} || \
 	  ( echo "Perl syntax errors! Look at 'failed--compilation' in above logs" && false )
 
 check_translations:
 	@echo "🥫 Checking translations"
-	${DOCKER_COMPOSE} run --rm backend scripts/check-translations.sh
+	${DOCKER_COMPOSE_BUILD} run --rm backend scripts/check-translations.sh
 
 # check all perl files compile (takes time, but needed to check a function rename did not break another module !)
 # IMPORTANT: We exclude some files that are in .check_perl_excludes
@@ -370,7 +374,7 @@ check_perl:
 	@echo "🥫 Checking all perl files"
 	@if grep -P '^\s*$$' .check_perl_excludes; then echo "No blank line accepted in .check_perl_excludes, fix it"; false; fi
 	ALL_PERL_FILES=$$(find . -regex ".*\.\(p[lm]\|t\)"|grep -v "/\."|grep -v "/obsolete/"| grep -vFf .check_perl_excludes) ; \
-	${DOCKER_COMPOSE} run --rm --no-deps backend make -j ${CPU_COUNT} $$ALL_PERL_FILES  || \
+	${DOCKER_COMPOSE_BUILD} run --rm --no-deps backend make -j ${CPU_COUNT} $$ALL_PERL_FILES  || \
 	  ( echo "Perl syntax errors! Look at 'failed--compilation' in above logs" && false )
 
 # check with perltidy
@@ -380,13 +384,13 @@ TO_TIDY_CHECK := $(shell echo ${TO_CHECK}| tr " " "\n" | grep -vFf .perltidy_exc
 check_perltidy:
 	@echo "🥫 Checking with perltidy ${TO_TIDY_CHECK}"
 	@if grep -P '^\s*$$' .perltidy_excludes; then echo "No blank line accepted in .perltidy_excludes, fix it"; false; fi
-	test -z "${TO_TIDY_CHECK}" || ${DOCKER_COMPOSE} run --rm --no-deps backend perltidy --assert-tidy -opath=/tmp/ --standard-error-output ${TO_TIDY_CHECK}
+	test -z "${TO_TIDY_CHECK}" || ${DOCKER_COMPOSE_BUILD} run --rm --no-deps backend perltidy --assert-tidy -opath=/tmp/ --standard-error-output ${TO_TIDY_CHECK}
 
 # same as check_perltidy, but this time applying changes
 lint_perltidy:
 	@echo "🥫 Linting with perltidy ${TO_TIDY_CHECK}"
 	@if grep -P '^\s*$$' .perltidy_excludes; then echo "No blank line accepted in .perltidy_excludes, fix it"; false; fi
-	test -z "${TO_TIDY_CHECK}" || ${DOCKER_COMPOSE} run --rm --no-deps backend perltidy --standard-error-output -b -bext=/ ${TO_TIDY_CHECK}
+	test -z "${TO_TIDY_CHECK}" || ${DOCKER_COMPOSE_BUILD} run --rm --no-deps backend perltidy --standard-error-output -b -bext=/ ${TO_TIDY_CHECK}
 
 
 #Checking with Perl::Critic
@@ -395,7 +399,7 @@ lint_perltidy:
 # find . -regex ".*\.\(p[lM]\|t\)"|grep -v "/\."|grep -v "/obsolete/"|xargs docker compose run --rm --no-deps -T backend perlcritic
 check_critic:
 	@echo "🥫 Checking with perlcritic"
-	test -z "${TO_CHECK}" || ${DOCKER_COMPOSE} run --rm --no-deps backend perlcritic ${TO_CHECK}
+	test -z "${TO_CHECK}" || ${DOCKER_COMPOSE_BUILD} run --rm --no-deps backend perlcritic ${TO_CHECK}
 
 TAXONOMIES_TO_CHECK := $(shell [ -x "`which git 2>/dev/null`" ] && git diff origin/main --name-only | grep  -P 'taxonomies.*/.*\.txt$$' | grep -v '\.result.txt' | xargs ls -d 2>/dev/null | grep -v "^.$$")
 
@@ -403,12 +407,12 @@ TAXONOMIES_TO_CHECK := $(shell [ -x "`which git 2>/dev/null`" ] && git diff orig
 check_taxonomies:
 	@echo "🥫 Checking taxonomies"
 	test -z "${TAXONOMIES_TO_CHECK}" || \
-	${DOCKER_COMPOSE} run --rm --no-deps backend scripts/taxonomies/lint_taxonomy.pl --verbose --check ${TAXONOMIES_TO_CHECK}
+	${DOCKER_COMPOSE_BUILD} run --rm --no-deps backend scripts/taxonomies/lint_taxonomy.pl --verbose --check ${TAXONOMIES_TO_CHECK}
 
 lint_taxonomies:
 	@echo "🥫 Linting taxonomies"
 	test -z "${TAXONOMIES_TO_CHECK}" || \
-	${DOCKER_COMPOSE} run --rm --no-deps backend scripts/taxonomies/lint_taxonomy.pl --verbose ${TAXONOMIES_TO_CHECK}
+	${DOCKER_COMPOSE_BUILD} run --rm --no-deps backend scripts/taxonomies/lint_taxonomy.pl --verbose ${TAXONOMIES_TO_CHECK}
 
 
 check_openapi_v2:
@@ -429,20 +433,20 @@ check_openapi: check_openapi_v2 check_openapi_v3
 
 build_packager_codes: create_folders
 	@echo "🥫 build packager codes"
-	${DOCKER_COMPOSE} run --no-deps --rm backend /opt/product-opener/scripts/update_packager_codes.pl
+	${DOCKER_COMPOSE_BUILD} run --no-deps --rm backend /opt/product-opener/scripts/update_packager_codes.pl
 
 build_taxonomies: create_folders
 	$(MAKE) MOUNT_FOLDER=build-cache MOUNT_VOLUME=build_cache _bind_local
 	@echo "🥫 build taxonomies"
 # GITHUB_TOKEN might be empty, but if it's a valid token it enables pushing taxonomies to build cache repository
-	${DOCKER_COMPOSE} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl ${name}
+	${DOCKER_COMPOSE_BUILD} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl ${name}
 
 # a version where we force building without using cache
 # use it when you are developing in Tags.pm and want to iterate
 # at the end, change the $BUILD_TAGS_VERSION in Tags.pm
 rebuild_taxonomies:
 	$(MAKE) MOUNT_FOLDER=build-cache MOUNT_VOLUME=build_cache _bind_local
-	${DOCKER_COMPOSE} run --no-deps --rm -e TAXONOMY_NO_GET_FROM_CACHE=1 backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl ${name}
+	${DOCKER_COMPOSE_BUILD} run --no-deps --rm -e TAXONOMY_NO_GET_FROM_CACHE=1 backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl ${name}
 
 build_taxonomies_test: create_folders
 	$(MAKE) MOUNT_FOLDER=build-cache MOUNT_VOLUME=build_cache PROJECT_SUFFIX=_test _bind_local
@@ -462,7 +466,7 @@ _clean_old_external_volumes:
 
 save_orgs_to_mongodb:
 	@echo "🥫 Saving exsiting orgs into MongoDB …"
-	${DOCKER_COMPOSE} run --rm backend perl -I/opt/product-opener/lib /opt/product-opener/scripts/migrations/2024_06_save_existing_orgs_to_mongodb.pl "/mnt/podata/orgs"
+	${DOCKER_COMPOSE_BUILD} run --rm backend perl -I/opt/product-opener/lib /opt/product-opener/scripts/migrations/2024_06_save_existing_orgs_to_mongodb.pl "/mnt/podata/orgs"
 
 _bind_local:
 ifeq ($(DOCKER_LOCAL_DATA),$(DOCKER_LOCAL_DATA_DEFAULT))
