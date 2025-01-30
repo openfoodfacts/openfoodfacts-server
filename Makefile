@@ -58,19 +58,25 @@ DOCKER_COMPOSE_BUILD=COMPOSE_FILE="${COMPOSE_FILE_BUILD}" ${DOCKER_COMPOSE}
 # We keep web-default for web contents
 # we also publish mongodb on a separate port to avoid conflicts
 # we also enable the possibility to fake services in po_test_runner
-DOCKER_COMPOSE_TEST=WEB_RESOURCES_PATH=./web-default ROBOTOFF_URL="http://backend:8881/" \
+DOCKER_COMPOSE_TEST_BASE=WEB_RESOURCES_PATH=./web-default ROBOTOFF_URL="http://backend:8881/" \
 	GOOGLE_CLOUD_VISION_API_URL="http://backend:8881/" \
 	ODOO_CRM_URL="" \
 	MONGO_EXPOSE_PORT=27027 MONGODB_CACHE_SIZE=4 \
 	COMPOSE_PROJECT_NAME=${COMPOSE_PROJECT_NAME}_test \
-	COMPOSE_FILE="${COMPOSE_FILE_BUILD};${DEPS_DIR}/openfoodfacts-shared-services/docker-compose.yml" \
-	PO_COMMON_PREFIX=test_  \
+	PO_COMMON_PREFIX=test_ \
 	docker compose --env-file=${ENV_FILE}
-# Enable Redis only for integration tests
-# and use a specific compose file, which adds dependencies
-DOCKER_COMPOSE_INT_TEST=REDIS_URL="redis:6379" \
-	COMPOSE_FILE="${COMPOSE_FILE_BUILD};docker/integration_test.yml \
-	${DOCKER_COMPOSE_TEST}
+DOCKER_COMPOSE_TEST=COMPOSE_FILE="${COMPOSE_FILE};${DEPS_DIR}/openfoodfacts-shared-services/docker-compose.yml" \
+	${DOCKER_COMPOSE_TEST_BASE}
+# Enable Redis only for integration tests.
+# Note the integration-test.yml file contains references to the docker-compose files from shared-services and auth
+DOCKER_COMPOSE_INT_TEST=COMPOSE_FILE="${COMPOSE_FILE};docker/integration-test.yml" \
+	REDIS_URL="redis:6379" \
+	KEYCLOAK_BASE_URL=${KEYCLOAK_BACKCHANNEL_BASE_URL} \
+	CLIENTS=OFF,http://world.openfoodfacts.localhost \
+	OFF_CLIENT_SECRET=${PRODUCT_OPENER_OIDC_CLIENT_SECRET} \
+	KC_BOOTSTRAP_ADMIN_USERNAME=test KC_BOOTSTRAP_ADMIN_PASSWORD=test \
+	${DOCKER_COMPOSE_TEST_BASE}
+
 TEST_CMD ?= yath test -PProductOpener::LoadData
 
 # Space delimited list of dependant projects
