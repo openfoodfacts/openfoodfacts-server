@@ -18,6 +18,7 @@ services:
       - KC_BOOTSTRAP_ADMIN_USERNAME=test
       - KC_BOOTSTRAP_ADMIN_PASSWORD=test
       - KEYCLOAK_STARTUP=test
+      - KEYCLOAK_TAG=main
 
   backend:
     depends_on:
