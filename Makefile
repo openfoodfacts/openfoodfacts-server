@@ -71,10 +71,6 @@ DOCKER_COMPOSE_TEST=COMPOSE_FILE="${COMPOSE_FILE};${DEPS_DIR}/openfoodfacts-shar
 # Note the integration-test.yml file contains references to the docker-compose files from shared-services and auth
 DOCKER_COMPOSE_INT_TEST=COMPOSE_FILE="${COMPOSE_FILE};docker/integration-test.yml" \
 	REDIS_URL="redis:6379" \
-	KEYCLOAK_BASE_URL=${KEYCLOAK_BACKCHANNEL_BASE_URL} \
-	CLIENTS=OFF,http://world.openfoodfacts.localhost \
-	OFF_CLIENT_SECRET=${PRODUCT_OPENER_OIDC_CLIENT_SECRET} \
-	KC_BOOTSTRAP_ADMIN_USERNAME=test KC_BOOTSTRAP_ADMIN_PASSWORD=test \
 	${DOCKER_COMPOSE_TEST_BASE}
 
 TEST_CMD ?= yath test -PProductOpener::LoadData

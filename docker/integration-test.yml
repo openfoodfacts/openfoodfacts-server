@@ -1,12 +1,24 @@
 include:
   - ${DEPS_DIR}/openfoodfacts-shared-services/docker-compose.yml
-  - ${DEPS_DIR}/openfoodfacts-auth/docker-compose.yml
 
 services:
   frontend:
     depends_on:
         backend:
           condition: service_started
+
+  keycloak:
+    extends: 
+      file: ${DEPS_DIR}/openfoodfacts-auth/docker-compose.yml
+      service: keycloak
+    environment:
+      - KEYCLOAK_BASE_URL=${KEYCLOAK_BACKCHANNEL_BASE_URL}
+      - CLIENTS=OFF,http://world.openfoodfacts.localhost
+      - OFF_CLIENT_SECRET=${PRODUCT_OPENER_OIDC_CLIENT_SECRET}
+      - KC_BOOTSTRAP_ADMIN_USERNAME=test
+      - KC_BOOTSTRAP_ADMIN_PASSWORD=test
+      - KEYCLOAK_STARTUP=test
+
   backend:
     depends_on:
       postgres:
