@@ -49,7 +49,7 @@ my $state = first {$_->[0] eq 'state'} @params;
 ok($state->[1], 'State is set');
 
 my $client_id = first {$_->[0] eq 'client_id'} @params;
-is($client_id->[1], 'ProductOpener', 'Client id is ProductOpener');
+is($client_id->[1], 'OFF', 'Client id is OFF');
 
 my $redirect_uri = first {$_->[0] eq 'redirect_uri'} @params;
 is($redirect_uri->[1], 'http://world.openfoodfacts.localhost/cgi/oidc_signin_callback.pl', 'Redirect uri is set');
