@@ -97736,6 +97736,11 @@ ciqual_food_code:en: 27001
 ciqual_food_name:en: Eel, boiled/cooked in water
 ciqual_food_name:fr: Anguille, bouillie/cuite à l'eau
 
+< en:Smoked fishes
+< en:Cooked eels
+en: Smoked eel
+fr: Anguille fumée
+
 < en:British sea products
 < en:Eels
 en: Lough Neagh Eel
@@ -98637,6 +98642,13 @@ ciqual_food_code:en: 26136
 ciqual_food_name:en: European pilchard or sardine, grilled
 ciqual_food_name:fr: Sardine, grillée
 
+< en:Smoked fishes
+en: Smoked sardines
+fr: Sardines fumées
+ciqual_proxy_food_code:en: 26136
+ciqual_proxy_food_name:en: European pilchard or sardine, grilled
+ciqual_proxy_food_name:fr: Sardine, grillée
+
 < en:Canned fishes
 < en:Sardines
 en: Canned sardines
@@ -99049,6 +99061,10 @@ ciqual_food_code:en: 26108
 ciqual_food_name:en: Capelin, raw
 ciqual_food_name:fr: Capelan, cru
 
+< en:Capelin
+en: Capelin roe
+fr: Œufs de capelan, Masago, Œufs Masago
+
 < en:Cods
 < en:Fish fillets
 en: Cod fillets
@@ -99134,6 +99150,10 @@ agribalyse_food_code:en: 26009
 ciqual_food_code:en: 26009
 ciqual_food_name:en: Atlantic halibut, raw
 ciqual_food_name:fr: Flétan de l'Atlantique ou flétan blanc, cru
+
+< en:Smoked fishes
+en: Smoked halibuts
+fr: Flétans fumés
 
 < en:Fishes
 en: Swordfish
@@ -99864,6 +99884,13 @@ agribalyse_food_code:en: 27004
 ciqual_food_code:en: 27004
 ciqual_food_name:en: Carp roasted, carp baked
 ciqual_food_name:fr: Carpe rôtie, carpe cuite au four
+
+< en:Smoked fishes
+en: Smoked carp
+fr: Carpe fumée
+ciqual_proxy_food_code:en: 27004
+ciqual_proxy_food_name:en: Carp roasted, carp baked
+ciqual_proxy_food_name:fr: Carpe rôtie, carpe cuite au four
 
 < en:Carp
 de: Peitzer Karpfen, Carpy z picnjo (Sorbisch)
@@ -100893,6 +100920,11 @@ ciqual_food_name:fr: Cabillaud, cuit, sans précision (aliment moyen)
 en: Frozen cods, Frozen cod
 fr: Cabillauds surgelés, Cabillaud surgelé
 
+< en:Smoked fishes
+< en:Cooked cods
+en: Smoked cod
+fr: Morue fumée
+
 < en:Fishes
 < en:Seabreams
 en: Black seabream
@@ -101306,6 +101338,10 @@ wikidata:en: Q184479
 < en:Cuttlefish
 en: Frozen cuttlefish
 fr: Seiche surgelée
+
+< en:Cuttlefish
+en: Cuttlefish ink, Squid ink
+fr: Encre de sèche
 
 < en:Mollusc
 en: Common octopus
