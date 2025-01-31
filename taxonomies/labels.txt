@@ -167,8 +167,8 @@ label_categories:en: en:Environnment
 web:en: https://www.onepercentfortheplanet.org/
 
 en: 100% natural
-bg: 100% натурално
 xx: 100% natural
+bg: 100% натурално
 de: 100% natürlich
 fi: 100% luonnollinen, 100% luontainen
 fr: 100% naturel
@@ -207,10 +207,10 @@ pt: Não endurecido
 ru: Не закаленный
 
 en: Assured Food Standards, assured food standard, Red Tractor
+xx: Assured Food Standards, Red Tractor
 ca: Assured Food Standards
 de: gesicherte Essens Standards
 fi: assured food standards, punainen traktori
-xx: Assured Food Standards, Red Tractor
 ru: гарантированный пищевой стандарт
 image:en: assured-food-standards.82x90.svg
 wikidata:en: Q4810404
@@ -855,8 +855,8 @@ web:sv: https://www.mabra.com/nyttig-mat/2023-arets-vinnare-i-mabra-valet/897631
 
 
 en: HACCP, Hazard analysis and critical control points
-ar: HACCP, تحليل المخاطر ونقاط التحكم الحرجة
 xx: HACCP
+ar: HACCP, تحليل المخاطر ونقاط التحكم الحرجة
 ca: HACCP, Anàlisi de Perills i Punts de Control Crítics
 de: HACCP, Hazard Analysis and Critical Control Points, Gefahrenanalyse und kritische Kontrollpunkte, Gefahrenanalyse und kritische Lenkungspunkte
 es: HACCP, Análisis de Peligros y Puntos de Control Críticos
@@ -1169,9 +1169,9 @@ nl_be: Max Havelaar Belgie
 
 < en:Max Havelaar
 en: Max Havelaar France
+xx: Max Havelaar France
 de: Max Havelaar Frankreich
 fi: Max Havelaar Ranska
-xx: Max Havelaar France
 nl: Max Havelaar Frankrijk
 
 < en:Fair trade
@@ -1179,9 +1179,9 @@ en: TransFer, TransFer Canada
 
 < en:Fair trade
 en: Small Producers' Symbol, SPP, Small Producers
+xx: Small Producers' Symbol, SPP, Small Producers
 es: Símbolo de Pequeños Productores, SPP, Pequeños Productores
 fr: Symbole des Producteurs Paysans, SPP, Producteurs Paysans
-xx: Small Producers' Symbol, SPP, Small Producers
 auth_name:en: SPP
 auth_url:en: https://spp.coop/
 
@@ -1226,12 +1226,12 @@ it: Trafilata al bronzo
 # Packaging labels
 
 en: PEFC, Programme for the Endorsement of Forest Certification, Pan European Forest Certification
+xx: PEFC, Programme for the Endorsement of Forest Certification
 de: PEFC, Programme for the Endorsement of Forest Certification, Zertifizierungssystem für nachhaltige Waldbewirtschaftung
 es: PEFC, Programme for the Endorsement of Forest Certification, Programa para el Reconocimiento de Certificación Forestal
 fi: PEFC, Programme for the Endorsement of Forest Certification, Euroopan laajuinen metsäsertifikaatti
 fr: PEFC, Programme for the Endorsement of Forest Certification, Programme de reconnaissance des certifications forestières
 hu: PEFC, Programme for the Endorsement of Forest Certification, Páneurópai Erdő Tanúsítás
-xx: PEFC, Programme for the Endorsement of Forest Certification
 pt: PEFC, Programme for the Endorsement of Forest Certification, Programa para o Reconhecimento de Certificação Forestal, certificado PEFC
 label_categories:en: en:Packaging
 wikidata:en: Q2112204
@@ -1276,10 +1276,10 @@ label_categories:en: en:Packaging
 wikidata:en: Q3149493
 
 en: FSC, Forest Stewardship Council
+xx: FSC, Forest Stewardship Council
 bg: FSC, Forest Stewardship Council, Съвет по стопанисване на горите
 ca: FSC, Consell de Protecció Forestal
 cs: Forest Stewardship Council / FSC
-xx: FSC, Forest Stewardship Council
 es: FSC, Forest Stewardship Council, Consejo de Administración Forestal
 pl: FSC, Odpowiedzialna gospodarka leśna
 pt: FSC, Forest Stewardship Council, Conselho de Manejo Florestal, Conselho de Gestão Florestal
@@ -1292,12 +1292,12 @@ wikidata:en: Q748367
 
 < en:FSC
 en: FSC Mix
+xx: FSC Mix
 bg: FSC Mix, FSC Смес
 ca: Mix FSC
 es: FSC Mixto
 fr: FSC Mix, FSC Mixte
 it: FSC Misto
-xx: FSC Mix
 pt: FSC Misto
 # https://fsc.org/en/fsc-labels
 
@@ -5474,6 +5474,7 @@ fr: Bio équitable en France
 
 < en:Organic
 en: EU Organic, European Organic, European leaf, European organic leaf, EU organic farming
+xx: EU Organic
 bg: ЕС Био, Европейско био, Европейско лого, Европейско био лого, ЕС био земеделие
 ca: Orgànic UE
 cs: EU bio
@@ -5485,7 +5486,6 @@ et: EL-ökoloogiline, Euroopa ökoloogiline, Euroopa leht, Euroopa ökoloogiline
 fi: EU Luomu, EU:n luomu, Euroopan luomu, Euroopan lehti, Euroopan luomulehti
 fr: Bio européen, Label bio européen, bio ce, bio europe, Eurofeuille, Euro-Feuille, Feuille bio
 he: אורגני בתקן אירופאי
-xx: EU Organic
 hu: EU Organic, EU bio, EU öko
 it: Biologico UE
 ja: EUオーガニック, ヨーロッパオーガニック, ヨーロッパの葉, ヨーロッパのオーガニック葉, EUオーガニック農業
@@ -18401,8 +18401,8 @@ nl: Rainforest Alliance Hazelnoot
 nl: Rainforest Alliance Sinaasappelsap
 
 de: Reinheitsgebot
-es: Ley de pureza de 1516, Reinheitsgebot
 xx: Reinheitsgebot
+es: Ley de pureza de 1516, Reinheitsgebot
 fr: Décret sur la pureté de la bière, Reinheitsgebot
 it: Decreto di purezza
 pt: Reinheitsgebot, Lei da Pureza da Cerveja
@@ -19320,9 +19320,9 @@ description:en: Vegetarianism is the practice of abstaining from the consumption
 description:de: Vegetarismus bezeichnet eine Ernährungs- und Lebensweise, welche Nahrungsmittel meidet, die von getöteten Tieren stammen.
 description:es: El vegetarianismo, también conocido como vegetarismo, es el régimen alimentario que tiene como principio dejar de consumir cualquier tipo de carne y pescado.
 description:fr: Le végétarisme est une pratique alimentaire qui exclut la consommation de chair animale.
+description:it: Il vegetarianismo designa, nell'ambito della nutrizione umana, un insieme di diverse pratiche alimentari, accomunate dalla limitazione o dall'esclusione di parte o del totale degli alimenti di origine animale, che danno luogo a diete basate in prevalenza su alimenti di origine vegetale.
 description:nl: Vegetarisme is de voedingswijze waarbij men geen vlees eet (inclusief gevogelte, vis, schaaldieren en insecten). Bijproducten van geslachte dieren, zoals dierlijk stremsel in kaas en gelatine in snoep en pudding, wordt door sommigen eveneens uit de voeding weggelaten.
 description:pt: O vegetarianismo é um regime alimentar que tem como princípio deixar de consimur qualquer tipo de carne ou pescado ou derivados destes como ovos e leite de vaca.
-description:it: Il vegetarianismo designa, nell'ambito della nutrizione umana, un insieme di diverse pratiche alimentari, accomunate dalla limitazione o dall'esclusione di parte o del totale degli alimenti di origine animale, che danno luogo a diete basate in prevalenza su alimenti di origine vegetale.
 incompatible_with:en: labels:en:non-vegetarian
 wikidata:en: Q638022
 wikipedia:en: Vegetarianism
