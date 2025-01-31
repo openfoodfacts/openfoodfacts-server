@@ -71,6 +71,8 @@ DOCKER_COMPOSE_TEST=COMPOSE_FILE="${COMPOSE_FILE_BUILD};${DEPS_DIR}/openfoodfact
 # Note the integration-test.yml file contains references to the docker-compose files from shared-services and auth
 DOCKER_COMPOSE_INT_TEST=COMPOSE_FILE="${COMPOSE_FILE_BUILD};docker/integration-test.yml" \
 	REDIS_URL="redis:6379" \
+	KEYCLOAK_BASE_URL=http://keycloak:8080 \
+	PRODUCT_OPENER_OIDC_DISCOVERY_ENDPOINT=http://keycloak:8080/realms/open-products-facts/.well-known/openid-configuration \
 	${DOCKER_COMPOSE_TEST_BASE}
 
 TEST_CMD ?= yath test -PProductOpener::LoadData
