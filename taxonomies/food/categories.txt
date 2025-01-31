@@ -6669,6 +6669,14 @@ ciqual_food_code:en: 18039
 ciqual_food_name:en: Lemonade with a flavoured syrup
 ciqual_food_name:fr: Diabolo (limonade et sirop)
 
+< en: Lemonade with flavoured syrup
+en: Mint-flavoured syrup with sugar diluted in water, Strawberry-flavoured syrup with sugar diluted in water
+fr: Boisson préparée sucrée à partir de sirop à la menthe à diluer dans l'eau, Boisson préparée sucrée à partir de sirop aux fraises à diluer dans l'eau
+agribalyse_food_code:en: 18058
+ciqual_food_code:en: 18058
+ciqual_food_name:en: Syrup (mint, strawberries flavouredetc.), with sugar diluted in water
+ciqual_food_name:fr: Boisson préparée à partir de sirop à diluer type menthe, fraise, etc, sucré, dilué dans l'eau
+
 < en: Lemonades
 en: Chinotto
 fr: Chinotto
@@ -11968,14 +11976,16 @@ nl: Suikervrije gearomatiseerde siropen
 pl: Syropy smakowe bez cukru
 
 < en:Flavoured syrups
-en: Syrups with fruits, Syrup with fruits
-de: Fruchtsirups
-es: Jarabes con frutas, Jarabe con frutas
-fr: Sirops aux fruits, sirop aux fruits
-hr: Sirupi s voćem
-it: Sciroppi con frutta, Sciroppo con frutta
+en: Syrups with fruits, Syrup with fruits, Fruit syrups, Fruit syrup
+de: Fruchtsirups, Frucht-Sirup
+es: Jarabes con frutas, Jarabe con frutas, Sirope de frutas
+fi: hedelmäsiirapit
+fr: Sirops aux fruits, sirop aux fruits, Sirops de fruits, sirop de fruits
+he: סירופים מפירות
+hr: Sirupi s voćem, Voćni sirupi
+it: Sciroppi con frutta, Sciroppo con frutta, Sciroppi alla frutta
 lt: Vaisiniai sirupai
-nl: Vruchtensiropen, Vruchtensiroop, Vruchtesiroop
+nl: Vruchtensiropen, Vruchtensiroop, Vruchtesiroop, Fruitsiropen
 pl: Syropy owocowe, Syropy z owocami
 pt: Xaropes com frutas, Xarope com frutas
 comment:en: Fruitsyrups also exists. Need to differntiate better.
@@ -103814,14 +103824,6 @@ ciqual_food_code:en: 18017
 ciqual_food_name:en: Syrup, with sugar (to be diluted)
 ciqual_food_name:fr: Sirop à diluer, sucré
 
-< en:Syrups
-en: Mint-flavoured syrup with sugar diluted in water, Strawberry-flavoured syrup with sugar diluted in water
-fr: Boisson préparée sucrée à partir de sirop à la menthe à diluer dans l'eau, Boisson préparée sucrée à partir de sirop aux fraises à diluer dans l'eau
-agribalyse_food_code:en: 18058
-ciqual_food_code:en: 18058
-ciqual_food_name:en: Syrup (mint, strawberries flavouredetc.), with sugar diluted in water
-ciqual_food_name:fr: Boisson préparée à partir de sirop à diluer type menthe, fraise, etc, sucré, dilué dans l'eau
-
 < en:Sweeteners
 < en:Syrups
 en: Simple syrups
@@ -103937,17 +103939,6 @@ fr: Sirops d'épeautre, sirop d'épeautre
 hr: Sirupi od pira
 nl: Speltstropen
 
-< en: Flavoured syrups
-en: Fruit syrups, Fruit syrup
-de: Frucht-Sirup
-es: Sirope de frutas
-fi: hedelmäsiirapit
-fr: Sirops de fruits, sirop de fruits
-he: סירופים מפירות
-hr: Voćni sirupi
-it: Sciroppi alla frutta
-nl: Fruitsiropen
-wikidata:en: Q5506416
 
 < en:Simple syrups
 en: Date syrups
