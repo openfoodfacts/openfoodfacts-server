@@ -389,7 +389,13 @@ sub getCurrentYear() {
 	my $year = (localtime)[5] + 1900;
 
 	# Add to template variables
+	my $template_data_ref_year = {};
+	my $html = '';
 	$template_data_ref->{year} = $year;
+
+	process_template('templates/web/common/includes/donate_banner.tt.html', $template_data_ref_year, \$html)
+	|| return "template error: " . $tt->error();
+	return $html;
 }
 
 1;
