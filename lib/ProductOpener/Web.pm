@@ -384,4 +384,12 @@ sub get_countries_options_list ($target_lc, $exclude_world = 1) {
 	return \@countries_list;
 }
 
+sub getCurrentYear() {
+    # Get current year
+    my $year = (localtime)[5] + 1900;
+    
+    # Add to template variables
+    $template_data_ref->{year} = $year;
+}
+
 1;
