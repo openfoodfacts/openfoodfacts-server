@@ -139,6 +139,7 @@
 									Moderator
 								</a>
 								<ul class="dropdown">
+									<li><a href="//keycloak:8080/realms/open-products-facts/account?referrer=OFF&referrer_uri=http%3A%2F%2Fbe-fr.openfoodfacts.localhost" target="_blank" rel="noopener"><span class="material-icons">account_box</span> Account parameters</a></li>
 									<li><a href="/cgi/user.pl?type=edit&userid=moderator"><span class="material-icons">settings</span> Paramètres du compte</a></li>
 
 									
@@ -153,8 +154,7 @@
 									
 									<li class="divider"></li>			
 									<li class="has-form">
-										<form method="post" action="/cgi/session.pl">
-											<input type="hidden" name="length" value="logout">
+										<form method="post" action="/cgi/oidc_signout.pl">
 											<input type="submit" name=".submit" value="Se déconnecter" class="button small">
 										</form>
 									</li>
@@ -387,8 +387,6 @@
 								<div class="small-12 column">
 									<h1 class="if-empty-dnone">Modifier un produit</h1>
 									<!-- start templates/web/pages/product_edit/product_edit_form.tt.html -->
-
-
 
 
 <!-- end templates/web/pages/product_edit/product_edit_form.tt.html --><!-- start templates/web/pages/product_edit/product_edit_form_process.tt.html -->
