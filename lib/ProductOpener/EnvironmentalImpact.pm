@@ -62,6 +62,8 @@ BEGIN {
 
 use vars @EXPORT_OK;
 
+use Log::Any '$log', default_adapter => 'Stderr';
+
 =head1 FUNCTIONS
 
 =head2 estimate_environmental_impact_service ( $product_ref, $updated_product_fields_ref, $errors_ref )
@@ -147,30 +149,52 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 	$ua->timeout(5);
 
 	# Prepare the POST request with the payload
-	# my $request = POST $url_recipe, $payload;
-	# $request->header('content-type' => 'application/json');
-	# $request->content(decode_utf8(encode_json($payload)));
+	my $request = POST $url_recipe, $payload;
+	$request->header('content-type' => 'application/json');
+	$request->content(decode_utf8(encode_json($payload)));
 
 	# Debug information for the request
-	# $log->debug("send_event request", {endpoint => $url_recipe, payload => $payload}) if $log->is_debug();
+	$log->debug("send_event request", {endpoint => $url_recipe, payload => $payload}) if $log->is_debug();
 
 	# Send the request and get the response
-	# my $response = $ua->request($request);
+	my $response = $ua->request($request);
 
 	# Handle the response based on success or failure
-	# 	if ($response->is_success) {
-	# 		# Parse the JSON response
-	# 		my $response_data;
-	# 		eval {$response_data = decode_json($response->decoded_content);};
+	if ($response->is_success) {
+		# Parse the JSON response
+		my $response_data;
+		eval {$response_data = decode_json($response->decoded_content);};
 
-	# 		# Access the specific "ecs" value
-	# 		if (exists $response_data->{results}{total}{ecs}) {
-	# 			my $ecs_value = $response_data->{results}{total}{ecs};
-	# 			# If 'ecs' is defined, store it in the product reference
-	# 			if (defined $ecs_value) {
-	# 				$product_ref->{environmental_impact} = $ecs_value;
-	# 			}
-	# 		}
+		$product_ref->{environmental_impact} = {ecobalyse_response_data => $response_data};
+
+		# Access the specific "ecs" value
+		if (exists $response_data->{results}{total}{ecs}) {
+			my $ecs_value = $response_data->{results}{total}{ecs};
+			# If 'ecs' is defined, store it in the product reference
+			if (defined $ecs_value) {
+				$product_ref->{environmental_impact} = $ecs_value;
+			}
+		}
+	}
+	else {
+		# If the request failed, log the error
+		$log->error("send_event request failed",
+			{endpoint => $url_recipe, payload => $payload, response => $response->decoded_content})
+			if $log->is_error();
+		# Add an error message to the errors array
+		$product_ref->{environmental_impact} = {ecobalyse_response => $response->decoded_content};
+
+		push @{$errors_ref},
+			{
+			message => {id => "error_response_from_ecobalyse"},
+			field => {
+				id => "ecobalyse_response",
+				value => $response->decoded_content,
+			},
+			impact => {id => "failure"},
+			service => {id => "estimate_environmental_impact_service"},
+			};
+	}
 
 	# If necessary, return error as well
 	# (number of unattributed ingredients,
@@ -179,10 +203,9 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 	# add_error
 	# add_warning
 
-	$product_ref->{environmental_impact} = 5;
+	# $product_ref->{environmental_impact} = 5;
 
 	return;
-	# 	}
 }
 
 1;
