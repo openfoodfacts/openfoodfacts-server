@@ -497,6 +497,8 @@ sub facets_route($request_ref) {
 
 	my @components = @{$request_ref->{components}};
 
+	$log->debug("facets_route - components: ", @{$request_ref->{components}}) if $log->is_debug();
+
 	# list of (categories) tags with stats for a nutriment
 	if (    ($#components == 1)
 		and (defined $tag_type_from_plural{$target_lc}{$components[0]})
@@ -510,9 +512,10 @@ sub facets_route($request_ref) {
 		$canon_rel_url_suffix .= "/" . $components[1];
 		pop @components;
 		pop @components;
-		$log->debug("request looks like a list of tags - categories with nutrients",
-			{groupby => $request_ref->{groupby_tagtype}, stats_nid => $request_ref->{stats_nid}})
-			if $log->is_debug();
+		$log->debug(
+			"facets_route - request looks like a list of tags - categories with nutrients",
+			{groupby => $request_ref->{groupby_tagtype}, stats_nid => $request_ref->{stats_nid}}
+		) if $log->is_debug();
 	}
 
 	# if we have at least one component, check if the last component is a plural of a tagtype -> list of tags
@@ -530,8 +533,10 @@ sub facets_route($request_ref) {
 			$request_ref->{groupby_tagtype} = $tag_type_from_plural{$lc}{pop @components};
 			# use $target_lc for canon url
 			$canon_rel_url_suffix .= "/" . $tag_type_plural{$request_ref->{groupby_tagtype}}{$target_lc};
-			$log->debug("request looks like a list of tags", {groupby => $request_ref->{groupby_tagtype}, lc => $lc})
-				if $log->is_debug();
+			$log->debug(
+				"facets_route - request looks like a list of tags",
+				{groupby => $request_ref->{groupby_tagtype}, lc => $lc}
+			) if $log->is_debug();
 		}
 	}
 
@@ -543,7 +548,8 @@ sub facets_route($request_ref) {
 
 	if ($#components >= 0) {
 		# We have a component left, but we don't know what it is
-		$log->warn("invalid address, confused by number of components left", {left_components => \@components})
+		$log->warn("facets_route - invalid address, confused by number of components left",
+			{left_components => \@components})
 			if $log->is_warn();
 		$request_ref->{status_code} = 404;
 		$request_ref->{error_message} = lang("error_invalid_address");
