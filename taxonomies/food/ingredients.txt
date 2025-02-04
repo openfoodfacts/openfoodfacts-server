@@ -502,7 +502,7 @@ el: λεκιθίνη σόγιας
 es: lecitina de soja, lecitina de soya, lecitinas de soja, lecitinas de soya
 et: sojaletsitiin
 fi: soijalesitiini, soijalesitiiniä, soijalesitiinit, E322 soijasta
-fr: lécithine de soja, lécithines de soja, émulsifiant lécithines de soja, lécithine de soja e322
+fr: lécithine de soja, lécithines de soja, lécithine de soja e322
 he: לציטין סויה
 hr: emulgator soja lecitin, emulgator sojin lecitin, soja lecitin, emulgatori sojin lecitin, sojin lecithin, sojin lecitin, sojini lecitini
 hu: szójalecitin, szójalecitinek
@@ -578,12 +578,6 @@ en: non-gmo sunflower lecithin
 hr: ne-gmo suncokretov lecitin
 it: lecitina di girasole non ogm
 
-# <en:emulsifier
-< en:sunflower lecithin
-fr: émulsifiant lécithine de tournesol
-fi: emulgointiaine auringonkukkalesitiini
-# ingredient/fr:émulsifiant-lécithine-de-tournesol has 100 products in 6 languages @2019-02-22
-
 < en:soya lecithin
 < en:sunflower lecithin
 en: soya and sunflower lecithin
@@ -623,18 +617,6 @@ sv: rapslecitin, rapslecithin
 # fr:lécithines-de-colza has 609 products in 6 languages @2018-11-10
 vegan:en: yes
 vegetarian:en: yes
-
-< en:E322(i)
-fr: émulsifiant lécithines, émulsifiants lécithines
-de: emulgator lecithine
-es: emulsionante de lecitina, emulsionantes de lecitina
-hr: emulgator lecitin iz uljane repice
-it: emulsionante lecitine
-nl: emulgator lecithinen
-pt: emulsionante lecitinas
-# fr:émulsifiant-lécithines has 88 products in 6 languages @2018-11-10
-# fr:émulsifiants-lécithines has 21 products in 4 languages @2018-11-10
-
 
 
 # Has NO E-number!!!
@@ -837,20 +819,6 @@ es: pectina de limon
 hr: limunov pektin
 it: pectina di limone
 lt: citrinų pektinas
-
-
-
-< en:E471
-en: emulsifier mono- and diglycerides of fatty acids
-bg: емулгатор Моно- и диглицериди на мастни киселини, емулгатор e471
-ca: emulsionant e471, emulsificant e471, emulgent e471
-de: Emulgator Mono- und Diglyceride von Fettsäuren
-es: emulsionante e471, emulsificante e471, emulgente e471
-fi: emulgointiaine rasvahappojen mono- ja diglyseridit
-fr: émulsifiant e471
-hr: emulgator mono- i digliceridi masnih kiselina
-it: emulsionante e471, emulsionante mono- e digliceridi degli acidi grassi
-lt: riebalų rūgščių mono- ir digliceridai, emulsiklis riebalų rūgščių mono- ir digliceridai
 
 < en:E471
 en: mono and diglycerides of fatty acids of vegetable origin
@@ -15389,7 +15357,7 @@ el: έλαια και λίπη
 es: aceites y grasas, materia grasa
 et: õlid ja rasvad
 fi: öljy ja rasva, öljyt ja rasvat
-fr: huiles et graisses, matières grasses
+fr: huiles et graisses, matières grasses, huile et graisse, matière grasse
 he: שמן ושומן
 hr: ulja i masti
 hu: Olajok és zsírok, olaj és zsír
@@ -15633,7 +15601,7 @@ et: rasvad
 eu: koipe
 fa: چربی
 fi: rasva, rasvat
-fr: graisse, graisse alimentaire
+fr: matière grasse, matières grasses, graisse, graisse alimentaire, graisses alimentaires
 ga: saill
 gl: greix
 gu: ચરબી
@@ -16124,7 +16092,7 @@ el: φυτικά λίπη
 es: grasas vegetales, grasa vegetal, grasa vegetal no hidrogenada, Manteca vegetal
 et: taimne rasv, taimsed rasvad
 fi: kasvirasva, kasvirasvat, kasvisrasva, kasvisrasvat, kasvisrasvoja, kasvirasvoja, kasvisrasvasta
-fr: matière grasse végétale, matières grasses végétales, matière graisse végétale, graisse végétale, graisses végétales, grasse végétale
+fr: matière grasse végétale, matières grasses végétales, matière grasse végétale, graisse végétale, graisses végétales, graisse végétale
 he: שמנים צמחיים, שמן צמחי, שומן צמחי, שומן מן הצומח
 hr: biljna mast, biljne masti, biljne mast, biljne masnoće, biljna masnoća
 hu: növényi zsír, növényi zsírok
@@ -16165,7 +16133,7 @@ sv: vegetabilisk fettprodukt
 # usage:fr:préparation de matières grasses végétales (graisse de palme, huile de colza, colorant : caroténoïdes)
 
 < en:vegetable oil and fat
-en: non hydrogenated vegetable oil and fat
+en: non hydrogenated vegetable oil and fat, non hydrogenated vegetable oils and fats, vegetable oils and fats non hydrogenated
 bg: нехидрогенирани растителни масла и мазнини
 de: ungehärtete Pflanzenfette und Pflanzenöle, nicht hydrierte pflanzliche Fette und Öle
 el: μη υδρογονωμένα φυτικά λίπη και έλαια
@@ -17389,7 +17357,7 @@ de: Kolzaöl, Kohlsaatöl
 el: κραμβέλαιο
 es: aceite de colza
 fi: rypsiöljy
-fr: huile de colza, huile végétale de colza, huile colza, graisses végétales de colza, graisses vegetales de colza, huiles végétales de colza
+fr: huile de colza, huile végétale de colza, huile colza, graisses végétales de colza, graisses vegetales de colza, huiles végétales de colza, huile de graines de colza, huile de graine de colza
 hr: uljana repica, uljane repice, ulje uljane repice, ulje repice
 hu: Repceolaj
 it: olio di colza, olio vegetale di colza
@@ -18049,7 +18017,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Illipe
 en: sunflower fat
 de: Sonnenblumenfett
 fi: auringonkukkarasva
-fr: Matière grasse issue du tournesol
+fr: Matière grasse issue du tournesol, matière grasse de tournesol
 hr: suncokretova mast
 hu: napraforgózsír
 pl: tłuszcz słonecznikowy, tłuszcz roślinny słonecznikowy, tłuszcze roślinne słonecznikowy
@@ -18194,7 +18162,7 @@ es: aceite de linaza
 et: Linaõli
 fa: روغن بزرک
 fi: pellavaöljy, pellavansiemenöljy, liinaöljy
-fr: huile de lin
+fr: huile de lin, huile végétale de lin
 fy: Lynoalje
 hr: laneno ulje
 hu: lenmagolaj, lenolaj
@@ -30784,14 +30752,6 @@ hr: ksantan guma i guar guma
 hu: xantángumi és guargumi
 it: Gomma xanthan e gomma di guar
 
-< en:gum arabic
-de: Verdickungsmittel Gummi arabicum
-fr: épaississant gomme arabique
-it: addensante gomma arabica
-# ingredient/fr:épaississant-gomme-arabique has 47 products in 4 languages @2019-03-02
-# stabilisant (gomme arabique)
-
-
 ##################################################################################
 #
 #                        SUGAR
@@ -37588,9 +37548,6 @@ zh: 黄原胶
 # zh-tw:黃原膠
 wikidata:en: Q410768
 wikipedia:en: https://en.wikipedia.org/wiki/Xanthan_gum
-
-< en:E415
-fr: épaississant e415
 
 en: gellan gum, E418, E-418, E 418, INS418, INS-418, INS 418, gellan
 ar: صمغ الجيلان
