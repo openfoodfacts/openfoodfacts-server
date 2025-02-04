@@ -4628,13 +4628,15 @@ msgctxt "attribute_nutriscore_c_description_short"
 msgid "Average nutritional quality"
 msgstr "Chất lượng dinh dưỡng trung bình"
 
+# lower: translate to "less good" in some languages (e.g. French: "Moins bonne qualité nutritionnelle")
 msgctxt "attribute_nutriscore_d_description_short"
-msgid "Poor nutritional quality"
-msgstr "Chất lượng dinh dưỡng kém"
+msgid "Lower nutritional quality"
+msgstr ""
 
+# lower: translate to "less good" in some languages (e.g. French: "Moins bonne qualité nutritionnelle")
 msgctxt "attribute_nutriscore_e_description_short"
-msgid "Bad nutritional quality"
-msgstr "Chất lượng dinh dưỡng rất kém"
+msgid "Lower nutritional quality"
+msgstr ""
 
 msgctxt "attribute_group_processing_name"
 msgid "Food processing"
@@ -4676,6 +4678,15 @@ msgstr "Thực phẩm đã qua chế biến"
 msgctxt "attribute_nova_4_description_short"
 msgid "Ultra processed foods"
 msgstr "Thực phẩm siêu chế biến"
+
+msgctxt "attribute_nova_4_1_marker"
+msgid "1 ultra-processing marker"
+msgstr ""
+
+# variable names between { } must not be translated
+msgctxt "f_attribute_nova_4_markers"
+msgid "{number} ultra-processing markers"
+msgstr ""
 
 msgctxt "export_product_page"
 msgid "Export product to public database"
@@ -4816,28 +4827,41 @@ msgstr "Môi trường"
 
 msgctxt "attribute_environmental_score_name"
 msgid "Green-Score"
-msgstr "Điểm sinh thái"
+msgstr ""
 
 msgctxt "attribute_environmental_score_setting_name"
 msgid "Low environmental impact (Green-Score)"
-msgstr "Tác động môi trường thấp (Green-Score)"
+msgstr ""
 
 msgctxt "attribute_environmental_score_setting_note"
-msgid "The Green-Score is an environmental score (environmental_score) from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr "Green-Score là điểm số về môi trường (Điểm sinh thái) xếp hạng từ A đến E giúp việc so sánh tác động của các sản phẩm thực phẩm đối với môi trường trở nên dễ dàng."
+msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
+msgstr ""
+
+# Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
+msgctxt "attribute_ecoscore_name"
+msgid "Green-Score"
+msgstr ""
+
+msgctxt "attribute_ecoscore_setting_name"
+msgid "Low environmental impact (Green-Score)"
+msgstr ""
+
+msgctxt "attribute_ecoscore_setting_note"
+msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
+msgstr ""
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
 msgid "Green-Score %s"
-msgstr "Điểm sinh thái %s"
+msgstr ""
 
 msgctxt "attribute_environmental_score_a_plus_description_short"
 msgid "Very low environmental impact"
-msgstr "Tác động môi trường rất thấp"
+msgstr ""
 
 msgctxt "attribute_environmental_score_a_description_short"
 msgid "Very low environmental impact"
-msgstr "Tác động môi trường rất thấp"
+msgstr ""
 
 msgctxt "attribute_environmental_score_b_description_short"
 msgid "Low environmental impact"
@@ -4845,19 +4869,19 @@ msgstr "Tác động môi trường rất thấp"
 
 msgctxt "attribute_environmental_score_c_description_short"
 msgid "Moderate environmental impact"
-msgstr "Tác động môi trường vừa phải"
+msgstr ""
 
 msgctxt "attribute_environmental_score_d_description_short"
 msgid "High environmental impact"
-msgstr "Tác động môi trường cao"
+msgstr ""
 
 msgctxt "attribute_environmental_score_e_description_short"
 msgid "Very high environmental impact"
-msgstr "Tác động môi trường rất cao"
+msgstr ""
 
 msgctxt "attribute_environmental_score_f_description_short"
 msgid "Very high environmental impact"
-msgstr "Tác động môi trường rất cao"
+msgstr ""
 
 # keep the %s, it will be replaced by an allergen
 msgctxt "contains_s"
@@ -5008,25 +5032,25 @@ msgctxt "environmental_impact"
 msgid "Environmental impact"
 msgstr "Tác động môi trường"
 
-# Numerical score for the Eco-score (do not translate Eco-score)
+# Numerical score for the Green-Score (do not translate Green-Score)
 msgctxt "environmental_score_score"
-msgid "Eco-score score"
-msgstr "Điểm sinh thái"
+msgid "Green-Score score"
+msgstr ""
 
-# Letter grade from A to E for the Eco-score (do not translate Eco-score)
+# Letter grade from A to E for the Green-Score (do not translate Green-Score)
 msgctxt "environmental_score_grade"
-msgid "Eco-score grade"
-msgstr "Xếp hạng sinh thái"
+msgid "Green-Score grade"
+msgstr ""
 
-# do not translate Eco-score
+# do not translate Green-Score
 msgctxt "environmental_score_calculation_details"
-msgid "Details of the calculation of the Eco-score"
-msgstr "Chi tiết về cách tính điểm số sinh thái"
+msgid "Details of the calculation of the Green-Score"
+msgstr ""
 
-# do not translate Eco-score
+# do not translate Green-Score
 msgctxt "environmental_score_information"
-msgid "Information about the Eco-score"
-msgstr "Thông tin về Điểm số sinh thái"
+msgid "Information about the Green-Score"
+msgstr ""
 
 msgctxt "preferences_currently_selected_preferences"
 msgid "Currently selected preferences"
@@ -5057,13 +5081,29 @@ msgctxt "missing_nutrition_facts"
 msgid "Missing nutrition facts"
 msgstr "Thiếu thông tin về dinh dưỡng"
 
+msgctxt "ecoscore_p"
+msgid "Green-Score"
+msgstr ""
+
+msgctxt "ecoscore_s"
+msgid "Green-Score"
+msgstr ""
+
 msgctxt "environmental_score_p"
 msgid "Green-Score"
-msgstr "Điểm sinh thái"
+msgstr ""
 
 msgctxt "environmental_score_s"
 msgid "Green-Score"
-msgstr "Điểm sinh thái"
+msgstr ""
+
+msgctxt "misc_p"
+msgid "Miscellaneous"
+msgstr "Các tùy chọn khác"
+
+msgctxt "misc_s"
+msgid "Miscellaneous"
+msgstr "Các tùy chọn khác"
 
 msgctxt "packaging_parts"
 msgid "Packaging parts"
@@ -5225,8 +5265,8 @@ msgstr "Nền tảng cũng cung cấp phân tích chuyên sâu về sản phẩm
 
 # It = the platform
 msgctxt "product_edits_by_producers_indicators"
-msgid "It computes indicators such as the Nutri-Score, NOVA, and the Eco-score, and automatically identifies suggestions to improve them (for instance all products that would get a better Nutri-Score grade with a slight composition change)."
-msgstr "Nó tính toán các chỉ số như Điểm Dinh Dưỡng, NOVA, và Điểm Sinh Thái, và tự động đưa ra các khuyến nghị để cải thiện (ví dụ tất cả sản phẩm với mức Điểm Dinh Dưỡng tốt hơn bằng việc thay đổi một số nguyên liệu trong bảng thành phần)."
+msgid "It computes indicators such as the Nutri-Score, NOVA, and the Green-Score, and automatically identifies suggestions to improve them (for instance all products that would get a better Nutri-Score grade with a slight composition change)."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_name"
 msgid "Forest footprint"
@@ -5307,7 +5347,7 @@ msgstr "Sản phẩm có điểm Dinh Dưỡng tốt nhất"
 
 msgctxt "sort_by_environmental_score_score"
 msgid "Products with the best Green-Score"
-msgstr "Sản phẩm có Điểm Sinh Thái tốt nhất"
+msgstr ""
 
 msgctxt "sort_by_created_t"
 msgid "Recently added products"
@@ -5360,33 +5400,33 @@ msgid "User is being deleted. This may take a few minutes."
 msgstr "Người dùng đang bị xóa. Có thể sẽ mất vài phút."
 
 msgctxt "attribute_environmental_score_not_applicable_title"
-msgid "Green-Score not yet applicable"
-msgstr "Điểm sinh thái chưa được áp dụng"
+msgid "Green-Score not applicable"
+msgstr ""
 
 msgctxt "attribute_environmental_score_not_applicable_description_short"
-msgid "Not yet applicable for the category"
-msgstr "Chưa áp dụng cho danh mục"
+msgid "Not applicable for the category"
+msgstr ""
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_environmental_score_not_applicable_description"
 msgid "Not yet applicable for the category: {category}"
-msgstr "Chưa áp dụng cho danh mục: {category}"
+msgstr ""
 
 msgctxt "environmental_score_not_applicable_coming_soon"
 msgid "The Green-Score is not yet applicable for this category, but we are working on adding support for it."
-msgstr "Điểm sinh thái vẫn chưa áp dụng cho danh mục này, nhưng chúng tôi đang nỗ lực bổ sung hỗ trợ cho danh mục này."
+msgstr ""
 
 msgctxt "attribute_environmental_score_unknown_title"
 msgid "Green-Score not computed"
-msgstr "Điểm sinh thái không được tính"
+msgstr ""
 
 msgctxt "attribute_environmental_score_unknown_description_short"
 msgid "Unknown environmental impact"
-msgstr "Tác động môi trường không xác định"
+msgstr ""
 
 msgctxt "environmental_score_unknown_call_to_help"
 msgid "We could not compute the Green-Score of this product as it is missing some data, could you help complete it?"
-msgstr "Chúng tôi không thể tính Điểm số sinh thái cho sản phẩm này vì còn thiếu một số dữ liệu, bạn có thể giúp chúng tôi bổ sung thêm được không?"
+msgstr ""
 
 msgctxt "org_list_of_gs1_gln_description"
 msgid "GS1 data is automatically associated with an OFF organization identifier that corresponds to the GS1 partyName field. To change the OFF organization identifier, you can directly assign 1 or more GS1 GLN identifiers."
@@ -5516,73 +5556,73 @@ msgstr "Dấu chân sinh thái được tính bằng cách tính đến các ngu
 
 msgctxt "environmental_score_agribalyse_match_warning"
 msgid "The Green-Score can only be calculated if the product has a sufficiently precise category."
-msgstr "Điểm sinh thái chỉ có thể được tính nếu sản phẩm có danh mục đủ chính xác."
+msgstr ""
 
 msgctxt "environmental_score_add_more_precise_category"
 msgid "You can modify the product page to add a more precise category."
-msgstr "Bạn có thể sửa đổi trang sản phẩm để thêm danh mục chính xác hơn."
+msgstr ""
 
 msgctxt "environmental_score_platform_promo"
 msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
-msgstr "Nếu bạn là nhà sản xuất của sản phẩm này, bạn có thể gửi cho chúng tôi thông tin qua <a href=\"https://world.pro.openfoodfacts.org\"> nền tảng miễn phí dành cho nhà sản xuất</a>của chúng tôi."
+msgstr ""
 
 msgctxt "environmental_score_warning_missing_information"
 msgid "Warning: some information necessary to calculate the Green-Score with precision is not provided (see the details of the calculation below)."
-msgstr "Cảnh báo: một số thông tin cần thiết để tính Điểm sinh thái với độ chính xác không được cung cấp (xem chi tiết cách tính bên dưới)."
+msgstr ""
 
 msgctxt "environmental_score_add_missing_information"
 msgid "You can edit the product to add the missing information."
-msgstr "Bạn có thể chỉnh sửa sản phẩm để bổ sung thông tin còn thiếu."
+msgstr ""
 
 msgctxt "environmental_score_product_category_reference_score"
 msgid "Baseline score of the product category"
-msgstr "Điểm cơ bản của danh mục sản phẩm"
+msgstr ""
 
 msgctxt "environmental_score_panel_lca"
 msgid "Lifecyle Analysis (LCA)"
-msgstr "Phân tích vòng đời (LCA)"
+msgstr ""
 
 # do not translate Agribalyse
 msgctxt "environmental_score_agribalyse_category"
 msgid "Agribalyse category"
-msgstr "Danh mục Agribalyse"
+msgstr ""
 
 msgctxt "environmental_score_category_proxy_match"
 msgid "Approximate match with the product category"
-msgstr "Đối sánh gần đúng với danh mục sản phẩm"
+msgstr ""
 
 msgctxt "environmental_score_category_exact_match"
 msgid "Exact match with the product category"
-msgstr "Đối sánh chính xác với danh mục sản phẩm"
+msgstr ""
 
 msgctxt "environmental_score_pef_environmental_score"
 msgid "PEF environmental score"
-msgstr "Điểm môi trường PEF"
+msgstr ""
 
 msgctxt "environmental_score_incl_climate_change_impact"
 msgid "including impact on climate change"
-msgstr "bao gồm cả tác động đến biến đổi khí hậu"
+msgstr ""
 
 msgctxt "environmental_score_impact_detail_by_stages"
 msgid "Details of the impacts by stages of the life cycle"
-msgstr "Chi tiết về các tác động theo các giai đoạn của vòng đời"
+msgstr ""
 
 # stage meaning step
 msgctxt "environmental_score_stage"
 msgid "Stage"
-msgstr "Giai đoạn"
+msgstr ""
 
 msgctxt "environmental_score_impact"
 msgid "Impact"
-msgstr "Tác động"
+msgstr ""
 
 msgctxt "environmental_score_agriculture"
 msgid "Agriculture"
-msgstr "Nông nghiệp"
+msgstr ""
 
 msgctxt "environmental_score_processing"
 msgid "Processing"
-msgstr "Đang xử lý"
+msgstr ""
 
 msgctxt "environmental_score_packaging"
 msgid "Packaging"
@@ -5590,59 +5630,59 @@ msgstr "Bao bì"
 
 msgctxt "environmental_score_transportation"
 msgid "Transportation"
-msgstr "Vận chuyển"
+msgstr ""
 
 msgctxt "environmental_score_distribution"
 msgid "Distribution"
-msgstr "Phân phối"
+msgstr ""
 
 msgctxt "environmental_score_consumption"
 msgid "Consumption"
-msgstr "Tiêu thụ"
+msgstr ""
 
 msgctxt "environmental_score_lca_score_out_of_100"
 msgid "LCA score out of 100"
-msgstr "Điểm LCA trên 100"
+msgstr ""
 
 msgctxt "environmental_score_no_agribalyse_category_match"
 msgid "No match between product categories and Agribalyse categories."
-msgstr "Không tương thích giữa các danh mục sản phẩm và danh mục Agribalyse."
+msgstr ""
 
 msgctxt "environmental_score_edit_category_to_more_granular"
 msgid "You can modify the product page to add a more granular category."
-msgstr "Bạn có thể sửa đổi trang sản phẩm để thêm danh mục chi tiết hơn."
+msgstr ""
 
 msgctxt "environmental_score_additional_bonuses_and_maluses"
 msgid "Additional bonuses and maluses"
-msgstr "Điểm cộng và điểm trừ bổ sung"
+msgstr ""
 
 msgctxt "environmental_score_production_system"
 msgid "Production mode"
-msgstr "Chế độ sản xuất"
+msgstr ""
 
 msgctxt "environmental_score_no_labels_taken_into_account"
 msgid "No labels taken into account for the production system."
-msgstr "Không có nhãn nào được tính đến cho hệ thống sản xuất."
+msgstr ""
 
 msgctxt "environmental_score_please_add_the_labels"
 msgid "If this product has a label characterizing the production system (organic, fair trade, Label Rouge, Bleu Blanc Coeur etc.), you can modify the product sheet to add it."
-msgstr "Nếu sản phẩm này có nhãn đặc trưng cho hệ thống sản xuất (hữu cơ, thương mại công bằng, Label Rouge, Bleu Blanc Coeur, v. v.), bạn có thể sửa đổi trang sản phẩm để thêm."
+msgstr ""
 
 msgctxt "environmental_score_origins_of_ingredients"
 msgid "Origins of ingredients"
-msgstr "Nguồn gốc thành phần"
+msgstr ""
 
 msgctxt "environmental_score_ingredients_not_indicated"
 msgid "The origins of the ingredients of this product are not indicated."
-msgstr "Nguồn gốc các thành phần của sản phẩm này không được chỉ ra."
+msgstr ""
 
 msgctxt "environmental_score_please_add_the_ingredients"
 msgid "If they are indicated on the packaging, you can modify the product sheet and add them."
-msgstr "Nếu chúng được ghi trên bao bì, bạn có thể sửa đổi trang sản phẩm và thêm chúng vào."
+msgstr ""
 
 msgctxt "environmental_score_environmental_policy"
 msgid "Environmental policy"
-msgstr "Chính sách môi trường"
+msgstr ""
 
 msgctxt "environmental_score_threatened_species"
 msgid "Threatened species"
@@ -5650,87 +5690,87 @@ msgstr "Các loài bị đe dọa"
 
 msgctxt "environmental_score_ingredients_whose_cultivation_threatens_species"
 msgid "Ingredients that threatens species"
-msgstr "Nguyên liệu đe dọa đến sinh thái"
+msgstr ""
 
 msgctxt "environmental_score_no_species_threatening_ingredients"
 msgid "No ingredients that threaten species"
-msgstr "Không có nguyên liệu nguy hại đến sinh thái"
+msgstr ""
 
 msgctxt "environmental_score_ingredients_unknown"
 msgid "The information on the ingredients of this product has not been given."
-msgstr "Thông tin về thành phần của sản phẩm này không được cung cấp."
+msgstr ""
 
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
-msgstr "Để tính toán chính xác hơn Điểm sinh thái, bạn có thể chỉnh sửa và bổ sung thêm trang thông tin về sản phẩm."
+msgstr ""
 
 msgctxt "environmental_score_packaging_ratio"
 msgid "ratio"
-msgstr "tỷ lệ"
+msgstr ""
 
 msgctxt "environmental_score_packaging_score"
 msgid "score"
-msgstr "điểm"
+msgstr ""
 
 msgctxt "environmental_score_score_of_all_components"
 msgid "Score of all components"
-msgstr "Điểm của tất cả các thành phần"
+msgstr ""
 
 msgctxt "environmental_score_no_packaging_information"
 msgid "The information about the packaging of this product is not filled in."
-msgstr "Thông tin về bao bì của sản phẩm này chưa được bổ sung."
+msgstr ""
 
 msgctxt "environmental_score_unprecise_packaging_information"
 msgid "The information about the packaging of this product is not sufficiently precise (exact shapes and materials of all components of the packaging)."
-msgstr "Thông tin về bao bì của sản phẩm này không đủ chính xác (hình dạng và vật liệu chính xác của tất cả các thành phần của bao bì)."
+msgstr ""
 
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can modify the product page and add them."
-msgstr "Để tính toán chính xác hơn Điểm sinh thái, bạn có thể sửa đổi và thêm trang thông tin sản phẩm."
+msgstr ""
 
 msgctxt "environmental_score_final_score"
 msgid "Final score"
-msgstr "Điểm cuối cùng"
+msgstr ""
 
 msgctxt "environmental_score_lower_the_score_lower_the_impact"
 msgid "(the lower the score, the lower the impact)"
-msgstr "(điểm càng thấp, tác động càng thấp)"
+msgstr ""
 
 msgctxt "environmental_score_kg_co2_eq_kg_product"
 msgid "kg CO2 eq/kg of product"
-msgstr "kg CO2 eq / kg của sản phẩm"
+msgstr ""
 
 # do not translate the link
 msgctxt "environmental_score_platform_prompt_environmental_score_modal"
 msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
-msgstr "Nếu bạn là nhà sản xuất của sản phẩm này, bạn có thể gửi cho chúng tôi thông tin qua <a href=\"https://world.pro.openfoodfacts.org\"> nền tảng miễn phí dành cho nhà sản xuất</a>của chúng tôi."
+msgstr ""
 
 # do not translate Green-Score and the link
 msgctxt "environmental_score_description"
 msgid "The <a href=\"/green-score\">Green-Score</a> is an experimental score that summarizes the environmental impacts of food products."
-msgstr "<a href=\"/green-score\">Điểm sinh thái</a> là điểm số thử nghiệm tóm tắt các tác động môi trường của các sản phẩm thực phẩm."
+msgstr ""
 
 # do not translate Green-Score
 msgctxt "environmental_score_warning_fr"
 msgid "The Green-Score formula is subject to change as it is regularly improved to make it more precise."
-msgstr "Công thức Điểm Sinh Thái có thể thay đổi vì nó thường xuyên được cải tiến để chính xác hơn."
+msgstr ""
 
 # do not translate Green-Score
 msgctxt "environmental_score_warning_international"
 msgid "The Green-Score was initially developped for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
-msgstr "Điểm Sinh Thái ban đầu được phát triển cho riêng nước Pháp và đang dần được mở rộng sang các nước châu Âu khác. Công thức Điểm sinh thái có thể thay đổi do thường xuyên được cải tiến để chính xác hơn và phù hợp hơn với từng quốc gia."
+msgstr ""
 
 msgctxt "environmental_score_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
-msgstr "Chọn một quốc gia để bao gồm toàn bộ tác động của vận tải."
+msgstr ""
 
 msgctxt "environmental_score_warning_transportation"
 msgid "The full impact of transportation to your country is currently unknown."
-msgstr "Hiện chưa rõ tác động đầy đủ của việc vận chuyển đến quốc gia của bạn."
+msgstr ""
 
 msgctxt "app_banner_text"
 msgid "Scan barcodes to get the Nutri-Score, the Green-Score and more!"
-msgstr "Quét mã vạch để nhận Điểm dinh dưỡng, Điểm sinh thái và hơn thế nữa!"
+msgstr ""
 
 msgctxt "org_gs1_product_name_is_abbreviated"
 msgid "GS1 product names for this manufacturer are abbreviated."
@@ -5763,35 +5803,35 @@ msgstr "Xóa hoặc thay đổi các dữ liệu được cung cấp sẽ chỉ 
 
 msgctxt "environmental_score_packaging_impact_high"
 msgid "Packaging with a high impact"
-msgstr "Bao bì có tác động cao"
+msgstr ""
 
 msgctxt "environmental_score_packaging_impact_medium"
 msgid "Packaging with a medium impact"
-msgstr "Bao bì có tác động trung bình"
+msgstr ""
 
 msgctxt "environmental_score_packaging_impact_low"
 msgid "Packaging with a low impact"
-msgstr "Bao bì có tác động thấp"
+msgstr ""
 
 msgctxt "environmental_score_packaging_missing_information"
 msgid "Missing packaging information for this product"
-msgstr "Thiếu thông tin đóng gói cho sản phẩm này"
+msgstr ""
 
 msgctxt "environmental_score_origins_of_ingredients_impact_high"
 msgid "Origins of ingredients with a high impact"
-msgstr "Nguồn gốc của các thành phần có tác động cao"
+msgstr ""
 
 msgctxt "environmental_score_origins_of_ingredients_impact_medium"
 msgid "Origins of ingredients with a medium impact"
-msgstr "Nguồn gốc của các thành phần có tác động trung bình"
+msgstr ""
 
 msgctxt "environmental_score_origins_of_ingredients_impact_low"
 msgid "Origins of ingredients with a low impact"
-msgstr "Nguồn gốc của các thành phần có tác động thấp"
+msgstr ""
 
 msgctxt "environmental_score_origins_of_ingredients_missing_information"
 msgid "Missing origins of ingredients information"
-msgstr "Thiếu thông tin về nguồn gốc thành phần"
+msgstr ""
 
 msgctxt "percent_of_ingredients"
 msgid "% of ingredients"
@@ -5872,19 +5912,19 @@ msgstr "Ủng hộ"
 
 msgctxt "environmental_score_production_system_no_labels_with_environmental_benefits"
 msgid "No labels with environmental benefits"
-msgstr "Không có nhãn với lợi ích môi trường"
+msgstr ""
 
 msgctxt "environmental_score_production_system_labels_with_environmental_benefits"
 msgid "Labels with environmental benefits"
-msgstr "Nhãn có lợi cho môi trường"
+msgstr ""
 
 msgctxt "environmental_score_production_system_labels_with_environmental_benefits_high"
 msgid "Labels with high environmental benefits"
-msgstr "Nhãn có lợi ích môi trường cao"
+msgstr ""
 
 msgctxt "environmental_score_production_system_labels_with_environmental_benefits_very_high"
 msgid "Labels with very high environmental benefits"
-msgstr "Nhãn có lợi ích môi trường rất cao"
+msgstr ""
 
 msgctxt "other"
 msgid "Other"
@@ -5976,11 +6016,11 @@ msgstr "Phân tích vòng đời"
 
 msgctxt "environmental_score_bonuses_and_maluses"
 msgid "Bonuses and maluses"
-msgstr "Điểm cộng và điểm trừ"
+msgstr ""
 
 msgctxt "environmental_score_for_this_product"
 msgid "Green-Score for this product"
-msgstr "Điểm Sinh Thái cho sản phẩm này"
+msgstr ""
 
 msgctxt "average_impact_of_the_category"
 msgid "Average impact of products of the same category"
@@ -5988,15 +6028,15 @@ msgstr "Tác động trung bình của các sản phẩm có trong cùng danh m�
 
 msgctxt "environmental_score_sum_of_bonuses_and_maluses"
 msgid "Sum of bonuses and maluses"
-msgstr "Tổng điểm cộng và trừ bổ sung"
+msgstr ""
 
 msgctxt "environmental_score_sum_of_bonuses_and_maluses_is_capped"
 msgid "The sum of bonuses and maluses is capped at +25."
-msgstr "Tổng điểm cộng và trừ bổ sung được giới hạn ở mức +25."
+msgstr ""
 
 msgctxt "environmental_score_lca_score"
 msgid "Life cycle analysis score"
-msgstr "Điểm phân tích vòng đời"
+msgstr ""
 
 msgctxt "impact_for_this_product"
 msgid "Impact for this product"
@@ -6004,7 +6044,7 @@ msgstr "Tác động đối với sản phẩm này"
 
 msgctxt "environmental_score_downgraded_non_recyclable_and_non_biodegradable_materials"
 msgid "The score of products with non-recyclable and non-biodegradable packaging materials is capped at 79 (grade B)."
-msgstr "Điểm của các sản phẩm có vật liệu đóng gói không thể tái chế và không phân hủy được giới hạn ở 79 (loại B)."
+msgstr ""
 
 msgctxt "nutriscore_not_applicable"
 msgid "Nutri-Score not applicable for this product category."
@@ -6239,7 +6279,7 @@ msgstr ""
 
 msgctxt "environmental_score_learn_more"
 msgid "Learn more about the Green-Score"
-msgstr "Tìm hiểu thêm về Điểm Sinh Thái"
+msgstr ""
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_very_good_match"
@@ -6277,7 +6317,7 @@ msgstr "Sử dụng tiêu chí mặc định"
 
 msgctxt "reset_preferences_details"
 msgid "Nutri-Score, Green-Score and food processing level (NOVA)"
-msgstr "Điểm dinh dưỡng, Điểm sinh thái và mức độ chế biến thực phẩm (NOVA)"
+msgstr ""
 
 msgctxt "actions_add_ingredients"
 msgid "Could you add the ingredients list?"
@@ -6289,7 +6329,7 @@ msgstr "Bạn có thể thêm thông tin cần thiết để tính toán Điểm
 
 msgctxt "actions_to_compute_environmental_score"
 msgid "Could you add a precise product category so that we can compute the Green-Score?"
-msgstr "Bạn có thể thêm phân loại sản phẩm để chúng tôi có thể tính Điểm Sinh Thái không?"
+msgstr ""
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
@@ -6372,6 +6412,10 @@ msgstr ""
 # this is not used yet
 msgctxt "action_packager_codes_image"
 msgid "Take a photo of traceability codes"
+msgstr ""
+
+msgctxt "action_report_product_to_nutripatrol"
+msgid "Report this product to our moderators"
 msgstr ""
 
 # Used as a header for key facts
@@ -6519,6 +6563,10 @@ msgctxt "api_result_product_not_found"
 msgid "Product not found"
 msgstr "Không tìm thấy sản phẩm"
 
+msgctxt "api_result_product_found_with_a_different_product_type"
+msgid "Product found with a different product type"
+msgstr ""
+
 msgctxt "api_result_product_updated"
 msgid "Product updated"
 msgstr "Đã cập nhật sản phẩm"
@@ -6541,6 +6589,10 @@ msgstr "JSON không hợp lệ trong nội dung yêu cầu"
 
 msgctxt "api_message_invalid_code"
 msgid "Invalid code"
+msgstr ""
+
+msgctxt "api_message_invalid_product_type"
+msgid "Invalid product type"
 msgstr ""
 
 msgctxt "api_message_invalid_type_must_be_object"
@@ -6856,6 +6908,18 @@ msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_
 msgid "Points for proteins are not counted because the negative points greater than or equal to 11."
 msgstr ""
 
+msgctxt "nutriscore_new_computation_title"
+msgid "Discover the new Nutri-Score!"
+msgstr ""
+
+msgctxt "nutriscore_new_computation_description"
+msgid "<p>The computation of the Nutri-Score is evolving to provide better recommendations based on the latest scientific evidence.</p><p>Main improvements:</p><ul><li>Better score for some fatty fish and oils rich in good fats</li><li>Better score for whole products rich in fiber</li><li>Worse score for products containing a lot of salt or sugar</li><li>Worse score for red meat (compared to poultry)</li></ul>"
+msgstr ""
+
+msgctxt "nutriscore_new_computation_link_text"
+msgid "Discover all the improvements of the new Nutri-Score"
+msgstr ""
+
 msgctxt "nutriscore_explanation_what_it_is"
 msgid "The Nutri-Score is a logo on the overall nutritional quality of products."
 msgstr ""
@@ -6968,6 +7032,10 @@ msgstr ""
 
 msgctxt "incomplete_or_incorrect_data_content_correct_off"
 msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
+msgstr ""
+
+msgctxt "report_to_nutripatrol_explain"
+msgid "If you want to report vandalism, inappropriate content or erroneous data you can't fix yourself, report it to our moderators team."
 msgstr ""
 
 msgctxt "description"
@@ -7235,5 +7303,62 @@ msgstr ""
 
 msgctxt "attribute_repairability_index_france_bad_description_short"
 msgid "Bad repairability"
+msgstr ""
+
+msgctxt "estimate"
+msgid "estimate"
+msgstr ""
+
+# information on several ingredients, in plural in languages like French
+msgctxt "ingredient_information"
+msgid "Ingredient information"
+msgstr ""
+
+msgctxt "product_type"
+msgid "Product type"
+msgstr ""
+
+# Food product type
+msgctxt "product_type_food"
+msgid "Food"
+msgstr ""
+
+# Pet food product type
+msgctxt "product_type_petfood"
+msgid "Pet food"
+msgstr ""
+
+# Beauty product type
+msgctxt "product_type_beauty"
+msgid "Beauty"
+msgstr ""
+
+# General product product type
+msgctxt "product_type_product"
+msgid "Product"
+msgstr "Sản phẩm"
+
+msgctxt "recommendation_limit_ultra_processed_foods_title"
+msgid "Limit ultra-processed foods"
+msgstr ""
+
+msgctxt "recommendation_limit_ultra_processed_foods_subtitle"
+msgid "Limiting ultra-processed foods reduces the risk of noncommunicable chronic diseases"
+msgstr ""
+
+msgctxt "recommendation_limit_ultra_processed_foods_text"
+msgid "Several studies have found that a lower consumption of ultra-processed foods is associated with a reduced risk of noncommunicable chronic diseases, such as obesity, hypertension and diabetes."
+msgstr ""
+
+msgctxt "discover_the_evolution_of_the_nutriscore_grades_of_your_products"
+msgid "Discover the evolution of the Nutri-Score grades of your products"
+msgstr ""
+
+msgctxt "add_products_to_discover_the_evolution_of_their_nutriscore_grades"
+msgid "Add products with a category, ingredients list and nutrition facts to discover the evolution of their Nutri-Score grades."
+msgstr ""
+
+msgctxt "in_contact_with_food"
+msgid "In contact with food"
 msgstr ""
 
