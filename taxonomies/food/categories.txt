@@ -103896,19 +103896,30 @@ ja: 上白糖
 nl: Griessuiker
 comment:en: has sugar grain size (0.35 mm) between powders and granulated
 
+# description:en:Granulated, familiar as table sugar, with a grain size about 0.5-0.6 mm across.
+# comment:en:"granulated sugar" is generally white sugar, but other sugars can be in granulated form too.
+< en:sugar
+en: granulated sugars
+bg: гранулирана захар, кристална захар
+de: Kristallzucker, Zucker mittelgross
+es: Azúcar cristalizado
+fi: kidesokeri
+fr: Sucres cristal, sucre cristal, sucres en grain, sucre en grain
+hr: šećer bijeli kristal, šećer kristal, bijeli kristal šećer
+hu: kristálycukor
+it: Zucchero semolato
+ja: グラニュー糖
+nl: Kristalsuiker
+pt: Açucares granulados, Açúcar granulado
+
 < en:Sugars
-en: Granulated sugars, White sugars, Refined sugars, White sugar, Refined sugar
-de: Kristallzucker, Weißzucker, weiße Zucker
-es: Azúcar blanco
-fi: jalostetut sokerit
-fr: Sucres blancs, saccharose, saccarose, sucres de table, sucroses, sucre blanc
+en: White sugars, Refined sugars, White sugar, Refined sugar
+de: Weißzucker, weiße Zucker
+es: Azúcares blancos, Azúcar blanco
+fr: Sucres blancs, sucre blanc
 hr: Granulirani šećeri
 it: Zucchero bianco
-ja: グラニュー糖
-nl: Kristalsuikers
-pl: Cukier biały
-pt: Açucares granulados
-zh: 冰糖
+nl: witte suiker
 agribalyse_food_code:en: 31016
 ciqual_food_code:en: 31016
 ciqual_food_name:en: Sugar, white
