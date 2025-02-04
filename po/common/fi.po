@@ -59,7 +59,7 @@ msgstr "Open Beauty Facts -tuotehaku"
 
 msgctxt "warning_not_complete_obf"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
-msgstr "Tämä tuotesivu ei ole valmis. Voit auttaa sen täydentämisessä muokkaamalla sitä, ja lisäämällä lisätietoja valokuvistamme, tai ottamalla lisää valokuvia <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=fi\">Android</a> tai <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone / iPad</a> -sovelluksella. Kiitos!"
+msgstr "Tämä tuotesivu ei ole valmis. Voit auttaa sen täydentämisessä muokkaamalla sitä ja lisäämällä tietoja kuvista tai ottamalla lisää kuvia <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=fi\">Android</a> tai <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone / iPad</a>  -sovelluksella. Kiitos!"
 
 msgctxt "brands_example_beauty"
 msgid "Nivea, Nivea Men"
@@ -119,7 +119,7 @@ msgstr "Tervetuloa!"
 
 msgctxt "add_user_result"
 msgid "Thank you for joining us!"
-msgstr "Kiitos liittymisestäsi!"
+msgstr "Kiitos, että liityit joukkoomme!"
 
 msgctxt "add_user_you_can_edit"
 msgid "You can now add and edit products on the web or with our free <a href=\"%s\">mobile app</a>."
@@ -127,7 +127,7 @@ msgstr "Voit nyt lisätä ja muokata tuotteita verkossa tai ilmaisella <a href=\
 
 msgctxt "join_us_on_slack"
 msgid "Join us on Slack"
-msgstr "Liity joukkoomme Slackissä"
+msgstr "Liity joukkoomme Slackissa"
 
 msgctxt "add_user_join_the_project"
 msgid "%s is a collaborative project to which you can bring much more than new products: your energy, enthusiasm and ideas!"
@@ -135,11 +135,11 @@ msgstr "%s on yhteistyöhanke, johon voit tuoda paljon enemmän kuin uusia tuott
 
 msgctxt "add_user_join_us_on_slack"
 msgid "We use a discussion system called Slack where all project participants can exchange and collaborate. Please join! We would be happy to know you!"
-msgstr "Käytämme Slack-nimistä keskustelujärjestelmää, jossa kaikki hankkeen osallistujat voivat jakaa ja tehdä yhteistyötä. Liity! Tutustuisimme mielellämme sinuun!"
+msgstr "Käytämme Slack-nimistä keskustelujärjestelmää, jossa kaikki hankkeeseen osallistuvat voivat keskustella ja tehdä yhteistyötä. Liitythän mukaan, jos haluat! Tutustuisimme mielellämme sinuun!"
 
 msgctxt "add_user_you_can_edit_pro"
 msgid "You can now easily import your product data and photos."
-msgstr "Voitte nyt tuoda tuotetietonne ja -kuvanne helposti."
+msgstr "Voit nyt helposti ladata tuotteidesi tiedot ja kuvat tietokantaan."
 
 msgctxt "add_user_you_can_edit_pro_promo"
 msgid "You can now add and edit your products and import their data and photos on our free <a href=\"%s\">platform for producers</a>."
@@ -171,11 +171,11 @@ msgstr "Lähetä sähköpostia osoitteeseen <a href=\"mailto:producers@openfoodf
 
 msgctxt "if_you_work_for_a_producer"
 msgid "If you work for a producer or brand and will add or complete data for your own products only, you can get access to our completely free Platform for Producers."
-msgstr "Jos työskentelet tuottajalle tai tuotemerkille, ja lisäät tai täydennät tietoja vain teidän omille tuotteillenne, voit käyttää täysin ilmaista tuottaja-alustaamme."
+msgstr "Jos työskentelet tuottajalle tai tuotemerkille ja lisäät tai täydennät tietoja vain omista tuotteistanne, voit käyttää täysin ilmaista tuottaja-alustaamme."
 
 msgctxt "producers_platform_description_long"
 msgid "The platform for producers allows manufacturers to easily import data and photos for all their products, to mark them as official, and to get free analysis of improvement opportunities for their products."
-msgstr "Tuottaja-alusta antaa valmistajille mahdollisuuden tuoda helposti tietoja ja valokuvia kaikista tuotteistaan, merkitä ne virallisiksi ja saada ilmainen analyysi tuotteidensa parannusmahdollisuuksista."
+msgstr "Tuottaja-alusta antaa valmistajille mahdollisuuden tuoda helposti tietoja ja valokuvia kaikista tuotteista, merkitä ne virallisiksi ja saada ilmainen analyysi tuotteidensa parannusmahdollisuuksista."
 
 msgctxt "pro_account"
 msgid "Professional account"
@@ -191,7 +191,7 @@ msgstr "Tuottajan tai tuotemerkin nimi"
 
 msgctxt "error_missing_org"
 msgid "Professional accounts must have an associated organization (company name or brand)."
-msgstr "Ammattitilien täytyy olla liitetty organisaatioon (yrityksen nimi tai tuotemerkki)."
+msgstr "Ammattitilien täytyy olla kytköksissä organisaatioon (yrityksen nimeen tai tuotemerkkiin)."
 
 msgctxt "enter_name_of_org"
 msgid "Please enter the name of your organization (company name or brand)."
@@ -203,7 +203,7 @@ msgstr "Syötä kutsuttavien sähköpostiosoitteet pilkuin erotettuina:"
 
 msgctxt "f_this_is_a_pro_account_for_org"
 msgid "This account is a professional account associated with the producer or brand {org}. You have access to the Platform for Producers."
-msgstr "Tämä tili on tuottajaan tai tuotemerkkiin {org} liitetty ammattitili. Sinulla on pääsy Tuottaja-alustaan."
+msgstr "Tämä tili on tuottajaan tai tuotemerkkiin {org} liitetty ammattitili. Sinulla on pääsy tuottaja-alustaan."
 
 # please check that site_name and the brackets stays intact
 msgctxt "add_user_email_subject"
@@ -244,7 +244,7 @@ msgstr "Liiallinen juominen on haitallista terveydelle."
 
 msgctxt "email_warning"
 msgid "Please note that your Pro account will only be valid if you use your professional e-mail address. Our moderation team checks that the domain name is consistent with the organisation you wish to join."
-msgstr "Huomaa, että Pro-tilisi on voimassa vain, jos käytät ammattisähköpostiosoitettasi. Valvontatiimimme tarkistaa, että verkkotunnuksen nimi on yhdenmukainen organisaation kanssa, johon haluat liittyä."
+msgstr "Huomaa, että ammattitilisi on käytössä vain, jos käytät ammattisähköpostiosoitettasi. Moderointiryhmämme tarkistaa, että verkkotunnuksen nimi on yhdenmukainen organisaation kanssa, johon haluat liittyä."
 
 msgctxt "all_missions"
 msgid "All missions"
@@ -1703,7 +1703,7 @@ msgstr "Pakkauksen tyyppi, muoto, materiaali"
 
 msgctxt "packaging_p"
 msgid "packaging"
-msgstr "pakkaukset"
+msgstr "pakkaus"
 
 msgctxt "packaging_products"
 msgid "Products with a %s packaging"
@@ -1711,7 +1711,7 @@ msgstr "Tuotteet, joissa %s -pakkaus"
 
 msgctxt "packaging_s"
 msgid "packaging"
-msgstr "pakkaukset"
+msgstr "pakkaus"
 
 msgctxt "packaging_tagsinput"
 msgid "add a type, shape or material"
@@ -4625,13 +4625,15 @@ msgctxt "attribute_nutriscore_c_description_short"
 msgid "Average nutritional quality"
 msgstr "Kohtalainen ravinnollinen laatu"
 
+# lower: translate to "less good" in some languages (e.g. French: "Moins bonne qualité nutritionnelle")
 msgctxt "attribute_nutriscore_d_description_short"
-msgid "Poor nutritional quality"
-msgstr "Heikko ravinnollinen laatu"
+msgid "Lower nutritional quality"
+msgstr "Huonompi ravinnollinen laatu"
 
+# lower: translate to "less good" in some languages (e.g. French: "Moins bonne qualité nutritionnelle")
 msgctxt "attribute_nutriscore_e_description_short"
-msgid "Bad nutritional quality"
-msgstr "Huono ravinnollinen laatu"
+msgid "Lower nutritional quality"
+msgstr "Huonompi ravinnollinen laatu"
 
 msgctxt "attribute_group_processing_name"
 msgid "Food processing"
@@ -4673,6 +4675,15 @@ msgstr "Jalostetut ruoat"
 msgctxt "attribute_nova_4_description_short"
 msgid "Ultra processed foods"
 msgstr "Ultrajalostetut ruoat"
+
+msgctxt "attribute_nova_4_1_marker"
+msgid "1 ultra-processing marker"
+msgstr "1 ultraprosessointimerkki"
+
+# variable names between { } must not be translated
+msgctxt "f_attribute_nova_4_markers"
+msgid "{number} ultra-processing markers"
+msgstr "{number} ultra-prosessoinnin merkkiä"
 
 msgctxt "export_product_page"
 msgid "Export product to public database"
@@ -4821,8 +4832,21 @@ msgid "Low environmental impact (Green-Score)"
 msgstr "Vähäinen ympäristövaikutus (Green-Score)"
 
 msgctxt "attribute_environmental_score_setting_note"
-msgid "The Green-Score is an environmental score (environmental_score) from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr "Green-Score on ympäristöpistemäärä (ekoscore) A:sta E:hen, jonka avulla on helppo vertailla elintarvikkeiden ympäristövaikutuksia."
+msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
+msgstr "Green-Score on tuotteen ympäristövaikutuksien mukaan määräytyvä pistemäärä välillä A–E, jonka avulla on helppo vertailla elintarvikkeiden ympäristövaikutuksia."
+
+# Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
+msgctxt "attribute_ecoscore_name"
+msgid "Green-Score"
+msgstr "Green-Score"
+
+msgctxt "attribute_ecoscore_setting_name"
+msgid "Low environmental impact (Green-Score)"
+msgstr "Vähäinen ympäristövaikutus (Green-Score)"
+
+msgctxt "attribute_ecoscore_setting_note"
+msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
+msgstr "Green-Score on tuotteen ympäristövaikutuksien mukaan määräytyvä pistemäärä välillä A–E, jonka avulla on helppo vertailla elintarvikkeiden ympäristövaikutuksia."
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
@@ -5006,25 +5030,25 @@ msgctxt "environmental_impact"
 msgid "Environmental impact"
 msgstr "Ympäristövaikutus"
 
-# Numerical score for the Eco-score (do not translate Eco-score)
+# Numerical score for the Green-Score (do not translate Green-Score)
 msgctxt "environmental_score_score"
-msgid "Eco-score score"
-msgstr "Eco-score-pisteet"
+msgid "Green-Score score"
+msgstr "Green-Score-pisteet"
 
-# Letter grade from A to E for the Eco-score (do not translate Eco-score)
+# Letter grade from A to E for the Green-Score (do not translate Green-Score)
 msgctxt "environmental_score_grade"
-msgid "Eco-score grade"
-msgstr "Eco-score-arvosana"
+msgid "Green-Score grade"
+msgstr "Green-Score-luokitus"
 
-# do not translate Eco-score
+# do not translate Green-Score
 msgctxt "environmental_score_calculation_details"
-msgid "Details of the calculation of the Eco-score"
-msgstr "Yksityiskohdat Eco-score-laskelmasta"
+msgid "Details of the calculation of the Green-Score"
+msgstr "Yksityiskohdat Green-score-laskelmasta"
 
-# do not translate Eco-score
+# do not translate Green-Score
 msgctxt "environmental_score_information"
-msgid "Information about the Eco-score"
-msgstr "Tietoja Eco-scoresta"
+msgid "Information about the Green-Score"
+msgstr "Tietoja Green-scoresta"
 
 msgctxt "preferences_currently_selected_preferences"
 msgid "Currently selected preferences"
@@ -5032,15 +5056,15 @@ msgstr "Tällä hetkellä valitut mieltymykset"
 
 msgctxt "preferences_locally_saved"
 msgid "Your preferences are kept in your browser and never sent to Open Food Facts or anyone else."
-msgstr ""
+msgstr "Asetuksesi säilyvät selaimessasi, eikä niitä koskaan lähetetä Open Food Factsille tai kenellekään muulle."
 
 msgctxt "preferences_edit_your_preferences"
 msgid "Edit your preferences"
-msgstr ""
+msgstr "Muokkaa asetuksiasi"
 
 msgctxt "preferences_your_preferences"
 msgid "Your preferences"
-msgstr ""
+msgstr "Sinun asetuksesi"
 
 # used in phrases like "salt in unknown quantity"
 msgctxt "unknown_quantity"
@@ -5055,6 +5079,14 @@ msgctxt "missing_nutrition_facts"
 msgid "Missing nutrition facts"
 msgstr "Puuttuva ravintosisältö"
 
+msgctxt "ecoscore_p"
+msgid "Green-Score"
+msgstr "Green-Score"
+
+msgctxt "ecoscore_s"
+msgid "Green-Score"
+msgstr "Green-Score"
+
 msgctxt "environmental_score_p"
 msgid "Green-Score"
 msgstr "Green-Score"
@@ -5062,6 +5094,14 @@ msgstr "Green-Score"
 msgctxt "environmental_score_s"
 msgid "Green-Score"
 msgstr "Green-Score"
+
+msgctxt "misc_p"
+msgid "Miscellaneous"
+msgstr "Sekalaiset"
+
+msgctxt "misc_s"
+msgid "Miscellaneous"
+msgstr "Sekalaiset"
 
 msgctxt "packaging_parts"
 msgid "Packaging parts"
@@ -5223,8 +5263,8 @@ msgstr "Alusta tarjoaa myös perusteellisen analyysin tuotteista."
 
 # It = the platform
 msgctxt "product_edits_by_producers_indicators"
-msgid "It computes indicators such as the Nutri-Score, NOVA, and the Eco-score, and automatically identifies suggestions to improve them (for instance all products that would get a better Nutri-Score grade with a slight composition change)."
-msgstr "Se laskee indikaattorit, kuten Nutri-Score, NOVA ja Eco-score, ja tunnistaa automaattisesti ehdotuksia niiden parantamiseksi (esimerkiksi kaikki tuotteet, jotka saisivat paremman Nutri-Score-arvosanan pienellä koostumuksen muutoksella)."
+msgid "It computes indicators such as the Nutri-Score, NOVA, and the Green-Score, and automatically identifies suggestions to improve them (for instance all products that would get a better Nutri-Score grade with a slight composition change)."
+msgstr "Se laskee indikaattorit, kuten Nutri-Score, NOVA ja Green-score, ja tunnistaa automaattisesti ehdotuksia niiden parantamiseksi (esimerkiksi kaikki tuotteet, jotka saisivat paremman Nutri-Score-arvosanan pienellä koostumuksen muutoksella)."
 
 msgctxt "attribute_forest_footprint_name"
 msgid "Forest footprint"
@@ -5358,12 +5398,12 @@ msgid "User is being deleted. This may take a few minutes."
 msgstr "Käyttäjää poistetaan. Tämä saattaa kestää muutaman minuutin."
 
 msgctxt "attribute_environmental_score_not_applicable_title"
-msgid "Green-Score not yet applicable"
-msgstr "Green-Score ei ole vielä sovellettavissa"
+msgid "Green-Score not applicable"
+msgstr ""
 
 msgctxt "attribute_environmental_score_not_applicable_description_short"
-msgid "Not yet applicable for the category"
-msgstr "Ei ole vielä sovellettavissa luokalle"
+msgid "Not applicable for the category"
+msgstr ""
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_environmental_score_not_applicable_description"
@@ -5518,19 +5558,19 @@ msgstr "Green-Score voidaan laskea vain, jos tuotteella on riittävän tarkka lu
 
 msgctxt "environmental_score_add_more_precise_category"
 msgid "You can modify the product page to add a more precise category."
-msgstr "Voit muokata tuotesivua lisätäksesi tarkemman luokan."
+msgstr "Voit lisätä tarkemman luokan muokkaamalla tuotesivua."
 
 msgctxt "environmental_score_platform_promo"
 msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
-msgstr "Jos olet tämän tuotteen valmistaja, voit lähettää meille tiedot <a href=\"https://world.pro.openfoodfacts.org\">ilmaisen tuottaja-alustamme kautta</a>."
+msgstr "Jos olet tämän tuotteen valmistaja, voit lähettää meille tiedot <a href=\"https://fi.pro.openfoodfacts.org\">ilmaisen tuottaja-alustamme kautta</a>."
 
 msgctxt "environmental_score_warning_missing_information"
 msgid "Warning: some information necessary to calculate the Green-Score with precision is not provided (see the details of the calculation below)."
-msgstr "Varoitus: joitakin Green-Scoren tarkkaan laskemiseen tarvittavia tietoja ei ole toimitettu (katso laskelman yksityiskohdat alla)."
+msgstr "Varoitus: joitakin Green-Scoren tarkkaan laskemiseen tarvittavia tietoja ei ole toimitettu (katso laskelman yksityiskohdat alta)."
 
 msgctxt "environmental_score_add_missing_information"
 msgid "You can edit the product to add the missing information."
-msgstr "Voit muokata tuotetta lisätäksesi puuttuvat tiedot."
+msgstr "Voit lisätä puuttuvat tiedot muokkaamalla tuotetta."
 
 msgctxt "environmental_score_product_category_reference_score"
 msgid "Baseline score of the product category"
@@ -5538,7 +5578,7 @@ msgstr "Tuoteluokan lähtöpisteet"
 
 msgctxt "environmental_score_panel_lca"
 msgid "Lifecyle Analysis (LCA)"
-msgstr "Elinkaariarviointi (LCA)"
+msgstr "Elinkaarianalyysi (LCA)"
 
 # do not translate Agribalyse
 msgctxt "environmental_score_agribalyse_category"
@@ -5608,7 +5648,7 @@ msgstr "Tuoteluokkien ja Agribalyse-luokkien välillä ei ole vastaavuutta."
 
 msgctxt "environmental_score_edit_category_to_more_granular"
 msgid "You can modify the product page to add a more granular category."
-msgstr "Voit muokata tuotesivua lisätäksesi tarkemman luokan."
+msgstr "Voit lisätä tarkemman luokan muokkaamalla tuotesivua."
 
 msgctxt "environmental_score_additional_bonuses_and_maluses"
 msgid "Additional bonuses and maluses"
@@ -5624,7 +5664,7 @@ msgstr "Tuotantojärjestelmää varten ei ole otettu huomioon yhtäkään merkki
 
 msgctxt "environmental_score_please_add_the_labels"
 msgid "If this product has a label characterizing the production system (organic, fair trade, Label Rouge, Bleu Blanc Coeur etc.), you can modify the product sheet to add it."
-msgstr "Jos tällä tuotteella on tuotantojärjestelmää kuvaava merkki (luomu, reilu kauppa, Label Rouge, Bleu Blanc Coeur jne.), voit muokata tuotelomaketta sen lisäämiseksi."
+msgstr "Jos tällä tuotteella on tuotantojärjestelmää kuvaava merkki (luomu, reilu kauppa, Label Rouge, Bleu Blanc Coeur jne.), voit lisätä sen muokkaamalla tuotelomaketta."
 
 msgctxt "environmental_score_origins_of_ingredients"
 msgid "Origins of ingredients"
@@ -5660,7 +5700,7 @@ msgstr "Tietoja tämän tuotteen ainesosista ei ole annettu."
 
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
-msgstr "Saadaksesi tarkemman laskelman Green-Scoresta, voit muokata tuotesivua ja lisätä ne."
+msgstr "Jos haluat saada tarkemman Green-Score-laskelman, muokkaa tuotesivua ja lisää ne."
 
 msgctxt "environmental_score_packaging_ratio"
 msgid "ratio"
@@ -5684,7 +5724,7 @@ msgstr "Tämän tuotteen pakkaustiedot eivät ole riittävän tarkkoja (kaikkien
 
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can modify the product page and add them."
-msgstr "Green-Scoren tarkempaa laskelmaa varten voit muokata tuotesivua ja lisätä ne."
+msgstr "Jos haluat saada tarkemman Green-Score-laskelman, muokkaa tuotesivua ja lisää ne."
 
 msgctxt "environmental_score_final_score"
 msgid "Final score"
@@ -5701,34 +5741,34 @@ msgstr "kg CO2 ekv/kg tuotetta"
 # do not translate the link
 msgctxt "environmental_score_platform_prompt_environmental_score_modal"
 msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
-msgstr "Jos olet tämän tuotteen valmistaja, voit lähettää meille tiedot <a href=\"https://world.pro.openfoodfacts.org\">ilmaisen tuottaja-alustamme kautta</a>."
+msgstr "Jos olet tämän tuotteen valmistaja, voit lähettää meille tiedot <a href=\"https://fi.pro.openfoodfacts.org\">ilmaisen tuottaja-alustamme kautta</a>."
 
 # do not translate Green-Score and the link
 msgctxt "environmental_score_description"
 msgid "The <a href=\"/green-score\">Green-Score</a> is an experimental score that summarizes the environmental impacts of food products."
-msgstr "<a href=\"/green-score\">Green-Score</a> on kokeellinen pistemäärä tiivistämään elintarvikkeiden ympäristövaikutukset."
+msgstr "<a href=\"/green-score\">Green-Score</a> on kokeellinen pisteytysjärjestelmä, joka kertoo tiivistetysti elintarvikkeiden vaikutukset ympäristöön."
 
 # do not translate Green-Score
 msgctxt "environmental_score_warning_fr"
 msgid "The Green-Score formula is subject to change as it is regularly improved to make it more precise."
-msgstr "Green-Score-kaava voi muuttua, koska sitä parannetaan säännöllisesti sen tarkentamiseksi."
+msgstr "Green-Scoren laskukaava voi muuttua, koska sitä parannetaan säännöllisesti, jotta tulokset olisivat tarkempia."
 
 # do not translate Green-Score
 msgctxt "environmental_score_warning_international"
 msgid "The Green-Score was initially developped for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
-msgstr "Green-Score kehitettiin alun perin Ranskalle ja sitä laajennetaan muihin Euroopan maihin. Green-Score-kaava voi muuttua, koska sitä parannetaan säännöllisesti, jotta se olisi tarkempi ja sopisi paremmin jokaiseen maahan."
+msgstr "Green-Score kehitettiin alun perin Ranskassa, ja sitä laajennetaan muihin Euroopan maihin. Green-Scoren laskukaava voi muuttua, koska sitä parannetaan säännöllisesti, jotta se olisi tarkempi ja sopisi paremmin kaikkiin maihin."
 
 msgctxt "environmental_score_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
-msgstr "Valitse maa kuljetuksen täyden vaikutuksen sisällyttämiseksi."
+msgstr "Valitse maa, jotta laskelmassa voidaan ottaa huomioon kuljetuksen kokonaisvaltainen ympäristövaikutus."
 
 msgctxt "environmental_score_warning_transportation"
 msgid "The full impact of transportation to your country is currently unknown."
-msgstr "Kuljetuksen täyttä vaikutusta maahanne ei ole tällä hetkellä tiedossa."
+msgstr "Kuljetuksen kokonaisvaltainen ympäristövaikutus maahasi ei ole tällä hetkellä tiedossa."
 
 msgctxt "app_banner_text"
 msgid "Scan barcodes to get the Nutri-Score, the Green-Score and more!"
-msgstr "Lue viivakoodeja saadaksesi Nutri-Scoren, Green-Scoren ja enemmän!"
+msgstr "Selvitä tuotteiden Nutri-Score, Green-Score ja paljon muita tietoja skannaamalla niiden viivakoodi!"
 
 msgctxt "org_gs1_product_name_is_abbreviated"
 msgid "GS1 product names for this manufacturer are abbreviated."
@@ -5826,43 +5866,43 @@ msgstr "Ruoan vallankumous alkaa sinusta!"
 
 msgctxt "donation_hook_2024"
 msgid "Help us inform millions of consumers around the world about what they eat"
-msgstr ""
+msgstr "Auta meitä kertomaan miljoonille kuluttajille eri puolilla maailmaa siitä, mitä he syövät"
 
 msgctxt "donation_title_2024"
 msgid "Please give to our 2024 Fundraiser"
-msgstr ""
+msgstr "Pyydän teitä antamaan meidän 2024 varainkeruulle"
 
 msgctxt "donation_list_2024_main"
 msgid "Your donations fund the day-to-day operations of our non-profit association:"
-msgstr ""
+msgstr "Lahjoituksesi rahoittavat voittoa tavoittelemattoman yhdistyksemme päivittäiset toimet:"
 
 msgctxt "donation_list_2024_first"
 msgid "keeping our database open & available to all,"
-msgstr ""
+msgstr "pitäen tietokantamme avoinna & kaikkien saatavilla,"
 
 msgctxt "donation_list_2024_first_sub"
 msgid "technical infrastructure (website/mobile app) & a small permanent team"
-msgstr ""
+msgstr "tekninen infrastruktuuri (verkkosivusto/mobiilisovellus) & pieni pysyvä tiimi"
 
 msgctxt "donation_list_2024_second"
 msgid "remain independent of the food industry,"
-msgstr ""
+msgstr "pysyä riippumattomana elintarviketeollisuudesta,"
 
 msgctxt "donation_list_2024_third"
 msgid "engage a community of committed citizens,"
-msgstr ""
+msgstr "saada mukaan sitoutuneiden kansalaisten yhteisö,"
 
 msgctxt "donation_list_2024_fourth"
 msgid "support the advancement of public health research."
-msgstr ""
+msgstr "tukemaan kansanterveystutkimuksen edistämistä."
 
 msgctxt "donation_financial_2024_text"
 msgid "Each donation counts! We appreciate your support in bringing further food transparency in the world."
-msgstr ""
+msgstr "Jokainen lahjoitus on tärkeä! Arvostamme tukeasi elintarvikkeiden avoimuuden lisäämisessä maailmassa."
 
 msgctxt "donation_button_2024_text"
 msgid "I SUPPORT"
-msgstr ""
+msgstr "TUEN"
 
 msgctxt "donation_cta"
 msgid "Donate"
@@ -5912,20 +5952,20 @@ msgstr "Hiilijalanjälki"
 # variable names between { } must not be translated
 msgctxt "f_carbon_footprint_per_100g_of_product"
 msgid "{grams} g CO₂e per 100g of product"
-msgstr ""
+msgstr "{grams} g CO₂e per 100g tuotetta"
 
 # variable names between { } must not be translated
 msgctxt "f_carbon_footprint_per_unit"
 msgid "{kilograms} kg CO₂e per unit"
-msgstr ""
+msgstr "{kilograms} kg CO₂e yksikköä kohti"
 
 msgctxt "average_for_the_category"
 msgid "average for the category"
-msgstr ""
+msgstr "luokan keskiarvo"
 
 msgctxt "data_source_and_detailed_carbon_impact"
 msgid "Data source and detailed carbon impact"
-msgstr ""
+msgstr "Tietolähde ja yksityiskohtainen hiilivaikutus"
 
 # variable names between { } must not be translated
 msgctxt "f_equal_to_driving_km_in_a_petrol_car"
@@ -5974,11 +6014,11 @@ msgstr "Elinkaarianalyysi"
 
 msgctxt "environmental_score_bonuses_and_maluses"
 msgid "Bonuses and maluses"
-msgstr "Bonukset ja miinukset"
+msgstr "Bonukset ja malukset"
 
 msgctxt "environmental_score_for_this_product"
 msgid "Green-Score for this product"
-msgstr "Green-Score tälle tuotteelle"
+msgstr "Tämän tuotteen Green-Score"
 
 msgctxt "average_impact_of_the_category"
 msgid "Average impact of products of the same category"
@@ -5986,15 +6026,15 @@ msgstr "Saman luokan tuotteiden keskimääräinen vaikutus"
 
 msgctxt "environmental_score_sum_of_bonuses_and_maluses"
 msgid "Sum of bonuses and maluses"
-msgstr "Bonuksien ja miinuksien summa"
+msgstr "Bonusten ja malusten summa"
 
 msgctxt "environmental_score_sum_of_bonuses_and_maluses_is_capped"
 msgid "The sum of bonuses and maluses is capped at +25."
-msgstr "Bonusten ja miinusten summa on enintään +25."
+msgstr "Bonusten ja malusten summa on enintään +25."
 
 msgctxt "environmental_score_lca_score"
 msgid "Life cycle analysis score"
-msgstr "Elinkaarianalyysipisteet"
+msgstr "Elinkaarianalyysin pisteet"
 
 msgctxt "impact_for_this_product"
 msgid "Impact for this product"
@@ -6018,7 +6058,7 @@ msgstr "Tuotteen ravintosisältö on määritettävä Nutri-Scoren laskemiseksi.
 
 msgctxt "nutriscore_missing_nutrition_data_details"
 msgid "Missing nutrition facts:"
-msgstr ""
+msgstr "Puuttuvat ravitsemustiedot:"
 
 msgctxt "nutriscore_missing_category_and_nutrition_data"
 msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
@@ -6237,7 +6277,7 @@ msgstr "Kiitos"
 
 msgctxt "environmental_score_learn_more"
 msgid "Learn more about the Green-Score"
-msgstr "Lue lisää Green-Scoresta"
+msgstr "Lisätietoja Green-Scoresta"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_very_good_match"
@@ -6275,7 +6315,7 @@ msgstr "Käytä oletusasetuksia"
 
 msgctxt "reset_preferences_details"
 msgid "Nutri-Score, Green-Score and food processing level (NOVA)"
-msgstr "Nutri-Score, Green-Score ja elintarvikkeiden jalostustaso (NOVA)"
+msgstr "Nutri-Score, Eco-Score ja elintarvikkeiden jalostustaso (NOVA)"
 
 msgctxt "actions_add_ingredients"
 msgid "Could you add the ingredients list?"
@@ -6371,6 +6411,10 @@ msgstr "Lisää maa, josta löysit tämän tuotteen"
 msgctxt "action_packager_codes_image"
 msgid "Take a photo of traceability codes"
 msgstr "Ota valokuva jäljitettävyyskoodeista"
+
+msgctxt "action_report_product_to_nutripatrol"
+msgid "Report this product to our moderators"
+msgstr "Ilmoita tästä tuotteesta valvojillemme"
 
 # Used as a header for key facts
 msgctxt "knowledge_panels_facts"
@@ -6517,6 +6561,10 @@ msgctxt "api_result_product_not_found"
 msgid "Product not found"
 msgstr "Tuotetta ei löytynyt"
 
+msgctxt "api_result_product_found_with_a_different_product_type"
+msgid "Product found with a different product type"
+msgstr "Tuote löytyi toisesta tuotetyypistä"
+
 msgctxt "api_result_product_updated"
 msgid "Product updated"
 msgstr "Tuote päivitetty"
@@ -6540,6 +6588,10 @@ msgstr "Virheellinen JSON pyynnön body-osiossa"
 msgctxt "api_message_invalid_code"
 msgid "Invalid code"
 msgstr "Virheellinen koodi"
+
+msgctxt "api_message_invalid_product_type"
+msgid "Invalid product type"
+msgstr "Virheellinen tuotetyyppi"
 
 msgctxt "api_message_invalid_type_must_be_object"
 msgid "Invalid type: must be an object"
@@ -6854,6 +6906,18 @@ msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_
 msgid "Points for proteins are not counted because the negative points greater than or equal to 11."
 msgstr "Proteiinipisteitä ei lasketa, koska negatiiviset pisteet ovat suurempia tai yhtä suuria kuin 11."
 
+msgctxt "nutriscore_new_computation_title"
+msgid "Discover the new Nutri-Score!"
+msgstr "Tutustu uuteen Nutri-Scoreen!"
+
+msgctxt "nutriscore_new_computation_description"
+msgid "<p>The computation of the Nutri-Score is evolving to provide better recommendations based on the latest scientific evidence.</p><p>Main improvements:</p><ul><li>Better score for some fatty fish and oils rich in good fats</li><li>Better score for whole products rich in fiber</li><li>Worse score for products containing a lot of salt or sugar</li><li>Worse score for red meat (compared to poultry)</li></ul>"
+msgstr "<p>Nutri-Scoren laskenta kehittyy tarjoamaan parempia suosituksia uusimpien tieteellisten todisteiden perusteella.</p><p>Tärkeimmät parannukset:</p><ul><li>Paremmat pisteet joillekin rasvaisille kaloille ja runsaasti hyviä rasvoja sisältäville öljyille</li><li>Paremmat pisteet runsaskuituisille tuotteille</li><li>Huonommat pisteet paljon suolaa tai sokeria sisältäville tuotteille</li><li>Huonommat pisteet punaiselle lihalle (verrattuna siipikarjaan)</li></ul>"
+
+msgctxt "nutriscore_new_computation_link_text"
+msgid "Discover all the improvements of the new Nutri-Score"
+msgstr "Tutustu kaikkiin uusiin Nutri-Score-parannuksiin"
+
 msgctxt "nutriscore_explanation_what_it_is"
 msgid "The Nutri-Score is a logo on the overall nutritional quality of products."
 msgstr "Nutri-Score on logo tuotteiden yleisestä ravintoarvosta."
@@ -6950,7 +7014,7 @@ msgstr "Ilmoita ongelmasta"
 
 msgctxt "report_problem_navigation"
 msgid "Report a problem."
-msgstr ""
+msgstr "Ilmoita ongelmasta."
 
 msgctxt "incomplete_or_incorrect_data_title"
 msgid "Incomplete or incorrect information?"
@@ -6967,6 +7031,10 @@ msgstr "Jos tiedot eivät vastaa pakkauksessa olevia tietoja, voit täydentää 
 msgctxt "incomplete_or_incorrect_data_content_correct_off"
 msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
 msgstr "Open Food Facts on yhteistyötietokanta, ja jokainen panos on hyödyllinen kaikille."
+
+msgctxt "report_to_nutripatrol_explain"
+msgid "If you want to report vandalism, inappropriate content or erroneous data you can't fix yourself, report it to our moderators team."
+msgstr "Jos haluat ilmoittaa vandalismista, sopimattomasta sisällöstä tai virheellisestä aineistosta, joita et voi korjata itse, ilmoita siitä valvojatiimillemme."
 
 msgctxt "description"
 msgid "Description"
@@ -7087,63 +7155,63 @@ msgstr "Open Food Facts osallistuu eurooppalaiseen hankkeeseen <a href=\"https:/
 
 msgctxt "deny"
 msgid "Deny"
-msgstr ""
+msgstr "Kiellä"
 
 msgctxt "users_requested_to_join_org"
 msgid "These users have requested to join the organization:"
-msgstr ""
+msgstr "Nämä käyttäjät ovat pyytäneet liittyä organisaatioon:"
 
 msgctxt "last_login"
 msgid "Last login date"
-msgstr ""
+msgstr "Viimeisin kirjautumispäivä"
 
 msgctxt "last_import"
 msgid "Last import date"
-msgstr ""
+msgstr "Viimeisin tuontipäivä"
 
 msgctxt "drop_a_file"
 msgid "Drop"
-msgstr ""
+msgstr "Pudota"
 
 msgctxt "select_product_data_file"
 msgid "Select a file with product data"
-msgstr ""
+msgstr "Valitse tuotetiedot sisältävä tiedosto"
 
 msgctxt "number_of_products_without_nutriscore"
 msgid "Number of products without Nutri-Score"
-msgstr ""
+msgstr "Tuotteiden lukumäärä, joilla ei ole Nutri-Scorea"
 
 msgctxt "percent_of_products_with_nutriscore"
 msgid "% of products where Nutri-Score is computed"
-msgstr ""
+msgstr "% tuotteista, joissa Nutri-Score lasketaan"
 
 msgctxt "products_to_be_exported"
 msgid "Products to be exported"
-msgstr ""
+msgstr "Vientiin tarkoitetut tuotteet"
 
 msgctxt "products_exported"
 msgid "Products exported"
-msgstr ""
+msgstr "Viedyt tuotteet"
 
 msgctxt "opportunities_to_improve_nutriscore"
 msgid "Opp. for Nutri-Score improvements"
-msgstr ""
+msgstr "Mahd. Nutri-Scoren parannuksia varten"
 
 msgctxt "date_of_last_update"
 msgid "Date of last update"
-msgstr ""
+msgstr "Viimeisimmän päivityksen päivämäärä"
 
 msgctxt "number_of_products_on_public_platform"
 msgid "Number of products on public platform"
-msgstr ""
+msgstr "Tuotteiden määrä julkisella alustalla"
 
 msgctxt "number_of_products_on_producer_platform"
 msgid "Number of products on producer platform"
-msgstr ""
+msgstr "Tuotteiden lukumäärä tuottaja-alustalla"
 
 msgctxt "automated_daily_export_to_public_platform"
 msgid "Automatic daily export to public platform"
-msgstr ""
+msgstr "Automaattinen päivittäinen vienti julkiselle alustalle"
 
 msgctxt "improvements_navigation"
 msgid "Improvements"
@@ -7151,60 +7219,60 @@ msgstr "Parannukset"
 
 msgctxt "products_with_changes_since_last_export"
 msgid "Products with changes since last export"
-msgstr ""
+msgstr "Tuotteet, joita on muokattu viimeisimmän viennin jälkeen"
 
 msgctxt "organization_list"
 msgid "Organization list"
-msgstr ""
+msgstr "Organisaatioluettelo"
 
 msgctxt "open_org"
 msgid "Open org"
-msgstr ""
+msgstr "Open org"
 
 msgctxt "secondhand"
 msgid "Secondhand"
-msgstr ""
+msgstr "Käytetty"
 
 msgctxt "donated_products_title"
 msgid "Donations"
-msgstr ""
+msgstr "Lahjoitukset"
 
 msgctxt "donated_products_subtitle"
 msgid "Give this product, or search for a similar donated product"
-msgstr ""
+msgstr "Anna tämä tuote tai etsi samankaltaista lahjoitettua tuotetta"
 
 msgctxt "used_products_title"
 msgid "Used products"
-msgstr ""
+msgstr "Käytetyt tuotteet"
 
 msgctxt "used_products_subtitle"
 msgid "Buy this product used, or search for a similar used product"
-msgstr ""
+msgstr "Osta tämä tuote käytettynä tai etsi samankaltaista käytettyä tuotetta"
 
 msgctxt "attribute_repairability_index_france_name"
 msgid "Repairability index"
-msgstr ""
+msgstr "Korjattavuusindeksi"
 
 msgctxt "attribute_repairability_index_france_setting_name"
 msgid "Good repairability"
-msgstr ""
+msgstr "Hyvä korjattavuus"
 
 msgctxt "attribute_repairability_index_france_setting_note"
 msgid "Mandatory rating in France for certain products since 2021"
-msgstr ""
+msgstr "Pakollinen luokitus Ranskassa tietyille tuotteille vuodesta 2021 lähtien"
 
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_repairability_index_france_grade_title"
 msgid "Repairability index %s"
-msgstr ""
+msgstr "Korjattavuusindeksi %s"
 
 msgctxt "attribute_repairability_index_france_unknown_title"
 msgid "Repairability index unknown"
-msgstr ""
+msgstr "Tuntematon korjattavuusindeksi"
 
 msgctxt "attribute_repairability_index_france_not_applicable_title"
 msgid "Repairability index not-applicable"
-msgstr ""
+msgstr "Korjattavuusindeksi ei sovellu"
 
 msgctxt "attribute_repairability_index_france_not_applicable_description_short"
 msgid "Not-applicable for the category"
@@ -7213,25 +7281,82 @@ msgstr "Ei sovellu luokalle"
 # variable names between { } must not be translated
 msgctxt "f_attribute_repairability_index_france_not_applicable_description"
 msgid "Applicable only for categories: {categories}"
-msgstr ""
+msgstr "Sovellettavissa vain luokkiin: {categories}"
 
 msgctxt "attribute_repairability_index_france_very_good_description_short"
 msgid "Very good repairability"
-msgstr ""
+msgstr "Erittäin hyvä korjattavuus"
 
 msgctxt "attribute_repairability_index_france_good_description_short"
 msgid "Good repairability"
-msgstr ""
+msgstr "Hyvä korjattavuus"
 
 msgctxt "attribute_repairability_index_france_average_description_short"
 msgid "Average repairability"
-msgstr ""
+msgstr "Keskimääräinen korjattavuus"
 
 msgctxt "attribute_repairability_index_france_poor_description_short"
 msgid "Poor repairability"
-msgstr ""
+msgstr "Heikko korjattavuus"
 
 msgctxt "attribute_repairability_index_france_bad_description_short"
 msgid "Bad repairability"
+msgstr "Huono korjattavuus"
+
+msgctxt "estimate"
+msgid "estimate"
+msgstr ""
+
+# information on several ingredients, in plural in languages like French
+msgctxt "ingredient_information"
+msgid "Ingredient information"
+msgstr ""
+
+msgctxt "product_type"
+msgid "Product type"
+msgstr "Tuotetyyppi"
+
+# Food product type
+msgctxt "product_type_food"
+msgid "Food"
+msgstr "Ruoka"
+
+# Pet food product type
+msgctxt "product_type_petfood"
+msgid "Pet food"
+msgstr "Lemmikin ruoka"
+
+# Beauty product type
+msgctxt "product_type_beauty"
+msgid "Beauty"
+msgstr "Kauneus"
+
+# General product product type
+msgctxt "product_type_product"
+msgid "Product"
+msgstr "Tuote"
+
+msgctxt "recommendation_limit_ultra_processed_foods_title"
+msgid "Limit ultra-processed foods"
+msgstr "Rajoita ultraprosessoituja elintarvikkeita"
+
+msgctxt "recommendation_limit_ultra_processed_foods_subtitle"
+msgid "Limiting ultra-processed foods reduces the risk of noncommunicable chronic diseases"
+msgstr ""
+
+msgctxt "recommendation_limit_ultra_processed_foods_text"
+msgid "Several studies have found that a lower consumption of ultra-processed foods is associated with a reduced risk of noncommunicable chronic diseases, such as obesity, hypertension and diabetes."
+msgstr ""
+
+msgctxt "discover_the_evolution_of_the_nutriscore_grades_of_your_products"
+msgid "Discover the evolution of the Nutri-Score grades of your products"
+msgstr ""
+
+msgctxt "add_products_to_discover_the_evolution_of_their_nutriscore_grades"
+msgid "Add products with a category, ingredients list and nutrition facts to discover the evolution of their Nutri-Score grades."
+msgstr ""
+
+msgctxt "in_contact_with_food"
+msgid "In contact with food"
 msgstr ""
 
