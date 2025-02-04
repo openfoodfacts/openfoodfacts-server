@@ -82,7 +82,7 @@
       "data_quality_info_tags" : [
          "en:packaging-data-incomplete",
          "en:ingredients-percent-analysis-ok",
-         "en:ecoscore-extended-data-not-computed",
+         "en:environmental-score-extended-data-not-computed",
          "en:food-groups-1-unknown",
          "en:food-groups-2-unknown",
          "en:food-groups-3-unknown"
@@ -90,16 +90,16 @@
       "data_quality_tags" : [
          "en:packaging-data-incomplete",
          "en:ingredients-percent-analysis-ok",
-         "en:ecoscore-extended-data-not-computed",
+         "en:environmental-score-extended-data-not-computed",
          "en:food-groups-1-unknown",
          "en:food-groups-2-unknown",
          "en:food-groups-3-unknown",
          "en:nutrition-value-under-0-001-g-salt",
-         "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown"
+         "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown"
       ],
       "data_quality_warnings_tags" : [
          "en:nutrition-value-under-0-001-g-salt",
-         "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown"
+         "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown"
       ],
       "ecoscore_data" : {
          "adjustments" : {
@@ -324,16 +324,16 @@
                "non_recyclable_and_non_biodegradable_materials" : 0,
                "packagings" : [
                   {
-                     "ecoscore_material_score" : 50,
-                     "ecoscore_shape_ratio" : 1,
+                     "environmental_score_material_score" : 50,
+                     "environmental_score_shape_ratio" : 1,
                      "material" : "en:wood",
                      "number_of_units" : 1,
                      "recycling" : "en:recycle",
                      "shape" : "en:box"
                   },
                   {
-                     "ecoscore_material_score" : 81,
-                     "ecoscore_shape_ratio" : 1,
+                     "environmental_score_material_score" : 81,
+                     "environmental_score_shape_ratio" : 1,
                      "material" : "en:glass",
                      "number_of_units" : 6,
                      "quantity_per_unit" : "25cl",
@@ -343,16 +343,16 @@
                      "shape" : "en:bottle"
                   },
                   {
-                     "ecoscore_material_score" : 76,
-                     "ecoscore_shape_ratio" : 0.2,
+                     "environmental_score_material_score" : 76,
+                     "environmental_score_shape_ratio" : 0.2,
                      "material" : "en:steel",
                      "number_of_units" : 3,
                      "recycling" : "en:recycle",
                      "shape" : "en:lid"
                   },
                   {
-                     "ecoscore_material_score" : 0,
-                     "ecoscore_shape_ratio" : 0.1,
+                     "environmental_score_material_score" : 0,
+                     "environmental_score_shape_ratio" : 0.1,
                      "material" : "en:plastic",
                      "non_recyclable_and_non_biodegradable" : "maybe",
                      "number_of_units" : 1,
@@ -377,6 +377,7 @@
          "agribalyse" : {
             "warning" : "missing_agribalyse_match"
          },
+         "grade" : "unknown",
          "missing" : {
             "agb_category" : 1,
             "origins" : 1
@@ -592,8 +593,7 @@
       "main_countries_tags" : [],
       "minerals_tags" : [],
       "misc_tags" : [
-         "en:ecoscore-extended-data-not-computed",
-         "en:ecoscore-not-computed",
+         "en:environmental-score-not-computed",
          "en:forest-footprint-a",
          "en:forest-footprint-computed",
          "en:nutriscore-missing-nutrition-data",
@@ -772,7 +772,7 @@
       "nutriscore_tags" : [
          "unknown"
       ],
-      "nutriscore_version" : "2021",
+      "nutriscore_version" : "2023",
       "nutrition_data" : "on",
       "nutrition_data_per" : "100g",
       "nutrition_data_prepared_per" : "100g",

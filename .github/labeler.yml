@@ -173,7 +173,7 @@ WikiData:
 # Tracking issue: https://github.com/openfoodfacts/openfoodfacts-server/issues/5555
 📸 Open Products Facts:
 - changed-files:
-  - any-glob-to-any-file: 'taxonomies/products/**/*'
+  - any-glob-to-any-file: 'taxonomies/product/**/*'
   - any-glob-to-any-file: 'po/openproductsfacts/**/*'
   - any-glob-to-any-file: 'lib/ProductOpener/Config_opf.pm'
   - any-glob-to-any-file: 'conf/nginx/sites-available/opf'
@@ -505,21 +505,6 @@ Data import:
   - any-glob-to-any-file: 'cgi/generate_sample_import_file.pl'
 
 # https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Ingredients.html
-🥗 Ingredients:
-- changed-files:
-  - any-glob-to-any-file: 'lib/ProductOpener/Ingredients.pm'
-  - any-glob-to-any-file: 'taxonomies/food/ingredients.txt'
-  - any-glob-to-any-file: 'tests/unit/ingredients.t'
-  - any-glob-to-any-file: 'tests/unit/ingredients_analysis.t'
-  - any-glob-to-any-file: 'tests/unit/ingredients_clean.t'
-  - any-glob-to-any-file: 'tests/unit/ingredients_nesting.t'
-  - any-glob-to-any-file: 'tests/unit/ingredients_parsing.t'
-  - any-glob-to-any-file: 'tests/unit/ingredients_parsing_todo.t'
-  - any-glob-to-any-file: 'tests/unit/ingredients_percent.t'
-  - any-glob-to-any-file: 'tests/unit/ingredients_processing.t'
-  - any-glob-to-any-file: 'tests/unit/ingredients_tags.t'
-  - any-glob-to-any-file: 'scripts/test_ingredient_parser.pl'
-
 # We want to improve the analysis of ingredient list to extract ingredients and their properties, across languages. 
 # This is helpful to determine if a product is vegan, vegetarian, contains palm oil, is kosher/halal, the exact Nutri-Score, how much environmental impact it has…
 # https://wiki.openfoodfacts.org/Ingredients_Extraction_and_Analysis
@@ -538,7 +523,23 @@ Data import:
   - any-glob-to-any-file: 'scripts/extract_individual_ingredients.pl'
   - any-glob-to-any-file: 'scripts/aggregate_ingredients.pl'
   - any-glob-to-any-file: 'lib/ProductOpener/Ingredients.pm'
-
+  - any-glob-to-any-file: 'tests/unit/ingredients_parsing.t'
+  - any-glob-to-any-file: 'lib/ProductOpener/Ingredients.pm'
+  - any-glob-to-any-file: 'taxonomies/food/ingredients.txt'
+  - any-glob-to-any-file: 'tests/unit/ingredients.t'
+  - any-glob-to-any-file: 'tests/unit/ingredients_analysis.t'
+  - any-glob-to-any-file: 'tests/unit/ingredients_clean.t'
+  - any-glob-to-any-file: 'tests/unit/ingredients_nesting.t'
+  - any-glob-to-any-file: 'tests/unit/ingredients_parsing_todo.t'
+  - any-glob-to-any-file: 'tests/unit/ingredients_percent.t'
+  - any-glob-to-any-file: 'tests/unit/ingredients_processing.t'
+  - any-glob-to-any-file: 'tests/unit/ingredients_tags.t'
+  - any-glob-to-any-file: 'scripts/test_ingredient_parser.pl'
+  - any-glob-to-any-file: 'tests/unit/expected_test_results/ingredients/en-category-types.json'
+  - any-glob-to-any-file: 'tests/unit/expected_test_results/ingredients/fr-infinite-loop-allergens.json'
+  - any-glob-to-any-file: 'tests/unit/expected_test_results/ingredients/fr-marmelade.json'
+  - any-glob-to-any-file: 'tests/unit/expected_test_results/ingredients/fr-percents-origins-2.json'
+  - any-glob-to-any-file: 'tests/unit/expected_test_results/ingredients/ru-russian-oil.json'
 # Labels are all claims present on product packages.
 # https://wiki.openfoodfacts.org/Labels
 # Tracking issue: 
@@ -683,6 +684,7 @@ Numbers:
   - any-glob-to-any-file: 'templates/web/pages/product/includes/nutriscore.tt.html'
   - any-glob-to-any-file: 'templates/web/pages/product/includes/nutriscore_details.tt.html'
   - any-glob-to-any-file: 'templates/api/knowledge-panels/health/nutriscore/nutriscore.tt.json'
+  - any-glob-to-any-file: 'ttemplates/api/knowledge-panels/health/nutriscore/nutriscore_2023.tt.json'
   - any-glob-to-any-file: 'tests/unit/nutriscore.t'
   - any-glob-to-any-file: 'tests/unit/ingredients_nutriscore.t'
   - any-glob-to-any-file: 'tests/unit/ingredients_nutriscore.t'

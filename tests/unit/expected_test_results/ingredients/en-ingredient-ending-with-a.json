@@ -1,0 +1,119 @@
+{
+   "ingredients" : [
+      {
+         "id" : "en:e124",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 60,
+         "percent_max" : 100,
+         "percent_min" : 20,
+         "text" : "e124",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:e124",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 20,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "text" : "Ponceau 4R",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:e124",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 10,
+         "percent_max" : 33.3333333333333,
+         "percent_min" : 0,
+         "text" : "Cochineal Red A",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:e120",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 5,
+         "percent_max" : 25,
+         "percent_min" : 0,
+         "text" : "Cochineal Red",
+         "vegan" : "no",
+         "vegetarian" : "no"
+      },
+      {
+         "ecobalyse_code" : "pear-eu",
+         "id" : "en:pear",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 5,
+         "percent_max" : 20,
+         "percent_min" : 0,
+         "text" : "a pear",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:non-vegan" : [
+         "en:e120"
+      ],
+      "en:non-vegetarian" : [
+         "en:e120"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:non-vegan",
+      "en:non-vegetarian"
+   ],
+   "ingredients_hierarchy" : [
+      "en:e124",
+      "en:e120",
+      "en:pear",
+      "en:fruit"
+   ],
+   "ingredients_lc" : "en",
+   "ingredients_n" : 5,
+   "ingredients_n_tags" : [
+      "5",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:e124",
+      "en:e124",
+      "en:e124",
+      "en:e120",
+      "en:pear"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:e124",
+      "en:e120",
+      "en:pear",
+      "en:fruit"
+   ],
+   "ingredients_text" : "E124, Ponceau 4R, Cochineal Red A, Cochineal Red, a pear",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 5,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:e120",
+      "en:e124",
+      "en:pear"
+   ],
+   "ingredients_without_ciqual_codes_n" : 3,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:e120",
+      "en:e124"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 2,
+   "known_ingredients_n" : 4,
+   "lc" : "en",
+   "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 5,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 5,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 5,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 5
+   },
+   "unknown_ingredients_n" : 0
+}

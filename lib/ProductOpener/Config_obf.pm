@@ -179,10 +179,10 @@ $flavor = 'obf';
 	og_image_url => "https://world.openbeautyfacts.org/images/misc/openbeautyfacts-logo-en.png",
 	android_apk_app_link => "https://world.openbeautyfacts.org/images/apps/obf.apk?utm_source=obf&utf_medium=web",
 	android_app_link =>
-		"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&utm_source=obf&utf_medium=web",
+		"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&utm_source=obf&utf_medium=web",
 	ios_app_link => "https://apps.apple.com/app/open-beauty-facts/id1122926380?utm_source=obf&utf_medium=web",
-	facebook_page_url => "https://www.facebook.com/openbeautyfacts?utm_source=obf&utf_medium=web",
-	twitter_account => "OpenBeautyFacts",
+	facebook_page_url => "https://www.facebook.com/openfoodfacts?utm_source=obf&utf_medium=web",
+	twitter_account => "OpenFoodFacts",
 	# favicon HTML and images generated with https://realfavicongenerator.net/ using the SVG icon
 	favicons => <<HTML
 <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/obf/apple-touch-icon.png">
@@ -260,7 +260,7 @@ $build_cache_repo = $ProductOpener::Config2::build_cache_repo;
 
 $reference_timezone = 'Europe/Paris';
 
-$contact_email = 'contact@openbeautyfacts.org';
+$contact_email = 'contact@openfoodfacts.org';
 $admin_email = 'stephane@openfoodfacts.org';
 $producers_email = 'producers@openfoodfacts.org';
 
@@ -342,11 +342,11 @@ HTML
 	languages states countries
 	allergens origins additives_classes ingredients
 	packaging_shapes packaging_materials packaging_recycling packaging
-	labels food_groups categories
+	labels categories
 	ingredients_processing
-	additives vitamins minerals amino_acids nucleotides other_nutritional_substances traces
+	additives vitamins minerals traces
 	ingredients_analysis
-	nutrients nutrient_levels misc nova_groups
+	nutrients misc
 	periods_after_opening
 	data_quality data_quality_bugs data_quality_info data_quality_warnings data_quality_errors data_quality_warnings_producers data_quality_errors_producers
 	improvements
@@ -354,7 +354,7 @@ HTML
 );
 
 # tag types (=facets) that should be indexed by web crawlers, all other tag types are not indexable
-@index_tag_types = qw(brands categories labels additives nova_groups ecoscore nutrition_grades products);
+@index_tag_types = qw(brands categories labels additives products);
 
 # fields in product edit form, above ingredients and nutrition facts
 
@@ -381,10 +381,6 @@ HTML
 	conservation_conditions
 	recycling_instructions_to_recycle
 	recycling_instructions_to_discard
-	nutrition_grade_fr_producer
-	nutriscore_score_producer
-	nutriscore_grade_producer
-	recipe_idea
 	origin
 	customer_service
 	producer
@@ -421,7 +417,6 @@ HTML
 @display_other_fields = qw(
 	other_information
 	preparation
-	recipe_idea
 	warning
 	conservation_conditions
 	periods_after_opening
@@ -434,9 +429,6 @@ HTML
 # If adding to this list ensure that the tables are being replicated to Postgres in the openfoodfacts-query repo
 
 @drilldown_fields = qw(
-	nutrition_grades
-	nova_groups
-	ecoscore
 	brands
 	categories
 	labels
@@ -448,9 +440,6 @@ HTML
 	additives
 	vitamins
 	minerals
-	amino_acids
-	nucleotides
-	other_nutritional_substances
 	allergens
 	traces
 	misc
@@ -497,17 +486,8 @@ HTML
 	no_nutrition_data
 	additives_n
 	additives
-	nutriscore_score
-	nutriscore_grade
-	nova_group
-	pnns_groups_1
-	pnns_groups_2
-	food_groups
 	states
 	brand_owner
-	ecoscore_score
-	ecoscore_grade
-	nutrient_levels_tags
 	product_quantity
 	owner
 	data_quality_errors_tags
@@ -584,6 +564,6 @@ $options{display_tag_ingredients} = [
 $options{no_nutrition_table} = 1;
 
 # Name of the Redis stream to which product updates are published
-$options{redis_stream_name} = "product_updates_obf";
+$options{redis_stream_name} = "product_updates";
 
 1;

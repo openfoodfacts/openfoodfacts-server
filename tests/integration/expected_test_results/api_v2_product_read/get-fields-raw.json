@@ -93,7 +93,7 @@
       "data_quality_info_tags" : [
          "en:packaging-data-incomplete",
          "en:ingredients-percent-analysis-ok",
-         "en:ecoscore-extended-data-not-computed",
+         "en:environmental-score-extended-data-not-computed",
          "en:food-groups-1-known",
          "en:food-groups-2-known",
          "en:food-groups-3-unknown"
@@ -101,22 +101,29 @@
       "data_quality_tags" : [
          "en:packaging-data-incomplete",
          "en:ingredients-percent-analysis-ok",
-         "en:ecoscore-extended-data-not-computed",
+         "en:environmental-score-extended-data-not-computed",
          "en:food-groups-1-known",
          "en:food-groups-2-known",
          "en:food-groups-3-unknown",
          "en:energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
-         "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
-         "en:ecoscore-production-system-no-label",
+         "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
+         "en:environmental-score-production-system-no-label",
          "en:nutrition-sugars-plus-starch-greater-than-carbohydrates",
          "en:energy-value-in-kj-does-not-match-value-computed-from-other-nutrients"
       ],
       "data_quality_warnings_tags" : [
          "en:energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
-         "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
-         "en:ecoscore-production-system-no-label"
+         "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
+         "en:environmental-score-production-system-no-label"
       ],
-      "ecoscore_data" : {
+      "ecoscore_tags" : [
+         "c"
+      ],
+      "editors_tags" : [
+         "tests"
+      ],
+      "entry_dates_tags" : "--ignore--",
+      "environmental_score_data" : {
          "adjustments" : {
             "origins_of_ingredients" : {
                "aggregated_origins" : [
@@ -334,16 +341,16 @@
                "non_recyclable_and_non_biodegradable_materials" : 0,
                "packagings" : [
                   {
-                     "ecoscore_material_score" : 50,
-                     "ecoscore_shape_ratio" : 1,
+                     "environmental_score_material_score" : 50,
+                     "environmental_score_shape_ratio" : 1,
                      "material" : "en:wood",
                      "number_of_units" : 1,
                      "recycling" : "en:recycle",
                      "shape" : "en:box"
                   },
                   {
-                     "ecoscore_material_score" : 81,
-                     "ecoscore_shape_ratio" : 1,
+                     "environmental_score_material_score" : 81,
+                     "environmental_score_shape_ratio" : 1,
                      "material" : "en:glass",
                      "number_of_units" : 6,
                      "quantity_per_unit" : "25cl",
@@ -353,16 +360,16 @@
                      "shape" : "en:bottle"
                   },
                   {
-                     "ecoscore_material_score" : 76,
-                     "ecoscore_shape_ratio" : 0.2,
+                     "environmental_score_material_score" : 76,
+                     "environmental_score_shape_ratio" : 0.2,
                      "material" : "en:steel",
                      "number_of_units" : 3,
                      "recycling" : "en:recycle",
                      "shape" : "en:lid"
                   },
                   {
-                     "ecoscore_material_score" : 0,
-                     "ecoscore_shape_ratio" : 0.1,
+                     "environmental_score_material_score" : 0,
+                     "environmental_score_shape_ratio" : 0.1,
                      "material" : "en:plastic",
                      "non_recyclable_and_non_biodegradable" : "maybe",
                      "number_of_units" : 1,
@@ -546,15 +553,11 @@
          },
          "status" : "known"
       },
-      "ecoscore_grade" : "c",
-      "ecoscore_score" : 47,
-      "ecoscore_tags" : [
+      "environmental_score_grade" : "c",
+      "environmental_score_score" : 47,
+      "environmental_score_tags" : [
          "c"
       ],
-      "editors_tags" : [
-         "tests"
-      ],
-      "entry_dates_tags" : "--ignore--",
       "food_groups" : "en:biscuits-and-cakes",
       "food_groups_tags" : [
          "en:sugary-snacks",
@@ -810,13 +813,12 @@
       "main_countries_tags" : [],
       "minerals_tags" : [],
       "misc_tags" : [
-         "en:ecoscore-changed",
-         "en:ecoscore-computed",
-         "en:ecoscore-extended-data-not-computed",
-         "en:ecoscore-grade-changed",
-         "en:ecoscore-missing-data-labels",
-         "en:ecoscore-missing-data-origins",
-         "en:ecoscore-missing-data-warning",
+         "en:environmental-score-changed",
+         "en:environmental-score-computed",
+         "en:environmental-score-grade-changed",
+         "en:environmental-score-missing-data-labels",
+         "en:environmental-score-missing-data-origins",
+         "en:environmental-score-missing-data-warning",
          "en:forest-footprint-a",
          "en:forest-footprint-computed",
          "en:nutriscore-2021-c-2023-c",
@@ -910,8 +912,8 @@
          "nova-group" : 4,
          "nova-group_100g" : 4,
          "nova-group_serving" : 4,
-         "nutrition-score-fr" : 3,
-         "nutrition-score-fr_100g" : 3,
+         "nutrition-score-fr" : 7,
+         "nutrition-score-fr_100g" : 7,
          "proteins" : 4.5,
          "proteins_100g" : 4.5,
          "proteins_serving" : 0.45,
@@ -1065,43 +1067,87 @@
          "c"
       ],
       "nutriscore_data" : {
-         "energy" : 400,
-         "energy_points" : 1,
-         "energy_value" : 400,
-         "fiber" : 2,
-         "fiber_points" : 2,
-         "fiber_value" : 2,
-         "fruits_vegetables_nuts_colza_walnut_olive_oils" : 58.3333333333333,
-         "fruits_vegetables_nuts_colza_walnut_olive_oils_points" : 1,
-         "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 58.3,
+         "components" : {
+            "negative" : [
+               {
+                  "id" : "energy",
+                  "points" : 1,
+                  "points_max" : 10,
+                  "unit" : "kJ",
+                  "value" : 400
+               },
+               {
+                  "id" : "sugars",
+                  "points" : 3,
+                  "points_max" : 15,
+                  "unit" : "g",
+                  "value" : 12.5
+               },
+               {
+                  "id" : "saturated_fat",
+                  "points" : 5,
+                  "points_max" : 10,
+                  "unit" : "g",
+                  "value" : 5.6
+               },
+               {
+                  "id" : "salt",
+                  "points" : 0,
+                  "points_max" : 20,
+                  "unit" : "g",
+                  "value" : 0.05
+               }
+            ],
+            "positive" : [
+               {
+                  "id" : "proteins",
+                  "points" : 1,
+                  "points_max" : 7,
+                  "unit" : "g",
+                  "value" : 4.5
+               },
+               {
+                  "id" : "fiber",
+                  "points" : 0,
+                  "points_max" : 5,
+                  "unit" : "g",
+                  "value" : 2
+               },
+               {
+                  "id" : "fruits_vegetables_legumes",
+                  "points" : 1,
+                  "points_max" : 5,
+                  "unit" : "%",
+                  "value" : 58.3
+               }
+            ]
+         },
+         "count_proteins" : 1,
+         "count_proteins_reason" : "negative_points_less_than_11",
          "grade" : "c",
          "is_beverage" : 0,
          "is_cheese" : 0,
-         "is_fat" : 0,
+         "is_fat_oil_nuts_seeds" : 0,
+         "is_red_meat_product" : 0,
          "is_water" : 0,
-         "negative_points" : 8,
-         "positive_points" : 5,
-         "proteins" : 4.5,
-         "proteins_points" : 2,
-         "proteins_value" : 4.5,
-         "saturated_fat" : 5.6,
-         "saturated_fat_points" : 5,
-         "saturated_fat_value" : 5.6,
-         "score" : 3,
-         "sodium" : 20.08,
-         "sodium_points" : 0,
-         "sodium_value" : 20.1,
-         "sugars" : 12.5,
-         "sugars_points" : 2,
-         "sugars_value" : 12.5
+         "negative_points" : 9,
+         "negative_points_max" : 55,
+         "positive_nutrients" : [
+            "proteins",
+            "fiber",
+            "fruits_vegetables_legumes"
+         ],
+         "positive_points" : 2,
+         "positive_points_max" : 17,
+         "score" : 7
       },
       "nutriscore_grade" : "c",
-      "nutriscore_score" : 3,
-      "nutriscore_score_opposite" : -3,
+      "nutriscore_score" : 7,
+      "nutriscore_score_opposite" : -7,
       "nutriscore_tags" : [
          "c"
       ],
-      "nutriscore_version" : "2021",
+      "nutriscore_version" : "2023",
       "nutrition_data" : "on",
       "nutrition_data_per" : "100g",
       "nutrition_data_prepared_per" : "100g",

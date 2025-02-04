@@ -187,7 +187,7 @@ my @tests = (
 		["en:colour", "en:e162", "en:e160c", "en:e100"],
 	],
 
-	[{lc => "fr", ingredients_text => "graisse végétale bio (colza)"}, ["en:colza-oil"]],
+	[{lc => "fr", ingredients_text => "graisse végétale bio (colza)"}, ["en:vegetable-fat", "en:colza-oil"]],
 
 	[{lc => "fr", ingredients_text => "lait cru de lapin"}, ["fr:lait-cru-de-lapin"]],
 	[
@@ -199,7 +199,10 @@ my @tests = (
 		["en:unrefined-cane-sugar", "en:banana", "en:tomato", "en:unrefined-sugar"]
 	],
 
-	[{lc => "en", ingredients_text => "vegetable oil (coconut & rapeseed)"}, ["en:coconut-oil", "en:rapeseed-oil"]],
+	[
+		{lc => "en", ingredients_text => "vegetable oil (coconut & rapeseed)"},
+		["en:vegetable-oil", "en:coconut-oil", "en:rapeseed-oil"]
+	],
 
 	[{lc => "fr", ingredients_text => "amidon de blé. traces de _céleri_."}, ["en:wheat-starch"]],
 
@@ -316,7 +319,7 @@ my @tests = (
 	# Russian oil
 	[
 		{lc => "ru", ingredients_text => "масло растительное (подсолнечное, соевое), Масло (Пальмовое)"},
-		["en:sunflower-oil", "en:soya-oil", "en:palm-oil"]
+		["en:vegetable-oil", "en:oil", "en:sunflower-oil", "en:soya-oil", "en:palm-oil"]
 	],
 	[{lc => "fr", ingredients_text => "Banane coupée et cuite au naturel"}, ["en:banana"],],
 	[

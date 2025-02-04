@@ -65,7 +65,7 @@ use ProductOpener::Food qw/%categories_nutriments_per_country/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Lang qw/f_lang f_lang_in_lc lang lang_in_other_lc/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::Ecoscore qw/is_ecoscore_extended_data_more_precise_than_agribalyse/;
+use ProductOpener::EnvironmentalScore qw/is_environmental_score_extended_data_more_precise_than_agribalyse/;
 use ProductOpener::PackagerCodes qw/%packager_codes/;
 use ProductOpener::KnowledgePanelsIngredients qw/create_ingredients_list_panel/;
 use ProductOpener::KnowledgePanelsContribution qw/create_contribution_card_panel/;
@@ -145,7 +145,7 @@ If $target_lc is equal to "data", no strings are returned.
 
 =head4 country code $target_cc
 
-Needed for some country specific panels like the Eco-Score.
+Needed for some country specific panels like the Environmental-Score.
 
 =head4 options $options_ref
 
@@ -343,7 +343,7 @@ Using two backticks at the start and end of the string removes line breaks and e
 =head4 panel template $panel_template
 
 Relative path to the the template panel file, from the "/templates" directory.
-e.g. "api/knowledge-panels/environment/ecoscore/agribalyse.tt.json"
+e.g. "api/knowledge-panels/environment/environmental_score/agribalyse.tt.json"
 
 =head4 panel data reference $panel_data_ref (optional, can be an empty hash)
 
@@ -360,7 +360,7 @@ This parameter sets the desired language for the user facing strings.
 
 =head4 country code $target_cc
 
-The Eco-Score depends on the country of the consumer (as the transport bonus/malus depends on it)
+The Environmental-Score depends on the country of the consumer (as the transport bonus/malus depends on it)
 
 =cut
 
@@ -478,15 +478,17 @@ sub extract_data_from_impact_estimator_best_recipe ($product_ref, $panel_data_re
 	# Copy data from product data (which format may change) to panel data to make it easier to use in the template
 
 	$panel_data_ref->{climate_change}
-		= $product_ref->{ecoscore_extended_data}{impact}{likeliest_impacts}{Climate_change};
-	$panel_data_ref->{ef_score} = $product_ref->{ecoscore_extended_data}{impact}{likeliest_impacts}{EF_single_score};
+		= $product_ref->{environmental_score_extended_data}{impact}{likeliest_impacts}{Climate_change};
+	$panel_data_ref->{ef_score}
+		= $product_ref->{environmental_score_extended_data}{impact}{likeliest_impacts}{EF_single_score};
 
 	# Compute the index of the recipe with the maximum confidence
 	my $max_confidence = 0;
 	my $max_confidence_index;
 	my $i = 0;
 
-	foreach my $confidence (@{$product_ref->{ecoscore_extended_data}{impact}{confidence_score_distribution}}) {
+	foreach my $confidence (@{$product_ref->{environmental_score_extended_data}{impact}{confidence_score_distribution}})
+	{
 		if ($confidence > $max_confidence) {
 
 			$max_confidence_index = $i;
@@ -495,7 +497,7 @@ sub extract_data_from_impact_estimator_best_recipe ($product_ref, $panel_data_re
 		$i++;
 	}
 
-	my $best_recipe_ref = $product_ref->{ecoscore_extended_data}{impact}{recipes}[$max_confidence_index];
+	my $best_recipe_ref = $product_ref->{environmental_score_extended_data}{impact}{recipes}[$max_confidence_index];
 
 	# list ingredients for max confidence recipe, sorted by quantity
 	my @ingredients = ();
@@ -509,10 +511,10 @@ sub extract_data_from_impact_estimator_best_recipe ($product_ref, $panel_data_re
 			};
 	}
 
-	$product_ref->{ecoscore_extended_data}{impact}{max_confidence_recipe} = \@ingredients;
+	$product_ref->{environmental_score_extended_data}{impact}{max_confidence_recipe} = \@ingredients;
 
-	$panel_data_ref->{ecoscore_extended_data_more_precise_than_agribalyse}
-		= is_ecoscore_extended_data_more_precise_than_agribalyse($product_ref);
+	$panel_data_ref->{environmental_score_extended_data_more_precise_than_agribalyse}
+		= is_environmental_score_extended_data_more_precise_than_agribalyse($product_ref);
 
 	# TODO: compute the complete score, using Agribalyse impacts except for agriculture where we use the estimator impact
 	return;
@@ -521,7 +523,7 @@ sub extract_data_from_impact_estimator_best_recipe ($product_ref, $panel_data_re
 =head2 compare_impact_estimator_data_to_category_average ($product_ref, $panel_data_ref, $target_cc)
 
 gen_top_tags_per_country.pl computes stats for categories for nutrients, and now also for the
-extended ecoscore impacts computed by the impact estimator.
+extended environmental_score impacts computed by the impact estimator.
 
 For a specific product, this function finds the most specific category for which we have impact stats to compare with.
 
@@ -542,7 +544,7 @@ sub compare_impact_estimator_data_to_category_average ($product_ref, $panel_data
 				and (defined $categories_nutriments_ref->{$cid}{nutriments}{climate_change}))
 			{
 
-				$panel_data_ref->{ecoscore_extended_data_for_category} = {
+				$panel_data_ref->{environmental_score_extended_data_for_category} = {
 					category_id => $cid,
 					climate_change => $categories_nutriments_ref->{$cid}{nutriments}{climate_change},
 					ef_score => $categories_nutriments_ref->{$cid}{nutriments}{ef_score},
@@ -555,10 +557,10 @@ sub compare_impact_estimator_data_to_category_average ($product_ref, $panel_data
 	return;
 }
 
-=head2 create_ecoscore_panel ( $product_ref, $target_lc, $target_cc, $options_ref )
+=head2 create_environmental_score_panel ( $product_ref, $target_lc, $target_cc, $options_ref )
 
-Creates a knowledge panel to describe the Eco-Score, including sub-panels
-for the different components of the Eco-Score.
+Creates a knowledge panel to describe the Environmental-Score, including sub-panels
+for the different components of the Environmental-Score.
 
 =head3 Arguments
 
@@ -573,46 +575,58 @@ This parameter sets the desired language for the user facing strings.
 
 =head4 country code $target_cc
 
-The Eco-Score depends on the country of the consumer (as the transport bonus/malus depends on it)
+The Environmental-Score depends on the country of the consumer (as the transport bonus/malus depends on it)
 
 =cut
 
-sub create_ecoscore_panel ($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
+sub create_environmental_score_panel ($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
 
-	$log->debug("create ecoscore panel", {code => $product_ref->{code}, ecoscore_data => $product_ref->{ecoscore_data}})
+	$log->debug("create environmental_score panel",
+		{code => $product_ref->{code}, environmental_score_data => $product_ref->{environmental_score_data}})
 		if $log->is_debug();
 
 	my $cc = $request_ref->{cc};
 
-	if ((defined $product_ref->{ecoscore_data}) and ($product_ref->{ecoscore_data}{status} eq "known")) {
+	# 2024/12: If we do not have yet environmental_score_data, we use ecoscore_data
+	# (or possibly for older revisions)
+	# TBD: remove this code once all products have been updated (but we won't show the score for old revisions)
+	if ((not defined $product_ref->{environmental_score_data}) and (defined $product_ref->{ecoscore_data})) {
+		$product_ref->{environmental_score_data} = $product_ref->{ecoscore_data};
+	}
 
-		my $score = $product_ref->{ecoscore_data}{score};
-		my $grade = $product_ref->{ecoscore_data}{grade};
+	if (    (defined $product_ref->{environmental_score_data})
+		and ($product_ref->{environmental_score_data}{status} eq "known"))
+	{
+
+		my $score = $product_ref->{environmental_score_data}{score};
+		my $grade = $product_ref->{environmental_score_data}{grade};
 		my $transportation_warning = undef;
 
-		if (defined $product_ref->{ecoscore_data}{scores}{$cc}) {
-			$score = $product_ref->{ecoscore_data}{scores}{$cc};
-			$grade = $product_ref->{ecoscore_data}{grades}{$cc};
+		if (defined $product_ref->{environmental_score_data}{scores}{$cc}) {
+			$score = $product_ref->{environmental_score_data}{scores}{$cc};
+			$grade = $product_ref->{environmental_score_data}{grades}{$cc};
 			if ($cc eq "world") {
-				$transportation_warning = lang_in_other_lc($target_lc, "ecoscore_warning_transportation_world");
+				$transportation_warning
+					= lang_in_other_lc($target_lc, "environmental_score_warning_transportation_world");
 			}
 		}
 		else {
-			$transportation_warning = lang_in_other_lc($target_lc, "ecoscore_warning_transportation");
+			$transportation_warning = lang_in_other_lc($target_lc, "environmental_score_warning_transportation");
 		}
 
-		$log->debug("create ecoscore panel - known", {code => $product_ref->{code}, score => $score, grade => $grade})
+		$log->debug("create environmental_score panel - known",
+			{code => $product_ref->{code}, score => $score, grade => $grade})
 			if $log->is_debug();
 
-		# Agribalyse part of the Eco-Score
+		# Agribalyse part of the Environmental-Score
 
-		my $agribalyse_category_name = $product_ref->{ecoscore_data}{agribalyse}{name_en};
-		if (defined $product_ref->{ecoscore_data}{agribalyse}{"name_" . $target_lc}) {
-			$agribalyse_category_name = $product_ref->{ecoscore_data}{agribalyse}{"name_" . $target_lc};
+		my $agribalyse_category_name = $product_ref->{environmental_score_data}{agribalyse}{name_en};
+		if (defined $product_ref->{environmental_score_data}{agribalyse}{"name_" . $target_lc}) {
+			$agribalyse_category_name = $product_ref->{environmental_score_data}{agribalyse}{"name_" . $target_lc};
 		}
 
 		# Agribalyse grade
-		my $agribalyse_score = $product_ref->{ecoscore_data}{agribalyse}{score};
+		my $agribalyse_score = $product_ref->{environmental_score_data}{agribalyse}{score};
 		my $agribalyse_grade;
 
 		if ($agribalyse_score >= 90) {
@@ -659,9 +673,10 @@ sub create_ecoscore_panel ($product_ref, $target_lc, $target_cc, $options_ref, $
 			$score = 0;
 		}
 
-		# We can reuse some strings from the Eco-Score attribute
-		my $title = sprintf(lang_in_other_lc($target_lc, "attribute_ecoscore_grade_title"), uc($grade)) . ' - '
-			. lang_in_other_lc($target_lc, "attribute_ecoscore_" . $grade_underscore . "_description_short");
+		# We can reuse some strings from the Environmental-Score attribute
+		my $title = sprintf(lang_in_other_lc($target_lc, "attribute_environmental_score_grade_title"), $letter_grade);
+		my $subtitle
+			= lang_in_other_lc($target_lc, "attribute_environmental_score_" . $grade_underscore . "_description_short");
 
 		my $panel_data_ref = {
 			"agribalyse_category_name" => $agribalyse_category_name,
@@ -669,40 +684,27 @@ sub create_ecoscore_panel ($product_ref, $target_lc, $target_cc, $options_ref, $
 			"agribalyse_grade" => $agribalyse_grade,
 			"agribalyse_grade_underscore" => $agribalyse_grade_underscore,
 			"agribalyse_letter_grade" => $agribalyse_letter_grade,
-			"name" => lang_in_other_lc($target_lc, "attribute_ecoscore_name"),
+			"name" => lang_in_other_lc($target_lc, "attribute_environmental_score_name"),
 			"score" => $score,
 			"grade" => $grade,
 			"grade_underscore" => $grade_underscore,
 			"letter_grade" => $letter_grade,
 			"title" => $title,
+			"subtitle" => $subtitle,
 			"transportation_warning" => $transportation_warning,
 		};
 
-		create_panel_from_json_template("ecoscore", "api/knowledge-panels/environment/ecoscore/ecoscore.tt.json",
+		create_panel_from_json_template("environmental_score",
+			"api/knowledge-panels/environment/environmental_score/environmental_score.tt.json",
 			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
 
 		# Add an Agribalyse panel to show the impact of the different steps for the category on average
 
-		create_panel_from_json_template("ecoscore_agribalyse",
-			"api/knowledge-panels/environment/ecoscore/agribalyse.tt.json",
-			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
-
-		# Create an extra panel for products that have extended ecoscore data from the impact estimator
-
-		# 2022/05/06: disabled as we currently have few products with reliable extended ecoscore data
-
-		# if (defined $product_ref->{ecoscore_extended_data}) {
-
-		#     extract_data_from_impact_estimator_best_recipe($product_ref, $panel_data_ref);
-
-		#     compare_impact_estimator_data_to_category_average($product_ref, $panel_data_ref, $target_cc);
-
-		#     # Display a panel only if we can compare the product extended impact
-		#     if (defined $panel_data_ref->{ecoscore_extended_data_for_category}) {
-		#         create_panel_from_json_template("ecoscore_extended", "api/knowledge-panels/environment/ecoscore/ecoscore_extended.tt.json",
-		#             $panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
-		#     }
-		# }
+		create_panel_from_json_template(
+			"environmental_score_agribalyse",
+			"api/knowledge-panels/environment/environmental_score/agribalyse.tt.json",
+			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref
+		);
 
 		create_panel_from_json_template("carbon_footprint",
 			"api/knowledge-panels/environment/carbon_footprint_food.tt.json",
@@ -715,49 +717,55 @@ sub create_ecoscore_panel ($product_ref, $target_lc, $target_cc, $options_ref, $
 			my $adjustment_panel_data_ref = {};
 
 			create_panel_from_json_template(
-				"ecoscore_" . $adjustment,
-				"api/knowledge-panels/environment/ecoscore/" . $adjustment . ".tt.json",
+				"environmental_score_" . $adjustment,
+				"api/knowledge-panels/environment/environmental_score/" . $adjustment . ".tt.json",
 				$adjustment_panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref
 			);
 		}
 
-		# Add panel for the final Eco-Score of the product
-		create_panel_from_json_template("ecoscore_total", "api/knowledge-panels/environment/ecoscore/total.tt.json",
+		# Add panel for the final Environmental-Score of the product
+		create_panel_from_json_template("environmental_score_total",
+			"api/knowledge-panels/environment/environmental_score/total.tt.json",
 			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
 	}
-	# Eco-Score is not applicable
-	elsif ((defined $product_ref->{ecoscore_grade}) and ($product_ref->{ecoscore_grade} eq "not-applicable")) {
+	# Environmental-Score is not applicable
+	elsif ( (defined $product_ref->{environmental_score_grade})
+		and ($product_ref->{environmental_score_grade} eq "not-applicable"))
+	{
 		my $panel_data_ref = {};
 		$panel_data_ref->{subtitle} = f_lang_in_lc(
 			$target_lc,
-			"f_attribute_ecoscore_not_applicable_description",
+			"f_attribute_environmental_score_not_applicable_description",
 			{
 				category => display_taxonomy_tag_name(
-					$target_lc, "categories",
-					deep_get($product_ref, qw/ecoscore_data ecoscore_not_applicable_for_category/)
+					$target_lc,
+					"categories",
+					deep_get(
+						$product_ref, qw/environmental_score_data environmental_score_not_applicable_for_category/
+					)
 				)
 			}
 		);
-		create_panel_from_json_template("ecoscore",
-			"api/knowledge-panels/environment/ecoscore/ecoscore_not_applicable.tt.json",
+		create_panel_from_json_template("environmental_score",
+			"api/knowledge-panels/environment/environmental_score/environmental_score_not_applicable.tt.json",
 			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
 	}
-	# Eco-Score is unknown
+	# Environmental-Score is unknown
 	else {
 		my $panel_data_ref = {};
-		create_panel_from_json_template("ecoscore",
-			"api/knowledge-panels/environment/ecoscore/ecoscore_unknown.tt.json",
+		create_panel_from_json_template("environmental_score",
+			"api/knowledge-panels/environment/environmental_score/environmental_score_unknown.tt.json",
 			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
 	}
 
-	# Add panels for environmental Eco-Score labels
-	if (    (defined $product_ref->{ecoscore_data})
-		and (defined $product_ref->{ecoscore_data}{adjustments})
-		and (defined $product_ref->{ecoscore_data}{adjustments}{production_system})
-		and (defined $product_ref->{ecoscore_data}{adjustments}{production_system}{labels}))
+	# Add panels for environmental Environmental-Score labels
+	if (    (defined $product_ref->{environmental_score_data})
+		and (defined $product_ref->{environmental_score_data}{adjustments})
+		and (defined $product_ref->{environmental_score_data}{adjustments}{production_system})
+		and (defined $product_ref->{environmental_score_data}{adjustments}{production_system}{labels}))
 	{
 
-		foreach my $labelid (@{$product_ref->{ecoscore_data}{adjustments}{production_system}{labels}}) {
+		foreach my $labelid (@{$product_ref->{environmental_score_data}{adjustments}{production_system}{labels}}) {
 			my $label_panel_data_ref = {
 				label => $labelid,
 				evaluation => "good",
@@ -810,7 +818,7 @@ This parameter sets the desired language for the user facing strings.
 
 =head4 country code $target_cc
 
-The Eco-Score depends on the country of the consumer (as the transport bonus/malus depends on it)
+The Environmental-Score depends on the country of the consumer (as the transport bonus/malus depends on it)
 
 =cut
 
@@ -820,16 +828,16 @@ sub create_environment_card_panel ($product_ref, $target_lc, $target_cc, $option
 
 	my $panel_data_ref = {};
 
-	# Create Eco-Score related panels
+	# Create Environmental-Score related panels
 	if ($options{product_type} eq "food") {
-		create_ecoscore_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+		create_environmental_score_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 
 		if (
-				(defined $product_ref->{ecoscore_data})
-			and (defined $product_ref->{ecoscore_data}{adjustments})
-			and (defined $product_ref->{ecoscore_data}{adjustments}{threatened_species})
-			and (defined $product_ref->{ecoscore_data}{adjustments}{threatened_species}{value}
-				&& $product_ref->{ecoscore_data}{adjustments}{threatened_species}{value} != 0)
+				(defined $product_ref->{environmental_score_data})
+			and (defined $product_ref->{environmental_score_data}{adjustments})
+			and (defined $product_ref->{environmental_score_data}{adjustments}{threatened_species})
+			and (defined $product_ref->{environmental_score_data}{adjustments}{threatened_species}{value}
+				&& $product_ref->{environmental_score_data}{adjustments}{threatened_species}{value} != 0)
 			)
 		{
 
@@ -838,7 +846,7 @@ sub create_environment_card_panel ($product_ref, $target_lc, $target_cc, $option
 		}
 	}
 
-	# Create panel for carbon footprint (non-food products, for food products, it is added by create_ecoscore_panel)
+	# Create panel for carbon footprint (non-food products, for food products, it is added by create_environmental_score_panel)
 	if ($options{product_type} ne "food") {
 		create_carbon_footprint_panel($product_ref, $target_lc, $target_cc, $options_ref);
 	}
@@ -981,7 +989,7 @@ This parameter sets the desired language for the user facing strings.
 
 =head4 country code $target_cc
 
-The Eco-Score depends on the country of the consumer (as the transport bonus/malus depends on it)
+The Environmental-Score depends on the country of the consumer (as the transport bonus/malus depends on it)
 
 =cut
 
@@ -1065,20 +1073,18 @@ sub create_health_card_panel ($product_ref, $target_lc, $target_cc, $options_ref
 		create_nova_panel($product_ref, $target_lc, $target_cc, $options_ref);
 	}
 	if (feature_enabled("nutriscore")) {
-		if (   $target_cc eq "fr"
-			|| $options_ref->{admin}
+
+		# For moderators, admins, and on the producers platform: we show the old Nutri-Score
+		# in addition to the new Nutri-Score
+
+		if (   $options_ref->{admin}
 			|| $options_ref->{moderator}
 			|| $options_ref->{producers_platform})
 		{
 			create_nutriscore_panel($product_ref, $target_lc, $target_cc, $options_ref);
 		}
-		if (   $target_cc ne "fr"
-			|| $options_ref->{admin}
-			|| $options_ref->{moderator}
-			|| $options_ref->{producers_platform})
-		{
-			create_nutriscore_2023_panel($product_ref, $target_lc, $target_cc, $options_ref);
-		}
+
+		create_nutriscore_2023_panel($product_ref, $target_lc, $target_cc, $options_ref);
 
 		create_nutrient_levels_panels($product_ref, $target_lc, $target_cc, $options_ref);
 
@@ -1240,6 +1246,11 @@ sub create_nutriscore_2023_panel ($product_ref, $target_lc, $target_cc, $options
 
 	# Nutri-Score panel: parent panel
 	create_panel_from_json_template("nutriscore_2023", "api/knowledge-panels/health/nutriscore/nutriscore_2023.tt.json",
+		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
+
+	# Nutri-Score new computation
+	create_panel_from_json_template("nutriscore_new_computation",
+		"api/knowledge-panels/health/nutriscore/nutriscore_new_computation.tt.json",
 		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
 
 	# Nutri-Score description

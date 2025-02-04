@@ -70,7 +70,7 @@ use ProductOpener::Tags qw/%language_fields display_taxonomy_tag/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::Attributes qw/compute_attributes/;
 use ProductOpener::KnowledgePanels qw/create_knowledge_panels initialize_knowledge_panels_options/;
-use ProductOpener::Ecoscore qw/localize_ecoscore/;
+use ProductOpener::EnvironmentalScore qw/localize_environmental_score/;
 use ProductOpener::Packaging qw/%packaging_taxonomies/;
 use ProductOpener::Permissions qw/has_permission/;
 use ProductOpener::GeoIP qw/get_country_for_ip_api/;
@@ -625,6 +625,80 @@ sub customize_packagings ($request_ref, $product_ref) {
 	return $customized_packagings_ref;
 }
 
+=head2 api_compatibility_for_field ($field, $api_version)
+
+To support older API versions that can request fields that have been renamed or changed,
+we rename older requested fields to the new field names to construct the response.
+
+Resulting fields will then be renamed back to older names by the api_compatibility_for_product_response function.
+
+=cut
+
+sub api_compatibility_for_field ($field, $api_version) {
+
+	# API 3.1 - 2024/12/18 - ecoscore* fields have been renamed to environmental_score*
+	if ($api_version < 3.1) {
+		if ($field =~ /^ecoscore/) {
+			$field = "environmental_score" . $';
+		}
+	}
+
+	return $field;
+}
+
+=head2 api_compatibility_for_product_input ($product_ref)
+
+The product objects saved in the database or in the .sto files may have different schema over time.
+This function updates the product object to the latest revision, for some fields, when possible,
+so that we can read older revisions of products, or when all products are not migrated yet.
+
+=cut
+
+sub api_compatibility_for_product_input ($product_ref) {
+
+	$log->debug("api_compatibility_for_product_input - start") if $log->is_debug();
+
+	# 2024/12: ecoscore fields were renamed to environmental_score
+	foreach my $subfield (qw/data grade score tags/) {
+		if (defined $product_ref->{"ecoscore_" . $subfield}) {
+			if (not defined $product_ref->{"environmental_score_" . $subfield}) {
+				$product_ref->{"environmental_score_" . $subfield} = $product_ref->{"ecoscore_" . $subfield};
+			}
+			delete $product_ref->{"ecoscore_" . $subfield};
+		}
+	}
+
+	return $product_ref;
+}
+
+=head2 api_compatibility_for_product_response ($product_ref, $api_version)
+
+The response schema can change between API versions. This function transforms the product object to match the requested API version.
+
+=cut
+
+sub api_compatibility_for_product_response ($product_ref, $api_version) {
+
+	$log->debug("api_compatibility_for_product_response - start", {api_version => $api_version}) if $log->is_debug();
+
+	# no requested version, return the product as is
+	if (not defined $api_version) {
+		return $product_ref;
+	}
+
+	# API 3.1 - 2024/12/18 - ecoscore* fields have been renamed to environmental_score*
+	if ($api_version < 3.1) {
+		foreach my $subfield (qw/data grade score tags/) {
+			if (defined $product_ref->{"environmental_score_" . $subfield}) {
+				$product_ref->{"ecoscore_" . $subfield} = $product_ref->{"environmental_score_" . $subfield};
+				delete $product_ref->{"environmental_score_" . $subfield};
+			}
+		}
+	}
+
+	return $product_ref;
+}
+
 =head2 customize_response_for_product ( $request_ref, $product_ref, $fields_comma_separated_list, $fields_ref )
 
 Using the fields parameter, API product or search queries can request
@@ -680,7 +754,7 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 
 	my $carbon_footprint_computed = 0;
 
-	# Special case if fields is empty, or contains only "none" or "raw": we do not need to localize the Eco-Score
+	# Special case if fields is empty, or contains only "none" or "raw": we do not need to localize the Environmental-Score
 
 	if ((scalar @fields) == 0) {
 		return {};
@@ -695,13 +769,19 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 		}
 	}
 
-	# Localize the Eco-Score fields that depend on the country of the request
-	if (feature_enabled("ecoscore", $product_ref)) {
-		localize_ecoscore($request_ref->{cc}, $product_ref);
+	# Update the product object to the latest schema, for some fields, when possible
+	api_compatibility_for_product_input($product_ref);
+
+	# Localize the Environmental-Score fields that depend on the country of the request
+	if (feature_enabled("environmental_score", $product_ref)) {
+		localize_environmental_score($request_ref->{cc}, $product_ref);
 	}
 
 	# lets compute each requested field
 	foreach my $field (@fields) {
+
+		# Compatibility with older API versions
+		$field = api_compatibility_for_field($field, $request_ref->{api_version});
 
 		if ($field eq 'all') {
 			# Return all fields of the product, with processing that depends on the API version used
@@ -733,12 +813,12 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 			next;
 		}
 
-		# Eco-Score details in simple HTML
-		if ($field eq "ecoscore_details_simple_html") {
-			if ((1 or $show_ecoscore) and (defined $product_ref->{ecoscore_data})) {
+		# Environmental-Score details in simple HTML
+		if ($field eq "environmental_score_details_simple_html") {
+			if ((1 or $show_environmental_score) and (defined $product_ref->{environmental_score_data})) {
 				$customized_product_ref->{$field}
-					= display_ecoscore_calculation_details_simple_html($request_ref->{cc},
-					$product_ref->{ecoscore_data});
+					= display_environmental_score_calculation_details_simple_html($request_ref->{cc},
+					$product_ref->{environmental_score_data});
 			}
 			next;
 		}
@@ -857,6 +937,9 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 
 		# TODO: it would be great to return errors when the caller requests fields that are invalid (e.g. typos)
 	}
+
+	# Before returning the product, we need to make sure that the fields are compatible with the requested API version
+	api_compatibility_for_product_response($customized_product_ref, $request_ref->{api_version});
 
 	return $customized_product_ref;
 }

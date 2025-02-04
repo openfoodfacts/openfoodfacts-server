@@ -1,7 +1,7 @@
 '''
 This file is part of Product Opener.
 Product Opener
-Copyright (C) 2011-2023 Association Open Food Facts
+Copyright (C) 2011-2024 Association Open Food Facts
 Contact: contact@openfoodfacts.org
 Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 Product Opener is free software: you can redistribute it and/or modify
@@ -52,11 +52,12 @@ try:
     import requests_cache
     requests_cache.install_cache('temp', use_cache_dir=True)
 except ImportError as e:
-    pass # not caching
+    pass  # not caching
 
 
 def clean_str(expr):
     return expr.str.strip_chars().str.strip_chars(', ').str.replace_all(r'\s+,', ',').str.replace_all(r'\s+', ' ')
+
 
 def concat_in_group(expr):
     return expr.map_batches(lambda l: l.list.unique().list.sort().list.join('|'), agg_list=True, returns_scalar=True).replace('', None)
@@ -69,7 +70,8 @@ def get_alimenti(csv):
     # headers SPOA
     # precedente_bollo_cee;num_identificativo_produzione_commercializzazione;ragione_sociale;indirizzo;comune;provincia;codice_regione;regione;classificazione_stabilimento;codice_impianto_attivita;descrizione_impianto_attivita;prodotti_abilitati;specifica_prodotti_abilitati;paesi_export_autorizzato;longitudine;latitudine;stato_localizzazione;cod_fiscale;p_iva;codice_comune;stato_attivita;data_ultimo_aggiornamento
     f = io.BytesIO(csv_file.content)
-    df = pl.read_csv(f, separator=';', schema_overrides={'longitudine': str, 'latitudine': str})
+    df = pl.read_csv(f, separator=';', schema_overrides={
+                     'longitudine': str, 'latitudine': str})
     df = df.rename({
         'num_identificativo_produzione_commercializzazione': 'codice',
         'p_iva': 'vat',
@@ -84,14 +86,19 @@ def get_alimenti(csv):
         'classificazione_stabilimento': 'class',
         'codice_impianto_attivita': 'plant',
     }).with_columns(
-        pl.col('codice').str.replace(r'^UE IT\s+(.+)$', 'IT ${1} CE').replace('UE IT ', None).replace('ABP ', None).alias('code'),
+        pl.col('codice').str.replace(r'^UE IT\s+(.+)$',
+                                     'IT ${1} CE').replace('UE IT ', None).replace('ABP ', None).alias('code'),
         clean_str(pl.col('address')),
         clean_str(pl.col('name')),
         clean_str(pl.col('vat').replace('-', None).replace('XXXXXXX', None)),
         clean_str(pl.col('fiscal_code').replace('-', None)),
         clean_str(pl.col('paesi_export_autorizzato').replace('-', None)),
-        pl.col('lat').str.replace(r'(\d+\.\d+)\.(\d+)', '${1}${2}').str.replace(r'(\d+\.\d+)\.(\d+)', '${1}${2}'), # some lat/lon have an extra dot
-        pl.col('lon').str.replace(r'(\d+\.\d+)\.(\d+)', '${1}${2}').str.replace(r'(\d+\.\d+)\.(\d+)', '${1}${2}'), # some lat/lon have an extra dot
+        pl.col('lat').str.replace(r'(\d+\.\d+)\.(\d+)', '${1}${2}').str.replace(
+            # some lat/lon have an extra dot
+            r'(\d+\.\d+)\.(\d+)', '${1}${2}'),
+        pl.col('lon').str.replace(r'(\d+\.\d+)\.(\d+)', '${1}${2}').str.replace(
+            # some lat/lon have an extra dot
+            r'(\d+\.\d+)\.(\d+)', '${1}${2}'),
     ).sort('code', 'vat', 'fiscal_code')
 
     df_uq = df.group_by(
@@ -106,12 +113,13 @@ def get_alimenti(csv):
     return df_uq
     # df_uq.write_csv(str(output_file), separator=';')
 
-    
+
 if __name__ == "__main__":
     code_prefix = 'IT'
     code_suffix = 'CE'
     output_file = f'{code_prefix}-merge-UTF-8.csv'
-    output_file = Path(__file__).parent.parent.parent / 'packager-codes' / output_file
+    output_file = Path(__file__).parent.parent.parent / \
+        'packager-codes' / output_file
     output_file = output_file.resolve()
     # use user agent for requests
     headers = {'User-Agent': 'packager-openfoodfacts'}
@@ -119,14 +127,17 @@ if __name__ == "__main__":
     session.headers = headers
 
     # TODO get latest csv urls from web permalinks
-    alimenti_web_permalink = 'https://www.dati.salute.gov.it/dataset/stabilimenti_italiani_reg_CE_853_2004.jsp' # '.container a[href*=".csv"]:has(> span)'
-    sottoprodotti_web_permalink = 'https://www.dati.salute.gov.it/dataset/stabilimenti_italiani_reg_CE_1069_2009.jsp' # '.container a[href*=".csv"]:has(> span)'
+    # '.container a[href*=".csv"]:has(> span)'
+    alimenti_web_permalink = 'https://www.dati.salute.gov.it/dataset/stabilimenti_italiani_reg_CE_853_2004.jsp'
+    # '.container a[href*=".csv"]:has(> span)'
+    sottoprodotti_web_permalink = 'https://www.dati.salute.gov.it/dataset/stabilimenti_italiani_reg_CE_1069_2009.jsp'
 
     alimenti_csv = 'https://www.dati.salute.gov.it/sites/default/files/opendata/STAB_POA_8_20241030.csv'
     sottoprodotti_csv = 'https://www.dati.salute.gov.it/sites/default/files/opendata/STAB_SPOA_9_20241030.csv'
 
     alimenti_df = get_alimenti(alimenti_csv)
     sottoprodotti_df = get_alimenti(sottoprodotti_csv)
-    df_merged = pl.concat([alimenti_df, sottoprodotti_df]).sort('code', 'vat', 'fiscal_code')
+    df_merged = pl.concat([alimenti_df, sottoprodotti_df]).sort(
+        'code', 'vat', 'fiscal_code')
 
     df_merged.write_csv(str(output_file), separator=';')

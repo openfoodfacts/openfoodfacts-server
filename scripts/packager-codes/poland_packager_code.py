@@ -4,9 +4,11 @@ import csv
 import geocoder
 from bs4 import BeautifulSoup
 
+
 def make_request(url):
     r = requests.get(url)
     return r.text
+
 
 path_csv_file = './results.csv'
 with open(path_csv_file, mode="w") as csv_file:
@@ -16,7 +18,7 @@ with open(path_csv_file, mode="w") as csv_file:
     base_url = 'https://pasze.wetgiw.gov.pl/spi/demozatw/index.php?kodwoj=&kodpow=&szukanaNazwa=&szukanaMiejsc=&szukanyWni=&onpage=20&poprzedniaSekcja=1&gatunek=&kategoria='
 
     # Total of 18 categories so we iterate over it
-    for i in range (1, 18):
+    for i in range(1, 18):
         url = base_url + '&sekcja=' + str(i)
         results = make_request(url)
         # Get count number and then make requests for all the pages

@@ -910,6 +910,11 @@ en: ingredients single ingredient from category does not match actual ingredient
 description:en: This category expect a single and specific ingredient
 fix_action:en: add_ingredients_text
 
+< en:Ingredients errors
+en: ingredients count lower than expected for the category
+description:en: This category expect at least a given number of ingredients
+fix_action:en: add_ingredients_text
+
 
 ### Labels
 

@@ -91,7 +91,7 @@
       "data_quality_info_tags" : [
          "en:packaging-data-incomplete",
          "en:ingredients-percent-analysis-ok",
-         "en:ecoscore-extended-data-not-computed",
+         "en:environmental-score-extended-data-not-computed",
          "en:food-groups-1-known",
          "en:food-groups-2-known",
          "en:food-groups-3-unknown"
@@ -99,16 +99,16 @@
       "data_quality_tags" : [
          "en:packaging-data-incomplete",
          "en:ingredients-percent-analysis-ok",
-         "en:ecoscore-extended-data-not-computed",
+         "en:environmental-score-extended-data-not-computed",
          "en:food-groups-1-known",
          "en:food-groups-2-known",
          "en:food-groups-3-unknown",
-         "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
-         "en:ecoscore-production-system-no-label"
+         "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
+         "en:environmental-score-production-system-no-label"
       ],
       "data_quality_warnings_tags" : [
-         "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
-         "en:ecoscore-production-system-no-label"
+         "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
+         "en:environmental-score-production-system-no-label"
       ],
       "ecoscore_data" : {
          "adjustments" : {
@@ -333,16 +333,16 @@
                "non_recyclable_and_non_biodegradable_materials" : 0,
                "packagings" : [
                   {
-                     "ecoscore_material_score" : 50,
-                     "ecoscore_shape_ratio" : 1,
+                     "environmental_score_material_score" : 50,
+                     "environmental_score_shape_ratio" : 1,
                      "material" : "en:wood",
                      "number_of_units" : 1,
                      "recycling" : "en:recycle",
                      "shape" : "en:box"
                   },
                   {
-                     "ecoscore_material_score" : 81,
-                     "ecoscore_shape_ratio" : 1,
+                     "environmental_score_material_score" : 81,
+                     "environmental_score_shape_ratio" : 1,
                      "material" : "en:glass",
                      "number_of_units" : 6,
                      "quantity_per_unit" : "25cl",
@@ -352,16 +352,16 @@
                      "shape" : "en:bottle"
                   },
                   {
-                     "ecoscore_material_score" : 76,
-                     "ecoscore_shape_ratio" : 0.2,
+                     "environmental_score_material_score" : 76,
+                     "environmental_score_shape_ratio" : 0.2,
                      "material" : "en:steel",
                      "number_of_units" : 3,
                      "recycling" : "en:recycle",
                      "shape" : "en:lid"
                   },
                   {
-                     "ecoscore_material_score" : 0,
-                     "ecoscore_shape_ratio" : 0.1,
+                     "environmental_score_material_score" : 0,
+                     "environmental_score_shape_ratio" : 0.1,
                      "material" : "en:plastic",
                      "non_recyclable_and_non_biodegradable" : "maybe",
                      "number_of_units" : 1,
@@ -882,7 +882,7 @@
                            "type" : "percent"
                         }
                      ],
-                     "id" : "ecoscore_carbon_impact_by_stages_table",
+                     "id" : "environmental_score_carbon_impact_by_stages_table",
                      "rows" : [
                         {
                            "id" : "agriculture",
@@ -981,7 +981,62 @@
                "environment"
             ]
          },
-         "ecoscore" : {
+         "environment_card" : {
+            "elements" : [
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "environmental_score"
+                  }
+               },
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_ids" : [
+                        "carbon_footprint"
+                     ],
+                     "title" : "Carbon footprint"
+                  }
+               },
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_group_id" : "packaging_recycling",
+                     "panel_ids" : [
+                        "packaging_recycling"
+                     ],
+                     "title" : "Packaging"
+                  }
+               },
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_ids" : [
+                        "origins_of_ingredients"
+                     ],
+                     "title" : "Transportation"
+                  }
+               },
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_ids" : [
+                        "palm_oil"
+                     ],
+                     "title" : "Threatened species"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "title_element" : {
+               "title" : "Environment"
+            },
+            "topics" : [
+               "environment"
+            ],
+            "type" : "card"
+         },
+         "environmental_score" : {
             "elements" : [
                {
                   "element_type" : "text",
@@ -993,13 +1048,13 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "The <a href=\"http://world.openfoodfacts.localhost/ecoscore\">Eco-Score</a> is an experimental score that summarizes the environmental impacts of food products."
+                     "html" : "The <a href=\"http://world.openfoodfacts.localhost/green-score\">Green-Score</a> is an experimental score that summarizes the environmental impacts of food products."
                   }
                },
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                    \n                        The Eco-Score was initially developped for France and it is being extended to other European countries. The Eco-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country.\n                                    \n                ",
+                     "html" : "\n                    \n                        The Green-Score was initially developped for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country.\n                                    \n                ",
                      "type" : "note"
                   }
                },
@@ -1007,7 +1062,7 @@
                   "element_type" : "panel_group",
                   "panel_group_element" : {
                      "panel_ids" : [
-                        "ecoscore_agribalyse"
+                        "environmental_score_agribalyse"
                      ],
                      "title" : "Life cycle analysis"
                   }
@@ -1016,9 +1071,9 @@
                   "element_type" : "panel_group",
                   "panel_group_element" : {
                      "panel_ids" : [
-                        "ecoscore_origins_of_ingredients",
-                        "ecoscore_threatened_species",
-                        "ecoscore_packaging"
+                        "environmental_score_origins_of_ingredients",
+                        "environmental_score_threatened_species",
+                        "environmental_score_packaging"
                      ],
                      "title" : "Bonuses and maluses"
                   }
@@ -1027,31 +1082,32 @@
                   "element_type" : "panel_group",
                   "panel_group_element" : {
                      "panel_ids" : [
-                        "ecoscore_total"
+                        "environmental_score_total"
                      ],
-                     "title" : "Eco-Score for this product"
+                     "title" : "Green-Score for this product"
                   }
                },
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n<p>&rarr; <a href=\"http://world.openfoodfacts.localhost/eco-score-the-environmental-impact-of-food-products\">Learn more about the Eco-Score</a></p>\n"
+                     "html" : "\n<p>&rarr; <a href=\"http://world.openfoodfacts.localhost/green-score\">Learn more about the Green-Score</a></p>\n"
                   }
                }
             ],
             "level" : "info",
             "title_element" : {
                "grade" : "c",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/ecoscore-c.svg",
-               "name" : "Eco-Score",
-               "title" : "Eco-Score C - Moderate environmental impact",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/green-score-c.svg",
+               "name" : "Green-Score",
+               "subtitle" : "Moderate environmental impact",
+               "title" : "Green-Score C",
                "type" : "grade"
             },
             "topics" : [
                "environment"
             ]
          },
-         "ecoscore_agribalyse" : {
+         "environmental_score_agribalyse" : {
             "elements" : [
                {
                   "element_type" : "text",
@@ -1073,7 +1129,7 @@
                            "type" : "percent"
                         }
                      ],
-                     "id" : "ecoscore_lca_impacts_by_stages_table",
+                     "id" : "environmental_score_lca_impacts_by_stages_table",
                      "rows" : [
                         {
                            "id" : "agriculture",
@@ -1173,7 +1229,7 @@
                "environment"
             ]
          },
-         "ecoscore_origins_of_ingredients" : {
+         "environmental_score_origins_of_ingredients" : {
             "elements" : [
                {
                   "element_type" : "text",
@@ -1196,7 +1252,7 @@
                "environment"
             ]
          },
-         "ecoscore_packaging" : {
+         "environmental_score_packaging" : {
             "elements" : [
                {
                   "element_type" : "table",
@@ -1219,7 +1275,7 @@
                            "type" : "text"
                         }
                      ],
-                     "id" : "ecoscore_packaging_components",
+                     "id" : "environmental_score_packaging_components",
                      "rows" : [
                         {
                            "values" : [
@@ -1310,7 +1366,7 @@
                "environment"
             ]
          },
-         "ecoscore_production_system" : {
+         "environmental_score_production_system" : {
             "evaluation" : "neutral",
             "level" : "info",
             "title_element" : {
@@ -1323,7 +1379,7 @@
                "environment"
             ]
          },
-         "ecoscore_threatened_species" : {
+         "environmental_score_threatened_species" : {
             "elements" : [
                {
                   "element_type" : "text",
@@ -1346,7 +1402,7 @@
                "environment"
             ]
          },
-         "ecoscore_total" : {
+         "environmental_score_total" : {
             "elements" : [
                {
                   "element_type" : "text",
@@ -1359,7 +1415,7 @@
             "level" : "info",
             "title_element" : {
                "grade" : "c",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/ecoscore-c.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/green-score-c.svg",
                "subtitle" : "Product: Some product - 100 g",
                "title" : "Impact for this product: C (Score: 47/100)",
                "type" : "grade"
@@ -1367,61 +1423,6 @@
             "topics" : [
                "environment"
             ]
-         },
-         "environment_card" : {
-            "elements" : [
-               {
-                  "element_type" : "panel",
-                  "panel_element" : {
-                     "panel_id" : "ecoscore"
-                  }
-               },
-               {
-                  "element_type" : "panel_group",
-                  "panel_group_element" : {
-                     "panel_ids" : [
-                        "carbon_footprint"
-                     ],
-                     "title" : "Carbon footprint"
-                  }
-               },
-               {
-                  "element_type" : "panel_group",
-                  "panel_group_element" : {
-                     "panel_group_id" : "packaging_recycling",
-                     "panel_ids" : [
-                        "packaging_recycling"
-                     ],
-                     "title" : "Packaging"
-                  }
-               },
-               {
-                  "element_type" : "panel_group",
-                  "panel_group_element" : {
-                     "panel_ids" : [
-                        "origins_of_ingredients"
-                     ],
-                     "title" : "Transportation"
-                  }
-               },
-               {
-                  "element_type" : "panel_group",
-                  "panel_group_element" : {
-                     "panel_ids" : [
-                        "palm_oil"
-                     ],
-                     "title" : "Threatened species"
-                  }
-               }
-            ],
-            "expanded" : true,
-            "title_element" : {
-               "title" : "Environment"
-            },
-            "topics" : [
-               "environment"
-            ],
-            "type" : "card"
          },
          "health_card" : {
             "elements" : [
@@ -1939,6 +1940,12 @@
                {
                   "element_type" : "panel",
                   "panel_element" : {
+                     "panel_id" : "nutriscore_new_computation"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
                      "panel_id" : "nutriscore_description"
                   }
                }
@@ -1976,6 +1983,33 @@
                "icon_size" : "small",
                "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/info.svg",
                "title" : "What is the Nutri-Score?",
+               "type" : "info"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutriscore_new_computation" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<p>The computation of the Nutri-Score is evolving to provide better recommendations based on the latest scientific evidence.</p><p>Main improvements:</p><ul><li>Better score for some fatty fish and oils rich in good fats</li><li>Better score for whole products rich in fiber</li><li>Worse score for products containing a lot of salt or sugar</li><li>Worse score for red meat (compared to poultry)</li></ul>\n                ",
+                     "type" : "info"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n<p>&rarr; <a href=\"http://world.openfoodfacts.localhost/nutriscore-v2\">Discover all the improvements of the new Nutri-Score</a></p>\n"
+                  }
+               }
+            ],
+            "level" : "info",
+            "title_element" : {
+               "icon_size" : "small",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/info.svg",
+               "title" : "Discover the new Nutri-Score!",
                "type" : "info"
             },
             "topics" : [
@@ -2186,7 +2220,7 @@
                   "element_type" : "text",
                   "text_element" : {
                      "evaluation" : "good",
-                     "html" : "\n                        \n                            \n                                1 x \n                                <strong>\n                                    Box\n                                    \n                                </strong>\n                                    \n                                        (Wood)\n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                            \n                                3 x \n                                <strong>\n                                    Lid\n                                    \n                                </strong>\n                                    \n                                        (Steel)\n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                        ",
+                     "html" : "\n                        \n                            \n                                1 x \n                                <strong>\n                                    Box\n                                    \n                                </strong>\n                                    \n                                        (Wood)\n                                    \n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                            \n                                3 x \n                                <strong>\n                                    Lid\n                                    \n                                </strong>\n                                    \n                                        (Steel)\n                                    \n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                        ",
                      "icon_alt" : "Recycle",
                      "icon_color_from_evaluation" : true,
                      "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/recycle-variant.svg",
@@ -2197,7 +2231,7 @@
                   "element_type" : "text",
                   "text_element" : {
                      "evaluation" : "bad",
-                     "html" : "\n                        \n                            \n                        \n                            \n                        \n                            \n                        \n                            \n                                1 x \n                                <strong>\n                                    Film\n                                    \n                                </strong>\n                                    \n                                        (Plastic)\n                                    \n                                    <br>\n                            \n                        \n                        ",
+                     "html" : "\n                        \n                            \n                        \n                            \n                        \n                            \n                        \n                            \n                                1 x \n                                <strong>\n                                    Film\n                                    \n                                </strong>\n                                    \n                                        (Plastic)\n                                    \n                                    \n                                    <br>\n                            \n                        \n                        ",
                      "icon_alt" : "Discard",
                      "icon_color_from_evaluation" : true,
                      "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/delete.svg",
@@ -2208,7 +2242,7 @@
                   "element_type" : "text",
                   "text_element" : {
                      "evaluation" : "neutral",
-                     "html" : "\n                        \n                            \n                        \n                            \n                                6 x \n                                <strong>\n                                    Bottle\n                                    25cl \n                                </strong>\n                                    \n                                        (Glass)\n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                            \n                        \n                        ",
+                     "html" : "\n                        \n                            \n                        \n                            \n                                6 x \n                                <strong>\n                                    Bottle\n                                    25cl \n                                </strong>\n                                    \n                                        (Glass)\n                                    \n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                            \n                        \n                        ",
                      "icon_alt" : "Unknown",
                      "icon_color_from_evaluation" : true,
                      "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/help.svg",
@@ -2383,7 +2417,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                    Several studies have found that a high consumption of ultra-processed foods is associated with an increased risk of noncommunicable chronic diseases, such as obesity, hypertension and diabetes.\n                    ",
+                     "html" : "\n                    Several studies have found that a lower consumption of ultra-processed foods is associated with a reduced risk of noncommunicable chronic diseases, such as obesity, hypertension and diabetes.\n                    ",
                      "source_language" : "en",
                      "source_text" : "Ultra-processed foods increase noncommunicable chronic disease risk",
                      "source_url" : "https://pubmed.ncbi.nlm.nih.gov/34798466/",
@@ -2397,7 +2431,7 @@
                "evaluation" : "bad",
                "icon_color_from_evaluation" : true,
                "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/arrow-bottom-right-thick.svg",
-               "subtitle" : "Ultra-processed foods increase noncommunicable chronic disease risk",
+               "subtitle" : "Limiting ultra-processed foods reduces the risk of noncommunicable chronic diseases",
                "title" : "Limit ultra-processed foods"
             },
             "topics" : [
@@ -2496,13 +2530,12 @@
       "main_countries_tags" : [],
       "minerals_tags" : [],
       "misc_tags" : [
-         "en:ecoscore-changed",
-         "en:ecoscore-computed",
-         "en:ecoscore-extended-data-not-computed",
-         "en:ecoscore-grade-changed",
-         "en:ecoscore-missing-data-labels",
-         "en:ecoscore-missing-data-origins",
-         "en:ecoscore-missing-data-warning",
+         "en:environmental-score-changed",
+         "en:environmental-score-computed",
+         "en:environmental-score-grade-changed",
+         "en:environmental-score-missing-data-labels",
+         "en:environmental-score-missing-data-origins",
+         "en:environmental-score-missing-data-warning",
          "en:forest-footprint-a",
          "en:forest-footprint-computed",
          "en:nutriscore-missing-nutrition-data",
@@ -2621,7 +2654,7 @@
       "nutriscore_tags" : [
          "unknown"
       ],
-      "nutriscore_version" : "2021",
+      "nutriscore_version" : "2023",
       "nutrition_data_per" : "100g",
       "nutrition_data_prepared_per" : "100g",
       "nutrition_grade_fr" : "unknown",

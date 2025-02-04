@@ -746,6 +746,12 @@
                {
                   "element_type" : "panel",
                   "panel_element" : {
+                     "panel_id" : "nutriscore_new_computation"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
                      "panel_id" : "nutriscore_description"
                   }
                },
@@ -987,6 +993,33 @@
                "icon_size" : "small",
                "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/info.svg",
                "title" : "Details of the calculation of the Nutri-Score",
+               "type" : "info"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutriscore_new_computation" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<p>The computation of the Nutri-Score is evolving to provide better recommendations based on the latest scientific evidence.</p><p>Main improvements:</p><ul><li>Better score for some fatty fish and oils rich in good fats</li><li>Better score for whole products rich in fiber</li><li>Worse score for products containing a lot of salt or sugar</li><li>Worse score for red meat (compared to poultry)</li></ul>\n                ",
+                     "type" : "info"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n<p>&rarr; <a href=\"http://world.openfoodfacts.localhost/nutriscore-v2\">Discover all the improvements of the new Nutri-Score</a></p>\n"
+                  }
+               }
+            ],
+            "level" : "info",
+            "title_element" : {
+               "icon_size" : "small",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/info.svg",
+               "title" : "Discover the new Nutri-Score!",
                "type" : "info"
             },
             "topics" : [

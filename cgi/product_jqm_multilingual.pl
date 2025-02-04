@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2025 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -43,6 +43,7 @@ use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::HTTP qw/write_cors_headers/;
 use ProductOpener::Tags qw/%language_fields %tags_fields add_tags_to_field compute_field_tags/;
+use ProductOpener::URL qw/format_subdomain/;
 use ProductOpener::Users qw/$Org_id $Owner_id $User_id %User/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/$lc %lang_lc/;
@@ -52,7 +53,7 @@ use ProductOpener::Food qw/assign_nutriments_values_from_request_parameters/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::DataQuality qw/:all/;
-use ProductOpener::Ecoscore qw/:all/;
+use ProductOpener::EnvironmentalScore qw/:all/;
 use ProductOpener::Packaging qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
@@ -266,8 +267,8 @@ else {
 		push @app_fields, "creator";
 	}
 
-	if ($request_ref->{admin} or ($User_id eq "ecoscore-impact-estimator")) {
-		push @app_fields, ("ecoscore_extended_data", "ecoscore_extended_data_version");
+	if ($request_ref->{admin} or ($User_id eq "environmental-score-impact-estimator")) {
+		push @app_fields, ("environmental_score_extended_data", "environmental_score_extended_data_version");
 	}
 
 	# generate a list of potential languages for language specific fields
@@ -385,7 +386,7 @@ else {
 				}
 
 			}
-			elsif ($field eq "ecoscore_extended_data") {
+			elsif ($field eq "environmental_score_extended_data") {
 				# we expect a JSON value
 				if (defined single_param($field)) {
 					$product_ref->{$field} = decode_json(single_param($field));

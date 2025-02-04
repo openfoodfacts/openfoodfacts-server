@@ -51,7 +51,7 @@ use ProductOpener::Config qw(:all);
 use ProductOpener::Store qw(get_string_id_for_lang);
 use ProductOpener::Tags qw(:all);
 use ProductOpener::Food qw(%categories_nutriments_per_country);
-use ProductOpener::Ecoscore qw(is_ecoscore_extended_data_more_precise_than_agribalyse);
+use ProductOpener::EnvironmentalScore qw(is_environmental_score_extended_data_more_precise_than_agribalyse);
 use ProductOpener::Units qw(extract_standard_unit);
 
 use Data::DeepAccess qw(deep_exists);
@@ -1026,6 +1026,7 @@ sub check_nutrition_data ($product_ref) {
 		# catch serving_size = "serving", regardless of setting (per 100g or per serving)
 		if (    (defined $product_ref->{serving_size})
 			and ($product_ref->{serving_size} ne "")
+			and ($product_ref->{serving_size} ne "-")
 			and ($product_ref->{serving_size} !~ /\d/))
 		{
 			push @{$product_ref->{data_quality_errors_tags}}, "en:serving-size-is-missing-digits";
@@ -1037,7 +1038,7 @@ sub check_nutrition_data ($product_ref) {
 			if ((not defined $product_ref->{serving_size}) or ($product_ref->{serving_size} eq '')) {
 				push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-data-per-serving-missing-serving-size";
 			}
-			elsif ($product_ref->{serving_quantity} eq "0") {
+			elsif (defined $product_ref->{serving_quantity} and $product_ref->{serving_quantity} eq "0") {
 				push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-data-per-serving-serving-quantity-is-0";
 			}
 		}
@@ -1280,33 +1281,33 @@ sub check_nutrition_data ($product_ref) {
 		}
 
 		# sum of nutriments that compose sugar can not be greater than sugar value
-		if (
-			(defined $product_ref->{nutriments}{sugars_100g})
-			and (
-				(
-					(
-						(defined $product_ref->{nutriments}{fructose_100g}) ? $product_ref->{nutriments}{fructose_100g}
-						: 0
-					) + (
-						(defined $product_ref->{nutriments}{glucose_100g}) ? $product_ref->{nutriments}{glucose_100g}
-						: 0
-					) + (
-						(defined $product_ref->{nutriments}{maltose_100g}) ? $product_ref->{nutriments}{maltose_100g}
-						: 0
-					) + (
-						(defined $product_ref->{nutriments}{lactose_100g}) ? $product_ref->{nutriments}{lactose_100g}
-						: 0
-					) + (
-						(defined $product_ref->{nutriments}{sucrose_100g}) ? $product_ref->{nutriments}{sucrose_100g}
-						: 0
-					)
-				) > ($product_ref->{nutriments}{sugars_100g}) + 0.001
-			)
-			)
-		{
+		if (defined $product_ref->{nutriments}{sugars_100g}) {
+			my $fructose
+				= defined $product_ref->{nutriments}{fructose_100g} ? $product_ref->{nutriments}{fructose_100g} : 0;
+			my $glucose
+				= defined $product_ref->{nutriments}{glucose_100g} ? $product_ref->{nutriments}{glucose_100g} : 0;
+			my $maltose
+				= defined $product_ref->{nutriments}{maltose_100g} ? $product_ref->{nutriments}{maltose_100g} : 0;
+			# sometimes lactose < 0.01 is written below the nutrition table together whereas
+			# sugar is 0 in the nutrition table (#10715)
+			my $sucrose
+				= defined $product_ref->{nutriments}{sucrose_100g} ? $product_ref->{nutriments}{sucrose_100g} : 0;
 
-			push @{$product_ref->{data_quality_errors_tags}},
-				"en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars";
+			# ignore lactose when having "<" symbol
+			my $lactose = 0;
+			if (defined $product_ref->{nutriments}{lactose_100g}) {
+				my $lactose_modifier = $product_ref->{nutriments}{'lactose_modifier'};
+				if (!defined $lactose_modifier || $lactose_modifier ne '<') {
+					$lactose = $product_ref->{nutriments}{lactose_100g};
+				}
+			}
+
+			my $total_sugar = $fructose + $glucose + $maltose + $lactose + $sucrose;
+
+			if ($total_sugar > $product_ref->{nutriments}{sugars_100g} + 0.001) {
+				push @{$product_ref->{data_quality_errors_tags}},
+					"en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars";
+			}
 		}
 
 		if (    (defined $product_ref->{nutriments}{"saturated-fat_100g"})
@@ -1319,25 +1320,33 @@ sub check_nutrition_data ($product_ref) {
 		}
 
 		# sum of nutriments that compose fiber can not be greater than the value of fiber
-		if (
-			(defined $product_ref->{nutriments}{fiber_100g})
-			and (
-				(
-					(
-						(defined $product_ref->{nutriments}{'soluble-fiber_100g'})
-						? $product_ref->{nutriments}{'soluble-fiber_100g'}
-						: 0
-					) + (
-						(defined $product_ref->{nutriments}{'insoluble-fiber_100g'})
-						? $product_ref->{nutriments}{'insoluble-fiber_100g'}
-						: 0
-					)
-				) > ($product_ref->{nutriments}{fiber_100g}) + 0.001
-			)
-			)
-		{
-			push @{$product_ref->{data_quality_errors_tags}},
-				"en:nutrition-soluble-fiber-plus-insoluble-fiber-greater-than-fiber";
+		# ignore if there is "<" symbol (example: <1 + 5 = 5, issue #11075)
+		if (defined $product_ref->{nutriments}{fiber_100g}) {
+			my $soluble_fiber = 0;
+			my $insoluble_fiber = 0;
+
+			if (defined $product_ref->{nutriments}{'soluble-fiber_100g'}) {
+				my $soluble_modifier = $product_ref->{nutriments}{'soluble-fiber_modifier'};
+				if (!defined $soluble_modifier || $soluble_modifier ne '<') {
+					$soluble_fiber = $product_ref->{nutriments}{'soluble-fiber_100g'};
+				}
+			}
+
+			if (defined $product_ref->{nutriments}{'insoluble-fiber_100g'}) {
+				my $insoluble_modifier = $product_ref->{nutriments}{'insoluble-fiber_modifier'};
+				if (!defined $insoluble_modifier || $insoluble_modifier ne '<') {
+					$insoluble_fiber = $product_ref->{nutriments}{'insoluble-fiber_100g'};
+				}
+			}
+
+			my $total_fiber = $soluble_fiber + $insoluble_fiber;
+
+			# increased threshold from 0.001 to 0.01 (see issue #10491)
+			# make sure that floats stop after 2 decimals
+			if (sprintf("%.2f", $total_fiber) > sprintf("%.2f", $product_ref->{nutriments}{fiber_100g} + 0.01)) {
+				push @{$product_ref->{data_quality_errors_tags}},
+					"en:nutrition-soluble-fiber-plus-insoluble-fiber-greater-than-fiber";
+			}
 		}
 
 		# Too small salt value? (e.g. g entered in mg)
@@ -1372,31 +1381,6 @@ sub check_nutrition_data ($product_ref) {
 		{
 			push @{$product_ref->{data_quality_errors_tags}},
 				"en:nutri-score-grade-from-category-does-not-match-calculated-grade";
-		}
-
-		# some categories have an expected ingredient - push data quality error if ingredient differs from expected ingredient
-		# note: we currently support only 1 expected ingredient
-		my ($expected_ingredients, $category_id2)
-			= get_inherited_property_from_categories_tags($product_ref, "expected_ingredients:en");
-
-		if ((defined $expected_ingredients)) {
-			$expected_ingredients = canonicalize_taxonomy_tag("en", "ingredients", $expected_ingredients);
-			my $number_of_ingredients = (defined $product_ref->{ingredients}) ? @{$product_ref->{ingredients}} : 0;
-
-			if ($number_of_ingredients == 0) {
-				push @{$product_ref->{data_quality_warnings_tags}},
-					"en:ingredients-single-ingredient-from-category-missing";
-			}
-			elsif (
-				# more than 1 ingredient
-				($number_of_ingredients > 1)
-				# ingredient different than expected ingredient
-				or not(is_a("ingredients", $product_ref->{ingredients}[0]{id}, $expected_ingredients))
-				)
-			{
-				push @{$product_ref->{data_quality_errors_tags}},
-					"en:ingredients-single-ingredient-from-category-does-not-match-actual-ingredients";
-			}
 		}
 	}
 	$log->debug("has_prepared_data: " . $has_prepared_data) if $log->debug();
@@ -1747,8 +1731,10 @@ sub check_quantity ($product_ref) {
 			push @{$product_ref->{data_quality_warnings_tags}}, "en:product-quantity-under-1g";
 		}
 
-		if ($product_ref->{quantity} =~ /\d\s?mg\b/i) {
-			push @{$product_ref->{data_quality_warnings_tags}}, "en:product-quantity-in-mg";
+		if (defined $product_ref->{quantity} && $product_ref->{quantity} ne '') {
+			if ($product_ref->{quantity} =~ /\d\s?mg\b/i) {
+				push @{$product_ref->{data_quality_warnings_tags}}, "en:product-quantity-in-mg";
+			}
 		}
 	}
 
@@ -1824,6 +1810,47 @@ sub check_categories ($product_ref) {
 	# Plant milks should probably not be dairies https://github.com/openfoodfacts/openfoodfacts-server/issues/73
 	if (has_tag($product_ref, "categories", "en:plant-milks") and has_tag($product_ref, "categories", "en:dairies")) {
 		push @{$product_ref->{data_quality_warnings_tags}}, "en:incompatible-categories-plant-milk-and-dairy";
+	}
+
+	# some categories have an expected ingredient - push data quality error if ingredient differs from expected ingredient
+	# note: we currently support only 1 expected ingredient
+	my ($expected_ingredients, $category_id2)
+		= get_inherited_property_from_categories_tags($product_ref, "expected_ingredients:en");
+
+	if ((defined $expected_ingredients)) {
+		$expected_ingredients = canonicalize_taxonomy_tag("en", "ingredients", $expected_ingredients);
+		my $number_of_ingredients = (defined $product_ref->{ingredients}) ? @{$product_ref->{ingredients}} : 0;
+
+		if ($number_of_ingredients == 0) {
+			push @{$product_ref->{data_quality_warnings_tags}},
+				"en:ingredients-single-ingredient-from-category-missing";
+		}
+		elsif (
+			# more than 1 ingredient
+			($number_of_ingredients > 1)
+			# ingredient different than expected ingredient
+			or not(is_a("ingredients", $product_ref->{ingredients}[0]{id}, $expected_ingredients))
+			)
+		{
+			push @{$product_ref->{data_quality_errors_tags}},
+				"en:ingredients-single-ingredient-from-category-does-not-match-actual-ingredients";
+		}
+	}
+
+	# some categories have an expected minimum number of ingredients
+	# push data quality error if ingredients count is lower than the expected number of ingredients
+	my ($minimum_number_of_ingredients, $category_id3)
+		= get_inherited_property_from_categories_tags($product_ref, "minimum_number_of_ingredients:en");
+
+	if ((defined $minimum_number_of_ingredients)) {
+		my $number_of_ingredients = (defined $product_ref->{ingredients}) ? @{$product_ref->{ingredients}} : 0;
+
+		# category might be provided but not ingredients
+		# consider only when some ingredients are provided
+		if ($number_of_ingredients > 0 && $number_of_ingredients < $minimum_number_of_ingredients) {
+			push @{$product_ref->{data_quality_errors_tags}},
+				"en:ingredients-count-lower-than-expected-for-the-category";
+		}
 	}
 
 	return;
@@ -2584,51 +2611,58 @@ Check if all or almost all the ingredients have a specified percentage in the in
 
 sub check_ingredients_with_specified_percent ($product_ref) {
 
-	if (defined $product_ref->{ingredients_with_specified_percent_n}) {
+	if (    defined $product_ref->{ingredients_with_specified_percent_n}
+		and $product_ref->{ingredients_with_specified_percent_n} > 0
+		and defined $product_ref->{ingredients_with_unspecified_percent_n}
+		and $product_ref->{ingredients_with_unspecified_percent_n} == 0)
+	{
+		push @{$product_ref->{data_quality_info_tags}}, 'en:all-ingredients-with-specified-percent';
+	}
+	elsif (defined $product_ref->{ingredients_with_unspecified_percent_n}
+		and $product_ref->{ingredients_with_unspecified_percent_n} == 1)
+	{
+		push @{$product_ref->{data_quality_info_tags}}, 'en:all-but-one-ingredient-with-specified-percent';
+	}
 
-		if (    ($product_ref->{ingredients_with_specified_percent_n} > 0)
-			and ($product_ref->{ingredients_with_unspecified_percent_n} == 0))
-		{
-			push @{$product_ref->{data_quality_info_tags}}, 'en:all-ingredients-with-specified-percent';
-		}
-		elsif ($product_ref->{ingredients_with_unspecified_percent_n} == 1) {
-			push @{$product_ref->{data_quality_info_tags}}, 'en:all-but-one-ingredient-with-specified-percent';
-		}
+	if (    defined $product_ref->{ingredients_with_specified_percent_n}
+		and $product_ref->{ingredients_with_specified_percent_n} > 0
+		and defined $product_ref->{ingredients_with_specified_percent_sum}
+		and $product_ref->{ingredients_with_specified_percent_sum} >= 90
+		and defined $product_ref->{ingredients_with_unspecified_percent_sum}
+		and $product_ref->{ingredients_with_unspecified_percent_sum} < 10)
+	{
+		push @{$product_ref->{data_quality_info_tags}}, 'en:sum-of-ingredients-with-unspecified-percent-lesser-than-10';
+	}
 
-		if (    ($product_ref->{ingredients_with_specified_percent_n} > 0)
-			and ($product_ref->{ingredients_with_specified_percent_sum} >= 90)
-			and ($product_ref->{ingredients_with_unspecified_percent_sum} < 10))
-		{
-			push @{$product_ref->{data_quality_info_tags}},
-				'en:sum-of-ingredients-with-unspecified-percent-lesser-than-10';
-		}
+	# Flag products where the sum of % is higher than 100
+	if (    defined $product_ref->{ingredients_with_specified_percent_n}
+		and $product_ref->{ingredients_with_specified_percent_n} > 0
+		and defined $product_ref->{ingredients_with_specified_percent_sum}
+		and $product_ref->{ingredients_with_specified_percent_sum} > 100)
+	{
+		push @{$product_ref->{data_quality_info_tags}}, 'en:sum-of-ingredients-with-specified-percent-greater-than-100';
+	}
 
-		# Flag products where the sum of % is higher than 100
-		if (    ($product_ref->{ingredients_with_specified_percent_n} > 0)
-			and ($product_ref->{ingredients_with_specified_percent_sum} > 100))
-		{
-			push @{$product_ref->{data_quality_info_tags}},
-				'en:sum-of-ingredients-with-specified-percent-greater-than-100';
-		}
+	if (    defined $product_ref->{ingredients_with_specified_percent_n}
+		and $product_ref->{ingredients_with_specified_percent_n} > 0
+		and defined $product_ref->{ingredients_with_specified_percent_sum}
+		and $product_ref->{ingredients_with_specified_percent_sum} > 200)
+	{
+		push @{$product_ref->{data_quality_warnings_tags}},
+			'en:sum-of-ingredients-with-specified-percent-greater-than-200';
+	}
 
-		if (    ($product_ref->{ingredients_with_specified_percent_n} > 0)
-			and ($product_ref->{ingredients_with_specified_percent_sum} > 200))
-		{
-			push @{$product_ref->{data_quality_warnings_tags}},
-				'en:sum-of-ingredients-with-specified-percent-greater-than-200';
-		}
-
-		# Percentage for ingredient is higher than 100% in extracted ingredients from the picture
-		if ($product_ref->{ingredients_with_specified_percent_n} > 0) {
-			foreach my $ingredient_id (@{$product_ref->{ingredients}}) {
-				if (    (defined $ingredient_id->{percent})
-					and ($ingredient_id->{percent} > 100))
-				{
-					push @{$product_ref->{data_quality_warnings_tags}},
-						'en:ingredients-extracted-ingredient-from-picture-with-more-than-100-percent';
-					last;
-				}
-
+	# Percentage for ingredient is higher than 100% in extracted ingredients from the picture
+	if (defined $product_ref->{ingredients_with_specified_percent_n}
+		and $product_ref->{ingredients_with_specified_percent_n} > 0)
+	{
+		foreach my $ingredient_id (@{$product_ref->{ingredients}}) {
+			if (    (defined $ingredient_id->{percent})
+				and ($ingredient_id->{percent} > 100))
+			{
+				push @{$product_ref->{data_quality_warnings_tags}},
+					'en:ingredients-extracted-ingredient-from-picture-with-more-than-100-percent';
+				last;
 			}
 		}
 	}
@@ -2636,40 +2670,43 @@ sub check_ingredients_with_specified_percent ($product_ref) {
 	return;
 }
 
-=head2 check_ecoscore_data( PRODUCT_REF )
+=head2 check_environmental_score_data( PRODUCT_REF )
 
 Checks for data needed to compute the Eco-score.
 
 =cut
 
-sub check_ecoscore_data ($product_ref) {
+sub check_environmental_score_data ($product_ref) {
 
-	if (defined $product_ref->{ecoscore_data}) {
+	if (defined $product_ref->{environmental_score_data}) {
 
-		foreach my $adjustment (sort keys %{$product_ref->{ecoscore_data}{adjustments}}) {
+		foreach my $adjustment (sort keys %{$product_ref->{environmental_score_data}{adjustments}}) {
 
-			if (defined $product_ref->{ecoscore_data}{adjustments}{$adjustment}{warning}) {
-				my $warning = $adjustment . '-' . $product_ref->{ecoscore_data}{adjustments}{$adjustment}{warning};
+			if (defined $product_ref->{environmental_score_data}{adjustments}{$adjustment}{warning}) {
+				my $warning
+					= $adjustment . '-' . $product_ref->{environmental_score_data}{adjustments}{$adjustment}{warning};
 				$warning =~ s/_/-/g;
-				push @{$product_ref->{data_quality_warnings_tags}}, 'en:ecoscore-' . $warning;
+				push @{$product_ref->{data_quality_warnings_tags}}, 'en:environmental-score-' . $warning;
 			}
 		}
 	}
 
-	# Extended Eco-Score data from impact estimator
-	if (defined $product_ref->{ecoscore_extended_data}) {
+	# Extended Environmental-Score data from impact estimator
+	if (defined $product_ref->{environmental_score_extended_data}) {
 
-		push @{$product_ref->{data_quality_info_tags}}, 'en:ecoscore-extended-data-computed';
+		push @{$product_ref->{data_quality_info_tags}}, 'en:environmental-score-extended-data-computed';
 
-		if (is_ecoscore_extended_data_more_precise_than_agribalyse($product_ref)) {
-			push @{$product_ref->{data_quality_info_tags}}, 'en:ecoscore-extended-data-more-precise-than-agribalyse';
+		if (is_environmental_score_extended_data_more_precise_than_agribalyse($product_ref)) {
+			push @{$product_ref->{data_quality_info_tags}},
+				'en:environmental-score-extended-data-more-precise-than-agribalyse';
 		}
 		else {
-			push @{$product_ref->{data_quality_info_tags}}, 'en:ecoscore-extended-data-less-precise-than-agribalyse';
+			push @{$product_ref->{data_quality_info_tags}},
+				'en:environmental-score-extended-data-less-precise-than-agribalyse';
 		}
 	}
 	else {
-		push @{$product_ref->{data_quality_info_tags}}, 'en:ecoscore-extended-data-not-computed';
+		push @{$product_ref->{data_quality_info_tags}}, 'en:environmental-score-extended-data-not-computed';
 	}
 
 	return;
@@ -2787,7 +2824,7 @@ sub check_quality_food ($product_ref) {
 	check_categories($product_ref);
 	check_labels($product_ref);
 	compare_nutriscore_with_value_from_producer($product_ref);
-	check_ecoscore_data($product_ref);
+	check_environmental_score_data($product_ref);
 	check_food_groups($product_ref);
 	check_incompatible_tags($product_ref);
 

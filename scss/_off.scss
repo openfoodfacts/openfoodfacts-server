@@ -320,6 +320,7 @@ ul.products {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
+  line-clamp: 3;
   height: 50px;
   overflow: hidden;
 }
@@ -1239,14 +1240,13 @@ $border-pink: #ff6e78;
 
 .off-days-banner {
   background-color: $section-cyan;
-  // background-image: url('/images/misc/banners/FR.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   height: 300px;
   @media #{$small-only} {
     background-size: contain;
-    height: 25vw; ;
+    height: 25vw;
   }
   &__FR {
     background-image: url('/images/misc/banners/FR.png');
@@ -1318,7 +1318,6 @@ $border-pink: #ff6e78;
   &__aside{
     display: flex;
     flex-direction: column;
-    //align-items: center;
   }
   &__main-title{
     color: $border-pink;

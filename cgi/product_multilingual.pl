@@ -45,7 +45,7 @@ use ProductOpener::KnowledgePanels qw/initialize_knowledge_panels_options/;
 use ProductOpener::KnowledgePanelsContribution qw/create_contribution_card_panel/;
 use ProductOpener::URL qw/:all/;
 use ProductOpener::DataQuality qw/:all/;
-use ProductOpener::Ecoscore qw/:all/;
+use ProductOpener::EnvironmentalScore qw/:all/;
 use ProductOpener::Packaging
 	qw/apply_rules_to_augment_packaging_component_data get_checked_and_taxonomized_packaging_component_data/;
 use ProductOpener::ForestFootprint qw/:all/;
@@ -251,7 +251,7 @@ if ($type eq 'search_or_add') {
 			$product_id = product_id_for_owner($Owner_id, $code);
 			$log->debug("we have a code", {code => $code, product_id => $product_id}) if $log->is_debug();
 
-			$product_ref = product_exists($product_id);    # returns 0 if not
+			$product_ref = retrieve_product($product_id);
 
 			if ($product_ref) {
 				$log->info("product exists, redirecting to page", {code => $code}) if $log->is_info();

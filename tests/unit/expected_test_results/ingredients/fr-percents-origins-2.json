@@ -4,12 +4,22 @@
          "id" : "en:emulsifier",
          "ingredients" : [
             {
-               "id" : "en:sunflower-lecithin",
+               "id" : "en:e322",
+               "ingredients" : [
+                  {
+                     "id" : "en:sunflower-lecithin",
+                     "is_in_taxonomy" : 1,
+                     "percent_estimate" : 50,
+                     "text" : "lécithines de tournesol",
+                     "vegan" : "yes",
+                     "vegetarian" : "yes"
+                  }
+               ],
                "is_in_taxonomy" : 1,
                "percent_estimate" : 50,
-               "text" : "lécithines de tournesol",
-               "vegan" : "yes",
-               "vegetarian" : "yes"
+               "text" : "lécithines",
+               "vegan" : "maybe",
+               "vegetarian" : "maybe"
             }
          ],
          "is_in_taxonomy" : 1,
@@ -89,14 +99,14 @@
       "en:oil-and-fat",
       "en:fat",
       "en:milkfat",
-      "en:sunflower-lecithin",
       "en:e322",
+      "en:sunflower-lecithin",
       "en:e322i"
    ],
    "ingredients_lc" : "fr",
-   "ingredients_n" : 6,
+   "ingredients_n" : 7,
    "ingredients_n_tags" : [
-      "6",
+      "7",
       "1-10"
    ],
    "ingredients_original_tags" : [
@@ -105,6 +115,7 @@
       "en:wheat-flour",
       "en:sugar",
       "en:butterfat",
+      "en:e322",
       "en:sunflower-lecithin"
    ],
    "ingredients_percent_analysis" : -1,
@@ -124,8 +135,8 @@
       "en:oil-and-fat",
       "en:fat",
       "en:milkfat",
-      "en:sunflower-lecithin",
       "en:e322",
+      "en:sunflower-lecithin",
       "en:e322i"
    ],
    "ingredients_text" : "émulsifiant : lécithines (tournesol), arôme)(UE), farine de blé 33% (France), sucre, beurre concentré* 6,5% (France)",
@@ -134,18 +145,20 @@
    "ingredients_with_unspecified_percent_n" : 3,
    "ingredients_with_unspecified_percent_sum" : 75,
    "ingredients_without_ciqual_codes" : [
+      "en:e322",
       "en:emulsifier",
       "en:flavouring",
       "en:sunflower-lecithin"
    ],
-   "ingredients_without_ciqual_codes_n" : 3,
+   "ingredients_without_ciqual_codes_n" : 4,
    "ingredients_without_ecobalyse_ids" : [
       "en:butterfat",
+      "en:e322",
       "en:emulsifier",
       "en:flavouring",
       "en:sunflower-lecithin"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 4,
+   "ingredients_without_ecobalyse_ids_n" : 5,
    "known_ingredients_n" : 18,
    "lc" : "fr",
    "misc_tags" : [

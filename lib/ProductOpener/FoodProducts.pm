@@ -56,7 +56,7 @@ use ProductOpener::Food
 	qw/fix_salt_equivalent compute_nutrition_data_per_100g_and_per_serving assign_categories_properties_to_product compute_estimated_nutrients compute_unknown_nutrients compute_nova_group compute_nutriscore compute_nutrient_levels/;
 use ProductOpener::FoodGroups qw/compute_food_groups/;
 use ProductOpener::Nutriscore qw/:all/;
-use ProductOpener::Ecoscore qw/compute_ecoscore/;
+use ProductOpener::EnvironmentalScore qw/compute_environmental_score/;
 use ProductOpener::ForestFootprint qw/compute_forest_footprint/;
 
 use Log::Any qw($log);
@@ -109,7 +109,7 @@ sub specific_processes_for_food_product ($product_ref) {
 
 	# Environmental analysis
 
-	compute_ecoscore($product_ref);
+	compute_environmental_score($product_ref);
 	compute_forest_footprint($product_ref);
 
 	return;
