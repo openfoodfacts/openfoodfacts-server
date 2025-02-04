@@ -6674,6 +6674,14 @@ ciqual_food_code:en: 18039
 ciqual_food_name:en: Lemonade with a flavoured syrup
 ciqual_food_name:fr: Diabolo (limonade et sirop)
 
+< en: Lemonade with flavoured syrup
+en: Mint-flavoured syrup with sugar diluted in water, Strawberry-flavoured syrup with sugar diluted in water
+fr: Boisson préparée sucrée à partir de sirop à la menthe à diluer dans l'eau, Boisson préparée sucrée à partir de sirop aux fraises à diluer dans l'eau
+agribalyse_food_code:en: 18058
+ciqual_food_code:en: 18058
+ciqual_food_name:en: Syrup (mint, strawberries flavouredetc.), with sugar diluted in water
+ciqual_food_name:fr: Boisson préparée à partir de sirop à diluer type menthe, fraise, etc, sucré, dilué dans l'eau
+
 < en: Lemonades
 en: Chinotto
 fr: Chinotto
@@ -11980,14 +11988,16 @@ nl: Suikervrije gearomatiseerde siropen
 pl: Syropy smakowe bez cukru
 
 < en:Flavoured syrups
-en: Syrups with fruits, Syrup with fruits
-de: Fruchtsirups
-es: Jarabes con frutas, Jarabe con frutas
-fr: Sirops aux fruits, sirop aux fruits
-hr: Sirupi s voćem
-it: Sciroppi con frutta, Sciroppo con frutta
+en: Syrups with fruits, Syrup with fruits, Fruit syrups, Fruit syrup
+de: Fruchtsirups, Frucht-Sirup
+es: Jarabes con frutas, Jarabe con frutas, Sirope de frutas
+fi: hedelmäsiirapit
+fr: Sirops aux fruits, sirop aux fruits, Sirops de fruits, sirop de fruits
+he: סירופים מפירות
+hr: Sirupi s voćem, Voćni sirupi
+it: Sciroppi con frutta, Sciroppo con frutta, Sciroppi alla frutta
 lt: Vaisiniai sirupai
-nl: Vruchtensiropen, Vruchtensiroop, Vruchtesiroop
+nl: Vruchtensiropen, Vruchtensiroop, Vruchtesiroop, Fruitsiropen
 pl: Syropy owocowe, Syropy z owocami
 pt: Xaropes com frutas, Xarope com frutas
 comment:en: Fruitsyrups also exists. Need to differntiate better.
@@ -38687,7 +38697,7 @@ hu: Feketecsokoládé
 it: Cioccolato fondente
 ja: ダークチョコレート
 lt: Juodi šokoladai, juodas šokoladas
-nl: Pure chocolades
+nl: Pure chocolades, Pure chocolade
 pl: Czekolada deserowa, czekolada ciemna
 pt: Chocolates amargos
 ru: Тёмный шоколад
@@ -47090,14 +47100,14 @@ hr: Bifidus jogurti
 it: Yogurt allo Bifidus
 lt: Bifido jogurtai
 nl: Bifidusyoghurts, Bifidus yoghurts
-#wikidata:en:
+comment:en: bifidus yogurts cannot be called "yogurts" according to the legislation of some countries, notably France and Spain
+opposite:en: en:yoghurts
 
 < en:Bifidus yogurts
-< en:Plain fermented dairy desserts
 en: Plain bifidus yogurts
 fr: Yaourts au bifidus nature, Lait fermenté de type yaourt nature au bifidus, spécialité laitière de type yaourt nature au bifidus
 hr: Obični bifidus jogurti
-nl: Bifidusyoghurts natuur
+nl: Bifidusyoghurts(natuur)
 
 < en:Bifidus yogurts
 < en:Fermented dairy desserts with fruits
@@ -53335,6 +53345,7 @@ lt: Karvės pieno jogurtai, Jogurtai iš karvės pieno
 nl: Koemelkyoghurts, Koemelkyoghurt
 pt: Iogurtes de leite de vaca
 ro: Iaurturi din lapte de vacă
+opposite:en: en:goat-milk-yogurts, en:sheep-milk-yoghurts
 
 < en:Yogurts
 en: Sheep milk yogurts, Sheep's milk yogurts, Yoghurt from sheep's milk, sheep's milk yogurt
@@ -53351,6 +53362,20 @@ nl: Schapenyoghurts
 pt: Iogurtes de leite de ovelha
 ro: Iaurturi din lapte de oaie
 ru: Йогурт из овечьего молока, Йогурты из овечьего молока
+opposite:en: en:goat-milk-yogurts, en:cow-milk-yoghurts
+
+< en:Plain yogurts
+< en:Sheep milk yogurts
+en: Plain sheep milk yogurts
+fr: Yaourts au lait de brebis nature
+nl: Schapenmelkyoghurts (natuur)
+
+< en:Cow milk yogurts
+< en:Plain yogurts
+en: Plain cow milk yogurts
+fr: Yaourts au lait de vache nature
+nl: Koeienmelkyoghurts (natuur)
+
 
 < en:Yogurts
 en: Goat milk yogurts, Goat yogurts, goat's milk yogurts
@@ -53365,6 +53390,7 @@ lt: Ožkos pieno jogurtai, Jogurtai iš ožkos pieno
 nl: Geitenmelkyoghurts
 pt: Iogurtes de leite de cabra
 ro: Iaurturi din lapte de capră
+opposite:en: en:sheep-milk-yogurts, en:cow-milk-yoghurts
 wikidata:en: Q36175261
 
 < en:Goat milk yogurts
@@ -77278,7 +77304,7 @@ hr: Umaci na bazi mesa
 hu: Hús alapú szószok
 it: Salse a base di carne
 lt: Padažai su mėsa
-nl: Vleessauzen
+nl: Vleessauzen, Jussauzen
 pl: Sosy mięsne
 pt: Molhos à base de carne
 zh: 肉类酱汁
@@ -92034,6 +92060,10 @@ ciqual_food_code:en: 20125
 ciqual_food_name:en: Button mushroom or cultivated mushroom, sautéed/pan-fried, without fat
 ciqual_food_name:fr: Champignon de Paris ou champignon de couche, sauté/poêlé, sans matière grasse
 
+< en:Champignon mushrooms
+en: Chestnut mushrooms
+nl: Kastanjechampignons, Kastagne champignons
+
 < en:Mushrooms
 en: Morel, Morchella, Morels
 de: Morcheln, Morchella
@@ -104276,14 +104306,6 @@ ciqual_food_code:en: 18017
 ciqual_food_name:en: Syrup, with sugar (to be diluted)
 ciqual_food_name:fr: Sirop à diluer, sucré
 
-< en:Syrups
-en: Mint-flavoured syrup with sugar diluted in water, Strawberry-flavoured syrup with sugar diluted in water
-fr: Boisson préparée sucrée à partir de sirop à la menthe à diluer dans l'eau, Boisson préparée sucrée à partir de sirop aux fraises à diluer dans l'eau
-agribalyse_food_code:en: 18058
-ciqual_food_code:en: 18058
-ciqual_food_name:en: Syrup (mint, strawberries flavouredetc.), with sugar diluted in water
-ciqual_food_name:fr: Boisson préparée à partir de sirop à diluer type menthe, fraise, etc, sucré, dilué dans l'eau
-
 < en:Sweeteners
 < en:Syrups
 en: Simple syrups
@@ -104399,19 +104421,8 @@ fr: Sirops d'épeautre, sirop d'épeautre
 hr: Sirupi od pira
 nl: Speltstropen
 
-< en:Simple syrups
-en: Fruit syrups, Fruit molasses, Fruit syrup
-de: Frucht-Sirup
-es: Sirope de frutas
-fi: hedelmäsiirapit
-fr: Sirops de fruits, sirop de fruits
-he: סירופים מפירות
-hr: Voćni sirupi
-it: Sciroppi alla frutta
-nl: Fruitsiropen
-wikidata:en: Q5506416
 
-< en:Fruit syrups
+< en:Simple syrups
 en: Date syrups
 fr: Sirops de datte, mélasses de datte
 he: סירופ תמרים
