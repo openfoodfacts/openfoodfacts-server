@@ -424,13 +424,6 @@ my @tests = (
 			},
 			{
 				'id' => 'en:cream',
-				'ingredients' => [
-					{
-						'id' => 'en:milk',
-						'is_in_taxonomy' => 1,
-						'text' => 'dont lait'
-					}
-				],
 				'is_in_taxonomy' => 1,
 				'text' => "cr\x{e8}me"
 			},
