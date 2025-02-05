@@ -45,6 +45,7 @@ use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Data qw/get_products_collection/;
 use ProductOpener::GeoIP;
+use ProductOpener::Redis qw/push_to_redis_stream/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -123,7 +124,8 @@ while (<STDIN>) {
 	chomp($ip);
 
 	# Get the product code e.g. "GET /api/v0/product/4548022405787.json?fields=image_front_small_url,product_name HTTP/2.0"
-	if ($line =~ / \/api\/v(?:[^\/]+)\/product\/(\d+)/) {
+	# or from nginx log: GET /cgi/display.pl?api/v3/product/0780526512569
+	if ($line =~ / \/(?:cgi\/display\.pl\?)?api\/v(?:[^\/]+)\/product\/(\d+)/) {
 
 		my $code = $1;
 
