@@ -1,0 +1,114 @@
+{
+   "ingredients" : [
+      {
+         "id" : "en:emulsifier",
+         "ingredients" : [
+            {
+               "from_palm_oil" : "maybe",
+               "id" : "en:e471",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 75,
+               "percent_max" : 100,
+               "percent_min" : 50,
+               "text" : "e471",
+               "vegan" : "maybe",
+               "vegetarian" : "maybe"
+            }
+         ],
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 75,
+         "percent_max" : 100,
+         "percent_min" : 50,
+         "text" : "émulsifiant"
+      },
+      {
+         "id" : "en:emulsifier",
+         "ingredients" : [
+            {
+               "ciqual_food_code" : "42200",
+               "id" : "en:soya-lecithin",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 25,
+               "percent_max" : 50,
+               "percent_min" : 0,
+               "text" : "lécithine de soja",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            }
+         ],
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 25,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "text" : "émulsifiant"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:may-contain-palm-oil" : [
+         "en:e471"
+      ],
+      "en:maybe-vegan" : [
+         "en:e471"
+      ],
+      "en:maybe-vegetarian" : [
+         "en:e471"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:may-contain-palm-oil",
+      "en:maybe-vegan",
+      "en:maybe-vegetarian"
+   ],
+   "ingredients_hierarchy" : [
+      "en:emulsifier",
+      "en:e471",
+      "en:soya-lecithin",
+      "en:e322",
+      "en:e322i"
+   ],
+   "ingredients_lc" : "fr",
+   "ingredients_n" : 4,
+   "ingredients_n_tags" : [
+      "4",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:emulsifier",
+      "en:emulsifier",
+      "en:e471",
+      "en:soya-lecithin"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:emulsifier",
+      "en:e471",
+      "en:soya-lecithin",
+      "en:e322",
+      "en:e322i"
+   ],
+   "ingredients_text" : "émulsifiant e471, émulsifiant lécithine de soja",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 2,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:e471",
+      "en:emulsifier"
+   ],
+   "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:e471",
+      "en:emulsifier",
+      "en:soya-lecithin"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 3,
+   "known_ingredients_n" : 5,
+   "lc" : "fr",
+   "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
+   },
+   "unknown_ingredients_n" : 0
+}
