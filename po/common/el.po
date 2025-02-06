@@ -4409,7 +4409,7 @@ msgstr "Λείπει ο γραμμωτός κώδικας"
 
 msgctxt "invalid_barcode"
 msgid "Invalid barcode"
-msgstr ""
+msgstr "Μη έγκυρος γραμμικός κώδικας"
 
 # Either 'ltr' for left to right languages like English or 'rtl' for right to left languages like Arabic
 msgctxt "text_direction"
@@ -5121,7 +5121,7 @@ msgstr "Αριθμός"
 
 msgctxt "packaging_shape"
 msgid "Shape"
-msgstr ""
+msgstr "Σχήμα"
 
 msgctxt "packaging_quantity"
 msgid "Quantity contained"
@@ -5129,7 +5129,7 @@ msgstr "Ποσότητα που περιέχεται"
 
 msgctxt "packaging_material"
 msgid "Material"
-msgstr ""
+msgstr "Υλικό"
 
 msgctxt "packaging_recycling"
 msgid "Recycling"
@@ -6646,7 +6646,7 @@ msgstr "Η τιμή μετατράπηκε"
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units"
 msgid "Number of units"
-msgstr ""
+msgstr "Αριθμός μονάδων"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight"
@@ -6678,19 +6678,19 @@ msgstr "Μη έγκυρη τιμή: πρέπει να είναι 0 ή 1"
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units_description"
 msgid "Enter the number of packaging units of the same shape and material contained in the product."
-msgstr ""
+msgstr "Εισαγάγετε τον αριθμό των μονάδων συσκευασίας του ίδιου σχήματος και υλικού που περιέχονται στο προϊόν."
 
 msgctxt "packaging_shape_description"
 msgid "Enter the shape name listed in the recycling instructions if they are available, or select a shape."
-msgstr ""
+msgstr "Εισάγετε το όνομα σχήματος που αναγράφεται στις οδηγίες ανακύκλωσης, εάν είναι διαθέσιμες, ή επιλέξτε ένα σχήμα."
 
 msgctxt "packaging_material_description"
 msgid "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure."
-msgstr ""
+msgstr "Εισαγάγετε το συγκεκριμένο υλικό εάν μπορεί να προσδιοριστεί (ένας κωδικός υλικού μέσα σε ένα τρίγωνο μπορεί συχνά να βρεθεί στα μέρη της συσκευασίας) ή ένα γενικό υλικό (για παράδειγμα πλαστικό ή μέταλλο) εάν δεν είστε σίγουροι."
 
 msgctxt "packaging_recycling_description"
 msgid "Enter recycling instructions only if they are listed on the product."
-msgstr ""
+msgstr "Εισαγάγετε οδηγίες ανακύκλωσης μόνο εάν αναγράφονται στο προϊόν."
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight_description"
@@ -6700,7 +6700,7 @@ msgstr "Αφαιρέστε τυχόν εναπομείναντα τρόφιμα 
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit_description"
 msgid "Enter the net weight or net volume and indicate the unit (for example g or ml)."
-msgstr ""
+msgstr "Εισαγάγετε το καθαρό βάρος ή τον καθαρό όγκο και υποδείξτε τη μονάδα (για παράδειγμα g ή ml)."
 
 msgctxt "import_and_export_products"
 msgid "Import and export products"
