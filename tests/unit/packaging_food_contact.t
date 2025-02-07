@@ -32,6 +32,13 @@ my @tests = (
 		}
 	],
 	[
+		'only-one-packaging',
+		{
+			lc => "en",
+			packaging_text => "plastic wrap",
+		}
+	],
+	[
 		'hazelnut-paste-glass-jar',
 		{
 			lc => "en",
@@ -78,6 +85,7 @@ my @tests = (
 		{
 			lc => "en",
 			packaging_text => "cardboard sleeve, aluminium foil, paper label",
+			categories_tags => ["en:chocolates"],
 		}
 	],
 	[
@@ -85,6 +93,16 @@ my @tests = (
 		{
 			lc => "fr",
 			packaging_text => "étui en carton, feuille d'aluminium, étiquette papier",
+			categories_tags => ["en:chocolates"],
+		}
+	],
+	[
+		# plastic film wrap could be used to wrap multiple chocolate bars
+		'chocolate-bar-2',
+		{
+			lc => "en",
+			packaging_text => "3 cardboard sleeve, 3 aluminium foil, 1 plastic wrap",
+			categories_tags => ["en:chocolates"],
 		}
 	]
 
@@ -105,7 +123,7 @@ foreach my $test_ref (@tests) {
 	my $response_ref = get_initialized_response();
 
 	analyze_and_combine_packaging_data($product_ref, $response_ref);
-	determine_food_contact_of_packaging_components($product_ref->{packagings});
+	determine_food_contact_of_packaging_components($product_ref->{packagings}, $product_ref);
 
 	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json", $update_expected_results);
 }

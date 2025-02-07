@@ -108,7 +108,7 @@ sub determine_food_contact_of_packaging_components_service (
 	# indicate that the service is updating the "packagings" structure
 	$updated_product_fields_ref->{packagings} = 1;
 
-	determine_food_contact_of_packaging_components($packagings_ref);
+	determine_food_contact_of_packaging_components($packagings_ref, $product_ref);
 
 	return;
 }
@@ -193,7 +193,7 @@ sub set_food_contact_property_of_packaging_components ($packagings_ref, $food_co
 	return;
 }
 
-=head2 determine_food_contact_of_packaging_components ($packagings_ref)
+=head2 determine_food_contact_of_packaging_components ($packagings_ref, $product_ref = {})
 
 Determine if packaging components are in contact with the food.
 
@@ -201,9 +201,13 @@ Determine if packaging components are in contact with the food.
 
 =head4 $packagings_ref packaging data
 
+=head4 $product_ref product data (optional)
+
+Used to apply specific rules (e.g. for products in specific categories)
+
 =cut
 
-sub determine_food_contact_of_packaging_components ($packagings_ref) {
+sub determine_food_contact_of_packaging_components ($packagings_ref, $product_ref = {}) {
 
 	# Cans: only the can itself is in contact with the food
 	my ($cans_ref, $non_cans_ref)
@@ -261,6 +265,36 @@ sub determine_food_contact_of_packaging_components ($packagings_ref) {
 	if (@$individuals_ref) {
 		set_food_contact_property_of_packaging_components($individuals_ref, 1);
 		set_food_contact_property_of_packaging_components($non_individuals_ref, 0);
+		return;
+	}
+
+	# Specific rules for chocolate bars
+	if (has_tag($product_ref, "categories", "en:chocolates")) {
+
+		# We could have a plastic wrap in contact with the chocolate, or as an outside packaging if there are several paper bars..
+
+		# If there is a metallic film, sheet, wrap etc., it is in contact with the food
+		my ($metals_ref, $non_metals_ref)
+			= get_matching_and_non_matching_packaging_components($packagings_ref,
+			{material => "en:metal", shape => ["en:film", "en:sheet"]});
+		if (@$metals_ref) {
+			set_food_contact_property_of_packaging_components($metals_ref, 1);
+			return;
+		}
+
+		# Otherwise, if there is a plastic film, sheet, wrap etc. , it is in contact with the food
+		my ($plastics_ref, $non_plastics_ref)
+			= get_matching_and_non_matching_packaging_components($packagings_ref,
+			{material => "en:plastic", shape => ["en:film", "en:sheet"]});
+		if (@$plastics_ref) {
+			set_food_contact_property_of_packaging_components($plastics_ref, 1);
+			return;
+		}
+	}
+
+	# If there is only one packaging component, it is in contact with the food
+	if (@$packagings_ref == 1) {
+		set_food_contact_property_of_packaging_components($packagings_ref, 1);
 		return;
 	}
 
