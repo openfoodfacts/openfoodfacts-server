@@ -32,10 +32,6 @@ if (not defined $flavor) {
 	die("The PRODUCT_OPENER_FLAVOR_SHORT environment variable must be set.");
 }
 
-# %options will be redefined by autoload below
-# but we need it to avoid Perl complaining
-%ProductOpener::Config:: % options = ();
-
 use Module::Load;
 
 autoload("ProductOpener::Config_$flavor");
