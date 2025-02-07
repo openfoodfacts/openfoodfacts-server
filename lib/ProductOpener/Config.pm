@@ -32,6 +32,10 @@ if (not defined $flavor) {
 	die("The PRODUCT_OPENER_FLAVOR_SHORT environment variable must be set.");
 }
 
+# %options will be redefined by autoload below
+# but we need it to avoid Perl complaining
+%ProductOpener::Config:: % options = ();
+
 use Module::Load;
 
 autoload("ProductOpener::Config_$flavor");
@@ -172,6 +176,37 @@ $ProductOpener::Config::options{other_servers} = {
 		mongodb => "off-pro",
 		domain => "pro.openfoodfacts.org",
 	}
+};
+
+=head2 Rate limiting options
+
+=cut
+
+# Number of requests per minutes for the search API
+$ProductOpener::Config::options{rate_limit_search} = 10;
+# Number of requests per minutes for all facets for anonymous users
+$ProductOpener::Config::options{rate_limit_facet_products_unregistered} = 5;
+# Number of requests per minutes for facets for registered users
+$ProductOpener::Config::options{rate_limit_facet_products_registered} = 10;
+# Number of requests per minutes for facets for bots
+$ProductOpener::Config::options{rate_limit_facet_products_crawl_bot} = 10;
+# Number of requests per minutes for facet tags (list of tags with count) for anonymous users
+$ProductOpener::Config::options{rate_limit_facet_tags_unregistered} = 5;
+$ProductOpener::Config::options{rate_limit_facet_tags_registered} = 10;
+$ProductOpener::Config::options{rate_limit_facet_tags_crawl_bot} = 10;
+$ProductOpener::Config::options{rate_limit_product} = 100;
+
+# Rate limit allow list
+$ProductOpener::Config::options{rate_limit_allow_list} = {
+	'146.59.148.140' => 1,    # OVH1
+	'51.210.154.203' => 1,    # OVH2
+	'51.210.32.79' => 1,    # OVH3
+	'46.105.72.120' => 1,    # proxy ovh1
+	'213.36.253.215' => 1,    # proxy off1
+	'213.36.253.214' => 1,    # proxy off2
+	'213.36.253.206' => 1,    # off1
+	'213.36.253.208' => 1,    # off2
+	'45.147.209.254' => 1,    # Moji server (actually OSM proxy, Moji only has ipv6)
 };
 
 1;
