@@ -8004,12 +8004,10 @@ JS
 			$product_ref->{environmental_score_data});
 	}
 
-	# 2025/01 - For moderators, determine which packaging components are in contact with food, so that we can display them
+	# 2025/02 - Determine which packaging components are in contact with food, so that we can display them
 	# This is for initial development of the feature, once finalized, we could compute and store this data in the product
 
-	if ($User{moderator}) {
-		ProductOpener::PackagingFoodContact::determine_food_contact_of_packaging_components_service($product_ref);
-	}
+	ProductOpener::PackagingFoodContact::determine_food_contact_of_packaging_components_service($product_ref);
 
 	# Activate knowledge panels for all users
 
