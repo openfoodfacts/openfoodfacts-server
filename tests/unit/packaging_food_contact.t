@@ -66,6 +66,13 @@ my @tests = (
 			packaging_text => "glass bottle, cork, paper label",
 		}
 	],
+	[
+		'plastic_bottle',
+		{
+			lc => "en",
+			packaging_text => "plastic bottle, plastic cap, plastic label",
+		}
+	]
 
 );
 

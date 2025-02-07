@@ -156,7 +156,7 @@ sub get_matching_and_non_matching_packaging_components ($packagings_ref, $condit
 				my $matched_value = 0;
 
 				foreach my $value (@values) {
-					if (is_a($packaging_taxonomies{$property}, $value, $packaging_ref->{$property})) {
+					if (is_a($packaging_taxonomies{$property}, $packaging_ref->{$property}, $value)) {
 						$matched_value = 1;
 						last;
 					}
@@ -231,7 +231,7 @@ sub determine_food_contact_of_packaging_components ($packagings_ref) {
 		# Otherwise, if there is a lid or a cap, it is in contact wit the food
 		else {
 			my ($lids_ref, $non_lids_ref)
-				= get_matching_and_non_matching_packaging_components($non_bottles_ref, {shape => ["en:lid", "en:cap"]});
+				= get_matching_and_non_matching_packaging_components($non_bottles_ref, {shape => ["en:lid-or-cap"]});
 			if (@$lids_ref) {
 				set_food_contact_property_of_packaging_components($lids_ref, 1);
 			}
