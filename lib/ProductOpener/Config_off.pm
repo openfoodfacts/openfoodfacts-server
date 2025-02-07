@@ -1605,5 +1605,4 @@ $options{sample_product_code} = "093270067481501";    # A good product for you -
 #$options{sample_product_code_language_de} = "20884680"; # Waffeln Sondey
 #$options{sample_product_code_country_at_language_de} = "5411188119098"; # Natur miss kokosnuss Alpro
 
-
 1;

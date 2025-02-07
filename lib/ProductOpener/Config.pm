@@ -32,6 +32,10 @@ if (not defined $flavor) {
 	die("The PRODUCT_OPENER_FLAVOR_SHORT environment variable must be set.");
 }
 
+# %options will be redefined by autoload below
+# but we need it to avoid Perl complaining
+%ProductOpener::Config:: % options = ();
+
 use Module::Load;
 
 autoload("ProductOpener::Config_$flavor");
@@ -197,11 +201,11 @@ $ProductOpener::Config::options{rate_limit_allow_list} = {
 	'146.59.148.140' => 1,    # OVH1
 	'51.210.154.203' => 1,    # OVH2
 	'51.210.32.79' => 1,    # OVH3
-	'46.105.72.120' => 1,    # proxy ovh1 
-	'213.36.253.215' => 1,   # proxy off1 
-	'213.36.253.214' => 1,   # proxy off2 
-	'213.36.253.206' => 1,    # off1 
-	'213.36.253.208' => 1,    # off2 
+	'46.105.72.120' => 1,    # proxy ovh1
+	'213.36.253.215' => 1,    # proxy off1
+	'213.36.253.214' => 1,    # proxy off2
+	'213.36.253.206' => 1,    # off1
+	'213.36.253.208' => 1,    # off2
 	'45.147.209.254' => 1,    # Moji server (actually OSM proxy, Moji only has ipv6)
 };
 
