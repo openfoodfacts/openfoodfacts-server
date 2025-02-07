@@ -25,52 +25,66 @@ init_packaging_taxonomies_regexps();
 my @tests = (
 
 	[
-		'empty_packagings',
+		'empty-packagings',
 		{
 			lc => "en",
 			packaging_text => "",
 		}
 	],
 	[
-		'hazelnut_paste_glass_jar',
+		'hazelnut-paste-glass-jar',
 		{
 			lc => "en",
 			packaging_text => "glass jar, plastic lid, paper label, paper seal, cardboard box",
 		}
 	],
 	[
-		'canned_tomatoes',
+		'canned-tomatoes',
 		{
 			lc => "en",
 			packaging_text => "can, paper label",
 		}
 	],
 	[
-		'coffee_capsule',
+		'coffee-capsule',
 		{
 			lc => "en",
 			packaging_text => "carboard box, plastic capsule, plastic film",
 		}
 	],
 	[
-		'meat_tray',
+		'meat-tray',
 		{
 			lc => "en",
 			packaging_text => "plastic tray, plastic film, paper label",
 		}
 	],
 	[
-		'wine_bottle',
+		'wine-bottle',
 		{
 			lc => "en",
 			packaging_text => "glass bottle, cork, paper label",
 		}
 	],
 	[
-		'plastic_bottle',
+		'plastic-bottle',
 		{
 			lc => "en",
 			packaging_text => "plastic bottle, plastic cap, plastic label",
+		}
+	],
+	[
+		'chocolate-bar',
+		{
+			lc => "en",
+			packaging_text => "cardboard sleeve, aluminium foil, paper label",
+		}
+	],
+	[
+		'fr-tablette-de-chocolat',
+		{
+			lc => "fr",
+			packaging_text => "étui en carton, feuille d'aluminium, étiquette papier",
 		}
 	]
 
