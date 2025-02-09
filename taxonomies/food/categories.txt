@@ -34538,6 +34538,7 @@ gpc_category_name:en: Bread (Perishable)
 en: Ciabatta
 xx: Ciabatta
 bg: Чабата
+sales_format:en: package, weight
 wikidata:en: Q246703
 
 < en:Breads
@@ -42924,22 +42925,25 @@ en: Husked sesame seed, Sesame seed husked
 fr: graine de sésame décortiquée
 hr: Oljušteni sezam
 lt: Lukštenti sezamai
+nl: Sesamzaad (gepeld)
 agribalyse_food_code:en: 15035
 ciqual_food_code:en: 15035
 ciqual_food_name:en: Sesame seed, husked
+sales_format:en: package, weight
 
 < en:Sesame
-en: Toasted sesame, grilled sesame, husked sesame
+en: Sesame seeds (roasted), Toasted sesame, grilled sesame, husked sesame
 de: Gerösteter Sesam
 es: Semillas de sésamo tostadas
 fr: Sésame toasté, Graines de sésame toastées
 hr: Prženi sezam
 lt: Skrudinti sezamai, Kepinti sezamai
-nl: Geroosterde sesamzaden, Geroosterde sesamzaad
+nl: Sesamzaad (geroosterd), Geroosterde sesamzaad
 zh: 烤芝麻
 agribalyse_food_code:en: 15038
 ciqual_food_code:en: 15038
 ciqual_food_name:en: Sesame seed, grilled, husked
+sales_format:en: package, weight
 
 < en:Cereal grains
 en: Sorghum, Whole sorghum
@@ -55928,14 +55932,15 @@ opposite:en: en:blanched-roasted-hazelnuts
 
 < en:Blanched shelled hazelnuts
 < en:Roasted hazelnuts
-en: Blanched roasted hazelnuts, Skinless roasted hazelnuts
+en: Hazelnuts (blanched and roasted), Blanched roasted hazelnuts, Skinless roasted hazelnuts
 es: Avellanas tostadas sin piel
 fr: Noisettes grillées émondées
 hr: Blanširanih pečenih lješnjaka
 it: Nocciole arrostite sbiancate
 lt: Kepinti lazdyno riešutai be odelės
-nl: Witte gebrande hazelnoten
+nl: Hazelnoten (wit en geroosterd)
 opposite:en: en:roasted-hazelnuts-with-skin
+sales_format:en: package, weight
 
 < en:Roasted hazelnuts
 < en:Shelled hazelnuts
@@ -56252,7 +56257,7 @@ nl: Pistachenoten(met schil), Ongepelde pistachenoten
 opposite:en: en:pistachio-kernels
 
 < en:Pistachios
-en: Pistachios(roasted), Roasted pistachios, Toasted pistachios
+en: Pistachios (roasted), Roasted pistachios, Toasted pistachios, Pistachios(roasted)
 de: Geröstete Pistazien
 es: Pistachos tostados
 et: röstitud ja soolatud pistaatsiapähklid
@@ -56268,6 +56273,7 @@ ru: Жареные фисташки
 agribalyse_food_code:en: 15044
 ciqual_food_code:en: 15044
 ciqual_food_name:en: Pistachio nut, grilled
+sales_format:en: package, weight
 
 < en:Pistachios
 < fr:Fruits à coque salés
@@ -57748,7 +57754,7 @@ wikidata:en: Q1062531
 de: Eier aus ökologischer Erzeugung
 
 < en:Chicken eggs
-en: Free-range chicken eggs, free-range eggs
+en: Chicken eggs (free-range), Free-range chicken eggs, free-range eggs
 bg: Яйца от свободно отглеждани кокошки, яйца от кокошки от свободно отглеждане
 de: Eier aus Freilandhaltung
 es: Huevos de gallinas camperas
@@ -57758,6 +57764,7 @@ hr: Kokošja jaja slobodnog uzgoja
 it: Uova da galline allevate all'aperto
 lt: Laisvai laikomų vištų kiaušiniai
 nl: Scharreleieren, Eieren van kippen met vrije uitloop
+sales_format:en: package, weight
 wikidata:en: Q2920887
 
 < en:Chicken eggs
@@ -67083,6 +67090,7 @@ fr: Pommes Red Delicious
 hr: Crvene ukusne jabuke
 la: Malus domestica cult. Red Delicious
 nl: Red Delicious appels
+sales_format:en: package, weight
 wikidata:en: Q2117265
 
 < en:Apples
@@ -67394,6 +67402,7 @@ agribalyse_food_code:en: 13113
 ciqual_food_code:en: 13113
 ciqual_food_name:en: Cranberry, raw
 ciqual_food_name:fr: Canneberge ou cranberry, crue
+sales_format:en: package, weight
 
 < en:Cranberries
 < en:Fresh fruits
@@ -67548,7 +67557,8 @@ fr: Fraises de jardin
 hr: Vrtne jagode
 la: Fragaria x ananassa
 lt: Sodo braškės
-nl: tuinaardbeien
+nl: Tuinaardbeien
+sales_format:en: package, weight
 
 < en:French fruits
 < en:Strawberries
@@ -67997,14 +68007,17 @@ season_in_country_fr:en: 1,2,3,12
 < en:Fresh oranges
 en: Clemenvillas
 xx: Clemenvillas
+sales_format:en: package, weight
 
 < en:Oranges
 en: Blood oranges
 fr: Oranges sanguines
+sales_format:en: package, weight
 
 < en:blood-oranges
 en: Oranges (Tarocco)
 fr: Oranges Tarocco
+sales_format:en: package, weight
 
 < en:Oranges
 en: Orange pulp
@@ -68051,6 +68064,7 @@ agribalyse_food_code:en: 13180
 ciqual_food_code:en: 13180
 ciqual_food_name:en: Grapefruit, red or pink, pulp, raw
 ciqual_food_name:fr: Pomelo (dit Pamplemousse) rose, pulpe, cru
+sales_format:en: package, weight
 
 < en:Fruits
 en: Figs
@@ -68183,6 +68197,7 @@ lt: Vynuogės be kauliukų
 nl: Pitloze druiven
 ru: Бессемянный виноград
 tr: Çekirdeksiz üzüm
+sales_format:en: package, weight
 
 < en:Green grapes
 < en:Seedless grapes
@@ -68193,6 +68208,7 @@ fr: Raisins blancs sans pépins, raisins verts sans pépins
 hr: Zeleno grožđe bez sjemenki
 lt: Žalios vynuogės be kauliukų, Baltos vynuogės be kauliukų
 nl: Groene pitloze druiven
+sales_format:en: package, weight
 
 < en:Black grapes
 < en:Seedless grapes
@@ -68351,13 +68367,14 @@ hr: Svježe breskve
 lt: Švieži persikai
 season_in_country_fr:en: 6,7,8,9
 
-< en:Peaches
+< en:Fresh peaches
 en: Platerines
 es: Platerinas
 fr: Pêches plates, Platerines, Pêche plate, Platerine
 hr: Platerine
 la: Prunus persica var. platerina
 nl: Wilde perziken, Platte perziken
+sales_format:en: package, weight
 
 < en:Peaches
 en: Peach pulp and peel
@@ -68499,6 +68516,7 @@ en: Canary melons
 es: Melones amarillos canarios, Melones amarillos españoles
 fr: Melons Canary
 hr: Kanarinske dinje
+sales_format:en: package, weight
 wikidata:en: Q5031209
 
 < en:Muskmelons
@@ -69773,7 +69791,7 @@ nl: Dadels met pit
 ru: Финики с косточкой
 
 < en:Dates
-en: Deglet Noor dates
+en: Dates (Deglet Noor), Deglet Noor dates
 de: Deglet Nour Datteln
 fr: Dattes Deglet Nour
 hr: Deglet noor datulje
@@ -69792,7 +69810,7 @@ sales_format:en: package, weight
 wikidata:en: Q16774413
 
 < en:Dates
-en: Mazafati dates
+en: Dates (Mazafati), Mazafati dates
 bg: Фурми Мазафати
 de: Mazafati Datteln
 fr: Dattes Mazafati
@@ -70732,6 +70750,7 @@ pl: Bazylia
 agribalyse_proxy_food_code:en: 11033
 agribalyse_proxy_food_name:en: Basil, fresh
 agribalyse_proxy_food_name:fr: Basilic, frais
+sales_format:en: package, weight, item
 wikidata:en: Q38859
 
 < en:Basil
@@ -70881,7 +70900,7 @@ wikidata:en: Q51148
 
 < en:Chives
 < en:Fresh aromatic plants
-en: Fresh chives
+en: Chives (fresh), Fresh chives
 de: frischer Schnittlauch
 es: Cebollino fresco
 fr: Ciboulette fraîche
@@ -70892,6 +70911,7 @@ agribalyse_food_code:en: 11003
 ciqual_food_code:en: 11003
 ciqual_food_name:en: Chive or spring onion, fresh
 ciqual_food_name:fr: Ciboule ou Ciboulette, fraîche
+sales_format:en: package, weight, item
 
 < en:Chives
 < en:Frozen aromatic plants
@@ -72009,6 +72029,7 @@ la: Cymbopogon citratus
 lt: Citrinžolė
 nl: Citroengras
 pl: Trawa cytrynowa, Palczatka cytrynowa
+sales_format:en: package, weight, item
 wikidata:en: Q33913
 
 < en:Aromatic herbs
@@ -85656,6 +85677,7 @@ agribalyse_food_code:en: 40119
 ciqual_food_code:en: 40119
 ciqual_food_name:en: Liver, pork, raw
 ciqual_food_name:fr: Foie, porc, cru
+sales_format:en: package, weight
 
 < en:Cooked pork meat
 < en:Pork liver
@@ -91704,6 +91726,8 @@ ciqual_food_name:fr: Champignon, rosé des prés, cru
 
 < en:Champignon mushrooms
 fr: Champignon de Paris frais
+nl: Champignons (vers)
+sales_format:en: package, weight
 season_in_country_fr:en: 1,2,3,4,5,6,7,8,9,10,11,12
 
 < en:Champignon mushrooms
@@ -91876,6 +91900,7 @@ fr: Champignons cèpes, Cèpes
 ciqual_food_code:en: 20160
 ciqual_food_name:en: Cep or boletus mushroom, raw
 ciqual_food_name:fr: Champignon, cèpe, cru
+sales_format:en: package, weight
 
 < en:Mushrooms
 en: Red pine mushrooms, Saffron milk caps, Lactarius deliciosus
@@ -92229,6 +92254,7 @@ es: Setas trompeta de los muertos deshidratadas, Trompetas de los muertos deshid
 fr: Trompettes des morts secs, Craterelles en forme de corne d'abondance secs, Cornes d'abondance secs, Trompettes de la mort secs
 hr: Sušeni rog obilja gljiva
 nl: Gedroogde Doodstrompetten, Gedroogde Hoorn van overvloeds
+sales_format:en: package, weight
 
 < en:Dried mushrooms
 en: Dried jew's ear mushrooms, Dried wood ear mushrooms, Dried jelly ear mushrooms
@@ -104507,6 +104533,7 @@ agribalyse_food_code:en: 20119
 ciqual_food_code:en: 20119
 ciqual_food_name:en: Tomato, green, raw
 ciqual_food_name:fr: Tomate verte, crue
+sales_format:en: package, weight
 
 # TODO insert
 #en:fried green tomatoes
@@ -107450,11 +107477,12 @@ nl: Charlotte aardappel
 wikidata:en: Q1067085
 
 < en:Potatoes
-en: Bintje potatoes
+en: Potatoes (Bintje), Bintje potatoes
 de: Bintje Kartoffeln
 fr: Pomme de terre Bintje
 hr: Bintje krumpir
-nl: Bintje aardappelen
+nl: Aardappelen (Bintje)
+sales_format:en: package, weight
 
 < en:Potatoes
 en: Ostara potatoes
@@ -107484,6 +107512,8 @@ nl: Lady Christl aardappelen
 < en:Potatoes
 en: Red potatoes
 fr: Pommes de terres rouges
+nl: Aardappelen (rood)
+sales_format:en: package, weight
 
 #################### Potatoes with a usage ####################
 
@@ -107536,7 +107566,8 @@ de: Kartoffeln aus Italien
 fr: Pommes de terre d'Italie
 hr: Krompir iz italije
 nl: Aardappelen uit Italië
-origins:en: en:france
+origins:en: en:italy
+sales_format:en: package, weight
 #wikidata:en:
 
 < en:Potatoes from Italy
@@ -108071,6 +108102,7 @@ agribalyse_food_code:en: 54031
 ciqual_food_code:en: 54031
 ciqual_food_name:en: Cassava or manioc, roots, raw
 ciqual_food_name:fr: Manioc, racine crue
+sales_format:en: package, weight
 
 < en:Cassava roots
 < en:Cooked vegetables
@@ -108908,6 +108940,7 @@ ciqual_food_name:fr: Mâche, crue
 # sr-el:Matovilac
 # vec:Gałinełe
 # vls:Kôornsaloa
+sales_format:en: package, weight
 wikidata:en: Q158954
 wikipedia:en: https://en.wikipedia.org/wiki/Valerianella_locusta
 
@@ -110002,6 +110035,7 @@ fr: lentilles noires, lentilles beluga
 hr: Crna leća
 nl: Zwarte Belugalinzen
 pl: Soczewica czarna
+sales_format:en: package, weight
 
 < en:Lentils
 en: Brown lentils
@@ -110071,6 +110105,7 @@ nl: Gepelde rode linzen
 agribalyse_proxy_food_code:en: 20535
 agribalyse_proxy_food_name:en: Lentil, pink or red, dried
 agribalyse_proxy_food_name:fr: Lentille corail, sèche
+sales_format:en: package, weight
 
 < en:Dried lentils
 < en:Red lentils
@@ -110543,6 +110578,7 @@ agribalyse_food_code:en: 20901
 ciqual_food_code:en: 20901
 ciqual_food_name:en: Soybean, whole grain
 ciqual_food_name:fr: Soja, graine entière
+sales_format:en: package, weight
 wco_hs_code:en: 1201.10
 wco_hs_heading:en: 12.01
 wikidata:en: Q11006
@@ -111110,6 +111146,7 @@ agribalyse_food_code:en: 20591_1
 ciqual_food_code:en: 20591
 ciqual_food_name:en: Soy protein, textured, rehydrated, from soy flour
 ciqual_food_name:fr: Protéine de soja texturée
+sales_format:en: package, weight
 
 < en:Textured vegetable protein
 en: Textured pea protein
@@ -114010,6 +114047,7 @@ ciqual_food_name:fr: Pain aux raisins (viennoiserie)
 #Escargot aux raisin a subcategory?
 intake24_category_code:en: FTBD
 #comment:en:issue here on wheteher it based on puff pastry or normal bread
+sales_format:en: package, weight
 
 < en:Viennoiseries
 en: Croissants
@@ -114100,10 +114138,12 @@ nl: Croissants met jam
 < en:Croissants
 en: Croissant with almonds from bakery
 fr: Croissant aux amandes artisanal
+nl: Croissants met amandelen van de bakker
 agribalyse_food_code:en: 7650
 ciqual_food_code:en: 7650
 ciqual_food_name:en: Croissant w almonds, from bakery
 ciqual_food_name:fr: Croissant aux amandes, artisanal
+sales_format:en: package, weight
 
 < en:Croissants
 en: Croissant with almonds, Almond croissant
@@ -114202,6 +114242,7 @@ agribalyse_food_code:en: 7711
 ciqual_food_code:en: 7711
 ciqual_food_name:en: Milk roll, prepacked
 ciqual_food_name:fr: Pain au lait, préemballé
+sales_format:en: package, weight
 wikidata:en: Q3360557
 
 < en:Milk bread rolls
