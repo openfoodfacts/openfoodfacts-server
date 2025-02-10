@@ -1030,7 +1030,7 @@ label_categories:en: en:Social responsibility
 # https://www.label-pmeplus.fr/
 
 
-############################# FAIR TRADE ######################
+########################## FAIR TRADE ##########################
 
 en: Fair trade
 xx: Fair trade
@@ -4500,7 +4500,7 @@ zh: 无饱和脂肪
 description:en: In EU, a claim that a food does not contain sturated fat may only be made where the sum of saturated fat and trans-fatty acids does not exceed 0,1 g of saturated fat per 100 g or 100 ml. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
 #instruction:en:Do NOT change the english key.
-en: No Trans Fat, 0% Trans Fat, 0 g trans fat, 0g trans fat, trans fat free
+en: No Trans fat, 0% Trans fat, 0 g trans fat, 0g trans fat, trans fat free
 bg: Без трансмазнини
 ca: Sense greixos Trans, 0% de greixos Trans
 de: Ohne Transfette
@@ -4611,7 +4611,7 @@ pl: Bez dodatku glutaminianu sodu, Bez dodatku glutaminianu monosodowego
 pt: Nenhum MSG adicionado, Sem glutamato monossódico adicionado, sem MSG adicionado, nenhum MSG adicionado
 label_categories:en: en:Health, en:Additives
 
-########################## GMO ###############
+########################## GMO ##########################
 
 #instruction:en:Do NOT change the english key.
 en: No GMOs, Non GMO, GMO-free, GMOs-free, Without GMO, Without GMOs, No Genetically Modified Organisms, Without Genetically Modified Organisms, No GMO
@@ -5149,7 +5149,7 @@ label_categories:en: en:Specific diets
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
-#                                     O R G A N I C     S E C T I O N
+#                   O R G A N I C   S E C T I O N
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #en:description:Labels used for identifying products (and ingredients) that have been grown organically.
@@ -22647,4 +22647,67 @@ country:en: en:Belgium
 description:fr: En choisissant des produits Prix Juste Producteur, on vous garantit une juste rémunération des producteurs basée sur les coûts de production et la qualité, une origine locale de 80% des matières premières du produit et une traçabilité complète de ces matières premières.
 image:fr: prix-juste-producteur.90x90.png
 web:fr: https://prixjuste.be/
+
+########################## Canadian front-of-package nutrition symbol ##########################
+
+# There are 56 possible variations. 7 different combinations for the ingredients, 4 different language versions and 2 orientations (vertical/horizontal).
+# We have only kept the horizontal versions of the images.
+en: Canadian Front-of-package nutrition symbol
+fr: Symbole nutritionnel sur le devant de l'emballage
+country:en: en:Canada
+description:en: In Canada, a front-of-package nutrition symbol is required on foods that are high in one or more of these nutrients: sodium, sugars, saturated fat. The food industry has been given until January 1, 2026 to make this change. However, you may start seeing the front-of-package nutrition symbol earlier.
+description:fr: Au Canada, un symbole nutritionnel sur le devant de l'emballage doit être apposé sur les aliments riches en un ou plusieurs de ces nutriments : sodium, sucres, gras saturés. L'industrie alimentaire a jusqu'au 1er janvier 2026 pour procéder à ce changement. Toutefois, il est possible que vous commenciez à voir le symbole nutritionnel sur la face avant des emballages plus tôt.
+label_categories:en: nutritional-values
+web:en: https://www.canada.ca/en/health-canada/services/food-nutrition/nutrition-labelling/front-package.html
+web:fr: https://www.canada.ca/fr/sante-canada/services/aliments-nutrition/etiquetage-nutritionnel/devant-emballage.html
+
+< en:Canadian front-of-package nutrition symbol
+en: High in Sat fat Sugars and Sodium (Health Canada)
+fr: Élevé en Gras sat., Sucres and Sodium (Santé Canada)
+image:xx: high-in-saturated-fat-sugars-sodium-health-canada-eleve-en-gras-satures-sucres-sodium-sante-canada.171x90.svg
+image:en: high-in-saturated-fat-sugars-sodium-health-canada.120x90.svg
+image:fr: eleve-en-gras-satures-sucres-sodium-sante-canada.120x90.svg
+
+< en:Canadian front-of-package nutrition symbol
+en: High in Sat fat and Sugars (Health Canada)
+fr: Élevé en Gras sat. et Sucres (Santé Canada)
+image:xx: high-in-saturated-fat-sugars-health-canada-eleve-en-gras-satures-sucres-sante-canada.171x90.svg
+image:en: high-in-saturated-fat-sugars-health-canada.120x90.svg
+image:fr: eleve-en-gras-satures-sucres-sante-canada.120x90.svg
+
+
+< en:Canadian front-of-package nutrition symbol
+en: High in Sugars and Sodium (Health Canada)
+fr: Élevé en Sucres et Sodium (Santé Canada)
+image:xx: high-in-sugars-sodium-health-canada-eleve-en-sucres-sodium-sante-canada.171x90.svg
+image:en: high-in-sugars-sodium-health-canada.120x90.svg
+image:fr: eleve-en-sucres-sodium-sante-canada.120x90.svg
+
+< en:Canadian front-of-package nutrition symbol
+en: High in Sat fat and Sodium (Health Canada)
+fr: Élevé en Gras sat. et Sodium (Santé Canada)
+image:xx: high-in-saturated-fat-sodium-health-canada-eleve-en-gras-satures-sodium-sante-canada.171x90.svg
+image:en: high-in-saturated-fat-sodium-health-canada.120x90.svg
+image:fr: eleve-en-gras-satures-sodium-sante-canada.120x90.svg
+
+< en:Canadian front-of-package nutrition symbol
+en: High in Sat fat (Health Canada)
+fr: Élevé en Gras sat. (Santé Canada)
+image:xx: high-in-saturated-fat-health-canada-eleve-en-gras-satures-sante-canada.171x90.svg
+image:en: high-in-saturated-fat-health-canada.120x90.svg
+image:fr: eleve-en-gras-satures-sante-canada.120x90.svg
+
+< en:Canadian front-of-package nutrition symbol
+en: High in Sugars (Health Canada)
+fr: Élevé en Sucres (Santé Canada)
+image:xx: high-in-sugars-health-canada-eleve-en-sucres-sante-canada.171x90.svg
+image:en: high-in-sugars-health-canada.120x90.svg
+image:fr: eleve-en-sucres-sante-canada.120x90.svg
+
+< en:Canadian front-of-package nutrition symbol
+en: High in Sodium (Health Canada)
+fr: Élevé en Sodium (Santé Canada)
+image:xx: high-in-sodium-health-canada-eleve-en-sodium-sante-canada.171x90.svg
+image:en: high-in-sodium-health-canada.120x90.svg
+image:fr: eleve-en-sodium-sante-canada.120x90.svg
 
