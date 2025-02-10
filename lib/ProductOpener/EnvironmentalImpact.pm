@@ -104,7 +104,10 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 	# Initialisation of the payload structure
 	my $payload = {
 		ingredients => [],
-		transform => {},
+		transform => {
+			    "id" => "7541cf94-1d4d-4d1c-99e3-a9d5be0e7569",
+    			"mass"=> 545
+		},
 		packaging => [],
 		distribution => "ambient",
 		preparation => ["refrigeration"]
@@ -112,11 +115,11 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 
 	# Estimating the environmental impact
 	foreach my $ingredient_ref (@{$product_ref->{ingredients}}) {
-		next unless defined $ingredient_ref->{id} && defined $ingredient_ref->{mass};
+		next unless defined $ingredient_ref->{id} && defined $ingredient_ref->{percent_estimate};
 		push @{$payload->{ingredients}},
 			{
 			id => $ingredient_ref->{id},
-			mass => $ingredient_ref->{mass}
+			mass => $ingredient_ref->{percent_estimate}
 			};
 	}
 
@@ -156,7 +159,7 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 	# Debug information for the request
 	$log->debug("send_event request", {endpoint => $url_recipe, payload => $payload}) if $log->is_debug();
 
-	$product_ref->{environmental_impact} = {ecobalyse_request => $payload};
+	$product_ref->{environmental_impact} = {ecobalyse_request => { url => $url_recipe, data => $payload}};
 
 	# Send the request and get the response
 	my $response = $ua->request($request);
