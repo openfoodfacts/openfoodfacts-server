@@ -156,15 +156,15 @@ up: build create_folders _up
 # Used by staging so that shared services are not created
 prod_up: build create_folders
 	@echo "🥫 Starting containers …"
-	${DOCKER_COMPOSE_BUILD} up -d 2>&1
+	${DOCKER_COMPOSE} up -d 2>&1
 
 down:
 	@echo "🥫 Bringing down containers …"
-	${DOCKER_COMPOSE_BUILD} down
+	${DOCKER_COMPOSE} down
 
 hdown:
 	@echo "🥫 Bringing down containers and associated volumes …"
-	${DOCKER_COMPOSE_BUILD} down -v
+	${DOCKER_COMPOSE} down -v --remove-orphans
 
 reset: hdown up
 
