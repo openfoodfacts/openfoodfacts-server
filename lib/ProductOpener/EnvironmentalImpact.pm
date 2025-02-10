@@ -156,6 +156,8 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 	# Debug information for the request
 	$log->debug("send_event request", {endpoint => $url_recipe, payload => $payload}) if $log->is_debug();
 
+	$product_ref->{environmental_impact} = {ecobalyse_request => $payload};
+
 	# Send the request and get the response
 	my $response = $ua->request($request);
 
@@ -165,14 +167,14 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 		my $response_data;
 		eval {$response_data = decode_json($response->decoded_content);};
 
-		$product_ref->{environmental_impact} = {ecobalyse_response_data => $response_data};
+		$product_ref->{environmental_impact}{ecobalyse_response_data} = $response_data;
 
 		# Access the specific "ecs" value
 		if (exists $response_data->{results}{total}{ecs}) {
 			my $ecs_value = $response_data->{results}{total}{ecs};
 			# If 'ecs' is defined, store it in the product reference
 			if (defined $ecs_value) {
-				$product_ref->{environmental_impact} = $ecs_value;
+				$product_ref->{environmental_impact}{ecs} = $ecs_value;
 			}
 		}
 	}
@@ -182,7 +184,7 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 			{endpoint => $url_recipe, payload => $payload, response => $response->decoded_content})
 			if $log->is_error();
 		# Add an error message to the errors array
-		$product_ref->{environmental_impact} = {ecobalyse_response => $response->decoded_content};
+		$product_ref->{environmental_impact}{ecobalyse_response} = $response->decoded_content;
 
 		push @{$errors_ref},
 			{
