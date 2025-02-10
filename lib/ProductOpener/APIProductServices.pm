@@ -118,8 +118,7 @@ my %service_functions = (
 	extend_ingredients => \&ProductOpener::Ingredients::extend_ingredients_service,
 	estimate_ingredients_percent => \&ProductOpener::Ingredients::estimate_ingredients_percent_service,
 	analyze_ingredients => \&ProductOpener::Ingredients::analyze_ingredients_service,
-	estimate_environmental_impact_service =>
-		\&ProductOpener::EnvironmentalImpact::estimate_environmental_impact_service,
+	estimate_environmental_impact => \&ProductOpener::EnvironmentalImpact::estimate_environmental_impact_service,
 	determine_food_contact_of_packaging_components =>
 		\&ProductOpener::PackagingFoodContact::determine_food_contact_of_packaging_components_service,
 );
