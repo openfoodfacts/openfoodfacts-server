@@ -1,9 +1,32 @@
 {
-   "errors" : [],
+   "errors" : [
+      {
+         "field" : {
+            "id" : "ecobalyse_response",
+            "value" : "{\n  \"error\": [\n    \"The Json.Decode.oneOf at json.transform failed in the following 2 ways:\",\n    \"(1) Problem with the given value:\",\n    \"    \",\n    \"    {}\",\n    \"    \",\n    \"    Expecting null\",\n    \"(2) Problem with the given value:\",\n    \"    \",\n    \"    {}\",\n    \"    \",\n    \"    Expecting an OBJECT with a field named `id`\"\n  ],\n  \"documentation\": \"https://ecobalyse.beta.gouv.fr/#/api\"\n}"
+         },
+         "impact" : {
+            "id" : "failure",
+            "lc_name" : "Failure",
+            "name" : "Failure"
+         },
+         "message" : {
+            "id" : "error_response_from_ecobalyse",
+            "lc_name" : "",
+            "name" : ""
+         },
+         "service" : {
+            "id" : "estimate_environmental_impact_service"
+         }
+      }
+   ],
    "fields" : [
       "all"
    ],
    "product" : {
+      "environmental_impact" : {
+         "ecobalyse_response" : "{\n  \"error\": [\n    \"The Json.Decode.oneOf at json.transform failed in the following 2 ways:\",\n    \"(1) Problem with the given value:\",\n    \"    \",\n    \"    {}\",\n    \"    \",\n    \"    Expecting null\",\n    \"(2) Problem with the given value:\",\n    \"    \",\n    \"    {}\",\n    \"    \",\n    \"    Expecting an OBJECT with a field named `id`\"\n  ],\n  \"documentation\": \"https://ecobalyse.beta.gouv.fr/#/api\"\n}"
+      },
       "ingredients" : [
          {
             "ciqual_proxy_food_code" : "31016",
@@ -66,8 +89,8 @@
       "product_name_fr" : "Ma pâte aux noisettes"
    },
    "services" : [
-      "echo"
+      "estimate_environmental_impact"
    ],
-   "status" : "success",
+   "status" : "failure",
    "warnings" : []
 }

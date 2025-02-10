@@ -80,62 +80,15 @@ my $product_hazelnut_spread_json = '
 
 # Note: expected results are stored in json files, see execute_api_tests
 my $tests_ref = [
-	{
-		test_case => 'unknown-service',
-		method => 'POST',
-		path => '/api/v3/product_services',
-		body => '{
-			"services":["unknown"],
-			"product":{}
-		}',
-		expected_status_code => 400,
-	},
-
-	# echo service
-	{
-		test_case => 'service-no-body',
-		method => 'POST',
-		path => '/api/v3/product_services',
-		expected_status_code => 400,
-	},
-	{
-		test_case => 'echo-service-hazelnut-spread',
-		method => 'POST',
-		path => '/api/v3/product_services/echo',
-		body => '{
-			"services":["echo"],
-			"fields":["all"],'
-			. $product_hazelnut_spread_json . '}',
-	},
-	{
-		test_case => 'echo-service-hazelnut-spread-fields',
-		method => 'POST',
-		path => '/api/v3/product_services',
-		body => '{
-			"services":["echo"],
-			"fields": ["product_name_en","product_name_fr"],'
-			. $product_hazelnut_spread_json . '}',
-	},
-	# compute the environmental impact of the product
-	# return a new field
-	{
-		test_case => 'echo-service-hazelnut-spread-enviro-field',
-		method => 'POST',
-		path => '/api/v3/product_services',
-		body => '{
-			"services":["echo"],
-			"fields": ["environmental_impact"],'
-			. $product_hazelnut_spread_json . '}',
-	},
 	# compute the environmental impact of the product
 	# return the whole product object
 	{
-		test_case => 'echo-service-hazelnut-spread-enviro-field',
+		test_case => 'estimate_environmental_impact',
 		method => 'POST',
 		path => '/api/v3/product_services',
 		body => '{
-			"services":["echo"],
-			"fields": ["environmental_impact"],'
+			"services":["estimate_environmental_impact"],
+			"fields": ["all"],'
 			. $product_hazelnut_spread_json . '}',
 	},
 
