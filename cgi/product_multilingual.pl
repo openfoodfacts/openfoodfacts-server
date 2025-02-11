@@ -1070,7 +1070,7 @@ CSS
 		\%Langs, ["nutrition_image"], $request_ref);
 
 	# only food products can have serving_size on the product
-	if ($product_ref->{product_type} eq "food") {
+	if ($options{product_type} eq "food") {
 		$template_data_ref_display->{display_field_serving_size}
 			= display_input_field($product_ref, "serving_size", undef, $request_ref);
 	}
@@ -1400,8 +1400,7 @@ CSS
 	}
 
 	# only food products can have prepared product (dehydrated for example)
-	if (    (defined $product_ref->{product_type})
-		and ($product_ref->{product_type} eq "food")
+	if (    ($options{product_type} eq "food")
 		and ($nutrition_data_exists{"_prepared"}))
 	{
 		$product_ref->{nutrition_data_prepared} = "on";
@@ -1440,7 +1439,7 @@ CSS
 
 		if (
 			# petfood products are always "as sold" (not per a given quantity)
-			(defined $product_ref->{product_type}) and ($product_ref->{product_type} eq "food")
+			$options{product_type} eq "food"
 			)
 		{
 			if (
@@ -1486,7 +1485,6 @@ CSS
 	}
 
 	# nutrition table differs between flavors (food and petfood)
-	$template_data_ref_display->{product_type} = $product_ref->{product_type};
 
 	$template_data_ref_display->{nutrition_product_types} = \@nutrition_product_types;
 

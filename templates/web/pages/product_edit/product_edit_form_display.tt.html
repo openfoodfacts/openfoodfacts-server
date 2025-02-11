@@ -66,13 +66,14 @@
             <label for="new_code" id="label_new_code" class="moderator-only">[% label_new_code %]</label>
             <input type="text" name="new_code" id="new_code" class="text" value="" /><br/>
         [% END %]
-
+        
         [% IF moderator || owner_id %]
             <label for="product_type" id="label_product_type" class="moderator-only">[% lang("product_type") %]</label>
             <select name="product_type" id="product_type">
-                [% FOREACH product_type IN product_types %]
-                    <option value="[% product_type %]" [% IF product.product_type == product_type %] selected="selected" [% END %]>[% lang("product_type_" _ product_type) %]</option>
+                [% FOREACH available_product_type IN product_types %]
+                    <option value="[% available_product_type %]" [% IF product.product_type == available_product_type %] selected="selected" [% END %]>[% lang("product_type_" _ available_product_type) %]</option>
                 [% END %]
+            </select>
         [% END %]
 
         [% IF moderator || owner_id %]
@@ -191,7 +192,7 @@
                             <input type="hidden" name="[% nutrition_product_type.nutrition_data %]_displayed" value="1" />
                             <input type="checkbox" id="[% nutrition_product_type.nutrition_data %]" name="[% nutrition_product_type.nutrition_data %]" [% nutrition_product_type.checked %] />
                             <label for="[% nutrition_product_type.nutrition_data %]" class="checkbox_label">[% nutrition_product_type.nutrition_data_exists %]</label> &nbsp;
-                            <input type="radio" id="[% nutrition_product_type.nutrition_data_per %]_100g" value="100g" name="[% nutrition_product_type.nutrition_data_per %]" [% nutrition_product_type.checked_per_100g %] />
+                            <input type="radio" id="[% nutrition_product_type.nutrition_data_per %]_100g" value="100g" name="[% nutrition_product_type.nutrition_data_per %]" [% nutrition_product_type.checked_per_xxg %] />
                             <label for="[% nutrition_product_type.nutrition_data_per %]_100g">[% edq(lang('nutrition_data_per_100g')) %]</label>
                             <input type="radio" id="[% nutrition_product_type.nutrition_data_per %]_serving" value="serving" name="[% nutrition_product_type.nutrition_data_per %]" [% nutrition_product_type.checked_per_serving %] />
                             <label for="[%nutrition_product_type. nutrition_data_per %]_serving">[% edq(lang('nutrition_data_per_serving')) %]</label><br/>
