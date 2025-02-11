@@ -161,7 +161,7 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         # needed to build Apache2::Connection::XForwardedFor
         libapache2-mod-perl2-dev \
         # needed for  Imager::File::WEBP
-        Imager::File::WEBP \
+        libwebpmux3 \
         # Imager::zxing - build deps
         cmake \
         pkg-config \
