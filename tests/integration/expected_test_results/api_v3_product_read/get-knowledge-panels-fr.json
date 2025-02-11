@@ -332,7 +332,8 @@
                "grade" : "c",
                "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/green-score-c.svg",
                "name" : "Green-Score",
-               "title" : "Green-Score C - Impact modéré sur l'environnement",
+               "subtitle" : "Impact modéré sur l'environnement",
+               "title" : "Green-Score C",
                "type" : "grade"
             },
             "topics" : [
@@ -773,6 +774,94 @@
                "problem"
             ]
          },
+         "ingredient_1" : {
+            "elements" : [],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "title" : "Pomme : 58.3% (estimation)"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "ingredient_2" : {
+            "elements" : [],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "title" : "Lait : 20.8% (estimation)"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "ingredient_3" : {
+            "elements" : [],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "title" : "Œuf : 10.4% (estimation)"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "ingredient_4" : {
+            "elements" : [],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "title" : "Huile de palme : 5.2% (estimation)"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "ingredient_5" : {
+            "elements" : [],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "title" : "Colorant : 2.6% (estimation)"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "ingredient_6" : {
+            "elements" : [],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "title" : "— E100 : 2.6% (estimation)"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "ingredient_7" : {
+            "elements" : [],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "title" : "Émulsifiant : 2.6% (estimation)"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "ingredient_8" : {
+            "elements" : [],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "title" : "— Lécithine de soja : 2.6% (estimation)"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
          "ingredients" : {
             "elements" : [
                {
@@ -790,6 +879,12 @@
                   "element_type" : "text",
                   "text_element" : {
                      "html" : "<strong>Allergènes :</strong> \n                    en:Apple, Œufs, Lait, Soja\n                "
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "ingredients_list"
                   }
                }
             ],
@@ -938,6 +1033,66 @@
                "icon_size" : "small",
                "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/vegetarian.svg",
                "title" : "Végétarien"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "ingredients_list" : {
+            "elements" : [
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "ingredient_1"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "ingredient_2"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "ingredient_3"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "ingredient_4"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "ingredient_5"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "ingredient_6"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "ingredient_7"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "ingredient_8"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "level" : "info",
+            "title_element" : {
+               "title" : "Information sur les ingrédients"
             },
             "topics" : [
                "health"
@@ -1298,7 +1453,7 @@
                   "element_type" : "text",
                   "text_element" : {
                      "evaluation" : "good",
-                     "html" : "\n                        \n                            \n                                1 x \n                                <strong>\n                                    Boîte\n                                    \n                                </strong>\n                                    \n                                        (Bois)\n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                            \n                                3 x \n                                <strong>\n                                    Couvercle\n                                    \n                                </strong>\n                                    \n                                        (Acier)\n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                        ",
+                     "html" : "\n                        \n                            \n                                1 x \n                                <strong>\n                                    Boîte\n                                    \n                                </strong>\n                                    \n                                        (Bois)\n                                    \n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                            \n                                3 x \n                                <strong>\n                                    Couvercle\n                                    \n                                </strong>\n                                    \n                                        (Acier)\n                                    \n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                        ",
                      "icon_alt" : "Recycler",
                      "icon_color_from_evaluation" : true,
                      "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/recycle-variant.svg",
@@ -1309,7 +1464,7 @@
                   "element_type" : "text",
                   "text_element" : {
                      "evaluation" : "bad",
-                     "html" : "\n                        \n                            \n                        \n                            \n                        \n                            \n                        \n                            \n                                1 x \n                                <strong>\n                                    Film\n                                    \n                                </strong>\n                                    \n                                        (Plastique)\n                                    \n                                    <br>\n                            \n                        \n                        ",
+                     "html" : "\n                        \n                            \n                        \n                            \n                        \n                            \n                        \n                            \n                                1 x \n                                <strong>\n                                    Film\n                                    \n                                </strong>\n                                    \n                                        (Plastique)\n                                    \n                                    \n                                    <br>\n                            \n                        \n                        ",
                      "icon_alt" : "Jeter",
                      "icon_color_from_evaluation" : true,
                      "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/delete.svg",
@@ -1320,7 +1475,7 @@
                   "element_type" : "text",
                   "text_element" : {
                      "evaluation" : "neutral",
-                     "html" : "\n                        \n                            \n                        \n                            \n                                6 x \n                                <strong>\n                                    Bouteille\n                                    25cl \n                                </strong>\n                                    \n                                        (Verre)\n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                            \n                        \n                        ",
+                     "html" : "\n                        \n                            \n                        \n                            \n                                6 x \n                                <strong>\n                                    Bouteille\n                                    25cl \n                                </strong>\n                                    \n                                        (Verre)\n                                    \n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                            \n                        \n                        ",
                      "icon_alt" : "Inconnu",
                      "icon_color_from_evaluation" : true,
                      "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/help.svg",
@@ -1495,7 +1650,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                    Plusieurs études ont montré qu'une consommation élevée d'aliments ultra-transformés est associée à un risque accru de maladies chroniques non transmissibles, telles que l'obésité, l'hypertension et le diabète.\n                    ",
+                     "html" : "\n                    Plusieurs études ont montré qu'une consommation plus faible d'aliments ultra-transformés est associée à un risque diminué de maladies chroniques non transmissibles, telles que l'obésité, l'hypertension et le diabète.\n                    ",
                      "source_language" : "en",
                      "source_text" : "Ultra-processed foods increase noncommunicable chronic disease risk",
                      "source_url" : "https://pubmed.ncbi.nlm.nih.gov/34798466/",
@@ -1509,7 +1664,7 @@
                "evaluation" : "bad",
                "icon_color_from_evaluation" : true,
                "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/arrow-bottom-right-thick.svg",
-               "subtitle" : "Les aliments ultra-transformés augmentent le risque de maladies chroniques",
+               "subtitle" : "Limiter les aliments ultra-transformés réduit le risque de maladies chroniques",
                "title" : "Limiter les aliments ultra-transformés"
             },
             "topics" : [
