@@ -502,7 +502,7 @@ el: λεκιθίνη σόγιας
 es: lecitina de soja, lecitina de soya, lecitinas de soja, lecitinas de soya
 et: sojaletsitiin
 fi: soijalesitiini, soijalesitiiniä, soijalesitiinit, E322 soijasta
-fr: lécithine de soja, lécithines de soja, émulsifiant lécithines de soja, lécithine de soja e322
+fr: lécithine de soja, lécithines de soja, lécithine de soja e322
 he: לציטין סויה
 hr: emulgator soja lecitin, emulgator sojin lecitin, soja lecitin, emulgatori sojin lecitin, sojin lecithin, sojin lecitin, sojini lecitini
 hu: szójalecitin, szójalecitinek
@@ -578,12 +578,6 @@ en: non-gmo sunflower lecithin
 hr: ne-gmo suncokretov lecitin
 it: lecitina di girasole non ogm
 
-# <en:emulsifier
-< en:sunflower lecithin
-fr: émulsifiant lécithine de tournesol
-fi: emulgointiaine auringonkukkalesitiini
-# ingredient/fr:émulsifiant-lécithine-de-tournesol has 100 products in 6 languages @2019-02-22
-
 < en:soya lecithin
 < en:sunflower lecithin
 en: soya and sunflower lecithin
@@ -623,18 +617,6 @@ sv: rapslecitin, rapslecithin
 # fr:lécithines-de-colza has 609 products in 6 languages @2018-11-10
 vegan:en: yes
 vegetarian:en: yes
-
-< en:E322(i)
-fr: émulsifiant lécithines, émulsifiants lécithines
-de: emulgator lecithine
-es: emulsionante de lecitina, emulsionantes de lecitina
-hr: emulgator lecitin iz uljane repice
-it: emulsionante lecitine
-nl: emulgator lecithinen
-pt: emulsionante lecitinas
-# fr:émulsifiant-lécithines has 88 products in 6 languages @2018-11-10
-# fr:émulsifiants-lécithines has 21 products in 4 languages @2018-11-10
-
 
 
 # Has NO E-number!!!
@@ -837,20 +819,6 @@ es: pectina de limon
 hr: limunov pektin
 it: pectina di limone
 lt: citrinų pektinas
-
-
-
-< en:E471
-en: emulsifier mono- and diglycerides of fatty acids
-bg: емулгатор Моно- и диглицериди на мастни киселини, емулгатор e471
-ca: emulsionant e471, emulsificant e471, emulgent e471
-de: Emulgator Mono- und Diglyceride von Fettsäuren
-es: emulsionante e471, emulsificante e471, emulgente e471
-fi: emulgointiaine rasvahappojen mono- ja diglyseridit
-fr: émulsifiant e471
-hr: emulgator mono- i digliceridi masnih kiselina
-it: emulsionante e471, emulsionante mono- e digliceridi degli acidi grassi
-lt: riebalų rūgščių mono- ir digliceridai, emulsiklis riebalų rūgščių mono- ir digliceridai
 
 < en:E471
 en: mono and diglycerides of fatty acids of vegetable origin
@@ -1147,7 +1115,7 @@ vegetarian:en: maybe
 
 < en:coagulating enzyme
 en: microbial coagulating enzyme, microbial enzyme, microbial
-bg: микробиологичен ензим, сирище с микробиален произход
+bg: микробиологичен ензим, сирище с микробиален произход, сирищни ензими с микробиален произход
 ca: coagulant de llet microbià, coagulant microbià
 de: mikrobieller Labaustauschstoff
 es: coagulante de leche microbiano, Encima coagulate microbiana, coagulante microbiano
@@ -15389,7 +15357,7 @@ el: έλαια και λίπη
 es: aceites y grasas, materia grasa
 et: õlid ja rasvad
 fi: öljy ja rasva, öljyt ja rasvat
-fr: huiles et graisses, matières grasses
+fr: huiles et graisses, matières grasses, huile et graisse, matière grasse
 he: שמן ושומן
 hr: ulja i masti
 hu: Olajok és zsírok, olaj és zsír
@@ -15633,7 +15601,7 @@ et: rasvad
 eu: koipe
 fa: چربی
 fi: rasva, rasvat
-fr: graisse, graisse alimentaire
+fr: matière grasse, matières grasses, graisse, graisse alimentaire, graisses alimentaires
 ga: saill
 gl: greix
 gu: ચરબી
@@ -16124,7 +16092,7 @@ el: φυτικά λίπη
 es: grasas vegetales, grasa vegetal, grasa vegetal no hidrogenada, Manteca vegetal
 et: taimne rasv, taimsed rasvad
 fi: kasvirasva, kasvirasvat, kasvisrasva, kasvisrasvat, kasvisrasvoja, kasvirasvoja, kasvisrasvasta
-fr: matière grasse végétale, matières grasses végétales, matière graisse végétale, graisse végétale, graisses végétales, grasse végétale
+fr: matière grasse végétale, matières grasses végétales, matière grasse végétale, graisse végétale, graisses végétales, graisse végétale
 he: שמנים צמחיים, שמן צמחי, שומן צמחי, שומן מן הצומח
 hr: biljna mast, biljne masti, biljne mast, biljne masnoće, biljna masnoća
 hu: növényi zsír, növényi zsírok
@@ -16165,7 +16133,7 @@ sv: vegetabilisk fettprodukt
 # usage:fr:préparation de matières grasses végétales (graisse de palme, huile de colza, colorant : caroténoïdes)
 
 < en:vegetable oil and fat
-en: non hydrogenated vegetable oil and fat
+en: non hydrogenated vegetable oil and fat, non hydrogenated vegetable oils and fats, vegetable oils and fats non hydrogenated
 bg: нехидрогенирани растителни масла и мазнини
 de: ungehärtete Pflanzenfette und Pflanzenöle, nicht hydrierte pflanzliche Fette und Öle
 el: μη υδρογονωμένα φυτικά λίπη και έλαια
@@ -17389,7 +17357,7 @@ de: Kolzaöl, Kohlsaatöl
 el: κραμβέλαιο
 es: aceite de colza
 fi: rypsiöljy
-fr: huile de colza, huile végétale de colza, huile colza, graisses végétales de colza, graisses vegetales de colza, huiles végétales de colza
+fr: huile de colza, huile végétale de colza, huile colza, graisses végétales de colza, graisses vegetales de colza, huiles végétales de colza, huile de graines de colza, huile de graine de colza
 hr: uljana repica, uljane repice, ulje uljane repice, ulje repice
 hu: Repceolaj
 it: olio di colza, olio vegetale di colza
@@ -18049,7 +18017,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Illipe
 en: sunflower fat
 de: Sonnenblumenfett
 fi: auringonkukkarasva
-fr: Matière grasse issue du tournesol
+fr: Matière grasse issue du tournesol, matière grasse de tournesol
 hr: suncokretova mast
 hu: napraforgózsír
 pl: tłuszcz słonecznikowy, tłuszcz roślinny słonecznikowy, tłuszcze roślinne słonecznikowy
@@ -18194,7 +18162,7 @@ es: aceite de linaza
 et: Linaõli
 fa: روغن بزرک
 fi: pellavaöljy, pellavansiemenöljy, liinaöljy
-fr: huile de lin
+fr: huile de lin, huile végétale de lin
 fy: Lynoalje
 hr: laneno ulje
 hu: lenmagolaj, lenolaj
@@ -19047,7 +19015,7 @@ it: aceto di vino bianco
 ja: 白ワインビネガー
 lt: baltojo vyno actas
 nl: witte wijnazijn
-pl: ocet winny biały, biały ocet winny, ocet z białego wina, octu z białego wina, ocet z wina białego
+pl: ocet winny biały, biały ocet winny, ocet z białego wina, octu z białego wina, ocet z wina białego, ocet winny z białego wina
 pt: Vinagre de vinho branco
 sv: vitvinsvinäger
 
@@ -19212,6 +19180,7 @@ es: vinagre balsamico de modena
 fr: vinaigre balsamique de modène
 hr: balzamski ocat iz modene, aceto balsamico di modena
 it: aceto balsamico di modena
+pl: ocet balsamiczny z Modeny
 origin:en: en:italy
 wikidata:en: Q3604285
 wikipedia:en: https://en.wikipedia.org/wiki/Balsamic_vinegar_of_Modena
@@ -19227,6 +19196,7 @@ fr: vinaigre balsamique blanc
 hr: bijeli balsamico ocat
 hu: fehér balzsamecet
 it: aceto balsamico bianco
+pl: biały ocet balsamiczny
 sv: vit balsamvinäger
 
 < en:white balsamic vinegar
@@ -19249,6 +19219,7 @@ en: corn vinegar
 fr: vinaigre de maïs
 hr: kukuruzni ocat
 nl: maisazijn
+pl: ocet kukurydziany
 
 < en:vinegar
 # derivedFrom:en:malt
@@ -19353,6 +19324,7 @@ hr: crni vinski ocat
 hu: vörösborecet
 it: aceto di vino rosso
 nl: rode wijnazijn
+pl: ocet winny czerwony
 sv: rödvinsvinäger
 
 < en:vinegar
@@ -30780,14 +30752,6 @@ hr: ksantan guma i guar guma
 hu: xantángumi és guargumi
 it: Gomma xanthan e gomma di guar
 
-< en:gum arabic
-de: Verdickungsmittel Gummi arabicum
-fr: épaississant gomme arabique
-it: addensante gomma arabica
-# ingredient/fr:épaississant-gomme-arabique has 47 products in 4 languages @2019-03-02
-# stabilisant (gomme arabique)
-
-
 ##################################################################################
 #
 #                        SUGAR
@@ -31427,6 +31391,7 @@ fr: sucre de canne brun
 hr: smeđi šećer od trske
 hu: barna nádcukor
 nl: Bruine rietsuiker
+pl: brązowy cukier trzcinowy
 wikipedia:fr: https://fr.wikipedia.org/wiki/Sucre_roux_de_canne
 
 < en:cane sugar
@@ -31527,6 +31492,7 @@ de: demerara-zucker, demerera-zucker
 fi: demerarasokeri
 fr: sucre demerara
 hr: demerara šećer
+pl: cukier demerara, demerara
 sv: demerarasocker
 wikidata:en: Q837194
 # ingredient/fr:sucre-demerara has 36 products in 3 languages @2020-06-08
@@ -31566,6 +31532,7 @@ hr: palmin šećer
 it: Zucchero di palma
 nl: Palmsuiker
 pl: cukier palmowy
+wikidata:en: Q1549017
 
 < en:palm sugar
 < en:unrefined sugar
@@ -31573,7 +31540,6 @@ en: unrefined palm sugar
 bg: нерафинирана палмова захар
 fr: sucre non raffiné de palme, sucre de palme non raffiné, sucre de palme brut, sucre brut de palme
 hr: nerafinirani palmin šećer
-
 
 
 < en:palm sugar
@@ -31590,7 +31556,7 @@ id: Gula kelapa
 it: zucchero di fiori di cocco, zucchero di cocco
 nl: kokosbloesemsuiker, kokossuiker
 nn: kokosnøttsukker
-pl: cukier kokosowy
+pl: cukier kokosowy, cukier z kwiatu palmy kokosowej
 su: Gula kalapa
 sv: kokossocker, kokospalmsocker
 ta: தென்னை சர்க்கரை
@@ -34200,6 +34166,7 @@ es: Cacao procesado con álcali
 fr: Cacao alcalinisé
 hr: kakao obrađen lužinom
 it: Cacao trattato con agenti alcalinizzanti
+pl: kakao alkalizowane
 
 < en:cocoa-powder
 #en:processing:en:powder
@@ -34222,7 +34189,7 @@ hu: Csökkentett zsírtartalmú kakaó
 it: cacao magro
 nb: fettfattig kakao
 nl: vetarme cacao, magere cacao
-pl: Odtłuszczone kakao, kakao o obniżonej zawartości tłuszczu
+pl: Odtłuszczone kakao, kakao o obniżonej zawartości tłuszczu, kakao niskotłuszczowe, kakao o zmniejszonej zawartości tłuszczu
 pt: cacau magro
 ro: cacao cu conținut redus de grăsime
 sv: fettreducerad kakao
@@ -34336,7 +34303,7 @@ lt: kakavos masė
 lv: kakavos masė
 nb: kakaomasse
 nl: cacaomassa, cacao massa
-pl: miazga kakaowa, masa kakaowa
+pl: miazga kakaowa, masa kakaowa, pasta kakaowa
 pt: pasta de cacau, massa de cacau
 ro: masă de cacao, masa de cacao, masă cacao, masa cacao, pastă de cacao, pasta de cacao
 ru: какао тертое, какао-масса
@@ -34438,7 +34405,7 @@ lt: liesi kakavos milteliai
 lv: kakao pulveris ar zemu tauku saturu
 nb: fett redusert kakaopulver
 nl: magere cacaopoeder, magere cacao poeder, cacaopoeder met verminderd vetgehalte
-pl: niskotłuszczowe kakao w proszku, kakao w proszku o obniżonej zawartości tłuszczu
+pl: niskotłuszczowe kakao w proszku, kakao w proszku o obniżonej zawartości tłuszczu, proszek kakaowy niskotłuszczowy, proszek kakaowy o zmniejszonej zawartości tłuszczu
 pt: cacau magro em pó
 ro: cacao pudra degresata, pudră de cacao cu conţinut redus de grăsime
 ru: какао порошок с пониженным содержанием жира
@@ -34540,6 +34507,7 @@ ja: カカオ豆
 mk: какаово зрно
 ms: Biji koko
 nl: cacaobonen, cacaoboon
+pl: ziarno kakaowca
 ru: какао-бобы
 sq: Gatim me kakao
 sv: kakaoböna, kakaobönor
@@ -36741,7 +36709,7 @@ hu: sörélesztő
 it: lievito di birra
 la: Saccharomyces cerevisiae
 nl: biergist
-pl: drożdże winiarskie Saccharomyces Cerevisiae, drożdże Saccharomyces Cerevisiae
+pl: drożdże winiarskie Saccharomyces Cerevisiae, drożdże Saccharomyces Cerevisiae, drożdże piwowarskie
 pt: levedura de cerveja
 sv: bryggerijäst
 wikidata:en: Q719725
@@ -37580,9 +37548,6 @@ zh: 黄原胶
 # zh-tw:黃原膠
 wikidata:en: Q410768
 wikipedia:en: https://en.wikipedia.org/wiki/Xanthan_gum
-
-< en:E415
-fr: épaississant e415
 
 en: gellan gum, E418, E-418, E 418, INS418, INS-418, INS 418, gellan
 ar: صمغ الجيلان
@@ -61803,7 +61768,7 @@ fr: farine d'amandes
 hr: bademovo brašno
 it: Farina di mandorle
 nl: Amandelbloem
-pl: mąka midgałowa
+pl: mąka migdałowa
 pt: farinha de amêndoa, farinha de amêndoas
 
 < en:almond
@@ -63606,7 +63571,7 @@ hu: köménymag
 it: grano di cumino, grani di cumino
 nb: spisskummen frø
 nl: komijnzaad, komijnzaden
-pl: nasiona kminu rzymskiego, nasiona kuminu
+pl: nasiona kminu rzymskiego, nasiona kuminu, nasiona kminu
 pt: semente de cominhos, sementes de cominhos
 ru: зёрна кумина
 sv: spiskumminfrön
@@ -69622,7 +69587,7 @@ ms: Hop
 nb: humle
 nl: hop
 nn: humle
-pl: chmiel, chmielu, chmielowy, chmielowa, chmielowe, szyszki chmielu
+pl: chmiel, chmielu, chmielowy, chmielowa, chmielowe, szyszki chmielu, chmiele
 pt: lúpolo
 ro: hamei
 ru: хмель, хмелепродукты
@@ -70632,6 +70597,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Kalamata_olive
 
 < en:black olive
 en: kalamon olive
+bg: маслини каламон, каламон
 de: kalamon oliven
 es: aceitunas kalamon
 fi: kalamon-oliivi, kalamonoliivi
@@ -86775,6 +86741,7 @@ sv: pastöriserad äggvita i flytande form
 
 < en:egg white
 en: egg protein
+bg: яйчен протеин
 ca: proteïna d'ou, proteïnes d'ou, proteïnes de l'ou
 de: Ei-Eiweiß
 es: proteína de huevo
@@ -87207,6 +87174,7 @@ pt: Extrato natural
 
 < en:extract
 en: vegetable extract, vegetable extracts
+bg: зеленчуков екстракт
 de: Gemüseextrakte
 es: Extrato vegetal, extratos vegetales
 fi: kasvisuute, kasvisuutteet
