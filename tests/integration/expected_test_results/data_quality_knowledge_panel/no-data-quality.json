@@ -281,7 +281,7 @@
             "level" : "info",
             "size" : "small",
             "title_element" : {
-               "title" : "Water: 75.0% (estimation)"
+               "title" : "Water: 75.0% (estimate)"
             },
             "topics" : [
                "health"
@@ -292,7 +292,7 @@
             "level" : "info",
             "size" : "small",
             "title_element" : {
-               "title" : "Test-ingredient: 25.0% (estimation)"
+               "title" : "Test-ingredient: 25.0% (estimate)"
             },
             "topics" : [
                "health"
@@ -551,7 +551,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n<p>Food products are classified into 4 groups according to their degree of processing:</p>\n<ol>\n<li>Unprocessed or minimally processed foods</li>\n<li>Processed culinary ingredients</li>\n<li>Processed foods</li>\n<li>Ultra processed foods</li>\n</ol>\n<br>\n<p>The determination of the group is based on the category of the product and on the ingredients it contains.</p>\n<p>&rarr; <a href=\"http://world.openfoodfacts.localhost/nova\">Learn more about the NOVA classification</a></p>\n"
+                     "html" : "\n<p>Food products are classified into 4 groups according to their degree of processing:</p>\n<ol>\n<li>Unprocessed or minimally processed foods</li>\n<li>Processed culinary ingredients</li>\n<li>Processed foods</li>\n<li>Ultra-processed foods</li>\n</ol>\n<br>\n<p>The determination of the group is based on the category of the product and on the ingredients it contains.</p>\n<p>&rarr; <a href=\"http://world.openfoodfacts.localhost/nova\">Learn more about the NOVA classification</a></p>\n"
                   }
                }
             ],

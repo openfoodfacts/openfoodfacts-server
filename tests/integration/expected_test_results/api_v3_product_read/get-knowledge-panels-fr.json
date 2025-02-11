@@ -107,7 +107,7 @@
                   "table_element" : {
                      "columns" : [
                         {
-                           "text" : "Phase",
+                           "text" : "Etape",
                            "type" : "text"
                         },
                         {
@@ -148,7 +148,7 @@
                            "values" : [
                               {
                                  "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/packaging.svg",
-                                 "text" : "Conditionnement"
+                                 "text" : "Emballage"
                               },
                               {
                                  "percent" : 3.84664413195817,
@@ -238,7 +238,7 @@
                      "panel_ids" : [
                         "packaging_recycling"
                      ],
-                     "title" : "Conditionnement"
+                     "title" : "Emballage"
                   }
                },
                {
@@ -281,13 +281,13 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "Le <a href=\"http://world-fr.openfoodfacts.localhost/green-score\">Green-Score</a> est un score expérimental qui résume les impacts environnementaux des produits alimentaires."
+                     "html" : "Le <a href=\"http://world-fr.openfoodfacts.localhost/green-score\">Green-Score</a> est un score expérimental qui synthétise les impacts environnementaux des produits alimentaires."
                   }
                },
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                    \n                        Le Green-Score a été initialement développé pour la France et est en cours d'extension à d'autres pays européens. La formule du Green-Score est amenée à évoluer car elle est régulièrement améliorée pour la rendre plus précise et mieux adaptée à chaque pays.\n                                    \n                ",
+                     "html" : "\n                    \n                        Le Green-Score a été initialement conçu pour la France et est en cours d'extension à d'autres pays européens. La formule du Green-Score est susceptible d'évoluer car elle est régulièrement améliorée pour la rendre plus précise et mieux adaptée à chaque pays.\n                                    \n                ",
                      "type" : "note"
                   }
                },
@@ -332,7 +332,7 @@
                "grade" : "c",
                "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/green-score-c.svg",
                "name" : "Green-Score",
-               "subtitle" : "Impact environnemental modéré",
+               "subtitle" : "Impact modéré sur l'environnement",
                "title" : "Green-Score C",
                "type" : "grade"
             },
@@ -354,7 +354,7 @@
                   "table_element" : {
                      "columns" : [
                         {
-                           "text" : "Phase",
+                           "text" : "Etape",
                            "type" : "text"
                         },
                         {
@@ -395,7 +395,7 @@
                            "values" : [
                               {
                                  "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/packaging.svg",
-                                 "text" : "Conditionnement"
+                                 "text" : "Emballage"
                               },
                               {
                                  "percent" : 3.16410766408558,
@@ -629,7 +629,7 @@
                "icon_size" : "small",
                "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/monkey_unhappy.svg",
                "subtitle" : "Malus : -10",
-               "title" : "Ingrédients qui menacent des espèces animales"
+               "title" : "Ingrédients qui menacent des espèces"
             },
             "topics" : [
                "environment"
@@ -749,7 +749,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                Si vous souhaitez signaler un acte de vandalisme, un contenu inapproprié ou des données erronées que vous ne pouvez pas corriger vous-même, signalez-le à notre équipe de modérateurs.\n                "
+                     "html" : "\n                If you want to report vandalism, inappropriate content or erroneous data you can't fix yourself, report it to our moderators team.\n                "
                   }
                },
                {
@@ -1227,7 +1227,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "<p>Le calcul du Nutri-Score évolue pour fournir de meilleures recommandations basées sur les dernières preuves scientifiques.</p><p>Principales améliorations :</p><ul><li>Meilleur score pour certains poissons gras et huiles riches en bonnes graisses</li><li>Meilleur score pour les produits entiers riches en fibres</li><li>Moins bon score pour les produits contenant beaucoup de sel ou de sucre</li><li>Moins bon score pour la viande rouge (par rapport à la volaille)</li></ul>\n                ",
+                     "html" : "<p>Le calcul du Nutri-Score évolue pour fournir de meilleures recommandations basées sur les dernières preuves scientifiques.</p><p>Principales améliorations :</p><ul><li>Meilleur score pour certains poissons gras et huiles riches en bonnes graisses</li><li>Meilleur score pour les produits complets riches en fibres</li><li>Moins bon score pour les produits contenant beaucoup de sel ou de sucre</li><li>Moins bon score pour la viande rouge (comparée à la volaille)</li></ul>\n                ",
                      "type" : "info"
                   }
                },
@@ -1650,7 +1650,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                    Plusieurs études ont montré qu’une consommation moindre d’aliments ultra-transformés est associée à un risque réduit de maladies chroniques non transmissibles, telles que l’obésité, l’hypertension et le diabète.\n                    ",
+                     "html" : "\n                    Plusieurs études ont montré qu'une consommation plus faible d'aliments ultra-transformés est associée à un risque diminué de maladies chroniques non transmissibles, telles que l'obésité, l'hypertension et le diabète.\n                    ",
                      "source_language" : "en",
                      "source_text" : "Ultra-processed foods increase noncommunicable chronic disease risk",
                      "source_url" : "https://pubmed.ncbi.nlm.nih.gov/34798466/",
@@ -1664,8 +1664,8 @@
                "evaluation" : "bad",
                "icon_color_from_evaluation" : true,
                "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/arrow-bottom-right-thick.svg",
-               "subtitle" : "Limiter les aliments ultra-transformés réduit le risque de maladies chroniques non transmissibles",
-               "title" : "Limitez les aliments ultra-transformés"
+               "subtitle" : "Limiter les aliments ultra-transformés réduit le risque de maladies chroniques",
+               "title" : "Limiter les aliments ultra-transformés"
             },
             "topics" : [
                "health"
