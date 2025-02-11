@@ -807,10 +807,18 @@ sub init_request ($request_ref = {}) {
 		}
 	}
 
-	# select the nutriment table format according to the country
-	$nutriment_table = $cc_nutriment_table{default};
-	if (exists $cc_nutriment_table{$cc}) {
-		$nutriment_table = $cc_nutriment_table{$cc};
+	if ($options{product_type} eq "petfood") {
+		$nutriment_table = $cc_nutriment_table{"opff_default"};
+		if (exists $cc_nutriment_table{"opff_" . $cc}) {
+			$nutriment_table = $cc_nutriment_table{"opff_" . $cc};
+		}
+	}
+	# food
+	else {
+		$nutriment_table = $cc_nutriment_table{"off_default"};
+		if (exists $cc_nutriment_table{"off_" . $cc}) {
+			$nutriment_table = $cc_nutriment_table{"off_" . $cc};
+		}
 	}
 
 	if ($test) {
@@ -9680,18 +9688,35 @@ Reference to a data structure with needed data to display.
 
 sub data_to_display_nutrition_table ($product_ref, $comparisons_ref, $request_ref) {
 
+	my $template_data_ref = {};
 	# This function populates a data structure that is used by the template to display the nutrition facts table
-	my $template_data_ref = {
+	if ((defined $product_ref->{product_type}) && ($product_ref->{product_type} eq "petfood")) {
+		$template_data_ref = {
 
-		nutrition_table => {
-			id => "nutrition",
-			header => {
-				name => lang('nutrition_data_table'),
-				columns => [],
+			nutrition_table => {
+				id => "analytical_constituents",
+				header => {
+					name => lang('analytical_constituents'),
+					columns => [],
+				},
+				rows => [],
 			},
-			rows => [],
-		},
-	};
+		};
+	}
+	# food
+	else {
+		$template_data_ref = {
+
+			nutrition_table => {
+				id => "nutrition",
+				header => {
+					name => lang('nutrition_data_table'),
+					columns => [],
+				},
+				rows => [],
+			},
+		};
+	}
 
 	# List of columns
 	my @cols = ();
@@ -9722,13 +9747,24 @@ sub data_to_display_nutrition_table ($product_ref, $comparisons_ref, $request_re
 			$col_name = lang("prepared_product");
 		}
 
+		# only for 100g, petfood is diplayed per 1kg
+		# update header name here
+		# update value later
+		my $name_per_xxg;
+		if ((defined $product_ref->{product_type}) && ($product_ref->{product_type} eq "petfood")) {
+			$name_per_xxg = $col_name . "<br>" . lang("analytical_constituents_per_1kg");
+		}
+		else {
+			$name_per_xxg = $col_name . "<br>" . lang("nutrition_data_per_100g");
+		}
 		$columns{$product_type . "100g"} = {
 			scope => "product",
 			product_type => $product_type,
 			per => "100g",
-			name => $col_name . "<br>" . lang("nutrition_data_per_100g"),
+			name => $name_per_xxg,
 			short_name => "100g",
 		};
+
 		$columns{$product_type . "serving"} = {
 			scope => "product",
 			product_type => $product_type,
@@ -9777,6 +9813,7 @@ sub data_to_display_nutrition_table ($product_ref, $comparisons_ref, $request_re
 			}
 		}
 	}
+	# }
 
 	# Comparisons with other products, categories, recommended daily values etc.
 
@@ -10148,7 +10185,20 @@ CSS
 							$value = $product_ref->{nutriments}{$nid . "_" . $col_id};
 						}
 						else {
-							$value = $decf->format(g_to_unit($product_ref->{nutriments}{$nid . "_" . $col_id}, $unit));
+							# only for 100g, petfood is diplayed per 1kg
+							# update header above
+							# update value here
+							if (   (defined $product_ref->{product_type})
+								&& ($product_ref->{product_type} eq "petfood")
+								&& ($unit ne "%"))
+							{
+								$value = $decf->format(
+									g_to_unit($product_ref->{nutriments}{$nid . "_" . $col_id} * 10, $unit));
+							}
+							else {
+								$value
+									= $decf->format(g_to_unit($product_ref->{nutriments}{$nid . "_" . $col_id}, $unit));
+							}
 						}
 
 						# too small values are converted to e notation: 7.18e-05
