@@ -1381,7 +1381,9 @@ while (my $product_ref = $cursor->next) {
 			assign_ciqual_codes($product_ref);
 		}
 
-		if (has_tag($product_ref, "categories", "en:incorrect-product-type")) {
+		# if we have an old_product_type (if change_product_type() was called),
+		# we need to use store_product() so that the product is removed from the old MongoDB collection and added to the new one
+		if (defined $product_ref->{old_product_type}) {
 			$product_values_changed = 1;
 		}
 
