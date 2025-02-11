@@ -105,8 +105,8 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 	my $payload = {
 		ingredients => [],
 		transform => {
-			    "id" => "7541cf94-1d4d-4d1c-99e3-a9d5be0e7569",
-    			"mass"=> 545
+			"id" => "7541cf94-1d4d-4d1c-99e3-a9d5be0e7569",
+			"mass" => 545
 		},
 		packaging => [],
 		distribution => "ambient",
@@ -159,7 +159,7 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 	# Debug information for the request
 	$log->debug("send_event request", {endpoint => $url_recipe, payload => $payload}) if $log->is_debug();
 
-	$product_ref->{environmental_impact} = {ecobalyse_request => { url => $url_recipe, data => $payload}};
+	$product_ref->{environmental_impact} = {ecobalyse_request => {url => $url_recipe, data => $payload}};
 
 	# Send the request and get the response
 	my $response = $ua->request($request);
